@@ -48,10 +48,7 @@ def read(tv: TuViChart, van_palace: str) -> list[dict]:
         out.append({"text": t, "src": SRC})
 
     if van_palace == "Mệnh":
-        joined = " ".join(o["text"] for o in out)
-    if "đi lên" in joined and "đi xuống" in joined:
-        out.append({"text": "Hai điều kiện trái chiều của sách (đi lên và đi xuống) cùng khớp, nên hệ thống không kết luận hạn này đi lên hay đi xuống.", "src": SRC})
-    return out
+        return out
     sat_in = [s for s in SAT4 if s in vs]
     if _has_group(m, "tu_phu_vu_tuong"):
         if sat_in:
