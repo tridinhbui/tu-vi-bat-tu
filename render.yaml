@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: tu-vi-bat-tu
+    runtime: docker
+    plan: free
+    healthCheckPath: /

@@ -23,3 +23,6 @@ cd engine && ../.venv/bin/python -m pytest -q
 - Not supported yet: miếu/hãm brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, lưu niên,
   lunar-date input, uncertain-birth-hour comparison, true solar time uses NOAA EOT (not JPL).
 - Phase 2 foundation (rule DSL, validator, draft pack) and Phase 3 engine (facts, forward chaining, provenance graph, conflict resolver) are in; all rules remain draft. Phase 4 NLG (deterministic, 5 depth levels, per-sentence provenance) is in. Phase 5 (temporal facts, chart comparison, cross-system comparison layer) is in. Phase 6 (partial): FastAPI + single-page UI (`engine/web/index.html`): chart form, Bát Tự pillars, 12-palace Tử Vi grid with tam phương highlight, year slider, reasoning explorer with backward chains, trace viewer. Run: `cd engine && ../.venv/bin/uvicorn tvbt.api:app` then open http://localhost:8000. Still missing: Next.js/React Flow graph view, rule editor, academy, PDF, DB/cache.
+
+## Deploy
+Python service (FastAPI also serves the UI). `Dockerfile` + `render.yaml` provided (Render: New > Blueprint). Not deployable on Cloudflare Workers (native Python libs); disconnect the Workers build.
