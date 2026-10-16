@@ -23,6 +23,7 @@ def tuvi_facts(c: TuViChart) -> dict[str, dict]:
             "palace.has_no_major": not p["major_stars"],
             "palace.tam_phuong_majors": majors, "palace.tam_phuong_stars": stars,
             "palace.tuan": p["tuan"], "palace.triet": p["triet"],
+            "palace.sat_pha_tham_in_tam_phuong": all(x in majors for x in ("Thất Sát", "Phá Quân", "Tham Lang")),
             "palace.tu_hoa": [k for k, v in c.tu_hoa.items() if v["branch"] == br],
         }
     return out

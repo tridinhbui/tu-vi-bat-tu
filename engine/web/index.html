@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tử Vi · Bát Tự — Reasoning Engine</title>
+<style>
+:root{--bg:#f6f0e2;--card:#fbf7ec;--ink:#241d14;--mute:#6f6350;--bronze:#9a6b2f;--line:#d9ccb0;--bad:#8a3b2b}
+@media (prefers-color-scheme:dark){:root{--bg:#17130d;--card:#201a12;--ink:#efe6d2;--mute:#a89b82;--bronze:#d1a45f;--line:#3a3022;--bad:#e08a76}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Georgia,"Times New Roman",serif}
+main{max-width:1080px;margin:0 auto;padding:24px 16px 64px}h1{font-weight:400;letter-spacing:.02em;margin:.2em 0}
+h2{font-weight:400;border-bottom:1px solid var(--line);padding-bottom:.2em;margin-top:2em;color:var(--bronze)}
+.note{color:var(--mute);font-size:.9em}.card{background:var(--card);border:1px solid var(--line);padding:14px 16px}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+label{display:flex;flex-direction:column;font-size:.85em;color:var(--mute)}
+input,select,button{font:inherit;padding:6px 8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+button{background:var(--bronze);color:#fff;border:0;cursor:pointer;align-self:end}
+#grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+.pal{min-height:120px;border:1px solid var(--line);padding:6px;font-size:.85em;cursor:pointer;background:var(--card)}
+.pal.hl{outline:2px solid var(--bronze);outline-offset:-2px}.pal.rel{background:color-mix(in srgb,var(--bronze) 14%,var(--card))}
+.pal b{color:var(--bronze)}.maj{font-weight:700}.sm{color:var(--mute)}.center{grid-column:2/4;grid-row:2/4;padding:12px;background:var(--bg)}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}.pillars .card b{font-size:1.4em}
+details{margin:.4em 0}summary{cursor:pointer}.bad{color:var(--bad)}pre{white-space:pre-wrap;font:inherit}
+@media(max-width:640px){#grid{grid-template-columns:repeat(2,1fr)}.center{grid-column:1/3;grid-row:auto}.pillars{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main>
+<h1>Tử Vi · Bát Tự</h1>
+<p class="note">Bộ máy tính toán và suy luận có thể kiểm chứng, không dùng AI. Đây là diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay bằng chứng khoa học. Toàn bộ quy tắc luận giải hiện là <b>bản nháp chưa xác minh nguồn</b>.</p>
+<form id="f" class="card">
+<label>Năm<input name="year" type="number" value="1990"></label><label>Tháng<input name="month" type="number" value="5"></label>
+<label>Ngày<input name="day" type="number" value="17"></label><label>Giờ<input name="hour" type="number" value="10"></label>
+<label>Phút<input name="minute" type="number" value="30"></label>
+<label>Giới tính<select name="gender"><option value="male">Nam</option><option value="female">Nữ</option></select></label>
+<label>Múi giờ (IANA)<input name="tz" value="Asia/Ho_Chi_Minh"></label>
+<label>Lịch<select name="calendar"><option value="vn">Việt Nam</option><option value="cn">Trung Quốc</option></select></label>
+<label>Giờ Tý (23h)<select name="zi_rule"><option value="early_zi_next_day">Sang ngày mới</option><option value="late_zi_same_day">Cùng ngày</option></select></label>
+<label>Kinh độ (nếu dùng giờ mặt trời)<input name="longitude" type="number" step="any" placeholder="106.7"></label>
+<label>Độ sâu (1-5)<input name="level" type="number" min="1" max="5" value="3"></label>
+<button>Lập lá số</button></form>
+<div id="err" class="bad"></div>
+<section id="out" hidden>
+<h2>Bát Tự</h2><div id="bazi"></div>
+<h2>Tử Vi <span class="note">(nhấn vào cung để xem tam phương tứ chính)</span></h2><div id="tuvi"></div>
+<h2>Vận hạn theo năm</h2><div class="card"><label>Năm: <b id="yv"></b><input id="yr" type="range" style="width:100%"></label><div id="yout"></div></div>
+<h2>Khám phá suy luận</h2><div id="reason"></div>
+<h2>Vết tính toán</h2><details><summary>CalculationTrace</summary><pre id="trace"></pre></details>
+</section></main>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+let req={};
+async function post(u,b){const r=await fetch(u,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(b)});
+ const j=await r.json();if(!r.ok)throw new Error(typeof j.detail==='string'?j.detail:JSON.stringify(j.detail));return j}
+function readForm(){const o={};new FormData($('#f')).forEach((v,k)=>{if(v==='')return;o[k]=['year','month','day','hour','minute','level'].includes(k)?+v:(k==='longitude'?+v:v)});
+ if(o.longitude!=null)o.use_true_solar_time=true;return o}
+$('#f').onsubmit=async e=>{e.preventDefault();$('#err').textContent='';req=readForm();
+ try{const[c,r]=await Promise.all([post('/api/chart',req),post('/api/reasoning',req)]);
+ $('#out').hidden=false;drawBazi(c.bazi);drawTuvi(c.tuvi);drawReason(r);
+ $('#trace').textContent=JSON.stringify({normalization:c.normalization_trace.steps,bazi:c.bazi.trace.steps,tuvi:c.tuvi.trace.steps},null,1);
+ const y=$('#yr');y.min=req.year;y.max=req.year+100;y.value=req.year+30;y.oninput=()=>year(+y.value);year(+y.value)}
+ catch(x){$('#err').textContent='Lỗi: '+x.message}};
+function drawBazi(b){const L={year:'Năm',month:'Tháng',day:'Ngày',hour:'Giờ'};
+ let h='<div class="pillars">'+Object.entries(b.pillars).map(([k,p])=>`<div class="card"><div class="note">${L[k]}</div><b>${p.name}</b><div class="note">${p.stem_ten_god||'Nhật Chủ'} · ${p.stage_vs_day_master}</div><div class="sm">Tàng: ${p.hidden.map(x=>x.name+' ('+x.ten_god+')').join(', ')}</div></div>`).join('')+'</div>';
+ h+=`<p>Nhật Chủ: <b>${b.day_master_element}</b>. Đại vận ${b.luck_direction}, khởi vận khoảng ${b.luck_start.years} năm ${b.luck_start.months} tháng. Đại vận: ${b.luck_pillars.map(l=>`${l.name} (${Math.round(l.start_age)}t)`).join(' → ')}</p>`;
+ const rel=Object.entries(b.relations).filter(([k,v])=>v.length);h+='<details><summary>Quan hệ Can Chi (chỉ là dữ kiện, chưa xét hóa)</summary>'+(rel.length?rel.map(([k,v])=>`<div><b>${k}</b>: ${esc(JSON.stringify(v))}</div>`).join(''):'Không có')+'</details>';$('#bazi').innerHTML=h}
+const ORDER=[5,6,7,8,4,null,null,9,3,null,null,10,2,1,0,11];
+function drawTuvi(t){const by=Object.fromEntries(t.palaces.map(p=>[p.branch_index,p]));
+ const cell=i=>{const p=by[i];const maj=p.major_stars.map(s=>`<span class="maj">${s}</span>`).join(', ');const min=p.stars.filter(s=>!p.major_stars.includes(s)).join(', ');
+ return `<div class="pal" data-i="${i}"><b>${p.name}</b> <span class="note">${p.stem} ${p.branch}${p.is_than?' · Thân':''}${p.tuan?' · Tuần':''}${p.triet?' · Triệt':''}</span><div>${maj||'<span class="note">vô chính diệu</span>'}</div><div class="sm">${min}</div></div>`};
+ let h='<div id="grid">';let c=0;ORDER.forEach(i=>{if(i===null){if(c++===0)h+=`<div class="center card"><b>${t.year_gz}</b> · ${t.cuc.name}<br>Bản mệnh ${t.menh_nap_am}; ${t.menh_cuc_relation}<br>${t.yin_yang_gender}, đại hạn ${t.dai_han_direction}<br>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap?' (nhuận)':''}<div class="note">Chưa hỗ trợ: ${t.unsupported.join('; ')}</div></div>`}else h+=cell(i)});
+ $('#tuvi').innerHTML=h+'</div><p class="note">Trường phái: '+t.school.schoolId+' — trạng thái: <b>'+t.school.review_status+'</b></p>';
+ document.querySelectorAll('.pal').forEach(e=>e.onclick=()=>{const i=+e.dataset.i;document.querySelectorAll('.pal').forEach(x=>x.classList.remove('hl','rel'));
+  e.classList.add('hl');[(i+4)%12,(i+8)%12,(i+6)%12].forEach(j=>document.querySelector(`.pal[data-i="${j}"]`).classList.add('rel'))})}
+async function year(y){$('#yv').textContent=y;try{const r=await post('/api/year',{...req,to_year:y});const b=r.bazi,t=r.tuvi;
+ $('#yout').innerHTML=`<p><b>Bát Tự</b> — lưu niên ${b.annual_pillar} (${b.annual_stem_ten_god}), đại vận ${b.luck_pillar||'chưa khởi'} ${b.luck_stem_ten_god?'('+b.luck_stem_ten_god+')':''}<br>Tương tác với nguyên cục: ${b.annual_vs_natal.concat(b.luck_vs_natal).map(x=>x.from+' '+x.kind+' trụ '+x.with).join('; ')||'không có'}</p>
+ <p><b>Tử Vi</b> — tuổi ${t.age_tuoi_mu}, đại hạn ${t.dai_han?t.dai_han.palace+' ('+t.dai_han.age_from+'-'+t.dai_han.age_to+')':'chưa vào'}, lưu Thái Tuế tại cung ${t.luu_thai_tue_palace}<br>Lưu Tứ Hóa: ${Object.entries(t.luu_tu_hoa).map(([k,v])=>k+' '+v.star+(v.natal_palace?' (cung '+v.natal_palace+')':'')).join('; ')}</p><p class="note">Đây là các dữ kiện cấu trúc, không phải dự đoán sự kiện.</p>`}catch(x){$('#yout').textContent=x.message}}
+function drawReason(r){let h='';if(r.pack_problems.length)h+='<p class="bad">'+esc(r.pack_problems.join('; '))+'</p>';
+ for(const[s,d]of Object.entries(r.systems)){h+=`<h3>${s==='tu_vi'?'Tử Vi':'Bát Tự'}</h3><div class="card"><pre>${esc(d.text)}</pre></div>`;
+  d.findings.forEach(f=>{h+=`<details><summary>${esc(f.claim)} @ ${esc(f.subject)} — ${f.status} (${f.basis})</summary><div>Quy tắc: ${f.rule_id}</div><div>Chuỗi suy luận ngược: <ol>${f.why.chain.map(c=>'<li>'+esc(c)+'</li>').join('')}</ol></div><div>Phản biện: ${f.why.opposed_by.map(esc).join('; ')||'không có'}</div></details>`});
+  if(d.pending.length)h+=`<details><summary>${d.pending.length} quy tắc chưa đủ dữ kiện</summary>${d.pending.map(p=>esc(p.rule+' @'+p.subject+' thiếu '+p.missing_facts.join(','))).join('<br>')}</details>`}
+ $('#reason').innerHTML=h}
+</script></body></html>

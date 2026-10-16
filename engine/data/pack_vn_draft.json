@@ -1,18 +1,84 @@
 {
  "sources": [
-  {"id": "SRC_TVDS_TAN_BIEN", "title": "Tử Vi Đẩu Số Tân Biên", "author": null, "locator": null, "verified": false},
-  {"id": "SRC_ZIPING_ZHENQUAN", "title": "Tử Bình Chân Thuyên (子平真詮)", "author": null, "locator": null, "verified": false}
+  {
+   "id": "SRC_TVDS_TAN_BIEN",
+   "title": "Tử Vi Đẩu Số Tân Biên",
+   "author": null,
+   "locator": null,
+   "verified": false
+  },
+  {
+   "id": "SRC_ZIPING_ZHENQUAN",
+   "title": "Tử Bình Chân Thuyên (子平真詮)",
+   "author": null,
+   "locator": null,
+   "verified": false
+  }
  ],
  "rules": [
-  {"id": "TV_STRUCT_SAT_PHA_THAM_001", "system": "tu_vi", "schoolId": "vn_tan_bien_draft", "category": "configuration",
+  {
+   "id": "TV_STRUCT_SAT_PHA_THAM_001",
+   "system": "tu_vi",
+   "schoolId": "vn_tan_bien_draft",
+   "category": "configuration",
    "description": "DRAFT: Sát-Phá-Tham formation exists when Thất Sát, Phá Quân, Tham Lang all lie in the tam phương tứ chính of the palace.",
-   "conditions": {"all": [{"fact": "palace.sat_pha_tham_in_tam_phuong", "value": true}]},
-   "consequences": [{"kind": "configuration", "name": "sat_pha_tham", "status": "formed_pending_modifiers"}],
-   "exceptions": [], "conflictsWith": [], "priority": 10, "sourceIds": ["SRC_TVDS_TAN_BIEN"], "reviewStatus": "draft", "version": "0.1.0"},
-  {"id": "BT_DM_ROOTED_001", "system": "bat_tu", "schoolId": "tu_binh_draft", "category": "day_master_strength",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.sat_pha_tham_in_tam_phuong",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_sat_pha_tham",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 10,
+   "sourceIds": [
+    "SRC_TVDS_TAN_BIEN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "BT_DM_ROOTED_001",
+   "system": "bat_tu",
+   "schoolId": "tu_binh_draft",
+   "category": "day_master_strength",
    "description": "DRAFT: Day master is 'rooted' when its element appears as a hidden stem in any branch.",
-   "conditions": {"all": [{"fact": "bazi.dm_has_root", "value": true}]},
-   "consequences": [{"kind": "strength_factor", "name": "rooted"}],
-   "exceptions": [], "conflictsWith": [], "priority": 5, "sourceIds": ["SRC_ZIPING_ZHENQUAN"], "reviewStatus": "draft", "version": "0.1.0"}
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.dm_has_root",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nhat_chu_co_can",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_ZIPING_ZHENQUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  }
  ]
 }
