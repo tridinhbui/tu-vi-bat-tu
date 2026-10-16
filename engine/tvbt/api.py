@@ -120,6 +120,13 @@ def rule_test(req: RuleTestReq):
             "blocked": [b for b in res.blocked if b["rule"] == r.id]}
 
 
+@app.get("/api/claims")
+def claims_vi():
+    """Vietnamese phrasing for each claim id, used by the UI to label findings."""
+    import json
+    return json.loads((ROOT / "data" / "claims_vi.json").read_text("utf-8"))
+
+
 @app.get("/api/dignity")
 def dignity_table():
     import json

@@ -1,0 +1,640 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_TH_VERSE_MENH_TRIET_TUAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: thời trẻ nhiều vất vả, lo toan (Tuần hoặc Triệt đóng ở Mệnh) [TH p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "thoi_tre_van_va_lo_toan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_LOC_TON",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: tài lộc thường khá lên về sau (Lộc Tồn tại Mệnh) [TH p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tai_loc_ve_sau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_CU_HOA_KY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: hay lo nghĩ viển vông (Cự Môn hóa Kỵ tại Mệnh) [TH p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hay_lo_nghi_vien_vong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_TAU_THU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: lời nói ngọt, dễ thuyết phục người (Tấu Thư tại Mệnh) [TH p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tấu Thư"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "noi_ngot_de_thuyet_phuc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_THANH_LONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: biết cơ biến, ứng xử linh hoạt (Thanh Long tại Mệnh) [TH p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thanh Long"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "co_bien_linh_hoat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_THAI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: học nhiều nhưng khó đạt thành tựu tương xứng (sao Thai tại Mệnh) [TH p.85]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hoc_nhieu_kho_thanh_tuu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_QUAN_PHU_THAI_TUE",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: hay dính đến việc quan, thủ tục pháp lý (Quan Phủ và Thái Tuế đồng cung Mệnh) [TH p.86]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Quan Phủ"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Tuế"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hay_dinh_viec_cong_mon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_CU_THIN_TUAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: dễ vướng thị phi, tranh cãi (Cự Môn thủ Mệnh ở Thìn hoặc Tuất) [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "de_vuong_thi_phi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_LUONG_KHUC_DAN_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: đường chức vị cao, công danh rạng rỡ (Thiên Lương đồng cung Văn Khúc ở Dần hoặc Ngọ) [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Văn Khúc"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "chuc_vi_cao_danh_rang_ro",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_TU_VI_NGO_PHU_TUAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: khuynh hướng địa vị cao, quyền quý (Tử Vi thủ Mệnh ở Ngọ, Thiên Phủ hội ở Tuất) [TH p.87]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "value": "Ngọ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "quyen_quy_cong_khanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_MENH_TAM_HOA_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: tiếng tăm về văn chương, học vấn (Tam Hóa hội chiếu Mệnh) [TH p.87]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tieng_tam_van_chuong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_TAI_VU_THAM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: tài lộc bền, thường vững vàng sau khoảng 30 tuổi (Vũ Khúc đồng cung Tham Lang tại Tài Bạch) [TH p.105]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "giau_ben_sau_30_tuoi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_TAI_CU_MON",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: có xu hướng tay trắng làm nên (Cự Môn tại Tài Bạch) [TH p.105]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tay_trang_lap_nghiep",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_DI_KHONG_KIEP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: danh vọng đến muộn, khi tuổi đã cao (Địa Không hoặc Địa Kiếp tại Thiên Di) [TH p.86]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Thiên Di"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "danh_den_muon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VERSE_TU_QUYEN_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "palace_aphorism",
+   "description": "Verse aphorism of Tử Vi Thực Hành, paraphrased: con cái có xu hướng thành đạt (Quyền hoặc Lộc tại Tử Tức); 'Quyền Lộc' đọc là một trong hai: giả định của hệ thống [TH p.103]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tử Tức"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "con_cai_hien_vinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}

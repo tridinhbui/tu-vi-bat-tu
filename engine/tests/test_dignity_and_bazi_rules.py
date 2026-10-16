@@ -62,3 +62,43 @@ def test_bazi_day_master_and_missing_element():
     assert not any("giáp" in x or "canh" in x for x in claims)
     draft = next(x for x in res.findings if x.claim == "bt_thieu_hanh_kim")
     assert draft.basis == "draft"                                                              # operationalisation is ours
+
+
+def run_palace(name, branch="Tý", own=(), majors=(), tam_majors=(), hoa=(), tam_hoa=(), tuan=False, triet=False):
+    p = {"palace.name": name, "palace.branch": branch, "palace.own_stars": list(own), "palace.own_major_stars": list(majors),
+         "palace.tam_phuong_majors": list(tam_majors) or list(majors), "palace.tam_phuong_stars": list(own),
+         "palace.tam_phuong_tu_hoa": list(tam_hoa), "palace.tu_hoa": list(hoa), "palace.tuan": tuan, "palace.triet": triet}
+    res = engine.run(RULES, SOURCES, {"chart": {}, f"palace:{name}": p}, system="tu_vi")
+    return {f.claim for f in res.findings}
+
+
+def test_verse_rules_palace_specific_and_literal():
+    assert "thoi_tre_van_va_lo_toan" in run_palace("Mệnh", triet=True)
+    assert "thoi_tre_van_va_lo_toan" not in run_palace("Phu Thê", triet=True)          # Mệnh-only
+    assert "hay_lo_nghi_vien_vong" in run_palace("Mệnh", majors=["Cự Môn"], hoa=["Hóa Kỵ"])
+    assert "hay_lo_nghi_vien_vong" not in run_palace("Mệnh", majors=["Cự Môn"])
+    assert "de_vuong_thi_phi" in run_palace("Mệnh", branch="Tuất", majors=["Cự Môn"])
+    assert "de_vuong_thi_phi" not in run_palace("Mệnh", branch="Mão", majors=["Cự Môn"])
+    assert "giau_ben_sau_30_tuoi" in run_palace("Tài Bạch", majors=["Vũ Khúc", "Tham Lang"])
+    assert "giau_ben_sau_30_tuoi" not in run_palace("Tài Bạch", majors=["Vũ Khúc"])
+    assert "danh_den_muon" in run_palace("Thiên Di", own=["Địa Kiếp"])
+    assert "quyen_quy_cong_khanh" in run_palace("Mệnh", branch="Ngọ", majors=["Tử Vi"], tam_majors=["Tử Vi", "Thiên Phủ"])
+    assert "quyen_quy_cong_khanh" not in run_palace("Mệnh", branch="Tý", majors=["Tử Vi"], tam_majors=["Tử Vi", "Thiên Phủ"])
+    assert "tieng_tam_van_chuong" in run_palace("Mệnh", tam_hoa=["Hóa Khoa", "Hóa Quyền", "Hóa Lộc"])
+    assert "tieng_tam_van_chuong" not in run_palace("Mệnh", tam_hoa=["Hóa Khoa", "Hóa Lộc"])
+
+
+def test_star_names_used_by_rules_exist_in_engine():
+    chart = tuvi.compute(normalize(BirthInput(1990, 5, 17, 10, 30, "Asia/Ho_Chi_Minh", "male")))
+    known = {s.name for s in chart.stars}
+    for r in RULES:
+        if r.id.startswith("TV_TH_VERSE_") or r.id.startswith("TV_KL_"):
+            def walk(e):
+                if "fact" in e:
+                    v = e.get("value")
+                    if e.get("operator") == "contains" and e["fact"] in ("palace.own_stars", "palace.own_major_stars", "palace.tam_phuong_majors", "palace.tam_phuong_stars"):
+                        assert v in known, (r.id, v)
+                else:
+                    for x in e[next(iter(e))] if isinstance(e[next(iter(e))], list) else [e[next(iter(e))]]:
+                        walk(x)
+            walk(r.conditions)
