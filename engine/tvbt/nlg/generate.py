@@ -56,7 +56,7 @@ FACT_VI = {
     "palace.tam_phuong_tu_hoa": "Tứ Hóa trong tam phương: {v}",
     "palace.sat_pha_tham_in_tam_phuong": "Thất Sát, Phá Quân, Tham Lang cùng nằm trong tam phương",
     "bazi.day_master_stem": "Nhật Chủ là {v}", "bazi.missing_elements": "tám chữ nhìn thấy vắng hành: {v}",
-    "palace.own_stars": "các sao trong cung: {v}", "palace.tu_hoa": "sao hóa trong cung: {v}",
+    "palace.own_stars": "các sao trong cung: {v}", "palace.neighbor_majors": "chính tinh ở hai cung giáp: {v}", "palace.neighbor_stars": "các sao ở hai cung giáp: {v}", "palace.tu_hoa": "sao hóa trong cung: {v}",
     "bazi.dm_has_root": "Nhật Chủ có căn trong tàng can", "bazi.dm_element": "hành Nhật Chủ: {v}",
 }
 GROUP_VI = {"tu_phu_vu_tuong": "Tử – Phủ – Vũ – Tướng", "sat_pha_liem_tham": "Sát – Phá – Liêm – Tham",
@@ -74,7 +74,7 @@ def pretty_fact(label: str) -> str:
     except Exception:
         val = v
     if isinstance(val, list):
-        val = ", ".join(val) if val else "không có"
+        val = ", ".join(val[:8]) + (f" (và {len(val) - 8} sao khác)" if len(val) > 8 else "") if val else "không có"
     if k == "palace.tuan":
         return "cung có Tuần" if val else "cung không có Tuần"
     if k == "palace.triet":

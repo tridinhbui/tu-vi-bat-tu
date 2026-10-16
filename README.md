@@ -45,6 +45,8 @@ cd engine && ../.venv/bin/python -m pytest -q
 - Rule inventory now ~230: Khảo Luận phú đoán (pp.49-73) 69 rules (`pack_khao_luan_phu*.json`), Thực Hành dignity 22 + combos 31 + verse 15, 八字真宗 25, group rules 12.
   Where two passages disagree on strength (e.g. Hóa Lộc vs Tứ Mộ, Tử Phủ vs Tuần/Triệt) the resolver shows the documented limiter; two books agreeing
   (Mệnh + Tuần/Triệt) appear as two supporting rules for one claim.
+- Palace summary rules (`pack_khao_luan_cung.json`, 48) from Khảo Luận pp.214-220 for Tài Bạch, Quan Lộc, Phúc Đức, Phu Thê, Tử Tức, Tật Ách, Thiên Di, Nô Bộc, Điền Trạch,
+  Phụ Mẫu and the Mệnh 'giáp' (neighbour) readings; palace definitions in the analysis now cite the same pages. A typical chart now yields ~15-20 Tử Vi findings.
 - Not supported: minor-star brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, Bát Tự thai nguyên/mệnh cung, lunar-date input.
 - Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
   (injury, death, children) are intentionally not implemented.

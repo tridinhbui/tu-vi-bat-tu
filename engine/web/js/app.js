@@ -4,7 +4,7 @@ import { compass, brandMark } from './compass.js';
 import { fiveElements } from './elements.js';
 import { renderBazi } from './bazi.js';
 import { renderTuvi } from './tuvi.js';
-import { renderReport } from './report.js';
+import { renderBaziReport, renderTuviReport } from './report.js';
 import { notice } from './ui.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -19,9 +19,14 @@ $('#foot-compass').innerHTML = compass({ animate: false, detail: 'min' });
 
 // ---------- navigation ----------
 const view = v => { document.body.dataset.view = v; scrollTo({ top: 0 }); };
+function setTab(tab, scroll = true) {
+  $('#chart-view').dataset.tab = tab;
+  $$('.res-tabs button').forEach(b => { const on = b.id === 'tab-' + tab; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
+  if (scroll) scrollTo({ top: 0 });
+}
 function go(id) {
-  const chartIds = { 'bat-tu': 'bazi', 'tu-vi': 'tuvi', 'luan-giai': 'report' };
-  if (chartIds[id] && state) { if (document.body.dataset.view !== 'chart') view('chart'); requestAnimationFrame(() => $('#' + chartIds[id]).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })); return; }
+  const tabs = { 'bat-tu': 'bazi', 'tu-vi': 'tuvi' };
+  if (tabs[id] && state) { if (document.body.dataset.view !== 'chart') view('chart'); setTab(tabs[id]); history.replaceState({ v: 'chart' }, '', '#la-so/' + id); closeMenu(); return; }
   const target = { 'bat-tu': 'hai-he-thong', 'tu-vi': 'hai-he-thong' }[id] || id;
   if (document.body.dataset.view !== 'home') view('home');
   requestAnimationFrame(() => $('#' + target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }));
@@ -104,23 +109,19 @@ $('#sample-btn').onclick = () => generate();
 
 function showResults() {
   const { req, chart, reason, analysis } = state;
-  const ctx = { req, reason, analysis: analysis.chapters, chartRaw: chart, openPalace: name => { $('#tuvi').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => state.tv.select(name), 350); } };
-  renderBazi($('#bazi-host'), chart.bazi, ctx);
+  const ctx = { req, reason, analysis: analysis.chapters, chartRaw: chart, openPalace: name => { setTab('tuvi', false); setTimeout(() => { $('#tuvi-host').scrollIntoView({ behavior: 'smooth', block: 'start' }); state.tv.select(name); }, 120); } };
   const tv = renderTuvi($('#tuvi-host'), chart.tuvi, ctx);
   state.tv = tv; ctx.tv = tv;
-  renderReport($('#report-host'), chart, ctx);
+  const bz = renderBazi($('#bazi-host'), chart.bazi, ctx);
+  renderBaziReport($('#bazi-report'), chart, ctx, bz.parts);
+  renderTuviReport($('#tuvi-report'), chart, ctx);
   const t = chart.tuvi, b = chart.bazi;
   $('#res-sub').innerHTML = `<span><b>${fmtDate(req)}</b> · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
   $('#res-hl').innerHTML = `<span>${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></span><span>${esc(t.cuc.name)}</span><span>Mệnh ${esc(t.menh_nap_am)}</span>`;
-  view('chart');
-  history.pushState({ v: 'chart' }, '', '#la-so');
+  setTab('bazi', false); view('chart');
+  history.pushState({ v: 'chart' }, '', '#la-so/bat-tu');
 }
 $('#again').onclick = () => { view('home'); requestAnimationFrame(() => $('#lap-la-so').scrollIntoView({ behavior: 'smooth', block: 'start' })); };
-
-// results sub-nav highlight
-const subLinks = $$('.res-nav a');
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) subLinks.forEach(a => a.classList.toggle('on', a.dataset.go === ({ bazi: 'bat-tu', tuvi: 'tu-vi', report: 'luan-giai' })[e.target.id])); }), { rootMargin: '-40% 0px -50% 0px' });
-['bazi', 'tuvi', 'report'].forEach(id => io.observe($('#' + id)));
 
 // reveal on scroll
 if (!reduce && 'IntersectionObserver' in window) {

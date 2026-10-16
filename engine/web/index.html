@@ -237,7 +237,7 @@
 </div>
 
 <!-- ================= CHART RESULT ================= -->
-<div id="chart-view">
+<div id="chart-view" data-tab="bazi">
   <section class="res-head">
     <div class="wrap">
       <p class="eyebrow">Lá số của bạn</p>
@@ -247,11 +247,18 @@
       <div class="res-act"><button class="btn btn-ghost btn-sm" id="again" type="button">← Lập lá số khác</button></div>
     </div>
   </section>
-  <nav class="res-nav" aria-label="Các phần của lá số"><div class="wrap"><a href="#bat-tu" data-go="bat-tu">Bát Tự</a><a href="#tu-vi" data-go="tu-vi">Tử Vi</a><a href="#luan-giai" data-go="luan-giai">Luận giải</a></div></nav>
+  <nav class="res-nav" aria-label="Chọn hệ thống"><div class="wrap res-tabs" role="tablist">
+    <button type="button" role="tab" id="tab-bazi" data-go="bat-tu" aria-controls="pane-bazi" aria-selected="true">Bát Tự</button>
+    <button type="button" role="tab" id="tab-tuvi" data-go="tu-vi" aria-controls="pane-tuvi" aria-selected="false">Tử Vi</button></div></nav>
 
-  <section class="r-sec r-bazi" id="bazi" aria-labelledby="bz-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Phần I</p><h2 id="bz-h">Bát Tự</h2><p class="sec-sub">Bốn trụ, tám chữ và quan hệ Ngũ Hành giữa chúng.</p></header><div id="bazi-host"></div></div></section>
-  <section class="r-sec r-tuvi" id="tuvi" aria-labelledby="tv-h"><div class="wrap"><header class="sec-h sec-h-dark"><p class="eyebrow">Phần II</p><h2 id="tv-h">Tử Vi Đẩu Số</h2><p class="sec-sub">Nhấn vào một cung để xem tam phương tứ chính.</p></header><div id="tuvi-host"></div></div></section>
-  <section class="r-sec r-report" id="report" aria-labelledby="rp-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Phần III</p><h2 id="rp-h">Luận giải</h2><p class="sec-sub">Dữ kiện tính toán và diễn giải truyền thống luôn được tách riêng.</p></header><div id="report-host"></div></div></section>
+  <div class="pane" id="pane-bazi" role="tabpanel" aria-labelledby="tab-bazi">
+    <section class="r-sec r-bazi" aria-labelledby="bz-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Bát Tự</p><h2 id="bz-h">Bốn trụ, tám chữ</h2><p class="sec-sub">Nhật Chủ, Ngũ Hành và quan hệ giữa các trụ.</p></header><div id="bazi-host"></div></div></section>
+    <section class="r-sec r-report" aria-labelledby="bzr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Luận giải Bát Tự</p><h2 id="bzr-h">Đọc lá số Bát Tự</h2><p class="sec-sub">Dữ kiện tính toán và diễn giải truyền thống luôn được tách riêng.</p></header><div id="bazi-report"></div></div></section>
+  </div>
+  <div class="pane" id="pane-tuvi" role="tabpanel" aria-labelledby="tab-tuvi">
+    <section class="r-sec r-tuvi" aria-labelledby="tv-h"><div class="wrap"><header class="sec-h sec-h-dark"><p class="eyebrow">Tử Vi Đẩu Số</p><h2 id="tv-h">Mười hai cung</h2><p class="sec-sub">Nhấn vào một cung để xem tam phương tứ chính.</p></header><div id="tuvi-host"></div></div></section>
+    <section class="r-sec r-report" aria-labelledby="tvr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Luận giải Tử Vi</p><h2 id="tvr-h">Đọc lá số Tử Vi</h2><p class="sec-sub">Dữ kiện tính toán và diễn giải truyền thống luôn được tách riêng.</p></header><div id="tuvi-report"></div></div></section>
+  </div>
 </div>
 </main>
 

@@ -9,7 +9,7 @@ STATUS_VI = {
     "unresolved": "chưa thể kết luận vì có quy tắc đối lập mà nguồn chưa xác định thứ tự ưu tiên",
 }
 BASIS_VI = {"draft": "dựa trên quy tắc nháp, chưa xác minh nguồn", "verified": "dựa trên quy tắc đã xác minh nguồn"}
-EFFECT_VI = {"support": "thuận theo hướng", "limit": "bị hạn chế theo hướng", "neutral": "liên quan đến"}
+EFFECT_VI = {"support": "gắn với", "limit": "thuộc điều kiện hạn chế:", "neutral": "liên quan đến"}
 
 DISCLAIMER = ("Đây là diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán, "
               "và không phải bằng chứng khoa học về số phận.")
