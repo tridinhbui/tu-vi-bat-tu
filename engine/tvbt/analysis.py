@@ -145,7 +145,9 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     pos = []
     for n, x in tv.tu_hoa.items():
         if x["branch"] is not None and n in _TUHOA["position_notes"]:
-            pos.append(f"{n} ở cung {v.by_b[x['branch']]['name']}: {_TUHOA['position_notes'][n]}")
+            pal = v.by_b[x["branch"]]["name"]
+            spec = _TUHOA.get("position_notes_by_palace", {}).get(n, {}).get(pal)
+            pos.append(f"{n} ở cung {pal}: " + (spec if spec else _TUHOA["position_notes"][n]))
     ch["ban-menh"].append(B("Vị trí các sao hóa trên lá số này và điều sách nói về chúng: " + "; ".join(pos) + ". " + _TUHOA["weight_note"], "Thế", "sach", ["Khảo Luận p.197"]))
     ch["ban-menh"].append(B("Tứ Hóa theo can năm: " + "; ".join(f"{k} tại {x['star']}" + (f" (cung {v.by_b[x['branch']]['name']})" if x['branch'] is not None else "") for k, x in tv.tu_hoa.items()) + ".", "Biến"))
 

@@ -12,7 +12,8 @@ def tuvi_facts(c: TuViChart) -> dict[str, dict]:
     by_branch = {p["branch_index"]: p for p in c.palaces}
     out: dict[str, dict] = {"chart": {"chart.system": "tu_vi", "chart.cuc": c.cuc["name"],
                                        "chart.menh_cuc_relation": c.menh_cuc_relation,
-                                       "chart.menh_branch": BRANCHES_VI[c.menh_branch]}}
+                                       "chart.menh_branch": BRANCHES_VI[c.menh_branch],
+                                       "chart.tu_vi_branch": next((p["branch"] for p in c.palaces if "Tử Vi" in p["major_stars"]), None)}}
     for br, p in by_branch.items():
         tp = [br, (br + 4) % 12, (br + 8) % 12, (br + 6) % 12]
         majors = [m for t in tp for m in by_branch[t]["major_stars"]]

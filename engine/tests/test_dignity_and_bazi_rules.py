@@ -215,3 +215,32 @@ def test_group_facts_chain_into_palace_rules():
     res = engine.run(RULES, SOURCES, {"chart": {}, "palace:Phúc Đức": {**mk_palace(name="Phúc Đức", own=["Vũ Khúc"]), "palace.is_than": False}}, system="tu_vi")
     f = next(x for x in res.findings if x.claim == "phuc_nhom_tu_phu_vu_tuong")
     assert f.depth == 2 and f.basis == "draft"
+
+
+def ct_run(base_chart=None, **kw):
+    p = mk_palace(**kw)
+    p.setdefault("palace.is_than", False)
+    res = engine.run(RULES, SOURCES, {"chart": base_chart or {}, f"palace:{p['palace.name']}": p}, system="tu_vi")
+    return {f.claim for f in res.findings}
+
+
+def test_khao_luan_chinh_tinh_rules():
+    assert "tv_tuong_co_danh_vat_va" in ct_run(branch="Thìn", own=["Tử Vi", "Thiên Tướng"])
+    assert "tv_tuong_co_danh_vat_va" not in ct_run(branch="Tý", own=["Tử Vi", "Thiên Tướng"])
+    assert "vu_don_thu_giau" in ct_run(own=["Vũ Khúc"]) and "vu_don_thu_giau" not in ct_run(own=["Vũ Khúc", "Thất Sát"])
+    assert "vu_tuong_doi_suon_se" in ct_run(own=["Vũ Khúc", "Thiên Tướng"])
+    assert "vu_tuong_doi_suon_se" not in ct_run(own=["Vũ Khúc", "Thiên Tướng"], tuan=True)                 # the book's own exception
+    assert "tuong_tuan_su_nghiep_be_tac" in ct_run(own=["Thiên Tướng"], tuan=True)
+    assert "hong_don_thu_luy_tinh" in ct_run(branch="Mão", own=["Hồng Loan"])
+    assert "hong_don_thu_luy_tinh" not in ct_run(branch="Mão", own=["Hồng Loan", "Đào Hoa"])
+    assert "dao_hong_cung_cong_danh_tinh_cam_den_mau" in ct_run(branch="Mão", own=["Hồng Loan", "Đào Hoa"])
+    assert "hong_tu_sinh_dac_cach" in ct_run(branch="Thân", own=["Hồng Loan"])
+    assert "nhat_nguyet_chieu_menh_tot_dep" in ct_run(tam=["Thái Dương", "Thái Âm"])
+    assert "nhat_nguyet_chieu_menh_tot_dep" not in ct_run(own=["Thái Dương", "Thái Âm"])
+    # chart-level fact (Tử Vi position) gates the vô-chính-diệu readings
+    base = {"chart.tu_vi_branch": "Ngọ"}
+    assert "vcd_ty_ngo_thong_minh_noi_danh" in ct_run(base, branch="Sửu", no_major=True, tam=["Thái Dương", "Thái Âm"])
+    assert "vcd_ty_ngo_thong_minh_noi_danh" not in ct_run({"chart.tu_vi_branch": "Thìn"}, branch="Sửu", no_major=True, tam=["Thái Dương", "Thái Âm"])
+    # real chart: the fact exists
+    chart = tuvi.compute(normalize(BirthInput(1990, 5, 17, 10, 30, "Asia/Ho_Chi_Minh", "male")))
+    assert facts.tuvi_facts(chart)["chart"]["chart.tu_vi_branch"] == "Thìn"

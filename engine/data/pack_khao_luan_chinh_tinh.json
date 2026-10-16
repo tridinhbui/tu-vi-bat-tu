@@ -1,0 +1,2905 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_KL_CT_TV_TUONG_THIN_TUAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): có danh nhưng phải vất vả mới thành công (Tử Vi đi với Thiên Tướng ở Thìn hoặc Tuất) [KL p.220-221]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tv_tuong_co_danh_vat_va",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TV_THAM_MAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): nhiều tham vọng, thành đạt thì cũng kèm điều tiếng (Tử Vi đi với Tham Lang ở Mão hoặc Dậu) [KL p.221]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tv_tham_tham_vong_ech_che",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TV_PHU_DAN_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): phúc lớn, giàu sang, ổn định (Tử Vi đi với Thiên Phủ ở Dần hoặc Thân) [KL p.221]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tv_phu_phuc_lon_on_dinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TV_PHA_SUU_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): đa đoan, liều lĩnh nhưng cũng nổi danh một thời (Tử Vi đi với Phá Quân ở Sửu hoặc Mùi) [KL p.221]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tv_pha_lieu_linh_noi_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TV_SAT_TY_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): rời xa gia đình sớm nhưng thành công sớm (Tử Vi đi với Thất Sát ở Tỵ hoặc Hợi) [KL p.220]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tv_sat_thoat_ly_thanh_cong_som",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_SAT_PHA_THAM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): sống tích cực: không thành công thì cũng thành nhân (Sát Phá Tham ở Mệnh) [KL p.221]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thất Sát"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Phá Quân"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "spt_tich_cuc_thanh_cong_hoac_thanh_nhan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_CNDL",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): hàng trí thức, công bộc, giỏi chữ nghĩa nhưng hay giữ phận, ngại mất cái mình có (Cơ Nguyệt Đồng Lương) [KL p.221]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "derived.group.co_nguyet_dong_luong",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cndl_tri_thuc_cong_boc_yen_phan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_CNDL_KQL_KV_XK",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): hợp con đường học thuật, giảng dạy có tiếng (Cơ Nguyệt Đồng Lương hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc); hệ thống đọc 'Khôi Việt, Xương Khúc' là ít nhất một sao mỗi cặp [KL p.221]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "derived.group.co_nguyet_dong_luong",
+      "value": true
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cndl_hoc_thuat_danh_tieng",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_CU_NHAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): ăn nói giỏi, thông minh nhưng thiên về lý luận, hợp phận phục vụ có bổng lộc (Cự Môn đồng cung Thái Dương) [KL p.221]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_nhat_noi_gioi_ly_luan_yen_phan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_CAP_DOI_BAC_TRUNG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): không quá nổi bật cũng không thấp kém, thường ở mức trung (các cặp Cự Cơ, Dương Lương, Cơ Lương, Đồng Âm, Cự Đồng, Nhật Nguyệt, Tham Vũ, Đồng Lương) [KL p.221]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Cự Môn"
+         },
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Cơ"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thái Dương"
+         },
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Lương"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Cơ"
+         },
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Lương"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Đồng"
+         },
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thái Âm"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Cự Môn"
+         },
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Đồng"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thái Dương"
+         },
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thái Âm"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Tham Lang"
+         },
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Vũ Khúc"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Đồng"
+         },
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Lương"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cap_doi_sao_bac_trung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_VCD_TY_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thông minh giỏi giang, có thể không giàu nhưng nổi danh đáng nể (Mệnh vô chính diệu ở Sửu/Mùi, thế Tử Vi Tý Ngọ, Nhật Nguyệt chiếu) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "chart.tu_vi_branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vcd_ty_ngo_thong_minh_noi_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_VCD_TU_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): giỏi giang, đạo đức nhưng không nhất thiết giàu (Mệnh vô chính diệu ở Thìn/Tuất, thế Tử Sát Tỵ Hợi, Cơ Lương chiếu) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     },
+     {
+      "fact": "chart.tu_vi_branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vcd_tu_sat_gioi_dao_duc_khong_giau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_VCD_TU_TUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thông minh giỏi giang nhưng không giàu tiền bạc (Mệnh vô chính diệu ở Sửu/Mùi, thế Tử Tướng Thìn Tuất, Nhật Nguyệt chiếu) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "chart.tu_vi_branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vcd_tu_tuong_thong_minh_khong_giau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_VU_DON_THU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thiên về giàu có (Vũ Khúc đứng một mình) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Vũ Khúc"
+       },
+       {
+        "not": {
+         "any": [
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Tử Vi"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Cơ"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thái Dương"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Đồng"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Liêm Trinh"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Phủ"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thái Âm"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Tham Lang"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Cự Môn"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Tướng"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Lương"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thất Sát"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Phá Quân"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_don_thu_giau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_LIEM_DON_THU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thiên về sang, địa vị (Liêm Trinh đứng một mình) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Liêm Trinh"
+       },
+       {
+        "not": {
+         "any": [
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Tử Vi"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Cơ"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thái Dương"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Vũ Khúc"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Đồng"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Phủ"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thái Âm"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Tham Lang"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Cự Môn"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Tướng"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thiên Lương"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Thất Sát"
+          },
+          {
+           "fact": "palace.own_major_stars",
+           "operator": "contains",
+           "value": "Phá Quân"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_don_thu_sang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_VU_PHA_TY_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): làm ăn bạo dạn, dễ lấn qua ranh giới luật lệ (Vũ Khúc Phá Quân ở Tỵ hoặc Hợi) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_pha_lam_an_bao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_VU_SAT_MAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): quyết liệt, ít nể nang (Vũ Khúc Thất Sát ở Mão hoặc Dậu) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_sat_quyet_liet",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_VU_THAM_SUU_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): chú trọng tiền bạc, bám giữ của cải (Vũ Khúc Tham Lang ở Sửu hoặc Mùi) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_tham_chu_trong_tien_bam_giu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_VU_TUONG_DAN_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): tốt phúc, giàu sang, thành công may mắn (Vũ Khúc Thiên Tướng ở Dần hoặc Thân) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_tuong_phuc_giau_thanh_cong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_VU_TUONG_KHONG_TT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): đời suôn sẻ, hưởng phúc (Vũ Tướng không bị Tuần Triệt án ngữ) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "not": {
+       "fact": "palace.tuan",
+       "value": true
+      }
+     },
+     {
+      "not": {
+       "fact": "palace.triet",
+       "value": true
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_tuong_doi_suon_se",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_LIEM_TUONG_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): nghiêm chỉnh, trung thực, căn cơ chắt bóp (Liêm Tướng ở Ngọ) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_tuong_nghiem_chinh_can_co",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_LIEM_PHA_MAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): nôn nóng, liều lĩnh, giàu mau mà mất cũng gọn (Liêm Phá ở Mão hoặc Dậu) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_pha_non_nong_giau_mau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_LIEM_SAT_SUU_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): kiên gan, bám việc, không ngại gian nguy nhưng dễ vướng việc lớn (Liêm Sát ở Sửu hoặc Mùi) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_sat_li_lom_deo_bam",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_PHU_VU_TY_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): cách yên phận, tích cóp phòng xa, khá giả nhờ cần kiệm (Phủ Vũ ở Tý hoặc Ngọ) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_vu_yen_phan_tich_coc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_PHU_LIEM_THIN_TUAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): cách quân tử: nghèo thì không muốn, giàu thì không ham (Phủ Liêm ở Thìn hoặc Tuất) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_liem_quan_tu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_PHU_LAC_KHONG_VONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): dễ phiêu bạt, mất mát lớn như hoa rơi giữa rừng gươm (Thiên Phủ gặp Không, Kiếp hoặc Tuần Không); 'gặp' đọc là hội trong tam phương [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.tuan",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_lac_khong_vong_phieu_bat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_PHU_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): tự tin ('ta đây'), dễ bị ganh ghét (Thiên Phủ thủ Mệnh) [KL p.222]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_thu_menh_ta_day_de_bi_ganh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_SAT_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): ương ngạnh, nóng nảy, cương nghị, thích ăn to nói lớn, dễ thành công về võ nghiệp, nôn nóng làm giàu (Thất Sát thủ Mệnh) [KL p.222-223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "sat_thu_menh_non_nong_lam_giau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_PHA_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): năng động, hiếu thắng, tự đắc, thích nghe nịnh, khí khái hiên ngang nhưng thăng trầm (Phá Quân thủ Mệnh) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "pha_thu_menh_nang_dong_hieu_thang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_DONG_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thông minh, nhân hậu, từ thiện nhưng hay thay đổi ý kiến, có thể tay trắng làm nên (Thiên Đồng thủ Mệnh) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dong_thu_menh_thong_minh_nhan_hau_hay_doi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_CU_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thông minh, mưu trí, phán xét sáng suốt (Cự Môn thủ Mệnh) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_thu_menh_muu_tri_phan_xet",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_CU_CO_MAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): giàu nhưng hay gặp chuyện ngang trái (Cự Cơ ở Mão hoặc Dậu) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_co_giau_nhung_ngang_trai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_CU_NHAT_DAN_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thuận lợi từ nhỏ (Cự Nhật ở Dần hoặc Thân) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_nhat_suong_tu_nho",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_CU_KHOA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): giỏi văn chương (Cự Môn thêm Hóa Khoa) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_khoa_gioi_van_chuong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TUONG_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): đôn hậu, thẳng thắn, thích ăn ngon mặc đẹp (Thiên Tướng thủ Mệnh) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_thu_menh_don_hau_thang_than",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TUONG_TUAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): sự nghiệp dễ bế tắc (Thiên Tướng gặp Tuần) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.tuan",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_tuan_su_nghiep_be_tac",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TUONG_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): dễ phải rời bỏ chức vụ giữa chừng (Thiên Tướng gặp Triệt) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.triet",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_triet_de_roi_chuc_vu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TUONG_LIEM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): quán xuyến mọi bề (Thiên Tướng đi với Liêm Trinh) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_liem_quan_xuyen",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TUONG_TU_VI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): tham công tiếc việc (Thiên Tướng đi với Tử Vi) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_tu_vi_tham_cong_tiec_viec",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_TUONG_VU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): tài đảm, được nể vì (Thiên Tướng đi với Vũ Khúc) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_vu_tai_dam_duoc_ne",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_LUONG_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): tính từ lâm, khoan hòa, nhã nhặn; thích làm việc thiện và hay nói đạo đức (Thiên Lương thủ Mệnh) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_thu_menh_khoan_hoa_nha_nhan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_LUONG_DUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): đỗ đạt sớm, giàu sang nổi tiếng (Thiên Lương đồng cung Thái Dương) [KL p.223]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_duong_do_dat_som",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_LUONG_AM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): dễ bôn tẩu, lênh đênh (Thiên Lương gặp Thái Âm); 'gặp' đọc là đồng cung [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_am_bon_tau_leng_denh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_DUONG_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): lo công danh, địa vị (Thái Dương ở Mệnh) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "duong_thu_menh_lo_cong_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_AM_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): lo sự nghiệp, tiền tài (Thái Âm ở Mệnh) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_thu_menh_lo_su_nghiep_tien_tai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_NHAT_NGUYET_DONG_CUNG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): lo soi sáng cho người khác, bản thân chưa hẳn hơn người (Nhật Nguyệt đồng cung) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nhat_nguyet_dong_cung_soi_sang_nguoi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_NHAT_NGUYET_CHIEU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thông minh sáng suốt, làm việc tài giỏi, dễ thành công (Nhật Nguyệt chiếu Mệnh) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "not": {
+       "all": [
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Thái Dương"
+        },
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Thái Âm"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nhat_nguyet_chieu_menh_tot_dep",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_HONG_LOAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): phong nhã, hào hoa (Hồng Loan ở Mệnh) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hồng Loan"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hong_loan_phong_nha_hao_hoa",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_DAO_HOA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): đường đời nhiều lận đận, vất vả (Đào Hoa ở Mệnh) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đào Hoa"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hoa_long_dong_vat_va",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_DAO_TY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): sớm nếm trải cuộc đời (Đào Hoa ở Tý) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đào Hoa"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_ty_som_nem_trai_doi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_DAO_MAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thành công sớm thì dễ chóng tàn (Đào Hoa ở Mão) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đào Hoa"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_mao_thanh_cong_som_chong_tan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_DAO_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): có danh cũng kèm điều tiếng, tình cảm dễ dang dở (Đào Hoa ở Ngọ) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đào Hoa"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_ngo_danh_ech_che_tinh_do_dang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_DAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): công danh chậm trễ, sớm yên phận (Đào Hoa ở Dậu) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đào Hoa"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_dau_cong_danh_cham",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_DAO_HONG_CUNG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): công danh và tình cảm đến nhanh (Đào Hồng đồng cung ở Tý, Ngọ, Mão hoặc Dậu) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ",
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đào Hoa"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hồng Loan"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_cung_cong_danh_tinh_cam_den_mau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_HONG_DON_THU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): dễ lụy tình, khó tiến xa (Hồng Loan đơn thủ ở Tý, Ngọ, Mão hoặc Dậu) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ",
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hồng Loan"
+     },
+     {
+      "not": {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đào Hoa"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hong_don_thu_luy_tinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_HONG_TU_SINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): đắc cách: công danh rộng mở, độ lượng bao dung (Hồng Loan ở Dần, Thân, Tỵ hoặc Hợi) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân",
+       "Tỵ",
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hồng Loan"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hong_tu_sinh_dac_cach",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CT_NHAT_NGUYET_DAO_HONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_chinh_tinh",
+   "description": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): đẹp đẽ, công danh sự nghiệp tình ái vẹn toàn hơn (Nhật hoặc Nguyệt có Đào Hồng đồng cung hoặc tam hợp chiếu) [KL p.224]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thái Dương"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thái Âm"
+       }
+      ]
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Đào Hoa"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Hồng Loan"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nhat_nguyet_dao_hong_dep_do",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}

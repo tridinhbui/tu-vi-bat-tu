@@ -9,7 +9,7 @@
  },
  "position_notes": {
   "Hóa Kỵ": "đóng ở cung nào thì gây điều không êm ở cung đó (ví dụ ở Tài thì dễ mang nỗi nhục về tiền)",
-  "Hóa Quyền": "mang tính nể vì: ở Phu Thê là mình nể bạn đời, ở Nô Bộc là mình nể bạn, ở Tài Bạch là người khác nể mình vì tiền",
+  "Hóa Quyền": "mang tính nể vì (ở Phu Thê là mình nể bạn đời, ở Nô Bộc là mình nể bạn, ở Tài Bạch là người khác nể mình vì tiền)",
   "Hóa Khoa": "có Hóa Khoa phải khiêm nhường mới thành công",
   "Hóa Lộc": "được dễ chịu về vật chất như Lộc Tồn"
  },
@@ -195,5 +195,15 @@
     "advice": "tham lam, chạy theo tiền quá thì sẽ khổ"
    }
   ]
+ },
+ "position_notes_by_palace": {
+  "Hóa Quyền": {
+   "Phu Thê": "mình nể vì bạn đời",
+   "Nô Bộc": "mình nể vì bạn bè",
+   "Tài Bạch": "người khác nể mình vì tiền"
+  },
+  "Hóa Kỵ": {
+   "Tài Bạch": "dễ mang nỗi nhục về tiền bạc"
+  }
  }
 }
