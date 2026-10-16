@@ -76,11 +76,26 @@ def tuvi_year(chart: TuViChart, year: int) -> dict:
     start = {0: 4, 1: 10, 2: 7, 3: 1}[TRIAD_GROUP[from_cycle(year_cycle_index(chart.lunar["year"]))[1]]]
     male = chart.yin_yang_gender.endswith("nam")
     th = (start + (age - 1) * (1 if male else -1)) % 12
+    from . import van_han
+    import json as _json
+    from pathlib import Path as _Path
+    data = _json.loads((_Path(__file__).resolve().parent.parent / "data" / "tu_hoa_vi.json").read_text("utf-8"))
+    advice = data["by_stem"][str(s)]
+    hoa_read = []
+    for k, adv in zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], advice):
+        pal = hoa[k]["natal_palace"]
+        spec = data.get("position_notes_by_palace", {}).get(k, {}).get(pal)
+        hoa_read.append({"hoa": k, "star": adv["star"], "palace": pal, "advice": adv["advice"],
+                         "position_note": spec or (data["position_notes"][k] if pal else None), "src": "Khảo Luận pp.195-197"})
+    th_palace = by_branch[BRANCHES_VI[th]]["name"]
     return {
+        "luu_tu_hoa_reading": hoa_read,
+        "tieu_han_reading": van_han.read(chart, th_palace),
+        "tieu_han_topic": van_han.DOMAIN.get(th_palace),
         "year": year, "age_tuoi_mu": age, "tieu_han_branch": BRANCHES_VI[th], "tieu_han_palace": by_branch[BRANCHES_VI[th]]["name"], "annual_pillar": gz_name(s, b),
         "dai_han": dh, "luu_thai_tue_palace": tt["name"], "luu_thai_tue_branch": tt["branch"],
         "luu_tu_hoa": hoa, "scope": "temporal",
-        "note": "tiểu hạn not implemented; lưu Tứ Hóa uses the same table as natal (school variant unverified)",
+        "note": "Tiểu hạn: age 1 by year-branch triad (Thực Hành p.27); the vận reading follows Khảo Luận pp.233-236; lưu Tứ Hóa uses the natal table and the per-stem advice of Khảo Luận pp.195-197.",
     }
 
 

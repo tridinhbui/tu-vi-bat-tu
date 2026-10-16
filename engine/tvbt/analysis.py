@@ -282,8 +282,14 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
         dh_lines.append(f"{d['age_from']}–{d['age_to']} tuổi: cung {d['palace']} ({d['stem']} {d['branch']}) — " + (_join(p["major_stars"]) or "vô chính diệu") + (f"; {_join(v.hoa_at.get(p['branch_index'], []))}" if v.hoa_at.get(p["branch_index"]) else ""))
     ch["dai-van"].append(B(f"Đại hạn Tử Vi chạy {tv.dai_han_direction}, bắt đầu từ cung Mệnh ở tuổi {tv.cuc['n']} (cục {tv.cuc['name']}). Mỗi hạn 10 năm đi qua một cung; bên dưới là cách Khảo Luận hướng dẫn xét từng hạn: so hành của tam hợp cung đại vận với hành của tam hợp tuổi, so với tam hợp xung chiếu, xét cung nhị hợp, rồi mới xét các sao.", "Biến", "sach", ["TH p.27", "Khảo Luận pp.230-233"]))
     year_branch_idx = BRANCHES_VI.index(tv.year_gz.split()[1])
-    for line in dai_van_reading(v, tv, year_branch_idx):
-        ch["dai-van"].append(B(line, "Biến", "sach", ["Khảo Luận pp.230-233"]))
+    from . import van_han
+    for d, line in zip(tv.dai_han[:10], dai_van_reading(v, tv, year_branch_idx)):
+        stage = van_han.life_stage(tv.dai_han_direction, d["palace"])
+        extra = van_han.read(tv, d["palace"])
+        txt = line + (f" Theo Khảo Luận, hạn này ứng với giai đoạn “{stage}”." if stage else "")
+        if extra:
+            txt += " Mệnh gặp vận: " + " ".join(e["text"] for e in extra)
+        ch["dai-van"].append(B(txt, "Biến", "sach", ["Khảo Luận pp.230-236"]))
     ch["dai-van"].append(B("Sách nhấn mạnh thêm: chính tinh đắc địa thì tốt, hãm địa thì xấu và cần Tuần Triệt giải; hung tinh đắc địa lại có thể tốt, nhất là khi gặp đúng “quan thầy” trong bộ Sát Phá Tham (Không Kiếp gặp Phá Quân, Hỏa Linh gặp Tham Lang, Kình Đà gặp Thất Sát). Hệ thống chưa tự đánh giá hạn tốt hay xấu bằng các điều này vì độ sáng của sao phụ và Tuần Triệt giải chưa có quy tắc kiểm chứng.", "Phản", "sach", ["Khảo Luận p.233"]))
     lp = [f"{l.start_age:.0f} tuổi: {l.name} ({l.ten_god})" for l in bz.luck_pillars[:8]]
     ch["dai-van"].append(B(f"Bát Tự: đại vận {bz.luck_direction}, khởi vận sau khoảng {bz.luck_start['years']} năm {bz.luck_start['months']} tháng. Các đại vận: " + "; ".join(lp) + ". Thập thần ghi theo Nhật Chủ.", "Biến", "sach", ["八字真宗 PDF p.23"]))

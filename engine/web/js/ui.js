@@ -73,8 +73,10 @@ export function yearExplorer(host, req, bazi, side = null) {
           <p class="yx-big"><span>Đại hạn</span><b>${t.dai_han ? esc(t.dai_han.palace) : 'chưa vào'}</b><em>${t.dai_han ? `${t.dai_han.age_from}–${t.dai_han.age_to} tuổi` : ''}</em></p>
           <p class="yx-big"><span>Lưu Thái Tuế</span><b>cung ${esc(t.luu_thai_tue_palace)}</b></p>
           <p class="yx-big"><span>Tiểu hạn</span><b>cung ${esc(t.tieu_han_palace)}</b><em>${esc(t.tieu_han_branch)}</em></p>
+          <p class="muted small">Tiểu hạn năm nay ở cung ${esc(t.tieu_han_palace)}: ${esc(t.tieu_han_topic || '')}.</p>
+          ${t.tieu_han_reading?.length ? `<h5>Mệnh gặp vận (tiểu hạn)</h5><ul class="yx-list">${t.tieu_han_reading.map(x => `<li>${esc(x.text)} <span class="muted small">· ${esc(x.src)}</span></li>`).join('')}</ul>` : '<p class="muted small">Không có điều kiện nào trong sách khớp giữa Mệnh và cung tiểu hạn năm nay.</p>'}
           <h5>Lưu Tứ Hóa</h5>
-          <ul class="yx-list">${Object.entries(t.luu_tu_hoa).map(([k, v]) => `<li><b>${esc(k)}</b> · ${esc(v.star)}${v.natal_palace ? ` <span class="muted">(cung ${esc(v.natal_palace)})</span>` : ''}</li>`).join('')}</ul>
+          <ul class="yx-list">${(t.luu_tu_hoa_reading || []).map(x => `<li><b>${esc(x.hoa)}</b> · ${esc(x.star)}${x.palace ? ` <span class="muted">(cung ${esc(x.palace)})</span>` : ''}<br><span class="muted small">${esc(x.advice)}${x.position_note ? ' — ' + esc(x.position_note) : ''}</span></li>`).join('')}</ul>
         </section></div>
         <section class="yx-months"><h4>Lưu nguyệt Bát Tự <span class="muted small">· tháng tính theo tiết, từ Lập Xuân</span></h4>
           <ol class="yx-mo">${(b.months || []).map(m => `<li><span class="mo-j">${esc(m.jie)}</span><b>${esc(m.pillar)}</b><em>${esc(m.ten_god)}</em>${m.vs_natal.length ? `<span class="mo-n" title="${esc(m.vs_natal.map(x => (REL[x.kind] || x.kind.replace(/_/g, ' ')) + ' trụ ' + (WITH[x.with] || x.with).replace('trụ ', '')).join('; '))}">${m.vs_natal.length} tương tác</span>` : '<span class="mo-n muted">—</span>'}</li>`).join('')}</ol></section>

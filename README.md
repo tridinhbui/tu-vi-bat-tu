@@ -52,6 +52,8 @@ cd engine && ../.venv/bin/python -m pytest -q
 - Bát Tự thai nguyên, mệnh cung, thân cung and 空亡 now computed (`BaziChart.extras`); the book's full 命宫 and 身宫 tables (144 cells each), 胎元 and 空亡 tables are golden tests.
 - Thần sát tables (八字真宗 pp.21-22) and Khảo Luận's five-step đại hạn method (pp.230-233: tam hợp element vs birth year, xung chiếu, nhị hợp, Thái Tuế triad) are in the analysis;
   the five worked examples of the book are tests. The analysis chapter list now also has a 12-palace walk-through (~70 blocks per chart).
+- Vận reading (`tvbt/van_han.py`, Khảo Luận pp.233-236): how Mệnh meets the đại hạn / tiểu hạn palace (Tử Phủ Vũ Tướng vs sát tinh, vô chính diệu vs Sát Phá Tham, Tuần↔Triệt,
+  Nhật Nguyệt vs Đào Hồng Hỷ…, Thái Tuế/Quan Phù/Bạch Hổ vận, Sát/Phá/Tham by position, life-stage labels); lưu niên Tứ Hóa advice from pp.195-197. Opposite conditions that both match are shown as unresolved.
 - Not supported: minor-star brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, lunar-date input.
 - Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
   (injury, death, children) are intentionally not implemented.
