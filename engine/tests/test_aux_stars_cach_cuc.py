@@ -68,3 +68,21 @@ def test_hour_sweep_covers_twelve_hours_and_shows_what_changes():
     assert len({x["pillars"]["hour"] for x in h}) == 12
     assert len({x["pillars"]["day"] for x in h}) == 1 and len({x["pillars"]["year"] for x in h}) == 1
     assert next(x for x in h if x["hour_branch"] == "Tỵ")["menh_branch"] == "Tý"      # matches the 10:30 sample chart
+
+
+def test_invariants_over_many_charts():
+    seen_names = set()
+    for y, m, d, h in [(1975, 8, 20, 6), (1985, 11, 3, 22), (2000, 1, 1, 0), (1999, 12, 31, 23), (1960, 2, 29, 12), (2020, 6, 15, 18)]:
+        for g in ("male", "female"):
+            t = chart(year=y, month=m, day=d, hour=h, minute=0, gender=g)
+            names = [s["name"] for s in t["stars"]]
+            assert len(names) == len(set(names)), "a star is placed twice"
+            assert all(0 <= s["branch"] < 12 for s in [{"branch": next(p["branch_index"] for p in t["palaces"] if s["name"] in p["stars"])} for s in t["stars"]])
+            pos = {s["name"]: next(p["branch_index"] for p in t["palaces"] if s["name"] in p["stars"]) for s in t["stars"]}
+            assert pos["Thiên Y"] == pos["Thiên Riêu"]
+            assert (pos["Thiên Khốc"] + pos["Thiên Hư"]) % 12 == 0
+            assert (pos["Thiên Khốc"] - 6) % 12 == (-(pos["Thiên Hư"] - 6)) % 12
+            assert (pos["Hồng Loan"] - pos["Thiên Hỷ"]) % 12 == 6
+            assert t["extras"]["menh_chu"]["star"] and t["extras"]["than_chu"]["star"]
+            seen_names |= set(names)
+    assert "Quốc Ấn" not in seen_names and "Giải Thần" not in seen_names      # deliberately not placed (formula unknown)
