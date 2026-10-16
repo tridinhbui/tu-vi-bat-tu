@@ -6,16 +6,21 @@ from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from . import bazi, cross, temporal, tuvi
 from .calendar_core import BirthInput, normalize
-from .knowledge.schema import load_pack, validate_pack
-from .nlg import generate as nlg
+from .knowledge.loader import load_all, load_claims
+from .knowledge.schema import validate_pack
+from .nlg import generate as nlg, lexicon as lx
 from .reasoning import engine, facts
 
 ROOT = Path(__file__).resolve().parent.parent
 app = FastAPI(title="tvbt", version="0.1.0")
+# Same paths the Worker serves as static assets, so local/uvicorn runs match production.
+app.mount("/css", StaticFiles(directory=ROOT / "web" / "css"), name="css")
+app.mount("/js", StaticFiles(directory=ROOT / "web" / "js"), name="js")
 
 
 class BirthReq(BaseModel):
@@ -57,7 +62,8 @@ def year(req: BirthReq):
 @app.post("/api/reasoning")
 def reasoning(req: BirthReq):
     nb, bz, tv = _compute(req)
-    rules, sources = load_pack(ROOT / "data" / "pack_vn_draft.json")
+    rules, sources = load_all()
+    lx.CLAIMS.update(load_claims())
     probs = validate_pack(rules, sources, {"palace.*", "chart.*", "bazi.*", "derived.*"})
     out = {"pack_problems": probs, "systems": {}}
     for system, base in [("tu_vi", facts.tuvi_facts(tv)), ("bat_tu", facts.bazi_facts(bz))]:

@@ -18,6 +18,8 @@ class Source:
     author: str | None
     locator: str | None        # chapter/page — None until actually checked
     verified: bool = False
+    edition: str | None = None
+    note: str | None = None
 
 
 @dataclass

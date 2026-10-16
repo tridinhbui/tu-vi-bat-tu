@@ -96,6 +96,7 @@ def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict]
     conflicts: list[dict] = []
     fired: list[tuple[str, str, int]] = []
     done: set[tuple[str, str]] = set()
+    fdepth: dict[tuple[str, str], int] = {}   # derived fact -> derivation depth
     src = {s.id: s for s in sources}
     ordered = sorted((r for r in rules if system is None or r.system == system), key=lambda r: (-r.priority, r.id))
 
@@ -138,7 +139,8 @@ def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict]
                     for f in _leaf_facts(exc[0]):
                         edges.append(Edge(_fact_node(nodes, subj, f, facts.get(f)), rid, "suppresses"))
                     continue
-                fired.append((r.id, subj, depth))
+                rdepth = 1 + max([fdepth.get((subj, f), fdepth.get(("chart", f), 0)) for f in _leaf_facts(r.conditions)] + [0])
+                fired.append((r.id, subj, rdepth))
                 progressed = True
                 basis = "verified" if r.reviewStatus == "verified" and all(
                     src[s].verified for s in r.sourceIds) else "draft"
@@ -151,16 +153,17 @@ def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict]
                                               "values": [derived[tgt][name], val], "rule": r.id})
                             continue
                         derived[tgt][name] = val
+                        fdepth[(tgt, name)] = rdepth
                         fid = _fact_node(nodes, tgt, name, val)
                         nodes[fid].kind = "fact"
                         nodes[fid].data["derived"] = True
                         edges.append(Edge(fid, rid, "derived_from"))
                     elif c.get("kind") == "finding":
                         fid = f"finding:{r.id}:{c['claim']}@{subj}"
-                        f = Finding(fid, subj, c["claim"], c.get("effect", "support"), r.id, depth, basis=basis)
+                        f = Finding(fid, subj, c["claim"], c.get("effect", "support"), r.id, rdepth, basis=basis)
                         findings.append(f)
                         nodes[fid] = Node(fid, "finding", f"{c['claim']} ({f.effect}) @{subj}",
-                                          {"scope": c.get("scope"), "depth": depth})
+                                          {"scope": c.get("scope"), "depth": rdepth})
                         edges.append(Edge(fid, rid, "derived_from"))
         if not progressed:
             break

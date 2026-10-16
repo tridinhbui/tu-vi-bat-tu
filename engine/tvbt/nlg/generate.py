@@ -6,6 +6,8 @@ philosophical limits), not filler.
 """
 from __future__ import annotations
 
+import ast
+import re
 from dataclasses import dataclass, field
 
 from ..knowledge.schema import KnowledgeRule, Source
@@ -47,6 +49,38 @@ def subject_vi(s: str) -> str:
     return "toàn lá số" if s == "chart" else "cung " + s.split(":", 1)[1]
 
 
+FACT_VI = {
+    "palace.name": "cung {v}", "palace.branch": "tọa tại {v}", "palace.own_major_stars": "chính tinh trong cung: {v}",
+    "palace.tam_phuong_majors": "chính tinh trong tam phương tứ chính: {v}",
+    "palace.tam_phuong_stars": "các sao trong tam phương tứ chính: {v}",
+    "palace.tam_phuong_tu_hoa": "Tứ Hóa trong tam phương: {v}",
+    "palace.sat_pha_tham_in_tam_phuong": "Thất Sát, Phá Quân, Tham Lang cùng nằm trong tam phương",
+    "bazi.dm_has_root": "Nhật Chủ có căn trong tàng can", "bazi.dm_element": "hành Nhật Chủ: {v}",
+}
+GROUP_VI = {"tu_phu_vu_tuong": "Tử – Phủ – Vũ – Tướng", "sat_pha_liem_tham": "Sát – Phá – Liêm – Tham",
+            "co_nguyet_dong_luong": "Cơ – Nguyệt – Đồng – Lương", "cu_nhat_nguyet": "Cự – Nhật – Nguyệt"}
+_FACT_RE = re.compile(r"^(?P<k>[\w.]+)=(?P<v>.*) @(?P<s>.+)$")
+
+
+def pretty_fact(label: str) -> str:
+    m = _FACT_RE.match(label)
+    if not m:
+        return label
+    k, v = m["k"], m["v"]
+    try:
+        val = ast.literal_eval(v)
+    except Exception:
+        val = v
+    if isinstance(val, list):
+        val = ", ".join(val) if val else "không có"
+    if k.startswith("derived.group."):
+        return f"thuộc nhóm sao {GROUP_VI.get(k.rsplit('.', 1)[1], k)}"
+    tpl = FACT_VI.get(k)
+    if tpl is None:
+        return label
+    return tpl.format(v=val) if "{v}" in tpl else tpl
+
+
 def build_interpretations(res: InferenceResult, rules: list[KnowledgeRule], sources: list[Source]) -> list[Interpretation]:
     report = {(e["subject"], e["claim"]): e for e in resolve(res, rules)}
     rmap = {r.id: r for r in rules}
@@ -55,9 +89,9 @@ def build_interpretations(res: InferenceResult, rules: list[KnowledgeRule], sour
         fs = [f for f in res.findings if f.subject == subj and f.claim == claim]
         facts: list[str] = []
         for f in fs:
-            facts += [res.nodes[n].label for n, k in res.why(f.id)["kinds"].items() if k == "fact"]
+            facts += [pretty_fact(res.nodes[n].label) for n, k in res.why(f.id)["kinds"].items() if k == "fact"]
         srcs = sorted({s for f in fs for s in rmap[f.rule_id].sourceIds})
-        sup_eff = "support" if e["supporting"] else "limit"
+        sup_eff = next((f.effect for f in fs if f.effect == "support"), fs[0].effect)
         out.append(Interpretation(subj, claim, sup_eff, e["status"], fs[0].basis if all(
             f.basis == fs[0].basis for f in fs) else "draft", e["supporting"], e["opposing"],
             [f.id for f in fs], sorted(set(facts)), srcs, e["resolution"]))

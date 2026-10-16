@@ -24,6 +24,9 @@ cd engine && ../.venv/bin/python -m pytest -q
   (Thực Hành prints "Phủ", Khảo Luận says Tả Phụ → Tả Phụ used). The Thực Hành printed Hồng Loan example and Thiên Mã "cước" contradict its own rules (rules used).
 - **Still unverified**: Bát Tự hidden stems and ten-god table (not cell-checked), đại hạn details, leap-month rule (convention), VN lunar calendar (UTC+7)
   vs an official almanac, all interpretation rules (the rule pack is draft; no book *interpretation* has been encoded yet).
+- **Interpretation rules encoded so far** (`engine/data/pack_khao_luan.json`, all paraphrased with page cites, source Tử Vi Khảo Luận pp.50-51, 166-167):
+  star-group classification (verified, structural) and 6 hedged Mệnh-palace readings (4 verified, 2 draft because they need our own operationalisation of
+  'cát tinh'/'gặp sát'). Harm-prediction aphorisms (prison, suicide, early death) are deliberately skipped.
 - Not supported: miếu/hãm brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, Bát Tự thai nguyên/mệnh cung, lunar-date input.
 - Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
   (injury, death, children) are intentionally not implemented.

@@ -31,7 +31,7 @@ def resolve(res: InferenceResult, rules: list[KnowledgeRule]) -> list[dict]:
         groups[(f.subject, f.claim)].append(f)
     report = []
     for (subj, claim), fs in sorted(groups.items()):
-        sup = [f for f in fs if f.effect == "support"]
+        sup = [f for f in fs if f.effect in ("support", "neutral")]
         lim = [f for f in fs if f.effect == "limit"]
         entry = {"subject": subj, "claim": claim, "supporting": [f.rule_id for f in sup],
                  "opposing": [f.rule_id for f in lim], "resolution": None}
