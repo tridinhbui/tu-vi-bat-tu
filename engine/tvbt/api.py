@@ -70,6 +70,17 @@ def year(req: BirthReq):
     return {"bazi": temporal.bazi_year(bz, req.year, y), "tuvi": temporal.tuvi_year(tv, y)}
 
 
+@app.post("/api/twelve-gods")
+def twelve(req: BirthReq):
+    """Lưu niên thập nhị thần (八字真宗 pp.39-42) for the flow year `to_year` (default: birth year + 30)."""
+    from . import bazi_twelve
+    nb, bz, tv = _compute(req)
+    y = req.to_year or req.year + 30
+    yb = temporal.annual_pillar(y)[1]
+    luck = temporal.bazi_year(bz, req.year, y)["luck_pillar"]
+    return {"year": y, **bazi_twelve.twelve_gods(bz, yb, luck)}
+
+
 def _merge_corroborated(findings: list[dict], rules) -> list[dict]:
     """One card per (subject, claim): further rules that reach the same claim are listed as corroboration (with their sources)."""
     rmap = {r.id: r for r in rules}
