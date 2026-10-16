@@ -130,6 +130,19 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
         vo = ex["kong_wang_in_chart"]
         ch["tong-quan"].append(B(f"Bát Tự còn có ba “cung” phụ tính từ tháng và giờ sinh: thai nguyên {ex['thai_yuan']}, mệnh cung {ex['ming_gong']}, thân cung {ex['shen_gong']}. Thêm vào đó, trụ Ngày {bz.pillars['day'].name} có không vong ở {_join(ex['kong_wang_day'])}" + (f"; chi của trụ {_join([PIL_VI[k] for k in vo])} rơi vào hai chi này." if vo else "; không chi nào của các trụ còn lại rơi vào hai chi này."), "Thế", "sach", ["八字真宗 PDF pp.20, 24, 35-38"]))
 
+    from . import shensha
+    ss = shensha.find(bz.pillars)
+    if ss:
+        cat = [x for x in ss if x["kind"] == "cat"]; tr = [x for x in ss if x["kind"] == "trung"]; hu = [x for x in ss if x["kind"] == "hung"]
+        parts = []
+        if cat:
+            parts.append("các thần sát sách xếp vào nhóm tốt: " + "; ".join(f"{x['vi']} ở trụ {x['pillar_vi']} ({x['at']}) — {x['gloss']}" for x in cat))
+        if tr:
+            parts.append("nhóm trung tính: " + "; ".join(f"{x['vi']} ở trụ {x['pillar_vi']} ({x['at']}) — {x['gloss']}" for x in tr))
+        if hu:
+            parts.append("các sao sách xếp vào nhóm hung, hệ thống chỉ ghi vị trí không suy ra kết quả: " + "; ".join(f"{x['vi']} ở trụ {x['pillar_vi']} ({x['at']})" for x in hu))
+        ch["cach-cuc"].append(B("Thần sát tra theo bảng của 八字真宗: " + "; ".join(parts) + ". Thần sát là lớp phụ của Bát Tự; không có thần sát nào quyết định một nhận định riêng lẻ.", "Thế", "sach", ["八字真宗 PDF pp.21-22"]))
+
     # ---------- Bản Mệnh
     ch["ban-menh"] += star_profile_blocks(v, "Mệnh")
     aux = [s for s in menh["stars"] if s not in menh["major_stars"]]
