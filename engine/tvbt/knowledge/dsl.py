@@ -34,7 +34,8 @@ def validate(expr: Any, known_facts: set[str], depth: int = 0) -> None:
     elif keys == {"not"}:
         validate(expr["not"], known_facts, depth + 1)
     elif "fact" in keys and keys <= {"fact", "operator", "value"}:
-        if expr["fact"] not in known_facts:
+        if expr["fact"] not in known_facts and not any(
+                k.endswith("*") and expr["fact"].startswith(k[:-1]) for k in known_facts):
             raise RuleError(f"unknown fact {expr['fact']!r}")
         op = expr.get("operator", "eq")
         if op not in OPERATORS:

@@ -35,6 +35,7 @@ class KnowledgeRule:
     sourceIds: list[str] = field(default_factory=list)
     reviewStatus: str = "draft"
     version: str = "0.1.0"
+    subject: str = "chart"   # "chart" or "palace" (evaluated once per palace)
 
 
 def validate_pack(rules: list[KnowledgeRule], sources: list[Source], known_facts: set[str]) -> list[str]:
