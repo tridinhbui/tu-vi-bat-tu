@@ -12,6 +12,7 @@ from dataclasses import dataclass, field
 from typing import Literal
 
 from . import calendar_core as cc
+from .dignity import dignity
 from .ganzhi import (BRANCHES_VI, STEMS_VI, branch_stem_from_year, controls, cycle_index, from_cycle,
                      generates, gz_name, nap_am_element, nap_am_name, stem_polarity, year_cycle_index)
 from .trace import Trace
@@ -45,6 +46,7 @@ SCHOOL_PACK = {
         "tuan": ["verified", "SRC_THUC_HANH p.20"],
         "tu_hoa": ["verified_with_dispute", "SRC_THUC_HANH p.21 + SRC_KHAO_LUAN p.36 agree on 8/10 stems incl. Canh (Khoa Đồng, Kỵ Âm); "
                    "Tân Lộc: Thực Hành=Cự Môn vs Khảo Luận=Thiên Cơ (Cự Môn used); Nhâm Khoa: Khảo Luận=Tả Phụ, Thực Hành prints 'Phủ' (Tả Phụ used)"],
+        "dignity_table": ["verified", "SRC_THUC_HANH pp.29-48 (14 chính tinh; unlisted branches stay unspecified; Tham Lang Tý/Ngọ disputed with Khảo Luận)"],
         "dai_han": ["unverified", "direction by yin-yang is standard; first age = cục not yet checked in a cited page"],
     },
 }
@@ -281,6 +283,8 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "split_15", n_dai_han:
             "name": palace_by_branch[br], "is_than": br == than,
             "stars": [s.name for s in stars if s.branch == br],
             "major_stars": [s.name for s in stars if s.branch == br and s.group.startswith("chính tinh")],
+            "major_dignity": {s.name: dignity(s.name, BRANCHES_VI[br]) for s in stars
+                              if s.branch == br and s.group.startswith("chính tinh")},
             "tuan": br in tuan, "triet": br in triet,
         })
     structure = {BRANCHES_VI[br]: {

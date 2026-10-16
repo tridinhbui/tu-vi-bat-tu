@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from ..bazi import BaziChart
-from ..ganzhi import BRANCHES_VI, STEM_ELEMENT
+from ..ganzhi import BRANCHES_VI, BRANCH_ELEMENT, ELEMENTS, STEMS_VI, STEM_ELEMENT
 from ..tuvi import TuViChart
 
 FACT_NAMES = {"palace.*", "chart.*", "bazi.*", "derived.*"}  # wildcard namespaces for validation
@@ -20,6 +20,7 @@ def tuvi_facts(c: TuViChart) -> dict[str, dict]:
         out[f"palace:{p['name']}"] = {
             "palace.name": p["name"], "palace.branch": p["branch"], "palace.is_than": p["is_than"],
             "palace.own_stars": p["stars"], "palace.own_major_stars": p["major_stars"],
+            **{f"palace.dignity.{k}": (v or "unspecified") for k, v in p["major_dignity"].items()},
             "palace.has_no_major": not p["major_stars"],
             "palace.tam_phuong_majors": majors, "palace.tam_phuong_stars": stars,
             "palace.tuan": p["tuan"], "palace.triet": p["triet"],
@@ -34,7 +35,9 @@ def bazi_facts(c: BaziChart) -> dict[str, dict]:
     dm_el = c.day_master_element
     roots = [k for k, p in c.pillars.items() if k != "day" or True
              for h in p.hidden if STEM_ELEMENT[h["stem"]] == dm_el]
-    return {"chart": {"chart.system": "bat_tu", "bazi.dm_element": dm_el, "bazi.dm_has_root": bool(roots),
+    visible_el = {STEM_ELEMENT[p.stem] for p in c.pillars.values()} | {BRANCH_ELEMENT[p.branch] for p in c.pillars.values()}
+    return {"chart": {"chart.system": "bat_tu", "bazi.day_master_stem": STEMS_VI[c.day_master],
+                      "bazi.missing_elements": [e for e in ELEMENTS if e not in visible_el], "bazi.dm_element": dm_el, "bazi.dm_has_root": bool(roots),
                       "bazi.dm_root_pillars": sorted(set(roots)),
                       "bazi.month_branch": BRANCHES_VI[c.pillars["month"].branch],
                       "bazi.dm_stage_in_month": c.pillars["month"].stage_vs_day_master}}

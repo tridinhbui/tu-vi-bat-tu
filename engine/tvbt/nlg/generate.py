@@ -55,6 +55,7 @@ FACT_VI = {
     "palace.tam_phuong_stars": "các sao trong tam phương tứ chính: {v}",
     "palace.tam_phuong_tu_hoa": "Tứ Hóa trong tam phương: {v}",
     "palace.sat_pha_tham_in_tam_phuong": "Thất Sát, Phá Quân, Tham Lang cùng nằm trong tam phương",
+    "bazi.day_master_stem": "Nhật Chủ là {v}", "bazi.missing_elements": "tám chữ nhìn thấy vắng hành: {v}",
     "bazi.dm_has_root": "Nhật Chủ có căn trong tàng can", "bazi.dm_element": "hành Nhật Chủ: {v}",
 }
 GROUP_VI = {"tu_phu_vu_tuong": "Tử – Phủ – Vũ – Tướng", "sat_pha_liem_tham": "Sát – Phá – Liêm – Tham",

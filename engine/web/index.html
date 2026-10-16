@@ -1,149 +1,268 @@
 <!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tử Vi · Bát Tự — Reasoning Engine</title>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thiên Bàn — Tử Vi và Bát Tự</title>
+<meta name="description" content="Lập lá số Tử Vi Đẩu Số và Bát Tự theo Can Chi, Ngũ Hành, với hệ thống luận giải có thể truy vết. Không dùng AI, không lưu dữ liệu sinh.">
+<meta name="theme-color" content="#FAF6EF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0F0B08;--bg2:#140f0b;--panel:#1A140F;--panel2:#211910;--line:#3A2C1F;--line2:#2a2017;--ink:#F3E7D0;--ink2:#C9B79C;--gold:#C8A96B;--bronze:#9A7440;--pos:#6E8F7A;--neg:#A56A5F;--mute:#7D6A55;
---serif:"Cormorant Garamond","EB Garamond",Georgia,serif;--sans:Inter,system-ui,-apple-system,sans-serif;--shadow:0 8px 28px rgba(0,0,0,.45)}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#1d1510 0,var(--bg) 60%) fixed,var(--bg);color:var(--ink);font:15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
-main{max-width:1120px;margin:0 auto;padding:48px 24px 96px}
-header.hero{text-align:center;margin-bottom:32px}
-h1{font:600 clamp(2.4rem,5vw,3.6rem)/1.05 var(--serif);letter-spacing:.04em;margin:0;color:var(--ink)}
-h1 span{color:var(--gold)}
-.orn{display:flex;align-items:center;justify-content:center;gap:14px;margin:16px auto;color:var(--bronze);font-size:.7rem;letter-spacing:.4em}
-.orn:before,.orn:after{content:"";height:1px;width:80px;background:linear-gradient(90deg,transparent,var(--bronze))}.orn:after{transform:scaleX(-1)}
-.note{color:var(--mute);font-size:.85rem}.lede{color:var(--ink2);max-width:680px;margin:0 auto;font-size:.9rem}.lede b{color:var(--gold);font-weight:500}
-h2{font:500 1.9rem/1.2 var(--serif);color:var(--ink);margin:56px 0 18px;display:flex;align-items:baseline;gap:14px;letter-spacing:.02em}
-h2:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
-h2 .note{font:400 .8rem var(--sans);order:3;white-space:nowrap}
-h3{font:500 1.4rem var(--serif);color:var(--gold);margin:28px 0 10px}
-.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
-label{display:flex;flex-direction:column;gap:6px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
-input,select,button{font:400 .95rem var(--sans);padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--bg2);color:var(--ink);transition:border-color .15s,box-shadow .15s}
-input:focus,select:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,169,107,.15)}
-button{background:linear-gradient(180deg,#d2b377,var(--bronze));color:#1a1108;font-weight:600;border:0;cursor:pointer;align-self:end;letter-spacing:.04em}
-button:hover{filter:brightness(1.08)}
-input[type=range]{padding:0;accent-color:var(--gold)}
-#err{color:var(--neg);margin-top:12px}
-/* pillars */
-.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.pillar{text-align:center;padding:20px 14px 18px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
-.pillar:hover{transform:translateY(-2px);border-color:var(--bronze)}
-.pillar.dm{border-color:var(--gold);background:linear-gradient(180deg,#2a2013,#1c150e);box-shadow:0 0 0 1px rgba(200,169,107,.25),0 10px 36px rgba(200,169,107,.12)}
-.plabel{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.pillar.dm .plabel{color:var(--gold)}
-.gz{margin:10px 0 4px;font:600 2.1rem/1.1 var(--serif)}.pillar.dm .gz{font-size:2.5rem}
-.gz .stem{color:var(--gold)}.gz .branch{color:var(--ink)}
-.tg{font-size:.82rem;color:var(--ink2)}
-.stage{display:inline-block;margin-top:8px;font-size:.7rem;padding:2px 10px;border-radius:99px;border:1px solid var(--line);color:var(--ink2)}
-.hid{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:4px;font-size:.78rem}
-.hid .hl-t{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-.hid span{color:var(--pos)}.hid small{color:var(--mute)}
-.dmtag{display:inline-block;font-size:.66rem;letter-spacing:.14em;color:#1a1108;background:var(--gold);border-radius:99px;padding:1px 10px;margin-top:2px;font-weight:600}
-/* summary */
-.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px}
-.stat{padding:14px 16px;border:1px solid var(--line2);border-radius:12px;background:var(--panel)}
-.stat .k{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
-.stat .v{font:600 1.35rem var(--serif);color:var(--ink);margin-top:2px}
-.stat .v.g{color:var(--gold)}
-.luck{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.chip{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;padding:4px 12px;border:1px solid var(--line);border-radius:99px;background:var(--bg2);color:var(--ink2)}
-.chip b{font:600 1rem var(--serif);color:var(--gold)}
-.chip.pos{color:var(--pos);border-color:rgba(110,143,122,.4)}.chip.neg{color:var(--neg);border-color:rgba(165,106,95,.4)}
-/* tuvi */
-#grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.pal{position:relative;min-height:158px;padding:12px 13px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:linear-gradient(180deg,var(--panel2),var(--panel));transition:border-color .18s,box-shadow .18s,transform .18s,background .18s}
-.pal:hover{border-color:var(--bronze);transform:translateY(-1px)}
-.pal.hl{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 26px rgba(200,169,107,.28);background:linear-gradient(180deg,#2c2214,#1d160e)}
-.pal.rel{border-color:rgba(200,169,107,.55);background:linear-gradient(180deg,#241b10,#1a140f);box-shadow:inset 0 0 0 1px rgba(200,169,107,.18)}
-.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
-.pname{font:600 1.15rem/1.1 var(--serif);color:var(--gold);letter-spacing:.02em}
-.pgz{font-size:.7rem;color:var(--mute);text-align:right;line-height:1.3}
-.tags{display:flex;flex-wrap:wrap;gap:4px;margin:7px 0 4px}
-.tag{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:1px 7px;border-radius:99px;border:1px solid var(--bronze);color:var(--bronze)}
-.tag.than{background:rgba(200,169,107,.14);color:var(--gold);border-color:var(--gold)}
-.majs{display:flex;flex-wrap:wrap;gap:3px 10px;margin:6px 0}
-.maj{font:600 1.08rem/1.25 var(--serif);color:var(--ink)}
-.vcd{font-size:.78rem;color:var(--mute);font-style:italic}
-.mins{display:flex;flex-wrap:wrap;gap:1px 8px;font-size:.72rem;line-height:1.5}
-.mins span{color:var(--ink2);opacity:.8}.s-pos{color:var(--pos)!important;opacity:1!important}.s-neg{color:var(--neg)!important;opacity:1!important}
-.maj.s-pos{color:#9fc0ab!important}.maj.s-neg{color:#c98a7e!important}
-.center{grid-column:2/4;grid-row:2/4;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:8px;text-align:center;border:1px solid var(--bronze);border-radius:12px;background:radial-gradient(circle at 50% 0,#2a2013,var(--panel))}
-.center .gzy{font:600 2.2rem var(--serif);color:var(--gold)}
-.center .cuc{font-size:.95rem;color:var(--ink)}.center .row{font-size:.82rem;color:var(--ink2)}
-.center .chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
-.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:.75rem;color:var(--mute)}
-.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
-details{margin:8px 0;border:1px solid var(--line2);border-radius:10px;background:var(--panel);padding:10px 14px}
-summary{cursor:pointer;color:var(--ink2);font-size:.9rem}summary:hover{color:var(--gold)}
-details[open]{border-color:var(--line)}details>div,details ol{font-size:.85rem;color:var(--ink2)}
-.bad{color:var(--neg)}pre{white-space:pre-wrap;font:inherit;margin:0;color:var(--ink2)}
-#trace{font:.75rem/1.5 ui-monospace,Menlo,monospace;color:var(--mute);max-height:420px;overflow:auto}
-#yout p{color:var(--ink2)}#yout b{color:var(--gold);font-weight:500}
-@media(max-width:860px){.pillars{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){main{padding:32px 14px 64px}#grid{grid-template-columns:repeat(2,1fr)}.center{grid-column:1/3;grid-row:auto}}
-</style></head><body><main>
-<header class="hero"><h1>Tử Vi <span>·</span> Bát Tự</h1><div class="orn">命 · 理</div><p class="lede">Bộ máy tính toán và suy luận có thể kiểm chứng, không dùng AI. Đây là diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay bằng chứng khoa học. Toàn bộ quy tắc luận giải hiện là <b>bản nháp chưa xác minh nguồn</b>.</p></header>
-<form id="f" class="card">
-<label>Năm<input name="year" type="number" value="1990"></label><label>Tháng<input name="month" type="number" value="5"></label>
-<label>Ngày<input name="day" type="number" value="17"></label><label>Giờ<input name="hour" type="number" value="10"></label>
-<label>Phút<input name="minute" type="number" value="30"></label>
-<label>Giới tính<select name="gender"><option value="male">Nam</option><option value="female">Nữ</option></select></label>
-<label>Múi giờ (IANA)<input name="tz" value="Asia/Ho_Chi_Minh"></label>
-<label>Lịch<select name="calendar"><option value="vn">Việt Nam</option><option value="cn">Trung Quốc</option></select></label>
-<label>Giờ Tý (23h)<select name="zi_rule"><option value="early_zi_next_day">Sang ngày mới</option><option value="late_zi_same_day">Cùng ngày</option></select></label>
-<label>Kinh độ (nếu dùng giờ mặt trời)<input name="longitude" type="number" step="any" placeholder="106.7"></label>
-<label>Độ sâu (1-5)<input name="level" type="number" min="1" max="5" value="3"></label>
-<button>Lập lá số</button></form>
-<div id="err" class="bad"></div>
-<section id="out" hidden>
-<h2>Bát Tự</h2><div id="bazi"></div>
-<h2>Tử Vi <span class="note">(nhấn vào cung để xem tam phương tứ chính)</span></h2><div id="tuvi"></div>
-<h2>Vận hạn theo năm</h2><div class="card"><label>Năm: <b id="yv" style="color:var(--gold);font:600 1.2rem var(--serif)"></b><input id="yr" type="range" style="width:100%"></label><div id="yout"></div></div>
-<h2>Khám phá suy luận</h2><div id="reason"></div>
-<h2>Vết tính toán</h2><details><summary>CalculationTrace</summary><pre id="trace"></pre></details>
-</section></main>
-<script>
-const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-let req={};
-async function post(u,b){const r=await fetch(u,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(b)});
- const j=await r.json();if(!r.ok)throw new Error(typeof j.detail==='string'?j.detail:JSON.stringify(j.detail));return j}
-function readForm(){const o={};new FormData($('#f')).forEach((v,k)=>{if(v==='')return;o[k]=['year','month','day','hour','minute','level'].includes(k)?+v:(k==='longitude'?+v:v)});
- if(o.longitude!=null)o.use_true_solar_time=true;return o}
-$('#f').onsubmit=async e=>{e.preventDefault();$('#err').textContent='';req=readForm();
- try{const[c,r]=await Promise.all([post('/api/chart',req),post('/api/reasoning',req)]);
- $('#out').hidden=false;drawBazi(c.bazi);drawTuvi(c.tuvi);drawReason(r);
- $('#trace').textContent=JSON.stringify({normalization:c.normalization_trace.steps,bazi:c.bazi.trace.steps,tuvi:c.tuvi.trace.steps},null,1);
- const y=$('#yr');y.min=req.year;y.max=req.year+100;y.value=req.year+30;y.oninput=()=>year(+y.value);year(+y.value)}
- catch(x){$('#err').textContent='Lỗi: '+x.message}};
-const POS=new Set(['Tả Phụ','Hữu Bật','Văn Xương','Văn Khúc','Thiên Khôi','Thiên Việt','Lộc Tồn','Thiên Quan','Thiên Phúc','Thiên Đức','Nguyệt Đức','Long Trì','Phượng Các','Tam Thai','Bát Tọa','Bát Tòa','Ân Quang','Thiên Quý','Giải Thần','Thiên Giải','Địa Giải','Thiên Y','Hồng Loan','Thiên Hỷ','Hóa Lộc','Hóa Quyền','Hóa Khoa','Thanh Long','Hoa Cái','Quốc Ấn','Đường Phù','Phúc Đức','Thiên Tài','Thiên Thọ','Phong Cáo','Thái Phụ']);
-const NEG=new Set(['Kình Dương','Đà La','Hỏa Tinh','Linh Tinh','Địa Không','Địa Kiếp','Hóa Kỵ','Thiên Hình','Thiên Riêu','Đại Hao','Tiểu Hao','Kiếp Sát','Thiên Không','Cô Thần','Quả Tú','Bệnh Phù','Tang Môn','Bạch Hổ','Điếu Khách','Thiên Khốc','Thiên Hư','Phi Liêm','Quan Phù','Tử Phù','Phục Binh','Quan Phủ','Thiên Thương','Thiên Sứ','Lưu Hà']);
-const cls=s=>POS.has(s)?' s-pos':NEG.has(s)?' s-neg':'';
-function drawBazi(b){const L={year:'Năm',month:'Tháng',day:'Ngày',hour:'Giờ'};
- const pil=Object.entries(b.pillars).map(([k,p])=>{const [st,...br]=p.name.split(' ');const dm=k==='day';
-  return `<div class="pillar${dm?' dm':''}"><div class="plabel">${L[k]}</div><div class="gz"><span class="stem">${esc(st)}</span> <span class="branch">${esc(br.join(' '))}</span></div>${dm?'<div class="dmtag">NHẬT CHỦ</div>':`<div class="tg">${esc(p.stem_ten_god||'')}</div>`}<span class="stage">${esc(p.stage_vs_day_master)}</span><div class="hid"><div class="hl-t">Tàng can</div>${p.hidden.map(x=>`<div><span>${esc(x.name)}</span> <small>${esc(x.ten_god)}</small></div>`).join('')}</div></div>`}).join('');
- let h='<div class="pillars">'+pil+'</div>';
- h+=`<div class="summary"><div class="stat"><div class="k">Nhật Chủ</div><div class="v g">${esc(b.day_master_element)}</div></div><div class="stat"><div class="k">Đại vận</div><div class="v">${esc(b.luck_direction)}</div></div><div class="stat"><div class="k">Khởi vận</div><div class="v">${b.luck_start.years} năm ${b.luck_start.months} tháng</div></div></div>`;
- h+='<div class="luck">'+b.luck_pillars.map(l=>`<span class="chip"><b>${esc(l.name)}</b>${Math.round(l.start_age)} tuổi</span>`).join('')+'</div>';
- const rel=Object.entries(b.relations).filter(([k,v])=>v.length);h+='<details><summary>Quan hệ Can Chi (chỉ là dữ kiện, chưa xét hóa)</summary>'+(rel.length?rel.map(([k,v])=>`<div><b>${esc(k)}</b>: ${esc(JSON.stringify(v))}</div>`).join(''):'Không có')+'</details>';$('#bazi').innerHTML=h}
-const ORDER=[5,6,7,8,4,null,null,9,3,null,null,10,2,1,0,11];
-function drawTuvi(t){const by=Object.fromEntries(t.palaces.map(p=>[p.branch_index,p]));
- const cell=i=>{const p=by[i];const maj=p.major_stars.map(s=>`<span class="maj${cls(s)}">${esc(s)}</span>`).join('');const min=p.stars.filter(s=>!p.major_stars.includes(s)).map(s=>`<span class="${cls(s).trim()}">${esc(s)}</span>`).join('');
- const tags=(p.is_than?'<span class="tag than">Thân</span>':'')+(p.tuan?'<span class="tag">Tuần</span>':'')+(p.triet?'<span class="tag">Triệt</span>':'');
- return `<div class="pal" data-i="${i}"><div class="ph"><div class="pname">${esc(p.name)}</div><div class="pgz">${esc(p.stem)}<br>${esc(p.branch)}</div></div>${tags?`<div class="tags">${tags}</div>`:''}<div class="majs">${maj||'<span class="vcd">vô chính diệu</span>'}</div><div class="mins">${min}</div></div>`};
- let h='<div id="grid">';let c=0;ORDER.forEach(i=>{if(i===null){if(c++===0)h+=`<div class="center"><div class="note">LÁ SỐ</div><div class="gzy">${esc(t.year_gz)}</div><div class="cuc">${esc(t.cuc.name)}</div><div class="chips"><span class="chip">Bản mệnh ${esc(t.menh_nap_am)}</span><span class="chip">${esc(t.menh_cuc_relation)}</span></div><div class="row">${esc(t.yin_yang_gender)} · đại hạn ${esc(t.dai_han_direction)}</div><div class="row">Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap?' (nhuận)':''}</div><div class="note">Chưa hỗ trợ: ${esc(t.unsupported.join('; '))}</div></div>`}else h+=cell(i)});
- $('#tuvi').innerHTML=h+'</div><div class="legend"><span><i style="background:var(--ink)"></i>Chính tinh</span><span><i style="background:var(--pos)"></i>Cát tinh</span><span><i style="background:var(--neg)"></i>Sát/hung tinh</span><span><i style="background:var(--mute)"></i>Phụ tinh</span></div><p class="note">Trường phái: '+esc(t.school.schoolId)+' — trạng thái: <b>'+esc(t.school.review_status)+'</b></p>';
- document.querySelectorAll('.pal').forEach(e=>e.onclick=()=>{const i=+e.dataset.i;document.querySelectorAll('.pal').forEach(x=>x.classList.remove('hl','rel'));
-  e.classList.add('hl');[(i+4)%12,(i+8)%12,(i+6)%12].forEach(j=>document.querySelector(`.pal[data-i="${j}"]`).classList.add('rel'))})}
-async function year(y){$('#yv').textContent=y;try{const r=await post('/api/year',{...req,to_year:y});const b=r.bazi,t=r.tuvi;
- $('#yout').innerHTML=`<p><b>Bát Tự</b> — lưu niên ${b.annual_pillar} (${b.annual_stem_ten_god}), đại vận ${b.luck_pillar||'chưa khởi'} ${b.luck_stem_ten_god?'('+b.luck_stem_ten_god+')':''}<br>Tương tác với nguyên cục: ${b.annual_vs_natal.concat(b.luck_vs_natal).map(x=>x.from+' '+x.kind+' trụ '+x.with).join('; ')||'không có'}</p>
- <p><b>Tử Vi</b> — tuổi ${t.age_tuoi_mu}, đại hạn ${t.dai_han?t.dai_han.palace+' ('+t.dai_han.age_from+'-'+t.dai_han.age_to+')':'chưa vào'}, lưu Thái Tuế tại cung ${t.luu_thai_tue_palace}<br>Lưu Tứ Hóa: ${Object.entries(t.luu_tu_hoa).map(([k,v])=>k+' '+v.star+(v.natal_palace?' (cung '+v.natal_palace+')':'')).join('; ')}</p><p class="note">Đây là các dữ kiện cấu trúc, không phải dự đoán sự kiện.</p>`}catch(x){$('#yout').textContent=x.message}}
-function drawReason(r){let h='';if(r.pack_problems.length)h+='<p class="bad">'+esc(r.pack_problems.join('; '))+'</p>';
- for(const[s,d]of Object.entries(r.systems)){h+=`<h3>${s==='tu_vi'?'Tử Vi':'Bát Tự'}</h3><div class="card"><pre>${esc(d.text)}</pre></div>`;
-  d.findings.forEach(f=>{h+=`<details><summary>${esc(f.claim)} @ ${esc(f.subject)} — ${f.status} (${f.basis})</summary><div>Quy tắc: ${f.rule_id}</div><div>Chuỗi suy luận ngược: <ol>${f.why.chain.map(c=>'<li>'+esc(c)+'</li>').join('')}</ol></div><div>Phản biện: ${f.why.opposed_by.map(esc).join('; ')||'không có'}</div></details>`});
-  if(d.pending.length)h+=`<details><summary>${d.pending.length} quy tắc chưa đủ dữ kiện</summary>${d.pending.map(p=>esc(p.rule+' @'+p.subject+' thiếu '+p.missing_facts.join(','))).join('<br>')}</details>`}
- $('#reason').innerHTML=h}
-</script></body></html>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body data-view="home">
+<a class="skip" href="#main">Bỏ qua điều hướng</a>
+
+<header class="site-header" id="site-header">
+  <div class="wrap hdr">
+    <a class="brand" href="#" data-go="hero" aria-label="Thiên Bàn — trang chủ"><span data-brand="sm"></span><span class="brand-t"><b>Thiên Bàn</b><small>Tử Vi · Bát Tự</small></span></a>
+    <nav class="nav" id="nav" aria-label="Điều hướng chính">
+      <a href="#kham-pha" data-go="kham-pha">Khám phá</a>
+      <a href="#lap-la-so" data-go="lap-la-so">Lập lá số</a>
+      <a href="#tu-vi" data-go="tu-vi">Tử Vi</a>
+      <a href="#bat-tu" data-go="bat-tu">Bát Tự</a>
+      <a href="#thu-vien" data-go="thu-vien">Thư viện</a>
+      <a href="#gioi-thieu" data-go="gioi-thieu">Giới thiệu</a>
+    </nav>
+    <a class="btn btn-sm hdr-cta" href="#lap-la-so" data-go="lap-la-so">Lập lá số</a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Mở menu"><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-scrim" id="nav-scrim"></div>
+
+<main id="main">
+<!-- ================= HOME ================= -->
+<div id="home">
+  <section class="hero" id="hero" aria-labelledby="hero-h">
+    <svg class="hero-bg" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <symbol id="vc" viewBox="0 0 120 56"><path d="M8 46h86a12 12 0 000-24 10 10 0 00-1.5.1A18 18 0 0059 14a16 16 0 00-27 8 11 11 0 00-24 24z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M94 46c8 0 14-5 14-11s-5-9-10-8-6 7-1 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M38 34c0-5 7-6 8 0M62 28c0-5 8-6 9 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+      </defs>
+      <g class="hb-arcs" fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="1090" cy="410" r="260"/><circle cx="1090" cy="410" r="380"/><circle cx="1090" cy="410" r="520" stroke-dasharray="2 8"/><circle cx="1090" cy="410" r="700"/>
+        <path d="M1090 -300V1120M390 410H1790M600 -90L1580 930M600 930L1580 -90" opacity=".55"/>
+      </g>
+      <g class="hb-cloud"><use href="#vc" x="60" y="620" width="240" height="112"/><use href="#vc" x="250" y="700" width="170" height="80"/><use href="#vc" x="720" y="40" width="190" height="90"/><use href="#vc" x="1200" y="690" width="260" height="122"/></g>
+    </svg>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow">Tử Vi Đẩu Số · Bát Tự</p>
+        <h1 id="hero-h">Giữa trời đất,<br><em>mỗi người</em> một lá số.</h1>
+        <p class="hero-lead">Khám phá Tử Vi và Bát Tự qua những nguyên lý Can Chi, Ngũ Hành và hệ thống luận giải có thể truy vết.</p>
+        <div class="hero-cta"><a class="btn" href="#lap-la-so" data-go="lap-la-so">Lập lá số của bạn</a><a class="btn btn-ghost" href="#hai-he-thong" data-go="hai-he-thong">Khám phá phương pháp</a></div>
+        <ul class="hero-facts"><li><b>Không dùng AI</b>mọi kết quả đều tính theo quy tắc</li><li><b>Không lưu dữ liệu</b>ngày giờ sinh chỉ xử lý tức thời</li><li><b>Truy vết được</b>mỗi nhận định có chuỗi lý do</li></ul>
+      </div>
+      <div class="hero-art"><div id="hero-compass" class="compass-wrap"></div><p class="caption">Mười hai Địa chi, mười Thiên can và năm Hành trên một mặt la bàn.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== Lập lá số ===== -->
+  <section class="create" id="lap-la-so" aria-labelledby="create-h">
+    <div class="wrap create-in">
+      <div class="create-copy reveal">
+        <p class="eyebrow">Bắt đầu</p>
+        <h2 id="create-h">Lập lá số<br>từ giờ sinh của bạn</h2>
+        <p>Chỉ cần ngày, giờ, giới tính và nơi sinh. Các thiết lập kỹ thuật đã có giá trị mặc định hợp lý và nằm ở phần nâng cao.</p>
+        <ul class="steps-mini"><li><span>1</span>Chuẩn hóa múi giờ và lịch pháp</li><li><span>2</span>Tính Bát Tự và Tử Vi độc lập</li><li><span>3</span>Đối chiếu quy tắc và nguồn</li></ul>
+        <button type="button" class="link" id="sample-btn">Hoặc xem lá số mẫu (17/05/1990, 10:30)</button>
+      </div>
+      <form id="birth-form" class="bform reveal" novalidate>
+        <fieldset class="f-set">
+          <legend>Ngày sinh</legend>
+          <div class="seg seg-wide" role="group" aria-label="Loại lịch nhập"><button type="button" aria-pressed="true">Dương lịch</button><button type="button" aria-pressed="false" disabled title="Hiện hệ thống nhận ngày dương lịch và tự quy đổi sang âm lịch.">Âm lịch (sắp có)</button></div>
+          <div class="f-row f-3">
+            <label class="fld"><span>Ngày</span><div class="sel"><select name="day" aria-label="Ngày sinh"></select></div></label>
+            <label class="fld"><span>Tháng</span><div class="sel"><select name="month" aria-label="Tháng sinh"></select></div></label>
+            <label class="fld"><span>Năm</span><input name="year" type="number" inputmode="numeric" min="1900" max="2049" value="1990" aria-label="Năm sinh"></label>
+          </div>
+          <p class="help">Bạn nhập ngày dương lịch. Hệ thống tự quy đổi sang âm lịch.</p>
+        </fieldset>
+        <div class="f-row f-2">
+          <label class="fld"><span>Giờ sinh</span><input name="time" type="time" value="10:30" required><em id="hour-hint" class="hint"></em></label>
+          <fieldset class="fld fld-radio"><legend>Giới tính</legend>
+            <div class="seg" role="radiogroup"><label><input type="radio" name="gender" value="male" checked><span>Nam</span></label><label><input type="radio" name="gender" value="female"><span>Nữ</span></label></div></fieldset>
+        </div>
+        <label class="fld"><span>Nơi sinh</span><div class="sel"><select name="place"></select></div><em class="hint">Dùng để xác định múi giờ và, nếu bạn chọn, giờ mặt trời thực.</em></label>
+        <label class="fld" id="tz-other" hidden><span>Múi giờ (IANA)</span><input name="tz" value="Asia/Ho_Chi_Minh" placeholder="vd. Europe/Paris"><em class="hint">Tên múi giờ theo chuẩn IANA, ví dụ America/Los_Angeles.</em></label>
+
+        <details class="adv">
+          <summary>Cài đặt luận số nâng cao<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+          <div class="adv-b">
+            <label class="fld"><span>Quy ước giờ Tý (23h–1h)</span><div class="sel"><select name="zi_rule"><option value="early_zi_next_day">Sang ngày mới từ 23h (Tý sớm)</option><option value="late_zi_same_day">Cùng ngày đến hết 24h (Tý muộn)</option></select></div></label>
+            <label class="fld"><span>Trường phái lịch âm</span><div class="sel"><select name="calsys"><option value="vn">Việt Nam (múi giờ UTC+7)</option><option value="cn">Trung Quốc (UTC+8)</option></select></div></label>
+            <label class="chk"><input type="checkbox" id="solar"><span>Dùng giờ mặt trời thực<small>Hiệu chỉnh theo kinh độ nơi sinh</small></span></label>
+            <label class="fld" id="lon-wrap" hidden><span>Kinh độ (độ Đông)</span><input name="longitude" type="number" step="any" value="106.66"></label>
+            <label class="fld"><span>Độ sâu luận giải</span><div class="sel"><select name="level"><option value="1">1 · Tóm lược</option><option value="2">2 · Cơ bản</option><option value="3" selected>3 · Chuẩn</option><option value="4">4 · Chi tiết</option><option value="5">5 · Đầy đủ</option></select></div></label>
+          </div>
+        </details>
+        <div id="form-err" role="alert" hidden></div>
+        <button class="btn btn-lg" id="submit-btn" type="submit"><span class="btn-t">Lập lá số</span><span class="btn-spin" aria-hidden="true"></span></button>
+        <p class="privacy">Ngày giờ sinh chỉ được xử lý trong bộ nhớ để lập lá số và không được lưu lại.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Hai hệ thống ===== -->
+  <section class="duo" id="hai-he-thong" aria-labelledby="duo-h">
+    <div class="wrap">
+      <header class="sec-h reveal"><p class="eyebrow">Hai hệ thống</p><h2 id="duo-h">Hai góc nhìn<br>về cùng một thời điểm sinh</h2></header>
+      <div class="duo-grid">
+        <article class="duo-a reveal" id="tu-vi-intro">
+          <span class="duo-no" aria-hidden="true" lang="zh">紫微</span>
+          <div class="duo-art" aria-hidden="true">
+            <svg viewBox="0 0 240 240"><g fill="none" stroke="currentColor" stroke-width="1.3"><rect x="10" y="10" width="220" height="220" rx="6"/><path d="M10 65H230M10 175H230M65 10V65M120 10V65M175 10V65M65 175V230M120 175V230M175 175V230M10 65V175M65 65V175M175 65V175M230 65V175"/><rect x="65" y="65" width="110" height="110" fill="var(--parchment)" stroke="var(--cinnabar)"/><circle cx="120" cy="120" r="30"/><circle cx="120" cy="120" r="4" fill="var(--cinnabar)" stroke="none"/><path d="M120 90V150M90 120H150" opacity=".4"/></g></svg>
+          </div>
+          <h3>Tử Vi Đẩu Số</h3>
+          <p class="duo-t">Một bản đồ mười hai cung đặt các sao lên mười hai Địa chi. Mỗi cung là một lĩnh vực của đời sống; quan hệ giữa các cung (tam phương tứ chính) làm nên cấu trúc của lá số.</p>
+          <ul class="tags"><li>12 cung</li><li>Chính tinh và phụ tinh</li><li>Đại hạn</li></ul>
+          <a class="link" href="#lap-la-so" data-go="lap-la-so">Lập lá số Tử Vi</a>
+        </article>
+        <article class="duo-b reveal" id="bat-tu-intro">
+          <span class="duo-no" aria-hidden="true" lang="zh">八字</span>
+          <div class="duo-art" aria-hidden="true">
+            <svg viewBox="0 0 240 240"><g font-family="'Songti SC','Noto Serif TC',serif" text-anchor="middle"><g stroke="currentColor" stroke-width="1.2" fill="none"><rect x="14" y="30" width="46" height="180" rx="5"/><rect x="72" y="30" width="46" height="180" rx="5"/><rect x="130" y="30" width="46" height="180" rx="5" stroke="var(--brass)" stroke-width="2"/><rect x="188" y="30" width="38" height="180" rx="5"/></g>
+              <g font-size="28" fill="currentColor"><text x="37" y="90">庚</text><text x="95" y="90">辛</text><text x="153" y="90" fill="var(--brass)">壬</text><text x="207" y="90">乙</text><text x="37" y="170">午</text><text x="95" y="170">巳</text><text x="153" y="170">午</text><text x="207" y="170">巳</text></g></g></svg>
+          </div>
+          <h3>Bát Tự</h3>
+          <p class="duo-t">Bốn trụ Năm, Tháng, Ngày, Giờ, mỗi trụ gồm một Can và một Chi: tám chữ. Nhật Chủ, tức Thiên can của trụ Ngày, là điểm quy chiếu để xét các quan hệ Ngũ Hành và Thập Thần.</p>
+          <ul class="tags"><li>4 trụ · 8 chữ</li><li>Thập Thần</li><li>Đại vận</li></ul>
+          <a class="link" href="#lap-la-so" data-go="lap-la-so">Lập lá số Bát Tự</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Quy trình ===== -->
+  <section class="flow" id="quy-trinh" aria-labelledby="flow-h">
+    <div class="wrap">
+      <header class="sec-h reveal"><p class="eyebrow">Quy trình</p><h2 id="flow-h">Một lá số được hình thành<br>như thế nào?</h2></header>
+      <ol class="flow-list">
+        <li class="reveal"><span class="fl-n">01</span><h3>Dữ liệu sinh</h3><p>Ngày, giờ và nơi sinh được quy về một thời điểm chuẩn theo múi giờ IANA, kể cả giờ mùa hè lịch sử.</p></li>
+        <li class="reveal"><span class="fl-n">02</span><h3>Lịch pháp</h3><p>Tính âm lịch và các tiết khí từ vị trí thiên văn, rồi xác định Can Chi của năm, tháng, ngày, giờ.</p></li>
+        <li class="reveal"><span class="fl-n">03</span><h3>Lá số</h3><p>An bốn trụ Bát Tự và các sao trên mười hai cung Tử Vi theo quy tắc đã ghi rõ trường phái.</p></li>
+        <li class="reveal"><span class="fl-n">04</span><h3>Quan hệ</h3><p>Xác định hợp, xung, hại, phá, hình, sinh khắc và tam phương tứ chính giữa các thành phần.</p></li>
+        <li class="reveal"><span class="fl-n">05</span><h3>Luận giải</h3><p>Quy tắc truyền thống được áp lên dữ kiện, mỗi nhận định đều đi kèm chuỗi lý do và nguồn.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Ngũ Hành ===== -->
+  <section class="five" id="kham-pha" aria-labelledby="five-h">
+    <div class="wrap five-in">
+      <div class="five-copy reveal">
+        <p class="eyebrow">Khám phá</p>
+        <h2 id="five-h">Ngũ Hành,<br>năm chuyển động</h2>
+        <p>Mộc, Hỏa, Thổ, Kim, Thủy không phải năm “chất liệu” mà là năm kiểu vận động nối với nhau bằng hai vòng: <b>sinh</b> nuôi dưỡng, <b>khắc</b> chế ước. Chọn một hành để xem nó nối với những gì.</p>
+        <p class="muted small">Mỗi hành luôn có màu, ký hiệu hình học và chữ Hán đi kèm để dễ phân biệt, không chỉ dựa vào màu.</p>
+      </div>
+      <div class="five-fig reveal" id="home-fe"></div>
+    </div>
+  </section>
+
+  <!-- ===== Bên trong một lá số ===== -->
+  <section class="inside" id="ben-trong" aria-labelledby="in-h">
+    <div class="wrap">
+      <header class="sec-h sec-h-dark reveal"><p class="eyebrow">Bên trong một lá số</p><h2 id="in-h">Giữ nguyên bố cục truyền thống,<br>thêm khả năng đọc hiểu</h2></header>
+      <div class="inside-grid">
+        <div class="mock reveal" aria-hidden="true">
+          <div class="mock-board">
+            <div class="mc">Tỵ</div><div class="mc">Ngọ</div><div class="mc">Mùi</div><div class="mc">Thân</div>
+            <div class="mc">Thìn</div><div class="mc-center"><i></i><b>Mệnh · Cục</b><small>Bản mệnh · Nhật Chủ</small></div><div class="mc">Dậu</div>
+            <div class="mc">Mão</div><div class="mc">Tuất</div>
+            <div class="mc">Dần</div><div class="mc">Sửu</div><div class="mc">Tý</div><div class="mc">Hợi</div>
+          </div>
+        </div>
+        <ul class="inside-notes">
+          <li class="reveal"><b>Chạm vào một cung</b>Tam phương tứ chính sáng lên, các đường nối cho thấy cung nào đang tương tác với cung nào.</li>
+          <li class="reveal"><b>Ngăn chi tiết bên cạnh</b>Sao được chia theo chính tinh, cát tinh, sát tinh và phụ tinh; Tứ Hóa và đại hạn hiện ngay tại cung.</li>
+          <li class="reveal"><b>Hỏi “vì sao?”</b>Mỗi nhận định có thể mở ra chuỗi suy luận ngược: dữ kiện, quy tắc, nguồn.</li>
+          <li class="reveal"><b>Trên điện thoại</b>Có chế độ tổng quan dạng danh sách, và toàn bộ lá số có thể kéo ngang để xem.</li>
+        </ul>
+      </div>
+      <div class="center-cta reveal"><button class="btn btn-light" type="button" onclick="document.getElementById('sample-btn').click()">Xem một lá số thật</button></div>
+    </div>
+  </section>
+
+  <!-- ===== Minh bạch ===== -->
+  <section class="trace" id="minh-bach" aria-labelledby="tr-h">
+    <div class="wrap trace-in">
+      <div class="trace-copy reveal"><p class="eyebrow">Minh bạch</p><h2 id="tr-h">Không chỉ là kết luận</h2>
+        <p>Phần lớn các trang lá số đưa ra câu chữ mà bạn không thể kiểm chứng. Ở đây, mỗi nhận định đều nối ngược về quy tắc đã sinh ra nó, nguồn của quy tắc đó, và dữ kiện trên lá số của bạn.</p>
+        <p>Quy tắc nháp, chưa xác minh nguồn luôn được ghi rõ là nháp. Khi hai quy tắc đối lập nhau mà nguồn chưa nêu thứ tự ưu tiên, hệ thống nói “chưa thể kết luận” thay vì chọn một bên.</p></div>
+      <figure class="trace-fig reveal" aria-label="Ví dụ chuỗi suy luận">
+        <ol class="tf">
+          <li class="tf-find"><span>Nhận định</span><b>Cách Sát – Phá – Tham tại một cung</b></li>
+          <li class="tf-rule"><span>Quy tắc</span><b>TV_STRUCT_SAT_PHA_THAM_001</b><em>bản nháp</em></li>
+          <li class="tf-src"><span>Nguồn</span><b>Tử Vi Đẩu Số Tân Biên</b><em>chưa xác minh</em></li>
+          <li class="tf-fact"><span>Dữ kiện</span><b>Thất Sát, Phá Quân, Tham Lang cùng nằm trong tam phương tứ chính</b></li>
+        </ol>
+        <figcaption>Một chuỗi suy luận ngược có thật trong hệ thống, đọc từ trên xuống.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== Thư viện ===== -->
+  <section class="lib" id="thu-vien" aria-labelledby="lib-h">
+    <div class="wrap">
+      <header class="sec-h reveal"><p class="eyebrow">Thư viện mệnh lý</p><h2 id="lib-h">Những khái niệm nền tảng</h2></header>
+      <div class="lib-grid">
+        <button class="lib-feat reveal" data-lib="ngu-hanh" type="button"><span class="lib-k">Khái niệm</span><span class="lib-t">Tương sinh, tương khắc:<br>hai vòng của Ngũ Hành</span><span class="lib-d">Vì sao sinh không phải lúc nào cũng tốt và khắc không phải lúc nào cũng xấu.</span><span class="lib-m">Đọc 2 phút →</span></button>
+        <ul class="lib-list">
+          <li class="reveal"><button type="button" data-lib="can-chi"><span class="lib-no">01</span><span><b>Can Chi và vòng sáu mươi</b><small>Mười Thiên can, mười hai Địa chi</small></span></button></li>
+          <li class="reveal"><button type="button" data-lib="tam-phuong"><span class="lib-no">02</span><span><b>Tam phương tứ chính</b><small>Cách đọc một cung trong Tử Vi</small></span></button></li>
+          <li class="reveal"><button type="button" data-lib="tuan-triet"><span class="lib-no">03</span><span><b>Tuần và Triệt</b><small>Hai dấu hiệu đặc biệt trên lá số</small></span></button></li>
+          <li class="reveal"><button type="button" data-lib="gio-ty"><span class="lib-no">04</span><span><b>Giờ Tý và ngày mới</b><small>Vì sao 23h có hai cách tính</small></span></button></li>
+          <li class="reveal"><button type="button" data-lib="tiet-khi"><span class="lib-no">05</span><span><b>Tiết khí và tháng Bát Tự</b><small>Tháng không bắt đầu từ mùng một</small></span></button></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="about" id="gioi-thieu" aria-labelledby="ab-h">
+    <div class="wrap about-in">
+      <div class="reveal"><p class="eyebrow">Giới thiệu</p><h2 id="ab-h">Một công cụ để đọc,<br>không phải để tin mù quáng</h2></div>
+      <div class="about-t reveal">
+        <p>Thiên Bàn tính Tử Vi và Bát Tự bằng quy tắc xác định, kiểm thử được, không dùng mô hình AI để “bịa” luận giải. Mọi thứ hiển thị đều đến từ một bước tính hoặc một quy tắc có thể truy vết.</p>
+        <p><b>Đây là diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán, và không phải bằng chứng khoa học về số phận.</b> Toàn bộ quy tắc luận giải hiện là bản nháp chưa xác minh đầy đủ nguồn, và được ghi rõ như vậy trên từng nhận định.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="fin-h">
+    <div class="wrap final-in reveal"><div class="final-art" id="foot-compass" aria-hidden="true"></div><div><h2 id="fin-h">Lá số của bạn đang chờ<br>được mở ra</h2><p>Chỉ mất chưa đến một phút.</p><a class="btn btn-light" href="#lap-la-so" data-go="lap-la-so">Lập lá số của bạn</a></div></div>
+  </section>
+</div>
+
+<!-- ================= CHART RESULT ================= -->
+<div id="chart-view">
+  <section class="res-head">
+    <div class="wrap">
+      <p class="eyebrow">Lá số của bạn</p>
+      <h1>Lá số đã được lập</h1>
+      <div class="res-sub" id="res-sub"></div>
+      <div class="res-hl" id="res-hl"></div>
+      <div class="res-act"><button class="btn btn-ghost btn-sm" id="again" type="button">← Lập lá số khác</button></div>
+    </div>
+  </section>
+  <nav class="res-nav" aria-label="Các phần của lá số"><div class="wrap"><a href="#bat-tu" data-go="bat-tu">Bát Tự</a><a href="#tu-vi" data-go="tu-vi">Tử Vi</a><a href="#luan-giai" data-go="luan-giai">Luận giải</a></div></nav>
+
+  <section class="r-sec r-bazi" id="bazi" aria-labelledby="bz-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Phần I</p><h2 id="bz-h">Bát Tự</h2><p class="sec-sub">Bốn trụ, tám chữ và quan hệ Ngũ Hành giữa chúng.</p></header><div id="bazi-host"></div></div></section>
+  <section class="r-sec r-tuvi" id="tuvi" aria-labelledby="tv-h"><div class="wrap"><header class="sec-h sec-h-dark"><p class="eyebrow">Phần II</p><h2 id="tv-h">Tử Vi Đẩu Số</h2><p class="sec-sub">Nhấn vào một cung để xem tam phương tứ chính.</p></header><div id="tuvi-host"></div></div></section>
+  <section class="r-sec r-report" id="report" aria-labelledby="rp-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Phần III</p><h2 id="rp-h">Luận giải</h2><p class="sec-sub">Dữ kiện tính toán và diễn giải truyền thống luôn được tách riêng.</p></header><div id="report-host"></div></div></section>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div class="foot-brand"><span data-brand="lg"></span><div><b>Thiên Bàn</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div></div>
+    <p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Dữ liệu ngày giờ sinh không được lưu.</p>
+  </div>
+</footer>
+
+<dialog id="lib-dlg" class="dlg"><form method="dialog"><p class="eyebrow">Thư viện</p><h3 id="lib-t"></h3><p id="lib-b" class="lib-body"></p><button class="btn btn-ghost">Đóng</button></form></dialog>
+<div id="loading" class="loading" hidden role="status" aria-live="polite"><div class="loading-in"><div class="compass-wrap spin-slow" id="load-compass"></div><p>Đang lập lá số…</p></div></div>
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+{
+ "source": "SRC_THUC_HANH",
+ "levels": [
+  "miếu",
+  "vượng",
+  "đắc",
+  "bình",
+  "hãm"
+ ],
+ "note": "Transcribed from the verse headers of each star in Tử Vi Thực Hành. A branch not listed is UNSPECIFIED (not assumed). Disputed: Tham Lang Tý/Ngọ (Khảo Luận p.~100 prose calls Tý Ngọ hãm; Thực Hành says bình). Ambiguous in print: Phá Quân 'Cùng là Mão Dậu' read as hãm, Liêm Trinh 'Cùng là Dậu Mão' read as hãm.",
+ "stars": {
+  "Tử Vi": {
+   "locator": "p.29",
+   "levels": {
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Dần": "miếu",
+    "Thân": "miếu",
+    "Thìn": "vượng",
+    "Tuất": "vượng",
+    "Sửu": "đắc",
+    "Mùi": "đắc",
+    "Tỵ": "bình",
+    "Hợi": "bình",
+    "Mão": "bình",
+    "Dậu": "bình"
+   }
+  },
+  "Thiên Cơ": {
+   "locator": "p.30",
+   "levels": {
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Mão": "vượng",
+    "Dậu": "vượng",
+    "Dần": "vượng",
+    "Thân": "vượng",
+    "Tỵ": "bình",
+    "Hợi": "bình",
+    "Thìn": "bình",
+    "Tuất": "bình",
+    "Sửu": "hãm",
+    "Mùi": "hãm"
+   }
+  },
+  "Thái Dương": {
+   "locator": "p.31",
+   "levels": {
+    "Mão": "miếu",
+    "Ngọ": "vượng",
+    "Tỵ": "vượng",
+    "Thìn": "vượng",
+    "Dần": "vượng",
+    "Dậu": "bình",
+    "Tuất": "hãm",
+    "Hợi": "hãm",
+    "Tý": "hãm",
+    "Sửu": "hãm"
+   }
+  },
+  "Vũ Khúc": {
+   "locator": "p.34 (prose only: miếu Sửu Mùi Thìn Tuất; hãm Tỵ Hợi; Mão Dậu 'khá' unclassified)",
+   "levels": {
+    "Sửu": "miếu",
+    "Mùi": "miếu",
+    "Thìn": "miếu",
+    "Tuất": "miếu",
+    "Tỵ": "hãm",
+    "Hợi": "hãm"
+   }
+  },
+  "Thiên Đồng": {
+   "locator": "p.35",
+   "levels": {
+    "Tỵ": "miếu",
+    "Hợi": "miếu",
+    "Tý": "vượng",
+    "Thân": "vượng",
+    "Mão": "bình",
+    "Dậu": "bình",
+    "Tuất": "bình",
+    "Thìn": "bình",
+    "Dần": "đắc",
+    "Ngọ": "hãm",
+    "Mùi": "hãm",
+    "Sửu": "hãm"
+   }
+  },
+  "Liêm Trinh": {
+   "locator": "p.36",
+   "levels": {
+    "Dần": "miếu",
+    "Thân": "miếu",
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Thìn": "vượng",
+    "Tuất": "vượng",
+    "Sửu": "vượng",
+    "Mùi": "vượng",
+    "Tỵ": "hãm",
+    "Hợi": "hãm",
+    "Dậu": "hãm",
+    "Mão": "hãm"
+   }
+  },
+  "Thiên Phủ": {
+   "locator": "p.37",
+   "levels": {
+    "Sửu": "miếu",
+    "Mùi": "miếu",
+    "Thìn": "miếu",
+    "Tuất": "miếu",
+    "Mão": "miếu",
+    "Tý": "vượng",
+    "Ngọ": "vượng",
+    "Dậu": "đắc",
+    "Tỵ": "đắc",
+    "Hợi": "đắc",
+    "Dần": "đắc",
+    "Thân": "đắc"
+   }
+  },
+  "Thái Âm": {
+   "locator": "p.39",
+   "levels": {
+    "Hợi": "miếu",
+    "Tý": "miếu",
+    "Sửu": "miếu",
+    "Dậu": "vượng",
+    "Tuất": "vượng",
+    "Mùi": "đắc",
+    "Thân": "đắc",
+    "Dần": "hãm",
+    "Mão": "hãm",
+    "Thìn": "hãm",
+    "Tỵ": "hãm",
+    "Ngọ": "hãm"
+   }
+  },
+  "Tham Lang": {
+   "locator": "p.40",
+   "levels": {
+    "Sửu": "miếu",
+    "Mùi": "miếu",
+    "Thìn": "miếu",
+    "Tuất": "miếu",
+    "Dần": "đắc",
+    "Thân": "đắc",
+    "Tý": "bình",
+    "Ngọ": "bình",
+    "Mão": "hãm",
+    "Dậu": "hãm",
+    "Tỵ": "hãm",
+    "Hợi": "hãm"
+   }
+  },
+  "Cự Môn": {
+   "locator": "p.42",
+   "levels": {
+    "Mão": "miếu",
+    "Dậu": "miếu",
+    "Tý": "vượng",
+    "Ngọ": "vượng",
+    "Dần": "vượng",
+    "Thân": "đắc",
+    "Hợi": "đắc",
+    "Thìn": "hãm",
+    "Tuất": "hãm",
+    "Sửu": "hãm",
+    "Mùi": "hãm",
+    "Tỵ": "hãm"
+   }
+  },
+  "Thiên Tướng": {
+   "locator": "p.44",
+   "levels": {
+    "Dần": "miếu",
+    "Thân": "miếu",
+    "Tý": "vượng",
+    "Ngọ": "vượng",
+    "Tuất": "vượng",
+    "Thìn": "vượng",
+    "Tỵ": "đắc",
+    "Hợi": "đắc",
+    "Sửu": "đắc",
+    "Mùi": "đắc",
+    "Mão": "hãm",
+    "Dậu": "hãm"
+   }
+  },
+  "Thiên Lương": {
+   "locator": "p.45",
+   "levels": {
+    "Ngọ": "miếu",
+    "Tuất": "miếu",
+    "Thìn": "miếu",
+    "Tý": "vượng",
+    "Mão": "vượng",
+    "Dần": "vượng",
+    "Thân": "vượng",
+    "Mùi": "đắc",
+    "Sửu": "đắc",
+    "Tỵ": "hãm",
+    "Hợi": "hãm",
+    "Dậu": "hãm"
+   }
+  },
+  "Thất Sát": {
+   "locator": "p.46",
+   "levels": {
+    "Dần": "miếu",
+    "Thân": "miếu",
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Tỵ": "vượng",
+    "Hợi": "vượng",
+    "Sửu": "đắc",
+    "Mùi": "đắc",
+    "Mão": "hãm",
+    "Dậu": "hãm",
+    "Thìn": "hãm",
+    "Tuất": "hãm"
+   }
+  },
+  "Phá Quân": {
+   "locator": "pp.47-48",
+   "levels": {
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Mùi": "vượng",
+    "Sửu": "vượng",
+    "Thìn": "đắc",
+    "Tuất": "đắc",
+    "Tỵ": "bình",
+    "Hợi": "bình",
+    "Dần": "hãm",
+    "Thân": "hãm",
+    "Mão": "hãm",
+    "Dậu": "hãm"
+   }
+  }
+ }
+}

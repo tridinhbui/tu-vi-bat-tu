@@ -1,0 +1,997 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_TH_CO_TOT_THONG_MINH_MUU_TRI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thiên Cơ in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.dignity.Thiên Cơ",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "co_tot_thong_minh_muu_tri",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CO_HAM_KEM_NHANH_VAN_DU_AN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thiên Cơ in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.dignity.Thiên Cơ",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "co_ham_kem_nhanh_van_du_an",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_DUONG_TOT_THONG_MINH_NHAN_HAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thái Dương in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.33]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.dignity.Thái Dương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "duong_tot_thong_minh_nhan_hau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_DUONG_HAM_NGANG_GAN_VAT_VA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thái Dương in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.33]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.dignity.Thái Dương",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "duong_ham_ngang_gan_vat_va",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VU_TOT_CHI_LON_KINH_DOANH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Vũ Khúc in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.34]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.dignity.Vũ Khúc",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_tot_chi_lon_kinh_doanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_VU_HAM_LAO_DAO_TAI_DANH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Vũ Khúc in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.34]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.dignity.Vũ Khúc",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_ham_lao_dao_tai_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_DONG_TOT_NHAN_HAU_HAY_DOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thiên Đồng in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.35]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Đồng",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dong_tot_nhan_hau_hay_doi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_DONG_HAM_NONG_CAN_KHAM_KHO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thiên Đồng in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.36]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Đồng",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dong_ham_nong_can_kham_kho",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_LIEM_TOT_THANG_THAN_NGHIEM_NGHI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Liêm Trinh in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.37]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.dignity.Liêm Trinh",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_tot_thang_than_nghiem_nghi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_LIEM_HAM_KHAC_NGHIET_LO_TOAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Liêm Trinh in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.37]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.dignity.Liêm Trinh",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_ham_khac_nghiet_lo_toan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_AM_TOT_HIEN_HOA_VAN_CHUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thái Âm in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.40]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.dignity.Thái Âm",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_tot_hien_hoa_van_chuong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_AM_HAM_UONG_NGANH_NGAM_VINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thái Âm in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.40]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.dignity.Thái Âm",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_ham_uong_nganh_ngam_vinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_THAM_TOT_HIEU_THANG_HOAT_DONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Tham Lang in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.42]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.dignity.Tham Lang",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tham_tot_hieu_thang_hoat_dong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_THAM_HAM_YEM_THE_TU_HANH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Tham Lang in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.42]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.dignity.Tham Lang",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tham_ham_yem_the_tu_hanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CU_TOT_THONG_MINH_NGON_NGU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Cự Môn in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.43]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.dignity.Cự Môn",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_tot_thong_minh_ngon_ngu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CU_HAM_GIAN_XAO_DA_NGHI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Cự Môn in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.43]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.dignity.Cự Môn",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_ham_gian_xao_da_nghi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_TUONG_TOT_UY_NGHI_DON_HAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thiên Tướng in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.44]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Tướng",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_tot_uy_nghi_don_hau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_LUONG_TOT_KHOAN_HOA_THO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thiên Lương in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.46]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.dignity.Thiên Lương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_tot_khoan_hoa_tho",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_LUONG_HAM_PHONG_DANG_PHIEU_LUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thiên Lương in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.46]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.dignity.Thiên Lương",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_ham_phong_dang_phieu_luu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_SAT_TOT_DUNG_MANH_MUU_CO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thất Sát in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.47]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "palace.dignity.Thất Sát",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "sat_tot_dung_manh_muu_co",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_SAT_HAM_HUNG_BAO_KHOAC_LAC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Thất Sát in hãm position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.47]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "palace.dignity.Thất Sát",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "sat_ham_hung_bao_khoac_lac",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_PHA_TOT_CUONG_NGHI_TU_DAC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_dignity",
+   "description": "Mệnh seated by Phá Quân in miếu/vượng/đắc position (dignity from SRC_THUC_HANH pp.29-48): the book's temperament reading, paraphrased [TH p.48]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.dignity.Phá Quân",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "pha_tot_cuong_nghi_tu_dac",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}

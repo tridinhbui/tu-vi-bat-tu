@@ -1,0 +1,710 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "BT_ZZ_P25_GIÁP",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Giáp: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Giáp"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_giáp",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_GIÁP",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Giáp: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Giáp"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_giáp",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P25_ẤT",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Ất: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Ất"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_ất",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_ẤT",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Ất: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Ất"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_ất",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P25_BÍNH",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Bính: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Bính"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_bính",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_BÍNH",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Bính: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Bính"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_bính",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P25_ĐINH",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Đinh: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Đinh"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_đinh",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_ĐINH",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Đinh: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Đinh"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_đinh",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P25_MẬU",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Mậu: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Mậu"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_mậu",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_MẬU",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Mậu: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Mậu"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_mậu",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P25_KỶ",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Kỷ: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Kỷ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_kỷ",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_KỶ",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Kỷ: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Kỷ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_kỷ",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P25_CANH",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Canh: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Canh"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_canh",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_CANH",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Canh: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Canh"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_canh",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P25_TÂN",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Tân: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Tân"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_tân",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_TÂN",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Tân: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Tân"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_tân",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P25_NHÂM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Nhâm: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Nhâm"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_nhâm",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_NHÂM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Nhâm: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Nhâm"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_nhâm",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P25_QUÝ",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Quý: character reading of the 八字真宗 manual, paraphrased [PDF p.25 日干临十神直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Quý"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_lam_thap_than_quý",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_P26_QUÝ",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_master_character",
+   "description": "Day master Quý: character reading of the 八字真宗 manual, paraphrased [PDF p.26 日干五行直断]",
+   "conditions": {
+    "fact": "bazi.day_master_stem",
+    "value": "Quý"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ri_gan_ngu_hanh_quý",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_MISSING_MỘC",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "element_balance",
+   "description": "Element Mộc absent from the eight visible characters (4 stems + 4 branches; hidden stems NOT counted — our operationalisation of the manual's 缺) [PDF pp.26-27]",
+   "conditions": {
+    "fact": "bazi.missing_elements",
+    "operator": "contains",
+    "value": "Mộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_thieu_hanh_mộc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_MISSING_HỎA",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "element_balance",
+   "description": "Element Hỏa absent from the eight visible characters (4 stems + 4 branches; hidden stems NOT counted — our operationalisation of the manual's 缺) [PDF pp.26-27]",
+   "conditions": {
+    "fact": "bazi.missing_elements",
+    "operator": "contains",
+    "value": "Hỏa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_thieu_hanh_hỏa",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_MISSING_THỔ",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "element_balance",
+   "description": "Element Thổ absent from the eight visible characters (4 stems + 4 branches; hidden stems NOT counted — our operationalisation of the manual's 缺) [PDF pp.26-27]",
+   "conditions": {
+    "fact": "bazi.missing_elements",
+    "operator": "contains",
+    "value": "Thổ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_thieu_hanh_thổ",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_MISSING_KIM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "element_balance",
+   "description": "Element Kim absent from the eight visible characters (4 stems + 4 branches; hidden stems NOT counted — our operationalisation of the manual's 缺) [PDF pp.26-27]",
+   "conditions": {
+    "fact": "bazi.missing_elements",
+    "operator": "contains",
+    "value": "Kim"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_thieu_hanh_kim",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_MISSING_THỦY",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "element_balance",
+   "description": "Element Thủy absent from the eight visible characters (4 stems + 4 branches; hidden stems NOT counted — our operationalisation of the manual's 缺) [PDF pp.26-27]",
+   "conditions": {
+    "fact": "bazi.missing_elements",
+    "operator": "contains",
+    "value": "Thủy"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_thieu_hanh_thủy",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  }
+ ]
+}

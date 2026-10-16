@@ -27,7 +27,12 @@ cd engine && ../.venv/bin/python -m pytest -q
 - **Interpretation rules encoded so far** (`engine/data/pack_khao_luan.json`, all paraphrased with page cites, source Tử Vi Khảo Luận pp.50-51, 166-167):
   star-group classification (verified, structural) and 6 hedged Mệnh-palace readings (4 verified, 2 draft because they need our own operationalisation of
   'cát tinh'/'gặp sát'). Harm-prediction aphorisms (prison, suicide, early death) are deliberately skipped.
-- Not supported: miếu/hãm brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, Bát Tự thai nguyên/mệnh cung, lunar-date input.
+- **Star brightness** (miếu/vượng/đắc/bình/hãm) for the 14 chính tinh is now transcribed from Tử Vi Thực Hành pp.29-48
+  (`engine/data/dignity_vn.json`); unlisted branches stay *unspecified* (Vũ Khúc and Thái Dương have gaps). Disputed: Tham Lang Tý/Ngọ vs Khảo Luận.
+  22 dignity-gated Mệnh temperament rules (`pack_thuc_hanh.json`, verified) and 25 Bát Tự rules from 八字真宗 (`pack_bazi_zhenzong.json`:
+  10 day-master tables ×2 verified, 5 missing-element rules draft). Generator: `tools/build_packs.py`. Manual's 强旺弱中和 element states are NOT
+  implemented (the book gives no computable thresholds).
+- Not supported: minor-star brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, Bát Tự thai nguyên/mệnh cung, lunar-date input.
 - Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
   (injury, death, children) are intentionally not implemented.
 
