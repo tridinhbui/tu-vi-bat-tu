@@ -69,6 +69,8 @@ export function renderBazi(host, b, ctx) {
       </div>
       <aside class="bz-el card-soft" aria-labelledby="bz-el-t"><h3 id="bz-el-t">Ngũ hành trong lá số</h3><p class="muted small">Đếm 8 chữ trên bốn trụ. Chọn một hành để thấy nó nằm ở đâu.</p><div id="bz-fe"></div></aside>
     </div>
+    <section class="bz-read" aria-labelledby="bz-read-t"><p class="eyebrow">Diễn giải truyền thống</p><h3 id="bz-read-t">Đọc lá số Bát Tự</h3>
+      ${findings ? `<div class="bz-read-g">${findings}</div><p class="muted small">Cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Mở “Vì sao quy tắc này khớp?” để xem quy tắc và nguồn.</p>` : notice('Chưa có quy tắc nào được kích hoạt cho lá số này', 'Bộ quy tắc Bát Tự hiện hành chưa phủ tới lá số này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</section>
     <div class="bz-tl"><h3>Đại vận</h3>${tl}</div>
     <div class="accs">
       ${acc('Nguyệt Lệnh', 'Tháng sinh và mùa của lá số', `<p>Nguyệt lệnh là địa chi của tháng sinh (<b>${esc(BRANCHES[month.branch].n)}</b>, hành ${BRANCHES[month.branch].e}). Nhật Chủ ${esc(dmS.n)} ở trạng thái <b>${esc(month.stage_vs_day_master)}</b> tại tháng này.</p><p class="muted">Tháng Bát Tự đổi theo <i>tiết</i> trong 24 tiết khí chứ không theo mùng một âm lịch. Tiết gần nhất trước giờ sinh: <b>${new Date(b.jie_used.prev_jie_utc).toLocaleDateString('vi-VN', { timeZone: ctx.req.tz || 'Asia/Ho_Chi_Minh', day: 'numeric', month: 'numeric', year: 'numeric' })}</b>.</p>`)}
@@ -78,7 +80,7 @@ export function renderBazi(host, b, ctx) {
       ${acc('Đại Vận & lưu niên', 'Chọn một năm để xem cấu trúc vận', '<div id="bz-year"></div>')}
       ${acc('Cách Cục', 'Phân loại cấu trúc của lá số', notice('Chưa có quy tắc đã xác minh', 'Việc xác định cách cục cần bộ quy tắc đã đối chiếu nguồn, hiện chưa có. Hệ thống không đoán để tránh đưa ra kết luận thiếu căn cứ.'))}
       ${acc('Dụng Thần', 'Hành cần cân bằng cho lá số', notice('Chưa có quy tắc đã xác minh', 'Dụng thần phụ thuộc vào cách cục và nhiều trường phái khác nhau. Mục này sẽ được mở khi có quy tắc đã xác minh nguồn.'))}
-      ${acc('Reasoning Explorer', 'Các nhận định và chuỗi suy luận của Bát Tự', findings || notice('Chưa có nhận định nào được kích hoạt', 'Không có quy tắc Bát Tự nào trong bộ hiện hành khớp với lá số này.'))}
+      ${acc('Reasoning Explorer', 'Văn bản luận giải do bộ máy sinh từ các nhận định', bat?.findings?.length ? `<pre class="prose-pre">${esc(bat.text)}</pre>` : notice('Chưa có nhận định nào được kích hoạt', 'Không có quy tắc Bát Tự nào trong bộ hiện hành khớp với lá số này.'))}
     </div>`;
 
   const pillars = $$('.pillar', host);

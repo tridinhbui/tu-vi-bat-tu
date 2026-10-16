@@ -350,3 +350,4 @@ input[type=range]{height:28px;padding:0;border:0;background:transparent;accent-c
 .dr-in .finding-card{background:var(--surface);border:1px solid var(--bd);border-radius:12px;padding:14px}.dr-in .finding-card .acc{background:var(--indigo)}
 .ch-trad .finding-card{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
 .lib-more{margin:var(--s6) 0 0;text-align:right}
+.bz-read{margin-top:var(--s7)}.bz-read h3{font-size:1.8rem;margin-bottom:var(--s4)}.bz-read-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px}.bz-read .finding-card{margin:0;background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
