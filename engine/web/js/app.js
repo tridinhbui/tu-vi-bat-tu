@@ -23,6 +23,7 @@ function setTab(tab, scroll = true) {
   $('#chart-view').dataset.tab = tab;
   $$('.res-tabs button').forEach(b => { const on = b.id === 'tab-' + tab; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
   if (scroll) scrollTo({ top: 0 });
+  requestAnimationFrame(() => dispatchEvent(new Event('resize')));
 }
 function go(id) {
   const tabs = { 'bat-tu': 'bazi', 'tu-vi': 'tuvi' };

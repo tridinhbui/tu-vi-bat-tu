@@ -48,9 +48,9 @@ const WITH = { year: 'trụ Năm', month: 'trụ Tháng', day: 'trụ Ngày', ho
 
 /** YearExplorer — "lưu niên" structure for any chosen year. Facts only, no predictions. */
 export function yearExplorer(host, req, bazi, side = null) {
-  const y0 = req.year, now = new Date().getFullYear();
+  const uid = Math.random().toString(36).slice(2, 7), y0 = req.year, now = new Date().getFullYear();
   const start = Math.min(Math.max(now, y0), y0 + 100);
-  host.innerHTML = `<div class="yx"><div class="yx-bar"><label for="yx-r">Chọn năm</label><output class="yx-y"></output><input id="yx-r" type="range" min="${y0}" max="${y0 + 100}" value="${start}"></div><div class="yx-out" aria-live="polite"></div></div>`;
+  host.innerHTML = `<div class="yx"><div class="yx-bar"><label for="yx-r${uid}">Chọn năm</label><output class="yx-y"></output><input id="yx-r${uid}" type="range" min="${y0}" max="${y0 + 100}" value="${start}"></div><div class="yx-out" aria-live="polite"></div></div>`;
   const r = $('input', host), out = $('.yx-out', host), yv = $('.yx-y', host);
   let seq = 0;
   async function load(y) {
