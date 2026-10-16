@@ -68,6 +68,14 @@ def year(req: BirthReq):
     return {"bazi": temporal.bazi_year(bz, req.year, y), "tuvi": temporal.tuvi_year(tv, y)}
 
 
+def _why_vi(why: dict) -> dict:
+    """Adds chain_vi: the same chain with fact nodes written in Vietnamese (other nodes unchanged)."""
+    from .nlg.generate import pretty_fact
+    kinds = list(why.get("kinds", {}).values())
+    why["chain_vi"] = [pretty_fact(c) if (kinds[i] if i < len(kinds) else "") == "fact" else c for i, c in enumerate(why["chain"])]
+    return why
+
+
 @app.post("/api/reasoning")
 def reasoning(req: BirthReq):
     nb, bz, tv = _compute(req)
@@ -84,7 +92,7 @@ def reasoning(req: BirthReq):
         res = engine.run(rules, sources, base, system=system)
         interps = nlg.build_interpretations(res, rules, sources)
         out["systems"][system] = {
-            "findings": [{**dataclasses.asdict(f), "why": res.why(f.id)} for f in res.findings],
+            "findings": [{**dataclasses.asdict(f), "why": _why_vi(res.why(f.id))} for f in res.findings],
             "pending": res.pending[:20], "blocked": res.blocked, "conflicts": res.conflicts,
             "text": nlg.render(nlg.realize(interps, req.level)),
         }

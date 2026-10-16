@@ -56,6 +56,7 @@ FACT_VI = {
     "palace.tam_phuong_tu_hoa": "Tứ Hóa trong tam phương: {v}",
     "palace.sat_pha_tham_in_tam_phuong": "Thất Sát, Phá Quân, Tham Lang cùng nằm trong tam phương",
     "bazi.day_master_stem": "Nhật Chủ là {v}", "bazi.missing_elements": "tám chữ nhìn thấy vắng hành: {v}",
+    "palace.own_stars": "các sao trong cung: {v}", "palace.tu_hoa": "sao hóa trong cung: {v}",
     "bazi.dm_has_root": "Nhật Chủ có căn trong tàng can", "bazi.dm_element": "hành Nhật Chủ: {v}",
 }
 GROUP_VI = {"tu_phu_vu_tuong": "Tử – Phủ – Vũ – Tướng", "sat_pha_liem_tham": "Sát – Phá – Liêm – Tham",
@@ -74,6 +75,12 @@ def pretty_fact(label: str) -> str:
         val = v
     if isinstance(val, list):
         val = ", ".join(val) if val else "không có"
+    if k == "palace.tuan":
+        return "cung có Tuần" if val else "cung không có Tuần"
+    if k == "palace.triet":
+        return "cung có Triệt" if val else "cung không có Triệt"
+    if k.startswith("palace.dignity."):
+        return f"độ sáng của {k.split('.', 2)[2]}: {val}"
     if k.startswith("derived.group."):
         return f"thuộc nhóm sao {GROUP_VI.get(k.rsplit('.', 1)[1], k)}"
     tpl = FACT_VI.get(k)

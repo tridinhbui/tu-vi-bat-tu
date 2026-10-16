@@ -40,6 +40,8 @@ cd engine && ../.venv/bin/python -m pytest -q
   downgraded to draft (mixed schools are not verified). 15 verse-aphorism rules for Mệnh/Tài Bạch/Thiên Di/Tử Tức (`pack_thuc_hanh_palaces.json`).
 - **Rule library & tester**: `/library` (read-only list of rules, sources, brightness disagreement) and `POST /api/rules/test` (stateless validate + dry-run;
   nothing stored, no code executed). Publishing a rule = committing it to a pack file.
+- **Structure analysis** (`engine/tvbt/analysis.py`, `POST /api/analysis`): per-chapter layered prose (Tượng/Khí/Thế/Cách/Biến/Phản/Tổng) built from the computed charts,
+  each block tagged tính toán / theo sách (with page) / định nghĩa hệ thống. 31 more star-combination rules (`pack_thuc_hanh_combos.json`), tiểu hạn and lưu nguyệt (Bát Tự) in the year view.
 - Not supported: minor-star brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, Bát Tự thai nguyên/mệnh cung, lunar-date input.
 - Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
   (injury, death, children) are intentionally not implemented.

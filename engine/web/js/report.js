@@ -2,6 +2,12 @@
 import { $, $$, esc, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip } from './util.js';
 import { acc, notice, reasoningPanel, timeline, yearExplorer, findingCard } from './ui.js';
 
+const LAYER_HINT = { 'Tượng': 'ý nghĩa biểu tượng', 'Khí': 'điều kiện mạnh yếu', 'Thế': 'vị trí trong cấu trúc', 'Cách': 'cách cục', 'Dụng': 'vai trò theo lĩnh vực', 'Biến': 'biến đổi theo thời gian', 'Phản': 'yếu tố đối trọng', 'Tổng': 'tổng hợp' };
+const BASIS = { tinh_toan: ['Tính toán', 'dữ kiện lập từ lá số'], sach: ['Theo sách', 'có trích dẫn trang'], he_thong: ['Định nghĩa của hệ thống', 'cách hệ thống chọn để mô tả; không phải lời sách'] };
+function analysisHtml(blocks) {
+  if (!blocks?.length) return '';
+  return `<div class="ch-an"><p class="eyebrow">Phân tích cấu trúc</p>${blocks.map(b => `<p class="an-p"><span class="an-tag" title="${esc(LAYER_HINT[b.layer] || '')}">${esc(b.layer)}</span>${esc(b.text)}<span class="an-meta"><span class="an-b an-${b.basis}" title="${esc(BASIS[b.basis][1])}">${BASIS[b.basis][0]}</span>${(b.src || []).map(x => `<span class="an-src">${esc(x)}</span>`).join('')}</span></p>`).join('')}</div>`;
+}
 const pad = n => String(n).padStart(2, '0');
 
 function inferenceGraph(f) {
@@ -75,7 +81,7 @@ export function renderReport(host, chart, ctx) {
     <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li><a href="#ch-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
     <div class="rp-body">${chapters.map((c, i) => {
       const fs = fsFor(c.id);
-      return `<article class="chapter" id="ch-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${c.calc || ''}${c.leftover ? (fs.length ? trad(fs) : '') : c.trad && typeof c.trad === 'string' && c.trad.startsWith('<div class="ch-trad">') ? c.trad : c.trad ? `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${c.trad}</div>` : trad(fs)}</article>`;
+      return `<article class="chapter" id="ch-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${analysisHtml(ctx.analysis?.[c.id])}${c.calc || ''}${c.leftover ? (fs.length ? trad(fs) : '') : c.trad && typeof c.trad === 'string' && c.trad.startsWith('<div class="ch-trad">') ? c.trad : c.trad ? `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${c.trad}</div>` : trad(fs)}</article>`;
     }).join('')}</div></div>`;
 
   yearExplorer($('#rp-year', host), ctx.req, b);

@@ -58,3 +58,10 @@ def test_endpoint_and_lưu_nguyệt():
     assert months[0]["jie"] == "Lập Xuân" and len(months) == 12
     y = c.post("/api/year", json={**B, "to_year": 2024}).json()
     assert len(y["bazi"]["months"]) == 12 and y["tuvi"]["tieu_han_palace"]
+
+
+def test_reasoning_chain_has_vietnamese_fact_labels():
+    r = c.post("/api/reasoning", json=B).json()
+    f = r["systems"]["tu_vi"]["findings"][0]
+    assert len(f["why"]["chain_vi"]) == len(f["why"]["chain"])
+    assert not any(x.startswith(("palace.", "derived.")) for x in f["why"]["chain_vi"])

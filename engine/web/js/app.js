@@ -91,8 +91,8 @@ async function generate(ev) {
   }
   btn.disabled = true; btn.classList.add('busy'); $('#loading').hidden = false;
   try {
-    const [chart, reason] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), metaReady]);
-    state = { req, chart, reason };
+    const [chart, reason, analysis] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), metaReady]);
+    state = { req, chart, reason, analysis };
     showResults();
   } catch (x) {
     err.innerHTML = notice('Chưa lập được lá số', esc(x.message), 'warn'); err.hidden = false;
@@ -103,8 +103,8 @@ form.onsubmit = generate;
 $('#sample-btn').onclick = () => generate();
 
 function showResults() {
-  const { req, chart, reason } = state;
-  const ctx = { req, reason, chartRaw: chart, openPalace: name => { $('#tuvi').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => state.tv.select(name), 350); } };
+  const { req, chart, reason, analysis } = state;
+  const ctx = { req, reason, analysis: analysis.chapters, chartRaw: chart, openPalace: name => { $('#tuvi').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => state.tv.select(name), 350); } };
   renderBazi($('#bazi-host'), chart.bazi, ctx);
   const tv = renderTuvi($('#tuvi-host'), chart.tuvi, ctx);
   state.tv = tv; ctx.tv = tv;

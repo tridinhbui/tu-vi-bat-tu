@@ -351,3 +351,33 @@ input[type=range]{height:28px;padding:0;border:0;background:transparent;accent-c
 .ch-trad .finding-card{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
 .lib-more{margin:var(--s6) 0 0;text-align:right}
 .bz-read{margin-top:var(--s7)}.bz-read h3{font-size:1.8rem;margin-bottom:var(--s4)}.bz-read-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:12px}.bz-read .finding-card{margin:0;background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+
+/* ---- structure analysis blocks (layered prose) ---- */
+.ch-an{margin-top:var(--s5);padding-left:20px;border-left:2px solid var(--gold)}.ch-an .eyebrow{margin-bottom:12px;color:var(--gold)}
+.an-p{display:block;margin:0 0 16px;font:400 1.02rem/1.7 var(--serif);color:var(--text)}
+.an-tag{display:inline-block;vertical-align:baseline;margin-right:8px;padding:1px 9px;border:1px solid var(--brass);border-radius:999px;font:600 .66rem/1.6 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:var(--raise)}
+.an-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.an-b,.an-src{display:inline-block;padding:1px 8px;border-radius:6px;font:500 .7rem/1.6 var(--sans);color:var(--muted);border:1px solid var(--line)}
+.an-sach{color:var(--pos);border-color:color-mix(in srgb,var(--pos) 45%,transparent)}.an-he_thong{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+/* monthly pillars */
+.yx-months{margin-top:var(--s4)}.yx-mo{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px}
+.yx-mo li{display:grid;gap:1px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--raise)}.mo-j{font:600 .62rem var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.yx-mo b{font:500 1.05rem var(--serif)}.yx-mo em{font-style:normal;font-size:.8rem;color:var(--accent)}.mo-n{font-size:.72rem;color:var(--text2)}
+/* mobile fixes */
+.finding-card .eyebrow{line-height:1.7}.finding-card .eyebrow .ref{font-size:.82rem;letter-spacing:0;text-transform:none;vertical-align:baseline;line-height:1.3}
+.finding-card .why h5,.why h5{font:600 .68rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px;line-height:1.5}
+.rn-t,.chain code,.why code{overflow-wrap:anywhere;word-break:normal}
+.chapter{scroll-margin-top:190px}
+@media(max-width:980px){
+  .rp-toc ol{scrollbar-width:none}.rp-toc ol::-webkit-scrollbar{display:none}
+  .rp-toc{box-shadow:0 8px 12px -10px rgba(0,0,0,.25)}
+  .ch-an,.ch-calc,.ch-trad{padding-left:14px}.an-p{font-size:1rem}
+  .rn{flex-wrap:wrap;gap:4px 10px}.rn-k{min-width:0}
+}
+@media(max-width:600px){
+  .chapter header{gap:10px}.chapter h3{font-size:1.7rem}
+  .finding-card .eyebrow{font-size:.62rem;letter-spacing:.1em}
+  .yx-mo{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .why-h{gap:4px}.why-h .badge{font-size:.66rem}
+  .plist li{grid-template-columns:1fr}
+}
