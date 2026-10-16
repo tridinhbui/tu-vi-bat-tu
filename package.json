@@ -1,0 +1,7 @@
+{
+  "name": "tu-vi-bat-tu",
+  "private": true,
+  "scripts": { "deploy": "wrangler deploy", "dev": "wrangler dev" },
+  "dependencies": { "@cloudflare/containers": "latest" },
+  "devDependencies": { "wrangler": "^4", "typescript": "^5", "@cloudflare/workers-types": "latest" }
+}

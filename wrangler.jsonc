@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "tu-vi-bat-tu",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-13",
+  "containers": [
+    { "class_name": "TvbtContainer", "image": "./Dockerfile", "max_instances": 3 }
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "TVBT", "class_name": "TvbtContainer" }]
+  },
+  "exports": {
+    "TvbtContainer": { "type": "durable-object", "storage": "sqlite" }
+  }
+}
