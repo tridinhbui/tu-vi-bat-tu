@@ -2,6 +2,7 @@
 import { $, $$, esc, STEMS, BRANCHES, EL, ELEMENTS, elChip, elIcon, PILLAR_LABEL, tenGodGroup, TEN_GOD_GROUPS } from './util.js';
 import { fiveElements } from './elements.js';
 import { acc, notice, timeline, yearExplorer, findingCard } from './ui.js';
+import { elementBalanceHtml, godDistributionHtml } from './insights.js';
 
 const ORDER = ['year', 'month', 'day', 'hour'];
 
@@ -70,6 +71,7 @@ export function renderBazi(host, b, ctx) {
       <aside class="bz-el card-soft" aria-labelledby="bz-el-t"><h3 id="bz-el-t">Ngũ hành trong lá số</h3><p class="muted small">Đếm 8 chữ trên bốn trụ. Chọn một hành để thấy nó nằm ở đâu.</p><div id="bz-fe"></div></aside>
     </div>
     <section class="bz-read" aria-labelledby="bz-read-t"><p class="eyebrow">Diễn giải truyền thống</p><h3 id="bz-read-t">Đọc lá số Bát Tự</h3>
+      <div class="bz-facts"><div class="card-soft"><p class="eyebrow">Dữ kiện tính toán</p><h4>Cân bằng Ngũ Hành</h4>${elementBalanceHtml(b)}</div><div class="card-soft"><p class="eyebrow">Dữ kiện tính toán</p><h4>Phân bố Thập Thần</h4>${godDistributionHtml(b)}</div></div>
       ${findings ? `<div class="bz-read-g">${findings}</div><p class="muted small">Cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Mở “Vì sao quy tắc này khớp?” để xem quy tắc và nguồn.</p>` : notice('Chưa có quy tắc nào được kích hoạt cho lá số này', 'Bộ quy tắc Bát Tự hiện hành chưa phủ tới lá số này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</section>
     <div class="bz-tl"><h3>Đại vận</h3>${tl}</div>
     <div class="accs">

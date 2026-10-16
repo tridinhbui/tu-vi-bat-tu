@@ -1,6 +1,7 @@
 // InterpretationSection chapters: calculations and traditional readings kept visibly separate.
 import { $, $$, esc, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip } from './util.js';
 import { acc, notice, reasoningPanel, timeline, yearExplorer, findingCard } from './ui.js';
+import { elementBalanceHtml, godDistributionHtml, menhTamPhuongHtml, currentPhaseHtml } from './insights.js';
 
 const LAYER_HINT = { 'Tượng': 'ý nghĩa biểu tượng', 'Khí': 'điều kiện mạnh yếu', 'Thế': 'vị trí trong cấu trúc', 'Cách': 'cách cục', 'Dụng': 'vai trò theo lĩnh vực', 'Biến': 'biến đổi theo thời gian', 'Phản': 'yếu tố đối trọng', 'Tổng': 'tổng hợp' };
 const BASIS = { tinh_toan: ['Tính toán', 'dữ kiện lập từ lá số'], sach: ['Theo sách', 'có trích dẫn trang'], he_thong: ['Định nghĩa của hệ thống', 'cách hệ thống chọn để mô tả; không phải lời sách'] };
@@ -45,6 +46,12 @@ export function renderReport(host, chart, ctx) {
   const fsFor = id => allF.filter(f => chOf(f) === id);
   const where = f => { const pn = palaceOfSubject(f.subject); return pn ? `cung ${ref(pn)}` : 'toàn lá số'; };
   const trad = (fs, extraNote) => `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${fs.length ? fs.map(f => findingCard(f, where(f))).join('') + '<p class="muted small">Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán.</p>' : notice('Chưa có quy tắc nào được kích hoạt cho phần này', extraNote || 'Bộ quy tắc hiện hành chưa phủ tới nội dung này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</div>`;
+  const CH_TITLE = { 'ban-menh': 'Bản Mệnh', 'tinh-cach': 'Tính cách', 'cong-danh': 'Công danh', 'tai-bach': 'Tài Bạch', 'quan-he': 'Quan hệ', 'cach-cuc': 'Cách Cục', 'chuyen-sau': 'Luận giải chuyên sâu' };
+  const highlights = () => {
+    const ver = allF.filter(f => f.basis === 'verified'), dr = allF.length - ver.length;
+    const top = ver.filter(f => chOf(f) !== 'chuyen-sau').slice(0, 4);
+    return `<h5>Điểm nổi bật</h5><p class="hl-sum"><b>${allF.length}</b> nhận định được kích hoạt: <b>${ver.length}</b> từ quy tắc đã đối chiếu sách, <b>${dr}</b> từ quy tắc nháp.</p>${top.length ? `<ul class="hl-list">${top.map(f => `<li><button type="button" data-jump="${chOf(f)}"><span class="k">${CH_TITLE[chOf(f)]}</span><span>${esc(claimLabel(f.claim))}</span></button></li>`).join('')}</ul>` : ''}<h5>Giai đoạn hiện tại</h5>${currentPhaseHtml(b, t, ctx.req)}`;
+  };
   const calc = html => `<div class="ch-calc"><p class="eyebrow">Dữ kiện tính toán</p>${html}</div>`;
 
   const chapters = [
@@ -53,12 +60,12 @@ export function renderReport(host, chart, ctx) {
         <div><span class="k">Mệnh cung</span><b>${esc(tv.menh.stem)} ${esc(tv.menh.branch)}</b></div><div><span class="k">Thân cư</span><b>${esc(tv.than.name)}</b></div>
         <div><span class="k">Cục</span><b>${esc(t.cuc.name)}</b></div><div><span class="k">Bản mệnh</span><b>${esc(t.menh_nap_am)}</b></div>
         <div><span class="k">Nhật Chủ</span><b>${esc(dm.n)} ${dm.e}</b></div><div><span class="k">Nguyệt lệnh</span><b>${esc(BRANCHES[b.pillars.month.branch].n)}</b></div></div>
-        <p>Hai hệ thống được tính độc lập từ cùng một thời điểm sinh đã chuẩn hóa. Phần “dữ kiện tính toán” là kết quả quy tắc lịch pháp; phần “diễn giải truyền thống” luôn được tách riêng và ghi rõ trạng thái nguồn.</p>`),
+        ${highlights()}<p>Hai hệ thống được tính độc lập từ cùng một thời điểm sinh đã chuẩn hóa. Phần “dữ kiện tính toán” là kết quả quy tắc lịch pháp; phần “diễn giải truyền thống” luôn được tách riêng và ghi rõ trạng thái nguồn.</p>`),
       trad: notice('Về mức độ tin cậy', 'Mọi quy tắc luận giải hiện là bản nháp, chưa đối chiếu đủ nguồn. Hãy xem đây là cách đọc theo hệ biểu tượng, không phải kết luận.', 'info') },
     { id: 'ban-menh', title: 'Bản Mệnh', lead: `Bản mệnh ${esc(t.menh_nap_am)} thuộc hành ${esc(t.menh_element)}; ${esc(t.cuc.name)} thuộc hành ${esc(t.cuc.element)}.`,
-      calc: calc(`<p>Quan hệ giữa Cục và Mệnh: <b>${esc(t.menh_cuc_relation)}</b>.</p>${palaceList(['Mệnh'])}<h5>Tứ Hóa theo can năm</h5><ul class="plain">${tuHoa}</ul>`), refs: ['Mệnh'] },
+      calc: calc(`<p>Quan hệ giữa Cục và Mệnh: <b>${esc(t.menh_cuc_relation)}</b>.</p>${palaceList(['Mệnh'])}<h5>Tam phương tứ chính của cung Mệnh</h5>${menhTamPhuongHtml(t)}<h5>Tứ Hóa theo can năm</h5><ul class="plain">${tuHoa}</ul>`), refs: ['Mệnh'] },
     { id: 'tinh-cach', title: 'Tính cách', lead: `Nhìn từ cung Mệnh, Phúc Đức và Nhật Chủ ${esc(dm.n)} (${dm.e}).`,
-      calc: calc(`${palaceList(['Mệnh', 'Phúc Đức'])}<p>Nhật Chủ <b>${esc(dm.n)}</b> thuộc hành ${elChip(dm.e)}. Thập thần trên thiên can: ${esc(godCount(stemGods))}.</p>`), refs: ['Mệnh', 'Phúc Đức'] },
+      calc: calc(`${palaceList(['Mệnh', 'Phúc Đức'])}<p>Nhật Chủ <b>${esc(dm.n)}</b> thuộc hành ${elChip(dm.e)}. Thập thần trên thiên can: ${esc(godCount(stemGods))}.</p><h5>Cân bằng Ngũ Hành</h5>${elementBalanceHtml(b)}<h5>Phân bố Thập Thần</h5>${godDistributionHtml(b)}`), refs: ['Mệnh', 'Phúc Đức'] },
     { id: 'cong-danh', title: 'Công danh', lead: 'Cung Quan Lộc và vị trí đối xứng Thiên Di trong tam phương của Mệnh.',
       calc: calc(`${palaceList(['Quan Lộc', 'Thiên Di'])}<p>Trên Bát Tự, nhóm Quan Sát xuất hiện ${godCount(stemGods).includes('Quan Sát') ? '' : 'không '}trên thiên can; trong tàng can có ${hid('Quan Sát')} chữ thuộc nhóm này, ${hid('Ấn')} chữ thuộc nhóm Ấn.</p>`), refs: ['Quan Lộc', 'Thiên Di'] },
     { id: 'tai-bach', title: 'Tài Bạch', lead: 'Cung Tài Bạch, Điền Trạch và nhóm Tài trong Bát Tự.',
@@ -66,7 +73,7 @@ export function renderReport(host, chart, ctx) {
     { id: 'quan-he', title: 'Quan hệ', lead: 'Các cung liên quan đến người thân và các mối quan hệ.',
       calc: calc(`${palaceList(['Phu Thê', 'Tử Tức', 'Huynh Đệ', 'Phụ Mẫu', 'Nô Bộc'])}<p>Bát Tự có ${Object.values(b.relations).reduce((n, v) => n + v.length, 0)} quan hệ Can Chi giữa các trụ (hợp, xung, hại, phá, hình). Xem chi tiết trong mục <i>Quan hệ Can Chi</i> của phần Bát Tự.</p>`), refs: ['Phu Thê', 'Tử Tức', 'Huynh Đệ', 'Phụ Mẫu', 'Nô Bộc'] },
     { id: 'dai-van', title: 'Đại Vận', lead: `Đại vận ${esc(b.luck_direction)}, khởi vận khoảng ${b.luck_start.years} năm ${b.luck_start.months} tháng; đại hạn Tử Vi chạy ${esc(t.dai_han_direction)}.`,
-      calc: calc(`<h5>Đại hạn Tử Vi</h5>${tv.timelineHtml}<h5>Lưu niên</h5><div id="rp-year"></div>`), trad: notice('Không có diễn giải truyền thống cho phần này', 'Hệ thống chỉ trình bày cấu trúc thời gian; việc luận từng giai đoạn cần quy tắc đã xác minh.') },
+      calc: calc(`<h5>Giai đoạn hiện tại</h5>${currentPhaseHtml(b, t, ctx.req)}<h5>Đại hạn Tử Vi</h5>${tv.timelineHtml}<h5>Lưu niên</h5><div id="rp-year"></div>`), trad: notice('Không có diễn giải truyền thống cho phần này', 'Hệ thống chỉ trình bày cấu trúc thời gian; việc luận từng giai đoạn cần quy tắc đã xác minh.') },
     { id: 'cach-cuc', title: 'Cách Cục', lead: 'Các hình thái đặc biệt mà bộ quy tắc hiện hành có thể nhận ra.',
       calc: calc(`<p>Bát Tự: chưa có quy tắc cách cục đã xác minh. Các nhận định về cách cục bên dưới: ${fsFor('cach-cuc').length || 'không có'}.</p>`),
       trad: (() => { const fs = fsFor('cach-cuc'); return `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${fs.length ? `<button type="button" class="btn btn-ghost btn-sm" id="ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div id="ig-box" hidden>${inferenceGraph(fs[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên: dữ kiện và nguồn dẫn tới quy tắc, quy tắc dẫn tới nhận định.</p></div>${fs.map(f => findingCard(f, where(f))).join('')}` : notice('Không có cách cục nào được nhận ra', '')}</div>`; })() },
@@ -85,6 +92,7 @@ export function renderReport(host, chart, ctx) {
     }).join('')}</div></div>`;
 
   yearExplorer($('#rp-year', host), ctx.req, b);
+  $$('[data-jump]', host).forEach(r => r.onclick = () => $('#ch-' + r.dataset.jump, host).scrollIntoView({ behavior: 'smooth', block: 'start' }));
   $$('.ref', host).forEach(r => r.onclick = () => ctx.openPalace(r.dataset.palace));
   const tg = $('#ig-toggle', host); if (tg) tg.onclick = () => { const on = tg.getAttribute('aria-pressed') !== 'true'; tg.setAttribute('aria-pressed', on); $('#ig-box', host).hidden = !on; tg.textContent = on ? 'Ẩn đồ thị suy luận' : 'Xem đồ thị suy luận'; };
   // TOC highlight

@@ -65,7 +65,7 @@ export const SOURCES = { SRC_TVDS_TAN_BIEN: 'Tử Vi Đẩu Số Tân Biên', SR
 export const SRC_OK = {};
 const cap = t => t ? t[0].toUpperCase() + t.slice(1) : t;
 /** Vietnamese phrase for a claim id; falls back to a neutral prettified id (never invented prose). */
-export const claimPhrase = c => CLAIMS[c] || String(c).replace(/_/g, ' ');
+export const claimPhrase = (c, effect) => (effect === 'limit' && CLAIMS['limit:' + c]) || CLAIMS[c] || String(c).replace(/_/g, ' ');
 export const claimLabel = c => cap(claimPhrase(c));
 export async function loadMeta() {
   try {

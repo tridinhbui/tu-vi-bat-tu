@@ -124,3 +124,46 @@ def test_combo_rules_follow_the_book_conditions():
     assert run_combo("Vũ Khúc", "miếu", tam_stars=["Địa Kiếp"])["vu_tot_gap_kiep_sat_tien_phu_hau_ban"] == "draft"
     assert "tu_vi_tham_bi_quan" in run_combo("Tử Vi", "bình", own=["Tham Lang"], branch="Mão")
     assert "tu_vi_tham_bi_quan" not in run_combo("Tử Vi", "miếu", own=["Tham Lang"], branch="Ngọ")
+
+
+def mk_palace(branch="Tý", own=(), tam=(), tam_hoa=(), tuan=False, no_major=False, dig=None, name="Mệnh"):
+    majors = [s for s in own if s in tuvi.MAJOR_NAMES]
+    p = {"palace.name": name, "palace.branch": branch, "palace.own_stars": list(own), "palace.own_major_stars": majors,
+         "palace.tam_phuong_majors": list({*majors, *[s for s in tam if s in tuvi.MAJOR_NAMES]}), "palace.tam_phuong_stars": list({*own, *tam}),
+         "palace.tam_phuong_tu_hoa": list(tam_hoa), "palace.tu_hoa": [h for h in tam_hoa if False], "palace.tuan": tuan, "palace.triet": False,
+         "palace.has_no_major": no_major}
+    for k, v in (dig or {}).items():
+        p[f"palace.dignity.{k}"] = v
+    return p
+
+
+def claims_for(p, resolve=False):
+    res = engine.run(RULES, SOURCES, {"chart": {}, f"palace:{p['palace.name']}": p}, system="tu_vi")
+    if resolve:
+        from tvbt.reasoning import conflict
+        return {r["claim"]: r for r in conflict.resolve(res, RULES)}
+    return {f.claim for f in res.findings}
+
+
+def test_khao_luan_phu_rules():
+    assert "tu_phu_phuc_loc" in claims_for(mk_palace(own=["Tử Vi", "Thiên Phủ"]))
+    assert "tu_vi_ta_huu_uy_quyen" in claims_for(mk_palace(own=["Tử Vi", "Tả Phụ", "Hữu Bật"]))
+    assert "tu_vi_ta_huu_uy_quyen" not in claims_for(mk_palace(own=["Tử Vi", "Tả Phụ"], tam=["Hữu Bật"]))     # đồng cung means same palace
+    assert "tu_vi_thieu_phu_tro" in claims_for(mk_palace(own=["Tử Vi"]))
+    assert "tu_vi_thieu_phu_tro" not in claims_for(mk_palace(own=["Tử Vi"], tam=["Tả Phụ"]))
+    assert "vcd_nhat_nguyet_thong_minh" in claims_for(mk_palace(no_major=True, tam=["Thái Dương", "Thái Âm"]))
+    assert "duong_ty_loc_lau_dai" in claims_for(mk_palace(branch="Tỵ", own=["Thái Dương"], tam=["Cự Môn"]))
+    assert "duong_hoi_cong_danh_trac_tro" not in claims_for(mk_palace(branch="Tỵ", own=["Thái Dương"], tam=["Cự Môn"]))
+    assert "tham_vu_truoc_ngheo_sau_giau" in claims_for(mk_palace(branch="Mùi", own=["Tham Lang", "Vũ Khúc"]))
+    assert "tham_vu_truoc_ngheo_sau_giau" not in claims_for(mk_palace(branch="Tý", own=["Tham Lang", "Vũ Khúc"]))
+    assert "vu_dac_dia_uy_quyen" in claims_for(mk_palace(own=["Vũ Khúc"], dig={"Vũ Khúc": "vượng"}))
+    assert "vu_dac_dia_uy_quyen" not in claims_for(mk_palace(own=["Vũ Khúc"], dig={"Vũ Khúc": "hãm"}))
+    assert "loc_ton_an_ngon_mac_dep" in claims_for(mk_palace(own=["Lộc Tồn"]))
+
+
+def test_documented_limiting_rule_wins_over_general_one_and_is_traceable():
+    r = claims_for(mk_palace(own=["Tử Vi", "Thiên Phủ"], tuan=True), resolve=True)["tu_phu_phuc_loc"]
+    assert r["supporting"] == ["TV_KL_PHU_TU_PHU_PHUC_LOC"] and r["opposing"] == ["TV_KL_PHU_TU_PHU_TUAN_TRIET"]
+    assert r["status"] == "limited" and "verified" in r["resolution"]          # the book itself says Tuần/Triệt reduces it
+    r0 = claims_for(mk_palace(own=["Tử Vi", "Thiên Phủ"]), resolve=True)["tu_phu_phuc_loc"]
+    assert r0["status"] == "supported" and r0["basis"] == "verified"

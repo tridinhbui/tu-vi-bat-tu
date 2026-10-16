@@ -13,7 +13,7 @@ export function sourceRef(id, verified = false) {
 
 export function findingCard(f, refHtml = '') {
   const ok = f.basis === 'verified';
-  return `<div class="finding-card ${ok ? 'ok' : 'draft'}"><p class="eyebrow">${ok ? 'Đã đối chiếu với sách' : 'Quy tắc nháp, chưa xác minh'}${refHtml ? ' · ' + refHtml : ''}</p><p class="f-claim">Có thể nhận thấy một dấu hiệu liên quan đến ${esc(claimPhrase(f.claim))}.</p>${acc('Vì sao quy tắc này khớp?', 'chuỗi suy luận, quy tắc đối lập, nguồn', reasoningPanel(f))}</div>`;
+  return `<div class="finding-card ${ok ? 'ok' : 'draft'}"><p class="eyebrow">${ok ? 'Đã đối chiếu với sách' : 'Quy tắc nháp, chưa xác minh'}${refHtml ? ' · ' + refHtml : ''}</p><p class="f-claim">${f.effect === 'limit' ? 'Điều kiện hạn chế:' : 'Có thể nhận thấy một dấu hiệu liên quan đến'} ${esc(claimPhrase(f.claim, f.effect))}.</p>${acc('Vì sao quy tắc này khớp?', 'chuỗi suy luận, quy tắc đối lập, nguồn', reasoningPanel(f))}</div>`;
 }
 const KIND = { finding: 'Nhận định', rule: 'Quy tắc', source: 'Nguồn', fact: 'Dữ kiện' };
 const KIND_ORDER = ['finding', 'rule', 'source', 'fact'];
@@ -26,7 +26,7 @@ export function reasoningPanel(f, { graph = true } = {}) {
   const label = c => c.kind === 'finding' ? claimLabel(c.text.replace(/\s*\(.*$/, '')) : c.text.replace(/\s*@.*$/, '');
   const nodes = chain.map(c => `<li class="rn rn-${c.kind}"><span class="rn-k">${KIND[c.kind] || c.kind}</span><span class="rn-t">${esc(label(c))}</span></li>`).join('');
   return `<div class="why">
-    <div class="why-h"><span class="badge ${f.basis === 'verified' ? 'ok' : 'draft'}">${f.basis === 'verified' ? 'Quy tắc đã xác minh' : 'Quy tắc nháp'}</span><span class="badge">${esc(f.status === 'supported' ? 'Được hỗ trợ' : f.status)}</span><code>${esc(f.rule_id)}</code></div>
+    <div class="why-h"><span class="badge ${f.basis === 'verified' ? 'ok' : 'draft'}">${f.basis === 'verified' ? 'Quy tắc đã xác minh' : 'Quy tắc nháp'}</span><span class="badge">${esc({ supported: 'Được hỗ trợ', limited: 'Bị giới hạn bởi quy tắc đối lập', unresolved: 'Chưa thể kết luận' }[f.status] || f.status)}</span><code>${esc(f.rule_id)}</code></div>
     <h5>Chuỗi suy luận ngược — vì sao nhận định này xuất hiện</h5>
     <ol class="chain">${nodes}</ol>
     <h5>Yếu tố đối lập</h5>

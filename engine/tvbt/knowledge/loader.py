@@ -7,7 +7,7 @@ from pathlib import Path
 from .schema import KnowledgeRule, Source, load_pack
 
 DATA = Path(__file__).resolve().parent.parent.parent / "data"
-PACKS = ["pack_vn_draft.json", "pack_khao_luan.json", "pack_thuc_hanh.json", "pack_thuc_hanh_palaces.json", "pack_thuc_hanh_combos.json", "pack_bazi_zhenzong.json"]
+PACKS = ["pack_vn_draft.json", "pack_khao_luan.json", "pack_thuc_hanh.json", "pack_thuc_hanh_palaces.json", "pack_thuc_hanh_combos.json", "pack_khao_luan_phu.json", "pack_bazi_zhenzong.json"]
 
 
 def load_all() -> tuple[list[KnowledgeRule], list[Source]]:
