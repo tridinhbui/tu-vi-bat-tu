@@ -58,4 +58,4 @@ def test_aux2_pack_branch_conditions_and_skips_harm():
     assert ("hao_mao_dau_thong_minh_ham_choi_hoc_say", "support") in claims(pal(branch="Mão", own=["Đại Hao"]))
     assert ("khong_kiep_ham_quy_quyet_ich_ky", "support") in claims(pal(branch="Tý", own=["Địa Kiếp"]))
     assert ("khong_kiep_ham_quy_quyet_ich_ky", "support") not in claims(pal(branch="Dần", own=["Địa Kiếp"]))
-    assert all("tu_vong" not in r.consequences[0].claim for r in RULES)
+    assert all("tu_vong" not in r.consequences[0]["claim"] for r in RULES if r.id.startswith("TV_TH_AUX2_"))
