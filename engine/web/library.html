@@ -1,17 +1,22 @@
 <!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Thư viện quy tắc và nguồn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.css">
 <style>
-:root{--bg:#f6f0e2;--card:#fbf7ec;--ink:#241d14;--mute:#6f6350;--bronze:#9a6b2f;--line:#d9ccb0;--bad:#8a3b2b;--ok:#3f6b3a}
-@media (prefers-color-scheme:dark){:root{--bg:#17130d;--card:#201a12;--ink:#efe6d2;--mute:#a89b82;--bronze:#d1a45f;--line:#3a3022;--bad:#e08a76;--ok:#8fc287}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Georgia,serif}main{max-width:1000px;margin:0 auto;padding:24px 16px 64px}
-h1{font-weight:400}h2{font-weight:400;color:var(--bronze);border-bottom:1px solid var(--line)}.note{color:var(--mute);font-size:.9em}
-.card{background:var(--card);border:1px solid var(--line);padding:12px 14px;margin:8px 0}textarea,input,select,button{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:6px 8px}
-textarea{width:100%;min-height:200px;font-family:ui-monospace,Menlo,monospace;font-size:.85em}button{background:var(--bronze);color:#fff;border:0;cursor:pointer}
-.v{color:var(--ok)}.d{color:var(--bad)}details{margin:.3em 0}pre{white-space:pre-wrap;font-size:.8em}table{border-collapse:collapse;font-size:.8em}td,th{border:1px solid var(--line);padding:2px 5px}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:end}.row label{display:flex;flex-direction:column;font-size:.8em;color:var(--mute)}
-</style></head><body><main>
-<h1>Thư viện quy tắc và nguồn</h1>
+main.lib-page{max-width:1000px;margin:0 auto;padding:40px clamp(16px,4vw,40px) 96px}
+.lib-page h1{font-size:clamp(2.2rem,5vw,3.4rem);margin:8px 0 12px}.lib-page h2{font-size:1.8rem;margin:48px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.lib-page .note{color:var(--text2);font-size:.95rem}.lib-page .card{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+.lib-page details{border:1px solid var(--line);border-radius:10px;background:var(--raise);padding:10px 14px;margin:8px 0}.lib-page summary{cursor:pointer}
+.lib-page textarea{width:100%;min-height:200px;font:.85rem ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:10px;padding:12px;background:#fff;color:var(--ink)}
+.lib-page button:not(.x){font:600 .9rem var(--sans);padding:10px 20px;border-radius:99px;border:0;background:var(--cinnabar);color:#fff;cursor:pointer}
+.lib-page .row{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:10px 0}.lib-page .row label{display:flex;flex-direction:column;gap:4px;font-size:.78rem;color:var(--muted)}
+.lib-page .row input,.lib-page .row select{height:42px;font-size:.95rem;width:auto}
+.v{color:var(--pos);font-weight:600}.d{color:var(--cinnabar);font-weight:600}.lib-page pre{white-space:pre-wrap;font-size:.8rem;color:var(--text2)}
+.lib-page table{border-collapse:collapse;font-size:.8rem}.lib-page td,.lib-page th{border:1px solid var(--line);padding:3px 7px;text-align:center}
+</style></head><body><header class="site-header stuck"><div class="wrap hdr"><a class="brand" href="/"><b style="font:600 1.3rem var(--serif)">Thiên Bàn</b></a><a class="btn btn-sm btn-ghost" style="margin-left:auto" href="/">← Về trang chủ</a></div></header><main class="lib-page">
+<p class="eyebrow">Thư viện</p><h1>Thư viện quy tắc và nguồn</h1>
 <p class="note">Chỉ đọc. Quy tắc <b class="v">verified</b> đã đối chiếu với trang sách có trích dẫn; <b class="d">draft</b> chưa xác minh hoặc có giả định của hệ thống. Trình soạn bên dưới chỉ kiểm tra và chạy thử, không lưu gì. Muốn xuất bản, thêm quy tắc vào file pack trong kho mã.</p>
 <div id="sum" class="card">Đang tải…</div>
 <h2>Nguồn</h2><div id="src"></div>
@@ -20,6 +25,7 @@ textarea{width:100%;min-height:200px;font-family:ui-monospace,Menlo,monospace;fo
 <label>Trạng thái<select id="ff"><option value="">tất cả</option><option>verified</option><option>draft</option></select></label>
 <label>Tìm<input id="fq" placeholder="id hoặc mô tả"></label></div><div id="rl"></div>
 <h2>Độ sáng sao</h2><div id="dg" style="overflow-x:auto"></div>
+<h2>Hai trường phái độ sáng sao</h2><div id="dc" class="card">…</div>
 <h2>Soạn và chạy thử một quy tắc</h2>
 <div class="card"><div class="row"><label>Năm<input id="y" type="number" value="1990" style="width:80px"></label><label>Tháng<input id="m" type="number" value="5" style="width:60px"></label>
 <label>Ngày<input id="d" type="number" value="17" style="width:60px"></label><label>Giờ<input id="h" type="number" value="10" style="width:60px"></label>
@@ -34,6 +40,7 @@ $('#ta').value=JSON.stringify(SAMPLE,null,1);
 const B=["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"];let R=[];
 function draw(){const s=$('#fs').value,f=$('#ff').value,q=$('#fq').value.toLowerCase();
  $('#rl').innerHTML=R.filter(x=>(!s||x.system===s)&&(!f||x.reviewStatus===f)&&(!q||(x.id+x.description).toLowerCase().includes(q))).map(x=>`<details><summary>${esc(x.id)} — ${x.system} — <b class="${x.reviewStatus==='verified'?'v':'d'}">${x.reviewStatus}</b></summary><div>${esc(x.description)}</div><div class="note">Nguồn: ${x.sourceIds.join(', ')||'—'}</div><pre>${esc(JSON.stringify(x.conditions))}</pre></details>`).join('')}
+(async()=>{fetch('/api/dignity/compare').then(x=>x.json()).then(j=>{$('#dc').innerHTML=`<p>Thực Hành và Toàn Thư khác nhau ở <b>${j.count}</b> ô (sao × cung). ${esc(j.note)}</p><details><summary>Xem các ô khác nhau</summary><table><tr><th>Sao</th><th>Cung</th><th>Thực Hành</th><th>Toàn Thư</th></tr>${j.disagreements.map(x=>`<tr><td>${x.star}</td><td>${x.branch}</td><td>${x.thuc_hanh}</td><td>${x.toan_thu}</td></tr>`).join('')}</table></details>`});
 (async()=>{const r=await (await fetch('/api/rules')).json(),d=await (await fetch('/api/dignity')).json();R=r.rules;
  const c={};R.forEach(x=>c[x.reviewStatus]=(c[x.reviewStatus]||0)+1);
  $('#sum').innerHTML=`${R.length} quy tắc: ${Object.entries(c).map(([k,v])=>k+' '+v).join(', ')}. ${r.problems.length?'<b class="d">Có lỗi: '+esc(r.problems.join('; '))+'</b>':'Bộ quy tắc hợp lệ.'}`;

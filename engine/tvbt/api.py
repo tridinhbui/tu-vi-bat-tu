@@ -31,6 +31,7 @@ class BirthReq(BaseModel):
     zi_rule: str = Field("early_zi_next_day", pattern="^(early_zi_next_day|late_zi_same_day)$")
     use_true_solar_time: bool = False; level: int = Field(3, ge=1, le=5)
     to_year: int | None = None
+    dignity_school: str = Field("thuc_hanh", pattern="^(thuc_hanh|toan_thu)$")
 
     def birth(self) -> BirthInput:
         return BirthInput(self.year, self.month, self.day, self.hour, self.minute, self.tz, self.gender,
@@ -42,7 +43,7 @@ def _compute(req: BirthReq):
         nb = normalize(req.birth())
     except Exception as e:  # invalid date, DST gap, unknown tz, missing longitude
         raise HTTPException(422, str(e))
-    return nb, bazi.compute(nb), tuvi.compute(nb)
+    return nb, bazi.compute(nb), tuvi.compute(nb, dignity_school=req.dignity_school)
 
 
 @app.post("/api/chart")
@@ -64,8 +65,13 @@ def reasoning(req: BirthReq):
     nb, bz, tv = _compute(req)
     rules, sources = load_all()
     lx.CLAIMS.update(load_claims())
+    if req.dignity_school != "thuc_hanh":
+        # the temperament readings are Thực Hành's, keyed to ITS brightness table; mixing schools is not verified
+        import dataclasses as _dc
+        rules = [_dc.replace(r, reviewStatus="draft") if r.category == "star_dignity" else r for r in rules]
     probs = validate_pack(rules, sources, {"palace.*", "chart.*", "bazi.*", "derived.*"})
-    out = {"pack_problems": probs, "systems": {}}
+    out = {"pack_problems": probs, "systems": {}, "dignity_school": req.dignity_school,
+           "mixed_school_warning": req.dignity_school != "thuc_hanh"}
     for system, base in [("tu_vi", facts.tuvi_facts(tv)), ("bat_tu", facts.bazi_facts(bz))]:
         res = engine.run(rules, sources, base, system=system)
         interps = nlg.build_interpretations(res, rules, sources)
@@ -125,6 +131,15 @@ def claims_vi():
     """Vietnamese phrasing for each claim id, used by the UI to label findings."""
     import json
     return json.loads((ROOT / "data" / "claims_vi.json").read_text("utf-8"))
+
+
+@app.get("/api/dignity/compare")
+def dignity_compare():
+    from .dignity import compare
+    from .ganzhi import BRANCHES_VI
+    d = compare(list(BRANCHES_VI))
+    return {"disagreements": d, "count": len(d), "schools": ["thuc_hanh", "toan_thu"],
+            "note": "Both are published variants; neither is declared correct. The default is Thực Hành."}
 
 
 @app.get("/api/dignity")

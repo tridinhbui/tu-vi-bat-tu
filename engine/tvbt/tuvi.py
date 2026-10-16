@@ -158,7 +158,8 @@ def tuvi_position(day: int, cuc: int) -> tuple[int, dict]:
                  "rule": "start Dần, advance quotient-1, then x back if odd else forward"}
 
 
-def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "split_15", n_dai_han: int = 12) -> TuViChart:
+def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "split_15", n_dai_han: int = 12,
+            dignity_school: str = "thuc_hanh") -> TuViChart:
     tr = Trace()
     b = nb.input
     L = nb.lunar
@@ -283,7 +284,7 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "split_15", n_dai_han:
             "name": palace_by_branch[br], "is_than": br == than,
             "stars": [s.name for s in stars if s.branch == br],
             "major_stars": [s.name for s in stars if s.branch == br and s.group.startswith("chính tinh")],
-            "major_dignity": {s.name: dignity(s.name, BRANCHES_VI[br]) for s in stars
+            "major_dignity": {s.name: dignity(s.name, BRANCHES_VI[br], dignity_school) for s in stars
                               if s.branch == br and s.group.startswith("chính tinh")},
             "tuan": br in tuan, "triet": br in triet,
         })
@@ -306,4 +307,4 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "split_15", n_dai_han:
         unsupported=["miếu/vượng/đắc/hãm brightness (no verified table yet)", "Thiên Hình/Thiên Riêu/Thiên Y",
                      "Nguyệt Đức/Thiên Đức/other minor stars", "tiểu hạn, lưu niên, lưu Tứ Hóa",
                      "Tuần/Triệt school variants", "late-Tý (23h) lunar-day edge under late_zi_same_day"],
-        trace=tr, school=SCHOOL_PACK, warnings=warnings)
+        trace=tr, school={**SCHOOL_PACK, "dignity_school": dignity_school}, warnings=warnings)

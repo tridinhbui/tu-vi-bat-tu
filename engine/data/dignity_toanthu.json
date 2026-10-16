@@ -1,0 +1,223 @@
+{
+ "source": "SRC_TOAN_THU",
+ "levels": [
+  "miếu",
+  "vượng",
+  "đắc",
+  "bình",
+  "hãm"
+ ],
+ "note": "Transcribed from the PDF TEXT LAYER (Vũ Tài Lục's version of La Hồng Tiên), whose spacing/OCR is imperfect; not yet cross-read against page images. Differs from Tử Vi Thực Hành on many cells: these are school variants, not errors in either.",
+ "stars": {
+  "Tử Vi": {
+   "locator": "PDF p.21",
+   "levels": {
+    "Dần": "miếu",
+    "Ngọ": "miếu",
+    "Thân": "vượng",
+    "Hợi": "vượng",
+    "Thìn": "vượng",
+    "Tỵ": "vượng",
+    "Tý": "vượng",
+    "Sửu": "vượng",
+    "Mùi": "vượng",
+    "Mão": "bình",
+    "Dậu": "bình"
+   }
+  },
+  "Thiên Cơ": {
+   "locator": "PDF p.24",
+   "levels": {
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Tỵ": "bình",
+    "Hợi": "bình",
+    "Thìn": "bình",
+    "Tuất": "bình",
+    "Sửu": "hãm",
+    "Mùi": "hãm"
+   }
+  },
+  "Thái Dương": {
+   "locator": "PDF p.26",
+   "levels": {
+    "Ngọ": "miếu",
+    "Mão": "miếu",
+    "Dần": "vượng",
+    "Thìn": "vượng",
+    "Tỵ": "vượng",
+    "Tuất": "hãm",
+    "Hợi": "hãm",
+    "Tý": "hãm"
+   }
+  },
+  "Vũ Khúc": {
+   "locator": "PDF p.27",
+   "levels": {
+    "Sửu": "miếu",
+    "Mùi": "miếu",
+    "Tuất": "miếu",
+    "Tý": "vượng",
+    "Ngọ": "vượng",
+    "Tỵ": "bình",
+    "Hợi": "bình"
+   }
+  },
+  "Thiên Đồng": {
+   "locator": "PDF p.28",
+   "levels": {
+    "Tỵ": "miếu",
+    "Hợi": "miếu",
+    "Tý": "vượng",
+    "Thân": "vượng",
+    "Ngọ": "hãm",
+    "Sửu": "hãm",
+    "Mùi": "hãm",
+    "Dậu": "hãm"
+   }
+  },
+  "Liêm Trinh": {
+   "locator": "PDF p.29",
+   "levels": {
+    "Dần": "miếu",
+    "Thân": "miếu",
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Thìn": "bình",
+    "Tuất": "bình",
+    "Sửu": "bình",
+    "Mùi": "bình",
+    "Tỵ": "hãm",
+    "Hợi": "hãm",
+    "Dậu": "hãm",
+    "Mão": "hãm"
+   }
+  },
+  "Thiên Phủ": {
+   "locator": "PDF p.30",
+   "levels": {
+    "Tý": "miếu",
+    "Sửu": "miếu",
+    "Dần": "miếu",
+    "Mùi": "miếu",
+    "Ngọ": "vượng",
+    "Mão": "vượng",
+    "Thìn": "vượng",
+    "Tuất": "vượng",
+    "Dậu": "bình",
+    "Tỵ": "bình",
+    "Thân": "bình",
+    "Hợi": "bình"
+   }
+  },
+  "Thái Âm": {
+   "locator": "PDF p.31",
+   "levels": {
+    "Dậu": "miếu",
+    "Hợi": "miếu",
+    "Tuất": "miếu",
+    "Tý": "vượng",
+    "Sửu": "vượng",
+    "Ngọ": "hãm",
+    "Dần": "hãm",
+    "Thìn": "hãm",
+    "Tỵ": "hãm",
+    "Mão": "hãm"
+   }
+  },
+  "Tham Lang": {
+   "locator": "PDF p.32 (text layer lists Tý as both vượng and hãm: Tý omitted)",
+   "levels": {
+    "Thìn": "miếu",
+    "Tuất": "miếu",
+    "Sửu": "miếu",
+    "Mùi": "miếu",
+    "Ngọ": "vượng",
+    "Hợi": "hãm",
+    "Mão": "hãm",
+    "Dậu": "hãm"
+   }
+  },
+  "Cự Môn": {
+   "locator": "PDF p.34",
+   "levels": {
+    "Mão": "miếu",
+    "Dậu": "miếu",
+    "Dần": "miếu",
+    "Thân": "miếu",
+    "Tý": "vượng",
+    "Ngọ": "vượng",
+    "Hợi": "vượng",
+    "Tỵ": "hãm",
+    "Thìn": "hãm",
+    "Tuất": "hãm",
+    "Sửu": "hãm",
+    "Mùi": "hãm"
+   }
+  },
+  "Thiên Tướng": {
+   "locator": "PDF p.35",
+   "levels": {
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Dần": "miếu",
+    "Thân": "miếu",
+    "Tỵ": "đắc",
+    "Hợi": "đắc",
+    "Sửu": "đắc",
+    "Mùi": "đắc",
+    "Mão": "hãm",
+    "Dậu": "hãm"
+   }
+  },
+  "Thiên Lương": {
+   "locator": "PDF pp.37-38",
+   "levels": {
+    "Tuất": "miếu",
+    "Thìn": "miếu",
+    "Ngọ": "miếu",
+    "Sửu": "vượng",
+    "Mùi": "vượng",
+    "Tý": "vượng",
+    "Mão": "vượng",
+    "Dần": "vượng",
+    "Thân": "vượng",
+    "Tỵ": "hãm",
+    "Hợi": "hãm",
+    "Dậu": "hãm"
+   }
+  },
+  "Thất Sát": {
+   "locator": "PDF p.39 (the book itself notes the source is inconsistent about hãm)",
+   "levels": {
+    "Dần": "miếu",
+    "Thân": "miếu",
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Mão": "bình",
+    "Dậu": "bình",
+    "Sửu": "bình",
+    "Mùi": "bình",
+    "Tỵ": "bình",
+    "Hợi": "bình"
+   }
+  },
+  "Phá Quân": {
+   "locator": "PDF p.40",
+   "levels": {
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Thìn": "vượng",
+    "Tuất": "vượng",
+    "Sửu": "vượng",
+    "Mùi": "vượng",
+    "Tỵ": "hãm",
+    "Hợi": "hãm",
+    "Dần": "hãm",
+    "Thân": "hãm",
+    "Mão": "hãm",
+    "Dậu": "hãm"
+   }
+  }
+ }
+}

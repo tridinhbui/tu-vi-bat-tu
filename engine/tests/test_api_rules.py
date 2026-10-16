@@ -24,5 +24,5 @@ def test_rule_tester_validates_and_dry_runs():
     j = c.post("/api/rules/test", json={"rule": bad, "birth": b}).json()
     assert not j["valid"] and any("operator" in p for p in j["problems"])
     assert c.post("/api/rules/test", json={"rule": {"nonsense": 1}, "birth": b}).status_code == 422
-    v = {**rule, "reviewStatus": "verified", "sourceIds": ["SRC_TOAN_THU"]}
+    v = {**rule, "reviewStatus": "verified", "sourceIds": ["SRC_PHUONG_THUAT"]}
     assert not c.post("/api/rules/test", json={"rule": v, "birth": b}).json()["valid"]   # unverified source can't back 'verified'
