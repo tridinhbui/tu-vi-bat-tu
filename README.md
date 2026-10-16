@@ -20,8 +20,7 @@ cd engine && ../.venv/bin/python -m pytest -q
   Bác Sĩ/Thái Tuế/Trường Sinh rings, Hồng Loan/Thiên Hỷ, Đào Hoa, Thiên Mã, Hỏa/Linh, Địa Kiếp/Không, Tuần/Triệt, Tứ Hóa (see dispute below);
   Bát Tự — ngũ hổ/ngũ thử độn, 12 stages (yin reverse), stem/branch relations, luck-start rule, month by jie.
   Checking found and fixed 4 real bugs (Khôi Việt for Canh, Linh Tinh direction, Đào Hoa mapping, Tứ Hóa Canh).
-- **Disputed between sources**: Tứ Hóa Tân-Lộc (Thực Hành: Cự Môn; Khảo Luận: Thiên Cơ → Cự Môn used) and Nhâm-Khoa
-  (Thực Hành prints "Phủ", Khảo Luận says Tả Phụ → Tả Phụ used). The Thực Hành printed Hồng Loan example and Thiên Mã "cước" contradict its own rules (rules used).
+- Tứ Hóa disputes resolved: Khảo Luận's own prose (pp.196-197) agrees with Thực Hành (Tân-Lộc = Cự Môn, Nhâm-Khoa = Tả Phụ); only its p.36 table misprints. Tứ Hóa meanings and per-star advice are now in the analysis (`data/tu_hoa_vi.json`). The Thực Hành printed Hồng Loan example and Thiên Mã "cước" contradict its own rules (rules used).
 - Since then verified: Bát Tự hidden stems + ten-god tables (八字真宗 pp.7-17), đại hạn and tiểu hạn rules (Thực Hành p.27), leap-month default = same month
   number (Khảo Luận p.41; other conventions selectable).
 - VN lunar calendar: UTC+7 since 1968 (North/unified) is consistent with Wikipedia's Vietnamese-calendar article (1984-85 month-11 divergence reproduced); the 1967/68

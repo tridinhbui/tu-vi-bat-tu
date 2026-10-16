@@ -96,3 +96,13 @@ def test_menh_worked_example_p12():
     assert nb.lunar.month == 5 and nb.lunar.year == 1979
     c = tuvi.compute(nb)
     assert BRANCHES_VI[c.menh_branch] == "Thìn" and c.cuc["name"] == "Mộc tam cục"
+
+
+def test_tu_hoa_table_matches_khao_luan_pp196_197():
+    """The prose of KL pp.196-197 names the four stars per year stem: independent of the table on p.36 (which misprints Tân-Lộc)."""
+    book = {"Giáp": "Liêm Trinh|Phá Quân|Vũ Khúc|Thái Dương", "Ất": "Thiên Cơ|Thiên Lương|Tử Vi|Thái Âm", "Bính": "Thiên Đồng|Thiên Cơ|Văn Xương|Liêm Trinh",
+            "Đinh": "Thái Âm|Thiên Đồng|Thiên Cơ|Cự Môn", "Mậu": "Tham Lang|Thái Âm|Hữu Bật|Thiên Cơ", "Kỷ": "Vũ Khúc|Tham Lang|Thiên Lương|Văn Khúc",
+            "Canh": "Thái Dương|Vũ Khúc|Thiên Đồng|Thái Âm", "Tân": "Cự Môn|Thái Dương|Văn Khúc|Văn Xương", "Nhâm": "Thiên Lương|Tử Vi|Tả Phụ|Vũ Khúc",
+            "Quý": "Phá Quân|Cự Môn|Thái Âm|Tham Lang"}
+    for i, st in enumerate(STEMS_VI):
+        assert list(tuvi.TU_HOA[i]) == book[st].split("|"), st

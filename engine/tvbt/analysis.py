@@ -11,6 +11,7 @@ from .bazi import BaziChart, growth_stage, ten_god
 from .ganzhi import BRANCHES_VI, BRANCH_ELEMENT, ELEMENTS, STEM_ELEMENT, STEMS_VI, generates
 from .tuvi import TuViChart
 
+_TUHOA = json.loads((Path(__file__).resolve().parent.parent / "data" / "tu_hoa_vi.json").read_text("utf-8"))
 _PROFILES = json.loads((Path(__file__).resolve().parent.parent / "data" / "star_profiles.json").read_text("utf-8"))["stars"]
 CAT = ["Tả Phụ", "Hữu Bật", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt"]
 SAT = ["Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Địa Không", "Địa Kiếp"]
@@ -135,6 +136,17 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     hoa_menh = v.hoa_at.get(menh["branch_index"], [])
     if hoa_menh:
         ch["ban-menh"].append(B("Tứ Hóa của năm " + tv.year_gz + " rơi ngay vào cung Mệnh: " + _join(hoa_menh) + ".", "Biến"))
+    from .tuvi import TU_HOA as _TH
+    year_stem = next(i for i, n in enumerate(STEMS_VI) if tv.year_gz.startswith(n))
+    adv = _TUHOA["by_stem"][str(year_stem)]
+    names = ["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"]
+    assert [a["star"] for a in adv] == list(_TH[year_stem])        # the book table and the calculation table agree
+    ch["ban-menh"].append(B(f"Theo Tử Vi Khảo Luận, Tứ Hóa là bốn dạng của một ngôi sao: Lộc nói về {_TUHOA['meaning']['Hóa Lộc']}, Quyền về {_TUHOA['meaning']['Hóa Quyền']}, Khoa về {_TUHOA['meaning']['Hóa Khoa']}, Kỵ về {_TUHOA['meaning']['Hóa Kỵ']}. Với tuổi {tv.year_gz.split()[0]}, sách mô tả cách mỗi sao “thành” Lộc, Quyền, Khoa, Kỵ như sau: " + "; ".join(f"{n} là {a['star']} — {a['advice']}" for n, a in zip(names, adv)) + ".", "Tượng", "sach", ["Khảo Luận pp.195-197"]))
+    pos = []
+    for n, x in tv.tu_hoa.items():
+        if x["branch"] is not None and n in _TUHOA["position_notes"]:
+            pos.append(f"{n} ở cung {v.by_b[x['branch']]['name']}: {_TUHOA['position_notes'][n]}")
+    ch["ban-menh"].append(B("Vị trí các sao hóa trên lá số này và điều sách nói về chúng: " + "; ".join(pos) + ". " + _TUHOA["weight_note"], "Thế", "sach", ["Khảo Luận p.197"]))
     ch["ban-menh"].append(B("Tứ Hóa theo can năm: " + "; ".join(f"{k} tại {x['star']}" + (f" (cung {v.by_b[x['branch']]['name']})" if x['branch'] is not None else "") for k, x in tv.tu_hoa.items()) + ".", "Biến"))
 
     # ---------- Tính cách
