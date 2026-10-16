@@ -61,3 +61,15 @@ def test_chart_facts_from_real_chart_match_book_table():
     assert ch["chart.birth_season"] == "hạ" and ch["chart.menh_element"] in ("Kim", "Mộc", "Thủy", "Hỏa", "Thổ")
     assert ch["chart.hour_menh_polarity"] in ("thuan_ly", "nghich_ly") and ch["chart.menh_stage_th"] in ("sinh", "vuong", "bai", "tuyet", "khac")
     assert facts.STAGE_TH["Kim"] == {"Tỵ": "sinh", "Dậu": "vuong", "Ngọ": "bai", "Dần": "tuyet"}       # TH p.74
+
+
+def test_menh_verse_pack_conditions():
+    assert sum(r.id.startswith("TV_TH_MV_") for r in RULES) == 45
+    assert ("am_kinh_ngo_uy_hung_tuong_quan", "support") in fired(pal(branch="Ngọ", own=["Thái Âm", "Kình Dương"]))
+    assert ("am_kinh_ngo_uy_hung_tuong_quan", "support") not in fired(pal(branch="Tý", own=["Thái Âm", "Kình Dương"]))
+    c = fired(pal(branch="Thìn", own=["Tham Lang", "Hỏa Tinh"]))
+    assert ("tu_mo_hoa_linh_tham_vu_uy_quyen", "support") in c
+    c = fired(pal(branch="Thìn", own=["Tham Lang", "Hỏa Tinh"], tp=["Kình Dương"]))
+    assert ("tu_mo_hoa_linh_tham_vu_uy_quyen", "support") not in c          # 'chớ ngộ Kình Dương' exception
+    c = fired(pal(branch="Ngọ", own=["Tử Vi"]), {"chart.year_stem": "Đinh"})
+    assert ("tu_vi_ngo_dinh_ky_tam_cong", "support") in c and ("tu_vi_ngo_at_giap_kha_mong", "support") not in c

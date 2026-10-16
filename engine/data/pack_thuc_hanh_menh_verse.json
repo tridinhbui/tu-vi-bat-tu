@@ -1,0 +1,2395 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_TH_MV_MENH_TU_PHU_TRONG_HAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: tính trọng hậu khác thường (Tử Vi hoặc Thiên Phủ ở Mệnh) [TH p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_phu_trong_hau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_VU_THAM_THAM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: dễ nặng lòng tham lợi (Vũ Khúc đồng cung Tham Lang) [TH p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_tham_tham_loi",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_LIEM_THAM_TY_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: tính tham, thấy của là muốn nắm (Liêm Tham ở Tỵ hoặc Hợi) [TH p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Hợi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_tham_tham_cua",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_PHU_TUONG_CHAP_NHAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: tính hay chấp nhất, đa nghi mọi bề (Thiên Phủ hoặc Thiên Tướng ở Thìn, Tuất) [TH p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_tuong_chap_nhat_da_nghi",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_PHA_LIEM_HON_THUA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: tính xốc nổi, hay đo sức hơn thua với người (Phá Quân đồng cung Liêm Trinh) [TH p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "pha_liem_hon_thua_xoc_xech",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_XUONG_KHUC_THANH_NHAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: đời sống thanh nhàn (Xương, Khúc đồng cung ở Mệnh) [TH p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Văn Khúc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "xuong_khuc_thanh_nhan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_DONG_LUONG_THAT_THA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: thật thà, đứng đắn (Thiên Đồng đồng cung Thiên Lương) [TH p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dong_luong_that_tha_dung_dan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_KHOI_VIET_VAN_CHUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: có cách văn chương (Khôi, Việt hội Mệnh); 'cách' đọc là hội trong tam phương tứ chính [TH p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Thiên Khôi"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Thiên Việt"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "khoi_viet_cach_van_chuong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_VIET_DA_KHOAN_THAI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: tiếng nói khoan thai (Việt, Đà); câu thơ chỉ nêu hai sao, đọc là đồng cung [TH p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Việt"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đà La"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "viet_da_noi_khoan_thai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_PHU_MA_LUAN_BAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: giỏi luận bàn cao thấp (Thiên Phủ đồng cung Thiên Mã) [TH p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_ma_luan_ban_thap_cao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_MA_TUYET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: bế tắc, khó định hướng, 'ngựa gặp đò' không lối (Thiên Mã đồng cung sao Tuyệt) [TH p.84]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tuyệt"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ma_tuyet_vo_phuong",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_PHU_SAT_TAO_BAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: chí khôn, việc làm táo bạo muốn hơn người (Thiên Phủ gặp Thất Sát); 'phùng' đọc là hội [TH p.84]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_sat_tao_bao_hon_nguoi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_TRUONG_SINH_DE_VUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: bản tính thiện lương (Trường Sinh hoặc Đế Vượng ở Mệnh) [TH p.84]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Trường Sinh"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đế Vượng"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "truong_sinh_de_vuong_thien_luong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_KK_TY_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: công danh có thể phát nhanh nhưng cần thấy rõ cơ vi (Không, Kiếp đồng cung ở Tỵ hoặc Hợi) [TH p.85]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Địa Không"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Địa Kiếp"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Hợi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "khong_kiep_ty_hoi_cong_danh_nhoanh_phat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_HONG_LOAN_TY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: tiếng tăm từ thuở nhỏ (Hồng Loan ở Tý, văn tinh hội chiếu) [TH p.85]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hồng Loan"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hong_loan_ty_van_tinh_danh_som",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_DONG_DOI_THAY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: tính khí hay đổi thay, khó chiều (Thiên Đồng thủ Mệnh) [TH p.85]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "thien_dong_tinh_khi_doi_thay",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_AM_KINH_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: uy hùng như tướng quân (Thái Âm đồng cung Kình Dương ở Ngọ) [TH p.85]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Kình Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_kinh_ngo_uy_hung_tuong_quan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_NHAT_HOI_TAM_HOA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: 'mười phân vẹn mười' (Thái Dương ở Hợi được Khoa, Quyền, Lộc hội) [TH p.85]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nhat_hoi_tam_hoa_ven_muoi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_CO_MIEU_VUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: đa tài, lòng từ, tính cấp, dễ hiển vinh (Thiên Cơ miếu hoặc vượng ở Mệnh) [TH p.85]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.dignity.Thiên Cơ",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "co_mieu_vuong_da_tai_tam_tu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_KHOI_VIET_TRUONG_HUYNH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: hay giữ ngôi trên trong gia đình, xã hội (Khôi hoặc Việt ở Mệnh); sách nói 'miếu địa' nhưng bảng độ sáng Khôi Việt không có [TH p.85]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "khoi_viet_dung_vi_tren",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_LIEM_HAM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: nhiều ưu phiền (Liêm Trinh lạc hãm ở Mệnh) [TH p.85]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.dignity.Liêm Trinh",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_ham_uu_phien",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_XK_TAO_KHACH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: là người tao nhã, được xa gần khen ngợi (Xương hoặc Khúc ở Mệnh) [TH p.86]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "xuong_khuc_tao_khach_duoc_khen",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_KHOI_XUONG_LANH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: người hiền lành tử tế (Khôi, Xương ở Mệnh); câu 'bậc lành' mơ hồ [TH p.86]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Khôi"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "khoi_xuong_bac_lanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_TU_SAT_VUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: rạng rỡ (Tử Vi đồng cung Thất Sát ở thế sáng) [TH p.86]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "palace.dignity.Thất Sát",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_sat_vuong_dia_minh_huy",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_PHA_HAM_TUE",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: ăn nói to tiếng, gay gắt như sấm (Phá Quân hãm đồng cung Thái Tuế) [TH p.86]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.dignity.Phá Quân",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Tuế"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "pha_ham_tue_noi_nhu_sam",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_NN_SUU_MUI_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: khó hiển công danh (Nhật Nguyệt đồng cung ở Sửu/Mùi bị Đà, Không, Kiếp hội) [TH p.86]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nhat_nguyet_suu_mui_sat_kho_hien_danh",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_GIAP_KHONG_KIEP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: bất lợi, thế bị kẹp giữa Không và Kiếp ('giáp cung Không Kiếp') [TH p.87]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Địa Không"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Địa Kiếp"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "giap_khong_kiep_bat_loi",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_NGUYET_HAM_LUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: nhiều gian truân (Thái Âm hãm gặp Thiên Lương); 'gặp' đọc là hội [TH p.87]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.dignity.Thái Âm",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nguyet_ham_luong_gian_truan",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_CO_CU_MAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: công danh rạng rỡ (Cơ Cự ở Mão hợp Xương Khúc, Tả Hữu) [TH p.87]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "co_cu_mao_cong_danh_rang_ro",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_TU_NGO_TAM_CONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: có thể đến chức cao 'tam công' (Tử Vi ở Ngọ không sát tinh, tuổi Đinh hoặc Kỷ) [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Kình Dương"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Đà La"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Địa Không"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Địa Kiếp"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Hỏa Tinh"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Linh Tinh"
+        }
+       ]
+      }
+     },
+     {
+      "fact": "chart.year_stem",
+      "operator": "in",
+      "value": [
+       "Đinh",
+       "Kỷ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_vi_ngo_dinh_ky_tam_cong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_TU_NGO_AT_GIAP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: khá mong được nhờ vả, thành đạt (Tử Vi ở Ngọ không sát tinh, tuổi Ất hoặc Giáp) [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Kình Dương"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Đà La"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Địa Không"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Địa Kiếp"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Hỏa Tinh"
+        },
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Linh Tinh"
+        }
+       ]
+      }
+     },
+     {
+      "fact": "chart.year_stem",
+      "operator": "in",
+      "value": [
+       "Ất",
+       "Giáp"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_vi_ngo_at_giap_kha_mong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_PHU_TUAT_HOA_CUC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: 'vẹn vẻ mười phân' (Thiên Phủ ở Tuất hợp cát tinh, tuổi Giáp hoặc Kỷ, Hỏa lục cục) [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tuất"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     },
+     {
+      "fact": "chart.year_stem",
+      "operator": "in",
+      "value": [
+       "Giáp",
+       "Kỷ"
+      ]
+     },
+     {
+      "fact": "chart.cuc",
+      "value": "Hỏa lục cục"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_tuat_giap_ky_hoa_cuc_ven_muoi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_TU_MO_UY_QUYEN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: có uy quyền (Tham hoặc Vũ ở Tứ mộ đồng cung Hỏa hoặc Linh), kỵ gặp Kình Dương [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Vũ Khúc"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_mo_hoa_linh_tham_vu_uy_quyen",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "any": [
+      {
+       "fact": "palace.rel.tp_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      }
+     ]
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_LIEM_TUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: dáng anh hùng, vũ dũng (Liêm Trinh đồng cung Thiên Tướng) [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_tuong_anh_hung_vu_dung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_KK_TUE",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: dễ suy vi (Không hoặc Kiếp đồng cung Thái Tuế) [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Tuế"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "khong_kiep_tue_suy_vi",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_LOC_MA_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: Lộc Mã gặp Triệt thì mất ích lợi [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     },
+     {
+      "fact": "palace.triet",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "loc_ma_gap_triet_vo_ich",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_XK_TY_HOI_LIEM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: trở nên hay (Xương hoặc Khúc ở Tỵ/Hợi có Liêm Trinh); hai chữ cung trong thơ khó đọc [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "xuong_khuc_ty_hoi_liem_hay",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_CU_THIN_TUAT_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: Cự Môn hãm ở Thìn/Tuất nhưng hóa Lộc (tuổi Tân) thì vẫn khá [TH p.88]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_ham_hoa_loc_van_hay",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_KINH_THUONG_TU_PHU_KINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: có thể thành thương gia giỏi (Tử Vi hoặc Thiên Phủ đắc địa đồng cung Kình Dương) [TH p.78]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       }
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Kình Dương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_phu_kinh_thuong_gia_gioi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_THIEN_DI_THI_TU_MO_VU_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Thiên Di: buôn bán hanh phát (cung Thiên Di ở Tứ mộ có Vũ Khúc hợp Lộc) [TH p.78]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Thiên Di"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "di_tu_mo_vu_loc_buon_ban_hanh_phat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_KY_NGHE_VU_PHA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: khéo tay về kỹ nghệ (Vũ Phá đồng cung ở Hợi/Tỵ hoặc Liêm Phá đồng cung ở Dậu/Mão) [TH p.78]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Vũ Khúc"
+         },
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Phá Quân"
+         },
+         {
+          "fact": "palace.branch",
+          "operator": "in",
+          "value": [
+           "Hợi",
+           "Tỵ"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Liêm Trinh"
+         },
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Phá Quân"
+         },
+         {
+          "fact": "palace.branch",
+          "operator": "in",
+          "value": [
+           "Dậu",
+           "Mão"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ky_nghe_tinh_kheo",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_VAN_CHUONG_NHIEU_VAN_TINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: giỏi văn chương, thơ phú (nhiều văn tinh hội Mệnh); 'nhiều' quy ước từ ba cát tinh [TH p.78]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 3
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "van_chuong_nhieu_van_tinh_tho_phu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_TU_HANH_TU_THAM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: hợp nếp tu hành, thích lánh mùi tục lụy (Tử Tham đồng cung ở Mão/Dậu gặp Không hoặc Kiếp) [TH p.78]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_tu_hanh_tu_tham_khong_kiep",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_TU_HANH_VCD",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: thiên về tu hành, lánh tục lụy (Mệnh vô chính diệu gặp nhiều sát tinh); sách dặn xem thêm cung Phụ Mẫu, Phối, Tử [TH p.78]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "fact": "palace.khi.sat_tp",
+      "operator": "gte",
+      "value": 3
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_tu_hanh_vcd_nhieu_sat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_MV_MENH_HOANG_DANG_THAM_DAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_menh_verse",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: dễ đam mê tửu sắc, chuốc tai ương (Tham, Đào gặp song Hao); sách còn kể Diêu, Hỷ, Mộc Dục [TH p.78]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đào Hoa"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đại Hao"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tiểu Hao"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_hoang_dang_tham_dao_hao",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}
