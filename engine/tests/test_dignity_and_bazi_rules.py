@@ -261,3 +261,22 @@ def test_second_source_corroborates_and_api_merges():
     f = out["systems"]["tu_vi"]["findings"]
     keys = [(x["subject"], x["claim"], x["effect"]) for x in f]
     assert len(keys) == len(set(keys))                                   # merged: no duplicate cards
+
+
+def tt_run(stem="Giáp", **kw):
+    p = {**mk_palace(**kw), "palace.is_than": False}
+    res = engine.run(RULES, SOURCES, {"chart": {"chart.year_stem": stem}, f"palace:{p['palace.name']}": p}, system="tu_vi")
+    return {f.claim for f in res.findings}
+
+
+def test_toan_thu_second_batch():
+    assert "phu_tuong_ngo_tuat_giap_cao_quy" in tt_run(branch="Ngọ", own=["Thiên Phủ"], tam=["Thiên Tướng"])
+    assert "phu_tuong_ngo_tuat_giap_cao_quy" not in tt_run("Canh", branch="Ngọ", own=["Thiên Phủ"], tam=["Thiên Tướng"])
+    assert "phu_tuat_giap_ky_kha_gia" in tt_run("Kỷ", branch="Tuất", own=["Thiên Phủ"])
+    assert "phu_tuat_giap_ky_kha_gia" not in tt_run("Kỷ", branch="Tuất", own=["Thiên Phủ"], tam=["Kình Dương"])   # Tứ Sát cancels
+    assert "phu_the_am_khuc_hoi_bat_doi_sang" in tt_run(name="Phu Thê", branch="Mão", own=["Thái Âm", "Văn Khúc"])
+    assert "am_ty_tuoi_binh_dinh_phu_quy" in tt_run("Đinh", branch="Tý", own=["Thái Âm"])
+    assert "cu_co_mao_cong_khanh" in tt_run("Bính", branch="Mão", own=["Cự Môn", "Thiên Cơ"])
+    assert "cu_co_mao_cong_khanh" not in tt_run("Giáp", branch="Mão", own=["Cự Môn", "Thiên Cơ"])
+    assert "cndl_dan_than_suon_se" in tt_run(branch="Dần", tam=["Thiên Cơ", "Thái Âm", "Thiên Đồng", "Thiên Lương"])
+    assert "luong_thien_di_buon_ban_lon" in tt_run(name="Thiên Di", own=["Thiên Lương", "Tả Phụ"])

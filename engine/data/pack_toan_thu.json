@@ -812,6 +812,1554 @@
    "reviewStatus": "verified",
    "version": "0.1.0",
    "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_PHU_TUONG_NGO_TUAT_GIAP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: địa vị rất cao (Thiên Phủ ở Ngọ hoặc Tuất có Thiên Tướng chầu, người tuổi Giáp) [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ",
+       "Tuất"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "chart.year_stem",
+      "operator": "in",
+      "value": [
+       "Giáp"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_tuong_ngo_tuat_giap_cao_quy",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_PHU_TUONG_TRIEU_VIEN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: thượng cách, thu nhập và bổng lộc cao (Mệnh Dần/Thân, Phủ Tướng ở Tài Bạch và Quan Lộc chầu vào) [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Thiên Phủ"
+        },
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Thiên Tướng"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_tuong_trieu_vien_luong_cao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_PHU_LOC_XUONG_KHUC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: của cải dư dả (Thiên Phủ gặp Lộc Tồn, Xương Khúc) [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Văn Khúc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_loc_xuong_khuc_du_da",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_PHU_XUONG_KHUC_TA_HUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: học vấn đỗ đạt cao (Thiên Phủ gặp Xương Khúc, Tả Hữu); 'gặp' đọc là hội trong tam phương [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_hoc_van_danh_vong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_TAI_BACH_PHU_VU_QUYEN_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: giàu có (Thiên Phủ, Vũ Khúc ở Tài Bạch được Quyền, Lộc hoặc Lộc Tồn tụ vào) [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_vu_tai_dien_giau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_DIEN_TRACH_PHU_VU_QUYEN_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: giàu có (Thiên Phủ, Vũ Khúc ở Điền Trạch được Quyền, Lộc hoặc Lộc Tồn tụ vào) [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Điền Trạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_vu_tai_dien_giau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_PHU_TUAT_GIAP_KY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: khá giả (Thiên Phủ ở Tuất không bị Tứ Sát xung phá, người tuổi Giáp hoặc Kỷ) [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tuất"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Kình Dương"
+        },
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Đà La"
+        },
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Hỏa Tinh"
+        },
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Linh Tinh"
+        }
+       ]
+      }
+     },
+     {
+      "fact": "chart.year_stem",
+      "operator": "in",
+      "value": [
+       "Giáp",
+       "Kỷ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_tuat_giap_ky_kha_gia",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_PHU_THE_AM_VAN_KHUC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: bạn đời có địa vị, sang quý (Thái Âm đồng cung Văn Khúc ở Phu Thê) [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phu Thê"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Văn Khúc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_the_am_khuc_hoi_bat_doi_sang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_AM_VU_LOC_TA_HUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: giàu sang (Thái Âm gặp Vũ Khúc, Lộc Tồn, Tả Hữu); 'gặp' đọc là hội trong tam phương [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_vu_loc_ta_huu_giau_sang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_AM_TY_BINH_DINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: giàu sang, trung tín (Thái Âm ở Tý, người tuổi Bính hoặc Đinh) [TT p.31]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "chart.year_stem",
+      "operator": "in",
+      "value": [
+       "Bính",
+       "Đinh"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_ty_tuoi_binh_dinh_phu_quy",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_AM_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: nắm chức quyền cao (Thái Âm ở Hợi: trăng sáng cửa trời) [TT p.32]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_hoi_phu_quy_chuc_cao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_THAM_HOA_LINH_TU_MO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: giàu có, quyền thế (Tham Lang gặp Hỏa hoặc Linh ở Tứ Mộ) [TT p.33]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tham_hoa_linh_tu_mo_quyen_the",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_THAM_VU_MUON",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: công danh có thể rực rỡ nhưng đến muộn, thường ngoài 40 tuổi (Tham Lang đi với Vũ Khúc) [TT p.33]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tham_vu_muon_phat_sau_40",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_CU_NHAT_DAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: danh tiếng và bổng lộc (Cự Nhật thủ Mệnh ở Dần) [TT p.34]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_nhat_dan_danh_loc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_DUONG_TY_CU_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: danh tiếng và bổng lộc (Cự Môn ở Hợi, Thái Dương thủ Mệnh ở Tỵ) [TT p.34]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Cự Môn"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "duong_ty_loc_lau_dai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_DUONG_HOI_CU_TY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: kém thuận vì Thái Dương rơi vào thế yếu (Cự Môn ở Tỵ, Thái Dương thủ Mệnh ở Hợi) [TT p.34]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Cự Môn"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "duong_hoi_cong_danh_trac_tro",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_CU_CO_MAO_TUOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: có thể lên đến địa vị cao (Cự Cơ ở Mão, người tuổi Ất, Tân, Kỷ hoặc Bính) [TT p.34]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "chart.year_stem",
+      "operator": "in",
+      "value": [
+       "Ất",
+       "Tân",
+       "Kỷ",
+       "Bính"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_co_mao_cong_khanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_CU_TY_NGO_TAM_HOA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: như ngọc ẩn trong đá, hưởng phúc lớn (Cự Môn ở Tý hoặc Ngọ hội Khoa, Quyền, Lộc) [TT p.34]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_ngoc_trong_da",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_TUONG_HUU_BAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: dễ gặp điều tốt lành (Thiên Tướng đi cặp Hữu Bật) [TT p.36]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_huu_bat_phuc_lanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_LUONG_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: có thể giữ chức vị lớn (Thiên Lương thủ Mệnh ở Ngọ) [TT p.37]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_ngo_chuc_lon_trieu_dinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_CNDL_DAN_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: làm ăn suôn sẻ, sáng suốt (Cơ Nguyệt Đồng Lương hội ở Mệnh tại Dần hoặc Thân) [TT p.37]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cndl_dan_than_suon_se",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_LUONG_TY_XUONG_LOC_NHAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: thi cử nổi bật, đỗ đạt cao (Thiên Lương thủ Mệnh ở Tý, Xương Lộc hội, Nhật chiếu) [TT p.37]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "fact": "palace.tam_phuong_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_ty_xuong_loc_nhat_do_dat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_LUONG_XUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: hiển đạt (Thiên Lương hội Văn Xương ở thế miếu vượng) [TT p.38]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     },
+     {
+      "fact": "palace.dignity.Thiên Lương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_xuong_hien_dat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_LUONG_MA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: phong lưu, thích phiêu lãng, hay di chuyển (Thiên Lương hội Thiên Mã) [TT p.38]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_ma_hay_di_chuyen",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_THIEN_DI_LUONG_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: hợp buôn bán lớn (Thiên Lương ở Thiên Di nhiều sao tốt trợ); 'nhiều sao tốt' đọc là có ít nhất một cát tinh [TT p.38]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Thiên Di"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_thien_di_buon_ban_lon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_SAT_TU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: tước lộc, vinh hiển (Thất Sát thủ Mệnh ở Dần, Thân, Tý hoặc Ngọ) [TT p.39]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân",
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "sat_tu_tinh_phu_quy",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_PHA_TY_NGO_VO_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: có thể giữ địa vị cao (Phá Quân thủ Mệnh ở Tý hoặc Ngọ, không gặp sát tinh); 'không gặp' đọc là không có trong tam phương [TT p.40]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Kình Dương"
+        },
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Đà La"
+        },
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Hỏa Tinh"
+        },
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Linh Tinh"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "pha_ty_ngo_vo_sat_quan_cao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_MENH_PHA_TY_NGO_GIAP_QUY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_phu",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: đặc biệt hợp người tuổi Giáp hoặc Quý (Phá Quân thủ Mệnh ở Tý hoặc Ngọ) [TT p.40]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "chart.year_stem",
+      "operator": "in",
+      "value": [
+       "Giáp",
+       "Quý"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "pha_ty_ngo_hop_tuoi_giap_quy",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
   }
  ]
 }
