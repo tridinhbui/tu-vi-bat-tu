@@ -7,6 +7,7 @@ from __future__ import annotations
 from .tuvi import TuViChart
 
 SRC = "Khảo Luận pp.233-236"
+SRC_TH = "Thực Hành pp.115-117"
 SAT4 = ("Kình Dương", "Đà La", "Địa Không", "Địa Kiếp", "Hỏa Tinh", "Linh Tinh")
 GROUPS = {
     "tu_phu_vu_tuong": ("Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng"),
@@ -104,7 +105,45 @@ def read(tv: TuViChart, van_palace: str) -> list[dict]:
             for branches, txt in rules:
                 if v["branch"] in branches:
                     add(f"Vận có {star} ở {v['branch']}: theo sách {txt}.")
+    out.extend(read_th(tv, v))
     joined = " ".join(o["text"] for o in out)
     if "đi lên" in joined and "đi xuống" in joined:
         out.append({"text": "Hai điều kiện trái chiều của sách (đi lên và đi xuống) cùng khớp, nên hệ thống không kết luận hạn này đi lên hay đi xuống.", "src": SRC})
+    return out
+
+
+HOA3 = ("Hóa Khoa", "Hóa Quyền", "Hóa Lộc")
+
+
+def read_th(tv: TuViChart, v: dict) -> list[dict]:
+    """Patterns of Tử Vi Thực Hành pp.115-117 read on the vận palace alone: 'đại tiểu hạn phát' (five groupings) and the benign half of
+    'đại tiểu hạn thất lợi'. Long Phượng, Ấn, Hình and Phá Toái are not placed with verified formulas, so the lines that need them are not claimed.
+    Injury / death / prison lines of the same list are deliberately left out. Nothing here says an event WILL happen."""
+    vs, vm = _stars(v), set(v["major_stars"])
+    hoa_here = {k for k, x in tv.tu_hoa.items() if x.get("branch") == v["branch_index"]}
+    out = []
+
+    def add(t):
+        out.append({"text": t, "src": SRC_TH})
+
+    loc = "Lộc Tồn" in vs or "Hóa Lộc" in hoa_here
+    ta_huu = bool({"Tả Phụ", "Hữu Bật"} & vs)
+    khoi_viet = bool({"Thiên Khôi", "Thiên Việt"} & vs)
+    xk = bool({"Văn Xương", "Văn Khúc"} & vs)
+    if vm & set(GROUPS["tu_phu_vu_tuong"]) and loc and ta_huu:
+        add("Cung vận có Tử Phủ Vũ Tướng gặp Lộc và Tả Hữu: theo sách là dịp có thể phát giàu lớn.")
+    if vm & {"Thái Âm", "Thiên Đồng", "Thiên Cơ", "Cự Môn"} and (hoa_here & set(HOA3)) and khoi_viet and ta_huu:
+        add("Cung vận có Nguyệt Đồng Cơ Cự gặp Khoa Quyền Lộc, Khôi Việt, Tả Hữu: theo sách là dịp thăng quan hoặc đăng khoa.")
+    if {"Cự Môn", "Thái Dương"} <= vm and "Lộc Tồn" in vs and "Hóa Lộc" in hoa_here and ta_huu:
+        add("Cung vận có Cự Nhật gặp song Lộc và Tả Hữu: theo sách là dịp phát mạnh về buôn bán.")
+    if vm & set(GROUPS["co_nguyet_dong_luong"]) and xk and bool({"Hồng Loan", "Đào Hoa"} & vs) and len(hoa_here & set(HOA3)) >= 3:
+        add("Cung vận có Cơ Nguyệt Đồng Lương gặp Xương Khúc, Hồng Đào và Tam Hóa: theo sách là dịp phát công danh và giàu có.")
+    if vm & set(GROUPS["sat_pha_tham"]) | ({"Liêm Trinh"} & vm) and ta_huu and (hoa_here & {"Hóa Quyền", "Hóa Lộc"}) and khoi_viet:
+        add("Cung vận có Sát Phá Liêm Tham gặp Tả Hữu, Quyền hoặc Lộc, Khôi Việt: theo sách là dịp phát về kinh doanh.")
+    if (khoi_viet or xk) and (hoa_here & {"Hóa Khoa", "Hóa Quyền"}) and bool({"Hồng Loan", "Đào Hoa"} & vs):
+        add("Cung vận có Đào, Hồng, Xương Khúc hoặc Khôi Việt cùng Khoa, Quyền: theo sách là điều kiện để đăng khoa hay thăng chức.")
+    if vm & set(GROUPS["tu_phu_vu_tuong"]) and ("Địa Không" in vs or "Địa Kiếp" in vs) and "Hóa Kỵ" in hoa_here:
+        add("Cung vận có Tử Phủ Vũ Tướng gặp Không hoặc Kiếp và Hóa Kỵ: theo sách là thế bất lợi, dễ bị giáng chức hay hao tài.")
+    if vm & {"Thái Âm", "Thiên Đồng", "Thiên Cơ", "Cự Môn"} and ("Địa Không" in vs or "Địa Kiếp" in vs) and ("Thái Tuế" in vs or "Hóa Kỵ" in hoa_here):
+        add("Cung vận có Nguyệt Đồng Cơ Cự gặp Không hoặc Kiếp cùng Thái Tuế hoặc Kỵ: theo sách dễ vướng kiện cáo hay giáng chức.")
     return out

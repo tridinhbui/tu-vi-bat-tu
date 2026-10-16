@@ -63,3 +63,12 @@ def test_year_payload_has_tieu_han_and_lưu_tứ_hóa_reading():
 def test_conflicting_book_conditions_are_reported_not_resolved():
     t = texts(fake({"major": ["Tử Vi", "Thiên Phủ"]}, {"major": ["Tử Vi"], "aux": ["Kình Dương"]}))
     assert "đi lên" in t and "đi xuống" in t and "không kết luận" in t
+
+
+def test_thuc_hanh_dai_tieu_han_phat_and_that_loi_pp115_116():
+    van = {"major": ["Tử Vi"], "aux": ["Lộc Tồn", "Tả Phụ"]}
+    t = texts(fake({"major": ["Thiên Cơ"]}, van))
+    assert "phát giàu lớn" in t and "Thực Hành" in " ".join(x["src"] for x in van_han.read(fake({"major": ["Thiên Cơ"]}, van), "Quan Lộc"))
+    assert "phát giàu lớn" not in texts(fake({"major": ["Thiên Cơ"]}, {"major": ["Tử Vi"], "aux": ["Tả Phụ"]}))              # needs Lộc as well
+    th = {"Hóa Kỵ": {"star": "Cự Môn", "branch": 4}}
+    assert "giáng chức" in texts(fake({"major": ["Thiên Cơ"]}, {"major": ["Vũ Khúc"], "aux": ["Địa Không"]}, tu_hoa=th))
