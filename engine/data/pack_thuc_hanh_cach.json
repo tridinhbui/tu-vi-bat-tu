@@ -1,0 +1,3629 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_TH_CACH_MENH_TU_PHU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Tử Phủ đồng cung ở Mệnh [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_tu_phu_dong_cung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_THAM_VU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Tham Vũ đồng hành (Sửu hoặc Mùi có Mệnh) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_tham_vu_dong_hanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NHAT_NGUYET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt đồng cung [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_nhat_nguyet_dong_cung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_CU_NHAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Cự Nhật đồng cung (ở Dần tốt hơn ở Thân) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_cu_nhat_dong_cung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_CU_CO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Cự Cơ đồng cung ở Mão hoặc Dậu [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_cu_co_dong_cung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_TA_HUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Tả Hữu đồng cung [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_ta_huu_dong_cung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_XK_SUU_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Văn Quế, Văn Hoa (Xương Khúc đồng cung ở Sửu hoặc Mùi: thượng cách) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Văn Khúc"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_van_que_van_hoa",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_VU_VAN_VO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Vũ Khúc văn võ (Vũ Khúc nhập miếu hợp Xương, Khúc: văn võ toàn tài) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.dignity.Vũ Khúc",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_vu_khuc_van_vo",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_KHOI_VIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Thiên Ất quý nhân (Khôi, Việt chiếu Mệnh) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Thiên Khôi"
+         },
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Thiên Việt"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Thiên Việt"
+         },
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Thiên Khôi"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_thien_at_quy_nhan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_GIAP_TA_HUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách quý tinh giáp Mệnh (Tả, Hữu kẹp hai bên) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_quy_tinh_giap_menh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_GIAP_XK",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách quý tinh giáp Mệnh (Xương, Khúc kẹp hai bên) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Văn Khúc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_quy_tinh_giap_menh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_GIAP_KV",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách quý tinh giáp Mệnh (Khôi, Việt kẹp hai bên) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Thiên Khôi"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Thiên Việt"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_quy_tinh_giap_menh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_GIAP_NN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách quý tinh giáp Mệnh (Thiên Phủ ở Sửu/Mùi, giáp Nhật và Nguyệt) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_quy_tinh_giap_menh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_PHA_MAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Phá Quân ở Mão hoặc Dậu (chỉ ở hai cung này mới hợp cách tốt) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_pha_quan_mao_dau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_LOC_MA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Lộc Mã giao trì (Lộc và Mã đồng cung) ở cung Mệnh [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_loc_ma_giao_tri",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_TAI_BACH_LOC_MA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Tài Bạch: cách Lộc Mã giao trì (Lộc và Mã đồng cung) ở cung Tài Bạch [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_loc_ma_giao_tri",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_QUAN_LOC_LOC_MA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Quan Lộc: cách Lộc Mã giao trì (Lộc và Mã đồng cung) ở cung Quan Lộc [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_loc_ma_giao_tri",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_THIEN_DI_LOC_MA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Thiên Di: cách Lộc Mã giao trì (Lộc và Mã đồng cung) ở cung Thiên Di [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Thiên Di"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_loc_ma_giao_tri",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NN_TINH_MINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt tịnh minh (Nhật ở Thìn/Tỵ, Nguyệt ở Dậu/Tuất) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thái Dương"
+         },
+         {
+          "fact": "palace.branch",
+          "operator": "in",
+          "value": [
+           "Thìn",
+           "Tỵ"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thái Âm"
+         },
+         {
+          "fact": "palace.branch",
+          "operator": "in",
+          "value": [
+           "Dậu",
+           "Tuất"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_nhat_nguyet_tinh_minh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NHAT_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật lệ trung thiên (Thái Dương cư Ngọ có Mệnh) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_nhat_le_trung_thien",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NHAT_MAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật chiếu lôi môn (Thái Dương ở Mão có Mệnh) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_nhat_chieu_loi_mon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NGUYET_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nguyệt lãng thiên môn (Thái Âm ở Hợi có Mệnh) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Hợi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_nguyet_lang_thien_mon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NGUYET_TY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nguyệt sinh thương hải (Thái Âm ở Tý) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_nguyet_sinh_thuong_hai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_SONG_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Song Lộc (Lộc Tồn và Hóa Lộc cùng đóng Mệnh, đẹp hơn là chiếu về) [TH p.72]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_song_loc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NN_CHIEU_BICH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt chiếu bích (Nhật, Nguyệt ở Sửu chiếu Mùi có Mệnh, hoặc ngược lại) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "palace.rel.opp_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.rel.opp_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_nhat_nguyet_chieu_bich",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_KIM_DU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Kim dư phù giá (Tử Vi ở cung Mệnh giáp Tả Hữu hoặc Thiếu Dương, Thiếu Âm) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_stars",
+          "operator": "contains",
+          "value": "Tả Phụ"
+         },
+         {
+          "fact": "palace.rel.flank_stars",
+          "operator": "contains",
+          "value": "Hữu Bật"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_stars",
+          "operator": "contains",
+          "value": "Thiếu Dương"
+         },
+         {
+          "fact": "palace.rel.flank_stars",
+          "operator": "contains",
+          "value": "Thiếu Âm"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_kim_du_phu_gia",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_PHU_BAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Phụ Bật củng đế (Tử Vi ở cung Mệnh, Tả Hữu hợp chiếu) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_phu_bat_cung_de",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_THAM_HOA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Tham Hỏa tương hội (cung Mệnh ở Tứ mộ có Tham Lang gặp Hỏa: phát về võ hoặc kinh thương) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Hỏa Tinh"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_tham_hoa_tuong_hoi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_LOC_MA_BOI_AN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Lộc Mã bội ấn (cung Mệnh có Thiên Tướng đắc địa, Lộc và Mã giáp hai bên) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Tướng",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_loc_ma_boi_an",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_QUAN_LOC_KIM_DU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Quan Lộc: cách Kim dư phù giá (Tử Vi ở cung Quan Lộc giáp Tả Hữu hoặc Thiếu Dương, Thiếu Âm) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_stars",
+          "operator": "contains",
+          "value": "Tả Phụ"
+         },
+         {
+          "fact": "palace.rel.flank_stars",
+          "operator": "contains",
+          "value": "Hữu Bật"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_stars",
+          "operator": "contains",
+          "value": "Thiếu Dương"
+         },
+         {
+          "fact": "palace.rel.flank_stars",
+          "operator": "contains",
+          "value": "Thiếu Âm"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_kim_du_phu_gia",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_QUAN_LOC_PHU_BAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Quan Lộc: cách Phụ Bật củng đế (Tử Vi ở cung Quan Lộc, Tả Hữu hợp chiếu) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_phu_bat_cung_de",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_QUAN_LOC_THAM_HOA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Quan Lộc: cách Tham Hỏa tương hội (cung Quan Lộc ở Tứ mộ có Tham Lang gặp Hỏa: phát về võ hoặc kinh thương) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Hỏa Tinh"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_tham_hoa_tuong_hoi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_QUAN_LOC_LOC_MA_BOI_AN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Quan Lộc: cách Lộc Mã bội ấn (cung Quan Lộc có Thiên Tướng đắc địa, Lộc và Mã giáp hai bên) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Tướng",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_loc_ma_boi_an",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_SAT_TRIEU_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Thất Sát triều đẩu (Dần hoặc Thân có Mệnh) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_that_sat_trieu_dau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_SAT_NGUONG_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Thất Sát ngưỡng đẩu (Thất Sát cư Ngọ) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_that_sat_nguong_dau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_PHA_TY_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Phá Quân ở Tý, Ngọ: hoạnh phát nhưng cũng hoạnh phá [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_pha_quan_ty_ngo_hoanh_phat",
+     "effect": "support",
+     "scope": "natal"
+    },
+    {
+     "kind": "finding",
+     "claim": "cach_pha_quan_ty_ngo_hoanh_pha",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_TA_HUU_TU_MO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Tả Hữu Tứ mộ (Tả, Hữu đồng cung ở Tứ mộ) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_ta_huu_tu_mo",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_KINH_NHAP_MIEU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Kình Dương nhập miếu (Kình ở Tứ mộ và tuổi thuộc Tứ mộ) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Kình Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "chart.year_branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_kinh_duong_nhap_mieu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_MINH_AM_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Minh Lộc, Ám Lộc (Mệnh có Lộc, cung nhị hợp có Lộc Tồn hoặc ngược lại: 'uyên ương lộc hội') [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Lộc Tồn"
+         },
+         {
+          "fact": "palace.rel.nhi_hop_hoa",
+          "operator": "contains",
+          "value": "Hóa Lộc"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.tu_hoa",
+          "operator": "contains",
+          "value": "Hóa Lộc"
+         },
+         {
+          "fact": "palace.rel.nhi_hop_stars",
+          "operator": "contains",
+          "value": "Lộc Tồn"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_minh_loc_am_loc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_CHUNG_THUY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Chúng thuỷ triều đông (Mệnh ở Mão, Dậu có song Hao) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đại Hao"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tiểu Hao"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_chung_thuy_trieu_dong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_SINH_BAT_PHUNG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Sinh bất phùng thời (Liêm Trinh ở Dần/Thân gặp Tuần hoặc Triệt án ngữ) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_sinh_bat_phung_thoi",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_THAT_SINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Thất sinh cô bần (Phá Quân ở Dần/Thân gặp sát tinh); 'gặp' đọc là hội trong tam phương tứ chính [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_that_sinh_co_ban",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_LOC_LUONG_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Lộc phùng lưỡng sát (Lộc Tồn hoặc Hóa Lộc ở Mệnh gặp Không, Kiếp đồng cung) [TH p.73]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Địa Không"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Địa Kiếp"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_loc_phung_luong_sat",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_MA_LAC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Mã lạc Không vong (Thiên Mã ở Mệnh gặp Tuần hoặc Triệt án ngữ) [TH p.74]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_ma_lac_khong_vong",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_TAI_TU_CUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Tài dữ tù cừu (Vũ hoặc Liêm hãm ở Mệnh gặp sát tinh); 'gặp' đọc là hội [TH p.74]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Vũ Khúc"
+         },
+         {
+          "fact": "palace.dignity.Vũ Khúc",
+          "operator": "in",
+          "value": [
+           "hãm"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Liêm Trinh"
+         },
+         {
+          "fact": "palace.dignity.Liêm Trinh",
+          "operator": "in",
+          "value": [
+           "hãm"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_tai_du_tu_cuu",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt tàn hung (Nhật hoặc Nguyệt hãm ở Mệnh gặp sát tinh); sách còn nói 'không có cứu tinh' mà hệ thống chưa kiểm [TH p.74]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thái Dương"
+         },
+         {
+          "fact": "palace.dignity.Thái Dương",
+          "operator": "in",
+          "value": [
+           "hãm"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thái Âm"
+         },
+         {
+          "fact": "palace.dignity.Thái Âm",
+          "operator": "in",
+          "value": [
+           "hãm"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_nhat_nguyet_tan_hung",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_KK_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Không Kiếp sát hội (Mệnh có Không hoặc Kiếp hãm địa, hội sát tinh khác) [TH p.74]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "not_in",
+      "value": [
+       "Tỵ",
+       "Hợi",
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_khong_kiep_sat_hoi",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_SV_SINH_VUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở sinh địa hoặc vượng địa của hành bản mệnh (nền thuận); sách nêu bảng nhưng chỉ nói rõ phần bại, tuyệt [TH p.74]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.menh_stage_th",
+      "operator": "in",
+      "value": [
+       "sinh",
+       "vuong"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "menh_sinh_vuong_dia",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở bại địa hoặc tuyệt địa nhưng được Tam Hóa hội: 'tuyệt xứ phùng sinh', được cứu giải [TH p.74]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.menh_stage_th",
+      "operator": "in",
+      "value": [
+       "bai",
+       "tuyet"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "menh_tuyet_xu_phung_sinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_SV_BAI_TUYET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh ở bại hoặc tuyệt địa, không Tam Hóa hội và không có chính diệu sinh bản mệnh: cuộc đời thăng trầm đáng ngại [TH p.74]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.menh_stage_th",
+      "operator": "in",
+      "value": [
+       "bai",
+       "tuyet"
+      ]
+     },
+     {
+      "not": {
+       "all": [
+        {
+         "fact": "palace.rel.tp_hoa",
+         "operator": "contains",
+         "value": "Hóa Khoa"
+        },
+        {
+         "fact": "palace.rel.tp_hoa",
+         "operator": "contains",
+         "value": "Hóa Quyền"
+        },
+        {
+         "fact": "palace.rel.tp_hoa",
+         "operator": "contains",
+         "value": "Hóa Lộc"
+        }
+       ]
+      }
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "menh_bai_tuyet_dia_tham_tram",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_MUA_SINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: thuận mùa sinh (Mệnh Vượng hoặc Mệnh Tướng theo mùa): độ số được tăng; mùa lấy theo tháng âm 1-3 xuân, 4-6 hạ, 7-9 thu, 10-12 đông [TH p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.season_relation",
+      "operator": "in",
+      "value": [
+       "vuong",
+       "tuong"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "menh_thuan_mua_sinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_GIO_SINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: thuận giờ sinh (mùa xuân giờ Dậu/Thìn/Tỵ, hạ Mão/Mùi/Hợi, thu Ngọ/Thân/Dần, đông Sửu/Tuất/Tý): độ số gia tăng [TH p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.hour_matches_season",
+      "operator": "eq",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "menh_thuan_gio_sinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_THUAN_LY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: giờ sinh thuận lý (giờ dương mà Mệnh an ở cung dương, giờ âm mà Mệnh ở cung âm): độ số gia tăng [TH p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.hour_menh_polarity",
+      "operator": "eq",
+      "value": "thuan_ly"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "menh_gio_thuan_ly",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NGHICH_LY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: giờ sinh nghịch lý (giờ dương mà Mệnh ở cung âm hoặc ngược lại): độ số bị kém bớt [TH p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.hour_menh_polarity",
+      "operator": "eq",
+      "value": "nghich_ly"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "menh_gio_nghich_ly",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_THIEN_DI_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Thiên Di: Thân cư Thiên Di có cát tinh hội: lập nghiệp phương xa thịnh vượng [TH p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Thiên Di"
+     },
+     {
+      "fact": "palace.is_than",
+      "value": true
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "than_cu_di_lap_nghiep_xa",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_TAI_BACH_THAN_TU_VI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Tài Bạch: Thân cư Tài Bạch có Tử Vi tọa thủ: có danh giá hoặc tiền tài [TH p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.is_than",
+      "value": true
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "than_cu_tai_co_danh_gia_tien_tai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_QUAN_LOC_THAN_TT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Quan Lộc: Thân cư Quan Lộc gặp Tuần, Triệt, Kiếp, Hỏa, Kỵ: công danh đến muộn; sách nói riêng cho đàn ông, hệ thống không phân giới tính ở đây [TH p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.is_than",
+      "value": true
+     },
+     {
+      "any": [
+       {
+        "any": [
+         {
+          "fact": "palace.tuan",
+          "value": true
+         },
+         {
+          "fact": "palace.triet",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "than_cu_quan_muon_cong_danh",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_PHI_THUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: phi thường cách (Tử, Phủ, Vũ, Tướng nhập miếu ở Mệnh, hội nhiều cát tinh); ngưỡng 'nhiều cát tinh' là quy ước của hệ thống (từ hai sao trở lên) [TH p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Tử Vi"
+         },
+         {
+          "fact": "palace.dignity.Tử Vi",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Phủ"
+         },
+         {
+          "fact": "palace.dignity.Thiên Phủ",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Vũ Khúc"
+         },
+         {
+          "fact": "palace.dignity.Vũ Khúc",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thiên Tướng"
+         },
+         {
+          "fact": "palace.dignity.Thiên Tướng",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 2
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_phi_thuong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Thiên Di: Thân cư Sát Phá Liêm Tham nhập miếu vượng, hội nhiều cát tinh: có thể phát mạnh [TH p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Thiên Di"
+     },
+     {
+      "fact": "palace.is_than",
+      "value": true
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thất Sát"
+         },
+         {
+          "fact": "palace.dignity.Thất Sát",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Phá Quân"
+         },
+         {
+          "fact": "palace.dignity.Phá Quân",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Liêm Trinh"
+         },
+         {
+          "fact": "palace.dignity.Liêm Trinh",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Tham Lang"
+         },
+         {
+          "fact": "palace.dignity.Tham Lang",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 2
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_phi_thuong_than",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BACH_OC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách bạch ốc phát công danh (Thiên Tướng đắc địa hội Thiên Mã, Văn Xương); sách còn kể Thiên Phúc nhưng sao này chưa được kiểm [TH p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Tướng",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_bach_oc_phat_cong_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_VCD_TAM_KHONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh vô chính diệu đắc tam không, hội cát tinh, có Nhật Nguyệt chiếu: có thể phát công danh khá [TH p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "any": [
+       {
+        "any": [
+         {
+          "fact": "palace.tuan",
+          "value": true
+         },
+         {
+          "fact": "palace.triet",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Không"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       }
+      ]
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 1
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_vcd_tam_khong_nhat_nguyet_chieu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NGHE_IN_AN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: hợp nghề ấn loát, công nghệ hay làm thương gia khá (Cơ Nguyệt Đồng Lương hội Tả Hữu, Xương Khúc) [TH p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Văn Khúc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nghe_cndl_in_an_thuong_gia",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_NGHE_DAY_HOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: giỏi dạy học, viết văn (Cơ Nguyệt Đồng Lương hội Tả Hữu, Khôi Việt, Khoa Quyền, Xương Khúc, Tấu Thư) [TH p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Thiên Khôi"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Thiên Việt"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Văn Xương"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Văn Khúc"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Tấu Thư"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nghe_cndl_day_hoc_viet_van",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_HA_CACH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "th_cach",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: hạ cách: chính tinh Sát Phá Liêm Tham mà hung tinh, sát tinh hội nhiều, có Hóa Kỵ; đời nhiều vất vả (ngưỡng 'nhiều' = từ ba sát tinh) [TH p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thất Sát"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Phá Quân"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Liêm Trinh"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     },
+     {
+      "fact": "palace.khi.sat_tp",
+      "operator": "gte",
+      "value": 3
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cach_ha_cach_lao_kho",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}

@@ -304,7 +304,7 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
         "tam_hop": [BRANCHES_VI[_m(br + 4)], BRANCHES_VI[_m(br + 8)]],
         "giap": [BRANCHES_VI[_m(br - 1)], BRANCHES_VI[_m(br + 1)]],
     } for br in range(12)}
-    extras = {"menh_chu": cach_cuc.menh_chu(menh), "than_chu": cach_cuc.than_chu(yb)}
+    extras = {"menh_chu": cach_cuc.menh_chu(menh), "than_chu": cach_cuc.than_chu(yb), "hour_branch": hb}
     warnings = []
     if L.is_leap:
         warnings.append(f"Born in a leap lunar month; Tử Vi month depends on rule '{leap_rule}'.")

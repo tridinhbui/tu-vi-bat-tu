@@ -3,6 +3,8 @@
 Deterministic: rules ordered by (-priority, id); subjects ordered by name. Derived facts feed later
 rules (multi-hop) until a fixpoint or MAX_DEPTH. A rule fires at most once per (rule, subject).
 Contradictory re-assertion of a derived fact is recorded as a conflict, never overwritten.
+Phase 1: conditions may read other palaces (`ref`) and count sub-conditions; `formations` (cách cục with core / boosters / breakers /
+rescuers / refutations) are evaluated first, and their outcome is asserted as derived facts so ordinary rules can chain on it.
 """
 from __future__ import annotations
 
@@ -53,6 +55,7 @@ class InferenceResult:
     blocked: list[dict]
     conflicts: list[dict]
     fired: list[tuple[str, str, int]]
+    formations: list[dict] = field(default_factory=list)
 
     def why(self, finding_id: str) -> dict:
         """Backward chain: everything a finding depends on, down to base facts and sources."""
@@ -78,15 +81,16 @@ def _fact_node(res_nodes, subject, name, value):
 
 
 def _leaf_facts(expr) -> list[str]:
-    if "fact" in expr:
-        return [expr["fact"]]
-    key = next(iter(expr))
-    sub = expr[key] if isinstance(expr[key], list) else [expr[key]]
-    return [f for e in sub for f in _leaf_facts(e)]
+    return [f for _, f in dsl.leaves(expr)]
+
+
+def _targets(expr, facts: dict, subj: str) -> list[tuple[str, str]]:
+    """(subject, fact) pairs a condition reads; a `ref` leaf points at another palace's subject."""
+    return [(subj if pal is None else f"palace:{pal}", f) for pal, f in dsl.leaves(expr, facts)]
 
 
 def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict],
-        system: str | None = None) -> InferenceResult:
+        system: str | None = None, formations: list | None = None) -> InferenceResult:
     nodes: dict[str, Node] = {}
     edges: list[Edge] = []
     derived: dict[str, dict[str, Any]] = {s: {} for s in base}
@@ -108,6 +112,14 @@ def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict]
             d.update({k: v for k, v in derived["chart"].items()})
         return d
 
+    def world(name: str):
+        return facts_of(f"palace:{name}") if f"palace:{name}" in base else None
+
+    formation_out: list[dict] = []
+    if formations:
+        from .formation_eval import run_formations
+        formation_out = run_formations(formations, base, facts_of, world, derived, fdepth, nodes, edges, findings)
+
     for depth in range(1, MAX_DEPTH + 1):
         progressed = False
         for r in ordered:
@@ -116,7 +128,7 @@ def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict]
                 if (r.id, subj) in done:
                     continue
                 facts = facts_of(subj)
-                cond = dsl.evaluate(r.conditions, facts)
+                cond = dsl.evaluate(r.conditions, facts, world)
                 if cond is None:
                     continue  # re-checked next round; reported as pending at the end if still unknown
                 done.add((r.id, subj))
@@ -124,22 +136,22 @@ def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict]
                     continue
                 rid = f"rule:{r.id}@{subj}"
                 nodes[rid] = Node(rid, "rule", f"{r.id} [{r.reviewStatus}] @{subj}", {"description": r.description})
-                for f in _leaf_facts(r.conditions):
-                    fid = _fact_node(nodes, subj, f, facts.get(f))
+                for tsub, f in _targets(r.conditions, facts, subj):
+                    fid = _fact_node(nodes, tsub, f, facts_of(tsub).get(f) if tsub in base else None)
                     edges.append(Edge(rid, fid, "derived_from"))
                 for sid in r.sourceIds:
                     nid = f"source:{sid}"
                     nodes.setdefault(nid, Node(nid, "source", f"{sid} ({'verified' if src[sid].verified else 'unverified'})"))
                     edges.append(Edge(rid, nid, "sourced_from"))
-                exc = [e for e in r.exceptions if dsl.evaluate(e, facts) is True]
+                exc = [e for e in r.exceptions if dsl.evaluate(e, facts, world) is True]
                 if exc:
                     blocked.append({"rule": r.id, "subject": subj, "exception": exc[0]})
                     bid = f"blocked:{r.id}@{subj}"
                     nodes[bid] = Node(bid, "blocked", f"{r.id} suppressed by exception @{subj}")
-                    for f in _leaf_facts(exc[0]):
-                        edges.append(Edge(_fact_node(nodes, subj, f, facts.get(f)), rid, "suppresses"))
+                    for tsub, f in _targets(exc[0], facts, subj):
+                        edges.append(Edge(_fact_node(nodes, tsub, f, facts_of(tsub).get(f) if tsub in base else None), rid, "suppresses"))
                     continue
-                rdepth = 1 + max([fdepth.get((subj, f), fdepth.get(("chart", f), 0)) for f in _leaf_facts(r.conditions)] + [0])
+                rdepth = 1 + max([fdepth.get((tsub, f), fdepth.get(("chart", f), 0)) for tsub, f in _targets(r.conditions, facts, subj)] + [0])
                 fired.append((r.id, subj, rdepth))
                 progressed = True
                 basis = "verified" if r.reviewStatus == "verified" and all(
@@ -171,6 +183,7 @@ def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict]
         for subj in (sorted(s for s in base if s != "chart") if r.subject == "palace" else ["chart"]):
             if (r.id, subj) not in done:
                 facts = facts_of(subj)
-                missing = sorted({f for f in _leaf_facts(r.conditions) if f not in facts})
+                missing = sorted({f for tsub, f in _targets(r.conditions, facts, subj)
+                                  if f not in (facts if tsub == subj else (facts_of(tsub) if tsub in base else {}))})
                 pending.append({"rule": r.id, "subject": subj, "missing_facts": missing})
-    return InferenceResult(nodes, edges, findings, derived, pending, blocked, conflicts, fired)
+    return InferenceResult(nodes, edges, findings, derived, pending, blocked, conflicts, fired, formation_out)

@@ -33,6 +33,7 @@ class BirthReq(BaseModel):
     use_true_solar_time: bool = False; level: int = Field(3, ge=1, le=5)
     to_year: int | None = None
     dignity_school: str = Field("thuc_hanh", pattern="^(thuc_hanh|toan_thu)$")
+    experimental: bool = False      # opt-in: also evaluate the DRAFT cách cục + engine-demo rules (never part of production readings)
 
     def birth(self) -> BirthInput:
         return BirthInput(self.year, self.month, self.day, self.hour, self.minute, self.tz, self.gender,
@@ -114,7 +115,29 @@ def reasoning(req: BirthReq):
             "pending": res.pending[:20], "blocked": res.blocked, "conflicts": res.conflicts,
             "text": nlg.render(nlg.realize(interps, req.level)),
         }
+    if req.experimental:
+        out["experimental"] = _experimental(tv, rules, sources)
     return out
+
+
+def _experimental(tv, rules, sources) -> dict:
+    """Phase-1 draft structures (data/experimental): kept apart from `systems` so the production reading is byte-identical."""
+    from .knowledge.loader import load_experimental
+    from .knowledge.formation import validate_formations
+    from .reasoning import conflict
+    from .tuvi import PALACES
+    xr, xf, xs = load_experimental()
+    known = {"palace.*", "chart.*", "bazi.*", "derived.*"}
+    problems = validate_formations(xf, known, set(PALACES)) + validate_pack(xr, xs, known)
+    allr, alls = rules + xr, sources + [s for s in xs if s.id not in {x.id for x in sources}]
+    res = engine.run(allr, alls, facts.tuvi_facts(tv), system="tu_vi", formations=xf)
+    xids = {r.id for r in xr} | {f.id for f in xf}
+    mine = [f for f in res.findings if f.rule_id in xids]
+    return {"status": "draft", "warning": "Cấu trúc thử nghiệm, chưa đối chiếu sách; không thuộc kết quả luận giải chính thức.",
+            "pack_problems": problems, "formations": res.formations,
+            "findings": [{**dataclasses.asdict(f), "why": _why_vi(res.why(f.id))} for f in mine],
+            "blocked": [b for b in res.blocked if b["rule"] in xids],
+            "conflicts": [c for c in conflict.resolve(res, allr) if c.get("declared")]}
 
 
 class LunarReq(BaseModel):
