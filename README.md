@@ -50,6 +50,8 @@ cd engine && ../.venv/bin/python -m pytest -q
   vô-chính-diệu readings. Total rule inventory ~340.
 - 八字真宗 pp.31-32: day-pillar nạp âm personality readings (30 rules, `pack_bazi_napam.json`); the book's own pillar→nạp âm list validates our nạp âm table for all 30 rows.
 - Bát Tự thai nguyên, mệnh cung, thân cung and 空亡 now computed (`BaziChart.extras`); the book's full 命宫 and 身宫 tables (144 cells each), 胎元 and 空亡 tables are golden tests.
+- Thần sát tables (八字真宗 pp.21-22) and Khảo Luận's five-step đại hạn method (pp.230-233: tam hợp element vs birth year, xung chiếu, nhị hợp, Thái Tuế triad) are in the analysis;
+  the five worked examples of the book are tests. The analysis chapter list now also has a 12-palace walk-through (~70 blocks per chart).
 - Not supported: minor-star brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, lunar-date input.
 - Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
   (injury, death, children) are intentionally not implemented.

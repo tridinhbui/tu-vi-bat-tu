@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 from .bazi import BaziChart, growth_stage, ten_god
-from .ganzhi import BRANCHES_VI, BRANCH_ELEMENT, ELEMENTS, STEM_ELEMENT, STEMS_VI, generates
+from .ganzhi import BRANCHES_VI, BRANCH_ELEMENT, ELEMENTS, STEM_ELEMENT, STEMS_VI, controls, generates
 from .tuvi import TuViChart
 
 _TUHOA = json.loads((Path(__file__).resolve().parent.parent / "data" / "tu_hoa_vi.json").read_text("utf-8"))
@@ -27,6 +27,51 @@ GROUPS = {"Tử – Phủ – Vũ – Tướng": ["Tử Vi", "Thiên Phủ", "V�
           "Cơ – Nguyệt – Đồng – Lương": ["Thiên Cơ", "Thái Âm", "Thiên Đồng", "Thiên Lương"], "Cự – Nhật – Nguyệt": ["Cự Môn", "Thái Dương", "Thái Âm"]}
 GROUP_NOTE = {"Tử – Phủ – Vũ – Tướng": "nhóm “hành động có lý luận”", "Sát – Phá – Liêm – Tham": "nhóm “hành động mạnh mẽ”",
               "Cơ – Nguyệt – Đồng – Lương": "nhóm “lý luận thuần túy”", "Cự – Nhật – Nguyệt": "nhóm “lý luận thực hành”"}
+
+
+TRIAD_ELEM = {8: "Thủy", 0: "Thủy", 4: "Thủy", 11: "Mộc", 3: "Mộc", 7: "Mộc", 2: "Hỏa", 6: "Hỏa", 10: "Hỏa", 5: "Kim", 9: "Kim", 1: "Kim"}
+DV_EVENT = {"Phu Thê": "chuyện hôn nhân, cưới hỏi", "Tài Bạch": "chuyện tiền bạc", "Tật Ách": "các vấn đề về thể trạng"}
+
+
+def age_vs_dai_van(age_e: str, dv_e: str) -> tuple[str, str]:
+    if age_e == dv_e:
+        return "cùng hành", "thoải mái, mức trung bình"
+    if controls(age_e, dv_e):
+        return "tuổi khắc đại vận", "tự thắng được hoàn cảnh bằng nỗ lực bản thân, tốt"
+    if generates(age_e, dv_e):
+        return "tuổi sinh xuất cho đại vận", "khó khăn rồi mới thành công, đời sống vất vả, hơi bất lợi"
+    if generates(dv_e, age_e):
+        return "đại vận sinh nhập cho tuổi", "thuận lợi cho đương số, tốt nhiều"
+    return "đại vận khắc tuổi", "bất lợi nhất: dễ gặp trở ngại, thất bại trong làm ăn"
+
+
+def dai_van_reading(v, tv, year_branch: int):
+    """Khảo Luận pp.230-233: five-step reading of a đại hạn palace (element of the tam hợp vs the birth year, xung chiếu, nhị hợp, stars, palace topic)."""
+    age_e = TRIAD_ELEM[year_branch]
+    out = []
+    for d in tv.dai_han[:10]:
+        p = v.by_n[d["palace"]]
+        br_ = p["branch_index"]
+        dv_e = TRIAD_ELEM[br_]
+        rel, verdict = age_vs_dai_van(age_e, dv_e)
+        opp = (br_ + 6) % 12
+        opp_e = TRIAD_ELEM[opp]
+        xc = (f"tam hợp đại vận ({dv_e}) khắc tam hợp xung chiếu ({opp_e}) nên theo sách là thế tốt (nhận sao tốt, từ chối sao xấu của cung xung chiếu)"
+              if controls(dv_e, opp_e) else f"tam hợp đại vận ({dv_e}) không khắc tam hợp xung chiếu ({opp_e})")
+        nh = (1 - br_) % 12
+        nh_e = TRIAD_ELEM[nh]
+        nh_txt = (f"cung nhị hợp {BRANCHES_VI[nh]} ({nh_e}) sinh cho đại vận nên sao của cung này được tính: " + (_join(v.by_b[nh]["major_stars"]) or "vô chính diệu")
+                  if generates(nh_e, dv_e) else f"cung nhị hợp {BRANCHES_VI[nh]} ({nh_e}) không sinh cho đại vận nên không tính sao của nó")
+        lucky = br_ in {year_branch, (year_branch + 4) % 12, (year_branch + 8) % 12}
+        stars = v.star_phrase(p)
+        txt = (f"{d['age_from']}–{d['age_to']} tuổi, cung {d['palace']} ({d['stem']} {d['branch']}): chính tinh {_join(stars) or 'vô chính diệu'}. "
+               f"Tam hợp {BRANCHES_VI[br_]} thuộc {dv_e}, tuổi {BRANCHES_VI[year_branch]} thuộc {age_e}: {rel}, sách đọc là {verdict}. Xung chiếu: {xc}. {nh_txt[:1].upper() + nh_txt[1:]}.")
+        if lucky:
+            txt += " Cung này nằm ở tam hợp Thái Tuế – Quan Phù – Bạch Hổ, vị trí sách cho là hanh thông bất kể Mệnh ở đâu."
+        if d["palace"] in DV_EVENT:
+            txt += f" Hạn đi qua cung {d['palace']} nên sách cho các biến cố của hạn này liên quan đến {DV_EVENT[d['palace']]}."
+        out.append(txt)
+    return out
 
 
 def B(text, layer, basis="tinh_toan", src=None):
@@ -111,7 +156,7 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     dm_el, mb, stage, tiet, roots, helpers = bazi_core(bz)
     dm_name = STEMS_VI[bz.day_master]
     menh = v.by_n["Mệnh"]
-    ch: dict[str, list] = {k: [] for k in ["tong-quan", "ban-menh", "tinh-cach", "cong-danh", "tai-bach", "quan-he", "dai-van", "cach-cuc"]}
+    ch: dict[str, list] = {k: [] for k in ["tong-quan", "muoi-hai-cung", "ban-menh", "tinh-cach", "cong-danh", "tai-bach", "quan-he", "dai-van", "cach-cuc"]}
 
     # ---------- Tổng quan
     comp = v.star_phrase(menh)
@@ -235,10 +280,33 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     for d in tv.dai_han[:10]:
         p = v.by_n[d["palace"]]
         dh_lines.append(f"{d['age_from']}–{d['age_to']} tuổi: cung {d['palace']} ({d['stem']} {d['branch']}) — " + (_join(p["major_stars"]) or "vô chính diệu") + (f"; {_join(v.hoa_at.get(p['branch_index'], []))}" if v.hoa_at.get(p["branch_index"]) else ""))
-    ch["dai-van"].append(B(f"Đại hạn Tử Vi chạy {tv.dai_han_direction}, bắt đầu từ cung Mệnh ở tuổi {tv.cuc['n']} (cục {tv.cuc['name']}). Mỗi hạn 10 năm đi qua một cung, và cung ấy được xét như “Mệnh của giai đoạn”: " + " | ".join(dh_lines) + ".", "Biến", "sach", ["TH p.27"]))
+    ch["dai-van"].append(B(f"Đại hạn Tử Vi chạy {tv.dai_han_direction}, bắt đầu từ cung Mệnh ở tuổi {tv.cuc['n']} (cục {tv.cuc['name']}). Mỗi hạn 10 năm đi qua một cung; bên dưới là cách Khảo Luận hướng dẫn xét từng hạn: so hành của tam hợp cung đại vận với hành của tam hợp tuổi, so với tam hợp xung chiếu, xét cung nhị hợp, rồi mới xét các sao.", "Biến", "sach", ["TH p.27", "Khảo Luận pp.230-233"]))
+    year_branch_idx = BRANCHES_VI.index(tv.year_gz.split()[1])
+    for line in dai_van_reading(v, tv, year_branch_idx):
+        ch["dai-van"].append(B(line, "Biến", "sach", ["Khảo Luận pp.230-233"]))
+    ch["dai-van"].append(B("Sách nhấn mạnh thêm: chính tinh đắc địa thì tốt, hãm địa thì xấu và cần Tuần Triệt giải; hung tinh đắc địa lại có thể tốt, nhất là khi gặp đúng “quan thầy” trong bộ Sát Phá Tham (Không Kiếp gặp Phá Quân, Hỏa Linh gặp Tham Lang, Kình Đà gặp Thất Sát). Hệ thống chưa tự đánh giá hạn tốt hay xấu bằng các điều này vì độ sáng của sao phụ và Tuần Triệt giải chưa có quy tắc kiểm chứng.", "Phản", "sach", ["Khảo Luận p.233"]))
     lp = [f"{l.start_age:.0f} tuổi: {l.name} ({l.ten_god})" for l in bz.luck_pillars[:8]]
     ch["dai-van"].append(B(f"Bát Tự: đại vận {bz.luck_direction}, khởi vận sau khoảng {bz.luck_start['years']} năm {bz.luck_start['months']} tháng. Các đại vận: " + "; ".join(lp) + ". Thập thần ghi theo Nhật Chủ.", "Biến", "sach", ["八字真宗 PDF p.23"]))
     ch["dai-van"].append(B("Tiểu hạn Tử Vi (mỗi năm một cung) và lưu niên/lưu nguyệt Bát Tự xem bằng thanh chọn năm bên dưới. Hệ thống chỉ trình bày cấu trúc thời gian và các tương tác Can Chi với nguyên cục; không suy ra sự kiện cụ thể cho từng năm.", "Biến", "he_thong"))
+
+    # ---------- Mười hai cung
+    for name in ["Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch", "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách", "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]:
+        p = v.by_n[name]
+        tam = v.tam(name)
+        own = v.star_phrase(p)
+        extra = [s_ for s_ in p["stars"] if s_ not in p["major_stars"]]
+        grp = [GROUP_NOTE[g] for g, ss_ in GROUPS.items() if any(x in p["major_stars"] for x in ss_)]
+        txt = (f"Cung {name} ({p['stem']} {p['branch']}{' · Thân cư' if p['is_than'] else ''}) nói về {PALACE_ROLE[name]}. "
+               f"Chính tinh: {_join(own) or 'vô chính diệu (mượn sao cung đối để xét)'}"
+               + (f"; thuộc {_join(grp)}" if grp else "")
+               + (f". Phụ tinh: {_join(extra[:9])}" if extra else "")
+               + (f". Cung này có Tuần/Triệt" if p["tuan"] or p["triet"] else "")
+               + (f". Sao hóa của năm: {_join(v.hoa_at.get(p['branch_index'], []))}" if v.hoa_at.get(p["branch_index"]) else "")
+               + ". " + reach_note(v, name))
+        ch["muoi-hai-cung"].append(B(txt, "Thế", "sach", ["Khảo Luận pp.214-220"]))
+        if not p["major_stars"]:
+            opp = v.by_b[(p["branch_index"] + 6) % 12]
+            ch["muoi-hai-cung"].append(B(f"Cung {name} vô chính diệu: khi xét, cung đối {opp['name']} ({opp['branch']}) có {_join(v.star_phrase(opp)) or 'cũng vô chính diệu'} chiếu sang và được dùng thay cho chính tinh của cung này.", "Thế", "sach", ["Khảo Luận pp.220-222"]))
 
     # ---------- Cách cục
     det = []
