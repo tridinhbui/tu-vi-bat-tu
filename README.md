@@ -32,6 +32,11 @@ cd engine && ../.venv/bin/python -m pytest -q
   22 dignity-gated Mệnh temperament rules (`pack_thuc_hanh.json`, verified) and 25 Bát Tự rules from 八字真宗 (`pack_bazi_zhenzong.json`:
   10 day-master tables ×2 verified, 5 missing-element rules draft). Generator: `tools/build_packs.py`. Manual's 强旺弱中和 element states are NOT
   implemented (the book gives no computable thresholds).
+- **Two brightness schools** are kept apart: Thực Hành (default, from page images) and Toàn Thư/Vũ Tài Lục (PDF text layer, not yet cross-read);
+  they disagree on dozens of cells (`/api/dignity/compare`). `dignity_school` selects one; with `toan_thu` the Thực Hành-based temperament rules are
+  downgraded to draft (mixed schools are not verified). 15 verse-aphorism rules for Mệnh/Tài Bạch/Thiên Di/Tử Tức (`pack_thuc_hanh_palaces.json`).
+- **Rule library & tester**: `/library` (read-only list of rules, sources, brightness disagreement) and `POST /api/rules/test` (stateless validate + dry-run;
+  nothing stored, no code executed). Publishing a rule = committing it to a pack file.
 - Not supported: minor-star brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, Bát Tự thai nguyên/mệnh cung, lunar-date input.
 - Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
   (injury, death, children) are intentionally not implemented.
