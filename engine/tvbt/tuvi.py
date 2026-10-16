@@ -16,6 +16,7 @@ from .dignity import MINOR_STARS, dignity, minor_dignity
 from .ganzhi import (BRANCHES_VI, STEMS_VI, branch_stem_from_year, controls, cycle_index, from_cycle,
                      generates, gz_name, nap_am_element, nap_am_name, stem_polarity, year_cycle_index)
 from .trace import Trace
+from . import aux_stars, cach_cuc
 
 LeapRule = Literal["split_15", "same_month", "next_month"]
 
@@ -48,6 +49,9 @@ SCHOOL_PACK = {
         "dignity_table": ["verified", "SRC_THUC_HANH pp.29-48 (14 chính tinh; unlisted branches stay unspecified; Tham Lang Tý/Ngọ disputed with Khảo Luận)"],
         "dai_han": ["verified", "SRC_THUC_HANH p.27 (first decade starts at Mệnh at age = cục number; thuận for dương nam/âm nữ, nghịch otherwise)"],
         "tieu_han": ["verified", "SRC_THUC_HANH p.27 (age 1 at Thìn/Tuất/Mùi/Sửu by year-branch triad; nam thuận, nữ nghịch)"],
+        "aux_stars": ["unverified", "Công thức phổ biến trong sách Việt (xem aux_stars.py); chưa đối chiếu trang sách cụ thể"],
+        "menh_chu_than_chu": ["unverified", "Bảng Mệnh chủ (theo chi cung Mệnh) và Thân chủ (theo chi năm) phổ biến; chưa đối chiếu trang sách"],
+        "cach_cuc_names": ["unverified", "Chỉ nhận diện tên cách theo vị trí sao; ý nghĩa cát/hung chưa được đối chiếu"],
         "leap_month": ["verified_with_variants", "SRC_KHAO_LUAN p.41 (same month number); other conventions kept as options"],
     },
 }
@@ -119,6 +123,7 @@ class TuViChart:
     trace: Trace
     school: dict
     warnings: list[str] = field(default_factory=list)
+    extras: dict = field(default_factory=dict)  # mệnh chủ / thân chủ / nhận diện cách cục (see cach_cuc.py)
 
 
 def _m(i: int) -> int:
@@ -249,6 +254,10 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
     for i, n in enumerate(TRUONG_SINH_RING):
         put(n, ts + sgn * i, "vòng Trường Sinh", "truong_sinh_ring_by_cuc")
 
+    for name, pos, rule in aux_stars.place(ys=ys, yb=yb, month=month, day=L.day, hb=hb, menh=menh, than=than,
+                                          placed={s.name: s.branch for s in stars}):
+        put(name, pos, aux_stars.GROUP, rule)
+
     # Tứ Hóa
     th = dict(zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], TU_HOA[ys]))
     placed = {s.name: s.branch for s in stars}
@@ -285,7 +294,7 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
             "name": palace_by_branch[br], "is_than": br == than,
             "stars": [s.name for s in stars if s.branch == br],
             "major_stars": [s.name for s in stars if s.branch == br and s.group.startswith("chính tinh")],
-            "minor_dignity": {st.name: minor_dignity(st.name, BRANCHES_VI[br]) for st in stars if st.branch == br and st.name in MINOR_STARS},
+            "minor_dignity": {st.name: minor_dignity(st.name, BRANCHES_VI[br], dignity_school) for st in stars if st.branch == br and st.name in MINOR_STARS},
             "major_dignity": {s.name: dignity(s.name, BRANCHES_VI[br], dignity_school) for s in stars
                               if s.branch == br and s.group.startswith("chính tinh")},
             "tuan": br in tuan, "triet": br in triet,
@@ -295,10 +304,11 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
         "tam_hop": [BRANCHES_VI[_m(br + 4)], BRANCHES_VI[_m(br + 8)]],
         "giap": [BRANCHES_VI[_m(br - 1)], BRANCHES_VI[_m(br + 1)]],
     } for br in range(12)}
+    extras = {"menh_chu": cach_cuc.menh_chu(menh), "than_chu": cach_cuc.than_chu(yb)}
     warnings = []
     if L.is_leap:
         warnings.append(f"Born in a leap lunar month; Tử Vi month depends on rule '{leap_rule}'.")
-    return TuViChart(
+    chart = TuViChart(
         year_gz=gz_name(ys, yb),
         lunar={"day": L.day, "month": L.month, "year": L.year, "leap": L.is_leap},
         effective_lunar_month=month, menh_branch=menh, than_branch=than, palaces=palaces,
@@ -306,7 +316,8 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
         menh_element=menh_el, menh_nap_am=nap_am_name(ys, yb), menh_cuc_relation=rel,
         yin_yang_gender=yy, dai_han_direction=dirn, stars=stars, tu_hoa=th_pos, tuan=tuan, triet=list(triet),
         dai_han=dh, structure=structure,
-        unsupported=["miếu/vượng/đắc/hãm brightness (no verified table yet)", "Thiên Hình/Thiên Riêu/Thiên Y",
-                     "Nguyệt Đức/Thiên Đức/other minor stars", "tiểu hạn, lưu niên, lưu Tứ Hóa",
-                     "Tuần/Triệt school variants", "late-Tý (23h) lunar-day edge under late_zi_same_day"],
-        trace=tr, school={**SCHOOL_PACK, "dignity_school": dignity_school}, warnings=warnings)
+        unsupported=list(aux_stars.NOT_PLACED) + ["Tuần/Triệt school variants",
+                     "late-Tý (23h) lunar-day edge under late_zi_same_day"],
+        trace=tr, school={**SCHOOL_PACK, "dignity_school": dignity_school}, warnings=warnings, extras=extras)
+    extras["cach_cuc"] = cach_cuc.detect(chart)
+    return chart

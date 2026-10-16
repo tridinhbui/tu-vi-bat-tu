@@ -39,9 +39,16 @@ def _minor() -> dict:
     return json.loads((_DATA / "dignity_minor.json").read_text("utf-8"))["stars"]
 
 
-MINOR_STARS = ("Văn Xương", "Văn Khúc", "Kình Dương", "Đà La", "Hỏa Tinh")
+@lru_cache(maxsize=1)
+def _aux_th() -> dict:
+    return json.loads((_DATA / "dignity_aux_th.json").read_text("utf-8"))["stars"]
 
 
-def minor_dignity(star: str, branch: str) -> str | None:
-    s = _minor().get(star)
+MINOR_STARS = ("Văn Xương", "Văn Khúc", "Kình Dương", "Đà La", "Hỏa Tinh", "Tả Phụ", "Hữu Bật", "Thiên Mã")
+
+
+def minor_dignity(star: str, branch: str, school: str = "toan_thu") -> str | None:
+    """Auxiliary-star brightness. school 'thuc_hanh' uses pp.50-52 of Thực Hành, anything else Toàn Thư's header lines (_minor)."""
+    first, second = (_aux_th(), _minor()) if school == "thuc_hanh" else (_minor(), _aux_th())
+    s = first.get(star) or second.get(star)          # a star the chosen book does not tabulate falls back to the other book
     return s["levels"].get(branch) if s else None
