@@ -92,7 +92,7 @@ def test_star_names_used_by_rules_exist_in_engine():
     chart = tuvi.compute(normalize(BirthInput(1990, 5, 17, 10, 30, "Asia/Ho_Chi_Minh", "male")))
     known = {s.name for s in chart.stars}
     for r in RULES:
-        if r.id.startswith("TV_TH_VERSE_") or r.id.startswith("TV_KL_"):
+        if r.id.startswith(("TV_TH_VERSE_", "TV_KL_", "TV_TH_COMBO_")):
             def walk(e):
                 if "fact" in e:
                     v = e.get("value")
@@ -102,3 +102,25 @@ def test_star_names_used_by_rules_exist_in_engine():
                     for x in e[next(iter(e))] if isinstance(e[next(iter(e))], list) else [e[next(iter(e))]]:
                         walk(x)
             walk(r.conditions)
+
+
+def run_combo(star, level, tam_stars=(), tam_hoa=(), tuan=False, own=(), branch="Tý"):
+    p = {"palace.name": "Mệnh", "palace.branch": branch, "palace.own_stars": [star, *own], "palace.own_major_stars": [star, *own],
+         "palace.tam_phuong_majors": [star], "palace.tam_phuong_stars": [star, *tam_stars], "palace.tam_phuong_tu_hoa": list(tam_hoa),
+         "palace.tu_hoa": [], "palace.tuan": tuan, "palace.triet": False, f"palace.dignity.{star}": level}
+    res = engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": p}, system="tu_vi")
+    return {f.claim: f.basis for f in res.findings}
+
+
+def test_combo_rules_follow_the_book_conditions():
+    c = run_combo("Tử Vi", "miếu", tam_stars=["Văn Xương"])
+    assert c["tu_vi_cat_uy_quyen"] == "verified"
+    assert "tu_vi_cat_uy_quyen" not in run_combo("Tử Vi", "bình", tam_stars=["Văn Xương"])
+    assert "tu_vi_cat_uy_quyen" not in run_combo("Tử Vi", "miếu")
+    assert "tu_vi_cat_uy_quyen" in run_combo("Tử Vi", "miếu", tam_hoa=["Hóa Lộc"])
+    assert "co_tot_tuan_triet_ly_huong" in run_combo("Thiên Cơ", "miếu", tuan=True)
+    assert "co_tot_tuan_triet_ly_huong" not in run_combo("Thiên Cơ", "hãm", tuan=True)
+    assert "co_ham_tuan_triet_do_phan" in run_combo("Thiên Cơ", "hãm", tuan=True)
+    assert run_combo("Vũ Khúc", "miếu", tam_stars=["Địa Kiếp"])["vu_tot_gap_kiep_sat_tien_phu_hau_ban"] == "draft"
+    assert "tu_vi_tham_bi_quan" in run_combo("Tử Vi", "bình", own=["Tham Lang"], branch="Mão")
+    assert "tu_vi_tham_bi_quan" not in run_combo("Tử Vi", "miếu", own=["Tham Lang"], branch="Ngọ")

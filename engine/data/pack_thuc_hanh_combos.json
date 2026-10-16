@@ -1,0 +1,2426 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_TH_COMBO_TU_VI_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: uy quyền hiển hách khi có các trung tinh (Khôi Việt, Xương Khúc, Tả Hữu, Tam Hóa) hội chiếu [TH p.30]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.dignity.Tử Vi",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_vi_cat_uy_quyen",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_TU_VI_KIEP_KHONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: khó phát huy được khả năng, đời nhiều trắc trở lao tâm (Tử Vi gặp Địa Không, Địa Kiếp) [TH p.30]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_vi_gap_khong_kiep",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_TU_VI_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: dễ phải xa quê sớm (Tử Vi đóng ở Mệnh gặp Tuần hoặc Triệt) [TH p.30]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_vi_tuan_triet_xa_que",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_TU_VI_THAT_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: thế mạnh thêm, quyền lực rõ nét (Tử Vi đồng cung Thất Sát) [TH p.30]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_vi_dong_that_sat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_TU_VI_THAM_LANG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: dễ bi quan, yếm thế, thiên về đời sống tu hành (Tử Vi Tham Lang ở Tý, Hợi, Mão hoặc Dậu) [TH p.30]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       },
+       {
+        "fact": "palace.branch",
+        "operator": "in",
+        "value": [
+         "Tý",
+         "Hợi",
+         "Mão",
+         "Dậu"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tu_vi_tham_bi_quan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_CO_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: phú quý song toàn, uy danh khi có các trung tinh (Xương Khúc, Khôi Việt, Tả Hữu, Tam Hóa) hội chiếu [TH p.31]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.dignity.Thiên Cơ",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "co_cat_phu_quy_uy_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_CO_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: phải xa quê bôn ba, sinh kế khó khăn (Thiên Cơ đắc địa gặp Tuần hoặc Triệt) [TH p.31]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.dignity.Thiên Cơ",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "co_tot_tuan_triet_ly_huong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_CO_HAM_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: bớt được phần nào bất lợi (Thiên Cơ hãm gặp Tuần hoặc Triệt) [TH p.31]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.dignity.Thiên Cơ",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "co_ham_tuan_triet_do_phan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THÁI_DUONG_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: tài và quan vinh hiển (Thái Dương đắc địa gặp Xương Khúc, Tả Hữu, Tam Hóa, Khôi Việt) [TH p.33]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.dignity.Thái Dương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "duong_cat_tai_quan_vinh_hien",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THÁI_DUONG_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: không toại ý, thường phải xa quê lập nghiệp (Thái Dương đắc địa gặp Tuần hoặc Triệt) [TH p.33]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.dignity.Thái Dương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "duong_tot_tuan_triet_ly_huong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THÁI_DUONG_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: công danh tiền tài lúc có lúc không (Thái Dương đắc địa gặp Kình, Đà, Không, Kiếp) [TH p.33]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.dignity.Thái Dương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "duong_tot_gap_sat_tac_tuong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THÁI_DUONG_HAM_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: biến ra tốt đẹp về tài danh (Thái Dương hãm gặp Tam Hóa, Xương Khúc, Tả Hữu, Khôi Việt) [TH p.33]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.dignity.Thái Dương",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "duong_ham_gap_cat_tot_tai_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THÁI_AM_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: phú quý đến mức cao (Thái Âm đắc địa gặp Xương Khúc, Khôi Việt, Tả Hữu, Tam Hóa) [TH p.40]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.dignity.Thái Âm",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_cat_phu_quy_tot_do",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THÁI_AM_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: lao đao, vất vả, dễ phải xa quê (Thái Âm đắc địa gặp Tuần hoặc Triệt) [TH p.40]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.dignity.Thái Âm",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_tot_tuan_triet_lao_dao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THÁI_AM_HAM_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: trở nên tốt và thọ hơn (Thái Âm hãm gặp sao tốt hoặc Tuần, Triệt) [TH p.40]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.dignity.Thái Âm",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       },
+       {
+        "any": [
+         {
+          "fact": "palace.tuan",
+          "value": true
+         },
+         {
+          "fact": "palace.triet",
+          "value": true
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "am_ham_gap_cat_hoac_tuan_triet_tot",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_VŨ_KHÚC_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: phú quý hiển vinh trọn đời nhưng thường phải ngoài 30 tuổi mới thành đạt (Vũ Khúc đắc địa gặp Tam Hóa, Tả Hữu, Khôi Việt, Xương Khúc) [TH p.34]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.dignity.Vũ Khúc",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_cat_phu_quy_hien_vinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_VŨ_KHÚC_KIEP_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: tiền phú hậu bần, của cải lúc nhiều lúc sút (Vũ Khúc đắc địa gặp Kiếp, Sát); 'Sát' đọc là Kình Đà Hỏa Linh: giả định của hệ thống [TH p.34]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.dignity.Vũ Khúc",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "vu_tot_gap_kiep_sat_tien_phu_hau_ban",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_DỒNG_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: phú quý rất cao (Thiên Đồng gặp nhiều cát tinh hội) [TH p.36]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Đồng",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dong_cat_phu_quy_tot_buc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_DỒNG_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: no ấm nhưng cả đời lao tâm khổ tứ (Thiên Đồng gặp Kình, Đà, Hỏa, Linh, Không, Kiếp); sách còn kể Hình, Kỵ: chưa dựng được [TH p.36]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Đồng",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dong_gap_sat_lao_tam_kho_tu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_LIEM_TRINH_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: uy danh lừng lẫy, phú quý vẹn toàn (Liêm Trinh gặp Tam Hóa, Tả Hữu, Xương Khúc, Khôi Việt) [TH p.37]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.dignity.Liêm Trinh",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_cat_uy_danh_phu_quy",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_LIEM_TRINH_HUNG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: công danh trắc trở, tiền của tụ rồi tán (Liêm Trinh gặp hung tinh ám); 'hung tinh' đọc là Kình Đà Hỏa Linh Không Kiếp: giả định [TH p.37]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.dignity.Liêm Trinh",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "liem_gap_hung_tinh_tru_tr",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_PHU_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: phúc lộc càng tăng khi có cát tinh hội (Thiên Phủ); sách không gắn với độ sáng cụ thể nên chỉ xét khi độ sáng đã được nêu [TH p.39]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.dignity.Thiên Phủ",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc",
+       "bình"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_cat_phuc_loc_tang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_PHU_TT_KK",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: tính hơi cao ngạo, phóng đãng, hay thích viễn vông (Thiên Phủ gặp Tuần, Triệt, Không, Kiếp) [TH p.39]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "any": [
+       {
+        "any": [
+         {
+          "fact": "palace.tuan",
+          "value": true
+         },
+         {
+          "fact": "palace.triet",
+          "value": true
+         }
+        ]
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phu_gap_tuan_triet_khong_kiep",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THAM_LANG_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: mọi bề thuận lợi, trọn vẹn hơn (Tham Lang đắc địa gặp nhiều cát tinh) [TH p.42]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.dignity.Tham Lang",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tham_cat_toan_my",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_CỰ_MON_VAN_TAI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: văn tài lỗi lạc, ăn nói hùng hồn, hợp ngành chính trị, ngoại giao (Cự Môn gặp Xương Khúc, Khôi Việt, Khoa, Tuế) [TH p.43]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.dignity.Cự Môn",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thái Tuế"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "cu_van_tai_loi_lac",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_TUONG_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: mọi bề hoàn mỹ (Thiên Tướng gặp nhiều cát tinh) [TH p.44]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Tướng",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_cat_hoan_my",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_TUONG_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: công danh trắc trở, tiền bạc eo hẹp (Thiên Tướng gặp Tuần hoặc Triệt) [TH p.44]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.dignity.Thiên Tướng",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_tuan_triet_cong_danh_tr",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_LUONG_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: phú quý và có uy quyền (Thiên Lương gặp Xương Khúc, Khôi Việt, Tả Hữu, Tam Hóa) [TH p.46]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.dignity.Thiên Lương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_cat_phu_quy_uy_quyen",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_LUONG_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: cuộc đời lao khó, nhiều trở ngại (Thiên Lương gặp Tuần hoặc Triệt) [TH p.46]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.dignity.Thiên Lương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "luong_tuan_triet_lao_kho",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_THAT_SÁT_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: quyền uy lớn, thịnh đạt (Thất Sát gặp nhiều cát tinh hội) [TH p.47]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "palace.dignity.Thất Sát",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "sat_cat_quyen_lon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TH_COMBO_PHÁ_QUAN_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "star_combination",
+   "description": "Tử Vi Thực Hành: công danh thẳng bước, uy quyền hiển hách (Phá Quân đắc địa gặp Tam Hóa, Tả Hữu, Xương Khúc, Tướng Ấn) [TH p.49]. 'Hội/gặp' = trong tam phương của Mệnh (our reading).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.dignity.Phá Quân",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.tam_phuong_tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "pha_cat_cong_danh_thang_buoc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}

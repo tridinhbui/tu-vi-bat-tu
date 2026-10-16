@@ -53,6 +53,14 @@ def chart(req: BirthReq):
             "normalization_trace": dataclasses.asdict(nb.trace)}
 
 
+@app.post("/api/analysis")
+def analysis_endpoint(req: BirthReq):
+    """Deterministic structure analysis (see analysis.py): sourced prose per chapter, each block tagged by layer and basis."""
+    from . import analysis
+    nb, bz, tv = _compute(req)
+    return {"chapters": analysis.analyse(tv, bz), "dignity_school": req.dignity_school}
+
+
 @app.post("/api/year")
 def year(req: BirthReq):
     nb, bz, tv = _compute(req)
@@ -68,7 +76,7 @@ def reasoning(req: BirthReq):
     if req.dignity_school != "thuc_hanh":
         # the temperament readings are Thực Hành's, keyed to ITS brightness table; mixing schools is not verified
         import dataclasses as _dc
-        rules = [_dc.replace(r, reviewStatus="draft") if r.category == "star_dignity" else r for r in rules]
+        rules = [_dc.replace(r, reviewStatus="draft") if r.category in ("star_dignity", "star_combination") else r for r in rules]
     probs = validate_pack(rules, sources, {"palace.*", "chart.*", "bazi.*", "derived.*"})
     out = {"pack_problems": probs, "systems": {}, "dignity_school": req.dignity_school,
            "mixed_school_warning": req.dignity_school != "thuc_hanh"}

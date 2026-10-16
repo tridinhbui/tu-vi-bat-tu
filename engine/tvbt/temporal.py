@@ -26,6 +26,21 @@ def _rel_with_natal(chart: BaziChart, stem: int, branch: int, label: str) -> lis
     return out
 
 
+def bazi_months(chart: BaziChart, year: int) -> list[dict]:
+    """Lưu nguyệt: the 12 monthly pillars of a BaZi year (Dần month to Sửu month), by ngũ hổ độn from the annual stem (八字真宗 p.20).
+    Month boundaries are the jie, so each entry names its jie rather than a Gregorian month."""
+    from .ganzhi import tiger_month_stem
+    ys, _ = annual_pillar(year)
+    jie_names = ["Lập Xuân", "Kinh Trập", "Thanh Minh", "Lập Hạ", "Mang Chủng", "Tiểu Thử", "Lập Thu", "Bạch Lộ", "Hàn Lộ", "Lập Đông", "Đại Tuyết", "Tiểu Hàn"]
+    out = []
+    for i in range(12):
+        br = (2 + i) % 12
+        st = (tiger_month_stem(ys) + i) % 10
+        out.append({"jie": jie_names[i], "pillar": gz_name(st, br), "ten_god": ten_god(chart.day_master, st),
+                    "vs_natal": _rel_with_natal(chart, st, br, "lưu nguyệt")})
+    return out
+
+
 def bazi_year(chart: BaziChart, birth_year: int, year: int) -> dict:
     age = year - birth_year
     luck = None
@@ -40,6 +55,7 @@ def bazi_year(chart: BaziChart, birth_year: int, year: int) -> dict:
         "luck_stem_ten_god": luck.ten_god if luck else None,
         "annual_vs_natal": _rel_with_natal(chart, s, b, "lưu niên"),
         "luck_vs_natal": _rel_with_natal(chart, luck.stem, luck.branch, "đại vận") if luck else [],
+        "months": bazi_months(chart, year),
         "luck_vs_annual_clash": bool(luck and frozenset((luck.branch, b)) in SIX_CLASH),
         "scope": "temporal",
     }
