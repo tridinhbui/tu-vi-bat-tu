@@ -215,6 +215,18 @@ def compute(nb: NormalizedBirth, n_luck: int = 10) -> BaziChart:
         trace=tr,
         school={"year_boundary": "lichun_instant", "month_boundary": "jie_instant",
                 "growth_yin": "yin_reverse", "luck_conversion": "3_days_per_year",
-                "zi_rule": b.zi_rule, "review_status": "unverified"},
+                "zi_rule": b.zi_rule, "review_status": "partially_verified",
+                "rule_review": {
+                    "five_tigers_month_stem": ["verified", "SRC_BAZI_ZHENZONG PDF p.20"],
+                    "five_rats_hour_stem": ["verified", "SRC_BAZI_ZHENZONG PDF pp.20, 35"],
+                    "twelve_growth_stages_yin_reverse": ["verified", "SRC_BAZI_ZHENZONG PDF pp.24-25"],
+                    "stem_combine_clash": ["verified", "SRC_BAZI_ZHENZONG PDF p.20"],
+                    "branch_combine_clash_harm_destroy_penalty": ["verified", "SRC_BAZI_ZHENZONG PDF pp.19-20"],
+                    "luck_start_3days_1year": ["verified", "SRC_BAZI_ZHENZONG PDF p.23 (direction by yin-yang year & sex; 1 day = 4 months, 1 shichen = 10 days)"],
+                    "month_by_jie": ["verified", "SRC_BAZI_ZHENZONG PDF p.23 (12 jie table)"],
+                    "hidden_stems": ["unverified", "no explicit table located in the received books yet"],
+                    "ten_gods": ["unverified", "definition is standard; book table (pp.17-18) not cross-checked cell by cell"],
+                    "zi_hour_rule": ["convention", "configurable; not settled by the sources"],
+                }},
     )
     return chart

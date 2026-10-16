@@ -15,14 +15,18 @@ cd engine && ../.venv/bin/python -m pytest -q
 ```
 
 ## Honest status
-- Verified: lunar converter equals sxtwl 1900–2049 at UTC+8 except 4 explained windows; nạp âm method vs named table;
-  hand-derived pillar/Tử Vi anchors in `engine/tests`.
-- **Unverified** (`review_status: unverified`): every Tử Vi star-placement table (Khôi/Việt, Hỏa/Linh direction,
-  Tứ Hóa Canh, Tuần/Triệt, Trường Sinh start, leap-month rule) is from the common Vietnamese procedure and still
-  needs checking against a cited edition. The VN lunar calendar (UTC+7) is not yet compared with an official almanac.
-- Not supported yet: miếu/hãm brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, lưu niên,
-  lunar-date input, uncertain-birth-hour comparison, true solar time uses NOAA EOT (not JPL).
-- Phase 2 foundation (rule DSL, validator, draft pack) and Phase 3 engine (facts, forward chaining, provenance graph, conflict resolver) are in; all rules remain draft. Phase 4 NLG (deterministic, 5 depth levels, per-sentence provenance) is in. Phase 5 (temporal facts, chart comparison, cross-system comparison layer) is in. Phase 6 (partial): FastAPI + single-page UI (`engine/web/index.html`): chart form, Bát Tự pillars, 12-palace Tử Vi grid with tam phương highlight, year slider, reasoning explorer with backward chains, trace viewer. Run: `cd engine && ../.venv/bin/uvicorn tvbt.api:app` then open http://localhost:8000. Still missing: Next.js/React Flow graph view, rule editor, academy, PDF, DB/cache.
+- **Checked against books** (page-cited in `engine/data/sources.json`, golden tests in `engine/tests/test_book_golden.py` and
+  `test_bazi_book_golden.py`): Tử Vi — Mệnh/Thân, cục table, Tử Vi/Thiên Phủ groups, Khôi Việt, Tả Hữu, Xương Khúc, Lộc Tồn/Kình/Đà,
+  Bác Sĩ/Thái Tuế/Trường Sinh rings, Hồng Loan/Thiên Hỷ, Đào Hoa, Thiên Mã, Hỏa/Linh, Địa Kiếp/Không, Tuần/Triệt, Tứ Hóa (see dispute below);
+  Bát Tự — ngũ hổ/ngũ thử độn, 12 stages (yin reverse), stem/branch relations, luck-start rule, month by jie.
+  Checking found and fixed 4 real bugs (Khôi Việt for Canh, Linh Tinh direction, Đào Hoa mapping, Tứ Hóa Canh).
+- **Disputed between sources**: Tứ Hóa Tân-Lộc (Thực Hành: Cự Môn; Khảo Luận: Thiên Cơ → Cự Môn used) and Nhâm-Khoa
+  (Thực Hành prints "Phủ", Khảo Luận says Tả Phụ → Tả Phụ used). The Thực Hành printed Hồng Loan example and Thiên Mã "cước" contradict its own rules (rules used).
+- **Still unverified**: Bát Tự hidden stems and ten-god table (not cell-checked), đại hạn details, leap-month rule (convention), VN lunar calendar (UTC+7)
+  vs an official almanac, all interpretation rules (the rule pack is draft; no book *interpretation* has been encoded yet).
+- Not supported: miếu/hãm brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, Bát Tự thai nguyên/mệnh cung, lunar-date input.
+- Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
+  (injury, death, children) are intentionally not implemented.
 
 ## Deploy
 Python service (FastAPI also serves the UI). Cloudflare: `wrangler.jsonc` + `src/index.ts` route all requests to a Cloudflare Container built from `Dockerfile` (requires Workers Paid). Alternative: `render.yaml` (Render).
