@@ -54,8 +54,17 @@ export function renderBazi(host, b, ctx) {
     ? rels.map(([k, v]) => `<div class="rel-g"><h5>${REL_TITLE[k] || k}</h5><ul class="rel">${v.map(it => relText(k, it)).join('')}</ul></div>`).join('') + '<p class="muted small">Chỉ là dữ kiện về quan hệ giữa các chữ; việc “hóa” hay “hợp mà không hóa” chưa được xét.</p>'
     : '<p class="muted">Không phát hiện quan hệ hợp, xung, hại, phá, hình nào giữa các trụ.</p>';
 
-  const bat = ctx.reason?.systems?.bat_tu;
-  const findings = (bat?.findings || []).map(f => findingCard(f, 'toàn lá số')).join('');
+  const nguyetLenh = `<p>Nguyệt lệnh là địa chi của tháng sinh (<b>${esc(BRANCHES[month.branch].n)}</b>, hành ${BRANCHES[month.branch].e}). Nhật Chủ ${esc(dmS.n)} ở trạng thái <b>${esc(month.stage_vs_day_master)}</b> tại tháng này.</p><p class="muted">Tháng Bát Tự đổi theo <i>tiết</i> trong 24 tiết khí chứ không theo mùng một âm lịch. Tiết gần nhất trước giờ sinh: <b>${new Date(b.jie_used.prev_jie_utc).toLocaleDateString('vi-VN', { timeZone: ctx.req.tz || 'Asia/Ho_Chi_Minh', day: 'numeric', month: 'numeric', year: 'numeric' })}</b>.</p>`;
+  const thapThan = `<div class="tg-rows">${ORDER.map(k => { const p = b.pillars[k]; return `<div><span class="k">${PL[k]}</span><b>${k === 'day' ? 'Nhật Chủ' : esc(p.stem_ten_god)}</b><span class="muted">can ${esc(STEMS[p.stem].n)}</span></div>`; }).join('')}</div>`;
+  const tangCan = `<div class="tc-rows">${ORDER.map(k => { const p = b.pillars[k]; return `<div><h5>${PL[k]} · ${esc(BRANCHES[p.branch].n)}</h5>${p.hidden.map(h => `<div class="tc">${elChip(h.element)} <b>${esc(h.name)}</b> <span class="muted">${esc(h.ten_god)}</span></div>`).join('')}</div>`; }).join('')}</div>`;
+  // Thấu can / thông căn: purely positional facts (is a visible stem's own character hidden in some branch, and vice versa).
+  const hiddenOf = k => b.pillars[k].hidden.map(h => h.stem);
+  const rootRows = ORDER.map(k => {
+    const p = b.pillars[k], st = STEMS[p.stem], sameEl = ORDER.filter(j => b.pillars[j].hidden.some(h => h.element === st.e)).map(j => PL[j]);
+    const exact = ORDER.filter(j => hiddenOf(j).includes(p.stem)).map(j => PL[j]);
+    return `<tr><th scope="row">${PL[k]} · ${esc(st.n)} <small>${st.e}</small></th><td>${exact.length ? esc(exact.join(', ')) : '<span class="muted">không</span>'}</td><td>${sameEl.length ? esc(sameEl.join(', ')) : '<span class="muted">không</span>'}</td></tr>`;
+  }).join('');
+  const thongCan = `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Thiên can</th><th>Cùng chữ trong tàng can của trụ</th><th>Cùng hành trong tàng can của trụ</th></tr></thead><tbody>${rootRows}</tbody></table></div><p class="muted small">Đây là dữ kiện vị trí. Việc một can “có căn” mạnh hay yếu còn tùy nhiều điều kiện (mùa, hợp, xung...) mà hệ thống chưa xét.</p>`;
 
   host.innerHTML = `
     <div class="bz-top">
@@ -70,24 +79,10 @@ export function renderBazi(host, b, ctx) {
       </div>
       <aside class="bz-el card-soft" aria-labelledby="bz-el-t"><h3 id="bz-el-t">Ngũ hành trong lá số</h3><p class="muted small">Đếm 8 chữ trên bốn trụ. Chọn một hành để thấy nó nằm ở đâu.</p><div id="bz-fe"></div></aside>
     </div>
-    <section class="bz-read" aria-labelledby="bz-read-t"><p class="eyebrow">Diễn giải truyền thống</p><h3 id="bz-read-t">Đọc lá số Bát Tự</h3>
-      <div class="bz-facts"><div class="card-soft"><p class="eyebrow">Dữ kiện tính toán</p><h4>Cân bằng Ngũ Hành</h4>${elementBalanceHtml(b)}</div><div class="card-soft"><p class="eyebrow">Dữ kiện tính toán</p><h4>Phân bố Thập Thần</h4>${godDistributionHtml(b)}</div></div>
-      ${findings ? `<div class="bz-read-g">${findings}</div><p class="muted small">Cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Mở “Vì sao quy tắc này khớp?” để xem quy tắc và nguồn.</p>` : notice('Chưa có quy tắc nào được kích hoạt cho lá số này', 'Bộ quy tắc Bát Tự hiện hành chưa phủ tới lá số này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</section>
-    <div class="bz-tl"><h3>Đại vận</h3>${tl}</div>
-    <div class="accs">
-      ${acc('Nguyệt Lệnh', 'Tháng sinh và mùa của lá số', `<p>Nguyệt lệnh là địa chi của tháng sinh (<b>${esc(BRANCHES[month.branch].n)}</b>, hành ${BRANCHES[month.branch].e}). Nhật Chủ ${esc(dmS.n)} ở trạng thái <b>${esc(month.stage_vs_day_master)}</b> tại tháng này.</p><p class="muted">Tháng Bát Tự đổi theo <i>tiết</i> trong 24 tiết khí chứ không theo mùng một âm lịch. Tiết gần nhất trước giờ sinh: <b>${new Date(b.jie_used.prev_jie_utc).toLocaleDateString('vi-VN', { timeZone: ctx.req.tz || 'Asia/Ho_Chi_Minh', day: 'numeric', month: 'numeric', year: 'numeric' })}</b>.</p>`)}
-      ${acc('Thập Thần', 'Quan hệ của mỗi can với Nhật Chủ', `<div class="tg-rows">${ORDER.map(k => { const p = b.pillars[k]; return `<div><span class="k">${PL[k]}</span><b>${k === 'day' ? 'Nhật Chủ' : esc(p.stem_ten_god)}</b><span class="muted">can ${esc(STEMS[p.stem].n)}</span></div>`; }).join('')}</div>`)}
-      ${acc('Tàng Can', 'Can ẩn trong từng địa chi', `<div class="tc-rows">${ORDER.map(k => { const p = b.pillars[k]; return `<div><h5>${PL[k]} · ${esc(BRANCHES[p.branch].n)}</h5>${p.hidden.map(h => `<div class="tc">${elChip(h.element)} <b>${esc(h.name)}</b> <span class="muted">${esc(h.ten_god)}</span></div>`).join('')}</div>`; }).join('')}</div>`)}
-      ${acc('Quan hệ Can Chi', rels.length ? `${rels.reduce((n, [, v]) => n + v.length, 0)} quan hệ được phát hiện` : 'Không có', relBody)}
-      ${acc('Đại Vận & lưu niên', 'Chọn một năm để xem cấu trúc vận', '<div id="bz-year"></div>')}
-      ${acc('Cách Cục', 'Phân loại cấu trúc của lá số', notice('Chưa có quy tắc đã xác minh', 'Việc xác định cách cục cần bộ quy tắc đã đối chiếu nguồn, hiện chưa có. Hệ thống không đoán để tránh đưa ra kết luận thiếu căn cứ.'))}
-      ${acc('Dụng Thần', 'Hành cần cân bằng cho lá số', notice('Chưa có quy tắc đã xác minh', 'Dụng thần phụ thuộc vào cách cục và nhiều trường phái khác nhau. Mục này sẽ được mở khi có quy tắc đã xác minh nguồn.'))}
-      ${acc('Reasoning Explorer', 'Văn bản luận giải do bộ máy sinh từ các nhận định', bat?.findings?.length ? `<pre class="prose-pre">${esc(bat.text)}</pre>` : notice('Chưa có nhận định nào được kích hoạt', 'Không có quy tắc Bát Tự nào trong bộ hiện hành khớp với lá số này.'))}
-    </div>`;
+    <div class="bz-tl"><h3>Đại vận</h3>${tl}</div>`;
 
   const pillars = $$('.pillar', host);
   const apply = el => { pillars.forEach(p => $$('.gz-char,.hid', p).forEach(c => { const hit = el && c.dataset.el === el; c.classList.toggle('hit', !!hit); c.classList.toggle('dim', !!el && !hit); })); };
   fiveElements($('#bz-fe', host), { counts, onSelect: apply });
-  yearExplorer($('#bz-year', host), ctx.req, b);
-  return { counts };
+  return { counts, parts: { luck: tl, nguyetLenh, thapThan, tangCan, thongCan, relations: relBody, relCount: rels.reduce((n, [, v]) => n + v.length, 0) } };
 }

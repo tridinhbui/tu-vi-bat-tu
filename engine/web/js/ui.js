@@ -47,7 +47,7 @@ const REL = { can_hợp: 'Thiên can hợp', can_xung: 'Thiên can xung', 'chi_l
 const WITH = { year: 'trụ Năm', month: 'trụ Tháng', day: 'trụ Ngày', hour: 'trụ Giờ' };
 
 /** YearExplorer — "lưu niên" structure for any chosen year. Facts only, no predictions. */
-export function yearExplorer(host, req, bazi) {
+export function yearExplorer(host, req, bazi, side = null) {
   const y0 = req.year, now = new Date().getFullYear();
   const start = Math.min(Math.max(now, y0), y0 + 100);
   host.innerHTML = `<div class="yx"><div class="yx-bar"><label for="yx-r">Chọn năm</label><output class="yx-y"></output><input id="yx-r" type="range" min="${y0}" max="${y0 + 100}" value="${start}"></div><div class="yx-out" aria-live="polite"></div></div>`;
@@ -79,6 +79,7 @@ export function yearExplorer(host, req, bazi) {
         <section class="yx-months"><h4>Lưu nguyệt Bát Tự <span class="muted small">· tháng tính theo tiết, từ Lập Xuân</span></h4>
           <ol class="yx-mo">${(b.months || []).map(m => `<li><span class="mo-j">${esc(m.jie)}</span><b>${esc(m.pillar)}</b><em>${esc(m.ten_god)}</em>${m.vs_natal.length ? `<span class="mo-n" title="${esc(m.vs_natal.map(x => (REL[x.kind] || x.kind.replace(/_/g, ' ')) + ' trụ ' + (WITH[x.with] || x.with).replace('trụ ', '')).join('; '))}">${m.vs_natal.length} tương tác</span>` : '<span class="mo-n muted">—</span>'}</li>`).join('')}</ol></section>
         <p class="muted small">Đây là các dữ kiện cấu trúc theo thời gian, không phải dự đoán sự kiện. Lưu nguyệt Tử Vi chưa được hỗ trợ vì chưa có nguồn xác minh.</p>`;
+      if (side) { const g = $('.yx-grid', out); $$('section', g)[side === 'bazi' ? 1 : 0].remove(); g.classList.add('one'); if (side === 'tuvi') $('.yx-months', out)?.remove(); }
     } catch (e) { out.innerHTML = notice('Không tải được dữ liệu năm này', esc(e.message), 'warn'); }
     out.classList.remove('loading');
   }

@@ -184,3 +184,34 @@ def test_khao_luan_phu2_rules_and_neighbor_facts():
     chart = tuvi.compute(normalize(BirthInput(1990, 5, 17, 10, 30, "Asia/Ho_Chi_Minh", "male")))
     f = facts.tuvi_facts(chart)["palace:Mệnh"]                    # Mệnh Tý: neighbours Hợi (Thiên Đồng) and Sửu (Thái Dương, Thái Âm)
     assert set(f["palace.neighbor_majors"]) == {"Thiên Đồng", "Thái Dương", "Thái Âm"}
+
+
+def palace_run(name, **kw):
+    p = mk_palace(name=name, **kw)
+    p.setdefault("palace.is_than", False)
+    res = engine.run(RULES, SOURCES, {"chart": {}, f"palace:{name}": p}, system="tu_vi")
+    return {f.claim: f for f in res.findings}
+
+
+def test_khao_luan_cung_rules():
+    assert "tai_loc_ma_giao_tri" in palace_run("Tài Bạch", own=["Lộc Tồn"], tam=["Thiên Mã"])
+    assert "tai_loc_ma_giao_tri" not in palace_run("Tài Bạch", own=["Lộc Tồn"])                      # needs Mã chiếu
+    assert "tai_loc_ma_giao_tri" not in palace_run("Quan Lộc", own=["Lộc Tồn"], tam=["Thiên Mã"])    # palace-specific
+    assert "phoi_dep_doi_hoa_thuan" in palace_run("Phu Thê", own=["Thiên Phủ"])
+    assert "phoi_thai_duong_lap_gia_dinh_tre" in palace_run("Phu Thê", own=["Thái Dương"])
+    assert "phoi_tuan_triet_hoan_canh_dac_biet" in palace_run("Phu Thê", tuan=True)
+    assert "no_sat_vu_ban_phan_boi" in palace_run("Nô Bộc", own=["Thất Sát", "Vũ Khúc"])
+    assert "no_sat_ban_tan_tam" in palace_run("Nô Bộc", own=["Thất Sát"])                              # độc thủ
+    assert "no_sat_ban_tan_tam" in palace_run("Nô Bộc", own=["Thất Sát", "Tử Vi"])                     # or with Tử Vi
+    assert "no_sat_ban_tan_tam" not in palace_run("Nô Bộc", own=["Thất Sát", "Vũ Khúc"])
+    assert "mau_tu_vi_sat_con_khong_hop_tinh" in palace_run("Phụ Mẫu", own=["Tử Vi", "Thất Sát"])
+    assert "di_vo_chinh_dieu_tha_noi" in palace_run("Thiên Di", no_major=True)
+    p = {**mk_palace(name="Mệnh"), "palace.neighbor_majors": ["Thái Dương", "Thái Âm"], "palace.is_than": False}
+    assert "menh_giap_nhat_nguyet_hien_dat" in {f.claim for f in engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": p}, system="tu_vi").findings}
+
+
+def test_group_facts_chain_into_palace_rules():
+    # Phúc Đức with Tử Phủ Vũ Tướng stars: group rule fires first (derived fact), then the palace rule (multi-hop)
+    res = engine.run(RULES, SOURCES, {"chart": {}, "palace:Phúc Đức": {**mk_palace(name="Phúc Đức", own=["Vũ Khúc"]), "palace.is_than": False}}, system="tu_vi")
+    f = next(x for x in res.findings if x.claim == "phuc_nhom_tu_phu_vu_tuong")
+    assert f.depth == 2 and f.basis == "draft"

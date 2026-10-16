@@ -14,10 +14,14 @@ from .tuvi import TuViChart
 _PROFILES = json.loads((Path(__file__).resolve().parent.parent / "data" / "star_profiles.json").read_text("utf-8"))["stars"]
 CAT = ["Tả Phụ", "Hữu Bật", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt"]
 SAT = ["Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Địa Không", "Địa Kiếp"]
-PALACE_ROLE = {"Mệnh": "bản thân và cách ứng xử", "Phụ Mẫu": "cha mẹ và người bề trên", "Phúc Đức": "phúc phần, đời sống tinh thần và dòng họ",
-               "Điền Trạch": "nhà cửa, đất đai", "Quan Lộc": "sự nghiệp, công việc", "Nô Bộc": "bạn bè, người cộng tác và người dưới",
-               "Thiên Di": "môi trường bên ngoài, giao tiếp, đi lại", "Tật Ách": "thể trạng và những bất ổn nền tảng", "Tài Bạch": "tiền bạc, cách kiếm và giữ của",
-               "Tử Tức": "con cái, sự sáng tạo", "Phu Thê": "hôn nhân, bạn đời", "Huynh Đệ": "anh chị em, người đồng hàng"}
+PALACE_ROLE = {  # as defined in Tử Vi Khảo Luận pp.214-220
+    "Mệnh": "thể chất, khả năng, quyền hành, tài lộc và cách ứng xử nền tảng", "Phụ Mẫu": "cha mẹ và tuổi thơ",
+    "Phúc Đức": "sự thỏa mãn bình yên trong lòng, hạnh kiểm của chính mình và liên hệ họ hàng",
+    "Điền Trạch": "nhà cửa, đất đai, cơ nghiệp vật chất", "Quan Lộc": "danh vọng, địa vị trong xã hội",
+    "Nô Bộc": "bạn bè và người giúp việc (tấm gương soi bản thân)", "Thiên Di": "giao thiệp bên ngoài và môi trường sống, đối diện với Mệnh",
+    "Tật Ách": "hình ảnh thuở thơ ấu và tuổi già", "Tài Bạch": "tiền bạc, của cải", "Tử Tức": "con cái, sợi dây nối quá khứ với tương lai",
+    "Phu Thê": "hôn nhân, người hội phối", "Huynh Đệ": "anh chị em, người đồng hàng"}
+PALACE_SRC = ["Khảo Luận pp.214-220"]
 GROUPS = {"Tử – Phủ – Vũ – Tướng": ["Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng"], "Sát – Phá – Liêm – Tham": ["Thất Sát", "Phá Quân", "Liêm Trinh", "Tham Lang"],
           "Cơ – Nguyệt – Đồng – Lương": ["Thiên Cơ", "Thái Âm", "Thiên Đồng", "Thiên Lương"], "Cự – Nhật – Nguyệt": ["Cự Môn", "Thái Dương", "Thái Âm"]}
 GROUP_NOTE = {"Tử – Phủ – Vũ – Tướng": "nhóm “hành động có lý luận”", "Sát – Phá – Liêm – Tham": "nhóm “hành động mạnh mẽ”",
@@ -136,7 +140,7 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     # ---------- Tính cách
     pd = v.by_n["Phúc Đức"]
     ch["tinh-cach"] += [
-        B(f"Cung Mệnh nói về {PALACE_ROLE['Mệnh']}: {_join(comp) or 'vô chính diệu'}. Cung Phúc Đức nói về {PALACE_ROLE['Phúc Đức']}: " + (_join(v.star_phrase(pd)) or "vô chính diệu") + ".", "Dụng", "he_thong"),
+        B(f"Cung Mệnh nói về {PALACE_ROLE['Mệnh']}: {_join(comp) or 'vô chính diệu'}. Cung Phúc Đức nói về {PALACE_ROLE['Phúc Đức']}: " + (_join(v.star_phrase(pd)) or "vô chính diệu") + ".", "Dụng", "sach", PALACE_SRC),
     ]
     ch["tinh-cach"] += star_profile_blocks(v, "Phúc Đức")
     ch["tinh-cach"].append(B(reach_note(v, "Phúc Đức"), "Thế"))
@@ -149,7 +153,7 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
 
     # ---------- Công danh
     ql, td = v.by_n["Quan Lộc"], v.by_n["Thiên Di"]
-    ch["cong-danh"] += [B(f"Cung Quan Lộc ({ql['stem']} {ql['branch']}) nói về {PALACE_ROLE['Quan Lộc']}: " + (_join(v.star_phrase(ql)) or "vô chính diệu") + f". Cung đối là Thiên Di ({td['branch']}): " + (_join(v.star_phrase(td)) or "vô chính diệu") + ".", "Thế")]
+    ch["cong-danh"] += [B(f"Cung Quan Lộc ({ql['stem']} {ql['branch']}) nói về {PALACE_ROLE['Quan Lộc']}: " + (_join(v.star_phrase(ql)) or "vô chính diệu") + f". Cung đối là Thiên Di ({td['branch']}): " + (_join(v.star_phrase(td)) or "vô chính diệu") + ".", "Thế", "sach", PALACE_SRC)]
     ch["cong-danh"] += star_profile_blocks(v, "Quan Lộc")
     ch["cong-danh"].append(B(reach_note(v, "Quan Lộc"), "Thế"))
     ql_aux = v.stars(ql, SAT)
@@ -168,7 +172,7 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     tb, dt = v.by_n["Tài Bạch"], v.by_n["Điền Trạch"]
     lt = next((p for p in tv.palaces if "Lộc Tồn" in p["stars"]), None)
     mtm = next((p for p in tv.palaces if "Thiên Mã" in p["stars"]), None)
-    ch["tai-bach"] += [B(f"Cung Tài Bạch ({tb['stem']} {tb['branch']}) nói về {PALACE_ROLE['Tài Bạch']}: " + (_join(v.star_phrase(tb)) or "vô chính diệu") + f". Cung Điền Trạch ({dt['branch']}): " + (_join(v.star_phrase(dt)) or "vô chính diệu") + ".", "Thế")]
+    ch["tai-bach"] += [B(f"Cung Tài Bạch ({tb['stem']} {tb['branch']}) nói về {PALACE_ROLE['Tài Bạch']}: " + (_join(v.star_phrase(tb)) or "vô chính diệu") + f". Cung Điền Trạch ({dt['branch']}): " + (_join(v.star_phrase(dt)) or "vô chính diệu") + ".", "Thế", "sach", PALACE_SRC)]
     ch["tai-bach"] += star_profile_blocks(v, "Tài Bạch")
     ch["tai-bach"].append(B(reach_note(v, "Tài Bạch"), "Thế"))
     if lt:
@@ -183,7 +187,7 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     # ---------- Quan hệ
     for name in ["Phu Thê", "Tử Tức", "Huynh Đệ", "Phụ Mẫu", "Nô Bộc"]:
         p = v.by_n[name]
-        ch["quan-he"].append(B(f"Cung {name} ({p['branch']}) nói về {PALACE_ROLE[name]}: " + (_join(v.star_phrase(p)) or "vô chính diệu") + (f"; sát tinh {_join(v.stars(p, SAT))}" if v.stars(p, SAT) else "") + (f"; cát tinh {_join(v.stars(p, CAT))}" if v.stars(p, CAT) else "") + (" ; có Tuần/Triệt" if p["tuan"] or p["triet"] else "") + ".", "Thế"))
+        ch["quan-he"].append(B(f"Cung {name} ({p['branch']}) nói về {PALACE_ROLE[name]}: " + (_join(v.star_phrase(p)) or "vô chính diệu") + (f"; sát tinh {_join(v.stars(p, SAT))}" if v.stars(p, SAT) else "") + (f"; cát tinh {_join(v.stars(p, CAT))}" if v.stars(p, CAT) else "") + (" ; có Tuần/Triệt" if p["tuan"] or p["triet"] else "") + ".", "Thế", "sach", PALACE_SRC))
     dp = bz.pillars["day"]
     ch["quan-he"].append(B(f"Nhật chi {BRANCHES_VI[dp.branch]} (vị trí bạn đời trong Bát Tự theo cách gọi thông dụng) tàng " + _join([f"{h['name']} ({h['ten_god']})" for h in dp.hidden]) + ".", "Thế", "he_thong"))
     rel = bz.relations
