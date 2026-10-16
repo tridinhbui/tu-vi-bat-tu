@@ -32,3 +32,16 @@ def compare(branches: list[str]) -> list[dict]:
             if x and y and x != y:
                 out.append({"star": star, "branch": br, "thuc_hanh": x, "toan_thu": y})
     return out
+
+
+@lru_cache(maxsize=1)
+def _minor() -> dict:
+    return json.loads((_DATA / "dignity_minor.json").read_text("utf-8"))["stars"]
+
+
+MINOR_STARS = ("Văn Xương", "Văn Khúc", "Kình Dương", "Đà La", "Hỏa Tinh")
+
+
+def minor_dignity(star: str, branch: str) -> str | None:
+    s = _minor().get(star)
+    return s["levels"].get(branch) if s else None

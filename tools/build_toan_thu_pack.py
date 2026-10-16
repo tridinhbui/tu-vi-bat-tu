@@ -9,6 +9,7 @@ OWN, OWNM, TPM, TPS, TPH = "palace.own_stars", "palace.own_major_stars", "palace
 has = lambda f, v: {"fact": f, "operator": "contains", "value": v}
 anyof = lambda *x: {"any": list(x)}
 nt = lambda x: {"not": x}
+allof = lambda *x: {"all": list(x)}
 br = lambda *b: {"fact": "palace.branch", "operator": "in", "value": list(b)}
 ys = lambda *s: {"fact": "chart.year_stem", "operator": "in", "value": list(s)}
 oM = lambda *ss: [has(OWNM, s) for s in ss]
@@ -63,6 +64,31 @@ R = [  # palace, id, conditions, claim, status, page, phrase
  ("Mệnh", "SAT_TU_MENH", [br("Dần", "Thân", "Tý", "Ngọ"), *oM("Thất Sát")], "sat_tu_tinh_phu_quy", "verified", "p.39", "tước lộc, vinh hiển (Thất Sát thủ Mệnh ở Dần, Thân, Tý hoặc Ngọ)"),
  ("Mệnh", "PHA_TY_NGO_VO_SAT", [br("Tý", "Ngọ"), *oM("Phá Quân"), noSat], "pha_ty_ngo_vo_sat_quan_cao", "draft", "p.40", "có thể giữ địa vị cao (Phá Quân thủ Mệnh ở Tý hoặc Ngọ, không gặp sát tinh); 'không gặp' đọc là không có trong tam phương"),
  ("Mệnh", "PHA_TY_NGO_GIAP_QUY", [br("Tý", "Ngọ"), *oM("Phá Quân"), ys("Giáp", "Quý")], "pha_ty_ngo_hop_tuoi_giap_quy", "verified", "p.40", "đặc biệt hợp người tuổi Giáp hoặc Quý (Phá Quân thủ Mệnh ở Tý hoặc Ngọ)"),
+
+ ("Mệnh", "XUONG_VU", [*oM("Vũ Khúc"), has(OWN, "Văn Xương")], "xuong_vu_van_vu_kiem_bi", "verified", "p.42", "tài kiêm cả văn lẫn võ, đa học đa năng (Văn Xương đồng cung Vũ Khúc)"),
+ ("Mệnh", "TA_XUONG", [has(TPS, "Tả Phụ"), has(TPS, "Văn Xương")], "ta_xuong_chuc_cao", "verified", "p.42", "có thể lên chức vị cao (Mệnh hội Tả Phụ, Văn Xương)"),
+ ("Mệnh", "VU_KHUC_NHI_KHUC", [*oM("Vũ Khúc"), has(OWN, "Văn Khúc"), dig("Vũ Khúc", GOOD), anyof(has(TPS, "Tả Phụ"), has(TPS, "Hữu Bật"))], "nhi_khuc_ta_huu_van_vo", "draft", "p.43", "tài kiêm văn võ (Văn Khúc, Vũ Khúc ở miếu địa gặp Tả Hữu); 'gặp' đọc là hội trong tam phương"),
+ ("Mệnh", "XUONG_KHUC_TY_HOI", [br("Tỵ", "Hợi"), has(OWN, "Văn Xương"), has(OWN, "Văn Khúc")], "xuong_khuc_ty_hoi_quy_hoac_phu", "verified", "p.43", "không sang thì cũng giàu (Xương Khúc ở Tỵ hoặc Hợi)"),
+ ("Mệnh", "XUONG_KHUC_LOC", [has(OWN, "Văn Xương"), has(OWN, "Văn Khúc"), has(OWN, "Lộc Tồn")], "xuong_khuc_loc_ton_tai_la", "verified", "p.44", "kỳ cách, có tài đặc biệt (Xương Khúc đồng cung Lộc Tồn)"),
+ ("Mệnh", "TA_HUU_DONG_CUNG", [has(OWN, "Tả Phụ"), has(OWN, "Hữu Bật")], "ta_huu_menh_giau_sang", "verified", "p.45", "cao sang, sung túc (Tả Phụ, Hữu Bật đồng cung ở Mệnh)"),
+ ("Mệnh", "TA_HUU_GIAP", [has("palace.neighbor_stars", "Tả Phụ"), has("palace.neighbor_stars", "Hữu Bật")], "menh_giap_ta_huu_giau_co", "verified", "p.45", "quý cách (Tả Phụ, Hữu Bật giáp hai bên Mệnh)"),
+ ("Mệnh", "TA_HUU_TAI_QUAN", [has(TPS, "Tả Phụ"), has(TPS, "Hữu Bật"), nt(allof(has(OWN, "Tả Phụ"), has(OWN, "Hữu Bật")))], "ta_huu_tai_quan_chieu_day_du", "verified", "p.45", "đời sống đầy đủ (Tả Hữu ở Tài Bạch, Quan Lộc chiếu Mệnh)"),
+ ("Mệnh", "KHOI_VIET_MENH", [has(OWN, "Thiên Khôi"), has(OWN, "Thiên Việt")], "khoi_viet_van_chuong", "verified", "p.46", "danh cao vọng trọng, thi cử thuận lợi (Khôi Việt ở Mệnh; ở tam hợp thì kém hơn)"),
+ ("Mệnh", "KHOI_VIET_GIAP", [has("palace.neighbor_stars", "Thiên Khôi"), has("palace.neighbor_stars", "Thiên Việt")], "menh_giap_khoi_viet_duoc_quy_men", "verified", "p.46", "cách kỳ lạ, được người quý (Khôi Việt giáp hai bên Mệnh)"),
+ ("Mệnh", "KHOI_XUONG_LOC", [anyof(has(TPS, "Thiên Khôi"), has(TPS, "Thiên Việt")), anyof(has(TPS, "Văn Xương"), has(TPS, "Văn Khúc")), has(TPS, "Lộc Tồn"), noSat], "khoi_xuong_loc_phu_quy_dai_than", "draft", "p.46", "quý đến bậc đại thần (Khôi Việt, Xương Khúc, Lộc Tồn, không gặp sát); 'Hình Sát' đọc là Tứ Sát, 'có' đọc là hội trong tam phương"),
+ ("Điền Trạch", "LOC_TON", [has(OWN, "Lộc Tồn")], "dien_loc_ton_vang_ngoc_day_nha", "verified", "p.47", "của cải đầy nhà (Lộc Tồn ở Điền Trạch)"),
+ ("Tài Bạch", "LOC_TON", [has(OWN, "Lộc Tồn")], "tai_loc_ton_khong_so_ngheo", "verified", "p.47", "vàng ngọc đầy nhà (Lộc Tồn ở Tài Bạch)"),
+ ("Mệnh", "LOC_TON_TY_NGO", [br("Tý", "Ngọ"), has(OWN, "Lộc Tồn")], "loc_ton_ty_ngo_tien_bac_nhieu", "verified", "p.47", "lợi lộc dồi dào (Lộc Tồn ở Mệnh tại Tý hoặc Ngọ)"),
+ ("Mệnh", "SONG_LOC", [has(OWN, "Lộc Tồn"), has("palace.tu_hoa", "Hóa Lộc")], "song_loc_menh_phu_quy", "verified", "p.47", "suốt đời giàu sang (Lộc Tồn cùng Hóa Lộc ở Mệnh)"),
+ ("Mệnh", "SONG_LOC_QUYEN", [has(OWN, "Lộc Tồn"), has("palace.tu_hoa", "Hóa Lộc")], "loc_ton_hoa_loc_doc_doan", "verified", "p.47", "tính độc đoán, thích nắm quyền (Lộc Tồn đồng cung Hóa Lộc)"),
+ ("Mệnh", "LOC_MA", [has(OWN, "Lộc Tồn"), anyof(has(OWN, "Thiên Mã"), has(TPS, "Thiên Mã"))], "loc_ma_giao_tri_menh", "verified", "p.47", "Lộc Mã giao trì, cách Mã mừng nhất (Lộc Tồn ở Mệnh có Thiên Mã đồng cung hoặc chiếu)"),
+ ("Mệnh", "KQL_HOP", [*TAM3], "khoa_quyen_loc_hoi_phu_quy_song_toan", "verified", "p.49", "giàu sang vẹn cả (Khoa, Quyền, Lộc hợp chiếu)"),
+ ("Mệnh", "QUYEN_LOC", [has(TPH, "Hóa Quyền"), has(TPH, "Hóa Lộc")], "quyen_loc_tai_quan_song_my", "verified", "p.49", "tiền nhiều, chức lớn (Hóa Quyền, Hóa Lộc gặp nhau)"),
+ ("Mệnh", "KHOA_MENH_QUYEN_CHIEU", [has("palace.tu_hoa", "Hóa Khoa"), has(TPH, "Hóa Quyền")], "khoa_menh_quyen_chieu_do_dat", "verified", "p.49", "thi cử đỗ đạt, danh giá (Hóa Khoa tại Mệnh, Hóa Quyền chiếu)"),
+ ("Tài Bạch", "QUYEN_LOC", [has("palace.tu_hoa", "Hóa Quyền"), has("palace.tu_hoa", "Hóa Lộc")], "tai_quyen_loc_sang_giau", "verified", "p.49", "hào phóng, sang giàu (Quyền Lộc giữ cung Tài Bạch)"),
+ ("Mệnh", "KINH_MIEU", [has(OWN, "Kình Dương"), dig("Kình Dương", ["miếu"])], "kinh_mieu_phu_quy_danh_vang", "verified", "p.50", "phú quý, danh vang (Kình Dương nhập miếu)"),
+ ("Mệnh", "KINH_HOA_TU_MO", [br("Thìn", "Tuất", "Sửu", "Mùi"), has(OWN, "Kình Dương"), has(OWN, "Hỏa Tinh")], "kinh_hoa_tu_mo_uy_quyen", "verified", "p.50", "uy quyền lớn (Kình Dương đồng cung Hỏa Tinh ở Tứ Mộ)"),
+ ("Mệnh", "HOA_LINH", [has(OWN, "Hỏa Tinh"), has(OWN, "Linh Tinh")], "hoa_linh_danh_vang_xa", "verified", "p.52", "tiếng tăm vang xa (Hỏa Tinh gặp Linh Tinh ở Mệnh)"),
 ]
 rules, claims = [], {}
 for pal, rid, conds, claim, status, loc, vi in R:

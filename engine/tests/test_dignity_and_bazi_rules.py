@@ -280,3 +280,19 @@ def test_toan_thu_second_batch():
     assert "cu_co_mao_cong_khanh" not in tt_run("Giáp", branch="Mão", own=["Cự Môn", "Thiên Cơ"])
     assert "cndl_dan_than_suon_se" in tt_run(branch="Dần", tam=["Thiên Cơ", "Thái Âm", "Thiên Đồng", "Thiên Lương"])
     assert "luong_thien_di_buon_ban_lon" in tt_run(name="Thiên Di", own=["Thiên Lương", "Tả Phụ"])
+
+
+def test_minor_star_dignity_and_toan_thu_third_batch():
+    from tvbt import dignity
+    assert dignity.minor_dignity("Kình Dương", "Thìn") == "miếu" and dignity.minor_dignity("Văn Xương", "Dần") == "hãm"
+    assert dignity.minor_dignity("Đà La", "Tỵ") == "bình" and dignity.minor_dignity("Hỏa Tinh", "Hợi") == "hãm"
+    chart = tuvi.compute(normalize(BirthInput(1990, 5, 17, 10, 30, "Asia/Ho_Chi_Minh", "male")))
+    assert any(p["minor_dignity"] for p in chart.palaces)
+    assert "kinh_mieu_phu_quy_danh_vang" in tt_run(own=["Kình Dương"], dig={"Kình Dương": "miếu"})
+    assert "kinh_mieu_phu_quy_danh_vang" not in tt_run(own=["Kình Dương"], dig={"Kình Dương": "hãm"})
+    assert "khoa_quyen_loc_hoi_phu_quy_song_toan" in tt_run(tam_hoa=["Hóa Khoa", "Hóa Quyền", "Hóa Lộc"])
+    assert "khoa_quyen_loc_hoi_phu_quy_song_toan" not in tt_run(tam_hoa=["Hóa Khoa", "Hóa Quyền"])
+    assert "ta_huu_tai_quan_chieu_day_du" in tt_run(tam=["Tả Phụ", "Hữu Bật"])
+    assert "ta_huu_tai_quan_chieu_day_du" not in tt_run(own=["Tả Phụ", "Hữu Bật"])
+    assert "dien_loc_ton_vang_ngoc_day_nha" in tt_run(name="Điền Trạch", own=["Lộc Tồn"])
+    assert "xuong_khuc_ty_hoi_quy_hoac_phu" in tt_run(branch="Hợi", own=["Văn Xương", "Văn Khúc"])

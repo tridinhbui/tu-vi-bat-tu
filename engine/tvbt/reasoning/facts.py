@@ -22,7 +22,7 @@ def tuvi_facts(c: TuViChart) -> dict[str, dict]:
         out[f"palace:{p['name']}"] = {
             "palace.name": p["name"], "palace.branch": p["branch"], "palace.is_than": p["is_than"],
             "palace.own_stars": p["stars"], "palace.own_major_stars": p["major_stars"],
-            **{f"palace.dignity.{k}": (v or "unspecified") for k, v in p["major_dignity"].items()},
+            **{f"palace.dignity.{k}": (v or "unspecified") for k, v in {**p["minor_dignity"], **p["major_dignity"]}.items()},
             "palace.has_no_major": not p["major_stars"],
             "palace.tam_phuong_majors": majors, "palace.tam_phuong_stars": stars,
             "palace.tuan": p["tuan"], "palace.triet": p["triet"],
