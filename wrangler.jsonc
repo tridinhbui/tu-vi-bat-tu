@@ -3,6 +3,7 @@
   "name": "tu-vi-bat-tu",
   "main": "src/index.ts",
   "compatibility_date": "2026-10-13",
+  "assets": { "directory": "./engine/web", "run_worker_first": ["/api/*"] },
   "containers": [
     { "class_name": "TvbtContainer", "image": "./Dockerfile", "max_instances": 3 }
   ],
