@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thư viện quy tắc và nguồn</title>
+<style>
+:root{--bg:#f6f0e2;--card:#fbf7ec;--ink:#241d14;--mute:#6f6350;--bronze:#9a6b2f;--line:#d9ccb0;--bad:#8a3b2b;--ok:#3f6b3a}
+@media (prefers-color-scheme:dark){:root{--bg:#17130d;--card:#201a12;--ink:#efe6d2;--mute:#a89b82;--bronze:#d1a45f;--line:#3a3022;--bad:#e08a76;--ok:#8fc287}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Georgia,serif}main{max-width:1000px;margin:0 auto;padding:24px 16px 64px}
+h1{font-weight:400}h2{font-weight:400;color:var(--bronze);border-bottom:1px solid var(--line)}.note{color:var(--mute);font-size:.9em}
+.card{background:var(--card);border:1px solid var(--line);padding:12px 14px;margin:8px 0}textarea,input,select,button{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:6px 8px}
+textarea{width:100%;min-height:200px;font-family:ui-monospace,Menlo,monospace;font-size:.85em}button{background:var(--bronze);color:#fff;border:0;cursor:pointer}
+.v{color:var(--ok)}.d{color:var(--bad)}details{margin:.3em 0}pre{white-space:pre-wrap;font-size:.8em}table{border-collapse:collapse;font-size:.8em}td,th{border:1px solid var(--line);padding:2px 5px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:end}.row label{display:flex;flex-direction:column;font-size:.8em;color:var(--mute)}
+</style></head><body><main>
+<h1>Thư viện quy tắc và nguồn</h1>
+<p class="note">Chỉ đọc. Quy tắc <b class="v">verified</b> đã đối chiếu với trang sách có trích dẫn; <b class="d">draft</b> chưa xác minh hoặc có giả định của hệ thống. Trình soạn bên dưới chỉ kiểm tra và chạy thử, không lưu gì. Muốn xuất bản, thêm quy tắc vào file pack trong kho mã.</p>
+<div id="sum" class="card">Đang tải…</div>
+<h2>Nguồn</h2><div id="src"></div>
+<h2>Quy tắc</h2>
+<div class="row"><label>Hệ<select id="fs"><option value="">tất cả</option><option>tu_vi</option><option>bat_tu</option></select></label>
+<label>Trạng thái<select id="ff"><option value="">tất cả</option><option>verified</option><option>draft</option></select></label>
+<label>Tìm<input id="fq" placeholder="id hoặc mô tả"></label></div><div id="rl"></div>
+<h2>Độ sáng sao</h2><div id="dg" style="overflow-x:auto"></div>
+<h2>Soạn và chạy thử một quy tắc</h2>
+<div class="card"><div class="row"><label>Năm<input id="y" type="number" value="1990" style="width:80px"></label><label>Tháng<input id="m" type="number" value="5" style="width:60px"></label>
+<label>Ngày<input id="d" type="number" value="17" style="width:60px"></label><label>Giờ<input id="h" type="number" value="10" style="width:60px"></label>
+<label>Giới tính<select id="g"><option value="male">Nam</option><option value="female">Nữ</option></select></label><button id="run" type="button">Kiểm tra và chạy thử</button></div>
+<textarea id="ta" spellcheck="false"></textarea><pre id="out"></pre></div>
+</main><script>
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const SAMPLE={id:"TV_DEMO_001",system:"tu_vi",schoolId:"demo",category:"configuration",description:"DRAFT demo",
+ conditions:{all:[{fact:"palace.name",value:"Mệnh"},{fact:"palace.own_major_stars",operator:"contains",value:"Thiên Phủ"}]},
+ consequences:[{kind:"finding",claim:"demo",effect:"neutral",scope:"natal"}],exceptions:[],conflictsWith:[],priority:1,sourceIds:["SRC_THUC_HANH"],reviewStatus:"draft",version:"0.0.1",subject:"palace"};
+$('#ta').value=JSON.stringify(SAMPLE,null,1);
+const B=["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"];let R=[];
+function draw(){const s=$('#fs').value,f=$('#ff').value,q=$('#fq').value.toLowerCase();
+ $('#rl').innerHTML=R.filter(x=>(!s||x.system===s)&&(!f||x.reviewStatus===f)&&(!q||(x.id+x.description).toLowerCase().includes(q))).map(x=>`<details><summary>${esc(x.id)} — ${x.system} — <b class="${x.reviewStatus==='verified'?'v':'d'}">${x.reviewStatus}</b></summary><div>${esc(x.description)}</div><div class="note">Nguồn: ${x.sourceIds.join(', ')||'—'}</div><pre>${esc(JSON.stringify(x.conditions))}</pre></details>`).join('')}
+(async()=>{const r=await (await fetch('/api/rules')).json(),d=await (await fetch('/api/dignity')).json();R=r.rules;
+ const c={};R.forEach(x=>c[x.reviewStatus]=(c[x.reviewStatus]||0)+1);
+ $('#sum').innerHTML=`${R.length} quy tắc: ${Object.entries(c).map(([k,v])=>k+' '+v).join(', ')}. ${r.problems.length?'<b class="d">Có lỗi: '+esc(r.problems.join('; '))+'</b>':'Bộ quy tắc hợp lệ.'}`;
+ $('#src').innerHTML=r.sources.map(s=>`<div class="card"><span class="${s.verified?'v':'d'}">${s.verified?'✔ đã dùng':'○ chưa dùng'}</span> <b>${esc(s.title)}</b> — ${esc(s.author||'')}<div class="note">${esc(s.locator||'chưa có trích dẫn')}${s.note?' · '+esc(s.note):''}</div></div>`).join('');
+ $('#dg').innerHTML='<table><tr><th></th>'+B.map(b=>'<th>'+b+'</th>').join('')+'</tr>'+Object.entries(d.stars).map(([s,v])=>`<tr><td><b>${s}</b></td>${B.map(b=>`<td>${v.levels[b]||'·'}</td>`).join('')}</tr>`).join('')+'</table><p class="note">'+esc(d.note)+'</p>';
+ draw();['fs','ff','fq'].forEach(i=>$('#'+i).oninput=draw)})();
+$('#run').onclick=async()=>{let rule;try{rule=JSON.parse($('#ta').value)}catch(e){$('#out').textContent='JSON lỗi: '+e.message;return}
+ const birth={year:+$('#y').value,month:+$('#m').value,day:+$('#d').value,hour:+$('#h').value,minute:0,gender:$('#g').value};
+ const r=await fetch('/api/rules/test',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rule,birth})});const j=await r.json();
+ $('#out').textContent=r.ok?JSON.stringify(j,null,1):'Lỗi: '+JSON.stringify(j.detail)};
+</script></body></html>

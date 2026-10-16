@@ -85,6 +85,52 @@ def compare_hours(a: BirthReq, b: BirthReq):
         raise HTTPException(422, str(e))
 
 
+@app.get("/api/rules")
+def rules():
+    """Read-only rule & source library. Editing is intentionally not exposed over HTTP (no auth layer yet)."""
+    rs, srcs = load_all()
+    return {"rules": [dataclasses.asdict(r) for r in rs], "sources": [dataclasses.asdict(x) for x in srcs],
+            "problems": validate_pack(rs, srcs, {"palace.*", "chart.*", "bazi.*", "derived.*"})}
+
+
+class RuleTestReq(BaseModel):
+    rule: dict
+    birth: BirthReq
+
+
+@app.post("/api/rules/test")
+def rule_test(req: RuleTestReq):
+    """Stateless rule editor backend: validate a draft rule (typed DSL, no code execution) and dry-run it on a chart.
+    Nothing is stored; publish by committing the rule to a pack file."""
+    from .knowledge.schema import KnowledgeRule
+    try:
+        r = KnowledgeRule(**req.rule)
+    except TypeError as e:
+        raise HTTPException(422, f"bad rule fields: {e}")
+    rs, srcs = load_all()
+    problems = validate_pack([r], srcs, {"palace.*", "chart.*", "bazi.*", "derived.*"})
+    if problems:
+        return {"valid": False, "problems": problems, "findings": []}
+    nb, bz, tv = _compute(req.birth)
+    base = facts.tuvi_facts(tv) if r.system == "tu_vi" else facts.bazi_facts(bz)
+    res = engine.run(rs + [r] if r.id not in {x.id for x in rs} else rs, srcs, base, system=r.system)
+    mine = [f for f in res.findings if f.rule_id == r.id]
+    return {"valid": True, "problems": [], "fired_on": [f.subject for f in mine],
+            "pending": [p for p in res.pending if p["rule"] == r.id][:5],
+            "blocked": [b for b in res.blocked if b["rule"] == r.id]}
+
+
+@app.get("/api/dignity")
+def dignity_table():
+    import json
+    return json.loads((ROOT / "data" / "dignity_vn.json").read_text("utf-8"))
+
+
+@app.get("/library")
+def library():
+    return FileResponse(ROOT / "web" / "library.html")
+
+
 @app.get("/")
 def index():
     return FileResponse(ROOT / "web" / "index.html")
