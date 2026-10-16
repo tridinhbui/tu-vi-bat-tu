@@ -1,6 +1,7 @@
 // InterpretationSection chapters: calculations and traditional readings kept visibly separate.
 import { $, $$, esc, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip } from './util.js';
 import { acc, notice, reasoningPanel, timeline, yearExplorer, findingCard } from './ui.js';
+import { scopePanelBazi } from './scope.js';
 import { elementBalanceHtml, godDistributionHtml, menhTamPhuongHtml, currentPhase, currentPhaseHtml } from './insights.js';
 
 const LAYER_HINT = { 'Tượng': 'ý nghĩa biểu tượng', 'Khí': 'điều kiện mạnh yếu', 'Thế': 'vị trí trong cấu trúc', 'Cách': 'cách cục', 'Dụng': 'vai trò theo lĩnh vực', 'Biến': 'biến đổi theo thời gian', 'Phản': 'yếu tố đối trọng', 'Tổng': 'tổng hợp' };
@@ -88,6 +89,7 @@ export function renderBaziReport(host, chart, ctx, parts) {
     { id: 'chuyen-sau', title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('bat_tu', 'Bát Tự', { normalization: ctx.chartRaw.normalization_trace.steps, bazi: b.trace.steps }), trad: '' },
   ];
   mount(host, chapters, 'bt', ctx);
+  host.insertAdjacentHTML('afterbegin', scopePanelBazi(b));
   yearExplorer($('#bt-year', host), ctx.req, b, 'bazi');
 }
 
@@ -123,7 +125,7 @@ export function renderTuviReport(host, chart, ctx) {
       calc: calc(`<div class="facts"><div><span class="k">Mệnh cung</span><b>${esc(tv.menh.stem)} ${esc(tv.menh.branch)}</b></div><div><span class="k">Thân cư</span><b>${esc(tv.than.name)}</b></div><div><span class="k">Cục</span><b>${esc(t.cuc.name)}</b></div><div><span class="k">Bản mệnh</span><b>${esc(t.menh_nap_am)}</b></div><div><span class="k">Cục và Mệnh</span><b>${esc(t.menh_cuc_relation)}</b></div><div><span class="k">Đại hạn hiện tại</span><b>${ph.dh ? `${esc(ph.dh.palace)} (${ph.dh.age_from}–${ph.dh.age_to})` : 'chưa vào'}</b></div></div>${highlightsHtml(fs, TITLE, chOf)}`),
       trad: `<div class="ch-trad">${notice('Về mức độ tin cậy', 'Quy tắc đã đối chiếu sách và quy tắc nháp luôn được ghi nhãn riêng ở từng nhận định. Đây là cách đọc theo hệ biểu tượng, không phải kết luận.', 'info')}</div>` },
     { id: 'ban-menh', title: 'Bản Mệnh', lead: `Bản mệnh ${esc(t.menh_nap_am)} thuộc hành ${esc(t.menh_element)}; ${esc(t.cuc.name)} thuộc hành ${esc(t.cuc.element)}.`, blocks: blocks('tv', 'ban-menh'),
-      calc: calc(`${palaceList(['Mệnh'])}<h5>Tam phương tứ chính của cung Mệnh</h5>${menhTamPhuongHtml(t)}<h5>Tứ Hóa theo can năm</h5><ul class="plain">${tuHoa}</ul>`), trad: trad(of('ban-menh')) },
+      calc: calc(`${t.extras?.menh_chu ? `<div class="facts"><div><span class="k">Mệnh chủ (theo chi cung Mệnh)</span><b>${esc(t.extras.menh_chu.star)}</b></div><div><span class="k">Thân chủ (theo chi năm)</span><b>${esc(t.extras.than_chu.star)}</b></div><div><span class="k">Độ tin cậy</span><b>công thức phổ biến, chưa đối chiếu sách</b></div></div>` : ''}${palaceList(['Mệnh'])}<h5>Tam phương tứ chính của cung Mệnh</h5>${menhTamPhuongHtml(t)}<h5>Tứ Hóa theo can năm</h5><ul class="plain">${tuHoa}</ul>`), trad: trad(of('ban-menh')) },
     { id: 'tinh-cach', title: 'Tính cách', lead: 'Nhìn từ cung Mệnh và cung Phúc Đức.', blocks: blocks('tv', 'tinh-cach'), calc: calc(palaceList(['Mệnh', 'Phúc Đức'])), trad: trad(of('tinh-cach')) },
     { id: 'cong-danh', title: 'Công danh', lead: 'Cung Quan Lộc và cung đối Thiên Di.', blocks: blocks('tv', 'cong-danh'), calc: calc(palaceList(['Quan Lộc', 'Thiên Di'])), trad: trad(of('cong-danh')) },
     { id: 'tai-bach', title: 'Tài Bạch', lead: 'Cung Tài Bạch và Điền Trạch.', blocks: blocks('tv', 'tai-bach'), calc: calc(palaceList(['Tài Bạch', 'Điền Trạch'])), trad: trad(of('tai-bach')) },
@@ -131,7 +133,7 @@ export function renderTuviReport(host, chart, ctx) {
     { id: 'dai-han', title: 'Đại hạn & lưu niên', lead: `Đại hạn chạy ${esc(t.dai_han_direction)}; ${ph.dh ? `hiện ở cung ${esc(ph.dh.palace)} (${ph.dh.age_from}–${ph.dh.age_to} tuổi)` : 'chưa vào đại hạn đầu'}.`, blocks: blocks('tv', 'dai-van'),
       calc: calc(`<h5>Các đại hạn</h5>${tv.timelineHtml}<h5>Lưu niên</h5><div id="tv-year"></div>`), trad: '' },
     { id: 'cach-cuc', title: 'Cách cục', lead: 'Các hình thái đặc biệt mà bộ quy tắc hiện hành có thể nhận ra.', blocks: blocks('tv', 'cach-cuc'),
-      calc: calc(`<p>Số nhận định về cách cục: ${of('cach-cuc').length || 'không có'}.</p>`),
+      calc: calc(`<h5>Nhận diện theo tên (vị trí sao)</h5>${(t.extras?.cach_cuc || []).length ? `<ul class="cc-list">${t.extras.cach_cuc.map(x => `<li><b>${esc(x.name)}</b><span class="muted">${esc(x.evidence)}</span></li>`).join('')}</ul><p class="muted small">Đây chỉ là nhận diện tên cách theo vị trí các sao. Ý nghĩa cát hay hung của từng cách chưa được đối chiếu sách nên hệ thống không nêu. Tên cách và nhóm sao theo thông lệ phổ biến, chưa đối chiếu trang sách.</p>` : '<p class="muted">Không nhận ra cách nào trong danh sách các cách được kiểm tra.</p>'}<h5>Nhận định từ bộ quy tắc</h5><p>Số nhận định về cách cục: ${of('cach-cuc').length || 'không có'}.</p>`),
       trad: (() => { const c = of('cach-cuc'); return `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${c.length ? `<button type="button" class="btn btn-ghost btn-sm ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div class="ig-box" hidden>${inferenceGraph(c[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên.</p></div>${c.map(f => findingCard(f, shell(ctx).where(f))).join('')}` : notice('Không có cách cục nào được nhận ra', '')}</div>`; })() },
     { id: 'muoi-hai-cung', title: 'Toàn bộ mười hai cung', lead: 'Tra nhanh từng cung: sao, Tứ Hóa, Tuần Triệt, đại hạn và nhận định.', calc: calc(`<div class="p12">${p12}</div>`), trad: '' },
     { id: 'chuyen-sau', title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('tu_vi', 'Tử Vi', { normalization: ctx.chartRaw.normalization_trace.steps, tuvi: t.trace.steps }), trad: '' },

@@ -6,6 +6,7 @@ import { renderBazi } from './bazi.js';
 import { renderTuvi } from './tuvi.js';
 import { renderBaziReport, renderTuviReport } from './report.js';
 import { notice } from './ui.js';
+import { renderHourSweep } from './hours.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const metaReady = loadMeta();
@@ -75,12 +76,25 @@ const syncPlace = () => {
   if (!other) { form.tz.value = 'Asia/Ho_Chi_Minh'; form.longitude.value = PLACES[form.place.value]; }
 };
 form.place.onchange = syncPlace; syncPlace();
-const hint = () => { const [h] = (form.time.value || '00:00').split(':').map(Number); $('#hour-hint').textContent = `Giờ ${hourBranch(h)}`; };
+const CHI = ['Tý (23h–1h)', 'Sửu (1h–3h)', 'Dần (3h–5h)', 'Mão (5h–7h)', 'Thìn (7h–9h)', 'Tỵ (9h–11h)', 'Ngọ (11h–13h)', 'Mùi (13h–15h)', 'Thân (15h–17h)', 'Dậu (17h–19h)', 'Tuất (19h–21h)', 'Hợi (21h–23h)'];
+$('#hour-chi').insertAdjacentHTML('beforeend', CHI.map((c, i) => `<option value="${String(i === 0 ? 0 : 2 * i).padStart(2, '0')}:00">Giờ ${c}</option>`).join(''));
+$('#hour-chi').onchange = e => { if (e.target.value) { form.time.value = e.target.value; hint(); } };
+let lunarMode = false;
+const setCal = l => {
+  lunarMode = l; $('#cal-solar').setAttribute('aria-pressed', !l); $('#cal-lunar').setAttribute('aria-pressed', l);
+  $('#leap-wrap').hidden = !l; $('#cal-help').textContent = l ? 'Bạn nhập ngày âm lịch. Hệ thống tự quy đổi sang dương lịch rồi lập lá số.' : 'Bạn nhập ngày dương lịch. Hệ thống tự quy đổi sang âm lịch.';
+  form.day.options[0]; form.querySelector('[name=month]').innerHTML = Array.from({ length: 12 }, (_, i) => opt(i + 1, (l ? 'Tháng ' : 'Tháng ') + (i + 1), i + 1 === +form.month.value || (!form.month.value && i + 1 === 5))).join('');
+  form.day.innerHTML = Array.from({ length: l ? 30 : 31 }, (_, i) => opt(i + 1, i + 1, i + 1 === Math.min(+form.day.value || 17, l ? 30 : 31))).join('');
+};
+$('#cal-solar').onclick = () => setCal(false); $('#cal-lunar').onclick = () => setCal(true);
+$('#no-hour').onchange = e => { form.time.disabled = e.target.checked; $('#hour-chi').disabled = e.target.checked; $('#time-box').classList.toggle('off', e.target.checked); };
+const hint = () => { const [h] = (form.time.value || '00:00').split(':').map(Number);
+  if (Number.isNaN(h)) return; $('#hour-hint').textContent = `Giờ ${hourBranch(h)}`; };
 form.time.oninput = hint; hint();
 $('#solar').onchange = e => { $('#lon-wrap').hidden = !e.target.checked; };
 
 function readForm() {
-  const [h, m] = form.time.value.split(':').map(Number);
+  const unknown = $('#no-hour').checked, [h, m] = unknown ? [12, 0] : form.time.value.split(':').map(Number);
   const o = { year: +form.year.value, month: +form.month.value, day: +form.day.value, hour: h, minute: m, gender: form.gender.value, tz: form.tz.value.trim() || 'Asia/Ho_Chi_Minh', calendar: form.calsys.value, zi_rule: form.zi_rule.value, level: +form.level.value };
   if ($('#solar').checked) { o.use_true_solar_time = true; o.longitude = +form.longitude.value; }
   return o;
@@ -90,15 +104,27 @@ const fmtDate = r => `${String(r.day).padStart(2, '0')}/${String(r.month).padSta
 async function generate(ev) {
   ev?.preventDefault();
   const err = $('#form-err'), btn = $('#submit-btn'); err.hidden = true;
-  const req = readForm();
+  const req = readForm(), unknownHour = $('#no-hour').checked;
   const d = new Date(req.year, req.month - 1, req.day);
-  if (d.getMonth() !== req.month - 1 || !req.year || req.year < 1900 || req.year > 2049 || Number.isNaN(req.hour)) {
+  if ((!lunarMode && d.getMonth() !== req.month - 1) || !req.year || req.year < 1900 || req.year > 2049 || Number.isNaN(req.hour)) {
     err.innerHTML = notice('Ngày giờ sinh chưa hợp lệ', req.year < 1900 || req.year > 2049 ? 'Hệ thống hiện hỗ trợ các năm từ 1900 đến 2049.' : 'Ngày này không tồn tại trong tháng đã chọn. Vui lòng kiểm tra lại.', 'warn'); err.hidden = false; return;
   }
   btn.disabled = true; btn.classList.add('busy'); $('#loading').hidden = false;
   try {
+    let lunarIn = null;
+    if (lunarMode) {
+      lunarIn = { day: req.day, month: req.month, year: req.year, leap: $('#leap').checked };
+      const conv = await post('/api/lunar-to-solar', { ...lunarIn, calendar: req.calendar });
+      Object.assign(req, conv.solar);
+    }
+    if (unknownHour) {
+      const sweep = await post('/api/hour-sweep', req);
+      state = { req, lunarIn, sweep };
+      showHourSweep();
+      return;
+    }
     const [chart, reason, analysis] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), metaReady]);
-    state = { req, chart, reason, analysis };
+    state = { req, chart, reason, analysis, lunarIn };
     showResults();
   } catch (x) {
     err.innerHTML = notice('Chưa lập được lá số', esc(x.message), 'warn'); err.hidden = false;
@@ -108,7 +134,17 @@ async function generate(ev) {
 form.onsubmit = generate;
 $('#sample-btn').onclick = () => generate();
 
+function showHourSweep() {
+  const { req, lunarIn, sweep } = state;
+  $('#res-sub').innerHTML = `<span><b>${fmtDate(req)}</b> · giờ sinh chưa rõ</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span>${lunarIn ? `<span>Nhập âm lịch ${lunarIn.day}/${lunarIn.month}/${lunarIn.year}${lunarIn.leap ? ' nhuận' : ''}</span>` : ''}`;
+  $('#res-hl').innerHTML = '';
+  renderHourSweep($('#hour-host'), sweep, h => { $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } }); form.time.value = h.hour_branch === 'Tý' ? '00:00' : `${String(2 * ['Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi'].indexOf(h.hour_branch)).padStart(2, '0')}:00`; hint(); generate(); });
+  document.body.classList.add('hour-mode'); setTab('hour', false); view('chart');
+  history.pushState({ v: 'chart' }, '', '#la-so/gio-sinh');
+}
+
 function showResults() {
+  document.body.classList.remove('hour-mode');
   const { req, chart, reason, analysis } = state;
   const ctx = { req, reason, analysis: analysis.chapters, chartRaw: chart, openPalace: name => { setTab('tuvi', false); setTimeout(() => { $('#tuvi-host').scrollIntoView({ behavior: 'smooth', block: 'start' }); state.tv.select(name); }, 120); } };
   const tv = renderTuvi($('#tuvi-host'), chart.tuvi, ctx);
@@ -117,7 +153,8 @@ function showResults() {
   renderBaziReport($('#bazi-report'), chart, ctx, bz.parts);
   renderTuviReport($('#tuvi-report'), chart, ctx);
   const t = chart.tuvi, b = chart.bazi;
-  $('#res-sub').innerHTML = `<span><b>${fmtDate(req)}</b> · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
+  const lu = state.lunarIn ? `<span>Nhập âm lịch ${state.lunarIn.day}/${state.lunarIn.month}/${state.lunarIn.year}${state.lunarIn.leap ? ' nhuận' : ''}</span>` : '';
+  $('#res-sub').innerHTML = lu + `<span><b>${fmtDate(req)}</b> · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
   $('#res-hl').innerHTML = `<span>${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></span><span>${esc(t.cuc.name)}</span><span>Mệnh ${esc(t.menh_nap_am)}</span>`;
   setTab('bazi', false); view('chart');
   history.pushState({ v: 'chart' }, '', '#la-so/bat-tu');

@@ -67,19 +67,21 @@
         <ul class="steps-mini"><li><span>1</span>Chuẩn hóa múi giờ và lịch pháp</li><li><span>2</span>Tính Bát Tự và Tử Vi độc lập</li><li><span>3</span>Đối chiếu quy tắc và nguồn</li></ul>
         <button type="button" class="link" id="sample-btn">Hoặc xem lá số mẫu (17/05/1990, 10:30)</button>
       </div>
-      <form id="birth-form" class="bform reveal" novalidate>
+      <form id="birth-form" class="bform reveal" novalidate onsubmit="return false" method="post" action="#">
         <fieldset class="f-set">
           <legend>Ngày sinh</legend>
-          <div class="seg seg-wide" role="group" aria-label="Loại lịch nhập"><button type="button" aria-pressed="true">Dương lịch</button><button type="button" aria-pressed="false" disabled title="Hiện hệ thống nhận ngày dương lịch và tự quy đổi sang âm lịch.">Âm lịch (sắp có)</button></div>
+          <div class="seg seg-wide" role="group" aria-label="Loại lịch nhập"><button type="button" id="cal-solar" aria-pressed="true">Dương lịch</button><button type="button" id="cal-lunar" aria-pressed="false">Âm lịch</button></div>
           <div class="f-row f-3">
             <label class="fld"><span>Ngày</span><div class="sel"><select name="day" aria-label="Ngày sinh"></select></div></label>
             <label class="fld"><span>Tháng</span><div class="sel"><select name="month" aria-label="Tháng sinh"></select></div></label>
             <label class="fld"><span>Năm</span><input name="year" type="number" inputmode="numeric" min="1900" max="2049" value="1990" aria-label="Năm sinh"></label>
           </div>
-          <p class="help">Bạn nhập ngày dương lịch. Hệ thống tự quy đổi sang âm lịch.</p>
+          <label class="chk" id="leap-wrap" hidden><input type="checkbox" id="leap"><span>Tháng nhuận<small>Chỉ chọn nếu ngày sinh âm lịch nằm trong tháng nhuận</small></span></label>
+          <p class="help" id="cal-help">Bạn nhập ngày dương lịch. Hệ thống tự quy đổi sang âm lịch.</p>
         </fieldset>
         <div class="f-row f-2">
-          <label class="fld"><span>Giờ sinh</span><input name="time" type="time" value="10:30" required><em id="hour-hint" class="hint"></em></label>
+          <div class="fld" id="time-box"><label for="time-in" class="lbl">Giờ sinh</label><input id="time-in" name="time" type="time" value="10:30"><div class="sel sel-sm"><select id="hour-chi" aria-label="Hoặc chọn giờ theo Địa chi"><option value="">Hoặc chọn theo giờ Địa chi</option></select></div><em id="hour-hint" class="hint"></em>
+            <label class="chk chk-sm"><input type="checkbox" id="no-hour"><span>Tôi không rõ giờ sinh<small>Xem điều gì đổi theo từng giờ</small></span></label></div>
           <fieldset class="fld fld-radio"><legend>Giới tính</legend>
             <div class="seg" role="radiogroup"><label><input type="radio" name="gender" value="male" checked><span>Nam</span></label><label><input type="radio" name="gender" value="female"><span>Nữ</span></label></div></fieldset>
         </div>
@@ -251,6 +253,7 @@
     <button type="button" role="tab" id="tab-bazi" data-go="bat-tu" aria-controls="pane-bazi" aria-selected="true">Bát Tự</button>
     <button type="button" role="tab" id="tab-tuvi" data-go="tu-vi" aria-controls="pane-tuvi" aria-selected="false">Tử Vi</button></div></nav>
 
+  <div class="pane" id="pane-hour"><section class="r-sec r-bazi"><div class="wrap"><header class="sec-h"><p class="eyebrow">Giờ sinh chưa rõ</p><h2>Điều gì đổi theo giờ sinh?</h2><p class="sec-sub">Ngày, tháng, năm sinh đã đủ để biết ba trụ đầu của Bát Tự. Giờ sinh quyết định trụ Giờ, cung Mệnh, cung Thân và Cục của Tử Vi.</p></header><div id="hour-host"></div></div></section></div>
   <div class="pane" id="pane-bazi" role="tabpanel" aria-labelledby="tab-bazi">
     <section class="r-sec r-bazi" aria-labelledby="bz-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Bát Tự</p><h2 id="bz-h">Bốn trụ, tám chữ</h2><p class="sec-sub">Nhật Chủ, Ngũ Hành và quan hệ giữa các trụ.</p></header><div id="bazi-host"></div></div></section>
     <section class="r-sec r-report" aria-labelledby="bzr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Luận giải Bát Tự</p><h2 id="bzr-h">Đọc lá số Bát Tự</h2><p class="sec-sub">Dữ kiện tính toán và diễn giải truyền thống luôn được tách riêng.</p></header><div id="bazi-report"></div></div></section>

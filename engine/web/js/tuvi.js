@@ -2,19 +2,10 @@
 import { $, $$, esc, starKind, TU_HOA_SHORT, claimLabel, BRANCHES, STEMS, palaceOfSubject } from './util.js';
 import { compass } from './compass.js';
 import { acc, notice, timeline, reasoningPanel, findingCard } from './ui.js';
+import { scopeText, scopePanelTuvi } from './scope.js';
 
 // Traditional layout: branch index per grid cell (null = centre block). Tỵ top-left, clockwise.
 const CELLS = [5, 6, 7, 8, 4, null, null, 9, 3, null, null, 10, 2, 1, 0, 11];
-
-const SCOPE = [
-  [/brightness/i, 'Độ sáng (miếu, vượng, đắc, bình, hãm) chỉ hiển thị cho chính tinh theo bảng Tử Vi Thực Hành; ô không có nhãn nghĩa là bảng chưa ghi vị trí đó. Phụ tinh chưa có độ sáng.'],
-  [/Thiên Hình/, 'Một số phụ tinh như Thiên Hình, Thiên Riêu, Thiên Y chưa được an lên lá số.'],
-  [/Nguyệt Đức/, 'Nguyệt Đức, Thiên Đức và một số sao nhỏ khác chưa được an lên lá số.'],
-  [/tiểu hạn/i, 'Tiểu hạn chưa được hỗ trợ. Lưu niên và lưu Tứ Hóa xem ở mục Đại Vận & lưu niên.'],
-  [/Tuần\/Triệt/, 'Các biến thể Tuần/Triệt giữa các trường phái chưa được so sánh.'],
-  [/late-T/i, 'Trường hợp sinh giờ Tý muộn (23h) theo quy ước “cùng ngày” chưa xử lý ở mép ngày âm lịch.'],
-];
-const scopeText = u => (SCOPE.find(([re]) => re.test(u)) || [0, u])[1];
 
 export function renderTuvi(host, t, ctx) {
   const by = Object.fromEntries(t.palaces.map(p => [p.branch_index, p]));
@@ -22,11 +13,12 @@ export function renderTuvi(host, t, ctx) {
   const byName = Object.fromEntries(t.palaces.map(p => [p.name, p]));
   const dh = Object.fromEntries(t.dai_han.map(d => [d.branch, d]));
   const th = {}; Object.entries(t.tu_hoa).forEach(([k, v]) => { th[v.star] = k; });
+  const unv = new Set(t.stars.filter(x => /chưa đối chiếu/.test(x.group)).map(x => x.name));
   const than = t.palaces.find(p => p.is_than), menh = t.palaces.find(p => p.name === 'Mệnh');
   const findings = (ctx.reason?.systems?.tu_vi?.findings || []);
   const fOf = name => findings.filter(f => palaceOfSubject(f.subject) === name);
   const DG = { 'miếu': 'Miếu', 'vượng': 'Vượng', 'đắc': 'Đắc', 'bình': 'Bình', 'hãm': 'Hãm' };
-  const starHtml = (s, major, dg) => { const k = starKind(s), h = th[s]; return `<span class="st st-${k}${major ? ' major' : ''}">${esc(s)}${dg ? `<sup class="dg dg-${dg}" title="Độ sáng: ${esc(dg)}">${DG[dg] || esc(dg)}</sup>` : ''}${h ? `<sup class="th th-${h === 'Hóa Kỵ' ? 'ky' : 'ok'}" title="${esc(h)}">${TU_HOA_SHORT[h]}</sup>` : ''}</span>`; };
+  const starHtml = (s, major, dg) => { const k = starKind(s), h = th[s]; return `<span class="st st-${k}${major ? ' major' : ''}${unv.has(s) ? ' unv' : ''}"${unv.has(s) ? ' title="Sao an theo công thức phổ biến, chưa đối chiếu sách"' : ''}>${esc(s)}${dg ? `<sup class="dg dg-${dg}" title="Độ sáng: ${esc(dg)}">${DG[dg] || esc(dg)}</sup>` : ''}${h ? `<sup class="th th-${h === 'Hóa Kỵ' ? 'ky' : 'ok'}" title="${esc(h)}">${TU_HOA_SHORT[h]}</sup>` : ''}</span>`; };
 
   const cell = i => {
     const p = by[i], minors = p.stars.filter(s => !p.major_stars.includes(s));
@@ -52,12 +44,13 @@ export function renderTuvi(host, t, ctx) {
           <div><dt>Thân cư</dt><dd>${esc(than.name)}</dd></div>
           <div><dt>Cục</dt><dd>${esc(t.cuc.name)}</dd></div>
           <div><dt>Bản mệnh</dt><dd>${esc(t.menh_nap_am)}</dd></div>
+          ${t.extras?.menh_chu ? `<div><dt>Mệnh chủ</dt><dd>${esc(t.extras.menh_chu.star)}</dd></div><div><dt>Thân chủ</dt><dd>${esc(t.extras.than_chu.star)}</dd></div>` : ''}
         </dl>
         <p class="ident-sum">${esc(t.menh_cuc_relation)} · đại hạn ${esc(t.dai_han_direction)}${menh.major_stars.length ? ` · Mệnh có ${esc(menh.major_stars.join(', '))}` : ' · Mệnh vô chính diệu'}</p>
         <button type="button" class="link" data-scope>Phạm vi tính toán</button>
       </div></div>`;
 
-  host.innerHTML = `
+  host.innerHTML = scopePanelTuvi(t) + `
     <div class="tv-layout">
       <div class="tv-main">
         <div class="seg tv-toggle" role="group" aria-label="Chế độ xem lá số"><button type="button" data-v="ov" aria-pressed="true">Tổng quan</button><button type="button" data-v="full" aria-pressed="false">Toàn lá số</button></div>
