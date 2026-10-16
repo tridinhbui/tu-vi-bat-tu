@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 
 from . import bazi, cross, temporal, tuvi
 from .calendar_core import BirthInput, normalize
+from .ganzhi import BRANCHES_VI
 from .knowledge.loader import load_all, load_claims
 from .knowledge.schema import validate_pack
 from .nlg import generate as nlg, lexicon as lx
@@ -114,6 +115,42 @@ def reasoning(req: BirthReq):
             "text": nlg.render(nlg.realize(interps, req.level)),
         }
     return out
+
+
+class LunarReq(BaseModel):
+    year: int = Field(ge=1900, le=2049); month: int = Field(ge=1, le=12); day: int = Field(ge=1, le=30)
+    leap: bool = False; calendar: str = Field("vn", pattern="^(vn|cn)$")
+
+
+@app.post("/api/lunar-to-solar")
+def lunar_to_solar_endpoint(req: LunarReq):
+    """Convert a lunar birthday to the solar date the chart engine expects (exact matches only)."""
+    from .lunar_input import lunar_to_solar
+    try:
+        hits = lunar_to_solar(req.day, req.month, req.year, req.leap, req.calendar)
+    except ValueError as e:
+        raise HTTPException(422, str(e))
+    if not hits:
+        raise HTTPException(422, "Không có ngày dương lịch nào khớp với ngày âm lịch này (có thể tháng không có ngày 30 hoặc không phải tháng nhuận).")
+    s = hits[0]
+    return {"solar": {"year": s.year, "month": s.month, "day": s.day}, "matches": len(hits)}
+
+
+@app.post("/api/hour-sweep")
+def hour_sweep(req: BirthReq):
+    """For an unknown birth hour: what each of the 12 hour branches would give, so the UI can show what does not depend on it."""
+    out = []
+    for i, name in enumerate(BRANCHES_VI):
+        h = 0 if i == 0 else 2 * i
+        r = BirthReq(**{**req.model_dump(), "hour": h, "minute": 0})
+        nb, bz, tv = _compute(r)
+        menh = next(p for p in tv.palaces if p["name"] == "Mệnh")
+        out.append({"hour_branch": name, "range": ("23:00–00:59" if i == 0 else f"{2 * i - 1:02d}:00–{2 * i:02d}:59"),
+                    "pillars": {k: p.name for k, p in bz.pillars.items()}, "luck_direction": bz.luck_direction,
+                    "luck_start": bz.luck_start, "menh_branch": BRANCHES_VI[tv.menh_branch], "than_branch": BRANCHES_VI[tv.than_branch],
+                    "menh_stem": menh["stem"], "cuc": tv.cuc["name"], "menh_major_stars": menh["major_stars"],
+                    "than_palace": next(p["name"] for p in tv.palaces if p["is_than"])})
+    return {"hours": out}
 
 
 @app.post("/api/compare-hours")

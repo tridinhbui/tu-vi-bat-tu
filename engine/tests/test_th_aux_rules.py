@@ -47,3 +47,15 @@ def test_hoa_loc_tu_mo_exception_tham_vu():
 def test_dao_hong_only_in_own_palace_and_mismatch():
     assert ("quan_dao_hong_giau_sang", "support") in claims(pal("Quan Lộc", own=["Đào Hoa"]))
     assert ("quan_dao_hong_giau_sang", "support") not in claims(pal("Mệnh", own=["Đào Hoa"]))
+
+
+def test_aux2_pack_branch_conditions_and_skips_harm():
+    assert sum(r.id.startswith("TV_TH_AUX2_") for r in RULES) == 55
+    c = claims(pal(branch="Thìn", own=["Kình Dương"]))
+    assert ("kinh_dac_dia_cuong_cuong_dung_manh", "support") in c and ("kinh_cung_khac_hung_bao_lieu_linh", "support") not in c
+    c = claims(pal(branch="Dần", own=["Kình Dương"]))
+    assert ("kinh_cung_khac_hung_bao_lieu_linh", "support") in c
+    assert ("hao_mao_dau_thong_minh_ham_choi_hoc_say", "support") in claims(pal(branch="Mão", own=["Đại Hao"]))
+    assert ("khong_kiep_ham_quy_quyet_ich_ky", "support") in claims(pal(branch="Tý", own=["Địa Kiếp"]))
+    assert ("khong_kiep_ham_quy_quyet_ich_ky", "support") not in claims(pal(branch="Dần", own=["Địa Kiếp"]))
+    assert all("tu_vong" not in r.consequences[0].claim for r in RULES)
