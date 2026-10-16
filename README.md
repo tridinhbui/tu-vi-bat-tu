@@ -22,4 +22,4 @@ cd engine && ../.venv/bin/python -m pytest -q
   needs checking against a cited edition. The VN lunar calendar (UTC+7) is not yet compared with an official almanac.
 - Not supported yet: miếu/hãm brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, lưu niên,
   lunar-date input, uncertain-birth-hour comparison, true solar time uses NOAA EOT (not JPL).
-- Phase 2 foundation (rule DSL, validator, draft pack) and Phase 3 engine (facts, forward chaining, provenance graph, conflict resolver) are in; all rules remain draft. Next: NLG (Phase 4).
+- Phase 2 foundation (rule DSL, validator, draft pack) and Phase 3 engine (facts, forward chaining, provenance graph, conflict resolver) are in; all rules remain draft. Phase 4 NLG (deterministic, 5 depth levels, per-sentence provenance) is in. Next: Phase 5 temporal + cross-system.
