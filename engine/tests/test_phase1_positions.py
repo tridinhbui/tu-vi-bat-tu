@@ -33,11 +33,9 @@ def test_roles_are_distinct_unlike_the_legacy_merged_fact():
 
 
 def test_nhi_hop_pairs_branches_summing_to_one_mod_12():
-    for menh in ("Tý", "Dần", "Ngọ", "Hợi"):
-        f = base_facts([], menh)[M]
-        b = f["palace.index"]
-        assert f["palace.rel_names"]["nhi_hop"] != "Mệnh" or b in (1, 7)     # b=1 or 7 pairs with itself ((1-b) % 12 == b? no: only b=7 -> 6)
     assert positions.branch_of("nhi_hop", 0) == 1 and positions.branch_of("nhi_hop", 5) == 8 and positions.branch_of("nhi_hop", 1) == 0
+    f = base_facts([("star", "Thái Âm", "Phụ Mẫu")])[M]                      # Mệnh Tý -> nhị hợp is Sửu, which is Phụ Mẫu (flank_next)
+    assert f["palace.rel_names"]["nhi_hop"] == "Phụ Mẫu" and f["palace.rel.nhi_hop_majors"] == ["Thái Âm"]
 
 
 def test_hoa_and_tuan_triet_by_role():

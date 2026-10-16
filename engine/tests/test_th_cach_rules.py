@@ -9,7 +9,7 @@ RULES, SOURCES = load_all()
 
 def pal(name="Mệnh", branch="Dần", own=(), opp=(), flank=(), tp=(), tphoa=(), hoa=(), dg=None, chart=None, **kw):
     p = {"palace.name": name, "palace.branch": branch, "palace.own_stars": list(own), "palace.own_major_stars": [s for s in own if s in (
-         "Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng", "Thái Dương", "Thái Âm", "Cự Môn", "Thiên Cơ", "Tham Lang", "Thất Sát", "Phá Quân", "Liêm Trinh")],
+         "Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng", "Thiên Lương", "Thiên Đồng", "Thái Dương", "Thái Âm", "Cự Môn", "Thiên Cơ", "Tham Lang", "Thất Sát", "Phá Quân", "Liêm Trinh")],
          "palace.rel.opp_stars": list(opp), "palace.rel.opp_majors": list(opp), "palace.rel.flank_stars": list(flank),
          "palace.rel.tp_stars": list(own) + list(opp) + list(tp), "palace.rel.tp_majors": list(own) + list(opp) + list(tp),
          "palace.rel.tp_hoa": list(tphoa), "palace.tu_hoa": list(hoa), "palace.tuan": False, "palace.triet": False, "palace.has_no_major": not own,
@@ -73,3 +73,18 @@ def test_menh_verse_pack_conditions():
     assert ("tu_mo_hoa_linh_tham_vu_uy_quyen", "support") not in c          # 'chớ ngộ Kình Dương' exception
     c = fired(pal(branch="Ngọ", own=["Tử Vi"]), {"chart.year_stem": "Đinh"})
     assert ("tu_vi_ngo_dinh_ky_tam_cong", "support") in c and ("tu_vi_ngo_at_giap_kha_mong", "support") not in c
+
+
+def test_star_menh_pack_gender_and_dignity():
+    assert sum(r.id.startswith("TV_TH_STAR_") for r in RULES) == 53
+    male, female = {"chart.gender": "nam"}, {"chart.gender": "nữ"}
+    p = pal(own=["Tham Lang"], dg={"Tham Lang": "miếu"})
+    assert ("nam_tham_hao_thang_kinh_doanh", "support") in fired(p, male) and ("nam_tham_hao_thang_kinh_doanh", "support") not in fired(p, female)
+    assert ("nu_tham_dam_dang_bao_ton_ghen", "support") in fired(p, female)
+    ham = pal(own=["Thiên Lương"], dg={"Thiên Lương": "hãm"})
+    assert ("nam_luong_ham_doi_viec_chi_huong", "limit") in fired(ham, male) and ("nam_luong_thong_minh", "support") not in fired(ham, male)
+    # cát tinh condition: Vũ Khúc sáng with no cát tinh in tam phương does not get the 'hiển đạt võ nghiệp' reading
+    v = pal(own=["Vũ Khúc"], dg={"Vũ Khúc": "miếu"})
+    assert ("nam_vu_hien_dat_vo_nghiep", "support") not in fired(v, male)
+    v["palace.khi.cat_tp"] = 1
+    assert ("nam_vu_hien_dat_vo_nghiep", "support") in fired(v, male)

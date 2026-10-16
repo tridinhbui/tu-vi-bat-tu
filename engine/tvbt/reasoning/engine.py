@@ -84,9 +84,16 @@ def _leaf_facts(expr) -> list[str]:
     return [f for _, f in dsl.leaves(expr)]
 
 
-def _targets(expr, facts: dict, subj: str) -> list[tuple[str, str]]:
-    """(subject, fact) pairs a condition reads; a `ref` leaf points at another palace's subject."""
-    return [(subj if pal is None else f"palace:{pal}", f) for pal, f in dsl.leaves(expr, facts)]
+def _targets(expr, facts: dict, subj: str, derived: dict | None = None) -> list[tuple[str, str]]:
+    """(subject, fact) pairs a condition reads; a `ref` leaf points at another palace's subject. A DERIVED fact that a palace rule reads
+    but that was asserted at chart scope is attributed to "chart", so its provenance edge reaches the rule that asserted it."""
+    out = []
+    for pal, f in dsl.leaves(expr, facts):
+        tsub = subj if pal is None else f"palace:{pal}"
+        if derived is not None and f.startswith("derived.") and f not in derived.get(tsub, {}) and f in derived.get("chart", {}):
+            tsub = "chart"
+        out.append((tsub, f))
+    return out
 
 
 def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict],
@@ -136,7 +143,7 @@ def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict]
                     continue
                 rid = f"rule:{r.id}@{subj}"
                 nodes[rid] = Node(rid, "rule", f"{r.id} [{r.reviewStatus}] @{subj}", {"description": r.description})
-                for tsub, f in _targets(r.conditions, facts, subj):
+                for tsub, f in _targets(r.conditions, facts, subj, derived):
                     fid = _fact_node(nodes, tsub, f, facts_of(tsub).get(f) if tsub in base else None)
                     edges.append(Edge(rid, fid, "derived_from"))
                 for sid in r.sourceIds:
@@ -148,10 +155,10 @@ def run(rules: list[KnowledgeRule], sources: list[Source], base: dict[str, dict]
                     blocked.append({"rule": r.id, "subject": subj, "exception": exc[0]})
                     bid = f"blocked:{r.id}@{subj}"
                     nodes[bid] = Node(bid, "blocked", f"{r.id} suppressed by exception @{subj}")
-                    for tsub, f in _targets(exc[0], facts, subj):
+                    for tsub, f in _targets(exc[0], facts, subj, derived):
                         edges.append(Edge(_fact_node(nodes, tsub, f, facts_of(tsub).get(f) if tsub in base else None), rid, "suppresses"))
                     continue
-                rdepth = 1 + max([fdepth.get((tsub, f), fdepth.get(("chart", f), 0)) for tsub, f in _targets(r.conditions, facts, subj)] + [0])
+                rdepth = 1 + max([fdepth.get((tsub, f), fdepth.get(("chart", f), 0)) for tsub, f in _targets(r.conditions, facts, subj, derived)] + [0])
                 fired.append((r.id, subj, rdepth))
                 progressed = True
                 basis = "verified" if r.reviewStatus == "verified" and all(

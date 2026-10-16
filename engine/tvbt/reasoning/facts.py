@@ -23,7 +23,8 @@ YANG_BRANCHES = {"Tý", "Dần", "Thìn", "Ngọ", "Thân", "Tuất"}
 
 def _th_season_facts(c: TuViChart) -> dict:
     mb = BRANCHES_VI[c.menh_branch]
-    out = {"chart.menh_element": c.menh_element, "chart.menh_stage_th": STAGE_TH.get(c.menh_element, {}).get(mb, "khac")}
+    yp, gd = c.yin_yang_gender.split()
+    out = {"chart.gender": gd, "chart.year_polarity": yp, "chart.menh_element": c.menh_element, "chart.menh_stage_th": STAGE_TH.get(c.menh_element, {}).get(mb, "khac")}
     season = SEASON_OF.get(c.effective_lunar_month)
     hb = c.extras.get("hour_branch")
     if season:

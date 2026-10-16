@@ -1,0 +1,642 @@
+{
+ "EX1": {
+  "pillars": "Giáp Tý / Bính Dần / Giáp Tuất / Canh Ngọ",
+  "dac_lenh_old_boolean": true,
+  "stage_vs_month": "Lâm Quan",
+  "root_pillars_old": [
+   "trụ month"
+  ],
+  "visible_helpers_old": [
+   "Giáp (Tỉ Kiên)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Giáp",
+   "bazi.day_nap_am": "Sơn Đầu Hỏa",
+   "bazi.missing_elements": [],
+   "bazi.dm_element": "Mộc",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "month"
+   ],
+   "bazi.month_branch": "Dần",
+   "bazi.dm_stage_in_month": "Lâm Quan"
+  },
+  "relations_old": {
+   "stem_clash": [
+    "year-hour",
+    "day-hour"
+   ],
+   "branch_clash": [
+    "year-hour"
+   ],
+   "branch_triad_complete": [
+    "Hỏa"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX2": {
+  "pillars": "Quý Dậu / Ất Mão / Mậu Tý / Đinh Tỵ",
+  "dac_lenh_old_boolean": false,
+  "stage_vs_month": "Mộc Dục",
+  "root_pillars_old": [
+   "trụ hour"
+  ],
+  "visible_helpers_old": [
+   "Đinh (Chính Ấn)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Mậu",
+   "bazi.day_nap_am": "Tích Lịch Hỏa",
+   "bazi.missing_elements": [],
+   "bazi.dm_element": "Thổ",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "hour"
+   ],
+   "bazi.month_branch": "Mão",
+   "bazi.dm_stage_in_month": "Mộc Dục"
+  },
+  "relations_old": {
+   "stem_combine": [
+    "year-day"
+   ],
+   "stem_clash": [
+    "year-hour"
+   ],
+   "branch_clash": [
+    "year-month"
+   ],
+   "branch_destroy": [
+    "year-day"
+   ],
+   "branch_penalty": [
+    "month-day"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX3": {
+  "pillars": "Tân Mão / Đinh Dậu / Giáp Thìn / Giáp Tý",
+  "dac_lenh_old_boolean": false,
+  "stage_vs_month": "Thai",
+  "root_pillars_old": [
+   "trụ year",
+   "trụ day"
+  ],
+  "visible_helpers_old": [
+   "Giáp (Tỉ Kiên)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Giáp",
+   "bazi.day_nap_am": "Phú Đăng Hỏa",
+   "bazi.missing_elements": [],
+   "bazi.dm_element": "Mộc",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "day",
+    "year"
+   ],
+   "bazi.month_branch": "Dậu",
+   "bazi.dm_stage_in_month": "Thai"
+  },
+  "relations_old": {
+   "branch_six_combine": [
+    "month-day"
+   ],
+   "branch_clash": [
+    "year-month"
+   ],
+   "branch_harm": [
+    "year-day"
+   ],
+   "branch_destroy": [
+    "month-hour"
+   ],
+   "branch_penalty": [
+    "year-hour"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX4": {
+  "pillars": "Canh Thân / Ất Dậu / Ất Dậu / Tân Tỵ",
+  "dac_lenh_old_boolean": false,
+  "stage_vs_month": "Tuyệt",
+  "root_pillars_old": [],
+  "visible_helpers_old": [
+   "Ất (Tỉ Kiên)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Ất",
+   "bazi.day_nap_am": "Tuyền Trung Thủy",
+   "bazi.missing_elements": [
+    "Thổ",
+    "Thủy"
+   ],
+   "bazi.dm_element": "Mộc",
+   "bazi.dm_has_root": false,
+   "bazi.dm_root_pillars": [],
+   "bazi.month_branch": "Dậu",
+   "bazi.dm_stage_in_month": "Tuyệt"
+  },
+  "relations_old": {
+   "stem_combine": [
+    "year-month",
+    "year-day"
+   ],
+   "stem_clash": [
+    "month-hour",
+    "day-hour"
+   ],
+   "branch_six_combine": [
+    "year-hour"
+   ],
+   "branch_destroy": [
+    "year-hour"
+   ],
+   "branch_self_penalty": [
+    "month-day"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX5": {
+  "pillars": "Mậu Tuất / Kỷ Mùi / Giáp Tuất / Mậu Thìn",
+  "dac_lenh_old_boolean": false,
+  "stage_vs_month": "Mộ",
+  "root_pillars_old": [
+   "trụ month",
+   "trụ hour"
+  ],
+  "visible_helpers_old": [],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Giáp",
+   "bazi.day_nap_am": "Sơn Đầu Hỏa",
+   "bazi.missing_elements": [
+    "Hỏa",
+    "Kim",
+    "Thủy"
+   ],
+   "bazi.dm_element": "Mộc",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "hour",
+    "month"
+   ],
+   "bazi.month_branch": "Mùi",
+   "bazi.dm_stage_in_month": "Mộ"
+  },
+  "relations_old": {
+   "stem_combine": [
+    "month-day"
+   ],
+   "branch_clash": [
+    "year-hour",
+    "day-hour"
+   ],
+   "branch_destroy": [
+    "year-month",
+    "month-day"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX6": {
+  "pillars": "Nhâm Tý / Mậu Thân / Canh Thìn / Nhâm Ngọ",
+  "dac_lenh_old_boolean": true,
+  "stage_vs_month": "Lâm Quan",
+  "root_pillars_old": [
+   "trụ month"
+  ],
+  "visible_helpers_old": [
+   "Mậu (Thiên Ấn)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Canh",
+   "bazi.day_nap_am": "Bạch Lạp Kim",
+   "bazi.missing_elements": [
+    "Mộc"
+   ],
+   "bazi.dm_element": "Kim",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "month"
+   ],
+   "bazi.month_branch": "Thân",
+   "bazi.dm_stage_in_month": "Lâm Quan"
+  },
+  "relations_old": {
+   "branch_clash": [
+    "year-hour"
+   ],
+   "branch_triad_complete": [
+    "Thủy"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX7": {
+  "pillars": "Canh Tý / Nhâm Ngọ / Đinh Dậu / Quý Mão",
+  "dac_lenh_old_boolean": true,
+  "stage_vs_month": "Lâm Quan",
+  "root_pillars_old": [
+   "trụ month"
+  ],
+  "visible_helpers_old": [],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Đinh",
+   "bazi.day_nap_am": "Sơn Hạ Hỏa",
+   "bazi.missing_elements": [
+    "Thổ"
+   ],
+   "bazi.dm_element": "Hỏa",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "month"
+   ],
+   "bazi.month_branch": "Ngọ",
+   "bazi.dm_stage_in_month": "Lâm Quan"
+  },
+  "relations_old": {
+   "stem_combine": [
+    "month-day"
+   ],
+   "stem_clash": [
+    "day-hour"
+   ],
+   "branch_clash": [
+    "year-month",
+    "day-hour"
+   ],
+   "branch_destroy": [
+    "year-day",
+    "month-hour"
+   ],
+   "branch_penalty": [
+    "year-hour"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX8": {
+  "pillars": "Giáp Thân / Bính Tý / Bính Dần / Giáp Ngọ",
+  "dac_lenh_old_boolean": false,
+  "stage_vs_month": "Thai",
+  "root_pillars_old": [
+   "trụ day",
+   "trụ hour"
+  ],
+  "visible_helpers_old": [
+   "Giáp (Thiên Ấn)",
+   "Bính (Tỉ Kiên)",
+   "Giáp (Thiên Ấn)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Bính",
+   "bazi.day_nap_am": "Lư Trung Hỏa",
+   "bazi.missing_elements": [
+    "Thổ"
+   ],
+   "bazi.dm_element": "Hỏa",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "day",
+    "hour"
+   ],
+   "bazi.month_branch": "Tý",
+   "bazi.dm_stage_in_month": "Thai"
+  },
+  "relations_old": {
+   "branch_clash": [
+    "year-day",
+    "month-hour"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX9": {
+  "pillars": "Nhâm Dần / Bính Ngọ / Bính Tuất / Mậu Tý",
+  "dac_lenh_old_boolean": true,
+  "stage_vs_month": "Đế Vượng",
+  "root_pillars_old": [
+   "trụ year",
+   "trụ month",
+   "trụ day"
+  ],
+  "visible_helpers_old": [
+   "Bính (Tỉ Kiên)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Bính",
+   "bazi.day_nap_am": "Ốc Thượng Thổ",
+   "bazi.missing_elements": [
+    "Kim"
+   ],
+   "bazi.dm_element": "Hỏa",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "day",
+    "month",
+    "year"
+   ],
+   "bazi.month_branch": "Ngọ",
+   "bazi.dm_stage_in_month": "Đế Vượng"
+  },
+  "relations_old": {
+   "stem_clash": [
+    "year-month",
+    "year-day"
+   ],
+   "branch_clash": [
+    "month-hour"
+   ],
+   "branch_triad_complete": [
+    "Hỏa"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX10": {
+  "pillars": "Canh Thân / Mậu Dần / Giáp Thân / Canh Ngọ",
+  "dac_lenh_old_boolean": true,
+  "stage_vs_month": "Lâm Quan",
+  "root_pillars_old": [
+   "trụ month"
+  ],
+  "visible_helpers_old": [],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Giáp",
+   "bazi.day_nap_am": "Tuyền Trung Thủy",
+   "bazi.missing_elements": [
+    "Thủy"
+   ],
+   "bazi.dm_element": "Mộc",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "month"
+   ],
+   "bazi.month_branch": "Dần",
+   "bazi.dm_stage_in_month": "Lâm Quan"
+  },
+  "relations_old": {
+   "stem_clash": [
+    "year-day",
+    "day-hour"
+   ],
+   "branch_clash": [
+    "year-month",
+    "month-day"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX11": {
+  "pillars": "Tân Sửu / Nhâm Thìn / Ất Mão / Đinh Hợi",
+  "dac_lenh_old_boolean": false,
+  "stage_vs_month": "Quan Đới",
+  "root_pillars_old": [
+   "trụ month",
+   "trụ day",
+   "trụ hour"
+  ],
+  "visible_helpers_old": [
+   "Nhâm (Chính Ấn)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Ất",
+   "bazi.day_nap_am": "Đại Khê Thủy",
+   "bazi.missing_elements": [],
+   "bazi.dm_element": "Mộc",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "day",
+    "hour",
+    "month"
+   ],
+   "bazi.month_branch": "Thìn",
+   "bazi.dm_stage_in_month": "Quan Đới"
+  },
+  "relations_old": {
+   "stem_combine": [
+    "month-hour"
+   ],
+   "stem_clash": [
+    "year-day"
+   ],
+   "branch_harm": [
+    "month-day"
+   ],
+   "branch_destroy": [
+    "year-month"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX12": {
+  "pillars": "Quý Hợi / Kỷ Mùi / Canh Tý / Kỷ Mão",
+  "dac_lenh_old_boolean": true,
+  "stage_vs_month": "Quan Đới",
+  "root_pillars_old": [],
+  "visible_helpers_old": [
+   "Kỷ (Chính Ấn)",
+   "Kỷ (Chính Ấn)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Canh",
+   "bazi.day_nap_am": "Bích Thượng Thổ",
+   "bazi.missing_elements": [
+    "Hỏa"
+   ],
+   "bazi.dm_element": "Kim",
+   "bazi.dm_has_root": false,
+   "bazi.dm_root_pillars": [],
+   "bazi.month_branch": "Mùi",
+   "bazi.dm_stage_in_month": "Quan Đới"
+  },
+  "relations_old": {
+   "branch_harm": [
+    "month-day"
+   ],
+   "branch_triad_complete": [
+    "Mộc"
+   ],
+   "branch_penalty": [
+    "day-hour"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX13": {
+  "pillars": "Giáp Thìn / Đinh Mão / Bính Dần / Quý Tỵ",
+  "dac_lenh_old_boolean": true,
+  "stage_vs_month": "Mộc Dục",
+  "root_pillars_old": [
+   "trụ day",
+   "trụ hour"
+  ],
+  "visible_helpers_old": [
+   "Giáp (Thiên Ấn)",
+   "Đinh (Kiếp Tài)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Bính",
+   "bazi.day_nap_am": "Lư Trung Hỏa",
+   "bazi.missing_elements": [
+    "Kim"
+   ],
+   "bazi.dm_element": "Hỏa",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "day",
+    "hour"
+   ],
+   "bazi.month_branch": "Mão",
+   "bazi.dm_stage_in_month": "Mộc Dục"
+  },
+  "relations_old": {
+   "stem_clash": [
+    "month-hour"
+   ],
+   "branch_harm": [
+    "year-month",
+    "day-hour"
+   ],
+   "branch_meeting_complete": [
+    "Mộc"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX14": {
+  "pillars": "Giáp Tý / Bính Dần / Kỷ Sửu / Canh Ngọ",
+  "dac_lenh_old_boolean": false,
+  "stage_vs_month": "Tử",
+  "root_pillars_old": [
+   "trụ month",
+   "trụ day",
+   "trụ hour"
+  ],
+  "visible_helpers_old": [
+   "Bính (Chính Ấn)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Kỷ",
+   "bazi.day_nap_am": "Tích Lịch Hỏa",
+   "bazi.missing_elements": [],
+   "bazi.dm_element": "Thổ",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "day",
+    "hour",
+    "month"
+   ],
+   "bazi.month_branch": "Dần",
+   "bazi.dm_stage_in_month": "Tử"
+  },
+  "relations_old": {
+   "stem_combine": [
+    "year-day"
+   ],
+   "stem_clash": [
+    "year-hour"
+   ],
+   "branch_six_combine": [
+    "year-day"
+   ],
+   "branch_clash": [
+    "year-hour"
+   ],
+   "branch_harm": [
+    "day-hour"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ },
+ "EX15": {
+  "pillars": "Nhâm Dần / Quý Mão / Ất Mão / Bính Tý",
+  "dac_lenh_old_boolean": true,
+  "stage_vs_month": "Lâm Quan",
+  "root_pillars_old": [
+   "trụ year",
+   "trụ month",
+   "trụ day"
+  ],
+  "visible_helpers_old": [
+   "Nhâm (Chính Ấn)",
+   "Quý (Thiên Ấn)"
+  ],
+  "facts_old": {
+   "chart.system": "bat_tu",
+   "bazi.day_master_stem": "Ất",
+   "bazi.day_nap_am": "Đại Khê Thủy",
+   "bazi.missing_elements": [
+    "Thổ",
+    "Kim"
+   ],
+   "bazi.dm_element": "Mộc",
+   "bazi.dm_has_root": true,
+   "bazi.dm_root_pillars": [
+    "day",
+    "month",
+    "year"
+   ],
+   "bazi.month_branch": "Mão",
+   "bazi.dm_stage_in_month": "Lâm Quan"
+  },
+  "relations_old": {
+   "stem_clash": [
+    "year-hour"
+   ],
+   "branch_penalty": [
+    "month-hour",
+    "day-hour"
+   ]
+  },
+  "geju": null,
+  "dm_level": null,
+  "yongshen": null
+ }
+}
