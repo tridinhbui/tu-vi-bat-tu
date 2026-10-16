@@ -224,8 +224,8 @@ def compute(nb: NormalizedBirth, n_luck: int = 10) -> BaziChart:
                     "branch_combine_clash_harm_destroy_penalty": ["verified", "SRC_BAZI_ZHENZONG PDF pp.19-20"],
                     "luck_start_3days_1year": ["verified", "SRC_BAZI_ZHENZONG PDF p.23 (direction by yin-yang year & sex; 1 day = 4 months, 1 shichen = 10 days)"],
                     "month_by_jie": ["verified", "SRC_BAZI_ZHENZONG PDF p.23 (12 jie table)"],
-                    "hidden_stems": ["unverified", "no explicit table located in the received books yet"],
-                    "ten_gods": ["unverified", "definition is standard; book table (pp.17-18) not cross-checked cell by cell"],
+                    "hidden_stems": ["verified", "SRC_BAZI_ZHENZONG PDF pp.7-16 (per-day-stem tables; sets match, book order differs)"],
+                    "ten_gods": ["verified", "SRC_BAZI_ZHENZONG PDF p.17 (100 stem cells + 6 branch rows golden-tested)"],
                     "zi_hour_rule": ["convention", "configurable; not settled by the sources"],
                 }},
     )

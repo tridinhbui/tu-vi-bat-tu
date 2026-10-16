@@ -56,3 +56,25 @@ def test_cross_system_keeps_separate_and_caveat():
     out = cross.compare_systems([mk("career", "TV1"), mk("x", "TV2")], [mk("career", "BT1")])
     assert [t["claim"] for t in out["shared_topics"]] == ["career"] and out["tuvi_only"] == ["x"]
     assert "tương đương" in out["caveat"] and "probab" not in str(out)
+
+
+def test_tieu_han_rule_p27():
+    # Thực Hành p.27: Dần/Ngọ/Tuất births start at Thìn; males go thuận, females nghịch. 1998 = Mậu Dần.
+    nb = normalize(BirthInput(1998, 6, 15, 12, 0, "Asia/Ho_Chi_Minh", "male"))
+    tv = tuvi.compute(nb)
+    assert tv.lunar["year"] == 1998
+    assert temporal.tuvi_year(tv, 1998)["tieu_han_branch"] == "Thìn"      # age 1
+    assert temporal.tuvi_year(tv, 1999)["tieu_han_branch"] == "Tỵ"        # age 2, thuận
+    nf = tuvi.compute(normalize(BirthInput(1998, 6, 15, 12, 0, "Asia/Ho_Chi_Minh", "female")))
+    assert temporal.tuvi_year(nf, 1999)["tieu_han_branch"] == "Mão"       # age 2, nghịch
+    t1 = tuvi.compute(normalize(BirthInput(1996, 6, 15, 12, 0, "Asia/Ho_Chi_Minh", "male")))   # Bính Tý -> Tuất
+    assert temporal.tuvi_year(t1, 1996)["tieu_han_branch"] == "Tuất"
+
+
+def test_leap_month_default_follows_khao_luan_p41():
+    nb = normalize(BirthInput(2020, 6, 1, 12, 0, "Asia/Ho_Chi_Minh", "male"))     # leap 4th month, day 10
+    assert (nb.lunar.month, nb.lunar.is_leap, nb.lunar.day) == (4, True, 10)
+    assert tuvi.compute(nb).effective_lunar_month == 4                            # same month number, whatever the day
+    late = normalize(BirthInput(2020, 6, 20, 12, 0, "Asia/Ho_Chi_Minh", "male"))  # leap 4th month, day 29
+    assert late.lunar.is_leap and tuvi.compute(late).effective_lunar_month == 4
+    assert tuvi.compute(late, leap_rule="split_15").effective_lunar_month == 5    # variant still available

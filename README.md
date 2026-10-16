@@ -22,7 +22,9 @@ cd engine && ../.venv/bin/python -m pytest -q
   Checking found and fixed 4 real bugs (Khôi Việt for Canh, Linh Tinh direction, Đào Hoa mapping, Tứ Hóa Canh).
 - **Disputed between sources**: Tứ Hóa Tân-Lộc (Thực Hành: Cự Môn; Khảo Luận: Thiên Cơ → Cự Môn used) and Nhâm-Khoa
   (Thực Hành prints "Phủ", Khảo Luận says Tả Phụ → Tả Phụ used). The Thực Hành printed Hồng Loan example and Thiên Mã "cước" contradict its own rules (rules used).
-- **Still unverified**: Bát Tự hidden stems and ten-god table (not cell-checked), đại hạn details, leap-month rule (convention), VN lunar calendar (UTC+7)
+- Since then verified: Bát Tự hidden stems + ten-god tables (8字真宗 pp.7-17), đại hạn and tiểu hạn rules (Thực Hành p.27), leap-month default = same month
+  number (Khảo Luận p.41; other conventions selectable).
+- **Still unverified**: VN lunar calendar (UTC+7)
   vs an official almanac, all interpretation rules (the rule pack is draft; no book *interpretation* has been encoded yet).
 - **Interpretation rules encoded so far** (`engine/data/pack_khao_luan.json`, all paraphrased with page cites, source Tử Vi Khảo Luận pp.50-51, 166-167):
   star-group classification (verified, structural) and 6 hedged Mệnh-palace readings (4 verified, 2 draft because they need our own operationalisation of

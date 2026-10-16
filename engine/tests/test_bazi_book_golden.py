@@ -55,3 +55,38 @@ def test_five_tigers_and_rats_p20_p35():
     row = "庚子辛丑壬寅癸卯甲辰乙巳丙午丁未戊申己酉庚戌辛亥"
     for i in range(12):
         assert (ST["丁"] % 5 * 2 + i) % 10 == ST[row[2 * i]] and BR[row[2 * i + 1]] == i
+
+
+TEN = ["Tỉ Kiên", "Kiếp Tài", "Thực Thần", "Thương Quan", "Thiên Tài", "Chính Tài", "Thất Sát", "Chính Quan", "Thiên Ấn", "Chính Ấn"]
+# 天干十神表, PDF p.17: row = day stem, columns = 比肩 劫财 食神 伤官 偏财 正财 七杀 正官 偏印 正印
+STEM_TABLE = {"甲": "甲乙丙丁戊己庚辛壬癸", "乙": "乙甲丁丙己戊辛庚癸壬", "丙": "丙丁戊己庚辛壬癸甲乙", "丁": "丁丙己戊辛庚癸壬乙甲",
+              "戊": "戊己庚辛壬癸甲乙丙丁", "己": "己戊辛庚癸壬乙甲丁丙", "庚": "庚辛壬癸甲乙丙丁戊己", "辛": "辛庚癸壬乙甲丁丙己戊",
+              "壬": "壬癸甲乙丙丁戊己庚辛", "癸": "癸壬乙甲丁丙己戊辛庚"}
+
+
+def test_ten_gods_stem_table_p17():
+    for day, row in STEM_TABLE.items():
+        for i, other in enumerate(row):
+            assert bazi.ten_god(ST[day], ST[other]) == TEN[i], (day, other)
+
+
+# 地支十神表 p.17 (rows 甲-己 legible): ten-god class of each branch's main (本气) hidden stem
+BRANCH_TABLE = {"甲": ["寅", "卯", "巳", "午", "辰戌", "丑未", "申", "酉", "亥", "子"], "乙": ["卯", "寅", "午", "巳", "丑未", "辰戌", "酉", "申", "子", "亥"],
+                "丙": ["巳", "午", "辰戌", "丑未", "申", "酉", "亥", "子", "寅", "卯"], "丁": ["午", "巳", "丑未", "辰戌", "酉", "申", "子", "亥", "卯", "寅"],
+                "戊": ["辰戌", "丑未", "申", "酉", "亥", "子", "寅", "卯", "巳", "午"], "己": ["丑未", "辰戌", "酉", "申", "子", "亥", "卯", "寅", "午", "巳"]}
+
+
+def test_branch_main_stem_ten_gods_p17():
+    for day, cols in BRANCH_TABLE.items():
+        for i, branches in enumerate(cols):
+            for br in branches:
+                main = bazi.HIDDEN_STEMS[BR[br]][0]
+                assert bazi.ten_god(ST[day], main) == TEN[i], (day, br)
+
+
+def test_hidden_stem_sets_pp7_8():
+    # 藏干 per branch as printed in the per-day-stem tables (set comparison; the book's listing order differs from ours)
+    book = {"子": "癸", "丑": "癸己辛", "寅": "丙甲戊", "卯": "乙", "辰": "乙戊癸", "巳": "戊丙庚", "午": "丁己", "未": "乙己丁",
+            "申": "戊庚壬", "酉": "辛", "戌": "辛戊丁", "亥": "壬甲"}
+    for br, stems in book.items():
+        assert set(bazi.HIDDEN_STEMS[BR[br]]) == {ST[c] for c in stems}, br

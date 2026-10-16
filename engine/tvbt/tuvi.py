@@ -22,7 +22,7 @@ LeapRule = Literal["split_15", "same_month", "next_month"]
 SCHOOL_PACK = {
     "schoolId": "vn_dlhc_draft", "version": "0.2.0",
     "primary_sources": ["SRC_THUC_HANH", "SRC_KHAO_LUAN"],
-    "leap_month_rule": "split_15 (day<=15 -> same month, >15 -> next month) — convention, not from the sources",
+    "leap_month_rule": "same_month (Khảo Luận p.41: both months are counted as the same month number); split_15 / next_month remain selectable variants",
     "review_status": "partially_verified",
     # Per-table status. 'verified' = checked against the cited page of a cited book (see data/sources.json).
     "rule_review": {
@@ -47,7 +47,9 @@ SCHOOL_PACK = {
         "tu_hoa": ["verified_with_dispute", "SRC_THUC_HANH p.21 + SRC_KHAO_LUAN p.36 agree on 8/10 stems incl. Canh (Khoa Đồng, Kỵ Âm); "
                    "Tân Lộc: Thực Hành=Cự Môn vs Khảo Luận=Thiên Cơ (Cự Môn used); Nhâm Khoa: Khảo Luận=Tả Phụ, Thực Hành prints 'Phủ' (Tả Phụ used)"],
         "dignity_table": ["verified", "SRC_THUC_HANH pp.29-48 (14 chính tinh; unlisted branches stay unspecified; Tham Lang Tý/Ngọ disputed with Khảo Luận)"],
-        "dai_han": ["unverified", "direction by yin-yang is standard; first age = cục not yet checked in a cited page"],
+        "dai_han": ["verified", "SRC_THUC_HANH p.27 (first decade starts at Mệnh at age = cục number; thuận for dương nam/âm nữ, nghịch otherwise)"],
+        "tieu_han": ["verified", "SRC_THUC_HANH p.27 (age 1 at Thìn/Tuất/Mùi/Sửu by year-branch triad; nam thuận, nữ nghịch)"],
+        "leap_month": ["verified_with_variants", "SRC_KHAO_LUAN p.41 (same month number); other conventions kept as options"],
     },
 }
 
@@ -158,7 +160,7 @@ def tuvi_position(day: int, cuc: int) -> tuple[int, dict]:
                  "rule": "start Dần, advance quotient-1, then x back if odd else forward"}
 
 
-def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "split_15", n_dai_han: int = 12,
+def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_han: int = 12,
             dignity_school: str = "thuc_hanh") -> TuViChart:
     tr = Trace()
     b = nb.input

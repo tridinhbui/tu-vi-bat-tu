@@ -55,8 +55,13 @@ def tuvi_year(chart: TuViChart, year: int) -> dict:
     for k, star in zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], TU_HOA[s]):
         pal = next((p["name"] for p in chart.palaces if star in p["stars"]), None)
         hoa[k] = {"star": star, "natal_palace": pal}
+    # tiểu hạn (SRC_THUC_HANH p.27): age 1 sits at Thìn/Tuất/Mùi/Sửu for Dần-Ngọ-Tuất / Thân-Tý-Thìn / Tỵ-Dậu-Sửu / Hợi-Mão-Mùi births
+    from .tuvi import TRIAD_GROUP
+    start = {0: 4, 1: 10, 2: 7, 3: 1}[TRIAD_GROUP[from_cycle(year_cycle_index(chart.lunar["year"]))[1]]]
+    male = chart.yin_yang_gender.endswith("nam")
+    th = (start + (age - 1) * (1 if male else -1)) % 12
     return {
-        "year": year, "age_tuoi_mu": age, "annual_pillar": gz_name(s, b),
+        "year": year, "age_tuoi_mu": age, "tieu_han_branch": BRANCHES_VI[th], "tieu_han_palace": by_branch[BRANCHES_VI[th]]["name"], "annual_pillar": gz_name(s, b),
         "dai_han": dh, "luu_thai_tue_palace": tt["name"], "luu_thai_tue_branch": tt["branch"],
         "luu_tu_hoa": hoa, "scope": "temporal",
         "note": "tiểu hạn not implemented; lưu Tứ Hóa uses the same table as natal (school variant unverified)",
