@@ -1,0 +1,1326 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_KL_AUX_KINH_DA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): tính ngang ngược, tự đắc (Kình hoặc Đà ở Mệnh) [KL p.228]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kinh_da_menh_ngang_nguoc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_KHONG_KIEP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): thiên về ích kỷ, liều lĩnh (Địa Không hoặc Địa Kiếp ở Mệnh) [KL p.228]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "khong_kiep_menh_ich_ky_lieu_linh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_HOA_LINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): nghĩa khí nhưng nóng nảy (Hỏa hoặc Linh ở Mệnh) [KL p.228]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hoa_linh_menh_nong_nay",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuan_triet_menh_vui_it_buon_nhieu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_THIEN_KHONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): không tham tiền tài nhưng may mắn đến vào lúc cuối (Thiên Không ở Mệnh) [KL p.225]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Không"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "thien_khong_menh_khong_tham_may_cuoi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_HONG_KHONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): thảnh thơi, thoát tục, coi nhẹ danh vọng, có thể hướng về tu hành (Hồng Loan gặp Thiên Không đồng cung hoặc xung chiếu) [KL p.225]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hồng Loan"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Không"
+       },
+       {
+        "fact": "palace.tam_phuong_stars",
+        "operator": "contains",
+        "value": "Thiên Không"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hong_thien_khong_thoat_tuc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_XUONG_KHUC_DAC_DIA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): tài hoa, có công danh (Xương Khúc ở Thìn, Tuất, Sửu, Mùi, Tỵ hoặc Hợi) [KL p.228]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi",
+       "Tỵ",
+       "Hợi"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "xuong_khuc_dac_dia_tai_hoa",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_THIEN_MA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): năng động, ý chí hành động nhưng vất vả (Thiên Mã ở Mệnh nằm trong tam hợp Tuế Phá – Tang Môn – Điếu Khách) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "thien_ma_menh_vat_va_hanh_dong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_TA_HUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): chăm chỉ, giỏi giang (Tả hoặc Hữu ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ta_huu_menh_cham_chi_gioi_giang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_LOC_TON",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): nhân từ, hay cứu giúp, dè dặt khôn ngoan nhưng dễ keo kiệt và cô đơn (Lộc Tồn ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "loc_ton_menh_nhan_tu_deo_dat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_SONG_HAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vất vả ngược xuôi, hao hụt tài lộc (Song Hao ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Đại Hao"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tiểu Hao"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "song_hao_menh_vat_va_hao_tai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_TUONG_QUAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): tự cao, ‘ta đây’ (Tướng Quân ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tướng Quân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tuong_quan_menh_tu_cao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_TAU_THU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): lời nói ngọt, dễ thuyết phục (Tấu Thư ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tấu Thư"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "noi_ngot_de_thuyet_phuc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_HY_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): có buồn vẫn giữ vẻ tươi vui (Hỷ Thần ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hỷ Thần"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hy_than_menh_buon_van_tuoi_vui",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_BENH_PHU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui cũng mang vẻ u sầu (Bệnh Phù ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Bệnh Phù"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "benh_phu_menh_vui_van_u_sau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_PHUC_BINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): hay giấu nỗi sầu trong lòng (Phục Binh ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Phục Binh"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "phuc_binh_menh_sau_trong_long",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_QUAN_PHU_VIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): dễ bị miệng tiếng, vướng thủ tục quan phủ (Quan Phủ ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Quan Phủ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "hay_dinh_viec_cong_mon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_THAI_TUE",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): tự kiêu, ít giao thiệp, lạnh lùng, thích xét đoán và lý luận (Thái Tuế ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Tuế"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "thai_tue_menh_tu_kieu_xet_doan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_TANG_HO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): tài ba nhưng dễ gặp nhiều trở ngại, hao tổn (Tang Môn, Bạch Hổ ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tang Môn"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Bạch Hổ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tang_ho_menh_tai_ba_nhieu_tro_ngai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_THIEU_AM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): khéo léo bên ngoài (Thiếu Âm ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiếu Âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "thieu_am_menh_kheo_leo_ngoai_mat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_QUAN_PHU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): tự cao, hay xét đoán và lý luận, liên quan việc pháp luật; tốt nếu gặp Xương Khúc và Thái Tuế (Quan Phù ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Quan Phù"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "quan_phu_menh_tu_cao_ly_luan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_TUE_PHA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): hay tranh cãi (Tuế Phá ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tuế Phá"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tue_pha_menh_hay_tranh_cai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_DIEU_KHACH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): nói nhiều, thích khoe khoang, ham vui chơi (Điếu Khách ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Điếu Khách"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dieu_khach_menh_noi_nhieu_khoe_khoang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_AUX_TRUC_TU_PHU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_aux_menh",
+   "description": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): thích phụ họa, dễ làm rối công việc (Trực Phù hoặc Tử Phù ở Mệnh) [KL p.229]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Trực Phù"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tử Phù"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "truc_tu_phu_menh_thich_phu_hoa",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_DHK_00_TY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Tý (paraphrased): Đào Hồng đối mặt: phong nhã hào hoa, công danh đến chậm, chung thủy tận tâm [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Tý"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_00_ty",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_01_SUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Sửu (paraphrased): Đào hoa giữa chợ, chim hồng bay bổng: tình duyên ngang trái, công danh sớm, có căn tu [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Sửu"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_01_suu",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_02_DAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Dần (paraphrased): Đào hoa đồng cung Thiên Không: công danh sớm, tình cảm mau tàn, khôn ngoan biết nắm cơ hội [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Dần"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_02_dan",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_03_MAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Mão (paraphrased): Đào Hồng cặp đôi: thông minh lãng mạn, công danh bền bỉ, chỉ tội dễ đèo bòng [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Mão"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_03_mao",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_04_THIN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Thìn (paraphrased): Đào hoa cắm lọ: công danh đến trễ, mộng ước cao [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Thìn"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_04_thin",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_05_TY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Tỵ (paraphrased): Đào hoa gặp Thiên Không: duyên đến sớm nhưng dễ bẽ bàng, khôn ngoan biết nắm cơ hội [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Tỵ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_05_ty",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_06_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Ngọ (paraphrased): Đào Hồng đối mặt: công danh sớm, yêu sớm, về sau nhiều ngậm ngùi [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Ngọ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_06_ngo",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_07_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Mùi (paraphrased): Đào Hồng lạc lối: công danh sớm, thông minh lãng mạn, giao thiệp rộng rãi [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Mùi"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_07_mui",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_08_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Thân (paraphrased): Đào hoa gặp Thiên Không: công danh đến chậm, tình đầu ngang trái, khôn ngoan biết nắm cơ hội [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Thân"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_08_than",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_09_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Dậu (paraphrased): Đào Hồng cặp đôi: tình đầu dang dở, công danh khó bền [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Dậu"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_09_dau",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_10_TUAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Tuất (paraphrased): Hồng Loan đối mặt Thiên Không: hoa đào nở đẹp ban mai, ước vọng cao, công danh sớm, sự nghiệp lớn [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Tuất"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_10_tuat",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "TV_KL_DHK_11_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_dao_hong_khong",
+   "description": "Tử Vi Khảo Luận: thế đứng Đào – Hồng – Thiên Không của người tuổi Hợi (paraphrased): Đào hoa gặp Thiên Không: tình vừa chớm đã tàn mau, công danh sự nghiệp khó bền [KL pp.225-227]; sách nói xác suất 'khá tốt', không phải chắc chắn",
+   "conditions": {
+    "fact": "chart.year_branch",
+    "value": "Hợi"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "dao_hong_khong_tuoi_11_hoi",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  }
+ ]
+}

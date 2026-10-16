@@ -296,3 +296,15 @@ def test_minor_star_dignity_and_toan_thu_third_batch():
     assert "ta_huu_tai_quan_chieu_day_du" not in tt_run(own=["Tả Phụ", "Hữu Bật"])
     assert "dien_loc_ton_vang_ngoc_day_nha" in tt_run(name="Điền Trạch", own=["Lộc Tồn"])
     assert "xuong_khuc_ty_hoi_quy_hoac_phu" in tt_run(branch="Hợi", own=["Văn Xương", "Văn Khúc"])
+
+
+def test_khao_luan_aux_at_menh_and_year_branch_readings():
+    assert "thai_tue_menh_tu_kieu_xet_doan" in tt_run(own=["Thái Tuế"])
+    assert "thai_tue_menh_tu_kieu_xet_doan" not in tt_run(name="Tài Bạch", own=["Thái Tuế"])         # Mệnh-only
+    assert "song_hao_menh_vat_va_hao_tai" in tt_run(own=["Đại Hao", "Tiểu Hao"])
+    assert "song_hao_menh_vat_va_hao_tai" not in tt_run(own=["Đại Hao"])
+    assert "hong_thien_khong_thoat_tuc" in tt_run(own=["Hồng Loan"], tam=["Thiên Không"])
+    assert "tuan_triet_menh_vui_it_buon_nhieu" in tt_run(tuan=True)
+    for yb, key in (("Mão", "dao_hong_khong_tuoi_03_mao"), ("Hợi", "dao_hong_khong_tuoi_11_hoi")):
+        res = engine.run(RULES, SOURCES, {"chart": {"chart.year_branch": yb}}, system="tu_vi")
+        assert key in {f.claim for f in res.findings} and len([f for f in res.findings if f.claim.startswith("dao_hong_khong_tuoi_")]) == 1

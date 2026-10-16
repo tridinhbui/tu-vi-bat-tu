@@ -13,7 +13,7 @@ def tuvi_facts(c: TuViChart) -> dict[str, dict]:
     out: dict[str, dict] = {"chart": {"chart.system": "tu_vi", "chart.cuc": c.cuc["name"],
                                        "chart.menh_cuc_relation": c.menh_cuc_relation,
                                        "chart.menh_branch": BRANCHES_VI[c.menh_branch],
-                                       "chart.year_stem": c.year_gz.split()[0],
+                                       "chart.year_stem": c.year_gz.split()[0], "chart.year_branch": c.year_gz.split()[1],
                                        "chart.tu_vi_branch": next((p["branch"] for p in c.palaces if "Tử Vi" in p["major_stars"]), None)}}
     for br, p in by_branch.items():
         tp = [br, (br + 4) % 12, (br + 8) % 12, (br + 6) % 12]
