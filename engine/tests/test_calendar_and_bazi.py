@@ -109,3 +109,15 @@ def test_hidden_stems_ten_gods_day_master_self():
     # 午 hides 丁 己: for Mậu day master -> Chính Ấn, Tỉ Kiên? (己 vs 戊 = Kiếp Tài)
     tg = [h["ten_god"] for h in c.pillars["day"].hidden]
     assert tg == ["Chính Ấn", "Kiếp Tài"]
+
+
+def test_vn_calendar_offsets_and_1985_divergence():
+    from tvbt.calendar_core import vn_calendar_offset
+    assert vn_calendar_offset(1967) == 8 and vn_calendar_offset(1968) == 7 and vn_calendar_offset(2000) == 7
+    assert vn_calendar_offset(1970, south=True) == 8 and vn_calendar_offset(1976, south=True) == 7
+    # Wikipedia (Vietnamese calendar): the 1984-85 month-11 placement depends on the offset (Chinese month 11 = 22 Dec 1984-20 Jan 1985)
+    cn = normalize(B(1984, 12, 22, 12, 0, calendar="cn")).lunar
+    vn = normalize(B(1984, 12, 22, 12, 0, calendar="vn")).lunar
+    assert (cn.day, cn.month) == (1, 11) and (vn.month, vn.day) != (cn.month, cn.day)
+    s70 = normalize(B(1970, 6, 1, 12, 0, calendar="vn_south")).trace.get("lunar.date").rule
+    assert "UTC+8" in s70

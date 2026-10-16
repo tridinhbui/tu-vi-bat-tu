@@ -27,7 +27,7 @@ class BirthReq(BaseModel):
     year: int = Field(ge=1900, le=2049); month: int = Field(ge=1, le=12); day: int = Field(ge=1, le=31)
     hour: int = Field(ge=0, le=23); minute: int = Field(ge=0, le=59)
     tz: str = "Asia/Ho_Chi_Minh"; gender: str = Field(pattern="^(male|female)$")
-    longitude: float | None = None; calendar: str = Field("vn", pattern="^(vn|cn)$")
+    longitude: float | None = None; calendar: str = Field("vn", pattern="^(vn|vn_south|cn)$")
     zi_rule: str = Field("early_zi_next_day", pattern="^(early_zi_next_day|late_zi_same_day)$")
     use_true_solar_time: bool = False; level: int = Field(3, ge=1, le=5)
     to_year: int | None = None

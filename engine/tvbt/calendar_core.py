@@ -33,7 +33,7 @@ class BirthInput:
     tz: str                       # IANA, e.g. "Asia/Ho_Chi_Minh"
     gender: Literal["male", "female"]
     longitude: float | None = None  # degrees east, required for true solar time
-    calendar: Literal["vn", "cn"] = "vn"
+    calendar: Literal["vn", "vn_south", "cn"] = "vn"
     zi_rule: ZiRule = "early_zi_next_day"
     use_true_solar_time: bool = False
     fold: int = 0                 # disambiguates repeated wall times at DST end
@@ -67,9 +67,10 @@ def _equation_of_time_minutes(t_utc: dt.datetime) -> float:
                      - 0.014615 * math.cos(2 * g) - 0.040849 * math.sin(2 * g))
 
 
-def vn_calendar_offset(year: int) -> float:
-    """Vietnamese lunar calendar offset: UTC+8 until 1967, UTC+7 from 1968 (legal reform)."""
-    return 8.0 if year < 1968 else 7.0
+def vn_calendar_offset(year: int, south: bool = False) -> float:
+    """Offset used for the Vietnamese lunar calendar. North/unified: UTC+8 until 1967, UTC+7 from 1968 (VASTI bulletin 1/2019;
+    Wikipedia dates the change to Aug 1967 — sources differ). South: UTC+8 until reunification (cut at end of 1975 here: UNVERIFIED)."""
+    return 8.0 if year < (1976 if south else 1968) else 7.0
 
 
 def normalize(b: BirthInput) -> NormalizedBirth:
@@ -107,8 +108,8 @@ def normalize(b: BirthInput) -> NormalizedBirth:
     tr.add("day.rule_date", "Date used for day pillar & lunar day after Zi-hour rule",
            {"clock": clock.isoformat(), "zi_rule": b.zi_rule}, rule_date.isoformat())
 
-    if b.calendar == "vn":
-        tzh = vn_calendar_offset(rule_date.year)
+    if b.calendar in ("vn", "vn_south"):
+        tzh = vn_calendar_offset(rule_date.year, b.calendar == "vn_south")
         ld, lm, ly, leap = lunar_vn.solar_to_lunar(rule_date, tzh)
         src = f"astronomical lunisolar rules @UTC{tzh:+g} (PyEphem new moons + sxtwl solar terms)"
     else:
