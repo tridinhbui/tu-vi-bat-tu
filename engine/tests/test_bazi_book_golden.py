@@ -1,5 +1,6 @@
 """Golden values transcribed from 八字真宗 (SRC_BAZI_ZHENZONG), PDF pp.19-25, 35 — independent of our code."""
 from tvbt import bazi
+from tvbt.calendar_core import BirthInput, normalize
 from tvbt.ganzhi import BRANCHES_HAN, STEMS_HAN, tiger_month_stem
 
 BR = {c: i for i, c in enumerate(BRANCHES_HAN)}
@@ -90,3 +91,28 @@ def test_hidden_stem_sets_pp7_8():
             "申": "戊庚壬", "酉": "辛", "戌": "辛戊丁", "亥": "壬甲"}
     for br, stems in book.items():
         assert set(bazi.HIDDEN_STEMS[BR[br]]) == {ST[c] for c in stems}, br
+
+
+def test_day_pillar_nap_am_table_pp31_32():
+    """The book lists each nạp âm with its first day pillar (PDF pp.31-32): our computed nạp âm names must agree for all 30 rows."""
+    import json
+    from tvbt.ganzhi import cycle_index, nap_am_name
+    from tvbt.knowledge.loader import DATA
+    pillars = json.loads((DATA / "pack_bazi_napam.json").read_text("utf-8"))["pillars"]
+    assert len(pillars) == 30
+    for pil, vi in pillars.items():
+        assert nap_am_name(ST[pil[0]], BR[pil[1]]) == vi, pil
+        # the paired next pillar (乙丑 for 甲子 ...) shares the nạp âm
+        n = cycle_index(ST[pil[0]], BR[pil[1]])
+        assert nap_am_name((n + 1) % 10, (n + 1) % 12) == vi
+
+
+def test_napam_rule_fires_for_day_pillar():
+    from tvbt.knowledge.loader import load_all
+    from tvbt.reasoning import engine, facts
+    rules, srcs = load_all()
+    c = bazi.compute(normalize(BirthInput(2000, 1, 1, 12, 0, "Asia/Ho_Chi_Minh", "male")))      # Mậu Ngọ day -> Thiên Thượng Hỏa
+    f = facts.bazi_facts(c)
+    assert f["chart"]["bazi.day_nap_am"] == "Thiên Thượng Hỏa"
+    res = engine.run(rules, srcs, f, system="bat_tu")
+    assert "bt_nap_am_ngay_thien_thuong_hoa" in {x.claim for x in res.findings}

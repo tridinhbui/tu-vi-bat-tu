@@ -1,0 +1,877 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "BT_ZZ_NAPAM_HAI_TRUNG_KIM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Hải Trung Kim (海中金): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Hải Trung Kim"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_hai_trung_kim",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_GIAN_HA_THUY",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Giản Hạ Thủy (涧下水): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Giản Hạ Thủy"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_gian_ha_thuy",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_TICH_LICH_HOA",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Tích Lịch Hỏa (霹雳火): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Tích Lịch Hỏa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_tich_lich_hoa",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_BICH_THUONG_THO",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Bích Thượng Thổ (壁上土): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Bích Thượng Thổ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_bich_thuong_tho",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_TANG_DO_MOC",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Tang Đố Mộc (桑柘木): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Tang Đố Mộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_tang_do_moc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_DAI_KHE_THUY",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Đại Khê Thủy (大溪水): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Đại Khê Thủy"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_dai_khe_thuy",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_LU_TRUNG_HOA",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Lư Trung Hỏa (炉中火): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Lư Trung Hỏa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_lu_trung_hoa",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_THANH_DAU_THO",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Thành Đầu Thổ (城头土): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Thành Đầu Thổ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_thanh_dau_tho",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_TUNG_BACH_MOC",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Tùng Bách Mộc (松柏木): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Tùng Bách Mộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_tung_bach_moc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_KIM_BACH_KIM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Kim Bạch Kim (金箔金): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Kim Bạch Kim"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_kim_bach_kim",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_PHU_DANG_HOA",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Phú Đăng Hỏa (佛灯火): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Phú Đăng Hỏa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_phu_dang_hoa",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_SA_TRUNG_THO",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Sa Trung Thổ (沙中土): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Sa Trung Thổ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_sa_trung_tho",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_DAI_LAM_MOC",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Đại Lâm Mộc (大林木): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Đại Lâm Mộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_dai_lam_moc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_BACH_LAP_KIM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Bạch Lạp Kim (白腊金): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Bạch Lạp Kim"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_bach_lap_kim",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_TRUONG_LUU_THUY",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Trường Lưu Thủy (长流水): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Trường Lưu Thủy"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_truong_luu_thuy",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_SA_TRUNG_KIM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Sa Trung Kim (沙中金): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Sa Trung Kim"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_sa_trung_kim",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_THIEN_HA_THUY",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Thiên Hà Thủy (天河水): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Thiên Hà Thủy"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_thien_ha_thuy",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_THIEN_THUONG_HOA",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Thiên Thượng Hỏa (天上火): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Thiên Thượng Hỏa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_thien_thuong_hoa",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_LO_BANG_THO",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Lộ Bàng Thổ (路旁土): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Lộ Bàng Thổ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_lo_bang_tho",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_DUONG_LIEU_MOC",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Dương Liễu Mộc (杨柳木): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Dương Liễu Mộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_duong_lieu_moc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_TUYEN_TRUNG_THUY",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Tuyền Trung Thủy (泉中水): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Tuyền Trung Thủy"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_tuyen_trung_thuy",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_SON_HA_HOA",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Sơn Hạ Hỏa (山下火): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Sơn Hạ Hỏa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_son_ha_hoa",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_DAI_DICH_THO",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Đại Dịch Thổ (大驿土): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Đại Dịch Thổ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_dai_dich_tho",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_THACH_LUU_MOC",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Thạch Lựu Mộc (石榴木): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Thạch Lựu Mộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_thach_luu_moc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_KIEM_PHONG_KIM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Kiếm Phong Kim (剑锋金): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Kiếm Phong Kim"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_kiem_phong_kim",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_SON_DAU_HOA",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Sơn Đầu Hỏa (山头火): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Sơn Đầu Hỏa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_son_dau_hoa",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_OC_THUONG_THO",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Ốc Thượng Thổ (屋上土): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Ốc Thượng Thổ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_oc_thuong_tho",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_BINH_DIA_MOC",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Bình Địa Mộc (平地木): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Bình Địa Mộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_binh_dia_moc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_THOA_XUYEN_KIM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Thoa Xuyến Kim (钗钏金): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Thoa Xuyến Kim"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_thoa_xuyen_kim",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_NAPAM_DAI_HAI_THUY",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "day_pillar_nap_am",
+   "description": "Day pillar nạp âm Đại Hải Thủy (大海水): character reading of the manual, paraphrased [八字真宗 PDF pp.31-32 日柱纳音断个性]",
+   "conditions": {
+    "fact": "bazi.day_nap_am",
+    "value": "Đại Hải Thủy"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nap_am_ngay_dai_hai_thuy",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 2,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  }
+ ],
+ "pillars": {
+  "甲子": "Hải Trung Kim",
+  "丙子": "Giản Hạ Thủy",
+  "戊子": "Tích Lịch Hỏa",
+  "庚子": "Bích Thượng Thổ",
+  "壬子": "Tang Đố Mộc",
+  "甲寅": "Đại Khê Thủy",
+  "丙寅": "Lư Trung Hỏa",
+  "戊寅": "Thành Đầu Thổ",
+  "庚寅": "Tùng Bách Mộc",
+  "壬寅": "Kim Bạch Kim",
+  "甲辰": "Phú Đăng Hỏa",
+  "丙辰": "Sa Trung Thổ",
+  "戊辰": "Đại Lâm Mộc",
+  "庚辰": "Bạch Lạp Kim",
+  "壬辰": "Trường Lưu Thủy",
+  "甲午": "Sa Trung Kim",
+  "丙午": "Thiên Hà Thủy",
+  "戊午": "Thiên Thượng Hỏa",
+  "庚午": "Lộ Bàng Thổ",
+  "壬午": "Dương Liễu Mộc",
+  "甲申": "Tuyền Trung Thủy",
+  "丙申": "Sơn Hạ Hỏa",
+  "戊申": "Đại Dịch Thổ",
+  "庚申": "Thạch Lựu Mộc",
+  "壬申": "Kiếm Phong Kim",
+  "甲戌": "Sơn Đầu Hỏa",
+  "丙戌": "Ốc Thượng Thổ",
+  "戊戌": "Bình Địa Mộc",
+  "庚戌": "Thoa Xuyến Kim",
+  "壬戌": "Đại Hải Thủy"
+ }
+}

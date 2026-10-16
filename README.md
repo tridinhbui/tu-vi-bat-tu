@@ -48,6 +48,7 @@ cd engine && ../.venv/bin/python -m pytest -q
   Phụ Mẫu and the Mệnh 'giáp' (neighbour) readings; palace definitions in the analysis now cite the same pages. A typical chart now yields ~15-20 Tử Vi findings.
 - Khảo Luận pp.220-224 (what each star/pair means at Mệnh, incl. Đào Hồng by branch): 57 rules in `pack_khao_luan_chinh_tinh.json`; chart-level fact `chart.tu_vi_branch` gates the
   vô-chính-diệu readings. Total rule inventory ~340.
+- 八字真宗 pp.31-32: day-pillar nạp âm personality readings (30 rules, `pack_bazi_napam.json`); the book's own pillar→nạp âm list validates our nạp âm table for all 30 rows.
 - Not supported: minor-star brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, Bát Tự thai nguyên/mệnh cung, lunar-date input.
 - Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
   (injury, death, children) are intentionally not implemented.

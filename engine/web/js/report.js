@@ -64,7 +64,7 @@ export function renderBaziReport(host, chart, ctx, parts) {
   const b = chart.bazi, t = chart.tuvi, { blocks, calc, trad, deep } = shell(ctx);
   const dm = STEMS[b.pillars.day.stem], month = b.pillars.month, mb = BRANCHES[month.branch];
   const fs = (ctx.reason.systems.bat_tu?.findings || []).map(f => ({ ...f, sys: 'bat_tu' }));
-  const chOf = f => /^bt_(ri_gan|thieu_hanh)/.test(f.claim) ? 'nhat-chu' : 'cach-cuc';
+  const chOf = f => /^bt_(ri_gan|thieu_hanh|nap_am)/.test(f.claim) ? 'nhat-chu' : 'cach-cuc';
   const of = id => fs.filter(f => chOf(f) === id);
   const TITLE = { 'nhat-chu': 'Nhật Chủ & tính cách', 'cach-cuc': 'Cách cục & Dụng thần' };
   const ph = currentPhase(b, t, ctx.req);

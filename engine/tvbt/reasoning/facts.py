@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from ..bazi import BaziChart
-from ..ganzhi import BRANCHES_VI, BRANCH_ELEMENT, ELEMENTS, STEMS_VI, STEM_ELEMENT
+from ..ganzhi import BRANCHES_VI, BRANCH_ELEMENT, ELEMENTS, STEMS_VI, STEM_ELEMENT, nap_am_name
 from ..tuvi import TuViChart
 
 FACT_NAMES = {"palace.*", "chart.*", "bazi.*", "derived.*"}  # wildcard namespaces for validation
@@ -40,6 +40,7 @@ def bazi_facts(c: BaziChart) -> dict[str, dict]:
              for h in p.hidden if STEM_ELEMENT[h["stem"]] == dm_el]
     visible_el = {STEM_ELEMENT[p.stem] for p in c.pillars.values()} | {BRANCH_ELEMENT[p.branch] for p in c.pillars.values()}
     return {"chart": {"chart.system": "bat_tu", "bazi.day_master_stem": STEMS_VI[c.day_master],
+                      "bazi.day_nap_am": nap_am_name(c.pillars["day"].stem, c.pillars["day"].branch),
                       "bazi.missing_elements": [e for e in ELEMENTS if e not in visible_el], "bazi.dm_element": dm_el, "bazi.dm_has_root": bool(roots),
                       "bazi.dm_root_pillars": sorted(set(roots)),
                       "bazi.month_branch": BRANCHES_VI[c.pillars["month"].branch],
