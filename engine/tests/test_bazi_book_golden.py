@@ -116,3 +116,29 @@ def test_napam_rule_fires_for_day_pillar():
     assert f["chart"]["bazi.day_nap_am"] == "Thiên Thượng Hỏa"
     res = engine.run(rules, srcs, f, system="bat_tu")
     assert "bt_nap_am_ngay_thien_thuong_hoa" in {x.claim for x in res.findings}
+
+
+MING = ["卯寅丑子亥戌酉申未午巳辰", "寅丑子亥戌酉申未午巳辰卯", "丑子亥戌酉申未午巳辰卯寅", "子亥戌酉申未午巳辰卯寅丑", "亥戌酉申未午巳辰卯寅丑子",
+        "戌酉申未午巳辰卯寅丑子亥", "酉申未午巳辰卯寅丑子亥戌", "申未午巳辰卯寅丑子亥戌酉", "未午巳辰卯寅丑子亥戌酉申",
+        "午巳辰卯寅丑子亥戌酉申未", "巳辰卯寅丑子亥戌酉申未午", "辰卯寅丑子亥戌酉申未午巳"]
+SHEN = ["卯辰巳午未申酉戌亥子丑寅", "辰巳午未申酉戌亥子丑寅卯", "巳午未申酉戌亥子丑寅卯辰", "午未申酉戌亥子丑寅卯辰巳", "未申酉戌亥子丑寅卯辰巳午",
+        "申酉戌亥子丑寅卯辰巳午未", "酉戌亥子丑寅卯辰巳午未申", "戌亥子丑寅卯辰巳午未申酉", "亥子丑寅卯辰巳午未申酉戌",
+        "子丑寅卯辰巳午未申酉戌亥", "丑寅卯辰巳午未申酉戌亥子", "寅卯辰巳午未申酉戌亥子丑"]
+
+
+def test_ming_gong_shen_gong_tables_pp37_38():
+    month_branches = [BR[c] for c in "寅卯辰巳午未申酉戌亥子丑"]       # columns: month 1..12
+    for hb in range(12):                                              # rows: hour 子..亥
+        for col, mb in enumerate(month_branches):
+            assert bazi.ming_gong_branch(mb, hb) == BR[MING[hb][col]], ("ming", hb, col)
+            assert bazi.shen_gong_branch(mb, hb) == BR[SHEN[hb][col]], ("shen", hb, col)
+
+
+def test_thai_yuan_and_kong_wang_tables():
+    assert bazi.thai_yuan(ST["丙"], BR["申"]) == (ST["丁"], BR["亥"])             # worked example p.20: 丙申 month -> 丁亥
+    assert bazi.thai_yuan(ST["甲"], BR["寅"]) == (ST["乙"], BR["巳"])             # 胎元速查表 p.36, row 甲月 col 正月
+    assert bazi.thai_yuan(ST["癸"], BR["丑"]) == (ST["甲"], BR["辰"])             # row 癸月 col 十二月
+    # 空亡速查表 p.37 (stem column, branch row -> the two void branches)
+    for (stem, br), want in {("甲", "子"): "戌亥", ("甲", "戌"): "申酉", ("丙", "子"): "申酉", ("戊", "子"): "午未", ("庚", "子"): "辰巳",
+                             ("壬", "子"): "寅卯", ("乙", "丑"): "戌亥", ("癸", "亥"): "子丑", ("甲", "辰"): "寅卯"}.items():
+        assert set(bazi.kong_wang(ST[stem], BR[br])) == {BR[c] for c in want}, (stem, br)

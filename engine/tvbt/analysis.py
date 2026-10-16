@@ -89,6 +89,7 @@ def reach_note(v: View, name: str):
             f"Tứ Hóa {_join(hoa) or 'không có'}; sát tinh {_join(sat) or 'không có'}; Tuần/Triệt {('ở ' + _join(tt)) if tt else 'không có'}.")
 
 
+PIL_VI = {"year": "năm", "month": "tháng", "hour": "giờ", "day": "ngày"}
 PIL = {"year": "năm", "month": "tháng", "day": "ngày", "hour": "giờ"}
 
 
@@ -123,6 +124,11 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     groups = [GROUP_NOTE[g] + f" ({g})" for g, ss in GROUPS.items() if any(s in menh["major_stars"] for s in ss)]
     if groups:
         ch["tong-quan"].append(B("Theo cách phân nhóm của Tử Vi Khảo Luận, các chính tinh ở Mệnh thuộc " + _join(groups) + ". Đây là phân loại tính chất hoạt động của sao, không phải kết luận về kết quả.", "Cách", "sach", ["Khảo Luận pp.166-167"]))
+
+    ex = bz.extras
+    if ex:
+        vo = ex["kong_wang_in_chart"]
+        ch["tong-quan"].append(B(f"Bát Tự còn có ba “cung” phụ tính từ tháng và giờ sinh: thai nguyên {ex['thai_yuan']}, mệnh cung {ex['ming_gong']}, thân cung {ex['shen_gong']}. Thêm vào đó, trụ Ngày {bz.pillars['day'].name} có không vong ở {_join(ex['kong_wang_day'])}" + (f"; chi của trụ {_join([PIL_VI[k] for k in vo])} rơi vào hai chi này." if vo else "; không chi nào của các trụ còn lại rơi vào hai chi này."), "Thế", "sach", ["八字真宗 PDF pp.20, 24, 35-38"]))
 
     # ---------- Bản Mệnh
     ch["ban-menh"] += star_profile_blocks(v, "Mệnh")

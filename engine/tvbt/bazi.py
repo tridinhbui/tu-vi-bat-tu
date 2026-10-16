@@ -76,6 +76,30 @@ class LuckPillar:
     ten_god: str
 
 
+def kong_wang(stem: int, branch: int) -> list[int]:
+    """空亡 (void) branches of the xun containing this pillar (八字真宗 PDF pp.24, 37)."""
+    n = cycle_index(stem, branch)
+    start = (n - n % 10) % 12
+    return [(start + 10) % 12, (start + 11) % 12]
+
+
+def thai_yuan(month_stem: int, month_branch: int) -> tuple[int, int]:
+    """胎元: month stem +1, month branch +3 (PDF pp.35-36)."""
+    return (month_stem + 1) % 10, (month_branch + 3) % 12
+
+
+def ming_gong_branch(month_branch: int, hour_branch: int) -> int:
+    """命宫 (PDF pp.35, 37-38): from the month counted as 寅=1, backwards by hour from 子; table-verified."""
+    m = (month_branch - 2) % 12 + 1
+    return (3 - (m - 1) - hour_branch) % 12
+
+
+def shen_gong_branch(month_branch: int, hour_branch: int) -> int:
+    """身宫 (PDF pp.35, 38): forwards by month and hour; table-verified."""
+    m = (month_branch - 2) % 12 + 1
+    return (3 + (m - 1) + hour_branch) % 12
+
+
 @dataclass
 class BaziChart:
     pillars: dict[str, Pillar]
@@ -88,6 +112,7 @@ class BaziChart:
     jie_used: dict
     trace: Trace
     school: dict
+    extras: dict = field(default_factory=dict)
 
 
 def _jie_instants(year: int):
@@ -206,13 +231,26 @@ def compute(nb: NormalizedBirth, n_luck: int = 10) -> BaziChart:
         sa = age + 10 * (k - 1)
         luck.append(LuckPillar(k, s, br, gz_name(s, br), round(sa, 3),
                                round(nb.local.year + sa, 2), ten_god(ds, s)))
+    from .ganzhi import branch_stem_from_year
+    mg, sg = ming_gong_branch(mb, hb), shen_gong_branch(mb, hb)
+    ty_s, ty_b = thai_yuan(ms, mb)
+    kw = kong_wang(ds, db)
+    extras = {
+        "thai_yuan": gz_name(ty_s, ty_b),
+        "ming_gong": gz_name(branch_stem_from_year(ys, mg), mg),
+        "shen_gong": gz_name(branch_stem_from_year(ys, sg), sg),
+        "kong_wang_day": [BRANCHES_VI[x] for x in kw],
+        "kong_wang_in_chart": [k for k, p in pillars.items() if p.branch in kw and k != "day"],
+        "kong_wang_year_pillar_view": [BRANCHES_VI[x] for x in kong_wang(ys, yb)],
+    }
+    tr.add("bazi.extras", "Thai nguyên, mệnh cung, thân cung, không vong (tables of 八字真宗 PDF pp.35-38)", {}, extras, rule="bazi_thai_menh_than")
     chart = BaziChart(
         pillars=pillars, day_master=ds, day_master_element=STEM_ELEMENT[ds],
         luck_direction="thuận" if forward else "nghịch",
         luck_start={"years": yrs, "months": mons, "days": dys, "age_years": round(age, 4)},
         luck_pillars=luck, relations=_relations(pillars),
         jie_used={"prev_jie_index": prev_idx, "prev_jie_utc": astro.jd_to_utc(prev_jd).isoformat()},
-        trace=tr,
+        trace=tr, extras=extras,
         school={"year_boundary": "lichun_instant", "month_boundary": "jie_instant",
                 "growth_yin": "yin_reverse", "luck_conversion": "3_days_per_year",
                 "zi_rule": b.zi_rule, "review_status": "partially_verified",
@@ -224,6 +262,7 @@ def compute(nb: NormalizedBirth, n_luck: int = 10) -> BaziChart:
                     "branch_combine_clash_harm_destroy_penalty": ["verified", "SRC_BAZI_ZHENZONG PDF pp.19-20"],
                     "luck_start_3days_1year": ["verified", "SRC_BAZI_ZHENZONG PDF p.23 (direction by yin-yang year & sex; 1 day = 4 months, 1 shichen = 10 days)"],
                     "month_by_jie": ["verified", "SRC_BAZI_ZHENZONG PDF p.23 (12 jie table)"],
+                    "thai_menh_than_kong_wang": ["verified", "SRC_BAZI_ZHENZONG PDF pp.35-38 (all 144 cells of the 命宫 and 身宫 tables, 胎元 and 空亡 tables golden-tested)"],
                     "hidden_stems": ["verified", "SRC_BAZI_ZHENZONG PDF pp.7-16 (per-day-stem tables; sets match, book order differs)"],
                     "ten_gods": ["verified", "SRC_BAZI_ZHENZONG PDF p.17 (100 stem cells + 6 branch rows golden-tested)"],
                     "zi_hour_rule": ["convention", "configurable; not settled by the sources"],
