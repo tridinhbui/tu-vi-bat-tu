@@ -25,6 +25,8 @@ def tuvi_facts(c: TuViChart) -> dict[str, dict]:
             "palace.tam_phuong_majors": majors, "palace.tam_phuong_stars": stars,
             "palace.tuan": p["tuan"], "palace.triet": p["triet"],
             "palace.sat_pha_tham_in_tam_phuong": all(x in majors for x in ("Thất Sát", "Phá Quân", "Tham Lang")),
+            "palace.neighbor_majors": [m for t in ((br - 1) % 12, (br + 1) % 12) for m in by_branch[t]["major_stars"]],
+            "palace.neighbor_stars": [m for t in ((br - 1) % 12, (br + 1) % 12) for m in by_branch[t]["stars"]],
             "palace.tam_phuong_tu_hoa": sorted({k for t in tp for k, v in c.tu_hoa.items() if v["branch"] == t}),
             "palace.tu_hoa": [k for k, v in c.tu_hoa.items() if v["branch"] == br],
         }

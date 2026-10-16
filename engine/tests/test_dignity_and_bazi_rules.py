@@ -167,3 +167,20 @@ def test_documented_limiting_rule_wins_over_general_one_and_is_traceable():
     assert r["status"] == "limited" and "verified" in r["resolution"]          # the book itself says Tuần/Triệt reduces it
     r0 = claims_for(mk_palace(own=["Tử Vi", "Thiên Phủ"]), resolve=True)["tu_phu_phuc_loc"]
     assert r0["status"] == "supported" and r0["basis"] == "verified"
+
+
+def test_khao_luan_phu2_rules_and_neighbor_facts():
+    assert "hoa_loc_tai_loc_tot" in claims_for({**mk_palace(own=["Vũ Khúc"]), "palace.tu_hoa": ["Hóa Lộc"], "palace.branch": "Tý"})
+    r = claims_for({**mk_palace(own=["Vũ Khúc"]), "palace.tu_hoa": ["Hóa Lộc"], "palace.branch": "Thìn"}, resolve=True)["hoa_loc_tai_loc_tot"]
+    assert r["status"] == "limited"                               # Tứ Mộ lowers it, per the same passage
+    assert "thoi_tre_van_va_lo_toan" in claims_for(mk_palace(tuan=True))                       # corroborated by a second book
+    res = engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": mk_palace(tuan=True)}, system="tu_vi")
+    assert {f.rule_id for f in res.findings if f.claim == "thoi_tre_van_va_lo_toan"} >= {"TV_KL_PHU2_TUAN_TRIET", "TV_TH_VERSE_MENH_TRIET_TUAN"}
+    assert "liem_sat_giap_danh_muon" in claims_for({**mk_palace(), "palace.neighbor_majors": ["Liêm Trinh", "Thất Sát"]})
+    assert "liem_sat_giap_danh_muon" not in claims_for({**mk_palace(), "palace.neighbor_majors": ["Liêm Trinh"]})
+    ph = {**mk_palace(branch="Hợi", own=["Thái Âm", "Văn Khúc"], name="Phu Thê")}
+    assert "phu_the_am_khuc_hoi_bat_doi_sang" in claims_for(ph)
+    assert "phu_the_am_khuc_hoi_bat_doi_sang" not in claims_for({**ph, "palace.name": "Mệnh"})
+    chart = tuvi.compute(normalize(BirthInput(1990, 5, 17, 10, 30, "Asia/Ho_Chi_Minh", "male")))
+    f = facts.tuvi_facts(chart)["palace:Mệnh"]                    # Mệnh Tý: neighbours Hợi (Thiên Đồng) and Sửu (Thái Dương, Thái Âm)
+    assert set(f["palace.neighbor_majors"]) == {"Thiên Đồng", "Thái Dương", "Thái Âm"}
