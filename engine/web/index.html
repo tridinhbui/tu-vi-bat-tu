@@ -1,27 +1,92 @@
 <!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tử Vi · Bát Tự — Reasoning Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f0e2;--card:#fbf7ec;--ink:#241d14;--mute:#6f6350;--bronze:#9a6b2f;--line:#d9ccb0;--bad:#8a3b2b}
-@media (prefers-color-scheme:dark){:root{--bg:#17130d;--card:#201a12;--ink:#efe6d2;--mute:#a89b82;--bronze:#d1a45f;--line:#3a3022;--bad:#e08a76}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Georgia,"Times New Roman",serif}
-main{max-width:1080px;margin:0 auto;padding:24px 16px 64px}h1{font-weight:400;letter-spacing:.02em;margin:.2em 0}
-h2{font-weight:400;border-bottom:1px solid var(--line);padding-bottom:.2em;margin-top:2em;color:var(--bronze)}
-.note{color:var(--mute);font-size:.9em}.card{background:var(--card);border:1px solid var(--line);padding:14px 16px}
-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
-label{display:flex;flex-direction:column;font-size:.85em;color:var(--mute)}
-input,select,button{font:inherit;padding:6px 8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
-button{background:var(--bronze);color:#fff;border:0;cursor:pointer;align-self:end}
-#grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
-.pal{min-height:120px;border:1px solid var(--line);padding:6px;font-size:.85em;cursor:pointer;background:var(--card)}
-.pal.hl{outline:2px solid var(--bronze);outline-offset:-2px}.pal.rel{background:color-mix(in srgb,var(--bronze) 14%,var(--card))}
-.pal b{color:var(--bronze)}.maj{font-weight:700}.sm{color:var(--mute)}.center{grid-column:2/4;grid-row:2/4;padding:12px;background:var(--bg)}
-.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}.pillars .card b{font-size:1.4em}
-details{margin:.4em 0}summary{cursor:pointer}.bad{color:var(--bad)}pre{white-space:pre-wrap;font:inherit}
-@media(max-width:640px){#grid{grid-template-columns:repeat(2,1fr)}.center{grid-column:1/3;grid-row:auto}.pillars{grid-template-columns:repeat(2,1fr)}}
+:root{--bg:#0F0B08;--bg2:#140f0b;--panel:#1A140F;--panel2:#211910;--line:#3A2C1F;--line2:#2a2017;--ink:#F3E7D0;--ink2:#C9B79C;--gold:#C8A96B;--bronze:#9A7440;--pos:#6E8F7A;--neg:#A56A5F;--mute:#7D6A55;
+--serif:"Cormorant Garamond","EB Garamond",Georgia,serif;--sans:Inter,system-ui,-apple-system,sans-serif;--shadow:0 8px 28px rgba(0,0,0,.45)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#1d1510 0,var(--bg) 60%) fixed,var(--bg);color:var(--ink);font:15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+main{max-width:1120px;margin:0 auto;padding:48px 24px 96px}
+header.hero{text-align:center;margin-bottom:32px}
+h1{font:600 clamp(2.4rem,5vw,3.6rem)/1.05 var(--serif);letter-spacing:.04em;margin:0;color:var(--ink)}
+h1 span{color:var(--gold)}
+.orn{display:flex;align-items:center;justify-content:center;gap:14px;margin:16px auto;color:var(--bronze);font-size:.7rem;letter-spacing:.4em}
+.orn:before,.orn:after{content:"";height:1px;width:80px;background:linear-gradient(90deg,transparent,var(--bronze))}.orn:after{transform:scaleX(-1)}
+.note{color:var(--mute);font-size:.85rem}.lede{color:var(--ink2);max-width:680px;margin:0 auto;font-size:.9rem}.lede b{color:var(--gold);font-weight:500}
+h2{font:500 1.9rem/1.2 var(--serif);color:var(--ink);margin:56px 0 18px;display:flex;align-items:baseline;gap:14px;letter-spacing:.02em}
+h2:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+h2 .note{font:400 .8rem var(--sans);order:3;white-space:nowrap}
+h3{font:500 1.4rem var(--serif);color:var(--gold);margin:28px 0 10px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+label{display:flex;flex-direction:column;gap:6px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+input,select,button{font:400 .95rem var(--sans);padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--bg2);color:var(--ink);transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,169,107,.15)}
+button{background:linear-gradient(180deg,#d2b377,var(--bronze));color:#1a1108;font-weight:600;border:0;cursor:pointer;align-self:end;letter-spacing:.04em}
+button:hover{filter:brightness(1.08)}
+input[type=range]{padding:0;accent-color:var(--gold)}
+#err{color:var(--neg);margin-top:12px}
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pillar{text-align:center;padding:20px 14px 18px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
+.pillar:hover{transform:translateY(-2px);border-color:var(--bronze)}
+.pillar.dm{border-color:var(--gold);background:linear-gradient(180deg,#2a2013,#1c150e);box-shadow:0 0 0 1px rgba(200,169,107,.25),0 10px 36px rgba(200,169,107,.12)}
+.plabel{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.pillar.dm .plabel{color:var(--gold)}
+.gz{margin:10px 0 4px;font:600 2.1rem/1.1 var(--serif)}.pillar.dm .gz{font-size:2.5rem}
+.gz .stem{color:var(--gold)}.gz .branch{color:var(--ink)}
+.tg{font-size:.82rem;color:var(--ink2)}
+.stage{display:inline-block;margin-top:8px;font-size:.7rem;padding:2px 10px;border-radius:99px;border:1px solid var(--line);color:var(--ink2)}
+.hid{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:4px;font-size:.78rem}
+.hid .hl-t{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.hid span{color:var(--pos)}.hid small{color:var(--mute)}
+.dmtag{display:inline-block;font-size:.66rem;letter-spacing:.14em;color:#1a1108;background:var(--gold);border-radius:99px;padding:1px 10px;margin-top:2px;font-weight:600}
+/* summary */
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px}
+.stat{padding:14px 16px;border:1px solid var(--line2);border-radius:12px;background:var(--panel)}
+.stat .k{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.stat .v{font:600 1.35rem var(--serif);color:var(--ink);margin-top:2px}
+.stat .v.g{color:var(--gold)}
+.luck{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;padding:4px 12px;border:1px solid var(--line);border-radius:99px;background:var(--bg2);color:var(--ink2)}
+.chip b{font:600 1rem var(--serif);color:var(--gold)}
+.chip.pos{color:var(--pos);border-color:rgba(110,143,122,.4)}.chip.neg{color:var(--neg);border-color:rgba(165,106,95,.4)}
+/* tuvi */
+#grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pal{position:relative;min-height:158px;padding:12px 13px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:linear-gradient(180deg,var(--panel2),var(--panel));transition:border-color .18s,box-shadow .18s,transform .18s,background .18s}
+.pal:hover{border-color:var(--bronze);transform:translateY(-1px)}
+.pal.hl{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 26px rgba(200,169,107,.28);background:linear-gradient(180deg,#2c2214,#1d160e)}
+.pal.rel{border-color:rgba(200,169,107,.55);background:linear-gradient(180deg,#241b10,#1a140f);box-shadow:inset 0 0 0 1px rgba(200,169,107,.18)}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.pname{font:600 1.15rem/1.1 var(--serif);color:var(--gold);letter-spacing:.02em}
+.pgz{font-size:.7rem;color:var(--mute);text-align:right;line-height:1.3}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin:7px 0 4px}
+.tag{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:1px 7px;border-radius:99px;border:1px solid var(--bronze);color:var(--bronze)}
+.tag.than{background:rgba(200,169,107,.14);color:var(--gold);border-color:var(--gold)}
+.majs{display:flex;flex-wrap:wrap;gap:3px 10px;margin:6px 0}
+.maj{font:600 1.08rem/1.25 var(--serif);color:var(--ink)}
+.vcd{font-size:.78rem;color:var(--mute);font-style:italic}
+.mins{display:flex;flex-wrap:wrap;gap:1px 8px;font-size:.72rem;line-height:1.5}
+.mins span{color:var(--ink2);opacity:.8}.s-pos{color:var(--pos)!important;opacity:1!important}.s-neg{color:var(--neg)!important;opacity:1!important}
+.maj.s-pos{color:#9fc0ab!important}.maj.s-neg{color:#c98a7e!important}
+.center{grid-column:2/4;grid-row:2/4;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:8px;text-align:center;border:1px solid var(--bronze);border-radius:12px;background:radial-gradient(circle at 50% 0,#2a2013,var(--panel))}
+.center .gzy{font:600 2.2rem var(--serif);color:var(--gold)}
+.center .cuc{font-size:.95rem;color:var(--ink)}.center .row{font-size:.82rem;color:var(--ink2)}
+.center .chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:.75rem;color:var(--mute)}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+details{margin:8px 0;border:1px solid var(--line2);border-radius:10px;background:var(--panel);padding:10px 14px}
+summary{cursor:pointer;color:var(--ink2);font-size:.9rem}summary:hover{color:var(--gold)}
+details[open]{border-color:var(--line)}details>div,details ol{font-size:.85rem;color:var(--ink2)}
+.bad{color:var(--neg)}pre{white-space:pre-wrap;font:inherit;margin:0;color:var(--ink2)}
+#trace{font:.75rem/1.5 ui-monospace,Menlo,monospace;color:var(--mute);max-height:420px;overflow:auto}
+#yout p{color:var(--ink2)}#yout b{color:var(--gold);font-weight:500}
+@media(max-width:860px){.pillars{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){main{padding:32px 14px 64px}#grid{grid-template-columns:repeat(2,1fr)}.center{grid-column:1/3;grid-row:auto}}
 </style></head><body><main>
-<h1>Tử Vi · Bát Tự</h1>
-<p class="note">Bộ máy tính toán và suy luận có thể kiểm chứng, không dùng AI. Đây là diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay bằng chứng khoa học. Toàn bộ quy tắc luận giải hiện là <b>bản nháp chưa xác minh nguồn</b>.</p>
+<header class="hero"><h1>Tử Vi <span>·</span> Bát Tự</h1><div class="orn">命 · 理</div><p class="lede">Bộ máy tính toán và suy luận có thể kiểm chứng, không dùng AI. Đây là diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay bằng chứng khoa học. Toàn bộ quy tắc luận giải hiện là <b>bản nháp chưa xác minh nguồn</b>.</p></header>
 <form id="f" class="card">
 <label>Năm<input name="year" type="number" value="1990"></label><label>Tháng<input name="month" type="number" value="5"></label>
 <label>Ngày<input name="day" type="number" value="17"></label><label>Giờ<input name="hour" type="number" value="10"></label>
@@ -37,7 +102,7 @@ details{margin:.4em 0}summary{cursor:pointer}.bad{color:var(--bad)}pre{white-spa
 <section id="out" hidden>
 <h2>Bát Tự</h2><div id="bazi"></div>
 <h2>Tử Vi <span class="note">(nhấn vào cung để xem tam phương tứ chính)</span></h2><div id="tuvi"></div>
-<h2>Vận hạn theo năm</h2><div class="card"><label>Năm: <b id="yv"></b><input id="yr" type="range" style="width:100%"></label><div id="yout"></div></div>
+<h2>Vận hạn theo năm</h2><div class="card"><label>Năm: <b id="yv" style="color:var(--gold);font:600 1.2rem var(--serif)"></b><input id="yr" type="range" style="width:100%"></label><div id="yout"></div></div>
 <h2>Khám phá suy luận</h2><div id="reason"></div>
 <h2>Vết tính toán</h2><details><summary>CalculationTrace</summary><pre id="trace"></pre></details>
 </section></main>
@@ -54,16 +119,23 @@ $('#f').onsubmit=async e=>{e.preventDefault();$('#err').textContent='';req=readF
  $('#trace').textContent=JSON.stringify({normalization:c.normalization_trace.steps,bazi:c.bazi.trace.steps,tuvi:c.tuvi.trace.steps},null,1);
  const y=$('#yr');y.min=req.year;y.max=req.year+100;y.value=req.year+30;y.oninput=()=>year(+y.value);year(+y.value)}
  catch(x){$('#err').textContent='Lỗi: '+x.message}};
+const POS=new Set(['Tả Phụ','Hữu Bật','Văn Xương','Văn Khúc','Thiên Khôi','Thiên Việt','Lộc Tồn','Thiên Quan','Thiên Phúc','Thiên Đức','Nguyệt Đức','Long Trì','Phượng Các','Tam Thai','Bát Tọa','Bát Tòa','Ân Quang','Thiên Quý','Giải Thần','Thiên Giải','Địa Giải','Thiên Y','Hồng Loan','Thiên Hỷ','Hóa Lộc','Hóa Quyền','Hóa Khoa','Thanh Long','Hoa Cái','Quốc Ấn','Đường Phù','Phúc Đức','Thiên Tài','Thiên Thọ','Phong Cáo','Thái Phụ']);
+const NEG=new Set(['Kình Dương','Đà La','Hỏa Tinh','Linh Tinh','Địa Không','Địa Kiếp','Hóa Kỵ','Thiên Hình','Thiên Riêu','Đại Hao','Tiểu Hao','Kiếp Sát','Thiên Không','Cô Thần','Quả Tú','Bệnh Phù','Tang Môn','Bạch Hổ','Điếu Khách','Thiên Khốc','Thiên Hư','Phi Liêm','Quan Phù','Tử Phù','Phục Binh','Quan Phủ','Thiên Thương','Thiên Sứ','Lưu Hà']);
+const cls=s=>POS.has(s)?' s-pos':NEG.has(s)?' s-neg':'';
 function drawBazi(b){const L={year:'Năm',month:'Tháng',day:'Ngày',hour:'Giờ'};
- let h='<div class="pillars">'+Object.entries(b.pillars).map(([k,p])=>`<div class="card"><div class="note">${L[k]}</div><b>${p.name}</b><div class="note">${p.stem_ten_god||'Nhật Chủ'} · ${p.stage_vs_day_master}</div><div class="sm">Tàng: ${p.hidden.map(x=>x.name+' ('+x.ten_god+')').join(', ')}</div></div>`).join('')+'</div>';
- h+=`<p>Nhật Chủ: <b>${b.day_master_element}</b>. Đại vận ${b.luck_direction}, khởi vận khoảng ${b.luck_start.years} năm ${b.luck_start.months} tháng. Đại vận: ${b.luck_pillars.map(l=>`${l.name} (${Math.round(l.start_age)}t)`).join(' → ')}</p>`;
- const rel=Object.entries(b.relations).filter(([k,v])=>v.length);h+='<details><summary>Quan hệ Can Chi (chỉ là dữ kiện, chưa xét hóa)</summary>'+(rel.length?rel.map(([k,v])=>`<div><b>${k}</b>: ${esc(JSON.stringify(v))}</div>`).join(''):'Không có')+'</details>';$('#bazi').innerHTML=h}
+ const pil=Object.entries(b.pillars).map(([k,p])=>{const [st,...br]=p.name.split(' ');const dm=k==='day';
+  return `<div class="pillar${dm?' dm':''}"><div class="plabel">${L[k]}</div><div class="gz"><span class="stem">${esc(st)}</span> <span class="branch">${esc(br.join(' '))}</span></div>${dm?'<div class="dmtag">NHẬT CHỦ</div>':`<div class="tg">${esc(p.stem_ten_god||'')}</div>`}<span class="stage">${esc(p.stage_vs_day_master)}</span><div class="hid"><div class="hl-t">Tàng can</div>${p.hidden.map(x=>`<div><span>${esc(x.name)}</span> <small>${esc(x.ten_god)}</small></div>`).join('')}</div></div>`}).join('');
+ let h='<div class="pillars">'+pil+'</div>';
+ h+=`<div class="summary"><div class="stat"><div class="k">Nhật Chủ</div><div class="v g">${esc(b.day_master_element)}</div></div><div class="stat"><div class="k">Đại vận</div><div class="v">${esc(b.luck_direction)}</div></div><div class="stat"><div class="k">Khởi vận</div><div class="v">${b.luck_start.years} năm ${b.luck_start.months} tháng</div></div></div>`;
+ h+='<div class="luck">'+b.luck_pillars.map(l=>`<span class="chip"><b>${esc(l.name)}</b>${Math.round(l.start_age)} tuổi</span>`).join('')+'</div>';
+ const rel=Object.entries(b.relations).filter(([k,v])=>v.length);h+='<details><summary>Quan hệ Can Chi (chỉ là dữ kiện, chưa xét hóa)</summary>'+(rel.length?rel.map(([k,v])=>`<div><b>${esc(k)}</b>: ${esc(JSON.stringify(v))}</div>`).join(''):'Không có')+'</details>';$('#bazi').innerHTML=h}
 const ORDER=[5,6,7,8,4,null,null,9,3,null,null,10,2,1,0,11];
 function drawTuvi(t){const by=Object.fromEntries(t.palaces.map(p=>[p.branch_index,p]));
- const cell=i=>{const p=by[i];const maj=p.major_stars.map(s=>`<span class="maj">${s}</span>`).join(', ');const min=p.stars.filter(s=>!p.major_stars.includes(s)).join(', ');
- return `<div class="pal" data-i="${i}"><b>${p.name}</b> <span class="note">${p.stem} ${p.branch}${p.is_than?' · Thân':''}${p.tuan?' · Tuần':''}${p.triet?' · Triệt':''}</span><div>${maj||'<span class="note">vô chính diệu</span>'}</div><div class="sm">${min}</div></div>`};
- let h='<div id="grid">';let c=0;ORDER.forEach(i=>{if(i===null){if(c++===0)h+=`<div class="center card"><b>${t.year_gz}</b> · ${t.cuc.name}<br>Bản mệnh ${t.menh_nap_am}; ${t.menh_cuc_relation}<br>${t.yin_yang_gender}, đại hạn ${t.dai_han_direction}<br>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap?' (nhuận)':''}<div class="note">Chưa hỗ trợ: ${t.unsupported.join('; ')}</div></div>`}else h+=cell(i)});
- $('#tuvi').innerHTML=h+'</div><p class="note">Trường phái: '+t.school.schoolId+' — trạng thái: <b>'+t.school.review_status+'</b></p>';
+ const cell=i=>{const p=by[i];const maj=p.major_stars.map(s=>`<span class="maj${cls(s)}">${esc(s)}</span>`).join('');const min=p.stars.filter(s=>!p.major_stars.includes(s)).map(s=>`<span class="${cls(s).trim()}">${esc(s)}</span>`).join('');
+ const tags=(p.is_than?'<span class="tag than">Thân</span>':'')+(p.tuan?'<span class="tag">Tuần</span>':'')+(p.triet?'<span class="tag">Triệt</span>':'');
+ return `<div class="pal" data-i="${i}"><div class="ph"><div class="pname">${esc(p.name)}</div><div class="pgz">${esc(p.stem)}<br>${esc(p.branch)}</div></div>${tags?`<div class="tags">${tags}</div>`:''}<div class="majs">${maj||'<span class="vcd">vô chính diệu</span>'}</div><div class="mins">${min}</div></div>`};
+ let h='<div id="grid">';let c=0;ORDER.forEach(i=>{if(i===null){if(c++===0)h+=`<div class="center"><div class="note">LÁ SỐ</div><div class="gzy">${esc(t.year_gz)}</div><div class="cuc">${esc(t.cuc.name)}</div><div class="chips"><span class="chip">Bản mệnh ${esc(t.menh_nap_am)}</span><span class="chip">${esc(t.menh_cuc_relation)}</span></div><div class="row">${esc(t.yin_yang_gender)} · đại hạn ${esc(t.dai_han_direction)}</div><div class="row">Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap?' (nhuận)':''}</div><div class="note">Chưa hỗ trợ: ${esc(t.unsupported.join('; '))}</div></div>`}else h+=cell(i)});
+ $('#tuvi').innerHTML=h+'</div><div class="legend"><span><i style="background:var(--ink)"></i>Chính tinh</span><span><i style="background:var(--pos)"></i>Cát tinh</span><span><i style="background:var(--neg)"></i>Sát/hung tinh</span><span><i style="background:var(--mute)"></i>Phụ tinh</span></div><p class="note">Trường phái: '+esc(t.school.schoolId)+' — trạng thái: <b>'+esc(t.school.review_status)+'</b></p>';
  document.querySelectorAll('.pal').forEach(e=>e.onclick=()=>{const i=+e.dataset.i;document.querySelectorAll('.pal').forEach(x=>x.classList.remove('hl','rel'));
   e.classList.add('hl');[(i+4)%12,(i+8)%12,(i+6)%12].forEach(j=>document.querySelector(`.pal[data-i="${j}"]`).classList.add('rel'))})}
 async function year(y){$('#yv').textContent=y;try{const r=await post('/api/year',{...req,to_year:y});const b=r.bazi,t=r.tuvi;

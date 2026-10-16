@@ -19,13 +19,34 @@ from .trace import Trace
 LeapRule = Literal["split_15", "same_month", "next_month"]
 
 SCHOOL_PACK = {
-    "schoolId": "vn_tan_bien_draft", "version": "0.1.0",
-    "leap_month_rule": "split_15 (day<=15 -> same month, >15 -> next month)",
-    "tu_hoa_table": "VN (Canh: Dương Vũ Âm Đồng)",
-    "khoi_viet": "verse 甲戊庚牛羊 / 乙己鼠猴鄉 / 丙丁豬雞位 / 壬癸兔蛇藏 / 六辛逢馬虎",
-    "huoling_direction": "by yin-yang/gender, start by year-branch triad",
-    "review_status": "unverified",
-    "reviewed_by_tests": ["nap_am cross-check", "tuvi_phu_mirror", "known worked examples (see tests)"],
+    "schoolId": "vn_dlhc_draft", "version": "0.2.0",
+    "primary_sources": ["SRC_THUC_HANH", "SRC_KHAO_LUAN"],
+    "leap_month_rule": "split_15 (day<=15 -> same month, >15 -> next month) — convention, not from the sources",
+    "review_status": "partially_verified",
+    # Per-table status. 'verified' = checked against the cited page of a cited book (see data/sources.json).
+    "rule_review": {
+        "menh_than": ["verified", "SRC_THUC_HANH p.12 (worked example Kỷ Mùi, tháng 5, giờ Dần -> Mệnh Thìn)"],
+        "cuc_table": ["verified", "SRC_THUC_HANH p.12 (full 10x12 table, golden-tested)"],
+        "tuvi_position": ["verified", "SRC_THUC_HANH pp.14,17 (worked examples)"],
+        "tuvi_thienphu_groups": ["verified", "SRC_THUC_HANH pp.14,17"],
+        "ta_huu_xuong_khuc": ["verified", "SRC_THUC_HANH p.19"],
+        "khoi_viet": ["verified", "SRC_THUC_HANH p.19 (Canh Tân: Ngọ Dần)"],
+        "loc_ton_kinh_da": ["verified", "SRC_THUC_HANH pp.21,24"],
+        "thien_ma": ["verified", "SRC_THUC_HANH p.21 (verse; its 'cước' text has typos, verse used)"],
+        "bac_si_ring": ["verified", "SRC_THUC_HANH p.22"],
+        "truong_sinh": ["verified", "SRC_THUC_HANH p.22"],
+        "thai_tue_ring": ["verified", "SRC_THUC_HANH pp.22-23"],
+        "hong_loan_thien_hy": ["verified", "SRC_THUC_HANH p.23"],
+        "dao_hoa": ["verified", "SRC_THUC_HANH p.23"],
+        "thien_khong": ["verified", "SRC_THUC_HANH p.25"],
+        "dia_kiep_khong": ["verified", "SRC_THUC_HANH pp.24-25"],
+        "hoa_linh": ["verified", "SRC_THUC_HANH p.25 (Hỏa thuận / Linh nghịch for dương nam, âm nữ)"],
+        "triet": ["verified", "SRC_THUC_HANH p.20"],
+        "tuan": ["verified", "SRC_THUC_HANH p.20"],
+        "tu_hoa": ["verified_with_dispute", "SRC_THUC_HANH p.21 + SRC_KHAO_LUAN p.36 agree on 8/10 stems incl. Canh (Khoa Đồng, Kỵ Âm); "
+                   "Tân Lộc: Thực Hành=Cự Môn vs Khảo Luận=Thiên Cơ (Cự Môn used); Nhâm Khoa: Khảo Luận=Tả Phụ, Thực Hành prints 'Phủ' (Tả Phụ used)"],
+        "dai_han": ["unverified", "direction by yin-yang is standard; first age = cục not yet checked in a cited page"],
+    },
 }
 
 PALACES = ["Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch", "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách",
@@ -35,8 +56,8 @@ CUC_NAME = {2: "Thủy nhị cục", 3: "Mộc tam cục", 4: "Kim tứ cục", 
 CUC_ELEMENT = {v: k for k, v in CUC_BY_ELEMENT.items()}
 
 LOC_TON = {0: 2, 1: 3, 2: 5, 3: 6, 4: 5, 5: 6, 6: 8, 7: 9, 8: 11, 9: 0}
-KHOI_VIET = {0: (1, 7), 4: (1, 7), 6: (1, 7), 1: (0, 8), 5: (0, 8), 2: (11, 9), 3: (11, 9),
-             7: (6, 2), 8: (3, 5), 9: (3, 5)}  # stem -> (Khôi, Việt)
+KHOI_VIET = {0: (1, 7), 4: (1, 7), 1: (0, 8), 5: (0, 8), 2: (11, 9), 3: (11, 9),
+             6: (6, 2), 7: (6, 2), 8: (3, 5), 9: (3, 5)}  # stem -> (Khôi, Việt)
 TU_HOA = {  # stem -> (Lộc, Quyền, Khoa, Kỵ)
     0: ("Liêm Trinh", "Phá Quân", "Vũ Khúc", "Thái Dương"),
     1: ("Thiên Cơ", "Thiên Lương", "Tử Vi", "Thái Âm"),
@@ -44,7 +65,7 @@ TU_HOA = {  # stem -> (Lộc, Quyền, Khoa, Kỵ)
     3: ("Thái Âm", "Thiên Đồng", "Thiên Cơ", "Cự Môn"),
     4: ("Tham Lang", "Thái Âm", "Hữu Bật", "Thiên Cơ"),
     5: ("Vũ Khúc", "Tham Lang", "Thiên Lương", "Văn Khúc"),
-    6: ("Thái Dương", "Vũ Khúc", "Thái Âm", "Thiên Đồng"),
+    6: ("Thái Dương", "Vũ Khúc", "Thiên Đồng", "Thái Âm"),
     7: ("Cự Môn", "Thái Dương", "Văn Khúc", "Văn Xương"),
     8: ("Thiên Lương", "Tử Vi", "Tả Phụ", "Vũ Khúc"),
     9: ("Phá Quân", "Cự Môn", "Thái Âm", "Tham Lang"),
@@ -210,10 +231,10 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "split_15", n_dai_han:
     grp = TRIAD_GROUP[yb]
     put("Thiên Mã", {0: 8, 1: 2, 2: 11, 3: 5}[grp], "phụ tinh", "thien_ma_by_year_branch")
     put("Hỏa Tinh", HOA_START[grp] + sgn * hb, "sát tinh", "hoa_tinh_triad_hour")
-    put("Linh Tinh", LINH_START[grp] + sgn * hb, "sát tinh", "linh_tinh_triad_hour")
+    put("Linh Tinh", LINH_START[grp] - sgn * hb, "sát tinh", "linh_tinh_triad_hour")
     put("Địa Kiếp", 11 + hb, "sát tinh", "dia_kiep_by_hour")
     put("Địa Không", 11 - hb, "sát tinh", "dia_khong_by_hour")
-    put("Đào Hoa", {0: 9, 1: 6, 2: 3, 3: 0}[grp], "phụ tinh", "dao_hoa_by_year_branch")
+    put("Đào Hoa", {0: 3, 1: 9, 2: 6, 3: 0}[grp], "phụ tinh", "dao_hoa_by_year_branch")
     hl = _m(3 - yb)
     put("Hồng Loan", hl, "phụ tinh", "hong_loan_by_year_branch")
     put("Thiên Hỷ", hl + 6, "phụ tinh", "thien_hy_opposite_hong_loan")
