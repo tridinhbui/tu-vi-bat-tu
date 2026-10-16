@@ -1,6 +1,6 @@
 // InterpretationSection chapters: calculations and traditional readings kept visibly separate.
 import { $, $$, esc, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip } from './util.js';
-import { acc, notice, reasoningPanel, timeline, yearExplorer } from './ui.js';
+import { acc, notice, reasoningPanel, timeline, yearExplorer, findingCard } from './ui.js';
 
 const pad = n => String(n).padStart(2, '0');
 
@@ -26,14 +26,19 @@ export function renderReport(host, chart, ctx) {
   };
   const palaceP = name => { const p = tv.byName[name]; return `<li><span class="li-h">${ref(name)}<span class="muted">${esc(p.stem)} ${esc(p.branch)}${p.tuan ? ' · Tuần' : ''}${p.triet ? ' · Triệt' : ''}</span></span><span>${stars(p)}.</span></li>`; };
   const palaceList = names => `<ul class="plist">${names.map(palaceP).join('')}</ul>`;
-  const fOfPalaces = names => tvF.filter(f => names.includes(palaceOfSubject(f.subject)));
-  const godCount = ks => Object.entries(ks.reduce((o, k) => { const g = tenGodGroup(b.pillars[k].stem_ten_god); if (g) o[g] = (o[g] || 0) + 1; return o; }, {})).map(([g, n]) => `${g} ×${n}`).join(', ') || 'không có';
+    const godCount = ks => Object.entries(ks.reduce((o, k) => { const g = tenGodGroup(b.pillars[k].stem_ten_god); if (g) o[g] = (o[g] || 0) + 1; return o; }, {})).map(([g, n]) => `${g} ×${n}`).join(', ') || 'không có';
   const stemGods = ['year', 'month', 'hour'];
   const allHidden = Object.values(b.pillars).flatMap(p => p.hidden.map(h => tenGodGroup(h.ten_god)));
   const hid = g => allHidden.filter(x => x === g).length;
   const tuHoa = Object.entries(t.tu_hoa).map(([k, v]) => `<li><b>${esc(k)}</b> tại ${esc(v.star)} <span class="muted">· cung ${esc(t.palaces.find(p => p.branch_index === v.branch)?.name || '')}</span></li>`).join('');
 
-  const trad = (fs, extraNote) => `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${fs.length ? fs.map(f => `<div class="finding-card"><h5>${esc(claimLabel(f.claim))} <span class="muted">· cung ${ref(palaceOfSubject(f.subject))}</span></h5><p>Quy tắc nháp ghi nhận dấu hiệu này theo hệ biểu tượng truyền thống. Đây không phải dự báo hay chẩn đoán.</p>${acc('Vì sao quy tắc này khớp?', 'chuỗi suy luận, quy tắc đối lập, nguồn', reasoningPanel(f))}</div>`).join('') : notice('Chưa có quy tắc đã xác minh cho phần này', extraNote || 'Bộ quy tắc hiện hành chưa phủ tới nội dung này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</div>`;
+  const allF = [...tvF.map(f => ({ ...f, sys: 'tu_vi' })), ...batF.map(f => ({ ...f, sys: 'bat_tu' }))];
+  const PAL_CH = { 'Mệnh': 'ban-menh', 'Phúc Đức': 'tinh-cach', 'Quan Lộc': 'cong-danh', 'Thiên Di': 'cong-danh', 'Tài Bạch': 'tai-bach', 'Điền Trạch': 'tai-bach', 'Phu Thê': 'quan-he', 'Tử Tức': 'quan-he', 'Huynh Đệ': 'quan-he', 'Phụ Mẫu': 'quan-he', 'Nô Bộc': 'quan-he' };
+  const chOf = f => f.sys === 'bat_tu' ? (/^bt_(ri_gan|thieu_hanh)/.test(f.claim) ? 'tinh-cach' : 'cach-cuc')
+    : /^cach_|thanh_cach/.test(f.claim) ? 'cach-cuc' : (PAL_CH[palaceOfSubject(f.subject)] || 'chuyen-sau');
+  const fsFor = id => allF.filter(f => chOf(f) === id);
+  const where = f => { const pn = palaceOfSubject(f.subject); return pn ? `cung ${ref(pn)}` : 'toàn lá số'; };
+  const trad = (fs, extraNote) => `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${fs.length ? fs.map(f => findingCard(f, where(f))).join('') + '<p class="muted small">Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán.</p>' : notice('Chưa có quy tắc nào được kích hoạt cho phần này', extraNote || 'Bộ quy tắc hiện hành chưa phủ tới nội dung này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</div>`;
   const calc = html => `<div class="ch-calc"><p class="eyebrow">Dữ kiện tính toán</p>${html}</div>`;
 
   const chapters = [
@@ -57,9 +62,9 @@ export function renderReport(host, chart, ctx) {
     { id: 'dai-van', title: 'Đại Vận', lead: `Đại vận ${esc(b.luck_direction)}, khởi vận khoảng ${b.luck_start.years} năm ${b.luck_start.months} tháng; đại hạn Tử Vi chạy ${esc(t.dai_han_direction)}.`,
       calc: calc(`<h5>Đại hạn Tử Vi</h5>${tv.timelineHtml}<h5>Lưu niên</h5><div id="rp-year"></div>`), trad: notice('Không có diễn giải truyền thống cho phần này', 'Hệ thống chỉ trình bày cấu trúc thời gian; việc luận từng giai đoạn cần quy tắc đã xác minh.') },
     { id: 'cach-cuc', title: 'Cách Cục', lead: 'Các hình thái đặc biệt mà bộ quy tắc hiện hành có thể nhận ra.',
-      calc: calc(`<p>Bát Tự: chưa có quy tắc cách cục đã xác minh. Tử Vi: ${tvF.length ? `có ${tvF.length} cung kích hoạt quy tắc nháp.` : 'không có quy tắc nào được kích hoạt.'}</p>`),
-      trad: `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${tvF.length ? `<button type="button" class="btn btn-ghost sm" id="ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div id="ig-box" hidden>${inferenceGraph(tvF[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên: dữ kiện và nguồn dẫn tới quy tắc, quy tắc dẫn tới nhận định.</p></div>` : ''}${tvF.length ? tvF.map(f => `<div class="finding-card"><h5>${esc(claimLabel(f.claim))} <span class="muted">· cung ${ref(palaceOfSubject(f.subject))}</span></h5>${acc('Vì sao quy tắc này khớp?', '', reasoningPanel(f))}</div>`).join('') : notice('Không có cách cục nào được nhận ra', '')}</div>` },
-    { id: 'chuyen-sau', noTrad: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh tự động từ các nhận định, kèm quy tắc chờ dữ kiện và vết tính toán.',
+      calc: calc(`<p>Bát Tự: chưa có quy tắc cách cục đã xác minh. Các nhận định về cách cục bên dưới: ${fsFor('cach-cuc').length || 'không có'}.</p>`),
+      trad: (() => { const fs = fsFor('cach-cuc'); return `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${fs.length ? `<button type="button" class="btn btn-ghost btn-sm" id="ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div id="ig-box" hidden>${inferenceGraph(fs[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên: dữ kiện và nguồn dẫn tới quy tắc, quy tắc dẫn tới nhận định.</p></div>${fs.map(f => findingCard(f, where(f))).join('')}` : notice('Không có cách cục nào được nhận ra', '')}</div>`; })() },
+    { id: 'chuyen-sau', leftover: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh tự động từ các nhận định, kèm quy tắc chờ dữ kiện và vết tính toán.',
       calc: `<div class="ch-calc"><p class="eyebrow">Dành cho người muốn kiểm chứng</p>
         ${['tu_vi', 'bat_tu'].map(s => { const d = reason.systems[s]; return acc(s === 'tu_vi' ? 'Văn bản luận giải — Tử Vi' : 'Văn bản luận giải — Bát Tự', `${d.findings.length} nhận định · ${d.pending.length} quy tắc chờ dữ kiện`, `<pre class="prose-pre">${esc(d.text)}</pre>${d.pending.length ? `<h5>Quy tắc chưa đủ dữ kiện</h5><ul>${d.pending.map(p => `<li>${esc(p.rule)} <span class="muted">@${esc(p.subject)} · thiếu ${esc(p.missing_facts.join(', '))}</span></li>`).join('')}</ul>` : ''}`); }).join('')}
         ${acc('Vết tính toán (CalculationTrace)', 'từng bước chuẩn hóa và lập lá số', `<pre id="trace" class="trace">${esc(JSON.stringify({ normalization: ctx.chartRaw.normalization_trace.steps, bazi: b.trace.steps, tuvi: t.trace.steps }, null, 1))}</pre>`)}
@@ -69,8 +74,8 @@ export function renderReport(host, chart, ctx) {
   host.innerHTML = `<div class="rp-layout">
     <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li><a href="#ch-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
     <div class="rp-body">${chapters.map((c, i) => {
-      const fs = c.refs ? fOfPalaces(c.refs) : [];
-      return `<article class="chapter" id="ch-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${c.calc || ''}${c.noTrad ? '' : c.trad && typeof c.trad === 'string' && c.trad.startsWith('<div class="ch-trad">') ? c.trad : c.trad ? `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${c.trad}</div>` : trad(fs)}</article>`;
+      const fs = fsFor(c.id);
+      return `<article class="chapter" id="ch-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${c.calc || ''}${c.leftover ? (fs.length ? trad(fs) : '') : c.trad && typeof c.trad === 'string' && c.trad.startsWith('<div class="ch-trad">') ? c.trad : c.trad ? `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${c.trad}</div>` : trad(fs)}</article>`;
     }).join('')}</div></div>`;
 
   yearExplorer($('#rp-year', host), ctx.req, b);

@@ -1,5 +1,5 @@
 // Small shared components: Accordion, Notice, ReasoningPanel, SourceReference, FortuneTimeline, YearExplorer.
-import { esc, $, $$, post, SOURCES, elChip, STEMS, BRANCHES, claimLabel } from './util.js';
+import { esc, $, $$, post, SOURCES, elChip, STEMS, BRANCHES, claimLabel, claimPhrase } from './util.js';
 
 export const acc = (title, sub, body, open = false, id = '') =>
   `<details class="acc"${open ? ' open' : ''}${id ? ` id="${id}"` : ''}><summary><span class="acc-t">${title}</span>${sub ? `<span class="acc-s">${sub}</span>` : ''}<svg class="acc-c" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><div class="acc-b">${body}</div></details>`;
@@ -11,6 +11,10 @@ export function sourceRef(id, verified = false) {
   return `<span class="src" title="${verified ? 'Đã xác minh nguồn' : 'Nguồn chưa được xác minh trang/mục cụ thể'}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1.5h6.5a1 1 0 011 1v8H3a1 1 0 01-1-1z" fill="none" stroke="currentColor" stroke-width="1"/></svg>${esc(SOURCES[id] || id)}<em>${verified ? 'đã xác minh' : 'chưa xác minh'}</em></span>`;
 }
 
+export function findingCard(f, refHtml = '') {
+  const ok = f.basis === 'verified';
+  return `<div class="finding-card ${ok ? 'ok' : 'draft'}"><p class="eyebrow">${ok ? 'Đã đối chiếu với sách' : 'Quy tắc nháp, chưa xác minh'}${refHtml ? ' · ' + refHtml : ''}</p><p class="f-claim">Có thể nhận thấy một dấu hiệu liên quan đến ${esc(claimPhrase(f.claim))}.</p>${acc('Vì sao quy tắc này khớp?', 'chuỗi suy luận, quy tắc đối lập, nguồn', reasoningPanel(f))}</div>`;
+}
 const KIND = { finding: 'Nhận định', rule: 'Quy tắc', source: 'Nguồn', fact: 'Dữ kiện' };
 const KIND_ORDER = ['finding', 'rule', 'source', 'fact'];
 /** Renders why a finding fired: the backward chain, opposing rules and the source. */

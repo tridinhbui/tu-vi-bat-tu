@@ -60,12 +60,20 @@ export const PILLAR_LABEL = { year: 'Năm', month: 'Tháng', day: 'Ngày', hour:
 export const SIX_HOUR = ['Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi'];
 export const hourBranch = h => SIX_HOUR[Math.floor(((h + 1) % 24) / 2)];
 
-const CLAIM_LABEL = { cach_sat_pha_tham: 'Cách Sát – Phá – Tham' };
-export const claimLabel = c => CLAIM_LABEL[c] || String(c).replace(/^cach_/, 'Cách ').replace(/_/g, ' ');
-export const SOURCES = {
-  SRC_TVDS_TAN_BIEN: 'Tử Vi Đẩu Số Tân Biên',
-  SRC_ZIPING_ZHENQUAN: 'Tử Bình Chân Thuyên (子平真詮)',
-};
+export const CLAIMS = {};
+export const SOURCES = { SRC_TVDS_TAN_BIEN: 'Tử Vi Đẩu Số Tân Biên', SRC_ZIPING_ZHENQUAN: 'Tử Bình Chân Thuyên (子平真詮)' };
+export const SRC_OK = {};
+const cap = t => t ? t[0].toUpperCase() + t.slice(1) : t;
+/** Vietnamese phrase for a claim id; falls back to a neutral prettified id (never invented prose). */
+export const claimPhrase = c => CLAIMS[c] || String(c).replace(/_/g, ' ');
+export const claimLabel = c => cap(claimPhrase(c));
+export async function loadMeta() {
+  try {
+    const [c, r] = await Promise.all([fetch('/api/claims').then(x => x.json()), fetch('/api/rules').then(x => x.json())]);
+    Object.assign(CLAIMS, c);
+    (r.sources || []).forEach(s => { SOURCES[s.id] = s.title; SRC_OK[s.id] = !!s.verified; });
+  } catch { /* labels degrade gracefully */ }
+}
 export const palaceOfSubject = s => /^palace:/.test(s) ? s.slice(7) : null;
 
 export async function post(u, b) {

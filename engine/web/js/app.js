@@ -1,5 +1,5 @@
 // App shell: navigation, home interactions, BirthChartForm, results orchestration.
-import { $, $$, esc, post, hourBranch, STEMS, BRANCHES } from './util.js';
+import { $, $$, esc, post, hourBranch, STEMS, BRANCHES, loadMeta } from './util.js';
 import { compass, brandMark } from './compass.js';
 import { fiveElements } from './elements.js';
 import { renderBazi } from './bazi.js';
@@ -8,11 +8,13 @@ import { renderReport } from './report.js';
 import { notice } from './ui.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const metaReady = loadMeta();
 let state = null; // { req, chart, reason, tv }
 
 // ---------- brand + hero art ----------
 $$('[data-brand]').forEach(e => e.innerHTML = brandMark(e.dataset.brand === 'lg' ? 44 : 32));
 $('#hero-compass').innerHTML = compass({ animate: !reduce });
+$('#load-compass').innerHTML = compass({ animate: false, detail: 'min' });
 $('#foot-compass').innerHTML = compass({ animate: false, detail: 'min' });
 
 // ---------- navigation ----------
@@ -89,7 +91,7 @@ async function generate(ev) {
   }
   btn.disabled = true; btn.classList.add('busy'); $('#loading').hidden = false;
   try {
-    const [chart, reason] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req)]);
+    const [chart, reason] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), metaReady]);
     state = { req, chart, reason };
     showResults();
   } catch (x) {

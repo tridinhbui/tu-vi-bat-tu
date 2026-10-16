@@ -1,7 +1,7 @@
 // FourPillarsChart + Bát Tự detail accordions.
 import { $, $$, esc, STEMS, BRANCHES, EL, ELEMENTS, elChip, elIcon, PILLAR_LABEL, tenGodGroup, TEN_GOD_GROUPS } from './util.js';
 import { fiveElements } from './elements.js';
-import { acc, notice, timeline, yearExplorer, reasoningPanel, claimLabel } from './ui.js';
+import { acc, notice, timeline, yearExplorer, findingCard } from './ui.js';
 
 const ORDER = ['year', 'month', 'day', 'hour'];
 
@@ -54,7 +54,7 @@ export function renderBazi(host, b, ctx) {
     : '<p class="muted">Không phát hiện quan hệ hợp, xung, hại, phá, hình nào giữa các trụ.</p>';
 
   const bat = ctx.reason?.systems?.bat_tu;
-  const findings = (bat?.findings || []).map(f => `<details class="finding"><summary><b>${esc(claimLabel(f.claim))}</b><span class="muted"> · ${esc(f.subject)}</span></summary>${reasoningPanel(f)}</details>`).join('');
+  const findings = (bat?.findings || []).map(f => findingCard(f, 'toàn lá số')).join('');
 
   host.innerHTML = `
     <div class="bz-top">

@@ -1,13 +1,13 @@
 // TuViChartGrid + TuViPalace + ChartIdentityPanel + palace detail drawer.
 import { $, $$, esc, starKind, TU_HOA_SHORT, claimLabel, BRANCHES, STEMS, palaceOfSubject } from './util.js';
 import { compass } from './compass.js';
-import { acc, notice, timeline, reasoningPanel } from './ui.js';
+import { acc, notice, timeline, reasoningPanel, findingCard } from './ui.js';
 
 // Traditional layout: branch index per grid cell (null = centre block). Tỵ top-left, clockwise.
 const CELLS = [5, 6, 7, 8, 4, null, null, 9, 3, null, null, 10, 2, 1, 0, 11];
 
 const SCOPE = [
-  [/brightness/i, 'Độ sáng của sao (miếu, vượng, đắc, hãm) chưa được hiển thị vì chưa có bảng tra đã xác minh.'],
+  [/brightness/i, 'Độ sáng (miếu, vượng, đắc, bình, hãm) chỉ hiển thị cho chính tinh theo bảng Tử Vi Thực Hành; ô không có nhãn nghĩa là bảng chưa ghi vị trí đó. Phụ tinh chưa có độ sáng.'],
   [/Thiên Hình/, 'Một số phụ tinh như Thiên Hình, Thiên Riêu, Thiên Y chưa được an lên lá số.'],
   [/Nguyệt Đức/, 'Nguyệt Đức, Thiên Đức và một số sao nhỏ khác chưa được an lên lá số.'],
   [/tiểu hạn/i, 'Tiểu hạn chưa được hỗ trợ. Lưu niên và lưu Tứ Hóa xem ở mục Đại Vận & lưu niên.'],
@@ -25,7 +25,8 @@ export function renderTuvi(host, t, ctx) {
   const than = t.palaces.find(p => p.is_than), menh = t.palaces.find(p => p.name === 'Mệnh');
   const findings = (ctx.reason?.systems?.tu_vi?.findings || []);
   const fOf = name => findings.filter(f => palaceOfSubject(f.subject) === name);
-  const starHtml = (s, major) => { const k = starKind(s), h = th[s]; return `<span class="st st-${k}${major ? ' major' : ''}">${esc(s)}${h ? `<sup class="th th-${h === 'Hóa Kỵ' ? 'ky' : 'ok'}" title="${esc(h)}">${TU_HOA_SHORT[h]}</sup>` : ''}</span>`; };
+  const DG = { 'miếu': 'Miếu', 'vượng': 'Vượng', 'đắc': 'Đắc', 'bình': 'Bình', 'hãm': 'Hãm' };
+  const starHtml = (s, major, dg) => { const k = starKind(s), h = th[s]; return `<span class="st st-${k}${major ? ' major' : ''}">${esc(s)}${dg ? `<sup class="dg dg-${dg}" title="Độ sáng: ${esc(dg)}">${DG[dg] || esc(dg)}</sup>` : ''}${h ? `<sup class="th th-${h === 'Hóa Kỵ' ? 'ky' : 'ok'}" title="${esc(h)}">${TU_HOA_SHORT[h]}</sup>` : ''}</span>`; };
 
   const cell = i => {
     const p = by[i], minors = p.stars.filter(s => !p.major_stars.includes(s));
@@ -34,7 +35,7 @@ export function renderTuvi(host, t, ctx) {
     return `<button type="button" class="pal" data-i="${i}" aria-pressed="false" aria-label="Cung ${esc(p.name)}, ${esc(p.stem)} ${esc(p.branch)}. Chính tinh: ${esc(p.major_stars.join(', ') || 'vô chính diệu')}">
       <span class="pal-h"><span class="pal-name">${esc(p.name)}</span><span class="pal-gz"><i lang="zh">${BRANCHES[i].h}</i>${esc(p.stem)} ${esc(p.branch)}</span></span>
       ${p.is_than || p.tuan || p.triet ? `<span class="pal-tags">${p.is_than ? '<span class="tag tag-than">Thân</span>' : ''}${p.tuan ? '<span class="tag">Tuần</span>' : ''}${p.triet ? '<span class="tag">Triệt</span>' : ''}</span>` : ''}
-      <span class="pal-maj">${p.major_stars.length ? p.major_stars.map(s => starHtml(s, true)).join('') : '<span class="vcd">vô chính diệu</span>'}</span>
+      <span class="pal-maj">${p.major_stars.length ? p.major_stars.map(s => starHtml(s, true, p.major_dignity?.[s])).join('') : '<span class="vcd">vô chính diệu</span>'}</span>
       <span class="pal-min">${minors.map(s => starHtml(s, false)).join('')}</span>
       ${d ? `<span class="pal-dh" title="Đại hạn">${d.age_from}<small>–${d.age_to}</small></span>` : ''}
     </button>`;
@@ -64,7 +65,7 @@ export function renderTuvi(host, t, ctx) {
         <div class="tv-scroll" tabindex="0" role="region" aria-label="Lá số Tử Vi, có thể cuộn ngang"><div class="tv-board" id="tv-board">
           <svg class="tv-links" aria-hidden="true"></svg>
           <div id="grid">${CELLS.map((i, k) => i === null ? (k === 5 ? `<div class="center">${center}</div>` : '') : cell(i)).join('')}</div></div></div>
-        <div class="legend"><span><i class="st-neu major">Aa</i>Chính tinh</span><span class="l-pos">Cát tinh</span><span class="l-neg">Sát / hung tinh</span><span class="l-neu">Phụ tinh</span><span><sup class="th th-ok">Lộc</sup>Tứ Hóa</span><span><b class="legend-dh">6–15</b>Đại hạn</span></div>
+        <div class="legend"><span><i class="st-neu major">Aa</i>Chính tinh</span><span class="l-pos">Cát tinh</span><span class="l-neg">Sát / hung tinh</span><span class="l-neu">Phụ tinh</span><span><sup class="th th-ok">Lộc</sup>Tứ Hóa</span><span><sup class="dg dg-vượng">Vượng</sup>Độ sáng</span><span><b class="legend-dh">6–15</b>Đại hạn</span></div>
         <p class="muted small tv-school">Trường phái: ${esc(t.school.schoolId)} · bộ quy tắc ở trạng thái <b>${t.school.review_status === 'partially_verified' ? 'đã xác minh một phần' : esc(t.school.review_status)}</b>.</p>
       </div>
       <aside class="drawer" id="tv-drawer" aria-label="Chi tiết cung" aria-live="polite"></aside>
@@ -82,7 +83,7 @@ export function renderTuvi(host, t, ctx) {
     if (i == null) return;
     const s = t.structure[by[i].branch];
     const rect = board.getBoundingClientRect();
-    const c = b => { const el = $(`.pal[data-i="${BRANCHES.findIndex(x => x.n === b)}"]`, host), r = el.getBoundingClientRect(); return [r.left - rect.left + r.width / 2, r.top - rect.top + r.height / 2]; };
+    const c = b => { const el = $(`.pal[data-i="${BRANCHES.findIndex(x => x.n === b)}"]`, host), r = el.getBoundingClientRect(); return [r.left - rect.left + r.width / 2, r.top - rect.top + 20]; };
     svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
     const me = c(by[i].branch), op = c(s.opposite), t1 = c(s.tam_hop[0]), t2 = c(s.tam_hop[1]);
     const ln = (a, b, cls) => `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" class="${cls}"/>`;
@@ -101,13 +102,13 @@ export function renderTuvi(host, t, ctx) {
       <p class="eyebrow">Cung ${esc(p.stem)} ${esc(p.branch)}${p.is_than ? ' · Thân cư' : ''}</p>
       <h3 class="dr-t">${esc(p.name)}</h3>
       <div class="dr-tags">${p.tuan ? '<span class="tag">Tuần</span>' : ''}${p.triet ? '<span class="tag">Triệt</span>' : ''}${d ? `<span class="tag tag-dh">Đại hạn ${d.age_from}–${d.age_to} tuổi</span>` : ''}</div>
-      <section><h4>Chính tinh</h4><div class="dr-stars">${p.major_stars.length ? p.major_stars.map(x => starHtml(x, true)).join('') : '<span class="vcd">Vô chính diệu — cung không có chính tinh.</span>'}</div></section>
+      <section><h4>Chính tinh</h4><div class="dr-stars">${p.major_stars.length ? p.major_stars.map(x => starHtml(x, true, p.major_dignity?.[x])).join('') : '<span class="vcd">Vô chính diệu — cung không có chính tinh.</span>'}</div></section>
       <section><h4>Phụ tinh</h4>
         ${[['pos', 'Cát tinh'], ['neu', 'Trung tính'], ['neg', 'Sát / hung tinh']].map(([k, l]) => grp(k).length ? `<div class="dr-grp"><span class="k">${l}</span><div class="dr-stars sm">${grp(k).map(x => starHtml(x, false)).join('')}</div></div>` : '').join('') || '<p class="muted">Không có.</p>'}
         ${ths ? `<div class="dr-grp"><span class="k">Tứ Hóa tại cung</span><div class="chips">${ths}</div></div>` : ''}</section>
       <section><h4>Tam phương tứ chính</h4><div class="relps">${rel('Xung chiếu', s.opposite)}${rel('Tam hợp', s.tam_hop[0])}${rel('Tam hợp', s.tam_hop[1])}</div>
         <p class="muted small">Cung giáp: ${s.giap.map(b => `${esc(byBranch[b].name)} (${esc(b)})`).join(' · ')}</p></section>
-      <section><h4>Nhận định liên quan</h4>${fs.length ? fs.map(f => `<div class="dr-find"><p class="eyebrow">Diễn giải truyền thống · quy tắc nháp</p><h5>${esc(claimLabel(f.claim))}</h5><p class="muted">Dấu hiệu này xuất hiện vì các sao Sát – Phá – Tham cùng nằm trong tam phương tứ chính của cung. Đây là diễn giải theo hệ biểu tượng, không phải dự báo.</p>${acc('Vì sao quy tắc này được kích hoạt?', '', reasoningPanel(f))}</div>`).join('') : '<p class="muted">Chưa có quy tắc nào được kích hoạt cho cung này. Điều đó không có nghĩa cung “không có gì”, chỉ là bộ quy tắc hiện hành chưa phủ tới.</p>'}</section>
+      <section><h4>Nhận định liên quan</h4>${fs.length ? fs.map(f => findingCard(f)).join('') + '<p class="muted small">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo.</p>' : '<p class="muted">Chưa có quy tắc nào được kích hoạt cho cung này. Điều đó không có nghĩa cung “không có gì”, chỉ là bộ quy tắc hiện hành chưa phủ tới.</p>'}</section>
     </div>`;
     $('.dr-x', drawer).onclick = () => select(null);
     $$('.relp', drawer).forEach(b => b.onclick = () => select(+b.dataset.i));
