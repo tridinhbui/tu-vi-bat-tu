@@ -88,3 +88,17 @@ def test_star_menh_pack_gender_and_dignity():
     assert ("nam_vu_hien_dat_vo_nghiep", "support") not in fired(v, male)
     v["palace.khi.cat_tp"] = 1
     assert ("nam_vu_hien_dat_vo_nghiep", "support") in fired(v, male)
+
+
+def test_palaces2_pack_scoped_to_palace_and_gender():
+    assert sum(r.id.startswith("TV_TH_P2_") for r in RULES) == 134
+    assert ("hd_tuan_triet_anh_em_it_ly_tan", "limit") in fired(pal("Huynh Đệ", tuan=True) | {"palace.tuan": True})
+    assert ("hd_tuan_triet_anh_em_it_ly_tan", "limit") not in fired(pal("Mệnh") | {"palace.tuan": True})            # scoped to Huynh Đệ
+    assert ("pt_vu_sat_nhieu_lan_hon_phoi", "limit") in fired(pal("Phu Thê", own=["Vũ Khúc", "Thất Sát"]))
+    assert ("tai_phu_vu_cua_truyen_nhieu_doi", "support") in fired(pal("Tài Bạch", own=["Thiên Phủ", "Vũ Khúc"]))
+    assert ("quan_giap_xuong_khuc_hanh_thong", "support") in fired(pal("Quan Lộc", flank=["Văn Xương", "Văn Khúc"]))
+    assert ("nu_tu_vi_hien_vuong_phu", "support") in fired(pal(own=["Tử Vi"]), {"chart.gender": "nữ"})
+    assert ("nu_tu_vi_hien_vuong_phu", "support") not in fired(pal(own=["Tử Vi"]), {"chart.gender": "nam"})
+    # Tử Tức: dương/âm branch matters for the 'con đầu' lines
+    assert ("tu_nhat_cung_duong_con_dau_trai", "support") in fired(pal("Tử Tức", branch="Ngọ", own=["Thái Dương"]))
+    assert ("tu_nhat_cung_duong_con_dau_trai", "support") not in fired(pal("Tử Tức", branch="Mùi", own=["Thái Dương"]))
