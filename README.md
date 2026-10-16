@@ -54,6 +54,7 @@ cd engine && ../.venv/bin/python -m pytest -q
   the five worked examples of the book are tests. The analysis chapter list now also has a 12-palace walk-through (~70 blocks per chart).
 - Vận reading (`tvbt/van_han.py`, Khảo Luận pp.233-236): how Mệnh meets the đại hạn / tiểu hạn palace (Tử Phủ Vũ Tướng vs sát tinh, vô chính diệu vs Sát Phá Tham, Tuần↔Triệt,
   Nhật Nguyệt vs Đào Hồng Hỷ…, Thái Tuế/Quan Phù/Bạch Hổ vận, Sát/Phá/Tham by position, life-stage labels); lưu niên Tứ Hóa advice from pp.195-197. Opposite conditions that both match are shown as unresolved.
+- Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục) pp.21-28: 16 rules (`pack_toan_thu.json`); where the claim equals one from Khảo Luận the API merges them into one card that lists the second book as corroboration. New chart fact `chart.year_stem` gates year-stem conditions.
 - Not supported: minor-star brightness, minor stars (Thiên Hình, Riêu, Y, Đức…), tiểu hạn, lunar-date input.
 - Books received but not yet used: Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), 方術紀異 (Vương Đình Chi). Fortune-telling claims in the books
   (injury, death, children) are intentionally not implemented.

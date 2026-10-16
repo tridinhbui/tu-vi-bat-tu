@@ -68,6 +68,23 @@ def year(req: BirthReq):
     return {"bazi": temporal.bazi_year(bz, req.year, y), "tuvi": temporal.tuvi_year(tv, y)}
 
 
+def _merge_corroborated(findings: list[dict], rules) -> list[dict]:
+    """One card per (subject, claim): further rules that reach the same claim are listed as corroboration (with their sources)."""
+    rmap = {r.id: r for r in rules}
+    merged: dict[tuple, dict] = {}
+    for f in findings:
+        k = (f["subject"], f["claim"], f["effect"])
+        if k not in merged:
+            f["corroborated_by"] = []
+            merged[k] = f
+        else:
+            first = merged[k]
+            first["corroborated_by"].append({"rule_id": f["rule_id"], "sources": rmap[f["rule_id"]].sourceIds, "basis": f["basis"]})
+            if f["basis"] == "verified":
+                first["basis"] = "verified"
+    return list(merged.values())
+
+
 def _why_vi(why: dict) -> dict:
     """Adds chain_vi: the same chain with fact nodes written in Vietnamese (other nodes unchanged)."""
     from .nlg.generate import pretty_fact
@@ -92,7 +109,7 @@ def reasoning(req: BirthReq):
         res = engine.run(rules, sources, base, system=system)
         interps = nlg.build_interpretations(res, rules, sources)
         out["systems"][system] = {
-            "findings": [{**dataclasses.asdict(f), "why": _why_vi(res.why(f.id))} for f in res.findings],
+            "findings": _merge_corroborated([{**dataclasses.asdict(f), "why": _why_vi(res.why(f.id))} for f in res.findings], rules),
             "pending": res.pending[:20], "blocked": res.blocked, "conflicts": res.conflicts,
             "text": nlg.render(nlg.realize(interps, req.level)),
         }

@@ -13,7 +13,7 @@ export function sourceRef(id, verified = false) {
 
 export function findingCard(f, refHtml = '') {
   const ok = f.basis === 'verified';
-  return `<div class="finding-card ${ok ? 'ok' : 'draft'}"><p class="eyebrow">${ok ? 'Đã đối chiếu với sách' : 'Quy tắc nháp, chưa xác minh'}${refHtml ? ' · ' + refHtml : ''}</p><p class="f-claim">${f.effect === 'limit' ? 'Điều kiện hạn chế:' : 'Có thể nhận thấy một dấu hiệu liên quan đến'} ${esc(claimPhrase(f.claim, f.effect))}.</p>${acc('Vì sao quy tắc này khớp?', 'chuỗi suy luận, quy tắc đối lập, nguồn', reasoningPanel(f))}</div>`;
+  return `<div class="finding-card ${ok ? 'ok' : 'draft'}"><p class="eyebrow">${ok ? 'Đã đối chiếu với sách' : 'Quy tắc nháp, chưa xác minh'}${refHtml ? ' · ' + refHtml : ''}</p>${f.corroborated_by?.length ? `<p class="muted small">Còn được nêu bởi ${f.corroborated_by.length} quy tắc khác: ${esc(f.corroborated_by.map(c => c.sources.map(x => SOURCES[x] || x).join(', ')).filter((v, i, a) => a.indexOf(v) === i).join('; '))}.</p>` : ''}<p class="f-claim">${f.effect === 'limit' ? 'Điều kiện hạn chế:' : 'Có thể nhận thấy một dấu hiệu liên quan đến'} ${esc(claimPhrase(f.claim, f.effect))}.</p>${acc('Vì sao quy tắc này khớp?', 'chuỗi suy luận, quy tắc đối lập, nguồn', reasoningPanel(f))}</div>`;
 }
 const KIND = { finding: 'Nhận định', rule: 'Quy tắc', source: 'Nguồn', fact: 'Dữ kiện' };
 const KIND_ORDER = ['finding', 'rule', 'source', 'fact'];

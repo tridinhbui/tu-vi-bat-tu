@@ -244,3 +244,20 @@ def test_khao_luan_chinh_tinh_rules():
     # real chart: the fact exists
     chart = tuvi.compute(normalize(BirthInput(1990, 5, 17, 10, 30, "Asia/Ho_Chi_Minh", "male")))
     assert facts.tuvi_facts(chart)["chart"]["chart.tu_vi_branch"] == "Thìn"
+
+
+def test_second_source_corroborates_and_api_merges():
+    p = {**mk_palace(own=["Tử Vi", "Tả Phụ", "Hữu Bật"]), "palace.is_than": False}
+    res = engine.run(RULES, SOURCES, {"chart": {"chart.year_stem": "Giáp"}, "palace:Mệnh": p}, system="tu_vi")
+    srcs = {r.sourceIds[0] for r in RULES if r.id in {f.rule_id for f in res.findings if f.claim == "tu_vi_ta_huu_uy_quyen"}}
+    assert srcs == {"SRC_KHAO_LUAN", "SRC_TOAN_THU"}                    # same claim, two independent books
+    q = {**mk_palace(branch="Ngọ", own=["Thái Dương"]), "palace.is_than": False}
+    for stem, want in (("Canh", True), ("Giáp", False)):
+        r = engine.run(RULES, SOURCES, {"chart": {"chart.year_stem": stem}, "palace:Mệnh": q}, system="tu_vi")
+        assert ("duong_ngo_tuoi_tot_phu_quy" in {f.claim for f in r.findings}) is want
+    from fastapi.testclient import TestClient
+    from tvbt.api import app
+    out = TestClient(app).post("/api/reasoning", json={"year": 1990, "month": 5, "day": 17, "hour": 10, "minute": 30, "gender": "male"}).json()
+    f = out["systems"]["tu_vi"]["findings"]
+    keys = [(x["subject"], x["claim"], x["effect"]) for x in f]
+    assert len(keys) == len(set(keys))                                   # merged: no duplicate cards
