@@ -1,0 +1,151 @@
+{
+ "rules": [
+  {
+   "id": "XR_MENH_CO_CACH_THANH",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "engine_demo",
+   "description": "[thử nghiệm] Mệnh có ít nhất một cách ở trạng thái thành (suy ra từ kết quả cách cục, bước 1).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "derived.cach.formed",
+      "operator": "ne",
+      "value": []
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "assert",
+     "fact": "derived.menh_co_cach_thanh",
+     "value": true,
+     "scope": "chart"
+    }
+   ],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "subject": "palace",
+   "exceptions": [],
+   "conflictsWith": [],
+   "version": "0.1.0"
+  },
+  {
+   "id": "XR_QUAN_LOC_TRONG_TAM_PHUONG_CACH",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "engine_demo",
+   "description": "[thử nghiệm] Quan Lộc nằm trong tam phương của Mệnh đang có cách thành (đọc fact suy ra ở bước 1 và vị trí tương đối, bước 2).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "derived.menh_co_cach_thanh",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "ref": {
+       "palace": "Mệnh",
+       "fact": "palace.rel.tp_names"
+      },
+      "operator": "contains",
+      "value": "Quan Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "xr_quan_loc_trong_tam_phuong_cach",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "palace.triet",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "conflictsWith": [
+    "XR_QUAN_LOC_KY_HAN_CHE"
+   ],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "subject": "palace",
+   "version": "0.1.0"
+  },
+  {
+   "id": "XR_QUAN_LOC_KY_HAN_CHE",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "engine_demo",
+   "description": "[thử nghiệm] Quan Lộc đồng cung Hóa Kỵ khi Mệnh có cách thành: ghi nhận như yếu tố cần xét thêm.",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "derived.menh_co_cach_thanh",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "xr_quan_loc_ky_han_che",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "conflictsWith": [
+    "XR_QUAN_LOC_TRONG_TAM_PHUONG_CACH"
+   ],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "subject": "palace",
+   "exceptions": [],
+   "version": "0.1.0"
+  }
+ ],
+ "sources": [
+  {
+   "id": "SRC_EXPERIMENTAL",
+   "title": "Giả thuyết thiết kế thử engine (không phải sách)",
+   "author": null,
+   "locator": null,
+   "verified": false,
+   "note": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine."
+  }
+ ]
+}

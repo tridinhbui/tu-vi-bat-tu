@@ -1,0 +1,841 @@
+{
+ "note": "Vận-palace readings as data; carried over verbatim from van_han.py (Khảo Luận pp.233-236, Thực Hành pp.115-117).",
+ "rules": [
+  {
+   "id": "VH_TPVT_SAT",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_major",
+      "operator": "contains_any",
+      "value": [
+       "Tử Vi",
+       "Thiên Phủ",
+       "Vũ Khúc",
+       "Thiên Tướng"
+      ]
+     },
+     {
+      "fact": "vh.sat_in_n",
+      "operator": "gte",
+      "value": 1
+     }
+    ]
+   },
+   "text": "Mệnh có Tử Phủ Vũ Tướng mà cung vận có {sat_in}: theo sách đây lại là dịp đi lên."
+  },
+  {
+   "id": "VH_TPVT_CNDL",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_major",
+      "operator": "contains_any",
+      "value": [
+       "Tử Vi",
+       "Thiên Phủ",
+       "Vũ Khúc",
+       "Thiên Tướng"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "vh.v_major",
+        "operator": "contains_any",
+        "value": [
+         "Thiên Cơ",
+         "Thái Âm",
+         "Thiên Đồng",
+         "Thiên Lương"
+        ]
+       },
+       {
+        "fact": "vh.v_major",
+        "operator": "contains_any",
+        "value": [
+         "Tử Vi",
+         "Thiên Phủ"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Mệnh có Tử Phủ Vũ Tướng gặp cung vận có Cơ Nguyệt Đồng Lương hoặc Tử Phủ: theo sách là thế đi xuống."
+  },
+  {
+   "id": "VH_VCD_SPT",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_no_major",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thất Sát",
+       "Phá Quân",
+       "Tham Lang"
+      ]
+     }
+    ]
+   },
+   "text": "Mệnh vô chính diệu gặp cung vận có Sát Phá Tham: theo sách là dịp đi lên, như người thất nghiệp lâu ngày có việc thực tế."
+  },
+  {
+   "id": "VH_TUAN_TRIET",
+   "src": "SRC",
+   "when": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "vh.m_tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "vh.v_triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "vh.m_triet",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "vh.v_tuan",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Mệnh bị Tuần mà vận có Triệt (hoặc ngược lại): theo sách như được tháo cũi xổ lồng."
+  },
+  {
+   "id": "VH_NN_DAO_HONG",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_major",
+      "operator": "contains_all",
+      "value": [
+       "Thái Dương",
+       "Thái Âm"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Đào Hoa",
+       "Hồng Loan",
+       "Thiên Hỷ"
+      ]
+     }
+    ]
+   },
+   "text": "Mệnh có Nhật Nguyệt cần vận có Đào, Hồng, Hỷ mới khá được phần nào: cung vận này có."
+  },
+  {
+   "id": "VH_NN_KINH_DA",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_major",
+      "operator": "contains_all",
+      "value": [
+       "Thái Dương",
+       "Thái Âm"
+      ]
+     },
+     {
+      "not": {
+       "fact": "vh.v_stars",
+       "operator": "contains_any",
+       "value": [
+        "Đào Hoa",
+        "Hồng Loan",
+        "Thiên Hỷ"
+       ]
+      }
+     },
+     {
+      "fact": "vh.sat_in",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La"
+      ]
+     }
+    ]
+   },
+   "text": "Mệnh có Nhật Nguyệt mà vận gặp Kình, Đà thì theo sách càng tồi hơn."
+  },
+  {
+   "id": "VH_CU_NHAT_SPT",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_major",
+      "operator": "contains_all",
+      "value": [
+       "Cự Môn",
+       "Thái Dương"
+      ]
+     },
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thất Sát",
+       "Phá Quân",
+       "Tham Lang"
+      ]
+     }
+    ]
+   },
+   "text": "Mệnh có Cự Nhật cần vận có Sát Phá Tham mới là dịp làm nên sự nghiệp lớn: cung vận này có."
+  },
+  {
+   "id": "VH_CNDL_TOT",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_major",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Cơ",
+       "Thái Âm",
+       "Thiên Đồng",
+       "Thiên Lương"
+      ]
+     },
+     {
+      "fact": "vh.good_n",
+      "operator": "gte",
+      "value": 1
+     }
+    ]
+   },
+   "text": "Mệnh có Cơ Nguyệt Đồng Lương cần vận có Xương Khúc, Khoa Quyền Lộc thì có địa vị, tài lộc: cung vận có {good}."
+  },
+  {
+   "id": "VH_CNDL_XAU",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_major",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Cơ",
+       "Thái Âm",
+       "Thiên Đồng",
+       "Thiên Lương"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    ]
+   },
+   "text": "Mệnh có Cơ Nguyệt Đồng Lương mà vận gặp Kình, Đà, Không, Kiếp: theo sách dễ trắng tay."
+  },
+  {
+   "id": "VH_VT_TP",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_major",
+      "operator": "contains_all",
+      "value": [
+       "Vũ Khúc",
+       "Thiên Tướng"
+      ]
+     },
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Tử Vi",
+       "Thiên Phủ"
+      ]
+     }
+    ]
+   },
+   "text": "Mệnh có Vũ Tướng gặp vận Tử Phủ: theo sách là một bước lên quan."
+  },
+  {
+   "id": "VH_VT_SPT",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.m_major",
+      "operator": "contains_all",
+      "value": [
+       "Vũ Khúc",
+       "Thiên Tướng"
+      ]
+     },
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thất Sát",
+       "Phá Quân",
+       "Tham Lang"
+      ]
+     }
+    ]
+   },
+   "text": "Mệnh có Vũ Tướng gặp vận Sát Phá Tham: theo sách là giàu sang chóng vánh."
+  },
+  {
+   "id": "VH_THAI_TUE",
+   "src": "SRC",
+   "when": {
+    "fact": "vh.v_stars",
+    "operator": "contains",
+    "value": "Thái Tuế"
+   },
+   "text": "Vận đến cung có Thái Tuế: sách xem là một trong ba vận lớn về công danh, mừng nhiều hơn lo",
+   "tails": [
+    {
+     "when": {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc",
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     },
+     "text": "gặp Xương Khúc hoặc Khôi Việt thì tài lộc công danh rực rỡ"
+    },
+    {
+     "when": {
+      "any": [
+       {
+        "fact": "vh.v_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "vh.ky_here_star",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     },
+     "text": "gặp Đà, Kỵ thì dễ vướng thị phi, kiện tụng"
+    }
+   ]
+  },
+  {
+   "id": "VH_QUAN_PHU",
+   "src": "SRC",
+   "when": {
+    "fact": "vh.v_stars",
+    "operator": "contains",
+    "value": "Quan Phù"
+   },
+   "text": "Vận đến cung có Quan Phù: sách xem là vận để mong công danh",
+   "tails": [
+    {
+     "when": {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     },
+     "text": "gặp Xương Khúc thì công danh đến dễ"
+    },
+    {
+     "when": {
+      "all": [
+       {
+        "fact": "vh.v_major",
+        "operator": "contains",
+        "value": "Liêm Trinh"
+       },
+       {
+        "fact": "vh.ky_here",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     },
+     "text": "gặp Liêm trinh hóa Kỵ thì dễ kiện tụng"
+    }
+   ]
+  },
+  {
+   "id": "VH_BACH_HO",
+   "src": "SRC",
+   "when": {
+    "fact": "vh.v_stars",
+    "operator": "contains",
+    "value": "Bạch Hổ"
+   },
+   "text": "Vận đến cung có Bạch Hổ: sách xem là vận cần can đảm dám làm dám chịu mới giàu sang uy quyền",
+   "tails": [
+    {
+     "when": {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tấu Thư",
+       "Phi Liêm"
+      ]
+     },
+     "text": "gặp Tấu Thư, Phi Liêm thì giàu sang"
+    }
+   ]
+  },
+  {
+   "id": "VH_POS_1",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "vh.v_branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     }
+    ]
+   },
+   "text": "Vận có Thất Sát ở {v_branch}: theo sách muôn sự dễ thành."
+  },
+  {
+   "id": "VH_POS_2",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "vh.v_branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "text": "Vận có Thất Sát ở {v_branch}: theo sách muôn sự dở dang."
+  },
+  {
+   "id": "VH_POS_3",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "vh.v_branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "text": "Vận có Phá Quân ở {v_branch}: theo sách bạn bè đông đủ."
+  },
+  {
+   "id": "VH_POS_4",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "vh.v_branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "text": "Vận có Phá Quân ở {v_branch}: theo sách cô đơn, lẻ bóng."
+  },
+  {
+   "id": "VH_POS_5",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "vh.v_branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "text": "Vận có Tham Lang ở {v_branch}: theo sách giàu sang hiển hách."
+  },
+  {
+   "id": "VH_POS_6",
+   "src": "SRC",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "vh.v_branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ",
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "text": "Vận có Tham Lang ở {v_branch}: theo sách hao tài, phóng túng."
+  },
+  {
+   "id": "TH_TPVT_LOC_TA_HUU",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Tử Vi",
+       "Thiên Phủ",
+       "Vũ Khúc",
+       "Thiên Tướng"
+      ]
+     },
+     {
+      "fact": "vh.loc",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "fact": "vh.ta_huu",
+      "operator": "eq",
+      "value": true
+     }
+    ]
+   },
+   "text": "Cung vận có Tử Phủ Vũ Tướng gặp Lộc và Tả Hữu: theo sách là dịp có thể phát giàu lớn."
+  },
+  {
+   "id": "TH_NDCC_HOA3",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thái Âm",
+       "Thiên Đồng",
+       "Thiên Cơ",
+       "Cự Môn"
+      ]
+     },
+     {
+      "fact": "vh.v_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền",
+       "Hóa Lộc"
+      ]
+     },
+     {
+      "fact": "vh.khoi_viet",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "fact": "vh.ta_huu",
+      "operator": "eq",
+      "value": true
+     }
+    ]
+   },
+   "text": "Cung vận có Nguyệt Đồng Cơ Cự gặp Khoa Quyền Lộc, Khôi Việt, Tả Hữu: theo sách là dịp thăng quan hoặc đăng khoa."
+  },
+  {
+   "id": "TH_CU_NHAT_SONG_LOC",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_all",
+      "value": [
+       "Cự Môn",
+       "Thái Dương"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "fact": "vh.v_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     },
+     {
+      "fact": "vh.ta_huu",
+      "operator": "eq",
+      "value": true
+     }
+    ]
+   },
+   "text": "Cung vận có Cự Nhật gặp song Lộc và Tả Hữu: theo sách là dịp phát mạnh về buôn bán."
+  },
+  {
+   "id": "TH_CNDL_TAM_HOA",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Cơ",
+       "Thái Âm",
+       "Thiên Đồng",
+       "Thiên Lương"
+      ]
+     },
+     {
+      "fact": "vh.xk",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "fact": "vh.dao_hong",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "fact": "vh.hoa3_n",
+      "operator": "gte",
+      "value": 3
+     }
+    ]
+   },
+   "text": "Cung vận có Cơ Nguyệt Đồng Lương gặp Xương Khúc, Hồng Đào và Tam Hóa: theo sách là dịp phát công danh và giàu có."
+  },
+  {
+   "id": "TH_SPLT_KINH_DOANH",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thất Sát",
+       "Phá Quân",
+       "Tham Lang",
+       "Liêm Trinh"
+      ]
+     },
+     {
+      "fact": "vh.ta_huu",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "fact": "vh.v_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Quyền",
+       "Hóa Lộc"
+      ]
+     },
+     {
+      "fact": "vh.khoi_viet",
+      "operator": "eq",
+      "value": true
+     }
+    ]
+   },
+   "text": "Cung vận có Sát Phá Liêm Tham gặp Tả Hữu, Quyền hoặc Lộc, Khôi Việt: theo sách là dịp phát về kinh doanh."
+  },
+  {
+   "id": "TH_DAO_HONG_KHOA_QUYEN",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "fact": "vh.khoi_viet",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "vh.xk",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     },
+     {
+      "fact": "vh.v_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền"
+      ]
+     },
+     {
+      "fact": "vh.dao_hong",
+      "operator": "eq",
+      "value": true
+     }
+    ]
+   },
+   "text": "Cung vận có Đào, Hồng, Xương Khúc hoặc Khôi Việt cùng Khoa, Quyền: theo sách là điều kiện để đăng khoa hay thăng chức."
+  },
+  {
+   "id": "TH_TPVT_KHONG_KIEP_KY",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Tử Vi",
+       "Thiên Phủ",
+       "Vũ Khúc",
+       "Thiên Tướng"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     },
+     {
+      "fact": "vh.v_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "text": "Cung vận có Tử Phủ Vũ Tướng gặp Không hoặc Kiếp và Hóa Kỵ: theo sách là thế bất lợi, dễ bị giáng chức hay hao tài."
+  },
+  {
+   "id": "TH_NDCC_KHONG_KIEP",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thái Âm",
+       "Thiên Đồng",
+       "Thiên Cơ",
+       "Cự Môn"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "vh.v_stars",
+        "operator": "contains",
+        "value": "Thái Tuế"
+       },
+       {
+        "fact": "vh.v_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Nguyệt Đồng Cơ Cự gặp Không hoặc Kiếp cùng Thái Tuế hoặc Kỵ: theo sách dễ vướng kiện cáo hay giáng chức."
+  }
+ ]
+}

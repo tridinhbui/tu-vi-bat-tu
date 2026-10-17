@@ -1,0 +1,1356 @@
+{
+ "formations": [
+  {
+   "id": "CACH_X_TU_PHU_VU_TUONG",
+   "name_vi": "Tử Phủ Vũ Tướng",
+   "anchor": "Mệnh",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Tử Vi",
+     "Thiên Phủ",
+     "Vũ Khúc",
+     "Thiên Tướng"
+    ]
+   },
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    },
+    {
+     "id": "loc_hoi",
+     "label": "Lộc Tồn hoặc Hóa Lộc hội trong tam phương",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La",
+       "Hỏa Tinh",
+       "Linh Tinh",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    },
+    {
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     "rescues": [
+      "ky_dong_cung"
+     ]
+    },
+    {
+     "id": "triet_dong_cung",
+     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     },
+     "rescues": [
+      "sat_dong_cung"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    },
+    {
+     "id": "Thiên_Tướng_ham",
+     "label": "Thiên Tướng ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "when": {
+      "fact": "palace.tp_rank.Thiên Tướng",
+      "operator": "lte",
+      "value": 0
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  },
+  {
+   "id": "CACH_X_TU_PHU_DONG_CUNG",
+   "name_vi": "Tử Phủ đồng cung",
+   "anchor": "Mệnh",
+   "core": {
+    "fact": "palace.rel.self_majors",
+    "operator": "contains_all",
+    "value": [
+     "Tử Vi",
+     "Thiên Phủ"
+    ]
+   },
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    },
+    {
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La",
+       "Hỏa Tinh",
+       "Linh Tinh",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    },
+    {
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     "rescues": [
+      "ky_dong_cung"
+     ]
+    },
+    {
+     "id": "triet_dong_cung",
+     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     },
+     "rescues": [
+      "sat_dong_cung"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  },
+  {
+   "id": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "name_vi": "Cơ Nguyệt Đồng Lương",
+   "anchor": "Mệnh",
+   "core": {
+    "count": [
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     }
+    ],
+    "operator": "gte",
+    "value": 3
+   },
+   "boosters": [
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    },
+    {
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền"
+      ]
+     }
+    },
+    {
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "khong_kiep_dong_cung",
+     "label": "Địa Không hoặc Địa Kiếp đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    },
+    {
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     "rescues": [
+      "ky_dong_cung"
+     ]
+    },
+    {
+     "id": "triet_giai_khong_kiep",
+     "label": "Triệt đóng ở cung Mệnh",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     },
+     "rescues": [
+      "khong_kiep_dong_cung"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  },
+  {
+   "id": "CACH_X_SAT_PHA_LIEM_THAM",
+   "name_vi": "Sát Phá Liêm Tham",
+   "anchor": "Mệnh",
+   "core": {
+    "count": [
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Tham Lang"
+     }
+    ],
+    "operator": "gte",
+    "value": 3
+   },
+   "boosters": [
+    {
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền"
+      ]
+     }
+    },
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    },
+    {
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "sat_tu_hai_tro_len",
+     "label": "từ hai sát tinh trở lên đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.khi.sat_self",
+      "operator": "gte",
+      "value": 2
+     }
+    },
+    {
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     "rescues": [
+      "ky_dong_cung"
+     ]
+    },
+    {
+     "id": "triet_giai_sat",
+     "label": "Triệt đóng ở cung Mệnh",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     },
+     "rescues": [
+      "sat_tu_hai_tro_len"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    },
+    {
+     "id": "Thất_Sát_ham",
+     "label": "Thất Sát ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "when": {
+      "fact": "palace.tp_rank.Thất Sát",
+      "operator": "lte",
+      "value": 0
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  },
+  {
+   "id": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "name_vi": "Nhật Nguyệt tịnh minh",
+   "anchor": "Mệnh",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Thái Dương",
+     "Thái Âm"
+    ]
+   },
+   "boosters": [
+    {
+     "id": "nhat_nguyet_deu_sang",
+     "label": "Thái Dương và Thái Âm đều sáng (độ sáng từ đắc trở lên)",
+     "when": {
+      "all": [
+       {
+        "fact": "palace.tp_rank.Thái Dương",
+        "operator": "gte",
+        "value": 2
+       },
+       {
+        "fact": "palace.tp_rank.Thái Âm",
+        "operator": "gte",
+        "value": 2
+       }
+      ]
+     }
+    },
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    },
+    {
+     "id": "khong_kiep_dong_cung",
+     "label": "Địa Không hoặc Địa Kiếp đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     "rescues": [
+      "ky_dong_cung"
+     ]
+    },
+    {
+     "id": "triet_giai_khong_kiep",
+     "label": "Triệt đóng ở cung Mệnh",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     },
+     "rescues": [
+      "khong_kiep_dong_cung"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "Thái_Dương_ham",
+     "label": "Thái Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "when": {
+      "fact": "palace.tp_rank.Thái Dương",
+      "operator": "lte",
+      "value": 0
+     }
+    },
+    {
+     "id": "Thái_Âm_ham",
+     "label": "Thái Âm ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "when": {
+      "fact": "palace.tp_rank.Thái Âm",
+      "operator": "lte",
+      "value": 0
+     }
+    },
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  },
+  {
+   "id": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "name_vi": "Nhật lệ trung thiên",
+   "anchor": "Mệnh",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "eq",
+      "value": "Ngọ"
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La",
+       "Hỏa Tinh",
+       "Linh Tinh",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    },
+    {
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     "rescues": [
+      "ky_dong_cung"
+     ]
+    },
+    {
+     "id": "triet_dong_cung",
+     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     },
+     "rescues": [
+      "sat_dong_cung"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    },
+    {
+     "id": "Thái_Dương_ham",
+     "label": "Thái Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "when": {
+      "fact": "palace.tp_rank.Thái Dương",
+      "operator": "lte",
+      "value": 0
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  },
+  {
+   "id": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "name_vi": "Thạch trung ẩn ngọc",
+   "anchor": "Mệnh",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Cự Môn"
+     }
+    ]
+   },
+   "boosters": [
+    {
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền"
+      ]
+     }
+    },
+    {
+     "id": "loc_hoi",
+     "label": "Lộc Tồn hoặc Hóa Lộc hội trong tam phương",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    },
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La",
+       "Hỏa Tinh",
+       "Linh Tinh",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    },
+    {
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     "rescues": [
+      "ky_dong_cung"
+     ]
+    },
+    {
+     "id": "triet_dong_cung",
+     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     },
+     "rescues": [
+      "sat_dong_cung"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    },
+    {
+     "id": "Cự_Môn_ham",
+     "label": "Cự Môn ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "when": {
+      "fact": "palace.tp_rank.Cự Môn",
+      "operator": "lte",
+      "value": 0
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  },
+  {
+   "id": "CACH_X_MA_DAU_DOI_KIEM",
+   "name_vi": "Mã đầu đới kiếm",
+   "anchor": "Mệnh",
+   "kind": "hung",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "eq",
+      "value": "Ngọ"
+     },
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains",
+      "value": "Kình Dương"
+     }
+    ]
+   },
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "sat_khac_dong_cung",
+     "label": "Hỏa, Linh, Không hoặc Kiếp đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Hỏa Tinh",
+       "Linh Tinh",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    },
+    {
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     "rescues": [
+      "ky_dong_cung"
+     ]
+    },
+    {
+     "id": "triet_giai_sat_khac",
+     "label": "Triệt đóng ở cung Mệnh",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     },
+     "rescues": [
+      "sat_khac_dong_cung"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "Kình_Dương_ham",
+     "label": "Kình Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "when": {
+      "fact": "palace.tp_rank.Kình Dương",
+      "operator": "lte",
+      "value": 0
+     }
+    },
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  },
+  {
+   "id": "CACH_X_TAM_KY_GIA_HOI",
+   "name_vi": "Tam kỳ gia hội",
+   "anchor": "Mệnh",
+   "core": {
+    "fact": "palace.rel.tp_hoa",
+    "operator": "contains_all",
+    "value": [
+     "Hóa Lộc",
+     "Hóa Quyền",
+     "Hóa Khoa"
+    ]
+   },
+   "boosters": [
+    {
+     "id": "hoa_o_ban_cung",
+     "label": "có ít nhất một trong ba hóa ngay ở bản cung Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
+     }
+    },
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "ky_trong_tam_phuong",
+     "label": "Hóa Kỵ cũng nằm trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "ta_huu_giai_ky",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     },
+     "rescues": [
+      "ky_trong_tam_phuong"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    },
+    {
+     "id": "triet_an_ngu",
+     "label": "Triệt án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  },
+  {
+   "id": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "name_vi": "Khôi Việt giáp Mệnh",
+   "anchor": "Mệnh",
+   "core": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       }
+      ]
+     }
+    ]
+   },
+   "boosters": [
+    {
+     "id": "co_chinh_tinh",
+     "label": "cung Mệnh có chính tinh",
+     "when": {
+      "fact": "palace.has_no_major",
+      "operator": "eq",
+      "value": false
+     }
+    },
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La",
+       "Hỏa Tinh",
+       "Linh Tinh",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    },
+    {
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [
+    {
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     "rescues": [
+      "ky_dong_cung"
+     ]
+    },
+    {
+     "id": "triet_dong_cung",
+     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
+     "when": {
+      "fact": "palace.triet",
+      "operator": "eq",
+      "value": true
+     },
+     "rescues": [
+      "sat_dong_cung"
+     ]
+    }
+   ],
+   "refutations": [
+    {
+     "id": "vo_chinh_dieu",
+     "label": "Mệnh vô chính diệu (phải mượn sao đối cung)",
+     "when": {
+      "fact": "palace.has_no_major",
+      "operator": "eq",
+      "value": true
+     }
+    },
+    {
+     "id": "tuan_an_ngu",
+     "label": "Tuần án ngữ cung Mệnh",
+     "when": {
+      "fact": "palace.tuan",
+      "operator": "eq",
+      "value": true
+     }
+    }
+   ],
+   "provenance": "Giả thuyết thiết kế của người viết từ kiến thức chung, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine.",
+   "reviewStatus": "draft",
+   "experimental": true,
+   "sourceIds": [],
+   "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
+  }
+ ]
+}

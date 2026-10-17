@@ -1,0 +1,346 @@
+{
+ "rules": [
+  {
+   "id": "LY_KY_CHONG_TANG",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "van_han_layers",
+   "description": "[thử nghiệm] Từ hai tầng thời gian cùng đặt Hóa Kỵ lên một cung (bản mệnh, đại hạn, lưu niên).",
+   "conditions": {
+    "fact": "time.ky_n",
+    "operator": "gte",
+    "value": 2
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ly_ky_chong_tang",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "time.dai_han_hoa",
+     "operator": "contains",
+     "value": "Hóa Khoa"
+    },
+    {
+     "fact": "time.luu_hoa",
+     "operator": "contains",
+     "value": "Hóa Khoa"
+    }
+   ],
+   "conflictsWith": [
+    "LY_LOC_CHONG_TANG"
+   ],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "LY_LOC_CHONG_TANG",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "van_han_layers",
+   "description": "[thử nghiệm] Từ hai tầng thời gian cùng đặt Hóa Lộc lên một cung.",
+   "conditions": {
+    "fact": "time.loc_n",
+    "operator": "gte",
+    "value": 2
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ly_loc_chong_tang",
+     "effect": "support",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [
+    "LY_KY_CHONG_TANG"
+   ],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "LY_DAI_TIEU_TRUNG_CUNG",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "van_han_layers",
+   "description": "[thử nghiệm] Đại hạn và tiểu hạn cùng rơi vào một cung.",
+   "conditions": {
+    "fact": "time.layers",
+    "operator": "contains_all",
+    "value": [
+     "dai_han",
+     "tieu_han"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ly_dai_tieu_trung_cung",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "LY_LUU_KY_XUNG_MENH",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "van_han_layers",
+   "description": "[thử nghiệm] Hóa Kỵ lưu niên rơi vào cung xung chiếu với Mệnh.",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Mệnh"
+     },
+     {
+      "ref": {
+       "palace": "opp",
+       "fact": "time.luu_hoa"
+      },
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "assert",
+     "fact": "derived.ky_luu_cham_truc_menh",
+     "value": true,
+     "scope": "chart"
+    },
+    {
+     "kind": "finding",
+     "claim": "ly_luu_ky_xung_menh",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "LY_LUU_KY_NHAP_MENH",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "van_han_layers",
+   "description": "[thử nghiệm] Hóa Kỵ lưu niên rơi ngay vào cung Mệnh.",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "time.luu_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "assert",
+     "fact": "derived.ky_luu_cham_truc_menh",
+     "value": true,
+     "scope": "chart"
+    },
+    {
+     "kind": "finding",
+     "claim": "ly_luu_ky_nhap_menh",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "LY_DAI_HAN_KY_XUNG_MENH",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "van_han_layers",
+   "description": "[thử nghiệm] Hóa Kỵ của đại hạn rơi vào cung xung chiếu với Mệnh.",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Mệnh"
+     },
+     {
+      "ref": {
+       "palace": "opp",
+       "fact": "time.dai_han_hoa"
+      },
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ly_dai_han_ky_xung_menh",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "LY_DAI_HAN_TRONG_TAM_PHUONG_CO_CACH",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "van_han_layers",
+   "description": "[thử nghiệm] Cung đại hạn nằm trong tam phương của Mệnh đang có cách thành (đọc kết quả cách cục, bước 1).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "time.layers",
+      "operator": "contains",
+      "value": "dai_han"
+     },
+     {
+      "fact": "time.in_tp_of_menh",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "ref": {
+       "palace": "Mệnh",
+       "fact": "derived.cach.formed"
+      },
+      "operator": "ne",
+      "value": []
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ly_dai_han_trong_tam_phuong_menh_co_cach",
+     "effect": "support",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "palace.triet",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "LY_KY_LUU_KHI_MENH_CO_CACH",
+   "system": "tu_vi",
+   "schoolId": "experimental_draft",
+   "category": "van_han_layers",
+   "description": "[thử nghiệm] Hóa Kỵ lưu niên chạm trục Mệnh–Thiên Di trong khi Mệnh có cách thành (suy ra bước 1 → 2): cần xét cách có bị phá.",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "derived.ky_luu_cham_truc_menh",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "fact": "derived.cach.formed",
+      "operator": "ne",
+      "value": []
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ly_ky_luu_khi_menh_co_cach",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ],
+ "sources": [
+  {
+   "id": "SRC_EXPERIMENTAL",
+   "title": "Giả thuyết thiết kế thử engine (không phải sách)",
+   "author": null,
+   "locator": null,
+   "verified": false,
+   "note": "Giả thuyết thiết kế của người viết, CHƯA đối chiếu trang sách nào; chỉ dùng để thử engine vận hạn đa tầng."
+  }
+ ]
+}

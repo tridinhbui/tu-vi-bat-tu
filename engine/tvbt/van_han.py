@@ -4,6 +4,11 @@ among them, so the useful question is how the Mệnh configuration meets the v�
 nothing here says an event WILL happen."""
 from __future__ import annotations
 
+import json
+from functools import lru_cache
+from pathlib import Path
+
+from .knowledge import dsl
 from .tuvi import TuViChart
 
 SRC = "Khảo Luận pp.233-236"
@@ -38,112 +43,74 @@ def life_stage(direction: str, palace: str) -> str | None:
     return (STAGE_THUAN if direction == "thuận" else STAGE_NGHICH).get(palace)
 
 
-def read(tv: TuViChart, van_palace: str) -> list[dict]:
-    """Sentences about how the Mệnh palace meets the given vận palace."""
-    by_n = {p["name"]: p for p in tv.palaces}
-    m, v = by_n["Mệnh"], by_n[van_palace]
-    vs = _stars(v)
-    out: list[dict] = []
-
-    def add(t):
-        out.append({"text": t, "src": SRC})
-
-    if van_palace == "Mệnh":
-        return out
-    sat_in = [s for s in SAT4 if s in vs]
-    if _has_group(m, "tu_phu_vu_tuong"):
-        if sat_in:
-            add(f"Mệnh có Tử Phủ Vũ Tướng mà cung vận có {', '.join(sat_in)}: theo sách đây lại là dịp đi lên.")
-        if _has_group(v, "co_nguyet_dong_luong") or any(s in v["major_stars"] for s in ("Tử Vi", "Thiên Phủ")):
-            add("Mệnh có Tử Phủ Vũ Tướng gặp cung vận có Cơ Nguyệt Đồng Lương hoặc Tử Phủ: theo sách là thế đi xuống.")
-    if not m["major_stars"] and _has_group(v, "sat_pha_tham"):
-        add("Mệnh vô chính diệu gặp cung vận có Sát Phá Tham: theo sách là dịp đi lên, như người thất nghiệp lâu ngày có việc thực tế.")
-    if (m["tuan"] and v["triet"]) or (m["triet"] and v["tuan"]):
-        add("Mệnh bị Tuần mà vận có Triệt (hoặc ngược lại): theo sách như được tháo cũi xổ lồng.")
-    if "Thái Dương" in m["major_stars"] or "Thái Âm" in m["major_stars"]:
-        pass
-    if "Thái Dương" in m["major_stars"] and "Thái Âm" in m["major_stars"]:
-        if {"Đào Hoa", "Hồng Loan", "Thiên Hỷ"} & vs:
-            add("Mệnh có Nhật Nguyệt cần vận có Đào, Hồng, Hỷ mới khá được phần nào: cung vận này có.")
-        elif sat_in and any(s in ("Kình Dương", "Đà La") for s in sat_in):
-            add("Mệnh có Nhật Nguyệt mà vận gặp Kình, Đà thì theo sách càng tồi hơn.")
-    if "Cự Môn" in m["major_stars"] and "Thái Dương" in m["major_stars"] and _has_group(v, "sat_pha_tham"):
-        add("Mệnh có Cự Nhật cần vận có Sát Phá Tham mới là dịp làm nên sự nghiệp lớn: cung vận này có.")
-    if _has_group(m, "co_nguyet_dong_luong"):
-        good = [s for s in ("Văn Xương", "Văn Khúc") if s in vs] + [h for h in ("Hóa Khoa", "Hóa Quyền", "Hóa Lộc") if h in {x["star"] for x in []}]
-        tu_hoa_here = [k for k, x in tv.tu_hoa.items() if x["branch"] == v["branch_index"] and k in ("Hóa Khoa", "Hóa Quyền", "Hóa Lộc")]
-        if good or tu_hoa_here:
-            add(f"Mệnh có Cơ Nguyệt Đồng Lương cần vận có Xương Khúc, Khoa Quyền Lộc thì có địa vị, tài lộc: cung vận có {', '.join(good + tu_hoa_here)}.")
-        if any(s in vs for s in ("Kình Dương", "Đà La", "Địa Không", "Địa Kiếp")):
-            add("Mệnh có Cơ Nguyệt Đồng Lương mà vận gặp Kình, Đà, Không, Kiếp: theo sách dễ trắng tay.")
-    if all(s in m["major_stars"] for s in ("Vũ Khúc", "Thiên Tướng")):
-        if any(s in v["major_stars"] for s in ("Tử Vi", "Thiên Phủ")):
-            add("Mệnh có Vũ Tướng gặp vận Tử Phủ: theo sách là một bước lên quan.")
-        if _has_group(v, "sat_pha_tham"):
-            add("Mệnh có Vũ Tướng gặp vận Sát Phá Tham: theo sách là giàu sang chóng vánh.")
-    # the three big luck-bringing positions
-    if "Thái Tuế" in vs:
-        t = []
-        if any(s in vs for s in ("Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt")):
-            t.append("gặp Xương Khúc hoặc Khôi Việt thì tài lộc công danh rực rỡ")
-        if any(s in vs for s in ("Đà La",)) or any(x["star"] and x["branch"] == v["branch_index"] for k, x in tv.tu_hoa.items() if k == "Hóa Kỵ"):
-            t.append("gặp Đà, Kỵ thì dễ vướng thị phi, kiện tụng")
-        add("Vận đến cung có Thái Tuế: sách xem là một trong ba vận lớn về công danh, mừng nhiều hơn lo" + (": " + "; ".join(t) if t else "") + ".")
-    if "Quan Phù" in vs:
-        t = []
-        if "Văn Xương" in vs or "Văn Khúc" in vs:
-            t.append("gặp Xương Khúc thì công danh đến dễ")
-        if "Liêm Trinh" in v["major_stars"] and any(x["branch"] == v["branch_index"] for k, x in tv.tu_hoa.items() if k == "Hóa Kỵ"):
-            t.append("gặp Liêm trinh hóa Kỵ thì dễ kiện tụng")
-        add("Vận đến cung có Quan Phù: sách xem là vận để mong công danh" + (": " + "; ".join(t) if t else "") + ".")
-    if "Bạch Hổ" in vs:
-        t = ["gặp Tấu Thư, Phi Liêm thì giàu sang" ] if ("Tấu Thư" in vs or "Phi Liêm" in vs) else []
-        add("Vận đến cung có Bạch Hổ: sách xem là vận cần can đảm dám làm dám chịu mới giàu sang uy quyền" + (": " + "; ".join(t) if t else "") + ".")
-    # three big luck of wealth, by position
-    for star, rules in SAT_POS.items():
-        if star in v["major_stars"]:
-            for branches, txt in rules:
-                if v["branch"] in branches:
-                    add(f"Vận có {star} ở {v['branch']}: theo sách {txt}.")
-    out.extend(read_th(tv, v))
-    joined = " ".join(o["text"] for o in out)
-    if "đi lên" in joined and "đi xuống" in joined:
-        out.append({"text": "Hai điều kiện trái chiều của sách (đi lên và đi xuống) cùng khớp, nên hệ thống không kết luận hạn này đi lên hay đi xuống.", "src": SRC})
-    return out
-
-
+_RULES = Path(__file__).resolve().parent.parent / "data" / "van_han_rules.json"
+_SRC = {"SRC": SRC, "SRC_TH": SRC_TH}
 HOA3 = ("Hóa Khoa", "Hóa Quyền", "Hóa Lộc")
 
 
-def read_th(tv: TuViChart, v: dict) -> list[dict]:
-    """Patterns of Tử Vi Thực Hành pp.115-117 read on the vận palace alone: 'đại tiểu hạn phát' (five groupings) and the benign half of
-    'đại tiểu hạn thất lợi'. Long Phượng, Ấn, Hình and Phá Toái are not placed with verified formulas, so the lines that need them are not claimed.
-    Injury / death / prison lines of the same list are deliberately left out. Nothing here says an event WILL happen."""
-    vs, vm = _stars(v), set(v["major_stars"])
-    hoa_here = {k for k, x in tv.tu_hoa.items() if x.get("branch") == v["branch_index"]}
-    out = []
+@lru_cache(maxsize=1)
+def rules() -> list[dict]:
+    """The vận-palace readings as DATA (data/van_han_rules.json, built by tools/build_van_han_rules.py)."""
+    rs = json.loads(_RULES.read_text("utf-8"))["rules"]
+    for r in rs:
+        for e in [r["when"]] + [t["when"] for t in r.get("tails", [])]:
+            dsl.validate(e, {"vh.*"})
+    return rs
 
-    def add(t):
-        out.append({"text": t, "src": SRC_TH})
 
-    loc = "Lộc Tồn" in vs or "Hóa Lộc" in hoa_here
-    ta_huu = bool({"Tả Phụ", "Hữu Bật"} & vs)
-    khoi_viet = bool({"Thiên Khôi", "Thiên Việt"} & vs)
-    xk = bool({"Văn Xương", "Văn Khúc"} & vs)
-    if vm & set(GROUPS["tu_phu_vu_tuong"]) and loc and ta_huu:
-        add("Cung vận có Tử Phủ Vũ Tướng gặp Lộc và Tả Hữu: theo sách là dịp có thể phát giàu lớn.")
-    if vm & {"Thái Âm", "Thiên Đồng", "Thiên Cơ", "Cự Môn"} and (hoa_here & set(HOA3)) and khoi_viet and ta_huu:
-        add("Cung vận có Nguyệt Đồng Cơ Cự gặp Khoa Quyền Lộc, Khôi Việt, Tả Hữu: theo sách là dịp thăng quan hoặc đăng khoa.")
-    if {"Cự Môn", "Thái Dương"} <= vm and "Lộc Tồn" in vs and "Hóa Lộc" in hoa_here and ta_huu:
-        add("Cung vận có Cự Nhật gặp song Lộc và Tả Hữu: theo sách là dịp phát mạnh về buôn bán.")
-    if vm & set(GROUPS["co_nguyet_dong_luong"]) and xk and bool({"Hồng Loan", "Đào Hoa"} & vs) and len(hoa_here & set(HOA3)) >= 3:
-        add("Cung vận có Cơ Nguyệt Đồng Lương gặp Xương Khúc, Hồng Đào và Tam Hóa: theo sách là dịp phát công danh và giàu có.")
-    if vm & set(GROUPS["sat_pha_tham"]) | ({"Liêm Trinh"} & vm) and ta_huu and (hoa_here & {"Hóa Quyền", "Hóa Lộc"}) and khoi_viet:
-        add("Cung vận có Sát Phá Liêm Tham gặp Tả Hữu, Quyền hoặc Lộc, Khôi Việt: theo sách là dịp phát về kinh doanh.")
-    if (khoi_viet or xk) and (hoa_here & {"Hóa Khoa", "Hóa Quyền"}) and bool({"Hồng Loan", "Đào Hoa"} & vs):
-        add("Cung vận có Đào, Hồng, Xương Khúc hoặc Khôi Việt cùng Khoa, Quyền: theo sách là điều kiện để đăng khoa hay thăng chức.")
-    if vm & set(GROUPS["tu_phu_vu_tuong"]) and ("Địa Không" in vs or "Địa Kiếp" in vs) and "Hóa Kỵ" in hoa_here:
-        add("Cung vận có Tử Phủ Vũ Tướng gặp Không hoặc Kiếp và Hóa Kỵ: theo sách là thế bất lợi, dễ bị giáng chức hay hao tài.")
-    if vm & {"Thái Âm", "Thiên Đồng", "Thiên Cơ", "Cự Môn"} and ("Địa Không" in vs or "Địa Kiếp" in vs) and ("Thái Tuế" in vs or "Hóa Kỵ" in hoa_here):
-        add("Cung vận có Nguyệt Đồng Cơ Cự gặp Không hoặc Kiếp cùng Thái Tuế hoặc Kỵ: theo sách dễ vướng kiện cáo hay giáng chức.")
+def vh_facts(tv: TuViChart, v: dict) -> dict:
+    """Flat facts (`vh.*`) comparing the Mệnh palace with the vận palace `v`. Geometry/membership only."""
+    m = next(p for p in tv.palaces if p["name"] == "Mệnh")
+    vs = _stars(v)
+    sat_in = [s for s in SAT4 if s in vs]
+    good = [s for s in ("Văn Xương", "Văn Khúc") if s in vs]
+    hoa_good = [k for k, x in tv.tu_hoa.items() if x["branch"] == v["branch_index"] and k in ("Hóa Khoa", "Hóa Quyền", "Hóa Lộc")]
+    hoa_here = [k for k, x in tv.tu_hoa.items() if x.get("branch") == v["branch_index"]]
+    ky = [x for k, x in tv.tu_hoa.items() if k == "Hóa Kỵ"]
+    return {
+        "vh.m_major": list(m["major_stars"]), "vh.m_no_major": not m["major_stars"], "vh.m_tuan": bool(m["tuan"]), "vh.m_triet": bool(m["triet"]),
+        "vh.v_major": list(v["major_stars"]), "vh.v_stars": list(v["stars"]), "vh.v_tuan": bool(v["tuan"]), "vh.v_triet": bool(v["triet"]),
+        "vh.v_branch": v["branch"], "vh.v_hoa": hoa_here, "vh.hoa3_n": len([k for k in hoa_here if k in HOA3]),
+        "vh.sat_in": sat_in, "vh.sat_in_n": len(sat_in), "vh.good": good + hoa_good, "vh.good_n": len(good + hoa_good),
+        "vh.ky_here": any(x["branch"] == v["branch_index"] for x in ky),
+        "vh.ky_here_star": any(x.get("star") and x["branch"] == v["branch_index"] for x in ky),
+        "vh.loc": "Lộc Tồn" in vs or "Hóa Lộc" in hoa_here, "vh.ta_huu": bool({"Tả Phụ", "Hữu Bật"} & vs),
+        "vh.khoi_viet": bool({"Thiên Khôi", "Thiên Việt"} & vs), "vh.xk": bool({"Văn Xương", "Văn Khúc"} & vs),
+        "vh.dao_hong": bool({"Hồng Loan", "Đào Hoa"} & vs),
+    }
+
+
+def _fill(text: str, facts: dict) -> str:
+    for k, v in facts.items():
+        key = "{" + k[3:] + "}"
+        if key in text:
+            text = text.replace(key, ", ".join(v) if isinstance(v, list) else str(v))
+    return text
+
+
+def read(tv: TuViChart, van_palace: str) -> list[dict]:
+    """Sentences about how the Mệnh palace meets the given vận palace. Rule-driven: every sentence comes from a rule in
+    data/van_han_rules.json whose condition is true (same output as the former if/else implementation, proven by a differential test)."""
+    return [{"text": o["text"], "src": o["src"]} for o in read_traced(tv, van_palace)]
+
+
+def read_traced(tv: TuViChart, van_palace: str) -> list[dict]:
+    """Like read(), plus `rule_id` (which data rule produced each sentence; the closing conflict note has rule_id None)."""
+    out: list[dict] = []
+    if van_palace == "Mệnh":
+        return out
+    v = next(p for p in tv.palaces if p["name"] == van_palace)
+    facts = vh_facts(tv, v)
+    for r in rules():
+        if dsl.evaluate(r["when"], facts) is not True:
+            continue
+        if "tails" in r:
+            tails = [t["text"] for t in r["tails"] if dsl.evaluate(t["when"], facts) is True]
+            text = r["text"] + (": " + "; ".join(tails) if tails else "") + "."
+        else:
+            text = _fill(r["text"], facts)
+        out.append({"text": text, "src": _SRC[r["src"]], "rule_id": r["id"]})
+    joined = " ".join(o["text"] for o in out)
+    if "đi lên" in joined and "đi xuống" in joined:
+        out.append({"text": "Hai điều kiện trái chiều của sách (đi lên và đi xuống) cùng khớp, nên hệ thống không kết luận hạn này đi lên hay đi xuống.", "src": SRC, "rule_id": None})
     return out
