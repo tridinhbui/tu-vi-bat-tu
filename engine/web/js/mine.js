@@ -1,6 +1,5 @@
-// "Của bạn" layer: this-year cards and charts saved on this device only (localStorage; nothing is sent to the server).
-import { $, $$, esc, post, PILLAR_LABEL } from './util.js';
-import { terms } from './glossary.js';
+// "Của bạn" layer: charts saved on this device only (localStorage; nothing is sent to the server).
+import { $, $$, esc } from './util.js';
 
 const KEY = 'tvbt-saved-v1', MAX = 12;
 const FIELDS = ['year', 'month', 'day', 'hour', 'minute', 'gender', 'tz', 'calendar', 'zi_rule', 'level', 'use_true_solar_time', 'longitude'];
@@ -47,33 +46,4 @@ export function initSave(host, getReq, onChange) {
   };
   paint();
   return { paint };
-}
-
-// ---- "Năm nay của bạn" ----
-const KIND = { can_hợp: 'Thiên can hợp', can_xung: 'Thiên can xung', 'chi_lục hợp': 'Địa chi lục hợp', chi_phá: 'Địa chi phá', chi_hại: 'Địa chi hại', chi_xung: 'Địa chi xung', 'chi_tam hợp': 'Địa chi tam hợp' };
-const kindText = k => KIND[k] || k.replace('_', ' ');
-const godPlain = (T, g) => T['god:' + g]?.plain || '';
-const rel = (arr, who) => arr.map(r => `${who} ${kindText(r.kind).toLowerCase()} trụ ${PILLAR_LABEL[r.with] || r.with}`);
-
-export async function renderYear(req, T = terms()) {
-  const y = new Date().getFullYear();
-  let d; try { d = await post('/api/year', { ...req, to_year: y }); } catch { return null; }
-  const b = d.bazi, t = d.tuvi, tuHoa = t.luu_tu_hoa_reading || [];
-  const inter = rel(b.annual_vs_natal, 'năm nay').concat(rel(b.luck_vs_natal, 'đại vận'));
-  const bazi = `<section class="bs yr" aria-labelledby="yr-bt-h"><p class="eyebrow">Năm nay của bạn · ${y}</p><h2 id="yr-bt-h">Năm ${esc(b.annual_pillar)}, bạn khoảng ${b.age} tuổi</h2>
-    <p class="sec-sub">Mỗi năm có một cặp Can Chi riêng, được so với tám chữ gốc của bạn. Đây là bối cảnh để suy ngẫm, không phải lời tiên đoán.</p>
-    <div class="bs-grid">
-      <div class="bs-c"><span class="k">Năm ${y}</span><b>${esc(b.annual_pillar)}</b><p>Đối với Nhật Chủ của bạn, can của năm mang tính chất <b>${esc(b.annual_stem_ten_god)}</b>. ${esc(godPlain(T, b.annual_stem_ten_god))}</p></div>
-      <div class="bs-c"><span class="k">Chặng 10 năm đang đi</span><b>Đại vận ${esc(b.luck_pillar)}</b><p>Can của đại vận là <b>${esc(b.luck_stem_ten_god)}</b>. ${esc(godPlain(T, b.luck_stem_ten_god))}</p></div>
-      <div class="bs-c"><span class="k">Gặp tám chữ gốc</span><b>${inter.length} điểm tương tác</b><p>${inter.length ? esc(inter.slice(0, 4).join('; ')) + (inter.length > 4 ? `; và ${inter.length - 4} điểm khác.` : '.') + ' “Hợp” là gắn kết, “xung” là va chạm; chỉ cho biết có chạm nhau, chưa nói tốt hay xấu.' : 'Năm này không chạm trực tiếp vào tám chữ gốc.'}</p></div>
-    </div></section>`;
-  const tuvi = `<section class="bs yr" aria-labelledby="yr-tv-h"><p class="eyebrow">Năm nay của bạn · ${y}</p><h2 id="yr-tv-h">Năm ${esc(t.annual_pillar)}: ánh đèn rọi vào đâu?</h2>
-    <p class="sec-sub">Tử Vi đặt thêm một lớp “của năm” lên lá số gốc. Chỗ nào được rọi sáng là lĩnh vực bạn có thể để ý hơn trong năm; không phải điều chắc chắn xảy ra.</p>
-    <div class="bs-grid">
-      <div class="bs-c"><span class="k">Tiểu hạn năm nay</span><b>Cung ${esc(t.tieu_han_palace)}</b><p>${esc(T['palace:' + t.tieu_han_palace]?.plain || '')}</p></div>
-      <div class="bs-c"><span class="k">Lưu Thái Tuế</span><b>Cung ${esc(t.luu_thai_tue_palace)}</b><p>Nơi “ngôi sao của năm” đóng, thường gắn với những việc nổi bật trong năm. ${esc(T['palace:' + t.luu_thai_tue_palace]?.plain || '')}</p></div>
-    </div>
-    ${tuHoa.length ? `<h3>Tứ Hóa của năm ${y}</h3><ul class="bs-lim">${tuHoa.map(h => `<li><b>${esc(h.hoa)} · ${esc(h.star)}</b> rơi vào cung <b>${esc(h.palace)}</b>: ${esc(h.advice)}.</li>`).join('')}</ul>` : ''}
-    <p class="muted small">Thông tin theo năm là dữ kiện cấu trúc từ sách, không phải dự đoán sự kiện.</p></section>`;
-  return { bazi, tuvi };
 }

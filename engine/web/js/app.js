@@ -10,7 +10,7 @@ import { renderHourSweep } from './hours.js';
 import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossary.js';
 import { renderLearn, lessonSys } from './learn.js';
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
-import { renderSaved, initSave, renderYear } from './mine.js';
+import { renderSaved, initSave } from './mine.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const metaReady = Promise.all([loadMeta(), loadGlossary()]);
@@ -219,8 +219,7 @@ function showResults() {
   const lu = state.lunarIn ? `<span>Nhập âm lịch ${state.lunarIn.day}/${state.lunarIn.month}/${state.lunarIn.year}${state.lunarIn.leap ? ' nhuận' : ''}</span>` : '';
   $('#res-sub').innerHTML = lu + `<span><b>${fmtDate(req)}</b> · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
   $('#res-hl').innerHTML = `<button type="button" class="hl-chip gl" data-gl="c:nhat-chu">${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></button><button type="button" class="hl-chip gl" data-gl="c:cuc">${esc(t.cuc.name)}</button><button type="button" class="hl-chip gl" data-gl="c:nap-am">Mệnh ${esc(t.menh_nap_am)}</button>`;
-  saver.paint(); $('#bazi-year').innerHTML = $('#tuvi-year').innerHTML = '';
-  const mine = state; renderYear(req, T).then(y => { if (y && state === mine) { $('#bazi-year').innerHTML = y.bazi; $('#tuvi-year').innerHTML = y.tuvi; autoLink($('#bazi-year'), 'bt'); autoLink($('#tuvi-year'), 'tv'); } });
+  saver.paint();
   setTab('bazi', false); view('chart');
   history.pushState({ v: 'chart' }, '', '#la-so/bat-tu');
 }
