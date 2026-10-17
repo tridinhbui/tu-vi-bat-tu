@@ -204,7 +204,8 @@ def _experimental(tv, rules, sources) -> dict:
 def compare_charts(a: BirthReq, b: BirthReq):
     """Facts only: the two Nhật Chủ and day branches side by side (see compare.py)."""
     from . import compare
-    return compare.compare(_compute(a)[1], _compute(b)[1])
+    (na, ba, ta), (nb, bb, tb) = _compute(a), _compute(b)
+    return compare.compare_full(na, ba, ta, a.gender, nb, bb, tb, b.gender, a.experimental or b.experimental)
 
 
 class LunarReq(BaseModel):

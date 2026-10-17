@@ -1,0 +1,170 @@
+{
+ "tôi_mẹ": {
+  "default_ids": [
+   "bz.branch_destroy.day-hour.branch",
+   "bz.branch_destroy.day-month.branch",
+   "bz.branch_destroy.year-hour.branch",
+   "bz.branch_destroy.year-month.branch",
+   "bz.branch_harm.hour-year.branch",
+   "bz.branch_harm.month-year.branch",
+   "bz.branch_same.day-day.branch",
+   "bz.branch_same.year-day.branch",
+   "bz.branch_self_penalty.day-day.branch",
+   "bz.branch_self_penalty.year-day.branch",
+   "bz.branch_semi_triad.Hỏa.byear+aday",
+   "bz.branch_semi_triad.Hỏa.byear+ayear",
+   "bz.stem_clash.day-day.stem",
+   "bz.stem_clash.hour-hour.stem",
+   "bz.stem_combine.month-day.stem",
+   "bz.stem_same.day-year.stem",
+   "bz.stem_same.month-hour.stem",
+   "bz.ten_god.a_sees_b",
+   "bz.ten_god.b_sees_a",
+   "ins.border.a",
+   "ins.hoa",
+   "ins.time",
+   "ins.tuvi",
+   "ins.unsupported.a",
+   "ins.unsupported.b",
+   "tv.pair.Mệnh.Mệnh",
+   "tv.pair.Mệnh.Phu_Thê",
+   "tv.pair.Phu_Thê.Mệnh",
+   "tv.pair.Phu_Thê.Phu_Thê",
+   "tv.pair.Phúc_Đức.Phúc_Đức",
+   "tv.pair.Thân.Thân",
+   "tv.place.a",
+   "tv.place.b"
+  ],
+  "tiers": {
+   "direct": 27,
+   "support": 0,
+   "limit": 0,
+   "insufficient": 6
+  },
+  "strength": {
+   "a": [
+    "nhược",
+    true,
+    0.384
+   ],
+   "b": [
+    "vượng",
+    false,
+    0.85
+   ]
+  }
+ },
+ "tôi_1985": {
+  "default_ids": [
+   "bz.branch_harm.day-year.branch",
+   "bz.branch_harm.year-year.branch",
+   "bz.branch_same.day-day.branch",
+   "bz.branch_same.year-day.branch",
+   "bz.branch_self_penalty.day-day.branch",
+   "bz.branch_self_penalty.year-day.branch",
+   "bz.branch_semi_triad.Hỏa.aday+bmonth",
+   "bz.branch_semi_triad.Hỏa.ayear+bmonth",
+   "bz.stem_clash.day-day.stem",
+   "bz.stem_clash.day-month.stem",
+   "bz.stem_clash.month-year.stem",
+   "bz.stem_combine.month-day.stem",
+   "bz.stem_combine.month-month.stem",
+   "bz.stem_combine.year-year.stem",
+   "bz.stem_same.day-hour.stem",
+   "bz.stem_same.hour-year.stem",
+   "bz.ten_god.a_sees_b",
+   "bz.ten_god.b_sees_a",
+   "ins.border.a",
+   "ins.hoa",
+   "ins.time",
+   "ins.tuvi",
+   "ins.unsupported.a",
+   "ins.unsupported.b",
+   "tv.pair.Mệnh.Mệnh",
+   "tv.pair.Mệnh.Phu_Thê",
+   "tv.pair.Phu_Thê.Mệnh",
+   "tv.pair.Phu_Thê.Phu_Thê",
+   "tv.pair.Phúc_Đức.Phúc_Đức",
+   "tv.pair.Thân.Thân",
+   "tv.place.a",
+   "tv.place.b"
+  ],
+  "tiers": {
+   "direct": 26,
+   "support": 0,
+   "limit": 0,
+   "insufficient": 6
+  },
+  "strength": {
+   "a": [
+    "nhược",
+    true,
+    0.384
+   ],
+   "b": [
+    "vượng",
+    false,
+    0.707
+   ]
+  }
+ },
+ "cùng_một_người": {
+  "default_ids": [
+   "bz.branch_same.day-day.branch",
+   "bz.branch_same.day-year.branch",
+   "bz.branch_same.hour-hour.branch",
+   "bz.branch_same.hour-month.branch",
+   "bz.branch_same.month-hour.branch",
+   "bz.branch_same.month-month.branch",
+   "bz.branch_same.year-day.branch",
+   "bz.branch_same.year-year.branch",
+   "bz.branch_self_penalty.day-day.branch",
+   "bz.branch_self_penalty.day-year.branch",
+   "bz.branch_self_penalty.year-day.branch",
+   "bz.branch_self_penalty.year-year.branch",
+   "bz.stem_clash.hour-month.stem",
+   "bz.stem_clash.month-hour.stem",
+   "bz.stem_combine.hour-year.stem",
+   "bz.stem_combine.year-hour.stem",
+   "bz.stem_same.day-day.stem",
+   "bz.stem_same.hour-hour.stem",
+   "bz.stem_same.month-month.stem",
+   "bz.stem_same.year-year.stem",
+   "bz.ten_god.a_sees_b",
+   "bz.ten_god.b_sees_a",
+   "ins.border.a",
+   "ins.border.b",
+   "ins.hoa",
+   "ins.time",
+   "ins.tuvi",
+   "ins.unsupported.a",
+   "ins.unsupported.b",
+   "tv.pair.Mệnh.Mệnh",
+   "tv.pair.Mệnh.Phu_Thê",
+   "tv.pair.Phu_Thê.Mệnh",
+   "tv.pair.Phu_Thê.Phu_Thê",
+   "tv.pair.Phúc_Đức.Phúc_Đức",
+   "tv.pair.Thân.Thân",
+   "tv.place.a",
+   "tv.place.b"
+  ],
+  "tiers": {
+   "direct": 30,
+   "support": 0,
+   "limit": 0,
+   "insufficient": 7
+  },
+  "strength": {
+   "a": [
+    "nhược",
+    true,
+    0.384
+   ],
+   "b": [
+    "nhược",
+    true,
+    0.384
+   ]
+  }
+ }
+}

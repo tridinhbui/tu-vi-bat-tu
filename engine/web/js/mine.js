@@ -1,6 +1,7 @@
 // "Của bạn" layer: charts saved on this device only (localStorage; nothing is sent to the server).
-import { $, $$, esc, post } from './util.js';
-import { terms, autoLink } from './glossary.js';
+import { $, $$, esc } from './util.js';
+import { renderCompare, initCompareDialog } from './compare_ui.js';
+initCompareDialog();
 
 const KEY = 'tvbt-saved-v1', MAX = 12;
 const FIELDS = ['year', 'month', 'day', 'hour', 'minute', 'gender', 'tz', 'calendar', 'zi_rule', 'level', 'use_true_solar_time', 'longitude'];
@@ -43,25 +44,6 @@ export function renderSaved(host, onOpen) {
   });
   $$('.sv-cmp input', host).forEach(o => o.disabled = !o.checked && picked.size >= 2);
   go();
-}
-
-const LINK = { 'cùng hành': 'Hai hành giống nhau thường được mô tả là “cùng nhịp”, nhưng đây chỉ là mô tả, không phải đánh giá.', sinh: 'Một hành nuôi dưỡng hành kia theo vòng tương sinh.', khắc: 'Một hành kiềm chế hành kia theo vòng tương khắc. “Khắc” là quan hệ giữa hai hành, không tự nó là điều xấu.' };
-
-async function renderCompare(host, A, B) {
-  host.innerHTML = '<p class="muted">Đang so sánh…</p>';
-  let r; try { r = await post('/api/compare-charts', { a: A.req, b: B.req }); } catch (e) { host.innerHTML = `<p class="muted">Chưa so sánh được: ${esc(e.message)}</p>`; return; }
-  const T = terms(), plain = g => esc(T['god:' + g]?.plain || '');
-  const col = (n, s) => `<div class="cmp-c"><span class="k">${esc(n.rel === n.label ? n.label : n.rel + ' · ' + n.label)}</span><b>${esc(s.day_master)} ${esc(s.element)}</b><p>Trụ Ngày ${esc(s.day_pillar)} · ${esc(s.polarity)} · ngày chi ${esc(s.day_branch)}</p></div>`;
-  host.innerHTML = `<div class="cmp"><p class="eyebrow">So sánh dữ kiện</p><h3>${esc(A.label)} và ${esc(B.label)}</h3>
-    <div class="cmp-cols">${col(A, r.a)}${col(B, r.b)}</div>
-    <ul class="cmp-list">
-      <li><b>Nhật Chủ nhìn nhau.</b> Với ${esc(A.label)}, Nhật Chủ của ${esc(B.label)} mang tính <b>${esc(r.ten_god_of_b_for_a)}</b>; ngược lại, với ${esc(B.label)}, Nhật Chủ của ${esc(A.label)} mang tính <b>${esc(r.ten_god_of_a_for_b)}</b>. ${plain(r.ten_god_of_b_for_a)} ${r.ten_god_of_a_for_b !== r.ten_god_of_b_for_a ? plain(r.ten_god_of_a_for_b) : ''}</li>
-      <li><b>Ngũ Hành của hai Nhật Chủ.</b> ${esc(r.element_link.text.replace('người A', A.label).replace('người B', B.label))} ${esc(LINK[r.element_link.kind] || '')}</li>
-      <li><b>Hai Thiên can Nhật Chủ.</b> ${esc(r.day_master_stems.text)}</li>
-      <li><b>Hai ngày chi.</b> ${r.day_branches.map(x => esc(x.text)).join(' ')}</li>
-    </ul>
-    <p class="muted small">${esc(r.note)} Tám chữ còn lại, sao Tử Vi và vận hạn chưa được đưa vào so sánh này.</p></div>`;
-  autoLink(host, 'bt');
 }
 
 /** Save control on the result page: one button that expands to name + relation. */

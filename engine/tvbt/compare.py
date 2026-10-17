@@ -51,3 +51,12 @@ def compare(a: BaziChart, b: BaziChart) -> dict:
             "ten_god_of_b_for_a": ten_god(sa, sb), "ten_god_of_a_for_b": ten_god(sb, sa),
             "element_link": _element_link(ea, eb), "day_master_stems": stem_rel, "day_branches": branch_rels,
             "note": "Chỉ là dữ kiện về hai chữ chạm nhau, không phải điểm hợp hay khắc và không kết luận về mối quan hệ."}
+
+
+def compare_full(na, bz_a: BaziChart, tv_a, gender_a: str, nb, bz_b: BaziChart, tv_b, gender_b: str, experimental: bool = False) -> dict:
+    """Result of compare() plus the multi-layer analysis under "v2" (see compare_deep). na/nb are the normalized births."""
+    from .bazi_deep.model import ChartView
+    from .compare_deep import Side, analyse
+    out = compare(bz_a, bz_b)
+    out["v2"] = analyse(Side(bz_a, ChartView.from_bazi(bz_a, na.utc, gender_a), tv_a), Side(bz_b, ChartView.from_bazi(bz_b, nb.utc, gender_b), tv_b), experimental)
+    return out
