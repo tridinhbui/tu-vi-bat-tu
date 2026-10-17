@@ -3,7 +3,7 @@
 Unlike build_formation_provenance.py (which maps conditions to the page-cited rules already in the packs), every row here was
 written after READING THE BOOK PAGES themselves (Khảo Luận = KL, Thực Hành = TH, Toàn Thư = TT; see tools/book_text.py).
 Each citation carries a short quote; when the books are on disk the quote is checked against the decoded text layer of the cited
-printed page (`quote_check = "van_ban"`), otherwise it is recorded as read from the page image (`"anh"`) or unchecked (`"chua_kiem"`).
+printed page (`quote_check = "van_ban"`), otherwise it is `"chua_kiem"`. `"anh_doc_ro"` = the page IMAGE was read directly by this session, legible and copied verbatim (printed typos kept), not machine-checked.
 
 Output: engine/data/experimental/formation_audit.json and docs/PHASE4_KIEM_TOAN_NGUON.md.
 Nothing here edits a formation or marks anything verified; this layer only describes how the DRAFT relates to the books.
@@ -33,16 +33,16 @@ OUT_JSON = ROOT / "engine" / "data" / "experimental" / "formation_audit.json"
 OUT_MD = ROOT / "docs" / "PHASE4_KIEM_TOAN_NGUON.md"
 
 # --- citations: id -> (book, printed page, short quote, how it was read) ------------------------------------------------------
-# method: "van_ban" = text layer (machine-checkable), "anh" = read from the page image (text layer garbled)
+# method: "van_ban" = text layer (machine-checkable), "anh_doc_ro" = page image read directly (legible), "anh" = image unreadable/unchecked -> chua_du_nguon
 Q = {
  "TH72_TPDC": ("TH", 72, "Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân)", "van_ban"),
  "TH72_TPVT": ("TH", 72, "Tử, Phủ, Vũ, Tướng cách", "van_ban"),
  "TH72_NNTM": ("TH", 72, "Nhật, Nguyệt tinh minh cách (Nhật ở Thìn, Tỵ, Nguyệt ở Dậu, Tuất, mà Mệnh đóng ở Nguyệt hay Nhật đều tốt)", "van_ban"),
  "TH72_NLTT": ("TH", 72, "Nhật lệ trung thiên cách ( Nhật cư Ngọ có Mệnh)", "van_ban"),
- "TH72_TAMHOA": ("TH", 72, "Tam Hóa liên châu: Khoa, Quyền, Lộc đi liền 3 cung đến Mệnh có 1 hóa", "anh"),
- "TH72_SPLT": ("TH", 72, "Sát, Phá, Liêm, Tham (mục 4 trong các quý cách lập thành ở 12 cung)", "anh"),
+ "TH72_TAMHOA": ("TH", 72, "Tam Hoá hên châu cách (tức Khao, Quyền, Lộc đi liền 3 cung đến cung Mệnh có 1 hóa)", "anh_doc_ro"),   # verbatim from the page image, printed typos kept
+ "TH72_SPLT": ("TH", 72, "Sát, Phá, Liêm, Tham cách", "anh_doc_ro"),                                                                      # item 4 of the 25 quý cách
  "TH74_TAMHOA": ("TH", 74, "cần được cứu giải băng Tam hóa hội", "van_ban"),
- "TH74_NN_TAN_HUNG": ("TH", 74, "Nhật, Nguyệt hãm tại Mệnh không có cứu tinh, hoặc hãm mà gặp sát tinh (bần tiện cách số 7)", "anh"),
+ "TH74_NN_TAN_HUNG": ("TH", 74, "Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh", "van_ban"),                                         # item 7 'Nhật, Nguyệt tàn hung' (image: '...hoặc hãm mà gặp sát tinh')
  "TH76_CATTINH": ("TH", 76, "Hồng Đào, Khoa Quyền. Lộc, Kình, Không", "van_ban"),
  "TH77_CNDL": ("TH", 77, "Nguyệt Đồng Lương hội Tả Hữu, Thai Cáo, Xương Khúc tất là hàng công chức", "van_ban"),
  "TH77_SPLT_HA": ("TH", 77, "Sát Phá Liêm Tham hội Vũ, Kình Đà", "van_ban"),
@@ -78,6 +78,7 @@ Q = {
  "KL68_NN_KHOIVIET": ("KL", 68, "chỉ mong được Khôi Việt chiếu mới là tốt đẹp", "van_ban"),
  "KL85_GHET": ("KL", 85, "Thái dương ghét lũ Riêu, Đà, Kỵ", "van_ban"),
  "TH76_THUONG": ("TH", 76, "hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa", "van_ban"),
+ "KL85_SO": ("KL", 85, "Thái dương sợ: Kình, Đà, Không, Kiếp, gặp đám sát tinh này thì công danh trắc trở", "van_ban"),
  "KL85_NLTT": ("KL", 85, "Thái dương thích Xương, Khúc, Khoa, Quyền, Lộc", "van_ban"),
  "KL85_NN_TUAN": ("KL", 85, "Thái dương hãm địa, cần gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức", "van_ban"),
  "KL96_PHU": ("KL", 96, "Nhưng nếu gặp Không Kiếp, Tuần Triệt, Kình Đà, Hỏa Linh thì tài lộc bị giảm đáng kể", "van_ban"),
@@ -90,6 +91,17 @@ Q = {
  "KL221_SPLT": ("KL", 221, "Sát Phá Tham ở Mệnh là những người tích cực trong cuộc sống", "van_ban"),
  "KL221_CNDL_CAT": ("KL", 221, "cơ Nguyệt Đồng Lương hội với Tả Hữu Quang Quí, Thiên quan", "van_ban"),
  "KL221_CNDL_KQL": ("KL", 221, "Quyền Lộc, Khôi Việt, Xương khúc thì làm giáo sư danh tiếng", "van_ban"),
+ "KL96_TPDC_BOOST": ("KL", 96, "Nếu Thiên phủ đi với Tử vi, Xương Khúc, Hóa khoa, Thiên việt, Thiên khôi thì rất mạnh", "van_ban"),
+ "KL49_TV_NGO_VOSAT": ("KL", 49, "Mệnh có Tử vi ở Ngọ, không gặp sát tinh như Kình Đà Không Kiếp thì làm đến chức lớn", "van_ban"),
+ "KL50_TUSAT_TYHOI": ("KL", 50, "Tử Sát đồng lâm Tỵ Hợi, nhất triều phú quí song toàn", "van_ban"),
+ "TT22_TV_PHUBAT": ("TT", 22, "Tử Vi Thiên Phủ toàn y phụ bật chi công", "van_ban"),
+ "TT22_GIAP": ("TT", 22, "Giáp nhân hưởng phúc chung thân", "van_ban"),
+ "KL85_TUAN_CUU": ("KL", 85, "lúc đó cần Tuần Triệt cứu giải để giảm bớt đau thương", "van_ban"),
+ "KL106_HOAKHOA_CUU": ("KL", 106, "Cự môn hãm địa cần có Hóa khoa cứu giải", "van_ban"),
+ "KL36_NHAM": ("KL", 36, "Nhâm Lương Vi Phụ Vũ", "van_ban"),
+ "TH31_SUN": ("TH", 31, "Bình thì ở Dậu khá tường", "van_ban"),
+ "TH32_MUI_SUU": ("TH", 32, "Từ Mùi đến Sửu bần cùng khốn", "van_ban"),
+ "KL67_XUNGCHIEU": ("KL", 67, "gặp Hoá khoa đồng cung hay xung chiếu", "van_ban"),
  "KL222_VT_TUAN": ("KL", 222, "Mệnh có Vũ Tướng mà không bị Tuần Triệt án ngữ thì cuộc đời suôn", "van_ban"),
  "TT22_TPDC_SAT": ("TT", 22, "Tử Phủ đồng cung vô sát tấu", "van_ban"),
  "TT22_TPDC_TYHOI": ("TT", 22, "Tử Phủ đồng cung lâm Tị Hợi nhất triều phú quí song toàn", "van_ban"),
@@ -108,10 +120,10 @@ F = {"TPVT": "CACH_X_TU_PHU_VU_TUONG", "TPDC": "CACH_X_TU_PHU_DONG_CUNG", "CNDL"
 FID2K = {v: k for k, v in F.items()}
 
 
-def R(status, cites=(), reason="", action="giu_co_nguon", stance="ung_ho", conflict="", convention=""):
+def R(status, cites=(), reason="", action="giu_co_nguon", stance="ung_ho", conflict="", convention="", fit="dung"):
     """One audit verdict. stance: ung_ho (book says it in this role) | nguoc (book says the opposite) | lien_quan | khong_noi."""
     return {"status": status, "cites": list(cites), "reason": reason, "action": action, "stance": stance,
-            "school_conflict": conflict, "design_convention": convention}
+            "school_conflict": conflict, "design_convention": convention, "structure_fit": fit}
 
 
 NO = R("khong_co_nguon", [], "không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế", "giu_gia_thuyet", "khong_noi")
@@ -133,15 +145,15 @@ X = {  # (formation key, condition id) -> verdict; condition id "core" for the c
  ("TPVT", "core"): R("khop", ["TH72_TPVT", "KL132_TPVT_TAHUU"], "tên cách có trong danh sách quý cách (TH p.72 mục 7); sách không nêu vị trí chính xác, việc đòi cả bốn sao trong tam phương Mệnh là cách mô hình hóa chuẩn"),
  ("TPVT", "ta_huu_hoi"): R("khop", ["KL132_TPVT_TAHUU"], "KL p.132: cách Tử Phủ Vũ Tướng mà thiếu Tả Hữu thì 'đầu Ngô mình Sở'"),
  ("TPVT", "xuong_khuc_hoi"): R("long_hon", ["KL193_TPVT_XK"], "sách nói Xương Khúc đi với Tử Phủ Vũ Tướng thì văn võ toàn tài; bản nháp chấp nhận một trong hai sao"),
- ("TPVT", "loc_hoi"): R("khop", ["TH115_TPVT"], "TH p.115 (đại tiểu hạn): Tử Phủ Vũ Tướng gặp sao Lộc thì phát giàu; lưu ý sách nói về hạn, không về bản cách"),
- ("TPVT", "sat_dong_cung"): R("chat_hon", ["TH116_TPVT", "KL96_PHU"], "sách nói 'gặp' (Tam Không, Kiếp, Hình, Đà, Linh Hỏa) không giới hạn đồng cung; bản nháp chỉ tính đồng cung Mệnh", "de_xuat_sua"),
- ("TPVT", "ky_dong_cung"): R("chat_hon", ["TH116_TPVT"], "TH p.116 liệt kê Kỵ trong nhóm gặp phải thì giáng chức phá tài; không giới hạn đồng cung", "de_xuat_sua"),
+ ("TPVT", "loc_hoi"): R("khop", ["TH115_TPVT"], "TH p.115 (đại tiểu hạn): Tử Phủ Vũ Tướng gặp sao Lộc thì phát giàu; lưu ý sách nói về hạn, không về bản cách", fit="khac_ngu_canh"),
+ ("TPVT", "sat_dong_cung"): R("chat_hon", ["TH116_TPVT", "KL96_PHU"], "sách nói 'gặp' (Tam Không, Kiếp, Hình, Đà, Linh Hỏa) không giới hạn đồng cung; bản nháp chỉ tính đồng cung Mệnh", "de_xuat_sua", fit="khac_ngu_canh"),
+ ("TPVT", "ky_dong_cung"): R("chat_hon", ["TH116_TPVT"], "TH p.116 liệt kê Kỵ trong nhóm gặp phải thì giáng chức phá tài; không giới hạn đồng cung", "de_xuat_sua", fit="khac_ngu_canh"),
  ("TPVT", "tuan_triet_an_ngu"): R("khop", ["KL222_VT_TUAN", "TH94_PHU", "TH95_TUONG"], "Vũ Tướng/Thiên Phủ/Thiên Tướng đều bị Tuần Triệt làm hại; việc 'hạ một bậc' là quy ước thiết kế", conflict=SCHOOL_TUAN, convention="hạ một bậc là quy ước thiết kế"),
  ("TPVT", "Thiên_Tướng_ham"): R("lien_quan", ["TH95_TUONG"], "TH p.95 nói Tướng gặp Tuần Triệt 'như hãm', không nói Tướng hãm hạ cả cách; điều kiện không thể xảy ra vì Thiên Tướng hãm chỉ ở Mão/Dậu, nơi không hình thành đủ bốn sao",
                                  "khong_the_xay_ra", "lien_quan"),
  ("TPDC", "core"): R("chat_hon", ["TH72_TPDC", "TT22_TPDC_SAT"], "TH p.72 mục 1: đóng ở Mệnh HAY Thân; bản nháp chỉ neo ở Mệnh. TT p.22 còn nhắc cả Tỵ/Hợi nơi mô hình không có Tử Phủ đồng cung (bất đồng nguồn)",
                      "de_xuat_sua", conflict="TT p.22 nói Tử Phủ đồng cung ở Tỵ/Hợi; mô hình (và KL p.49) chỉ có ở Dần/Thân"),
- ("TPDC", "ta_huu_hoi"): R("lien_quan", ["KL49_TV_TAHUU"], "KL p.49 nói Tử Vi cần Tả Hữu (tránh 'ông vua cô độc'), không nói riêng về Tử Phủ đồng cung", "giu_gia_thuyet", "lien_quan"),
+ ("TPDC", "ta_huu_hoi"): R("lien_quan", ["KL49_TV_TAHUU"], "KL p.49 nói Tử Vi cần Tả Hữu (tránh 'ông vua cô độc'), không nói riêng về Tử Phủ đồng cung (TT p.22 có câu 'Tử Vi Thiên Phủ toàn y Phụ Bật' nhưng chưa được trích ở đây)", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
  ("TPDC", "sat_dong_cung"): R("khac", ["TT22_TPDC_SAT", "KL50_TP_KINH"], "TT p.22: Tử Phủ đồng cung 'vô sát tấu' mới hưởng phúc (ủng hộ); nhưng KL p.50 nói Tử Phủ đồng cung với Kình Dương thì buôn bán giàu có (ngược lại)",
                           "de_xuat_sua", "nguoc", conflict="TT p.22 (sát tinh làm hỏng) trái KL p.50 (Kình Dương đồng cung vẫn giàu)"),
  ("TPDC", "ky_dong_cung"): R("khac", ["KL50_TP_KY"], "KL p.50: Tử Phủ cùng Hóa Kỵ, Hóa Quyền ở Dần là người mưu cơ tài trí; không coi Kỵ là yếu tố phá", "de_xuat_sua", "nguoc"),
@@ -158,9 +170,9 @@ X = {  # (formation key, condition id) -> verdict; condition id "core" for the c
  ("SPLT", "core"): R("lien_quan", ["TH72_SPLT"], "tên cách có trong TH p.72 mục 4 (đọc từ ảnh), nhưng sách không nêu số sao cần có; ngưỡng '3 trong 4 sao' là quy ước thiết kế",
                      "quy_uoc_thiet_ke", "lien_quan", convention="ngưỡng 3 trong 4 sao là quy ước thiết kế, sách không nêu"),
  ("SPLT", "khoa_quyen_hoi"): R("khop", ["TH76_CATTINH"], "TH p.76: Sát Phá Liêm Tham miếu vượng hội cát tinh gồm Khoa Quyền Lộc (nhóm phi thường cách)", conflict="TH p.76 cũng đếm Kình, Không trong nhóm cát hội; KL p.221 không coi sát tinh là yếu tố phá"),
- ("SPLT", "ta_huu_hoi"): R("lien_quan", ["TH76_THUONG"], "danh sách cát tinh của TH p.76 là cho nhóm Thượng cách (Tử Phủ Vũ Tướng, Cơ Nguyệt, Cự Nhật...), không riêng cho SPLT", "giu_gia_thuyet", "lien_quan"),
- ("SPLT", "xuong_khuc_hoi"): R("lien_quan", ["TH76_THUONG"], "như trên", "giu_gia_thuyet", "lien_quan"),
- ("SPLT", "khoi_viet_hoi"): R("lien_quan", ["TH76_THUONG"], "như trên", "giu_gia_thuyet", "lien_quan"),
+ ("SPLT", "ta_huu_hoi"): R("lien_quan", ["TH76_THUONG"], "danh sách cát tinh của TH p.76 là cho nhóm Thượng cách (Tử Phủ Vũ Tướng, Cơ Nguyệt, Cự Nhật...), không riêng cho SPLT", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
+ ("SPLT", "xuong_khuc_hoi"): R("lien_quan", ["TH76_THUONG"], "như trên", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
+ ("SPLT", "khoi_viet_hoi"): R("lien_quan", ["TH76_THUONG"], "như trên", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
  ("SPLT", "ba_sat_va_ky_trong_tam_phuong"): R("chat_hon", ["TH77_SPLT_HA", "TH116_SPLT"], "TH p.77: hạ cách khi hội Vũ, Kình Đà, Thiên Địa Không... 'nhiều' hung sát ở hãm địa; bản nháp đòi từ 3 sát tinh VÀ Hóa Kỵ. Con số 3 và điều kiện kèm Kỵ là quy ước thiết kế",
                                               "quy_uoc_thiet_ke", "lien_quan", conflict="TH p.76 xếp Kình, Không vào nhóm cát hội của SPLT, trái TH p.77", convention="ngưỡng '3 sát tinh + Kỵ' là quy ước thiết kế"),
  ("SPLT", "ky_dong_cung"): R("chat_hon", ["TH116_SPLT"], "TH p.116: gặp Linh Hỏa Kình Kỵ thì tù ngục vong gia; không giới hạn đồng cung", "de_xuat_sua"),
@@ -168,8 +180,8 @@ X = {  # (formation key, condition id) -> verdict; condition id "core" for the c
  ("NNTM", "core"): R("long_hon", ["TH72_NNTM", "KL53_NN_TINHMINH"], "TH p.72: Nhật ở Thìn/Tỵ, Nguyệt ở Dậu/Tuất và Mệnh đóng ở Nhật hay Nguyệt; KL p.53 chỉ cần Nhật Nguyệt hợp chiếu Mệnh (ví dụ Mệnh Sửu). Bản nháp theo KL (rộng hơn TH)",
                      "de_xuat_sua", conflict="TH p.72 (vị trí cố định) khác KL p.53 (hợp chiếu tịnh minh)"),
  ("NNTM", "nhat_nguyet_deu_sang"): R("khop", ["TT142_NNTM", "KL53_NN_TINHMINH"], "TT p.142: cả hai sao ở miếu vượng; KL p.53: đắc địa; ngưỡng bản nháp 'đắc trở lên' theo KL", conflict="TT nói miếu vượng, KL nói đắc địa"),
- ("NNTM", "ta_huu_hoi"): R("lien_quan", ["KL56_NGUYET_TAHUU"], "KL p.56 nói Tả Hữu giúp Thái Âm/Vũ Khúc, không nói riêng Nhật Nguyệt tịnh minh", "giu_gia_thuyet", "lien_quan"),
- ("NNTM", "khoa_quyen_hoi"): R("lien_quan", ["KL53_NN_KQL"], "KL p.53 mục 8 nói Khoa Quyền Lộc hợp chiếu giúp Nhật Nguyệt Sửu Mùi; chưa phải cách tịnh minh", "giu_gia_thuyet", "lien_quan"),
+ ("NNTM", "ta_huu_hoi"): R("lien_quan", ["KL56_NGUYET_TAHUU"], "KL p.56 nói Tả Hữu giúp Thái Âm/Vũ Khúc, không nói riêng Nhật Nguyệt tịnh minh", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
+ ("NNTM", "khoa_quyen_hoi"): R("lien_quan", ["KL53_NN_KQL"], "KL p.53 mục 8 nói Khoa Quyền Lộc hợp chiếu giúp Nhật Nguyệt Sửu Mùi; chưa phải cách tịnh minh", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
  ("NNTM", "nhat_nguyet_ham_gap_sat"): R("khop", ["TH74_NN_TAN_HUNG", "KL56_NN_HAM"], "TH p.74 (bần tiện cách số 7, từ ảnh) và KL p.56: Nhật/Nguyệt hãm gặp sát tinh thì khốn khổ"),
  ("NNTM", "ky_dong_cung"): R("lien_quan", ["KL85_GHET"], "KL p.85 nói Thái Dương ghét Kỵ nhưng không nêu cho cách tịnh minh", "giu_gia_thuyet", "lien_quan"),
  ("NNTM", "khong_kiep_dong_cung"): R("lien_quan", ["KL56_NN_HAM"], "KL p.56 nói Nhật/Nguyệt HÃM gặp Không Kiếp; bản nháp áp dụng cho cả khi sáng", "giu_gia_thuyet", "lien_quan"),
@@ -180,7 +192,7 @@ X = {  # (formation key, condition id) -> verdict; condition id "core" for the c
  ("NLTT", "ta_huu_hoi"): NO,
  ("NLTT", "khoa_quyen_hoi"): R("khop", ["KL85_NLTT"], "KL p.85: Thái Dương thích Xương Khúc, Khoa Quyền Lộc"),
  ("NLTT", "xuong_khuc_hoi"): R("khop", ["KL85_NLTT"], "KL p.85: Thái Dương thích Xương Khúc, Khoa Quyền Lộc"),
- ("NLTT", "sat_dong_cung"): R("lien_quan", ["KL85_GHET"], "KL p.85 nêu Đà, Kỵ, Riêu là sao Thái Dương ghét; không nêu toàn bộ sát tinh và không riêng cho Ngọ", "giu_gia_thuyet", "lien_quan"),
+ ("NLTT", "sat_dong_cung"): R("lien_quan", ["KL85_SO"], "KL p.85 (nói về sao Thái Dương ở mọi cung, không riêng Ngọ): Thái Dương sợ Kình, Đà, Không, Kiếp 'gặp' thì công danh trắc trở, và 'cần Tuần Triệt cứu giải' — KL nói Tuần/Triệt cứu cho Thái Dương, không cho cách Nhật lệ trung thiên; phạm vi 'gặp' không nêu", "giu_gia_thuyet", "lien_quan"),
  ("NLTT", "ky_dong_cung"): R("chat_hon", ["KL85_GHET"], "KL p.85: Thái Dương ghét Kỵ (không giới hạn đồng cung)", "de_xuat_sua"),
  ("NLTT", "tuan_triet_an_ngu"): R("khong_co_nguon", ["KL85_NN_TUAN"], "Tuần/Triệt trong sách giúp Thái Dương HÃM; với Thái Dương vượng ở Ngọ không có trang nói Tuần/Triệt gây hại", "giu_gia_thuyet", "khong_noi", SCHOOL_TUAN),
  ("NLTT", "Thái_Dương_ham"): R("khong_co_nguon", [], "Không thể xảy ra: Thái Dương ở Ngọ luôn vượng theo bảng miếu vượng, nên điều kiện (bảng độ sáng) không bao giờ đúng; đây không phải lỗi logic mà là hệ quả của bảng", "khong_the_xay_ra", "khong_noi"),
@@ -201,7 +213,7 @@ X = {  # (formation key, condition id) -> verdict; condition id "core" for the c
  ("MDDK", "tuan_triet_an_ngu"): NO,
  ("TKGH", "core"): R("khop", ["KL66_TKGH", "TT142_KQL"], "KL p.66 mục 10: Khoa, Quyền, Lộc hội họp ở Mệnh; TT p.142 Khoa Quyền Lộc củng. TH p.72 mục 12 'Tam Hóa liên châu' (ba cung liền) là điều kiện chặt hơn, khác tên",
                      conflict="TH p.72 mục 12 (ba cung liền) khác KL/TT (hội trong tam phương)"),
- ("TKGH", "hoa_o_ban_cung"): R("khop", ["TH72_TAMHOA"], "TH p.72 mục 12 (đọc từ ảnh): cần có một hóa ở chính cung Mệnh"),
+ ("TKGH", "hoa_o_ban_cung"): R("lien_quan", ["TH72_TAMHOA"], "TH p.72 mục 12 là cách 'Tam Hóa liên châu' (Khoa, Quyền, Lộc đi liền 3 cung, Mệnh có một hóa): cấu trúc khác Tam kỳ gia hội (cả ba Hóa hội trong tam phương)", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
  ("TKGH", "ta_huu_hoi"): NO,
  ("TKGH", "xuong_khuc_hoi"): NO,
  ("TKGH", "ky_hoac_kinh_dong_cung"): R("chat_hon", ["KL66_TKGH"], "KL p.66: Hóa Kỵ, Kình Dương 'đồng cung HOẶC CHIẾU' làm công danh mờ mịt; bản nháp chỉ tính đồng cung", "de_xuat_sua"),
@@ -210,9 +222,9 @@ X = {  # (formation key, condition id) -> verdict; condition id "core" for the c
  ("KVGM", "core"): R("khop", ["KL44_KVGM", "TT46_KV"], "KL p.44 mục 9: Mệnh ở giữa, Khôi một bên, Việt một bên (tuổi Bính Đinh Nhâm Quý, Mệnh Thìn/Tuất)"),
  ("KVGM", "co_chinh_tinh"): NO,
  ("KVGM", "ta_huu_hoi"): NO,
- ("KVGM", "xuong_khuc_hoi"): R("khop", ["KL62_KV_XUONGKHUC"], "KL p.62 mục 2: Khôi Việt cùng Xương Khúc, Lộc Tồn thì giàu sang"),
- ("KVGM", "sat_dong_cung"): R("chat_hon", ["KL62_KV_SAT"], "KL p.62 mục 4: Khôi Việt bị sát tinh HỘI CHIẾU thì mang bệnh; bản nháp chỉ tính đồng cung", "de_xuat_sua"),
- ("KVGM", "ky_dong_cung"): R("chat_hon", ["KL62_KV_KY_HINH"], "KL p.62 mục 2: Hóa Kỵ, Thiên Hình cản phá thì mất giàu sang (không giới hạn đồng cung)", "de_xuat_sua"),
+ ("KVGM", "xuong_khuc_hoi"): R("lien_quan", ["KL62_KV_XUONGKHUC"], "KL p.62 mục 2 nói Khôi Việt, Xương, Khúc, Lộc Tồn ĐỒNG CUNG hay HỘI CHIẾU Mệnh; không phải Khôi Việt GIÁP Mệnh (KL p.62 mục 3 nói riêng về 'giáp mệnh' chỉ khen 'được kính nể, yêu quí')", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
+ ("KVGM", "sat_dong_cung"): R("lien_quan", ["KL62_KV_SAT"], "KL p.62 mục 4: 'Cung mệnh CÓ Khôi Việt lại bị sát tinh hội chiếu' — Khôi Việt ở Mệnh, không phải giáp Mệnh; cấu trúc khác, nên không dùng làm nguồn cho phá cách Khôi Việt giáp Mệnh", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
+ ("KVGM", "ky_dong_cung"): R("lien_quan", ["KL62_KV_KY_HINH"], "KL p.62 mục 2: Khôi Việt, Xương, Khúc, Lộc Tồn đồng cung/hội chiếu mà không bị Kỵ, Hình cản phá — cấu trúc Khôi Việt ở/hội chiếu Mệnh, không phải giáp Mệnh", "giu_gia_thuyet", "lien_quan", fit="khac_cau_truc"),
  ("KVGM", "vo_chinh_dieu"): NO,
  ("KVGM", "tuan_triet_an_ngu"): NO,
 }
@@ -248,13 +260,13 @@ def build():
         cites = []
         for q in v["cites"]:
             book, page, quote, method = Q[q]
-            chk = verify(book, page, quote) if method == "van_ban" else "anh"
+            chk = verify(book, page, quote) if method == "van_ban" else method
             if chk == "SAI":
                 bad.append((q, book, page, quote))
             cites.append({"id": q, "book": bt.BOOK_NAMES[book], "book_code": book, "page": page, "quote": quote, "quote_check": chk})
         rows.append({"formation": f["id"], "formation_key": k, "name_vi": f["name_vi"], "role": role, "id": cid, "label": label,
                      "status": v["status"], "stance": v["stance"], "action": v["action"], "cites": cites, "reason": v["reason"],
-                     "school_conflict": v["school_conflict"], "design_convention": v["design_convention"],
+                     "school_conflict": v["school_conflict"], "design_convention": v["design_convention"], "structure_fit": v["structure_fit"],
                      "machine_checked": bool(cites) and all(c["quote_check"] == "van_ban" for c in cites)})
     if bad:
         raise SystemExit("quote not found on cited page:\n" + "\n".join(map(str, bad)))
@@ -264,7 +276,7 @@ def build():
 def summary(rows):
     st = Counter(r["status"] for r in rows)
     act = Counter(r["action"] for r in rows)
-    authenticated = [r for r in rows if r["status"] == "khop" and any(c["quote_check"] in ("van_ban", "anh") for c in r["cites"])
+    authenticated = [r for r in rows if r["status"] == "khop" and any(c["quote_check"] in ("van_ban", "anh_doc_ro") for c in r["cites"])
                      and r["stance"] == "ung_ho"]
     return {"total": len(rows), "by_status": dict(st), "by_action": dict(act),
             "authenticated_matching": len(authenticated),

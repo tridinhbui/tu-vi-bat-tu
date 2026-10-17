@@ -45,7 +45,7 @@ SCHOOL_PACK = {
         "hoa_linh": ["verified", "SRC_THUC_HANH p.25 (Hỏa thuận / Linh nghịch for dương nam, âm nữ)"],
         "triet": ["verified", "SRC_THUC_HANH p.20"],
         "tuan": ["verified", "SRC_THUC_HANH p.20"],
-        "tu_hoa": ["verified", "SRC_THUC_HANH p.21 + SRC_KHAO_LUAN pp.196-197 agree on all ten stems (Khảo Luận p.36 table misprints Tân-Lộc as Thiên Cơ; its own prose p.196 says Cự Môn); Nhâm-Khoa = Tả Phụ per KL p.197 (Thực Hành prints 'Phủ')"],
+        "tu_hoa": ["verified", "SRC_THUC_HANH p.21 + SRC_KHAO_LUAN pp.196-197 agree on nine of the ten stems (Khảo Luận p.36 table misprints Tân-Lộc as Thiên Cơ; its own prose p.196 says Cự Môn). They DISAGREE on Nhâm-Khoa: Khảo Luận pp.36,197 = Tả Phụ (production follows it), Thực Hành pp.20-21 = Thiên Phủ in both verse and prose; a digitized 紫微斗數全書 verse also reads 府, so this is a source/school difference, not a misprint (Phase 7 dossier; tables kept in data/experimental/tu_hoa_tables.json)"],
         "dignity_table": ["verified", "SRC_THUC_HANH pp.29-48 (14 chính tinh; unlisted branches stay unspecified; Tham Lang Tý/Ngọ disputed with Khảo Luận)"],
         "dai_han": ["verified", "SRC_THUC_HANH p.27 (first decade starts at Mệnh at age = cục number; thuận for dương nam/âm nữ, nghịch otherwise)"],
         "tieu_han": ["verified", "SRC_THUC_HANH p.27 (age 1 at Thìn/Tuất/Mùi/Sửu by year-branch triad; nam thuận, nữ nghịch)"],

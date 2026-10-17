@@ -20,7 +20,11 @@ AUDIT = json.loads((ROOT / "engine/data/experimental/formation_audit.json").read
 def test_exactly_the_25_audit_proposals_are_listed_once():
     keys = [(p["formation"], p["role"], p["condition"]) for p in PROPS]
     assert len(keys) == len(set(keys)) == 25
-    assert set(keys) == {(r["formation"], r["role"], r["id"]) for r in AUDIT if r["action"] == "de_xuat_sua"}
+    now = {(r["formation"], r["role"], r["id"]) for r in AUDIT if r["action"] == "de_xuat_sua"}
+    assert now <= set(keys) and len(now) == 23
+    # Phase 7: two Phase-5 proposals were RECLASSIFIED (the cited KL tr.62 sentences are about Khôi Việt at Mệnh, not Khôi Việt giáp Mệnh); they stay listed, flagged
+    flagged = {(p["formation"], p["role"], p["condition"]) for p in PROPS if p["structure_fit"] == "khac_cau_truc"}
+    assert set(keys) - now == flagged == {("CACH_X_KHOI_VIET_GIAP_MENH", "breakers", "sat_dong_cung"), ("CACH_X_KHOI_VIET_GIAP_MENH", "breakers", "ky_dong_cung")}
     assert collections.Counter(p["relation"] for p in PROPS) == {"chua": 6, "bo": 10, "mo_rong": 4, "thu_hep": 2, "thay_the": 2, "giu": 1}
     for p in PROPS:
         assert p["cites"] and p["new_reading"] and p["regression_test"]

@@ -82,8 +82,11 @@ def sample():
 
 
 def build():
-    rows = {(r["formation_key"], r["role"], r["id"]): r for r in AUDIT["rows"] if r["action"] == "de_xuat_sua"}
-    assert set(rows) == {(p[0], p[1], p[2]) for p in P}, set(rows) ^ {(p[0], p[1], p[2]) for p in P}
+    rows = {(r["formation_key"], r["role"], r["id"]): r for r in AUDIT["rows"]}
+    now = {k for k, r in rows.items() if r["action"] == "de_xuat_sua"}
+    listed = {(p[0], p[1], p[2]) for p in P}
+    # the 25 proposals of Phase 5; Phase 7 may RECLASSIFY a row (cited page speaks about another structure) but never silently drops one
+    assert now <= listed and all(rows[k]["structure_fit"] == "khac_cau_truc" for k in listed - now), (now ^ listed)
     stats = {}
     for p in P:
         k, role, cid, rel, vs, vcid = p[:6]
@@ -119,7 +122,7 @@ def build():
         r = rows[(k, role, cid)]
         s = stats.get((k, role, cid))
         out.append({"id": f"P{i:02d}", "formation": r["formation"], "formation_key": k, "name_vi": r["name_vi"], "role": role, "condition": cid, "label": r["label"],
-                    "audit_status": r["status"], "cites": r["cites"], "relation": rel, "new_reading": reading, "assumption": assumption, "not_implemented_reason": why if rel in ("chua", "bo") else "",
+                    "audit_status": r["status"], "audit_action": r["action"], "structure_fit": r["structure_fit"], "cites": r["cites"], "relation": rel, "new_reading": reading, "assumption": assumption, "not_implemented_reason": why if rel in ("chua", "bo") else "",
                     "variants": [r["formation"] + v for v in vs], "variant_condition": vcid,
                     "before_after": ({kk: s[kk] for kk in ("n_base_core", "base_true", "var_true", "both_true", "base_only", "var_only", "unknown")} if s else None),
                     "regression_test": ("engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample" if s else "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants")})

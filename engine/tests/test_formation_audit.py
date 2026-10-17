@@ -1,5 +1,6 @@
 """Phase 2 scholarly audit: structure of data/experimental/formation_audit.json, quotes against the books (when present),
 and the control set of the book's own worked example charts (KL pp.237-246) — mismatches are RECORDED, not tuned away."""
+import collections
 import json
 from pathlib import Path
 
@@ -37,7 +38,7 @@ def test_rows_are_well_formed_and_nothing_is_marked_verified():
         assert "verified" not in json.dumps(r, ensure_ascii=False).lower().replace("chưa verified", "")
         for c in r["cites"]:
             assert c["page"] > 0 and c["quote"].strip() and len(c["quote"].split()) <= 30
-            assert c["quote_check"] in ("van_ban", "anh", "chua_kiem")
+            assert c["quote_check"] in ("van_ban", "anh_doc_ro", "chua_kiem")
     # whatever is called 'khop' must stand on at least one cited page; nothing without a book may claim a match
     for r in ROWS:
         if r["status"] == "khop":
@@ -149,12 +150,12 @@ def test_committed_audit_records_how_each_quote_was_checked():
     """reproducible WITHOUT the PDFs: the committed file pins what was machine-checked; a skipped PDF test is never counted as evidence."""
     s = AUDIT["summary"]
     n = sum(1 for r in ROWS for c in r["cites"] if c["quote_check"] == "van_ban")
-    img = {(c["book_code"], c["page"]) for r in ROWS for c in r["cites"] if c["quote_check"] == "anh"}
-    assert n == 94 and img == {("TH", 72), ("TH", 74)}
+    img = {(c["book_code"], c["page"]) for r in ROWS for c in r["cites"] if c["quote_check"] == "anh_doc_ro"}
+    assert n == 97 and img == {("TH", 72)}                 # TH tr.74 is machine-checkable now; TH tr.72 items 4 and 12 are legible only in the page image
     assert s["khop_machine_checked"] == sum(1 for r in ROWS if r["status"] == "khop" and r["machine_checked"])
     for r in ROWS:
         if r["status"] == "khop" and not r["machine_checked"]:
-            assert any(c["quote_check"] == "anh" for c in r["cites"])      # image-read only: flagged, not claimed as machine-verified
+            assert any(c["quote_check"] == "anh_doc_ro" for c in r["cites"])      # image-read only: flagged, not claimed as machine-verified
 
 
 # ---- Phase 6: does each quote even speak about the condition it is cited for? (independent keyword check, not a proof of meaning) ----------
@@ -183,3 +184,16 @@ def test_every_cited_quote_speaks_about_the_condition_it_supports():
         if not any(any(k in c["quote"].lower() for k in kw) for c in r["cites"]):
             off.append((r["formation_key"], r["id"], [c["id"] for c in r["cites"]]))
     assert off == [], off
+
+
+def test_a_status_other_than_lien_quan_requires_the_same_structure():
+    """Phase 7: 'khop / long_hon / chat_hon / khac' compare the draft with a page about THE SAME structure; a page about a neighbouring structure is only 'lien_quan'."""
+    fits = collections.Counter(r["structure_fit"] for r in ROWS)
+    assert set(fits) <= {"dung", "khac_cau_truc", "khac_ngu_canh"}
+    for r in ROWS:
+        if r["structure_fit"] == "khac_cau_truc":
+            assert r["status"] in ("lien_quan", "khong_co_nguon") and r["action"] != "de_xuat_sua", (r["formation_key"], r["id"])
+    assert {(r["formation_key"], r["id"]) for r in ROWS if r["structure_fit"] == "khac_cau_truc"} == {
+        ("TPDC", "ta_huu_hoi"), ("SPLT", "ta_huu_hoi"), ("SPLT", "xuong_khuc_hoi"), ("SPLT", "khoi_viet_hoi"), ("NNTM", "ta_huu_hoi"), ("NNTM", "khoa_quyen_hoi"),
+        ("TKGH", "hoa_o_ban_cung"), ("KVGM", "xuong_khuc_hoi"), ("KVGM", "sat_dong_cung"), ("KVGM", "ky_dong_cung")}
+    assert {(r["formation_key"], r["id"]) for r in ROWS if r["structure_fit"] == "khac_ngu_canh"} == {("TPVT", "loc_hoi"), ("TPVT", "sat_dong_cung"), ("TPVT", "ky_dong_cung")}

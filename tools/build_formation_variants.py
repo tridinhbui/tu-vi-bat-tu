@@ -116,7 +116,7 @@ variant(T + "SAT_PHA_LIEM_THAM", "th", "76_77", "TH: hội cát tinh (Khoa Quy�
         note="TH p.76 lại xếp Kình, Không vào nhóm cát hội của Thân Sát Phá Liêm Tham: bất đồng nội bộ TH, ghi nhận trong ma trận.")
 variant(T + "NHAT_NGUYET_TINH_MINH", "th", "72", "TH: vị trí cố định (Nhật Thìn/Tỵ, Nguyệt Dậu/Tuất, Mệnh ở Nhật hay Nguyệt)",
         rules={"core": (["TH72_NNTM"], None), "boosters.nhat_nguyet_deu_sang": (["TT142_NNTM"], "nguồn là TT ('miếu vượng'); baseline dùng ngưỡng từ đắc trở lên"),
-               "breakers.nhat_nguyet_ham_gap_sat": (["TH74_NN_TAN_HUNG"], "trang TH tr.74 đọc từ ảnh; tập sáu sát tinh và phạm vi tam phương là của baseline", "chua_du_nguon")},
+               "breakers.nhat_nguyet_ham_gap_sat": (["TH74_NN_TAN_HUNG"], "TH tr.74 nói Nhật/Nguyệt hãm TẠI MỆNH (không cứu tinh, hoặc hãm gặp sát tinh); baseline tính hãm + sát tinh trong tam phương; tập sáu sát tinh là của baseline")},
         core=O(A(f("palace.branch", "eq", "Thìn"), has("self", "majors", "Thái Dương"), has("opp", "majors", "Thái Âm")),
                A(f("palace.branch", "eq", "Tuất"), has("self", "majors", "Thái Âm"), has("opp", "majors", "Thái Dương")),
                A(f("palace.branch", "eq", "Tỵ"), has("self", "majors", "Thái Dương"), has("trine1", "majors", "Thái Âm")),
@@ -174,7 +174,7 @@ variant(T + "TAM_KY_GIA_HOI", "kl", "66", "KL tr.66: Khoa Quyền Lộc hội h�
 variant(T + "KHOI_VIET_GIAP_MENH", "kl", "44_62", "KL: Mệnh giữa Khôi Việt; hội Xương Khúc tốt, sát tinh hội chiếu có bệnh",
         rules={"core": (["KL44_KVGM"], None),
                "boosters.xuong_khuc_hoi": (["KL62_KV_XUONGKHUC"], "KL nói 'đồng cung hay hội chiếu' cùng Lộc Tồn; baseline tam phương, không đòi Lộc Tồn"),
-               "breakers.sat_tinh_hoi_chieu": (["KL62_KV_SAT"], "'hội chiếu' = tam phương (từ ngữ đã xác định phạm vi); tập sát tinh sáu sao là của baseline")},
+               "breakers.sat_tinh_hoi_chieu": (["KL62_KV_SAT"], "KL tr.62 mục 4 nói Khôi Việt Ở Mệnh bị sát tinh hội chiếu, không phải Khôi Việt GIÁP Mệnh (cấu trúc khác); 'hội chiếu' = tam phương; tập sáu sát tinh là của baseline", "chua_du_nguon")},
         keep={"boosters": ["xuong_khuc_hoi"]},
         add={"breakers": [ev("sat_tinh_hoi_chieu", "sát tinh hội chiếu (tam phương) cung Mệnh (KL tr.62 mục 4)", f("palace.khi.sat_tp", "gte", 1))]},
         note="Kỵ/Thiên Hình 'cản phá' (mục 2) không nêu phạm vi nên không đưa vào.")
@@ -208,12 +208,12 @@ def rule_levels(b, v, cite_info, audit):
         arow = rows.get((b["id"], role, cid)) if kept else None
         if forced:
             level = forced
-        elif any(c["read"] != "van_ban" for c in cs):
+        elif any(c["read"] not in ("van_ban", "anh_doc_ro") for c in cs):
             level = NOSRC
-        elif arow and arow["status"] in ("lien_quan", "khong_co_nguon"):
-            level = NOSRC
-        elif assumption or (arow and arow["status"] != "khop"):
-            level = ASSUMING
+        elif arow and (arow["status"] in ("lien_quan", "khong_co_nguon") or arow.get("structure_fit") == "khac_cau_truc"):
+            level = NOSRC                                    # the cited page speaks about another structure
+        elif assumption or (arow and arow["status"] != "khop") or any(c["read"] == "anh_doc_ro" for c in cs):
+            level = ASSUMING                                 # image-read pages are never 'doi_chieu_truc_tiep' (not reproducible by machine)
         else:
             level = CHECKED
         out[key] = level
