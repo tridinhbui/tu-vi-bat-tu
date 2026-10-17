@@ -4,7 +4,7 @@
     khắc gần −12, cách ngôi −6, xa 0, kẹp −24; chi cùng trụ: can sinh chi −6, can khắc chi −12, chi khắc can −18.
   - Địa chi: 30 độ chia bản khí/tạp khí theo bảng; tam hội 72, tam hợp 60, bán tam hợp 40, lục hợp 36 khi hóa; không hóa thì khử bì (chỉ bản khí);
     lục xung kề nhau: khử bì rồi hao 1/3 hoặc 1/2 (bảng chi tháng), kẹp xung 1/3 và 2/3; bản khí +6 / −8 theo can trực đỉnh.
-  - Chi tháng nắm lệnh: hành nắm lệnh +1/5, hành bị nó khắc −1/5. Nhật chủ vượng khi 'phe mình' (cùng hành + sinh) chiếm từ 40% tổng.
+  - Chi tháng nắm lệnh: hành nắm lệnh +1/5, hành bị nó khắc −1/5. Nhật chủ vượng khi 'phe mình' (cùng hành + sinh) lớn hơn 40% tổng (đúng 40%: sách không nói, hệ thống tính là vượng).
 Chưa hỗ trợ: phu tòng thê hóa / thê tòng phu hóa / uyên ương hợp hóa (mục 5, 6, 8 trang 337–338): coi là hợp mà không hóa và ghi `unsupported`.
 Các ví dụ của sách có vài chỗ số học không khớp (ví dụ trang 347–348); test chỉ so các thành phần nhất quán với phần văn xuôi."""
 from __future__ import annotations
@@ -23,6 +23,15 @@ KHO = {1, 4, 7, 10}
 UNIT_DEG = {"hoi": 72, "hop": 60, "ban": 40, "luc": 36}
 GROUP = {2: (2, 3), 3: (2, 3), 5: (5, 6), 6: (5, 6), 8: (8, 9), 9: (8, 9), 11: (11, 0), 0: (11, 0)}   # month -> its season group (Dần Mão, Tỵ Ngọ, Thân Dậu, Hợi Tý)
 OPPOSITE = {2: 8, 3: 9, 8: 2, 9: 3, 5: 11, 6: 0, 11: 5, 0: 6}
+
+
+THRESHOLD = 0.40     # SRC_TVH_DIEM tr.355: 'phe mình' lớn hơn 40% tổng độ → vượng, nhỏ hơn → nhược (ví dụ 6: 78 < 78,8 nhược; ví dụ 7: 115 > 87,2 vượng)
+
+
+def decide(own: float, total: float) -> tuple[float, bool]:
+    """The book's 40% rule on the scored totals. The book only says 'lớn hơn' / 'nhỏ hơn'; exactly 40% counts as vượng here by this system's choice."""
+    share = own / (total or 1.0)
+    return share, share >= THRESHOLD
 
 
 def _el(stem: int) -> str:
@@ -254,4 +263,4 @@ def score(view: ChartView) -> dict:
     return {"stem_deg": [round(x, 2) for x in deg], "hua_stem": {PILLARS[k]: v for k, v in hua_stem.items()}, "branch_units": [{"kind": u["kind"], "el": u["el"], "branches": u["branches"], "deg": u["deg"]} for u in formed],
             "khu_bi": sorted(khu_bi), "xung": sorted(xung), "heaven": {e: round(v, 2) for e, v in heaven.items()}, "earth": earth, "lenh": lenh,
             "totals_before_lenh": {e: round(v, 2) for e, v in totals.items()}, "totals": {e: round(v, 2) for e, v in adj.items()},
-            "root_main": root_main, "dm_element": dm_el, "own_share": round(own / total, 4), "dm_strong": own / total >= 0.40, "threshold": 0.40, "notes": notes, "src": "SRC_TVH_DIEM"}
+            "root_main": root_main, "dm_element": dm_el, "own_share": round(own / total, 4), "dm_strong": decide(own, total)[1], "threshold": THRESHOLD, "notes": notes, "src": "SRC_TVH_DIEM"}

@@ -139,7 +139,11 @@ def test_cach_cuc_tvh_is_a_separate_method_in_the_comparison():
 
 def test_special_cach_dungthan_uses_the_cach_element_and_the_books_van_lists():
     S = {"by_element": {"Mộc": 0, "Hỏa": 0, "Thổ": 100, "Kim": 0, "Thủy": 0}, "dm_element": "Thổ"}
-    out = yongshen.thuan_the({"outer": [{"name": "Gia Sắc", "kind": "chuyen_vuong", "quality": "chân", "element": "Thổ"}]}, S, TVH_40)
+    gs = {"outer": [{"name": "Gia Sắc", "kind": "chuyen_vuong", "quality": "chân", "element": "Thổ"}]}
+    out = yongshen.thuan_the_tvh(gs)
     assert out["need_elements"] == ["Thổ"] and out["van_tot_elements"] == ["Thổ", "Kim", "Thủy"] and out["van_xau_elements"] == ["Mộc", "Hỏa"]      # p.385
-    t = yongshen.thuan_the({"outer": [{"name": "Tòng Sát (TVH)", "kind": "tong_tvh", "quality": "chân"}]}, S, TVH_40)
+    ts = {"outer": [{"name": "Tòng Sát (TVH)", "kind": "tong_tvh", "quality": "chân"}]}
+    t = yongshen.thuan_the_tvh(ts)
     assert t["yong"] == ["Tai"] and t["ji"] == ["An", "Ti"] and t["source"] == "SRC_TVH_DUNGTHAN"                                          # pp.381, 385
+    for g in (gs, ts):                                                                                                                   # the system's thuận thế never reads the TVH cách
+        assert yongshen.thuan_the(g, S, TVH_40)["status"] == "khong_chan" and not yongshen.thuan_the(g, S, TVH_40)["yong"]

@@ -38,3 +38,5 @@ Vì vậy profile `tvh40_v1` (quyết định vượng/nhược theo Thiệu Vĩ
 - Đã đọc nhưng **chưa cài**: tư lệnh các tháng ngoài Dần (sách không có bảng), tòng khí, quy tắc Thanh–Trọc thành thuật toán (mới có phần trọc qua các mẫu thập thần), điều hậu theo bảng 窮通寶鑑 (bảng 10×12 trong repo vẫn nhập từ trí nhớ, chưa đối chiếu).
 - Ví dụ chọn dụng thần tr.397–399: `cach_cuc_tvh` lấy tỉ trọng nhóm từ điểm TVH; ví dụ 1 ra Quan/Sát trước (khớp 'Mộc' của sách), ví dụ 3 chỉ khớp một phần (sách chọn Thủy+Mộc theo cân bằng ngũ hành), ví dụ 2 nằm sát ngưỡng 40% nên ra hai cách đọc. Chưa đọc: phần lục thân của cả hai sách. Chưa cài: vận hỷ kỵ theo cách đặc biệt cho khúc trực và tòng cách (sách không liệt kê), các điều 'ngoại cách' còn lại của Trích Thiên Tủy.
 - Nhãn loại tòng Vượng/Cường của sách không tách được bằng tỉ trọng nhóm (hai nhóm chồng nhau), nên hệ thống vẫn xuất hai tên theo ngưỡng cố định.
+
+- Kiểm toán điều hậu/dụng thần tr.386–399: xem `docs/BAZI_DEEP_TVH_AUDIT.md` (sinh bởi `tools/bazi_deep_tvh_audit.py`). Tác giả nói ở tr.388 rằng bảng điều hậu do một độc giả tặng, không rõ nguồn: trạng thái `verified` chỉ có nghĩa bản cài khớp với trang in.

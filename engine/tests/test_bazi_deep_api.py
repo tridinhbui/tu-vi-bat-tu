@@ -14,7 +14,7 @@ def test_bazi_structure_endpoint_returns_all_layers_and_says_draft():
         assert k in d, k
     assert d["profile"]["review_status"] == "partially_verified" and d["reasoning"]["all_rules_draft"] is False     # TVH / TTT book rules are verified, the rest stays draft
     assert d["season"]["command"] is not None                          # real chart: days into month are known
-    assert set(d["yongshen"]["methods"]) == {"phu_uc", "dieu_hau", "cach_cuc", "cach_cuc_tvh", "thong_quan", "thuan_the"}
+    assert set(d["yongshen"]["methods"]) == {"phu_uc", "dieu_hau", "cach_cuc", "cach_cuc_tvh", "thong_quan", "thuan_the", "thuan_the_tvh", "khuyet_hanh"}
 
 
 def test_old_endpoints_still_work_and_chart_has_exact_luck_dates():
@@ -32,7 +32,7 @@ def test_timeline_endpoint_compares_each_luck_and_year_with_the_natal_chart():
     assert d["review_status"] == "draft" and len(d["luck"]) >= 8 and len(d["years"]) == 2040 - 1990 + 1
     for e in d["luck"] + d["years"]:
         assert e["effect"] in ("pha_cach", "tro_cach", "doi_cach", "trung_tinh") and e["pack_problems"] == []
-        assert set(e["roles"]) == {"phu_uc", "dieu_hau", "cach_cuc", "cach_cuc_tvh", "thong_quan", "thuan_the"}
+        assert set(e["roles"]) == {"phu_uc", "dieu_hau", "cach_cuc", "cach_cuc_tvh", "thong_quan", "thuan_the", "thuan_the_tvh", "khuyet_hanh"}
     assert d["years"][0]["labels"] in (["year"], ["luck", "year"])
 
 

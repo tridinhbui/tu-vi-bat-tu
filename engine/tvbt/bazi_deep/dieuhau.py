@@ -19,7 +19,10 @@ VI_MONTH = {2: "Dần", 3: "Mão", 4: "Thìn", 5: "Tỵ", 6: "Ngọ", 7: "Mùi",
 
 def lookup(view: ChartView, extra_stems: list[int] | None = None) -> dict:
     """The SET of usable stems is Thiệu Vĩ Hoa's table (pp.389-390); the ORDER (first = chủ) is his note list (pp.391-396), restricted to the table set.
-    The memory-based 窮通寶鑑 draft is only a fallback ranking for stems the notes do not mention."""
+    The memory-based 窮通寶鑑 draft is only a fallback ranking for stems the notes do not mention.
+    In 9 of 120 cells the table and the notes name different stems (see tests/test_bazi_deep_tvh_audit.py): the table is kept as the set, note-only stems are NOT promoted
+    (reported under `book_internal_conflict`), and table-only stems are ranked after the noted ones. Thiệu Vĩ Hoa himself says (tr.388) that the table was given to him
+    by a reader and he does not know its origin, so 'verified' here means 'matches what the book prints', not 'validated as classical doctrine'."""
     dm_vi, mon_vi = STEMS_VI[view.dm], VI_MONTH[view.month_branch]
     cell = _TVH[mon_vi][dm_vi]
     draft = TABLE[STEMS_HAN[view.dm]][BRANCHES_HAN[view.month_branch]]
@@ -37,6 +40,9 @@ def lookup(view: ChartView, extra_stems: list[int] | None = None) -> dict:
         out.append({"stem": name, "han": STEMS_HAN[s], "rank": "chính (thứ tự chú thích TVH tr.391-396)" if name == chu else "có thể dùng", "ten_god": view.god(s),
                     "group": ROLE_GROUP.get(g, g), "visible": s in present_vis, "hidden": s in present_hid and s not in present_vis})
     out.sort(key=lambda x: x["stem"] != chu)
+    note = _ORDER[mon_vi][dm_vi]
+    conflict = {"note_only": [x for x in note if x not in cell], "table_only": [x for x in cell if x not in note]}
     return {"cell": f"{STEMS_HAN[view.dm]} sinh tháng {BRANCHES_HAN[view.month_branch]} ({BRANCHES_VI[view.month_branch]})", "yong_stems": out, "chu": chu,
             "satisfied": any(x["visible"] for x in out[:1]), "any_present": any(x["visible"] or x["hidden"] for x in out),
-            "status": "tap_va_thu_tu_TVH_verified", "src": "SRC_TVH_DIEUHAU", "checked": True}
+            "status": "tap_va_thu_tu_TVH_verified", "src": "SRC_TVH_DIEUHAU", "checked": True,
+            "book_internal_conflict": conflict if conflict["note_only"] or conflict["table_only"] else None}

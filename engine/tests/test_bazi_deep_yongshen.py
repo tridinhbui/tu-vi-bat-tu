@@ -14,7 +14,7 @@ def Y(v, profile=DEFAULT):
 
 def test_five_separate_methods_never_merged():
     y, _, _ = Y(view("EX2"))
-    assert list(y["methods"]) == ["phu_uc", "dieu_hau", "cach_cuc", "cach_cuc_tvh", "thong_quan", "thuan_the"]
+    assert list(y["methods"]) == ["phu_uc", "dieu_hau", "cach_cuc", "cach_cuc_tvh", "thong_quan", "thuan_the", "thuan_the_tvh", "khuyet_hanh"]
     assert "yong" not in y and "final" not in y            # there is no merged answer at all
     for m in y["methods"].values():
         assert m["method"] in y["methods"] and set(["yong", "xi", "ji", "chou", "xian"]) <= set(m)

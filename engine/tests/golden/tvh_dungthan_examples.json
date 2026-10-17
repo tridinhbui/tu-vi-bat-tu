@@ -1,0 +1,39 @@
+{
+ "_note": "Ví dụ chọn dụng thần của Thiệu Vĩ Hoa. 'dung_than' = điều sách KẾT LUẬN (nhóm thập thần suy từ hành sách nêu, so với can ngày). Đây là oracle ghi từ trang sách, KHÔNG sinh ra từ engine. 'verdict' chỉ ghi điều sách nói về vượng/nhược; 'steps' là các bước lập luận của sách (tóm lược, không trích nguyên văn).",
+ "source": "SRC_TVH_DUNGTHAN",
+ "dungthan_examples": {
+  "p397_vd1": {
+   "page": 397, "sex": "Nam", "pillars": "Nhâm Thìn / Tân Hợi / Mậu Tuất / Bính Thìn",
+   "book": {
+    "dm_verdict": "vượng", "dm_verdict_basis": "định tính: 3 chi thổ + Bính hỏa trên giờ sinh ngày; sách nói 'thân cũng thiên vượng'",
+    "dung_than_elements": ["Mộc"], "dung_than_groups": ["QuanSat"], "ky_than_elements": ["Thổ"], "ky_than_groups": ["Ti"],
+    "steps": ["Mậu sinh tháng Hợi (tử địa) nhưng 3 chi là thổ và Bính hỏa trên giờ sinh ngày → kỵ thần là Thổ", "Thổ nhiều mong gặp Mộc làm tơi xốp → lấy Mộc làm dụng thần", "Tài tinh ở vượng địa, thân thiên vượng"]
+   }
+  },
+  "p398_vd2": {
+   "page": 398, "sex": "Nam", "pillars": "Ất Mão / Bính Tuất / Quý Tỵ / Nhâm Tý",
+   "book": {
+    "dm_verdict": "nhược", "dm_verdict_basis": "định tính: 'thất lệnh, không có gốc, Mậu thổ nắm quyền'. Lưu ý: giờ Tý và tàng can Tân/Canh có mặt nên lời sách không tái lập được bằng quy tắc 40%",
+    "dung_than_elements": ["Kim"], "dung_than_groups": ["An"], "ky_than_elements": ["Thổ"], "ky_than_groups": ["QuanSat"], "hi_than_groups": ["Ti"],
+    "steps": ["Quý sinh tháng Tuất thất lệnh, Mậu thổ nắm quyền → thân nhược", "phải dùng Tân kim cấp nguồn cho thủy; Tứ trụ thiếu kim nên lấy kim làm dụng thần", "kỵ thần là Thổ; tỉ kiếp Nhâm Quý thủy trợ thân là có lợi"]
+   }
+  },
+  "p399_vd3": {
+   "page": 399, "sex": "Nam", "pillars": "Canh Tuất / Bính Tuất / Tân Tỵ / Đinh Dậu",
+   "book": {
+    "dm_verdict": "vượng", "dm_verdict_basis": "định tính: Chính Ấn nắm lệnh, Chính Ấn năm trợ thân, giờ Dậu ngang vai; sách nói 'thân vượng, ấn vượng'",
+    "dung_than_elements": ["Thủy", "Mộc"], "dung_than_groups": ["ThucThuong", "Tai"], "ky_than_elements": [],  "ky_than_groups": [],
+    "cach": "Thiên Quan",
+    "steps": ["Tân sinh tháng Tuất, Chính Ấn nắm lệnh, thân vượng, ấn vượng", "Ngũ hành không đầy đủ, thiếu Mộc và Thủy", "để cân bằng ngũ hành, chọn Thủy và Mộc làm dụng thần (không dùng bảng cách cục)"]
+   }
+  }
+ },
+ "dieuhau_examples": {
+  "_note": "Các ví dụ minh họa 'Chú thích về dụng thần điều hậu' tr.387-388 (Thiệu Vĩ Hoa). Sách nêu dụng thần bằng tên can/hành; 'dung_than_groups' là nhóm thập thần của can đó so với can ngày.",
+  "p387_intro": {"page": 387, "pillars": "Bính Thân / Canh Tý / Quý Sửu / Ất Mão", "dung_than_stems": ["Bính"], "dung_than_groups": ["Tai"]},
+  "p387_vd1": {"page": 387, "pillars": "Đinh Mão / Canh Tuất / Kỷ Tỵ / Canh Ngọ", "dung_than_stems": ["Đinh"], "dung_than_groups": ["An"]},
+  "p388_vd2": {"page": 388, "pillars": "Mậu Thìn / Giáp Dần / Đinh Mão / Kỷ Dậu", "dung_than_stems": ["Tân"], "dung_than_groups": ["Tai"], "note": "sách lấy Dậu kim (tài tinh) làm dụng thần"},
+  "p388_vd3": {"page": 388, "pillars": "Đinh Mão / Quý Sửu / Bính Thân / Mậu Tý", "dung_than_stems": ["Ất"], "dung_than_groups": ["An"], "note": "sách lấy Mão mộc (ấn tinh) sinh Bính hỏa"},
+  "p388_vd4": {"page": 388, "pillars": "Canh Dần / Mậu Dần / Giáp Tý / Bính Dần", "dung_than_stems": ["Bính"], "dung_than_groups": ["ThucThuong"]}
+ }
+}
