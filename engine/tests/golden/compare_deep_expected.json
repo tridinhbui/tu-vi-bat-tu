@@ -13,6 +13,7 @@
    "bz.branch_self_penalty.year-day.branch",
    "bz.branch_semi_triad.Hỏa.byear+aday",
    "bz.branch_semi_triad.Hỏa.byear+ayear",
+   "bz.elements",
    "bz.stem_clash.day-day.stem",
    "bz.stem_clash.hour-hour.stem",
    "bz.stem_combine.month-day.stem",
@@ -26,6 +27,7 @@
    "ins.tuvi",
    "ins.unsupported.a",
    "ins.unsupported.b",
+   "ins.yongshen",
    "tv.pair.Mệnh.Mệnh",
    "tv.pair.Mệnh.Phu_Thê",
    "tv.pair.Phu_Thê.Mệnh",
@@ -36,20 +38,20 @@
    "tv.place.b"
   ],
   "tiers": {
-   "direct": 27,
+   "direct": 28,
    "support": 0,
    "limit": 0,
-   "insufficient": 6
+   "insufficient": 7
   },
   "strength": {
    "a": [
-    "nhược",
-    true,
+    null,
+    "borderline",
     0.384
    ],
    "b": [
     "vượng",
-    false,
+    "ok",
     0.85
    ]
   }
@@ -64,6 +66,7 @@
    "bz.branch_self_penalty.year-day.branch",
    "bz.branch_semi_triad.Hỏa.aday+bmonth",
    "bz.branch_semi_triad.Hỏa.ayear+bmonth",
+   "bz.elements",
    "bz.stem_clash.day-day.stem",
    "bz.stem_clash.day-month.stem",
    "bz.stem_clash.month-year.stem",
@@ -80,6 +83,7 @@
    "ins.tuvi",
    "ins.unsupported.a",
    "ins.unsupported.b",
+   "ins.yongshen",
    "tv.pair.Mệnh.Mệnh",
    "tv.pair.Mệnh.Phu_Thê",
    "tv.pair.Phu_Thê.Mệnh",
@@ -90,20 +94,20 @@
    "tv.place.b"
   ],
   "tiers": {
-   "direct": 26,
+   "direct": 27,
    "support": 0,
    "limit": 0,
-   "insufficient": 6
+   "insufficient": 7
   },
   "strength": {
    "a": [
-    "nhược",
-    true,
+    null,
+    "borderline",
     0.384
    ],
    "b": [
     "vượng",
-    false,
+    "ok",
     0.707
    ]
   }
@@ -122,6 +126,7 @@
    "bz.branch_self_penalty.day-year.branch",
    "bz.branch_self_penalty.year-day.branch",
    "bz.branch_self_penalty.year-year.branch",
+   "bz.elements",
    "bz.stem_clash.hour-month.stem",
    "bz.stem_clash.month-hour.stem",
    "bz.stem_combine.hour-year.stem",
@@ -139,6 +144,7 @@
    "ins.tuvi",
    "ins.unsupported.a",
    "ins.unsupported.b",
+   "ins.yongshen",
    "tv.pair.Mệnh.Mệnh",
    "tv.pair.Mệnh.Phu_Thê",
    "tv.pair.Phu_Thê.Mệnh",
@@ -149,21 +155,86 @@
    "tv.place.b"
   ],
   "tiers": {
-   "direct": 30,
+   "direct": 31,
    "support": 0,
    "limit": 0,
-   "insufficient": 7
+   "insufficient": 8
   },
   "strength": {
    "a": [
-    "nhược",
-    true,
+    null,
+    "borderline",
     0.384
    ],
    "b": [
-    "nhược",
-    true,
+    null,
+    "borderline",
     0.384
+   ]
+  }
+ },
+ "tôi_tòng_tài": {
+  "default_ids": [
+   "bz.branch_harm.day-month.branch",
+   "bz.branch_harm.year-month.branch",
+   "bz.branch_meeting.ahour+aday+bhour",
+   "bz.branch_meeting.ahour+ayear+bhour",
+   "bz.branch_meeting.ahour+bday+bhour",
+   "bz.branch_meeting.ahour+byear+bhour",
+   "bz.branch_meeting.amonth+aday+bhour",
+   "bz.branch_meeting.amonth+ayear+bhour",
+   "bz.branch_meeting.amonth+bday+bhour",
+   "bz.branch_meeting.amonth+byear+bhour",
+   "bz.branch_same.day-day.branch",
+   "bz.branch_same.day-year.branch",
+   "bz.branch_same.year-day.branch",
+   "bz.branch_same.year-year.branch",
+   "bz.branch_self_penalty.day-day.branch",
+   "bz.branch_self_penalty.day-year.branch",
+   "bz.branch_self_penalty.year-day.branch",
+   "bz.branch_self_penalty.year-year.branch",
+   "bz.branch_six_combine.day-hour.branch",
+   "bz.branch_six_combine.year-hour.branch",
+   "bz.elements",
+   "bz.stem_clash.year-year.stem",
+   "bz.stem_combine.day-hour.stem",
+   "bz.stem_combine.day-month.stem",
+   "bz.stem_same.day-day.stem",
+   "bz.ten_god.a_sees_b",
+   "bz.ten_god.b_sees_a",
+   "ins.border.a",
+   "ins.hoa",
+   "ins.special.b",
+   "ins.time",
+   "ins.tuvi",
+   "ins.unsupported.a",
+   "ins.unsupported.b",
+   "ins.yongshen",
+   "tv.pair.Mệnh.Mệnh",
+   "tv.pair.Mệnh.Phu_Thê",
+   "tv.pair.Phu_Thê.Mệnh",
+   "tv.pair.Phu_Thê.Phu_Thê",
+   "tv.pair.Phúc_Đức.Phúc_Đức",
+   "tv.pair.Thân.Thân",
+   "tv.place.a",
+   "tv.place.b"
+  ],
+  "tiers": {
+   "direct": 35,
+   "support": 0,
+   "limit": 0,
+   "insufficient": 8
+  },
+  "strength": {
+   "a": [
+    null,
+    "borderline",
+    0.384
+   ],
+   "b": [
+    null,
+    "special",
+    0.102
    ]
   }
  }

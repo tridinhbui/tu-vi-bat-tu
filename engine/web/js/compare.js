@@ -1,72 +1,79 @@
-// Side-by-side view of two saved charts. Facts only: no compatibility score, no "hợp / khắc" verdict between people.
-import { $, esc, post, STEMS, EL, ELEMENTS } from './util.js';
+// The single entry to comparing two saved charts: one button, two pickers, one result view (compare_ui.js, v2 response).
+// Facts only: no compatibility score, no "hợp / khắc" verdict between people. State (the two choices, the rendered result, scroll position)
+// survives closing and reopening the dialog; the result is only recomputed when the pair, the charts or the experimental mode change.
+import { $, esc, post } from './util.js';
 import { readSaved } from './mine.js';
-import { elementStats, currentPhase } from './insights.js';
+import { renderCompareResult, initDetailDialog, expOn } from './compare_ui.js';
 
-const dg = (p, s) => p.major_dignity?.[s] ? ` (${p.major_dignity[s]})` : '';
-const label = x => `${x.label} · ${x.req.day}/${x.req.month}/${x.req.year}`;
+const SEL_KEY = 'tvbt-cmp-sel';
+const NEED = ['year', 'month', 'day', 'hour', 'minute', 'gender'];
+const label = x => `${x.label} · ${x.req?.day}/${x.req?.month}/${x.req?.year}`;
+const lacks = x => NEED.filter(k => x.req?.[k] === undefined || x.req[k] === null || x.req[k] === '');
+const readSel = () => { try { return JSON.parse(sessionStorage.getItem(SEL_KEY)) || {}; } catch { return {}; } };
+const writeSel = s => { try { sessionStorage.setItem(SEL_KEY, JSON.stringify(s)); } catch { /* the choice is simply not remembered */ } };
 
-function column(req, chart) {
-  const b = chart.bazi, t = chart.tuvi, dm = STEMS[b.pillars.day.stem], menh = t.palaces.find(p => p.name === 'Mệnh'), than = t.palaces.find(p => p.is_than);
-  const { vis } = elementStats(b), ph = currentPhase(b, t, req);
-  return {
-    dm, rows: [
-      ['Nhật Chủ (Bát Tự)', `${dm.n} ${dm.e}`],
-      ['Bốn trụ', ['year', 'month', 'day', 'hour'].map(k => b.pillars[k].name).join(' · ')],
-      ['Ngũ hành trên tám chữ', ELEMENTS.map(e => `${e} ${vis[e]}`).join(' · ')],
-      ['Đại vận hiện tại', ph.luck ? `${ph.luck.name} (${ph.luck.ten_god})` : 'chưa khởi vận'],
-      ['Cục (Tử Vi)', t.cuc.name],
-      ['Bản mệnh', t.menh_nap_am],
-      ['Cung Mệnh', `${menh.stem} ${menh.branch}: ${menh.major_stars.length ? menh.major_stars.map(s => s + dg(menh, s)).join(', ') : 'vô chính diệu'}`],
-      ['Cung Thân', than.name],
-      ['Đại hạn hiện tại', ph.dh ? `cung ${ph.dh.palace} (${ph.dh.age_from}–${ph.dh.age_to} tuổi)` : 'chưa vào đại hạn'],
-    ],
-  };
-}
-
-/** Relation between two elements, taken from the sinh/khắc table. */
-function elementRelation(a, b) {
-  if (a === b) return `Hai Nhật Chủ cùng hành ${a}.`;
-  const r = EL[a];
-  if (r.sinh === b) return `Hành ${a} (Nhật Chủ bên trái) sinh hành ${b} (Nhật Chủ bên phải).`;
-  if (r.duocSinh === b) return `Hành ${b} (Nhật Chủ bên phải) sinh hành ${a} (Nhật Chủ bên trái).`;
-  if (r.khac === b) return `Hành ${a} (Nhật Chủ bên trái) khắc hành ${b} (Nhật Chủ bên phải).`;
-  return `Hành ${b} (Nhật Chủ bên phải) khắc hành ${a} (Nhật Chủ bên trái).`;
+/** What the pre-v2 response carries (kept so an older server still shows something useful). */
+function legacy(r, A, B) {
+  return `<p class="muted">Máy chủ này chưa có bản so sánh nhiều tầng; đây là phần dữ kiện cơ bản.</p><ul class="cpx-list"><li>${esc(r.element_link?.text || '')}</li><li>${esc(r.day_master_stems?.text || '')}</li>${(r.day_branches || []).map(x => `<li>${esc(x.text)}</li>`).join('')}</ul><p class="muted small">${esc(r.note || '')} ${esc(A.label)} và ${esc(B.label)}.</p>`;
 }
 
 export function initCompare(host) {
-  host.innerHTML = '<button type="button" class="btn btn-ghost btn-sm" id="cmp-open">So sánh hai lá số đã lưu</button>';
-  const dlg = document.createElement('dialog'); dlg.className = 'dlg cmp-dlg'; dlg.setAttribute('aria-labelledby', 'cmp-t');
+  host.innerHTML = '<button type="button" class="btn btn-ghost btn-sm" id="cmp-open">So sánh hai lá số</button>';
+  const dlg = document.createElement('dialog');
+  dlg.id = 'cmp-main'; dlg.className = 'dlg cpx-main'; dlg.setAttribute('aria-labelledby', 'cmp-t');
+  dlg.innerHTML = `<div class="cpx-head"><div class="cpx-ht"><div><p class="eyebrow">So sánh</p><h3 id="cmp-t">Hai lá số cạnh nhau</h3></div><button type="button" class="cpx-x" data-close aria-label="Đóng">×</button></div>
+    <div class="cpx-pick"><label>Lá số A<select id="cmp-a"></select></label><button type="button" class="btn btn-ghost btn-sm cpx-swap" id="cmp-swap" aria-label="Đổi chỗ hai lá số">⇄</button><label>Lá số B<select id="cmp-b"></select></label></div></div>
+    <div class="cpx-body" id="cmp-body" aria-live="polite"></div>`;
   document.body.append(dlg);
+  initDetailDialog();
   dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  $('[data-close]', dlg).onclick = () => dlg.close();
+  const body = $('#cmp-body', dlg), selA = $('#cmp-a', dlg), selB = $('#cmp-b', dlg);
+  let list = [], shown = null, seq = 0;
+
   const paintHost = () => { host.hidden = readSaved().length < 2; };
   paintHost();
   addEventListener('storage', paintHost);
   new MutationObserver(paintHost).observe($('#saved-list'), { childList: true });
 
-  async function show() {
-    const list = readSaved(), opts = (sel) => list.map((x, i) => `<option value="${i}"${i === sel ? ' selected' : ''}>${esc(label(x))}</option>`).join('');
-    dlg.innerHTML = `<div class="cmp-in"><p class="eyebrow">So sánh</p><h3 id="cmp-t">Hai lá số cạnh nhau</h3>
-      <div class="cmp-pick"><label>Bên trái<select id="cmp-a">${opts(0)}</select></label><label>Bên phải<select id="cmp-b">${opts(1)}</select></label></div>
-      <div id="cmp-out" aria-live="polite"></div>
-      <p class="muted small">Chỉ là so sánh các dữ kiện đã tính. Thiên Bàn không chấm điểm hợp hay khắc giữa hai người, vì không có quy tắc nào đã đối chiếu sách cho việc đó.</p>
-      <button type="button" class="btn btn-ghost btn-sm" data-close>Đóng</button></div>`;
-    $('[data-close]', dlg).onclick = () => dlg.close();
-    const run = async () => {
-      const out = $('#cmp-out', dlg), A = list[+$('#cmp-a', dlg).value], B = list[+$('#cmp-b', dlg).value];
-      if (A === B) { out.innerHTML = '<p class="muted">Hãy chọn hai lá số khác nhau.</p>'; return; }
-      out.innerHTML = '<p class="muted">Đang tính…</p>';
-      try {
-        const [ca, cb] = await Promise.all([post('/api/chart', A.req), post('/api/chart', B.req)]);
-        const a = column(A.req, ca), b = column(B.req, cb);
-        out.innerHTML = `<div class="tbl-wrap"><table class="tbl cmp-t"><thead><tr><th></th><th scope="col">${esc(A.label)}</th><th scope="col">${esc(B.label)}</th></tr></thead><tbody>${a.rows.map((r, i) => `<tr><th scope="row">${esc(r[0])}</th><td>${esc(r[1])}</td><td>${esc(b.rows[i][1])}</td></tr>`).join('')}</tbody></table></div>
-          <p class="cmp-rel"><b>Quan hệ giữa hai hành Nhật Chủ:</b> ${esc(elementRelation(a.dm.e, b.dm.e))} <span class="muted">Chỉ là quan hệ sinh khắc giữa hai hành, chưa phải đánh giá về hai người.</span></p>`;
-      } catch (e) { out.innerHTML = `<p class="muted">Chưa so sánh được: ${esc(e.message)}</p>`; }
-    };
-    $('#cmp-a', dlg).onchange = run; $('#cmp-b', dlg).onchange = run;
-    if (!dlg.open) dlg.showModal();
-    run();
+  function fill() {
+    list = readSaved();
+    const ids = list.map(x => x.id), sel = readSel();
+    const a = ids.includes(sel.a) ? sel.a : ids[0];
+    const b = ids.includes(sel.b) && sel.b !== a ? sel.b : ids.find(i => i !== a);
+    const opts = cur => list.map(x => `<option value="${esc(x.id)}"${x.id === cur ? ' selected' : ''}>${esc(label(x))}</option>`).join('');
+    const html = [opts(a), opts(b)];
+    if (selA.innerHTML !== html[0]) selA.innerHTML = html[0];
+    if (selB.innerHTML !== html[1]) selB.innerHTML = html[1];
+    selA.value = a; selB.value = b; writeSel({ a, b });
   }
-  $('#cmp-open', host).onclick = show;
+
+  async function run() {
+    const A = list.find(x => x.id === selA.value), B = list.find(x => x.id === selB.value), exp = expOn();
+    if (!A || !B || A === B) { shown = null; body.innerHTML = '<p class="muted">Hãy chọn hai lá số khác nhau.</p>'; return; }
+    const bad = [A, B].map(x => [x, lacks(x)]).find(([, l]) => l.length);
+    if (bad) { shown = null; body.innerHTML = `<p class="muted">Lá số “${esc(bad[0].label)}” đã lưu thiếu dữ kiện (${esc(bad[1].join(', '))}). Hãy xóa lá số này ở trang chủ rồi lập và lưu lại.</p>`; return; }
+    const key = JSON.stringify([A.id, B.id, A.req, B.req, exp]);
+    if (key === shown) return;
+    const my = ++seq;
+    body.innerHTML = '<p class="muted">Đang so sánh…</p>';
+    try {
+      const [res, ca, cb] = await Promise.all([post('/api/compare-charts', { a: { ...A.req, experimental: exp }, b: { ...B.req, experimental: exp } }), post('/api/chart', A.req).catch(() => null), post('/api/chart', B.req).catch(() => null)]);
+      if (my !== seq) return;
+      if (!res.v2) { body.innerHTML = legacy(res, A, B); shown = key; return; }
+      renderCompareResult(body, { A, B, res, chartA: ca, chartB: cb });
+      shown = key; body.scrollTop = 0;
+    } catch (e) {
+      if (my !== seq) return;
+      shown = null;
+      body.innerHTML = `<p class="muted">Chưa so sánh được: ${esc(e.message)}</p><button type="button" class="btn btn-ghost btn-sm" id="cmp-retry">Thử lại</button>`;
+      $('#cmp-retry', body).onclick = run;
+    }
+  }
+
+  const changed = () => { if (selA.value === selB.value) { const other = list.find(x => x.id !== selA.value); if (other) (document.activeElement === selA ? selB : selA).value = other.id; } writeSel({ a: selA.value, b: selB.value }); run(); };
+  selA.onchange = changed; selB.onchange = changed;
+  $('#cmp-swap', dlg).onclick = () => { const a = selA.value; selA.value = selB.value; selB.value = a; writeSel({ a: selA.value, b: selB.value }); run(); };
+  $('#cmp-open', host).onclick = () => { fill(); if (!dlg.open) dlg.showModal(); run(); };
   return { refresh: paintHost };
 }

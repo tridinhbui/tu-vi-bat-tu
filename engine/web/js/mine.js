@@ -1,7 +1,5 @@
 // "Của bạn" layer: charts saved on this device only (localStorage; nothing is sent to the server).
 import { $, $$, esc } from './util.js';
-import { renderCompare, initCompareDialog } from './compare_ui.js';
-initCompareDialog();
 
 const KEY = 'tvbt-saved-v1', MAX = 12;
 const FIELDS = ['year', 'month', 'day', 'hour', 'minute', 'gender', 'tz', 'calendar', 'zi_rule', 'level', 'use_true_solar_time', 'longitude'];
@@ -22,28 +20,13 @@ export function saveChart(req, label, rel) {
 }
 export const isSaved = req => readSaved().find(x => same(x.req, pick(req)));
 
-const picked = new Set();
-
-/** Home list of saved charts; onOpen(req) generates the chart again from the stored birth data. With 2+ charts, any two can be compared. */
+/** Home list of saved charts; onOpen(req) generates the chart again from the stored birth data. Comparing two charts lives in compare.js. */
 export function renderSaved(host, onOpen) {
-  const list = readSaved(), sec = host.closest('section') || host, out = $('#compare-out', sec);
+  const list = readSaved(), sec = host.closest('section') || host;
   sec.hidden = !list.length;
-  [...picked].forEach(id => { if (!list.some(x => x.id === id)) picked.delete(id); });
-  host.innerHTML = list.map(x => `<li>${list.length > 1 ? `<label class="sv-cmp"><input type="checkbox" data-id="${esc(x.id)}"${picked.has(x.id) ? ' checked' : ''} aria-label="Chọn ${esc(x.label)} để so sánh"></label>` : ''}<button type="button" class="sv-open" data-id="${esc(x.id)}"><span class="sv-rel">${esc(x.rel)}</span><b>${esc(x.label)}</b><small>${esc(fmt(x.req))}</small></button><button type="button" class="sv-del" data-id="${esc(x.id)}" aria-label="Xóa lá số ${esc(x.label)} khỏi máy này">Xóa</button></li>`).join('');
+  host.innerHTML = list.map(x => `<li><button type="button" class="sv-open" data-id="${esc(x.id)}"><span class="sv-rel">${esc(x.rel)}</span><b>${esc(x.label)}</b><small>${esc(fmt(x.req))}</small></button><button type="button" class="sv-del" data-id="${esc(x.id)}" aria-label="Xóa lá số ${esc(x.label)} khỏi máy này">Xóa</button></li>`).join('');
   $$('.sv-open', host).forEach(b => b.onclick = () => onOpen(list.find(x => x.id === b.dataset.id).req));
   $$('.sv-del', host).forEach(b => b.onclick = () => { writeSaved(readSaved().filter(x => x.id !== b.dataset.id)); renderSaved(host, onOpen); });
-  const hint = $('#compare-hint', sec), go = () => {
-    const two = list.filter(x => picked.has(x.id));
-    hint.textContent = list.length < 2 ? 'Lưu thêm một lá số nữa để so sánh hai người.' : two.length === 2 ? '' : 'Tích chọn hai lá số để so sánh.';
-    if (two.length === 2) renderCompare(out, two[0], two[1]); else out.innerHTML = '';
-  };
-  $$('.sv-cmp input', host).forEach(i => i.onchange = () => {
-    if (i.checked) { if (picked.size >= 2) { i.checked = false; return; } picked.add(i.dataset.id); } else picked.delete(i.dataset.id);
-    $$('.sv-cmp input', host).forEach(o => o.disabled = !o.checked && picked.size >= 2);
-    go();
-  });
-  $$('.sv-cmp input', host).forEach(o => o.disabled = !o.checked && picked.size >= 2);
-  go();
 }
 
 /** Save control on the result page: one button that expands to name + relation. */

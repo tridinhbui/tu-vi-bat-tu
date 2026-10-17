@@ -17,6 +17,7 @@ PAIRS = {
     "tôi_mẹ": (dict(year=1990, month=5, day=17, hour=10, minute=30, gender="male"), dict(year=1962, month=3, day=9, hour=6, minute=0, gender="female")),
     "tôi_1985": (dict(year=1990, month=5, day=17, hour=10, minute=30, gender="male"), dict(year=1985, month=11, day=3, hour=8, minute=0, gender="female")),
     "cùng_một_người": (dict(year=1990, month=5, day=17, hour=10, minute=30, gender="male"),) * 2,
+    "tôi_tòng_tài": (dict(year=1990, month=5, day=17, hour=10, minute=30, gender="male"), dict(year=1955, month=1, day=21, hour=14, minute=0, gender="male")),
 }
 
 
@@ -36,7 +37,7 @@ def rel_kinds(items):
 
 def summary(r: dict) -> dict:
     return {"default_ids": sorted(i["id"] for i in r["items"]), "tiers": {t: len(v["ids"]) for t, v in r["tiers"].items()},
-            "strength": {o: [r["structure"][o]["strength"]["side"], r["structure"][o]["strength"]["borderline"], round(r["structure"][o]["strength"]["own_share"], 3)] for o in "ab"}}
+            "strength": {o: [r["structure"][o]["strength"]["side"], r["structure"][o]["strength"]["reason"], round(r["structure"][o]["strength"]["own_share"], 3)] for o in "ab"}}
 
 
 # ---------------------------------------------------------------- rule file and sources
@@ -44,7 +45,9 @@ def test_every_rule_has_a_status_and_verified_rules_have_a_known_source():
     for rid, r in cd.RULES.items():
         assert r["status"] in ("verified", "partial", "draft"), rid
         assert r["text"] and r["title"], rid
-        if r["status"] != "draft":
+        assert r["evidence"] in ("calc", "sourced", "hypothesis"), rid
+        assert (r["evidence"] == "hypothesis") == (r["status"] == "draft"), rid          # a draft rule is always a hypothesis, and only those
+        if r["status"] != "draft" and r["evidence"] == "sourced":
             assert r["source"] in cd.SOURCES and cd.SOURCES[r["source"]]["verified"] and r["locator"], rid
 
 
@@ -115,8 +118,8 @@ def test_ten_god_two_way_matches_the_table():
 def test_structure_is_per_chart_and_borderline_is_not_decided():
     r = run(*PAIRS["tôi_mẹ"])
     a, b = r["structure"]["a"], r["structure"]["b"]
-    assert (a["strength"]["side"], a["strength"]["borderline"]) == ("nhược", True)       # 38.4% is within 3 points of 40%
-    assert (b["strength"]["side"], b["strength"]["borderline"]) == ("vượng", False)
+    assert (a["strength"]["side"], a["strength"]["reason"], a["strength"]["decided"]) == (None, "borderline", False)   # 38.4% is within 3 points of 40%: no side at all
+    assert (b["strength"]["side"], b["strength"]["reason"], b["strength"]["decided"]) == ("vượng", "ok", True)
     assert a["month"]["branch"] == "Tỵ" and b["month"]["branch"] == "Mão" and a["has_root"] is False and b["has_root"] is True
     ids = {i["id"] for i in r["items"]}
     assert "ins.border.a" in ids and "ins.border.b" not in ids
@@ -125,7 +128,82 @@ def test_structure_is_per_chart_and_borderline_is_not_decided():
     assert any(i["id"] == "bz.balance.support.b" for i in ex["items"])
 
 
+def side_of(text: str, gender: str = "male"):
+    """A Side built from four pillars only (no birth time): enough for the structure and the Bát Tự relations."""
+    from tvbt.bazi import BaziChart  # noqa: F401
+    _, bz, tv = _compute(BirthReq(year=1990, month=5, day=17, hour=10, minute=30, gender=gender))
+    return cd.Side(bz, ChartView.from_names(text), tv)
+
+
+def test_special_structures_are_never_forced_into_vuong_or_nhuoc():
+    for text in ("Nhâm Tý / Quý Sửu / Bính Tý / Canh Tý",        # Tòng Sát (Thiệu Vĩ Hoa example)
+                 "Mậu Tuất / Bính Thìn / Ất Mùi / Bính Tuất",    # Tòng Tài
+                 "Mậu Thân / Tân Dậu / Canh Tuất / Ất Dậu"):     # Tòng Cách (chuyên vượng)
+        s = cd.structure("a", side_of(text))
+        assert s["special"], text
+        assert s["strength"]["side"] is None and s["strength"]["decided"] is False and s["strength"]["reason"] == "special"
+    plain = cd.structure("a", side_of("Giáp Tý / Bính Dần / Giáp Tuất / Canh Ngọ"))
+    assert plain["special"] == []
+
+
+def test_special_chart_gets_an_insufficient_item_and_no_balance_direction():
+    a = side_of("Nhâm Tý / Quý Sửu / Bính Tý / Canh Tý")
+    b = side_of("Giáp Tý / Bính Dần / Giáp Tuất / Canh Ngọ", "female")
+    r = cd.analyse(a, b, experimental=True)
+    ids = {i["id"] for i in r["items"]}
+    assert "ins.special.a" in ids and "bz.balance.support.a" not in ids and "bz.balance.limit.a" not in ids
+    it = next(i for i in r["items"] if i["id"] == "ins.special.a")
+    assert it["tier"] == "insufficient" and it["rule"] == "CMP_SPECIAL" and it["status"] == "partial"
+    assert "không nói Nhật Chủ A vượng hay nhược" in it["plain"]
+
+
+def test_missing_data_is_reported_not_guessed(monkeypatch):
+    def boom(_v):
+        raise KeyError("thiếu tháng sinh")
+    monkeypatch.setattr(cd.tvh_score, "score", boom)
+    a = side_of("Nhâm Tý / Quý Sửu / Bính Tý / Canh Tý")
+    b = side_of("Giáp Tý / Bính Dần / Giáp Tuất / Canh Ngọ", "female")
+    r = cd.analyse(a, b, experimental=True)
+    st = r["structure"]["a"]["strength"]
+    assert st["reason"] == "missing" and st["side"] is None and "thiếu tháng sinh" in r["structure"]["a"]["error"]
+    ids = {i["id"] for i in r["items"]}
+    assert {"ins.missing.a", "ins.missing.b"} <= ids and not any(i.startswith("bz.balance") for i in ids)
+    assert any(i["kind"].startswith("stem_") or i["kind"].startswith("branch_") for i in r["items"])      # relations still reported
+
+
+def test_evidence_classes_keep_hypotheses_out_of_sourced_and_calc():
+    r = run(*PAIRS["tôi_mẹ"], experimental=True)
+    by = lambda ev: {i["kind"] for i in r["items"] if i["evidence"] == ev}
+    assert {"balance", "role", "season_other"} <= by("hypothesis")
+    assert not (by("calc") | by("sourced")) & {"balance", "role", "element_fill", "season_other", "reinforce", "disperse"}
+    assert {"stem_combine", "stem_clash", "branch_destroy", "ten_god_view"} <= by("sourced")
+    assert {"placement", "geometry", "element_count"} <= by("calc")
+    d = run(*PAIRS["tôi_mẹ"])
+    assert {i["evidence"] for i in d["items"]} <= {"calc", "sourced"}
+    assert {x["id"] for x in d["sources"]} >= {"SRC_BAZI_ZHENZONG", "SRC_TVH_DIEM", "SRC_THUC_HANH"}
+
+
+def test_v1_response_fields_are_unchanged():
+    na, ba, ta = _compute(BirthReq(**PAIRS["tôi_mẹ"][0])); nb, bb, tb = _compute(BirthReq(**PAIRS["tôi_mẹ"][1]))
+    full = compare.compare_full(na, ba, ta, "male", nb, bb, tb, "female")
+    old = compare.compare(ba, bb)
+    assert {k: v for k, v in full.items() if k != "v2"} == old
+    assert set(old) == {"a", "b", "ten_god_of_b_for_a", "ten_god_of_a_for_b", "element_link", "day_master_stems", "day_branches", "note"}
+
+
 # ---------------------------------------------------------------- tiers and the experimental gate
+def test_default_mode_keeps_every_limitation_visible():
+    ids = {i["id"] for i in run(*PAIRS["tôi_mẹ"])["items"]}
+    assert {"ins.yongshen", "ins.time", "ins.tuvi", "ins.hoa", "ins.border.a"} <= ids      # limits are never hidden with the drafts
+
+
+def test_real_special_chart_is_not_forced_to_a_side():
+    r = run(*PAIRS["tôi_tòng_tài"], experimental=True)
+    b = r["structure"]["b"]
+    assert b["special"][0]["name"] == "Tòng Tài (TVH)" and b["strength"]["side"] is None and b["strength"]["reason"] == "special"
+    assert "ins.special.b" in {i["id"] for i in r["items"]} and not any(i["id"].startswith("bz.balance") and i["id"].endswith(".b") for i in r["items"])
+
+
 @pytest.mark.parametrize("key", list(PAIRS))
 def test_default_mode_contains_no_draft_item_and_experimental_is_a_superset(key):
     d, e = run(*PAIRS[key]), run(*PAIRS[key], experimental=True)
@@ -153,9 +231,10 @@ def test_every_item_points_to_a_rule_with_source_info():
     r = run(*PAIRS["tôi_mẹ"], experimental=True)
     for i in r["items"]:
         rule = r["rules"][i["rule"]]
-        assert rule["status"] == i["status"]
-        if i["status"] != "draft":
+        assert rule["status"] == i["status"] and rule["evidence"] == i["evidence"]
+        if i["evidence"] == "sourced":
             assert rule["source"] and rule["source"]["verified"]
+        assert (i["evidence"] == "hypothesis") == i["experimental"]
 
 
 # ---------------------------------------------------------------- no score, no verdict
@@ -232,3 +311,37 @@ def test_api_returns_v1_and_v2_and_honours_the_experimental_flag():
 if __name__ == "__main__" and "--regen" in sys.argv:
     GOLDEN.write_text(json.dumps({k: summary(run(*v)) for k, v in PAIRS.items()}, ensure_ascii=False, indent=1), "utf-8")
     print("wrote", GOLDEN)
+
+
+# ---------------------------------------------------------------- one comparison UI, no CSS leftovers
+WEB = ROOT.parent / "web"
+
+
+def test_exactly_one_compare_entry_and_no_leftovers_of_the_old_uis():
+    html = (WEB / "index.html").read_text("utf-8")
+    assert html.count('id="cmp-host"') == 1 and html.count('id="cpx-dlg"') == 1
+    assert "compare-out" not in html and "compare-hint" not in html
+    js = {p.name: p.read_text("utf-8") for p in (WEB / "js").glob("*.js")}
+    assert [n for n, t in js.items() if 'id="cmp-open"' in t] == ["compare.js"]
+    assert "renderCompare(" not in js["mine.js"] and "sv-cmp" not in js["mine.js"]
+    assert [n for n, t in js.items() if "initCompare" in t and n != "compare.js"] == ["app.js"]
+    css = (WEB / "css" / "app.css").read_text("utf-8")
+    for dead in (".sv-cmp", ".cmp-pick", ".cmp-dlg", ".cmp-host", ".cmp-in", ".cmp-rel", ".cpx-tier", ".cpx-b-"):
+        assert dead not in css, dead
+
+
+def test_every_cpx_class_used_by_the_ui_has_a_css_rule():
+    import re
+    css = (WEB / "css" / "app.css").read_text("utf-8")
+    used = set()
+    for name in ("compare.js", "compare_ui.js"):
+        used |= set(re.findall(r"\bcpx-[a-z0-9-]+", (WEB / "js" / name).read_text("utf-8")))
+    ids = {"cpx-dlg", "cpx-dlg-b", "cpx-s", "cpx-s-", "cpx-ev-", "cpx-ev-calc", "cpx-ev-src", "cpx-ev-hyp"}   # ids and the three evidence classes built from a template
+    missing = sorted(c for c in used - ids if f".{c}" not in css)
+    assert missing == [], missing
+    assert all(f".{c}" in css for c in ("cpx-ev-calc", "cpx-ev-src", "cpx-ev-hyp"))
+
+
+def test_compare_js_survives_a_pre_v2_response():
+    src = (WEB / "js" / "compare.js").read_text("utf-8")
+    assert "if (!res.v2)" in src and "legacy(" in src

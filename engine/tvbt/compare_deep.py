@@ -17,7 +17,7 @@ from pathlib import Path
 
 from . import compare_tuvi
 from .bazi import (DESTROY, HARM, MEETING, PENALTY_PAIR, PENALTY_TRIPLES, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH, STEM_COMBINE, TRIAD, BaziChart)
-from .bazi_deep import position, season, tvh_score
+from .bazi_deep import position, season, tvh_cach, tvh_score
 from .bazi_deep.model import PILLARS, PIL_VI, ChartView, group_of
 from .bazi_deep.profile import TVH_40
 from .ganzhi import BRANCHES_VI, BRANCH_ELEMENT, ELEMENTS, STEMS_VI, STEM_ELEMENT
@@ -53,13 +53,13 @@ SOURCES = _sources()
 def rule_info(rid: str) -> dict:
     r = RULES[rid]
     src = SOURCES.get(r["source"]) if r["source"] else None
-    return {"id": rid, "title": r["title"], "text": r["text"], "status": r["status"],
+    return {"id": rid, "title": r["title"], "text": r["text"], "status": r["status"], "evidence": r["evidence"],
             "source": ({**src, "locator": r["locator"]} if src else None)}
 
 
 def make_item(id_: str, layer: str, tier: str, kind: str, title: str, plain: str, data, rule: str, *, kind_vi: str = "", school_dependent: bool = False) -> dict:
     return {"id": id_, "layer": layer, "tier": tier, "kind": kind, "kind_vi": kind_vi, "title": title, "plain": plain, "data": data, "rule": rule,
-            "status": RULES[rule]["status"], "experimental": RULES[rule]["status"] == "draft", "school_dependent": school_dependent}
+            "status": RULES[rule]["status"], "evidence": RULES[rule]["evidence"], "experimental": RULES[rule]["status"] == "draft", "school_dependent": school_dependent}
 
 
 # ---------------------------------------------------------------- characters
@@ -91,26 +91,47 @@ def _anchors(*toks: dict) -> list[str]:
 
 
 # ---------------------------------------------------------------- structure of one chart
+def _element_counts(v: ChartView) -> dict:
+    c = {e: 0 for e in ELEMENTS}
+    for p in PILLARS:
+        c[STEM_ELEMENT[v.stem(p)]] += 1
+        c[BRANCH_ELEMENT[v.branch(p)]] += 1
+    return c
+
+
 def structure(owner: str, s: Side) -> dict:
+    """Facts about one chart on its own. `strength.decided` is False (and `side` None) when the 40% line cannot honestly be applied:
+    the chart is within FOCUS_MARGIN of it, shows signs of a special structure (cách đặc biệt / tòng), or the calculation failed."""
     v = s.view
-    sc = tvh_score.score(v)
-    own, margin = sc["own_share"], abs(sc["own_share"] - sc["threshold"])
-    lenh_el = sc["lenh"]
     from .bazi_deep.strength import group_of_element, GROUP_VI
     mb = BRANCHES_VI[v.month_branch]
     roots = [{"pillar": r["pillar"], "branch": r["branch"], "hidden": r["hidden"], "class": r["class"], "same_char": r["same_char"]}
              for r in position.roots(v, v.dm)]
-    return {
-        "owner": owner, "pillars": v.name(), "day_master": STEMS_VI[v.dm], "dm_element": v.dm_element,
+    out = {
+        "owner": owner, "pillars": v.name(), "day_master": STEMS_VI[v.dm], "dm_element": v.dm_element, "elements": _element_counts(v),
         "month": {"pillar": f"{STEMS_VI[v.stem('month')]} {mb}", "branch": mb,
-                  "hidden": [{"stem": STEMS_VI[h["stem"]], "class": h["class"], "ten_god": h["ten_god"]} for h in v.hidden("month")],
-                  "ruling_element": lenh_el, "ruling_group": GROUP_VI[group_of_element(v.dm_element, lenh_el)],
-                  "ruling_in_own_camp": group_of_element(v.dm_element, lenh_el) in ("Ti", "An")},
-        "strength": {"own_share": own, "threshold": sc["threshold"], "side": "vượng" if sc["dm_strong"] else "nhược",
-                     "borderline": margin < FOCUS_MARGIN, "margin": round(margin, 4), "method": "Thiệu Vĩ Hoa, quy tắc 40%"},
-        "roots": roots, "has_root": bool(roots), "tou": position.tou(v),
-        "unsupported": sc["notes"].get("unsupported", []),
+                  "hidden": [{"stem": STEMS_VI[h["stem"]], "class": h["class"], "ten_god": h["ten_god"]} for h in v.hidden("month")]},
+        "roots": roots, "has_root": bool(roots), "tou": position.tou(v), "special": [], "unsupported": [],
+        "strength": {"decided": False, "side": None, "own_share": None, "threshold": 0.4, "borderline": False, "margin": None, "reason": "missing",
+                     "method": "Thiệu Vĩ Hoa, quy tắc 40%"},
     }
+    try:
+        sc = tvh_score.score(v)
+        specials = tvh_cach.special(v, {"tvh": sc}, TVH_40)
+    except Exception as e:  # a failed step must never be papered over with a guess
+        out["error"] = f"{type(e).__name__}: {e}"
+        return out
+    own, margin = sc["own_share"], abs(sc["own_share"] - sc["threshold"])
+    lenh_el = sc["lenh"]
+    out["month"].update({"ruling_element": lenh_el, "ruling_group": GROUP_VI[group_of_element(v.dm_element, lenh_el)],
+                         "ruling_in_own_camp": group_of_element(v.dm_element, lenh_el) in ("Ti", "An")})
+    border = margin < FOCUS_MARGIN
+    reason = "special" if specials else "borderline" if border else "ok"
+    out["special"] = [{"name": x["name"], "kind": x["kind"]} for x in specials]
+    out["unsupported"] = sc["notes"].get("unsupported", [])
+    out["strength"] = {"decided": reason == "ok", "side": ("vượng" if sc["dm_strong"] else "nhược") if reason == "ok" else None, "own_share": own,
+                       "threshold": sc["threshold"], "borderline": border, "margin": round(margin, 4), "reason": reason, "method": "Thiệu Vĩ Hoa, quy tắc 40%"}
+    return out
 
 
 # ---------------------------------------------------------------- cross relations
@@ -262,7 +283,7 @@ def _experimental_items(a: Side, b: Side, sa: dict, sb: dict, rel_items: list[di
                                {"month_branch": BRANCHES_VI[vx.month_branch], "element": vy.dm_element, "state": st}, "CMP_SEASON_OTHER", kind_vi="Mùa của người kia"))
     # balance direction (support / limit), from the 40% side of each chart
     for x, y, sx, vx, vy in (("a", "b", sa, a.view, b.view), ("b", "a", sb, b.view, a.view)):
-        if sx["strength"]["borderline"]:
+        if not sx["strength"]["decided"]:
             continue
         pref = {"Ti", "An"} if sx["strength"]["side"] == "nhược" else {"Thuc", "Thuong", "Tai", "Quan", "Sat"}
         sf = _seen_from(vx, vy, [])
@@ -301,11 +322,17 @@ def _insufficient(sa: dict, sb: dict, rel_items: list[dict]) -> list[dict]:
     if combos:
         out.append(make_item("ins.hoa", "bazi", "insufficient", "unresolved", "Thiên can hợp có hóa hay không", f"Có {len(combos)} cặp Thiên can hợp giữa hai lá số. Việc hợp hóa thành hành khác hay chỉ hợp mà không hóa cần điều kiện về mùa, vị trí và sự giúp sức, chưa được xét cho hai người cùng lúc.", {"ids": [c["id"] for c in combos]}, "CMP_STEM_REL", kind_vi="Chưa đủ căn cứ"))
     for o, s in (("a", sa), ("b", sb)):
-        if s["strength"]["borderline"]:
-            out.append(make_item(f"ins.border.{o}", "bazi", "insufficient", "borderline", f"Nhật Chủ {OWNER_VI[o]} sát ngưỡng 40%", f"Phe của Nhật Chủ {OWNER_VI[o]} chiếm {s['strength']['own_share']:.1%}, cách ngưỡng {s['strength']['threshold']:.0%} chưa tới {FOCUS_MARGIN:.0%}; hệ thống không nói vượng hay nhược.", s["strength"], "CMP_STRENGTH_40", kind_vi="Chưa đủ căn cứ"))
+        st = s["strength"]
+        if st["reason"] == "missing":
+            out.append(make_item(f"ins.missing.{o}", "bazi", "insufficient", "missing", f"Thiếu dữ kiện để xét thế mạnh của {OWNER_VI[o]}", f"Bước tính thế mạnh của {OWNER_VI[o]} không chạy được ({s.get('error', 'không rõ lý do')}), nên so sánh không nêu vượng hay nhược.", {"error": s.get("error")}, "CMP_DATA_MISSING", kind_vi="Chưa đủ căn cứ"))
+        elif st["reason"] == "special":
+            names = ", ".join(x["name"] for x in s["special"])
+            out.append(make_item(f"ins.special.{o}", "bazi", "insufficient", "special", f"Lá số {OWNER_VI[o]} có dấu hiệu cách đặc biệt", f"Lá số {OWNER_VI[o]} có dấu hiệu của {names}. Với các cách này không áp dụng cách xét vượng/nhược thông thường, nên so sánh không nói Nhật Chủ {OWNER_VI[o]} vượng hay nhược và không xếp chữ nào của người kia vào hướng cân bằng.", {"special": s["special"], "own_share": st["own_share"]}, "CMP_SPECIAL", kind_vi="Chưa đủ căn cứ"))
+        elif st["reason"] == "borderline":
+            out.append(make_item(f"ins.border.{o}", "bazi", "insufficient", "borderline", f"Nhật Chủ {OWNER_VI[o]} sát ngưỡng 40%", f"Phe của Nhật Chủ {OWNER_VI[o]} chiếm {st['own_share']:.1%}, cách ngưỡng {st['threshold']:.0%} chưa tới {FOCUS_MARGIN:.0%}; hệ thống không nói vượng hay nhược.", st, "CMP_STRENGTH_40", kind_vi="Chưa đủ căn cứ"))
         if s["unsupported"]:
             out.append(make_item(f"ins.unsupported.{o}", "bazi", "insufficient", "unsupported", f"Phần phương pháp 40% chưa hỗ trợ ({OWNER_VI[o]})", "; ".join(s["unsupported"]), {"notes": s["unsupported"]}, "CMP_STRENGTH_40", kind_vi="Chưa đủ căn cứ"))
-    out.append(make_item("ins.yongshen", "bazi", "insufficient", "unresolved", "Dụng thần và cách cục của từng người", "So sánh này không ghép cách cục hay dụng thần của hai người, nên chưa nói chữ nào của người kia là thứ lá số này cần hoặc kỵ.", {}, "CMP_BALANCE", kind_vi="Chưa đủ căn cứ"))
+    out.append(make_item("ins.yongshen", "bazi", "insufficient", "unresolved", "Dụng thần và cách cục của từng người", "So sánh này không ghép cách cục hay dụng thần của hai người, nên chưa nói chữ nào của người kia là thứ lá số này cần hoặc kỵ.", {}, "CMP_STRENGTH_40", kind_vi="Chưa đủ căn cứ"))
     out.append(make_item("ins.time", "bazi", "insufficient", "unresolved", "Đại vận và lưu niên của hai người", "Chưa so sánh vận theo thời gian: hai người đi qua các đại vận và năm khác nhau, và sách trong kho chưa nêu cách đặt chúng cạnh nhau.", {}, "CMP_TEN_GOD", kind_vi="Chưa đủ căn cứ"))
     out.append(make_item("ins.tuvi", "tuvi", "insufficient", "unresolved", "Ý nghĩa khi cung của hai người gặp nhau", "Sách Tử Vi trong kho nêu ý nghĩa của sao và cung trong lá số của một người. Khi hai cung thuộc hai người, hệ thống chỉ nêu vị trí và sao chung, không diễn giải.", {}, "CMP_TV_GEOMETRY", kind_vi="Chưa đủ căn cứ"))
     return out
@@ -327,6 +354,7 @@ def analyse(a: Side, b: Side, experimental: bool = False) -> dict:
     grp = _groups(tok_a, tok_b)
     items = rel + grp + _ten_god_items(a, b, tok_a, tok_b)
     items += _experimental_items(a, b, sa, sb, rel)
+    items.append(make_item("bz.elements", "bazi", "direct", "element_count", "Ngũ Hành trên tám chữ của hai người", "Số chữ theo từng hành trên tám chữ (Thiên can và chữ chính của Địa chi) của mỗi người.", {"a": sa["elements"], "b": sb["elements"]}, "CMP_ELEMENT_COUNT", kind_vi="Đếm hành"))
     tv_struct, tv_items = compare_tuvi.build(a.tv, b.tv, make_item, experimental)
     items += tv_items + _insufficient(sa, sb, rel)
     hidden = sum(1 for i in items if i["experimental"])
@@ -339,4 +367,5 @@ def analyse(a: Side, b: Side, experimental: bool = False) -> dict:
     return {"version": 2, "experimental": experimental, "hidden_experimental": hidden,
             "principle": "Chỉ nêu dữ kiện và mức căn cứ. Không có điểm tương hợp, không kết luận về hôn nhân hay tính cách, và sinh hay khắc không mặc định là tốt hay xấu.",
             "structure": {"a": sa, "b": sb}, "pillars": pillars, "tuvi_structure": tv_struct, "items": items, "tiers": tiers,
-            "rules": {r: rule_info(r) for r in sorted(used)}}
+            "rules": {r: rule_info(r) for r in sorted(used)},
+            "sources": sorted({r["source"]["id"]: r["source"] for r in (rule_info(x) for x in used) if r["source"]}.values(), key=lambda x: x["id"])}
