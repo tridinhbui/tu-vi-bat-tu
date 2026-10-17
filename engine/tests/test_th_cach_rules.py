@@ -137,3 +137,10 @@ def test_toan_thu_phu_pack():
     assert ("tt_phu_vcd_sat_dac_phat_nhanh", "support") in c and ("tt_phu_vcd_sat_dac_khong_ben", "limit") in c       # one rule, two consequences
     assert ("tt_phu_vcd_sat_dac_phat_nhanh", "support") not in fired(pal(branch="Dần", own=["Kình Dương"]) | {"palace.has_no_major": True})   # Kình đắc địa only at Tứ mộ
     assert ("tt_phu_nhat_nguyet_xuong_khuc_giap_nam_qui", "support") not in fired(pal(branch="Sửu", own=["Thái Dương", "Thái Âm"], flank=["Văn Xương", "Văn Khúc"]), {"chart.gender": "nữ"})
+
+
+def test_toan_thu_nu_pack_is_female_only():
+    assert sum(r.id.startswith("TV_TT_NU_") for r in RULES) == 11
+    p = pal(own=["Thái Dương"], dg={"Thái Dương": "miếu"})
+    assert ("tt_nu_nhat_thao_vat_gioi_giang", "support") in fired(p, {"chart.gender": "nữ"})
+    assert ("tt_nu_nhat_thao_vat_gioi_giang", "support") not in fired(p, {"chart.gender": "nam"})

@@ -1,0 +1,635 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_TT_NU_CO_CAT_QUYEN_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: làm việc giỏi hơn nhiều người, được Quyền Lộc thì vinh hoa (nữ mệnh Thiên Cơ có cát tinh phù trì) [TT p.108]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 1
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_co_cat_quyen_loc_vinh_hoa",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_NHAT_TAO_VAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: rất tháo vát, giỏi giang (nữ mệnh Thái Dương đắc địa) [TT p.108]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.dignity.Thái Dương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_nhat_thao_vat_gioi_giang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_NHAT_CAT_TINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: đoan trang, có thể được trọng vọng, danh phận cao (nữ mệnh Thái Dương sáng có cát tinh) [TT p.108]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.dignity.Thái Dương",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 1
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_nhat_cat_tinh_phu_nhan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_VU_PHU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: chí khí hùng tráng (nữ mệnh Vũ Khúc đồng cung Thiên Phủ) [TT p.109]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_vu_phu_chi_khi_hung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_VU_PHU_TA_HUU_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: phú quý song toàn (nữ mệnh Vũ Phủ gặp Tả Hữu, Lộc) [TT p.109]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_vu_phu_ta_huu_loc_phu_qui_song_toan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_DONG_XK",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: thông minh lanh lợi, tài lộc tự nhiên đến (nữ mệnh Thiên Đồng hội Xương Khúc) [TT p.110]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_dong_xuong_khuc_tai_loc_tu_den",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_LIEM_DAC_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: quán xuyến giỏi, thanh sạch, sang quý từ sớm (nữ mệnh Liêm Trinh đắc địa, cát tinh, không sát) [TT p.110]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.dignity.Liêm Trinh",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 1
+     },
+     {
+      "fact": "palace.khi.sat_tp",
+      "operator": "lte",
+      "value": 0
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_liem_dac_cat_thanh_sach_sang_qui",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_PHU_TU_VI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: thông minh, có địa vị cao (nữ mệnh Thiên Phủ được Tử Vi hội chiếu) [TT p.110]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_majors",
+        "operator": "contains",
+        "value": "Tử Vi"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_phu_tu_vi_hoi_chieu_phu_nhan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_NGUYET_NHAT_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: phú quý song toàn (nữ mệnh Nhật Nguyệt đồng cung, cát tinh chiếu, không sát) [TT p.111]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 1
+     },
+     {
+      "fact": "palace.khi.sat_tp",
+      "operator": "lte",
+      "value": 0
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_nguyet_nhat_phu_qui_song_toan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_THAM_TU_MO_TA_HUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: tài lộc phong phú, tính cương cường, chí khí (nữ mệnh Tham Lang ở Tứ mộ gặp Tả Hữu) [TT p.111]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tham Lang"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_tham_tu_mo_ta_huu_tai_loc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_TT_NU_CU_VUONG_TA_HUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "tt_nu",
+   "description": "Tử Vi Đẩu Số Toàn Thư, nữ mệnh ca (paraphrased), cung Mệnh: nhiều điều tốt lành, có phần quý (nữ mệnh Cự Môn vượng gặp Tả Hữu) [TT p.112]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.dignity.Cự Môn",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "tt_nu_cu_vuong_ta_huu_tot_lanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}
