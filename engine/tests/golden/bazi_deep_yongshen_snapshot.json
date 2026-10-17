@@ -1,0 +1,4352 @@
+{
+ "_note": "Snapshot of method output + meta + trace on EX1-EX15 under TVH_40. A change here means a method, its metadata or its trace changed and must be reviewed.",
+ "charts": {
+  "EX1": {
+   "phu_uc": {
+    "status": "hai_cach_doc",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "khí thế ở biên (he_thong): hai cách đọc ['nhược', 'thiên nhược']",
+     "chạy phù ức cho từng cách đọc, không chọn"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "ThucThuong"
+    ],
+    "xi": [
+     "An"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 甲 sinh tháng 寅 (Dần)",
+     "tập can dùng được (tr.389-390): Bính, Quý",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Bính",
+     "nhóm thập thần: Bính=ThucThuong, Quý=An",
+     "hiện diện: Bính(thấu), Quý(tàng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat",
+     "Tai",
+     "ThucThuong"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Kiến Lộc (thanh)",
+     "bảng nháp của cách: ['QuanSat', 'Tai', 'ThucThuong']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "Tai"
+    ],
+    "xi": [
+     "ThucThuong"
+    ],
+    "ji": [
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Kiến Lộc → khóa bảng 'kien_loc'",
+     "phe mình = 0.4545 so với ngưỡng 40% (tr.355) → sách đọc: vượng",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: ThucThuong=0.545, Ti=0.312, An=0.142, Tai=0.000, QuanSat=0.000",
+     "dòng bảng tr.381, 386: nhóm nhiều nhất ThucThuong → dụng thần ['Tai']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "hai_cach_doc",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX2": {
+   "phu_uc": {
+    "status": "hai_cach_doc",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "khí thế ở biên (he_thong): hai cách đọc ['cực nhược']",
+     "chạy phù ức cho từng cách đọc, không chọn"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "QuanSat",
+     "Tai"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 戊 sinh tháng 卯 (Mão)",
+     "tập can dùng được (tr.389-390): Bính, Giáp, Quý",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Bính",
+     "nhóm thập thần: Bính=An, Giáp=QuanSat, Quý=Tai",
+     "hiện diện: Bính(tàng), Giáp(vắng), Quý(thấu)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "cach_bai",
+    "yong": [
+     "Tai",
+     "An"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Quan bại (quan_bi_xung_lenh, quan_bi_hinh_lenh), chưa được cứu",
+     "bảng nháp của cách: ['Tai', 'An']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "Ti"
+    ],
+    "ji": [
+     "Tai",
+     "QuanSat"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Quan → khóa bảng 'quan'",
+     "phe mình = 0.3346 so với ngưỡng 40% (tr.355) → sách đọc: nhược",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: QuanSat=0.312, An=0.279, Tai=0.242, ThucThuong=0.112, Ti=0.056",
+     "dòng bảng tr.379, 383: nhóm nhiều nhất QuanSat → dụng thần ['An', 'Ti']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "hai_cach_doc",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "cach_bai",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX3": {
+   "phu_uc": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "Ti"
+    ],
+    "ji": [
+     "Tai",
+     "QuanSat",
+     "ThucThuong"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "khí thế nhược (he_thong)",
+     "nhược → Ấn làm Dụng, Tỉ Kiếp làm Hỷ; Tài, Quan Sát, Thực Thương là Kỵ"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "ThucThuong"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 甲 sinh tháng 酉 (Dậu)",
+     "tập can dùng được (tr.389-390): Canh, Đinh, Bính",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Canh",
+     "nhóm thập thần: Canh=QuanSat, Đinh=ThucThuong, Bính=ThucThuong",
+     "hiện diện: Canh(vắng), Đinh(thấu), Bính(vắng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "cach_bai",
+    "yong": [
+     "Tai",
+     "An"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Quan bại (thuong_kien_quan, quan_bi_xung_lenh), chưa được cứu",
+     "bảng nháp của cách: ['Tai', 'An']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "Tai"
+    ],
+    "ji": [
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Quan → khóa bảng 'quan'",
+     "phe mình = 0.4956 so với ngưỡng 40% (tr.355) → sách đọc: vượng",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: Ti=0.332, QuanSat=0.275, An=0.164, ThucThuong=0.131, Tai=0.098",
+     "dòng bảng tr.378-379, 382: nhóm nhiều nhất Ti → dụng thần ['QuanSat', 'ThucThuong']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "cach_bai",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX4": {
+   "phu_uc": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "Ti"
+    ],
+    "ji": [
+     "Tai",
+     "QuanSat",
+     "ThucThuong"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "khí thế cực nhược (he_thong)",
+     "nhược → Ấn làm Dụng, Tỉ Kiếp làm Hỷ; Tài, Quan Sát, Thực Thương là Kỵ"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "ThucThuong"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 乙 sinh tháng 酉 (Dậu)",
+     "tập can dùng được (tr.389-390): Quý, Bính, Đinh",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Quý",
+     "nhóm thập thần: Quý=An, Bính=ThucThuong, Đinh=ThucThuong",
+     "hiện diện: Quý(vắng), Bính(tàng), Đinh(vắng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Thất Sát (thanh_nhung_bi_pha)",
+     "bảng nháp của cách: ['An']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Thất Sát → khóa bảng 'sat'",
+     "phe mình = 0.0319 so với ngưỡng 40% (tr.355) → sách đọc: nhược",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: QuanSat=0.931, Tai=0.037, Ti=0.020, An=0.012, ThucThuong=0.000",
+     "dòng bảng tr.380: nhóm nhiều nhất QuanSat → dụng thần ['An', 'Ti']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "chi_co_gia",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: chi_co_gia"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "chi_co_gia",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX5": {
+   "phu_uc": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "Ti"
+    ],
+    "ji": [
+     "Tai",
+     "QuanSat",
+     "ThucThuong"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "khí thế cực nhược (he_thong)",
+     "nhược → Ấn làm Dụng, Tỉ Kiếp làm Hỷ; Tài, Quan Sát, Thực Thương là Kỵ"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "QuanSat",
+     "ThucThuong"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 甲 sinh tháng 未 (Mùi)",
+     "tập can dùng được (tr.389-390): Quý, Canh, Đinh",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Quý",
+     "nhóm thập thần: Quý=An, Canh=QuanSat, Đinh=ThucThuong",
+     "hiện diện: Quý(tàng), Canh(vắng), Đinh(tàng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "cach_bai",
+    "yong": [
+     "ThucThuong",
+     "Quan"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Tài bại (tai_nhieu_than_nhuoc), chưa được cứu",
+     "bảng nháp của cách: ['ThucThuong', 'Quan']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "khong_xac_dinh_noi_cach",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "nội cách không lập được hoặc bị ngoại cách thay"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "chi_co_gia",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: chi_co_gia"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": true
+    },
+    "trace": [
+     "cách đặc biệt TVH: Hóa Thổ (TVH)",
+     "dụng thần = hành của cách: Thổ"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "cach_bai",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "khong_xac_dinh_noi_cach",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "chi_co_gia",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX6": {
+   "phu_uc": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "Ti"
+    ],
+    "ji": [
+     "Tai",
+     "QuanSat",
+     "ThucThuong"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "khí thế nhược (he_thong)",
+     "nhược → Ấn làm Dụng, Tỉ Kiếp làm Hỷ; Tài, Quan Sát, Thực Thương là Kỵ"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "Tai"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 庚 sinh tháng 申 (Thân)",
+     "tập can dùng được (tr.389-390): Đinh, Giáp",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Đinh",
+     "nhóm thập thần: Đinh=QuanSat, Giáp=Tai",
+     "hiện diện: Đinh(tàng), Giáp(vắng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat",
+     "Tai",
+     "ThucThuong"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Kiến Lộc (thanh)",
+     "bảng nháp của cách: ['QuanSat', 'Tai', 'ThucThuong']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "Ti"
+    ],
+    "ji": [
+     "ThucThuong",
+     "Tai"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Kiến Lộc → khóa bảng 'kien_loc'",
+     "phe mình = 0.3218 so với ngưỡng 40% (tr.355) → sách đọc: nhược",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: ThucThuong=0.625, An=0.169, Ti=0.153, QuanSat=0.053, Tai=0.000",
+     "dòng bảng tr.381, 386: nhóm nhiều nhất ThucThuong → dụng thần ['An', 'Ti']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX7": {
+   "phu_uc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat",
+     "ThucThuong",
+     "Tai"
+    ],
+    "xi": [],
+    "ji": [
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "khí thế thiên vượng (he_thong)",
+     "vượng → Quan Sát, Thực Thương, Tài khắc/tiết/hao làm Dụng; Ấn, Tỉ Kiếp là Kỵ"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "Tai"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 丁 sinh tháng 午 (Ngọ)",
+     "tập can dùng được (tr.389-390): Nhâm, Canh, Quý",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Nhâm",
+     "nhóm thập thần: Nhâm=QuanSat, Canh=Tai, Quý=QuanSat",
+     "hiện diện: Nhâm(thấu), Canh(thấu), Quý(thấu)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat",
+     "Tai",
+     "ThucThuong"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Kiến Lộc (thanh_nhung_bi_pha)",
+     "bảng nháp của cách: ['QuanSat', 'Tai', 'ThucThuong']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "Ti"
+    ],
+    "ji": [
+     "Tai",
+     "QuanSat"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Kiến Lộc → khóa bảng 'kien_loc'",
+     "phe mình = 0.3196 so với ngưỡng 40% (tr.355) → sách đọc: nhược",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: QuanSat=0.431, Tai=0.250, Ti=0.195, An=0.125, ThucThuong=0.000",
+     "dòng bảng tr.381, 386: nhóm nhiều nhất QuanSat → dụng thần ['An']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX8": {
+   "phu_uc": {
+    "status": "hai_cach_doc",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "khí thế ở biên (he_thong): hai cách đọc ['trung hòa', 'thiên vượng']",
+     "chạy phù ức cho từng cách đọc, không chọn"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "ThucThuong"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 丙 sinh tháng 子 (Tý)",
+     "tập can dùng được (tr.389-390): Nhâm, Mậu, Kỷ",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Nhâm",
+     "nhóm thập thần: Nhâm=QuanSat, Mậu=ThucThuong, Kỷ=ThucThuong",
+     "hiện diện: Nhâm(tàng), Mậu(tàng), Kỷ(tàng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "Tai",
+     "An"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Quan (thanh)",
+     "bảng nháp của cách: ['Tai', 'An']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "Tai"
+    ],
+    "ji": [
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Quan → khóa bảng 'quan'",
+     "phe mình = 0.6953 so với ngưỡng 40% (tr.355) → sách đọc: vượng",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: Ti=0.424, An=0.271, QuanSat=0.203, Tai=0.102, ThucThuong=0.000",
+     "dòng bảng tr.378-379, 382: nhóm nhiều nhất Ti → dụng thần ['QuanSat', 'ThucThuong']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "hai_cach_doc",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX9": {
+   "phu_uc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat",
+     "ThucThuong",
+     "Tai"
+    ],
+    "xi": [],
+    "ji": [
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "khí thế vượng (he_thong)",
+     "vượng → Quan Sát, Thực Thương, Tài khắc/tiết/hao làm Dụng; Ấn, Tỉ Kiếp là Kỵ"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 丙 sinh tháng 午 (Ngọ)",
+     "tập can dùng được (tr.389-390): Nhâm, Quý",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Nhâm",
+     "nhóm thập thần: Nhâm=QuanSat, Quý=QuanSat",
+     "hiện diện: Nhâm(thấu), Quý(tàng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Dương Nhận (thanh)",
+     "bảng nháp của cách: ['QuanSat']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [],
+    "ji": [
+     "ThucThuong",
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Dương Nhận → khóa bảng 'kinh_duong'",
+     "phe mình = 0.6615 so với ngưỡng 40% (tr.355) → sách đọc: vượng",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: Ti=0.662, QuanSat=0.222, ThucThuong=0.116, An=0.000, Tai=0.000",
+     "dòng bảng tr.381, 386: nhóm nhiều nhất Ti → dụng thần ['QuanSat']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX10": {
+   "phu_uc": {
+    "status": "hai_cach_doc",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "khí thế ở biên (he_thong): hai cách đọc ['thiên nhược', 'trung hòa']",
+     "chạy phù ức cho từng cách đọc, không chọn"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "ThucThuong"
+    ],
+    "xi": [
+     "An"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 甲 sinh tháng 寅 (Dần)",
+     "tập can dùng được (tr.389-390): Bính, Quý",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Bính",
+     "nhóm thập thần: Bính=ThucThuong, Quý=An",
+     "hiện diện: Bính(tàng), Quý(vắng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat",
+     "Tai",
+     "ThucThuong"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Kiến Lộc (thanh_nhung_bi_pha)",
+     "bảng nháp của cách: ['QuanSat', 'Tai', 'ThucThuong']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "Ti"
+    ],
+    "ji": [
+     "Tai",
+     "QuanSat"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Kiến Lộc → khóa bảng 'kien_loc'",
+     "phe mình = 0.1148 so với ngưỡng 40% (tr.355) → sách đọc: nhược",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: QuanSat=0.622, ThucThuong=0.167, Ti=0.115, Tai=0.096, An=0.000",
+     "dòng bảng tr.381, 386: nhóm nhiều nhất QuanSat → dụng thần ['An']"
+    ]
+   },
+   "thong_quan": {
+    "status": "co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": true
+    },
+    "trace": [
+     "Hỏa khắc Kim (cùng ≥ 0.2); cầu Thổ chiếm 0.127 → có cầu",
+     "Kim khắc Mộc (cùng ≥ 0.2); cầu Thủy chiếm 0.075 → thiếu cầu"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "hai_cach_doc",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "co_giao_chien",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX11": {
+   "phu_uc": {
+    "status": "ap_dung",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "Ti"
+    ],
+    "ji": [
+     "Tai",
+     "QuanSat",
+     "ThucThuong"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "khí thế thiên nhược (he_thong)",
+     "nhược → Ấn làm Dụng, Tỉ Kiếp làm Hỷ; Tài, Quan Sát, Thực Thương là Kỵ"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "ThucThuong",
+     "Tai"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 乙 sinh tháng 辰 (Thìn)",
+     "tập can dùng được (tr.389-390): Quý, Bính, Mậu",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Quý",
+     "nhóm thập thần: Quý=An, Bính=ThucThuong, Mậu=Tai",
+     "hiện diện: Quý(tàng), Bính(vắng), Mậu(tàng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "ThucThuong"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Tài (thanh)",
+     "bảng nháp của cách: ['ThucThuong']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "ThucThuong"
+    ],
+    "ji": [
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Tài → khóa bảng 'tai'",
+     "phe mình = 0.4786 so với ngưỡng 40% (tr.355) → sách đọc: vượng",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: Ti=0.367, Tai=0.201, QuanSat=0.181, ThucThuong=0.139, An=0.112",
+     "dòng bảng tr.378, 383: nhóm nhiều nhất Ti → dụng thần ['QuanSat', 'ThucThuong']"
+    ]
+   },
+   "thong_quan": {
+    "status": "co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": true
+    },
+    "trace": [
+     "Mộc khắc Thổ (cùng ≥ 0.2); cầu Hỏa chiếm 0.122 → có cầu"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "co_giao_chien",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX12": {
+   "phu_uc": {
+    "status": "hai_cach_doc",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "khí thế ở biên (he_thong): hai cách đọc ['trung hòa', 'thiên nhược']",
+     "chạy phù ức cho từng cách đọc, không chọn"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "Tai"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 庚 sinh tháng 未 (Mùi)",
+     "tập can dùng được (tr.389-390): Đinh, Giáp",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Đinh",
+     "nhóm thập thần: Đinh=QuanSat, Giáp=Tai",
+     "hiện diện: Đinh(tàng), Giáp(tàng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat",
+     "ThucThuong"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Ấn (thanh)",
+     "bảng nháp của cách: ['QuanSat', 'ThucThuong']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "Tai"
+    ],
+    "xi": [
+     "ThucThuong"
+    ],
+    "ji": [
+     "QuanSat",
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Ấn → khóa bảng 'an'",
+     "phe mình = 0.5511 so với ngưỡng 40% (tr.355) → sách đọc: vượng",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: An=0.409, ThucThuong=0.307, Ti=0.142, Tai=0.142, QuanSat=0.000",
+     "dòng bảng tr.379, 383: nhóm nhiều nhất An → dụng thần ['Tai', 'ThucThuong']"
+    ]
+   },
+   "thong_quan": {
+    "status": "co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": true
+    },
+    "trace": [
+     "Mộc khắc Thổ (cùng ≥ 0.2); cầu Hỏa chiếm 0.041 → thiếu cầu"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "hai_cach_doc",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "co_giao_chien",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX13": {
+   "phu_uc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat",
+     "ThucThuong",
+     "Tai"
+    ],
+    "xi": [],
+    "ji": [
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "khí thế cực vượng (he_thong)",
+     "vượng → Quan Sát, Thực Thương, Tài khắc/tiết/hao làm Dụng; Ấn, Tỉ Kiếp là Kỵ"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "ThucThuong"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 丙 sinh tháng 卯 (Mão)",
+     "tập can dùng được (tr.389-390): Nhâm, Kỷ",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Nhâm",
+     "nhóm thập thần: Nhâm=QuanSat, Kỷ=ThucThuong",
+     "hiện diện: Nhâm(vắng), Kỷ(vắng)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat",
+     "ThucThuong"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Ấn (thanh)",
+     "bảng nháp của cách: ['QuanSat', 'ThucThuong']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "Tai"
+    ],
+    "xi": [
+     "ThucThuong"
+    ],
+    "ji": [
+     "QuanSat",
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Ấn → khóa bảng 'an'",
+     "phe mình = 0.8454 so với ngưỡng 40% (tr.355) → sách đọc: vượng",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: An=0.566, Ti=0.279, QuanSat=0.105, Tai=0.039, ThucThuong=0.010",
+     "dòng bảng tr.379, 383: nhóm nhiều nhất An → dụng thần ['Tai', 'ThucThuong']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX14": {
+   "phu_uc": {
+    "status": "hai_cach_doc",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "khí thế ở biên (he_thong): hai cách đọc ['thiên vượng', 'vượng']",
+     "chạy phù ức cho từng cách đọc, không chọn"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "An"
+    ],
+    "xi": [
+     "ThucThuong",
+     "QuanSat"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 己 sinh tháng 寅 (Dần)",
+     "tập can dùng được (tr.389-390): Bính, Canh, Giáp",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Bính",
+     "nhóm thập thần: Bính=An, Canh=ThucThuong, Giáp=QuanSat",
+     "hiện diện: Bính(thấu), Canh(thấu), Giáp(thấu)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "ap_dung",
+    "yong": [
+     "Tai",
+     "An"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Quan (thanh)",
+     "bảng nháp của cách: ['Tai', 'An']"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "Tai"
+    ],
+    "xi": [
+     "ThucThuong"
+    ],
+    "ji": [
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Chính Quan → khóa bảng 'quan'",
+     "phe mình = 0.5 so với ngưỡng 40% (tr.355) → sách đọc: vượng",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: An=0.278, QuanSat=0.273, Ti=0.222, Tai=0.164, ThucThuong=0.063",
+     "dòng bảng tr.379, 382: nhóm nhiều nhất An → dụng thần ['Tai', 'QuanSat']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "trạng thái: khong_chan"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": false
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Kim, Thủy",
+     "hành thiếu: không"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "hai_cach_doc",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  },
+  "EX15": {
+   "phu_uc": {
+    "status": "khong_ap_dung",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"
+     },
+     "source": [
+      "he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "có ngoại cách chân → phù ức bị loại"
+    ]
+   },
+   "dieu_hau": {
+    "status": "bang_TVH_verified",
+    "yong": [
+     "ThucThuong"
+    ],
+    "xi": [
+     "An"
+    ],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DIEUHAU tr.389-390 (tập can)",
+      "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)",
+      "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"
+     ],
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)",
+     "applied": true
+    },
+    "trace": [
+     "ô bảng TVH: 乙 sinh tháng 卯 (Mão)",
+     "tập can dùng được (tr.389-390): Bính, Quý",
+     "can chủ = đứng đầu chú thích thứ tự (tr.391-396): Bính",
+     "nhóm thập thần: Bính=ThucThuong, Quý=An",
+     "hiện diện: Bính(thấu), Quý(thấu)"
+    ]
+   },
+   "cach_cuc": {
+    "status": "khong_xac_dinh_noi_cach",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "partial",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"
+     },
+     "source": [
+      "he_thong (bảng cách cục nháp)",
+      "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"
+     ],
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": false
+    },
+    "trace": [
+     "nội cách không lập được hoặc bị ngoại cách thay"
+    ]
+   },
+   "cach_cuc_tvh": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [
+     "Tai"
+    ],
+    "ji": [
+     "An",
+     "Ti"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)",
+      "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"
+     ],
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "nội cách đầu: Kiến Lộc → khóa bảng 'kien_loc'",
+     "phe mình = 0.9139 so với ngưỡng 40% (tr.355) → sách đọc: vượng",
+     "nhóm nhiều nhất theo tỉ trọng tổng điểm TVH: Ti=0.583, An=0.331, ThucThuong=0.077, Tai=0.009, QuanSat=0.000",
+     "dòng bảng tr.381, 386: nhóm nhiều nhất Ti → dụng thần ['QuanSat']"
+    ]
+   },
+   "thong_quan": {
+    "status": "khong_co_giao_chien",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "không có nguồn; ngưỡng của hệ thống"
+     },
+     "source": [
+      "he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"
+     ],
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)",
+     "applied": false
+    },
+    "trace": [
+     "không có cặp hành khắc nhau cùng ≥ 0.2 tổng điểm"
+    ]
+   },
+   "thuan_the": {
+    "status": "ap_dung",
+    "yong": [
+     "Ti",
+     "An"
+    ],
+    "xi": [],
+    "ji": [
+     "Tai",
+     "QuanSat",
+     "ThucThuong"
+    ],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"
+     },
+     "source": [
+      "SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)",
+      "SRC_TTT_HOA tr.175-176 (hóa thần)"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)",
+     "applied": true
+    },
+    "trace": [
+     "trạng thái: ap_dung"
+    ]
+   },
+   "thuan_the_tvh": {
+    "status": "khong_chan",
+    "yong": [],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "yes",
+      "source_rule_verified": "partial",
+      "empirical_validated": "no",
+      "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.381-386"
+     ],
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)",
+     "applied": false
+    },
+    "trace": [
+     "không có cách đặc biệt TVH đạt điều kiện chân"
+    ]
+   },
+   "khuyet_hanh": {
+    "status": "ap_dung",
+    "yong": [
+     "QuanSat"
+    ],
+    "xi": [],
+    "ji": [],
+    "meta": {
+     "levels": {
+      "transcription_verified": "n/a",
+      "source_rule_verified": "no",
+      "empirical_validated": "no",
+      "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"
+     },
+     "source": [
+      "SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"
+     ],
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)",
+     "applied": true
+    },
+    "trace": [
+     "hành có mặt (thấu + tàng): Mộc, Hỏa, Thổ, Thủy",
+     "hành thiếu: Kim",
+     "nhóm so với Nhật Chủ: ['QuanSat']"
+    ]
+   },
+   "_comparison_methods": {
+    "phu_uc": {
+     "status": "khong_ap_dung",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "dieu_hau": {
+     "status": "bang_TVH_verified",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống",
+     "strength_basis": "không dùng khí thế (chỉ bảng)"
+    },
+    "cach_cuc": {
+     "status": "khong_xac_dinh_noi_cach",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "cach_cuc_tvh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc",
+     "strength_basis": "tvh_40 (điểm TVH)"
+    },
+    "thong_quan": {
+     "status": "khong_co_giao_chien",
+     "applied": false,
+     "verification": "draft",
+     "applies_when": "có hai hành khắc nhau cùng ≥ war_share",
+     "strength_basis": "he_thong (tỉ trọng hành)"
+    },
+    "thuan_the": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "partial",
+     "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa",
+     "strength_basis": "he_thong (tách khỏi điểm TVH)"
+    },
+    "thuan_the_tvh": {
+     "status": "khong_chan",
+     "applied": false,
+     "verification": "partial",
+     "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống",
+     "strength_basis": "tvh_40 (cách đặc biệt TVH)"
+    },
+    "khuyet_hanh": {
+     "status": "ap_dung",
+     "applied": true,
+     "verification": "draft",
+     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung",
+     "strength_basis": "không dùng khí thế (chỉ hiện diện hành)"
+    }
+   },
+   "_isolation": {
+    "system_school_computed_from": "he_thong",
+    "tvh_school": "tvh_40",
+    "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."
+   }
+  }
+ }
+}

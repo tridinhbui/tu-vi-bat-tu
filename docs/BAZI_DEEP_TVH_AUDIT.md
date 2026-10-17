@@ -63,6 +63,15 @@ Kết luận: 9 ô này là mâu thuẫn **trong nội bộ sách**, không ph�
 - Engine `dieu_hau`: dụng ThucThuong, hỷ Tai. `khuyet_hanh`: ap_dung Tai ThucThuong.
 - **Sách chọn:** Thủy Mộc (nhóm ThucThuong Tai).
 
+### p400_vd4 (tr.399-400): Quý Sửu / Giáp Tý / Quý Mão / Quý Hợi
+
+- Dữ kiện đầu vào: lá số trên; sách in thập thần và tàng can, test đối chiếu cả hai với engine (khớp).
+- Bước 1, vượng/nhược: sách đọc **cực vượng** (định tính: Hợi Tý Sửu tam hội thủy cục, năm thấu Quý ngang vai, giờ kiếp tài; sách nói 'nhật chủ cực vượng', 'thân vượng tài nhược'). Quy tắc 40% trên điểm TVH: phe mình = **0.7598** → vượng.
+- Bước 2, các bước của sách: Quý sinh tháng Tý, Hợi Tý Sửu hội cục, Quý thấu ở năm, giờ kiếp tài, thân cực vượng; vượng thì nên xì hơi hoặc nên khắc: Giáp mộc để xì hơi, Sửu thổ để khắc; lấy Giáp mộc của trụ tháng làm dụng thần, Kỷ thổ thất sát làm hỉ thần; kỵ vận tỉ kiếp và ấn.
+- Bước 3, engine `cach_cuc_tvh`: nhóm nhiều nhất **None** → dụng — (bảng cho thêm —).
+- Engine `dieu_hau`: dụng Tai, hỷ An. `khuyet_hanh`: ap_dung Tai.
+- **Sách chọn:** Mộc (nhóm ThucThuong).
+
 Kết quả đối chiếu:
 
 | Ví dụ | Vượng/nhược | cach_cuc_tvh | dieu_hau | khuyet_hanh | Đánh giá |
@@ -89,13 +98,13 @@ Năm ví dụ điều hậu của tr.387–388 (Dụng thần theo chú thích �
 - Đúng 40% tính là vượng (sách không nói); nhãn `equality_choice`.
 - Biên ±0.03 quanh 40% cho hai cách đọc (`tvh_margin`); nhãn `margin_src: he_thong (không phải của sách)`. Ví dụ 6 của sách (39,6%) nằm trong biên này nhưng sách đọc dứt khoát là nhược, nên output luôn ghi thêm `book_rule_reading` và cờ `follows_book_rule` cho từng cách đọc.
 
-**Độ nhạy của ngưỡng** trên 55 lá số có nhãn (48 nhãn Nhật Chủ của Trích Thiên Tủy, 4 ví dụ tính điểm của Thiệu Vĩ Hoa, 3 ví dụ đang kiểm; một nhãn trong đó là vd2 mà quy tắc 40% không tái lập được):
+**Độ nhạy của ngưỡng** trên 56 lá số có nhãn (48 nhãn Nhật Chủ của Trích Thiên Tủy, 4 ví dụ tính điểm của Thiệu Vĩ Hoa, 3 ví dụ đang kiểm; một nhãn trong đó là vd2 mà quy tắc 40% không tái lập được):
 
 | Ngưỡng | 0.30 | 0.34 | 0.36 | 0.38 | 0.39 | 0.40 | 0.41 | 0.42 | 0.44 | 0.46 | 0.50 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Số lá số khớp nhãn | 46 | 47 | 49 | 49 | 51 | 51 | 51 | 52 | 51 | 50 | 51 |
 
-Tại 40%: 51/55 (92.7%). Vùng 0,39–0,44 gần như phẳng (±1); dưới 0,36 xấu đi rõ. Vậy 40% nằm trên một cao nguyên, **không bị tinh chỉnh cho khớp dữ liệu**, và dữ liệu này cũng không đủ để bảo vệ riêng con số 40% so với 42%.
+Tại 40%: 51/56 (91.1%). Vùng 0,39–0,44 gần như phẳng (±1); dưới 0,36 xấu đi rõ. Vậy 40% nằm trên một cao nguyên, **không bị tinh chỉnh cho khớp dữ liệu**, và dữ liệu này cũng không đủ để bảo vệ riêng con số 40% so với 42%.
 
 Số lá số trong 81 mệnh lệ rơi vào biên hai cách đọc theo độ rộng biên: ±0.0: 0, ±0.01: 0, ±0.02: 1, ±0.03: 2, ±0.05: 7. Ở mức mặc định chỉ 2/81 lá số bị tách đôi.
 

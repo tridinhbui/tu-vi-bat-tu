@@ -143,12 +143,16 @@
   "inner": [
    [
     "Chính Tài",
-    "thanh_nhung_bi_pha"
+    "bai"
    ]
   ],
   "outer": [
    [
     "Hóa Thổ",
+    "giả"
+   ],
+   [
+    "Tòng Tài",
     "giả"
    ],
    [
@@ -162,7 +166,7 @@
   "fired": [
    "BT_ST_DISAGREE",
    "BT_ST_DM_STRONG_PHUUC",
-   "BT_ST_GEJU_THANH_PHA",
+   "BT_ST_GEJU_BAI",
    "BT_ST_HUA_GIA",
    "BT_ST_LEVEL_SHIFT",
    "BT_ST_OUTER_GIA",
@@ -363,7 +367,7 @@
   "inner": [
    [
     "Chính Ấn",
-    "bai_cuu_yeu"
+    "thanh"
    ]
   ],
   "outer": [],
@@ -379,7 +383,7 @@
    "BT_ST_CUC",
    "BT_ST_DISAGREE",
    "BT_ST_DM_STRONG_PHUUC",
-   "BT_ST_GEJU_BAI_CUU_YEU",
+   "BT_ST_GEJU_THANH",
    "BT_ST_LEVEL_SHIFT",
    "BT_ST_THONGQUAN",
    "BT_TVH_TB_AN_1",

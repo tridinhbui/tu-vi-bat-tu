@@ -8,7 +8,7 @@ import json
 
 from ..ganzhi import ELEMENTS, STEM_ELEMENT, controls, generates
 from ..bazi import HIDDEN_STEMS
-from .geju import Ctx, analyse as geju_analyse, pred
+from .geju import Ctx, analyse as geju_analyse, build_readings, pred
 from .model import ChartView
 from .profile import DATA, DEFAULT as DEFAULT_PROFILE, LEVELS, SchoolProfile
 from .season import climate
@@ -19,24 +19,29 @@ TONG_ROLES = json.loads((DATA / "tong_roles.json").read_text("utf-8"))
 TQ = json.loads((DATA / "thuong_quan_dung.json").read_text("utf-8"))
 TVH_DT = json.loads((DATA / "tvh_dungthan.json").read_text("utf-8"))
 
+# Three separate levels, never inferred from one another (docs/BAZI_DEEP_TVH_AUDIT.md):
+#   transcription_verified: the table/text was copied correctly from the source page;
+#   source_rule_verified:   the formula/condition (including thresholds) matches the source's own statement;
+#   empirical_validated:    independent evidence that the output predicts anything. NOTHING in this module has that, so it is "no" everywhere.
+# Values: yes | partial | no | n/a.
 # Per-method provenance. verification: verified = table/rule text read at a PDF page by Claude (no second human check yet); partial = verified table + system conventions;
 # draft = this system's own convention or a single worked example. `applies_when` is the condition under which the method says anything.
 METHOD_META = {
-    "phu_uc": {"source": ["he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"], "verification": "draft",
+    "phu_uc": {"levels": {"transcription_verified": "n/a", "source_rule_verified": "no", "empirical_validated": "no", "why": "nguyên lý phổ thông của hệ thống, không có nguồn đối chiếu"}, "source": ["he_thong (nguyên lý phù ức phổ thông; ngưỡng cấp độ khí thế là của hệ thống)"], "verification": "draft",
                "applies_when": "không có ngoại cách chân và khí thế không ở mức trung hòa"},
-    "dieu_hau": {"source": ["SRC_TVH_DIEUHAU tr.389-390 (tập can)", "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)", "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"], "verification": "partial",
+    "dieu_hau": {"levels": {"transcription_verified": "yes", "source_rule_verified": "partial", "empirical_validated": "no", "why": "bảng và thứ tự chép khớp trang in (120/120 bảng, chú thích có 9 ô mâu thuẫn nội bộ); vai trò Dụng/Hỷ và ngưỡng hàn/nhiệt là của hệ thống"}, "source": ["SRC_TVH_DIEUHAU tr.389-390 (tập can)", "SRC_TVH_DIEUHAU tr.391-396 (thứ tự)", "SRC_TTT_HANTHU tr.113-114 (hàn/noãn)"], "verification": "partial",
                  "applies_when": "luôn tra được: mỗi (can ngày, tháng) có một ô. Việc gán can chính = Dụng, các can còn lại = Hỷ là quy ước của hệ thống; ngưỡng hàn/nhiệt là chỉ số thô của hệ thống"},
-    "cach_cuc": {"source": ["he_thong (bảng cách cục nháp)", "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"], "verification": "draft",
+    "cach_cuc": {"levels": {"transcription_verified": "partial", "source_rule_verified": "no", "empirical_validated": "no", "why": "chỉ phần Thương Quan (TTT tr.93-94) chép khớp; phần còn lại là bảng nháp"}, "source": ["he_thong (bảng cách cục nháp)", "SRC_TTT_THUONGQUAN tr.93-94 (Thương Quan)"], "verification": "draft",
                  "applies_when": "nội cách đứng đầu; Thương Quan dùng năm mẫu của Trích Thiên Tủy"},
-    "cach_cuc_tvh": {"source": ["SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)", "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"], "verification": "partial",
+    "cach_cuc_tvh": {"levels": {"transcription_verified": "yes", "source_rule_verified": "partial", "empirical_validated": "no", "why": "bảng tr.378-386 chép khớp, quy tắc 40% khớp tr.355; biên ±0,03, quy ước đúng 40% và các ví dụ (1/3 khớp hoàn toàn) chưa đủ"}, "source": ["SRC_TVH_DUNGTHAN tr.378-386 (bảng cách × vượng/nhược × nhóm nhiều nhất)", "SRC_TVH_DIEM tr.355 (ngưỡng 40%)"], "verification": "partial",
                      "applies_when": "nội cách đứng đầu và có dòng trong bảng; 'nhóm nhiều nhất' lấy theo tổng điểm TVH; biên ±tvh_margin quanh 40% là ngưỡng hiển thị của hệ thống nên cho hai cách đọc"},
-    "thong_quan": {"source": ["he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"], "verification": "draft",
+    "thong_quan": {"levels": {"transcription_verified": "n/a", "source_rule_verified": "no", "empirical_validated": "no", "why": "không có nguồn; ngưỡng của hệ thống"}, "source": ["he_thong (nguyên lý thông quan; ngưỡng war_share/bridge_min là của hệ thống)"], "verification": "draft",
                    "applies_when": "có hai hành khắc nhau cùng ≥ war_share"},
-    "thuan_the": {"source": ["SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)", "SRC_TTT_HOA tr.175-176 (hóa thần)"], "verification": "partial",
+    "thuan_the": {"levels": {"transcription_verified": "yes", "source_rule_verified": "partial", "empirical_validated": "no", "why": "bảng vai trò TTT tr.171-179 chép khớp; ngưỡng nhận diện và hóa thần dư/thiếu là của hệ thống"}, "source": ["SRC_TTT_TONG tr.171-179 (vai trò các loại tòng)", "SRC_TTT_HOA tr.175-176 (hóa thần)"], "verification": "partial",
                   "applies_when": "chỉ khi hệ thống/Trích Thiên Tủy nhận ngoại cách chân (tòng/hóa); ngưỡng hóa thần dư/thiếu là của hệ thống; không dùng cách đặc biệt của Thiệu Vĩ Hoa"},
-    "thuan_the_tvh": {"source": ["SRC_TVH_DUNGTHAN tr.381-386"], "verification": "partial",
+    "thuan_the_tvh": {"levels": {"transcription_verified": "yes", "source_rule_verified": "partial", "empirical_validated": "no", "why": "bảng tr.381-386 chép khớp; điều kiện nhận diện được vận hành bằng ngưỡng của hệ thống"}, "source": ["SRC_TVH_DUNGTHAN tr.381-386"], "verification": "partial",
                       "applies_when": "chỉ khi có cách đặc biệt chân theo Thiệu Vĩ Hoa (tòng tài/sát/nhi, chuyên vượng, hóa khí); các ngưỡng nhận diện là của hệ thống"},
-    "khuyet_hanh": {"source": ["SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"], "verification": "draft",
+    "khuyet_hanh": {"levels": {"transcription_verified": "n/a", "source_rule_verified": "no", "empirical_validated": "no", "why": "chỉ một ví dụ tr.399, sách không phát biểu thành quy tắc"}, "source": ["SRC_TVH_DUNGTHAN tr.399 (ví dụ 3: ngũ hành thiếu mộc, thủy thì dụng mộc, thủy)"], "verification": "draft",
                     "applies_when": "lá số thiếu hẳn một hành (kể cả tàng can). Sách chỉ có MỘT ví dụ, không phát biểu thành quy tắc chung"},
 }
 TVH_KINDS = ("tong_tvh", "chuyen_vuong", "hoa_tvh")      # outer-cách kinds produced by tvh_cach.special (Thiệu Vĩ Hoa), never by the system/Trích Thiên Tủy detector
@@ -306,10 +311,12 @@ def run(view: ChartView, profile: SchoolProfile, R, S: dict, geju: dict) -> dict
         G_sys = geju_analyse(view, sysp, R, S_sys)
     else:
         sysp, S_sys, G_sys = profile, S, geju
+    tvh_outer = [o for o in geju["outer"] if o.get("kind") in TVH_KINDS]       # reverse isolation: the TVH methods see only TVH outer cách, never the system's
+    G_tvh = {**geju, "outer": tvh_outer, "readings": build_readings(geju["inner"], tvh_outer)[0]}
     outer_chan = any(o["quality"] == "chân" for o in G_sys["outer"])
     tq = thuong_quan_dung(Ctx(view, sysp, R, S_sys), S_sys, G_sys, sysp)
-    methods = [phu_uc(S, outer_chan), dieu_hau(view, S), cach_cuc(G_sys, tq), cach_cuc_tvh(geju, S, profile), thong_quan(S, profile), thuan_the(G_sys, S_sys, sysp), thuan_the_tvh(geju), khuyet_hanh(view)]
-    basis = {"phu_uc": "tvh_40 (quyết định vượng/nhược)" if tvh_S else "he_thong", "dieu_hau": "không dùng khí thế (chỉ bảng)",
+    methods = [phu_uc(S_sys, outer_chan), dieu_hau(view, S), cach_cuc(G_sys, tq), cach_cuc_tvh(G_tvh, S, profile), thong_quan(S, profile), thuan_the(G_sys, S_sys, sysp), thuan_the_tvh(G_tvh), khuyet_hanh(view)]
+    basis = {"phu_uc": "he_thong (tách khỏi điểm TVH)" if tvh_S else "he_thong", "dieu_hau": "không dùng khí thế (chỉ bảng)",
              "cach_cuc": "he_thong (tách khỏi điểm TVH)", "cach_cuc_tvh": "tvh_40 (điểm TVH)" if tvh_S else "he_thong (dự phòng, không có điểm TVH)",
              "thong_quan": "he_thong (tỉ trọng hành)", "thuan_the": "he_thong (tách khỏi điểm TVH)", "thuan_the_tvh": "tvh_40 (cách đặc biệt TVH)" if tvh_S else "không có (profile không dùng TVH)",
              "khuyet_hanh": "không dùng khí thế (chỉ hiện diện hành)"}
@@ -321,7 +328,7 @@ def run(view: ChartView, profile: SchoolProfile, R, S: dict, geju: dict) -> dict
             m[f"{role}_health"] = [health(ctx, g) for g in m.get(role, [])]
     return {"methods": {m["method"]: m for m in methods}, "thuong_quan": tq, "comparison": compare(methods), "review_status": "draft",
             "isolation": {"system_school_computed_from": "he_thong" if tvh_S else "profile hiện tại", "tvh_school": "tvh_40" if tvh_S else None,
-                  "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh. phu_uc dùng quyết định vượng/nhược của profile nhưng chỉ xét ngoại cách của hệ thống."},
+                  "note": "cach_cuc và thuan_the dùng cách cục/khí thế của hệ thống ngay cả khi profile là tvh_40; cách đặc biệt và điểm TVH chỉ đi vào cach_cuc_tvh và thuan_the_tvh; ngược lại cach_cuc_tvh và thuan_the_tvh không thấy ngoại cách của hệ thống. phu_uc cũng dùng khí thế và ngoại cách của hệ thống; quyết định vượng/nhược 40% của Thiệu Vĩ Hoa chỉ xuất hiện ở strength_after và cach_cuc_tvh."},
             "note": "Các phương pháp không được gộp. Bảng 'comparison' chỉ liệt kê đồng thuận và bất đồng."}
 
 

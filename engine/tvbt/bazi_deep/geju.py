@@ -252,16 +252,9 @@ def tvh_danh_gia(ctx: Ctx, cach: str) -> list[dict]:
     return out
 
 
-def analyse(view: ChartView, profile: SchoolProfile, R: Resolved, S: dict, extra: list | None = None) -> dict:
-    ctx = Ctx(view, profile, R, S, extra)
-    inner = []
-    for c in inner_candidates(view, profile, extra):
-        ev = evaluate(ctx, c["name"])
-        inner.append({**c, **ev, "tvh_danh_gia": tvh_danh_gia(ctx, c["name"])})
-    outer = outer_candidates(view, profile, R, S)
-    if profile.strength_method == "tvh_40" and not extra:
-        from . import tvh_cach
-        outer = outer + tvh_cach.special(view, S, profile)
+def build_readings(inner: list[dict], outer: list[dict]) -> tuple[list[dict], str]:
+    """Which cách the chart is read as, from the inner candidates and the outer candidates GIVEN. Kept separate so a school can ask the question
+    with only its own outer candidates (see yongshen.run: the Thiệu Vĩ Hoa methods never see the system's outer cách and vice versa)."""
     readings, note = [], ""
     chan = [o for o in outer if o["quality"] == "chân"]
     if chan:
@@ -276,4 +269,29 @@ def analyse(view: ChartView, profile: SchoolProfile, R: Resolved, S: dict, extra
     if len(inner) > 1 and not chan:
         for c in inner[1:]:
             readings.append({"cach": c["name"], "kind": "noi_cach_khac", "why": "ứng viên thấu can khác trong nguyệt lệnh"})
+    return readings, note
+
+
+def analyse(view: ChartView, profile: SchoolProfile, R: Resolved, S: dict, extra: list | None = None) -> dict:
+    """Under strength_method == 'tvh_40' the profile only ADDS Thiệu Vĩ Hoa's special cách (and his danh gia of each inner cách) to what the system's own
+    computation gives: inner states and the system's outer cách are evaluated from the system's strength, so switching the TVH profile on or off never
+    changes the system school's reading (tests/test_bazi_deep_phase5.py)."""
+    tvh = profile.strength_method == "tvh_40" and not extra
+    if tvh:
+        from .strength import compute as strength_compute
+        sysp = profile.with_(strength_method="he_thong", id=profile.id + "+he_thong_view")
+        S_sys = strength_compute(view, sysp, R)
+    else:
+        sysp, S_sys = profile, S
+    ctx_sys = Ctx(view, sysp, R, S_sys, extra)
+    ctx = Ctx(view, profile, R, S, extra)
+    inner = []
+    for c in inner_candidates(view, profile, extra):
+        ev = evaluate(ctx_sys, c["name"])
+        inner.append({**c, **ev, "tvh_danh_gia": tvh_danh_gia(ctx, c["name"])})
+    outer = outer_candidates(view, sysp, R, S_sys)
+    if tvh:
+        from . import tvh_cach
+        outer = outer + tvh_cach.special(view, S, profile)
+    readings, note = build_readings(inner, outer)
     return {"inner": inner, "outer": outer, "readings": readings, "arbitration": note, "review_status": "draft", "source": "SRC_TBCT (chưa verified)"}

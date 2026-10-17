@@ -113,7 +113,7 @@ def _chart(day_stem: int, month_branch: int) -> ChartView:
 
 
 # ------------------------------------------------------------------ 2. the three worked examples (tr.397-399)
-EXS = BOOK["dungthan_examples"]
+EXS = {k: v for k, v in BOOK["dungthan_examples"].items() if k != "p400_vd4"}      # the three examples of the original audit (tr.397-399); example 4 is in test_bazi_deep_phase5.py
 BOOK_ROLES = {   # printed ten-god row of each example, year/month/hour (the day master is the 'Nhật nguyên'), reduced to our groups
     "p397_vd1": {"year": "Tai", "month": "ThucThuong", "hour": "An"},          # Tài, Thương, Kiêu
     "p398_vd2": {"year": "ThucThuong", "month": "Tai", "hour": "Ti"},          # Thực, Tài, Kiếp
@@ -152,7 +152,8 @@ def test_example1_vd1_every_step_and_result():
     assert M["cach_cuc_tvh"]["yong"] == ex["dung_than_groups"] == ["QuanSat"]                                                       # step 3: dụng thần Mộc = Quan Sát
     assert ex["ky_than_groups"][0] in M["cach_cuc_tvh"]["ji"]                                                                       # kỵ Thổ (Ti)
     assert M["dieu_hau"]["yong"] == ["QuanSat"]                                                                                    # Mậu tháng Hợi: 'giáp, bính', Giáp first
-    assert "QuanSat" in M["phu_uc"]["yong"] and "Ti" in M["phu_uc"]["ji"]                                                           # consistent, not primary
+    pu = M["phu_uc"]                                                                                                               # the system's phù ức uses the SYSTEM's strength (cực nhược here), not the 40% rule
+    assert pu["level"] == "cực nhược" and pu["yong"] == ["An"] and "QuanSat" not in pu["yong"]                                     # NO MATCH: system strength disagrees with the book's verdict (vượng)
     assert M["cach_cuc"]["yong"][0] != "QuanSat"                                                                                   # the system's own draft table does NOT reproduce the book here
     assert M["khuyet_hanh"]["status"] == "khong_ap_dung"
 
@@ -170,8 +171,8 @@ def test_example2_vd2_book_verdict_is_not_reproducible_by_the_books_own_40_perce
     assert alts["nhược"]["yong"] == ex["dung_than_groups"] == ["An"] and alts["nhược"]["follows_book_rule"] is False         # the book's reading gives the book's dụng thần Kim
     assert alts["vượng"]["follows_book_rule"] is True and alts["vượng"]["yong"][0] == "QuanSat"                              # the rule's own reading does not
     assert M["dieu_hau"]["yong"] == ["An"] and "Ti" in M["dieu_hau"]["xi"]                                                  # Kim, with tỉ kiếp as hỷ — matches the book without needing the verdict
-    assert any(a["yong"] == ["An"] for a in M["phu_uc"]["alternatives"])
-    assert ex["ky_than_groups"][0] == "QuanSat" and any(ex["ky_than_groups"][0] in a["ji"] for a in M["phu_uc"]["alternatives"] if a["yong"] == ["An"])
+    pu = M["phu_uc"]
+    assert pu["level"] == "nhược" and pu["yong"] == ex["dung_than_groups"] == ["An"] and ex["ky_than_groups"][0] in pu["ji"]        # system phù ức (nhược) matches the book here
 
 
 def test_example3_vd3_strength_matches_cach_table_only_partly_and_dieu_hau_and_khuyet_hanh_match_the_book():
@@ -312,7 +313,7 @@ def test_comparison_lists_disagreements_with_conditions_and_picks_no_winner():
 
 
 def test_the_two_phu_uc_readings_of_a_border_chart_are_both_kept():
-    pu = run("p398_vd2")["yongshen"]["methods"]["phu_uc"]
+    pu = run("p399_vd3")["yongshen"]["methods"]["phu_uc"]            # the system's own strength is on the border for this chart
     assert pu["status"] == "hai_cach_doc" and len(pu["alternatives"]) == 2 and pu["yong"] == []
 
 

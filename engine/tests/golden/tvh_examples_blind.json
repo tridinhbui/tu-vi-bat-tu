@@ -1,0 +1,284 @@
+{
+ "_note": "Bản chép MÙ độc lập các ví dụ tr.387-388, 397-400 (tác tử khác, chỉ nhìn ảnh trang). Dùng để đối chiếu đầu vào (bốn trụ) của tvh_dungthan_examples.json; không sinh từ engine.",
+ "examples": {
+  "D0": {
+   "page": 387,
+   "sex": null,
+   "pillars": {
+    "year": "bính thân",
+    "month": "canh tí",
+    "day": "quý sửu",
+    "hour": "ất mão"
+   },
+   "ten_god_row": null,
+   "hidden_row": null,
+   "dung_than": "bính hỏa (mộc bị hàn, mùa đông rét lạnh cần hỏa giải hàn; 'mộc có khí mà sinh bính hỏa, bính hỏa nhờ được sinh cháy lên xua đuổi hàn lạnh'; 'nên lấy bính hỏa làm dụng thần')",
+   "hi_than": null,
+   "ky_than": null,
+   "dm_verdict": "not stated as vượng/nhược. Text: cách kiến lộc; kim thủy hai hành rất vượng (thuỷ lạnh, thổ đông cứng, hỏa bị nhốt), mộc hàn, thổ đông cứng; 'thực thần sinh tài, phú quý tự đến'",
+   "unclear": null,
+   "reconstructed": false
+  },
+  "D1": {
+   "page": 387,
+   "sex": "Nam",
+   "pillars": {
+    "year": "đinh mão",
+    "month": "canh tuất",
+    "day": "kỉ tị",
+    "hour": "canh ngọ"
+   },
+   "ten_god_row": [
+    "Ấn (year)",
+    "Thương (month)",
+    "Nhật nguyên (day)",
+    "Thương (hour)"
+   ],
+   "hidden_row": null,
+   "dung_than": "đinh hỏa (printed: 'kim thần nắm lệnh, thổ vượng, kim thần mạnh mà được hỏa chế, nên lấy đinh hỏa làm dụng thần'; 'thần kim nhập hỏa hương, chủ về võ quý')",
+   "hi_than": null,
+   "ky_than": null,
+   "dm_verdict": "not stated explicitly; text: thổ vượng (bốn chi: ngọ, tuất hội hỏa cục, đinh thấu = ấn), kim thần mạnh nắm lệnh thu. Chart printed in order year, month, day, hour (left to right; hour column labelled 'Giờ canh ngọ'). Page printed no explicit 'cách' name in the example other than 'Tứ trụ này là cách kiến lộc' for D0.",
+   "unclear": null,
+   "reconstructed": false
+  },
+  "D2": {
+   "page": 388,
+   "sex": "Nam",
+   "pillars": {
+    "year": "mậu thìn",
+    "month": "giáp dần",
+    "day": "đinh mão",
+    "hour": "kỉ dậu"
+   },
+   "ten_god_row": [
+    "Thương (year)",
+    "Ấn (month)",
+    "Nhật nguyên (day)",
+    "Thực (hour)"
+   ],
+   "hidden_row": null,
+   "dung_than": "tài tinh dậu kim trên trụ giờ (kỉ dậu... 'lấy tài tinh dậu kim trên trụ giờ làm dụng thần', mục đích làm tổn hao ấn); vận canh thân, tân dậu dụng thần đắc địa",
+   "hi_than": null,
+   "ky_than": null,
+   "dm_verdict": "not stated vượng/nhược; text: 'đinh hoả ở tháng giêng, xuân hoả là bản thể'; dần mão thìn hội thành mộc cục, mộc nhiều, hỏa bị đè nghẹt",
+   "unclear": null,
+   "reconstructed": false
+  },
+  "D3": {
+   "page": 388,
+   "sex": "Nam",
+   "pillars": {
+    "year": "đinh mão",
+    "month": "quý sửu",
+    "day": "bính thân",
+    "hour": "mậu tí"
+   },
+   "ten_god_row": [
+    "Kiếp (year)",
+    "Quan (month)",
+    "Nhật nguyên (day)",
+    "Thực (hour)"
+   ],
+   "hidden_row": null,
+   "dung_than": "ấn tinh mão mộc, 'sinh bính hỏa' ('lấy ấn tinh mão mộc làm dụng thần sinh bính hỏa')",
+   "hi_than": null,
+   "ky_than": null,
+   "dm_verdict": "nhược: 'Hoả suy thuỷ vượng là cách chính quan'; 'mão mộc trong Tứ trụ tuy hàn, nhưng có đinh hoả sưởi ấm'; 'Bính hoả sinh vào tháng 12, đông hoả là bản thể'",
+   "unclear": "chart header printed order year,month,day,hour left to right as 'Giờ mậu tí' at right; ten-god order as printed",
+   "reconstructed": false
+  },
+  "D4": {
+   "page": 388,
+   "sex": "Nam",
+   "pillars": {
+    "year": "canh dần",
+    "month": "mậu dần",
+    "day": "giáp tí",
+    "hour": "bính dần"
+   },
+   "ten_god_row": [
+    "Sát (year)",
+    "Tài (month)",
+    "Nhật nguyên (day)",
+    "Thực (hour)"
+   ],
+   "hidden_row": null,
+   "dung_than": "bính hỏa ('mộc còn đang mầm, khí hàn được bính hoả sưởi ấm, nên lấy bính hoả làm dụng thần')",
+   "hi_than": null,
+   "ky_than": null,
+   "dm_verdict": "not stated",
+   "unclear": null,
+   "reconstructed": false
+  },
+  "E1": {
+   "page": 397,
+   "sex": "Nam",
+   "pillars": {
+    "year": "nhâm thìn (năm 1952)",
+    "month": "tân hợi (th.11, lệnh th.10)",
+    "day": "mậu tuất (ngày 2)",
+    "hour": "bính thìn"
+   },
+   "ten_god_row": [
+    "Kiêu (hour)",
+    "Nhật nguyên (day)",
+    "Thương (month)",
+    "Tài (year)"
+   ],
+   "hidden_row": {
+    "stems": [
+     "Ất mậu quý",
+     "Tân đinh mậu",
+     "Giáp nhâm",
+     "Ất mậu quý"
+    ],
+    "ten_gods": [
+     "Quan tỉ tài",
+     "Thương ấn tỉ",
+     "Sát tài",
+     "Quan tỉ tài"
+    ],
+    "order": "hour, day, month, year"
+   },
+   "dung_than": "mộc ('lấy thất sát giáp mộc làm dụng thần'; 'Dụng thần là mộc... dùng dụng thần bổ sung')",
+   "hi_than": null,
+   "ky_than": "thổ",
+   "dm_verdict": "thân vượng ('Tài tinh người này ở vượng địa, thân cũng thiên vượng'; 'thân vượng mà vẫn chưa gặp được tài vận'). Luck pillars printed (ten god, pillar, age): Tài Nh.tí 6; Tài Quý sửu 16; Sát G.dần 26; Quan Ất mão 36; Kiêu B.thìn 46; Ấn Đ.tị 56; Tỉ M.tuất 66; Kiếp Kỉ mùi 76",
+   "unclear": null,
+   "reconstructed": false
+  },
+  "E2": {
+   "page": 398,
+   "sex": "Nam",
+   "pillars": {
+    "year": "ất mão (năm 1975)",
+    "month": "bính tuất (tháng 9)",
+    "day": "quý tị (ngày 10)",
+    "hour": "nhâm tí"
+   },
+   "ten_god_row": [
+    "Kiếp (hour)",
+    "Nhật nguyên (day)",
+    "Tài (month)",
+    "Thực (year)"
+   ],
+   "hidden_row": {
+    "stems": [
+     "Quý",
+     "Canh bính mậu",
+     "Tân đinh mậu",
+     "Ất"
+    ],
+    "ten_gods_as_printed": [
+     "Tỉ",
+     "Ất tài quan",
+     "Kiêu tài quan",
+     "Thực"
+    ],
+    "order": "hour, day, month, year",
+    "note": "'Ất tài quan' printed in day column (likely misprint for Ấn tài quan)"
+   },
+   "dung_than": "kim, tân kim ('phải dùng tân kim để cấp nguồn cho thuỷ... lấy kim làm dụng thần là có lợi nhất'); phương án khác: 'chọn ấn làm dụng thần' nên làm nghề liên quan văn thư",
+   "hi_than": "nhâm quý thủy tỉ kiếp thích hợp, 'trợ thân' (not named hỉ thần explicitly)",
+   "ky_than": "thổ",
+   "dm_verdict": "thân nhược ('thân nhược nên thích có tỉ kiếp nhâm quý thuỷ để trợ thân'; 'Tứ trụ thân nhược')",
+   "unclear": null,
+   "reconstructed": false
+  },
+  "E3": {
+   "page": 399,
+   "sex": "Nam",
+   "pillars": {
+    "year": "canh tuất (năm 1970)",
+    "month": "bính tuất (tháng 9)",
+    "day": "tân tị (ngày '129' as printed)",
+    "hour": "đinh dậu"
+   },
+   "ten_god_row": [
+    "Sát (hour)",
+    "Nhật nguyên (day)",
+    "Quan (month)",
+    "Kiếp (year)"
+   ],
+   "hidden_row": {
+    "stems": [
+     "Tân",
+     "Canh bính mậu",
+     "Tân đinh mậu",
+     "Tân đinh mậu"
+    ],
+    "ten_gods": [
+     "Tỉ",
+     "Kiếp quan ấn",
+     "Tỉ sát ấn",
+     "Tỉ sát ấn"
+    ],
+    "order": "hour, day, month, year"
+   },
+   "dung_than": "thủy, mộc ('Để cân bằng ngũ hành, dụng thần nên chọn thuỷ, mộc')",
+   "hi_than": null,
+   "ky_than": null,
+   "dm_verdict": "thiên vượng ('nhật nguyên tân kim... chi năm chính ấn trợ thân, chi giờ dậu kim ngang... nên nhật chủ thiên vượng'); ngũ hành thiếu mộc, thiếu thủy. Luck: Sát Đ.hợi 4; Ấn Mậu tí 14; Kiêu Kỉ sửu 24; Kiếp C.dần 34; Tỉ Tân mão 44; Thương Nh.thân 54; Thực Quí tị 64; Tài G.ngọ 74",
+   "unclear": "day number printed as '129' (misprint)",
+   "reconstructed": false
+  },
+  "E4": {
+   "page": 400,
+   "sex": "Nữ",
+   "pillars": {
+    "year": "quý sửu (năm 1973)",
+    "month": "giáp tí (tháng 12)",
+    "day": "quý mão (ngày 10)",
+    "hour": "quý hợi"
+   },
+   "ten_god_row": [
+    "Tỉ (hour)",
+    "Nhật nguyên (day)",
+    "Thương (month)",
+    "Tỉ (year)"
+   ],
+   "hidden_row": {
+    "printed_garbled": [
+     [
+      "Quý hợi",
+      "Ất",
+      "Quí",
+      "Tị tân hợi"
+     ],
+     [
+      "Giáp nhâm",
+      "Ất",
+      "Quí",
+      "Tị tân quý"
+     ],
+     [
+      "Thương kiếp",
+      "Thực",
+      "Tỉ",
+      "Sát kiên tỉ"
+     ]
+    ],
+    "interpreted_hidden_stems": [
+     "Giáp nhâm",
+     "Ất",
+     "Quí",
+     "Kỉ tân quý"
+    ],
+    "interpreted_ten_gods": [
+     "Thương kiếp",
+     "Thực",
+     "Tỉ",
+     "Sát kiêu tỉ"
+    ]
+   },
+   "dung_than": "giáp mộc của trụ tháng ('lấy giáp mộc của trụ tháng làm dụng thần'); 'mộc, thổ là dụng thần nhưng đều không đắc lực'",
+   "hi_than": "kỉ thổ thất sát (printed 'kỉ thổ thất sát làm hỉ thần')",
+   "ky_than": "vận tỉ kiếp ấn (kị gặp các vận tỉ kiếp ấn)",
+   "dm_verdict": "nhật chủ cực vượng ('thân vượng tài nhược'); 'nhật nguyên quý thuỷ'. Luck: Thực Ất sửu 1; Tài B.dần 11; Tài Đ.mão 21; Quan M.thìn 31; Sát Kỉ tị 41; Ấn C.ngọ 51; Kiêu T.mùi 61; Kiếp Nh.thân 71",
+   "unclear": "Table rows garbled: no clean stem/branch row. Printed rows are 'Quý hợi | Ất | Quí | Tị tân hợi' and 'Giáp nhâm | Ất | Quí | Tị tân quý'. Day stem printed as 'Ất' conflicts with text 'nhật nguyên quý thuỷ' and ten-god row; month stem not printed.",
+   "reconstructed": true,
+   "reconstruction_reason": "Day stem quý from page text ('nhật nguyên quý thuỷ'), ten-god row (Tỉ for quý, Thương for giáp) and hidden Ất = mão; month tí from text, month stem giáp from 'Thương' and 'giáp mộc của trụ tháng' and luck row starting Ất sửu; year quý sửu from year 1973 and 'trụ năm thấu quý thuỷ', hidden tị tân quý; hour quý hợi printed, hidden giáp nhâm"
+  }
+ }
+}
