@@ -14,7 +14,8 @@ const writeSel = s => { try { sessionStorage.setItem(SEL_KEY, JSON.stringify(s))
 
 /** What the pre-v2 response carries (kept so an older server still shows something useful). */
 function legacy(r, A, B) {
-  return `<p class="muted">Máy chủ này chưa có bản so sánh nhiều tầng; đây là phần dữ kiện cơ bản.</p><ul class="cpx-list"><li>${esc(r.element_link?.text || '')}</li><li>${esc(r.day_master_stems?.text || '')}</li>${(r.day_branches || []).map(x => `<li>${esc(x.text)}</li>`).join('')}</ul><p class="muted small">${esc(r.note || '')} ${esc(A.label)} và ${esc(B.label)}.</p>`;
+  const nm = t => esc(String(t || '').replace('người A', A.label).replace('người B', B.label));
+  return `<p class="muted">Máy chủ này chưa có bản so sánh nhiều tầng; đây là phần dữ kiện cơ bản.</p><ul class="cpx-list"><li>${nm(r.element_link?.text)}</li><li>${nm(r.day_master_stems?.text)}</li>${(r.day_branches || []).map(x => `<li>${nm(x.text)}</li>`).join('')}</ul><p class="muted small">${esc(r.note || '')} (A: ${esc(A.label)}, B: ${esc(B.label)}.)</p>`;
 }
 
 export function initCompare(host) {
@@ -58,10 +59,10 @@ export function initCompare(host) {
     const my = ++seq;
     body.innerHTML = '<p class="muted">Đang so sánh…</p>';
     try {
-      const [res, ca, cb] = await Promise.all([post('/api/compare-charts', { a: { ...A.req, experimental: exp }, b: { ...B.req, experimental: exp } }), post('/api/chart', A.req).catch(() => null), post('/api/chart', B.req).catch(() => null)]);
+      const res = await post('/api/compare-charts', { a: { ...A.req, experimental: exp }, b: { ...B.req, experimental: exp } });
       if (my !== seq) return;
       if (!res.v2) { body.innerHTML = legacy(res, A, B); shown = key; return; }
-      renderCompareResult(body, { A, B, res, chartA: ca, chartB: cb });
+      renderCompareResult(body, { A, B, res });
       shown = key; body.scrollTop = 0;
     } catch (e) {
       if (my !== seq) return;

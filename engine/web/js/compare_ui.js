@@ -3,7 +3,6 @@
 // hypothesis) and opens its rule, data and source. Facts only: no score, no verdict.
 import { $, $$, esc } from './util.js';
 import { autoLink } from './glossary.js';
-import { currentPhase } from './insights.js';
 
 const PIL = { year: 'Năm', month: 'Tháng', day: 'Ngày', hour: 'Giờ' };
 const EV = { calc: ['Tính toán', 'calc'], sourced: ['Quy tắc có nguồn', 'src'], hypothesis: ['Giả thuyết thử nghiệm', 'hyp'] };
@@ -31,6 +30,7 @@ function dataHtml(it, names) {
     return `<p><b>${esc(names.a)}:</b> cung ${esc(d.a.palace)} ở ${esc(d.a.branch)}. Tam phương tứ chính: ${esc(four(d.a))}.</p><p><b>${esc(names.b)}:</b> cung ${esc(d.b.palace)} ở ${esc(d.b.branch)}. Tam phương tứ chính: ${esc(four(d.b))}.</p>
       <p>Chi trùng nhau trong hai tam phương tứ chính: ${d.shared_tam_phuong_branches.length ? esc(d.shared_tam_phuong_branches.join(', ')) : 'không có'}. Chính tinh chung: ${d.shared_tam_phuong_major_stars.length ? esc(d.shared_tam_phuong_major_stars.join(', ')) : 'không có'}.</p>`;
   }
+  if (d.limits) return `<ul>${['as_of' in d ? `Tính cho ngày ${d.as_of}` + (d.tz ? ` (múi giờ ${d.tz})` : '') : null, ...(d.start_date ? [`Ngày bắt đầu đại vận: ${d.start_date}`] : []), ...(d.tuoi_mu ? [`Tuổi mụ: ${d.tuoi_mu}, năm âm lịch ${d.lunar_year}`] : [])].filter(Boolean).map(x => `<li>${esc(x)}</li>`).join('')}</ul><h5>Giới hạn</h5><ul>${d.limits.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`;
   if (it.kind === 'element_count') return `<table class="cpx-t"><thead><tr><th>Hành</th><th>${esc(names.a)}</th><th>${esc(names.b)}</th></tr></thead><tbody>${Object.keys(d.a).map(e => `<tr><td>${esc(e)}</td><td>${d.a[e]}</td><td>${d.b[e]}</td></tr>`).join('')}</tbody></table>`;
   const keys = Object.entries(d).filter(([, v]) => v !== null && typeof v !== 'object');
   return keys.length ? `<ul>${keys.map(([k, v]) => `<li>${esc(k)}: ${esc(v)}</li>`).join('')}</ul>` : '<p class="muted">Mục này không có dữ kiện bổ sung.</p>';
@@ -68,12 +68,15 @@ function strengthCell(s, r, o) {
 }
 
 function overview(ctx) {
-  const { v2: r, names, chartA, chartB, A, B } = ctx, sa = r.structure.a, sb = r.structure.b, ta = r.tuvi_structure.a, tb = r.tuvi_structure.b;
-  const phase = (c, x) => { try { return c && currentPhase(c.bazi, c.tuvi, x.req); } catch { return null; } };
-  const ph = [phase(chartA, A), phase(chartB, B)];
-  const luck = p => p ? (p.luck ? `${p.luck.name} (${p.luck.ten_god})` : 'chưa khởi vận') : 'không tính được';
-  const han = p => p ? (p.dh ? `cung ${p.dh.palace} (${p.dh.age_from}–${p.dh.age_to} tuổi)` : 'chưa vào đại hạn') : 'không tính được';
-  const month = s => s.month.ruling_element ? `${esc(s.month.branch)}: hành ${esc(s.month.ruling_element)} nắm lệnh, nhóm ${esc(s.month.ruling_group)} so với Nhật Chủ${s.month.ruling_in_own_camp ? ' (phe mình)' : ''}` : esc(s.month.branch);
+  const { v2: r, names } = ctx, sa = r.structure.a, sb = r.structure.b, ta = r.tuvi_structure.a, tb = r.tuvi_structure.b;
+  const ph = [r.phase?.a, r.phase?.b];
+  const dash = '<span class="muted">không tính được</span>';
+  const q = (id, what) => ` <button type="button" class="cpx-q" data-cpx="${id}" aria-label="Xem dữ kiện và giới hạn: ${what}">?</button>`;
+  const luck = (p, o) => { if (!p) return dash; const l = p.luck, d = x => x.split('-').reverse().join('/');
+    return `${l.status === 'current' ? `<b>${esc(l.name)}</b> (${esc(l.ten_god)}), từ ${d(l.start_date)}${l.next_start_date ? ` đến trước ${d(l.next_start_date)}` : ''}` : `chưa khởi vận, đại vận đầu từ ${d(l.start_date)}`}${l.near_transition ? ' <span class="cpx-near">sát ngày chuyển vận</span>' : ''}${q('phase.luck.' + o, 'đại vận hiện tại')}`; };
+  const han = (p, o) => { if (!p) return dash; const h = p.dai_han;
+    return `${h.palace ? `cung <b>${esc(h.palace)}</b> (${h.age_from}–${h.age_to} tuổi mụ)` : (h.status === 'before' ? 'chưa vào đại hạn đầu' : 'đã qua các đại hạn được tính')}, tuổi mụ hiện tại ${p.tuoi_mu} (năm âm lịch ${p.lunar_year})${p.near_tet ? ' <span class="cpx-near">quanh Tết</span>' : ''}${q('phase.daihan.' + o, 'đại hạn hiện tại')}`; };
+  const month = s => s.month.ruling_element ? `${esc(s.month.branch)}: hành ${esc(s.month.ruling_element)} nắm lệnh, nhóm ${esc(s.month.ruling_group)} so với Nhật Chủ` : esc(s.month.branch);
   const rows = [
     ['Nhật Chủ', 'calc', 'verified', (s) => `${esc(s.day_master)} ${esc(s.dm_element)}`, null],
     ['Bốn trụ', 'calc', 'verified', (s) => esc(s.pillars), null],
@@ -81,11 +84,11 @@ function overview(ctx) {
     ['Nguyệt lệnh', 'sourced', 'verified', month, 'data-rule="CMP_MONTH_ORDER"'],
     ['Chữ cùng hành Nhật Chủ trong tàng can', 'calc', 'verified', (s) => s.has_root ? esc(s.roots.map(x => `${x.hidden} ở ${x.branch}`).join(', ')) : 'không có', null],
     ['Thế mạnh theo quy tắc 40%', 'sourced', 'partial', (s, o) => strengthCell(s, r, o), 'data-rule="CMP_STRENGTH_40"'],
-    ['Đại vận hiện tại', 'calc', 'verified', (s, o, p) => esc(luck(p)), null],
-    ['Đại hạn hiện tại (Tử Vi)', 'calc', 'verified', (s, o, p) => esc(han(p)), null],
+    ['Đại vận hiện tại', 'sourced', 'verified', (s, o, p) => luck(p, o), null],
+    ['Đại hạn hiện tại (Tử Vi)', 'sourced', 'verified', (s, o, p) => han(p, o), null],
     ['Cục · bản mệnh (Tử Vi)', 'calc', 'verified', (s, o, p, t) => `${esc(t.cuc)} · ${esc(t.menh_nap_am)}`, null],
   ];
-  const tr = row => `<tr><th scope="row">${esc(row[0])} ${row[4] ? `<button type="button" class="cpx-q" ${row[4]} aria-label="Xem quy tắc và dữ kiện: ${esc(row[0])}">?</button>` : ''}<br>${tag(row[1], row[2])}</th><td>${row[3](sa, 'a', ph[0], ta)}</td><td>${row[3](sb, 'b', ph[1], tb)}</td></tr>`;
+  const tr = row => `<tr><th scope="row">${esc(row[0])} ${row[4] ? `<button type="button" class="cpx-q" ${row[4]} aria-label="Xem quy tắc và dữ kiện: ${esc(row[0])}">?</button>` : ''}<br>${tag(row[1], row[2])}</th><td data-l="${esc(names.a)}">${row[3](sa, 'a', ph[0], ta)}</td><td data-l="${esc(names.b)}">${row[3](sb, 'b', ph[1], tb)}</td></tr>`;
   return sec('overview', 1, 'Tổng quan từng người', 'Mỗi lá số được nhìn một mình trước khi so sánh.',
     `<div class="cpx-tw"><table class="cpx-t cpx-ov"><thead><tr><th>Điều được xét</th><th>${esc(names.a)}</th><th>${esc(names.b)}</th></tr></thead><tbody>${rows.map(tr).join('')}</tbody></table></div>
     <p class="muted small">Thế mạnh, nguyệt lệnh và tàng can được xét trước, vì các quan hệ bên dưới được đọc trong bối cảnh đó. Một lá số sát ngưỡng 40%, có dấu hiệu cách đặc biệt hoặc thiếu dữ kiện sẽ không bị ép thành vượng hay nhược.</p>`);
@@ -100,7 +103,7 @@ function pillars(ctx) {
 
 function contacts(ctx) {
   const { v2: r, v1, names } = ctx;
-  const direct = itemsOf(r, r.tiers.direct.ids).filter(i => i.layer === 'bazi' && i.kind !== 'element_count');
+  const direct = itemsOf(r, r.tiers.direct.ids).filter(i => i.layer === 'bazi' && !['element_count', 'phase_luck'].includes(i.kind));
   const solid = direct.filter(i => !i.experimental), hyp = direct.filter(i => i.experimental);
   const parts = [];
   KIND_GROUP.forEach(([label, test]) => { const g = solid.filter(i => test(i.kind)); if (g.length) parts.push(`<h5>${label} <small>(${g.length})</small></h5>${gr(g)}`); });
@@ -115,7 +118,7 @@ function contacts(ctx) {
 function tuvi(ctx) {
   const { v2: r, names } = ctx;
   const col = (o, s) => `<div class="cpx-c"><span class="k">${esc(names[o])} · ${esc(s.year)}</span><b>${esc(s.cuc)}</b><p class="cpx-pl">Bản mệnh ${esc(s.menh_nap_am)}</p><ul class="cpx-sl">${['Mệnh', 'Thân', 'Phu Thê', 'Phúc Đức'].map(n => `<li><b>${n}</b> ở ${esc(s[n].branch)}: ${s[n].major_stars.length ? esc(s[n].major_stars.map(x => x + (s[n].dignity?.[x] ? ` (${s[n].dignity[x]})` : '')).join(', ')) : 'vô chính diệu'}${s[n].tuan ? ' · Tuần' : ''}${s[n].triet ? ' · Triệt' : ''}</li>`).join('')}</ul></div>`;
-  const pairs = r.items.filter(i => i.layer === 'tuvi' && i.tier === 'direct' && !['placement', 'napam'].includes(i.kind));
+  const pairs = r.items.filter(i => i.layer === 'tuvi' && i.tier === 'direct' && !['placement', 'napam', 'phase_daihan'].includes(i.kind));
   const nap = r.items.filter(i => i.kind === 'napam');
   return sec('tuvi', 4, 'Tử Vi', 'Tử Vi được tính độc lập với Bát Tự. Chỉ nêu vị trí cung, sao và quan hệ hình học (cùng vị trí, xung chiếu, tam hợp, liền kề). Ý nghĩa khi cung của hai người gặp nhau không được diễn giải, vì không có nguồn nào nêu.',
     `<div class="cpx-cols">${col('a', r.tuvi_structure.a)}${col('b', r.tuvi_structure.b)}</div>${gr(pairs)}${nap.length ? `<h5>Giả thuyết thử nghiệm <small>(chưa xác minh)</small></h5>${gr(nap)}` : ''}`);
@@ -140,7 +143,7 @@ function sources(ctx) {
 
 const NAV = [['overview', 'Tổng quan'], ['pillars', 'Bốn trụ'], ['contacts', 'Can Chi'], ['tuvi', 'Tử Vi'], ['support', 'Hỗ trợ/hạn chế'], ['sources', 'Nguồn và giới hạn']];
 
-/** ctx = { A, B (saved items), res (full response: v1 fields + v2), chartA, chartB (optional /api/chart results) } */
+/** ctx = { A, B (saved items), res (full response: v1 fields + v2) } */
 export function renderCompareResult(host, ctx) {
   const v2 = ctx.res.v2, names = { a: ctx.A.label, b: ctx.B.label };
   const c = { ...ctx, v2, v1: ctx.res, names };

@@ -10,12 +10,14 @@ relations, groups of three branches that need characters from both people; (3) T
 Every item carries its rule id, status and source so the UI can show them. Items whose rule is `draft` are returned only when experimental=True."""
 from __future__ import annotations
 
+import datetime as dt
 import json
 from dataclasses import dataclass
 from itertools import product
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
-from . import compare_tuvi
+from . import calendar_core as cc, compare_tuvi, lunar_vn
 from .bazi import (DESTROY, HARM, MEETING, PENALTY_PAIR, PENALTY_TRIPLES, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH, STEM_COMBINE, TRIAD, BaziChart)
 from .bazi_deep import position, season, tvh_cach, tvh_score
 from .bazi_deep.model import PILLARS, PIL_VI, ChartView, group_of
@@ -37,6 +39,7 @@ class Side:
     bz: BaziChart
     view: ChartView
     tv: TuViChart
+    nb: object = None      # NormalizedBirth: needed for 'today' (time zone, calendar); without it no current đại vận / đại hạn is given
 
 
 def _sources() -> dict:
@@ -315,6 +318,56 @@ def _experimental_items(a: Side, b: Side, sa: dict, sb: dict, rel_items: list[di
     return items
 
 
+# ---------------------------------------------------------------- where each person is today (đại vận, đại hạn)
+def _lunar_year(d: dt.date, calendar: str) -> tuple[int, int]:
+    """(lunar year, lunar month) of a solar date, with the same calendar the birth chart used."""
+    if calendar in ("vn", "vn_south"):
+        _, lm, ly, _ = lunar_vn.solar_to_lunar(d, cc.vn_calendar_offset(d.year, calendar == "vn_south"))
+        return ly, lm
+    import sxtwl
+    s = sxtwl.fromSolar(d.year, d.month, d.day)
+    return s.getLunarYear(), s.getLunarMonth()
+
+
+NEAR_DAYS = 60
+
+
+def current_phase(nb, bz: BaziChart, tv: TuViChart, today: dt.date | None = None) -> dict:
+    """Đại vận (exact start dates) and đại hạn (tuổi mụ by LUNAR year) on `today`, in the birth place's time zone. Never rounds a boundary
+    into a conclusion: near a change the result says so. The browser's clock, time zone and Gregorian year play no part."""
+    tz = nb.input.tz
+    today = today or dt.datetime.now(ZoneInfo(tz)).date()
+    limits = [f"Ngày hôm nay lấy theo múi giờ nơi sinh ({tz}).",
+              "Ngày khởi vận theo quy tắc ba ngày bằng một năm, chính xác đến ngày; các trường phái làm tròn khác nhau có thể lệch vài tháng.",
+              "Đại hạn đổi theo năm âm lịch (tuổi mụ), không đổi vào sinh nhật."]
+    starts = [(dt.date.fromisoformat(lp.start_date), lp) for lp in bz.luck_pillars if lp.start_date]
+    cur = [(d, lp) for d, lp in starts if d <= today]
+    nxt = next(((d, lp) for d, lp in starts if d > today), None)
+    luck = None
+    if cur:
+        d0, lp = cur[-1]
+        luck = {"status": "current", "name": lp.name, "ten_god": lp.ten_god, "start_date": d0.isoformat(), "next_start_date": nxt[0].isoformat() if nxt else None,
+                "next_name": nxt[1].name if nxt else None}
+        near = min([abs((today - d0).days)] + ([abs((nxt[0] - today).days)] if nxt else []))
+    else:
+        d0 = starts[0][0]
+        luck = {"status": "not_started", "name": None, "ten_god": None, "start_date": d0.isoformat(), "next_start_date": d0.isoformat(), "next_name": starts[0][1].name}
+        near = abs((d0 - today).days)
+    luck["near_transition"] = near <= NEAR_DAYS
+    luck["days_to_transition"] = near
+    if luck["near_transition"]:
+        limits.append(f"Đang cách ngày chuyển đại vận {near} ngày; vì cách làm tròn khác nhau giữa các trường phái, hãy xem đây là giai đoạn chuyển tiếp thay vì một mốc chắc chắn.")
+    ly, lm = _lunar_year(today, nb.input.calendar)
+    age = ly - tv.lunar["year"] + 1
+    dh = next((d for d in tv.dai_han if d["age_from"] <= age <= d["age_to"]), None)
+    status = "current" if dh else "before" if age < tv.dai_han[0]["age_from"] else "after"
+    near_tet = lm in (1, 12)
+    if near_tet:
+        limits.append("Đang quanh Tết âm lịch: đại hạn đổi theo năm âm lịch nên kết quả đổi đúng vào ngày mùng một Tết.")
+    return {"as_of": today.isoformat(), "tz": tz, "calendar": nb.input.calendar, "lunar_year": ly, "lunar_month": lm, "tuoi_mu": age,
+            "luck": luck, "dai_han": ({"status": status, **dh} if dh else {"status": status, "palace": None}), "near_tet": near_tet, "limits": limits}
+
+
 # ---------------------------------------------------------------- what is not decided
 def _insufficient(sa: dict, sb: dict, rel_items: list[dict]) -> list[dict]:
     out = []
@@ -332,9 +385,9 @@ def _insufficient(sa: dict, sb: dict, rel_items: list[dict]) -> list[dict]:
             out.append(make_item(f"ins.border.{o}", "bazi", "insufficient", "borderline", f"Nhật Chủ {OWNER_VI[o]} sát ngưỡng 40%", f"Phe của Nhật Chủ {OWNER_VI[o]} chiếm {st['own_share']:.1%}, cách ngưỡng {st['threshold']:.0%} chưa tới {FOCUS_MARGIN:.0%}; hệ thống không nói vượng hay nhược.", st, "CMP_STRENGTH_40", kind_vi="Chưa đủ căn cứ"))
         if s["unsupported"]:
             out.append(make_item(f"ins.unsupported.{o}", "bazi", "insufficient", "unsupported", f"Phần phương pháp 40% chưa hỗ trợ ({OWNER_VI[o]})", "; ".join(s["unsupported"]), {"notes": s["unsupported"]}, "CMP_STRENGTH_40", kind_vi="Chưa đủ căn cứ"))
-    out.append(make_item("ins.yongshen", "bazi", "insufficient", "unresolved", "Dụng thần và cách cục của từng người", "So sánh này không ghép cách cục hay dụng thần của hai người, nên chưa nói chữ nào của người kia là thứ lá số này cần hoặc kỵ.", {}, "CMP_STRENGTH_40", kind_vi="Chưa đủ căn cứ"))
-    out.append(make_item("ins.time", "bazi", "insufficient", "unresolved", "Đại vận và lưu niên của hai người", "Chưa so sánh vận theo thời gian: hai người đi qua các đại vận và năm khác nhau, và sách trong kho chưa nêu cách đặt chúng cạnh nhau.", {}, "CMP_TEN_GOD", kind_vi="Chưa đủ căn cứ"))
-    out.append(make_item("ins.tuvi", "tuvi", "insufficient", "unresolved", "Ý nghĩa khi cung của hai người gặp nhau", "Sách Tử Vi trong kho nêu ý nghĩa của sao và cung trong lá số của một người. Khi hai cung thuộc hai người, hệ thống chỉ nêu vị trí và sao chung, không diễn giải.", {}, "CMP_TV_GEOMETRY", kind_vi="Chưa đủ căn cứ"))
+    out.append(make_item("ins.yongshen", "bazi", "insufficient", "unresolved", "Dụng thần và cách cục của từng người", "So sánh này không ghép cách cục hay dụng thần của hai người, nên chưa nói chữ nào của người kia là thứ lá số này cần hoặc kỵ.", {}, "CMP_LIMITS", kind_vi="Chưa đủ căn cứ"))
+    out.append(make_item("ins.time", "bazi", "insufficient", "unresolved", "Đại vận và lưu niên của hai người", "Chưa so sánh vận theo thời gian: hai người đi qua các đại vận và năm khác nhau, và sách trong kho chưa nêu cách đặt chúng cạnh nhau.", {}, "CMP_LIMITS", kind_vi="Chưa đủ căn cứ"))
+    out.append(make_item("ins.tuvi", "tuvi", "insufficient", "unresolved", "Ý nghĩa khi cung của hai người gặp nhau", "Sách Tử Vi trong kho nêu ý nghĩa của sao và cung trong lá số của một người. Khi hai cung thuộc hai người, hệ thống chỉ nêu vị trí và sao chung, không diễn giải.", {}, "CMP_LIMITS", kind_vi="Chưa đủ căn cứ"))
     return out
 
 
@@ -347,7 +400,37 @@ TIER_NOTE = {
 }
 
 
-def analyse(a: Side, b: Side, experimental: bool = False) -> dict:
+def _phase_items(a: Side, b: Side, today) -> tuple[dict | None, list[dict]]:
+    if a.nb is None or b.nb is None:
+        return None, []
+    phase, items = {}, []
+    for o, side in (('a', a), ('b', b)):
+        try:
+            ph = current_phase(side.nb, side.bz, side.tv, today)
+        except Exception as e:  # a failed step is reported, never guessed
+            phase[o] = None
+            items.append(make_item(f'ins.phase.{o}', 'bazi', 'insufficient', 'missing', f'Không tính được đại vận, đại hạn hiện tại của {OWNER_VI[o]}', f'Bước tính thất bại ({type(e).__name__}: {e}), nên không nêu đại vận hay đại hạn hiện tại của {OWNER_VI[o]}.', {'error': str(e)}, 'CMP_DATA_MISSING', kind_vi='Chưa đủ căn cứ'))
+            continue
+        phase[o] = ph
+        lk, dh = ph['luck'], ph['dai_han']
+        if lk['status'] == 'current':
+            t = f"Đại vận hiện tại của {OWNER_VI[o]} là {lk['name']} ({lk['ten_god']}), từ ngày {lk['start_date']}" + (f", đến trước ngày {lk['next_start_date']}" if lk['next_start_date'] else '') + '.'
+        else:
+            t = f"{OWNER_VI[o]} chưa khởi vận; đại vận đầu bắt đầu ngày {lk['start_date']}."
+        if lk['near_transition']:
+            t += ' Đang sát ngày chuyển vận, nên xem là giai đoạn chuyển tiếp.'
+        items.append(make_item(f'phase.luck.{o}', 'bazi', 'direct', 'phase_luck', f'Đại vận hiện tại của {OWNER_VI[o]}', t, {**lk, 'as_of': ph['as_of'], 'tz': ph['tz'], 'limits': ph['limits']}, 'CMP_LUCK_NOW', kind_vi='Đại vận hiện tại'))
+        if dh.get('palace'):
+            t = f"Tuổi mụ của {OWNER_VI[o]} theo năm âm lịch {ph['lunar_year']} là {ph['tuoi_mu']}: đang ở đại hạn cung {dh['palace']} ({dh['age_from']}–{dh['age_to']} tuổi)."
+        else:
+            t = f"Tuổi mụ của {OWNER_VI[o]} theo năm âm lịch {ph['lunar_year']} là {ph['tuoi_mu']}: " + ('chưa vào đại hạn đầu.' if dh['status'] == 'before' else 'đã qua các đại hạn được tính.')
+        if ph['near_tet']:
+            t += ' Đang quanh Tết nên mốc đổi đại hạn nằm sát.'
+        items.append(make_item(f'phase.daihan.{o}', 'tuvi', 'direct', 'phase_daihan', f'Đại hạn hiện tại của {OWNER_VI[o]}', t, {**dh, 'tuoi_mu': ph['tuoi_mu'], 'lunar_year': ph['lunar_year'], 'as_of': ph['as_of'], 'limits': ph['limits']}, 'CMP_DAIHAN_NOW', kind_vi='Đại hạn hiện tại'))
+    return phase, items
+
+
+def analyse(a: Side, b: Side, experimental: bool = False, today: dt.date | None = None) -> dict:
     sa, sb = structure("a", a), structure("b", b)
     tok_a, tok_b = _tokens("a", a.view), _tokens("b", b.view)
     rel = _relation_items(tok_a, tok_b)
@@ -355,8 +438,9 @@ def analyse(a: Side, b: Side, experimental: bool = False) -> dict:
     items = rel + grp + _ten_god_items(a, b, tok_a, tok_b)
     items += _experimental_items(a, b, sa, sb, rel)
     items.append(make_item("bz.elements", "bazi", "direct", "element_count", "Ngũ Hành trên tám chữ của hai người", "Số chữ theo từng hành trên tám chữ (Thiên can và chữ chính của Địa chi) của mỗi người.", {"a": sa["elements"], "b": sb["elements"]}, "CMP_ELEMENT_COUNT", kind_vi="Đếm hành"))
+    phase, phase_items = _phase_items(a, b, today)
     tv_struct, tv_items = compare_tuvi.build(a.tv, b.tv, make_item, experimental)
-    items += tv_items + _insufficient(sa, sb, rel)
+    items += tv_items + phase_items + _insufficient(sa, sb, rel)
     hidden = sum(1 for i in items if i["experimental"])
     if not experimental:
         items = [i for i in items if not i["experimental"]]
@@ -366,6 +450,6 @@ def analyse(a: Side, b: Side, experimental: bool = False) -> dict:
                 "a_ten_god": None if p == "day" else a.view.god(a.view.stem(p)), "b_ten_god": None if p == "day" else b.view.god(b.view.stem(p))} for p in PILLARS]
     return {"version": 2, "experimental": experimental, "hidden_experimental": hidden,
             "principle": "Chỉ nêu dữ kiện và mức căn cứ. Không có điểm tương hợp, không kết luận về hôn nhân hay tính cách, và sinh hay khắc không mặc định là tốt hay xấu.",
-            "structure": {"a": sa, "b": sb}, "pillars": pillars, "tuvi_structure": tv_struct, "items": items, "tiers": tiers,
+            "structure": {"a": sa, "b": sb}, "phase": phase, "pillars": pillars, "tuvi_structure": tv_struct, "items": items, "tiers": tiers,
             "rules": {r: rule_info(r) for r in sorted(used)},
             "sources": sorted({r["source"]["id"]: r["source"] for r in (rule_info(x) for x in used) if r["source"]}.values(), key=lambda x: x["id"])}

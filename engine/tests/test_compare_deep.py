@@ -21,10 +21,13 @@ PAIRS = {
 }
 
 
-def run(a: dict, b: dict, experimental: bool = False) -> dict:
+TODAY = __import__("datetime").date(2026, 10, 17)      # fixed 'today': golden results must not depend on the clock
+
+
+def run(a: dict, b: dict, experimental: bool = False, today=TODAY) -> dict:
     na, ba, ta = _compute(BirthReq(**a))
     nb, bb, tb = _compute(BirthReq(**b))
-    return compare.compare_full(na, ba, ta, a["gender"], nb, bb, tb, b["gender"], experimental)["v2"]
+    return compare.compare_full(na, ba, ta, a["gender"], nb, bb, tb, b["gender"], experimental, today)["v2"]
 
 
 def view(text: str) -> ChartView:
@@ -345,3 +348,198 @@ def test_every_cpx_class_used_by_the_ui_has_a_css_rule():
 def test_compare_js_survives_a_pre_v2_response():
     src = (WEB / "js" / "compare.js").read_text("utf-8")
     assert "if (!res.v2)" in src and "legacy(" in src
+
+
+# ================================================================ Phase 8: accuracy audit against the independent engines
+import datetime as dt
+import random
+from types import SimpleNamespace
+
+from tvbt import temporal
+
+# Tables of 八字真宗 pp.19-20 written out again here, independently of tvbt.bazi, to cross-check the comparison.
+ZZ_STEM_COMBINE = {(0, 5), (1, 6), (2, 7), (3, 8), (4, 9)}
+ZZ_STEM_CLASH = {(0, 6), (1, 7), (2, 8), (3, 9)}
+ZZ_LIUHE = {(0, 1), (2, 11), (3, 10), (4, 9), (5, 8), (6, 7)}
+ZZ_CHONG = {(i, i + 6) for i in range(6)}
+ZZ_HAI = {(0, 7), (1, 6), (2, 5), (3, 4), (8, 11), (9, 10)}
+ZZ_PO = {(0, 9), (1, 4), (2, 11), (3, 6), (5, 8), (7, 10)}
+SLOTS = ["year", "month", "day", "hour"]
+
+
+def _pair(x, y):
+    return tuple(sorted((x, y)))
+
+
+def random_births(n, seed):
+    rnd = random.Random(seed)
+    out = []
+    while len(out) < n:
+        out.append(dict(year=rnd.randint(1940, 2020), month=rnd.randint(1, 12), day=rnd.randint(1, 28), hour=rnd.randint(0, 23), minute=rnd.choice([0, 30]), gender=rnd.choice(["male", "female"])))
+    return out
+
+
+def test_pair_relations_match_an_independent_brute_force():
+    births = random_births(60, 7)
+    for a, b in zip(births[:30], births[30:]):
+        na, ba, ta = _compute(BirthReq(**a)); nb, bb, tb = _compute(BirthReq(**b))
+        r = compare.compare_full(na, ba, ta, a["gender"], nb, bb, tb, b["gender"], False, TODAY)["v2"]
+        got = {(i["kind"], i["data"]["members"][0]["slot"], i["data"]["members"][1]["slot"]) for i in r["items"] if i["layer"] == "bazi" and i["kind"].startswith(("stem_", "branch_")) and len(i["data"]["members"]) == 2
+               and i["kind"] not in ("branch_semi_triad", "branch_penalty", "branch_ban_hinh")}
+        want = set()
+        for sa in SLOTS:
+            for sb in SLOTS:
+                x, y = ba.pillars[sa].stem, bb.pillars[sb].stem
+                if x == y: want.add(("stem_same", sa, sb))
+                if _pair(x, y) in ZZ_STEM_COMBINE: want.add(("stem_combine", sa, sb))
+                if _pair(x, y) in ZZ_STEM_CLASH: want.add(("stem_clash", sa, sb))
+                p, q = ba.pillars[sa].branch, bb.pillars[sb].branch
+                if p == q:
+                    want.add(("branch_same", sa, sb))
+                    if p in (4, 6, 9, 11): want.add(("branch_self_penalty", sa, sb))
+                for kind, tbl in (("branch_six_combine", ZZ_LIUHE), ("branch_clash", ZZ_CHONG), ("branch_harm", ZZ_HAI), ("branch_destroy", ZZ_PO)):
+                    if _pair(p, q) in tbl: want.add((kind, sa, sb))
+        assert got == want, (a, b, got ^ want)
+
+
+def test_pillars_elements_and_ten_gods_match_the_raw_charts():
+    from tvbt.ganzhi import BRANCH_ELEMENT, STEM_ELEMENT
+    for a, b in zip(random_births(10, 11), random_births(10, 12)):
+        na, ba, ta = _compute(BirthReq(**a)); nb, bb, tb = _compute(BirthReq(**b))
+        r = compare.compare_full(na, ba, ta, a["gender"], nb, bb, tb, b["gender"], False, TODAY)["v2"]
+        for p, who, bz in (("a", "a", ba), ("b", "b", bb)):
+            assert [x[who] for x in r["pillars"]] == [bz.pillars[s].name for s in SLOTS]
+            assert [x[f"{who}_ten_god"] for x in r["pillars"]] == [bz.pillars[s].stem_ten_god for s in SLOTS]
+            counts = {e: 0 for e in ("Mộc", "Hỏa", "Thổ", "Kim", "Thủy")}
+            for s in SLOTS:
+                counts[STEM_ELEMENT[bz.pillars[s].stem]] += 1; counts[BRANCH_ELEMENT[bz.pillars[s].branch]] += 1
+            assert r["structure"][who]["elements"] == counts
+        # Thập Thần seen from A over B's characters, with a first-principles ten-god function
+        names = ["Tỉ Kiên", "Kiếp Tài", "Thực Thần", "Thương Quan", "Thiên Tài", "Chính Tài", "Thất Sát", "Chính Quan", "Thiên Ấn", "Chính Ấn"]
+        elem = ["Mộc", "Mộc", "Hỏa", "Hỏa", "Thổ", "Thổ", "Kim", "Kim", "Thủy", "Thủy"]
+        cyc = ["Mộc", "Hỏa", "Thổ", "Kim", "Thủy"]
+
+        def tg(dm, o):
+            same = dm % 2 == o % 2
+            k = (cyc.index(elem[o]) - cyc.index(elem[dm])) % 5      # 0 same, 1 I generate, 2 I control, 3 controls me, 4 generates me
+            return [("Tỉ Kiên", "Kiếp Tài"), ("Thực Thần", "Thương Quan"), ("Thiên Tài", "Chính Tài"), ("Thất Sát", "Chính Quan"), ("Thiên Ấn", "Chính Ấn")][k][0 if same else 1]
+        view = next(i for i in r["items"] if i["id"] == "bz.ten_god.a_sees_b")["data"]
+        for row in view["rows"]:
+            if row["kind"] == "stem":
+                assert row["ten_god"] == tg(ba.day_master, bb.pillars[row["slot"]].stem), (row, a, b)
+        assert [x for x in names if x == tg(ba.day_master, bb.day_master)]
+
+
+def test_tuvi_side_matches_the_tuvi_chart_and_never_reads_the_bazi_chart():
+    for a, b in zip(random_births(6, 21), random_births(6, 22)):
+        na, ba, ta = _compute(BirthReq(**a)); nb, bb, tb = _compute(BirthReq(**b))
+        items, struct = compare_tuvi.build(ta, tb, cd.make_item, False)[1], compare_tuvi.build(ta, tb, cd.make_item, False)[0]
+        by = {p["name"]: p for p in ta.palaces}
+        assert struct["a"]["Mệnh"]["branch"] == by["Mệnh"]["branch"] and struct["a"]["Mệnh"]["major_stars"] == by["Mệnh"]["major_stars"]
+        assert struct["a"]["Phu Thê"]["branch"] == by["Phu Thê"]["branch"]
+        assert struct["a"]["Thân"]["branch"] == next(p for p in ta.palaces if p["is_than"])["branch"]
+        assert struct["b"]["cuc"] == tb.cuc["name"]
+
+
+# ---------------------------------------------------------------- đại vận / đại hạn: exact dates, lunar year, time zone
+def _charts(**kw):
+    n, bz, tv = _compute(BirthReq(**kw))
+    return n, bz, tv
+
+
+def test_luck_pillar_changes_on_the_exact_start_date():
+    n, bz, tv = _charts(**PAIRS["tôi_mẹ"][0])
+    start = dt.date.fromisoformat(next(lp for lp in bz.luck_pillars if lp.name == "Ất Dậu").start_date)
+    before = cd.current_phase(n, bz, tv, start - dt.timedelta(days=1))["luck"]
+    on = cd.current_phase(n, bz, tv, start)["luck"]
+    assert (before["name"], on["name"]) == ("Giáp Thân", "Ất Dậu") and before["near_transition"] and on["near_transition"]
+    far = cd.current_phase(n, bz, tv, start + dt.timedelta(days=200))["luck"]
+    assert far["name"] == "Ất Dậu" and not far["near_transition"]
+
+
+def test_luck_not_started_before_the_first_start_date():
+    n, bz, tv = _charts(year=2020, month=6, day=1, hour=9, minute=0, gender="male")
+    ph = cd.current_phase(n, bz, tv, dt.date(2020, 6, 2))     # the day after birth: khởi vận is always later
+    assert ph["luck"]["status"] == "not_started" and ph["luck"]["name"] is None and ph["luck"]["start_date"] == bz.luck_pillars[0].start_date
+
+
+def test_dai_han_uses_the_lunar_year_not_the_gregorian_year():
+    # born 20 Jan 1990 = 24th day of month 12 of lunar year 1989; on 1 Feb 2026 the lunar year is still 2025
+    n, bz, tv = _charts(year=1990, month=1, day=20, hour=10, minute=30, gender="female")
+    assert tv.lunar["year"] == 1989
+    ph = cd.current_phase(n, bz, tv, dt.date(2026, 2, 1))
+    assert (ph["lunar_year"], ph["tuoi_mu"]) == (2025, 37) and ph["near_tet"]
+    after_tet = cd.current_phase(n, bz, tv, dt.date(2026, 3, 1))
+    assert (after_tet["lunar_year"], after_tet["tuoi_mu"]) == (2026, 38)
+    naive = 2026 - 1990 + 1                                 # what the old browser formula (Gregorian years) said
+    assert naive != after_tet["tuoi_mu"]
+
+
+def test_old_client_formula_was_wrong_somewhere_and_the_new_one_agrees_with_temporal():
+    """The removed browser formula used start_year_approx and Gregorian birth year. Count where it differs from the exact result."""
+    differ_luck = differ_age = checked = 0
+    for a in random_births(40, 5):
+        n, bz, tv = _charts(**a)
+        for today in (dt.date(2026, 2, 1), dt.date(2026, 7, 1), dt.date(2026, 12, 28)):
+            ph = cd.current_phase(n, bz, tv, today)
+            now = today.year
+            lp = bz.luck_pillars
+            i = next((k for k, l in enumerate(lp) if l.start_year_approx <= now and (k + 1 >= len(lp) or now < lp[k + 1].start_year_approx)), None)
+            old_luck = lp[i].name if i is not None else None
+            old_age = now - a["year"] + 1
+            checked += 1
+            differ_luck += old_luck != ph["luck"]["name"]
+            differ_age += old_age != ph["tuoi_mu"]
+            if not ph["luck"]["near_transition"]:                   # away from a boundary the exact answer must agree with temporal.py
+                t = temporal.bazi_year(bz, a["year"], today.year)["luck_pillar"] if today.month >= 3 else None
+                if t is not None and not temporal.bazi_year(bz, a["year"], today.year)["luck_changes_within_year"]:
+                    assert t == ph["luck"]["name"], (a, today)
+            if not ph["near_tet"]:
+                th = temporal.tuvi_year(tv, ph["lunar_year"])["dai_han"]
+                assert (th["palace"] if th else None) == ph["dai_han"].get("palace"), (a, today)
+    assert checked == 120 and differ_age > 0 and differ_luck > 0       # the old formula really did disagree
+
+
+def test_today_comes_from_the_birth_time_zone_not_the_machine(monkeypatch):
+    n, bz, tv = _charts(**PAIRS["tôi_mẹ"][0])
+    start = dt.date.fromisoformat(next(lp for lp in bz.luck_pillars if lp.name == "Ất Dậu").start_date)       # 2026-12-23
+    instant = dt.datetime(start.year, start.month, start.day - 1, 18, 0, tzinfo=dt.timezone.utc)                # 2026-12-22 18:00 UTC = 23 Dec 01:00 in Hà Nội
+
+    class FakeDT(dt.datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return instant.astimezone(tz)
+    monkeypatch.setattr(cd, "dt", SimpleNamespace(datetime=FakeDT, date=dt.date, timedelta=dt.timedelta))
+    assert cd.current_phase(n, bz, tv)["luck"]["name"] == "Ất Dậu" and cd.current_phase(n, bz, tv)["as_of"] == start.isoformat()
+
+
+def test_phase_failure_is_reported_not_guessed(monkeypatch):
+    monkeypatch.setattr(cd, "current_phase", lambda *a, **k: (_ for _ in ()).throw(RuntimeError("không có lịch")))
+    r = run(*PAIRS["tôi_mẹ"])
+    assert r["phase"] == {"a": None, "b": None}
+    assert {"ins.phase.a", "ins.phase.b"} <= {i["id"] for i in r["items"]}
+    assert not any(i["kind"].startswith("phase_") for i in r["items"])
+
+
+def test_phase_items_carry_their_limits_and_sources():
+    r = run(*PAIRS["tôi_mẹ"])
+    it = next(i for i in r["items"] if i["id"] == "phase.luck.a")
+    assert it["evidence"] == "sourced" and it["rule"] == "CMP_LUCK_NOW" and it["data"]["limits"] and it["data"]["tz"] == "Asia/Ho_Chi_Minh"
+    assert next(i for i in r["items"] if i["id"] == "phase.daihan.b")["rule"] == "CMP_DAIHAN_NOW"
+    assert r["phase"]["a"]["luck"]["name"] == "Giáp Thân" and r["phase"]["a"]["dai_han"]["palace"] == "Điền Trạch"
+
+
+# ---------------------------------------------------------------- evidence labels in the UI source
+def test_ui_labels_are_not_stronger_than_the_rules_behind_them():
+    ui = (WEB / "js" / "compare_ui.js").read_text("utf-8")
+    assert "'Thế mạnh theo quy tắc 40%', 'sourced', 'partial'" in ui
+    assert "phe mình" not in ui.split("const month = s =>")[1].split("\n")[0]            # 'phe mình' is the 40% camp (partial), never part of the verified nguyệt lệnh row
+    assert "insights.js" not in ui and "currentPhase" not in ui                         # no client-side đại vận / đại hạn any more
+    assert "/api/chart" not in (WEB / "js" / "compare.js").read_text("utf-8")
+
+
+def test_limits_items_are_not_dressed_up_as_book_rules():
+    r = run(*PAIRS["tôi_mẹ"])
+    for iid in ("ins.yongshen", "ins.time", "ins.tuvi"):
+        it = next(i for i in r["items"] if i["id"] == iid)
+        assert it["rule"] == "CMP_LIMITS" and it["evidence"] == "calc"

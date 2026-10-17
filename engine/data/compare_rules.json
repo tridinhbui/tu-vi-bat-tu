@@ -160,6 +160,30 @@
       "source": null,
       "locator": null,
       "text": "Một bước tính không chạy được nên hệ thống không nêu kết quả cho bước đó thay vì đoán."
+    },
+    "CMP_LUCK_NOW": {
+      "title": "Đại vận hiện tại (Bát Tự)",
+      "status": "verified",
+      "evidence": "sourced",
+      "source": "SRC_BAZI_ZHENZONG",
+      "locator": "PDF p.23",
+      "text": "Đại vận bắt đầu từ ngày khởi vận tính theo quy tắc ba ngày bằng một năm (một ngày bằng bốn tháng), mỗi đại vận kéo dài mười năm. Hệ thống so ngày hôm nay với ngày khởi vận chính xác đến ngày, không làm tròn theo năm. Các trường phái làm tròn khác nhau có thể lệch vài tháng nên khi sát ngày chuyển vận hệ thống nói rõ thay vì khẳng định."
+    },
+    "CMP_DAIHAN_NOW": {
+      "title": "Đại hạn hiện tại (Tử Vi)",
+      "status": "verified",
+      "evidence": "sourced",
+      "source": "SRC_THUC_HANH",
+      "locator": "p.27",
+      "text": "Mỗi đại hạn kéo dài mười năm theo tuổi mụ, đại hạn đầu bắt đầu ở tuổi bằng số cục. Tuổi mụ tính theo năm âm lịch (đổi vào Tết, không phải vào sinh nhật), nên hệ thống đổi ngày hôm nay sang năm âm lịch trước khi tra đại hạn."
+    },
+    "CMP_LIMITS": {
+      "title": "Giới hạn của bản so sánh",
+      "status": "verified",
+      "evidence": "calc",
+      "source": null,
+      "locator": null,
+      "text": "Điều bản so sánh này cố ý không làm, kèm lý do. Đây là lời khai báo giới hạn của hệ thống, không phải một quy tắc của sách."
     }
   }
 }
