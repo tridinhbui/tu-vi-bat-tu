@@ -1,0 +1,104 @@
+{
+ "_note": "Chuỗi hiển thị bắt buộc cho UI (đề xuất; chưa gắn vào web/). Mọi giá trị enum của ba mức xác minh phải có nhãn ở đây; không nhãn nào được nói 'đã chứng minh/đúng/chính xác'. Test engine/tests/test_bazi_deep_phase6.py kiểm điều này.",
+ "level_names": {
+  "transcription_verified": "Chép đúng nguồn",
+  "source_rule_verified": "Công thức khớp nguồn",
+  "empirical_validated": "Đã kiểm chứng thực nghiệm"
+ },
+ "level_values": {
+  "transcription_verified": {
+   "yes": "Bảng/văn bản đã chép đúng trang nguồn (chưa có người kiểm độc lập)",
+   "partial": "Chỉ một phần đã chép đúng nguồn",
+   "no": "Chưa chép từ nguồn",
+   "n/a": "Không áp dụng (không dựa vào văn bản nguồn)"
+  },
+  "source_rule_verified": {
+   "yes": "Công thức và ngưỡng khớp trực tiếp với điều nguồn nói",
+   "partial": "Một phần công thức khớp nguồn; phần còn lại là quy ước của hệ thống",
+   "no": "Công thức là quy ước của hệ thống, không phải điều nguồn nói",
+   "n/a": "Không áp dụng"
+  },
+  "empirical_validated": {
+   "no": "Chưa có kiểm chứng thực nghiệm về giá trị dự báo",
+   "partial": "Chưa dùng",
+   "yes": "Chưa dùng",
+   "n/a": "Chưa dùng"
+  }
+ },
+ "verification_badges": {
+  "verified": "Nguồn đã đối chiếu",
+  "partial": "Một phần theo nguồn",
+  "draft": "Bản nháp của hệ thống"
+ },
+ "method_titles": {
+  "phu_uc": "Phù ức (hệ thống)",
+  "dieu_hau": "Điều hậu (Thiệu Vĩ Hoa)",
+  "cach_cuc": "Cách cục (hệ thống / Trích Thiên Tủy)",
+  "cach_cuc_tvh": "Cách cục (Thiệu Vĩ Hoa)",
+  "thong_quan": "Thông quan (hệ thống)",
+  "thuan_the": "Thuận thế: tòng/hóa (hệ thống / Trích Thiên Tủy)",
+  "thuan_the_tvh": "Thuận thế: cách đặc biệt (Thiệu Vĩ Hoa)",
+  "khuyet_hanh": "Hành thiếu (một ví dụ của sách)"
+ },
+ "states": {
+  "no_unified_conclusion": "Các phương pháp không cho một kết luận thống nhất. Mỗi phương pháp được nêu riêng bên dưới; hệ thống không chọn một đáp án duy nhất.",
+  "agreement_not_proof": "Các phương pháp cùng nêu nhóm này, nhưng sự đồng thuận không phải là bằng chứng rằng nó đúng.",
+  "single_method": "Chỉ một phương pháp áp dụng được cho lá số này.",
+  "two_readings": "Nhật Chủ nằm sát ngưỡng 40%: hiển thị cả hai cách đọc, không chọn một.",
+  "book_internal_conflict": "Chính sách này tự mâu thuẫn ở ô này: bảng và chú thích nêu hai tập can khác nhau. Hệ thống giữ tập can của bảng và không coi bên nào là chân lý.",
+  "reconstructed_example": "Dữ liệu ví dụ được dựng lại vì bảng in bị vỡ.",
+  "draft_banner": "Kết quả là bản nháp: mức xác minh được ghi riêng cho từng phương pháp.",
+  "draft_label": "Phân tích thử nghiệm – chưa được kiểm chứng thực nghiệm",
+  "flag_off": "Chế độ phân tích chuyên sâu đang tắt. Bật để xem từng phương pháp, nguồn và mức xác minh.",
+  "review_status": "Kiểm độc lập bảng điều hậu: {n}/{total} ô đã có người xác nhận."
+ },
+ "forbidden_phrases": [
+  "đã chứng minh",
+  "chứng minh đúng",
+  "chính xác",
+  "đúng theo sách nên đúng",
+  "kết luận cuối",
+  "dụng thần cuối cùng",
+  "điểm tổng",
+  "chắc chắn"
+ ],
+ "group_names": {
+  "Ti": "Tỉ Kiếp",
+  "An": "Ấn",
+  "ThucThuong": "Thực Thương",
+  "Tai": "Tài",
+  "QuanSat": "Quan Sát"
+ },
+ "status_labels": {
+  "ap_dung": "Có áp dụng",
+  "bang_TVH_verified": "Tra bảng của sách",
+  "hai_cach_doc": "Hai cách đọc, không chọn một",
+  "khong_ap_dung": "Không áp dụng cho lá số này",
+  "khong_xac_dinh_noi_cach": "Không xác định được nội cách",
+  "cach_bai": "Cách bại chưa được cứu (nêu theo bảng, coi là vô lực)",
+  "ap_dung_ttt_thuong_quan": "Có áp dụng (mẫu Thương Quan của Trích Thiên Tủy)",
+  "co_giao_chien": "Có hai hành giao chiến",
+  "khong_co_giao_chien": "Không có giao chiến",
+  "chi_co_gia": "Chỉ có ngoại cách giả, chưa đủ điều kiện",
+  "khong_chan": "Không có ngoại cách chân",
+  "khong_co_dong": "Bảng không có dòng cho tổ hợp này",
+  "khong_co_bang": "Cách này không có bảng"
+ },
+ "field_labels": {
+  "yong": "Dụng",
+  "xi": "Hỷ",
+  "ji": "Kỵ",
+  "need_elements": "Hành cần",
+  "applies_when": "Điều kiện áp dụng",
+  "strength_basis": "Cơ sở khí thế",
+  "source": "Nguồn",
+  "trace": "Các bước suy luận",
+  "readings": "Các cách đọc",
+  "disagreements": "Chỗ các phương pháp mâu thuẫn",
+  "consensus": "Nhóm các phương pháp cùng nêu",
+  "conflict_note_only": "Chỉ có ở chú thích",
+  "conflict_table_only": "Chỉ có ở bảng",
+  "favourable": "Thuận (Dụng/Hỷ) ở",
+  "unfavourable": "Bất lợi (Kỵ) ở"
+ }
+}
