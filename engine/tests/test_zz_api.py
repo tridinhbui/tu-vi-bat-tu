@@ -159,3 +159,31 @@ def test_rules_test_endpoint_dry_runs_zz_rules_on_the_zz_facts():
             "exceptions": [], "conflictsWith": [], "priority": 1, "sourceIds": ["SRC_BAZI_ZHENZONG"], "reviewStatus": "draft", "version": "0", "subject": "chart"}
     r = client.post("/api/rules/test", json={"rule": rule, "birth": BODY})
     assert r.status_code == 200 and r.json()["valid"] and r.json()["fired_on"] == ["chart"]
+
+
+def test_vietnamese_sentences_name_the_book_and_stay_hedged():
+    js = post("/api/reasoning", bat_tu_direct=True)
+    lines = [l for l in bt(js)["text"].split("\n") if "八字真宗" in l]
+    assert lines
+    for l in lines:
+        assert l.startswith(("Theo 八字真宗, lá số có xu hướng", "Theo 八字真宗, lá số có thể gặp hạn chế:", "Chưa thể khẳng định rằng, theo 八字真宗"))
+        assert not any(w in l.lower() for w in ("chắc chắn", "nhất định", "sẽ ", "tuyệt đối", "một dấu hiệu liên quan đến khuynh hướng"))
+    # the old template is untouched for every other claim
+    assert any(l.startswith("Có thể nhận thấy một dấu hiệu") for l in bt(js)["text"].split("\n"))
+
+
+def test_every_rule_has_source_status_and_a_page_and_verified_means_condition_matches_source_only():
+    for r in ZZ.values():
+        assert r.sourceIds == ["SRC_BAZI_ZHENZONG"] and "[PDF p." in r.description and r.reviewStatus in ("verified", "draft")
+    js = post("/api/reasoning", bat_tu_direct=True)
+    assert "không thuộc luận giải chính thức" in bt(js)["direct_summary"]["note"] and "xu hướng" in bt(js)["direct_summary"]["note"]
+    drafts = {r.id for r in ZZ.values() if r.reviewStatus == "draft"}
+    assert {"BT_ZZ_DIRECT_M_HURT", "BT_ZZ_DIRECT_D_HURT", "BT_ZZ_DIRECT_S_PURE_YIN_M"} <= drafts
+
+
+def test_phi_hoa_and_other_registered_routes_unaffected_by_the_flag():
+    a, b = post("/api/phi-hoa"), post("/api/phi-hoa", bat_tu_direct=True)
+    assert a == b
+    a, b = post("/api/bazi-timeline", to_year=2030), post("/api/bazi-timeline", to_year=2030, bat_tu_direct=True)
+    assert a == b
+    assert post("/api/reasoning", experimental=True)["experimental"] == post("/api/reasoning", experimental=True, bat_tu_direct=True)["experimental"]
