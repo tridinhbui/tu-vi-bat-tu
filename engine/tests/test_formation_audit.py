@@ -109,14 +109,14 @@ def test_quotes_exist_on_the_cited_printed_pages():
 # Control set: the worked charts of Tử Vi Khảo Luận pp.237-246. The engine state is PINNED as it is; 'book' is the author's own verdict.
 # dong_y = same direction; khong_khop = opposite direction; khong_phan_xet = the book does not judge that structure.
 CONTROL = {
-    ("han_cao_to", "CACH_X_TU_PHU_VU_TUONG"): ("thanh_thuong", "dong_y", "KL p.237-238: Tử Vi cư Ngọ 'đế cư đế vị', Tài Vũ Tướng, Quan Liêm Phủ: thế rất mạnh"),
-    ("hang_vo", "CACH_X_CO_NGUYET_DONG_LUONG"): ("thanh", "khong_khop", "KL p.239: Tài Đồng Lương ngộ Triệt + Địa Kiếp, Quan Thái Âm ngộ Tuần: thất bại ở Ô Giang; engine chỉ tính phá đồng cung Mệnh (TT p.24 tính cả tam phương)"),
-    ("hang_vo", "CACH_X_TAM_KY_GIA_HOI"): ("thanh", "khong_khop", "KL p.239: Cung Di Cự + Kỵ; cách tổng thể xấu; engine chỉ tính Kỵ/Kình đồng cung (KL p.66 tính cả chiếu)"),
+    ("han_cao_to", "CACH_X_TU_PHU_VU_TUONG"): ("thanh_thuong", "dong_y", "KL p.237: Tử Vi cư Ngọ 'đế cư đế vị', Tài Vũ Tướng, Quan Liêm Phủ: thế rất mạnh"),
+    ("hang_vo", "CACH_X_CO_NGUYET_DONG_LUONG"): ("thanh", "khong_khop", "KL p.238: Tài Đồng Lương ngộ Triệt + Địa Kiếp, Quan Thái Âm ngộ Tuần: thất bại ở Ô Giang; engine chỉ tính phá đồng cung Mệnh (TT p.24 tính cả tam phương)"),
+    ("hang_vo", "CACH_X_TAM_KY_GIA_HOI"): ("thanh", "khong_khop", "KL p.238: Cung Di Cự + Kỵ; cách tổng thể xấu; engine chỉ tính Kỵ/Kình đồng cung (KL p.66 tính cả chiếu)"),
     ("khong_minh", "CACH_X_NHAT_NGUYET_TINH_MINH"): ("thanh_thuong", "dong_y", "KL p.240: 'Nhật Nguyệt chiếu hư không', thông minh tuyệt vời"),
-    ("nu_quy_mao", "CACH_X_CO_NGUYET_DONG_LUONG"): ("thanh", "khong_phan_xet", "KL p.241: sách không gọi tên cách này"),
-    ("nu_quy_mao", "CACH_X_KHOI_VIET_GIAP_MENH"): ("thanh", "khong_phan_xet", "KL p.241: sách không gọi tên cách này"),
-    ("mau_ty_pha_san", "CACH_X_NHAT_NGUYET_TINH_MINH"): ("bi_pha", "dong_y", "KL p.243: 'Âm dương lạc hãm' phá sản"),
-    ("mau_ty_pha_san", "CACH_X_CO_NGUYET_DONG_LUONG"): ("thanh_thuong", "khong_khop", "KL p.243: Cơ + Hóa Kỵ + Hỏa Linh phá sản; engine không tính Kỵ/Hỏa Linh ngoài đồng cung Mệnh"),
+    ("nu_quy_mao", "CACH_X_CO_NGUYET_DONG_LUONG"): ("thanh", "khong_phan_xet", "KL p.244: sách không gọi tên cách này"),
+    ("nu_quy_mao", "CACH_X_KHOI_VIET_GIAP_MENH"): ("thanh", "khong_phan_xet", "KL p.244: sách không gọi tên cách này"),
+    ("mau_ty_pha_san", "CACH_X_NHAT_NGUYET_TINH_MINH"): ("bi_pha", "dong_y", "KL p.245: 'Âm dương lạc hãm' phá sản"),
+    ("mau_ty_pha_san", "CACH_X_CO_NGUYET_DONG_LUONG"): ("thanh_thuong", "khong_khop", "KL p.246: Cơ + Hóa Kỵ + Hỏa Linh phá sản; engine không tính Kỵ/Hỏa Linh ngoài đồng cung Mệnh"),
 }
 
 
@@ -155,3 +155,31 @@ def test_committed_audit_records_how_each_quote_was_checked():
     for r in ROWS:
         if r["status"] == "khop" and not r["machine_checked"]:
             assert any(c["quote_check"] == "anh" for c in r["cites"])      # image-read only: flagged, not claimed as machine-verified
+
+
+# ---- Phase 6: does each quote even speak about the condition it is cited for? (independent keyword check, not a proof of meaning) ----------
+TOPIC = {
+    "core": {"TPVT": ["tử", "phủ", "vũ", "tướng"], "TPDC": ["tử", "phủ"], "CNDL": ["cơ", "nguyệt", "đồng", "lương"], "SPLT": ["sát", "phá", "liêm", "tham"],
+             "NNTM": ["nhật", "nguyệt", "dương", "thái"], "NLTT": ["dương", "nhật", "thái"], "TTAN": ["cự", "ngọc"], "MDDK": ["kình", "mã"],
+             "TKGH": ["khoa", "quyền", "lộc"], "KVGM": ["khôi", "việt"]},
+    "ta_huu_hoi": ["tả", "hữu"], "xuong_khuc_hoi": ["xương", "khúc"], "loc_hoi": ["lộc"], "khoi_viet_hoi": ["khôi", "việt"],
+    "cat_tinh_hoi": ["tả", "hữu", "xương", "khúc", "khôi", "việt", "cát"], "khoa_quyen_loc_hoi": ["khoa", "quyền", "lộc"], "khoa_quyen_hoi": ["khoa", "quyền", "lộc"],
+    "nhat_nguyet_deu_sang": ["miếu", "vượng", "đắc", "tịnh", "sáng"], "tam_hoa_hoi_du": ["khoa", "quyền", "lộc"], "hoa_o_ban_cung": ["hóa", "tam"],
+    "sat_dong_cung": ["kình", "đà", "hỏa", "linh", "không", "kiếp", "sát"], "ky_dong_cung": ["kỵ", "kị"], "khong_kiep_dong_cung": ["kiếp", "không"],
+    "ba_sat_va_ky_trong_tam_phuong": ["sát", "kình", "hỏa", "linh", "không", "kiếp"], "nhat_nguyet_ham_gap_sat": ["hãm", "sát", "kình", "đà"],
+    "ky_hoac_kinh_dong_cung": ["kỵ", "kị", "kình"], "that_sat_trong_tam_phuong": ["thất sát", "sát"], "sat_khac_dong_cung": ["sát", "hỏa", "linh", "không", "kiếp"],
+    "khoa_dong_cung": ["khoa"], "tam_hoa_hoi_cuu": ["tam hóa", "tam hoá", "hóa"], "ta_huu_giai_ky": ["tả", "hữu"],
+    "tuan_triet_an_ngu": ["tuần", "triệt"], "Thiên_Tướng_ham": ["tướng"], "Thất_Sát_ham": ["sát"], "Thái_Dương_ham": ["hãm", "nhật", "dương"],
+    "Thái_Âm_ham": ["hãm", "nguyệt", "âm"], "Cự_Môn_ham": ["cự"], "vo_chinh_dieu": ["vô chính"], "co_chinh_tinh": ["chính"],
+}
+
+
+def test_every_cited_quote_speaks_about_the_condition_it_supports():
+    off = []
+    for r in ROWS:
+        if r["stance"] == "khong_noi" or not r["cites"]:
+            continue
+        kw = TOPIC["core"][r["formation_key"]] if r["role"] == "core" else TOPIC[r["id"]]
+        if not any(any(k in c["quote"].lower() for k in kw) for c in r["cites"]):
+            off.append((r["formation_key"], r["id"], [c["id"] for c in r["cites"]]))
+    assert off == [], off

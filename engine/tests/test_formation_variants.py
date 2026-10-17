@@ -74,15 +74,28 @@ def test_scopes_are_explicit_and_not_widened_beyond_the_sentence():
     assert "sat_tp" in json.dumps(kv.when)                                                  # 'hội chiếu' stated by KL p.62 -> tam phương
 
 
-def test_rule_level_marks_never_exceed_what_was_checked():
+LEVELS = {"doi_chieu_truc_tiep", "co_nguon_con_gia_dinh", "chua_du_nguon"}
+
+
+def test_rule_levels_follow_each_rules_own_evidence():
+    from collections import Counter
     for vid, m in META.items():
-        assert set(m["rules"].values()) <= {"doi_chieu_truc_tiep", "co_nguon_con_gia_dinh"}
-        if m["readings"]:                                                                   # any scope/threshold reading -> every rule keeps its assumption flag
-            assert set(m["rules"].values()) == {"co_nguon_con_gia_dinh"}, vid
-        assert all(c["read"] in ("van_ban", "anh") for c in m["cites"])
-        if any(c["read"] == "anh" for c in m["cites"]):
-            assert "doi_chieu_truc_tiep" not in m["rules"].values(), vid                      # image-read pages are never counted as machine-checked
-    assert sum(1 for m in META.values() for x in m["rules"].values() if x == "doi_chieu_truc_tiep") >= 5
+        assert set(m["rules"]) == set(m["rule_detail"]) and set(m["rules"].values()) <= LEVELS
+        for key, d in m["rule_detail"].items():
+            cites = [c for c in m["cites"] if c["id"] in d["cites"]]
+            assert cites and len(cites) == len(d["cites"]), (vid, key)
+            if d["level"] == "doi_chieu_truc_tiep":
+                assert not d["assumption"] and all(c["read"] == "van_ban" for c in cites), (vid, key)
+                assert d["audit_status"] in ("khop", "viet_moi_tu_trang_sach"), (vid, key)
+            if any(c["read"] == "anh" for c in cites):
+                assert d["level"] == "chua_du_nguon", (vid, key)                            # image-read pages are never counted as machine-checked
+            if d["level"] == "co_nguon_con_gia_dinh":
+                assert d["assumption"] or d["audit_status"] not in ("khop", "viet_moi_tu_trang_sach"), (vid, key)
+    # pinned (Phase 6 recount, per-rule assumptions): the old coarse figure 15 / 8 is superseded
+    c = Counter(x for m in META.values() for x in m["rules"].values())
+    assert (c["doi_chieu_truc_tiep"], c["co_nguon_con_gia_dinh"], c["chua_du_nguon"]) == (10, 34, 3) and sum(c.values()) == 47
+    # no variant rule is ever promoted to 'verified'
+    assert "verified" not in json.dumps(META, ensure_ascii=False).replace("unverified", "")
 
 
 def test_variants_do_not_leak_into_production_or_the_main_reading():

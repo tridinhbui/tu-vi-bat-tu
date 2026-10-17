@@ -13,25 +13,25 @@ Sinh bởi `tools/build_formation_report5.py` từ `formation_audit.json`, `form
 
 | Biến thể | Sách · trang | Điều kiện (giữ từ gốc hoặc thêm theo sách) | Lõi | Giả định cách đọc |
 |---|---|---|---|---|
-| `TU_PHU_VU_TUONG@kl_132_193` | KL tr.132, KL tr.193, KL tr.222 | boos:ta_huu_hoi, boos:xuong_khuc_hoi, refu:tuan_triet_an_ngu | như gốc | KL p.132, p.193 không nêu phạm vi của Tả Hữu/Xương Khúc; baseline đọc là hội trong tam phương |
-| `TU_PHU_VU_TUONG@th_115` | TH tr.72, TH tr.115, TH tr.94, TH tr.95 | boos:ta_huu_hoi, boos:loc_hoi, refu:tuan_triet_an_ngu | như gốc | TH p.115-116 viết về đại tiểu hạn; ở đây chỉ dùng như thước đo của bản cách |
-| `TU_PHU_DONG_CUNG@tt_22` | TT tr.22, KL tr.55 | brea:sat_dong_cung, refu:tuan_triet_an_ngu | như gốc | 'gặp sát tinh' của TT p.22 được hiểu là đồng cung (cách hẹp nhất); sách không nêu phạm vi |
-| `TU_PHU_DONG_CUNG@kl_50` | KL tr.50, KL tr.50, KL tr.55 | boos:kinh_luc_si_dong_cung, boos:ky_quyen_dong_cung, refu:tuan_triet_an_ngu | như gốc | — |
-| `CO_NGUYET_DONG_LUONG@tt_24` | TT tr.24, TT tr.24 | boos:cat_tinh_hoi, brea:khong_kiep_trong_tam_phuong, brea:ky_trong_tam_phuong | như gốc | TT p.24 nói ngay trong câu 'Mệnh thân và các cung tam hợp xung chiếu': phạm vi = tam phương (đã xác định, không suy rộng) |
-| `CO_NGUYET_DONG_LUONG@kl_221` | KL tr.51, KL tr.221 | boos:cat_tinh_hoi, boos:khoa_quyen_loc_hoi | như gốc | KL p.221 được đọc từ ảnh trang (lớp chữ hỏng) |
-| `SAT_PHA_LIEM_THAM@th_76_77` | TH tr.72, TH tr.76, TH tr.77, TH tr.116 | boos:khoa_quyen_hoi, brea:ba_sat_va_ky_trong_tam_phuong | như gốc | 'nhiều' sát tinh của TH p.77 → ngưỡng 3 sát tinh + Hóa Kỵ là QUY ƯỚC THIẾT KẾ, không phải số của sách; '3 trong 4 sao' của lõi cũng là quy ước |
-| `NHAT_NGUYET_TINH_MINH@th_72` | TH tr.72, TT tr.142 | boos:nhat_nguyet_deu_sang, brea:nhat_nguyet_ham_gap_sat | lõi theo sách | — |
-| `NHAT_NGUYET_TINH_MINH@kl_53_68` | KL tr.53, KL tr.56, KL tr.68 | boos:nhat_nguyet_deu_sang, brea:nhat_nguyet_ham_gap_sat, refu:nhat_nguyet_ham_khong_khoi_viet | như gốc | 'Khôi Việt chiếu' (KL p.68) được đọc là hội chiếu = tam phương |
-| `NHAT_LE_TRUNG_THIEN@kl_52_85` | TH tr.72, KL tr.52, KL tr.85 | boos:khoa_quyen_hoi, boos:xuong_khuc_hoi | như gốc | KL p.85 'thích' không nêu phạm vi; baseline đọc là hội trong tam phương |
+| `TU_PHU_VU_TUONG@kl_132_193` | TH tr.72, KL tr.132, KL tr.193, KL tr.222 | boos:ta_huu_hoi, boos:xuong_khuc_hoi, refu:tuan_triet_an_ngu | như gốc | 4 sao trong tam phương của Mệnh là cách mô hình hóa; sách chỉ nêu tên cách, không nêu vị trí; phạm vi hội của sao không được câu sách nêu; đọc là tam phương; phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói Xương Khúc, baseline chấp nhận một trong hai; KL tr.222 nói về Vũ Tướng; áp cho cả cách là mở rộng |
+| `TU_PHU_VU_TUONG@th_115` | TH tr.72, TH tr.115, TH tr.94, TH tr.95 | boos:ta_huu_hoi, boos:loc_hoi, refu:tuan_triet_an_ngu | như gốc | 4 sao trong tam phương của Mệnh là cách mô hình hóa; sách chỉ nêu tên cách, không nêu vị trí; TH tr.115 nói về đại tiểu hạn, không về bản cách; phạm vi hội của sao không được câu sách nêu; đọc là tam phương; TH tr.94-95 nói về từng sao Phủ/Tướng, không về cả cách |
+| `TU_PHU_DONG_CUNG@tt_22` | TH tr.72, TT tr.22, KL tr.55 | brea:sat_dong_cung, refu:tuan_triet_an_ngu | như gốc | TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh; TT tr.22 còn nhắc Tỵ/Hợi mà mô hình không có Tử Phủ đồng cung ở đó; 'gặp sát tinh' đọc là đồng cung (cách hẹp nhất); tập sáu sát tinh là của baseline; nguồn là KL, không phải TT; TT tr.22/tr.160 cùng ý 'hiềm Triệt Tuần' nhưng chưa trích |
+| `TU_PHU_DONG_CUNG@kl_50` | TH tr.72, KL tr.55, KL tr.50, KL tr.50 | boos:kinh_luc_si_dong_cung, boos:ky_quyen_dong_cung, refu:tuan_triet_an_ngu | như gốc | TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh |
+| `CO_NGUYET_DONG_LUONG@tt_24` | TT tr.24, TH tr.77, TT tr.24 | boos:cat_tinh_hoi, brea:khong_kiep_trong_tam_phuong, brea:ky_trong_tam_phuong | như gốc | TT tr.24 cho Mệnh hoặc Thân; mô hình chỉ neo ở Mệnh; tập sáu cát tinh và phạm vi hội là của baseline; sách chỉ nói 'cát tinh trợ lực'; câu liệt kê Kiếp, Không, Kị; hiểu là một trong số đó là đủ |
+| `CO_NGUYET_DONG_LUONG@kl_221` | KL tr.51, KL tr.221, KL tr.221 | boos:cat_tinh_hoi, boos:khoa_quyen_loc_hoi | như gốc | KL tr.51 chỉ nói 'hội chiếu'; mô hình neo ở Mệnh, tam phương; tập sáu cát tinh của baseline khác danh sách của KL (Tả Hữu Quang Quý Thiên quan); phạm vi hội không nêu; chữ 'Khoa' mất ở lớp chữ của trang (đọc bổ sung từ ảnh); phạm vi hội không nêu |
+| `SAT_PHA_LIEM_THAM@th_76_77` | TH tr.72, TH tr.76, TH tr.77, TH tr.116 | boos:khoa_quyen_hoi, brea:ba_sat_va_ky_trong_tam_phuong | như gốc | tên cách ở TH tr.72 đọc từ ảnh; ngưỡng 3 trong 4 sao là quy ước thiết kế; sách đòi Khoa Quyền Lộc, baseline chấp nhận Khoa hoặc Quyền; phạm vi hội không nêu; 'nhiều' sát tinh → ngưỡng 3 sát tinh + Hóa Kỵ là quy ước thiết kế |
+| `NHAT_NGUYET_TINH_MINH@th_72` | TH tr.72, TT tr.142, TH tr.74 | boos:nhat_nguyet_deu_sang, brea:nhat_nguyet_ham_gap_sat | lõi theo sách | nguồn là TT ('miếu vượng'); baseline dùng ngưỡng từ đắc trở lên; trang TH tr.74 đọc từ ảnh; tập sáu sát tinh và phạm vi tam phương là của baseline |
+| `NHAT_NGUYET_TINH_MINH@kl_53_68` | KL tr.53, KL tr.56, KL tr.68 | boos:nhat_nguyet_deu_sang, brea:nhat_nguyet_ham_gap_sat, refu:nhat_nguyet_ham_khong_khoi_viet | như gốc | 'hợp chiếu' mô hình là cả hai sao trong tam phương; KL nói 'đắc địa'; baseline ngưỡng từ đắc trở lên; KL liệt kê Kình Đà Không Kiếp; baseline dùng sáu sát tinh; 'gặp' không nêu phạm vi; 'Khôi Việt chiếu' đọc là hội chiếu tam phương |
+| `NHAT_LE_TRUNG_THIEN@kl_52_85` | TH tr.72, KL tr.52, KL tr.85 | boos:khoa_quyen_hoi, boos:xuong_khuc_hoi | như gốc | 'thích' không nêu phạm vi; sách kể Khoa Quyền Lộc, baseline chấp nhận Khoa hoặc Quyền; 'thích' không nêu phạm vi; đọc là tam phương |
 | `THACH_TRUNG_AN_NGOC@kl_44` | KL tr.44 | — | lõi theo sách | — |
 | `THACH_TRUNG_AN_NGOC@kl_58` | KL tr.58, TT tr.142 | — | lõi theo sách | 'tam hợp chiếu' được mô hình là tam phương tứ chính (gồm cả đồng cung và đối cung) |
 | `THACH_TRUNG_AN_NGOC@kl_106` | KL tr.106, TH tr.43 | — | lõi theo sách | 'gặp' Tuần/Triệt/Hóa Lộc được hiểu hẹp nhất là cùng cung Mệnh; sách không nêu phạm vi |
-| `MA_DAU_DOI_KIEM@kl_64_xau` | KL tr.64, KL tr.60 | brea:that_sat_thien_hinh_dong_cung | như gốc | — |
-| `MA_DAU_DOI_KIEM@kl_64_tot` | KL tr.64 | boos:khoa_quyen_loc_xa_sat_hinh | như gốc | 'xa lánh' = không đồng cung; 'gặp Khoa Quyền Lộc' = hội chiếu cả ba (sách không nêu phạm vi rõ hơn) |
-| `TAM_KY_GIA_HOI@kl_66` | KL tr.66, TT tr.142 | brea:ky_kinh_dong_cung_hoac_doi_cung | như gốc | 'chiếu' được hiểu là xung chiếu (đối cung) — cách hẹp nhất cho chữ 'chiếu'; chưa mở ra toàn tam phương vì sách không nói |
-| `KHOI_VIET_GIAP_MENH@kl_44_62` | KL tr.44, KL tr.62, KL tr.62 | boos:xuong_khuc_hoi, brea:sat_tinh_hoi_chieu | như gốc | 'hội chiếu' của KL p.62 mục 4 = tam phương (từ ngữ hội chiếu đã xác định phạm vi) |
+| `MA_DAU_DOI_KIEM@kl_64_xau` | KL tr.64 | brea:that_sat_thien_hinh_dong_cung | như gốc | — |
+| `MA_DAU_DOI_KIEM@kl_64_tot` | KL tr.64 | boos:khoa_quyen_loc_xa_sat_hinh | như gốc | 'xa lánh' = không đồng cung; 'gặp Khoa Quyền Lộc' = hội chiếu cả ba; sách không nêu phạm vi rõ hơn |
+| `TAM_KY_GIA_HOI@kl_66` | KL tr.66, TT tr.142 | brea:ky_kinh_dong_cung_hoac_doi_cung | như gốc | 'hội họp' mô hình là cả ba Hóa trong tam phương; 'chiếu' được hiểu là xung chiếu (đối cung) — cách hẹp nhất cho chữ 'chiếu'; chưa mở ra toàn tam phương vì sách không nói |
+| `KHOI_VIET_GIAP_MENH@kl_44_62` | KL tr.44, KL tr.62, KL tr.62 | boos:xuong_khuc_hoi, brea:sat_tinh_hoi_chieu | như gốc | KL nói 'đồng cung hay hội chiếu' cùng Lộc Tồn; baseline tam phương, không đòi Lộc Tồn; 'hội chiếu' = tam phương (từ ngữ đã xác định phạm vi); tập sát tinh sáu sao là của baseline |
 
-Mức xác minh theo TỪNG QUY TẮC (không nâng cả cách): **8** quy tắc `doi_chieu_truc_tiep` (câu trích đã được máy so với trang và không cần giả định phạm vi), **39** quy tắc `co_nguon_con_gia_dinh` (có nguồn nhưng còn giả định về phạm vi/ngưỡng hoặc trang đọc từ ảnh). Đây là đối chiếu của phiên AI, chưa có thẩm định của chuyên gia Tử Vi nên cả hai mức đều chưa phải `verified` ở cấp cách cục.
+Mức xác minh theo TỪNG QUY TẮC (không nâng cả cách): **10** quy tắc `doi_chieu_truc_tiep` (câu trích đã được máy so với trang, không cần giả định), **34** quy tắc `co_nguon_con_gia_dinh` (có nguồn nhưng còn giả định về phạm vi/ngưỡng), **3** quy tắc `chua_du_nguon` (trang đọc từ ảnh hoặc quy ước thiết kế). Đây là đối chiếu của phiên AI, chưa có thẩm định của chuyên gia Tử Vi nên không mức nào là `verified` ở cấp cách cục.
 
 ## 3. Bảng 93 điều kiện sau hiệu chỉnh
 
@@ -163,14 +163,14 @@ Biến thể được viết từ trang sách, không chỉnh theo lá số. C�
 
 | Lá số | Cách | Gốc | Sách nói | Kết quả gốc | Biến thể → trạng thái |
 |---|---|---|---|---|---|
-| Hán Cao Tổ | TU_PHU_VU_TUONG | thanh_thuong | KL p.237-238: Tử Vi cư Ngọ 'đế cư đế vị', Tài Vũ Tướng, Quan Liêm Phủ: thế rất mạnh | đồng ý | kl_132_193 → thanh_thuong, th_115 → thanh_thuong |
-| Hạng Võ | CO_NGUYET_DONG_LUONG | thanh | KL p.239: Tài Đồng Lương ngộ Triệt + Địa Kiếp, Quan Thái Âm ngộ Tuần: thất bại ở Ô Giang; engine chỉ tính phá đồng cung Mệnh (TT p.24 tính cả tam phương) | không khớp | tt_24 → bi_pha, kl_221 → thanh |
-| Hạng Võ | TAM_KY_GIA_HOI | thanh | KL p.239: Cung Di Cự + Kỵ; cách tổng thể xấu; engine chỉ tính Kỵ/Kình đồng cung (KL p.66 tính cả chiếu) | không khớp | kl_66 → bi_pha |
+| Hán Cao Tổ | TU_PHU_VU_TUONG | thanh_thuong | KL p.237: Tử Vi cư Ngọ 'đế cư đế vị', Tài Vũ Tướng, Quan Liêm Phủ: thế rất mạnh | đồng ý | kl_132_193 → thanh_thuong, th_115 → thanh_thuong |
+| Hạng Võ | CO_NGUYET_DONG_LUONG | thanh | KL p.238: Tài Đồng Lương ngộ Triệt + Địa Kiếp, Quan Thái Âm ngộ Tuần: thất bại ở Ô Giang; engine chỉ tính phá đồng cung Mệnh (TT p.24 tính cả tam phương) | không khớp | tt_24 → bi_pha, kl_221 → thanh |
+| Hạng Võ | TAM_KY_GIA_HOI | thanh | KL p.238: Cung Di Cự + Kỵ; cách tổng thể xấu; engine chỉ tính Kỵ/Kình đồng cung (KL p.66 tính cả chiếu) | không khớp | kl_66 → bi_pha |
 | Khổng Minh | NHAT_NGUYET_TINH_MINH | thanh_thuong | KL p.240: 'Nhật Nguyệt chiếu hư không', thông minh tuyệt vời | đồng ý | kl_53_68 → thanh |
-| Nữ Quý Mão | CO_NGUYET_DONG_LUONG | thanh | KL p.241: sách không gọi tên cách này | sách không xét | tt_24 → thanh, kl_221 → thanh_thuong |
-| Nữ Quý Mão | KHOI_VIET_GIAP_MENH | thanh | KL p.241: sách không gọi tên cách này | sách không xét | kl_44_62 → bi_pha |
-| Mậu Tý phá sản | NHAT_NGUYET_TINH_MINH | bi_pha | KL p.243: 'Âm dương lạc hãm' phá sản | đồng ý | kl_53_68 → bi_pha |
-| Mậu Tý phá sản | CO_NGUYET_DONG_LUONG | thanh_thuong | KL p.243: Cơ + Hóa Kỵ + Hỏa Linh phá sản; engine không tính Kỵ/Hỏa Linh ngoài đồng cung Mệnh | không khớp | tt_24 → bi_pha, kl_221 → thanh_thuong |
+| Nữ Quý Mão | CO_NGUYET_DONG_LUONG | thanh | KL p.244: sách không gọi tên cách này | sách không xét | tt_24 → thanh, kl_221 → thanh_thuong |
+| Nữ Quý Mão | KHOI_VIET_GIAP_MENH | thanh | KL p.244: sách không gọi tên cách này | sách không xét | kl_44_62 → bi_pha |
+| Mậu Tý phá sản | NHAT_NGUYET_TINH_MINH | bi_pha | KL p.245: 'Âm dương lạc hãm' phá sản | đồng ý | kl_53_68 → bi_pha |
+| Mậu Tý phá sản | CO_NGUYET_DONG_LUONG | thanh_thuong | KL p.246: Cơ + Hóa Kỵ + Hỏa Linh phá sản; engine không tính Kỵ/Hỏa Linh ngoài đồng cung Mệnh | không khớp | tt_24 → bi_pha, kl_221 → thanh_thuong |
 
 Nguyên nhân thay đổi: phạm vi. Cơ Nguyệt Đồng Lương theo TT tr.24 tính Kiếp/Không/Kỵ trên cả tam phương → Hạng Võ và Mậu Tý đổi sang `bi_pha` (khớp sách); Tam kỳ gia hội theo KL tr.66 tính Kỵ/Kình ở đối cung → Hạng Võ `bi_pha` (khớp). Bản KL tr.221 của Cơ Nguyệt Đồng Lương không nêu yếu tố phá nên vẫn `thành`: bất đồng giữa các sách được giữ, không ép khớp. Khôi Việt giáp Mệnh của Nữ Quý Mão chuyển `bi_pha` do KL tr.62 (sát tinh hội chiếu), sách không đánh giá lá số này nên không phán đúng/sai.
 
@@ -213,7 +213,7 @@ Nguyên nhân thay đổi: phạm vi. Cơ Nguyệt Đồng Lương theo TT tr.24
 | Tử Phủ đồng cung | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
 | Cơ Nguyệt Đồng Lương | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
 | Cơ Nguyệt Đồng Lương | phản chứng | `tuan_triet_an_ngu` | TH p.94-95 chỉ nói Thái Âm, Thiên Lương gặp Tuần Triệt là bất lợi; không nói cả cách CNDL |
-| Sát Phá Liêm Tham | tăng thế | `ta_huu_hoi` | danh sách cát tinh của TH p.76 là chung cho nhóm cách, không riêng Tả Hữu cho SPLT |
+| Sát Phá Liêm Tham | tăng thế | `ta_huu_hoi` | danh sách cát tinh của TH p.76 là cho nhóm Thượng cách (Tử Phủ Vũ Tướng, Cơ Nguyệt, Cự Nhật...), không riêng cho SPLT |
 | Sát Phá Liêm Tham | tăng thế | `xuong_khuc_hoi` | như trên |
 | Sát Phá Liêm Tham | tăng thế | `khoi_viet_hoi` | như trên |
 | Sát Phá Liêm Tham | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |

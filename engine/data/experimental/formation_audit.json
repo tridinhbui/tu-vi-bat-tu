@@ -616,15 +616,15 @@
    "action": "giu_co_nguon",
    "cites": [
     {
-     "id": "KL221_SPLT",
+     "id": "KL221_CNDL_KQL",
      "book": "Tử Vi Khảo Luận",
      "book_code": "KL",
      "page": 221,
-     "quote": "Sát Phá Tham ở Mệnh là những người tích cực trong cuộc sống",
+     "quote": "Quyền Lộc, Khôi Việt, Xương khúc thì làm giáo sư danh tiếng",
      "quote_check": "van_ban"
     }
    ],
-   "reason": "KL p.221 (đọc từ ảnh trang): CNDL hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc thì làm giáo sư danh tiếng",
+   "reason": "KL p.221: CNDL hội (Khoa) Quyền Lộc, Khôi Việt, Xương Khúc thì làm giáo sư danh tiếng; chữ 'Khoa' bị mất ở lớp chữ của trang, đọc bổ sung từ ảnh",
    "school_conflict": "xem cat_tinh_hoi",
    "design_convention": "",
    "machine_checked": true
@@ -824,15 +824,15 @@
    "action": "giu_gia_thuyet",
    "cites": [
     {
-     "id": "TH76_CATTINH",
+     "id": "TH76_THUONG",
      "book": "Tử Vi Thực Hành",
      "book_code": "TH",
      "page": 76,
-     "quote": "Hồng Đào, Khoa Quyền. Lộc, Kình, Không",
+     "quote": "hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa",
      "quote_check": "van_ban"
     }
    ],
-   "reason": "danh sách cát tinh của TH p.76 là chung cho nhóm cách, không riêng Tả Hữu cho SPLT",
+   "reason": "danh sách cát tinh của TH p.76 là cho nhóm Thượng cách (Tử Phủ Vũ Tướng, Cơ Nguyệt, Cự Nhật...), không riêng cho SPLT",
    "school_conflict": "",
    "design_convention": "",
    "machine_checked": true
@@ -849,11 +849,11 @@
    "action": "giu_gia_thuyet",
    "cites": [
     {
-     "id": "TH76_CATTINH",
+     "id": "TH76_THUONG",
      "book": "Tử Vi Thực Hành",
      "book_code": "TH",
      "page": 76,
-     "quote": "Hồng Đào, Khoa Quyền. Lộc, Kình, Không",
+     "quote": "hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa",
      "quote_check": "van_ban"
     }
    ],
@@ -874,11 +874,11 @@
    "action": "giu_gia_thuyet",
    "cites": [
     {
-     "id": "TH76_CATTINH",
+     "id": "TH76_THUONG",
      "book": "Tử Vi Thực Hành",
      "book_code": "TH",
      "page": 76,
-     "quote": "Hồng Đào, Khoa Quyền. Lộc, Kình, Không",
+     "quote": "hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa",
      "quote_check": "van_ban"
     }
    ],
@@ -1188,11 +1188,11 @@
    "action": "giu_gia_thuyet",
    "cites": [
     {
-     "id": "KL85_NN_TUAN",
+     "id": "KL85_GHET",
      "book": "Tử Vi Khảo Luận",
      "book_code": "KL",
      "page": 85,
-     "quote": "Thái dương hãm địa, cần gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức",
+     "quote": "Thái dương ghét lũ Riêu, Đà, Kỵ",
      "quote_check": "van_ban"
     }
    ],
@@ -1486,11 +1486,11 @@
    "action": "giu_gia_thuyet",
    "cites": [
     {
-     "id": "KL85_NN_TUAN",
+     "id": "KL85_GHET",
      "book": "Tử Vi Khảo Luận",
      "book_code": "KL",
      "page": 85,
-     "quote": "Thái dương hãm địa, cần gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức",
+     "quote": "Thái dương ghét lũ Riêu, Đà, Kỵ",
      "quote_check": "van_ban"
     }
    ],
@@ -1511,11 +1511,11 @@
    "action": "de_xuat_sua",
    "cites": [
     {
-     "id": "KL85_NN_TUAN",
+     "id": "KL85_GHET",
      "book": "Tử Vi Khảo Luận",
      "book_code": "KL",
      "page": 85,
-     "quote": "Thái dương hãm địa, cần gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức",
+     "quote": "Thái dương ghét lũ Riêu, Đà, Kỵ",
      "quote_check": "van_ban"
     }
    ],

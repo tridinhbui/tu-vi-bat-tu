@@ -1,0 +1,904 @@
+{
+ "version": 1,
+ "sample_charts": 11520,
+ "proposals": [
+  {
+   "id": "P01",
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "formation_key": "TPVT",
+   "name_vi": "Tử Phủ Vũ Tướng",
+   "role": "breakers",
+   "condition": "sat_dong_cung",
+   "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "TH116_TPVT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 116,
+     "quote": "Tử Phủ Vũ Tướng găp phải Tam Không, Kiếp Kỵ Hình Đà hay gặp Linh Hỏa Tang Diêu thì bị giáng chức, phá tài",
+     "quote_check": "van_ban"
+    },
+    {
+     "id": "KL96_PHU",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 96,
+     "quote": "Nhưng nếu gặp Không Kiếp, Tuần Triệt, Kình Đà, Hỏa Linh thì tài lộc bị giảm đáng kể",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "chua",
+   "new_reading": "giữ đồng cung ở baseline",
+   "assumption": "cách đọc 'gặp' trong ngữ cảnh đại tiểu hạn, không xác định phạm vi trong bản cách → không mở rộng",
+   "not_implemented_reason": "cách đọc 'gặp' trong ngữ cảnh đại tiểu hạn, không xác định phạm vi trong bản cách → không mở rộng",
+   "variants": [],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P02",
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "formation_key": "TPVT",
+   "name_vi": "Tử Phủ Vũ Tướng",
+   "role": "breakers",
+   "condition": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "TH116_TPVT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 116,
+     "quote": "Tử Phủ Vũ Tướng găp phải Tam Không, Kiếp Kỵ Hình Đà hay gặp Linh Hỏa Tang Diêu thì bị giáng chức, phá tài",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "chua",
+   "new_reading": "giữ đồng cung ở baseline",
+   "assumption": "cách đọc 'gặp' trong ngữ cảnh đại tiểu hạn, không xác định phạm vi trong bản cách → không mở rộng",
+   "not_implemented_reason": "cách đọc 'gặp' trong ngữ cảnh đại tiểu hạn, không xác định phạm vi trong bản cách → không mở rộng",
+   "variants": [],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P03",
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "formation_key": "TPVT",
+   "name_vi": "Tử Phủ Vũ Tướng",
+   "role": "rescuers",
+   "condition": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "audit_status": "long_hon",
+   "cites": [
+    {
+     "id": "TH74_TAMHOA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "cần được cứu giải băng Tam hóa hội",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ khỏi mọi biến thể",
+   "assumption": "",
+   "not_implemented_reason": "Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này.",
+   "variants": [
+    "CACH_X_TU_PHU_VU_TUONG@kl_132_193",
+    "CACH_X_TU_PHU_VU_TUONG@th_115"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P04",
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "formation_key": "TPDC",
+   "name_vi": "Tử Phủ đồng cung",
+   "role": "core",
+   "condition": "core",
+   "label": "Điều kiện lõi",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "TH72_TPDC",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân)",
+     "quote_check": "van_ban"
+    },
+    {
+     "id": "TT22_TPDC_SAT",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 22,
+     "quote": "Tử Phủ đồng cung vô sát tấu",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "chua",
+   "new_reading": "neo ở Mệnh hoặc Thân (TH tr.72)",
+   "assumption": "mô hình chỉ neo một cung; Thân không biểu diễn được ở dạng dữ liệu hiện tại",
+   "not_implemented_reason": "anchor của cách cục là một tên cung duy nhất; cần thay đổi schema của phiên khác",
+   "variants": [],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P05",
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "formation_key": "TPDC",
+   "name_vi": "Tử Phủ đồng cung",
+   "role": "breakers",
+   "condition": "sat_dong_cung",
+   "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+   "audit_status": "khac",
+   "cites": [
+    {
+     "id": "TT22_TPDC_SAT",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 22,
+     "quote": "Tử Phủ đồng cung vô sát tấu",
+     "quote_check": "van_ban"
+    },
+    {
+     "id": "KL50_TP_KINH",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 50,
+     "quote": "Tử vi, Thiên phủ đồng cung với Kình dương, lực sĩ thì buôn bán giàu có",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "giu",
+   "new_reading": "TT tr.22: sát tinh làm hỗn là phá; KL tr.50 là bản ngược (Kình Dương đồng cung là tăng thế)",
+   "assumption": "'gặp sát tinh' đọc là đồng cung",
+   "not_implemented_reason": "",
+   "variants": [
+    "CACH_X_TU_PHU_DONG_CUNG@tt_22"
+   ],
+   "variant_condition": "sat_dong_cung",
+   "before_after": {
+    "n_base_core": 192,
+    "base_true": 56,
+    "var_true": 56,
+    "both_true": 56,
+    "base_only": 0,
+    "var_only": 0,
+    "unknown": 0
+   },
+   "regression_test": "engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample"
+  },
+  {
+   "id": "P06",
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "formation_key": "TPDC",
+   "name_vi": "Tử Phủ đồng cung",
+   "role": "breakers",
+   "condition": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "audit_status": "khac",
+   "cites": [
+    {
+     "id": "KL50_TP_KY",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 50,
+     "quote": "Mệnh ở Dần có Hoá kỵ, Hóa quyền đồng cung với Tử Phủ là người mưu cơ tài trí",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ khỏi cả hai biến thể; KL tr.50 thêm 'Kỵ + Quyền ở Dần' như tăng thế",
+   "assumption": "",
+   "not_implemented_reason": "TT tr.22 không nói Kỵ; KL tr.50 nói Kỵ+Quyền đồng cung là tốt",
+   "variants": [
+    "CACH_X_TU_PHU_DONG_CUNG@tt_22",
+    "CACH_X_TU_PHU_DONG_CUNG@kl_50"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P07",
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "formation_key": "CNDL",
+   "name_vi": "Cơ Nguyệt Đồng Lương",
+   "role": "breakers",
+   "condition": "khong_kiep_dong_cung",
+   "label": "Địa Không hoặc Địa Kiếp đồng cung với Mệnh",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "TT24_CNDL_BREAK",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 24,
+     "quote": "Gặp Kiếp Không Hoá Kị xuống hạ cách",
+     "quote_check": "van_ban"
+    },
+    {
+     "id": "TH116_CNDL",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 116,
+     "quote": "Cơ Nguyệt Đồng Lương hay Cự Nhật mà gặp Kình Đà, Không Kiếp hay Phá toái, Kiếp sát",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "mo_rong",
+   "new_reading": "Địa Không/Địa Kiếp trong tam phương (TT tr.24 'các cung tam hợp xung chiếu')",
+   "assumption": "câu liệt kê Kiếp, Không, Kị: một trong số đó là đủ",
+   "not_implemented_reason": "",
+   "variants": [
+    "CACH_X_CO_NGUYET_DONG_LUONG@tt_24"
+   ],
+   "variant_condition": "khong_kiep_trong_tam_phuong",
+   "before_after": {
+    "n_base_core": 1296,
+    "base_true": 216,
+    "var_true": 648,
+    "both_true": 216,
+    "base_only": 0,
+    "var_only": 432,
+    "unknown": 0
+   },
+   "regression_test": "engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample"
+  },
+  {
+   "id": "P08",
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "formation_key": "CNDL",
+   "name_vi": "Cơ Nguyệt Đồng Lương",
+   "role": "breakers",
+   "condition": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "TT24_CNDL_BREAK",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 24,
+     "quote": "Gặp Kiếp Không Hoá Kị xuống hạ cách",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "mo_rong",
+   "new_reading": "Hóa Kỵ trong tam phương (TT tr.24)",
+   "assumption": "câu liệt kê Kiếp, Không, Kị: một trong số đó là đủ",
+   "not_implemented_reason": "",
+   "variants": [
+    "CACH_X_CO_NGUYET_DONG_LUONG@tt_24"
+   ],
+   "variant_condition": "ky_trong_tam_phuong",
+   "before_after": {
+    "n_base_core": 1296,
+    "base_true": 92,
+    "var_true": 536,
+    "both_true": 92,
+    "base_only": 0,
+    "var_only": 444,
+    "unknown": 0
+   },
+   "regression_test": "engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample"
+  },
+  {
+   "id": "P09",
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "formation_key": "CNDL",
+   "name_vi": "Cơ Nguyệt Đồng Lương",
+   "role": "rescuers",
+   "condition": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "audit_status": "long_hon",
+   "cites": [
+    {
+     "id": "TH74_TAMHOA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "cần được cứu giải băng Tam hóa hội",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ khỏi mọi biến thể",
+   "assumption": "",
+   "not_implemented_reason": "Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này.",
+   "variants": [
+    "CACH_X_CO_NGUYET_DONG_LUONG@tt_24",
+    "CACH_X_CO_NGUYET_DONG_LUONG@kl_221"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P10",
+   "formation": "CACH_X_SAT_PHA_LIEM_THAM",
+   "formation_key": "SPLT",
+   "name_vi": "Sát Phá Liêm Tham",
+   "role": "breakers",
+   "condition": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "TH116_SPLT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 116,
+     "quote": "Sát phá Liêm Tham mà gặp Nhị tam Không, Linh Hỏa Kình Kỵ",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "chua",
+   "new_reading": "giữ đồng cung ở baseline",
+   "assumption": "cách đọc 'gặp' trong ngữ cảnh đại tiểu hạn, không xác định phạm vi trong bản cách → không mở rộng",
+   "not_implemented_reason": "cách đọc 'gặp' trong ngữ cảnh đại tiểu hạn, không xác định phạm vi trong bản cách → không mở rộng",
+   "variants": [],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P11",
+   "formation": "CACH_X_SAT_PHA_LIEM_THAM",
+   "formation_key": "SPLT",
+   "name_vi": "Sát Phá Liêm Tham",
+   "role": "rescuers",
+   "condition": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "audit_status": "long_hon",
+   "cites": [
+    {
+     "id": "TH74_TAMHOA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "cần được cứu giải băng Tam hóa hội",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ khỏi mọi biến thể",
+   "assumption": "",
+   "not_implemented_reason": "Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này.",
+   "variants": [
+    "CACH_X_SAT_PHA_LIEM_THAM@th_76_77"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P12",
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "formation_key": "NNTM",
+   "name_vi": "Nhật Nguyệt tịnh minh",
+   "role": "core",
+   "condition": "core",
+   "label": "Điều kiện lõi",
+   "audit_status": "long_hon",
+   "cites": [
+    {
+     "id": "TH72_NNTM",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Nhật, Nguyệt tinh minh cách (Nhật ở Thìn, Tỵ, Nguyệt ở Dậu, Tuất, mà Mệnh đóng ở Nguyệt hay Nhật đều tốt)",
+     "quote_check": "van_ban"
+    },
+    {
+     "id": "KL53_NN_TINHMINH",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 53,
+     "quote": "Nhật nguyệt thủ Mệnh bất như hợp chiếu tịnh minh",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "thu_hep",
+   "new_reading": "TH tr.72: Nhật Thìn/Tỵ, Nguyệt Dậu/Tuất, Mệnh ở Nhật hay Nguyệt; bản KL tr.53 giữ lõi hợp chiếu của baseline",
+   "assumption": "bản KL: 'hợp chiếu' mô hình là cả hai sao trong tam phương",
+   "not_implemented_reason": "",
+   "variants": [
+    "CACH_X_NHAT_NGUYET_TINH_MINH@th_72"
+   ],
+   "variant_condition": "core",
+   "before_after": {
+    "n_base_core": 2640,
+    "base_true": 2640,
+    "var_true": 384,
+    "both_true": 384,
+    "base_only": 2256,
+    "var_only": 0,
+    "unknown": 0
+   },
+   "regression_test": "engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample"
+  },
+  {
+   "id": "P13",
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "formation_key": "NNTM",
+   "name_vi": "Nhật Nguyệt tịnh minh",
+   "role": "rescuers",
+   "condition": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "audit_status": "long_hon",
+   "cites": [
+    {
+     "id": "TH74_TAMHOA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "cần được cứu giải băng Tam hóa hội",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ khỏi mọi biến thể",
+   "assumption": "",
+   "not_implemented_reason": "Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này.",
+   "variants": [
+    "CACH_X_NHAT_NGUYET_TINH_MINH@th_72",
+    "CACH_X_NHAT_NGUYET_TINH_MINH@kl_53_68"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P14",
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "formation_key": "NNTM",
+   "name_vi": "Nhật Nguyệt tịnh minh",
+   "role": "refutations",
+   "condition": "Thái_Dương_ham",
+   "label": "Thái Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "TH74_NN_TAN_HUNG",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "Nhật, Nguyệt hãm tại Mệnh không có cứu tinh, hoặc hãm mà gặp sát tinh (bần tiện cách số 7)",
+     "quote_check": "anh"
+    },
+    {
+     "id": "KL68_NN_KHOIVIET",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 68,
+     "quote": "chỉ mong được Khôi Việt chiếu mới là tốt đẹp",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "thay_the",
+   "new_reading": "KL tr.68: Nhật/Nguyệt hãm mà KHÔNG có Khôi/Việt chiếu mới là phản chứng",
+   "assumption": "'Khôi Việt chiếu' đọc là hội chiếu tam phương",
+   "not_implemented_reason": "",
+   "variants": [
+    "CACH_X_NHAT_NGUYET_TINH_MINH@kl_53_68"
+   ],
+   "variant_condition": "nhat_nguyet_ham_khong_khoi_viet",
+   "before_after": {
+    "n_base_core": 2640,
+    "base_true": 1344,
+    "var_true": 672,
+    "both_true": 648,
+    "base_only": 696,
+    "var_only": 24,
+    "unknown": 192
+   },
+   "regression_test": "engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample"
+  },
+  {
+   "id": "P15",
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "formation_key": "NNTM",
+   "name_vi": "Nhật Nguyệt tịnh minh",
+   "role": "refutations",
+   "condition": "Thái_Âm_ham",
+   "label": "Thái Âm ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "TH74_NN_TAN_HUNG",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "Nhật, Nguyệt hãm tại Mệnh không có cứu tinh, hoặc hãm mà gặp sát tinh (bần tiện cách số 7)",
+     "quote_check": "anh"
+    },
+    {
+     "id": "KL68_NN_KHOIVIET",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 68,
+     "quote": "chỉ mong được Khôi Việt chiếu mới là tốt đẹp",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "thay_the",
+   "new_reading": "như Thái Dương hãm (gộp một điều kiện cho cả hai sao)",
+   "assumption": "như trên",
+   "not_implemented_reason": "",
+   "variants": [
+    "CACH_X_NHAT_NGUYET_TINH_MINH@kl_53_68"
+   ],
+   "variant_condition": "nhat_nguyet_ham_khong_khoi_viet",
+   "before_after": {
+    "n_base_core": 2640,
+    "base_true": 912,
+    "var_true": 672,
+    "both_true": 456,
+    "base_only": 456,
+    "var_only": 216,
+    "unknown": 24
+   },
+   "regression_test": "engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample"
+  },
+  {
+   "id": "P16",
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "formation_key": "NNTM",
+   "name_vi": "Nhật Nguyệt tịnh minh",
+   "role": "refutations",
+   "condition": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "audit_status": "khac",
+   "cites": [
+    {
+     "id": "KL53_NN_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 53,
+     "quote": "rất cần Tuần không án ngữ ở Mệnh",
+     "quote_check": "van_ban"
+    },
+    {
+     "id": "KL85_NN_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 85,
+     "quote": "Thái dương hãm địa, cần gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ khỏi cả hai biến thể",
+   "assumption": "",
+   "not_implemented_reason": "KL tr.53 mục 11 và tr.85 coi Tuần/Triệt là điều kiện thuận cho Nhật Nguyệt/Thái Dương hãm",
+   "variants": [
+    "CACH_X_NHAT_NGUYET_TINH_MINH@th_72",
+    "CACH_X_NHAT_NGUYET_TINH_MINH@kl_53_68"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P17",
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "formation_key": "NLTT",
+   "name_vi": "Nhật lệ trung thiên",
+   "role": "breakers",
+   "condition": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "KL85_GHET",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 85,
+     "quote": "Thái dương ghét lũ Riêu, Đà, Kỵ",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "chua",
+   "new_reading": "giữ nguyên ở baseline",
+   "assumption": "KL tr.85 'ghét Kỵ' không nêu phạm vi",
+   "not_implemented_reason": "KL tr.85 'ghét Kỵ' không nêu phạm vi → không suy ra đồng cung",
+   "variants": [],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P18",
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "formation_key": "NLTT",
+   "name_vi": "Nhật lệ trung thiên",
+   "role": "rescuers",
+   "condition": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "audit_status": "long_hon",
+   "cites": [
+    {
+     "id": "TH74_TAMHOA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "cần được cứu giải băng Tam hóa hội",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ khỏi mọi biến thể",
+   "assumption": "",
+   "not_implemented_reason": "Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này.",
+   "variants": [
+    "CACH_X_NHAT_LE_TRUNG_THIEN@kl_52_85"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P19",
+   "formation": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "formation_key": "TTAN",
+   "name_vi": "Thạch trung ẩn ngọc",
+   "role": "refutations",
+   "condition": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "audit_status": "khac",
+   "cites": [
+    {
+     "id": "KL106_TTAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 106,
+     "quote": "Cự môn ở Tí Ngọ gặp Tuần Triệt là kỳ cách",
+     "quote_check": "van_ban"
+    },
+    {
+     "id": "TH43_TTAN",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 43,
+     "quote": "cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ phản chứng; ở bản KL tr.106/TH tr.43 Tuần/Triệt là điều kiện thuận nằm trong lõi",
+   "assumption": "'gặp' Tuần/Triệt đọc là cùng cung Mệnh",
+   "not_implemented_reason": "KL tr.106 và TH tr.43 coi Tuần/Triệt (hoặc Hóa Lộc) là điều kiện để ngọc lộ ra",
+   "variants": [
+    "CACH_X_THACH_TRUNG_AN_NGOC@kl_44",
+    "CACH_X_THACH_TRUNG_AN_NGOC@kl_58",
+    "CACH_X_THACH_TRUNG_AN_NGOC@kl_106"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P20",
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "formation_key": "MDDK",
+   "name_vi": "Mã đầu đới kiếm",
+   "role": "breakers",
+   "condition": "that_sat_trong_tam_phuong",
+   "label": "Thất Sát hội trong tam phương",
+   "audit_status": "long_hon",
+   "cites": [
+    {
+     "id": "KL64_MDDK_XAU",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 64,
+     "quote": "Mệnh ở Ngọ, có Kình dương, gặp Thất sát, Thiên hình đồng cung là cách kiếm kể cổ ngựa",
+     "quote_check": "van_ban"
+    },
+    {
+     "id": "KL60_MDDK_SAT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 60,
+     "quote": "có Thất sát Kình dương toạ thủ, lại thêm nhiều sát tinh hội chiếu",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "thu_hep",
+   "new_reading": "KL tr.64 mục 5: Thất Sát VÀ Thiên Hình ĐỒNG CUNG với Kình Dương",
+   "assumption": "",
+   "not_implemented_reason": "",
+   "variants": [
+    "CACH_X_MA_DAU_DOI_KIEM@kl_64_xau"
+   ],
+   "variant_condition": "that_sat_thien_hinh_dong_cung",
+   "before_after": {
+    "n_base_core": 192,
+    "base_true": 72,
+    "var_true": 4,
+    "both_true": 4,
+    "base_only": 68,
+    "var_only": 0,
+    "unknown": 0
+   },
+   "regression_test": "engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample"
+  },
+  {
+   "id": "P21",
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "formation_key": "MDDK",
+   "name_vi": "Mã đầu đới kiếm",
+   "role": "rescuers",
+   "condition": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "audit_status": "long_hon",
+   "cites": [
+    {
+     "id": "TH74_TAMHOA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "cần được cứu giải băng Tam hóa hội",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ khỏi mọi biến thể",
+   "assumption": "",
+   "not_implemented_reason": "Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này.",
+   "variants": [
+    "CACH_X_MA_DAU_DOI_KIEM@kl_64_xau",
+    "CACH_X_MA_DAU_DOI_KIEM@kl_64_tot"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P22",
+   "formation": "CACH_X_TAM_KY_GIA_HOI",
+   "formation_key": "TKGH",
+   "name_vi": "Tam kỳ gia hội",
+   "role": "breakers",
+   "condition": "ky_hoac_kinh_dong_cung",
+   "label": "Hóa Kỵ hoặc Kình Dương đồng cung với Mệnh",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "KL66_TKGH",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 66,
+     "quote": "Cung mệnh có Khoa, Quyền, Lộc hội họp mà lại bị Hóa kỵ, Kình dương đồng cung hoặc chiếu vào",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "mo_rong",
+   "new_reading": "KL tr.66: đồng cung HOẶC chiếu → đồng cung hoặc đối cung",
+   "assumption": "'chiếu' đọc hẹp là xung chiếu (đối cung); chưa mở ra tam phương vì câu sách không nói",
+   "not_implemented_reason": "",
+   "variants": [
+    "CACH_X_TAM_KY_GIA_HOI@kl_66"
+   ],
+   "variant_condition": "ky_kinh_dong_cung_hoac_doi_cung",
+   "before_after": {
+    "n_base_core": 472,
+    "base_true": 24,
+    "var_true": 92,
+    "both_true": 24,
+    "base_only": 0,
+    "var_only": 68,
+    "unknown": 0
+   },
+   "regression_test": "engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample"
+  },
+  {
+   "id": "P23",
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "formation_key": "KVGM",
+   "name_vi": "Khôi Việt giáp Mệnh",
+   "role": "breakers",
+   "condition": "sat_dong_cung",
+   "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "KL62_KV_SAT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 62,
+     "quote": "Cung mệnh có Khôi Việt lại bị sát tinh hội chiếu thì mang bệnh tật khó chữa khỏi",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "mo_rong",
+   "new_reading": "KL tr.62 mục 4: sát tinh HỘI CHIẾU → tam phương",
+   "assumption": "'hội chiếu' = tam phương (từ ngữ đã xác định phạm vi)",
+   "not_implemented_reason": "",
+   "variants": [
+    "CACH_X_KHOI_VIET_GIAP_MENH@kl_44_62"
+   ],
+   "variant_condition": "sat_tinh_hoi_chieu",
+   "before_after": {
+    "n_base_core": 384,
+    "base_true": 120,
+    "var_true": 352,
+    "both_true": 120,
+    "base_only": 0,
+    "var_only": 232,
+    "unknown": 0
+   },
+   "regression_test": "engine/tests/test_formation_proposals.py::test_relation_holds_on_the_sample"
+  },
+  {
+   "id": "P24",
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "formation_key": "KVGM",
+   "name_vi": "Khôi Việt giáp Mệnh",
+   "role": "breakers",
+   "condition": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "audit_status": "chat_hon",
+   "cites": [
+    {
+     "id": "KL62_KV_KY_HINH",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 62,
+     "quote": "lại không bị Hóa kỵ Thiên hình cản phá thì giàu sang lớn",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "chua",
+   "new_reading": "giữ đồng cung ở baseline",
+   "assumption": "KL tr.62 'cản phá' không nêu phạm vi",
+   "not_implemented_reason": "KL tr.62 'Hóa kỵ Thiên hình cản phá' không nêu phạm vi",
+   "variants": [],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  },
+  {
+   "id": "P25",
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "formation_key": "KVGM",
+   "name_vi": "Khôi Việt giáp Mệnh",
+   "role": "rescuers",
+   "condition": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "audit_status": "long_hon",
+   "cites": [
+    {
+     "id": "TH74_TAMHOA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "cần được cứu giải băng Tam hóa hội",
+     "quote_check": "van_ban"
+    }
+   ],
+   "relation": "bo",
+   "new_reading": "bỏ khỏi mọi biến thể",
+   "assumption": "",
+   "not_implemented_reason": "Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này.",
+   "variants": [
+    "CACH_X_KHOI_VIET_GIAP_MENH@kl_44_62"
+   ],
+   "variant_condition": null,
+   "before_after": null,
+   "regression_test": "engine/tests/test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants"
+  }
+ ]
+}

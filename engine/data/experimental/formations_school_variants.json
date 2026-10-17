@@ -250,13 +250,22 @@
     },
     {
      "id": "ky_quyen_dong_cung",
-     "label": "Hóa Kỵ và Hóa Quyền đồng cung với Tử Phủ (mưu cơ tài trí, KL tr.50)",
+     "label": "Mệnh ở Dần có Hóa Kỵ và Hóa Quyền đồng cung với Tử Phủ (mưu cơ tài trí, KL tr.50)",
      "when": {
-      "fact": "palace.rel.self_hoa",
-      "operator": "contains_all",
-      "value": [
-       "Hóa Kỵ",
-       "Hóa Quyền"
+      "all": [
+       {
+        "fact": "palace.branch",
+        "operator": "eq",
+        "value": "Dần"
+       },
+       {
+        "fact": "palace.rel.self_hoa",
+        "operator": "contains_all",
+        "value": [
+         "Hóa Kỵ",
+         "Hóa Quyền"
+        ]
+       }
       ]
      }
     }
@@ -306,7 +315,7 @@
    "experimental": true,
    "definition_version": 1,
    "provenance": "Biến thể theo Tử Vi Đẩu Số Toàn Thư: TT: Kiếp, Không, Hóa Kị trong tam hợp xung chiếu thì hạ cách. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
-   "note": "Sửa lỗi lá số đối chứng Hạng Võ / Mậu Tý: baseline chỉ tính đồng cung Mệnh. Tuần/Triệt không được TT p.24 nêu nên không là phá.",
+   "note": "Sửa lỗi lá số đối chứng Hạng Võ / Mậu Tý: baseline chỉ tính đồng cung Mệnh. Phạm vi tam phương do chính câu TT tr.24 nêu ('các cung tam hợp xung chiếu'). Tuần/Triệt không được TT p.24 nêu nên không là phá.",
    "boosters": [
     {
      "id": "cat_tinh_hoi",
@@ -352,7 +361,7 @@
    "refutations": []
   },
   {
-   "name_vi": "Cơ Nguyệt Đồng Lương — Tử Vi Khảo Luận (KL: hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc)",
+   "name_vi": "Cơ Nguyệt Đồng Lương — Tử Vi Khảo Luận (KL: hội Tả Hữu Quang Quý / Khoa Quyền Lộc, Khôi Việt, Xương Khúc)",
    "anchor": "Mệnh",
    "id": "CACH_X_CO_NGUYET_DONG_LUONG@kl_221",
    "core": {
@@ -372,7 +381,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "definition_version": 1,
-   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL: hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL: hội Tả Hữu Quang Quý / Khoa Quyền Lộc, Khôi Việt, Xương Khúc. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
    "note": "KL không nêu yếu tố phá cho CNDL, nên bản này không có breaker.",
    "boosters": [
     {
@@ -1174,6 +1183,14 @@
    "title": "KL: cần Tả Hữu, Xương Khúc",
    "cites": [
     {
+     "id": "TH72_TPVT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Tử, Phủ, Vũ, Tướng cách",
+     "read": "van_ban"
+    },
+    {
      "id": "KL132_TPVT_TAHUU",
      "book": "Tử Vi Khảo Luận",
      "book_code": "KL",
@@ -1199,7 +1216,10 @@
     }
    ],
    "readings": [
-    "KL p.132, p.193 không nêu phạm vi của Tả Hữu/Xương Khúc; baseline đọc là hội trong tam phương"
+    "4 sao trong tam phương của Mệnh là cách mô hình hóa; sách chỉ nêu tên cách, không nêu vị trí",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói Xương Khúc, baseline chấp nhận một trong hai",
+    "KL tr.222 nói về Vũ Tướng; áp cho cả cách là mở rộng"
    ],
    "kept": {
     "boosters": [
@@ -1252,6 +1272,40 @@
     "boosters.xuong_khuc_hoi": "co_nguon_con_gia_dinh",
     "refutations.tuan_triet_an_ngu": "co_nguon_con_gia_dinh"
    },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TH72_TPVT"
+     ],
+     "assumption": "4 sao trong tam phương của Mệnh là cách mô hình hóa; sách chỉ nêu tên cách, không nêu vị trí",
+     "audit_status": "khop"
+    },
+    "boosters.ta_huu_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL132_TPVT_TAHUU"
+     ],
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương",
+     "audit_status": "khop"
+    },
+    "boosters.xuong_khuc_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL193_TPVT_XK"
+     ],
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói Xương Khúc, baseline chấp nhận một trong hai",
+     "audit_status": "long_hon"
+    },
+    "refutations.tuan_triet_an_ngu": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL222_VT_TUAN"
+     ],
+     "assumption": "KL tr.222 nói về Vũ Tướng; áp cho cả cách là mở rộng",
+     "audit_status": "khop"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_TU_PHU_VU_TUONG@th_115": {
@@ -1294,7 +1348,9 @@
     }
    ],
    "readings": [
-    "TH p.115-116 viết về đại tiểu hạn; ở đây chỉ dùng như thước đo của bản cách"
+    "4 sao trong tam phương của Mệnh là cách mô hình hóa; sách chỉ nêu tên cách, không nêu vị trí",
+    "TH tr.115 nói về đại tiểu hạn, không về bản cách; phạm vi hội của sao không được câu sách nêu; đọc là tam phương",
+    "TH tr.94-95 nói về từng sao Phủ/Tướng, không về cả cách"
    ],
    "kept": {
     "boosters": [
@@ -1347,6 +1403,41 @@
     "boosters.loc_hoi": "co_nguon_con_gia_dinh",
     "refutations.tuan_triet_an_ngu": "co_nguon_con_gia_dinh"
    },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TH72_TPVT"
+     ],
+     "assumption": "4 sao trong tam phương của Mệnh là cách mô hình hóa; sách chỉ nêu tên cách, không nêu vị trí",
+     "audit_status": "khop"
+    },
+    "boosters.ta_huu_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TH115_TPVT"
+     ],
+     "assumption": "TH tr.115 nói về đại tiểu hạn, không về bản cách; phạm vi hội của sao không được câu sách nêu; đọc là tam phương",
+     "audit_status": "khop"
+    },
+    "boosters.loc_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TH115_TPVT"
+     ],
+     "assumption": "TH tr.115 nói về đại tiểu hạn, không về bản cách; phạm vi hội của sao không được câu sách nêu; đọc là tam phương",
+     "audit_status": "khop"
+    },
+    "refutations.tuan_triet_an_ngu": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TH94_PHU",
+      "TH95_TUONG"
+     ],
+     "assumption": "TH tr.94-95 nói về từng sao Phủ/Tướng, không về cả cách",
+     "audit_status": "khop"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_TU_PHU_DONG_CUNG@tt_22": {
@@ -1355,6 +1446,14 @@
    "school_vi": "Tử Vi Đẩu Số Toàn Thư",
    "title": "TT: vô sát tấu mới hưởng phúc",
    "cites": [
+    {
+     "id": "TH72_TPDC",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân)",
+     "read": "van_ban"
+    },
     {
      "id": "TT22_TPDC_SAT",
      "book": "Tử Vi Đẩu Số Toàn Thư",
@@ -1373,7 +1472,9 @@
     }
    ],
    "readings": [
-    "'gặp sát tinh' của TT p.22 được hiểu là đồng cung (cách hẹp nhất); sách không nêu phạm vi"
+    "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh; TT tr.22 còn nhắc Tỵ/Hợi mà mô hình không có Tử Phủ đồng cung ở đó",
+    "'gặp sát tinh' đọc là đồng cung (cách hẹp nhất); tập sáu sát tinh là của baseline",
+    "nguồn là KL, không phải TT; TT tr.22/tr.160 cùng ý 'hiềm Triệt Tuần' nhưng chưa trích"
    ],
    "kept": {
     "boosters": [],
@@ -1424,6 +1525,33 @@
     "breakers.sat_dong_cung": "co_nguon_con_gia_dinh",
     "refutations.tuan_triet_an_ngu": "co_nguon_con_gia_dinh"
    },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TH72_TPDC",
+      "TT22_TPDC_SAT"
+     ],
+     "assumption": "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh; TT tr.22 còn nhắc Tỵ/Hợi mà mô hình không có Tử Phủ đồng cung ở đó",
+     "audit_status": "chat_hon"
+    },
+    "breakers.sat_dong_cung": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TT22_TPDC_SAT"
+     ],
+     "assumption": "'gặp sát tinh' đọc là đồng cung (cách hẹp nhất); tập sáu sát tinh là của baseline",
+     "audit_status": "khac"
+    },
+    "refutations.tuan_triet_an_ngu": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL55_TP_TUAN"
+     ],
+     "assumption": "nguồn là KL, không phải TT; TT tr.22/tr.160 cùng ý 'hiềm Triệt Tuần' nhưng chưa trích",
+     "audit_status": "khop"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_TU_PHU_DONG_CUNG@kl_50": {
@@ -1432,6 +1560,22 @@
    "school_vi": "Tử Vi Khảo Luận",
    "title": "KL: Kình Dương hoặc Kỵ + Quyền đồng cung vẫn tốt",
    "cites": [
+    {
+     "id": "TH72_TPDC",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân)",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL55_TP_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 55,
+     "quote": "chỉ sợ Triệt Tuần án ngữ thì kém đi thôi",
+     "read": "van_ban"
+    },
     {
      "id": "KL50_TP_KINH",
      "book": "Tử Vi Khảo Luận",
@@ -1447,17 +1591,11 @@
      "page": 50,
      "quote": "Mệnh ở Dần có Hoá kỵ, Hóa quyền đồng cung với Tử Phủ là người mưu cơ tài trí",
      "read": "van_ban"
-    },
-    {
-     "id": "KL55_TP_TUAN",
-     "book": "Tử Vi Khảo Luận",
-     "book_code": "KL",
-     "page": 55,
-     "quote": "chỉ sợ Triệt Tuần án ngữ thì kém đi thôi",
-     "read": "van_ban"
     }
    ],
-   "readings": [],
+   "readings": [
+    "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh"
+   ],
    "kept": {
     "boosters": [
      "kinh_luc_si_dong_cung",
@@ -1510,9 +1648,44 @@
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
     "core": "co_nguon_con_gia_dinh",
+    "refutations.tuan_triet_an_ngu": "doi_chieu_truc_tiep",
     "boosters.kinh_luc_si_dong_cung": "doi_chieu_truc_tiep",
-    "boosters.ky_quyen_dong_cung": "doi_chieu_truc_tiep",
-    "refutations.tuan_triet_an_ngu": "doi_chieu_truc_tiep"
+    "boosters.ky_quyen_dong_cung": "doi_chieu_truc_tiep"
+   },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TH72_TPDC",
+      "KL55_TP_TUAN"
+     ],
+     "assumption": "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh",
+     "audit_status": "chat_hon"
+    },
+    "refutations.tuan_triet_an_ngu": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "KL55_TP_TUAN"
+     ],
+     "assumption": null,
+     "audit_status": "khop"
+    },
+    "boosters.kinh_luc_si_dong_cung": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "KL50_TP_KINH"
+     ],
+     "assumption": null,
+     "audit_status": "viet_moi_tu_trang_sach"
+    },
+    "boosters.ky_quyen_dong_cung": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "KL50_TP_KY"
+     ],
+     "assumption": null,
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
    },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
@@ -1531,6 +1704,14 @@
      "read": "van_ban"
     },
     {
+     "id": "TH77_CNDL",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 77,
+     "quote": "Nguyệt Đồng Lương hội Tả Hữu, Thai Cáo, Xương Khúc tất là hàng công chức",
+     "read": "van_ban"
+    },
+    {
      "id": "TT24_CNDL_BREAK",
      "book": "Tử Vi Đẩu Số Toàn Thư",
      "book_code": "TT",
@@ -1540,7 +1721,9 @@
     }
    ],
    "readings": [
-    "TT p.24 nói ngay trong câu 'Mệnh thân và các cung tam hợp xung chiếu': phạm vi = tam phương (đã xác định, không suy rộng)"
+    "TT tr.24 cho Mệnh hoặc Thân; mô hình chỉ neo ở Mệnh",
+    "tập sáu cát tinh và phạm vi hội là của baseline; sách chỉ nói 'cát tinh trợ lực'",
+    "câu liệt kê Kiếp, Không, Kị; hiểu là một trong số đó là đủ"
    ],
    "kept": {
     "boosters": [
@@ -1593,13 +1776,48 @@
     "breakers.khong_kiep_trong_tam_phuong": "co_nguon_con_gia_dinh",
     "breakers.ky_trong_tam_phuong": "co_nguon_con_gia_dinh"
    },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TT24_CNDL_CORE"
+     ],
+     "assumption": "TT tr.24 cho Mệnh hoặc Thân; mô hình chỉ neo ở Mệnh",
+     "audit_status": "khop"
+    },
+    "boosters.cat_tinh_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TT24_CNDL_CORE",
+      "TH77_CNDL"
+     ],
+     "assumption": "tập sáu cát tinh và phạm vi hội là của baseline; sách chỉ nói 'cát tinh trợ lực'",
+     "audit_status": "khop"
+    },
+    "breakers.khong_kiep_trong_tam_phuong": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TT24_CNDL_BREAK"
+     ],
+     "assumption": "câu liệt kê Kiếp, Không, Kị; hiểu là một trong số đó là đủ",
+     "audit_status": "viet_moi_tu_trang_sach"
+    },
+    "breakers.ky_trong_tam_phuong": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TT24_CNDL_BREAK"
+     ],
+     "assumption": "câu liệt kê Kiếp, Không, Kị; hiểu là một trong số đó là đủ",
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_CO_NGUYET_DONG_LUONG@kl_221": {
    "base": "CACH_X_CO_NGUYET_DONG_LUONG",
    "school": "kl",
    "school_vi": "Tử Vi Khảo Luận",
-   "title": "KL: hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc",
+   "title": "KL: hội Tả Hữu Quang Quý / Khoa Quyền Lộc, Khôi Việt, Xương Khúc",
    "cites": [
     {
      "id": "KL51_CNDL",
@@ -1610,16 +1828,26 @@
      "read": "van_ban"
     },
     {
-     "id": "KL221_SPLT",
+     "id": "KL221_CNDL_CAT",
      "book": "Tử Vi Khảo Luận",
      "book_code": "KL",
      "page": 221,
-     "quote": "Sát Phá Tham ở Mệnh là những người tích cực trong cuộc sống",
+     "quote": "cơ Nguyệt Đồng Lương hội với Tả Hữu Quang Quí, Thiên quan",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL221_CNDL_KQL",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 221,
+     "quote": "Quyền Lộc, Khôi Việt, Xương khúc thì làm giáo sư danh tiếng",
      "read": "van_ban"
     }
    ],
    "readings": [
-    "KL p.221 được đọc từ ảnh trang (lớp chữ hỏng)"
+    "KL tr.51 chỉ nói 'hội chiếu'; mô hình neo ở Mệnh, tam phương",
+    "tập sáu cát tinh của baseline khác danh sách của KL (Tả Hữu Quang Quý Thiên quan); phạm vi hội không nêu",
+    "chữ 'Khoa' mất ở lớp chữ của trang (đọc bổ sung từ ảnh); phạm vi hội không nêu"
    ],
    "kept": {
     "boosters": [
@@ -1664,6 +1892,32 @@
     "boosters.cat_tinh_hoi": "co_nguon_con_gia_dinh",
     "boosters.khoa_quyen_loc_hoi": "co_nguon_con_gia_dinh"
    },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL51_CNDL"
+     ],
+     "assumption": "KL tr.51 chỉ nói 'hội chiếu'; mô hình neo ở Mệnh, tam phương",
+     "audit_status": "khop"
+    },
+    "boosters.cat_tinh_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL221_CNDL_CAT"
+     ],
+     "assumption": "tập sáu cát tinh của baseline khác danh sách của KL (Tả Hữu Quang Quý Thiên quan); phạm vi hội không nêu",
+     "audit_status": "khop"
+    },
+    "boosters.khoa_quyen_loc_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL221_CNDL_KQL"
+     ],
+     "assumption": "chữ 'Khoa' mất ở lớp chữ của trang (đọc bổ sung từ ảnh); phạm vi hội không nêu",
+     "audit_status": "khop"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_SAT_PHA_LIEM_THAM@th_76_77": {
@@ -1706,8 +1960,9 @@
     }
    ],
    "readings": [
-    "'nhiều' sát tinh của TH p.77 → ngưỡng 3 sát tinh + Hóa Kỵ là QUY ƯỚC THIẾT KẾ, không phải số của sách",
-    "'3 trong 4 sao' của lõi cũng là quy ước"
+    "tên cách ở TH tr.72 đọc từ ảnh; ngưỡng 3 trong 4 sao là quy ước thiết kế",
+    "sách đòi Khoa Quyền Lộc, baseline chấp nhận Khoa hoặc Quyền; phạm vi hội không nêu",
+    "'nhiều' sát tinh → ngưỡng 3 sát tinh + Hóa Kỵ là quy ước thiết kế"
    ],
    "kept": {
     "boosters": [
@@ -1764,9 +2019,36 @@
    "core_replaced": false,
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
-    "core": "co_nguon_con_gia_dinh",
+    "core": "chua_du_nguon",
     "boosters.khoa_quyen_hoi": "co_nguon_con_gia_dinh",
-    "breakers.ba_sat_va_ky_trong_tam_phuong": "co_nguon_con_gia_dinh"
+    "breakers.ba_sat_va_ky_trong_tam_phuong": "chua_du_nguon"
+   },
+   "rule_detail": {
+    "core": {
+     "level": "chua_du_nguon",
+     "cites": [
+      "TH72_SPLT"
+     ],
+     "assumption": "tên cách ở TH tr.72 đọc từ ảnh; ngưỡng 3 trong 4 sao là quy ước thiết kế",
+     "audit_status": "lien_quan"
+    },
+    "boosters.khoa_quyen_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TH76_CATTINH"
+     ],
+     "assumption": "sách đòi Khoa Quyền Lộc, baseline chấp nhận Khoa hoặc Quyền; phạm vi hội không nêu",
+     "audit_status": "khop"
+    },
+    "breakers.ba_sat_va_ky_trong_tam_phuong": {
+     "level": "chua_du_nguon",
+     "cites": [
+      "TH77_SPLT_HA",
+      "TH116_SPLT"
+     ],
+     "assumption": "'nhiều' sát tinh → ngưỡng 3 sát tinh + Hóa Kỵ là quy ước thiết kế",
+     "audit_status": "chat_hon"
+    }
    },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
@@ -1791,9 +2073,20 @@
      "page": 142,
      "quote": "Thái Dương đều đứng ở miếu vượng địa chiếu sáng",
      "read": "van_ban"
+    },
+    {
+     "id": "TH74_NN_TAN_HUNG",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "Nhật, Nguyệt hãm tại Mệnh không có cứu tinh, hoặc hãm mà gặp sát tinh (bần tiện cách số 7)",
+     "read": "anh"
     }
    ],
-   "readings": [],
+   "readings": [
+    "nguồn là TT ('miếu vượng'); baseline dùng ngưỡng từ đắc trở lên",
+    "trang TH tr.74 đọc từ ảnh; tập sáu sát tinh và phạm vi tam phương là của baseline"
+   ],
    "kept": {
     "boosters": [
      "nhat_nguyet_deu_sang"
@@ -1855,8 +2148,34 @@
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
     "core": "doi_chieu_truc_tiep",
-    "boosters.nhat_nguyet_deu_sang": "doi_chieu_truc_tiep",
-    "breakers.nhat_nguyet_ham_gap_sat": "co_nguon_con_gia_dinh"
+    "boosters.nhat_nguyet_deu_sang": "co_nguon_con_gia_dinh",
+    "breakers.nhat_nguyet_ham_gap_sat": "chua_du_nguon"
+   },
+   "rule_detail": {
+    "core": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "TH72_NNTM"
+     ],
+     "assumption": null,
+     "audit_status": "viet_moi_tu_trang_sach"
+    },
+    "boosters.nhat_nguyet_deu_sang": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TT142_NNTM"
+     ],
+     "assumption": "nguồn là TT ('miếu vượng'); baseline dùng ngưỡng từ đắc trở lên",
+     "audit_status": "khop"
+    },
+    "breakers.nhat_nguyet_ham_gap_sat": {
+     "level": "chua_du_nguon",
+     "cites": [
+      "TH74_NN_TAN_HUNG"
+     ],
+     "assumption": "trang TH tr.74 đọc từ ảnh; tập sáu sát tinh và phạm vi tam phương là của baseline",
+     "audit_status": "khop"
+    }
    },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
@@ -1892,7 +2211,10 @@
     }
    ],
    "readings": [
-    "'Khôi Việt chiếu' (KL p.68) được đọc là hội chiếu = tam phương"
+    "'hợp chiếu' mô hình là cả hai sao trong tam phương",
+    "KL nói 'đắc địa'; baseline ngưỡng từ đắc trở lên",
+    "KL liệt kê Kình Đà Không Kiếp; baseline dùng sáu sát tinh; 'gặp' không nêu phạm vi",
+    "'Khôi Việt chiếu' đọc là hội chiếu tam phương"
    ],
    "kept": {
     "boosters": [
@@ -1961,6 +2283,40 @@
     "breakers.nhat_nguyet_ham_gap_sat": "co_nguon_con_gia_dinh",
     "refutations.nhat_nguyet_ham_khong_khoi_viet": "co_nguon_con_gia_dinh"
    },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL53_NN_TINHMINH"
+     ],
+     "assumption": "'hợp chiếu' mô hình là cả hai sao trong tam phương",
+     "audit_status": "long_hon"
+    },
+    "boosters.nhat_nguyet_deu_sang": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL53_NN_TINHMINH"
+     ],
+     "assumption": "KL nói 'đắc địa'; baseline ngưỡng từ đắc trở lên",
+     "audit_status": "khop"
+    },
+    "breakers.nhat_nguyet_ham_gap_sat": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL56_NN_HAM"
+     ],
+     "assumption": "KL liệt kê Kình Đà Không Kiếp; baseline dùng sáu sát tinh; 'gặp' không nêu phạm vi",
+     "audit_status": "khop"
+    },
+    "refutations.nhat_nguyet_ham_khong_khoi_viet": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL68_NN_KHOIVIET"
+     ],
+     "assumption": "'Khôi Việt chiếu' đọc là hội chiếu tam phương",
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_NHAT_LE_TRUNG_THIEN@kl_52_85": {
@@ -1995,7 +2351,8 @@
     }
    ],
    "readings": [
-    "KL p.85 'thích' không nêu phạm vi; baseline đọc là hội trong tam phương"
+    "'thích' không nêu phạm vi; sách kể Khoa Quyền Lộc, baseline chấp nhận Khoa hoặc Quyền",
+    "'thích' không nêu phạm vi; đọc là tam phương"
    ],
    "kept": {
     "boosters": [
@@ -2046,9 +2403,36 @@
    "core_replaced": false,
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
-    "core": "co_nguon_con_gia_dinh",
+    "core": "doi_chieu_truc_tiep",
     "boosters.khoa_quyen_hoi": "co_nguon_con_gia_dinh",
     "boosters.xuong_khuc_hoi": "co_nguon_con_gia_dinh"
+   },
+   "rule_detail": {
+    "core": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "TH72_NLTT",
+      "KL52_NLTT"
+     ],
+     "assumption": null,
+     "audit_status": "khop"
+    },
+    "boosters.khoa_quyen_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL85_NLTT"
+     ],
+     "assumption": "'thích' không nêu phạm vi; sách kể Khoa Quyền Lộc, baseline chấp nhận Khoa hoặc Quyền",
+     "audit_status": "khop"
+    },
+    "boosters.xuong_khuc_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL85_NLTT"
+     ],
+     "assumption": "'thích' không nêu phạm vi; đọc là tam phương",
+     "audit_status": "khop"
+    }
    },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
@@ -2110,6 +2494,16 @@
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
     "core": "doi_chieu_truc_tiep"
+   },
+   "rule_detail": {
+    "core": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "KL44_TTAN"
+     ],
+     "assumption": null,
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
    },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
@@ -2182,6 +2576,17 @@
    "rules": {
     "core": "co_nguon_con_gia_dinh"
    },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL58_TTAN",
+      "TT142_KQL"
+     ],
+     "assumption": "'tam hợp chiếu' được mô hình là tam phương tứ chính (gồm cả đồng cung và đối cung)",
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_THACH_TRUNG_AN_NGOC@kl_106": {
@@ -2253,6 +2658,17 @@
    "rules": {
     "core": "co_nguon_con_gia_dinh"
    },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL106_TTAN",
+      "TH43_TTAN"
+     ],
+     "assumption": "'gặp' Tuần/Triệt/Hóa Lộc được hiểu hẹp nhất là cùng cung Mệnh; sách không nêu phạm vi",
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_MA_DAU_DOI_KIEM@kl_64_xau": {
@@ -2267,14 +2683,6 @@
      "book_code": "KL",
      "page": 64,
      "quote": "Mệnh ở Ngọ, có Kình dương, gặp Thất sát, Thiên hình đồng cung là cách kiếm kể cổ ngựa",
-     "read": "van_ban"
-    },
-    {
-     "id": "KL60_MDDK_SAT",
-     "book": "Tử Vi Khảo Luận",
-     "book_code": "KL",
-     "page": 60,
-     "quote": "có Thất sát Kình dương toạ thủ, lại thêm nhiều sát tinh hội chiếu",
      "read": "van_ban"
     }
    ],
@@ -2335,6 +2743,24 @@
     "core": "doi_chieu_truc_tiep",
     "breakers.that_sat_thien_hinh_dong_cung": "doi_chieu_truc_tiep"
    },
+   "rule_detail": {
+    "core": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "KL64_MDDK_XAU"
+     ],
+     "assumption": null,
+     "audit_status": "khop"
+    },
+    "breakers.that_sat_thien_hinh_dong_cung": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "KL64_MDDK_XAU"
+     ],
+     "assumption": null,
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_MA_DAU_DOI_KIEM@kl_64_tot": {
@@ -2353,7 +2779,7 @@
     }
    ],
    "readings": [
-    "'xa lánh' = không đồng cung; 'gặp Khoa Quyền Lộc' = hội chiếu cả ba (sách không nêu phạm vi rõ hơn)"
+    "'xa lánh' = không đồng cung; 'gặp Khoa Quyền Lộc' = hội chiếu cả ba; sách không nêu phạm vi rõ hơn"
    ],
    "kept": {
     "boosters": [
@@ -2408,8 +2834,26 @@
    "core_replaced": false,
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
-    "core": "co_nguon_con_gia_dinh",
+    "core": "doi_chieu_truc_tiep",
     "boosters.khoa_quyen_loc_xa_sat_hinh": "co_nguon_con_gia_dinh"
+   },
+   "rule_detail": {
+    "core": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "KL64_MDDK_TOT"
+     ],
+     "assumption": null,
+     "audit_status": "khop"
+    },
+    "boosters.khoa_quyen_loc_xa_sat_hinh": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL64_MDDK_TOT"
+     ],
+     "assumption": "'xa lánh' = không đồng cung; 'gặp Khoa Quyền Lộc' = hội chiếu cả ba; sách không nêu phạm vi rõ hơn",
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
    },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
@@ -2437,6 +2881,7 @@
     }
    ],
    "readings": [
+    "'hội họp' mô hình là cả ba Hóa trong tam phương",
     "'chiếu' được hiểu là xung chiếu (đối cung) — cách hẹp nhất cho chữ 'chiếu'; chưa mở ra toàn tam phương vì sách không nói"
    ],
    "kept": {
@@ -2485,6 +2930,25 @@
     "core": "co_nguon_con_gia_dinh",
     "breakers.ky_kinh_dong_cung_hoac_doi_cung": "co_nguon_con_gia_dinh"
    },
+   "rule_detail": {
+    "core": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL66_TKGH",
+      "TT142_KQL"
+     ],
+     "assumption": "'hội họp' mô hình là cả ba Hóa trong tam phương",
+     "audit_status": "khop"
+    },
+    "breakers.ky_kinh_dong_cung_hoac_doi_cung": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL66_TKGH"
+     ],
+     "assumption": "'chiếu' được hiểu là xung chiếu (đối cung) — cách hẹp nhất cho chữ 'chiếu'; chưa mở ra toàn tam phương vì sách không nói",
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
+   },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   },
   "CACH_X_KHOI_VIET_GIAP_MENH@kl_44_62": {
@@ -2519,7 +2983,8 @@
     }
    ],
    "readings": [
-    "'hội chiếu' của KL p.62 mục 4 = tam phương (từ ngữ hội chiếu đã xác định phạm vi)"
+    "KL nói 'đồng cung hay hội chiếu' cùng Lộc Tồn; baseline tam phương, không đòi Lộc Tồn",
+    "'hội chiếu' = tam phương (từ ngữ đã xác định phạm vi); tập sát tinh sáu sao là của baseline"
    ],
    "kept": {
     "boosters": [
@@ -2576,9 +3041,35 @@
    "core_replaced": false,
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
-    "core": "co_nguon_con_gia_dinh",
+    "core": "doi_chieu_truc_tiep",
     "boosters.xuong_khuc_hoi": "co_nguon_con_gia_dinh",
     "breakers.sat_tinh_hoi_chieu": "co_nguon_con_gia_dinh"
+   },
+   "rule_detail": {
+    "core": {
+     "level": "doi_chieu_truc_tiep",
+     "cites": [
+      "KL44_KVGM"
+     ],
+     "assumption": null,
+     "audit_status": "khop"
+    },
+    "boosters.xuong_khuc_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL62_KV_XUONGKHUC"
+     ],
+     "assumption": "KL nói 'đồng cung hay hội chiếu' cùng Lộc Tồn; baseline tam phương, không đòi Lộc Tồn",
+     "audit_status": "khop"
+    },
+    "breakers.sat_tinh_hoi_chieu": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL62_KV_SAT"
+     ],
+     "assumption": "'hội chiếu' = tam phương (từ ngữ đã xác định phạm vi); tập sát tinh sáu sao là của baseline",
+     "audit_status": "viet_moi_tu_trang_sach"
+    }
    },
    "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
   }

@@ -60,8 +60,8 @@ def main():
         L.append(f"| `{vid.split('CACH_X_')[1]}` | {pages} | {', '.join(kept) or '—'} | "
                  f"{'lõi theo sách' if m['core_replaced'] else 'như gốc'} | {'; '.join(m['readings']) or '—'} |")
     L += ["", f"Mức xác minh theo TỪNG QUY TẮC (không nâng cả cách): **{rules.count('doi_chieu_truc_tiep')}** quy tắc `doi_chieu_truc_tiep` "
-          f"(câu trích đã được máy so với trang và không cần giả định phạm vi), **{rules.count('co_nguon_con_gia_dinh')}** quy tắc `co_nguon_con_gia_dinh` "
-          "(có nguồn nhưng còn giả định về phạm vi/ngưỡng hoặc trang đọc từ ảnh). Đây là đối chiếu của phiên AI, chưa có thẩm định của chuyên gia Tử Vi nên cả hai mức đều chưa phải `verified` ở cấp cách cục.", ""]
+          f"(câu trích đã được máy so với trang, không cần giả định), **{rules.count('co_nguon_con_gia_dinh')}** quy tắc `co_nguon_con_gia_dinh` "
+          f"(có nguồn nhưng còn giả định về phạm vi/ngưỡng), **{rules.count('chua_du_nguon')}** quy tắc `chua_du_nguon` (trang đọc từ ảnh hoặc quy ước thiết kế). Đây là đối chiếu của phiên AI, chưa có thẩm định của chuyên gia Tử Vi nên không mức nào là `verified` ở cấp cách cục.", ""]
     L += ["## 3. Bảng 93 điều kiện sau hiệu chỉnh", "", "| Cách | Vai trò | Điều kiện | Mức khớp (audit) | Số phận sau hiệu chỉnh |", "|---|---|---|---|---|"]
     for r in rows:
         L.append(f"| {r['name_vi']} | {au.ROLE_VI[r['role']]} | `{r['id']}` | {au.STATUS_VI[r['status']]} | {fate(r)} |")
