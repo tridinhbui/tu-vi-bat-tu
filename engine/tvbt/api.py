@@ -301,6 +301,10 @@ def dignity_table():
     return json.loads((ROOT / "data" / "dignity_vn.json").read_text("utf-8"))
 
 
+from . import formation_api  # noqa: E402  (opt-in draft cách-cục explanations)
+formation_api.register(app, BirthReq, _compute)
+
+
 @app.get("/library")
 def library():
     return FileResponse(ROOT / "web" / "library.html")

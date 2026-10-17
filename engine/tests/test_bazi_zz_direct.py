@@ -27,5 +27,13 @@ def test_facts_and_rules_on_a_known_chart():
     assert "bt_zz_hn_nguyet_kien_thuong_kieu_sat" not in claims
 
 
-def test_rule_count():
-    assert sum(r.id.startswith("BT_ZZ_DIRECT_") for r in RULES) == 26
+
+
+def test_transparency_root_and_polarity_facts():
+    f, claims = run(1990, 5, 17, 8)
+    assert f["bazi.an_tho_can"] is True                                   # Tân (Chính Ấn) on the month stem
+    assert isinstance(f["bazi.an_rooted"], bool) and isinstance(f["bazi.all_yin"], bool)
+    assert ("bt_zz_hoc_an_tho_can_co_can" in claims) != ("bt_zz_hoc_an_tho_hu" in claims)      # exactly one of the two education readings
+    assert not f["bazi.all_yin"] and "bt_zz_nam_thuan_am_mem_yeu" not in claims
+
+

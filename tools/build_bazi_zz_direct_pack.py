@@ -34,6 +34,18 @@ add("D_HURT", eq("bazi.day_branch_hurt", True), "bt_zz_hn_nhat_chi_hinh_xung", "
 add("D_QUAN_SAT", inn("bazi.day_main_god", ["Chính Quan", "Thất Sát"]), "bt_zz_hn_nhat_chi_quan_sat", "p.57", "người phối ngẫu có sức ràng buộc mạnh, hay hạn chế mình (nhật chi là Quan hoặc Sát)", "limit", cat="marriage")
 add("D_TAI", inn("bazi.day_main_god", ["Thiên Tài", "Chính Tài"]), "bt_zz_hn_nhat_chi_tai", "p.57", "được lợi về tiền của nhờ người phối ngẫu (nhật chi là Tài)", cat="marriage")
 add("D_THUC_THUONG", inn("bazi.day_main_god", ["Thực Thần", "Thương Quan"]), "bt_zz_hn_nhat_chi_thuc_thuong", "p.57", "người phối ngẫu tốn kém tiền của (nhật chi là Thực hoặc Thương)", "limit", cat="marriage")
+G = lambda g: eq("chart.gender", g)
+add("W_CHINH_TAI_ROOT", {"all": [eq("bazi.chinh_tai_tho_can", True), eq("bazi.chinh_tai_rooted", True)]}, "bt_zz_tai_chinh_tai_tho_can_co_can", "p.50", "tài vận tốt (Chính Tài thấu can và có gốc)", cat="wealth")
+add("W_THIEN_TAI_TD", eq("bazi.thien_tai_tho_can", True), "bt_zz_tai_thien_tai_tho_can_tieu_nhieu", "p.50", "tiêu xài mạnh tay (Thiên Tài thấu can)", "limit", cat="wealth")
+add("W_THIEN_TAI_ROOT", {"all": [eq("bazi.thien_tai_tho_can", True), eq("bazi.thien_tai_rooted", True)]}, "bt_zz_tai_thien_tai_tho_can_co_can", "p.50", "tài vận tốt (Thiên Tài thấu can và có gốc)", cat="wealth")
+add("W_NO_STAR", eq("bazi.no_wealth_star", True), "bt_zz_tai_khong_hien_xem_thuc_thuong", "p.50", "tài tinh không hiện: phải xét thêm Thực, Thương để luận tài vận", cat="wealth")
+add("E_AN_ROOT", {"all": [eq("bazi.an_tho_can", True), eq("bazi.an_rooted", True)]}, "bt_zz_hoc_an_tho_can_co_can", "p.56", "học vấn, bằng cấp cao (Ấn thấu can có gốc)", cat="education")
+add("E_AN_VOID", {"all": [eq("bazi.an_tho_can", True), eq("bazi.an_rooted", False)]}, "bt_zz_hoc_an_tho_hu", "p.56", "học vấn ở mức bình thường (Ấn thấu can nhưng không có gốc)", cat="education")
+add("O_QUAN_SAT_ROOT", eq("bazi.quan_sat_both_rooted", True), "bt_zz_quan_quan_sat_deu_tho_co_can", "p.52", "một người đảm nhiều chức vụ (Quan và Sát đều thấu can, có gốc)", cat="career")
+add("S_PURE_YIN_M", {"all": [eq("bazi.all_yin", True), G("male")]}, "bt_zz_nam_thuan_am_mem_yeu", "p.59", "tính mềm, thiếu quyết đoán (nam mệnh thuần âm: kiểu 'nam hóa nữ')", "limit", "draft", cat="character")
+add("S_PURE_YANG_F", {"all": [eq("bazi.all_yang", True), G("female")]}, "bt_zz_nu_thuan_duong_cuong", "p.59", "tính mạnh mẽ, quyết đoán (nữ mệnh thuần dương: kiểu 'nữ cường nhân')", status="draft", cat="character")
+add("S_TMM_YIN_M", {"all": [eq("bazi.tmm_all_yin", True), G("male")]}, "bt_zz_nam_thai_than_menh_am", "p.59", "tính mềm, nặng về tình (nam mệnh thai, thân, mệnh đều âm)", "limit", "draft", cat="character")
+add("S_TMM_YANG_F", {"all": [eq("bazi.tmm_all_yang", True), G("female")]}, "bt_zz_nu_thai_than_menh_duong", "p.59", "tính mạnh mẽ (nữ mệnh thai, thân, mệnh đều dương)", status="draft", cat="character")
 slug = lambda t: unicodedata.normalize("NFD", t.replace("Đ", "D").replace("đ", "d")).encode("ascii", "ignore").decode().upper()
 rules, claims = [], {}
 for rid, cond, claim, page, vi, tone, status, cat in R:

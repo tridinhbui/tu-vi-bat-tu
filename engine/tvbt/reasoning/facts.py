@@ -95,11 +95,34 @@ def _zz_direct_facts(c: BaziChart) -> dict:
     hour, month, day = c.pillars["hour"], c.pillars["month"], c.pillars["day"]
     branches = {p.branch for p in c.pillars.values()}
     stems = {p.stem for p in c.pillars.values()}
+    # 透干 / 通根 (八字真宗 pp.50-53, 56): a ten god is 'transparent' when a non-day stem carries it, 'rooted' when some branch hides a stem of the same element
+    hidden_el = {STEM_ELEMENT[h["stem"]] for p in c.pillars.values() for h in p.hidden}
+    carried = {}
+    for k, p in c.pillars.items():
+        if k != "day" and p.stem_ten_god:
+            carried.setdefault(p.stem_ten_god, []).append(STEM_ELEMENT[p.stem])
+    transparent = lambda g: g in carried
+    rooted = lambda g: any(e in hidden_el for e in carried.get(g, []))
+    all_hidden_gods = {h["ten_god"] for p in c.pillars.values() for h in p.hidden} | set(carried)
+    yin = lambda stem_i, br_i: stem_i % 2 == 1 and br_i % 2 == 1
+    chars = [(p.stem, p.branch) for p in c.pillars.values()]
+    tmm = []
+    for key in ("thai_yuan", "ming_gong", "shen_gong"):
+        s_n, b_n = c.extras[key].split()
+        tmm.append((STEMS_VI.index(s_n), BRANCHES_VI.index(b_n)))
     return {"bazi.hour_stem": STEMS_VI[hour.stem], "bazi.hour_stem_group": TEN_GOD_GROUP.get(hour.stem_ten_god or ""),
             "bazi.month_main_god": month.hidden[0]["ten_god"], "bazi.day_main_god": day.hidden[0]["ten_god"],
             "bazi.month_branch_hurt": bad("month"), "bazi.day_branch_hurt": bad("day"), "bazi.month_branch_combined": where("branch_six_combine", "month"),
             "bazi.month_branch_kong": "month" in c.extras.get("kong_wang_in_chart", []),
-            "bazi.has_yin_shen_jia": {2, 8} <= branches and 0 in stems}
+            "bazi.has_yin_shen_jia": {2, 8} <= branches and 0 in stems,
+            "bazi.chinh_tai_tho_can": transparent("Chính Tài"), "bazi.chinh_tai_rooted": rooted("Chính Tài"),
+            "bazi.thien_tai_tho_can": transparent("Thiên Tài"), "bazi.thien_tai_rooted": rooted("Thiên Tài"),
+            "bazi.no_wealth_star": not ({"Chính Tài", "Thiên Tài"} & all_hidden_gods),
+            "bazi.an_tho_can": transparent("Chính Ấn") or transparent("Thiên Ấn"),
+            "bazi.an_rooted": rooted("Chính Ấn") or rooted("Thiên Ấn"),
+            "bazi.quan_sat_both_rooted": all(transparent(g) and rooted(g) for g in ("Chính Quan", "Thất Sát")),
+            "bazi.all_yin": all(x % 2 == 1 for sb in chars for x in sb), "bazi.all_yang": all(x % 2 == 0 for sb in chars for x in sb),
+            "bazi.tmm_all_yin": all(x % 2 == 1 for sb in tmm for x in sb), "bazi.tmm_all_yang": all(x % 2 == 0 for sb in tmm for x in sb)}
 
 
 def bazi_facts(c: BaziChart, zz: bool = False) -> dict[str, dict]:

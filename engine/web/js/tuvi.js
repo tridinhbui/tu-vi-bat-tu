@@ -137,5 +137,27 @@ export function renderTuvi(host, t, ctx) {
 
   // Đại hạn timeline for the report
   const timelineHtml = timeline(t.dai_han.map(d => ({ title: `<span class="tl-han">${esc(d.palace)}</span>`, sub: `${esc(d.stem)} ${esc(d.branch)}`, meta: `${d.age_from}–${d.age_to} tuổi`, current: false })), { label: 'Đại hạn Tử Vi' });
-  return { select: name => { const p = byName[name]; if (p) { select(p.branch_index); $('#tv-board', host).scrollIntoView({ behavior: 'smooth', block: 'center' }); } }, byName, menh, than, timelineHtml };
+  // Experimental cách-cục conditions: light up the stars and palaces that satisfy one condition.
+  const bar = document.createElement('div'); bar.className = 'cx-bar'; bar.hidden = true;
+  bar.innerHTML = '<span class="cx-t"></span><button type="button" class="link cx-x">Bỏ tô sáng</button>';
+  $('.tv-main', host).prepend(bar);
+  function clearHighlight() {
+    $$('.cx-pal,.cx-star', host).forEach(e => e.classList.remove('cx-pal', 'cx-star'));
+    bar.hidden = true;
+  }
+  function highlight(items, label = '') {
+    clearHighlight();
+    $('.tv-toggle button[data-v=full]', host)?.click();
+    const pals = new Set();
+    items.forEach(it => {
+      const p = byName[it.palace]; if (!p) return;
+      pals.add(p.branch_index);
+      if (it.star) $$(`.pal[data-i="${p.branch_index}"] .st`, host).filter(e => e.dataset.gl === `star:${it.star}`).forEach(e => e.classList.add('cx-star'));
+    });
+    pals.forEach(i => $$(`.pal[data-i="${i}"],.tv-ov button[data-i="${i}"]`, host).forEach(e => e.classList.add('cx-pal')));
+    $('.cx-t', bar).textContent = `Đang tô sáng: ${label || 'điều kiện đã chọn'}`; bar.hidden = false;
+    $('.tv-main', host).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  $('.cx-x', bar).onclick = clearHighlight;
+  return { highlight, clearHighlight, select: name => { const p = byName[name]; if (p) { select(p.branch_index); $('#tv-board', host).scrollIntoView({ behavior: 'smooth', block: 'center' }); } }, byName, menh, than, timelineHtml };
 }

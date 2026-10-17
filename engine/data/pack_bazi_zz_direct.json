@@ -755,6 +755,378 @@
    "reviewStatus": "verified",
    "version": "0.1.0",
    "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_W_CHINH_TAI_ROOT",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_wealth",
+   "description": "八字真宗 直断 (paraphrased): tài vận tốt (Chính Tài thấu can và có gốc) [PDF p.50]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.chinh_tai_tho_can",
+      "value": true
+     },
+     {
+      "fact": "bazi.chinh_tai_rooted",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_tai_chinh_tai_tho_can_co_can",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_W_THIEN_TAI_TD",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_wealth",
+   "description": "八字真宗 直断 (paraphrased): tiêu xài mạnh tay (Thiên Tài thấu can) [PDF p.50]",
+   "conditions": {
+    "fact": "bazi.thien_tai_tho_can",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_tai_thien_tai_tho_can_tieu_nhieu",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_W_THIEN_TAI_ROOT",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_wealth",
+   "description": "八字真宗 直断 (paraphrased): tài vận tốt (Thiên Tài thấu can và có gốc) [PDF p.50]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.thien_tai_tho_can",
+      "value": true
+     },
+     {
+      "fact": "bazi.thien_tai_rooted",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_tai_thien_tai_tho_can_co_can",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_W_NO_STAR",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_wealth",
+   "description": "八字真宗 直断 (paraphrased): tài tinh không hiện: phải xét thêm Thực, Thương để luận tài vận [PDF p.50]",
+   "conditions": {
+    "fact": "bazi.no_wealth_star",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_tai_khong_hien_xem_thuc_thuong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_E_AN_ROOT",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_education",
+   "description": "八字真宗 直断 (paraphrased): học vấn, bằng cấp cao (Ấn thấu can có gốc) [PDF p.56]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.an_tho_can",
+      "value": true
+     },
+     {
+      "fact": "bazi.an_rooted",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_hoc_an_tho_can_co_can",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_E_AN_VOID",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_education",
+   "description": "八字真宗 直断 (paraphrased): học vấn ở mức bình thường (Ấn thấu can nhưng không có gốc) [PDF p.56]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.an_tho_can",
+      "value": true
+     },
+     {
+      "fact": "bazi.an_rooted",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_hoc_an_tho_hu",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_O_QUAN_SAT_ROOT",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_career",
+   "description": "八字真宗 直断 (paraphrased): một người đảm nhiều chức vụ (Quan và Sát đều thấu can, có gốc) [PDF p.52]",
+   "conditions": {
+    "fact": "bazi.quan_sat_both_rooted",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_quan_quan_sat_deu_tho_co_can",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_S_PURE_YIN_M",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_character",
+   "description": "八字真宗 直断 (paraphrased): tính mềm, thiếu quyết đoán (nam mệnh thuần âm: kiểu 'nam hóa nữ') [PDF p.59]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.all_yin",
+      "value": true
+     },
+     {
+      "fact": "chart.gender",
+      "value": "male"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_nam_thuan_am_mem_yeu",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_S_PURE_YANG_F",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_character",
+   "description": "八字真宗 直断 (paraphrased): tính mạnh mẽ, quyết đoán (nữ mệnh thuần dương: kiểu 'nữ cường nhân') [PDF p.59]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.all_yang",
+      "value": true
+     },
+     {
+      "fact": "chart.gender",
+      "value": "female"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_nu_thuan_duong_cuong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_S_TMM_YIN_M",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_character",
+   "description": "八字真宗 直断 (paraphrased): tính mềm, nặng về tình (nam mệnh thai, thân, mệnh đều âm) [PDF p.59]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.tmm_all_yin",
+      "value": true
+     },
+     {
+      "fact": "chart.gender",
+      "value": "male"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_nam_thai_than_menh_am",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZ_DIRECT_S_TMM_YANG_F",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_direct_character",
+   "description": "八字真宗 直断 (paraphrased): tính mạnh mẽ (nữ mệnh thai, thân, mệnh đều dương) [PDF p.59]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.tmm_all_yang",
+      "value": true
+     },
+     {
+      "fact": "chart.gender",
+      "value": "female"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zz_nu_thai_than_menh_duong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
   }
  ]
 }
