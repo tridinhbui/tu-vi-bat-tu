@@ -1931,8 +1931,8 @@
      "book": "Tử Vi Thực Hành",
      "book_code": "TH",
      "page": 72,
-     "quote": "Sát, Phá, Liêm, Tham (mục 4 trong các quý cách lập thành ở 12 cung)",
-     "read": "anh"
+     "quote": "Sát, Phá, Liêm, Tham cách",
+     "read": "anh_doc_ro"
     },
     {
      "id": "TH76_CATTINH",
@@ -2079,13 +2079,13 @@
      "book": "Tử Vi Thực Hành",
      "book_code": "TH",
      "page": 74,
-     "quote": "Nhật, Nguyệt hãm tại Mệnh không có cứu tinh, hoặc hãm mà gặp sát tinh (bần tiện cách số 7)",
-     "read": "anh"
+     "quote": "Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh",
+     "read": "van_ban"
     }
    ],
    "readings": [
     "nguồn là TT ('miếu vượng'); baseline dùng ngưỡng từ đắc trở lên",
-    "trang TH tr.74 đọc từ ảnh; tập sáu sát tinh và phạm vi tam phương là của baseline"
+    "TH tr.74 nói Nhật/Nguyệt hãm TẠI MỆNH (không cứu tinh, hoặc hãm gặp sát tinh); baseline tính hãm + sát tinh trong tam phương; tập sáu sát tinh là của baseline"
    ],
    "kept": {
     "boosters": [
@@ -2149,7 +2149,7 @@
    "rules": {
     "core": "doi_chieu_truc_tiep",
     "boosters.nhat_nguyet_deu_sang": "co_nguon_con_gia_dinh",
-    "breakers.nhat_nguyet_ham_gap_sat": "chua_du_nguon"
+    "breakers.nhat_nguyet_ham_gap_sat": "co_nguon_con_gia_dinh"
    },
    "rule_detail": {
     "core": {
@@ -2169,11 +2169,11 @@
      "audit_status": "khop"
     },
     "breakers.nhat_nguyet_ham_gap_sat": {
-     "level": "chua_du_nguon",
+     "level": "co_nguon_con_gia_dinh",
      "cites": [
       "TH74_NN_TAN_HUNG"
      ],
-     "assumption": "trang TH tr.74 đọc từ ảnh; tập sáu sát tinh và phạm vi tam phương là của baseline",
+     "assumption": "TH tr.74 nói Nhật/Nguyệt hãm TẠI MỆNH (không cứu tinh, hoặc hãm gặp sát tinh); baseline tính hãm + sát tinh trong tam phương; tập sáu sát tinh là của baseline",
      "audit_status": "khop"
     }
    },
@@ -2984,7 +2984,7 @@
    ],
    "readings": [
     "KL nói 'đồng cung hay hội chiếu' cùng Lộc Tồn; baseline tam phương, không đòi Lộc Tồn",
-    "'hội chiếu' = tam phương (từ ngữ đã xác định phạm vi); tập sát tinh sáu sao là của baseline"
+    "KL tr.62 mục 4 nói Khôi Việt Ở Mệnh bị sát tinh hội chiếu, không phải Khôi Việt GIÁP Mệnh (cấu trúc khác); 'hội chiếu' = tam phương; tập sáu sát tinh là của baseline"
    ],
    "kept": {
     "boosters": [
@@ -3042,8 +3042,8 @@
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
     "core": "doi_chieu_truc_tiep",
-    "boosters.xuong_khuc_hoi": "co_nguon_con_gia_dinh",
-    "breakers.sat_tinh_hoi_chieu": "co_nguon_con_gia_dinh"
+    "boosters.xuong_khuc_hoi": "chua_du_nguon",
+    "breakers.sat_tinh_hoi_chieu": "chua_du_nguon"
    },
    "rule_detail": {
     "core": {
@@ -3055,19 +3055,19 @@
      "audit_status": "khop"
     },
     "boosters.xuong_khuc_hoi": {
-     "level": "co_nguon_con_gia_dinh",
+     "level": "chua_du_nguon",
      "cites": [
       "KL62_KV_XUONGKHUC"
      ],
      "assumption": "KL nói 'đồng cung hay hội chiếu' cùng Lộc Tồn; baseline tam phương, không đòi Lộc Tồn",
-     "audit_status": "khop"
+     "audit_status": "lien_quan"
     },
     "breakers.sat_tinh_hoi_chieu": {
-     "level": "co_nguon_con_gia_dinh",
+     "level": "chua_du_nguon",
      "cites": [
       "KL62_KV_SAT"
      ],
-     "assumption": "'hội chiếu' = tam phương (từ ngữ đã xác định phạm vi); tập sát tinh sáu sao là của baseline",
+     "assumption": "KL tr.62 mục 4 nói Khôi Việt Ở Mệnh bị sát tinh hội chiếu, không phải Khôi Việt GIÁP Mệnh (cấu trúc khác); 'hội chiếu' = tam phương; tập sáu sát tinh là của baseline",
      "audit_status": "viet_moi_tu_trang_sach"
     }
    },

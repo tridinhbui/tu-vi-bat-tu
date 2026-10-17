@@ -137,7 +137,7 @@ def main():
           "7. Tuần/Triệt vừa cứu hung tinh vừa hại quý tinh: chọn theo cách cụ thể nào.",
           "8. Ba định nghĩa Thạch trung ẩn ngọc; hai kết cục của Mã đầu đới kiếm; TT tr.142 coi Kình ở Ngọ là xấu và chỉ tốt ở tứ mộ.",
           "9. TT tr.22 nhắc Tử Phủ đồng cung ở Tỵ/Hợi (mô hình chỉ có Dần/Thân) và TH tr.72 cho phép đóng ở Mệnh hay Thân.",
-          "10. Trang TH tr.72, tr.74 chỉ đọc được từ ảnh: cần người đối chiếu trực tiếp sách giấy.",
+          "10. TH tr.72 (mục 4, 12) chỉ máy-không-kiểm-được; đã đọc từ ảnh, cần người đối chiếu sách giấy (Phase 7 đã xác nhận bằng ảnh, cả TH tr.74).",
           "11. Ngưỡng cơ chế: 2 yếu tố tăng thế → thành thượng; phản chứng hạ một bậc; không cộng điểm."]
     (ROOT / "docs/PHASE6_INDEPENDENT_VALIDATION.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 

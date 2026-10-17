@@ -1,0 +1,1804 @@
+{
+ "version": 1,
+ "note": "11 quy tắc cần chuyên gia: không quy tắc nào được đóng dấu verified; không cách đọc nào được chọn.",
+ "rules": [
+  {
+   "id": "R01",
+   "title": "Phạm vi của 'hội / gặp / thích' khi câu sách không nêu phạm vi",
+   "priority": 1,
+   "classification": "nguon_chua_du",
+   "question": "Khi sách nói 'hội Tả Hữu', 'thiếu Tả Hữu', 'thích Xương Khúc...', phạm vi là đồng cung, đối cung, tam hợp hay cả tam phương tứ chính?",
+   "passages": [
+    {
+     "id": "KL132_TPVT_TAHUU",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 132,
+     "quote": "cách Tử Phủ Vũ Tướng mà thiếu Tả Hữu",
+     "how": "van_ban",
+     "context": {
+      "truoc": "n đẻ của Tả phù, Hữu bật, là cát tủ đựng đồ, bàn giấy làm việc tượng trưng địa vị, chỗ ngồi, phương tiện đi lại của giới trung lưu. Nếu Tử Phủ Vũ tướng là bậc vua quan cần phụ tá như Tả Hữu thì Phá quân là kẻ anh hùng áo vải lại thích Thai Tọa là ghế gỗ, xe thồ, miễn sao được việc. Cho nên người xưa vẫn quan niệm rằng",
+      "sau": "thì đi tìm Tham Tọa thay thế, e rằng bị trật đường rầy, hóa ra đầu Ngô mình Sở, không những không được việc mà nhiều khi còn hỏng việc, ví như \"Áo gấm cưỡi trâu: (y cẩm kỵ ngưu) của kẻ trọc phú nhà quê! 2. Ân quang - Thiên quí: Là con đẻ của Văn xương, Văn khúc. Nếu Văn xương tượng trưng cho khả năng văn chương quán t"
+     }
+    },
+    {
+     "id": "KL193_TPVT_XK",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 193,
+     "quote": "Xương Khúc, Tử Phủ Vũ Tướng là người văn võ toàn tài",
+     "how": "van_ban",
+     "context": {
+      "truoc": "TỬ VI KHẢO LUẬN – Hòang Thường – Hàm Chương www.tuviglobal.com 193",
+      "sau": ". Xương Khúc, Cơ Nguyệt Đồng Lương là lúc đắc thời gặp được minh chủ ý hợp tâm đầu. 19. Đẩu quân Thiếu dương luôn có Thiên không đi kèm cho nên người có tứ đức thì phải sống theo tứ đức nghĩa là năng làm việc phúc đức và ăn ở đàng hoàng không thì sẽ bị Thiên không đánh. 18. Ân quang - Thiên quí: Quang là vệ tinh của Vă"
+     }
+    },
+    {
+     "id": "KL85_NLTT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 85,
+     "quote": "Thái dương thích Xương, Khúc, Khoa, Quyền, Lộc",
+     "how": "van_ban",
+     "context": {
+      "truoc": "mắt nhưng cũng chẳng bền vì không đắc chính, tiếm vị nên chẳng đàng hoàng, e rằng cuối đời lại vẫn trắng tay. *Thái dương đắc địa vẫn cần Đào Hồng Hỉ, có nhóm Tam minh này thì công danh đến mau chóng dễ dàng. - Thái dương hãm địa, cần gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức gỡ thế bí, để có đường thoát. -",
+      "sau": ", có nhóm văn tinh này giúp sức thì được hưởng phúc lộc. - Thái dương ghét lũ Riêu, Đà, Kỵ gặp đám tang ám này, thì bị miệng tiếng, bôi nhọ danh dự và chính bản thân cũng có điều mờ ám! - Thái dương sợ: Kình, Đà, Không, Kiếp, gặp đám sát tinh này thì công danh trắc trở, đổ vỡ, lúc đó cần Tuần Triệt cứu giải để giảm bớt"
+     }
+    },
+    {
+     "id": "KL62_KV_XUONGKHUC",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 62,
+     "quote": "Mệnh có Khôi Việt, Xương, Khúc và Lộc tồn đồng cung hay hội chiếu",
+     "how": "van_ban",
+     "context": {
+      "truoc": "vô là người văn võ toàn tài. PHÚ ĐOÁN VỀ SAO KHÔI VIỆT 1 . Thiên Khôi, Thiên Việt, cái thế văn chương, vi phúc thọ, đa chiếu quế: Mệnh có Khôi, Việt là người giỏi văn chương, sống lâu, thi đỗ cao. Ví như bẻ được cành quế tượng trưng danh vọng. 2 . Khôi, Việt, Xương, Khúc, Lộc tồn phùng, Hình Sát vô hung, đại phú quí:",
+      "sau": "lại không bị Hóa kỵ Thiên hình cản phá thì giàu sang lớn. 3 . Khôi tinh lâm Mệnh vị chí tam công, Khôi tinh giáp mệnh vi kỳ cách Mệnh có Thiên Khôi thì làm lớn, nếu được Khôi Việt giáp mệnh thì được mọi người kính nể, yêu quí. 4 . Khôi Việt trùng phùng sát thấu, cố tật vưu đa: Cung mệnh có Khôi Việt lại bị sát tinh hộ"
+     }
+    },
+    {
+     "id": "TT24_CNDL_CORE",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 24,
+     "quote": "Mệnh thân và các cung tam hợp xang chiếu có đủ bốn sao trên đây",
+     "how": "van_ban",
+     "context": {
+      "truoc": "ận. ( Thiên Cơ hội với sao Thiên Lương giỏi bàn việc quan, số ông Mạnh Tử cung thiên Di đóng ở Tuất có hai sao Cơ, Lương). - Cơ Lương thủ mệnh gia cát diệu phú quí từ tường. (Thiên Cơ, Thiên Lương thủ mệnh thêm các sao tốt, phú quí. Nếu gặp Thiên Hình, Hóa Kị dễ chán mùi thế luỵ). - Cơ Nguyệt đông lương tác lại nhân. (",
+      "sau": "nếu không có những cát tinh khác trợ lực chỉ làm công chức quèn. Gặp Kiếp Không Hoá Kị xuống hạ cách). - Thiên Lương Tham Nguyệt đồng cơ hội, mộ dạ kinh thương vô miên thuỵ. (Các sao Thiên Lương, Thái Aâm, Thiên Đồng hội cùng thiên Cơ ngày đêm tảo tần buôn bán, gặp hung tinh tất phải bôn ba). - Thiên Cơ gia ác sát đồn"
+     }
+    },
+    {
+     "id": "TT142_KQL",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 142,
+     "quote": "Khoa, Quyền lộc củng (Chiếu thủ có cả ba Khoa, Quyền, Lộc)",
+     "how": "van_ban",
+     "context": {
+      "truoc": "át thủ mệnh ở Dần Thân Tí Ngọ) - Nhật Nguyệt tinh minh (Thái Aâm, Thái Dương đều đứng ở miếu vượng địa chiếu sáng). - Mã đầu đới nhẫn (Nhẫn là sao Kình Dương gặp Thiên Mã, nhưng phải ở tứ mộ địa mới hay, ở Ngọ cung xấu). - Hình tù hiệp ấn (Thiên Tướng thủ Mệnh Thân, có Thiên Hình Liêm Trinh hội hiệp quí về võ cách). -",
+      "sau": "- Tham Hỏa tương phùng (Tham Lang cư miếu địa, thủ Mệnh tại cung Mão) - Kình Dương nhập miếu (Đơn thủ Mệnh cung ở Thìn, Tuất, Sửu, Mùi) - Kim du phò giá (Tử Vi thủ Mệnh, có Nhật Nguyệt giáp mệnh ? Lời giảng sai vì làm sao có thể gặp Thái Dương hoặc giáp Thái Dương ?) BẦN TIỆN CÁCH - Sinh bất phùng thời (Mệnh tọa Không"
+     }
+    },
+    {
+     "id": "KL53_NN_KQL",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 53,
+     "quote": "lại không có Đào Hồng Hỉ hay Khoa Quyền Lộc hợp chiếu",
+     "how": "van_ban",
+     "context": {
+      "truoc": "Nguyệt ở Dậu chiếu xuống. Mệnh ở Mùi có Nhật ở Mão Nguyệt ở Hợi chiêu lên. 7 . Nhật Nguyệt chiếu hư không, học nhất nhi thập Mệnh vô chính diệu được Nhật Nguyệt chiếu thì thông minh vô cùng học một biết mười. 8 . Nhật Nguyệt đồng cung Sửu Mùi, tam phương vô cát, phản vi hung Mệnh có Nhật Nguyệt ở đồng cung ở Sửu Mùi,",
+      "sau": "thì chỉ đủ cơm no áo ấm không thể vinh hiển được. 9 . Nhật Nguyệt tịnh tranh quang, Quyền lộc phi tàn Nhật Nguyệt xung chiếu nhau: mệnh ở Thìn có Thái Dương, được Nguyệt ở Tuất chiếu sáng, hoặc mệnh ở Tuất có Nguyệt, được Thái dương ở Thìn chiếu sáng, người có cách này thì suốt đời được hưởng giàu sang. 10 . Nhật Nguy"
+     }
+    }
+   ],
+   "readings": [
+    {
+     "id": "tp",
+     "text": "tam phương tứ chính (đồng cung + đối cung + hai tam hợp) — cách đọc đang dùng cho điều kiện không nêu phạm vi",
+     "basis": [
+      {
+       "id": "TT142_KQL",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 142,
+       "quote": "Khoa, Quyền lộc củng (Chiếu thủ có cả ba Khoa, Quyền, Lộc)",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "TT24_CNDL_CORE",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 24,
+       "quote": "Mệnh thân và các cung tam hợp xang chiếu có đủ bốn sao trên đây",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "hoi_chieu",
+     "text": "mọi cung chiếu vào Mệnh, không tính chính cung Mệnh",
+     "basis": [
+      {
+       "id": "KL62_KV_XUONGKHUC",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 62,
+       "quote": "Mệnh có Khôi Việt, Xương, Khúc và Lộc tồn đồng cung hay hội chiếu",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    },
+    {
+     "id": "doi_cung",
+     "text": "chỉ đối cung (xung chiếu)",
+     "basis": [
+      {
+       "id": "KL67_XUNGCHIEU",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 67,
+       "quote": "gặp Hoá khoa đồng cung hay xung chiếu",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    },
+    {
+     "id": "dong_cung",
+     "text": "chỉ đồng cung",
+     "basis": [
+      {
+       "id": "KL62_KV_XUONGKHUC",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 62,
+       "quote": "Mệnh có Khôi Việt, Xương, Khúc và Lộc tồn đồng cung hay hội chiếu",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    },
+    {
+     "id": "tam_hop",
+     "text": "chỉ hai cung tam hợp",
+     "basis": [],
+     "implemented": false
+    }
+   ],
+   "evidence_for_distinguishing": "Chính các trang phân biệt đồng cung với chiếu khi cần: KL tr.62 'đồng cung hay hội chiếu', KL tr.66 'đồng cung hoặc chiếu', KL tr.67 'đồng cung hay xung chiếu', TT tr.142 'Chiếu thủ có cả ba Khoa, Quyền, Lộc', TT tr.24 'các cung tam hợp xung chiếu'. Vì vậy một câu chỉ nói 'hội' không tự động là đồng cung; nhưng cũng không có trang nào nói 'hội' = đủ cả tam phương tứ chính.",
+   "impact": {
+    "mo_ta": "tỷ lệ lá số (lõi đúng) đổi trạng thái khi đọc phạm vi khác tam phương",
+    "bang": {
+     "TU_PHU_VU_TUONG@kl_132_193": {
+      "hoi_chieu": 14.8,
+      "doi_cung": 31.8,
+      "dong_cung": 31.7,
+      "tam_hop": 25.3
+     },
+     "TU_PHU_VU_TUONG@th_115": {
+      "hoi_chieu": 7.7,
+      "doi_cung": 25.4,
+      "dong_cung": 31.3,
+      "tam_hop": 27.5
+     },
+     "CO_NGUYET_DONG_LUONG@kl_221": {
+      "hoi_chieu": 22.7,
+      "doi_cung": 83.3,
+      "dong_cung": 62.8,
+      "tam_hop": 31.2
+     },
+     "NHAT_LE_TRUNG_THIEN@kl_52_85": {
+      "hoi_chieu": 22.3,
+      "doi_cung": 44.0,
+      "dong_cung": 54.2,
+      "tam_hop": 40.8
+     },
+     "SAT_PHA_LIEM_THAM@th_76_77": {
+      "hoi_chieu": 10.6,
+      "doi_cung": 34.8,
+      "dong_cung": 31.1,
+      "tam_hop": 18.6
+     }
+    }
+   },
+   "current": "tam phương (đánh dấu `co_nguon_con_gia_dinh` ở từng quy tắc)",
+   "decision": "chọn phạm vi cho từng câu 'hội/thích' hoặc giữ nhiều bản đọc song song",
+   "extra": [],
+   "verdict": "",
+   "note": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  },
+  {
+   "id": "R02",
+   "title": "Liệt kê 'Kiếp, Không, Kị' (TT tr.24): một trong ba hay đủ ba",
+   "priority": 1,
+   "classification": "nguon_chua_du",
+   "question": "'Gặp Kiếp Không Hoá Kị xuống hạ cách': chỉ cần gặp một sao, một cặp, hay đủ cả ba? Và 'gặp' ở đâu: Mệnh/Thân hay cả tam hợp xung chiếu?",
+   "passages": [
+    {
+     "id": "TT24_CNDL_CORE",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 24,
+     "quote": "Mệnh thân và các cung tam hợp xang chiếu có đủ bốn sao trên đây",
+     "how": "van_ban",
+     "context": {
+      "truoc": "ận. ( Thiên Cơ hội với sao Thiên Lương giỏi bàn việc quan, số ông Mạnh Tử cung thiên Di đóng ở Tuất có hai sao Cơ, Lương). - Cơ Lương thủ mệnh gia cát diệu phú quí từ tường. (Thiên Cơ, Thiên Lương thủ mệnh thêm các sao tốt, phú quí. Nếu gặp Thiên Hình, Hóa Kị dễ chán mùi thế luỵ). - Cơ Nguyệt đông lương tác lại nhân. (",
+      "sau": "nếu không có những cát tinh khác trợ lực chỉ làm công chức quèn. Gặp Kiếp Không Hoá Kị xuống hạ cách). - Thiên Lương Tham Nguyệt đồng cơ hội, mộ dạ kinh thương vô miên thuỵ. (Các sao Thiên Lương, Thái Aâm, Thiên Đồng hội cùng thiên Cơ ngày đêm tảo tần buôn bán, gặp hung tinh tất phải bôn ba). - Thiên Cơ gia ác sát đồn"
+     }
+    },
+    {
+     "id": "TT24_CNDL_BREAK",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 24,
+     "quote": "Gặp Kiếp Không Hoá Kị xuống hạ cách",
+     "how": "van_ban",
+     "context": {
+      "truoc": "ương thủ mệnh gia cát diệu phú quí từ tường. (Thiên Cơ, Thiên Lương thủ mệnh thêm các sao tốt, phú quí. Nếu gặp Thiên Hình, Hóa Kị dễ chán mùi thế luỵ). - Cơ Nguyệt đông lương tác lại nhân. (Mệnh thân và các cung tam hợp xang chiếu có đủ bốn sao trên đây nếu không có những cát tinh khác trợ lực chỉ làm công chức quèn.",
+      "sau": "). - Thiên Lương Tham Nguyệt đồng cơ hội, mộ dạ kinh thương vô miên thuỵ. (Các sao Thiên Lương, Thái Aâm, Thiên Đồng hội cùng thiên Cơ ngày đêm tảo tần buôn bán, gặp hung tinh tất phải bôn ba). - Thiên Cơ gia ác sát đồng cung, cầu du thử thiết. (Cùng ở một cung có quá nhiều ác sát bao vây Thiên Cơ)."
+     }
+    },
+    {
+     "id": "TH116_CNDL",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 116,
+     "quote": "Cơ Nguyệt Đồng Lương hay Cự Nhật mà gặp Kình Đà, Không Kiếp hay Phá toái, Kiếp sát",
+     "how": "van_ban",
+     "context": {
+      "truoc": "sinh ly hay tử biêt. Cung Phối có Cô Quả ngộ Không Kiếp Kình Đà Không Kiếp ngộ Tuần Triệt Tang Hổ ngộ Đại Tiểu hao; Hình Diêu, Thiên khong ngộ Hóa Kỵ; Thất sát, Phá toái ngộ Hư Khốc; Hỏa, Kình Đà, Không Kiếp in Cự môn, ngộ Linh Hỏa ại Tiểu hạn thất lọ: Khi găp các cách cuộc sau đây thì thất lợi cho Đại hạn hay Tiều a.",
+      "sau": "thì dễ tàn tật, mất cướp b. Sát phá Liêm Tham mà gặp Nhị tam Không, Linh Hỏa Kình Kỵ hay Đại tiểu Hao Hình, Sát Phục binh, Tang Hổ thì tù ngục vong gia c. Tử Phủ Vũ Tướng găp phải Tam Không, Kiếp Kỵ Hình Đà hay gặp Linh Hỏa Tang Diêu thì bị giáng chức, phá tài. d. Cự Cơ, Đồng Lương mã gặp Kình Đà Không Kiếp, song Hao,"
+     }
+    }
+   ],
+   "readings": [
+    {
+     "id": "mot_trong_ba|tp",
+     "text": "một trong ba sao, trong tam phương (đang dùng; ngữ cảnh câu: 'Mệnh thân và các cung tam hợp xung chiếu')",
+     "basis": [
+      {
+       "id": "TT24_CNDL_CORE",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 24,
+       "quote": "Mệnh thân và các cung tam hợp xang chiếu có đủ bốn sao trên đây",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "TT24_CNDL_BREAK",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 24,
+       "quote": "Gặp Kiếp Không Hoá Kị xuống hạ cách",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "cap_khong_kiep_hoac_ky|tp",
+     "text": "cả cặp Không-Kiếp, hoặc Kỵ",
+     "basis": [
+      {
+       "id": "TT24_CNDL_BREAK",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 24,
+       "quote": "Gặp Kiếp Không Hoá Kị xuống hạ cách",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    },
+    {
+     "id": "tu_hai_trong_ba|tp",
+     "text": "ít nhất hai trong ba",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "du_ca_ba|tp",
+     "text": "đủ cả ba",
+     "basis": [
+      {
+       "id": "TT24_CNDL_BREAK",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 24,
+       "quote": "Gặp Kiếp Không Hoá Kị xuống hạ cách",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    },
+    {
+     "id": "mot_trong_ba|dong_cung",
+     "text": "một trong ba nhưng chỉ ở Mệnh/Thân (đọc 'gặp' hẹp nhất)",
+     "basis": [],
+     "implemented": false
+    }
+   ],
+   "impact": {
+    "mo_ta": "tỷ lệ phá của Cơ Nguyệt Đồng Lương trên 14,688 lá số có lõi",
+    "bang": {
+     "tp|mot_trong_ba": 82.1,
+     "tp|du_ca_ba": 9.2,
+     "tp|cap_khong_kiep_hoac_ky": 67.1,
+     "tp|tu_hai_trong_ba": 35.0,
+     "hoi_chieu|mot_trong_ba": 65.6,
+     "hoi_chieu|du_ca_ba": 4.3,
+     "hoi_chieu|cap_khong_kiep_hoac_ky": 47.9,
+     "hoi_chieu|tu_hai_trong_ba": 21.3,
+     "doi_cung|mot_trong_ba": 21.6,
+     "doi_cung|du_ca_ba": 0.0,
+     "doi_cung|cap_khong_kiep_hoac_ky": 5.7,
+     "doi_cung|tu_hai_trong_ba": 0.8,
+     "dong_cung|mot_trong_ba": 32.2,
+     "dong_cung|du_ca_ba": 0.0,
+     "dong_cung|cap_khong_kiep_hoac_ky": 18.5,
+     "dong_cung|tu_hai_trong_ba": 2.9,
+     "tam_hop|mot_trong_ba": 57.7,
+     "tam_hop|du_ca_ba": 0.0,
+     "tam_hop|cap_khong_kiep_hoac_ky": 35.5,
+     "tam_hop|tu_hai_trong_ba": 11.1
+    }
+   },
+   "current": "một trong ba, tam phương: 82,1% bị phá",
+   "decision": "đọc câu liệt kê và 'gặp' theo cách nào",
+   "extra": [],
+   "verdict": "",
+   "note": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  },
+  {
+   "id": "R03",
+   "title": "Ngưỡng sát tinh phá cách (≥1 sát tinh; ≥3 sát tinh + Kỵ) và hai breaker phân biệt kém",
+   "priority": 1,
+   "classification": "nguon_chua_du",
+   "question": "Sách nói 'nhiều sát tinh' (TH tr.77) và 'bị sát tinh hội chiếu' (KL tr.62) mà không nêu số lượng. Bao nhiêu sát tinh, ở đâu, thì phá cách?",
+   "passages": [
+    {
+     "id": "TH77_SPLT_HA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 77,
+     "quote": "Sát Phá Liêm Tham hội Vũ, Kình Đà",
+     "how": "van_ban",
+     "context": {
+      "truoc": "hật Nguyệt hãm và Tả Hữu, Quyền, Lộc thì làm thầy tướng hay ên đồng hội Hình, Diêu, Hồng, Đào, Long, Phượng thì mê đồng bóng. Thiên Tướng hội Tả Hữu, Tướng ân Quan phù đi tu cao thăng đến Hòa thượng 4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ b ëp Hung tinh và sát tinh đóng. dụ:",
+      "sau": ", Thiên địa Kho tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa p phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc l ú ý: K H QUAN và THÂN cư cung nào. Sau đó mới xem kỷ đến cung Tài, Điền và Thiên d øng, Tàng Tật, Vũ chức, Thương nhân, . húc thọ cách: Được Đồng Lương đón iải ách không mờ ám. ược thế"
+     }
+    },
+    {
+     "id": "TH116_SPLT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 116,
+     "quote": "Sát phá Liêm Tham mà gặp Nhị tam Không, Linh Hỏa Kình Kỵ",
+     "how": "van_ban",
+     "context": {
+      "truoc": "hao; Hình Diêu, Thiên khong ngộ Hóa Kỵ; Thất sát, Phá toái ngộ Hư Khốc; Hỏa, Kình Đà, Không Kiếp in Cự môn, ngộ Linh Hỏa ại Tiểu hạn thất lọ: Khi găp các cách cuộc sau đây thì thất lợi cho Đại hạn hay Tiều a. Cơ Nguyệt Đồng Lương hay Cự Nhật mà gặp Kình Đà, Không Kiếp hay Phá toái, Kiếp sát thì dễ tàn tật, mất cướp b.",
+      "sau": "hay Đại tiểu Hao Hình, Sát Phục binh, Tang Hổ thì tù ngục vong gia c. Tử Phủ Vũ Tướng găp phải Tam Không, Kiếp Kỵ Hình Đà hay gặp Linh Hỏa Tang Diêu thì bị giáng chức, phá tài. d. Cự Cơ, Đồng Lương mã gặp Kình Đà Không Kiếp, song Hao, Phá toái, Kỵ thì phá tài hay bị th"
+     }
+    },
+    {
+     "id": "KL62_KV_SAT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 62,
+     "quote": "Cung mệnh có Khôi Việt lại bị sát tinh hội chiếu thì mang bệnh tật khó chữa khỏi",
+     "how": "van_ban",
+     "context": {
+      "truoc": ", Khúc và Lộc tồn đồng cung hay hội chiếu lại không bị Hóa kỵ Thiên hình cản phá thì giàu sang lớn. 3 . Khôi tinh lâm Mệnh vị chí tam công, Khôi tinh giáp mệnh vi kỳ cách Mệnh có Thiên Khôi thì làm lớn, nếu được Khôi Việt giáp mệnh thì được mọi người kính nể, yêu quí. 4 . Khôi Việt trùng phùng sát thấu, cố tật vưu đa:",
+      "sau": ". PHÚ VỀ SAO LỘC TỒN 1 . Lộc tồn thủ ư Tài, Trạch, tích ngọc mai kim: Lộc tồn đóng ở cung Tài, hay cung Điền là người giàu có, vàng chôn, ngọc cất. 2 . Lộc tồn hậu trọng đa y thực, Lộc tồn tại viên, chỉ tứ cổ nghiệp: Mệnh có Lộc tồn thì được hưởng giàu sang, ăn ngon mặc đẹp. Mệnh có Lộc tồn thì được hưởng gia tài của c"
+     }
+    },
+    {
+     "id": "KL199_HUNG",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 199,
+     "quote": "Hung tinh chịu lép vế khi gặp Khoa, Tuần Triệt, Tài Thọ, Quan Phúc",
+     "how": "van_ban",
+     "context": {
+      "truoc": "lang tham vọng lớn, hay tự đặc, nên dễ lầm lẫn. 30. Hung tinh Hung tinh thương hay gây: tai nạn, bệnh tật, tán bài, buôn bán thua lỗ, tù tội, tang thương, loạn trí... Hung tinh đắc địa có nghĩa tốt, nhưng vẫn còn tiềm ẩn cái xấu. Hung tinh hãm địa gieo nhiều tai họa, nhất là hung tinh khắc Mệnh hay khắc Can năm sinh.",
+      "sau": ". Hung tinh được chia ra như sau: Lục sát tinh: Không Kiếp, Kình Đà, Hỏa Linh, ngoài ra các sao Kiếp sát, Lưu hà, Phá toái, Thiên hình, Hóa kỵ, Thiên không, Thương Sứ, La Võng cũng được kể như sát tinh vì tính cách sát hại của chúng. Lục Bại tinh: Song Hoa, Khốc Hư, Tang Hổ. 1. Không Kiếp là hai sao tác hại mạnh nhất K"
+     }
+    },
+    {
+     "id": "KL85_SO",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 85,
+     "quote": "Thái dương sợ: Kình, Đà, Không, Kiếp, gặp đám sát tinh này thì công danh trắc trở",
+     "how": "van_ban",
+     "context": {
+      "truoc": "gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức gỡ thế bí, để có đường thoát. - Thái dương thích Xương, Khúc, Khoa, Quyền, Lộc, có nhóm văn tinh này giúp sức thì được hưởng phúc lộc. - Thái dương ghét lũ Riêu, Đà, Kỵ gặp đám tang ám này, thì bị miệng tiếng, bôi nhọ danh dự và chính bản thân cũng có điều mờ ám! -",
+      "sau": ", đổ vỡ, lúc đó cần Tuần Triệt cứu giải để giảm bớt đau thương! - Thái dương gặp Tuần, Triệt, có 2 cách: +Thái dương đắc địa ở cung ban ngày gặp Tuần Triệt thì bế tắc vì như mặt trời bị mây che phủ, không chiếu sáng được, đang thành công mà hoàn cảnh xã hội thay đổi, không cần đến mình nữa. \u0007Thái dương hãm địa ở cung b"
+     }
+    },
+    {
+     "id": "KL85_TUAN_CUU",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 85,
+     "quote": "lúc đó cần Tuần Triệt cứu giải để giảm bớt đau thương",
+     "how": "van_ban",
+     "context": {
+      "truoc": "dương thích Xương, Khúc, Khoa, Quyền, Lộc, có nhóm văn tinh này giúp sức thì được hưởng phúc lộc. - Thái dương ghét lũ Riêu, Đà, Kỵ gặp đám tang ám này, thì bị miệng tiếng, bôi nhọ danh dự và chính bản thân cũng có điều mờ ám! - Thái dương sợ: Kình, Đà, Không, Kiếp, gặp đám sát tinh này thì công danh trắc trở, đổ vỡ,",
+      "sau": "! - Thái dương gặp Tuần, Triệt, có 2 cách: +Thái dương đắc địa ở cung ban ngày gặp Tuần Triệt thì bế tắc vì như mặt trời bị mây che phủ, không chiếu sáng được, đang thành công mà hoàn cảnh xã hội thay đổi, không cần đến mình nữa. \u0007Thái dương hãm địa ở cung ban đêm mà gặp Tuần Triệt thì bế tắc ví như mặt trời bị mây che"
+     }
+    }
+   ],
+   "readings": [
+    {
+     "id": "B|tp|sau_sat|>=1",
+     "text": "≥1 trong sáu sát tinh ở tam phương (đang dùng cho Khôi Việt giáp Mệnh)",
+     "basis": [
+      {
+       "id": "KL62_KV_SAT",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 62,
+       "quote": "Cung mệnh có Khôi Việt lại bị sát tinh hội chiếu thì mang bệnh tật khó chữa khỏi",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "B|tp|sau_sat|>=2",
+     "text": "≥2 sát tinh",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "B|tp|tu_sat|>=2",
+     "text": "≥2 trong Tứ sát",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "C|>=3+Ky",
+     "text": "≥3 sát tinh VÀ Kỵ (đang dùng cho Sát Phá Liêm Tham — quy ước thiết kế)",
+     "basis": [
+      {
+       "id": "TH77_SPLT_HA",
+       "book": "Tử Vi Thực Hành",
+       "book_code": "TH",
+       "page": 77,
+       "quote": "Sát Phá Liêm Tham hội Vũ, Kình Đà",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    }
+   ],
+   "impact": {
+    "mo_ta": "KVGM (2.784 lá số có lõi) và SPLT (29.328)",
+    "KVGM": {
+     "tp|sau_sat|>=1": 91.7,
+     "tp|sau_sat|>=2": 68.8,
+     "tp|sau_sat|>=3": 41.7,
+     "tp|tu_sat|>=1": 83.3,
+     "tp|tu_sat|>=2": 50.0,
+     "tp|tu_sat|>=3": 20.8,
+     "tp|khong_kiep|>=1": 50.0,
+     "tp|khong_kiep|>=2": 16.7,
+     "tp|khong_kiep|>=3": 0.0,
+     "hoi_chieu|sau_sat|>=1": 83.3,
+     "hoi_chieu|sau_sat|>=2": 62.5,
+     "hoi_chieu|sau_sat|>=3": 35.4,
+     "hoi_chieu|tu_sat|>=1": 75.0,
+     "hoi_chieu|tu_sat|>=2": 50.0,
+     "hoi_chieu|tu_sat|>=3": 20.8,
+     "hoi_chieu|khong_kiep|>=1": 33.3,
+     "hoi_chieu|khong_kiep|>=2": 16.7,
+     "hoi_chieu|khong_kiep|>=3": 0.0,
+     "doi_cung|sau_sat|>=1": 64.6,
+     "doi_cung|sau_sat|>=2": 18.8,
+     "doi_cung|sau_sat|>=3": 0.0,
+     "doi_cung|tu_sat|>=1": 58.3,
+     "doi_cung|tu_sat|>=2": 8.3,
+     "doi_cung|tu_sat|>=3": 0.0,
+     "doi_cung|khong_kiep|>=1": 16.7,
+     "doi_cung|khong_kiep|>=2": 0.0,
+     "doi_cung|khong_kiep|>=3": 0.0,
+     "dong_cung|sau_sat|>=1": 31.2,
+     "dong_cung|sau_sat|>=2": 2.1,
+     "dong_cung|sau_sat|>=3": 0.0,
+     "dong_cung|tu_sat|>=1": 16.7,
+     "dong_cung|tu_sat|>=2": 0.0,
+     "dong_cung|tu_sat|>=3": 0.0,
+     "dong_cung|khong_kiep|>=1": 16.7,
+     "dong_cung|khong_kiep|>=2": 0.0,
+     "dong_cung|khong_kiep|>=3": 0.0
+    },
+    "KVGM_cau_truc_ma_cau_KL_mo_ta": {
+     "tp|sau_sat|>=1": 83.1,
+     "tp|sau_sat|>=2": 58.1,
+     "tp|sau_sat|>=3": 26.3,
+     "tp|tu_sat|>=1": 69.3,
+     "tp|tu_sat|>=2": 37.5,
+     "tp|tu_sat|>=3": 6.2,
+     "dong_cung|sau_sat|>=1": 40.9,
+     "dong_cung|sau_sat|>=2": 7.0,
+     "dong_cung|sau_sat|>=3": 1.0,
+     "dong_cung|tu_sat|>=1": 29.4,
+     "dong_cung|tu_sat|>=2": 2.9,
+     "dong_cung|tu_sat|>=3": 0.0
+    },
+    "SPLT": {
+     ">=1": 86.1,
+     ">=1+Ky": 17.6,
+     ">=2": 61.8,
+     ">=2+Ky": 11.6,
+     ">=3": 33.8,
+     ">=3+Ky": 5.3,
+     ">=4": 13.8,
+     ">=4+Ky": 1.6
+    }
+   },
+   "note": "Điều kiện của KL tr.62 mục 4 mô tả 'Cung mệnh CÓ Khôi Việt', không phải Khôi Việt GIÁP Mệnh; cả trên cấu trúc đúng như sách mô tả, 'ít nhất một sát tinh hội chiếu' vẫn đúng ở 83,1% lá số. Vậy tần suất cao không do việc lấy nhầm cấu trúc mà do ngưỡng 'một'. KL tr.199/85 còn nói Khoa, Tuần Triệt 'làm hung tinh lép vế / cứu giải' cho Thái Dương: sát tinh không luôn phá.",
+   "current": "KVGM: ≥1 sát tinh (91,7% bị phá, cờ `chua_du_nguon`); SPLT: ≥3 sát tinh + Kỵ (quy ước)",
+   "decision": "ngưỡng và tập sát tinh; có nên để Khoa/Tuần/Triệt làm giảm nhẹ",
+   "extra": [],
+   "verdict": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  },
+  {
+   "id": "R04",
+   "title": "'Chiếu' (KL tr.66) = đối cung hay cả tam phương; 'Khôi Việt chiếu' (KL tr.68)",
+   "priority": 1,
+   "classification": "nguon_chua_du",
+   "question": "KL tr.66: Kỵ, Kình 'đồng cung hoặc chiếu vào'; KL tr.67 dùng riêng 'xung chiếu'. 'Chiếu' có rộng hơn 'xung chiếu' không?",
+   "passages": [
+    {
+     "id": "KL66_TKGH",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 66,
+     "quote": "Cung mệnh có Khoa, Quyền, Lộc hội họp mà lại bị Hóa kỵ, Kình dương đồng cung hoặc chiếu vào",
+     "how": "van_ban",
+     "context": {
+      "truoc": "h không có chính tinh, rất cần Tuần không an ngữ, với Thiên không, Địa không thủ mệnh, lại gặp Song Lộc thì giàu sang lạ lùng. 9. Quyền, Khốc đồng cung, minh danh vụ thế : Cung Mệnh ở Tí Ngọ, có Quyền toạ thủ với khốc đồng cung thì giàu sang quyền thế rõ ràng. 10. Tam kỳ giao hội, mặc ngộ Kỵ, Kình giáng lộ thanh vân :",
+      "sau": "thì đường công danh mờ mịt như sương tụ đầy đường đi. 11. Hoá kỵ văn nhân bất nại : Cung mệnh có Hóa kỵ gặp được phúc tinh, quí tinh thì giỏi văn chương nhưng đường"
+     }
+    },
+    {
+     "id": "KL67_XUNGCHIEU",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 67,
+     "quote": "gặp Hoá khoa đồng cung hay xung chiếu",
+     "how": "van_ban",
+     "context": {
+      "truoc": "TỬ VI KHẢO LUẬN – Hòang Thường – Hàm Chương www.tuviglobal.com 67 công danh vẫn trắc trở không thành. 12. Kỵ ngộ Khoa tinh cư Hợi, Tí, ngôn hành danh thuận. Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ",
+      "sau": "là người cẩn thận lời ăn tiếng nói, nên được mọi người kính nể. PHÚ ĐOÁN VỀ BỘ SAO LỤC BẠI 1. Nam nhân Tang, Hổ, hữu tài uyên bác, Nữ mệnh Hổ, Riêu, đa sự quả ưu : Đàn ông cung mệnh có Tang, Hổ là người học rộng, tài cao. Đàn bà cung mệnh có Tang, Ho thì lại buồn khổ vì chồng con. 2. Hao ngộ Tham lang, tàng dâm tình ư"
+     }
+    },
+    {
+     "id": "KL68_NN_KHOIVIET",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 68,
+     "quote": "chỉ mong được Khôi Việt chiếu mới là tốt đẹp",
+     "how": "van_ban",
+     "context": {
+      "truoc": "Hàm Chương www.tuviglobal.com 68 2. Tử Phủ đồng cung tối vi phúc hậu, thiết hiềm nội trở Triệt Tuần Tử Phủ ở Dần Thân là người có phúc lớn, chỉ sợ gặp Triệt Tuần lại hoá ra bị trở ngại, khó khăn. Nhật Nguyệt phản bối hà vọng thanh quang, tối hỷ ngoại chiều Khôi Việt. Mệnh có Nhật Nguyệt hãm địa thì làm sao sáng được,",
+      "sau": ". 3. Khốc Hư Tí Ngọ đồng cung, Tiền bần hậu phú : Mệnh ở Tí Ngọ có Khốc Hư đồng cung thì tuổi trẻ nghèo, tuổi già giàu có. Kiếp Không Tỵ Hợi, đồng vị hoạnh phát công danh. Mệnh ở Tỵ Hợi có Không Kiếp đồng cung thì một bước có công danh. 4. Mệnh phùng Thiên cơ miếu địa đa năng Mệnh có Thiên cơ đắc địa thì nhiều nhiều tà"
+     }
+    },
+    {
+     "id": "TT142_KQL",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 142,
+     "quote": "Khoa, Quyền lộc củng (Chiếu thủ có cả ba Khoa, Quyền, Lộc)",
+     "how": "van_ban",
+     "context": {
+      "truoc": "át thủ mệnh ở Dần Thân Tí Ngọ) - Nhật Nguyệt tinh minh (Thái Aâm, Thái Dương đều đứng ở miếu vượng địa chiếu sáng). - Mã đầu đới nhẫn (Nhẫn là sao Kình Dương gặp Thiên Mã, nhưng phải ở tứ mộ địa mới hay, ở Ngọ cung xấu). - Hình tù hiệp ấn (Thiên Tướng thủ Mệnh Thân, có Thiên Hình Liêm Trinh hội hiệp quí về võ cách). -",
+      "sau": "- Tham Hỏa tương phùng (Tham Lang cư miếu địa, thủ Mệnh tại cung Mão) - Kình Dương nhập miếu (Đơn thủ Mệnh cung ở Thìn, Tuất, Sửu, Mùi) - Kim du phò giá (Tử Vi thủ Mệnh, có Nhật Nguyệt giáp mệnh ? Lời giảng sai vì làm sao có thể gặp Thái Dương hoặc giáp Thái Dương ?) BẦN TIỆN CÁCH - Sinh bất phùng thời (Mệnh tọa Không"
+     }
+    }
+   ],
+   "readings": [
+    {
+     "id": "J|dong_cung+doi_cung",
+     "text": "đồng cung hoặc xung chiếu (đối cung) — đang dùng",
+     "basis": [
+      {
+       "id": "KL66_TKGH",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 66,
+       "quote": "Cung mệnh có Khoa, Quyền, Lộc hội họp mà lại bị Hóa kỵ, Kình dương đồng cung hoặc chiếu vào",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "KL67_XUNGCHIEU",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 67,
+       "quote": "gặp Hoá khoa đồng cung hay xung chiếu",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "J|tp",
+     "text": "đồng cung hoặc chiếu từ mọi cung trong tam phương",
+     "basis": [
+      {
+       "id": "KL66_TKGH",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 66,
+       "quote": "Cung mệnh có Khoa, Quyền, Lộc hội họp mà lại bị Hóa kỵ, Kình dương đồng cung hoặc chiếu vào",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    },
+    {
+     "id": "J|dong_cung",
+     "text": "chỉ đồng cung",
+     "basis": [],
+     "implemented": false
+    }
+   ],
+   "impact": {
+    "mo_ta": "Tam kỳ gia hội: tỷ lệ bị phá theo cách đọc 'chiếu' (4.048 lá số có lõi)",
+    "bang": {
+     "dong_cung": 10.2,
+     "doi_cung": 19.1,
+     "tam_hop": 25.3,
+     "hoi_chieu": 41.9,
+     "tp": 50.1,
+     "dong_cung+doi_cung (variant)": 28.5
+    },
+    "Nhat_Nguyet_ham_khong_Khoi_Viet_chieu": {
+     "doi_cung": 79.4,
+     "tam_hop": 64.5,
+     "hoi_chieu": 49.3,
+     "tp": 43.6
+    }
+   },
+   "current": "đối cung (28,5% bị phá)",
+   "decision": "'chiếu' hẹp hay rộng; cùng câu hỏi cho 'Khôi Việt chiếu'",
+   "extra": [],
+   "verdict": "",
+   "note": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  },
+  {
+   "id": "R05",
+   "title": "Nhâm-Khoa: Thiên Phủ (TH) hay Tả Phụ (KL); Canh trong văn bản 全書 số hóa",
+   "priority": 1,
+   "classification": "nguon_mau_thuan",
+   "question": "Đây là khác biệt trường phái, lỗi in hay lỗi diễn giải?",
+   "passages": [
+    {
+     "id": "KL36_NHAM",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 36,
+     "quote": "Nhâm Lương Vi Phụ Vũ",
+     "how": "van_ban",
+     "context": {
+      "truoc": "trinh, Hóa quyền an ở cung có Phá quân, Hóa khoa an ở cung có Vũ khúc, Hóa kỵ ở cung có Thái dương Can Hóa Lộc Hóa Quyền Hóa Khoa Hóa Kỵ Giáp Liêm Phá Vũ Dương Ất Cơ Lương Vi Nguyệt Bính Đồng Cơ Xương Liêm Đinh Nguyệt Đồng Cơ Cự Mậu Tham Nguyệt Bật Cơ Kỷ Vũ Tham Lương Khúc Canh Nhật Vũ Đồng Âm Tân Cơ Dương Khúc Xương",
+      "sau": "Quí Phá Cự Âm Tham Bảng giải thích các tên chính tinh và trung tinh dùng trong Tứ hóa Liêm = Liêm Trinh Tham = Tham Lang Phá = Phá Quân Bật = Hữu Bật Vũ = Vũ Khúc Khúc = Văn Khúc Dương = Thái Dương Nhật = Thái Dương Cơ = Thiên Cơ Âm = Thái Âm Lương = Thiên Lương Phụ = Tả Phụ Vi = Tử Vi Xương = Văn Xương Nguyệt = Thái"
+     }
+    }
+   ],
+   "extra": [
+    {
+     "book": "TH",
+     "page": 20,
+     "quote": "Nhâm : Lương, Tử, Phủ, Vũ tú thị",
+     "how": "đọc trực tiếp từ ảnh trang TH tr.20: chữ 'Phủ' rõ ràng trong câu thơ"
+    },
+    {
+     "book": "TH",
+     "page": 21,
+     "quote": "Người sinh năm NHÂM: Lộc an với Thiên Lương, Quyền an với Tử vi, Khoa an với Thiên Phủ, Ky an với Vũ Khúc",
+     "how": "đọc trực tiếp từ ảnh trang TH tr.21: văn xuôi gọi đích danh 'Thiên Phủ'"
+    },
+    {
+     "book": "KL",
+     "page": 197,
+     "quote": "Tuổi Nhâm: Lương Vi Phụ Vũ ... Tả phụ, phải khéo léo, chăm chỉ mới có danh",
+     "how": "đọc trực tiếp từ ảnh trang KL tr.197: bình riêng từng sao, 'Tả phụ' đứng ở vị trí Khoa (danh)"
+    },
+    {
+     "book": "zh.wikisource.org (紫微斗數全書, 卷二, 安祿權科忌四星變化訣)",
+     "page": null,
+     "quote": "壬梁紫府武宿是; 庚日武陰同為首",
+     "how": "văn bản số hóa của một ấn bản, truy cập 2026-10-17 (nguồn NGOÀI ba sách của dự án)"
+    },
+    {
+     "book": "zh.wikipedia.org (紫微斗數, 安四化星)",
+     "page": null,
+     "quote": "bảng hai cột 紫微斗數全集 / 紫微斗數全書 khác nhau đúng hai hàng: 庚 và 壬 (左 / 府)",
+     "how": "nguồn thứ cấp, chỉ dùng để xác nhận rằng hai hàng này vốn có hai biến thể truyền thống"
+    }
+   ],
+   "readings": [
+    {
+     "id": "KL",
+     "text": "Nhâm-Khoa = Tả Phụ (production; Khảo Luận tr.36, tr.197)",
+     "basis": [
+      {
+       "id": "KL36_NHAM",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 36,
+       "quote": "Nhâm Lương Vi Phụ Vũ",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "TH",
+     "text": "Nhâm-Khoa = Thiên Phủ (Thực Hành tr.20-21; trùng với 全書 số hóa)",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "TT_WS",
+     "text": "Thêm: Canh-Khoa Thái Âm, Kỵ Thiên Đồng (全書 số hóa; KL và TH đều ghi Khoa Thiên Đồng, Kỵ Thái Âm)",
+     "basis": [],
+     "implemented": false
+    }
+   ],
+   "impact": {
+    "mo_ta": "trạng thái của 17 biến thể trong 16.704 lá số của hai năm Canh và hai năm Nhâm",
+    "Canh": {},
+    "Nham": {
+     "NHAT_LE_TRUNG_THIEN@kl_52_85": 32,
+     "SAT_PHA_LIEM_THAM@th_76_77": 408
+    }
+   },
+   "verdict": "Không phải lỗi in của một chỗ (TH in Thiên Phủ ở cả câu thơ lẫn văn xuôi; trang có các lỗi in khác như 'Khao', 'Vự Môn', nên không thể loại trừ hoàn toàn một lỗi lặp, nhưng lặp ở hai chỗ khác dạng là dấu hiệu của chủ ý) và không phải lỗi diễn giải của dự án: một văn bản 全書 số hóa độc lập cũng ghi 府, trong khi KL (và 全集 theo zh.wikipedia) ghi 左輔. Đây là khác biệt giữa hai dòng văn bản truyền thống; chưa có bằng chứng chọn bên nào.",
+   "current": "Khảo Luận (Tả Phụ) làm mặc định; bảng của từng nguồn lưu riêng ở data/experimental/tu_hoa_tables.json; đề xuất tham số `tu_hoa_table` (KL mặc định, TH, TT_WS) hiển thị nhãn nguồn, không đổi âm thầm",
+   "decision": "chọn bảng mặc định và có cho người dùng chọn không",
+   "note": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  },
+  {
+   "id": "R06",
+   "title": "Độ sáng Thái Dương ở Thân/Mùi",
+   "priority": 2,
+   "classification": "nguon_chua_du",
+   "question": "TH tr.31 liệt kê Thái Dương miếu ở Mão; vượng Ngọ, Tỵ, Thìn, Dần; bình Dậu; hãm Tuất, Hợi, Tí, Sửu — thiếu Thân và Mùi. Có được suy ra không?",
+   "passages": [
+    {
+     "id": "TH31_SUN",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 31,
+     "quote": "Bình thì ở Dậu khá tường",
+     "how": "van_ban",
+     "context": {
+      "truoc": "Triệt là số ly hương, bôn ba vè sinh kế, khó tránh được tật nguyền tai nạn Cơ hãm địa cũng có óc kinh danh, kém thông minh, những cũng có tài ba và cũng được đủ no ấm sống lâu. Cơ hãm địa mà gặp được Tuần Triệt đỡ được đôi phần. Nếu nữ mệnh ga SAO THÁI DƯƠNG Thái dương miếu ở Mão cung, Vương ở Ngọ, Tỵ, Thìn, Dần, một",
+      "sau": ", Hãm : Tuất, Hợi, Tí, Sửu cu"
+     }
+    },
+    {
+     "id": "TH32_MUI_SUU",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 32,
+     "quote": "Từ Mùi đến Sửu bần cùng khốn",
+     "how": "van_ban",
+     "context": {
+      "truoc": "TỬ VI THỰC HÀNH – Dịch Lý Huyền Cơ www.tuviglobal.com 32 Thái dương, mặt hóp thân gày oà hiền khen, ng ng; ay; ên mày ương ạ lung; inh sang øi, Quan g a miền g cung hông ng Thông minh, tươm tất, thảo ngay, h Canh nhân: Ngọ mệnh khá Nhâm nhân: Ngọ mệnhquí quyền tinh thô Giảp nhân: Hợi mệnh vô du",
+      "sau": "th Dương Đà, Không Kiếp a Đa phiền tâm sự tính ngày lo đêm Da đen sắc hãm tính hen Kyk, Đà: tật mục chẳng yên mọi đường Thái dương miếu vượng mệnh ph Loài người trung nghĩa tính cương l Tốt nhất lại chiếu Thái Aâm Tử vi, Tả Hữu, Lộc Quyền cát t Dương mà cư Hợi u minh Gặp Khoa Quyền Lộc hóa thành giàu Dương hội Tả Hữu;"
+     }
+    }
+   ],
+   "readings": [
+    {
+     "id": "rank_0",
+     "text": "gán Thân/Mùi mức hãm",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "rank_1",
+     "text": "gán Thân/Mùi mức bình",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "rank_2",
+     "text": "gán Thân/Mùi mức đắc",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "rank_3",
+     "text": "gán Thân/Mùi mức vượng",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "rank_4",
+     "text": "gán Thân/Mùi mức miếu",
+     "basis": [],
+     "implemented": false
+    }
+   ],
+   "impact": {
+    "mo_ta": "Nhật Nguyệt tịnh minh (KL tr.53/68): lá số có lõi mà Thái Dương nằm ở Thân/Mùi",
+    "so_la_so": 3456,
+    "tren": 25728,
+    "trang_thai_theo_muc": {
+     "0": {
+      "hinh_thuc": 560,
+      "bi_pha": 2896
+     },
+     "1": {
+      "hinh_thuc": 2496,
+      "bi_pha": 960
+     },
+     "2": {
+      "hinh_thuc": 96,
+      "thanh": 2400,
+      "bi_pha": 960
+     },
+     "3": {
+      "hinh_thuc": 96,
+      "thanh": 2400,
+      "bi_pha": 960
+     },
+     "4": {
+      "hinh_thuc": 96,
+      "thanh": 2400,
+      "bi_pha": 960
+     }
+    }
+   },
+   "note": "TH tr.32 có dòng 'Từ Mùi đến Sửu bần cùng khốn' nằm giữa các câu về Thái Dương, nhưng không nêu mức sáng của Thân/Mùi; không đủ để suy ra.",
+   "current": "để trống (kết quả 'chưa biết', điều kiện không được tính là sai)",
+   "decision": "tra bảng độ sáng đầy đủ ở nguồn khác hoặc giữ trống",
+   "extra": [],
+   "verdict": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  },
+  {
+   "id": "R07",
+   "title": "Tuần/Triệt hai chiều (cứu hung tinh vs làm hại quý tinh vs điều kiện thuận)",
+   "priority": 1,
+   "classification": "nguon_mau_thuan",
+   "question": "Tuần/Triệt là phản chứng, sao cứu, hay điều kiện thuận — tùy cách?",
+   "passages": [
+    {
+     "id": "KL55_TP_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 55,
+     "quote": "chỉ sợ Triệt Tuần án ngữ thì kém đi thôi",
+     "how": "van_ban",
+     "context": {
+      "truoc": "ãng. 7 . Đồng, Âm, Dương cư Ngọ vị, Bính Mậu trấn ngự biên cương Mệnh đóng ở Ngọ có Đồng Âm thêm Kình dương tọa thủ thì người tuổi Bính, Mậu làm quan lớn ở chốn biên thùy. PHÚ ĐOÁN VỀ SAO THIÊN PHỦ 1 . Tử Phủ đồng cung tối vi phúc hậu, thiết hiềm nội trở Triệt Tuần Mệnh có Tử Phủ thì được hưởng phúc lộc tốt rất nhiều,",
+      "sau": ". 2 . Thiên phủ lâm giải ách nhi vô bệnh, Địa kiếp lâm Phúc đức nhi hữu tai Thiên phủ ở cung Ách thì không đau bệnh gì. Địa kiếp ở cung Phúc đức thì hay mang vạ lớn. 3 . Nam nhân Thiên phủ, giao long vãng uyên, Nữ nhân Thiên phủ hoa dạng dung Đàn ông Mệnh có Thiên phủ thì khôn ngoan chín chắn như thuồng luồng qua vực."
+     }
+    },
+    {
+     "id": "TH94_PHU",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 94,
+     "quote": "Nhưng nếu Phủ gặp Tuần Triệt hay Thiên, Địa Không",
+     "how": "van_ban",
+     "context": {
+      "truoc": "nhiều sát tinh thì dễ mắc tai nạn khu THIÊN PHÚC Ơ NAM MỆNH : nếu gặp cát tinh hội thì phúc lộc song toàn. Nhưng Phủ kỵ nhất là gặp Tuần Triệt hay l khổ, khó tránh được tai ương, yểu tử, nếu không thì chỉ có tu ha Ở NỮ MỆNH : Thiên phủ là người mặt tươi đẹp như hoa; hội cát tinh tất giàu sang sống lâu, lợi chồng con.",
+      "sau": "thì suốt đời lao tâm, đau khổ vì chồng co THÁI ÂM Ở NAM MỆNH : Thái âm miếu vượng hay đắc địa hôi cát tinh tất hưởng phú quí tột độ. Nhưng nếu h tật. Song nếu Thái Aâm hãm địa mà gặp sát tinh thì nếu tay chân không có tật, tất mắt phải mờ. Ở NỮ MỆNH: Thái Aâm miếu vượng hay đắc địa là người có nhan sắc, vượng phu ích"
+     }
+    },
+    {
+     "id": "TH95_TUONG",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 95,
+     "quote": "Nhưng nếu Tướng miếu vượng đắc địa mà gặp Tuần Triệt án ngữ, chẳng khác nào như Tướng hãm địa",
+     "how": "van_ban",
+     "context": {
+      "truoc": "là hạng dâm dật hoang đàng, ăn nói điêu ngoa hay ghen tuông cuộc đời vất vã, tonà gặp tai nạn. Nếu hãm mà lại gặp sát tinh hội họp thì là hạng sát c tai nạn, và không thể hưởng tuổi thọ. THIÊN TƯỚNG Ở NAM MỆNH : Tướng miếu vượng hay đắc địa là người thông minh dáng cách uy nghi phúc hậu, tất có uy quyền và danh tiếng.",
+      "sau": "mà gặp sát tinh, cuộc đời sẽ lao đao, chỉ có tu hành mới tránh được Ở NỮ MỆNH : Tướng miếu vượng đắc địa là người có tài nhưng hay gen tuônng, được hưởng phúc lộc. N ät bực. Nhưng nếu miếu vượng hay đắc địa mà gặp Tuần Triệt thì chẳng khác nào Tướng hãm địa, tuy người cũng có tài nhưng suốt đời khốn khổ, chịu đau thươ"
+     }
+    },
+    {
+     "id": "KL222_VT_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 222,
+     "quote": "Mệnh có Vũ Tướng mà không bị Tuần Triệt án ngữ thì cuộc đời suôn",
+     "how": "van_ban",
+     "context": {
+      "truoc": "hìn Tuất, có cung v D Vậy không giàu tiền bạc là hạ cách chăng? 7. Vũ khúc, Liêm trinh đứng một mình thì giàu ( Sát Phá Tham, Thiên tướng, thì thay đổi hẳn bộ m Vũ Phá ở Tỵ Hợi thì làm ăn bạo, bất chấp luật lệ. Vũ Sát ở Mão Dậu thì chặt chém chẳng nể tình. Vũ Tham ở Sửu Mùi thì cố thủ tham tiềm miễn có tiền là được. V",
+      "sau": "Liêm Tham ở Tỵ Hợi thì giang hồ liều mạng, chẳng sợ tù đầy. L Liêm Sát ở Sửu 9. Thiên phủ: Thiên phủ cũng là một quí tinh lớn, chủ về phúc, lộc, thọ, nhưng chỉ đóng vai tiêu cực khiêm nhường so với Tử v Thiên phủ thường đứng một mình, chỉ trừ khi g chỉnh đàng hoàng. Thiên phủ không hề kết bạn với Sát Phá Tham. Phủ Vũ"
+     }
+    },
+    {
+     "id": "KL85_NN_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 85,
+     "quote": "Thái dương hãm địa, cần gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức",
+     "how": "van_ban",
+     "context": {
+      "truoc": "ối đời vẫn có chỗ đứng; còn ngược lại đóng ở cung âm (Tỵ, Hợi, Sửu, Mùi, Mão, Dậu) thì dù có giầu sang trước mắt nhưng cũng chẳng bền vì không đắc chính, tiếm vị nên chẳng đàng hoàng, e rằng cuối đời lại vẫn trắng tay. *Thái dương đắc địa vẫn cần Đào Hồng Hỉ, có nhóm Tam minh này thì công danh đến mau chóng dễ dàng. -",
+      "sau": "gỡ thế bí, để có đường thoát. - Thái dương thích Xương, Khúc, Khoa, Quyền, Lộc, có nhóm văn tinh này giúp sức thì được hưởng phúc lộc. - Thái dương ghét lũ Riêu, Đà, Kỵ gặp đám tang ám này, thì bị miệng tiếng, bôi nhọ danh dự và chính bản thân cũng có điều mờ ám! - Thái dương sợ: Kình, Đà, Không, Kiếp, gặp đám sát tin"
+     }
+    },
+    {
+     "id": "KL85_TUAN_CUU",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 85,
+     "quote": "lúc đó cần Tuần Triệt cứu giải để giảm bớt đau thương",
+     "how": "van_ban",
+     "context": {
+      "truoc": "dương thích Xương, Khúc, Khoa, Quyền, Lộc, có nhóm văn tinh này giúp sức thì được hưởng phúc lộc. - Thái dương ghét lũ Riêu, Đà, Kỵ gặp đám tang ám này, thì bị miệng tiếng, bôi nhọ danh dự và chính bản thân cũng có điều mờ ám! - Thái dương sợ: Kình, Đà, Không, Kiếp, gặp đám sát tinh này thì công danh trắc trở, đổ vỡ,",
+      "sau": "! - Thái dương gặp Tuần, Triệt, có 2 cách: +Thái dương đắc địa ở cung ban ngày gặp Tuần Triệt thì bế tắc vì như mặt trời bị mây che phủ, không chiếu sáng được, đang thành công mà hoàn cảnh xã hội thay đổi, không cần đến mình nữa. \u0007Thái dương hãm địa ở cung ban đêm mà gặp Tuần Triệt thì bế tắc ví như mặt trời bị mây che"
+     }
+    },
+    {
+     "id": "KL199_HUNG",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 199,
+     "quote": "Hung tinh chịu lép vế khi gặp Khoa, Tuần Triệt, Tài Thọ, Quan Phúc",
+     "how": "van_ban",
+     "context": {
+      "truoc": "lang tham vọng lớn, hay tự đặc, nên dễ lầm lẫn. 30. Hung tinh Hung tinh thương hay gây: tai nạn, bệnh tật, tán bài, buôn bán thua lỗ, tù tội, tang thương, loạn trí... Hung tinh đắc địa có nghĩa tốt, nhưng vẫn còn tiềm ẩn cái xấu. Hung tinh hãm địa gieo nhiều tai họa, nhất là hung tinh khắc Mệnh hay khắc Can năm sinh.",
+      "sau": ". Hung tinh được chia ra như sau: Lục sát tinh: Không Kiếp, Kình Đà, Hỏa Linh, ngoài ra các sao Kiếp sát, Lưu hà, Phá toái, Thiên hình, Hóa kỵ, Thiên không, Thương Sứ, La Võng cũng được kể như sát tinh vì tính cách sát hại của chúng. Lục Bại tinh: Song Hoa, Khốc Hư, Tang Hổ. 1. Không Kiếp là hai sao tác hại mạnh nhất K"
+     }
+    },
+    {
+     "id": "KL200_GIAI",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 200,
+     "quote": "Những sao giải mạnh gồm Tuần Triệt, Thiên tài, Hóa khoa, Quan Phúc",
+     "how": "van_ban",
+     "context": {
+      "truoc": ", xa lánh anh em, nóng nẩy nên gây họa. Hỏa Hình Tuế gẫy chân tay. 31. Bàn về Hung, Sát tinh ngọ chế Hung tinh là bộ Sát Phá Tham, sát tinh có Kình Đà, Hỏa Linh, Không Kiếp, ngoài ra còn phải kể Thiên hình, Hóa kỵ, Kiếp sát, Lưu hà như là lũ sát tinh. tức chế biến, cải trang lại, không nguy hiểm mà có khi còn tốt nữa.",
+      "sau": "."
+     }
+    },
+    {
+     "id": "KL53_NN_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 53,
+     "quote": "rất cần Tuần không án ngữ ở Mệnh",
+     "how": "van_ban",
+     "context": {
+      "truoc": "g nên gặp lũ sát tinh, nếu nhà gặp được sao đẹp ví như Thiên quí, Ân quang, Thai Tọa, Khôi Việt Hồng loan thì giỏi văn chương lý luận, ắt hẳn thành công lớn trên đường đời. 11 . Nhật Nguyệt Sửu Mùi ái ngọ Tuần Không, Quí Ân Xương Khúc, văn tất thượng cách, đường quan xuất chính Mệnh ở Sửu Mùi có Nhật nguyệt đồng cung,",
+      "sau": "để trở nên sáng đẹp thì nổi tiếng văn chương, ắt sẽ làm lớn. 12 . Nhật Nguyệt sát hại, nam đa gian, nữ đa dâm Mệnh có Nhật Nguyệt bí sát tinh hãm hại thì đàn ông, đàn bà đều là phường gian tà, dâm đãng. 13 . Cự tại Hợi cung, Nhật mệnh Tỵ, Thực lộc trì danh Mệnh đóng tại Tỵ, có Thái dương, Cự môn tại Hợi xung chiếu, th"
+     }
+    },
+    {
+     "id": "KL106_TTAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 106,
+     "quote": "Cự môn ở Tí Ngọ gặp Tuần Triệt là kỳ cách",
+     "how": "van_ban",
+     "context": {
+      "truoc": "xấu: Cự môn đóng ở cung Phu Thê là xấu nhất, nếu cung Mệnh, Thân, Phúc cũng xấu thì vợ chồng khắc khẩu, sinh ly, tử biệt. Cự môn hãm địa cần có Hóa khoa cứu giải, có nghĩa là cần khiêm nhường, xuống nước năn nỉ thì tránh được họa lớn. \u000e Người có Cự môn thủ Mệnh, dù ở bất cứ cung nào cũng ôm cao vọng nhưng hay bất mãn.",
+      "sau": ", người xưa gọi là “Thạch trung ẩn ngọc” ví như ngọc nằm trong đá, có thợ đẽo đá cắt gọt thành viên ngọc quí, có nghĩa là tài năng gặp thời. Cự môn cần Song Hao (Mão, Dậu) ví như phải khổ công gánh nước sôn nghĩa là lớn rửa sạch viên ngọc thô còn dính đất cát, có nghĩa là tài năng cần trao dồi hàng ngày thì sẽ có dịp d"
+     }
+    },
+    {
+     "id": "TH43_TTAN",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 43,
+     "quote": "cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được",
+     "how": "van_ban",
+     "context": {
+      "truoc": "u, Vượng, Đắc địa mà gặp Xương khúc, Khôi việt, Khoa, Tuế là hạng văn tài lỗi lạc, ăn nói hùng hồn, hợp cho ngành chính trị, chuyên về pháp luật và ngoại giao. Nếu lại gặp Hổ, Tuế, Phù là người giỏi về luật pháp, lý luận, thường làm nghề Thầy kiện, Quan Toà. Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên",
+      "sau": ", thì mới đẹp rực rỡ. Nếu không ặp được cách này hay lại gặp Lộc tồn th hưng không gặp đươc thời vận hiển hách. Nếu át, thì tuy có thọ, song không bao giờ được toại ý vừa long. Sức k hay có tật ở mắt, thường mang tiếng thị phi, hay bị kiện cáo HÃM ĐỊA: ở Tứ mộ (Thìn, Tuất, Sửu, Mùi) là người gian xảo, kém ság suốt, khắ"
+     }
+    }
+   ],
+   "readings": [
+    {
+     "id": "hai",
+     "text": "làm hại: Tử Phủ, Phủ, Tướng, Vũ Tướng (KL tr.55, 222; TH tr.94-95)",
+     "basis": [
+      {
+       "id": "KL55_TP_TUAN",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 55,
+       "quote": "chỉ sợ Triệt Tuần án ngữ thì kém đi thôi",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "TH94_PHU",
+       "book": "Tử Vi Thực Hành",
+       "book_code": "TH",
+       "page": 94,
+       "quote": "Nhưng nếu Phủ gặp Tuần Triệt hay Thiên, Địa Không",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "TH95_TUONG",
+       "book": "Tử Vi Thực Hành",
+       "book_code": "TH",
+       "page": 95,
+       "quote": "Nhưng nếu Tướng miếu vượng đắc địa mà gặp Tuần Triệt án ngữ, chẳng khác nào như Tướng hãm địa",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "KL222_VT_TUAN",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 222,
+       "quote": "Mệnh có Vũ Tướng mà không bị Tuần Triệt án ngữ thì cuộc đời suôn",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "cuu",
+     "text": "cứu: Thái Dương hãm, sát tinh gặp Thái Dương, 'hung tinh chịu lép vế' (KL tr.85, 199-200)",
+     "basis": [
+      {
+       "id": "KL85_NN_TUAN",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 85,
+       "quote": "Thái dương hãm địa, cần gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "KL85_TUAN_CUU",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 85,
+       "quote": "lúc đó cần Tuần Triệt cứu giải để giảm bớt đau thương",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "KL199_HUNG",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 199,
+       "quote": "Hung tinh chịu lép vế khi gặp Khoa, Tuần Triệt, Tài Thọ, Quan Phúc",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "KL200_GIAI",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 200,
+       "quote": "Những sao giải mạnh gồm Tuần Triệt, Thiên tài, Hóa khoa, Quan Phúc",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    },
+    {
+     "id": "thuan",
+     "text": "điều kiện thuận: Nhật Nguyệt Sửu Mùi cần Tuần (KL tr.53); Cự Môn Tý Ngọ gặp Tuần/Triệt là kỳ cách (KL tr.106, TH tr.43)",
+     "basis": [
+      {
+       "id": "KL53_NN_TUAN",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 53,
+       "quote": "rất cần Tuần không án ngữ ở Mệnh",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "KL106_TTAN",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 106,
+       "quote": "Cự môn ở Tí Ngọ gặp Tuần Triệt là kỳ cách",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "TH43_TTAN",
+       "book": "Tử Vi Thực Hành",
+       "book_code": "TH",
+       "page": 43,
+       "quote": "cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    }
+   ],
+   "impact": {
+    "mo_ta": "Tuần/Triệt đóng ở Mệnh khi lõi đúng",
+    "Tu_Phu_Vu_Tuong": 29.0,
+    "Nhat_Nguyet": 22.9,
+    "Thach_trung_an_ngoc": {
+     "cu_mon_ty_ngo": 1728,
+     "thien_co_o_doi_cung": 1728,
+     "tuan_triet_o_menh": 600,
+     "hoa_loc_o_menh": 96,
+     "tam_hoa_trong_tam_phuong": 32
+    }
+   },
+   "current": "hại ở Tử Phủ Vũ Tướng / Tử Phủ đồng cung; thuận trong lõi Thạch trung ẩn ngọc (KL106); không dùng ở Nhật Nguyệt; sao cứu chưa mô hình hóa",
+   "decision": "Tuần/Triệt có thể đồng thời hại và cứu trong một lá số: cần quy tắc ưu tiên của chuyên gia",
+   "extra": [],
+   "verdict": "",
+   "note": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  },
+  {
+   "id": "R08",
+   "title": "Ba định nghĩa Thạch trung ẩn ngọc; hai kết cục Mã đầu đới kiếm; TT tr.142 coi Kình ở Ngọ là xấu",
+   "priority": 2,
+   "classification": "nguon_mau_thuan",
+   "question": "Các định nghĩa có thật sự mâu thuẫn hay chỉ mô tả các tập khác nhau?",
+   "passages": [
+    {
+     "id": "KL44_TTAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 44,
+     "quote": "Thạch trung ẩn ngọc -Ngọc quí ở trong đá -Mệnh có Cự môn, Di có Thiên cơ ở Tí Ngọ",
+     "how": "van_ban",
+     "context": {
+      "truoc": "TỬ VI KHẢO LUẬN – Hòang Thường – Hàm Chương www.tuviglobal.com 44 6.",
+      "sau": "7. Tam hoá liên châu -3 viên ngọc quí - Mệnh có Cự môn, Di có Thiên cơ ở Tí Ngọ 8. Toạ quí hướng hướng quí -Là người sang quí -Mệnh có Khôi, Di có Việt hoặc ngược lại - Cách này có trong thế : mệnh ở Sửu Mùi của người tuổi Giáp 9. Khôi Việt giáp Mệnh - Học giỏi, gần người quyền quí - Mệnh ở giữa, Khôi một bên, Việt mộ"
+     }
+    },
+    {
+     "id": "KL58_TTAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 58,
+     "quote": "Mệnh ở Tí Ngọ có Cự môn được Khoa Quyền Lộc tam hợp chiếu là cách ngọc ở trong đá",
+     "how": "van_ban",
+     "context": {
+      "truoc": "TỬ VI KHẢO LUẬN – Hòang Thường – Hàm Chương www.tuviglobal.com 58",
+      "sau": ", phú quí giàu sang. 2.Cự Nhật Dần Thân, quan phong tam đại : Mệnh ở Dần, Thân có cự môn đồng cung với Thái dương thì ba đời liên tiếp được danh giá.(trang 111) 3. Cự Nhật Dần cung, lập mệnh Thân tiên trì danh nhi thực lộc Cung mệnh vô chính diệu ở Thân có Cự Nhật ở Dần chiếu sang thí có công danh trước, tiền bạc mới c"
+     }
+    },
+    {
+     "id": "KL106_TTAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 106,
+     "quote": "Cự môn ở Tí Ngọ gặp Tuần Triệt là kỳ cách",
+     "how": "van_ban",
+     "context": {
+      "truoc": "xấu: Cự môn đóng ở cung Phu Thê là xấu nhất, nếu cung Mệnh, Thân, Phúc cũng xấu thì vợ chồng khắc khẩu, sinh ly, tử biệt. Cự môn hãm địa cần có Hóa khoa cứu giải, có nghĩa là cần khiêm nhường, xuống nước năn nỉ thì tránh được họa lớn. \u000e Người có Cự môn thủ Mệnh, dù ở bất cứ cung nào cũng ôm cao vọng nhưng hay bất mãn.",
+      "sau": ", người xưa gọi là “Thạch trung ẩn ngọc” ví như ngọc nằm trong đá, có thợ đẽo đá cắt gọt thành viên ngọc quí, có nghĩa là tài năng gặp thời. Cự môn cần Song Hao (Mão, Dậu) ví như phải khổ công gánh nước sôn nghĩa là lớn rửa sạch viên ngọc thô còn dính đất cát, có nghĩa là tài năng cần trao dồi hàng ngày thì sẽ có dịp d"
+     }
+    },
+    {
+     "id": "TH43_TTAN",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 43,
+     "quote": "cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được",
+     "how": "van_ban",
+     "context": {
+      "truoc": "u, Vượng, Đắc địa mà gặp Xương khúc, Khôi việt, Khoa, Tuế là hạng văn tài lỗi lạc, ăn nói hùng hồn, hợp cho ngành chính trị, chuyên về pháp luật và ngoại giao. Nếu lại gặp Hổ, Tuế, Phù là người giỏi về luật pháp, lý luận, thường làm nghề Thầy kiện, Quan Toà. Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên",
+      "sau": ", thì mới đẹp rực rỡ. Nếu không ặp được cách này hay lại gặp Lộc tồn th hưng không gặp đươc thời vận hiển hách. Nếu át, thì tuy có thọ, song không bao giờ được toại ý vừa long. Sức k hay có tật ở mắt, thường mang tiếng thị phi, hay bị kiện cáo HÃM ĐỊA: ở Tứ mộ (Thìn, Tuất, Sửu, Mùi) là người gian xảo, kém ság suốt, khắ"
+     }
+    },
+    {
+     "id": "KL64_MDDK_XAU",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 64,
+     "quote": "Mệnh ở Ngọ, có Kình dương, gặp Thất sát, Thiên hình đồng cung là cách kiếm kể cổ ngựa",
+     "how": "van_ban",
+     "context": {
+      "truoc": "nhẹ hơn. Người sinh năm Giáp, mệnh ở Mão Người sinh năm Bính, mệnh ở Ngọ Người sinh năm Canh, mệnh ở Dậu Người sinh năm Nhâm, mệnh ở Tí 4 . Dương, Linh tọa mệnh, lưu niên Bạch hổ tai thương: Mệnh có Kình dương, Linh tinh, gặp tiểu hạn có Bạch hổ thì dễ gặp thương tổn. 5 . Mã đầu đới kiếm, phi yểu chiết nhi hình thương",
+      "sau": ", thì không chết yểu cũng mang tàn tật khổ sở. 6 . Mã đầu đới kiếm, trấn ngự biên cương: Mệnh ở Ngọ, có Kình dương đồng cung, nhưng xa lánh được Thất sát, Thiên hình mà lại gặp được Khoa Quyền Lộc thì tại có sự nghiệp lớn, hiển đạt về võ nghiệp. 7 . Kình dương, Đồng Âm nhi phùng Phượng, Giải nhất thế uy danh: Mệnh ở Ng"
+     }
+    },
+    {
+     "id": "KL64_MDDK_TOT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 64,
+     "quote": "có Kình dương đồng cung, nhưng xa lánh được Thất sát, Thiên hình mà lại gặp được Khoa Quyền Lộc",
+     "how": "van_ban",
+     "context": {
+      "truoc": "ơng: Mệnh có Kình dương, Linh tinh, gặp tiểu hạn có Bạch hổ thì dễ gặp thương tổn. 5 . Mã đầu đới kiếm, phi yểu chiết nhi hình thương Mệnh ở Ngọ, có Kình dương, gặp Thất sát, Thiên hình đồng cung là cách kiếm kể cổ ngựa, thì không chết yểu cũng mang tàn tật khổ sở. 6 . Mã đầu đới kiếm, trấn ngự biên cương: Mệnh ở Ngọ,",
+      "sau": "thì tại có sự nghiệp lớn, hiển đạt về võ nghiệp. 7 . Kình dương, Đồng Âm nhi phùng Phượng, Giải nhất thế uy danh: Mệnh ở Ngọ có Kình dương tọa thủ đồng cung với Thiên đồng, Thái âm, Phượng các, Giải thần thì lại nổi danh, giàu sang cả đời. 8 . Dương Đà giáp Kỵ vi bại cục: Mệnh có Hóa kỵ, giáp Kình, giáp Đà hai bên là"
+     }
+    },
+    {
+     "id": "TT142_MDDK",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 142,
+     "quote": "phải ở tứ mộ địa mới hay, ở Ngọ cung xấu",
+     "how": "van_ban",
+     "context": {
+      "truoc": "Thiên Tướng hội hiệp) - Tọa quí hướng quí - (Khôi Việt chiếu mệnh, hoặc Khôi ở mệnh Việt hướng vào và ngược lại) - Thất Sát triều đẩu (Thất Sát thủ mệnh ở Dần Thân Tí Ngọ) - Nhật Nguyệt tinh minh (Thái Aâm, Thái Dương đều đứng ở miếu vượng địa chiếu sáng). - Mã đầu đới nhẫn (Nhẫn là sao Kình Dương gặp Thiên Mã, nhưng",
+      "sau": "). - Hình tù hiệp ấn (Thiên Tướng thủ Mệnh Thân, có Thiên Hình Liêm Trinh hội hiệp quí về võ cách). - Khoa, Quyền lộc củng (Chiếu thủ có cả ba Khoa, Quyền, Lộc) - Tham Hỏa tương phùng (Tham Lang cư miếu địa, thủ Mệnh tại cung Mão) - Kình Dương nhập miếu (Đơn thủ Mệnh cung ở Thìn, Tuất, Sửu, Mùi) - Kim du phò giá (Tử Vi"
+     }
+    }
+   ],
+   "readings": [
+    {
+     "id": "kl44",
+     "text": "Cự Môn ở Mệnh, Thiên Cơ ở Di, Tý/Ngọ",
+     "basis": [
+      {
+       "id": "KL44_TTAN",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 44,
+       "quote": "Thạch trung ẩn ngọc -Ngọc quí ở trong đá -Mệnh có Cự môn, Di có Thiên cơ ở Tí Ngọ",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "kl58",
+     "text": "Cự Môn Tý/Ngọ có Khoa Quyền Lộc tam hợp chiếu",
+     "basis": [
+      {
+       "id": "KL58_TTAN",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 58,
+       "quote": "Mệnh ở Tí Ngọ có Cự môn được Khoa Quyền Lộc tam hợp chiếu là cách ngọc ở trong đá",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "kl106",
+     "text": "Cự Môn Tý/Ngọ gặp Tuần/Triệt (hoặc Hóa Lộc)",
+     "basis": [
+      {
+       "id": "KL106_TTAN",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 106,
+       "quote": "Cự môn ở Tí Ngọ gặp Tuần Triệt là kỳ cách",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "TH43_TTAN",
+       "book": "Tử Vi Thực Hành",
+       "book_code": "TH",
+       "page": 43,
+       "quote": "cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "kl64_xau",
+     "text": "Kình ở Ngọ + Thất Sát + Thiên Hình đồng cung: xấu",
+     "basis": [
+      {
+       "id": "KL64_MDDK_XAU",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 64,
+       "quote": "Mệnh ở Ngọ, có Kình dương, gặp Thất sát, Thiên hình đồng cung là cách kiếm kể cổ ngựa",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "kl64_tot",
+     "text": "Kình đồng cung, xa Thất Sát/Thiên Hình, gặp Khoa Quyền Lộc: tốt",
+     "basis": [
+      {
+       "id": "KL64_MDDK_TOT",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 64,
+       "quote": "có Kình dương đồng cung, nhưng xa lánh được Thất sát, Thiên hình mà lại gặp được Khoa Quyền Lộc",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "tt142",
+     "text": "Kình gặp Thiên Mã, tốt ở tứ mộ, xấu ở Ngọ",
+     "basis": [
+      {
+       "id": "TT142_MDDK",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 142,
+       "quote": "phải ở tứ mộ địa mới hay, ở Ngọ cung xấu",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    }
+   ],
+   "impact": {
+    "mo_ta": "quy mô từng định nghĩa (lá số)",
+    "Thach_trung": {
+     "kl44": 1728,
+     "kl106": 696,
+     "kl58": 32
+    },
+    "Ma_dau": {
+     "kl_kinh_o_ngo_trong_menh": 4176,
+     "tt_kinh_cung_thien_ma_trong_menh": 0
+    }
+   },
+   "verdict": "Thạch trung ẩn ngọc: ba định nghĩa chọn ba tập lá số khác nhau (1.728 / 696 / 32 lá số) và sách không gắn kết luận tốt/xấu khác nhau cho chúng, nên chúng khác nhau về TÊN CÁCH chứ chưa mâu thuẫn về hệ quả. Trong mô hình này Cự Môn ở Tý/Ngọ luôn có Thiên Cơ ở đối cung nên vế sau của KL tr.44 tự động đúng. Mã đầu đới kiếm: KL gắn tên cách với Kình ở Ngọ; TT tr.142 gắn với Kình gặp Thiên Mã. Trong mô hình, Kình (Mão Thìn Ngọ Mùi Dậu Tuất Tý Sửu) và Thiên Mã (Dần Thân Tỵ Hợi) không bao giờ đồng cung, nên bản TT chỉ có nghĩa nếu 'gặp' rộng hơn đồng cung.",
+   "current": "ba biến thể Thạch trung, hai biến thể Mã đầu; TT tr.142 chưa mô hình hóa",
+   "decision": "định nghĩa nào là 'cách' của trường phái nào",
+   "extra": [],
+   "note": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  },
+  {
+   "id": "R09",
+   "title": "Tử Phủ đồng cung: TH tr.72 'Mệnh hay Thân' và TT tr.22 'Tỵ Hợi'; mệnh đề 'Giáp nhân'",
+   "priority": 2,
+   "classification": "nguon_mau_thuan",
+   "question": "Neo ở Mệnh hay Thân? 'Tỵ Hợi' có phải Tử Phủ không? Câu 'vô sát tấu' chỉ áp cho tuổi Giáp?",
+   "passages": [
+    {
+     "id": "TH72_TPDC",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân)",
+     "how": "van_ban",
+     "context": {
+      "truoc": "ch (tức Mệnh có Thiên phủ ở Mùi Sửu mà giáp Nhật, Nguyệt hoặc cứ cun ø giáp Tả, , Xương Kh a Quyền, K iệt, Long Phượng, ïc một tro áy đều tốt. 9 Phá, Liêm, Mão, Dậu cách (Phá, đóng Mệnh ở Mão, Dậu mới hợp cách tốt, ở các cung Cách tìm giờ Dạ đề như sau: Mùa Hạ || Dậu Mùa Thu || Tí M II> CÁCH CUỘC LẬP THÀNH Ở 12 C A 1.",
+      "sau": "2. Phủ, Tướng triều v 3 4. Sát, 5. Cơ, Liêm, Tham c ng ồng, Lương các . 8. Nh 9. Cư àn cung ần tốt hơ ) 12. Tam châu c hao, Qu i liền án cung M 15. Vu võ cách húc nha ợp Xươn ở bất đươ 18. Nguyệt, Đồng, Cơ, Cự cách. g nào ma ng cách a Hữu úc, Kho hôi v 1 . khác thì không lợi) 20. Lộc, Mã giao tri cách (ở Mệnh, Tài, Qu"
+     }
+    },
+    {
+     "id": "TT22_TPDC_SAT",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 22,
+     "quote": "Tử Phủ đồng cung vô sát tấu",
+     "how": "van_ban",
+     "context": {
+      "truoc": "- Tử Vi Mão Dậu Kiếp Không, Tứ Sát đa vi thoát tục chi tăng.(Tử Vi ngồi ở cung Mão cung Dậu bị Tứ SaÙt) là Kinh, Đà, Hoả, Linh vây hãm cùng với Kiếp Không chỉ nên đi tu cho thoát tục là tốt hơn cả). - Tử Vi Thiên Phủ toàn y phụ bật chi công. (Tử Vi và Thiên Phủ cần dựa vào hai sao Tả Phụ Hữu Bật mới dễ bề phú quí). -",
+      "sau": ", Giáp nhân hưởng phúc chung thân. (Hai sao Tử Vi, Thiên Phủ đồng cung ở Dần và Thân thủ mệnh, những người tuổi Giáp hưởng phúc suốt đời nếu không gặp những sát tinh làm hỗn ). - Tử Phủ đồng cung lâm Tị Hợi nhất triều phú quí song toàn. (Tử Vi, Thiên Phủ ở cùng một cung Tị hoặc Hợi thì được cả giàu lẫn sang). - Tử Phủ"
+     }
+    },
+    {
+     "id": "TT22_TPDC_TYHOI",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 22,
+     "quote": "Tử Phủ đồng cung lâm Tị Hợi nhất triều phú quí song toàn",
+     "how": "van_ban",
+     "context": {
+      "truoc": "- Tử Vi Mão Dậu Kiếp Không, Tứ Sát đa vi thoát tục chi tăng.(Tử Vi ngồi ở cung Mão cung Dậu bị Tứ SaÙt) là Kinh, Đà, Hoả, Linh vây hãm cùng với Kiếp Không chỉ nên đi tu cho thoát tục là tốt hơn cả). - Tử Vi Thiên Phủ toàn y phụ bật chi công. (Tử Vi và Thiên Phủ cần dựa vào hai sao Tả Phụ Hữu Bật mới dễ bề phú quí). -",
+      "sau": "thân. (Hai sao Tử Vi, Thiên Phủ đồng cung ở Dần và Thân thủ mệnh, những người tuổi Giáp hưởng phúc suốt đời nếu không gặp những sát tinh làm hỗn ). - Tử Phủ đồng cung lâm Tị Hợi nhất triều phú quí song toàn. (Tử Vi, Thiên Phủ ở cùng một cung Tị hoặc Hợi thì được cả giàu lẫn sang). - Tử Phủ triền viên, lộc phùng chung t"
+     }
+    },
+    {
+     "id": "TT22_GIAP",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 22,
+     "quote": "Giáp nhân hưởng phúc chung thân",
+     "how": "van_ban",
+     "context": {
+      "truoc": "Tứ Sát đa vi thoát tục chi tăng.(Tử Vi ngồi ở cung Mão cung Dậu bị Tứ SaÙt) là Kinh, Đà, Hoả, Linh vây hãm cùng với Kiếp Không chỉ nên đi tu cho thoát tục là tốt hơn cả). - Tử Vi Thiên Phủ toàn y phụ bật chi công. (Tử Vi và Thiên Phủ cần dựa vào hai sao Tả Phụ Hữu Bật mới dễ bề phú quí). - Tử Phủ đồng cung vô sát tấu,",
+      "sau": ". (Hai sao Tử Vi, Thiên Phủ đồng cung ở Dần và Thân thủ mệnh, những người tuổi Giáp hưởng phúc suốt đời nếu không gặp những sát tinh làm hỗn ). - Tử Phủ đồng cung lâm Tị Hợi nhất triều phú quí song toàn. (Tử Vi, Thiên Phủ ở cùng một cung Tị hoặc Hợi thì được cả giàu lẫn sang). - Tử Phủ triền viên, lộc phùng chung thân"
+     }
+    },
+    {
+     "id": "TT22_TV_PHUBAT",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 22,
+     "quote": "Tử Vi Thiên Phủ toàn y phụ bật chi công",
+     "how": "van_ban",
+     "context": {
+      "truoc": "TỬ VI ĐẨU SỐ TÒAN THƯ – Vũ Tài Lục 22 - Tử Vi Mão Dậu Kiếp Không, Tứ Sát đa vi thoát tục chi tăng.(Tử Vi ngồi ở cung Mão cung Dậu bị Tứ SaÙt) là Kinh, Đà, Hoả, Linh vây hãm cùng với Kiếp Không chỉ nên đi tu cho thoát tục là tốt hơn cả). -",
+      "sau": ". (Tử Vi và Thiên Phủ cần dựa vào hai sao Tả Phụ Hữu Bật mới dễ bề phú quí). - Tử Phủ đồng cung vô sát tấu, Giáp nhân hưởng phúc chung thân. (Hai sao Tử Vi, Thiên Phủ đồng cung ở Dần và Thân thủ mệnh, những người tuổi Giáp hưởng phúc suốt đời nếu không gặp những sát tinh làm hỗn ). - Tử Phủ đồng cung lâm Tị Hợi nhất tr"
+     }
+    },
+    {
+     "id": "KL50_TUSAT_TYHOI",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 50,
+     "quote": "Tử Sát đồng lâm Tỵ Hợi, nhất triều phú quí song toàn",
+     "how": "van_ban",
+     "context": {
+      "truoc": "Hoá kỵ, Hóa quyền đồng cung với Tử Phủ là người mưu cơ tài trí ví như Trương Lương phò Lưu Bang lập nghiệp nhà Hán. 12 . Tử vi Thiên tướng, Thân phùng Phá, kiêm ngộ Vương, Kình, đa mưu yếm trá Mệnh ở Thìn Tuất có Tử Tướng đồng cung, Thân có phá quân đồng cung với Đế vượng, là người mưu cơ nhưng không lương thiện. 13 .",
+      "sau": "Cung an Mệnh ở Tỵ Hợi có Tử Sát đồng cung thì vừa giàu vừa sang. 14 . Tử vi, Vũ khúc, Phá quân hội Dương Đà, khi cong danh chỉ nghị kinh thương Mệnh có Tử vi hoặc Vũ Phúc hay Phá quân có Kình, Đà đồng cung thì chỉ thích buôn bán, không ham công danh. 15 . Tử vi Mão Dậu, Kiếp Không, đa vi thoát tục chi tăng Mệnh có Tử"
+     }
+    },
+    {
+     "id": "KL68_NN_KHOIVIET",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 68,
+     "quote": "chỉ mong được Khôi Việt chiếu mới là tốt đẹp",
+     "how": "van_ban",
+     "context": {
+      "truoc": "Hàm Chương www.tuviglobal.com 68 2. Tử Phủ đồng cung tối vi phúc hậu, thiết hiềm nội trở Triệt Tuần Tử Phủ ở Dần Thân là người có phúc lớn, chỉ sợ gặp Triệt Tuần lại hoá ra bị trở ngại, khó khăn. Nhật Nguyệt phản bối hà vọng thanh quang, tối hỷ ngoại chiều Khôi Việt. Mệnh có Nhật Nguyệt hãm địa thì làm sao sáng được,",
+      "sau": ". 3. Khốc Hư Tí Ngọ đồng cung, Tiền bần hậu phú : Mệnh ở Tí Ngọ có Khốc Hư đồng cung thì tuổi trẻ nghèo, tuổi già giàu có. Kiếp Không Tỵ Hợi, đồng vị hoạnh phát công danh. Mệnh ở Tỵ Hợi có Không Kiếp đồng cung thì một bước có công danh. 4. Mệnh phùng Thiên cơ miếu địa đa năng Mệnh có Thiên cơ đắc địa thì nhiều nhiều tà"
+     }
+    }
+   ],
+   "readings": [
+    {
+     "id": "menh",
+     "text": "chỉ neo ở Mệnh (đang dùng)",
+     "basis": [
+      {
+       "id": "KL68_NN_KHOIVIET",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 68,
+       "quote": "chỉ mong được Khôi Việt chiếu mới là tốt đẹp",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": true
+    },
+    {
+     "id": "menh_hay_than",
+     "text": "Mệnh hoặc Thân (TH tr.72)",
+     "basis": [
+      {
+       "id": "TH72_TPDC",
+       "book": "Tử Vi Thực Hành",
+       "book_code": "TH",
+       "page": 72,
+       "quote": "Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân)",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    },
+    {
+     "id": "tt22_ty_hoi",
+     "text": "TT tr.22 'Tử Phủ đồng cung lâm Tị Hợi' đọc là chép nhầm của 'Tử Sát đồng lâm Tỵ Hợi' (KL tr.50 mục 13, cùng vế sau 'nhất triều phú quí song toàn')",
+     "basis": [
+      {
+       "id": "TT22_TPDC_TYHOI",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 22,
+       "quote": "Tử Phủ đồng cung lâm Tị Hợi nhất triều phú quí song toàn",
+       "how": "van_ban",
+       "context": null
+      },
+      {
+       "id": "KL50_TUSAT_TYHOI",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 50,
+       "quote": "Tử Sát đồng lâm Tỵ Hợi, nhất triều phú quí song toàn",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    },
+    {
+     "id": "giap_nhan",
+     "text": "'vô sát tấu' chỉ cho tuổi Giáp (TT tr.22)",
+     "basis": [
+      {
+       "id": "TT22_GIAP",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 22,
+       "quote": "Giáp nhân hưởng phúc chung thân",
+       "how": "van_ban",
+       "context": null
+      }
+     ],
+     "implemented": false
+    }
+   ],
+   "impact": {
+    "mo_ta": "lá số",
+    "tu_phu_dong_cung_o_menh": 1920,
+    "tu_phu_dong_cung_o_than_khong_o_menh": 1440,
+    "tu_phu_dong_cung_o_ty_hoi_bat_ky": 0,
+    "tu_sat_dong_cung_o_menh_ty_hoi": 1584
+   },
+   "verdict": "Trong mô hình Tử Vi và Thiên Phủ không bao giờ cùng cung ở Tỵ/Hợi (0 lá số) nhưng Tử Vi và Thất Sát cùng cung ở Tỵ/Hợi (1.584 lá số có Mệnh ở đó); câu của TT trùng gần như nguyên văn với KL tr.50 mục 13 về Tử Sát. Đây là bằng chứng văn bản gián tiếp cho nghi ngờ chép nhầm, KHÔNG phải kết luận.",
+   "current": "chỉ Mệnh; câu 'Giáp nhân' và 'toàn y phụ bật' chưa mô hình hóa",
+   "decision": "có thêm neo Thân; có tách mệnh đề tuổi Giáp",
+   "extra": [],
+   "note": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  },
+  {
+   "id": "R10",
+   "title": "Trang TH tr.72 và tr.74 (lớp chữ vỡ)",
+   "priority": 2,
+   "classification": "nguon_xac_nhan",
+   "question": "Các câu trích phụ thuộc vào ảnh trang có đọc rõ không?",
+   "passages": [
+    {
+     "id": "TH72_TPDC",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân)",
+     "how": "van_ban",
+     "context": {
+      "truoc": "ch (tức Mệnh có Thiên phủ ở Mùi Sửu mà giáp Nhật, Nguyệt hoặc cứ cun ø giáp Tả, , Xương Kh a Quyền, K iệt, Long Phượng, ïc một tro áy đều tốt. 9 Phá, Liêm, Mão, Dậu cách (Phá, đóng Mệnh ở Mão, Dậu mới hợp cách tốt, ở các cung Cách tìm giờ Dạ đề như sau: Mùa Hạ || Dậu Mùa Thu || Tí M II> CÁCH CUỘC LẬP THÀNH Ở 12 C A 1.",
+      "sau": "2. Phủ, Tướng triều v 3 4. Sát, 5. Cơ, Liêm, Tham c ng ồng, Lương các . 8. Nh 9. Cư àn cung ần tốt hơ ) 12. Tam châu c hao, Qu i liền án cung M 15. Vu võ cách húc nha ợp Xươn ở bất đươ 18. Nguyệt, Đồng, Cơ, Cự cách. g nào ma ng cách a Hữu úc, Kho hôi v 1 . khác thì không lợi) 20. Lộc, Mã giao tri cách (ở Mệnh, Tài, Qu"
+     }
+    },
+    {
+     "id": "TH72_TPVT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Tử, Phủ, Vũ, Tướng cách",
+     "how": "van_ban",
+     "context": {
+      "truoc": "Thìn, Tuất Mùa Thu || Tí, Ngọ Mùa Đông || Mão, Dậu. 5>Giờ Dạ đề: Sinh vào giờ Dạ đề thì trẻ hay khóc đem mà ngày thì ngủ yên lắm. Mùa Xuân sinh vào giờ Ngọ ùa Đông || Mão UNG > QUÝ CÁCH: iên cách (tất cả đóng ở Mệnh) . Tham, Vũ đồng hành cách (đóng ở Sửu, Mùi có Mệnh) Phá, ách Nguyệt, Đồ , Lương cách 6. Cơ, Cự, Đ h 7.",
+      "sau": ". ật, Nguyệt đo g cung cách ï, Nhật đồng cách (ở D n ở Thân 10. Cự, Cơ đồng cung cách (ở Mão, Dậu) 11. Tả, Hữu đồng cung cách Hoá hên ách (tức K yền, Lộc đ 3 cung đe ệnh có 1 hóa) 13. Văn Quế, Văn hoa cách (Tức Xương, Khúc đồng cung, ở Sửu, Mùi thì thượng cách.) 14. Liêm trinh văn võ cách (tức Vũ khúc nhập miếu hợp Xươ"
+     }
+    },
+    {
+     "id": "TH72_NNTM",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Nhật, Nguyệt tinh minh cách (Nhật ở Thìn, Tỵ, Nguyệt ở Dậu, Tuất, mà Mệnh đóng ở Nguyệt hay Nhật đều tốt)",
+     "how": "van_ban",
+     "context": {
+      "truoc": "4. Sát, 5. Cơ, Liêm, Tham c ng ồng, Lương các . 8. Nh 9. Cư àn cung ần tốt hơ ) 12. Tam châu c hao, Qu i liền án cung M 15. Vu võ cách húc nha ợp Xươn ở bất đươ 18. Nguyệt, Đồng, Cơ, Cự cách. g nào ma ng cách a Hữu úc, Kho hôi v 1 . khác thì không lợi) 20. Lộc, Mã giao tri cách (ở Mệnh, Tài, Quan, Thiên di đề tốt) 21.",
+      "sau": "22. Nhật lệ trung thiên cách ( Nhật cư Ngọ có Mệnh) 23. Nhật chiếu lôi môn cách (Nhật ở Mão có Mệnh) 24. Nguyệt lãng thiên môn cách (Nguyệt ở Hợi có Mệnh) 25. Song Lộc cách (cùng đóng ở Mệnh đẹp hơn chiếu về)"
+     }
+    },
+    {
+     "id": "TH72_NLTT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Nhật lệ trung thiên cách ( Nhật cư Ngọ có Mệnh)",
+     "how": "van_ban",
+     "context": {
+      "truoc": "án cung M 15. Vu võ cách húc nha ợp Xươn ở bất đươ 18. Nguyệt, Đồng, Cơ, Cự cách. g nào ma ng cách a Hữu úc, Kho hôi v 1 . khác thì không lợi) 20. Lộc, Mã giao tri cách (ở Mệnh, Tài, Quan, Thiên di đề tốt) 21. Nhật, Nguyệt tinh minh cách (Nhật ở Thìn, Tỵ, Nguyệt ở Dậu, Tuất, mà Mệnh đóng ở Nguyệt hay Nhật đều tốt) 22.",
+      "sau": "23. Nhật chiếu lôi môn cách (Nhật ở Mão có Mệnh) 24. Nguyệt lãng thiên môn cách (Nguyệt ở Hợi có Mệnh) 25. Song Lộc cách (cùng đóng ở Mệnh đẹp hơn chiếu về)"
+     }
+    },
+    {
+     "id": "TH72_SPLT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Sát, Phá, Liêm, Tham cách",
+     "how": "anh_doc_ro",
+     "context": {
+      "truoc": "iáp Tả, , Xương Kh a Quyền, K iệt, Long Phượng, ïc một tro áy đều tốt. 9 Phá, Liêm, Mão, Dậu cách (Phá, đóng Mệnh ở Mão, Dậu mới hợp cách tốt, ở các cung Cách tìm giờ Dạ đề như sau: Mùa Hạ || Dậu Mùa Thu || Tí M II> CÁCH CUỘC LẬP THÀNH Ở 12 C A 1. Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân) 2. Phủ, Tướng triều v 3 4.",
+      "sau": "ng ồng, Lương các . 8. Nh 9. Cư àn cung ần tốt hơ ) 12. Tam châu c hao, Qu i liền án cung M 15. Vu võ cách húc nha ợp Xươn ở bất đươ 18. Nguyệt, Đồng, Cơ, Cự cách. g nào ma ng cách a Hữu úc, Kho hôi v 1 . khác thì không lợi) 20. Lộc, Mã giao tri cách (ở Mệnh, Tài, Quan, Thiên di đề tốt) 21. Nhật, Nguyệt tinh minh cách"
+     }
+    },
+    {
+     "id": "TH72_TAMHOA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Tam Hoá hên châu cách (tức Khao, Quyền, Lộc đi liền 3 cung đến cung Mệnh có 1 hóa)",
+     "how": "anh_doc_ro",
+     "context": {
+      "truoc": "m, Mão, Dậu cách (Phá, đóng Mệnh ở Mão, Dậu mới hợp cách tốt, ở các cung Cách tìm giờ Dạ đề như sau: Mùa Hạ || Dậu Mùa Thu || Tí M II> CÁCH CUỘC LẬP THÀNH Ở 12 C A 1. Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân) 2. Phủ, Tướng triều v 3 4. Sát, 5. Cơ, Liêm, Tham c ng ồng, Lương các . 8. Nh 9. Cư àn cung ần tốt hơ ) 12.",
+      "sau": "guyệt, Đồng, Cơ, Cự cách. g nào ma ng cách a Hữu úc, Kho hôi v 1 . khác thì không lợi) 20. Lộc, Mã giao tri cách (ở Mệnh, Tài, Quan, Thiên di đề tốt) 21. Nhật, Nguyệt tinh minh cách (Nhật ở Thìn, Tỵ, Nguyệt ở Dậu, Tuất, mà Mệnh đóng ở Nguyệt hay Nhật đều tốt) 22. Nhật lệ trung thiên cách ( Nhật cư Ngọ có Mệnh) 23. Nhật"
+     }
+    },
+    {
+     "id": "TH74_NN_TAN_HUNG",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh",
+     "how": "van_ban",
+     "context": {
+      "truoc": "inh) ộc phùng lưỡng sát) ông, Kiếp hãm hội Sát tinh) iệc tìm hiểu sinh địa, Vượng địa, hay Bại địa, Tuyệt đại đối với một lá số rất cần. Vì có nhiều số tốt mà gặp Bại hay Tu g. Vậy muốn biết rõ : hiểu bại thế nào xem bản thì sẽ rõ: H M Mệnh an ở : Mệnh an ở : Mệnh an ở : g (Mã tại Mệnh gặp Tuần, Triệt án ngữ) àn hung (",
+      "sau": ", 8. Lưỡng trùng Hoa cái (Y như cách L 9. Không, Kiếp sát hội (Mệnh gặp Kh III. SINH, VƯỢNG BẠI, TUYỆT ĐỊA V yệt địa thì cuộc đời chìm nổi vô thườn ÀNH SINH ĐỊA VƯỢNG BẠI ĐỊA TUYỆT ĐỊA ỆNH ĐỊA Mệnh an ở : ẦN KIM TỴ DẬU NGỌ D M ỘC HỢI MÃO TÍ THÂN H MÃO HỢI ÓA DẦN NGỌ THỦY – THÂN TÍ T DẬU TỴ HỔ Gặp Bại địa và Tuyệt địa c"
+     }
+    },
+    {
+     "id": "TH74_TAMHOA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 74,
+     "quote": "cần được cứu giải băng Tam hóa hội",
+     "how": "van_ban",
+     "context": {
+      "truoc": "h, 8. Lưỡng trùng Hoa cái (Y như cách L 9. Không, Kiếp sát hội (Mệnh gặp Kh III. SINH, VƯỢNG BẠI, TUYỆT ĐỊA V yệt địa thì cuộc đời chìm nổi vô thườn ÀNH SINH ĐỊA VƯỢNG BẠI ĐỊA TUYỆT ĐỊA ỆNH ĐỊA Mệnh an ở : ẦN KIM TỴ DẬU NGỌ D M ỘC HỢI MÃO TÍ THÂN H MÃO HỢI ÓA DẦN NGỌ THỦY – THÂN TÍ T DẬU TỴ HỔ Gặp Bại địa và Tuyệt địa",
+      "sau": "hay c được bản mệnh theo Ngũ hành, thì gọi là Tuyệt xứ Phùng sinh. Nếu k ần có Chính Diệu ở đó sanh ïi nếu không Hóa Lộc thì nghèo mà thọ. hông thì cuộc đời thăng trầm đáng ngại. IV. LUẬN VỀ MỆNH, THÂN Mệnh và năm sinh an vào mỗi cung có ảnh hưởng cho sự hưng suy thành bại. Bởi đó khi an xong lá số, ta cần xét rõ các"
+     }
+    }
+   ],
+   "readings": [],
+   "impact": {
+    "mo_ta": "cả hai trang đã được đọc trực tiếp từ ảnh ở độ phân giải 1.6x; mọi câu hiện được dùng đều đọc rõ"
+   },
+   "verdict": "Đã xác nhận bằng ảnh: TH tr.72 mục 1, 4, 7, 12, 21, 22 và TH tr.74 mục 7 ('Nhật, Nguyệt tàn hung ... hãm tại Mệnh mà không có cứu tinh, hoặc hãm mà gặp sát tinh') cùng đoạn 'cứu giải bằng Tam hóa hội' (chỉ cho Mệnh ở Bại/Tuyệt địa). TH tr.72 mục 12 là 'Tam Hoá liên châu' (ba cung liền), khác Tam kỳ gia hội. Câu trích của ảnh được ghi nguyên văn kể cả lỗi in ('hên châu', 'Khao'). Quy tắc dựa vào câu chỉ có trong ảnh không bao giờ được xếp `doi_chieu_truc_tiep`.",
+   "current": "TH tr.72/tr.74: `anh_doc_ro` hoặc `van_ban`; không còn trang `chua_du_nguon` vì chữ",
+   "decision": "không còn",
+   "extra": [],
+   "note": "",
+   "trang_thai": "dong (đã đọc ảnh)"
+  },
+  {
+   "id": "R11",
+   "title": "Cơ chế: 2 yếu tố tăng thế = thành thượng; phản chứng hạ một bậc; không cộng điểm",
+   "priority": 3,
+   "classification": "nguon_chua_du",
+   "question": "Có trang nào định nghĩa ngưỡng hay mức hạ?",
+   "passages": [],
+   "readings": [
+    {
+     "id": "thuong1|drop0",
+     "text": "thành thượng từ 1 yếu tố; phản chứng hạ 0 bậc",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "thuong1|drop1",
+     "text": "thành thượng từ 1 yếu tố; phản chứng hạ 1 bậc",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "thuong1|drop2",
+     "text": "thành thượng từ 1 yếu tố; phản chứng hạ 2 bậc",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "thuong2|drop0",
+     "text": "thành thượng từ 2 yếu tố; phản chứng hạ 0 bậc",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "thuong2|drop1",
+     "text": "thành thượng từ 2 yếu tố; phản chứng hạ 1 bậc",
+     "basis": [],
+     "implemented": true
+    },
+    {
+     "id": "thuong2|drop2",
+     "text": "thành thượng từ 2 yếu tố; phản chứng hạ 2 bậc",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "thuong3|drop0",
+     "text": "thành thượng từ 3 yếu tố; phản chứng hạ 0 bậc",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "thuong3|drop1",
+     "text": "thành thượng từ 3 yếu tố; phản chứng hạ 1 bậc",
+     "basis": [],
+     "implemented": false
+    },
+    {
+     "id": "thuong3|drop2",
+     "text": "thành thượng từ 3 yếu tố; phản chứng hạ 2 bậc",
+     "basis": [],
+     "implemented": false
+    }
+   ],
+   "impact": {
+    "mo_ta": "tỷ lệ lá số (lõi đúng) đổi trạng thái khi đổi cơ chế",
+    "bang": {
+     "TU_PHU_VU_TUONG@kl_132_193": {
+      "thuong1|drop0": 38.2,
+      "thuong1|drop1": 33.3,
+      "thuong1|drop2": 28.5,
+      "thuong2|drop0": 14.5,
+      "thuong2|drop2": 4.8,
+      "thuong3|drop0": 21.5,
+      "thuong3|drop1": 16.7,
+      "thuong3|drop2": 16.7
+     },
+     "TU_PHU_VU_TUONG@th_115": {
+      "thuong1|drop0": 45.2,
+      "thuong1|drop1": 43.3,
+      "thuong1|drop2": 32.5,
+      "thuong2|drop0": 14.7,
+      "thuong2|drop2": 2.0,
+      "thuong3|drop0": 17.4,
+      "thuong3|drop1": 6.7,
+      "thuong3|drop2": 6.7
+     },
+     "CO_NGUYET_DONG_LUONG@kl_221": {
+      "thuong1|drop0": 40.1,
+      "thuong1|drop1": 40.1,
+      "thuong1|drop2": 40.1,
+      "thuong3|drop0": 56.2,
+      "thuong3|drop1": 56.2,
+      "thuong3|drop2": 56.2
+     },
+     "NHAT_LE_TRUNG_THIEN@kl_52_85": {
+      "thuong1|drop0": 34.5,
+      "thuong1|drop1": 34.5,
+      "thuong1|drop2": 34.5,
+      "thuong3|drop0": 29.8,
+      "thuong3|drop1": 29.8,
+      "thuong3|drop2": 29.8
+     },
+     "SAT_PHA_LIEM_THAM@th_76_77": {
+      "thuong1|drop0": 44.0,
+      "thuong1|drop1": 44.0,
+      "thuong1|drop2": 44.0
+     }
+    }
+   },
+   "verdict": "Không trang nào của ba sách nêu số yếu tố hay số bậc; TH tr.76-77 chỉ phân hạng (phi thường / thượng / trung / hạ) bằng 'hội cát tinh đủ bậc'. Đây là quy ước thiết kế và được hiển thị như vậy.",
+   "current": "2 yếu tố, hạ một bậc, không cộng điểm",
+   "decision": "giữ như quy ước hiển thị hay thay bằng phân hạng theo TH tr.76-77",
+   "extra": [],
+   "note": "",
+   "trang_thai": "mo (cần chuyên gia)"
+  }
+ ]
+}

@@ -1,0 +1,288 @@
+{
+ "version": 1,
+ "note": "Bảng Tứ Hóa theo nguồn. Mặc định sản xuất vẫn là KL; không có chuyển đổi nào được nối vào API. Đề xuất cơ chế chọn: tham số `tu_hoa_table` ('KL' mặc định | 'TH' | 'TT_WS'), trả về trong kết quả cùng nhãn nguồn, không bao giờ đổi âm thầm.",
+ "stems": [
+  "Giáp",
+  "Ất",
+  "Bính",
+  "Đinh",
+  "Mậu",
+  "Kỷ",
+  "Canh",
+  "Tân",
+  "Nhâm",
+  "Quý"
+ ],
+ "sources": {
+  "KL": {
+   "label": "Tử Vi Khảo Luận (Hoàng Thường – Hàm Chương)",
+   "pages": "tr.36 (bảng), tr.196-197 (diễn giải từng sao)",
+   "default_in_production": true,
+   "evidence": [
+    {
+     "page": 36,
+     "quote": "Nhâm Lương Vi Phụ Vũ",
+     "how": "van_ban"
+    },
+    {
+     "page": 197,
+     "quote": "Tả phụ, phải khéo léo, chăm chỉ mới có danh",
+     "how": "anh_doc_ro (mục 'Tuổi Nhâm' liệt kê Lương, Vi, Phụ, Vũ và bình từng sao)"
+    },
+    {
+     "page": 36,
+     "quote": "Canh Nhật Vũ Đồng Âm",
+     "how": "van_ban (Khoa Thiên Đồng, Kỵ Thái Âm)"
+    }
+   ],
+   "note": "bảng tr.36 in nhầm Tân-Lộc là Thiên Cơ; phần diễn giải tr.196 ghi Cự Môn (dùng Cự Môn)"
+  },
+  "TH": {
+   "label": "Tử Vi Thực Hành (Dịch Lý Huyền Cơ)",
+   "pages": "tr.20 (câu thơ), tr.21 (văn xuôi)",
+   "default_in_production": false,
+   "evidence": [
+    {
+     "page": 20,
+     "quote": "Nhâm : Lương, Tử, Phủ, Vũ tú thị",
+     "how": "anh_doc_ro (chữ 'Phủ' rõ trong ảnh trang)"
+    },
+    {
+     "page": 21,
+     "quote": "Khoa an với Thiên Phủ, Ky an với Vũ Khúc",
+     "how": "anh_doc_ro (cùng trang có lỗi in khác: 'Khao', 'Vự Môn')"
+    }
+   ],
+   "note": "TH in Thiên Phủ ở CẢ câu thơ lẫn văn xuôi: không thể coi là lỗi chính tả một chỗ"
+  },
+  "TT_WS": {
+   "label": "紫微斗數全書 bản số hóa (zh.wikisource.org/wiki/紫微斗數全書/卷二) — NGUỒN NGOÀI, không thuộc ba sách của dự án",
+   "pages": "bài 'Lập Tứ Hóa: 安祿權科忌四星變化訣'",
+   "default_in_production": false,
+   "evidence": [
+    {
+     "page": null,
+     "quote": "庚日武陰同為首 / 壬梁紫府武宿是",
+     "how": "văn bản số hóa, truy cập 2026-10-17; một ấn bản, chưa đối chiếu bản gốc"
+    }
+   ],
+   "note": "khác KL ở Canh (Khoa Thái Âm, Kỵ Thiên Đồng) và Nhâm (Khoa Thiên Phủ). zh.wikipedia/紫微斗數 cũng ghi hai biến thể ở đúng hai hàng này, nên đây là khác biệt giữa các văn bản truyền thống, không phải lỗi một cuốn"
+  }
+ },
+ "tables": {
+  "KL": {
+   "Giáp": {
+    "Hóa Lộc": "Liêm Trinh",
+    "Hóa Quyền": "Phá Quân",
+    "Hóa Khoa": "Vũ Khúc",
+    "Hóa Kỵ": "Thái Dương"
+   },
+   "Ất": {
+    "Hóa Lộc": "Thiên Cơ",
+    "Hóa Quyền": "Thiên Lương",
+    "Hóa Khoa": "Tử Vi",
+    "Hóa Kỵ": "Thái Âm"
+   },
+   "Bính": {
+    "Hóa Lộc": "Thiên Đồng",
+    "Hóa Quyền": "Thiên Cơ",
+    "Hóa Khoa": "Văn Xương",
+    "Hóa Kỵ": "Liêm Trinh"
+   },
+   "Đinh": {
+    "Hóa Lộc": "Thái Âm",
+    "Hóa Quyền": "Thiên Đồng",
+    "Hóa Khoa": "Thiên Cơ",
+    "Hóa Kỵ": "Cự Môn"
+   },
+   "Mậu": {
+    "Hóa Lộc": "Tham Lang",
+    "Hóa Quyền": "Thái Âm",
+    "Hóa Khoa": "Hữu Bật",
+    "Hóa Kỵ": "Thiên Cơ"
+   },
+   "Kỷ": {
+    "Hóa Lộc": "Vũ Khúc",
+    "Hóa Quyền": "Tham Lang",
+    "Hóa Khoa": "Thiên Lương",
+    "Hóa Kỵ": "Văn Khúc"
+   },
+   "Canh": {
+    "Hóa Lộc": "Thái Dương",
+    "Hóa Quyền": "Vũ Khúc",
+    "Hóa Khoa": "Thiên Đồng",
+    "Hóa Kỵ": "Thái Âm"
+   },
+   "Tân": {
+    "Hóa Lộc": "Cự Môn",
+    "Hóa Quyền": "Thái Dương",
+    "Hóa Khoa": "Văn Khúc",
+    "Hóa Kỵ": "Văn Xương"
+   },
+   "Nhâm": {
+    "Hóa Lộc": "Thiên Lương",
+    "Hóa Quyền": "Tử Vi",
+    "Hóa Khoa": "Tả Phụ",
+    "Hóa Kỵ": "Vũ Khúc"
+   },
+   "Quý": {
+    "Hóa Lộc": "Phá Quân",
+    "Hóa Quyền": "Cự Môn",
+    "Hóa Khoa": "Thái Âm",
+    "Hóa Kỵ": "Tham Lang"
+   }
+  },
+  "TH": {
+   "Giáp": {
+    "Hóa Lộc": "Liêm Trinh",
+    "Hóa Quyền": "Phá Quân",
+    "Hóa Khoa": "Vũ Khúc",
+    "Hóa Kỵ": "Thái Dương"
+   },
+   "Ất": {
+    "Hóa Lộc": "Thiên Cơ",
+    "Hóa Quyền": "Thiên Lương",
+    "Hóa Khoa": "Tử Vi",
+    "Hóa Kỵ": "Thái Âm"
+   },
+   "Bính": {
+    "Hóa Lộc": "Thiên Đồng",
+    "Hóa Quyền": "Thiên Cơ",
+    "Hóa Khoa": "Văn Xương",
+    "Hóa Kỵ": "Liêm Trinh"
+   },
+   "Đinh": {
+    "Hóa Lộc": "Thái Âm",
+    "Hóa Quyền": "Thiên Đồng",
+    "Hóa Khoa": "Thiên Cơ",
+    "Hóa Kỵ": "Cự Môn"
+   },
+   "Mậu": {
+    "Hóa Lộc": "Tham Lang",
+    "Hóa Quyền": "Thái Âm",
+    "Hóa Khoa": "Hữu Bật",
+    "Hóa Kỵ": "Thiên Cơ"
+   },
+   "Kỷ": {
+    "Hóa Lộc": "Vũ Khúc",
+    "Hóa Quyền": "Tham Lang",
+    "Hóa Khoa": "Thiên Lương",
+    "Hóa Kỵ": "Văn Khúc"
+   },
+   "Canh": {
+    "Hóa Lộc": "Thái Dương",
+    "Hóa Quyền": "Vũ Khúc",
+    "Hóa Khoa": "Thiên Đồng",
+    "Hóa Kỵ": "Thái Âm"
+   },
+   "Tân": {
+    "Hóa Lộc": "Cự Môn",
+    "Hóa Quyền": "Thái Dương",
+    "Hóa Khoa": "Văn Khúc",
+    "Hóa Kỵ": "Văn Xương"
+   },
+   "Nhâm": {
+    "Hóa Lộc": "Thiên Lương",
+    "Hóa Quyền": "Tử Vi",
+    "Hóa Khoa": "Thiên Phủ",
+    "Hóa Kỵ": "Vũ Khúc"
+   },
+   "Quý": {
+    "Hóa Lộc": "Phá Quân",
+    "Hóa Quyền": "Cự Môn",
+    "Hóa Khoa": "Thái Âm",
+    "Hóa Kỵ": "Tham Lang"
+   }
+  },
+  "TT_WS": {
+   "Giáp": {
+    "Hóa Lộc": "Liêm Trinh",
+    "Hóa Quyền": "Phá Quân",
+    "Hóa Khoa": "Vũ Khúc",
+    "Hóa Kỵ": "Thái Dương"
+   },
+   "Ất": {
+    "Hóa Lộc": "Thiên Cơ",
+    "Hóa Quyền": "Thiên Lương",
+    "Hóa Khoa": "Tử Vi",
+    "Hóa Kỵ": "Thái Âm"
+   },
+   "Bính": {
+    "Hóa Lộc": "Thiên Đồng",
+    "Hóa Quyền": "Thiên Cơ",
+    "Hóa Khoa": "Văn Xương",
+    "Hóa Kỵ": "Liêm Trinh"
+   },
+   "Đinh": {
+    "Hóa Lộc": "Thái Âm",
+    "Hóa Quyền": "Thiên Đồng",
+    "Hóa Khoa": "Thiên Cơ",
+    "Hóa Kỵ": "Cự Môn"
+   },
+   "Mậu": {
+    "Hóa Lộc": "Tham Lang",
+    "Hóa Quyền": "Thái Âm",
+    "Hóa Khoa": "Hữu Bật",
+    "Hóa Kỵ": "Thiên Cơ"
+   },
+   "Kỷ": {
+    "Hóa Lộc": "Vũ Khúc",
+    "Hóa Quyền": "Tham Lang",
+    "Hóa Khoa": "Thiên Lương",
+    "Hóa Kỵ": "Văn Khúc"
+   },
+   "Canh": {
+    "Hóa Lộc": "Thái Dương",
+    "Hóa Quyền": "Vũ Khúc",
+    "Hóa Khoa": "Thái Âm",
+    "Hóa Kỵ": "Thiên Đồng"
+   },
+   "Tân": {
+    "Hóa Lộc": "Cự Môn",
+    "Hóa Quyền": "Thái Dương",
+    "Hóa Khoa": "Văn Khúc",
+    "Hóa Kỵ": "Văn Xương"
+   },
+   "Nhâm": {
+    "Hóa Lộc": "Thiên Lương",
+    "Hóa Quyền": "Tử Vi",
+    "Hóa Khoa": "Thiên Phủ",
+    "Hóa Kỵ": "Vũ Khúc"
+   },
+   "Quý": {
+    "Hóa Lộc": "Phá Quân",
+    "Hóa Quyền": "Cự Môn",
+    "Hóa Khoa": "Thái Âm",
+    "Hóa Kỵ": "Tham Lang"
+   }
+  }
+ },
+ "differs_from_KL": {
+  "TH": {
+   "Nhâm": {
+    "Hóa Khoa": [
+     "Tả Phụ",
+     "Thiên Phủ"
+    ]
+   }
+  },
+  "TT_WS": {
+   "Canh": {
+    "Hóa Khoa": [
+     "Thiên Đồng",
+     "Thái Âm"
+    ],
+    "Hóa Kỵ": [
+     "Thái Âm",
+     "Thiên Đồng"
+    ]
+   },
+   "Nhâm": {
+    "Hóa Khoa": [
+     "Tả Phụ",
+     "Thiên Phủ"
+    ]
+   }
+  }
+ }
+}

@@ -4,7 +4,7 @@ Sinh bởi `tools/build_formation_report6.py` từ dữ liệu đã ghim (audit,
 
 ## 1. Chốt provenance (đếm lại sau khi thêm cờ giả định từng quy tắc)
 
-Tổng **47** quy tắc trong 17 biến thể: **10** `doi_chieu_truc_tiep`, **34** `co_nguon_con_gia_dinh`, **3** `chua_du_nguon`. Con số 15 xuất hiện trong tin nhắn bàn giao Phase 5 (đếm trước khi thêm cờ giả định) không khớp file đã commit, vốn ghi 8 `doi_chieu_truc_tiep`; cả hai **đã bị thay thế** bởi số trên, tính theo từng quy tắc sau khi cờ giả định được gắn cho từng quy tắc và một trích dẫn sai chủ đề của audit (KL tr.221, Cơ Nguyệt Đồng Lương) được sửa.
+Tổng **47** quy tắc trong 17 biến thể: **10** `doi_chieu_truc_tiep`, **33** `co_nguon_con_gia_dinh`, **4** `chua_du_nguon`. Con số 15 xuất hiện trong tin nhắn bàn giao Phase 5 (đếm trước khi thêm cờ giả định) không khớp file đã commit, vốn ghi 8 `doi_chieu_truc_tiep`; cả hai **đã bị thay thế** bởi số trên, tính theo từng quy tắc sau khi cờ giả định được gắn cho từng quy tắc và một trích dẫn sai chủ đề của audit (KL tr.221, Cơ Nguyệt Đồng Lương) được sửa.
 
 - `doi_chieu_truc_tiep`: mọi trích dẫn của quy tắc được máy so với văn bản trang, câu sách đã xác định phạm vi, không có giả định của mô hình.
 - `co_nguon_con_gia_dinh`: có trang sách nói đúng chủ đề nhưng còn giả định (phạm vi, ngưỡng, tập sao, một-trong-các-sao).
@@ -19,7 +19,7 @@ Tổng **47** quy tắc trong 17 biến thể: **10** `doi_chieu_truc_tiep`, **3
 | `CO_NGUYET_DONG_LUONG@tt_24` | TH tr.77, TT tr.24 | 0 | 4 | 0 |
 | `CO_NGUYET_DONG_LUONG@kl_221` | KL tr.221, KL tr.51 | 0 | 3 | 0 |
 | `SAT_PHA_LIEM_THAM@th_76_77` | TH tr.116, TH tr.72, TH tr.76, TH tr.77 | 0 | 1 | 2 |
-| `NHAT_NGUYET_TINH_MINH@th_72` | TH tr.72, TH tr.74, TT tr.142 | 1 | 1 | 1 |
+| `NHAT_NGUYET_TINH_MINH@th_72` | TH tr.72, TH tr.74, TT tr.142 | 1 | 2 | 0 |
 | `NHAT_NGUYET_TINH_MINH@kl_53_68` | KL tr.53, KL tr.56, KL tr.68 | 0 | 4 | 0 |
 | `NHAT_LE_TRUNG_THIEN@kl_52_85` | KL tr.52, KL tr.85, TH tr.72 | 1 | 2 | 0 |
 | `THACH_TRUNG_AN_NGOC@kl_44` | KL tr.44 | 1 | 0 | 0 |
@@ -28,7 +28,7 @@ Tổng **47** quy tắc trong 17 biến thể: **10** `doi_chieu_truc_tiep`, **3
 | `MA_DAU_DOI_KIEM@kl_64_xau` | KL tr.64 | 2 | 0 | 0 |
 | `MA_DAU_DOI_KIEM@kl_64_tot` | KL tr.64 | 1 | 1 | 0 |
 | `TAM_KY_GIA_HOI@kl_66` | KL tr.66, TT tr.142 | 0 | 2 | 0 |
-| `KHOI_VIET_GIAP_MENH@kl_44_62` | KL tr.44, KL tr.62 | 1 | 2 | 0 |
+| `KHOI_VIET_GIAP_MENH@kl_44_62` | KL tr.44, KL tr.62 | 1 | 0 | 2 |
 
 Ghi chú về cơ chế (áp cho mọi biến thể, không phải kết luận cổ thư): thang `hình thức → thành → thành thượng` (thành thượng = từ 2 yếu tố tăng thế), mỗi phản chứng hạ một bậc, không cộng điểm, breaker không được cứu thì `bị phá`. Biến thể không có sao cứu.
 
@@ -55,8 +55,8 @@ Quan hệ: *mở rộng* = điều kiện mới đúng ở mọi nơi điều ki
 | P11 | Sát Phá Liêm Tham · `tam_hoa_hoi_cuu` | TH tr.74: “cần được cứu giải băng Tam hóa hội” | bỏ khỏi mọi biến thể | — | th_76_77 | bỏ khỏi biến thể — Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này. | — | `test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants` |
 | P12 | Nhật Nguyệt tịnh minh · `core` | TH tr.72: “Nhật, Nguyệt tinh minh cách (Nhật ở Thìn, Tỵ, Nguyệt ở Dậu, Tuất, mà Mệnh đóng ở Nguyệt hay Nhật đều tốt)”<br>KL tr.53: “Nhật nguyệt thủ Mệnh bất như hợp chiếu tịnh minh” | TH tr.72: Nhật Thìn/Tỵ, Nguyệt Dậu/Tuất, Mệnh ở Nhật hay Nguyệt; bản KL tr.53 giữ lõi hợp chiếu của baseline | bản KL: 'hợp chiếu' mô hình là cả hai sao trong tam phương | th_72 | thu hẹp | 2640 / 384 / 2256 / 0 (trên 2640) | `test_formation_proposals.py::test_relation_holds_on_the_sample` |
 | P13 | Nhật Nguyệt tịnh minh · `tam_hoa_hoi_cuu` | TH tr.74: “cần được cứu giải băng Tam hóa hội” | bỏ khỏi mọi biến thể | — | th_72, kl_53_68 | bỏ khỏi biến thể — Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này. | — | `test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants` |
-| P14 | Nhật Nguyệt tịnh minh · `Thái_Dương_ham` | TH tr.74: “Nhật, Nguyệt hãm tại Mệnh không có cứu tinh, hoặc hãm mà gặp sát tinh (bần tiện cách số 7)”<br>KL tr.68: “chỉ mong được Khôi Việt chiếu mới là tốt đẹp” | KL tr.68: Nhật/Nguyệt hãm mà KHÔNG có Khôi/Việt chiếu mới là phản chứng | 'Khôi Việt chiếu' đọc là hội chiếu tam phương | kl_53_68 | thay bằng điều kiện của sách | 1344 / 672 / 696 / 24 (trên 2640) | `test_formation_proposals.py::test_relation_holds_on_the_sample` |
-| P15 | Nhật Nguyệt tịnh minh · `Thái_Âm_ham` | TH tr.74: “Nhật, Nguyệt hãm tại Mệnh không có cứu tinh, hoặc hãm mà gặp sát tinh (bần tiện cách số 7)”<br>KL tr.68: “chỉ mong được Khôi Việt chiếu mới là tốt đẹp” | như Thái Dương hãm (gộp một điều kiện cho cả hai sao) | như trên | kl_53_68 | thay bằng điều kiện của sách | 912 / 672 / 456 / 216 (trên 2640) | `test_formation_proposals.py::test_relation_holds_on_the_sample` |
+| P14 | Nhật Nguyệt tịnh minh · `Thái_Dương_ham` | TH tr.74: “Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh”<br>KL tr.68: “chỉ mong được Khôi Việt chiếu mới là tốt đẹp” | KL tr.68: Nhật/Nguyệt hãm mà KHÔNG có Khôi/Việt chiếu mới là phản chứng | 'Khôi Việt chiếu' đọc là hội chiếu tam phương | kl_53_68 | thay bằng điều kiện của sách | 1344 / 672 / 696 / 24 (trên 2640) | `test_formation_proposals.py::test_relation_holds_on_the_sample` |
+| P15 | Nhật Nguyệt tịnh minh · `Thái_Âm_ham` | TH tr.74: “Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh”<br>KL tr.68: “chỉ mong được Khôi Việt chiếu mới là tốt đẹp” | như Thái Dương hãm (gộp một điều kiện cho cả hai sao) | như trên | kl_53_68 | thay bằng điều kiện của sách | 912 / 672 / 456 / 216 (trên 2640) | `test_formation_proposals.py::test_relation_holds_on_the_sample` |
 | P16 | Nhật Nguyệt tịnh minh · `tuan_triet_an_ngu` | KL tr.53: “rất cần Tuần không án ngữ ở Mệnh”<br>KL tr.85: “Thái dương hãm địa, cần gặp Tuần, Triệt, cũng cần gặp Đào, Hồng, Hỉ giúp sức” | bỏ khỏi cả hai biến thể | — | th_72, kl_53_68 | bỏ khỏi biến thể — KL tr.53 mục 11 và tr.85 coi Tuần/Triệt là điều kiện thuận cho Nhật Nguyệt/Thái Dương hãm | — | `test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants` |
 | P17 | Nhật lệ trung thiên · `ky_dong_cung` | KL tr.85: “Thái dương ghét lũ Riêu, Đà, Kỵ” | giữ nguyên ở baseline | KL tr.85 'ghét Kỵ' không nêu phạm vi | — | không triển khai (chưa đủ căn cứ) — KL tr.85 'ghét Kỵ' không nêu phạm vi → không suy ra đồng cung | — | `test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants` |
 | P18 | Nhật lệ trung thiên · `tam_hoa_hoi_cuu` | TH tr.74: “cần được cứu giải băng Tam hóa hội” | bỏ khỏi mọi biến thể | — | kl_52_85 | bỏ khỏi biến thể — Không biến thể nào có sao cứu: TH tr.74 chỉ nói Tam Hóa cứu Mệnh ở bại/tuyệt địa, KL tr.132 chỉ gọi Hóa Khoa là sao giải nói chung; không trang nào nói sao đó cứu cách này. | — | `test_formation_proposals.py::test_unimplemented_and_dropped_stay_out_of_variants` |
@@ -187,5 +187,5 @@ Phát hiện:
 7. Tuần/Triệt vừa cứu hung tinh vừa hại quý tinh: chọn theo cách cụ thể nào.
 8. Ba định nghĩa Thạch trung ẩn ngọc; hai kết cục của Mã đầu đới kiếm; TT tr.142 coi Kình ở Ngọ là xấu và chỉ tốt ở tứ mộ.
 9. TT tr.22 nhắc Tử Phủ đồng cung ở Tỵ/Hợi (mô hình chỉ có Dần/Thân) và TH tr.72 cho phép đóng ở Mệnh hay Thân.
-10. Trang TH tr.72, tr.74 chỉ đọc được từ ảnh: cần người đối chiếu trực tiếp sách giấy.
+10. TH tr.72 (mục 4, 12) chỉ máy-không-kiểm-được; đã đọc từ ảnh, cần người đối chiếu sách giấy (Phase 7 đã xác nhận bằng ảnh, cả TH tr.74).
 11. Ngưỡng cơ chế: 2 yếu tố tăng thế → thành thượng; phản chứng hạ một bậc; không cộng điểm.

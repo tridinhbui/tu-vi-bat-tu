@@ -47,8 +47,8 @@ def main():
          "các định nghĩa mâu thuẫn được giữ thành biến thể khác nhau, không gộp, không chọn bên đúng hơn. Mọi thứ vẫn `draft`, chỉ hiện ở `?thu-nghiem`.", "",
          "## 1. Chốt audit", "",
          f"- Tổng điều kiện: **{S['total']}**; khớp nguồn **{S['by_status'].get('khop', 0)}** (trong đó {S['khop_machine_checked']} có câu trích được máy so với văn bản trang, "
-         "còn lại dựa vào trang đọc từ ảnh TH tr.72/74); bị loại khỏi tập có nguồn **" + str(S['excluded_from_sourced']) + f"**; đề xuất sửa **{S['by_action'].get('de_xuat_sua', 0)}**.",
-         "- Các trích dẫn (94 câu `van_ban`, 5 câu `anh`) được lưu kèm kết quả kiểm trong JSON đã commit, nên việc kiểm lại không phụ thuộc test có chạy hay bị bỏ qua khi thiếu PDF; "
+         "còn lại dựa vào trang TH tr.72 đọc trực tiếp từ ảnh); bị loại khỏi tập có nguồn **" + str(S['excluded_from_sourced']) + f"**; đề xuất sửa **{S['by_action'].get('de_xuat_sua', 0)}**.",
+         "- Các trích dẫn (`van_ban` = máy so với văn bản trang; `anh_doc_ro` = ảnh trang đọc trực tiếp, chữ rõ) được lưu kèm kết quả kiểm trong JSON đã commit, nên việc kiểm lại không phụ thuộc test có chạy hay bị bỏ qua khi thiếu PDF; "
          "test đọc PDF tự bỏ qua khi thiếu sách và KHÔNG được tính là bằng chứng.", "",
          "## 2. Lớp biến thể theo nguồn", "",
          f"{nvar} biến thể cho 10 cách (mỗi biến thể = một sách, một cách đọc). Quy tắc xây dựng: chỉ giữ điều kiện có nguồn ĐÚNG vai trò trong sách đó; thay phạm vi khi câu sách nêu rõ "

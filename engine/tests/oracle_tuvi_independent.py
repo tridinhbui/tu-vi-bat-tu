@@ -28,6 +28,11 @@ TU_HOA = {0: ("Liêm Trinh", "Phá Quân", "Vũ Khúc", "Thái Dương"), 1: ("T
           6: ("Thái Dương", "Vũ Khúc", "Thiên Đồng", "Thái Âm"), 7: ("Cự Môn", "Thái Dương", "Văn Khúc", "Văn Xương"),
           8: ("Thiên Lương", "Tử Vi", NHAM_KHOA, "Vũ Khúc"), 9: ("Phá Quân", "Cự Môn", "Thái Âm", "Tham Lang")}
 HOA = ("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ")
+# Per-source Tứ Hóa tables (Lộc, Quyền, Khoa, Kỵ). KL = production's table. The two others differ from it ONLY on Canh and Nhâm:
+#   TH: Nhâm-Khoa = Thiên Phủ (verse p.20 and prose p.21). Canh agrees with KL (Khoa Thiên Đồng, Kỵ Thái Âm).
+#   TT_WS: a digitized 紫微斗數全書 verse (zh.wikisource.org/wiki/紫微斗數全書/卷二, "安祿權科忌四星變化訣"): 庚 日武陰同 (Khoa Thái Âm, Kỵ Thiên Đồng), 壬 梁紫府武.
+# EXTERNAL reference, not one of the three books of the project; kept to size the effect of the disagreement, never used as default.
+TU_HOA_TABLES = {}
 TRIAD = {2: 0, 6: 0, 10: 0, 8: 1, 0: 1, 4: 1, 5: 2, 9: 2, 1: 2, 11: 3, 3: 3, 7: 3}
 HOA_START, LINH_START = {0: 1, 1: 2, 2: 3, 3: 9}, {0: 3, 1: 10, 2: 10, 3: 10}
 # brightness as rank miếu 4 / vượng 3 / đắc 2 / bình 1 / hãm 0; missing = not printed
@@ -37,7 +42,12 @@ SAT = ("Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Địa Không", "
 CAT6 = ("Tả Phụ", "Hữu Bật", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt")
 
 
-def chart(ly, lm, ld, hb, male):
+TU_HOA_TABLES["KL"] = TU_HOA
+TU_HOA_TABLES["TH"] = {**TU_HOA, 8: ("Thiên Lương", "Tử Vi", "Thiên Phủ", "Vũ Khúc")}
+TU_HOA_TABLES["TT_WS"] = {**TU_HOA, 6: ("Thái Dương", "Vũ Khúc", "Thái Âm", "Thiên Đồng"), 8: ("Thiên Lương", "Tử Vi", "Thiên Phủ", "Vũ Khúc")}
+
+
+def chart(ly, lm, ld, hb, male, hoa_table="KL"):
     """lunar year (Gregorian number of the lunar year), lunar month 1-12, lunar day, hour branch 0-11, gender -> positions."""
     ys, yb = (ly - 4) % 10, (ly - 4) % 12
     menh = (2 + lm - 1 - hb) % 12
@@ -68,13 +78,14 @@ def chart(ly, lm, ld, hb, male):
     pos["Linh Tinh"] = (LINH_START[g] - sgn * hb) % 12
     pos["Địa Kiếp"], pos["Địa Không"] = (11 + hb) % 12, (11 - hb) % 12
     pos["Thiên Hình"] = (9 + lm - 1) % 12
+    pos["Thiên Mã"] = {0: 8, 1: 2, 2: 11, 3: 5}[g]                          # TH p.21: Dần Ngọ Tuất -> Thân; Thân Tý Thìn -> Dần; Tỵ Dậu Sửu -> Hợi; Hợi Mão Mùi -> Tỵ
     hoa_at = {}
-    for tag, star in zip(HOA, TU_HOA[ys]):
+    for tag, star in zip(HOA, TU_HOA_TABLES[hoa_table][ys]):
         hoa_at.setdefault(pos[star], set()).add(tag)
     start = (yb - ys) % 12
     tuan = {(start + 10) % 12, (start + 11) % 12}
     triet = set(TRIET[ys])
-    return dict(pos=pos, menh=menh, than=than, cuc=cuc, tv=tv, hoa_at=hoa_at, tuan=tuan, triet=triet, ys=ys, yb=yb, carriers=dict(zip(HOA, TU_HOA[ys])))
+    return dict(pos=pos, menh=menh, than=than, cuc=cuc, tv=tv, hoa_at=hoa_at, tuan=tuan, triet=triet, ys=ys, yb=yb, carriers=dict(zip(HOA, TU_HOA_TABLES[hoa_table][ys])))
 
 
 # ---- palace geometry -------------------------------------------------------------------------------------------------------------
@@ -126,11 +137,25 @@ def lte(r, n):
 
 
 # ---- variants, written from the Vietnamese labels of each condition ------------------------------------------------------------------
-def V():
+REGIONS = {
+    "tp": lambda c: tp(c),                                                         # đồng cung + đối cung + hai tam hợp (production's reading of 'hội')
+    "hoi_chieu": lambda c: tp(c) - {roles(c)["self"]},                             # everything that 'chiếu' on Mệnh, without Mệnh itself
+    "doi_cung": lambda c: {roles(c)["opp"]},                                       # xung chiếu only
+    "dong_cung": lambda c: {roles(c)["self"]},                                     # same palace only
+    "tam_hop": lambda c: {roles(c)["trine1"], roles(c)["trine2"]},                 # the two tam hợp palaces only
+}
+
+
+def V(scope="tp"):
+    """scope: how the rules whose SENTENCE gives no scope ('hội', 'thích', 'cần') are read; rules whose scope the page states stay fixed.
+    The core always uses the tam phương (it defines the structure)."""
+    reg = REGIONS[scope]
     S = lambda c, k: stars_at(c, {roles(c)[k]})
     TPS = lambda c: stars_at(c, tp(c))
     TPM = lambda c: majors_at(c, tp(c))
     TPH = lambda c: hoa_at(c, tp(c))
+    RS = lambda c: stars_at(c, reg(c))
+    RH = lambda c: hoa_at(c, reg(c))
     has = lambda xs, ys_: all(y in xs for y in ys_)
     anyin = lambda xs, ys_: any(y in xs for y in ys_)
     on_menh_tuan = lambda c: c["menh"] in c["tuan"] or c["menh"] in c["triet"]
@@ -157,9 +182,9 @@ def V():
 
     ma = lambda c: c["menh"] == B["Ngọ"] and "Kình Dương" in S(c, "self")
     return {
-        "CACH_X_TU_PHU_VU_TUONG@kl_132_193": dict(core=four(TPVT), boost=[lambda c: has(TPS(c), ("Tả Phụ", "Hữu Bật")), lambda c: anyin(TPS(c), ("Văn Xương", "Văn Khúc"))],
+        "CACH_X_TU_PHU_VU_TUONG@kl_132_193": dict(core=four(TPVT), boost=[lambda c: has(RS(c), ("Tả Phụ", "Hữu Bật")), lambda c: anyin(RS(c), ("Văn Xương", "Văn Khúc"))],
                                                    brk=[], ref=[on_menh_tuan]),
-        "CACH_X_TU_PHU_VU_TUONG@th_115": dict(core=four(TPVT), boost=[lambda c: "Lộc Tồn" in TPS(c) or "Hóa Lộc" in TPH(c), lambda c: has(TPS(c), ("Tả Phụ", "Hữu Bật"))],
+        "CACH_X_TU_PHU_VU_TUONG@th_115": dict(core=four(TPVT), boost=[lambda c: "Lộc Tồn" in RS(c) or "Hóa Lộc" in RH(c), lambda c: has(RS(c), ("Tả Phụ", "Hữu Bật"))],
                                                brk=[], ref=[on_menh_tuan]),
         "CACH_X_TU_PHU_DONG_CUNG@tt_22": dict(core=lambda c: has(majors_at(c, {c["menh"]}), ("Tử Vi", "Thiên Phủ")), boost=[],
                                                brk=[lambda c: anyin(S(c, "self"), SAT)], ref=[on_menh_tuan]),
@@ -167,17 +192,17 @@ def V():
                                                boost=[lambda c: has(S(c, "self"), ("Kình Dương", "Lực Sĩ")),
                                                       lambda c: c["menh"] == B["Dần"] and has(hoa_at(c, {c["menh"]}), ("Hóa Kỵ", "Hóa Quyền"))],
                                                brk=[], ref=[on_menh_tuan]),
-        "CACH_X_CO_NGUYET_DONG_LUONG@tt_24": dict(core=four(CNDL), boost=[lambda c: anyin(TPS(c), CAT6)], brk=[lambda c: anyin(TPS(c), ("Địa Không", "Địa Kiếp")),
+        "CACH_X_CO_NGUYET_DONG_LUONG@tt_24": dict(core=four(CNDL), boost=[lambda c: anyin(RS(c), CAT6)], brk=[lambda c: anyin(TPS(c), ("Địa Không", "Địa Kiếp")),
                                                                                                                    lambda c: "Hóa Kỵ" in TPH(c)], ref=[]),
-        "CACH_X_CO_NGUYET_DONG_LUONG@kl_221": dict(core=four(CNDL), boost=[lambda c: anyin(TPS(c), CAT6), lambda c: anyin(TPH(c), ALL3)], brk=[], ref=[]),
-        "CACH_X_SAT_PHA_LIEM_THAM@th_76_77": dict(core=lambda c: cnt4(c) >= 3, boost=[lambda c: anyin(TPH(c), ("Hóa Khoa", "Hóa Quyền"))],
+        "CACH_X_CO_NGUYET_DONG_LUONG@kl_221": dict(core=four(CNDL), boost=[lambda c: anyin(RS(c), CAT6), lambda c: anyin(RH(c), ALL3)], brk=[], ref=[]),
+        "CACH_X_SAT_PHA_LIEM_THAM@th_76_77": dict(core=lambda c: cnt4(c) >= 3, boost=[lambda c: anyin(RH(c), ("Hóa Khoa", "Hóa Quyền"))],
                                                    brk=[lambda c: sum(1 for s in SAT if s in TPS(c)) >= 3 and "Hóa Kỵ" in TPH(c)], ref=[]),
         "CACH_X_NHAT_NGUYET_TINH_MINH@th_72": dict(core=th72_core, boost=[sang], brk=[ham_sat], ref=[]),
         "CACH_X_NHAT_NGUYET_TINH_MINH@kl_53_68": dict(core=four(["Thái Dương", "Thái Âm"]), boost=[sang], brk=[ham_sat],
                                                        ref=[lambda c: AND(OR(lte(rank(c, "Thái Dương"), 0), lte(rank(c, "Thái Âm"), 0)),
                                                                           "Thiên Khôi" not in TPS(c), "Thiên Việt" not in TPS(c))]),
         "CACH_X_NHAT_LE_TRUNG_THIEN@kl_52_85": dict(core=lambda c: c["menh"] == B["Ngọ"] and "Thái Dương" in majors_at(c, {c["menh"]}),
-                                                     boost=[lambda c: anyin(TPH(c), ("Hóa Khoa", "Hóa Quyền")), lambda c: anyin(TPS(c), ("Văn Xương", "Văn Khúc"))], brk=[], ref=[]),
+                                                     boost=[lambda c: anyin(RH(c), ("Hóa Khoa", "Hóa Quyền")), lambda c: anyin(RS(c), ("Văn Xương", "Văn Khúc"))], brk=[], ref=[]),
         "CACH_X_THACH_TRUNG_AN_NGOC@kl_44": dict(core=lambda c: c["menh"] in (B["Tý"], B["Ngọ"]) and "Cự Môn" in majors_at(c, {c["menh"]})
                                                   and "Thiên Cơ" in majors_at(c, {roles(c)["opp"]}), boost=[], brk=[], ref=[]),
         "CACH_X_THACH_TRUNG_AN_NGOC@kl_58": dict(core=lambda c: c["menh"] in (B["Tý"], B["Ngọ"]) and "Cự Môn" in majors_at(c, {c["menh"]}) and has(TPH(c), ALL3),
@@ -185,7 +210,7 @@ def V():
         "CACH_X_THACH_TRUNG_AN_NGOC@kl_106": dict(core=lambda c: c["menh"] in (B["Tý"], B["Ngọ"]) and "Cự Môn" in majors_at(c, {c["menh"]})
                                                    and (on_menh_tuan(c) or "Hóa Lộc" in hoa_at(c, {c["menh"]})), boost=[], brk=[], ref=[]),
         "CACH_X_MA_DAU_DOI_KIEM@kl_64_xau": dict(core=ma, boost=[], brk=[lambda c: has(S(c, "self"), ("Thất Sát", "Thiên Hình"))], ref=[]),
-        "CACH_X_MA_DAU_DOI_KIEM@kl_64_tot": dict(core=ma, boost=[lambda c: has(TPH(c), ALL3) and "Thất Sát" not in S(c, "self") and "Thiên Hình" not in S(c, "self")],
+        "CACH_X_MA_DAU_DOI_KIEM@kl_64_tot": dict(core=ma, boost=[lambda c: has(RH(c), ALL3) and "Thất Sát" not in S(c, "self") and "Thiên Hình" not in S(c, "self")],
                                                   brk=[], ref=[]),
         "CACH_X_TAM_KY_GIA_HOI@kl_66": dict(core=lambda c: has(TPH(c), ("Hóa Lộc", "Hóa Quyền", "Hóa Khoa")), boost=[],
                                              brk=[lambda c: "Hóa Kỵ" in hoa_at(c, {roles(c)["self"], roles(c)["opp"]}) or "Kình Dương" in stars_at(c, {roles(c)["self"], roles(c)["opp"]})],
@@ -193,11 +218,13 @@ def V():
         "CACH_X_KHOI_VIET_GIAP_MENH@kl_44_62": dict(
             core=lambda c: (c["pos"]["Thiên Khôi"] == roles(c)["prev"] and c["pos"]["Thiên Việt"] == roles(c)["next"])
             or (c["pos"]["Thiên Việt"] == roles(c)["prev"] and c["pos"]["Thiên Khôi"] == roles(c)["next"]),
-            boost=[lambda c: anyin(TPS(c), ("Văn Xương", "Văn Khúc"))], brk=[lambda c: sum(1 for s in SAT if s in TPS(c)) >= 1], ref=[]),
+            boost=[lambda c: anyin(RS(c), ("Văn Xương", "Văn Khúc"))], brk=[lambda c: sum(1 for s in SAT if s in TPS(c)) >= 1], ref=[]),
     }
 
 
-def state(spec, c, thuong_at=2):
+def state(spec, c, thuong_at=2, drop=1):
+    """ladder of the evaluator: breaker -> bi_pha (no rescuers in the variants); boosters >= thuong_at -> thanh_thuong, >= 1 -> thanh, 0 -> hinh_thuc;
+    an active refutation lowers it by `drop` rungs (the evaluator's convention is 1). `thuong_at` and `drop` are parameters ONLY for sensitivity runs."""
     core = spec["core"](c)
     if core is None:
         return "chua_du_du_kien"
@@ -205,9 +232,10 @@ def state(spec, c, thuong_at=2):
         return "khong_hien"
     on = lambda fs: [f for f in fs if f(c) is True]
     if on(spec["brk"]):
-        return "bi_pha"                                              # variants carry no rescuer, so a breaker is never covered
+        return "bi_pha"
     n = len(on(spec["boost"]))
-    st = "thanh_thuong" if n >= thuong_at else "thanh" if n >= 1 else "hinh_thuc"
-    if on(spec["ref"]) and st in ("thanh_thuong", "thanh"):
-        st = {"thanh_thuong": "thanh", "thanh": "hinh_thuc"}[st]
-    return st
+    rungs = ["hinh_thuc", "thanh", "thanh_thuong"]
+    i = 2 if n >= thuong_at else 1 if n >= 1 else 0
+    if on(spec["ref"]) and i >= 1:
+        i = max(0, i - drop)
+    return rungs[i]

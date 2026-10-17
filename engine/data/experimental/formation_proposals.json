@@ -11,6 +11,8 @@
    "condition": "sat_dong_cung",
    "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "khac_ngu_canh",
    "cites": [
     {
      "id": "TH116_TPVT",
@@ -47,6 +49,8 @@
    "condition": "ky_dong_cung",
    "label": "Hóa Kỵ đồng cung với Mệnh",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "khac_ngu_canh",
    "cites": [
     {
      "id": "TH116_TPVT",
@@ -75,6 +79,8 @@
    "condition": "tam_hoa_hoi_cuu",
    "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
    "audit_status": "long_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH74_TAMHOA",
@@ -106,6 +112,8 @@
    "condition": "core",
    "label": "Điều kiện lõi",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH72_TPDC",
@@ -142,6 +150,8 @@
    "condition": "sat_dong_cung",
    "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
    "audit_status": "khac",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TT22_TPDC_SAT",
@@ -188,6 +198,8 @@
    "condition": "ky_dong_cung",
    "label": "Hóa Kỵ đồng cung với Mệnh",
    "audit_status": "khac",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "KL50_TP_KY",
@@ -219,6 +231,8 @@
    "condition": "khong_kiep_dong_cung",
    "label": "Địa Không hoặc Địa Kiếp đồng cung với Mệnh",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TT24_CNDL_BREAK",
@@ -265,6 +279,8 @@
    "condition": "ky_dong_cung",
    "label": "Hóa Kỵ đồng cung với Mệnh",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TT24_CNDL_BREAK",
@@ -303,6 +319,8 @@
    "condition": "tam_hoa_hoi_cuu",
    "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
    "audit_status": "long_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH74_TAMHOA",
@@ -334,6 +352,8 @@
    "condition": "ky_dong_cung",
    "label": "Hóa Kỵ đồng cung với Mệnh",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH116_SPLT",
@@ -362,6 +382,8 @@
    "condition": "tam_hoa_hoi_cuu",
    "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
    "audit_status": "long_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH74_TAMHOA",
@@ -392,6 +414,8 @@
    "condition": "core",
    "label": "Điều kiện lõi",
    "audit_status": "long_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH72_NNTM",
@@ -438,6 +462,8 @@
    "condition": "tam_hoa_hoi_cuu",
    "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
    "audit_status": "long_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH74_TAMHOA",
@@ -469,14 +495,16 @@
    "condition": "Thái_Dương_ham",
    "label": "Thái Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH74_NN_TAN_HUNG",
      "book": "Tử Vi Thực Hành",
      "book_code": "TH",
      "page": 74,
-     "quote": "Nhật, Nguyệt hãm tại Mệnh không có cứu tinh, hoặc hãm mà gặp sát tinh (bần tiện cách số 7)",
-     "quote_check": "anh"
+     "quote": "Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh",
+     "quote_check": "van_ban"
     },
     {
      "id": "KL68_NN_KHOIVIET",
@@ -515,14 +543,16 @@
    "condition": "Thái_Âm_ham",
    "label": "Thái Âm ở vị trí hãm (độ sáng thấp nhất trong bảng)",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH74_NN_TAN_HUNG",
      "book": "Tử Vi Thực Hành",
      "book_code": "TH",
      "page": 74,
-     "quote": "Nhật, Nguyệt hãm tại Mệnh không có cứu tinh, hoặc hãm mà gặp sát tinh (bần tiện cách số 7)",
-     "quote_check": "anh"
+     "quote": "Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh",
+     "quote_check": "van_ban"
     },
     {
      "id": "KL68_NN_KHOIVIET",
@@ -561,6 +591,8 @@
    "condition": "tuan_triet_an_ngu",
    "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
    "audit_status": "khac",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "KL53_NN_TUAN",
@@ -600,6 +632,8 @@
    "condition": "ky_dong_cung",
    "label": "Hóa Kỵ đồng cung với Mệnh",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "KL85_GHET",
@@ -628,6 +662,8 @@
    "condition": "tam_hoa_hoi_cuu",
    "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
    "audit_status": "long_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH74_TAMHOA",
@@ -658,6 +694,8 @@
    "condition": "tuan_triet_an_ngu",
    "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
    "audit_status": "khac",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "KL106_TTAN",
@@ -698,6 +736,8 @@
    "condition": "that_sat_trong_tam_phuong",
    "label": "Thất Sát hội trong tam phương",
    "audit_status": "long_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "KL64_MDDK_XAU",
@@ -744,6 +784,8 @@
    "condition": "tam_hoa_hoi_cuu",
    "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
    "audit_status": "long_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH74_TAMHOA",
@@ -775,6 +817,8 @@
    "condition": "ky_hoac_kinh_dong_cung",
    "label": "Hóa Kỵ hoặc Kình Dương đồng cung với Mệnh",
    "audit_status": "chat_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "KL66_TKGH",
@@ -812,7 +856,9 @@
    "role": "breakers",
    "condition": "sat_dong_cung",
    "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
-   "audit_status": "chat_hon",
+   "audit_status": "lien_quan",
+   "audit_action": "giu_gia_thuyet",
+   "structure_fit": "khac_cau_truc",
    "cites": [
     {
      "id": "KL62_KV_SAT",
@@ -850,7 +896,9 @@
    "role": "breakers",
    "condition": "ky_dong_cung",
    "label": "Hóa Kỵ đồng cung với Mệnh",
-   "audit_status": "chat_hon",
+   "audit_status": "lien_quan",
+   "audit_action": "giu_gia_thuyet",
+   "structure_fit": "khac_cau_truc",
    "cites": [
     {
      "id": "KL62_KV_KY_HINH",
@@ -879,6 +927,8 @@
    "condition": "tam_hoa_hoi_cuu",
    "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
    "audit_status": "long_hon",
+   "audit_action": "de_xuat_sua",
+   "structure_fit": "dung",
    "cites": [
     {
      "id": "TH74_TAMHOA",
