@@ -116,3 +116,14 @@ def test_kl_stars_pack_by_branch_and_palace():
     assert ("kl_nhat_ban_dem_kem_minh_man", "limit") not in fired(pal(branch="Ngọ", own=["Thái Dương"]))
     assert ("kl_loc_ma_giao_tri_chung_nhan_sung_ai", "support") in fired(pal(own=["Lộc Tồn"], opp=["Thiên Mã"]))
     assert ("kl_loc_ma_dao_ky_khong_kiep", "limit") in fired(pal(own=["Lộc Tồn"], opp=["Thiên Mã"], tp=["Địa Kiếp"]))
+
+
+def test_toan_thu_palace_star_pack():
+    assert sum(r.id.startswith("TV_TT_PAL_") for r in RULES) == 382
+    assert all(r.sourceIds == ["SRC_TOAN_THU"] for r in RULES if r.id.startswith("TV_TT_PAL_"))
+    c = fired(pal("Tài Bạch", own=["Vũ Khúc", "Tham Lang"]))
+    assert ("tt_tai_bach_vu_khuc_with_tham_lang_p", "support") in c
+    c = fired(pal("Tài Bạch", own=["Thái Âm"], dg={"Thái Âm": "hãm"}))
+    assert ("tt_tai_bach_thai_am_ham_m", "limit") in c and ("tt_tai_bach_thai_am_mieu_p", "support") not in c
+    assert not any(k.startswith("tt_tai_bach") for k, _ in fired(pal("Mệnh", own=["Thái Âm"])))        # palace-scoped
+    assert ("tt_phu_the_thien_tuong_base_p", "support") in fired(pal("Phu Thê", own=["Thiên Tướng"]))
