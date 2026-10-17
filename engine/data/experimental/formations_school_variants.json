@@ -1,0 +1,2586 @@
+{
+ "version": 1,
+ "note": "Biến thể theo nguồn/trường phái; draft, không vào luận giải chính; không hợp nhất định nghĩa mâu thuẫn.",
+ "formations": [
+  {
+   "name_vi": "Tử Phủ Vũ Tướng — Tử Vi Khảo Luận (KL: cần Tả Hữu, Xương Khúc)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_TU_PHU_VU_TUONG@kl_132_193",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Tử Vi",
+     "Thiên Phủ",
+     "Vũ Khúc",
+     "Thiên Tướng"
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL: cần Tả Hữu, Xương Khúc. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "KL nói Tử Phủ Vũ Tướng cần Tả Hữu, Xương Khúc và sợ Tuần/Triệt. Sát tinh/Kỵ làm phá chỉ được TH p.116 nói trong ngữ cảnh đại tiểu hạn nên không đưa vào bản này.",
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    }
+   ],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [
+    {
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name_vi": "Tử Phủ Vũ Tướng — Tử Vi Thực Hành (TH: gặp Lộc, Tả Hữu (đại tiểu hạn))",
+   "anchor": "Mệnh",
+   "id": "CACH_X_TU_PHU_VU_TUONG@th_115",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Tử Vi",
+     "Thiên Phủ",
+     "Vũ Khúc",
+     "Thiên Tướng"
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_th_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Thực Hành: TH: gặp Lộc, Tả Hữu (đại tiểu hạn). Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Phá cách (Tam Không, Kiếp, Kỵ, Hình, Đà, Linh Hỏa) có ở TH p.116 nhưng là 'gặp' trong hạn nên chưa mô hình hóa.",
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "loc_hoi",
+     "label": "Lộc Tồn hoặc Hóa Lộc hội trong tam phương",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    }
+   ],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [
+    {
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name_vi": "Tử Phủ đồng cung — Tử Vi Đẩu Số Toàn Thư (TT: vô sát tấu mới hưởng phúc)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_TU_PHU_DONG_CUNG@tt_22",
+   "core": {
+    "fact": "palace.rel.self_majors",
+    "operator": "contains_all",
+    "value": [
+     "Tử Vi",
+     "Thiên Phủ"
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_tt_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Đẩu Số Toàn Thư: TT: vô sát tấu mới hưởng phúc. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Đối lập với bản KL p.50. Hai bản KHÔNG được hợp nhất: TT coi sát tinh là phá, KL coi Kình Dương đồng cung vẫn giàu.",
+   "boosters": [],
+   "breakers": [
+    {
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La",
+       "Hỏa Tinh",
+       "Linh Tinh",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": [
+    {
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name_vi": "Tử Phủ đồng cung — Tử Vi Khảo Luận (KL: Kình Dương hoặc Kỵ + Quyền đồng cung vẫn tốt)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_TU_PHU_DONG_CUNG@kl_50",
+   "core": {
+    "fact": "palace.rel.self_majors",
+    "operator": "contains_all",
+    "value": [
+     "Tử Vi",
+     "Thiên Phủ"
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL: Kình Dương hoặc Kỵ + Quyền đồng cung vẫn tốt. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Ngược với TT p.22: ở đây Kình Dương/Kỵ đồng cung là yếu tố tăng thế, không phải phá.",
+   "boosters": [
+    {
+     "id": "kinh_luc_si_dong_cung",
+     "label": "Kình Dương và Lực Sĩ đồng cung với Tử Phủ (buôn bán giàu có, KL tr.50)",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_all",
+      "value": [
+       "Kình Dương",
+       "Lực Sĩ"
+      ]
+     }
+    },
+    {
+     "id": "ky_quyen_dong_cung",
+     "label": "Hóa Kỵ và Hóa Quyền đồng cung với Tử Phủ (mưu cơ tài trí, KL tr.50)",
+     "when": {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Kỵ",
+       "Hóa Quyền"
+      ]
+     }
+    }
+   ],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [
+    {
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name_vi": "Cơ Nguyệt Đồng Lương — Tử Vi Đẩu Số Toàn Thư (TT: Kiếp, Không, Hóa Kị trong tam hợp xung chiếu thì hạ cách)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_CO_NGUYET_DONG_LUONG@tt_24",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Thiên Cơ",
+     "Thái Âm",
+     "Thiên Đồng",
+     "Thiên Lương"
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_tt_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Đẩu Số Toàn Thư: TT: Kiếp, Không, Hóa Kị trong tam hợp xung chiếu thì hạ cách. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Sửa lỗi lá số đối chứng Hạng Võ / Mậu Tý: baseline chỉ tính đồng cung Mệnh. Tuần/Triệt không được TT p.24 nêu nên không là phá.",
+   "boosters": [
+    {
+     "id": "cat_tinh_hoi",
+     "label": "một cát tinh (Tả, Hữu, Xương, Khúc, Khôi, Việt) hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật",
+       "Văn Xương",
+       "Văn Khúc",
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "khong_kiep_trong_tam_phuong",
+     "label": "Địa Không hoặc Địa Kiếp trong tam phương của Mệnh (TT tr.24)",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    },
+    {
+     "id": "ky_trong_tam_phuong",
+     "label": "Hóa Kỵ trong tam phương của Mệnh (TT tr.24)",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Cơ Nguyệt Đồng Lương — Tử Vi Khảo Luận (KL: hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_CO_NGUYET_DONG_LUONG@kl_221",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Thiên Cơ",
+     "Thái Âm",
+     "Thiên Đồng",
+     "Thiên Lương"
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL: hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "KL không nêu yếu tố phá cho CNDL, nên bản này không có breaker.",
+   "boosters": [
+    {
+     "id": "cat_tinh_hoi",
+     "label": "một cát tinh (Tả, Hữu, Xương, Khúc, Khôi, Việt) hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật",
+       "Văn Xương",
+       "Văn Khúc",
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    },
+    {
+     "id": "khoa_quyen_loc_hoi",
+     "label": "Hóa Khoa, Quyền hoặc Lộc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền",
+       "Hóa Lộc"
+      ]
+     }
+    }
+   ],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Sát Phá Liêm Tham — Tử Vi Thực Hành (TH: hội cát tinh (Khoa Quyền Lộc) / hạ cách khi nhiều sát tinh)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_SAT_PHA_LIEM_THAM@th_76_77",
+   "core": {
+    "count": [
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Tham Lang"
+     }
+    ],
+    "operator": "gte",
+    "value": 3
+   },
+   "kind": "cat",
+   "school": "nguon_th_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Thực Hành: TH: hội cát tinh (Khoa Quyền Lộc) / hạ cách khi nhiều sát tinh. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "TH p.76 lại xếp Kình, Không vào nhóm cát hội của Thân Sát Phá Liêm Tham: bất đồng nội bộ TH, ghi nhận trong ma trận.",
+   "boosters": [
+    {
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "ba_sat_va_ky_trong_tam_phuong",
+     "label": "từ ba sát tinh trở lên và Hóa Kỵ cùng trong tam phương",
+     "when": {
+      "all": [
+       {
+        "fact": "palace.khi.sat_tp",
+        "operator": "gte",
+        "value": 3
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       }
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Nhật Nguyệt tịnh minh — Tử Vi Thực Hành (TH: vị trí cố định (Nhật Thìn/Tỵ, Nguyệt Dậu/Tuất, Mệnh ở Nhật hay Nguyệt))",
+   "anchor": "Mệnh",
+   "id": "CACH_X_NHAT_NGUYET_TINH_MINH@th_72",
+   "core": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "palace.branch",
+        "operator": "eq",
+        "value": "Thìn"
+       },
+       {
+        "fact": "palace.rel.self_majors",
+        "operator": "contains",
+        "value": "Thái Dương"
+       },
+       {
+        "fact": "palace.rel.opp_majors",
+        "operator": "contains",
+        "value": "Thái Âm"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.branch",
+        "operator": "eq",
+        "value": "Tuất"
+       },
+       {
+        "fact": "palace.rel.self_majors",
+        "operator": "contains",
+        "value": "Thái Âm"
+       },
+       {
+        "fact": "palace.rel.opp_majors",
+        "operator": "contains",
+        "value": "Thái Dương"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.branch",
+        "operator": "eq",
+        "value": "Tỵ"
+       },
+       {
+        "fact": "palace.rel.self_majors",
+        "operator": "contains",
+        "value": "Thái Dương"
+       },
+       {
+        "fact": "palace.rel.trine1_majors",
+        "operator": "contains",
+        "value": "Thái Âm"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.branch",
+        "operator": "eq",
+        "value": "Dậu"
+       },
+       {
+        "fact": "palace.rel.self_majors",
+        "operator": "contains",
+        "value": "Thái Âm"
+       },
+       {
+        "fact": "palace.rel.trine2_majors",
+        "operator": "contains",
+        "value": "Thái Dương"
+       }
+      ]
+     }
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_th_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Thực Hành: TH: vị trí cố định (Nhật Thìn/Tỵ, Nguyệt Dậu/Tuất, Mệnh ở Nhật hay Nguyệt). Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Định nghĩa theo vị trí của TH p.72; hẹp hơn bản KL p.53 (hợp chiếu tịnh minh).",
+   "boosters": [
+    {
+     "id": "nhat_nguyet_deu_sang",
+     "label": "Thái Dương và Thái Âm đều sáng (độ sáng từ đắc trở lên)",
+     "when": {
+      "all": [
+       {
+        "fact": "palace.tp_rank.Thái Dương",
+        "operator": "gte",
+        "value": 2
+       },
+       {
+        "fact": "palace.tp_rank.Thái Âm",
+        "operator": "gte",
+        "value": 2
+       }
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "nhat_nguyet_ham_gap_sat",
+     "label": "Thái Dương hoặc Thái Âm hãm, lại có sát tinh trong tam phương",
+     "when": {
+      "all": [
+       {
+        "any": [
+         {
+          "fact": "palace.tp_rank.Thái Dương",
+          "operator": "lte",
+          "value": 0
+         },
+         {
+          "fact": "palace.tp_rank.Thái Âm",
+          "operator": "lte",
+          "value": 0
+         }
+        ]
+       },
+       {
+        "fact": "palace.khi.sat_tp",
+        "operator": "gte",
+        "value": 1
+       }
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Nhật Nguyệt tịnh minh — Tử Vi Khảo Luận (KL: Nhật Nguyệt hợp chiếu Mệnh, hãm cần Khôi Việt chiếu)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_NHAT_NGUYET_TINH_MINH@kl_53_68",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Thái Dương",
+     "Thái Âm"
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL: Nhật Nguyệt hợp chiếu Mệnh, hãm cần Khôi Việt chiếu. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Tuần/Triệt KHÔNG là phản chứng ở bản này: KL p.53 mục 11 và p.85 coi Tuần/Triệt là điều kiện thuận cho Nhật Nguyệt.",
+   "boosters": [
+    {
+     "id": "nhat_nguyet_deu_sang",
+     "label": "Thái Dương và Thái Âm đều sáng (độ sáng từ đắc trở lên)",
+     "when": {
+      "all": [
+       {
+        "fact": "palace.tp_rank.Thái Dương",
+        "operator": "gte",
+        "value": 2
+       },
+       {
+        "fact": "palace.tp_rank.Thái Âm",
+        "operator": "gte",
+        "value": 2
+       }
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "nhat_nguyet_ham_gap_sat",
+     "label": "Thái Dương hoặc Thái Âm hãm, lại có sát tinh trong tam phương",
+     "when": {
+      "all": [
+       {
+        "any": [
+         {
+          "fact": "palace.tp_rank.Thái Dương",
+          "operator": "lte",
+          "value": 0
+         },
+         {
+          "fact": "palace.tp_rank.Thái Âm",
+          "operator": "lte",
+          "value": 0
+         }
+        ]
+       },
+       {
+        "fact": "palace.khi.sat_tp",
+        "operator": "gte",
+        "value": 1
+       }
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": [
+    {
+     "id": "nhat_nguyet_ham_khong_khoi_viet",
+     "label": "Nhật hoặc Nguyệt hãm mà không có Khôi/Việt chiếu (KL tr.68)",
+     "when": {
+      "all": [
+       {
+        "any": [
+         {
+          "fact": "palace.tp_rank.Thái Dương",
+          "operator": "lte",
+          "value": 0
+         },
+         {
+          "fact": "palace.tp_rank.Thái Âm",
+          "operator": "lte",
+          "value": 0
+         }
+        ]
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "not_contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "not_contains",
+        "value": "Thiên Việt"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name_vi": "Nhật lệ trung thiên — Tử Vi Khảo Luận (KL: Thái Dương ngọ, thích Xương Khúc, Khoa Quyền Lộc)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_NHAT_LE_TRUNG_THIEN@kl_52_85",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "eq",
+      "value": "Ngọ"
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL: Thái Dương ngọ, thích Xương Khúc, Khoa Quyền Lộc. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Kỵ/Đà 'ghét' (KL p.85) không nêu phạm vi nên không đưa vào làm phá.",
+   "boosters": [
+    {
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    }
+   ],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Thạch trung ẩn ngọc — Tử Vi Khảo Luận (KL tr.44: Mệnh Cự Môn, Di Thiên Cơ ở Tý/Ngọ)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_THACH_TRUNG_AN_NGOC@kl_44",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.rel.opp_majors",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     }
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL tr.44: Mệnh Cự Môn, Di Thiên Cơ ở Tý/Ngọ. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Định nghĩa thứ nhất; không có yếu tố tăng thế/phá trong sách.",
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Thạch trung ẩn ngọc — Tử Vi Khảo Luận (KL tr.58 / TT tr.34: Cự Môn Tý/Ngọ được Khoa Quyền Lộc tam hợp chiếu)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_THACH_TRUNG_AN_NGOC@kl_58",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền",
+       "Hóa Lộc"
+      ]
+     }
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL tr.58 / TT tr.34: Cự Môn Tý/Ngọ được Khoa Quyền Lộc tam hợp chiếu. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Định nghĩa thứ hai: Tam Hóa là điều kiện LÕI, không phải tăng thế.",
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Thạch trung ẩn ngọc — Tử Vi Khảo Luận (KL tr.106 / TH tr.43: Cự Môn Tý/Ngọ gặp Tuần/Triệt hoặc Hóa Lộc)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_THACH_TRUNG_AN_NGOC@kl_106",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.rel.self_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL tr.106 / TH tr.43: Cự Môn Tý/Ngọ gặp Tuần/Triệt hoặc Hóa Lộc. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Định nghĩa thứ ba: Tuần/Triệt là điều kiện THUẬN — trái với baseline dùng Tuần/Triệt làm phản chứng.",
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Mã đầu đới kiếm — Tử Vi Khảo Luận (KL tr.64 mục 5: Kình + Thất Sát, Thiên Hình đồng cung là cách xấu)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_MA_DAU_DOI_KIEM@kl_64_xau",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "eq",
+      "value": "Ngọ"
+     },
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains",
+      "value": "Kình Dương"
+     }
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL tr.64 mục 5: Kình + Thất Sát, Thiên Hình đồng cung là cách xấu. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Kết cục xấu của cùng thế Kình Dương ở Ngọ. TT p.142 coi Kình ở Ngọ là xấu mà 'tứ mộ mới hay': định nghĩa khác, chưa mô hình hóa.",
+   "boosters": [],
+   "breakers": [
+    {
+     "id": "that_sat_thien_hinh_dong_cung",
+     "label": "Thất Sát và Thiên Hình đồng cung với Kình Dương (KL tr.64 mục 5)",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_all",
+      "value": [
+       "Thất Sát",
+       "Thiên Hình"
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Mã đầu đới kiếm — Tử Vi Khảo Luận (KL tr.64 mục 6: Kình đồng cung, xa lánh Thất Sát/Thiên Hình, gặp Khoa Quyền Lộc là cách tốt)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_MA_DAU_DOI_KIEM@kl_64_tot",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "eq",
+      "value": "Ngọ"
+     },
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains",
+      "value": "Kình Dương"
+     }
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL tr.64 mục 6: Kình đồng cung, xa lánh Thất Sát/Thiên Hình, gặp Khoa Quyền Lộc là cách tốt. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Đối lập với mục 5 cùng trang: hai bản được giữ tách, không gộp.",
+   "boosters": [
+    {
+     "id": "khoa_quyen_loc_xa_sat_hinh",
+     "label": "Khoa, Quyền, Lộc hội chiếu và không có Thất Sát/Thiên Hình đồng cung (KL tr.64 mục 6)",
+     "when": {
+      "all": [
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains_all",
+        "value": [
+         "Hóa Khoa",
+         "Hóa Quyền",
+         "Hóa Lộc"
+        ]
+       },
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "not_contains",
+        "value": "Thất Sát"
+       },
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "not_contains",
+        "value": "Thiên Hình"
+       }
+      ]
+     }
+    }
+   ],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Tam kỳ gia hội — Tử Vi Khảo Luận (KL tr.66: Khoa Quyền Lộc hội họp mà Kỵ, Kình đồng cung hoặc chiếu)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_TAM_KY_GIA_HOI@kl_66",
+   "core": {
+    "fact": "palace.rel.tp_hoa",
+    "operator": "contains_all",
+    "value": [
+     "Hóa Lộc",
+     "Hóa Quyền",
+     "Hóa Khoa"
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL tr.66: Khoa Quyền Lộc hội họp mà Kỵ, Kình đồng cung hoặc chiếu. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Sửa lỗi lá số đối chứng Hạng Võ: Cự + Kỵ ở cung Di (đối cung của Mệnh).",
+   "boosters": [],
+   "breakers": [
+    {
+     "id": "ky_kinh_dong_cung_hoac_doi_cung",
+     "label": "Hóa Kỵ hoặc Kình Dương đồng cung hay xung chiếu (đối cung) với Mệnh (KL tr.66)",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.rel.self_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       },
+       {
+        "fact": "palace.rel.opp_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       },
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.rel.opp_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       }
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": []
+  },
+  {
+   "name_vi": "Khôi Việt giáp Mệnh — Tử Vi Khảo Luận (KL: Mệnh giữa Khôi Việt; hội Xương Khúc tốt, sát tinh hội chiếu có bệnh)",
+   "anchor": "Mệnh",
+   "id": "CACH_X_KHOI_VIET_GIAP_MENH@kl_44_62",
+   "core": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       }
+      ]
+     }
+    ]
+   },
+   "kind": "cat",
+   "school": "nguon_kl_draft",
+   "thuong_at": 2,
+   "sourceIds": [],
+   "reviewStatus": "draft",
+   "experimental": true,
+   "definition_version": 1,
+   "provenance": "Biến thể theo Tử Vi Khảo Luận: KL: Mệnh giữa Khôi Việt; hội Xương Khúc tốt, sát tinh hội chiếu có bệnh. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
+   "note": "Kỵ/Thiên Hình 'cản phá' (mục 2) không nêu phạm vi nên không đưa vào.",
+   "boosters": [
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "sat_tinh_hoi_chieu",
+     "label": "sát tinh hội chiếu (tam phương) cung Mệnh (KL tr.62 mục 4)",
+     "when": {
+      "fact": "palace.khi.sat_tp",
+      "operator": "gte",
+      "value": 1
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": []
+  }
+ ],
+ "meta": {
+  "CACH_X_TU_PHU_VU_TUONG@kl_132_193": {
+   "base": "CACH_X_TU_PHU_VU_TUONG",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL: cần Tả Hữu, Xương Khúc",
+   "cites": [
+    {
+     "id": "KL132_TPVT_TAHUU",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 132,
+     "quote": "cách Tử Phủ Vũ Tướng mà thiếu Tả Hữu",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL193_TPVT_XK",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 193,
+     "quote": "Xương Khúc, Tử Phủ Vũ Tướng là người văn võ toàn tài",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL222_VT_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 222,
+     "quote": "Mệnh có Vũ Tướng mà không bị Tuần Triệt án ngữ thì cuộc đời suôn",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "KL p.132, p.193 không nêu phạm vi của Tả Hữu/Xương Khúc; baseline đọc là hội trong tam phương"
+   ],
+   "kept": {
+    "boosters": [
+     "ta_huu_hoi",
+     "xuong_khuc_hoi"
+    ],
+    "breakers": [],
+    "rescuers": [],
+    "refutations": [
+     "tuan_triet_an_ngu"
+    ]
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "loc_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Thiên_Tướng_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.ta_huu_hoi": "co_nguon_con_gia_dinh",
+    "boosters.xuong_khuc_hoi": "co_nguon_con_gia_dinh",
+    "refutations.tuan_triet_an_ngu": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_TU_PHU_VU_TUONG@th_115": {
+   "base": "CACH_X_TU_PHU_VU_TUONG",
+   "school": "th",
+   "school_vi": "Tử Vi Thực Hành",
+   "title": "TH: gặp Lộc, Tả Hữu (đại tiểu hạn)",
+   "cites": [
+    {
+     "id": "TH72_TPVT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Tử, Phủ, Vũ, Tướng cách",
+     "read": "van_ban"
+    },
+    {
+     "id": "TH115_TPVT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 115,
+     "quote": "Tử, Phủ, Vũ, Tướng có sao Lộc, Long Phượng, Tả Hữu nhất định phát giàu có lớn",
+     "read": "van_ban"
+    },
+    {
+     "id": "TH94_PHU",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 94,
+     "quote": "Nhưng nếu Phủ gặp Tuần Triệt hay Thiên, Địa Không",
+     "read": "van_ban"
+    },
+    {
+     "id": "TH95_TUONG",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 95,
+     "quote": "Nhưng nếu Tướng miếu vượng đắc địa mà gặp Tuần Triệt án ngữ, chẳng khác nào như Tướng hãm địa",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "TH p.115-116 viết về đại tiểu hạn; ở đây chỉ dùng như thước đo của bản cách"
+   ],
+   "kept": {
+    "boosters": [
+     "ta_huu_hoi",
+     "loc_hoi"
+    ],
+    "breakers": [],
+    "rescuers": [],
+    "refutations": [
+     "tuan_triet_an_ngu"
+    ]
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Thiên_Tướng_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.ta_huu_hoi": "co_nguon_con_gia_dinh",
+    "boosters.loc_hoi": "co_nguon_con_gia_dinh",
+    "refutations.tuan_triet_an_ngu": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_TU_PHU_DONG_CUNG@tt_22": {
+   "base": "CACH_X_TU_PHU_DONG_CUNG",
+   "school": "tt",
+   "school_vi": "Tử Vi Đẩu Số Toàn Thư",
+   "title": "TT: vô sát tấu mới hưởng phúc",
+   "cites": [
+    {
+     "id": "TT22_TPDC_SAT",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 22,
+     "quote": "Tử Phủ đồng cung vô sát tấu",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL55_TP_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 55,
+     "quote": "chỉ sợ Triệt Tuần án ngữ thì kém đi thôi",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "'gặp sát tinh' của TT p.22 được hiểu là đồng cung (cách hẹp nhất); sách không nêu phạm vi"
+   ],
+   "kept": {
+    "boosters": [],
+    "breakers": [
+     "sat_dong_cung"
+    ],
+    "rescuers": [],
+    "refutations": [
+     "tuan_triet_an_ngu"
+    ]
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "khoi_viet_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "breakers.sat_dong_cung": "co_nguon_con_gia_dinh",
+    "refutations.tuan_triet_an_ngu": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_TU_PHU_DONG_CUNG@kl_50": {
+   "base": "CACH_X_TU_PHU_DONG_CUNG",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL: Kình Dương hoặc Kỵ + Quyền đồng cung vẫn tốt",
+   "cites": [
+    {
+     "id": "KL50_TP_KINH",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 50,
+     "quote": "Tử vi, Thiên phủ đồng cung với Kình dương, lực sĩ thì buôn bán giàu có",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL50_TP_KY",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 50,
+     "quote": "Mệnh ở Dần có Hoá kỵ, Hóa quyền đồng cung với Tử Phủ là người mưu cơ tài trí",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL55_TP_TUAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 55,
+     "quote": "chỉ sợ Triệt Tuần án ngữ thì kém đi thôi",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [],
+   "kept": {
+    "boosters": [
+     "kinh_luc_si_dong_cung",
+     "ky_quyen_dong_cung"
+    ],
+    "breakers": [],
+    "rescuers": [],
+    "refutations": [
+     "tuan_triet_an_ngu"
+    ]
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "khoi_viet_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.kinh_luc_si_dong_cung": "doi_chieu_truc_tiep",
+    "boosters.ky_quyen_dong_cung": "doi_chieu_truc_tiep",
+    "refutations.tuan_triet_an_ngu": "doi_chieu_truc_tiep"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG@tt_24": {
+   "base": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "school": "tt",
+   "school_vi": "Tử Vi Đẩu Số Toàn Thư",
+   "title": "TT: Kiếp, Không, Hóa Kị trong tam hợp xung chiếu thì hạ cách",
+   "cites": [
+    {
+     "id": "TT24_CNDL_CORE",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 24,
+     "quote": "Mệnh thân và các cung tam hợp xang chiếu có đủ bốn sao trên đây",
+     "read": "van_ban"
+    },
+    {
+     "id": "TT24_CNDL_BREAK",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 24,
+     "quote": "Gặp Kiếp Không Hoá Kị xuống hạ cách",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "TT p.24 nói ngay trong câu 'Mệnh thân và các cung tam hợp xung chiếu': phạm vi = tam phương (đã xác định, không suy rộng)"
+   ],
+   "kept": {
+    "boosters": [
+     "cat_tinh_hoi"
+    ],
+    "breakers": [
+     "khong_kiep_trong_tam_phuong",
+     "ky_trong_tam_phuong"
+    ],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_loc_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "khong_kiep_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.cat_tinh_hoi": "co_nguon_con_gia_dinh",
+    "breakers.khong_kiep_trong_tam_phuong": "co_nguon_con_gia_dinh",
+    "breakers.ky_trong_tam_phuong": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG@kl_221": {
+   "base": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL: hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc",
+   "cites": [
+    {
+     "id": "KL51_CNDL",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 51,
+     "quote": "Mệnh có Cơ Nguyệt Đồng Lương hội chiếu thường là công chức",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL221_SPLT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 221,
+     "quote": "Sát Phá Tham ở Mệnh là những người tích cực trong cuộc sống",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "KL p.221 được đọc từ ảnh trang (lớp chữ hỏng)"
+   ],
+   "kept": {
+    "boosters": [
+     "cat_tinh_hoi",
+     "khoa_quyen_loc_hoi"
+    ],
+    "breakers": [],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "breakers",
+     "id": "khong_kiep_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.cat_tinh_hoi": "co_nguon_con_gia_dinh",
+    "boosters.khoa_quyen_loc_hoi": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM@th_76_77": {
+   "base": "CACH_X_SAT_PHA_LIEM_THAM",
+   "school": "th",
+   "school_vi": "Tử Vi Thực Hành",
+   "title": "TH: hội cát tinh (Khoa Quyền Lộc) / hạ cách khi nhiều sát tinh",
+   "cites": [
+    {
+     "id": "TH72_SPLT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Sát, Phá, Liêm, Tham (mục 4 trong các quý cách lập thành ở 12 cung)",
+     "read": "anh"
+    },
+    {
+     "id": "TH76_CATTINH",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 76,
+     "quote": "Hồng Đào, Khoa Quyền. Lộc, Kình, Không",
+     "read": "van_ban"
+    },
+    {
+     "id": "TH77_SPLT_HA",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 77,
+     "quote": "Sát Phá Liêm Tham hội Vũ, Kình Đà",
+     "read": "van_ban"
+    },
+    {
+     "id": "TH116_SPLT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 116,
+     "quote": "Sát phá Liêm Tham mà gặp Nhị tam Không, Linh Hỏa Kình Kỵ",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "'nhiều' sát tinh của TH p.77 → ngưỡng 3 sát tinh + Hóa Kỵ là QUY ƯỚC THIẾT KẾ, không phải số của sách",
+    "'3 trong 4 sao' của lõi cũng là quy ước"
+   ],
+   "kept": {
+    "boosters": [
+     "khoa_quyen_hoi"
+    ],
+    "breakers": [
+     "ba_sat_va_ky_trong_tam_phuong"
+    ],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "khoi_viet_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Thất_Sát_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.khoa_quyen_hoi": "co_nguon_con_gia_dinh",
+    "breakers.ba_sat_va_ky_trong_tam_phuong": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH@th_72": {
+   "base": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "school": "th",
+   "school_vi": "Tử Vi Thực Hành",
+   "title": "TH: vị trí cố định (Nhật Thìn/Tỵ, Nguyệt Dậu/Tuất, Mệnh ở Nhật hay Nguyệt)",
+   "cites": [
+    {
+     "id": "TH72_NNTM",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Nhật, Nguyệt tinh minh cách (Nhật ở Thìn, Tỵ, Nguyệt ở Dậu, Tuất, mà Mệnh đóng ở Nguyệt hay Nhật đều tốt)",
+     "read": "van_ban"
+    },
+    {
+     "id": "TT142_NNTM",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 142,
+     "quote": "Thái Dương đều đứng ở miếu vượng địa chiếu sáng",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [],
+   "kept": {
+    "boosters": [
+     "nhat_nguyet_deu_sang"
+    ],
+    "breakers": [
+     "nhat_nguyet_ham_gap_sat"
+    ],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "khong_kiep_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Thái_Dương_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Thái_Âm_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Thực Hành (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": true,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "doi_chieu_truc_tiep",
+    "boosters.nhat_nguyet_deu_sang": "doi_chieu_truc_tiep",
+    "breakers.nhat_nguyet_ham_gap_sat": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH@kl_53_68": {
+   "base": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL: Nhật Nguyệt hợp chiếu Mệnh, hãm cần Khôi Việt chiếu",
+   "cites": [
+    {
+     "id": "KL53_NN_TINHMINH",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 53,
+     "quote": "Nhật nguyệt thủ Mệnh bất như hợp chiếu tịnh minh",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL56_NN_HAM",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 56,
+     "quote": "Mệnh có Nhật hay Nguyệt hãm địa gặp Kình, Đà, Không Kiếp thì bôn ba khốn khổ",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL68_NN_KHOIVIET",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 68,
+     "quote": "chỉ mong được Khôi Việt chiếu mới là tốt đẹp",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "'Khôi Việt chiếu' (KL p.68) được đọc là hội chiếu = tam phương"
+   ],
+   "kept": {
+    "boosters": [
+     "nhat_nguyet_deu_sang"
+    ],
+    "breakers": [
+     "nhat_nguyet_ham_gap_sat"
+    ],
+    "rescuers": [],
+    "refutations": [
+     "nhat_nguyet_ham_khong_khoi_viet"
+    ]
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "khong_kiep_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Thái_Dương_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Thái_Âm_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.nhat_nguyet_deu_sang": "co_nguon_con_gia_dinh",
+    "breakers.nhat_nguyet_ham_gap_sat": "co_nguon_con_gia_dinh",
+    "refutations.nhat_nguyet_ham_khong_khoi_viet": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN@kl_52_85": {
+   "base": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL: Thái Dương ngọ, thích Xương Khúc, Khoa Quyền Lộc",
+   "cites": [
+    {
+     "id": "TH72_NLTT",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 72,
+     "quote": "Nhật lệ trung thiên cách ( Nhật cư Ngọ có Mệnh)",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL52_NLTT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 52,
+     "quote": "Mệnh có Thái dương ở Ngọ, vi như mặt trời chiếu sáng giữa trưa",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL85_NLTT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 85,
+     "quote": "Thái dương thích Xương, Khúc, Khoa, Quyền, Lộc",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "KL p.85 'thích' không nêu phạm vi; baseline đọc là hội trong tam phương"
+   ],
+   "kept": {
+    "boosters": [
+     "khoa_quyen_hoi",
+     "xuong_khuc_hoi"
+    ],
+    "breakers": [],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Thái_Dương_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.khoa_quyen_hoi": "co_nguon_con_gia_dinh",
+    "boosters.xuong_khuc_hoi": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC@kl_44": {
+   "base": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL tr.44: Mệnh Cự Môn, Di Thiên Cơ ở Tý/Ngọ",
+   "cites": [
+    {
+     "id": "KL44_TTAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 44,
+     "quote": "Thạch trung ẩn ngọc -Ngọc quí ở trong đá -Mệnh có Cự môn, Di có Thiên cơ ở Tí Ngọ",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [],
+   "kept": {
+    "boosters": [],
+    "breakers": [],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "tam_hoa_hoi_du",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_hoac_kinh_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Cự_Môn_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": true,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "doi_chieu_truc_tiep"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC@kl_58": {
+   "base": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL tr.58 / TT tr.34: Cự Môn Tý/Ngọ được Khoa Quyền Lộc tam hợp chiếu",
+   "cites": [
+    {
+     "id": "KL58_TTAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 58,
+     "quote": "Mệnh ở Tí Ngọ có Cự môn được Khoa Quyền Lộc tam hợp chiếu là cách ngọc ở trong đá",
+     "read": "van_ban"
+    },
+    {
+     "id": "TT142_KQL",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 142,
+     "quote": "Khoa, Quyền lộc củng (Chiếu thủ có cả ba Khoa, Quyền, Lộc)",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "'tam hợp chiếu' được mô hình là tam phương tứ chính (gồm cả đồng cung và đối cung)"
+   ],
+   "kept": {
+    "boosters": [],
+    "breakers": [],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "tam_hoa_hoi_du",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_hoac_kinh_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Cự_Môn_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": true,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC@kl_106": {
+   "base": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL tr.106 / TH tr.43: Cự Môn Tý/Ngọ gặp Tuần/Triệt hoặc Hóa Lộc",
+   "cites": [
+    {
+     "id": "KL106_TTAN",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 106,
+     "quote": "Cự môn ở Tí Ngọ gặp Tuần Triệt là kỳ cách",
+     "read": "van_ban"
+    },
+    {
+     "id": "TH43_TTAN",
+     "book": "Tử Vi Thực Hành",
+     "book_code": "TH",
+     "page": 43,
+     "quote": "cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "'gặp' Tuần/Triệt/Hóa Lộc được hiểu hẹp nhất là cùng cung Mệnh; sách không nêu phạm vi"
+   ],
+   "kept": {
+    "boosters": [],
+    "breakers": [],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "tam_hoa_hoi_du",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_hoac_kinh_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "Cự_Môn_ham",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": true,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_MA_DAU_DOI_KIEM@kl_64_xau": {
+   "base": "CACH_X_MA_DAU_DOI_KIEM",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL tr.64 mục 5: Kình + Thất Sát, Thiên Hình đồng cung là cách xấu",
+   "cites": [
+    {
+     "id": "KL64_MDDK_XAU",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 64,
+     "quote": "Mệnh ở Ngọ, có Kình dương, gặp Thất sát, Thiên hình đồng cung là cách kiếm kể cổ ngựa",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL60_MDDK_SAT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 60,
+     "quote": "có Thất sát Kình dương toạ thủ, lại thêm nhiều sát tinh hội chiếu",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [],
+   "kept": {
+    "boosters": [],
+    "breakers": [
+     "that_sat_thien_hinh_dong_cung"
+    ],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_loc_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "that_sat_trong_tam_phuong",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_khac_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "doi_chieu_truc_tiep",
+    "breakers.that_sat_thien_hinh_dong_cung": "doi_chieu_truc_tiep"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_MA_DAU_DOI_KIEM@kl_64_tot": {
+   "base": "CACH_X_MA_DAU_DOI_KIEM",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL tr.64 mục 6: Kình đồng cung, xa lánh Thất Sát/Thiên Hình, gặp Khoa Quyền Lộc là cách tốt",
+   "cites": [
+    {
+     "id": "KL64_MDDK_TOT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 64,
+     "quote": "có Kình dương đồng cung, nhưng xa lánh được Thất sát, Thiên hình mà lại gặp được Khoa Quyền Lộc",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "'xa lánh' = không đồng cung; 'gặp Khoa Quyền Lộc' = hội chiếu cả ba (sách không nêu phạm vi rõ hơn)"
+   ],
+   "kept": {
+    "boosters": [
+     "khoa_quyen_loc_xa_sat_hinh"
+    ],
+    "breakers": [],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_loc_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "that_sat_trong_tam_phuong",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_khac_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.khoa_quyen_loc_xa_sat_hinh": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_TAM_KY_GIA_HOI@kl_66": {
+   "base": "CACH_X_TAM_KY_GIA_HOI",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL tr.66: Khoa Quyền Lộc hội họp mà Kỵ, Kình đồng cung hoặc chiếu",
+   "cites": [
+    {
+     "id": "KL66_TKGH",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 66,
+     "quote": "Cung mệnh có Khoa, Quyền, Lộc hội họp mà lại bị Hóa kỵ, Kình dương đồng cung hoặc chiếu vào",
+     "read": "van_ban"
+    },
+    {
+     "id": "TT142_KQL",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 142,
+     "quote": "Khoa, Quyền lộc củng (Chiếu thủ có cả ba Khoa, Quyền, Lộc)",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "'chiếu' được hiểu là xung chiếu (đối cung) — cách hẹp nhất cho chữ 'chiếu'; chưa mở ra toàn tam phương vì sách không nói"
+   ],
+   "kept": {
+    "boosters": [],
+    "breakers": [
+     "ky_kinh_dong_cung_hoac_doi_cung"
+    ],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "hoa_o_ban_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_hoac_kinh_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "ta_huu_giai_ky",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "breakers.ky_kinh_dong_cung_hoac_doi_cung": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH@kl_44_62": {
+   "base": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "school": "kl",
+   "school_vi": "Tử Vi Khảo Luận",
+   "title": "KL: Mệnh giữa Khôi Việt; hội Xương Khúc tốt, sát tinh hội chiếu có bệnh",
+   "cites": [
+    {
+     "id": "KL44_KVGM",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 44,
+     "quote": "Mệnh ở giữa, Khôi một bên, Việt một bên",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL62_KV_XUONGKHUC",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 62,
+     "quote": "Mệnh có Khôi Việt, Xương, Khúc và Lộc tồn đồng cung hay hội chiếu",
+     "read": "van_ban"
+    },
+    {
+     "id": "KL62_KV_SAT",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 62,
+     "quote": "Cung mệnh có Khôi Việt lại bị sát tinh hội chiếu thì mang bệnh tật khó chữa khỏi",
+     "read": "van_ban"
+    }
+   ],
+   "readings": [
+    "'hội chiếu' của KL p.62 mục 4 = tam phương (từ ngữ hội chiếu đã xác định phạm vi)"
+   ],
+   "kept": {
+    "boosters": [
+     "xuong_khuc_hoi"
+    ],
+    "breakers": [
+     "sat_tinh_hoi_chieu"
+    ],
+    "rescuers": [],
+    "refutations": []
+   },
+   "dropped": [
+    {
+     "role": "boosters",
+     "id": "co_chinh_tinh",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "vo_chinh_dieu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
+    }
+   ],
+   "core_replaced": false,
+   "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
+   "rules": {
+    "core": "co_nguon_con_gia_dinh",
+    "boosters.xuong_khuc_hoi": "co_nguon_con_gia_dinh",
+    "breakers.sat_tinh_hoi_chieu": "co_nguon_con_gia_dinh"
+   },
+   "reviewer": "đối chiếu trang sách bởi phiên AI; chưa có thẩm định của chuyên gia Tử Vi"
+  }
+ }
+}

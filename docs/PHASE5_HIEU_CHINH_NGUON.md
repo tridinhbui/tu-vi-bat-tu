@@ -1,0 +1,249 @@
+# Phase 5 — Hiệu chỉnh định nghĩa cách cục theo nguồn (bản nháp)
+
+Sinh bởi `tools/build_formation_report5.py` từ `formation_audit.json`, `formations_school_variants.json` và `formation_variants_reach.json`. **Định nghĩa gốc (`formations_experimental.json`, của phiên khác) không bị sửa.** Các hiệu chỉnh nằm ở lớp biến thể riêng theo từng sách; các định nghĩa mâu thuẫn được giữ thành biến thể khác nhau, không gộp, không chọn bên đúng hơn. Mọi thứ vẫn `draft`, chỉ hiện ở `?thu-nghiem`.
+
+## 1. Chốt audit
+
+- Tổng điều kiện: **93**; khớp nguồn **22** (trong đó 20 có câu trích được máy so với văn bản trang, còn lại dựa vào trang đọc từ ảnh TH tr.72/74); bị loại khỏi tập có nguồn **42**; đề xuất sửa **25**.
+- Các trích dẫn (94 câu `van_ban`, 5 câu `anh`) được lưu kèm kết quả kiểm trong JSON đã commit, nên việc kiểm lại không phụ thuộc test có chạy hay bị bỏ qua khi thiếu PDF; test đọc PDF tự bỏ qua khi thiếu sách và KHÔNG được tính là bằng chứng.
+
+## 2. Lớp biến thể theo nguồn
+
+17 biến thể cho 10 cách (mỗi biến thể = một sách, một cách đọc). Quy tắc xây dựng: chỉ giữ điều kiện có nguồn ĐÚNG vai trò trong sách đó; thay phạm vi khi câu sách nêu rõ (đồng cung / đối cung / tam phương / hội chiếu); không mở rộng chữ "gặp" khi câu không xác định phạm vi; **không biến thể nào có sao cứu giải**.
+
+| Biến thể | Sách · trang | Điều kiện (giữ từ gốc hoặc thêm theo sách) | Lõi | Giả định cách đọc |
+|---|---|---|---|---|
+| `TU_PHU_VU_TUONG@kl_132_193` | KL tr.132, KL tr.193, KL tr.222 | boos:ta_huu_hoi, boos:xuong_khuc_hoi, refu:tuan_triet_an_ngu | như gốc | KL p.132, p.193 không nêu phạm vi của Tả Hữu/Xương Khúc; baseline đọc là hội trong tam phương |
+| `TU_PHU_VU_TUONG@th_115` | TH tr.72, TH tr.115, TH tr.94, TH tr.95 | boos:ta_huu_hoi, boos:loc_hoi, refu:tuan_triet_an_ngu | như gốc | TH p.115-116 viết về đại tiểu hạn; ở đây chỉ dùng như thước đo của bản cách |
+| `TU_PHU_DONG_CUNG@tt_22` | TT tr.22, KL tr.55 | brea:sat_dong_cung, refu:tuan_triet_an_ngu | như gốc | 'gặp sát tinh' của TT p.22 được hiểu là đồng cung (cách hẹp nhất); sách không nêu phạm vi |
+| `TU_PHU_DONG_CUNG@kl_50` | KL tr.50, KL tr.50, KL tr.55 | boos:kinh_luc_si_dong_cung, boos:ky_quyen_dong_cung, refu:tuan_triet_an_ngu | như gốc | — |
+| `CO_NGUYET_DONG_LUONG@tt_24` | TT tr.24, TT tr.24 | boos:cat_tinh_hoi, brea:khong_kiep_trong_tam_phuong, brea:ky_trong_tam_phuong | như gốc | TT p.24 nói ngay trong câu 'Mệnh thân và các cung tam hợp xung chiếu': phạm vi = tam phương (đã xác định, không suy rộng) |
+| `CO_NGUYET_DONG_LUONG@kl_221` | KL tr.51, KL tr.221 | boos:cat_tinh_hoi, boos:khoa_quyen_loc_hoi | như gốc | KL p.221 được đọc từ ảnh trang (lớp chữ hỏng) |
+| `SAT_PHA_LIEM_THAM@th_76_77` | TH tr.72, TH tr.76, TH tr.77, TH tr.116 | boos:khoa_quyen_hoi, brea:ba_sat_va_ky_trong_tam_phuong | như gốc | 'nhiều' sát tinh của TH p.77 → ngưỡng 3 sát tinh + Hóa Kỵ là QUY ƯỚC THIẾT KẾ, không phải số của sách; '3 trong 4 sao' của lõi cũng là quy ước |
+| `NHAT_NGUYET_TINH_MINH@th_72` | TH tr.72, TT tr.142 | boos:nhat_nguyet_deu_sang, brea:nhat_nguyet_ham_gap_sat | lõi theo sách | — |
+| `NHAT_NGUYET_TINH_MINH@kl_53_68` | KL tr.53, KL tr.56, KL tr.68 | boos:nhat_nguyet_deu_sang, brea:nhat_nguyet_ham_gap_sat, refu:nhat_nguyet_ham_khong_khoi_viet | như gốc | 'Khôi Việt chiếu' (KL p.68) được đọc là hội chiếu = tam phương |
+| `NHAT_LE_TRUNG_THIEN@kl_52_85` | TH tr.72, KL tr.52, KL tr.85 | boos:khoa_quyen_hoi, boos:xuong_khuc_hoi | như gốc | KL p.85 'thích' không nêu phạm vi; baseline đọc là hội trong tam phương |
+| `THACH_TRUNG_AN_NGOC@kl_44` | KL tr.44 | — | lõi theo sách | — |
+| `THACH_TRUNG_AN_NGOC@kl_58` | KL tr.58, TT tr.142 | — | lõi theo sách | 'tam hợp chiếu' được mô hình là tam phương tứ chính (gồm cả đồng cung và đối cung) |
+| `THACH_TRUNG_AN_NGOC@kl_106` | KL tr.106, TH tr.43 | — | lõi theo sách | 'gặp' Tuần/Triệt/Hóa Lộc được hiểu hẹp nhất là cùng cung Mệnh; sách không nêu phạm vi |
+| `MA_DAU_DOI_KIEM@kl_64_xau` | KL tr.64, KL tr.60 | brea:that_sat_thien_hinh_dong_cung | như gốc | — |
+| `MA_DAU_DOI_KIEM@kl_64_tot` | KL tr.64 | boos:khoa_quyen_loc_xa_sat_hinh | như gốc | 'xa lánh' = không đồng cung; 'gặp Khoa Quyền Lộc' = hội chiếu cả ba (sách không nêu phạm vi rõ hơn) |
+| `TAM_KY_GIA_HOI@kl_66` | KL tr.66, TT tr.142 | brea:ky_kinh_dong_cung_hoac_doi_cung | như gốc | 'chiếu' được hiểu là xung chiếu (đối cung) — cách hẹp nhất cho chữ 'chiếu'; chưa mở ra toàn tam phương vì sách không nói |
+| `KHOI_VIET_GIAP_MENH@kl_44_62` | KL tr.44, KL tr.62, KL tr.62 | boos:xuong_khuc_hoi, brea:sat_tinh_hoi_chieu | như gốc | 'hội chiếu' của KL p.62 mục 4 = tam phương (từ ngữ hội chiếu đã xác định phạm vi) |
+
+Mức xác minh theo TỪNG QUY TẮC (không nâng cả cách): **8** quy tắc `doi_chieu_truc_tiep` (câu trích đã được máy so với trang và không cần giả định phạm vi), **39** quy tắc `co_nguon_con_gia_dinh` (có nguồn nhưng còn giả định về phạm vi/ngưỡng hoặc trang đọc từ ảnh). Đây là đối chiếu của phiên AI, chưa có thẩm định của chuyên gia Tử Vi nên cả hai mức đều chưa phải `verified` ở cấp cách cục.
+
+## 3. Bảng 93 điều kiện sau hiệu chỉnh
+
+| Cách | Vai trò | Điều kiện | Mức khớp (audit) | Số phận sau hiệu chỉnh |
+|---|---|---|---|---|
+| Tử Phủ Vũ Tướng | lõi | `core` | Khớp | lõi giữ nguyên ở mọi biến thể |
+| Tử Phủ Vũ Tướng | tăng thế | `ta_huu_hoi` | Khớp | giữ ở: kl_132_193, th_115 |
+| Tử Phủ Vũ Tướng | tăng thế | `xuong_khuc_hoi` | Lỏng hơn nguồn | giữ ở: kl_132_193 |
+| Tử Phủ Vũ Tướng | tăng thế | `loc_hoi` | Khớp | giữ ở: th_115 |
+| Tử Phủ Vũ Tướng | phá | `sat_dong_cung` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tử Phủ Vũ Tướng | phá | `ky_dong_cung` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tử Phủ Vũ Tướng | cứu | `khoa_dong_cung` | Chỉ liên quan | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Tử Phủ Vũ Tướng | cứu | `tam_hoa_hoi_cuu` | Lỏng hơn nguồn | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Tử Phủ Vũ Tướng | phản chứng | `tuan_triet_an_ngu` | Khớp | giữ ở: kl_132_193, th_115 |
+| Tử Phủ Vũ Tướng | phản chứng | `Thiên_Tướng_ham` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tử Phủ đồng cung | lõi | `core` | Chặt hơn nguồn | lõi giữ nguyên ở mọi biến thể |
+| Tử Phủ đồng cung | tăng thế | `ta_huu_hoi` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tử Phủ đồng cung | tăng thế | `xuong_khuc_hoi` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tử Phủ đồng cung | tăng thế | `khoi_viet_hoi` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tử Phủ đồng cung | phá | `sat_dong_cung` | Khác/ngược nguồn | giữ ở: tt_22 |
+| Tử Phủ đồng cung | phá | `ky_dong_cung` | Khác/ngược nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tử Phủ đồng cung | cứu | `khoa_dong_cung` | Chỉ liên quan | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Tử Phủ đồng cung | cứu | `tam_hoa_hoi_cuu` | Lỏng hơn nguồn | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Tử Phủ đồng cung | phản chứng | `tuan_triet_an_ngu` | Khớp | giữ ở: tt_22, kl_50 |
+| Cơ Nguyệt Đồng Lương | lõi | `core` | Khớp | lõi giữ nguyên ở mọi biến thể |
+| Cơ Nguyệt Đồng Lương | tăng thế | `cat_tinh_hoi` | Khớp | giữ ở: tt_24, kl_221 |
+| Cơ Nguyệt Đồng Lương | tăng thế | `khoa_quyen_loc_hoi` | Khớp | giữ ở: kl_221 |
+| Cơ Nguyệt Đồng Lương | phá | `khong_kiep_dong_cung` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Cơ Nguyệt Đồng Lương | phá | `ky_dong_cung` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Cơ Nguyệt Đồng Lương | cứu | `khoa_dong_cung` | Chỉ liên quan | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Cơ Nguyệt Đồng Lương | cứu | `tam_hoa_hoi_cuu` | Lỏng hơn nguồn | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Cơ Nguyệt Đồng Lương | phản chứng | `tuan_triet_an_ngu` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Sát Phá Liêm Tham | lõi | `core` | Chỉ liên quan | lõi giữ nguyên ở mọi biến thể |
+| Sát Phá Liêm Tham | tăng thế | `khoa_quyen_hoi` | Khớp | giữ ở: th_76_77 |
+| Sát Phá Liêm Tham | tăng thế | `ta_huu_hoi` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Sát Phá Liêm Tham | tăng thế | `xuong_khuc_hoi` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Sát Phá Liêm Tham | tăng thế | `khoi_viet_hoi` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Sát Phá Liêm Tham | phá | `ba_sat_va_ky_trong_tam_phuong` | Chặt hơn nguồn | giữ ở: th_76_77 |
+| Sát Phá Liêm Tham | phá | `ky_dong_cung` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Sát Phá Liêm Tham | cứu | `khoa_dong_cung` | Chỉ liên quan | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Sát Phá Liêm Tham | cứu | `tam_hoa_hoi_cuu` | Lỏng hơn nguồn | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Sát Phá Liêm Tham | phản chứng | `tuan_triet_an_ngu` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Sát Phá Liêm Tham | phản chứng | `Thất_Sát_ham` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật Nguyệt tịnh minh | lõi | `core` | Lỏng hơn nguồn | lõi thay bằng định nghĩa nguồn ở: th_72;  |
+| Nhật Nguyệt tịnh minh | tăng thế | `nhat_nguyet_deu_sang` | Khớp | giữ ở: th_72, kl_53_68 |
+| Nhật Nguyệt tịnh minh | tăng thế | `ta_huu_hoi` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật Nguyệt tịnh minh | tăng thế | `khoa_quyen_hoi` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật Nguyệt tịnh minh | phá | `nhat_nguyet_ham_gap_sat` | Khớp | giữ ở: th_72, kl_53_68 |
+| Nhật Nguyệt tịnh minh | phá | `ky_dong_cung` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật Nguyệt tịnh minh | phá | `khong_kiep_dong_cung` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật Nguyệt tịnh minh | cứu | `khoa_dong_cung` | Chỉ liên quan | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Nhật Nguyệt tịnh minh | cứu | `tam_hoa_hoi_cuu` | Lỏng hơn nguồn | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Nhật Nguyệt tịnh minh | phản chứng | `Thái_Dương_ham` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật Nguyệt tịnh minh | phản chứng | `Thái_Âm_ham` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật Nguyệt tịnh minh | phản chứng | `tuan_triet_an_ngu` | Khác/ngược nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật lệ trung thiên | lõi | `core` | Khớp | lõi giữ nguyên ở mọi biến thể |
+| Nhật lệ trung thiên | tăng thế | `ta_huu_hoi` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật lệ trung thiên | tăng thế | `khoa_quyen_hoi` | Khớp | giữ ở: kl_52_85 |
+| Nhật lệ trung thiên | tăng thế | `xuong_khuc_hoi` | Khớp | giữ ở: kl_52_85 |
+| Nhật lệ trung thiên | phá | `sat_dong_cung` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật lệ trung thiên | phá | `ky_dong_cung` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật lệ trung thiên | cứu | `khoa_dong_cung` | Chỉ liên quan | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Nhật lệ trung thiên | cứu | `tam_hoa_hoi_cuu` | Lỏng hơn nguồn | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Nhật lệ trung thiên | phản chứng | `tuan_triet_an_ngu` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Nhật lệ trung thiên | phản chứng | `Thái_Dương_ham` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Thạch trung ẩn ngọc | lõi | `core` | Khớp | lõi thay bằng định nghĩa nguồn ở: kl_44, kl_58, kl_106;  |
+| Thạch trung ẩn ngọc | tăng thế | `tam_hoa_hoi_du` | Khớp | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Thạch trung ẩn ngọc | tăng thế | `ta_huu_hoi` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Thạch trung ẩn ngọc | phá | `ky_hoac_kinh_dong_cung` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Thạch trung ẩn ngọc | cứu | `khoa_dong_cung` | Chỉ liên quan | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Thạch trung ẩn ngọc | phản chứng | `tuan_triet_an_ngu` | Khác/ngược nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Thạch trung ẩn ngọc | phản chứng | `Cự_Môn_ham` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Mã đầu đới kiếm | lõi | `core` | Khớp | lõi giữ nguyên ở mọi biến thể |
+| Mã đầu đới kiếm | tăng thế | `khoa_quyen_loc_hoi` | Khớp | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Mã đầu đới kiếm | tăng thế | `ta_huu_hoi` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Mã đầu đới kiếm | phá | `that_sat_trong_tam_phuong` | Lỏng hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Mã đầu đới kiếm | phá | `sat_khac_dong_cung` | Chỉ liên quan | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Mã đầu đới kiếm | phá | `ky_dong_cung` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Mã đầu đới kiếm | cứu | `khoa_dong_cung` | Chỉ liên quan | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Mã đầu đới kiếm | cứu | `tam_hoa_hoi_cuu` | Lỏng hơn nguồn | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Mã đầu đới kiếm | phản chứng | `tuan_triet_an_ngu` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tam kỳ gia hội | lõi | `core` | Khớp | lõi giữ nguyên ở mọi biến thể |
+| Tam kỳ gia hội | tăng thế | `hoa_o_ban_cung` | Khớp | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tam kỳ gia hội | tăng thế | `ta_huu_hoi` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tam kỳ gia hội | tăng thế | `xuong_khuc_hoi` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tam kỳ gia hội | phá | `ky_hoac_kinh_dong_cung` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Tam kỳ gia hội | cứu | `ta_huu_giai_ky` | Chưa có nguồn | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Tam kỳ gia hội | phản chứng | `tuan_triet_an_ngu` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Khôi Việt giáp Mệnh | lõi | `core` | Khớp | lõi giữ nguyên ở mọi biến thể |
+| Khôi Việt giáp Mệnh | tăng thế | `co_chinh_tinh` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Khôi Việt giáp Mệnh | tăng thế | `ta_huu_hoi` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Khôi Việt giáp Mệnh | tăng thế | `xuong_khuc_hoi` | Khớp | giữ ở: kl_44_62 |
+| Khôi Việt giáp Mệnh | phá | `sat_dong_cung` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Khôi Việt giáp Mệnh | phá | `ky_dong_cung` | Chặt hơn nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Khôi Việt giáp Mệnh | cứu | `khoa_dong_cung` | Chỉ liên quan | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Khôi Việt giáp Mệnh | cứu | `tam_hoa_hoi_cuu` | Lỏng hơn nguồn | không vào biến thể nào (không nguồn nói sao nào cứu cách nào); chỉ còn ở giả thuyết gốc |
+| Khôi Việt giáp Mệnh | phản chứng | `vo_chinh_dieu` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+| Khôi Việt giáp Mệnh | phản chứng | `tuan_triet_an_ngu` | Chưa có nguồn | không vào biến thể nào; chỉ còn ở giả thuyết gốc |
+
+## 4. Ma trận bất đồng trường phái
+
+Mỗi dòng là một điều kiện có bất đồng; cột cuối là các biến thể giữ riêng từng bên.
+
+| Cách | Điều kiện | Bất đồng | Biến thể giữ riêng |
+|---|---|---|---|
+| Tử Phủ Vũ Tướng | `tuan_triet_an_ngu` | Tuần/Triệt có hai vai trò trái nhau trong sách: giải hung tinh/hãm tinh (KL p.199-201, p.85) và làm hại quý tinh (KL p.55, TH p.94-95); kết luận theo từng cách phải nêu trường phái | kl_132_193, th_115 |
+| Tử Phủ đồng cung | `core` | TT p.22 nói Tử Phủ đồng cung ở Tỵ/Hợi; mô hình (và KL p.49) chỉ có ở Dần/Thân | tt_22, kl_50 |
+| Tử Phủ đồng cung | `sat_dong_cung` | TT p.22 (sát tinh làm hỏng) trái KL p.50 (Kình Dương đồng cung vẫn giàu) | tt_22, kl_50 |
+| Tử Phủ đồng cung | `tuan_triet_an_ngu` | Tuần/Triệt có hai vai trò trái nhau trong sách: giải hung tinh/hãm tinh (KL p.199-201, p.85) và làm hại quý tinh (KL p.55, TH p.94-95); kết luận theo từng cách phải nêu trường phái | tt_22, kl_50 |
+| Cơ Nguyệt Đồng Lương | `cat_tinh_hoi` | TT p.24 / TH p.77 coi hội cát tinh vẫn chỉ ở mức công chức; KL p.221 (ảnh) nói hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc thì giáo sư danh tiếng: mức 'tốt' khác nhau giữa các sách | tt_24, kl_221 |
+| Cơ Nguyệt Đồng Lương | `khoa_quyen_loc_hoi` | xem cat_tinh_hoi | tt_24, kl_221 |
+| Cơ Nguyệt Đồng Lương | `tuan_triet_an_ngu` | Tuần/Triệt có hai vai trò trái nhau trong sách: giải hung tinh/hãm tinh (KL p.199-201, p.85) và làm hại quý tinh (KL p.55, TH p.94-95); kết luận theo từng cách phải nêu trường phái | tt_24, kl_221 |
+| Sát Phá Liêm Tham | `khoa_quyen_hoi` | TH p.76 cũng đếm Kình, Không trong nhóm cát hội; KL p.221 không coi sát tinh là yếu tố phá | th_76_77 |
+| Sát Phá Liêm Tham | `ba_sat_va_ky_trong_tam_phuong` | TH p.76 xếp Kình, Không vào nhóm cát hội của SPLT, trái TH p.77 | th_76_77 |
+| Sát Phá Liêm Tham | `tuan_triet_an_ngu` | Tuần/Triệt có hai vai trò trái nhau trong sách: giải hung tinh/hãm tinh (KL p.199-201, p.85) và làm hại quý tinh (KL p.55, TH p.94-95); kết luận theo từng cách phải nêu trường phái | th_76_77 |
+| Nhật Nguyệt tịnh minh | `core` | TH p.72 (vị trí cố định) khác KL p.53 (hợp chiếu tịnh minh) | th_72, kl_53_68 |
+| Nhật Nguyệt tịnh minh | `nhat_nguyet_deu_sang` | TT nói miếu vượng, KL nói đắc địa | th_72, kl_53_68 |
+| Nhật Nguyệt tịnh minh | `Thái_Dương_ham` | Tuần/Triệt vừa cứu Nhật hãm (KL p.85) vừa hại Thái Âm (TH p.94) | th_72, kl_53_68 |
+| Nhật Nguyệt tịnh minh | `tuan_triet_an_ngu` | Tuần/Triệt có hai vai trò trái nhau trong sách: giải hung tinh/hãm tinh (KL p.199-201, p.85) và làm hại quý tinh (KL p.55, TH p.94-95); kết luận theo từng cách phải nêu trường phái | th_72, kl_53_68 |
+| Nhật lệ trung thiên | `tuan_triet_an_ngu` | Tuần/Triệt có hai vai trò trái nhau trong sách: giải hung tinh/hãm tinh (KL p.199-201, p.85) và làm hại quý tinh (KL p.55, TH p.94-95); kết luận theo từng cách phải nêu trường phái | kl_52_85 |
+| Thạch trung ẩn ngọc | `core` | KL p.44 (Mệnh Cự, Di Cơ) / KL p.58 (cần Khoa Quyền Lộc) / KL p.106 và TH p.43 (cần Tuần Triệt hoặc Hóa Lộc) là ba điều kiện khác nhau | kl_44, kl_58, kl_106 |
+| Thạch trung ẩn ngọc | `tuan_triet_an_ngu` | Tuần/Triệt có hai vai trò trái nhau trong sách: giải hung tinh/hãm tinh (KL p.199-201, p.85) và làm hại quý tinh (KL p.55, TH p.94-95); kết luận theo từng cách phải nêu trường phái | kl_44, kl_58, kl_106 |
+| Mã đầu đới kiếm | `core` | KL p.64 mục 5 xấu / mục 6 tốt cùng một vị trí; TT p.142 cho rằng Kình ở Ngọ xấu | kl_64_xau, kl_64_tot |
+| Tam kỳ gia hội | `core` | TH p.72 mục 12 (ba cung liền) khác KL/TT (hội trong tam phương) | kl_66 |
+
+## 5. Tám lá số đối chứng (KL tr.237–246), trước và sau
+
+Biến thể được viết từ trang sách, không chỉnh theo lá số. Cột sau là kết quả của biến thể; nơi hai sách cho hai kết luận thì ghi cả hai.
+
+| Lá số | Cách | Gốc | Sách nói | Kết quả gốc | Biến thể → trạng thái |
+|---|---|---|---|---|---|
+| Hán Cao Tổ | TU_PHU_VU_TUONG | thanh_thuong | KL p.237-238: Tử Vi cư Ngọ 'đế cư đế vị', Tài Vũ Tướng, Quan Liêm Phủ: thế rất mạnh | đồng ý | kl_132_193 → thanh_thuong, th_115 → thanh_thuong |
+| Hạng Võ | CO_NGUYET_DONG_LUONG | thanh | KL p.239: Tài Đồng Lương ngộ Triệt + Địa Kiếp, Quan Thái Âm ngộ Tuần: thất bại ở Ô Giang; engine chỉ tính phá đồng cung Mệnh (TT p.24 tính cả tam phương) | không khớp | tt_24 → bi_pha, kl_221 → thanh |
+| Hạng Võ | TAM_KY_GIA_HOI | thanh | KL p.239: Cung Di Cự + Kỵ; cách tổng thể xấu; engine chỉ tính Kỵ/Kình đồng cung (KL p.66 tính cả chiếu) | không khớp | kl_66 → bi_pha |
+| Khổng Minh | NHAT_NGUYET_TINH_MINH | thanh_thuong | KL p.240: 'Nhật Nguyệt chiếu hư không', thông minh tuyệt vời | đồng ý | kl_53_68 → thanh |
+| Nữ Quý Mão | CO_NGUYET_DONG_LUONG | thanh | KL p.241: sách không gọi tên cách này | sách không xét | tt_24 → thanh, kl_221 → thanh_thuong |
+| Nữ Quý Mão | KHOI_VIET_GIAP_MENH | thanh | KL p.241: sách không gọi tên cách này | sách không xét | kl_44_62 → bi_pha |
+| Mậu Tý phá sản | NHAT_NGUYET_TINH_MINH | bi_pha | KL p.243: 'Âm dương lạc hãm' phá sản | đồng ý | kl_53_68 → bi_pha |
+| Mậu Tý phá sản | CO_NGUYET_DONG_LUONG | thanh_thuong | KL p.243: Cơ + Hóa Kỵ + Hỏa Linh phá sản; engine không tính Kỵ/Hỏa Linh ngoài đồng cung Mệnh | không khớp | tt_24 → bi_pha, kl_221 → thanh_thuong |
+
+Nguyên nhân thay đổi: phạm vi. Cơ Nguyệt Đồng Lương theo TT tr.24 tính Kiếp/Không/Kỵ trên cả tam phương → Hạng Võ và Mậu Tý đổi sang `bi_pha` (khớp sách); Tam kỳ gia hội theo KL tr.66 tính Kỵ/Kình ở đối cung → Hạng Võ `bi_pha` (khớp). Bản KL tr.221 của Cơ Nguyệt Đồng Lương không nêu yếu tố phá nên vẫn `thành`: bất đồng giữa các sách được giữ, không ép khớp. Khôi Việt giáp Mệnh của Nữ Quý Mão chuyển `bi_pha` do KL tr.62 (sát tinh hội chiếu), sách không đánh giá lá số này nên không phán đúng/sai.
+
+## 6. Phạm vi kết luận hình học
+
+- **Giả định của mô hình:** vị trí Tử Vi/Thiên Phủ (đối xứng Dần–Thân), bảng Tứ Hóa theo can năm (Thực Hành tr.21, Khảo Luận tr.196–197), công thức Tả/Hữu theo tháng và Xương/Khúc theo giờ.
+- **Bất khả thi trong mô hình:** Tử Phủ đồng cung × *phá được cứu*, được test tái lập trong `test_formation_geometry.py`. Đây KHÔNG phải kết luận cổ thư: một trường phái an sao khác hoặc bảng Tứ Hóa khác (vd. Nhâm-Khoa là Tả Phụ hay Phủ, đã ghi trong tuvi.py) có thể cho kết quả khác. Trong các biến thể theo nguồn *phá được cứu* không tồn tại vì không sách nào cho phép.
+- **Bốn điều kiện không thể kích hoạt** giữ nguyên, không sửa để tăng độ phủ: Thiên Tướng hãm (giới hạn vị trí sao), Thái Dương hãm ở Ngọ và Cự Môn hãm ở Tý/Ngọ (bảng miếu vượng), Tam Hóa hội cứu của Tử Phủ đồng cung (hình học).
+
+## 7. Khả năng kích hoạt của các biến thể (quét 116,928 lá số)
+
+| Biến thể | Các trạng thái xuất hiện |
+|---|---|
+| `CO_NGUYET_DONG_LUONG@kl_221` | thanh 5888, hinh_thuc 540, thanh_thuong 8260 |
+| `CO_NGUYET_DONG_LUONG@tt_24` | thanh 2628, bi_pha 12060 |
+| `KHOI_VIET_GIAP_MENH@kl_44_62` | bi_pha 2552, thanh 232 |
+| `MA_DAU_DOI_KIEM@kl_64_tot` | thanh 56, hinh_thuc 4120 |
+| `MA_DAU_DOI_KIEM@kl_64_xau` | hinh_thuc 4138, bi_pha 38 |
+| `NHAT_LE_TRUNG_THIEN@kl_52_85` | thanh 232, hinh_thuc 240, thanh_thuong 200 |
+| `NHAT_NGUYET_TINH_MINH@kl_53_68` | thanh 9792, bi_pha 11386, hinh_thuc 4550 |
+| `NHAT_NGUYET_TINH_MINH@th_72` | thanh 3072 |
+| `SAT_PHA_LIEM_THAM@th_76_77` | thanh 12901, hinh_thuc 14877, bi_pha 1550 |
+| `TAM_KY_GIA_HOI@kl_66` | hinh_thuc 2894, bi_pha 1154 |
+| `THACH_TRUNG_AN_NGOC@kl_106` | hinh_thuc 696 |
+| `THACH_TRUNG_AN_NGOC@kl_44` | hinh_thuc 1728 |
+| `THACH_TRUNG_AN_NGOC@kl_58` | hinh_thuc 32 |
+| `TU_PHU_DONG_CUNG@kl_50` | hinh_thuc 1920 |
+| `TU_PHU_DONG_CUNG@tt_22` | hinh_thuc 1262, bi_pha 658 |
+| `TU_PHU_VU_TUONG@kl_132_193` | thanh 4200, thanh_thuong 1744, hinh_thuc 8792 |
+| `TU_PHU_VU_TUONG@th_115` | thanh 4788, thanh_thuong 688, hinh_thuc 9260 |
+
+## 8. Điều kiện còn thiếu nguồn
+
+| Cách | Vai trò | Điều kiện | Ghi chú |
+|---|---|---|---|
+| Tử Phủ Vũ Tướng | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
+| Tử Phủ đồng cung | tăng thế | `ta_huu_hoi` | KL p.49 nói Tử Vi cần Tả Hữu (tránh 'ông vua cô độc'), không nói riêng về Tử Phủ đồng cung |
+| Tử Phủ đồng cung | tăng thế | `xuong_khuc_hoi` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Tử Phủ đồng cung | tăng thế | `khoi_viet_hoi` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Tử Phủ đồng cung | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
+| Cơ Nguyệt Đồng Lương | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
+| Cơ Nguyệt Đồng Lương | phản chứng | `tuan_triet_an_ngu` | TH p.94-95 chỉ nói Thái Âm, Thiên Lương gặp Tuần Triệt là bất lợi; không nói cả cách CNDL |
+| Sát Phá Liêm Tham | tăng thế | `ta_huu_hoi` | danh sách cát tinh của TH p.76 là chung cho nhóm cách, không riêng Tả Hữu cho SPLT |
+| Sát Phá Liêm Tham | tăng thế | `xuong_khuc_hoi` | như trên |
+| Sát Phá Liêm Tham | tăng thế | `khoi_viet_hoi` | như trên |
+| Sát Phá Liêm Tham | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
+| Sát Phá Liêm Tham | phản chứng | `tuan_triet_an_ngu` | không có trang nói Tuần/Triệt làm hại cách này; sách chỉ nói về từng sao |
+| Sát Phá Liêm Tham | phản chứng | `Thất_Sát_ham` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Nhật Nguyệt tịnh minh | tăng thế | `ta_huu_hoi` | KL p.56 nói Tả Hữu giúp Thái Âm/Vũ Khúc, không nói riêng Nhật Nguyệt tịnh minh |
+| Nhật Nguyệt tịnh minh | tăng thế | `khoa_quyen_hoi` | KL p.53 mục 8 nói Khoa Quyền Lộc hợp chiếu giúp Nhật Nguyệt Sửu Mùi; chưa phải cách tịnh minh |
+| Nhật Nguyệt tịnh minh | phá | `ky_dong_cung` | KL p.85 nói Thái Dương ghét Kỵ nhưng không nêu cho cách tịnh minh |
+| Nhật Nguyệt tịnh minh | phá | `khong_kiep_dong_cung` | KL p.56 nói Nhật/Nguyệt HÃM gặp Không Kiếp; bản nháp áp dụng cho cả khi sáng |
+| Nhật Nguyệt tịnh minh | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
+| Nhật lệ trung thiên | tăng thế | `ta_huu_hoi` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Nhật lệ trung thiên | phá | `sat_dong_cung` | KL p.85 nêu Đà, Kỵ, Riêu là sao Thái Dương ghét; không nêu toàn bộ sát tinh và không riêng cho Ngọ |
+| Nhật lệ trung thiên | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
+| Nhật lệ trung thiên | phản chứng | `tuan_triet_an_ngu` | Tuần/Triệt trong sách giúp Thái Dương HÃM; với Thái Dương vượng ở Ngọ không có trang nói Tuần/Triệt gây hại |
+| Nhật lệ trung thiên | phản chứng | `Thái_Dương_ham` | Không thể xảy ra: Thái Dương ở Ngọ luôn vượng theo bảng miếu vượng, nên điều kiện (bảng độ sáng) không bao giờ đúng; đây không phải lỗi logic mà là hệ quả của bảng |
+| Thạch trung ẩn ngọc | tăng thế | `ta_huu_hoi` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Thạch trung ẩn ngọc | phá | `ky_hoac_kinh_dong_cung` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Thạch trung ẩn ngọc | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
+| Thạch trung ẩn ngọc | phản chứng | `Cự_Môn_ham` | Không thể xảy ra: Cự Môn ở Tí/Ngọ luôn vượng theo bảng miếu vượng; không phải lỗi logic mà là hệ quả của bảng |
+| Mã đầu đới kiếm | tăng thế | `ta_huu_hoi` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Mã đầu đới kiếm | phá | `sat_khac_dong_cung` | KL p.60 nói 'nhiều sát tinh hội chiếu', không phải đồng cung |
+| Mã đầu đới kiếm | phá | `ky_dong_cung` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Mã đầu đới kiếm | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
+| Mã đầu đới kiếm | phản chứng | `tuan_triet_an_ngu` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Tam kỳ gia hội | tăng thế | `ta_huu_hoi` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Tam kỳ gia hội | tăng thế | `xuong_khuc_hoi` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Tam kỳ gia hội | cứu | `ta_huu_giai_ky` | không tìm thấy trang nói Tả Hữu giải Kỵ/Kình cho cách này |
+| Tam kỳ gia hội | phản chứng | `tuan_triet_an_ngu` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Khôi Việt giáp Mệnh | tăng thế | `co_chinh_tinh` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Khôi Việt giáp Mệnh | tăng thế | `ta_huu_hoi` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Khôi Việt giáp Mệnh | cứu | `khoa_dong_cung` | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt |
+| Khôi Việt giáp Mệnh | phản chứng | `vo_chinh_dieu` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
+| Khôi Việt giáp Mệnh | phản chứng | `tuan_triet_an_ngu` | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế |
