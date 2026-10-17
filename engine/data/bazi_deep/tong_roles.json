@@ -1,0 +1,98 @@
+{
+ "_status": "verified_text",
+ "_note": "Vai trò theo nhóm thập thần cho từng loại tòng, theo Trích Thiên Tủy (PDF pp.171-174, 178-179). Định nghĩa 'loại tòng' do hệ thống vận hành bằng ngưỡng (draft) trong SchoolProfile; bảng này chỉ là lời sách về hỷ/kỵ khi đã là loại đó.",
+ "types": {
+  "Tòng Vượng": {
+   "yong": [
+    "Ti",
+    "An"
+   ],
+   "xi": [
+    "ThucThuong"
+   ],
+   "ji": [
+    "QuanSat",
+    "Tai"
+   ],
+   "src": "SRC_TTT_TONG",
+   "note": "Tứ trụ đều Tỉ Kiếp, không Quan Sát chế, có Ấn sinh. Vận Tỉ Kiếp Ấn thụ cát; Ấn khinh thì vận Thực Thương cũng tốt; vận Quan Sát phạm vượng; gặp Tài là quần Kiếp tranh Tài."
+  },
+  "Tòng Cường": {
+   "yong": [
+    "Ti",
+    "An"
+   ],
+   "xi": [],
+   "ji": [
+    "Tai",
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "src": "SRC_TTT_TONG",
+   "note": "Ấn thụ, Tỉ Kiếp trùng điệp, nhật chủ nắm lệnh, tuyệt không khí Tài Quan. Chỉ thuận không nghịch: vận Tỉ Kiếp, Ấn cát; vận Thực Thương có Ấn xung khắc tất hung; vận Tài Quan là chọc giận cường thần."
+  },
+  "Tòng Thế": {
+   "yong": [
+    "Tai"
+   ],
+   "xi": [
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "ji": [
+    "Ti",
+    "An"
+   ],
+   "src": "SRC_TTT_TONG",
+   "note": "Nhật chủ vô căn, Tài Quan Thực Thương cùng vượng, không Kiếp Ấn. Nếu ba bằng nhau thì hành Tài vận để hòa thuận, thứ đến Quan Sát, thứ nữa Thực Thương; Tỉ Kiếp Ấn thụ tất hung."
+  },
+  "Tòng Tài": {
+   "yong": [
+    "Tai"
+   ],
+   "xi": [
+    "ThucThuong"
+   ],
+   "ji": [
+    "Ti",
+    "An"
+   ],
+   "src": "SRC_TTT_TONG",
+   "note": "Cần Thực Thương tiết tú khí; tối kỵ vận Kiếp (PDF p.172). Chân tòng không Tỉ Kiếp.",
+   "ji_note": "ji Ấn là suy luận của hệ thống; sách nêu tối kỵ vận Kiếp (p.172)."
+  },
+  "Tòng Sát": {
+   "yong": [
+    "QuanSat"
+   ],
+   "xi": [
+    "Tai"
+   ],
+   "ji": [
+    "Ti",
+    "An"
+   ],
+   "src": "SRC_TTT_TONG",
+   "note": "Tòng Quan Sát: hành vận Tài Quan vượng (PDF p.178).",
+   "ji_note": "ji (Ấn, Tỉ Kiếp) là suy luận của hệ thống; sách chỉ nêu vận Tài Quan vượng là tốt (p.178)."
+  },
+  "Tòng Nhi": {
+   "yong": [
+    "ThucThuong"
+   ],
+   "xi": [
+    "Tai"
+   ],
+   "ji": [
+    "An"
+   ],
+   "src": "SRC_SYSTEM_STRUCT",
+   "note": "Sách (Trích Thiên Tủy, PDF pp.171-172) không có đoạn riêng cho Tòng Nhi; vai trò dưới đây là SUY LUẬN của hệ thống từ Tòng Tài/Tòng Thế: tiết tú qua Thực Thương, Tài là đường ra, Ấn khắc Thực Thương là kỵ.",
+   "verified": false
+  }
+ },
+ "gia_tong_van": {
+  "src": "SRC_TTT_TONG",
+  "note": "Giả tòng (PDF p.178): hành vận phải 'chân'. Tòng Tài có Tỉ Kiếp phân tranh thì vận Quan Sát quý, Thực Thương phú; có Ấn ám sinh phải hành Tài vận; có Quan Sát tiết khí cần Thực Thương. Tòng Quan Sát có Tỉ Kiếp trợ thân gặp Quan vận danh cao; có Thực Thương phá Quan hành Tài vận; có Ấn tiết Quan cần Tài vận phá Ấn."
+ }
+}

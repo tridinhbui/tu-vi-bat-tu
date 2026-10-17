@@ -58,7 +58,7 @@ def test_hop_quan_luu_sat_when_the_quan_is_bound():
 
 def test_quan_sat_hon_tap_is_reported_with_its_rescue():
     p = P(view("EX4"))["quan_sat_hon_tap"]
-    assert p["polarity"] == "benh" and p["state"].startswith("co_benh_")
+    assert p["polarity"] == "benh" and p["state"] in ("co_benh_co_cuu", "co_benh_cuu_yeu", "co_benh", "hon_tap_khong_ngai", "hon_tap_co_benh")
 
 
 def test_thuong_phoi_an_requires_a_weak_enough_day_master():

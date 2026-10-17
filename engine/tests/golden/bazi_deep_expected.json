@@ -23,7 +23,8 @@
    "BT_ST_CUC",
    "BT_ST_GEJU_THANH",
    "BT_ST_LEVEL_AMBIG",
-   "BT_ST_LEVEL_SHIFT"
+   "BT_ST_LEVEL_SHIFT",
+   "BT_TTT_HANNOAN_CAN_HAN"
   ]
  },
  "EX2": {
@@ -104,17 +105,19 @@
   ],
   "patterns": [
    "hop_quan_luu_sat:thanh",
-   "quan_sat_hon_tap:co_benh_co_cuu"
+   "quan_sat_hon_tap:hon_tap_co_benh"
   ],
   "fired": [
    "BT_PT_HOP_QUAN_LUU_SAT",
    "BT_PT_QUAN_SAT_HON_TAP",
+   "BT_PT_UNSAVED",
    "BT_ST_CUC",
    "BT_ST_DISAGREE",
    "BT_ST_DM_WEAK_PHUUC",
    "BT_ST_GEJU_THANH_PHA",
    "BT_ST_HOP_TROI",
-   "BT_ST_OUTER_GIA"
+   "BT_ST_OUTER_GIA",
+   "BT_TTT_HONTAP_CO_BENH"
   ]
  },
  "EX5": {
@@ -175,7 +178,8 @@
    "BT_ST_DISAGREE",
    "BT_ST_DM_WEAK_PHUUC",
    "BT_ST_GEJU_THANH",
-   "BT_ST_LEVEL_SHIFT"
+   "BT_ST_LEVEL_SHIFT",
+   "BT_TTT_HANNOAN_CAN_NOAN"
   ]
  },
  "EX7": {
@@ -201,7 +205,8 @@
    "BT_ST_GEJU_THANH_PHA",
    "BT_ST_HOP_TROI",
    "BT_ST_LENH_CLASH",
-   "BT_ST_LEVEL_SHIFT"
+   "BT_ST_LEVEL_SHIFT",
+   "BT_TTT_HANNOAN_CAN_HAN"
   ]
  },
  "EX8": {
@@ -226,7 +231,9 @@
    "BT_ST_CUC",
    "BT_ST_GEJU_THANH",
    "BT_ST_LEVEL_AMBIG",
-   "BT_ST_LEVEL_SHIFT"
+   "BT_ST_LEVEL_SHIFT",
+   "BT_TTT_HANNOAN_CAN_NOAN",
+   "BT_TTT_NGUYENLUU_KY"
   ]
  },
  "EX9": {
@@ -253,7 +260,8 @@
    "BT_ST_CUC",
    "BT_ST_DM_STRONG_PHUUC",
    "BT_ST_GEJU_THANH",
-   "BT_ST_LEVEL_SHIFT"
+   "BT_ST_LEVEL_SHIFT",
+   "BT_TTT_HANNOAN_CAN_HAN"
   ]
  },
  "EX10": {
@@ -390,7 +398,8 @@
    "BT_ST_CUC",
    "BT_ST_GEJU_THANH",
    "BT_ST_LEVEL_AMBIG",
-   "BT_ST_LEVEL_SHIFT"
+   "BT_ST_LEVEL_SHIFT",
+   "BT_TTT_NGUYENLUU_HI"
   ]
  },
  "EX15": {
@@ -404,7 +413,12 @@
     "thanh"
    ]
   ],
-  "outer": [],
+  "outer": [
+   [
+    "Tòng Cường",
+    "chân"
+   ]
+  ],
   "hua_state": "khong_co",
   "cuc": [],
   "patterns": [
@@ -413,8 +427,8 @@
   "fired": [
    "BT_PT_WEAK",
    "BT_ST_DISAGREE",
-   "BT_ST_DM_STRONG_PHUUC",
-   "BT_ST_GEJU_THANH"
+   "BT_ST_OUTER_CHAN",
+   "BT_TTT_TONG_CUONG"
   ]
  }
 }

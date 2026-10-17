@@ -22,7 +22,9 @@ def command(view: ChartView, profile: SchoolProfile = DEFAULT) -> dict | None:
     """Stem 'in command' (tư lệnh) at the birth moment, or None when days-into-month is unknown / the profile does not use it."""
     if not profile.use_tu_lenh or view.days_into_month is None:
         return None
-    rows = profile.tu_lenh_rows()[BRANCHES_VI[view.month_branch]]
+    rows = profile.tu_lenh_rows().get(BRANCHES_VI[view.month_branch])
+    if not rows:                     # a verified table may cover only some months (ttt_ntt_v1 has only tháng Dần)
+        return None
     d, acc = view.days_into_month, 0.0
     for i, (st, n) in enumerate(rows):
         acc += n

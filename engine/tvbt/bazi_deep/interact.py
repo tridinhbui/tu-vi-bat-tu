@@ -124,7 +124,8 @@ def _hua_conditions(view: ChartView, rec: dict, raw: list[dict], profile: School
     chk("hoa_than_co_can", bool(base) or bool(thau), f"chi cùng hành {el}: {[PIL_VI[p] for p in base]}; thấu: {[PIL_VI[p] for p in thau]}")
     killers = [p for p, s in others if controls(STEM_ELEMENT[s], el)]
     chk("khong_bi_khac", not killers, f"thiên can khắc {el}: {[PIL_VI[p] for p in killers]}")
-    chk("khong_tranh_hop", not any(r["id"] != rec["id"] and r["kind"] == "stem_combine" and set(r["members"]) & set(rec["members"]) for r in raw), "")
+    if not profile.hua_ignores_tranh_hop:       # Trích Thiên Tủy p.176 does not treat tranh hợp/đố hợp as blocking a true hóa
+        chk("khong_tranh_hop", not any(r["id"] != rec["id"] and r["kind"] == "stem_combine" and set(r["members"]) & set(rec["members"]) for r in raw), "")
     weak = []
     for m in rec["members"]:
         s = view.stem(m.split(".")[0])
@@ -212,7 +213,7 @@ def _stage_stem_combine(view, profile, R, raw, mul):
         if not r["adjacent"] and profile.hua_requires_adjacent:
             r["status"] = "khong_ke"
             continue
-        if partners:
+        if partners and not profile.hua_ignores_tranh_hop:
             r["status"] = "tranh_hop"
             for m in r["members"]:
                 mul(m, profile.tranh_hop_mult, f"tranh hợp {r['id']}")
@@ -231,6 +232,10 @@ def _stage_stem_combine(view, profile, R, raw, mul):
             r["status"] = "gia_hoa"
             for m in r["members"]:
                 mul(m, profile.gia_hoa_mult, f"giả hóa {r['id']}: thiếu {unmet}")
+        elif partners:               # school that ignores tranh hợp for a true hóa, but this hóa failed: it is still a tranh hợp
+            r["status"] = "tranh_hop"
+            for m in r["members"]:
+                mul(m, profile.tranh_hop_mult, f"tranh hợp {r['id']} (hóa không thành: {unmet})")
         else:
             r["status"] = "hop_khong_hoa"
             for m in r["members"]:

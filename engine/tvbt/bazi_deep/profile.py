@@ -20,6 +20,8 @@ class SchoolProfile:
     id: str = "baseline_v1"
     review_status: str = "draft"                    # no weight below is verified against a source text
     # --- khí thế
+    strength_method: str = "he_thong"               # he_thong: tvbt.bazi_deep.strength (weights are this system's, draft) | tvh_40: Thiệu Vĩ Hoa pp.331-355 (verified method)
+    tvh_margin: float = 0.03                         # |share - 0.40| below this => the day master is reported as on the border
     use_tu_lenh: bool = True
     tu_lenh_table: str = "common_v1"
     tu_lenh_bonus: float = 0.5                      # extra weight of the commanding stem, as a fraction of the month-branch weight
@@ -52,6 +54,15 @@ class SchoolProfile:
     harm_destroy_adj: float = 0.95
     light_scope: tuple = ("month", "day")           # hình/hại/phá only change strength when they touch these pillars
     hua_requires_adjacent: bool = True
+    hua_ignores_tranh_hop: bool = False             # Trích Thiên Tủy p.176: tranh hợp/đố hợp 'là luận điệu hoang đường' khi đã hóa thật
+    hua_du_share: float = 0.50                       # hóa thần at least this share of the total => 'có dư' (cần tiết); below => 'không đủ' (cần sinh trợ)
+    presence_share: float = 0.05                     # 'có/không có' Tài, Quan Sát, Ấn in a book rule = group share at least/below this
+    thuong_vuong: float = 0.30                       # Thực Thương share from which Thương Quan counts as 'vượng'
+    tong_cuong_min: float = 0.20                     # Ấn and Tỉ Kiếp each at least this share => Tòng Cường
+    tong_vuong_ti: float = 0.55                      # Tỉ Kiếp share from which (with Ấn thin) => Tòng Vượng
+    tong_foe_max: float = 0.05                       # Tài+Quan Sát share at most this for Tòng Vượng/Cường
+    tong_the_each: float = 0.15                      # each of Tài, Quan Sát, Thực Thương at least this for Tòng Thế
+    flow_min: float = 0.05                           # an element below this share is treated as absent in the nguyên lưu chain
     # --- cách cục
     yin_nhan: bool = False                          # lập Dương Nhận cho âm can
     tong_dominant_share: float = 0.55
@@ -72,3 +83,14 @@ class SchoolProfile:
 
 
 DEFAULT = SchoolProfile()
+
+
+TTT_NTT = DEFAULT.with_(id="ttt_ntt_v1", review_status="partially_verified", kho_policy="tu_co_can", tu_lenh_table="ttt_ntt_v1", hua_ignores_tranh_hop=True)
+# Trích Thiên Tủy (Nhậm Thiết Tiều): khố/dư khí count as roots without needing xung/hình to open them (PDF p.70, which also says
+# hình xung tổn thương căn khí); tranh hợp does not stop a true hóa (p.176); tư lệnh table only for tháng Dần (p.67).
+# Numeric weights are still the system's (draft); only the policies above are taken from the book.
+
+
+TVH_40 = DEFAULT.with_(id="tvh40_v1", review_status="partially_verified", strength_method="tvh_40")
+# Thiệu Vĩ Hoa: day-master strength by the degree-scoring method and the 40% rule. Group shares for cách/tòng detection are taken from the same
+# scored totals. Sub-bands inside weak/strong (cực nhược…cực vượng) are this system's presentation and draft; only the 40% decision is the book's.

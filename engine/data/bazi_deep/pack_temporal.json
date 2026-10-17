@@ -17,6 +17,15 @@
    "verified": false,
    "edition": null,
    "note": "Trọng số, ngưỡng và thứ tự giải tương tác do hệ thống chọn, công khai trong SchoolProfile; không phải trích dẫn sách."
+  },
+  {
+   "id": "SRC_TTT_TUEVAN",
+   "title": "Trích Thiên Tủy — chương Tuế Vận (cái đầu, tiệt cước, thiên khắc địa xung)",
+   "author": "Lưu Bá Ôn / Nhậm Thiết Tiều",
+   "locator": "PDF pp.229-233",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc trực tiếp bản PDF (Claude, 2026-10-17); chưa có người thứ hai kiểm."
   }
  ],
  "rules": [
@@ -466,6 +475,328 @@
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TIETCUOC_CACH_CUC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Tiệt cước khi can vận là dụng/hỷ theo cách cục",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.t.can_chi",
+      "operator": "eq",
+      "value": "tiet_cuoc"
+     },
+     {
+      "fact": "bazi.t.role.cach_cuc",
+      "operator": "in",
+      "value": [
+       "yong",
+       "xi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tiet_cuoc_cach_cuc",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TUEVAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_CAIDAU_CACH_CUC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Cái đầu khi chi vận là dụng/hỷ theo cách cục",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.t.can_chi",
+      "operator": "eq",
+      "value": "cai_dau"
+     },
+     {
+      "fact": "bazi.t.role.cach_cuc",
+      "operator": "in",
+      "value": [
+       "yong",
+       "xi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_cai_dau_cach_cuc",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TUEVAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TIETCUOC_PHU_UC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Tiệt cước khi can vận là dụng/hỷ theo phù ức",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.t.can_chi",
+      "operator": "eq",
+      "value": "tiet_cuoc"
+     },
+     {
+      "fact": "bazi.t.role.phu_uc",
+      "operator": "in",
+      "value": [
+       "yong",
+       "xi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tiet_cuoc_phu_uc",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TUEVAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_CAIDAU_PHU_UC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Cái đầu khi chi vận là dụng/hỷ theo phù ức",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.t.can_chi",
+      "operator": "eq",
+      "value": "cai_dau"
+     },
+     {
+      "fact": "bazi.t.role.phu_uc",
+      "operator": "in",
+      "value": [
+       "yong",
+       "xi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_cai_dau_phu_uc",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TUEVAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TIETCUOC_DIEU_HAU",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Tiệt cước khi can vận là dụng/hỷ theo điều hậu",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.t.can_chi",
+      "operator": "eq",
+      "value": "tiet_cuoc"
+     },
+     {
+      "fact": "bazi.t.role.dieu_hau",
+      "operator": "in",
+      "value": [
+       "yong",
+       "xi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tiet_cuoc_dieu_hau",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TUEVAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_CAIDAU_DIEU_HAU",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Cái đầu khi chi vận là dụng/hỷ theo điều hậu",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.t.can_chi",
+      "operator": "eq",
+      "value": "cai_dau"
+     },
+     {
+      "fact": "bazi.t.role.dieu_hau",
+      "operator": "in",
+      "value": [
+       "yong",
+       "xi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_cai_dau_dieu_hau",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TUEVAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_THIENKHAC_VUONG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Thiên khắc địa xung mà nhật chủ vượng",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.t.event_kinds",
+      "operator": "contains",
+      "value": "thien_khac_dia_xung"
+     },
+     {
+      "fact": "bazi.t.dm_strong",
+      "operator": "eq",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_thien_khac_vuong",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TUEVAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_THIENKHAC_NHUOC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Thiên khắc địa xung mà nhật chủ nhược",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.t.event_kinds",
+      "operator": "contains",
+      "value": "thien_khac_dia_xung"
+     },
+     {
+      "fact": "bazi.t.dm_weak",
+      "operator": "eq",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_thien_khac_nhuoc",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TUEVAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
    "subject": "chart"
   }
  ]

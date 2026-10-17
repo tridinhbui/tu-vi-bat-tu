@@ -17,6 +17,69 @@
    "verified": false,
    "edition": null,
    "note": "Trọng số, ngưỡng và thứ tự giải tương tác do hệ thống chọn, công khai trong SchoolProfile; không phải trích dẫn sách."
+  },
+  {
+   "id": "SRC_TTT_NGUYENLUU",
+   "title": "Trích Thiên Tủy — chương Nguyên Lưu",
+   "author": "Lưu Bá Ôn / Nhậm Thiết Tiều",
+   "locator": "PDF pp.79-81",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc trực tiếp bản PDF (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TTT_QUANSAT",
+   "title": "Trích Thiên Tủy — chương Quan Sát (hỗn tạp, sáu cách dụng của Sát)",
+   "author": "Lưu Bá Ôn / Nhậm Thiết Tiều",
+   "locator": "PDF pp.84-92",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc trực tiếp bản PDF (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TTT_THUONGQUAN",
+   "title": "Trích Thiên Tủy — chương Thương Quan (năm cách dụng)",
+   "author": "Lưu Bá Ôn / Nhậm Thiết Tiều",
+   "locator": "PDF pp.93-100",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc trực tiếp bản PDF (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TTT_HANTHU",
+   "title": "Trích Thiên Tủy — chương Hàn Thử, Táo Thấp",
+   "author": "Lưu Bá Ôn / Nhậm Thiết Tiều",
+   "locator": "PDF pp.113-116",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc trực tiếp bản PDF (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TTT_TONG",
+   "title": "Trích Thiên Tủy — Tòng Tượng, Giả Tòng (tòng vượng/cường/khí/thế, tòng tài/quan)",
+   "author": "Lưu Bá Ôn / Nhậm Thiết Tiều",
+   "locator": "PDF pp.171-174, 178-179",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc trực tiếp bản PDF (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TTT_HOA",
+   "title": "Trích Thiên Tủy — Hóa Tượng, Giả Hóa",
+   "author": "Lưu Bá Ôn / Nhậm Thiết Tiều",
+   "locator": "PDF pp.175-177, 180-182",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc trực tiếp bản PDF (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TVH_DIEM",
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa), bản dịch Việt — mục 'Tính điểm để đo độ vượng suy của nhật chủ'",
+   "author": "Thiệu Vĩ Hoa",
+   "locator": "trang in 331-355 (trùng số trang PDF); bản scan, đọc bằng mắt qua ảnh trang",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc trực tiếp bản PDF (Claude, 2026-10-17); chưa có người thứ hai kiểm."
   }
  ],
  "rules": [
@@ -989,6 +1052,11 @@
     {
      "fact": "bazi.geju_outer_quality",
      "value": "chân"
+    },
+    {
+     "fact": "bazi.patterns",
+     "operator": "contains",
+     "value": "quan_sat_hon_tap:hon_tap_khong_ngai"
     }
    ],
    "conflictsWith": [],
@@ -1067,6 +1135,797 @@
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TONG_VUONG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Vai trò vận khi nhật chủ là Tòng Vượng (lời sách)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.geju_outer",
+      "operator": "eq",
+      "value": "Tòng Vượng"
+     },
+     {
+      "fact": "bazi.geju_outer_quality",
+      "operator": "eq",
+      "value": "chân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tong_vuong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TONG_CUONG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Vai trò vận khi nhật chủ là Tòng Cường (lời sách)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.geju_outer",
+      "operator": "eq",
+      "value": "Tòng Cường"
+     },
+     {
+      "fact": "bazi.geju_outer_quality",
+      "operator": "eq",
+      "value": "chân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tong_cuong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TONG_THE",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Vai trò vận khi nhật chủ là Tòng Thế (lời sách)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.geju_outer",
+      "operator": "eq",
+      "value": "Tòng Thế"
+     },
+     {
+      "fact": "bazi.geju_outer_quality",
+      "operator": "eq",
+      "value": "chân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tong_the",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TONG_TAI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Vai trò vận khi nhật chủ là Tòng Tài (lời sách)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.geju_outer",
+      "operator": "eq",
+      "value": "Tòng Tài"
+     },
+     {
+      "fact": "bazi.geju_outer_quality",
+      "operator": "eq",
+      "value": "chân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tong_tai",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TONG_SAT",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Vai trò vận khi nhật chủ là Tòng Sát (lời sách)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.geju_outer",
+      "operator": "eq",
+      "value": "Tòng Sát"
+     },
+     {
+      "fact": "bazi.geju_outer_quality",
+      "operator": "eq",
+      "value": "chân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tong_sat",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_TONG"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TONG_NHI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "book",
+   "description": "Vai trò vận khi nhật chủ là Tòng Nhi (lời sách)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.geju_outer",
+      "operator": "eq",
+      "value": "Tòng Nhi"
+     },
+     {
+      "fact": "bazi.geju_outer_quality",
+      "operator": "eq",
+      "value": "chân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tong_nhi",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_HOA_DU",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Hóa thần có dư thì cần tiết (lời sách)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.geju_outer_kind",
+      "operator": "eq",
+      "value": "hoa"
+     },
+     {
+      "fact": "bazi.geju_outer_quality",
+      "operator": "eq",
+      "value": "chân"
+     },
+     {
+      "fact": "bazi.hoa_than_du",
+      "operator": "eq",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_hoa_du",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_HOA"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_HOA_THIEU",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Hóa thần không đủ thì cần sinh trợ (lời sách)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.geju_outer_kind",
+      "operator": "eq",
+      "value": "hoa"
+     },
+     {
+      "fact": "bazi.geju_outer_quality",
+      "operator": "eq",
+      "value": "chân"
+     },
+     {
+      "fact": "bazi.hoa_than_du",
+      "operator": "eq",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_hoa_thieu",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_HOA"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TQ_TAI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Thương Quan dụng tai",
+   "conditions": {
+    "fact": "bazi.thuong_quan_style",
+    "operator": "eq",
+    "value": "tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tq_tai",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_THUONGQUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TQ_AN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Thương Quan dụng an",
+   "conditions": {
+    "fact": "bazi.thuong_quan_style",
+    "operator": "eq",
+    "value": "an"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tq_an",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_THUONGQUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TQ_KIEP",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Thương Quan dụng kiep",
+   "conditions": {
+    "fact": "bazi.thuong_quan_style",
+    "operator": "eq",
+    "value": "kiep"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tq_kiep",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_THUONGQUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TQ_THUONG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Thương Quan dụng thuong",
+   "conditions": {
+    "fact": "bazi.thuong_quan_style",
+    "operator": "eq",
+    "value": "thuong"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tq_thuong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_THUONGQUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_TQ_QUAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Thương Quan dụng quan",
+   "conditions": {
+    "fact": "bazi.thuong_quan_style",
+    "operator": "eq",
+    "value": "quan"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_tq_quan",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_THUONGQUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_NGUYENLUU_HI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Nguyên lưu: khởi Tỉ Kiếp/Ấn, kết Tài Quan là hỉ",
+   "conditions": {
+    "fact": "bazi.nguyen_luu",
+    "operator": "eq",
+    "value": "hi"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_nguyen_luu_hi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_NGUYENLUU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_NGUYENLUU_KY",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Nguyên lưu: khởi Tài Quan, kết Tỉ Kiếp là kỵ",
+   "conditions": {
+    "fact": "bazi.nguyen_luu",
+    "operator": "eq",
+    "value": "ky"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_nguyen_luu_ky",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_NGUYENLUU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_HANNOAN_CAN_NOAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Hàn noãn: hàn quá mà hỏa có khí nên cần noãn",
+   "conditions": {
+    "fact": "bazi.han_noan_direction",
+    "operator": "eq",
+    "value": "can_noan"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_han_noan_can_noan",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_HANTHU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_HANNOAN_THUAN_HAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Hàn noãn: hàn quá mà hỏa vô khí nên phản lại lấy hàn làm dụng",
+   "conditions": {
+    "fact": "bazi.han_noan_direction",
+    "operator": "eq",
+    "value": "thuan_han"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_han_noan_thuan_han",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_HANTHU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_HANNOAN_CAN_HAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Hàn noãn: noãn quá mà thủy có căn nên cần hàn",
+   "conditions": {
+    "fact": "bazi.han_noan_direction",
+    "operator": "eq",
+    "value": "can_han"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_han_noan_can_han",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_HANTHU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_HANNOAN_THUAN_NOAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Hàn noãn: noãn quá mà thủy vô căn nên không lấy hàn làm dụng",
+   "conditions": {
+    "fact": "bazi.han_noan_direction",
+    "operator": "eq",
+    "value": "thuan_noan"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_han_noan_thuan_noan",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_HANTHU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_HONTAP_KHONG_NGAI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Hỗn tạp mà nhật chủ vượng, tọa Ấn hoặc có giờ sinh phù thì không ngại",
+   "conditions": {
+    "fact": "bazi.patterns",
+    "operator": "contains",
+    "value": "quan_sat_hon_tap:hon_tap_khong_ngai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_hon_tap_khong_ngai",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_QUANSAT"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTT_HONTAP_CO_BENH",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_ttt",
+   "category": "book",
+   "description": "Hỗn tạp mà nhật chủ không tọa Ấn, giờ không sinh phù và không vượng thì không nên",
+   "conditions": {
+    "fact": "bazi.patterns",
+    "operator": "contains",
+    "value": "quan_sat_hon_tap:hon_tap_co_benh"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ttt_hon_tap_co_benh",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TTT_QUANSAT"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_VUONG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "strength",
+   "description": "Nhật chủ vượng theo quy tắc 40% của Thiệu Vĩ Hoa",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.dm_strong_tvh",
+      "value": true
+     },
+     {
+      "fact": "bazi.dm_border_tvh",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_vuong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_DIEM"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_NHUOC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "strength",
+   "description": "Nhật chủ nhược theo quy tắc 40% của Thiệu Vĩ Hoa",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.dm_strong_tvh",
+      "value": false
+     },
+     {
+      "fact": "bazi.dm_border_tvh",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_nhuoc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_DIEM"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_BIEN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "strength",
+   "description": "Phe mình sát ngưỡng 40%",
+   "conditions": {
+    "fact": "bazi.dm_border_tvh",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_bien",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_DIEM"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.2.0",
    "subject": "chart"
   }
  ]

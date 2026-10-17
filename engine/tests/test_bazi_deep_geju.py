@@ -101,8 +101,9 @@ def test_hoa_chan_is_outer_cach_and_gia_is_kept_beside_inner():
 
 
 def test_no_outer_cach_for_a_rooted_strong_day_master():
-    for k in ("EX1", "EX13", "EX15", "EX8"):
+    for k in ("EX1", "EX13", "EX8"):
         assert G(view(k))["outer"] == [], k
+    assert [(o["name"], o["quality"]) for o in G(view("EX15"))["outer"]] == [("Tòng Cường", "chân")]      # Ất, Mão tháng: Tỉ Kiếp + Ấn, no Tài Quan
 
 
 def test_every_definition_is_draft_and_predicates_parse():

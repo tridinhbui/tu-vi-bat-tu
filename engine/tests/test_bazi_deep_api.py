@@ -12,7 +12,7 @@ def test_bazi_structure_endpoint_returns_all_layers_and_says_draft():
     d = r.json()
     for k in ("season", "position", "interactions", "resolution", "strength_raw", "strength_after", "geju", "yongshen", "facts", "reasoning", "trace"):
         assert k in d, k
-    assert d["profile"]["review_status"] == "draft" and d["reasoning"]["all_rules_draft"] is True
+    assert d["profile"]["review_status"] == "partially_verified" and d["reasoning"]["all_rules_draft"] is False     # TVH / TTT book rules are verified, the rest stays draft
     assert d["season"]["command"] is not None                          # real chart: days into month are known
     assert set(d["yongshen"]["methods"]) == {"phu_uc", "dieu_hau", "cach_cuc", "thong_quan", "thuan_the"}
 

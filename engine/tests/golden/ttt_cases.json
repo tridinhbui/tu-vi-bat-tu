@@ -1,0 +1,539 @@
+{
+ "_note": "Mệnh lệ trích từ Trích Thiên Tủy (Nhậm Thiết Tiều, bản dịch Việt) cùng nhãn do chính sách gán; dùng để đo độ trung thành của hệ thống với sách, không phải để chứng minh tiên đoán. Tứ trụ có thể có lỗi chép của bản dịch.",
+ "cases": {
+  "103": {
+   "pillars": "Ất Sửu / Giáp Thân / Giáp Thân / Tân Mùi",
+   "kind": "tong",
+   "label": "Tòng Sát",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "104": {
+   "pillars": "Kỷ Tỵ / Kỷ Tỵ / Ất Dậu / Bính Tuất",
+   "kind": "tong",
+   "label": "Tòng Tài",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "105": {
+   "pillars": "Ất Sửu / Nhâm Ngọ / Bính Tuất / Giáp Ngọ",
+   "kind": "tong",
+   "label": "Tòng Vượng",
+   "dm": "strong",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "106": {
+   "pillars": "Mậu Dần / Đinh Tỵ / Bính Dần / Giáp Ngọ",
+   "kind": "tong",
+   "label": "Tòng Cường",
+   "dm": "strong",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "107": {
+   "pillars": "Tân Tỵ / Đinh Dậu / Đinh Dậu / Tân Sửu",
+   "kind": "tong",
+   "label": "Tòng Tài",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "108": {
+   "pillars": "Tân Hợi / Nhâm Thìn / Bính Thân / Kỷ Hợi",
+   "kind": "tong",
+   "label": "Tòng Sát",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "109": {
+   "pillars": "Mậu Thìn / Mậu Ngọ / Mậu Thân / Kỷ Mùi",
+   "kind": "tong",
+   "label": "Tòng Vượng",
+   "dm": "strong",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "110": {
+   "pillars": "Mậu Tuất / Bính Thìn / Kỷ Tỵ / Kỷ Tỵ",
+   "kind": "tong",
+   "label": "Tòng Cường",
+   "dm": "strong",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "112": {
+   "pillars": "Quý Dậu / Giáp Tý / Mậu Tý / Mậu Ngọ",
+   "kind": "tong",
+   "label": "Tòng Tài",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "114": {
+   "pillars": "Canh Thân / Ất Dậu / Canh Tuất / Canh Thìn",
+   "kind": "tong",
+   "label": "Tòng Cường",
+   "dm": "strong",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "116": {
+   "pillars": "Kỷ Hợi / Đinh Mão / Canh Dần / Bính Tý",
+   "kind": "tong",
+   "label": "Tòng Thế",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "117": {
+   "pillars": "Nhâm Dần / Tân Hợi / Nhâm Tý / Tân Sửu",
+   "kind": "tong",
+   "label": "Tòng Vượng",
+   "dm": "strong",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "118": {
+   "pillars": "Quý Hợi / Quý Hợi / Nhâm Tý / Canh Tý",
+   "kind": "tong",
+   "label": "Tòng Cường",
+   "dm": "strong",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "119": {
+   "pillars": "Bính Thìn / Ất Mùi / Nhâm Ngọ / Quý Mão",
+   "kind": "tong",
+   "label": "Tòng Tài",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "120": {
+   "pillars": "Quý Mão / Mậu Ngọ / Nhâm Dần / Bính Ngọ",
+   "kind": "tong",
+   "label": "Tòng Tài",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "328": {
+   "pillars": "Mậu Tuất / Bính Thìn / Ất Mùi / Bính Tuất",
+   "kind": "tong",
+   "label": "Tòng Tài",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "329": {
+   "pillars": "Nhâm Dần / Nhâm Dần / Canh Dần / Mậu Dần",
+   "kind": "tong",
+   "label": "Tòng Tài",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "330": {
+   "pillars": "Bính Dần / Canh Dần / Nhâm Ngọ / Ất Tỵ",
+   "kind": "tong",
+   "label": "Tòng Tài",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "331": {
+   "pillars": "Đinh Mão / Nhâm Dần / Canh Ngọ / Bính Tuất",
+   "kind": "tong",
+   "label": "Tòng Sát",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "332": {
+   "pillars": "Tân Tỵ / Tân Sửu / Ất Dậu / Ất Dậu",
+   "kind": "tong",
+   "label": "Tòng Sát",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "333": {
+   "pillars": "Quý Mão / Ất Mão / Giáp Dần / Ất Hợi",
+   "kind": "tong",
+   "label": "Tòng Vượng",
+   "dm": "strong",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "334": {
+   "pillars": "Bính Ngọ / Giáp Ngọ / Bính Ngọ / Giáp Ngọ",
+   "kind": "tong",
+   "label": "Tòng Cường",
+   "dm": "strong",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "336": {
+   "pillars": "Bính Tuất / Nhâm Thìn / Quý Tỵ / Giáp Dần",
+   "kind": "tong",
+   "label": "Tòng Thế",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "343": {
+   "pillars": "Quý Tỵ / Ất Mão / Kỷ Hợi / Quý Dậu",
+   "kind": "tong",
+   "label": "Tòng Sát",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "345": {
+   "pillars": "Ất Mão / Kỷ Mão / Mậu Thìn / Quý Hợi",
+   "kind": "tong",
+   "label": "Tòng Sát",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "346": {
+   "pillars": "Đinh Mão / Bính Dần / Tân Hợi / Canh Dần",
+   "kind": "tong",
+   "label": "Tòng Sát",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "347": {
+   "pillars": "Quý Hợi / Ất Mão / Kỷ Mùi / Đinh Mão",
+   "kind": "tong",
+   "label": "Tòng Sát",
+   "dm": "weak",
+   "page": "PDF pp.71-75, 171-179"
+  },
+  "160": {
+   "pillars": "Kỷ Sửu / Tân Mùi / Bính Dần / Kỷ Sửu",
+   "kind": "thuong_quan",
+   "label": "an",
+   "dm": "weak",
+   "page": "PDF pp.93-100"
+  },
+  "161": {
+   "pillars": "Tân Dậu / Đinh Dậu / Mậu Ngọ / Tân Dậu",
+   "kind": "thuong_quan",
+   "label": "an",
+   "dm": "weak",
+   "page": "PDF pp.93-100"
+  },
+  "162": {
+   "pillars": "Nhâm Tuất / Nhâm Tý / Canh Thìn / Kỷ Mão",
+   "kind": "thuong_quan",
+   "label": "an",
+   "dm": "weak",
+   "page": "PDF pp.93-100"
+  },
+  "163": {
+   "pillars": "Bính Thìn / Quý Tỵ / Ất Sửu / Bính Tý",
+   "kind": "thuong_quan",
+   "label": "an",
+   "dm": "weak",
+   "page": "PDF pp.93-100"
+  },
+  "164": {
+   "pillars": "Bính Thân / Mậu Tuất / Đinh Mão / Ất Tỵ",
+   "kind": "thuong_quan",
+   "label": "tai",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "165": {
+   "pillars": "Quý Hợi / Ất Mão / Nhâm Thân / Ất Tỵ",
+   "kind": "thuong_quan",
+   "label": "tai",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "166": {
+   "pillars": "Mậu Tý / Tân Dậu / Mậu Ngọ / Đinh Tỵ",
+   "kind": "thuong_quan",
+   "label": "tai",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "167": {
+   "pillars": "Nhâm Thân / Tân Hợi / Tân Dậu / Canh Dần",
+   "kind": "thuong_quan",
+   "label": "tai",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "168": {
+   "pillars": "Quý Hợi / Tân Dậu / Mậu Thân / Kỷ Mùi",
+   "kind": "thuong_quan",
+   "label": "kiep",
+   "dm": "weak",
+   "page": "PDF pp.93-100"
+  },
+  "169": {
+   "pillars": "Kỷ Mùi / Quý Dậu / Mậu Tuất / Canh Thân",
+   "kind": "thuong_quan",
+   "label": "kiep",
+   "dm": "weak",
+   "page": "PDF pp.93-100"
+  },
+  "170": {
+   "pillars": "Quý Hợi / Giáp Dần / Quý Hợi / Giáp Dần",
+   "kind": "thuong_quan",
+   "label": "kiep",
+   "dm": "weak",
+   "page": "PDF pp.93-100"
+  },
+  "171": {
+   "pillars": "Mậu Thân / Kỷ Mùi / Bính Tuất / Kỷ Sửu",
+   "kind": "thuong_quan",
+   "label": "kiep",
+   "dm": "weak",
+   "page": "PDF pp.93-100"
+  },
+  "172": {
+   "pillars": "Mậu Thìn / Canh Thân / Kỷ Dậu / Quý Dậu",
+   "kind": "thuong_quan",
+   "label": "kiep",
+   "dm": "weak",
+   "page": "PDF pp.93-100"
+  },
+  "173": {
+   "pillars": "Canh Thìn / Kỷ Mão / Nhâm Thìn / Canh Tý",
+   "kind": "thuong_quan",
+   "label": "thuong",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "174": {
+   "pillars": "Ất Dậu / Mậu Dần / Quý Dậu / Quý Sửu",
+   "kind": "thuong_quan",
+   "label": "thuong",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "175": {
+   "pillars": "Kỷ Mão / Canh Ngọ / Giáp Dần / Đinh Mão",
+   "kind": "thuong_quan",
+   "label": "thuong",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "176": {
+   "pillars": "Bính Tý / Ất Mùi / Bính Thìn / Ất Mùi",
+   "kind": "thuong_quan",
+   "label": "thuong",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "177": {
+   "pillars": "Nhâm Tuất / Kỷ Dậu / Mậu Tuất / Ất Mão",
+   "kind": "thuong_quan",
+   "label": "quan",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "178": {
+   "pillars": "Canh Ngọ / Kỷ Mão / Nhâm Thân / Kỷ Dậu",
+   "kind": "thuong_quan",
+   "label": "quan",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "179": {
+   "pillars": "Tân Mùi / Tân Mão / Nhâm Thìn / Kỷ Dậu",
+   "kind": "thuong_quan",
+   "label": "quan",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "180": {
+   "pillars": "Quý Dậu / Kỷ Mùi / Bính Ngọ / Quý Tỵ",
+   "kind": "thuong_quan",
+   "label": "quan",
+   "dm": "strong",
+   "page": "PDF pp.93-100"
+  },
+  "131": {
+   "pillars": "Kỷ Dậu / Bính Dần / Canh Thân / Canh Thìn",
+   "kind": "sat",
+   "label": "tai_sinh_nhuoc_sat",
+   "page": "PDF pp.85-92"
+  },
+  "132": {
+   "pillars": "Bính Thân / Canh Dần / Canh Thân / Tân Tỵ",
+   "kind": "sat",
+   "label": "tai_sinh_nhuoc_sat",
+   "page": "PDF pp.85-92"
+  },
+  "133": {
+   "pillars": "Mậu Tý / Giáp Dần / Mậu Ngọ / Giáp Dần",
+   "kind": "sat",
+   "label": "sat_dung_an",
+   "page": "PDF pp.85-92"
+  },
+  "134": {
+   "pillars": "Kỷ Hợi / Bính Dần / Mậu Tý / Giáp Dần",
+   "kind": "sat",
+   "label": "sat_dung_an",
+   "page": "PDF pp.85-92"
+  },
+  "135": {
+   "pillars": "Mậu Thìn / Canh Thân / Giáp Tý / Giáp Tý",
+   "kind": "sat",
+   "label": "sat_dung_an",
+   "page": "PDF pp.85-92"
+  },
+  "136": {
+   "pillars": "Mậu Ngọ / Bính Thìn / Canh Dần / Bính Tuất",
+   "kind": "sat",
+   "label": "sat_dung_an",
+   "page": "PDF pp.85-92"
+  },
+  "137": {
+   "pillars": "Quý Hợi / Quý Hợi / Đinh Mão / Quý Mão",
+   "kind": "sat",
+   "label": "sat_dung_an",
+   "page": "PDF pp.85-92"
+  },
+  "138": {
+   "pillars": "Mậu Thìn / Mậu Ngọ / Nhâm Thìn / Giáp Thìn",
+   "kind": "sat",
+   "label": "thuc_che_sat",
+   "page": "PDF pp.85-92"
+  },
+  "139": {
+   "pillars": "Canh Thân / Canh Thìn / Giáp Tuất / Bính Dần",
+   "kind": "sat",
+   "label": "thuc_che_sat",
+   "page": "PDF pp.85-92"
+  },
+  "140": {
+   "pillars": "Nhâm Tý / Nhâm Tý / Bính Tuất / Mậu Tuất",
+   "kind": "sat",
+   "label": "thuc_che_sat",
+   "page": "PDF pp.85-92"
+  },
+  "141": {
+   "pillars": "Nhâm Thân / Bính Ngọ / Canh Ngọ / Bính Tuất",
+   "kind": "sat",
+   "label": "thuc_che_sat",
+   "page": "PDF pp.85-92"
+  },
+  "142": {
+   "pillars": "Quý Sửu / Mậu Ngọ / Bính Ngọ / Nhâm Thìn",
+   "kind": "sat",
+   "label": "hop_quan_luu_sat",
+   "page": "PDF pp.85-92"
+  },
+  "143": {
+   "pillars": "Quý Tỵ / Mậu Ngọ / Bính Ngọ / Nhâm Thìn",
+   "kind": "sat",
+   "label": "hop_quan_luu_sat",
+   "page": "PDF pp.85-92"
+  },
+  "144": {
+   "pillars": "Mậu Thân / Quý Hợi / Bính Ngọ / Nhâm Thìn",
+   "kind": "sat",
+   "label": "hop_quan_luu_sat",
+   "page": "PDF pp.85-92"
+  },
+  "145": {
+   "pillars": "Mậu Ngọ / Quý Hợi / Bính Tuất / Nhâm Thìn",
+   "kind": "sat",
+   "label": "hop_quan_luu_sat",
+   "page": "PDF pp.85-92"
+  },
+  "146": {
+   "pillars": "Nhâm Thân / Đinh Mùi / Đinh Mùi / Quý Mão",
+   "kind": "sat",
+   "label": "hop_quan_luu_sat",
+   "page": "PDF pp.85-92"
+  },
+  "147": {
+   "pillars": "Giáp Thìn / Kỷ Tỵ / Mậu Thìn / Ất Mão",
+   "kind": "sat",
+   "label": "hop_quan_luu_sat",
+   "page": "PDF pp.85-92"
+  },
+  "148": {
+   "pillars": "Bính Thìn / Tân Mão / Canh Thân / Đinh Sửu",
+   "kind": "sat",
+   "label": "hop_quan_luu_sat",
+   "page": "PDF pp.85-92"
+  },
+  "149": {
+   "pillars": "Bính Thìn / Tân Mão / Ất Hợi / Canh Thìn",
+   "kind": "sat",
+   "label": "hop_quan_luu_sat",
+   "page": "PDF pp.85-92"
+  },
+  "150": {
+   "pillars": "Quý Hợi / Mậu Ngọ / Nhâm Ngọ / Kỷ Dậu",
+   "kind": "sat",
+   "label": "hop_quan_luu_sat",
+   "page": "PDF pp.85-92"
+  },
+  "151": {
+   "pillars": "Nhâm Thìn / Nhâm Tý / Bính Dần / Quý Tỵ",
+   "kind": "sat",
+   "label": "hon_tap",
+   "page": "PDF pp.85-92"
+  },
+  "152": {
+   "pillars": "Giáp Tý / Ất Hợi / Kỷ Tỵ / Đinh Mão",
+   "kind": "sat",
+   "label": "hon_tap",
+   "page": "PDF pp.85-92"
+  },
+  "153": {
+   "pillars": "Bính Thìn / Đinh Dậu / Canh Ngọ / Mậu Dần",
+   "kind": "sat",
+   "label": "hon_tap",
+   "page": "PDF pp.85-92"
+  },
+  "154": {
+   "pillars": "Mậu Ngọ / Kỷ Mùi / Nhâm Thân / Tân Hợi",
+   "kind": "sat",
+   "label": "hon_tap",
+   "page": "PDF pp.85-92"
+  },
+  "155": {
+   "pillars": "Tân Mão / Mậu Tuất / Bính Thìn / Kỷ Hợi",
+   "kind": "sat",
+   "label": "che_sat_qua_muc",
+   "page": "PDF pp.85-92"
+  },
+  "156": {
+   "pillars": "Tân Mão / Mậu Tuất / Bính Thìn / Nhâm Thìn",
+   "kind": "sat",
+   "label": "che_sat_qua_muc",
+   "page": "PDF pp.85-92"
+  },
+  "157": {
+   "pillars": "Nhâm Thìn / Bính Ngọ / Bính Ngọ / Nhâm Thìn",
+   "kind": "sat",
+   "label": "che_sat_qua_muc",
+   "page": "PDF pp.85-92"
+  },
+  "158": {
+   "pillars": "Giáp Dần / Mậu Thìn / Nhâm Thìn / Nhâm Dần",
+   "kind": "sat",
+   "label": "che_sat_qua_muc",
+   "page": "PDF pp.85-92"
+  },
+  "159": {
+   "pillars": "Canh Thân / Mậu Dần / Mậu Dần / Canh Thân",
+   "kind": "sat",
+   "label": "che_sat_qua_muc",
+   "page": "PDF pp.85-92"
+  },
+  "207": {
+   "pillars": "Giáp Thân / Bính Tý / Canh Thìn / Mậu Dần",
+   "kind": "han_noan",
+   "label": "can_noan",
+   "page": "PDF pp.113-114"
+  },
+  "208": {
+   "pillars": "Kỷ Dậu / Bính Tý / Canh Thìn / Giáp Thân",
+   "kind": "han_noan",
+   "label": "thuan_han",
+   "page": "PDF pp.113-114"
+  },
+  "209": {
+   "pillars": "Đinh Sửu / Bính Ngọ / Bính Ngọ / Nhâm Thìn",
+   "kind": "han_noan",
+   "label": "can_han",
+   "page": "PDF pp.113-114"
+  },
+  "210": {
+   "pillars": "Quý Mùi / Đinh Tỵ / Bính Ngọ / Quý Tỵ",
+   "kind": "han_noan",
+   "label": "thuan_noan",
+   "page": "PDF pp.113-114"
+  }
+ }
+}

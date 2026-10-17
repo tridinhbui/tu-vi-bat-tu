@@ -3,18 +3,179 @@
  "_note": "Bảng nhân nguyên tư lệnh phổ biến, chép theo trí nhớ của người soạn, CHƯA đối chiếu với văn bản gốc (UHTB/TMTH/CTBG) nên chưa verified. Các bảng giữa các sách khác nhau; mỗi bảng là một 'school'. Thứ tự theo thời gian kể từ ngày vào tiết: [can, số ngày].",
  "tables": {
   "common_v1": {
-   "Dần": [["Mậu", 7], ["Bính", 7], ["Giáp", 16]],
-   "Mão": [["Giáp", 10], ["Ất", 20]],
-   "Thìn": [["Ất", 9], ["Quý", 3], ["Mậu", 18]],
-   "Tỵ": [["Mậu", 5], ["Canh", 9], ["Bính", 16]],
-   "Ngọ": [["Bính", 10], ["Kỷ", 9], ["Đinh", 11]],
-   "Mùi": [["Đinh", 9], ["Ất", 3], ["Kỷ", 18]],
-   "Thân": [["Mậu", 10], ["Nhâm", 3], ["Canh", 17]],
-   "Dậu": [["Canh", 10], ["Tân", 20]],
-   "Tuất": [["Tân", 9], ["Đinh", 3], ["Mậu", 18]],
-   "Hợi": [["Mậu", 7], ["Giáp", 5], ["Nhâm", 18]],
-   "Tý": [["Nhâm", 10], ["Quý", 20]],
-   "Sửu": [["Quý", 9], ["Tân", 3], ["Kỷ", 18]]
+   "Dần": [
+    [
+     "Mậu",
+     7
+    ],
+    [
+     "Bính",
+     7
+    ],
+    [
+     "Giáp",
+     16
+    ]
+   ],
+   "Mão": [
+    [
+     "Giáp",
+     10
+    ],
+    [
+     "Ất",
+     20
+    ]
+   ],
+   "Thìn": [
+    [
+     "Ất",
+     9
+    ],
+    [
+     "Quý",
+     3
+    ],
+    [
+     "Mậu",
+     18
+    ]
+   ],
+   "Tỵ": [
+    [
+     "Mậu",
+     5
+    ],
+    [
+     "Canh",
+     9
+    ],
+    [
+     "Bính",
+     16
+    ]
+   ],
+   "Ngọ": [
+    [
+     "Bính",
+     10
+    ],
+    [
+     "Kỷ",
+     9
+    ],
+    [
+     "Đinh",
+     11
+    ]
+   ],
+   "Mùi": [
+    [
+     "Đinh",
+     9
+    ],
+    [
+     "Ất",
+     3
+    ],
+    [
+     "Kỷ",
+     18
+    ]
+   ],
+   "Thân": [
+    [
+     "Mậu",
+     10
+    ],
+    [
+     "Nhâm",
+     3
+    ],
+    [
+     "Canh",
+     17
+    ]
+   ],
+   "Dậu": [
+    [
+     "Canh",
+     10
+    ],
+    [
+     "Tân",
+     20
+    ]
+   ],
+   "Tuất": [
+    [
+     "Tân",
+     9
+    ],
+    [
+     "Đinh",
+     3
+    ],
+    [
+     "Mậu",
+     18
+    ]
+   ],
+   "Hợi": [
+    [
+     "Mậu",
+     7
+    ],
+    [
+     "Giáp",
+     5
+    ],
+    [
+     "Nhâm",
+     18
+    ]
+   ],
+   "Tý": [
+    [
+     "Nhâm",
+     10
+    ],
+    [
+     "Quý",
+     20
+    ]
+   ],
+   "Sửu": [
+    [
+     "Quý",
+     9
+    ],
+    [
+     "Tân",
+     3
+    ],
+    [
+     "Kỷ",
+     18
+    ]
+   ]
+  },
+  "ttt_ntt_v1": {
+   "_verified": "SRC_TTT_NGUYETLENH PDF p.67: chỉ nêu tháng Dần (Mậu 7 ngày, Bính 8 ngày, Giáp 15 ngày cuối); sách viết các tháng còn lại luận tương tự nhưng KHÔNG đưa bảng.",
+   "Dần": [
+    [
+     "Mậu",
+     7
+    ],
+    [
+     "Bính",
+     8
+    ],
+    [
+     "Giáp",
+     15
+    ]
+   ]
   }
  }
 }

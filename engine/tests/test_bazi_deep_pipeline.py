@@ -5,22 +5,29 @@ import pytest
 
 from bazi_deep_util import EX, HOA1, SAVED, TONG1, view
 from tvbt.bazi_deep import facts as bzf, pipeline
-from tvbt.bazi_deep.profile import DEFAULT
+from tvbt.bazi_deep.profile import DEFAULT, TVH_40
 from tvbt.knowledge.schema import validate_pack
 
 EXPECTED = json.loads((Path(__file__).parent / "golden/bazi_deep_expected.json").read_text("utf-8"))
 BASELINE = json.loads((Path(__file__).parent / "golden/bazi_deep_baseline.json").read_text("utf-8"))
 
 
-def run(k, **kw):
-    return pipeline.analyse(view(k, **kw) if k in EX else view(k, **kw))
+def run(k, profile=DEFAULT, **kw):
+    return pipeline.analyse(view(k, **kw), profile)
 
 
-def test_pack_is_valid_and_every_new_rule_is_draft():
+def test_pack_is_valid_and_only_book_backed_rules_are_verified():
     rules, sources = pipeline.load_structure_pack()
     assert validate_pack(rules, sources, pipeline.KNOWN) == []
-    assert rules and all(r.reviewStatus == "draft" for r in rules)
-    assert all(not s.verified and s.locator is None for s in sources)       # nothing here is source-verified yet
+    ver = {r.id for r in rules if r.reviewStatus == "verified"}
+    assert ver and all(i.startswith(("BT_TTT_", "BT_TVH_")) for i in ver)
+    assert all(r.reviewStatus == "draft" for r in rules if r.id not in ver)             # the system's own cách/pattern tables stay draft
+    assert "BT_TTT_TONG_NHI" not in ver                                                  # the book has no passage for Tòng Nhi
+    src = {s.id: s for s in sources}
+    for r in rules:
+        if r.id in ver:
+            assert all(src[s].verified and src[s].locator for s in r.sourceIds), r.id
+    assert not src["SRC_TBCT"].verified and src["SRC_TBCT"].locator is None             # Tử Bình Chân Thuyên is still unchecked
 
 
 def test_a_verified_flag_on_these_unverified_sources_is_rejected():
@@ -49,6 +56,17 @@ def test_every_fact_a_rule_reads_is_produced_for_every_example():
                 assert leaf in out["facts"] or leaf.startswith("derived."), (k, r.id, leaf)
         assert out["reasoning"]["pack_problems"] == []
         assert all(not p["missing_facts"] or all(m.startswith("derived.") for m in p["missing_facts"]) for p in out["reasoning"]["pending"]), k
+
+
+def test_pipeline_matches_the_reviewed_snapshot_with_the_tvh_profile_too():
+    exp = json.loads((Path(__file__).parent / "golden/bazi_deep_expected_tvh.json").read_text("utf-8"))
+    for k in EX:
+        o = run(k, TVH_40)
+        got = {"levels": [o["strength_raw"]["level"], o["strength_after"]["level"]],
+               "inner": [(c["name"], c["state"]) for c in o["geju"]["inner"]], "outer": [(c["name"], c["quality"]) for c in o["geju"]["outer"]],
+               "hua_state": o["facts"]["bazi.hua_state"], "cuc": o["facts"]["bazi.cuc_formed"], "patterns": o["facts"]["bazi.patterns"],
+               "fired": sorted(f[0] for f in o["reasoning"]["fired"])}
+        assert json.loads(json.dumps(got)) == exp[k], k
 
 
 def test_pipeline_matches_the_reviewed_snapshot_for_all_fifteen_examples():
@@ -100,18 +118,19 @@ def test_text_is_deterministic_and_has_no_forecast_wording():
         assert "chắc chắn sẽ" not in low and "nhất định sẽ" not in low
 
 
-def test_nothing_in_the_output_claims_verified_basis():
+def test_findings_are_verified_only_when_they_come_from_a_verified_book_rule():
     for k in EX:
-        assert all(f["basis"] == "draft" for f in run(k)["reasoning"]["findings"]), k
+        for f in run(k)["reasoning"]["findings"]:
+            assert (f["basis"] == "verified") == f["rule_id"].startswith(("BT_TTT_", "BT_TVH_")) or f["rule_id"] == "BT_TTT_TONG_NHI", (k, f["rule_id"], f["basis"])
         assert run(k)["profile"]["review_status"] == "draft"
 
 
 def test_profile_swap_changes_only_documented_outputs():
     v = view("EX1")
-    a = pipeline.analyse(v, with_rules=False)
+    a = pipeline.analyse(v, DEFAULT, with_rules=False)
     b = pipeline.analyse(v, DEFAULT.with_(cuc_share={"meeting": 0.0, "triad": 0.0, "semi": 0.0, "cung": 0.0}, cuc_thau_bonus=0.0), with_rules=False)
     assert a["strength_after"]["ratio"] != b["strength_after"]["ratio"]
-    assert a["strength_raw"] == b["strength_raw"]                        # nguyên cục does not depend on the cục policy
+    assert {k: v for k, v in a["strength_raw"].items() if k != "profile"} == {k: v for k, v in b["strength_raw"].items() if k != "profile"}   # nguyên cục does not depend on the cục policy
     assert a["interactions"][0]["kind"] == b["interactions"][0]["kind"]
 
 
@@ -121,13 +140,18 @@ def test_old_pipeline_outputs_are_untouched_regression():
     spec = importlib.util.spec_from_file_location("bz_base", Path(__file__).resolve().parent.parent.parent / "tools/bazi_deep_baseline.py")
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
     for k, t in EX.items():
-        assert mod.old_view(t) == BASELINE[k], k
+        now, then = mod.old_view(t), BASELINE[k]
+        for key in then:
+            if key == "facts_old":      # other work adds new bazi.* facts over time; the frozen ones must keep their values
+                assert all(now[key].get(f) == v for f, v in then[key].items()), k
+            else:
+                assert now[key] == then[key], (k, key)
 
 
 def test_tu_lenh_days_flow_through_the_pipeline():
     o = pipeline.analyse(view("EX1", 3.0), with_rules=False)
     assert o["season"]["command"]["name"] == "Mậu"
-    assert pipeline.analyse(view("EX1"), with_rules=False)["season"]["command"] is None
+    assert pipeline.analyse(view("EX1"), DEFAULT, with_rules=False)["season"]["command"] is None
 
 
 def test_from_bazi_converts_birth_instant_to_days_into_month():
@@ -140,7 +164,7 @@ def test_from_bazi_converts_birth_instant_to_days_into_month():
     assert v.name() == " / ".join(bz.pillars[k].name for k in ("year", "month", "day", "hour"))
     assert 0 <= v.days_into_month < 32                                   # Đại Tuyết 7 Dec -> about 8 days in
     assert 7 < v.days_into_month < 9.5
-    o = pipeline.analyse(v, with_rules=False)
+    o = pipeline.analyse(v, DEFAULT, with_rules=False)
     assert o["season"]["command"] is not None
 
 
@@ -149,7 +173,7 @@ def test_unsaved_pattern_triggers_the_cuu_ung_derived_fact_and_pattern_findings_
     claims = {f["claim"] for f in o["reasoning"]["findings"]}
     assert {"bt_pt_thuong_kien_quan", "bt_pt_benh_chua_cuu"} <= claims
     assert o["reasoning"]["derived"]["derived.bazi.can_xet_cuu_ung"] is True
-    assert all(f["basis"] == "draft" for f in o["reasoning"]["findings"])
+    assert all(f["basis"] == "draft" for f in o["reasoning"]["findings"] if f["rule_id"].startswith("BT_PT_"))
 
 
 def test_pattern_findings_are_blocked_by_a_true_outer_cach():

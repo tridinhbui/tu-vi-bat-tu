@@ -19,6 +19,21 @@ def _rescue(ctx: Ctx, exprs: list[str]):
     return strong, weak
 
 
+def _hon_tap_support(ctx: Ctx) -> list[str]:
+    from ..ganzhi import generates, STEM_ELEMENT
+    v, why = ctx.view, []
+    dm_el = ctx.S["dm_element"]
+    day_hid = v.hidden("day")[:2]                                        # bản khí and trung khí of the day branch
+    if any(generates(STEM_ELEMENT[h["stem"]], dm_el) for h in day_hid):
+        why.append("toa_an")
+    hs, hb = v.stem("hour"), v.hidden("hour")[0]["stem"]
+    if any(STEM_ELEMENT[x] == dm_el or generates(STEM_ELEMENT[x], dm_el) for x in (hs, hb)):
+        why.append("gio_sinh_phu")
+    if ctx.S["level_index"] >= 4:
+        why.append("than_vuong")
+    return why
+
+
 def evaluate_all(ctx: Ctx) -> list[dict]:
     out = []
     for pid, d in DEFS.items():
@@ -36,6 +51,12 @@ def evaluate_all(ctx: Ctx) -> list[dict]:
             strong, weak = _rescue(ctx, d["cuu"].get("formed", []))
             rec["state"] = "co_benh_co_cuu" if strong else "co_benh_cuu_yeu" if weak else "co_benh"
             rec["saved_by"] = (strong or weak or (None,))[0]
+            if pid == "quan_sat_hon_tap":
+                # Trích Thiên Tủy PDF p.85: nhật chủ vượng không ngại hỗn tạp, hưu tù suy nhược không nên gặp;
+                # pp.90-91 (Nhâm thị): nhật chủ cần tọa Ấn thụ, hoặc được trụ giờ sinh phù, thì khí quan sát lưu thông; không thì không nghèo cũng tiện.
+                why = _hon_tap_support(ctx)
+                rec["hon_tap_support"] = why
+                rec["state"] = "hon_tap_khong_ngai" if why else "hon_tap_co_benh"
         else:
             hits, unsaved, weak_ids = [], [], []
             for bid, e in d["bai"].items():

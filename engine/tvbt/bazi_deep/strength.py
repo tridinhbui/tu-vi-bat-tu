@@ -106,3 +106,55 @@ def compute(view: ChartView, profile: SchoolProfile = DEFAULT, resolved: Resolve
         "top_contributions": sorted(contrib, key=lambda c: -c["weight"])[:6], "n_contrib": len(contrib),
         "profile": profile.id,
     }
+
+
+def _band(share: float, margin: float) -> int:
+    """Presentation bands (draft). The book's rule is only the 40% decision; |share-0.40| < margin is reported as the border (trung hòa)."""
+    if abs(share - 0.40) < margin:
+        return 3
+    if share < 0.40:
+        return 2 if share >= 0.30 else 1 if share >= 0.15 else 0
+    return 4 if share < 0.50 else 5 if share < 0.65 else 6
+
+
+def compute_hybrid(view: ChartView, profile: SchoolProfile = DEFAULT, resolved: Resolved | None = None) -> dict:
+    """strength_method == 'tvh_40': the vượng/nhược DECISION (and the level shown) come from the Thiệu Vĩ Hoa scoring and its 40% rule, which agrees
+    with the book-labelled cases much better than this system's own weights (see tests/test_bazi_deep_fidelity.py). Group shares and element totals used by
+    cách cục / tòng detection stay from the system's own computation (compute()), because the scoring method has no counterpart for them.
+    The result says so in `method` and carries the full scoring under `tvh`."""
+    from .tvh_score import score
+    S = compute(view, profile, resolved)
+    r = score(view)
+    idx = _band(r["own_share"], profile.tvh_margin)
+    S.update({"level": LEVELS[idx], "level_index": idx, "ambiguous": idx == 3, "readings": [LEVELS[idx]] if idx != 3 else [LEVELS[2], LEVELS[4]],
+              "margin": round(abs(r["own_share"] - 0.40), 4), "ratio_system": S["ratio"], "ratio": r["own_share"], "tvh": r,
+              "method": "tvh_40 (quyết định vượng/nhược) + hệ thống (tỉ trọng nhóm)", "src": "SRC_TVH_DIEM"})
+    return S
+
+
+def compute_tvh(view: ChartView, profile: SchoolProfile = DEFAULT, resolved: Resolved | None = None) -> dict:
+    """Same output shape as compute(), but the element totals, the vượng/nhược decision and the group shares come from tvh_score (Thiệu Vĩ Hoa)."""
+    from .tvh_score import score
+    r = score(view)
+    dm_el = r["dm_element"]
+    tot = sum(r["totals"].values()) or 1.0
+    by_group = {g: 0.0 for g in GROUPS}
+    for e, v in r["totals"].items():
+        by_group[group_of_element(dm_el, e)] += v
+    states = season_states(view.month_branch)
+    cmd = command(view, profile)
+    idx = _band(r["own_share"], profile.tvh_margin)
+    rs = roots(view, view.dm, profile, resolved.mult if resolved else {}, resolved.opened if resolved else set(), resolved.shifts if resolved else {}) if dm_el == view.dm_element else []
+    vis_help = [i for i in (0, 1, 3) if group_of_element(dm_el, STEM_ELEMENT[view.stems[i]]) in ("Ti", "An") and r["stem_deg"][i] >= 18]
+    an_share = by_group["An"] / tot
+    ambiguous = idx == 3
+    readings = [LEVELS[idx]] if not ambiguous else [LEVELS[2], LEVELS[4]]
+    return {
+        "dm_element": dm_el, "season_state": states[dm_el], "month_states": states, "command": cmd,
+        "axes": {"de_lenh": {"vượng": "đắc lệnh", "tướng": "được lệnh sinh"}.get(states[dm_el], "thất lệnh"), "de_dia": root_grade(rs),
+                 "de_the": "đông" if len(vis_help) >= 2 else "có" if vis_help else "không", "de_sinh": "mạnh" if an_share >= 0.25 else "có" if an_share >= 0.08 else "yếu/không"},
+        "roots": rs, "by_group": {k: round(v, 3) for k, v in by_group.items()}, "by_element": {k: round(v, 3) for k, v in r["totals"].items()},
+        "shares": {k: round(v / tot, 4) for k, v in by_group.items()}, "ratio": r["own_share"], "level": LEVELS[idx], "level_index": idx,
+        "margin": round(abs(r["own_share"] - 0.40), 4), "ambiguous": ambiguous, "readings": readings, "top_contributions": [], "n_contrib": 0,
+        "profile": profile.id, "method": "tvh_40", "tvh": r, "src": "SRC_TVH_DIEM",
+    }

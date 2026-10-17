@@ -70,6 +70,11 @@ def pred(ctx: Ctx, expr: str) -> tuple[bool, str]:
         v = ctx.vis_in(arg)
         h = [(p, STEMS_VI[s]) for p, s, g in ctx.hid if g in GOD_GROUPS[arg]]
         return bool(v or h), f"{arg}: thấu {[x[0] for x in v]}, tàng {h[:3]}"
+    if name == "count_chars_ge":
+        g, n = arg.split("=")
+        vis = ctx.vis_in(g)
+        hid = [h for h in ctx.hid if h[2] in GOD_GROUPS[g]]
+        return len(vis) + len(hid) >= int(n), f"{g}: {len(vis)} thấu + {len(hid)} tàng"
     if name == "both_visible":
         a, b = arg.split("+")
         va, vb = ctx.vis_in(a), ctx.vis_in(b)
@@ -185,17 +190,36 @@ def inner_candidates(view: ChartView, profile: SchoolProfile, extra: list | None
 
 
 def outer_candidates(view: ChartView, profile: SchoolProfile, R: Resolved, S: dict) -> list[dict]:
+    """Hóa (from the resolver) and the tòng family. Definitions follow Trích Thiên Tủy PDF pp.171-174 (tòng tài/quan, vượng, cường, thế);
+    the numeric shares that operationalise them are SchoolProfile values (draft)."""
     out = []
     for r in R.interactions:
         if r["kind"] == "stem_combine" and "day.stem" in r["members"] and r.get("status") in ("chan_hoa", "gia_hoa"):
             out.append({"name": f"Hóa {r['element']}", "kind": "hoa", "quality": "chân" if r["status"] == "chan_hoa" else "giả",
                         "evidence": {"interaction": r["id"], "met": r["hua_met"], "unmet": r["hua_unmet"]}})
     sh = S["shares"]
+    ctx = Ctx(view, profile, R, S)
+    root, ratio = S["axes"]["de_dia"], S.get("ratio_system", S["ratio"])
+    tvh = S.get("tvh")
+    weak_ok = tvh is None or not tvh["dm_strong"]       # Thiệu Vĩ Hoa 40% rule must agree: tòng tài/sát/nhi/thế need a weak day master,
+    strong_ok = tvh is None or tvh["dm_strong"]         # tòng vượng/cường a strong one
+    foe = sh["Tai"] + sh["QuanSat"]
     for g, nm in (("Tai", "Tòng Tài"), ("QuanSat", "Tòng Sát"), ("ThucThuong", "Tòng Nhi")):
-        if sh[g] >= profile.tong_dominant_share and S["ratio"] <= profile.tong_max_ratio and S["axes"]["de_dia"] in ("không", "yếu"):
-            chan = S["ratio"] <= profile.tong_chan_tia and S["axes"]["de_dia"] == "không" and S["axes"]["de_the"] == "không"
+        if weak_ok and sh[g] >= profile.tong_dominant_share and ratio <= profile.tong_max_ratio and root in ("không", "yếu"):
+            thau = bool(ctx.vis_in(g))           # PDF p.172: the dominant group must also show on the stems for a true tòng
+            chan = ratio <= profile.tong_chan_tia and root == "không" and S["axes"]["de_the"] == "không" and thau
             out.append({"name": nm, "kind": "tong", "quality": "chân" if chan else "giả",
-                        "evidence": {"dominant_share": sh[g], "ratio": S["ratio"], "root": S["axes"]["de_dia"], "visible_help": S["axes"]["de_the"]}})
+                        "evidence": {"dominant_share": sh[g], "ratio": ratio, "root": root, "visible_help": S["axes"]["de_the"], "thau_than": thau}})
+    ev = {"ti": sh["Ti"], "an": sh["An"], "foe": round(foe, 4), "de_lenh": S["axes"]["de_lenh"]}
+    if foe <= profile.tong_foe_max and strong_ok:
+        if sh["Ti"] >= profile.tong_cuong_min and sh["An"] >= profile.tong_cuong_min and S["axes"]["de_lenh"] == "đắc lệnh":
+            out.append({"name": "Tòng Cường", "kind": "tong", "quality": "chân", "evidence": ev})
+        elif sh["Ti"] >= profile.tong_vuong_ti:
+            out.append({"name": "Tòng Vượng", "kind": "tong", "quality": "chân", "evidence": ev})
+    elif (weak_ok and foe > profile.tong_foe_max and root == "không" and sh["Ti"] + sh["An"] <= 0.10 and all(sh[x] >= profile.tong_the_each for x in ("Tai", "QuanSat", "ThucThuong"))
+          and max(sh[x] for x in ("Tai", "QuanSat", "ThucThuong")) < profile.tong_dominant_share):
+        out.append({"name": "Tòng Thế", "kind": "tong", "quality": "chân",
+                    "evidence": {"tai": sh["Tai"], "quan_sat": sh["QuanSat"], "thuc_thuong": sh["ThucThuong"], "root": root}})
     return out
 
 

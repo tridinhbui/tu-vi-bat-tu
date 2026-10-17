@@ -114,7 +114,7 @@ def test_timeline_findings_come_from_the_draft_temporal_pack_with_provenance():
     v = view("EX1")
     tl = pipeline.timeline(v, DEFAULT, [{"index": 1, "stem": 4, "branch": 8, "start_year_exact": 2000.0}], [])
     f = {x["claim"]: x for x in tl["luck"][0]["findings"]}
-    assert "bt_van_pha_cach" in f and f["bt_van_pha_cach"]["basis"] == "draft"
+    assert "bt_van_pha_cach" in f and f["bt_van_pha_cach"]["basis"] == "draft"          # the system's own temporal rule stays draft
     kinds = [c["kind"] for c in f["bt_van_pha_cach"]["chain"]]
     assert "rule" in kinds and "fact" in kinds and "source" in kinds
     origin = next(c["origin"] for c in f["bt_van_pha_cach"]["chain"] if c["kind"] == "fact")
@@ -133,7 +133,8 @@ def test_temporal_pack_is_valid_draft_and_has_vietnamese_claims():
     import json
     from tvbt.knowledge.schema import validate_pack
     rules, sources = pipeline.load_structure_pack("pack_temporal.json")
-    assert validate_pack(rules, sources, pipeline.KNOWN) == [] and all(r.reviewStatus == "draft" for r in rules)
+    assert validate_pack(rules, sources, pipeline.KNOWN) == []
+    assert all(r.reviewStatus == ("verified" if r.id.startswith("BT_TTT_") else "draft") for r in rules)
     claims = json.loads((pipeline.DATA / "claims_vi.json").read_text("utf-8"))
     assert all(c["claim"] in claims for r in rules for c in r.consequences if c["kind"] == "finding")
 

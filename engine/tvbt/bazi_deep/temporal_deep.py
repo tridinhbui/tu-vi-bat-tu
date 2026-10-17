@@ -8,7 +8,7 @@ from __future__ import annotations
 import copy
 
 from ..bazi import (DESTROY, HARM, HIDDEN_STEMS, MEETING, PENALTY_PAIR, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH, STEM_COMBINE, TRIAD)
-from ..ganzhi import BRANCHES_VI, STEM_ELEMENT, STEMS_VI, controls, gz_name, tiger_month_stem
+from ..ganzhi import BRANCHES_VI, BRANCH_ELEMENT, STEM_ELEMENT, STEMS_VI, controls, generates, gz_name, tiger_month_stem
 from . import geju, interact, patterns, strength, yongshen
 from .model import PILLARS, ChartView, group_of
 from .position import KHO
@@ -139,6 +139,31 @@ def overlay(view: ChartView, profile: SchoolProfile, R, pillars: list[dict]):
     return R2, extras, extra_stems, events
 
 
+def can_chi_relation(view: ChartView, T: dict, others: list[dict]) -> dict:
+    """Cái đầu / tiệt cước (Trích Thiên Tủy PDF pp.229-230). Thiên can sinh địa chi: phúc dày; địa chi sinh thiên can: khí tiết;
+    thiên can khắc địa chi: cái đầu (cát hung giảm nửa); địa chi khắc thiên can: tiệt cước (chi không tải can, cả vận xấu).
+    Giảm nhẹ: nguyên cục có thiên can khắc kẻ tấn công hoặc tiết kẻ tấn công; nặng thêm: nguyên cục có thiên can cùng hành kẻ tấn công."""
+    se, be = STEM_ELEMENT[T["stem"]], BRANCH_ELEMENT[T["branch"]]
+    if se == be:
+        rel, atk = "dong_hanh", None
+    elif generates(se, be):
+        rel, atk = "can_sinh_chi", None
+    elif generates(be, se):
+        rel, atk = "chi_sinh_can", None
+    elif controls(se, be):
+        rel, atk = "cai_dau", se
+    else:
+        rel, atk = "tiet_cuoc", be
+    out = {"label": T["label"], "pillar": T["name"], "relation": rel, "attacker": atk, "mitigated": False, "aggravated": False, "src": "SRC_TTT_TUEVAN"}
+    if atk:
+        els = [STEM_ELEMENT[view.stem(p)] for p in PILLARS] + [STEM_ELEMENT[o["stem"]] for o in others]
+        out["mitigators"] = sorted({e for e in els if controls(e, atk) or generates(atk, e)})
+        out["aggravators"] = sorted({e for e in els if e == atk})
+        out["mitigated"] = bool(out["mitigators"]) and not out["aggravators"]
+        out["aggravated"] = bool(out["aggravators"])
+    return out
+
+
 def _group(view: ChartView, stem: int) -> str:
     g = group_of(view.god(stem))
     return ROLE_GROUP.get(g, g)
@@ -160,6 +185,7 @@ def natal_summary(view: ChartView, profile: SchoolProfile, R, S, extras=None) ->
 
 
 def analyse_extended(view: ChartView, profile: SchoolProfile, nat: dict, pillars: list[dict]) -> dict:
+    profile = profile.with_(strength_method="he_thong")    # the scoring method of Thiệu Vĩ Hoa has no counterpart for extra temporal pillars
     """nat = {"R": Resolved, "S": natal strength (after interaction), "G": natal geju}; returns a compact comparison."""
     R2, extras, extra_stems, events = overlay(view, profile, nat["R"], pillars)
     S2 = strength.compute(view, profile, R2, extras)
@@ -181,6 +207,7 @@ def analyse_extended(view: ChartView, profile: SchoolProfile, nat: dict, pillars
         "ten_gods": [view.god(p["stem"]) for p in pillars],
         "level_natal": nat["S"]["level"], "level": S2["level"], "ratio": [nat["S"]["ratio"], S2["ratio"]], "ambiguous": S2["ambiguous"],
         "cach": {"natal": [i1["name"], i1["state"]] if i1 else None, "extended": [i2["name"], i2["state"]] if i2 else None},
+        "can_chi": [can_chi_relation(view, p, [q for q in pillars if q is not p]) for p in pillars], "level_index": S2["level_index"],
         "effect": effect, "events": events, "event_kinds": sorted({e["kind"] for e in events}),
         "roles": _roles(view, Y2, pillars[0]) if pillars else {},
         "patterns_gained": sorted(k for k in new_p if k not in old_p), "patterns_lost": sorted(k for k in old_p if k not in new_p),
@@ -191,6 +218,7 @@ def analyse_extended(view: ChartView, profile: SchoolProfile, nat: dict, pillars
 
 
 def natal_bundle(view: ChartView, profile: SchoolProfile = DEFAULT) -> dict:
+    profile = profile.with_(strength_method="he_thong")    # comparisons with the extended chart must use the same strength method
     R = interact.resolve(view, profile)
     S = strength.compute(view, profile, R)
     G = geju.analyse(view, profile, R, S)

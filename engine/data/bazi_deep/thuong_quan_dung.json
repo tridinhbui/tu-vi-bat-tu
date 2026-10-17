@@ -1,0 +1,82 @@
+{
+ "_status": "verified_text",
+ "_note": "Năm cách 'Thương Quan dụng X' theo Trích Thiên Tủy PDF pp.93-94 (Nhâm thị). Điều kiện chọn cách dùng khí thế nhật chủ và các nhóm thập thần có mặt; ngưỡng 'vượng/khinh' do hệ thống vận hành (draft).",
+ "styles": {
+  "tai": {
+   "when": "nhật chủ vượng, Thương Quan vượng",
+   "yong": [
+    "Tai"
+   ],
+   "xi": [
+    "ThucThuong"
+   ],
+   "ji": [
+    "An",
+    "Ti"
+   ],
+   "quan": "có Tỉ Kiếp thì thấy Quan được; không Tỉ Kiếp mà có Ấn thì không thể thấy Quan",
+   "van": "vận Tài vượng, Thương vượng thì phú; vận Ấn vượng, Kiếp vượng thì nghèo hèn"
+  },
+  "an": {
+   "when": "nhật chủ nhược, Thương Quan vượng, có Ấn",
+   "yong": [
+    "An"
+   ],
+   "xi": [
+    "Ti"
+   ],
+   "ji": [
+    "Tai",
+    "ThucThuong"
+   ],
+   "quan": "có thể thấy Quan, không nên thấy Tài",
+   "van": "vận Ấn vượng thân vượng hiển quý; vận Tài vượng Thương vượng bần tiện"
+  },
+  "kiep": {
+   "when": "nhật chủ nhược, Thương Quan vượng, không có Ấn",
+   "yong": [
+    "Ti"
+   ],
+   "xi": [
+    "An"
+   ],
+   "ji": [
+    "Tai",
+    "QuanSat"
+   ],
+   "quan": "kỵ thấy Tài Quan",
+   "van": "vận Ấn vượng tất quý"
+  },
+  "thuong": {
+   "when": "nhật chủ vượng, không có Tài Quan",
+   "yong": [
+    "ThucThuong"
+   ],
+   "xi": [
+    "Tai"
+   ],
+   "ji": [
+    "QuanSat",
+    "An"
+   ],
+   "quan": "kỵ gặp Quan Ấn",
+   "van": "vận Tài vượng phú mà quý"
+  },
+  "quan": {
+   "when": "nhật chủ vượng, nhiều Tỉ Kiếp, Tài suy, Thương Quan khinh",
+   "yong": [
+    "QuanSat"
+   ],
+   "xi": [
+    "Tai"
+   ],
+   "ji": [
+    "ThucThuong",
+    "An"
+   ],
+   "quan": "mừng gặp Tài Quan, kỵ Thương Ấn",
+   "van": "vận Tài vượng tất giàu"
+  }
+ },
+ "src": "SRC_TTT_THUONGQUAN"
+}

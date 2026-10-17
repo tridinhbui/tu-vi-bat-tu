@@ -83,7 +83,7 @@ def bazi_timeline(req: TimelineReq):
     and compare with the natal chart. Draft rules only; describes structure, predicts no event."""
     from .bazi_deep import pipeline
     from .bazi_deep.model import ChartView
-    from .bazi_deep.profile import DEFAULT
+    from .bazi_deep.profile import TVH_40 as DEFAULT
     nb, bz, _ = _compute(req)
     y0 = req.from_year or req.year
     y1 = min(req.to_year or req.year + 80, y0 + 120)

@@ -8,9 +8,9 @@ from pathlib import Path
 from ..knowledge.schema import load_pack, validate_pack
 from ..nlg import generate as nlg, lexicon as lx
 from ..reasoning import engine
-from . import facts as bzf, geju, interact, patterns, position, season, strength, yongshen, temporal_deep
+from . import facts as bzf, flow, geju, interact, patterns, position, season, strength, yongshen, temporal_deep
 from .model import ChartView
-from .profile import DATA, DEFAULT, SchoolProfile
+from .profile import DATA, DEFAULT, TVH_40, SchoolProfile
 
 KNOWN = {"bazi.*", "chart.*", "derived.*"}
 
@@ -53,23 +53,24 @@ def reason(base: dict, pack: str = "pack_structure.json") -> dict:
             "text": nlg.render(nlg.realize(interps, 3)), "all_rules_draft": all(r.reviewStatus == "draft" for r in rules)}
 
 
-def analyse(view: ChartView, profile: SchoolProfile = DEFAULT, with_rules: bool = True) -> dict:
+def analyse(view: ChartView, profile: SchoolProfile = TVH_40, with_rules: bool = True) -> dict:
     trace = []
     raw = interact.detect(view)
     trace.append({"step": "interact.detect", "n": len(raw)})
     R = interact.resolve(view, profile, raw)
     trace.append({"step": "interact.resolve", "order": list(profile.interact_order), "n_effects": len(R.steps), "cuc": [c["id"] for c in R.cuc]})
     S0 = strength.compute(view, profile, None)
-    S1 = strength.compute(view, profile, R)
+    S1 = strength.compute_hybrid(view, profile, R) if profile.strength_method == "tvh_40" else strength.compute(view, profile, R)
     trace.append({"step": "strength.compute", "before": S0["level"], "after": S1["level"], "profile": profile.id})
     G = geju.analyse(view, profile, R, S1)
     trace.append({"step": "geju.analyse", "inner": [c["name"] for c in G["inner"]], "outer": [o["name"] for o in G["outer"]], "arbitration": G["arbitration"]})
     Y = yongshen.run(view, profile, R, S1, G)
     trace.append({"step": "yongshen.run", "methods": list(Y["methods"])})
     cl = season.climate(view, S1["by_element"])
+    NL = flow.nguyen_luu(S1, profile)
     P = patterns.evaluate_all(geju.Ctx(view, profile, R, S1))
     trace.append({"step": "patterns.evaluate_all", "n": len(P)})
-    base = bzf.build(view, R, S0, S1, G, Y, cl, P)
+    base = bzf.build(view, R, S0, S1, G, Y, cl, P, NL)
     out = {
         "pillars": view.name(), "profile": {"id": profile.id, "review_status": profile.review_status},
         "season": {"month_states": S1["month_states"], "command": S1["command"], "climate": cl},
@@ -77,7 +78,7 @@ def analyse(view: ChartView, profile: SchoolProfile = DEFAULT, with_rules: bool 
         "interactions": _jsonable([{k: v for k, v in r.items()} for r in R.interactions]),
         "stem_controls": interact.stem_controls(view),
         "resolution": _jsonable({"cuc": R.cuc, "mult": R.mult, "opened_kho": R.opened, "stem_element_override": R.stem_element, "dm_hua": R.dm_hua, "steps": R.steps}),
-        "strength_raw": S0, "strength_after": S1, "geju": G, "patterns": P, "yongshen": Y, "facts": base["chart"], "trace": trace,
+        "strength_raw": S0, "strength_after": S1, "geju": G, "patterns": P, "nguyen_luu": NL, "yongshen": Y, "facts": base["chart"], "trace": trace,
     }
     if with_rules:
         out["reasoning"] = reason(base)

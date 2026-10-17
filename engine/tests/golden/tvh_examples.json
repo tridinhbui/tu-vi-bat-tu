@@ -1,0 +1,83 @@
+{
+ "_note": "Ví dụ tính điểm của Thiệu Vĩ Hoa, trang in 346-355. Chỉ ghi các thành phần mà phần văn xuôi và bảng của sách khớp nhau (sách có vài chỗ số học không khớp, xem docstring tvh_score).",
+ "examples": {
+  "ex3": {
+   "pillars": "Tân Mão / Canh Dần / Giáp Thìn / Ất Hợi",
+   "page": "348, 353",
+   "stem_deg": [
+    0,
+    0,
+    36,
+    36
+   ],
+   "heaven": {
+    "Mộc": 72
+   },
+   "earth": {
+    "Mộc": 81,
+    "Thủy": 21
+   },
+   "strong": true
+  },
+  "ex4": {
+   "pillars": "Giáp Ngọ / Đinh Mão / Bính Tuất / Mậu Tuất",
+   "page": "348-349, 353-354",
+   "stem_deg": [
+    3,
+    36,
+    36,
+    36
+   ],
+   "heaven": {
+    "Mộc": 3,
+    "Hỏa": 72,
+    "Thổ": 36
+   },
+   "earth": {
+    "Hỏa": 60,
+    "Thổ": 33,
+    "Kim": 9
+   },
+   "strong": true
+  },
+  "ex6": {
+   "pillars": "Nhâm Thân / Đinh Mùi / Bính Thân / Tân Mão",
+   "page": "350-351, 354-355",
+   "stem_deg": [
+    36,
+    18,
+    24,
+    12
+   ],
+   "heaven": {
+    "Hỏa": 42,
+    "Kim": 12,
+    "Thủy": 36
+   },
+   "strong": false,
+   "note": "sách: 78 < 78,8 nên hơi nhược"
+  },
+  "ex7": {
+   "pillars": "Ất Dậu / Canh Thìn / Quý Dậu / Mậu Ngọ",
+   "page": "351, 355",
+   "stem_deg": [
+    6,
+    36,
+    24,
+    36
+   ],
+   "heaven": {
+    "Mộc": 6,
+    "Thổ": 36,
+    "Kim": 36,
+    "Thủy": 24
+   },
+   "earth": {
+    "Hỏa": 21,
+    "Thổ": 27,
+    "Kim": 60
+   },
+   "strong": true
+  }
+ }
+}

@@ -4,14 +4,19 @@ compare() chỉ đặt các bảng cạnh nhau và chỉ ra chỗ bất đồng;
 Mọi bảng vai trò là he_thong/draft (Tử Bình Chân Thuyên, Tích Thiên Tủy chưa được đối chiếu)."""
 from __future__ import annotations
 
-from ..ganzhi import ELEMENTS, controls, generates
+import json
+
+from ..ganzhi import ELEMENTS, STEM_ELEMENT, controls, generates
+from ..bazi import HIDDEN_STEMS
 from .geju import Ctx, pred
 from .model import ChartView
-from .profile import LEVELS, SchoolProfile
+from .profile import DATA, LEVELS, SchoolProfile
 from .season import climate
 from .strength import GROUP_VI
 
 ROLES = ["yong", "xi", "ji", "chou", "xian"]
+TONG_ROLES = json.loads((DATA / "tong_roles.json").read_text("utf-8"))
+TQ = json.loads((DATA / "thuong_quan_dung.json").read_text("utf-8"))
 
 
 def _table(method: str, status: str, **roles) -> dict:
@@ -51,15 +56,18 @@ def dieu_hau(view: ChartView, S: dict) -> dict:
     t = _table("dieu_hau", "bang_CTBG_draft", yong=[main], xi=[g for g in groups if g != main], table=tb, climate=cl)
     h = cl["heat"]
     t["need_elements"], t["avoid_elements"] = (["Hỏa"], ["Thủy"]) if h <= -1 else (["Thủy"], ["Hỏa"]) if h >= 1.5 else ([], [])
+    t["han_noan"] = han_noan(view, cl)
     t["note"] = "Ô bảng điều hậu nhập từ trí nhớ, chưa đối chiếu 窮通寶鑑 (draft). Vai trò: can đầu của ô là Dụng, các can sau là Hỷ. Chỉ số nhiệt thô chỉ để đối chiếu."
     return t
 
 
-def cach_cuc(geju: dict) -> dict:
+def cach_cuc(geju: dict, tq: dict | None = None) -> dict:
     prim = geju["readings"][0] if geju["readings"] else None
     if not prim or prim["kind"] != "noi_cach":
         return _table("cach_cuc", "khong_xac_dinh_noi_cach", note="nội cách không lập được hoặc bị ngoại cách thay")
     c = next(x for x in geju["inner"] if x["name"] == prim["cach"])
+    if tq and tq.get("style"):               # Thương Quan: the book's own five styles replace the generic table
+        return _table("cach_cuc", "ap_dung_ttt_thuong_quan", cach=c["name"], cach_state=c["state"], yong=tq["yong"], xi=tq["xi"], ji=tq["ji"], style=tq["style"], source=tq["src"], van=tq["van"])
     if c["state"] in ("bai",):
         return _table("cach_cuc", "cach_bai", cach=c["name"], yong=c["yong_groups"], bai=[b["id"] for b in c["bai"]],
                       note="cách bại chưa được cứu: dụng thần nêu theo bảng nhưng cần coi là vô lực")
@@ -79,19 +87,75 @@ def thong_quan(S: dict, profile: SchoolProfile) -> dict:
     return _table("thong_quan", "co_giao_chien", wars=wars, need_elements=sorted({w["bridge"] for w in wars if w["missing"]}))
 
 
-def thuan_the(geju: dict) -> dict:
+def thuan_the(geju: dict, S: dict | None = None, profile: SchoolProfile | None = None) -> dict:
+    """Dụng thần thuận thế cho tòng/hóa. Vai trò lấy từ data/bazi_deep/tong_roles.json (Trích Thiên Tủy pp.171-179, verified text);
+    hóa thần: 'vượng mà có dư cần tiết thần hóa thần, suy mà không đủ cần thần sinh trợ' (PDF pp.175-176)."""
     ch = [o for o in geju["outer"] if o["quality"] == "chân"]
     if not ch:
         gia = [o["name"] for o in geju["outer"]]
         return _table("thuan_the", "khong_chan" if not gia else "chi_co_gia", candidates=gia)
     n = ch[0]["name"]
-    if n == "Tòng Tài":
-        return _table("thuan_the", "ap_dung", outer=n, yong=["Tai"], xi=["ThucThuong", "QuanSat"], ji=["Ti", "An"])
-    if n == "Tòng Sát":
-        return _table("thuan_the", "ap_dung", outer=n, yong=["QuanSat"], xi=["Tai"], ji=["An", "Ti"])
-    if n == "Tòng Nhi":
-        return _table("thuan_the", "ap_dung", outer=n, yong=["ThucThuong"], xi=["Tai"], ji=["An"])
-    return _table("thuan_the", "ap_dung", outer=n, note="hóa khí: dụng là hóa thần và hành sinh ra nó (chưa chuyển sang vai trò thập thần)")
+    if n in TONG_ROLES["types"]:
+        r = TONG_ROLES["types"][n]
+        return _table("thuan_the", "ap_dung", outer=n, yong=r["yong"], xi=r["xi"], ji=r["ji"], source=r["src"], source_note=r["note"])
+    # Hóa X
+    el = n.split()[-1]
+    out = _table("thuan_the", "ap_dung", outer=n, source="SRC_TTT_HOA")
+    if S is not None:
+        tot = sum(S["by_element"].values()) or 1.0
+        share = S["by_element"].get(el, 0.0) / tot
+        du = share >= (profile.hua_du_share if profile else 0.5)
+        gen = next(x for x in ELEMENTS if generates(el, x))
+        src = next(x for x in ELEMENTS if generates(x, el))
+        out.update(hoa_than=el, hoa_than_share=round(share, 3), hoa_than_du=du,
+                   need_elements=[gen] if du else [src, el], note=("hóa thần vượng có dư: cần tiết thần hóa thần làm dụng" if du else "hóa thần suy không đủ: cần thần sinh trợ hóa thần làm dụng"))
+    else:
+        out["note"] = "hóa khí: dụng là hóa thần và hành sinh ra nó"
+    return out
+
+
+def _has_root(view: ChartView, element: str, classes=("ban_khi", "trung_khi")) -> bool:
+    return any(h["element"] == element and h["class"] in classes for p in ("year", "month", "day", "hour") for h in view.hidden(p))
+
+
+def han_noan(view: ChartView, cl: dict) -> dict:
+    """Trích Thiên Tủy PDF pp.113-114: hàn quá mà noãn hữu khí thì cần noãn; hàn quá mà noãn vô khí thì lấy hàn làm dụng; noãn quá mà hàn hữu căn
+    thì cần hàn; noãn quá mà hàn vô căn thì không lấy hàn làm dụng. Ngưỡng 'quá' là chỉ số nhiệt thô của hệ thống (draft)."""
+    lab = cl["label"]
+    if lab in ("cực hàn", "hàn"):
+        warm = _has_root(view, "Hỏa")
+        return {"state": "han_qua", "noan_huu_khi": warm, "direction": "can_noan" if warm else "thuan_han", "src": "SRC_TTT_HANTHU",
+                "note": "hàn quá, hỏa có khí (bản khí/trung khí) nên cần noãn" if warm else "hàn quá, hỏa vô khí nên phản lại lấy hàn làm dụng"}
+    if lab in ("nhiệt", "cực nhiệt"):
+        cold = _has_root(view, "Thủy", ("ban_khi", "trung_khi", "du_khi"))
+        return {"state": "noan_qua", "han_huu_can": cold, "direction": "can_han" if cold else "thuan_noan", "src": "SRC_TTT_HANTHU",
+                "note": "noãn quá, thủy có căn nên cần hàn" if cold else "noãn quá, thủy vô căn nên không lấy hàn làm dụng"}
+    return {"state": "on_hoa", "direction": None, "src": "SRC_TTT_HANTHU", "note": "chưa tới mức hàn/nhiệt quá theo chỉ số thô"}
+
+
+def thuong_quan_dung(ctx, S: dict, geju: dict, profile: SchoolProfile) -> dict | None:
+    """Năm cách Thương Quan dụng X (Trích Thiên Tủy PDF pp.93-94). Chỉ chạy khi nội cách đầu tiên là Thương Quan."""
+    inner = geju["inner"][0] if geju["inner"] else None
+    if not inner or inner["name"] != "Thương Quan":
+        return None
+    sh, idx = S["shares"], S["level_index"]
+    tv = sh["ThucThuong"] >= profile.thuong_vuong
+    has_sh = {"An": sh["An"], "Tai": sh["Tai"], "QuanSat": sh["QuanSat"]}
+    has = lambda g: has_sh[g] >= profile.presence_share        # the book speaks of the group being in the chart at all; a hidden 3-degree stem is not that
+    style = None
+    if idx <= 2 and tv:
+        style = "an" if has("An") else "kiep"
+    elif idx >= 4 and not has("Tai") and not has("QuanSat"):
+        style = "thuong"                     # PDF p.93: nhật chủ vượng, không có Tài Quan -> dụng Thương Quan (checked before 'tai')
+    elif idx >= 4 and tv:
+        style = "tai"
+    elif idx >= 4 and not tv and sh["Tai"] < 0.10 and pred(ctx, "count_visible_ge:Ti=2")[0]:
+        style = "quan"
+    if style is None:
+        return {"style": None, "note": "không khớp một trong năm mẫu của sách (nhật chủ ở mức trung hòa hoặc thiếu điều kiện)", "src": TQ["src"]}
+    row = TQ["styles"][style]
+    return {"style": style, "when": row["when"], "yong": row["yong"], "xi": row["xi"], "ji": row["ji"], "quan": row["quan"], "van": row["van"], "src": TQ["src"],
+            "inputs": {"level": S["level"], "thuong_vuong": tv, "an": has("An"), "tai": has("Tai"), "quan_sat": has("QuanSat")}}
 
 
 def health(ctx: Ctx, group: str) -> dict:
@@ -105,11 +169,12 @@ def health(ctx: Ctx, group: str) -> dict:
 def run(view: ChartView, profile: SchoolProfile, R, S: dict, geju: dict) -> dict:
     ctx = Ctx(view, profile, R, S)
     outer_chan = any(o["quality"] == "chân" for o in geju["outer"])
-    methods = [phu_uc(S, outer_chan), dieu_hau(view, S), cach_cuc(geju), thong_quan(S, profile), thuan_the(geju)]
+    tq = thuong_quan_dung(ctx, S, geju, profile)
+    methods = [phu_uc(S, outer_chan), dieu_hau(view, S), cach_cuc(geju, tq), thong_quan(S, profile), thuan_the(geju, S, profile)]
     for m in methods:
         for role in ("yong", "xi"):
             m[f"{role}_health"] = [health(ctx, g) for g in m.get(role, [])]
-    return {"methods": {m["method"]: m for m in methods}, "comparison": compare(methods), "review_status": "draft",
+    return {"methods": {m["method"]: m for m in methods}, "thuong_quan": tq, "comparison": compare(methods), "review_status": "draft",
             "note": "Các phương pháp không được gộp. Bảng 'comparison' chỉ liệt kê đồng thuận và bất đồng."}
 
 
