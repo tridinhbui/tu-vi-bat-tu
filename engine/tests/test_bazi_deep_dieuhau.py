@@ -20,7 +20,7 @@ def test_lookup_orders_stems_and_reports_presence():
     r = dieuhau.lookup(view("EX1"))                       # Giáp sinh tháng Dần
     assert [x["stem"] for x in r["yong_stems"]] == ["Bính", "Quý"] and r["yong_stems"][0]["rank"].startswith("chính") and r["chu"] == "Bính"
     assert r["yong_stems"][0]["visible"] is True and r["yong_stems"][1]["hidden"] is True       # Bính on the stems; Quý hidden in Tý
-    assert r["satisfied"] is True and r["status"] == "tap_verified_TVH_thu_hang_draft" and r["checked"] is True and r["src"] == "SRC_TVH_DIEUHAU"
+    assert r["satisfied"] is True and r["status"] == "tap_va_thu_tu_TVH_verified" and r["checked"] is True and r["src"] == "SRC_TVH_DIEUHAU"
     e8 = dieuhau.lookup(view("EX8"))                      # Bính sinh tháng Tý
     assert e8["yong_stems"][0]["stem"] == "Nhâm" and e8["satisfied"] is False
 
@@ -29,7 +29,7 @@ def test_method_gives_ten_god_roles_from_the_table_and_keeps_coarse_climate_asid
     v = view("EX1"); R = interact.resolve(v); S = strength.compute(v, DEFAULT, R)
     m = yongshen.dieu_hau(v, S)
     assert m["status"] == "bang_TVH_verified" and m["yong"] == ["ThucThuong"] and m["xi"] == ["An"] and m["source"] == "SRC_TVH_DIEUHAU"
-    assert "climate" in m and "Thiệu Vĩ Hoa" in m["note"] and "draft" in m["note"]            # the ranking inside a cell is still draft
+    assert "climate" in m and "Thiệu Vĩ Hoa" in m["note"] and "tr.391-396" in m["note"]      # the ranking inside a cell now follows the book's notes
 
 
 def test_method_stays_separate_from_phu_uc_and_cach_cuc_in_comparison():
@@ -61,3 +61,27 @@ def test_tvh_table_is_complete_and_the_memory_based_draft_agrees_with_it_mostly(
 
 
 STEMS_HAN_VI = dict(zip("甲乙丙丁戊己庚辛壬癸", ["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"]))
+
+
+# Documented differences between the TVH table (pp.389-390) and his note list (pp.391-396): the note names extra stems or leaves one out.
+NOTE_DIFFS = {("Bính", "Ngọ"), ("Bính", "Thân"), ("Đinh", "Thìn"), ("Mậu", "Ngọ"), ("Tân", "Thân"), ("Tân", "Dậu"), ("Nhâm", "Thìn"), ("Quý", "Ngọ"), ("Quý", "Mùi")}
+
+
+def test_note_order_covers_every_cell_and_matches_the_table_except_documented_cells():
+    d = json.loads((dieuhau.DATA / "tvh_dieuhau.json").read_text("utf-8"))
+    diffs = set()
+    for mon, row in d["cells"].items():
+        for dm, cell in row.items():
+            order = d["notes_order"][mon][dm]
+            assert order and len(set(order)) == len(order)
+            if set(order) != set(cell):
+                diffs.add((dm, mon))
+    assert diffs == NOTE_DIFFS
+
+
+def test_lookup_chief_stem_is_first_of_the_note_when_in_the_table():
+    d = json.loads((dieuhau.DATA / "tvh_dieuhau.json").read_text("utf-8"))
+    r = dieuhau.lookup(view("EX8"))                                       # Bính sinh tháng Tý: Nhâm first
+    assert r["chu"] == d["notes_order"]["Tý"]["Bính"][0] == "Nhâm"
+    for x in r["yong_stems"]:
+        assert x["stem"] in d["cells"]["Tý"]["Bính"]

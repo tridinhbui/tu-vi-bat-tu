@@ -46,12 +46,12 @@ def test_phu_uc_is_off_when_a_true_outer_cach_holds():
     assert set(y["methods"]["thuan_the"]["ji"]) == {"Ti", "An"}                     # the opposite of phù ức for a weak day master
 
 
-def test_dieu_hau_uses_the_draft_table_and_never_the_coarse_climate_for_roles():
+def test_dieu_hau_uses_the_tvh_table_and_never_the_coarse_climate_for_roles():
     y, S, _ = Y(view("EX8"))
     d = y["methods"]["dieu_hau"]
     assert d["status"] == "bang_TVH_verified" and d["yong"] == ["QuanSat"]            # Bính sinh Tý: the first stem of the cell is Nhâm
     assert d["climate"]["label"] in ("hàn", "cực hàn", "ôn hòa") and d["need_elements"] in (["Hỏa"], [])
-    assert "窮通寶鑑" in d["note"] and "draft" in d["note"]
+    assert "tr.391-396" in d["note"] and "Thiệu Vĩ Hoa" in d["note"]
 
 
 def test_cach_cuc_method_reports_dung_groups_only_for_the_inner_cach():

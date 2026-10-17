@@ -58,7 +58,7 @@ def dieu_hau(view: ChartView, S: dict) -> dict:
     h = cl["heat"]
     t["need_elements"], t["avoid_elements"] = (["Hỏa"], ["Thủy"]) if h <= -1 else (["Thủy"], ["Hỏa"]) if h >= 1.5 else ([], [])
     t["han_noan"] = han_noan(view, cl)
-    t["note"] = "Tập can dùng được lấy từ bảng dụng thần dự bị của Thiệu Vĩ Hoa (tr.389-390, đã đối chiếu); can 'chính' chọn theo thứ tự bảng 窮通寶鑑 nhập từ trí nhớ (draft). Vai trò: can chính là Dụng, các can còn lại là Hỷ. Chỉ số nhiệt thô chỉ để đối chiếu."
+    t["note"] = "Tập can dùng được lấy từ bảng dụng thần dự bị của Thiệu Vĩ Hoa (tr.389-390, đã đối chiếu); can 'chính' là can đứng đầu trong chú thích thứ tự của sách (tr.391-396). Vai trò: can chính là Dụng, các can còn lại là Hỷ. Chỉ số nhiệt thô chỉ để đối chiếu."
     return t
 
 
@@ -92,7 +92,14 @@ def cach_cuc_tvh(geju: dict, S: dict) -> dict:
     tv = S.get("tvh")
     border = S.get("ambiguous") and tv is not None
     strong = tv["dm_strong"] if tv else S["level_index"] >= 4
-    order = sorted(S["shares"], key=lambda g: -S["shares"][g])
+    shares = S["shares"]
+    if tv and tv.get("totals"):               # the book's own method: group shares from the scored totals (hóa, xung, lệnh applied)
+        from .strength import GROUPS, group_of_element
+        tot = sum(tv["totals"].values()) or 1.0
+        shares = {g: 0.0 for g in GROUPS}
+        for e, v in tv["totals"].items():
+            shares[group_of_element(tv["dm_element"], e)] += v / tot
+    order = sorted(shares, key=lambda g: -shares[g])
 
     def pick(dm):
         for g in order:
