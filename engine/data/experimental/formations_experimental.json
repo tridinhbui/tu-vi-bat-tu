@@ -99,26 +99,39 @@
      ]
     },
     {
-     "id": "triet_dong_cung",
-     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
      "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
      },
      "rescues": [
-      "sat_dong_cung"
+      "*"
      ]
     }
    ],
    "refutations": [
     {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     },
     {
@@ -135,6 +148,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   },
   {
@@ -228,26 +242,39 @@
      ]
     },
     {
-     "id": "triet_dong_cung",
-     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
      "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
      },
      "rescues": [
-      "sat_dong_cung"
+      "*"
      ]
     }
    ],
    "refutations": [
     {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     }
    ],
@@ -255,6 +282,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   },
   {
@@ -262,65 +290,42 @@
    "name_vi": "Cơ Nguyệt Đồng Lương",
    "anchor": "Mệnh",
    "core": {
-    "count": [
-     {
-      "fact": "palace.rel.tp_majors",
-      "operator": "contains",
-      "value": "Thiên Cơ"
-     },
-     {
-      "fact": "palace.rel.tp_majors",
-      "operator": "contains",
-      "value": "Thái Âm"
-     },
-     {
-      "fact": "palace.rel.tp_majors",
-      "operator": "contains",
-      "value": "Thiên Đồng"
-     },
-     {
-      "fact": "palace.rel.tp_majors",
-      "operator": "contains",
-      "value": "Thiên Lương"
-     }
-    ],
-    "operator": "gte",
-    "value": 3
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Thiên Cơ",
+     "Thái Âm",
+     "Thiên Đồng",
+     "Thiên Lương"
+    ]
    },
    "boosters": [
     {
-     "id": "xuong_khuc_hoi",
-     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "id": "cat_tinh_hoi",
+     "label": "một cát tinh (Tả, Hữu, Xương, Khúc, Khôi, Việt) hội trong tam phương",
      "when": {
       "fact": "palace.rel.tp_stars",
       "operator": "contains_any",
       "value": [
+       "Tả Phụ",
+       "Hữu Bật",
        "Văn Xương",
-       "Văn Khúc"
+       "Văn Khúc",
+       "Thiên Khôi",
+       "Thiên Việt"
       ]
      }
     },
     {
-     "id": "khoa_quyen_hoi",
-     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "id": "khoa_quyen_loc_hoi",
+     "label": "Hóa Khoa, Quyền hoặc Lộc hội trong tam phương",
      "when": {
       "fact": "palace.rel.tp_hoa",
       "operator": "contains_any",
       "value": [
        "Hóa Khoa",
-       "Hóa Quyền"
-      ]
-     }
-    },
-    {
-     "id": "khoi_viet_hoi",
-     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
-     "when": {
-      "fact": "palace.rel.tp_stars",
-      "operator": "contains_any",
-      "value": [
-       "Thiên Khôi",
-       "Thiên Việt"
+       "Hóa Quyền",
+       "Hóa Lộc"
       ]
      }
     }
@@ -362,26 +367,39 @@
      ]
     },
     {
-     "id": "triet_giai_khong_kiep",
-     "label": "Triệt đóng ở cung Mệnh",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
      "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
      },
      "rescues": [
-      "khong_kiep_dong_cung"
+      "*"
      ]
     }
    ],
    "refutations": [
     {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     }
    ],
@@ -389,6 +407,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   },
   {
@@ -473,12 +492,21 @@
    ],
    "breakers": [
     {
-     "id": "sat_tu_hai_tro_len",
-     "label": "từ hai sát tinh trở lên đồng cung với Mệnh",
+     "id": "ba_sat_va_ky_trong_tam_phuong",
+     "label": "từ ba sát tinh trở lên và Hóa Kỵ cùng trong tam phương",
      "when": {
-      "fact": "palace.khi.sat_self",
-      "operator": "gte",
-      "value": 2
+      "all": [
+       {
+        "fact": "palace.khi.sat_tp",
+        "operator": "gte",
+        "value": 3
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       }
+      ]
      }
     },
     {
@@ -505,26 +533,39 @@
      ]
     },
     {
-     "id": "triet_giai_sat",
-     "label": "Triệt đóng ở cung Mệnh",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
      "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
      },
      "rescues": [
-      "sat_tu_hai_tro_len"
+      "*"
      ]
     }
    ],
    "refutations": [
     {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     },
     {
@@ -541,6 +582,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   },
   {
@@ -601,6 +643,33 @@
    ],
    "breakers": [
     {
+     "id": "nhat_nguyet_ham_gap_sat",
+     "label": "Thái Dương hoặc Thái Âm hãm, lại có sát tinh trong tam phương",
+     "when": {
+      "all": [
+       {
+        "any": [
+         {
+          "fact": "palace.tp_rank.Thái Dương",
+          "operator": "lte",
+          "value": 0
+         },
+         {
+          "fact": "palace.tp_rank.Thái Âm",
+          "operator": "lte",
+          "value": 0
+         }
+        ]
+       },
+       {
+        "fact": "palace.khi.sat_tp",
+        "operator": "gte",
+        "value": 1
+       }
+      ]
+     }
+    },
+    {
      "id": "ky_dong_cung",
      "label": "Hóa Kỵ đồng cung với Mệnh",
      "when": {
@@ -636,15 +705,19 @@
      ]
     },
     {
-     "id": "triet_giai_khong_kiep",
-     "label": "Triệt đóng ở cung Mệnh",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
      "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
      },
      "rescues": [
-      "khong_kiep_dong_cung"
+      "*"
      ]
     }
    ],
@@ -668,12 +741,21 @@
      }
     },
     {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     }
    ],
@@ -681,6 +763,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   },
   {
@@ -780,26 +863,39 @@
      ]
     },
     {
-     "id": "triet_dong_cung",
-     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
      "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
      },
      "rescues": [
-      "sat_dong_cung"
+      "*"
      ]
     }
    ],
    "refutations": [
     {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     },
     {
@@ -816,6 +912,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   },
   {
@@ -841,32 +938,15 @@
    },
    "boosters": [
     {
-     "id": "khoa_quyen_hoi",
-     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "id": "tam_hoa_hoi_du",
+     "label": "Hóa Khoa, Quyền và Lộc cùng hội đủ trong tam phương",
      "when": {
       "fact": "palace.rel.tp_hoa",
-      "operator": "contains_any",
+      "operator": "contains_all",
       "value": [
        "Hóa Khoa",
-       "Hóa Quyền"
-      ]
-     }
-    },
-    {
-     "id": "loc_hoi",
-     "label": "Lộc Tồn hoặc Hóa Lộc hội trong tam phương",
-     "when": {
-      "any": [
-       {
-        "fact": "palace.rel.tp_stars",
-        "operator": "contains",
-        "value": "Lộc Tồn"
-       },
-       {
-        "fact": "palace.rel.tp_hoa",
-        "operator": "contains",
-        "value": "Hóa Lộc"
-       }
+       "Hóa Quyền",
+       "Hóa Lộc"
       ]
      }
     },
@@ -885,28 +965,21 @@
    ],
    "breakers": [
     {
-     "id": "sat_dong_cung",
-     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "id": "ky_hoac_kinh_dong_cung",
+     "label": "Hóa Kỵ hoặc Kình Dương đồng cung với Mệnh",
      "when": {
-      "fact": "palace.rel.self_stars",
-      "operator": "contains_any",
-      "value": [
-       "Kình Dương",
-       "Đà La",
-       "Hỏa Tinh",
-       "Linh Tinh",
-       "Địa Không",
-       "Địa Kiếp"
+      "any": [
+       {
+        "fact": "palace.rel.self_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       },
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       }
       ]
-     }
-    },
-    {
-     "id": "ky_dong_cung",
-     "label": "Hóa Kỵ đồng cung với Mệnh",
-     "when": {
-      "fact": "palace.rel.self_hoa",
-      "operator": "contains",
-      "value": "Hóa Kỵ"
      }
     }
    ],
@@ -920,30 +993,27 @@
       "value": "Hóa Khoa"
      },
      "rescues": [
-      "ky_dong_cung"
-     ]
-    },
-    {
-     "id": "triet_dong_cung",
-     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
-     "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
-     },
-     "rescues": [
-      "sat_dong_cung"
+      "ky_hoac_kinh_dong_cung"
      ]
     }
    ],
    "refutations": [
     {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     },
     {
@@ -960,6 +1030,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   },
   {
@@ -983,6 +1054,19 @@
    },
    "boosters": [
     {
+     "id": "khoa_quyen_loc_hoi",
+     "label": "Hóa Khoa, Quyền hoặc Lộc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_any",
+      "value": [
+       "Hóa Khoa",
+       "Hóa Quyền",
+       "Hóa Lộc"
+      ]
+     }
+    },
+    {
      "id": "ta_huu_hoi",
      "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
      "when": {
@@ -993,33 +1077,18 @@
        "Hữu Bật"
       ]
      }
-    },
-    {
-     "id": "khoi_viet_hoi",
-     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
-     "when": {
-      "fact": "palace.rel.tp_stars",
-      "operator": "contains_any",
-      "value": [
-       "Thiên Khôi",
-       "Thiên Việt"
-      ]
-     }
-    },
-    {
-     "id": "xuong_khuc_hoi",
-     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
-     "when": {
-      "fact": "palace.rel.tp_stars",
-      "operator": "contains_any",
-      "value": [
-       "Văn Xương",
-       "Văn Khúc"
-      ]
-     }
     }
    ],
    "breakers": [
+    {
+     "id": "that_sat_trong_tam_phuong",
+     "label": "Thất Sát hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    },
     {
      "id": "sat_khac_dong_cung",
      "label": "Hỏa, Linh, Không hoặc Kiếp đồng cung với Mệnh",
@@ -1058,35 +1127,39 @@
      ]
     },
     {
-     "id": "triet_giai_sat_khac",
-     "label": "Triệt đóng ở cung Mệnh",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
      "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
      },
      "rescues": [
-      "sat_khac_dong_cung"
+      "*"
      ]
     }
    ],
    "refutations": [
     {
-     "id": "Kình_Dương_ham",
-     "label": "Kình Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tp_rank.Kình Dương",
-      "operator": "lte",
-      "value": 0
-     }
-    },
-    {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
-     "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     }
    ],
@@ -1094,6 +1167,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   },
   {
@@ -1150,12 +1224,21 @@
    ],
    "breakers": [
     {
-     "id": "ky_trong_tam_phuong",
-     "label": "Hóa Kỵ cũng nằm trong tam phương",
+     "id": "ky_hoac_kinh_dong_cung",
+     "label": "Hóa Kỵ hoặc Kình Dương đồng cung với Mệnh",
      "when": {
-      "fact": "palace.rel.tp_hoa",
-      "operator": "contains",
-      "value": "Hóa Kỵ"
+      "any": [
+       {
+        "fact": "palace.rel.self_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       },
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       }
+      ]
      }
     }
    ],
@@ -1172,27 +1255,27 @@
       ]
      },
      "rescues": [
-      "ky_trong_tam_phuong"
+      "ky_hoac_kinh_dong_cung"
      ]
     }
    ],
    "refutations": [
     {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
-     }
-    },
-    {
-     "id": "triet_an_ngu",
-     "label": "Triệt án ngữ cung Mệnh",
-     "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     }
    ],
@@ -1200,6 +1283,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   },
   {
@@ -1314,15 +1398,19 @@
      ]
     },
     {
-     "id": "triet_dong_cung",
-     "label": "Triệt đóng ở cung Mệnh (giải sát tinh đồng cung)",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
      "when": {
-      "fact": "palace.triet",
-      "operator": "eq",
-      "value": true
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
      },
      "rescues": [
-      "sat_dong_cung"
+      "*"
      ]
     }
    ],
@@ -1337,12 +1425,21 @@
      }
     },
     {
-     "id": "tuan_an_ngu",
-     "label": "Tuần án ngữ cung Mệnh",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "when": {
-      "fact": "palace.tuan",
-      "operator": "eq",
-      "value": true
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
      }
     }
    ],
@@ -1350,6 +1447,7 @@
    "reviewStatus": "draft",
    "experimental": true,
    "sourceIds": [],
+   "definition_version": 2,
    "note": "EXPERIMENTAL — không nằm trong production; mọi điều kiện cần đối chiếu sách trước khi dùng."
   }
  ]

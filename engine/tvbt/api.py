@@ -335,3 +335,6 @@ def library():
 @app.get("/")
 def index():
     return FileResponse(ROOT / "web" / "index.html")
+
+from . import phi_hoa_api  # noqa: E402  (opt-in draft Phi Hóa school)
+phi_hoa_api.register(app, BirthReq, _compute)

@@ -65,7 +65,7 @@ def test_pack_valid_isolated_and_draft():
     prod, _ = load_all()
     assert not {r.id for r in RULES} & {r.id for r in prod}
     assert all(r.reviewStatus == "draft" and r.schoolId == "experimental_draft" for r in RULES) and all(not s.verified for s in SRCS)
-    assert len(RULES) == 8
+    assert len(RULES) == 13
 
 
 def fired(tv, year):
@@ -164,3 +164,46 @@ def test_api_year_default_unchanged_and_flag_adds_only_experimental():
     assert x["status"] == "draft" and x["pack_problems"] == [] and "không dự báo" in x["warning"]
     assert x["stack_by_palace"]["Phụ Mẫu"]["ky_layers"] == ["bản mệnh", "lưu niên"]
     assert any(f["claim"] == "ly_ky_chong_tang" and f["why"]["chain"] for f in x["findings"])
+
+
+# ---- lưu tinh (experimental convention) ----------------------------------------------------------------------------------------
+def test_luu_tinh_use_the_natal_tables_on_the_year_stem_and_branch():
+    tv = real()
+    pal = {p["branch_index"]: p["name"] for p in tv.palaces}
+    for year in (2024, 2025, 2031):
+        L = T.luu_tinh(tv, year)
+        ys, yb = (year - 4) % 10, (year - 4) % 12                      # Giáp Tý = 1984 -> index 0
+        lt = tuvi.LOC_TON[ys]
+        assert L["Lưu Lộc Tồn"] == pal[lt] and L["Lưu Kình Dương"] == pal[(lt + 1) % 12] and L["Lưu Đà La"] == pal[(lt - 1) % 12]
+        kh, vi = tuvi.KHOI_VIET[ys]
+        assert (L["Lưu Thiên Khôi"], L["Lưu Thiên Việt"]) == (pal[kh], pal[vi])
+        assert L["Lưu Thiên Mã"] == pal[{0: 8, 1: 2, 2: 11, 3: 5}[tuvi.TRIAD_GROUP[yb]]]
+    assert "Lưu Xương" not in " ".join(T.luu_tinh(tv, 2024))           # no table for flowing Xương/Khúc: not invented
+
+
+def test_luu_tinh_facts_per_palace_cover_every_star_exactly_once():
+    f = T.time_facts(real(), 2024)
+    allstars = [s for k, v in f.items() if k.startswith("palace:") for s in v["time.luu_tinh"]]
+    assert sorted(allstars) == sorted(T.luu_tinh(real(), 2024))
+
+
+def test_2024_luu_loc_ma_same_palace_and_rules_fire():
+    tv = real()
+    r, f = fired(tv, 2024)
+    assert "LY_LUU_LOC_MA_CUNG_CUNG" in f and f["LY_LUU_LOC_MA_CUNG_CUNG"].subject == "palace:Phúc Đức"          # Dần: Lộc Tồn + Mã of Giáp Thìn
+    # Mệnh-level lưu rules only fire in years when the stars land on Mệnh
+    hits = {y: {x.rule_id for x in layers.run_layers(tv, y)["findings"]} for y in range(2000, 2060)}
+    for y, ids in hits.items():
+        L = T.luu_tinh(tv, y)
+        assert ("LY_LUU_LOC_NHAP_MENH" in ids) == (L["Lưu Lộc Tồn"] == "Mệnh")
+        assert ("LY_LUU_KINH_DA_NHAP_MENH" in ids) == ("Mệnh" in (L["Lưu Kình Dương"], L["Lưu Đà La"]))
+    assert any("LY_LUU_LOC_NHAP_MENH" in i for i in hits.values()) and any("LY_LUU_KINH_DA_NHAP_MENH" in i for i in hits.values())
+
+
+def test_ky_ba_tang_requires_all_three_layers():
+    tv = real()
+    for y in range(1990, 2090):
+        f = T.time_facts(tv, y)
+        triple = {k for k, v in f.items() if k.startswith("palace:") and v["time.ky_n"] >= 3}
+        ids = {(x.subject, x.rule_id) for x in layers.run_layers(tv, y)["findings"] if x.rule_id == "LY_KY_BA_TANG"}
+        assert {s for s, _ in ids} == triple

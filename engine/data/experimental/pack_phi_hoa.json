@@ -1,0 +1,367 @@
+{
+ "rules": [
+  {
+   "id": "PH_TU_HOA_KY",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Cung tự hóa Kỵ: can của cung làm Hóa Kỵ rơi vào sao nằm ngay trong cung đó.",
+   "conditions": {
+    "fact": "phi.tu_hoa",
+    "operator": "contains",
+    "value": "Hóa Kỵ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ph_tu_hoa_ky",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "PH_TU_HOA_LOC",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Cung tự hóa Lộc.",
+   "conditions": {
+    "fact": "phi.tu_hoa",
+    "operator": "contains",
+    "value": "Hóa Lộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ph_tu_hoa_loc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "PH_KY_XUNG_PHI",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Hóa Kỵ của một cung bay sang cung xung chiếu (xung phi).",
+   "conditions": {
+    "fact": "phi.xung_phi",
+    "operator": "contains",
+    "value": "Hóa Kỵ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ph_ky_xung_phi",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "phi.in.Hóa Khoa",
+     "operator": "ne",
+     "value": []
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "PH_LOC_KY_GIAO",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Hai cung phi Lộc và Kỵ cho nhau (A phi Lộc vào B, B phi Kỵ vào A).",
+   "conditions": {
+    "fact": "phi.mutual.Hóa Lộc>Hóa Kỵ",
+    "operator": "ne",
+    "value": []
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ph_loc_ky_giao",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "PH_MENH_LOC_QUAN_TAI",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Mệnh phi Hóa Lộc vào Quan Lộc hoặc Tài Bạch.",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "phi.out.Hóa Lộc",
+      "operator": "in",
+      "value": [
+       "Quan Lộc",
+       "Tài Bạch"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ph_menh_loc_quan_tai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "PH_MENH_KY_NHAP",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Mệnh phi Hóa Kỵ vào Quan Lộc, Tài Bạch hoặc Phu Thê.",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "phi.out.Hóa Kỵ",
+      "operator": "in",
+      "value": [
+       "Quan Lộc",
+       "Tài Bạch",
+       "Phu Thê"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ph_menh_ky_nhap",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "PH_NHIEU_KY_VAO_MOT_CUNG",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Một cung nhận Hóa Kỵ từ ít nhất hai cung khác.",
+   "conditions": {
+    "fact": "phi.in_ky_n",
+    "operator": "gte",
+    "value": 2
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ph_nhieu_ky_vao_mot_cung",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "PH_NHIEU_LOC_VAO_MOT_CUNG",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Một cung nhận Hóa Lộc từ ít nhất hai cung khác.",
+   "conditions": {
+    "fact": "phi.in_loc_n",
+    "operator": "gte",
+    "value": 2
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ph_nhieu_loc_vao_mot_cung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "PH_MENH_CHUOI_LOC",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Chuỗi Lộc từ Mệnh đi qua ít nhất ba cung (Mệnh phi Lộc vào B, B phi Lộc vào C).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "phi.loc_chain_n",
+      "operator": "gte",
+      "value": 3
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "assert",
+     "fact": "derived.phi.menh_loc_chain",
+     "value": true,
+     "scope": "chart"
+    },
+    {
+     "kind": "finding",
+     "claim": "ph_menh_chuoi_loc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "PH_QUAN_LOC_TRONG_CHUOI_LOC",
+   "system": "tu_vi",
+   "schoolId": "phi_tinh_draft",
+   "category": "phi_hoa",
+   "description": "[thử nghiệm · Phi Hóa] Quan Lộc nằm trong chuỗi Lộc xuất phát từ Mệnh (suy ra bước 1 → 2, đọc cung Mệnh bằng ref).",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "operator": "eq",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "derived.phi.menh_loc_chain",
+      "operator": "eq",
+      "value": true
+     },
+     {
+      "ref": {
+       "palace": "Mệnh",
+       "fact": "phi.loc_chain"
+      },
+      "operator": "contains",
+      "value": "Quan Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "ph_quan_loc_trong_chuoi_loc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 1,
+   "sourceIds": [
+    "SRC_EXPERIMENTAL_PHI"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ],
+ "sources": [
+  {
+   "id": "SRC_EXPERIMENTAL_PHI",
+   "title": "Giả thuyết thiết kế Phi Hóa thử engine (không phải sách)",
+   "author": null,
+   "locator": null,
+   "verified": false,
+   "note": "Giả thuyết thiết kế của người viết, CHƯA đối chiếu tài liệu Phi Tinh nào; bảng Tứ Hóa theo can dùng lại bảng tam hợp (chưa xác minh cho Phi Tinh)."
+  }
+ ]
+}

@@ -50,6 +50,18 @@ RULES = [
          fnd("ly_ky_luu_khi_menh_co_cach", "limit"), prio=1),
 ]
 
+RULES += [
+    rule("LY_KY_BA_TANG", "Cả ba tầng (bản mệnh, đại hạn, lưu niên) cùng đặt Hóa Kỵ lên một cung.", f("time.ky_n", "gte", 3), fnd("ly_ky_ba_tang", "limit"), prio=4),
+    rule("LY_LUU_LOC_NHAP_MENH", "Lưu Lộc Tồn rơi ngay vào cung Mệnh (lưu tinh: bảng Lộc Tồn theo can của năm xem, quy ước chưa xác minh).",
+         {"all": [f("palace.name", "eq", "Mệnh"), f("time.luu_tinh", "contains", "Lưu Lộc Tồn")]}, fnd("ly_luu_loc_ton_nhap_menh", "support")),
+    rule("LY_LUU_KINH_DA_NHAP_MENH", "Lưu Kình Dương hoặc lưu Đà La rơi ngay vào cung Mệnh.",
+         {"all": [f("palace.name", "eq", "Mệnh"), f("time.luu_tinh", "contains_any", ["Lưu Kình Dương", "Lưu Đà La"])]}, fnd("ly_luu_kinh_da_nhap_menh", "limit")),
+    rule("LY_LUU_LOC_MA_CUNG_CUNG", "Lưu Lộc Tồn và lưu Thiên Mã cùng một cung (cấu trúc lưu, không phải cách bản mệnh).",
+         f("time.luu_tinh", "contains_all", ["Lưu Lộc Tồn", "Lưu Thiên Mã"]), fnd("ly_luu_loc_ma_cung_cung", "support")),
+    rule("LY_SONG_LOC_LUU", "Lưu Lộc Tồn cùng cung với Hóa Lộc của lưu niên (hai nguồn Lộc của năm xem chồng nhau).",
+         {"all": [f("time.luu_tinh", "contains", "Lưu Lộc Tồn"), f("time.luu_hoa", "contains", "Hóa Lộc")]}, fnd("ly_song_loc_luu", "support"), prio=2),
+]
+
 if __name__ == "__main__":
     src = [{"id": "SRC_EXPERIMENTAL", "title": "Giả thuyết thiết kế thử engine (không phải sách)", "author": None, "locator": None,
             "verified": False, "note": PROV}]

@@ -1,0 +1,632 @@
+{
+ "charts_per_formation": 525960,
+ "counts": {
+  "CACH_X_CO_NGUYET_DONG_LUONG|bi_pha": 15264,
+  "CACH_X_CO_NGUYET_DONG_LUONG|hinh_thuc": 6992,
+  "CACH_X_CO_NGUYET_DONG_LUONG|khong_hien": 460434,
+  "CACH_X_CO_NGUYET_DONG_LUONG|pha_duoc_cuu": 2078,
+  "CACH_X_CO_NGUYET_DONG_LUONG|thanh": 20094,
+  "CACH_X_CO_NGUYET_DONG_LUONG|thanh_thuong": 21098,
+  "CACH_X_KHOI_VIET_GIAP_MENH|bi_pha": 5957,
+  "CACH_X_KHOI_VIET_GIAP_MENH|hinh_thuc": 1490,
+  "CACH_X_KHOI_VIET_GIAP_MENH|khong_hien": 508426,
+  "CACH_X_KHOI_VIET_GIAP_MENH|pha_duoc_cuu": 448,
+  "CACH_X_KHOI_VIET_GIAP_MENH|thanh": 4667,
+  "CACH_X_KHOI_VIET_GIAP_MENH|thanh_thuong": 4972,
+  "CACH_X_MA_DAU_DOI_KIEM|bi_pha": 4510,
+  "CACH_X_MA_DAU_DOI_KIEM|hinh_thuc": 1270,
+  "CACH_X_MA_DAU_DOI_KIEM|khong_hien": 517158,
+  "CACH_X_MA_DAU_DOI_KIEM|pha_duoc_cuu": 100,
+  "CACH_X_MA_DAU_DOI_KIEM|thanh": 2324,
+  "CACH_X_MA_DAU_DOI_KIEM|thanh_thuong": 598,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|bi_pha": 1434,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|hinh_thuc": 603,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|khong_hien": 522990,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|pha_duoc_cuu": 6,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|thanh": 590,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|thanh_thuong": 337,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|bi_pha": 63948,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|hinh_thuc": 12397,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|khong_hien": 408728,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|pha_duoc_cuu": 3272,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|thanh": 18283,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|thanh_thuong": 19332,
+  "CACH_X_SAT_PHA_LIEM_THAM|bi_pha": 18010,
+  "CACH_X_SAT_PHA_LIEM_THAM|hinh_thuc": 32167,
+  "CACH_X_SAT_PHA_LIEM_THAM|khong_hien": 394486,
+  "CACH_X_SAT_PHA_LIEM_THAM|pha_duoc_cuu": 492,
+  "CACH_X_SAT_PHA_LIEM_THAM|thanh": 49909,
+  "CACH_X_SAT_PHA_LIEM_THAM|thanh_thuong": 30896,
+  "CACH_X_TAM_KY_GIA_HOI|bi_pha": 2044,
+  "CACH_X_TAM_KY_GIA_HOI|hinh_thuc": 4298,
+  "CACH_X_TAM_KY_GIA_HOI|khong_hien": 500334,
+  "CACH_X_TAM_KY_GIA_HOI|pha_duoc_cuu": 580,
+  "CACH_X_TAM_KY_GIA_HOI|thanh": 10348,
+  "CACH_X_TAM_KY_GIA_HOI|thanh_thuong": 8356,
+  "CACH_X_THACH_TRUNG_AN_NGOC|bi_pha": 2074,
+  "CACH_X_THACH_TRUNG_AN_NGOC|hinh_thuc": 4466,
+  "CACH_X_THACH_TRUNG_AN_NGOC|khong_hien": 518680,
+  "CACH_X_THACH_TRUNG_AN_NGOC|pha_duoc_cuu": 102,
+  "CACH_X_THACH_TRUNG_AN_NGOC|thanh": 594,
+  "CACH_X_THACH_TRUNG_AN_NGOC|thanh_thuong": 44,
+  "CACH_X_TU_PHU_DONG_CUNG|bi_pha": 2977,
+  "CACH_X_TU_PHU_DONG_CUNG|hinh_thuc": 1999,
+  "CACH_X_TU_PHU_DONG_CUNG|khong_hien": 518246,
+  "CACH_X_TU_PHU_DONG_CUNG|thanh": 1731,
+  "CACH_X_TU_PHU_DONG_CUNG|thanh_thuong": 1007,
+  "CACH_X_TU_PHU_VU_TUONG|bi_pha": 29716,
+  "CACH_X_TU_PHU_VU_TUONG|hinh_thuc": 11122,
+  "CACH_X_TU_PHU_VU_TUONG|khong_hien": 459994,
+  "CACH_X_TU_PHU_VU_TUONG|pha_duoc_cuu": 769,
+  "CACH_X_TU_PHU_VU_TUONG|thanh": 14070,
+  "CACH_X_TU_PHU_VU_TUONG|thanh_thuong": 10289
+ },
+ "evidence_active_when_core_true": {
+  "CACH_X_CO_NGUYET_DONG_LUONG|boosters|cat_tinh_hoi": 43550,
+  "CACH_X_CO_NGUYET_DONG_LUONG|boosters|khoa_quyen_loc_hoi": 57270,
+  "CACH_X_CO_NGUYET_DONG_LUONG|breakers|khong_kiep_dong_cung": 10824,
+  "CACH_X_CO_NGUYET_DONG_LUONG|breakers|ky_dong_cung": 7588,
+  "CACH_X_CO_NGUYET_DONG_LUONG|core": 65526,
+  "CACH_X_CO_NGUYET_DONG_LUONG|refutations|tuan_triet_an_ngu": 19642,
+  "CACH_X_CO_NGUYET_DONG_LUONG|rescuers|khoa_dong_cung": 10830,
+  "CACH_X_CO_NGUYET_DONG_LUONG|rescuers|tam_hoa_hoi_cuu": 9146,
+  "CACH_X_KHOI_VIET_GIAP_MENH|boosters|co_chinh_tinh": 15900,
+  "CACH_X_KHOI_VIET_GIAP_MENH|boosters|ta_huu_hoi": 2952,
+  "CACH_X_KHOI_VIET_GIAP_MENH|boosters|xuong_khuc_hoi": 8802,
+  "CACH_X_KHOI_VIET_GIAP_MENH|breakers|ky_dong_cung": 1338,
+  "CACH_X_KHOI_VIET_GIAP_MENH|breakers|sat_dong_cung": 5487,
+  "CACH_X_KHOI_VIET_GIAP_MENH|core": 17534,
+  "CACH_X_KHOI_VIET_GIAP_MENH|refutations|tuan_triet_an_ngu": 2952,
+  "CACH_X_KHOI_VIET_GIAP_MENH|refutations|vo_chinh_dieu": 1634,
+  "CACH_X_KHOI_VIET_GIAP_MENH|rescuers|khoa_dong_cung": 1228,
+  "CACH_X_KHOI_VIET_GIAP_MENH|rescuers|tam_hoa_hoi_cuu": 1434,
+  "CACH_X_MA_DAU_DOI_KIEM|boosters|khoa_quyen_loc_hoi": 6222,
+  "CACH_X_MA_DAU_DOI_KIEM|boosters|ta_huu_hoi": 1420,
+  "CACH_X_MA_DAU_DOI_KIEM|breakers|ky_dong_cung": 746,
+  "CACH_X_MA_DAU_DOI_KIEM|breakers|sat_khac_dong_cung": 2124,
+  "CACH_X_MA_DAU_DOI_KIEM|breakers|that_sat_trong_tam_phuong": 2532,
+  "CACH_X_MA_DAU_DOI_KIEM|core": 8802,
+  "CACH_X_MA_DAU_DOI_KIEM|refutations|tuan_triet_an_ngu": 1476,
+  "CACH_X_MA_DAU_DOI_KIEM|rescuers|khoa_dong_cung": 766,
+  "CACH_X_MA_DAU_DOI_KIEM|rescuers|tam_hoa_hoi_cuu": 370,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|boosters|khoa_quyen_hoi": 1438,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|boosters|ta_huu_hoi": 482,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|boosters|xuong_khuc_hoi": 1484,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|breakers|ky_dong_cung": 332,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|breakers|sat_dong_cung": 1186,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|core": 2970,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|refutations|tuan_triet_an_ngu": 1246,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|rescuers|khoa_dong_cung": 76,
+  "CACH_X_NHAT_LE_TRUNG_THIEN|rescuers|tam_hoa_hoi_cuu": 48,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|boosters|khoa_quyen_hoi": 78366,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|boosters|nhat_nguyet_deu_sang": 45928,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|boosters|ta_huu_hoi": 28112,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|breakers|khong_kiep_dong_cung": 17456,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|breakers|ky_dong_cung": 10914,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|breakers|nhat_nguyet_ham_gap_sat": 53087,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|core": 117232,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|refutations|Thái_Dương_ham": 49006,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|refutations|Thái_Âm_ham": 40992,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|refutations|tuan_triet_an_ngu": 35138,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|rescuers|khoa_dong_cung": 9602,
+  "CACH_X_NHAT_NGUYET_TINH_MINH|rescuers|tam_hoa_hoi_cuu": 6432,
+  "CACH_X_SAT_PHA_LIEM_THAM|boosters|khoa_quyen_hoi": 66890,
+  "CACH_X_SAT_PHA_LIEM_THAM|boosters|khoi_viet_hoi": 61852,
+  "CACH_X_SAT_PHA_LIEM_THAM|boosters|ta_huu_hoi": 29180,
+  "CACH_X_SAT_PHA_LIEM_THAM|boosters|xuong_khuc_hoi": 58482,
+  "CACH_X_SAT_PHA_LIEM_THAM|breakers|ba_sat_va_ky_trong_tam_phuong": 9305,
+  "CACH_X_SAT_PHA_LIEM_THAM|breakers|ky_dong_cung": 11644,
+  "CACH_X_SAT_PHA_LIEM_THAM|core": 131474,
+  "CACH_X_SAT_PHA_LIEM_THAM|refutations|Thất_Sát_ham": 41898,
+  "CACH_X_SAT_PHA_LIEM_THAM|refutations|tuan_triet_an_ngu": 40088,
+  "CACH_X_SAT_PHA_LIEM_THAM|rescuers|khoa_dong_cung": 8950,
+  "CACH_X_SAT_PHA_LIEM_THAM|rescuers|tam_hoa_hoi_cuu": 6446,
+  "CACH_X_TAM_KY_GIA_HOI|boosters|hoa_o_ban_cung": 18180,
+  "CACH_X_TAM_KY_GIA_HOI|boosters|ta_huu_hoi": 5326,
+  "CACH_X_TAM_KY_GIA_HOI|boosters|xuong_khuc_hoi": 15910,
+  "CACH_X_TAM_KY_GIA_HOI|breakers|ky_hoac_kinh_dong_cung": 2624,
+  "CACH_X_TAM_KY_GIA_HOI|core": 25626,
+  "CACH_X_TAM_KY_GIA_HOI|refutations|tuan_triet_an_ngu": 7654,
+  "CACH_X_TAM_KY_GIA_HOI|rescuers|ta_huu_giai_ky": 5326,
+  "CACH_X_THACH_TRUNG_AN_NGOC|boosters|ta_huu_hoi": 1212,
+  "CACH_X_THACH_TRUNG_AN_NGOC|boosters|tam_hoa_hoi_du": 208,
+  "CACH_X_THACH_TRUNG_AN_NGOC|breakers|ky_hoac_kinh_dong_cung": 2176,
+  "CACH_X_THACH_TRUNG_AN_NGOC|core": 7280,
+  "CACH_X_THACH_TRUNG_AN_NGOC|refutations|tuan_triet_an_ngu": 2458,
+  "CACH_X_THACH_TRUNG_AN_NGOC|rescuers|khoa_dong_cung": 254,
+  "CACH_X_TU_PHU_DONG_CUNG|boosters|khoi_viet_hoi": 2822,
+  "CACH_X_TU_PHU_DONG_CUNG|boosters|ta_huu_hoi": 1296,
+  "CACH_X_TU_PHU_DONG_CUNG|boosters|xuong_khuc_hoi": 3860,
+  "CACH_X_TU_PHU_DONG_CUNG|breakers|ky_dong_cung": 108,
+  "CACH_X_TU_PHU_DONG_CUNG|breakers|sat_dong_cung": 2905,
+  "CACH_X_TU_PHU_DONG_CUNG|core": 7714,
+  "CACH_X_TU_PHU_DONG_CUNG|refutations|tuan_triet_an_ngu": 2518,
+  "CACH_X_TU_PHU_DONG_CUNG|rescuers|khoa_dong_cung": 994,
+  "CACH_X_TU_PHU_VU_TUONG|boosters|loc_hoi": 28704,
+  "CACH_X_TU_PHU_VU_TUONG|boosters|ta_huu_hoi": 10996,
+  "CACH_X_TU_PHU_VU_TUONG|boosters|xuong_khuc_hoi": 33006,
+  "CACH_X_TU_PHU_VU_TUONG|breakers|ky_dong_cung": 5684,
+  "CACH_X_TU_PHU_VU_TUONG|breakers|sat_dong_cung": 27704,
+  "CACH_X_TU_PHU_VU_TUONG|core": 65966,
+  "CACH_X_TU_PHU_VU_TUONG|refutations|tuan_triet_an_ngu": 20086,
+  "CACH_X_TU_PHU_VU_TUONG|rescuers|khoa_dong_cung": 6372,
+  "CACH_X_TU_PHU_VU_TUONG|rescuers|tam_hoa_hoi_cuu": 2006
+ },
+ "witness": {
+  "CACH_X_CO_NGUYET_DONG_LUONG|bi_pha": {
+   "year": 1952,
+   "month": 1,
+   "day": 4,
+   "hour": 2,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG|hinh_thuc": {
+   "year": 1952,
+   "month": 1,
+   "day": 4,
+   "hour": 18,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG|pha_duoc_cuu": {
+   "year": 1958,
+   "month": 1,
+   "day": 21,
+   "hour": 2,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG|thanh": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 10,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG|thanh_thuong": {
+   "year": 1952,
+   "month": 1,
+   "day": 2,
+   "hour": 6,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH|bi_pha": {
+   "year": 1952,
+   "month": 1,
+   "day": 27,
+   "hour": 20,
+   "minute": 0,
+   "gender": "female"
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH|hinh_thuc": {
+   "year": 1952,
+   "month": 2,
+   "day": 27,
+   "hour": 22,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH|pha_duoc_cuu": {
+   "year": 1952,
+   "month": 2,
+   "day": 9,
+   "hour": 20,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH|thanh": {
+   "year": 1952,
+   "month": 1,
+   "day": 29,
+   "hour": 20,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH|thanh_thuong": {
+   "year": 1952,
+   "month": 1,
+   "day": 27,
+   "hour": 20,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_MA_DAU_DOI_KIEM|bi_pha": {
+   "year": 1958,
+   "month": 2,
+   "day": 21,
+   "hour": 16,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_MA_DAU_DOI_KIEM|hinh_thuc": {
+   "year": 1958,
+   "month": 3,
+   "day": 20,
+   "hour": 18,
+   "minute": 0,
+   "gender": "female"
+  },
+  "CACH_X_MA_DAU_DOI_KIEM|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_MA_DAU_DOI_KIEM|pha_duoc_cuu": {
+   "year": 1958,
+   "month": 6,
+   "day": 24,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_MA_DAU_DOI_KIEM|thanh": {
+   "year": 1958,
+   "month": 2,
+   "day": 18,
+   "hour": 16,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_MA_DAU_DOI_KIEM|thanh_thuong": {
+   "year": 1958,
+   "month": 10,
+   "day": 13,
+   "hour": 8,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN|bi_pha": {
+   "year": 1952,
+   "month": 1,
+   "day": 18,
+   "hour": 14,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN|hinh_thuc": {
+   "year": 1952,
+   "month": 2,
+   "day": 11,
+   "hour": 16,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN|pha_duoc_cuu": {
+   "year": 1951,
+   "month": 2,
+   "day": 27,
+   "hour": 16,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN|thanh": {
+   "year": 1952,
+   "month": 4,
+   "day": 10,
+   "hour": 20,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN|thanh_thuong": {
+   "year": 1958,
+   "month": 1,
+   "day": 5,
+   "hour": 12,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH|bi_pha": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 4,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH|hinh_thuc": {
+   "year": 1952,
+   "month": 2,
+   "day": 3,
+   "hour": 16,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH|pha_duoc_cuu": {
+   "year": 1958,
+   "month": 1,
+   "day": 19,
+   "hour": 10,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH|thanh": {
+   "year": 1952,
+   "month": 1,
+   "day": 6,
+   "hour": 12,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH|thanh_thuong": {
+   "year": 1952,
+   "month": 1,
+   "day": 3,
+   "hour": 4,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM|bi_pha": {
+   "year": 1952,
+   "month": 1,
+   "day": 27,
+   "hour": 12,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM|hinh_thuc": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 8,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM|pha_duoc_cuu": {
+   "year": 1952,
+   "month": 2,
+   "day": 25,
+   "hour": 20,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM|thanh": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 2,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM|thanh_thuong": {
+   "year": 1952,
+   "month": 1,
+   "day": 27,
+   "hour": 6,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TAM_KY_GIA_HOI|bi_pha": {
+   "year": 1954,
+   "month": 2,
+   "day": 5,
+   "hour": 22,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TAM_KY_GIA_HOI|hinh_thuc": {
+   "year": 1954,
+   "month": 2,
+   "day": 6,
+   "hour": 18,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TAM_KY_GIA_HOI|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TAM_KY_GIA_HOI|pha_duoc_cuu": {
+   "year": 1954,
+   "month": 5,
+   "day": 5,
+   "hour": 4,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TAM_KY_GIA_HOI|thanh": {
+   "year": 1954,
+   "month": 2,
+   "day": 3,
+   "hour": 20,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TAM_KY_GIA_HOI|thanh_thuong": {
+   "year": 1954,
+   "month": 2,
+   "day": 3,
+   "hour": 2,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC|bi_pha": {
+   "year": 1952,
+   "month": 2,
+   "day": 5,
+   "hour": 4,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC|hinh_thuc": {
+   "year": 1952,
+   "month": 1,
+   "day": 2,
+   "hour": 2,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC|pha_duoc_cuu": {
+   "year": 1952,
+   "month": 10,
+   "day": 28,
+   "hour": 20,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC|thanh": {
+   "year": 1954,
+   "month": 4,
+   "day": 14,
+   "hour": 8,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC|thanh_thuong": {
+   "year": 1951,
+   "month": 4,
+   "day": 11,
+   "hour": 8,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_DONG_CUNG|bi_pha": {
+   "year": 1952,
+   "month": 1,
+   "day": 10,
+   "hour": 10,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_DONG_CUNG|hinh_thuc": {
+   "year": 1952,
+   "month": 2,
+   "day": 28,
+   "hour": 2,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_DONG_CUNG|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_DONG_CUNG|thanh": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 22,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_DONG_CUNG|thanh_thuong": {
+   "year": 1952,
+   "month": 10,
+   "day": 29,
+   "hour": 4,
+   "minute": 0,
+   "gender": "female"
+  },
+  "CACH_X_TU_PHU_VU_TUONG|bi_pha": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 6,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_VU_TUONG|hinh_thuc": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 22,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_VU_TUONG|khong_hien": {
+   "year": 1952,
+   "month": 1,
+   "day": 1,
+   "hour": 0,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_VU_TUONG|pha_duoc_cuu": {
+   "year": 1952,
+   "month": 2,
+   "day": 9,
+   "hour": 20,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_VU_TUONG|thanh": {
+   "year": 1952,
+   "month": 3,
+   "day": 28,
+   "hour": 16,
+   "minute": 0,
+   "gender": "male"
+  },
+  "CACH_X_TU_PHU_VU_TUONG|thanh_thuong": {
+   "year": 1952,
+   "month": 1,
+   "day": 30,
+   "hour": 20,
+   "minute": 0,
+   "gender": "male"
+  }
+ },
+ "unreachable": [
+  "CACH_X_TU_PHU_DONG_CUNG|pha_duoc_cuu"
+ ]
+}

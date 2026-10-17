@@ -1,0 +1,1645 @@
+{
+ "version": 1,
+ "note": "Hand-curated alignment of the DRAFT formations with page-cited rules in the packs. No formation is verified.",
+ "formations": {
+  "CACH_X_TU_PHU_VU_TUONG": {
+   "core": {
+    "status": "lien_quan",
+    "note": "nguồn có nhóm Tử Phủ Vũ Tướng ở các cung khác (Phúc Đức, Tử Tức, Nô Bộc); không có luật nói bốn sao hội ở tam phương Mệnh thành một cách",
+    "sources": [
+     {
+      "rule": "TV_KL_CUNG_PHUC_DUC_TU_PHU_VU_TUONG",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.217",
+      "review": "draft"
+     }
+    ],
+    "reach": {
+     "core_true": 65966,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "ta_huu_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 10996,
+      "core_true": 65966,
+      "never": false,
+      "always": false
+     }
+    },
+    "xuong_khuc_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 33006,
+      "core_true": 65966,
+      "never": false,
+      "always": false
+     }
+    },
+    "loc_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 28704,
+      "core_true": 65966,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "sat_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 27704,
+      "core_true": 65966,
+      "never": false,
+      "always": false
+     }
+    },
+    "ky_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 5684,
+      "core_true": 65966,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "khoa_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 6372,
+      "core_true": 65966,
+      "never": false,
+      "always": false
+     }
+    },
+    "tam_hoa_hoi_cuu": {
+     "status": "long_hon",
+     "note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 2006,
+      "core_true": 65966,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "refutations": {
+    "tuan_triet_an_ngu": {
+     "status": "lien_quan",
+     "note": "nguồn: Thiên Phủ gặp Tuần/Triệt là điều kỵ nhất (TH p.94); chưa có nguồn cho cả nhóm bốn sao",
+     "sources": [
+      {
+       "rule": "TV_TH_STAR_THIEN_PHU_NAM_TUAN_TRIET",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.94",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 20086,
+      "core_true": 65966,
+      "never": false,
+      "always": false
+     }
+    },
+    "Thiên_Tướng_ham": {
+     "status": "lien_quan",
+     "note": "nguồn nói Thiên Tướng gặp Tuần/Triệt như hãm; không nói Tướng hãm hạ cả cách",
+     "sources": [
+      {
+       "rule": "TV_TH_STAR_THIEN_TUONG_NAM_TUAN_TRIET",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.95",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 0,
+      "core_true": 65966,
+      "never": true,
+      "always": false,
+      "reason": "Thiên Tướng chỉ hãm ở Mão và Dậu (bảng Thực Hành), mà khi Tử Phủ Vũ Tướng hội đủ ở tam phương thì Thiên Tướng không bao giờ rơi vào hai cung đó"
+     }
+    }
+   }
+  },
+  "CACH_X_TU_PHU_DONG_CUNG": {
+   "core": {
+    "status": "lien_quan",
+    "note": "KL p.55 lấy Tử Vi và Thiên Phủ đồng cung ở Mệnh làm khung nhưng không gọi là một cách",
+    "sources": [
+     {
+      "rule": "TV_KL_PHU_TU_PHU_TUAN_TRIET",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.55",
+      "review": "verified"
+     }
+    ],
+    "reach": {
+     "core_true": 7714,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "ta_huu_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 1296,
+      "core_true": 7714,
+      "never": false,
+      "always": false
+     }
+    },
+    "xuong_khuc_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 3860,
+      "core_true": 7714,
+      "never": false,
+      "always": false
+     }
+    },
+    "khoi_viet_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 2822,
+      "core_true": 7714,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "sat_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 2905,
+      "core_true": 7714,
+      "never": false,
+      "always": false
+     }
+    },
+    "ky_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 108,
+      "core_true": 7714,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "khoa_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 994,
+      "core_true": 7714,
+      "never": false,
+      "always": false
+     }
+    },
+    "tam_hoa_hoi_cuu": {
+     "status": "long_hon",
+     "note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 0,
+      "core_true": 7714,
+      "never": true,
+      "always": false,
+      "reason": "Tử Phủ đồng cung chỉ ở Dần hoặc Thân; Hóa Lộc, Quyền, Khoa chưa bao giờ cùng hội đủ trong tam phương của hai cung này (vét cạn 525.960 lá số)"
+     }
+    }
+   },
+   "refutations": {
+    "tuan_triet_an_ngu": {
+     "status": "khop",
+     "note": "KL p.55: Tử Phủ bị Tuần hoặc Triệt án ngữ thì phúc lộc kém đi; TH p.94: Thiên Phủ kỵ Tuần, Triệt",
+     "sources": [
+      {
+       "rule": "TV_KL_PHU_TU_PHU_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.55",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_STAR_THIEN_PHU_NAM_TUAN_TRIET",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.94",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 2518,
+      "core_true": 7714,
+      "never": false,
+      "always": false
+     }
+    }
+   }
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG": {
+   "core": {
+    "status": "khop",
+    "note": "Toàn Thư p.24: Mệnh đủ bốn sao Cơ Nguyệt Đồng Lương trong tam phương",
+    "sources": [
+     {
+      "rule": "TV_TT_MENH_CNDL_CONG_CHUC",
+      "source": "SRC_TOAN_THU",
+      "page": "TT p.24",
+      "review": "verified"
+     },
+     {
+      "rule": "TV_KL_CT_CNDL",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.221",
+      "review": "verified"
+     }
+    ],
+    "reach": {
+     "core_true": 65526,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "cat_tinh_hoi": {
+     "status": "lien_quan",
+     "note": "TT p.24: thiếu cát tinh trợ lực thì chỉ ở mức công chức bình thường; KL p.221 (nháp): hội Khôi Việt, Xương Khúc thì hợp đường học thuật",
+     "sources": [
+      {
+       "rule": "TV_TT_MENH_CNDL_CONG_CHUC",
+       "source": "SRC_TOAN_THU",
+       "page": "TT p.24",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_KL_CT_CNDL_KQL_KV_XK",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.221",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 43550,
+      "core_true": 65526,
+      "never": false,
+      "always": false
+     }
+    },
+    "khoa_quyen_loc_hoi": {
+     "status": "lien_quan",
+     "note": "luật nháp có trang (KL p.221): hội Khoa Quyền Lộc thì hợp đường học thuật",
+     "sources": [
+      {
+       "rule": "TV_KL_CT_CNDL_KQL_KV_XK",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.221",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 57270,
+      "core_true": 65526,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "khong_kiep_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 10824,
+      "core_true": 65526,
+      "never": false,
+      "always": false
+     }
+    },
+    "ky_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 7588,
+      "core_true": 65526,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "khoa_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 10830,
+      "core_true": 65526,
+      "never": false,
+      "always": false
+     }
+    },
+    "tam_hoa_hoi_cuu": {
+     "status": "long_hon",
+     "note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 9146,
+      "core_true": 65526,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "refutations": {
+    "tuan_triet_an_ngu": {
+     "status": "lien_quan",
+     "note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "sources": [
+      {
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 19642,
+      "core_true": 65526,
+      "never": false,
+      "always": false
+     }
+    }
+   }
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM": {
+   "core": {
+    "status": "lien_quan",
+    "note": "ngưỡng ba trong bốn sao là quy ước của bản nháp; nguồn nói về chính tinh Sát Phá Liêm Tham ở Mệnh/Thân",
+    "sources": [
+     {
+      "rule": "TV_TH_CACH_MENH_HA_CACH",
+      "source": "SRC_THUC_HANH",
+      "page": "TH p.77",
+      "review": "draft"
+     },
+     {
+      "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+      "source": "SRC_THUC_HANH",
+      "page": "TH p.76",
+      "review": "draft"
+     }
+    ],
+    "reach": {
+     "core_true": 131474,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "khoa_quyen_hoi": {
+     "status": "lien_quan",
+     "note": "nguồn (nháp): miếu vượng, hội nhiều cát tinh thì có thể phát mạnh, nói cho Thân cư Thiên Di",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 66890,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    },
+    "ta_huu_hoi": {
+     "status": "lien_quan",
+     "note": "",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 29180,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    },
+    "xuong_khuc_hoi": {
+     "status": "lien_quan",
+     "note": "",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 58482,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    },
+    "khoi_viet_hoi": {
+     "status": "lien_quan",
+     "note": "",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 61852,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "ba_sat_va_ky_trong_tam_phuong": {
+     "status": "khop",
+     "note": "TH p.77 (luật nguồn còn ở mức nháp): hạ cách khi từ ba sát tinh hội kèm Hóa Kỵ",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_HA_CACH",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.77",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 9305,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    },
+    "ky_dong_cung": {
+     "status": "lien_quan",
+     "note": "",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_HA_CACH",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.77",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 11644,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "khoa_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 8950,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    },
+    "tam_hoa_hoi_cuu": {
+     "status": "long_hon",
+     "note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 6446,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "refutations": {
+    "tuan_triet_an_ngu": {
+     "status": "lien_quan",
+     "note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "sources": [
+      {
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 40088,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    },
+    "Thất_Sát_ham": {
+     "status": "lien_quan",
+     "note": "nguồn đòi chính tinh nhập miếu vượng mới phát mạnh",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 41898,
+      "core_true": 131474,
+      "never": false,
+      "always": false
+     }
+    }
+   }
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH": {
+   "core": {
+    "status": "khop",
+    "note": "hai luật có trang: Nhật Nguyệt đồng cung hoặc chiếu Mệnh",
+    "sources": [
+     {
+      "rule": "TV_KL_CT_NHAT_NGUYET_DONG_CUNG",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.224",
+      "review": "verified"
+     },
+     {
+      "rule": "TV_KL_CT_NHAT_NGUYET_CHIEU",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.224",
+      "review": "verified"
+     }
+    ],
+    "reach": {
+     "core_true": 117232,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "nhat_nguyet_deu_sang": {
+     "status": "lien_quan",
+     "note": "nguồn (nháp) nói Nhật hoặc Nguyệt hãm gặp sát tinh là tàn hung, nên độ sáng có liên quan",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 45928,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    },
+    "ta_huu_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 28112,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    },
+    "khoa_quyen_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 78366,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "nhat_nguyet_ham_gap_sat": {
+     "status": "long_hon",
+     "note": "TH p.74 (nháp): Nhật hoặc Nguyệt hãm Ở MỆNH gặp sát tinh; bản nháp xét sát tinh trong cả tam phương",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 53087,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    },
+    "ky_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 10914,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    },
+    "khong_kiep_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn nói sát tinh gặp Nhật/Nguyệt hãm; không nói riêng Không Kiếp",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 17456,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "khoa_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 9602,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    },
+    "tam_hoa_hoi_cuu": {
+     "status": "long_hon",
+     "note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 6432,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "refutations": {
+    "Thái_Dương_ham": {
+     "status": "long_hon",
+     "note": "nguồn đòi hãm VÀ gặp sát tinh mới là tàn hung; bản nháp chỉ cần hãm",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 49006,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    },
+    "Thái_Âm_ham": {
+     "status": "long_hon",
+     "note": "như trên",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 40992,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    },
+    "tuan_triet_an_ngu": {
+     "status": "lien_quan",
+     "note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "sources": [
+      {
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 35138,
+      "core_true": 117232,
+      "never": false,
+      "always": false
+     }
+    }
+   }
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN": {
+   "core": {
+    "status": "khop",
+    "note": "Thực Hành p.72: Thái Dương cư Ngọ có Mệnh là cách Nhật lệ trung thiên",
+    "sources": [
+     {
+      "rule": "TV_TH_CACH_MENH_NHAT_NGO",
+      "source": "SRC_THUC_HANH",
+      "page": "TH p.72",
+      "review": "verified"
+     },
+     {
+      "rule": "TV_KL_PHU_DUONG_NGO",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.52",
+      "review": "verified"
+     }
+    ],
+    "reach": {
+     "core_true": 2970,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "ta_huu_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 482,
+      "core_true": 2970,
+      "never": false,
+      "always": false
+     }
+    },
+    "khoa_quyen_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 1438,
+      "core_true": 2970,
+      "never": false,
+      "always": false
+     }
+    },
+    "xuong_khuc_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 1484,
+      "core_true": 2970,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "sat_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 1186,
+      "core_true": 2970,
+      "never": false,
+      "always": false
+     }
+    },
+    "ky_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 332,
+      "core_true": 2970,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "khoa_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 76,
+      "core_true": 2970,
+      "never": false,
+      "always": false
+     }
+    },
+    "tam_hoa_hoi_cuu": {
+     "status": "long_hon",
+     "note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 48,
+      "core_true": 2970,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "refutations": {
+    "tuan_triet_an_ngu": {
+     "status": "lien_quan",
+     "note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "sources": [
+      {
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 1246,
+      "core_true": 2970,
+      "never": false,
+      "always": false
+     }
+    },
+    "Thái_Dương_ham": {
+     "status": "lien_quan",
+     "note": "nguồn nói Thái Dương hãm gặp sát tinh là tàn hung",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 0,
+      "core_true": 2970,
+      "never": true,
+      "always": false,
+      "reason": "cách đòi Thái Dương ở Ngọ, mà bảng Thực Hành xếp Thái Dương ở Ngọ là vượng, không thể hãm"
+     }
+    }
+   }
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC": {
+   "core": {
+    "status": "khop",
+    "note": "cả hai luật nguồn lấy Cự Môn ở Tý/Ngọ làm nền",
+    "sources": [
+     {
+      "rule": "TV_KL_PHU_CU_TY_NGO_TAM_HOA",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.58",
+      "review": "verified"
+     },
+     {
+      "rule": "TV_TT_MENH_CU_TY_NGO_TAM_HOA",
+      "source": "SRC_TOAN_THU",
+      "page": "TT p.34",
+      "review": "verified"
+     }
+    ],
+    "reach": {
+     "core_true": 7280,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "tam_hoa_hoi_du": {
+     "status": "khop",
+     "note": "hai luật nguồn: Cự Môn ở Tý/Ngọ hội đủ Khoa, Quyền, Lộc thì như ngọc ẩn trong đá",
+     "sources": [
+      {
+       "rule": "TV_KL_PHU_CU_TY_NGO_TAM_HOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.58",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TT_MENH_CU_TY_NGO_TAM_HOA",
+       "source": "SRC_TOAN_THU",
+       "page": "TT p.34",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 208,
+      "core_true": 7280,
+      "never": false,
+      "always": false
+     }
+    },
+    "ta_huu_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 1212,
+      "core_true": 7280,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "ky_hoac_kinh_dong_cung": {
+     "status": "khop",
+     "note": "KL p.66: khi Khoa Quyền Lộc hội mà Hóa Kỵ hoặc Kình đồng cung thì mờ mịt; áp cho cấu trúc Tam Hóa hội của cách này",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_TAM_KY_KY_KINH",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.66",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 2176,
+      "core_true": 7280,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "khoa_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 254,
+      "core_true": 7280,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "refutations": {
+    "tuan_triet_an_ngu": {
+     "status": "lien_quan",
+     "note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "sources": [
+      {
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 2458,
+      "core_true": 7280,
+      "never": false,
+      "always": false
+     }
+    },
+    "Cự_Môn_ham": {
+     "status": "lien_quan",
+     "note": "nguồn: Cự Môn hãm hội sát tinh thì suốt đời cùng khổ",
+     "sources": [
+      {
+       "rule": "TV_TH_STAR_CU_MON_NAM_HAM_SAT",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.95",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 0,
+      "core_true": 7280,
+      "never": true,
+      "always": false,
+      "reason": "cách đòi Cự Môn ở Tý hoặc Ngọ, mà bảng Thực Hành xếp Cự Môn ở hai cung này là vượng, không thể hãm"
+     }
+    }
+   }
+  },
+  "CACH_X_MA_DAU_DOI_KIEM": {
+   "core": {
+    "status": "khop",
+    "note": "KL p.64 (luật còn ở mức nháp): Kình Dương ở Ngọ",
+    "sources": [
+     {
+      "rule": "TV_KL_STAR_MENH_KINH_PHUC_LOC",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.64",
+      "review": "draft"
+     }
+    ],
+    "reach": {
+     "core_true": 8802,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "khoa_quyen_loc_hoi": {
+     "status": "khop",
+     "note": "KL p.64: gặp Khoa, Quyền, Lộc (luật nguồn còn ở mức nháp)",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KINH_PHUC_LOC",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.64",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 6222,
+      "core_true": 8802,
+      "never": false,
+      "always": false
+     }
+    },
+    "ta_huu_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 1420,
+      "core_true": 8802,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "that_sat_trong_tam_phuong": {
+     "status": "khop",
+     "note": "KL p.64 (luật nguồn còn ở mức nháp): tránh Thất Sát; sao Hình chưa được kiểm nên chưa đưa vào",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KINH_PHUC_LOC",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.64",
+       "review": "draft"
+      }
+     ],
+     "reach": {
+      "active": 2532,
+      "core_true": 8802,
+      "never": false,
+      "always": false
+     }
+    },
+    "sat_khac_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 2124,
+      "core_true": 8802,
+      "never": false,
+      "always": false
+     }
+    },
+    "ky_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 746,
+      "core_true": 8802,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "khoa_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 766,
+      "core_true": 8802,
+      "never": false,
+      "always": false
+     }
+    },
+    "tam_hoa_hoi_cuu": {
+     "status": "long_hon",
+     "note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 370,
+      "core_true": 8802,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "refutations": {
+    "tuan_triet_an_ngu": {
+     "status": "lien_quan",
+     "note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "sources": [
+      {
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 1476,
+      "core_true": 8802,
+      "never": false,
+      "always": false
+     }
+    }
+   }
+  },
+  "CACH_X_TAM_KY_GIA_HOI": {
+   "core": {
+    "status": "khop",
+    "note": "Khoa, Quyền, Lộc cùng hội ở tam phương Mệnh",
+    "sources": [
+     {
+      "rule": "TV_KL_STAR_MENH_TAM_KY_KY_KINH",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.66",
+      "review": "verified"
+     }
+    ],
+    "reach": {
+     "core_true": 25626,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "hoa_o_ban_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 18180,
+      "core_true": 25626,
+      "never": false,
+      "always": false
+     }
+    },
+    "ta_huu_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 5326,
+      "core_true": 25626,
+      "never": false,
+      "always": false
+     }
+    },
+    "xuong_khuc_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 15910,
+      "core_true": 25626,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "ky_hoac_kinh_dong_cung": {
+     "status": "khop",
+     "note": "KL p.66: Hóa Kỵ hoặc Kình Dương đồng cung thì công danh mờ mịt",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_TAM_KY_KY_KINH",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.66",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 2624,
+      "core_true": 25626,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "ta_huu_giai_ky": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 5326,
+      "core_true": 25626,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "refutations": {
+    "tuan_triet_an_ngu": {
+     "status": "lien_quan",
+     "note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "sources": [
+      {
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 7654,
+      "core_true": 25626,
+      "never": false,
+      "always": false
+     }
+    }
+   }
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH": {
+   "core": {
+    "status": "khop",
+    "note": "Khôi, Việt giáp hai bên Mệnh",
+    "sources": [
+     {
+      "rule": "TV_KL_CUNG_MENH_GIAP_KHOI_VIET",
+      "source": "SRC_KHAO_LUAN",
+      "page": "KL p.215",
+      "review": "verified"
+     }
+    ],
+    "reach": {
+     "core_true": 17534,
+     "of": 525960
+    }
+   },
+   "boosters": {
+    "co_chinh_tinh": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 15900,
+      "core_true": 17534,
+      "never": false,
+      "always": false
+     }
+    },
+    "ta_huu_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 2952,
+      "core_true": 17534,
+      "never": false,
+      "always": false
+     }
+    },
+    "xuong_khuc_hoi": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 8802,
+      "core_true": 17534,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "breakers": {
+    "sat_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 5487,
+      "core_true": 17534,
+      "never": false,
+      "always": false
+     }
+    },
+    "ky_dong_cung": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 1338,
+      "core_true": 17534,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "rescuers": {
+    "khoa_dong_cung": {
+     "status": "lien_quan",
+     "note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "sources": [
+      {
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified"
+      },
+      {
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 1228,
+      "core_true": 17534,
+      "never": false,
+      "always": false
+     }
+    },
+    "tam_hoa_hoi_cuu": {
+     "status": "long_hon",
+     "note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "sources": [
+      {
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "source": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 1434,
+      "core_true": 17534,
+      "never": false,
+      "always": false
+     }
+    }
+   },
+   "refutations": {
+    "vo_chinh_dieu": {
+     "status": "khong_co_nguon",
+     "note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "sources": [],
+     "reach": {
+      "active": 1634,
+      "core_true": 17534,
+      "never": false,
+      "always": false
+     }
+    },
+    "tuan_triet_an_ngu": {
+     "status": "lien_quan",
+     "note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "sources": [
+      {
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "source": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified"
+      }
+     ],
+     "reach": {
+      "active": 2952,
+      "core_true": 17534,
+      "never": false,
+      "always": false
+     }
+    }
+   }
+  }
+ },
+ "known_impossible": [
+  {
+   "cell": "CACH_X_TU_PHU_DONG_CUNG|pha_duoc_cuu",
+   "kind": "theo_dinh_nghia",
+   "reason": "bất khả thi THEO ĐỊNH NGHĨA VÀ HÌNH HỌC LÁ SỐ, không phải lỗi engine: Tử Phủ đồng cung chỉ xảy ra ở Dần hoặc Thân. Muốn được cứu thì phải có Hóa Khoa đồng cung với Hóa Kỵ, nhưng với mọi can năm hai sao Khoa và Kỵ không bao giờ cùng cung với Tử Vi và Thiên Phủ; hoặc phải có Tam Hóa đủ ba trong tam phương, điều chưa từng xảy ra ở hai cung này (vét cạn 525.960 lá số)"
+  }
+ ],
+ "reach_scan": {
+  "charts_per_formation": 525960,
+  "range": "60 năm liên tiếp (1950-2009), mọi ngày dương lịch, 12 chi giờ, hai giới"
+ }
+}

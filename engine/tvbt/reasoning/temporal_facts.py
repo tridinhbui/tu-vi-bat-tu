@@ -10,7 +10,7 @@ Which palace each hóa lands on is "the palace holding that star" in the natal c
 from __future__ import annotations
 
 from ..ganzhi import BRANCHES_VI, STEMS_VI, from_cycle, year_cycle_index
-from ..tuvi import TRIAD_GROUP, TU_HOA, TuViChart
+from ..tuvi import KHOI_VIET, LOC_TON, TRIAD_GROUP, TU_HOA, TuViChart
 
 HOA = ("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ")
 LAYER_VI = {"natal": "bản mệnh", "dai_han": "đại hạn", "luu": "lưu niên"}
@@ -31,6 +31,20 @@ def _hoa_landing(chart: TuViChart, stem: int) -> dict[str, str | None]:
     return out
 
 
+def luu_tinh(chart: TuViChart, year: int) -> dict[str, str]:
+    """Lưu (flowing) stars of a year: {'Lưu Lộc Tồn': palace name, ...}.
+    CONVENTION, not verified as a flow rule: the natal tables the engine already uses (Lộc Tồn/Kình/Đà and Khôi/Việt by stem, Thiên Mã by
+    branch triad — Thực Hành pp.19-24) are applied to the stem/branch of the year being read. Lưu Xương/Khúc, lưu Hỏa/Linh etc. are NOT
+    produced: no table for them has been checked."""
+    ys, yb = year_cycle_index(year) % 10, year_cycle_index(year) % 12
+    by_branch = {p["branch_index"]: p["name"] for p in chart.palaces}
+    lt = LOC_TON[ys]
+    kh, vi = KHOI_VIET[ys]
+    ma = {0: 8, 1: 2, 2: 11, 3: 5}[TRIAD_GROUP[yb]]
+    pos = {"Lưu Lộc Tồn": lt, "Lưu Kình Dương": (lt + 1) % 12, "Lưu Đà La": (lt - 1) % 12, "Lưu Thiên Khôi": kh, "Lưu Thiên Việt": vi, "Lưu Thiên Mã": ma}
+    return {k: by_branch[v] for k, v in pos.items()}
+
+
 def layered(chart: TuViChart, year: int) -> dict:
     """Pure function of (finished chart, year). Returns the layer description used by the fact builder and shown in the API."""
     age = year - chart.lunar["year"] + 1                      # tuổi mụ
@@ -46,6 +60,7 @@ def layered(chart: TuViChart, year: int) -> dict:
         "tieu_han_palace": th, "luu_thai_tue_palace": by_branch[yb]["name"],
         "luu_hoa": _hoa_landing(chart, ys),
         "dai_han_hoa": _hoa_landing(chart, dh_stem) if dh else {},
+        "luu_tinh": luu_tinh(chart, year),
         "natal_hoa": {k: (next((p["name"] for p in chart.palaces if p["branch_index"] == v["branch"]), None)) for k, v in chart.tu_hoa.items()},
     }
 
@@ -73,6 +88,7 @@ def time_facts(chart: TuViChart, year: int) -> dict[str, dict]:
             "time.natal_hoa": by_layer["natal"], "time.dai_han_hoa": by_layer["dai_han"], "time.luu_hoa": by_layer["luu"],
             "time.ky_layers": ky_layers, "time.loc_layers": loc_layers,
             "time.hoa_layer_count": sum(len(v) for v in by_layer.values()),
+            "time.luu_tinh": [k for k, pal in L["luu_tinh"].items() if pal == n],
             "time.ky_n": len(ky_layers), "time.loc_n": len(loc_layers),
             "time.in_tp_of_menh": p["branch_index"] in tp_of_menh,        # palace sits in Mệnh's tam phương tứ chính
         }

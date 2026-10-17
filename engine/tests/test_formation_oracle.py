@@ -68,9 +68,17 @@ def oracle(r: Raw, fid: str):
         "hoa_o_ban_cung": anyin(self_hoa, "Hóa Lộc", "Hóa Quyền", "Hóa Khoa"),
         "co_chinh_tinh": bool(me["major_stars"]), "vo_chinh_dieu": not me["major_stars"],
         "ta_huu_giai_ky": has(tp_s, "Tả Phụ", "Hữu Bật"),
+        # definition v2
+        "tuan_triet_an_ngu": bool(me["tuan"]) or bool(me["triet"]),
+        "tam_hoa_hoi_cuu": has(tp_hoa, "Hóa Lộc", "Hóa Quyền", "Hóa Khoa"), "tam_hoa_hoi_du": has(tp_hoa, "Hóa Lộc", "Hóa Quyền", "Hóa Khoa"),
+        "cat_tinh_hoi": anyin(tp_s, "Tả Phụ", "Hữu Bật", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt"),
+        "khoa_quyen_loc_hoi": anyin(tp_hoa, "Hóa Khoa", "Hóa Quyền", "Hóa Lộc"),
+        "ba_sat_va_ky_trong_tam_phuong": sum(1 for x in r.stars(tp) if x in SAT) >= 3 and "Hóa Kỵ" in tp_hoa,
+        "ky_hoac_kinh_dong_cung": "Hóa Kỵ" in self_hoa or "Kình Dương" in self_s,
+        "that_sat_trong_tam_phuong": "Thất Sát" in tp_s,
     }
-    for t in ("triet_dong_cung", "triet_giai_sat", "triet_giai_khong_kiep", "triet_giai_sat_khac"):
-        ev[t] = bool(me["triet"])
+    rd, ra = r.rank("Thái Dương"), r.rank("Thái Âm")
+    ev["nhat_nguyet_ham_gap_sat"] = ((rd is not None and rd <= 0) or (ra is not None and ra <= 0)) and sum(1 for x in r.stars(tp) if x in SAT) >= 1
     ev["nhat_nguyet_deu_sang"] = (r.rank("Thái Dương") is not None and r.rank("Thái Âm") is not None
                                   and r.rank("Thái Dương") >= 2 and r.rank("Thái Âm") >= 2)
     for s in ("Thiên Tướng", "Thất Sát", "Thái Dương", "Thái Âm", "Cự Môn", "Kình Dương"):
@@ -78,7 +86,7 @@ def oracle(r: Raw, fid: str):
     cores = {
         "CACH_X_TU_PHU_VU_TUONG": has(tp_m, "Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng"),
         "CACH_X_TU_PHU_DONG_CUNG": has(set(me["major_stars"]), "Tử Vi", "Thiên Phủ"),
-        "CACH_X_CO_NGUYET_DONG_LUONG": sum(x in tp_m for x in ("Thiên Cơ", "Thái Âm", "Thiên Đồng", "Thiên Lương")) >= 3,
+        "CACH_X_CO_NGUYET_DONG_LUONG": all(x in tp_m for x in ("Thiên Cơ", "Thái Âm", "Thiên Đồng", "Thiên Lương")),
         "CACH_X_SAT_PHA_LIEM_THAM": sum(x in tp_m for x in ("Thất Sát", "Phá Quân", "Liêm Trinh", "Tham Lang")) >= 3,
         "CACH_X_NHAT_NGUYET_TINH_MINH": has(tp_m, "Thái Dương", "Thái Âm"),
         "CACH_X_NHAT_LE_TRUNG_THIEN": me["branch"] == "Ngọ" and "Thái Dương" in me["major_stars"],
