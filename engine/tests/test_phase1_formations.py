@@ -240,3 +240,11 @@ def test_experimental_never_in_production_packs():
 def test_experimental_never_marked_verified():
     assert all(r.reviewStatus == "draft" for r in RULES) and all(f.reviewStatus == "draft" for f in FORMS)
     assert all(not s.verified for s in XSRC)
+
+
+def test_user_facing_text_never_shows_internal_ids():
+    f = BY_ID["CACH_X_NHAT_NGUYET_TINH_MINH"]
+    d = verdict(f.id, CASES[f.id][1])                    # no brightness data -> an unknown booster
+    assert "boosters:nhat_nguyet_deu_sang" in d["unknown"]          # machine-readable id kept for tools
+    t = render_vi(f, d)
+    assert "boosters:" not in t and "nhat_nguyet" not in t and "đều sáng" in t

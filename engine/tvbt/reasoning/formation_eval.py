@@ -32,6 +32,8 @@ def evaluate_formation(f: Formation, facts: dict, world=None) -> dict:
             d["caveats"].append("điều kiện lõi thiếu dữ kiện")
         return d
 
+    unknown_labels: list[str] = []
+
     def active(kind):
         out = []
         for e in getattr(f, kind):
@@ -40,6 +42,7 @@ def evaluate_formation(f: Formation, facts: dict, world=None) -> dict:
                 out.append(e)
             elif v is None:
                 d["unknown"].append(f"{kind}:{e.id}")
+                unknown_labels.append(e.label)
         return out
 
     boosters, breakers, rescuers, refs = active("boosters"), active("breakers"), active("rescuers"), active("refutations")
@@ -66,7 +69,7 @@ def evaluate_formation(f: Formation, facts: dict, world=None) -> dict:
         if refs and state in LOWER:
             state, d["downgraded_by_refutation"] = LOWER[state], True
     if d["unknown"]:
-        d["caveats"].append("có điều kiện chưa đủ dữ kiện nên không được tính là sai: " + ", ".join(d["unknown"]))
+        d["caveats"].append("có điều kiện chưa đủ dữ kiện nên không được tính là sai: " + "; ".join(unknown_labels))
     d["state"] = state
     return d
 

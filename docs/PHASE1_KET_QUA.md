@@ -89,3 +89,11 @@ Cùng một cấu trúc Tử Phủ Vũ Tướng trong tam phương Mệnh, produ
 - Tỷ lệ xuất hiện của vài cách rất cao (Cơ Nguyệt Đồng Lương, Sát Phá Liêm Tham ≥3/4 sao trong tam phương: ~25–28% lá số mẫu), nên điều kiện lõi cần đối chiếu sách trước khi đưa vào production.
 - Việc quan trọng nhất: đối chiếu từng cách với sách có số trang, rồi mới chuyển `draft` → `verified` và đưa vào `PACKS`.
 - Lưu ý quy trình: một phiên khác trong cùng repo đã gom các thay đổi Phase 1 đang viết dở của tôi vào commit `f13e724` (cùng 64 luật cách cục của họ). Nội dung là của Phase 1; chỉ có engine.py (sửa provenance fact chart-scope) và các file test/tool mới còn chưa commit.
+
+## Cập nhật: hai ô "không bao giờ gặp" (do phiên UI phát hiện khi quét 25.000 lá số)
+
+Tôi quét toàn bộ không gian (10 can năm × 12 tháng × 28 ngày × 12 giờ, nam và nữ; 40.320 lá số mỗi giới):
+
+- **Khôi Việt giáp Mệnh × bị phá nhưng được cứu**: có tồn tại, hiếm (cần năm Bính, Mệnh ở Tuất, giờ Tý, Hóa Khoa đồng cung Hóa Kỵ). Ví dụ: 1986-10-10 giờ Tý, nam; đã ghim vào `test_phase1_real_charts.py`.
+- **Mã đầu đới kiếm × thành cách thế mạnh**: **không có lá số nào** trong toàn không gian đó. Nguyên nhân dự đoán (chưa chứng minh chặt): Kình Dương ở Ngọ chỉ xảy ra với can Bính/Mậu, và ở hai can này Thiên Khôi/Thiên Việt không bao giờ rơi vào tam phương của Mệnh Ngọ, nên một trong ba yếu tố tăng thế không bao giờ có; hai yếu tố còn lại (Tả Hữu cùng hội, Xương Khúc) không khớp đồng thời với điều kiện còn lại. Đây là hệ quả của **định nghĩa tôi đặt**, không phải phát hiện về mệnh lý. Cách xử lý đề xuất: khi đối chiếu sách, định nghĩa lại yếu tố tăng thế của cách này (hoặc hạ `thuong_at` về 1).
+- Sửa lỗi: phần "Lưu ý" của `render_vi` không còn in id nội bộ (`boosters:...`), dùng nhãn tiếng Việt; id máy đọc vẫn ở trường `unknown`.

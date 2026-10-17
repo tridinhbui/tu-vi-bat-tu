@@ -65,6 +65,7 @@ REAL_PINS = [
     ('CACH_X_TU_PHU_VU_TUONG', 'pha_duoc_cuu', (1950, 2, 4, 10, 10, 'female')),
     ('CACH_X_TU_PHU_VU_TUONG', 'thanh', (1950, 1, 18, 18, 10, 'male')),
     ('CACH_X_TU_PHU_VU_TUONG', 'thanh_thuong', (1950, 1, 4, 4, 10, 'male')),
+    ('CACH_X_KHOI_VIET_GIAP_MENH', 'pha_duoc_cuu', (1986, 10, 10, 0, 10, 'male')),     # very rare: only Bính year, Mệnh Tuất, Tý hour
 ]
 
 
