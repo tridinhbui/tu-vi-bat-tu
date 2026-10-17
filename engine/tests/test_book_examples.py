@@ -27,6 +27,14 @@ CHARTS = {
                 "Tử Tức": {"Thất Sát"}, "Phu Thê": {"Thiên Cơ"}},
         minors={"Mệnh": {"Tả Phụ", "Hữu Bật"}, "Tật Ách": {"Văn Khúc"}, "Nô Bộc": {"Văn Xương"}, "Phúc Đức": {"Địa Kiếp"}, "Thiên Di": {"Địa Không"}, "Phu Thê": {"Hỏa Tinh"}},
         hoa={"Hóa Lộc": "Cự Môn", "Hóa Quyền": "Thái Dương", "Hóa Khoa": "Văn Khúc", "Hóa Kỵ": "Văn Xương"}),
+    "nu_quy_mao": dict(year=1963, month=5, day=20, hb=2, gender="female", cuc="Thổ ngũ cục", pillar="Quý Mão",
+        majors={"Tài Bạch": {"Thiên Đồng", "Thái Âm"}, "Tử Tức": {"Vũ Khúc", "Tham Lang"}, "Phu Thê": {"Thái Dương", "Cự Môn"}, "Huynh Đệ": {"Thiên Tướng"}, "Mệnh": {"Thiên Cơ", "Thiên Lương"},
+                "Phụ Mẫu": {"Tử Vi", "Thất Sát"}, "Phúc Đức": set(), "Điền Trạch": set(), "Quan Lộc": set(), "Nô Bộc": {"Liêm Trinh", "Phá Quân"}, "Thiên Di": set(), "Tật Ách": {"Thiên Phủ"}},
+        minors={}, hoa={"Hóa Lộc": "Phá Quân", "Hóa Quyền": "Cự Môn", "Hóa Khoa": "Thái Âm", "Hóa Kỵ": "Tham Lang"}),
+    "mau_ty_pha_san": dict(year=1948, month=1, day=4, hb=10, gender="male", cuc="Thổ ngũ cục", pillar="Mậu Tý",
+        majors={"Tài Bạch": {"Thiên Cơ"}, "Tử Tức": {"Tử Vi", "Phá Quân"}, "Phu Thê": set(), "Huynh Đệ": {"Thiên Phủ"}, "Mệnh": {"Thái Âm"}, "Phụ Mẫu": {"Liêm Trinh", "Tham Lang"},
+                "Phúc Đức": {"Cự Môn"}, "Điền Trạch": {"Thiên Tướng"}, "Quan Lộc": {"Thiên Đồng", "Thiên Lương"}, "Nô Bộc": {"Vũ Khúc", "Thất Sát"}, "Thiên Di": {"Thái Dương"}, "Tật Ách": set()},
+        minors={"Thiên Di": {"Hữu Bật"}, "Nô Bộc": {"Địa Kiếp"}, "Tử Tức": {"Địa Không"}, "Mệnh": {"Tả Phụ"}}, hoa={"Hóa Lộc": "Tham Lang", "Hóa Quyền": "Thái Âm", "Hóa Khoa": "Hữu Bật", "Hóa Kỵ": "Thiên Cơ"}),
 }
 
 
