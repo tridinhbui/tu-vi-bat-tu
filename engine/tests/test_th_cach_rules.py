@@ -127,3 +127,13 @@ def test_toan_thu_palace_star_pack():
     assert ("tt_tai_bach_thai_am_ham_m", "limit") in c and ("tt_tai_bach_thai_am_mieu_p", "support") not in c
     assert not any(k.startswith("tt_tai_bach") for k, _ in fired(pal("Mệnh", own=["Thái Âm"])))        # palace-scoped
     assert ("tt_phu_the_thien_tuong_base_p", "support") in fired(pal("Phu Thê", own=["Thiên Tướng"]))
+
+
+def test_toan_thu_phu_pack():
+    assert sum(r.id.startswith("TV_TT_PHU_") for r in RULES) == 56
+    c = fired(pal(branch="Mùi", own=["Thái Dương"], tp=["Thái Âm"]) | {"palace.rel.trine_majors": ["Thái Dương", "Thái Âm"]})
+    assert ("tt_phu_minh_chau_hai", "support") in c
+    c = fired(pal(branch="Thìn", own=["Kình Dương"]) | {"palace.has_no_major": True})
+    assert ("tt_phu_vcd_sat_dac_phat_nhanh", "support") in c and ("tt_phu_vcd_sat_dac_khong_ben", "limit") in c       # one rule, two consequences
+    assert ("tt_phu_vcd_sat_dac_phat_nhanh", "support") not in fired(pal(branch="Dần", own=["Kình Dương"]) | {"palace.has_no_major": True})   # Kình đắc địa only at Tứ mộ
+    assert ("tt_phu_nhat_nguyet_xuong_khuc_giap_nam_qui", "support") not in fired(pal(branch="Sửu", own=["Thái Dương", "Thái Âm"], flank=["Văn Xương", "Văn Khúc"]), {"chart.gender": "nữ"})
