@@ -11,6 +11,7 @@ import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossar
 import { renderLearn, lessonSys, lessonTitle, preloadDeep } from './learn.js';
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
+import { loadEvidence } from './tier.js';
 import { renderSaved, initSave } from './mine.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -156,7 +157,7 @@ async function generate(ev, saved = null) {
       showHourSweep();
       return;
     }
-    const [chart, reason, analysis, formations] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady]);
+    const [chart, reason, analysis, formations] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady, loadEvidence()]);
     state = { req, chart, reason, analysis, lunarIn, formations };
     showResults();
   } catch (x) {

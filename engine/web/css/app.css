@@ -555,3 +555,12 @@ sup[data-gl]{cursor:pointer}
 .cpx-list{margin:var(--s3) 0;padding-left:20px;display:grid;gap:8px;color:var(--text2)}.cpx-src,.cpx-leg{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--text2);font-size:.92rem}.cpx-leg{list-style:none;padding:0}
 .cpx-dlg{width:min(720px,94vw);max-width:min(720px,94vw);max-height:90vh;overflow:auto}.cpx-dlg-b h4{margin:var(--s4) 0 6px;font:600 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.cpx-dlg-b h4 small{text-transform:none;letter-spacing:0}.cpx-warn{padding:10px 12px;border:1px dashed var(--brass);border-radius:10px;font-size:.9rem}
 @media(max-width:700px){.cpx-main{width:100%;max-width:100%;height:100dvh;max-height:100dvh;margin:0;border-radius:0;border:0}.cpx-head{padding:10px 14px 8px}.cpx-head .eyebrow{display:none}.cpx-pick{grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}.cpx-pick select{padding:8px;font-size:.88rem}.cpx-swap{order:3;grid-column:1/-1;height:30px;padding:0}.cpx-dlg{width:100%;max-width:100%;margin:auto 0 0;border-radius:20px 20px 0 0}.cpx-f{flex-direction:column;gap:4px}.cpx-ov th[scope=row],.cpx-ov td{min-width:130px}}
+
+/* evidence tier + verbatim quote on result cards (R6) */
+.ev-tier{display:inline-block;font:600 .72rem/1.3 var(--sans);letter-spacing:.04em;text-transform:none;padding:2px 10px;border-radius:99px;border:1px solid var(--line);color:var(--text)}
+.ev-tier.t-checked{background:rgba(34,120,70,.14)}.ev-tier.t-partial{background:rgba(120,150,40,.18)}.ev-tier.t-sourced{background:rgba(40,80,170,.12)}.ev-tier.t-draft{background:rgba(180,110,0,.14)}.ev-tier.t-hypothesis{background:rgba(160,40,40,.12)}
+.ev-warn,.ez-partial{margin:0 0 10px;font-size:.88rem;line-height:1.5;color:var(--text2);overflow-wrap:anywhere}
+.ez-partial .ev-tier{margin-right:4px}
+.ev-x{margin:0 0 10px;font-size:.9rem}.ev-x>summary{cursor:pointer;color:var(--accent);font-weight:600}
+.ev-q{margin:8px 0;padding:6px 12px;border-left:3px solid var(--line);font-family:var(--serif);overflow-wrap:anywhere}.ev-q p{margin:0 0 4px}.ev-q footer{font:400 .8rem var(--sans);color:var(--muted)}
+.ev-n{margin:6px 0;color:var(--text2);overflow-wrap:anywhere}

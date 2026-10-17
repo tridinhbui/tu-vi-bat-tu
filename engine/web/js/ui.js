@@ -1,5 +1,6 @@
 // Small shared components: Accordion, Notice, ReasoningPanel, SourceReference, FortuneTimeline, YearExplorer.
 import { esc, $, $$, post, SOURCES, elChip, STEMS, BRANCHES, claimLabel, claimPhrase } from './util.js';
+import { tierOf, TIER_TXT, TIER_HINT, BOOK_NAME, evidenceFor, evidenceReady } from './tier.js';
 
 export const acc = (title, sub, body, open = false, id = '') =>
   `<details class="acc"${open ? ' open' : ''}${id ? ` id="${id}"` : ''}><summary><span class="acc-t">${title}</span>${sub ? `<span class="acc-s">${sub}</span>` : ''}<svg class="acc-c" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><div class="acc-b">${body}</div></details>`;
@@ -11,9 +12,24 @@ export function sourceRef(id, verified = false) {
   return `<span class="src" title="${verified ? 'Đã xác minh nguồn' : 'Nguồn chưa được xác minh trang/mục cụ thể'}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1.5h6.5a1 1 0 011 1v8H3a1 1 0 01-1-1z" fill="none" stroke="currentColor" stroke-width="1"/></svg>${esc(SOURCES[id] || id)}<em>${verified ? 'đã xác minh' : 'chưa xác minh'}</em></span>`;
 }
 
+/** Verbatim page evidence for a rule ('Chuyên sâu' only): the quote with book and page, where it sits, and what the book adds. */
+export function evidenceExpander(ev, tier) {
+  if (!ev?.quote) return '';
+  const check = ev.quote_verified === true ? ' · máy đã kiểm: trích dẫn nằm đúng trên trang' : ev.quote_verified === null ? ' · đọc từ ảnh trang, máy không kiểm được' : '';
+  const book = BOOK_NAME[ev.quote_book] || ev.quote_book;
+  const body = `<blockquote class="ev-q"><p>“${esc(ev.quote)}”</p><footer>${esc(book)}, tr. ${esc(ev.quote_page)}${check}</footer></blockquote>`
+    + (ev.gloss_vi ? `<p class="ev-n">Nghĩa: ${esc(ev.gloss_vi)}</p>` : '')
+    + (ev.context_note ? `<p class="ev-n"><b>Bối cảnh:</b> ${esc(ev.context_note)}</p>` : '')
+    + (ev.qualifier && tier !== 'partial' ? `<p class="ev-n"><b>Sách còn ghi thêm:</b> ${esc(ev.qualifier)}</p>` : '');
+  return `<details class="ev-x"><summary>Xem nguyên văn <span class="muted">(${esc(book)}, tr. ${esc(ev.quote_page)})</span></summary>${body}</details>`;
+}
+
 export function findingCard(f, refHtml = '') {
   const ok = f.basis === 'verified';
-  return `<div class="finding-card ${ok ? 'ok' : 'draft'}"><p class="eyebrow">${ok ? 'Đã đối chiếu với sách' : 'Quy tắc nháp, chưa xác minh'}${refHtml ? ' · ' + refHtml : ''}</p>${f.corroborated_by?.length ? `<p class="muted small">Còn được nêu bởi ${f.corroborated_by.length} quy tắc khác: ${esc(f.corroborated_by.map(c => c.sources.map(x => SOURCES[x] || x).join(', ')).filter((v, i, a) => a.indexOf(v) === i).join('; '))}.</p>` : ''}<p class="f-claim">${f.effect === 'limit' ? 'Điều kiện hạn chế:' : 'Có thể nhận thấy một dấu hiệu liên quan đến'} ${esc(claimPhrase(f.claim, f.effect))}.</p>${acc('Vì sao quy tắc này khớp?', 'chuỗi suy luận, quy tắc đối lập, nguồn', reasoningPanel(f))}</div>`;
+  const ready = evidenceReady(), ev = ready ? evidenceFor(f) : undefined, tier = ready ? tierOf(f, ev) : '';
+  const label = ready ? `<span class="ev-tier t-${tier}" title="${esc(TIER_HINT[tier])}">${TIER_TXT[tier]}</span>` : (ok ? 'Đã đối chiếu với sách' : 'Quy tắc nháp, chưa xác minh');
+  const warn = tier === 'partial' && ev?.qualifier ? `<p class="ev-warn"><b>Khớp một phần.</b> Ghi chú khi đối chiếu sách: ${esc(ev.qualifier)}</p>` : '';
+  return `<div class="finding-card ${ok ? 'ok' : 'draft'}"${ready ? ` data-tier="${tier}"` : ''}><p class="eyebrow">${label}${refHtml ? ' · ' + refHtml : ''}</p>${f.corroborated_by?.length ? `<p class="muted small">Còn được nêu bởi ${f.corroborated_by.length} quy tắc khác: ${esc(f.corroborated_by.map(c => c.sources.map(x => SOURCES[x] || x).join(', ')).filter((v, i, a) => a.indexOf(v) === i).join('; '))}.</p>` : ''}<p class="f-claim">${f.effect === 'limit' ? 'Điều kiện hạn chế:' : 'Có thể nhận thấy một dấu hiệu liên quan đến'} ${esc(claimPhrase(f.claim, f.effect))}.</p>${warn}${evidenceExpander(ev, tier)}${acc('Vì sao quy tắc này khớp?', 'chuỗi suy luận, quy tắc đối lập, nguồn', reasoningPanel(f))}</div>`;
 }
 const KIND = { finding: 'Nhận định', rule: 'Quy tắc', source: 'Nguồn', fact: 'Dữ kiện' };
 const KIND_ORDER = ['finding', 'rule', 'source', 'fact'];

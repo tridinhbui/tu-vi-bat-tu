@@ -98,6 +98,8 @@ Tiêu chí xong việc cho **mỗi thẻ**: ≥2 trích dẫn sách in được 
 
 ## R6 — Đưa bằng chứng vào thẻ kết quả của từng lá số
 
+**Trạng thái:** đã làm ở nhánh này (`engine/web/js/tier.js`, `ui.js`, `beginner.js`; test `test_evidence_tier.py`). Nhãn 5 bậc tính ở trình duyệt từ `/api/evidence` (không đổi trường API nào); chế độ Chuyên sâu có nhãn, cảnh báo "Khớp một phần" và nút "Xem nguyên văn"; chế độ Dễ hiểu chỉ hiện nhãn khi "Khớp một phần".
+
 Hiện thẻ kết quả (`ui.js`) có nhãn "Đã đối chiếu với sách / Nháp". Việc tiếp theo:
 * Dùng `GET /api/evidence` để hiện nhãn 5 bậc và nút "Xem nguyên văn" ngay trong thẻ (chế độ *Chuyên sâu*; chế độ *Dễ hiểu* chỉ hiện nhãn khi "Khớp một phần").
 * Cảnh báo "Khớp một phần: sách nói thêm …" trực tiếp cạnh nhận định bị lệch điều kiện.

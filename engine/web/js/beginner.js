@@ -4,6 +4,7 @@
 import { esc, STEMS, BRANCHES, EL, ELEMENTS, claimPhrase, claimKnown, palaceOfSubject } from './util.js';
 import { currentPhase, elementStats } from './insights.js';
 import { lessonTitle } from './learn.js';
+import { tierOf, evidenceFor, evidenceReady } from './tier.js';
 
 // Phrases that describe a hard or one-sided trait: kept out of the headline summary and tucked into a clearly-labelled fold.
 const CARE = /khó|nghèo|thất bại|phiêu bạt|mất mát|hao tâm|hao hụt|ganh|cao ngạo|tự cao|kiêu căng|tranh cãi|tranh giành|bất hòa|xa cách|ngậm ngùi|liều|vất vả|thiếu tình nghĩa|nóng|thờ ơ|thay đổi|phóng đãng|tật|bệnh|chết|yểu|cô độc|ly |sát tinh/i;
@@ -27,9 +28,15 @@ export function classify(findings) {
   return out;
 }
 
+/** 'Dễ hiểu' shows a tier label for one case only: the book says more than the rule does ('Khớp một phần'). */
+const partialNote = f => {
+  const ev = evidenceReady() ? evidenceFor(f) : null;
+  return ev?.qualifier && tierOf(f, ev) === 'partial' ? `<p class="ez-b ez-partial"><span class="ev-tier t-partial">Khớp một phần</span> Ghi chú khi đối chiếu sách: ${esc(ev.qualifier)}</p>` : '';
+};
+
 export const easyCard = f => {
   const p = parsePhrase(f);
-  return `<div class="ez-card"><p class="ez-t">${esc(cap(p.core))}</p>${p.basis ? `<p class="ez-b">Căn cứ trên lá số: ${esc(p.basis)}</p>` : ''}${p.note ? `<p class="ez-b">${esc(cap(p.note))}</p>` : ''}<span class="ez-tag">Theo sách đã đối chiếu</span></div>`;
+  return `<div class="ez-card"><p class="ez-t">${esc(cap(p.core))}</p>${p.basis ? `<p class="ez-b">Căn cứ trên lá số: ${esc(p.basis)}</p>` : ''}${p.note ? `<p class="ez-b">${esc(cap(p.note))}</p>` : ''}${partialNote(f)}<span class="ez-tag">Theo sách đã đối chiếu</span></div>`;
 };
 
 const CARE_INTRO = 'Những mô tả dưới đây nêu mặt cần để ý của một tổ hợp sao hoặc chữ. Chúng đến từ sách cổ, thường còn tùy các yếu tố đi kèm, và có thể trái chiều với các nhận định khác. Hãy xem như một góc nhìn để suy ngẫm, không phải kết luận về con người bạn.';
