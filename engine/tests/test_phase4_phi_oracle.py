@@ -104,3 +104,14 @@ def test_api_edges_equal_the_graph_for_several_births():
         gr = G.build(real(y, m, d, h, g))
         assert [(e["from"], e["hoa"], e["to"], e["star"], e["stem"], e["kinds"], e["trace"]) for e in j["computation"]["edges"]] == \
                [(e.src, e.hoa, e.dst, e.star, e.src_stem, e.kinds, e.trace) for e in gr.edges]
+
+
+def test_phi_hoa_v1_top_level_keys_still_present_and_equal_to_nested_blocks():
+    """Backward compatibility with the deployed /api/phi-hoa (87a7274): table{id,status}, edges, findings, blocked, conflicts, problems at top level."""
+    from fastapi.testclient import TestClient
+    from tvbt.api import app
+    j = TestClient(app).post("/api/phi-hoa", json=dict(year=1990, month=5, day=17, hour=10, minute=30, gender="male")).json()
+    assert set(j["table"]) == {"id", "status"} and j["table"]["status"] == j["computation"]["table"]["status"]
+    assert j["edges"] == j["computation"]["edges"] and len(j["edges"]) == 48
+    assert j["findings"] == j["interpretation"]["findings"] and j["blocked"] == j["interpretation"]["blocked"]
+    assert j["conflicts"] == j["interpretation"]["conflicts"] and j["problems"] == j["interpretation"]["problems"] == []
