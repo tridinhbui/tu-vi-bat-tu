@@ -63,6 +63,16 @@ def analysis_endpoint(req: BirthReq):
     return {"chapters": analysis.analyse(tv, bz), "dignity_school": req.dignity_school}
 
 
+@app.post("/api/bazi-structure")
+def bazi_structure(req: BirthReq):
+    """Bát Tự structure analysis (bazi_deep): khí thế before/after interactions, tương tác, cách cục, dụng thần per method, findings.
+    Every rule involved is `draft`; the response says so. No LLM, no storage."""
+    from .bazi_deep import pipeline
+    from .bazi_deep.model import ChartView
+    nb, bz, _ = _compute(req)
+    return pipeline.analyse(ChartView.from_bazi(bz, nb.utc, req.gender))
+
+
 @app.post("/api/year")
 def year(req: BirthReq):
     nb, bz, tv = _compute(req)

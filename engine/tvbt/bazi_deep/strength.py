@@ -80,7 +80,7 @@ def compute(view: ChartView, profile: SchoolProfile = DEFAULT, resolved: Resolve
     # --- bốn trục
     st = states[dm_el]
     de_lenh = {"vượng": "đắc lệnh", "tướng": "được lệnh sinh"}.get(st, "thất lệnh")
-    rs = roots(view, view.dm, profile, mult, opened) if dm_el == view.dm_element else []
+    rs = roots(view, view.dm, profile, mult, opened, shifts) if dm_el == view.dm_element else []
     grade = root_grade(rs)
     vis_help = [c for c in contrib if c["note"] == "thiên can" and c["group"] in ("Ti", "An")]
     de_the = "đông" if len(vis_help) >= 2 else "có" if vis_help else "không"

@@ -124,7 +124,7 @@ def _hua_conditions(view: ChartView, rec: dict, raw: list[dict], profile: School
     chk("hoa_than_co_can", bool(base) or bool(thau), f"chi cùng hành {el}: {[PIL_VI[p] for p in base]}; thấu: {[PIL_VI[p] for p in thau]}")
     killers = [p for p, s in others if controls(STEM_ELEMENT[s], el)]
     chk("khong_bi_khac", not killers, f"thiên can khắc {el}: {[PIL_VI[p] for p in killers]}")
-    chk("khong_tranh_hop", not any(r is not rec and r["kind"] == "stem_combine" and set(r["members"]) & set(rec["members"]) for r in raw), "")
+    chk("khong_tranh_hop", not any(r["id"] != rec["id"] and r["kind"] == "stem_combine" and set(r["members"]) & set(rec["members"]) for r in raw), "")
     weak = []
     for m in rec["members"]:
         s = view.stem(m.split(".")[0])

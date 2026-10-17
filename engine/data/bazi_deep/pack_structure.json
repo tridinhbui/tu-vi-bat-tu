@@ -1,0 +1,596 @@
+{
+ "sources": [
+  {
+   "id": "SRC_TBCT",
+   "title": "Tử Bình Chân Thuyên (子平真詮)",
+   "author": "Thẩm Hiếu Chiêm (đối chiếu)",
+   "locator": null,
+   "verified": false,
+   "edition": null,
+   "note": "Điều kiện thành/bại/cứu viết theo hiểu biết chung về sách; chưa có chương/trang đã kiểm."
+  },
+  {
+   "id": "SRC_SYSTEM_STRUCT",
+   "title": "Quy ước hệ thống: SchoolProfile baseline_v1 (tvbt.bazi_deep)",
+   "author": null,
+   "locator": null,
+   "verified": false,
+   "edition": null,
+   "note": "Trọng số, ngưỡng và thứ tự giải tương tác do hệ thống chọn, công khai trong SchoolProfile; không phải trích dẫn sách."
+  }
+ ],
+ "rules": [
+  {
+   "id": "BT_ST_LEVEL_AMBIG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "strength",
+   "description": "Khí thế Nhật Chủ sát ranh giới hai mức",
+   "conditions": {
+    "fact": "bazi.dm_ambiguous",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_dm_hai_cach_doc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_DM_WEAK_PHUUC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "yongshen",
+   "description": "Nhật Chủ nhược: phù ức nghiêng về sinh trợ (chỉ một phương pháp)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.dm_level",
+      "operator": "in",
+      "value": [
+       "cực nhược",
+       "nhược",
+       "thiên nhược"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_dm_nhuoc_phu_uc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.dm_ambiguous",
+     "value": true
+    },
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT",
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_DM_STRONG_PHUUC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "yongshen",
+   "description": "Nhật Chủ vượng: phù ức nghiêng về khắc tiết hao",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.dm_level",
+      "operator": "in",
+      "value": [
+       "thiên vượng",
+       "vượng",
+       "cực vượng"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_dm_vuong_phu_uc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.dm_ambiguous",
+     "value": true
+    },
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT",
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_LENH_CLASH",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "interaction",
+   "description": "Nguyệt lệnh bị xung kề sát",
+   "conditions": {
+    "fact": "bazi.lenh_clashed",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_nguyet_lenh_bi_xung",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_GEJU_THANH",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "geju",
+   "description": "Cách thành",
+   "conditions": {
+    "fact": "bazi.geju_state",
+    "value": "thanh"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_cach_thanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_GEJU_THANH_PHA",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "geju",
+   "description": "Cách thành nhưng nguyệt lệnh bị phá",
+   "conditions": {
+    "fact": "bazi.geju_state",
+    "value": "thanh_nhung_bi_pha"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_cach_thanh_nhung_bi_pha",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_GEJU_BAI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "geju",
+   "description": "Cách bại chưa cứu; sinh ra việc cần xét cứu ứng",
+   "conditions": {
+    "fact": "bazi.geju_state",
+    "value": "bai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_cach_bai_chua_cuu",
+     "effect": "limit",
+     "scope": "natal"
+    },
+    {
+     "kind": "assert",
+     "fact": "derived.bazi.can_xet_cuu_ung",
+     "value": true,
+     "scope": "chart"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_GEJU_BAI_CUU",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "geju",
+   "description": "Cách có bại nhưng đã có cứu",
+   "conditions": {
+    "fact": "bazi.geju_state",
+    "value": "bai_co_cuu"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_cach_bai_co_cuu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_CUU_NEEDED",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "geju",
+   "description": "Hop thứ hai: cách bại + khí thế sát ranh giới thì cứu ứng không chắc",
+   "conditions": {
+    "all": [
+     {
+      "fact": "derived.bazi.can_xet_cuu_ung",
+      "value": true
+     },
+     {
+      "fact": "bazi.dm_ambiguous",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_cuu_ung_khong_chac",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_HUA_GIA",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "interaction",
+   "description": "Giả hóa",
+   "conditions": {
+    "fact": "bazi.hua_state",
+    "value": "gia_hoa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_hop_hoa_chua_tron",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_HOP_TROI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "interaction",
+   "description": "Hợp mà không hóa / tranh hợp",
+   "conditions": {
+    "fact": "bazi.hua_state",
+    "operator": "in",
+    "value": [
+     "hop_khong_hoa",
+     "tranh_hop"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_hop_ma_khong_hoa",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_CUC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "interaction",
+   "description": "Có cục hợp/hội thành",
+   "conditions": {
+    "fact": "bazi.cuc_formed",
+    "operator": "ne",
+    "value": []
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_hoi_cuc_doi_khi_the",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_LEVEL_SHIFT",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "strength",
+   "description": "Tương tác đổi mức khí thế",
+   "conditions": {
+    "fact": "bazi.level_changed_by_interaction",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_khi_the_doi_sau_tuong_tac",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_DISAGREE",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "yongshen",
+   "description": "Các phương pháp bất đồng",
+   "conditions": {
+    "fact": "bazi.method_disagreements",
+    "operator": "ne",
+    "value": []
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_phuong_phap_bat_dong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_OUTER_GIA",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "geju",
+   "description": "Ngoại cách giả",
+   "conditions": {
+    "fact": "bazi.geju_outer_quality",
+    "value": "giả"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ngoai_cach_gia",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_OUTER_CHAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "geju",
+   "description": "Ngoại cách chân",
+   "conditions": {
+    "fact": "bazi.geju_outer_quality",
+    "value": "chân"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_ngoai_cach_chan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 6,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_THONGQUAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "yongshen",
+   "description": "Giao chiến thiếu thông quan",
+   "conditions": {
+    "fact": "bazi.thong_quan_missing",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_thieu_thong_quan",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ST_GEJU_BAI_CUU_YEU",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "geju",
+   "description": "Cách bại, chỉ có cứu ứng yếu (tàng)",
+   "conditions": {
+    "fact": "bazi.geju_state",
+    "value": "bai_cuu_yeu"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_cach_bai_cuu_yeu",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 5,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  }
+ ]
+}

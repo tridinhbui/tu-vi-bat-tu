@@ -74,6 +74,21 @@ class LuckPillar:
     start_age: float
     start_year_approx: float
     ten_god: str
+    start_date: str = ""            # exact calendar date of the start (birth date + years/months/days), ISO
+    start_year_exact: float = 0.0   # decimal year of that date; start_year_approx ignores the birth month and can be a year off
+
+
+def add_ymd(d: dt.date, years: int, months: int, days: int) -> dt.date:
+    """Calendar addition used for 起运: years, then months (day clipped to month length), then days."""
+    import calendar
+    m0 = d.month - 1 + months + 12 * years
+    y, m = d.year + m0 // 12, m0 % 12 + 1
+    day = min(d.day, calendar.monthrange(y, m)[1])
+    return dt.date(y, m, day) + dt.timedelta(days=days)
+
+
+def decimal_year(d: dt.date) -> float:
+    return d.year + (d.timetuple().tm_yday - 1) / (366.0 if (d.year % 4 == 0 and (d.year % 100 != 0 or d.year % 400 == 0)) else 365.0)
 
 
 def kong_wang(stem: int, branch: int) -> list[int]:
@@ -229,8 +244,12 @@ def compute(nb: NormalizedBirth, n_luck: int = 10) -> BaziChart:
     for k in range(1, n_luck + 1):
         s, br = from_cycle((m_idx + (k if forward else -k)) % 60)
         sa = age + 10 * (k - 1)
+        sy = int(sa)
+        srem = (sa - sy) * 12
+        sm = int(srem)
+        sd = add_ymd(nb.local.date(), sy, sm, round((srem - sm) * 30))
         luck.append(LuckPillar(k, s, br, gz_name(s, br), round(sa, 3),
-                               round(nb.local.year + sa, 2), ten_god(ds, s)))
+                               round(nb.local.year + sa, 2), ten_god(ds, s), sd.isoformat(), round(decimal_year(sd), 3)))
     from .ganzhi import branch_stem_from_year
     mg, sg = ming_gong_branch(mb, hb), shen_gong_branch(mb, hb)
     ty_s, ty_b = thai_yuan(ms, mb)
@@ -247,7 +266,7 @@ def compute(nb: NormalizedBirth, n_luck: int = 10) -> BaziChart:
     chart = BaziChart(
         pillars=pillars, day_master=ds, day_master_element=STEM_ELEMENT[ds],
         luck_direction="thuận" if forward else "nghịch",
-        luck_start={"years": yrs, "months": mons, "days": dys, "age_years": round(age, 4)},
+        luck_start={"years": yrs, "months": mons, "days": dys, "age_years": round(age, 4), "start_date": luck[0].start_date},
         luck_pillars=luck, relations=_relations(pillars),
         jie_used={"prev_jie_index": prev_idx, "prev_jie_utc": astro.jd_to_utc(prev_jd).isoformat()},
         trace=tr, extras=extras,

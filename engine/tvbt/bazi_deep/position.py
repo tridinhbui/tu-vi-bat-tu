@@ -8,10 +8,10 @@ from .profile import DEFAULT, SchoolProfile
 KHO = {1, 4, 7, 10}   # Sửu Thìn Mùi Tuất
 
 
-def roots(view: ChartView, stem: int, profile: SchoolProfile = DEFAULT, mult: dict | None = None, opened: set | None = None) -> list[dict]:
+def roots(view: ChartView, stem: int, profile: SchoolProfile = DEFAULT, mult: dict | None = None, opened: set | None = None, shifts: dict | None = None) -> list[dict]:
     """Every hidden stem (in any branch) of the same element as `stem`. score = class × growth stage × (1 same char, 0.7 same element),
     × branch multiplier from the interaction resolver, × 0.5 for an unopened khố when the profile says khố needs opening."""
-    mult, opened = mult or {}, opened or set()
+    mult, opened, shifts = mult or {}, opened or set(), shifts or {}
     out = []
     for p in PILLARS:
         for i, h in enumerate(view.hidden(p)):
@@ -23,6 +23,8 @@ def roots(view: ChartView, stem: int, profile: SchoolProfile = DEFAULT, mult: di
             if view.branch(p) in KHO and stage == "Mộ" and profile.kho_policy == "can_mo" and p not in opened:
                 sc *= 0.5
             sc *= mult.get(f"{p}.branch", 1.0)
+            if f"{p}.branch" in shifts:      # the branch's qi was partly re-assigned to a hợp/hội cục
+                sc *= 1.0 - shifts[f"{p}.branch"][1]
             out.append({"pillar": p, "branch": BRANCHES_VI[view.branch(p)], "hidden": STEMS_VI[h["stem"]], "class": CLASS_NAMES[i],
                         "same_char": same, "stage": stage, "score": round(sc, 3)})
     return out

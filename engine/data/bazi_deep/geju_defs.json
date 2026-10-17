@@ -1,0 +1,244 @@
+{
+ "_status": "draft",
+ "_source": "SRC_TBCT",
+ "_note": "Điều kiện thành/bại/cứu dựa trên các chương luận quan/sát/ấn/tài/thực/thương/lộc-nhận của Tử Bình Chân Thuyên theo trí nhớ của người soạn; CHƯA đối chiếu văn bản gốc nên mọi mục là draft. Vị ngữ (predicate) có từ vựng đóng, xem tvbt/bazi_deep/geju.py. Cứu: một bệnh được cứu nếu BẤT KỲ vị ngữ cứu nào đúng. yong: các nhóm thập thần được xem là dụng của cách (chỉ tính khi hiện diện). Cứu ứng ghi bằng vị ngữ 'visible:' là mạnh, bằng 'any:' (chỉ tàng) là yếu và cho trạng thái bai_cuu_yeu.",
+ "defs": {
+  "Chính Quan": {
+   "thanh_any": [
+    "any:Tai",
+    "any:An"
+   ],
+   "bai": {
+    "thuong_kien_quan": "controls_adjacent:Thuong>Quan",
+    "quan_sat_hon_tap": "both_visible:Quan+Sat",
+    "quan_bi_xung_lenh": "lenh_clashed",
+    "quan_bi_hinh_lenh": "lenh_penalized"
+   },
+   "cuu": {
+    "thuong_kien_quan": [
+     "visible:An",
+     "visible:Tai",
+     "any:An",
+     "any:Tai"
+    ],
+    "quan_sat_hon_tap": [
+     "bound:Sat",
+     "visible:Thuc"
+    ],
+    "quan_bi_xung_lenh": [
+     "lenh_clash_resolved"
+    ],
+    "quan_bi_hinh_lenh": []
+   },
+   "yong": [
+    "Tai",
+    "An"
+   ]
+  },
+  "Thất Sát": {
+   "thanh_any": [
+    "controls_adjacent:Thuc>Sat",
+    "chain_adjacent:Sat>An",
+    "any:Thuc",
+    "any:An"
+   ],
+   "bai": {
+    "sat_khong_che": "sat_unrestrained",
+    "sat_bi_xung_lenh": "lenh_clashed"
+   },
+   "cuu": {
+    "sat_khong_che": [],
+    "sat_bi_xung_lenh": [
+     "lenh_clash_resolved"
+    ]
+   },
+   "yong": [
+    "Thuc",
+    "An"
+   ]
+  },
+  "Chính Ấn": {
+   "thanh_any": [
+    "any:QuanSat",
+    "all:level_ge:vượng+any:ThucThuong"
+   ],
+   "bai": {
+    "tai_pha_an": "controls_adjacent:Tai>An",
+    "an_qua_nhieu": "all:level_ge:vượng+count_visible_ge:An=2"
+   },
+   "cuu": {
+    "tai_pha_an": [
+     "any:Ti",
+     "bound:Tai"
+    ],
+    "an_qua_nhieu": [
+     "any:Tai"
+    ]
+   },
+   "yong": [
+    "QuanSat",
+    "ThucThuong"
+   ]
+  },
+  "Thiên Ấn": {
+   "thanh_any": [
+    "any:QuanSat",
+    "all:level_ge:vượng+any:ThucThuong"
+   ],
+   "bai": {
+    "tai_pha_an": "controls_adjacent:Tai>An",
+    "kieu_doat_thuc": "controls_adjacent:Kieu>Thuc"
+   },
+   "cuu": {
+    "tai_pha_an": [
+     "any:Ti",
+     "bound:Tai"
+    ],
+    "kieu_doat_thuc": [
+     "any:Tai"
+    ]
+   },
+   "yong": [
+    "QuanSat",
+    "Tai"
+   ]
+  },
+  "Chính Tài": {
+   "thanh_any": [
+    "any:ThucThuong",
+    "any:Quan",
+    "level_ge:thiên vượng"
+   ],
+   "bai": {
+    "ti_kiep_doat_tai": "count_visible_ge:Ti=2",
+    "tai_nhieu_than_nhuoc": "all:level_le:nhược+count_visible_ge:Tai=2"
+   },
+   "cuu": {
+    "ti_kiep_doat_tai": [
+     "any:Quan",
+     "any:Sat"
+    ],
+    "tai_nhieu_than_nhuoc": [
+     "any:An"
+    ]
+   },
+   "yong": [
+    "ThucThuong",
+    "Quan"
+   ]
+  },
+  "Thiên Tài": {
+   "thanh_any": [
+    "any:ThucThuong",
+    "any:Quan",
+    "level_ge:thiên vượng"
+   ],
+   "bai": {
+    "ti_kiep_doat_tai": "count_visible_ge:Ti=2",
+    "tai_nhieu_than_nhuoc": "all:level_le:nhược+count_visible_ge:Tai=2"
+   },
+   "cuu": {
+    "ti_kiep_doat_tai": [
+     "any:Quan",
+     "any:Sat"
+    ],
+    "tai_nhieu_than_nhuoc": [
+     "any:An"
+    ]
+   },
+   "yong": [
+    "ThucThuong",
+    "Quan"
+   ]
+  },
+  "Thực Thần": {
+   "thanh_any": [
+    "any:Tai",
+    "controls_adjacent:Thuc>Sat"
+   ],
+   "bai": {
+    "kieu_doat_thuc": "controls_adjacent:Kieu>Thuc"
+   },
+   "cuu": {
+    "kieu_doat_thuc": [
+     "any:Tai"
+    ]
+   },
+   "yong": [
+    "Tai",
+    "Sat"
+   ]
+  },
+  "Thương Quan": {
+   "thanh_any": [
+    "all:any:Tai+level_ge:thiên vượng",
+    "all:any:An+level_le:trung hòa"
+   ],
+   "bai": {
+    "thuong_kien_quan": "controls_adjacent:Thuong>Quan"
+   },
+   "cuu": {
+    "thuong_kien_quan": [
+     "visible:An",
+     "visible:Tai",
+     "any:An",
+     "any:Tai"
+    ]
+   },
+   "yong": [
+    "Tai",
+    "An"
+   ]
+  },
+  "Kiến Lộc": {
+   "thanh_any": [
+    "any:QuanSat",
+    "any:Tai",
+    "any:ThucThuong"
+   ],
+   "bai": {
+    "khong_co_dung": "none_of:QuanSat,Tai,ThucThuong"
+   },
+   "cuu": {
+    "khong_co_dung": []
+   },
+   "yong": [
+    "QuanSat",
+    "Tai",
+    "ThucThuong"
+   ]
+  },
+  "Nguyệt Kiếp": {
+   "thanh_any": [
+    "any:QuanSat",
+    "any:Tai",
+    "any:ThucThuong"
+   ],
+   "bai": {
+    "khong_co_dung": "none_of:QuanSat,Tai,ThucThuong"
+   },
+   "cuu": {
+    "khong_co_dung": []
+   },
+   "yong": [
+    "QuanSat",
+    "Tai",
+    "ThucThuong"
+   ]
+  },
+  "Dương Nhận": {
+   "thanh_any": [
+    "any:QuanSat"
+   ],
+   "bai": {
+    "nhan_khong_che": "none_of:QuanSat"
+   },
+   "cuu": {
+    "nhan_khong_che": []
+   },
+   "yong": [
+    "QuanSat"
+   ]
+  }
+ }
+}

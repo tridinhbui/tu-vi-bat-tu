@@ -44,9 +44,20 @@ def bazi_months(chart: BaziChart, year: int) -> list[dict]:
 def bazi_year(chart: BaziChart, birth_year: int, year: int) -> dict:
     age = year - birth_year
     luck = None
-    for lp in chart.luck_pillars:
-        if lp.start_age <= age < lp.start_age + 10:
-            luck = lp
+    # Lập Xuân falls around 4 Feb (~0.09 of a year), so the BaZi year `year` starts at year + 0.09. Luck pillars begin on
+    # exact calendar dates (start_year_exact); the old age-based test used whole years and could be a year off.
+    t0 = year + 0.09
+    exact = [lp for lp in chart.luck_pillars if lp.start_year_exact]
+    if exact:
+        for lp in exact:
+            if lp.start_year_exact <= t0:
+                luck = lp
+        boundary = any(t0 < lp.start_year_exact <= t0 + 1 for lp in exact)
+    else:
+        for lp in chart.luck_pillars:
+            if lp.start_age <= age < lp.start_age + 10:
+                luck = lp
+        boundary = False
     s, b = annual_pillar(year)
     dm = chart.day_master
     return {
@@ -56,6 +67,7 @@ def bazi_year(chart: BaziChart, birth_year: int, year: int) -> dict:
         "annual_vs_natal": _rel_with_natal(chart, s, b, "lưu niên"),
         "luck_vs_natal": _rel_with_natal(chart, luck.stem, luck.branch, "đại vận") if luck else [],
         "months": bazi_months(chart, year),
+        "luck_changes_within_year": boundary,
         "luck_vs_annual_clash": bool(luck and frozenset((luck.branch, b)) in SIX_CLASH),
         "scope": "temporal",
     }

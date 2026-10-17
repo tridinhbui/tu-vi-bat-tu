@@ -44,6 +44,6 @@ def climate(view: ChartView, element_totals: dict[str, float]) -> dict:
     tot = sum(element_totals.values()) or 1.0
     adj = round((element_totals.get("Hỏa", 0) - element_totals.get("Thủy", 0)) / tot * 3, 2)
     heat = base + adj
-    label = ("cực hàn" if heat <= -2 else "hàn" if heat <= -1 else "nhiệt" if heat >= 1.5 and heat < 2.5 else "cực nhiệt" if heat >= 2.5 else "ôn hòa")
+    label = "cực hàn" if heat <= -2 else "hàn" if heat <= -1 else "cực nhiệt" if heat >= 2.5 else "nhiệt" if heat >= 1.5 else "ôn hòa"
     return {"base": base, "adjust": adj, "heat": round(heat, 2), "label": label, "moist": None,
             "note": "chỉ số nhiệt thô (he_thong, draft); độ ẩm/táo chưa được tính"}

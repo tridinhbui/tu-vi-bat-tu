@@ -58,6 +58,8 @@ class SchoolProfile:
     tong_chan_tia: float = 0.08
     tong_gia_tia: float = 0.20
     tong_max_ratio: float = 0.22
+    war_share: float = 0.20                         # both elements at least this share of the total => 'giao chiến'
+    bridge_min: float = 0.10                        # thông quan element below this share counts as missing
     interact_order: tuple = ("cuc", "stem_combine", "clash", "xing_hai_po")
 
     def tu_lenh_rows(self) -> dict:

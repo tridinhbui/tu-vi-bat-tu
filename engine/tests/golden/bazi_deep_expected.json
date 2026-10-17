@@ -1,0 +1,362 @@
+{
+ "EX1": {
+  "levels": [
+   "thiên nhược",
+   "nhược"
+  ],
+  "inner": [
+   [
+    "Kiến Lộc",
+    "thanh"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_co",
+  "cuc": [
+   "triad:Hỏa"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_GEJU_THANH",
+   "BT_ST_LEVEL_AMBIG",
+   "BT_ST_LEVEL_SHIFT"
+  ]
+ },
+ "EX2": {
+  "levels": [
+   "cực nhược",
+   "cực nhược"
+  ],
+  "inner": [
+   [
+    "Chính Quan",
+    "bai"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_ke",
+  "cuc": [],
+  "fired": [
+   "BT_ST_CUU_NEEDED",
+   "BT_ST_GEJU_BAI",
+   "BT_ST_LENH_CLASH",
+   "BT_ST_LEVEL_AMBIG"
+  ]
+ },
+ "EX3": {
+  "levels": [
+   "nhược",
+   "nhược"
+  ],
+  "inner": [
+   [
+    "Chính Quan",
+    "bai"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_co",
+  "cuc": [
+   "semi_triad:Thủy"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_DISAGREE",
+   "BT_ST_DM_WEAK_PHUUC",
+   "BT_ST_GEJU_BAI",
+   "BT_ST_LENH_CLASH"
+  ]
+ },
+ "EX4": {
+  "levels": [
+   "cực nhược",
+   "cực nhược"
+  ],
+  "inner": [
+   [
+    "Thất Sát",
+    "thanh_nhung_bi_pha"
+   ]
+  ],
+  "outer": [
+   [
+    "Tòng Sát",
+    "giả"
+   ]
+  ],
+  "hua_state": "tranh_hop",
+  "cuc": [
+   "semi_triad:Kim"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_DM_WEAK_PHUUC",
+   "BT_ST_GEJU_THANH_PHA",
+   "BT_ST_HOP_TROI",
+   "BT_ST_OUTER_GIA"
+  ]
+ },
+ "EX5": {
+  "levels": [
+   "cực nhược",
+   "cực nhược"
+  ],
+  "inner": [
+   [
+    "Chính Tài",
+    "bai"
+   ]
+  ],
+  "outer": [
+   [
+    "Hóa Thổ",
+    "giả"
+   ],
+   [
+    "Tòng Tài",
+    "giả"
+   ]
+  ],
+  "hua_state": "gia_hoa",
+  "cuc": [],
+  "fired": [
+   "BT_ST_DISAGREE",
+   "BT_ST_DM_WEAK_PHUUC",
+   "BT_ST_GEJU_BAI",
+   "BT_ST_HUA_GIA",
+   "BT_ST_OUTER_GIA"
+  ]
+ },
+ "EX6": {
+  "levels": [
+   "trung hòa",
+   "nhược"
+  ],
+  "inner": [
+   [
+    "Kiến Lộc",
+    "thanh"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_co",
+  "cuc": [
+   "triad:Thủy"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_DISAGREE",
+   "BT_ST_DM_WEAK_PHUUC",
+   "BT_ST_GEJU_THANH",
+   "BT_ST_LEVEL_SHIFT"
+  ]
+ },
+ "EX7": {
+  "levels": [
+   "trung hòa",
+   "thiên vượng"
+  ],
+  "inner": [
+   [
+    "Kiến Lộc",
+    "thanh_nhung_bi_pha"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "hop_khong_hoa",
+  "cuc": [],
+  "fired": [
+   "BT_ST_DM_STRONG_PHUUC",
+   "BT_ST_GEJU_THANH_PHA",
+   "BT_ST_HOP_TROI",
+   "BT_ST_LENH_CLASH",
+   "BT_ST_LEVEL_SHIFT"
+  ]
+ },
+ "EX8": {
+  "levels": [
+   "thiên nhược",
+   "trung hòa"
+  ],
+  "inner": [
+   [
+    "Chính Quan",
+    "thanh"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_co",
+  "cuc": [
+   "semi_triad:Hỏa",
+   "semi_triad:Thủy"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_GEJU_THANH",
+   "BT_ST_LEVEL_AMBIG",
+   "BT_ST_LEVEL_SHIFT"
+  ]
+ },
+ "EX9": {
+  "levels": [
+   "trung hòa",
+   "vượng"
+  ],
+  "inner": [
+   [
+    "Dương Nhận",
+    "thanh"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_co",
+  "cuc": [
+   "triad:Hỏa"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_DM_STRONG_PHUUC",
+   "BT_ST_GEJU_THANH",
+   "BT_ST_LEVEL_SHIFT"
+  ]
+ },
+ "EX10": {
+  "levels": [
+   "thiên nhược",
+   "thiên nhược"
+  ],
+  "inner": [
+   [
+    "Kiến Lộc",
+    "thanh_nhung_bi_pha"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_co",
+  "cuc": [
+   "semi_triad:Hỏa"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_GEJU_THANH_PHA",
+   "BT_ST_LENH_CLASH",
+   "BT_ST_LEVEL_AMBIG",
+   "BT_ST_THONGQUAN"
+  ]
+ },
+ "EX11": {
+  "levels": [
+   "thiên nhược",
+   "thiên nhược"
+  ],
+  "inner": [
+   [
+    "Chính Tài",
+    "thanh"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_ke",
+  "cuc": [
+   "semi_triad:Mộc"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_DISAGREE",
+   "BT_ST_DM_WEAK_PHUUC",
+   "BT_ST_GEJU_THANH"
+  ]
+ },
+ "EX12": {
+  "levels": [
+   "thiên vượng",
+   "trung hòa"
+  ],
+  "inner": [
+   [
+    "Chính Ấn",
+    "thanh"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_co",
+  "cuc": [
+   "triad:Mộc"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_GEJU_THANH",
+   "BT_ST_LEVEL_AMBIG",
+   "BT_ST_LEVEL_SHIFT",
+   "BT_ST_THONGQUAN"
+  ]
+ },
+ "EX13": {
+  "levels": [
+   "cực vượng",
+   "cực vượng"
+  ],
+  "inner": [
+   [
+    "Chính Ấn",
+    "thanh"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_co",
+  "cuc": [
+   "meeting:Mộc"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_DM_STRONG_PHUUC",
+   "BT_ST_GEJU_THANH"
+  ]
+ },
+ "EX14": {
+  "levels": [
+   "thiên nhược",
+   "thiên vượng"
+  ],
+  "inner": [
+   [
+    "Chính Quan",
+    "thanh"
+   ],
+   [
+    "Chính Ấn",
+    "thanh"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_ke",
+  "cuc": [
+   "semi_triad:Hỏa"
+  ],
+  "fired": [
+   "BT_ST_CUC",
+   "BT_ST_GEJU_THANH",
+   "BT_ST_LEVEL_AMBIG",
+   "BT_ST_LEVEL_SHIFT"
+  ]
+ },
+ "EX15": {
+  "levels": [
+   "cực vượng",
+   "cực vượng"
+  ],
+  "inner": [
+   [
+    "Kiến Lộc",
+    "thanh"
+   ]
+  ],
+  "outer": [],
+  "hua_state": "khong_co",
+  "cuc": [],
+  "fired": [
+   "BT_ST_DM_STRONG_PHUUC",
+   "BT_ST_GEJU_THANH"
+  ]
+ }
+}
