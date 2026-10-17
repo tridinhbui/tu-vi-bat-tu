@@ -47,6 +47,7 @@ class Formation:
     experimental: bool = True
     provenance: str = ""
     note: str = ""
+    definition_version: int = 1
 
 
 def _ev(items: list[dict]) -> list[Evidence]:

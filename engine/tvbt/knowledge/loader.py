@@ -39,6 +39,11 @@ def load_experimental_layers():
     return load_pack(EXPERIMENTAL / "pack_van_han_layers.json")
 
 
+def load_experimental_phi_hoa():
+    """Draft Phi Hóa rules (school phi_tinh_draft); never in production. Returns (rules, sources)."""
+    return load_pack(EXPERIMENTAL / "pack_phi_hoa.json")
+
+
 def load_claims() -> dict[str, dict[str, str]]:
     raw = json.loads((DATA / "claims_vi.json").read_text("utf-8"))
     return {k: {"label": v, "gloss": ""} for k, v in raw.items()}

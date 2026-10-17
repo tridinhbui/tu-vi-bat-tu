@@ -116,9 +116,10 @@ def test_all_ten_formations_reach_every_reachable_state_in_the_scan():
     cov = FX["coverage"]
     ids = {k.split("|")[0] for k in cov}
     assert len(ids) == 10
-    gaps = sorted(f"{i[8:]}:{s}" for i in ids for s in STATES if f"{i}|{s}" not in cov)
-    # recorded gap list (observed in the 25,000-chart scan); a NEW gap means the engine or the scan changed
-    assert gaps == FX.get("known_gaps", gaps), gaps
+    gaps = sorted(f"{i}|{s}" for i in ids for s in STATES if f"{i}|{s}" not in cov)
+    # the 25,000-chart sample misses only cells that the exhaustive scan (fixtures/formation_reach.json) also proves unreachable
+    reach = json.loads((Path(__file__).parent / "fixtures" / "formation_reach.json").read_text("utf-8"))
+    assert gaps == FX["known_gaps"] == reach["unreachable"], gaps
 
 
 def test_endpoint_is_additive_and_the_production_reading_is_unchanged():

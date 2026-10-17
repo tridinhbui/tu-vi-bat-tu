@@ -44,7 +44,9 @@ for _ in range(N):
             special["many_uncovered"].append({**rec, "formation": f["id"], "state": f["state"], "uncovered": f["uncovered"]})
         if f["state"] == "pha_duoc_cuu" and len(act("rescuers")) >= 2 and len(special["many_rescuers"]) < 4:
             special["many_rescuers"].append({**rec, "formation": f["id"], "state": f["state"]})
-out = {"seed": 20261017, "scanned": seen, "cells": [c for v in cells.values() for c in v],
+STATES = ["khong_hien", "hinh_thuc", "thanh", "thanh_thuong", "bi_pha", "pha_duoc_cuu"]
+gaps = sorted(f"{f.id}|{s}" for f in XF for s in STATES if (f.id, s) not in cells)
+out = {"seed": 20261017, "scanned": seen, "cells": [c for v in cells.values() for c in v], "known_gaps": gaps,
        "special": special,
        "coverage": {f"{k[0]}|{k[1]}": len(v) for k, v in sorted(cells.items())}}
 print(json.dumps(out, ensure_ascii=False, indent=1))

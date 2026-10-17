@@ -23,31 +23,33 @@ XK = [S("Văn Xương", "Tài Bạch")]
 KV = [S("Thiên Khôi", "Thiên Di")]
 LOC = [S("Lộc Tồn", "Quan Lộc")]
 KQ = [H("Hóa Quyền", "Quan Lộc")]
-KY, KHOA, TRIET, TUAN = [H("Hóa Kỵ")], [H("Hóa Khoa")], [("triet", "Mệnh")], [("tuan", "Mệnh")]
+KY, KHOA, TUAN = [H("Hóa Kỵ")], [H("Hóa Khoa")], [("tuan", "Mệnh")]
 KINH = [S("Kình Dương")]
+TAM_HOA = [H("Hóa Lộc", "Quan Lộc"), H("Hóa Quyền", "Tài Bạch"), H("Hóa Khoa", "Thiên Di")]      # Lộc, Quyền, Khoa all in the tam phương
 
-# fid -> (menh branch, core ops, [booster op-lists], breaker ops, breaker id, rescuer ops, rescuer id, refutation ops, refutation id)
+# fid -> (menh branch, core ops, [booster op-lists], breaker ops, breaker id, rescuer ops, rescuer id, refutation ops, refutation id)   -- definition v2
 CASES = {
     "CACH_X_TU_PHU_VU_TUONG": ("Tý", [S("Tử Vi"), S("Thiên Phủ", "Quan Lộc"), S("Vũ Khúc", "Tài Bạch"), S("Thiên Tướng", "Thiên Di")],
-                               [TA_HUU, XK, LOC], KINH, "sat_dong_cung", TRIET, "triet_dong_cung", TUAN, "tuan_an_ngu"),
-    "CACH_X_TU_PHU_DONG_CUNG": ("Dần", [S("Tử Vi"), S("Thiên Phủ")], [TA_HUU, XK, KV], KINH, "sat_dong_cung", TRIET, "triet_dong_cung", TUAN, "tuan_an_ngu"),
-    "CACH_X_CO_NGUYET_DONG_LUONG": ("Tý", [S("Thiên Cơ"), S("Thái Âm", "Quan Lộc"), S("Thiên Đồng", "Tài Bạch")],
-                                    [XK, KQ, KV], [S("Địa Không")], "khong_kiep_dong_cung", TRIET, "triet_giai_khong_kiep", TUAN, "tuan_an_ngu"),
+                               [TA_HUU, XK, LOC], KINH, "sat_dong_cung", TAM_HOA, "tam_hoa_hoi_cuu", TUAN, "tuan_triet_an_ngu"),
+    "CACH_X_TU_PHU_DONG_CUNG": ("Dần", [S("Tử Vi"), S("Thiên Phủ")], [TA_HUU, XK, KV], KINH, "sat_dong_cung", TAM_HOA, "tam_hoa_hoi_cuu", TUAN, "tuan_triet_an_ngu"),
+    "CACH_X_CO_NGUYET_DONG_LUONG": ("Tý", [S("Thiên Cơ"), S("Thái Âm", "Quan Lộc"), S("Thiên Đồng", "Tài Bạch"), S("Thiên Lương", "Thiên Di")],
+                                    [XK, KQ], [S("Địa Không")], "khong_kiep_dong_cung", TAM_HOA, "tam_hoa_hoi_cuu", TUAN, "tuan_triet_an_ngu"),
     "CACH_X_SAT_PHA_LIEM_THAM": ("Tý", [S("Thất Sát"), S("Phá Quân", "Quan Lộc"), S("Tham Lang", "Tài Bạch")],
-                                 [KQ, TA_HUU, XK, KV], [S("Kình Dương"), S("Đà La")], "sat_tu_hai_tro_len", TRIET, "triet_giai_sat", TUAN, "tuan_an_ngu"),
+                                 [KQ, TA_HUU, XK, KV], [S("Kình Dương"), S("Đà La"), S("Hỏa Tinh", "Thiên Di"), H("Hóa Kỵ", "Thiên Di")],
+                                 "ba_sat_va_ky_trong_tam_phuong", TAM_HOA, "tam_hoa_hoi_cuu", TUAN, "tuan_triet_an_ngu"),
     "CACH_X_NHAT_NGUYET_TINH_MINH": ("Tý", [S("Thái Dương"), S("Thái Âm", "Quan Lộc")],
                                      [[("dig", "Thái Dương", "Mệnh", "miếu"), ("dig", "Thái Âm", "Quan Lộc", "vượng")], TA_HUU, KQ],
-                                     KY, "ky_dong_cung", KHOA, "khoa_dong_cung", TUAN, "tuan_an_ngu"),
+                                     KY, "ky_dong_cung", KHOA, "khoa_dong_cung", TUAN, "tuan_triet_an_ngu"),
     "CACH_X_NHAT_LE_TRUNG_THIEN": ("Ngọ", [S("Thái Dương")], [TA_HUU, [H("Hóa Khoa", "Tài Bạch")], XK], KINH, "sat_dong_cung",
-                                   TRIET, "triet_dong_cung", TUAN, "tuan_an_ngu"),
-    "CACH_X_THACH_TRUNG_AN_NGOC": ("Tý", [S("Cự Môn")], [KQ, LOC, TA_HUU], KY, "ky_dong_cung", KHOA, "khoa_dong_cung", TUAN, "tuan_an_ngu"),
-    "CACH_X_MA_DAU_DOI_KIEM": ("Ngọ", [S("Kình Dương")], [TA_HUU, KV, XK], [S("Hỏa Tinh")], "sat_khac_dong_cung", TRIET, "triet_giai_sat_khac",
-                               [("dig", "Kình Dương", "Mệnh", "hãm")], "Kình_Dương_ham"),
+                                   TAM_HOA, "tam_hoa_hoi_cuu", TUAN, "tuan_triet_an_ngu"),
+    "CACH_X_THACH_TRUNG_AN_NGOC": ("Tý", [S("Cự Môn")], [TAM_HOA, TA_HUU], KY, "ky_hoac_kinh_dong_cung", KHOA, "khoa_dong_cung", TUAN, "tuan_triet_an_ngu"),
+    "CACH_X_MA_DAU_DOI_KIEM": ("Ngọ", [S("Kình Dương")], [KQ, TA_HUU], [S("Thất Sát", "Quan Lộc")], "that_sat_trong_tam_phuong",
+                               TAM_HOA, "tam_hoa_hoi_cuu", TUAN, "tuan_triet_an_ngu"),
     "CACH_X_TAM_KY_GIA_HOI": ("Tý", [H("Hóa Lộc", "Quan Lộc"), H("Hóa Quyền", "Tài Bạch"), H("Hóa Khoa", "Thiên Di")],
-                              [[H("Hóa Lộc", "Mệnh")], TA_HUU[:1] + TA_HUU[1:], XK], [H("Hóa Kỵ", "Thiên Di")], "ky_trong_tam_phuong",
-                              TA_HUU, "ta_huu_giai_ky", [("triet", "Mệnh")], "triet_an_ngu"),
+                              [[H("Hóa Lộc", "Mệnh")], TA_HUU, XK], [H("Hóa Kỵ")], "ky_hoac_kinh_dong_cung",
+                              TA_HUU, "ta_huu_giai_ky", TUAN, "tuan_triet_an_ngu"),
     "CACH_X_KHOI_VIET_GIAP_MENH": ("Tý", [S("Thiên Khôi", "Huynh Đệ"), S("Thiên Việt", "Phụ Mẫu")],
-                                   [[S("Tử Vi")], TA_HUU, XK], KINH, "sat_dong_cung", TRIET, "triet_dong_cung", TUAN, "tuan_an_ngu"),
+                                   [[S("Tử Vi")], TA_HUU, XK], KINH, "sat_dong_cung", TAM_HOA, "tam_hoa_hoi_cuu", TUAN, "tuan_triet_an_ngu"),
 }
 
 
@@ -108,12 +110,51 @@ def test_rescuer_does_nothing_without_the_breaker_and_breaker_beats_boosters(fid
 
 
 def test_rescuer_only_covers_the_breakers_it_names():
-    # CNĐL: Triệt rescues Không/Kiếp but NOT Hóa Kỵ
-    core = CASES["CACH_X_CO_NGUYET_DONG_LUONG"][1]
-    d = verdict("CACH_X_CO_NGUYET_DONG_LUONG", core, [S("Địa Không")], KY, TRIET)
-    assert d["state"] == "bi_pha" and d["uncovered_breakers"] == ["ky_dong_cung"] and "khong_kiep_dong_cung" in d["breakers"]
-    d = verdict("CACH_X_CO_NGUYET_DONG_LUONG", core, [S("Địa Không")], KY, TRIET, KHOA)       # Khoa covers Kỵ -> all covered
-    assert d["state"] == "pha_duoc_cuu"
+    # CNĐL: Khoa rescues Kỵ but NOT Không/Kiếp; Tam Hóa hội rescues every breaker
+    f = "CACH_X_CO_NGUYET_DONG_LUONG"
+    core = CASES[f][1]
+    d = verdict(f, core, [S("Địa Không")], KY, KHOA)
+    assert d["state"] == "bi_pha" and d["uncovered_breakers"] == ["khong_kiep_dong_cung"] and "ky_dong_cung" in d["breakers"]
+    d = verdict(f, core, [S("Địa Không")], KY, TAM_HOA)                                         # Tam Hóa hội: covers both
+    assert d["state"] == "pha_duoc_cuu" and d["rescuers"] == ["tam_hoa_hoi_cuu"]
+
+
+def test_nhat_nguyet_ham_gap_sat_breaker_uses_rank_and_sat_count():
+    f, core = "CACH_X_NHAT_NGUYET_TINH_MINH", CASES["CACH_X_NHAT_NGUYET_TINH_MINH"][1]
+    ham = [("dig", "Thái Dương", "Mệnh", "hãm"), ("dig", "Thái Âm", "Quan Lộc", "miếu")]
+    assert "nhat_nguyet_ham_gap_sat" not in verdict(f, core, ham)["breakers"]                    # hãm alone is a refutation, not a breaker
+    d = verdict(f, core, ham, [S("Hỏa Tinh", "Tài Bạch")])
+    assert d["state"] == "bi_pha" and "nhat_nguyet_ham_gap_sat" in d["breakers"]
+    assert "nhat_nguyet_ham_gap_sat" not in verdict(f, core, [S("Hỏa Tinh", "Tài Bạch")], [("dig", "Thái Dương", "Mệnh", "miếu"), ("dig", "Thái Âm", "Quan Lộc", "miếu")])["breakers"]
+
+
+def test_v2_aligned_with_cited_rules_kinh_or_ky_must_be_in_the_same_palace():
+    """KL p.66 / TV_KL_STAR_MENH_TAM_KY_KY_KINH: the breaker is Kỵ OR Kình in the SAME palace as Mệnh, not Kỵ somewhere in the tam phương."""
+    f, core = "CACH_X_TAM_KY_GIA_HOI", CASES["CACH_X_TAM_KY_GIA_HOI"][1]
+    assert verdict(f, core, [H("Hóa Kỵ", "Quan Lộc")])["breakers"] == []                       # Kỵ in tam hợp: no longer a breaker
+    assert verdict(f, core, [H("Hóa Kỵ")])["breakers"] == ["ky_hoac_kinh_dong_cung"]
+    assert verdict(f, core, KINH)["breakers"] == ["ky_hoac_kinh_dong_cung"]                    # Kình Dương in Mệnh counts too
+
+
+def test_v2_cndl_needs_all_four_stars_as_in_toan_thu_p24():
+    f = "CACH_X_CO_NGUYET_DONG_LUONG"
+    three = [S("Thiên Cơ"), S("Thái Âm", "Quan Lộc"), S("Thiên Đồng", "Tài Bạch")]
+    assert verdict(f, three)["state"] == "khong_hien"
+    assert verdict(f, three, [S("Thiên Lương", "Thiên Di")])["state"] == "hinh_thuc"            # the book: without cát tinh only "công chức bình thường"
+    assert verdict(f, three, [S("Thiên Lương", "Thiên Di")], XK)["state"] == "thanh"
+
+
+def test_v2_mddk_follows_kl_p64_khoa_quyen_loc_good_that_sat_bad():
+    f, core = "CACH_X_MA_DAU_DOI_KIEM", CASES["CACH_X_MA_DAU_DOI_KIEM"][1]
+    assert "khoa_quyen_loc_hoi" in verdict(f, core, [H("Hóa Lộc", "Tài Bạch")])["boosters"]
+    assert "that_sat_trong_tam_phuong" in verdict(f, core, [S("Thất Sát", "Thiên Di")])["breakers"]
+    assert verdict(f, core, [("dig", "Kình Dương", "Mệnh", "hãm")])["refutations"] == []        # Kình is hãm at Ngọ by table; that is the cách itself, not a refutation
+
+
+def test_v2_ttan_booster_is_full_tam_hoa_as_in_kl_p58_tt_p34():
+    f, core = "CACH_X_THACH_TRUNG_AN_NGOC", CASES["CACH_X_THACH_TRUNG_AN_NGOC"][1]
+    assert verdict(f, core, [H("Hóa Lộc", "Quan Lộc"), H("Hóa Quyền", "Tài Bạch")])["boosters"] == []       # two of three is not enough
+    assert verdict(f, core, TAM_HOA)["boosters"] == ["tam_hoa_hoi_du"]
 
 
 def test_core_requires_enough_stars_count_operator():

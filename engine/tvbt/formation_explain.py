@@ -6,7 +6,10 @@ highlight them. Nothing here decides a state, adds a rule or marks anything veri
 """
 from __future__ import annotations
 
+import json
 import re
+from functools import lru_cache
+from pathlib import Path
 
 from .knowledge import dsl
 from .reasoning import facts as rfacts
@@ -21,7 +24,34 @@ GROUPS = {"self": ["self"], "opp": ["opp"], "trine": ["trine1", "trine2"], "trin
 REL_FACT = re.compile(r"^palace\.rel\.(self|opp|trine|trine1|trine2|flank|flank_prev|flank_next|tp|nhi_hop)_(stars|majors|hoa)$")
 KHI_FACT = re.compile(r"^palace\.khi\.(cat|sat)_(self|tp|flank)$")
 TP_RANK = re.compile(r"^palace\.tp_rank\.(.+)$")
+PROV_PATH = Path(__file__).resolve().parent.parent / "data" / "experimental" / "formation_provenance.json"
+STATUS_VI = {"khop": "Khớp với nguồn", "long_hon": "Lỏng hơn nguồn", "chat_hon": "Chặt hơn nguồn", "khac": "Khác với nguồn",
+             "lien_quan": "Có nguồn liên quan", "khong_co_nguon": "Chưa có nguồn"}
+BOOK_VI = {"SRC_KHAO_LUAN": "Tử Vi Khảo Luận", "SRC_THUC_HANH": "Tử Vi Thực Hành", "SRC_TOAN_THU": "Tử Vi Đẩu Số Toàn Thư"}
 KIND_VI = {"boosters": "Tăng thế", "breakers": "Phá cách", "rescuers": "Cứu giải", "refutations": "Phản chứng"}
+
+
+@lru_cache(maxsize=1)
+def _provenance() -> dict:
+    return json.loads(PROV_PATH.read_text("utf-8")) if PROV_PATH.exists() else {"formations": {}, "known_impossible": []}
+
+
+def _source(fid: str, kind: str, eid: str | None) -> dict | None:
+    comp = _provenance()["formations"].get(fid, {})
+    c = comp.get("core") if kind == "core" else comp.get(kind, {}).get(eid)
+    if not c:
+        return None
+    srcs = []
+    for r in c["sources"]:
+        page = re.sub(r"^(KL|TH|TT)\s*", "", r["page"]) if r["page"] else ""
+        srcs.append({"rule": r["rule"], "text": f"{BOOK_VI.get(r['source'], r['source'])} {page}".strip() + (" (luật nguồn đã đối chiếu)" if r["review"] == "verified" else " (luật nguồn còn ở mức nháp)"),
+                     "verified": r["review"] == "verified"})
+    out = {"status": c["status"], "status_vi": STATUS_VI[c["status"]], "note": c["note"], "sources": srcs}
+    rc = c.get("reach")
+    if rc and (rc.get("never") or rc.get("always")):
+        out["reach_note"] = ("Điều kiện này không bao giờ xảy ra trong mọi lá số có cách này: " if rc.get("never")
+                             else "Điều kiện này luôn đúng khi có cách này: ") + c["reach"].get("reason", "")
+    return out
 
 
 class _Chart:
@@ -118,7 +148,7 @@ def _evidence(ch: _Chart, f, d: dict) -> list[dict]:
             on = e.id in active_ids
             items = highlight(ch, e.when, f.anchor) if on else []
             row = {"id": e.id, "kind": kind, "kind_vi": KIND_VI[kind], "label": e.label, "active": on, "items": items,
-                   "because": sentence(items) if on else ""}
+                   "because": sentence(items) if on else "", "source": _source(f.id, kind, e.id)}
             if kind == "rescuers":
                 bl = {b.id: b.label for b in f.breakers}
                 row["rescues"] = [bl[x] for x in (bl if "*" in e.rescues else e.rescues) if x in bl]
@@ -146,6 +176,18 @@ def _chain(f, d: dict, core_items: list[dict], ev: list[dict]) -> list[dict]:
         why += "; phản chứng hạ xuống một bậc"
     steps.append({"step": "Tổng luận", "text": f"{STATE_VI[d['state']]}: {why}."})
     return steps
+
+
+def _summary(fid: str) -> dict:
+    comp = _provenance()["formations"].get(fid)
+    if not comp:
+        return {}
+    rows = [comp["core"]] + [e for k in ("boosters", "breakers", "rescuers", "refutations") for e in comp[k].values()]
+    n = {k: sum(1 for r in rows if r["status"] == k) for k in STATUS_VI}
+    n["total"] = len(rows)
+    n["text"] = (f"Trong {len(rows)} điều kiện của cách này: {n['khop']} khớp với nguồn, {n['lien_quan']} có nguồn liên quan, "
+                 f"{n['long_hon'] + n['chat_hon'] + n['khac']} lệch so với nguồn, {n['khong_co_nguon']} chưa có nguồn.")
+    return n
 
 
 def _caveats_vi(f, d: dict) -> list[str]:
@@ -176,7 +218,8 @@ def analyse(tv, formations) -> list[dict]:
         core_items = highlight(ch, f.core, f.anchor) if d["core"] is True else []
         ev = _evidence(ch, f, d)
         out.append({"id": f.id, "name_vi": f.name_vi, "anchor": f.anchor, "state": d["state"], "state_vi": STATE_VI[d["state"]],
-                    "text": render_vi(f, d), "core": {"active": d["core"] is True, "items": core_items, "because": sentence(core_items)},
+                    "text": render_vi(f, d), "core": {"active": d["core"] is True, "items": core_items, "because": sentence(core_items), "source": _source(f.id, "core", None)},
+                    "source_summary": _summary(f.id), "impossible_states": [x for x in _provenance().get("known_impossible", []) if x["cell"].startswith(f.id + "|")],
                     "evidence": ev, "chain": _chain(f, d, core_items, ev), "missing": d["missing_for_next_level"],
                     "caveats": d["caveats"], "downgraded": d["downgraded_by_refutation"], "uncovered": d["uncovered_breakers"],
                     "experimental": True, "review": "draft"})

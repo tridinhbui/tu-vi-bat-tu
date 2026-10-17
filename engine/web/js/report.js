@@ -118,6 +118,7 @@ export function renderBaziReport(host, chart, ctx, parts) {
 }
 
 const XSTATE = { thanh_thuong: ['Thành cách, thế mạnh', 0], thanh: ['Thành cách', 1], pha_duoc_cuu: ['Bị phá nhưng được cứu', 2], bi_pha: ['Bị phá cách', 3], hinh_thuc: ['Mới có hình thức', 4], chua_du_du_kien: ['Chưa đủ dữ kiện để kết luận', 5], khong_hien: ['Không hiện', 6] };
+const srcChip = src => src ? `<span class="cx-src cx-src-${esc(src.status)}" title="${esc(src.note || '')}"><b>${esc(src.status_vi)}</b>${src.sources?.length ? ' · ' + esc(src.sources.map(x => x.text).join('; ')) : ''}</span>${src.note ? `<span class="cx-note">${esc(src.note)}</span>` : ''}${src.reach_note ? `<span class="cx-note cx-dead">${esc(src.reach_note)}</span>` : ''}` : '';
 const cond = (label, items, extra = '') => items?.length
   ? `<li><button type="button" class="cx-cond" data-label="${esc(label)}" data-items="${esc(JSON.stringify(items))}" title="Nhấn để tô sáng trên lá số"><span class="cx-l">${esc(label)}</span>${extra}</button></li>` : '';
 function experimentalHtml(x) {
@@ -128,12 +129,13 @@ function experimentalHtml(x) {
     const rows = f.evidence.filter(e => e.kind === kind);
     if (!rows.length) return '';
     return `<div class="cx-g"><h6>${title}</h6><ul>${rows.map(e => e.active
-      ? cond(e.label, e.items, `<span class="cx-b">${esc(e.because)}${e.rescues?.length ? ` · cứu: ${esc(e.rescues.join('; '))}` : ''}</span>`)
-      : `<li class="cx-off"><span class="cx-l">${esc(e.label)}</span><span class="cx-b">không có</span></li>`).join('')}</ul></div>`;
+      ? cond(e.label, e.items, `<span class="cx-b">${esc(e.because)}${e.rescues?.length ? ` · cứu: ${esc(e.rescues.join('; '))}` : ''}</span>${srcChip(e.source)}`)
+      : `<li class="cx-off"><span class="cx-l">${esc(e.label)}</span><span class="cx-b">không có</span>${srcChip(e.source)}</li>`).join('')}</ul></div>`;
   };
   const card = f => `<div class="exp-card st-${esc(f.state)}"><h5>${esc(f.name_vi)} <span class="exp-pill">${esc(XSTATE[f.state]?.[0] || f.state)}</span></h5>
+    ${f.source_summary?.text ? `<p class="small cx-sum">${esc(f.source_summary.text)}</p>` : ''}${(f.impossible_states || []).map(x => `<p class="small muted"><b>Trạng thái không thể đạt:</b> ${esc(x.reason)}.</p>`).join('')}
     <ol class="cx-chain">${f.chain.map(c => `<li><b>${esc(c.step)}</b><span>${esc(c.text)}</span></li>`).join('')}</ol>
-    <div class="cx-conds"><div class="cx-g"><h6>Cấu trúc lõi</h6><ul>${cond('Các sao tạo nên cách ' + f.name_vi, f.core.items, `<span class="cx-b">${esc(f.core.because)}</span>`)}</ul></div>
+    <div class="cx-conds"><div class="cx-g"><h6>Cấu trúc lõi</h6><ul>${cond('Các sao tạo nên cách ' + f.name_vi, f.core.items, `<span class="cx-b">${esc(f.core.because)}</span>${srcChip(f.core.source)}`)}</ul></div>
       ${group(f, 'boosters', 'Yếu tố tăng thế')}${group(f, 'breakers', 'Yếu tố phá cách')}${group(f, 'rescuers', 'Yếu tố cứu giải')}${group(f, 'refutations', 'Phản chứng')}</div>
     ${f.missing?.length ? `<p class="small muted"><b>Còn thiếu để lên bậc:</b> ${esc(f.missing.join('; '))}</p>` : ''}${f.caveats?.length ? `<p class="small muted"><b>Lưu ý:</b> ${esc(f.caveats.join('; '))}</p>` : ''}</div>`;
   return `<div class="exp"><p class="exp-tag">Thử nghiệm · chưa đối chiếu sách</p><p class="small">${esc(x.warning)}</p><p class="small muted">Nhấn vào từng điều kiện để tô sáng các sao và cung liên quan trên lá số.</p>
