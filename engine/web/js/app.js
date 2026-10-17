@@ -10,6 +10,7 @@ import { renderHourSweep } from './hours.js';
 import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossary.js';
 import { renderLearn, lessonSys } from './learn.js';
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
+import { initCompare } from './compare.js';
 import { renderSaved, initSave } from './mine.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -164,6 +165,7 @@ async function generate(ev, saved = null) {
 form.onsubmit = generate;
 const savedList = $('#saved-list'), openSaved = r => generate(null, r);
 renderSaved(savedList, openSaved);
+initCompare($('#cmp-host'));
 const saver = initSave($('#save-host'), () => state?.req, () => renderSaved(savedList, openSaved));
 async function loadSample() {
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });
