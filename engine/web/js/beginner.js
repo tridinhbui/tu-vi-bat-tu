@@ -1,7 +1,7 @@
 // Beginner layer: plain-language summary, softened/filtered readings, and "no dead end" empty states.
 // Nothing here creates conclusions: every statement is either a fact from the chart, an educational primer, or a verified finding
 // (basis === 'verified') re-worded from the engine's own phrase. Draft rules stay in the 'Chuyên sâu' mode.
-import { esc, STEMS, BRANCHES, EL, ELEMENTS, claimPhrase, palaceOfSubject } from './util.js';
+import { esc, STEMS, BRANCHES, EL, ELEMENTS, claimPhrase, claimKnown, palaceOfSubject } from './util.js';
 import { currentPhase, elementStats } from './insights.js';
 import { lessonTitle } from './learn.js';
 
@@ -21,6 +21,7 @@ export function classify(findings) {
   const out = { show: [], care: [], draft: [] };
   findings.forEach(f => {
     if (f.basis !== 'verified') out.draft.push(f);
+    else if (!claimKnown(f.claim)) return; // no Vietnamese phrase loaded: never show a raw id to beginners
     else if (f.status === 'supported' && f.effect !== 'limit') (CARE.test(parsePhrase(f).core) ? out.care : out.show).push(f);
   });
   return out;

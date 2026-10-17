@@ -111,3 +111,20 @@ def test_compare_known_relations():
     same = compare(mk(), mk())
     assert same["day_master_stems"]["kind"] == "trùng" and same["day_branches"][0]["kind"] == "chi_trùng"
     assert same["ten_god_of_b_for_a"] == "Tỉ Kiên"
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node not installed")
+def test_post_retries_5xx_but_not_4xx():
+    script = f"""
+      import {{ post }} from '{(WEB / "js" / "util.js").as_uri()}';
+      const seq = (codes) => {{ let i = 0; globalThis.calls = 0; globalThis.fetch = async () => {{ calls++; const c = codes[Math.min(i++, codes.length - 1)]; return {{ ok: c < 400, status: c, json: async () => c < 400 ? {{ ok: 1 }} : {{ detail: c === 422 ? 'bad date' : undefined }} }}; }}; }};
+      const out = {{}};
+      seq([500, 500, 200]); out.recovered = [await post('/x', {{}}), calls];
+      seq([422]); try {{ await post('/x', {{}}); }} catch (e) {{ out.client = [e.message, calls]; }}
+      seq([500]); try {{ await post('/x', {{}}, {{ retries: 1 }}); }} catch (e) {{ out.giveup = [e.message, calls]; }}
+      console.log(JSON.stringify(out));
+    """
+    r = json.loads(subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True, check=True).stdout)
+    assert r["recovered"] == [{"ok": 1}, 3]
+    assert r["client"] == ["bad date", 1]  # a real validation error is shown at once, not retried
+    assert r["giveup"][1] == 2 and "chưa phản hồi" in r["giveup"][0]

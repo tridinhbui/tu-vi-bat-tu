@@ -8,7 +8,7 @@ import { renderBaziReport, renderTuviReport } from './report.js';
 import { notice } from './ui.js';
 import { renderHourSweep } from './hours.js';
 import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossary.js';
-import { renderLearn, lessonSys } from './learn.js';
+import { renderLearn, lessonSys, lessonTitle } from './learn.js';
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
 import { renderSaved, initSave } from './mine.js';
@@ -31,7 +31,8 @@ $('#load-compass').innerHTML = compass({ animate: false, detail: 'min' });
 $('#foot-compass').innerHTML = compass({ animate: false, detail: 'min' });
 
 // ---------- navigation ----------
-const view = v => { document.body.dataset.view = v; if (v !== 'chart') document.body.classList.remove('sheet-open'); scrollTo({ top: 0 }); };
+const TITLE = document.title;
+const view = v => { document.body.dataset.view = v; if (v !== 'chart') document.body.classList.remove('sheet-open'); if (v !== 'learn') document.title = TITLE; scrollTo({ top: 0 }); };
 function setTab(tab, scroll = true) {
   $('#chart-view').dataset.tab = tab;
   $$('.res-tabs button').forEach(b => { const on = b.id === 'tab-' + tab; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
@@ -66,7 +67,7 @@ async function openLearn(lesson, push = true) {
   renderLearn(host, lesson || null, terms());
   autoLink(host, lessonSys(lesson));
   view('learn');
-  document.title = lesson ? 'Học — Thiên Bàn' : 'Học Tử Vi và Bát Tự — Thiên Bàn';
+  document.title = lesson && lessonTitle(lesson) ? `${lessonTitle(lesson)} — Thiên Bàn` : 'Học Tử Vi và Bát Tự — Thiên Bàn';
   if (push) history.pushState({ v: 'learn' }, '', '#hoc' + (lesson ? '/' + lesson : ''));
 }
 addEventListener('tvbt:learn', e => openLearn(e.detail));

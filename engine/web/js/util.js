@@ -67,19 +67,35 @@ const cap = t => t ? t[0].toUpperCase() + t.slice(1) : t;
 /** Vietnamese phrase for a claim id; falls back to a neutral prettified id (never invented prose). */
 export const claimPhrase = (c, effect) => (effect === 'limit' && CLAIMS['limit:' + c]) || CLAIMS[c] || String(c).replace(/_/g, ' ');
 export const claimLabel = c => cap(claimPhrase(c));
+export const claimKnown = c => !!CLAIMS[c];
+/** Loads Vietnamese claim phrases and source names; retries because a cold container may answer 5xx once. */
 export async function loadMeta() {
-  try {
-    const [c, r] = await Promise.all([fetch('/api/claims').then(x => x.json()), fetch('/api/rules').then(x => x.json())]);
-    Object.assign(CLAIMS, c);
-    (r.sources || []).forEach(s => { SOURCES[s.id] = s.title; SRC_OK[s.id] = !!s.verified; });
-  } catch { /* labels degrade gracefully */ }
+  for (let i = 0; i < 4; i++) {
+    try {
+      const get = async u => { const x = await fetch(u); if (!x.ok) throw new Error(String(x.status)); return x.json(); };
+      const [c, r] = await Promise.all([get('/api/claims'), get('/api/rules')]);
+      Object.assign(CLAIMS, c);
+      (r.sources || []).forEach(s => { SOURCES[s.id] = s.title; SRC_OK[s.id] = !!s.verified; });
+      return;
+    } catch { await new Promise(r => setTimeout(r, 500 * (i + 1))); }
+  } // still failing: readings without a known phrase are hidden in 'Dễ hiểu' instead of showing raw ids
 }
 export const palaceOfSubject = s => /^palace:/.test(s) ? s.slice(7) : null;
 
-export async function post(u, b) {
-  const r = await fetch(u, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(b) });
-  let j = {};
-  try { j = await r.json(); } catch { /* non-JSON error body */ }
-  if (!r.ok) throw new Error(typeof j.detail === 'string' ? j.detail : (r.status === 422 ? 'Dữ liệu ngày giờ sinh chưa hợp lệ.' : 'Máy chủ chưa phản hồi. Vui lòng thử lại.'));
-  return j;
+const sleepMs = ms => new Promise(r => setTimeout(r, ms));
+/** POST JSON. Retries network errors and 5xx (the engine container can drop a request under load); never retries 4xx. */
+export async function post(u, b, { retries = 3 } = {}) {
+  let last;
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const r = await fetch(u, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(b) });
+      let j = {};
+      try { j = await r.json(); } catch { /* non-JSON error body */ }
+      if (r.ok) return j;
+      if (r.status < 500) throw Object.assign(new Error(typeof j.detail === 'string' ? j.detail : (r.status === 422 ? 'Dữ liệu ngày giờ sinh chưa hợp lệ.' : 'Yêu cầu chưa hợp lệ.')), { final: true });
+      last = new Error('Máy chủ chưa phản hồi. Vui lòng thử lại.');
+    } catch (e) { if (e.final) throw e; last = new Error('Máy chủ chưa phản hồi. Vui lòng thử lại.'); }
+    if (i < retries) await sleepMs(500 * (i + 1));
+  }
+  throw last;
 }

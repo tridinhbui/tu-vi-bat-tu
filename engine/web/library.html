@@ -37,18 +37,21 @@ const SAMPLE={id:"TV_DEMO_001",system:"tu_vi",schoolId:"demo",category:"configur
  conditions:{all:[{fact:"palace.name",value:"Mệnh"},{fact:"palace.own_major_stars",operator:"contains",value:"Thiên Phủ"}]},
  consequences:[{kind:"finding",claim:"demo",effect:"neutral",scope:"natal"}],exceptions:[],conflictsWith:[],priority:1,sourceIds:["SRC_THUC_HANH"],reviewStatus:"draft",version:"0.0.1",subject:"palace"};
 $('#ta').value=JSON.stringify(SAMPLE,null,1);
+// the engine container can drop a request under load: retry 5xx/network errors a few times
+const fetchR=async(u,o)=>{for(let i=0;i<4;i++){try{const r=await fetch(u,o);if(r.status<500)return r}catch(e){}await new Promise(r=>setTimeout(r,500*(i+1)))}return fetch(u,o)};
 const B=["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"];let R=[];
 function draw(){const s=$('#fs').value,f=$('#ff').value,q=$('#fq').value.toLowerCase();
  $('#rl').innerHTML=R.filter(x=>(!s||x.system===s)&&(!f||x.reviewStatus===f)&&(!q||(x.id+x.description).toLowerCase().includes(q))).map(x=>`<details><summary>${esc(x.id)} — ${x.system} — <b class="${x.reviewStatus==='verified'?'v':'d'}">${x.reviewStatus}</b></summary><div>${esc(x.description)}</div><div class="note">Nguồn: ${x.sourceIds.join(', ')||'—'}</div><pre>${esc(JSON.stringify(x.conditions))}</pre></details>`).join('')}
-(async()=>{fetch('/api/dignity/compare').then(x=>x.json()).then(j=>{$('#dc').innerHTML=`<p>Thực Hành và Toàn Thư khác nhau ở <b>${j.count}</b> ô (sao × cung). ${esc(j.note)}</p><details><summary>Xem các ô khác nhau</summary><table><tr><th>Sao</th><th>Cung</th><th>Thực Hành</th><th>Toàn Thư</th></tr>${j.disagreements.map(x=>`<tr><td>${x.star}</td><td>${x.branch}</td><td>${x.thuc_hanh}</td><td>${x.toan_thu}</td></tr>`).join('')}</table></details>`});
-(async()=>{const r=await (await fetch('/api/rules')).json(),d=await (await fetch('/api/dignity')).json();R=r.rules;
+(async()=>{fetchR('/api/dignity/compare').then(x=>x.json()).then(j=>{$('#dc').innerHTML=`<p>Thực Hành và Toàn Thư khác nhau ở <b>${j.count}</b> ô (sao × cung). ${esc(j.note)}</p><details><summary>Xem các ô khác nhau</summary><table><tr><th>Sao</th><th>Cung</th><th>Thực Hành</th><th>Toàn Thư</th></tr>${j.disagreements.map(x=>`<tr><td>${x.star}</td><td>${x.branch}</td><td>${x.thuc_hanh}</td><td>${x.toan_thu}</td></tr>`).join('')}</table></details>`});
+  })().catch(()=>{});  // optional section; the rest of the page must not depend on it
+(async()=>{const r=await (await fetchR('/api/rules')).json(),d=await (await fetchR('/api/dignity')).json();R=r.rules;
  const c={};R.forEach(x=>c[x.reviewStatus]=(c[x.reviewStatus]||0)+1);
  $('#sum').innerHTML=`${R.length} quy tắc: ${Object.entries(c).map(([k,v])=>k+' '+v).join(', ')}. ${r.problems.length?'<b class="d">Có lỗi: '+esc(r.problems.join('; '))+'</b>':'Bộ quy tắc hợp lệ.'}`;
  $('#src').innerHTML=r.sources.map(s=>`<div class="card"><span class="${s.verified?'v':'d'}">${s.verified?'✔ đã dùng':'○ chưa dùng'}</span> <b>${esc(s.title)}</b> — ${esc(s.author||'')}<div class="note">${esc(s.locator||'chưa có trích dẫn')}${s.note?' · '+esc(s.note):''}</div></div>`).join('');
  $('#dg').innerHTML='<table><tr><th></th>'+B.map(b=>'<th>'+b+'</th>').join('')+'</tr>'+Object.entries(d.stars).map(([s,v])=>`<tr><td><b>${s}</b></td>${B.map(b=>`<td>${v.levels[b]||'·'}</td>`).join('')}</tr>`).join('')+'</table><p class="note">'+esc(d.note)+'</p>';
- draw();['fs','ff','fq'].forEach(i=>$('#'+i).oninput=draw)})();
+ draw();['fs','ff','fq'].forEach(i=>$('#'+i).oninput=draw)})().catch(()=>{$('#sum').textContent='Chưa tải được thư viện quy tắc. Vui lòng tải lại trang sau ít giây.'});
 $('#run').onclick=async()=>{let rule;try{rule=JSON.parse($('#ta').value)}catch(e){$('#out').textContent='JSON lỗi: '+e.message;return}
  const birth={year:+$('#y').value,month:+$('#m').value,day:+$('#d').value,hour:+$('#h').value,minute:0,gender:$('#g').value};
- const r=await fetch('/api/rules/test',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rule,birth})});const j=await r.json();
+ const r=await fetchR('/api/rules/test',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rule,birth})});const j=await r.json();
  $('#out').textContent=r.ok?JSON.stringify(j,null,1):'Lỗi: '+JSON.stringify(j.detail)};
 </script></body></html>
