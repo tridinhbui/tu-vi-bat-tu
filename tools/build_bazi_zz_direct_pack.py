@@ -66,14 +66,14 @@ for rid, cond, claim, page, vi, tone, status, cat in R:
         "description": f"八字真宗 直断 (paraphrased): {vi} [PDF {page}]", "conditions": cond,
         "consequences": [{"kind": "finding", "claim": claim, "effect": effect, "scope": "natal"}],
         "exceptions": [], "conflictsWith": [], "priority": 3, "sourceIds": ["SRC_BAZI_ZHENZONG"], "reviewStatus": status, "version": "0.1.0", "subject": "chart"})
-    claims[claim] = ("hạn chế: " if effect == "limit" else "") + vi
+    claims[claim] = ("hạn chế theo sách: " if effect == "limit" else "khuynh hướng theo sách: ") + vi
     if effect == "limit":
-        claims["limit:" + claim] = "hạn chế: " + vi
+        claims["limit:" + claim] = "hạn chế theo sách: " + vi
 ids = [r["id"] for r in rules]
 assert len(ids) == len(set(ids))
 json.dump({"sources": [], "rules": rules}, open(D / "pack_bazi_zz_direct.json", "w"), ensure_ascii=False, indent=1)
 cur = json.loads((D / "claims_vi.json").read_text("utf-8"))
 for k, v in claims.items():
-    cur.setdefault(k, v)
+    cur[k] = v                    # these claims are owned by this generator, so their wording is refreshed on every build
 json.dump(cur, open(D / "claims_vi.json", "w"), ensure_ascii=False, indent=1)
 print(len(rules))

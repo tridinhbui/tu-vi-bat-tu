@@ -126,8 +126,15 @@ def realize(interps: list[Interpretation], level: int = 1) -> list[Sentence]:
             label = entry["label"] if entry else f"“{it.claim}” (chưa có mô tả tiếng Việt)"
             prov = it.finding_ids + it.supporting + it.opposing
             lead = "Có thể nhận thấy" if it.status in ("supported", "qualified") else "Chưa thể khẳng định"
-            out.append(Sentence(f"{lead} một dấu hiệu {lx.EFFECT_VI[it.effect]} {label}; nhận định này "
-                                f"{lx.STATUS_VI[it.status]}.", prov))
+            if it.claim.startswith("bt_zz_") and ": " in label:
+                # 八字真宗 直断 claims: attribute to the book and keep the hedge ("xu hướng" / "hạn chế"), never a flat statement
+                core = label.split(": ", 1)[1]
+                lead = "Theo 八字真宗, lá số có" if it.status in ("supported", "qualified") else "Chưa thể khẳng định rằng, theo 八字真宗, lá số có"
+                phrase = f"thể gặp hạn chế: {core}" if it.effect == "limit" else f"xu hướng {core}"
+                out.append(Sentence(f"{lead} {phrase}; nhận định này {lx.STATUS_VI[it.status]}.", prov))
+            else:
+                out.append(Sentence(f"{lead} một dấu hiệu {lx.EFFECT_VI[it.effect]} {label}; nhận định này "
+                                    f"{lx.STATUS_VI[it.status]}.", prov))
             if level >= 2 and it.facts:
                 out.append(Sentence(f"{_pick('cause', n)}, nhận định dựa trên các dữ kiện: "
                                     + "; ".join(it.facts) + ".", prov))
