@@ -3,6 +3,8 @@ import { $, $$, esc, starKind, TU_HOA_SHORT, claimLabel, BRANCHES, STEMS, palace
 import { compass } from './compass.js';
 import { acc, notice, timeline, reasoningPanel, findingCard } from './ui.js';
 import { scopeText, scopePanelTuvi } from './scope.js';
+import { terms, autoLink } from './glossary.js';
+import { easyReadings, emptyReading } from './beginner.js';
 
 // Traditional layout: branch index per grid cell (null = centre block). Tỵ top-left, clockwise.
 const CELLS = [5, 6, 7, 8, 4, null, null, 9, 3, null, null, 10, 2, 1, 0, 11];
@@ -18,7 +20,8 @@ export function renderTuvi(host, t, ctx) {
   const findings = (ctx.reason?.systems?.tu_vi?.findings || []);
   const fOf = name => findings.filter(f => palaceOfSubject(f.subject) === name);
   const DG = { 'miếu': 'Miếu', 'vượng': 'Vượng', 'đắc': 'Đắc', 'bình': 'Bình', 'hãm': 'Hãm' };
-  const starHtml = (s, major, dg) => { const k = starKind(s), h = th[s]; return `<span class="st st-${k}${major ? ' major' : ''}${unv.has(s) ? ' unv' : ''}"${unv.has(s) ? ' title="Sao an theo công thức phổ biến, chưa đối chiếu sách"' : ''}>${esc(s)}${dg ? `<sup class="dg dg-${dg}" title="Độ sáng: ${esc(dg)}">${DG[dg] || esc(dg)}</sup>` : ''}${h ? `<sup class="th th-${h === 'Hóa Kỵ' ? 'ky' : 'ok'}" title="${esc(h)}">${TU_HOA_SHORT[h]}</sup>` : ''}</span>`; };
+  const HOA_KEY = { 'Hóa Lộc': 'c:hoa-loc', 'Hóa Quyền': 'c:hoa-quyen', 'Hóa Khoa': 'c:hoa-khoa', 'Hóa Kỵ': 'c:hoa-ky' };
+  const starHtml = (s, major, dg, inCell = false) => { const k = starKind(s), h = th[s]; return `<span class="st gl-s st-${k}${major ? ' major' : ''}${unv.has(s) ? ' unv' : ''}" role="button"${inCell ? '' : ' tabindex="0"'} data-gl="star:${esc(s)}" aria-label="${esc(s)}: xem giải thích">${esc(s)}${dg ? `<sup class="dg dg-${dg}" data-gl="dg:${esc(dg)}" title="Độ sáng: ${esc(dg)}">${DG[dg] || esc(dg)}</sup>` : ''}${h ? `<sup class="th th-${h === 'Hóa Kỵ' ? 'ky' : 'ok'}" data-gl="${HOA_KEY[h]}" title="${esc(h)}">${TU_HOA_SHORT[h]}</sup>` : ''}</span>`; };
 
   const cell = i => {
     const p = by[i], minors = p.stars.filter(s => !p.major_stars.includes(s));
@@ -27,8 +30,8 @@ export function renderTuvi(host, t, ctx) {
     return `<button type="button" class="pal" data-i="${i}" aria-pressed="false" aria-label="Cung ${esc(p.name)}, ${esc(p.stem)} ${esc(p.branch)}. Chính tinh: ${esc(p.major_stars.join(', ') || 'vô chính diệu')}">
       <span class="pal-h"><span class="pal-name">${esc(p.name)}</span><span class="pal-gz"><i lang="zh">${BRANCHES[i].h}</i>${esc(p.stem)} ${esc(p.branch)}</span></span>
       ${p.is_than || p.tuan || p.triet ? `<span class="pal-tags">${p.is_than ? '<span class="tag tag-than">Thân</span>' : ''}${p.tuan ? '<span class="tag">Tuần</span>' : ''}${p.triet ? '<span class="tag">Triệt</span>' : ''}</span>` : ''}
-      <span class="pal-maj">${p.major_stars.length ? p.major_stars.map(s => starHtml(s, true, p.major_dignity?.[s])).join('') : '<span class="vcd">vô chính diệu</span>'}</span>
-      <span class="pal-min">${minors.map(s => starHtml(s, false)).join('')}</span>
+      <span class="pal-maj">${p.major_stars.length ? p.major_stars.map(s => starHtml(s, true, p.major_dignity?.[s], true)).join('') : '<span class="vcd">vô chính diệu</span>'}</span>
+      <span class="pal-min">${minors.map(s => starHtml(s, false, undefined, true)).join('')}</span>
       ${d ? `<span class="pal-dh" title="Đại hạn">${d.age_from}<small>–${d.age_to}</small></span>` : ''}
     </button>`;
   };
@@ -40,10 +43,10 @@ export function renderTuvi(host, t, ctx) {
         <h3 id="id-t" class="ident-gz">${esc(t.year_gz)}</h3>
         <p class="ident-line">${esc(t.yin_yang_gender)} · Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</p>
         <dl class="ident-dl">
-          <div><dt>Mệnh cung</dt><dd>${esc(menh.stem)} ${esc(menh.branch)}</dd></div>
-          <div><dt>Thân cư</dt><dd>${esc(than.name)}</dd></div>
-          <div><dt>Cục</dt><dd>${esc(t.cuc.name)}</dd></div>
-          <div><dt>Bản mệnh</dt><dd>${esc(t.menh_nap_am)}</dd></div>
+          <div><dt><span data-gl="palace:Mệnh">Mệnh cung</span></dt><dd>${esc(menh.stem)} ${esc(menh.branch)}</dd></div>
+          <div><dt><span data-gl="c:than-cu">Thân cư</span></dt><dd>${esc(than.name)}</dd></div>
+          <div><dt><span data-gl="c:cuc">Cục</span></dt><dd>${esc(t.cuc.name)}</dd></div>
+          <div><dt><span data-gl="c:nap-am">Bản mệnh</span></dt><dd>${esc(t.menh_nap_am)}</dd></div>
           ${t.extras?.menh_chu ? `<div><dt>Mệnh chủ</dt><dd>${esc(t.extras.menh_chu.star)}</dd></div><div><dt>Thân chủ</dt><dd>${esc(t.extras.than_chu.star)}</dd></div>` : ''}
         </dl>
         <p class="ident-sum">${esc(t.menh_cuc_relation)} · đại hạn ${esc(t.dai_han_direction)}${menh.major_stars.length ? ` · Mệnh có ${esc(menh.major_stars.join(', '))}` : ' · Mệnh vô chính diệu'}</p>
@@ -53,13 +56,14 @@ export function renderTuvi(host, t, ctx) {
   host.innerHTML = scopePanelTuvi(t) + `
     <div class="tv-layout">
       <div class="tv-main">
+        <p class="tv-hint"><b>Cách xem:</b> chạm vào một cung để xem giải thích; khi cung đang mở, chạm vào tên sao hoặc nhãn (Miếu, Hãm, Lộc…) để biết nó là gì.</p>
         <div class="seg tv-toggle" role="group" aria-label="Chế độ xem lá số"><button type="button" data-v="ov" aria-pressed="true">Tổng quan</button><button type="button" data-v="full" aria-pressed="false">Toàn lá số</button></div>
         <ol class="tv-ov" aria-label="Tổng quan mười hai cung">${t.palaces.slice().sort((a, b) => (a.branch_index - menh.branch_index + 12) % 12 - (b.branch_index - menh.branch_index + 12) % 12).map(p => `<li><button type="button" data-i="${p.branch_index}"><span class="ov-n">${esc(p.name)}</span><span class="ov-gz">${esc(p.stem)} ${esc(p.branch)}</span><span class="ov-s">${esc(p.major_stars.join(' · ') || 'vô chính diệu')}</span></button></li>`).join('')}</ol>
         <div class="tv-scroll" tabindex="0" role="region" aria-label="Lá số Tử Vi, có thể cuộn ngang"><div class="tv-board" id="tv-board">
           <svg class="tv-links" aria-hidden="true"></svg>
           <div id="grid">${CELLS.map((i, k) => i === null ? (k === 5 ? `<div class="center">${center}</div>` : '') : cell(i)).join('')}</div></div></div>
-        <div class="legend"><span><i class="st-neu major">Aa</i>Chính tinh</span><span class="l-pos">Cát tinh</span><span class="l-neg">Sát / hung tinh</span><span class="l-neu">Phụ tinh</span><span><sup class="th th-ok">Lộc</sup>Tứ Hóa</span><span><sup class="dg dg-vượng">Vượng</sup>Độ sáng</span><span><b class="legend-dh">6–15</b>Đại hạn</span></div>
-        <p class="muted small tv-school">Trường phái: ${esc(t.school.schoolId)} · bộ quy tắc ở trạng thái <b>${t.school.review_status === 'partially_verified' ? 'đã xác minh một phần' : esc(t.school.review_status)}</b>.</p>
+        <div class="legend"><span><i class="st-neu major">Aa</i>Chính tinh</span><span class="l-pos">Cát tinh</span><span class="l-neg">Sát / hung tinh</span><span class="l-neu">Phụ tinh</span><span data-gl="c:tu-hoa" role="button" tabindex="0"><sup class="th th-ok">Lộc</sup>Tứ Hóa</span><span data-gl="c:do-sang" role="button" tabindex="0"><sup class="dg dg-vượng">Vượng</sup>Độ sáng</span><span data-gl="c:dai-han" role="button" tabindex="0"><b class="legend-dh">6–15</b>Đại hạn</span></div>
+        <p class="muted small tv-school pro-only">Bộ quy tắc Tử Vi đang dùng: bản Việt Nam, trạng thái <b>${t.school.review_status === 'partially_verified' ? 'đã xác minh một phần' : 'bản nháp'}</b>.</p>
       </div>
       <aside class="drawer" id="tv-drawer" aria-label="Chi tiết cung" aria-live="polite"></aside>
     </div>
@@ -94,6 +98,7 @@ export function renderTuvi(host, t, ctx) {
       <button class="dr-x" type="button" aria-label="Đóng chi tiết cung">×</button>
       <p class="eyebrow">Cung ${esc(p.stem)} ${esc(p.branch)}${p.is_than ? ' · Thân cư' : ''}</p>
       <h3 class="dr-t">${esc(p.name)}</h3>
+      <p class="dr-plain">${esc(terms()['palace:' + p.name]?.plain || '')} <button type="button" class="link" data-gl="palace:${esc(p.name)}">Giải thích thêm</button></p>
       <div class="dr-tags">${p.tuan ? '<span class="tag">Tuần</span>' : ''}${p.triet ? '<span class="tag">Triệt</span>' : ''}${d ? `<span class="tag tag-dh">Đại hạn ${d.age_from}–${d.age_to} tuổi</span>` : ''}</div>
       <section><h4>Chính tinh</h4><div class="dr-stars">${p.major_stars.length ? p.major_stars.map(x => starHtml(x, true, p.major_dignity?.[x])).join('') : '<span class="vcd">Vô chính diệu — cung không có chính tinh.</span>'}</div></section>
       <section><h4>Phụ tinh</h4>
@@ -101,8 +106,11 @@ export function renderTuvi(host, t, ctx) {
         ${ths ? `<div class="dr-grp"><span class="k">Tứ Hóa tại cung</span><div class="chips">${ths}</div></div>` : ''}</section>
       <section><h4>Tam phương tứ chính</h4><div class="relps">${rel('Xung chiếu', s.opposite)}${rel('Tam hợp', s.tam_hop[0])}${rel('Tam hợp', s.tam_hop[1])}</div>
         <p class="muted small">Cung giáp: ${s.giap.map(b => `${esc(byBranch[b].name)} (${esc(b)})`).join(' · ')}</p></section>
-      <section><h4>Nhận định liên quan</h4>${fs.length ? fs.map(f => findingCard(f)).join('') + '<p class="muted small">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo.</p>' : '<p class="muted">Chưa có quy tắc nào được kích hoạt cho cung này. Điều đó không có nghĩa cung “không có gì”, chỉ là bộ quy tắc hiện hành chưa phủ tới.</p>'}</section>
+      <section><h4>Nhận định liên quan</h4>
+        <div class="pro-only">${fs.length ? fs.map(f => findingCard(f)).join('') + '<p class="muted small">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo.</p>' : '<p class="muted">Chưa có quy tắc nào được kích hoạt cho cung này. Điều đó không có nghĩa cung “không có gì”, chỉ là bộ quy tắc hiện hành chưa phủ tới.</p>'}</div>
+        <div class="easy-only">${easyReadings(fs, { empty: emptyReading('', terms(), { palace: p.name, brief: true }) })}<p class="muted small">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo.</p></div></section>
     </div>`;
+    autoLink(drawer, 'tv');
     $('.dr-x', drawer).onclick = () => select(null);
     $$('.relp', drawer).forEach(b => b.onclick = () => select(+b.dataset.i));
   }

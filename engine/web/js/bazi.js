@@ -6,7 +6,7 @@ import { elementBalanceHtml, godDistributionHtml } from './insights.js';
 
 const ORDER = ['year', 'month', 'day', 'hour'];
 
-const glyph = (c, kind) => `<div class="gz-char ${kind} el-${EL[c.e].slug}" data-el="${c.e}">
+const glyph = (c, kind) => `<div class="gz-char ${kind} el-${EL[c.e].slug}" data-el="${c.e}" data-gl="${kind === 'stem' ? 'can' : 'chi'}:${esc(c.n)}" role="button" tabindex="0" aria-label="${esc(c.n)}: xem giải thích">
   <span class="gz-han" lang="zh">${c.h}</span><span class="gz-vn">${esc(c.n)}</span>
   <span class="gz-el">${elIcon(c.e, 11)}${c.e}</span></div>`;
 

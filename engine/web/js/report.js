@@ -2,14 +2,34 @@
 import { $, $$, esc, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip } from './util.js';
 import { acc, notice, reasoningPanel, timeline, yearExplorer, findingCard } from './ui.js';
 import { scopePanelBazi } from './scope.js';
+import { easyReadings, emptyReading, classify, parsePhrase } from './beginner.js';
+import { autoLink, terms } from './glossary.js';
 import { elementBalanceHtml, godDistributionHtml, menhTamPhuongHtml, currentPhase, currentPhaseHtml } from './insights.js';
 
 const LAYER_HINT = { 'Tượng': 'ý nghĩa biểu tượng', 'Khí': 'điều kiện mạnh yếu', 'Thế': 'vị trí trong cấu trúc', 'Cách': 'cách cục', 'Dụng': 'vai trò theo lĩnh vực', 'Biến': 'biến đổi theo thời gian', 'Phản': 'yếu tố đối trọng', 'Tổng': 'tổng hợp' };
 const BASIS = { tinh_toan: ['Tính toán', 'dữ kiện lập từ lá số'], sach: ['Theo sách', 'có trích dẫn trang'], he_thong: ['Định nghĩa của hệ thống', 'cách hệ thống chọn để mô tả; không phải lời sách'] };
 function analysisHtml(blocks) {
   if (!blocks?.length) return '';
-  return `<div class="ch-an"><p class="eyebrow">Phân tích cấu trúc</p>${blocks.map(b => `<p class="an-p"><span class="an-tag" title="${esc(LAYER_HINT[b.layer] || '')}">${esc(b.layer)}</span>${esc(b.text)}<span class="an-meta"><span class="an-b an-${b.basis}" title="${esc(BASIS[b.basis][1])}">${BASIS[b.basis][0]}</span>${(b.src || []).map(x => `<span class="an-src">${esc(x)}</span>`).join('')}</span></p>`).join('')}</div>`;
+  return `<div class="ch-an pro-only"><p class="eyebrow">Phân tích cấu trúc</p>${blocks.map(b => `<p class="an-p"><span class="an-tag" title="${esc(LAYER_HINT[b.layer] || '')}">${esc(b.layer)}</span>${esc(b.text)}<span class="an-meta"><span class="an-b an-${b.basis}" title="${esc(BASIS[b.basis][1])}">${BASIS[b.basis][0]}</span>${(b.src || []).map(x => `<span class="an-src">${esc(x)}</span>`).join('')}</span></p>`).join('')}</div>`;
 }
+const WHAT = {
+  bt: { 'tong-quan': 'Tóm gọn lá số: chữ đại diện cho bạn (Nhật Chủ), mùa bạn sinh ra (tháng) và chặng đời bạn đang đi.',
+    'nhat-chu': 'Nhật Chủ là “bạn” trong lá số. Phần này nói về tính chất của chữ đó và những mô tả mà sách cổ gắn với nó.',
+    'ngu-hanh': 'Đếm xem năm hành và năm nhóm Thập Thần xuất hiện nhiều hay ít: đây là bức tranh cân bằng của lá số.',
+    'su-nghiep': 'Nhìn vị trí của các nhóm Thập Thần liên quan đến công việc và tiền bạc.',
+    'quan-he': 'Các chữ trong lá số hợp, xung, hại nhau ra sao; và cách người ta xem bạn đời qua trụ Ngày.',
+    'dai-van': 'Các chặng 10 năm và từng năm. Mỗi chặng mang một “không khí” khác nhau; đây là dữ kiện, không phải dự đoán.',
+    'cach-cuc': 'Cách phân loại “mẫu hình” của lá số. Phần này người mới chưa cần vội.' },
+  tv: { 'tong-quan': 'Những điều cơ bản nhất của lá số: cung Mệnh, cung Thân, Cục và bản mệnh.',
+    'ban-menh': 'Cung Mệnh là “con người bạn”. Phần này xem sao nào ở đó và quan hệ giữa Cục với bản mệnh.',
+    'tinh-cach': 'Tính cách được xem qua cung Mệnh và cung Phúc Đức (đời sống tinh thần).',
+    'cong-danh': 'Công việc và địa vị được xem qua cung Quan Lộc và cung đối diện Thiên Di.',
+    'tai-bach': 'Tiền bạc được xem qua cung Tài Bạch (thu nhập) và cung Điền Trạch (của cải tích lũy).',
+    'quan-he': 'Các mối quan hệ gần gũi, mỗi cung nói về một nhóm người khác nhau.',
+    'dai-han': 'Các chặng 10 năm, mỗi chặng “đi vào” một cung và làm lĩnh vực đó nổi lên. Đây là dữ kiện, không phải dự đoán.',
+    'cach-cuc': 'Những “tổ hợp sao” đặc biệt mà sách cổ đặt tên riêng.',
+    'muoi-hai-cung': 'Tra nhanh cả mười hai cung. Bấm vào tên sao hoặc cung để xem giải thích.' },
+};
 const pad = n => String(n).padStart(2, '0');
 
 function inferenceGraph(f) {
@@ -29,14 +49,15 @@ const PAL_CH = { 'Mệnh': 'ban-menh', 'Phúc Đức': 'tinh-cach', 'Quan Lộc'
 
 function mount(host, chapters, prefix, ctx) {
   host.innerHTML = `<div class="rp-layout">
-    <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li><a href="#${prefix}-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
-    <div class="rp-body">${chapters.map((c, i) => `<article class="chapter" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${analysisHtml(c.blocks)}${c.calc || ''}${c.trad || ''}</article>`).join('')}
+    <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li${c.pro ? ' class="pro-only"' : ''}><a href="#${prefix}-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
+    <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${analysisHtml(c.blocks)}${c.calc || ''}${c.trad || ''}</article>`).join('')}
       <div class="sys-switch"><span>${prefix === 'bt' ? 'Muốn đọc cùng thời điểm sinh theo Tử Vi?' : 'Muốn đọc cùng thời điểm sinh theo Bát Tự?'}</span><button type="button" class="btn btn-ghost btn-sm" data-go="${prefix === 'bt' ? 'tu-vi' : 'bat-tu'}">${prefix === 'bt' ? 'Xem Tử Vi →' : 'Xem Bát Tự →'}</button></div></div></div>`;
+  autoLink(host, prefix === 'bt' ? 'bt' : 'tv');
   $$('[data-jump]', host).forEach(r => r.onclick = () => $('#' + prefix + '-' + r.dataset.jump, host).scrollIntoView({ behavior: 'smooth', block: 'start' }));
   $$('.ref', host).forEach(r => r.onclick = () => ctx.openPalace(r.dataset.palace));
   const tg = $('.ig-toggle', host); if (tg) tg.onclick = () => { const on = tg.getAttribute('aria-pressed') !== 'true'; tg.setAttribute('aria-pressed', on); $('.ig-box', host).hidden = !on; tg.textContent = on ? 'Ẩn đồ thị suy luận' : 'Xem đồ thị suy luận'; };
   const links = $$('.rp-toc a', host);
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(l => l.classList.toggle('on', l.dataset.ch === e.target.id.slice(prefix.length + 1))); }), { rootMargin: '-30% 0px -60% 0px' });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(l => { const on = l.dataset.ch === e.target.id.slice(prefix.length + 1); l.classList.toggle('on', on); const ol = l.closest('ol'); if (on && ol.scrollWidth > ol.clientWidth && matchMedia('(max-width:980px)').matches) ol.scrollTo({ left: l.offsetLeft - ol.clientWidth / 2 + l.offsetWidth / 2, behavior: 'smooth' }); }); }), { rootMargin: '-30% 0px -60% 0px' });
   $$('.chapter', host).forEach(c => io.observe(c));
   links.forEach(l => l.onclick = e => { e.preventDefault(); $(l.getAttribute('href'), host).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
 }
@@ -47,7 +68,9 @@ const shell = ctx => {
   const calc = html => `<div class="ch-calc"><p class="eyebrow">Dữ kiện tính toán</p>${html}</div>`;
   const ref = name => `<button type="button" class="ref" data-palace="${esc(name)}">${esc(name)}<svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9l6-6M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>`;
   const where = f => { const pn = palaceOfSubject(f.subject); return pn ? `cung ${ref(pn)}` : 'toàn lá số'; };
-  const trad = (fs, note) => `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${fs.length ? fs.map(f => findingCard(f, where(f))).join('') + '<p class="muted small">Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán.</p>' : notice('Chưa có quy tắc nào được kích hoạt cho phần này', note || 'Bộ quy tắc hiện hành chưa phủ tới nội dung này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</div>`;
+  const trad = (fs, note, topic, palace) => `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>
+    <div class="pro-only">${fs.length ? fs.map(f => findingCard(f, where(f))).join('') + '<p class="muted small">Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán.</p>' : notice('Chưa có quy tắc nào được kích hoạt cho phần này', note || 'Bộ quy tắc hiện hành chưa phủ tới nội dung này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</div>
+    <div class="easy-only">${easyReadings(fs, { where, empty: emptyReading(topic, terms(), { palace }) })}<p class="muted small">Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán.</p></div></div>`;
   const deep = (sysKey, label, traceObj) => { const d = reason.systems[sysKey]; return `<div class="ch-calc"><p class="eyebrow">Dành cho người muốn kiểm chứng</p>
     ${acc(`Văn bản luận giải — ${label}`, `${d.findings.length} nhận định · ${d.pending.length} quy tắc chờ dữ kiện`, `<pre class="prose-pre">${esc(d.text)}</pre>${d.pending.length ? `<h5>Quy tắc chưa đủ dữ kiện</h5><ul>${d.pending.map(p => `<li>${esc(p.rule)} <span class="muted">@${esc(p.subject)} · thiếu ${esc(p.missing_facts.join(', '))}</span></li>`).join('')}</ul>` : ''}`)}
     ${d.findings.length ? acc('Tất cả nhận định và chuỗi suy luận', `${d.findings.length} nhận định`, d.findings.map(f => findingCard(f, where(f))).join('')) : ''}
@@ -72,21 +95,21 @@ export function renderBaziReport(host, chart, ctx, parts) {
   const godCount = ks => Object.entries(ks.reduce((o, k) => { const g = tenGodGroup(b.pillars[k].stem_ten_god); if (g) o[g] = (o[g] || 0) + 1; return o; }, {})).map(([g, n]) => `${g} ×${n}`).join(', ') || 'không có';
   const chapters = [
     { id: 'tong-quan', title: 'Tổng quan Bát Tự', lead: `Nhật Chủ <b>${esc(dm.n)}</b> (${dm.e}) sinh vào tháng ${esc(mb.n)}; đại vận ${esc(b.luck_direction)}, khởi vận sau khoảng ${b.luck_start.years} năm ${b.luck_start.months} tháng.`, blocks: blocks('bt', 'tong-quan'),
-      calc: calc(`<div class="facts"><div><span class="k">Nhật Chủ</span><b>${esc(dm.n)} ${dm.e}</b></div><div><span class="k">Nguyệt lệnh</span><b>${esc(mb.n)} (${mb.e})</b></div><div><span class="k">Trường sinh so với nguyệt lệnh</span><b>${esc(month.stage_vs_day_master)}</b></div><div><span class="k">Đại vận</span><b>${esc(b.luck_direction)}</b></div><div><span class="k">Khởi vận</span><b>${b.luck_start.years} năm ${b.luck_start.months} tháng</b></div><div><span class="k">Đại vận hiện tại</span><b>${ph.luck ? `${esc(ph.luck.name)}` : 'chưa khởi'}</b></div></div>${highlightsHtml(fs, TITLE, chOf)}${acc('Nguyệt Lệnh', 'Tháng sinh và mùa của lá số', parts.nguyetLenh)}`),
+      calc: calc(`<div class="facts"><div><span class="k">Nhật Chủ</span><b>${esc(dm.n)} ${dm.e}</b></div><div><span class="k">Nguyệt lệnh</span><b>${esc(mb.n)} (${mb.e})</b></div><div><span class="k">Trường sinh so với nguyệt lệnh</span><b>${esc(month.stage_vs_day_master)}</b></div><div><span class="k">Đại vận</span><b>${esc(b.luck_direction)}</b></div><div><span class="k">Khởi vận</span><b>${b.luck_start.years} năm ${b.luck_start.months} tháng</b></div><div><span class="k">Đại vận hiện tại</span><b>${ph.luck ? `${esc(ph.luck.name)}` : 'chưa khởi'}</b></div></div><div class="pro-only">${highlightsHtml(fs, TITLE, chOf)}</div>${acc('Nguyệt Lệnh', 'Tháng sinh và mùa của lá số', parts.nguyetLenh)}`),
       trad: notice('Về mức độ tin cậy', 'Quy tắc đã đối chiếu sách và quy tắc nháp luôn được ghi nhãn riêng ở từng nhận định.', 'info') && `<div class="ch-trad">${notice('Về mức độ tin cậy', 'Quy tắc đã đối chiếu sách và quy tắc nháp luôn được ghi nhãn riêng ở từng nhận định. Đây là cách đọc theo hệ biểu tượng, không phải kết luận.', 'info')}</div>` },
     { id: 'nhat-chu', title: 'Nhật Chủ & tính cách', lead: `Nhật Chủ ${esc(dm.n)} thuộc hành ${elChip(dm.e)}; Thập thần trên thiên can: ${esc(godCount(['year', 'month', 'hour']))}.`, blocks: blocks('bt', 'tinh-cach'),
-      calc: calc(`<h5>Thấu can và thông căn (dữ kiện vị trí)</h5>${parts.thongCan}`), trad: trad(of('nhat-chu')) },
+      calc: calc(`<h5>Thấu can và thông căn (dữ kiện vị trí)</h5>${parts.thongCan}`), trad: trad(of('nhat-chu'), null, 'bt:nhat-chu') },
     { id: 'ngu-hanh', title: 'Ngũ Hành & Thập Thần', lead: 'Sự phân bố của năm hành và năm nhóm Thập thần trên toàn lá số.',
       calc: calc(`<h5>Cân bằng Ngũ Hành</h5>${elementBalanceHtml(b)}<h5>Phân bố Thập Thần</h5>${godDistributionHtml(b)}${acc('Thập Thần theo từng trụ', 'Quan hệ của mỗi can với Nhật Chủ', parts.thapThan)}${acc('Tàng Can', 'Can ẩn trong từng địa chi', parts.tangCan)}`), trad: '' },
     { id: 'su-nghiep', title: 'Sự nghiệp & Tài lộc', lead: 'Vị trí của nhóm Quan Sát, Ấn và Tài trong lá số.', blocks: blocks('bt', 'cong-danh', 'tai-bach'),
-      calc: calc(`<p>Trên thiên can: ${esc(godCount(['year', 'month', 'hour']))}. Chi tiết số lượng trong tàng can xem ở chương <i>Ngũ Hành & Thập Thần</i>.</p>`), trad: trad([], 'Chưa có quy tắc Bát Tự nào về sự nghiệp hay tài lộc được kích hoạt hoặc đã xác minh.') },
+      calc: calc(`<p>Trên thiên can: ${esc(godCount(['year', 'month', 'hour']))}. Chi tiết số lượng trong tàng can xem ở chương <i>Ngũ Hành & Thập Thần</i>.</p>`), trad: trad([], 'Chưa có quy tắc Bát Tự nào về sự nghiệp hay tài lộc được kích hoạt hoặc đã xác minh.', 'bt:su-nghiep') },
     { id: 'quan-he', title: 'Quan hệ Can Chi & hôn nhân', lead: `${parts.relCount ? `Có ${parts.relCount} quan hệ hợp, xung, hại, phá, hình giữa các trụ.` : 'Không có hợp, xung, hại, phá, hình nào giữa các trụ gốc.'}`, blocks: blocks('bt', 'quan-he'),
-      calc: calc(parts.relations), trad: trad([], 'Chưa có quy tắc Bát Tự về quan hệ hôn nhân được kích hoạt hoặc đã xác minh.') },
+      calc: calc(parts.relations), trad: trad([], 'Chưa có quy tắc Bát Tự về quan hệ hôn nhân được kích hoạt hoặc đã xác minh.', 'bt:quan-he') },
     { id: 'dai-van', title: 'Đại vận & lưu niên', lead: `Đại vận ${esc(b.luck_direction)}; hiện ở ${ph.luck ? `đại vận ${esc(ph.luck.name)} (${esc(ph.luck.ten_god)})` : 'giai đoạn chưa khởi vận'}.`, blocks: blocks('bt', 'dai-van'),
       calc: calc(`<h5>Các đại vận</h5>${parts.luck}<h5>Lưu niên và lưu nguyệt</h5><div id="bt-year"></div>`), trad: '' },
     { id: 'cach-cuc', title: 'Cách cục & Dụng thần', lead: 'Phân loại cấu trúc và hành cần cân bằng của lá số.',
-      calc: calc(`${notice('Cách cục và Dụng thần chưa được xác định', 'Hai nội dung này cần bộ quy tắc đã đối chiếu nguồn và phụ thuộc trường phái. Hệ thống không đoán để tránh đưa ra kết luận thiếu căn cứ; hiện chỉ nêu từng tiêu chí ở chương Nhật Chủ.')}`), trad: trad(of('cach-cuc'), 'Không có cách cục nào được nhận ra.') },
-    { id: 'chuyen-sau', title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('bat_tu', 'Bát Tự', { normalization: ctx.chartRaw.normalization_trace.steps, bazi: b.trace.steps }), trad: '' },
+      calc: calc(`<div class="pro-only">${notice('Cách cục và Dụng thần chưa được xác định', 'Hai nội dung này cần bộ quy tắc đã đối chiếu nguồn và phụ thuộc trường phái. Hệ thống không đoán để tránh đưa ra kết luận thiếu căn cứ; hiện chỉ nêu từng tiêu chí ở chương Nhật Chủ.')}</div>`), trad: trad(of('cach-cuc'), 'Không có cách cục nào được nhận ra.', 'bt:cach-cuc') },
+    { id: 'chuyen-sau', pro: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('bat_tu', 'Bát Tự', { normalization: ctx.chartRaw.normalization_trace.steps, bazi: b.trace.steps }), trad: '' },
   ];
   mount(host, chapters, 'bt', ctx);
   host.insertAdjacentHTML('afterbegin', scopePanelBazi(b));
@@ -118,25 +141,25 @@ export function renderTuviReport(host, chart, ctx) {
       ${row('Cát tinh', esc(g('pos').join(', ')))}${row('Sát / hung tinh', esc(g('neg').join(', ')))}${row('Phụ tinh khác', esc(g('neu').join(', ')))}
       ${row('Tứ Hóa', esc(hoa.join('; ')))}${row('Tuần / Triệt', esc([p.tuan && 'Tuần', p.triet && 'Triệt'].filter(Boolean).join(' + ')))}${row('Đại hạn', d ? `${d.age_from}–${d.age_to} tuổi` : '')}
       ${row('Xung chiếu', `${ref(t.palaces.find(x => x.branch === s.opposite).name)}`)}${row('Tam hợp', s.tam_hop.map(x => ref(t.palaces.find(y => y.branch === x).name)).join(' · '))}
-      ${row('Nhận định', pf.length ? esc(pf.map(f => claimLabel(f.claim)).join('; ')) : '<span class="muted">chưa có quy tắc được kích hoạt</span>')}</div>`);
+      ${row('Nhận định', (pf.length ? `<span class="pro-only">${esc(pf.map(f => claimLabel(f.claim)).join('; '))}</span>` : '<span class="pro-only muted">chưa có quy tắc được kích hoạt</span>') + `<span class="easy-only">${(() => { const sh = classify(pf).show; return sh.length ? esc(sh.map(f => parsePhrase(f).core).join('; ')) : `<span class="muted">${esc(terms()['palace:' + p.name]?.plain || '')} Chưa có luận giải cá nhân hóa cho cung này.</span>`; })()}</span>`)}</div>`);
   }).join('');
   const chapters = [
     { id: 'tong-quan', title: 'Tổng quan Tử Vi', lead: `Lá số lập cho người sinh năm ${esc(t.year_gz)} (âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}), ${esc(t.yin_yang_gender)}.`, blocks: blocks('tv', 'tong-quan'),
-      calc: calc(`<div class="facts"><div><span class="k">Mệnh cung</span><b>${esc(tv.menh.stem)} ${esc(tv.menh.branch)}</b></div><div><span class="k">Thân cư</span><b>${esc(tv.than.name)}</b></div><div><span class="k">Cục</span><b>${esc(t.cuc.name)}</b></div><div><span class="k">Bản mệnh</span><b>${esc(t.menh_nap_am)}</b></div><div><span class="k">Cục và Mệnh</span><b>${esc(t.menh_cuc_relation)}</b></div><div><span class="k">Đại hạn hiện tại</span><b>${ph.dh ? `${esc(ph.dh.palace)} (${ph.dh.age_from}–${ph.dh.age_to})` : 'chưa vào'}</b></div></div>${highlightsHtml(fs, TITLE, chOf)}`),
+      calc: calc(`<div class="facts"><div><span class="k">Mệnh cung</span><b>${esc(tv.menh.stem)} ${esc(tv.menh.branch)}</b></div><div><span class="k">Thân cư</span><b>${esc(tv.than.name)}</b></div><div><span class="k">Cục</span><b>${esc(t.cuc.name)}</b></div><div><span class="k">Bản mệnh</span><b>${esc(t.menh_nap_am)}</b></div><div><span class="k">Cục và Mệnh</span><b>${esc(t.menh_cuc_relation)}</b></div><div><span class="k">Đại hạn hiện tại</span><b>${ph.dh ? `${esc(ph.dh.palace)} (${ph.dh.age_from}–${ph.dh.age_to})` : 'chưa vào'}</b></div></div><div class="pro-only">${highlightsHtml(fs, TITLE, chOf)}</div>`),
       trad: `<div class="ch-trad">${notice('Về mức độ tin cậy', 'Quy tắc đã đối chiếu sách và quy tắc nháp luôn được ghi nhãn riêng ở từng nhận định. Đây là cách đọc theo hệ biểu tượng, không phải kết luận.', 'info')}</div>` },
     { id: 'ban-menh', title: 'Bản Mệnh', lead: `Bản mệnh ${esc(t.menh_nap_am)} thuộc hành ${esc(t.menh_element)}; ${esc(t.cuc.name)} thuộc hành ${esc(t.cuc.element)}.`, blocks: blocks('tv', 'ban-menh'),
-      calc: calc(`${t.extras?.menh_chu ? `<div class="facts"><div><span class="k">Mệnh chủ (theo chi cung Mệnh)</span><b>${esc(t.extras.menh_chu.star)}</b></div><div><span class="k">Thân chủ (theo chi năm)</span><b>${esc(t.extras.than_chu.star)}</b></div><div><span class="k">Độ tin cậy</span><b>công thức phổ biến, chưa đối chiếu sách</b></div></div>` : ''}${palaceList(['Mệnh'])}<h5>Tam phương tứ chính của cung Mệnh</h5>${menhTamPhuongHtml(t)}<h5>Tứ Hóa theo can năm</h5><ul class="plain">${tuHoa}</ul>`), trad: trad(of('ban-menh')) },
-    { id: 'tinh-cach', title: 'Tính cách', lead: 'Nhìn từ cung Mệnh và cung Phúc Đức.', blocks: blocks('tv', 'tinh-cach'), calc: calc(palaceList(['Mệnh', 'Phúc Đức'])), trad: trad(of('tinh-cach')) },
-    { id: 'cong-danh', title: 'Công danh', lead: 'Cung Quan Lộc và cung đối Thiên Di.', blocks: blocks('tv', 'cong-danh'), calc: calc(palaceList(['Quan Lộc', 'Thiên Di'])), trad: trad(of('cong-danh')) },
-    { id: 'tai-bach', title: 'Tài Bạch', lead: 'Cung Tài Bạch và Điền Trạch.', blocks: blocks('tv', 'tai-bach'), calc: calc(palaceList(['Tài Bạch', 'Điền Trạch'])), trad: trad(of('tai-bach')) },
-    { id: 'quan-he', title: 'Quan hệ', lead: 'Các cung liên quan đến người thân và các mối quan hệ.', blocks: blocks('tv', 'quan-he'), calc: calc(palaceList(['Phu Thê', 'Tử Tức', 'Huynh Đệ', 'Phụ Mẫu', 'Nô Bộc'])), trad: trad(of('quan-he')) },
+      calc: calc(`${t.extras?.menh_chu ? `<div class="facts"><div><span class="k">Mệnh chủ (theo chi cung Mệnh)</span><b>${esc(t.extras.menh_chu.star)}</b></div><div><span class="k">Thân chủ (theo chi năm)</span><b>${esc(t.extras.than_chu.star)}</b></div><div><span class="k">Độ tin cậy</span><b>công thức phổ biến, chưa đối chiếu sách</b></div></div>` : ''}${palaceList(['Mệnh'])}<h5>Tam phương tứ chính của cung Mệnh</h5>${menhTamPhuongHtml(t)}<h5>Tứ Hóa theo can năm</h5><ul class="plain">${tuHoa}</ul>`), trad: trad(of('ban-menh'), null, 'tv:ban-menh') },
+    { id: 'tinh-cach', title: 'Tính cách', lead: 'Nhìn từ cung Mệnh và cung Phúc Đức.', blocks: blocks('tv', 'tinh-cach'), calc: calc(palaceList(['Mệnh', 'Phúc Đức'])), trad: trad(of('tinh-cach'), null, 'tv:tinh-cach') },
+    { id: 'cong-danh', title: 'Công danh', lead: 'Cung Quan Lộc và cung đối Thiên Di.', blocks: blocks('tv', 'cong-danh'), calc: calc(palaceList(['Quan Lộc', 'Thiên Di'])), trad: trad(of('cong-danh'), null, 'tv:cong-danh') },
+    { id: 'tai-bach', title: 'Tài Bạch', lead: 'Cung Tài Bạch và Điền Trạch.', blocks: blocks('tv', 'tai-bach'), calc: calc(palaceList(['Tài Bạch', 'Điền Trạch'])), trad: trad(of('tai-bach'), null, 'tv:tai-bach') },
+    { id: 'quan-he', title: 'Quan hệ', lead: 'Các cung liên quan đến người thân và các mối quan hệ.', blocks: blocks('tv', 'quan-he'), calc: calc(palaceList(['Phu Thê', 'Tử Tức', 'Huynh Đệ', 'Phụ Mẫu', 'Nô Bộc'])), trad: trad(of('quan-he'), null, 'tv:quan-he') },
     { id: 'dai-han', title: 'Đại hạn & lưu niên', lead: `Đại hạn chạy ${esc(t.dai_han_direction)}; ${ph.dh ? `hiện ở cung ${esc(ph.dh.palace)} (${ph.dh.age_from}–${ph.dh.age_to} tuổi)` : 'chưa vào đại hạn đầu'}.`, blocks: blocks('tv', 'dai-van'),
       calc: calc(`<h5>Các đại hạn</h5>${tv.timelineHtml}<h5>Lưu niên</h5><div id="tv-year"></div>`), trad: '' },
     { id: 'cach-cuc', title: 'Cách cục', lead: 'Các hình thái đặc biệt mà bộ quy tắc hiện hành có thể nhận ra.', blocks: blocks('tv', 'cach-cuc'),
       calc: calc(`<h5>Nhận diện theo tên (vị trí sao)</h5>${(t.extras?.cach_cuc || []).length ? `<ul class="cc-list">${t.extras.cach_cuc.map(x => `<li><b>${esc(x.name)}</b><span class="muted">${esc(x.evidence)}</span></li>`).join('')}</ul><p class="muted small">Đây chỉ là nhận diện tên cách theo vị trí các sao. Ý nghĩa cát hay hung của từng cách chưa được đối chiếu sách nên hệ thống không nêu. Tên cách và nhóm sao theo thông lệ phổ biến, chưa đối chiếu trang sách.</p>` : '<p class="muted">Không nhận ra cách nào trong danh sách các cách được kiểm tra.</p>'}<h5>Nhận định từ bộ quy tắc</h5><p>Số nhận định về cách cục: ${of('cach-cuc').length || 'không có'}.</p>`),
-      trad: (() => { const c = of('cach-cuc'); return `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>${c.length ? `<button type="button" class="btn btn-ghost btn-sm ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div class="ig-box" hidden>${inferenceGraph(c[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên.</p></div>${c.map(f => findingCard(f, shell(ctx).where(f))).join('')}` : notice('Không có cách cục nào được nhận ra', '')}</div>`; })() },
+      trad: (() => { const c = of('cach-cuc'); return `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p><div class="pro-only">${c.length ? `<button type="button" class="btn btn-ghost btn-sm ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div class="ig-box" hidden>${inferenceGraph(c[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên.</p></div>${c.map(f => findingCard(f, shell(ctx).where(f))).join('')}` : notice('Không có cách cục nào được nhận ra', '')}</div><div class="easy-only">${easyReadings(c, { where: shell(ctx).where, empty: emptyReading('tv:cach-cuc', terms()) })}</div></div>`; })() },
     { id: 'muoi-hai-cung', title: 'Toàn bộ mười hai cung', lead: 'Tra nhanh từng cung: sao, Tứ Hóa, Tuần Triệt, đại hạn và nhận định.', calc: calc(`<div class="p12">${p12}</div>`), trad: '' },
-    { id: 'chuyen-sau', title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('tu_vi', 'Tử Vi', { normalization: ctx.chartRaw.normalization_trace.steps, tuvi: t.trace.steps }), trad: '' },
+    { id: 'chuyen-sau', pro: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('tu_vi', 'Tử Vi', { normalization: ctx.chartRaw.normalization_trace.steps, tuvi: t.trace.steps }), trad: '' },
   ];
   mount(host, chapters, 'tv', ctx);
   yearExplorer($('#tv-year', host), ctx.req, b, 'tuvi');
