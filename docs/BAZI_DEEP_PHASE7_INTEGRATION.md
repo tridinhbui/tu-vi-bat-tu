@@ -1,5 +1,7 @@
 # Phase 7: tích hợp API an toàn và UI bản nháp cho Bát Tự sâu
 
+> **Cập nhật Phase 8:** mục 5 ("Không làm được: kiểm tra bằng mắt") đã được thay bằng kiểm tra trình duyệt thật, phát hiện 8 lỗi UX/nội dung đã sửa; xem `docs/BAZI_DEEP_PHASE8_REPORT.md`.
+
 Nhánh: `bazi-deep-draft-integration` (tạo từ `main` = `bb80ab1`, worktree riêng; chưa merge, chưa deploy, chưa đẩy lên remote).
 Quyết định đầu vào: CONDITIONAL GO cho tích hợp bản nháp, NO-GO cho công bố kết luận dụng thần chính thức. Phase 7 giữ đúng hai điều đó.
 
