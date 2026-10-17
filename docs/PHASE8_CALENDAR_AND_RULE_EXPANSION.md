@@ -48,6 +48,8 @@ Oracle độc lập (không import `tvbt`) chạy lại trên 116,928 lá số v
 
 ## 5. Regression
 
+- Worktree sạch của HEAD `18c698a`: **1200 passed, 1 skipped, 2 xfailed, 0 failed (git archive của HEAD, pytest trong engine/)**.
+- Ghi chú: Xfail 2033 của Phase 7 đã thành test thường (lỗi đã sửa); còn hai xfail có từ trước. Hai test `test_bazi_deep_tvh_audit` của phiên Bát Tự vẫn không thuộc HEAD sạch và không được sửa. Baseline 10 cách, UI và API mặc định không đổi. Test đọc PDF tự bỏ qua khi thiếu sách và không được tính là bằng chứng; bằng chứng nằm ở JSON đã ghim.
 
 ## 6. Việc còn mở cho Phase 9
 
