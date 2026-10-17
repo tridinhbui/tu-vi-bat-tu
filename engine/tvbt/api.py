@@ -19,6 +19,8 @@ from .reasoning import engine, facts
 
 ROOT = Path(__file__).resolve().parent.parent
 app = FastAPI(title="tvbt", version="0.1.0")
+ZZ_PREFIX = "BT_ZZ_DIRECT_"
+ZZ_EXPERIMENTAL_LABEL = "Thử nghiệm: chưa đối chiếu đủ với sách, không phải kết luận đã xác minh"
 # Same paths the Worker serves as static assets, so local/uvicorn runs match production.
 app.mount("/css", StaticFiles(directory=ROOT / "web" / "css"), name="css")
 app.mount("/js", StaticFiles(directory=ROOT / "web" / "js"), name="js")
@@ -34,6 +36,7 @@ class BirthReq(BaseModel):
     to_year: int | None = None
     dignity_school: str = Field("thuc_hanh", pattern="^(thuc_hanh|toan_thu)$")
     experimental: bool = False      # opt-in: also evaluate the DRAFT cách cục + engine-demo rules (never part of production readings)
+    bat_tu_direct: bool = False     # opt-in: also evaluate the 八字真宗 直断 rules (pack_bazi_zz_direct); default off keeps the old Bát Tự reading byte-identical
 
     def birth(self) -> BirthInput:
         return BirthInput(self.year, self.month, self.day, self.hour, self.minute, self.tz, self.gender,
@@ -175,14 +178,26 @@ def reasoning(req: BirthReq):
     probs = validate_pack(rules, sources, {"palace.*", "chart.*", "bazi.*", "derived.*"})
     out = {"pack_problems": probs, "systems": {}, "dignity_school": req.dignity_school,
            "mixed_school_warning": req.dignity_school != "thuc_hanh"}
-    for system, base in [("tu_vi", facts.tuvi_facts(tv)), ("bat_tu", facts.bazi_facts(bz))]:
-        res = engine.run(rules, sources, base, system=system)
-        interps = nlg.build_interpretations(res, rules, sources)
+    for system, base in [("tu_vi", facts.tuvi_facts(tv)), ("bat_tu", facts.bazi_facts(bz, zz=req.bat_tu_direct))]:
+        zz_draft = [r for r in rules if r.id.startswith(ZZ_PREFIX) and r.reviewStatus == "draft"] if (system == "bat_tu" and req.bat_tu_direct) else []
+        # draft 直断 rules never join the public reading: they are evaluated in a separate pass and returned under `experimental_findings`
+        main_rules = [r for r in rules if r not in zz_draft] if zz_draft else rules
+        if system == "bat_tu" and not req.bat_tu_direct:
+            main_rules = [r for r in rules if not r.id.startswith(ZZ_PREFIX)]
+        res = engine.run(main_rules, sources, base, system=system)
+        interps = nlg.build_interpretations(res, main_rules, sources)
         out["systems"][system] = {
             "findings": _merge_corroborated([{**dataclasses.asdict(f), "why": _why_vi(res.why(f.id))} for f in res.findings], rules),
             "pending": res.pending[:20], "blocked": res.blocked, "conflicts": res.conflicts,
             "text": nlg.render(nlg.realize(interps, req.level)),
         }
+        if system == "bat_tu" and req.bat_tu_direct:
+            xres = engine.run(zz_draft, sources, base, system=system)
+            exp = [{**dataclasses.asdict(f), "experimental": True, "label": ZZ_EXPERIMENTAL_LABEL, "why": _why_vi(xres.why(f.id))} for f in xres.findings]
+            ver = [f for f in out["systems"][system]["findings"] if f["rule_id"].startswith(ZZ_PREFIX)]
+            out["systems"][system]["experimental_findings"] = exp
+            out["systems"][system]["direct_summary"] = {"source": "八字真宗 PDF pp.50-74 (直断)", "verified": len(ver), "experimental": len(exp),
+                "note": "Kết quả 'verified' khớp điều kiện được nêu trong sách; kết quả thử nghiệm chưa đối chiếu đủ và không thuộc luận giải chính thức. Cả hai chỉ là xu hướng theo sách."}
     if req.experimental:
         out["experimental"] = _experimental(tv, rules, sources)
     return out
@@ -287,7 +302,7 @@ def rule_test(req: RuleTestReq):
     if problems:
         return {"valid": False, "problems": problems, "findings": []}
     nb, bz, tv = _compute(req.birth)
-    base = facts.tuvi_facts(tv) if r.system == "tu_vi" else facts.bazi_facts(bz)
+    base = facts.tuvi_facts(tv) if r.system == "tu_vi" else facts.bazi_facts(bz, zz=True)      # dry-run only: lets an editor test rules on the 直断 facts
     res = engine.run(rs + [r] if r.id not in {x.id for x in rs} else rs, srcs, base, system=r.system)
     mine = [f for f in res.findings if f.rule_id == r.id]
     return {"valid": True, "problems": [], "fired_on": [f.subject for f in mine],
