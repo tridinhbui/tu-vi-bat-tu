@@ -163,16 +163,16 @@ def cach_cuc_tvh(geju: dict, S: dict, profile: SchoolProfile | None = None) -> d
             res.append({"dm": dm, "dm_vi": vi, "status": "khong_co_dong"})
             continue
         res.append({"dm": dm, "dm_vi": vi, "dominant": g, "yong": row["yong"], "van_tot": row["van_tot"], "van_xau": row["van_xau"], "page": row["page"],
-                    "follows_book_rule": vi == thr["book_rule_reading"]})
+                    "follows_book_rule": vi == thr["book_rule_reading"], **({"yong_inferred": row["inferred_note"]} if row.get("yong_inferred") else {})})
     if border:
         return {"method": "cach_cuc_tvh", "status": "hai_cach_doc", "cach": cach, "alternatives": res, "yong": [], "xi": [], "ji": [], "chou": [], "xian": [], "source": "SRC_TVH_DUNGTHAN",
                 "threshold": thr, "trace": trace + ["không chọn một cách đọc; mỗi cách đọc tra dòng riêng của bảng"]}
     r0 = res[0]
     if "yong" not in r0:
         return _table("cach_cuc_tvh", "khong_co_dong", cach=cach, dm=r0["dm_vi"], threshold=thr, trace=trace + ["bảng không có dòng cho tổ hợp này"])
-    trace.append(f"dòng bảng tr.{r0['page']}: nhóm nhiều nhất {r0['dominant']} → dụng thần {r0['yong']}")
+    trace.append(f"dòng bảng tr.{r0['page']}: nhóm nhiều nhất {r0['dominant']} → dụng thần {r0['yong']}" + (" (dụng thần của dòng này do hệ thống suy ra, sách không nêu: " + r0["yong_inferred"] + ")" if r0.get("yong_inferred") else ""))
     return _table("cach_cuc_tvh", "ap_dung", cach=cach, dm=r0["dm_vi"], dominant=r0["dominant"], yong=[r0["yong"][0]], yong_alternatives=r0["yong"],
-                  xi=[g for g in (r0["van_tot"] or []) if g not in r0["yong"][:1]], ji=r0["van_xau"] or [], van_tot=r0["van_tot"], van_xau=r0["van_xau"], page=r0["page"], source="SRC_TVH_DUNGTHAN", threshold=thr, trace=trace)
+                  xi=[g for g in (r0["van_tot"] or []) if g not in r0["yong"][:1]], ji=r0["van_xau"] or [], van_tot=r0["van_tot"], van_xau=r0["van_xau"], page=r0["page"], source="SRC_TVH_DUNGTHAN", threshold=thr, trace=trace, **({"yong_inferred": r0["yong_inferred"]} if r0.get("yong_inferred") else {}))
 
 
 def thong_quan(S: dict, profile: SchoolProfile) -> dict:

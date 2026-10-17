@@ -45,12 +45,15 @@
   "agreement_not_proof": "Các phương pháp cùng nêu nhóm này, nhưng sự đồng thuận không phải là bằng chứng rằng nó đúng.",
   "single_method": "Chỉ một phương pháp áp dụng được cho lá số này.",
   "two_readings": "Nhật Chủ nằm sát ngưỡng 40%: hiển thị cả hai cách đọc, không chọn một.",
-  "book_internal_conflict": "Chính sách này tự mâu thuẫn ở ô này: bảng và chú thích nêu hai tập can khác nhau. Hệ thống giữ tập can của bảng và không coi bên nào là chân lý.",
+  "book_internal_conflict": "Sách này tự mâu thuẫn ở ô này: bảng và chú thích nêu hai tập can khác nhau. Hệ thống giữ tập can của bảng và không coi bên nào là chân lý.",
   "reconstructed_example": "Dữ liệu ví dụ được dựng lại vì bảng in bị vỡ.",
   "draft_banner": "Kết quả là bản nháp: mức xác minh được ghi riêng cho từng phương pháp.",
   "draft_label": "Phân tích thử nghiệm – chưa được kiểm chứng thực nghiệm",
   "flag_off": "Chế độ phân tích chuyên sâu đang tắt. Bật để xem từng phương pháp, nguồn và mức xác minh.",
-  "review_status": "Kiểm độc lập bảng điều hậu: {n}/{total} ô đã có người xác nhận."
+  "review_status": "Kiểm độc lập bảng điều hậu: {n}/{total} ô đã có người xác nhận.",
+  "two_readings_system": "Khí thế của hệ thống nằm ở biên giữa hai mức: hiển thị cả hai cách đọc, không chọn một.",
+  "insufficient_evidence_chip": "Chưa đủ bằng chứng thực nghiệm",
+  "isolation_note": "Các phương pháp của hệ thống và của Thiệu Vĩ Hoa được tính tách biệt: bật hay tắt cách tính của Thiệu Vĩ Hoa không làm đổi kết quả của hệ thống, và ngược lại. Quyết định vượng/nhược theo quy tắc 40% chỉ nằm ở phần Thiệu Vĩ Hoa."
  },
  "forbidden_phrases": [
   "đã chứng minh",
@@ -100,5 +103,46 @@
   "conflict_table_only": "Chỉ có ở bảng",
   "favourable": "Thuận (Dụng/Hỷ) ở",
   "unfavourable": "Bất lợi (Kỵ) ở"
+ },
+ "messages": {
+  "loading": "Đang tính…",
+  "missing_fields": "Hãy điền đủ năm, tháng, ngày, giờ và phút sinh. Phân tích này cần cả giờ sinh.",
+  "invalid_input": "Ngày giờ sinh không hợp lệ (năm từ 1900 đến 2049; ngày phải có thật trong tháng).",
+  "server_rejected": "Máy chủ không nhận dữ liệu này. Hãy kiểm tra lại ngày giờ sinh.",
+  "server_error": "Chưa tính được lúc này. Hãy thử lại sau.",
+  "network_error": "Không kết nối được tới máy chủ. Hãy kiểm tra mạng rồi thử lại.",
+  "flag_off": "Chế độ phân tích chuyên sâu đang tắt. Bật để xem từng phương pháp, nguồn và mức xác minh."
+ },
+ "source_labels": {
+  "SRC_TVH_DIEUHAU": "Thiệu Vĩ Hoa, Dự đoán theo Tứ Trụ (bảng điều hậu)",
+  "SRC_TVH_DUNGTHAN": "Thiệu Vĩ Hoa, Dự đoán theo Tứ Trụ (dụng thần theo cách)",
+  "SRC_TVH_DIEM": "Thiệu Vĩ Hoa, Dự đoán theo Tứ Trụ (tính điểm, quy tắc 40%)",
+  "SRC_TVH_CACH": "Thiệu Vĩ Hoa, Dự đoán theo Tứ Trụ (cách đặc biệt)",
+  "SRC_TTT_HANTHU": "Nhậm Thiết Tiều, Trích Thiên Tủy (hàn thử)",
+  "SRC_TTT_TONG": "Nhậm Thiết Tiều, Trích Thiên Tủy (tòng)",
+  "SRC_TTT_HOA": "Nhậm Thiết Tiều, Trích Thiên Tủy (hóa)",
+  "SRC_TTT_THUONGQUAN": "Nhậm Thiết Tiều, Trích Thiên Tủy (thương quan)"
+ },
+ "token_labels": {
+  "he_thong": "hệ thống",
+  "tvh_40": "quy tắc 40% của Thiệu Vĩ Hoa",
+  "TVH": "Thiệu Vĩ Hoa",
+  "TTT": "Trích Thiên Tủy",
+  "war_share": "ngưỡng giao chiến",
+  "bridge_min": "ngưỡng cầu nối",
+  "tvh_margin": "biên quanh 40%",
+  "QuanSat": "Quan Sát",
+  "ThucThuong": "Thực Thương",
+  "Ti": "Tỉ Kiếp",
+  "An": "Ấn",
+  "Tai": "Tài",
+  "khong_chan": "không có ngoại cách chân",
+  "chi_co_gia": "chỉ có ngoại cách giả",
+  "thanh_nhung_bi_pha": "thành nhưng bị phá",
+  "thanh": "thành",
+  "bai": "bại",
+  "bai_cuu_yeu": "bại nhưng được cứu yếu",
+  "chua_ro": "chưa rõ",
+  "khong_ap_dung": "không áp dụng"
  }
 }

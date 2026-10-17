@@ -53,6 +53,11 @@ responses.forEach((resp, i) => {
   if (!all.includes(vm.state_text)) bad("state text not rendered");
   vm.methods.forEach(m => { if (!all.includes(m.title)) bad("method not rendered: " + m.key); m.trace.forEach(t => { if (!all.includes(t)) bad("trace step missing"); }); m.levels.forEach(l => { if (!all.includes(l.text)) bad("level text missing"); }); });
   vm.disagreements.forEach(x => { if (!all.includes(x.label)) bad("disagreement not rendered"); });
+  // Phase 8: no internal identifier reaches the reader, every card carries the 'insufficient evidence' chip, and the 40% sentence appears only where a 40% threshold exists
+  const RAW = /SRC_[A-Z]|he_thong|tvh_40|war_share|bridge_min|tvh_margin|\bQuanSat\b|\bThucThuong\b|khong_chan|chi_co_gia|thanh_nhung_bi_pha|cach_cuc|thuan_the/;
+  const rawHit = all.match(RAW); if (rawHit) bad("raw identifier shown: " + rawHit[0]);
+  vm.methods.forEach(m => { if (m.evidence_chip !== d.ui_strings.states.insufficient_evidence_chip) bad("chip"); if (m.two_readings_notice && !m.threshold && m.two_readings_notice.includes("40%")) bad("40% sentence on a method without a 40% threshold: " + m.key); if (m.threshold && m.status === "hai_cach_doc" && m.two_readings_notice !== d.ui_strings.states.two_readings) bad("threshold method lacks the 40% notice"); });
+  if (vm.isolation_note !== d.ui_strings.states.isolation_note) bad("isolation note");
   let articles = 0; walk(root, n => { if (n.tag === "article") articles++; });
   if (articles !== 8) bad("articles " + articles);
   const order = []; walk(root, n => { if (n.dataset && n.dataset.method) order.push(n.dataset.method); });
