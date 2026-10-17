@@ -14,7 +14,7 @@ def Y(v, profile=DEFAULT):
 
 def test_five_separate_methods_never_merged():
     y, _, _ = Y(view("EX2"))
-    assert list(y["methods"]) == ["phu_uc", "dieu_hau", "cach_cuc", "thong_quan", "thuan_the"]
+    assert list(y["methods"]) == ["phu_uc", "dieu_hau", "cach_cuc", "cach_cuc_tvh", "thong_quan", "thuan_the"]
     assert "yong" not in y and "final" not in y            # there is no merged answer at all
     for m in y["methods"].values():
         assert m["method"] in y["methods"] and set(["yong", "xi", "ji", "chou", "xian"]) <= set(m)
@@ -49,7 +49,7 @@ def test_phu_uc_is_off_when_a_true_outer_cach_holds():
 def test_dieu_hau_uses_the_draft_table_and_never_the_coarse_climate_for_roles():
     y, S, _ = Y(view("EX8"))
     d = y["methods"]["dieu_hau"]
-    assert d["status"] == "bang_CTBG_draft" and d["yong"] == ["QuanSat"]            # Bính sinh Tý: the first stem of the cell is Nhâm
+    assert d["status"] == "bang_TVH_verified" and d["yong"] == ["QuanSat"]            # Bính sinh Tý: the first stem of the cell is Nhâm
     assert d["climate"]["label"] in ("hàn", "cực hàn", "ôn hòa") and d["need_elements"] in (["Hỏa"], [])
     assert "窮通寶鑑" in d["note"] and "draft" in d["note"]
 

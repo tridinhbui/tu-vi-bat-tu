@@ -62,6 +62,10 @@ class SchoolProfile:
     tong_vuong_ti: float = 0.55                      # Tỉ Kiếp share from which (with Ấn thin) => Tòng Vượng
     tong_foe_max: float = 0.05                       # Tài+Quan Sát share at most this for Tòng Vượng/Cường
     tong_the_each: float = 0.15                      # each of Tài, Quan Sát, Thực Thương at least this for Tòng Thế
+    chuyen_vuong_chars: int = 5                      # 'địa chi có tam hội/tam hợp hóa X hoặc X rất nhiều': at least this many of the 8 characters of element X
+    chuyen_vuong_share: float = 0.60                 # hóa khí: the hóa thần takes at least this share of the scored total ('chuyên cục vượng')
+    tvh_no_help: float = 0.15                        # 'không có' ngang vai/kiếp/ấn (or thực thương, quan sát) in the tòng definitions of Thiệu Vĩ Hoa
+    tvh_tong_main: float = 0.35                      # the group that the day master follows takes at least this share
     flow_min: float = 0.05                           # an element below this share is treated as absent in the nguyên lưu chain
     # --- cách cục
     yin_nhan: bool = False                          # lập Dương Nhận cho âm can

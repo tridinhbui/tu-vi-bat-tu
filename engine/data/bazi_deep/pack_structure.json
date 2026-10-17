@@ -80,6 +80,33 @@
    "verified": true,
    "edition": null,
    "note": "Đối chiếu bằng cách đọc trực tiếp bản PDF (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TVH_DIEUHAU",
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa) — 'Bảng dụng thần dự bị' (điều hậu)",
+   "author": "Thiệu Vĩ Hoa",
+   "locator": "trang in 389-390 (bản scan)",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc ảnh trang (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TVH_CACH",
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa) — phân loại cách cục, đánh giá chính cách, cách đặc biệt",
+   "author": "Thiệu Vĩ Hoa",
+   "locator": "trang in 356-376 (bản scan)",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc ảnh trang (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TVH_DUNGTHAN",
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa) — chọn dụng thần theo cách và hỉ kị thần của vận",
+   "author": "Thiệu Vĩ Hoa",
+   "locator": "trang in 376-386 (bản scan)",
+   "verified": true,
+   "edition": null,
+   "note": "Đối chiếu bằng cách đọc ảnh trang (Claude, 2026-10-17); chưa có người thứ hai kiểm."
   }
  ],
  "rules": [
@@ -1926,6 +1953,1514 @@
    ],
    "reviewStatus": "verified",
    "version": "0.2.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_CV_KHUC_TRUC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Khúc Trực theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Khúc Trực"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_cv_khuc_truc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_CV_VIEM_THUONG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Viêm Thượng theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Viêm Thượng"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_cv_viem_thuong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_CV_GIA_SAC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Gia Sắc theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Gia Sắc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_cv_gia_sac",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_CV_TONG_CACH",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Tòng Cách theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Tòng Cách"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_cv_tong_cach",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_CV_NHUAN_HA",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Nhuận Hạ theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Nhuận Hạ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_cv_nhuan_ha",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TONG_TAI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Tòng Tài (TVH) theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Tòng Tài (TVH)"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tong_tai",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TONG_SAT",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Tòng Sát (TVH) theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Tòng Sát (TVH)"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tong_sat",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TONG_NHI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Tòng Nhi (TVH) theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Tòng Nhi (TVH)"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tong_nhi",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_HOA_MOC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Hóa Mộc (TVH) theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Hóa Mộc (TVH)"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_hoa_moc",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_HOA_HOA",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Hóa Hỏa (TVH) theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Hóa Hỏa (TVH)"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_hoa_hoa",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_HOA_THO",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Hóa Thổ (TVH) theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Hóa Thổ (TVH)"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_hoa_tho",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_HOA_KIM",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Hóa Kim (TVH) theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Hóa Kim (TVH)"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_hoa_kim",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_HOA_THUY",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Cách Hóa Thủy (TVH) theo Thiệu Vĩ Hoa",
+   "conditions": {
+    "fact": "bazi.geju_outer_all",
+    "operator": "contains",
+    "value": "Hóa Thủy (TVH)"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_hoa_thuy",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_QUAN_1",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá quan.1",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "quan.1"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_quan_1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_QUAN_2",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá quan.2",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "quan.2"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_quan_2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_QUAN_3",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá quan.3",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "quan.3"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_quan_3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_QUAN_4",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá quan.4",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "quan.4"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_quan_4",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_QUAN_5",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá quan.5",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "quan.5"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_quan_5",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_QUAN_6",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá quan.6",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "quan.6"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_quan_6",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_SAT_1",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá sat.1",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "sat.1"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_sat_1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_SAT_2",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá sat.2",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "sat.2"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_sat_2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_SAT_3",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá sat.3",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "sat.3"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_sat_3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_SAT_5",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá sat.5",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "sat.5"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_sat_5",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_SAT_6",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá sat.6",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "sat.6"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_sat_6",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_SAT_7",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá sat.7",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "sat.7"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_sat_7",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_AN_1",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá an.1",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "an.1"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_an_1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_AN_2",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá an.2",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "an.2"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_an_2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_AN_3",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá an.3",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "an.3"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_an_3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_AN_4",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá an.4",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "an.4"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_an_4",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_AN_6",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá an.6",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "an.6"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_an_6",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_TAI_1",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá tai.1",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "tai.1"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_tai_1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_TAI_2",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá tai.2",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "tai.2"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_tai_2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_TAI_3",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá tai.3",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "tai.3"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_tai_3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_TAI_4",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá tai.4",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "tai.4"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_tai_4",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_TAI_5",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá tai.5",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "tai.5"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_tai_5",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUC_1",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuc.1",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuc.1"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuc_1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUC_2",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuc.2",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuc.2"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuc_2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUC_3",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuc.3",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuc.3"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuc_3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUC_4",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuc.4",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuc.4"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuc_4",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUC_5",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuc.5",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuc.5"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuc_5",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUC_6",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuc.6",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuc.6"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuc_6",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUONG_1",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuong.1",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuong.1"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuong_1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUONG_2",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuong.2",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuong.2"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuong_2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUONG_3",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuong.3",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuong.3"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuong_3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUONG_5",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuong.5",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuong.5"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuong_5",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUONG_7",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuong.7",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuong.7"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuong_7",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_THUONG_8",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá thuong.8",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "thuong.8"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_thuong_8",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_LOC_1",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá loc.1",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "loc.1"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_loc_1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_LOC_2",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá loc.2",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "loc.2"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_loc_2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_LOC_3",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá loc.3",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "loc.3"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_loc_3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_LOC_4",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá loc.4",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "loc.4"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_loc_4",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVH_TB_LOC_5",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_tvh",
+   "category": "geju",
+   "description": "Đánh giá loc.5",
+   "conditions": {
+    "fact": "bazi.tvh_cach_danh_gia",
+    "operator": "contains",
+    "value": "loc.5"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvh_tb_loc_5",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 7,
+   "sourceIds": [
+    "SRC_TVH_CACH"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.3.0",
    "subject": "chart"
   }
  ]

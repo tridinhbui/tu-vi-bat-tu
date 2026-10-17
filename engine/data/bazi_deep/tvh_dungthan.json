@@ -1,0 +1,1035 @@
+{
+ "_status": "verified_table",
+ "_source": "SRC_TVH_DUNGTHAN",
+ "_note": "Dụng thần theo cách và hỉ kỵ thần của vận, Thiệu Vĩ Hoa pp.378-386 (bản scan). Mỗi dòng = (cách, nhật chủ vượng/nhược, nhóm 'nhiều' nhất) -> thứ tự dụng thần; vận tốt/xấu lấy từ mục 'hỉ, kị thần của vận' cùng cách. 'Nhật chủ vượng/nhược' theo quy tắc 40%; 'nhiều' = nhóm có tỉ trọng lớn nhất (ngưỡng vận hành là của hệ thống, draft). null = sách không nêu vận cho dòng đó. Sách nói dụng thần của thiên tài, thiên quan, thực thần suy theo cách tương ứng (tr.380).",
+ "cach_key": {
+  "Chính Tài": "tai",
+  "Thiên Tài": "tai",
+  "Chính Quan": "quan",
+  "Chính Ấn": "an",
+  "Thiên Ấn": "an",
+  "Thương Quan": "thuong_quan",
+  "Thất Sát": "sat",
+  "Thực Thần": "thuc",
+  "Kiến Lộc": "kien_loc",
+  "Nguyệt Kiếp": "kien_loc",
+  "Dương Nhận": "kinh_duong",
+  "Âm Nhận": "kinh_duong"
+ },
+ "rows": [
+  {
+   "cach": "tai",
+   "dm": "strong",
+   "dom": "Ti",
+   "yong": [
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "ThucThuong",
+    "QuanSat"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "378, 383"
+  },
+  {
+   "cach": "tai",
+   "dm": "strong",
+   "dom": "An",
+   "yong": [
+    "Tai",
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "Tai",
+    "ThucThuong"
+   ],
+   "van_xau": [
+    "An",
+    "Ti",
+    "QuanSat"
+   ],
+   "page": "378, 383"
+  },
+  {
+   "cach": "tai",
+   "dm": "strong",
+   "dom": "ThucThuong",
+   "yong": [
+    "Tai"
+   ],
+   "van_tot": null,
+   "van_xau": null,
+   "page": "378"
+  },
+  {
+   "cach": "tai",
+   "dm": "weak",
+   "dom": "Tai",
+   "yong": [
+    "Ti"
+   ],
+   "van_tot": [
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "page": "378, 383"
+  },
+  {
+   "cach": "tai",
+   "dm": "weak",
+   "dom": "ThucThuong",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "378, 383"
+  },
+  {
+   "cach": "tai",
+   "dm": "weak",
+   "dom": "QuanSat",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "378, 383"
+  },
+  {
+   "cach": "quan",
+   "dm": "strong",
+   "dom": "Ti",
+   "yong": [
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "Tai",
+    "QuanSat"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "378-379, 382"
+  },
+  {
+   "cach": "quan",
+   "dm": "strong",
+   "dom": "An",
+   "yong": [
+    "Tai",
+    "QuanSat"
+   ],
+   "van_tot": [
+    "Tai",
+    "ThucThuong"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "379, 382"
+  },
+  {
+   "cach": "quan",
+   "dm": "strong",
+   "dom": "ThucThuong",
+   "yong": [
+    "An",
+    "Tai"
+   ],
+   "van_tot": null,
+   "van_xau": null,
+   "page": "379"
+  },
+  {
+   "cach": "quan",
+   "dm": "weak",
+   "dom": "Tai",
+   "yong": [
+    "Ti",
+    "An"
+   ],
+   "van_tot": [
+    "Ti",
+    "An"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "379, 382-383"
+  },
+  {
+   "cach": "quan",
+   "dm": "weak",
+   "dom": "ThucThuong",
+   "yong": [
+    "An"
+   ],
+   "van_tot": [
+    "QuanSat",
+    "An"
+   ],
+   "van_xau": [
+    "Tai"
+   ],
+   "page": "379, 383"
+  },
+  {
+   "cach": "quan",
+   "dm": "weak",
+   "dom": "QuanSat",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "379, 383"
+  },
+  {
+   "cach": "an",
+   "dm": "strong",
+   "dom": "Ti",
+   "yong": [
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "379, 383-384"
+  },
+  {
+   "cach": "an",
+   "dm": "strong",
+   "dom": "Tai",
+   "yong": [
+    "QuanSat"
+   ],
+   "van_tot": [
+    "QuanSat"
+   ],
+   "van_xau": [
+    "ThucThuong"
+   ],
+   "page": "379, 383"
+  },
+  {
+   "cach": "an",
+   "dm": "strong",
+   "dom": "An",
+   "yong": [
+    "Tai",
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "Tai",
+    "ThucThuong"
+   ],
+   "van_xau": [
+    "QuanSat",
+    "An",
+    "Ti"
+   ],
+   "page": "379, 383"
+  },
+  {
+   "cach": "an",
+   "dm": "weak",
+   "dom": "ThucThuong",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "page": "379, 384"
+  },
+  {
+   "cach": "an",
+   "dm": "weak",
+   "dom": "QuanSat",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "379, 384"
+  },
+  {
+   "cach": "an",
+   "dm": "weak",
+   "dom": "Tai",
+   "yong": [
+    "Ti",
+    "An"
+   ],
+   "van_tot": null,
+   "van_xau": null,
+   "page": "379"
+  },
+  {
+   "cach": "thuong_quan",
+   "dm": "strong",
+   "dom": "Ti",
+   "yong": [
+    "QuanSat"
+   ],
+   "van_tot": [
+    "Tai",
+    "QuanSat"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "380, 385"
+  },
+  {
+   "cach": "thuong_quan",
+   "dm": "strong",
+   "dom": "An",
+   "yong": [
+    "Tai",
+    "QuanSat"
+   ],
+   "van_tot": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "380, 385"
+  },
+  {
+   "cach": "thuong_quan",
+   "dm": "weak",
+   "dom": "ThucThuong",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "QuanSat",
+    "An"
+   ],
+   "van_xau": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "page": "380, 385"
+  },
+  {
+   "cach": "thuong_quan",
+   "dm": "weak",
+   "dom": "Tai",
+   "yong": [
+    "Ti",
+    "An"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "380, 385"
+  },
+  {
+   "cach": "thuong_quan",
+   "dm": "weak",
+   "dom": "QuanSat",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "380, 385"
+  },
+  {
+   "cach": "sat",
+   "dm": "strong",
+   "dom": "Ti",
+   "yong": [
+    "QuanSat",
+    "Tai"
+   ],
+   "van_tot": null,
+   "van_xau": null,
+   "page": "380"
+  },
+  {
+   "cach": "sat",
+   "dm": "strong",
+   "dom": "An",
+   "yong": [
+    "Tai",
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "Tai",
+    "QuanSat"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "380, 384"
+  },
+  {
+   "cach": "sat",
+   "dm": "strong",
+   "dom": "QuanSat",
+   "yong": [
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "ThucThuong"
+   ],
+   "van_xau": [
+    "QuanSat",
+    "An"
+   ],
+   "page": "380, 384"
+  },
+  {
+   "cach": "sat",
+   "dm": "weak",
+   "dom": "Tai",
+   "yong": [
+    "Ti",
+    "An"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "ThucThuong"
+   ],
+   "page": "380, 384"
+  },
+  {
+   "cach": "sat",
+   "dm": "weak",
+   "dom": "QuanSat",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": null,
+   "van_xau": null,
+   "page": "380"
+  },
+  {
+   "cach": "sat",
+   "dm": "weak",
+   "dom": "ThucThuong",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An"
+   ],
+   "van_xau": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "page": "380, 384"
+  },
+  {
+   "cach": "thuc",
+   "dm": "strong",
+   "dom": "Ti",
+   "yong": [
+    "QuanSat",
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_tot": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "380, 384"
+  },
+  {
+   "cach": "thuc",
+   "dm": "strong",
+   "dom": "An",
+   "yong": [
+    "Tai",
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "380, 384"
+  },
+  {
+   "cach": "thuc",
+   "dm": "strong",
+   "dom": "Tai",
+   "yong": [
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "QuanSat",
+    "Tai"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "381, 384"
+  },
+  {
+   "cach": "thuc",
+   "dm": "weak",
+   "dom": "Tai",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "page": "381, 384"
+  },
+  {
+   "cach": "thuc",
+   "dm": "weak",
+   "dom": "ThucThuong",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "page": "381, 384"
+  },
+  {
+   "cach": "thuc",
+   "dm": "weak",
+   "dom": "QuanSat",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "381, 384"
+  },
+  {
+   "cach": "kien_loc",
+   "dm": "strong",
+   "dom": "Ti",
+   "yong": [
+    "QuanSat"
+   ],
+   "van_tot": [
+    "Tai",
+    "QuanSat"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kien_loc",
+   "dm": "strong",
+   "dom": "An",
+   "yong": [
+    "Tai"
+   ],
+   "van_tot": [
+    "Tai",
+    "ThucThuong"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kien_loc",
+   "dm": "strong",
+   "dom": "QuanSat",
+   "yong": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_tot": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kien_loc",
+   "dm": "strong",
+   "dom": "ThucThuong",
+   "yong": [
+    "Tai"
+   ],
+   "van_tot": [
+    "Tai",
+    "ThucThuong"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kien_loc",
+   "dm": "strong",
+   "dom": "Tai",
+   "yong": [
+    "ThucThuong",
+    "Tai",
+    "QuanSat"
+   ],
+   "van_tot": [
+    "Tai",
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kien_loc",
+   "dm": "weak",
+   "dom": "Tai",
+   "yong": [
+    "Ti"
+   ],
+   "van_tot": [
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kien_loc",
+   "dm": "weak",
+   "dom": "QuanSat",
+   "yong": [
+    "An"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kien_loc",
+   "dm": "weak",
+   "dom": "ThucThuong",
+   "yong": [
+    "An",
+    "Ti"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kinh_duong",
+   "dm": "strong",
+   "dom": "Tai",
+   "yong": [
+    "QuanSat"
+   ],
+   "van_tot": [
+    "Tai",
+    "QuanSat"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kinh_duong",
+   "dm": "strong",
+   "dom": "QuanSat",
+   "yong": [
+    "Tai"
+   ],
+   "van_tot": [
+    "Tai",
+    "QuanSat"
+   ],
+   "van_xau": [
+    "Ti",
+    "An"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kinh_duong",
+   "dm": "strong",
+   "dom": "ThucThuong",
+   "yong": [
+    "Tai"
+   ],
+   "van_tot": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kinh_duong",
+   "dm": "strong",
+   "dom": "Ti",
+   "yong": [
+    "QuanSat"
+   ],
+   "van_tot": [
+    "QuanSat"
+   ],
+   "van_xau": [
+    "ThucThuong",
+    "An",
+    "Ti"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kinh_duong",
+   "dm": "strong",
+   "dom": "An",
+   "yong": [
+    "Tai"
+   ],
+   "van_tot": [
+    "Tai",
+    "QuanSat"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kinh_duong",
+   "dm": "weak",
+   "dom": "Tai",
+   "yong": [
+    "An"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kinh_duong",
+   "dm": "weak",
+   "dom": "QuanSat",
+   "yong": [
+    "An"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "page": "381, 386"
+  },
+  {
+   "cach": "kinh_duong",
+   "dm": "weak",
+   "dom": "ThucThuong",
+   "yong": [
+    "An"
+   ],
+   "van_tot": [
+    "An",
+    "Ti"
+   ],
+   "van_xau": [
+    "Tai",
+    "QuanSat",
+    "ThucThuong"
+   ],
+   "page": "381, 386"
+  }
+ ],
+ "special": {
+  "Khúc Trực": {
+   "element": "Mộc"
+  },
+  "Viêm Thượng": {
+   "element": "Hỏa",
+   "van_tot": [
+    "Mộc",
+    "Hỏa",
+    "Thổ"
+   ],
+   "van_xau": [
+    "Kim",
+    "Thủy"
+   ]
+  },
+  "Gia Sắc": {
+   "element": "Thổ",
+   "van_tot": [
+    "Thổ",
+    "Kim",
+    "Thủy"
+   ],
+   "van_xau": [
+    "Mộc",
+    "Hỏa"
+   ]
+  },
+  "Tòng Cách": {
+   "element": "Kim"
+  },
+  "Nhuận Hạ": {
+   "element": "Thủy",
+   "van_tot": [
+    "Kim",
+    "Thủy",
+    "Mộc"
+   ],
+   "van_xau": [
+    "Hỏa",
+    "Thổ"
+   ]
+  },
+  "Hóa Thủy": {
+   "element": "Thủy",
+   "van_tot": [
+    "Kim",
+    "Thủy",
+    "Mộc"
+   ],
+   "van_xau": [
+    "Hỏa",
+    "Thổ"
+   ]
+  },
+  "Hóa Kim": {
+   "element": "Kim",
+   "van_tot": [
+    "Thổ",
+    "Kim",
+    "Thủy"
+   ],
+   "van_xau": [
+    "Hỏa"
+   ]
+  },
+  "Hóa Hỏa": {
+   "element": "Hỏa",
+   "van_tot": [
+    "Mộc",
+    "Hỏa",
+    "Thổ"
+   ],
+   "van_xau": [
+    "Thủy"
+   ]
+  },
+  "Hóa Mộc": {
+   "element": "Mộc",
+   "van_tot": [
+    "Thủy",
+    "Mộc",
+    "Hỏa"
+   ],
+   "van_xau": [
+    "Kim"
+   ]
+  },
+  "Hóa Thổ": {
+   "element": "Thổ",
+   "van_tot": [
+    "Hỏa",
+    "Thổ",
+    "Kim"
+   ],
+   "van_xau": [
+    "Mộc"
+   ]
+  }
+ },
+ "tong": {
+  "Tòng Tài (TVH)": {
+   "yong": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_tot": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_xau": [
+    "QuanSat",
+    "An",
+    "Ti"
+   ]
+  },
+  "Tòng Sát (TVH)": {
+   "yong": [
+    "Tai"
+   ],
+   "van_tot": [
+    "QuanSat"
+   ],
+   "van_xau": [
+    "An",
+    "Ti"
+   ]
+  },
+  "Tòng Nhi (TVH)": {
+   "yong": [
+    "ThucThuong"
+   ],
+   "van_tot": [
+    "ThucThuong",
+    "Tai"
+   ],
+   "van_xau": [
+    "An"
+   ],
+   "note": "gặp vận Tỉ Kiếp thì không có trở ngại gì"
+  }
+ }
+}

@@ -90,7 +90,7 @@ def test_doi_cach_when_a_temporal_stem_makes_a_hidden_month_stem_thau():
 
 def test_roles_are_reported_per_method_and_never_merged():
     _, _, o = A("EX1", td.tp("luck", 4, 8))
-    assert set(o["roles"]) == {"phu_uc", "dieu_hau", "cach_cuc", "thong_quan", "thuan_the"}
+    assert set(o["roles"]) == {"phu_uc", "dieu_hau", "cach_cuc", "cach_cuc_tvh", "thong_quan", "thuan_the"}
     assert o["roles"]["cach_cuc"]["stem_group"] == "Tai"
     assert "final" not in o and "role" not in o
 

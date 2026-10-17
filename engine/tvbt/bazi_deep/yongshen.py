@@ -17,6 +17,7 @@ from .strength import GROUP_VI
 ROLES = ["yong", "xi", "ji", "chou", "xian"]
 TONG_ROLES = json.loads((DATA / "tong_roles.json").read_text("utf-8"))
 TQ = json.loads((DATA / "thuong_quan_dung.json").read_text("utf-8"))
+TVH_DT = json.loads((DATA / "tvh_dungthan.json").read_text("utf-8"))
 
 
 def _table(method: str, status: str, **roles) -> dict:
@@ -53,11 +54,11 @@ def dieu_hau(view: ChartView, S: dict) -> dict:
         if x["group"] not in groups:
             groups.append(x["group"])
     main = tb["yong_stems"][0]["group"]
-    t = _table("dieu_hau", "bang_CTBG_draft", yong=[main], xi=[g for g in groups if g != main], table=tb, climate=cl)
+    t = _table("dieu_hau", "bang_TVH_verified", yong=[main], xi=[g for g in groups if g != main], table=tb, climate=cl, source="SRC_TVH_DIEUHAU")
     h = cl["heat"]
     t["need_elements"], t["avoid_elements"] = (["Hỏa"], ["Thủy"]) if h <= -1 else (["Thủy"], ["Hỏa"]) if h >= 1.5 else ([], [])
     t["han_noan"] = han_noan(view, cl)
-    t["note"] = "Ô bảng điều hậu nhập từ trí nhớ, chưa đối chiếu 窮通寶鑑 (draft). Vai trò: can đầu của ô là Dụng, các can sau là Hỷ. Chỉ số nhiệt thô chỉ để đối chiếu."
+    t["note"] = "Tập can dùng được lấy từ bảng dụng thần dự bị của Thiệu Vĩ Hoa (tr.389-390, đã đối chiếu); can 'chính' chọn theo thứ tự bảng 窮通寶鑑 nhập từ trí nhớ (draft). Vai trò: can chính là Dụng, các can còn lại là Hỷ. Chỉ số nhiệt thô chỉ để đối chiếu."
     return t
 
 
@@ -72,6 +73,48 @@ def cach_cuc(geju: dict, tq: dict | None = None) -> dict:
         return _table("cach_cuc", "cach_bai", cach=c["name"], yong=c["yong_groups"], bai=[b["id"] for b in c["bai"]],
                       note="cách bại chưa được cứu: dụng thần nêu theo bảng nhưng cần coi là vô lực")
     return _table("cach_cuc", "ap_dung", cach=c["name"], cach_state=c["state"], yong=c["yong_groups"])
+
+
+def _tvh_row(key: str, dm: str, dom: str):
+    return next((r for r in TVH_DT["rows"] if r["cach"] == key and r["dm"] == dm and r["dom"] == dom), None)
+
+
+def cach_cuc_tvh(geju: dict, S: dict) -> dict:
+    """Dụng thần theo cách của Thiệu Vĩ Hoa (pp.378-386): (cách, nhật chủ vượng/nhược theo quy tắc 40%, nhóm nhiều nhất) -> dụng thần và vận tốt/xấu.
+    Method separate from cach_cuc (which follows the system's own draft tables and Trích Thiên Tủy for Thương Quan)."""
+    prim = geju["readings"][0] if geju["readings"] else None
+    if not prim or prim["kind"] != "noi_cach":
+        return _table("cach_cuc_tvh", "khong_xac_dinh_noi_cach", note="nội cách không lập được hoặc bị ngoại cách thay")
+    cach = prim["cach"]
+    key = TVH_DT["cach_key"].get(cach)
+    if key is None:
+        return _table("cach_cuc_tvh", "khong_co_bang", cach=cach)
+    tv = S.get("tvh")
+    border = S.get("ambiguous") and tv is not None
+    strong = tv["dm_strong"] if tv else S["level_index"] >= 4
+    order = sorted(S["shares"], key=lambda g: -S["shares"][g])
+
+    def pick(dm):
+        for g in order:
+            row = _tvh_row(key, dm, g)
+            if row:
+                return g, row
+        return None, None
+    options = [("strong", "vượng"), ("weak", "nhược")] if border else [("strong" if strong else "weak", "vượng" if strong else "nhược")]
+    res = []
+    for dm, vi in options:
+        g, row = pick(dm)
+        if row is None:
+            res.append({"dm": dm, "dm_vi": vi, "status": "khong_co_dong"})
+            continue
+        res.append({"dm": dm, "dm_vi": vi, "dominant": g, "yong": row["yong"], "van_tot": row["van_tot"], "van_xau": row["van_xau"], "page": row["page"]})
+    if border:
+        return {"method": "cach_cuc_tvh", "status": "hai_cach_doc", "cach": cach, "alternatives": res, "yong": [], "xi": [], "ji": [], "chou": [], "xian": [], "source": "SRC_TVH_DUNGTHAN"}
+    r0 = res[0]
+    if "yong" not in r0:
+        return _table("cach_cuc_tvh", "khong_co_dong", cach=cach, dm=r0["dm_vi"])
+    return _table("cach_cuc_tvh", "ap_dung", cach=cach, dm=r0["dm_vi"], dominant=r0["dominant"], yong=[r0["yong"][0]], yong_alternatives=r0["yong"],
+                  xi=[g for g in (r0["van_tot"] or []) if g not in r0["yong"][:1]], ji=r0["van_xau"] or [], van_tot=r0["van_tot"], van_xau=r0["van_xau"], page=r0["page"], source="SRC_TVH_DUNGTHAN")
 
 
 def thong_quan(S: dict, profile: SchoolProfile) -> dict:
@@ -95,11 +138,21 @@ def thuan_the(geju: dict, S: dict | None = None, profile: SchoolProfile | None =
         gia = [o["name"] for o in geju["outer"]]
         return _table("thuan_the", "khong_chan" if not gia else "chi_co_gia", candidates=gia)
     n = ch[0]["name"]
+    kind = ch[0].get("kind")
+    if kind == "tong_tvh":                    # Thiệu Vĩ Hoa pp.381, 385: dụng thần and vận of tòng tài / tòng sát / tòng nhi
+        r = TVH_DT["tong"][n]
+        return _table("thuan_the", "ap_dung", outer=n, yong=r["yong"], xi=[g for g in r["van_tot"] if g not in r["yong"]], ji=r["van_xau"], source="SRC_TVH_DUNGTHAN", note=r.get("note", ""))
+    if kind in ("chuyen_vuong", "hoa_tvh"):   # pp.381-382, 385-386: take the element of the cách as dụng thần
+        key = n.replace(" (TVH)", "")
+        r = TVH_DT["special"].get(key, {})
+        el = ch[0].get("element") or r.get("element") or key.split()[-1]
+        return _table("thuan_the", "ap_dung", outer=n, need_elements=[el], van_tot_elements=r.get("van_tot"), van_xau_elements=r.get("van_xau"), source="SRC_TVH_DUNGTHAN",
+                      note="cách đặc biệt lấy theo thế vượng: dụng thần là hành của chính cách (tr.381-382)")
     if n in TONG_ROLES["types"]:
         r = TONG_ROLES["types"][n]
         return _table("thuan_the", "ap_dung", outer=n, yong=r["yong"], xi=r["xi"], ji=r["ji"], source=r["src"], source_note=r["note"])
     # Hóa X
-    el = n.split()[-1]
+    el = n.replace(" (TVH)", "").split()[-1]
     out = _table("thuan_the", "ap_dung", outer=n, source="SRC_TTT_HOA")
     if S is not None:
         tot = sum(S["by_element"].values()) or 1.0
@@ -170,7 +223,7 @@ def run(view: ChartView, profile: SchoolProfile, R, S: dict, geju: dict) -> dict
     ctx = Ctx(view, profile, R, S)
     outer_chan = any(o["quality"] == "chân" for o in geju["outer"])
     tq = thuong_quan_dung(ctx, S, geju, profile)
-    methods = [phu_uc(S, outer_chan), dieu_hau(view, S), cach_cuc(geju, tq), thong_quan(S, profile), thuan_the(geju, S, profile)]
+    methods = [phu_uc(S, outer_chan), dieu_hau(view, S), cach_cuc(geju, tq), cach_cuc_tvh(geju, S), thong_quan(S, profile), thuan_the(geju, S, profile)]
     for m in methods:
         for role in ("yong", "xi"):
             m[f"{role}_health"] = [health(ctx, g) for g in m.get(role, [])]

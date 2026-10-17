@@ -143,6 +143,6 @@ def test_every_verified_rule_has_a_vietnamese_claim_and_a_page_locator():
         for r in rules:
             if r.reviewStatus != "verified":
                 continue
-            assert all(src[s].verified and "p" in (src[s].locator or "").lower() for s in r.sourceIds), r.id
+            assert all(src[s].verified and any(k in (src[s].locator or "").lower() for k in ("pdf p", "trang")) for s in r.sourceIds), r.id
             for c in r.consequences:
                 assert c["claim"] in claims and len(claims[c["claim"]]) > 20

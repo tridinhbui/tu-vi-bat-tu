@@ -26,6 +26,7 @@
    "BT_ST_GEJU_THANH",
    "BT_ST_LEVEL_SHIFT",
    "BT_TTT_HANNOAN_CAN_HAN",
+   "BT_TVH_TB_LOC_2",
    "BT_TVH_VUONG"
   ]
  },
@@ -54,7 +55,10 @@
    "BT_ST_GEJU_BAI",
    "BT_ST_LENH_CLASH",
    "BT_ST_LEVEL_SHIFT",
-   "BT_TVH_NHUOC"
+   "BT_TVH_NHUOC",
+   "BT_TVH_TB_QUAN_2",
+   "BT_TVH_TB_QUAN_3",
+   "BT_TVH_TB_QUAN_5"
   ]
  },
  "EX3": {
@@ -85,6 +89,8 @@
    "BT_ST_GEJU_BAI",
    "BT_ST_LENH_CLASH",
    "BT_ST_LEVEL_SHIFT",
+   "BT_TVH_TB_QUAN_3",
+   "BT_TVH_TB_QUAN_5",
    "BT_TVH_VUONG"
   ]
  },
@@ -124,7 +130,9 @@
    "BT_ST_HOP_TROI",
    "BT_ST_OUTER_GIA",
    "BT_TTT_HONTAP_CO_BENH",
-   "BT_TVH_NHUOC"
+   "BT_TVH_NHUOC",
+   "BT_TVH_TB_SAT_3",
+   "BT_TVH_TB_SAT_5"
   ]
  },
  "EX5": {
@@ -142,18 +150,24 @@
    [
     "Hóa Thổ",
     "giả"
+   ],
+   [
+    "Hóa Thổ (TVH)",
+    "chân"
    ]
   ],
   "hua_state": "gia_hoa",
   "cuc": [],
   "patterns": [],
   "fired": [
-   "BT_ST_DISAGREE",
    "BT_ST_DM_STRONG_PHUUC",
    "BT_ST_GEJU_THANH_PHA",
    "BT_ST_HUA_GIA",
    "BT_ST_LEVEL_SHIFT",
    "BT_ST_OUTER_GIA",
+   "BT_TVH_HOA_THO",
+   "BT_TVH_TB_TAI_1",
+   "BT_TVH_TB_TAI_5",
    "BT_TVH_VUONG"
   ]
  },
@@ -185,7 +199,8 @@
    "BT_ST_GEJU_THANH",
    "BT_ST_LEVEL_SHIFT",
    "BT_TTT_HANNOAN_CAN_NOAN",
-   "BT_TVH_NHUOC"
+   "BT_TVH_NHUOC",
+   "BT_TVH_TB_LOC_3"
   ]
  },
  "EX7": {
@@ -214,7 +229,8 @@
    "BT_ST_LENH_CLASH",
    "BT_ST_LEVEL_SHIFT",
    "BT_TTT_HANNOAN_CAN_HAN",
-   "BT_TVH_NHUOC"
+   "BT_TVH_NHUOC",
+   "BT_TVH_TB_LOC_3"
   ]
  },
  "EX8": {
@@ -268,10 +284,12 @@
   "fired": [
    "BT_PT_WEAK",
    "BT_ST_CUC",
+   "BT_ST_DISAGREE",
    "BT_ST_DM_STRONG_PHUUC",
    "BT_ST_GEJU_THANH",
    "BT_ST_LEVEL_SHIFT",
    "BT_TTT_HANNOAN_CAN_HAN",
+   "BT_TVH_TB_LOC_4",
    "BT_TVH_VUONG"
   ]
  },
@@ -300,7 +318,8 @@
    "BT_ST_LENH_CLASH",
    "BT_ST_LEVEL_SHIFT",
    "BT_ST_THONGQUAN",
-   "BT_TVH_NHUOC"
+   "BT_TVH_NHUOC",
+   "BT_TVH_TB_LOC_3"
   ]
  },
  "EX11": {
@@ -331,6 +350,7 @@
    "BT_ST_DM_STRONG_PHUUC",
    "BT_ST_GEJU_THANH",
    "BT_ST_LEVEL_SHIFT",
+   "BT_TVH_TB_TAI_1",
    "BT_TVH_VUONG"
   ]
  },
@@ -356,10 +376,14 @@
   "fired": [
    "BT_PT_WEAK",
    "BT_ST_CUC",
+   "BT_ST_DISAGREE",
    "BT_ST_DM_STRONG_PHUUC",
    "BT_ST_GEJU_BAI_CUU_YEU",
    "BT_ST_LEVEL_SHIFT",
    "BT_ST_THONGQUAN",
+   "BT_TVH_TB_AN_1",
+   "BT_TVH_TB_AN_2",
+   "BT_TVH_TB_AN_3",
    "BT_TVH_VUONG"
   ]
  },
@@ -382,8 +406,12 @@
   "patterns": [],
   "fired": [
    "BT_ST_CUC",
+   "BT_ST_DISAGREE",
    "BT_ST_DM_STRONG_PHUUC",
    "BT_ST_GEJU_THANH",
+   "BT_TVH_TB_AN_1",
+   "BT_TVH_TB_AN_2",
+   "BT_TVH_TB_AN_3",
    "BT_TVH_VUONG"
   ]
  },
@@ -419,6 +447,8 @@
    "BT_ST_GEJU_THANH",
    "BT_ST_LEVEL_SHIFT",
    "BT_TTT_NGUYENLUU_HI",
+   "BT_TVH_TB_QUAN_1",
+   "BT_TVH_TB_QUAN_3",
    "BT_TVH_VUONG"
   ]
  },
@@ -449,6 +479,7 @@
    "BT_ST_DISAGREE",
    "BT_ST_OUTER_CHAN",
    "BT_TTT_TONG_CUONG",
+   "BT_TVH_TB_LOC_4",
    "BT_TVH_VUONG"
   ]
  }

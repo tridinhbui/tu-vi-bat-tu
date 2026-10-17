@@ -1,0 +1,487 @@
+{
+ "_status": "verified_text",
+ "_source": "SRC_TVH_CACH",
+ "_note": "Đánh giá sự tốt xấu của các chính cách, Thiệu Vĩ Hoa pp.367-369 (bản scan). Lời sách là các câu ở cột text; 'vượng/nhược' = quy tắc 40%; 'nhiều/nhẹ/mạnh' = ngưỡng tỉ trọng của hệ thống (draft). Bỏ các điều sách nói mơ hồ hoặc bản scan không đọc chắc (thất sát 4, ấn 5, thương quan 4/6, lộc nhận 6). Kiến Lộc và Kình Dương dùng chung (sách ghi chung một mục).",
+ "rules": {
+  "quan": [
+   {
+    "id": "quan.1",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:Tai=0.10"
+    ],
+    "text": "Nhật chủ vượng có Tài thì Tài có thể sinh Quan Sát: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "quan.2",
+    "verdict": "tot",
+    "all": [
+     "dm:weak",
+     "share_ge:QuanSat=0.30",
+     "share_ge:An=0.10"
+    ],
+    "text": "Nhật chủ nhược, Chính Quan mạnh, có Ấn sinh thân: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "quan.3",
+    "verdict": "tot",
+    "all": [
+     "any:Quan",
+     "none_of:Sat"
+    ],
+    "text": "Tứ trụ có Chính Quan, không có Thất Sát (quan sát không hỗn tạp): tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "quan.4",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "share_le:Tai=0.10",
+     "share_ge:Ti=0.35"
+    ],
+    "text": "Nhật chủ vượng, Tài nhẹ, Kiếp trùng trùng: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "quan.5",
+    "verdict": "xau",
+    "all": [
+     "hurt"
+    ],
+    "text": "Gặp hình xung phá hại: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "quan.6",
+    "verdict": "xau",
+    "all": [
+     "both_visible:Quan+Sat"
+    ],
+    "text": "Tứ trụ có Quan Sát hỗn tạp: mệnh xấu",
+    "page": "367-369"
+   }
+  ],
+  "sat": [
+   {
+    "id": "sat.1",
+    "verdict": "tot",
+    "all": [
+     "dm:strong"
+    ],
+    "text": "Nhật chủ vượng, cách Thất Sát: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "sat.2",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:QuanSat=0.40",
+     "any:Thuc"
+    ],
+    "text": "Nhật chủ vượng mà Thất Sát mạnh quá, có Thực Thần chế ngự: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "sat.3",
+    "verdict": "tot",
+    "all": [
+     "dm:weak",
+     "share_ge:QuanSat=0.30",
+     "any:An"
+    ],
+    "text": "Nhật chủ nhược, Sát vượng, có Ấn sinh thân: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "sat.5",
+    "verdict": "xau",
+    "all": [
+     "dm:weak"
+    ],
+    "text": "Nhật chủ nhược, cách Thất Sát: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "sat.6",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "hurt"
+    ],
+    "text": "Nhật chủ vượng, cách Thất Sát gặp hình xung: bị phá hại",
+    "page": "367-369"
+   },
+   {
+    "id": "sat.7",
+    "verdict": "xau",
+    "all": [
+     "dm:weak",
+     "share_ge:Tai=0.15",
+     "none_of:ThucThuong"
+    ],
+    "text": "Nhật chủ nhược, gặp Tài sinh cho Thất Sát, không có Thực Thương khắc chế: mệnh xấu",
+    "page": "367-369"
+   }
+  ],
+  "an": [
+   {
+    "id": "an.1",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "any:QuanSat"
+    ],
+    "text": "Nhật chủ vượng, có Ấn gặp Quan hoặc Sát: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "an.2",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:An=0.35",
+     "any:ThucThuong"
+    ],
+    "text": "Nhật chủ vượng, Ấn mạnh, có Thực Thương xì hơi nhật chủ: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "an.3",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:An=0.35",
+     "any:Tai",
+     "share_le:Tai=0.30"
+    ],
+    "text": "Nhật chủ mạnh, Ấn nhiều, có Chính Tài chế ngự (Tài không quá nhiều): tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "an.4",
+    "verdict": "xau",
+    "all": [
+     "dm:weak",
+     "share_le:An=0.15",
+     "share_ge:Tai=0.25"
+    ],
+    "text": "Nhật chủ nhược, Ấn nhược lại gặp Tài khắc Ấn: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "an.6",
+    "verdict": "xau",
+    "all": [
+     "dm:weak",
+     "hurt"
+    ],
+    "text": "Nhật chủ nhược, Ấn gặp hình xung: bị phá hại",
+    "page": "367-369"
+   }
+  ],
+  "tai": [
+   {
+    "id": "tai.1",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:Tai=0.25",
+     "any:QuanSat"
+    ],
+    "text": "Nhật chủ vượng, Tài cũng vượng, có Quan tinh chế ngự nhật chủ: mệnh tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "tai.2",
+    "verdict": "tot",
+    "all": [
+     "dm:weak",
+     "share_ge:Tai=0.25",
+     "any:An"
+    ],
+    "text": "Nhật chủ nhược, Tài vượng, có Ấn hoặc Tỉ Kiếp hộ thân: mệnh tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "tai.3",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_le:Tai=0.15",
+     "any:ThucThuong"
+    ],
+    "text": "Nhật chủ vượng, Tài nhược, có Thực Thần xì hơi nhật chủ để sinh Tài: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "tai.4",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "share_le:Tai=0.15",
+     "share_ge:Ti=0.35"
+    ],
+    "text": "Nhật chủ vượng, Tài nhược, lại gặp nhiều Tỉ Kiếp giúp nhật chủ khắc Tài: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "tai.5",
+    "verdict": "xau",
+    "all": [
+     "hurt"
+    ],
+    "text": "Tài gặp hình xung phá hại: xấu dù nhật chủ vượng hay nhược",
+    "page": "367-369"
+   }
+  ],
+  "thuc": [
+   {
+    "id": "thuc.1",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:ThucThuong=0.25",
+     "any:Tai"
+    ],
+    "text": "Nhật chủ vượng, Thực Thần cũng vượng, gặp Tài xì hơi Thực Thần: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "thuc.2",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:QuanSat=0.35",
+     "any:Thuc"
+    ],
+    "text": "Nhật chủ vượng, Sát mạnh quá, có Thực Thần chế Sát: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "thuc.3",
+    "verdict": "tot",
+    "all": [
+     "dm:weak",
+     "share_ge:ThucThuong=0.35",
+     "any:An"
+    ],
+    "text": "Nhật chủ nhược, Thực Thương xì hơi thân mạnh quá, có Ấn hộ thân: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "thuc.4",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "share_le:ThucThuong=0.15",
+     "share_ge:An=0.25"
+    ],
+    "text": "Nhật chủ vượng, Thực Thần yếu lại gặp Ấn sinh thân: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "thuc.5",
+    "verdict": "xau",
+    "all": [
+     "dm:weak",
+     "any:Tai",
+     "any:Sat"
+    ],
+    "text": "Nhật chủ nhược, Thực sinh Tài lại có Thất Sát: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "thuc.6",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "hurt"
+    ],
+    "text": "Nhật chủ vượng, Thực Thần gặp hình xung phá hại: mệnh xấu",
+    "page": "367-369"
+   }
+  ],
+  "thuong_quan": [
+   {
+    "id": "thuong.1",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:ThucThuong=0.25",
+     "any:Tai"
+    ],
+    "text": "Nhật chủ vượng, Thương Quan xì hơi thân sinh cho Tài: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "thuong.2",
+    "verdict": "tot",
+    "all": [
+     "dm:weak",
+     "share_ge:ThucThuong=0.30",
+     "any:An"
+    ],
+    "text": "Nhật chủ nhược, Thương Quan xì hơi thân nhưng có Ấn sinh phù thân: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "thuong.3",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:QuanSat=0.35",
+     "any:Thuong"
+    ],
+    "text": "Nhật chủ vượng, Sát nhiều, có Thương Quan khắc chế Thất Sát: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "thuong.5",
+    "verdict": "xau",
+    "all": [
+     "dm:weak",
+     "share_ge:QuanSat=0.25"
+    ],
+    "text": "Nhật chủ nhược, lại gặp Quan Sát khắc thân: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "thuong.7",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "share_le:ThucThuong=0.15",
+     "share_ge:An=0.30"
+    ],
+    "text": "Nhật chủ vượng, Thương Quan nhẹ, lại gặp Ấn nhiều sinh nhật chủ: xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "thuong.8",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "share_le:ThucThuong=0.15",
+     "hurt"
+    ],
+    "text": "Nhật chủ vượng, Thương Quan nhẹ, lại gặp hình xung phá hại: xấu",
+    "page": "367-369"
+   }
+  ],
+  "kien_loc": [
+   {
+    "id": "loc.1",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:Tai=0.15",
+     "share_ge:QuanSat=0.15"
+    ],
+    "text": "Nhật chủ vượng, Tài và Quan Sát cũng vượng: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "loc.2",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:ThucThuong=0.25"
+    ],
+    "text": "Nhật chủ vượng, Thực Thương cũng vượng: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "loc.3",
+    "verdict": "tot",
+    "all": [
+     "dm:weak",
+     "any:An"
+    ],
+    "text": "Nhật chủ nhược, gặp Ấn hoặc Tỉ Kiếp giúp trợ nhật chủ: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "loc.4",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "share_le:Tai=0.15",
+     "share_ge:Ti=0.35"
+    ],
+    "text": "Nhật chủ vượng, Tài nhược lại gặp Tỉ Kiếp nhiều: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "loc.5",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "share_le:ThucThuong=0.15",
+     "share_ge:An=0.30"
+    ],
+    "text": "Nhật chủ vượng, Thực Thương yếu lại có Ấn nhiều khắc Thực Thương: mệnh xấu",
+    "page": "367-369"
+   }
+  ],
+  "kinh_duong": [
+   {
+    "id": "loc.1",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:Tai=0.15",
+     "share_ge:QuanSat=0.15"
+    ],
+    "text": "Nhật chủ vượng, Tài và Quan Sát cũng vượng: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "loc.2",
+    "verdict": "tot",
+    "all": [
+     "dm:strong",
+     "share_ge:ThucThuong=0.25"
+    ],
+    "text": "Nhật chủ vượng, Thực Thương cũng vượng: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "loc.3",
+    "verdict": "tot",
+    "all": [
+     "dm:weak",
+     "any:An"
+    ],
+    "text": "Nhật chủ nhược, gặp Ấn hoặc Tỉ Kiếp giúp trợ nhật chủ: tốt",
+    "page": "367-369"
+   },
+   {
+    "id": "loc.4",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "share_le:Tai=0.15",
+     "share_ge:Ti=0.35"
+    ],
+    "text": "Nhật chủ vượng, Tài nhược lại gặp Tỉ Kiếp nhiều: mệnh xấu",
+    "page": "367-369"
+   },
+   {
+    "id": "loc.5",
+    "verdict": "xau",
+    "all": [
+     "dm:strong",
+     "share_le:ThucThuong=0.15",
+     "share_ge:An=0.30"
+    ],
+    "text": "Nhật chủ vượng, Thực Thương yếu lại có Ấn nhiều khắc Thực Thương: mệnh xấu",
+    "page": "367-369"
+   }
+  ]
+ }
+}

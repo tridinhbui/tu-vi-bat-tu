@@ -1,0 +1,587 @@
+{
+ "_status": "verified_table",
+ "_source": "SRC_TVH_DIEUHAU",
+ "_note": "'Bảng dụng thần dự bị' (bảng dụng thần điều hậu) của Thiệu Vĩ Hoa, trang in 389-390, 12 tháng × 10 can ngày. Mỗi ô là tập các can có thể dùng; thứ tự trong ô KHÔNG phải thứ hạng (sách nói thêm thứ hạng ở phần chú thích tr.391-397, chưa nhập). Tháng theo chi tháng: Dần = tháng giêng (T.1) ... Sửu = T.12. Chép từ ảnh trang scan, đã đối chiếu hai lần.",
+ "cells": {
+  "Dần": {
+   "Giáp": [
+    "Quý",
+    "Bính"
+   ],
+   "Ất": [
+    "Quý",
+    "Bính"
+   ],
+   "Bính": [
+    "Canh",
+    "Nhâm"
+   ],
+   "Đinh": [
+    "Canh",
+    "Giáp"
+   ],
+   "Mậu": [
+    "Giáp",
+    "Bính",
+    "Quý"
+   ],
+   "Kỷ": [
+    "Canh",
+    "Bính",
+    "Giáp"
+   ],
+   "Canh": [
+    "Giáp",
+    "Nhâm",
+    "Mậu",
+    "Bính",
+    "Đinh"
+   ],
+   "Tân": [
+    "Nhâm",
+    "Kỷ",
+    "Canh"
+   ],
+   "Nhâm": [
+    "Bính",
+    "Canh",
+    "Mậu"
+   ],
+   "Quý": [
+    "Bính",
+    "Tân"
+   ]
+  },
+  "Mão": {
+   "Giáp": [
+    "Bính",
+    "Đinh",
+    "Canh",
+    "Mậu",
+    "Kỷ"
+   ],
+   "Ất": [
+    "Quý",
+    "Bính"
+   ],
+   "Bính": [
+    "Kỷ",
+    "Nhâm"
+   ],
+   "Đinh": [
+    "Giáp",
+    "Canh"
+   ],
+   "Mậu": [
+    "Giáp",
+    "Bính",
+    "Quý"
+   ],
+   "Kỷ": [
+    "Quý",
+    "Giáp",
+    "Bính"
+   ],
+   "Canh": [
+    "Giáp",
+    "Canh",
+    "Đinh",
+    "Bính"
+   ],
+   "Tân": [
+    "Giáp",
+    "Nhâm"
+   ],
+   "Nhâm": [
+    "Tân",
+    "Mậu",
+    "Canh"
+   ],
+   "Quý": [
+    "Tân",
+    "Canh"
+   ]
+  },
+  "Thìn": {
+   "Giáp": [
+    "Đinh",
+    "Canh",
+    "Nhâm"
+   ],
+   "Ất": [
+    "Bính",
+    "Quý",
+    "Mậu"
+   ],
+   "Bính": [
+    "Giáp",
+    "Nhâm"
+   ],
+   "Đinh": [
+    "Canh",
+    "Giáp"
+   ],
+   "Mậu": [
+    "Bính",
+    "Giáp",
+    "Quý"
+   ],
+   "Kỷ": [
+    "Quý",
+    "Bính",
+    "Giáp"
+   ],
+   "Canh": [
+    "Đinh",
+    "Giáp",
+    "Nhâm",
+    "Quý"
+   ],
+   "Tân": [
+    "Giáp",
+    "Nhâm"
+   ],
+   "Nhâm": [
+    "Canh",
+    "Giáp"
+   ],
+   "Quý": [
+    "Tân",
+    "Bính",
+    "Giáp"
+   ]
+  },
+  "Tỵ": {
+   "Giáp": [
+    "Đinh",
+    "Quý",
+    "Canh"
+   ],
+   "Ất": [
+    "Quý"
+   ],
+   "Bính": [
+    "Canh",
+    "Nhâm",
+    "Quý"
+   ],
+   "Đinh": [
+    "Canh",
+    "Giáp"
+   ],
+   "Mậu": [
+    "Bính",
+    "Giáp",
+    "Quý"
+   ],
+   "Kỷ": [
+    "Bính",
+    "Quý"
+   ],
+   "Canh": [
+    "Mậu",
+    "Nhâm",
+    "Bính",
+    "Đinh"
+   ],
+   "Tân": [
+    "Giáp",
+    "Nhâm",
+    "Quý"
+   ],
+   "Nhâm": [
+    "Tân",
+    "Nhâm",
+    "Canh",
+    "Quý"
+   ],
+   "Quý": [
+    "Tân"
+   ]
+  },
+  "Ngọ": {
+   "Giáp": [
+    "Đinh",
+    "Quý",
+    "Canh"
+   ],
+   "Ất": [
+    "Bính",
+    "Quý"
+   ],
+   "Bính": [
+    "Quý",
+    "Nhâm"
+   ],
+   "Đinh": [
+    "Canh",
+    "Nhâm",
+    "Quý"
+   ],
+   "Mậu": [
+    "Canh",
+    "Nhâm",
+    "Bính"
+   ],
+   "Kỷ": [
+    "Bính",
+    "Quý"
+   ],
+   "Canh": [
+    "Nhâm",
+    "Quý"
+   ],
+   "Tân": [
+    "Kỷ",
+    "Nhâm",
+    "Quý"
+   ],
+   "Nhâm": [
+    "Canh",
+    "Quý",
+    "Tân"
+   ],
+   "Quý": [
+    "Nhâm",
+    "Canh",
+    "Quý"
+   ]
+  },
+  "Mùi": {
+   "Giáp": [
+    "Đinh",
+    "Quý",
+    "Canh"
+   ],
+   "Ất": [
+    "Bính",
+    "Quý"
+   ],
+   "Bính": [
+    "Canh",
+    "Nhâm"
+   ],
+   "Đinh": [
+    "Nhâm",
+    "Giáp",
+    "Canh"
+   ],
+   "Mậu": [
+    "Bính",
+    "Quý",
+    "Giáp"
+   ],
+   "Kỷ": [
+    "Bính",
+    "Quý"
+   ],
+   "Canh": [
+    "Giáp",
+    "Đinh"
+   ],
+   "Tân": [
+    "Canh",
+    "Nhâm",
+    "Giáp"
+   ],
+   "Nhâm": [
+    "Giáp",
+    "Tân"
+   ],
+   "Quý": [
+    "Tân",
+    "Canh",
+    "Nhâm",
+    "Quý"
+   ]
+  },
+  "Thân": {
+   "Giáp": [
+    "Đinh",
+    "Canh",
+    "Nhâm"
+   ],
+   "Ất": [
+    "Quý",
+    "Bính",
+    "Kỷ"
+   ],
+   "Bính": [
+    "Quý",
+    "Nhâm"
+   ],
+   "Đinh": [
+    "Canh",
+    "Giáp",
+    "Bính",
+    "Mậu"
+   ],
+   "Mậu": [
+    "Quý",
+    "Bính",
+    "Giáp"
+   ],
+   "Kỷ": [
+    "Quý",
+    "Bính"
+   ],
+   "Canh": [
+    "Giáp",
+    "Đinh"
+   ],
+   "Tân": [
+    "Giáp",
+    "Nhâm",
+    "Canh"
+   ],
+   "Nhâm": [
+    "Đinh",
+    "Mậu"
+   ],
+   "Quý": [
+    "Đinh"
+   ]
+  },
+  "Dậu": {
+   "Giáp": [
+    "Đinh",
+    "Canh",
+    "Bính"
+   ],
+   "Ất": [
+    "Bính",
+    "Quý",
+    "Đinh"
+   ],
+   "Bính": [
+    "Quý",
+    "Nhâm"
+   ],
+   "Đinh": [
+    "Canh",
+    "Giáp",
+    "Bính",
+    "Mậu"
+   ],
+   "Mậu": [
+    "Quý",
+    "Bính"
+   ],
+   "Kỷ": [
+    "Quý",
+    "Bính"
+   ],
+   "Canh": [
+    "Giáp",
+    "Đinh",
+    "Bính"
+   ],
+   "Tân": [
+    "Giáp",
+    "Nhâm"
+   ],
+   "Nhâm": [
+    "Canh",
+    "Giáp"
+   ],
+   "Quý": [
+    "Bính",
+    "Tân"
+   ]
+  },
+  "Tuất": {
+   "Giáp": [
+    "Giáp",
+    "Đinh",
+    "Canh",
+    "Nhâm",
+    "Quý"
+   ],
+   "Ất": [
+    "Tân",
+    "Quý"
+   ],
+   "Bính": [
+    "Nhâm",
+    "Giáp"
+   ],
+   "Đinh": [
+    "Canh",
+    "Giáp",
+    "Mậu"
+   ],
+   "Mậu": [
+    "Bính",
+    "Giáp",
+    "Quý"
+   ],
+   "Kỷ": [
+    "Bính",
+    "Giáp",
+    "Quý"
+   ],
+   "Canh": [
+    "Nhâm",
+    "Giáp"
+   ],
+   "Tân": [
+    "Giáp",
+    "Nhâm"
+   ],
+   "Nhâm": [
+    "Bính",
+    "Giáp"
+   ],
+   "Quý": [
+    "Giáp",
+    "Tân",
+    "Nhâm",
+    "Quý"
+   ]
+  },
+  "Hợi": {
+   "Giáp": [
+    "Đinh",
+    "Bính",
+    "Canh",
+    "Mậu"
+   ],
+   "Ất": [
+    "Mậu",
+    "Bính"
+   ],
+   "Bính": [
+    "Mậu",
+    "Giáp",
+    "Canh",
+    "Nhâm"
+   ],
+   "Đinh": [
+    "Canh",
+    "Giáp"
+   ],
+   "Mậu": [
+    "Bính",
+    "Giáp"
+   ],
+   "Kỷ": [
+    "Giáp",
+    "Bính",
+    "Mậu"
+   ],
+   "Canh": [
+    "Bính",
+    "Đinh"
+   ],
+   "Tân": [
+    "Bính",
+    "Nhâm"
+   ],
+   "Nhâm": [
+    "Bính",
+    "Mậu",
+    "Canh"
+   ],
+   "Quý": [
+    "Tân",
+    "Canh",
+    "Mậu",
+    "Đinh"
+   ]
+  },
+  "Tý": {
+   "Giáp": [
+    "Canh",
+    "Đinh",
+    "Bính"
+   ],
+   "Ất": [
+    "Bính"
+   ],
+   "Bính": [
+    "Mậu",
+    "Nhâm",
+    "Kỷ"
+   ],
+   "Đinh": [
+    "Canh",
+    "Giáp"
+   ],
+   "Mậu": [
+    "Giáp",
+    "Bính"
+   ],
+   "Kỷ": [
+    "Giáp",
+    "Bính",
+    "Mậu"
+   ],
+   "Canh": [
+    "Giáp",
+    "Đinh",
+    "Bính"
+   ],
+   "Tân": [
+    "Mậu",
+    "Bính",
+    "Nhâm",
+    "Giáp"
+   ],
+   "Nhâm": [
+    "Bính",
+    "Mậu"
+   ],
+   "Quý": [
+    "Tân",
+    "Bính"
+   ]
+  },
+  "Sửu": {
+   "Giáp": [
+    "Canh",
+    "Đinh",
+    "Bính"
+   ],
+   "Ất": [
+    "Bính"
+   ],
+   "Bính": [
+    "Giáp",
+    "Nhâm"
+   ],
+   "Đinh": [
+    "Canh",
+    "Giáp"
+   ],
+   "Mậu": [
+    "Giáp",
+    "Bính"
+   ],
+   "Kỷ": [
+    "Giáp",
+    "Bính",
+    "Mậu"
+   ],
+   "Canh": [
+    "Đinh",
+    "Bính",
+    "Giáp"
+   ],
+   "Tân": [
+    "Nhâm",
+    "Bính",
+    "Mậu",
+    "Kỷ"
+   ],
+   "Nhâm": [
+    "Đinh",
+    "Bính",
+    "Giáp"
+   ],
+   "Quý": [
+    "Đinh",
+    "Bính"
+   ]
+  }
+ }
+}

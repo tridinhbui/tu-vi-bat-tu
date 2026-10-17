@@ -97,6 +97,20 @@ def pred(ctx: Ctx, expr: str) -> tuple[bool, str]:
     if name == "both_any":
         a, b = arg.split("+")
         return pred(ctx, f"any:{a}")[0] and pred(ctx, f"any:{b}")[0], f"{a} và {b} cùng hiện diện"
+    if name == "dm:strong" or name == "dm":
+        tv = ctx.S.get("tvh")
+        strong = tv["dm_strong"] if tv else ctx.S["level_index"] >= 4
+        weak = (not tv["dm_strong"]) if tv else ctx.S["level_index"] <= 2
+        want = arg if name == "dm" else "strong"
+        border = ctx.S.get("ambiguous") and tv is not None
+        return (strong if want == "strong" else weak) and not border, f"nhật chủ {'vượng' if strong else 'nhược'} (quy tắc 40%)" if tv else f"nhật chủ {ctx.S['level']}"
+    if name in ("share_ge", "share_le"):
+        g, v = arg.split("=")
+        s = ctx.S["shares"][g]
+        return (s >= float(v) if name == "share_ge" else s <= float(v)), f"tỉ trọng {g} = {s:.2f}"
+    if name == "hurt":
+        a, b = pred(ctx, "lenh_clashed"), pred(ctx, "lenh_penalized")
+        return a[0] or b[0], a[1] if a[0] else b[1]
     if name == "bound":
         hits = []
         for r in ctx.rel:
@@ -223,13 +237,31 @@ def outer_candidates(view: ChartView, profile: SchoolProfile, R: Resolved, S: di
     return out
 
 
+TVH_TB = json.loads((DATA / "tvh_thanhbai.json").read_text("utf-8"))["rules"]
+TVH_KEY = {"Chính Tài": "tai", "Thiên Tài": "tai", "Chính Quan": "quan", "Chính Ấn": "an", "Thiên Ấn": "an", "Thương Quan": "thuong_quan", "Thất Sát": "sat",
+           "Thực Thần": "thuc", "Kiến Lộc": "kien_loc", "Nguyệt Kiếp": "kien_loc", "Dương Nhận": "kinh_duong", "Âm Nhận": "kinh_duong"}
+
+
+def tvh_danh_gia(ctx: Ctx, cach: str) -> list[dict]:
+    """Which of the book's 'đánh giá tốt xấu' sentences (pp.367-369) hold for this cách. Sentences, not a score: tot and xau are reported side by side."""
+    out = []
+    for r in TVH_TB.get(TVH_KEY.get(cach, ""), []):
+        res = [pred(ctx, e) for e in r["all"]]
+        if all(x[0] for x in res):
+            out.append({"id": r["id"], "verdict": r["verdict"], "text": r["text"], "page": r["page"], "evidence": [x[1] for x in res]})
+    return out
+
+
 def analyse(view: ChartView, profile: SchoolProfile, R: Resolved, S: dict, extra: list | None = None) -> dict:
     ctx = Ctx(view, profile, R, S, extra)
     inner = []
     for c in inner_candidates(view, profile, extra):
         ev = evaluate(ctx, c["name"])
-        inner.append({**c, **ev})
+        inner.append({**c, **ev, "tvh_danh_gia": tvh_danh_gia(ctx, c["name"])})
     outer = outer_candidates(view, profile, R, S)
+    if profile.strength_method == "tvh_40" and not extra:
+        from . import tvh_cach
+        outer = outer + tvh_cach.special(view, S, profile)
     readings, note = [], ""
     chan = [o for o in outer if o["quality"] == "chân"]
     if chan:

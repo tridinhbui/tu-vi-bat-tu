@@ -111,6 +111,8 @@ def score(view: ChartView) -> dict:
             avail.append({_el(s) for s, _ in HID_DEG[br[i]]})
     all_av = set().union(*avail)
     root = [any(e == _el(s) or generates(e, _el(s)) for e in all_av) for s in st]
+    main_av = set(in_unit[i]["el"] if i in in_unit else _el(HID_DEG[br[i]][0][0]) for i in range(4))     # bản khí (or the hóa cục element) only: the stricter "có khí gốc" used for tòng
+    root_main = [any(e == _el(s) or generates(e, _el(s)) for e in main_av) for s in st]
     deg = [36.0 if root[i] else 9.0 for i in range(4)]
     notes["steps"].append({"step": "chỗ dựa", "root": root, "deg": deg[:]})
     hop_pairs = []
@@ -252,4 +254,4 @@ def score(view: ChartView) -> dict:
     return {"stem_deg": [round(x, 2) for x in deg], "hua_stem": {PILLARS[k]: v for k, v in hua_stem.items()}, "branch_units": [{"kind": u["kind"], "el": u["el"], "branches": u["branches"], "deg": u["deg"]} for u in formed],
             "khu_bi": sorted(khu_bi), "xung": sorted(xung), "heaven": {e: round(v, 2) for e, v in heaven.items()}, "earth": earth, "lenh": lenh,
             "totals_before_lenh": {e: round(v, 2) for e, v in totals.items()}, "totals": {e: round(v, 2) for e, v in adj.items()},
-            "dm_element": dm_el, "own_share": round(own / total, 4), "dm_strong": own / total >= 0.40, "threshold": 0.40, "notes": notes, "src": "SRC_TVH_DIEM"}
+            "root_main": root_main, "dm_element": dm_el, "own_share": round(own / total, 4), "dm_strong": own / total >= 0.40, "threshold": 0.40, "notes": notes, "src": "SRC_TVH_DIEM"}
