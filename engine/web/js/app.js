@@ -13,6 +13,12 @@ import { summaryBazi, summaryTuvi } from './beginner.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const metaReady = Promise.all([loadMeta(), loadGlossary()]);
+// Hidden experimental mode: open the site with ?thu-nghiem (turn off with ?thu-nghiem=off). Kept per tab, never shown to normal visitors.
+const EXP_KEY = 'tvbt_exp';
+try { const u = new URL(location.href); if (u.searchParams.has('thu-nghiem')) { sessionStorage.setItem(EXP_KEY, u.searchParams.get('thu-nghiem') === 'off' ? '' : '1'); u.searchParams.delete('thu-nghiem'); history.replaceState(null, '', u); } } catch { /* storage unavailable */ }
+const expOn = () => { try { return sessionStorage.getItem(EXP_KEY) === '1'; } catch { return false; } };
+const expBadge = document.getElementById('exp-badge');
+if (expOn()) { expBadge.hidden = false; expBadge.onclick = () => { try { sessionStorage.setItem(EXP_KEY, ''); } catch { /* ignore */ } location.reload(); }; }
 initGlossary();
 let state = null; // { req, chart, reason, tv }
 
@@ -146,7 +152,7 @@ async function generate(ev) {
       showHourSweep();
       return;
     }
-    const [chart, reason, analysis] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), metaReady]);
+    const [chart, reason, analysis] = await Promise.all([post('/api/chart', req), post('/api/reasoning', { ...req, experimental: expOn() }), post('/api/analysis', req), metaReady]);
     state = { req, chart, reason, analysis, lunarIn };
     showResults();
   } catch (x) {

@@ -116,6 +116,21 @@ export function renderBaziReport(host, chart, ctx, parts) {
   yearExplorer($('#bt-year', host), ctx.req, b, 'bazi');
 }
 
+const XSTATE = { thanh_thuong: ['Thành cách, thế mạnh', 0], thanh: ['Thành cách', 1], pha_duoc_cuu: ['Bị phá nhưng được cứu', 2], bi_pha: ['Bị phá cách', 3], hinh_thuc: ['Mới có hình thức', 4], chua_du_du_kien: ['Chưa đủ dữ kiện để kết luận', 5], khong_hien: ['Không hiện', 6] };
+const idText = s => String(s).replace(/_/g, ' ');
+function experimentalHtml(x) {
+  if (!x) return '';
+  const fs = (x.formations || []).slice().sort((a, b) => (XSTATE[a.state]?.[1] ?? 9) - (XSTATE[b.state]?.[1] ?? 9));
+  const shown = fs.filter(f => f.state !== 'khong_hien'), hidden = fs.filter(f => f.state === 'khong_hien');
+  const card = f => `<div class="exp-card st-${esc(f.state)}"><h5>${esc(f.name_vi)} <span class="exp-pill">${esc(XSTATE[f.state]?.[0] || f.state)}</span></h5><p>${esc(f.text)}</p>
+    ${f.breakers?.length ? `<p class="small"><b>Phá cách:</b> ${esc(f.breakers.map(idText).join('; '))}</p>` : ''}${f.rescuers?.length ? `<p class="small"><b>Cứu giải:</b> ${esc(f.rescuers.map(idText).join('; '))}</p>` : ''}
+    ${f.uncovered_breakers?.length ? `<p class="small"><b>Phá cách chưa được cứu:</b> ${esc(f.uncovered_breakers.map(idText).join('; '))}</p>` : ''}${f.refutations?.length ? `<p class="small"><b>Phản chứng:</b> ${esc(f.refutations.map(idText).join('; '))}</p>` : ''}
+    ${f.missing_for_next_level?.length ? `<p class="small muted"><b>Còn thiếu để lên bậc:</b> ${esc(f.missing_for_next_level.map(idText).join('; '))}</p>` : ''}</div>`;
+  return `<div class="exp"><p class="exp-tag">Thử nghiệm · chưa đối chiếu sách</p><p class="small">${esc(x.warning || 'Các điều kiện thành, phá, cứu do người xây dựng hệ thống đặt ra từ kiến thức chung, chưa đối chiếu trang sách nào. Chỉ mô tả cấu trúc, không dự báo.')}</p>
+    ${shown.length ? shown.map(card).join('') : '<p class="muted">Không có cách nào trong danh sách thử nghiệm hiện hình trên lá số này.</p>'}
+    ${hidden.length ? acc('Các cách đã kiểm tra nhưng không hiện', `${hidden.length} cách`, `<ul class="plain">${hidden.map(f => `<li>${esc(f.name_vi)}</li>`).join('')}</ul>`) : ''}</div>`;
+}
+
 export function renderTuviReport(host, chart, ctx) {
   const b = chart.bazi, t = chart.tuvi, tv = ctx.tv, { blocks, calc, ref, trad, deep } = shell(ctx);
   const fs = (ctx.reason.systems.tu_vi?.findings || []).map(f => ({ ...f, sys: 'tu_vi' }));
@@ -156,7 +171,7 @@ export function renderTuviReport(host, chart, ctx) {
     { id: 'dai-han', title: 'Đại hạn & lưu niên', lead: `Đại hạn chạy ${esc(t.dai_han_direction)}; ${ph.dh ? `hiện ở cung ${esc(ph.dh.palace)} (${ph.dh.age_from}–${ph.dh.age_to} tuổi)` : 'chưa vào đại hạn đầu'}.`, blocks: blocks('tv', 'dai-van'),
       calc: calc(`<h5>Các đại hạn</h5>${tv.timelineHtml}<h5>Lưu niên</h5><div id="tv-year"></div>`), trad: '' },
     { id: 'cach-cuc', title: 'Cách cục', lead: 'Các hình thái đặc biệt mà bộ quy tắc hiện hành có thể nhận ra.', blocks: blocks('tv', 'cach-cuc'),
-      calc: calc(`<h5>Nhận diện theo tên (vị trí sao)</h5>${(t.extras?.cach_cuc || []).length ? `<ul class="cc-list">${t.extras.cach_cuc.map(x => `<li><b>${esc(x.name)}</b><span class="muted">${esc(x.evidence)}</span></li>`).join('')}</ul><p class="muted small">Đây chỉ là nhận diện tên cách theo vị trí các sao. Ý nghĩa cát hay hung của từng cách chưa được đối chiếu sách nên hệ thống không nêu. Tên cách và nhóm sao theo thông lệ phổ biến, chưa đối chiếu trang sách.</p>` : '<p class="muted">Không nhận ra cách nào trong danh sách các cách được kiểm tra.</p>'}<h5>Nhận định từ bộ quy tắc</h5><p>Số nhận định về cách cục: ${of('cach-cuc').length || 'không có'}.</p>`),
+      calc: calc(`${experimentalHtml(ctx.reason.experimental)}<h5>Nhận diện theo tên (vị trí sao)</h5>${(t.extras?.cach_cuc || []).length ? `<ul class="cc-list">${t.extras.cach_cuc.map(x => `<li><b>${esc(x.name)}</b><span class="muted">${esc(x.evidence)}</span></li>`).join('')}</ul><p class="muted small">Đây chỉ là nhận diện tên cách theo vị trí các sao. Ý nghĩa cát hay hung của từng cách chưa được đối chiếu sách nên hệ thống không nêu. Tên cách và nhóm sao theo thông lệ phổ biến, chưa đối chiếu trang sách.</p>` : '<p class="muted">Không nhận ra cách nào trong danh sách các cách được kiểm tra.</p>'}<h5>Nhận định từ bộ quy tắc</h5><p>Số nhận định về cách cục: ${of('cach-cuc').length || 'không có'}.</p>`),
       trad: (() => { const c = of('cach-cuc'); return `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p><div class="pro-only">${c.length ? `<button type="button" class="btn btn-ghost btn-sm ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div class="ig-box" hidden>${inferenceGraph(c[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên.</p></div>${c.map(f => findingCard(f, shell(ctx).where(f))).join('')}` : notice('Không có cách cục nào được nhận ra', '')}</div><div class="easy-only">${easyReadings(c, { where: shell(ctx).where, empty: emptyReading('tv:cach-cuc', terms()) })}</div></div>`; })() },
     { id: 'muoi-hai-cung', title: 'Toàn bộ mười hai cung', lead: 'Tra nhanh từng cung: sao, Tứ Hóa, Tuần Triệt, đại hạn và nhận định.', calc: calc(`<div class="p12">${p12}</div>`), trad: '' },
     { id: 'chuyen-sau', pro: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('tu_vi', 'Tử Vi', { normalization: ctx.chartRaw.normalization_trace.steps, tuvi: t.trace.steps }), trad: '' },
