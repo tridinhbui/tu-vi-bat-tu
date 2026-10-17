@@ -223,3 +223,66 @@ def test_nine_book_conflicts_remain_on_the_waiting_list_untouched():
     assert len(diffs) == 9
     cells = cell_intake.check([cell_intake.load(ROOT / "docs/bazi_deep_tvh_cells_check.csv")])
     assert cells["conflicts_kept"] == 9 and cells["counts"] == {"no_review": 120}
+
+
+# ------------------------------------------------------------------ Phase 8: page states, plain language, independent re-check of the dụng thần rows
+def test_page_messages_equal_the_ui_strings_and_the_label_is_in_every_static_state():
+    html = (ROOT / "engine/web/bazi_deep_draft.html").read_text("utf-8")
+    ui = json.loads((ROOT / "docs/bazi_deep_ui_strings_vi.json").read_text("utf-8"))
+    m = ui["messages"]
+    for k in ("flag_off", "loading", "missing_fields", "invalid_input", "server_rejected", "server_error", "network_error"):
+        assert m[k] in html, k
+    assert html.count(LABEL) >= 2 and ui["states"]["draft_label"] == LABEL                    # static initial state + the note() helper used by loading/error/off
+    assert "aria-live" in html and "setAttribute(\"role\"" in html and "btn.disabled = true" in html
+
+
+def test_ui_strings_label_every_source_and_the_conflict_sentence_names_the_book():
+    ui = json.loads((ROOT / "docs/bazi_deep_ui_strings_vi.json").read_text("utf-8"))
+    import re as _re
+    from tvbt.bazi_deep import yongshen as Y
+    ids = {i for v in Y.METHOD_META.values() for s in v["source"] for i in _re.findall(r"SRC_[A-Z_]+", s)}
+    assert ids <= set(ui["source_labels"]), ids - set(ui["source_labels"])
+    assert ui["states"]["book_internal_conflict"].startswith("Sách này") and "Chính sách" not in json.dumps(ui, ensure_ascii=False)
+    assert set(ui["group_names"]) == {"Ti", "An", "ThucThuong", "Tai", "QuanSat"}
+
+
+def test_dungthan_rows_match_an_independent_blind_transcription_of_pp378_386_except_adjudicated_cases():
+    blind = json.loads((G / "tvh_dungthan_blind.json").read_text("utf-8"))
+    eng = json.loads((ROOT / "engine/data/bazi_deep/tvh_dungthan.json").read_text("utf-8"))
+    E = {(r["cach"], r["dm"], r["dom"]): r for r in eng["rows"]}
+    M = {"chính tài": "tai", "thiên/chính tài": "tai", "chính quan": "quan", "chính ấn": "an", "thiên/chính ấn": "an", "thương quan": "thuong_quan", "thất sát": "sat", "thực thần": "thuc", "kiến lộc": "kien_loc", "kình dương": "kinh_duong"}
+    # blind-pass misreadings, adjudicated against the page image: p379 'thực thương nhiều' (chính quan, nhược) lists only ấn; the 'tỉ kiếp ... không có ấn thụ' sentence belongs to the 'quan sát nhiều' case
+    ADJ = {("quan", "weak", "ThucThuong", "yong")}
+    compared = same = 0
+    diffs = []
+    for r in blind["rows"]:
+        k = M.get(r["cach"].lower().replace(" (vận)", ""))
+        dm = {"vuong": "strong", "nhuoc": "weak"}.get(r["dm"])
+        if not (k and dm and r["dominant"]) or (k, dm, r["dominant"]) not in E:
+            continue
+        e, isvan = E[(k, dm, r["dominant"])], "(vận)" in r["cach"]
+        for f in ("yong", "van_tot", "van_xau"):
+            if r[f] is None or (f == "yong" and isvan):
+                continue
+            compared += 1
+            if r[f] == e[f]:
+                same += 1
+            elif (k, dm, r["dominant"], f) not in ADJ:
+                diffs.append((k, dm, r["dominant"], f, r[f], e[f]))
+    assert compared >= 100 and not diffs, diffs
+    assert same >= compared - 1
+
+
+def test_the_four_rows_corrected_in_phase_8_stay_corrected_and_the_inferred_row_is_flagged():
+    eng = json.loads((ROOT / "engine/data/bazi_deep/tvh_dungthan.json").read_text("utf-8"))
+    row = lambda c, dm, dom: next(r for r in eng["rows"] if (r["cach"], r["dm"], r["dom"]) == (c, dm, dom))
+    assert row("tai", "weak", "QuanSat")["yong"] == ["Ti", "An"]                  # p.378: 'lấy tỉ kiếp ... khi không có tỉ kiếp có thể lấy ấn'
+    assert row("an", "strong", "An")["van_tot"] == ["ThucThuong", "Tai"] and row("sat", "weak", "Tai")["van_xau"] == ["ThucThuong", "Tai"]
+    assert row("kien_loc", "strong", "QuanSat")["yong"] == ["Tai"]                # p.386: 'nhật chủ và sát đều vượng lấy tài tinh'
+    inferred = [(r["cach"], r["dm"], r["dom"]) for r in eng["rows"] if r.get("yong_inferred")]
+    assert inferred == [("kien_loc", "strong", "ThucThuong")]
+    from tvbt.bazi_deep import yongshen as Y
+    G_ = {"readings": [{"cach": "Kiến Lộc", "kind": "noi_cach"}]}
+    S = {"shares": {"Ti": 0.2, "An": 0.1, "ThucThuong": 0.5, "Tai": 0.1, "QuanSat": 0.1}, "level_index": 5, "ambiguous": False, "tvh": {"dm_strong": True, "own_share": 0.5}}
+    out = Y.cach_cuc_tvh(G_, S)
+    assert out["yong"] == ["Tai"] and out["yong_inferred"] and any("suy ra" in t for t in out["trace"])

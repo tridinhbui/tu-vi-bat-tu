@@ -5,6 +5,17 @@
    - the experimental label is always visible; a disagreement is always shown together with the "no unified conclusion" message. */
 (function (root) {
   "use strict";
+  // Replace internal identifiers by plain Vietnamese using the server-provided token_labels / source_labels (data, not logic; unknown tokens are left alone).
+  function plain(ui, text) {
+    var t = String(text);
+    var src = ui.source_labels || {}, tok = ui.token_labels || {};
+    t = t.replace(/SRC_[A-Z_]+/g, function (m) { return src[m] || m; });
+    t = t.replace(/(['"])(Ti|An|Tai|QuanSat|ThucThuong)\1/g, function (m, q, g) { return tok[g] || g; });
+    t = t.replace(/\b(Ti|An|Tai)=/g, function (m, g) { return (tok[g] || g) + "="; });
+    t = t.replace(/\b(he_thong|tvh_40|war_share|bridge_min|tvh_margin|QuanSat|ThucThuong|khong_chan|chi_co_gia|thanh_nhung_bi_pha|bai_cuu_yeu|chua_ro|khong_ap_dung)\b/g, function (m) { return tok[m] || m; });
+    t = t.replace(/\b(TVH|TTT)\b/g, function (m) { return tok[m] || m; });
+    return t;
+  }
   function gname(ui, g) { return (ui.group_names && ui.group_names[g]) || g; }
   function glist(ui, a) { return (a || []).map(function (g) { return gname(ui, g); }); }
   function stat(ui, s) { return (ui.status_labels && ui.status_labels[s]) || s; }
@@ -40,9 +51,10 @@
         return { key: k, name: ui.level_names[k], value: lv[k], text: ui.level_values[k][lv[k]] };
       });
       var thr = m.threshold ? { own_share: m.threshold.own_share, near: m.threshold.near_threshold, margin_src: m.threshold.margin_src, rule_src: m.threshold.rule_src, equality: m.threshold.equality_choice } : null;
-      return { key: name, title: titles[name], badge: ui.verification_badges[m.meta.verification], levels: levels, why: lv.why, applies_when: m.meta.applies_when, strength_basis: m.meta.strength_basis,
-               status: m.status, status_text: stat(ui, m.status), applied: m.meta.applied, readings: readingsOf(ui, m), trace: m.trace.slice(), sources: m.meta.source.slice(), threshold: thr,
-               two_readings_notice: m.status === "hai_cach_doc" ? ui.states.two_readings : null };
+      return { key: name, title: titles[name], badge: ui.verification_badges[m.meta.verification], levels: levels, why: plain(ui, lv.why), applies_when: plain(ui, m.meta.applies_when), strength_basis: plain(ui, m.meta.strength_basis),
+               status: m.status, status_text: stat(ui, m.status), applied: m.meta.applied, readings: readingsOf(ui, m), trace: m.trace.map(function (x) { return plain(ui, x); }), sources: m.meta.source.map(function (x) { return plain(ui, x); }), threshold: thr,
+               two_readings_notice: m.status === "hai_cach_doc" ? (m.threshold ? ui.states.two_readings : ui.states.two_readings_system) : null,
+               evidence_chip: ui.states.insufficient_evidence_chip };
     });
     var rows = {};
     Y.comparison.rows.forEach(function (r) { rows[r.group] = r.label; });
@@ -56,7 +68,7 @@
       agreement_groups: key === "agreement_not_proof" ? glist(ui, Y.comparison.consensus) : [],
       methods: methods, disagreements: disagreements, conflict: conflict,
       review_line: ui.states.review_status.replace("{n}", d.review_status.cells_confirmed_by_human).replace("{total}", d.review_status.cells_total),
-      isolation_note: Y.isolation.note, ui: ui
+      isolation_note: ui.states.isolation_note, ui: ui
     };
   }
 
@@ -86,7 +98,7 @@
     }
     vm.methods.forEach(function (m) {
       var card = el("article", "bd-method"); card.dataset.method = m.key;
-      var h = el("h3", null, m.title); h.appendChild(el("span", "bd-badge", m.badge)); card.appendChild(h);
+      var h = el("h3", null, m.title); h.appendChild(el("span", "bd-badge", m.badge)); h.appendChild(el("span", "bd-badge bd-chip", m.evidence_chip)); card.appendChild(h);
       card.appendChild(el("p", "bd-status", m.status_text));
       m.readings.forEach(function (r) {
         var box = el("div", "bd-reading");
@@ -96,7 +108,7 @@
         card.appendChild(box);
       });
       if (m.two_readings_notice) card.appendChild(el("p", "bd-note", m.two_readings_notice));
-      if (m.threshold) card.appendChild(el("p", "bd-note", "Phe mình " + m.threshold.own_share + " so với ngưỡng 40% (" + m.threshold.rule_src + "). Biên hiển thị: " + m.threshold.margin_src + ". " + m.threshold.equality));
+      if (m.threshold) card.appendChild(el("p", "bd-note", "Phe mình " + m.threshold.own_share + " so với ngưỡng 40% (" + plain(vm.ui, m.threshold.rule_src) + "). Biên hiển thị: " + plain(vm.ui, m.threshold.margin_src) + ". " + plain(vm.ui, m.threshold.equality)));
       var lv = el("ul", "bd-levels");
       m.levels.forEach(function (l) { var li = el("li"); li.dataset.level = l.key; li.dataset.value = l.value; li.appendChild(el("b", null, l.name + ": ")); li.appendChild(document.createTextNode(l.text)); lv.appendChild(li); });
       card.appendChild(lv);
@@ -108,6 +120,6 @@
     container.appendChild(el("p", "bd-note", vm.isolation_note));
   }
 
-  var api = { unifiedState: unifiedState, buildViewModel: buildViewModel, render: render };
+  var api = { plain: plain, unifiedState: unifiedState, buildViewModel: buildViewModel, render: render };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.BaziDeepDraft = api;
 })(typeof window !== "undefined" ? window : globalThis);

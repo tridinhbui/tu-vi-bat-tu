@@ -113,7 +113,7 @@ def test_dungthan_table_is_complete_and_consistent():
 def test_dungthan_rows_quote_the_books_examples():
     row = yongshen._tvh_row
     assert row("quan", "strong", "Ti")["yong"][0] == "QuanSat" and row("quan", "weak", "Tai")["yong"][0] == "Ti"      # PDF p.378-379
-    assert row("sat", "strong", "QuanSat")["yong"] == ["ThucThuong"] and row("sat", "weak", "Tai")["van_xau"] == ["Tai", "ThucThuong"]   # pp.380, 384
+    assert row("sat", "strong", "QuanSat")["yong"] == ["ThucThuong"] and row("sat", "weak", "Tai")["van_xau"] == ["ThucThuong", "Tai"]   # pp.380, 384
     assert row("thuong_quan", "weak", "ThucThuong")["van_tot"] == ["QuanSat", "An"]                                  # p.385
     assert row("kien_loc", "weak", "Tai")["yong"] == ["Ti"] and row("kinh_duong", "weak", "Tai")["yong"] == ["An"]   # p.381
 

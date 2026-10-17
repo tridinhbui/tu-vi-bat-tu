@@ -105,8 +105,8 @@
    "dm": "weak",
    "dom": "QuanSat",
    "yong": [
-    "An",
-    "Ti"
+    "Ti",
+    "An"
    ],
    "van_tot": [
     "An"
@@ -259,8 +259,8 @@
     "ThucThuong"
    ],
    "van_tot": [
-    "Tai",
-    "ThucThuong"
+    "ThucThuong",
+    "Tai"
    ],
    "van_xau": [
     "QuanSat",
@@ -466,8 +466,8 @@
     "Ti"
    ],
    "van_xau": [
-    "Tai",
-    "ThucThuong"
+    "ThucThuong",
+    "Tai"
    ],
    "page": "380, 384"
   },
@@ -649,7 +649,6 @@
    "dm": "strong",
    "dom": "QuanSat",
    "yong": [
-    "ThucThuong",
     "Tai"
    ],
    "van_tot": [
@@ -677,7 +676,9 @@
     "An",
     "Ti"
    ],
-   "page": "381, 386"
+   "page": "381, 386",
+   "yong_inferred": true,
+   "inferred_note": "tr.386 nêu vận tốt (tài, thực thương) và vận kỵ (ấn, kiếp) nhưng không nêu dụng thần cho dòng này; dụng thần Tài là suy ra từ tr.381 (vượng: chọn tài quan) và vận tốt"
   },
   {
    "cach": "kien_loc",
@@ -1031,5 +1032,6 @@
    ],
    "note": "gặp vận Tỉ Kiếp thì không có trở ngại gì"
   }
- }
+ },
+ "_corrections": "Phase 8: bốn dòng sửa sau khi một lượt chép mù độc lập đối chiếu tr.378-386 (xem tests/golden/tvh_dungthan_blind.json): tai/weak/QuanSat yong đúng thứ tự in [Ti, An]; an/strong/An van_tot [ThucThuong, Tai]; sat/weak/Tai van_xau [ThucThuong, Tai]; kien_loc/strong/QuanSat yong [Tai] (tr.386 'lấy tài tinh'). Một dòng được đánh dấu yong_inferred."
 }
