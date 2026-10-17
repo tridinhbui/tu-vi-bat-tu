@@ -100,7 +100,7 @@ Môi trường: macOS, Python 3.13 (`.venv` của dự án), Node 24.7, mọi l�
 Ba xfail: hai "documented gap" có từ trước của `bazi_deep` (`test_known_gaps_are_still_gaps`) và **một lỗi lịch thật mới được ghi nhận** (`test_vn_calendar_2033_leap_month_11_at_the_year_end`, §6).
 
 Kiểm khác:
-- **Frontend**:       19 file `engine/web/js/*.js` qua `node --input-type=module --check` (0 lỗi cú pháp); `phase7_viewmodel_check.js` (DOM giả lập 1.500 lá số) chạy trong pytest, không bị skip.
+- **Frontend**: 19 file `engine/web/js/*.js` qua `node --input-type=module --check` (0 lỗi cú pháp); `phase7_viewmodel_check.js` (DOM giả lập 1.500 lá số) chạy trong pytest, không bị skip.
 - **Kiểu/tĩnh**: `tsc --noEmit` (Worker `src/index.ts`) 0 lỗi; `compileall` Python sạch. **Không có** pyflakes/ruff/mypy cài sẵn → không chạy.
 - **Quét độc lập 116.928 lá số** (`tools/scan_phase6.py`) chạy lại trên cây tích hợp: `mismatches: 0`, tệp đầu ra **giống từng byte** với bản đã ghim.
 - **E2E trình duyệt**: §8.
