@@ -1,0 +1,41 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "bazi-deep yongshen block (proposed API contract, additive)",
+ "description": "Shape of response.yongshen for /api/bazi-structure. Additive over the Phase 4 shape: nothing here removes an old key. The validator in engine/tests uses only: type, required, properties, enum, const, items, minItems, minLength, additionalProperties.",
+ "type": "object",
+ "required": ["methods", "comparison", "isolation", "review_status", "note"],
+ "properties": {
+  "review_status": {"type": "string", "enum": ["draft"]},
+  "note": {"type": "string", "minLength": 1},
+  "isolation": {"type": "object", "required": ["system_school_computed_from", "tvh_school", "note"],
+   "properties": {"system_school_computed_from": {"type": "string"}, "tvh_school": {"type": ["string", "null"]}, "note": {"type": "string", "minLength": 1}}},
+  "methods": {"type": "object",
+   "required": ["phu_uc", "dieu_hau", "cach_cuc", "cach_cuc_tvh", "thong_quan", "thuan_the", "thuan_the_tvh", "khuyet_hanh"],
+   "additionalProperties": {"$ref": "#/definitions/method"}},
+  "comparison": {"type": "object", "required": ["rows", "disagreements", "consensus", "methods", "no_final_answer", "note"],
+   "properties": {
+    "no_final_answer": {"const": true},
+    "note": {"type": "string", "minLength": 1},
+    "rows": {"type": "array", "items": {"type": "object", "required": ["group", "label", "roles"]}},
+    "consensus": {"type": "array", "items": {"type": "string"}},
+    "disagreements": {"type": "array", "items": {"type": "object", "required": ["group", "label", "favourable_in", "unfavourable_in"],
+      "properties": {"favourable_in": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "unfavourable_in": {"type": "array", "minItems": 1, "items": {"type": "string"}}}}},
+    "methods": {"type": "object", "additionalProperties": {"type": "object", "required": ["status", "applied", "verification", "applies_when", "strength_basis"]}}}}
+ },
+ "definitions": {
+  "level": {"type": "string", "enum": ["yes", "partial", "no", "n/a"]},
+  "method": {"type": "object", "required": ["method", "status", "yong", "xi", "ji", "chou", "xian", "meta", "trace"],
+   "properties": {
+    "method": {"type": "string"}, "status": {"type": "string", "minLength": 1},
+    "yong": {"type": "array", "items": {"type": "string"}}, "xi": {"type": "array", "items": {"type": "string"}}, "ji": {"type": "array", "items": {"type": "string"}},
+    "chou": {"type": "array", "items": {"type": "string"}}, "xian": {"type": "array", "items": {"type": "string"}},
+    "trace": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "meta": {"type": "object", "required": ["levels", "source", "verification", "applies_when", "strength_basis", "applied"],
+     "properties": {
+      "levels": {"type": "object", "required": ["transcription_verified", "source_rule_verified", "empirical_validated", "why"],
+       "properties": {"transcription_verified": {"$ref": "#/definitions/level"}, "source_rule_verified": {"$ref": "#/definitions/level"}, "empirical_validated": {"const": "no"}, "why": {"type": "string", "minLength": 1}}},
+      "source": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+      "verification": {"type": "string", "enum": ["verified", "partial", "draft"]},
+      "applies_when": {"type": "string", "minLength": 1}, "strength_basis": {"type": "string", "minLength": 1}, "applied": {"type": "boolean"}}}}}
+ }
+}

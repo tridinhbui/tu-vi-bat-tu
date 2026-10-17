@@ -1,0 +1,26 @@
+{
+ "_note": "Chuỗi hiển thị bắt buộc cho UI (đề xuất; chưa gắn vào web/). Mọi giá trị enum của ba mức xác minh phải có nhãn ở đây; không nhãn nào được nói 'đã chứng minh/đúng/chính xác'. Test engine/tests/test_bazi_deep_phase6.py kiểm điều này.",
+ "level_names": {
+  "transcription_verified": "Chép đúng nguồn",
+  "source_rule_verified": "Công thức khớp nguồn",
+  "empirical_validated": "Đã kiểm chứng thực nghiệm"
+ },
+ "level_values": {
+  "transcription_verified": {"yes": "Bảng/văn bản đã chép đúng trang nguồn (chưa có người kiểm độc lập)", "partial": "Chỉ một phần đã chép đúng nguồn", "no": "Chưa chép từ nguồn", "n/a": "Không áp dụng (không dựa vào văn bản nguồn)"},
+  "source_rule_verified": {"yes": "Công thức và ngưỡng khớp trực tiếp với điều nguồn nói", "partial": "Một phần công thức khớp nguồn; phần còn lại là quy ước của hệ thống", "no": "Công thức là quy ước của hệ thống, không phải điều nguồn nói", "n/a": "Không áp dụng"},
+  "empirical_validated": {"no": "Chưa có kiểm chứng thực nghiệm về giá trị dự báo", "partial": "Chưa dùng", "yes": "Chưa dùng", "n/a": "Chưa dùng"}
+ },
+ "verification_badges": {"verified": "Nguồn đã đối chiếu", "partial": "Một phần theo nguồn", "draft": "Bản nháp của hệ thống"},
+ "method_titles": {"phu_uc": "Phù ức (hệ thống)", "dieu_hau": "Điều hậu (Thiệu Vĩ Hoa)", "cach_cuc": "Cách cục (hệ thống / Trích Thiên Tủy)", "cach_cuc_tvh": "Cách cục (Thiệu Vĩ Hoa)",
+                   "thong_quan": "Thông quan (hệ thống)", "thuan_the": "Thuận thế: tòng/hóa (hệ thống / Trích Thiên Tủy)", "thuan_the_tvh": "Thuận thế: cách đặc biệt (Thiệu Vĩ Hoa)", "khuyet_hanh": "Hành thiếu (một ví dụ của sách)"},
+ "states": {
+  "no_unified_conclusion": "Các phương pháp không cho một kết luận thống nhất. Mỗi phương pháp được nêu riêng bên dưới; hệ thống không chọn một đáp án duy nhất.",
+  "agreement_not_proof": "Các phương pháp cùng nêu nhóm này, nhưng sự đồng thuận không phải là bằng chứng rằng nó đúng.",
+  "single_method": "Chỉ một phương pháp áp dụng được cho lá số này.",
+  "two_readings": "Nhật Chủ nằm sát ngưỡng 40%: hiển thị cả hai cách đọc, không chọn một.",
+  "book_internal_conflict": "Chính sách này tự mâu thuẫn ở ô này: bảng và chú thích nêu hai tập can khác nhau. Hệ thống giữ tập can của bảng và không coi bên nào là chân lý.",
+  "reconstructed_example": "Dữ liệu ví dụ được dựng lại vì bảng in bị vỡ.",
+  "draft_banner": "Kết quả là bản nháp: mức xác minh được ghi riêng cho từng phương pháp."
+ },
+ "forbidden_phrases": ["đã chứng minh", "chứng minh đúng", "chính xác", "đúng theo sách nên đúng", "kết luận cuối", "dụng thần cuối cùng", "điểm tổng", "chắc chắn"]
+}

@@ -93,7 +93,7 @@ def examples():
                 return "hai cách đọc: " + " / ".join(fmt(a.get("yong", [])) for a in mm["alternatives"])
             return fmt(mm["yong"] + mm.get("xi", [])) if m in ("dieu_hau", "khuyet_hanh") else (fmt(mm["yong"]) if mm["yong"] else mm["status"])
         verdict = {"p397_vd1": "khớp hoàn toàn ở cach_cuc_tvh và dieu_hau; phu_uc (hệ thống, khí thế cực nhược) không khớp", "p398_vd2": "khớp một phần: dieu_hau và phu_uc khớp dụng thần; vượng/nhược không tái lập bằng 40%",
-                   "p399_vd3": "khớp một phần: dieu_hau và khuyet_hanh khớp, cach_cuc_tvh chỉ có Tài", "p400_vd4": "KHÔNG khớp: engine đọc ngoại cách (Tòng Vượng / Nhuận Hạ), sách đọc thân vượng thường dùng Thực Thương"}[k]
+                   "p399_vd3": "khớp một phần: dieu_hau và khuyet_hanh khớp, cach_cuc_tvh chỉ có Tài", "p401_vd5": "khớp một phần: dieu_hau khớp tập Thủy+Mộc; phu_uc và cach_cuc_tvh có Kim/Tỉ là Kỵ trong khi sách coi Kim là Hỉ", "p400_vd4": "KHÔNG khớp: engine đọc ngoại cách (Tòng Vượng / Nhuận Hạ), sách đọc thân vượng thường dùng Thực Thương"}[k]
         rows.append((k, ex, tv, M, got, verdict))
     return rows
 

@@ -63,10 +63,10 @@ def main():
     (ROOT / "docs/BAZI_DEEP_TVH_CELLS_CHECK.md").write_text("\n".join(L) + "\n", "utf-8")
     with (ROOT / "docs/bazi_deep_tvh_cells_check.csv").open("w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["thang", "thang_so", "can_ngay", "bang_in", "trang_bang", "chu_thich", "trang_chu_thich", "mau_thuan_noi_bo", "can_chi_co_trong_chu_thich", "can_chi_co_trong_bang", "kiem_doc_lap_bang", "kiem_doc_lap_chu_thich", "nguoi_kiem"])
+        w.writerow(["thang", "thang_so", "can_ngay", "bang_in", "trang_bang", "chu_thich", "trang_chu_thich", "mau_thuan_noi_bo", "can_chi_co_trong_chu_thich", "can_chi_co_trong_bang", "kiem_doc_lap_bang", "kiem_doc_lap_chu_thich", "nguoi_kiem", "bang_theo_anh", "chu_thich_theo_anh", "ket_qua", "ghi_chu_nguoi_kiem"])
         for r in R:
             w.writerow([r["month"], r["month_no"], r["stem"], " ".join(r["table"]), r["table_page"], " ".join(r["notes"]), r["notes_page"], "x" if r["conflict"] else "",
-                        " ".join(r["note_only"]), " ".join(r["table_only"]), r["table_check"], r["notes_check"], ""])
+                        " ".join(r["note_only"]), " ".join(r["table_only"]), r["table_check"], r["notes_check"], "", "", "", "", ""])
     print("wrote sheet:", len(R), "cells,", nc, "conflicts")
 
 

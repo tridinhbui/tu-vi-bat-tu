@@ -113,7 +113,7 @@ def _chart(day_stem: int, month_branch: int) -> ChartView:
 
 
 # ------------------------------------------------------------------ 2. the three worked examples (tr.397-399)
-EXS = {k: v for k, v in BOOK["dungthan_examples"].items() if k != "p400_vd4"}      # the three examples of the original audit (tr.397-399); example 4 is in test_bazi_deep_phase5.py
+EXS = {k: v for k, v in BOOK["dungthan_examples"].items() if k in ("p397_vd1", "p398_vd2", "p399_vd3")}      # the three examples of the original audit (tr.397-399); example 4 is in test_bazi_deep_phase5.py
 BOOK_ROLES = {   # printed ten-god row of each example, year/month/hour (the day master is the 'Nhật nguyên'), reduced to our groups
     "p397_vd1": {"year": "Tai", "month": "ThucThuong", "hour": "An"},          # Tài, Thương, Kiêu
     "p398_vd2": {"year": "ThucThuong", "month": "Tai", "hour": "Ti"},          # Thực, Tài, Kiếp
