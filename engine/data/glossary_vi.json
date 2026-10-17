@@ -1,141 +1,763 @@
 {
-  "_note": "Plain-Vietnamese explanations for newcomers. Educational vocabulary only: nothing here is a reading of anyone's chart. tools/build_glossary.py merges this with star_profiles.json into engine/web/js/glossary.json.",
-  "stars": {
-    "Tử Vi": {"plain": "Sao đứng đầu các sao, được ví như vị vua: tượng trưng cho địa vị, sự được kính trọng và khả năng điều phối.", "ex": "Ví dụ: ở cung Quan Lộc, truyền thống đọc như xu hướng muốn giữ vai trò dẫn dắt trong công việc."},
-    "Thiên Cơ": {"plain": "Sao của trí tuệ, mưu tính và sự linh hoạt: hay suy nghĩ, thích tìm cách giải quyết.", "ex": "Ví dụ: ở cung Mệnh, thường được mô tả là người hay cân nhắc nhiều phương án trước khi hành động."},
-    "Thái Dương": {"plain": "Mặt trời: sự rộng rãi, công khai, muốn được ghi nhận và lo cho người khác. Sáng hay mờ tùy vị trí (độ sáng).", "ex": "Ví dụ: Thái Dương sáng ở Quan Lộc thường gắn với danh tiếng; mờ (hãm) được hiểu là công sức nhiều mà ít được ghi nhận."},
-    "Vũ Khúc": {"plain": "Sao của tiền bạc và sự quyết đoán: thực tế, trọng hiệu quả, thích những gì đo đếm được.", "ex": "Ví dụ: ở cung Tài Bạch, truyền thống đọc là có đầu óc quản lý của cải."},
-    "Thiên Đồng": {"plain": "Sao của phúc và sự hiền hòa: dễ chịu, thích yên ổn, hay nghĩ đến hưởng thụ nhẹ nhàng.", "ex": "Ví dụ: ở cung Phúc Đức, thường được hiểu là đời sống tinh thần khá thoải mái."},
-    "Liêm Trinh": {"plain": "Sao của nguyên tắc và tình cảm mạnh: vừa nghiêm khắc về chuẩn mực, vừa có mặt nồng nhiệt, dễ hút người khác.", "ex": "Ví dụ: người ta hay nói Liêm Trinh là sao 'có hai mặt': kỷ luật và đam mê."},
-    "Thiên Phủ": {"plain": "Kho tàng: sự bao bọc, tích lũy và ổn định. Đối xứng với Tử Vi nhưng thiên về giữ gìn hơn là xông pha.", "ex": "Ví dụ: ở cung Điền Trạch, truyền thống đọc là có khả năng tích lũy tài sản."},
-    "Thái Âm": {"plain": "Mặt trăng: sự tinh tế, kín đáo, tình cảm và liên quan đến tài sản, nhà cửa, người phụ nữ trong gia đình.", "ex": "Ví dụ: Thái Âm sáng thường gắn với tinh tế, ổn định; mờ (hãm) gắn với nhiều lo nghĩ thầm lặng."},
-    "Tham Lang": {"plain": "Sao của ham muốn và tài nghệ: thích trải nghiệm, giao tiếp, đam mê; có thể là động lực lớn hoặc sự phân tán.", "ex": "Ví dụ: truyền thống mô tả người có Tham Lang hay nhiều sở thích, khéo ăn nói."},
-    "Cự Môn": {"plain": "Sao của lời nói và sự phân biện: hay nêu thắc mắc, tranh luận, nói thẳng; có thể là nghề nói giỏi hoặc dễ gây hiểu lầm.", "ex": "Ví dụ: Cự Môn thường được gắn với nghề dùng lời nói như luật, giảng dạy, truyền thông."},
-    "Thiên Tướng": {"plain": "Ấn tín và sự phò tá: giữ vai trò hỗ trợ, đại diện, gìn giữ nề nếp; thường giúp người khác hơn là đứng đầu.", "ex": "Ví dụ: ở cung Quan Lộc, gợi ý vai trò phụ trách, điều hành cùng đội nhóm."},
-    "Thiên Lương": {"plain": "Sao che chở và chuẩn mực: thích giúp đỡ, hợp vai trò bậc trên, người hướng dẫn; có chút thanh cao, ít thích tranh giành.", "ex": "Ví dụ: truyền thống gắn Thiên Lương với người hay lo cho người khác và có xu hướng sống nguyên tắc."},
-    "Thất Sát": {"plain": "Vị tướng xông pha: quyết liệt, độc lập, dám làm dám chịu, thích thử thách; mặt trái là nóng vội, cô độc.", "ex": "Ví dụ: Thất Sát thường được hiểu là hợp công việc nhiều biến động, cần quyết đoán."},
-    "Phá Quân": {"plain": "Sao của sự phá cũ để lập mới: thay đổi, đổi mới, không chịu theo lối mòn; mặt trái là bất ổn.", "ex": "Ví dụ: người có Phá Quân hay được mô tả là hay thay đổi hướng đi, thích làm khác."}
+ "_note": "Plain-Vietnamese explanations for newcomers. Educational vocabulary only: nothing here is a reading of anyone's chart. tools/build_glossary.py merges this with star_profiles.json into engine/web/js/glossary.json.",
+ "stars": {
+  "Tử Vi": {
+   "plain": "Sao đứng đầu các sao, được ví như vị vua: tượng trưng cho địa vị, sự được kính trọng và khả năng điều phối.",
+   "ex": "Ví dụ: ở cung Quan Lộc, truyền thống đọc như xu hướng muốn giữ vai trò dẫn dắt trong công việc."
   },
-  "minor": {
-    "Tả Phụ": {"kind": "cát tinh", "plain": "Sao của người phò tá, giúp đỡ từ bên cạnh. Thường đi đôi với Hữu Bật."},
-    "Hữu Bật": {"kind": "cát tinh", "plain": "Sao của sự giúp đỡ, quý nhân. Đi đôi với Tả Phụ."},
-    "Văn Xương": {"kind": "cát tinh", "plain": "Sao của học hành, chữ nghĩa, sự chỉn chu."},
-    "Văn Khúc": {"kind": "cát tinh", "plain": "Sao của nghệ thuật, năng khiếu, khéo ăn nói."},
-    "Lộc Tồn": {"kind": "cát tinh", "plain": "Sao của của cải ổn định, tiết kiệm, giữ gìn."},
-    "Thiên Khôi": {"kind": "cát tinh", "plain": "Quý nhân nam giới, sự thuận lợi nhờ người giúp; đi đôi với Thiên Việt."},
-    "Thiên Việt": {"kind": "cát tinh", "plain": "Quý nhân nữ giới, sự thuận lợi nhờ người giúp; đi đôi với Thiên Khôi."},
-    "Thiên Mã": {"kind": "phụ tinh", "plain": "Con ngựa: sự di chuyển, thay đổi, đi xa, hoạt động nhiều."},
-    "Đào Hoa": {"kind": "phụ tinh", "plain": "Sao của sức hấp dẫn, duyên dáng và các mối quan hệ tình cảm."},
-    "Hồng Loan": {"kind": "phụ tinh", "plain": "Sao của duyên tình cảm, hôn nhân, chuyện vui."},
-    "Thiên Hỷ": {"kind": "phụ tinh", "plain": "Sao của việc vui, hỷ sự."},
-    "Thiên Không": {"kind": "phụ tinh", "plain": "Sao 'trống rỗng': nghĩ nhiều, mơ mộng, dễ thấy việc không như kỳ vọng."},
-    "Kình Dương": {"kind": "sát tinh", "plain": "Sao sắc và mạnh như lưỡi dao: quyết liệt, dám đối đầu, nhưng dễ gây xung đột nếu thiếu kiểm soát."},
-    "Đà La": {"kind": "sát tinh", "plain": "Sao của sự vướng mắc, chậm chạp, dai dẳng: kiên nhẫn nhưng dễ bị kẹt."},
-    "Hỏa Tinh": {"kind": "sát tinh", "plain": "Sao nóng, bốc nhanh: nhiệt huyết, nóng nảy, quyết liệt trong thời gian ngắn."},
-    "Linh Tinh": {"kind": "sát tinh", "plain": "Sao của sự bồn chồn, thất thường, nóng ngầm."},
-    "Địa Kiếp": {"kind": "sát tinh", "plain": "Sao của những bước ngoặt bất ngờ, mất rồi lại có; thường được đọc theo nhóm Không – Kiếp."},
-    "Địa Không": {"kind": "sát tinh", "plain": "Sao của sự trống rỗng, đi chệch kế hoạch; thường được đọc theo nhóm Không – Kiếp."},
-    "Tuế Phá": {"kind": "ring", "plain": "Một sao thuộc vòng Thái Tuế, gắn với sự bất đồng, phá cách, hay nói thẳng."},
-    "Tướng Quân": {"kind": "ring", "plain": "Một sao thuộc vòng Lộc Tồn (Bác Sĩ), gắn với sự can đảm, uy dũng, thích dẫn dắt."},
-    "Thai": {"kind": "ring", "plain": "Một giai đoạn trong vòng Trường Sinh: khởi đầu, còn mới mẻ, chưa thành hình."}
+  "Thiên Cơ": {
+   "plain": "Sao của trí tuệ, mưu tính và sự linh hoạt: hay suy nghĩ, thích tìm cách giải quyết.",
+   "ex": "Ví dụ: ở cung Mệnh, thường được mô tả là người hay cân nhắc nhiều phương án trước khi hành động."
   },
-  "rings": {
-    "Vòng Lộc Tồn": {"plain": "Nhóm 12 sao (Bác Sĩ, Lực Sĩ, Thanh Long, Tiểu Hao, Tướng Quân, Tấu Thư, Phi Liêm, Hỷ Thần, Bệnh Phù, Đại Hao, Phục Binh, Quan Phủ) chạy quanh 12 cung. Mỗi sao chỉ có sắc thái nhỏ; ý nghĩa rõ hơn khi xét cùng các sao lớn trong cung.", "members": ["Bác Sĩ", "Lực Sĩ", "Thanh Long", "Tiểu Hao", "Tấu Thư", "Phi Liêm", "Hỷ Thần", "Bệnh Phù", "Đại Hao", "Phục Binh", "Quan Phủ"]},
-    "Vòng Thái Tuế": {"plain": "Nhóm 12 sao (Thái Tuế, Thiếu Dương, Tang Môn, Thiếu Âm, Quan Phù, Tử Phù, Tuế Phá, Long Đức, Bạch Hổ, Phúc Đức, Điếu Khách, Trực Phù) chạy quanh 12 cung, gắn với các sắc thái như công việc, quan hệ, được mất. Mỗi sao chỉ là một sắc thái nhỏ.", "members": ["Thái Tuế", "Thiếu Dương", "Tang Môn", "Thiếu Âm", "Quan Phù", "Tử Phù", "Long Đức", "Bạch Hổ", "Phúc Đức", "Điếu Khách", "Trực Phù"]},
-    "Vòng Trường Sinh": {"plain": "Nhóm 12 'giai đoạn' (Trường Sinh, Mộc Dục, Quan Đới, Lâm Quan, Đế Vượng, Suy, Bệnh, Tử, Mộ, Tuyệt, Thai, Dưỡng) mô tả chu kỳ một đời vật: sinh ra, lớn lên, cực thịnh, suy yếu, rồi tái sinh. Chữ 'Tử', 'Bệnh' ở đây là tên giai đoạn, không phải lời tiên đoán.", "members": ["Trường Sinh", "Mộc Dục", "Quan Đới", "Lâm Quan", "Đế Vượng", "Suy", "Bệnh", "Tử", "Mộ", "Tuyệt", "Dưỡng"]}
+  "Thái Dương": {
+   "plain": "Mặt trời: sự rộng rãi, công khai, muốn được ghi nhận và lo cho người khác. Sáng hay mờ tùy vị trí (độ sáng).",
+   "ex": "Ví dụ: Thái Dương sáng ở Quan Lộc thường gắn với danh tiếng; mờ (hãm) được hiểu là công sức nhiều mà ít được ghi nhận."
   },
-  "palaces": {
-    "Mệnh": {"plain": "Cung chính của lá số: con người bạn, tính cách nền, thể chất và cách bạn đi vào đời.", "ask": "Hỏi: tôi là người thế nào?", "ex": "Ví dụ: sao đóng ở Mệnh được xem là 'giọng nói chính' của lá số."},
-    "Phụ Mẫu": {"plain": "Cha mẹ, bề trên, người dạy dỗ và tuổi thơ.", "ask": "Hỏi: quan hệ với cha mẹ, thầy cô, cấp trên ra sao?", "ex": "Ví dụ: nhìn cung này để hiểu cách bạn tiếp nhận sự dạy dỗ và quyền uy."},
-    "Phúc Đức": {"plain": "Đời sống tinh thần, nếp nhà, sự thanh thản bên trong và phúc phần.", "ask": "Hỏi: tôi thấy bình yên khi nào?", "ex": "Ví dụ: cung này thường được dùng để bàn về cách bạn nghỉ ngơi và hưởng thụ."},
-    "Điền Trạch": {"plain": "Nhà cửa, đất đai, tài sản tích lũy và nơi chốn an cư.", "ask": "Hỏi: tôi giữ của cải và nơi ở thế nào?", "ex": "Ví dụ: khác Tài Bạch (dòng tiền), Điền Trạch nói về thứ 'giữ lại được'."},
-    "Quan Lộc": {"plain": "Sự nghiệp, công việc, địa vị và cách bạn đóng góp cho xã hội.", "ask": "Hỏi: tôi làm việc thế nào và hợp vai trò nào?", "ex": "Ví dụ: xem cung này cùng Thiên Di (môi trường bên ngoài)."},
-    "Nô Bộc": {"plain": "Bạn bè, đồng nghiệp, người dưới quyền, người giúp việc và các mối quan hệ xã hội.", "ask": "Hỏi: người xung quanh có tương tác với tôi thế nào?", "ex": "Ví dụ: cung này nói về những người không cùng huyết thống nhưng gần gũi với bạn."},
-    "Thiên Di": {"plain": "Môi trường bên ngoài, đi xa, cách bạn hòa nhập với thế giới; cũng là cung đối diện của Mệnh.", "ask": "Hỏi: tôi thể hiện ra sao khi ra ngoài?", "ex": "Ví dụ: vì đối diện Mệnh, các sao ở Thiên Di 'chiếu' sang cung Mệnh."},
-    "Tật Ách": {"plain": "Sức khỏe, thể trạng và những điểm cần chú ý trong sinh hoạt; không phải bệnh án hay lời tiên đoán.", "ask": "Hỏi: tôi cần chú ý giữ gìn điều gì?", "ex": "Ví dụ: truyền thống dùng cung này để gợi ý thói quen cần cân bằng, không thay cho khám bác sĩ."},
-    "Tài Bạch": {"plain": "Tiền bạc, nguồn thu nhập và cách bạn kiếm và tiêu tiền.", "ask": "Hỏi: tiền đến và đi với tôi thế nào?", "ex": "Ví dụ: Vũ Khúc, Lộc Tồn là những sao hay được gắn với cung này."},
-    "Tử Tức": {"plain": "Con cái, người đi sau mình, và cả những sản phẩm sáng tạo bạn để lại.", "ask": "Hỏi: tôi gắn bó với con cái, học trò, thế hệ sau thế nào?", "ex": "Ví dụ: cung này còn dùng để xem sức sáng tạo và nghề nuôi dạy."},
-    "Phu Thê": {"plain": "Hôn nhân, bạn đời và các mối quan hệ gần gũi, thân thiết.", "ask": "Hỏi: tôi cần gì ở bạn đời và cách ứng xử trong quan hệ thân?", "ex": "Ví dụ: cung này nói về mô hình quan hệ, không phải 'định mệnh' về một người cụ thể."},
-    "Huynh Đệ": {"plain": "Anh chị em ruột và những người bạn đồng hành, cùng thế hệ.", "ask": "Hỏi: tôi hợp tác và chia sẻ với người cùng vai vế thế nào?", "ex": "Ví dụ: cung này cũng được dùng để xem sự hỗ trợ từ đồng nghiệp ngang hàng."}
+  "Vũ Khúc": {
+   "plain": "Sao của tiền bạc và sự quyết đoán: thực tế, trọng hiệu quả, thích những gì đo đếm được.",
+   "ex": "Ví dụ: ở cung Tài Bạch, truyền thống đọc là có đầu óc quản lý của cải."
   },
-  "stems": {
-    "Giáp": {"yy": "Dương", "el": "Mộc", "plain": "Cây đại thụ: thẳng, vươn lên, có chí lớn, thích che chở người khác."},
-    "Ất": {"yy": "Âm", "el": "Mộc", "plain": "Cỏ hoa, dây leo: mềm dẻo, khéo thích nghi, biết luồn lách để vươn lên."},
-    "Bính": {"yy": "Dương", "el": "Hỏa", "plain": "Mặt trời: nhiệt thành, rộng rãi, thích soi sáng và được chú ý."},
-    "Đinh": {"yy": "Âm", "el": "Hỏa", "plain": "Ngọn đèn, ánh nến: ấm áp, tinh tế, sáng nhưng gần gũi."},
-    "Mậu": {"yy": "Dương", "el": "Thổ", "plain": "Núi, đê đất lớn: vững chãi, đáng tin cậy, ít thay đổi."},
-    "Kỷ": {"yy": "Âm", "el": "Thổ", "plain": "Đất ruộng vườn: nuôi dưỡng, kín đáo, chịu khó vun vén."},
-    "Canh": {"yy": "Dương", "el": "Kim", "plain": "Sắt thép, gươm đao: cứng rắn, dứt khoát, trọng nghĩa khí."},
-    "Tân": {"yy": "Âm", "el": "Kim", "plain": "Vàng bạc, đá quý: tinh xảo, thích sự hoàn hảo, nhạy cảm với cái đẹp."},
-    "Nhâm": {"yy": "Dương", "el": "Thủy", "plain": "Sông lớn, biển cả: rộng lượng, năng động, nhiều ý tưởng, khó bị bó buộc."},
-    "Quý": {"yy": "Âm", "el": "Thủy", "plain": "Mưa, sương, suối nhỏ: mềm mại, thấm sâu, giàu trực giác."}
+  "Thiên Đồng": {
+   "plain": "Sao của phúc và sự hiền hòa: dễ chịu, thích yên ổn, hay nghĩ đến hưởng thụ nhẹ nhàng.",
+   "ex": "Ví dụ: ở cung Phúc Đức, thường được hiểu là đời sống tinh thần khá thoải mái."
   },
-  "branches": {
-    "Tý": {"animal": "Chuột", "hours": "23h–1h", "month": "tháng 11 âm", "el": "Thủy"},
-    "Sửu": {"animal": "Trâu", "hours": "1h–3h", "month": "tháng 12 âm", "el": "Thổ"},
-    "Dần": {"animal": "Hổ", "hours": "3h–5h", "month": "tháng giêng âm", "el": "Mộc"},
-    "Mão": {"animal": "Mèo", "hours": "5h–7h", "month": "tháng 2 âm", "el": "Mộc"},
-    "Thìn": {"animal": "Rồng", "hours": "7h–9h", "month": "tháng 3 âm", "el": "Thổ"},
-    "Tỵ": {"animal": "Rắn", "hours": "9h–11h", "month": "tháng 4 âm", "el": "Hỏa"},
-    "Ngọ": {"animal": "Ngựa", "hours": "11h–13h", "month": "tháng 5 âm", "el": "Hỏa"},
-    "Mùi": {"animal": "Dê", "hours": "13h–15h", "month": "tháng 6 âm", "el": "Thổ"},
-    "Thân": {"animal": "Khỉ", "hours": "15h–17h", "month": "tháng 7 âm", "el": "Kim"},
-    "Dậu": {"animal": "Gà", "hours": "17h–19h", "month": "tháng 8 âm", "el": "Kim"},
-    "Tuất": {"animal": "Chó", "hours": "19h–21h", "month": "tháng 9 âm", "el": "Thổ"},
-    "Hợi": {"animal": "Lợn", "hours": "21h–23h", "month": "tháng 10 âm", "el": "Thủy"}
+  "Liêm Trinh": {
+   "plain": "Sao của nguyên tắc và tình cảm mạnh: vừa nghiêm khắc về chuẩn mực, vừa có mặt nồng nhiệt, dễ hút người khác.",
+   "ex": "Ví dụ: người ta hay nói Liêm Trinh là sao 'có hai mặt': kỷ luật và đam mê."
   },
-  "gods": {
-    "Tỉ Kiên": {"group": "Tỉ Kiếp", "plain": "Can cùng hành, cùng âm dương với Nhật Chủ: như người bạn ngang vai. Gợi chuyện tự lập, bạn bè, cạnh tranh ngang hàng.", "ex": "Ví dụ: Nhật Chủ Nhâm gặp một chữ Nhâm khác thì đó là Tỉ Kiên."},
-    "Kiếp Tài": {"group": "Tỉ Kiếp", "plain": "Can cùng hành nhưng khác âm dương với Nhật Chủ: như người anh em cùng chí nhưng hay 'chia phần'. Gợi chuyện hợp tác và cạnh tranh.", "ex": "Ví dụ: Nhật Chủ Nhâm gặp Quý thì đó là Kiếp Tài."},
-    "Thực Thần": {"group": "Thực Thương", "plain": "Hành do Nhật Chủ sinh ra, cùng âm dương: sự thể hiện hiền hòa, tài nghệ, hưởng thụ, nuôi dưỡng.", "ex": "Ví dụ: Nhật Chủ Nhâm (Thủy) sinh Mộc; Giáp là Thực Thần."},
-    "Thương Quan": {"group": "Thực Thương", "plain": "Hành do Nhật Chủ sinh ra, khác âm dương: sự thể hiện sắc sảo, sáng tạo, thích phá khuôn khổ.", "ex": "Ví dụ: Nhật Chủ Nhâm gặp Ất thì đó là Thương Quan."},
-    "Thiên Tài": {"group": "Tài", "plain": "Hành Nhật Chủ khắc, cùng âm dương: tiền bạc linh hoạt, cơ hội, kinh doanh, quan hệ rộng.", "ex": "Ví dụ: Nhật Chủ Nhâm (Thủy) khắc Hỏa; Bính là Thiên Tài."},
-    "Chính Tài": {"group": "Tài", "plain": "Hành Nhật Chủ khắc, khác âm dương: tiền bạc đều đặn, ổn định, nhu cầu thực tế.", "ex": "Ví dụ: Nhật Chủ Nhâm gặp Đinh thì đó là Chính Tài."},
-    "Thất Sát": {"group": "Quan Sát", "plain": "Hành khắc Nhật Chủ, cùng âm dương: áp lực, thử thách, sự quyết liệt; vừa là thách thức vừa là động lực.", "ex": "Ví dụ: Nhật Chủ Nhâm (Thủy) bị Thổ khắc; Mậu là Thất Sát."},
-    "Chính Quan": {"group": "Quan Sát", "plain": "Hành khắc Nhật Chủ, khác âm dương: kỷ luật, quy tắc, trách nhiệm, địa vị.", "ex": "Ví dụ: Nhật Chủ Nhâm gặp Kỷ thì đó là Chính Quan."},
-    "Thiên Ấn": {"group": "Ấn", "plain": "Hành sinh Nhật Chủ, cùng âm dương: sự hỗ trợ lệch hướng, học điều khác thường, trực giác, thích riêng tư.", "ex": "Ví dụ: Nhật Chủ Nhâm (Thủy) được Kim sinh; Canh là Thiên Ấn."},
-    "Chính Ấn": {"group": "Ấn", "plain": "Hành sinh Nhật Chủ, khác âm dương: sự nâng đỡ, học hành, người che chở, cảm giác an toàn.", "ex": "Ví dụ: Nhật Chủ Nhâm gặp Tân thì đó là Chính Ấn."}
+  "Thiên Phủ": {
+   "plain": "Kho tàng: sự bao bọc, tích lũy và ổn định. Đối xứng với Tử Vi nhưng thiên về giữ gìn hơn là xông pha.",
+   "ex": "Ví dụ: ở cung Điền Trạch, truyền thống đọc là có khả năng tích lũy tài sản."
   },
-  "godGroups": {
-    "Tỉ Kiếp": {"plain": "Nhóm 'ngang hàng': cùng hành với Nhật Chủ. Nói về bản thân, bạn bè, đối thủ cùng tầm."},
-    "Thực Thương": {"plain": "Nhóm 'thể hiện': hành do Nhật Chủ sinh ra. Nói về tài nghệ, lời nói, sáng tạo."},
-    "Tài": {"plain": "Nhóm 'của cải': hành Nhật Chủ khắc. Nói về tiền bạc, cơ hội, sự thực tế."},
-    "Quan Sát": {"plain": "Nhóm 'khuôn khổ': hành khắc Nhật Chủ. Nói về kỷ luật, áp lực, trách nhiệm."},
-    "Ấn": {"plain": "Nhóm 'nâng đỡ': hành sinh ra Nhật Chủ. Nói về học hành, người bảo trợ, sự an toàn."}
+  "Thái Âm": {
+   "plain": "Mặt trăng: sự tinh tế, kín đáo, tình cảm và liên quan đến tài sản, nhà cửa, người phụ nữ trong gia đình.",
+   "ex": "Ví dụ: Thái Âm sáng thường gắn với tinh tế, ổn định; mờ (hãm) gắn với nhiều lo nghĩ thầm lặng."
   },
-  "dignity": {
-    "miếu": {"title": "Miếu", "plain": "Độ sáng cao nhất: sao ở đúng 'nhà', phát huy trọn vẹn đặc tính tốt của nó."},
-    "vượng": {"title": "Vượng", "plain": "Sáng khá mạnh: sao thuận lợi, phát huy tốt."},
-    "đắc": {"title": "Đắc", "plain": "Sáng vừa phải: sao ở vị trí chấp nhận được, phát huy ở mức khá."},
-    "bình": {"title": "Bình", "plain": "Bình thường: không nổi bật cũng không yếu hẳn."},
-    "hãm": {"title": "Hãm", "plain": "Sao ở vị trí yếu: đặc tính tốt khó phát huy, đặc tính trội dễ lộ mặt trái. Đây là mức 'sáng', không phải 'xấu' tuyệt đối; còn tùy các sao đi cùng."}
+  "Tham Lang": {
+   "plain": "Sao của ham muốn và tài nghệ: thích trải nghiệm, giao tiếp, đam mê; có thể là động lực lớn hoặc sự phân tán.",
+   "ex": "Ví dụ: truyền thống mô tả người có Tham Lang hay nhiều sở thích, khéo ăn nói."
   },
-  "concepts": {
-    "nhat-chu": {"title": "Nhật Chủ", "han": "日主", "plain": "Thiên can của trụ Ngày, đại diện cho 'bản thân bạn' trong Bát Tự. Mọi chữ khác được so với Nhật Chủ để biết nó đóng vai gì với bạn (bạn bè, tiền bạc, áp lực...).", "ex": "Ví dụ: Nhật Chủ là Nhâm nghĩa là bản thân bạn được hình dung như nước lớn (Nhâm Thủy).", "lesson": "bt-3"},
-    "nguyet-lenh": {"title": "Nguyệt lệnh", "han": "月令", "plain": "Địa chi của tháng sinh (theo tiết khí). Nó như 'mùa' của lá số, cho biết Nhật Chủ sinh vào lúc thuận hay nghịch.", "ex": "Ví dụ: sinh vào tháng Tỵ là mùa Hỏa vượng, nên Nhật Chủ Thủy ở thế ít được trợ.", "lesson": "bt-2"},
-    "tang-can": {"title": "Tàng can", "han": "藏干", "plain": "Các Thiên can 'ẩn' bên trong mỗi Địa chi, giống như các thành phần cấu tạo nên một chữ. Mỗi chi chứa một đến ba can.", "ex": "Ví dụ: chi Tỵ chứa Bính, Canh, Mậu.", "lesson": "bt-3"},
-    "truong-sinh": {"title": "Trường sinh (12 giai đoạn)", "han": "長生", "plain": "Mười hai giai đoạn của vòng đời (sinh, vượng, suy, tuyệt, ...) dùng để mô tả sức mạnh của một Can khi đặt cạnh một Chi. 'Tuyệt', 'Thai' ở đây là tên giai đoạn trong chu kỳ, không phải lời nói về cuộc đời bạn.", "lesson": "bt-2"},
-    "dai-van": {"title": "Đại vận", "han": "大運", "plain": "Các chặng 10 năm của đời người trong Bát Tự. Mỗi đại vận có một Can Chi riêng, mang một 'không khí' khác nhau so với lá số gốc.", "ex": "Ví dụ: đại vận Giáp Thân (27–36 tuổi) là chặng 10 năm có Can Giáp, Chi Thân.", "lesson": "bt-4"},
-    "dai-han": {"title": "Đại hạn", "han": "大限", "plain": "Chặng 10 năm của đời người trong Tử Vi. Mỗi đại hạn 'đi vào' một cung, và chặng đó thường được xem qua lĩnh vực của cung ấy.", "ex": "Ví dụ: đại hạn ở cung Điền Trạch (36–45 tuổi) gắn với chủ đề nhà cửa, tài sản.", "lesson": "tv-4"},
-    "luu-nien": {"title": "Lưu niên", "han": "流年", "plain": "Can Chi của từng năm cụ thể (ví dụ năm Bính Ngọ), đặt cạnh lá số gốc để xem năm đó 'chạm' vào những gì.", "lesson": "bt-4"},
-    "tieu-han": {"title": "Tiểu hạn", "han": "小限", "plain": "Cung được chọn cho từng năm trong Tử Vi, cho biết năm đó thường 'rơi' vào chủ đề nào.", "lesson": "tv-4"},
-    "cuc": {"title": "Cục", "han": "局", "plain": "Một con số/hành (Thủy nhị cục, Mộc tam cục, Kim tứ cục, Thổ ngũ cục, Hỏa lục cục) tính từ Can Chi cung Mệnh; dùng để an vị trí sao Tử Vi và tính tuổi bắt đầu đại hạn.", "ex": "Ví dụ: Hỏa lục cục nghĩa là đại hạn đầu tiên bắt đầu ở tuổi 6.", "lesson": "tv-1"},
-    "nap-am": {"title": "Bản mệnh (Nạp âm)", "han": "納音", "plain": "Một cái tên hình tượng theo năm sinh Can Chi, như 'Lộ Bàng Thổ' (đất bên đường), 'Dương Liễu Mộc' (gỗ cây liễu). Mỗi tên thuộc một trong năm hành.", "ex": "Ví dụ: người sinh năm Canh Ngọ có bản mệnh Lộ Bàng Thổ, thuộc hành Thổ.", "lesson": "tv-1"},
-    "tam-phuong": {"title": "Tam phương tứ chính", "han": "三方四正", "plain": "Khi xem một cung, người ta xem thêm cung đối diện (xung chiếu) và hai cung cách bốn cung (tam hợp). Cả bốn cung ảnh hưởng lẫn nhau.", "ex": "Ví dụ: muốn xem Mệnh, hãy nhìn cả Thiên Di, Quan Lộc và Tài Bạch.", "lesson": "tv-4"},
-    "tu-hoa": {"title": "Tứ Hóa", "han": "四化", "plain": "Bốn trạng thái Lộc, Quyền, Khoa, Kỵ gắn vào bốn sao nào đó theo Can của năm sinh. Giống 'bốn nhãn' làm nổi một mặt của sao: tiền bạc (Lộc), quyền lực (Quyền), danh tiếng (Khoa), vướng mắc (Kỵ).", "ex": "Ví dụ: tuổi Canh có Hóa Quyền gắn với Vũ Khúc.", "lesson": "tv-3"},
-    "hoa-loc": {"title": "Hóa Lộc", "han": "化祿", "plain": "Nhãn 'Lộc' gắn vào một sao: thiên về tiền bạc, sự dễ chịu và cơ hội ở lĩnh vực của sao đó.", "lesson": "tv-3"},
-    "hoa-quyen": {"title": "Hóa Quyền", "han": "化權", "plain": "Nhãn 'Quyền' gắn vào một sao: thiên về quyền lực, tính chủ động và sức ảnh hưởng.", "lesson": "tv-3"},
-    "hoa-khoa": {"title": "Hóa Khoa", "han": "化科", "plain": "Nhãn 'Khoa' gắn vào một sao: thiên về danh tiếng, học vấn và sự được kính trọng.", "lesson": "tv-3"},
-    "hoa-ky": {"title": "Hóa Kỵ", "han": "化忌", "plain": "Nhãn 'Kỵ' gắn vào một sao: chỗ dễ vướng mắc, lo nghĩ; đồng thời là điểm cần để ý hơn. Đây là một dấu hiệu cần cân nhắc, không phải bản án.", "lesson": "tv-3"},
-    "tuan": {"title": "Tuần", "han": "旬空", "plain": "Một dấu hiệu đặt lên hai cung liền nhau, được xem là làm các sao ở đó 'trống bớt' hoặc đổi sắc thái.", "lesson": "tv-3"},
-    "triet": {"title": "Triệt", "han": "截路", "plain": "Một dấu hiệu 'cắt ngang' trên hai cung, được xem là làm sức mạnh của sao ở đó bị cắt giảm hoặc đổi hướng. Mỗi trường phái luận khác nhau.", "lesson": "tv-3"},
-    "vo-chinh-dieu": {"title": "Vô chính diệu", "han": "無正曜", "plain": "Cung không có chính tinh nào. Điều này không có nghĩa là 'trống' hay xấu: khi xem cung đó, người ta mượn các sao của cung đối diện.", "lesson": "tv-3"},
-    "than-cu": {"title": "Thân cư", "han": "身宮", "plain": "Cung 'Thân' đánh dấu lĩnh vực mà từ khoảng tuổi trung niên bạn đầu tư nhiều tâm sức. Nó nằm ở một trong các cung quanh Mệnh.", "ex": "Ví dụ: Thân cư tại Phu Thê nghĩa là chuyện quan hệ gia đình được xem là trọng tâm về sau.", "lesson": "tv-2"},
-    "than-chu": {"title": "Thân", "han": "身", "plain": "Cung Thân: xem Thân cư.", "lesson": "tv-2"},
-    "thap-than": {"title": "Thập Thần", "han": "十神", "plain": "Mười 'vai trò' mà mỗi Thiên can khác đóng với Nhật Chủ của bạn, như bạn bè, tiền bạc, áp lực, người nâng đỡ. Gom lại thành năm nhóm.", "ex": "Ví dụ: với Nhật Chủ Nhâm, can Tân đóng vai Chính Ấn (người nâng đỡ).", "lesson": "bt-3"},
-    "ngu-hanh": {"title": "Ngũ Hành", "han": "五行", "plain": "Năm kiểu vận động Mộc, Hỏa, Thổ, Kim, Thủy, nối nhau bằng 'sinh' (nuôi dưỡng) và 'khắc' (kiềm chế). Dùng để mô tả quan hệ giữa các thành phần của lá số.", "lesson": "bt-2"},
-    "can-chi": {"title": "Can Chi", "han": "干支", "plain": "Hệ đếm của lịch cổ: 10 Thiên can ghép với 12 Địa chi thành chu kỳ 60. Mỗi năm, tháng, ngày, giờ đều có một cặp Can Chi.", "lesson": "bt-2"},
-    "menh-cuc": {"title": "Cục sinh Mệnh", "plain": "Quan hệ giữa hành của Cục và hành của bản mệnh: sinh, khắc hoặc cùng hành. Chỉ là quan hệ nền giữa hai hành, chưa phải phán đoán tốt xấu.", "lesson": "tv-1"},
-    "do-sang": {"title": "Độ sáng của sao", "plain": "Mỗi sao ở mỗi cung có một mức sáng: Miếu, Vượng, Đắc, Bình, Hãm. Nó cho biết sao đang 'thuận' hay 'yếu' ở vị trí đó.", "lesson": "tv-3"}
+  "Cự Môn": {
+   "plain": "Sao của lời nói và sự phân biện: hay nêu thắc mắc, tranh luận, nói thẳng; có thể là nghề nói giỏi hoặc dễ gây hiểu lầm.",
+   "ex": "Ví dụ: Cự Môn thường được gắn với nghề dùng lời nói như luật, giảng dạy, truyền thông."
+  },
+  "Thiên Tướng": {
+   "plain": "Ấn tín và sự phò tá: giữ vai trò hỗ trợ, đại diện, gìn giữ nề nếp; thường giúp người khác hơn là đứng đầu.",
+   "ex": "Ví dụ: ở cung Quan Lộc, gợi ý vai trò phụ trách, điều hành cùng đội nhóm."
+  },
+  "Thiên Lương": {
+   "plain": "Sao che chở và chuẩn mực: thích giúp đỡ, hợp vai trò bậc trên, người hướng dẫn; có chút thanh cao, ít thích tranh giành.",
+   "ex": "Ví dụ: truyền thống gắn Thiên Lương với người hay lo cho người khác và có xu hướng sống nguyên tắc."
+  },
+  "Thất Sát": {
+   "plain": "Vị tướng xông pha: quyết liệt, độc lập, dám làm dám chịu, thích thử thách; mặt trái là nóng vội, cô độc.",
+   "ex": "Ví dụ: Thất Sát thường được hiểu là hợp công việc nhiều biến động, cần quyết đoán."
+  },
+  "Phá Quân": {
+   "plain": "Sao của sự phá cũ để lập mới: thay đổi, đổi mới, không chịu theo lối mòn; mặt trái là bất ổn.",
+   "ex": "Ví dụ: người có Phá Quân hay được mô tả là hay thay đổi hướng đi, thích làm khác."
   }
+ },
+ "minor": {
+  "Tả Phụ": {
+   "kind": "cát tinh",
+   "plain": "Sao của người phò tá, giúp đỡ từ bên cạnh. Thường đi đôi với Hữu Bật."
+  },
+  "Hữu Bật": {
+   "kind": "cát tinh",
+   "plain": "Sao của sự giúp đỡ, quý nhân. Đi đôi với Tả Phụ."
+  },
+  "Văn Xương": {
+   "kind": "cát tinh",
+   "plain": "Sao của học hành, chữ nghĩa, sự chỉn chu."
+  },
+  "Văn Khúc": {
+   "kind": "cát tinh",
+   "plain": "Sao của nghệ thuật, năng khiếu, khéo ăn nói."
+  },
+  "Lộc Tồn": {
+   "kind": "cát tinh",
+   "plain": "Sao của của cải ổn định, tiết kiệm, giữ gìn."
+  },
+  "Thiên Khôi": {
+   "kind": "cát tinh",
+   "plain": "Quý nhân nam giới, sự thuận lợi nhờ người giúp; đi đôi với Thiên Việt."
+  },
+  "Thiên Việt": {
+   "kind": "cát tinh",
+   "plain": "Quý nhân nữ giới, sự thuận lợi nhờ người giúp; đi đôi với Thiên Khôi."
+  },
+  "Thiên Mã": {
+   "kind": "phụ tinh",
+   "plain": "Con ngựa: sự di chuyển, thay đổi, đi xa, hoạt động nhiều."
+  },
+  "Đào Hoa": {
+   "kind": "phụ tinh",
+   "plain": "Sao của sức hấp dẫn, duyên dáng và các mối quan hệ tình cảm."
+  },
+  "Hồng Loan": {
+   "kind": "phụ tinh",
+   "plain": "Sao của duyên tình cảm, hôn nhân, chuyện vui."
+  },
+  "Thiên Hỷ": {
+   "kind": "phụ tinh",
+   "plain": "Sao của việc vui, hỷ sự."
+  },
+  "Thiên Không": {
+   "kind": "phụ tinh",
+   "plain": "Sao 'trống rỗng': nghĩ nhiều, mơ mộng, dễ thấy việc không như kỳ vọng."
+  },
+  "Kình Dương": {
+   "kind": "sát tinh",
+   "plain": "Sao sắc và mạnh như lưỡi dao: quyết liệt, dám đối đầu, nhưng dễ gây xung đột nếu thiếu kiểm soát."
+  },
+  "Đà La": {
+   "kind": "sát tinh",
+   "plain": "Sao của sự vướng mắc, chậm chạp, dai dẳng: kiên nhẫn nhưng dễ bị kẹt."
+  },
+  "Hỏa Tinh": {
+   "kind": "sát tinh",
+   "plain": "Sao nóng, bốc nhanh: nhiệt huyết, nóng nảy, quyết liệt trong thời gian ngắn."
+  },
+  "Linh Tinh": {
+   "kind": "sát tinh",
+   "plain": "Sao của sự bồn chồn, thất thường, nóng ngầm."
+  },
+  "Địa Kiếp": {
+   "kind": "sát tinh",
+   "plain": "Sao của những bước ngoặt bất ngờ, mất rồi lại có; thường được đọc theo nhóm Không – Kiếp."
+  },
+  "Địa Không": {
+   "kind": "sát tinh",
+   "plain": "Sao của sự trống rỗng, đi chệch kế hoạch; thường được đọc theo nhóm Không – Kiếp."
+  },
+  "Tuế Phá": {
+   "kind": "ring",
+   "plain": "Một sao thuộc vòng Thái Tuế, gắn với sự bất đồng, phá cách, hay nói thẳng."
+  },
+  "Tướng Quân": {
+   "kind": "ring",
+   "plain": "Một sao thuộc vòng Lộc Tồn (Bác Sĩ), gắn với sự can đảm, uy dũng, thích dẫn dắt."
+  },
+  "Thai": {
+   "kind": "ring",
+   "plain": "Một giai đoạn trong vòng Trường Sinh: khởi đầu, còn mới mẻ, chưa thành hình."
+  },
+  "Thiên Khốc": {
+   "kind": "phụ tinh",
+   "plain": "Sao của nỗi buồn và sự nhạy cảm: dễ xúc động, hay nghĩ ngợi; cũng có mặt biết thấu hiểu nỗi niềm người khác."
+  },
+  "Thiên Hư": {
+   "kind": "phụ tinh",
+   "plain": "Sao của sự hư hao, trống trải: cảm giác 'rỗng' hoặc kế hoạch dễ hụt; thường đi đôi với Thiên Khốc."
+  },
+  "Long Trì": {
+   "kind": "cát tinh",
+   "plain": "Sao của sự tinh tế, duyên dáng và thích nghi uyển chuyển, thường gắn với tài nghệ."
+  },
+  "Phượng Các": {
+   "kind": "cát tinh",
+   "plain": "Sao của vẻ đẹp, nghệ thuật và sự thanh nhã; thường đi đôi với Long Trì."
+  },
+  "Cô Thần": {
+   "kind": "phụ tinh",
+   "plain": "Sao của sự lẻ loi: thích tự lập, ít dựa dẫm, có lúc thấy mình đơn độc."
+  },
+  "Quả Tú": {
+   "kind": "phụ tinh",
+   "plain": "Sao của sự ít người đồng hành: kín đáo, thích không gian riêng; thường đi đôi với Cô Thần."
+  },
+  "Thiên Quan": {
+   "kind": "cát tinh",
+   "plain": "Sao của quý nhân trong công việc, người nâng đỡ bằng vị trí hoặc quyền lực."
+  },
+  "Thiên Phúc": {
+   "kind": "cát tinh",
+   "plain": "Sao của phúc phần, sự che chở và những may mắn nhỏ trong đời sống."
+  },
+  "Thiên Thọ": {
+   "kind": "cát tinh",
+   "plain": "Sao của sự bền bỉ, ổn định, gắn với sức sống lâu dài."
+  },
+  "Thiên Tài": {
+   "kind": "phụ tinh",
+   "plain": "Sao của tài năng bẩm sinh, óc nhanh nhạy và khả năng học hỏi."
+  },
+  "Thiên Thương": {
+   "kind": "sát tinh",
+   "plain": "Sao của mất mát và tổn thất nhẹ, thường gắn với những lần phải buông bỏ để đi tiếp."
+  },
+  "Thiên Sứ": {
+   "kind": "phụ tinh",
+   "plain": "Sao của sự gửi gắm, dịch chuyển cảm xúc; thường đi đôi với Thiên Thương."
+  },
+  "Thiên La": {
+   "kind": "sát tinh",
+   "plain": "Sao 'lưới trời': cảm giác bị ràng buộc, gò bó; thường được xem theo cặp với Địa Võng."
+  },
+  "Địa Võng": {
+   "kind": "sát tinh",
+   "plain": "Sao 'lưới đất': cảm giác khó thoát khỏi một hoàn cảnh; thường được xem theo cặp với Thiên La."
+  },
+  "Thiên Hình": {
+   "kind": "sát tinh",
+   "plain": "Sao của kỷ luật, pháp lý và sự nghiêm khắc: có thể là nguyên tắc cao, cũng có thể là sự cứng nhắc."
+  },
+  "Thiên Riêu": {
+   "kind": "sát tinh",
+   "plain": "Sao của sức hút và sự lãng mạn, đôi khi kèm sự mơ hồ trong tình cảm."
+  },
+  "Thiên Y": {
+   "kind": "cát tinh",
+   "plain": "Sao của chữa lành, chăm sóc và y học."
+  },
+  "Thiên Giải": {
+   "kind": "cát tinh",
+   "plain": "Sao của sự hóa giải: giúp tháo gỡ vướng mắc, làm dịu khó khăn."
+  },
+  "Địa Giải": {
+   "kind": "cát tinh",
+   "plain": "Sao của sự giải tỏa; cùng Thiên Giải giúp làm nhẹ những sao gây thử thách."
+  },
+  "Đẩu Quân": {
+   "kind": "phụ tinh",
+   "plain": "Sao của sự cẩn trọng, kín đáo và nghiêm chỉnh."
+  },
+  "Hoa Cái": {
+   "kind": "cát tinh",
+   "plain": "Sao của vẻ ngoài trang trọng, thích nghi lễ, nghệ thuật và sự cô độc kiểu thanh cao."
+  },
+  "Kiếp Sát": {
+   "kind": "sát tinh",
+   "plain": "Sao của sự quyết liệt, dứt khoát; mạnh mẽ nhưng dễ cực đoan nếu thiếu kiểm soát."
+  },
+  "Phá Toái": {
+   "kind": "sát tinh",
+   "plain": "Sao của những đổ vỡ nhỏ, thay đổi bất ngờ; thường chỉ rõ nghĩa khi đi cùng sao khác."
+  },
+  "Lưu Hà": {
+   "kind": "sát tinh",
+   "plain": "Sao 'dòng nước chảy': gắn với sự trôi chảy, thay đổi; nghĩa thay đổi theo sao đi cùng."
+  },
+  "Thiên Đức": {
+   "kind": "cát tinh",
+   "plain": "Sao của đức độ và sự được người quý mến, giúp làm dịu sao xấu."
+  },
+  "Nguyệt Đức": {
+   "kind": "cát tinh",
+   "plain": "Sao của sự hiền hậu, nhân ái; thường đi cùng Thiên Đức."
+  },
+  "Tam Thai": {
+   "kind": "cát tinh",
+   "plain": "Sao của địa vị và sự được nâng đỡ theo thứ bậc; thường đi đôi với Bát Tọa."
+  },
+  "Bát Tọa": {
+   "kind": "cát tinh",
+   "plain": "Sao của vị thế, nghi thức và sự được kính nể; thường đi đôi với Tam Thai."
+  },
+  "Ân Quang": {
+   "kind": "cát tinh",
+   "plain": "Sao của ơn nghĩa và sự giúp đỡ vô tư; thường đi đôi với Thiên Quý."
+  },
+  "Thiên Quý": {
+   "kind": "cát tinh",
+   "plain": "Sao của sự quý trọng và được tôn vinh; thường đi đôi với Ân Quang."
+  }
+ },
+ "rings": {
+  "Vòng Lộc Tồn": {
+   "plain": "Nhóm 12 sao (Bác Sĩ, Lực Sĩ, Thanh Long, Tiểu Hao, Tướng Quân, Tấu Thư, Phi Liêm, Hỷ Thần, Bệnh Phù, Đại Hao, Phục Binh, Quan Phủ) chạy quanh 12 cung. Mỗi sao chỉ có sắc thái nhỏ; ý nghĩa rõ hơn khi xét cùng các sao lớn trong cung.",
+   "members": [
+    "Bác Sĩ",
+    "Lực Sĩ",
+    "Thanh Long",
+    "Tiểu Hao",
+    "Tấu Thư",
+    "Phi Liêm",
+    "Hỷ Thần",
+    "Bệnh Phù",
+    "Đại Hao",
+    "Phục Binh",
+    "Quan Phủ"
+   ]
+  },
+  "Vòng Thái Tuế": {
+   "plain": "Nhóm 12 sao (Thái Tuế, Thiếu Dương, Tang Môn, Thiếu Âm, Quan Phù, Tử Phù, Tuế Phá, Long Đức, Bạch Hổ, Phúc Đức, Điếu Khách, Trực Phù) chạy quanh 12 cung, gắn với các sắc thái như công việc, quan hệ, được mất. Mỗi sao chỉ là một sắc thái nhỏ.",
+   "members": [
+    "Thái Tuế",
+    "Thiếu Dương",
+    "Tang Môn",
+    "Thiếu Âm",
+    "Quan Phù",
+    "Tử Phù",
+    "Long Đức",
+    "Bạch Hổ",
+    "Phúc Đức",
+    "Điếu Khách",
+    "Trực Phù"
+   ]
+  },
+  "Vòng Trường Sinh": {
+   "plain": "Nhóm 12 'giai đoạn' (Trường Sinh, Mộc Dục, Quan Đới, Lâm Quan, Đế Vượng, Suy, Bệnh, Tử, Mộ, Tuyệt, Thai, Dưỡng) mô tả chu kỳ một đời vật: sinh ra, lớn lên, cực thịnh, suy yếu, rồi tái sinh. Chữ 'Tử', 'Bệnh' ở đây là tên giai đoạn, không phải lời tiên đoán.",
+   "members": [
+    "Trường Sinh",
+    "Mộc Dục",
+    "Quan Đới",
+    "Lâm Quan",
+    "Đế Vượng",
+    "Suy",
+    "Bệnh",
+    "Tử",
+    "Mộ",
+    "Tuyệt",
+    "Dưỡng"
+   ]
+  }
+ },
+ "palaces": {
+  "Mệnh": {
+   "plain": "Cung chính của lá số: con người bạn, tính cách nền, thể chất và cách bạn đi vào đời.",
+   "ask": "Hỏi: tôi là người thế nào?",
+   "ex": "Ví dụ: sao đóng ở Mệnh được xem là 'giọng nói chính' của lá số."
+  },
+  "Phụ Mẫu": {
+   "plain": "Cha mẹ, bề trên, người dạy dỗ và tuổi thơ.",
+   "ask": "Hỏi: quan hệ với cha mẹ, thầy cô, cấp trên ra sao?",
+   "ex": "Ví dụ: nhìn cung này để hiểu cách bạn tiếp nhận sự dạy dỗ và quyền uy."
+  },
+  "Phúc Đức": {
+   "plain": "Đời sống tinh thần, nếp nhà, sự thanh thản bên trong và phúc phần.",
+   "ask": "Hỏi: tôi thấy bình yên khi nào?",
+   "ex": "Ví dụ: cung này thường được dùng để bàn về cách bạn nghỉ ngơi và hưởng thụ."
+  },
+  "Điền Trạch": {
+   "plain": "Nhà cửa, đất đai, tài sản tích lũy và nơi chốn an cư.",
+   "ask": "Hỏi: tôi giữ của cải và nơi ở thế nào?",
+   "ex": "Ví dụ: khác Tài Bạch (dòng tiền), Điền Trạch nói về thứ 'giữ lại được'."
+  },
+  "Quan Lộc": {
+   "plain": "Sự nghiệp, công việc, địa vị và cách bạn đóng góp cho xã hội.",
+   "ask": "Hỏi: tôi làm việc thế nào và hợp vai trò nào?",
+   "ex": "Ví dụ: xem cung này cùng Thiên Di (môi trường bên ngoài)."
+  },
+  "Nô Bộc": {
+   "plain": "Bạn bè, đồng nghiệp, người dưới quyền, người giúp việc và các mối quan hệ xã hội.",
+   "ask": "Hỏi: người xung quanh có tương tác với tôi thế nào?",
+   "ex": "Ví dụ: cung này nói về những người không cùng huyết thống nhưng gần gũi với bạn."
+  },
+  "Thiên Di": {
+   "plain": "Môi trường bên ngoài, đi xa, cách bạn hòa nhập với thế giới; cũng là cung đối diện của Mệnh.",
+   "ask": "Hỏi: tôi thể hiện ra sao khi ra ngoài?",
+   "ex": "Ví dụ: vì đối diện Mệnh, các sao ở Thiên Di 'chiếu' sang cung Mệnh."
+  },
+  "Tật Ách": {
+   "plain": "Sức khỏe, thể trạng và những điểm cần chú ý trong sinh hoạt; không phải bệnh án hay lời tiên đoán.",
+   "ask": "Hỏi: tôi cần chú ý giữ gìn điều gì?",
+   "ex": "Ví dụ: truyền thống dùng cung này để gợi ý thói quen cần cân bằng, không thay cho khám bác sĩ."
+  },
+  "Tài Bạch": {
+   "plain": "Tiền bạc, nguồn thu nhập và cách bạn kiếm và tiêu tiền.",
+   "ask": "Hỏi: tiền đến và đi với tôi thế nào?",
+   "ex": "Ví dụ: Vũ Khúc, Lộc Tồn là những sao hay được gắn với cung này."
+  },
+  "Tử Tức": {
+   "plain": "Con cái, người đi sau mình, và cả những sản phẩm sáng tạo bạn để lại.",
+   "ask": "Hỏi: tôi gắn bó với con cái, học trò, thế hệ sau thế nào?",
+   "ex": "Ví dụ: cung này còn dùng để xem sức sáng tạo và nghề nuôi dạy."
+  },
+  "Phu Thê": {
+   "plain": "Hôn nhân, bạn đời và các mối quan hệ gần gũi, thân thiết.",
+   "ask": "Hỏi: tôi cần gì ở bạn đời và cách ứng xử trong quan hệ thân?",
+   "ex": "Ví dụ: cung này nói về mô hình quan hệ, không phải 'định mệnh' về một người cụ thể."
+  },
+  "Huynh Đệ": {
+   "plain": "Anh chị em ruột và những người bạn đồng hành, cùng thế hệ.",
+   "ask": "Hỏi: tôi hợp tác và chia sẻ với người cùng vai vế thế nào?",
+   "ex": "Ví dụ: cung này cũng được dùng để xem sự hỗ trợ từ đồng nghiệp ngang hàng."
+  }
+ },
+ "stems": {
+  "Giáp": {
+   "yy": "Dương",
+   "el": "Mộc",
+   "plain": "Cây đại thụ: thẳng, vươn lên, có chí lớn, thích che chở người khác."
+  },
+  "Ất": {
+   "yy": "Âm",
+   "el": "Mộc",
+   "plain": "Cỏ hoa, dây leo: mềm dẻo, khéo thích nghi, biết luồn lách để vươn lên."
+  },
+  "Bính": {
+   "yy": "Dương",
+   "el": "Hỏa",
+   "plain": "Mặt trời: nhiệt thành, rộng rãi, thích soi sáng và được chú ý."
+  },
+  "Đinh": {
+   "yy": "Âm",
+   "el": "Hỏa",
+   "plain": "Ngọn đèn, ánh nến: ấm áp, tinh tế, sáng nhưng gần gũi."
+  },
+  "Mậu": {
+   "yy": "Dương",
+   "el": "Thổ",
+   "plain": "Núi, đê đất lớn: vững chãi, đáng tin cậy, ít thay đổi."
+  },
+  "Kỷ": {
+   "yy": "Âm",
+   "el": "Thổ",
+   "plain": "Đất ruộng vườn: nuôi dưỡng, kín đáo, chịu khó vun vén."
+  },
+  "Canh": {
+   "yy": "Dương",
+   "el": "Kim",
+   "plain": "Sắt thép, gươm đao: cứng rắn, dứt khoát, trọng nghĩa khí."
+  },
+  "Tân": {
+   "yy": "Âm",
+   "el": "Kim",
+   "plain": "Vàng bạc, đá quý: tinh xảo, thích sự hoàn hảo, nhạy cảm với cái đẹp."
+  },
+  "Nhâm": {
+   "yy": "Dương",
+   "el": "Thủy",
+   "plain": "Sông lớn, biển cả: rộng lượng, năng động, nhiều ý tưởng, khó bị bó buộc."
+  },
+  "Quý": {
+   "yy": "Âm",
+   "el": "Thủy",
+   "plain": "Mưa, sương, suối nhỏ: mềm mại, thấm sâu, giàu trực giác."
+  }
+ },
+ "branches": {
+  "Tý": {
+   "animal": "Chuột",
+   "hours": "23h–1h",
+   "month": "tháng 11 âm",
+   "el": "Thủy"
+  },
+  "Sửu": {
+   "animal": "Trâu",
+   "hours": "1h–3h",
+   "month": "tháng 12 âm",
+   "el": "Thổ"
+  },
+  "Dần": {
+   "animal": "Hổ",
+   "hours": "3h–5h",
+   "month": "tháng giêng âm",
+   "el": "Mộc"
+  },
+  "Mão": {
+   "animal": "Mèo",
+   "hours": "5h–7h",
+   "month": "tháng 2 âm",
+   "el": "Mộc"
+  },
+  "Thìn": {
+   "animal": "Rồng",
+   "hours": "7h–9h",
+   "month": "tháng 3 âm",
+   "el": "Thổ"
+  },
+  "Tỵ": {
+   "animal": "Rắn",
+   "hours": "9h–11h",
+   "month": "tháng 4 âm",
+   "el": "Hỏa"
+  },
+  "Ngọ": {
+   "animal": "Ngựa",
+   "hours": "11h–13h",
+   "month": "tháng 5 âm",
+   "el": "Hỏa"
+  },
+  "Mùi": {
+   "animal": "Dê",
+   "hours": "13h–15h",
+   "month": "tháng 6 âm",
+   "el": "Thổ"
+  },
+  "Thân": {
+   "animal": "Khỉ",
+   "hours": "15h–17h",
+   "month": "tháng 7 âm",
+   "el": "Kim"
+  },
+  "Dậu": {
+   "animal": "Gà",
+   "hours": "17h–19h",
+   "month": "tháng 8 âm",
+   "el": "Kim"
+  },
+  "Tuất": {
+   "animal": "Chó",
+   "hours": "19h–21h",
+   "month": "tháng 9 âm",
+   "el": "Thổ"
+  },
+  "Hợi": {
+   "animal": "Lợn",
+   "hours": "21h–23h",
+   "month": "tháng 10 âm",
+   "el": "Thủy"
+  }
+ },
+ "gods": {
+  "Tỉ Kiên": {
+   "group": "Tỉ Kiếp",
+   "plain": "Can cùng hành, cùng âm dương với Nhật Chủ: như người bạn ngang vai. Gợi chuyện tự lập, bạn bè, cạnh tranh ngang hàng.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm gặp một chữ Nhâm khác thì đó là Tỉ Kiên."
+  },
+  "Kiếp Tài": {
+   "group": "Tỉ Kiếp",
+   "plain": "Can cùng hành nhưng khác âm dương với Nhật Chủ: như người anh em cùng chí nhưng hay 'chia phần'. Gợi chuyện hợp tác và cạnh tranh.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm gặp Quý thì đó là Kiếp Tài."
+  },
+  "Thực Thần": {
+   "group": "Thực Thương",
+   "plain": "Hành do Nhật Chủ sinh ra, cùng âm dương: sự thể hiện hiền hòa, tài nghệ, hưởng thụ, nuôi dưỡng.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm (Thủy) sinh Mộc; Giáp là Thực Thần."
+  },
+  "Thương Quan": {
+   "group": "Thực Thương",
+   "plain": "Hành do Nhật Chủ sinh ra, khác âm dương: sự thể hiện sắc sảo, sáng tạo, thích phá khuôn khổ.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm gặp Ất thì đó là Thương Quan."
+  },
+  "Thiên Tài": {
+   "group": "Tài",
+   "plain": "Hành Nhật Chủ khắc, cùng âm dương: tiền bạc linh hoạt, cơ hội, kinh doanh, quan hệ rộng.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm (Thủy) khắc Hỏa; Bính là Thiên Tài."
+  },
+  "Chính Tài": {
+   "group": "Tài",
+   "plain": "Hành Nhật Chủ khắc, khác âm dương: tiền bạc đều đặn, ổn định, nhu cầu thực tế.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm gặp Đinh thì đó là Chính Tài."
+  },
+  "Thất Sát": {
+   "group": "Quan Sát",
+   "plain": "Hành khắc Nhật Chủ, cùng âm dương: áp lực, thử thách, sự quyết liệt; vừa là thách thức vừa là động lực.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm (Thủy) bị Thổ khắc; Mậu là Thất Sát."
+  },
+  "Chính Quan": {
+   "group": "Quan Sát",
+   "plain": "Hành khắc Nhật Chủ, khác âm dương: kỷ luật, quy tắc, trách nhiệm, địa vị.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm gặp Kỷ thì đó là Chính Quan."
+  },
+  "Thiên Ấn": {
+   "group": "Ấn",
+   "plain": "Hành sinh Nhật Chủ, cùng âm dương: sự hỗ trợ lệch hướng, học điều khác thường, trực giác, thích riêng tư.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm (Thủy) được Kim sinh; Canh là Thiên Ấn."
+  },
+  "Chính Ấn": {
+   "group": "Ấn",
+   "plain": "Hành sinh Nhật Chủ, khác âm dương: sự nâng đỡ, học hành, người che chở, cảm giác an toàn.",
+   "ex": "Ví dụ: Nhật Chủ Nhâm gặp Tân thì đó là Chính Ấn."
+  }
+ },
+ "godGroups": {
+  "Tỉ Kiếp": {
+   "plain": "Nhóm 'ngang hàng': cùng hành với Nhật Chủ. Nói về bản thân, bạn bè, đối thủ cùng tầm."
+  },
+  "Thực Thương": {
+   "plain": "Nhóm 'thể hiện': hành do Nhật Chủ sinh ra. Nói về tài nghệ, lời nói, sáng tạo."
+  },
+  "Tài": {
+   "plain": "Nhóm 'của cải': hành Nhật Chủ khắc. Nói về tiền bạc, cơ hội, sự thực tế."
+  },
+  "Quan Sát": {
+   "plain": "Nhóm 'khuôn khổ': hành khắc Nhật Chủ. Nói về kỷ luật, áp lực, trách nhiệm."
+  },
+  "Ấn": {
+   "plain": "Nhóm 'nâng đỡ': hành sinh ra Nhật Chủ. Nói về học hành, người bảo trợ, sự an toàn."
+  }
+ },
+ "dignity": {
+  "miếu": {
+   "title": "Miếu",
+   "plain": "Độ sáng cao nhất: sao ở đúng 'nhà', phát huy trọn vẹn đặc tính tốt của nó."
+  },
+  "vượng": {
+   "title": "Vượng",
+   "plain": "Sáng khá mạnh: sao thuận lợi, phát huy tốt."
+  },
+  "đắc": {
+   "title": "Đắc",
+   "plain": "Sáng vừa phải: sao ở vị trí chấp nhận được, phát huy ở mức khá."
+  },
+  "bình": {
+   "title": "Bình",
+   "plain": "Bình thường: không nổi bật cũng không yếu hẳn."
+  },
+  "hãm": {
+   "title": "Hãm",
+   "plain": "Sao ở vị trí yếu: đặc tính tốt khó phát huy, đặc tính trội dễ lộ mặt trái. Đây là mức 'sáng', không phải 'xấu' tuyệt đối; còn tùy các sao đi cùng."
+  }
+ },
+ "concepts": {
+  "nhat-chu": {
+   "title": "Nhật Chủ",
+   "han": "日主",
+   "plain": "Thiên can của trụ Ngày, đại diện cho 'bản thân bạn' trong Bát Tự. Mọi chữ khác được so với Nhật Chủ để biết nó đóng vai gì với bạn (bạn bè, tiền bạc, áp lực...).",
+   "ex": "Ví dụ: Nhật Chủ là Nhâm nghĩa là bản thân bạn được hình dung như nước lớn (Nhâm Thủy).",
+   "lesson": "bt-3"
+  },
+  "nguyet-lenh": {
+   "title": "Nguyệt lệnh",
+   "han": "月令",
+   "plain": "Địa chi của tháng sinh (theo tiết khí). Nó như 'mùa' của lá số, cho biết Nhật Chủ sinh vào lúc thuận hay nghịch.",
+   "ex": "Ví dụ: sinh vào tháng Tỵ là mùa Hỏa vượng, nên Nhật Chủ Thủy ở thế ít được trợ.",
+   "lesson": "bt-2"
+  },
+  "tang-can": {
+   "title": "Tàng can",
+   "han": "藏干",
+   "plain": "Các Thiên can 'ẩn' bên trong mỗi Địa chi, giống như các thành phần cấu tạo nên một chữ. Mỗi chi chứa một đến ba can.",
+   "ex": "Ví dụ: chi Tỵ chứa Bính, Canh, Mậu.",
+   "lesson": "bt-3"
+  },
+  "truong-sinh": {
+   "title": "Trường sinh (12 giai đoạn)",
+   "han": "長生",
+   "plain": "Mười hai giai đoạn của vòng đời (sinh, vượng, suy, tuyệt, ...) dùng để mô tả sức mạnh của một Can khi đặt cạnh một Chi. 'Tuyệt', 'Thai' ở đây là tên giai đoạn trong chu kỳ, không phải lời nói về cuộc đời bạn.",
+   "lesson": "bt-2"
+  },
+  "dai-van": {
+   "title": "Đại vận",
+   "han": "大運",
+   "plain": "Các chặng 10 năm của đời người trong Bát Tự. Mỗi đại vận có một Can Chi riêng, mang một 'không khí' khác nhau so với lá số gốc.",
+   "ex": "Ví dụ: đại vận Giáp Thân (27–36 tuổi) là chặng 10 năm có Can Giáp, Chi Thân.",
+   "lesson": "bt-4"
+  },
+  "dai-han": {
+   "title": "Đại hạn",
+   "han": "大限",
+   "plain": "Chặng 10 năm của đời người trong Tử Vi. Mỗi đại hạn 'đi vào' một cung, và chặng đó thường được xem qua lĩnh vực của cung ấy.",
+   "ex": "Ví dụ: đại hạn ở cung Điền Trạch (36–45 tuổi) gắn với chủ đề nhà cửa, tài sản.",
+   "lesson": "tv-7"
+  },
+  "luu-nien": {
+   "title": "Lưu niên",
+   "han": "流年",
+   "plain": "Can Chi của từng năm cụ thể (ví dụ năm Bính Ngọ), đặt cạnh lá số gốc để xem năm đó 'chạm' vào những gì.",
+   "lesson": "bt-4"
+  },
+  "tieu-han": {
+   "title": "Tiểu hạn",
+   "han": "小限",
+   "plain": "Cung được chọn cho từng năm trong Tử Vi, cho biết năm đó thường 'rơi' vào chủ đề nào.",
+   "lesson": "tv-7"
+  },
+  "cuc": {
+   "title": "Cục",
+   "han": "局",
+   "plain": "Một con số/hành (Thủy nhị cục, Mộc tam cục, Kim tứ cục, Thổ ngũ cục, Hỏa lục cục) tính từ Can Chi cung Mệnh; dùng để an vị trí sao Tử Vi và tính tuổi bắt đầu đại hạn.",
+   "ex": "Ví dụ: Hỏa lục cục nghĩa là đại hạn đầu tiên bắt đầu ở tuổi 6.",
+   "lesson": "tv-1"
+  },
+  "nap-am": {
+   "title": "Bản mệnh (Nạp âm)",
+   "han": "納音",
+   "plain": "Một cái tên hình tượng theo năm sinh Can Chi, như 'Lộ Bàng Thổ' (đất bên đường), 'Dương Liễu Mộc' (gỗ cây liễu). Mỗi tên thuộc một trong năm hành.",
+   "ex": "Ví dụ: người sinh năm Canh Ngọ có bản mệnh Lộ Bàng Thổ, thuộc hành Thổ.",
+   "lesson": "tv-1"
+  },
+  "tam-phuong": {
+   "title": "Tam phương tứ chính",
+   "han": "三方四正",
+   "plain": "Khi xem một cung, người ta xem thêm cung đối diện (xung chiếu) và hai cung cách bốn cung (tam hợp). Cả bốn cung ảnh hưởng lẫn nhau.",
+   "ex": "Ví dụ: muốn xem Mệnh, hãy nhìn cả Thiên Di, Quan Lộc và Tài Bạch.",
+   "lesson": "tv-4"
+  },
+  "tu-hoa": {
+   "title": "Tứ Hóa",
+   "han": "四化",
+   "plain": "Bốn trạng thái Lộc, Quyền, Khoa, Kỵ gắn vào bốn sao nào đó theo Can của năm sinh. Giống 'bốn nhãn' làm nổi một mặt của sao: tiền bạc (Lộc), quyền lực (Quyền), danh tiếng (Khoa), vướng mắc (Kỵ).",
+   "ex": "Ví dụ: tuổi Canh có Hóa Quyền gắn với Vũ Khúc.",
+   "lesson": "tv-5"
+  },
+  "hoa-loc": {
+   "title": "Hóa Lộc",
+   "han": "化祿",
+   "plain": "Nhãn 'Lộc' gắn vào một sao: thiên về tiền bạc, sự dễ chịu và cơ hội ở lĩnh vực của sao đó.",
+   "lesson": "tv-5"
+  },
+  "hoa-quyen": {
+   "title": "Hóa Quyền",
+   "han": "化權",
+   "plain": "Nhãn 'Quyền' gắn vào một sao: thiên về quyền lực, tính chủ động và sức ảnh hưởng.",
+   "lesson": "tv-5"
+  },
+  "hoa-khoa": {
+   "title": "Hóa Khoa",
+   "han": "化科",
+   "plain": "Nhãn 'Khoa' gắn vào một sao: thiên về danh tiếng, học vấn và sự được kính trọng.",
+   "lesson": "tv-5"
+  },
+  "hoa-ky": {
+   "title": "Hóa Kỵ",
+   "han": "化忌",
+   "plain": "Nhãn 'Kỵ' gắn vào một sao: chỗ dễ vướng mắc, lo nghĩ; đồng thời là điểm cần để ý hơn. Đây là một dấu hiệu cần cân nhắc, không phải bản án.",
+   "lesson": "tv-5"
+  },
+  "tuan": {
+   "title": "Tuần",
+   "han": "旬空",
+   "plain": "Một dấu hiệu đặt lên hai cung liền nhau, được xem là làm các sao ở đó 'trống bớt' hoặc đổi sắc thái.",
+   "lesson": "tv-6"
+  },
+  "triet": {
+   "title": "Triệt",
+   "han": "截路",
+   "plain": "Một dấu hiệu 'cắt ngang' trên hai cung, được xem là làm sức mạnh của sao ở đó bị cắt giảm hoặc đổi hướng. Mỗi trường phái luận khác nhau.",
+   "lesson": "tv-6"
+  },
+  "vo-chinh-dieu": {
+   "title": "Vô chính diệu",
+   "han": "無正曜",
+   "plain": "Cung không có chính tinh nào. Điều này không có nghĩa là 'trống' hay xấu: khi xem cung đó, người ta mượn các sao của cung đối diện.",
+   "lesson": "tv-3"
+  },
+  "than-cu": {
+   "title": "Thân cư",
+   "han": "身宮",
+   "plain": "Cung 'Thân' đánh dấu lĩnh vực mà từ khoảng tuổi trung niên bạn đầu tư nhiều tâm sức. Nó nằm ở một trong các cung quanh Mệnh.",
+   "ex": "Ví dụ: Thân cư tại Phu Thê nghĩa là chuyện quan hệ gia đình được xem là trọng tâm về sau.",
+   "lesson": "tv-2"
+  },
+  "than-chu": {
+   "title": "Thân",
+   "han": "身",
+   "plain": "Cung Thân: xem Thân cư.",
+   "lesson": "tv-2"
+  },
+  "thap-than": {
+   "title": "Thập Thần",
+   "han": "十神",
+   "plain": "Mười 'vai trò' mà mỗi Thiên can khác đóng với Nhật Chủ của bạn, như bạn bè, tiền bạc, áp lực, người nâng đỡ. Gom lại thành năm nhóm.",
+   "ex": "Ví dụ: với Nhật Chủ Nhâm, can Tân đóng vai Chính Ấn (người nâng đỡ).",
+   "lesson": "bt-3"
+  },
+  "ngu-hanh": {
+   "title": "Ngũ Hành",
+   "han": "五行",
+   "plain": "Năm kiểu vận động Mộc, Hỏa, Thổ, Kim, Thủy, nối nhau bằng 'sinh' (nuôi dưỡng) và 'khắc' (kiềm chế). Dùng để mô tả quan hệ giữa các thành phần của lá số.",
+   "lesson": "bt-2"
+  },
+  "can-chi": {
+   "title": "Can Chi",
+   "han": "干支",
+   "plain": "Hệ đếm của lịch cổ: 10 Thiên can ghép với 12 Địa chi thành chu kỳ 60. Mỗi năm, tháng, ngày, giờ đều có một cặp Can Chi.",
+   "lesson": "bt-2"
+  },
+  "menh-cuc": {
+   "title": "Cục sinh Mệnh",
+   "plain": "Quan hệ giữa hành của Cục và hành của bản mệnh: sinh, khắc hoặc cùng hành. Chỉ là quan hệ nền giữa hai hành, chưa phải phán đoán tốt xấu.",
+   "lesson": "tv-1"
+  },
+  "do-sang": {
+   "title": "Độ sáng của sao",
+   "plain": "Mỗi sao ở mỗi cung có một mức sáng: Miếu, Vượng, Đắc, Bình, Hãm. Nó cho biết sao đang 'thuận' hay 'yếu' ở vị trí đó.",
+   "lesson": "tv-3"
+  }
+ }
 }

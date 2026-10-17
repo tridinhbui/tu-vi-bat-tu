@@ -12,8 +12,8 @@ export const TRACKS = [
   { id: 'start', title: 'Bắt đầu', sub: 'Chưa biết gì cũng đọc được', levels: [{ name: 'Làm quen', lessons: ['gioi-thieu'] }] },
   { id: 'tuvi', title: 'Tử Vi Đẩu Số', sub: 'Bản đồ mười hai lĩnh vực đời sống', levels: [
     { name: 'Cấp 1 · Tử Vi cơ bản', lessons: ['tv-1'] },
-    { name: 'Cấp 2 · Mười hai cung và các sao', lessons: ['tv-2', 'tv-3'] },
-    { name: 'Cấp 3 · Cách đọc một lá số', lessons: ['tv-4'] }] },
+    { name: 'Cấp 2 · Mười hai cung và các sao', lessons: ['tv-2', 'tv-3', 'tv-5', 'tv-6'] },
+    { name: 'Cấp 3 · Cách đọc một lá số', lessons: ['tv-7', 'tv-4'] }] },
   { id: 'bat', title: 'Bát Tự Tứ Trụ', sub: 'Tám chữ và năm kiểu năng lượng', levels: [
     { name: 'Cấp 1 · Bát Tự cơ bản', lessons: ['bt-1'] },
     { name: 'Cấp 2 · Tứ Trụ và Ngũ Hành', lessons: ['bt-2'] },
@@ -48,13 +48,13 @@ export const LESSONS = {
 
   'tv-3': { title: 'Các sao: chính tinh, phụ tinh, độ sáng', min: 4, sys: 'tv', body: T => `
     <p>Có hơn một trăm sao, nhưng người mới chỉ cần nhớ ba tầng:</p>
-    <ul><li><b>14 chính tinh</b> — các “nhân vật chính”, quyết định màu sắc lớn của một cung.</li><li><b>Phụ tinh</b> — nhân vật phụ: <i>cát tinh</i> (thường hỗ trợ), <i>sát tinh</i> (thường gây thử thách) và nhiều sao trung tính.</li><li><b>Tứ Hóa</b> — bốn “nhãn” Lộc, Quyền, Khoa, Kỵ gắn lên bốn sao theo năm sinh.</li></ul>
+    <ul><li><b>14 chính tinh</b> — các “nhân vật chính”, quyết định màu sắc lớn của một cung.</li><li><b>Phụ tinh</b> — nhân vật phụ: <i>cát tinh</i> (thường hỗ trợ), <i>sát tinh</i> (thường gây thử thách) và nhiều sao trung tính.</li><li><b>Tứ Hóa</b> — bốn “nhãn” Lộc, Quyền, Khoa, Kỵ gắn lên bốn sao theo năm sinh (có bài riêng ở phía sau).</li></ul>
     <h3>Mười bốn chính tinh trong một dòng</h3>
     <div class="ln-grid ln-stars">${STARS14.map(s => `<div class="ln-card"><b>${s}</b><p>${esc(first(T['star:' + s]?.plain))}</p></div>`).join('')}</div>
     <h3>Độ sáng: Miếu, Vượng, Đắc, Bình, Hãm</h3>
     <p>Cùng một sao nhưng đứng ở cung khác nhau sẽ “sáng” khác nhau. Có năm mức, từ mạnh đến yếu: <b>Miếu → Vượng → Đắc → Bình → Hãm</b>. Sao sáng phát huy đặc tính tốt; sao mờ (hãm) khó phát huy hơn. Đó là mức “sáng”, không phải “số xấu”.</p>
     <h3>Vài dấu hiệu đặc biệt</h3>
-    <ul><li><b>Vô chính diệu</b>: cung không có chính tinh; người ta mượn sao của cung đối diện để đọc.</li><li><b>Tuần</b> và <b>Triệt</b>: hai dấu hiệu đặt lên một cặp cung, được xem là làm sao ở đó “trống bớt” hoặc đổi sắc thái.</li></ul>
+    <ul><li><b>Vô chính diệu</b>: cung không có chính tinh; người ta mượn sao của cung đối diện để đọc.</li><li><b>Tuần</b> và <b>Triệt</b>: hai dấu hiệu đặt lên một cặp cung, được xem là làm sao ở đó “trống bớt” hoặc đổi sắc thái (cũng có bài riêng).</li></ul>
     ${call('<b>Mẹo.</b> Đừng học thuộc cả trăm sao. Khi gặp tên sao lạ trên lá số, bấm vào nó để đọc một dòng giải thích.')}` },
 
   'tv-4': { title: 'Cách đọc một lá số Tử Vi trong 5 bước', min: 4, sys: 'tv', body: () => `
@@ -63,6 +63,37 @@ export const LESSONS = {
     <h3>Ba nguyên tắc để không hiểu sai</h3>
     <ul><li>Một sao không nói lên điều gì khi đứng một mình: cần xem <b>độ sáng, sao đi cùng, Tuần/Triệt và vận hạn</b>.</li><li>Các nhận định đến từ nhiều sách, nhiều cung nên có thể <b>trái chiều</b>. Đó là bình thường; hãy coi chúng là các “góc nhìn”.</li><li>Đây là biểu tượng để suy ngẫm, không phải dự báo hay lời khuyên y tế, tài chính.</li></ul>
     <div class="ln-cta"><button type="button" class="btn" data-act="sample" data-tab="tuvi">Thực hành trên lá số mẫu</button></div>` },
+
+  'tv-5': { title: 'Tứ Hóa: bốn “nhãn” Lộc, Quyền, Khoa, Kỵ', min: 3, sys: 'tv', body: T => `
+    <p>Mỗi năm sinh có một Thiên can (Giáp, Ất, … Quý). Theo Can đó, bốn ngôi sao trên lá số được gắn thêm bốn “nhãn” gọi là <b>Tứ Hóa</b>. Nhãn không thay đổi bản chất của sao, chỉ <i>làm nổi bật một mặt</i> của nó.</p>
+    <div class="ln-grid"><div class="ln-card"><b>Hóa Lộc</b><p>Thiên về tiền bạc, sự dễ chịu và cơ hội ở lĩnh vực của sao đó.</p></div><div class="ln-card"><b>Hóa Quyền</b><p>Thiên về quyền chủ động, địa vị và sức ảnh hưởng.</p></div><div class="ln-card"><b>Hóa Khoa</b><p>Thiên về danh tiếng, học vấn, sự được kính trọng (có tiếng chưa chắc có miếng).</p></div><div class="ln-card"><b>Hóa Kỵ</b><p>Chỗ dễ vướng mắc và lo nghĩ, cũng là điểm cần để ý hơn. Không phải bản án.</p></div></div>
+    <h3>Năm sinh của bạn gắn nhãn vào sao nào?</h3>
+    <p>Bảng dưới đây (theo Tử Vi Khảo Luận) cho biết bốn sao được gắn nhãn ứng với từng Can của năm sinh:</p>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Can năm sinh</th><th>Lộc</th><th>Quyền</th><th>Khoa</th><th>Kỵ</th></tr></thead><tbody>${(T['x:tu-hoa-table']?.table || []).map(([n, st]) => `<tr><th scope="row">${n}</th>${st.map(x => `<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
+    ${call('<b>Ví dụ.</b> Người tuổi Canh có Hóa Lộc ở Thái Dương, Hóa Quyền ở Vũ Khúc, Hóa Khoa ở Thiên Đồng và Hóa Kỵ ở Thái Âm. Muốn biết nhãn nằm ở cung nào, nhìn xem các sao đó đứng ở đâu trên lá số của bạn.')}
+    <h3>Đọc Tứ Hóa thế nào cho đúng?</h3>
+    <ul><li>Nhãn <b>nhấn mạnh</b> một mặt của sao, giống như tô đậm một dòng chữ. Nó không tự nói “tốt” hay “xấu”.</li><li>Cung nơi sao đứng cho biết <i>lĩnh vực</i> bị nhấn mạnh (ví dụ Hóa Lộc ở cung Tài Bạch thì chủ đề tiền bạc được “bật sáng”).</li><li>Sách có nhận xét rằng Hóa Kỵ “nặng ký” hơn các nhãn khác, nhưng Thiên Bàn không dùng điều đó để cộng điểm tốt xấu.</li></ul>
+    <div class="ln-cta"><button type="button" class="btn" data-act="sample" data-tab="tuvi">Tìm Tứ Hóa trên lá số mẫu</button></div>` },
+
+  'tv-6': { title: 'Tuần và Triệt: hai dấu hiệu đặc biệt', min: 3, sys: 'tv', body: () => `
+    <p>Trên một số lá số, hai cung liền nhau được đánh dấu <b>Tuần</b> hoặc <b>Triệt</b> (có thể có cả hai, ở hai cặp cung khác nhau). Đây là hai “dấu” riêng, không phải sao.</p>
+    <div class="ln-cmp"><div><h4>Tuần</h4><p>Cặp cung bị “bỏ trống” theo vòng Can Chi của năm sinh (truyền thống gọi là tuần không). Tượng trưng cho sức mạnh của sao ở đó bị <i>mờ đi hoặc đổi sắc thái</i>.</p></div><div><h4>Triệt</h4><p>Cặp cung bị “cắt ngang” tính theo Can của năm sinh. Tượng trưng cho sức mạnh của sao ở đó bị <i>cắt giảm hoặc đổi hướng</i>.</p></div></div>
+    <h3>Điều cần nhớ</h3>
+    <ul><li>Tuần và Triệt <b>không tự động làm cung xấu đi</b>. Truyền thống còn cho rằng chúng có thể làm dịu sao gây thử thách ở cung đó.</li><li>Các trường phái tính và luận khác nhau về Tuần, Triệt. Thiên Bàn chỉ đánh dấu cặp cung và không cố đưa ra một kết luận chung.</li><li>Khi đọc một cung, hãy hỏi thêm: cung này có Tuần hoặc Triệt không? Nếu có, hãy đọc các sao ở đó <i>thận trọng hơn</i>.</li></ul>
+    ${call('Một sao “vô chính diệu” (cung không có chính tinh) khác với cung bị Tuần hoặc Triệt: cung vô chính diệu không có sao lớn, còn cung có Tuần hoặc Triệt vẫn có sao nhưng được đọc theo cách khác.')}
+    <div class="ln-cta"><button type="button" class="btn" data-act="sample" data-tab="tuvi">Tìm Tuần, Triệt trên lá số mẫu</button></div>` },
+
+  'tv-7': { title: 'Đại hạn, tiểu hạn: lá số theo thời gian', min: 4, sys: 'tv', body: () => `
+    <p>Lá số gốc là bức tranh cố định. Để nói về thời gian, Tử Vi dùng các “chặng”:</p>
+    <h3>Đại hạn: chặng 10 năm</h3>
+    <p>Cuộc đời được chia thành các chặng 10 năm. Mỗi chặng <b>đi vào một cung</b>, nên chủ đề của cung đó được “bật sáng” trong cả chặng. Hai điều cần biết:</p>
+    <ul><li><b>Bắt đầu lúc mấy tuổi?</b> Do <b>Cục</b> quyết định. Ví dụ Hỏa lục cục thì chặng đầu bắt đầu ở tuổi 6 (6–15), rồi 16–25, 26–35…</li><li><b>Đi thuận hay nghịch?</b> Tùy năm sinh và giới tính: các chặng lần lượt đi qua các cung theo chiều thuận hoặc ngược.</li></ul>
+    <h3>Tiểu hạn: mỗi năm một cung</h3>
+    <p>Trong từng năm, có thêm một cung được chọn làm <b>tiểu hạn</b>, cho biết chủ đề thường nổi lên trong năm đó. Cùng với năm Can Chi của năm đó (<b>lưu niên</b>) và các “nhãn” Tứ Hóa của năm, đây là cách Tử Vi nói về một năm cụ thể.</p>
+    ${call('<b>Tuổi mụ</b> là cách tính tuổi ta: lấy năm xem trừ năm sinh rồi cộng 1. Các chặng đại hạn được tính theo tuổi này.')}
+    <h3>Cách dùng đúng</h3>
+    <ul><li>Đại hạn và tiểu hạn cho biết <i>chủ đề nào đang nổi</i>, không cho biết chuyện gì sẽ xảy ra.</li><li>Cùng một cung có thể nổi lên theo cả hướng thuận lợi lẫn thử thách, tùy sao trong cung và các sao khác.</li><li>Thiên Bàn chỉ nêu các dữ kiện này, cùng một vài điều kiện mà sách nêu rõ.</li></ul>
+    <div class="ln-cta"><button type="button" class="btn" data-act="sample" data-tab="tuvi">Xem đại hạn trên lá số mẫu</button></div>` },
 
   'bt-1': { title: 'Bát Tự là gì? Tám chữ của bạn', min: 3, sys: 'bt', body: () => `
     <p>Bát Tự (“tám chữ”) còn gọi là Tứ Trụ. Từ <b>năm, tháng, ngày, giờ sinh</b>, ta có bốn “trụ”; mỗi trụ gồm hai chữ: một <b>Thiên can</b> (ở trên) và một <b>Địa chi</b> (ở dưới). Bốn trụ × hai chữ = tám chữ.</p>

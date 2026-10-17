@@ -52,7 +52,7 @@
         <h1 id="hero-h">Hiểu lá số của bạn,<br><em>từng bước một.</em></h1>
         <p class="hero-lead">Nhập ngày giờ sinh để nhận hai lá số cổ truyền: <b>Tử Vi</b>, một bản đồ mười hai lĩnh vực đời sống, và <b>Bát Tự</b>, tám chữ cho biết bạn thuộc kiểu năng lượng nào. Mọi từ lạ đều có giải thích bằng tiếng Việt đời thường. Không cần biết gì trước.</p>
         <div class="hero-cta"><a class="btn" href="#lap-la-so" data-go="lap-la-so">Lập lá số của tôi</a><button class="btn btn-ghost" type="button" data-sample>Xem lá số mẫu</button><a class="link hero-learn" href="#hoc" data-go="hoc">Học từ đầu →</a></div>
-        <ul class="hero-facts"><li><b>Chạm là hiểu</b>bấm vào sao, cung, Can Chi để đọc giải thích</li><li><b>Không lưu dữ liệu</b>ngày giờ sinh chỉ xử lý tức thời</li><li><b>Có nguồn sách, không dùng AI</b>mỗi nhận định kèm căn cứ</li></ul>
+        <ul class="hero-facts"><li><b>Chạm là hiểu</b>bấm vào sao, cung, Can Chi để đọc giải thích</li><li><b>Không lưu trên máy chủ</b>ngày giờ sinh chỉ xử lý tức thời; chỉ lưu trên máy bạn nếu bạn chọn</li><li><b>Có nguồn sách, không dùng AI</b>mỗi nhận định kèm căn cứ</li></ul>
       </div>
       <div class="hero-art"><div id="hero-compass" class="compass-wrap"></div><p class="caption">Mười hai Địa chi, mười Thiên can và năm Hành trên một mặt la bàn.</p></div>
     </div>
@@ -78,6 +78,7 @@
   </section>
 
   <!-- ===== Lập lá số ===== -->
+  <section class="wrap saved" id="saved-sec" aria-labelledby="saved-h" hidden><p class="eyebrow">Trên máy này</p><h2 id="saved-h">Lá số bạn đã lưu</h2><p class="sec-sub">Của bạn và người thân. Chỉ nằm trong trình duyệt này; bấm để mở lại.</p><ul class="sv-list" id="saved-list"></ul></section>
   <section class="create" id="lap-la-so" aria-labelledby="create-h">
     <div class="wrap create-in">
       <div class="create-copy reveal">
@@ -120,7 +121,7 @@
         </details>
         <div id="form-err" role="alert" hidden></div>
         <button class="btn btn-lg" id="submit-btn" type="submit"><span class="btn-t">Lập lá số</span><span class="btn-spin" aria-hidden="true"></span></button>
-        <p class="privacy">Ngày giờ sinh chỉ được xử lý trong bộ nhớ để lập lá số và không được lưu lại.</p>
+        <p class="privacy">Ngày giờ sinh chỉ được xử lý trong bộ nhớ để lập lá số và không được lưu lại trên máy chủ. Bạn có thể tự lưu lá số trong trình duyệt của mình sau khi lập.</p>
       </form>
     </div>
   </section>
@@ -238,7 +239,7 @@
     <div class="wrap">
       <header class="sec-h reveal"><p class="eyebrow">Học từ đầu</p><h2 id="lib-h">Hai lộ trình, từng bước nhỏ</h2></header>
       <div class="lib-grid learn-teaser">
-        <a class="lib-feat reveal" href="#hoc/tv-1" data-go="hoc/tv-1"><span class="lib-k">Lộ trình Tử Vi</span><span class="lib-t">Tử Vi cơ bản → Mười hai cung và các sao → Cách đọc một lá số</span><span class="lib-d">Bốn bài ngắn, đi từ “Tử Vi là gì” đến cách đọc lá số của chính bạn trong năm bước.</span><span class="lib-m">Bắt đầu →</span></a>
+        <a class="lib-feat reveal" href="#hoc/tv-1" data-go="hoc/tv-1"><span class="lib-k">Lộ trình Tử Vi</span><span class="lib-t">Tử Vi cơ bản → Mười hai cung và các sao → Cách đọc một lá số</span><span class="lib-d">Bảy bài ngắn, đi từ “Tử Vi là gì” qua Tứ Hóa, Tuần Triệt, đại hạn, đến cách đọc lá số của chính bạn trong năm bước.</span><span class="lib-m">Bắt đầu →</span></a>
         <a class="lib-feat reveal" href="#hoc/bt-1" data-go="hoc/bt-1"><span class="lib-k">Lộ trình Bát Tự</span><span class="lib-t">Bát Tự cơ bản → Tứ Trụ và Ngũ Hành → Thập Thần và tương tác</span><span class="lib-d">Bốn bài ngắn, từ “tám chữ” đến Thập Thần, đại vận và các quan hệ hợp xung.</span><span class="lib-m">Bắt đầu →</span></a>
       </div>
       <p class="lib-more reveal"><a class="link" href="#hoc" data-go="hoc">Xem toàn bộ lộ trình học →</a></p>
@@ -272,7 +273,7 @@
       <h1>Lá số đã được lập</h1>
       <div class="res-sub" id="res-sub"></div>
       <div class="res-hl" id="res-hl"></div>
-      <div class="res-act"><button class="btn btn-ghost btn-sm" id="again" type="button">← Lập lá số khác</button></div>
+      <div class="res-act"><button class="btn btn-ghost btn-sm" id="again" type="button">← Lập lá số khác</button><span id="save-host" class="sv-host"></span></div>
     </div>
   </section>
   <nav class="res-nav" aria-label="Chọn hệ thống"><div class="wrap res-tabs" role="tablist">
@@ -282,12 +283,12 @@
 
   <div class="pane" id="pane-hour"><section class="r-sec r-bazi"><div class="wrap"><header class="sec-h"><p class="eyebrow">Giờ sinh chưa rõ</p><h2>Điều gì đổi theo giờ sinh?</h2><p class="sec-sub">Ngày, tháng, năm sinh đã đủ để biết ba trụ đầu của Bát Tự. Giờ sinh quyết định trụ Giờ, cung Mệnh, cung Thân và Cục của Tử Vi.</p></header><div id="hour-host"></div></div></section></div>
   <div class="pane" id="pane-bazi" role="tabpanel" aria-labelledby="tab-bazi">
-    <div class="wrap easy-only"><div id="bazi-summary"></div></div>
+    <div class="wrap easy-only"><div id="bazi-summary"></div><div id="bazi-year"></div></div>
     <section class="r-sec r-bazi" aria-labelledby="bz-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Bát Tự</p><h2 id="bz-h">Bốn trụ, tám chữ</h2><p class="sec-sub">Nhật Chủ, Ngũ Hành và quan hệ giữa các trụ.</p></header><div id="bazi-host"></div></div></section>
     <section class="r-sec r-report" aria-labelledby="bzr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Luận giải Bát Tự</p><h2 id="bzr-h">Đọc lá số Bát Tự</h2><p class="sec-sub">Dữ kiện tính toán và diễn giải truyền thống luôn được tách riêng.</p></header><div id="bazi-report"></div></div></section>
   </div>
   <div class="pane" id="pane-tuvi" role="tabpanel" aria-labelledby="tab-tuvi">
-    <div class="wrap easy-only"><div id="tuvi-summary"></div></div>
+    <div class="wrap easy-only"><div id="tuvi-summary"></div><div id="tuvi-year"></div></div>
     <section class="r-sec r-tuvi" aria-labelledby="tv-h"><div class="wrap"><header class="sec-h sec-h-dark"><p class="eyebrow">Tử Vi Đẩu Số</p><h2 id="tv-h">Mười hai cung của bạn</h2><p class="sec-sub">Mỗi ô là một lĩnh vực đời sống. Nhấn vào một ô để xem giải thích.</p></header><div id="tuvi-host"></div></div></section>
     <section class="r-sec r-report" aria-labelledby="tvr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Luận giải Tử Vi</p><h2 id="tvr-h">Đọc lá số Tử Vi</h2><p class="sec-sub">Dữ kiện tính toán và diễn giải truyền thống luôn được tách riêng.</p></header><div id="tuvi-report"></div></div></section>
   </div>

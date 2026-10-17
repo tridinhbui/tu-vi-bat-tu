@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent / "engine"
 SRC = ROOT / "data" / "glossary_vi.json"
 PROFILES = ROOT / "data" / "star_profiles.json"
+TUHOA = ROOT / "data" / "tu_hoa_vi.json"
 OUT = ROOT / "web" / "js" / "glossary.json"
 
 STEM_HAN = dict(zip(["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"], "甲乙丙丁戊己庚辛壬癸"))
@@ -66,6 +67,9 @@ def build() -> dict:
     for k, e in src["concepts"].items():
         terms[f"c:{k}"] = {"kind": "Khái niệm", "title": e["title"], "plain": e["plain"], "lesson": e.get("lesson", "gioi-thieu"),
                            **({"han": e["han"]} if "han" in e else {}), **({"ex": e["ex"]} if "ex" in e else {})}
+    by = json.loads(TUHOA.read_text("utf-8"))["by_stem"]  # Tứ Hóa by year stem (Lộc, Quyền, Khoa, Kỵ), Khảo Luận pp.195-197
+    terms["x:tu-hoa-table"] = {"kind": "Bảng", "title": "Tứ Hóa theo Can năm sinh", "plain": "", "lesson": "tv-5",
+                               "table": [[n, [x["star"] for x in by[str(i)]]] for i, n in enumerate(src["stems"])]}
     for alias, key in ALIASES.items():
         assert key in terms, (alias, key)
     return {"terms": terms, "stars": sorted(set(stars + minors), key=lambda s: (-len(s), s)), "gods": gods, "aliases": ALIASES}

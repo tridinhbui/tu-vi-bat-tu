@@ -9,7 +9,8 @@ import { notice } from './ui.js';
 import { renderHourSweep } from './hours.js';
 import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossary.js';
 import { renderLearn, lessonSys } from './learn.js';
-import { summaryBazi, summaryTuvi } from './beginner.js';
+import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
+import { renderSaved, initSave, renderYear } from './mine.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const metaReady = Promise.all([loadMeta(), loadGlossary()]);
@@ -108,9 +109,9 @@ form.place.onchange = syncPlace; syncPlace();
 const CHI = ['Tý (23h–1h)', 'Sửu (1h–3h)', 'Dần (3h–5h)', 'Mão (5h–7h)', 'Thìn (7h–9h)', 'Tỵ (9h–11h)', 'Ngọ (11h–13h)', 'Mùi (13h–15h)', 'Thân (15h–17h)', 'Dậu (17h–19h)', 'Tuất (19h–21h)', 'Hợi (21h–23h)'];
 $('#hour-chi').insertAdjacentHTML('beforeend', CHI.map((c, i) => `<option value="${String(i === 0 ? 0 : 2 * i).padStart(2, '0')}:00">Giờ ${c}</option>`).join(''));
 $('#hour-chi').onchange = e => { if (e.target.value) { form.time.value = e.target.value; hint(); } };
-let lunarMode = false;
+let lunarModeOn = false;
 const setCal = l => {
-  lunarMode = l; $('#cal-solar').setAttribute('aria-pressed', !l); $('#cal-lunar').setAttribute('aria-pressed', l);
+  lunarModeOn = l; $('#cal-solar').setAttribute('aria-pressed', !l); $('#cal-lunar').setAttribute('aria-pressed', l);
   $('#leap-wrap').hidden = !l; $('#cal-help').textContent = l ? 'Bạn nhập ngày âm lịch. Hệ thống tự quy đổi sang dương lịch rồi lập lá số.' : 'Bạn nhập ngày dương lịch. Hệ thống tự quy đổi sang âm lịch.';
   form.day.options[0]; form.querySelector('[name=month]').innerHTML = Array.from({ length: 12 }, (_, i) => opt(i + 1, (l ? 'Tháng ' : 'Tháng ') + (i + 1), i + 1 === +form.month.value || (!form.month.value && i + 1 === 5))).join('');
   form.day.innerHTML = Array.from({ length: l ? 30 : 31 }, (_, i) => opt(i + 1, i + 1, i + 1 === Math.min(+form.day.value || 17, l ? 30 : 31))).join('');
@@ -130,10 +131,10 @@ function readForm() {
 }
 const fmtDate = r => `${String(r.day).padStart(2, '0')}/${String(r.month).padStart(2, '0')}/${r.year}`;
 
-async function generate(ev) {
+async function generate(ev, saved = null) {
   ev?.preventDefault();
   const err = $('#form-err'), btn = $('#submit-btn'); err.hidden = true;
-  const req = readForm(), unknownHour = $('#no-hour').checked;
+  const req = saved ? { ...saved } : readForm(), unknownHour = saved ? false : $('#no-hour').checked, lunarMode = saved ? false : lunarModeOn;
   const d = new Date(req.year, req.month - 1, req.day);
   if ((!lunarMode && d.getMonth() !== req.month - 1) || !req.year || req.year < 1900 || req.year > 2049 || Number.isNaN(req.hour)) {
     err.innerHTML = notice('Ngày giờ sinh chưa hợp lệ', req.year < 1900 || req.year > 2049 ? 'Hệ thống hiện hỗ trợ các năm từ 1900 đến 2049.' : 'Ngày này không tồn tại trong tháng đã chọn. Vui lòng kiểm tra lại.', 'warn'); err.hidden = false; return;
@@ -161,6 +162,9 @@ async function generate(ev) {
   } finally { btn.disabled = false; btn.classList.remove('busy'); $('#loading').hidden = true; }
 }
 form.onsubmit = generate;
+const savedList = $('#saved-list'), openSaved = r => generate(null, r);
+renderSaved(savedList, openSaved);
+const saver = initSave($('#save-host'), () => state?.req, () => renderSaved(savedList, openSaved));
 async function loadSample() {
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });
   form.year.value = 1990; form.month.value = 5; form.day.value = 17; form.time.value = '10:30'; form.gender.value = 'male'; form.place.value = 'TP. Hồ Chí Minh'; syncPlace(); hint();
@@ -178,6 +182,25 @@ function showHourSweep() {
   history.pushState({ v: 'chart' }, '', '#la-so/gio-sinh');
 }
 
+function initYearCards() {
+  const T = terms(), y0 = state.req.year, now = new Date().getFullYear();
+  $$('.bs-year').forEach(host => {
+    let y = Math.min(Math.max(now, y0), y0 + 100), seq = 0;
+    const sys = host.dataset.sys;
+    async function load() {
+      const mine = ++seq;
+      try {
+        const d = await post('/api/year', { ...state.req, to_year: y });
+        if (mine !== seq) return;
+        host.innerHTML = yearCard(d, T, sys, { atStart: y <= y0, atEnd: y >= y0 + 100 });
+        autoLink(host, sys);
+        $$('[data-yd]', host).forEach(b => b.onclick = () => { y += +b.dataset.yd; load(); });
+      } catch { host.innerHTML = ''; } // the card is a bonus: the rest of the summary stands without it
+    }
+    load();
+  });
+}
+
 function showResults() {
   document.body.classList.remove('hour-mode');
   const { req, chart, reason, analysis } = state;
@@ -190,11 +213,14 @@ function showResults() {
   renderTuviReport($('#tuvi-report'), chart, ctx);
   const T = terms();
   $('#bazi-summary').innerHTML = summaryBazi(chart, ctx, T); $('#tuvi-summary').innerHTML = summaryTuvi(chart, ctx, T);
+  initYearCards();
   autoLink($('#bazi-host'), 'bt'); autoLink($('#bazi-summary'), 'bt'); autoLink($('#tuvi-host'), 'tv'); autoLink($('#tuvi-summary'), 'tv');
   const t = chart.tuvi, b = chart.bazi;
   const lu = state.lunarIn ? `<span>Nhập âm lịch ${state.lunarIn.day}/${state.lunarIn.month}/${state.lunarIn.year}${state.lunarIn.leap ? ' nhuận' : ''}</span>` : '';
   $('#res-sub').innerHTML = lu + `<span><b>${fmtDate(req)}</b> · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
   $('#res-hl').innerHTML = `<button type="button" class="hl-chip gl" data-gl="c:nhat-chu">${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></button><button type="button" class="hl-chip gl" data-gl="c:cuc">${esc(t.cuc.name)}</button><button type="button" class="hl-chip gl" data-gl="c:nap-am">Mệnh ${esc(t.menh_nap_am)}</button>`;
+  saver.paint(); $('#bazi-year').innerHTML = $('#tuvi-year').innerHTML = '';
+  const mine = state; renderYear(req, T).then(y => { if (y && state === mine) { $('#bazi-year').innerHTML = y.bazi; $('#tuvi-year').innerHTML = y.tuvi; autoLink($('#bazi-year'), 'bt'); autoLink($('#tuvi-year'), 'tv'); } });
   setTab('bazi', false); view('chart');
   history.pushState({ v: 'chart' }, '', '#la-so/bat-tu');
 }

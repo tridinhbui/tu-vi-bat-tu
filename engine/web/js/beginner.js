@@ -66,6 +66,29 @@ export function emptyReading(topic, T, { palace = null, brief = false } = {}) {
     <p><button type="button" class="link" data-lesson="${palace ? 'tv-2' : less}">Đọc bài: ${esc(lessonTitle(palace ? 'tv-2' : less))} →</button></p></div>`;
 }
 
+// ---- "năm nay của bạn": a plain-language view of the already-computed year data (lưu niên / tiểu hạn / lưu Tứ Hóa) ----
+const REL_PLAIN = { 'can_hợp': 'hợp (kéo về nhau)', 'can_xung': 'xung (đối nhau)', 'chi_lục hợp': 'lục hợp (kéo về nhau)', 'chi_xung': 'xung (đối nhau)', 'chi_hại': 'hại', 'chi_phá': 'phá', 'chi_hình': 'hình', 'chi_tam_hợp': 'tam hợp', 'chi_tam_hội': 'tam hội' };
+const PILLAR = { year: 'trụ Năm', month: 'trụ Tháng', day: 'trụ Ngày', hour: 'trụ Giờ' };
+const firstSentence = s => (s || '').split(/(?<=\.)\s/)[0];
+export function yearCard(d, T, sys, { atStart = false, atEnd = false } = {}) {
+  const b = d.bazi, t = d.tuvi;
+  const bar = `<div class="by-bar"><button type="button" class="btn btn-ghost btn-sm" data-yd="-1" aria-label="Năm trước"${atStart ? ' disabled' : ''}>‹</button><span><b>Năm ${d.bazi.year}</b> <span class="muted">· tuổi mụ ${t.age_tuoi_mu}</span></span><button type="button" class="btn btn-ghost btn-sm" data-yd="1" aria-label="Năm sau"${atEnd ? ' disabled' : ''}>›</button></div>`;
+  let body;
+  if (sys === 'bt') {
+    const inter = [...b.annual_vs_natal].map(x => `${esc(PILLAR[x.with] || x.with)} ${esc(REL_PLAIN[x.kind] || x.kind.replace(/_/g, ' '))}`);
+    const god = T['god:' + b.annual_stem_ten_god]?.plain;
+    body = `<p>Năm này là năm <b>${esc(b.annual_pillar)}</b>. Đặt cạnh Nhật Chủ của bạn, Thiên can của năm đóng vai <b>${esc(b.annual_stem_ten_god)}</b>${god ? `: ${esc(firstSentence(god))}` : '.'}</p>
+      <p>${inter.length ? `Năm nay “chạm” vào lá số gốc ở: ${inter.join('; ')}. Đây chỉ cho biết có tương tác giữa các chữ.` : 'Năm nay không có tương tác đáng kể với bốn trụ gốc.'}</p>
+      <p class="muted small">Đại vận hiện tại: ${esc(b.luck_pillar || 'chưa khởi')}${b.luck_stem_ten_god ? ` (${esc(b.luck_stem_ten_god)})` : ''}.</p>`;
+  } else {
+    const hoa = Object.entries(t.luu_tu_hoa).map(([k, v]) => `<li><b>${esc(k)}</b> ở ${esc(v.star)} (cung ${esc(v.natal_palace)}): ${esc(firstSentence(T[{ 'Hóa Lộc': 'c:hoa-loc', 'Hóa Quyền': 'c:hoa-quyen', 'Hóa Khoa': 'c:hoa-khoa', 'Hóa Kỵ': 'c:hoa-ky' }[k]]?.plain).replace(/^Nhãn '[^']*' gắn vào một sao: /, ''))}</li>`).join('');
+    body = `<p>Tiểu hạn năm nay ở <b>cung ${esc(t.tieu_han_palace)}</b>, nên chủ đề <b>${esc(t.tieu_han_topic || '')}</b> thường được “bật sáng”. ${esc(firstSentence(T['palace:' + t.tieu_han_palace]?.plain))}</p>
+      <p>Chặng 10 năm hiện tại: ${t.dai_han ? `đại hạn cung <b>${esc(t.dai_han.palace)}</b> (${t.dai_han.age_from}–${t.dai_han.age_to} tuổi).` : 'chưa vào đại hạn đầu.'}</p>
+      <p class="by-h">Bốn nhãn Tứ Hóa của năm</p><ul class="by-hoa">${hoa}</ul>`;
+  }
+  return `<h3>Năm nay của bạn</h3>${bar}<div class="by-body">${body}</div><p class="muted small">Đây là những chủ đề được “bật sáng” theo biểu tượng truyền thống, không phải dự đoán sự kiện sẽ xảy ra.</p>`;
+}
+
 // ---- summary card ----
 const li = t => `<li>${t}</li>`;
 const plainElem = (b) => {
@@ -101,7 +124,7 @@ export function summaryBazi(chart, ctx, T, counts) {
       <div class="bs-c"><span class="k">Cân bằng năng lượng</span><b>Ngũ Hành</b><p>${plainElem(b)}</p></div>
       <div class="bs-c"><span class="k">Mùa bạn sinh ra</span><b>Tháng ${esc(mb.n)} (${mb.e})</b><p>Tháng sinh được lấy theo tiết khí và cho biết “mùa” của lá số. Mùa này thuộc hành ${mb.e}, nên hành đó có thế mạnh hơn trong lá số.</p></div>
       <div class="bs-c"><span class="k">Chặng 10 năm đang đi</span><b>${ph.luck ? `Đại vận ${esc(ph.luck.name)}` : 'Chưa khởi vận'}</b><p>${ph.luck ? `Năm ${ph.now} bạn khoảng ${ph.age} tuổi mụ. Chặng này mang vai <b>${esc(ph.luck.ten_god)}</b> đối với Nhật Chủ.` : 'Đại vận đầu tiên chưa bắt đầu.'}</p></div>
-    </div>${html}${limits(gaps)}
+    </div><div class="bs-year" data-sys="bt"></div>${html}${limits(gaps)}
     ${next([['bt-1', 'Bát Tự là gì?'], ['bt-3', 'Thập Thần là gì?'], ['bt-2', 'Can Chi và Ngũ Hành']])}</section>`;
 }
 
@@ -127,6 +150,6 @@ export function summaryTuvi(chart, ctx, T) {
       <div class="bs-c"><span class="k">Chặng 10 năm đang đi</span><b>${ph.dh ? `Đại hạn cung ${esc(ph.dh.palace)}` : 'Chưa vào đại hạn'}</b><p>${ph.dh ? `${ph.dh.age_from}–${ph.dh.age_to} tuổi. ${esc(T['palace:' + ph.dh.palace]?.plain || '')} Chủ đề này thường được “bật sáng” trong chặng hiện tại.` : ''}</p></div>
     </div>
     <p class="bs-hoa"><b>Tứ Hóa theo năm sinh:</b> ${esc(hoa.join(' · '))}. <span class="muted">Mỗi nhãn làm nổi bật một mặt của sao đó, không phải điều tốt hay xấu tự thân.</span></p>
-    ${html}${limits(gaps)}
+    <div class="bs-year" data-sys="tv"></div>${html}${limits(gaps)}
     ${next([['tv-1', 'Tử Vi là gì?'], ['tv-4', 'Cách đọc lá số trong 5 bước'], ['tv-3', 'Các sao và độ sáng']])}</section>`;
 }
