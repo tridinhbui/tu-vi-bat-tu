@@ -7,7 +7,7 @@ from pathlib import Path
 from .schema import KnowledgeRule, Source, load_pack
 
 DATA = Path(__file__).resolve().parent.parent.parent / "data"
-PACKS = ["pack_vn_draft.json", "pack_khao_luan.json", "pack_thuc_hanh.json", "pack_thuc_hanh_palaces.json", "pack_thuc_hanh_combos.json", "pack_khao_luan_phu.json", "pack_khao_luan_phu2.json", "pack_khao_luan_cung.json", "pack_khao_luan_chinh_tinh.json", "pack_toan_thu.json", "pack_khao_luan_aux.json", "pack_thuc_hanh_aux.json", "pack_thuc_hanh_aux2.json", "pack_thuc_hanh_cach.json", "pack_thuc_hanh_menh_verse.json", "pack_thuc_hanh_star_menh.json", "pack_thuc_hanh_palaces2.json", "pack_khao_luan_stars.json", "pack_bazi_zhenzong.json", "pack_bazi_napam.json"]
+PACKS = ["pack_vn_draft.json", "pack_khao_luan.json", "pack_thuc_hanh.json", "pack_thuc_hanh_palaces.json", "pack_thuc_hanh_combos.json", "pack_khao_luan_phu.json", "pack_khao_luan_phu2.json", "pack_khao_luan_cung.json", "pack_khao_luan_chinh_tinh.json", "pack_toan_thu.json", "pack_khao_luan_aux.json", "pack_thuc_hanh_aux.json", "pack_thuc_hanh_aux2.json", "pack_thuc_hanh_cach.json", "pack_thuc_hanh_menh_verse.json", "pack_thuc_hanh_star_menh.json", "pack_thuc_hanh_palaces2.json", "pack_khao_luan_stars.json", "pack_khao_luan_cases.json", "pack_bazi_zhenzong.json", "pack_bazi_napam.json"]
 
 
 def load_all() -> tuple[list[KnowledgeRule], list[Source]]:
@@ -32,6 +32,11 @@ def load_experimental():
     from .formation import load_formations
     rules, sources = load_pack(EXPERIMENTAL / "pack_engine_demo.json")
     return rules, load_formations(EXPERIMENTAL / "formations_experimental.json"), sources
+
+
+def load_experimental_layers():
+    """Draft multi-layer (đại hạn / lưu niên) interaction rules; never in production. Returns (rules, sources)."""
+    return load_pack(EXPERIMENTAL / "pack_van_han_layers.json")
 
 
 def load_claims() -> dict[str, dict[str, str]]:

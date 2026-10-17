@@ -1,0 +1,1058 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_KL_CASE_MENH_GOC_NUOI_NGON",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: gốc nuôi ngọn: được hưởng phúc về sau (Can năm sinh sinh Chi năm sinh) [KL p.244]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.can_chi_relation",
+      "value": "can_sinh_chi"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_goc_nuoi_ngon_huong_phuc_sau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_NGON_NUOI_GOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: ngọn nuôi gốc là nghịch lý, phúc không được lâu dài (Chi năm sinh sinh Can) [KL p.238]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.can_chi_relation",
+      "value": "chi_sinh_can"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_ngon_nuoi_goc_phuc_khong_ben",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_GOC_PHA_NGON",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: gốc phá ngọn: không hưởng phúc lâu dài (Can năm sinh khắc Chi năm sinh) [KL p.242]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.can_chi_relation",
+      "value": "can_khac_chi"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_goc_pha_ngon_phuc_khong_lau",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_DAC_CHINH_AM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: mềm dẻo, khôn khéo (Mệnh âm đóng cung âm: đắc chính) [KL p.240]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.menh_dac_chinh",
+      "value": true
+     },
+     {
+      "fact": "chart.year_polarity",
+      "value": "âm"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_menh_am_cung_am_mem_deo",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_DAC_CHINH_DUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: đúng chỗ của mình (Mệnh dương đóng cung dương: đắc chính) [KL p.238]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.menh_dac_chinh",
+      "value": true
+     },
+     {
+      "fact": "chart.year_polarity",
+      "value": "dương"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_menh_duong_cung_duong_dac_chinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_KHONG_DAC_CHINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: ra đời gặp trở ngại, khó khăn lúc ban đầu vì chưa đúng chỗ của mình (Mệnh âm ở cung dương hoặc Mệnh dương ở cung âm) [KL p.244]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.menh_dac_chinh",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_menh_khong_dac_chinh_tro_ngai_ban_dau",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_CUC_KHAC_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: dễ gặp trở ngại trên đường đời (Cục khắc Mệnh) [KL p.238]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.menh_cuc_relation",
+      "value": "Cục khắc Mệnh"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_cuc_khac_menh_tro_ngai",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_AM_NU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: lo sự nghiệp, tiền bạc sớm, ít màng đến công danh (nữ tuổi âm, thuận lý âm dương) [KL p.244]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.year_polarity",
+      "value": "âm"
+     },
+     {
+      "fact": "chart.gender",
+      "value": "nữ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_am_nu_lo_su_nghiep_som",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_TU_CHINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: tinh thần trách nhiệm cao, luôn lo giữ uy tín (tuổi Tý, Ngọ, Mão, Dậu nằm trong tứ chính) [KL p.244]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "chart.year_branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ",
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tuoi_tu_chinh_trach_nhiem_cao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_TU_MO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: phải cố gắng giành một chỗ đứng trong xã hội, nên khiêm nhường khéo léo để vươn lên (Mệnh ở Tứ mộ, đất tối hơn các cung khác) [KL p.244]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_menh_tu_mo_phai_gianh_cho_dung",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_AM_HAM_QUYEN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: có sự nghiệp nhưng không bền: có quyền khi có tiền, hết tiền thì hết quyền (Thái Âm hãm hóa Quyền ở Mệnh) [KL p.246]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.dignity.Thái Âm",
+      "operator": "in",
+      "value": [
+       "hãm"
+      ]
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_am_ham_quyen_su_nghiep_khong_ben",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_NHAT_LUONG_MAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: cách Nhật xuất phù tang (Thái Dương, Thiên Lương đắc địa ở Mão), sang quý [KL p.240]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_xuat_phu_tang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_TAI_BACH_NHAT_LUONG_MAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Tài Bạch: cách Nhật xuất phù tang (Thân cư Tài ở Mão có Thái Dương, Thiên Lương đắc địa), sang quý [KL p.240]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão"
+      ]
+     },
+     {
+      "fact": "palace.is_than",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_xuat_phu_tang_than_cu_tai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_MENH_VCD_NN_TA_HUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Mệnh: thông minh, tài ba xuất chúng, được kính nể (Mệnh vô chính diệu có Nhật Nguyệt chiếu, Tả Hữu đồng cung); sách còn nói người sinh tháng 4 và cô đơn vì Cô Quả [KL p.240]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_vcd_nhat_nguyet_chieu_ta_huu_tai_ba",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_PHU_MAU_TU_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Phụ Mẫu: sớm rời gia đình lập nghiệp từ nhỏ, có dịp làm giàu nhanh nhưng cũng dễ hao tài đột ngột (Tử Vi, Thất Sát ở Phụ Mẫu) [KL p.244]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phụ Mẫu"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_sat_phu_som_thoat_ly_lap_nghiep",
+     "effect": "support",
+     "scope": "natal"
+    },
+    {
+     "kind": "finding",
+     "claim": "kl_tu_sat_phu_de_hao_tai_bat_ngo",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_TU_TUC_TU_PHA_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Tử Tức: cả đời phải giao thiệp với giới làm ăn bạo tợn, hay vô ơn (Tử Phá ở Tử Tức gặp Triệt) [KL p.246]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tử Tức"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Phá Quân"
+     },
+     {
+      "fact": "palace.triet",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_pha_triet_giao_thiep_gioi_bao_ton",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_TAI_BACH_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Tài Bạch: tiền bạc là mối lo chính của cuộc đời (Thân cư Tài Bạch) [KL p.246]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.is_than",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_than_cu_tai_tien_bac_la_moi_lo_chinh",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_TAI_BACH_THAI_TUE",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Tài Bạch: dễ có tranh chấp, kiện tụng liên quan đến tiền bạc (Thái Tuế ở Tài Bạch) [KL p.246]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thái Tuế"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tai_thai_tue_tranh_chap_kien_tung",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_TAI_BACH_CO_KY_HOA_LINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Tài Bạch: dễ tranh chấp lớn và hao tán tiền bạc (Thiên Cơ hóa Kỵ gặp Hỏa, Linh ở Tài Bạch) [KL p.246]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_ky_hoa_linh_tai_tan",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_TAI_BACH_DONG_LUONG_TRIET_KIEP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Tài Bạch: khó giữ được sự nghiệp lâu dài dù có Tướng, Ấn (Đồng Lương ở Tài Bạch gặp Triệt và Địa Kiếp) [KL p.238]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.triet",
+      "value": true
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Địa Kiếp"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_dong_luong_triet_kiep_su_nghiep_khong_ben",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_TAI_BACH_VU_TUONG_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Tài Bạch: giàu sang bền vững (Vũ Tướng, Lộc Tồn ở Tài Bạch); sách còn kể Đẩu Quân, sao chưa được kiểm [KL p.237]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Vũ Khúc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_vu_tuong_loc_giau_ben_vung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_QUAN_LOC_AM_TUAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Quan Lộc: sự nghiệp đáng lẽ tốt đẹp lại lụi tàn như trăng sáng bị mây che (Thái Âm đắc địa ở Quan Lộc gặp Tuần) [KL p.238]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.dignity.Thái Âm",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
+     },
+     {
+      "fact": "palace.tuan",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_quan_am_dac_dia_gap_tuan_lui_tan",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_QUAN_LOC_LIEM_PHU_QUAN_PHU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Quan Lộc: thận trọng, có uy tín với mọi người xung quanh (Liêm Phủ, Quan Phù ở Quan Lộc) [KL p.237]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Quan Phù"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_liem_phu_quan_phu_than_trong_uy_tin",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_CASE_QUAN_LOC_AM_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_cases",
+   "description": "Tử Vi Khảo Luận, nguyên tắc nêu trong các lá số mẫu (paraphrased), cung Quan Lộc: cách Thiềm cung chiết quế, sang quý (Thái Âm đắc địa ở Hợi tại Quan Lộc) [KL p.241]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Hợi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_thiem_cung_chiet_que",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}

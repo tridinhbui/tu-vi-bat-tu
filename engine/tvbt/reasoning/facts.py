@@ -38,6 +38,20 @@ def _th_season_facts(c: TuViChart) -> dict:
     return out
 
 
+def _kl_principle_facts(c: TuViChart) -> dict:
+    """Khảo Luận pp.238-246 (worked examples): the year's stem-branch relation ('gốc nuôi ngọn' etc.), whether the Mệnh sits on a palace of its own
+    polarity ('đắc chính') and whether sex and year polarity agree ('thuận lý')."""
+    from ..ganzhi import controls, generates, stem_polarity
+    s_name, b_name = c.year_gz.split()
+    se, be = STEM_ELEMENT[STEMS_VI.index(s_name)], BRANCH_ELEMENT[BRANCHES_VI.index(b_name)]
+    rel = ("can_sinh_chi" if generates(se, be) else "chi_sinh_can" if generates(be, se) else "can_khac_chi" if controls(se, be)
+           else "chi_khac_can" if controls(be, se) else "hoa")
+    yp, gd = c.yin_yang_gender.split()
+    menh_yang = c.menh_branch % 2 == 0
+    return {"chart.can_chi_relation": rel, "chart.menh_dac_chinh": (yp == "dương") == menh_yang,
+            "chart.am_duong_ly": "thuan_ly" if (yp, gd) in (("dương", "nam"), ("âm", "nữ")) else "nghich_ly"}
+
+
 def tuvi_facts(c: TuViChart) -> dict[str, dict]:
     by_branch = {p["branch_index"]: p for p in c.palaces}
     out: dict[str, dict] = {"chart": {"chart.system": "tu_vi", "chart.cuc": c.cuc["name"],
@@ -45,7 +59,7 @@ def tuvi_facts(c: TuViChart) -> dict[str, dict]:
                                        "chart.menh_branch": BRANCHES_VI[c.menh_branch],
                                        "chart.year_stem": c.year_gz.split()[0], "chart.year_branch": c.year_gz.split()[1],
                                        "chart.tu_vi_branch": next((p["branch"] for p in c.palaces if "Tử Vi" in p["major_stars"]), None),
-                                       **_th_season_facts(c)}}
+                                       **_th_season_facts(c), **_kl_principle_facts(c)}}
     typed = positions.typed_facts(c.palaces, c.tu_hoa)
     for br, p in by_branch.items():
         tp = [br, (br + 4) % 12, (br + 8) % 12, (br + 6) % 12]
