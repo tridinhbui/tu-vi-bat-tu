@@ -1612,8 +1612,6 @@
  "bt_zz_nghe_tru_gio_tai": "nghề hợp thiên về tài chính (Tài) (thập thần của can trụ giờ: 'can là biểu')",
  "bt_zz_nghe_tru_gio_ty_kiep": "nghề hợp thiên về nghề tự do, việc tạp (Tỉ Kiếp) (thập thần của can trụ giờ: 'can là biểu')",
  "bt_zz_dan_than_giap_buon_ban": "hợp việc kinh doanh, buôn bán (trong tứ trụ có đủ Dần, Thân và can Giáp)",
- "bt_zz_hn_nguyet_lenh_hinh_xung": "hạn chế: hôn nhân thiếu ổn định (nguyệt lệnh gặp hình, xung, xuyên, tuyệt)",
- "limit:bt_zz_hn_nguyet_lenh_hinh_xung": "hạn chế: hôn nhân thiếu ổn định (nguyệt lệnh gặp hình, xung, xuyên, tuyệt)",
  "bt_zz_hn_nguyet_lenh_hop": "hôn nhân êm đẹp (nguyệt lệnh được hợp)",
  "bt_zz_hn_nguyet_lenh_khong_vong": "hạn chế: hôn nhân hình thức, tình cảm vợ chồng không thật sâu (nguyệt lệnh gặp không vong)",
  "limit:bt_zz_hn_nguyet_lenh_khong_vong": "hạn chế: hôn nhân hình thức, tình cảm vợ chồng không thật sâu (nguyệt lệnh gặp không vong)",
@@ -1622,8 +1620,6 @@
  "bt_zz_hn_nguyet_kien_tai_quan_an": "tình cảm vợ chồng hòa thuận (nguyệt kiến là Tài, Quan hoặc Ấn)",
  "bt_zz_hn_nguyet_kien_nhan_loc": "hạn chế: hay cãi vã, ồn ào (nguyệt kiến là Tỉ hoặc Kiếp: nhận, lộc)",
  "limit:bt_zz_hn_nguyet_kien_nhan_loc": "hạn chế: hay cãi vã, ồn ào (nguyệt kiến là Tỉ hoặc Kiếp: nhận, lộc)",
- "bt_zz_hn_nhat_chi_hinh_xung": "hạn chế: vợ chồng hay xung đột, cãi vã (nhật chi gặp hình, xung, xuyên, tuyệt)",
- "limit:bt_zz_hn_nhat_chi_hinh_xung": "hạn chế: vợ chồng hay xung đột, cãi vã (nhật chi gặp hình, xung, xuyên, tuyệt)",
  "bt_zz_hn_nhat_chi_quan_sat": "hạn chế: người phối ngẫu có sức ràng buộc mạnh, hay hạn chế mình (nhật chi là Quan hoặc Sát)",
  "limit:bt_zz_hn_nhat_chi_quan_sat": "hạn chế: người phối ngẫu có sức ràng buộc mạnh, hay hạn chế mình (nhật chi là Quan hoặc Sát)",
  "bt_zz_hn_nhat_chi_tai": "được lợi về tiền của nhờ người phối ngẫu (nhật chi là Tài)",
@@ -1672,5 +1668,9 @@
  "bt_zz_anh_em_can_thang_kieu_thuong_sat": "hạn chế: anh em dễ bất hòa (can tháng là Kiêu, Thương hoặc Sát)",
  "limit:bt_zz_anh_em_can_thang_kieu_thuong_sat": "hạn chế: anh em dễ bất hòa (can tháng là Kiêu, Thương hoặc Sát)",
  "bt_zz_anh_em_nguyet_lenh_khong_vong": "hạn chế: anh em ít qua lại (nguyệt lệnh gặp không vong)",
- "limit:bt_zz_anh_em_nguyet_lenh_khong_vong": "hạn chế: anh em ít qua lại (nguyệt lệnh gặp không vong)"
+ "limit:bt_zz_anh_em_nguyet_lenh_khong_vong": "hạn chế: anh em ít qua lại (nguyệt lệnh gặp không vong)",
+ "bt_zz_hn_nguyet_lenh_hinh_xung": "hạn chế: hôn nhân thiếu ổn định (nguyệt lệnh gặp hình, xung, xuyên, tuyệt); hệ thống chưa tính quan hệ 'tuyệt' nên chỉ kiểm hình, xung, hại",
+ "limit:bt_zz_hn_nguyet_lenh_hinh_xung": "hạn chế: hôn nhân thiếu ổn định (nguyệt lệnh gặp hình, xung, xuyên, tuyệt); hệ thống chưa tính quan hệ 'tuyệt' nên chỉ kiểm hình, xung, hại",
+ "bt_zz_hn_nhat_chi_hinh_xung": "hạn chế: vợ chồng hay xung đột, cãi vã (nhật chi gặp hình, xung, xuyên, tuyệt); hệ thống chưa tính quan hệ 'tuyệt' nên chỉ kiểm hình, xung, hại",
+ "limit:bt_zz_hn_nhat_chi_hinh_xung": "hạn chế: vợ chồng hay xung đột, cãi vã (nhật chi gặp hình, xung, xuyên, tuyệt); hệ thống chưa tính quan hệ 'tuyệt' nên chỉ kiểm hình, xung, hại"
 }

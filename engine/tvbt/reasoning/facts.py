@@ -93,13 +93,24 @@ ZZ_MA = {2: 8, 6: 8, 10: 8, 8: 2, 0: 2, 4: 2, 5: 11, 9: 11, 1: 11, 11: 5, 3: 5, 
 ZZ_WEN = [5, 6, 8, 9, 8, 9, 11, 0, 2, 3]
 
 
+def _gender_fact(c: BaziChart) -> dict:
+    """chart.gender: the sex the caller supplied when it is on the chart (`extras["gender_input"]`, source 'input'); only for a chart built without it is the sex
+    recovered from the luck direction (source 'inferred'). The inference is the inverse of the 起运 rule (forward for yang-male and yin-female), so it is exact for charts
+    this engine built, but it is a derivation, never evidence on its own: rules that need the sex should read chart.gender_source too."""
+    g = c.extras.get("gender_input")
+    if g in ("male", "female"):
+        return {"chart.gender": "nam" if g == "male" else "nữ", "chart.gender_source": "input"}
+    yang = c.pillars["year"].stem % 2 == 0
+    return {"chart.gender": "nam" if yang == (c.luck_direction == "thuận") else "nữ", "chart.gender_source": "inferred"}
+
+
 def _zz_direct_facts(c: BaziChart) -> dict:
     """八字真宗 pp.51-58 (nghề nghiệp theo trụ giờ, hôn nhân theo nguyệt lệnh / nhật chi): ten god of the month and day branch (本气 = first hidden stem),
     ten-god group of the hour stem, whether the month / day branch suffers 刑冲穿害 or is combined, and whether the month branch is 空亡."""
     rel = c.relations
     # relation entries name their pillars ("year-day") except the three-branch penalties, which only list branches
     where = lambda key, who: any((who in r["pillars"].split("-")) if "pillars" in r else (c.pillars[who].branch in r.get("branches", [])) for r in rel.get(key, []))
-    bad = lambda who: any(where(k, who) for k in ("branch_clash", "branch_harm", "branch_destroy", "branch_penalty")) or where("branch_self_penalty", who)
+    bad = lambda who: any(where(k, who) for k in ("branch_clash", "branch_harm", "branch_penalty")) or where("branch_self_penalty", who)      # 刑冲穿: 破 is not in the manual's list and 绝 is not modelled
     hour, month, day = c.pillars["hour"], c.pillars["month"], c.pillars["day"]
     branches = {p.branch for p in c.pillars.values()}
     stems = {p.stem for p in c.pillars.values()}
@@ -130,7 +141,7 @@ def _zz_direct_facts(c: BaziChart) -> dict:
             "bazi.month_main_god": month.hidden[0]["ten_god"], "bazi.day_main_god": day.hidden[0]["ten_god"],
             "bazi.month_branch_hurt": bad("month"), "bazi.day_branch_hurt": bad("day"), "bazi.month_branch_combined": where("branch_six_combine", "month"),
             "bazi.month_branch_kong": "month" in c.extras.get("kong_wang_in_chart", []),
-            "chart.gender": "nam" if (c.pillars["year"].stem % 2 == 0) == (c.luck_direction == "thuận") else "nữ",     # luck runs forward for yang-male / yin-female
+            **_gender_fact(c),
             "bazi.has_yin_shen_jia": {2, 8} <= branches and 0 in stems,
             "bazi.ren_count": sum(1 for b in others + [day.branch] if b == ren_b), "bazi.ren_in_tmm": ren_b in tmm_b,
             "bazi.ren_combined": any(ren_b in pr for pr in all_pairs),

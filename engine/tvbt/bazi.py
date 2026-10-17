@@ -261,6 +261,7 @@ def compute(nb: NormalizedBirth, n_luck: int = 10) -> BaziChart:
         "kong_wang_day": [BRANCHES_VI[x] for x in kw],
         "kong_wang_in_chart": [k for k, p in pillars.items() if p.branch in kw and k != "day"],
         "kong_wang_year_pillar_view": [BRANCHES_VI[x] for x in kong_wang(ys, yb)],
+        "gender_input": b.gender,                       # the sex the caller supplied ("male"/"female"); used for 起运 direction and by facts.bazi_facts(zz=True)
     }
     tr.add("bazi.extras", "Thai nguyên, mệnh cung, thân cung, không vong (tables of 八字真宗 PDF pp.35-38)", {}, extras, rule="bazi_thai_menh_than")
     chart = BaziChart(

@@ -454,7 +454,7 @@
    "system": "bat_tu",
    "schoolId": "bazi_zhenzong_popular",
    "category": "zz_direct_marriage",
-   "description": "八字真宗 直断 (paraphrased): hôn nhân thiếu ổn định (nguyệt lệnh gặp hình, xung, xuyên, tuyệt) [PDF p.57]",
+   "description": "八字真宗 直断 (paraphrased): hôn nhân thiếu ổn định (nguyệt lệnh gặp hình, xung, xuyên, tuyệt); hệ thống chưa tính quan hệ 'tuyệt' nên chỉ kiểm hình, xung, hại [PDF p.57]",
    "conditions": {
     "fact": "bazi.month_branch_hurt",
     "value": true
@@ -473,7 +473,7 @@
    "sourceIds": [
     "SRC_BAZI_ZHENZONG"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "chart"
   },
@@ -637,7 +637,7 @@
    "system": "bat_tu",
    "schoolId": "bazi_zhenzong_popular",
    "category": "zz_direct_marriage",
-   "description": "八字真宗 直断 (paraphrased): vợ chồng hay xung đột, cãi vã (nhật chi gặp hình, xung, xuyên, tuyệt) [PDF p.57]",
+   "description": "八字真宗 直断 (paraphrased): vợ chồng hay xung đột, cãi vã (nhật chi gặp hình, xung, xuyên, tuyệt); hệ thống chưa tính quan hệ 'tuyệt' nên chỉ kiểm hình, xung, hại [PDF p.57]",
    "conditions": {
     "fact": "bazi.day_branch_hurt",
     "value": true
@@ -656,7 +656,7 @@
    "sourceIds": [
     "SRC_BAZI_ZHENZONG"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "chart"
   },
@@ -998,7 +998,7 @@
      },
      {
       "fact": "chart.gender",
-      "value": "male"
+      "value": "nam"
      }
     ]
    },
@@ -1034,7 +1034,7 @@
      },
      {
       "fact": "chart.gender",
-      "value": "female"
+      "value": "nữ"
      }
     ]
    },
@@ -1070,7 +1070,7 @@
      },
      {
       "fact": "chart.gender",
-      "value": "male"
+      "value": "nam"
      }
     ]
    },
@@ -1106,7 +1106,7 @@
      },
      {
       "fact": "chart.gender",
-      "value": "female"
+      "value": "nữ"
      }
     ]
    },

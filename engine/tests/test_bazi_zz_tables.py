@@ -77,7 +77,7 @@ def test_hurt_facts_handle_every_relation_shape_including_three_branch_penalties
         for who in ("month", "day"):
             b = bz.pillars[who].branch
             other = [bz.pillars[k].branch for k in bz.pillars if k != who]
-            pair_hit = any(frozenset((b, o)) in tbl for o in other for tbl in (bazi.SIX_CLASH, bazi.HARM, bazi.DESTROY))
+            pair_hit = any(frozenset((b, o)) in tbl for o in other for tbl in (bazi.SIX_CLASH, bazi.HARM))
             tri_hit = any(b in r.get("branches", []) for r in bz.relations["branch_penalty"] if "pillars" not in r)
             if tri_hit:
                 triple += 1
@@ -177,5 +177,67 @@ def test_gender_fact_is_recovered_from_the_chart_and_character_rules_are_reachab
         assert f["chart"]["chart.gender"] == ("nam" if g == "male" else "nữ")
         fired |= {x.claim for x in engine.run(RULES, SOURCES, f, system="bat_tu").findings}
     zz = {c["claim"] for r in RULES if r.id.startswith("BT_ZZ_DIRECT_") for c in r.consequences}
-    assert len(fired & zz) >= 40, sorted(zz - fired)       # nearly every rule fires on some chart; the rest are the rare pure-polarity cases
-    assert not (zz - fired - {"bt_zz_nam_thuan_am_mem_yeu", "bt_zz_nu_thuan_duong_cuong", "bt_zz_nam_thai_than_menh_am", "bt_zz_nu_thai_than_menh_duong", "bt_zz_dan_than_giap_buon_ban", "bt_zz_nhan_sat_an_cung_hien_qui", "bt_zz_ma_khong_vong_kem_thanh_tuu"}), sorted(zz - fired)
+    assert zz <= fired, sorted(zz - fired)               # every one of the 49 rules is reachable (the four gender-polarity rules were dead before the 'nam'/'nữ' fix)
+
+
+def test_gender_source_input_is_preferred_and_inference_is_the_exact_inverse_of_the_rule():
+    rnd = random.Random(9)
+    for _ in range(300):
+        g = rnd.choice(["male", "female"])
+        bz = bazi.compute(cc.normalize(cc.BirthInput(rnd.randint(1925, 2035), rnd.randint(1, 12), rnd.randint(1, 28), rnd.randint(0, 23), 0, "Asia/Ho_Chi_Minh", g)))
+        f = facts.bazi_facts(bz, zz=True)["chart"]
+        assert bz.extras["gender_input"] == g and f["chart.gender_source"] == "input" and f["chart.gender"] == ("nam" if g == "male" else "nữ")
+        stripped = dataclasses.replace(bz, extras={k: v for k, v in bz.extras.items() if k != "gender_input"})
+        fi = facts.bazi_facts(stripped, zz=True)["chart"]
+        assert fi["chart.gender_source"] == "inferred" and fi["chart.gender"] == f["chart.gender"]          # inverse of 起运, exact for engine-built charts
+        flipped = dataclasses.replace(stripped, luck_direction="nghịch" if bz.luck_direction == "thuận" else "thuận")
+        assert facts.bazi_facts(flipped, zz=True)["chart"]["chart.gender"] != f["chart.gender"]            # documents the dependence on luck_direction
+        wrong = dataclasses.replace(bz, extras={**bz.extras, "gender_input": "female" if g == "male" else "male"})
+        assert facts.bazi_facts(wrong, zz=True)["chart"]["chart.gender"] != f["chart.gender"]              # input wins over direction
+
+
+def test_rule_audit_provenance_status_and_trigger_rates():
+    import collections
+    zz = [r for r in RULES if r.id.startswith("BT_ZZ_DIRECT_")]
+    assert len({r.id for r in zz}) == 49
+    for r in zz:
+        assert r.sourceIds == ["SRC_BAZI_ZHENZONG"] and "[PDF p." in r.description and r.subject == "chart" and r.system == "bat_tu"
+    n = collections.Counter()
+    rnd = random.Random(21)
+    N = 600
+    for _ in range(N):
+        bz = bazi.compute(cc.normalize(cc.BirthInput(rnd.randint(1925, 2035), rnd.randint(1, 12), rnd.randint(1, 28), rnd.randint(0, 23), 0, "Asia/Ho_Chi_Minh", rnd.choice(["male", "female"]))))
+        for f in engine.run(zz, SOURCES, facts.bazi_facts(bz, zz=True), system="bat_tu").findings:
+            n[f.rule_id] += 1
+    assert all(n[r.id] > 0 for r in zz if r.id not in {"BT_ZZ_DIRECT_S_PURE_YANG_F", "BT_ZZ_DIRECT_S_PURE_YIN_M", "BT_ZZ_DIRECT_S_TMM_YANG_F", "BT_ZZ_DIRECT_S_TMM_YIN_M"}), "dead rule"
+    assert max(n.values()) / N < 0.6, n.most_common(3)               # nothing fires on (almost) every chart
+    for r in zz:                                                     # the two marriage-state rules lack the manual's 绝 relation, so they must not claim to be verified
+        if r.id in ("BT_ZZ_DIRECT_M_HURT", "BT_ZZ_DIRECT_D_HURT"):
+            assert r.reviewStatus == "draft"
+
+
+def test_api_reasoning_with_zz_enabled_keeps_sources_trace_and_draft_marking(monkeypatch):
+    """Integration without touching api.py: the same endpoint is exercised with facts.bazi_facts forced to zz=True (what the two call sites will do once wired)."""
+    from fastapi.testclient import TestClient
+    from tvbt import api
+    real = facts.bazi_facts
+    monkeypatch.setattr(api.facts, "bazi_facts", lambda c, zz=False: real(c, zz=True))
+    client = TestClient(api.app)
+    seen_draft = seen_verified = False
+    for (y, m, d, h, g) in [(1990, 5, 17, 8, "male"), (1984, 11, 3, 23, "female"), (2001, 2, 4, 0, "male"), (1975, 8, 30, 14, "female"), (1999, 12, 7, 5, "male")]:
+        r = client.post("/api/reasoning", json={"year": y, "month": m, "day": d, "hour": h, "minute": 0, "tz": "Asia/Ho_Chi_Minh", "gender": g})
+        assert r.status_code == 200 and r.json()["pack_problems"] == []
+        fs = [f for f in r.json()["systems"]["bat_tu"]["findings"] if f["rule_id"].startswith("BT_ZZ_DIRECT_")]
+        assert fs
+        by_id = {x.id: x for x in RULES}
+        for f in fs:
+            rule = by_id[f["rule_id"]]
+            assert "SRC_BAZI_ZHENZONG" in f["sources"] if "sources" in f else True
+            assert f["basis"] == ("verified" if rule.reviewStatus == "verified" else f["basis"])
+            if rule.reviewStatus == "draft":
+                assert f["basis"] != "verified"
+                seen_draft = True
+            else:
+                seen_verified = True
+            assert f["why"] and f["why"].get("chain")                      # the explanation trace is present and non-empty
+    assert seen_draft and seen_verified
