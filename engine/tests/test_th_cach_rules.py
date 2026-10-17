@@ -130,7 +130,7 @@ def test_toan_thu_palace_star_pack():
 
 
 def test_toan_thu_phu_pack():
-    assert sum(r.id.startswith("TV_TT_PHU_") for r in RULES) == 56
+    assert sum(r.id.startswith("TV_TT_PHU_") for r in RULES) == 57
     c = fired(pal(branch="Mùi", own=["Thái Dương"], tp=["Thái Âm"]) | {"palace.rel.trine_majors": ["Thái Dương", "Thái Âm"]})
     assert ("tt_phu_minh_chau_hai", "support") in c
     c = fired(pal(branch="Thìn", own=["Kình Dương"]) | {"palace.has_no_major": True})
