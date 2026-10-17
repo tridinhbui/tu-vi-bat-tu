@@ -1,0 +1,31 @@
+"""八字真宗 pp.51-58 direct-judgement facts and rules (occupation by hour pillar, marriage by month/day branch)."""
+from tvbt import bazi, calendar_core as cc
+from tvbt.knowledge.loader import load_all
+from tvbt.reasoning import engine, facts
+
+RULES, SOURCES = load_all()
+
+
+def run(y, m, d, h, g="male"):
+    bz = bazi.compute(cc.normalize(cc.BirthInput(y, m, d, h, 0, "Asia/Ho_Chi_Minh", g)))
+    f = facts.bazi_facts(bz, zz=True)
+    res = engine.run(RULES, SOURCES, f, system="bat_tu")
+    return f["chart"], {x.claim for x in res.findings}
+
+
+def test_default_facts_are_unchanged_for_the_old_view():
+    bz = bazi.compute(cc.normalize(cc.BirthInput(1990, 5, 17, 8, 30, "Asia/Ho_Chi_Minh", "male")))
+    assert not any(k.startswith("bazi.hour_stem") or k.startswith("bazi.month_main") for k in facts.bazi_facts(bz)["chart"])
+
+
+def test_facts_and_rules_on_a_known_chart():
+    f, claims = run(1990, 5, 17, 8)          # Canh Ngọ / Tân Tỵ / Nhâm Ngọ / Giáp Thìn
+    assert f["bazi.hour_stem"] == "Giáp" and f["bazi.hour_stem_group"] == "thuc_thuong"
+    assert f["bazi.month_main_god"] == "Thiên Tài" and f["bazi.day_main_god"] == "Chính Tài"      # Tỵ 本气 Bính, Ngọ 本气 Đinh vs Nhâm
+    assert "bt_zz_nghe_tru_gio_thuc_thuong" in claims and "bt_zz_nghe_can_gio_giap" in claims
+    assert "bt_zz_hn_nguyet_kien_tai_quan_an" in claims and "bt_zz_hn_nhat_chi_tai" in claims
+    assert "bt_zz_hn_nguyet_kien_thuong_kieu_sat" not in claims
+
+
+def test_rule_count():
+    assert sum(r.id.startswith("BT_ZZ_DIRECT_") for r in RULES) == 26

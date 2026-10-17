@@ -1,0 +1,55 @@
+"""Generates data/pack_bazi_zz_direct.json from 八字真宗 pp.51-58: occupation by the hour pillar (干为表: ten-god group of the hour stem; the stem itself) and
+marriage by the month branch (月令) and day branch (日支). Paraphrased, page-cited. Skipped: infidelity, second-marriage, officialdom/prison, parents' lifespan, illness."""
+import json
+import unicodedata
+from pathlib import Path
+
+D = Path(__file__).resolve().parent.parent / "engine" / "data"
+eq = lambda f, v: {"fact": f, "value": v}
+inn = lambda f, v: {"fact": f, "operator": "in", "value": v}
+R = []
+def add(rid, cond, claim, page, phrase, tone="neutral", status="verified", cat="occupation"):
+    R.append((rid, cond, claim, page, phrase, tone, status, cat))
+GROUP = {"thuc_thuong": "ăn uống, thủ công, kỹ thuật, biểu diễn, chăn nuôi (Thực Thần, Thương Quan)", "an": "văn hóa, giáo dục (Ấn)", "quan": "hành chính (Quan, Sát)",
+         "tai": "tài chính (Tài)", "ty_kiep": "nghề tự do, việc tạp (Tỉ Kiếp)"}
+for g, ph in GROUP.items():
+    add(f"HOUR_GROUP_{g}", eq("bazi.hour_stem_group", g), f"bt_zz_nghe_tru_gio_{g}", "p.52", f"nghề hợp thiên về {ph} (thập thần của can trụ giờ: 'can là biểu')")
+STEM = {"Giáp": "y sĩ, thương nhân, chính pháp, kiến trúc, nông lâm, hóa học, âm nhạc", "Ất": "vườn cảnh, môi giới, thủ công, in ấn, du lịch",
+        "Bính": "giải trí, kiểm sát, giám định, xét nghiệm, thẩm mỹ, luyện kim, nhãn khoa, quà tặng, thời trang, hóa học, điện",
+        "Đinh": "họa sĩ, biểu diễn, sử học, thẩm mỹ, ẩm thực", "Mậu": "chăn nuôi, nông nghiệp, xây dựng, giết mổ, da lông, đồ gỗ",
+        "Kỷ": "thư ký, đánh máy, sắp chữ, phục vụ, nghệ nhân dân gian, địa chính, mầm non, sản phụ khoa, đô thị, vệ sinh, vật tư",
+        "Canh": "kim loại, điêu khắc, tư pháp, y sĩ, đạo diễn, võ thuật, đồ tể", "Tân": "trang sức, khóa, luật sư, nghị sĩ, thẩm phán, bói toán",
+        "Nhâm": "vận tải, đóng tàu, thủy lợi, chữa cháy, thủy sản, môi trường", "Quý": "tâm lý học, tham mưu, điều độ, thiết kế, hoạch định"}
+for s, ph in STEM.items():
+    add(f"HOUR_STEM_{s}", eq("bazi.hour_stem", s), f"bt_zz_nghe_can_gio_{unicodedata.normalize('NFD', s.replace('Đ', 'D').replace('đ', 'd')).encode('ascii', 'ignore').decode().lower()}", "p.52", f"nghề có thể thuộc nhóm: {ph} (can trụ giờ {s})", status="draft")
+add("YIN_SHEN_JIA", eq("bazi.has_yin_shen_jia", True), "bt_zz_dan_than_giap_buon_ban", "p.51", "hợp việc kinh doanh, buôn bán (trong tứ trụ có đủ Dần, Thân và can Giáp)")
+M = lambda *g: inn("bazi.month_main_god", list(g))
+add("M_HURT", eq("bazi.month_branch_hurt", True), "bt_zz_hn_nguyet_lenh_hinh_xung", "p.57", "hôn nhân thiếu ổn định (nguyệt lệnh gặp hình, xung, xuyên, tuyệt)", "limit", cat="marriage")
+add("M_COMBINED", eq("bazi.month_branch_combined", True), "bt_zz_hn_nguyet_lenh_hop", "p.57", "hôn nhân êm đẹp (nguyệt lệnh được hợp)", cat="marriage")
+add("M_KONG", eq("bazi.month_branch_kong", True), "bt_zz_hn_nguyet_lenh_khong_vong", "p.57", "hôn nhân hình thức, tình cảm vợ chồng không thật sâu (nguyệt lệnh gặp không vong)", "limit", cat="marriage")
+add("M_THUONG_KIEU_SAT", M("Thương Quan", "Thiên Ấn", "Thất Sát"), "bt_zz_hn_nguyet_kien_thuong_kieu_sat", "p.57", "vợ chồng hay cãi nhau vì chuyện nhỏ (nguyệt kiến là Thương, Kiêu hoặc Sát)", "limit", cat="marriage")
+add("M_TAI_QUAN_AN", M("Thiên Tài", "Chính Tài", "Chính Quan", "Chính Ấn"), "bt_zz_hn_nguyet_kien_tai_quan_an", "p.57", "tình cảm vợ chồng hòa thuận (nguyệt kiến là Tài, Quan hoặc Ấn)", cat="marriage")
+add("M_NHAN_LOC", M("Tỉ Kiên", "Kiếp Tài"), "bt_zz_hn_nguyet_kien_nhan_loc", "p.57", "hay cãi vã, ồn ào (nguyệt kiến là Tỉ hoặc Kiếp: nhận, lộc)", "limit", cat="marriage")
+add("D_HURT", eq("bazi.day_branch_hurt", True), "bt_zz_hn_nhat_chi_hinh_xung", "p.57", "vợ chồng hay xung đột, cãi vã (nhật chi gặp hình, xung, xuyên, tuyệt)", "limit", cat="marriage")
+add("D_QUAN_SAT", inn("bazi.day_main_god", ["Chính Quan", "Thất Sát"]), "bt_zz_hn_nhat_chi_quan_sat", "p.57", "người phối ngẫu có sức ràng buộc mạnh, hay hạn chế mình (nhật chi là Quan hoặc Sát)", "limit", cat="marriage")
+add("D_TAI", inn("bazi.day_main_god", ["Thiên Tài", "Chính Tài"]), "bt_zz_hn_nhat_chi_tai", "p.57", "được lợi về tiền của nhờ người phối ngẫu (nhật chi là Tài)", cat="marriage")
+add("D_THUC_THUONG", inn("bazi.day_main_god", ["Thực Thần", "Thương Quan"]), "bt_zz_hn_nhat_chi_thuc_thuong", "p.57", "người phối ngẫu tốn kém tiền của (nhật chi là Thực hoặc Thương)", "limit", cat="marriage")
+slug = lambda t: unicodedata.normalize("NFD", t.replace("Đ", "D").replace("đ", "d")).encode("ascii", "ignore").decode().upper()
+rules, claims = [], {}
+for rid, cond, claim, page, vi, tone, status, cat in R:
+    effect = {"neutral": "neutral", "limit": "limit"}.get(tone, "support")
+    rules.append({"id": f"BT_ZZ_DIRECT_{slug(rid)}", "system": "bat_tu", "schoolId": "bazi_zhenzong_popular", "category": f"zz_direct_{cat}",
+        "description": f"八字真宗 直断 (paraphrased): {vi} [PDF {page}]", "conditions": cond,
+        "consequences": [{"kind": "finding", "claim": claim, "effect": effect, "scope": "natal"}],
+        "exceptions": [], "conflictsWith": [], "priority": 3, "sourceIds": ["SRC_BAZI_ZHENZONG"], "reviewStatus": status, "version": "0.1.0", "subject": "chart"})
+    claims[claim] = ("hạn chế: " if effect == "limit" else "") + vi
+    if effect == "limit":
+        claims["limit:" + claim] = "hạn chế: " + vi
+ids = [r["id"] for r in rules]
+assert len(ids) == len(set(ids))
+json.dump({"sources": [], "rules": rules}, open(D / "pack_bazi_zz_direct.json", "w"), ensure_ascii=False, indent=1)
+cur = json.loads((D / "claims_vi.json").read_text("utf-8"))
+for k, v in claims.items():
+    cur.setdefault(k, v)
+json.dump(cur, open(D / "claims_vi.json", "w"), ensure_ascii=False, indent=1)
+print(len(rules))

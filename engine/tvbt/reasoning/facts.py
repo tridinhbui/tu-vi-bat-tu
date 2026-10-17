@@ -82,7 +82,28 @@ def tuvi_facts(c: TuViChart) -> dict[str, dict]:
     return out
 
 
-def bazi_facts(c: BaziChart) -> dict[str, dict]:
+TEN_GOD_GROUP = {"Thực Thần": "thuc_thuong", "Thương Quan": "thuc_thuong", "Thiên Ấn": "an", "Chính Ấn": "an", "Thất Sát": "quan", "Chính Quan": "quan",
+                 "Thiên Tài": "tai", "Chính Tài": "tai", "Tỉ Kiên": "ty_kiep", "Kiếp Tài": "ty_kiep"}
+
+
+def _zz_direct_facts(c: BaziChart) -> dict:
+    """八字真宗 pp.51-58 (nghề nghiệp theo trụ giờ, hôn nhân theo nguyệt lệnh / nhật chi): ten god of the month and day branch (本气 = first hidden stem),
+    ten-god group of the hour stem, whether the month / day branch suffers 刑冲穿害 or is combined, and whether the month branch is 空亡."""
+    rel = c.relations
+    where = lambda key, who: any(who in r["pillars"].split("-") for r in rel.get(key, []))
+    bad = lambda who: any(where(k, who) for k in ("branch_clash", "branch_harm", "branch_destroy", "branch_penalty")) or where("branch_self_penalty", who)
+    hour, month, day = c.pillars["hour"], c.pillars["month"], c.pillars["day"]
+    branches = {p.branch for p in c.pillars.values()}
+    stems = {p.stem for p in c.pillars.values()}
+    return {"bazi.hour_stem": STEMS_VI[hour.stem], "bazi.hour_stem_group": TEN_GOD_GROUP.get(hour.stem_ten_god or ""),
+            "bazi.month_main_god": month.hidden[0]["ten_god"], "bazi.day_main_god": day.hidden[0]["ten_god"],
+            "bazi.month_branch_hurt": bad("month"), "bazi.day_branch_hurt": bad("day"), "bazi.month_branch_combined": where("branch_six_combine", "month"),
+            "bazi.month_branch_kong": "month" in c.extras.get("kong_wang_in_chart", []),
+            "bazi.has_yin_shen_jia": {2, 8} <= branches and 0 in stems}
+
+
+def bazi_facts(c: BaziChart, zz: bool = False) -> dict[str, dict]:
+    """zz=True adds the 八字真宗 direct-judgement facts (hour-pillar group, month/day branch ten god and state); default off so the frozen old-pipeline view is unchanged."""
     dm_el = c.day_master_element
     roots = [k for k, p in c.pillars.items() if k != "day" or True
              for h in p.hidden if STEM_ELEMENT[h["stem"]] == dm_el]
@@ -92,4 +113,4 @@ def bazi_facts(c: BaziChart) -> dict[str, dict]:
                       "bazi.missing_elements": [e for e in ELEMENTS if e not in visible_el], "bazi.dm_element": dm_el, "bazi.dm_has_root": bool(roots),
                       "bazi.dm_root_pillars": sorted(set(roots)),
                       "bazi.month_branch": BRANCHES_VI[c.pillars["month"].branch],
-                      "bazi.dm_stage_in_month": c.pillars["month"].stage_vs_day_master}}
+                      "bazi.dm_stage_in_month": c.pillars["month"].stage_vs_day_master, **(_zz_direct_facts(c) if zz else {})}}
