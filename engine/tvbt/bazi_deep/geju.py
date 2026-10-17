@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 
+from ..bazi import HIDDEN_STEMS
 from ..ganzhi import BRANCHES_VI, STEM_ELEMENT, STEMS_VI, controls, generates
 from .interact import Resolved
 from .model import GOD_GROUPS, PILLARS, PIL_VI, ChartView
@@ -20,7 +21,7 @@ NAME_OF_GOD = {"Chính Quan": "Chính Quan", "Thất Sát": "Thất Sát", "Chí
 
 
 class Ctx:
-    def __init__(self, view: ChartView, profile: SchoolProfile, R: Resolved, S: dict):
+    def __init__(self, view: ChartView, profile: SchoolProfile, R: Resolved, S: dict, extra: list | None = None):
         self.view, self.profile, self.R, self.S = view, profile, R, S
         self.vis = []        # active visible non-day stems: (cid, pillar, stem, god)
         for p in PILLARS:
@@ -37,6 +38,12 @@ class Ctx:
             for h in view.hidden(p):
                 if h["class"] != "du_khi":
                     self.hid.append((p, h["stem"], h["ten_god"]))
+        # temporal pillars (luck / year / month): (cid, label, stem, branch); they act on the whole chart so they count as adjacent to every natal pillar
+        for cid, label, st, br in (extra or []):
+            if R.mult.get(cid, 1.0) >= profile.active_min:
+                self.vis.append((cid, label, st, view.god(st)))
+            for i, h in enumerate(HIDDEN_STEMS[br][:2]):
+                self.hid.append((label, h, view.god(h)))
         self.rel = R.interactions
 
     def vis_in(self, G):
@@ -44,6 +51,10 @@ class Ctx:
 
     def lenh_recs(self, kinds, statuses=None):
         return [r for r in self.rel if r["kind"] in kinds and "month.branch" in r["members"] and (statuses is None or r.get("status") in statuses)]
+
+
+def _dist(a: str, b: str) -> int:
+    return ChartView.dist(a, b) if a in PILLARS and b in PILLARS else 1
 
 
 def pred(ctx: Ctx, expr: str) -> tuple[bool, str]:
@@ -72,16 +83,22 @@ def pred(ctx: Ctx, expr: str) -> tuple[bool, str]:
         rel = controls if name == "controls_adjacent" else generates
         for ca, pa, sa, ga in ctx.vis_in(a):
             for cb, pb, sb, gb in ctx.vis_in(b) + ([(f"day.stem", "day", ctx.view.dm, "Nhật Chủ")] if b == "DM" else []):
-                if ChartView.dist(pa, pb) == 1 and rel(STEM_ELEMENT[sa], STEM_ELEMENT[sb]):
+                if pa != pb and _dist(pa, pb) == 1 and rel(STEM_ELEMENT[sa], STEM_ELEMENT[sb]):
                     return True, f"{ca} {'khắc' if name.startswith('controls') else 'sinh'} {cb} (kề)"
         return False, f"không có {a}→{b} kề sát"
+    if name == "adjacent_dm":
+        v = [x for x in ctx.vis_in(arg) if x[1] in PILLARS and _dist(x[1], "day") == 1 or x[1] not in PILLARS]
+        return bool(v), f"{arg} kề Nhật Chủ: {[x[0] for x in v]}"
+    if name == "both_any":
+        a, b = arg.split("+")
+        return pred(ctx, f"any:{a}")[0] and pred(ctx, f"any:{b}")[0], f"{a} và {b} cùng hiện diện"
     if name == "bound":
         hits = []
         for r in ctx.rel:
             if r["kind"] == "stem_combine" and r.get("status") in ("hop_khong_hoa", "gia_hoa", "tranh_hop"):
                 for m in r["members"]:
                     p = m.split(".")[0]
-                    if p != "day" and ctx.view.god(ctx.view.stem(p)) in GOD_GROUPS[arg]:
+                    if p in PILLARS and p != "day" and ctx.view.god(ctx.view.stem(p)) in GOD_GROUPS[arg]:
                         hits.append(m)
         return bool(hits), f"{arg} bị hợp trói: {hits}"
     if name == "lenh_clashed":
@@ -138,10 +155,13 @@ def evaluate(ctx: Ctx, cach: str) -> dict:
     return {"state": state, "thanh": [{"cond": t[0], "evidence": t[2]} for t in ok_thanh], "bai": bai, "yong_groups": yong, "review_status": "draft"}
 
 
-def inner_candidates(view: ChartView, profile: SchoolProfile) -> list[dict]:
+def inner_candidates(view: ChartView, profile: SchoolProfile, extra: list | None = None) -> list[dict]:
     mb, dm = view.month_branch, view.dm
     hid = view.hidden("month")
     tous = {t["stem"]: t for t in tou(view)}
+    for cid, label, st, br in (extra or []):         # a temporal stem that equals a hidden stem of the month branch makes it 'thấu'
+        if STEMS_VI[st] in tous:
+            tous[STEMS_VI[st]] = {**tous[STEMS_VI[st]], "tou_same_char": tous[STEMS_VI[st]]["tou_same_char"] + [label]}
     out = []
     if LU[dm] == mb:
         out.append({"name": "Kiến Lộc", "basis": f"chi tháng {BRANCHES_VI[mb]} là Lộc của {STEMS_VI[dm]}", "tou": None})
@@ -179,10 +199,10 @@ def outer_candidates(view: ChartView, profile: SchoolProfile, R: Resolved, S: di
     return out
 
 
-def analyse(view: ChartView, profile: SchoolProfile, R: Resolved, S: dict) -> dict:
-    ctx = Ctx(view, profile, R, S)
+def analyse(view: ChartView, profile: SchoolProfile, R: Resolved, S: dict, extra: list | None = None) -> dict:
+    ctx = Ctx(view, profile, R, S, extra)
     inner = []
-    for c in inner_candidates(view, profile):
+    for c in inner_candidates(view, profile, extra):
         ev = evaluate(ctx, c["name"])
         inner.append({**c, **ev})
     outer = outer_candidates(view, profile, R, S)

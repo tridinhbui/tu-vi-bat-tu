@@ -39,18 +39,19 @@ def phu_uc(S: dict, outer_chan: bool) -> dict:
 
 
 def dieu_hau(view: ChartView, S: dict) -> dict:
+    """Bảng 窮通寶鑑 (draft, từ trí nhớ) cho vai trò thập thần; chỉ số nhiệt thô được giữ lại làm đối chiếu."""
+    from . import dieuhau
     cl = climate(view, S["by_element"])
-    t = _table("dieu_hau", "tho_chua_co_bang_CTBG", climate=cl)
+    tb = dieuhau.lookup(view)
+    groups = []
+    for x in tb["yong_stems"]:
+        if x["group"] not in groups:
+            groups.append(x["group"])
+    main = tb["yong_stems"][0]["group"]
+    t = _table("dieu_hau", "bang_CTBG_draft", yong=[main], xi=[g for g in groups if g != main], table=tb, climate=cl)
     h = cl["heat"]
-    # coarse direction only: cold -> need Hỏa element; hot -> need Thủy element. Expressed as ELEMENTS, not ten gods.
-    if h <= -1:
-        t["need_elements"], t["avoid_elements"] = ["Hỏa"], ["Thủy"]
-    elif h >= 1.5:
-        t["need_elements"], t["avoid_elements"] = ["Thủy"], ["Hỏa"]
-    else:
-        t["need_elements"], t["avoid_elements"] = [], []
-        t["status"] = "khong_can_dieu_hau_thô"
-    t["note"] = "Chưa nhập bảng điều hậu 10 can × 12 tháng của 窮通寶鑑 nên chỉ nêu hành cần ấm/mát ở mức thô; không có vai trò thập thần."
+    t["need_elements"], t["avoid_elements"] = (["Hỏa"], ["Thủy"]) if h <= -1 else (["Thủy"], ["Hỏa"]) if h >= 1.5 else ([], [])
+    t["note"] = "Ô bảng điều hậu nhập từ trí nhớ, chưa đối chiếu 窮通寶鑑 (draft). Vai trò: can đầu của ô là Dụng, các can sau là Hỷ. Chỉ số nhiệt thô chỉ để đối chiếu."
     return t
 
 

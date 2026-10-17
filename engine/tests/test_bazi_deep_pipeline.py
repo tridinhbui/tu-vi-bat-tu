@@ -56,7 +56,7 @@ def test_pipeline_matches_the_reviewed_snapshot_for_all_fifteen_examples():
         o = run(k)
         got = {"levels": [o["strength_raw"]["level"], o["strength_after"]["level"]],
                "inner": [(c["name"], c["state"]) for c in o["geju"]["inner"]], "outer": [(c["name"], c["quality"]) for c in o["geju"]["outer"]],
-               "hua_state": o["facts"]["bazi.hua_state"], "cuc": o["facts"]["bazi.cuc_formed"],
+               "hua_state": o["facts"]["bazi.hua_state"], "cuc": o["facts"]["bazi.cuc_formed"], "patterns": o["facts"]["bazi.patterns"],
                "fired": sorted(f[0] for f in o["reasoning"]["fired"])}
         assert json.loads(json.dumps(got)) == EXPECTED[k], k
 
@@ -142,3 +142,23 @@ def test_from_bazi_converts_birth_instant_to_days_into_month():
     assert 7 < v.days_into_month < 9.5
     o = pipeline.analyse(v, with_rules=False)
     assert o["season"]["command"] is not None
+
+
+def test_unsaved_pattern_triggers_the_cuu_ung_derived_fact_and_pattern_findings_are_draft():
+    o = run("EX3")
+    claims = {f["claim"] for f in o["reasoning"]["findings"]}
+    assert {"bt_pt_thuong_kien_quan", "bt_pt_benh_chua_cuu"} <= claims
+    assert o["reasoning"]["derived"]["derived.bazi.can_xet_cuu_ung"] is True
+    assert all(f["basis"] == "draft" for f in o["reasoning"]["findings"])
+
+
+def test_pattern_findings_are_blocked_by_a_true_outer_cach():
+    o = pipeline.reason({"chart": {**run("EX11")["facts"], "bazi.geju_outer_quality": "chân"}})
+    assert "bt_pt_sat_an_tuong_sinh" not in {f["claim"] for f in o["findings"]}
+    assert any(b["rule"] == "BT_PT_SAT_AN_TUONG_SINH" for b in o["blocked"])
+
+
+def test_analysis_output_lists_patterns_and_their_evidence():
+    o = run("EX12")
+    p = next(x for x in o["patterns"] if x["id"] == "thuong_phoi_an")
+    assert p["state"] == "thanh" and p["evidence"] and p["review_status"] == "draft"

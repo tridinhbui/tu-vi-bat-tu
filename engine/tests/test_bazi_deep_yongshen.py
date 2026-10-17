@@ -46,13 +46,12 @@ def test_phu_uc_is_off_when_a_true_outer_cach_holds():
     assert set(y["methods"]["thuan_the"]["ji"]) == {"Ti", "An"}                     # the opposite of phù ức for a weak day master
 
 
-def test_dieu_hau_is_coarse_and_marked_as_missing_the_ctbg_table():
+def test_dieu_hau_uses_the_draft_table_and_never_the_coarse_climate_for_roles():
     y, S, _ = Y(view("EX8"))
     d = y["methods"]["dieu_hau"]
-    assert d["status"] in ("tho_chua_co_bang_CTBG", "khong_can_dieu_hau_thô") and d["yong"] == [] and d["xi"] == []     # no ten-god roles without the table
-    assert "窮通寶鑑" in d["note"]
-    cold = [k for k in EX if Y(view(k))[0]["methods"]["dieu_hau"].get("need_elements") == ["Hỏa"]]
-    assert cold and all(view(k).month_branch in (0, 1, 11, 2, 3, 4) for k in cold) or cold
+    assert d["status"] == "bang_CTBG_draft" and d["yong"] == ["QuanSat"]            # Bính sinh Tý: the first stem of the cell is Nhâm
+    assert d["climate"]["label"] in ("hàn", "cực hàn", "ôn hòa") and d["need_elements"] in (["Hỏa"], [])
+    assert "窮通寶鑑" in d["note"] and "draft" in d["note"]
 
 
 def test_cach_cuc_method_reports_dung_groups_only_for_the_inner_cach():

@@ -8,15 +8,15 @@ from pathlib import Path
 from ..knowledge.schema import load_pack, validate_pack
 from ..nlg import generate as nlg, lexicon as lx
 from ..reasoning import engine
-from . import facts as bzf, geju, interact, position, season, strength, yongshen
+from . import facts as bzf, geju, interact, patterns, position, season, strength, yongshen, temporal_deep
 from .model import ChartView
 from .profile import DATA, DEFAULT, SchoolProfile
 
 KNOWN = {"bazi.*", "chart.*", "derived.*"}
 
 
-def load_structure_pack():
-    return load_pack(DATA / "pack_structure.json")
+def load_structure_pack(name: str = "pack_structure.json"):
+    return load_pack(DATA / name)
 
 
 def _jsonable(o):
@@ -29,8 +29,8 @@ def _jsonable(o):
     return o
 
 
-def reason(base: dict) -> dict:
-    rules, sources = load_structure_pack()
+def reason(base: dict, pack: str = "pack_structure.json") -> dict:
+    rules, sources = load_structure_pack(pack)
     problems = validate_pack(rules, sources, KNOWN)
     lx.CLAIMS.update({k: {"label": v, "gloss": ""} for k, v in json.loads((DATA / "claims_vi.json").read_text("utf-8")).items() if not k.startswith("_")})
     res = engine.run(rules, sources, base, system="bat_tu")
@@ -67,7 +67,9 @@ def analyse(view: ChartView, profile: SchoolProfile = DEFAULT, with_rules: bool 
     Y = yongshen.run(view, profile, R, S1, G)
     trace.append({"step": "yongshen.run", "methods": list(Y["methods"])})
     cl = season.climate(view, S1["by_element"])
-    base = bzf.build(view, R, S0, S1, G, Y, cl)
+    P = patterns.evaluate_all(geju.Ctx(view, profile, R, S1))
+    trace.append({"step": "patterns.evaluate_all", "n": len(P)})
+    base = bzf.build(view, R, S0, S1, G, Y, cl, P)
     out = {
         "pillars": view.name(), "profile": {"id": profile.id, "review_status": profile.review_status},
         "season": {"month_states": S1["month_states"], "command": S1["command"], "climate": cl},
@@ -75,8 +77,19 @@ def analyse(view: ChartView, profile: SchoolProfile = DEFAULT, with_rules: bool 
         "interactions": _jsonable([{k: v for k, v in r.items()} for r in R.interactions]),
         "stem_controls": interact.stem_controls(view),
         "resolution": _jsonable({"cuc": R.cuc, "mult": R.mult, "opened_kho": R.opened, "stem_element_override": R.stem_element, "dm_hua": R.dm_hua, "steps": R.steps}),
-        "strength_raw": S0, "strength_after": S1, "geju": G, "yongshen": Y, "facts": base["chart"], "trace": trace,
+        "strength_raw": S0, "strength_after": S1, "geju": G, "patterns": P, "yongshen": Y, "facts": base["chart"], "trace": trace,
     }
     if with_rules:
         out["reasoning"] = reason(base)
+    return out
+
+
+def timeline(view: ChartView, profile: SchoolProfile, luck: list[dict], years: list[tuple[int, int, int]], with_rules: bool = True) -> dict:
+    """Extended-chart timeline (natal + luck, natal + luck + year). Each entry gets draft findings from pack_temporal.json."""
+    out = temporal_deep.timeline(view, profile, luck, years)
+    if with_rules:
+        for e in out["luck"] + out["years"]:
+            r = reason(bzf.temporal_facts(e), "pack_temporal.json")
+            e["findings"] = [{"claim": f["claim"], "effect": f["effect"], "rule_id": f["rule_id"], "basis": f["basis"], "chain": f["chain"]} for f in r["findings"]]
+            e["pack_problems"] = r["pack_problems"]
     return out

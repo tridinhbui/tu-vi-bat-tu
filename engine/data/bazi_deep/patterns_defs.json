@@ -1,0 +1,22 @@
+{
+ "_status": "draft",
+ "_source": "SRC_TBCT",
+ "_note": "Cấu trúc thập thần có tên (BZ-58–67). Viết theo hiểu biết chung về Tử Bình Chân Thuyên, CHƯA đối chiếu văn bản gốc nên mọi mục là draft. polarity: cat = cấu trúc được xem là thuận, benh = cấu trúc được xem là bệnh. formed: mọi vị ngữ phải đúng; weak: có đủ chữ nhưng không kề sát nên chỉ 'có tên, chưa có lực'. Vị ngữ xem geju.pred. Cứu bằng 'visible:' là mạnh, 'any:' (chỉ tàng) là yếu.",
+ "defs": {
+  "sat_an_tuong_sinh": {"vi": "Sát Ấn tương sinh", "polarity": "cat", "formed": ["chain_adjacent:Sat>An", "adjacent_dm:An"], "weak": ["both_visible:Sat+An"],
+    "bai": {"tai_pha_an": "controls_adjacent:Tai>An"}, "cuu": {"tai_pha_an": ["bound:Tai", "visible:Ti", "any:Ti"]}},
+  "thuc_che_sat": {"vi": "Thực Thần chế Sát", "polarity": "cat", "formed": ["controls_adjacent:Thuc>Sat"], "weak": ["both_visible:Thuc+Sat"],
+    "bai": {"kieu_doat_thuc": "controls_adjacent:Kieu>Thuc"}, "cuu": {"kieu_doat_thuc": ["visible:Tai", "any:Tai"]}},
+  "thuong_phoi_an": {"vi": "Thương Quan phối Ấn", "polarity": "cat", "formed": ["visible:Thuong", "visible:An", "level_le:trung hòa"], "weak": ["both_visible:Thuong+An"], "bai": {}, "cuu": {}},
+  "thuong_sinh_tai": {"vi": "Thương Quan sinh Tài", "polarity": "cat", "formed": ["chain_adjacent:Thuong>Tai", "level_ge:trung hòa"], "weak": ["both_visible:Thuong+Tai"], "bai": {}, "cuu": {}},
+  "tai_quan_song_my": {"vi": "Tài Quan song mỹ", "polarity": "cat", "formed": ["chain_adjacent:Tai>Quan", "level_ge:trung hòa"], "weak": ["both_visible:Tai+Quan"],
+    "bai": {"ti_kiep_doat_tai": "count_visible_ge:Ti=2", "thuong_kien_quan": "controls_adjacent:Thuong>Quan"}, "cuu": {"ti_kiep_doat_tai": ["visible:Quan", "visible:Sat"], "thuong_kien_quan": ["visible:An", "any:An"]}},
+  "hop_sat_luu_quan": {"vi": "Hợp Sát lưu Quan", "polarity": "cat", "formed": ["bound:Sat", "visible:Quan"], "weak": [], "bai": {}, "cuu": {}},
+  "hop_quan_luu_sat": {"vi": "Hợp Quan lưu Sát", "polarity": "cat", "formed": ["bound:Quan", "visible:Sat"], "weak": [], "bai": {}, "cuu": {}},
+  "tai_pha_an": {"vi": "Tài phá Ấn", "polarity": "benh", "formed": ["controls_adjacent:Tai>An"], "weak": ["both_visible:Tai+An"], "bai": {}, "cuu": {"formed": ["bound:Tai", "visible:Ti", "any:Ti"]}},
+  "thuong_kien_quan": {"vi": "Thương Quan kiến Quan", "polarity": "benh", "formed": ["controls_adjacent:Thuong>Quan"], "weak": ["both_visible:Thuong+Quan"], "bai": {}, "cuu": {"formed": ["visible:An", "visible:Tai", "any:An", "any:Tai"]}},
+  "kieu_doat_thuc": {"vi": "Kiêu Thần đoạt Thực", "polarity": "benh", "formed": ["controls_adjacent:Kieu>Thuc"], "weak": ["both_visible:Kieu+Thuc"], "bai": {}, "cuu": {"formed": ["visible:Tai", "any:Tai"]}},
+  "ti_kiep_doat_tai": {"vi": "Tỉ Kiếp đoạt Tài", "polarity": "benh", "formed": ["count_visible_ge:Ti=2", "any:Tai"], "weak": [], "bai": {}, "cuu": {"formed": ["visible:Quan", "visible:Sat", "any:Quan", "any:Sat"]}},
+  "quan_sat_hon_tap": {"vi": "Quan Sát hỗn tạp", "polarity": "benh", "formed": ["both_visible:Quan+Sat"], "weak": [], "bai": {}, "cuu": {"formed": ["bound:Sat", "bound:Quan", "visible:Thuc"]}}
+ }
+}

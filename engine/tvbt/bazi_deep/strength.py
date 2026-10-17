@@ -33,7 +33,7 @@ def level_of(ratio: float, cuts) -> tuple[int, float]:
     return i, margin
 
 
-def compute(view: ChartView, profile: SchoolProfile = DEFAULT, resolved: Resolved | None = None) -> dict:
+def compute(view: ChartView, profile: SchoolProfile = DEFAULT, resolved: Resolved | None = None, extras: list[dict] | None = None) -> dict:
     mult = resolved.mult if resolved else {}
     shifts = resolved.shifts if resolved else {}
     stem_override = resolved.stem_element if resolved else {}
@@ -66,6 +66,9 @@ def compute(view: ChartView, profile: SchoolProfile = DEFAULT, resolved: Resolve
         if p == "month" and cmd:
             el = cmd["element"]
             add(bid, el, bw * profile.tu_lenh_bonus * profile.season_factor[states[el]], f"tư lệnh {cmd['name']}")
+
+    for e in (extras or []):           # temporal contributions: {char, element, weight, note}
+        add(e["char"], e["element"], e["weight"], e["note"])
 
     by_group = {g: 0.0 for g in GROUPS}
     by_element = {e: 0.0 for e in ELEMENTS}

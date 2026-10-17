@@ -591,6 +591,483 @@
    "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "chart"
+  },
+  {
+   "id": "BT_PT_SAT_AN_TUONG_SINH",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Sát Ấn tương sinh đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "sat_an_tuong_sinh"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_sat_an_tuong_sinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_THUC_CHE_SAT",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Thực Thần chế Sát đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "thuc_che_sat"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_thuc_che_sat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_THUONG_PHOI_AN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Thương Quan phối Ấn đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "thuong_phoi_an"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_thuong_phoi_an",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_THUONG_SINH_TAI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Thương Quan sinh Tài đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "thuong_sinh_tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_thuong_sinh_tai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_TAI_QUAN_SONG_MY",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Tài Quan song mỹ đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "tai_quan_song_my"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_tai_quan_song_my",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_HOP_SAT_LUU_QUAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Hợp Sát lưu Quan đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "hop_sat_luu_quan"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_hop_sat_luu_quan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_HOP_QUAN_LUU_SAT",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Hợp Quan lưu Sát đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "hop_quan_luu_sat"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_hop_quan_luu_sat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_TAI_PHA_AN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Tài phá Ấn đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "tai_pha_an"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_tai_pha_an",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_THUONG_KIEN_QUAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Thương Quan kiến Quan đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "thuong_kien_quan"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_thuong_kien_quan",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_KIEU_DOAT_THUC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Kiêu Thần đoạt Thực đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "kieu_doat_thuc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_kieu_doat_thuc",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_TI_KIEP_DOAT_TAI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Tỉ Kiếp đoạt Tài đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "ti_kiep_doat_tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_ti_kiep_doat_tai",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_QUAN_SAT_HON_TAP",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Quan Sát hỗn tạp đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "quan_sat_hon_tap"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_quan_sat_hon_tap",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_WEAK",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc có tên nhưng không kề sát",
+   "conditions": {
+    "fact": "bazi.patterns_weak",
+    "operator": "ne",
+    "value": []
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_khong_ke",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_UNSAVED",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Bệnh chưa cứu mạnh -> cần xét cứu ứng",
+   "conditions": {
+    "fact": "bazi.patterns_unsaved",
+    "operator": "ne",
+    "value": []
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_benh_chua_cuu",
+     "effect": "limit",
+     "scope": "natal"
+    },
+    {
+     "kind": "assert",
+     "fact": "derived.bazi.can_xet_cuu_ung",
+     "value": true,
+     "scope": "chart"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_SYSTEM_STRUCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
   }
  ]
 }

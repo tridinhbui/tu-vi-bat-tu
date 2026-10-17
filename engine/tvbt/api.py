@@ -73,11 +73,50 @@ def bazi_structure(req: BirthReq):
     return pipeline.analyse(ChartView.from_bazi(bz, nb.utc, req.gender))
 
 
+class TimelineReq(BirthReq):
+    from_year: int | None = None
+
+
+@app.post("/api/bazi-timeline")
+def bazi_timeline(req: TimelineReq):
+    """Extended-chart timeline: for each đại vận and each lưu niên, re-run khí thế / cách cục / cấu trúc / dụng thần on natal + luck (+ year)
+    and compare with the natal chart. Draft rules only; describes structure, predicts no event."""
+    from .bazi_deep import pipeline
+    from .bazi_deep.model import ChartView
+    from .bazi_deep.profile import DEFAULT
+    nb, bz, _ = _compute(req)
+    y0 = req.from_year or req.year
+    y1 = min(req.to_year or req.year + 80, y0 + 120)
+    view = ChartView.from_bazi(bz, nb.utc, req.gender)
+    luck = [{"index": l.index, "stem": l.stem, "branch": l.branch, "start_year_exact": l.start_year_exact} for l in bz.luck_pillars]
+    years = [(y, *temporal.annual_pillar(y)) for y in range(y0, y1 + 1)]
+    return pipeline.timeline(view, DEFAULT, luck, years)
+
+
 @app.post("/api/year")
 def year(req: BirthReq):
     nb, bz, tv = _compute(req)
     y = req.to_year or req.year + 30
-    return {"bazi": temporal.bazi_year(bz, req.year, y), "tuvi": temporal.tuvi_year(tv, y)}
+    out = {"bazi": temporal.bazi_year(bz, req.year, y), "tuvi": temporal.tuvi_year(tv, y)}
+    if req.experimental:
+        out["experimental"] = _experimental_layers(tv, y)
+    return out
+
+
+def _experimental_layers(tv, year: int) -> dict:
+    """Phase-2 draft: how bản mệnh / đại hạn / lưu niên stack on each palace, plus draft interaction rules. Opt-in; production fields above are untouched."""
+    from .knowledge.loader import load_experimental_layers
+    from .reasoning import layers
+    from .reasoning.temporal_facts import time_facts
+    r = layers.run_layers(tv, year)
+    res = r["result"]
+    stack = {k.split(":", 1)[1]: {n[5:]: v for n, v in f.items() if n in ("time.layers", "time.natal_hoa", "time.dai_han_hoa", "time.luu_hoa", "time.ky_layers", "time.loc_layers")}
+             for k, f in time_facts(tv, year).items() if k.startswith("palace:")}
+    return {"status": "draft", "warning": "Cấu trúc vận hạn đa tầng thử nghiệm, chưa đối chiếu sách; chỉ mô tả cách các tầng chồng lên nhau, không dự báo.",
+            "pack_problems": validate_pack(*load_experimental_layers(), {"palace.*", "chart.*", "bazi.*", "derived.*", "time.*"}),
+            "layers": r["layers"], "stack_by_palace": stack,
+            "findings": [{**dataclasses.asdict(f), "why": _why_vi(res.why(f.id))} for f in r["findings"]],
+            "blocked": r["blocked"], "conflicts": r["conflicts"]}
 
 
 @app.post("/api/twelve-gods")

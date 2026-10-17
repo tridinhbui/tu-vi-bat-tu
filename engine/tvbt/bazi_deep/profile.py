@@ -60,6 +60,8 @@ class SchoolProfile:
     tong_max_ratio: float = 0.22
     war_share: float = 0.20                         # both elements at least this share of the total => 'giao chiến'
     bridge_min: float = 0.10                        # thông quan element below this share counts as missing
+    temporal_weight: dict = field(default_factory=lambda: {"luck": (1.2, 2.0), "year": (1.0, 1.2), "month": (0.6, 0.8)})   # (stem, branch) weight of a temporal pillar
+    temporal_clash: float = 0.55                    # multiplier of a natal branch hit by a temporal clash
     interact_order: tuple = ("cuc", "stem_combine", "clash", "xing_hai_po")
 
     def tu_lenh_rows(self) -> dict:

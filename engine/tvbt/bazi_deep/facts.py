@@ -13,7 +13,11 @@ FACT_ORIGIN = {
     "bazi.interact_statuses": "interact.resolve", "bazi.geju_inner": "geju.inner_candidates", "bazi.geju_state": "geju.evaluate",
     "bazi.geju_bai": "geju.evaluate", "bazi.geju_outer": "geju.outer_candidates", "bazi.geju_outer_quality": "geju.outer_candidates",
     "bazi.yong_cach_cuc": "yongshen.cach_cuc", "bazi.yong_phu_uc_status": "yongshen.phu_uc", "bazi.method_disagreements": "yongshen.compare",
-    "bazi.thong_quan_missing": "yongshen.thong_quan", "bazi.climate_label": "season.climate",
+    "bazi.thong_quan_missing": "yongshen.thong_quan", "bazi.patterns": "patterns.evaluate_all", "bazi.patterns_formed": "patterns.evaluate_all",
+    "bazi.patterns_weak": "patterns.evaluate_all", "bazi.patterns_unsaved": "patterns.evaluate_all",
+    "bazi.t.effect": "temporal_deep.analyse_extended (so cách nguyên cục với cách trên cục mở rộng)", "bazi.t.event_kinds": "temporal_deep.overlay",
+    "bazi.t.opens_kho": "temporal_deep.overlay", "bazi.t.completes_cuc": "temporal_deep.overlay",
+    "bazi.t.role.cach_cuc": "yongshen.run trên cục mở rộng", "bazi.t.role.phu_uc": "yongshen.run trên cục mở rộng", "bazi.t.role.dieu_hau": "yongshen.run trên cục mở rộng", "bazi.climate_label": "season.climate",
 }
 
 FACT_VI = {
@@ -26,11 +30,13 @@ FACT_VI = {
     "bazi.method_disagreements": "nhóm thập thần các phương pháp dụng thần bất đồng: {v}", "bazi.thong_quan_missing": "có giao chiến thiếu thông quan",
     "bazi.level_changed_by_interaction": "tương tác làm đổi mức khí thế", "bazi.yong_cach_cuc": "dụng thần theo cách cục: {v}",
     "bazi.yong_phu_uc_status": "phù ức: {v}", "bazi.climate_label": "khí hậu thô: {v}", "bazi.interact_statuses": "tương tác đã giải: {v}",
+    "bazi.patterns_formed": "các cấu trúc thập thần đã thành: {v}", "bazi.patterns_weak": "cấu trúc có đủ chữ nhưng không kề: {v}", "bazi.patterns_unsaved": "cấu trúc bệnh/bị phá chưa cứu mạnh: {v}",
+    "bazi.t.effect": "tác động của trụ lên cách: {v}", "bazi.t.event_kinds": "tương tác của trụ với nguyên cục: {v}",
     "derived.bazi.can_xet_cuu_ung": "cách đang bại, cần xét cứu ứng",
 }
 
 
-def build(view, R, S0, S1, geju: dict, yong: dict, climate: dict) -> dict[str, dict]:
+def build(view, R, S0, S1, geju: dict, yong: dict, climate: dict, pats: list | None = None) -> dict[str, dict]:
     inner = geju["inner"][0] if geju["inner"] else None
     outer = geju["outer"][0] if geju["outer"] else None
     rank = ["chan_hoa", "gia_hoa", "hop_khong_hoa", "tranh_hop", "khong_ke"]
@@ -53,5 +59,17 @@ def build(view, R, S0, S1, geju: dict, yong: dict, climate: dict) -> dict[str, d
         "bazi.method_disagreements": [d["group"] for d in yong["comparison"]["disagreements"]],
         "bazi.thong_quan_missing": yong["methods"]["thong_quan"]["status"] == "co_giao_chien" and bool(yong["methods"]["thong_quan"].get("need_elements")),
         "bazi.climate_label": climate["label"],
+        "bazi.patterns": sorted(f"{p['id']}:{p['state']}" for p in pats or []),
+        "bazi.patterns_formed": sorted(p["id"] for p in pats or [] if p["state"] != "co_ten_khong_ke"),
+        "bazi.patterns_weak": sorted(p["id"] for p in pats or [] if p["state"] == "co_ten_khong_ke"),
+        "bazi.patterns_unsaved": sorted(p["id"] for p in pats or [] if p["state"] in ("co_benh", "co_benh_cuu_yeu", "thanh_bi_pha", "thanh_bi_pha_cuu_yeu")),
     }
     return {"chart": f}
+
+
+def temporal_facts(entry: dict) -> dict[str, dict]:
+    ev = entry["events"]
+    roles = {m: (entry["roles"].get(m) or {}).get("stem_role") or "" for m in ("cach_cuc", "phu_uc", "dieu_hau")}
+    return {"chart": {"chart.system": "bat_tu", "bazi.t.effect": entry["effect"], "bazi.t.event_kinds": entry["event_kinds"],
+                      "bazi.t.opens_kho": any(e.get("opens_kho") for e in ev), "bazi.t.completes_cuc": any(e["kind"] in ("branch_triad", "branch_meeting") for e in ev),
+                      **{f"bazi.t.role.{m}": r for m, r in roles.items()}}}

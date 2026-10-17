@@ -1,0 +1,472 @@
+{
+ "sources": [
+  {
+   "id": "SRC_TBCT",
+   "title": "Tử Bình Chân Thuyên (子平真詮)",
+   "author": "Thẩm Hiếu Chiêm (đối chiếu)",
+   "locator": null,
+   "verified": false,
+   "edition": null,
+   "note": "Điều kiện thành/bại/cứu viết theo hiểu biết chung về sách; chưa có chương/trang đã kiểm."
+  },
+  {
+   "id": "SRC_SYSTEM_STRUCT",
+   "title": "Quy ước hệ thống: SchoolProfile baseline_v1 (tvbt.bazi_deep)",
+   "author": null,
+   "locator": null,
+   "verified": false,
+   "edition": null,
+   "note": "Trọng số, ngưỡng và thứ tự giải tương tác do hệ thống chọn, công khai trong SchoolProfile; không phải trích dẫn sách."
+  }
+ ],
+ "rules": [
+  {
+   "id": "BT_TV_PHA",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Vận/niên làm cách xấu đi",
+   "conditions": {
+    "fact": "bazi.t.effect",
+    "value": "pha_cach"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_pha_cach",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_TRO",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Vận/niên làm cách tốt lên",
+   "conditions": {
+    "fact": "bazi.t.effect",
+    "value": "tro_cach"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_tro_cach",
+     "effect": "support",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_DOI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Vận/niên đổi cách",
+   "conditions": {
+    "fact": "bazi.t.effect",
+    "value": "doi_cach"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_doi_cach",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_KHO",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Vận/niên xung mở khố",
+   "conditions": {
+    "fact": "bazi.t.opens_kho",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_mo_kho",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_PHUC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Phục ngâm",
+   "conditions": {
+    "fact": "bazi.t.event_kinds",
+    "operator": "contains",
+    "value": "phuc_ngam"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_phuc_ngam",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_PHAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Phản ngâm",
+   "conditions": {
+    "fact": "bazi.t.event_kinds",
+    "operator": "contains",
+    "value": "phan_ngam"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_phan_ngam",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_TINH",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Tuế vận tịnh lâm",
+   "conditions": {
+    "fact": "bazi.t.event_kinds",
+    "operator": "contains",
+    "value": "tue_van_tinh_lam"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_tinh_lam",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_THIENKHAC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Thiên khắc địa xung",
+   "conditions": {
+    "fact": "bazi.t.event_kinds",
+    "operator": "contains",
+    "value": "thien_khac_dia_xung"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_thien_khac_dia_xung",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_CUC",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Hoàn thành cục",
+   "conditions": {
+    "fact": "bazi.t.completes_cuc",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_hoan_thanh_cuc",
+     "effect": "neutral",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_CACH_CUC_DUNG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Can vận là dụng/hỷ theo cách cục",
+   "conditions": {
+    "fact": "bazi.t.role.cach_cuc",
+    "operator": "in",
+    "value": [
+     "yong",
+     "xi"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_dung_cach_cuc",
+     "effect": "support",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_CACH_CUC_KY",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Can vận là kỵ theo cách cục",
+   "conditions": {
+    "fact": "bazi.t.role.cach_cuc",
+    "operator": "in",
+    "value": [
+     "ji",
+     "chou"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_ky_cach_cuc",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_PHU_UC_DUNG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Can vận là dụng/hỷ theo phù ức",
+   "conditions": {
+    "fact": "bazi.t.role.phu_uc",
+    "operator": "in",
+    "value": [
+     "yong",
+     "xi"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_dung_phu_uc",
+     "effect": "support",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_PHU_UC_KY",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Can vận là kỵ theo phù ức",
+   "conditions": {
+    "fact": "bazi.t.role.phu_uc",
+    "operator": "in",
+    "value": [
+     "ji",
+     "chou"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_ky_phu_uc",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_DIEU_HAU_DUNG",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Can vận là dụng/hỷ theo điều hậu",
+   "conditions": {
+    "fact": "bazi.t.role.dieu_hau",
+    "operator": "in",
+    "value": [
+     "yong",
+     "xi"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_dung_dieu_hau",
+     "effect": "support",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TV_DIEU_HAU_KY",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "temporal",
+   "description": "Can vận là kỵ theo điều hậu",
+   "conditions": {
+    "fact": "bazi.t.role.dieu_hau",
+    "operator": "in",
+    "value": [
+     "ji",
+     "chou"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_van_ky_dieu_hau",
+     "effect": "limit",
+     "scope": "temporal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TBCT"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  }
+ ]
+}
