@@ -46,6 +46,18 @@ add("S_PURE_YIN_M", {"all": [eq("bazi.all_yin", True), G("male")]}, "bt_zz_nam_t
 add("S_PURE_YANG_F", {"all": [eq("bazi.all_yang", True), G("female")]}, "bt_zz_nu_thuan_duong_cuong", "p.59", "tính mạnh mẽ, quyết đoán (nữ mệnh thuần dương: kiểu 'nữ cường nhân')", status="draft", cat="character")
 add("S_TMM_YIN_M", {"all": [eq("bazi.tmm_all_yin", True), G("male")]}, "bt_zz_nam_thai_than_menh_am", "p.59", "tính mềm, nặng về tình (nam mệnh thai, thân, mệnh đều âm)", "limit", "draft", cat="character")
 add("S_TMM_YANG_F", {"all": [eq("bazi.tmm_all_yang", True), G("female")]}, "bt_zz_nu_thai_than_menh_duong", "p.59", "tính mạnh mẽ (nữ mệnh thai, thân, mệnh đều dương)", status="draft", cat="character")
+add("REN_MANY", {"fact": "bazi.ren_count", "operator": "gte", "value": 2}, "bt_zz_nhan_nhieu_gia_dinh_bat_loi", "p.73", "gia đình kém thuận lợi (tứ trụ thấy nhiều dương nhẫn)", "limit", cat="blade")
+add("REN_TMM", eq("bazi.ren_in_tmm", True), "bt_zz_nhan_thai_than_menh_ich_ky", "p.73", "tính ích kỷ, hay so đo (dương nhẫn cư thai, thân, mệnh)", "limit", cat="blade")
+add("REN_COMBINED", eq("bazi.ren_combined", True), "bt_zz_nhan_hop_kheo_nhieu_lao", "p.73", "khéo léo nhưng nhiều vất vả (dương nhẫn được hợp)", cat="blade")
+add("REN_SAT_AN", eq("bazi.ren_sat_an_all", True), "bt_zz_nhan_sat_an_cung_hien_qui", "p.73", "có thể sang quý (trong tứ trụ có đủ nhẫn, sát và ấn)", cat="blade")
+add("MA_IN_CHART", eq("bazi.ma_in_chart", True), "bt_zz_ma_trong_menh_hieu_dong", "p.74", "ưa hoạt động, khó ngồi yên (trong mệnh cục có dịch mã)", cat="horse")
+add("MA_HOUR", eq("bazi.ma_in_hour", True), "bt_zz_ma_o_gio_than_khong_yen", "p.74", "thân không yên, hay bận rộn đi lại (dịch mã ở trụ giờ)", "limit", cat="horse")
+add("MA_VOID", eq("bazi.ma_void", True), "bt_zz_ma_khong_vong_kem_thanh_tuu", "p.74", "khó thành tựu, hay lười biếng (dịch mã gặp không vong)", "limit", cat="horse")
+add("MA_CLASH", eq("bazi.ma_clashed", True), "bt_zz_ma_gap_xung_khong_nhan_ha", "p.74", "thân không được thanh nhàn (dịch mã bị xung, xuyên)", "limit", cat="horse")
+add("MA_COMBINED", eq("bazi.ma_combined", True), "bt_zz_ma_gap_hop_phat_muon", "p.74", "bị ràng buộc, phát muộn (dịch mã gặp hợp)", "limit", cat="horse")
+add("WEN_CHANG", eq("bazi.wen_chang_in_chart", True), "bt_zz_van_xuong_co_trong_menh_hoc_hanh", "p.56", "có văn xương trong mệnh cục, thuận cho học hành thi cử (tính theo can năm sinh)", cat="education")
+add("SIB_MONTH_STEM", eq("bazi.month_stem_hurt_god", True), "bt_zz_anh_em_can_thang_kieu_thuong_sat", "p.64", "anh em dễ bất hòa (can tháng là Kiêu, Thương hoặc Sát)", "limit", cat="siblings")
+add("SIB_MONTH_KONG", eq("bazi.month_branch_kong", True), "bt_zz_anh_em_nguyet_lenh_khong_vong", "p.64", "anh em ít qua lại (nguyệt lệnh gặp không vong)", "limit", cat="siblings")
 slug = lambda t: unicodedata.normalize("NFD", t.replace("Đ", "D").replace("đ", "d")).encode("ascii", "ignore").decode().upper()
 rules, claims = [], {}
 for rid, cond, claim, page, vi, tone, status, cat in R:

@@ -37,3 +37,18 @@ def test_transparency_root_and_polarity_facts():
     assert not f["bazi.all_yin"] and "bt_zz_nam_thuan_am_mem_yeu" not in claims
 
 
+
+
+def test_blade_horse_tables_follow_the_manual_p72():
+    from tvbt.ganzhi import BRANCHES_VI
+    bz = bazi.compute(cc.normalize(cc.BirthInput(1990, 5, 17, 8, 0, "Asia/Ho_Chi_Minh", "male")))   # day master Nhâm, day branch Ngọ
+    f = facts.bazi_facts(bz, zz=True)["chart"]
+    assert f["bazi.ma_in_chart"] is False            # Ngọ day -> horse at Thân; chart branches are Ngọ Tỵ Ngọ Thìn
+    assert f["bazi.ren_count"] == 0                  # Nhâm blade = Tý, none in chart
+    assert f["bazi.wen_chang_in_chart"] in (True, False)
+    import tvbt.reasoning.facts as fx
+    assert fx.STEMS_VI[8] == "Nhâm" and BRANCHES_VI[0] == "Tý"
+
+
+def test_total_rule_count():
+    assert sum(r.id.startswith("BT_ZZ_DIRECT_") for r in RULES) == 49

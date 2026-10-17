@@ -110,11 +110,30 @@ def _zz_direct_facts(c: BaziChart) -> dict:
     for key in ("thai_yuan", "ming_gong", "shen_gong"):
         s_n, b_n = c.extras[key].split()
         tmm.append((STEMS_VI.index(s_n), BRANCHES_VI.index(b_n)))
+    # 羊刃 / 驿马 / 文昌 (八字真宗 pp.56, 72-74): tables as printed in the manual
+    LU = [2, 3, 5, 6, 5, 6, 8, 9, 11, 0]
+    REN = [3, 2, 6, 5, 6, 5, 9, 8, 0, 11]                            # 羊刃 by day stem (yin stems as the manual prints them)
+    MA = {2: 8, 6: 8, 10: 8, 8: 2, 0: 2, 4: 2, 5: 11, 9: 11, 1: 11, 11: 5, 3: 5, 7: 5}   # day branch -> 驿马 branch
+    WEN = [5, 6, 8, 9, 8, 9, 11, 0, 2, 3]                            # 文昌 by YEAR stem
+    others = [p.branch for k, p in c.pillars.items() if k != "day"]
+    tmm_b = [b for _, b in tmm]
+    ren_b, ma_b = REN[c.day_master], MA[day.branch]
+    all_pairs = [r["branches"] for r in rel.get("branch_six_combine", [])]
+    clash_pairs = [r["branches"] for r in rel.get("branch_clash", [])]
+    kong = {BRANCHES_VI.index(x) for x in c.extras["kong_wang_day"]}
+    gods_all = all_hidden_gods
     return {"bazi.hour_stem": STEMS_VI[hour.stem], "bazi.hour_stem_group": TEN_GOD_GROUP.get(hour.stem_ten_god or ""),
             "bazi.month_main_god": month.hidden[0]["ten_god"], "bazi.day_main_god": day.hidden[0]["ten_god"],
             "bazi.month_branch_hurt": bad("month"), "bazi.day_branch_hurt": bad("day"), "bazi.month_branch_combined": where("branch_six_combine", "month"),
             "bazi.month_branch_kong": "month" in c.extras.get("kong_wang_in_chart", []),
             "bazi.has_yin_shen_jia": {2, 8} <= branches and 0 in stems,
+            "bazi.ren_count": sum(1 for b in others + [day.branch] if b == ren_b), "bazi.ren_in_tmm": ren_b in tmm_b,
+            "bazi.ren_combined": any(ren_b in pr for pr in all_pairs),
+            "bazi.ren_sat_an_all": ("Thất Sát" in gods_all) and bool({"Chính Ấn", "Thiên Ấn"} & gods_all) and ren_b in others + [day.branch],
+            "bazi.ma_in_chart": ma_b in others, "bazi.ma_in_hour": hour.branch == ma_b, "bazi.ma_void": ma_b in kong and ma_b in others,
+            "bazi.ma_clashed": any(ma_b in pr for pr in clash_pairs), "bazi.ma_combined": ma_b in others and any(ma_b in pr for pr in all_pairs),
+            "bazi.wen_chang_in_chart": WEN[c.pillars["year"].stem] in others + [day.branch] + tmm_b,
+            "bazi.month_stem_hurt_god": (c.pillars["month"].stem_ten_god or "") in ("Thiên Ấn", "Thương Quan", "Thất Sát"),
             "bazi.chinh_tai_tho_can": transparent("Chính Tài"), "bazi.chinh_tai_rooted": rooted("Chính Tài"),
             "bazi.thien_tai_tho_can": transparent("Thiên Tài"), "bazi.thien_tai_rooted": rooted("Thiên Tài"),
             "bazi.no_wealth_star": not ({"Chính Tài", "Thiên Tài"} & all_hidden_gods),
