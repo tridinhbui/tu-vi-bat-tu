@@ -50,7 +50,7 @@ def test_low_discrimination_breakers_are_flagged():
 def test_disagreement_between_variants_of_the_same_formation():
     p = {k.replace("CACH_X_", ""): v for k, v in S["pairs"].items()}
     assert p["CO_NGUYET_DONG_LUONG@tt_24|CO_NGUYET_DONG_LUONG@kl_221"] == {"both_fire": 14688, "differ": 14352}      # 97.7%: TT and KL almost never agree
-    assert p["TU_PHU_DONG_CUNG@tt_22|TU_PHU_DONG_CUNG@kl_50"] == {"both_fire": 1920, "differ": 658}                    # exactly the sát-tinh breaker cases
+    assert p["TU_PHU_DONG_CUNG@tt_22|TU_PHU_DONG_CUNG@kl_50"] == {"both_fire": 1920, "differ": 1439}                    # TT: sát phá + Tả Hữu tăng thế; KL: Kình/Kỵ+Quyền, Xương Khúc, Khôi Việt, Khoa tăng thế
     assert p["MA_DAU_DOI_KIEM@kl_64_xau|MA_DAU_DOI_KIEM@kl_64_tot"] == {"both_fire": 4176, "differ": 94}
     assert p["TU_PHU_VU_TUONG@kl_132_193|TU_PHU_VU_TUONG@th_115"] == {"both_fire": 14736, "differ": 5652}
     # the three Thạch trung ẩn ngọc definitions describe nested populations (kl_58 ⊂ kl_106 ⊂ kl_44 is NOT claimed; only that they do not contradict where they overlap)

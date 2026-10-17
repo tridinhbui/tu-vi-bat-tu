@@ -36,9 +36,9 @@ def test_the_production_note_no_longer_claims_agreement_on_all_ten_stems():
 
 def test_sensitivity_of_the_variants_to_the_table():
     """Canh: the swap of Khoa/Kỵ between Thiên Đồng and Thái Âm changes no variant state (both stars sit in the Cơ Nguyệt Đồng Lương tam phương together).
-    Nhâm: Khoa on Thiên Phủ instead of Tả Phụ changes only two variants, in a minority of Nhâm-year charts."""
+    Nhâm: Khoa on Thiên Phủ instead of Tả Phụ changes only three variants, in a minority of Nhâm-year charts."""
     assert SENS["Canh|TH"]["differ"] == SENS["Canh|TT_WS"]["differ"] == {}
-    assert SENS["Nham|TH".replace("Nham", "Nhâm")]["differ"] == SENS["Nhâm|TT_WS"]["differ"] == {"NHAT_LE_TRUNG_THIEN@kl_52_85": 32, "SAT_PHA_LIEM_THAM@th_76_77": 408}
+    assert SENS["Nham|TH".replace("Nham", "Nhâm")]["differ"] == SENS["Nhâm|TT_WS"]["differ"] == {"NHAT_LE_TRUNG_THIEN@kl_52_85": 32, "SAT_PHA_LIEM_THAM@th_76_77": 408, "TU_PHU_DONG_CUNG@kl_50": 88}
     assert SENS["Nhâm|TH"]["charts"] == 16704
 
 

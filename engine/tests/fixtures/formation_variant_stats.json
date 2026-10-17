@@ -139,12 +139,15 @@
   },
   "CACH_X_TU_PHU_DONG_CUNG@kl_50": {
    "khong_hien": 115008,
-   "hinh_thuc": 1920
+   "thanh_thuong": 604,
+   "thanh": 536,
+   "hinh_thuc": 780
   },
   "CACH_X_TU_PHU_DONG_CUNG@tt_22": {
    "khong_hien": 115008,
-   "hinh_thuc": 1262,
-   "bi_pha": 658
+   "hinh_thuc": 1053,
+   "bi_pha": 658,
+   "thanh": 209
   },
   "CACH_X_TU_PHU_VU_TUONG": {
    "khong_hien": 102192,
@@ -194,7 +197,7 @@
   },
   "CACH_X_TU_PHU_DONG_CUNG@tt_22|CACH_X_TU_PHU_DONG_CUNG@kl_50": {
    "both_fire": 1920,
-   "differ": 658
+   "differ": 1439
   },
   "CACH_X_TU_PHU_VU_TUONG@kl_132_193|CACH_X_TU_PHU_VU_TUONG@th_115": {
    "both_fire": 14736,
@@ -284,7 +287,7 @@
    "variant_only": 0,
    "baseline_only": 0,
    "both_fire": 1920,
-   "differ": 1421
+   "differ": 924
   },
   "CACH_X_TU_PHU_DONG_CUNG@tt_22": {
    "variant_only": 0,

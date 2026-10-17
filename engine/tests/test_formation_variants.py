@@ -49,7 +49,8 @@ def test_contradicting_definitions_stay_separate_variants():
     assert len(cores) == 3
     tt, kl = V["CACH_X_TU_PHU_DONG_CUNG@tt_22"], V["CACH_X_TU_PHU_DONG_CUNG@kl_50"]
     assert [b.id for b in tt.breakers] == ["sat_dong_cung"] and not kl.breakers      # TT: sát phá; KL: Kình đồng cung là tăng thế
-    assert {b.id for b in kl.boosters} == {"kinh_luc_si_dong_cung", "ky_quyen_dong_cung"}
+    assert {b.id for b in kl.boosters} == {"kinh_luc_si_dong_cung", "ky_quyen_dong_cung", "xuong_khuc_hoi", "khoi_viet_hoi", "hoa_khoa_hoi"}      # + KL tr.96 boosters (Phase 8)
+    assert [b.id for b in tt.boosters] == ["ta_huu_hoi"]                                                            # TT tr.22 'toàn y Phụ Bật' (Phase 8)
 
 
 def test_tuan_triet_works_in_both_directions_without_being_merged():
@@ -95,7 +96,7 @@ def test_rule_levels_follow_each_rules_own_evidence():
                 assert d["assumption"] or d["audit_status"] not in ("khop", "viet_moi_tu_trang_sach"), (vid, key)
     # pinned (Phase 6 recount, per-rule assumptions): the old coarse figure 15 / 8 is superseded
     c = Counter(x for m in META.values() for x in m["rules"].values())
-    assert (c["doi_chieu_truc_tiep"], c["co_nguon_con_gia_dinh"], c["chua_du_nguon"]) == (10, 33, 4) and sum(c.values()) == 47
+    assert (c["doi_chieu_truc_tiep"], c["co_nguon_con_gia_dinh"], c["chua_du_nguon"]) == (10, 37, 4) and sum(c.values()) == 51
     # no variant rule is ever promoted to 'verified'
     assert "verified" not in json.dumps(META, ensure_ascii=False).replace("unverified", "")
 

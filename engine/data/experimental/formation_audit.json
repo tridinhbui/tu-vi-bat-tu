@@ -4,23 +4,23 @@
  "summary": {
   "total": 93,
   "by_status": {
-   "khop": 20,
-   "long_hon": 11,
+   "khop": 21,
+   "long_hon": 13,
    "chat_hon": 11,
-   "lien_quan": 26,
-   "khong_co_nguon": 21,
-   "khac": 4
+   "lien_quan": 25,
+   "khac": 4,
+   "khong_co_nguon": 19
   },
   "by_action": {
-   "giu_co_nguon": 21,
+   "giu_co_nguon": 24,
    "de_xuat_sua": 23,
-   "giu_gia_thuyet": 43,
+   "giu_gia_thuyet": 40,
    "khong_the_xay_ra": 4,
    "quy_uoc_thiet_ke": 2
   },
-  "authenticated_matching": 20,
-  "khop_machine_checked": 20,
-  "excluded_from_sourced": 46,
+  "authenticated_matching": 21,
+  "khop_machine_checked": 21,
+  "excluded_from_sourced": 43,
   "school_conflicts": 19,
   "design_conventions": 12
  },
@@ -358,23 +358,23 @@
    "role": "boosters",
    "id": "ta_huu_hoi",
    "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
-   "status": "lien_quan",
-   "stance": "lien_quan",
-   "action": "giu_gia_thuyet",
+   "status": "khop",
+   "stance": "ung_ho",
+   "action": "giu_co_nguon",
    "cites": [
     {
-     "id": "KL49_TV_TAHUU",
-     "book": "Tử Vi Khảo Luận",
-     "book_code": "KL",
-     "page": 49,
-     "quote": "Mệnh có Tử vi mà không có tả Hữu hội họp là ông vua cô độc",
+     "id": "TT22_TV_PHUBAT",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 22,
+     "quote": "Tử Vi Thiên Phủ toàn y phụ bật chi công",
      "quote_check": "van_ban"
     }
    ],
-   "reason": "KL p.49 nói Tử Vi cần Tả Hữu (tránh 'ông vua cô độc'), không nói riêng về Tử Phủ đồng cung (TT p.22 có câu 'Tử Vi Thiên Phủ toàn y Phụ Bật' nhưng chưa được trích ở đây)",
+   "reason": "TT p.22: 'Tử Vi Thiên Phủ toàn y Phụ Bật chi công' (Tử Vi và Thiên Phủ cần dựa vào Tả Phụ Hữu Bật mới dễ bề phú quí); phạm vi 'dựa vào' không nêu. Nguồn cùng cấu trúc (Phase 8: thay cho câu KL p.49 nói riêng về Tử Vi)",
    "school_conflict": "",
    "design_convention": "",
-   "structure_fit": "khac_cau_truc",
+   "structure_fit": "dung",
    "machine_checked": true
   },
   {
@@ -384,15 +384,24 @@
    "role": "boosters",
    "id": "xuong_khuc_hoi",
    "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
-   "status": "khong_co_nguon",
-   "stance": "khong_noi",
-   "action": "giu_gia_thuyet",
-   "cites": [],
-   "reason": "không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế",
+   "status": "long_hon",
+   "stance": "ung_ho",
+   "action": "giu_co_nguon",
+   "cites": [
+    {
+     "id": "KL96_TPDC_BOOST",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 96,
+     "quote": "Nếu Thiên phủ đi với Tử vi, Xương Khúc, Hóa khoa, Thiên việt, Thiên khôi thì rất mạnh",
+     "quote_check": "van_ban"
+    }
+   ],
+   "reason": "KL p.96: Thiên Phủ đi với Tử Vi, Xương Khúc, Hóa Khoa, Thiên Việt, Thiên Khôi thì rất mạnh; bản nháp chấp nhận một trong hai sao, phạm vi 'đi với' không nêu",
    "school_conflict": "",
    "design_convention": "",
    "structure_fit": "dung",
-   "machine_checked": false
+   "machine_checked": true
   },
   {
    "formation": "CACH_X_TU_PHU_DONG_CUNG",
@@ -401,15 +410,24 @@
    "role": "boosters",
    "id": "khoi_viet_hoi",
    "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
-   "status": "khong_co_nguon",
-   "stance": "khong_noi",
-   "action": "giu_gia_thuyet",
-   "cites": [],
-   "reason": "không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế",
+   "status": "long_hon",
+   "stance": "ung_ho",
+   "action": "giu_co_nguon",
+   "cites": [
+    {
+     "id": "KL96_TPDC_BOOST",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 96,
+     "quote": "Nếu Thiên phủ đi với Tử vi, Xương Khúc, Hóa khoa, Thiên việt, Thiên khôi thì rất mạnh",
+     "quote_check": "van_ban"
+    }
+   ],
+   "reason": "KL p.96 (như trên): Thiên Việt, Thiên Khôi; bản nháp chấp nhận một trong hai",
    "school_conflict": "",
    "design_convention": "",
    "structure_fit": "dung",
-   "machine_checked": false
+   "machine_checked": true
   },
   {
    "formation": "CACH_X_TU_PHU_DONG_CUNG",

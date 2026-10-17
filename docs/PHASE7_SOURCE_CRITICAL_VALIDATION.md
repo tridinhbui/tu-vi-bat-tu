@@ -2,12 +2,14 @@
 
 Sinh bởi `tools/build_phase7_report.py` từ các file đã ghim. **Không quy tắc nào được đóng dấu `verified`, không cách đọc nào được chọn, không giả làm ý kiến chuyên gia.** Oracle khớp sản xuất chỉ chứng minh hai bản hiện thực nhất quán; mục tiêu của Phase 7 là tìm những chỗ mà cả hai (hoặc audit) đã âm thầm giả định.
 
+> **Cập nhật Phase 8:** lỗi lịch 2033 mô tả dưới đây đã được sửa trong `lunar_vn.py` (xem PHASE8); các số về quy tắc/audit trong tài liệu này được tính lại theo dữ liệu hiện hành.
+
 ## 0. Kết quả chính
 
 1. **Tứ Hóa Nhâm-Khoa** (R05): khác biệt giữa hai dòng văn bản, không phải lỗi in một chỗ và không phải lỗi diễn giải: TH tr.20 *và* tr.21 in Thiên Phủ; KL tr.36, tr.197 in Tả Phụ; một văn bản 紫微斗數全書 số hóa độc lập cũng ghi 府. Production giữ bảng KL; ba bảng theo nguồn được lưu riêng; ghi chú sai 'agree on all ten stems' trong `tuvi.py` đã sửa (chỉ chữ, không đổi logic).
 2. **Hai breaker tỷ lệ phá cao** (R03): 82,1% và 91,7% đều đến từ ngưỡng 'một sát tinh/một trong ba' ở phạm vi tam phương. Thu hẹp phạm vi hay siết cách đọc kéo xuống 0–69%; không cách nào được chọn. Với Khôi Việt giáp Mệnh còn phát hiện thêm: các câu KL tr.62 nói về Khôi Việt Ở Mệnh, không phải giáp Mệnh (cấu trúc khác) nên ba quy tắc bị hạ xuống `chua_du_nguon`.
-3. **Đọc lại toàn đoạn** 59 câu trích khác nhau của audit (không chỉ từ khoá): 10 dòng audit có nguồn thuộc cấu trúc lân cận (chuyển về `lien_quan`), 3 dòng nói về đại tiểu hạn, bỏ sót nhiều đoạn có ích (mục 4). Số quy tắc của 17 biến thể nay là **10 đối chiếu trực tiếp / 33 có nguồn còn giả định / 4 chưa đủ nguồn** (tổng 47).
-4. **Lịch pháp**: lịch Trung Quốc của sản xuất khớp bảng Hong Kong Observatory trên 47,789 ngày (0 sai khác). Lịch Việt Nam khớp oracle amlich độc lập, trừ 4 đoạn: 3 ngày sát nửa đêm (new moon trong 40 phút sau 0h) và **một lỗi thật của sản xuất**: 2033-12-22..31 (tháng nhuận 11) bị đánh số là tháng 12. Lỗi ghi lại bằng test `xfail`, chưa sửa (ngoài phạm vi).
+3. **Đọc lại toàn đoạn** 60 câu trích khác nhau của audit (không chỉ từ khoá): 9 dòng audit có nguồn thuộc cấu trúc lân cận (chuyển về `lien_quan`), 3 dòng nói về đại tiểu hạn, bỏ sót nhiều đoạn có ích (mục 4). Số quy tắc của 17 biến thể nay là **10 đối chiếu trực tiếp / 37 có nguồn còn giả định / 4 chưa đủ nguồn** (tổng 51).
+4. **Lịch pháp**: lịch Trung Quốc của sản xuất khớp bảng Hong Kong Observatory trên 71,530 ngày (0 sai khác). Lịch Việt Nam khớp oracle amlich độc lập, trừ 4 đoạn: 3 ngày sát nửa đêm (new moon trong 40 phút sau 0h) và **một lỗi thật của sản xuất**: 2033-12-22..31 (tháng nhuận 11) bị đánh số là tháng 12. Lỗi ghi lại bằng test `xfail`, chưa sửa (ngoài phạm vi).
 5. **Oracle mở rộng**: mọi công thức an sao của oracle (Địa Kiếp/Không, Hỏa/Linh, Kình/Đà, Thiên Hình, Lực Sĩ, Thiên Mã, Lộc Tồn, Tuần, Triệt, Khôi Việt) có câu in trong Thực Hành và ví dụ minh họa của chính sách được chạy lại; thêm kiểm biên: giờ Tý, giao ngày/Tết, tháng nhuận (3 quy tắc), Lập Xuân so với Tết, múi giờ.
 
 ## 1. Ma trận 11 quy tắc cần chuyên gia
@@ -203,7 +205,7 @@ Chính các trang phân biệt đồng cung với chiếu khi cần: KL tr.62 '�
 | Tử Vi Thực Hành (Dịch Lý Huyền Cơ) | Thiên Lương · Tử Vi · Thiên Phủ · Vũ Khúc | Thái Dương · Vũ Khúc · Thiên Đồng · Thái Âm | TH in Thiên Phủ ở CẢ câu thơ lẫn văn xuôi: không thể coi là lỗi chính tả một chỗ |
 | 紫微斗數全書 bản số hóa (zh.wikisource.org/wiki/紫微斗數全書/卷二) — NGUỒN NGOÀI, không thuộc ba sách của dự án | Thiên Lương · Tử Vi · Thiên Phủ · Vũ Khúc | Thái Dương · Vũ Khúc · Thái Âm · Thiên Đồng | khác KL ở Canh (Khoa Thái Âm, Kỵ Thiên Đồng) và Nhâm (Khoa Thiên Phủ). zh.wikipedia/紫微斗數 cũng ghi hai biến thể ở đúng hai hàng này, nên đây là khác biệt giữa các văn bản truyền thống, không phải lỗi một cuốn |
 
-Độ nhạy (oracle, 16.704 lá số của hai năm Canh và hai năm Nhâm): đổi bảng Canh **không** đổi trạng thái biến thể nào; đổi Nhâm-Khoa sang Thiên Phủ đổi NHAT_LE_TRUNG_THIEN@kl_52_85: 32, SAT_PHA_LIEM_THAM@th_76_77: 408 lá số. Bảng riêng từng nguồn: `engine/data/experimental/tu_hoa_tables.json`. **Cơ chế lựa chọn đề xuất (chưa nối):** tham số `tu_hoa_table` = `KL` (mặc định hiện tại) | `TH` | `TT_WS`; kết quả luôn kèm nhãn nguồn và cảnh báo khi hai bảng cho kết quả khác nhau; không bao giờ đổi âm thầm.
+Độ nhạy (oracle, 16.704 lá số của hai năm Canh và hai năm Nhâm): đổi bảng Canh **không** đổi trạng thái biến thể nào; đổi Nhâm-Khoa sang Thiên Phủ đổi NHAT_LE_TRUNG_THIEN@kl_52_85: 32, SAT_PHA_LIEM_THAM@th_76_77: 408, TU_PHU_DONG_CUNG@kl_50: 88 lá số. Bảng riêng từng nguồn: `engine/data/experimental/tu_hoa_tables.json`. **Cơ chế lựa chọn đề xuất (chưa nối):** tham số `tu_hoa_table` = `KL` (mặc định hiện tại) | `TH` | `TT_WS`; kết quả luôn kèm nhãn nguồn và cảnh báo khi hai bảng cho kết quả khác nhau; không bao giờ đổi âm thầm.
 
 ## 3. Độ nhạy của hai breaker có tỷ lệ phá cao
 
@@ -273,14 +275,14 @@ Phase 6 chỉ kiểm câu trích có chứa từ khoá. Phase 7 đọc cả đo�
 
 ## 5. Kiểm lịch pháp độc lập
 
-Tham chiếu: bảng *Gregorian-Lunar Calendar Conversion Table* của Hong Kong Observatory 1901–2100 (UTC+8; `calendar_reference_hko.json`) và thuật toán amlich (Hồ Ngọc Đức) viết lại độc lập (`oracle_calendar_independent.py`; không import `tvbt`, không dùng `sxtwl`), được xác nhận với HKO trước khi dùng cho UTC+7. Quét 47,789 ngày 1930-03-01 → 2060-12-31:
+Tham chiếu: bảng *Gregorian-Lunar Calendar Conversion Table* của Hong Kong Observatory 1901–2100 (UTC+8; `calendar_reference_hko.json`) và thuật toán amlich (Hồ Ngọc Đức) viết lại độc lập (`oracle_calendar_independent.py`; không import `tvbt`, không dùng `sxtwl`), được xác nhận với HKO trước khi dùng cho UTC+7. Quét 71,530 ngày 1930-03-01 → 2060-12-31:
 
 | So sánh | Số ngày khác nhau | Phân loại |
 |---|---|---|
 | sản xuất `cn` (sxtwl) ↔ HKO | 0 | **khớp hoàn toàn** |
-| oracle amlich UTC+8 ↔ HKO | 4 | 4 ngày có trăng mới trong 40 phút sau nửa đêm (1939-04-19, 1947-03-22, 2009-03-26, 2054-05-07): giới hạn độ chính xác của oracle, sản xuất đúng |
-| sản xuất `vn` ↔ oracle (UTC+8 trước 1968, UTC+7 từ 1968) | 13 | 3 ngày trên (cùng ngày borderline) + **2033-12-22..31: lỗi của sản xuất** |
-| sản xuất `vn_south` ↔ oracle (UTC+8 đến 1975) | 13 | như trên |
+| oracle amlich UTC+8 ↔ HKO | 125 | 4 ngày có trăng mới trong 40 phút sau nửa đêm (1939-04-19, 1947-03-22, 2009-03-26, 2054-05-07): giới hạn độ chính xác của oracle, sản xuất đúng |
+| sản xuất `vn` ↔ oracle (UTC+8 trước 1968, UTC+7 từ 1968) | 64 | 3 ngày trên (cùng ngày borderline) + **2033-12-22..31: lỗi của sản xuất** |
+| sản xuất `vn_south` ↔ oracle (UTC+8 đến 1975) | 64 | như trên |
 
 **Lỗi lịch pháp thật (chỉ đường `vn`/`vn_south`):** 2033-12-22..31 thuộc tháng nhuận 11 (sxtwl, HKO, amlich và PyEphem đều đồng ý: tháng bắt đầu 12-22 không chứa trung khí; Đại Hàn rơi 2034-01-20), nhưng `lunar_vn.solar_to_lunar` cắt cấu trúc theo năm dương nên gán 12-22 là tháng 12 ngày 1 và 2034-01-20 lại là tháng 12 ngày 1 (hai tháng 12), cờ nhuận chỉ xuất hiện ở bên 2034. Tác động: Mệnh/Thân của người sinh trong 10 ngày này (đường lịch Việt) lệch một cung. Bằng chứng: test `xfail(strict)` + `test_the_2033_bug_is_confined_to_the_vietnamese_path_and_has_a_precise_signature`. Chưa sửa vì ngoài phạm vi và thuộc module của phiên khác; hướng sửa: tính cấu trúc theo cặp trung khí Đông chí liên tiếp thay vì `date.year`.
 
@@ -304,8 +306,8 @@ Mỗi biến thể hiển thị được: trường phái và sách; điều ki�
 |---|---|---|---|---|---|---|
 | `TU_PHU_VU_TUONG@kl_132_193` | Tử Vi Khảo Luận · KL tr.132, KL tr.193, KL tr.222, TH tr.72 | 0 | 4 | 0 | 12.6% | th_115 (5,652/14,736) |
 | `TU_PHU_VU_TUONG@th_115` | Tử Vi Thực Hành · TH tr.115, TH tr.72, TH tr.94, TH tr.95 | 0 | 4 | 0 | 12.6% | kl_132_193 (5,652/14,736) |
-| `TU_PHU_DONG_CUNG@tt_22` | Tử Vi Đẩu Số Toàn Thư · KL tr.55, TH tr.72, TT tr.22 | 0 | 3 | 0 | 1.64% | kl_50 (658/1,920) |
-| `TU_PHU_DONG_CUNG@kl_50` | Tử Vi Khảo Luận · KL tr.50, KL tr.55, TH tr.72 | 3 | 1 | 0 | 1.64% | tt_22 (658/1,920) |
+| `TU_PHU_DONG_CUNG@tt_22` | Tử Vi Đẩu Số Toàn Thư · KL tr.55, TH tr.72, TT tr.22 | 0 | 4 | 0 | 1.64% | kl_50 (1,439/1,920) |
+| `TU_PHU_DONG_CUNG@kl_50` | Tử Vi Khảo Luận · KL tr.50, KL tr.55, KL tr.96, TH tr.72 | 3 | 4 | 0 | 1.64% | tt_22 (1,439/1,920) |
 | `CO_NGUYET_DONG_LUONG@tt_24` | Tử Vi Đẩu Số Toàn Thư · TH tr.77, TT tr.24 | 0 | 4 | 0 | 12.56% | kl_221 (14,352/14,688) |
 | `CO_NGUYET_DONG_LUONG@kl_221` | Tử Vi Khảo Luận · KL tr.221, KL tr.51 | 0 | 3 | 0 | 12.56% | tt_24 (14,352/14,688) |
 | `SAT_PHA_LIEM_THAM@th_76_77` | Tử Vi Thực Hành · TH tr.116, TH tr.72, TH tr.76, TH tr.77 | 0 | 1 | 2 | 25.08% | — |

@@ -173,7 +173,20 @@
    "definition_version": 1,
    "provenance": "Biến thể theo Tử Vi Đẩu Số Toàn Thư: TT: vô sát tấu mới hưởng phúc. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
    "note": "Đối lập với bản KL p.50. Hai bản KHÔNG được hợp nhất: TT coi sát tinh là phá, KL coi Kình Dương đồng cung vẫn giàu.",
-   "boosters": [],
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    }
+   ],
    "breakers": [
     {
      "id": "sat_dong_cung",
@@ -236,6 +249,39 @@
    "provenance": "Biến thể theo Tử Vi Khảo Luận: KL: Kình Dương hoặc Kỵ + Quyền đồng cung vẫn tốt. Đối chiếu trang sách đọc trực tiếp (xem formation_audit.json).",
    "note": "Ngược với TT p.22: ở đây Kình Dương/Kỵ đồng cung là yếu tố tăng thế, không phải phá.",
    "boosters": [
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    },
+    {
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    },
+    {
+     "id": "hoa_khoa_hoi",
+     "label": "Hóa Khoa hội trong tam phương (KL tr.96: Thiên Phủ đi với Tử Vi, Xương Khúc, Hóa Khoa, Khôi Việt thì rất mạnh)",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     }
+    },
     {
      "id": "kinh_luc_si_dong_cung",
      "label": "Kình Dương và Lực Sĩ đồng cung với Tử Phủ (buôn bán giàu có, KL tr.50)",
@@ -1463,6 +1509,14 @@
      "read": "van_ban"
     },
     {
+     "id": "TT22_TV_PHUBAT",
+     "book": "Tử Vi Đẩu Số Toàn Thư",
+     "book_code": "TT",
+     "page": 22,
+     "quote": "Tử Vi Thiên Phủ toàn y phụ bật chi công",
+     "read": "van_ban"
+    },
+    {
      "id": "KL55_TP_TUAN",
      "book": "Tử Vi Khảo Luận",
      "book_code": "KL",
@@ -1473,11 +1527,14 @@
    ],
    "readings": [
     "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh; TT tr.22 còn nhắc Tỵ/Hợi mà mô hình không có Tử Phủ đồng cung ở đó",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; câu TT là 'dựa vào', bản dịch ghi 'cần dựa vào hai sao'",
     "'gặp sát tinh' đọc là đồng cung (cách hẹp nhất); tập sáu sát tinh là của baseline",
     "nguồn là KL, không phải TT; TT tr.22/tr.160 cùng ý 'hiềm Triệt Tuần' nhưng chưa trích"
    ],
    "kept": {
-    "boosters": [],
+    "boosters": [
+     "ta_huu_hoi"
+    ],
     "breakers": [
      "sat_dong_cung"
     ],
@@ -1487,11 +1544,6 @@
     ]
    },
    "dropped": [
-    {
-     "role": "boosters",
-     "id": "ta_huu_hoi",
-     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Đẩu Số Toàn Thư (xem audit); chỉ còn ở giả thuyết gốc"
-    },
     {
      "role": "boosters",
      "id": "xuong_khuc_hoi",
@@ -1522,6 +1574,7 @@
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
     "core": "co_nguon_con_gia_dinh",
+    "boosters.ta_huu_hoi": "co_nguon_con_gia_dinh",
     "breakers.sat_dong_cung": "co_nguon_con_gia_dinh",
     "refutations.tuan_triet_an_ngu": "co_nguon_con_gia_dinh"
    },
@@ -1534,6 +1587,14 @@
      ],
      "assumption": "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh; TT tr.22 còn nhắc Tỵ/Hợi mà mô hình không có Tử Phủ đồng cung ở đó",
      "audit_status": "chat_hon"
+    },
+    "boosters.ta_huu_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "TT22_TV_PHUBAT"
+     ],
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; câu TT là 'dựa vào', bản dịch ghi 'cần dựa vào hai sao'",
+     "audit_status": "khop"
     },
     "breakers.sat_dong_cung": {
      "level": "co_nguon_con_gia_dinh",
@@ -1585,6 +1646,14 @@
      "read": "van_ban"
     },
     {
+     "id": "KL96_TPDC_BOOST",
+     "book": "Tử Vi Khảo Luận",
+     "book_code": "KL",
+     "page": 96,
+     "quote": "Nếu Thiên phủ đi với Tử vi, Xương Khúc, Hóa khoa, Thiên việt, Thiên khôi thì rất mạnh",
+     "read": "van_ban"
+    },
+    {
      "id": "KL50_TP_KY",
      "book": "Tử Vi Khảo Luận",
      "book_code": "KL",
@@ -1594,10 +1663,16 @@
     }
    ],
    "readings": [
-    "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh"
+    "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói 'Xương Khúc', baseline chấp nhận một trong hai",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói 'Thiên Việt, Thiên Khôi', baseline chấp nhận một trong hai",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; 'đi với Hóa Khoa' được đọc là Hóa Khoa trong tam phương"
    ],
    "kept": {
     "boosters": [
+     "xuong_khuc_hoi",
+     "khoi_viet_hoi",
+     "hoa_khoa_hoi",
      "kinh_luc_si_dong_cung",
      "ky_quyen_dong_cung"
     ],
@@ -1611,16 +1686,6 @@
     {
      "role": "boosters",
      "id": "ta_huu_hoi",
-     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
-    },
-    {
-     "role": "boosters",
-     "id": "xuong_khuc_hoi",
-     "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
-    },
-    {
-     "role": "boosters",
-     "id": "khoi_viet_hoi",
      "reason": "baseline chưa có nguồn đúng vai trò này trong bản Tử Vi Khảo Luận (xem audit); chỉ còn ở giả thuyết gốc"
     },
     {
@@ -1648,7 +1713,10 @@
    "rescuers": "không có: không nguồn nào nói sao nào cứu cách nào",
    "rules": {
     "core": "co_nguon_con_gia_dinh",
+    "boosters.xuong_khuc_hoi": "co_nguon_con_gia_dinh",
+    "boosters.khoi_viet_hoi": "co_nguon_con_gia_dinh",
     "refutations.tuan_triet_an_ngu": "doi_chieu_truc_tiep",
+    "boosters.hoa_khoa_hoi": "co_nguon_con_gia_dinh",
     "boosters.kinh_luc_si_dong_cung": "doi_chieu_truc_tiep",
     "boosters.ky_quyen_dong_cung": "doi_chieu_truc_tiep"
    },
@@ -1662,6 +1730,22 @@
      "assumption": "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh",
      "audit_status": "chat_hon"
     },
+    "boosters.xuong_khuc_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL96_TPDC_BOOST"
+     ],
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói 'Xương Khúc', baseline chấp nhận một trong hai",
+     "audit_status": "long_hon"
+    },
+    "boosters.khoi_viet_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL96_TPDC_BOOST"
+     ],
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói 'Thiên Việt, Thiên Khôi', baseline chấp nhận một trong hai",
+     "audit_status": "long_hon"
+    },
     "refutations.tuan_triet_an_ngu": {
      "level": "doi_chieu_truc_tiep",
      "cites": [
@@ -1669,6 +1753,14 @@
      ],
      "assumption": null,
      "audit_status": "khop"
+    },
+    "boosters.hoa_khoa_hoi": {
+     "level": "co_nguon_con_gia_dinh",
+     "cites": [
+      "KL96_TPDC_BOOST"
+     ],
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; 'đi với Hóa Khoa' được đọc là Hóa Khoa trong tam phương",
+     "audit_status": "viet_moi_tu_trang_sach"
     },
     "boosters.kinh_luc_si_dong_cung": {
      "level": "doi_chieu_truc_tiep",

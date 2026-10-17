@@ -5,12 +5,12 @@ Tài liệu sinh bởi `tools/build_formation_audit.py` từ `engine/data/experi
 ## 1. Tổng kết
 
 - Tổng số điều kiện: **93**
-- Khớp nguồn (nguồn nói đúng vai trò này): **20**
-- Có nguồn một phần nhưng định nghĩa nháp lỏng hơn / chặt hơn: **11 / 11**
+- Khớp nguồn (nguồn nói đúng vai trò này): **21**
+- Có nguồn một phần nhưng định nghĩa nháp lỏng hơn / chặt hơn: **13 / 11**
 - Khác hoặc ngược nguồn: **4**
-- Chỉ liên quan (nguồn nói về sao đó nhưng không đúng vai trò): **26**
-- Chưa tìm được nguồn: **21**
-- Bị loại khỏi định nghĩa 'có nguồn' (giữ như giả thuyết riêng hoặc không thể xảy ra): **46**
+- Chỉ liên quan (nguồn nói về sao đó nhưng không đúng vai trò): **25**
+- Chưa tìm được nguồn: **19**
+- Bị loại khỏi định nghĩa 'có nguồn' (giữ như giả thuyết riêng hoặc không thể xảy ra): **43**
 - Đề xuất sửa định nghĩa (chuyển cho chủ định nghĩa, chưa áp dụng): **23**
 - Quy ước thiết kế được gắn nhãn: **12**; bất đồng giữa trường phái được nêu: **19**
 
@@ -37,9 +37,9 @@ Tài liệu sinh bởi `tools/build_formation_audit.py` từ `engine/data/experi
 | Vai trò | Điều kiện | Mức khớp | Nguồn · trang · trích | Lý do | Xử lý |
 |---|---|---|---|---|---|
 | lõi | `core` — Điều kiện lõi | Chặt hơn nguồn | TH p.72 (van_ban): “Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân)”<br>TT p.22 (van_ban): “Tử Phủ đồng cung vô sát tấu” | TH p.72 mục 1: đóng ở Mệnh HAY Thân; bản nháp chỉ neo ở Mệnh. TT p.22 còn nhắc cả Tỵ/Hợi nơi mô hình không có Tử Phủ đồng cung (bất đồng nguồn); **trường phái:** TT p.22 nói Tử Phủ đồng cung ở Tỵ/Hợi; mô hình (và KL p.49) chỉ có ở Dần/Thân | đề xuất sửa |
-| tăng thế | `ta_huu_hoi` — Tả Phụ, Hữu Bật cùng hội trong tam phương | Chỉ liên quan | KL p.49 (van_ban): “Mệnh có Tử vi mà không có tả Hữu hội họp là ông vua cô độc” | KL p.49 nói Tử Vi cần Tả Hữu (tránh 'ông vua cô độc'), không nói riêng về Tử Phủ đồng cung (TT p.22 có câu 'Tử Vi Thiên Phủ toàn y Phụ Bật' nhưng chưa được trích ở đây) | giữ như giả thuyết |
-| tăng thế | `xuong_khuc_hoi` — Văn Xương hoặc Văn Khúc hội trong tam phương | Chưa có nguồn | — | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế | giữ như giả thuyết |
-| tăng thế | `khoi_viet_hoi` — Thiên Khôi hoặc Thiên Việt hội trong tam phương | Chưa có nguồn | — | không tìm thấy trang sách nói điều này trong vai trò đó; giữ làm giả thuyết thiết kế | giữ như giả thuyết |
+| tăng thế | `ta_huu_hoi` — Tả Phụ, Hữu Bật cùng hội trong tam phương | Khớp | TT p.22 (van_ban): “Tử Vi Thiên Phủ toàn y phụ bật chi công” | TT p.22: 'Tử Vi Thiên Phủ toàn y Phụ Bật chi công' (Tử Vi và Thiên Phủ cần dựa vào Tả Phụ Hữu Bật mới dễ bề phú quí); phạm vi 'dựa vào' không nêu. Nguồn cùng cấu trúc (Phase 8: thay cho câu KL p.49 nói riêng về Tử Vi) | giữ (có nguồn) |
+| tăng thế | `xuong_khuc_hoi` — Văn Xương hoặc Văn Khúc hội trong tam phương | Lỏng hơn nguồn | KL p.96 (van_ban): “Nếu Thiên phủ đi với Tử vi, Xương Khúc, Hóa khoa, Thiên việt, Thiên khôi thì rất mạnh” | KL p.96: Thiên Phủ đi với Tử Vi, Xương Khúc, Hóa Khoa, Thiên Việt, Thiên Khôi thì rất mạnh; bản nháp chấp nhận một trong hai sao, phạm vi 'đi với' không nêu | giữ (có nguồn) |
+| tăng thế | `khoi_viet_hoi` — Thiên Khôi hoặc Thiên Việt hội trong tam phương | Lỏng hơn nguồn | KL p.96 (van_ban): “Nếu Thiên phủ đi với Tử vi, Xương Khúc, Hóa khoa, Thiên việt, Thiên khôi thì rất mạnh” | KL p.96 (như trên): Thiên Việt, Thiên Khôi; bản nháp chấp nhận một trong hai | giữ (có nguồn) |
 | phá | `sat_dong_cung` — sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh | Khác/ngược nguồn | TT p.22 (van_ban): “Tử Phủ đồng cung vô sát tấu”<br>KL p.50 (van_ban): “Tử vi, Thiên phủ đồng cung với Kình dương, lực sĩ thì buôn bán giàu có” | TT p.22: Tử Phủ đồng cung 'vô sát tấu' mới hưởng phúc (ủng hộ); nhưng KL p.50 nói Tử Phủ đồng cung với Kình Dương thì buôn bán giàu có (ngược lại); **trường phái:** TT p.22 (sát tinh làm hỏng) trái KL p.50 (Kình Dương đồng cung vẫn giàu) | đề xuất sửa |
 | phá | `ky_dong_cung` — Hóa Kỵ đồng cung với Mệnh | Khác/ngược nguồn | KL p.50 (van_ban): “Mệnh ở Dần có Hoá kỵ, Hóa quyền đồng cung với Tử Phủ là người mưu cơ tài trí” | KL p.50: Tử Phủ cùng Hóa Kỵ, Hóa Quyền ở Dần là người mưu cơ tài trí; không coi Kỵ là yếu tố phá | đề xuất sửa |
 | cứu | `khoa_dong_cung` — Hóa Khoa đồng cung với Mệnh (giải Kỵ) | Chỉ liên quan | KL p.132 (van_ban): “Hóa khoa, một sao Đại cứu giải” | sách chỉ nói Hóa Khoa là sao giải nói chung (KL p.132), không nói Khoa có quyền cứu riêng cách cục này; không suy ra quyền cứu cách cục từ một đoạn khen sao tốt | giữ như giả thuyết |

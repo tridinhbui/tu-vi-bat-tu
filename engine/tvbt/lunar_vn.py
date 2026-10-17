@@ -26,7 +26,9 @@ def _day_number(jd_utc: float, tz_hours: float) -> int:
 
 @lru_cache(maxsize=None)
 def _structure(year: int, tz_hours: float):
-    moons = sorted({_day_number(j, tz_hours) for j in astro.new_moons(year)})
+    # new_moons(y) spans Oct(y-1)..Mar(y+1); a date in December of `year` needs the NEXT winter-solstice month as the end of its interval, so the window must reach
+    # Dec(year+1) (Phase 8: with the old one-year window 2033-12-22..31 lost its leap month 11)
+    moons = sorted({_day_number(j, tz_hours) for y in (year, year + 1) for j in astro.new_moons(y)})
     terms = astro.all_terms_around(year)
     zhongqi_days = sorted((_day_number(jd, tz_hours), idx) for idx, jd in terms if idx % 2 == 0)
     return moons, zhongqi_days, [d for d, idx in zhongqi_days if idx == 0]

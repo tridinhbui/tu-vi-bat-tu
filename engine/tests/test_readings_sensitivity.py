@@ -66,7 +66,7 @@ def test_f_tuan_triet_and_thach_trung():
 
 def test_e_mechanics_thresholds_change_some_states_but_never_reorder_them():
     assert D["E"]["CACH_X_TU_PHU_VU_TUONG@kl_132_193|thuong1|drop1"] > 0 and D["E"]["CACH_X_TU_PHU_VU_TUONG@kl_132_193|thuong3|drop1"] > 0
-    assert "CACH_X_TU_PHU_DONG_CUNG@tt_22|thuong1|drop1" not in {k for k, v in D["E"].items() if v}      # no boosters -> no sensitivity
+    assert "CACH_X_THACH_TRUNG_AN_NGOC@kl_44|thuong1|drop1" not in {k for k, v in D["E"].items() if v}      # no boosters -> no sensitivity
 
 
 def test_j_tam_ky_breaker_reading_of_chieu():

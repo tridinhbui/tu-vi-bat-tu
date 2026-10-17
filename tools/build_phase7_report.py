@@ -32,6 +32,7 @@ def main():
     L = ["# Phase 7 — Kiểm chứng nguồn có phê phán (source-critical) cho 17 biến thể cách cục Tử Vi (bản nháp)", "",
          "Sinh bởi `tools/build_phase7_report.py` từ các file đã ghim. **Không quy tắc nào được đóng dấu `verified`, không cách đọc nào được chọn, không giả làm ý kiến chuyên gia.** "
          "Oracle khớp sản xuất chỉ chứng minh hai bản hiện thực nhất quán; mục tiêu của Phase 7 là tìm những chỗ mà cả hai (hoặc audit) đã âm thầm giả định.", "",
+         "> **Cập nhật Phase 8:** lỗi lịch 2033 mô tả dưới đây đã được sửa trong `lunar_vn.py` (xem PHASE8); các số về quy tắc/audit trong tài liệu này được tính lại theo dữ liệu hiện hành.", "",
          "## 0. Kết quả chính", "",
          f"1. **Tứ Hóa Nhâm-Khoa** (R05): khác biệt giữa hai dòng văn bản, không phải lỗi in một chỗ và không phải lỗi diễn giải: TH tr.20 *và* tr.21 in Thiên Phủ; KL tr.36, tr.197 in Tả Phụ; một văn bản 紫微斗數全書 số hóa độc lập cũng ghi 府. "
          "Production giữ bảng KL; ba bảng theo nguồn được lưu riêng; ghi chú sai 'agree on all ten stems' trong `tuvi.py` đã sửa (chỉ chữ, không đổi logic).",

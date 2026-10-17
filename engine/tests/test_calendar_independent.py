@@ -49,41 +49,60 @@ def test_oracle_day_pillar_and_year_pillar_anchor_points():
 
 
 # ---- production vs the references ---------------------------------------------------------------------------------------------------------
-def test_pinned_full_day_scan_1930_2060():
-    assert CMP["days"] == 47789
-    assert CMP["counts"]["cn_vs_hko"] == 0                     # production's Chinese calendar (sxtwl) == HKO on every day
-    assert CMP["counts"]["oracle8_vs_hko"] == 4                # the amlich approximation fails on exactly four borderline days (below)
-    assert CMP["spans"]["oracle8_vs_hko"] == [[x, x] for x in ("1939-04-19", "1947-03-22", "2009-03-26", "2054-05-07")]
-    assert CMP["spans"]["vn_vs_oracle"] == CMP["spans"]["vn_south_vs_oracle"] == [["1939-04-19", "1939-04-19"], ["1947-03-22", "1947-03-22"], ["2033-12-22", "2033-12-31"], ["2054-05-07", "2054-05-07"]]
+def test_pinned_full_day_scan_1903_2098():
+    assert CMP["days"] == 71530 and CMP["range"] == ["1903-03-01", "2098-12-31"]
+    assert CMP["counts"]["cn_vs_hko"] == 0                     # production's Chinese calendar (sxtwl) == HKO on every one of 71,530 days
+    # the amlich oracle itself disagrees with HKO on: 1914/1916/1920 (before the 1929 time standard, China used local mean time) and on single borderline new moons
+    pre1929 = {("1914-11-17", "1914-12-16"), ("1916-02-03", "1916-03-03"), ("1920-11-10", "1920-12-09")}
+    assert {tuple(x) for x in CMP["spans"]["oracle8_vs_hko"]} - pre1929 == {("1939-04-19",) * 2, ("1947-03-22",) * 2, ("2009-03-26",) * 2, ("2054-05-07",) * 2, ("2062-04-09",) * 2, ("2097-08-07", "2097-09-05")}
+    assert CMP["spans"]["vn_vs_oracle"] == CMP["spans"]["vn_south_vs_oracle"] == [["1939-04-19", "1939-04-19"], ["1947-03-22", "1947-03-22"], ["2054-05-07", "2054-05-07"],
+                                                                                  ["2062-04-09", "2062-04-09"], ["2072-12-09", "2073-01-07"], ["2077-11-15", "2077-12-14"]]
+    # the 2033 leap-month defect (Phase 7) no longer appears in any span
+    assert not any(x[0] <= "2033-12-31" and x[1] >= "2033-12-22" for x in CMP["spans"]["vn_vs_oracle"])
 
 
-def test_the_single_day_disagreements_are_borderline_new_moons_not_production_errors():
-    """PyEphem: each of these new moons falls within 40 minutes after local midnight, so the civil month start depends on sub-hour accuracy; production equals HKO there."""
+@pytest.mark.parametrize("start", ["1939-04-19", "1947-03-22", "2054-05-07", "2062-04-09", "2072-12-09", "2077-11-15"])
+def test_every_remaining_vn_disagreement_starts_on_a_borderline_new_moon(start):
+    """PyEphem new moon within 45 minutes of the local midnight that decides the civil month start (the 2072/2077 cases are 1-2 minutes BEFORE midnight, a predicted-ΔT-sensitive
+    instant). Production agrees with PyEphem; the amlich series is the approximate one."""
     ephem = pytest.importorskip("ephem")
-    for ymd, tz in (("1939/04/10", 8), ("1947/03/12", 8), ("2009/03/16", 8), ("2054/04/28", 7)):
-        t = ephem.Date(ephem.next_new_moon(ymd)).datetime() + dt.timedelta(hours=tz)
-        assert t.hour == 0 and t.minute < 40, (ymd, t)
-    for d in (dt.date(1939, 4, 19), dt.date(1947, 3, 22), dt.date(2009, 3, 26)):
-        n = prod(d, "cn").lunar
-        assert (n.day, n.month, n.is_leap) == hko_lunar(d)
+    d = dt.date.fromisoformat(start)
+    tz = 8 if d.year < 1968 else 7
+    t = ephem.Date(ephem.next_new_moon(f"{d.year}/{d.month}/{max(1, d.day - 9) if d.day > 9 else 1}")).datetime() + dt.timedelta(hours=tz)
+    near_midnight = min(abs((t - t.replace(hour=0, minute=0, second=0)).total_seconds()), abs((t.replace(hour=0, minute=0, second=0) + dt.timedelta(days=1) - t).total_seconds())) / 60
+    assert near_midnight < 45, (start, t, near_midnight)
 
 
-@pytest.mark.xfail(strict=True, reason="calendar bug (lunar_vn.solar_to_lunar splits on the Gregorian year): 2033-12-22..31 should be leap month 11 like sxtwl, HKO and the amlich oracle; "
-                                       "recorded for the module owner, NOT fixed in Phase 7 (calendar logic is out of scope)")
 def test_vn_calendar_2033_leap_month_11_at_the_year_end():
+    """Phase 8 fix (lunar_vn window now reaches the next winter): 2033-12-22..31 are leap month 11, like sxtwl, HKO, the amlich oracle and PyEphem."""
     for d in range(22, 32):
         n = prod(dt.date(2033, 12, d), "vn").lunar
-        assert (n.day, n.month, n.is_leap) == (d - 21, 11, True)
+        assert (n.day, n.month, n.is_leap) == (d - 21, 11, True), d
+    assert (lambda n: (n.day, n.month, n.is_leap))(prod(dt.date(2034, 1, 20), "vn").lunar) == (1, 12, False)
 
 
-def test_the_2033_bug_is_confined_to_the_vietnamese_path_and_has_a_precise_signature():
-    """the same days are right in the Chinese path and in January 2034: the Vietnamese path numbers 2033-12-22 as month 12 and 2034-01-20 as month 12 again (two month 12s)."""
-    assert hko_lunar(dt.date(2033, 12, 22)) == (1, 11, True)
-    assert (lambda n: (n.day, n.month, n.is_leap))(prod(dt.date(2033, 12, 22), "cn").lunar) == (1, 11, True)
-    v = prod(dt.date(2033, 12, 22), "vn").lunar
-    assert (v.day, v.month, v.is_leap) == (1, 12, False)
-    assert (lambda n: (n.day, n.month))(prod(dt.date(2034, 1, 20), "vn").lunar) == (1, 12)
-    assert (lambda n: (n.day, n.month, n.is_leap))(prod(dt.date(2034, 1, 19), "vn").lunar) == (29, 11, True)   # the leap flag appears only on the 2034 side
+@pytest.mark.parametrize("tz", [7.0, 8.0])
+def test_year_end_windows_have_consecutive_month_numbering_1950_2100(tz):
+    """structural invariant that would have caught the 2033 defect: across Dec 10 .. Jan 31 every day either continues its month or starts the next one (same number only for
+    the leap pair, otherwise +1 mod 12) — no duplicated month numbers."""
+    from tvbt import lunar_vn
+    bad = []
+    for y in range(1950, 2100):
+        d, prev = dt.date(y, 12, 10), None
+        while d <= dt.date(y + 1, 1, 31):
+            day, month, ly, leap = lunar_vn.solar_to_lunar(d, tz)
+            if prev:
+                pd, pm, pl, pleap = prev
+                if day == pd + 1:
+                    ok = (month, leap) == (pm, pleap)
+                else:
+                    ok = day == 1 and pd in (29, 30) and ((month, leap) == (pm, True) and not pleap or (month == pm % 12 + 1 and not leap) or (month == pm and leap and not pleap))
+                    ok = ok or (day == 1 and pd in (29, 30) and pleap and month == pm % 12 + 1 and not leap)
+                if not ok:
+                    bad.append((d.isoformat(), prev, (day, month, leap)))
+            prev = (day, month, leap, leap)
+            d += dt.timedelta(days=1)
+    assert bad == [], bad[:4]
 
 
 def test_the_rule_for_the_vietnamese_utc_offset_is_visible_in_1968():

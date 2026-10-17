@@ -4,7 +4,7 @@ Sinh bởi `tools/build_formation_report6.py` từ dữ liệu đã ghim (audit,
 
 ## 1. Chốt provenance (đếm lại sau khi thêm cờ giả định từng quy tắc)
 
-Tổng **47** quy tắc trong 17 biến thể: **10** `doi_chieu_truc_tiep`, **33** `co_nguon_con_gia_dinh`, **4** `chua_du_nguon`. Con số 15 xuất hiện trong tin nhắn bàn giao Phase 5 (đếm trước khi thêm cờ giả định) không khớp file đã commit, vốn ghi 8 `doi_chieu_truc_tiep`; cả hai **đã bị thay thế** bởi số trên, tính theo từng quy tắc sau khi cờ giả định được gắn cho từng quy tắc và một trích dẫn sai chủ đề của audit (KL tr.221, Cơ Nguyệt Đồng Lương) được sửa.
+Tổng **51** quy tắc trong 17 biến thể: **10** `doi_chieu_truc_tiep`, **37** `co_nguon_con_gia_dinh`, **4** `chua_du_nguon`. Con số 15 xuất hiện trong tin nhắn bàn giao Phase 5 (đếm trước khi thêm cờ giả định) không khớp file đã commit, vốn ghi 8 `doi_chieu_truc_tiep`; cả hai **đã bị thay thế** bởi số trên, tính theo từng quy tắc sau khi cờ giả định được gắn cho từng quy tắc và một trích dẫn sai chủ đề của audit (KL tr.221, Cơ Nguyệt Đồng Lương) được sửa.
 
 - `doi_chieu_truc_tiep`: mọi trích dẫn của quy tắc được máy so với văn bản trang, câu sách đã xác định phạm vi, không có giả định của mô hình.
 - `co_nguon_con_gia_dinh`: có trang sách nói đúng chủ đề nhưng còn giả định (phạm vi, ngưỡng, tập sao, một-trong-các-sao).
@@ -14,8 +14,8 @@ Tổng **47** quy tắc trong 17 biến thể: **10** `doi_chieu_truc_tiep`, **3
 |---|---|---|---|---|
 | `TU_PHU_VU_TUONG@kl_132_193` | KL tr.132, KL tr.193, KL tr.222, TH tr.72 | 0 | 4 | 0 |
 | `TU_PHU_VU_TUONG@th_115` | TH tr.115, TH tr.72, TH tr.94, TH tr.95 | 0 | 4 | 0 |
-| `TU_PHU_DONG_CUNG@tt_22` | KL tr.55, TH tr.72, TT tr.22 | 0 | 3 | 0 |
-| `TU_PHU_DONG_CUNG@kl_50` | KL tr.50, KL tr.55, TH tr.72 | 3 | 1 | 0 |
+| `TU_PHU_DONG_CUNG@tt_22` | KL tr.55, TH tr.72, TT tr.22 | 0 | 4 | 0 |
+| `TU_PHU_DONG_CUNG@kl_50` | KL tr.50, KL tr.55, KL tr.96, TH tr.72 | 3 | 4 | 0 |
 | `CO_NGUYET_DONG_LUONG@tt_24` | TH tr.77, TT tr.24 | 0 | 4 | 0 |
 | `CO_NGUYET_DONG_LUONG@kl_221` | KL tr.221, KL tr.51 | 0 | 3 | 0 |
 | `SAT_PHA_LIEM_THAM@th_76_77` | TH tr.116, TH tr.72, TH tr.76, TH tr.77 | 0 | 1 | 2 |
@@ -97,7 +97,7 @@ Tổng: 4 mở rộng, 2 thu hẹp, 2 thay bằng, 1 giữ, **10 bỏ** (chủ y
 | THACH_TRUNG_AN_NGOC | `kl_44` vs `kl_106` | 0/696 (0.0%) |
 | THACH_TRUNG_AN_NGOC | `kl_44` vs `kl_58` | 0/32 (0.0%) |
 | THACH_TRUNG_AN_NGOC | `kl_58` vs `kl_106` | 0/32 (0.0%) |
-| TU_PHU_DONG_CUNG | `tt_22` vs `kl_50` | 658/1,920 (34.3%) |
+| TU_PHU_DONG_CUNG | `tt_22` vs `kl_50` | 1,439/1,920 (74.9%) |
 | TU_PHU_VU_TUONG | `kl_132_193` vs `th_115` | 5,652/14,736 (38.4%) |
 
 - **Cơ Nguyệt Đồng Lương**: TT tr.24 (Kiếp, Không, Kị trong tam hợp xung chiếu thì hạ cách) và KL tr.221 (không nêu yếu tố phá) khác nhau ở 97,7% lá số cả hai cùng nhận. Đây là bất đồng thật giữa hai sách, không phải lỗi mô hình.
@@ -154,8 +154,8 @@ Tỷ lệ kích hoạt = lõi đúng / tổng. Tỷ lệ bị phá = `bị phá`
 | `THACH_TRUNG_AN_NGOC@kl_106` | 0.60% | 0.0% (0 do thiết kế: không breaker) | hinh_thuc 696 | 1,032 | 116/696 |
 | `THACH_TRUNG_AN_NGOC@kl_44` | 1.48% | 0.0% (0 do thiết kế: không breaker) | hinh_thuc 1,728 | 0 | 756/1,728 |
 | `THACH_TRUNG_AN_NGOC@kl_58` | 0.03% | 0.0% (0 do thiết kế: không breaker) | hinh_thuc 32 | 1,696 | 32/32 |
-| `TU_PHU_DONG_CUNG@kl_50` | 1.64% | 0.0% (0 do thiết kế: không breaker) | hinh_thuc 1,920 | 0 | 1,421/1,920 |
-| `TU_PHU_DONG_CUNG@tt_22` | 1.64% | 34.3% | hinh_thuc 1,262, bi_pha 658 | 0 | 763/1,920 |
+| `TU_PHU_DONG_CUNG@kl_50` | 1.64% | 0.0% (0 do thiết kế: không breaker) | thanh_thuong 604, thanh 536, hinh_thuc 780 | 0 | 924/1,920 |
+| `TU_PHU_DONG_CUNG@tt_22` | 1.64% | 34.3% | hinh_thuc 1,053, bi_pha 658, thanh 209 | 0 | 763/1,920 |
 | `TU_PHU_VU_TUONG@kl_132_193` | 12.60% | 0.0% (0 do thiết kế: không breaker) | thanh 4,200, thanh_thuong 1,744, hinh_thuc 8,792 | 0 | 9,466/14,736 |
 | `TU_PHU_VU_TUONG@th_115` | 12.60% | 0.0% (0 do thiết kế: không breaker) | thanh 4,788, thanh_thuong 688, hinh_thuc 9,260 | 0 | 10,389/14,736 |
 

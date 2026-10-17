@@ -35,8 +35,8 @@ def orc(d, tz):
 
 
 bad = {"cn_vs_hko": [], "oracle8_vs_hko": [], "vn_vs_oracle": [], "vn_south_vs_oracle": []}
-d, n = dt.date(1930, 3, 1), 0
-while d <= dt.date(2060, 12, 31):
+d, n = dt.date(1903, 3, 1), 0
+while d <= dt.date(2098, 12, 31):
     n += 1
     h = hko(d)
     if prod(d, "cn") != h:
@@ -63,5 +63,5 @@ def spans(l):
 
 
 (ROOT / "engine/tests/fixtures/calendar_comparison.json").write_text(json.dumps(
-    {"days": n, "range": ["1930-03-01", "2060-12-31"], "counts": {k: len(v) for k, v in bad.items()}, "spans": {k: spans(v) for k, v in bad.items()}}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    {"days": n, "range": ["1903-03-01", "2098-12-31"], "counts": {k: len(v) for k, v in bad.items()}, "spans": {k: spans(v) for k, v in bad.items()}}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 print(n, {k: len(v) for k, v in bad.items()})

@@ -151,7 +151,7 @@ def test_committed_audit_records_how_each_quote_was_checked():
     s = AUDIT["summary"]
     n = sum(1 for r in ROWS for c in r["cites"] if c["quote_check"] == "van_ban")
     img = {(c["book_code"], c["page"]) for r in ROWS for c in r["cites"] if c["quote_check"] == "anh_doc_ro"}
-    assert n == 97 and img == {("TH", 72)}                 # TH tr.74 is machine-checkable now; TH tr.72 items 4 and 12 are legible only in the page image
+    assert n == 99 and img == {("TH", 72)}                 # TH tr.74 is machine-checkable now; TH tr.72 items 4 and 12 are legible only in the page image
     assert s["khop_machine_checked"] == sum(1 for r in ROWS if r["status"] == "khop" and r["machine_checked"])
     for r in ROWS:
         if r["status"] == "khop" and not r["machine_checked"]:
@@ -163,7 +163,7 @@ TOPIC = {
     "core": {"TPVT": ["tử", "phủ", "vũ", "tướng"], "TPDC": ["tử", "phủ"], "CNDL": ["cơ", "nguyệt", "đồng", "lương"], "SPLT": ["sát", "phá", "liêm", "tham"],
              "NNTM": ["nhật", "nguyệt", "dương", "thái"], "NLTT": ["dương", "nhật", "thái"], "TTAN": ["cự", "ngọc"], "MDDK": ["kình", "mã"],
              "TKGH": ["khoa", "quyền", "lộc"], "KVGM": ["khôi", "việt"]},
-    "ta_huu_hoi": ["tả", "hữu"], "xuong_khuc_hoi": ["xương", "khúc"], "loc_hoi": ["lộc"], "khoi_viet_hoi": ["khôi", "việt"],
+    "ta_huu_hoi": ["tả", "hữu", "phụ bật"], "xuong_khuc_hoi": ["xương", "khúc"], "loc_hoi": ["lộc"], "khoi_viet_hoi": ["khôi", "việt"],
     "cat_tinh_hoi": ["tả", "hữu", "xương", "khúc", "khôi", "việt", "cát"], "khoa_quyen_loc_hoi": ["khoa", "quyền", "lộc"], "khoa_quyen_hoi": ["khoa", "quyền", "lộc"],
     "nhat_nguyet_deu_sang": ["miếu", "vượng", "đắc", "tịnh", "sáng"], "tam_hoa_hoi_du": ["khoa", "quyền", "lộc"], "hoa_o_ban_cung": ["hóa", "tam"],
     "sat_dong_cung": ["kình", "đà", "hỏa", "linh", "không", "kiếp", "sát"], "ky_dong_cung": ["kỵ", "kị"], "khong_kiep_dong_cung": ["kiếp", "không"],
@@ -194,6 +194,6 @@ def test_a_status_other_than_lien_quan_requires_the_same_structure():
         if r["structure_fit"] == "khac_cau_truc":
             assert r["status"] in ("lien_quan", "khong_co_nguon") and r["action"] != "de_xuat_sua", (r["formation_key"], r["id"])
     assert {(r["formation_key"], r["id"]) for r in ROWS if r["structure_fit"] == "khac_cau_truc"} == {
-        ("TPDC", "ta_huu_hoi"), ("SPLT", "ta_huu_hoi"), ("SPLT", "xuong_khuc_hoi"), ("SPLT", "khoi_viet_hoi"), ("NNTM", "ta_huu_hoi"), ("NNTM", "khoa_quyen_hoi"),
+        ("SPLT", "ta_huu_hoi"), ("SPLT", "xuong_khuc_hoi"), ("SPLT", "khoi_viet_hoi"), ("NNTM", "ta_huu_hoi"), ("NNTM", "khoa_quyen_hoi"),
         ("TKGH", "hoa_o_ban_cung"), ("KVGM", "xuong_khuc_hoi"), ("KVGM", "sat_dong_cung"), ("KVGM", "ky_dong_cung")}
     assert {(r["formation_key"], r["id"]) for r in ROWS if r["structure_fit"] == "khac_ngu_canh"} == {("TPVT", "loc_hoi"), ("TPVT", "sat_dong_cung"), ("TPVT", "ky_dong_cung")}

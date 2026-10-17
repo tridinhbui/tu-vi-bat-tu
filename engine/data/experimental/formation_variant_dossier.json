@@ -306,6 +306,28 @@
      "dung_nguyen_van": false
     },
     {
+     "key": "boosters.ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "level": "co_nguon_con_gia_dinh",
+     "audit_status": "khop",
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; câu TT là 'dựa vào', bản dịch ghi 'cần dựa vào hai sao'",
+     "cites": [
+      {
+       "id": "TT22_TV_PHUBAT",
+       "book": "Tử Vi Đẩu Số Toàn Thư",
+       "book_code": "TT",
+       "page": 22,
+       "quote": "Tử Vi Thiên Phủ toàn y phụ bật chi công",
+       "how": "van_ban",
+       "context": {
+        "truoc": "TỬ VI ĐẨU SỐ TÒAN THƯ – Vũ Tài Lục 22 - Tử Vi Mão Dậu Kiếp Không, Tứ Sát đa vi thoát tục chi tăng.(Tử Vi ngồi ở cung Mão cung Dậu bị Tứ SaÙt) là Kinh, Đà, Hoả, Linh vây hãm cùng với Kiếp Không chỉ nên đi tu cho thoát tục là tốt hơn cả). -",
+        "sau": ". (Tử Vi và Thiên Phủ cần dựa vào hai sao Tả Phụ Hữu Bật mới dễ bề phú quí). - Tử Phủ đồng cung vô sát tấu, Giáp nhân hưởng phúc chung thân. (Hai sao Tử Vi, Thiên Phủ đồng cung ở Dần và Thân thủ mệnh, những người tuổi Giáp hưởng phúc suốt đời nếu không gặp những sát tinh làm hỗn ). - Tử Phủ đồng cung lâm Tị Hợi nhất tr"
+       }
+      }
+     ],
+     "dung_nguyen_van": false
+    },
+    {
      "key": "breakers.sat_dong_cung",
      "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
      "level": "co_nguon_con_gia_dinh",
@@ -352,6 +374,7 @@
    ],
    "assumptions": [
     "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh; TT tr.22 còn nhắc Tỵ/Hợi mà mô hình không có Tử Phủ đồng cung ở đó",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; câu TT là 'dựa vào', bản dịch ghi 'cần dựa vào hai sao'",
     "'gặp sát tinh' đọc là đồng cung (cách hẹp nhất); tập sáu sát tinh là của baseline",
     "nguồn là KL, không phải TT; TT tr.22/tr.160 cùng ý 'hiềm Triệt Tuần' nhưng chưa trích"
    ],
@@ -361,7 +384,7 @@
      "variant": "CACH_X_TU_PHU_DONG_CUNG@kl_50",
      "school": "Tử Vi Khảo Luận",
      "title": "KL: Kình Dương hoặc Kỵ + Quyền đồng cung vẫn tốt",
-     "khac_nhau": 658,
+     "khac_nhau": 1439,
      "ca_hai_hien": 1920
     }
    ],
@@ -379,6 +402,7 @@
    "books": [
     "KL tr.50",
     "KL tr.55",
+    "KL tr.96",
     "TH tr.72"
    ],
    "rules": [
@@ -417,6 +441,50 @@
      "dung_nguyen_van": false
     },
     {
+     "key": "boosters.xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "level": "co_nguon_con_gia_dinh",
+     "audit_status": "long_hon",
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói 'Xương Khúc', baseline chấp nhận một trong hai",
+     "cites": [
+      {
+       "id": "KL96_TPDC_BOOST",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 96,
+       "quote": "Nếu Thiên phủ đi với Tử vi, Xương Khúc, Hóa khoa, Thiên việt, Thiên khôi thì rất mạnh",
+       "how": "van_ban",
+       "context": {
+        "truoc": "à vững vàng. - Tử vi là người cha có lúc tốt, lúc xấu, là người có thủ đoạn nhất là khi rời cung Ngọ đi cặp kè với bọn đàng điếm. - Thiên phủ là người mẹ hiền nên có thể làm sự xấu xa, tính hung hăng của Kình Đà, Hỏa Linh, nhưng nếu bị Tuần không, Thiên không, Không Kiếp hãm thì kho Thiên phủ tan tành và trống rỗng. -",
+        "sau": "vì có nhiều quí nhân bao bọc. Thiên phủ và các sao khác: - Các cách Tử Phủ, Tử Phủ Vũ Tướng, Phủ Vũ đều rất tốt về mọi mặt công danh, tài lộc, phúc thọ. - Nếu Thiên phủ đi với Hóa lộc, Lộc tồn thì càng thịnh đạt. - Nhưng nếu gặp Không Kiếp, Tuần Triệt, Kình Đà, Hỏa Linh thì tài lộc bị giảm đáng kể. Thiên phủ ở các cun"
+       }
+      }
+     ],
+     "dung_nguyen_van": false
+    },
+    {
+     "key": "boosters.khoi_viet_hoi",
+     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
+     "level": "co_nguon_con_gia_dinh",
+     "audit_status": "long_hon",
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói 'Thiên Việt, Thiên Khôi', baseline chấp nhận một trong hai",
+     "cites": [
+      {
+       "id": "KL96_TPDC_BOOST",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 96,
+       "quote": "Nếu Thiên phủ đi với Tử vi, Xương Khúc, Hóa khoa, Thiên việt, Thiên khôi thì rất mạnh",
+       "how": "van_ban",
+       "context": {
+        "truoc": "à vững vàng. - Tử vi là người cha có lúc tốt, lúc xấu, là người có thủ đoạn nhất là khi rời cung Ngọ đi cặp kè với bọn đàng điếm. - Thiên phủ là người mẹ hiền nên có thể làm sự xấu xa, tính hung hăng của Kình Đà, Hỏa Linh, nhưng nếu bị Tuần không, Thiên không, Không Kiếp hãm thì kho Thiên phủ tan tành và trống rỗng. -",
+        "sau": "vì có nhiều quí nhân bao bọc. Thiên phủ và các sao khác: - Các cách Tử Phủ, Tử Phủ Vũ Tướng, Phủ Vũ đều rất tốt về mọi mặt công danh, tài lộc, phúc thọ. - Nếu Thiên phủ đi với Hóa lộc, Lộc tồn thì càng thịnh đạt. - Nhưng nếu gặp Không Kiếp, Tuần Triệt, Kình Đà, Hỏa Linh thì tài lộc bị giảm đáng kể. Thiên phủ ở các cun"
+       }
+      }
+     ],
+     "dung_nguyen_van": false
+    },
+    {
      "key": "refutations.tuan_triet_an_ngu",
      "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
      "level": "doi_chieu_truc_tiep",
@@ -437,6 +505,28 @@
       }
      ],
      "dung_nguyen_van": true
+    },
+    {
+     "key": "boosters.hoa_khoa_hoi",
+     "label": "Hóa Khoa hội trong tam phương (KL tr.96: Thiên Phủ đi với Tử Vi, Xương Khúc, Hóa Khoa, Khôi Việt thì rất mạnh)",
+     "level": "co_nguon_con_gia_dinh",
+     "audit_status": "viet_moi_tu_trang_sach",
+     "assumption": "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; 'đi với Hóa Khoa' được đọc là Hóa Khoa trong tam phương",
+     "cites": [
+      {
+       "id": "KL96_TPDC_BOOST",
+       "book": "Tử Vi Khảo Luận",
+       "book_code": "KL",
+       "page": 96,
+       "quote": "Nếu Thiên phủ đi với Tử vi, Xương Khúc, Hóa khoa, Thiên việt, Thiên khôi thì rất mạnh",
+       "how": "van_ban",
+       "context": {
+        "truoc": "à vững vàng. - Tử vi là người cha có lúc tốt, lúc xấu, là người có thủ đoạn nhất là khi rời cung Ngọ đi cặp kè với bọn đàng điếm. - Thiên phủ là người mẹ hiền nên có thể làm sự xấu xa, tính hung hăng của Kình Đà, Hỏa Linh, nhưng nếu bị Tuần không, Thiên không, Không Kiếp hãm thì kho Thiên phủ tan tành và trống rỗng. -",
+        "sau": "vì có nhiều quí nhân bao bọc. Thiên phủ và các sao khác: - Các cách Tử Phủ, Tử Phủ Vũ Tướng, Phủ Vũ đều rất tốt về mọi mặt công danh, tài lộc, phúc thọ. - Nếu Thiên phủ đi với Hóa lộc, Lộc tồn thì càng thịnh đạt. - Nhưng nếu gặp Không Kiếp, Tuần Triệt, Kình Đà, Hỏa Linh thì tài lộc bị giảm đáng kể. Thiên phủ ở các cun"
+       }
+      }
+     ],
+     "dung_nguyen_van": false
     },
     {
      "key": "boosters.kinh_luc_si_dong_cung",
@@ -484,7 +574,10 @@
     }
    ],
    "assumptions": [
-    "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh"
+    "TH tr.72 cho phép đóng ở Mệnh hay Thân; mô hình chỉ neo ở Mệnh",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói 'Xương Khúc', baseline chấp nhận một trong hai",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; sách nói 'Thiên Việt, Thiên Khôi', baseline chấp nhận một trong hai",
+    "phạm vi hội của sao không được câu sách nêu; đọc là tam phương; 'đi với Hóa Khoa' được đọc là Hóa Khoa trong tam phương"
    ],
    "quy_uoc_thiet_ke": [],
    "conflicting_variants": [
@@ -492,7 +585,7 @@
      "variant": "CACH_X_TU_PHU_DONG_CUNG@tt_22",
      "school": "Tử Vi Đẩu Số Toàn Thư",
      "title": "TT: vô sát tấu mới hưởng phúc",
-     "khac_nhau": 658,
+     "khac_nhau": 1439,
      "ca_hai_hien": 1920
     }
    ],
