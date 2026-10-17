@@ -173,7 +173,8 @@ Phát hiện:
 
 ## 8. Regression
 
-- (chưa chạy)
+- Worktree sạch của HEAD `f402574`: **1119 passed, 1 skipped, 2 xfailed, 0 failed (git archive của HEAD, chạy pytest trong engine/)**.
+- Ghi chú: Hai test fail ở working tree hiện tại (`test_bazi_deep_tvh_audit`) thuộc thay đổi chưa commit của phiên Bát Tự, không có trong HEAD sạch và không được sửa ở đây. Trong bản xuất sạch, các test đọc PDF dùng sách trong ~/Downloads nên trích dẫn được so với trang thật; khi thiếu PDF chúng tự bỏ qua và KHÔNG được tính là bằng chứng — bằng chứng nằm ở các file JSON đã ghim (`quote_check`) và bản quét/oracle đã commit.
 
 ## 9. Quy tắc cần chuyên gia xác nhận
 
