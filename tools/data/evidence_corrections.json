@@ -1,18 +1,91 @@
 {
  "_note": "Data corrections justified by a reviewer reading of the book page and re-checked by the maintainer (page image for TH). Applied by tools/apply_evidence_corrections.py; idempotent. Condition/claim changes that would alter engine output are NOT here: they are listed as proposals in CLASSICAL-SOURCE-AUDIT.md.",
  "corrections": [
-  {"rule_id": "TV_KL_STAR_PHU_MAU_TV_SANG", "pack": "pack_khao_luan_stars.json", "description_replace": ["[KL p.76]", "[KL p.75]"],
-   "why": "Đoạn nằm cuối trang 75 của Khảo Luận, không phải trang 76 (người đọc KL batch 1)."},
-  {"rule_id": "TV_TH_CACH_MENH_NHAT_MAO", "pack": "pack_thuc_hanh_cach.json", "description_replace": ["[TH p.73]", "[TH p.72]"],
-   "why": "'Nhật chiếu lôi môn' là mục 23 ở trang 72 của Thực Hành (người đọc TH batch 2)."},
-  {"rule_id": "TV_TH_MV_MENH_TU_SAT_VUONG", "pack": "pack_thuc_hanh_menh_verse.json", "set": {"reviewStatus": "draft"},
+  {
+   "rule_id": "TV_KL_STAR_PHU_MAU_TV_SANG",
+   "pack": "pack_khao_luan_stars.json",
+   "description_replace": [
+    "[KL p.76]",
+    "[KL p.75]"
+   ],
+   "why": "Đoạn nằm cuối trang 75 của Khảo Luận, không phải trang 76 (người đọc KL batch 1)."
+  },
+  {
+   "rule_id": "TV_TH_CACH_MENH_NHAT_MAO",
+   "pack": "pack_thuc_hanh_cach.json",
+   "description_replace": [
+    "[TH p.73]",
+    "[TH p.72]"
+   ],
+   "why": "'Nhật chiếu lôi môn' là mục 23 ở trang 72 của Thực Hành (người đọc TH batch 2)."
+  },
+  {
+   "rule_id": "TV_TH_MV_MENH_TU_SAT_VUONG",
+   "pack": "pack_thuc_hanh_menh_verse.json",
+   "set": {
+    "reviewStatus": "draft"
+   },
    "description_append": " [LƯU Ý đối chiếu: ảnh trang TH 86 in 'Tứ Sát vượng địa đã đành minh huy', nghĩa là bốn sát tinh, không phải Tử Vi + Thất Sát; điều kiện của quy tắc không có căn cứ ở trang này nên hạ xuống nháp]",
-   "why": "Đọc sai câu phú: 'Tứ Sát' (bốn sát tinh) bị hiểu là 'Tử Sát' (Tử Vi + Thất Sát). Đã xem ảnh trang."},
-  {"rule_id": "TV_TH_AUX2_TAI_BACH_MO", "pack": "pack_thuc_hanh_aux2.json", "set": {"reviewStatus": "draft"},
+   "why": "Đọc sai câu phú: 'Tứ Sát' (bốn sát tinh) bị hiểu là 'Tử Sát' (Tử Vi + Thất Sát). Đã xem ảnh trang."
+  },
+  {
+   "rule_id": "TV_TH_AUX2_TAI_BACH_MO",
+   "pack": "pack_thuc_hanh_aux2.json",
+   "set": {
+    "reviewStatus": "draft"
+   },
    "description_append": " [LƯU Ý đối chiếu: ảnh trang TH 59 cho thấy câu 'tần tiện, chịu dành của chô dấu' thuộc sao TỬ (mục 8); sao MỘ (mục 9) chỉ 'đần độn, ngu si'; hạ xuống nháp]",
-   "why": "Gán nhầm đoạn văn của sao Tử cho sao Mộ (lớp chữ của PDF xáo thứ tự dòng nên dễ nhầm). Đã xem ảnh trang."},
-  {"rule_id": "TV_TH_AUX2_DIEN_TRACH_MO", "pack": "pack_thuc_hanh_aux2.json", "set": {"reviewStatus": "draft"},
+   "why": "Gán nhầm đoạn văn của sao Tử cho sao Mộ (lớp chữ của PDF xáo thứ tự dòng nên dễ nhầm). Đã xem ảnh trang."
+  },
+  {
+   "rule_id": "TV_TH_AUX2_DIEN_TRACH_MO",
+   "pack": "pack_thuc_hanh_aux2.json",
+   "set": {
+    "reviewStatus": "draft"
+   },
    "description_append": " [LƯU Ý đối chiếu: cùng lỗi gán nhầm sao Tử/sao Mộ như quy tắc Tài Bạch tương ứng (TH p.59); hạ xuống nháp]",
-   "why": "Quy tắc anh em của TV_TH_AUX2_TAI_BACH_MO dùng cùng câu và cùng lỗi (phát hiện khi truy từ mẫu)."}
- ]
+   "why": "Quy tắc anh em của TV_TH_AUX2_TAI_BACH_MO dùng cùng câu và cùng lỗi (phát hiện khi truy từ mẫu)."
+  },
+  {
+   "rule_id": "TV_TH_P2_TAI_BACH_TT",
+   "pack": "pack_thuc_hanh_palaces2.json",
+   "claims": {
+    "tai_tuan_triet_khong_san_tay": "hạn chế: ban đầu không có nền tảng, vốn liếng khó giữ (Tuần/Triệt ở Tài Bạch)",
+    "limit:tai_tuan_triet_khong_san_tay": "hạn chế: ban đầu không có nền tảng, vốn liếng khó giữ (Tuần/Triệt ở Tài Bạch)"
+   },
+   "description_replace": [
+    "tiền của không có sẵn, phải tự gây dựng (Tuần/Triệt ở Tài Bạch)",
+    "ban đầu không có nền tảng, vốn liếng khó giữ (Tuần/Triệt ở Tài Bạch)"
+   ],
+   "why": "Người đọc TH batch 1: câu thơ 'Tuần Triệt trước đất cùng kho / Tư cơ nan bảo' không có vế 'phải tự gây dựng' và có vế 'tư cơ nan bảo' (vốn liếng khó giữ). Chỉ sửa lời; claim không dùng chung với quy tắc khác."
+  },
+  {
+   "rule_id": "TV_TH_MV_MENH_KHOI_XUONG_LANH",
+   "pack": "pack_thuc_hanh_menh_verse.json",
+   "claims": {
+    "khoi_xuong_bac_lanh": "khuynh hướng “bậc lành” theo câu phú (Khôi, Xương ở Mệnh); nghĩa cụ thể của chữ “lành” không rõ"
+   },
+   "description_replace": [
+    "người hiền lành tử tế (Khôi, Xương ở Mệnh); câu 'bậc lành' mơ hồ",
+    "“bậc lành” theo câu phú (Khôi, Xương ở Mệnh); nghĩa cụ thể của chữ “lành” không rõ"
+   ],
+   "why": "Sách chỉ viết 'Khôi, Xương ở mệnh bậc lành'; 'hiền lành tử tế' là cách đọc cụ thể hơn chữ của sách."
+  },
+  {
+   "rule_id": "TV_TH_P2_TU_TUC_NHAT_DUONG",
+   "pack": "pack_thuc_hanh_palaces2.json",
+   "claims": {
+    "tu_nhat_cung_duong_con_dau_trai": "theo câu thơ: con đầu là con trai thì mới “lành” (Thái Dương ở cung dương); đây là quan niệm của sách cổ, không phải điều kiện kiểm được; câu thơ khó đọc"
+   },
+   "description_replace": [
+    "con đầu có xu hướng là con trai (Thái Dương ở cung dương); câu thơ khó đọc",
+    "theo câu thơ, con đầu là con trai thì mới “lành” (Thái Dương ở cung dương); quan niệm của sách cổ; câu thơ khó đọc"
+   ],
+   "why": "Câu thơ nói con đầu phải là trai thì mới lành, không phải dự đoán giới tính; luật cũ diễn thành 'con đầu có xu hướng là con trai'."
+  }
+ ],
+ "description_tag": {
+  "text": " [Đối chiếu nguồn 17-10-2026: khớp một phần, điều kiện của quy tắc lệch so với trang sách; chi tiết trong engine/data/source_evidence.json]",
+  "verdict": "partly"
+ }
 }

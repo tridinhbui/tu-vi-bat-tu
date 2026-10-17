@@ -1,0 +1,183 @@
+{
+ "_note": "How each 'partly' finding would change engine output if its minimal fix were applied. Classes: TEXT_SHARED = claim sentence is shared with another rule (rewriting it changes that rule too / breaks the corroboration merge); TIGHTEN = rule would fire in fewer charts; WIDEN = would fire in more charts; RESTRUCTURE = condition rewritten (both directions); DEMOTE = lower confidence/draft or reclassify as a case note (visibility only); NEW_FACT = needs a chart fact the engine does not compute yet. Applied by this audit: TEXT_ONLY (claim wording of unshared, already-draft claims) and the description tag.",
+ "TV_KL_CUNG_MENH_GIAP_TA_HUU": [
+  "TEXT_SHARED",
+  "claim shared with TV_TT_MENH_TA_HUU_GIAP; rewrite changes both and keeps corroboration only if both pages agree"
+ ],
+ "TV_TT_MENH_TA_HUU_DONG_CUNG": [
+  "TEXT_SHARED",
+  "claim shared with TV_KL_PHU_TA_HUU_MENH (Khảo Luận says something else); a new claim id would split the merged card"
+ ],
+ "TV_TH_P2_TAI_BACH_TT": [
+  "TEXT_ONLY",
+  "applied: claim reworded to the page (draft rule, claim not shared)"
+ ],
+ "TV_TH_MV_MENH_KHOI_XUONG_LANH": [
+  "TEXT_ONLY",
+  "applied: claim softened to 'bậc lành' (draft rule, claim not shared)"
+ ],
+ "TV_TH_P2_TU_TUC_NHAT_DUONG": [
+  "TEXT_ONLY",
+  "applied: claim now reports what the verse says, not a prediction (draft rule, claim not shared)"
+ ],
+ "TV_KL_CUNG_PHU_THE_KINH_DA_KHONG_KIEP": [
+  "TIGHTEN",
+  "any one of 4 sát tinh -> two or more"
+ ],
+ "TV_KL_PHU_PHU_XUONG_KHUC_TA_HUU": [
+  "TIGHTEN",
+  "one of each pair -> all four stars"
+ ],
+ "TV_KL_STAR_TAI_BACH_KHONG_KIEP": [
+  "TIGHTEN",
+  "Địa Không OR Địa Kiếp -> both"
+ ],
+ "TV_TH_AUX_MENH_HL_LUONG": [
+  "TIGHTEN",
+  "Thiên Lương miếu/vượng/đắc -> miếu"
+ ],
+ "TV_TH_AM_TOT_HIEN_HOA_VAN_CHUONG": [
+  "TIGHTEN",
+  "Thái Âm miếu/vượng/đắc -> miếu/vượng"
+ ],
+ "TV_TH_AUX_MENH_HK_SAT": [
+  "TIGHTEN",
+  "one sát tinh in tam phương -> two or more"
+ ],
+ "TV_TH_COMBO_THIEN_DỒNG_CAT": [
+  "TIGHTEN",
+  "one cát tinh -> two or more"
+ ],
+ "TV_TH_P2_PHU_MAU_VIET_KHOA": [
+  "TIGHTEN",
+  "Khôi or Việt -> Việt only"
+ ],
+ "TV_TH_P2_THIEN_DI_LUONG_NGUYET": [
+  "TIGHTEN",
+  "Thái Âm miếu/vượng -> miếu"
+ ],
+ "TV_TH_VERSE_TU_QUYEN_LOC": [
+  "TIGHTEN",
+  "Hóa Quyền OR Hóa Lộc -> both"
+ ],
+ "TV_TT_PAL_PHUC_DUC_LINH_TINH_BASE_M": [
+  "TIGHTEN",
+  "Linh Tinh present -> Linh Tinh alone (độc thủ)"
+ ],
+ "TV_TT_PAL_PHU_MAU_THAI_DUONG_WITH_THAI_AM_P": [
+  "TIGHTEN",
+  "exclude Kình Dương / Đà La (and Tứ Sát)"
+ ],
+ "TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_CU_MON_M": [
+  "TIGHTEN",
+  "add 'has sát tinh'"
+ ],
+ "TV_TT_PAL_QUAN_LOC_THAI_AM_MIEU_P": [
+  "TIGHTEN",
+  "Thái Âm miếu/vượng/đắc -> miếu"
+ ],
+ "TV_TT_PAL_QUAN_LOC_TU_VI_WITH_THIEN_TUONG_P": [
+  "TIGHTEN",
+  "Tử Vi + Thiên Tướng -> also Thiên Phủ"
+ ],
+ "TV_TT_PAL_THIEN_DI_THAM_LANG_WITH_LIEM_TRINH_M": [
+  "TIGHTEN",
+  "add Tứ Sát"
+ ],
+ "TV_TT_PHU_MENH_CO_LOC_XK": [
+  "TIGHTEN",
+  "Xương OR Khúc -> both"
+ ],
+ "TV_TH_AUX_MENH_HL_TU_MO": [
+  "TIGHTEN",
+  "add exclusion: Hóa Lộc ở Tứ Mộ cùng Tham Lang / Vũ Khúc no longer 'bị giảm'"
+ ],
+ "TV_KL_PHU_VU_KHOI_VIET": [
+  "TIGHTEN",
+  "add Vũ Khúc miếu/vượng"
+ ],
+ "TV_TH_DUONG_TOT_THONG_MINH_NHAN_HAU": [
+  "NEW_FACT",
+  "needs chart.gender = nam and Dương nam/Dương nữ (exists for gender; polarity check is new)"
+ ],
+ "TV_TH_P2_TU_TUC_CO_TUONG": [
+  "RESTRUCTURE",
+  "'Tướng' may be Tướng Quân; require the pair or drop single-star firing"
+ ],
+ "TV_TH_P2_PHU_THE_CHINH_PHONG_THIEN_LUONG_THIEN_PHU": [
+  "RESTRUCTURE",
+  "condition (Lương + Phủ) differs from the verse (four stars); rewrite"
+ ],
+ "TV_TH_P2_TAI_BACH_HOA_LINH": [
+  "RESTRUCTURE",
+  "Hỏa OR Linh -> Linh only, with a positive claim"
+ ],
+ "TV_KL_CUNG_TAI_BACH_THAN_CU_TAI": [
+  "RESTRUCTURE",
+  "condition becomes Thân cư Tài + (Lộc Tồn or the listed hội stars)"
+ ],
+ "TV_KL_CUNG_NO_BOC_PHUC_BINH_KY": [
+  "WIDEN",
+  "add Phá Toái (two of three)"
+ ],
+ "TV_KL_CT_VCD_TU_SAT": [
+  "WIDEN",
+  "add Cự Môn / Thái Dương to the tam phương list"
+ ],
+ "TV_TT_MENH_VU_PHA": [
+  "WIDEN",
+  "drop the Mệnh restriction (verse names no palace)"
+ ],
+ "TV_TT_NU_NHAT_CAT_TINH": [
+  "RESTRUCTURE",
+  "palace Mệnh -> Thân palace; drop 'sáng'"
+ ],
+ "TV_KL_CASE_TAI_BACH_THAI_TUE": [
+  "DEMOTE",
+  "reclassify as case note / draft or add Hóa Kỵ + Hỏa Linh"
+ ],
+ "TV_TH_MV_MENH_XK_TY_HOI_LIEM": [
+  "DEMOTE",
+  "printed word 'ha' is ambiguous: neutral claim or draft"
+ ],
+ "BT_TTT_HONTAP_CO_BENH": [
+  "WIDEN",
+  "'all three' -> 'either' of two conditions"
+ ],
+ "BT_TTT_HONTAP_KHONG_NGAI": [
+  "TIGHTEN",
+  "add 'Quan Sát đương lệnh'"
+ ],
+ "BT_TTT_NGUYENLUU_HI": [
+  "TIGHTEN",
+  "drop 'or Ấn' as a starting point"
+ ],
+ "BT_TTT_TIETCUOC_CACH_CUC": [
+  "RESTRUCTURE",
+  "'nhẹ hơn' -> cancelled when Nhâm Quý tiết kim is present; names only tiết"
+ ],
+ "BT_TTT_TIETCUOC_DIEU_HAU": [
+  "RESTRUCTURE",
+  "same as BT_TTT_TIETCUOC_CACH_CUC"
+ ],
+ "BT_TTT_TIETCUOC_PHU_UC": [
+  "RESTRUCTURE",
+  "same as BT_TTT_TIETCUOC_CACH_CUC"
+ ],
+ "BT_TTT_TONG_SAT": [
+  "RESTRUCTURE",
+  "supporting text is Giả Tòng; condition is chân"
+ ],
+ "BT_TTT_TONG_THE": [
+  "NEW_FACT",
+  "needs 'Tài, Quan, Thực Thương ngang nhau' fact"
+ ],
+ "BT_ZZ_DIRECT_E_AN_ROOT": [
+  "NEW_FACT",
+  "needs 流入日主 fact (Ấn flows into Nhật Chủ)"
+ ],
+ "BT_ZZ_DIRECT_W_CHINH_TAI_ROOT": [
+  "NEW_FACT",
+  "needs 财流入日主 and 刑冲穿绝 on 胎身命"
+ ]
+}

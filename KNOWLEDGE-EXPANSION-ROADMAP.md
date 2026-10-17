@@ -16,7 +16,7 @@ Nguyên tắc xuyên suốt (giữ nguyên từ các giai đoạn trước):
 | Hạng mục | Có | Còn thiếu |
 |---|---|---|
 | Quy tắc có bằng chứng nguyên văn | 204 / 1.622 (+24 định nghĩa TBCT bản web) | 1.030 quy tắc "Có nguồn" chưa đọc riêng từng câu |
-| Chỗ lệch điều kiện đã biết | 45 "một phần", 4 "sai/đọc sai" (3 đã hạ nhãn, 2 đã sửa trang) | 42 chưa sửa (R1) |
+| Chỗ lệch điều kiện đã biết | 45 "một phần", 4 "sai/đọc sai" (3 đã hạ nhãn, 2 đã sửa trang); 3 lời claim đã sửa, 45 mô tả đã gắn ghi chú | 40 chưa sửa vì đổi đầu ra (R1) |
 | Trang tra cứu | `/reference` theo sao, cung, Bát Tự; 5 mức tin cậy | chưa gắn vào thẻ kết quả của từng lá số (R6) |
 | Bài học | 24 bài, 5 cấp | không có bài theo từng sao/từng cung (R5) |
 | Người kiểm | 1 người đọc là AI | người thứ hai (R2) |
@@ -25,7 +25,7 @@ Nguyên tắc xuyên suốt (giữ nguyên từ các giai đoạn trước):
 
 ## R1 — Đóng vòng 49 phát hiện (ưu tiên cao nhất, 1–2 ngày của chủ dữ liệu)
 
-Nguồn: `docs/source_audit_findings.csv`. Mỗi dòng có "sửa tối thiểu". Chủ dữ liệu cần quyết từng nhóm, vì **mỗi sửa đổi đầu ra của engine** và có test vàng/độ phủ liên quan.
+Nguồn: `docs/source_audit_findings.csv`. Mỗi dòng có "sửa tối thiểu", lớp thay đổi (`TIGHTEN` / `WIDEN` / `RESTRUCTURE` / `NEW_FACT` / `DEMOTE` / `TEXT_SHARED`) và % lá số ngẫu nhiên đang bị quy tắc đó chạy (đọc cột này để biết sửa sẽ đổi bao nhiêu kết quả; ví dụ `TV_KL_CUNG_PHU_THE_KINH_DA_KHONG_KIEP` 31%, `TV_TH_P2_TAI_BACH_TT` 28,7%, `TV_TH_VERSE_TU_QUYEN_LOC` 18%). Phần an toàn (lời claim của quy tắc nháp không dùng chung + ghi chú mô tả) **đã áp**; còn 40 quy tắc. Chủ dữ liệu cần quyết từng nhóm, vì **mỗi sửa đổi đầu ra của engine** và có test vàng/độ phủ liên quan.
 
 | Nhóm | Ví dụ (mã quy tắc) | Cách sửa đề xuất | Rủi ro |
 |---|---|---|---|

@@ -62,6 +62,34 @@ def test_corrections_are_applied():
             assert r[k] == v, c["rule_id"]
 
 
+def test_claim_rewordings_are_applied_and_unshared():
+    claims = json.loads((DATA / "claims_vi.json").read_text("utf-8"))
+    cfg = json.loads((ROOT / "tools" / "data" / "evidence_corrections.json").read_text("utf-8"))
+    n = 0
+    for c in cfg["corrections"]:
+        for k, v in c.get("claims", {}).items():
+            n += 1
+            assert claims[k] == v, k
+    assert n >= 3
+    tag = cfg["description_tag"]["text"].strip()
+    R = rules()
+    for e in EV:
+        if e["verdict"] == "partly":
+            assert tag in R[e["rule_id"]]["description"], e["rule_id"]
+
+
+def test_every_partly_finding_has_a_fix_class_and_a_measured_impact():
+    fx = {k: v for k, v in json.loads((ROOT / "tools" / "data" / "fix_classes.json").read_text("utf-8")).items() if not k.startswith("_")}
+    imp = json.loads((ROOT / "docs" / "source_audit_fix_impact.json").read_text("utf-8"))["rules"]
+    partly = {e["rule_id"] for e in EV if e["verdict"] == "partly"}
+    assert partly == set(fx) == set(imp)
+    assert {v[0] for v in fx.values()} <= {"TEXT_ONLY", "TEXT_SHARED", "TIGHTEN", "WIDEN", "RESTRUCTURE", "DEMOTE", "NEW_FACT"}
+    R = rules()
+    for k, v in fx.items():
+        if v[0] == "TEXT_ONLY":                       # the only class applied without a data-owner decision
+            assert R[k]["reviewStatus"] == "draft"
+
+
 def test_misread_rules_are_not_presented_as_verified():
     R = rules()
     for e in EV:
