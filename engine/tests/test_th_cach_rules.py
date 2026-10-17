@@ -102,3 +102,17 @@ def test_palaces2_pack_scoped_to_palace_and_gender():
     # Tử Tức: dương/âm branch matters for the 'con đầu' lines
     assert ("tu_nhat_cung_duong_con_dau_trai", "support") in fired(pal("Tử Tức", branch="Ngọ", own=["Thái Dương"]))
     assert ("tu_nhat_cung_duong_con_dau_trai", "support") not in fired(pal("Tử Tức", branch="Mùi", own=["Thái Dương"]))
+
+
+def test_kl_stars_pack_by_branch_and_palace():
+    n = sum(r.id.startswith("TV_KL_STAR_") for r in RULES)
+    assert n == 103
+    assert ("kl_tu_tuong_gioi_giang_vat_va", "support") in fired(pal(branch="Thìn", own=["Tử Vi", "Thiên Tướng"]))
+    assert ("kl_tu_vi_don_thu_doc_lap_doc_doan", "support") in fired(pal(branch="Tý", own=["Tử Vi"]))
+    assert ("kl_tu_vi_don_thu_doc_lap_doc_doan", "support") not in fired(pal(branch="Tý", own=["Tử Vi", "Thiên Phủ"]))   # đơn thủ only
+    assert ("kl_co_phuc_bac_phuc", "limit") in fired(pal("Phúc Đức", branch="Tý", own=["Thiên Cơ"]))
+    assert ("kl_co_phuc_bac_phuc", "limit") not in fired(pal("Mệnh", branch="Tý", own=["Thiên Cơ"]))
+    assert ("kl_nhat_ban_dem_kem_minh_man", "limit") in fired(pal(branch="Hợi", own=["Thái Dương"]))
+    assert ("kl_nhat_ban_dem_kem_minh_man", "limit") not in fired(pal(branch="Ngọ", own=["Thái Dương"]))
+    assert ("kl_loc_ma_giao_tri_chung_nhan_sung_ai", "support") in fired(pal(own=["Lộc Tồn"], opp=["Thiên Mã"]))
+    assert ("kl_loc_ma_dao_ky_khong_kiep", "limit") in fired(pal(own=["Lộc Tồn"], opp=["Thiên Mã"], tp=["Địa Kiếp"]))

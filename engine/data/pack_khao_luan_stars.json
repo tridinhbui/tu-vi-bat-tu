@@ -1,0 +1,5614 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_KL_STAR_MENH_SONG_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: giàu sang suốt đời (Lộc Tồn và Hóa Lộc chiếu nhau hoặc cùng chiếu Mệnh) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_song_loc_phu_qui_chung_than",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_LOC_XUNG_PHA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: tốt hóa xấu, đời nhiều thiếu thốn (Lộc Tồn bị Phá Quân xung chiếu) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       }
+      ]
+     },
+     {
+      "fact": "palace.rel.opp_majors",
+      "operator": "contains",
+      "value": "Phá Quân"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_loc_ton_pha_xung_ngheo",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_MINH_AM_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: có công danh lớn (Lộc Tồn được Hóa Lộc nhị hợp hoặc ngược lại) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "any": [
+           {
+            "fact": "palace.own_stars",
+            "operator": "contains",
+            "value": "Lộc Tồn"
+           }
+          ]
+         },
+         {
+          "fact": "palace.rel.nhi_hop_hoa",
+          "operator": "contains",
+          "value": "Hóa Lộc"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.tu_hoa",
+          "operator": "contains",
+          "value": "Hóa Lộc"
+         },
+         {
+          "fact": "palace.rel.nhi_hop_stars",
+          "operator": "contains",
+          "value": "Lộc Tồn"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_minh_loc_am_loc_cong_danh_lon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_LOC_MA_GIAO_TRI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: giàu sang, được mọi người yêu mến (Lộc Tồn và Thiên Mã xung chiếu nhau) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "any": [
+           {
+            "fact": "palace.own_stars",
+            "operator": "contains",
+            "value": "Lộc Tồn"
+           }
+          ]
+         },
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Thiên Mã"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "any": [
+           {
+            "fact": "palace.own_stars",
+            "operator": "contains",
+            "value": "Thiên Mã"
+           }
+          ]
+         },
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Lộc Tồn"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_loc_ma_giao_tri_chung_nhan_sung_ai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_LOC_MA_KHONG_KIEP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: sự nghiệp dễ đổ vỡ (Lộc Mã xung chiếu mà bị Không, Kiếp hội) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "any": [
+           {
+            "fact": "palace.own_stars",
+            "operator": "contains",
+            "value": "Lộc Tồn"
+           }
+          ]
+         },
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Thiên Mã"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "any": [
+           {
+            "fact": "palace.own_stars",
+            "operator": "contains",
+            "value": "Thiên Mã"
+           }
+          ]
+         },
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Lộc Tồn"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_loc_ma_dao_ky_khong_kiep",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TA_HUU_XUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: làm nên chức lớn (Tả Hữu gặp Văn Xương) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_ta_huu_xuong_chuc_lon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_HUU_TUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: hưởng phúc đức phú quý (Hữu Bật đồng cung Thiên Tướng) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_huu_tuong_phuc_phu_qui",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TA_HUU_GIAP_TU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: được hưởng phúc, có uy quyền hiển hách (Tử Vi được Tả, Hữu giáp hai bên) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_phu_bat_giap_de",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TA_HUU_VCD",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: phải lập nghiệp phương xa (Mệnh vô chính diệu chỉ có Tả Hữu đồng cung) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_ta_huu_don_thu_ly_tong_lap_nghiep",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TA_HUU_TU_MO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: sớm có công danh (Mệnh ở Tứ mộ có Tả Hữu) [KL p.63]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_ta_huu_tu_mo_som_cong_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_SAT4_THU_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: đời nhiều vất vả ('còng lưng kiếm ăn') khi Kình, Đà, Hỏa hoặc Linh thủ Mệnh; sách không nêu điều kiện sáng tối [KL p.64]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_sat_thu_menh_vat_va",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KINH_PHUC_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: có sự nghiệp lớn, hiển đạt võ nghiệp (Kình ở Ngọ, tránh Sát và Hình, gặp Khoa Quyền Lộc); sao Hình chưa được kiểm nên chỉ loại trừ Thất Sát [KL p.64]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Khoa"
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Quyền"
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Thất Sát"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_ma_dau_dai_kiem_tran_ngu_bien_cuong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KINH_DONG_AM_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: nổi danh, giàu sang (Kình đồng cung Đồng, Âm ở Ngọ); sách còn kể Phượng Các, Giải Thần [KL p.64]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Đồng"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thái Âm"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_kinh_dong_am_ngo_uy_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KINH_LUC_SI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: hay lập công nhưng ít được khen thưởng (Kình đi kèm Lực Sĩ, Tấu Thư và Tiểu Hao hợp chiếu) [KL p.64]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lực Sĩ"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_kinh_luc_si_huu_cong_vo_lao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_HOA_LINH_TUONG_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: tài năng lớn, quyền hành rộng (Hỏa hoặc Linh thủ Mệnh được Linh hoặc Hỏa chiếu) [KL p.65]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "any": [
+           {
+            "fact": "palace.own_stars",
+            "operator": "contains",
+            "value": "Hỏa Tinh"
+           }
+          ]
+         },
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Linh Tinh"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "any": [
+           {
+            "fact": "palace.own_stars",
+            "operator": "contains",
+            "value": "Linh Tinh"
+           }
+          ]
+         },
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Hỏa Tinh"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_hoa_linh_tuong_ngo_tai_lon",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_HOA_LINH_KINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: công danh trắc trở, cách xoàng (Hỏa hoặc Linh đồng cung Kình Dương) [KL p.65]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_hoa_linh_kinh_ha_cach",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_HOA_LINH_GIAP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cuộc sống long đong, vất vả (Hỏa, Linh giáp hai bên Mệnh) [KL p.65]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Hỏa Tinh"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Linh Tinh"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_hoa_linh_giap_menh_bai_cuc",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_TAI_BACH_KHONG_KIEP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Tài Bạch: số nghèo khổ (Không, Kiếp thủ cung Tài hoặc cung Phúc) [KL p.65]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_khong_kiep_tai_phuc_ngheo",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHUC_DUC_KHONG_KIEP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phúc Đức: số nghèo khổ (Không, Kiếp thủ cung Tài hoặc cung Phúc) [KL p.65]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phúc Đức"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_khong_kiep_tai_phuc_ngheo",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KK_GIAP_TY_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: đời lang thang vất vả, thiếu thốn (Mệnh ở Tỵ/Hợi có Không, Kiếp giáp hai bên) [KL p.65]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Địa Không"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Địa Kiếp"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_khong_kiep_giap_menh_ty_hoi_bai_cuc",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KK_DAN_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: đời lên xuống bất thường dù gặp quý tinh (Không/Kiếp thủ Mệnh ở Dần/Thân) [KL p.65]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_khong_kiep_dan_than_thang_tram",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KIEP_THAM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: long đong, lênh đênh, vất vả (Địa Kiếp đồng cung Tham Lang) [KL p.65]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_kiep_tham_long_dong",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_QUYEN_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: vừa giàu vừa sang (Hóa Quyền được Hóa Lộc chiếu hoặc ngược lại) [KL p.66]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.tu_hoa",
+          "operator": "contains",
+          "value": "Hóa Quyền"
+         },
+         {
+          "fact": "palace.rel.tp_hoa",
+          "operator": "contains",
+          "value": "Hóa Lộc"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.tu_hoa",
+          "operator": "contains",
+          "value": "Hóa Lộc"
+         },
+         {
+          "fact": "palace.rel.tp_hoa",
+          "operator": "contains",
+          "value": "Hóa Quyền"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_quyen_loc_tai_quan_song_my",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_LOC_DAN_MAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: ham tiền, giữ của chặt (Hóa Lộc ở Mệnh tại Dần/Mão) [KL p.66]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Mão"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_hoa_loc_dan_mao_giu_cua",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KHOA_LOC_GIAP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cách giàu sang (Khoa, Lộc kẹp hai bên Mệnh); sách ví dụ Mệnh Tý, Khoa ở Hợi, Lộc ở Sửu; facts hiện chỉ có sao ở giáp, chưa có Tứ Hóa ở giáp [KL p.66]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_khoa_loc_giap_menh_qui_cach",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_TAI_BACH_QUYEN_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Tài Bạch: giàu sang nổi tiếng (Hóa Quyền, Hóa Lộc thủ cung Tài hoặc cung Phúc) [KL p.66]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_quyen_loc_thu_tai_phuc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHUC_DUC_QUYEN_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phúc Đức: giàu sang nổi tiếng (Hóa Quyền, Hóa Lộc thủ cung Tài hoặc cung Phúc) [KL p.66]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phúc Đức"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_quyen_loc_thu_tai_phuc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_LOC_TON_CO_LUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: rất giàu, không ai bì kịp (Lộc Tồn thêm Cơ, Lương) [KL p.66]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Lương"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_loc_ton_co_luong_phu_gia_dich_quoc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_VCD_TAM_KHONG_SONG_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: giàu sang lạ lùng (Mệnh vô chính diệu được Tuần/Thiên Không/Địa Không, lại gặp song Lộc) [KL p.66]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "any": [
+       {
+        "any": [
+         {
+          "fact": "palace.tuan",
+          "value": true
+         },
+         {
+          "fact": "palace.triet",
+          "value": true
+         }
+        ]
+       },
+       {
+        "any": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Thiên Không"
+         },
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_vcd_tam_khong_song_loc_phu_qui",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TAM_KY_KY_KINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: đường công danh mờ mịt (Khoa Quyền Lộc hội mà Hóa Kỵ hoặc Kình đồng cung) [KL p.66]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       },
+       {
+        "any": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Kình Dương"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tam_ky_gap_ky_kinh_mo_mit",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KY_VAN_NHAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: giỏi văn chương nhưng công danh vẫn trắc trở (Hóa Kỵ gặp phúc tinh, quý tinh); 'phúc tinh' chưa kiểm [KL p.66]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_hoa_ky_van_nhan_cong_danh_tro",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KY_KHOA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Hợi",
+       "Tý"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_ky_khoa_hoi_ty_ngon_hanh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_HAO_THAM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: ham mê kín đáo (Hao đồng cung Tham Lang); sách dùng lời nặng, chỉ giữ ý 'kín đáo' [KL p.67]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đại Hao"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tiểu Hao"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_hao_tham_ham_muon_kin",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_HAO_MAO_DAU_KY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: của cải trôi đi (Song Hao ở Mão/Dậu gặp Hóa Lộc) [KL p.67]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đại Hao"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tiểu Hao"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_song_hao_mao_dau_gap_loc_troi_cua",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_HAO_MAO_DAU_CU_CO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: được hưởng phú quý (Song Hao ở Mão/Dậu gặp Cự, Cơ) [KL p.67]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đại Hao"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tiểu Hao"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_song_hao_mao_dau_cu_co_phu_qui",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_SAT_DE_HUE",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: tăng nhiều uy lực ('đế huề bảo kiếm': Tử Vi đồng cung Thất Sát) [KL p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_sat_de_hue_bao_kiem",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_PHU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: tài lộc dồi dào (Tử Vi đồng cung Thiên Phủ) [KL p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_phu_tai_loc_doi_dao",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_TUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: như vua có tôi hiền (Tử Vi đồng cung Thiên Tướng) [KL p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_tuong_vua_co_toi_hien",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_LUONG_DONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: phú quý đến cực độ (Tử Vi có nhiều bầy tôi: Tả Hữu, Xương Khúc, Khôi Việt...); ngưỡng 'nhiều' = từ ba cát tinh [KL p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 3
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_nhieu_cat_tinh_phu_qui_cuc_do",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_CO_QUAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: như vua mất triều thần ('cô quân'), giảm tốt nhiều (Tử Vi không có Tả, Hữu) [KL p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Tả Phụ"
+        }
+       ]
+      }
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.rel.tp_stars",
+         "operator": "contains",
+         "value": "Hữu Bật"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_co_quan_giam_tot",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: gian khổ lúc thiếu thời, nên xa nhà lập nghiệp (Tử Vi gặp Tuần/Triệt án ngữ) [KL p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_tuan_triet_gian_kho_thieu_thoi",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_THAM_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: chỉ có tu hành mới yên thân (Tử Vi, Tham Lang đồng cung có sát tinh) [KL p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_tham_sat_tu_hanh_yen_than",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_DE_NGO_HUNG_DO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: như vua bị cướp vây, mất quyền lực ('đế ngộ hung đồ': Tử Vi có Tuần/Triệt lại gặp sát tinh) [KL p.75]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_de_ngo_hung_do_mat_quyen",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_TY_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: độc lập, độc đoán, nổi danh, nhân hậu (Tử Vi đơn thủ ở Tý/Ngọ) [KL p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "not": {
+       "fact": "palace.own_major_stars",
+       "operator": "contains",
+       "value": "Thiên Phủ"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_don_thu_doc_lap_doc_doan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: đứng đầu một ngành, phú quý, gặp may (Tử Vi ở Ngọ: 'đế cư đế vị') [KL p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_ngo_dung_dau_nganh_phu_quy",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_TY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: hiền lành hưởng phúc nhưng hơi tiêu cực, ít giúp được ai (Tử Vi ở Tý) [KL p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_ty_hien_lanh_tieu_cuc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_TUONG_THIN_TUAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: giỏi giang, tích cực nhưng vất vả ngược xuôi (Tử Tướng ở Thìn/Tuất) [KL p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_tuong_gioi_giang_vat_va",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_PHU_DAN_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: ổn định, thịnh vượng nhưng an phận, thiếu thực tài (Tử Phủ ở Dần/Thân) [KL p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_phu_dan_than_on_dinh_an_phan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_SAT_TY_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: thích rời nhà lập nghiệp sớm, dễ kiếm tiền nhưng cũng dễ mất (Tử Sát ở Tỵ/Hợi) [KL p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thất Sát"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Hợi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_sat_ty_hoi_thoat_ly_de_kiem_de_mat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_THAM_MAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: có sự nghiệp lớn nhờ mánh khóe, giàu nhưng hay gian dối, ham hưởng thụ (Tử Tham ở Mão/Dậu) [KL p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_tham_giau_co_gian_doi",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TV_PHA_SUU_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: liều lĩnh dám làm, xoay sở giỏi nhưng dễ vô ơn vì tự cao (Tử Phá ở Sửu/Mùi) [KL p.77]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Phá Quân"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_pha_lieu_linh_vo_on",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_GIAP_TU_PHU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cách sang trọng, thiên về quan văn hưởng nhàn (Tử Vi, Thiên Phủ giáp hai bên Mệnh) [KL p.78]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.rel.flank_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_phu_giap_menh_qui_cach",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TU_PHU_TRIEU_VIEN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: hưởng lộc nhiều vô kể, phú quý từ thiếu thời (Tử Phủ triều viên) [KL p.78]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Vũ Khúc"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.rel.tp_majors",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_phu_trieu_vien_thuc_loc_van_chung",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHU_MAU_TV_SANG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phụ Mẫu: cha mẹ sang trọng (Tử Vi ở Phụ Mẫu tại Tý/Ngọ hoặc đồng cung Phủ, Tướng) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phụ Mẫu"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.branch",
+        "operator": "in",
+        "value": [
+         "Tý",
+         "Ngọ"
+        ]
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_phu_cha_me_sang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHUC_DUC_TV_LAU_DAI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phúc Đức: phúc lộc lâu dài (Tử Vi ở Phúc Đức tại Tý/Ngọ hoặc đồng cung Phủ, Tướng) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phúc Đức"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.branch",
+        "operator": "in",
+        "value": [
+         "Tý",
+         "Ngọ"
+        ]
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_phuc_loc_lau_dai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_DIEN_TRACH_TV_TOT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Điền Trạch: nhà đất tốt (Tử Vi đồng cung Phủ hoặc Tướng ở Điền Trạch) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Điền Trạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_dien_phu_tuong_tot",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_QUAN_LOC_TV_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Quan Lộc: có khiếu võ nghiệp (Tử Vi đồng cung Thất Sát ở Quan Lộc) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_sat_quan_khieu_vo_nghiep",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_TAI_BACH_TV_PHU_VU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Tài Bạch: tiền bạc thịnh vượng (Tử Vi đi với Phủ, Vũ ở Tài Bạch) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Vũ Khúc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_tai_phu_vu_thinh_vuong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_TU_TUC_TV_PHU_TUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Tử Tức: đông con (Tử Vi đồng cung Phủ, Tướng ở Tử Tức) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tử Tức"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_tu_phu_tuong_dong_con",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHU_MAU_TV_THAT_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phụ Mẫu: cha mẹ hay bất hòa (Tử Vi đồng cung Thất Sát ở Phụ Mẫu) [KL p.75-76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phụ Mẫu"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_sat_phu_me_bat_hoa",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHUC_DUC_TV_THAT_SAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phúc Đức: dễ phải tha phương cầu thực (Tử Vi đi với Thất Sát ở Phúc Đức) [KL p.75-76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phúc Đức"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_sat_phuc_tha_phuong",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_DIEN_TRACH_TV_SPT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Điền Trạch: khó có nhà cửa, dễ phá sản (Tử Vi đi với Sát, Phá, Tham ở Điền Trạch) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Điền Trạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thất Sát"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Phá Quân"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_dien_sat_pha_tham_khong_nha",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_QUAN_LOC_TV_PHA_THAM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Quan Lộc: đường quan lộc thăng trầm (Tử Vi đi với Phá hoặc Tham ở Quan Lộc) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Phá Quân"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_quan_pha_tham_thang_tram",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_THIEN_DI_TV_PHA_THAM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Thiên Di: ra ngoài hay bị dèm pha, quấy nhiễu (Tử Vi đi với Phá hoặc Tham ở Thiên Di) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Thiên Di"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Phá Quân"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_di_pha_tham_dem_pha",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHU_THE_TV_SPT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phu Thê: hôn nhân trắc trở (Tử Vi đi với Sát, Phá, Tham ở Phu Thê: Sát thì muộn, Phá thì hao tán, Tham thì hay ghen) [KL p.76]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phu Thê"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thất Sát"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Phá Quân"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_tu_vi_phu_sat_pha_tham_tro",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_CAT_TINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: giàu có và nổi tiếng (Thiên Cơ có phúc tinh đi kèm) [KL p.79]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 1
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_phuc_tinh_giau_noi_tieng",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_TUAN_TRIET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: dễ phải lang thang, vất vả (Thiên Cơ gặp Tuần/Triệt); sách ghi thêm ý kiến ngược lại rằng Tuần Triệt giúp Cơ 'không trơn tuột' [KL p.79]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_tuan_triet_long_dong",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_LUONG_THIN_TT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: gian truân, có xu hướng nương cửa tu (Cơ Lương ở Thìn/Tuất gặp Tuần Triệt, sát tinh) [KL p.79]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Lương"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     },
+     {
+      "any": [
+       {
+        "any": [
+         {
+          "fact": "palace.tuan",
+          "value": true
+         },
+         {
+          "fact": "palace.triet",
+          "value": true
+         }
+        ]
+       },
+       {
+        "any": [
+         {
+          "fact": "palace.rel.tp_stars",
+          "operator": "contains",
+          "value": "Kình Dương"
+         },
+         {
+          "fact": "palace.rel.tp_stars",
+          "operator": "contains",
+          "value": "Đà La"
+         },
+         {
+          "fact": "palace.rel.tp_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.rel.tp_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         },
+         {
+          "fact": "palace.rel.tp_stars",
+          "operator": "contains",
+          "value": "Hỏa Tinh"
+         },
+         {
+          "fact": "palace.rel.tp_stars",
+          "operator": "contains",
+          "value": "Linh Tinh"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_luong_thin_tuat_tuan_triet_gian_truan",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CU_CO_MAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: có tài đức và rất giàu (Cự Cơ ở Mão/Dậu) [KL p.79]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Cự Môn"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_cu_co_mao_dau_tai_duc_giau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_VAN_VO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: làm quan văn thì thanh hiển, võ chức thì trung lương (Thiên Cơ đắc địa đi cùng Lương, Tả Hữu, Xương Khúc); sách không nêu bảng đắc địa riêng nên dùng cát tinh hội [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Lương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Xương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Văn Khúc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_dac_dia_quan_van_thanh_hien",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_THIN_TUAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: khả năng chiến thuật, chiến lược cao (Thiên Cơ ở Thìn/Tuất) [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_thin_tuat_chien_thuat_chien_luoc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_MAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: tài năng hiển hách, phú quý song toàn (Thiên Cơ ở Mão/Dậu) [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_mao_dau_tai_nang_hien_hach",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHU_THE_CO_TY_NGO_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phu Thê: sớm lập gia đình, người hôn phối nhỏ tuổi hơn nhiều (Thiên Cơ ở Phu Thê tại Tỵ/Ngọ/Mùi) [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phu Thê"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Ngọ",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_phu_the_som_lap_gia_dinh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_TAI_BACH_CO_NGO_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Tài Bạch: phát tài (Cơ Cự, Cơ Lương hoặc Cơ đơn thủ ở Ngọ/Mùi); sách nói ở cung khác thì chật vật; điều kiện 'đơn thủ' hệ thống chưa tách [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Thiên Cơ"
+         },
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Cự Môn"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Thiên Cơ"
+         },
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Thiên Lương"
+         }
+        ]
+       },
+       {
+        "fact": "palace.branch",
+        "operator": "in",
+        "value": [
+         "Ngọ",
+         "Mùi"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_tai_phat_tai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_TAI_BACH_CO_LOC_MA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Tài Bạch: đại phú (Thiên Cơ đi với Lộc, Mã ở Tài Bạch) [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Mã"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_loc_ma_dai_phu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_QUAN_LOC_CO_LUONG_CU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Quan Lộc: văn võ kiêm toàn (Cơ Lương hoặc Cơ Cự ở Quan Lộc) [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Lương"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Cự Môn"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_quan_van_vo_kiem_toan",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_QUAN_LOC_CO_NGUYET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Quan Lộc: có khiếu y dược (Cơ Nguyệt ở Dần/Thân ở Quan Lộc) [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Quan Lộc"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thái Âm"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_nguyet_dan_than_khieu_y_duoc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_DIEN_TRACH_CO_NHIEU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Điền Trạch: có nhiều nhà đất (Cơ Lương đồng cung, Cơ Nguyệt ở Thân hoặc Cơ Cự ở Mão) [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Điền Trạch"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Lương"
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Thái Âm"
+         },
+         {
+          "fact": "palace.branch",
+          "operator": "in",
+          "value": [
+           "Thân"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_major_stars",
+          "operator": "contains",
+          "value": "Cự Môn"
+         },
+         {
+          "fact": "palace.branch",
+          "operator": "in",
+          "value": [
+           "Mão"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_dien_nhieu_nha_dat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_DIEN_TRACH_CO_CU_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Điền Trạch: nhà đất ít, dễ phá sản (Cơ Cự ở Dậu tại Điền Trạch) [KL p.80]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Điền Trạch"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Cự Môn"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_cu_dau_nha_dat_it",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHUC_DUC_CO_HOI_TY_SUU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phúc Đức: phúc mỏng (Thiên Cơ ở Phúc Đức tại Hợi, Tý, Sửu) [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phúc Đức"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Hợi",
+       "Tý",
+       "Sửu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_phuc_bac_phuc",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHUC_DUC_CO_TY_NGO_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phúc Đức: hưởng phúc (Thiên Cơ ở Phúc Đức tại Tỵ, Ngọ, Mùi) [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phúc Đức"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Ngọ",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_phuc_huong_phuc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_PHU_MAU_CU_CO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Phụ Mẫu: cha mẹ xa cách (Cơ Cự ở Phụ Mẫu) [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Phụ Mẫu"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Cự Môn"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_cu_co_phu_me_xa_cach",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_LOC",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: phát đạt (Thiên Cơ gặp Lộc) [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       },
+       {
+        "fact": "palace.tu_hoa",
+        "operator": "contains",
+        "value": "Hóa Lộc"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_loc_phat_dat",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_PHU_QUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: hưởng phú quý (Cơ gặp Xương Khúc, Tả Hữu, Khoa Quyền Lộc, Khôi Việt); ngưỡng 'nhiều' = từ ba cát tinh [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 3
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_nhieu_cat_tinh_phu_qui",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_KY_NGHE",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: thiên về kỹ nghệ, máy móc (Cơ gặp Tả Hữu, Hỏa Linh); sách còn kể Hình [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tả Phụ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hữu Bật"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_ta_huu_hoa_linh_ky_nghe",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_CU_KINH_DA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: dễ vướng khẩu thiệt, kiện tụng (Cự Cơ ở Mão/Dậu gặp Kình, Đà) [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Cự Môn"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_cu_mao_dau_kinh_da_khau_thiet",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_CU_SONG_HAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: hưởng phú quý (Cự Cơ ở Mão/Dậu gặp song Hao) [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Cự Môn"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đại Hao"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Tiểu Hao"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_cu_mao_dau_song_hao_phu_qui",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: bén nhạy, mưu lược, lịch thiệp (Thiên Cơ ở Ngọ) [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_ngo_ben_nhay_muu_luoc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_TY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: đầy uy tín, có tài thao lược, giàu sang, hòa đồng (Thiên Cơ ở Tỵ) [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_ty_uy_tin_thao_luoc",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_LUONG_THIN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: có uy tín, nhân hậu, mưu lược, trong sạch (Cơ Lương ở Thìn/Tuất) [KL p.81]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Lương"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_luong_uy_tin_nhan_hau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_CU_MAO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: tài năng mưu lược, thành công nhưng dễ mang họa miệng lưỡi (Cơ Cự ở Mão/Dậu) [KL p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Cự Môn"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_cu_mao_dau_thanh_cong_de_mang_hoa",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_NGUYET_DAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: dễ mơ mộng viễn vông, sống đạm bạc (Cơ Nguyệt ở Dần) [KL p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thái Âm"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_nguyet_dan_vien_vong_dam_bac",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_NGUYET_THAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: say mê thơ phú, văn chương, có thể nổi danh và giàu (Cơ Nguyệt ở Thân) [KL p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thái Âm"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thân"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_nguyet_than_tho_phu_giau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_SUU_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: được nể trọng vì mưu lược, giàu sang (Thiên Cơ ở Sửu/Mùi) [KL p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_suu_mui_duoc_ne_trong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_TY2",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: bặt thiệp, sáng suốt, thành công (Thiên Cơ ở Tý) [KL p.82]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Cơ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_co_ty_bat_thiep_sang_suot",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_NHAT_DAN_THIN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: thông minh, quyền quý, giàu sang (Thái Dương ở cung ban ngày) [KL p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Mão",
+       "Thìn",
+       "Tỵ",
+       "Ngọ"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_ban_ngay_thong_minh_quyen_qui",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_NHAT_BAN_DEM",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: kém minh mẫn, hay nhầm lẫn (Thái Dương ở cung ban đêm) [KL p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thân",
+       "Dậu",
+       "Tuất",
+       "Hợi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_ban_dem_kem_minh_man",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_NHAT_TAM_MINH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: Thái Dương rất sáng khi tam hợp Đào, Hồng, Hỷ ('tam minh') [KL p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Đào Hoa"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Hồng Loan"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Hỷ"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_tam_minh_rat_sang",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_NHAT_KY_SUU_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: thật toàn mỹ (Thái Dương đồng cung Hóa Kỵ ở Sửu/Mùi) [KL p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_ky_suu_mui_toan_my",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_NHAT_HAM_HOI_TY",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: thanh liêm, nho nhã, từ thiện, say mê văn chương triết lý (Thái Dương hãm ở Hợi/Tý) [KL p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Hợi",
+       "Tý"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_ham_hoi_ty_thanh_liem_nho_nha",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_NHAT_HAM_CAT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: vẫn có thể giàu có, danh vọng khi được quý nhân nâng đỡ (Thái Dương hãm gặp Khôi Việt, Xương Khúc, Khoa Quyền Lộc, Đào Hồng Hỷ); ngưỡng 'nhiều' = từ hai cát tinh [KL p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thân",
+       "Dậu",
+       "Tuất",
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.khi.cat_tp",
+      "operator": "gte",
+      "value": 2
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_ham_gap_quy_nhan_giau_danh",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_NHAT_HAM_TT",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: sáng lại, như người tài được thả khỏi tù (Thái Dương hãm gặp Tuần/Triệt) [KL p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Thân",
+       "Dậu",
+       "Tuất",
+       "Hợi"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "value": true
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_ham_gap_tuan_triet_sang_lai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_NHAT_NGUYET_SUU_MUI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "kl_stars",
+   "description": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: hay day dứt nội tâm, lưỡng lự, khó quyết đoán (Nhật Nguyệt đồng cung) [KL p.83]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thái Dương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Thái Âm"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "kl_nhat_nguyet_day_dut_luong_lu",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}
