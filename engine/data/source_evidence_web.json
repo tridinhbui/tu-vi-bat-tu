@@ -1,0 +1,766 @@
+{
+ "version": 1,
+ "note": "Comparison of the engine's from-memory definitions (bazi_deep/geju_defs.json, patterns_defs.json; source SRC_TBCT) with the public-domain text of 子平真詮 (Thẩm Hiếu Chiêm) read on the web (2026-10-17). Model-assisted reading. Quotes were checked by the reviewer's script against the fetched primary-host text; 4 of 24 were re-fetched and re-found by the maintainer session. They are NOT checked against a printed book and not machine-checked by this repo's tests (needs network). The definitions stay draft.",
+ "source_text": "子平真詮 (Thẩm Hiếu Chiêm), edition on 東里書齋 (donglishuzhai.net, 秘本 + 中州本 collation)",
+ "second_host": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html (simplified-character transcription; match ratio computed after mapping traditional->simplified glyphs learnt by aligning the two hosts; OCR/typo differences lower the ratio)",
+ "ctext_note": "ctext.org served a Cloudflare Turnstile bot challenge to the fetch; not bypassed. zh.wikisource has no 子平真詮 page (search returned none).",
+ "file_level_notes": [
+  "Variant 1 (text itself, fetched page ch.3752 collation note): 論偏官 reads 有煞無食制，而用刃當 in the 秘本 base text, but the editors record 中州本 reads 印 at that place; Sina (second host) indeed prints 用印當. 論偏官取運 says 煞無食制而用刃當, so 刃 is probably right. Relevance: Thất Sát/Dương Nhận definitions that treat 刃 as a restraint of Sát.",
+  "Variant 2 (text itself, ch.3756 collation note): 論陽刃 原書 reads 惟六陽有之, corrected to 五陽 from 中州本 — Dương Nhận exists only for the five yang stems; the engine NHAN_YIN / Âm Nhận is not in the text.",
+  "Internal tension noted by the host editor 東里山人 (ch.3748): 論印 says 正偏同爲美格, 財與印不分偏正, while 論四吉神/四凶神 rank 正印 among 四吉神 but 梟 among 四凶神; editor calls this a self-contradiction of 沈氏. Same editor (ch.3721) notes that 沈氏 says 建祿月劫 has no 用神 of its own yet treats 建祿月劫格 as a cách. Both are editorial opinions on the host page, not a consensus of schools.",
+  "The text itself (論用神, ch.3721) reports a contemporary reading it rejects: 官印雙全 vs 印綬用官, 食神生財 vs 財逢食生, 偏印透食 as 梟神奪食 vs 洩身之秀, 煞印相生 vs 去食護煞, 七煞制刃 vs 刃可幫身制煞. Engine definitions that follow the rejected reading: Thiên Ấn bai.kieu_doat_thuc (偏印透食 treated as 梟奪食).",
+  "Ranking/context the engine omits: 論正官 ranks 財印並透 above 單用財 above 單用印; 論傷官 and 論財 repeatedly condition outcomes on 氣候 (e.g. 冬金 傷官生財 không quý), which the predicates do not model.",
+  "Sina (second host) is a simplified-character transcription of the same recension and carries typos; where it differs from donglishuzhai I flagged it in second_host_note. ctext.org (評註 edition) could not be reached: it returned a bot-challenge page which I did not bypass.",
+  "The pattern name Tài Quan song mỹ is not a phrase in the fetched text; hợp Sát lưu Quan appears as 合煞留官, hợp Quan lưu Sát appears as 去官留煞 and 壬合丁官煞純而不雜; Sát Ấn tương sinh appears only as 煞印有情 (and 煞印相生 is quoted in 論用神 as the layman’s label for a different structure)."
+ ],
+ "entries": [
+  {
+   "rule_id": "geju:Chính Quan",
+   "verdict": "partly",
+   "chapter": "論用神成敗救應",
+   "quote": "官逢傷，而透印以解之；雜煞，而合煞以清之；刑沖，而會合以解之",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.88,
+   "gloss_vi": "Quan gặp Thương thì thấu Ấn để giải, tạp Sát thì hợp Sát cho thanh, hình xung thì dùng hội hợp để giải.",
+   "issue": "Cốt lõi đúng (thành: 官逢財印又無刑沖破害; bại: Quan gặp Thương/hình xung/hỗn Sát; yong Tài-Ấn). Lệch: (1) engine cho Tài (visible:Tai/any:Tai) cứu Thương-kiến-Quan, văn bản chỉ cứu bằng Ấn và nói rõ 官格透傷用印者又忌見財 (Tài phá Ấn), chỉ có ngoại lệ khi Tài bị hợp mất (Phạm thái phó 丁合壬); (2) cứu hỗn Sát bằng visible:Thuc không có trong 論正官 (văn bản dùng 合煞留官/取清; ở 取運 chỉ nói 傷食反爲不礙); (3) quan_bi_hinh_lenh để cứu rỗng, trong khi văn bản nói hình xung giải được bằng hội hợp.",
+   "qualifier": "Văn bản xếp bậc: 財印並透 (đại quý) > đơn dụng Tài > đơn dụng Ấn; quý cách cần 去忌存喜; Ấn lại vừa hộ vừa tiết Quan; Quan thấu mà gặp hợp/tạp Sát/trùng Quan/hình xung đều bất lợi (論正官取運).",
+   "also": [
+    {
+     "chapter": "論正官",
+     "quote": "以財印並透者論之，兩不相礙，其貴也大",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3744.html",
+     "second_host_match_ratio": 0.94
+    },
+    {
+     "chapter": "論正官",
+     "quote": "至於官格透傷用印者，又忌見財，以財能去印",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3744.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "官逢財印，又無刑沖破害，官格成也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "rule_id": "geju:Thất Sát",
+   "verdict": "partly",
+   "chapter": "論偏官",
+   "quote": "煞用食制者，上也。煞旺食强而身健，極爲貴格",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 1.0,
+   "gloss_vi": "Sát dụng Thực chế là thượng cách, khi Sát vượng Thực mạnh thân khỏe thì rất quý.",
+   "issue": "Hai lối thành (Thực chế Sát; Sát Ấn hữu tình) và yong Thực/Ấn có trong văn bản. Lệch: (1) sat_bi_xung_lenh (月令 bị xung) không có trong 論偏官 — văn bản chỉ nói hình xung với Chính Quan; (2) sat_khong_che coi Ấn là 'chế' và yong có Ấn, nhưng trong cách Thực chế Sát văn bản nói 不宜露財透印 (Ấn đoạt Thực hộ Sát, 'Sát cường Thực thiển nhi lộ Ấn tắc phá cục'); Ấn chỉ là dụng khi Sát Ấn hữu tình (戊與辛同通月令) và phải 身重印輕 hoặc 身輕印重, nếu thân ấn đều trọng mà dụng Sát thì 非孤則貧; (3) bỏ sót lối Sát dụng Tài (去印存食) và Sát dụng Nhận (刃當), và 'bại' trong 論用神成敗救應 là 七煞逢財無制 (engine không nhắc Tài).",
+   "qualifier": "Cần thân khỏe (煞旺食强而身健); 食太重thì cần Ấn tiết (損太過); Sát hỗn Chính Quan phải 取清 (去官hoặc去煞), 七煞既純雜官不利(取運).",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "七煞逢財無制，七煞格敗也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.91
+    },
+    {
+     "chapter": "論偏官",
+     "quote": "煞用食制，不宜露財透印，以財能轉食生煞，而印能去食護煞也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+     "second_host_match_ratio": 0.96
+    },
+    {
+     "chapter": "論偏官",
+     "quote": "有七煞用印者，印能護煞，本非所宜，而煞印有情，便爲貴格",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+     "second_host_match_ratio": 0.65
+    }
+   ]
+  },
+  {
+   "rule_id": "geju:Chính Ấn",
+   "verdict": "partly",
+   "chapter": "論用神成敗救應",
+   "quote": "印輕逢煞，或官印雙全，或身印兩旺而用食傷洩氣，或印多逢財而財透根輕，印格成也",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.97,
+   "gloss_vi": "Ấn thành cách khi Ấn nhẹ gặp Sát, hoặc Quan Ấn song toàn, hoặc thân Ấn đều vượng mà dụng Thực Thương tiết khí, hoặc Ấn nhiều gặp Tài thấu nhưng gốc nhẹ.",
+   "issue": "Thành (QuanSat; vượng + ThucThuong) và yong (QuanSat, ThucThuong) khớp. Lệch: (1) tai_pha_an của engine không điều kiện hóa 'Ấn khinh': văn bản nói 印輕逢財 mới bại (貪財破印), còn 印多/身强 thì dùng Tài để ức thái quá là thành cách (論印: 印多而用財); (2) an_qua_nhieu coi 'Ấn nhiều + thân vượng' là bệnh; văn bản không coi Ấn nhiều tự nó là bại — bại là 身强印重而透煞; Ấn nhiều gặp Tài là thành; (3) cứu 'any:Ti / bound:Tai' khớp 劫財以解, 合財而存印; (4) dùng Sát làm dụng chỉ khi 身重印輕/身輕印重, trong khi engine gộp QuanSat không điều kiện; 印淺身輕mà dụng tầng tầng Thực Thương thì 寒貧.",
+   "qualifier": "Thân vượng + Ấn vượng mới dùng Thực Thương tiết (印淺身輕 thì寒貧); Tài dùng ức Ấn thì 不要根深; Ấn thấu Quan cần 官星清純.",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "印輕逢財，或身强印重而透煞，印格敗也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.94
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "印逢財，而劫財以解之，或合財而存印",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.93
+    },
+    {
+     "chapter": "論印",
+     "quote": "若印輕財重，又無劫財以救，則爲貪財破印，貧賤之局矣",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3748.html",
+     "second_host_match_ratio": 0.91
+    }
+   ]
+  },
+  {
+   "rule_id": "geju:Thiên Ấn",
+   "verdict": "partly",
+   "chapter": "論印",
+   "quote": "印綬喜其生身，正偏同爲美格，故財與印不分偏正，同爲一格而論之",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3748.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.96,
+   "gloss_vi": "Văn bản nói Chính Ấn và Thiên Ấn đều là mỹ cách, Tài và Ấn không phân chính thiên mà gộp thành một cách.",
+   "issue": "MISREAD ở một mục con: bai.kieu_doat_thuc (Kiêu đoạt Thực làm bại cho Thiên Ấn cách) ngược văn bản — 論用神 chê thời thuyết 'kiến thiên ấn thấu thực, không coi là tiết thân chi tú mà coi là kiêu thần đoạt thực'; trong 論印, Ấn vượng thân cường dụng Thực Thương là tiết thân thành tú (chỉ bại khi 印淺身輕). Kiêu đoạt Thực là bại của cách THỰC THẦN (論用神成敗救應), không phải của cách Ấn. Ngoài ra yong của engine (QuanSat, Tai) khác Chính Ấn (QuanSat, ThucThuong): văn bản không tách Thiên Ấn thành cách riêng và không có Tài làm dụng của Ấn (Tài chỉ hợp lệ khi 印多身强, hoặc phá Ấn khi 印輕). Phần còn lại (thành bằng QuanSat; tai_pha_an và cứu Ti/bound Tai) khớp 論印 vì văn bản gộp chính-thiên.",
+   "qualifier": "Phụ chú của biên tập viên (nguồn: trang 東里書齋 ch.3748) chỉ ra văn bản tự mâu thuẫn: 論四吉神/四凶神 coi chính ấn là cát, thiên ấn (梟) là hung, trong khi 論印 viết 正偏同爲美格. 論四凶神 còn nói 食神遇官，露梟得用 (Kiêu thành cách).",
+   "also": [
+    {
+     "chapter": "論用神",
+     "quote": "見偏印透食，不以爲洩身之秀，而以爲梟神奪食",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3721.html",
+     "second_host_match_ratio": 0.89
+    },
+    {
+     "chapter": "論印",
+     "quote": "有印而用傷食者，身强印旺，恐其太過，洩身以爲秀氣",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3748.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論四凶神能成格",
+     "quote": "食神遇官，露梟得用，梟能成格也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3732.html",
+     "second_host_match_ratio": 0.62
+    }
+   ],
+   "sub_findings": [
+    {
+     "item": "thanh_any",
+     "verdict": "faithful"
+    },
+    {
+     "item": "bai.tai_pha_an + cuu",
+     "verdict": "faithful (via 正偏同格)"
+    },
+    {
+     "item": "bai.kieu_doat_thuc",
+     "verdict": "misread"
+    },
+    {
+     "item": "yong (QuanSat,Tai)",
+     "verdict": "not_in_text (Tai chỉ cho 印多身强)"
+    }
+   ]
+  },
+  {
+   "rule_id": "geju:Chính Tài",
+   "verdict": "partly",
+   "chapter": "論用神成敗救應",
+   "quote": "財生官旺，或財逢食生而身强帶比，或財格透印而位置妥貼，兩不相尅，財格成也",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.97,
+   "gloss_vi": "Tài thành cách khi Tài sinh Quan vượng, hoặc Tài được Thực sinh mà thân cường có Tỉ, hoặc Tài thấu Ấn đặt đúng chỗ không khắc nhau.",
+   "issue": "Yong (ThucThuong, Quan) khớp. Lệch: (1) thanh_any 'any:ThucThuong' và 'any:Quan' không kèm điều kiện của văn bản: 財旺無劫而透傷反爲不利; 透官身弱則格壞; 財生官cần 身强不透傷官不混七煞; 'level_ge thiên vượng' một mình không phải điều kiện thành trong văn bản (thân cường chỉ là điều kiện kèm); (2) cứu cho Tỉ-Kiếp đoạt Tài: văn bản là 透食以化之、生官以制之 (tức Thực/Thương hoặc Quan); engine bỏ Thực/Thương và thêm Sát — Sát không phải cứu cho Kiếp đoạt Tài trong văn bản (財帶七煞 phải 合煞存財/制煞生財); (3) ngưỡng 'Tỉ thấu >= 2' là của engine, văn bản nói 財輕比重; (4) tai_nhieu_than_nhuoc: văn bản chỉ có 孤財不貴，佩印幫身 (Ấn cứu) — khớp hướng cứu nhưng 'Tài nhiều' không nêu thành bại.",
+   "qualifier": "Thân cường là điều kiện: 財喜根深不宜太露nhưng 財旺生官 thì lộ cũng không kỵ; 財用傷官chỉ khi 財不甚旺而比强; 財印không nên đứng liền (乙與己兩不相能 chỉ tiểu phú).",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "財輕比重，財透七煞，財格敗也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.92
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "財逢劫，而透食以化之、生官以制之",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.86
+    },
+    {
+     "chapter": "論財",
+     "quote": "財旺無劫而透傷，反爲不利",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3746.html",
+     "second_host_match_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "rule_id": "geju:Thiên Tài",
+   "verdict": "partly",
+   "chapter": "論印",
+   "quote": "故財與印不分偏正，同爲一格而論之",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3748.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.93,
+   "gloss_vi": "Văn bản nói rõ Tài (và Ấn) không phân chính thiên, gộp làm một cách.",
+   "issue": "Định nghĩa trùng khít Chính Tài nên nhất quán với 'không phân chính thiên' của văn bản; các lệch giống Chính Tài (thanh_any thiếu điều kiện thân cường/không透傷/không透官khi thân nhược; cứu Kiếp đoạt Tài bỏ Thực/Thương và thêm Sát không có trong văn bản; ngưỡng Tỉ>=2 do engine đặt).",
+   "qualifier": "Xem Chính Tài. Văn bản tách riêng Thiên Tài chỉ qua các ví dụ (壬生巳月 單透財 = 棄煞就財).",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "財生官旺，或財逢食生而身强帶比，或財格透印而位置妥貼，兩不相尅，財格成也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.97
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "財輕比重，財透七煞，財格敗也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.92
+    }
+   ]
+  },
+  {
+   "rule_id": "geju:Thực Thần",
+   "verdict": "partly",
+   "chapter": "論食神",
+   "quote": "食神本屬洩氣，以其能生財，所以喜之",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3750.html",
+   "second_host_agrees": false,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.6,
+   "gloss_vi": "Thực Thần vốn là tiết khí, nhưng vì sinh được Tài nên được ưa.",
+   "issue": "Thành (Tài; Thực chế Sát), bại (Kiêu đoạt Thực) và cứu bằng Tài (透財以解) khớp. Lệch: (1) văn bản đòi 食神制煞/就煞 phải 只要無財 (財 làm 帶忌: 食神帶煞印而又逢財; 食神生財而露煞thì 食神格敗) nên 'Tài' và 'Sát' trong yong là hai lối dụng thay thế, không cùng lúc; engine không bắt lỗi Tài+Sát cùng hiện; (2) cứu Kiêu còn có 就煞以成格 ngoài Tài — engine bỏ; (3) ngoại lệ: 食神忌官nhưng kim thủy không kỵ, hạ hỏa quá viêm thì thấu Ấn không ngại (engine không có).",
+   "qualifier": "食喜身旺以相生 (cần thân vượng); 財要有根không cần chính thiên chồng; 食神官煞競出chỉ thành cách nhưng không quý.",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "食逢梟，而就煞以成格，或生財以護食",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.93
+    },
+    {
+     "chapter": "論食神",
+     "quote": "若無印綬而單露偏官，只要無財，亦爲貴格",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3750.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "食神逢梟，或生財露煞，食神格敗也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.86
+    }
+   ],
+   "second_host_note": "Sina reads 以其能生正財 (adds 正) where donglishuzhai reads 以其能生財; the rest of the chapter matches."
+  },
+  {
+   "rule_id": "geju:Thương Quan",
+   "verdict": "partly",
+   "chapter": "論傷官",
+   "quote": "有傷官佩印者，印能制傷，所以爲貴，反要傷官旺，身稍弱，始爲秀氣",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3754.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 1.0,
+   "gloss_vi": "Thương Quan bội Ấn thì Ấn chế Thương mà quý, ngược lại cần Thương vượng thân hơi nhược mới thành tú khí.",
+   "issue": "Hai lối thành (Tài + thân cường: 只要身强而財有根; Ấn + thân yếu-vừa: 傷官旺，身稍弱) khớp ý văn bản. Lệch: (1) bai.thuong_kien_quan không có ngoại lệ Kim-Thủy: văn bản nói 傷官非金水而見官 mới bại, còn 傷官用官 thì 金水獨宜(cần Tài Ấn phụ, không nên Thương-Quan cùng thấu); (2) cứu 'Tài' chỉ đúng khi 化傷爲財 (傷非其傷), cứu 'Ấn' đúng (透印以解); (3) bỏ sót lối thành khác: 傷官用煞印, 傷官兼用財印, 傷官用官; thiếu 'Ấn phải có gốc sâu, không thấy nhiều' và 'Tài sinh trong mùa đông kim không quý'; (4) bại khác trong 成敗救應: 生財而帶煞身輕, 佩印而傷輕身旺.",
+   "qualifier": "Cần xét khí hậu, cường nhược, hỉ kỵ, thuần tạp (察其氣候，量其强弱，審其喜忌，觀其純雜); Thương Quan kiến Quan chỉ bại với cách không phải Kim Thủy.",
+   "also": [
+    {
+     "chapter": "論傷官",
+     "quote": "只要身强而財有根，便爲貴格",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3754.html",
+     "second_host_match_ratio": 0.5
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "傷官非金水而見官",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論傷官",
+     "quote": "有傷官用官者，他格不用，金水獨宜",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3754.html",
+     "second_host_match_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "rule_id": "geju:Kiến Lộc",
+   "verdict": "partly",
+   "chapter": "論建祿月劫",
+   "quote": "故建祿與月劫，可同一格，不必另分，皆以透干合支，別取財官煞食爲用",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3758.html",
+   "second_host_agrees": false,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.61,
+   "gloss_vi": "Kiến Lộc và Nguyệt Kiếp cùng một cách, không cần tách, đều lấy Tài Quan Sát Thực thấu can hợp chi mà làm dụng.",
+   "issue": "Bại 'none_of QuanSat,Tai,ThucThuong' khớp 建祿月劫，無財官 (成敗救應) và yong khớp. Lệch: thanh_any 'any:' quá lỏng — văn bản đòi tổ hợp: dụng Quan phải thấu can và có Tài Ấn tùy tùng (孤官無輔 thì nhỏ; thấu Thương Thực là phá cách), dụng Tài phải đới Thương Thực (否則難於發福), dụng Sát phải có chế phục, hoặc không Tài Quan mà dụng Thương Thực (chỉ xuân mộc thu kim quý). Cũng thiếu 'bại' kiểu 透官而逢傷, 透財而逢煞. Cứu = [] trong khi văn bản có cứu (官逢傷mà傷被合; 用財帶煞mà煞被合). Văn bản gộp Kiến Lộc với Nguyệt Kiếp.",
+   "qualifier": "Yêu cầu 透干合支 (thấu can/hợp chi), không phải chỉ 'có' thập thần trong tứ trụ; 官煞重而無制伏thì運行制伏mới phát.",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "建祿月劫，無財官，透煞印，建祿月劫之格敗也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.89
+    },
+    {
+     "chapter": "論建祿月劫",
+     "quote": "祿劫用財，須帶傷食",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3758.html",
+     "second_host_match_ratio": 0.88
+    },
+    {
+     "chapter": "論建祿月劫",
+     "quote": "祿格用官，干頭透出爲奇，又要財印相隨，不可孤官無輔",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3758.html",
+     "second_host_match_ratio": 1.0
+    }
+   ],
+   "second_host_note": "Sina reads 皆以透干支 (no 合) and 不必加分 where donglishuzhai reads 透干合支 and 不必另分; sense unchanged, likely transcription slips."
+  },
+  {
+   "rule_id": "geju:Nguyệt Kiếp",
+   "verdict": "partly",
+   "chapter": "論用神",
+   "quote": "月劫喜透官以制伏，利用財而透食以化劫",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3721.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 1.0,
+   "gloss_vi": "Nguyệt Kiếp ưa Quan thấu để chế phục, dùng Tài thì phải có Thực thấu để hóa Kiếp.",
+   "issue": "Giống Kiến Lộc: văn bản gộp một cách ('可同一格，不必另分'), bại 無財官 khớp, yong khớp; thanh_any 'any:' lỏng hơn điều kiện văn bản (官 phải thấu & có Tài Ấn; Tài phải có Thương Thực hóa Kiếp; Sát phải chế phục); cứu rỗng trong khi văn bản có cứu.",
+   "qualifier": "Xem Kiến Lộc. 論用神 cũng nói với nguyệt lệnh đồng nhật chủ, 'chính nó không thể làm dụng' và phải tìm Tài Quan Sát Thực thấu can hoặc hội chi.",
+   "also": [
+    {
+     "chapter": "論用神",
+     "quote": "必看四柱有無財官煞食透干會支，另取用神",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3721.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論建祿月劫",
+     "quote": "用財而不透傷食，難於發福",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3758.html",
+     "second_host_match_ratio": 0.64
+    }
+   ]
+  },
+  {
+   "rule_id": "geju:Dương Nhận",
+   "verdict": "faithful",
+   "chapter": "論用神",
+   "quote": "陽刃喜官煞以制伏，忌官煞之俱無",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3721.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.93,
+   "gloss_vi": "Dương Nhận ưa Quan Sát chế phục, kỵ cả Quan lẫn Sát đều không có.",
+   "issue": null,
+   "qualifier": "Văn bản giàu hơn engine nhưng không mâu thuẫn: 刃宜伏制，官煞皆宜，財印相隨尤爲貴顯 (Tài Ấn đi kèm là quý hơn; ở cách này kỵ chế phục thêm vì Quan Sát phải cứu Nhận); Quan Sát lộ mà gốc sâu thì quý lớn, tàng hoặc gốc cạn thì nhỏ; Nhận lộ cùng Sát (Sát bị hợp mất) vô công; có Thương Thực chỉ tốt khi có Ấn hộ/裁損/取清. 'Âm Nhận' do engine thêm không có trong văn bản: 祿前一位，惟五陽有之 (ngũ dương mới có Nhận).",
+   "also": [
+    {
+     "chapter": "論陽刃",
+     "quote": "刃宜伏制，官煞皆宜，財印相隨，尤爲貴顯",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3756.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "陽刃無官煞，陽刃格敗也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.5
+    },
+    {
+     "chapter": "論陽刃",
+     "quote": "祿前一位，惟五陽有之，故爲陽刃",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3756.html",
+     "second_host_match_ratio": 0.85
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:sat_an_tuong_sinh",
+   "verdict": "partly",
+   "chapter": "論偏官",
+   "quote": "有七煞用印者，印能護煞，本非所宜，而煞印有情，便爲貴格",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+   "second_host_agrees": false,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.65,
+   "gloss_vi": "Sát dụng Ấn vốn không phải điều nên, nhưng Sát Ấn hữu tình thì thành quý cách.",
+   "issue": "Văn bản không coi Sát Ấn là cách thuận mặc định mà là 'bất đắc dĩ' và có điều kiện: 戊與辛同通月令 (đều thông nguyệt lệnh); phải 身重印輕 hoặc 身輕印重; thân ấn đều trọng mà dụng Sát thì 非孤則貧; dụng Sát mà đới Thương Thực thì 不論身旺印重đều quý. Điều kiện 'kề Nhật Chủ' (adjacent_dm) và 'chain_adjacent' là cách thao tác hóa của engine; cứu tai_pha_an bằng Tỉ/hợp Tài khớp (劫財以解，合財而存印). 論用神 còn chê việc gọi 'Thực chế Sát mà lộ Ấn' là 'Sát Ấn tương sinh'.",
+   "qualifier": "Cần cân bằng thân/ấn; thân ấn đều vượng thì dụng Sát không lợi.",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "印逢財，而劫財以解之，或合財而存印",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.93
+    },
+    {
+     "chapter": "論偏官",
+     "quote": "亦有煞重身輕，用食則身不能當，不若轉而就印",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+     "second_host_match_ratio": 1.0
+    }
+   ],
+   "second_host_note": "Sina reads 而印有情 where donglishuzhai reads 而煞印有情 (中州本-style omission or typo); sense: Sat-An hữu tình."
+  },
+  {
+   "rule_id": "pattern:thuc_che_sat",
+   "verdict": "faithful",
+   "chapter": "論偏官",
+   "quote": "煞用食制者，上也。煞旺食强而身健，極爲貴格",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 1.0,
+   "gloss_vi": "Sát dụng Thực chế là thượng cách; Sát vượng Thực mạnh thân khỏe thì rất quý.",
+   "issue": null,
+   "qualifier": "Văn bản kèm điều kiện thân khỏe (身健) và 'Sát cường Thực thiển' thì phá; bại bởi Ấn không chỉ Thiên Ấn mà cả Ấn nói chung (印能去食護煞), cứu bằng Tài (去印存食), và có ngoại lệ 財先食後 / 印先食後 (Thực quá vượng thì Ấn chế mới thành đại quý). Engine chỉ tính Kiêu (Thiên Ấn) kề Thực làm bại: hẹp hơn văn bản.",
+   "also": [
+    {
+     "chapter": "論偏官",
+     "quote": "煞用食制，不宜露財透印，以財能轉食生煞，而印能去食護煞也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+     "second_host_match_ratio": 0.96
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "煞逢食制，印來護煞，而逢財以去印存食",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.94
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "食逢梟，而就煞以成格，或生財以護食",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.93
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:thuong_phoi_an",
+   "verdict": "partly",
+   "chapter": "論傷官",
+   "quote": "有傷官佩印者，印能制傷，所以爲貴，反要傷官旺，身稍弱，始爲秀氣",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3754.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 1.0,
+   "gloss_vi": "Thương Quan bội Ấn thì Ấn chế Thương mà quý, cần Thương vượng thân hơi nhược mới tú khí.",
+   "issue": "Engine thành khi Thương thấu + Ấn thấu + khí thế <= trung hòa (≈ 身稍弱) khớp một phần. Thiếu điều kiện của văn bản: Thương phải vượng, Ấn phải có gốc sâu và không cần nhiều (偏正疊出反爲不秀); 傷輕身重而印綬多見là 貧窮之格; 成敗救應: 佩印而傷輕身旺 thì bại. Ấn không bắt buộc 'thấu' trong văn bản (cần 'có gốc').",
+   "qualifier": "Ấn thành quý còn phụ thuộc mùa (夏木逢潤: 其秀百倍).",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "傷官旺、身主弱而透煞印",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "佩印而傷輕身旺",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:thuong_sinh_tai",
+   "verdict": "partly",
+   "chapter": "論傷官",
+   "quote": "只要身强而財有根，便爲貴格",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3754.html",
+   "second_host_agrees": false,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.5,
+   "gloss_vi": "Chỉ cần thân cường và Tài có gốc là thành quý cách.",
+   "issue": "Hướng khớp (傷官生財). Engine dùng level >= trung hòa (rộng hơn 身强 của văn bản) và adjacency chain; thiếu: Tài phải có gốc, 冬金不貴 (凍水不能生木, trừ khi 化水爲木), và 生財而帶煞身輕 là bại.",
+   "qualifier": "Còn lối 化傷爲財 và 財傷有情 (Thương Tài cùng gốc nguyệt lệnh) được coi là tú khí.",
+   "also": [
+    {
+     "chapter": "論傷官",
+     "quote": "所以傷官生財，冬金不貴，以凍水不能生木",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3754.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "傷官生財，或傷官佩印而傷官旺、印有根",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 1.0
+    }
+   ],
+   "second_host_note": "Sina reads 只要身强而有根 (drops 財) where donglishuzhai reads 只要身强而財有根."
+  },
+  {
+   "rule_id": "pattern:tai_quan_song_my",
+   "verdict": "partly",
+   "chapter": "論財",
+   "quote": "有財旺生官者，身强而不透傷官，不混七煞，貴格也",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3746.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 1.0,
+   "gloss_vi": "Tài vượng sinh Quan, thân cường, không thấu Thương Quan, không lẫn Thất Sát thì là quý cách.",
+   "issue": "Tên 'Tài Quan song mỹ' không có trong văn bản (chỉ có 財旺生官 / 財印並透). Điều kiện nền (身强, không透傷官, không混七煞) engine rút thành 'level >= trung hòa' — yếu hơn. Cứu cho Tỉ-Kiếp đoạt Tài bằng Sát (visible:Sat) không có trong văn bản; văn bản dùng 生官 để劫退 (財旺生官，露亦不忌，生官則劫退). Cứu Thương-kiến-Quan bằng Ấn khớp.",
+   "qualifier": "Phải hết Thương và Sát; bại bởi 財輕比重 và 財透七煞.",
+   "also": [
+    {
+     "chapter": "論財",
+     "quote": "然而財旺生官，露亦不忌，蓋露以防劫，生官則劫退",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3746.html",
+     "second_host_match_ratio": 0.65
+    },
+    {
+     "chapter": "論正官",
+     "quote": "以財印並透者論之，兩不相礙，其貴也大",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3744.html",
+     "second_host_match_ratio": 0.94
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:hop_sat_luu_quan",
+   "verdict": "faithful",
+   "chapter": "論正官",
+   "quote": "甲用酉官，庚金混雜，乙以合之，合煞留官，是雜煞而取清也",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3744.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.96,
+   "gloss_vi": "Quan Giáp dụng Dậu, Canh kim hỗn tạp, Ất hợp Canh: hợp Sát lưu Quan là tạp Sát mà lấy thanh.",
+   "issue": null,
+   "qualifier": "Văn bản nêu cả 'hợp Sát lưu Quan' ở nhiều cách (Quan, Ấn, Lộc Kiếp: 合煞留官), điều kiện nền là Quan là cách chính (月令正官) và Sát bị hợp mất; engine 'bound' gồm cả hợp không hóa/giả hóa/tranh hợp rộng hơn ví dụ gốc.",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "雜煞，而合煞以清之",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.88
+    },
+    {
+     "chapter": "論建祿月劫",
+     "quote": "辛丑、庚寅、甲辰、乙亥，合煞留官也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3758.html",
+     "second_host_match_ratio": 0.92
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:hop_quan_luu_sat",
+   "verdict": "partly",
+   "chapter": "論偏官",
+   "quote": "有煞而雜官者，或去官，或去煞，取清則貴",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 1.0,
+   "gloss_vi": "Sát lẫn Quan thì bỏ Quan hoặc bỏ Sát, lấy thanh thì quý.",
+   "issue": "Văn bản có 去官留煞 (Nhạc thống chế) và 合官留煞 trong Dương Nhận (壬合丁官，煞純而不雜), nhưng đặt điều kiện: chỉ khi nguyệt lệnh là Thiên Quan (煞爲用而官非用，各從其重); nếu cách là Chính Quan mà 去官留煞 thì không quý bằng. Engine không phân biệt cách chính.",
+   "qualifier": "各從其重: giữ cái nào là dụng của nguyệt lệnh.",
+   "also": [
+    {
+     "chapter": "論偏官",
+     "quote": "若官格雜煞，而去官留煞，不能如是之貴矣",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+     "second_host_match_ratio": 0.76
+    },
+    {
+     "chapter": "論陽刃",
+     "quote": "而壬合丁官，煞純而不雜",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3756.html",
+     "second_host_match_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:tai_pha_an",
+   "verdict": "partly",
+   "chapter": "論用神成敗救應",
+   "quote": "印輕逢財，或身强印重而透煞，印格敗也",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.94,
+   "gloss_vi": "Ấn nhẹ gặp Tài, hoặc thân cường Ấn nặng mà thấu Sát, thì Ấn cách bại.",
+   "issue": "Hướng 'Tài phá Ấn' và cứu (劫財以解，合財而存印) khớp, nhưng văn bản đặt điều kiện 印輕財重; Ấn nhiều (印重身强) thì dùng Tài ức thái quá là thành cách (印多而用財), nên engine gắn 'bệnh' không điều kiện là rộng hơn văn bản. Cũng khớp 論四吉神: 印用財破.",
+   "qualifier": "Chỉ phá khi Ấn khinh và Tài trọng; 貪財破印 nếu không có Kiếp cứu.",
+   "also": [
+    {
+     "chapter": "論印",
+     "quote": "若印輕財重，又無劫財以救，則爲貪財破印，貧賤之局矣",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3748.html",
+     "second_host_match_ratio": 0.91
+    },
+    {
+     "chapter": "論四吉神能破格",
+     "quote": "官用食破，印用財破",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3731.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論印",
+     "quote": "有印多而用財者，印重身强，透財以抑太過",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3748.html",
+     "second_host_match_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:thuong_kien_quan",
+   "verdict": "partly",
+   "chapter": "論用神成敗救應",
+   "quote": "傷官非金水而見官",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 1.0,
+   "gloss_vi": "Thương Quan không phải Kim Thủy mà gặp Quan (là bại cách).",
+   "issue": "Văn bản coi Thương kiến Quan là bại nhưng với ngoại lệ lớn: 金水傷官見官thì được (傷官用官，他格不用，金水獨宜, cần Tài Ấn phụ, Thương Quan không cùng thấu). Engine không có ngoại lệ Kim Thủy. Cứu bằng Ấn khớp (透印以解之); cứu bằng Tài chỉ khớp trường hợp 化傷爲財 (作財旺生官而不作傷官見官), không phải Tài nói chung (官格透傷用印者又忌見財).",
+   "qualifier": "Bại cũng với Chính Quan cách: 官逢傷尅 → 官格敗.",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "官逢傷，而透印以解之",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.89
+    },
+    {
+     "chapter": "論傷官",
+     "quote": "有傷官用官者，他格不用，金水獨宜",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3754.html",
+     "second_host_match_ratio": 1.0
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:kieu_doat_thuc",
+   "verdict": "faithful",
+   "chapter": "論用神成敗救應",
+   "quote": "食神逢梟，或生財露煞，食神格敗也",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.86,
+   "gloss_vi": "Thực Thần gặp Kiêu (Thiên Ấn) thì Thực Thần cách bại.",
+   "issue": null,
+   "qualifier": "Chỉ áp dụng khi Thực Thần là cách chính; ngoại lệ trong văn bản: 夏火太炎而木焦 thấu Ấn không ngại; 食神遇官，露梟得用 (Kiêu thành cách); 偏印透食 trong Ấn cách là 洩身之秀 chứ không phải Kiêu đoạt Thực. Cứu khớp: 印來奪食，透財以解 / 就煞以成格 (engine chỉ có Tài).",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "食逢梟，而就煞以成格，或生財以護食",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.93
+    },
+    {
+     "chapter": "論食神",
+     "quote": "更有印來奪食，透財以解，亦有富貴",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3750.html",
+     "second_host_match_ratio": 0.93
+    },
+    {
+     "chapter": "論四凶神能成格",
+     "quote": "食神遇官，露梟得用，梟能成格也",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3732.html",
+     "second_host_match_ratio": 0.62
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:ti_kiep_doat_tai",
+   "verdict": "partly",
+   "chapter": "論用神成敗救應",
+   "quote": "財輕比重，財透七煞，財格敗也",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.92,
+   "gloss_vi": "Tài nhẹ Tỉ nặng, hoặc Tài thấu mà có Thất Sát, thì Tài cách bại.",
+   "issue": "Hướng 'Tỉ Kiếp đoạt Tài' khớp (財輕比重). Lệch: (1) ngưỡng 'Tỉ thấu >= 2' và 'any:Tai' là của engine, văn bản nói tương đối (財輕); (2) cứu của văn bản là 透食以化之 (Thực/Thương hóa Kiếp) và 生官以制之 (Quan); engine liệt kê Quan/Sát nhưng bỏ Thực/Thương, và Sát không phải cứu trong văn bản.",
+   "qualifier": "Ngoại lệ: 財用傷官 khi 財不甚旺而比强thì lộ một Thương để hóa Kiếp sinh Tài là hợp.",
+   "also": [
+    {
+     "chapter": "論用神成敗救應",
+     "quote": "財逢劫，而透食以化之、生官以制之",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3722.html",
+     "second_host_match_ratio": 0.86
+    },
+    {
+     "chapter": "論財",
+     "quote": "有財用傷官者，財不甚旺而比强，略露一位傷官以化之",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3746.html",
+     "second_host_match_ratio": 0.91
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:quan_sat_hon_tap",
+   "verdict": "partly",
+   "chapter": "論正官",
+   "quote": "然而遇傷在於佩印，混煞貴乎取清",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3744.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 1.0,
+   "gloss_vi": "Gặp Thương thì bội Ấn, hỗn Sát thì quý ở chỗ lấy thanh.",
+   "issue": "Văn bản coi hỗn tạp Quan-Sát là bất lợi cần 取清 (合煞留官hoặc去官/去煞; 七煞既純，雜官不利) — khớp bound:Sat/bound:Quan. Nhưng (1) cứu 'visible:Thuc' không có trong văn bản (chỉ 傷食反爲不礙 khi bàn vận, không phải cách cứu); (2) pattern ghi nguồn Thiên Tủy (SRC_TTT_QUANSAT), điều kiện nhật chủ vượng/hưu tù không có trong 子平真詮; (3) văn bản cho phép 官煞競出vẫn thành cách ở Thực Thần (không quý lắm) và Ấn (運喜食傷), nghĩa là không luôn là bệnh.",
+   "qualifier": "Phải 取清: 去官留煞 hoặc 去煞留官, 合煞留官, 合官留煞.",
+   "also": [
+    {
+     "chapter": "論偏官",
+     "quote": "有煞而雜官者，或去官，或去煞，取清則貴",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論食神",
+     "quote": "至於食神而官煞競出，亦可成格，但不甚貴耳",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3750.html",
+     "second_host_match_ratio": 0.94
+    },
+    {
+     "chapter": "論建祿月劫",
+     "quote": "更有祿劫而官煞競出，必須取清方爲貴格",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3758.html",
+     "second_host_match_ratio": 0.59
+    }
+   ]
+  },
+  {
+   "rule_id": "pattern:che_sat_qua_muc",
+   "verdict": "partly",
+   "chapter": "論偏官",
+   "quote": "至書有制煞不可太過之說，雖亦至理，然運行財印，亦能發福，不可執一也",
+   "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+   "second_host_agrees": true,
+   "second_host_url": "https://blog.sina.com.cn/s/blog_655736bf0100sjz3.html",
+   "second_host_match_ratio": 0.9,
+   "gloss_vi": "Sách có thuyết chế Sát không được thái quá, tuy có lý nhưng vận Tài Ấn vẫn phát phúc, không nên câu nệ.",
+   "issue": "子平真詮 nhắc thuyết 'chế Sát thái quá' nhưng từ chối coi là quy tắc cứng; ngưỡng '>= 4 chữ Thực Thương' và 'xấu nặng khi gặp vận chế Sát' là của engine/Thiên Tủy. Phần cứu bằng Ấn có cơ sở: 食太重而煞輕thì印運最利 (取運), và 食太旺而印制, 損太過thành đại quý (脫脫丞相).",
+   "qualifier": "Văn bản cho 煞旺食强而身健 là cực quý; chỉ khi Thực quá nặng Sát nhẹ mới cần Ấn tiết bớt.",
+   "also": [
+    {
+     "chapter": "論偏官",
+     "quote": "戊坐四支，食太重而透甲印，以損太過，豈非貴格",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3752.html",
+     "second_host_match_ratio": 1.0
+    },
+    {
+     "chapter": "論食神取運",
+     "quote": "若食太重而煞輕，印運最利，逢財反吉矣",
+     "quote_url": "https://www.donglishuzhai.net/chapter/3751.html",
+     "second_host_match_ratio": 0.94
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "_note": "Manual adjudication of reviewer answers (applied by build_source_evidence.py validate). Every override says why.",
+ "TV_KL_PHU_TU_PHU_TUAN_TRIET": {
+  "verdict": "faithful",
+  "override_note": "Người đọc ban đầu báo 'đảo cực' vì chỉ thấy câu trung tính 'hưởng nhiều phúc lộc'. Quy tắc có effect=limit và giao diện dùng câu 'limit:' (phúc lộc kém đi); trang 55 nói đúng như vậy ('chỉ sợ Triệt Tuần án ngữ thì kém đi thôi'). Cấu hình đúng, báo động giả do cách trình bày cho người đọc.",
+  "issue": null
+ },
+ "TV_TH_AUX_MENH_HL_TU_MO": {
+  "verdict": "partly",
+  "override_note": "Người đọc báo 'đảo cực' khi đọc câu trung tính; quy tắc có effect=limit và câu giao diện 'tài lộc bị giảm đi nhiều khi Hóa Lộc đóng ở Tứ Mộ' khớp trang 52. Còn lại một chênh lệch thật: ngoại lệ 'gặp Tham, Vũ thì lại rực rỡ' nằm trong mô tả nhưng không phải điều kiện loại trừ của quy tắc.",
+  "issue": "Ngoại lệ Tham/Vũ của sách chưa được mã hóa thành điều kiện loại trừ: khi Hóa Lộc ở Tứ Mộ cùng Tham Lang hoặc Vũ Khúc, quy tắc vẫn báo 'bị giảm'."
+ }
+}

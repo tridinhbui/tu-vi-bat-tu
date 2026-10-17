@@ -1,0 +1,1066 @@
+{
+ "totals": {
+  "rules": 1622,
+  "claims": 1806,
+  "status": {
+   "verified": 1315,
+   "draft": 279,
+   "?": 28
+  },
+  "systems": {
+   "bat_tu": 236,
+   "tu_vi": 1386
+  },
+  "source_state": {
+   "all_sources_verified": 1518,
+   "has_unverified_source": 76,
+   "no_source": 28
+  }
+ },
+ "sources_registry": {
+  "SRC_BAZI_ZHENZONG": {
+   "title": "八字真宗 (Bát Tự Chân Tông)",
+   "verified": true,
+   "locator": "PDF pp.7-17, 19-25, 35 (bảng tra); 25-27, 31-32, 50-52, 56-57, 59, 64, 73-74 (quy tắc trích dẫn trực tiếp, 14 trang / 96)"
+  },
+  "SRC_DOIVAN_LCM": {
+   "title": "Đổi Vận Cho Người Mệnh Khuyết, Quyển Xuân Hạ / Thu Đông (Lý Cư Minh, Tiến Thành dịch)",
+   "verified": false,
+   "locator": null
+  },
+  "SRC_EXPERIMENTAL": {
+   "title": "Giả thuyết thiết kế thử engine (không phải sách)",
+   "verified": false,
+   "locator": null
+  },
+  "SRC_EXPERIMENTAL_PHI": {
+   "title": "Giả thuyết thiết kế Phi Hóa thử engine (không phải sách)",
+   "verified": false,
+   "locator": null
+  },
+  "SRC_KHAO_LUAN": {
+   "title": "Tử Vi Khảo Luận",
+   "verified": true,
+   "locator": "pp.36 (bảng Tứ Hóa), 49-56, 58-71, 73, 75-83, 166-167, 195-197, 215-229, 237-238, 240-242, 244, 246 (56 trang có quy tắc trích dẫn / 290)"
+  },
+  "SRC_PHUONG_THUAT": {
+   "title": "Phương thuật kỷ dị (方術紀異)",
+   "verified": false,
+   "locator": null
+  },
+  "SRC_SYSTEM_STRUCT": {
+   "title": "Quy ước hệ thống: SchoolProfile baseline_v1 (tvbt.bazi_deep)",
+   "verified": false,
+   "locator": null
+  },
+  "SRC_TBCT": {
+   "title": "Tử Bình Chân Thuyên (子平真詮)",
+   "verified": false,
+   "locator": null
+  },
+  "SRC_THUC_HANH": {
+   "title": "Tử Vi Thực Hành",
+   "verified": true,
+   "locator": "pp.12, 14, 17, 19-25 (thủ tục, bảng); 30-31, 33-37, 39-40, 42-44, 46-56, 58-60, 62-68, 72-78, 82-88, 93-96, 98-106, 108-113 (66 trang có quy tắc trích dẫn / 163)"
+  },
+  "SRC_TOAN_THU": {
+   "title": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục dịch và bình chú)",
+   "verified": true,
+   "locator": "PDF pp.21-22, 24, 26-28, 31-34, 36-40, 42-47, 49-50, 52, 77-84, 86-89, 108-112, 151-163 (54 trang có quy tắc trích dẫn / 170)"
+  },
+  "SRC_TTT_HANTHU": {
+   "title": "Trích Thiên Tủy — chương Hàn Thử, Táo Thấp",
+   "verified": true,
+   "locator": "PDF pp.113-116"
+  },
+  "SRC_TTT_HOA": {
+   "title": "Trích Thiên Tủy — Hóa Tượng, Giả Hóa",
+   "verified": true,
+   "locator": "PDF pp.175-177, 180-182"
+  },
+  "SRC_TTT_NGUYENLUU": {
+   "title": "Trích Thiên Tủy — chương Nguyên Lưu",
+   "verified": true,
+   "locator": "PDF pp.79-81"
+  },
+  "SRC_TTT_NGUYETLENH": {
+   "title": "Trích Thiên Tủy (Lưu Bá Ôn; Nhậm Thiết Tiều bình giảng), bản dịch Việt — chương Nguyệt Lệnh",
+   "verified": true,
+   "locator": "PDF p.67"
+  },
+  "SRC_TTT_QUANSAT": {
+   "title": "Trích Thiên Tủy — chương Quan Sát (hỗn tạp, sáu cách dụng của Sát)",
+   "verified": true,
+   "locator": "PDF pp.84-92"
+  },
+  "SRC_TTT_SUYVUONG": {
+   "title": "Trích Thiên Tủy — chương Suy Vượng (căn, mộ khố, mệnh lệ 101–120)",
+   "verified": true,
+   "locator": "PDF pp.70-76"
+  },
+  "SRC_TTT_THANHTROC": {
+   "title": "Trích Thiên Tủy — chương Thanh Khí, Trọc Khí, Chân Thần, Giả Thần",
+   "verified": true,
+   "locator": "PDF pp.101-108"
+  },
+  "SRC_TTT_THONGQUAN": {
+   "title": "Trích Thiên Tủy — chương Thông Quan",
+   "verified": true,
+   "locator": "PDF pp.82-83"
+  },
+  "SRC_TTT_THUONGQUAN": {
+   "title": "Trích Thiên Tủy — chương Thương Quan (năm cách dụng)",
+   "verified": true,
+   "locator": "PDF pp.93-100"
+  },
+  "SRC_TTT_TONG": {
+   "title": "Trích Thiên Tủy — Tòng Tượng, Giả Tòng (tòng vượng/cường/khí/thế, tòng tài/quan)",
+   "verified": true,
+   "locator": "PDF pp.171-174, 178-179"
+  },
+  "SRC_TTT_TUEVAN": {
+   "title": "Trích Thiên Tủy — chương Tuế Vận (cái đầu, tiệt cước, thiên khắc địa xung)",
+   "verified": true,
+   "locator": "PDF pp.229-233"
+  },
+  "SRC_TVDS_TAN_BIEN": {
+   "title": "Tử Vi Đẩu Số Tân Biên",
+   "verified": false,
+   "locator": null
+  },
+  "SRC_TVH_CACH": {
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa) — phân loại cách cục, đánh giá chính cách, cách đặc biệt",
+   "verified": true,
+   "locator": "trang in 356-376 (bản scan)"
+  },
+  "SRC_TVH_DIEM": {
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa), bản dịch Việt — mục 'Tính điểm để đo độ vượng suy của nhật chủ'",
+   "verified": true,
+   "locator": "trang in 331-355 (trùng số trang PDF); bản scan, đọc bằng mắt qua ảnh trang"
+  },
+  "SRC_TVH_DIEUHAU": {
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa) — 'Bảng dụng thần dự bị' (điều hậu)",
+   "verified": true,
+   "locator": "trang in 389-390 (bảng dụng thần dự bị), 391-396 (chú thích thứ tự), 386-388 (ví dụ điều hậu) (bản scan)"
+  },
+  "SRC_TVH_DUNGTHAN": {
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa) — chọn dụng thần theo cách và hỉ kị thần của vận",
+   "verified": true,
+   "locator": "trang in 376-386 (bảng cách × vượng/nhược), 397-400 (ví dụ chọn dụng thần; ví dụ 4 có bảng in bị vỡ) (bản scan)"
+  },
+  "SRC_ZIPING_ZHENQUAN": {
+   "title": "Tử Bình Chân Thuyên (子平真詮)",
+   "verified": false,
+   "locator": null
+  }
+ },
+ "packs": [
+  {
+   "pack": "pack_bazi_napam.json",
+   "rules": 30,
+   "status": {
+    "verified": 30
+   },
+   "systems": {
+    "bat_tu": 30
+   },
+   "sources": {
+    "SRC_BAZI_ZHENZONG": 30
+   },
+   "with_page_locator": 30,
+   "claims_referenced": 30,
+   "claims_resolved": 30,
+   "claim_len_median": 110,
+   "claim_len_mean": 110
+  },
+  {
+   "pack": "pack_bazi_zhenzong.json",
+   "rules": 25,
+   "status": {
+    "verified": 20,
+    "draft": 5
+   },
+   "systems": {
+    "bat_tu": 25
+   },
+   "sources": {
+    "SRC_BAZI_ZHENZONG": 25
+   },
+   "with_page_locator": 25,
+   "claims_referenced": 25,
+   "claims_resolved": 25,
+   "claim_len_median": 128,
+   "claim_len_mean": 122
+  },
+  {
+   "pack": "pack_bazi_zz_direct.json",
+   "rules": 49,
+   "status": {
+    "verified": 33,
+    "draft": 16
+   },
+   "systems": {
+    "bat_tu": 49
+   },
+   "sources": {
+    "SRC_BAZI_ZHENZONG": 49
+   },
+   "with_page_locator": 49,
+   "claims_referenced": 49,
+   "claims_resolved": 49,
+   "claim_len_median": 68,
+   "claim_len_mean": 77
+  },
+  {
+   "pack": "pack_khao_luan.json",
+   "rules": 15,
+   "status": {
+    "verified": 12,
+    "draft": 3
+   },
+   "systems": {
+    "tu_vi": 15
+   },
+   "sources": {
+    "SRC_KHAO_LUAN": 15
+   },
+   "with_page_locator": 15,
+   "claims_referenced": 11,
+   "claims_resolved": 11,
+   "claim_len_median": 50,
+   "claim_len_mean": 47
+  },
+  {
+   "pack": "pack_khao_luan_aux.json",
+   "rules": 36,
+   "status": {
+    "verified": 36
+   },
+   "systems": {
+    "tu_vi": 36
+   },
+   "sources": {
+    "SRC_KHAO_LUAN": 36
+   },
+   "with_page_locator": 36,
+   "claims_referenced": 36,
+   "claims_resolved": 36,
+   "claim_len_median": 87,
+   "claim_len_mean": 93
+  },
+  {
+   "pack": "pack_khao_luan_cases.json",
+   "rules": 24,
+   "status": {
+    "verified": 22,
+    "draft": 2
+   },
+   "systems": {
+    "tu_vi": 24
+   },
+   "sources": {
+    "SRC_KHAO_LUAN": 24
+   },
+   "with_page_locator": 24,
+   "claims_referenced": 25,
+   "claims_resolved": 25,
+   "claim_len_median": 94,
+   "claim_len_mean": 97
+  },
+  {
+   "pack": "pack_khao_luan_chinh_tinh.json",
+   "rules": 57,
+   "status": {
+    "verified": 54,
+    "draft": 3
+   },
+   "systems": {
+    "tu_vi": 57
+   },
+   "sources": {
+    "SRC_KHAO_LUAN": 57
+   },
+   "with_page_locator": 57,
+   "claims_referenced": 57,
+   "claims_resolved": 57,
+   "claim_len_median": 84,
+   "claim_len_mean": 88
+  },
+  {
+   "pack": "pack_khao_luan_cung.json",
+   "rules": 48,
+   "status": {
+    "verified": 29,
+    "draft": 19
+   },
+   "systems": {
+    "tu_vi": 48
+   },
+   "sources": {
+    "SRC_KHAO_LUAN": 48
+   },
+   "with_page_locator": 48,
+   "claims_referenced": 48,
+   "claims_resolved": 48,
+   "claim_len_median": 77,
+   "claim_len_mean": 88
+  },
+  {
+   "pack": "pack_khao_luan_phu.json",
+   "rules": 40,
+   "status": {
+    "draft": 2,
+    "verified": 38
+   },
+   "systems": {
+    "tu_vi": 40
+   },
+   "sources": {
+    "SRC_KHAO_LUAN": 40
+   },
+   "with_page_locator": 40,
+   "claims_referenced": 40,
+   "claims_resolved": 40,
+   "claim_len_median": 74,
+   "claim_len_mean": 77
+  },
+  {
+   "pack": "pack_khao_luan_phu2.json",
+   "rules": 29,
+   "status": {
+    "verified": 28,
+    "draft": 1
+   },
+   "systems": {
+    "tu_vi": 29
+   },
+   "sources": {
+    "SRC_KHAO_LUAN": 29
+   },
+   "with_page_locator": 29,
+   "claims_referenced": 29,
+   "claims_resolved": 29,
+   "claim_len_median": 72,
+   "claim_len_mean": 74
+  },
+  {
+   "pack": "pack_khao_luan_stars.json",
+   "rules": 103,
+   "status": {
+    "verified": 90,
+    "draft": 13
+   },
+   "systems": {
+    "tu_vi": 103
+   },
+   "sources": {
+    "SRC_KHAO_LUAN": 103
+   },
+   "with_page_locator": 103,
+   "claims_referenced": 103,
+   "claims_resolved": 103,
+   "claim_len_median": 77,
+   "claim_len_mean": 81
+  },
+  {
+   "pack": "pack_thuc_hanh.json",
+   "rules": 22,
+   "status": {
+    "verified": 22
+   },
+   "systems": {
+    "tu_vi": 22
+   },
+   "sources": {
+    "SRC_THUC_HANH": 22
+   },
+   "with_page_locator": 22,
+   "claims_referenced": 22,
+   "claims_resolved": 22,
+   "claim_len_median": 136,
+   "claim_len_mean": 136
+  },
+  {
+   "pack": "pack_thuc_hanh_aux.json",
+   "rules": 43,
+   "status": {
+    "verified": 36,
+    "draft": 7
+   },
+   "systems": {
+    "tu_vi": 43
+   },
+   "sources": {
+    "SRC_THUC_HANH": 43
+   },
+   "with_page_locator": 43,
+   "claims_referenced": 43,
+   "claims_resolved": 43,
+   "claim_len_median": 83,
+   "claim_len_mean": 84
+  },
+  {
+   "pack": "pack_thuc_hanh_aux2.json",
+   "rules": 55,
+   "status": {
+    "verified": 42,
+    "draft": 13
+   },
+   "systems": {
+    "tu_vi": 55
+   },
+   "sources": {
+    "SRC_THUC_HANH": 55
+   },
+   "with_page_locator": 55,
+   "claims_referenced": 55,
+   "claims_resolved": 55,
+   "claim_len_median": 81,
+   "claim_len_mean": 81
+  },
+  {
+   "pack": "pack_thuc_hanh_cach.json",
+   "rules": 64,
+   "status": {
+    "verified": 52,
+    "draft": 12
+   },
+   "systems": {
+    "tu_vi": 64
+   },
+   "sources": {
+    "SRC_THUC_HANH": 64
+   },
+   "with_page_locator": 64,
+   "claims_referenced": 65,
+   "claims_resolved": 65,
+   "claim_len_median": 80,
+   "claim_len_mean": 84
+  },
+  {
+   "pack": "pack_thuc_hanh_combos.json",
+   "rules": 31,
+   "status": {
+    "verified": 26,
+    "draft": 5
+   },
+   "systems": {
+    "tu_vi": 31
+   },
+   "sources": {
+    "SRC_THUC_HANH": 31
+   },
+   "with_page_locator": 31,
+   "claims_referenced": 31,
+   "claims_resolved": 31,
+   "claim_len_median": 97,
+   "claim_len_mean": 97
+  },
+  {
+   "pack": "pack_thuc_hanh_menh_verse.json",
+   "rules": 45,
+   "status": {
+    "verified": 34,
+    "draft": 11
+   },
+   "systems": {
+    "tu_vi": 45
+   },
+   "sources": {
+    "SRC_THUC_HANH": 45
+   },
+   "with_page_locator": 45,
+   "claims_referenced": 45,
+   "claims_resolved": 45,
+   "claim_len_median": 77,
+   "claim_len_mean": 80
+  },
+  {
+   "pack": "pack_thuc_hanh_palaces.json",
+   "rules": 15,
+   "status": {
+    "verified": 14,
+    "draft": 1
+   },
+   "systems": {
+    "tu_vi": 15
+   },
+   "sources": {
+    "SRC_THUC_HANH": 15
+   },
+   "with_page_locator": 15,
+   "claims_referenced": 15,
+   "claims_resolved": 15,
+   "claim_len_median": 77,
+   "claim_len_mean": 81
+  },
+  {
+   "pack": "pack_thuc_hanh_palaces2.json",
+   "rules": 134,
+   "status": {
+    "verified": 86,
+    "draft": 48
+   },
+   "systems": {
+    "tu_vi": 134
+   },
+   "sources": {
+    "SRC_THUC_HANH": 134
+   },
+   "with_page_locator": 134,
+   "claims_referenced": 134,
+   "claims_resolved": 134,
+   "claim_len_median": 71,
+   "claim_len_mean": 72
+  },
+  {
+   "pack": "pack_thuc_hanh_star_menh.json",
+   "rules": 53,
+   "status": {
+    "verified": 53
+   },
+   "systems": {
+    "tu_vi": 53
+   },
+   "sources": {
+    "SRC_THUC_HANH": 53
+   },
+   "with_page_locator": 53,
+   "claims_referenced": 53,
+   "claims_resolved": 53,
+   "claim_len_median": 78,
+   "claim_len_mean": 78
+  },
+  {
+   "pack": "pack_toan_thu.json",
+   "rules": 68,
+   "status": {
+    "verified": 61,
+    "draft": 7
+   },
+   "systems": {
+    "tu_vi": 68
+   },
+   "sources": {
+    "SRC_TOAN_THU": 68
+   },
+   "with_page_locator": 68,
+   "claims_referenced": 68,
+   "claims_resolved": 68,
+   "claim_len_median": 74,
+   "claim_len_mean": 78
+  },
+  {
+   "pack": "pack_toan_thu_nu.json",
+   "rules": 11,
+   "status": {
+    "draft": 1,
+    "verified": 10
+   },
+   "systems": {
+    "tu_vi": 11
+   },
+   "sources": {
+    "SRC_TOAN_THU": 11
+   },
+   "with_page_locator": 11,
+   "claims_referenced": 11,
+   "claims_resolved": 11,
+   "claim_len_median": 89,
+   "claim_len_mean": 86
+  },
+  {
+   "pack": "pack_toan_thu_palaces.json",
+   "rules": 382,
+   "status": {
+    "verified": 358,
+    "draft": 24
+   },
+   "systems": {
+    "tu_vi": 382
+   },
+   "sources": {
+    "SRC_TOAN_THU": 382
+   },
+   "with_page_locator": 382,
+   "claims_referenced": 382,
+   "claims_resolved": 382,
+   "claim_len_median": 70,
+   "claim_len_mean": 70
+  },
+  {
+   "pack": "pack_toan_thu_phu.json",
+   "rules": 56,
+   "status": {
+    "verified": 46,
+    "draft": 10
+   },
+   "systems": {
+    "tu_vi": 56
+   },
+   "sources": {
+    "SRC_TOAN_THU": 56
+   },
+   "with_page_locator": 56,
+   "claims_referenced": 57,
+   "claims_resolved": 57,
+   "claim_len_median": 78,
+   "claim_len_mean": 81
+  },
+  {
+   "pack": "pack_vn_draft.json",
+   "rules": 2,
+   "status": {
+    "draft": 2
+   },
+   "systems": {
+    "tu_vi": 1,
+    "bat_tu": 1
+   },
+   "sources": {
+    "SRC_TVDS_TAN_BIEN": 1,
+    "SRC_ZIPING_ZHENQUAN": 1
+   },
+   "with_page_locator": 0,
+   "claims_referenced": 2,
+   "claims_resolved": 2,
+   "claim_len_median": 37,
+   "claim_len_mean": 37
+  },
+  {
+   "pack": "bazi_deep/pack_structure.json",
+   "rules": 108,
+   "status": {
+    "draft": 33,
+    "verified": 75
+   },
+   "systems": {
+    "bat_tu": 108
+   },
+   "sources": {
+    "SRC_SYSTEM_STRUCT": 10,
+    "SRC_TBCT": 25,
+    "SRC_TTT_TONG": 5,
+    "SRC_TTT_HOA": 2,
+    "SRC_TTT_THUONGQUAN": 5,
+    "SRC_TTT_NGUYENLUU": 2,
+    "SRC_TTT_HANTHU": 4,
+    "SRC_TTT_QUANSAT": 2,
+    "SRC_TVH_DIEM": 3,
+    "SRC_TVH_CACH": 52
+   },
+   "with_page_locator": 0,
+   "claims_referenced": 108,
+   "claims_resolved": 108,
+   "claim_len_median": 90,
+   "claim_len_mean": 108
+  },
+  {
+   "pack": "bazi_deep/pack_temporal.json",
+   "rules": 23,
+   "status": {
+    "draft": 15,
+    "verified": 8
+   },
+   "systems": {
+    "bat_tu": 23
+   },
+   "sources": {
+    "SRC_TBCT": 15,
+    "SRC_TTT_TUEVAN": 8
+   },
+   "with_page_locator": 0,
+   "claims_referenced": 23,
+   "claims_resolved": 23,
+   "claim_len_median": 87,
+   "claim_len_mean": 97
+  },
+  {
+   "pack": "van_han_rules.json",
+   "rules": 28,
+   "status": {
+    "?": 28
+   },
+   "systems": {
+    "tu_vi": 28
+   },
+   "sources": {},
+   "with_page_locator": 0,
+   "claims_referenced": 0,
+   "claims_resolved": 0,
+   "claim_len_median": 0,
+   "claim_len_mean": 0
+  },
+  {
+   "pack": "experimental/pack_engine_demo.json",
+   "rules": 3,
+   "status": {
+    "draft": 3
+   },
+   "systems": {
+    "tu_vi": 3
+   },
+   "sources": {
+    "SRC_EXPERIMENTAL": 3
+   },
+   "with_page_locator": 0,
+   "claims_referenced": 2,
+   "claims_resolved": 0,
+   "claim_len_median": 0,
+   "claim_len_mean": 0
+  },
+  {
+   "pack": "experimental/pack_phi_hoa.json",
+   "rules": 10,
+   "status": {
+    "draft": 10
+   },
+   "systems": {
+    "tu_vi": 10
+   },
+   "sources": {
+    "SRC_EXPERIMENTAL_PHI": 10
+   },
+   "with_page_locator": 0,
+   "claims_referenced": 10,
+   "claims_resolved": 0,
+   "claim_len_median": 0,
+   "claim_len_mean": 0
+  },
+  {
+   "pack": "experimental/pack_van_han_layers.json",
+   "rules": 13,
+   "status": {
+    "draft": 13
+   },
+   "systems": {
+    "tu_vi": 13
+   },
+   "sources": {
+    "SRC_EXPERIMENTAL": 13
+   },
+   "with_page_locator": 0,
+   "claims_referenced": 13,
+   "claims_resolved": 0,
+   "claim_len_median": 0,
+   "claim_len_mean": 0
+  }
+ ],
+ "unresolved_claim_ids": [],
+ "unresolved_claim_ids_experimental_packs": [
+  "ly_dai_han_ky_xung_menh",
+  "ly_dai_han_trong_tam_phuong_menh_co_cach",
+  "ly_dai_tieu_trung_cung",
+  "ly_ky_ba_tang",
+  "ly_ky_chong_tang",
+  "ly_ky_luu_khi_menh_co_cach",
+  "ly_loc_chong_tang",
+  "ly_luu_kinh_da_nhap_menh",
+  "ly_luu_ky_nhap_menh",
+  "ly_luu_ky_xung_menh",
+  "ly_luu_loc_ma_cung_cung",
+  "ly_luu_loc_ton_nhap_menh",
+  "ly_song_loc_luu",
+  "ph_ky_xung_phi",
+  "ph_loc_ky_giao",
+  "ph_menh_chuoi_loc",
+  "ph_menh_ky_nhap",
+  "ph_menh_loc_quan_tai",
+  "ph_nhieu_ky_vao_mot_cung",
+  "ph_nhieu_loc_vao_mot_cung",
+  "ph_quan_loc_trong_chuoi_loc",
+  "ph_tu_hoa_ky",
+  "ph_tu_hoa_loc",
+  "xr_quan_loc_ky_han_che",
+  "xr_quan_loc_trong_tam_phuong_cach"
+ ],
+ "orphan_claims": [
+  "bt_can_xet_cuu_ung",
+  "di_vo_chinh_dieu_thả_noi",
+  "kl_tang_ho_hoc_rong_tai_cao"
+ ],
+ "verified_with_unverified_source": [],
+ "coverage": {
+  "bazi": {
+   "Thiên Can (10)": {
+    "rules": 110,
+    "verified": 91,
+    "draft": 19,
+    "sources": {
+     "SRC_TVH_CACH": 49,
+     "SRC_BAZI_ZHENZONG": 35,
+     "SRC_SYSTEM_STRUCT": 6,
+     "SRC_TTT_TONG": 5,
+     "SRC_TTT_THUONGQUAN": 5
+    }
+   },
+   "Địa Chi (12)": {
+    "rules": 33,
+    "verified": 22,
+    "draft": 11,
+    "sources": {
+     "SRC_BAZI_ZHENZONG": 17,
+     "SRC_TVH_CACH": 13,
+     "SRC_ZIPING_ZHENQUAN": 1,
+     "SRC_TTT_THUONGQUAN": 1,
+     "SRC_TBCT": 1
+    }
+   },
+   "Ngũ hành": {
+    "rules": 53,
+    "verified": 44,
+    "draft": 9,
+    "sources": {
+     "SRC_BAZI_ZHENZONG": 38,
+     "SRC_TVH_CACH": 10,
+     "SRC_TTT_HANTHU": 4,
+     "SRC_ZIPING_ZHENQUAN": 1
+    }
+   },
+   "Âm dương": {
+    "rules": 6,
+    "verified": 2,
+    "draft": 4,
+    "sources": {
+     "SRC_BAZI_ZHENZONG": 6
+    }
+   },
+   "Thập Thần": {
+    "rules": 52,
+    "verified": 40,
+    "draft": 12,
+    "sources": {
+     "SRC_TVH_CACH": 21,
+     "SRC_BAZI_ZHENZONG": 14,
+     "SRC_TBCT": 10,
+     "SRC_TTT_THUONGQUAN": 5,
+     "SRC_SYSTEM_STRUCT": 2
+    }
+   },
+   "Tàng can": {
+    "rules": 7,
+    "verified": 0,
+    "draft": 7,
+    "sources": {
+     "SRC_BAZI_ZHENZONG": 5,
+     "SRC_ZIPING_ZHENQUAN": 1,
+     "SRC_TBCT": 1
+    }
+   },
+   "Vượng suy / thân cường nhược": {
+    "rules": 75,
+    "verified": 71,
+    "draft": 4,
+    "sources": {
+     "SRC_TVH_CACH": 48,
+     "SRC_BAZI_ZHENZONG": 5,
+     "SRC_TTT_THUONGQUAN": 5,
+     "SRC_TTT_TONG": 4,
+     "SRC_SYSTEM_STRUCT": 3
+    }
+   },
+   "Dụng thần / hỉ kỵ": {
+    "rules": 15,
+    "verified": 6,
+    "draft": 9,
+    "sources": {
+     "SRC_TBCT": 8,
+     "SRC_TTT_TUEVAN": 4,
+     "SRC_SYSTEM_STRUCT": 3,
+     "SRC_TTT_HOA": 2
+    }
+   },
+   "Cách cục Bát Tự": {
+    "rules": 38,
+    "verified": 27,
+    "draft": 11,
+    "sources": {
+     "SRC_TVH_CACH": 13,
+     "SRC_TBCT": 10,
+     "SRC_TTT_TONG": 5,
+     "SRC_TTT_THUONGQUAN": 5,
+     "SRC_TTT_HOA": 2
+    }
+   },
+   "Đại vận / lưu niên": {
+    "rules": 4,
+    "verified": 2,
+    "draft": 2,
+    "sources": {
+     "SRC_TBCT": 2,
+     "SRC_TTT_TUEVAN": 2
+    }
+   },
+   "Hình xung hợp hại": {
+    "rules": 67,
+    "verified": 40,
+    "draft": 27,
+    "sources": {
+     "SRC_TBCT": 19,
+     "SRC_BAZI_ZHENZONG": 17,
+     "SRC_TVH_CACH": 16,
+     "SRC_TTT_TUEVAN": 8,
+     "SRC_SYSTEM_STRUCT": 5
+    }
+   },
+   "Thần sát": {
+    "rules": 11,
+    "verified": 11,
+    "draft": 0,
+    "sources": {
+     "SRC_BAZI_ZHENZONG": 11
+    }
+   },
+   "Nạp âm": {
+    "rules": 30,
+    "verified": 30,
+    "draft": 0,
+    "sources": {
+     "SRC_BAZI_ZHENZONG": 30
+    }
+   }
+  },
+  "tuvi": {
+   "Chính tinh (14)": {
+    "rules": 1328,
+    "verified": 1145,
+    "draft": 183,
+    "sources": {
+     "SRC_TOAN_THU": 517,
+     "SRC_THUC_HANH": 462,
+     "SRC_KHAO_LUAN": 348,
+     "SRC_TVDS_TAN_BIEN": 1
+    }
+   },
+   "Phụ tinh cát (Tả Hữu Xương Khúc Khôi Việt Lộc Tồn)": {
+    "rules": 285,
+    "verified": 219,
+    "draft": 66,
+    "sources": {
+     "SRC_THUC_HANH": 112,
+     "SRC_TOAN_THU": 104,
+     "SRC_KHAO_LUAN": 66,
+     "SRC_EXPERIMENTAL": 3
+    }
+   },
+   "Sát tinh (Kình Đà Hỏa Linh Không Kiếp)": {
+    "rules": 189,
+    "verified": 134,
+    "draft": 55,
+    "sources": {
+     "SRC_THUC_HANH": 87,
+     "SRC_TOAN_THU": 61,
+     "SRC_KHAO_LUAN": 40,
+     "SRC_EXPERIMENTAL": 1
+    }
+   },
+   "Phụ tinh khác (Hồng Loan, Thiên Mã, Đào Hoa, Hình, Riêu...)": {
+    "rules": 96,
+    "verified": 80,
+    "draft": 16,
+    "sources": {
+     "SRC_THUC_HANH": 54,
+     "SRC_KHAO_LUAN": 35,
+     "SRC_TOAN_THU": 6,
+     "SRC_EXPERIMENTAL": 1
+    }
+   },
+   "Vòng Trường Sinh / Bác Sĩ / Thái Tuế": {
+    "rules": 82,
+    "verified": 62,
+    "draft": 20,
+    "sources": {
+     "SRC_THUC_HANH": 69,
+     "SRC_KHAO_LUAN": 10,
+     "SRC_TOAN_THU": 3
+    }
+   },
+   "12 cung": {
+    "rules": 1337,
+    "verified": 1137,
+    "draft": 200,
+    "sources": {
+     "SRC_TOAN_THU": 517,
+     "SRC_THUC_HANH": 462,
+     "SRC_KHAO_LUAN": 340,
+     "SRC_EXPERIMENTAL": 13,
+     "SRC_EXPERIMENTAL_PHI": 4
+    }
+   },
+   "Tam phương tứ chính": {
+    "rules": 83,
+    "verified": 53,
+    "draft": 30,
+    "sources": {
+     "SRC_THUC_HANH": 41,
+     "SRC_KHAO_LUAN": 22,
+     "SRC_TOAN_THU": 14,
+     "SRC_EXPERIMENTAL": 4,
+     "SRC_TVDS_TAN_BIEN": 1
+    }
+   },
+   "Tứ Hóa": {
+    "rules": 156,
+    "verified": 108,
+    "draft": 48,
+    "sources": {
+     "SRC_THUC_HANH": 75,
+     "SRC_KHAO_LUAN": 36,
+     "SRC_TOAN_THU": 26,
+     "SRC_EXPERIMENTAL_PHI": 10,
+     "SRC_EXPERIMENTAL": 9
+    }
+   },
+   "Miếu vượng đắc hãm": {
+    "rules": 284,
+    "verified": 248,
+    "draft": 36,
+    "sources": {
+     "SRC_THUC_HANH": 162,
+     "SRC_TOAN_THU": 103,
+     "SRC_KHAO_LUAN": 19
+    }
+   },
+   "Tuần / Triệt": {
+    "rules": 54,
+    "verified": 46,
+    "draft": 8,
+    "sources": {
+     "SRC_THUC_HANH": 33,
+     "SRC_KHAO_LUAN": 20,
+     "SRC_TOAN_THU": 1
+    }
+   },
+   "Cách cục Tử Vi": {
+    "rules": 99,
+    "verified": 76,
+    "draft": 23,
+    "sources": {
+     "SRC_THUC_HANH": 69,
+     "SRC_KHAO_LUAN": 15,
+     "SRC_TOAN_THU": 8,
+     "SRC_EXPERIMENTAL": 6,
+     "SRC_TVDS_TAN_BIEN": 1
+    }
+   },
+   "Đại hạn / tiểu hạn / lưu niên": {
+    "rules": 9,
+    "verified": 0,
+    "draft": 9,
+    "sources": {
+     "SRC_EXPERIMENTAL": 9
+    }
+   },
+   "Cục / Mệnh-Thân / nạp âm": {
+    "rules": 11,
+    "verified": 7,
+    "draft": 4,
+    "sources": {
+     "SRC_THUC_HANH": 5,
+     "SRC_KHAO_LUAN": 4,
+     "SRC_EXPERIMENTAL": 2
+    }
+   }
+  }
+ }
+}

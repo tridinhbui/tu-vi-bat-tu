@@ -1,0 +1,12 @@
+/* Levels 4-5 of the learning journey (data-driven lessons): quotations, stats, tier badges, dignity table. Loaded after app.css. */
+.ln-q{margin:var(--s4,16px) 0;padding:12px 18px;border-left:3px solid var(--brass,#b08d57);background:var(--surface,transparent);border-radius:0 12px 12px 0}
+.ln-q p{margin:0 0 6px;font-family:var(--serif,serif);font-size:1.02rem;color:var(--text,inherit)}
+.ln-q .ln-q-g{font-family:var(--sans,inherit);font-size:.9rem;color:var(--text2,inherit)}
+.ln-q footer{font-size:.82rem;color:var(--muted,#777)}.ln-q footer span{display:block;margin-top:2px}
+.ln-stats{grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))}
+.ln-stat b{display:block;font:600 1.9rem var(--serif,serif);line-height:1.1}.ln-stat p{margin:4px 0 0;font-size:.86rem;color:var(--text2,inherit)}
+.ln-tiers{display:grid;gap:10px;margin:var(--s3,12px) 0}.ln-tiers p{margin:4px 0 0;font-size:.92rem;color:var(--text2,inherit)}
+.ln-tier{display:inline-block;font:600 .78rem var(--sans,inherit);padding:2px 10px;border-radius:99px;border:1px solid var(--line,#ccc)}
+.ln-tier.t-checked{background:rgba(34,120,70,.14)}.ln-tier.t-partial{background:rgba(120,150,40,.16)}.ln-tier.t-sourced{background:rgba(40,80,170,.12)}.ln-tier.t-draft{background:rgba(180,110,0,.14)}.ln-tier.t-hypothesis{background:rgba(160,40,40,.12)}
+.ln-dig caption{caption-side:top;text-align:left;font-size:.85rem;color:var(--text2,inherit);padding-bottom:6px}.ln-dig td.ln-df{font-weight:700;background:rgba(180,110,0,.16)}
+.ln-body table.tbl td,.ln-body table.tbl th{vertical-align:top}
