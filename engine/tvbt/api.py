@@ -200,6 +200,13 @@ def _experimental(tv, rules, sources) -> dict:
             "conflicts": [c for c in conflict.resolve(res, allr) if c.get("declared")]}
 
 
+@app.post("/api/compare-charts")
+def compare_charts(a: BirthReq, b: BirthReq):
+    """Facts only: the two Nhật Chủ and day branches side by side (see compare.py)."""
+    from . import compare
+    return compare.compare(_compute(a)[1], _compute(b)[1])
+
+
 class LunarReq(BaseModel):
     year: int = Field(ge=1900, le=2049); month: int = Field(ge=1, le=12); day: int = Field(ge=1, le=30)
     leap: bool = False; calendar: str = Field("vn", pattern="^(vn|cn)$")

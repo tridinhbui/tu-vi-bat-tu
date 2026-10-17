@@ -93,3 +93,21 @@ def test_year_endpoint_has_fields_for_this_year_card():
     b, t = r["bazi"], r["tuvi"]
     assert b["annual_pillar"] and b["annual_stem_ten_god"] and b["luck_pillar"] and "annual_vs_natal" in b
     assert t["tieu_han_palace"] and t["luu_thai_tue_palace"] and t["luu_tu_hoa_reading"]
+
+
+def test_compare_charts_gives_facts_not_scores():
+    a = B
+    b = {"year": 1985, "month": 11, "day": 3, "hour": 8, "minute": 0, "gender": "female"}
+    r = c.post("/api/compare-charts", json={"a": a, "b": b}).json()
+    assert r["a"]["day_master"] == "Nhâm" and r["a"]["day_branch"] == "Ngọ"
+    assert r["ten_god_of_b_for_a"] and r["ten_god_of_a_for_b"] and r["day_branches"] and r["element_link"]["text"]
+    assert not any(k in r for k in ("score", "match", "verdict"))
+
+
+def test_compare_known_relations():
+    from tvbt.compare import compare
+    from tvbt.api import _compute, BirthReq
+    mk = lambda **k: _compute(BirthReq(**{**B, **k}))[1]
+    same = compare(mk(), mk())
+    assert same["day_master_stems"]["kind"] == "trùng" and same["day_branches"][0]["kind"] == "chi_trùng"
+    assert same["ten_god_of_b_for_a"] == "Tỉ Kiên"
