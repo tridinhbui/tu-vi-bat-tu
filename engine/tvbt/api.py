@@ -324,3 +324,5 @@ def index():
 
 from . import phi_hoa_api  # noqa: E402  (opt-in draft Phi Hóa school)
 phi_hoa_api.register(app, BirthReq, _compute)
+from . import growth_api  # noqa: E402  (Personal Growth layer, behind TVBT_GROWTH)
+growth_api.register(app, BirthReq, _compute)

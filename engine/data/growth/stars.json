@@ -1,0 +1,942 @@
+{
+  "note": "Tầng Personal Growth cho 14 chính tinh. Mỗi mục tách: 'gift/need' (đọc từ hình tượng truyền thống, nguồn ở star_profiles.json và tu_hoa_vi.json), 'psych' (một khái niệm tâm lý học được đặt CẠNH hình tượng như một giả thuyết để người đọc tự kiểm chứng, không suy ra từ lá số), và phần thực hành (câu hỏi, tình huống, hành động 7/30 ngày). Văn bản do hệ thống soạn (he_thong), không phải lời sách.",
+  "stars": {
+    "Tử Vi": {
+      "need": "được tôn trọng và giữ cho mọi thứ có trật tự",
+      "gift": "tự nhiên đứng ra gánh vác, tạo trật tự cho tập thể, người khác tìm đến bạn để được định hướng",
+      "lesson": {
+        "title": "Lãnh đạo là làm người khác lớn lên",
+        "text": "Vai trò trung tâm cho bạn sức nặng, nhưng ảnh hưởng bền chỉ đến khi người quanh bạn cũng tự quyết được. Bài học là chuyển từ 'mọi việc phải qua tôi' sang 'tôi tạo điều kiện để việc chạy cả khi vắng tôi'."
+      },
+      "skill": "ủy quyền thật (giao cả quyền quyết định, không chỉ giao việc) và nghe phản biện mà không coi đó là thách thức vị thế",
+      "psych": {
+        "concept": "uncertainty_control",
+        "text": "Nhu cầu nắm quyền điều phối thường đi cùng việc dùng sự kiểm soát để giảm bất an. Khi bất an tăng, người ta siết kiểm soát hơn chứ không nới ra."
+      },
+      "shadow": {
+        "conflict": "muốn được kính trọng nhưng lại ngại để lộ rằng mình cũng cần được giúp",
+        "habit": "ôm hết các quyết định, sửa lại việc người khác đã làm xong, coi góp ý là sự thiếu tôn trọng",
+        "signals": [
+          "thấy khó chịu khi người khác làm khác cách của bạn dù kết quả vẫn tốt",
+          "là người cuối cùng nhận ra mình đang kiệt sức",
+          "người dưới quyền hoặc người thân ít khi nói thật với bạn"
+        ],
+        "adjust": "Trước mỗi quyết định, tách hai câu: 'việc này thực sự cần tôi' và 'việc này tôi muốn giữ'. Chỉ giữ loại thứ nhất."
+      },
+      "questions": [
+        "Lần gần nhất bạn để người khác quyết thay mà kết quả vẫn ổn là khi nào? Lúc đó bạn cảm thấy gì?",
+        "Bạn sợ điều gì sẽ xảy ra nếu một tuần mình không có mặt?",
+        "Ai quanh bạn đang chờ được tin tưởng mà bạn chưa trao?"
+      ],
+      "scenario": {
+        "situation": "Nhóm của bạn đề xuất một cách làm khác với cách bạn quen. Phản xạ đầu tiên là sửa lại cho 'đúng'.",
+        "try": "Hỏi: 'Nếu làm theo cách này, rủi ro lớn nhất là gì và ta theo dõi nó thế nào?' rồi để họ chạy thử một vòng trước khi bạn góp ý."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Mỗi ngày giao một việc nhỏ kèm quyền quyết định cho một người khác; không sửa lại trừ khi sai nguyên tắc.",
+          "track": "Ghi lại việc đã giao, kết quả, và cảm giác của bạn lúc buông tay (1–5)."
+        },
+        {
+          "days": 30,
+          "action": "Mỗi tuần hỏi một người cấp dưới hoặc người thân: 'Một điều tôi làm khiến bạn khó góp ý là gì?' Chỉ cảm ơn, không giải thích.",
+          "track": "Sau 4 tuần, đọc lại 4 câu trả lời và đánh dấu điều lặp lại."
+        }
+      ],
+      "domains": {
+        "career": "Hợp những vai trò có trách nhiệm định hướng. Câu hỏi cần tự kiểm tra: bạn chọn việc vì ý nghĩa của nó hay vì vị thế nó đem lại?",
+        "money": "Dễ chi cho thể diện và cho vai 'người lo cho mọi người'. Tách rõ khoản chi vì giá trị và khoản chi để giữ hình ảnh.",
+        "love": "Cần một người ngang hàng, không phải người phục tùng; quan hệ lớn lên khi bạn cho phép mình được chăm sóc lại.",
+        "family": "Dễ trở thành trụ cột duy nhất. Hãy phân vai rõ để người khác trong nhà cũng có chỗ đóng góp."
+      },
+      "control_bias": "over",
+      "values": [
+        "cong_nhan",
+        "an_toan",
+        "y_nghia"
+      ],
+      "ham_note": "Khi sách ghi sao ở thế kém sáng, phẩm chất 'đứng đầu' khó biểu hiện tự nhiên; hiểu theo hướng trưởng thành: uy tín phải xây bằng việc làm nhất quán thay vì được trao sẵn.",
+      "signal_words": [
+        "kiem soat",
+        "tu lam het",
+        "khong ai lam",
+        "ganh vac",
+        "phai tu",
+        "quyet dinh het",
+        "khong tin ai"
+      ]
+    },
+    "Thiên Cơ": {
+      "need": "hiểu rõ mọi chuyện và luôn có phương án",
+      "gift": "nhìn ra cơ chế vận hành, lập kế hoạch, ứng biến nhanh khi hoàn cảnh đổi",
+      "lesson": {
+        "title": "Suy nghĩ chỉ có giá trị khi thành một bước thử",
+        "text": "Đầu óc bạn luôn tìm thêm phương án, và đó là tài sản. Bài học là biết lúc nào thông tin đã 'đủ tốt' để làm, và để thực tế dạy bạn phần còn lại."
+      },
+      "skill": "hành động với thông tin chưa đầy đủ; chốt quyết định theo hạn định trước",
+      "psych": {
+        "concept": "satisficing",
+        "text": "Tâm lý học phân biệt người 'tối đa hóa' (phải tìm phương án tốt nhất) với người 'chọn đủ tốt'. Người tối đa hóa thường ra quyết định tốt hơn trên giấy nhưng kém hài lòng hơn và dễ suy nghĩ lặp."
+      },
+      "shadow": {
+        "conflict": "muốn chắc chắn trước khi làm, trong khi đầu óc luôn thấy thêm một phương án nữa",
+        "habit": "phân tích đến khi lỡ thời điểm, đổi kế hoạch liên tục, lo trước nhiều kịch bản chưa xảy ra",
+        "signals": [
+          "có quyết định đã cân nhắc hơn hai tuần mà vẫn chưa làm",
+          "khó ngủ vì chạy kịch bản trong đầu",
+          "bắt đầu lại kế hoạch từ đầu mỗi khi thấy một cách 'hay hơn'"
+        ],
+        "adjust": "Đặt trước tiêu chí 'đủ tốt' và hạn chốt. Khi đến hạn, chọn phương án đạt tiêu chí đầu tiên."
+      },
+      "questions": [
+        "Quyết định nào bạn đã cân nhắc lâu nhất mà chưa làm? Thông tin thêm nào thực sự thay đổi được lựa chọn?",
+        "Nếu phải chọn trong 10 phút, bạn chọn gì? Vì sao bạn chưa chọn nó?",
+        "Kịch bản xấu nào bạn hay nghĩ đến nhất, và nó đã thực sự xảy ra bao nhiêu lần?"
+      ],
+      "scenario": {
+        "situation": "Bạn đang so sánh sáu khóa học (hoặc sáu lời mời làm việc) và bảng so sánh ngày càng dài.",
+        "try": "Giữ lại ba tiêu chí quan trọng nhất, loại đến khi còn hai lựa chọn, rồi chốt trong 24 giờ. Ghi lý do lên giấy để không mở lại vòng cân nhắc."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Quy tắc hai phương án: với mỗi quyết định nhỏ trong tuần, chỉ so hai phương án và chốt trong 24 giờ.",
+          "track": "Đếm số quyết định đã chốt đúng hạn; ghi một quyết định mà bạn tưởng sẽ hối tiếc nhưng không."
+        },
+        {
+          "days": 30,
+          "action": "Chọn một dự án nhỏ, làm bản thô trong 3 ngày và đưa người khác xem trước khi hoàn thiện.",
+          "track": "Ghi lại góp ý nào bạn sẽ không tự nghĩ ra nếu cứ ngồi lên kế hoạch."
+        }
+      ],
+      "domains": {
+        "career": "Hợp việc cần phân tích, kỹ thuật, kế hoạch. Cẩn thận với việc đổi việc liên tục chỉ vì thấy 'phương án tốt hơn' trước khi đi hết một chu kỳ.",
+        "money": "Lên kế hoạch giỏi; rủi ro là tối ưu mãi đến lỡ thời điểm, hoặc đổi chiến lược quá thường xuyên.",
+        "love": "Dễ lý trí hóa cảm xúc, phân tích người kia thay vì ở cạnh họ. Thử hỏi 'em/anh đang cảm thấy gì' trước khi hỏi 'vì sao'.",
+        "family": "Thường là người giải quyết vấn đề trong nhà; điều người thân cần đôi khi là sự hiện diện, không phải phương án."
+      },
+      "control_bias": "mixed",
+      "values": [
+        "hoc_hoi",
+        "tu_do",
+        "phat_trien"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, sự nhanh trí dễ thành tính toán vụn hoặc thay đổi thất thường; hướng rèn luyện là giữ một kế hoạch đủ lâu để thấy kết quả.",
+      "signal_words": [
+        "suy nghi nhieu",
+        "phan van",
+        "chua quyet",
+        "lo truoc",
+        "khong ngu",
+        "nhieu phuong an",
+        "so sanh",
+        "chua chac"
+      ]
+    },
+    "Thái Dương": {
+      "need": "được đóng góp và được nhìn thấy",
+      "gift": "nhiệt tình, tỏa sáng, sẵn lòng cho đi và đứng ra vì việc chung",
+      "lesson": {
+        "title": "Ánh sáng bền khi có lúc được nghỉ",
+        "text": "Năng lượng cho đi là thế mạnh, nhưng nếu giá trị bản thân chỉ được đo bằng sự công nhận, bạn sẽ cạn rất nhanh. Bài học là cho đi vì giá trị của mình và biết nhận lại."
+      },
+      "skill": "nói 'không' rõ ràng, nhận sự giúp đỡ, nghỉ ngơi không thấy tội lỗi",
+      "psych": {
+        "concept": "contingent_self_worth",
+        "text": "Khi lòng tự trọng phụ thuộc vào sự công nhận bên ngoài, mỗi lời khen làm ta phấn chấn và mỗi sự im lặng làm ta chao đảo. Nghiên cứu về 'giá trị bản thân có điều kiện' cho thấy kiểu phụ thuộc này đi cùng căng thẳng cao hơn."
+      },
+      "shadow": {
+        "conflict": "cho đi để được ghi nhận, rồi mệt vì lúc nào cũng phải sáng",
+        "habit": "nhận thêm việc khi đã kín lịch, buồn bực ngầm khi đóng góp không được nhắc tên, khó để người khác giúp mình",
+        "signals": [
+          "lịch của bạn kín việc của người khác",
+          "thấy hụt hẫng khi việc tốt mình làm không ai biết",
+          "chỉ nghỉ khi đã kiệt sức"
+        ],
+        "adjust": "Tách 'giúp vì giá trị' khỏi 'giúp để được thấy'. Với mỗi lời nhờ, hỏi: nếu không ai biết, mình có vẫn muốn làm?"
+      },
+      "questions": [
+        "Nếu không ai biết bạn đã làm việc tốt gần đây nhất, bạn có vẫn làm không?",
+        "Lần cuối bạn nghỉ ngơi mà không thấy có lỗi là khi nào?",
+        "Ai đang muốn giúp bạn mà bạn chưa cho họ cơ hội?"
+      ],
+      "scenario": {
+        "situation": "Một đồng nghiệp nhờ bạn thêm một việc gấp khi tuần này bạn đã kín lịch.",
+        "try": "Trả lời: 'Để mình xem lịch và báo lại trong một giờ.' Trong một giờ đó, cân xem việc này có đáng đổi lấy giấc ngủ hay thời gian riêng của bạn không."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Với mỗi lời nhờ, chờ ít nhất một giờ trước khi nhận; trong tuần nói ít nhất một lần 'tuần này mình không nhận được'.",
+          "track": "Ghi lại số lời nhờ, số lần từ chối, và điều xảy ra sau khi từ chối (thường nhẹ hơn bạn sợ)."
+        },
+        {
+          "days": 30,
+          "action": "Mỗi tuần làm một việc tốt hoàn toàn ẩn danh.",
+          "track": "Ghi cảm giác khi không được ghi nhận; sau 4 tuần so với tuần đầu."
+        }
+      ],
+      "domains": {
+        "career": "Hợp vai trò công khai: giảng dạy, truyền thông, phục vụ cộng đồng, dẫn dắt. Tự kiểm tra: bạn còn thấy ý nghĩa khi khán giả vắng đi?",
+        "money": "Rộng rãi; nên có một ngân sách 'cho đi' rõ ràng để lòng tốt không làm thủng kế hoạch tài chính.",
+        "love": "Dễ chăm người kia mà quên nói nhu cầu của mình; quan hệ cân bằng khi bạn cũng để mình được chăm sóc.",
+        "family": "Thường là người gánh và người hòa giải; hãy để lời cảm ơn của người thân đến từ sự gần gũi chứ không chỉ từ việc bạn làm cho họ."
+      },
+      "control_bias": "over",
+      "values": [
+        "y_nghia",
+        "cong_nhan",
+        "gan_ket"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng (sách xét theo vị trí ngày/đêm), sự tỏa sáng dễ thành gắng gượng; hướng rèn luyện là chọn ít nơi để cho đi nhưng cho trọn.",
+      "signal_words": [
+        "khong ai ghi nhan",
+        "met moi",
+        "nhan them",
+        "khong dam tu choi",
+        "kiet suc",
+        "lo cho nguoi khac",
+        "ganh vac"
+      ]
+    },
+    "Vũ Khúc": {
+      "need": "an toàn vật chất và làm việc có hiệu quả",
+      "gift": "thực tế, quyết đoán trong chuyện tiền và việc, kiên định với mục tiêu đã đặt",
+      "lesson": {
+        "title": "Tiền là công cụ của đời sống, không phải thước đo con người",
+        "text": "Khả năng làm ra và giữ nguồn lực là thật. Bài học là không để thước đo hiệu quả lan sang mọi mối quan hệ, và cho phép mình có những khoảng thời gian không cần 'ra kết quả'."
+      },
+      "skill": "biểu đạt cảm xúc, lắng nghe không vội đưa giải pháp, linh hoạt khi kế hoạch đổi",
+      "psych": {
+        "concept": "work_avoidance",
+        "text": "Công việc có thể trở thành nơi trú ẩn khỏi những cảm xúc khó gọi tên. Khi bận rộn là cách duy nhất để thấy ổn, nghỉ ngơi lại sinh ra bồn chồn."
+      },
+      "shadow": {
+        "conflict": "cần an toàn vật chất nhưng cũng cần gắn kết cảm xúc, và hay hy sinh cái sau cho cái trước",
+        "habit": "đo mọi thứ bằng hiệu quả, nói thẳng đến mức lạnh, làm việc để tránh những cuộc trò chuyện khó",
+        "signals": [
+          "người thân nói chuyện với bạn 'như đi họp'",
+          "thấy khó chịu khi thời gian 'không ra gì'",
+          "khi có chuyện buồn, bạn làm việc nhiều hơn"
+        ],
+        "adjust": "Khi ai đó kể chuyện khó, hỏi 'bạn cần mình nghe hay cần mình giúp tìm cách?' trước khi nói."
+      },
+      "questions": [
+        "Thành công tài chính nào của bạn đã không mang lại cảm giác như bạn tưởng?",
+        "Bạn đang dùng công việc để tránh cuộc trò chuyện nào?",
+        "Một ngày 'vô ích' mà bạn vẫn thấy đáng sống trông như thế nào?"
+      ],
+      "scenario": {
+        "situation": "Người thân tâm sự về một chuyện buồn; bạn lập tức đưa ra ba phương án xử lý.",
+        "try": "Dừng phương án lại. Nói: 'Nghe có vẻ rất mệt. Kể thêm cho mình nghe.' Chỉ đưa giải pháp nếu được hỏi."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Mỗi ngày 20 phút không mục tiêu: đi bộ, nghe nhạc, ngồi cùng người thân, không điện thoại, không đo đếm.",
+          "track": "Ghi mức bồn chồn (1–5) trong 20 phút đó; xem nó giảm dần không."
+        },
+        {
+          "days": 30,
+          "action": "Mỗi tuần chi một khoản nhỏ cho trải nghiệm chung với người thân (bữa ăn, chuyến đi ngắn).",
+          "track": "Ghi một điều nhận được mà không quy ra tiền được."
+        }
+      ],
+      "domains": {
+        "career": "Hợp tài chính, quản lý, kinh doanh, kỹ thuật cần kỷ luật. Tự kiểm tra: con số bạn đang đuổi theo phục vụ đời sống nào?",
+        "money": "Giỏi tích lũy và đàm phán. Rủi ro là để nỗi lo thiếu thốn quyết định thay giá trị của bạn.",
+        "love": "Thể hiện tình cảm qua việc làm và sự lo liệu; người kia có thể cần nghe bằng lời. Hãy dịch hành động thành câu nói.",
+        "family": "Là chỗ dựa vật chất; hãy để người thân thấy cả con người mềm mỏng phía sau."
+      },
+      "control_bias": "over",
+      "values": [
+        "tai_chinh",
+        "an_toan",
+        "phat_trien"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, sự cứng cỏi dễ thành cứng nhắc hoặc vất vả vì tiền; hướng rèn luyện là mềm hóa cách làm mà vẫn giữ mục tiêu.",
+      "signal_words": [
+        "tien bac",
+        "kiem tien",
+        "hieu qua",
+        "lam viec nhieu",
+        "khong co thoi gian",
+        "lanh lung",
+        "kho noi chuyen",
+        "ban ron"
+      ]
+    },
+    "Thiên Đồng": {
+      "need": "yên ổn và dễ chịu",
+      "gift": "hòa nhã, dễ thích nghi, biết tận hưởng, làm dịu không khí quanh mình",
+      "lesson": {
+        "title": "Bình yên thật đến từ việc giải quyết, không phải né tránh",
+        "text": "Khả năng giữ hòa khí là món quà. Bài học là phân biệt sự bình yên có được nhờ đã đối diện, với sự dễ chịu tạm thời có được nhờ đẩy vấn đề sang ngày mai."
+      },
+      "skill": "kỷ luật nhẹ nhàng mà đều đặn; nói nhu cầu sớm khi chuyện còn nhỏ",
+      "psych": {
+        "concept": "experiential_avoidance",
+        "text": "Trì hoãn thường không phải do lười mà là một cách điều hòa cảm xúc: né việc để né cảm giác khó chịu đi kèm nó. Cái giá là cảm giác ấy quay lại lớn hơn."
+      },
+      "shadow": {
+        "conflict": "muốn yên ổn nhưng cũng muốn lớn lên, mà lớn lên thì cần chịu khó chịu",
+        "habit": "né xung đột, hoãn việc khó, đồng ý cho xong chuyện rồi bực ngầm",
+        "signals": [
+          "câu 'để mai tính' lặp lại với cùng một việc",
+          "nói 'sao cũng được' mà trong lòng không thấy vậy",
+          "thấy nhẹ nhõm khi cuộc hẹn khó bị hủy"
+        ],
+        "adjust": "Chia việc khó thành phần 15 phút và làm phần đầu tiên trước khi mở điện thoại."
+      },
+      "questions": [
+        "Việc nào bạn đã hoãn lâu nhất? Cảm giác nào bạn đang né khi hoãn nó?",
+        "Lần gần đây nhất bạn nói 'sao cũng được' mà không thật lòng là khi nào?",
+        "Nếu sự thoải mái của bạn 5 năm tới quan trọng ngang hôm nay, bạn sẽ làm gì khác tuần này?"
+      ],
+      "scenario": {
+        "situation": "Dự án cần một cuộc trao đổi thẳng với đồng nghiệp về phần việc họ làm chưa tốt; bạn đã dời nó hai lần.",
+        "try": "Viết sẵn ba câu: điều bạn thấy, ảnh hưởng của nó, điều bạn cần. Hẹn 15 phút trong hai ngày tới và đọc đúng ba câu đó."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Mỗi sáng làm 15 phút cho việc bạn muốn né nhất, trước khi mở điện thoại.",
+          "track": "Đánh dấu ngày đã làm; ghi cảm giác trước và sau 15 phút (1–5)."
+        },
+        {
+          "days": 30,
+          "action": "Mỗi tuần nói thẳng một nhu cầu nhỏ ('mình cần…') với một người thân.",
+          "track": "So phản ứng thực tế của người kia với điều bạn đã sợ trước đó."
+        }
+      ],
+      "domains": {
+        "career": "Hợp môi trường hòa hợp, dịch vụ, chăm sóc, sáng tạo không áp lực đối đầu. Tự kiểm tra: bạn ở lại vì hợp hay vì ngại thay đổi?",
+        "money": "Dễ chi cho sự dễ chịu trước mắt; một khoản tiết kiệm tự động giúp bạn không phải dùng ý chí mỗi tháng.",
+        "love": "Dễ nhường để giữ hòa khí; quan hệ bền hơn khi bất đồng được nói ra lúc còn nhỏ.",
+        "family": "Là người làm dịu; cẩn thận đừng để việc giữ hòa khí khiến những chuyện cần giải quyết bị kéo dài."
+      },
+      "control_bias": "under",
+      "values": [
+        "tinh_than",
+        "gan_ket",
+        "suc_khoe"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, sự mềm mỏng dễ thành ỷ lại hoặc thiếu kiên trì; hướng rèn luyện là xây thói quen nhỏ đều đặn hơn là chờ hứng.",
+      "signal_words": [
+        "tri hoan",
+        "de mai",
+        "ngai ngung",
+        "ne tranh",
+        "luoi bieng",
+        "sao cung duoc",
+        "khong muon va cham",
+        "chan nan"
+      ]
+    },
+    "Liêm Trinh": {
+      "need": "sống đúng với chuẩn mực của chính mình",
+      "gift": "có nguyên tắc, tự trọng cao, năng lượng mạnh, làm việc chỉn chu và có sức hút",
+      "lesson": {
+        "title": "Nguyên tắc để dẫn đường, không phải để trừng phạt",
+        "text": "Chuẩn mực cao giúp bạn đáng tin. Bài học là dùng chuẩn mực như la bàn cho chính mình, không phải như cây thước đo lỗi người khác, và đối xử với sai sót của mình bằng sự tử tế."
+      },
+      "skill": "tự trắc ẩn khi mắc lỗi; góp ý mà không phán xét",
+      "psych": {
+        "concept": "self_compassion",
+        "text": "Nghiên cứu về lòng trắc ẩn với bản thân cho thấy người tự trách nặng không làm tốt hơn sau sai lầm; người đối xử với mình như với một người bạn thường sửa sai bền hơn."
+      },
+      "shadow": {
+        "conflict": "chuẩn mực cao đối nghịch với cảm xúc mạnh bên trong; giữ khuôn phép rồi bùng lên",
+        "habit": "phán xét mình và người, giữ cảm xúc đến khi bùng, khó bỏ qua lỗi nhỏ",
+        "signals": [
+          "hay để ý lỗi của người khác trước điểm tốt",
+          "tự trách kéo dài nhiều ngày sau một sai sót nhỏ",
+          "người khác dè chừng khi đưa việc cho bạn duyệt"
+        ],
+        "adjust": "Tách chuẩn mực cốt lõi (không nhượng) khỏi sở thích cá nhân (có thể linh hoạt). Chỉ giữ nghiêm loại thứ nhất."
+      },
+      "questions": [
+        "Chuẩn mực nào của bạn thực ra là của người khác áp vào từ lâu?",
+        "Khi người khác sai, bạn muốn họ tiến bộ hay muốn họ biết là họ sai?",
+        "Bạn đã tha thứ cho mình về sai sót gần nhất chưa? Nếu là bạn thân của bạn, bạn sẽ nói gì với họ?"
+      ],
+      "scenario": {
+        "situation": "Bạn phát hiện lỗi trong báo cáo của đồng nghiệp ngay trong cuộc họp.",
+        "try": "Ghi lại, không nói trước mọi người. Sau họp, góp ý riêng: một điều họ làm tốt, lỗi cụ thể, và cách sửa."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Mỗi khi thấy lỗi của người khác, đợi 10 phút rồi mới góp ý, và luôn kèm một điều họ làm tốt.",
+          "track": "Ghi số lần đã đợi; ghi lại một lần bạn quyết định không cần góp ý."
+        },
+        {
+          "days": 30,
+          "action": "Sau mỗi sai sót của bản thân, viết vài dòng cho chính mình bằng giọng của một người bạn thân.",
+          "track": "So độ dài thời gian tự trách (tính bằng giờ) tuần đầu với tuần cuối."
+        }
+      ],
+      "domains": {
+        "career": "Hợp việc đòi hỏi chuẩn mực: pháp lý, kiểm soát chất lượng, quản lý, kỹ thuật chính xác. Tự kiểm tra: môi trường có cho bạn phạm sai sót để học không?",
+        "money": "Kỷ luật tốt; cẩn thận khi cảm xúc mạnh dẫn đến quyết định chi tiêu bốc đồng rồi tự trách.",
+        "love": "Đam mê và trung thành; quan hệ dễ thở hơn khi bạn chấp nhận người kia không hoàn hảo như tiêu chuẩn của bạn.",
+        "family": "Thường là người giữ nề nếp; hãy để nề nếp phục vụ sự gần gũi, không thay thế nó."
+      },
+      "control_bias": "over",
+      "values": [
+        "trung_thuc",
+        "cong_bang",
+        "phat_trien"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, năng lượng mạnh dễ hướng vào xung đột hoặc tự dằn vặt; hướng rèn luyện là có kênh xả năng lượng lành mạnh (vận động, sáng tạo).",
+      "signal_words": [
+        "tu trach",
+        "hoan hao",
+        "phan xet",
+        "buc boi",
+        "buc minh",
+        "khong chap nhan",
+        "nguyen tac",
+        "sai sot"
+      ]
+    },
+    "Thiên Phủ": {
+      "need": "an toàn và tích lũy",
+      "gift": "ổn định, biết quản lý và giữ gìn, chu toàn, được người khác tin giao việc",
+      "lesson": {
+        "title": "Kho chỉ có ý nghĩa khi được dùng đúng lúc",
+        "text": "Bạn giỏi giữ: tiền, quan hệ, sự ổn định. Bài học là nhận ra lúc nào việc giữ đã chuyển thành việc sợ mất, và dành một phần nguồn lực cho sự phát triển."
+      },
+      "skill": "chấp nhận rủi ro có tính toán; buông những thứ không còn phục vụ mình",
+      "psych": {
+        "concept": "loss_aversion",
+        "text": "Con người thường cảm thấy nỗi đau mất mát mạnh hơn niềm vui được thêm cùng mức. Thiên hướng giữ hiện trạng có thể khiến những cơ hội tốt trông như rủi ro."
+      },
+      "shadow": {
+        "conflict": "cần an toàn nhưng cũng cần phát triển, và hai điều này kéo ngược nhau ở mỗi ngã rẽ",
+        "habit": "giữ nguyên hiện trạng, tích trữ (tiền, đồ, cơ hội) mà không dùng, chờ 'đủ chắc' mới làm",
+        "signals": [
+          "câu trả lời mặc định cho ý tưởng mới là 'chưa phải lúc'",
+          "khó bỏ những thứ đã không còn dùng",
+          "tiếc nuối một cơ hội đã để trôi vì cẩn thận"
+        ],
+        "adjust": "Dành một phần nhỏ cố định (5–10% thời gian hoặc tiền) cho thử nghiệm, phần còn lại vẫn giữ an toàn."
+      },
+      "questions": [
+        "Cơ hội nào bạn đã để trôi vì 'chưa đủ chắc'? Nhìn lại, rủi ro thật là bao nhiêu?",
+        "Bạn đang giữ điều gì chỉ vì sợ mất, không phải vì còn cần?",
+        "Mức rủi ro nào bạn chịu được mà nền tảng vẫn không lung lay?"
+      ],
+      "scenario": {
+        "situation": "Bạn được đề nghị chuyển sang một vai trò mới hấp dẫn nhưng chưa chắc chắn.",
+        "try": "Viết ra kịch bản xấu nhất và cách bạn phục hồi nếu nó xảy ra. Nếu phục hồi được, rủi ro này nằm trong mức chịu được."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Mỗi ngày cho đi hoặc bỏ một món đồ không dùng đến.",
+          "track": "Ghi lại có điều gì xấu xảy ra sau khi bỏ không (thường là không)."
+        },
+        {
+          "days": 30,
+          "action": "Dành một khoản nhỏ cố định thời gian hoặc tiền cho một thử nghiệm mới (học một kỹ năng, thử một nguồn thu nhỏ).",
+          "track": "Ngày 30, tự đánh giá: tiếp tục, điều chỉnh hay dừng — và vì sao."
+        }
+      ],
+      "domains": {
+        "career": "Hợp quản trị, tài chính, vận hành, những vai trò cần sự tin cậy. Tự kiểm tra: bạn ở lại vì phát triển hay vì quen?",
+        "money": "Giỏi tích lũy; rủi ro là tiền nằm yên trong khi mục tiêu đời sống chờ mãi.",
+        "love": "Chung thủy và chu toàn; quan hệ cần cả những bất ngờ nhỏ, không chỉ sự ổn định.",
+        "family": "Là người giữ nhà; hãy để các thành viên khác cũng thử cách mới mà không thấy bị đánh giá."
+      },
+      "control_bias": "over",
+      "values": [
+        "an_toan",
+        "tai_chinh",
+        "gia_dinh"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, xu hướng giữ dễ thành khép kín hoặc bảo thủ; hướng rèn luyện là mở một cánh cửa nhỏ mỗi lần.",
+      "signal_words": [
+        "so mat",
+        "chua phai luc",
+        "on dinh",
+        "an toan",
+        "giu lai",
+        "khong dam",
+        "rui ro"
+      ]
+    },
+    "Thái Âm": {
+      "need": "được thấu hiểu và có không gian riêng",
+      "gift": "tinh tế, giàu cảm thụ, biết chăm chút, trực giác tốt và có óc thẩm mỹ",
+      "lesson": {
+        "title": "Được hiểu bắt đầu từ việc tự nói ra",
+        "text": "Bạn cảm nhận được nhiều điều người khác không thấy. Bài học là đừng chờ người khác tự đoán ra lòng mình: nói rõ nhu cầu là một cách tôn trọng cả hai phía."
+      },
+      "skill": "diễn đạt cảm xúc và nhu cầu bằng lời; giữ ranh giới cảm xúc trước tâm trạng của người khác",
+      "psych": {
+        "concept": "mind_reading",
+        "text": "'Đọc ý nghĩ' là một kiểu bóp méo nhận thức: ta tin mình biết người kia nghĩ gì, và mong người kia cũng biết ta nghĩ gì mà không cần nói. Giao tiếp phi bạo lực đề xuất nói theo bốn bước: điều quan sát, cảm xúc, nhu cầu, lời đề nghị."
+      },
+      "shadow": {
+        "conflict": "cần được hiểu nhưng ngại nói ra, sợ làm phiền hoặc bị từ chối",
+        "habit": "đoán ý người khác, thu mình khi tổn thương, để tâm trạng dao động theo không khí xung quanh",
+        "signals": [
+          "chờ người khác 'tự hiểu' rồi thất vọng khi họ không hiểu",
+          "nhắc lại trong đầu một câu nói gây tổn thương nhiều ngày",
+          "rút lui im lặng thay vì nói 'mình buồn'"
+        ],
+        "adjust": "Dùng câu mẫu: 'Khi… mình cảm thấy… vì mình cần… Bạn có thể… không?'"
+      },
+      "questions": [
+        "Điều gì bạn mong người thân tự hiểu mà bạn chưa từng nói thẳng?",
+        "Khi bạn im lặng rút lui, bạn đang mong người kia làm gì?",
+        "Cảm xúc nào trong tuần này thực ra là của người khác mà bạn 'mang hộ'?"
+      ],
+      "scenario": {
+        "situation": "Người thân quên một dịp quan trọng với bạn. Bạn im lặng cả tối và chờ họ nhận ra.",
+        "try": "Nói một câu theo mẫu: 'Khi anh/em quên hôm nay, em/anh thấy buồn vì nó quan trọng với em/anh. Mình bù lại vào cuối tuần được không?'"
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Mỗi ngày nói ra một cảm xúc hoặc nhu cầu nhỏ bằng câu bốn phần (quan sát – cảm xúc – nhu cầu – đề nghị).",
+          "track": "Ghi lại câu đã nói và phản ứng thật của người nghe."
+        },
+        {
+          "days": 30,
+          "action": "Giữ một khoảng riêng 30 phút mỗi ngày (viết, đi bộ, thẩm mỹ) và báo trước cho người thân đó là thời gian của bạn.",
+          "track": "Ghi mức năng lượng cuối ngày (1–5) vào những ngày giữ được và không giữ được."
+        }
+      ],
+      "domains": {
+        "career": "Hợp nghề cần tinh tế: thiết kế, nghệ thuật, chăm sóc, tư vấn, quản lý tài sản. Tự kiểm tra: môi trường có đủ yên để bạn làm việc tốt nhất không?",
+        "money": "Cẩn trọng và biết vun vén; cẩn thận khi cảm xúc thay đổi khiến chi tiêu để tự an ủi.",
+        "love": "Sâu sắc và chung tình; điều khó nhất là nói ra trước khi tổn thương tích tụ.",
+        "family": "Thường là người cảm nhận không khí gia đình; đừng gánh tâm trạng của cả nhà như của riêng mình."
+      },
+      "control_bias": "under",
+      "values": [
+        "gan_ket",
+        "tinh_than",
+        "sang_tao"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng (sách xét theo vị trí ngày/đêm), sự nhạy cảm dễ thành ưu tư; hướng rèn luyện là có nhịp sinh hoạt đều để cảm xúc có chỗ dựa.",
+      "signal_words": [
+        "khong ai hieu",
+        "buon long",
+        "that vong",
+        "im lang",
+        "tu ai",
+        "nhay cam",
+        "ngai noi",
+        "ton thuong",
+        "co don"
+      ]
+    },
+    "Tham Lang": {
+      "need": "được trải nghiệm và theo đuổi khát khao",
+      "gift": "nhiệt huyết, đa tài, giao tiếp cuốn hút, khao khát học và thử nhiều điều",
+      "lesson": {
+        "title": "Khao khát là nhiên liệu, cam kết là tay lái",
+        "text": "Ham muốn mạnh giúp bạn đi xa. Bài học là chọn vài điều đáng theo đuổi đến cùng, để năng lượng không bị chia nhỏ cho mọi thứ hấp dẫn trước mắt."
+      },
+      "skill": "trì hoãn sự thỏa mãn; đi hết một chu kỳ trước khi mở chu kỳ mới",
+      "psych": {
+        "concept": "hedonic_adaptation",
+        "text": "Con người nhanh chóng quen với niềm vui mới và lại muốn thêm. Khi chỉ đuổi theo cảm giác mới, ta dễ vào vòng 'có rồi vẫn thiếu'."
+      },
+      "shadow": {
+        "conflict": "muốn có tất cả nhưng cũng cần chiều sâu, mà chiều sâu đòi hỏi chọn và bỏ",
+        "habit": "bắt đầu nhiều việc theo cảm hứng, tìm kích thích mới khi bắt đầu chán, khó nói không với cám dỗ ngắn hạn",
+        "signals": [
+          "nhiều dự án bỏ dở ở giai đoạn 'hết mới'",
+          "chi tiêu hoặc ăn uống để giải tỏa khi buồn chán",
+          "thấy trống rỗng sau khi đạt được điều mình từng rất muốn"
+        ],
+        "adjust": "Trước khi bắt đầu điều mới, viết ra điều cũ bạn sẽ hoàn tất hoặc chính thức dừng."
+      },
+      "questions": [
+        "Điều gì bạn từng rất muốn, có được rồi, nhưng không thấy đủ? Bạn thực sự tìm gì ở nó?",
+        "Trong các việc bạn đang theo, việc nào bạn sẵn lòng làm cả khi nó đã hết mới?",
+        "Cám dỗ ngắn hạn nào đang lấy đi nhiều năng lượng nhất của bạn?"
+      ],
+      "scenario": {
+        "situation": "Bạn vừa đăng ký khóa học thứ ba trong năm khi hai khóa trước còn dở dang.",
+        "try": "Tạm hoãn khóa mới 30 ngày. Trong thời gian đó, hoàn tất một trong hai khóa cũ, rồi mới quyết định có cần khóa mới không."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Quy tắc chờ 48 giờ: mọi khoản mua hoặc cam kết mới không cần thiết đều chờ 48 giờ.",
+          "track": "Ghi lại bao nhiêu mong muốn tự biến mất sau 48 giờ."
+        },
+        {
+          "days": 30,
+          "action": "Chọn một kỹ năng hoặc dự án và làm đều 20 phút mỗi ngày, kể cả những ngày chán.",
+          "track": "Đánh dấu ngày đã làm; ghi những ngày 'chán nhưng vẫn làm' — đó là lúc chiều sâu hình thành."
+        }
+      ],
+      "domains": {
+        "career": "Hợp nghề giao tiếp, kinh doanh, sáng tạo, giải trí, những nơi cần sức hút. Tự kiểm tra: bạn có đổi hướng mỗi khi việc bắt đầu đòi hỏi kiên trì?",
+        "money": "Giỏi tạo cơ hội; cần hàng rào chống chi tiêu theo cảm hứng.",
+        "love": "Cuốn hút và nồng nhiệt; quan hệ lâu dài cần bạn tìm sự mới mẻ bên trong mối quan hệ thay vì bên ngoài.",
+        "family": "Mang lại sinh khí; hãy cân giữa nhu cầu trải nghiệm của bạn và sự ổn định người thân cần."
+      },
+      "control_bias": "mixed",
+      "values": [
+        "tu_do",
+        "sang_tao",
+        "phat_trien"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, khát khao dễ thành buông thả hoặc dàn trải; hướng rèn luyện là đặt giới hạn rõ trước khi cám dỗ đến.",
+      "signal_words": [
+        "chan nan",
+        "bo do",
+        "muon nhieu",
+        "cam do",
+        "mua sam",
+        "thay doi lien tuc",
+        "trong rong",
+        "hung thu"
+      ]
+    },
+    "Cự Môn": {
+      "need": "tìm ra sự thật và nói ra điều mình thấy",
+      "gift": "phân tích sắc, hay đặt câu hỏi, biện luận giỏi, phát hiện điểm yếu mà người khác bỏ qua",
+      "lesson": {
+        "title": "Lời nói xây cầu hay dựng tường",
+        "text": "Bạn nhìn ra chỗ chưa ổn và dám nói. Bài học là nói để được hiểu chứ không phải để thắng, và cho người khác cơ hội được hiểu đúng trước khi bị nghi ngờ."
+      },
+      "skill": "lắng nghe để hiểu; trình bày lại quan điểm của người kia ở dạng mạnh nhất trước khi phản biện",
+      "psych": {
+        "concept": "hostile_attribution",
+        "text": "Thiên lệch quy kết thù địch là xu hướng đọc hành vi mơ hồ của người khác như có ý xấu. Nó giúp ta cảnh giác, nhưng cũng làm hỏng những quan hệ vốn không có ý xấu nào."
+      },
+      "shadow": {
+        "conflict": "muốn tin người nhưng có thói quen nghi ngờ trước",
+        "habit": "tranh luận để thắng, nghi ngờ thiện ý, lời nhận xét sắc làm người khác tổn thương dù đúng",
+        "signals": [
+          "các cuộc thảo luận hay kết thúc thành tranh cãi",
+          "nghĩ lại thấy mình đúng mà quan hệ vẫn xấu đi",
+          "người khác ngừng chia sẻ ý tưởng chưa hoàn chỉnh với bạn"
+        ],
+        "adjust": "Trước khi phản biện, nhắc lại ý người kia cho đến khi họ nói 'đúng vậy'. Sau đó mới nói điều bạn thấy."
+      },
+      "questions": [
+        "Cuộc tranh luận gần nhất bạn thắng có làm quan hệ tốt lên không?",
+        "Nếu người kia không hề có ý xấu, hành động của họ có thể có lý do nào khác?",
+        "Lời nhận xét nào của bạn từng đúng nhưng nói sai lúc, sai cách?"
+      ],
+      "scenario": {
+        "situation": "Trong cuộc họp, một đề xuất có lỗ hổng rõ ràng và bạn muốn chỉ ra ngay.",
+        "try": "Mở đầu bằng: 'Mình hiểu mục tiêu của đề xuất là… Đúng không?' rồi hỏi: 'Mình thấy một rủi ro ở chỗ… mình cùng xem cách xử lý nhé?'"
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Trong mọi bất đồng, nhắc lại quan điểm người kia trước khi nói quan điểm mình.",
+          "track": "Ghi số lần làm được và một lần bạn hiểu ra điều mình đã hiểu sai."
+        },
+        {
+          "days": 30,
+          "action": "Mỗi tuần viết lời cảm ơn hoặc ghi nhận cụ thể cho một người bạn hay phản biện.",
+          "track": "Quan sát xem người đó có chia sẻ nhiều hơn với bạn sau 4 tuần không."
+        }
+      ],
+      "domains": {
+        "career": "Hợp nghề dùng lời và lý lẽ: luật, giảng dạy, nghiên cứu, phân tích, truyền thông, tư vấn. Tự kiểm tra: tài phản biện đang xây dựng hay đang làm bạn bị cô lập?",
+        "money": "Phân tích rủi ro tốt; cẩn thận khi nghi ngờ quá mức làm lỡ hợp tác tốt.",
+        "love": "Thẳng thắn; người kia cần cảm thấy an toàn khi nói điều chưa nghĩ kỹ. Hỏi nhiều hơn kết luận.",
+        "family": "Dễ va chạm bằng lời; một câu dịu lúc đầu thường cứu được cả cuộc nói chuyện."
+      },
+      "control_bias": "mixed",
+      "values": [
+        "trung_thuc",
+        "hoc_hoi",
+        "cong_bang"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, sự sắc bén dễ thành thị phi hoặc nghi kỵ; hướng rèn luyện là nói ít hơn, hỏi nhiều hơn.",
+      "signal_words": [
+        "cai nhau",
+        "tranh luan",
+        "nghi ngo",
+        "noi thang",
+        "hieu lam",
+        "khong tin",
+        "thi phi",
+        "loi noi"
+      ]
+    },
+    "Thiên Tướng": {
+      "need": "công bằng và được người khác tin cậy",
+      "gift": "công tâm, sẵn lòng hỗ trợ, chỉn chu, đứng ra bênh vực người yếu thế",
+      "lesson": {
+        "title": "Công bằng bao gồm cả công bằng với chính mình",
+        "text": "Bạn là người người khác tìm đến khi cần một bàn tay. Bài học là nhận ra nhu cầu của mình cũng có trọng lượng, và giúp người mà không gánh thay họ."
+      },
+      "skill": "đặt ranh giới; từ chối mà không thấy mình là người xấu",
+      "psych": {
+        "concept": "boundaries",
+        "text": "Xu hướng làm hài lòng người khác thường xuất phát từ mong muốn giữ hòa khí và được tin cậy. Không có ranh giới, người giỏi giúp đỡ dễ kiệt sức và âm thầm bực bội."
+      },
+      "shadow": {
+        "conflict": "muốn giúp người nhưng cũng cần giữ sức cho mình",
+        "habit": "khó từ chối, can thiệp vào chuyện người khác vì thấy bất công, để giá trị bản thân phụ thuộc vào việc được tin cậy",
+        "signals": [
+          "đồng ý trước rồi mới nghĩ có làm nổi không",
+          "thấy bực bội với chính những người mình hay giúp",
+          "cảm thấy có lỗi khi đặt nhu cầu của mình lên trước"
+        ],
+        "adjust": "Trước khi nhận lời, hỏi: 'Nếu mình nhận, mình đang từ chối điều gì của chính mình?'"
+      },
+      "questions": [
+        "Bạn đang gánh thay ai một việc lẽ ra họ phải tự làm?",
+        "Nếu bạn từ chối, điều tệ nhất thực sự có thể xảy ra là gì?",
+        "Trong tuần qua, bạn đã công bằng với chính mình chưa?"
+      ],
+      "scenario": {
+        "situation": "Một người bạn lại nhờ bạn đứng ra nói giúp trong một mâu thuẫn không phải của bạn.",
+        "try": "Nói: 'Mình có thể nghe và góp ý cho bạn chuẩn bị, nhưng phần nói chuyện trực tiếp thì bạn tự làm sẽ tốt hơn.'"
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Mỗi ngày tập một câu từ chối nhẹ nhàng: 'Lần này mình không giúp được, nhưng mình có thể…'",
+          "track": "Ghi số lần nói được và cảm giác sau đó (1–5)."
+        },
+        {
+          "days": 30,
+          "action": "Mỗi tuần dành một buổi cho việc chỉ phục vụ bản thân, ghi vào lịch như một cuộc hẹn quan trọng.",
+          "track": "Ghi số buổi giữ được; khi bị phá, ghi lý do."
+        }
+      ],
+      "domains": {
+        "career": "Hợp nghề cần sự công tâm và chỉn chu: hành chính, nhân sự, pháp lý, y tế, điều phối. Tự kiểm tra: bạn được trọng vì năng lực hay vì luôn nhận phần việc người khác bỏ lại?",
+        "money": "Ngay thẳng; cẩn thận với việc cho vay, đứng ra bảo lãnh vì nể.",
+        "love": "Tận tụy và đáng tin; quan hệ cân bằng khi bạn nói ra điều mình cần thay vì chỉ lo cho người kia.",
+        "family": "Là người phân xử trong nhà; không phải chuyện nào bạn cũng phải đứng giữa."
+      },
+      "control_bias": "mixed",
+      "values": [
+        "cong_bang",
+        "gan_ket",
+        "trung_thuc"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, sự tận tụy dễ thành bị lợi dụng hoặc phụ thuộc môi trường; hướng rèn luyện là chọn kỹ người và nơi mình phục vụ.",
+      "signal_words": [
+        "khong biet tu choi",
+        "giup do",
+        "ne tranh",
+        "bat cong",
+        "bi loi dung",
+        "lo chuyen nguoi khac",
+        "co loi"
+      ]
+    },
+    "Thiên Lương": {
+      "need": "che chở người khác và làm điều đúng",
+      "gift": "điềm tĩnh, có trách nhiệm đạo đức, biết khuyên bảo và che chở, chín chắn trước tuổi",
+      "lesson": {
+        "title": "Che chở tốt nhất là giúp người khác tự đứng được",
+        "text": "Bạn có bản năng bảo bọc và khuyên đúng. Bài học là hỏi trước khi khuyên, và tin rằng người khác có thể học từ chính sai lầm của họ."
+      },
+      "skill": "hỏi trước khi khuyên; để người khác tự chịu trách nhiệm về lựa chọn của họ",
+      "psych": {
+        "concept": "drama_triangle",
+        "text": "Mô hình 'tam giác kịch tính' mô tả vai người cứu: luôn lao vào giải cứu, vô tình giữ người kia ở vai yếu thế và tự mình mệt mỏi. Vai thay thế lành mạnh là người huấn luyện: hỏi, gợi mở, tin vào năng lực người kia."
+      },
+      "shadow": {
+        "conflict": "muốn che chở mọi người nhưng cũng muốn được tự do, không bị ràng buộc bởi trách nhiệm",
+        "habit": "khuyên khi không được hỏi, gánh trách nhiệm cứu người khác, nghiêm khắc đạo đức với mình và người",
+        "signals": [
+          "người khác gọi bạn là 'ông cụ non' hay 'bà cụ non'",
+          "thấy khó chịu khi lời khuyên không được làm theo",
+          "mệt vì phải lo cho nhiều người"
+        ],
+        "adjust": "Trước khi khuyên, hỏi: 'Bạn muốn mình góp ý hay chỉ cần mình nghe?'"
+      },
+      "questions": [
+        "Ai bạn đang 'cứu' mà thực ra họ cần tự đứng dậy?",
+        "Lời khuyên gần nhất bạn đưa ra có được hỏi không?",
+        "Phần nào trong bạn muốn được ai đó che chở lại?"
+      ],
+      "scenario": {
+        "situation": "Em hoặc bạn của bạn sắp đưa ra một quyết định mà bạn thấy chưa khôn ngoan.",
+        "try": "Hỏi ba câu: 'Em kỳ vọng điều gì? Rủi ro em thấy là gì? Nếu không thành, em sẽ làm gì?' rồi tôn trọng lựa chọn của họ."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Một tuần không đưa lời khuyên khi chưa được hỏi; thay bằng một câu hỏi gợi mở.",
+          "track": "Ghi số lần kìm được và điều người kia tự nghĩ ra."
+        },
+        {
+          "days": 30,
+          "action": "Chọn một việc bạn đang lo thay người khác và trả lại trách nhiệm đó cho họ một cách rõ ràng, có hỗ trợ.",
+          "track": "Sau 30 ngày, ghi lại điều họ làm được mà bạn từng nghĩ họ không làm được."
+        }
+      ],
+      "domains": {
+        "career": "Hợp nghề chăm sóc, giáo dục, y tế, tư vấn, nghiên cứu, những việc cần đạo đức nghề nghiệp. Tự kiểm tra: bạn có chọn việc vì 'phải là người tốt' hay vì thật sự thích?",
+        "money": "Thận trọng; cẩn thận khi chi cho người khác vì cảm thấy có trách nhiệm cứu họ.",
+        "love": "Che chở và ổn định; quan hệ ngang hàng hơn khi bạn không đóng vai cha mẹ của người kia.",
+        "family": "Là người cả nhà dựa vào; hãy để mình cũng được chăm sóc."
+      },
+      "control_bias": "over",
+      "values": [
+        "y_nghia",
+        "gia_dinh",
+        "trung_thuc"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, bản năng che chở dễ thành lo lắng thay người hoặc trôi dạt; hướng rèn luyện là chọn rõ trách nhiệm nào là của mình.",
+      "signal_words": [
+        "lo cho",
+        "khuyen bao",
+        "loi khuyen",
+        "trach nhiem",
+        "khong nghe loi",
+        "phai cuu",
+        "lo lang",
+        "ganh vac"
+      ]
+    },
+    "Thất Sát": {
+      "need": "tự do hành động theo cách của mình",
+      "gift": "quả cảm, hành động nhanh, chịu được áp lực, độc lập, phá được thế bế tắc",
+      "lesson": {
+        "title": "Sức mạnh lớn nhất là chọn đúng trận",
+        "text": "Bạn mạnh nhất khi có thử thách. Bài học là không phải trận nào cũng cần đánh: chọn trận, chọn thời điểm, và chấp nhận rằng đi cùng người khác có thể xa hơn đi một mình."
+      },
+      "skill": "kiên nhẫn chiến lược; dừng lại trước khi phản ứng; hợp tác",
+      "psych": {
+        "concept": "emotion_regulation",
+        "text": "Cơn giận thường là cảm xúc thứ cấp che cho một cảm xúc khác như bị coi thường, bất lực hay lo sợ. Khoảng dừng ngắn giữa kích thích và phản ứng là nơi lựa chọn xuất hiện."
+      },
+      "shadow": {
+        "conflict": "cần tự do độc lập nhưng cũng cần đồng đội để đi xa",
+        "habit": "hành động trước nghĩ sau, đối đầu khi bị kiểm soát, gánh một mình rồi thấy cô độc",
+        "signals": [
+          "thấy bực ngay khi có người chỉ bảo cách làm",
+          "hối tiếc về một quyết định đã làm trong lúc nóng",
+          "thường là người duy nhất 'xông pha' trong nhóm"
+        ],
+        "adjust": "Quy tắc 90 giây: khi thấy nóng, đợi 90 giây và gọi tên cảm xúc bên dưới cơn giận trước khi trả lời."
+      },
+      "questions": [
+        "Quyết định nóng vội nào bạn muốn làm lại nhất? Điều gì bạn cần lúc đó?",
+        "Bạn đang đánh một trận nào không đáng?",
+        "Ai có thể đi cùng bạn nếu bạn mở lời?"
+      ],
+      "scenario": {
+        "situation": "Cấp trên áp đặt một quy trình bạn cho là vô lý; bạn muốn phản đối ngay trước mọi người.",
+        "try": "Ghi lại lý lẽ, đề nghị một cuộc nói chuyện riêng, đi kèm phương án thay thế cụ thể và cách đo hiệu quả."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Mỗi khi nóng, áp dụng quy tắc 90 giây và gọi tên cảm xúc thật bên dưới.",
+          "track": "Ghi lại tình huống, cảm xúc bề mặt, cảm xúc bên dưới."
+        },
+        {
+          "days": 30,
+          "action": "Mỗi tuần mời một người cùng làm một việc bạn quen làm một mình.",
+          "track": "Ghi điều người đó đóng góp mà bạn không tự có được."
+        }
+      ],
+      "domains": {
+        "career": "Hợp môi trường có thử thách và quyền tự chủ: khởi nghiệp, xử lý khủng hoảng, kỹ thuật, kinh doanh, nghề đòi hỏi bản lĩnh. Tự kiểm tra: bạn đổi việc vì muốn lớn lên hay vì không chịu được ràng buộc?",
+        "money": "Dám quyết; cần một nguyên tắc dừng lỗ đặt trước để quyết định không bị cảm xúc chi phối.",
+        "love": "Nồng nhiệt, thẳng; người kia cần thấy bạn để lại chỗ cho họ trong các quyết định chung.",
+        "family": "Là người đứng mũi chịu sào; hãy để sự quan tâm hiện ra bằng lời, không chỉ bằng hành động bảo vệ."
+      },
+      "control_bias": "over",
+      "values": [
+        "tu_do",
+        "phat_trien",
+        "cong_bang"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, sự quả cảm dễ thành liều lĩnh hoặc va chạm; hướng rèn luyện là tập thói quen dừng lại trước những quyết định lớn.",
+      "signal_words": [
+        "nong nay",
+        "nong gian",
+        "tuc gian",
+        "buc boi",
+        "buc minh",
+        "cai nhau",
+        "doi dau",
+        "mot minh",
+        "khong chiu",
+        "boc dong"
+      ]
+    },
+    "Phá Quân": {
+      "need": "làm mới và phá vỡ giới hạn cũ",
+      "gift": "dám phá cái cũ, đổi mới, chấp nhận mạo hiểm, có khả năng bắt đầu lại từ đầu",
+      "lesson": {
+        "title": "Phá để xây, và biết điều gì cần giữ",
+        "text": "Bạn có sức mạnh của người mở đường. Bài học là phân biệt khi nào cần phá bỏ và khi nào chỉ cần sửa, để mỗi lần làm lại không phải là bắt đầu từ con số không."
+      },
+      "skill": "hoàn tất một chu kỳ; sửa chữa thay vì thay mới; giữ gốc rễ khi thay đổi",
+      "psych": {
+        "concept": "novelty_seeking",
+        "text": "Một số người có nhu cầu tìm kiếm cái mới cao hơn mặt bằng: họ thích nghi nhanh và sáng tạo, nhưng cũng dễ chán và bốc đồng. Nhu cầu này không tốt hay xấu; điều quan trọng là có cấu trúc để nó phục vụ mục tiêu."
+      },
+      "shadow": {
+        "conflict": "khao khát làm mới nhưng cũng cần gốc rễ và sự gắn bó lâu dài",
+        "habit": "bỏ giữa chừng khi hết cảm giác mới, đập đi làm lại thay vì sửa, chi tiêu hoặc thay đổi bốc đồng",
+        "signals": [
+          "nhiều lần 'làm lại từ đầu' ở công việc hoặc nơi ở",
+          "thấy ngột ngạt khi mọi thứ ổn định quá lâu",
+          "quyết định lớn đến rất nhanh rồi phải gánh hệ quả lâu"
+        ],
+        "adjust": "Trước khi phá bỏ, liệt kê ba thứ đang hoạt động tốt và sẽ giữ lại trong cách làm mới."
+      },
+      "questions": [
+        "Lần 'làm lại từ đầu' gần nhất, bạn mang theo được điều gì và mất điều gì?",
+        "Điều gì trong đời bạn đáng được sửa chứ không đáng bị thay?",
+        "Sự ổn định nào bạn đang muốn phá chỉ vì thấy chán?"
+      ],
+      "scenario": {
+        "situation": "Công việc hiện tại bắt đầu lặp lại và bạn có ý định nghỉ ngay để thử hướng khác.",
+        "try": "Thử một 'phá nhỏ' trước: đề xuất một dự án mới trong chính chỗ làm hoặc thử hướng mới vào cuối tuần trong 30 ngày, rồi mới quyết định."
+      },
+      "practices": [
+        {
+          "days": 7,
+          "action": "Mỗi ngày sửa hoặc cải tiến một thứ cũ thay vì thay mới (một thói quen, một đồ vật, một quy trình).",
+          "track": "Ghi lại thứ đã sửa và cảm giác khi nó chạy tốt trở lại."
+        },
+        {
+          "days": 30,
+          "action": "Chọn một cam kết đang dở và đi đến điểm hoàn tất rõ ràng trước khi bắt đầu bất cứ việc lớn nào khác.",
+          "track": "Ghi lại những ngày muốn bỏ và điều giúp bạn ở lại."
+        }
+      ],
+      "domains": {
+        "career": "Hợp vai trò cải tổ, khởi nghiệp, sáng tạo, làm mới sản phẩm, những nơi cần người dám đi trước. Tự kiểm tra: bạn rời đi vì đã xong việc hay vì đã hết mới?",
+        "money": "Dám đầu tư; cần quỹ dự phòng tách riêng để những lần làm lại không chạm vào nền tảng.",
+        "love": "Mãnh liệt; quan hệ bền khi bạn tìm cách làm mới cùng nhau thay vì làm mới bằng cách rời đi.",
+        "family": "Mang lại thay đổi; người thân cần được báo trước và cùng tham gia vào những thay đổi lớn."
+      },
+      "control_bias": "mixed",
+      "values": [
+        "tu_do",
+        "sang_tao",
+        "phat_trien"
+      ],
+      "ham_note": "Khi sao ở thế kém sáng, sức phá dễ thành hao tán; hướng rèn luyện là có nguyên tắc giữ lại trước mỗi lần đổi mới.",
+      "signal_words": [
+        "lam lai",
+        "nghi viec",
+        "chan nan",
+        "boc dong",
+        "thay doi",
+        "bo cuoc",
+        "bo do",
+        "ngot ngat"
+      ]
+    }
+  }
+}

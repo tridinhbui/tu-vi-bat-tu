@@ -1,0 +1,193 @@
+{
+  "note": "Lĩnh vực đời sống của 12 cung (vai trò cung lấy từ Khảo Luận pp.214-220 qua analysis.PALACE_ROLE), cách Tứ Hóa được đọc như 'chủ đề phát triển' (ý nghĩa gốc của Hóa lấy từ tu_hoa_vi.json, Khảo Luận pp.195-197), và bốn nhóm sao (Khảo Luận pp.50-51). Phần chuyển thành bài học trưởng thành do hệ thống soạn.",
+  "growth_area": {
+    "Mệnh": {
+      "domain": "self",
+      "area": "cách bạn hiện diện và hành xử nền tảng"
+    },
+    "Phụ Mẫu": {
+      "domain": "family",
+      "area": "quan hệ với cha mẹ, người đi trước và những gì bạn mang từ tuổi thơ"
+    },
+    "Phúc Đức": {
+      "domain": "self",
+      "area": "đời sống nội tâm, sự bình yên trong lòng và cách bạn tự đối xử với mình"
+    },
+    "Điền Trạch": {
+      "domain": "money",
+      "area": "nhà cửa, nền tảng vật chất và cảm giác có chỗ đứng"
+    },
+    "Quan Lộc": {
+      "domain": "career",
+      "area": "công việc, vị thế xã hội và cách bạn xây dựng sự nghiệp"
+    },
+    "Nô Bộc": {
+      "domain": "career",
+      "area": "bạn bè, đồng nghiệp, cộng sự — tấm gương soi lại chính bạn"
+    },
+    "Thiên Di": {
+      "domain": "career",
+      "area": "cách bạn giao thiệp bên ngoài và thích nghi với môi trường mới"
+    },
+    "Tật Ách": {
+      "domain": "health",
+      "area": "cách bạn chăm sóc cơ thể và phản ứng với căng thẳng"
+    },
+    "Tài Bạch": {
+      "domain": "money",
+      "area": "cách bạn kiếm, giữ và tiêu tiền"
+    },
+    "Tử Tức": {
+      "domain": "family",
+      "area": "con cái, người nhỏ tuổi hơn và những gì bạn muốn để lại"
+    },
+    "Phu Thê": {
+      "domain": "love",
+      "area": "hôn nhân, người bạn đời và cách bạn gắn bó"
+    },
+    "Huynh Đệ": {
+      "domain": "family",
+      "area": "anh chị em và những người ngang hàng thân thiết"
+    }
+  },
+  "hoa": {
+    "Hóa Lộc": {
+      "theme": "nơi nguồn lực đến dễ hơn",
+      "lesson": "Ở {area}, mọi thứ có thể đến với bạn tương đối thuận. Bài học là biết ơn và tái đầu tư thay vì coi sự thuận lợi ấy là hiển nhiên.",
+      "blind": "Dễ dựa vào sự thuận lợi ở {area} mà không xây kỹ năng dự phòng cho lúc nó không còn.",
+      "question": "Ở {area}, điều gì bạn đang nhận được dễ dàng mà chưa đầu tư lại?",
+      "practice": {
+        "days": 14,
+        "action": "Ghi ba điều đã đến thuận lợi ở {area} trong hai tuần qua, và với mỗi điều, một cách bạn đầu tư lại (thời gian, lời cảm ơn, kỹ năng).",
+        "track": "Cuối 14 ngày, chọn một khoản đầu tư lại và duy trì nó."
+      },
+      "scenario": {
+        "situation": "Một việc ở {area} lại diễn ra suôn sẻ như thường lệ.",
+        "try": "Dừng lại một phút và hỏi: điều gì làm nó suôn sẻ, phần nào do bạn, phần nào do người khác hay hoàn cảnh? Cảm ơn một người cụ thể."
+      }
+    },
+    "Hóa Quyền": {
+      "theme": "nơi bạn muốn có tiếng nói",
+      "lesson": "Ở {area}, bạn có xu hướng muốn nắm quyền chủ động. Bài học là quyền đi kèm trách nhiệm, và tiếng nói mạnh nhất là tiếng nói biết lắng nghe.",
+      "blind": "Ở {area}, bạn có thể muốn nắm quyền chủ động hơn mức cần, khiến người liên quan thấy bị lấn át.",
+      "question": "Ở {area}, bạn đang dùng quyền để phục vụ hay để kiểm soát?",
+      "practice": {
+        "days": 14,
+        "action": "Trong {area}, mỗi lần định quyết thay người khác, hỏi trước ý họ một câu.",
+        "track": "Ghi số lần đã hỏi và điều bạn không biết trước đó."
+      },
+      "scenario": {
+        "situation": "Ở {area}, có người đề xuất làm khác ý bạn.",
+        "try": "Hỏi lý do của họ trước khi nói ý mình; chỉ quyết định sau khi đã nghe hết."
+      }
+    },
+    "Hóa Khoa": {
+      "theme": "nơi danh tiếng và sự học hỏi",
+      "lesson": "Ở {area}, bạn dễ có tiếng hoặc được ghi nhận. Sách nhắc có Hóa Khoa phải khiêm nhường mới thành công; bài học là để thực chất đi trước hình ảnh.",
+      "blind": "Dễ chăm hình ảnh ở {area} hơn chăm thực chất, hoặc ngại học lại vì sợ mất tiếng.",
+      "question": "Ở {area}, điều gì bạn đang làm để được thấy, và điều gì để thật sự giỏi lên?",
+      "practice": {
+        "days": 14,
+        "action": "Trong {area}, chủ động hỏi một người giỏi hơn một câu bạn chưa biết, mỗi tuần một lần.",
+        "track": "Ghi điều học được và cảm giác khi thừa nhận mình chưa biết."
+      },
+      "scenario": {
+        "situation": "Ở {area}, bạn được khen hoặc được nhờ đóng vai 'người biết'.",
+        "try": "Nói rõ phần nào bạn chưa chắc, và nhắc tên người đã giúp bạn."
+      }
+    },
+    "Hóa Kỵ": {
+      "theme": "vùng ma sát lặp lại",
+      "lesson": "Sách xem Hóa Kỵ đóng ở cung nào thì gây điều không êm ở cung đó. Đọc theo hướng trưởng thành: {area} là nơi bạn dễ gặp vướng mắc lặp lại, và vì vậy cũng là nơi đầu tư tự nhận thức mang lại nhiều thay đổi nhất.",
+      "blind": "Ở {area}, bạn có thể hoặc né hẳn, hoặc nghĩ về nó quá nhiều; cả hai đều giữ vướng mắc ở nguyên chỗ.",
+      "question": "Vướng mắc nào ở {area} đã lặp lại ít nhất hai lần? Điểm chung của những lần đó là gì, kể cả phần của bạn?",
+      "practice": {
+        "days": 30,
+        "action": "Mỗi khi có chuyện không êm ở {area}, ghi ba dòng: chuyện gì xảy ra, bạn đã phản ứng thế nào, lần sau bạn muốn thử phản ứng nào khác.",
+        "track": "Sau 30 ngày, đọc lại và gạch chân phản ứng lặp lại nhiều nhất."
+      },
+      "scenario": {
+        "situation": "Một chuyện không êm ở {area} lại xảy ra theo kiểu quen thuộc.",
+        "try": "Trước khi phản ứng, tự nhủ 'đây là vùng ma sát quen thuộc của mình', rồi chọn phản ứng bạn đã chuẩn bị trước trong nhật ký."
+      }
+    }
+  },
+  "loc_ky_same": "Hóa Lộc và Hóa Kỵ cùng đóng ở cung {palace}: cùng một lĩnh vực ({area}) vừa là nơi thuận lợi vừa là nơi vướng mắc. Mâu thuẫn nội tâm hay gặp: bạn kỳ vọng nhiều vào chính nơi mình cũng hay thất vọng. Bài tập: tách rõ phần nào ở {area} đang cho bạn năng lượng, phần nào đang lấy đi.",
+  "groups": {
+    "tu_phu_vu_tuong": {
+      "label": "Tử – Phủ – Vũ – Tướng",
+      "kl": "nhóm “hành động có lý luận”",
+      "action": 2,
+      "lesson": "Sức mạnh của bạn là hành động có tính toán. Bài học là đừng để lý lẽ trở thành lý do trì hoãn hành động khi hoàn cảnh cần tốc độ, và đừng để hành động thiếu lắng nghe khi hoàn cảnh cần sự mềm mỏng.",
+      "question": "Tình huống gần đây nào bạn đã cân nhắc đúng nhưng hành động quá muộn, hoặc hành động đúng nhưng thiếu sự lắng nghe?"
+    },
+    "sat_pha_liem_tham": {
+      "label": "Sát – Phá – Liêm – Tham",
+      "kl": "nhóm “hành động mạnh mẽ”",
+      "action": 3,
+      "lesson": "Bạn thấy mình nhất khi hành động. Bài học là xây khoảng dừng ngắn trước quyết định lớn, để sức mạnh hành động được dẫn bởi mục tiêu chứ không chỉ bởi cảm xúc lúc đó.",
+      "question": "Quyết định nào bạn đã làm quá nhanh, và nếu dừng lại một ngày thì có khác không?"
+    },
+    "co_nguyet_dong_luong": {
+      "label": "Cơ – Nguyệt – Đồng – Lương",
+      "kl": "nhóm “lý luận thuần túy”",
+      "action": 1,
+      "lesson": "Bạn mạnh ở suy nghĩ, cảm nhận và cân nhắc. Bài học là chuyển suy nghĩ thành bước thử nhỏ, để thực tế kiểm chứng điều bạn nghĩ.",
+      "question": "Ý tưởng nào của bạn đã nằm trong đầu quá lâu? Bước thử nhỏ nhất cho nó là gì?"
+    },
+    "cu_nhat_nguyet": {
+      "label": "Cự – Nhật – Nguyệt",
+      "kl": "nhóm “lý luận thực hành”",
+      "action": 1.5,
+      "lesson": "Bạn nghĩ để làm: lý lẽ của bạn hướng về ứng dụng. Bài học là kiểm tra lý lẽ với người khác trước khi áp dụng, vì điều đúng trong đầu chưa chắc đúng với người bên cạnh.",
+      "question": "Lần gần nhất bạn áp dụng một ý đúng mà người khác không theo, bạn đã giải thích đủ chưa hay chỉ mong họ tự hiểu?"
+    }
+  },
+  "action_gap": "Cung Mệnh thuộc {g1} còn cung {p2} thuộc {g2} (cách chia nhóm theo Khảo Luận pp.50-51). Một bên thiên về {d1}, một bên thiên về {d2}. Mâu thuẫn nội tâm hay gặp: {conflict}",
+  "action_desc": {
+    "1": "suy nghĩ, cân nhắc",
+    "1.5": "nghĩ để áp dụng",
+    "2": "hành động có tính toán",
+    "3": "hành động mạnh mẽ"
+  },
+  "action_gap_conflict": {
+    "than_more_action": "bạn quen nghĩ kỹ rồi mới làm, nhưng những giai đoạn về sau đời sống lại đòi bạn ra tay nhanh và mạnh hơn. Dấu hiệu: thấy mình 'chậm hơn hoàn cảnh', hoặc bất ngờ vì mình có thể quyết đoán đến vậy.",
+    "than_less_action": "bạn quen ra tay nhanh, nhưng những giai đoạn về sau đời sống lại đòi bạn chậm lại, suy ngẫm và cân nhắc. Dấu hiệu: những cách làm từng hiệu quả dần không còn đủ.",
+    "phuc_more_action": "bề ngoài bạn điềm đạm, cân nhắc, nhưng bên trong có một nguồn năng lượng muốn bùng ra hành động. Dấu hiệu: bồn chồn khi mọi thứ quá yên, hoặc bất ngờ có những quyết định mạnh tay.",
+    "phuc_less_action": "bề ngoài bạn mạnh mẽ, quyết liệt, nhưng bên trong cần sự yên tĩnh và suy ngẫm nhiều hơn người khác nghĩ. Dấu hiệu: mệt sau những giai đoạn phải 'chiến đấu' dù kết quả tốt."
+  },
+  "vcd": {
+    "lesson_title": "Bản sắc được định hình qua môi trường",
+    "lesson": "Cung Mệnh vô chính diệu, theo cách đọc truyền thống phải mượn sao cung đối diện (Thiên Di: {borrowed}). Đọc theo hướng trưởng thành: bạn dễ thích nghi và hấp thụ màu sắc của môi trường, nên điều quan trọng là tự chọn môi trường và giá trị của mình một cách có ý thức.",
+    "skill": "làm rõ giá trị cá nhân để không bị môi trường định hình thay",
+    "blind": "Dễ trở thành người mà môi trường muốn bạn trở thành; khi đổi môi trường, bạn có thể thấy mất phương hướng.",
+    "question": "Nếu bỏ đi kỳ vọng của gia đình, công ty và bạn bè, ba điều nào bạn vẫn muốn giữ?",
+    "practice": {
+      "days": 30,
+      "action": "Mỗi tuần, ghi lại một lựa chọn bạn làm vì người khác mong và một lựa chọn bạn làm vì chính mình.",
+      "track": "Sau 4 tuần, xem tỉ lệ đó thay đổi thế nào."
+    },
+    "scenario": {
+      "situation": "Bạn chuyển sang môi trường mới (công ty, thành phố, nhóm bạn) và thấy mình dần thay đổi theo.",
+      "try": "Trong tháng đầu, viết ra ba điều bạn muốn giữ nguyên dù môi trường thế nào, và đọc lại mỗi tuần."
+    }
+  },
+  "than_lesson": "Cung Thân cư {palace} — theo cách đọc phổ thông, Thân cho thấy nơi đời sống dần đặt trọng tâm về sau. Lĩnh vực này ({area}) là nơi bạn có thể được 'gọi' để trưởng thành nhiều nhất theo thời gian.",
+  "tuan_triet_menh": "Cung Mệnh có {tt}. Sách có chỗ coi Tuần/Triệt là cản trở, có chỗ coi là cứu giải (điểm mâu thuẫn nguồn R07; hệ thống không chọn). Đọc theo hướng trưởng thành: những cảm giác 'bị chặn' ở giai đoạn đầu có thể trở thành sức bền, nếu bạn học được cách đi vòng thay vì đâm thẳng.",
+  "menh_cuc": {
+    "Cục sinh Mệnh": "Cục sinh Mệnh: hình ảnh môi trường nuôi dưỡng bản thân. Bài học: tận dụng sự hỗ trợ mà không phụ thuộc vào nó.",
+    "Mệnh sinh Cục": "Mệnh sinh Cục: hình ảnh bản thân dồn sức nuôi hoàn cảnh. Bài học: chú ý giữ năng lượng, đừng cho đi đến cạn.",
+    "Mệnh khắc Cục": "Mệnh khắc Cục: hình ảnh bản thân phải chế ngự hoàn cảnh. Bài học: nỗ lực là thế mạnh, nhưng hãy chọn trận để không mệt vì mọi thứ đều phải 'thắng'.",
+    "Cục khắc Mệnh": "Cục khắc Mệnh: hình ảnh hoàn cảnh gây sức ép lên bản thân. Bài học: tập phân biệt áp lực nào cần đáp ứng và áp lực nào chỉ cần chấp nhận.",
+    "bình hòa": "Mệnh và Cục cùng hành: hình ảnh bản thân và hoàn cảnh cùng nhịp. Bài học: sự thuận dễ thành quen; hãy chủ động tạo thử thách để lớn lên."
+  },
+  "action_gap_scenario": {
+    "situation": "Một quyết định quan trọng đến và hai phía trong bạn muốn hai cách khác nhau.",
+    "try": "Viết ra cách phía 'nghĩ' muốn làm và cách phía 'làm' muốn làm, rồi chọn một bước nhỏ đáp ứng được cả hai: ví dụ hành động thử trong phạm vi nhỏ, có hạn xem lại."
+  },
+  "action_gap_practice": {
+    "days": 14,
+    "action": "Mỗi tối ghi một dòng: hôm nay phía 'nghĩ' hay phía 'làm' dẫn dắt bạn, trong tình huống nào, kết quả ra sao.",
+    "track": "Sau 14 ngày, xem tình huống nào hợp với phía nào."
+  }
+}

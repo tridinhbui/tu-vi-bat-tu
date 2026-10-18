@@ -12,6 +12,7 @@ import { renderLearn, lessonSys, lessonTitle } from './learn.js';
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
 import { renderSaved, initSave } from './mine.js';
+import { initGrowth } from './growth.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const metaReady = Promise.all([loadMeta(), loadGlossary()]);
@@ -41,9 +42,9 @@ function setTab(tab, scroll = true) {
 }
 function go(id) {
   if (id === 'hoc' || id.startsWith('hoc/')) { openLearn(id.slice(4)); closeMenu(); return; }
-  const tabs = { 'bat-tu': 'bazi', 'tu-vi': 'tuvi' };
+  const tabs = { 'bat-tu': 'bazi', 'tu-vi': 'tuvi', 'truong-thanh': 'growth' };
   if (tabs[id] && state) { if (document.body.dataset.view !== 'chart') view('chart'); setTab(tabs[id]); history.replaceState({ v: 'chart' }, '', '#la-so/' + id); closeMenu(); return; }
-  const target = { 'bat-tu': 'hai-he-thong', 'tu-vi': 'hai-he-thong' }[id] || id;
+  const target = { 'bat-tu': 'hai-he-thong', 'tu-vi': 'hai-he-thong', 'truong-thanh': 'hai-he-thong' }[id] || id;
   if (document.body.dataset.view !== 'home') view('home');
   requestAnimationFrame(() => $('#' + target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }));
   history.replaceState(null, '', '#' + id);
@@ -217,6 +218,7 @@ function showResults() {
   const T = terms();
   $('#bazi-summary').innerHTML = summaryBazi(chart, ctx, T); $('#tuvi-summary').innerHTML = summaryTuvi(chart, ctx, T);
   initYearCards();
+  initGrowth($('#growth-host'), $('#tab-growth'), req); // optional layer: the tab stays hidden when the server has it switched off
   autoLink($('#bazi-host'), 'bt'); autoLink($('#bazi-summary'), 'bt'); autoLink($('#tuvi-host'), 'tv'); autoLink($('#tuvi-summary'), 'tv');
   const t = chart.tuvi, b = chart.bazi;
   const lu = state.lunarIn ? `<span>Nhập âm lịch ${state.lunarIn.day}/${state.lunarIn.month}/${state.lunarIn.year}${state.lunarIn.leap ? ' nhuận' : ''}</span>` : '';

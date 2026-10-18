@@ -1,0 +1,212 @@
+{
+  "note": "Đối thoại tất định (không dùng mô hình ngôn ngữ). Từ khóa viết không dấu, so khớp trên câu hỏi đã bỏ dấu và chữ thường. Thứ tự kiểm tra: crisis → fate → intent. Mỗi bảng ở đây được review như dữ liệu.",
+  "crisis": [
+    "tu tu",
+    "muon chet",
+    "khong muon song",
+    "ket thuc cuoc doi",
+    "tu sat",
+    "tu hai",
+    "tu lam dau",
+    "khong con ly do song",
+    "chet di cho xong",
+    "muon bien mat mai mai"
+  ],
+  "crisis_reply": {
+    "text": "Mình rất tiếc vì bạn đang phải mang cảm giác nặng nề như vậy. Lúc này điều quan trọng nhất không phải là lá số, mà là sự an toàn của bạn. Nếu bạn đang nghĩ đến việc làm hại bản thân, hãy liên hệ ngay với một người bạn tin tưởng hoặc gọi cấp cứu 115. Bạn cũng có thể gọi đường dây hỗ trợ tâm lý 'Ngày Mai' 096 306 1414 (hãy kiểm tra lại số trên trang chính thức của dự án nếu không gọi được). Nếu bạn ở ngoài Việt Nam, hãy gọi số khẩn cấp tại nơi bạn ở hoặc tìm đường dây hỗ trợ tại findahelpline.com.",
+    "follow_up": [
+      "Ngay lúc này có ai ở gần bạn mà bạn có thể nhắn một tin không?"
+    ]
+  },
+  "fate": {
+    "patterns": [
+      "bao gio",
+      "khi nao toi",
+      "nam nao",
+      "co lay duoc",
+      "co giau khong",
+      "co thanh cong khong",
+      "co ly hon",
+      "song duoc bao lau",
+      "bao nhieu tuoi thi",
+      "bao gio chet",
+      "co con khong",
+      "may man khong",
+      "co phat khong",
+      "co gap van",
+      "so toi co",
+      "co phai so",
+      "dinh menh",
+      "so phan",
+      "co nen chia tay khong",
+      "toi co nen",
+      "nen chon cai nao"
+    ],
+    "decision_patterns": [
+      "co nen",
+      "nen chon",
+      "chon cai nao",
+      "nen nghi",
+      "nen chuyen",
+      "nen chia tay",
+      "nen cuoi"
+    ],
+    "reply": "Lá số không trả lời được câu hỏi 'khi nào' hay 'có hay không' về những sự kiện như vậy, và hệ thống này không đưa ra dự đoán. Điều lá số có thể làm là gợi mở một số xu hướng để bạn tự soi lại. Mình có thể cùng bạn nhìn vào điều bạn muốn, điều bạn đang sợ, và điều nằm trong tay bạn.",
+    "decision_reply": "Đây là quyết định của bạn, và hệ thống sẽ không chọn thay. Mình có thể giúp bạn nhìn rõ hơn: các giá trị của bạn, những xu hướng (theo hình tượng lá số) có thể đang kéo bạn về một phía, và vài câu hỏi để kiểm tra lựa chọn. Bạn có thể dùng mục 'La bàn cuộc đời' để đặt các lựa chọn cạnh nhau."
+  },
+  "intents": {
+    "stuck_why": [
+      "tai sao",
+      "vi sao",
+      "mac ket",
+      "be tac",
+      "luon bi",
+      "cu bi",
+      "lap lai",
+      "mai khong",
+      "khong thoat",
+      "luan quan",
+      "mai van",
+      "lan nao cung",
+      "mai khong duoc"
+    ],
+    "change_what": [
+      "thay doi gi",
+      "nen thay doi",
+      "cai thien",
+      "lam sao de",
+      "can sua",
+      "nen lam gi",
+      "bat dau tu dau",
+      "lam the nao"
+    ],
+    "strength": [
+      "diem manh",
+      "the manh",
+      "chua tan dung",
+      "tai nang",
+      "gioi gi",
+      "loi the",
+      "nang luc",
+      "manh o dau"
+    ],
+    "blind": [
+      "diem mu",
+      "diem yeu",
+      "tu can tro",
+      "tu pha",
+      "thoi quen xau",
+      "khong nhan ra"
+    ],
+    "meaning": [
+      "la so noi gi",
+      "toi la nguoi",
+      "tinh cach",
+      "hieu ban than",
+      "toi la ai",
+      "ban chat"
+    ]
+  },
+  "domains": {
+    "career": [
+      "cong viec",
+      "su nghiep",
+      "nghe nghiep",
+      "sep toi",
+      "dong nghiep",
+      "cong ty",
+      "thang tien",
+      "nghi viec",
+      "khoi nghiep",
+      "kinh doanh",
+      "viec lam",
+      "du an",
+      "hoc tap",
+      "thi cu",
+      "chuyen viec",
+      "di lam"
+    ],
+    "money": [
+      "tien bac",
+      "kiem tien",
+      "het tien",
+      "so tien",
+      "tai chinh",
+      "no nan",
+      "khoan no",
+      "tien luong",
+      "muc luong",
+      "dau tu",
+      "tiet kiem",
+      "chi tieu",
+      "thu nhap",
+      "mua nha"
+    ],
+    "love": [
+      "tinh yeu",
+      "nguoi yeu",
+      "vo toi",
+      "chong toi",
+      "vo chong",
+      "hon nhan",
+      "chia tay",
+      "ket hon",
+      "ban doi",
+      "tinh cam",
+      "hen ho",
+      "nguoi ay"
+    ],
+    "family": [
+      "gia dinh",
+      "bo me",
+      "cha me",
+      "bo toi",
+      "me toi",
+      "cha toi",
+      "con cai",
+      "con toi",
+      "anh chi em",
+      "ong ba",
+      "nha chong",
+      "nha vo",
+      "ho hang"
+    ],
+    "health": [
+      "suc khoe",
+      "met moi",
+      "mat ngu",
+      "kiet suc",
+      "benh tat",
+      "cang thang",
+      "lo au",
+      "tram cam",
+      "dau om"
+    ],
+    "self": [
+      "ban than",
+      "tu tin",
+      "y nghia",
+      "muc dich song",
+      "huong di",
+      "dam me",
+      "gia tri",
+      "noi tam",
+      "chinh minh"
+    ]
+  },
+  "distress": [
+    "tram cam",
+    "lo au",
+    "hoang loan",
+    "khong ngu duoc",
+    "kiet suc",
+    "tuyet vong",
+    "vo vong",
+    "het chiu noi",
+    "hay khoc",
+    "bat khoc"
+  ],
+  "distress_note": "Bạn có nhắc đến dấu hiệu căng thẳng kéo dài. Lá số là công cụ phản tư, không thay được người chuyên môn; nếu cảm giác này đã kéo dài hơn hai tuần hoặc ảnh hưởng đến ăn ngủ, công việc, hãy cân nhắc gặp bác sĩ hoặc nhà tâm lý.",
+  "unknown_reply": "Mình chưa chắc đã hiểu ý bạn. Bạn có thể hỏi theo các hướng như: 'Tại sao tôi luôn mắc kẹt trong công việc?', 'Tôi nên thay đổi điều gì trong tình cảm?', 'Điểm mạnh nào tôi chưa tận dụng?'. Kể thêm một chút về hoàn cảnh sẽ giúp câu trả lời sát hơn.",
+  "domain_hint": "Bạn có thể cho biết bạn đang hỏi về lĩnh vực nào (công việc, tiền bạc, tình cảm, gia đình, sức khỏe, bản thân) để câu trả lời cụ thể hơn."
+}

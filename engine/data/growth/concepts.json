@@ -1,0 +1,76 @@
+{
+  "note": "Khái niệm tâm lý học và công cụ phản tư được tầng Personal Growth dẫn chiếu. Đây là kiến thức tâm lý học phổ thông được ĐẶT CẠNH hình tượng lá số; lá số không chứng minh khái niệm nào, và khái niệm không chứng minh lá số.",
+  "concepts": {
+    "uncertainty_control": {"name": "Kiểm soát để giảm bất định", "gist": "Khó chịu đựng sự không chắc chắn khiến người ta siết kiểm soát; kiểm soát giúp yên tâm ngắn hạn nhưng làm khả năng chịu bất định yếu đi.", "ref": "Nghiên cứu về 'không dung nạp bất định' (intolerance of uncertainty), Dugas và cộng sự"},
+    "satisficing": {"name": "Tối đa hóa và chọn 'đủ tốt'", "gist": "Người luôn tìm phương án tốt nhất thường kém hài lòng hơn người chọn phương án đạt tiêu chí đặt trước.", "ref": "Herbert Simon; Barry Schwartz, 'Nghịch lý của sự lựa chọn'"},
+    "contingent_self_worth": {"name": "Giá trị bản thân có điều kiện", "gist": "Khi lòng tự trọng gắn vào sự công nhận bên ngoài, cảm xúc dao động mạnh theo phản hồi của người khác.", "ref": "Jennifer Crocker và Connie Wolfe"},
+    "work_avoidance": {"name": "Bận rộn như một cách né tránh", "gist": "Công việc có thể là nơi trú ẩn khỏi cảm xúc khó; nghỉ ngơi lại gây bồn chồn.", "ref": "Tâm lý học lâm sàng về 'né tránh trải nghiệm' và nghiện công việc"},
+    "experiential_avoidance": {"name": "Né tránh trải nghiệm", "gist": "Né việc để né cảm xúc đi kèm; trì hoãn là điều hòa cảm xúc ngắn hạn.", "ref": "Liệu pháp Chấp nhận và Cam kết (ACT), Steven Hayes; Sirois và Pychyl về trì hoãn"},
+    "self_compassion": {"name": "Lòng trắc ẩn với bản thân", "gist": "Đối xử với mình như với một người bạn khi thất bại giúp sửa sai bền hơn tự trách.", "ref": "Kristin Neff"},
+    "loss_aversion": {"name": "Sợ mất mát", "gist": "Nỗi đau mất mát cảm thấy mạnh hơn niềm vui được thêm cùng mức; thiên hướng giữ hiện trạng.", "ref": "Daniel Kahneman và Amos Tversky"},
+    "mind_reading": {"name": "Đọc ý nghĩ và Giao tiếp phi bạo lực", "gist": "Tin rằng mình biết người khác nghĩ gì, hoặc mong họ tự biết mình nghĩ gì; thay bằng nói rõ quan sát, cảm xúc, nhu cầu, đề nghị.", "ref": "Aaron Beck về bóp méo nhận thức; Marshall Rosenberg"},
+    "hedonic_adaptation": {"name": "Thích nghi khoái lạc", "gist": "Con người nhanh chóng quen với điều mới có được và lại muốn thêm.", "ref": "Brickman và Campbell; nghiên cứu về trì hoãn thỏa mãn của Walter Mischel"},
+    "hostile_attribution": {"name": "Thiên lệch quy kết thù địch", "gist": "Đọc hành vi mơ hồ của người khác như có ý xấu.", "ref": "Kenneth Dodge"},
+    "boundaries": {"name": "Ranh giới cá nhân", "gist": "Không đặt ranh giới, người giỏi giúp đỡ dễ kiệt sức và âm thầm bực bội; ranh giới rõ giữ được cả quan hệ lẫn sức khỏe.", "ref": "Huấn luyện tính quyết đoán (assertiveness training)"},
+    "drama_triangle": {"name": "Tam giác kịch tính", "gist": "Ba vai người cứu, nạn nhân, người bắt nạt; vai người cứu giữ người khác ở thế yếu.", "ref": "Stephen Karpman"},
+    "emotion_regulation": {"name": "Điều hòa cảm xúc", "gist": "Khoảng dừng giữa kích thích và phản ứng, và việc gọi tên cảm xúc, làm giảm phản ứng bốc đồng.", "ref": "James Gross; nghiên cứu về gọi tên cảm xúc (affect labeling), Matthew Lieberman"},
+    "novelty_seeking": {"name": "Nhu cầu tìm cái mới", "gist": "Một nét tính khí: thích nghi nhanh, sáng tạo, nhưng dễ chán và bốc đồng.", "ref": "C. Robert Cloninger"},
+    "dichotomy_control": {"name": "Phân biệt điều trong và ngoài tầm tay", "gist": "Dồn năng lượng vào điều mình kiểm soát hoặc ảnh hưởng được; chấp nhận điều ngoài tầm.", "ref": "Epictetus (triết học Khắc kỷ); vòng tròn ảnh hưởng của Stephen Covey"},
+    "implementation_intention": {"name": "Ý định thực hiện 'Nếu… thì…'", "gist": "Kế hoạch dạng 'Khi [tình huống], tôi sẽ [hành động]' tăng khả năng làm thật so với mục tiêu chung chung.", "ref": "Peter Gollwitzer"},
+    "values_clarification": {"name": "Làm rõ giá trị", "gist": "Giá trị là hướng đi (như la bàn), không phải đích đến; quyết định khớp giá trị ít hối tiếc hơn.", "ref": "Liệu pháp Chấp nhận và Cam kết (ACT)"},
+    "premortem": {"name": "Khám nghiệm trước", "gist": "Tưởng tượng quyết định đã thất bại và hỏi vì sao, để thấy rủi ro bị lạc quan che khuất.", "ref": "Gary Klein"},
+    "ten_ten_ten": {"name": "Quy tắc 10–10–10", "gist": "Hỏi: mình sẽ thấy thế nào về lựa chọn này sau 10 phút, 10 tháng, 10 năm.", "ref": "Suzy Welch"},
+    "reversibility": {"name": "Quyết định đảo ngược được hay không", "gist": "Quyết định đảo ngược được nên làm nhanh và thử; quyết định khó đảo ngược mới cần cân nhắc lâu.", "ref": "Thực hành ra quyết định trong quản trị"},
+    "growth_mindset": {"name": "Tư duy phát triển", "gist": "Năng lực được rèn qua nỗ lực và chiến lược, không cố định.", "ref": "Carol Dweck"},
+    "barnum": {"name": "Hiệu ứng Barnum (Forer)", "gist": "Người ta dễ thấy những mô tả chung chung là 'đúng với mình'. Vì vậy cảm giác 'đúng quá' chưa phải bằng chứng; đối chiếu với hành vi cụ thể mới có giá trị.", "ref": "Bertram Forer, 1949"},
+    "rumination": {"name": "Nghĩ lặp", "gist": "Nghĩ đi nghĩ lại về vấn đề mà không đi đến hành động làm tâm trạng tệ hơn.", "ref": "Susan Nolen-Hoeksema"}
+  },
+  "values": {
+    "an_toan": "An toàn, ổn định",
+    "tu_do": "Tự do, tự chủ",
+    "gan_ket": "Gắn kết, yêu thương",
+    "phat_trien": "Phát triển bản thân",
+    "y_nghia": "Ý nghĩa, đóng góp",
+    "cong_nhan": "Được công nhận",
+    "sang_tao": "Sáng tạo",
+    "cong_bang": "Công bằng",
+    "suc_khoe": "Sức khỏe, cân bằng",
+    "gia_dinh": "Gia đình",
+    "tai_chinh": "Độc lập tài chính",
+    "hoc_hoi": "Học hỏi, hiểu biết",
+    "tinh_than": "Bình an nội tâm",
+    "trung_thuc": "Trung thực, chính trực"
+  },
+  "domains": {
+    "career": {"label": "Nghề nghiệp", "palaces": ["Quan Lộc", "Thiên Di", "Nô Bộc"]},
+    "money": {"label": "Tiền bạc", "palaces": ["Tài Bạch", "Điền Trạch"]},
+    "love": {"label": "Tình cảm", "palaces": ["Phu Thê"]},
+    "family": {"label": "Gia đình", "palaces": ["Phụ Mẫu", "Tử Tức", "Huynh Đệ", "Điền Trạch"]},
+    "self": {"label": "Bản thân", "palaces": ["Mệnh", "Phúc Đức"]}
+  },
+  "control_bias": {
+    "over": "Hình tượng các sao ở cung Mệnh nghiêng về gánh vác và điều phối. Mô thức hay gặp ở kiểu người này là xếp quá nhiều thứ vào cột 'kiểm soát được', rồi gánh cả điều vốn không phải của mình. Hãy xem lại cột đó: mục nào thực ra chỉ là 'ảnh hưởng được'?",
+    "under": "Hình tượng các sao ở cung Mệnh nghiêng về mềm mỏng và cảm nhận. Mô thức hay gặp là xếp điều mình làm được vào cột 'ngoài tầm tay' để khỏi phải đối diện. Hãy xem lại cột đó: mục nào có một bước nhỏ bạn làm được ngay tuần này?",
+    "mixed": "Hình tượng các sao ở cung Mệnh vừa có nét chủ động vừa có nét cân nhắc. Mô thức hay gặp là phân tích rất kỹ phần ngoài tầm tay rồi tốn sức lo về nó. Hãy chuyển sức nghĩ đó sang cột 'ảnh hưởng được'."
+  },
+  "stuck_steps": [
+    {"id": "name", "title": "Gọi tên vấn đề", "concept": "rumination", "questions": ["Chuyện gì đang thực sự xảy ra, nếu kể như một máy quay chỉ ghi lại sự kiện, không có lời bình?", "Phần nào là sự kiện, phần nào là câu chuyện bạn tự kể về sự kiện đó?", "Nếu vấn đề được giải quyết, cụ thể điều gì sẽ khác vào một buổi sáng thứ Hai?"]},
+    {"id": "sort", "title": "Phân vùng: kiểm soát được, ảnh hưởng được, ngoài tầm tay", "concept": "dichotomy_control", "questions": ["Với mỗi mục: nếu ngày mai bạn làm một việc, điều này có thay đổi chút nào không? Có thì nó không nằm ngoài tầm tay.", "Mục nào bạn đang tốn nhiều sức nghĩ nhất? Nó nằm ở cột nào?", "Với điều ngoài tầm tay, bạn có thể chọn cách phản ứng nào?"]},
+    {"id": "ask", "title": "Đặt câu hỏi đúng", "concept": "growth_mindset", "questions": ["Thay vì 'tại sao chuyện này lại xảy ra với tôi?', hãy hỏi: 'điều gì trong cách tôi làm đang lặp lại?'", "Thay vì 'làm sao để không còn khó khăn?', hãy hỏi: 'bước nhỏ nhất tôi làm được trong 48 giờ là gì?'", "Ai đã từng vượt qua chuyện tương tự, và bạn có thể hỏi họ điều gì?"]},
+    {"id": "act", "title": "Một hành động nhỏ", "concept": "implementation_intention", "questions": ["Viết theo mẫu: 'Khi [tình huống cụ thể], tôi sẽ [hành động nhỏ, làm được trong 15 phút]'.", "Bạn sẽ biết mình đã làm bằng cách nào (đánh dấu lịch, nhắn cho một người)?"]}
+  ],
+  "decision_tools": [
+    {"id": "reversibility", "concept": "reversibility", "prompt": "Quyết định này có đảo ngược được không, và nếu được thì tốn bao nhiêu? Nếu đảo ngược được với chi phí thấp, hãy thử nhỏ trước thay vì cân nhắc mãi."},
+    {"id": "ten_ten_ten", "concept": "ten_ten_ten", "prompt": "Với mỗi lựa chọn: bạn sẽ thấy thế nào sau 10 phút, 10 tháng, 10 năm?"},
+    {"id": "premortem", "concept": "premortem", "prompt": "Giả sử một năm sau lựa chọn này thất bại. Viết ba lý do có khả năng nhất. Lý do nào bạn phòng ngừa được ngay từ bây giờ?"},
+    {"id": "values", "concept": "values_clarification", "prompt": "Lựa chọn nào đưa bạn gần hơn đến con người bạn muốn trở thành, kể cả khi nó khó hơn?"}
+  ],
+  "domain_questions": {
+    "career": ["Bạn muốn công việc cho bạn điều gì mà hiện tại chưa có: tiền, ý nghĩa, sự học hỏi, sự tự chủ hay sự công nhận?", "Nếu thu nhập như nhau, bạn chọn làm gì?", "Điều làm bạn mệt là bản thân công việc, con người, hay cách bạn đang làm việc?"],
+    "money": ["Khoản tiền này phục vụ giá trị nào của bạn?", "Nỗi lo tiền bạc của bạn dựa trên con số cụ thể nào, hay trên một cảm giác?", "Quyết định tài chính nào bạn đang hoãn vì ngại nhìn vào con số?"],
+    "love": ["Bạn cần gì từ mối quan hệ này mà chưa từng nói ra?", "Bạn đang phản ứng với người kia, hay với một nỗi sợ cũ?", "Nếu người thân nhất của bạn ở trong mối quan hệ này, bạn sẽ khuyên họ điều gì?"],
+    "family": ["Vai trò nào trong gia đình bạn đang đóng mà không còn muốn đóng?", "Ranh giới nào bạn cần đặt mà vẫn giữ được sự tôn trọng?", "Điều gì trong gia đình thuộc về trách nhiệm của bạn, điều gì thuộc về người khác?"],
+    "self": ["Gần đây điều gì làm bạn thấy là chính mình nhất?", "Bạn đang sống theo kỳ vọng của ai?", "Nếu không ai đánh giá, bạn muốn dành một năm tới như thế nào?"],
+    "health": ["Cơ thể bạn đã báo hiệu điều gì mà bạn chưa nghe?", "Thói quen nào về ngủ, ăn, vận động bạn có thể đổi một chút trong tuần này?", "Ai là người chuyên môn bạn nên hỏi thay vì tự đoán?"]
+  }
+}
