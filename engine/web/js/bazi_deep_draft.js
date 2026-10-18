@@ -41,7 +41,7 @@
     return rs;
   }
 
-  function buildViewModel(resp) {
+  function buildViewModel(resp, mode) {
     var d = resp.bazi_deep_draft, Y = resp.yongshen;
     if (!d) return { enabled: false, label: null };
     var ui = d.ui_strings, order = d.method_order, titles = ui.method_titles, key = unifiedState(Y);
@@ -66,10 +66,79 @@
     return {
       enabled: true, label: d.draft_label, banner: d.banner, state: key, state_text: ui.states[key],
       agreement_groups: key === "agreement_not_proof" ? glist(ui, Y.comparison.consensus) : [],
-      methods: methods, disagreements: disagreements, conflict: conflict,
+      methods: methods, disagreements: disagreements, conflict: conflict, mode: mode === "expert" ? "expert" : "easy", reading: resp.bazi_deep_reading || null,
       review_line: ui.states.review_status.replace("{n}", d.review_status.cells_confirmed_by_human).replace("{total}", d.review_status.cells_total),
       isolation_note: ui.states.isolation_note, ui: ui
     };
+  }
+
+  // ------------------------------------------------------------ the seven-chapter reading (reading/1). Text comes from the server already in Vietnamese; every string is still run through plain().
+  var DIR = { thuan: "Thuận lợi", bat_loi: "Bất lợi" };
+  var COL = { index: "Vận", pillar: "Đại vận", start: "Bắt đầu", start_year: "Năm", god: "Thập thần của can", group: "Nhóm", verdict: "Theo bảng sách" };
+  var VERDICT = { tot: "Thuận", xau: "Bất lợi", khong_neu: "Sách không nêu" };
+  function textOf(ui, s) { return plain(ui, s); }
+
+  function itemCard(ui, R, it, mode, headlines) {
+    var card = el("article", "bd-item bd-basis-" + it.basis); card.dataset.item = it.id; card.dataset.basis = it.basis;
+    var head = el("div", "bd-item-head");
+    head.appendChild(el("span", "bd-chip bd-b-" + it.basis, it.basis_vi));
+    if (DIR[it.direction]) head.appendChild(el("span", "bd-chip bd-d-" + it.direction, DIR[it.direction]));
+    head.appendChild(el("b", null, textOf(ui, it.headline)));
+    card.appendChild(head);
+    card.appendChild(el("p", "bd-item-text", textOf(ui, mode === "expert" ? it.expert : it.easy)));
+    if (it.table) {
+      var tb = el("table", "bd-table"), keys = Object.keys(it.table[0] || {}).filter(function (k) { return COL[k]; });
+      var tr = el("tr"); keys.forEach(function (k) { tr.appendChild(el("th", null, COL[k])); }); tb.appendChild(tr);
+      it.table.forEach(function (row) { var r = el("tr"); keys.forEach(function (k) { var v = row[k]; r.appendChild(el("td", null, k === "verdict" ? VERDICT[v] || v : k === "group" ? (ui.group_names[v] || v) : v == null ? "—" : String(v))); }); tb.appendChild(r); });
+      card.appendChild(tb);
+    }
+    var det = el("details", "bd-chain"); if (mode === "expert") det.open = true;
+    det.appendChild(el("summary", null, mode === "expert" ? "Chuỗi lập luận" : "Vì sao?"));
+    var ol = el("ol");
+    it.chain.forEach(function (c) { var li = el("li"); li.dataset.step = c.step; li.appendChild(el("b", null, c.label + ": ")); li.appendChild(document.createTextNode(textOf(ui, c.text))); ol.appendChild(li); });
+    det.appendChild(ol); card.appendChild(det);
+    if (it.sources && it.sources.length) card.appendChild(line("Nguồn", it.sources.map(function (x) { return textOf(ui, x.title + (x.page ? ", " + x.page : "")); })));
+    if (mode === "expert") {
+      card.appendChild(el("p", "bd-note", "Mức chắc chắn: " + it.certainty_vi));
+      (it.caveats || []).forEach(function (c) { card.appendChild(el("p", "bd-note", "Lưu ý: " + textOf(ui, c))); });
+    }
+    if (it.counter && it.counter.length) card.appendChild(line("Đi ngược chiều với", it.counter.map(function (id) { return textOf(ui, headlines[id] || id); })));
+    return card;
+  }
+
+  function renderReading(container, R, mode, ui) {
+    var headlines = {};
+    var all = [];
+    R.foundation.sections.forEach(function (s) { s.items.forEach(function (i) { headlines[i.id] = i.headline; all.push(i); }); });
+    R.chapters.forEach(function (c) { c.sections.forEach(function (s) { s.items.forEach(function (i) { headlines[i.id] = i.headline; all.push(i); }); }); });
+    var root = el("section", "bd-reading-root");
+    root.appendChild(el("h2", null, "Luận giải theo chương"));
+    root.appendChild(el("p", "bd-note", mode === "expert" ? "Chế độ Chuyên sâu: đủ thuật ngữ, chuỗi dữ kiện → quy tắc → điều kiện → kết luận, nguồn sách và mức chắc chắn." : "Chế độ Dễ hiểu: giải thích ngắn gọn; mở “Vì sao?” ở từng ý để xem lập luận."));
+    root.appendChild(el("p", "bd-note", R.pillars));
+    var f = el("details", "bd-chap bd-foundation"); f.open = true; f.dataset.chapter = "nen-tang";
+    f.appendChild(el("summary", null, R.foundation.title)); f.appendChild(el("p", "bd-q", R.foundation.question));
+    R.foundation.sections.forEach(function (s) { f.appendChild(el("h4", null, s.title)); s.items.forEach(function (i) { f.appendChild(itemCard(ui, R, i, mode, headlines)); }); });
+    root.appendChild(f);
+    R.chapters.forEach(function (c) {
+      var d = el("details", "bd-chap"); d.open = true; d.dataset.chapter = c.id;
+      d.appendChild(el("summary", null, c.title));
+      d.appendChild(el("p", "bd-q", c.question));
+      var sm = el("p", "bd-sum" + (c.empty ? " bd-sum-empty" : "")); sm.appendChild(el("b", null, "Kết luận chính: ")); sm.appendChild(document.createTextNode(textOf(ui, mode === "expert" ? c.summary_expert : c.summary_easy))); d.appendChild(sm);
+      if (c.why.length) {
+        var w = el("div", "bd-why"); w.appendChild(el("h4", null, "Vì sao lá số này được luận như vậy?"));
+        var ul = el("ul");
+        c.why.forEach(function (x) { var li = el("li"); li.appendChild(el("b", null, textOf(ui, x.headline))); li.appendChild(el("div", null, "Dữ kiện: " + textOf(ui, x.du_kien))); li.appendChild(el("div", null, "Quy tắc: " + textOf(ui, x.quy_tac))); li.appendChild(el("div", null, "Kết luận: " + textOf(ui, x.ket_luan))); ul.appendChild(li); });
+        w.appendChild(ul); d.appendChild(w);
+      }
+      c.sections.forEach(function (s) { d.appendChild(el("h4", null, s.title)); s.items.forEach(function (i) { d.appendChild(itemCard(ui, R, i, mode, headlines)); }); });
+      c.opposing.forEach(function (o) { d.appendChild(el("p", "bd-pair", o.note + " (" + o.thuan.length + " thuận, " + o.bat_loi.length + " bất lợi)")); });
+      if (c.refs.length) d.appendChild(line("Liên quan đến nền tảng", c.refs.map(function (r) { return textOf(ui, r.headline); })));
+      var g = el("div", "bd-gaps"); g.appendChild(el("h4", null, "Giới hạn và chưa đủ căn cứ"));
+      c.gaps.forEach(function (x) { var p = el("p", "bd-gap"); p.appendChild(el("span", "bd-chip bd-b-chua_du_can_cu", x.basis_vi)); p.appendChild(document.createTextNode(" " + textOf(ui, mode === "expert" ? x.expert : x.easy))); g.appendChild(p); });
+      d.appendChild(g); root.appendChild(d);
+    });
+    var lim = el("div", "bd-limits"); lim.appendChild(el("h4", null, "Giới hạn chung")); R.limits.forEach(function (x) { lim.appendChild(el("p", "bd-note", x)); }); root.appendChild(lim);
+    container.appendChild(root);
   }
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -88,6 +157,7 @@
       var c = el("div", "bd-conflict"); c.appendChild(el("p", null, vm.conflict.text));
       c.appendChild(line(vm.ui.field_labels.conflict_note_only, vm.conflict.note_only)); c.appendChild(line(vm.ui.field_labels.conflict_table_only, vm.conflict.table_only)); container.appendChild(c);
     }
+    if (vm.reading) renderReading(container, vm.reading, vm.mode, vm.ui);
     if (vm.disagreements.length) {
       var dg = el("section", "bd-disagree"); dg.appendChild(el("h3", null, vm.ui.field_labels.disagreements));
       vm.disagreements.forEach(function (x) {
