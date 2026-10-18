@@ -1054,7 +1054,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "kl_cung",
-   "description": "Tử Vi Khảo Luận, tóm tắt từng cung (paraphrased), cung Tật Ách: về già sung túc, an nhàn (Cung Tật có Tử Phủ Vũ Tướng, Tả Hữu, Khoa Quyền Lộc hoặc Khôi Việt) [KL p.218]",
+   "description": "Tử Vi Khảo Luận, tóm tắt từng cung (paraphrased), cung Tật Ách: về già sung túc, an nhàn (Cung Tật có Tử Phủ Vũ Tướng, Tả Hữu, Khoa Quyền Lộc hoặc Khôi Việt, không có Tham Lang, Hóa Kỵ, Không Kiếp) [KL p.218]",
    "conditions": {
     "all": [
      {
@@ -1104,21 +1104,47 @@
         "value": "Thiên Việt"
        },
        {
-        "fact": "palace.tam_phuong_tu_hoa",
+        "fact": "palace.tu_hoa",
         "operator": "contains",
         "value": "Hóa Khoa"
        },
        {
-        "fact": "palace.tam_phuong_tu_hoa",
+        "fact": "palace.tu_hoa",
         "operator": "contains",
         "value": "Hóa Quyền"
        },
        {
-        "fact": "palace.tam_phuong_tu_hoa",
+        "fact": "palace.tu_hoa",
         "operator": "contains",
         "value": "Hóa Lộc"
        }
       ]
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.own_stars",
+         "operator": "contains",
+         "value": "Tham Lang"
+        },
+        {
+         "fact": "palace.own_stars",
+         "operator": "contains",
+         "value": "Địa Không"
+        },
+        {
+         "fact": "palace.own_stars",
+         "operator": "contains",
+         "value": "Địa Kiếp"
+        },
+        {
+         "fact": "palace.tu_hoa",
+         "operator": "contains",
+         "value": "Hóa Kỵ"
+        }
+       ]
+      }
      }
     ]
    },

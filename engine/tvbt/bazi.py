@@ -23,7 +23,14 @@ GROWTH_START = {0: 11, 2: 2, 4: 2, 6: 5, 8: 8, 1: 6, 3: 9, 5: 9, 7: 0, 9: 3}  # 
 
 STEM_COMBINE = {frozenset((0, 5)): "Thổ", frozenset((1, 6)): "Kim", frozenset((2, 7)): "Thủy",
                 frozenset((3, 8)): "Mộc", frozenset((4, 9)): "Hỏa"}
-STEM_CLASH = [frozenset((0, 6)), frozenset((1, 7)), frozenset((2, 8)), frozenset((3, 9))]
+# 八字真宗 p.20 「干冲克」: each stem against the stem seven places on, ten pairs, three of them labelled 克 rather than 冲
+# (audit BZ-1: only the four 冲 pairs were listed, and 甲庚 was called 冲 although the page says 克).
+STEM_CLASH_KIND = {frozenset((0, 6)): "khắc", frozenset((1, 7)): "xung", frozenset((2, 8)): "xung", frozenset((3, 9)): "xung",
+                   frozenset((4, 0)): "khắc", frozenset((5, 1)): "xung", frozenset((6, 2)): "xung", frozenset((7, 3)): "xung",
+                   frozenset((8, 4)): "xung", frozenset((9, 5)): "khắc"}
+STEM_CLASH = list(STEM_CLASH_KIND)
+# The four pairs the deep pipeline's draft effect sizes were calibrated on; kept so bazi_deep/compare_deep do not change silently.
+STEM_CLASH_LEGACY4 = [frozenset((0, 6)), frozenset((1, 7)), frozenset((2, 8)), frozenset((3, 9))]
 SIX_COMBINE = [frozenset(p) for p in [(0, 1), (2, 11), (3, 10), (4, 9), (5, 8), (6, 7)]]
 SIX_CLASH = [frozenset((i, i + 6)) for i in range(6)]
 HARM = [frozenset(p) for p in [(0, 7), (1, 6), (2, 5), (3, 4), (8, 11), (9, 10)]]
@@ -32,6 +39,8 @@ TRIAD = {"Thủy": (8, 0, 4), "Mộc": (11, 3, 7), "Hỏa": (2, 6, 10), "Kim": (
 MEETING = {"Mộc": (2, 3, 4), "Hỏa": (5, 6, 7), "Kim": (8, 9, 10), "Thủy": (11, 0, 1)}
 PENALTY_TRIPLES = {"vô ân": (2, 5, 8), "thị thế": (1, 10, 7)}
 PENALTY_PAIR = frozenset((0, 3))
+# 八字真宗 p.20 「支三刑」 is stated pair by pair (寅刑巳、巳刑申、申刑寅；丑刑戌、戌刑未、未刑丑) and the p.19 grid marks those cells 刑 (audit BZ-2)
+PENALTY_PAIRS = {frozenset((2, 5)), frozenset((5, 8)), frozenset((8, 2)), frozenset((1, 10)), frozenset((10, 7)), frozenset((7, 1))}
 SELF_PENALTY = {4, 6, 9, 11}
 
 
@@ -156,14 +165,16 @@ def _relations(pillars: dict[str, Pillar]) -> dict:
             if pair_s in STEM_COMBINE:
                 rel["stem_combine"].append({"pillars": where, "stems": [a.stem, b.stem],
                                             "potential_element": STEM_COMBINE[pair_s], "transforms": None})
-            if pair_s in STEM_CLASH:
-                rel["stem_clash"].append({"pillars": where, "stems": [a.stem, b.stem]})
+            if pair_s in STEM_CLASH_KIND:
+                rel["stem_clash"].append({"pillars": where, "stems": [a.stem, b.stem], "kind": STEM_CLASH_KIND[pair_s]})
             for key, table in [("branch_six_combine", SIX_COMBINE), ("branch_clash", SIX_CLASH),
                                ("branch_harm", HARM), ("branch_destroy", DESTROY)]:
                 if pair_b in table:
                     rel[key].append({"pillars": where, "branches": [a.branch, b.branch]})
             if pair_b == PENALTY_PAIR:
                 rel["branch_penalty"].append({"kind": "vô lễ", "pillars": where})
+            if pair_b in PENALTY_PAIRS:
+                rel["branch_penalty"].append({"kind": "tương hình", "pillars": where, "branches": [a.branch, b.branch]})
             if a.branch == b.branch and a.branch in SELF_PENALTY:
                 rel["branch_self_penalty"].append({"pillars": where, "branch": a.branch})
     present = {p.branch: k for k, p in pillars.items()}

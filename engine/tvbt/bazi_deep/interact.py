@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from itertools import product
 
 from ..bazi import (DESTROY, HARM, MEETING, PENALTY_PAIR, PENALTY_TRIPLES, SELF_PENALTY, SIX_CLASH, SIX_COMBINE,
-                    STEM_CLASH, STEM_COMBINE, TRIAD)
+                    STEM_CLASH_LEGACY4 as STEM_CLASH, STEM_COMBINE, TRIAD)
 from ..ganzhi import BRANCHES_VI, BRANCH_ELEMENT, STEM_ELEMENT, STEMS_VI, controls
 from .model import PIL_VI, PILLARS, ChartView
 from .position import KHO, root_grade, roots

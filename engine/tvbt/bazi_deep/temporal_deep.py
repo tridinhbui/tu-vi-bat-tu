@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import copy
 
-from ..bazi import (DESTROY, HARM, HIDDEN_STEMS, MEETING, PENALTY_PAIR, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH, STEM_COMBINE, TRIAD)
+from ..bazi import (DESTROY, HARM, HIDDEN_STEMS, MEETING, PENALTY_PAIR, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_LEGACY4 as STEM_CLASH, STEM_COMBINE, TRIAD)
 from ..ganzhi import BRANCHES_VI, BRANCH_ELEMENT, STEM_ELEMENT, STEMS_VI, controls, generates, gz_name, tiger_month_stem
 from . import geju, interact, patterns, strength, yongshen
 from .model import PILLARS, ChartView, group_of

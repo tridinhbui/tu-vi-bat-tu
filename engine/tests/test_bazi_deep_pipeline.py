@@ -144,6 +144,9 @@ def test_old_pipeline_outputs_are_untouched_regression():
         for key in then:
             if key == "facts_old":      # other work adds new bazi.* facts over time; the frozen ones must keep their values
                 assert all(now[key].get(f) == v for f, v in then[key].items()), k
+            elif key == "relations_old":  # 八字真宗 p.20 fix (10 干冲克 pairs, pairwise 刑) may only ADD relations; none may disappear
+                for rk, items in then[key].items():
+                    assert all(x in now[key].get(rk, []) for x in items), (k, rk)
             else:
                 assert now[key] == then[key], (k, key)
 

@@ -1,0 +1,111 @@
+{
+  "version": "1.0.0",
+  "note": "Source-cited conditions that weaken, void, modify or are required for a reading that fired. Each entry was read on the printed page (page = PDF page for these books) and is paraphrased, never quoted at length. A qualifier never makes a rule fire or stop firing: it is shown next to the conclusion it concerns, with its status on the chart (met / not_met / unknown). 'target' selects the conclusions it concerns (palace and trigger stars); 'when' is the condition, in the rule DSL, evaluated on the target palace. Operationalisations of ambiguous book words are listed in open_question_vi and must be reviewed.",
+  "effects": {
+    "voids": "the book says the reading does not hold when the condition is present",
+    "weakens": "the book says the reading is reduced when the condition is present",
+    "modifies": "the book says the condition changes the character of the stars (good becomes relatively worse, bad relatively better)",
+    "requires_for_durability": "the book says the reading is lasting only when the condition is present",
+    "strengthens": "the book says the reading is raised when the condition is present"
+  },
+  "qualifiers": [
+    {
+      "id": "Q_KL142_LOC_TON_KHONG_KIEP",
+      "target": {"palace_in": ["Mệnh", "Tài Bạch"], "stars_any": ["Lộc Tồn"]},
+      "when": {"fact": "palace.own_stars", "operator": "contains_any", "value": ["Địa Không", "Địa Kiếp"]},
+      "effect": "voids",
+      "text_vi": "Lộc Tồn ở Mệnh hay Tài Bạch bảo đảm không nghèo, trừ khi Địa Không hoặc Địa Kiếp đồng cung",
+      "scope_vi": "Khảo Luận nói câu này cho Lộc Tồn ở Mệnh và ở Tài Bạch.",
+      "source": "Tử Vi Khảo Luận, tr.142",
+      "review": "verified"
+    },
+    {
+      "id": "Q_KL142_LOC_TON_THAI_TUE",
+      "target": {"palace_in": ["Mệnh", "Tài Bạch"], "stars_any": ["Lộc Tồn"]},
+      "when": {"any": [{"fact": "palace.rel.self_stars", "operator": "contains", "value": "Thái Tuế"},
+                       {"fact": "palace.rel.trine_stars", "operator": "contains", "value": "Thái Tuế"}]},
+      "effect": "requires_for_durability",
+      "text_vi": "Lộc Tồn chỉ thật sự bền khi có Thái Tuế đồng cung hoặc tam hợp chiếu",
+      "scope_vi": "Câu này nằm trong đoạn Khảo Luận nói về Lộc Tồn ở Mệnh và Tài Bạch; Thái Tuế ở đây là sao Thái Tuế của vòng Thái Tuế gốc (đã đối chiếu cách an).",
+      "source": "Tử Vi Khảo Luận, tr.142",
+      "review": "verified"
+    },
+    {
+      "id": "Q_KL142_LOC_DAO",
+      "target": {"stars_all": ["Lộc Tồn", "Thiên Mã"]},
+      "when": {"fact": "palace.rel.tp_stars", "operator": "contains_any", "value": ["Địa Không", "Địa Kiếp"]},
+      "effect": "weakens",
+      "text_vi": "Lộc Mã giao trì mà có thêm Không Kiếp chiếu vào thì thành cách “lộc đảo”: công danh trắc trở, sinh kế khó khăn",
+      "scope_vi": "Khảo Luận tả Lộc Mã giao trì là Lộc ở Mệnh, Mã ở Thiên Di hoặc ngược lại; ở các vị trí khác (ví dụ Lộc Mã đồng cung) việc áp dụng là suy rộng.",
+      "open_question_vi": "Sách viết “Không Kiếp chiếu”: chưa rõ chỉ một trong hai sao (Địa Không hoặc Địa Kiếp) trong tam phương đã đủ hay phải có cả hai; và câu sách nói về Lộc Mã giữa Mệnh và Thiên Di, chưa rõ có áp cho Lộc Mã đồng cung ở cung khác hay không.",
+      "source": "Tử Vi Khảo Luận, tr.142 (xem thêm tr.63)",
+      "review": "verified"
+    },
+    {
+      "id": "Q_KL142_LOC_TON_HOA_LOC_DONG_CUNG",
+      "target": {"stars_any": ["Lộc Tồn"]},
+      "when": {"fact": "palace.rel.self_hoa", "operator": "contains", "value": "Hóa Lộc"},
+      "effect": "weakens",
+      "text_vi": "Lộc Tồn đồng cung Hóa Lộc lại xấu đi (khác với Hóa Lộc xung chiếu Lộc Tồn là cách “song lộc”)",
+      "source": "Tử Vi Khảo Luận, tr.142",
+      "review": "verified"
+    },
+    {
+      "id": "Q_KL140_KHOI_VIET_PHAM",
+      "target": {"stars_any": ["Thiên Khôi", "Thiên Việt"]},
+      "when": {"any": [{"fact": "palace.tuan", "operator": "eq", "value": true},
+                       {"fact": "palace.triet", "operator": "eq", "value": true},
+                       {"fact": "palace.rel.self_hoa", "operator": "contains", "value": "Hóa Kỵ"}]},
+      "effect": "weakens",
+      "text_vi": "Khôi Việt chỉ hóa giải được khi không bị Tuần, Triệt, Hóa Kỵ hay Thiên Hình xâm phạm",
+      "scope_vi": "Khảo Luận nói về khả năng hóa giải của Khôi Việt. Thiên Hình không được xét ở đây vì vị trí sao này chưa đối chiếu sách.",
+      "open_question_vi": "Sách nói về công năng hóa giải của Khôi Việt; mức ảnh hưởng tới các câu khác dựa trên Khôi Việt (như “gặp người sang giúp”) sách không nói rõ.",
+      "source": "Tử Vi Khảo Luận, tr.140",
+      "review": "verified"
+    },
+    {
+      "id": "Q_KL141_TUAN_TRIET",
+      "target": {"any_reading": true, "skip_if_atom": "tuan_triet"},
+      "when": {"any": [{"fact": "palace.tuan", "operator": "eq", "value": true}, {"fact": "palace.triet", "operator": "eq", "value": true}]},
+      "effect": "modifies",
+      "text_vi": "Tuần, Triệt đóng tại cung làm sao tốt kém đi, sao xấu bớt xấu (chính tinh vốn xấu gặp Tuần Triệt lại được giải)",
+      "open_question_vi": "Sách không nói mức độ, cũng không nói Tuần/Triệt ở cung xung chiếu có chặn sao chiếu sang hay không; các trường phái khác nhau ở điểm này.",
+      "source": "Tử Vi Khảo Luận, tr.141",
+      "review": "verified"
+    },
+    {
+      "id": "Q_TT20_TU_VI_CO_QUAN",
+      "target": {"stars_any": ["Tử Vi"]},
+      "when": {"not": {"fact": "palace.rel.tp_stars", "operator": "contains_any", "value": ["Tả Phụ", "Hữu Bật"]}},
+      "effect": "weakens",
+      "text_vi": "Tử Vi thiếu Tả Phụ, Hữu Bật đi cùng thì như vua không triều thần (“cô quân”), cái tốt giảm nhiều",
+      "open_question_vi": "Sách viết “đồng hành”; hệ thống hiểu là Tả Phụ hoặc Hữu Bật trong tam phương tứ chính của cung có Tử Vi. Nếu chỉ tính đồng cung thì điều kiện này còn rộng hơn.",
+      "source": "Tử Vi Đẩu Số Toàn Thư, tr.20",
+      "review": "verified"
+    },
+    {
+      "id": "Q_TT20_TU_VI_QUAN_MENH_HO_TRO",
+      "target": {"palace_in": ["Mệnh", "Quan Lộc"], "stars_any": ["Tử Vi"]},
+      "when": {"any": [{"fact": "palace.rel.tp_stars", "operator": "contains_any", "value": ["Tả Phụ", "Hữu Bật", "Thiên Tướng"]},
+                       {"fact": "palace.rel.tp_stars", "operator": "contains_all", "value": ["Lộc Tồn", "Thiên Mã"]}]},
+      "effect": "strengthens",
+      "text_vi": "Tử Vi ở Quan Lộc hay Mệnh mà tam hợp, xung chiếu có Tả Hữu, Thiên Tướng hoặc Lộc Tồn gặp Thiên Mã, không bị “không vong” cản, là quý",
+      "open_question_vi": "Sách không định nghĩa “không vong” ở đây (Tuần, Triệt hay Địa Không/Thiên Không); hệ thống chưa xét điều kiện đó.",
+      "source": "Tử Vi Đẩu Số Toàn Thư, tr.20",
+      "review": "verified"
+    },
+    {
+      "id": "Q_KL197_SONG_LOC",
+      "target": {"palace_in": ["Tài Bạch", "Mệnh"], "aspect": "tai", "polarity": "support"},
+      "when": {"not": {"all": [
+        {"any": [{"ref": {"palace": "Mệnh", "fact": "palace.rel.self_stars"}, "operator": "contains", "value": "Lộc Tồn"},
+                 {"ref": {"palace": "Mệnh", "fact": "palace.rel.trine_stars"}, "operator": "contains", "value": "Lộc Tồn"}]},
+        {"any": [{"ref": {"palace": "Mệnh", "fact": "palace.rel.self_hoa"}, "operator": "contains", "value": "Hóa Lộc"},
+                 {"ref": {"palace": "Mệnh", "fact": "palace.rel.trine_hoa"}, "operator": "contains", "value": "Hóa Lộc"}]}]}},
+      "effect": "weakens",
+      "text_vi": "Lá số không hội đủ “song lộc” (Lộc Tồn và Hóa Lộc) ở Mệnh, Tài Bạch, Quan Lộc thì dù cao quý vẫn phải bận tâm về tiền bạc",
+      "source": "Tử Vi Khảo Luận, tr.197",
+      "review": "verified"
+    }
+  ]
+}

@@ -56,7 +56,9 @@ def test_year_payload_has_tieu_han_and_lưu_tứ_hóa_reading():
     tv = tuvi.compute(normalize(BirthInput(1990, 5, 17, 10, 30, "Asia/Ho_Chi_Minh", "male")))
     y = temporal.tuvi_year(tv, 2024)                       # Giáp year: Liêm Lộc, Phá Quyền, Vũ Khoa, Dương Kỵ
     assert [x["star"] for x in y["luu_tu_hoa_reading"]] == ["Liêm Trinh", "Phá Quân", "Vũ Khúc", "Thái Dương"]
-    assert all(x["advice"] for x in y["luu_tu_hoa_reading"]) and y["tieu_han_topic"]
+    # KL pp.195-197 is about the BIRTH-year stem; it must not be read off the flow year (audit TV-7 / P0). Positions only, labelled as convention.
+    assert all(x["advice"] is None and x["position_note"] is None for x in y["luu_tu_hoa_reading"]) and y["tieu_han_topic"]
+    assert all("chưa đối chiếu" in x["src"] and "195" not in x["src"] for x in y["luu_tu_hoa_reading"])
     assert isinstance(y["tieu_han_reading"], list)
 
 

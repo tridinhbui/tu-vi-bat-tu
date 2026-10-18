@@ -2,9 +2,14 @@
 no event predictions. Natal data is never recomputed per year (pure functions over a finished chart)."""
 from __future__ import annotations
 
-from .bazi import BaziChart, HARM, DESTROY, SIX_CLASH, SIX_COMBINE, STEM_CLASH, STEM_COMBINE, ten_god
+from .bazi import (BaziChart, HARM, DESTROY, PENALTY_PAIR, PENALTY_PAIRS, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_KIND,
+                   STEM_COMBINE, ten_god)
 from .ganzhi import BRANCHES_VI, STEMS_VI, from_cycle, gz_name, year_cycle_index
 from .tuvi import TU_HOA, TuViChart
+
+
+LUU_HOA_BASIS = ("thông lệ phổ biến, chưa đối chiếu sách: Khảo Luận tr.41-42 và Thực Hành tr.114 liệt kê chín sao lưu (Thái Tuế, Tang Môn, "
+                 "Bạch Hổ, Khốc, Hư, Lộc Tồn, Kình, Đà, Mã), không có Tứ Hóa")
 
 
 def annual_pillar(year: int) -> tuple[int, int]:
@@ -21,8 +26,11 @@ def _rel_with_natal(chart: BaziChart, stem: int, branch: int, label: str) -> lis
                 out.append({"with": k, "kind": f"chi_{name}", "from": label})
         if ps in STEM_COMBINE:
             out.append({"with": k, "kind": "can_hợp", "from": label, "transforms": None})
-        if ps in STEM_CLASH:
-            out.append({"with": k, "kind": "can_xung", "from": label})
+        if ps in STEM_CLASH_KIND:
+            out.append({"with": k, "kind": "can_xung" if STEM_CLASH_KIND[ps] == "xung" else "can_khắc", "from": label})
+        # 刑 (八字真宗 p.20), pair by pair, including 自刑 when the flowing branch repeats a natal 辰午酉亥 (audit BZ-3)
+        if pb in PENALTY_PAIRS or pb == PENALTY_PAIR or (branch == p.branch and branch in SELF_PENALTY):
+            out.append({"with": k, "kind": "chi_hình", "from": label, "self": branch == p.branch})
     return out
 
 
@@ -89,16 +97,11 @@ def tuvi_year(chart: TuViChart, year: int) -> dict:
     male = chart.yin_yang_gender.endswith("nam")
     th = (start + (age - 1) * (1 if male else -1)) % 12
     from . import van_han
-    import json as _json
-    from pathlib import Path as _Path
-    data = _json.loads((_Path(__file__).resolve().parent.parent / "data" / "tu_hoa_vi.json").read_text("utf-8"))
-    advice = data["by_stem"][str(s)]
-    hoa_read = []
-    for k, adv in zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], advice):
-        pal = hoa[k]["natal_palace"]
-        spec = data.get("position_notes_by_palace", {}).get(k, {}).get(pal)
-        hoa_read.append({"hoa": k, "star": adv["star"], "palace": pal, "advice": adv["advice"],
-                         "position_note": spec or (data["position_notes"][k] if pal else None), "src": "Khảo Luận pp.195-197"})
+    # Lưu Tứ Hóa: only the POSITIONS are given. Khảo Luận pp.195-197 describes the Tứ Hóa of a person's BIRTH-year stem ("Tuổi Bính …",
+    # "Hóa Kỵ ở Tài thì suốt đời …"); reading those lines off the stem of the year being viewed misapplied the source (audit TV-P0-1).
+    # The nine lưu stars of Khảo Luận pp.41-42 / Thực Hành p.114 do not include Tứ Hóa, so this layer is a common convention, not a sourced one.
+    hoa_read = [{"hoa": k, "star": hoa[k]["star"], "palace": hoa[k]["natal_palace"], "advice": None, "position_note": None,
+                 "src": LUU_HOA_BASIS} for k in ["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"]]
     th_palace = by_branch[BRANCHES_VI[th]]["name"]
     return {
         "luu_tu_hoa_reading": hoa_read,
@@ -107,7 +110,7 @@ def tuvi_year(chart: TuViChart, year: int) -> dict:
         "year": year, "age_tuoi_mu": age, "tieu_han_branch": BRANCHES_VI[th], "tieu_han_palace": by_branch[BRANCHES_VI[th]]["name"], "annual_pillar": gz_name(s, b),
         "dai_han": dh, "luu_thai_tue_palace": tt["name"], "luu_thai_tue_branch": tt["branch"],
         "luu_tu_hoa": hoa, "scope": "temporal",
-        "note": "Tiểu hạn: age 1 by year-branch triad (Thực Hành p.27); the vận reading follows Khảo Luận pp.233-236; lưu Tứ Hóa uses the natal table and the per-stem advice of Khảo Luận pp.195-197.",
+        "note": "Tiểu hạn: age 1 by year-branch triad (Thực Hành p.27); the vận reading follows Khảo Luận pp.233-236; lưu Tứ Hóa: positions only (the natal Tứ Hóa table applied to the year stem), a common convention not found in the three books.",
     }
 
 
