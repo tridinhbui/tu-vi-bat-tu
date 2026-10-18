@@ -222,13 +222,13 @@
     <div class="wrap trace-in">
       <div class="trace-copy reveal"><p class="eyebrow">Minh bạch</p><h2 id="tr-h">Không chỉ là kết luận</h2>
         <p>Phần lớn các trang lá số đưa ra câu chữ mà bạn không thể kiểm chứng. Ở đây, mỗi nhận định đều nối ngược về quy tắc đã sinh ra nó, nguồn của quy tắc đó, và dữ kiện trên lá số của bạn.</p>
-        <p>Quy tắc nháp, chưa xác minh nguồn luôn được ghi rõ là nháp. Khi hai quy tắc đối lập nhau mà nguồn chưa nêu thứ tự ưu tiên, hệ thống nói “chưa thể kết luận” thay vì chọn một bên.</p></div>
+        <p>Chỉ những nhận định đã được đối chiếu với trang sách mới được hiển thị. Khi hai quy tắc đối lập nhau mà nguồn chưa nêu thứ tự ưu tiên, hệ thống nói “chưa thể kết luận” thay vì chọn một bên.</p></div>
       <figure class="trace-fig reveal" aria-label="Ví dụ chuỗi suy luận">
         <ol class="tf">
-          <li class="tf-find"><span>Nhận định</span><b>Cách Sát – Phá – Tham tại một cung</b></li>
-          <li class="tf-rule"><span>Quy tắc</span><b>TV_STRUCT_SAT_PHA_THAM_001</b><em>bản nháp</em></li>
-          <li class="tf-src"><span>Nguồn</span><b>Tử Vi Đẩu Số Tân Biên</b><em>chưa xác minh</em></li>
-          <li class="tf-fact"><span>Dữ kiện</span><b>Thất Sát, Phá Quân, Tham Lang cùng nằm trong tam phương tứ chính</b></li>
+          <li class="tf-find"><span>Nhận định</span><b>Khuynh hướng lập nghiệp nơi xa, giàu sang lớn</b></li>
+          <li class="tf-rule"><span>Quy tắc</span><b>TV_KL_PHU_VU_LOC_MA</b><em>đã đối chiếu sách</em></li>
+          <li class="tf-src"><span>Nguồn</span><b>Tử Vi Khảo Luận</b><em>đã đối chiếu sách</em></li>
+          <li class="tf-fact"><span>Dữ kiện</span><b>Vũ Khúc ở cung Mệnh, được Lộc và Mã hợp chiếu</b></li>
         </ol>
         <figcaption>Một chuỗi suy luận ngược có thật trong hệ thống, đọc từ trên xuống.</figcaption>
       </figure>
@@ -253,7 +253,7 @@
       <div class="reveal"><p class="eyebrow">Giới thiệu</p><h2 id="ab-h">Một công cụ để đọc,<br>không phải để tin mù quáng</h2></div>
       <div class="about-t reveal">
         <p>Thiên Bàn tính Tử Vi và Bát Tự bằng quy tắc xác định, kiểm thử được, không dùng mô hình AI để “bịa” luận giải. Mọi thứ hiển thị đều đến từ một bước tính hoặc một quy tắc có thể truy vết.</p>
-        <p><b>Đây là diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán, và không phải bằng chứng khoa học về số phận.</b> Một phần quy tắc luận giải đã được đối chiếu với sách, phần còn lại là bản nháp chưa xác minh; mỗi nhận định đều ghi rõ thuộc loại nào (xem ở chế độ Chuyên sâu). Trang <a class="link" href="/library">Quy tắc và nguồn</a> dành cho ai muốn kiểm tra từng quy tắc.</p>
+        <p><b>Đây là diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán, và không phải bằng chứng khoa học về số phận.</b> Chỉ những nhận định đã được đối chiếu với sách mới được hiển thị; mỗi nhận định đều có thể mở ra để xem quy tắc và nguồn (ở chế độ Chuyên sâu). Trang <a class="link" href="/library">Quy tắc và nguồn</a> dành cho ai muốn kiểm tra từng quy tắc.</p>
       </div>
     </div>
   </section>
@@ -277,7 +277,7 @@
       </div>
       <div class="atl-side">
         <div class="res-hl" id="res-hl"></div>
-        <div class="res-act"><button class="btn btn-ghost btn-sm" id="again" type="button">← Lập lá số khác</button><span id="save-host" class="sv-host"></span></div>
+        <div class="res-act"><button class="btn btn-ghost btn-sm" id="again" type="button">← Lập lá số khác</button><span id="save-host" class="sv-host"></span><button class="btn btn-sm" id="print-btn" type="button" title="Mở hộp thoại in; chọn “Lưu thành PDF” để tải về">Tải PDF</button></div>
       </div>
     </div>
   </section>
@@ -290,17 +290,18 @@
   <div class="pane" id="pane-hour"><section class="r-sec r-bazi"><div class="wrap"><header class="sec-h"><p class="eyebrow">Giờ sinh chưa rõ</p><h2>Điều gì đổi theo giờ sinh?</h2><p class="sec-sub">Ngày, tháng, năm sinh đã đủ để biết ba trụ đầu của Bát Tự. Giờ sinh quyết định trụ Giờ, cung Mệnh, cung Thân và Cục của Tử Vi.</p></header><div id="hour-host"></div></div></section></div>
   <div class="pane" id="pane-bazi" role="tabpanel" aria-labelledby="tab-bazi">
     <section class="r-sec r-bazi atl-stage" aria-label="Bát Tự: bốn trụ"><div class="wrap atl-wrap"><div id="bazi-host"></div></div></section>
-    <div class="wrap easy-only atl-sum"><div id="bazi-summary"></div></div>
+    <div class="wrap easy-only atl-sum"><div id="bazi-mascot"></div><div id="bazi-summary"></div></div>
     <section class="r-sec r-report" aria-labelledby="bzr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Đọc kỹ · Bát Tự</p><h2 id="bzr-h">Đọc lá số Bát Tự</h2><p class="sec-sub">Dữ kiện tính toán, điều sách nói và giả thuyết luôn được tách riêng.</p></header><div id="bazi-report"></div></div></section>
   </div>
   <div class="pane" id="pane-tuvi" role="tabpanel" aria-labelledby="tab-tuvi">
     <section class="r-sec r-tuvi atl-stage" aria-label="Tử Vi: mười hai cung"><div class="wrap atl-wrap"><div id="tuvi-host"></div></div></section>
-    <div class="wrap easy-only atl-sum"><div id="tuvi-summary"></div></div>
+    <div class="wrap easy-only atl-sum"><div id="tuvi-mascot"></div><div id="tuvi-summary"></div></div>
     <section class="r-sec r-report" aria-labelledby="tvr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Đọc kỹ · Tử Vi</p><h2 id="tvr-h">Đọc lá số Tử Vi</h2><p class="sec-sub">Dữ kiện tính toán, điều sách nói và giả thuyết luôn được tách riêng.</p></header><div id="tuvi-report"></div></div></section>
   </div>
   <div class="pane" id="pane-growth" role="tabpanel" aria-labelledby="tab-growth">
     <section class="r-sec r-report r-growth" aria-labelledby="gr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Trưởng thành · từ lá số đến đời sống</p><h2 id="gr-h">Hiểu mình để sống tốt hơn</h2><p class="sec-sub">Bài học, điểm mù, la bàn quyết định, bài tập, nhật ký và đối thoại, dựa trên lá số và hoàn cảnh bạn tự chia sẻ. Không dự báo, không quyết định thay bạn.</p></header><div id="growth-host"></div></div></section>
   </div>
+  <p class="print-note">Thiên Bàn · Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Chỉ các nhận định đã đối chiếu sách được hiển thị.</p>
 </div>
 </main>
 

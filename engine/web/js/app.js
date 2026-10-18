@@ -11,6 +11,8 @@ import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossar
 import { renderLearn, lessonSys, lessonTitle } from './learn.js';
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
+import { initPrint } from './print.js';
+import { initChat, initChapterBubbles, dialogueBazi, dialogueTuvi } from './mascots.js';
 import { renderSaved, initSave } from './mine.js';
 import { initGrowth } from './growth.js';
 
@@ -159,6 +161,8 @@ async function generate(ev, saved = null) {
     // /api/synthesis is an optional layer (server flag): a 404 or failure just leaves the chapters without the composed section
     const synthReq = post('/api/synthesis', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);
     const [chart, reason, analysis, formations, , synth] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady, synthReq]);
+    // Only readings checked against the books are shown; draft rules stay in the engine and on the rule-library page.
+    Object.values(reason.systems).forEach(sys => { sys.findings = sys.findings.filter(f => f.basis === 'verified'); sys.pending = []; });
     state = { req, chart, reason, analysis, lunarIn, formations, synth };
     showResults();
   } catch (x) {
@@ -170,6 +174,7 @@ form.onsubmit = generate;
 const savedList = $('#saved-list'), openSaved = r => generate(null, r);
 renderSaved(savedList, openSaved);
 initCompare($('#cmp-host'));
+initPrint($('#print-btn'));
 const saver = initSave($('#save-host'), () => state?.req, () => renderSaved(savedList, openSaved));
 async function loadSample() {
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });
@@ -221,6 +226,8 @@ function showResults() {
   $('#bazi-summary').innerHTML = summaryBazi(chart, ctx, T); $('#tuvi-summary').innerHTML = summaryTuvi(chart, ctx, T);
   initYearCards();
   initGrowth($('#growth-host'), $('#tab-growth'), req); // optional layer: the tab stays hidden when the server has it switched off
+  initChat($('#bazi-mascot'), 'bt', dialogueBazi(chart, ctx, T)); initChat($('#tuvi-mascot'), 'tv', dialogueTuvi(chart, ctx, T));
+  initChapterBubbles($('#bazi-report'), 'bt'); initChapterBubbles($('#tuvi-report'), 'tv');
   autoLink($('#bazi-host'), 'bt'); autoLink($('#bazi-summary'), 'bt'); autoLink($('#tuvi-host'), 'tv'); autoLink($('#tuvi-summary'), 'tv');
   const t = chart.tuvi, b = chart.bazi;
   const lu = state.lunarIn ? `<span>Nhập âm lịch ${state.lunarIn.day}/${state.lunarIn.month}/${state.lunarIn.year}${state.lunarIn.leap ? ' nhuận' : ''}</span>` : '';

@@ -81,7 +81,7 @@ export function renderTuvi(host, t, ctx) {
           <span data-gl="c:tu-hoa" role="button" tabindex="0"><span class="th th-loc"><i lang="zh">祿</i></span><span class="th th-quyen"><i lang="zh">權</i></span><span class="th th-khoa"><i lang="zh">科</i></span><span class="th th-ky"><i lang="zh">忌</i></span>Tứ Hóa</span>
           <span data-gl="c:do-sang" role="button" tabindex="0"><sup class="dg dg-vượng">Vượng</sup>Độ sáng</span><span data-gl="c:dai-han" role="button" tabindex="0"><b class="legend-dh">6–15</b>Đại hạn</span>
         </div>
-        <p class="muted small tv-hint">Khi một cung đang mở, chạm vào tên sao hoặc nhãn (Miếu, Hãm, Lộc…) để biết nó là gì.<span class="pro-only"> Bộ quy tắc Tử Vi đang dùng: bản Việt Nam, trạng thái <b>${t.school.review_status === 'partially_verified' ? 'đã xác minh một phần' : 'bản nháp'}</b>.</span></p>
+        <p class="muted small tv-hint">Khi một cung đang mở, chạm vào tên sao hoặc nhãn (Miếu, Hãm, Lộc…) để biết nó là gì.<span class="pro-only"> Bộ quy tắc Tử Vi đang dùng: bản Việt Nam.</span></p>
         ${scopePanelTuvi(t)}
       </div>
       <aside class="tv-panel drawer" id="tv-drawer" aria-label="Chi tiết cung" aria-live="polite"></aside>

@@ -128,3 +128,27 @@ def test_post_retries_5xx_but_not_4xx():
     assert r["recovered"] == [{"ok": 1}, 3]
     assert r["client"] == ["bad date", 1]  # a real validation error is shown at once, not retried
     assert r["giveup"][1] == 2 and "chưa phản hồi" in r["giveup"][0]
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node not installed")
+def test_guide_scripts_use_only_chart_facts_and_verified_readings():
+    chart = c.post("/api/chart", json=B).json()
+    reason = c.post("/api/reasoning", json=B).json()
+    script = f"""
+      import {{ dialogueBazi, dialogueTuvi, parseMarkup, GUIDES }} from '{(WEB / "js" / "mascots.js").as_uri()}';
+      import {{ CLAIMS }} from '{(WEB / "js" / "util.js").as_uri()}';
+      let d = ''; for await (const x of process.stdin) d += x;
+      const {{ chart, reason, claims, terms }} = JSON.parse(d); Object.assign(CLAIMS, claims);
+      const ctx = {{ req: {json.dumps(B)}, reason }};
+      console.log(JSON.stringify({{ bt: dialogueBazi(chart, ctx, terms), tv: dialogueTuvi(chart, ctx, terms), md: parseMarkup('a **b** c').map(x => [x.t, x.b]), guides: Object.keys(GUIDES) }}));
+    """
+    out = subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True, check=True,
+                         input=json.dumps({"chart": chart, "reason": reason, "claims": c.get("/api/claims").json(), "terms": G["terms"]})).stdout
+    r = json.loads(out)
+    assert r["md"] == [["a ", False], ["b", True], [" c", False]] and sorted(r["guides"]) == ["bat", "tu1", "tu2", "vi"]
+    for key, pair, n in (("bt", {"bat", "tu2"}, 7), ("tv", {"tu1", "vi"}, 8)):
+        turns = r[key]
+        assert len(turns) == n and {t["who"] for t in turns} == pair  # each side is spoken by exactly its own two guides
+        assert all(a["who"] != b["who"] for a, b in zip(turns, turns[1:]))  # the two guides take turns
+        text = " ".join(t["t"] for t in turns)
+        assert "Không phải dự báo" in text and not re.search(r"TV_|BT_|SRC_|nháp|chưa xác minh|undefined|NaN", text)

@@ -285,7 +285,7 @@ input[type=range]{height:28px;padding:0;border:0;background:transparent;accent-c
   .acc>summary{flex-wrap:wrap;padding:14px 16px}.acc-s{margin-left:0;text-align:left;order:3;width:100%}.acc-c{margin-left:auto}.yx-bar{grid-template-columns:auto 1fr}.yx-bar input{grid-column:1/-1}
   .brand-t small{display:none}
 }
-@media print{.site-header,.res-nav,.nav-scrim,.btn{display:none}}
+@media print{.site-header,.res-nav,.nav-scrim{display:none}}
 /* dignity + finding cards */
 
 .finding-card{margin:12px 0}.finding-card .eyebrow{margin-bottom:6px;color:var(--pos)}.finding-card.draft .eyebrow{color:var(--accent)}.f-claim{font:400 1.08rem/1.5 var(--serif);color:var(--text);margin:0 0 10px}
@@ -554,3 +554,58 @@ body[data-depth=pro] .sy-b-he_thong{text-decoration:underline dotted color-mix(i
 .sy-foot{margin:6px 0 0}
 @media (max-width:640px){.synth{padding:14px 14px}.sy-p{font-size:.98rem;line-height:1.65}}
 @media print{.synth{break-inside:auto;border-left-width:2px}.sy-legend,.sy-why{display:none!important}}
+
+/* ===== Guides: Tử Tử & Vi Vi (Tử Vi), Bát Bát & Tự Tự (Bát Tự) ===== */
+.gd-av{flex:none;overflow:visible}.gd-av .gd-face{fill:var(--mf)}.gd-av .gd-acc{fill:var(--ma)}.gd-av .gd-tuft{stroke:var(--ma)}.gd-av .gd-glass{fill:none;stroke:var(--ma);stroke-width:2.2}
+.gd-av .gd-eye{fill:#2a2418}.gd-av .gd-cheek{fill:#e59a86;opacity:.55}.gd-av .gd-mouth{stroke:#2a2418}.gd-av .gd-glyph{font:700 11px var(--han);fill:var(--ma);opacity:.9}
+.gd-tu1{--mf:#E8DDF5;--ma:#C79A2E}.gd-vi{--mf:#DDE6F7;--ma:#6C5BB5}.gd-bat{--mf:#F6DDD2;--ma:#A7432C}.gd-tu2{--mf:#F3E7C8;--ma:#8A6A2B}
+.gd-eyes{transform-origin:32px 34px;animation:gd-blink 5s infinite}
+@keyframes gd-blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.gd-talk .gd-mouth{transform-origin:32px 44px;animation:gd-talk .24s infinite alternate}
+@keyframes gd-talk{from{transform:scaleY(.4)}to{transform:scaleY(1.5)}}
+.gd{margin:var(--s5) 0;border:1px solid var(--line);border-left:4px solid var(--ma0,var(--brass));border-radius:18px;background:var(--raise);box-shadow:var(--sh);overflow:hidden}
+.gd-tv{--ma0:#6C5BB5}.gd-bt{--ma0:var(--cinnabar)}
+.gd-h{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--ma0) 6%,var(--ivory))}
+.gd-h .eyebrow{margin:0 0 2px}.gd-h h3{font-size:1.15rem}.gd-pair{display:flex}.gd-pair .gd-av+.gd-av{margin-left:-10px}.gd-act{margin-left:auto;display:flex;gap:8px}
+.gd-log{display:grid;gap:12px;padding:16px 18px;min-height:96px}
+.gd-row{display:flex;gap:10px;align-items:flex-start;animation:gd-in .3s ease both}
+@keyframes gd-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.gd-row.gd-vi,.gd-row.gd-tu2{flex-direction:row-reverse}
+.gd-bub{position:relative;max-width:min(560px,100%);padding:10px 14px;border-radius:16px;background:var(--surface);border:1px solid var(--line);font-size:.96rem;line-height:1.55}
+.gd-row.gd-tu1 .gd-bub,.gd-row.gd-bat .gd-bub{border-top-left-radius:4px}.gd-row.gd-vi .gd-bub,.gd-row.gd-tu2 .gd-bub{border-top-right-radius:4px;background:color-mix(in srgb,var(--ma0) 9%,var(--ivory))}
+.gd-who{display:block;font:600 .64rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.gd-t{margin:0}.gd-talk .gd-t:after{content:"";display:inline-block;width:2px;height:1em;margin-left:2px;vertical-align:-2px;background:currentColor;animation:gd-caret .8s steps(1) infinite}
+@keyframes gd-caret{50%{opacity:0}}
+.gd-dots{display:none;gap:4px;padding:4px 0}.gd-typing:not(.gd-talk) .gd-dots{display:inline-flex}.gd-typing:not(.gd-talk) .gd-t{display:none}
+.gd-dots i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:gd-dot 1s infinite}.gd-dots i:nth-child(2){animation-delay:.15s}.gd-dots i:nth-child(3){animation-delay:.3s}
+@keyframes gd-dot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.gd-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ch-what.gd-chap{display:flex;gap:10px;align-items:flex-start;cursor:default}.ch-what.gd-chap .gd-bub{flex:1;max-width:none;background:transparent;border:0;padding:2px 0}.ch-what.gd-chap.gd-vi,.ch-what.gd-chap.gd-tu2{flex-direction:row}
+.ch-what.gd-chap .gd-t{display:inline}
+@media(max-width:600px){.gd-h{padding:12px}.gd-act{margin-left:0;width:100%}.gd-log{padding:12px}.gd-row .gd-av{width:36px;height:36px}.gd-bub{font-size:.92rem}}
+@media(prefers-reduced-motion:reduce){.gd-eyes,.gd-talk .gd-mouth,.gd-dots i,.gd-row,.gd-talk .gd-t:after{animation:none!important}}
+
+/* ===== Print / "Tải PDF": both systems, plain-language mode, no controls ===== */
+.res-act{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.print-note{display:none}
+body.hour-mode #print-btn{display:none}
+@media print{
+  @page{size:A4;margin:12mm}
+  html,body{background:#fff!important;color:#222}
+  body[data-view=chart] #chart-view .pane{display:block!important}
+  body[data-view=chart] #chart-view #pane-hour{display:none!important}
+  .site-header,.res-nav,.nav-scrim,.site-footer,.res-act,.depth,.gd,.tv-toggle,.tv-ov,.tv-hint,.drawer,.cx-bar,.legend,.rp-toc,.sys-switch,.bs-next,.by-bar button,.yx-bar,.ig-toggle,[data-mc],.btn,#exp-badge,dialog{display:none!important}
+  .res-head,.atl-mast{padding:0 0 8px!important;background:none!important}.res-head h1,.atl-mast h1{font-size:22pt}.atl-side .res-hl{display:none}
+  .wrap{max-width:none!important;padding:0!important}
+  .r-sec{padding:14px 0!important;break-before:auto}.pane+.pane .r-sec:first-child{break-before:page}
+  #pane-tuvi{break-before:page}
+  .rp-layout{display:block!important}.chapter,.finding-card,.ez-card,.bs-c,.pillar,.ez-empty{break-inside:avoid}
+  .chapter{margin-bottom:10pt}.reveal{opacity:1!important;transform:none!important}
+  .tv-scroll{overflow:visible!important}.tv-board{min-width:0!important;zoom:.62}
+  .tv-links{display:none}
+  .tv-layout{display:block!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{color:inherit!important;text-decoration:none!important}.gl{text-decoration:none!important}
+  .print-note{display:block;margin-top:14pt;padding-top:8pt;border-top:1px solid #bbb;font-size:9pt;color:#555}
+  .acc{break-inside:avoid-page}.acc-b{display:block!important}
+  .gd-chap svg,.gd-chap .gd-who,.gd-sr{display:none!important}.gd-chap .gd-bub{padding:0}
+}
