@@ -63,7 +63,7 @@ export function renderTuvi(host, t, ctx) {
           <svg class="tv-links" aria-hidden="true"></svg>
           <div id="grid">${CELLS.map((i, k) => i === null ? (k === 5 ? `<div class="center">${center}</div>` : '') : cell(i)).join('')}</div></div></div>
         <div class="legend"><span><i class="st-neu major">Aa</i>Chính tinh</span><span class="l-pos">Cát tinh</span><span class="l-neg">Sát / hung tinh</span><span class="l-neu">Phụ tinh</span><span data-gl="c:tu-hoa" role="button" tabindex="0"><sup class="th th-ok">Lộc</sup>Tứ Hóa</span><span data-gl="c:do-sang" role="button" tabindex="0"><sup class="dg dg-vượng">Vượng</sup>Độ sáng</span><span data-gl="c:dai-han" role="button" tabindex="0"><b class="legend-dh">6–15</b>Đại hạn</span></div>
-        <p class="muted small tv-school pro-only">Bộ quy tắc Tử Vi đang dùng: bản Việt Nam, trạng thái <b>${t.school.review_status === 'partially_verified' ? 'đã xác minh một phần' : 'bản nháp'}</b>.</p>
+        <p class="muted small tv-school pro-only">Bộ quy tắc Tử Vi đang dùng: bản Việt Nam.</p>
       </div>
       <aside class="drawer" id="tv-drawer" aria-label="Chi tiết cung" aria-live="polite"></aside>
     </div>

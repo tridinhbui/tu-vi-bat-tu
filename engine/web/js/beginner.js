@@ -40,7 +40,6 @@ export function easyReadings(fs, { empty = '', where = () => '' } = {}) {
   const body = [
     c.show.map(f => easyCard(f).replace('<span class="ez-tag">', `<span class="ez-tag">${where(f) ? where(f) + ' · ' : ''}`)).join(''),
     c.care.length ? `<details class="ez-care"><summary>Điểm cần cân nhắc <span class="muted">(${c.care.length})</span></summary><p class="muted small">${CARE_INTRO}</p>${c.care.map(easyCard).join('')}</details>` : '',
-    c.draft.length ? `<p class="muted small ez-draft">Còn ${c.draft.length} nhận định từ quy tắc nháp (chưa xác minh nguồn): chỉ hiện ở chế độ <b>Chuyên sâu</b>.</p>` : '',
   ].join('');
   return c.show.length || c.care.length ? body : `${empty}${body}`;
 }
@@ -108,7 +107,7 @@ const limits = items => `<h3>Giới hạn của bản luận giải này</h3><ul
 const findingsBlock = (fs, T) => {
   const c = classify(fs), top = sortKeys(c.show).slice(0, 4);
   return { c, html: `<h3>Điều hệ thống có căn cứ để nói</h3>${top.length ? `<div class="ez-list">${top.map(easyCard).join('')}</div>` : `<div class="ez-empty"><p>Hệ thống chưa có nhận định nào đã đối chiếu sách cho lá số này, nên bản tóm tắt chỉ dựa vào các dữ kiện đã tính ở trên. Bạn vẫn có thể bấm vào từng sao, cung, chữ để hiểu ý nghĩa của chúng.</p></div>`}
-    <p class="muted small">Chỉ hiển thị nhận định từ quy tắc đã đối chiếu sách. ${c.care.length ? `Còn ${c.care.length} mô tả thiên về mặt cần để ý được xếp vào mục “Điểm cần cân nhắc” ở các chương bên dưới. ` : ''}${c.draft.length ? `${c.draft.length} nhận định từ quy tắc nháp chỉ có ở chế độ Chuyên sâu. ` : ''}Các nhận định đến từ nhiều sách, nhiều cung nên có thể trái chiều; đó là bình thường.</p>` };
+    <p class="muted small">Chỉ hiển thị nhận định từ quy tắc đã đối chiếu sách. ${c.care.length ? `Còn ${c.care.length} mô tả thiên về mặt cần để ý được xếp vào mục “Điểm cần cân nhắc” ở các chương bên dưới. ` : ''}Các nhận định đến từ nhiều sách, nhiều cung nên có thể trái chiều; đó là bình thường.</p>` };
 };
 
 export function summaryBazi(chart, ctx, T, counts) {

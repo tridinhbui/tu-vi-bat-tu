@@ -156,6 +156,8 @@ async function generate(ev, saved = null) {
       return;
     }
     const [chart, reason, analysis, formations] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady]);
+    // Only readings checked against the books are shown; draft rules stay in the engine and on the rule-library page.
+    Object.values(reason.systems).forEach(sys => { sys.findings = sys.findings.filter(f => f.basis === 'verified'); sys.pending = []; });
     state = { req, chart, reason, analysis, lunarIn, formations };
     showResults();
   } catch (x) {
