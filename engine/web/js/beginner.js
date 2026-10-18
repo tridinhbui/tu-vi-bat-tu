@@ -3,7 +3,6 @@
 // (basis === 'verified') re-worded from the engine's own phrase. Draft rules stay in the 'Chuyên sâu' mode.
 import { esc, STEMS, BRANCHES, EL, ELEMENTS, claimPhrase, claimKnown, palaceOfSubject, CLAIMS } from './util.js';
 import { currentPhase, elementStats } from './insights.js';
-import { lessonTitle } from './learn.js';
 
 // Phrases that describe a hard or one-sided trait: kept out of the headline summary and tucked into a clearly-labelled fold.
 const CARE = /khó|nghèo|thất bại|phiêu bạt|mất mát|hao tâm|hao hụt|ganh|cao ngạo|tự cao|kiêu căng|tranh cãi|tranh giành|bất hòa|xa cách|ngậm ngùi|liều|vất vả|thiếu tình nghĩa|nóng|thờ ơ|thay đổi|phóng đãng|tật|bệnh|chết|yểu|cô độc|ly |sát tinh/i;
@@ -66,14 +65,11 @@ const PRIMER = {
   'tv:quan-he': 'Các mối quan hệ được xem qua nhiều cung: Phu Thê (bạn đời), Tử Tức (con cái), Huynh Đệ (anh chị em), Phụ Mẫu (cha mẹ) và Nô Bộc (bạn bè, đồng nghiệp).',
   'tv:cach-cuc': 'Cách cục là những “tổ hợp sao” đặc biệt mà sách cổ đặt tên riêng. Hệ thống chỉ nêu khi tìm thấy đúng tổ hợp; không thấy nghĩa là lá số này không có tổ hợp nào trong danh sách đang hỗ trợ.',
 };
-const LEARN_FOR = { 'bt': 'bt-3', 'tv': 'tv-4' };
 
 export function emptyReading(topic, T, { palace = null, brief = false } = {}) {
   const prim = palace ? `${esc(T['palace:' + palace]?.plain || '')} ${esc(T['palace:' + palace]?.ex || '')}` : esc(PRIMER[topic] || '');
-  const less = LEARN_FOR[topic?.slice(0, 2)] || 'tv-2';
   return `<div class="ez-empty">${brief ? '' : `<p class="eyebrow">Kiến thức nền</p><p>${prim}</p>`}
-    <p class="muted small">Hệ thống <b>chưa có luận giải cá nhân hóa</b> cho phần này của lá số bạn (chưa có nhận định nào đã đối chiếu sách khớp với phần này), nên chỉ cung cấp kiến thức nền và các dữ kiện đã tính. Điều đó không có nghĩa phần này “không có gì”.</p>
-    <p><button type="button" class="link" data-lesson="${palace ? 'tv-2' : less}">Đọc bài: ${esc(lessonTitle(palace ? 'tv-2' : less))} →</button></p></div>`;
+    <p class="muted small">Hệ thống <b>chưa có luận giải cá nhân hóa</b> cho phần này của lá số bạn (chưa có nhận định nào đã đối chiếu sách khớp với phần này), nên chỉ cung cấp kiến thức nền và các dữ kiện đã tính. Điều đó không có nghĩa phần này “không có gì”.</p></div>`;
 }
 
 // ---- "năm nay của bạn": a plain-language view of the already-computed year data (lưu niên / tiểu hạn / lưu Tứ Hóa) ----
@@ -112,7 +108,8 @@ const sortKeys = (fs) => { // spread across palaces/themes so one topic does not
   fs.forEach(f => { if (!out.includes(f)) out.push(f); });
   return out;
 };
-const next = (items) => `<h3>Nên khám phá tiếp</h3><div class="bs-next">${items.map(([id, txt]) => `<button type="button" class="btn btn-ghost btn-sm" data-lesson="${id}">${esc(txt)}</button>`).join('')}</div>`;
+// next steps of the journey: chapters below, the other system, PDF (handled by app.js through data-act / data-go)
+const next = (items) => `<h3>Tiếp theo</h3><div class="bs-next">${items.map(([attr, txt], i) => `<button type="button" class="btn btn-sm${i ? ' btn-ghost' : ''}" ${attr}>${txt}</button>`).join('')}</div>`;
 const limits = items => `<h3>Giới hạn của bản luận giải này</h3><ul class="bs-lim">${items.map(li).join('')}</ul>`;
 const findingsBlock = (fs, T) => {
   const c = classify(fs), top = sortKeys(c.show).slice(0, 4);
@@ -127,7 +124,7 @@ export function summaryBazi(chart, ctx, T, counts) {
   const gaps = ['Chưa kết luận Thân vượng hay nhược, Cách cục và Dụng thần, vì sách không đưa ngưỡng tính cụ thể.'];
   gaps.push('Sự nghiệp, tài lộc và hôn nhân: hiện chỉ có kiến thức nền và dữ kiện, chưa có luận giải cá nhân hóa.');
   gaps.push('Mọi thông tin theo năm, theo đại vận là dữ kiện cấu trúc, không phải dự đoán sự kiện.');
-  return `<section class="bs" aria-labelledby="bs-bt-h"><p class="eyebrow">Tóm tắt cho người mới · Bát Tự</p><h2 id="bs-bt-h">Lá số Bát Tự của bạn trong một phút</h2>
+  return `<section class="bs" aria-labelledby="bs-bt-h"><p class="eyebrow">Luận giải tóm tắt · Bát Tự</p><h2 id="bs-bt-h">Lá số Bát Tự của bạn trong một phút</h2>
     <p class="sec-sub">Bát Tự đọc tám chữ (bốn trụ) từ năm, tháng, ngày, giờ sinh. Dưới đây là những điều cơ bản nhất, giải thích bằng lời thường. Từ gạch chân nào cũng bấm được.</p>
     <div class="bs-grid">
       <div class="bs-c"><span class="k">Bạn được đại diện bởi</span><b>${esc(dm.n)} ${dm.e}</b><p>${esc(T['can:' + dm.n]?.plain || '')} Chữ này gọi là Nhật Chủ.</p></div>
@@ -135,7 +132,7 @@ export function summaryBazi(chart, ctx, T, counts) {
       <div class="bs-c"><span class="k">Mùa bạn sinh ra</span><b>Tháng ${esc(mb.n)} (${mb.e})</b><p>Tháng sinh được lấy theo tiết khí và cho biết “mùa” của lá số. Mùa này thuộc hành ${mb.e}, nên hành đó có thế mạnh hơn trong lá số.</p></div>
       <div class="bs-c"><span class="k">Chặng 10 năm đang đi</span><b>${ph.luck ? `Đại vận ${esc(ph.luck.name)}` : 'Chưa khởi vận'}</b><p>${ph.luck ? `Năm ${ph.now} bạn khoảng ${ph.age} tuổi mụ. Chặng này mang vai <b>${esc(ph.luck.ten_god)}</b> đối với Nhật Chủ.` : 'Đại vận đầu tiên chưa bắt đầu.'}</p></div>
     </div><div class="bs-year" data-sys="bt"></div>${html}${limits(gaps)}
-    ${next([['bt-1', 'Bát Tự là gì?'], ['bt-3', 'Thập Thần là gì?'], ['bt-2', 'Can Chi và Ngũ Hành']])}</section>`;
+    ${next([['data-act="scroll" data-target="#bzr-h"', 'Đọc luận giải chi tiết ↓'], ['data-go="tu-vi"', 'Xem 12 cung Tử Vi'], ['data-act="print"', 'Tải PDF']])}</section>`;
 }
 
 export function summaryTuvi(chart, ctx, T) {
@@ -151,7 +148,7 @@ export function summaryTuvi(chart, ctx, T) {
     'Một sao “hãm” chỉ là sao ở vị trí yếu, chưa nói được điều gì xấu; cần xem thêm sao đi cùng, Tuần/Triệt và vận hạn.',
     'Lưu nguyệt Tử Vi chưa được hỗ trợ vì chưa có nguồn xác minh; thông tin theo năm là dữ kiện cấu trúc, không phải dự đoán.',
   ];
-  return `<section class="bs" aria-labelledby="bs-tv-h"><p class="eyebrow">Tóm tắt cho người mới · Tử Vi</p><h2 id="bs-tv-h">Lá số Tử Vi của bạn trong một phút</h2>
+  return `<section class="bs" aria-labelledby="bs-tv-h"><p class="eyebrow">Luận giải tóm tắt · Tử Vi</p><h2 id="bs-tv-h">Lá số Tử Vi của bạn trong một phút</h2>
     <p class="sec-sub">Tử Vi là bản đồ mười hai cung, mỗi cung một lĩnh vực đời sống, trên đó đặt các sao. Hãy bắt đầu từ cung Mệnh (chính bạn). Từ gạch chân nào cũng bấm được.</p>
     <div class="bs-grid">
       <div class="bs-c"><span class="k">Cung Mệnh: con người bạn</span><b>${esc(menh.stem)} ${esc(menh.branch)}</b><p>${menh.major_stars.length ? `Chính tinh: <b>${esc(menh.major_stars.map(s => s + (menh.major_dignity?.[s] ? ` (${menh.major_dignity[s]})` : '')).join(', '))}</b>. ${esc(T['star:' + star]?.plain || '')}${dg ? ` Độ sáng “${esc(dg)}” cho biết sao này ở vị trí ${esc({ miếu: 'rất thuận', vượng: 'khá thuận', đắc: 'tạm thuận', bình: 'bình thường', hãm: 'yếu' }[dg] || dg)}.` : ''}` : 'Cung Mệnh vô chính diệu (không có chính tinh): người ta mượn sao của cung đối diện để đọc.'}</p></div>
@@ -161,5 +158,5 @@ export function summaryTuvi(chart, ctx, T) {
     </div>
     <p class="bs-hoa"><b>Tứ Hóa theo năm sinh:</b> ${esc(hoa.join(' · '))}. <span class="muted">Mỗi nhãn làm nổi bật một mặt của sao đó, không phải điều tốt hay xấu tự thân.</span></p>
     <div class="bs-year" data-sys="tv"></div>${html}${limits(gaps)}
-    ${next([['tv-1', 'Tử Vi là gì?'], ['tv-4', 'Cách đọc lá số trong 5 bước'], ['tv-3', 'Các sao và độ sáng']])}</section>`;
+    ${next([['data-act="scroll" data-target="#tvr-h"', 'Đọc luận giải chi tiết ↓'], ['data-act="scroll" data-target="#tuvi-host"', 'Khám phá 12 cung ↑'], ['data-go="bat-tu"', 'Xem Bát Tự'], ['data-act="print"', 'Tải PDF']])}</section>`;
 }

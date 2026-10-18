@@ -1,18 +1,16 @@
 // App shell: navigation, home interactions, BirthChartForm, results orchestration.
 import { $, $$, esc, post, hourBranch, STEMS, BRANCHES, loadMeta } from './util.js';
 import { compass, brandMark } from './compass.js';
-import { fiveElements } from './elements.js';
 import { renderBazi } from './bazi.js';
 import { renderTuvi } from './tuvi.js';
 import { renderBaziReport, renderTuviReport } from './report.js';
 import { notice } from './ui.js';
 import { renderHourSweep } from './hours.js';
 import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossary.js';
-import { renderLearn, lessonSys, lessonTitle } from './learn.js';
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
-import { initPrint } from './print.js';
-import { initChat, initChapterBubbles, dialogueBazi, dialogueTuvi } from './mascots.js';
+import { initPrint, printNow } from './print.js';
+import { initChapterBubbles } from './mascots.js';
 import { renderSaved, initSave } from './mine.js';
 import { initGrowth } from './growth.js';
 
@@ -35,7 +33,7 @@ $('#foot-compass').innerHTML = compass({ animate: false, detail: 'min' });
 
 // ---------- navigation ----------
 const TITLE = document.title;
-const view = v => { document.body.dataset.view = v; if (v !== 'chart') document.body.classList.remove('sheet-open'); if (v !== 'learn') document.title = TITLE; scrollTo({ top: 0 }); };
+const view = v => { document.body.dataset.view = v; if (v !== 'chart') document.body.classList.remove('sheet-open'); document.title = TITLE; scrollTo({ top: 0 }); };
 function setTab(tab, scroll = true) {
   $('#chart-view').dataset.tab = tab;
   $$('.res-tabs button').forEach(b => { const on = b.id === 'tab-' + tab; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
@@ -43,43 +41,29 @@ function setTab(tab, scroll = true) {
   requestAnimationFrame(() => dispatchEvent(new Event('resize')));
 }
 function go(id) {
-  if (id === 'hoc' || id.startsWith('hoc/')) { openLearn(id.slice(4)); closeMenu(); return; }
   const tabs = { 'bat-tu': 'bazi', 'tu-vi': 'tuvi', 'truong-thanh': 'growth' };
-  if (tabs[id] && state) { if (document.body.dataset.view !== 'chart') view('chart'); setTab(tabs[id]); history.replaceState({ v: 'chart' }, '', '#la-so/' + id); closeMenu(); return; }
-  const target = { 'bat-tu': 'hai-he-thong', 'tu-vi': 'hai-he-thong', 'truong-thanh': 'hai-he-thong' }[id] || id;
+  if (tabs[id] && state?.chart) { if (document.body.dataset.view !== 'chart') view('chart'); setTab(tabs[id]); history.replaceState({ v: 'chart' }, '', '#la-so/' + id); return; }
+  const target = $('#' + id) ? id : 'lap-la-so'; // retired anchors from older links land on the form
   if (document.body.dataset.view !== 'home') view('home');
   requestAnimationFrame(() => $('#' + target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }));
-  history.replaceState(null, '', '#' + id);
-  closeMenu();
+  history.replaceState(null, '', '#' + target);
 }
 document.addEventListener('click', e => {
   const a = e.target.closest('[data-go]'); if (!a) return;
   e.preventDefault(); go(a.dataset.go);
 });
-const menuBtn = $('#menu-btn');
-const closeMenu = () => { document.body.classList.remove('menu-open'); menuBtn.setAttribute('aria-expanded', 'false'); };
-menuBtn.onclick = () => { const o = document.body.classList.toggle('menu-open'); menuBtn.setAttribute('aria-expanded', o); };
-$('#nav-scrim').onclick = closeMenu;
-addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-addEventListener('popstate', () => { const h = location.hash; if (h.startsWith('#hoc')) openLearn(h.slice(5), false); else if (document.body.dataset.view !== 'home') view('home'); });
-
-// ---------- learning journey ----------
-async function openLearn(lesson, push = true) {
-  await metaReady;
-  const host = $('#learn-host');
-  renderLearn(host, lesson || null, terms());
-  autoLink(host, lessonSys(lesson));
-  view('learn');
-  document.title = lesson && lessonTitle(lesson) ? `${lessonTitle(lesson)} — Thiên Bàn` : 'Học Tử Vi và Bát Tự — Thiên Bàn';
-  if (push) history.pushState({ v: 'learn' }, '', '#hoc' + (lesson ? '/' + lesson : ''));
-}
-addEventListener('tvbt:learn', e => openLearn(e.detail));
+addEventListener('popstate', () => { if (document.body.dataset.view !== 'home') view('home'); });
+// next-step buttons inside the result page (summary and end of each report)
 document.addEventListener('click', e => {
-  const l = e.target.closest('[data-lesson]'); if (l) { e.preventDefault(); openLearn(l.dataset.lesson); return; }
-  const a = e.target.closest('[data-act="sample"]');
-  if (a) { e.preventDefault(); loadSample().then(() => setTab(a.dataset.tab || 'bazi')); }
+  const a = e.target.closest('[data-act]'); if (!a) return;
+  const act = a.dataset.act;
+  if (act === 'sample') { e.preventDefault(); loadSample().then(() => setTab(a.dataset.tab || 'tuvi')); }
+  else if (act === 'print') { e.preventDefault(); printNow(); }
+  else if (act === 'again') { e.preventDefault(); again(); }
+  else if (act === 'save') { e.preventDefault(); $('#save-host button')?.click(); $('.atl-mast').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
+  else if (act === 'scroll') { e.preventDefault(); $(a.dataset.target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
 });
-if (location.hash.startsWith('#hoc')) openLearn(location.hash.slice(5), false);
+if (/^#(hoc|kham-pha|tu-vi|bat-tu|gioi-thieu)/.test(location.hash)) history.replaceState(null, '', location.pathname);
 
 // ---------- depth mode: 'Dễ hiểu' (default) or 'Chuyên sâu' ----------
 function setDepth(d, save = true) {
@@ -95,7 +79,6 @@ let lastY = 0;
 addEventListener('scroll', () => { const y = scrollY; $('#site-header').classList.toggle('stuck', y > 8); lastY = y; }, { passive: true });
 
 // ---------- home: Five Elements, library, form ----------
-fiveElements($('#home-fe'), { onSelect: () => {} });
 
 
 // ----- BirthChartForm -----
@@ -182,7 +165,7 @@ async function loadSample() {
   await generate();
 }
 $('#sample-btn').onclick = loadSample;
-$$('[data-sample]').forEach(b => b.onclick = loadSample);
+$$('[data-sample]').forEach(b => b.onclick = () => loadSample());
 
 function showHourSweep() {
   const { req, lunarIn, sweep } = state;
@@ -226,7 +209,6 @@ function showResults() {
   $('#bazi-summary').innerHTML = summaryBazi(chart, ctx, T); $('#tuvi-summary').innerHTML = summaryTuvi(chart, ctx, T);
   initYearCards();
   initGrowth($('#growth-host'), $('#tab-growth'), req); // optional layer: the tab stays hidden when the server has it switched off
-  initChat($('#bazi-mascot'), 'bt', dialogueBazi(chart, ctx, T)); initChat($('#tuvi-mascot'), 'tv', dialogueTuvi(chart, ctx, T));
   initChapterBubbles($('#bazi-report'), 'bt'); initChapterBubbles($('#tuvi-report'), 'tv');
   autoLink($('#bazi-host'), 'bt'); autoLink($('#bazi-summary'), 'bt'); autoLink($('#tuvi-host'), 'tv'); autoLink($('#tuvi-summary'), 'tv');
   const t = chart.tuvi, b = chart.bazi;
@@ -234,10 +216,13 @@ function showResults() {
   $('#res-sub').innerHTML = lu + `<span><b>${fmtDate(req)}</b> · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
   $('#res-hl').innerHTML = `<button type="button" class="hl-chip gl" data-gl="c:nhat-chu">${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></button><button type="button" class="hl-chip gl" data-gl="c:cuc">${esc(t.cuc.name)}</button><button type="button" class="hl-chip gl" data-gl="c:nap-am">Mệnh ${esc(t.menh_nap_am)}</button>`;
   saver.paint();
-  setTab('bazi', false); view('chart');
-  history.pushState({ v: 'chart' }, '', '#la-so/bat-tu');
+  setTab('tuvi', false); view('chart');
+  history.pushState({ v: 'chart' }, '', '#la-so/tu-vi');
 }
-$('#again').onclick = () => { view('home'); requestAnimationFrame(() => $('#lap-la-so').scrollIntoView({ behavior: 'smooth', block: 'start' })); };
+function again() { view('home'); history.replaceState(null, '', '#lap-la-so'); requestAnimationFrame(() => $('#lap-la-so').scrollIntoView({ behavior: 'smooth', block: 'start' })); }
+$('#again').onclick = again;
+// the header's "Tải PDF" appears once the result masthead (with its own buttons) has scrolled away
+if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => document.body.classList.toggle('mast-off', !e.isIntersecting)).observe($('.res-act'));
 
 // reveal on scroll
 if (!reduce && 'IntersectionObserver' in window) {

@@ -26,5 +26,6 @@ function prepare() {
 export function initPrint(btn) {
   addEventListener('beforeprint', prepare); // also covers Ctrl/Cmd+P
   addEventListener('afterprint', () => undo?.());
-  btn.onclick = () => { prepare(); requestAnimationFrame(() => requestAnimationFrame(() => window.print())); };
+  btn.onclick = printNow;
 }
+export function printNow() { prepare(); requestAnimationFrame(() => requestAnimationFrame(() => window.print())); }

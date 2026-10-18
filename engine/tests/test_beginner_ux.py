@@ -1,4 +1,4 @@
-"""Beginner-experience layer: glossary data integrity, lesson links, and the 'Dễ hiểu' content filter (run in node, no DOM)."""
+"""Beginner-experience layer: glossary data integrity, no learning journey in the UI, and the 'Dễ hiểu' content filter (run in node, no DOM)."""
 import json
 import re
 import shutil
@@ -49,10 +49,14 @@ def test_tu_hoa_table_matches_engine_for_canh_year():
     assert row == [t["tu_hoa"][k]["star"] for k in ("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ")]
 
 
-def test_every_glossary_lesson_link_exists_in_learn_js():
-    lessons = set(re.findall(r"^  '([a-z0-9-]+)': \{ title:", (WEB / "js" / "learn.js").read_text("utf-8"), re.M))
-    assert {"gioi-thieu", "tv-1", "tv-2", "tv-3", "tv-4", "tv-5", "tv-6", "tv-7", "bt-1", "bt-2", "bt-3", "bt-4"} <= lessons
-    assert {t["lesson"] for t in G["terms"].values()} <= lessons
+def test_public_ui_has_no_learning_journey():
+    """The site is about building a chart and reading it: no lessons, courses or learning route in the public UI."""
+    assert not (WEB / "js" / "learn.js").exists()
+    for n in ("app.js", "beginner.js", "glossary.js", "report.js"):
+        js = (WEB / "js" / n).read_text("utf-8")
+        assert "data-lesson" not in js and "learn.js" not in js and "#hoc" not in js, n
+    html = (WEB / "index.html").read_text("utf-8")
+    assert 'data-go="hoc' not in html and "learn-view" not in html and "lộ trình học" not in html.lower()
 
 
 def test_no_internal_ids_in_public_web_code():

@@ -1,7 +1,6 @@
 // Interactive glossary: any element with [data-gl="kind:name"] opens a short plain-language explanation.
 // Data comes from glossary.json (built by tools/build_glossary.py from glossary_vi.json + star_profiles.json).
 import { $, $$, esc, STEMS, BRANCHES, starKind } from './util.js';
-import { lessonTitle } from './learn.js';
 
 let G = { terms: {}, stars: [], gods: [], aliases: {} };
 let chart = null; // { tuvi, bazi } for "in your chart" notes
@@ -101,7 +100,7 @@ function fallback(key) {
 export function openTerm(key) {
   const term = G.terms[key] || fallback(key);
   if (!term) return;
-  const d = ensureDialog(), note = chartNote(key), lt = term.lesson && lessonTitle(term.lesson);
+  const d = ensureDialog(), note = chartNote(key);
   d.innerHTML = `<div class="gl-in">
     <p class="eyebrow">${esc(term.kind)}</p>
     <h3 id="gl-t">${esc(term.title)}${term.han ? ` <span class="gl-han" lang="zh">${esc(term.han)}</span>` : ''}</h3>
@@ -109,12 +108,10 @@ export function openTerm(key) {
     ${term.ex ? `<p class="gl-ex"><b>Ví dụ.</b> ${esc((x => x[0].toUpperCase() + x.slice(1))(term.ex.replace(/^Ví dụ:\s*/, '')))}</p>` : ''}
     ${term.facts?.length ? `<dl class="gl-facts">${term.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
     ${note ? `<div class="gl-here"><span class="eyebrow">Trong lá số của bạn</span><p>${note}</p></div>` : ''}
-    <div class="gl-act">${lt ? `<button type="button" class="btn btn-sm" data-lesson="${esc(term.lesson)}">Đọc bài: ${esc(lt)}</button>` : ''}<button type="button" class="btn btn-ghost btn-sm" data-close>Đóng</button></div>
+    <div class="gl-act"><button type="button" class="btn btn-ghost btn-sm" data-close>Đóng</button></div>
     ${term.src ? `<p class="gl-src muted small">Nguồn tư liệu: ${esc(term.src)}</p>` : ''}
   </div>`;
   $('[data-close]', d).onclick = () => d.close();
-  const b = $('[data-lesson]', d);
-  if (b) b.onclick = () => { d.close(); dispatchEvent(new CustomEvent('tvbt:learn', { detail: b.dataset.lesson })); };
   if (!d.open) d.showModal();
   $('[data-close]', d).focus({ preventScroll: true });
 }
