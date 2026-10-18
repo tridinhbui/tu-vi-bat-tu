@@ -65,6 +65,7 @@ def analysis_endpoint(req: BirthReq):
 
 class StructureReq(BirthReq):
     bazi_deep_draft: bool = False        # opt-in: add the presentation envelope for the draft deep-analysis view; the analysis itself is identical either way
+    bazi_deep_reading: bool = False      # opt-in: add the seven-chapter reading (reading/1) built from the analysis; default OFF, adds one key, changes nothing else
 
 
 @app.post("/api/bazi-structure")
@@ -78,6 +79,12 @@ def bazi_structure(req: StructureReq):
     if req.bazi_deep_draft:
         from .bazi_deep import draft_view
         out["bazi_deep_draft"] = draft_view.envelope(out)
+    if req.bazi_deep_reading:
+        from .bazi_deep import reading
+        from .bazi_deep.profile import TVH_40
+        view = ChartView.from_bazi(bz, nb.utc, req.gender)
+        luck = [{"index": l.index, "stem": l.stem, "branch": l.branch, "start_year_exact": l.start_year_exact} for l in bz.luck_pillars]
+        out["bazi_deep_reading"] = reading.compose(out, view, bz, pipeline.timeline(view, TVH_40, luck, [], with_rules=False))
     return out
 
 

@@ -1,0 +1,486 @@
+{
+ "_status": "draft",
+ "_note": "Đặc tả luận giải Bát Tự sâu (reading/1). Dữ liệu, không phải logic: tiêu đề chương, câu hỏi 'vì sao', bảng cụm từ cho từng loại dữ kiện, định tuyến luật 八字真宗 vào chương, và các GIỚI HẠN (những điều các sách đã nhập chưa có quy tắc). Không có lời luận nào dành riêng cho một lá số cụ thể.",
+ "version": "reading/1",
+ "label": "Phân tích thử nghiệm – chưa được kiểm chứng thực nghiệm",
+ "basis": {
+  "tinh_toan": "Dữ kiện tính toán",
+  "co_nguon": "Diễn giải có nguồn",
+  "truong_phai": "Giả thuyết của một trường phái",
+  "chua_du_can_cu": "Chưa đủ căn cứ"
+ },
+ "certainty": {
+  "tinh_toan": "Chắc về mặt tính toán; đây là dữ kiện, không phải lời luận",
+  "co_nguon": "Có nguồn (một cuốn sách, một quan điểm); chưa được kiểm chứng thực nghiệm",
+  "truong_phai": "Phụ thuộc trường phái hoặc là bản nháp chưa đối chiếu đủ; chưa được kiểm chứng thực nghiệm",
+  "chua_du_can_cu": "Không đủ căn cứ để khẳng định; chỉ nêu các khả năng có điều kiện"
+ },
+ "chain_steps": {
+  "du_kien": "Dữ kiện",
+  "quy_tac": "Quy tắc",
+  "dieu_kien": "Điều kiện",
+  "ket_luan": "Kết luận"
+ },
+ "pillar_vi": {
+  "year": "năm",
+  "month": "tháng",
+  "day": "ngày",
+  "hour": "giờ"
+ },
+ "group_vi": {
+  "Ti": "Tỉ Kiếp",
+  "An": "Ấn",
+  "ThucThuong": "Thực Thương",
+  "Tai": "Tài",
+  "QuanSat": "Quan Sát"
+ },
+ "group_plain": {
+  "Ti": "bạn bè, đồng loại, sức tự thân",
+  "An": "sự nâng đỡ, học hỏi, bảo bọc",
+  "ThucThuong": "tài năng thể hiện ra, sáng tạo, nói năng",
+  "Tai": "tiền của, thực tế, quản lý của cải",
+  "QuanSat": "quy củ, áp lực, chức quyền"
+ },
+ "season_state_plain": {
+  "vượng": "được mùa nâng đỡ rất mạnh",
+  "tướng": "được mùa giúp sức",
+  "hưu": "đã qua thời cực thịnh, lực nghỉ bớt",
+  "tù": "bị mùa kìm hãm",
+  "tử": "gần như không được mùa giúp"
+ },
+ "chapters": [
+  {
+   "id": "tinh-cach",
+   "title": "Tính cách",
+   "question": "Vì sao lá số này được luận về tính cách như vậy?",
+   "sections": [
+    {
+     "id": "nhat-chu",
+     "title": "Nhật Chủ và cách sách mô tả"
+    },
+    {
+     "id": "nap-am",
+     "title": "Nạp âm trụ ngày"
+    },
+    {
+     "id": "khi-chat",
+     "title": "Khí chất theo âm dương và hoạt động"
+    },
+    {
+     "id": "cau-truc",
+     "title": "Cấu trúc nền (từ phần nền tảng)"
+    }
+   ],
+   "gaps": [
+    {
+     "aspect": "tinh-cach.tong-hop",
+     "easy": "Các sách đã nhập chưa có quy tắc nào ghép Nhật Chủ, khí thế và cách cục thành một chân dung tính cách duy nhất. Vì vậy phần mô tả của sách và phần cấu trúc được đặt cạnh nhau, không trộn thành một câu kết luận.",
+     "expert": "Phạm vi đã đọc (八字真宗 tr.25-26, 31-32, 59, 73-74; Thiệu Vĩ Hoa tr.331-400; Trích Thiên Tủy) không có quy tắc tổng hợp 日干 × khí thế × cách cục thành tính cách; hệ thống không tự đặt quy tắc ấy."
+    }
+   ]
+  },
+  {
+   "id": "nang-luc",
+   "title": "Năng lực",
+   "question": "Vì sao lá số này được luận về năng lực như vậy?",
+   "sections": [
+    {
+     "id": "hoc-van",
+     "title": "Học vấn và sự học"
+    },
+    {
+     "id": "cau-truc",
+     "title": "Cấu trúc liên quan đến năng lực"
+    }
+   ],
+   "gaps": [
+    {
+     "aspect": "nang-luc.cu-the",
+     "easy": "Ngoài chuyện học hành, các sách đã nhập không có quy tắc nào phát biểu về năng lực cụ thể (ví dụ giỏi lãnh đạo hay giỏi kỹ thuật). Nên phần này chỉ nêu những gì sách có nói.",
+     "expert": "Chỉ có 八字真宗 tr.56 (học vấn: Ấn thấu có gốc; văn xương) và tr.52 (Quan, Sát cùng thấu có gốc). Các cách thập thần (Thực chế Sát, Sát Ấn tương sinh...) được hệ thống liệt kê như cấu trúc, trạng thái draft, chưa có lời sách gán năng lực cụ thể."
+    }
+   ]
+  },
+  {
+   "id": "su-nghiep",
+   "title": "Sự nghiệp",
+   "question": "Vì sao lá số này được luận về sự nghiệp như vậy?",
+   "sections": [
+    {
+     "id": "nhom-nghe",
+     "title": "Gợi ý nhóm nghề theo can giờ"
+    },
+    {
+     "id": "chuc-vu",
+     "title": "Quan, Sát và chức vụ"
+    },
+    {
+     "id": "bien-dong",
+     "title": "Yếu tố hoạt động và biến động"
+    },
+    {
+     "id": "cau-truc",
+     "title": "Chất lượng cấu trúc (từ phần nền tảng)"
+    }
+   ],
+   "gaps": [
+    {
+     "aspect": "su-nghiep.nghe-cu-the",
+     "easy": "Gợi ý nhóm nghề của sách chỉ dựa trên thập thần của can giờ và là bản nháp; sách của Thiệu Vĩ Hoa chọn dụng thần chứ không gán nghề. Không nên đọc đây là chỉ định nghề.",
+     "expert": "八字真宗 tr.52 (nhóm nghề theo can giờ: bảng thập thần verified, bảng theo từng can là draft) và tr.51 (寅申甲). Không có quy tắc nghề nghiệp từ dụng thần trong các nguồn đã nhập."
+    }
+   ]
+  },
+  {
+   "id": "tai-loc",
+   "title": "Tài lộc",
+   "question": "Vì sao lá số này được luận về tài lộc như vậy?",
+   "sections": [
+    {
+     "id": "tai-tinh",
+     "title": "Tài tinh trong tứ trụ"
+    },
+    {
+     "id": "cau-truc",
+     "title": "Cấu trúc liên quan đến tài"
+    }
+   ],
+   "gaps": [
+    {
+     "aspect": "tai-loc.dinh-luong",
+     "easy": "Không có quy tắc nào của các sách đã nhập cho biết giàu hay nghèo ở mức nào. 'Tài vận tốt' trong sách là một điều kiện cấu trúc (Tài thấu can và có gốc), không phải con số.",
+     "expert": "八字真宗 tr.50: bốn quy tắc verified về Chính Tài/Thiên Tài thấu can, có gốc, và trường hợp tài tinh không hiện. Thiệu Vĩ Hoa nêu vận hỷ/kỵ theo nhóm thập thần chứ không định lượng tài sản."
+    }
+   ]
+  },
+  {
+   "id": "hon-nhan",
+   "title": "Hôn nhân và quan hệ gần",
+   "question": "Vì sao lá số này được luận về hôn nhân như vậy?",
+   "sections": [
+    {
+     "id": "nguyet-lenh",
+     "title": "Nguyệt lệnh (cung cha mẹ, nền của hôn nhân theo sách)"
+    },
+    {
+     "id": "nhat-chi",
+     "title": "Nhật chi (cung bạn đời)"
+    },
+    {
+     "id": "gia-dinh",
+     "title": "Gia đình và anh em"
+    }
+   ],
+   "gaps": [
+    {
+     "aspect": "hon-nhan.sao-phoi-ngau",
+     "easy": "Các sách đã nhập chưa có quy tắc về 'sao vợ' hoặc 'sao chồng' theo giới tính (Tài với nam, Quan với nữ), nên phần này không đọc người bạn đời từ sao, chỉ từ nguyệt lệnh và nhật chi như 八字真宗 tr.57.",
+     "expert": "Phạm vi đã nhập: 八字真宗 tr.57 (nguyệt lệnh, nhật chi), tr.64 (anh em), tr.73 (dương nhẫn). Tài/Quan làm phối ngẫu tinh, hợp xung của cung phu thê theo từng giới tính: chưa có điều sách được đối chiếu."
+    }
+   ]
+  },
+  {
+   "id": "dai-van",
+   "title": "Đại vận",
+   "question": "Vì sao các đại vận của lá số này được luận như vậy?",
+   "sections": [
+    {
+     "id": "lich",
+     "title": "Lịch đại vận (ngày bắt đầu tính đúng)"
+    },
+    {
+     "id": "van-hy-ky",
+     "title": "Đại vận hỷ và kỵ theo bảng của sách"
+    },
+    {
+     "id": "tac-dong",
+     "title": "Tác động lên nguyên cục"
+    }
+   ],
+   "gaps": [
+    {
+     "aspect": "dai-van.lieu-nien",
+     "easy": "Phần này mô tả cách mỗi đại vận chạm vào cấu trúc của lá số, không dự đoán sự kiện. Lưu niên và lưu nguyệt có trong trang 'dòng thời gian' riêng, chưa được đưa vào bản luận này.",
+     "expert": "Hỷ/kỵ của vận lấy từ Thiệu Vĩ Hoa tr.382-386 theo cách đã xác định; khi chưa xác định cách hoặc khí thế sát ngưỡng 40% thì nêu hai khả năng. Tác động lên cách dùng temporal_deep (draft). Lưu niên/lưu nguyệt: xem /api/bazi-timeline."
+    }
+   ]
+  },
+  {
+   "id": "dung-than",
+   "title": "Dụng thần",
+   "question": "Vì sao dụng thần được nêu như vậy, và vì sao có nhiều đáp án?",
+   "sections": [
+    {
+     "id": "theo-phuong-phap",
+     "title": "Dụng thần theo từng phương pháp"
+    },
+    {
+     "id": "bat-dong",
+     "title": "Chỗ các phương pháp đồng thuận và mâu thuẫn"
+    }
+   ],
+   "gaps": [
+    {
+     "aspect": "dung-than.chon-phuong-phap",
+     "easy": "Các sách đã đọc không nói nên chọn phương pháp nào khi các phương pháp cho kết quả khác nhau. Vì vậy hệ thống nêu từng phương pháp riêng và không chọn một đáp án cuối cùng.",
+     "expert": "Không có quy tắc ưu tiên giữa phù ức, điều hậu, cách cục, thông quan, thuận thế trong nguồn; hệ thống không cộng điểm giữa các phương pháp (docs/BAZI_DEEP_YONGSHEN: no_final_answer)."
+    }
+   ]
+  }
+ ],
+ "foundation": {
+  "id": "nen-tang",
+  "title": "Nền tảng của lá số",
+  "question": "Cấu trúc nào chi phối mọi chương bên dưới?",
+  "sections": [
+   {
+    "id": "nguyet-lenh",
+    "title": "Nguyệt lệnh và khí mùa"
+   },
+   {
+    "id": "khi-the",
+    "title": "Nhật Chủ vượng hay nhược"
+   },
+   {
+    "id": "han-noan",
+    "title": "Hàn nóng và điều hậu"
+   },
+   {
+    "id": "cach-cuc",
+    "title": "Cách cục"
+   },
+   {
+    "id": "tuong-tac",
+    "title": "Hợp, xung, hình, hại, phá"
+   },
+   {
+    "id": "thap-than",
+    "title": "Cấu trúc Thập Thần"
+   }
+  ]
+ },
+ "interaction": {
+  "kind_vi": {
+   "branch_clash": "xung",
+   "branch_harm": "hại",
+   "branch_destroy": "phá",
+   "branch_penalty": "hình",
+   "branch_self_penalty": "tự hình",
+   "branch_six_combine": "lục hợp",
+   "branch_semi_triad": "bán hợp",
+   "branch_triad": "tam hợp",
+   "branch_meeting": "tam hội",
+   "stem_combine": "ngũ hợp",
+   "stem_clash": "khắc/xung can"
+  },
+  "status_vi": {
+   "xung_vao_cuc": "kề nhau và xung vào một cục đang thành, làm cục yếu đi một nửa",
+   "xung_xa_cuc": "ở xa nhưng xung vào một cục đang thành, tác động nhẹ",
+   "hop_giai_xung": "bị lục hợp giải bớt, không gây tổn hại đáng kể",
+   "giang_co": "đang giằng co giữa hợp và xung, cả hai bên đều bị giảm",
+   "xung_xa": "cách xa nhau nên chỉ giảm nhẹ",
+   "xung_can_bang": "kề nhau và ngang sức, hai bên đều tổn hao",
+   "xung_nho": "kề nhau; bên yếu hơn bị tổn hao nhiều hơn",
+   "co_hieu_luc": "có hiệu lực (kề nhau hoặc chạm vào trụ tháng, trụ ngày)",
+   "xa": "cách xa nên hệ thống không tính ảnh hưởng",
+   "ghi_nhan": "chỉ ghi nhận vì không chạm trụ tháng hay trụ ngày",
+   "formed": "thành hợp",
+   "bi_tranh": "bị tranh hợp nên không thành trọn vẹn",
+   "khong_ke": "không kề nhau nên không xét hóa",
+   "hop_khong_hoa": "hợp nhưng chưa đủ điều kiện hóa, giữ nguyên hành cũ",
+   "gia_hoa": "hóa giả: thiếu một số điều kiện, hành thay đổi một phần",
+   "chan_hoa": "hóa thật: đủ điều kiện, hành đổi theo hóa thần",
+   "tranh_hop": "tranh hợp: có hơn hai chữ cùng muốn hợp, hợp không thành"
+  },
+  "material": [
+   "xung_vao_cuc",
+   "xung_xa_cuc",
+   "giang_co",
+   "xung_can_bang",
+   "xung_nho",
+   "co_hieu_luc",
+   "formed",
+   "gia_hoa",
+   "chan_hoa",
+   "tranh_hop",
+   "hop_khong_hoa",
+   "bi_tranh"
+  ]
+ },
+ "zz_routing": {
+  "_note": "Định tuyến luật 八字真宗 (rule id hoặc category) vào chương/mục. Luật nào không có ở đây bị liệt kê trong ma trận bao phủ là 'chưa định tuyến'.",
+  "by_category": {
+   "day_master_character": [
+    "tinh-cach",
+    "nhat-chu"
+   ],
+   "day_pillar_nap_am": [
+    "tinh-cach",
+    "nap-am"
+   ],
+   "zz_direct_character": [
+    "tinh-cach",
+    "khi-chat"
+   ],
+   "zz_direct_education": [
+    "nang-luc",
+    "hoc-van"
+   ],
+   "zz_direct_career": [
+    "su-nghiep",
+    "chuc-vu"
+   ],
+   "zz_direct_occupation": [
+    "su-nghiep",
+    "nhom-nghe"
+   ],
+   "zz_direct_wealth": [
+    "tai-loc",
+    "tai-tinh"
+   ],
+   "zz_direct_siblings": [
+    "hon-nhan",
+    "gia-dinh"
+   ],
+   "element_balance": [
+    "tinh-cach",
+    "khi-chat"
+   ]
+  },
+  "by_rule": {
+   "BT_ZZ_DIRECT_MA_IN_CHART": [
+    "tinh-cach",
+    "khi-chat"
+   ],
+   "BT_ZZ_DIRECT_MA_HOUR": [
+    "tinh-cach",
+    "khi-chat"
+   ],
+   "BT_ZZ_DIRECT_MA_VOID": [
+    "su-nghiep",
+    "bien-dong"
+   ],
+   "BT_ZZ_DIRECT_MA_CLASH": [
+    "su-nghiep",
+    "bien-dong"
+   ],
+   "BT_ZZ_DIRECT_MA_COMBINED": [
+    "su-nghiep",
+    "bien-dong"
+   ],
+   "BT_ZZ_DIRECT_REN_MANY": [
+    "hon-nhan",
+    "gia-dinh"
+   ],
+   "BT_ZZ_DIRECT_REN_TMM": [
+    "tinh-cach",
+    "khi-chat"
+   ],
+   "BT_ZZ_DIRECT_REN_COMBINED": [
+    "tinh-cach",
+    "khi-chat"
+   ],
+   "BT_ZZ_DIRECT_REN_SAT_AN": [
+    "su-nghiep",
+    "chuc-vu"
+   ],
+   "BT_ZZ_DIRECT_YIN_SHEN_JIA": [
+    "su-nghiep",
+    "nhom-nghe"
+   ]
+  },
+  "by_prefix": {
+   "BT_ZZ_DIRECT_M_": [
+    "hon-nhan",
+    "nguyet-lenh"
+   ],
+   "BT_ZZ_DIRECT_D_": [
+    "hon-nhan",
+    "nhat-chi"
+   ]
+  }
+ },
+ "limits_global": [
+  "Mọi diễn giải ở đây mô tả cấu trúc lá số theo các sách đã nhập và nói rõ mức nguồn; không dự đoán sự kiện cụ thể.",
+  "Chưa có kiểm chứng thực nghiệm cho bất kỳ diễn giải nào; khớp với sách chỉ có nghĩa là bản cài khớp với trang in.",
+  "Thiếu giờ sinh thì trụ giờ, nhiều quy tắc và đại vận không tính được: phân tích này cần cả giờ sinh."
+ ],
+ "fact_vi": {
+  "bazi.day_master_stem": "Nhật Chủ là {v}",
+  "bazi.day_nap_am": "nạp âm trụ ngày là {v}",
+  "bazi.hour_stem_group": "thập thần của can giờ thuộc nhóm {v}",
+  "bazi.hour_stem": "can giờ là {v}",
+  "bazi.has_yin_shen_jia": "tứ trụ có đủ Dần, Thân và can Giáp",
+  "bazi.month_branch_hurt": "chi tháng gặp hình hoặc xung",
+  "bazi.month_branch_combined": "chi tháng được hợp",
+  "bazi.month_branch_kong": "chi tháng rơi vào không vong",
+  "bazi.month_main_god": "bản khí chi tháng là {v}",
+  "bazi.day_branch_hurt": "chi ngày gặp hình hoặc xung",
+  "bazi.day_main_god": "bản khí chi ngày là {v}",
+  "bazi.chinh_tai_tho_can": "Chính Tài thấu can",
+  "bazi.chinh_tai_rooted": "Chính Tài có gốc",
+  "bazi.thien_tai_tho_can": "Thiên Tài thấu can",
+  "bazi.thien_tai_rooted": "Thiên Tài có gốc",
+  "bazi.no_wealth_star": "tứ trụ không có tài tinh hiện",
+  "bazi.an_tho_can": "Ấn thấu can",
+  "bazi.an_rooted": "Ấn có gốc",
+  "bazi.quan_sat_both_rooted": "Quan và Sát cùng thấu can và có gốc",
+  "bazi.all_yin": "tứ trụ toàn âm",
+  "bazi.all_yang": "tứ trụ toàn dương",
+  "chart.gender": "giới tính {v}",
+  "bazi.tmm_all_yin": "thai nguyên, thân cung, mệnh cung đều âm",
+  "bazi.tmm_all_yang": "thai nguyên, thân cung, mệnh cung đều dương",
+  "bazi.ren_count": "số Dương Nhẫn trong tứ trụ: {v}",
+  "bazi.ren_in_tmm": "Dương Nhẫn nằm ở thai, thân hoặc mệnh cung",
+  "bazi.ren_combined": "Dương Nhẫn được hợp",
+  "bazi.ren_sat_an_all": "tứ trụ có đủ Nhẫn, Sát và Ấn",
+  "bazi.ma_in_chart": "mệnh cục có dịch mã",
+  "bazi.ma_in_hour": "dịch mã ở trụ giờ",
+  "bazi.ma_void": "dịch mã gặp không vong",
+  "bazi.ma_clashed": "dịch mã bị xung hoặc xuyên",
+  "bazi.ma_combined": "dịch mã gặp hợp",
+  "bazi.wen_chang_in_chart": "mệnh cục có văn xương",
+  "bazi.month_stem_hurt_god": "can tháng là Kiêu, Thương hoặc Sát"
+ },
+ "group_value_vi": {
+  "thuc_thuong": "Thực Thương",
+  "an": "Ấn",
+  "quan": "Quan Sát",
+  "tai": "Tài",
+  "ty_kiep": "Tỉ Kiếp"
+ },
+ "zz_direction": {
+  "_note": "Phân loại thuận/bất lợi/trung tính do hệ thống đọc từ lời sách để gom nhóm; không phải điều sách phát biểu.",
+  "thuan": [
+   "BT_ZZ_DIRECT_W_CHINH_TAI_ROOT",
+   "BT_ZZ_DIRECT_W_THIEN_TAI_ROOT",
+   "BT_ZZ_DIRECT_E_AN_ROOT",
+   "BT_ZZ_DIRECT_WEN_CHANG",
+   "BT_ZZ_DIRECT_O_QUAN_SAT_ROOT",
+   "BT_ZZ_DIRECT_M_COMBINED",
+   "BT_ZZ_DIRECT_M_TAI_QUAN_AN",
+   "BT_ZZ_DIRECT_D_TAI",
+   "BT_ZZ_DIRECT_REN_SAT_AN"
+  ],
+  "bat_loi": [
+   "BT_ZZ_DIRECT_M_HURT",
+   "BT_ZZ_DIRECT_M_KONG",
+   "BT_ZZ_DIRECT_M_THUONG_KIEU_SAT",
+   "BT_ZZ_DIRECT_M_NHAN_LOC",
+   "BT_ZZ_DIRECT_D_HURT",
+   "BT_ZZ_DIRECT_D_THUC_THUONG",
+   "BT_ZZ_DIRECT_REN_MANY",
+   "BT_ZZ_DIRECT_REN_TMM",
+   "BT_ZZ_DIRECT_MA_VOID",
+   "BT_ZZ_DIRECT_MA_CLASH",
+   "BT_ZZ_DIRECT_MA_COMBINED",
+   "BT_ZZ_DIRECT_SIB_MONTH_STEM",
+   "BT_ZZ_DIRECT_SIB_MONTH_KONG",
+   "BT_ZZ_MISSING_MỘC",
+   "BT_ZZ_MISSING_HỎA",
+   "BT_ZZ_MISSING_THỔ",
+   "BT_ZZ_MISSING_KIM",
+   "BT_ZZ_MISSING_THỦY"
+  ]
+ }
+}
