@@ -11,6 +11,7 @@ import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossar
 import { renderLearn, lessonSys, lessonTitle } from './learn.js';
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
+import { initPrint } from './print.js';
 import { initChat, initChapterBubbles, dialogueBazi, dialogueTuvi } from './mascots.js';
 import { renderSaved, initSave } from './mine.js';
 
@@ -170,6 +171,7 @@ form.onsubmit = generate;
 const savedList = $('#saved-list'), openSaved = r => generate(null, r);
 renderSaved(savedList, openSaved);
 initCompare($('#cmp-host'));
+initPrint($('#print-btn'));
 const saver = initSave($('#save-host'), () => state?.req, () => renderSaved(savedList, openSaved));
 async function loadSample() {
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });
