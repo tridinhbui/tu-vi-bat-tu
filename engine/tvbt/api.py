@@ -63,14 +63,22 @@ def analysis_endpoint(req: BirthReq):
     return {"chapters": analysis.analyse(tv, bz), "dignity_school": req.dignity_school}
 
 
+class StructureReq(BirthReq):
+    bazi_deep_draft: bool = False        # opt-in: add the presentation envelope for the draft deep-analysis view; the analysis itself is identical either way
+
+
 @app.post("/api/bazi-structure")
-def bazi_structure(req: BirthReq):
+def bazi_structure(req: StructureReq):
     """Bát Tự structure analysis (bazi_deep): khí thế before/after interactions, tương tác, cách cục, dụng thần per method, findings.
     Every rule involved is `draft`; the response says so. No LLM, no storage."""
     from .bazi_deep import pipeline
     from .bazi_deep.model import ChartView
     nb, bz, _ = _compute(req)
-    return pipeline.analyse(ChartView.from_bazi(bz, nb.utc, req.gender))
+    out = pipeline.analyse(ChartView.from_bazi(bz, nb.utc, req.gender))
+    if req.bazi_deep_draft:
+        from .bazi_deep import draft_view
+        out["bazi_deep_draft"] = draft_view.envelope(out)
+    return out
 
 
 class TimelineReq(BirthReq):
@@ -316,6 +324,12 @@ formation_api.register(app, BirthReq, _compute)
 @app.get("/library")
 def library():
     return FileResponse(ROOT / "web" / "library.html")
+
+
+@app.get("/bazi-deep-draft")
+def bazi_deep_draft_page():
+    """Opt-in draft view of the deep Bát Tự analysis (self-contained page; the main UI is untouched)."""
+    return FileResponse(ROOT / "web" / "bazi_deep_draft.html")
 
 
 @app.get("/")

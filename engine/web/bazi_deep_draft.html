@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bát Tự chuyên sâu (thử nghiệm)</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/css/app.css">
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#faf6ef;color:#282923}
+main{max-width:920px;margin:0 auto;padding:16px clamp(16px,4vw,32px) 72px}
+.bd-label{position:sticky;top:0;z-index:5;background:#7a1f1f;color:#fff;font-weight:600;padding:10px 14px;border-radius:0 0 10px 10px;margin:0 0 14px}
+.bd-banner,.bd-review,.bd-note{color:#555;font-size:.9rem}
+.bd-state{border:2px solid #b08a2e;background:#fff7e0;border-radius:12px;padding:6px 14px;margin:12px 0;font-weight:600}
+.bd-state-agreement_not_proof{border-color:#8a8a8a;background:#f1f1f1}
+.bd-conflict{border:2px dashed #7a1f1f;background:#fff0f0;border-radius:12px;padding:6px 14px;margin:12px 0}
+.bd-disagree,.bd-method{border:1px solid #d8d0c0;background:#fff;border-radius:12px;padding:8px 16px;margin:12px 0}
+.bd-badge{margin-left:10px;font-size:.72rem;font-weight:600;background:#eee;border-radius:99px;padding:2px 10px;vertical-align:middle}
+.bd-method h3,.bd-disagree h3,h1{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-weight:600}.bd-line{margin:3px 0}.bd-levels{padding-left:18px;margin:8px 0;font-size:.88rem}.bd-reading{border-left:3px solid #d8d0c0;padding-left:10px;margin:8px 0}
+form{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:12px 0}form label{display:flex;flex-direction:column;font-size:.78rem;gap:3px}form input,form select{height:42px;font-size:1rem;box-sizing:border-box;padding:0 10px}
+form input[type=number]{width:5.5em}form #y{width:6.5em}form label.bd-check{flex-direction:row;align-items:center;gap:8px;font-size:.9rem}form label.bd-check input{width:auto;height:auto}
+.bd-chip{background:#fff0e0;color:#7a1f1f}.bd-error{border:2px solid #7a1f1f;background:#fff0f0;border-radius:12px;padding:10px 14px;margin:12px 0;font-weight:600}.bd-busy{color:#555}
+button[disabled]{opacity:.6;cursor:progress}
+button{font:600 .9rem system-ui;padding:10px 20px;border-radius:99px;border:0;background:#7a1f1f;color:#fff;cursor:pointer}
+</style></head><body><main>
+<h1>Bát Tự chuyên sâu</h1>
+<p class="bd-banner">Bản thử nghiệm dành cho người muốn xem từng phương pháp và nguồn của nó. Mặc định tắt. Dữ liệu ngày sinh chỉ xử lý trong bộ nhớ, không lưu.</p>
+<form id="f"><label>Năm<input id="y" type="number" value="1990" min="1900" max="2049" ></label><label>Tháng<input id="m" type="number" value="12" min="1" max="12" ></label>
+<label>Ngày<input id="d" type="number" value="15" min="1" max="31" ></label><label>Giờ<input id="h" type="number" value="10" min="0" max="23" ></label>
+<label>Phút<input id="mi" type="number" value="0" min="0" max="59" ></label><label>Giới<select id="g"><option value="male">Nam</option><option value="female">Nữ</option></select></label>
+<label class="bd-check"><input id="on" type="checkbox"> Bật phân tích chuyên sâu (thử nghiệm)</label><button type="submit">Xem</button></form>
+<div id="out" aria-live="polite"><div class="bd-label">Phân tích thử nghiệm – chưa được kiểm chứng thực nghiệm</div><p class="bd-off">Chế độ phân tích chuyên sâu đang tắt. Bật để xem từng phương pháp, nguồn và mức xác minh.</p></div>
+</main>
+<script src="/js/bazi_deep_draft.js"></script>
+<script>
+(function () {
+  var LABEL = "Phân tích thử nghiệm – chưa được kiểm chứng thực nghiệm";
+  var M = {
+    off: "Chế độ phân tích chuyên sâu đang tắt. Bật để xem từng phương pháp, nguồn và mức xác minh.",
+    loading: "Đang tính…",
+    missing: "Hãy điền đủ năm, tháng, ngày, giờ và phút sinh. Phân tích này cần cả giờ sinh.",
+    invalid: "Ngày giờ sinh không hợp lệ (năm từ 1900 đến 2049; ngày phải có thật trong tháng).",
+    rejected: "Máy chủ không nhận dữ liệu này. Hãy kiểm tra lại ngày giờ sinh.",
+    server: "Chưa tính được lúc này. Hãy thử lại sau.",
+    network: "Không kết nối được tới máy chủ. Hãy kiểm tra mạng rồi thử lại."
+  };
+  var out = document.getElementById("out"), btn = document.querySelector("#f button"), seq = 0;
+  function note(text, cls, role) {          // the experimental label stays visible in EVERY state: off, loading, error, result
+    out.textContent = "";
+    var l = document.createElement("div"); l.className = "bd-label"; l.textContent = LABEL; out.appendChild(l);
+    var p = document.createElement("p"); p.className = cls; p.textContent = text; if (role) p.setAttribute("role", role); out.appendChild(p);
+  }
+  function val(id) { return document.getElementById(id).value.trim(); }
+  function readForm() {
+    var ids = ["y", "m", "d", "h", "mi"], v = {};
+    for (var i = 0; i < ids.length; i++) { if (val(ids[i]) === "" || isNaN(Number(val(ids[i]))) || Number(val(ids[i])) % 1 !== 0) return { err: "missing" }; v[ids[i]] = Number(val(ids[i])); }
+    var dt = new Date(v.y, v.m - 1, v.d);
+    if (v.y < 1900 || v.y > 2049 || v.m < 1 || v.m > 12 || v.h < 0 || v.h > 23 || v.mi < 0 || v.mi > 59 || dt.getFullYear() !== v.y || dt.getMonth() !== v.m - 1 || dt.getDate() !== v.d) return { err: "invalid" };
+    return { body: { year: v.y, month: v.m, day: v.d, hour: v.h, minute: v.mi, gender: val("g"), bazi_deep_draft: true } };
+  }
+  document.getElementById("f").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!document.getElementById("on").checked) { seq++; btn.disabled = false; note(M.off, "bd-off"); return; }
+    var f = readForm();
+    if (f.err) { note(M[f.err === "missing" ? "missing" : "invalid"], "bd-error", "alert"); return; }
+    var mine = ++seq;
+    btn.disabled = true; out.setAttribute("aria-busy", "true"); note(M.loading, "bd-busy", "status");
+    fetch("/api/bazi-structure", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(f.body) })
+      .then(function (r) {
+        if (!r.ok) { var e = new Error("http"); e.status = r.status; throw e; }
+        return r.json();
+      })
+      .then(function (j) { if (mine === seq) BaziDeepDraft.render(out, BaziDeepDraft.buildViewModel(j)); })
+      .catch(function (err) { if (mine === seq) note(err && err.status ? (err.status >= 500 ? M.server : M.rejected) : M.network, "bd-error", "alert"); })
+      .then(function () { if (mine === seq) { btn.disabled = false; out.removeAttribute("aria-busy"); } });
+  });
+})();
+</script></body></html>

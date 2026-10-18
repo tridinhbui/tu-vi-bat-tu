@@ -26,7 +26,18 @@
      "Thổ nhiều mong gặp Mộc làm tơi xốp → lấy Mộc làm dụng thần",
      "Tài tinh ở vượng địa, thân thiên vượng"
     ]
-   }
+   },
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "read_directly",
+    "day": "read_directly",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude",
+    "blind_agent"
+   ],
+   "human_verified": false
   },
   "p398_vd2": {
    "page": 398,
@@ -55,7 +66,18 @@
      "phải dùng Tân kim cấp nguồn cho thủy; Tứ trụ thiếu kim nên lấy kim làm dụng thần",
      "kỵ thần là Thổ; tỉ kiếp Nhâm Quý thủy trợ thân là có lợi"
     ]
-   }
+   },
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "read_directly",
+    "day": "read_directly",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude",
+    "blind_agent"
+   ],
+   "human_verified": false
   },
   "p399_vd3": {
    "page": 399,
@@ -80,7 +102,18 @@
      "Ngũ hành không đầy đủ, thiếu Mộc và Thủy",
      "để cân bằng ngũ hành, chọn Thủy và Mộc làm dụng thần (không dùng bảng cách cục)"
     ]
-   }
+   },
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "read_directly",
+    "day": "read_directly",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude",
+    "blind_agent"
+   ],
+   "human_verified": false
   },
   "p400_vd4": {
    "page": "399-400",
@@ -115,7 +148,18 @@
     "month": "derived: không in tên trụ; suy từ hàng đại vận bắt đầu Ất Sửu (thuận) và 'sinh ở tháng tí'; lịch cho tháng Giáp Tý của năm Quý",
     "day": "reconstructed: ô trụ ngày in vỡ ('Ất'); suy từ 'nhật nguyên quý thuỷ', tàng can Ất của Mão, lịch (2/1/1974 = Quý Mão)",
     "hour": "read_directly: 'Quý hợi' in ở cột giờ"
-   }
+   },
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "derived",
+    "day": "reconstructed",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude",
+    "blind_agent (reconstructed the same pillars)"
+   ],
+   "human_verified": false
   },
   "p401_vd5": {
    "page": "400-401",
@@ -150,7 +194,17 @@
      "năm Bính Ngọ thất sát thông gốc, nhưng sát bị Canh khắc → sát vượng, ấn vượng; thủy mộc nhược",
      "lấy Thủy, Mộc làm dụng thần; Kim là hỉ thần; kỵ Hỏa, Thổ; tứ trụ thiếu Thủy"
     ]
-   }
+   },
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "read_directly",
+    "day": "read_directly",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude"
+   ],
+   "human_verified": false
   }
  },
  "dieuhau_examples": {
@@ -163,7 +217,18 @@
    ],
    "dung_than_groups": [
     "Tai"
-   ]
+   ],
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "read_directly",
+    "day": "read_directly",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude",
+    "blind_agent"
+   ],
+   "human_verified": false
   },
   "p387_vd1": {
    "page": 387,
@@ -173,7 +238,18 @@
    ],
    "dung_than_groups": [
     "An"
-   ]
+   ],
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "read_directly",
+    "day": "read_directly",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude",
+    "blind_agent"
+   ],
+   "human_verified": false
   },
   "p388_vd2": {
    "page": 388,
@@ -184,7 +260,18 @@
    "dung_than_groups": [
     "Tai"
    ],
-   "note": "sách lấy Dậu kim (tài tinh) làm dụng thần"
+   "note": "sách lấy Dậu kim (tài tinh) làm dụng thần",
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "read_directly",
+    "day": "read_directly",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude",
+    "blind_agent"
+   ],
+   "human_verified": false
   },
   "p388_vd3": {
    "page": 388,
@@ -195,7 +282,18 @@
    "dung_than_groups": [
     "An"
    ],
-   "note": "sách lấy Mão mộc (ấn tinh) sinh Bính hỏa"
+   "note": "sách lấy Mão mộc (ấn tinh) sinh Bính hỏa",
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "read_directly",
+    "day": "read_directly",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude",
+    "blind_agent"
+   ],
+   "human_verified": false
   },
   "p388_vd4": {
    "page": 388,
@@ -205,7 +303,18 @@
    ],
    "dung_than_groups": [
     "ThucThuong"
-   ]
+   ],
+   "pillar_provenance": {
+    "year": "read_directly",
+    "month": "read_directly",
+    "day": "read_directly",
+    "hour": "read_directly"
+   },
+   "readers": [
+    "claude",
+    "blind_agent"
+   ],
+   "human_verified": false
   }
  }
 }
