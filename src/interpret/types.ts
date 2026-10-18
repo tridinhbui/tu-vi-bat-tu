@@ -25,6 +25,8 @@ export interface Finding {
 export interface Palace {
   name: string; branch: string; branch_index: number; stem: string; is_than: boolean; stars: string[]; major_stars: string[];
   major_dignity: Record<string, string | null>; minor_dignity: Record<string, string | null>; tuan: boolean; triet: boolean;
+  // phụ tinh with a known level: the book's printed term (e.g. 'lợi'), the book it came from and the page (engine/data/dignity_aux.json)
+  minor_dignity_src?: Record<string, { term: string; school: 'thuc_hanh' | 'toan_thu' | 'khao_luan'; locator: string }>;
 }
 
 export interface Decade {

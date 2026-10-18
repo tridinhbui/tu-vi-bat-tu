@@ -195,7 +195,7 @@ def kinh_duong_tu_mo(g: Geo) -> list[Structure]:
     for p in g.ps.values():
         if "Kình Dương" in p["stars"] and p["branch"] in TU_MO:
             s = Structure("KINH_DUONG_TU_MO", f"Kình Dương ở Tứ Mộ ({p['branch']}) — cung {p['name']}", [p["name"]], True)
-            dig = p["minor_dignity"].get("Kình Dương", "chưa rõ")
+            dig = p["minor_dignity"].get("Kình Dương") or "chưa rõ"
             sc = g.scope(p)
             hoa = "Hỏa Tinh" in p["stars"]
             bad = [x for x in g.stars(sc) if x in ("Địa Không", "Địa Kiếp", "Linh Tinh", "Đà La")]

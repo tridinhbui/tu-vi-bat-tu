@@ -12,7 +12,9 @@ import { tier, evLegend, yearData, centerIn } from './atlas.js';
 const CELLS = [5, 6, 7, 8, 4, null, null, 9, 3, null, null, 10, 2, 1, 0, 11];
 // Tứ Hóa seals: Han mark + css key (vocabulary only)
 const HOA = { 'Hóa Lộc': { k: 'loc', h: '祿', gl: 'c:hoa-loc', s: 'Lộc' }, 'Hóa Quyền': { k: 'quyen', h: '權', gl: 'c:hoa-quyen', s: 'Quyền' }, 'Hóa Khoa': { k: 'khoa', h: '科', gl: 'c:hoa-khoa', s: 'Khoa' }, 'Hóa Kỵ': { k: 'ky', h: '忌', gl: 'c:hoa-ky', s: 'Kỵ' } };
-const DG = { 'miếu': 'Miếu', 'vượng': 'Vượng', 'đắc': 'Đắc', 'bình': 'Bình', 'hãm': 'Hãm' };
+const DG = { 'miếu': 'Miếu', 'vượng': 'Vượng', 'đắc': 'Đắc', 'bình': 'Bình', 'hãm': 'Hãm', 'lợi': 'Lợi', 'đắc cách': 'Đắc' };
+// book of an auxiliary-star brightness (minor_dignity_src.school), for the badge tooltip
+const DG_BOOK = { thuc_hanh: 'Thực Hành', toan_thu: 'Toàn Thư', khao_luan: 'Khảo Luận' };
 
 export function renderTuvi(host, t, ctx) {
   const by = Object.fromEntries(t.palaces.map(p => [p.branch_index, p]));
@@ -26,9 +28,11 @@ export function renderTuvi(host, t, ctx) {
   const fOf = name => findings.filter(f => palaceOfSubject(f.subject) === name);
   const now = new Date().getFullYear(), age = now - ctx.req.year + 1;
 
-  const starHtml = (s, major, dg, inCell = false) => {
-    const k = starKind(s), h = th[s], hs = h && HOA[h];
-    return `<span class="st gl-s st-${k}${major ? ' major' : ''}${unv.has(s) ? ' unv' : ''}" role="button"${inCell ? '' : ' tabindex="0"'} data-gl="star:${esc(s)}" aria-label="${esc(s)}: xem giải thích">${esc(s)}${dg ? `<sup class="dg dg-${dg}" data-gl="dg:${esc(dg)}" title="Độ sáng: ${esc(dg)}">${DG[dg] || esc(dg)}</sup>` : ''}${hs ? `<span class="th th-${hs.k}" data-gl="${hs.gl}" title="${esc(h)}"><i lang="zh">${hs.h}</i></span>` : ''}</span>`;
+  // dg = level on the five-step scale (css class, glossary key); src = {term, school, locator} for a phụ tinh: the badge prints the book's own term
+  const starHtml = (s, major, dg, inCell = false, src) => {
+    const k = starKind(s), h = th[s], hs = h && HOA[h], term = src?.term || dg;
+    const tip = dg && `Độ sáng: ${term}${term !== dg ? ` (xếp như ${dg})` : ''}${src ? ` · ${DG_BOOK[src.school] || src.school} ${src.locator.replace(/^[A-Z]+ /, '').replace(/^pp?\./, 'tr.')}` : ''}`;
+    return `<span class="st gl-s st-${k}${major ? ' major' : ''}${unv.has(s) ? ' unv' : ''}" role="button"${inCell ? '' : ' tabindex="0"'} data-gl="star:${esc(s)}" aria-label="${esc(s)}${dg ? `, ${esc(term)}` : ''}: xem giải thích">${esc(s)}${dg ? `<sup class="dg dg-${dg}${major ? '' : ' dg-aux'}" data-gl="dg:${esc(dg)}" title="${esc(tip)}">${DG[term] || DG[dg] || esc(term)}</sup>` : ''}${hs ? `<span class="th th-${hs.k}" data-gl="${hs.gl}" title="${esc(h)}"><i lang="zh">${hs.h}</i></span>` : ''}</span>`;
   };
 
   const cell = i => {
@@ -39,7 +43,7 @@ export function renderTuvi(host, t, ctx) {
       <span class="pal-h"><span class="pal-name">${esc(p.name)}</span><span class="pal-gz"><i lang="zh">${BRANCHES[i].h}</i>${esc(p.stem)} ${esc(p.branch)}</span></span>
       ${isMenh || p.is_than || p.tuan || p.triet ? `<span class="pal-tags">${isMenh ? '<span class="seal-m" title="Cung Mệnh"><i lang="zh">命</i>Mệnh</span>' : ''}${p.is_than ? '<span class="seal-t" title="Thân cư"><i lang="zh">身</i>Thân</span>' : ''}${p.tuan ? '<span class="tag">Tuần</span>' : ''}${p.triet ? '<span class="tag">Triệt</span>' : ''}</span>` : ''}
       <span class="pal-maj">${p.major_stars.length ? p.major_stars.map(s => starHtml(s, true, p.major_dignity?.[s], true)).join('') : '<span class="vcd">vô chính diệu</span>'}</span>
-      <span class="pal-min">${minors.map(s => starHtml(s, false, undefined, true)).join('')}</span>
+      <span class="pal-min">${minors.map(s => starHtml(s, false, p.minor_dignity?.[s], true, p.minor_dignity_src?.[s])).join('')}</span>
       <span class="pal-foot">${d ? `<span class="pal-dh" title="Đại hạn">${d.age_from}<small>–${d.age_to}</small></span>` : ''}<span class="pal-cy"></span></span>
     </button>`;
   };
@@ -125,7 +129,7 @@ export function renderTuvi(host, t, ctx) {
     const none = '<p class="muted">Chưa có quy tắc nào đã đối chiếu sách khớp với cung này. Điều đó không có nghĩa cung “không có gì”, chỉ là bộ quy tắc hiện hành chưa phủ tới.</p>';
     const calc = `<div class="dr-tags">${p.tuan ? '<span class="tag">Tuần</span>' : ''}${p.triet ? '<span class="tag">Triệt</span>' : ''}${d ? `<span class="tag tag-dh">Đại hạn ${d.age_from}–${d.age_to} tuổi</span>` : ''}</div>
       <h5>Chính tinh</h5><div class="dr-stars">${p.major_stars.length ? p.major_stars.map(x => starHtml(x, true, p.major_dignity?.[x])).join('') : '<span class="vcd">Vô chính diệu — cung không có chính tinh.</span>'}</div>
-      <h5>Phụ tinh</h5>${[['pos', 'Cát tinh'], ['neu', 'Trung tính'], ['neg', 'Sát / hung tinh']].map(([k, l]) => grp(k).length ? `<div class="dr-grp"><span class="k">${l}</span><div class="dr-stars sm">${grp(k).map(x => starHtml(x, false)).join('')}</div></div>` : '').join('') || '<p class="muted">Không có.</p>'}
+      <h5>Phụ tinh</h5>${[['pos', 'Cát tinh'], ['neu', 'Trung tính'], ['neg', 'Sát / hung tinh']].map(([k, l]) => grp(k).length ? `<div class="dr-grp"><span class="k">${l}</span><div class="dr-stars sm">${grp(k).map(x => starHtml(x, false, p.minor_dignity?.[x], false, p.minor_dignity_src?.[x])).join('')}</div></div>` : '').join('') || '<p class="muted">Không có.</p>'}
       ${ths ? `<div class="dr-grp"><span class="k">Tứ Hóa tại cung</span><div class="chips">${ths}</div></div>` : ''}
       <h5>Tam Phương Tứ Chính</h5><div class="relps">${rel('Xung chiếu', s.opposite)}${rel('Tam hợp', s.tam_hop[0])}${rel('Tam hợp', s.tam_hop[1])}</div>
       <p class="muted small">Cung giáp: ${s.giap.map(b => `${esc(byBranch[b].name)} (${esc(b)})`).join(' · ')}</p>`;

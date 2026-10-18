@@ -1,4 +1,4 @@
-"""Miếu/Vượng/Đắc/Bình/Hãm lookup for the 14 chính tinh. Two published variants are kept apart (school variants):
+"""Miếu/Vượng/Đắc/Bình/Hãm lookup for the 14 chính tinh and the phụ tinh (dignity_aux.json, see minor_dignity_cell). Two published variants are kept apart (school variants):
   thuc_hanh : Tử Vi Thực Hành (default; transcribed from page images)
   toan_thu  : Tử Vi Đẩu Số Toàn Thư, Vũ Tài Lục (transcribed from the PDF text layer)
 Unlisted (star, branch) pairs return None = unspecified; nothing is guessed."""
@@ -35,20 +35,29 @@ def compare(branches: list[str]) -> list[dict]:
 
 
 @lru_cache(maxsize=1)
-def _minor() -> dict:
-    return json.loads((_DATA / "dignity_minor.json").read_text("utf-8"))["stars"]
+def _aux() -> dict:
+    return json.loads((_DATA / "dignity_aux.json").read_text("utf-8"))
 
 
-@lru_cache(maxsize=1)
-def _aux_th() -> dict:
-    return json.loads((_DATA / "dignity_aux_th.json").read_text("utf-8"))["stars"]
+AUX_SCHOOLS = ("thuc_hanh", "toan_thu", "khao_luan")
+# every phụ tinh that has a production table in at least one book (tools/build_aux_dignity.py); others are never classified
+MINOR_STARS = tuple(dict.fromkeys(s for sc in AUX_SCHOOLS for s in _aux()["tables"][sc]))
 
 
-MINOR_STARS = ("Văn Xương", "Văn Khúc", "Kình Dương", "Đà La", "Hỏa Tinh", "Tả Phụ", "Hữu Bật", "Thiên Mã")
+def minor_dignity_cell(star: str, branch: str, school: str = "toan_thu") -> dict | None:
+    """{level, term, school, locator} for an auxiliary star, or None when unknown.
+    The chosen book is used if it tabulates the star at all; otherwise the next book in `fallback` (star by star, never cell by
+    cell, so books are not mixed inside one star). A branch that table does not name is unknown. Experimental cells never show."""
+    a = _aux()
+    for sc in a["fallback"].get(school, a["fallback"]["toan_thu"]):
+        t = a["tables"][sc].get(star)
+        if t:
+            c = t["cells"].get(branch)
+            return {**c, "school": sc, "locator": t["locator"]} if c else None
+    return None
 
 
 def minor_dignity(star: str, branch: str, school: str = "toan_thu") -> str | None:
-    """Auxiliary-star brightness. school 'thuc_hanh' uses pp.50-52 of Thực Hành, anything else Toàn Thư's header lines (_minor)."""
-    first, second = (_aux_th(), _minor()) if school == "thuc_hanh" else (_minor(), _aux_th())
-    s = first.get(star) or second.get(star)          # a star the chosen book does not tabulate falls back to the other book
-    return s["levels"].get(branch) if s else None
+    """Auxiliary-star level on the five-step scale (see minor_dignity_cell)."""
+    c = minor_dignity_cell(star, branch, school)
+    return c["level"] if c else None
