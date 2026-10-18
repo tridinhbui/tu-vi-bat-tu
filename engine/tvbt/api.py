@@ -101,10 +101,21 @@ def chart_facts(req: BirthReq):
         decades.append({**d, "palace": pal["name"], "stem": stem, "hoa": {k: {"star": v, "palace": star_pal.get(v)} for k, v in hoa.items()},
                         "readings": van_han.read(tv, pal["name"])})
     year = req.to_year or req.year + 30
+    # Bát Tự: the fact base the Python engine reads for system 'bat_tu' (the same call as /api/analysis, so the same rules can fire), and
+    # the computed pillars, ten gods and luck pillars for the chapter's frame. Data only.
+    from .ganzhi import BRANCHES_VI
+    pil = {k: {"name": p.name, "stem": STEMS_VI[p.stem], "branch": BRANCHES_VI[p.branch], "stem_ten_god": p.stem_ten_god,
+               "hidden": [{"stem": h["name"], "element": h["element"], "ten_god": h["ten_god"]} for h in p.hidden],
+               "stage": p.stage_vs_day_master} for k, p in bz.pillars.items()}
+    bazi_out = {"base": facts.bazi_facts(bz), "pillars": pil, "day_master": STEMS_VI[bz.day_master], "day_master_element": bz.day_master_element,
+                "luck_direction": bz.luck_direction, "luck_start_age": round(bz.luck_start["age_years"], 1),
+                "luck": [{"name": lp.name, "start_age": round(lp.start_age, 1), "start_year": int(lp.start_date[:4]) if lp.start_date else None,
+                          "ten_god": lp.ten_god} for lp in bz.luck_pillars],
+                "kong_wang_day": bz.extras.get("kong_wang_day", [])}
     return {"engine": "tvbt-facts-1", "dignity_school": req.dignity_school, "birth_year": req.year, "lunar_year": tv.lunar["year"],
             "gender": req.gender, "year_gz": tv.year_gz, "cuc": tv.cuc, "menh_nap_am": tv.menh_nap_am, "menh_cuc_relation": tv.menh_cuc_relation,
             "yin_yang_gender": tv.yin_yang_gender, "dai_han_direction": tv.dai_han_direction,
-            "palaces": tv.palaces, "tu_hoa": tv.tu_hoa, "base": base, "decades": decades, "year": temporal.tuvi_year(tv, year)}
+            "palaces": tv.palaces, "tu_hoa": tv.tu_hoa, "base": base, "decades": decades, "year": temporal.tuvi_year(tv, year), "bazi": bazi_out}
 
 
 @app.post("/api/synthesis")

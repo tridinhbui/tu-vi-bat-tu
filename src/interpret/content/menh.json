@@ -1,0 +1,136 @@
+{
+ "note": "Mệnh, Thân và tính cách: the chapter reads the person from the Mệnh palace; Thân (when it sits elsewhere) and chart-level readings enter as cross links. Facts here are computed (cục, nạp âm, relation) or sourced (palace role, star groups).",
+ "modules": [
+  {
+   "id": "MT.10.FRAME",
+   "chapter": "menh",
+   "role": "central",
+   "order": 10,
+   "version": 1,
+   "status": "draft",
+   "title": "Cung Mệnh và cung Thân",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "role",
+     "basis": "sach",
+     "kind": "intro",
+     "cites": [
+      "{f.role_cite}"
+     ],
+     "when": {
+      "slot": "f.role",
+      "truthy": true
+     },
+     "variants": [
+      "Chương này đọc {chapter.scope}, trước hết qua cung Mệnh — cung mà Khảo Luận dành cho {f.role} ({f.role_cite}).",
+      "Con người nền tảng được đọc ở cung Mệnh; theo Khảo Luận, đây là nơi nói về {f.role} ({f.role_cite})."
+     ]
+    },
+    {
+     "id": "config",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "not": {
+       "slot": "f.no_major",
+       "truthy": true
+      }
+     },
+     "variants": [
+      "Mệnh an tại {f.where} với {f.majors_dig}{?f.sat|, có sát tinh {f.sat}}{?f.cat|, có {f.cat}}{?f.hoa|, mang {f.hoa}}{?f.tt|, gặp {f.tt}}.",
+      "Cung Mệnh an tại {f.where}; chính tinh là {f.majors_dig}{?f.sat|, đi cùng {f.sat}}{?f.cat|, có {f.cat}}{?f.hoa|, mang {f.hoa}}{?f.tt|, lại gặp {f.tt}}."
+     ]
+    },
+    {
+     "id": "config_vcd",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "f.no_major",
+      "truthy": true
+     },
+     "variants": [
+      "Mệnh an tại {f.where} và không có chính tinh{?f.minor|, chỉ có {f.minor}}{?f.tt|, gặp {f.tt}}; khi Mệnh vô chính diệu, bản luận đọc thêm chính tinh của cung đối diện là {opp.name} ({opp.majors_dig})."
+     ]
+    },
+    {
+     "id": "cuc",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "menh.cuc_rel",
+      "truthy": true
+     },
+     "variants": [
+      "Cục là {menh.cuc}, bản mệnh {menh.nap_am}; quan hệ giữa cục và mệnh được ghi là “{menh.cuc_rel}”."
+     ]
+    },
+    {
+     "id": "triad",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "Ba cung soi về Mệnh là {triad.b} ({triad.b_majors}{?triad.b_notable|, có {triad.b_notable}}), {triad.a} ({triad.a_majors}{?triad.a_notable|, có {triad.a_notable}}) và cung đối diện {opp.name} ({opp.majors_dig}{?opp.notable|, có {opp.notable}})."
+     ]
+    },
+    {
+     "id": "than_same",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "not": {
+       "slot": "than.differs",
+       "truthy": true
+      }
+     },
+     "variants": [
+      "Thân cư ngay tại Mệnh, nên con người tiên thiên và con người hậu thiên được đọc ở cùng một cung."
+     ]
+    },
+    {
+     "id": "than_other",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "than.differs",
+      "truthy": true
+     },
+     "variants": [
+      "Thân cư ở cung {than.palace} ({than.majors_dig}), nên ngoài Mệnh, các câu sách ở cung ấy cũng được tính khi đọc con người."
+     ]
+    },
+    {
+     "id": "group",
+     "basis": "sach",
+     "kind": "ground",
+     "cites": [
+      "KL pp.166-167"
+     ],
+     "when": {
+      "slot": "f.group",
+      "truthy": true
+     },
+     "variants": [
+      "Theo cách phân nhóm của Khảo Luận, chính tinh {f.group_stars} ở Mệnh thuộc {f.group} (Khảo Luận tr.166–167); đây là phân loại tính chất hoạt động của sao, chưa phải nhận định về số phận."
+     ]
+    },
+    {
+     "id": "profiles",
+     "basis": "sach",
+     "kind": "ground",
+     "cites": [
+      "{profiles.cite}"
+     ],
+     "when": {
+      "slot": "profiles",
+      "truthy": true
+     },
+     "variants": [
+      "Nền nghĩa của chính tinh ở Mệnh, theo Thực Hành: {profiles} ({profiles.cite})."
+     ]
+    }
+   ]
+  }
+ ]
+}

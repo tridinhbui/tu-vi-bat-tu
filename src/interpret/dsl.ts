@@ -76,6 +76,15 @@ export function trueLeaves(expr: Expr, facts: Facts): Array<{ fact: string; oper
   return sub.flatMap(e => trueLeaves(e, facts));
 }
 
+/** Leaves under a satisfied `not` (the inner condition is false on the chart): what the rule requires to be ABSENT, for the rendered
+ *  condition ("Tử Vi tại Mệnh, không có Tả Phụ và Hữu Bật hội chiếu"). Only `not` nodes on a satisfied path are followed. */
+export function absentLeaves(expr: Expr, facts: Facts): Array<{ fact: string; operator: string; value: unknown }> {
+  if ('fact' in expr || 'ref' in expr) return [];
+  if ('not' in expr) return evaluate(expr.not, facts) === false ? leaves(expr.not).filter(l => !l.fact.startsWith('not:') && !l.fact.startsWith('ref:')) : [];
+  const sub = 'all' in expr ? expr.all : 'any' in expr ? expr.any.filter(e => evaluate(e, facts) === true) : 'count' in expr ? expr.count : [];
+  return sub.flatMap(e => absentLeaves(e, facts));
+}
+
 /** All leaves of a condition (fact, operator, value), for provenance and independence keys. */
 export function leaves(expr: Expr): Array<{ fact: string; operator: string; value: unknown }> {
   if ('fact' in expr) return [{ fact: expr.fact, operator: expr.operator ?? 'eq', value: expr.value }];

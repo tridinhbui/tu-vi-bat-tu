@@ -1,0 +1,373 @@
+{
+ "modules": [
+  {
+   "id": "BT.00.NONE",
+   "chapter": "bat_tu",
+   "role": "limits",
+   "order": 0,
+   "version": 1,
+   "status": "draft",
+   "title": "Bát Tự",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "none",
+     "basis": "he_thong",
+     "kind": "limits",
+     "variants": [
+      "Dữ liệu lá số này không có phần Bát Tự (tứ trụ), nên chương này để trống."
+     ]
+    }
+   ],
+   "when": {
+    "slot": "bz.none",
+    "truthy": true
+   }
+  },
+  {
+   "id": "BT.10.FRAME",
+   "chapter": "bat_tu",
+   "role": "central",
+   "order": 10,
+   "version": 1,
+   "status": "draft",
+   "title": "Tứ trụ và nhật chủ",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "pillars",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "Tứ trụ của lá số là trụ {bz.pillars}. Nhật chủ, tức thiên can của trụ ngày, là {bz.dm}, thuộc hành {bz.dm_el}.",
+      "Bốn trụ được tính ra là trụ {bz.pillars}; thiên can ngày {bz.dm} (hành {bz.dm_el}) là nhật chủ, điểm quy chiếu của mọi quan hệ trong Bát Tự."
+     ]
+    },
+    {
+     "id": "month",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "bz.dm_stage",
+      "truthy": true
+     },
+     "variants": [
+      "Nhật chủ sinh vào tháng {bz.month_branch}; theo vòng trường sinh, {bz.dm} ở tháng này rơi vào trạng thái {bz.dm_stage}. Tàng can của nguyệt lệnh {bz.month_branch} là {bz.month_hidden}."
+     ]
+    },
+    {
+     "id": "gods",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "bz.stem_gods",
+      "truthy": true
+     },
+     "variants": [
+      "Xét theo nhật chủ, thập thần của các thiên can còn lại là: {bz.stem_gods}."
+     ]
+    },
+    {
+     "id": "roots",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "bz.roots",
+      "truthy": true
+     },
+     "variants": [
+      "Nhật chủ có gốc: tàng can cùng hành {bz.dm_el} xuất hiện ở {bz.roots}."
+     ]
+    },
+    {
+     "id": "no_root",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "bz.no_root",
+      "truthy": true
+     },
+     "variants": [
+      "Không chi nào trong bốn trụ tàng can cùng hành {bz.dm_el} với nhật chủ, tức nhật chủ không có gốc trong địa chi."
+     ]
+    },
+    {
+     "id": "elements",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "bz.missing",
+      "truthy": true
+     },
+     "variants": [
+      "Trên thiên can và hành chính của bốn địa chi không thấy hành {bz.missing}{?bz.hidden_only|; hành {bz.hidden_only} chỉ có mặt trong tàng can}."
+     ]
+    },
+    {
+     "id": "elements_all",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "bz.all_elements",
+      "truthy": true
+     },
+     "variants": [
+      "Cả năm hành đều hiện trên thiên can hoặc hành chính của địa chi."
+     ]
+    }
+   ],
+   "when": {
+    "not": {
+     "slot": "bz.none",
+     "truthy": true
+    }
+   }
+  },
+  {
+   "id": "BT.20.DM",
+   "chapter": "bat_tu",
+   "role": "factor",
+   "order": 20,
+   "version": 1,
+   "status": "draft",
+   "title": "Nhật chủ theo sách",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "dm",
+     "basis": "sach",
+     "kind": "claim",
+     "each": "bz_dm",
+     "variants": [
+      "Bát Tự Chân Tông mô tả người có nhật chủ {bz.dm} là “{r.quote}” ({r.cite}).",
+      "Với nhật chủ {bz.dm}, sách ghi: “{r.quote}” ({r.cite})."
+     ],
+     "followups": [
+      "Bảng thứ hai của sách cho cùng nhật chủ ấy ghi thêm: “{r.quote}” ({r.cite}).",
+      "Sách còn ghi cho nhật chủ {bz.dm}: “{r.quote}” ({r.cite})."
+     ]
+    },
+    {
+     "id": "note",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "when": {
+      "list": "bz_dm",
+      "min": 2
+     },
+     "variants": [
+      "Hai mô tả này đến từ hai bảng tra khác nhau của cùng một sách, đều chỉ dựa trên thiên can ngày; chúng là nét chung của mọi người cùng nhật chủ {bz.dm}, chưa xét đến các trụ khác."
+     ]
+    }
+   ],
+   "when": {
+    "list": "bz_dm"
+   }
+  },
+  {
+   "id": "BT.30.NAPAM",
+   "chapter": "bat_tu",
+   "role": "factor",
+   "order": 30,
+   "version": 1,
+   "status": "draft",
+   "title": "Nạp âm của trụ ngày",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "napam",
+     "basis": "sach",
+     "kind": "claim",
+     "each": "bz_napam",
+     "variants": [
+      "Trụ ngày {bz.day} có nạp âm {bz.napam}; theo cách sách đọc tính cách từ nạp âm trụ ngày, đó là người “{r.quote}” ({r.cite}).",
+      "Nạp âm của trụ ngày {bz.day} là {bz.napam}, và sách đọc nạp âm ấy là “{r.quote}” ({r.cite})."
+     ]
+    }
+   ],
+   "when": {
+    "list": "bz_napam"
+   }
+  },
+  {
+   "id": "BT.35.OTHER",
+   "chapter": "bat_tu",
+   "role": "factor",
+   "order": 35,
+   "version": 1,
+   "status": "draft",
+   "title": "Các câu sách khác",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "other",
+     "basis": "sach",
+     "kind": "claim",
+     "each": "bz_other",
+     "variants": [
+      "Sách còn ghi “{r.quote}” ({r.cite})."
+     ]
+    }
+   ],
+   "when": {
+    "list": "bz_other"
+   }
+  },
+  {
+   "id": "BT.50.LUCK",
+   "chapter": "bat_tu",
+   "role": "timing",
+   "order": 50,
+   "version": 1,
+   "status": "draft",
+   "title": "Đại vận",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "luck",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "variants": [
+      "Đại vận chạy {bz.luck_dir}, khởi vận vào khoảng {bz.luck_start}; mỗi vận kéo dài mười năm."
+     ]
+    },
+    {
+     "id": "now",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "when": {
+      "slot": "bz.luck_now",
+      "truthy": true
+     },
+     "variants": [
+      "Tính đến năm {bz.year}, vận đang đi là {bz.luck_now}{?bz.luck_next|; vận kế tiếp là {bz.luck_next}}."
+     ]
+    },
+    {
+     "id": "switch",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "when": {
+      "slot": "bz.luck_now_starts_this_year",
+      "truthy": true
+     },
+     "variants": [
+      "Vận này bắt đầu ngay trong năm {bz.year}, nên năm ấy là năm chuyển vận."
+     ]
+    },
+    {
+     "id": "no_reading",
+     "basis": "he_thong",
+     "kind": "limits",
+     "variants": [
+      "Bộ quy tắc Bát Tự đã đối chiếu chưa có câu sách nào đọc đại vận, nên ở đây chỉ ghi vận đang đi, không luận tốt xấu."
+     ]
+    }
+   ],
+   "when": {
+    "not": {
+     "slot": "bz.none",
+     "truthy": true
+    }
+   }
+  },
+  {
+   "id": "BT.85.LIMITS",
+   "chapter": "bat_tu",
+   "role": "limits",
+   "order": 85,
+   "version": 1,
+   "status": "draft",
+   "title": "Cơ sở và giới hạn",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "method",
+     "basis": "he_thong",
+     "kind": "method",
+     "variants": [
+      "Các câu trong ngoặc kép là phần diễn ý của Bát Tự Chân Tông (八字真宗), ghi theo số trang PDF của bản đang lưu hành; chúng không phải nguyên văn. Phần Bát Tự được đọc riêng, không trộn với Tử Vi."
+     ]
+    },
+    {
+     "id": "scope",
+     "basis": "he_thong",
+     "kind": "limits",
+     "variants": [
+      "Chương này chưa xét vượng suy của nhật chủ, dụng thần và cách cục: các phép ấy chưa có quy tắc vừa đã đối chiếu vừa đã nối vào dữ kiện trong bản luận này, nên mọi nhận định về chúng đều bị bỏ trống thay vì đoán. Các phán đoán trực tiếp của sách về nghề nghiệp, hôn nhân, anh em (PDF tr.51–58) đã được đối chiếu nhưng chưa được nối vào hệ thống, nên cũng chưa dùng ở đây."
+     ]
+    },
+    {
+     "id": "drafts",
+     "basis": "dieu_kien",
+     "kind": "limits",
+     "when": {
+      "slot": "bz.drafts",
+      "truthy": true
+     },
+     "variants": [
+      "Có {bz.drafts_n} câu bị để ngoài vì quy tắc tương ứng chưa được đối chiếu đủ: {bz.drafts}."
+     ]
+    }
+   ],
+   "when": {
+    "not": {
+     "slot": "bz.none",
+     "truthy": true
+    }
+   }
+  },
+  {
+   "id": "BT.90.SYN",
+   "chapter": "bat_tu",
+   "role": "synthesis",
+   "order": 90,
+   "version": 1,
+   "status": "draft",
+   "title": "Tổng hợp",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "syn",
+     "basis": "he_thong",
+     "kind": "synthesis",
+     "when": {
+      "slot": "bz.has_readings",
+      "truthy": true
+     },
+     "variants": [
+      "Phần Bát Tự đã đối chiếu trên lá số này gồm {bz.verified_n} câu sách, đều đọc từ trụ ngày: mô tả tính cách theo nhật chủ {bz.dm} và theo nạp âm {bz.napam}. Đó là những nét sách gán cho mọi người cùng nhật chủ hay cùng trụ ngày, nên chỉ là điểm khởi đầu; phần riêng của lá số nằm ở quan hệ giữa bốn trụ, mà bản luận chưa có quy tắc đã kiểm chứng để đọc."
+     ]
+    },
+    {
+     "id": "none",
+     "basis": "he_thong",
+     "kind": "synthesis",
+     "when": {
+      "not": {
+       "slot": "bz.has_readings",
+       "truthy": true
+      }
+     },
+     "variants": [
+      "Trên lá số này chưa có câu sách Bát Tự đã đối chiếu nào khớp, nên chương chỉ ghi tứ trụ và đại vận."
+     ]
+    },
+    {
+     "id": "frame",
+     "basis": "he_thong",
+     "kind": "reflection",
+     "variants": [
+      "Đây là cách đọc theo hệ biểu tượng truyền thống, có điều kiện, không phải lời tiên đoán."
+     ]
+    }
+   ],
+   "when": {
+    "not": {
+     "slot": "bz.none",
+     "truthy": true
+    }
+   }
+  }
+ ]
+}

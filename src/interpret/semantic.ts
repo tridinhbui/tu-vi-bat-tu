@@ -1,7 +1,7 @@
 // Semantic layer (port of the parts of engine/tvbt/synthesis/semantics.py the narrative needs): a rule's own book sentence, its
 // condition as the book states it, the condition leaves TRUE on this chart in Vietnamese, the concepts the sentence names
 // (longest-cue matching with negation), polarity and modality, and the normalised chart facts it stands on (independence key).
-import { leaves, trueLeaves } from './dsl.ts';
+import { absentLeaves, leaves, trueLeaves } from './dsl.ts';
 import type { Concept, Facts, Finding, Knowledge, Rule } from './types.ts';
 
 export interface Evidence {
@@ -13,13 +13,15 @@ export interface Evidence {
 }
 
 const SCHOOL: Record<string, string> = { SRC_THUC_HANH: 'Thực Hành', SRC_KHAO_LUAN: 'Khảo Luận', SRC_TOAN_THU: 'Toàn Thư', SRC_TVDS_TAN_BIEN: 'Tân Biên' };
-const EDITORIAL = ["'", '‘', '“', 'sách ', 'đây là', 'câu ', 'độ sáng', 'cùng nhận định', 'chưa ', 'đọc là', 'nhưng sách', 'bảng ', 'tức ', 'gọi là'];
+const EDITORIAL = ["'", '‘', '“', 'sách ', 'đây là', 'câu ', 'độ sáng', 'cùng nhận định', 'chưa ', 'đọc là', 'nhưng sách', 'bảng ', 'tức ', 'gọi là', 'mùa lấy theo', 'ngưỡng ', 'hệ thống '];
 const CONTRAST = [' nhưng ', ' mà ', ' song ', ' tuy '];
 const NORM: Record<string, string> = {
   'palace.own_major_stars': 'own', 'palace.own_stars': 'own', 'palace.tam_phuong_stars': 'tp', 'palace.tam_phuong_majors': 'tp',
   'palace.tam_phuong_tu_hoa': 'tp', 'palace.rel.tp_hoa': 'tp', 'palace.tu_hoa': 'own', 'palace.rel.opp_stars': 'opp', 'palace.rel.opp_majors': 'opp',
   'palace.neighbor_stars': 'nb', 'palace.neighbor_majors': 'nb', 'palace.rel.flank_prev_stars': 'nb', 'palace.rel.flank_next_stars': 'nb',
   'palace.rel.flank_prev_majors': 'nb', 'palace.rel.flank_next_majors': 'nb',
+  // the tam phương as positions.py computes it (self + opposite + two trines), and the trines alone: both read "hội chiếu về"
+  'palace.rel.tp_stars': 'tp', 'palace.rel.tp_majors': 'tp', 'palace.rel.trine_stars': 'tp', 'palace.rel.trine_majors': 'tp',
 };
 
 export class Lexicon {
@@ -99,10 +101,13 @@ export function chartCondition(rule: Rule, facts: Facts, palace: string | null):
     else if (NORM[lf.fact] === 'tp') add(tp);
     else if (NORM[lf.fact] === 'opp') add(opp);
     else if (NORM[lf.fact] === 'nb') add(nb);
-    else if (lf.fact === 'palace.branch') extra.push(`${palace ?? 'cung'} an tại ${got}`);
+    else if (lf.fact === 'palace.branch') extra.push(`${palace ?? 'cung'} ở ${got}`);
     else if ((lf.fact === 'palace.tuan' || lf.fact === 'palace.triet') && got) extra.push(`${palace ?? 'cung'} có ${lf.fact.endsWith('tuan') ? 'Tuần' : 'Triệt'}`);
     else if (lf.fact === 'chart.gender') extra.push(`${got} mệnh`);
     else if (lf.fact === 'palace.khi.sat_tp') extra.push(`sát tinh hội về ${palace ?? 'cung'}`);
+    else if (lf.fact === 'palace.khi.cat_tp') extra.push(`cát tinh hội về ${palace ?? 'cung'}`);
+    else if (lf.fact === 'palace.has_no_major' && got) extra.push(`${palace ?? 'cung'} vô chính diệu`);
+    else if (lf.fact === 'palace.is_than' && got) extra.push(`Thân cư ${palace ?? 'cung'}`);
     else if (lf.fact === 'chart.year_branch') extra.push(`${rule.reading?.match(/^([^:]{3,45}):/)?.[1] ?? 'thế Đào – Hồng – Thiên Không'} theo tuổi ${got}`);
   }
   for (const s of Object.keys(dig)) if (!own.includes(s) && !tp.includes(s)) own.push(s);
@@ -113,6 +118,15 @@ export function chartCondition(rule: Rule, facts: Facts, palace: string | null):
   const tp2 = tp.filter(x => !own.includes(x) && !hoa.includes(x));
   if (tp2.length) parts.push(`${join(tp2)} hội chiếu về ${where}`);
   if (nb.length) parts.push(`${join(nb)} giáp ${where}`);
+  // what the rule requires to be absent (a satisfied `not`): said, or the reading looks unconditional ("cô quân" needs no Tả Hữu)
+  const noOwn: string[] = [], noTp: string[] = [];
+  for (const lf of absentLeaves(rule.conditions, facts)) {
+    const vs = (Array.isArray(lf.value) ? lf.value : [lf.value]).filter((v): v is string => typeof v === 'string');
+    if (NORM[lf.fact] === 'own') vs.forEach(v => !noOwn.includes(v) && noOwn.push(v));
+    else if (NORM[lf.fact] === 'tp') vs.forEach(v => !noTp.includes(v) && noTp.push(v));
+  }
+  if (noOwn.length) parts.push(`${where} không có ${join(noOwn)}`);
+  if (noTp.length) parts.push(`không có ${join(noTp)} hội chiếu`);
   return { text: [...parts, ...extra].join(', '), stars: [...new Set([...own, ...hoa, ...opp, ...tp2, ...nb])] };
 }
 

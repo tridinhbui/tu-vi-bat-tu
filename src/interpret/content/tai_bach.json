@@ -1,0 +1,32 @@
+{
+ "note": "Tài Bạch: no chapter-specific prose beyond the shared modules; the Tứ Hóa note Khảo Luận gives for this palace is added when a hóa sits here.",
+ "modules": [
+  {
+   "id": "TB.20.HOA",
+   "chapter": "tai_bach",
+   "role": "factor",
+   "order": 20,
+   "version": 1,
+   "status": "draft",
+   "title": "Tứ Hóa tại cung tiền bạc",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "when": {
+    "slot": "f.hoa_notes",
+    "truthy": true
+   },
+   "passages": [
+    {
+     "id": "hoa",
+     "basis": "sach",
+     "kind": "ground",
+     "cites": [
+      "KL pp.195-197"
+     ],
+     "variants": [
+      "Cung này mang Tứ Hóa của năm sinh, và Khảo Luận có một câu riêng cho vị trí ấy: {f.hoa_notes} (Khảo Luận tr.195–197)."
+     ]
+    }
+   ]
+  }
+ ]
+}

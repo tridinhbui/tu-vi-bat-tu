@@ -1,6 +1,6 @@
 // Editorial workflow for interpretation content modules (src/interpret/content/*.json).
-//   node tools/interpret/editorial.ts lint                          schema + safety checks, render coverage over the regression charts
-//   node tools/interpret/editorial.ts preview [chart-index]         render the chapter for a regression chart with sentence provenance
+//   node tools/interpret/editorial.ts lint                          schema + safety checks, render coverage (every chapter, regression charts)
+//   node tools/interpret/editorial.ts preview [chart-index] [chapter]   render a chapter (default cong_danh) with sentence provenance
 //   node tools/interpret/editorial.ts submit  <module> --by <name> [--notes ...]            draft -> in_review
 //   node tools/interpret/editorial.ts approve <module> --by <name> [--notes ...]            in_review -> approved (reviewer != author)
 //   node tools/interpret/editorial.ts request-changes <module> --by <name> --notes ...      in_review -> draft
@@ -11,14 +11,16 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { interpret } from '../../src/interpret/pipeline.ts';
+import { interpret, CHAPTERS, type Chapter } from '../../src/interpret/pipeline.ts';
 import type { ContentModule, Knowledge } from '../../src/interpret/types.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CONTENT = join(ROOT, 'src', 'interpret', 'content');
 const BASES = new Set(['sach', 'dieu_kien', 'he_thong', 'tinh_toan']);
-const ROLES = new Set(['central', 'factor', 'counter', 'cross', 'dominance', 'timing', 'limits', 'synthesis']);
-const BANNED = [/chắc chắn/i, /định mệnh/i, /nhất định sẽ/i, /tai họa/i, /sẽ bị/i, /tuyệt đối/i, /không thể tránh/i];
+const ROLES = new Set(['central', 'factor', 'counter', 'cross', 'dominance', 'timing', 'limits', 'synthesis', 'notice', 'frame']);
+const BANNED = [/chắc chắn/i, /định mệnh/i, /nhất định sẽ/i, /tai họa/i, /sẽ bị/i, /tuyệt đối/i, /không thể tránh/i, /\bchết\b/i, /\bly hôn\b/i, /\bphá sản\b/i, /\bung thư\b/i];
+// slots that carry fired book readings or sourced reference sentences (a 'sach' passage must use one, or declare its own cites)
+const SACH_SLOT = /\{\??(list:|x\.quote|profiles|dh\.(quan|focus)_readings|d\.|s\.|t\.|y\.|r\.quote|rest|f\.(role|group|hoa_notes|dignity)|group\.|menh\.|stage|tuhoa|timing\.list|lim\.scope)/;
 const files = readdirSync(CONTENT).filter(f => f.endsWith('.json')).sort();
 const load = () => files.map(f => ({ f, d: JSON.parse(readFileSync(join(CONTENT, f), 'utf8')) as { modules: Array<ContentModule & { reviews?: any[]; contentHash?: string }> } }));
 const hashOf = (m: ContentModule) => createHash('sha256').update(JSON.stringify(m.passages)).digest('hex').slice(0, 12);
@@ -38,7 +40,7 @@ function lint(): number {
       if (!p.variants?.length) problems.push(`${where}/${p.id}: no variants`);
       for (const v of [...p.variants, ...(p.followups ?? [])]) {
         if (BANNED.some(b => b.test(v))) problems.push(`${where}/${p.id}: banned wording in template: ${v.slice(0, 60)}`);
-        if (p.basis === 'sach' && !/\{(list:|x\.quote|profiles|dh\.quan_readings|d\.|s\.|t\.)/.test(v) && !(p.cites ?? []).length)
+        if (p.basis === 'sach' && !SACH_SLOT.test(v) && !(p.cites ?? []).length)
           problems.push(`${where}/${p.id}: a 'sach' passage must quote fired rules through a slot or declare cites`);
         const stray = v.replace(/\{[^{}]*\}/g, '').match(/[“”]/g);
         if (stray && stray.length % 2) problems.push(`${where}/${p.id}: unbalanced quotes in template`);
@@ -47,16 +49,16 @@ function lint(): number {
   }
   // render coverage: passages that never render on any regression chart are flagged (dead text or a gate that cannot hold)
   const k = knowledge(), rendered = new Set<string>();
-  for (const c of charts()) for (const p of interpret(c.facts, 'cong_danh', k).paragraphs) for (const s of p.sentences) rendered.add(`${s.module}/${s.passage}`);
+  for (const c of charts()) for (const ch of CHAPTERS) for (const p of interpret(c.facts, ch, k).paragraphs) for (const s of p.sentences) rendered.add(`${s.module}/${s.passage}`);
   const never = load().flatMap(({ d }) => d.modules.flatMap(m => m.passages.map(p => `${m.id}/${p.id}`))).filter(x => !rendered.has(x));
   for (const p of problems) console.log('ERROR', p);
   console.log(`modules: ${seen.size}; passages never rendered on the ${charts().length} regression charts: ${never.length ? never.join(', ') : 'none'}`);
   return problems.length ? 1 : 0;
 }
 
-function preview(idx: number) {
-  const c = charts()[idx], o = interpret(c.facts, 'cong_danh', knowledge());
-  console.log(`# ${c.label} — ${c.birth.year}-${c.birth.month}-${c.birth.day} ${c.birth.hour}:${c.birth.minute} ${c.birth.gender}\n`);
+function preview(idx: number, chapter: Chapter) {
+  const c = charts()[idx], o = interpret(c.facts, chapter, knowledge());
+  console.log(`# ${o.title} · ${c.label} — ${c.birth.year}-${c.birth.month}-${c.birth.day} ${c.birth.hour}:${c.birth.minute} ${c.birth.gender}\n`);
   for (const p of o.paragraphs) {
     console.log(`## ${p.title}  [${p.module}]`);
     for (const s of p.sentences) console.log(`  (${s.basis}${s.rules.length ? ' · ' + s.rules.join(', ') : ''}) ${s.text}`);
@@ -86,6 +88,6 @@ function transition(action: string, id: string, by: string, notes: string) {
 const [cmd, a1, ...rest] = process.argv.slice(2);
 const flag = (n: string) => { const i = rest.indexOf(n); return i >= 0 ? rest[i + 1] ?? '' : ''; };
 if (cmd === 'lint') process.exit(lint());
-else if (cmd === 'preview') preview(Number(a1 ?? 0));
+else if (cmd === 'preview') preview(Number(a1 ?? 0), (rest[0] ?? 'cong_danh') as Chapter);
 else if (['submit', 'approve', 'request-changes', 'retire'].includes(cmd)) transition(cmd, a1, flag('--by') || (() => { throw new Error('--by is required'); })(), flag('--notes'));
 else { console.log(readFileSync(fileURLToPath(import.meta.url), 'utf8').split('\n').slice(0, 10).join('\n')); process.exit(2); }

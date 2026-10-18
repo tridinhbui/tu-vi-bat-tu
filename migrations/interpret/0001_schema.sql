@@ -38,12 +38,17 @@ CREATE TABLE IF NOT EXISTS kg_edges (src TEXT NOT NULL, dst TEXT NOT NULL, kind 
 CREATE TABLE IF NOT EXISTS content_modules (
   id TEXT PRIMARY KEY, chapter TEXT NOT NULL, role TEXT NOT NULL, version INTEGER NOT NULL,
   status TEXT NOT NULL CHECK (status IN ('draft','in_review','approved','retired')),
-  title TEXT NOT NULL, when_json TEXT, evidence_json TEXT, slots_json TEXT, author TEXT, updated_at TEXT DEFAULT (datetime('now'))
+  title TEXT NOT NULL, when_json TEXT, evidence_json TEXT, slots_json TEXT, author TEXT, updated_at TEXT DEFAULT (datetime('now')),
+  -- render order and layout: {order, each, merge, exceptChapters} (a module may repeat over the argument graph's themes, or apply to
+  -- every chapter except some)
+  layout_json TEXT
 );
 CREATE TABLE IF NOT EXISTS module_passages (
   module_id TEXT NOT NULL REFERENCES content_modules(id), passage_id TEXT NOT NULL, ord INTEGER NOT NULL, when_json TEXT,
   basis TEXT NOT NULL CHECK (basis IN ('sach','dieu_kien','he_thong','tinh_toan')), kind TEXT NOT NULL DEFAULT 'claim',
-  variants_json TEXT NOT NULL, cites_json TEXT NOT NULL DEFAULT '[]', PRIMARY KEY (module_id, passage_id)
+  variants_json TEXT NOT NULL, cites_json TEXT NOT NULL DEFAULT '[]',
+  layout_json TEXT, -- {each, followups}: a passage repeated over a list, and the passages chained after it
+  PRIMARY KEY (module_id, passage_id)
 );
 -- Editorial workflow: every status change of a module version is a review row (who, decision, notes).
 CREATE TABLE IF NOT EXISTS module_reviews (

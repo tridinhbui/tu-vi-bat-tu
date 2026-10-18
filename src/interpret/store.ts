@@ -40,12 +40,15 @@ export class D1Store implements KnowledgeStore {
     const relations = (await q<any>('SELECT * FROM concept_relations')).map(r => ({ a: r.a, b: r.b, type: r.type, frame: r.frame ?? undefined, synth: r.synth ?? undefined }));
     const passages = await q<any>('SELECT * FROM module_passages ORDER BY module_id, ord');
     const modules: ContentModule[] = (await q<any>("SELECT * FROM content_modules WHERE status != 'retired'")).map(m => {
-      const b = this.bundle.modules.find(x => x.id === m.id);
-      return { id: m.id, chapter: m.chapter, role: m.role, version: m.version, status: m.status, title: m.title, order: b?.order ?? 50,
+      const lay = J<{ order?: number; each?: string; merge?: boolean; exceptChapters?: string[] }>(m.layout_json, {});
+      return { id: m.id, chapter: m.chapter, role: m.role, version: m.version, status: m.status, title: m.title, order: lay.order ?? 50,
+        each: lay.each, merge: lay.merge, exceptChapters: lay.exceptChapters,
         when: J(m.when_json, undefined), evidence: J(m.evidence_json, undefined), author: m.author ?? undefined,
-        passages: passages.filter(p => p.module_id === m.id).map(p => ({ id: p.passage_id, when: J(p.when_json, undefined), basis: p.basis, kind: p.kind,
-          variants: J(p.variants_json, []), cites: J(p.cites_json, []), each: b?.passages.find(x => x.id === p.passage_id)?.each,
-          followups: b?.passages.find(x => x.id === p.passage_id)?.followups })) };
+        passages: passages.filter(p => p.module_id === m.id).map(p => {
+          const pl = J<{ each?: string; followups?: any[] }>(p.layout_json, {});
+          return { id: p.passage_id, when: J(p.when_json, undefined), basis: p.basis, kind: p.kind, variants: J(p.variants_json, []), cites: J(p.cites_json, []),
+            each: pl.each, followups: pl.followups };
+        }) };
     });
     this.cache = { ...this.bundle, version, sources, rules, claims, concepts: { ...this.bundle.concepts, concepts }, relations: { ...this.bundle.relations, relations }, modules };
     return this.cache;

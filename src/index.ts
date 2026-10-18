@@ -35,7 +35,8 @@ async function interpretRoute(request: Request, env: Env, ctx: ExecutionContext)
   const store = env.INTERPRET_DB ? new D1Store(env.INTERPRET_DB, knowledge as unknown as Knowledge) : new BundledStore(knowledge as unknown as Knowledge);
   const k = await store.load();
   const cache = new LayeredCache({ db: env.INTERPRET_DB, r2: env.INTERPRET_CACHE, edge: (globalThis as any).caches?.default });
-  const key = await cacheKey([facts.base, facts.decades, facts.year, chapter, ENGINE_VERSION, k.version]);
+  // the Bát Tự chapter reads facts.bazi (pillars, luck), the others the Tử Vi facts; both go into the key so no chapter can hit a stale entry
+  const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version]);
   const hit = await cache.get(key);
   if (hit) return new Response(hit, { headers: { "content-type": "application/json; charset=utf-8", "x-interpret-cache": "hit" } });
   const out = interpret(facts, chapter, k);

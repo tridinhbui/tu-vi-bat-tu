@@ -1,0 +1,348 @@
+{
+ "note": "Đại hạn và tiểu hạn: decades and the year from the engine's time data (timeline.ts). Book sentences are the production vận readings (Khảo Luận pp.233-236, Thực Hành pp.115-117) and the lưu Tứ Hóa advice (Khảo Luận pp.195-197).",
+ "modules": [
+  {
+   "id": "VH.10.FRAME",
+   "chapter": "van_han",
+   "role": "central",
+   "order": 10,
+   "version": 1,
+   "status": "draft",
+   "title": "Cách vận được tính",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "dir",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "Đại hạn trên lá số này chạy {dir}, bắt đầu từ cung Mệnh ở tuổi {start} theo {cuc}; mỗi chặng mười năm đi qua một cung, và năm {year} đương số {age} tuổi mụ."
+     ]
+    },
+    {
+     "id": "path",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "when": {
+      "slot": "decades.path",
+      "truthy": true
+     },
+     "variants": [
+      "Quanh tuổi hiện tại, các chặng lần lượt là {decades.path}."
+     ]
+    },
+    {
+     "id": "method",
+     "basis": "he_thong",
+     "kind": "method",
+     "variants": [
+      "Chương này chỉ dùng những câu đọc vận mà sách gắn với cung của từng chặng, cùng vị trí Tứ Hóa theo can của chặng; các câu sách nói về thành tựu sớm hay muộn đã được đọc trong từng chương theo cung, nên không nhắc lại ở đây."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "VH.20.NOW",
+   "chapter": "van_han",
+   "role": "timing",
+   "order": 20,
+   "version": 1,
+   "status": "draft",
+   "title": "Chặng đang đi qua",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "each": "decade_now",
+   "passages": [
+    {
+     "id": "where",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "variants": [
+      "Từ {d.range} tuổi mụ, vận ở cung {d.palace} (can {d.stem}), {d.majors_phrase}{?d.domain|; cung này là nơi đọc {d.domain}}.",
+      "Chặng {d.range} tuổi mụ đi qua cung {d.palace}, can {d.stem}, {d.majors_phrase}{?d.domain|; đây là cung của {d.domain}}."
+     ]
+    },
+    {
+     "id": "stage",
+     "basis": "sach",
+     "kind": "timing",
+     "when": {
+      "slot": "d.stage",
+      "truthy": true
+     },
+     "cites": [
+      "KL pp.233-236"
+     ],
+     "variants": [
+      "Khảo Luận gọi chặng ở cung này là {d.stage} ({stage.cite})."
+     ]
+    },
+    {
+     "id": "readings",
+     "basis": "sach",
+     "kind": "timing",
+     "when": {
+      "slot": "d.readings",
+      "truthy": true
+     },
+     "variants": [
+      "Phép đọc vận của sách cho chặng này: {d.readings}.",
+      "Với cấu hình của chặng ấy, sách cho: {d.readings}."
+     ]
+    },
+    {
+     "id": "conflict",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "when": {
+      "slot": "d.conflict",
+      "truthy": true
+     },
+     "variants": [
+      "Các câu ấy ngược chiều nhau và cùng khớp điều kiện, nên bản luận không kết luận chặng này đi lên hay đi xuống; cả hai khả năng được giữ."
+     ]
+    },
+    {
+     "id": "no_readings",
+     "basis": "dieu_kien",
+     "kind": "limits",
+     "when": {
+      "not": {
+       "slot": "d.readings",
+       "truthy": true
+      }
+     },
+     "variants": [
+      "Bộ quy tắc đã đối chiếu không có câu đọc vận nào khớp với chặng này, nên ở đây chỉ ghi cấu hình."
+     ]
+    },
+    {
+     "id": "hoa",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "when": {
+      "slot": "d.hoa",
+      "truthy": true
+     },
+     "variants": [
+      "Can {d.stem} của chặng đưa {d.hoa}."
+     ]
+    },
+    {
+     "id": "ky",
+     "basis": "sach",
+     "kind": "timing",
+     "when": {
+      "slot": "d.ky_palace",
+      "truthy": true
+     },
+     "cites": [
+      "KL pp.195-197"
+     ],
+     "variants": [
+      "Riêng Hóa Kỵ của chặng rơi vào {d.ky_star} ở cung {d.ky_palace}; Khảo Luận chỉ nói chung rằng Hóa Kỵ đóng ở cung nào thì gây điều không êm ở cung ấy ({tuhoa.cite}), và sách không có câu riêng cho Kỵ của đại hạn."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "VH.30.NEXT",
+   "chapter": "van_han",
+   "role": "timing",
+   "order": 30,
+   "version": 1,
+   "status": "draft",
+   "title": "Chặng kế tiếp",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "each": "decade_next",
+   "passages": [
+    {
+     "id": "where",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "variants": [
+      "Chặng sau, từ {d.range} tuổi mụ, chuyển sang cung {d.palace} (can {d.stem}), {d.majors_phrase}."
+     ]
+    },
+    {
+     "id": "stage",
+     "basis": "sach",
+     "kind": "timing",
+     "when": {
+      "slot": "d.stage",
+      "truthy": true
+     },
+     "cites": [
+      "KL pp.233-236"
+     ],
+     "variants": [
+      "Khảo Luận gọi đó là chặng {d.stage} ({stage.cite})."
+     ]
+    },
+    {
+     "id": "readings",
+     "basis": "sach",
+     "kind": "timing",
+     "when": {
+      "slot": "d.readings",
+      "truthy": true
+     },
+     "variants": [
+      "Sách đọc chặng ấy như sau: {d.readings}."
+     ]
+    },
+    {
+     "id": "conflict",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "when": {
+      "slot": "d.conflict",
+      "truthy": true
+     },
+     "variants": [
+      "Ở chặng này các câu cũng trái chiều và cùng khớp, nên chưa có kết luận một chiều."
+     ]
+    },
+    {
+     "id": "hoa",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "when": {
+      "slot": "d.hoa",
+      "truthy": true
+     },
+     "variants": [
+      "Can {d.stem} đưa {d.hoa}."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "VH.40.OTHER",
+   "chapter": "van_han",
+   "role": "timing",
+   "order": 40,
+   "version": 1,
+   "status": "draft",
+   "title": "Các chặng khác có câu sách",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "when": {
+    "list": "decade_other"
+   },
+   "passages": [
+    {
+     "id": "item",
+     "basis": "sach",
+     "kind": "timing",
+     "each": "decade_other",
+     "followups": [
+      "Chặng {d.range} ở cung {d.palace}: {d.readings}."
+     ],
+     "variants": [
+      "Chặng {d.range} ở cung {d.palace}: {d.readings}."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "VH.50.YEAR",
+   "chapter": "van_han",
+   "role": "timing",
+   "order": 50,
+   "version": 1,
+   "status": "draft",
+   "title": "Năm đang xem",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "th",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "when": {
+      "slot": "y.th_palace",
+      "truthy": true
+     },
+     "cites": [
+      "TH p.27"
+     ],
+     "variants": [
+      "Năm {year}{?year_gz| ({year_gz})}, tiểu hạn ở cung {y.th_palace} ({y.th_majors}){?y.th_domain|, cung của {y.th_domain}}{?y.th_same_as_dh|, trùng với cung của đại hạn đang đi}."
+     ]
+    },
+    {
+     "id": "th_readings",
+     "basis": "sach",
+     "kind": "timing",
+     "when": {
+      "slot": "y.th_readings",
+      "truthy": true
+     },
+     "variants": [
+      "Phép đọc vận áp cho tiểu hạn năm ấy cho: {y.th_readings}."
+     ]
+    },
+    {
+     "id": "th_conflict",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "when": {
+      "slot": "y.th_conflict",
+      "truthy": true
+     },
+     "variants": [
+      "Các câu cho tiểu hạn cũng trái chiều nhau, nên năm ấy không được đọc một chiều."
+     ]
+    },
+    {
+     "id": "luu",
+     "basis": "sach",
+     "kind": "timing",
+     "when": {
+      "slot": "y.luu",
+      "truthy": true
+     },
+     "cites": [
+      "KL pp.195-197"
+     ],
+     "variants": [
+      "Tứ Hóa của năm lưu: {y.luu} ({y.luu_cite})."
+     ]
+    },
+    {
+     "id": "luu_ky",
+     "basis": "sach",
+     "kind": "timing",
+     "when": {
+      "slot": "y.ky_note",
+      "truthy": true
+     },
+     "cites": [
+      "KL pp.195-197"
+     ],
+     "variants": [
+      "Với Hóa Kỵ năm lưu ở {y.luu_ky}, Khảo Luận chỉ có nhận xét chung: {y.ky_note} ({tuhoa.cite})."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "VH.90.SYN",
+   "chapter": "van_han",
+   "role": "synthesis",
+   "order": 90,
+   "version": 1,
+   "status": "draft",
+   "title": "Cách đọc các chặng",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "frame",
+     "basis": "he_thong",
+     "kind": "reflection",
+     "variants": [
+      "Các câu đọc vận ở trên là điều kiện sách nêu cho từng cấu hình, không phải lịch biến cố; khi các câu trái chiều cùng khớp, chương này giữ cả hai thay vì chọn một. Một chặng được đọc rõ nhất khi đặt cạnh chương của chính cung mà nó đi qua."
+     ]
+    }
+   ]
+  }
+ ]
+}

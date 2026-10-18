@@ -1,0 +1,32 @@
+{
+ "note": "Thiên Di, Nô Bộc, Tật Ách: three sections through the shared modules; Tật Ách carries the health notice (shared S.05).",
+ "modules": [
+  {
+   "id": "DN.20.HOA",
+   "chapter": "di_no_tat",
+   "role": "factor",
+   "order": 20,
+   "version": 1,
+   "status": "draft",
+   "title": "Tứ Hóa tại cung bạn bè",
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "when": {
+    "slot": "f.hoa_notes",
+    "truthy": true
+   },
+   "passages": [
+    {
+     "id": "hoa",
+     "basis": "sach",
+     "kind": "ground",
+     "cites": [
+      "KL pp.195-197"
+     ],
+     "variants": [
+      "Cung này mang Tứ Hóa của năm sinh, và Khảo Luận ghi riêng cho vị trí ấy: {f.hoa_notes} (Khảo Luận tr.195–197)."
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -28,3 +28,14 @@ for (const c of charts) {
     assert.deepEqual([...py].filter(x => !ts.has(x)), [], 'fired in Python only');
   });
 }
+
+for (const c of charts) {
+  test(`Bát Tự parity with the Python engine: ${c.label} (${c.birth.year}-${c.birth.month}-${c.birth.day})`, () => {
+    assert.ok(c.facts.bazi, 'fixture carries the bat_tu fact base');
+    const res = run(K.rules, K.sources, c.facts.bazi.base, 'bat_tu');
+    const ts = new Set(res.findings.map(f => [f.ruleId, f.subject, f.claim, f.effect, f.basis].join('|')));
+    const py = new Set<string>(c.python_fired_bazi.map((x: string[]) => x.join('|')));
+    assert.deepEqual([...ts].filter(x => !py.has(x)), [], 'fired in TS only');
+    assert.deepEqual([...py].filter(x => !ts.has(x)), [], 'fired in Python only');
+  });
+}
