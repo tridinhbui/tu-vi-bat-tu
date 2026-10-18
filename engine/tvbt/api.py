@@ -63,6 +63,45 @@ def analysis_endpoint(req: BirthReq):
     return {"chapters": analysis.analyse(tv, bz), "dignity_school": req.dignity_school}
 
 
+@app.post("/api/deep-reading")
+def deep_reading(req: BirthReq):
+    """Synthesised ten-chapter reading (tvbt/synthesis). Behind TVBT_DEEP_INTERPRETATION (default OFF): with the flag off this answers 404 and no
+    other endpoint changes. Draft formations are included only when the caller already opted into `experimental`."""
+    from .synthesis import enabled
+    if not enabled():
+        raise HTTPException(404, "deep interpretation is disabled")
+    from .synthesis.compose import build_deep_reading
+    nb, bz, tv = _compute(req)
+    rules, sources = load_all()
+    claims = load_claims()
+    forms = None
+    if req.experimental:
+        from .knowledge.loader import load_experimental
+        xr, forms, xs = load_experimental()
+        rules, sources = rules + xr, sources + [s for s in xs if s.id not in {x.id for x in sources}]
+    return build_deep_reading(tv, bz, rules, sources, claims, req.year, req.to_year, forms)
+
+
+@app.post("/api/synthesis")
+def synthesis(req: BirthReq):
+    """'Luận giải tổng hợp' for each Tử Vi report chapter (tvbt/synthesis/chapters.py): Semantic IR -> symbolic reasoning -> Vietnamese narrative
+    grammar, every sentence traced to rule ids. No language model. Behind TVBT_DEEP_INTERPRETATION (default OFF): with the flag off this answers 404
+    and nothing else changes. `to_year` picks the year for the đại hạn chapter; level 5 also returns the Semantic IR."""
+    from .synthesis import enabled
+    if not enabled():
+        raise HTTPException(404, "synthesis is disabled")
+    from .synthesis.chapters import build_synthesis
+    nb, bz, tv = _compute(req)
+    rules, sources = load_all()
+    if req.dignity_school != "thuc_hanh":
+        import dataclasses as _dc
+        rules = [_dc.replace(r, reviewStatus="draft") if r.category in ("star_dignity", "star_combination") else r for r in rules]
+    out = build_synthesis(tv, rules, sources, load_claims(), req.year, req.to_year)
+    if req.level < 5:
+        out.pop("semantic_ir", None)
+    return out
+
+
 @app.post("/api/bazi-structure")
 def bazi_structure(req: BirthReq):
     """Bát Tự structure analysis (bazi_deep): khí thế before/after interactions, tương tác, cách cục, dụng thần per method, findings.

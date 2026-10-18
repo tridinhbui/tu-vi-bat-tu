@@ -538,3 +538,19 @@ body[data-view=home] #learn-view,body[data-view=chart] #learn-view{display:none}
 .gr-ask{display:grid;grid-template-columns:1fr auto;gap:8px}.gr-ask input{height:48px}
 @media (max-width:640px){.gr-nav{position:static;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.gr-nav a{white-space:nowrap}.gr-sec{scroll-margin-top:120px}.gr-sh>div{grid-template-columns:1fr;gap:2px}.gr-crow{grid-template-columns:1fr}.gr-crow .link{justify-self:start}.gr-tr-h{flex-direction:column}}
 @media print{.gr-nav,.gr-res,.gr-form,.gr-ask,.gr-sugg,.gr-ctx{display:none!important}.gr-card{box-shadow:none}}
+
+/* 'Luận giải tổng hợp' (synthesis layer) */
+.synth{margin:14px 0 18px;padding:18px 20px;border:1px solid var(--bd);border-left:3px solid var(--gold);border-radius:14px;background:var(--raise)}
+.synth .eyebrow{color:var(--gold);margin-bottom:8px}
+.sy-p{font:400 1.02rem/1.72 var(--serif);color:var(--text);margin:0 0 12px}.sy-p.sy-intro{color:var(--text2);font-size:.95rem}.sy-p.sy-synthesis{border-top:1px dashed var(--bd);padding-top:10px}
+.sy-s[data-rules]{cursor:pointer;border-radius:4px;transition:background .15s}.sy-s[data-rules]:hover,.sy-s.on{background:color-mix(in srgb,var(--gold) 14%,transparent)}
+.sy-s:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.sy-refl{font-style:italic;color:var(--text2)}
+body[data-depth=pro] .sy-b-he_thong{text-decoration:underline dotted color-mix(in srgb,var(--muted) 60%,transparent);text-underline-offset:3px}
+.sy-why{margin:4px 0 10px;padding:8px 12px;border-radius:10px;background:var(--surface);overflow-wrap:anywhere}
+.sy-legend{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:4px 0 10px}
+.sy-chip{padding:2px 8px;border-radius:999px;border:1px solid var(--bd);font-size:.74rem}.sy-chip.sy-b-sach{color:var(--jade)}.sy-chip.sy-b-dieu_kien{color:var(--blue)}.sy-chip.sy-b-he_thong{color:var(--muted)}.sy-chip.sy-b-tinh_toan{color:var(--gold)}
+.sy-graph{margin:0;padding-left:18px;font-size:.88rem;line-height:1.55}.sy-graph ul{padding-left:16px;margin:4px 0 8px}.sy-graph .k{font-weight:600}
+.sy-foot{margin:6px 0 0}
+@media (max-width:640px){.synth{padding:14px 14px}.sy-p{font-size:.98rem;line-height:1.65}}
+@media print{.synth{break-inside:auto;border-left-width:2px}.sy-legend,.sy-why{display:none!important}}

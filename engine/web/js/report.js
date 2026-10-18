@@ -12,6 +12,28 @@ function analysisHtml(blocks) {
   if (!blocks?.length) return '';
   return `<div class="ch-an pro-only"><p class="eyebrow">Phân tích cấu trúc</p>${blocks.map(b => `<p class="an-p"><span class="an-tag" title="${esc(LAYER_HINT[b.layer] || '')}">${esc(b.layer)}</span>${esc(b.text)}<span class="an-meta"><span class="an-b an-${b.basis}" title="${esc(BASIS[b.basis][1])}">${BASIS[b.basis][0]}</span>${(b.src || []).map(x => `<span class="an-src">${esc(x)}</span>`).join('')}</span></p>`).join('')}</div>`;
 }
+// ---------- 'Luận giải tổng hợp' (tvbt/synthesis): composed section at the top of a chapter, evidence list stays below ----------
+const SY_BASIS = { sach: ['Theo sách', 'nội dung là nhận định của sách, có quy tắc truy vết'], dieu_kien: ['Theo điều kiện', 'giải thích quan hệ giữa điều kiện của các nhận định (chung – riêng, cùng đúng, khác sách)'],
+  he_thong: ['Khung của hệ thống', 'cách hệ thống nối hoặc tóm tắt các nhận định; không phải lời sách'], tinh_toan: ['Dữ kiện', 'vị trí sao tính từ lá số, chưa diễn giải'] };
+function synthHtml(ch) {
+  if (!ch || !ch.paragraphs?.length) return '';
+  const para = p => `<p class="sy-p sy-${p.role}">${p.sentences.map(s => `<span class="sy-s sy-b-${s.basis}${s.kind === 'reflection' ? ' sy-refl' : ''}"${s.provenance?.length ? ` data-rules="${esc(s.provenance.join(', '))}" data-basis="${s.basis}" tabindex="0" role="button"` : ''}>${esc(s.text)}</span>`).join(' ')}</p>`;
+  const themes = ch.themes || [];
+  const P = x => `<b>${esc(x.concept)}</b> <span class="muted">@${esc(x.palace)} · ${esc(x.rules.join(', '))}</span>`;
+  const graph = themes.length ? `<ol class="sy-graph">${themes.map(t => `<li><span class="k">${esc(t.name)}</span> · ưu tiên ${t.salience} <span class="muted">(thứ tự trình bày, không phải xác suất)</span><ul>
+      <li>Trọng tâm: ${P(t.main)}</li>${t.supports.map(x => `<li>Củng cố: ${P(x.prop)}${x.edge ? ` <span class="muted">— ${esc(x.edge.type)}${x.edge.frame ? ' / ' + esc(x.edge.frame) : ''}</span>` : ''}</li>`).join('')}
+      ${t.counters.map(x => `<li>Đối trọng: ${P(x.prop)}${x.edge ? ` <span class="muted">— ${esc(x.edge.type)}${x.edge.resolution ? ': ' + esc(x.edge.resolution) : ''}${x.edge.frame ? ' / ' + esc(x.edge.frame) : ''} · ${esc(x.edge.basis)}</span>` : ''}</li>`).join('')}
+      ${t.conditions.map(e => `<li>Điều kiện: ${esc(e.a)} → ${esc(e.b)} <span class="muted">(${esc(e.type)})</span></li>`).join('')}</ul></li>`).join('')}</ol>` : '<p class="muted small">Chương này không dựng đồ thị chủ đề (chỉ dữ kiện và lời sách theo vị trí).</p>';
+  const v = ch.validation || { issues: [], metrics: {} }, m = v.metrics || {};
+  const check = `<p class="small">${m.sentences || 0} câu · ${m.distinct_openers || 0} cách mở câu khác nhau · theo nguồn: ${Object.entries(m.by_basis || {}).map(([k, n]) => `${SY_BASIS[k]?.[0] || k} ${n}`).join(', ')}</p>${v.issues.length ? `<ul class="small">${v.issues.map(i => `<li>${esc(i.type)}${i.text ? ': ' + esc(i.text.slice(0, 120)) : ''}</li>`).join('')}</ul><p class="muted small">Các câu vi phạm đã bị lược bỏ khỏi văn bản thay vì viết mạnh hơn bằng chứng.</p>` : '<p class="muted small">Không có câu nào bị loại: mọi câu nội dung đều có truy vết, không có câu lặp hay từ ngữ phán quyết.</p>'}`;
+  return `<section class="synth" aria-label="Luận giải tổng hợp"><p class="eyebrow">Luận giải tổng hợp</p>${ch.paragraphs.map(para).join('')}
+    <div class="sy-why small" hidden></div>
+    <div class="pro-only sy-legend small">${Object.entries(SY_BASIS).map(([k, [t, d]]) => `<span class="sy-chip sy-b-${k}" title="${esc(d)}">${t}</span>`).join('')}<span class="muted">Nhấn vào một câu để xem quy tắc sinh ra nó.</span></div>
+    <div class="pro-only">${themes.length ? acc('Đồ thị lập luận', `${themes.length} chủ đề`, graph) : ''}${acc('Kiểm tra văn bản', v.issues.length ? `${v.issues.length} câu bị loại` : 'đạt', check)}</div>
+    <p class="muted small sy-foot">Phần này được tổng hợp tự động từ các nhận định đã đối chiếu sách bên dưới, bằng quy tắc ngôn ngữ cố định (không dùng mô hình AI). Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
+}
+const SY_CH = { 'tong-quan': 'tong_quan', 'ban-menh': 'ban_menh', 'tinh-cach': 'tinh_cach', 'cong-danh': 'cong_danh', 'tai-bach': 'tai_bach', 'quan-he': 'quan_he', 'dai-han': 'dai_han', 'cach-cuc': 'cach_cuc' };
+
 const WHAT = {
   bt: { 'tong-quan': 'Tóm gọn lá số: chữ đại diện cho bạn (Nhật Chủ), mùa bạn sinh ra (tháng) và chặng đời bạn đang đi.',
     'nhat-chu': 'Nhật Chủ là “bạn” trong lá số. Phần này nói về tính chất của chữ đó và những mô tả mà sách cổ gắn với nó.',
@@ -50,12 +72,13 @@ const PAL_CH = { 'Mệnh': 'ban-menh', 'Phúc Đức': 'tinh-cach', 'Quan Lộc'
 function mount(host, chapters, prefix, ctx) {
   host.innerHTML = `<div class="rp-layout">
     <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li${c.pro ? ' class="pro-only"' : ''}><a href="#${prefix}-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
-    <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${analysisHtml(c.blocks)}${c.calc || ''}${c.trad || ''}</article>`).join('')}
+    <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${c.synth || ''}${analysisHtml(c.blocks)}${c.calc || ''}${c.trad || ''}</article>`).join('')}
       <div class="sys-switch"><span>${prefix === 'bt' ? 'Muốn đọc cùng thời điểm sinh theo Tử Vi?' : 'Muốn đọc cùng thời điểm sinh theo Bát Tự?'}</span><button type="button" class="btn btn-ghost btn-sm" data-go="${prefix === 'bt' ? 'tu-vi' : 'bat-tu'}">${prefix === 'bt' ? 'Xem Tử Vi →' : 'Xem Bát Tự →'}</button></div></div></div>`;
   autoLink(host, prefix === 'bt' ? 'bt' : 'tv');
   $$('[data-jump]', host).forEach(r => r.onclick = () => $('#' + prefix + '-' + r.dataset.jump, host).scrollIntoView({ behavior: 'smooth', block: 'start' }));
   $$('.ref', host).forEach(r => r.onclick = () => ctx.openPalace(r.dataset.palace));
   $$('.cx-cond', host).forEach(b => b.onclick = () => ctx.highlight?.(JSON.parse(b.dataset.items), b.dataset.label));
+  $$('.sy-s[data-rules]', host).forEach(s => s.onclick = () => { const on = s.classList.toggle('on'); const box = s.closest('.synth').querySelector('.sy-why'); if (box) { s.closest('.sy-p').after(box); box.hidden = !on; box.innerHTML = on ? `<b>Truy vết câu này:</b> ${esc(s.dataset.rules)}<br><span class="muted">${esc(SY_BASIS[s.dataset.basis]?.[1] || '')}</span>` : ''; } $$('.sy-s.on', s.closest('.synth')).forEach(o => o !== s && o.classList.remove('on')); });
   const tg = $('.ig-toggle', host); if (tg) tg.onclick = () => { const on = tg.getAttribute('aria-pressed') !== 'true'; tg.setAttribute('aria-pressed', on); $('.ig-box', host).hidden = !on; tg.textContent = on ? 'Ẩn đồ thị suy luận' : 'Xem đồ thị suy luận'; };
   const links = $$('.rp-toc a', host);
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(l => { const on = l.dataset.ch === e.target.id.slice(prefix.length + 1); l.classList.toggle('on', on); const ol = l.closest('ol'); if (on && ol.scrollWidth > ol.clientWidth && matchMedia('(max-width:980px)').matches) ol.scrollTo({ left: l.offsetLeft - ol.clientWidth / 2 + l.offsetWidth / 2, behavior: 'smooth' }); }); }), { rootMargin: '-30% 0px -60% 0px' });
@@ -188,6 +211,10 @@ export function renderTuviReport(host, chart, ctx) {
     { id: 'muoi-hai-cung', title: 'Toàn bộ mười hai cung', lead: 'Tra nhanh từng cung: sao, Tứ Hóa, Tuần Triệt, đại hạn và nhận định.', calc: calc(`<div class="p12">${p12}</div>`), trad: '' },
     { id: 'chuyen-sau', pro: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('tu_vi', 'Tử Vi', { normalization: ctx.chartRaw.normalization_trace.steps, tuvi: t.trace.steps }), trad: '' },
   ];
+  if (ctx.synth?.chapters) {
+    const by = Object.fromEntries(ctx.synth.chapters.map(c => [c.id, c]));
+    chapters.forEach(c => { c.synth = synthHtml(by[SY_CH[c.id]]); });
+  }
   mount(host, chapters, 'tv', ctx);
   yearExplorer($('#tv-year', host), ctx.req, b, 'tuvi');
 }

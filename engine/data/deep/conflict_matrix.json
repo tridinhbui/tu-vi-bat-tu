@@ -1,0 +1,28 @@
+{
+  "_doc": "Known tensions between sources, transcribed from docs/PHASE7_SOURCE_CRITICAL_VALIDATION.md section 1. status never says 'resolved': the product shows every reading and picks none. 'trigger' is matched against a chart by structures.py / conflicts.py.",
+  "entries": [
+    {"id": "R01", "topic": "Phạm vi của 'hội / gặp / thích'", "status": "nguon_chua_du", "sources": ["KL tr.132", "KL tr.193", "KL tr.85", "KL tr.62", "TT tr.24", "TT tr.142", "KL tr.53"],
+     "readings": ["tam phương tứ chính (đang dùng làm mặc định kỹ thuật)", "mọi cung chiếu vào Mệnh, không tính chính cung", "chỉ đối cung", "chỉ đồng cung", "chỉ hai cung tam hợp"],
+     "trigger": "scope", "policy": "Báo cáo nhận định theo phạm vi mặc định và nêu rõ khi đổi phạm vi thì kết luận đổi."},
+    {"id": "R05", "topic": "Bảng Tứ Hóa tuổi Nhâm (Hóa Khoa)", "status": "nguon_mau_thuan", "sources": ["KL tr.36", "KL tr.197", "TH tr.20-21"],
+     "readings": ["Nhâm-Khoa = Tả Phụ (Khảo Luận; bảng đang dùng trong tính toán)", "Nhâm-Khoa = Thiên Phủ (Thực Hành)"],
+     "trigger": "year_stem:Nhâm", "policy": "Không tự chọn bảng; mọi nhận định dựa vào Hóa Khoa của tuổi Nhâm được gắn nhãn phụ thuộc bảng."},
+    {"id": "R07", "topic": "Tuần/Triệt vừa hại quý tinh vừa cứu hung tinh", "status": "nguon_mau_thuan", "sources": ["KL tr.55", "KL tr.222", "TH tr.94", "TH tr.95", "KL tr.85", "KL tr.199", "KL tr.53", "KL tr.106", "TH tr.43"],
+     "readings": ["làm hại: Tử Phủ, Thiên Phủ, Thiên Tướng, Vũ Tướng (KL tr.55, 222; TH tr.94-95)", "cứu: Thái Dương hãm, sát tinh gặp Thái Dương, 'hung tinh chịu lép vế' (KL tr.85, 199)", "điều kiện thuận: Nhật Nguyệt Sửu Mùi cần Tuần (KL tr.53); Cự Môn Tý Ngọ gặp Tuần/Triệt là kỳ cách (KL tr.106, TH tr.43)"],
+     "trigger": "tuan_triet", "policy": "Nêu cả hai chiều, nói rõ chiều nào áp dụng cho sao nào; không cộng trừ."},
+    {"id": "R08", "topic": "Thạch trung ẩn ngọc / Mã đầu đới kiếm / Kình ở Ngọ", "status": "nguon_mau_thuan", "sources": ["KL tr.44", "KL tr.58", "KL tr.106", "TH tr.43", "KL tr.64", "TT tr.142"],
+     "readings": ["Cự Môn ở Mệnh, Thiên Cơ ở Di, Tý/Ngọ", "Cự Môn Tý/Ngọ có Khoa Quyền Lộc tam hợp chiếu", "Cự Môn Tý/Ngọ gặp Tuần/Triệt (hoặc Hóa Lộc)", "Kình ở Ngọ cùng Thất Sát, Thiên Hình: xấu (TT tr.142)", "Kình đồng cung, xa Sát/Hình, gặp Khoa Quyền Lộc: tốt (KL tr.64)"],
+     "trigger": "cu_mon_tý_ngọ|kinh_ngo", "policy": "Mỗi định nghĩa là một biến thể của một trường phái; không gộp."},
+    {"id": "R03", "topic": "Ngưỡng sát tinh phá cách", "status": "nguon_chua_du", "sources": ["TH tr.77", "TH tr.116", "KL tr.62", "KL tr.199", "KL tr.85"],
+     "readings": [">=1 trong sáu sát tinh ở tam phương", ">=2 sát tinh", ">=2 trong Tứ sát", ">=3 sát tinh và Kỵ (quy ước thiết kế)"],
+     "trigger": "sat_pha_tham", "policy": "Không rút ra kết luận 'phá cách' chắc chắn; hiển thị số sát tinh và để người đọc thấy ngưỡng."},
+    {"id": "R09", "topic": "Tử Phủ đồng cung: neo Mệnh/Thân; 'Tỵ Hợi'", "status": "nguon_mau_thuan", "sources": ["TH tr.72", "TT tr.22", "KL tr.50", "KL tr.68"],
+     "readings": ["chỉ neo ở Mệnh", "Mệnh hoặc Thân (TH tr.72)", "TT tr.22 'Tỵ Hợi' có thể là chép nhầm của 'Tử Sát' (KL tr.50)"],
+     "trigger": "tu_phu_dong_cung", "policy": "Không tự chọn; nêu hai neo."}
+  ],
+  "unverified_policies": [
+    {"id": "U_KHOI_VIET_GIAP_MENH", "topic": "Khôi Việt giáp Mệnh", "note": "Chỉ có KL tr.62 mục 4; ngưỡng phá cách chưa đủ nguồn (R03). Engine không suy diễn thêm quy tắc."},
+    {"id": "U_TUAN_TRIET_GENERAL", "topic": "Tuần/Triệt ngoài các câu sách đã trích", "note": "Không suy diễn tác động của Tuần/Triệt lên sao không có câu sách."},
+    {"id": "U_THAN_QUAN_VCD", "topic": "Thân cư Quan Lộc vô chính diệu", "note": "Bộ quy tắc có KL tr.222 cho Mệnh vô chính diệu và KL tr.218 cho Thiên Di; chưa có câu sách cho Quan Lộc/Thân. Việc mượn sao đối cung chỉ là cách đọc phụ trợ, không phải quy tắc đã xác minh."}
+  ]
+}

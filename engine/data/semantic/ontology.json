@@ -1,0 +1,454 @@
+{
+ "version": "1.0.0",
+ "note": "Semantic ontology for the synthesis engine. Facets classify what a reading is ABOUT; they never score it. `home` is the chapter where a proposition of this facet is narrated in full (other chapters only point to it). `sensitive` facets are always framed as what tradition records, never as a prediction. `reflection` is a self-reflection prompt shown ONLY when the facet carries a tension in the chart; it is the system's wording (basis he_thong), not a book sentence.",
+ "domains": {
+  "identity": "Con người và tính cách",
+  "career": "Sự nghiệp và thành tựu",
+  "finance": "Tài chính và nguồn lực",
+  "relationships": "Quan hệ",
+  "life": "Phát triển đời sống",
+  "inner": "Đời sống tinh thần",
+  "wellbeing": "Sức khỏe và tuổi thọ"
+ },
+ "facets": {
+  "identity.cognition": {
+   "domain": "identity",
+   "name": "tư duy và khả năng phân tích",
+   "home": "tinh_cach",
+   "reflection": "Một câu hỏi tự phản tư hữu ích: lúc nào sự hoài nghi đang giúp mình kiểm chứng cho kỹ, và lúc nào nó bắt đầu làm khó sự tin cậy với người khác?"
+  },
+  "identity.communication": {
+   "domain": "identity",
+   "name": "cách giao tiếp và biểu đạt",
+   "home": "tinh_cach",
+   "reflection": "Có thể tự hỏi: cùng một ý, cách nói nào giúp người nghe tiếp nhận, và cách nói nào dễ biến cuộc trao đổi thành cuộc tranh luận?"
+  },
+  "identity.temperament": {
+   "domain": "identity",
+   "name": "tính khí và phản ứng trước áp lực",
+   "home": "tinh_cach",
+   "reflection": "Điểm đáng quan sát là ranh giới giữa sự quả quyết và sự cứng nhắc: khi bị phản bác, mình đang bảo vệ lập luận hay đang bảo vệ cái tôi?"
+  },
+  "identity.values": {
+   "domain": "identity",
+   "name": "giá trị cá nhân",
+   "home": "tinh_cach",
+   "reflection": "Có thể tự hỏi: những nguyên tắc mình coi trọng nhất có đang được thể hiện qua cách mình phản ứng trong lúc căng thẳng hay không?"
+  },
+  "identity.adaptability": {
+   "domain": "identity",
+   "name": "khả năng thích nghi",
+   "home": "tinh_cach",
+   "reflection": "Câu hỏi đáng giữ: sự linh hoạt của mình đang giúp ứng biến, hay đang khiến những việc dài hơi bị bỏ dở?"
+  },
+  "identity.discipline": {
+   "domain": "identity",
+   "name": "kỷ luật và sự bền bỉ",
+   "home": "tinh_cach",
+   "reflection": ""
+  },
+  "identity.ambition": {
+   "domain": "identity",
+   "name": "tham vọng và ý chí",
+   "home": "tinh_cach",
+   "reflection": ""
+  },
+  "identity.presence": {
+   "domain": "identity",
+   "name": "phong thái và sức hút",
+   "home": "tinh_cach",
+   "reflection": "Có thể tự hỏi: sức hút ban đầu được giữ lại bằng điều gì khi sự mới mẻ qua đi?"
+  },
+  "identity.emotion": {
+   "domain": "identity",
+   "name": "đời sống cảm xúc",
+   "home": "tinh_cach",
+   "reflection": "Một gợi ý tự quan sát: những cảm xúc nào mình thường giữ lại thay vì nói ra, và điều đó ảnh hưởng thế nào đến người gần mình?"
+  },
+  "identity.lifestyle": {
+   "domain": "identity",
+   "name": "lối sống và sở thích",
+   "home": "tinh_cach",
+   "reflection": ""
+  },
+  "career.authority": {
+   "domain": "career",
+   "name": "uy thế và năng lực lãnh đạo",
+   "home": "cong_danh",
+   "reflection": "Có thể tự hỏi: người khác đi theo mình vì tin vào hướng đi, hay vì ngại va chạm với mình?"
+  },
+  "career.trajectory": {
+   "domain": "career",
+   "name": "đường công danh",
+   "home": "cong_danh",
+   "reflection": "Khi con đường không thẳng, điều đáng cân nhắc là trở ngại đến từ hoàn cảnh hay từ cách mình chọn đối đầu với nó."
+  },
+  "career.expertise": {
+   "domain": "career",
+   "name": "khả năng chuyên môn và học vấn",
+   "home": "cong_danh",
+   "reflection": ""
+  },
+  "career.path": {
+   "domain": "career",
+   "name": "thiên hướng nghề nghiệp",
+   "home": "cong_danh",
+   "reflection": ""
+  },
+  "career.support": {
+   "domain": "career",
+   "name": "quan hệ với tập thể và người hỗ trợ",
+   "home": "cong_danh",
+   "reflection": ""
+  },
+  "career.timing": {
+   "domain": "career",
+   "name": "nhịp độ thành tựu",
+   "home": "cong_danh",
+   "reflection": ""
+  },
+  "finance.flow": {
+   "domain": "finance",
+   "name": "tài lộc",
+   "home": "tai_bach",
+   "sensitive": true,
+   "reflection": "Câu hỏi thực tế: phần tiền đến dễ dàng có đang được giữ lại bằng một nguyên tắc rõ ràng, hay chỉ đi qua tay?"
+  },
+  "finance.retention": {
+   "domain": "finance",
+   "name": "xu hướng tích lũy và giữ của",
+   "home": "tai_bach",
+   "sensitive": true,
+   "reflection": ""
+  },
+  "finance.style": {
+   "domain": "finance",
+   "name": "phong cách sử dụng nguồn lực",
+   "home": "tai_bach",
+   "reflection": ""
+  },
+  "finance.source": {
+   "domain": "finance",
+   "name": "cách tạo dựng tài sản",
+   "home": "tai_bach",
+   "reflection": ""
+  },
+  "finance.property": {
+   "domain": "finance",
+   "name": "nhà cửa và cơ nghiệp",
+   "home": "tai_bach",
+   "sensitive": true,
+   "reflection": ""
+  },
+  "relationships.marriage": {
+   "domain": "relationships",
+   "name": "hôn nhân và sự gắn bó",
+   "home": "quan_he",
+   "sensitive": true,
+   "reflection": "Có thể tự hỏi: mình mong chờ điều gì ở người bạn đời, và mình đã nói rõ mong chờ ấy chưa?"
+  },
+  "relationships.partner": {
+   "domain": "relationships",
+   "name": "hình ảnh người bạn đời",
+   "home": "quan_he",
+   "sensitive": true,
+   "reflection": ""
+  },
+  "relationships.timing": {
+   "domain": "relationships",
+   "name": "thời điểm và hoàn cảnh kết duyên",
+   "home": "quan_he",
+   "sensitive": true,
+   "reflection": ""
+  },
+  "relationships.romance": {
+   "domain": "relationships",
+   "name": "đời sống tình cảm",
+   "home": "quan_he",
+   "sensitive": true,
+   "reflection": ""
+  },
+  "relationships.family": {
+   "domain": "relationships",
+   "name": "quan hệ gia đình",
+   "home": "quan_he",
+   "sensitive": true,
+   "reflection": ""
+  },
+  "relationships.social": {
+   "domain": "relationships",
+   "name": "bạn bè, cộng sự và người dưới",
+   "home": "quan_he",
+   "reflection": ""
+  },
+  "life.course": {
+   "domain": "life",
+   "name": "nhịp đời",
+   "home": "ban_menh",
+   "reflection": "Một cách đọc có ích: những chặng phải gắng sức thường dạy điều gì mà giai đoạn thuận lợi không dạy được?"
+  },
+  "life.timing": {
+   "domain": "life",
+   "name": "các chủ đề nổi bật theo giai đoạn",
+   "home": "ban_menh",
+   "reflection": ""
+  },
+  "life.mobility": {
+   "domain": "life",
+   "name": "di chuyển và rời xa nơi gốc",
+   "home": "ban_menh",
+   "reflection": ""
+  },
+  "life.legal": {
+   "domain": "life",
+   "name": "va chạm thủ tục, pháp lý",
+   "home": "ban_menh",
+   "reflection": ""
+  },
+  "life.spirituality": {
+   "domain": "inner",
+   "name": "khuynh hướng tinh thần, xem nhẹ danh lợi",
+   "home": "tinh_cach",
+   "reflection": ""
+  },
+  "inner.contentment": {
+   "domain": "inner",
+   "name": "sự an ổn trong tâm",
+   "home": "tinh_cach",
+   "sensitive": false,
+   "reflection": "Có thể tự hỏi: điều gì thực sự giúp mình thấy yên, và điều gì chỉ tạm làm quên đi sự bất an?"
+  },
+  "wellbeing.health": {
+   "domain": "wellbeing",
+   "name": "sức khỏe",
+   "home": "ban_menh",
+   "sensitive": true,
+   "reflection": ""
+  },
+  "wellbeing.longevity": {
+   "domain": "wellbeing",
+   "name": "tuổi thọ",
+   "home": "ban_menh",
+   "sensitive": true,
+   "reflection": ""
+  }
+ },
+ "chapters": {
+  "tong_quan": {
+   "title": "Tổng quan Tử Vi",
+   "palaces": [
+    "Mệnh",
+    "Thân",
+    "Phúc Đức",
+    "Quan Lộc",
+    "Tài Bạch",
+    "Phu Thê"
+   ]
+  },
+  "ban_menh": {
+   "title": "Bản Mệnh",
+   "palaces": [
+    "Mệnh",
+    "Thân"
+   ]
+  },
+  "tinh_cach": {
+   "title": "Tính cách",
+   "palaces": [
+    "Mệnh",
+    "Thân",
+    "Phúc Đức"
+   ]
+  },
+  "cong_danh": {
+   "title": "Công danh",
+   "palaces": [
+    "Quan Lộc",
+    "Mệnh",
+    "Thân",
+    "Thiên Di"
+   ]
+  },
+  "tai_bach": {
+   "title": "Tài Bạch",
+   "palaces": [
+    "Tài Bạch",
+    "Điền Trạch",
+    "Mệnh",
+    "Thân"
+   ]
+  },
+  "quan_he": {
+   "title": "Quan hệ",
+   "palaces": [
+    "Phu Thê",
+    "Tử Tức",
+    "Huynh Đệ",
+    "Phụ Mẫu",
+    "Nô Bộc",
+    "Mệnh",
+    "Thân"
+   ]
+  },
+  "dai_han": {
+   "title": "Đại hạn & lưu niên",
+   "palaces": []
+  },
+  "cach_cuc": {
+   "title": "Cách cục",
+   "palaces": [
+    "Mệnh"
+   ]
+  }
+ },
+ "palace_weight": {
+  "note": "Structural role of a palace FOR A CHAPTER (auditable, not a probability): 3 = the chapter's own palace, 2 = Mệnh read for a topic chapter, 1 = Thân / supporting palace. A palace absent from the chapter list contributes nothing to that chapter.",
+  "tinh_cach": {
+   "Mệnh": 3,
+   "Phúc Đức": 2,
+   "Thân": 1
+  },
+  "ban_menh": {
+   "Mệnh": 3,
+   "Thân": 2
+  },
+  "cong_danh": {
+   "Quan Lộc": 3,
+   "Mệnh": 2,
+   "Thân": 1,
+   "Thiên Di": 1
+  },
+  "tai_bach": {
+   "Tài Bạch": 3,
+   "Mệnh": 2,
+   "Điền Trạch": 2,
+   "Thân": 1
+  },
+  "quan_he": {
+   "Phu Thê": 3,
+   "Mệnh": 1,
+   "Thân": 1,
+   "Tử Tức": 2,
+   "Huynh Đệ": 2,
+   "Phụ Mẫu": 2,
+   "Nô Bộc": 2
+  },
+  "tong_quan": {
+   "Mệnh": 3,
+   "Thân": 2,
+   "Phúc Đức": 1,
+   "Quan Lộc": 1,
+   "Tài Bạch": 1,
+   "Phu Thê": 1
+  }
+ },
+ "palace_concepts": {
+  "note": "For a palace other than Mệnh/Thân, a generic reading ('tốt', 'vất vả', or a segment no cue matches but whose direction is explicit) is about THAT palace's topic, so it is mapped to the palace's [positive, negative] concept instead of the generic life-course concept.",
+  "Phu Thê": [
+   "rel.harmony",
+   "rel.strain"
+  ],
+  "Tài Bạch": [
+   "fin.abundance",
+   "fin.scarcity"
+  ],
+  "Quan Lộc": [
+   "career.success",
+   "career.obstacle"
+  ],
+  "Phúc Đức": [
+   "inner.peace",
+   "inner.unrest"
+  ],
+  "Điền Trạch": [
+   "prop.rich",
+   "prop.poor"
+  ],
+  "Tử Tức": [
+   "fam.positive",
+   "fam.negative"
+  ],
+  "Huynh Đệ": [
+   "fam.positive",
+   "fam.negative"
+  ],
+  "Phụ Mẫu": [
+   "fam.positive",
+   "fam.negative"
+  ],
+  "Nô Bộc": [
+   "social.support",
+   "social.isolated"
+  ],
+  "Thiên Di": [
+   "life.blessed",
+   "life.hardship"
+  ],
+  "Tật Ách": [
+   "well.health",
+   "well.health"
+  ]
+ },
+ "lenses": [
+  {
+   "id": "menh_phuc",
+   "chapter": "tinh_cach",
+   "palaces": [
+    "Mệnh",
+    "Phúc Đức"
+   ],
+   "name": "Mệnh và Phúc Đức",
+   "question": "khuynh hướng thể hiện ra bên ngoài và đời sống tinh thần bên trong",
+   "focus_domains": [
+    "identity",
+    "inner",
+    "life"
+   ]
+  },
+  {
+   "id": "menh_quan_than",
+   "chapter": "cong_danh",
+   "palaces": [
+    "Mệnh",
+    "Quan Lộc",
+    "Thân"
+   ],
+   "name": "Mệnh, Quan Lộc và Thân",
+   "question": "cách năng lực và động lực cá nhân được thể hiện trong công việc",
+   "focus_domains": [
+    "career",
+    "identity"
+   ]
+  },
+  {
+   "id": "menh_tai_quan",
+   "chapter": "tai_bach",
+   "palaces": [
+    "Mệnh",
+    "Tài Bạch",
+    "Quan Lộc"
+   ],
+   "name": "Mệnh, Tài Bạch và Quan Lộc",
+   "question": "mối liên hệ giữa tư duy, hoạt động nghề nghiệp và chủ đề tài chính",
+   "focus_domains": [
+    "finance"
+   ]
+  },
+  {
+   "id": "phu_menh_phuc",
+   "chapter": "quan_he",
+   "palaces": [
+    "Phu Thê",
+    "Mệnh",
+    "Phúc Đức"
+   ],
+   "name": "Phu Thê, Mệnh và Phúc Đức",
+   "question": "sự tương tác giữa tính cách, nhu cầu cảm xúc và các mối quan hệ",
+   "focus_domains": [
+    "relationships",
+    "inner",
+    "identity"
+   ]
+  }
+ ]
+}

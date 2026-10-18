@@ -156,8 +156,10 @@ async function generate(ev, saved = null) {
       showHourSweep();
       return;
     }
-    const [chart, reason, analysis, formations] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady]);
-    state = { req, chart, reason, analysis, lunarIn, formations };
+    // /api/synthesis is an optional layer (server flag): a 404 or failure just leaves the chapters without the composed section
+    const synthReq = post('/api/synthesis', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);
+    const [chart, reason, analysis, formations, , synth] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady, synthReq]);
+    state = { req, chart, reason, analysis, lunarIn, formations, synth };
     showResults();
   } catch (x) {
     err.innerHTML = notice('Chưa lập được lá số', esc(x.message), 'warn'); err.hidden = false;
@@ -208,7 +210,7 @@ function initYearCards() {
 function showResults() {
   document.body.classList.remove('hour-mode');
   const { req, chart, reason, analysis } = state;
-  const ctx = { req, reason, formations: state.formations, highlight: (items, label) => state.tv.highlight(items, label), analysis: analysis.chapters, chartRaw: chart, openPalace: name => { setTab('tuvi', false); setTimeout(() => { $('#tuvi-host').scrollIntoView({ behavior: 'smooth', block: 'start' }); state.tv.select(name); }, 120); } };
+  const ctx = { req, reason, formations: state.formations, synth: state.synth, highlight: (items, label) => state.tv.highlight(items, label), analysis: analysis.chapters, chartRaw: chart, openPalace: name => { setTab('tuvi', false); setTimeout(() => { $('#tuvi-host').scrollIntoView({ behavior: 'smooth', block: 'start' }); state.tv.select(name); }, 120); } };
   setChart(chart);
   const tv = renderTuvi($('#tuvi-host'), chart.tuvi, ctx);
   state.tv = tv; ctx.tv = tv;
