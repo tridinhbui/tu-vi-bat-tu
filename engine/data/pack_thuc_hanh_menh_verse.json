@@ -1233,14 +1233,36 @@
       "value": "Mệnh"
      },
      {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Địa Không"
-     },
-     {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Địa Kiếp"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         }
+        ]
+       }
+      ]
      }
     ]
    },

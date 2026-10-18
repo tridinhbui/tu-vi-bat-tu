@@ -682,19 +682,41 @@
       "value": "Mệnh"
      },
      {
-      "fact": "palace.neighbor_stars",
-      "operator": "contains",
-      "value": "Tả Phụ"
-     },
-     {
-      "fact": "palace.neighbor_stars",
-      "operator": "contains",
-      "value": "Hữu Bật"
-     },
-     {
       "fact": "palace.own_major_stars",
       "operator": "contains",
       "value": "Tử Vi"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Tả Phụ"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Hữu Bật"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Hữu Bật"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Tả Phụ"
+         }
+        ]
+       }
+      ]
      }
     ]
    },

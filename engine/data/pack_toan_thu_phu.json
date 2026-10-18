@@ -1280,14 +1280,36 @@
       "value": "Mệnh"
      },
      {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Thái Dương"
-     },
-     {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Thái Âm"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Thái Dương"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Thái Âm"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Thái Âm"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Thái Dương"
+         }
+        ]
+       }
+      ]
      }
     ]
    },
@@ -1389,28 +1411,72 @@
        {
         "all": [
          {
-          "fact": "palace.rel.flank_stars",
-          "operator": "contains",
-          "value": "Văn Xương"
-         },
-         {
-          "fact": "palace.rel.flank_stars",
-          "operator": "contains",
-          "value": "Văn Khúc"
+          "any": [
+           {
+            "all": [
+             {
+              "fact": "palace.rel.flank_prev_stars",
+              "operator": "contains",
+              "value": "Văn Xương"
+             },
+             {
+              "fact": "palace.rel.flank_next_stars",
+              "operator": "contains",
+              "value": "Văn Khúc"
+             }
+            ]
+           },
+           {
+            "all": [
+             {
+              "fact": "palace.rel.flank_prev_stars",
+              "operator": "contains",
+              "value": "Văn Khúc"
+             },
+             {
+              "fact": "palace.rel.flank_next_stars",
+              "operator": "contains",
+              "value": "Văn Xương"
+             }
+            ]
+           }
+          ]
          }
         ]
        },
        {
         "all": [
          {
-          "fact": "palace.rel.flank_stars",
-          "operator": "contains",
-          "value": "Tả Phụ"
-         },
-         {
-          "fact": "palace.rel.flank_stars",
-          "operator": "contains",
-          "value": "Hữu Bật"
+          "any": [
+           {
+            "all": [
+             {
+              "fact": "palace.rel.flank_prev_stars",
+              "operator": "contains",
+              "value": "Tả Phụ"
+             },
+             {
+              "fact": "palace.rel.flank_next_stars",
+              "operator": "contains",
+              "value": "Hữu Bật"
+             }
+            ]
+           },
+           {
+            "all": [
+             {
+              "fact": "palace.rel.flank_prev_stars",
+              "operator": "contains",
+              "value": "Hữu Bật"
+             },
+             {
+              "fact": "palace.rel.flank_next_stars",
+              "operator": "contains",
+              "value": "Tả Phụ"
+             }
+            ]
+           }
+          ]
          }
         ]
        }

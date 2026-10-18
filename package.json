@@ -1,7 +1,21 @@
 {
   "name": "tu-vi-bat-tu",
   "private": true,
-  "scripts": { "deploy": "wrangler deploy", "dev": "wrangler dev" },
-  "dependencies": { "@cloudflare/containers": "latest" },
-  "devDependencies": { "wrangler": "^4", "typescript": "^5", "@cloudflare/workers-types": "latest" }
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "build:knowledge": "node tools/interpret/build.ts",
+    "test:interpret": "node --test src/interpret/test/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "editorial": "node tools/interpret/editorial.ts"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "latest"
+  },
+  "devDependencies": {
+    "wrangler": "^4",
+    "typescript": "^5",
+    "@cloudflare/workers-types": "latest"
+  },
+  "type": "module"
 }

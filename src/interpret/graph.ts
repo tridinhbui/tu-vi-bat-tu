@@ -1,0 +1,69 @@
+// Per-chart knowledge graph. Nodes: palaces, star placements, Tứ Hóa, findings, rules, sources, concepts. Edges carry the geometry
+// (tam hợp / xung chiếu / giáp), what each finding was fired by, which book it cites, which concept it expresses, and — the basis of
+// cross-palace reasoning — which star placements in WHICH palaces a finding depends on (a Mệnh reading that 'gặp Tử Vi' depends on the
+// palace where Tử Vi actually sits).
+import type { Evidence } from './semantic.ts';
+import type { ChartInput, Palace } from './types.ts';
+
+export type NodeKind = 'palace' | 'star' | 'hoa' | 'finding' | 'rule' | 'source' | 'concept';
+export interface GNode { id: string; kind: NodeKind; label: string; data?: Record<string, unknown> }
+export interface GEdge { src: string; dst: string; kind: string; data?: Record<string, unknown> }
+
+export const SAT = ['Kình Dương', 'Đà La', 'Hỏa Tinh', 'Linh Tinh', 'Địa Không', 'Địa Kiếp'];
+export const CAT = ['Tả Phụ', 'Hữu Bật', 'Văn Xương', 'Văn Khúc', 'Thiên Khôi', 'Thiên Việt', 'Lộc Tồn', 'Thiên Mã'];
+
+export class ChartGraph {
+  nodes = new Map<string, GNode>(); edges: GEdge[] = [];
+  palaces: Map<string, Palace>; byBranch: Map<number, Palace>; starAt = new Map<string, string>(); chart: ChartInput;
+  constructor(chart: ChartInput, evidence: Evidence[]) {
+    this.chart = chart;
+    this.palaces = new Map(chart.palaces.map(p => [p.name, p]));
+    this.byBranch = new Map(chart.palaces.map(p => [p.branch_index, p]));
+    for (const p of chart.palaces) {
+      this.node({ id: `palace:${p.name}`, kind: 'palace', label: p.name, data: { branch: p.branch, stem: p.stem, tuan: p.tuan, triet: p.triet, than: p.is_than } });
+      for (const s of p.stars) {
+        this.starAt.set(s, p.name);
+        const dig = p.major_dignity[s] ?? p.minor_dignity[s] ?? null;
+        this.node({ id: `star:${s}`, kind: 'star', label: s, data: { major: p.major_stars.includes(s), dignity: dig } });
+        this.edge(`palace:${p.name}`, `star:${s}`, 'contains', { dignity: dig });
+      }
+      for (const [d, kind] of [[4, 'tam_hop'], [8, 'tam_hop'], [6, 'xung_chieu'], [1, 'giap'], [11, 'giap']] as Array<[number, string]>) {
+        this.edge(`palace:${p.name}`, `palace:${this.byBranch.get((p.branch_index + d) % 12)!.name}`, kind);
+      }
+    }
+    for (const [h, v] of Object.entries(chart.tu_hoa)) {
+      this.node({ id: `hoa:${h}`, kind: 'hoa', label: h });
+      this.edge(`hoa:${h}`, `star:${v.star}`, 'attached_to');
+      this.starAt.set(h, this.byBranch.get(v.branch)!.name);
+    }
+    for (const e of evidence) {
+      const fid = e.finding.id;
+      this.node({ id: fid, kind: 'finding', label: e.core, data: { polarity: e.polarity } });
+      this.node({ id: `rule:${e.rule.id}`, kind: 'rule', label: e.rule.id });
+      this.edge(fid, `rule:${e.rule.id}`, 'fired_by');
+      if (e.palace) this.edge(fid, `palace:${e.palace}`, 'about');
+      for (const s of e.rule.sourceIds) { this.node({ id: `source:${s}`, kind: 'source', label: s }); this.edge(`rule:${e.rule.id}`, `source:${s}`, 'cites', { pages: e.cites }); }
+      for (const c of e.concepts) { this.node({ id: `concept:${c.id}`, kind: 'concept', label: c.id }); this.edge(fid, `concept:${c.id}`, 'expresses'); }
+      for (const s of e.presentStars) {
+        const at = this.starAt.get(s);
+        if (at) this.edge(fid, `star:${s}`, 'depends_on', { palace: at, cross: at !== e.palace });
+      }
+    }
+  }
+  private node(n: GNode) { if (!this.nodes.has(n.id)) this.nodes.set(n.id, n); }
+  private edge(src: string, dst: string, kind: string, data?: Record<string, unknown>) { this.edges.push({ src, dst, kind, data }); }
+
+  palace(name: string): Palace { return this.palaces.get(name)!; }
+  related(name: string, kind: 'tam_hop' | 'xung_chieu' | 'giap'): Palace[] {
+    return this.edges.filter(e => e.src === `palace:${name}` && e.kind === kind).map(e => this.palace(e.dst.slice(7)));
+  }
+  /** The four palaces of the tam phương tứ chính of `name`: itself, its two tam hợp and its xung chiếu. */
+  tamPhuong(name: string): Palace[] { return [this.palace(name), ...this.related(name, 'tam_hop'), ...this.related(name, 'xung_chieu')]; }
+  hoaIn(name: string): string[] { return Object.entries(this.chart.tu_hoa).filter(([, v]) => this.byBranch.get(v.branch)!.name === name).map(([h, v]) => `${h} (${v.star})`); }
+  /** Palaces (other than the finding's own) whose stars a finding depends on. */
+  crossDependencies(findingId: string): Array<{ star: string; palace: string }> {
+    return this.edges.filter(e => e.src === findingId && e.kind === 'depends_on' && e.data?.cross).map(e => ({ star: e.dst.slice(5), palace: String(e.data!.palace) }));
+  }
+  satIn(names: string[]): string[] { return names.flatMap(n => this.palace(n).stars.filter(s => SAT.includes(s))); }
+  catIn(names: string[]): string[] { return names.flatMap(n => this.palace(n).stars.filter(s => CAT.includes(s))); }
+}

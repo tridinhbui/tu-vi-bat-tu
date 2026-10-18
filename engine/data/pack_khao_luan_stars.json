@@ -434,14 +434,36 @@
       "value": "Tử Vi"
      },
      {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Tả Phụ"
-     },
-     {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Hữu Bật"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Tả Phụ"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Hữu Bật"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Hữu Bật"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Tả Phụ"
+         }
+        ]
+       }
+      ]
      }
     ]
    },
@@ -951,14 +973,36 @@
       "value": "Mệnh"
      },
      {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Hỏa Tinh"
-     },
-     {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Linh Tinh"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Hỏa Tinh"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Linh Tinh"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Linh Tinh"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Hỏa Tinh"
+         }
+        ]
+       }
+      ]
      }
     ]
    },
@@ -1093,14 +1137,36 @@
       ]
      },
      {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Địa Không"
-     },
-     {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Địa Kiếp"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         }
+        ]
+       }
+      ]
      }
     ]
    },
@@ -1378,14 +1444,36 @@
       "value": "Mệnh"
      },
      {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Hóa Khoa"
-     },
-     {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Hóa Lộc"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Hóa Khoa"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Hóa Lộc"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Hóa Lộc"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Hóa Khoa"
+         }
+        ]
+       }
+      ]
      }
     ]
    },
@@ -2844,14 +2932,36 @@
       "value": "Mệnh"
      },
      {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Tử Vi"
-     },
-     {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Thiên Phủ"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Tử Vi"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Thiên Phủ"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Thiên Phủ"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Tử Vi"
+         }
+        ]
+       }
+      ]
      }
     ]
    },

@@ -1130,14 +1130,36 @@
       "value": "Mệnh"
      },
      {
-      "fact": "palace.neighbor_majors",
-      "operator": "contains",
-      "value": "Liêm Trinh"
-     },
-     {
-      "fact": "palace.neighbor_majors",
-      "operator": "contains",
-      "value": "Thất Sát"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_majors",
+          "operator": "contains",
+          "value": "Liêm Trinh"
+         },
+         {
+          "fact": "palace.rel.flank_next_majors",
+          "operator": "contains",
+          "value": "Thất Sát"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_majors",
+          "operator": "contains",
+          "value": "Thất Sát"
+         },
+         {
+          "fact": "palace.rel.flank_next_majors",
+          "operator": "contains",
+          "value": "Liêm Trinh"
+         }
+        ]
+       }
+      ]
      }
     ]
    },

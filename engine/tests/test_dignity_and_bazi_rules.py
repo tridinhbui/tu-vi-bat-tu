@@ -178,7 +178,9 @@ def test_khao_luan_phu2_rules_and_neighbor_facts():
     assert "thoi_tre_van_va_lo_toan" in claims_for(mk_palace(tuan=True))                       # corroborated by a second book
     res = engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": mk_palace(tuan=True)}, system="tu_vi")
     assert {f.rule_id for f in res.findings if f.claim == "thoi_tre_van_va_lo_toan"} >= {"TV_KL_PHU2_TUAN_TRIET", "TV_TH_VERSE_MENH_TRIET_TUAN"}
-    assert "liem_sat_giap_danh_muon" in claims_for({**mk_palace(), "palace.neighbor_majors": ["Liêm Trinh", "Thất Sát"]})
+    assert "liem_sat_giap_danh_muon" in claims_for({**mk_palace(), "palace.rel.flank_prev_majors": ["Liêm Trinh"], "palace.rel.flank_next_majors": ["Thất Sát"]})
+    # 'giáp hai bên' needs one star on EACH side: both in the same neighbouring palace is not a giáp (the 17/05/1990 Nhật Nguyệt case)
+    assert "liem_sat_giap_danh_muon" not in claims_for({**mk_palace(), "palace.rel.flank_prev_majors": ["Liêm Trinh", "Thất Sát"], "palace.rel.flank_next_majors": []})
     assert "liem_sat_giap_danh_muon" not in claims_for({**mk_palace(), "palace.neighbor_majors": ["Liêm Trinh"]})
     ph = {**mk_palace(branch="Hợi", own=["Thái Âm", "Văn Khúc"], name="Phu Thê")}
     assert "phu_the_am_khuc_hoi_bat_doi_sang" in claims_for(ph)
@@ -208,8 +210,10 @@ def test_khao_luan_cung_rules():
     assert "no_sat_ban_tan_tam" not in palace_run("Nô Bộc", own=["Thất Sát", "Vũ Khúc"])
     assert "mau_tu_vi_sat_con_khong_hop_tinh" in palace_run("Phụ Mẫu", own=["Tử Vi", "Thất Sát"])
     assert "di_vo_chinh_dieu_tha_noi" in palace_run("Thiên Di", no_major=True)
-    p = {**mk_palace(name="Mệnh"), "palace.neighbor_majors": ["Thái Dương", "Thái Âm"], "palace.is_than": False}
+    p = {**mk_palace(name="Mệnh"), "palace.rel.flank_prev_majors": ["Thái Dương"], "palace.rel.flank_next_majors": ["Thái Âm"], "palace.is_than": False}
     assert "menh_giap_nhat_nguyet_hien_dat" in {f.claim for f in engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": p}, system="tu_vi").findings}
+    p = {**p, "palace.rel.flank_prev_majors": ["Thái Dương", "Thái Âm"], "palace.rel.flank_next_majors": ["Thiên Đồng"]}
+    assert "menh_giap_nhat_nguyet_hien_dat" not in {f.claim for f in engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": p}, system="tu_vi").findings}
 
 
 def test_group_facts_chain_into_palace_rules():

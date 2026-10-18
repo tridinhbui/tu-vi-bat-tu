@@ -11,6 +11,9 @@ def pal(name="Mệnh", branch="Dần", own=(), opp=(), flank=(), tp=(), tphoa=()
     p = {"palace.name": name, "palace.branch": branch, "palace.own_stars": list(own), "palace.own_major_stars": [s for s in own if s in (
          "Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng", "Thiên Lương", "Thiên Đồng", "Thái Dương", "Thái Âm", "Cự Môn", "Thiên Cơ", "Tham Lang", "Thất Sát", "Phá Quân", "Liêm Trinh")],
          "palace.rel.opp_stars": list(opp), "palace.rel.opp_majors": list(opp), "palace.rel.flank_stars": list(flank),
+         # 'giáp hai bên': the first flank star sits on the previous palace, the rest on the next one
+         "palace.rel.flank_prev_stars": list(flank[:1]), "palace.rel.flank_next_stars": list(flank[1:]),
+         "palace.rel.flank_prev_majors": list(flank[:1]), "palace.rel.flank_next_majors": list(flank[1:]),
          "palace.rel.tp_stars": list(own) + list(opp) + list(tp), "palace.rel.tp_majors": list(own) + list(opp) + list(tp),
          "palace.rel.tp_hoa": list(tphoa), "palace.tu_hoa": list(hoa), "palace.tuan": False, "palace.triet": False, "palace.has_no_major": not own,
          "palace.khi.cat_tp": 0, "palace.khi.sat_tp": 0, "palace.is_than": False, "palace.rel.nhi_hop_stars": [], "palace.rel.nhi_hop_hoa": []}

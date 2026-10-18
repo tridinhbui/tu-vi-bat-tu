@@ -4736,14 +4736,36 @@
       "value": "Quan Lộc"
      },
      {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Văn Xương"
-     },
-     {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Văn Khúc"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Văn Xương"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Văn Khúc"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Văn Khúc"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Văn Xương"
+         }
+        ]
+       }
+      ]
      }
     ]
    },
@@ -4842,14 +4864,36 @@
       "value": "Quan Lộc"
      },
      {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Liêm Trinh"
-     },
-     {
-      "fact": "palace.rel.flank_stars",
-      "operator": "contains",
-      "value": "Thất Sát"
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Liêm Trinh"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Thất Sát"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Thất Sát"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Liêm Trinh"
+         }
+        ]
+       }
+      ]
      }
     ]
    },

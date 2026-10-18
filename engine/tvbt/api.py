@@ -83,6 +83,30 @@ def deep_reading(req: BirthReq):
     return build_deep_reading(tv, bz, rules, sources, claims, req.year, req.to_year, forms)
 
 
+@app.post("/api/facts")
+def chart_facts(req: BirthReq):
+    """Chart facts for the TypeScript interpretation pipeline (src/interpret): the same fact base the Python rule engine reads
+    (reasoning/facts.py), plus palaces, Tứ Hóa, every đại hạn with its stem's Tứ Hóa landing and the Khảo Luận / Thực Hành vận
+    readings for it, and the requested year. Pure data, nothing interpreted; the TS engine runs the rules itself."""
+    from . import van_han
+    from .ganzhi import STEMS_VI
+    nb, bz, tv = _compute(req)
+    base = facts.tuvi_facts(tv)
+    star_pal = {s: p["name"] for p in tv.palaces for s in p["stars"]}
+    decades = []
+    for d in tv.dai_han:
+        pal = next(p for p in tv.palaces if p["branch"] == d["branch"])
+        stem = pal["stem"]
+        hoa = dict(zip(("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"), tuvi.TU_HOA[STEMS_VI.index(stem)]))
+        decades.append({**d, "palace": pal["name"], "stem": stem, "hoa": {k: {"star": v, "palace": star_pal.get(v)} for k, v in hoa.items()},
+                        "readings": van_han.read(tv, pal["name"])})
+    year = req.to_year or req.year + 30
+    return {"engine": "tvbt-facts-1", "dignity_school": req.dignity_school, "birth_year": req.year, "lunar_year": tv.lunar["year"],
+            "gender": req.gender, "year_gz": tv.year_gz, "cuc": tv.cuc, "menh_nap_am": tv.menh_nap_am, "menh_cuc_relation": tv.menh_cuc_relation,
+            "yin_yang_gender": tv.yin_yang_gender, "dai_han_direction": tv.dai_han_direction,
+            "palaces": tv.palaces, "tu_hoa": tv.tu_hoa, "base": base, "decades": decades, "year": temporal.tuvi_year(tv, year)}
+
+
 @app.post("/api/synthesis")
 def synthesis(req: BirthReq):
     """'Luận giải tổng hợp' for each Tử Vi report chapter (tvbt/synthesis/chapters.py): Semantic IR -> symbolic reasoning -> Vietnamese narrative
