@@ -65,16 +65,10 @@ document.addEventListener('click', e => {
 });
 if (/^#(hoc|kham-pha|tu-vi|bat-tu|gioi-thieu)/.test(location.hash)) history.replaceState(null, '', location.pathname);
 
-// ---------- depth mode: 'Dễ hiểu' (default) or 'Chuyên sâu' ----------
-function setDepth(d, save = true) {
-  document.body.dataset.depth = d;
-  $$('[data-depth]').forEach(b => b.setAttribute('aria-pressed', b.dataset.depth === d));
-  if (save) try { localStorage.setItem('tvbt-depth', d); } catch { /* storage unavailable: mode simply is not remembered */ }
-  requestAnimationFrame(() => dispatchEvent(new Event('resize')));
-}
-let savedDepth = 'easy'; try { savedDepth = localStorage.getItem('tvbt-depth') === 'pro' ? 'pro' : 'easy'; } catch { /* default */ }
-setDepth(savedDepth, false);
-$$('[data-depth]').forEach(b => b.onclick = () => setDepth(b.dataset.depth));
+// ---------- depth: the reading is always shown in full ('Chuyên sâu': rules, book pages, every tier); the 'Dễ hiểu' mode was removed.
+// The data-depth attribute stays so the existing .pro-only / .easy-only markup keeps working.
+document.body.dataset.depth = 'pro';
+try { localStorage.removeItem('tvbt-depth'); } catch { /* storage unavailable */ }
 let lastY = 0;
 addEventListener('scroll', () => { const y = scrollY; $('#site-header').classList.toggle('stuck', y > 8); lastY = y; }, { passive: true });
 
