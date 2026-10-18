@@ -318,6 +318,23 @@ def library():
     return FileResponse(ROOT / "web" / "library.html")
 
 
+@app.get("/reference")
+def reference():
+    """Source-linked reference (per star / palace / Bát Tự topic) built from the rule packs by tools/build_reference.py."""
+    return FileResponse(ROOT / "web" / "reference.html")
+
+
+@app.get("/api/evidence")
+def evidence():
+    """Reviewer evidence per rule: verdict, verbatim quote (machine-checked against the book page), context, qualifier."""
+    import json
+    p, w = ROOT / "data" / "source_evidence.json", ROOT / "data" / "source_evidence_web.json"
+    out = json.loads(p.read_text("utf-8")) if p.exists() else {"version": 0, "entries": []}
+    if w.exists():
+        out["web"] = json.loads(w.read_text("utf-8"))    # 子平真詮 definitions vs web text (not page-checked, see its note)
+    return out
+
+
 @app.get("/")
 def index():
     return FileResponse(ROOT / "web" / "index.html")

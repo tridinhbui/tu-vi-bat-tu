@@ -1245,7 +1245,7 @@
    "system": "bat_tu",
    "schoolId": "bazi_structure_ttt",
    "category": "book",
-   "description": "Vai trò vận khi nhật chủ là Tòng Thế (lời sách)",
+   "description": "Vai trò vận khi nhật chủ là Tòng Thế (lời sách) [Đối chiếu nguồn 17-10-2026: khớp một phần, điều kiện của quy tắc lệch so với trang sách; chi tiết trong engine/data/source_evidence.json]",
    "conditions": {
     "all": [
      {
@@ -1321,7 +1321,7 @@
    "system": "bat_tu",
    "schoolId": "bazi_structure_ttt",
    "category": "book",
-   "description": "Vai trò vận khi nhật chủ là Tòng Sát (lời sách)",
+   "description": "Vai trò vận khi nhật chủ là Tòng Sát (lời sách) [Đối chiếu nguồn 17-10-2026: khớp một phần, điều kiện của quy tắc lệch so với trang sách; chi tiết trong engine/data/source_evidence.json]",
    "conditions": {
     "all": [
      {
@@ -1628,7 +1628,7 @@
    "system": "bat_tu",
    "schoolId": "bazi_structure_ttt",
    "category": "book",
-   "description": "Nguyên lưu: khởi Tỉ Kiếp/Ấn, kết Tài Quan là hỉ",
+   "description": "Nguyên lưu: khởi Tỉ Kiếp/Ấn, kết Tài Quan là hỉ [Đối chiếu nguồn 17-10-2026: khớp một phần, điều kiện của quy tắc lệch so với trang sách; chi tiết trong engine/data/source_evidence.json]",
    "conditions": {
     "fact": "bazi.nguyen_luu",
     "operator": "eq",
@@ -1802,7 +1802,7 @@
    "system": "bat_tu",
    "schoolId": "bazi_structure_ttt",
    "category": "book",
-   "description": "Hỗn tạp mà nhật chủ vượng, tọa Ấn hoặc có giờ sinh phù thì không ngại",
+   "description": "Hỗn tạp mà nhật chủ vượng, tọa Ấn hoặc có giờ sinh phù thì không ngại [Đối chiếu nguồn 17-10-2026: khớp một phần, điều kiện của quy tắc lệch so với trang sách; chi tiết trong engine/data/source_evidence.json]",
    "conditions": {
     "fact": "bazi.patterns",
     "operator": "contains",
@@ -1831,7 +1831,7 @@
    "system": "bat_tu",
    "schoolId": "bazi_structure_ttt",
    "category": "book",
-   "description": "Hỗn tạp mà nhật chủ không tọa Ấn, giờ không sinh phù và không vượng thì không nên",
+   "description": "Hỗn tạp mà nhật chủ không tọa Ấn, giờ không sinh phù và không vượng thì không nên [Đối chiếu nguồn 17-10-2026: khớp một phần, điều kiện của quy tắc lệch so với trang sách; chi tiết trong engine/data/source_evidence.json]",
    "conditions": {
     "fact": "bazi.patterns",
     "operator": "contains",

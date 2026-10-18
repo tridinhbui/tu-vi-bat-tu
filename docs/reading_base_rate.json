@@ -1,0 +1,63 @@
+{
+ "n_charts": 400,
+ "seed": 20261017,
+ "birth_years": "1950-2005",
+ "dignity_school": "thuc_hanh (default)",
+ "distribution": {
+  "findings": {
+   "min": 44,
+   "q1": 60,
+   "median": 67,
+   "q3": 73,
+   "max": 109
+  },
+  "supporting": {
+   "min": 27,
+   "q1": 42,
+   "median": 48,
+   "q3": 54,
+   "max": 77
+  },
+  "limits": {
+   "min": 5,
+   "q1": 12,
+   "median": 14,
+   "q3": 16,
+   "max": 25
+  },
+  "menh_supporting": {
+   "min": 4,
+   "q1": 15,
+   "median": 20,
+   "q3": 25,
+   "max": 53
+  },
+  "menh_wealth_rank_success": {
+   "min": 0,
+   "q1": 3,
+   "median": 5,
+   "q3": 7,
+   "max": 17
+  },
+  "wealth_rank_success_any": {
+   "min": 5,
+   "q1": 11,
+   "median": 14,
+   "q3": 17,
+   "max": 27
+  }
+ },
+ "share_charts_with_wealth_rank_success_reading_anywhere": 1.0,
+ "share_charts_with_wealth_rank_success_reading_at_menh": 0.9875,
+ "share_charts_with_a_limit_finding": 1.0,
+ "note": "Keyword heuristic on Vietnamese claim text. A chart that 'fits' its readings is the expected outcome for any chart.",
+ "book_example_han_cao_to": {
+  "solar_date": "2015-01-03",
+  "findings": 74,
+  "supporting": 62,
+  "limits": 7,
+  "menh_supporting": 23,
+  "menh_wealth_rank_success": 7,
+  "percentile_of_findings_among_random": 78
+ }
+}

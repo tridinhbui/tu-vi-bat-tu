@@ -5,26 +5,27 @@
    "title": "Tử Vi Thực Hành",
    "author": "Dịch Lý Huyền Cơ (Hi Di Trần Đoàn)",
    "edition": "PDF distributed by tuviglobal.com (Nhà sách Khai Trí, Sài Gòn)",
-   "locator": "pp.12, 14, 17, 19-25",
+   "locator": "pp.12, 14, 17, 19-25 (thủ tục, bảng); 30-31, 33-37, 39-40, 42-44, 46-56, 58-60, 62-68, 72-78, 82-88, 93-96, 98-106, 108-113 (66 trang có quy tắc trích dẫn / 163)",
    "verified": true,
-   "note": "Used only to check procedures/tables; no text reproduced. Some printed 'cước' notes contain typos (Thiên Mã, Mậu/Quý Kim cục)."
+   "note": "Used only to check procedures/tables; no text reproduced. Some printed 'cước' notes contain typos (Thiên Mã, Mậu/Quý Kim cục). | Locator cập nhật 2026-10-17. Lớp chữ của PDF nhiều trang bị xáo thứ tự dòng: trang nghi ngờ phải đọc từ ảnh (xem lỗi Tử/Mộ ở tr.59 trong CLASSICAL-SOURCE-AUDIT.md). Bằng chứng từng quy tắc: engine/data/source_evidence.json."
   },
   {
    "id": "SRC_KHAO_LUAN",
    "title": "Tử Vi Khảo Luận",
    "author": "Hoàng Thường - Hàm Chương",
    "edition": "PDF distributed by tuviglobal.com",
-   "locator": "p.36 (Tứ Hóa table)",
-   "verified": true
+   "locator": "pp.36 (bảng Tứ Hóa), 49-56, 58-71, 73, 75-83, 166-167, 195-197, 215-229, 237-238, 240-242, 244, 246 (56 trang có quy tắc trích dẫn / 290)",
+   "verified": true,
+   "note": "Locator cập nhật 2026-10-17 theo các số trang thực sự được trích trong mô tả quy tắc (bản trước chỉ ghi tr.36). Bằng chứng từng quy tắc (nguyên văn, bối cảnh, chênh lệch): engine/data/source_evidence.json."
   },
   {
    "id": "SRC_TOAN_THU",
    "title": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục dịch và bình chú)",
    "author": "La Hồng Tiên / Hi Di Trần Đoàn",
    "edition": "PDF",
-   "locator": "PDF pp.21-40 (star brightness lines, text layer)",
+   "locator": "PDF pp.21-22, 24, 26-28, 31-34, 36-40, 42-47, 49-50, 52, 77-84, 86-89, 108-112, 151-163 (54 trang có quy tắc trích dẫn / 170)",
    "verified": true,
-   "note": "Used only for the brightness comparison; text-layer transcription spot-checked on PDF pp.21, 31, 32, 39."
+   "note": "Used only for the brightness comparison; text-layer transcription spot-checked on PDF pp.21, 31, 32, 39. | Locator cập nhật 2026-10-17. Sách có lớp phú cổ và lớp lời giải của dịch giả; bằng chứng từng quy tắc ghi rõ đỡ ở lớp nào."
   },
   {
    "id": "SRC_PHUONG_THUAT",
@@ -40,9 +41,9 @@
    "title": "八字真宗 (Bát Tự Chân Tông)",
    "author": "unknown (PDF circulated via ChienNguyen)",
    "edition": "PDF, simplified Chinese, 96 pp.",
-   "locator": "PDF pp.19, 20, 23, 24, 25, 35 (tables only)",
+   "locator": "PDF pp.7-17, 19-25, 35 (bảng tra); 25-27, 31-32, 50-52, 56-57, 59, 64, 73-74 (quy tắc trích dẫn trực tiếp, 14 trang / 96)",
    "verified": true,
-   "note": "Popular practice manual. Used only for tables (stem/branch relations, ngũ hổ/ngũ thử độn, 12 stages, luck start rule, khong vong). Its fortune-telling statements (injury, death, children) are deliberately NOT implemented."
+   "note": "Popular practice manual. Used only for tables (stem/branch relations, ngũ hổ/ngũ thử độn, 12 stages, luck start rule, khong vong). Its fortune-telling statements (injury, death, children) are deliberately NOT implemented. | Locator cập nhật 2026-10-17 (bản trước chỉ ghi các bảng). Các câu về tai họa, bệnh, tuổi thọ cố ý không đưa vào."
   }
  ]
 }

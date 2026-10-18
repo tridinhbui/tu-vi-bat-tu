@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tra cứu có nguồn — Thiên Bàn</title>
+<meta name="description" content="Tra cứu từng sao, từng cung và từng quy tắc Bát Tự kèm sách, số trang, trích nguyên văn đã kiểm và mức tin cậy.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.css">
+<style>
+main.rf{max-width:1040px;margin:0 auto;padding:40px clamp(16px,4vw,40px) 96px}
+.rf h1{font-size:clamp(2.1rem,5vw,3.2rem);margin:8px 0 12px}.rf h2{font-size:1.6rem;margin:36px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}.rf h3{font-size:1.15rem;margin:22px 0 8px}
+.rf .note{color:var(--text2);font-size:.95rem;max-width:68ch}
+.rf .tabs,.rf .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.rf .tabs button,.rf .chips button{font:500 .9rem var(--sans);padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--raise);color:var(--ink);cursor:pointer}
+.rf .tabs button[aria-pressed=true],.rf .chips button[aria-pressed=true]{background:var(--ink);color:var(--paper,#fff);border-color:var(--ink)}
+.rf .card{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:10px 0}
+.rf details{border:1px solid var(--line);border-radius:10px;background:var(--raise);padding:8px 14px;margin:8px 0}.rf summary{cursor:pointer;font-weight:500}
+.rf .it{padding:10px 0;border-top:1px solid var(--line)}.rf .it:first-of-type{border-top:0}
+.rf .badge{display:inline-block;font:600 .72rem var(--sans);padding:2px 8px;border-radius:99px;margin-right:6px;vertical-align:1px;white-space:nowrap}
+.rf .b-checked{background:#dff3e4;color:#14532d}.rf .b-partial{background:#e8f1d8;color:#3f5212}.rf .b-sourced{background:#e6eefb;color:#1e3a8a}.rf .b-draft{background:#fdf0d5;color:#7a4a00}.rf .b-hypothesis{background:#f3e0e0;color:#7f1d1d}
+:root[data-theme=dark] .rf .b-checked,:root:not([data-theme=light]) .rf .b-checked{}
+.rf .src{color:var(--text2);font-size:.82rem;margin-top:4px}
+.rf .tag{display:inline-block;font-size:.76rem;border:1px solid var(--line);border-radius:6px;padding:0 6px;margin:2px 4px 0 0;color:var(--text2)}
+.rf blockquote{margin:6px 0 4px;padding:6px 12px;border-left:3px solid var(--line);color:var(--ink);font-family:var(--serif);font-size:.95rem}
+.rf .warn{border-left:3px solid #b45309;padding:4px 10px;background:rgba(180,83,9,.08);font-size:.88rem;margin:6px 0}
+.rf table{border-collapse:collapse;font-size:.82rem;display:block;overflow-x:auto}.rf td,.rf th{border:1px solid var(--line);padding:3px 8px;text-align:center;white-space:nowrap}
+.rf td.df{background:rgba(180,83,9,.16);font-weight:600}
+.rf .legend{display:grid;gap:6px;margin:10px 0}
+.rf .muted{color:var(--text2)}
+@media(max-width:560px){.rf table{font-size:.74rem}}
+</style></head><body>
+<header class="site-header stuck"><div class="wrap hdr"><a class="brand" href="/"><b style="font:600 1.3rem var(--serif)">Thiên Bàn</b></a>
+<a class="btn btn-sm btn-ghost" style="margin-left:auto" href="/library">Thư viện quy tắc</a><a class="btn btn-sm btn-ghost" href="/#hoc">Học</a></div></header>
+<main class="rf" id="main">
+<p class="eyebrow">Tra cứu</p><h1>Tra cứu có nguồn</h1>
+<p class="note">Mỗi dòng dưới đây là một nhận định mà <b>sách cổ nêu ra</b>, được hệ thống diễn đạt lại kèm tên sách và số trang. Đây là hệ biểu tượng truyền thống, <b>không phải dự báo</b> và không phải bằng chứng khoa học về số phận. Các sách không đồng ý với nhau ở nhiều chỗ; trang này giữ nguyên những chỗ bất đồng thay vì gộp thành một đáp án.</p>
+<div class="card" id="legend"></div>
+<div class="tabs" role="tablist" id="tabs">
+ <button type="button" data-t="tv" aria-pressed="true">Tử Vi: theo sao</button>
+ <button type="button" data-t="tvc" aria-pressed="false">Tử Vi: theo cung</button>
+ <button type="button" data-t="bt" aria-pressed="false">Bát Tự</button>
+ <button type="button" data-t="nguon" aria-pressed="false">Nguồn và giới hạn</button>
+</div>
+<div class="chips" id="tierf" aria-label="Lọc theo mức tin cậy"></div>
+<div id="view">Đang tải…</div>
+</main>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let D=null;const st={tab:'tv',star:'Tử Vi',pal:'Mệnh',tiers:new Set(['checked','partial','sourced','draft','hypothesis'])};
+const TL={checked:'Đã đối chiếu',partial:'Khớp một phần',sourced:'Có nguồn',draft:'Nháp',hypothesis:'Giả thuyết'};
+const BR=['Tý','Sửu','Dần','Mão','Thìn','Tỵ','Ngọ','Mùi','Thân','Dậu','Tuất','Hợi'];
+const badge=t=>`<span class="badge b-${t}" title="${esc(D.tiers[t])}">${TL[t]}</span>`;
+const srcTxt=s=>`${esc(D.books[s.b]||s.b||'?')}${s.p?`, tr. ${esc(s.p)}`:''}`;
+function evHtml(s){const e=s.ev;if(!e)return'';
+ const q=e.quote?`<blockquote>“${esc(e.quote)}”<div class="src">${esc(D.books[s.b]||s.b)}, tr. ${esc(e.quote_page)}${e.quote_verified===true?' · máy đã kiểm: trích dẫn nằm đúng trên trang':e.quote_verified===null?' · đọc từ ảnh trang, máy không kiểm được':' · máy KHÔNG tìm thấy trích dẫn này trên trang'}</div>${e.gloss_vi?`<div class="src">Nghĩa: ${esc(e.gloss_vi)}</div>`:''}</blockquote>`:'';
+ const v={faithful:'Khớp trang sách',partly:'Khớp một phần',unsupported_on_page:'Không thấy trên trang đã ghi',misread:'Sách nói khác',cannot_verify:'Chưa đọc được'}[e.verdict]||e.verdict;
+ return `<details><summary>Xem nguyên văn và bối cảnh (${esc(v)})</summary>${q}${e.context_note?`<div class="src">Bối cảnh: ${esc(e.context_note)}</div>`:''}${e.qualifier?`<div class="warn">Sách còn nói thêm / điều kiện hệ thống chưa nêu: ${esc(e.qualifier)}</div>`:''}${e.issue?`<div class="warn">Chênh lệch giữa quy tắc và sách: ${esc(e.issue)}</div>`:''}</details>`;}
+const WV={faithful:'Khớp nguyên văn',partly:'Khớp một phần',not_in_text:'Không có trong văn bản',misread:'Văn bản nói khác',cannot_verify:'Chưa đọc được'};
+function webHtml(w){return `<details><summary>Đối chiếu với nguyên văn (${esc(WV[w.verdict]||w.verdict)}) — ${esc(w.chapter||'')}</summary><blockquote lang="zh">“${esc(w.quote)}”<div class="src">${esc(w.gloss_vi||'')} · <a href="${esc(w.quote_url)}" rel="noopener noreferrer" target="_blank">đọc trên web</a>${w.second_host_agrees===true?' · hai trang web cùng bản':w.second_host_agrees===false?' · trang thứ hai có dị bản nhỏ':''}</div></blockquote>${w.issue?`<div class="warn">Chênh lệch: ${esc(w.issue)}</div>`:''}${w.qualifier?`<div class="warn">Văn bản còn thêm: ${esc(w.qualifier)}</div>`:''}</details>`;}
+function item(it){
+ const tags=[];if(it.role==='hoi')tags.push('sao này đứng trong tam phương (hội chiếu)');if(it.with&&it.with.length)tags.push('cùng với: '+it.with.join(', '));if(it.any&&it.any.length)tags.push('một trong các sao: '+it.any.join(', '));
+ if(it.br)tags.push('tại: '+it.br.join(', '));if(it.g)tags.push(it.g==='male'?'nam mệnh':it.g==='female'?'nữ mệnh':it.g);(it.x||[]).forEach(x=>tags.push(x));
+ const srcs=it.src.filter(s=>st.tiers.has(s.tier));
+ return `<div class="it">${badge(it.tier)}${esc(it.t)}<div>${tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+ <div class="src">${srcs.map(s=>srcTxt(s)+(s.st==='d'?' (nháp)':'')).join(' · ')}${it.src.length>1?` — ${it.src.length} chỗ cùng nói điều này`:''}</div>${srcs.map(evHtml).join('')}</div>`;}
+const keep=it=>st.tiers.has(it.tier);
+function dignity(c){const a=c.dignity.thuc_hanh,b=c.dignity.toan_thu;
+ return `<h3>Độ sáng theo từng cung (hai trường phái, không gộp)</h3><table><tr><th></th>${BR.map(x=>`<th>${x}</th>`).join('')}</tr>
+ <tr><th>Thực Hành</th>${BR.map(x=>{const d=a[x]&&b[x]&&a[x]!==b[x];return `<td class="${d?'df':''}">${a[x]||'·'}</td>`}).join('')}</tr>
+ <tr><th>Toàn Thư</th>${BR.map(x=>{const d=a[x]&&b[x]&&a[x]!==b[x];return `<td class="${d?'df':''}">${b[x]||'·'}</td>`}).join('')}</tr></table>
+ <p class="note">${c.dignity.diff.length?`Hai sách khác nhau ở <b>${c.dignity.diff.length}</b> ô (tô đậm). Không có bên nào được xem là đúng; mặc định của hệ thống là Thực Hành (${esc(c.dignity.th_loc||'')}). Toàn Thư: ${esc(c.dignity.tt_loc||'')}.`:'Hai sách không mâu thuẫn ở các ô cả hai cùng nêu; “·” là sách không nêu, không được suy đoán.'}</p>`;}
+function starView(){
+ const all={...D.tu_vi.stars,...D.tu_vi.minor},c=all[st.star],isMajor=!!D.tu_vi.stars[st.star];
+ const names=Object.keys(D.tu_vi.stars),minors=Object.keys(D.tu_vi.minor);
+ let h=`<div class="chips" aria-label="Chọn sao">${names.map(n=>`<button type="button" data-star="${esc(n)}" aria-pressed="${n===st.star}">${esc(n)}</button>`).join('')}</div>
+ <details><summary>Phụ tinh và Tứ Hóa (${minors.length})</summary><div class="chips">${minors.map(n=>`<button type="button" data-star="${esc(n)}" aria-pressed="${n===st.star}">${esc(n)}</button>`).join('')}</div></details>`;
+ h+=`<h2>${esc(st.star)}</h2>`;
+ if(isMajor)h+=`<div class="card"><p>${esc(c.plain)}</p><p class="src">Theo ${esc(c.profile.loc)} (Tử Vi Thực Hành): hành ${esc(c.profile.element)} · ${esc(c.profile.dau)} · hay được gắn với ${esc(c.profile.domain)}.</p></div>`;
+ else if(c.plain)h+=`<div class="card"><p>${esc(c.plain)}</p></div>`;
+ const ed=D.editorial.stars&&D.editorial.stars[st.star];
+ if(ed)h+=`<div class="card"><b>Đọc sao này cho đúng</b><ul>${ed.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+ if(isMajor)h+=dignity(c);
+ h+=`<h3>Sách nói gì, theo từng cung</h3><p class="note">${c.total} nhận định (${Object.entries(c.count).map(([k,v])=>`${TL[k]} ${v}`).join(', ')}). Cùng một câu xuất hiện ở nhiều sách được gộp lại và ghi đủ các chỗ.</p>`;
+ Object.entries(c.palaces).forEach(([p,l])=>{const ls=l.filter(keep);if(!ls.length)return;
+  h+=`<details ${p==='Mệnh'?'open':''}><summary>${p==='_'?'Không gắn với cung cụ thể':'Cung '+esc(p)} <span class="muted">(${ls.length})</span></summary>${ls.map(item).join('')}</details>`;});
+ return h;}
+function palView(){
+ let h=`<div class="chips">${D.tu_vi.palaces.map(p=>`<button type="button" data-pal="${esc(p)}" aria-pressed="${p===st.pal}">${esc(p)}</button>`).join('')}</div><h2>Cung ${esc(st.pal)}</h2>`;
+ const pp=D.tu_vi.palace_plain[st.pal];h+=`<div class="card"><p>${esc(pp.plain)}</p><p class="muted">${esc(pp.ask)}</p></div>`;
+ const all={...D.tu_vi.stars,...D.tu_vi.minor};let n=0;
+ Object.entries(all).forEach(([s,c])=>{const l=(c.palaces[st.pal]||[]).filter(keep);if(!l.length)return;n+=l.length;
+  h+=`<details><summary>${esc(s)} <span class="muted">(${l.length})</span></summary>${l.map(item).join('')}</details>`;});
+ return h+(n?'':'<p class="muted">Không có nhận định nào khớp bộ lọc.</p>');}
+function btView(){
+ const G=D.bat_tu.groups,T={nhat_chu:['Nhật Chủ: tính cách theo Thiên can ngày','八字真宗 trang 25-27. Bảng thuộc loại đọc mô tả; hãy xem đây là một cách kể, không phải phép đo.'],nap_am:['Nạp âm của trụ ngày (30 tổ hợp)','八字真宗 trang 31-32.'],truc_doan:['Trực đoán: nghề, hôn nhân, Dương Nhẫn, Dịch Mã, Văn Xương','八字真宗 trang 50-72. Đây là sách thực hành phổ thông; các câu về tai họa, bệnh, tuổi thọ cố ý không đưa vào.'],cau_truc:['Cấu trúc lá số: vượng nhược, cách cục, dụng thần, điều hậu','Gồm cả phần lấy từ Trích Thiên Tủy và Thiệu Vĩ Hoa (có trang) lẫn phần là quy ước của hệ thống hoặc viết theo trí nhớ về Tử Bình Chân Thuyên (nhãn Giả thuyết).'],van_nien:['Đại vận và lưu niên','Quy tắc về tác động của vận lên cách cục.'],tbct:['Cách cục theo Tử Bình Chân Thuyên: định nghĩa của hệ thống đối chiếu với nguyên văn','Các định nghĩa này do người soạn viết theo trí nhớ nên vẫn là giả thuyết (nhãn nháp). Ngày 17-10-2026 chúng được đọc lại với bản chữ Hán của 子平真詮 trên mạng (không phải bản sách in), mỗi mục kèm trích nguyên văn và chỗ lệch. Phần lớn là “khớp một phần”: lõi đúng nhưng điều kiện của hệ thống khác văn bản.']};
+ let h='';Object.keys(T).forEach(k=>{const l=(G[k]||[]).filter(x=>st.tiers.has(x.tier));if(!l.length)return;
+  h+=`<h2>${T[k][0]}</h2><p class="note">${esc(T[k][1])}</p><details><summary>${l.length} dòng</summary>${l.map(x=>`<div class="it">${badge(x.tier)}${esc(x.t)}<div class="src">${esc(D.books[x.b]||x.b||'')}${x.p?', tr. '+esc(x.p):''}${x.st==='d'?' (nháp)':''}</div>${x.ev?evHtml({ev:x.ev,b:x.ev.quote_book||x.b}):''}${x.web?webHtml(x.web):''}</div>`).join('')}</details>`;});
+ h+=(D.bat_tu.tbct_notes&&G.tbct?`<details><summary>Ghi chú về văn bản (dị bản, mâu thuẫn nội tại)</summary><ul>${D.bat_tu.tbct_notes.map(n=>`<li class="note">${esc(n)}</li>`).join('')}</ul></details>`:'');
+ const dh=D.bat_tu.dieu_hau,hs=['Giáp','Ất','Bính','Đinh','Mậu','Kỷ','Canh','Tân','Nhâm','Quý'];
+ h+=`<h2>Điều hậu: bảng dụng thần dự bị (Thiệu Vĩ Hoa, tr. 389-390)</h2><p class="note">Tác giả nói ở trang 388 rằng bảng này do một độc giả tặng và không rõ nguồn gốc: nhãn “đã đối chiếu” ở đây chỉ nghĩa là bản nhập khớp với trang in. Mỗi ô là tập Thiên can có thể dùng; xem thứ tự ưu tiên ở chú thích tr. 391-396 (cột “ưu tiên”).</p>
+ <details><summary>Xem bảng 12 tháng × 10 Nhật Chủ</summary><table><tr><th>Chi tháng</th>${hs.map(x=>`<th>${x}</th>`).join('')}</tr>${Object.entries(dh.cells).map(([m,r])=>`<tr><th>${m}</th>${hs.map(x=>`<td title="Thứ tự theo chú thích: ${esc((dh.notes_order[m]||{})[x]||'')}">${esc((r[x]||[]).join(' '))}</td>`).join('')}</tr>`).join('')}</table></details>`;
+ return h;}
+function srcView(){const E=D.editorial;
+ return `<h2>Năm mức tin cậy</h2><div class="legend">${Object.keys(D.tiers).map(t=>`<div>${badge(t)}${esc(D.tiers[t])} — <b>${D.tier_counts[t]||0}</b> nhận định</div>`).join('')}</div>
+ ${(E.sections||[]).map(s=>`<h2>${esc(s.title)}</h2>${s.paras.map(p=>`<p class="note">${esc(p)}</p>`).join('')}${s.list?`<ul>${s.list.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}`).join('')}`;}
+function render(){
+ $('#tabs').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===st.tab));
+ $('#view').innerHTML=st.tab==='tv'?starView():st.tab==='tvc'?palView():st.tab==='bt'?btView():srcView();
+ $('#tierf').hidden=st.tab==='nguon';
+ $('#tierf').innerHTML=Object.keys(TL).map(t=>`<button type="button" data-tier="${t}" aria-pressed="${st.tiers.has(t)}">${TL[t]} <span class="muted">${D.tier_counts[t]||0}</span></button>`).join('');
+ history.replaceState(null,'','#'+st.tab+(st.tab==='tv'?'/'+encodeURIComponent(st.star):st.tab==='tvc'?'/'+encodeURIComponent(st.pal):''));}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.t){st.tab=b.dataset.t}else if(b.dataset.star){st.star=b.dataset.star}else if(b.dataset.pal){st.pal=b.dataset.pal}
+ else if(b.dataset.tier){const t=b.dataset.tier;st.tiers.has(t)?st.tiers.delete(t):st.tiers.add(t)}else return;render();});
+(async()=>{try{const r=await fetch('/js/reference.json');D=await r.json()}catch(e){$('#view').textContent='Chưa tải được dữ liệu tra cứu. Vui lòng tải lại trang.';return}
+ $('#legend').innerHTML=`<b>Cách đọc nhãn:</b> ${Object.keys(D.tiers).map(t=>badge(t)).join(' ')} — rê chuột để xem nghĩa; tab “Nguồn và giới hạn” giải thích đầy đủ.`;
+ const h=decodeURIComponent(location.hash.slice(1)).split('/');if(['tv','tvc','bt','nguon'].includes(h[0])){st.tab=h[0];if(h[0]==='tv'&&h[1]&&(D.tu_vi.stars[h[1]]||D.tu_vi.minor[h[1]]))st.star=h[1];if(h[0]==='tvc'&&D.tu_vi.palaces.includes(h[1]))st.pal=h[1]}
+ render()})();
+</script></body></html>

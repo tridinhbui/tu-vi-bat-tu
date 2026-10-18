@@ -26,7 +26,7 @@ RULES = [
  ("MENH_LUONG_KHUC_DAN_NGO", [name("Mệnh"), c(OWNM, "Thiên Lương"), c(OWN, "Văn Khúc"), {"fact": "palace.branch", "operator": "in", "value": ["Dần", "Ngọ"]}],
   "chuc_vi_cao_danh_rang_ro", "verified", "p.88", "đường chức vị cao, công danh rạng rỡ (Thiên Lương đồng cung Văn Khúc ở Dần hoặc Ngọ)"),
  ("MENH_TU_VI_NGO_PHU_TUAT", [name("Mệnh"), eq("palace.branch", "Ngọ"), c(OWNM, "Tử Vi"), c(TPM, "Thiên Phủ")],
-  "quyen_quy_cong_khanh", "verified", "p.87", "khuynh hướng địa vị cao, quyền quý (Tử Vi thủ Mệnh ở Ngọ, Thiên Phủ hội ở Tuất)"),
+  "quyen_quy_cong_khanh", "verified", "p.87", "địa vị cao, quyền quý (Tử Vi thủ Mệnh ở Ngọ, Thiên Phủ hội ở Tuất)"),
  ("MENH_TAM_HOA_HOI", [name("Mệnh")] + [c("palace.tam_phuong_tu_hoa", x) for x in ("Hóa Khoa", "Hóa Quyền", "Hóa Lộc")],
   "tieng_tam_van_chuong", "verified", "p.87", "tiếng tăm về văn chương, học vấn (Tam Hóa hội chiếu Mệnh)"),
  ("TAI_VU_THAM", [name("Tài Bạch"), c(OWNM, "Vũ Khúc"), c(OWNM, "Tham Lang")], "giau_ben_sau_30_tuoi", "verified", "p.105",

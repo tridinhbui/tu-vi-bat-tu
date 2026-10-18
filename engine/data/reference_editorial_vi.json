@@ -1,0 +1,69 @@
+{
+ "_note": "Hand-written, hedged editorial text for /reference (tab 'Nguồn và giới hạn'). Numbers are tokens {{group.key}} resolved by tools/build_reference.py from the audit data, never typed by hand.",
+ "stars": {},
+ "sections": [
+  {
+   "title": "Bốn loại khẳng định, bốn cách đối xử",
+   "paras": [
+    "Trên Thiên Bàn không phải câu nào cũng cùng một loại. Hệ thống phân biệt bốn loại, và mỗi loại cần một cách kiểm khác nhau."
+   ],
+   "list": [
+    "Tính toán lịch pháp và thiên văn: ngày âm lịch, tiết khí, Can Chi của năm tháng ngày giờ, vị trí an sao. Đây là phép tính xác định, kiểm được bằng chương trình độc lập; không có diễn giải nào trong đó.",
+    "Quy tắc truyền thống có nguồn: một câu hay một đoạn của sách cổ được diễn đạt lại thành điều kiện trên lá số, kèm tên sách và số trang. Nhãn “Đã đối chiếu”, “Khớp một phần” và “Có nguồn” thuộc loại này.",
+    "Vận hành hóa và diễn giải của hệ thống: những chỗ sách nói mơ hồ mà phần mềm buộc phải chọn (ví dụ “hội” nghĩa là gì, ngưỡng 40% khi đếm sức Nhật Chủ). Đây là lựa chọn của người soạn, được ghi rõ là quy ước.",
+    "Giả thuyết thử nghiệm: cách cục đang nháp, Phi Hóa, các định nghĩa viết theo trí nhớ. Chúng mang nhãn “Nháp” hoặc “Giả thuyết” và không được trình bày như kết luận."
+   ]
+  },
+  {
+   "title": "Các sách được dùng, và giọng của từng sách",
+   "paras": [
+    "Mỗi nguồn nói bằng một giọng khác nhau, nên cùng một câu “theo sách” có sức nặng khác nhau tùy sách. Việc nhận ra giọng là một phần của việc đọc nguồn."
+   ],
+   "list": [
+    "Tử Vi Khảo Luận (Hoàng Thường – Hàm Chương): sách khảo cứu hiện đại bằng tiếng Việt; có câu phú cổ kèm lời giải của tác giả, và tác giả nhiều lần tự dặn không nên áp dụng máy móc (ví dụ trang 49).",
+    "Tử Vi Thực Hành (Dịch Lý Huyền Cơ): sách hướng dẫn thực hành, nhiều bài phú ngắn; lớp chữ của bản PDF nhiều trang bị xáo thứ tự dòng, nên có chỗ phải đọc từ ảnh trang.",
+    "Tử Vi Đẩu Số Toàn Thư (bản dịch và bình chú của Vũ Tài Lục): có lớp phú cổ và lớp lời giải của dịch giả; ghi chú xem câu đỡ cho quy tắc nằm ở lớp nào.",
+    "八字真宗 (Bát Tự Chân Tông): sách thực hành phổ thông bằng chữ Hán giản thể, dùng cho các bảng tra và một số câu trực đoán; các câu về tai họa, bệnh, tuổi thọ cố ý không đưa vào.",
+    "Trích Thiên Tủy (bản dịch tiếng Việt có bình chú của Nhậm Thiết Tiều): trong các quy tắc được đối chiếu, đoạn đỡ cho quy tắc đều nằm ở lời bình của Nhậm Thiết Tiều chứ không ở dòng nguyên chú.",
+    "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa): bản scan, đọc qua ảnh trang; cung cấp cách tính điểm vượng suy, cách cục và bảng điều hậu. Tác giả ghi rằng bảng điều hậu do một độc giả gửi tặng và không rõ nguồn gốc.",
+    "Tử Bình Chân Thuyên: chưa có bản in trong tay; các định nghĩa viết theo trí nhớ đã được đọc lại với bản chữ Hán trên mạng (xem tab Bát Tự) và vẫn là giả thuyết.",
+    "Không dùng làm nguồn quy tắc: sách phổ thông về “mệnh khuyết” (khuyến nghị đời sống không kiểm chứng được); Phương thuật kỷ dị (chưa đọc)."
+   ]
+  },
+  {
+   "title": "Đã kiểm những gì, và chưa kiểm gì",
+   "paras": [
+    "Đợt kiểm nguồn ngày 17-10-2026 đọc lại {{ev.n}} quy tắc: lấy mẫu ngẫu nhiên theo từng gói quy tắc, thêm các quy tắc mà phép tìm kiếm trang nghi ngờ, và toàn bộ quy tắc dựa trên Trích Thiên Tủy. Với mỗi quy tắc, người đọc mở đúng trang sách, tìm câu đỡ và chép nguyên văn; chương trình kiểm lại rằng đoạn chép nằm đúng trên trang đó trước khi hệ thống chấp nhận.",
+    "Trong {{ev.random_n}} quy tắc nhãn “verified” được chọn ngẫu nhiên, {{ev.random_faithful_pct}}% (khoảng tin cậy 95%: {{ev.random_ci_lo}}–{{ev.random_ci_hi}}%) khớp cả lời khẳng định lẫn điều kiện; {{ev.random_partly_pct}}% có lõi đúng nhưng điều kiện của quy tắc hẹp hơn, rộng hơn hoặc mạnh hơn trang sách; {{ev.random_wrong_pct}}% sai trang hoặc đọc sai câu phú. Nghĩa là nhãn “verified” cũ có nghĩa “tìm thấy trang và diễn đạt lại”, chưa đảm bảo điều kiện khít với sách; nhãn mới “Đã đối chiếu” và “Khớp một phần” tách hai trường hợp này.",
+    "Giới hạn của đợt kiểm: người đọc là mô hình AI, chưa có người thứ hai kiểm lại; mẫu chỉ chiếm một phần nhỏ của thư viện; các quy tắc ngoài mẫu vẫn mang nhãn “Có nguồn”. Phép tìm kiếm trang tự động không dự báo được quy tắc nào lệch điều kiện, nên chỉ dùng như một cảnh báo thô.",
+    "Các chỗ lệch tìm được chưa được sửa vào điều kiện của quy tắc, vì sửa sẽ làm đổi kết quả tính toán của hệ thống; chúng được ghi trong phần “Xem nguyên văn và bối cảnh” của từng quy tắc và trong báo cáo kiểm toán để người soạn quyết định."
+   ]
+  },
+  {
+   "title": "Những chỗ các sách không đồng ý với nhau",
+   "paras": [
+    "Hệ thống giữ nguyên các bất đồng thay vì gộp thành một đáp án. Đó là một dạng trung thực: không có trọng tài nào để chọn đúng sai."
+   ],
+   "list": [
+    "Độ sáng của sao: Thực Hành và Toàn Thư khác nhau ở {{dignity.diff}} ô (sao × cung). Có thể chọn một trường phái; trộn hai trường phái bị cảnh báo.",
+    "Tuần và Triệt: sách có khi coi là giải hung tinh, có khi coi là làm hại quý tinh; kết luận theo từng cách cục phải nêu trường phái.",
+    "Bảng điều hậu của Thiệu Vĩ Hoa: bảng và phần chú thích của chính sách nêu tập Thiên can khác nhau ở 9 trong 120 ô; hệ thống không chọn bên nào.",
+    "Vũ Khúc ở cung Thiên Di: Toàn Thư trang 27 viết buôn bán lớn, trang 77 viết cần tĩnh thủ, đừng lật đật.",
+    "Cùng một sao nhưng đọc khác nhau theo chi: Thiên Cơ ở Hợi, Tý, Sửu bị coi là bạc phúc, ở Tỵ, Ngọ, Mùi thì hưởng phúc (Khảo Luận trang 81)."
+   ]
+  },
+  {
+   "title": "Giới hạn lớn nhất: vì sao một lá số “khớp” chưa chứng minh gì",
+   "paras": [
+    "Chúng tôi chạy thư viện quy tắc Tử Vi trên {{base.n}} lá số ngẫu nhiên (sinh 1950–2005). Mỗi lá số nhận trung vị {{base.median_findings}} nhận định, trong đó trung vị {{base.median_menh_support}} nhận định ủng hộ ở cung Mệnh. {{base.share_pos_menh_pct}}% lá số có ít nhất một nhận định về giàu, sang, công danh hoặc thành công ngay ở cung Mệnh, và 100% có ít nhất một nhận định hạn chế.",
+    "Vì vậy, thấy một lá số của người nổi tiếng “khớp” với các nhận định của sách là điều xảy ra với hầu như mọi lá số, không phải bằng chứng. Muốn kiểm tra nghiêm túc cần dự đoán ghi trước, đối chứng và dữ liệu thật; dự án này chưa làm điều đó và không tuyên bố giá trị dự báo. Phép đếm dùng từ khóa trên câu tiếng Việt nên chỉ là ước lượng thô."
+   ]
+  },
+  {
+   "title": "Những gì cố ý không đưa vào",
+   "paras": [
+    "Các câu về chết chóc, tai nạn, tù tội, bệnh tật cụ thể, số con sống chết, danh tiếng tình dục và các lời cảnh báo mang tính dân gian không được mã hóa thành quy tắc, kể cả khi sách có nêu. Lý do: không kiểm chứng được, và rất dễ gây hại cho người đọc."
+   ]
+  }
+ ]
+}

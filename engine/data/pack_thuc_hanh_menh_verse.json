@@ -1014,7 +1014,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "th_menh_verse",
-   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: người hiền lành tử tế (Khôi, Xương ở Mệnh); câu 'bậc lành' mơ hồ [TH p.86]",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: “bậc lành” theo câu phú (Khôi, Xương ở Mệnh); nghĩa cụ thể của chữ “lành” không rõ [TH p.86] [Đối chiếu nguồn 17-10-2026: khớp một phần, điều kiện của quy tắc lệch so với trang sách; chi tiết trong engine/data/source_evidence.json]",
    "conditions": {
     "all": [
      {
@@ -1056,7 +1056,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "th_menh_verse",
-   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: rạng rỡ (Tử Vi đồng cung Thất Sát ở thế sáng) [TH p.86]",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: rạng rỡ (Tử Vi đồng cung Thất Sát ở thế sáng) [TH p.86] [LƯU Ý đối chiếu: ảnh trang TH 86 in 'Tứ Sát vượng địa đã đành minh huy', nghĩa là bốn sát tinh, không phải Tử Vi + Thất Sát; điều kiện của quy tắc không có căn cứ ở trang này nên hạ xuống nháp]",
    "conditions": {
     "all": [
      {
@@ -1098,7 +1098,7 @@
    "sourceIds": [
     "SRC_THUC_HANH"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -1878,7 +1878,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "th_menh_verse",
-   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: trở nên hay (Xương hoặc Khúc ở Tỵ/Hợi có Liêm Trinh); hai chữ cung trong thơ khó đọc [TH p.88]",
+   "description": "Tử Vi Thực Hành, phú/luận Mệnh (paraphrased), cung Mệnh: trở nên hay (Xương hoặc Khúc ở Tỵ/Hợi có Liêm Trinh); hai chữ cung trong thơ khó đọc [TH p.88] [Đối chiếu nguồn 17-10-2026: khớp một phần, điều kiện của quy tắc lệch so với trang sách; chi tiết trong engine/data/source_evidence.json]",
    "conditions": {
     "all": [
      {

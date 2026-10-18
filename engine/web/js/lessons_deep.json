@@ -1,0 +1,889 @@
+{
+ "version": 1,
+ "note": "Deep lessons (levels 4-5). Quotes are checked against the book pages by tests/test_lessons_deep.py when the PDFs are available; stats carry a src that the tests resolve.",
+ "lessons": {
+  "tv-8": {
+   "title": "Từ trang sách đến dòng trên lá số",
+   "min": 6,
+   "sys": "tv",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Mỗi dòng “Có thể nhận thấy…” trên lá số **không** do máy tự đoán. Nó đi qua một chuỗi bốn mắt xích. Biết chuỗi này là cách bạn tự kiểm được bất kỳ nhận định nào."
+    },
+    {
+     "t": "ol",
+     "x": [
+      "**Trang sách**: một câu phú hoặc một đoạn của tác giả, có tên sách và số trang.",
+      "**Quy tắc**: người soạn diễn đạt lại câu ấy thành điều kiện trên lá số (ví dụ: Mệnh có Tử Vi và Thiên Phủ đồng cung, ở Dần hoặc Thân).",
+      "**Dữ kiện lá số**: phần này là tính toán lịch pháp, không có diễn giải: sao nào đứng ở cung nào, ở chi nào.",
+      "**Nhận định hiển thị**: câu bạn đọc, kèm nhãn mức tin cậy."
+     ]
+    },
+    {
+     "t": "h",
+     "x": "Đi hết một chuỗi, với một ví dụ"
+    },
+    {
+     "t": "quote",
+     "book": "KL",
+     "page": 49,
+     "x": "Cung Mệnh ở Dần, Thâm có Tử vi, Thiên phủ đồng cung, cả đời sung sướng.",
+     "ctx": "Mục 4 của “Phú đoán về sao Tử Vi”. Chữ “Thâm” trong bản in nhiều khả năng là lỗi in của chữ Thân."
+    },
+    {
+     "t": "p",
+     "x": "Câu này được viết thành quy tắc `TV_KL_PHU_TU_PHU_DAN_THAN`: nếu cung Mệnh có Tử Vi và Thiên Phủ đồng cung, ở Dần hoặc Thân, thì hiện nhận định về đời sống thuận lợi. Khi đối chiếu, người đọc thấy quy tắc khớp với trang 49. Nhưng cùng cuốn sách, ở trang 68, còn dặn rằng Tử Phủ ở Dần, Thân ngại Tuần, Triệt. Một quy tắc đúng với trang đã cite vẫn có thể thiếu lời dặn ở trang khác."
+    },
+    {
+     "t": "h",
+     "x": "Năm mức tin cậy"
+    },
+    {
+     "t": "p",
+     "x": "Mỗi nhận định mang một nhãn. Nhãn không nói “đúng với đời bạn”; nó chỉ nói **chuỗi từ trang sách đến dòng chữ chắc đến đâu**."
+    },
+    {
+     "t": "tiers"
+    },
+    {
+     "t": "h",
+     "x": "Lần kiểm này cho thấy điều gì"
+    },
+    {
+     "t": "p",
+     "x": "Chúng tôi lấy ngẫu nhiên các quy tắc từng mang nhãn “verified” và mở đúng trang sách để so từng điều kiện:"
+    },
+    {
+     "t": "stat",
+     "label": "quy tắc được lấy ngẫu nhiên",
+     "v": 115,
+     "src": "ref:audit_stats.ev.random_n",
+     "unit": ""
+    },
+    {
+     "t": "stat",
+     "label": "khớp cả lời khẳng định lẫn điều kiện",
+     "v": 81,
+     "src": "ref:audit_stats.ev.random_faithful_pct",
+     "unit": "%"
+    },
+    {
+     "t": "stat",
+     "label": "lõi đúng nhưng điều kiện lệch so với trang",
+     "v": 17,
+     "src": "ref:audit_stats.ev.random_partly_pct",
+     "unit": "%"
+    },
+    {
+     "t": "stat",
+     "label": "sai trang hoặc đọc sai câu phú",
+     "v": 2,
+     "src": "ref:audit_stats.ev.random_wrong_pct",
+     "unit": "%"
+    },
+    {
+     "t": "call",
+     "x": "**Hạn chế phải nói rõ.** Người đọc là mô hình AI, chưa có người thứ hai kiểm lại; trích dẫn được máy kiểm là nằm đúng trên trang, nhưng việc hiểu đúng ý sách vẫn cần con người xem lại. Vì thế các quy tắc ngoài mẫu mang nhãn “Có nguồn”, không phải “Đã đối chiếu”."
+    },
+    {
+     "t": "cta",
+     "href": "/reference",
+     "x": "Mở trang tra cứu có nguồn"
+    }
+   ]
+  },
+  "tv-9": {
+   "title": "Độ sáng: hai bảng của hai trường phái",
+   "min": 5,
+   "sys": "tv",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Bạn đã biết năm mức Miếu, Vượng, Đắc, Bình, Hãm. Câu hỏi tiếp theo: **ai quyết định sao nào sáng ở cung nào?** Câu trả lời là các bảng trong sách, và các sách không hoàn toàn trùng nhau."
+    },
+    {
+     "t": "cmp",
+     "items": [
+      {
+       "h": "Tử Vi Thực Hành",
+       "x": "Bảng chép từ phần đầu mục của từng sao. Đây là bảng mặc định của hệ thống. Ô nào sách không nêu thì để trống, không được suy đoán."
+      },
+      {
+       "h": "Tử Vi Đẩu Số Toàn Thư",
+       "x": "Bảng chép từ các dòng đầu mục trong bản của Vũ Tài Lục. Chính cuốn này cũng có nhiều dị bản; hệ thống dùng một bản và ghi rõ."
+      }
+     ]
+    },
+    {
+     "t": "stat",
+     "label": "ô (sao × cung) mà hai bảng cùng nêu nhưng khác mức",
+     "v": 45,
+     "src": "ref:audit_stats.dignity.diff",
+     "unit": ""
+    },
+    {
+     "t": "h",
+     "x": "Một ví dụ: Tham Lang"
+    },
+    {
+     "t": "dignity",
+     "stars": [
+      "Tham Lang"
+     ]
+    },
+    {
+     "t": "p",
+     "x": "Ở cung Ngọ, Thực Hành ghi Tham Lang **bình**, còn Toàn Thư ghi **vượng**. Ghi chú trong dữ liệu còn nhắc một bất đồng thứ ba: phần văn xuôi của Khảo Luận gọi Tý, Ngọ của Tham Lang là hãm. Ba nguồn, ba cách nói. Hệ thống không gọi bên nào là đúng."
+    },
+    {
+     "t": "h",
+     "x": "Vì sao điều này quan trọng với người học"
+    },
+    {
+     "t": "ul",
+     "x": [
+      "Cùng một lá số, đổi trường phái có thể làm vài sao đổi mức sáng, kéo theo vài nhận định bật hoặc tắt.",
+      "Trộn hai trường phái trong cùng một lần đọc là điều hệ thống cảnh báo: khi bạn chọn bảng Toàn Thư, các quy tắc tính cách vốn dựa trên bảng Thực Hành bị hạ xuống nháp.",
+      "Với người mới, hãy chọn một bảng và đọc nhất quán. Với người nghiên cứu, hãy xem các ô khác biệt như dữ liệu đáng chú ý, không phải lỗi cần sửa."
+     ]
+    },
+    {
+     "t": "call",
+     "x": "Danh sách đầy đủ các ô khác nhau nằm ở mục “Hai trường phái độ sáng sao” của trang Thư viện quy tắc."
+    },
+    {
+     "t": "cta",
+     "href": "/reference#tv/Tham%20Lang",
+     "x": "Xem Tham Lang trên trang tra cứu"
+    }
+   ]
+  },
+  "tv-10": {
+   "title": "Một câu phú không đủ: điều kiện, ngoại lệ, cảnh báo",
+   "min": 7,
+   "sys": "tv",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Câu phú nghe như một định luật, nhưng thật ra là một mẩu của một bức tranh lớn hơn. Chính tác giả Khảo Luận đã nhắc điều đó trước khi liệt kê phú:"
+    },
+    {
+     "t": "quote",
+     "book": "KL",
+     "page": 49,
+     "x": "Có những câu phú ngày nay không còn dùng được như câu:"
+    },
+    {
+     "t": "quote",
+     "book": "KL",
+     "page": 49,
+     "x": "Cho nên phú rất cần cho việc giải đoán lá số, nhưng áp dụng cho hợp tình hợp lý mới là sáng suốt và xác đáng."
+    },
+    {
+     "t": "h",
+     "x": "Ba câu hỏi trước khi tin một dòng"
+    },
+    {
+     "t": "ol",
+     "x": [
+      "**Điều kiện là gì?** Sao nào, cung nào, ở chi nào, nam hay nữ, đi cùng sao nào?",
+      "**Ngoại lệ là gì?** Sách có dặn thêm Tuần, Triệt hay sát tinh làm đổi nghĩa không?",
+      "**Đây là luật hay là một ca minh họa?** Có đoạn tác giả đang bình một lá số cụ thể, không phải nói điều tổng quát."
+     ]
+    },
+    {
+     "t": "h",
+     "x": "Bốn ví dụ từ chính thư viện"
+    },
+    {
+     "t": "p",
+     "x": "**1. Cùng một sao, nghĩa khác theo chi.** Thiên Cơ ở Phúc Đức:"
+    },
+    {
+     "t": "quote",
+     "book": "KL",
+     "page": 81,
+     "x": "Cơ ở Hợi Tí Sửu thì bạc phúc",
+     "ctx": "Danh sách ý nghĩa các cung của Thiên Cơ."
+    },
+    {
+     "t": "quote",
+     "book": "KL",
+     "page": 81,
+     "x": "Cơ ở Tỵ Ngọ Mùi thì hưởng phúc"
+    },
+    {
+     "t": "p",
+     "x": "**2. Có ngoại lệ ngay trong câu phú.** Tử Phủ đồng cung ở Mệnh vốn tốt, nhưng:"
+    },
+    {
+     "t": "quote",
+     "book": "KL",
+     "page": 55,
+     "x": "Mệnh có Tử Phủ thì được hưởng phúc lộc tốt rất nhiều, chỉ sợ Triệt Tuần án ngữ thì kém đi thôi.",
+     "ctx": "Lời giải của tác giả cho câu phú “Tử Phủ đồng cung tối vi phúc hậu, thiết hiềm nội trở Triệt Tuần”."
+    },
+    {
+     "t": "p",
+     "x": "Vì vậy thư viện có hai quy tắc: một cho phần “phúc lộc”, một cho điều kiện hạn chế khi có Tuần hoặc Triệt. Cả hai xuất hiện cạnh nhau trên lá số."
+    },
+    {
+     "t": "p",
+     "x": "**3. Khi diễn đạt lại làm lệch ý.** Một quy tắc viết rằng Tả Phụ, Hữu Bật đồng cung ở Mệnh là “sung túc, nhiều người giúp”. Khi mở trang 45 của Toàn Thư:"
+    },
+    {
+     "t": "quote",
+     "book": "TT",
+     "page": 45,
+     "x": "Có Tả Hữu đồng cung thủ mệnh mặc áo lụa, áo gấm đỏ – ý chỉ cao sang",
+     "ctx": "Câu phú “Tả Hữu đồng cung phi la y tử” kèm lời giải của dịch giả."
+    },
+    {
+     "t": "p",
+     "x": "Trang chỉ nói “cao sang”. Ý “đời sống đầy đủ” nằm ở một câu phú khác, về Tả Hữu ở Tài Bạch và Quan Lộc. Đây là lệch nhẹ nhưng có thật, và chỉ phát hiện được nhờ mở lại trang. Chỗ lệch được ghi trong phần nguyên văn của quy tắc."
+    },
+    {
+     "t": "p",
+     "x": "**4. Từ một ca thành một luật.** Ở trang 246 tác giả bình một lá số cụ thể, được gọi là “lá số phá sản”:"
+    },
+    {
+     "t": "quote",
+     "book": "KL",
+     "page": 246,
+     "x": "Cung Tài bạch, giữ Thái tuế là dấu hiệu báo trước chắc chắn sẽ có kiện tụng vì tiền sẽ có tranh chấp lớn lao",
+     "ctx": "Mục 8 của phần bình lá số Mậu Tý. Câu tiếp theo gắn kết quả với Thiên Cơ Hóa Kỵ và Hỏa Linh trong chính lá số ấy."
+    },
+    {
+     "t": "p",
+     "x": "Một quy tắc đã biến câu này thành “Thái Tuế ở Tài Bạch thì…” cho mọi lá số. Trang sách không nói như vậy: đó là kết luận cho một lá số, kèm các sao đi cùng. Quy tắc này nay được ghi nhận là “khớp một phần”."
+    },
+    {
+     "t": "call",
+     "x": "**Bài học.** Khi một dòng trên lá số làm bạn băn khoăn, đừng hỏi “sách có nói vậy không”. Hãy hỏi “sách nói **trong điều kiện nào**”."
+    },
+    {
+     "t": "cta",
+     "href": "/reference#tvc/Tài%20Bạch",
+     "x": "Xem các nhận định của cung Tài Bạch"
+    }
+   ]
+  },
+  "tv-11": {
+   "title": "Lá số trong sách: ví dụ, và vì sao khớp chưa chứng minh gì",
+   "min": 7,
+   "sys": "tv",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Khảo Luận có những lá số mẫu, trong đó có lá số của Hán Cao Tổ Lưu Bang (trang 237-238). Hệ thống dựng lại lá số này từ năm, tháng, ngày âm lịch mà sách in (giờ sinh không đọc được trong bản PDF, nhưng chỉ có đúng một giờ, giờ Ngọ, cho ra lá số trùng với lá số in), rồi so từng cung: các chính tinh của cả mười hai cung và bốn sao Tứ Hóa đều trùng khớp. Phần **tính toán** này kiểm được, và nó đúng."
+    },
+    {
+     "t": "p",
+     "x": "Điều thú vị nằm ở phần **diễn giải**. Tác giả kết luận:"
+    },
+    {
+     "t": "quote",
+     "book": "KL",
+     "page": 237,
+     "x": "Phải công nhận đây là một lá số có nhiều ưu điểm về công danh sự nghiệp lâu bền.",
+     "ctx": "Câu kết phần bình lá số Hán Cao Tổ, sau khi đọc từng cung."
+    },
+    {
+     "t": "p",
+     "x": "Một ông vua sáng lập triều đại thì lá số “nhiều ưu điểm về công danh”. Nghe hợp lý. Nhưng hãy hỏi ngược lại: **lá số nào mà không đọc ra được ưu điểm?**"
+    },
+    {
+     "t": "h",
+     "x": "Phép thử: chạy thư viện quy tắc trên 400 lá số ngẫu nhiên"
+    },
+    {
+     "t": "stat",
+     "label": "nhận định trung vị cho mỗi lá số",
+     "v": 67,
+     "src": "docs:distribution.findings.median",
+     "unit": ""
+    },
+    {
+     "t": "stat",
+     "label": "nhận định ủng hộ ở cung Mệnh, trung vị",
+     "v": 20,
+     "src": "docs:distribution.menh_supporting.median",
+     "unit": ""
+    },
+    {
+     "t": "stat",
+     "label": "nhận định về giàu, sang, công danh ở cung Mệnh, trung vị",
+     "v": 5,
+     "src": "docs:distribution.menh_wealth_rank_success.median",
+     "unit": ""
+    },
+    {
+     "t": "stat",
+     "label": "lá số có ít nhất một nhận định như vậy ở cung Mệnh",
+     "v": 99,
+     "src": "ref:audit_stats.base.share_pos_menh_pct",
+     "unit": "%"
+    },
+    {
+     "t": "stat",
+     "label": "nhận định mà lá số Hán Cao Tổ nhận được",
+     "v": 74,
+     "src": "docs:book_example_han_cao_to.findings",
+     "unit": ""
+    },
+    {
+     "t": "stat",
+     "label": "trong đó ủng hộ ở cung Mệnh",
+     "v": 23,
+     "src": "docs:book_example_han_cao_to.menh_supporting",
+     "unit": ""
+    },
+    {
+     "t": "p",
+     "x": "Lá số Hán Cao Tổ nằm hơi trên trung vị (số nhận định ít hơn hoặc bằng của khoảng 78% lá số ngẫu nhiên), chứ không phải một ngoại lệ. Một lá số tùy ý cũng cho ra vài nhận định về giàu sang và công danh. Do đó, việc “lá số của người thành đạt khớp với nhận định về thành đạt” là điều **dự kiến xảy ra với mọi lá số**."
+    },
+    {
+     "t": "call",
+     "x": "Phép đếm này dùng từ khóa trên câu tiếng Việt nên chỉ là ước lượng thô. Nhưng nó đủ để thấy vấn đề: không có lá số nào “trượt”, nên một lá số “đỗ” không nói lên điều gì."
+    },
+    {
+     "t": "h",
+     "x": "Một phép thử đúng nghĩa sẽ cần gì"
+    },
+    {
+     "t": "ul",
+     "x": [
+      "**Dự đoán ghi trước**: viết ra điều quy tắc dự báo trước khi biết kết quả đời người.",
+      "**Nhóm đối chứng**: so với các lá số không có dấu hiệu đó.",
+      "**Dữ liệu thật và đủ lớn**: không chọn người nổi tiếng sau khi đã biết họ nổi tiếng.",
+      "**Tiêu chí rõ ràng**: “công danh” là gì, đo thế nào."
+     ]
+    },
+    {
+     "t": "p",
+     "x": "Dự án này **chưa** làm phép thử ấy, và không tuyên bố giá trị dự báo. Những gì hệ thống làm được là: tính đúng lá số, và trích lại đúng những gì sách nói, kèm điều kiện."
+    },
+    {
+     "t": "cta",
+     "lesson": "rs-4",
+     "x": "Đọc tiếp: giới hạn của việc đọc lá số"
+    }
+   ]
+  },
+  "bt-5": {
+   "title": "Nhật Chủ mạnh hay yếu: hai cách đếm",
+   "min": 6,
+   "sys": "bt",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "“Nhật Chủ vượng” hay “nhược” là câu hỏi mở đầu của nhiều cách đọc Bát Tự. Nhưng **không có phép đo duy nhất**: mỗi sách có cách đếm riêng."
+    },
+    {
+     "t": "cmp",
+     "items": [
+      {
+       "h": "Cách đếm bằng điểm (Thiệu Vĩ Hoa)",
+       "x": "Mỗi Thiên can, Địa chi được cho điểm theo bảng; cộng phe “mình” (cùng hành và hành sinh ra mình) và so với tổng. Nhật Chủ được xem là vượng khi phe mình đạt từ 40% trở lên. Đây là quy tắc có trong sách (trang 331-355), có ví dụ tính tay để đối chiếu."
+      },
+      {
+       "h": "Cách đếm của hệ thống trước đó",
+       "x": "Trọng số của hệ thống có từ trước, không bắt nguồn từ một bảng trong sách. Vẫn được giữ để so sánh."
+      }
+     ]
+    },
+    {
+     "t": "stat",
+     "label": "lá số mẫu có nhãn của sách mà cách điểm Thiệu Vĩ Hoa xác định trùng",
+     "v": 45,
+     "src": "grep:docs/BAZI_DEEP_BOOKS.md:45/48",
+     "unit": " / 48"
+    },
+    {
+     "t": "stat",
+     "label": "cùng phép đo với trọng số cũ của hệ thống",
+     "v": 36,
+     "src": "grep:docs/BAZI_DEEP_BOOKS.md:36/48",
+     "unit": " / 48"
+    },
+    {
+     "t": "p",
+     "x": "Hai con số trên đo bằng 48 lá số có nhãn vượng/nhược trong Trích Thiên Tủy (xem tệp kiểm thử `test_bazi_deep_fidelity.py`). Cách điểm của Thiệu Vĩ Hoa trùng nhãn của sách nhiều hơn, nên là mặc định. Điều này chỉ nói rằng hệ thống **tái hiện cách gọi của sách** tốt hơn; nó không nói gì về đời sống của chủ lá số."
+    },
+    {
+     "t": "h",
+     "x": "Khi sát ranh giới"
+    },
+    {
+     "t": "p",
+     "x": "Ngưỡng 40% là một đường kẻ trên một thang liên tục. Một lá số ở 39% và một lá số ở 41% khác nhau về nhãn nhưng gần như giống nhau về cấu trúc. Vì vậy khi lá số nằm sát ngưỡng, hệ thống **hiển thị hai cách đọc** thay vì ép chọn một."
+    },
+    {
+     "t": "h",
+     "x": "Những gì chưa được cài"
+    },
+    {
+     "t": "ul",
+     "x": [
+      "Các trường hợp “phu tòng thê hóa”, “thê tòng phu hóa”, “uyên ương hợp hóa” của Thiệu Vĩ Hoa.",
+      "Điểm chỉ áp cho nguyên cục, không áp cho đại vận và lưu niên; phần cục mở rộng vẫn dùng trọng số của hệ thống."
+     ]
+    },
+    {
+     "t": "call",
+     "x": "**Nhớ rằng** “vượng” và “nhược” là tên của một phương pháp đếm, không phải một đức tính hay một số phận."
+    },
+    {
+     "t": "cta",
+     "href": "/reference#bt",
+     "x": "Xem các quy tắc cấu trúc Bát Tự"
+    }
+   ]
+  },
+  "bt-6": {
+   "title": "Dụng thần và điều hậu: ba lớp cần tách ra",
+   "min": 7,
+   "sys": "bt",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "“Dụng thần” nghe như một đáp án duy nhất, nhưng thực ra là kết quả của **một phương pháp** cụ thể. Các phương pháp khác nhau cho dụng thần khác nhau, và hệ thống hiển thị chúng riêng rẽ thay vì trộn thành một."
+    },
+    {
+     "t": "h",
+     "x": "Lớp 1: bảng của sách"
+    },
+    {
+     "t": "p",
+     "x": "Thiệu Vĩ Hoa có một bảng 12 tháng × 10 Nhật Chủ, mỗi ô là tập Thiên can có thể dùng để điều hậu (trang 389-390). Bảng được nhập đúng như in. Nhưng cần biết hai điều về bảng này:"
+    },
+    {
+     "t": "ul",
+     "x": [
+      "Chính tác giả ghi ở trang 388 rằng bảng do một độc giả gửi tặng, không rõ nguồn gốc. Nhãn “đã đối chiếu” ở đây chỉ nghĩa **bản nhập khớp trang in**, không nghĩa bảng có gốc cổ.",
+      "Bảng và phần chú thích về thứ tự ưu tiên của cùng cuốn sách nêu tập Thiên can khác nhau ở 9 trong 120 ô. Đây là mâu thuẫn nội bộ của sách; hệ thống giữ bảng làm tập can và gắn cờ các ô lệch."
+     ]
+    },
+    {
+     "t": "h",
+     "x": "Lớp 2: lập luận về hàn và noãn"
+    },
+    {
+     "t": "p",
+     "x": "Trích Thiên Tủy bàn về lạnh và nóng của lá số theo lối định tính. Chẳng hạn, trong lời bình của Nhậm Thiết Tiều:"
+    },
+    {
+     "t": "quote",
+     "book": "TTT",
+     "page": 113,
+     "x": "noãn tuy quá mức, cần hàn hữu căn",
+     "ctx": "Chương Hàn Thử, phần “Nhâm thị viết” (lời bình của Nhậm Thiết Tiều). Sách không đưa ngưỡng số nào cho chữ “quá”."
+    },
+    {
+     "t": "p",
+     "x": "Sách nêu nguyên tắc, không nêu con số. Việc biến nguyên tắc thành một chỉ số nhiệt bằng số là **lựa chọn của người soạn phần mềm**, và quy tắc đã khai điều đó."
+    },
+    {
+     "t": "h",
+     "x": "Lớp 3: quy ước của hệ thống"
+    },
+    {
+     "t": "p",
+     "x": "Những gì còn lại, như cách chia “phù ức”, “điều hậu”, “cách cục” thành ba phương pháp chạy song song, là cách tổ chức của hệ thống, không phải cấu trúc có trong sách. Chúng mang nhãn nháp."
+    },
+    {
+     "t": "call",
+     "x": "**Cách đọc an toàn**: với mỗi dụng thần hiện ra, hỏi nó thuộc lớp nào: sách nói (kèm trang), sách nói nguyên tắc còn con số là của phần mềm, hay thuần quy ước. Ba lớp có độ tin khác nhau."
+    },
+    {
+     "t": "cta",
+     "href": "/reference#bt",
+     "x": "Xem bảng điều hậu và các quy tắc cấu trúc"
+    }
+   ]
+  },
+  "bt-7": {
+   "title": "Cách cục Bát Tự: phần có sách, phần là quy ước",
+   "min": 8,
+   "sys": "bt",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Trong Bát Tự, “cách cục” là cách phân loại cấu trúc lá số (Chính Quan cách, Thất Sát cách, Thương Quan cách…) cùng điều kiện **thành** (tốt), **bại** (xấu) và **cứu** (gỡ). Nguồn của các định nghĩa trong hệ thống không đồng đều, và đây là chỗ cần đọc kỹ."
+    },
+    {
+     "t": "cmp",
+     "items": [
+      {
+       "h": "Có trang sách",
+       "x": "Phân loại cách cục, đánh giá tốt xấu của chính cách và cách đặc biệt theo Thiệu Vĩ Hoa (trang 356-376, đọc từ bản scan). Kiểm trên các lá số mẫu của chính sách, hệ thống nhận đúng 29 trong 31 lá số."
+      },
+      {
+       "h": "Viết theo trí nhớ",
+       "x": "Mười một cách và mười ba cấu trúc “thành, bại, cứu” được viết theo hiểu biết về Tử Bình Chân Thuyên, chưa đối chiếu văn bản gốc. Chúng giữ nhãn nháp."
+      }
+     ]
+    },
+    {
+     "t": "h",
+     "x": "Đối chiếu với bản chữ Hán"
+    },
+    {
+     "t": "p",
+     "x": "Ngày 17-10-2026, các định nghĩa trên được đọc lại với bản chữ Hán của Tử Bình Chân Thuyên trên mạng (không phải bản in). Kết quả: **4 mục khớp, 20 mục khớp một phần, không mục nào hoàn toàn sai**. “Khớp một phần” nghĩa là lõi đúng nhưng điều kiện của hệ thống khác văn bản. Hai ví dụ:"
+    },
+    {
+     "t": "quote",
+     "book": "TBCT",
+     "page": "論用神成敗救應",
+     "x": "官逢傷，而透印以解之；雜煞，而合煞以清之；刑沖，而會合以解之",
+     "gloss": "Quan gặp Thương thì thấu Ấn để giải; tạp Sát thì hợp Sát cho thanh; hình xung thì dùng hội hợp để giải.",
+     "ctx": "Hệ thống cho cả Tài lẫn Ấn cứu cách Chính Quan bị Thương Quan khắc; văn bản chỉ cứu bằng Ấn và dặn thêm rằng khi dùng Ấn thì kỵ gặp Tài.",
+     "lang": "zh"
+    },
+    {
+     "t": "quote",
+     "book": "TBCT",
+     "page": "論陽刃",
+     "x": "祿前一位，惟五陽有之，故爲陽刃",
+     "gloss": "Dương Nhẫn là chi đứng trước Lộc một vị; chỉ có năm Dương can mới có.",
+     "ctx": "Hệ thống có một ánh xạ Âm Nhẫn dùng lại định nghĩa Dương Nhẫn; văn bản không nêu Âm Nhẫn.",
+     "lang": "zh"
+    },
+    {
+     "t": "p",
+     "x": "Một điểm rất đáng nhớ: có một mục con **ngược** với văn bản. Hệ thống coi “Kiêu đoạt Thực” (Thiên Ấn khắc Thực Thần) là điều làm bại cách Thiên Ấn; văn bản ở chương bàn về dụng thần lại bác cách hiểu đó, và đặt Kiêu đoạt Thực vào cách Thực Thần."
+    },
+    {
+     "t": "h",
+     "x": "Một ví dụ về giọng của sách"
+    },
+    {
+     "t": "quote",
+     "book": "TTT",
+     "page": 229,
+     "x": "Tiệt cước thì hỉ Can, chi không tải can, tất 10 năm đều xấu.",
+     "ctx": "Chương Tuế Vận, lời bình của Nhậm Thiết Tiều. Sách còn dặn: nếu nguyên cục có Nhâm Quý tiết khí của kim thì “an hòa không xấu”, tức là triệt tiêu hẳn chứ không chỉ “nhẹ hơn” như hệ thống diễn đạt."
+    },
+    {
+     "t": "call",
+     "x": "Trong các quy tắc dựa trên Trích Thiên Tủy được đối chiếu, đoạn đỡ cho quy tắc đều nằm ở lời bình của Nhậm Thiết Tiều, không phải dòng nguyên chú. Khi đọc “theo Trích Thiên Tủy”, hãy hỏi đó là giọng của ai."
+    },
+    {
+     "t": "cta",
+     "href": "/reference#bt",
+     "x": "Xem các định nghĩa và chỗ lệch trên trang tra cứu"
+    }
+   ]
+  },
+  "rs-1": {
+   "title": "Bốn loại khẳng định",
+   "min": 5,
+   "sys": "tv",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Nếu chỉ nhớ một điều từ cả lộ trình học này, hãy nhớ điều này: **trên lá số có bốn loại câu khác nhau về bản chất**, và phải biết mình đang đọc loại nào."
+    },
+    {
+     "t": "table",
+     "head": [
+      "Loại",
+      "Ví dụ",
+      "Kiểm bằng cách nào",
+      "Nhãn hiển thị"
+     ],
+     "rows": [
+      [
+       "Tính toán lịch pháp, thiên văn",
+       "Tháng âm lịch, tiết khí, Can Chi của ngày giờ; sao nào đứng ở cung nào",
+       "So với chương trình độc lập, với bảng trong sách, với lịch của cơ quan khác",
+       "Tính toán"
+      ],
+      [
+       "Quy tắc truyền thống có nguồn",
+       "“Tử Phủ đồng cung ở Dần, Thân: đời sống thuận lợi” (Khảo Luận tr.49)",
+       "Mở trang sách, so điều kiện và lời khẳng định",
+       "Đã đối chiếu / Khớp một phần / Có nguồn"
+      ],
+      [
+       "Vận hành hóa của hệ thống",
+       "Ngưỡng 40% để gọi Nhật Chủ vượng; “hội” nghĩa là ở tam phương",
+       "Không có trang sách để kiểm: chỉ xem xét có hợp lý và có công khai không",
+       "Quy ước hệ thống"
+      ],
+      [
+       "Giả thuyết thử nghiệm",
+       "Cách cục đang nháp; Phi Hóa; định nghĩa viết theo trí nhớ",
+       "Chưa kiểm được",
+       "Nháp / Giả thuyết"
+      ]
+     ]
+    },
+    {
+     "t": "h",
+     "x": "Vì sao phải tách"
+    },
+    {
+     "t": "p",
+     "x": "Vì mỗi loại có độ chắc khác nhau, và dễ bị nhầm lẫn khi đọc nhanh. Ngày sinh âm lịch của bạn là một phép tính; câu “người có sao này thường…” là một lời của sách cổ; ngưỡng 40% là lựa chọn của người viết phần mềm. Cả ba cùng hiện trên một màn hình, nhưng không cùng loại."
+    },
+    {
+     "t": "p",
+     "x": "Về phần tính toán, vị trí sao được so với một chương trình độc lập, không dùng lại mã của hệ thống mà tự an lại từ các bảng in trong sách, trên 116.928 lá số: không có sai khác nào (xem báo cáo Phase 6). Hai giới hạn được ghi rõ trong báo cáo ấy: chương trình độc lập nhận ngày âm lịch từ hệ thống nên việc đổi dương lịch sang âm lịch phải kiểm riêng; và ở năm Nhâm hai sách in Hóa Khoa ở hai sao khác nhau (Thực Hành: Thiên Phủ; Khảo Luận: Tả Phụ), hệ thống theo Khảo Luận. Nghĩa là sao được **đặt đúng chỗ theo bảng đã chọn**; điều đó không nói rằng ý nghĩa gắn với sao ấy đúng."
+    },
+    {
+     "t": "call",
+     "x": "Sao đặt đúng chỗ là chuyện toán học. Sao ấy “nghĩa là gì” là chuyện của truyền thống. Hai chuyện này không lẫn vào nhau."
+    }
+   ]
+  },
+  "rs-2": {
+   "title": "Đọc một trích dẫn: giọng cổ văn, lời bình, bản dịch",
+   "min": 6,
+   "sys": "tv",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Một câu “theo sách” có thể là lời của người xưa, lời của người bình chú, hoặc lời của người dịch. Ba lớp này có sức nặng khác nhau, và một nguồn số hóa còn có thể thêm lớp thứ tư: **lỗi của chính bản số hóa**."
+    },
+    {
+     "t": "h",
+     "x": "Ba lớp giọng"
+    },
+    {
+     "t": "ul",
+     "x": [
+      "**Toàn Thư**: gồm câu phú cổ và lời giải của dịch giả. Một quy tắc dựa vào lời giải thì dựa vào hiểu biết của dịch giả, không phải của câu phú.",
+      "**Trích Thiên Tủy**: gồm dòng nguyên chú và lời bình của Nhậm Thiết Tiều. Trong các quy tắc đã đối chiếu, đoạn đỡ đều nằm ở lời bình.",
+      "**Khảo Luận**: câu phú cổ kèm lời giải của tác giả, đôi khi kèm lời dặn không nên áp dụng máy móc (xem bài trước). Có cả những đoạn bình một lá số cụ thể, không phải nguyên tắc chung."
+     ]
+    },
+    {
+     "t": "h",
+     "x": "Một câu tiếng Hán, và vì sao phải có phần dịch"
+    },
+    {
+     "t": "quote",
+     "book": "ZZ",
+     "page": 73,
+     "x": "四柱多见刃：家庭不利。",
+     "gloss": "Tứ trụ thấy nhiều dương nhẫn thì gia đình bất lợi.",
+     "ctx": "Bát Tự Chân Tông, mục về Dương Nhẫn. Sách chỉ nói “thấy nhiều”, không nêu con số; việc hệ thống đặt ngưỡng từ hai chữ trở lên là quy ước.",
+     "lang": "zh"
+    },
+    {
+     "t": "p",
+     "x": "Một trích dẫn chữ Hán cần luôn đi kèm phần dịch và phần ghi chú rõ chỗ nào là của sách, chỗ nào là của phần mềm."
+    },
+    {
+     "t": "h",
+     "x": "Khi bản số hóa tự gây lỗi"
+    },
+    {
+     "t": "p",
+     "x": "Các bản PDF dùng để kiểm có lớp chữ được trích tự động, và ở nhiều trang lớp chữ này bị **xáo thứ tự dòng**. Một ví dụ có thật trong dự án này: ở trang 59 của Tử Vi Thực Hành, dòng nói về sao **Tử** (mục 8) và dòng nói về sao **Mộ** (mục 9) nằm gần nhau và bị đảo trong lớp chữ."
+    },
+    {
+     "t": "quote",
+     "book": "TH",
+     "page": 59,
+     "x": "Tài thì hay, chỉ hạng người tần tiện, chịu dành của chô dấu",
+     "ctx": "Mục 8 là sao TỬ: “Nhưng sao Tử đóng cung Điền, Tài thì hay…”. Sao MỘ (mục 9) ngay dưới chỉ nói “đần độn, ngu si”. Câu này bị gán nhầm cho sao Mộ trong hai quy tắc (Tài Bạch và Điền Trạch); chỉ khi mở ảnh trang mới thấy."
+    },
+    {
+     "t": "p",
+     "x": "Các quy tắc ấy nay bị hạ xuống nháp. Bài học: **một trích dẫn có số trang vẫn có thể sai**, nếu khâu chép từ trang sang dữ liệu đọc nhầm. Vì thế người đọc kiểm nguồn luôn mở ảnh trang khi lớp chữ có dấu hiệu lộn xộn."
+    },
+    {
+     "t": "p",
+     "x": "Một ví dụ khác: câu phú về Mệnh ở trang 86 của cùng cuốn sách có dòng “Tứ Sát vượng địa đã đành minh huy”. “Tứ Sát” là bốn sát tinh. Một quy tắc đã đọc nhầm thành “Tử, Sát” (Tử Vi và Thất Sát) và cũng bị hạ xuống nháp."
+    },
+    {
+     "t": "cta",
+     "href": "/reference#nguon",
+     "x": "Xem các sách và giọng của từng sách"
+    }
+   ]
+  },
+  "rs-3": {
+   "title": "Khi sách không đồng ý với nhau",
+   "min": 6,
+   "sys": "tv",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Các sách Tử Vi và Bát Tự không phải một khối thống nhất. Chúng đến từ nhiều thời, nhiều trường phái và nhiều người dịch. Một hệ thống trung thực không được gộp mâu thuẫn thành một đáp án trơn tru."
+    },
+    {
+     "t": "h",
+     "x": "Bốn kiểu bất đồng có trong dữ liệu"
+    },
+    {
+     "t": "ul",
+     "x": [
+      "**Bảng độ sáng khác nhau.** Thực Hành và Toàn Thư khác nhau ở 45 ô. Xem bài “Độ sáng: hai bảng”.",
+      "**Một sao có hai vai trò trái nhau.** Tuần và Triệt: có chỗ sách coi như giải hung tinh, có chỗ lại coi như làm hại quý tinh. Kết luận về một cách cục vì thế phải nêu theo trường phái nào.",
+      "**Một cuốn tự mâu thuẫn.** Toàn Thư ghi Vũ Khúc ở cung Thiên Di là nơi “buôn bán lớn” ở trang 27, nhưng ở trang 77 lại dặn đối phó bên ngoài thì “cần tĩnh thủ đừng lật đật”. Bảng điều hậu của Thiệu Vĩ Hoa cũng khác phần chú thích của chính ông ở 9 ô.",
+      "**Cùng sao, khác chi.** Thiên Cơ ở Hợi, Tý, Sửu và ở Tỵ, Ngọ, Mùi được đọc ngược nhau."
+     ]
+    },
+    {
+     "t": "quote",
+     "book": "TT",
+     "page": 77,
+     "x": "Có sao Vũ Khúc đối phó với bên ngoài cần tĩnh thủ đừng lật đật lúc cấp bách",
+     "ctx": "Mục Thiên Di của Toàn Thư, đoạn Vũ Khúc. Cùng đoạn: Vũ Khúc đi với Tham Lang thường là tay kinh doanh lớn."
+    },
+    {
+     "t": "h",
+     "x": "Hệ thống làm gì với bất đồng"
+    },
+    {
+     "t": "ol",
+     "x": [
+      "Giữ cả hai bên, ghi rõ nguồn và trang của từng bên.",
+      "Cho người dùng chọn trường phái, và báo khi họ trộn lẫn.",
+      "Khi hai quy tắc cùng nói một điều từ hai sách, gộp thành một thẻ và ghi “còn được nêu bởi…”. Khi hai quy tắc nói ngược nhau, cho thấy cả hai và đánh dấu chưa giải quyết.",
+      "Không có trọng tài. Không chọn bên “đúng”."
+     ]
+    },
+    {
+     "t": "call",
+     "x": "Bất đồng giữa các sách là **thông tin**. Một nơi cố tình che nó đi để cho ra câu trả lời gọn gàng là một nơi đáng nghi hơn là đáng tin."
+    },
+    {
+     "t": "cta",
+     "href": "/library",
+     "x": "Xem bảng so sánh độ sáng của hai trường phái"
+    }
+   ]
+  },
+  "rs-4": {
+   "title": "Giới hạn: vì sao đây không phải là dự báo",
+   "min": 7,
+   "sys": "tv",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Bài cuối cùng trả lời thẳng câu hỏi nhiều người muốn hỏi: **vậy cái này có đoán đúng không?** Câu trả lời trung thực gồm năm phần."
+    },
+    {
+     "t": "ol",
+     "x": [
+      "**Chưa có phép thử.** Dự án này chưa làm bất kỳ nghiên cứu nào đối chiếu nhận định với dữ liệu đời sống thật. Không có con số “độ chính xác” nào để nêu, và hệ thống không đưa ra con số nào như vậy.",
+      "**Lá số nào cũng “khớp”.** Trên 400 lá số ngẫu nhiên, hầu như mọi lá số đều có nhiều nhận định về giàu sang, công danh ở cung Mệnh và ít nhất một nhận định hạn chế (bài “Lá số trong sách”). Khớp với vài câu là điều dự kiến, không phải bằng chứng.",
+      "**Sách nói bằng giọng khác nhau và không đồng ý với nhau.** Một câu phú là một mẩu của bức tranh; điều kiện và ngoại lệ ở trang khác có thể đổi nghĩa.",
+      "**Diễn đạt lại có thể làm lệch.** Ngay trong những quy tắc “đã xác minh”, khoảng 17% có điều kiện lệch so với trang sách (theo mẫu ngẫu nhiên đã kiểm). Chúng được ghi nhận, chưa sửa.",
+      "**Có những điều cố tình không đưa vào.** Các câu về chết chóc, tai nạn, tù tội, bệnh cụ thể, số con sống chết không được mã hóa, dù sách có nêu."
+     ]
+    },
+    {
+     "t": "h",
+     "x": "Vậy dùng để làm gì?"
+    },
+    {
+     "t": "p",
+     "x": "Dùng như một **ngôn ngữ biểu tượng** để suy ngẫm: sách cổ gắn từng tổ hợp với một chủ đề đời sống, và đọc nó giống như đọc một bộ bài tarot có hệ thống: thú vị, giàu văn hóa, đôi khi gợi ý một góc nhìn, nhưng không thay được việc tự cân nhắc hay lời khuyên của người có chuyên môn về sức khỏe, tài chính, quan hệ."
+    },
+    {
+     "t": "call",
+     "x": "Những gì hệ thống **làm được và chịu kiểm tra**: tính đúng lá số theo lịch pháp, trích lại đúng điều sách nói kèm trang và điều kiện, và nói rõ chỗ nào chưa chắc."
+    },
+    {
+     "t": "cta",
+     "href": "/reference#nguon",
+     "x": "Đọc phần Nguồn và giới hạn"
+    }
+   ]
+  },
+  "rs-5": {
+   "title": "Tự kiểm một quy tắc (hướng dẫn nghiên cứu)",
+   "min": 8,
+   "sys": "tv",
+   "blocks": [
+    {
+     "t": "p",
+     "x": "Bài này dành cho người muốn biến việc đọc thành việc **kiểm chứng**. Bạn không cần phần mềm đặc biệt; chỉ cần bản sách và trang tra cứu."
+    },
+    {
+     "t": "h",
+     "x": "Quy trình sáu bước"
+    },
+    {
+     "t": "ol",
+     "x": [
+      "**Chọn một nhận định** trên trang Tra cứu hoặc trên lá số của bạn. Ghi lại tên sách, số trang và mã quy tắc (có dạng `TV_KL_…`).",
+      "**Mở đúng trang** trong bản sách của bạn. Số trang có thể lệch một đơn vị giữa các bản in, nên xem thêm trang liền kề.",
+      "**Tìm câu đỡ.** Nếu trang có phần nguyên văn kèm theo (mục “Xem nguyên văn và bối cảnh”), so với nó. Nếu bạn không thấy câu ấy, đó chính là phát hiện.",
+      "**So từng điều kiện**: sao nào, cung nào, chi nào, nam hay nữ, đi cùng sao nào, có ngoại lệ không. Đây là chỗ hay lệch nhất.",
+      "**So giọng và lớp**: câu phú cổ, lời giải của tác giả, hay lời bình? Nó là luật chung hay bình một lá số?",
+      "**Xếp loại**: khớp hoàn toàn, khớp một phần (nói rõ chỗ lệch), không thấy trên trang, hoặc sách nói khác."
+     ]
+    },
+    {
+     "t": "h",
+     "x": "Bốn việc nên tránh"
+    },
+    {
+     "t": "ul",
+     "x": [
+      "Đừng đánh giá quy tắc “đúng” hay “sai” bằng kiến thức bên ngoài sách; việc cần kiểm là **quy tắc có phản ánh đúng sách hay không**, không phải sách có đúng hay không.",
+      "Đừng sửa trích dẫn cho đẹp. Chép nguyên văn, kể cả lỗi in.",
+      "Đừng tin lớp chữ của bản PDF khi dòng chữ có vẻ lộn xộn; hãy nhìn ảnh trang.",
+      "Đừng kết luận từ một lá số. Một ca không phải một bằng chứng."
+     ]
+    },
+    {
+     "t": "h",
+     "x": "Lộ trình đi từ cơ bản đến nghiên cứu"
+    },
+    {
+     "t": "table",
+     "head": [
+      "Cấp",
+      "Bạn học",
+      "Bạn làm được"
+     ],
+     "rows": [
+      [
+       "1",
+       "Từ ngữ cơ bản: cung, sao, Can Chi, Ngũ Hành",
+       "Đọc hiểu phần Tóm tắt của lá số"
+      ],
+      [
+       "2",
+       "Mười hai cung, độ sáng, Tứ Hóa, Thập Thần",
+       "Giải thích vì sao một cung có nhận định nào đó"
+      ],
+      [
+       "3",
+       "Cách đọc lá số theo thứ tự, đại hạn, đại vận",
+       "Đọc toàn bộ lá số mà không bị choáng ngợp"
+      ],
+      [
+       "4",
+       "Từ trang sách đến dòng trên lá số; trường phái; điều kiện và ngoại lệ",
+       "Tra được nguồn của mọi nhận định"
+      ],
+      [
+       "5",
+       "Bốn loại khẳng định, giọng nguồn, bất đồng, giới hạn",
+       "Tự kiểm một quy tắc với sách và báo lại chỗ lệch"
+      ]
+     ]
+    },
+    {
+     "t": "call",
+     "x": "Nếu bạn tìm được một chỗ lệch, đó là đóng góp có giá trị nhất mà một người đọc có thể làm cho dự án này."
+    },
+    {
+     "t": "cta",
+     "href": "/reference",
+     "x": "Mở trang tra cứu có nguồn"
+    }
+   ]
+  }
+ }
+}

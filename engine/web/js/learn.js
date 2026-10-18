@@ -13,11 +13,15 @@ export const TRACKS = [
   { id: 'tuvi', title: 'Tử Vi Đẩu Số', sub: 'Bản đồ mười hai lĩnh vực đời sống', levels: [
     { name: 'Cấp 1 · Tử Vi cơ bản', lessons: ['tv-1'] },
     { name: 'Cấp 2 · Mười hai cung và các sao', lessons: ['tv-2', 'tv-3', 'tv-5', 'tv-6'] },
-    { name: 'Cấp 3 · Cách đọc một lá số', lessons: ['tv-7', 'tv-4'] }] },
+    { name: 'Cấp 3 · Cách đọc một lá số', lessons: ['tv-7', 'tv-4'] },
+    { name: 'Cấp 4 · Đọc có nguồn', lessons: ['tv-8', 'tv-9', 'tv-10', 'tv-11'] }] },
   { id: 'bat', title: 'Bát Tự Tứ Trụ', sub: 'Tám chữ và năm kiểu năng lượng', levels: [
     { name: 'Cấp 1 · Bát Tự cơ bản', lessons: ['bt-1'] },
     { name: 'Cấp 2 · Tứ Trụ và Ngũ Hành', lessons: ['bt-2'] },
-    { name: 'Cấp 3 · Thập Thần và tương tác', lessons: ['bt-3', 'bt-4'] }] },
+    { name: 'Cấp 3 · Thập Thần và tương tác', lessons: ['bt-3', 'bt-4'] },
+    { name: 'Cấp 4 · Đọc có nguồn', lessons: ['bt-5', 'bt-6', 'bt-7'] }] },
+  { id: 'rs', title: 'Nghiên cứu', sub: 'Đọc nguồn, so sánh trường phái, biết giới hạn', levels: [
+    { name: 'Cấp 5 · Đọc như người nghiên cứu', lessons: ['rs-1', 'rs-2', 'rs-3', 'rs-4', 'rs-5'] }] },
 ];
 
 export const LESSONS = {
@@ -134,11 +138,67 @@ export const LESSONS = {
     <p>Mỗi Can Chi mới được đặt cạnh tám chữ gốc để xem nó “chạm” vào chữ nào, nên cùng một lá số có thể có “không khí” khác nhau ở từng giai đoạn.</p>
     ${call('Các thông tin theo thời gian trên Thiên Bàn là <b>dữ kiện cấu trúc</b>, không phải dự đoán sự kiện sẽ xảy ra.')}
     <div class="ln-cta"><button type="button" class="btn" data-act="sample" data-tab="bazi">Xem đại vận trên lá số mẫu</button></div>` },
+
+  // Levels 4-5: bodies are data (lessons_deep.json) so every quotation can be checked by tests/test_lessons_deep.py
+  'tv-8': { title: "Từ trang sách đến dòng trên lá số", min: 6, sys: 'tv', deep: true },
+  'tv-9': { title: "Độ sáng: hai bảng của hai trường phái", min: 5, sys: 'tv', deep: true },
+  'tv-10': { title: "Một câu phú không đủ: điều kiện, ngoại lệ, cảnh báo", min: 7, sys: 'tv', deep: true },
+  'tv-11': { title: "Lá số trong sách: ví dụ, và vì sao khớp chưa chứng minh gì", min: 7, sys: 'tv', deep: true },
+  'bt-5': { title: "Nhật Chủ mạnh hay yếu: hai cách đếm", min: 6, sys: 'bt', deep: true },
+  'bt-6': { title: "Dụng thần và điều hậu: ba lớp cần tách ra", min: 7, sys: 'bt', deep: true },
+  'bt-7': { title: "Cách cục Bát Tự: phần có sách, phần là quy ước", min: 8, sys: 'bt', deep: true },
+  'rs-1': { title: "Bốn loại khẳng định", min: 5, sys: 'tv', deep: true },
+  'rs-2': { title: "Đọc một trích dẫn: giọng cổ văn, lời bình, bản dịch", min: 6, sys: 'tv', deep: true },
+  'rs-3': { title: "Khi sách không đồng ý với nhau", min: 6, sys: 'tv', deep: true },
+  'rs-4': { title: "Giới hạn: vì sao đây không phải là dự báo", min: 7, sys: 'tv', deep: true },
+  'rs-5': { title: "Tự kiểm một quy tắc (hướng dẫn nghiên cứu)", min: 8, sys: 'tv', deep: true },
 };
 
 export const ORDER = TRACKS.flatMap(t => t.levels.flatMap(l => l.lessons));
 export const lessonTitle = id => LESSONS[id]?.title;
 export const lessonSys = id => LESSONS[id]?.sys || 'tv';
+
+// ---- deep lessons (data-driven) ----
+let DEEP = null, REF = null, deepReady = null;
+/** Loads lessons_deep.json + reference.json once; call (and await) before renderLearn for a deep lesson. */
+export function preloadDeep(id) {
+  if (!LESSONS[id]?.deep) return Promise.resolve();
+  deepReady ||= Promise.all([fetch('/js/lessons_deep.json').then(r => r.json()), fetch('/js/reference.json').then(r => r.json())])
+    .then(([d, r]) => { DEEP = d.lessons; REF = r; }).catch(() => { deepReady = null; });
+  return deepReady;
+}
+const TIER_TXT = { checked: 'Đã đối chiếu', partial: 'Khớp một phần', sourced: 'Có nguồn', draft: 'Nháp', hypothesis: 'Giả thuyết' };
+const inline = t => esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/(^|[^*])\*([^*]+?)\*/g, '$1<i>$2</i>').replace(/`([^`]+)`/g, '<code>$1</code>');
+const BR12 = ['Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi'];
+const statValue = b => `<div class="ln-card ln-stat"><b>${esc(b.v)}${esc(b.unit || '')}</b><p>${esc(b.label)}</p></div>`;
+function renderBlock(b) {
+  switch (b.t) {
+    case 'p': return `<p>${inline(b.x)}</p>`;
+    case 'h': return `<h3>${esc(b.x)}</h3>`;
+    case 'ul': return `<ul>${b.x.map(i => `<li>${inline(i)}</li>`).join('')}</ul>`;
+    case 'ol': return `<ol>${b.x.map(i => `<li>${inline(i)}</li>`).join('')}</ol>`;
+    case 'call': return call(inline(b.x));
+    case 'cmp': return `<div class="ln-cmp">${b.items.map(i => `<div><h4>${esc(i.h)}</h4><p>${inline(i.x)}</p></div>`).join('')}</div>`;
+    case 'quote': {
+      const name = REF?.books?.[b.book] || b.book, where = typeof b.page === 'number' ? `tr. ${b.page}` : b.page;
+      return `<blockquote class="ln-q"${b.lang ? ` lang="${esc(b.lang)}"` : ''}><p>“${esc(b.x)}”</p>${b.gloss ? `<p class="ln-q-g">${esc(b.gloss)}</p>` : ''}<footer>${esc(name)}, ${esc(where)}${b.img ? ' · đọc từ ảnh trang' : ''}${b.ctx ? `<span>${esc(b.ctx)}</span>` : ''}</footer></blockquote>`;
+    }
+    case 'cta': return `<div class="ln-cta">${b.lesson ? `<a class="btn" href="#hoc/${esc(b.lesson)}" data-lesson="${esc(b.lesson)}">${esc(b.x)}</a>` : `<a class="btn" href="${esc(b.href)}">${esc(b.x)}</a>`}</div>`;
+    case 'table': return `<div class="tbl-wrap"><table class="tbl"><thead><tr>${b.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map((c, i) => i ? `<td>${esc(c)}</td>` : `<th scope="row">${esc(c)}</th>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    case 'tiers': return `<div class="ln-tiers">${Object.keys(TIER_TXT).map(t => `<div><span class="ln-tier t-${t}">${TIER_TXT[t]}</span><p>${esc(REF?.tiers?.[t] || '')}</p></div>`).join('')}</div>`;
+    case 'dignity': return b.stars.map(s => { const d = REF?.tu_vi?.stars?.[s]?.dignity; if (!d) return '';
+      const row = (name, t) => `<tr><th scope="row">${name}</th>${BR12.map(x => `<td class="${d.thuc_hanh[x] && d.toan_thu[x] && d.thuc_hanh[x] !== d.toan_thu[x] ? 'ln-df' : ''}">${esc(t[x] || '·')}</td>`).join('')}</tr>`;
+      return `<div class="tbl-wrap"><table class="tbl ln-dig"><caption>${esc(s)}: độ sáng theo cung (ô tô đậm = hai sách khác nhau; “·” = sách không nêu)</caption><thead><tr><th></th>${BR12.map(x => `<th>${x}</th>`).join('')}</tr></thead><tbody>${row('Thực Hành', d.thuc_hanh)}${row('Toàn Thư', d.toan_thu)}</tbody></table></div>`; }).join('');
+    default: return '';
+  }
+}
+function renderBlocks(blocks) {
+  let out = '', run = [];
+  const flush = () => { if (run.length) out += `<div class="ln-grid ln-stats">${run.map(statValue).join('')}</div>`; run = []; };
+  for (const b of blocks) { if (b.t === 'stat') { run.push(b); continue; } flush(); out += renderBlock(b); }
+  flush(); return out;
+}
+const deepBody = id => (DEEP?.[id] ? renderBlocks(DEEP[id].blocks) : '<p class="muted">Đang tải bài học… nếu không hiện, hãy tải lại trang.</p>');
 
 /** Renders the learning hub (id = null) or one lesson into host. */
 export function renderLearn(host, id, T) {
@@ -153,7 +213,7 @@ export function renderLearn(host, id, T) {
   const track = TRACKS.find(t => t.levels.some(l => l.lessons.includes(id))), level = track.levels.find(l => l.lessons.includes(id));
   host.innerHTML = `<div class="ln-page">
     <nav class="ln-crumb" aria-label="Vị trí bài học"><a href="#hoc" data-go="hoc">Học</a> › <span>${track.title}</span> › <span>${level.name}</span></nav>
-    <article class="ln-art"><p class="eyebrow">Bài ${i + 1} / ${ORDER.length} · ${L.min} phút đọc</p><h1>${L.title}</h1><div class="ln-body">${L.body(T)}</div></article>
+    <article class="ln-art"><p class="eyebrow">Bài ${i + 1} / ${ORDER.length} · ${L.min} phút đọc</p><h1>${L.title}</h1><div class="ln-body">${L.deep ? deepBody(id) : L.body(T)}</div></article>
     <nav class="ln-pn" aria-label="Chuyển bài">${prev ? `<a href="#hoc/${prev}" data-go="hoc/${prev}"><small>← Bài trước</small>${LESSONS[prev].title}</a>` : '<span></span>'}${next ? `<a class="nx" href="#hoc/${next}" data-go="hoc/${next}"><small>Bài tiếp theo →</small>${LESSONS[next].title}</a>` : `<a class="nx" href="#lap-la-so" data-go="lap-la-so"><small>Bạn đã học xong</small>Lập lá số của bạn →</a>`}</nav>
   </div>`;
 }

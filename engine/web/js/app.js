@@ -8,7 +8,7 @@ import { renderBaziReport, renderTuviReport } from './report.js';
 import { notice } from './ui.js';
 import { renderHourSweep } from './hours.js';
 import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossary.js';
-import { renderLearn, lessonSys, lessonTitle } from './learn.js';
+import { renderLearn, lessonSys, lessonTitle, preloadDeep } from './learn.js';
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
 import { renderSaved, initSave } from './mine.js';
@@ -63,6 +63,7 @@ addEventListener('popstate', () => { const h = location.hash; if (h.startsWith('
 // ---------- learning journey ----------
 async function openLearn(lesson, push = true) {
   await metaReady;
+  await preloadDeep(lesson);
   const host = $('#learn-host');
   renderLearn(host, lesson || null, terms());
   autoLink(host, lessonSys(lesson));
