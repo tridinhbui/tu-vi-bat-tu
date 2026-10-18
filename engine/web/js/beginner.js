@@ -91,7 +91,7 @@ export function yearCard(d, T, sys, { atStart = false, atEnd = false } = {}) {
 
 // ---- summary card ----
 const li = t => `<li>${t}</li>`;
-const plainElem = (b) => {
+export const plainElem = (b) => {
   const { vis, hid } = elementStats(b), by = ELEMENTS.map(e => [e, vis[e]]).sort((a, c) => c[1] - a[1]);
   const top = by.filter(x => x[1] === by[0][1]).map(x => x[0]), none = ELEMENTS.filter(e => !vis[e]), noneAll = none.filter(e => !hid[e]);
   return `Trên tám chữ, hành nhiều nhất là <b>${top.join(', ')}</b> (${by[0][1]}/8 chữ)${none.length ? `; hành <b>${none.join(', ')}</b> không xuất hiện${noneAll.length ? '' : ' (nhưng có ẩn trong tàng can)'}` : ''}.`;
