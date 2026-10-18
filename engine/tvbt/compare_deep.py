@@ -18,7 +18,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from . import calendar_core as cc, compare_tuvi, lunar_vn
-from .bazi import (DESTROY, HARM, MEETING, PENALTY_PAIR, PENALTY_TRIPLES, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH, STEM_COMBINE, TRIAD, BaziChart)
+from .bazi import (DESTROY, HARM, MEETING, PENALTY_PAIR, PENALTY_TRIPLES, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_LEGACY4 as STEM_CLASH, STEM_COMBINE, TRIAD, BaziChart)
 from .bazi_deep import position, season, tvh_cach, tvh_score
 from .bazi_deep.model import PILLARS, PIL_VI, ChartView, group_of
 from .bazi_deep.profile import TVH_40

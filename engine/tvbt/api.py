@@ -138,6 +138,22 @@ def synthesis(req: BirthReq):
     return out
 
 
+@app.post("/api/interpretation")
+def interpretation(req: BirthReq):
+    """Evidence engine (tvbt/reasoning/interpretation.py): rule findings reduced to conclusions with trigger facts, independent sources,
+    source-cited qualifiers and conflict relations; six-layer dossiers for all 12 palaces; period layer; Bát Tự assessment with the
+    methods side by side; chapters with six fixed sections. No language model, no score. Behind TVBT_DEEP_INTERPRETATION (default OFF)."""
+    from .synthesis import enabled
+    if not enabled():
+        raise HTTPException(404, "interpretation engine is disabled")
+    from .reasoning.interpretation import run
+    nb, bz, tv = _compute(req)
+    out = run(tv, bz, req.year, req.to_year or req.year, req.dignity_school)
+    if req.level < 5:
+        out.pop("dossiers", None)
+    return out
+
+
 @app.post("/api/bazi-structure")
 def bazi_structure(req: BirthReq):
     """Bát Tự structure analysis (bazi_deep): khí thế before/after interactions, tương tác, cách cục, dụng thần per method, findings.

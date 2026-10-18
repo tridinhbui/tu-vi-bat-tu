@@ -31,17 +31,32 @@ def _hoa_landing(chart: TuViChart, stem: int) -> dict[str, str | None]:
     return out
 
 
+LUU_TINH_SOURCE = {
+    "Lưu Thái Tuế": "KL tr.41", "Lưu Tang Môn": "KL tr.41", "Lưu Bạch Hổ": "KL tr.41", "Lưu Thiên Khốc": "KL tr.41", "Lưu Thiên Hư": "KL tr.41",
+    "Lưu Lộc Tồn": "KL tr.41-42", "Lưu Kình Dương": "KL tr.42", "Lưu Đà La": "KL tr.42", "Lưu Thiên Mã": "KL tr.42",
+    "Lưu Thiên Khôi": "thông lệ (không có trong chín sao lưu của KL tr.41-42 / TH tr.114)",
+    "Lưu Thiên Việt": "thông lệ (không có trong chín sao lưu của KL tr.41-42 / TH tr.114)",
+}
+
+
 def luu_tinh(chart: TuViChart, year: int) -> dict[str, str]:
     """Lưu (flowing) stars of a year: {'Lưu Lộc Tồn': palace name, ...}.
-    CONVENTION, not verified as a flow rule: the natal tables the engine already uses (Lộc Tồn/Kình/Đà and Khôi/Việt by stem, Thiên Mã by
-    branch triad — Thực Hành pp.19-24) are applied to the stem/branch of the year being read. Lưu Xương/Khúc, lưu Hỏa/Linh etc. are NOT
-    produced: no table for them has been checked."""
+    Khảo Luận pp.41-42 (same nine stars in Thực Hành p.114): Lưu Thái Tuế on the year's branch; Lưu Tang Môn two palaces ahead of it and
+    Lưu Bạch Hổ opposite Tang Môn (book example: Thái Tuế Mùi, Tang Môn Dậu, Bạch Hổ Mão); Lưu Khốc / Lưu Hư counted from Ngọ as Tý,
+    backward / forward to the year's branch; Lưu Lộc Tồn by the year's stem (same table as the natal one); Lưu Kình one palace ahead of
+    Lưu Lộc Tồn and Lưu Đà one behind FOR dương nam / âm nữ, reversed for âm nam / dương nữ (p.42; audit TV-10: the direction was
+    ignored); Lưu Thiên Mã by the year's branch triad. Lưu Khôi / Việt are a convention kept for the experimental layer only.
+    Note: the book's Lưu Hư example ('ở Sửu' for a Thân year) contradicts its own rule (which gives Dần); the rule is used."""
     ys, yb = year_cycle_index(year) % 10, year_cycle_index(year) % 12
     by_branch = {p["branch_index"]: p["name"] for p in chart.palaces}
     lt = LOC_TON[ys]
     kh, vi = KHOI_VIET[ys]
     ma = {0: 8, 1: 2, 2: 11, 3: 5}[TRIAD_GROUP[yb]]
-    pos = {"Lưu Lộc Tồn": lt, "Lưu Kình Dương": (lt + 1) % 12, "Lưu Đà La": (lt - 1) % 12, "Lưu Thiên Khôi": kh, "Lưu Thiên Việt": vi, "Lưu Thiên Mã": ma}
+    fwd = chart.yin_yang_gender in ("dương nam", "âm nữ")
+    pos = {"Lưu Thái Tuế": yb, "Lưu Tang Môn": (yb + 2) % 12, "Lưu Bạch Hổ": (yb + 8) % 12,
+           "Lưu Thiên Khốc": (6 - yb) % 12, "Lưu Thiên Hư": (6 + yb) % 12,
+           "Lưu Lộc Tồn": lt, "Lưu Kình Dương": (lt + (1 if fwd else -1)) % 12, "Lưu Đà La": (lt - (1 if fwd else -1)) % 12,
+           "Lưu Thiên Khôi": kh, "Lưu Thiên Việt": vi, "Lưu Thiên Mã": ma}
     return {k: by_branch[v] for k, v in pos.items()}
 
 

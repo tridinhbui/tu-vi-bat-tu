@@ -32,6 +32,21 @@ function synthHtml(ch) {
     <div class="pro-only">${themes.length ? acc('Đồ thị lập luận', `${themes.length} chủ đề`, graph) : ''}${acc('Kiểm tra văn bản', v.issues.length ? `${v.issues.length} câu bị loại` : 'đạt', check)}</div>
     <p class="muted small sy-foot">Phần này được tổng hợp tự động từ các nhận định đã đối chiếu sách bên dưới, bằng quy tắc ngôn ngữ cố định (không dùng mô hình AI). Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
 }
+// ---------- evidence engine (tvbt/reasoning/interpretation.py, server flag): six fixed sections per chapter, each item traced to rules and pages ----------
+const EV_SECTIONS = [['nhan_dinh_tong_quan', 'Nhận định tổng quan'], ['co_so_luan_giai', 'Cơ sở luận giải'], ['yeu_to_ho_tro', 'Yếu tố hỗ trợ'],
+  ['han_che_mau_thuan', 'Điểm hạn chế và mâu thuẫn'], ['luan_giai_tong_hop', 'Luận giải tổng hợp'], ['dieu_kien_gioi_han', 'Điều kiện và giới hạn']];
+const EV_CH = { 'ban-menh': ['menh'], 'tinh-cach': ['tinh_cach'], 'cong-danh': ['cong_danh'], 'tai-bach': ['tai_loc'], 'quan-he': ['quan_he', 'tat_ach'], 'dai-han': ['van_han'] };
+function evHtml(chs) {
+  chs = (chs || []).filter(Boolean);
+  if (!chs.length) return '';
+  const li = x => typeof x === 'string' ? `<li>${esc(x)}</li>` : `<li>${esc(x.text)}${x.sources?.length ? ` <span class="src-chip">${esc(x.sources.join('; '))}</span>` : ''}</li>`;
+  const list = xs => xs?.length ? `<ul class="yx-list">${xs.map(li).join('')}</ul>` : '<p class="muted small">Không có.</p>';
+  const sec = (k, v) => typeof v === 'string' ? `<p>${esc(v)}</p>` : Array.isArray(v) ? list(v)
+    : list([...(v.items || []), ...(v.relations || []), ...(v.conditions || []), ...(v.open_questions || []).map(q => 'Câu hỏi mở: ' + q), ...(v.guards || []),
+      ...(v.structural_labels || []).map(x => 'Nhận diện cấu trúc: ' + x.text)]);
+  return chs.map(ch => `<section class="synth ev-report" aria-label="${esc(ch.title)}"><p class="eyebrow">Luận giải có căn cứ · ${esc(ch.title)} <span class="muted">(thử nghiệm)</span></p>
+    ${EV_SECTIONS.map(([k, t]) => ch.sections[k] == null ? '' : (k === 'nhan_dinh_tong_quan' ? `<h5>${t}</h5>${sec(k, ch.sections[k])}` : acc(t, '', sec(k, ch.sections[k])))).join('')}</section>`).join('');
+}
 const SY_CH = { 'tong-quan': 'tong_quan', 'ban-menh': 'ban_menh', 'tinh-cach': 'tinh_cach', 'cong-danh': 'cong_danh', 'tai-bach': 'tai_bach', 'quan-he': 'quan_he', 'dai-han': 'dai_han', 'cach-cuc': 'cach_cuc' };
 
 const WHAT = {
@@ -147,6 +162,8 @@ export function renderBaziReport(host, chart, ctx, parts) {
       calc: calc(`<div class="pro-only">${notice('Cách cục và Dụng thần chưa được xác định', 'Hai nội dung này cần bộ quy tắc đã đối chiếu nguồn và phụ thuộc trường phái. Hệ thống không đoán để tránh đưa ra kết luận thiếu căn cứ; hiện chỉ nêu từng tiêu chí ở chương Nhật Chủ.')}</div>`), trad: trad(of('cach-cuc'), 'Không có cách cục nào được nhận ra.', 'bt:cach-cuc') },
     { id: 'chuyen-sau', pro: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('bat_tu', 'Bát Tự', { normalization: ctx.chartRaw.normalization_trace.steps, bazi: b.trace.steps }), trad: '' },
   ];
+  const evBt = ctx.interp?.report?.chapters?.find(c => c.id === 'bat_tu');
+  if (evBt) { const cc = chapters.find(c => c.id === 'cach-cuc'); if (cc) cc.synth = evHtml([evBt]) + (cc.synth || ''); }
   mount(host, chapters, 'bt', ctx);
   host.insertAdjacentHTML('afterbegin', scopePanelBazi(b));
   yearExplorer($('#bt-year', host), ctx.req, b, 'bazi');
@@ -226,6 +243,10 @@ export function renderTuviReport(host, chart, ctx) {
   if (ctx.synth?.chapters) {
     const by = Object.fromEntries(ctx.synth.chapters.map(c => [c.id, c]));
     chapters.forEach(c => { c.synth = synthHtml(by[SY_CH[c.id]]); });
+  }
+  if (ctx.interp?.report?.chapters) {
+    const ev = Object.fromEntries(ctx.interp.report.chapters.map(c => [c.id, c]));
+    chapters.forEach(c => { if (EV_CH[c.id]) c.synth = evHtml(EV_CH[c.id].map(k => ev[k])) + (c.synth || ''); });
   }
   mount(host, chapters, 'tv', ctx);
   yearExplorer($('#tv-year', host), ctx.req, b, 'tuvi');

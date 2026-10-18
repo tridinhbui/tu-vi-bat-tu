@@ -67,5 +67,6 @@ def place(*, ys: int, yb: int, month: int, day: int, hb: int, menh: int, than: i
         add("Tam Thai", placed["Tả Phụ"] + day - 1, "tam_thai_from_ta_phu_by_day")
         add("Bát Tọa", placed["Hữu Bật"] - (day - 1), "bat_toa_from_huu_bat_by_day")
         add("Ân Quang", placed["Văn Xương"] + day - 2, "an_quang_from_van_xuong_by_day")
-        add("Thiên Quý", placed["Văn Khúc"] + day - 2, "thien_quy_from_van_khuc_by_day")
+        # KL p.28 / TH p.19: from Văn Khúc as day 1 count NGHỊCH to the birth day, then step back one palace (audit TV-1: was counted thuận)
+        add("Thiên Quý", placed["Văn Khúc"] - (day - 2), "thien_quy_from_van_khuc_back_by_day")
     return out
