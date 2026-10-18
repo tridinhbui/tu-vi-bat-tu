@@ -41,7 +41,7 @@ export class D1Store implements KnowledgeStore {
     const passages = await q<any>('SELECT * FROM module_passages ORDER BY module_id, ord');
     const modules: ContentModule[] = (await q<any>("SELECT * FROM content_modules WHERE status != 'retired'")).map(m => {
       const b = this.bundle.modules.find(x => x.id === m.id);
-      return { id: m.id, chapter: m.chapter, role: m.role, version: m.version, status: m.status, title: m.title, order: b?.order ?? 50,
+      return { id: m.id, chapters: String(m.chapter).split(','), role: m.role, version: m.version, status: m.status, title: m.title, order: b?.order ?? 50,
         when: J(m.when_json, undefined), evidence: J(m.evidence_json, undefined), author: m.author ?? undefined,
         passages: passages.filter(p => p.module_id === m.id).map(p => ({ id: p.passage_id, when: J(p.when_json, undefined), basis: p.basis, kind: p.kind,
           variants: J(p.variants_json, []), cites: J(p.cites_json, []), each: b?.passages.find(x => x.id === p.passage_id)?.each,
@@ -50,6 +50,19 @@ export class D1Store implements KnowledgeStore {
     this.cache = { ...this.bundle, version, sources, rules, claims, concepts: { ...this.bundle.concepts, concepts }, relations: { ...this.bundle.relations, relations }, modules };
     return this.cache;
   }
+}
+
+/** Isolate-level memo: a request reads one row (kb_meta.version) and reuses the knowledge already loaded for that version; the full
+ *  D1 read (~3,000 rows) happens once per isolate and again only when a new seed changes the version. */
+let memo: { version: string; k: Knowledge } | null = null;
+export async function loadKnowledge(db: D1Like | undefined, bundle: Knowledge): Promise<Knowledge> {
+  if (!db) return bundle;
+  const v = (await db.prepare("SELECT value FROM kb_meta WHERE key = 'version'").all<{ value: string }>()).results[0]?.value;
+  if (!v) return bundle;                                    // binding present but not seeded: fall back to the bundled knowledge
+  if (memo?.version === v) return memo.k;
+  const k = await new D1Store(db, bundle).load();
+  memo = { version: v, k };
+  return k;
 }
 
 export async function cacheKey(parts: unknown[]): Promise<string> {

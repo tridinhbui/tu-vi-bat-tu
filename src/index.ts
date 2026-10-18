@@ -1,7 +1,7 @@
 import { Container, getContainer } from "@cloudflare/containers";
 import knowledge from "./interpret/generated/knowledge.json" with { type: "json" };
 import { interpret, CHAPTERS, ENGINE_VERSION, type Chapter } from "./interpret/pipeline.ts";
-import { BundledStore, D1Store, LayeredCache, cacheKey, type D1Like, type R2Like } from "./interpret/store.ts";
+import { LayeredCache, cacheKey, loadKnowledge, type D1Like, type R2Like } from "./interpret/store.ts";
 import type { ChartInput, Knowledge } from "./interpret/types.ts";
 
 // The Python (FastAPI) engine runs inside the container; this Worker routes requests to it, and hosts the deterministic TypeScript
@@ -32,8 +32,7 @@ async function interpretRoute(request: Request, env: Env, ctx: ExecutionContext)
     method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(birth) }));
   if (!factsRes.ok) return new Response(factsRes.body, { status: factsRes.status, headers: factsRes.headers });
   const facts = await factsRes.json() as ChartInput;
-  const store = env.INTERPRET_DB ? new D1Store(env.INTERPRET_DB, knowledge as unknown as Knowledge) : new BundledStore(knowledge as unknown as Knowledge);
-  const k = await store.load();
+  const k = await loadKnowledge(env.INTERPRET_DB, knowledge as unknown as Knowledge);
   const cache = new LayeredCache({ db: env.INTERPRET_DB, r2: env.INTERPRET_CACHE, edge: (globalThis as any).caches?.default });
   const key = await cacheKey([facts.base, facts.decades, facts.year, chapter, ENGINE_VERSION, k.version]);
   const hit = await cache.get(key);

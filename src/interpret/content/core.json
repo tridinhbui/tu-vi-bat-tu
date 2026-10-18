@@ -1,0 +1,715 @@
+{
+ "note": "Generic editorial modules shared by every chapter (chapters.ts). Slots: f.* = focus palace, tri.* = tam hợp, opp.* = xung chiếu, env.* = environment palace.",
+ "modules": [
+  {
+   "id": "C.10.CENTRAL",
+   "chapters": [
+    "cong_danh",
+    "tai_bach",
+    "menh"
+   ],
+   "role": "central",
+   "version": 2,
+   "status": "draft",
+   "title": "Cấu hình trung tâm của cung {f.name}",
+   "order": 10,
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "intro",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "{Topic} được đọc trước hết ở cung {f.name}, trên lá số này an tại {f.where} với {f.majors_dig}{?f.notable|, cùng {f.notable}}.",
+      "Điểm xuất phát của chương là cung {f.name}, an tại {f.where}: {f.majors_dig}{?f.notable|, đi cùng {f.notable}}."
+     ],
+     "when": {
+      "not": {
+       "slot": "f.no_major"
+      }
+     }
+    },
+    {
+     "id": "intro_vcd",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "{Topic} được đọc trước hết ở cung {f.name}, an tại {f.where}; cung này vô chính diệu{?f.notable|, chỉ có {f.notable}}."
+     ],
+     "when": {
+      "slot": "f.no_major"
+     }
+    },
+    {
+     "id": "vcd_note",
+     "basis": "he_thong",
+     "kind": "limit",
+     "variants": [
+      "Khi cung vô chính diệu, cách xem thường gặp là dựa nhiều hơn vào cung xung chiếu {opp.name} ({opp.majors_dig}) và hai cung tam hợp; bộ quy tắc hiện chưa mã hóa phép “mượn sao” này, nên bản luận không chuyển câu sách của {opp.majors} sang {f.name}."
+     ],
+     "when": {
+      "all": [
+       {
+        "slot": "f.no_major"
+       },
+       {
+        "slot": "opp.majors"
+       }
+      ]
+     }
+    },
+    {
+     "id": "triad",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "Theo phép tam phương tứ chính, {f.name} được đọc cùng hai cung tam hợp {tri.b} ({tri.b_majors}{?tri.b_notable|, có {tri.b_notable}}) và {tri.a} ({tri.a_majors}{?tri.a_notable|, có {tri.a_notable}}), cùng cung xung chiếu {opp.name} ({opp.majors_dig}{?opp.notable|, có {opp.notable}}).",
+      "Khung tam phương tứ chính của {f.name} gồm {tri.b} ({tri.b_majors}{?tri.b_notable|, có {tri.b_notable}}), {tri.a} ({tri.a_majors}{?tri.a_notable|, có {tri.a_notable}}) và cung xung chiếu {opp.name} ({opp.majors_dig}{?opp.notable|, có {opp.notable}}); sao của {f.name} không được xét tách khỏi ba cung này."
+     ]
+    },
+    {
+     "id": "than_opp",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "{opp.name} cũng là cung Thân cư, nên cung đối diện với {f.name} đồng thời là nơi lá số đặt Thân."
+     ],
+     "when": {
+      "slot": "than.is_opp"
+     }
+    },
+    {
+     "id": "than_focus",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "Thân cư ngay cung {f.name}{?f.is_menh| (Mệnh Thân đồng cung)}, nên cung này vừa đọc {topic} vừa là cung Thân."
+     ],
+     "when": {
+      "slot": "than.is_focus"
+     }
+    },
+    {
+     "id": "than_triad",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "Cung Thân ({than.palace}) nằm ngay trong khung tam phương này."
+     ],
+     "when": {
+      "slot": "than.in_triad"
+     }
+    },
+    {
+     "id": "tt_note",
+     "basis": "he_thong",
+     "kind": "limit",
+     "variants": [
+      "{tt.note}; các quy tắc đã đối chiếu không có câu nào xét Tuần, Triệt ở đó cho các sao của cung, nên bản luận chỉ ghi nhận vị trí, không cộng trừ thêm."
+     ],
+     "when": {
+      "slot": "tt.note"
+     }
+    }
+   ]
+  },
+  {
+   "id": "C.20.STARS",
+   "chapters": [
+    "cong_danh",
+    "tai_bach",
+    "menh"
+   ],
+   "role": "factor",
+   "version": 2,
+   "status": "draft",
+   "title": "Chính tinh của {f.name} và các câu sách thuận",
+   "order": 20,
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "profiles",
+     "basis": "sach",
+     "kind": "ground",
+     "variants": [
+      "Phần mở đầu của Thực Hành cho từng chính tinh ghi: {profiles} ({profiles.cite}); đó là nền nghĩa của sao trước khi xét vị trí.",
+      "Trước khi xét vị trí, cần nhớ nền nghĩa mà Thực Hành gán cho chính tinh của {f.name}: {profiles} ({profiles.cite}).",
+      "Thực Hành mở đầu phần mỗi sao bằng nền nghĩa của nó: {profiles} ({profiles.cite}); các câu theo vị trí ở dưới đều đứng trên nền đó."
+     ],
+     "when": {
+      "slot": "profiles"
+     },
+     "cites": [
+      "{profiles.cite}"
+     ]
+    },
+    {
+     "id": "base",
+     "basis": "sach",
+     "kind": "claim",
+     "variants": [
+      "Đặt vào cung {f.name}, sách cho cấu hình này những câu thuận: {list:base}.",
+      "Ở chính cung {f.name}, các câu sách thuận gồm {list:base}."
+     ],
+     "when": {
+      "list": "base"
+     }
+    },
+    {
+     "id": "shared",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "variants": [
+      "{s.quotes} là {s.n} câu {s.books} ghi cho cùng một dữ kiện ({s.cond}), nhìn từ phía mỗi sao; vì chung một dữ kiện gốc, bản luận tính đây là một căn cứ, không phải {s.n}.",
+      "Cần lưu ý {s.quotes} không phải {s.n} bằng chứng riêng: {s.books} ghi chúng cho cùng điều kiện ({s.cond}), nên chúng được đếm là một căn cứ."
+     ],
+     "each": "shared_ground"
+    },
+    {
+     "id": "support",
+     "basis": "sach",
+     "kind": "claim",
+     "variants": [
+      "Ngoài chính tinh, sách còn ghi {list:support}.",
+      "Các phụ tinh trong cung góp thêm: {list:support}."
+     ],
+     "when": {
+      "list": "support"
+     }
+    },
+    {
+     "id": "generic",
+     "basis": "sach",
+     "kind": "claim",
+     "variants": [
+      "Một số câu sách chỉ dựa vào năm sinh hoặc giới tính, nên áp chung cho mọi người cùng loại chứ không riêng lá số này: {list:generic}.",
+      "Có những câu không đứng trên sao mà trên năm sinh hoặc giới tính — tức đúng cho cả một lớp người, không riêng lá số này: {list:generic}."
+     ],
+     "when": {
+      "list": "generic"
+     }
+    }
+   ],
+   "when": {
+    "any": [
+     {
+      "slot": "profiles"
+     },
+     {
+      "list": "base"
+     },
+     {
+      "list": "support"
+     },
+     {
+      "list": "generic"
+     }
+    ]
+   }
+  },
+  {
+   "id": "C.30.QUALIFIERS",
+   "chapters": [
+    "cong_danh",
+    "tai_bach",
+    "menh"
+   ],
+   "role": "counter",
+   "version": 2,
+   "status": "draft",
+   "title": "Những câu hạn chế",
+   "order": 30,
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "focus",
+     "basis": "sach",
+     "kind": "contrast",
+     "variants": [
+      "Tuy vậy, chính cung này cũng mang những câu hạn chế: {list:qualifier_f}.",
+      "Mặt khác, sách ghi những điều kiện kéo xuống ngay trong {f.name}: {list:qualifier_f}."
+     ],
+     "when": {
+      "list": "qualifier_f"
+     }
+    },
+    {
+     "id": "shared_sat",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "variants": [
+      "Các câu này không độc lập với nhau: chúng cùng xoay quanh {q.sat_shared}, nên đây là một yếu tố bất lợi được nhiều câu sách nhìn từ nhiều phía, không phải nhiều trở ngại cộng dồn.",
+      "Điểm chung của các câu hạn chế là {q.sat_shared}; vì vậy bản luận coi chúng là một yếu tố được nhìn từ nhiều phía chứ không cộng chúng thành nhiều trở ngại."
+     ],
+     "when": {
+      "slot": "q.sat_shared"
+     }
+    },
+    {
+     "id": "other",
+     "basis": "sach",
+     "kind": "contrast",
+     "variants": [
+      "Ở cung khác, sách còn ghi {list:qualifier_other}.",
+      "Ngoài {f.name}, có thêm {list:qualifier_other}."
+     ],
+     "when": {
+      "list": "qualifier_other"
+     }
+    }
+   ],
+   "when": {
+    "any": [
+     {
+      "list": "qualifier_f"
+     },
+     {
+      "list": "qualifier_other"
+     }
+    ]
+   }
+  },
+  {
+   "id": "C.40.DOMINANCE",
+   "chapters": [
+    "cong_danh",
+    "tai_bach",
+    "menh"
+   ],
+   "role": "dominance",
+   "version": 2,
+   "status": "draft",
+   "title": "Nhận định nào chi phối",
+   "order": 40,
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "lead",
+     "basis": "he_thong",
+     "kind": "interaction",
+     "variants": [
+      "Sách không xếp thứ tự giữa câu thuận và câu hạn chế. Khi chúng gặp nhau, bản luận dùng một quy ước công khai: câu nào có điều kiện chứa trọn điều kiện của câu kia và thêm dữ kiện thì là trường hợp riêng, được đọc trước; câu chỉ thêm sát tinh vào cùng chính tinh thì được đọc như mức điều chỉnh; ngoài hai trường hợp đó, giữ cả hai.",
+      "Câu thuận và câu hạn chế cùng có mặt ở {f.name}, mà sách không nói bên nào thắng. Quy ước của bản luận là: trường hợp riêng (điều kiện chứa trọn điều kiện của câu kia và thêm dữ kiện) được đọc trước, câu chỉ thêm sát tinh vào cùng chính tinh là mức điều chỉnh, còn lại thì giữ cả hai."
+     ],
+     "when": {
+      "list": "dominance"
+     }
+    },
+    {
+     "id": "pair",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "variants": [
+      "{d.text}"
+     ],
+     "each": "dominance"
+    },
+    {
+     "id": "tension",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "variants": [
+      "{t.where}, {t.text}.",
+      "Một chỗ trái chiều khác nằm {t.where_l}: {t.text}."
+     ],
+     "each": "tension",
+     "followups": [
+      "{t.where}, {t.text}."
+     ]
+    }
+   ],
+   "when": {
+    "any": [
+     {
+      "list": "dominance"
+     },
+     {
+      "list": "tension"
+     }
+    ]
+   }
+  },
+  {
+   "id": "C.50.CROSS",
+   "chapters": [
+    "cong_danh",
+    "tai_bach",
+    "menh"
+   ],
+   "role": "cross",
+   "version": 2,
+   "status": "draft",
+   "title": "Mối nối với các cung khác",
+   "order": 50,
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "lead",
+     "basis": "tinh_toan",
+     "kind": "intro",
+     "variants": [
+      "{Topic} không chỉ nằm ở {f.name}: có những câu sách đọc ở cung khác nhưng chỉ đúng nhờ sao của khung tam phương {f.name}.",
+      "Một phần của {topic} được ghi ở cung khác — những câu chỉ thỏa vì sao trong khung tam phương của {f.name} chiếu về."
+     ],
+     "when": {
+      "list": "cross"
+     }
+    },
+    {
+     "id": "each",
+     "basis": "sach",
+     "kind": "claim",
+     "variants": [
+      "Ở cung {x.from}, {x.books} ghi “{x.quote}” ({x.cite}); câu này chỉ thỏa vì {x.deps}{?x.support|, còn {x.support} là thêm một nhánh thỏa}.",
+      "{x.books} cho cung {x.from} câu “{x.quote}” ({x.cite}), và câu đó chỉ đứng được vì {x.deps}."
+     ],
+     "each": "cross",
+     "followups": [
+      "Tương tự, “{x.quote}” ({x.cite}) ở cung {x.from} cần {x.deps}.",
+      "Cũng theo lối ấy, {x.books} ghi cho cung {x.from} “{x.quote}” ({x.cite}), một câu chỉ thỏa nhờ {x.deps}."
+     ]
+    },
+    {
+     "id": "link",
+     "basis": "sach",
+     "kind": "claim",
+     "variants": [
+      "Ở chính cung {x.from}, {x.books} ghi “{x.quote}” ({x.cite}) khi {x.cond}{?x.support|; điều kiện đã thỏa ngay trong {x.from}, còn {x.support} chiếu về chỉ là thêm một nhánh thỏa, không phải chỗ dựa duy nhất}.",
+      "Cung {x.from} tự có câu “{x.quote}” ({x.cite}) khi {x.cond}{?x.support|; {x.support} cũng thỏa điều kiện ấy, nhưng câu này không phụ thuộc vào đó}."
+     ],
+     "each": "link",
+     "followups": [
+      "{x.books} cũng ghi cho cung {x.from} “{x.quote}” ({x.cite}) khi {x.cond}."
+     ]
+    },
+    {
+     "id": "work_style",
+     "basis": "sach",
+     "kind": "claim",
+     "variants": [
+      "Về động lực khi theo đuổi {topic}, Mệnh còn ghi {list:work_style}; phần tính cách được phân tích kỹ ở chương Mệnh.",
+      "Mệnh cũng cho biết cách người này dấn thân: {list:work_style} (xem thêm chương Mệnh)."
+     ],
+     "when": {
+      "list": "work_style"
+     }
+    }
+   ],
+   "when": {
+    "any": [
+     {
+      "list": "cross"
+     },
+     {
+      "list": "link"
+     },
+     {
+      "list": "work_style"
+     }
+    ]
+   }
+  },
+  {
+   "id": "C.60.ENV",
+   "chapters": [
+    "cong_danh",
+    "tai_bach",
+    "menh"
+   ],
+   "role": "cross",
+   "version": 2,
+   "status": "draft",
+   "title": "{env.name}: {env.label}",
+   "order": 60,
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "env",
+     "basis": "sach",
+     "kind": "claim",
+     "variants": [
+      "Cung {env.name}, nơi đọc {env.label}, cho thêm bối cảnh: {list:env_pos}{?list:env_neg|; nhưng cũng {list:env_neg}}.",
+      "Phần {env.label} được đọc ở {env.name}: {list:env_pos}{?list:env_neg|; song {list:env_neg}}."
+     ],
+     "when": {
+      "list": "env_pos"
+     }
+    },
+    {
+     "id": "env_neg_only",
+     "basis": "sach",
+     "kind": "contrast",
+     "variants": [
+      "Cung {env.name}, nơi đọc {env.label}, chỉ ghi điều kiện bất lợi: {list:env_neg}."
+     ],
+     "when": {
+      "all": [
+       {
+        "list": "env_neg"
+       },
+       {
+        "not": {
+         "list": "env_pos"
+        }
+       }
+      ]
+     }
+    }
+   ],
+   "when": {
+    "list": "environment"
+   }
+  },
+  {
+   "id": "C.70.TIMING",
+   "chapters": [
+    "cong_danh",
+    "tai_bach",
+    "menh"
+   ],
+   "role": "timing",
+   "version": 2,
+   "status": "draft",
+   "title": "Nhịp thời gian",
+   "order": 70,
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "readings",
+     "basis": "sach",
+     "kind": "timing",
+     "variants": [
+      "Về nhịp thời gian, sách ghi {list:timing}.",
+      "Về thời điểm, các câu sách liên quan là {list:timing}."
+     ],
+     "when": {
+      "all": [
+       {
+        "list": "timing"
+       },
+       {
+        "not": {
+         "slot": "t.conflict"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "id": "conflict",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "variants": [
+      "{t.conflict}"
+     ],
+     "when": {
+      "slot": "t.conflict"
+     }
+    },
+    {
+     "id": "decade",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "variants": [
+      "Đại hạn đi qua cung {f.name} rơi vào khoảng {dh.f} tuổi mụ (can {dh.f_stem}); năm {year} đương số {age} tuổi mụ, đang ở đại hạn {dh.now}{?dh.before_f|, tức chặng ấy còn ở phía trước}{?dh.now_is_f|, tức đang ở đúng chặng này}{?dh.passed_f|, tức chặng ấy đã qua}.",
+      "Theo vòng đại hạn, cung {f.name} được “bật sáng” trong khoảng {dh.f} tuổi mụ (can {dh.f_stem}); năm {year}, ở tuổi mụ {age}, đương số đang đi đại hạn {dh.now}{?dh.before_f|, nên chặng ấy còn ở phía trước}{?dh.now_is_f|, nên chặng ấy đang diễn ra}{?dh.passed_f|, nên chặng ấy đã qua}."
+     ],
+     "when": {
+      "all": [
+       {
+        "slot": "dh.f"
+       },
+       {
+        "not": {
+         "slot": "f.is_menh"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "id": "decade_readings",
+     "basis": "sach",
+     "kind": "timing",
+     "variants": [
+      "Với chính đại hạn ấy, phép đọc vận của Khảo Luận cho: {dh.f_readings}."
+     ],
+     "when": {
+      "all": [
+       {
+        "slot": "dh.f_readings"
+       },
+       {
+        "not": {
+         "slot": "f.is_menh"
+        }
+       }
+      ]
+     },
+     "cites": [
+      "KL pp.233-236"
+     ]
+    },
+    {
+     "id": "decade_conflict",
+     "basis": "dieu_kien",
+     "kind": "interaction",
+     "variants": [
+      "{dh.f_conflict}"
+     ],
+     "when": {
+      "all": [
+       {
+        "slot": "dh.f_conflict"
+       },
+       {
+        "not": {
+         "slot": "f.is_menh"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "id": "year",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "variants": [
+      "Năm {year} ({yr.pillar}), tiểu hạn rơi đúng cung {f.name}{?yr.th_same_as_dh|; theo phép đọc vận của Khảo Luận, các câu vận nêu trên cũng áp cho năm này{?dh.f_conflict|, nên năm này cũng không được kết luận là lên hay xuống}}."
+     ],
+     "when": {
+      "slot": "yr.th_is_f"
+     }
+    },
+    {
+     "id": "year_readings",
+     "basis": "sach",
+     "kind": "timing",
+     "variants": [
+      "Phép đọc vận cho năm {year}: {yr.th_readings}."
+     ],
+     "when": {
+      "slot": "yr.th_readings"
+     }
+    },
+    {
+     "id": "luu",
+     "basis": "sach",
+     "kind": "timing",
+     "variants": [
+      "Cũng trong năm {year}, {yr.luu}."
+     ],
+     "when": {
+      "slot": "yr.luu"
+     },
+     "cites": [
+      "{yr.luu_cite}"
+     ]
+    },
+    {
+     "id": "hoa",
+     "basis": "tinh_toan",
+     "kind": "timing",
+     "variants": [
+      "Về Tứ Hóa theo đại hạn: {hoa_into_f}; bộ quy tắc chưa có câu sách cho sự giao thoa này nên bản luận chỉ ghi vị trí.",
+      "Tứ Hóa theo can của các đại hạn sắp tới chạm vào {f.name} ở: {hoa_into_f}; đây là dữ kiện vị trí, chưa có câu sách để luận thêm."
+     ],
+     "when": {
+      "slot": "hoa_into_f"
+     }
+    }
+   ]
+  },
+  {
+   "id": "C.80.LIMITS",
+   "chapters": [
+    "cong_danh",
+    "tai_bach",
+    "menh"
+   ],
+   "role": "limits",
+   "version": 2,
+   "status": "draft",
+   "title": "Những gì bản luận cố ý không kết luận",
+   "order": 80,
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "scope",
+     "basis": "dieu_kien",
+     "kind": "limit",
+     "variants": [
+      "Cùng tổ hợp {f.majors}, sách còn có những câu dành cho cung Mệnh ({lim.scope}); chúng không được áp sang {f.name} vì sách không nói cho cung này.",
+      "Sách có câu riêng cho {f.majors} khi đóng ở cung Mệnh: {lim.scope}. Vì các câu đó nói cho Mệnh, bản luận không chuyển chúng sang {f.name}."
+     ],
+     "when": {
+      "slot": "lim.scope"
+     }
+    },
+    {
+     "id": "drafts",
+     "basis": "he_thong",
+     "kind": "limit",
+     "variants": [
+      "Bản luận cũng không dùng {lim.drafts_n} câu từ quy tắc chưa đối chiếu đủ điều kiện với sách: {lim.drafts}.",
+      "Có {lim.drafts_n} câu bị để ngoài vì quy tắc sinh ra {lim.drafts_pron} chưa được đối chiếu đủ: {lim.drafts}."
+     ],
+     "when": {
+      "slot": "lim.drafts"
+     }
+    }
+   ],
+   "when": {
+    "any": [
+     {
+      "slot": "lim.drafts"
+     },
+     {
+      "slot": "lim.scope"
+     }
+    ]
+   }
+  },
+  {
+   "id": "C.90.SYNTHESIS",
+   "chapters": [
+    "cong_danh",
+    "tai_bach",
+    "menh"
+   ],
+   "role": "synthesis",
+   "version": 2,
+   "status": "draft",
+   "title": "Tổng hợp",
+   "order": 90,
+   "author": "Claude (biên tập máy, chờ chuyên gia duyệt)",
+   "passages": [
+    {
+     "id": "sum",
+     "basis": "he_thong",
+     "kind": "synthesis",
+     "variants": [
+      "Gộp lại, trục của chương là {f.majors} ở {f.name}, mà sách gắn với {syn.base}{?syn.verdict|; {syn.verdict}}. {?syn.cross|Về mối nối, {syn.cross}. }{?syn.timing|Về thời điểm, {syn.timing}. }Đây là cách đọc theo hệ biểu tượng truyền thống, có điều kiện, không phải lời tiên đoán.",
+      "Tóm lại, {topic} trên lá số này xoay quanh {f.majors} tại {f.branch}, với {syn.base}{?syn.verdict|; {syn.verdict}}. {?syn.cross|Về mối nối, {syn.cross}. }{?syn.timing|Còn về thời điểm, {syn.timing}. }Mọi điều trên là khuynh hướng có điều kiện theo sách cổ, không phải lời đoán định."
+     ],
+     "when": {
+      "slot": "syn.base"
+     }
+    },
+    {
+     "id": "sum_thin",
+     "basis": "he_thong",
+     "kind": "synthesis",
+     "variants": [
+      "{?f.no_major|{f.name} vô chính diệu, nên chương không có trục chính tinh để dựa vào}{?f.majors|Bộ quy tắc đã đối chiếu chưa có câu thuận nào cho chính tinh của {f.name}}{?syn.support|; điều thuận ở chính cung đến từ phụ tinh, với {syn.support}}{?syn.verdict|; {syn.verdict}}. {?syn.cross|Về mối nối, {syn.cross}. }{?syn.timing|Về thời điểm, {syn.timing}. }Chương vì vậy dừng ở các điều kiện đã nêu, không suy rộng thêm."
+     ],
+     "when": {
+      "not": {
+       "slot": "syn.base"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

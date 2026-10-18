@@ -61,7 +61,7 @@ for (const [k, v] of Object.entries(claims)) lines.push(`INSERT OR REPLACE INTO 
 for (const c of out.concepts.concepts) lines.push(`INSERT OR REPLACE INTO concepts (id, facet, pol, kind, opp, cues_json, np, short) VALUES (${[c.id, c.facet, c.pol, c.kind, c.opp ?? null, c.cues, c.np, c.short ?? null].map(q).join(', ')});`);
 for (const r of out.relations.relations) lines.push(`INSERT OR REPLACE INTO concept_relations (a, b, type, frame, synth) VALUES (${[r.a, r.b, r.type, r.frame ?? null, r.synth ?? null].map(q).join(', ')});`);
 for (const m of modules) {
-  lines.push(`INSERT OR REPLACE INTO content_modules (id, chapter, role, version, status, title, when_json, evidence_json, slots_json, author) VALUES (${[m.id, m.chapter, m.role, m.version, m.status, m.title, m.when ?? null, m.evidence ?? null, m.slots ?? null, m.author ?? null].map(q).join(', ')});`);
+  lines.push(`INSERT OR REPLACE INTO content_modules (id, chapter, role, version, status, title, when_json, evidence_json, slots_json, author) VALUES (${[m.id, m.chapters.join(','), m.role, m.version, m.status, m.title, m.when ?? null, m.evidence ?? null, m.slots ?? null, m.author ?? null].map(q).join(', ')});`);
   for (const r of m.reviews ?? []) lines.push(`INSERT INTO module_reviews (module_id, version, reviewer, decision, notes, created_at) VALUES (${[m.id, r.version, r.by, r.decision, r.notes ?? null, r.at].map(q).join(', ')});`);
   (m.passages ?? []).forEach((p: any, i: number) => lines.push(`INSERT OR REPLACE INTO module_passages (module_id, passage_id, ord, when_json, basis, kind, variants_json, cites_json) VALUES (${[m.id, p.id, i, p.when ?? null, p.basis, p.kind ?? 'claim', p.variants, p.cites ?? []].map(q).join(', ')});`));
 }

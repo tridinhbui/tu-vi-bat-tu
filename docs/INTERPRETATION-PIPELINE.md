@@ -16,18 +16,36 @@ birth record ─► container /api/facts ─► facts (palaces, stars, Tứ Hóa
                                        ChapterOutput { paragraphs, text, quality, argument, trace }
 ```
 
-Entry point: `interpret(chart, chapter, knowledge)` in `src/interpret/pipeline.ts`. Only `cong_danh` exists today.
+Entry point: `interpret(chart, chapter, knowledge)` in `src/interpret/pipeline.ts`. The chapters are `cong_danh`, `tai_bach` and `menh`
+(engine `interpret-1.1.0`).
+
+One planner, one generator and one set of generic content modules (`content/core.json`) serve every chapter. `chapters.ts` gives each
+chapter:
+- its focus palace;
+- the semantic facets in scope;
+- the environment palace (Thiên Di / Điền Trạch / Phúc Đức);
+- the linked palaces;
+- its timing concepts.
+
+No rule and no template is duplicated per chapter.
+
+The audit that produced 1.1 is in [INTERPRETATION-AUDIT.md](INTERPRETATION-AUDIT.md): a sentence-by-sentence review, rule-activation
+fixes, a 48-chart sweep, and the separation of automated validation from expert review.
 
 ## What each stage guarantees
 
 - **Rule inference.** The DSL uses three-valued logic: all / any / not / count / fact / ref. `src/interpret/test/engine.test.ts` checks
   that the same rules fire, with the same claims, as in Python, on 8 fixture charts (`tools/interpret/make_fixtures.py`).
-- **Rule activation fixes made before synthesis.** The 17/05/1990 chart showed that the 27 "giáp" (flanking) rules fired when both stars
-  sat in one neighbouring palace. Each rule now requires A on one side and B on the other
-  (`palace.rel.flank_prev_*` / `flank_next_*`). The Python tests cover this, including negative cases.
+- **Rule activation fixes made before synthesis.**
+  - The 27 "giáp" (flanking) rules fired when both stars sat in one neighbouring palace. Each rule now requires A on one side and B on the
+    other. `tools/fix_giap.py` re-applies this after any pack rebuild.
+  - Toàn Thư palace rules whose reading names a brightness, an absence of sát tinh, or "độc thủ" now test it, or stay drafts.
+  - `engine/tests/test_rule_integrity.py` guards both fixes.
 - **Evidence.** A rule's reading is split from its condition. Concepts come from the semantic lexicon
   (`engine/data/semantic/concepts.json`), using the longest cue and handling negators. Grounds are deduplicated by root star atoms, so two
   readings written for the same condition count as one independent ground.
+- **Cross-palace dependencies** are tested counterfactually. A reading "needs" a star in another palace only if the rule fails when that
+  star is removed from the palaces that chiếu in. Otherwise the text says that star also satisfies the condition but is not relied on.
 - **Planning.**
   - When a favourable reading and a limiting reading coexist, the planner applies five public criteria:
     1. same major star or not;
@@ -35,9 +53,14 @@ Entry point: `interpret(chart, chapter, knowledge)` in `src/interpret/pipeline.t
     3. which condition is more specific;
     4. which side rests on a major star and which on a malefic star;
     5. how many independent grounds each side has.
-  - The text says the books do not rank the readings; the criteria are the system's convention.
+  - The resulting relation is one of:
+    - narrower case read first (`specific_qualifier` / `specific_base`);
+    - added sát stars, read as a degree adjustment (`sat_qualifier`);
+    - both hold.
+  - The text says the books do not rank the readings; the precedence is the system's stated convention.
   - Tensions come only from a `contradicts` relation or the same facet.
-  - Timing readings that disagree (early vs late) are both kept.
+  - Timing readings that disagree (early vs late) are both kept. A lean is stated only when one side is absent, or when one side rests on
+    the year branch or gender alone while the other rests on stars of this chart.
   - Rules written for Mệnh only are not applied to Quan Lộc; the chapter lists them as scope notes.
 - **Generation.** Content modules (`src/interpret/content/cong_danh.json`) hold passages:
   - Each passage has a basis (`sach`, `dieu_kien`, `tinh_toan` or `he_thong`), gate conditions and variants.
@@ -71,7 +94,9 @@ Entry point: `interpret(chart, chapter, knowledge)` in `src/interpret/pipeline.t
 - `src/interpret/store.ts`:
   - `BundledStore` uses the bundled JSON. This is what runs when no binding exists.
   - `D1Store` reads the same knowledge from D1. A test runs the real schema and seed under `node:sqlite` and checks that the text is
-    identical to the bundled store's.
+    identical to the bundled store's for every chapter.
+  - `loadKnowledge` keeps the D1 knowledge per isolate, keyed by `kb_meta.version`. A request costs one row; the full read happens once
+    per isolate, and again only after a new seed.
   - `LayeredCache` checks R2 (`interpretations/<key>.json`), then the D1 `interpretations` table, then the Workers Cache API.
   - The cache key is SHA-256 of the chart facts, chapter, engine version and knowledge version. Changing a rule or a module therefore
     invalidates old outputs automatically.
@@ -110,14 +135,15 @@ Both bindings are optional. With neither, the route uses the bundled knowledge a
 Request:
 
 ```
-POST /api/interpret { ...birth record, "chapter": "cong_danh" }
+POST /api/interpret { ...birth record, "chapter": "cong_danh" | "tai_bach" | "menh" }
 ```
 
 The response header `x-interpret-cache` is `hit` or `miss`.
 
 ### Cost
 
-One chapter costs about 60–70 ms of CPU on the first request: rule inference over 1,437 rules plus planning and realization. A cached
+One chapter costs about 40 ms of CPU uncached (median over 144 renders on Node; p95 52 ms): rule inference over 1,437 rules plus planning
+and realization. This needs the Workers Paid CPU limit, which the container deployment already requires. A cached
 request costs one R2 or D1 read. There is no per-token cost. The bundled knowledge adds about 200 KB gzip to the Worker.
 
 ## Editorial workflow
@@ -151,9 +177,32 @@ npm run editorial -- request-changes CD.40.DOMINANCE --by "<expert>" --notes "..
 - **`preview`** prints the chapter for a regression chart, each sentence with its basis and rule ids.
 - **`approve`** refuses when the reviewer is the module's author. Run `npm run build:knowledge` after any change.
 
-**Current status:** all 9 Công danh modules are `draft`. They were written by the assistant and have not been reviewed by a practitioner.
+**Current status:** all 10 modules are `draft`. They were written by the assistant and have not been reviewed by a practitioner.
 The pipeline reports this on every output (`quality.editorial.allApproved = false`). Do not describe the output as expert-quality until
 the modules are approved.
+
+## Tools
+
+```bash
+node tools/interpret/sweep.ts cong_danh
+```
+
+```bash
+node tools/interpret/example.ts 0
+```
+
+```bash
+.venv/bin/python tools/interpret/make_sweep.py
+```
+
+```bash
+.venv/bin/python tools/fix_giap.py
+```
+
+- `sweep.ts`: quality, words, CPU and recurring sentence templates over the 48-chart corpus.
+- `example.ts`: writes the chapters of a corpus chart to `docs/examples/`.
+- `make_sweep.py`: rebuilds the coverage corpus (`sweep.json.gz`).
+- `fix_giap.py`: re-applies the giáp ordering after any pack rebuild.
 
 ## Tests
 
@@ -172,4 +221,12 @@ npm run typecheck
 - D1 parity through `node:sqlite`;
 - a cache round-trip.
 
-Example output with the full quality report and a comparison against the existing PDF: [docs/examples/cong-danh-17-05-1990.md](examples/cong-danh-17-05-1990.md).
+`node --test` also covers `reasoning.test.ts` (counterfactual necessity, condition rendering, timing lean, dominance relations) and
+`sweep.test.ts` (the per-chapter gate over all 48 charts).
+
+Example output for 17/05/1990:
+- [Công danh](examples/cong-danh-17-05-1990.md)
+- [Tài bạch](examples/tai-bach-17-05-1990.md)
+- [Mệnh](examples/menh-17-05-1990.md)
+
+The v1.0 Công danh text, kept for before/after comparison, is [cong-danh-17-05-1990-v1.0.md](examples/cong-danh-17-05-1990-v1.0.md).

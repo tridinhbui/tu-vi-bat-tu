@@ -24,12 +24,17 @@ export function validate(paras: Paragraph[], a: ArgumentGraph, chart: ChartInput
   // 1. grounding: book sentences must rest on fired, verified rules and carry a page
   for (const s of sents) {
     if (s.basis === 'sach') {
-      if (!s.rules.length && !s.cites.length) errors.push({ check: 'missing_source', detail: s.text });
+      if (!s.rules.length && !s.cites.length && !/tr\.\s?\d/.test(s.text)) errors.push({ check: 'missing_source', detail: s.text });
       const unfired = s.rules.filter(r => !firedVerified.has(r) && !r.startsWith('VH_'));
       if (unfired.length) errors.push({ check: 'unsupported_conclusion', detail: `${unfired.join(', ')} :: ${s.text}` });
       if (!/tr\.\s?\d|pp?\.\s?\d/.test(s.text) && !s.cites.length && s.kind !== 'interaction') warnings.push({ check: 'page_not_in_sentence', detail: s.text });
     }
     if (BANNED.some(b => b.test(s.text))) errors.push({ check: 'banned_wording', detail: s.text });
+    // a book quote must not carry the system's own voice (editorial notes, 'theo sách', 'hệ thống')
+    for (const qt of s.text.match(/“[^”]+”/g) ?? []) if (/theo sách|hệ thống|bản luận|đọc là|ngưỡng/.test(qt)) errors.push({ check: 'editorial_leak', detail: qt });
+    // 'nghiêng về' (a lean between timing readings) only where the planner computed one; 'chỉ thỏa / chỉ đứng được' only for counterfactually necessary links
+    if (/nghiêng về/.test(s.text) && !a.timing.lean) errors.push({ check: 'unsupported_conclusion', detail: `lean without planner support :: ${s.text}` });
+    if (/chỉ (thỏa|đứng được)/.test(s.text) && s.passage !== 'lead' && !a.cross.some(x => x.deps.length && s.text.includes(x.evidence.core))) errors.push({ check: 'unsupported_conclusion', detail: `necessity not established :: ${s.text}` });
   }
   // 2. duplicated meanings: a book quote is narrated as a claim once; dominance/interaction sentences may refer back to it
   const seen = new Map<string, string>();
@@ -49,10 +54,13 @@ export function validate(paras: Paragraph[], a: ArgumentGraph, chart: ChartInput
   const contra = new Set(k.relations.relations.filter(r => r.type === 'contradicts').map(r => [r.a, r.b].sort().join('|')));
   const inter = sents.filter(s => s.kind === 'interaction').map(s => s.text).join(' ');
   for (const c1 of a.claims) for (const c2 of a.claims) {
-    if (c1.id >= c2.id || !narrated.has(c1.id) || !narrated.has(c2.id)) continue;
-    const opposed = contra.has([c1.concept, c2.concept].sort().join('|')) || (c1.palace === c2.palace && c1.palace === a.career && c1.polarity !== c2.polarity && c1.polarity !== '~' && c2.polarity !== '~' && c1.role !== c2.role);
+    if (c1.id >= c2.id || !narrated.has(c1.id) || !narrated.has(c2.id) || c1.role === 'timing' || c2.role === 'timing' || c1.role === 'generic' || c2.role === 'generic') continue;   // timing has its own early/late logic; generic readings are not weighed
+    const opposed = c1.palace === c2.palace && c1.polarity !== c2.polarity && c1.polarity !== '~' && c2.polarity !== '~' && (contra.has([c1.concept, c2.concept].sort().join('|')) || c1.facet === c2.facet);
     if (opposed && !(c1.quotes.some(q => inter.includes(q)) && c2.quotes.some(q => inter.includes(q))) && !inter.includes('giữ cả hai')) {
-      const ok = a.dominance.some(d => [d.base.id, d.qualifier.id].includes(c1.id) && [d.base.id, d.qualifier.id].includes(c2.id));
+      const pairIs = (x: string, y: string) => (c1.id === x && c2.id === y) || (c1.id === y && c2.id === x);
+      // the planner weighed the pair (dominance or tension) and the limiting side is narrated in an interaction sentence
+      const ok = a.dominance.some(d => d.bases.some(b => pairIs(b.id, d.qualifier.id))) ||
+        a.tensions.some(t => t.negs.some(n => t.posAll.some(p => pairIs(p.id, n.id)) && n.quotes.some(qt => inter.includes(qt))));
       if (!ok) warnings.push({ check: 'contradiction_not_explained', detail: `${c1.quotes[0]} <> ${c2.quotes[0]}` });
     }
   }
@@ -65,9 +73,12 @@ export function validate(paras: Paragraph[], a: ArgumentGraph, chart: ChartInput
   let same = 0;
   for (let i = 1; i < sents.length; i++) if (opener(sents[i].text) === opener(sents[i - 1].text)) same++;
   if (same > 1) warnings.push({ check: 'repeated_openers', detail: `${same} consecutive sentences start alike` });
-  // 5. personalization: sentences that mention this chart's own stars, palaces, branches, ages or years
+  // 5. personalization: sentences that mention this chart's own stars, palaces, branches, ages or years, or that quote/argue a book
+  //    sentence fired by a star condition of THIS chart (rules standing on year branch / gender alone do not count)
   const tokens = new Set<string>([...chart.palaces.flatMap(p => p.stars), ...chart.palaces.map(p => p.branch), String(chart.year.year)]);
-  const personal = sents.filter(s => [...tokens].some(t => s.text.includes(t)) || /\d+–\d+/.test(s.text)).length / Math.max(1, sents.length);
+  const starRule = new Set(a.claims.flatMap(c => c.grounds.flatMap(g => g.evidence.filter(e => !e.generic).map(e => e.rule.id))));
+  const personal = sents.filter(s => [...tokens].some(t => s.text.includes(t)) || /\d+–\d+/.test(s.text) ||
+    (s.basis !== 'he_thong' && s.rules.some(r => starRule.has(r)))).length / Math.max(1, sents.length);
   if (personal < 0.6) warnings.push({ check: 'weak_personalization', detail: `${(personal * 100).toFixed(0)}% of sentences name chart-specific facts` });
   // 6. length vs evidence: never inflate
   const grounds = a.claims.reduce((n, c) => n + c.grounds.filter(g => g.independent).length, 0);

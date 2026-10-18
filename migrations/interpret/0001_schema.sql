@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS kg_edges (src TEXT NOT NULL, dst TEXT NOT NULL, kind 
 -- Editorial content modules: curated, source-grounded interpretation units. A module renders only when its evidence gate is met by
 -- rules that actually fired on the chart; every passage declares its basis and citations.
 CREATE TABLE IF NOT EXISTS content_modules (
-  id TEXT PRIMARY KEY, chapter TEXT NOT NULL, role TEXT NOT NULL, version INTEGER NOT NULL,
+  id TEXT PRIMARY KEY, chapter TEXT NOT NULL, -- comma-separated chapter ids the module serves (generic modules serve several)
+  role TEXT NOT NULL, version INTEGER NOT NULL,
   status TEXT NOT NULL CHECK (status IN ('draft','in_review','approved','retired')),
   title TEXT NOT NULL, when_json TEXT, evidence_json TEXT, slots_json TEXT, author TEXT, updated_at TEXT DEFAULT (datetime('now'))
 );

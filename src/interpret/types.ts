@@ -37,7 +37,9 @@ export interface ChartInput {
   engine: string; birth_year: number; lunar_year: number; gender: 'male' | 'female'; year_gz: string;
   cuc: { name: string; element: string }; menh_nap_am: string; menh_cuc_relation: string; yin_yang_gender: string; dai_han_direction: string;
   palaces: Palace[]; tu_hoa: Record<string, { star: string; branch: number }>; base: Record<string, Facts>; decades: Decade[];
-  year: { year: number; age_tuoi_mu: number; dai_han: { palace: string; age_from: number; age_to: number } | null };
+  year: { year: number; age_tuoi_mu: number; dai_han: { palace: string; age_from: number; age_to: number } | null;
+    tieu_han_palace?: string; annual_pillar?: string; tieu_han_reading?: Array<{ text: string; src: string }>;
+    luu_tu_hoa_reading?: Array<{ hoa: string; star: string; palace: string; advice: string; position_note: string; src: string }> };
 }
 
 export interface Concept { id: string; facet: string; pol: '+' | '-' | '~'; kind: string; opp?: string; cues: string[]; np: string; short?: string }
@@ -57,7 +59,8 @@ export type ModuleCond =
   | { fact: string; palace?: string; operator?: string; value: unknown };
 
 export interface ContentModule {
-  id: string; chapter: string; role: 'central' | 'factor' | 'counter' | 'cross' | 'dominance' | 'timing' | 'limits' | 'synthesis';
+  /** chapters the module serves ('cong_danh', 'tai_bach', 'menh'); generic modules list several and use {f.*}/{topic} slots */
+  id: string; chapters: string[]; role: 'central' | 'factor' | 'counter' | 'cross' | 'dominance' | 'timing' | 'limits' | 'synthesis';
   version: number; status: 'draft' | 'in_review' | 'approved' | 'retired'; title: string; order: number;
   when?: ModuleCond; evidence?: { anyRules?: string[]; allRules?: string[]; minFired?: number };
   passages: Passage[]; author?: string; reviewers?: string[]; notes?: string;
