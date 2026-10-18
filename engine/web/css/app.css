@@ -503,6 +503,7 @@ body[data-depth=pro] .sy-b-he_thong{text-decoration:underline dotted color-mix(i
 .gd-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ch-what.gd-chap{display:flex;gap:10px;align-items:flex-start;cursor:default}.ch-what.gd-chap .gd-bub{flex:1;max-width:none;background:transparent;border:0;padding:2px 0}.ch-what.gd-chap.gd-vi,.ch-what.gd-chap.gd-tu2{flex-direction:row}
 .ch-what.gd-chap .gd-t{display:inline}
+.gd-pal{display:flex;gap:10px;align-items:flex-start;margin:6px 0 10px}.gd-pal .gd-bub{flex:1;max-width:none}.gd-pal .gd-t{display:block;font-size:.92rem;line-height:1.55}
 @media(max-width:600px){.gd-h{padding:12px}.gd-act{margin-left:0;width:100%}.gd-log{padding:12px}.gd-row .gd-av{width:36px;height:36px}.gd-bub{font-size:.92rem}}
 @media(prefers-reduced-motion:reduce){.gd-eyes,.gd-talk .gd-mouth,.gd-dots i,.gd-row,.gd-talk .gd-t:after{animation:none!important}}
 

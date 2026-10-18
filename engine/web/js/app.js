@@ -10,7 +10,7 @@ import { initGlossary, loadGlossary, setChart, autoLink, terms } from './glossar
 import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
 import { initPrint, printNow } from './print.js';
-import { initChapterBubbles } from './mascots.js';
+import { initChat, initChapterBubbles, dialogueBazi, dialogueTuvi } from './mascots.js';
 import { renderSaved, initSave } from './mine.js';
 import { initGrowth } from './growth.js';
 
@@ -204,6 +204,8 @@ function showResults() {
   $('#bazi-summary').innerHTML = summaryBazi(chart, ctx, T); $('#tuvi-summary').innerHTML = summaryTuvi(chart, ctx, T);
   initYearCards();
   initGrowth($('#growth-host'), $('#tab-growth'), req); // optional layer: the tab stays hidden when the server has it switched off
+  // the guides (scripted from the chart's facts, no AI): a conversation at the top of each system, one bubble per chapter, one per palace
+  initChat($('#bazi-mascot'), 'bt', dialogueBazi(chart, ctx, T)); initChat($('#tuvi-mascot'), 'tv', dialogueTuvi(chart, ctx, T));
   initChapterBubbles($('#bazi-report'), 'bt'); initChapterBubbles($('#tuvi-report'), 'tv');
   autoLink($('#bazi-host'), 'bt'); autoLink($('#bazi-summary'), 'bt'); autoLink($('#tuvi-host'), 'tv'); autoLink($('#tuvi-summary'), 'tv');
   const t = chart.tuvi, b = chart.bazi;

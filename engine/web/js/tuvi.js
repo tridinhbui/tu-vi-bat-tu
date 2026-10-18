@@ -6,6 +6,7 @@ import { findingCard, timeline } from './ui.js';
 import { scopeText, scopePanelTuvi } from './scope.js';
 import { terms, autoLink } from './glossary.js';
 import { easyReadings, emptyReading } from './beginner.js';
+import { palaceBubble } from './mascots.js';
 import { tier, evLegend, yearData, centerIn } from './atlas.js';
 
 // Traditional layout: branch index per grid cell (null = centre block). Tỵ top-left, clockwise.
@@ -137,7 +138,7 @@ export function renderTuvi(host, t, ctx) {
       <button class="dr-x" type="button" aria-label="Đóng chi tiết cung">×</button>
       <p class="eyebrow">Cung ${esc(p.stem)} ${esc(p.branch)}${p.name === 'Mệnh' ? ' · Mệnh' : ''}${p.is_than ? ' · Thân cư' : ''}</p>
       <h3 class="dr-t">${esc(p.name)}</h3><span class="dr-han" aria-hidden="true" lang="zh">${BRANCHES[i].h}</span>
-      <p class="dr-plain">${esc(terms()['palace:' + p.name]?.plain || '')} <button type="button" class="link" data-gl="palace:${esc(p.name)}">Giải thích thêm</button></p>
+      ${palaceBubble(p, fs, terms())}<p class="dr-plain"><button type="button" class="link" data-gl="palace:${esc(p.name)}">Giải thích thêm về cung ${esc(p.name)}</button></p>
       ${tier('calc', calc)}
       ${tier('src', `<div class="pro-only">${ver.length ? ver.map(f => findingCard(f)).join('') : none}</div><div class="easy-only">${easyReadings(fs, { empty: emptyReading('', terms(), { palace: p.name, brief: true }) })}</div><p class="muted small">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo.</p>`, { count: ver.length })}
       ${dr.length ? tier('hyp', dr.map(f => findingCard(f)).join(''), { pro: true, count: dr.length }) : ''}

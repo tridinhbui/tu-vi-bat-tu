@@ -1,7 +1,7 @@
 // Four scripted guides: Tử Tử & Vi Vi (Tử Vi side), Bát Bát & Tự Tự (Bát Tự side).
 // No AI and no free text generation: every line is assembled from the chart's own facts, the glossary and book-verified readings.
 // The "typing" is only an animation of text that already exists in full (and is available to screen readers at once).
-import { $, $$, STEMS, BRANCHES } from './util.js';
+import { $, $$, esc, STEMS, BRANCHES } from './util.js';
 import { classify, parsePhrase, plainElem } from './beginner.js';
 import { currentPhase } from './insights.js';
 import { autoLink } from './glossary.js';
@@ -133,6 +133,19 @@ export function initChapterBubbles(root, sys) {
     x.p.addEventListener('click', () => { ctl.skipped = true; }, { once: true });
   }), { threshold: 0.6 });
   todo.forEach(x => io.observe(x.p));
+}
+
+// ---------- a guide's bubble in the palace detail panel (12 cung) ----------
+/** Static one-bubble reading of a palace: what the palace is about, its main stars, and the first book-verified reading that fired there
+ *  (or a plain statement that none did). Facts only, like the conversation scripts; alternates the two Tử Vi guides by palace. */
+export function palaceBubble(p, findings, T) {
+  const g = p.branch_index % 2 ? 'vi' : 'tu1';
+  const what = first(T['palace:' + p.name]?.plain) || '';
+  const stars = p.major_stars.length ? `Chính tinh ở đây là **${p.major_stars.map(s => s + (p.major_dignity?.[s] ? ` (${p.major_dignity[s]})` : '')).join(', ')}**.` : 'Cung này **vô chính diệu** (không có chính tinh), nên đọc thêm sao của cung đối diện.';
+  const c = classify(findings), top = c.show[0] || c.care[0];
+  const say = top ? `Sách đã đối chiếu ghi: ${parsePhrase(top).core.replace(/^(khuynh hướng|hạn chế:)\s*/i, "")}.` : 'Chưa có câu sách đã đối chiếu nào khớp với cung này, nên mình chỉ nói điều đã tính được.';
+  const text = `${what} ${stars} ${say}`.trim();
+  return `<div class="gd-chap gd-${g} gd-pal">${avatar(g, 40)}<span class="gd-bub"><span class="gd-who">${GUIDES[g].name}</span><span class="gd-t">${parseMarkup(text).map(x => x.b ? `<b>${esc(x.t)}</b>` : esc(x.t)).join('')}</span></span></div>`;
 }
 
 // ---------- scripts (facts only) ----------
