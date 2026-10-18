@@ -53,9 +53,18 @@ test('17/05/1990 Công danh: configuration, grounds, counters, cross-palace link
   // the limiting readings sit next to the lead: the same-book one first, with its sát-star condition, then the other books
   assert.match(t, /Toàn Thư[^“]{0,60}“công danh tầm thường”[^.]{0,30}Tử Vi tại Quan Lộc, sát tinh Địa Kiếp và Linh Tinh \(từ Phu Thê\) hội về Quan Lộc/);
   assert.match(t, /Thực Hành cũng ghi “khó đạt công danh”/);
-  assert.match(t, /không loại trừ nhau/);
-  // cross-palace link from the knowledge graph: a Mệnh reading that needs Tử Vi in Quan Lộc
-  assert.match(t, /“tạo được uy quyền hiển hách”.{0,160}Tử Vi nằm ở cung Quan Lộc/);
+  assert.match(t, /câu thuận vẫn đứng như mô tả tiềm năng[^.]*phần điều chỉnh mức độ/);   // the limiting reading only adds sát stars: a degree adjustment
+  // cross-palace necessity is tested counterfactually: 'Hóa Quyền gặp Tử hoặc Phủ' holds through Thiên Phủ in Mệnh itself, so the text must NOT
+  // claim it stands on Tử Vi in Quan Lộc (audit finding); Lộc Mã from Tài Bạch IS necessary for 'lập nghiệp nơi xa'
+  assert.doesNotMatch(t, /“tạo được uy quyền hiển hách”.{0,200}(đứng được|chỉ đứng|nhờ Tử Vi|Tử Vi nằm ở cung Quan Lộc)/s);
+  assert.match(t, /“lập nghiệp nơi xa, giàu sang lớn”/);
+  assert.match(t, /Lộc Tồn và Thiên Mã nằm ở cung Tài Bạch/);
+  // audit regressions: the system's voice never sits inside a quote; a Mệnh personality reading is not a counter-reading of the environment;
+  // a brightness branch list reads as brightness; no generic reflection filler
+  assert.doesNotMatch(t, /theo sách (đây|là)/);
+  assert.doesNotMatch(t, /Thiên Di[^]{0,400}“tự tin \('ta đây'\)/);
+  assert.match(t, /Quan Lộc ở Thìn \(thế hãm\)/);
+  assert.doesNotMatch(t, /Khi con đường không thẳng/);
   // timing: decade through Quan Lộc, vận readings that disagree are not resolved, early vs late readings kept apart
   assert.match(t, /46–55 tuổi mụ/);
   assert.match(t, /không kết luận chặng ấy đi lên hay đi xuống/);

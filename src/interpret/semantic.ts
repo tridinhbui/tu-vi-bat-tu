@@ -80,7 +80,7 @@ export function splitReading(text0: string): { core: string; condition: string }
     else if (text[i] === ')' && depth) { depth--; if (depth === 0) last = [start, i]; }
   }
   if (last) { condition = text.slice(last[0] + 1, last[1]); text = (text.slice(0, last[0]).trimEnd() + ' ' + text.slice(last[1] + 1).trimStart()).trim(); }
-  let core = text.replace(/^[\s;,.]+|[\s;,.]+$/g, '');
+  let core = text.replace(/\btheo sách (đây |là )?/g, '').replace(/\s{2,}/g, ' ').replace(/^[\s;,.]+|[\s;,.]+$/g, '');
   if (!condition && core.includes(': ') && core.split(': ')[0].length <= 45) { const [a, ...b] = core.split(': '); condition = a; core = b.join(': '); }
   return { core: core.trim(), condition: condition.replace(/^theo /, '').trim() };
 }
@@ -101,7 +101,11 @@ export function chartCondition(rule: Rule, facts: Facts, palace: string | null):
     else if (NORM[lf.fact] === 'tp') add(tp);
     else if (NORM[lf.fact] === 'opp') add(opp);
     else if (NORM[lf.fact] === 'nb') add(nb);
-    else if (lf.fact === 'palace.branch') extra.push(`${palace ?? 'cung'} ở ${got}`);
+    else if (lf.fact === 'palace.branch') {
+      // a branch list in a rule is a brightness table: say which, not just where
+      const b = (rule.reading ?? '').toLowerCase();
+      extra.push(`${palace ?? 'cung'} ở ${got}${/hãm/.test(b) ? ' (thế hãm)' : /(miếu|vượng|đắc|thế sáng)/.test(b) ? ' (thế sáng)' : ''}`);
+    }
     else if ((lf.fact === 'palace.tuan' || lf.fact === 'palace.triet') && got) extra.push(`${palace ?? 'cung'} có ${lf.fact.endsWith('tuan') ? 'Tuần' : 'Triệt'}`);
     else if (lf.fact === 'chart.gender') extra.push(`${got} mệnh`);
     else if (lf.fact === 'palace.khi.sat_tp') extra.push(`sát tinh hội về ${palace ?? 'cung'}`);

@@ -4,12 +4,15 @@
 //   node tools/interpret/evaluate.ts --md out.md     also writes the markdown report
 //   node tools/interpret/evaluate.ts --chart 3 menh  prints one chapter (text + warnings), for reading
 import { readFileSync, writeFileSync } from 'node:fs';
+import { gunzipSync } from 'node:zlib';
 import { interpret, prepare, CHAPTERS, type Chapter, type ChapterOutput } from '../../src/interpret/pipeline.ts';
 import type { Knowledge } from '../../src/interpret/types.ts';
 
 const K: Knowledge = JSON.parse(readFileSync('src/interpret/generated/knowledge.json', 'utf8'));
-const charts = JSON.parse(readFileSync('src/interpret/test/fixtures/charts.json', 'utf8'));
 const args = process.argv.slice(2);
+// --sweep adds the 40 coverage charts of tools/interpret/make_sweep.py (rare configurations chosen by greedy cover) to the regression charts
+const charts: Array<{ label: string; facts: any }> = JSON.parse(readFileSync('src/interpret/test/fixtures/charts.json', 'utf8'));
+if (args.includes('--sweep')) charts.push(...JSON.parse(gunzipSync(readFileSync('src/interpret/test/fixtures/sweep.json.gz')).toString('utf8')));
 
 if (args[0] === '--chart') {
   const c = charts[Number(args[1])], only = args[2];

@@ -2019,14 +2019,40 @@
      {
       "any": [
        {
-        "fact": "palace.own_stars",
-        "operator": "contains",
-        "value": "Tử Vi"
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Tử Vi"
+         },
+         {
+          "fact": "palace.dignity.Tử Vi",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng",
+           "đắc"
+          ]
+         }
+        ]
        },
        {
-        "fact": "palace.own_stars",
-        "operator": "contains",
-        "value": "Thiên Phủ"
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Thiên Phủ"
+         },
+         {
+          "fact": "palace.dignity.Thiên Phủ",
+          "operator": "in",
+          "value": [
+           "miếu",
+           "vượng",
+           "đắc"
+          ]
+         }
+        ]
        }
       ]
      },

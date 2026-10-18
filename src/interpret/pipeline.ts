@@ -12,7 +12,7 @@ import { timeline } from './timeline.ts';
 import { baziChapter } from './bazi.ts';
 import type { ChartInput, ContentModule, Knowledge, Rule } from './types.ts';
 
-export const ENGINE_VERSION = 'interpret-2.0.0';
+export const ENGINE_VERSION = 'interpret-2.1.0';
 export const CHAPTERS = CHAPTER_IDS;
 export type Chapter = ChapterId;
 
@@ -78,6 +78,16 @@ export function interpret(chart: ChartInput, chapter: Chapter, k: Knowledge): Ch
   } else {
     graphs = spec.sections.map(sec => plan(chart, P.ev, P.g, P.lex, k, P.drafts, P.res.findings, spec, sec));
     const multi = spec.sections.length > 1;
+    // (audit) a reading the books give once is narrated once in a combined chapter: a later section drops themes, supports and counters whose
+    // quotes an earlier section already told (the same reading can reach two sections through Mệnh or the chart)
+    const told = new Set<string>();
+    for (const a of graphs) {
+      const fresh = (c: { quotes: string[] }) => !c.quotes.every(q => told.has(q));
+      a.themes = a.themes.filter(t => fresh(t.lead)).map(t => ({ ...t, support: t.support.filter(fresh), counters: t.counters.filter(c => fresh(c.claim)) }));
+      a.restThemes = a.restThemes.filter(t => fresh(t.lead));
+      a.envThemes = a.envThemes.filter(t => fresh(t.lead)).map(t => ({ ...t, support: t.support.filter(fresh), counters: t.counters.filter(c => fresh(c.claim)) }));
+      for (const t of [...a.themes, ...a.restThemes, ...a.envThemes]) for (const c of [t.lead, ...t.support, ...t.counters.map(x => x.claim)]) c.quotes.forEach(q => told.add(q));
+    }
     const conceptShort = (id: string) => k.concepts.concepts.find(c => c.id === id)?.short ?? '';
     const summaryText = graphs.map(a => a.themes[0] ? `ở ${a.focus} là ${conceptShort(a.themes[0].lead.concept) || a.themes[0].facetName}` : '').filter(Boolean);
     // a section is empty only when no verified reading at all was attached to it (a timing reading counts)

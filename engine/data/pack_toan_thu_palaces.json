@@ -1513,7 +1513,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -2527,6 +2527,10 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Hỏa Tinh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -2544,7 +2548,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -2581,7 +2585,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -3009,6 +3013,11 @@
       "fact": "palace.own_major_stars",
       "operator": "contains",
       "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.khi.sat_tp",
+      "operator": "lte",
+      "value": 0
      }
     ]
    },
@@ -3164,7 +3173,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -3346,7 +3355,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -4617,16 +4626,16 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
   {
-   "id": "TV_TT_PAL_QUAN_LOC_VAN_KHUC_BASE_P",
+   "id": "TV_TT_PAL_QUAN_LOC_VAN_KHUC_MIEU_P",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "tt_palace_star",
-   "description": "Tử Vi Đẩu Số Toàn Thư, 'có sao Văn Khúc' ở cung Quan Lộc (paraphrased): miếu vượng thì văn võ đều tốt (Văn Khúc ở Quan Lộc) [TT pp.78-80]",
+   "description": "Tử Vi Đẩu Số Toàn Thư, 'có sao Văn Khúc' ở cung Quan Lộc (paraphrased): văn võ đều tốt (Văn Khúc ở Quan Lộc, thế sáng) [TT pp.78-80]",
    "conditions": {
     "all": [
      {
@@ -4637,13 +4646,22 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Văn Khúc"
+     },
+     {
+      "fact": "palace.dignity.Văn Khúc",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
      }
     ]
    },
    "consequences": [
     {
      "kind": "finding",
-     "claim": "tt_quan_loc_van_khuc_base_p",
+     "claim": "tt_quan_loc_van_khuc_mieu_p",
      "effect": "support",
      "scope": "natal"
     }
@@ -4659,11 +4677,11 @@
    "subject": "palace"
   },
   {
-   "id": "TV_TT_PAL_QUAN_LOC_TA_PHU_BASE_P",
+   "id": "TV_TT_PAL_QUAN_LOC_TA_PHU_MIEU_P",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "tt_palace_star",
-   "description": "Tử Vi Đẩu Số Toàn Thư, 'có sao Tả Phụ' ở cung Quan Lộc (paraphrased): miếu địa: văn võ đều tài, võ chức tối vượng, bất lợi cho văn nhân (Tả Phụ ở Quan Lộc) [TT pp.78-80]",
+   "description": "Tử Vi Đẩu Số Toàn Thư, 'có sao Tả Phụ' ở cung Quan Lộc (paraphrased): văn võ đều tài, võ chức tối vượng, bất lợi cho văn nhân (Tả Phụ ở Quan Lộc, thế sáng) [TT pp.78-80]",
    "conditions": {
     "all": [
      {
@@ -4674,13 +4692,22 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.dignity.Tả Phụ",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
      }
     ]
    },
    "consequences": [
     {
      "kind": "finding",
-     "claim": "tt_quan_loc_ta_phu_base_p",
+     "claim": "tt_quan_loc_ta_phu_mieu_p",
      "effect": "support",
      "scope": "natal"
     }
@@ -4919,6 +4946,10 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Đà La"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -7420,6 +7451,10 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Hỏa Tinh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -7466,6 +7501,10 @@
        "vượng",
        "đắc"
       ]
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -8688,7 +8727,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -10332,11 +10371,11 @@
    "subject": "palace"
   },
   {
-   "id": "TV_TT_PAL_PHUC_DUC_LIEM_TRINH_BASE_P",
+   "id": "TV_TT_PAL_PHUC_DUC_LIEM_TRINH_MIEU_P",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "tt_palace_star",
-   "description": "Tử Vi Đẩu Số Toàn Thư, 'có sao Liêm Trinh' ở cung Phúc Đức (paraphrased): đắc địa thì lúc bí lại thông (Liêm Trinh ở Phúc Đức) [TT pp.83-84]",
+   "description": "Tử Vi Đẩu Số Toàn Thư, 'có sao Liêm Trinh' ở cung Phúc Đức (paraphrased): lúc bí lại thông (Liêm Trinh ở Phúc Đức, thế sáng) [TT pp.83-84]",
    "conditions": {
     "all": [
      {
@@ -10347,13 +10386,22 @@
       "fact": "palace.own_major_stars",
       "operator": "contains",
       "value": "Liêm Trinh"
+     },
+     {
+      "fact": "palace.dignity.Liêm Trinh",
+      "operator": "in",
+      "value": [
+       "miếu",
+       "vượng",
+       "đắc"
+      ]
      }
     ]
    },
    "consequences": [
     {
      "kind": "finding",
-     "claim": "tt_phuc_duc_liem_trinh_base_p",
+     "claim": "tt_phuc_duc_liem_trinh_mieu_p",
      "effect": "support",
      "scope": "natal"
     }
@@ -11552,7 +11600,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -11589,7 +11637,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -11840,6 +11888,10 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Linh Tinh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -12428,7 +12480,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -12936,6 +12988,10 @@
        "vượng",
        "đắc"
       ]
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -12973,6 +13029,10 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -13010,6 +13070,10 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Hữu Bật"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -14455,6 +14519,10 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -14492,6 +14560,10 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Hữu Bật"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -14620,7 +14692,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -14640,6 +14712,10 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Hỏa Tinh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
      }
     ]
    },
@@ -15139,7 +15215,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },
@@ -15496,7 +15572,7 @@
    "sourceIds": [
     "SRC_TOAN_THU"
    ],
-   "reviewStatus": "verified",
+   "reviewStatus": "draft",
    "version": "0.1.0",
    "subject": "palace"
   },

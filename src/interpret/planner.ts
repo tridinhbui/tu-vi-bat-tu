@@ -107,7 +107,11 @@ export function plan(chart: ChartInput, ev: Evidence[], g: ChartGraph, lex: Lexi
     const primary = e.palace === focus ? (inDom.find(inSec) ?? (top > 1 ? inDom[0] : e.concepts.find(inSec) ?? inDom[0]))
       : (inDom.find(inSec) ?? e.concepts.find(inSec) ?? inDom[0]);
     const pf = facetOf(primary.id);
-    const inFacets = facets.has(pf) || e.concepts.some(c => facets.has(facetOf(c.id)));
+    // (audit) 'tự tin, dễ bị ganh ghét' at Mệnh is about temperament; its secondary cue 'ganh ghét' (career.support) must not pull a person
+    // reading into a palace chapter: when the dominant domain is not the section's, a lone career.support cue does not count
+    const secOnly = e.concepts.filter(inSec);
+    const incidental = e.palace !== focus && !isMenhChapter && !inDom.some(inSec) && secOnly.length > 0 && secOnly.every(c => facetOf(c.id) === 'career.support');
+    const inFacets = !incidental && (facets.has(pf) || e.concepts.some(c => facets.has(facetOf(c.id))));
     if (e.palace === focus) {
       if (TIMING(pf)) { add(e, primary.id, 'timing'); continue; }
       const onSat = e.presentStars.some(s => SAT.includes(s)) || /sát tinh/.test(e.chartCondition);
@@ -194,18 +198,25 @@ export function plan(chart: ChartInput, ev: Evidence[], g: ChartGraph, lex: Lexi
 
   // ---------- cross-palace links read from the graph
   const cross: CrossLink[] = claims.filter(c => c.role === 'cross').sort((x, y) => y.grounds.length - x.grounds.length || x.id.localeCompare(y.id)).map(c => ({ claim: c,
-    deps: c.grounds.flatMap(x => x.evidence).flatMap(e => g.crossDependencies(e.finding.id)).filter((d, i, a) => a.findIndex(o => o.star === d.star) === i) }));
+    deps: c.grounds.flatMap(x => x.evidence).flatMap(e => g.crossDependencies(e.finding.id)).filter(d => d.necessary === true).filter((d, i, a) => a.findIndex(o => o.star === d.star) === i) }));
 
   // ---------- themes
   const sal = (c: Claim) => c.grounds.filter(x => x.independent).length * 10 + ({ base: 6, qualifier: 5, cross: 4, support: 3, work_style: 2, environment: 3, timing: 1 }[c.role]) +
     new Set(c.grounds.flatMap(x => x.books)).size;
   const themesOf = (pool: Claim[], tag: string): Theme[] => {
     const used = new Set<string>(), out: Theme[] = [];
-    const sorted = [...pool].sort((a, b) => sal(b) - sal(a) || a.id.localeCompare(b.id));
+    // (audit) two claims that quote the same sentence (two rules, or one reading read from two palaces) are one narrated reading: the weaker
+    // is folded into the stronger as further grounds, so a quote is never narrated in two themes
+    const sorted: Claim[] = [];
+    for (const c of [...pool].sort((a, b) => sal(b) - sal(a) || a.id.localeCompare(b.id))) {
+      const twin = sorted.find(o => o.polarity === c.polarity && c.quotes.every(q => o.quotes.includes(q)));
+      if (twin) { twin.grounds.push(...c.grounds.filter(gr => !twin.grounds.includes(gr))); twin.rules.push(...c.rules); } else sorted.push(c);
+    }
     const relOf = (a: Claim, b: Claim) => relIndex.get([a.concept, b.concept].sort().join('|'));
     const counterOf = (lead: Claim, members: Claim[], c: Claim): Counter | null => {
       const d = dominance.find(x => x.qualifier.id === c.id && [lead, ...members].some(m => m.id === x.base.id));
       if (d) return { claim: c, kind: d.verdict === 'qualified_base' ? 'qualified' : 'both_hold', dominance: d };
+      if (![lead, ...members].some(m => m.palace === c.palace)) return null;
       const r = [lead, ...members].map(m => relOf(m, c)).find(x => x && ['qualifies', 'contradicts', 'tempers', 'conditions'].includes(x.type));
       if (r) return { claim: c, kind: 'relation', synth: r.synth };
       if (![lead, ...members].some(m => m.facet === c.facet)) return null;
@@ -216,7 +227,7 @@ export function plan(chart: ChartInput, ev: Evidence[], g: ChartGraph, lex: Lexi
     const mk = (lead: Claim, support: Claim[], counters: Counter[], polarity: Theme['polarity']): Theme => ({
       id: `${tag}:${lead.id}`, facet: lead.facet, facetName: k.ontology?.facets?.[lead.facet]?.name ?? lead.facet, lead, support, counters, polarity,
       salience: [lead, ...support].reduce((n, c) => n + sal(c), 0), stars: starsOf([lead, ...support]), palaces: [...new Set([lead, ...support].map(c => c.palace))],
-      deps: lead.grounds[0].evidence.flatMap(e => g.crossDependencies(e.finding.id)).filter((d, i, a) => a.findIndex(o => o.star === d.star) === i) });
+      deps: lead.grounds[0].evidence.flatMap(e => g.crossDependencies(e.finding.id)).filter(d => d.necessary === true).filter((d, i, a) => a.findIndex(o => o.star === d.star) === i) });
     // 1. positive / neutral themes: a lead and up to three readings of the same facet that go the same way; a reading whose words are the
     //    same as one already in the theme (two rules giving the same sentence) is folded into it as a further ground, not narrated twice
     for (const lead of sorted) {
@@ -317,7 +328,7 @@ export function plan(chart: ChartInput, ev: Evidence[], g: ChartGraph, lex: Lexi
     'profiles': profiles.map(({ s, p }) => `${s} ${p!.dau ? 'là ' + p!.dau.toLowerCase() : ''}${p!.domain ? ', chủ về ' + p!.domain : ''}`).join('; '),
     'profiles.cite': mergePages([...new Set(profiles.map(x => x.p!.locator).filter(Boolean))].map(c => BOOK_PAGE(String(c)))),
     'dh.focus': dFocus ? `${dFocus.age_from}–${dFocus.age_to}` : '', 'dh.focus_stem': dFocus?.stem ?? '', 'dh.focus_stage': stage,
-    'dh.focus_readings': dFocus ? dFocus.readings.filter(r => !r.text.startsWith('Hai điều kiện trái chiều')).map(r => `“${r.text.replace(/\.$/, '')}” (${r.src.replace(/pp?\.\s?/, 'tr.').replace(/-/g, '–')})`).join('; ') : '',
+    'dh.focus_readings': dFocus ? dFocus.readings.filter(r => !r.text.startsWith('Hai điều kiện trái chiều')).map(r => `“${r.text.replace(/\.$/, '').replace(/\btheo sách (đây |là )?/g, '')}” (${r.src.replace(/pp?\.\s?/, 'tr.').replace(/-/g, '–')})`).join('; ') : '',
     'dh.focus_conflict': dFocus && dFocus.readings.some(r => r.text.startsWith('Hai điều kiện trái chiều')) ? '1' : '',
     'dh.now': dNow ? `cung ${dNow.palace} (${dNow.age_from}–${dNow.age_to} tuổi mụ)` : '', 'dh.now_stage': nowStage, 'dh.now_is_focus': dNow?.palace === focus ? '1' : '',
     'dh.passed': dFocus && chart.year.age_tuoi_mu > dFocus.age_to ? '1' : '', 'dh.before': dFocus && chart.year.age_tuoi_mu < dFocus.age_from ? '1' : '',

@@ -2,8 +2,9 @@
 // (tam hợp / xung chiếu / giáp), what each finding was fired by, which book it cites, which concept it expresses, and — the basis of
 // cross-palace reasoning — which star placements in WHICH palaces a finding depends on (a Mệnh reading that 'gặp Tử Vi' depends on the
 // palace where Tử Vi actually sits).
+import { evaluate } from './dsl.ts';
 import type { Evidence } from './semantic.ts';
-import type { ChartInput, Palace } from './types.ts';
+import type { ChartInput, Facts, Palace } from './types.ts';
 
 export type NodeKind = 'palace' | 'star' | 'hoa' | 'finding' | 'rule' | 'source' | 'concept';
 export interface GNode { id: string; kind: NodeKind; label: string; data?: Record<string, unknown> }
@@ -46,9 +47,23 @@ export class ChartGraph {
       for (const c of e.concepts) { this.node({ id: `concept:${c.id}`, kind: 'concept', label: c.id }); this.edge(fid, `concept:${c.id}`, 'expresses'); }
       for (const s of e.presentStars) {
         const at = this.starAt.get(s);
-        if (at) this.edge(fid, `star:${s}`, 'depends_on', { palace: at, cross: at !== e.palace });
+        if (at) this.edge(fid, `star:${s}`, 'depends_on', { palace: at, cross: at !== e.palace, necessary: at !== e.palace ? this.necessary(e, s) : true });
       }
     }
+  }
+  /** Counterfactual test: would the rule still hold if star `s` were absent from the palaces that chiếu into the finding's palace?
+   *  true = the reading needs that palace; false = another true branch already satisfies it ('Tử hoặc Phủ' with Phủ in the palace itself);
+   *  null = the condition cannot be re-evaluated from base facts (derived facts), so necessity is not claimed. */
+  private necessary(e: Evidence, s: string): boolean | null {
+    if (!e.palace) return null;
+    const facts: Facts = { ...(this.chart.base.chart ?? {}), ...(this.chart.base[`palace:${e.palace}`] ?? {}) };
+    if (evaluate(e.rule.conditions, facts) !== true) return null;
+    const own = /^palace\.(own_|rel\.self_|tu_hoa$)/;
+    const cf: Facts = {};
+    for (const [k, v] of Object.entries(facts)) cf[k] = Array.isArray(v) && !own.test(k) ? v.filter(x => x !== s) : v;
+    if (SAT.includes(s) && typeof cf['palace.khi.sat_tp'] === 'number') cf['palace.khi.sat_tp'] = (cf['palace.khi.sat_tp'] as number) - 1;
+    if (CAT.includes(s) && typeof cf['palace.khi.cat_tp'] === 'number') cf['palace.khi.cat_tp'] = (cf['palace.khi.cat_tp'] as number) - 1;
+    return evaluate(e.rule.conditions, cf) !== true;
   }
   private node(n: GNode) { if (!this.nodes.has(n.id)) this.nodes.set(n.id, n); }
   private edge(src: string, dst: string, kind: string, data?: Record<string, unknown>) { this.edges.push({ src, dst, kind, data }); }
@@ -61,8 +76,9 @@ export class ChartGraph {
   tamPhuong(name: string): Palace[] { return [this.palace(name), ...this.related(name, 'tam_hop'), ...this.related(name, 'xung_chieu')]; }
   hoaIn(name: string): string[] { return Object.entries(this.chart.tu_hoa).filter(([, v]) => this.byBranch.get(v.branch)!.name === name).map(([h, v]) => `${h} (${v.star})`); }
   /** Palaces (other than the finding's own) whose stars a finding depends on. */
-  crossDependencies(findingId: string): Array<{ star: string; palace: string }> {
-    return this.edges.filter(e => e.src === findingId && e.kind === 'depends_on' && e.data?.cross).map(e => ({ star: e.dst.slice(5), palace: String(e.data!.palace) }));
+  crossDependencies(findingId: string): Array<{ star: string; palace: string; necessary: boolean | null }> {
+    return this.edges.filter(e => e.src === findingId && e.kind === 'depends_on' && e.data?.cross)
+      .map(e => ({ star: e.dst.slice(5), palace: String(e.data!.palace), necessary: e.data!.necessary as boolean | null }));
   }
   satIn(names: string[]): string[] { return names.flatMap(n => this.palace(n).stars.filter(s => SAT.includes(s))); }
   catIn(names: string[]): string[] { return names.flatMap(n => this.palace(n).stars.filter(s => CAT.includes(s))); }

@@ -4,6 +4,12 @@ The Tử Vi interpretation layer runs in the Worker as plain TypeScript. Nothing
 Workers AI or AI Gateway. The Python engine in the container still computes the chart, and serves it to the Worker as facts through
 `POST /api/facts`. Everything after that step is deterministic TypeScript in `src/interpret/`.
 
+> **Audit (interpret-2.1.0).** Findings, fixes and the 70-chart sweep are in [INTERPRETATION-AUDIT.md](INTERPRETATION-AUDIT.md). Tools:
+> `node tools/interpret/evaluate.ts --sweep` (70 charts × 10 chapters), `node tools/interpret/report.ts <chart> <out.md> [--sweep]` (full
+> sample report), `.venv/bin/python tools/interpret/make_sweep.py` (coverage corpus), `.venv/bin/python tools/fix_giap.py` (giáp ordering
+> after any pack rebuild). Cross-palace links claim a dependency only when it is counterfactually necessary. **All content modules are
+> drafts; no practitioner has reviewed any output.**
+
 ```
 birth record ─► container /api/facts ─► facts (palaces, stars, Tứ Hóa, decades, current year; Bát Tự pillars + bat_tu fact base)
                                             │

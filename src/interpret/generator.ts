@@ -225,10 +225,18 @@ export class Realizer extends Renderer {
       't.dep': { text: t.deps.length ? joinVi([...new Map(t.deps.map(d => [d.palace, t.deps.filter(x => x.palace === d.palace).map(x => x.star)])).entries()].map(([p, st]) => `${joinVi(st)} nằm ở cung ${p}`)) : '', rules: [] },
       't.dep_from': { text: lead.palace === 'chart' ? 'tuổi sinh' : `cung ${lead.palace}`, rules: [] },
       't.lead_shared': { text: lead.grounds[0].evidence.length >= 2 ? NUM[lead.grounds[0].evidence.length] ?? String(lead.grounds[0].evidence.length) : '', rules: [] },
-      't.lead_more_grounds': { text: lead.grounds.length > 1 ? lead.grounds.slice(1, 4).map(g => {
-        const x = g.evidence[0], same = lead.grounds[0].evidence.some(y => y.core === x.core);
-        return same ? `${joinVi(g.books)}${g.cites.length ? ` (${mergeCites(g.cites)})` : ''} ghi cùng ý ấy cho trường hợp ${this.sc(x.chartCondition)}`
-          : `${joinVi(g.books)} ghi “${x.core}” khi ${this.sc(x.chartCondition)}${g.cites.length ? ` (${mergeCites(g.cites)})` : ''}`; }).join('; ') : '', rules: lead.rules },
+      't.lead_more_grounds': { text: lead.grounds.length > 1 ? (() => {
+        // grounds that restate a quote the lead already told are said in ONE clause (books and pages merged, conditions listed);
+        // grounds with another quote get their own clause
+        const more = lead.grounds.slice(1, 6), sameG = more.filter(g => lead.quotes.includes(g.evidence[0].core)), other = more.filter(g => !lead.quotes.includes(g.evidence[0].core)).slice(0, 2);
+        const parts: string[] = [];
+        if (sameG.length) {
+          const conds = [...new Set(sameG.map(g => this.sc(g.evidence[0].chartCondition)))].slice(0, 3);
+          parts.push(`${joinVi([...new Set(sameG.flatMap(g => g.books))])}${sameG.some(g => g.cites.length) ? ` (${mergeCites(sameG.flatMap(g => g.cites))})` : ''} ghi cùng ý ấy cho ${conds.length > 1 ? 'các trường hợp' : 'trường hợp'} ${conds.join('; ')}`);
+        }
+        for (const g of other) { const x = g.evidence[0]; parts.push(`${joinVi(g.books)} ghi “${x.core}” khi ${this.sc(x.chartCondition)}${g.cites.length ? ` (${mergeCites(g.cites)})` : ''}`); }
+        return parts.join('; ');
+      })() : '', rules: lead.rules },
       't.np_is_topic': { text: npIsTopic(c?.np ?? '', c?.short ?? '', this.slots.get('topic')?.text ?? '') ? '1' : '', rules: [] },
       't.dep_palaces': { text: joinVi([...new Set(t.deps.map(d => `cung ${d.palace}`))]), rules: [] },
       // a supporting reading of another palace names its palace: the book said it of that palace, not of this one
@@ -412,7 +420,8 @@ export class Realizer extends Renderer {
       [...early, ...late].flatMap(c => c.rules));
     const facet = t0?.facet ?? a.themes[0]?.facet;
     const refl = facet ? this.k.ontology?.facets?.[facet]?.reflection : '';
-    this.set('syn.reflect', refl ?? '');
+    this.set('syn.reflect', '');   // the ontology's generic reflection is filler (identical on every chart of a facet); the audit removed it
+    void refl;
     this.set('evidence.thin', a.themes.length <= 1 && a.envThemes.length === 0 ? '1' : '');
     this.set('evidence.none', a.themes.length === 0 ? '1' : '');
   }

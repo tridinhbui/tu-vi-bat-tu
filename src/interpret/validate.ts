@@ -45,6 +45,11 @@ export function validate(paras: Paragraph[], graphs: ArgumentGraph[], chart: Cha
       if (!/tr\.\s?\d|pp?\.\s?\d/.test(s.text) && !s.cites.length && s.kind !== 'interaction') warnings.push({ check: 'page_not_in_sentence', detail: s.text });
     }
     if (BANNED.some(b => b.test(stripQuotes(s.text)))) errors.push({ check: 'banned_wording', detail: s.text });
+    // the system's own voice must not appear inside a quoted book reading
+    for (const qt of s.text.match(/“[^”]+”/g) ?? []) if (/theo sách|hệ thống|bản luận|đọc là|ngưỡng '/.test(qt)) errors.push({ check: 'editorial_leak', detail: qt });
+    // 'chỉ đứng được / chỉ thỏa vì …' claims necessity: only where a cross dependency was tested counterfactually
+    if (/(chỉ|đứng được là) (đứng được|thỏa|nhờ)/.test(s.text) && s.basis === 'sach' && !graphs.some(a => a.cross.some(x => x.deps.length && s.text.includes(x.claim.quotes[0]))))
+      errors.push({ check: 'unsupported_conclusion', detail: `necessity not established :: ${s.text}` });
   }
   // 2. the system never adds a verdict: polar lexicon concepts in he_thong / dieu_kien sentences must belong to a narrated facet
   const lexCues = k.concepts.concepts.filter(c => c.pol !== '~').flatMap(c => c.cues.map(q => ({ q, c })));
@@ -89,7 +94,13 @@ export function validate(paras: Paragraph[], graphs: ArgumentGraph[], chart: Cha
     const explained = paras.some(p => p.sentences.some(s => s.kind === 'interaction') && neg.quotes.some(q => p.text.includes(`“${q}”`)) &&
       side.some(c => c.quotes.some(q => p.text.includes(`“${q}”`)))) ||
       paras.some(p => p.sentences.some(s => s.kind === 'interaction' && c1.quotes.some(q => s.text.includes(q)) && c2.quotes.some(q => s.text.includes(q))));
-    if (!explained) warnings.push({ check: 'contradiction_not_explained', detail: `${c1.quotes[0]} <> ${c2.quotes[0]}` });
+    // a counter-reading is argued against its theme's lead in an interaction sentence; the theme's supports stand with that lead
+    const viaTheme = graphs.some(a => [...a.themes, ...a.envThemes].some(t => t.counters.some(x => x.claim === neg) && [t.lead, ...t.support].includes(pos))) &&
+      paras.some(p => p.sentences.some(s => s.kind === 'interaction' && neg.quotes.some(q => s.text.includes(q))));
+    // ... or the limiting reading's own sentence points back to the lead of the theme the favourable reading belongs to
+    const viaBackRef = graphs.some(a => [...a.themes, ...a.envThemes].some(t => [t.lead, ...t.support].includes(pos) &&
+      paras.some(p => p.sentences.some(s => s.kind === 'interaction' && neg.quotes.some(q => s.text.includes(q)) && t.lead.quotes.some(q => s.text.includes(q))))));
+    if (!explained && !viaTheme && !viaBackRef) warnings.push({ check: 'contradiction_not_explained', detail: `${c1.quotes[0]} <> ${c2.quotes[0]}` });
   }
   // 5. repetition
   // page citations are required on every book sentence; they are not counted as repeated wording

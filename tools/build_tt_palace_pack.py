@@ -35,12 +35,20 @@ for raw in (ROOT / "data" / "toan_thu_palace_star.txt").read_text("utf-8").split
         conds.append({"any": [has("palace.own_major_stars" if o in MAJORS else "palace.own_stars", o) for o in others]})
     elif var != "base":
         raise SystemExit("bad variant " + raw)
+    if re.search(r"cần không gặp sát tinh", phrase):           # the phrase states its own condition: no sát tinh in the tam phương
+        conds.append({"fact": "palace.khi.sat_tp", "operator": "lte", "value": 0})
+    if phrase.startswith("độc thủ"):                             # 'độc thủ' = the star alone, without chính tinh, in the palace
+        conds.append({"fact": "palace.has_no_major", "value": True})
     key = (pal, star, var, tone)
     seen[key] = seen.get(key, 0) + 1
     suffix = "" if seen[key] == 1 else f"_{seen[key]}"
     rid = f"TV_TT_PAL_{slug(pal)}_{slug(star)}_{slug(var)}_{'P' if tone == '+' else 'M'}{suffix}"
     claim = f"tt_{slug(pal).lower()}_{slug(star).lower()}_{slug(var).lower()}_{'p' if tone == '+' else 'm'}{suffix.lower()}"
-    status = "draft" if re.search(r"thêm |nếu |miễn là", phrase) else "verified"
+    # an extra clause the rule does not test keeps the rule a draft: "thêm …", "nếu …", "được cát tinh trợ … thì", "gặp sát tinh thì",
+    # "độc thủ", or a brightness condition written into the phrase ("nhập miếu" outside the mieu variant, "miếu địa, …", "khi Thái Âm hãm",
+    # "(… miếu vượng)") instead of encoded as the mieu/ham variant. A plain "… thì …" idiom ("lúc thiên hạ lo thì mình an") is not a condition.
+    untested = r"thêm |nếu |miễn là|được [^,;]*(trợ|phù)[^,;]* thì|gặp [^,;]* thì|sát tinh thì|cùng [^,;]+ thì|.độc thủ|^miếu|khi \S+ \S+ hãm|miếu vượng\)"
+    status = "draft" if re.search(untested, phrase) or ("nhập miếu" in phrase and var != "mieu") else "verified"
     effect = "support" if tone == "+" else "limit"
     ctx = {"base": "", "mieu": ", thế sáng", "ham": ", thế hãm", "sat": ", gặp sát tinh"}.get(var, f", đồng cung {var[5:].replace('|', ' hoặc ')}" if var.startswith("with:") else "")
     vi = f"{phrase} ({star} ở {pal}{ctx})"

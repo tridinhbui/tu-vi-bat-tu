@@ -33,7 +33,7 @@ export function timeline(chart: ChartInput, P: { seed: string; g: { palace(n: st
       'd.range': S(`${d.age_from}–${d.age_to}`), 'd.palace': S(d.palace), 'd.stem': S(d.stem), 'd.branch': S(d.branch), 'd.majors': S(majors(d.palace)),
       'd.majors_phrase': S(P.g.palace(d.palace).major_stars.length ? `nơi có ${majors(d.palace)}` : 'một cung vô chính diệu'),
       'd.stage': S(stages[d.palace] ?? ''), 'd.domain': S(ref?.lifeStages.domain[d.palace] ?? ''),
-      'd.readings': S(readings.map(x => `“${x.text.replace(/\.$/, '')}” (${src(x.src)})`).join('; '), readings.length ? [`VH:${d.palace}`] : []),
+      'd.readings': S(readings.map(x => `“${x.text.replace(/\.$/, '').replace(/\btheo sách (đây |là )?/g, '')}” (${src(x.src)})`).join('; '), readings.length ? [`VH:${d.palace}`] : []),
       'd.readings_n': S(readings.length ? String(readings.length) : ''),
       'd.conflict': S(d.readings.some(x => x.text.startsWith(CONFLICT)) ? '1' : ''),
       'd.hoa': S(joinVi(hoa)), 'd.ky_palace': S(ky?.palace ?? ''), 'd.ky_star': S(ky?.star ?? ''),
@@ -60,7 +60,7 @@ export function timeline(chart: ChartInput, P: { seed: string; g: { palace(n: st
   const y = chart.year, th = y.tieu_han_palace ?? '';
   const thReadings = (y.tieu_han_reading ?? []).filter(x => !x.text.startsWith(CONFLICT));
   r.set('y.th_palace', th); r.set('y.th_domain', th ? ref?.lifeStages.domain[th] ?? '' : ''); r.set('y.th_majors', th ? majors(th) : '');
-  r.set('y.th_readings', thReadings.map(x => `“${x.text.replace(/\.$/, '')}” (${src(x.src)})`).join('; '), thReadings.length ? [`VH:${th}`] : []);
+  r.set('y.th_readings', thReadings.map(x => `“${x.text.replace(/\.$/, '').replace(/\btheo sách (đây |là )?/g, '')}” (${src(x.src)})`).join('; '), thReadings.length ? [`VH:${th}`] : []);
   r.set('y.th_conflict', (y.tieu_han_reading ?? []).some(x => x.text.startsWith(CONFLICT)) ? '1' : '');
   r.set('y.th_same_as_dh', th && now && th === now.palace ? '1' : '');
   r.set('y.thai_tue', y.luu_thai_tue_palace ?? '');

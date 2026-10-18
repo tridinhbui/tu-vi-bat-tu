@@ -38,7 +38,7 @@ export const SPECS: Record<ChapterId, ChapterSpec> = {
   menh: { id: 'menh', title: 'Mệnh, Thân và tính cách', scope: 'con người nền tảng: tính khí, cách nghĩ, giá trị và nhịp đời',
     sections: [{ palace: 'Mệnh', facets: [...IDENTITY, ...LIFE], linked: ['Phúc Đức'], topic: 'con người' }] },
   cong_danh: { id: 'cong_danh', title: 'Công danh', scope: 'đường công danh, năng lực chuyên môn và vị trí trong tập thể',
-    sections: [{ palace: 'Quan Lộc', facets: CAREER, envFacets: ['career.support', 'career.trajectory', 'life.mobility', 'life.course', 'career.timing'], envPalace: 'Thiên Di', topic: 'công danh' }] },
+    sections: [{ palace: 'Quan Lộc', facets: [...CAREER, 'life.mobility'], envFacets: ['career.support', 'career.trajectory', 'life.mobility', 'life.course', 'career.timing'], envPalace: 'Thiên Di', topic: 'công danh' }] },
   tai_bach: { id: 'tai_bach', title: 'Tài Bạch', scope: 'cách tiền bạc đến, ở lại và được sử dụng', sensitive: 'finance',
     sections: [{ palace: 'Tài Bạch', facets: FINANCE, envFacets: ['finance.flow', 'finance.source', 'finance.retention'], linked: ['Điền Trạch'], topic: 'tiền bạc' }] },
   dien_trach: { id: 'dien_trach', title: 'Điền Trạch', scope: 'nhà cửa, đất đai và cơ nghiệp vật chất', sensitive: 'finance',
