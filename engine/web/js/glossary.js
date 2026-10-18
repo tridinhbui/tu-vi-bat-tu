@@ -57,8 +57,8 @@ function chartNote(key) {
   if (kind === 'star') {
     const p = t.palaces.find(x => x.stars.includes(name));
     if (!p) return '';
-    const dg = p.major_dignity?.[name], hoa = Object.entries(t.tu_hoa).find(([, v]) => v.star === name)?.[0];
-    return `${esc(name)} đứng ở <b>cung ${esc(p.name)}</b> (${esc(p.stem)} ${esc(p.branch)})${dg ? `, độ sáng <b>${esc(dg)}</b>` : ''}${hoa ? `, mang nhãn <b>${esc(hoa)}</b> theo năm sinh` : ''}.`;
+    const dg = p.major_dignity?.[name] || p.minor_dignity?.[name], term = p.minor_dignity_src?.[name]?.term, hoa = Object.entries(t.tu_hoa).find(([, v]) => v.star === name)?.[0];
+    return `${esc(name)} đứng ở <b>cung ${esc(p.name)}</b> (${esc(p.stem)} ${esc(p.branch)})${dg ? `, độ sáng <b>${esc(term && term !== dg ? `${term} (xếp như ${dg})` : dg)}</b>` : ''}${hoa ? `, mang nhãn <b>${esc(hoa)}</b> theo năm sinh` : ''}.`;
   }
   if (kind === 'palace') {
     const p = t.palaces.find(x => x.name === name);

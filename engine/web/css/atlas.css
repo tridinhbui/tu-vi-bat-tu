@@ -209,7 +209,8 @@
 .st.major.st-pos,.st.major.st-neg,.st.major.st-neu{color:var(--ink)}.st.major:before{content:none}
 .pal-min{display:flex!important;flex-wrap:wrap;gap:1px 9px;line-height:1.5}
 .dg{font:600 .52rem var(--sans);margin-left:5px;padding:1px 5px;border-radius:2px;vertical-align:.35em;border:1px solid currentColor;letter-spacing:.06em;text-transform:uppercase}
-.dg-miếu,.dg-vượng{color:var(--brass-d)}.dg-đắc{color:var(--ink-2)}.dg-bình{color:var(--ink-3)}.dg-hãm{color:var(--seal)}
+.pal-min .dg-aux{font-size:.46rem;margin-left:3px;padding:0 3px}
+.dg-miếu,.dg-vượng{color:var(--brass-d)}.dg-đắc,.dg-lợi{color:var(--ink-2)}.dg-bình{color:var(--ink-3)}.dg-hãm{color:var(--seal)}
 .th{display:inline-grid;place-items:center;width:1.2rem;height:1.2rem;margin-left:5px;padding:0;border-radius:50%;vertical-align:-.2em;color:#FFF8F0;font:600 .72rem var(--han);background:var(--ink-2)}
 .th i{font:inherit;font-style:normal;line-height:1}
 .th-loc{background:var(--brass-d);color:#FFF8F0}.th-quyen{background:var(--ink);color:#FFF8F0}.th-khoa{background:var(--el-moc);color:#FFF8F0}.th-ky{background:var(--seal);color:#FFF8F0}

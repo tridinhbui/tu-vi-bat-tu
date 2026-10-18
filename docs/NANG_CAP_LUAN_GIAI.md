@@ -15,7 +15,7 @@ Phạm vi: chỉ phần Tử Vi Đẩu Số; Bát Tự giữ nguyên. Tài liệ
 | Ngoại lệ | **0** luật có `exceptions`, **0** có `conflictsWith` | Mọi cách cục đều “thành” khi đủ sao, không bao giờ “phá” |
 | Phạm vi luật | gần như toàn bộ `subject: palace`, hầu hết khóa vào cung Mệnh | Quan Lộc, Tài, Phúc, Di, Thân, liên cung chỉ có rải rác |
 | Trường phái | 1 trường phái dùng thật (`vn_dlhc_draft`); `vn_tan_bien_draft`, `tu_binh_draft` chỉ là khung | Chưa có cơ chế chọn/tách trường phái ở tầng luận |
-| Độ sáng | bảng cho 14 chính tinh + 5 phụ tinh (`dignity_minor`: Xương, Khúc, Kình, Đà, Hỏa) | Linh, Không, Kiếp, Lộc Tồn, Khôi Việt, Tả Hữu… chưa có miếu/hãm |
+| Độ sáng | bảng cho 14 chính tinh + 24 phụ tinh (`dignity_aux.json`, xem `docs/AUX-DIGNITY.md`) | Khôi Việt, Đào Hồng Hỷ, Quang Quý, Thai Tọa… không sách nào xếp miếu/hãm: để trống |
 | Sao tính được | 14 chính tinh, Tả Hữu, Xương Khúc, Lộc Tồn, Kình Đà, Khôi Việt, Mã, Hỏa Linh, Kiếp Không, Đào Hồng Hỷ, Thiên Không, vòng Thái Tuế, vòng Bác Sĩ, vòng Trường Sinh, Tuần/Triệt | Thiếu cả một lớp trung tinh (xem 2.1) |
 | Vận hạn | đại hạn (cung + can cung), tiểu hạn (cung), 5 bước Khảo Luận pp.230–233, `van_han.read` (khoảng 15 câu if-else) | Không có lưu niên Tử Vi thật sự, không lưu Tứ Hóa, không lưu tinh, không Tứ Hóa theo can cung đại hạn dù `dai_han[].stem` đã có |
 | Tổng hợp | `analysis.py` là bản mẫu viết tay theo chương (tính cách, công danh…), **tách khỏi** rule engine | Hai đường song song: câu trong `analysis.py` không có provenance/exception/conflict của engine |

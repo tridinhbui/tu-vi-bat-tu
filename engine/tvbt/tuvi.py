@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from typing import Literal
 
 from . import calendar_core as cc
-from .dignity import MINOR_STARS, dignity, minor_dignity
+from .dignity import MINOR_STARS, dignity, minor_dignity_cell
 from .ganzhi import (BRANCHES_VI, STEMS_VI, branch_stem_from_year, controls, cycle_index, from_cycle,
                      generates, gz_name, nap_am_element, nap_am_name, stem_polarity, year_cycle_index)
 from .trace import Trace
@@ -289,12 +289,16 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
 
     palaces = []
     for br in range(12):
+        aux = {st.name: minor_dignity_cell(st.name, BRANCHES_VI[br], dignity_school) for st in stars
+               if st.branch == br and st.name in MINOR_STARS}
         palaces.append({
             "branch": BRANCHES_VI[br], "branch_index": br, "stem": STEMS_VI[stems[br]],
             "name": palace_by_branch[br], "is_than": br == than,
             "stars": [s.name for s in stars if s.branch == br],
             "major_stars": [s.name for s in stars if s.branch == br and s.group.startswith("chính tinh")],
-            "minor_dignity": {st.name: minor_dignity(st.name, BRANCHES_VI[br], dignity_school) for st in stars if st.branch == br and st.name in MINOR_STARS},
+            "minor_dignity": {k: (c or {}).get("level") for k, c in aux.items()},
+            # printed term + book/page per auxiliary star with a known level (badge text and tooltip); unknown stars are absent
+            "minor_dignity_src": {k: {"term": c["term"], "school": c["school"], "locator": c["locator"]} for k, c in aux.items() if c},
             "major_dignity": {s.name: dignity(s.name, BRANCHES_VI[br], dignity_school) for s in stars
                               if s.branch == br and s.group.startswith("chính tinh")},
             "tuan": br in tuan, "triet": br in triet,

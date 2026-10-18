@@ -1,0 +1,1616 @@
+{
+ "version": "aux-dignity-1",
+ "levels": [
+  "miếu",
+  "vượng",
+  "đắc",
+  "lợi",
+  "bình",
+  "hãm"
+ ],
+ "term_to_level": {
+  "miếu": "miếu",
+  "vượng": "vượng",
+  "đắc": "đắc",
+  "lợi": "lợi",
+  "đắc cách": "đắc",
+  "bình": "bình",
+  "hãm": "hãm"
+ },
+ "sources": {
+  "thuc_hanh": "SRC_THUC_HANH",
+  "toan_thu": "SRC_TOAN_THU",
+  "khao_luan": "SRC_KHAO_LUAN"
+ },
+ "fallback": {
+  "thuc_hanh": [
+   "thuc_hanh",
+   "toan_thu",
+   "khao_luan"
+  ],
+  "toan_thu": [
+   "toan_thu",
+   "thuc_hanh",
+   "khao_luan"
+  ]
+ },
+ "note": "A star the chosen book does not tabulate falls back, star by star, to the next book; within a table an unnamed branch is unknown. Experimental cells are never returned by the lookup.",
+ "tables": {
+  "thuc_hanh": {
+   "Văn Xương": {
+    "locator": "TH p.50",
+    "cells": {
+     "Tỵ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Dậu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Sửu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "lợi",
+      "legacy": "lợi read as đắc before aux-dignity-1; kept to avoid changing production"
+     },
+     "Dần": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tuất": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "Printed 'Đắc địa: Thân Tí Thân' (Thìn read from the parallel Văn Khúc line and TT p.41) and 'Lợi địa: Hợi Dậu' (Dậu is already miếu on the same line; the second lợi branch is left unknown)."
+   },
+   "Văn Khúc": {
+    "locator": "TH p.50",
+    "cells": {
+     "Tỵ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Sửu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Dậu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Hợi": {
+      "level": "vượng",
+      "term": "vượng"
+     },
+     "Mão": {
+      "level": "vượng",
+      "term": "vượng"
+     },
+     "Mùi": {
+      "level": "vượng",
+      "term": "vượng"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dần": {
+      "level": "bình",
+      "term": "bình"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tuất": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    }
+   },
+   "Tả Phụ": {
+    "locator": "TH p.51",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc cách"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc cách"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc cách"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc cách"
+     }
+    },
+    "note": "Header 'Đắc cách: Thìn Tuất Sửu Mùi' (KL p.121 says đắc địa tứ mộ)."
+   },
+   "Hữu Bật": {
+    "locator": "TH p.51",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc cách"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc cách"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc cách"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc cách"
+     }
+    },
+    "note": "Shared header with Tả Phụ."
+   },
+   "Thiên Mã": {
+    "locator": "TH p.52",
+    "cells": {
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Long Trì": {
+    "locator": "TH p.54",
+    "cells": {
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Phượng Các": {
+    "locator": "TH p.54",
+    "cells": {
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Kình Dương": {
+    "locator": "TH p.62",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Mão": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dậu": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    }
+   },
+   "Đà La": {
+    "locator": "TH p.63",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dần": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Thân": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tỵ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Hợi": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    }
+   },
+   "Hỏa Tinh": {
+    "locator": "TH p.64",
+    "cells": {
+     "Dần": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Ngọ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tuất": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Mão": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Mùi": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Thân": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tý": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Thìn": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    }
+   },
+   "Linh Tinh": {
+    "locator": "TH p.64",
+    "cells": {
+     "Dần": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tuất": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Hợi": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dậu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Sửu": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "Printed 'Miếu: Dần, Tuất – Thìn, Tỵ, Mùi / Hãm: Tỵ, Hợi, Dậu, Sửu'. Thìn, Mùi follow a dash whose label is missing and Tỵ is printed under both: those three are experimental."
+   },
+   "Đại Hao": {
+    "locator": "TH p.65",
+    "cells": {
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tỵ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Hợi": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "'Song Hao' header."
+   },
+   "Tiểu Hao": {
+    "locator": "TH p.65",
+    "cells": {
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tỵ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Hợi": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "'Song Hao' header."
+   },
+   "Tang Môn": {
+    "locator": "TH p.65",
+    "cells": {
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Bạch Hổ": {
+    "locator": "TH p.65",
+    "cells": {
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Thiên Khốc": {
+    "locator": "TH p.66",
+    "cells": {
+     "Tý": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Ngọ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Mão": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Dậu": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Sửu": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Mùi": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Thìn": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tuất": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "Hãm Thìn Tuất is from the prose on the same page ('Khốc, Hư hãm ở Thìn, Tuất')."
+   },
+   "Thiên Hư": {
+    "locator": "TH p.66",
+    "cells": {
+     "Tý": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Ngọ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Mão": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Dậu": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Sửu": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Mùi": {
+      "level": "lợi",
+      "term": "lợi"
+     },
+     "Thìn": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tuất": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "Shared header with Thiên Khốc."
+   },
+   "Thiên Hình": {
+    "locator": "TH p.67",
+    "cells": {
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Địa Không": {
+    "locator": "TH p.67",
+    "cells": {
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Địa Kiếp": {
+    "locator": "TH p.67",
+    "cells": {
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Thiên Riêu": {
+    "locator": "TH p.68",
+    "cells": {
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    },
+    "note": "Printed as 'Thiên Diêu'."
+   }
+  },
+  "toan_thu": {
+   "Văn Xương": {
+    "locator": "TT p.41",
+    "cells": {
+     "Tỵ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Dậu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Sửu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "lợi",
+      "legacy": "lợi read as đắc before aux-dignity-1; kept to avoid changing production"
+     },
+     "Tý": {
+      "level": "đắc",
+      "term": "lợi",
+      "legacy": "lợi read as đắc before aux-dignity-1; kept to avoid changing production"
+     },
+     "Thìn": {
+      "level": "đắc",
+      "term": "lợi",
+      "legacy": "lợi read as đắc before aux-dignity-1; kept to avoid changing production"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "lợi",
+      "legacy": "lợi read as đắc before aux-dignity-1; kept to avoid changing production"
+     },
+     "Mão": {
+      "level": "đắc",
+      "term": "lợi",
+      "legacy": "lợi read as đắc before aux-dignity-1; kept to avoid changing production"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "lợi",
+      "legacy": "lợi read as đắc before aux-dignity-1; kept to avoid changing production"
+     },
+     "Dần": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tuất": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "The phú list. The song on the same page differs (see experimental) and p.42 calls the matter 'lung tung'."
+   },
+   "Văn Khúc": {
+    "locator": "TT p.43",
+    "cells": {
+     "Tý": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Thìn": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tỵ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Dậu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Sửu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Hợi": {
+      "level": "vượng",
+      "term": "vượng"
+     },
+     "Mão": {
+      "level": "vượng",
+      "term": "vượng"
+     },
+     "Mùi": {
+      "level": "vượng",
+      "term": "vượng"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tuất": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    }
+   },
+   "Kình Dương": {
+    "locator": "TT p.50",
+    "cells": {
+     "Thìn": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tuất": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Sửu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Mùi": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Hợi": {
+      "level": "vượng",
+      "term": "vượng"
+     },
+     "Thân": {
+      "level": "vượng",
+      "term": "vượng"
+     },
+     "Mão": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tỵ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dậu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "Tý is printed vượng in the first phú and hãm in the fourth ('bốn cung hãm Tí, Ngọ, Mão, Dậu'): experimental."
+   },
+   "Đà La": {
+    "locator": "TT p.51",
+    "cells": {
+     "Thìn": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tuất": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Sửu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Mùi": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Mão": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dậu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tỵ": {
+      "level": "bình",
+      "term": "bình"
+     },
+     "Hợi": {
+      "level": "bình",
+      "term": "bình"
+     }
+    }
+   },
+   "Hỏa Tinh": {
+    "locator": "TT p.52",
+    "cells": {
+     "Dần": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Ngọ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tuất": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tỵ": {
+      "level": "bình",
+      "term": "bình"
+     },
+     "Dậu": {
+      "level": "bình",
+      "term": "bình"
+     },
+     "Sửu": {
+      "level": "bình",
+      "term": "bình"
+     },
+     "Hợi": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    }
+   },
+   "Lộc Tồn": {
+    "locator": "TT p.47",
+    "cells": {
+     "Tý": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Sửu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Dần": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Mão": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Thìn": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tỵ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Ngọ": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Mùi": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Thân": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Dậu": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Tuất": {
+      "level": "miếu",
+      "term": "miếu"
+     },
+     "Hợi": {
+      "level": "miếu",
+      "term": "miếu"
+     }
+    },
+    "note": "'Thập nhị cung đều là miếu địa. Không có hãm địa đối với Lộc Tồn.'"
+   }
+  },
+  "khao_luan": {
+   "Văn Xương": {
+    "locator": "KL p.192",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    },
+    "note": "'Xương Khúc đắc địa ở Tứ mộ và Tỵ Hợi'; hãm branches not named."
+   },
+   "Văn Khúc": {
+    "locator": "KL p.192",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    },
+    "note": "Shared sentence with Văn Xương."
+   },
+   "Tả Phụ": {
+    "locator": "KL p.121",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dần": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Mão": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tỵ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Thân": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dậu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Hợi": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "'Tả Hữu đắc địa tứ mộ, còn hãm địa tất cả các cung khác.'"
+   },
+   "Hữu Bật": {
+    "locator": "KL p.121",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dần": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Mão": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tỵ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Thân": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dậu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Hợi": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    }
+   },
+   "Kình Dương": {
+    "locator": "KL p.200",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    },
+    "note": "p.143 also reports a variant (Đà đắc Tứ chính) and argues for tứ mộ."
+   },
+   "Đà La": {
+    "locator": "KL p.200",
+    "cells": {
+     "Thìn": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tuất": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Sửu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mùi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Địa Không": {
+    "locator": "KL p.199",
+    "cells": {
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Sửu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Mão": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Thìn": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Mùi": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dậu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tuất": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    }
+   },
+   "Địa Kiếp": {
+    "locator": "KL p.199",
+    "cells": {
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Sửu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Mão": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Thìn": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Mùi": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Dậu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tuất": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    }
+   },
+   "Kiếp Sát": {
+    "locator": "KL p.201",
+    "cells": {
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Thiên Hình": {
+    "locator": "KL pp.201-202",
+    "cells": {
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tý": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Sửu": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Thìn": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tỵ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Ngọ": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Mùi": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Tuất": {
+      "level": "hãm",
+      "term": "hãm"
+     },
+     "Hợi": {
+      "level": "hãm",
+      "term": "hãm"
+     }
+    },
+    "note": "p.202: 'Nếu Thiên hình không nằm trong Dần, Thân, Mão, Dậu … hãm địa'."
+   },
+   "Thiên Khốc": {
+    "locator": "KL p.202",
+    "cells": {
+     "Tý": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Ngọ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Thiên Hư": {
+    "locator": "KL p.202",
+    "cells": {
+     "Tý": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Ngọ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Thiên Không": {
+    "locator": "KL p.147",
+    "cells": {
+     "Dần": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Thân": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Tỵ": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Hợi": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    }
+   },
+   "Thiên Riêu": {
+    "locator": "KL p.121",
+    "cells": {
+     "Mão": {
+      "level": "đắc",
+      "term": "đắc"
+     },
+     "Dậu": {
+      "level": "đắc",
+      "term": "đắc"
+     }
+    },
+    "note": "'Nếu đắc địa ở Mão Dậu…'; other branches not named."
+   }
+  }
+ },
+ "experimental": [
+  {
+   "star": "Linh Tinh",
+   "school": "thuc_hanh",
+   "locator": "TH p.64",
+   "cells": {
+    "Thìn": "miếu?",
+    "Mùi": "miếu?",
+    "Tỵ": "miếu|hãm"
+   },
+   "reason": "Thìn, Mùi follow a dash with no label; Tỵ is printed under both Miếu and Hãm."
+  },
+  {
+   "star": "Kình Dương",
+   "school": "toan_thu",
+   "locator": "TT p.50",
+   "cells": {
+    "Tý": "vượng|hãm"
+   },
+   "reason": "Two phú lines on the same page disagree."
+  },
+  {
+   "star": "Văn Xương",
+   "school": "toan_thu",
+   "locator": "TT p.41",
+   "cells": {
+    "Thìn": "vượng",
+    "Tỵ": "vượng",
+    "Ngọ": "lợi",
+    "Mão": "hiềm",
+    "Dậu": "hiềm"
+   },
+   "reason": "The song (bài ca) disagrees with the phú list used in production; TT p.42 says neither can be settled."
+  },
+  {
+   "star": "Văn Khúc",
+   "school": "toan_thu",
+   "locator": "TT p.43",
+   "cells": {
+    "Hợi": "lạc",
+    "Tý": "lạc"
+   },
+   "reason": "Song line 'Lạc cư Hợi, Tí cung' against the phú (Tý miếu, Hợi vượng)."
+  },
+  {
+   "star": "Hỏa Tinh",
+   "school": "toan_thu",
+   "locator": "TT p.52",
+   "cells": {
+    "Tý": "miếu",
+    "Mão": "miếu"
+   },
+   "reason": "'Tiền nhân ta cho Hỏa Tinh hai nơi miếu địa nữa là cung Tí và Mão' — reported Vietnamese variant."
+  },
+  {
+   "star": "Thiên Khốc",
+   "school": "toan_thu",
+   "locator": "TT p.57",
+   "cells": {
+    "Tý": "miếu",
+    "Ngọ": "miếu",
+    "Mão": "miếu",
+    "Dậu": "miếu",
+    "Thân": "miếu"
+   },
+   "reason": "The book gives two schools: Vietnamese phú (Tý Ngọ) vs La Hồng Tiên / Hi Di (Mão Dậu Thân). Also applies to Thiên Hư."
+  },
+  {
+   "star": "Bạch Hổ",
+   "school": "toan_thu",
+   "locator": "TT p.60",
+   "cells": {
+    "Dậu": "miếu"
+   },
+   "reason": "Quoted from 'Tử Vi Việt'; TH p.65 gives Dậu as đắc."
+  },
+  {
+   "star": "Hồng Loan",
+   "school": "toan_thu",
+   "locator": "TT p.62",
+   "cells": {
+    "Dần": "miếu",
+    "Mão": "miếu",
+    "Tý": "miếu",
+    "Hợi": "miếu"
+   },
+   "reason": "Commentary attributed to Vietnamese predecessors, no hãm branches given; no other book tabulates Hồng Loan."
+  },
+  {
+   "star": "Long Trì",
+   "school": "toan_thu",
+   "locator": "TT p.60",
+   "cells": {
+    "Sửu": "vượng",
+    "Mùi": "vượng"
+   },
+   "reason": "Phú nôm verse ('Cung Mùi cung Sửu đóng vào vượng thay'); TH p.54 says đắc. Also Phượng Các."
+  },
+  {
+   "star": "Ân Quang",
+   "school": "thuc_hanh",
+   "locator": "TH p.55",
+   "cells": {
+    "Sửu": "đắc cách",
+    "Mùi": "đắc cách"
+   },
+   "reason": "A prose sentence about a formation ('Quang Quí đóng Sửu, Mùi là đắc cách'), not a brightness header. Also Thiên Quý."
+  },
+  {
+   "star": "Đà La",
+   "school": "khao_luan",
+   "locator": "KL p.143",
+   "cells": {
+    "Tý": "đắc",
+    "Ngọ": "đắc",
+    "Mão": "đắc",
+    "Dậu": "đắc"
+   },
+   "reason": "'có sách nói … Đà la đắc địa ở Tứ chính' — reported and argued against by KL."
+  },
+  {
+   "star": "Hóa Lộc",
+   "school": "thuc_hanh",
+   "locator": "TH p.52",
+   "cells": {
+    "Tý": "đắc",
+    "Ngọ": "đắc",
+    "Mão": "đắc",
+    "Dậu": "đắc"
+   },
+   "reason": "Tứ Hóa are transformations, not Thiên Bàn stars; kept out of the badge layer. TT p.48 says its source gives no miếu/hãm for Lộc/Quyền/Khoa."
+  },
+  {
+   "star": "Hóa Quyền",
+   "school": "thuc_hanh",
+   "locator": "TH p.52",
+   "cells": {
+    "Thìn": "đắc",
+    "Tuất": "đắc",
+    "Sửu": "đắc",
+    "Mùi": "đắc"
+   },
+   "reason": "TT p.48 quotes a phú nôm with Dần Mão Tỵ Hợi as Quyền's 'miếu đường' instead."
+  },
+  {
+   "star": "Hóa Khoa",
+   "school": "thuc_hanh",
+   "locator": "TH p.52",
+   "cells": {
+    "Dần": "đắc",
+    "Thân": "đắc",
+    "Tỵ": "đắc",
+    "Hợi": "đắc"
+   },
+   "reason": "Tứ Hóa: see Hóa Lộc."
+  },
+  {
+   "star": "Hóa Kỵ",
+   "school": "thuc_hanh",
+   "locator": "TH pp.52-53",
+   "cells": {
+    "Hợi": "miếu",
+    "Tý": "miếu",
+    "Dần": "miếu",
+    "Mão": "miếu",
+    "Thìn": "vượng|đắc",
+    "Tuất": "vượng|đắc",
+    "Sửu": "vượng|đắc",
+    "Mùi": "vượng|đắc"
+   },
+   "reason": "The p.52 header says vượng for the tứ mộ, the p.53 prose says đắc. TT pp.49-50: miếu Tý Hợi, vượng Dần Mão Dậu Thân."
+  }
+ ],
+ "no_table": {
+  "Thiên Khôi": "TT p.46: 'Hai sao Thiên Khôi và Thiên Việt không thấy nói tới hãm địa.' TH/KL give none.",
+  "Thiên Việt": "As Thiên Khôi.",
+  "Đào Hoa": "TH p.55 / KL p.197 describe it without branches.",
+  "Hồng Loan": "Only the experimental TT p.62 commentary.",
+  "Thiên Hỷ": "No branch classification in TH p.55 / TT p.62.",
+  "Ân Quang": "TH p.55 prose only (experimental).",
+  "Thiên Quý": "TH p.55 prose only (experimental).",
+  "Tam Thai": "TH p.55 / TT p.61: no branches.",
+  "Bát Tọa": "TH p.55 / TT p.61: no branches.",
+  "Hoa Cái": "TH p.56 / TT p.62: 'miếu vượng' without branches.",
+  "Thiên Quan": "TH p.56: none.",
+  "Thiên Phúc": "TH p.56: none.",
+  "Thiên Y": "TH p.69: none.",
+  "Cô Thần": "TH p.69: none.",
+  "Quả Tú": "TH p.69: none.",
+  "Đẩu Quân": "TH p.69 / TT p.62: none.",
+  "Phá Toái": "TH p.69: none; KL p.202 only says where it can stand.",
+  "Lưu Hà": "TH p.69 / KL p.201: none.",
+  "Thiên Thương": "TT p.54: 'không cần hỏi đắc địa hay không'.",
+  "Thiên Sứ": "As Thiên Thương.",
+  "Thiên Đức": "None.",
+  "Nguyệt Đức": "None.",
+  "Thiên Giải": "None.",
+  "Địa Giải": "None.",
+  "Thiên La": "None.",
+  "Địa Võng": "None.",
+  "Thiên Tài": "None.",
+  "Thiên Thọ": "None.",
+  "Vòng Lộc Tồn / Thái Tuế / Trường Sinh (other than Đại Hao, Tiểu Hao, Tang Môn, Bạch Hổ)": "TH pp.58-61: properties only."
+ }
+}
