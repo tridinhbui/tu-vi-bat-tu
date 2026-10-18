@@ -1,0 +1,132 @@
+diff --git a/engine/tvbt/api.py b/engine/tvbt/api.py
+index 4e24f47..01b5109 100644
+--- a/engine/tvbt/api.py
++++ b/engine/tvbt/api.py
+@@ -40,12 +40,33 @@ class BirthReq(BaseModel):
+                           self.longitude, self.calendar, self.zi_rule, self.use_true_solar_time)
+ 
+ 
+-def _compute(req: BirthReq):
++from functools import lru_cache
++
++
++@lru_cache(maxsize=64)
++def _compute_cached(birth: BirthInput, dignity_school: str):
+     try:
+-        nb = normalize(req.birth())
+-    except Exception as e:  # invalid date, DST gap, unknown tz, missing longitude
++        nb = normalize(birth)
++    except Exception as e:  # invalid date, DST gap, unknown tz, missing longitude (exceptions are never cached)
+         raise HTTPException(422, str(e))
+-    return nb, bazi.compute(nb), tuvi.compute(nb, dignity_school=req.dignity_school)
++    return nb, bazi.compute(nb), tuvi.compute(nb, dignity_school=dignity_school)
++
++
++def _compute(req: BirthReq):
++    # chart, analysis, reasoning and year of one session share the same birth: compute it once (results are read-only downstream)
++    return _compute_cached(req.birth(), req.dignity_school)
++
++
++@lru_cache(maxsize=2)
++def _pack(dignity_school: str):
++    """Rule packs + sources + pack validation depend only on files on disk: load and validate once per process."""
++    rules, sources = load_all()
++    lx.CLAIMS.update(load_claims())
++    if dignity_school != "thuc_hanh":
++        import dataclasses as _dc
++        rules = [_dc.replace(r, reviewStatus="draft") if r.category in ("star_dignity", "star_combination") else r for r in rules]
++    probs = validate_pack(rules, sources, {"palace.*", "chart.*", "bazi.*", "derived.*"})
++    return rules, sources, probs
+ 
+ 
+ @app.post("/api/chart")
+@@ -158,14 +179,8 @@ def _why_vi(why: dict) -> dict:
+ @app.post("/api/reasoning")
+ def reasoning(req: BirthReq):
+     nb, bz, tv = _compute(req)
+-    rules, sources = load_all()
+-    lx.CLAIMS.update(load_claims())
+-    if req.dignity_school != "thuc_hanh":
+-        # the temperament readings are Thực Hành's, keyed to ITS brightness table; mixing schools is not verified
+-        import dataclasses as _dc
+-        rules = [_dc.replace(r, reviewStatus="draft") if r.category in ("star_dignity", "star_combination") else r for r in rules]
+-    probs = validate_pack(rules, sources, {"palace.*", "chart.*", "bazi.*", "derived.*"})
+-    out = {"pack_problems": probs, "systems": {}, "dignity_school": req.dignity_school,
++    rules, sources, probs = _pack(req.dignity_school)
++    out = {"pack_problems": list(probs), "systems": {}, "dignity_school": req.dignity_school,
+            "mixed_school_warning": req.dignity_school != "thuc_hanh"}
+     for system, base in [("tu_vi", facts.tuvi_facts(tv)), ("bat_tu", facts.bazi_facts(bz))]:
+         res = engine.run(rules, sources, base, system=system)
+diff --git a/engine/web/js/util.js b/engine/web/js/util.js
+index 31abb03..54a9d7f 100644
+--- a/engine/web/js/util.js
++++ b/engine/web/js/util.js
+@@ -68,23 +68,31 @@ const cap = t => t ? t[0].toUpperCase() + t.slice(1) : t;
+ export const claimPhrase = (c, effect) => (effect === 'limit' && CLAIMS['limit:' + c]) || CLAIMS[c] || String(c).replace(/_/g, ' ');
+ export const claimLabel = c => cap(claimPhrase(c));
+ export const claimKnown = c => !!CLAIMS[c];
+-/** Loads Vietnamese claim phrases and source names; retries because a cold container may answer 5xx once. */
++/** Loads Vietnamese claim phrases and source names. Prefers the static /js/meta.json (CDN, no engine CPU); falls back to the API.
++ *  Retries because a cold container may answer 5xx once. */
+ export async function loadMeta() {
++  const apply = (c, sources) => { Object.assign(CLAIMS, c); sources.forEach(s => { SOURCES[s.id] = s.title; SRC_OK[s.id] = !!s.verified; }); };
++  const get = async u => { const x = await fetch(u); if (!x.ok) throw new Error(String(x.status)); return x.json(); };
++  try { const m = await get('/js/meta.json'); apply(m.claims, m.sources); return; } catch { /* fall back to the API below */ }
+   for (let i = 0; i < 4; i++) {
+-    try {
+-      const get = async u => { const x = await fetch(u); if (!x.ok) throw new Error(String(x.status)); return x.json(); };
+-      const [c, r] = await Promise.all([get('/api/claims'), get('/api/rules')]);
+-      Object.assign(CLAIMS, c);
+-      (r.sources || []).forEach(s => { SOURCES[s.id] = s.title; SRC_OK[s.id] = !!s.verified; });
+-      return;
+-    } catch { await new Promise(r => setTimeout(r, 500 * (i + 1))); }
+-  } // still failing: readings without a known phrase are hidden in 'Dễ hiểu' instead of showing raw ids
++    try { const [c, r] = await Promise.all([get('/api/claims'), get('/api/rules')]); apply(c, r.sources || []); return; }
++    catch { await new Promise(r => setTimeout(r, 500 * (i + 1))); }
++  }
+ }
+ export const palaceOfSubject = s => /^palace:/.test(s) ? s.slice(7) : null;
+ 
+ const sleepMs = ms => new Promise(r => setTimeout(r, ms));
+ /** POST JSON. Retries network errors and 5xx (the engine container can drop a request under load); never retries 4xx. */
+-export async function post(u, b, { retries = 3 } = {}) {
++const memo = new Map(); // identical POSTs of one visit (the result page asks /api/year four times for the same birth and year) share one request
++export function post(u, b, opts = {}) {
++  const k = u + JSON.stringify(b);
++  if (!memo.has(k)) {
++    if (memo.size >= 16) memo.delete(memo.keys().next().value);
++    memo.set(k, postOnce(u, b, opts).catch(e => { memo.delete(k); throw e; }));
++  }
++  return memo.get(k);
++}
++async function postOnce(u, b, { retries = 3 } = {}) {
+   let last;
+   for (let i = 0; i <= retries; i++) {
+     try {
+diff --git a/tools/build_meta.py b/tools/build_meta.py
+new file mode 100644
+index 0000000..d9db0f6
+--- /dev/null
++++ b/tools/build_meta.py
+@@ -0,0 +1,21 @@
++"""Generates engine/web/js/meta.json: Vietnamese claim phrases + source titles, served as a static asset (CDN) instead of two API calls
++(/api/claims 230 KB, /api/rules 1.1 MB) on every page load. Run after changing claims_vi.json or any rule pack."""
++import json
++import sys
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parent.parent / "engine"
++sys.path.insert(0, str(ROOT))
++from tvbt.knowledge.loader import load_all  # noqa: E402
++
++
++def build() -> dict:
++    _, sources = load_all()
++    return {"claims": json.loads((ROOT / "data" / "claims_vi.json").read_text("utf-8")),
++            "sources": [{"id": s.id, "title": s.title, "verified": bool(s.verified)} for s in sources]}
++
++
++if __name__ == "__main__":
++    out = ROOT / "web" / "js" / "meta.json"
++    out.write_text(json.dumps(build(), ensure_ascii=False, separators=(",", ":")) + "\n", "utf-8")
++    print("wrote", out, out.stat().st_size, "bytes")
