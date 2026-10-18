@@ -166,6 +166,21 @@ Kiểm tra trên trình duyệt (cờ bật, cổng 8767): mục tổng hợp hi
 | Phase 6 sau mục A và các phase sau | Prompt bị cắt. |
 | Ngưỡng “hội/gặp”, Tuần/Triệt hại–cứu, Nhâm-Khoa, giao thoa đại hạn | Không có nguồn để phân xử; engine nêu hai chiều hoặc chỉ đặt cạnh nhau. |
 
+## 7b. Sửa sau hai bản đánh giá (18/10/2026)
+
+| Phát hiện của người đánh giá | Nguyên nhân trong mã | Đã sửa |
+|---|---|---|
+| “Hồng Loan gặp Thiên Không đồng cung hoặc xung chiếu” kích hoạt khi Thiên Không ở Tài Bạch | `TV_KL_AUX_HONG_KHONG` đọc `palace.tam_phuong_stars` | Rule pack: chỉ đồng cung hoặc `palace.rel.opp_stars` (KL tr.225); test âm/dương |
+| “Quan Phủ và Thái Tuế đồng cung Mệnh” khi Thái Tuế ở Tật Ách | `TV_KL_AUX_QUAN_PHU_VIET` (chỉ kiểm Quan Phủ) dùng chung claim với quy tắc TH có cả Thái Tuế | Claim riêng `quan_phu_menh_mieng_tieng` với câu của chính quy tắc |
+| “Lộc Mã giao trì … ở cung Mệnh” khi Lộc Tồn, Thiên Mã ở Tài Bạch | 3 quy tắc TH (Tài Bạch / Quan Lộc / Thiên Di) dùng chung nhãn của quy tắc ở Mệnh | 24 quy tắc có điều kiện thực, cung khác với quy tắc “chủ” của nhãn nay có claim + nhãn riêng lấy từ câu sách của chính chúng; quy tắc *hạn chế* vẫn dùng chung claim (để bộ giải quyết mâu thuẫn đánh dấu nhận định gốc là “bị giới hạn”) và hiển thị câu `limit:` riêng; công cụ kiểm toán nay bắt cả nhãn nêu sai cung |
+| Thái Dương–Cự Môn “xung chiếu” | điều kiện đọc cả tam phương | Rule pack: `palace.rel.opp_majors` |
+| “Tiền bạc đến tự nhiên, ít mất công lao khó nhọc” nằm dưới “Điểm cần cân nhắc” | bộ lọc từ khóa: “khó” khớp “khó nhọc” | `/api/claims` cấp `tone:<claim>` từ lớp ngữ nghĩa (có phủ định); câu thuận thuần không bị gập, câu hỗn hợp có từ khó vẫn gập |
+| Chương Tính cách chỉ có “họ hàng đông đúc”, “làm bạn với quý nhân”; nét tính cách nằm ở Bản Mệnh | `PAL_CH` định tuyến theo cung | `/api/claims` cấp `facet:<claim>`; nhận định ở Mệnh/Phúc Đức đi theo ý nghĩa (tính cách → Tính cách, nghề → Công danh, tiền → Tài Bạch, gia đình → Quan hệ); cung khác giữ định tuyến theo cung |
+| Tuổi mụ 38 / Tứ Hóa khác ở phần lưu niên | Khối “Chọn năm” hiển thị năm đã kéo thanh trượt, nhưng khi in thanh trượt bị ẩn nên không thấy năm | Kết quả luôn ghi “Năm … · can chi · tuổi mụ …” và chú thích khi không phải năm hiện tại |
+| PDF: trang 1 gần trống, trang gần trống giữa bài, trang “Trưởng thành” không có nội dung | quy tắc in `.pane+.pane .r-sec:first-child{break-before:page}` đẩy Bát Tự sang trang 2 trên bố cục mới; cả chương bị cấm ngắt trang; `print.js` đặt `data-view` lên `#tuvi-host` thay vì `.tv-stage` (bảng 12 cung in ra trắng); phần đệm cuối Bát Tự tràn trang | Sửa các quy tắc in, `print.js` trỏ đúng phần tử, ẩn khung Trưởng thành khi tính năng tắt/rỗng. Kiểm bằng Chrome headless trên 3 lá số: 20 trang, không trang trống |
+
+Các nhận xét về chiều sâu tổng hợp (danh sách nhận định rời rạc, mâu thuẫn không giải thích) là phần lớp `/api/synthesis` giải quyết; lớp này vẫn **tắt** trên production cho tới khi bật cờ `TVBT_DEEP_INTERPRETATION`.
+
 ## 8. Bật thử
 
 ```bash

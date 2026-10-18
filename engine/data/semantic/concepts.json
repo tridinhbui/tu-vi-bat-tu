@@ -8,7 +8,10 @@
   "kém ",
   "chẳng ",
   "thiếu ",
-  "ít "
+  "ít ",
+  "ít gây ",
+  "không gây ",
+  "tránh được "
  ],
  "concepts": [
   {
@@ -701,7 +704,9 @@
     "thiếu sức mạnh quyền hành",
     "lụi tàn",
     "công danh nhiều trắc trở",
-    "ít được khen thưởng"
+    "ít được khen thưởng",
+    "khó đạt công danh",
+    "khó đạt được công danh"
    ],
    "np": "những trở ngại trên đường công danh",
    "short": "trở ngại trong công việc"
@@ -1007,7 +1012,14 @@
     "đủ đầy",
     "phát về tiền",
     "ra tiền",
-    "lộc mã giao trì"
+    "lộc mã giao trì",
+    "tiền bạc đến tự nhiên",
+    "ít mất công lao khó nhọc",
+    "tiền đến tự nhiên",
+    "không giàu thì sang",
+    "không sang thì cũng giàu",
+    "không sang thì giàu",
+    "không phú thì quý"
    ],
    "np": "khuynh hướng tài lộc thuận lợi",
    "short": "tài lộc"
@@ -1307,7 +1319,10 @@
     "trong họ có người",
     "cha mẹ song toàn",
     "cha mẹ sang",
-    "nhờ phúc cha mẹ"
+    "nhờ phúc cha mẹ",
+    "họ hàng đông",
+    "họ hàng phát",
+    "họ có người"
    ],
    "np": "sự nâng đỡ từ gia đình",
    "short": "sự nâng đỡ của gia đình"
@@ -1330,7 +1345,10 @@
     "muộn con",
     "hiếm con",
     "có phần ít đi",
-    "số con có phần ít"
+    "số con có phần ít",
+    "họ hàng hay tranh chấp",
+    "họ mạc dễ sa sút",
+    "họ hàng ly tán"
    ],
    "np": "sự phân tán trong quan hệ gia đình",
    "short": "sự phân tán trong gia đình"

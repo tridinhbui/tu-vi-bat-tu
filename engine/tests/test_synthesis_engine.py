@@ -134,12 +134,11 @@ def test_reference_chart_annotation_guards_and_limit_effect():
     ev = {(e.rule_id, e.concept) for e in c.ann.evidence}
     # Hóa Lộc ở Tứ Mộ: the shared label says 'tài lộc thuận lợi'; the rule's own paraphrase and its 'limit' effect make it a limitation
     assert ("TV_KL_PHU2_HOA_LOC_TU_MO", "fin.scarcity") in ev and ("TV_KL_PHU2_HOA_LOC_TU_MO", "fin.abundance") not in ev
-    # Hồng Loan gặp Thiên Không: the book says đồng cung / xung chiếu; here Thiên Không is only in a tam hợp palace -> excluded
-    assert any(x["rule"] == "TV_KL_AUX_HONG_KHONG" for x in c.ann.excluded)
-    assert not any(e.rule_id == "TV_KL_AUX_HONG_KHONG" for e in c.ann.evidence)
-    # Quan Phủ: narrated from its own sentence, not from the shared label that adds Thái Tuế
+    # Hồng Loan gặp Thiên Không: the book says đồng cung / xung chiếu; here Thiên Không is only in a tam hợp palace -> the rule no longer fires
+    assert not any(f.rule_id == "TV_KL_AUX_HONG_KHONG" for f in c.res.findings)
+    # Quan Phủ: its own claim and sentence, not the shared label that adds Thái Tuế
     qp = [e for e in c.ann.evidence if e.rule_id == "TV_KL_AUX_QUAN_PHU_VIET"]
-    assert qp and all("Thái Tuế" not in e.reading for e in qp) and qp[0].applicability == "relabelled"
+    assert qp and all("Thái Tuế" not in e.reading for e in qp) and qp[0].claim == "quan_phu_menh_mieng_tieng"
     # a chart-level structure asserted once per triad palace counts once
     assert sum(1 for e in c.ann.evidence if e.rule_id.startswith("TV_STRUCT_")) <= 1
     # the book itself pairs 'nghĩa khí' with 'nóng nảy'
@@ -277,3 +276,23 @@ def test_empty_evidence_does_not_pad():
             if ch.get("empty") and ch["id"] not in ("cach_cuc",):
                 theme = [p for p in ch["paragraphs"] if p["role"] == "theme"]
                 assert not theme or all(len(p["sentences"]) <= 2 for p in theme)
+
+
+# ---------------------------------------------------------------- review 17/05/1990: tone and chapter routing served with the claims
+
+def test_claim_tone_handles_negation_and_conditional_phrases():
+    assert sm.claim_tone("khuynh hướng tiền bạc đến tự nhiên, ít mất công lao khó nhọc (Lộc Tồn ở Tài Bạch)") == "+"
+    assert sm.claim_tone("khuynh hướng không giàu thì sang (Nhật, Nguyệt giáp hai bên Mệnh)") == "+"
+    assert sm.claim_tone("tính cách thường được mô tả là cẩn trọng, ít gây thị phi") != "-"
+    assert sm.claim_tone("khuynh hướng khó đạt công danh (Kiếp/Không hãm đóng cung Quan)") == "-"
+    assert sm.claim_tone("hạn chế: gian truân (Thiên Tướng đồng cung Không/Kiếp)") == "-"
+
+
+def test_claims_endpoint_serves_tone_and_facet_for_routing():
+    j = client.get("/api/claims").json()
+    assert j["tone:tt_tai_bach_loc_ton_base_p"] == "+"
+    # Mệnh readings about character route to Tính cách, family readings at Phúc Đức to Quan hệ (report.js topicChapter)
+    menh_traits = [k for k, v in j.items() if not k.startswith(("tone:", "facet:", "limit:")) and "trọng hậu" in v]
+    assert menh_traits and all(j.get("facet:" + k, "").startswith("identity.") for k in menh_traits)
+    ho_hang = [k for k, v in j.items() if not k.startswith(("tone:", "facet:", "limit:")) and "họ hàng đông" in v]
+    assert ho_hang and all(j.get("facet:" + k) == "relationships.family" for k in ho_hang)

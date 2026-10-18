@@ -45,8 +45,14 @@ def test_pha_quan_ty_ngo_emits_both_sides():
 
 
 def test_loc_ma_only_on_the_four_palaces_and_not_on_others():
-    assert ("cach_loc_ma_giao_tri", "support") in fired(pal("Quan Lộc", own=["Lộc Tồn", "Thiên Mã"]))
-    assert ("cach_loc_ma_giao_tri", "support") not in fired(pal("Phụ Mẫu", own=["Lộc Tồn", "Thiên Mã"]))
+    # each palace's rule has its own claim, so the text names the palace the rule actually read (not "ở cung Mệnh")
+    assert ("cach_loc_ma_giao_tri__th_cach_quan_loc_loc_ma", "support") in fired(pal("Quan Lộc", own=["Lộc Tồn", "Thiên Mã"]))
+    assert not any(c.startswith("cach_loc_ma_giao_tri") for c, _ in fired(pal("Phụ Mẫu", own=["Lộc Tồn", "Thiên Mã"])))
+    from tvbt.knowledge.loader import load_claims
+    cl = load_claims()
+    for pal_name, cid in (("Tài Bạch", "cach_loc_ma_giao_tri__th_cach_tai_bach_loc_ma"), ("Quan Lộc", "cach_loc_ma_giao_tri__th_cach_quan_loc_loc_ma"),
+                          ("Thiên Di", "cach_loc_ma_giao_tri__th_cach_thien_di_loc_ma")):
+        assert pal_name in cl[cid]["label"] and "Mệnh" not in cl[cid]["label"]
 
 
 def test_sinh_vuong_bai_tuyet_table_and_rescue():

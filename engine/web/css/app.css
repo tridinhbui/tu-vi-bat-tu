@@ -596,9 +596,17 @@ body.hour-mode #print-btn{display:none}
   .site-header,.res-nav,.nav-scrim,.site-footer,.res-act,.depth,.gd,.tv-toggle,.tv-ov,.tv-hint,.drawer,.cx-bar,.legend,.rp-toc,.sys-switch,.bs-next,.by-bar button,.yx-bar,.ig-toggle,[data-mc],.btn,#exp-badge,dialog{display:none!important}
   .res-head,.atl-mast{padding:0 0 8px!important;background:none!important}.res-head h1,.atl-mast h1{font-size:22pt}.atl-side .res-hl{display:none}
   .wrap{max-width:none!important;padding:0!important}
-  .r-sec{padding:14px 0!important;break-before:auto}.pane+.pane .r-sec:first-child{break-before:page}
+  .r-sec{padding:14px 0!important;break-before:auto}
   #pane-tuvi{break-before:page}
-  .rp-layout{display:block!important}.chapter,.finding-card,.ez-card,.bs-c,.pillar,.ez-empty{break-inside:avoid}
+  /* Bát Tự follows the header on page 1 (the hidden hour pane used to push it to page 2); long chapters may split across pages,
+     only small blocks are kept whole (a whole-chapter 'avoid' left near-empty pages) */
+  .rp-layout{display:block!important}.chapter{break-inside:auto}.chapter>header{break-after:avoid}
+  .finding-card,.ez-card,.bs-c,.pillar,.ez-empty,.sy-p{break-inside:avoid}
+  body.print-no-growth[data-view] #chart-view #pane-growth{display:none!important}
+  /* observatory layout: the board stage is a CSS grid, which Chrome pushes whole to the next page (leaving a blank one) */
+  .tv-stage,.bz-stage{display:block!important}.atl-stage{padding:0!important}.tv-stage>*+*{margin-top:12px}
+  /* trailing padding of the Bát Tự pane spilled onto an otherwise empty page before the forced Tử Vi break */
+  #pane-bazi,#pane-bazi>*:last-child,#pane-bazi .r-report,#pane-bazi .wrap,#bazi-report,#bazi-report .rp-layout,#bazi-report .rp-body{padding-bottom:0!important;margin-bottom:0!important}
   .chapter{margin-bottom:10pt}.reveal{opacity:1!important;transform:none!important}
   .tv-scroll{overflow:visible!important}.tv-board{min-width:0!important;zoom:.62}
   .tv-links{display:none}
@@ -606,6 +614,7 @@ body.hour-mode #print-btn{display:none}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   a{color:inherit!important;text-decoration:none!important}.gl{text-decoration:none!important}
   .print-note{display:block;margin-top:14pt;padding-top:8pt;border-top:1px solid #bbb;font-size:9pt;color:#555}
-  .acc{break-inside:avoid-page}.acc-b{display:block!important}
+  .acc{break-inside:auto}.acc-b{display:block!important}
   .gd-chap svg,.gd-chap .gd-who,.gd-sr{display:none!important}.gd-chap .gd-bub{padding:0}
 }
+.yx-year{margin:0 0 10px;font-size:.95rem;color:var(--text2)}

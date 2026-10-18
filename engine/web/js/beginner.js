@@ -1,7 +1,7 @@
 // Beginner layer: plain-language summary, softened/filtered readings, and "no dead end" empty states.
 // Nothing here creates conclusions: every statement is either a fact from the chart, an educational primer, or a verified finding
 // (basis === 'verified') re-worded from the engine's own phrase. Draft rules stay in the 'Chuyên sâu' mode.
-import { esc, STEMS, BRANCHES, EL, ELEMENTS, claimPhrase, claimKnown, palaceOfSubject } from './util.js';
+import { esc, STEMS, BRANCHES, EL, ELEMENTS, claimPhrase, claimKnown, palaceOfSubject, CLAIMS } from './util.js';
 import { currentPhase, elementStats } from './insights.js';
 import { lessonTitle } from './learn.js';
 
@@ -17,12 +17,22 @@ export function parsePhrase(f) {
   return { core: (m ? m[1] : main).trim(), basis: m ? m[2] : '', note: rest.join('; ') };
 }
 
+/** Hard or one-sided reading? The server's semantic tone wins (it handles negation: 'ít mất công lao khó nhọc' is not a hardship);
+ *  without one, the keyword list is used on the phrase with negated words removed. */
+function isCare(f) {
+  const tone = CLAIMS['tone:' + f.claim];
+  if (tone === '-') return true;
+  if (tone === '+') return false;           // a purely supportive phrase, even if a negated word like 'khó nhọc' appears in it
+  // mixed ('~') or unknown: fold it when it names a hard trait, ignoring negated words
+  return CARE.test(parsePhrase(f).core.replace(/(?:không|chẳng|ít|bớt|đỡ)(?: mất công lao| phải)? \S+(?: \S+)?/g, ''));
+}
+
 export function classify(findings) {
   const out = { show: [], care: [], draft: [] };
   findings.forEach(f => {
     if (f.basis !== 'verified') out.draft.push(f);
     else if (!claimKnown(f.claim)) return; // no Vietnamese phrase loaded: never show a raw id to beginners
-    else if (f.status === 'supported' && f.effect !== 'limit') (CARE.test(parsePhrase(f).core) ? out.care : out.show).push(f);
+    else if (f.status === 'supported' && f.effect !== 'limit') (isCare(f) ? out.care : out.show).push(f);
   });
   return out;
 }

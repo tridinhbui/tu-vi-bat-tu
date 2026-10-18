@@ -61,7 +61,7 @@ export function yearExplorer(host, req, bazi, side = null) {
       if (mine !== seq) return;
       const b = d.bazi, t = d.tuvi;
       const inter = [...b.annual_vs_natal, ...b.luck_vs_natal];
-      out.innerHTML = `<div class="yx-grid">
+      out.innerHTML = `<p class="yx-year"><b>Năm ${y}</b> · ${esc(b.annual_pillar)} · tuổi mụ ${t.age_tuoi_mu}${y !== now ? ' <span class="muted">(năm bạn đã chọn, không phải năm hiện tại)</span>' : ''}</p><div class="yx-grid">
         <section><h4>Bát Tự</h4>
           <p class="yx-big"><span>Lưu niên</span><b>${esc(b.annual_pillar)}</b><em>${esc(b.annual_stem_ten_god)}</em></p>
           <p class="yx-big"><span>Đại vận</span><b>${esc(b.luck_pillar || 'chưa khởi')}</b><em>${esc(b.luck_stem_ten_god || '')}</em></p>

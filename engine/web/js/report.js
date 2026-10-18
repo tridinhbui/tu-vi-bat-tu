@@ -1,5 +1,5 @@
 // InterpretationSection chapters: calculations and traditional readings kept visibly separate.
-import { $, $$, esc, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip } from './util.js';
+import { $, $$, esc, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip, CLAIMS } from './util.js';
 import { acc, notice, reasoningPanel, timeline, yearExplorer, findingCard } from './ui.js';
 import { scopePanelBazi } from './scope.js';
 import { easyReadings, emptyReading, classify, parsePhrase } from './beginner.js';
@@ -68,6 +68,18 @@ function inferenceGraph(f) {
 
 const blockSys = b => /^(Bát Tự|Về Bát Tự|Nhật chi)/.test(b.text) || (b.src || []).some(x => /八字/.test(x)) ? 'bt' : /^Hai hệ thống/.test(b.text) ? 'both' : 'tv';
 const PAL_CH = { 'Mệnh': 'ban-menh', 'Phúc Đức': 'tinh-cach', 'Quan Lộc': 'cong-danh', 'Thiên Di': 'cong-danh', 'Tài Bạch': 'tai-bach', 'Điền Trạch': 'tai-bach', 'Phu Thê': 'quan-he', 'Tử Tức': 'quan-he', 'Huynh Đệ': 'quan-he', 'Phụ Mẫu': 'quan-he', 'Nô Bộc': 'quan-he' };
+
+// Semantic routing: a reading fired at Mệnh or Phúc Đức goes to the chapter that answers its question (tính cách, nghề, tiền, gia đình),
+// using the facet of its leading idea served by /api/claims ('facet:<claim>'). Readings of the other palaces describe that palace's topic
+// (a 'khá giả' at Tử Tức is about the children), so they keep the palace route.
+const DOMAIN_CH = { identity: 'tinh-cach', inner: 'tinh-cach', career: 'cong-danh', finance: 'tai-bach', relationships: 'quan-he' };
+function topicChapter(f) {
+  const pal = palaceOfSubject(f.subject), facet = CLAIMS['facet:' + f.claim];
+  if (!facet || !['Mệnh', 'Phúc Đức'].includes(pal)) return null;
+  const dom = facet === 'life.spirituality' ? 'inner' : facet.split('.')[0];
+  if (pal === 'Phúc Đức') return dom === 'relationships' ? 'quan-he' : (dom === 'identity' || dom === 'inner') ? 'tinh-cach' : 'ban-menh';
+  return DOMAIN_CH[dom] || 'ban-menh';
+}
 
 function mount(host, chapters, prefix, ctx) {
   host.innerHTML = `<div class="rp-layout">
@@ -168,7 +180,7 @@ function experimentalHtml(x) {
 export function renderTuviReport(host, chart, ctx) {
   const b = chart.bazi, t = chart.tuvi, tv = ctx.tv, { blocks, calc, ref, trad, deep } = shell(ctx);
   const fs = (ctx.reason.systems.tu_vi?.findings || []).map(f => ({ ...f, sys: 'tu_vi' }));
-  const chOf = f => /^cach_|thanh_cach/.test(f.claim) ? 'cach-cuc' : (PAL_CH[palaceOfSubject(f.subject)] || 'chuyen-sau');
+  const chOf = f => /^cach_|thanh_cach/.test(f.claim) ? 'cach-cuc' : (topicChapter(f) || PAL_CH[palaceOfSubject(f.subject)] || 'chuyen-sau');
   const of = id => fs.filter(f => chOf(f) === id);
   const TITLE = { 'ban-menh': 'Bản Mệnh', 'tinh-cach': 'Tính cách', 'cong-danh': 'Công danh', 'tai-bach': 'Tài Bạch', 'quan-he': 'Quan hệ', 'cach-cuc': 'Cách Cục' };
   const stars = p => {

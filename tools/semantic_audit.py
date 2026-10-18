@@ -2,7 +2,7 @@
 
 Checks over every Tử Vi rule:
   shared_claims        claims reused by several rules (one label, several conditions) — why the label cannot be read as the rule's meaning
-  label_condition      the shared label's parenthetical condition differs from the rule's own paraphrase
+  label_condition      the shared label's parenthetical condition differs from the rule's own paraphrase, or the label names another palace
   limit_positive_label effect='limit' rules whose label reads as a positive outcome (the old renderer printed 'thuận lợi' for a limitation)
   scope_mismatch       the paraphrase names 'đồng cung' / 'xung chiếu' / 'đối cung' only, but the pack condition reads tam phương facts
   corroboration        groups of verified rules from DIFFERENT books that stand on the same normalised chart facts and reach the same concept
@@ -25,6 +25,7 @@ sys.path.insert(0, str(ROOT / "engine"))
 from tvbt.knowledge.loader import load_all, load_claims  # noqa: E402
 from tvbt.synthesis import semantics as sm  # noqa: E402
 
+PALACES = ["Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch", "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách", "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
 NARROW = re.compile(r"đồng cung|xung chiếu|đối cung")
 WIDE = re.compile(r"hội|gặp|tam phương|chiếu Mệnh|hợp chiếu|giáp")
 
@@ -53,8 +54,12 @@ def main(out: Path | None):
             own, src = sm.reading_of(r, label)
             lcore, ltrig = sm.split_reading(label)
             ocore, otrig = sm.split_reading(own)
+            pal = next((x[2] for x in sm.leaves(r.conditions) if x[0] == "palace.name"), None)
+            named = [p for p in PALACES if re.search(r"(cung |ở |tại )" + p + r"\b", label)]
             if src == "description" and ltrig and otrig and _norm(ltrig) != _norm(otrig):
                 label_cond.append({"rule": r.id, "claim": c["claim"], "label_condition": ltrig, "rule_condition": otrig})
+            elif isinstance(pal, str) and named and pal not in named:
+                label_cond.append({"rule": r.id, "claim": c["claim"], "label_condition": label, "rule_condition": f"palace = {pal}"})
             if c.get("effect") == "limit":
                 pos = [h[0] for h in sm.match_concepts(lcore) if sm.lexicon()["concepts"][h[0]]["pol"] == "+"]
                 neg = [h[0] for h in sm.match_concepts(lcore) if sm.lexicon()["concepts"][h[0]]["pol"] == "-"]

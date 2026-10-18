@@ -1,37 +1,11 @@
 {
  "version": "1.0.0",
- "note": "Applicability guards applied BEFORE a fired rule reaches the synthesis layer. The rule packs themselves are not edited (that would change /api/reasoning); each entry records why the fired rule cannot be used as-is and what the synthesis layer does instead. Produced from tools/semantic_audit.py and manual reading of the rule text. Actions: recheck_scope (the book names a narrower geometry than the pack condition: re-verify the named star in that scope), use_description (the shared claim label carries a condition this rule does not check: narrate from the rule's own paraphrase), exclude (cannot be used in synthesis).",
+ "note": "Applicability guards applied BEFORE a fired rule reaches the synthesis layer. The rule packs themselves are not edited (that would change /api/reasoning); each entry records why the fired rule cannot be used as-is and what the synthesis layer does instead. Produced from tools/semantic_audit.py and manual reading of the rule text. Actions: recheck_scope (the book names a narrower geometry than the pack condition: re-verify the named star in that scope), use_description (the shared claim label carries a condition this rule does not check: narrate from the rule's own paraphrase), exclude (cannot be used in synthesis). 2026-10-18: the Hồng Loan–Thiên Không, Quan Phủ and Thái Dương–Cự Môn 'xung chiếu' rules were corrected in the packs themselves (own/opp facts, own claim), so their guards were removed.",
  "guards": [
-  {
-   "rule": "TV_KL_AUX_HONG_KHONG",
-   "action": "recheck_scope",
-   "star": "Thiên Không",
-   "scope": "dong_cung_doi_cung",
-   "reason": "Câu sách (KL p.225) ghi 'Hồng Loan gặp Thiên Không đồng cung hoặc xung chiếu', nhưng điều kiện trong bộ quy tắc dùng cả tam phương (palace.tam_phuong_stars), nên quy tắc kích hoạt cả khi Thiên Không chỉ ở cung tam hợp."
-  },
-  {
-   "rule": "TV_KL_AUX_QUAN_PHU_VIET",
-   "action": "use_description",
-   "reason": "Nhãn nhận định dùng chung (hay_dinh_viec_cong_mon) ghi 'Quan Phủ và Thái Tuế đồng cung Mệnh', nhưng quy tắc này chỉ kiểm tra Quan Phủ; diễn giải theo câu riêng của quy tắc ('Quan Phủ ở Mệnh')."
-  },
   {
    "rule": "TV_TT_PHU_TAI_BACH_QUYEN_LOC_VINH_HOA",
    "action": "use_description",
    "reason": "Nhãn dùng chung ghi '…nhập miếu ở Mệnh' trong khi quy tắc đọc cung Tài Bạch; diễn giải theo câu riêng của quy tắc."
-  },
-  {
-   "rule": "TV_KL_PHU_DUONG_TY_CU_HOI",
-   "action": "recheck_scope",
-   "star": "Cự Môn",
-   "scope": "dong_cung_doi_cung",
-   "reason": "Câu sách ghi 'xung chiếu' (đối cung) nhưng điều kiện trong bộ quy tắc đọc chính tinh trong cả tam phương."
-  },
-  {
-   "rule": "TV_KL_PHU_DUONG_HOI_CU_TY",
-   "action": "recheck_scope",
-   "star": "Cự Môn",
-   "scope": "dong_cung_doi_cung",
-   "reason": "Câu sách ghi 'xung chiếu' (đối cung) nhưng điều kiện trong bộ quy tắc đọc chính tinh trong cả tam phương."
   }
  ],
  "auto": {

@@ -11,14 +11,12 @@ Có thể nhận thấy một dấu hiệu gắn với khuynh hướng Cự Môn
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng thông minh, mưu trí, phán xét sáng suốt (Cự Môn thủ Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng may mắn đến nhanh rồi qua nhanh (Đào, Hồng đóng ở Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng dễ vướng thị phi, tranh cãi (Cự Môn thủ Mệnh ở Thìn hoặc Tuất); nhận định này được các quy tắc đã khớp hỗ trợ.
-Có thể nhận thấy một dấu hiệu gắn với khuynh hướng hay dính đến việc quan, thủ tục pháp lý (Quan Phủ và Thái Tuế đồng cung Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng giỏi cả văn lẫn võ (Hỏa gặp Khoa, Quyền); 'gặp' đọc là hội trong tam phương; nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng có chí khí, sức khoẻ bền (Hỏa đắc địa ở Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng nghĩa khí nhưng nóng nảy (Hỏa hoặc Linh ở Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng tính thẳng, sành ăn, tài lộc vinh vượng (Hóa Lộc ở Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
 Chưa thể khẳng định một dấu hiệu gắn với khuynh hướng tài lộc thuận lợi (Hóa Lộc tại Mệnh); nhận định này bị giới hạn bởi quy tắc đối lập.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng phong nhã, hào hoa (Hồng Loan ở Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
-Có thể nhận thấy một dấu hiệu gắn với khuynh hướng thảnh thơi, thoát tục, coi nhẹ danh vọng, có thể hướng về tu hành (Hồng Loan gặp Thiên Không đồng cung hoặc xung chiếu); nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng có cách văn chương (Khôi, Việt hội Mệnh); 'cách' đọc là hội trong tam phương tứ chính; nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng tính ngang ngược, tự đắc (Kình hoặc Đà ở Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng tính khí cương cường, dũng mãnh, quả quyết, nhiều cơ mưu nhưng hay tự đắc, kiêu căng (Kình đắc địa ở Tứ mộ); nhận định này được các quy tắc đã khớp hỗ trợ.
@@ -35,6 +33,7 @@ Có thể nhận thấy một dấu hiệu liên quan đến nhóm “lý luận
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng thuận giờ sinh (mùa xuân giờ Dậu/Thìn/Tỵ, hạ Mão/Mùi/Hợi, thu Ngọ/Thân/Dần, đông Sửu/Tuất/Tý): độ số gia tăng; nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng ưa chải chuốt, làm dáng, thích thay đổi, hay nhầm lẫn (Mộc Dục); nhận định này được các quy tắc đã khớp hỗ trợ.
 Chưa thể khẳng định một dấu hiệu thuộc điều kiện hạn chế: hạn chế: suốt đời cùng khổ, cô đơn (Cự Môn hãm hội sát tinh); nhận định này bị giới hạn bởi quy tắc đối lập.
+Có thể nhận thấy một dấu hiệu gắn với khuynh hướng dễ bị miệng tiếng, vướng thủ tục quan phủ (Quan Phủ ở Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng tiền nhiều, chức lớn (Hóa Quyền, Hóa Lộc gặp nhau); nhận định này được các quy tắc đã khớp hỗ trợ.
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng thích phụ họa, dễ làm rối công việc (Trực Phù hoặc Tử Phù ở Mệnh); nhận định này được các quy tắc đã khớp hỗ trợ.
 Chưa thể khẳng định một dấu hiệu thuộc điều kiện hạn chế: hạn chế: tính tình ngang ngược, cương (Cự, Phá hoặc Kình Dương thủ Mệnh); nhận định này bị giới hạn bởi quy tắc đối lập.
@@ -42,7 +41,7 @@ Có thể nhận thấy một dấu hiệu gắn với khuynh hướng lúc phá
 Có thể nhận thấy một dấu hiệu gắn với khuynh hướng vinh hoa (Hóa Quyền hoặc Hóa Lộc nhập miếu ở Mệnh); sách đòi 'nhập miếu' mà bảng độ sáng không có cho Tứ Hóa; nhận định này được các quy tắc đã khớp hỗ trợ.
 ```
 
-Mỗi quy tắc một câu cùng khuôn; không câu nào nói các nhận định quan hệ với nhau thế nào. Lưu ý dòng “Chưa thể khẳng định … tài lộc thuận lợi (Hóa Lộc tại Mệnh) … bị giới hạn bởi quy tắc đối lập”: hai quy tắc *hạn chế* Hóa Lộc ở Tứ Mộ (KL tr.66, TH tr.52) dùng chung nhãn tích cực nên bị gộp vào đây, và người đọc không được biết lý do là Mệnh đóng Tứ Mộ. Dòng “Hồng Loan gặp Thiên Không đồng cung hoặc xung chiếu” cũng xuất hiện dù Thiên Không ở cung tam hợp (Tài Bạch), không đồng cung hay xung chiếu.
+Mỗi quy tắc một câu cùng khuôn; không câu nào nói các nhận định quan hệ với nhau thế nào. Lưu ý dòng thứ hai: quy tắc *hạn chế* Hóa Lộc ở Tứ Mộ được in là “một dấu hiệu thuộc điều kiện hạn chế: khuynh hướng tài lộc thuận lợi” vì nhãn dùng chung là nhãn tích cực.
 
 ## Sau — `/api/synthesis`
 
@@ -56,7 +55,7 @@ Theo cách luận truyền thống (không phải dự báo), về công danh, l
 
 Ở tầng đời sống, theo cách luận truyền thống, phúc phần và sự thuận lợi chung; sự nâng đỡ từ gia đình là những chủ đề được nêu rõ nhất (xem chương Bản Mệnh và Quan hệ).
 
-Phần tổng hợp dùng 55 quy tắc đã đối chiếu sách trên tổng số 75 quy tắc được kích hoạt; 17 nhận định nháp và 0 nhận định chưa ánh xạ chỉ nằm trong danh sách chi tiết. Các chỗ trái chiều được phân loại theo điều kiện: 9 cặp cùng đúng ở hai điều kiện khác nhau, 2 quan hệ chung – riêng. Không có điểm số tổng hợp: thứ tự trình bày chỉ phản ánh vai trò cấu trúc và mức độ trực tiếp của căn cứ.
+Phần tổng hợp dùng 55 quy tắc đã đối chiếu sách trên tổng số 74 quy tắc được kích hoạt; 17 nhận định nháp và 0 nhận định chưa ánh xạ chỉ nằm trong danh sách chi tiết. Các chỗ trái chiều được phân loại theo điều kiện: 9 cặp cùng đúng ở hai điều kiện khác nhau, 2 quan hệ chung – riêng. Không có điểm số tổng hợp: thứ tự trình bày chỉ phản ánh vai trò cấu trúc và mức độ trực tiếp của căn cứ.
 
 ### Bản Mệnh
 
@@ -80,7 +79,7 @@ Về va chạm thủ tục, pháp lý, điều cần nói đến là khả năng
 
 Thân cư Phu Thê: theo cách đọc truyền thống, nửa sau cuộc đời dồn sức vào hôn nhân. Ở cung này, nổi bật là những điều kiện riêng về thời điểm và hoàn cảnh kết duyên và hình ảnh người bạn đời (chi tiết ở chương Quan hệ).
 
-Tóm lại, bản mệnh được dựng từ 4 lớp sao: Cự Môn (hãm) thủ Mệnh, Hóa Lộc tại Mệnh (hóa từ Cự Môn), Kình Dương (miếu) cùng Hỏa Tinh tại Mệnh và Hỏa Tinh (miếu) tại Mệnh. Mỗi lớp tô màu nhiều lĩnh vực cùng lúc, nên cùng một vị trí sao có thể vừa nâng đỡ ở lĩnh vực này vừa đặt giới hạn ở lĩnh vực khác; các chương sau đọc từng lĩnh vực với đầy đủ điều kiện. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 7 nhận định từ quy tắc nháp, 1 nhận định bị loại vì điều kiện trong bộ quy tắc rộng hơn câu sách không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
+Tóm lại, bản mệnh được dựng từ 4 lớp sao: Cự Môn (hãm) thủ Mệnh, Hóa Lộc tại Mệnh (hóa từ Cự Môn), Kình Dương (miếu) cùng Hỏa Tinh tại Mệnh và Hỏa Tinh (miếu) tại Mệnh. Mỗi lớp tô màu nhiều lĩnh vực cùng lúc, nên cùng một vị trí sao có thể vừa nâng đỡ ở lĩnh vực này vừa đặt giới hạn ở lĩnh vực khác; các chương sau đọc từng lĩnh vực với đầy đủ điều kiện. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 7 nhận định từ quy tắc nháp không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
 
 ### Tính cách
 
@@ -100,19 +99,19 @@ Ngoài ra, lá số còn ghi nhận đời sống nội tâm nhiều trăn trở
 
 Đặt Mệnh và Phúc Đức cạnh nhau để xem khuynh hướng thể hiện ra bên ngoài và đời sống tinh thần bên trong. Về vị trí, Phúc Đức không thuộc tam phương của Mệnh, nên quan hệ với Mệnh là quan hệ chủ đề chứ không phải hội chiếu. Phong thái nhã nhặn, có sức hút (cung Phúc Đức) và thuận lợi đến nhanh nhưng khó giữ lâu (cung Mệnh) nên được đọc cùng nhau: sức hút đến nhanh, nhưng cần được giữ bằng điều bền hơn.
 
-Tóm lại, chân dung ở chương này dựng trên 3 lớp: tính cương quyết, dám đương đầu, óc suy xét nhanh và nhiều mưu tính và sự thẳng thắn, trọng nghĩa; điểm cần đọc kỹ nhất là quan hệ giữa tính cương quyết, dám đương đầu và uy thế và khả năng điều khiển người khác, vì đó là hai mặt của cùng một nét chứ không phải hai kết luận loại trừ nhau. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 9 nhận định từ quy tắc nháp, 1 nhận định bị loại vì điều kiện trong bộ quy tắc rộng hơn câu sách không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
+Tóm lại, chân dung ở chương này dựng trên 3 lớp: tính cương quyết, dám đương đầu, óc suy xét nhanh và nhiều mưu tính và sự thẳng thắn, trọng nghĩa; điểm cần đọc kỹ nhất là quan hệ giữa tính cương quyết, dám đương đầu và uy thế và khả năng điều khiển người khác, vì đó là hai mặt của cùng một nét chứ không phải hai kết luận loại trừ nhau. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 9 nhận định từ quy tắc nháp không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
 
 ### Công danh
 
 Công danh được đọc chủ yếu qua cung Quan Lộc an tại Dần (vô chính diệu; có Thiên Việt); cung Mệnh an tại Tuất (Cự Môn (hãm); Hóa Lộc (Cự Môn); có Kình Dương, Hỏa Tinh, Hồng Loan); cung Thiên Di an tại Thìn (Thiên Đồng (bình); có Địa Kiếp; Triệt). Thân cư Phu Thê, nên các nhận định ở cung này cũng được tính khi cân nhắc thứ tự chủ đề.
 
-Ở phương diện đường công danh, nét nổi bật nhất là triển vọng về địa vị, công danh. Có hai câu cùng chỉ về đây: Hóa Quyền và Hóa Lộc hội chiếu về Mệnh theo Toàn Thư, và Hóa Lộc tại Mệnh, Hóa Quyền hội chiếu về Mệnh theo Khảo Luận. Vì chung dữ kiện gốc, đây là một căn cứ được nhìn từ hai phía. Chủ đề danh tiếng bổ sung thêm cho hướng này, xuất phát từ Kình Dương (miếu) tại Mệnh. Cùng chiều với đó, uy thế và khả năng điều khiển người khác (Kình Dương và Hỏa Tinh tại Mệnh, Mệnh an tại Tuất). Đi kèm còn có sự thuận lợi trên đường công danh, ghi nhận khi Khôi, Việt hội Quan Lộc. Ở chiều ngược lại, Hỏa Tinh và Kình Dương tại Mệnh lại chỉ về những trở ngại trên đường công danh (Khảo Luận). Cả hai điều kiện cùng có mặt trong lá số và sách không xếp thứ tự giữa chúng, nên đây là hai lực cùng tồn tại chứ không phải bên này xóa bên kia. Xét theo thời gian, thành tựu đến muộn hơn mặt bằng (Quan Lộc giáp Liêm, Sát; Địa Kiếp tại Thiên Di): triển vọng địa vị có, nhưng thường đến muộn. Khi con đường không thẳng, điều đáng cân nhắc là trở ngại đến từ hoàn cảnh hay từ cách mình chọn đối đầu với nó.
+Ở phương diện đường công danh, nét nổi bật nhất là triển vọng về địa vị, công danh. Có hai câu cùng chỉ về đây: Hóa Quyền và Hóa Lộc hội chiếu về Mệnh theo Toàn Thư, và Hóa Lộc tại Mệnh, Hóa Quyền hội chiếu về Mệnh theo Khảo Luận. Vì chung dữ kiện gốc, đây là một căn cứ được nhìn từ hai phía. Chủ đề danh tiếng bổ sung thêm cho hướng này, xuất phát từ Kình Dương (miếu) tại Mệnh. Cùng chiều với đó, sự thuận lợi trên đường công danh (Khôi, Việt hội Quan Lộc). Đi kèm còn có uy thế và khả năng điều khiển người khác, ghi nhận khi Kình Dương và Hỏa Tinh tại Mệnh, Mệnh an tại Tuất. Ở chiều ngược lại, Hỏa Tinh và Kình Dương tại Mệnh lại chỉ về những trở ngại trên đường công danh (Khảo Luận). Cả hai điều kiện cùng có mặt trong lá số và sách không xếp thứ tự giữa chúng, nên đây là hai lực cùng tồn tại chứ không phải bên này xóa bên kia. Xét theo thời gian, thành tựu đến muộn hơn mặt bằng (Quan Lộc giáp Liêm, Sát; Địa Kiếp tại Thiên Di): triển vọng địa vị có, nhưng thường đến muộn. Khi con đường không thẳng, điều đáng cân nhắc là trở ngại đến từ hoàn cảnh hay từ cách mình chọn đối đầu với nó.
 
 Chuyển sang quan hệ với tập thể và người hỗ trợ, điểm đáng chú ý là sự hỗ trợ từ người khác. Căn cứ là Thiên Đồng tại Thiên Di, theo Toàn Thư.
 
 Đặt Mệnh, Quan Lộc và Thân cạnh nhau để xem cách năng lực và động lực cá nhân được thể hiện trong công việc. Về vị trí, Quan Lộc nằm trong tam phương tứ chính của Mệnh nên sao ở đó hội chiếu về Mệnh; Thân cư Phu Thê, nên cung này được đọc như nơi con người dồn sức về sau. Ở cung Quan Lộc là sự thuận lợi trên đường công danh, còn ở cung Mệnh là những trở ngại trên đường công danh. Cung Quan Lộc nói về công việc và địa vị, cung Mệnh nói về con người và khuynh hướng của chính mình; hai điều kiện đều thỏa nên hai chiều cùng tồn tại, sách không xếp thứ tự. Chủ đề triển vọng về địa vị, công danh ở cung Mệnh gặp lại ở cung Quan Lộc dưới dạng sự thuận lợi trên đường công danh: hai cung cùng chiều. Thành tựu đến muộn hơn mặt bằng (cung Quan Lộc) và triển vọng về địa vị, công danh (cung Mệnh) nên được đọc cùng nhau: triển vọng địa vị có, nhưng thường đến muộn.
 
-Tóm lại, chân dung ở chương này dựng trên 2 lớp: triển vọng về địa vị, công danh và sự hỗ trợ từ người khác; điểm cần đọc kỹ nhất là quan hệ giữa triển vọng về địa vị, công danh và những trở ngại trên đường công danh, vì đó là hai chiều cùng có điều kiện kích hoạt trong lá số. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 8 nhận định từ quy tắc nháp, 1 nhận định bị loại vì điều kiện trong bộ quy tắc rộng hơn câu sách không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
+Tóm lại, chân dung ở chương này dựng trên 2 lớp: triển vọng về địa vị, công danh và sự hỗ trợ từ người khác; điểm cần đọc kỹ nhất là quan hệ giữa triển vọng về địa vị, công danh và những trở ngại trên đường công danh, vì đó là hai chiều cùng có điều kiện kích hoạt trong lá số. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 8 nhận định từ quy tắc nháp không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
 
 ### Tài Bạch
 
@@ -128,7 +127,7 @@ Theo cách luận truyền thống (không phải dự báo), chuyển sang nhà
 
 Đặt Mệnh, Tài Bạch và Quan Lộc cạnh nhau để xem mối liên hệ giữa tư duy, hoạt động nghề nghiệp và chủ đề tài chính. Về vị trí, Tài Bạch nằm trong tam phương tứ chính của Mệnh nên sao ở đó hội chiếu về Mệnh; Quan Lộc nằm trong tam phương tứ chính của Mệnh nên sao ở đó hội chiếu về Mệnh. Chủ đề những giới hạn về tài chính ở cung Mệnh gặp lại ở cung Tài Bạch dưới dạng dòng tiền khó giữ, dễ hao tán: hai cung cùng chiều.
 
-Tóm lại, chân dung ở chương này dựng trên 3 lớp: khuynh hướng tài lộc thuận lợi, dòng tiền khó giữ, dễ hao tán và khả năng tự tạo dựng từ hai bàn tay; điểm cần đọc kỹ nhất là quan hệ giữa khuynh hướng tài lộc thuận lợi và những giới hạn về tài chính, vì đó là hai chiều cùng có điều kiện kích hoạt trong lá số. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 12 nhận định từ quy tắc nháp, 1 nhận định bị loại vì điều kiện trong bộ quy tắc rộng hơn câu sách không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
+Tóm lại, chân dung ở chương này dựng trên 3 lớp: khuynh hướng tài lộc thuận lợi, dòng tiền khó giữ, dễ hao tán và khả năng tự tạo dựng từ hai bàn tay; điểm cần đọc kỹ nhất là quan hệ giữa khuynh hướng tài lộc thuận lợi và những giới hạn về tài chính, vì đó là hai chiều cùng có điều kiện kích hoạt trong lá số. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 12 nhận định từ quy tắc nháp không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
 
 ### Quan hệ
 
@@ -146,7 +145,7 @@ Theo cách luận truyền thống (không phải dự báo), bên cạnh đó, 
 
 Đặt Phu Thê, Mệnh và Phúc Đức cạnh nhau để xem sự tương tác giữa tính cách, nhu cầu cảm xúc và các mối quan hệ. Về vị trí, Thân cư Phu Thê, nên cung này được đọc như nơi con người dồn sức về sau; Phúc Đức không thuộc tam phương của Mệnh, nên quan hệ với Mệnh là quan hệ chủ đề chứ không phải hội chiếu. Phong thái nhã nhặn, có sức hút (cung Phúc Đức) và thuận lợi đến nhanh nhưng khó giữ lâu (cung Mệnh) nên được đọc cùng nhau: sức hút đến nhanh, nhưng cần được giữ bằng điều bền hơn.
 
-Tóm lại, chân dung ở chương này dựng trên 3 lớp: sự nâng đỡ từ gia đình, những điều kiện riêng về thời điểm và hoàn cảnh kết duyên và hình ảnh người bạn đời; điểm cần đọc kỹ nhất là quan hệ giữa sự nâng đỡ từ gia đình và sự phân tán trong quan hệ gia đình, vì đó là hai chiều cùng có điều kiện kích hoạt trong lá số. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 9 nhận định từ quy tắc nháp, 1 nhận định bị loại vì điều kiện trong bộ quy tắc rộng hơn câu sách không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
+Tóm lại, chân dung ở chương này dựng trên 3 lớp: sự nâng đỡ từ gia đình, những điều kiện riêng về thời điểm và hoàn cảnh kết duyên và hình ảnh người bạn đời; điểm cần đọc kỹ nhất là quan hệ giữa sự nâng đỡ từ gia đình và sự phân tán trong quan hệ gia đình, vì đó là hai chiều cùng có điều kiện kích hoạt trong lá số. Mỗi nhận định chỉ có nghĩa trong điều kiện của quy tắc sinh ra nó; 9 nhận định từ quy tắc nháp không được đưa vào phần tổng hợp (vẫn xem được trong danh sách chi tiết bên dưới).
 
 ### Đại hạn & lưu niên
 

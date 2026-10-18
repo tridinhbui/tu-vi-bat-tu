@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import dataclasses
+from functools import lru_cache
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -328,9 +329,27 @@ def rule_test(req: RuleTestReq):
 
 @app.get("/api/claims")
 def claims_vi():
-    """Vietnamese phrasing for each claim id, used by the UI to label findings."""
+    """Vietnamese phrasing for each claim id, used by the UI to label findings, plus 'tone:<claim>' (+ / - / ~) and 'facet:<claim>' (leading idea, used for chapter routing) read by the semantic lexicon
+    (tvbt/synthesis/semantics.py: longest-cue matching with negation), so the plain-language mode never files 'ít mất công lao khó nhọc'
+    under 'Điểm cần cân nhắc' because it contains 'khó'."""
+    return _claims_with_tone()
+
+
+@lru_cache(maxsize=1)
+def _claims_with_tone() -> dict:
     import json
-    return json.loads((ROOT / "data" / "claims_vi.json").read_text("utf-8"))
+    from .synthesis.semantics import claim_facet, claim_tone
+    raw = json.loads((ROOT / "data" / "claims_vi.json").read_text("utf-8"))
+    out = dict(raw)
+    for k, v in raw.items():
+        if k.startswith("limit:"):
+            continue
+        t, f = claim_tone(v), claim_facet(v)
+        if t:
+            out["tone:" + k] = t
+        if f:
+            out["facet:" + k] = f
+    return out
 
 
 @app.get("/api/dignity/compare")

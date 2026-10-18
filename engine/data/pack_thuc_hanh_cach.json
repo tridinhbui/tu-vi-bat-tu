@@ -511,7 +511,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_quy_tinh_giap_menh",
+     "claim": "cach_quy_tinh_giap_menh__th_cach_menh_giap_xk",
      "effect": "support",
      "scope": "natal"
     }
@@ -553,7 +553,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_quy_tinh_giap_menh",
+     "claim": "cach_quy_tinh_giap_menh__th_cach_menh_giap_kv",
      "effect": "support",
      "scope": "natal"
     }
@@ -608,7 +608,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_quy_tinh_giap_menh",
+     "claim": "cach_quy_tinh_giap_menh__th_cach_menh_giap_nn",
      "effect": "support",
      "scope": "natal"
     }
@@ -755,7 +755,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_loc_ma_giao_tri",
+     "claim": "cach_loc_ma_giao_tri__th_cach_tai_bach_loc_ma",
      "effect": "support",
      "scope": "natal"
     }
@@ -806,7 +806,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_loc_ma_giao_tri",
+     "claim": "cach_loc_ma_giao_tri__th_cach_quan_loc_loc_ma",
      "effect": "support",
      "scope": "natal"
     }
@@ -857,7 +857,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_loc_ma_giao_tri",
+     "claim": "cach_loc_ma_giao_tri__th_cach_thien_di_loc_ma",
      "effect": "support",
      "scope": "natal"
     }
@@ -1488,7 +1488,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_kim_du_phu_gia",
+     "claim": "cach_kim_du_phu_gia__th_cach_quan_loc_kim_du",
      "effect": "support",
      "scope": "natal"
     }
@@ -1535,7 +1535,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_phu_bat_cung_de",
+     "claim": "cach_phu_bat_cung_de__th_cach_quan_loc_phu_bat",
      "effect": "support",
      "scope": "natal"
     }
@@ -1587,7 +1587,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_tham_hoa_tuong_hoi",
+     "claim": "cach_tham_hoa_tuong_hoi__th_cach_quan_loc_tham_hoa",
      "effect": "support",
      "scope": "natal"
     }
@@ -1643,7 +1643,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "cach_loc_ma_boi_an",
+     "claim": "cach_loc_ma_boi_an__th_cach_quan_loc_loc_ma_boi_an",
      "effect": "support",
      "scope": "natal"
     }

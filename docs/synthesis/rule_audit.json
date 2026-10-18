@@ -1,8 +1,8 @@
 {
  "rules_tu_vi": 1332,
- "claims": 1274,
+ "claims": 1296,
  "shared_claims": {
-  "count": 46,
+  "count": 30,
   "max_rules_per_claim": 6,
   "examples": {
    "huong_cong_chuc": [
@@ -21,17 +21,9 @@
     "TV_TH_VERSE_MENH_TAU_THU",
     "TV_KL_AUX_TAU_THU"
    ],
-   "hay_dinh_viec_cong_mon": [
-    "TV_TH_VERSE_MENH_QUAN_PHU_THAI_TUE",
-    "TV_KL_AUX_QUAN_PHU_VIET"
-   ],
    "tu_vi_ta_huu_uy_quyen": [
     "TV_KL_PHU_TU_VI_TA_HUU",
     "TV_TT_MENH_TU_VI_TA_HUU"
-   ],
-   "tu_vi_ngo_tam_hoa_cach_tot": [
-    "TV_KL_PHU_TU_VI_NGO_TAM_HOA",
-    "TV_TT_MENH_TV_TY_NGO_TAM_HOA"
    ],
    "tu_vi_xuong_khuc_giau_sang": [
     "TV_KL_PHU_TU_VI_XUONG_KHUC",
@@ -45,18 +37,6 @@
     "TV_KL_PHU_PHU_XUONG_KHUC_TA_HUU",
     "TV_TT_MENH_PHU_XUONG_KHUC_TA_HUU"
    ],
-   "duong_ty_loc_lau_dai": [
-    "TV_KL_PHU_DUONG_TY_CU_HOI",
-    "TV_TT_MENH_DUONG_TY_CU_HOI"
-   ],
-   "duong_hoi_cong_danh_trac_tro": [
-    "TV_KL_PHU_DUONG_HOI_CU_TY",
-    "TV_TT_MENH_DUONG_HOI_CU_TY"
-   ],
-   "am_hoi_phu_quy_chuc_cao": [
-    "TV_KL_PHU_AM_HOI_SANG",
-    "TV_TT_MENH_AM_HOI"
-   ],
    "tham_hoa_linh_tu_mo_quyen_the": [
     "TV_KL_PHU_THAM_HOA_LINH_TU_MO",
     "TV_TT_MENH_THAM_HOA_LINH_TU_MO"
@@ -64,11 +44,31 @@
    "cu_ngoc_trong_da": [
     "TV_KL_PHU_CU_TY_NGO_TAM_HOA",
     "TV_TT_MENH_CU_TY_NGO_TAM_HOA"
+   ],
+   "luong_ma_hay_di_chuyen": [
+    "TV_KL_PHU_LUONG_MA",
+    "TV_TT_MENH_LUONG_MA"
+   ],
+   "sat_tu_tinh_phu_quy": [
+    "TV_KL_PHU_SAT_TU_MENH",
+    "TV_TT_MENH_SAT_TU_MENH"
+   ],
+   "xuong_khuc_loc_ton_tai_la": [
+    "TV_KL_PHU_XUONG_KHUC_LOC_TON",
+    "TV_TT_MENH_XUONG_KHUC_LOC"
+   ],
+   "khoi_viet_van_chuong": [
+    "TV_KL_PHU_KHOI_VIET_MENH",
+    "TV_TT_MENH_KHOI_VIET_MENH"
+   ],
+   "loc_ton_ty_ngo_tien_bac_nhieu": [
+    "TV_KL_PHU_LOC_TON_TY_NGO",
+    "TV_TT_MENH_LOC_TON_TY_NGO"
    ]
   }
  },
  "label_condition": {
-  "count": 36,
+  "count": 22,
   "items": [
    {
     "rule": "TV_TH_VERSE_MENH_TRIET_TUAN",
@@ -89,12 +89,6 @@
     "rule_condition": "Hóa Lộc ở Mệnh nhưng đóng Tứ Mộ"
    },
    {
-    "rule": "TV_TT_MENH_TV_TY_NGO_TAM_HOA",
-    "claim": "tu_vi_ngo_tam_hoa_cach_tot",
-    "label_condition": "Tử Vi ở Ngọ được Khoa, Quyền, Lộc hội chiếu",
-    "rule_condition": "Tử Vi ở Tý hoặc Ngọ được Khoa, Quyền, Lộc tam phương chiếu"
-   },
-   {
     "rule": "TV_TT_MENH_TU_VI_TA_HUU",
     "claim": "tu_vi_ta_huu_uy_quyen",
     "label_condition": "Tử Vi đồng cung Tả Phụ, Hữu Bật",
@@ -107,16 +101,10 @@
     "rule_condition": "Tử Vi hội Văn Xương, Văn Khúc"
    },
    {
-    "rule": "TV_TT_MENH_DUONG_THAN",
-    "claim": "duong_mui_dau_cham_sau_luoi",
-    "label_condition": "Thái Dương ở Mùi",
-    "rule_condition": "Thái Dương ở Thân"
-   },
-   {
-    "rule": "TV_TT_DIEN_TRACH_VU_THAM",
-    "claim": "vu_tham_tai_dien_hoanh_phat",
-    "label_condition": "Vũ Khúc đi đôi Tham Lang ở Tài Bạch",
-    "rule_condition": "Vũ Khúc đi đôi Tham Lang ở Điền Trạch"
+    "rule": "TV_TT_MENH_PHU_TUONG_TRIEU_VIEN",
+    "claim": "phu_tuong_trieu_vien_luong_cao",
+    "label_condition": "khuynh hướng thượng cách, thu nhập và bổng lộc cao (Mệnh Dần/Thân, Phủ Tướng ở Tài Bạch và Quan Lộc chầu vào)",
+    "rule_condition": "palace = Mệnh"
    },
    {
     "rule": "TV_TT_MENH_PHU_XUONG_KHUC_TA_HUU",
@@ -125,40 +113,10 @@
     "rule_condition": "Thiên Phủ gặp Xương Khúc, Tả Hữu"
    },
    {
-    "rule": "TV_TT_DIEN_TRACH_PHU_VU_QUYEN_LOC",
-    "claim": "phu_vu_tai_dien_giau",
-    "label_condition": "Thiên Phủ, Vũ Khúc ở Tài Bạch được Quyền, Lộc hoặc Lộc Tồn tụ vào",
-    "rule_condition": "Thiên Phủ, Vũ Khúc ở Điền Trạch được Quyền, Lộc hoặc Lộc Tồn tụ vào"
-   },
-   {
-    "rule": "TV_TT_PHU_THE_AM_VAN_KHUC",
-    "claim": "phu_the_am_khuc_hoi_bat_doi_sang",
-    "label_condition": "cung Phu Thê có Thái Âm đồng cung Văn Khúc ở Hợi",
-    "rule_condition": "Thái Âm đồng cung Văn Khúc ở Phu Thê"
-   },
-   {
-    "rule": "TV_TT_MENH_AM_HOI",
-    "claim": "am_hoi_phu_quy_chuc_cao",
-    "label_condition": "Thái Âm sáng đẹp ở Hợi",
-    "rule_condition": "Thái Âm ở Hợi: trăng sáng cửa trời"
-   },
-   {
     "rule": "TV_TT_MENH_THAM_HOA_LINH_TU_MO",
     "claim": "tham_hoa_linh_tu_mo_quyen_the",
     "label_condition": "Tham Lang đồng cung Hỏa hoặc Linh ở Tứ Mộ",
     "rule_condition": "Tham Lang gặp Hỏa hoặc Linh ở Tứ Mộ"
-   },
-   {
-    "rule": "TV_TT_MENH_DUONG_TY_CU_HOI",
-    "claim": "duong_ty_loc_lau_dai",
-    "label_condition": "Thái Dương ở Tỵ, Cự Môn ở Hợi xung chiếu",
-    "rule_condition": "Cự Môn ở Hợi, Thái Dương thủ Mệnh ở Tỵ"
-   },
-   {
-    "rule": "TV_TT_MENH_DUONG_HOI_CU_TY",
-    "claim": "duong_hoi_cong_danh_trac_tro",
-    "label_condition": "Thái Dương ở Hợi, Cự Môn ở Tỵ xung chiếu",
-    "rule_condition": "Cự Môn ở Tỵ, Thái Dương thủ Mệnh ở Hợi"
    },
    {
     "rule": "TV_TT_MENH_CU_TY_NGO_TAM_HOA",
@@ -179,6 +137,12 @@
     "rule_condition": "Thất Sát thủ Mệnh ở Dần, Thân, Tý hoặc Ngọ"
    },
    {
+    "rule": "TV_TT_MENH_TA_HUU_TAI_QUAN",
+    "claim": "ta_huu_tai_quan_chieu_day_du",
+    "label_condition": "khuynh hướng đời sống đầy đủ (Tả Hữu ở Tài Bạch, Quan Lộc chiếu Mệnh)",
+    "rule_condition": "palace = Mệnh"
+   },
+   {
     "rule": "TV_TT_MENH_KHOI_VIET_MENH",
     "claim": "khoi_viet_van_chuong",
     "label_condition": "Khôi, Việt ở Mệnh",
@@ -195,18 +159,6 @@
     "claim": "noi_ngot_de_thuyet_phuc",
     "label_condition": "Tấu Thư tại Mệnh",
     "rule_condition": "Tấu Thư ở Mệnh"
-   },
-   {
-    "rule": "TV_KL_AUX_QUAN_PHU_VIET",
-    "claim": "hay_dinh_viec_cong_mon",
-    "label_condition": "Quan Phủ và Thái Tuế đồng cung Mệnh",
-    "rule_condition": "Quan Phủ ở Mệnh"
-   },
-   {
-    "rule": "TV_TH_AUX_MENH_XK_LOC_TON",
-    "claim": "xuong_khuc_loc_ton_tai_la",
-    "label_condition": "Xương Khúc đồng cung Lộc Tồn",
-    "rule_condition": "Xương Khúc miếu vượng gặp Lộc Tồn"
    },
    {
     "rule": "TV_TH_AUX_MENH_XK_TY_HOI",
@@ -233,63 +185,27 @@
     "rule_condition": "Hóa Lộc ở Tý hoặc Ngọ"
    },
    {
-    "rule": "TV_TH_CACH_MENH_GIAP_XK",
-    "claim": "cach_quy_tinh_giap_menh",
-    "label_condition": "Tả, Hữu kẹp hai bên",
-    "rule_condition": "Xương, Khúc kẹp hai bên"
+    "rule": "TV_TH_AUX2_PHUC_DUC_DUONG",
+    "claim": "duong_menh_nguoi_men_nhan_con_nuoi",
+    "label_condition": "khuynh hướng được nhiều người mến, có người muốn nhận làm con nuôi (sao Dưỡng ở Mệnh hoặc Phúc)",
+    "rule_condition": "palace = Phúc Đức"
    },
    {
-    "rule": "TV_TH_CACH_MENH_GIAP_KV",
-    "claim": "cach_quy_tinh_giap_menh",
-    "label_condition": "Tả, Hữu kẹp hai bên",
-    "rule_condition": "Khôi, Việt kẹp hai bên"
+    "rule": "TV_TH_MV_MENH_TU_HANH_VCD",
+    "claim": "cach_tu_hanh_vcd_nhieu_sat",
+    "label_condition": "khuynh hướng thiên về tu hành, lánh tục lụy (Mệnh vô chính diệu gặp nhiều sát tinh); sách dặn xem thêm cung Phụ Mẫu, Phối, Tử",
+    "rule_condition": "palace = Mệnh"
    },
    {
-    "rule": "TV_TH_CACH_MENH_GIAP_NN",
-    "claim": "cach_quy_tinh_giap_menh",
-    "label_condition": "Tả, Hữu kẹp hai bên",
-    "rule_condition": "Thiên Phủ ở Sửu/Mùi, giáp Nhật và Nguyệt"
-   },
-   {
-    "rule": "TV_TH_CACH_QUAN_LOC_KIM_DU",
-    "claim": "cach_kim_du_phu_gia",
-    "label_condition": "Tử Vi ở cung Mệnh giáp Tả Hữu hoặc Thiếu Dương, Thiếu Âm",
-    "rule_condition": "Tử Vi ở cung Quan Lộc giáp Tả Hữu hoặc Thiếu Dương, Thiếu Âm"
-   },
-   {
-    "rule": "TV_TH_CACH_QUAN_LOC_PHU_BAT",
-    "claim": "cach_phu_bat_cung_de",
-    "label_condition": "Tử Vi ở cung Mệnh, Tả Hữu hợp chiếu",
-    "rule_condition": "Tử Vi ở cung Quan Lộc, Tả Hữu hợp chiếu"
-   },
-   {
-    "rule": "TV_TH_CACH_QUAN_LOC_THAM_HOA",
-    "claim": "cach_tham_hoa_tuong_hoi",
-    "label_condition": "cung Mệnh ở Tứ mộ có Tham Lang gặp Hỏa: phát về võ hoặc kinh thương",
-    "rule_condition": "cung Quan Lộc ở Tứ mộ có Tham Lang gặp Hỏa: phát về võ hoặc kinh thương"
-   },
-   {
-    "rule": "TV_TH_CACH_QUAN_LOC_LOC_MA_BOI_AN",
-    "claim": "cach_loc_ma_boi_an",
-    "label_condition": "cung Mệnh có Thiên Tướng đắc địa, Lộc và Mã giáp hai bên",
-    "rule_condition": "cung Quan Lộc có Thiên Tướng đắc địa, Lộc và Mã giáp hai bên"
-   },
-   {
-    "rule": "TV_TT_PHU_TAI_BACH_QUYEN_LOC_VINH_HOA",
-    "claim": "tt_phu_quyen_loc_vinh_hoa",
-    "label_condition": "Hóa Quyền hoặc Hóa Lộc nhập miếu ở Mệnh",
-    "rule_condition": "Hóa Quyền hoặc Hóa Lộc nhập miếu ở Tài Bạch"
-   },
-   {
-    "rule": "TV_TT_PHU_QUAN_LOC_QUYEN_LOC_VINH_HOA",
-    "claim": "tt_phu_quyen_loc_vinh_hoa",
-    "label_condition": "Hóa Quyền hoặc Hóa Lộc nhập miếu ở Mệnh",
-    "rule_condition": "Hóa Quyền hoặc Hóa Lộc nhập miếu ở Quan Lộc"
+    "rule": "TV_TT_PHU_TAI_BACH_LOC_TON",
+    "claim": "tt_phu_loc_ton_dien_tai_doi_kim_tich_ngoc",
+    "label_condition": "khuynh hướng vàng ngọc đầy kho (Lộc Tồn ở Điền Trạch hoặc Tài Bạch)",
+    "rule_condition": "palace = Tài Bạch"
    }
   ]
  },
  "limit_positive_label": {
-  "count": 14,
+  "count": 13,
   "items": [
    {
     "rule": "TV_KL_PHU_TU_PHU_TUAN_TRIET",
@@ -313,14 +229,6 @@
     "own_reading": "tài lộc giảm đi quá nửa phần phú quý ; gặp Tham, Vũ thì lại rực rỡ",
     "concepts_in_label": [
      "fin.abundance"
-    ]
-   },
-   {
-    "rule": "TV_TH_P2_TAI_BACH_TT",
-    "label": "hạn chế: tiền của không có sẵn, phải tự gây dựng (Tuần/Triệt ở Tài Bạch)",
-    "own_reading": "tiền của không có sẵn, phải tự gây dựng",
-    "concepts_in_label": [
-     "fin.self_made"
     ]
    },
    {
@@ -406,26 +314,8 @@
   ]
  },
  "scope_mismatch": {
-  "count": 4,
+  "count": 2,
   "items": [
-   {
-    "rule": "TV_KL_PHU_DUONG_TY_CU_HOI",
-    "book_condition": "Thái Dương ở Tỵ, Cự Môn ở Hợi xung chiếu",
-    "pack_facts": [
-     "palace.branch",
-     "palace.own_major_stars",
-     "palace.tam_phuong_majors"
-    ]
-   },
-   {
-    "rule": "TV_KL_PHU_DUONG_HOI_CU_TY",
-    "book_condition": "Thái Dương ở Hợi, Cự Môn ở Tỵ xung chiếu",
-    "pack_facts": [
-     "palace.branch",
-     "palace.own_major_stars",
-     "palace.tam_phuong_majors"
-    ]
-   },
    {
     "rule": "TV_TT_MENH_LOC_MA",
     "book_condition": "Lộc Tồn ở Mệnh có Thiên Mã đồng cung hoặc chiếu",
@@ -445,7 +335,7 @@
   ]
  },
  "corroboration": {
-  "count": 40,
+  "count": 39,
   "items": [
    {
     "palace": "Mệnh",
@@ -577,23 +467,6 @@
     "books": [
      "SRC_KHAO_LUAN",
      "SRC_THUC_HANH"
-    ]
-   },
-   {
-    "palace": "Mệnh",
-    "concept": "fin.abundance",
-    "root": [
-     "own:Thái Dương",
-     "palace.branch:Tỵ",
-     "tp:Cự Môn"
-    ],
-    "rules": [
-     "TV_KL_PHU_DUONG_TY_CU_HOI",
-     "TV_TT_MENH_DUONG_TY_CU_HOI"
-    ],
-    "books": [
-     "SRC_KHAO_LUAN",
-     "SRC_TOAN_THU"
     ]
    },
    {
@@ -849,6 +722,7 @@
     "rules": [
      "TV_KL_CUNG_TAI_BACH_LOC_TON",
      "TV_TT_TAI_BACH_LOC_TON",
+     "TV_TT_PAL_TAI_BACH_LOC_TON_BASE_P",
      "TV_TT_PHU_TAI_BACH_LOC_TON"
     ],
     "books": [
@@ -1099,35 +973,39 @@
  },
  "mapping_sample": [
   {
-   "rule": "TV_KL_AUX_KHONG_KIEP",
-   "reading": "thiên về ích kỷ, liều lĩnh",
-   "concepts": [
-    "values.selfish",
-    "temper.reckless"
-   ]
-  },
-  {
-   "rule": "TV_KL_AUX_PHUC_BINH",
-   "reading": "hay giấu nỗi sầu trong lòng",
+   "rule": "TV_KL_AUX_BENH_PHU",
+   "reading": "vui cũng mang vẻ u sầu",
    "concepts": [
     "emo.melancholy"
    ]
   },
   {
-   "rule": "TV_KL_AUX_QUAN_PHU_VIET",
-   "reading": "dễ bị miệng tiếng, vướng thủ tục quan phủ",
+   "rule": "TV_KL_AUX_DIEU_KHACH",
+   "reading": "nói nhiều, thích khoe khoang, ham vui chơi",
    "concepts": [
     "comm.friction",
-    "life.legal"
+    "life.indulgent"
    ]
   },
   {
-   "rule": "TV_KL_AUX_SONG_HAO",
-   "reading": "vất vả ngược xuôi, hao hụt tài lộc",
+   "rule": "TV_KL_AUX_LOC_TON",
+   "reading": "nhân từ, hay cứu giúp, dè dặt khôn ngoan nhưng dễ keo kiệt và cô đơn",
    "concepts": [
-    "life.hardship",
-    "fin.volatile",
-    "fin.abundance"
+    "values.kind",
+    "comm.reserved",
+    "cog.sharp",
+    "values.selfish",
+    "emo.melancholy"
+   ]
+  },
+  {
+   "rule": "TV_KL_AUX_QUAN_PHU",
+   "reading": "tự cao, hay xét đoán và lý luận, liên quan việc pháp luật; tốt nếu gặp Xương Khúc và Thái Tuế",
+   "concepts": [
+    "temper.proud",
+    "cog.analytic",
+    "path.public",
+    "life.blessed"
    ]
   },
   {
@@ -1146,6 +1024,13 @@
    ]
   },
   {
+   "rule": "TV_KL_AUX_TUAN_TRIET",
+   "reading": "vui ít buồn nhiều",
+   "concepts": [
+    "emo.melancholy"
+   ]
+  },
+  {
    "rule": "TV_KL_AUX_TUONG_QUAN",
    "reading": "tự cao, ‘ta đây’",
    "concepts": [
@@ -1153,53 +1038,48 @@
    ]
   },
   {
-   "rule": "TV_KL_AUX_XUONG_KHUC_DAC_DIA",
-   "reading": "tài hoa, có công danh",
-   "concepts": [
-    "presence.charm",
-    "career.status"
-   ]
-  },
-  {
-   "rule": "TV_KL_CASE_MENH_AM_HAM_QUYEN",
-   "reading": "có sự nghiệp nhưng không bền: có quyền khi có tiền, hết tiền thì hết quyền",
-   "concepts": [
-    "fin.volatile"
-   ]
-  },
-  {
-   "rule": "TV_KL_CASE_MENH_AM_NU",
-   "reading": "lo sự nghiệp, tiền bạc sớm, ít màng đến công danh",
-   "concepts": [
-    "amb.material_focus"
-   ]
-  },
-  {
-   "rule": "TV_KL_CASE_MENH_GOC_NUOI_NGON",
-   "reading": "gốc nuôi ngọn: được hưởng phúc về sau",
-   "concepts": [
-    "life.blessed"
-   ]
-  },
-  {
-   "rule": "TV_KL_CASE_MENH_GOC_PHA_NGON",
-   "reading": "gốc phá ngọn: không hưởng phúc lâu dài",
+   "rule": "TV_KL_CASE_MENH_CUC_KHAC_MENH",
+   "reading": "dễ gặp trở ngại trên đường đời",
    "concepts": [
     "life.hardship"
    ]
   },
   {
-   "rule": "TV_KL_CASE_MENH_NHAT_LUONG_MAO",
-   "reading": "cách Nhật xuất phù tang , sang quý",
+   "rule": "TV_KL_CASE_MENH_DAC_CHINH_AM",
+   "reading": "mềm dẻo, khôn khéo",
    "concepts": [
-    "career.status"
+    "adapt.flexible"
    ]
   },
   {
-   "rule": "TV_KL_CASE_QUAN_LOC_LIEM_PHU_QUAN_PHU",
-   "reading": "thận trọng, có uy tín với mọi người xung quanh",
+   "rule": "TV_KL_CASE_MENH_TU_CHINH",
+   "reading": "tinh thần trách nhiệm cao, luôn lo giữ uy tín",
    "concepts": [
     "values.integrity"
+   ]
+  },
+  {
+   "rule": "TV_KL_CASE_PHU_MAU_TU_SAT",
+   "reading": "sớm rời gia đình lập nghiệp từ nhỏ, có dịp làm giàu nhanh nhưng cũng dễ hao tài đột ngột",
+   "concepts": [
+    "fin.abundance",
+    "fin.volatile"
+   ]
+  },
+  {
+   "rule": "TV_KL_CASE_PHU_MAU_TU_SAT",
+   "reading": "sớm rời gia đình lập nghiệp từ nhỏ, có dịp làm giàu nhanh nhưng cũng dễ hao tài đột ngột",
+   "concepts": [
+    "fin.abundance",
+    "fin.volatile"
+   ]
+  },
+  {
+   "rule": "TV_KL_CASE_QUAN_LOC_AM_TUAN",
+   "reading": "sự nghiệp đáng lẽ tốt đẹp lại lụi tàn như trăng sáng bị mây che",
+   "concepts": [
+    "life.blessed",
+    "career.obstacle"
    ]
   },
   {
@@ -1207,6 +1087,13 @@
    "reading": "dễ tranh chấp lớn và hao tán tiền bạc",
    "concepts": [
     "fin.volatile"
+   ]
+  },
+  {
+   "rule": "TV_KL_CASE_TAI_BACH_NHAT_LUONG_MAO",
+   "reading": "cách Nhật xuất phù tang , sang quý",
+   "concepts": [
+    "career.status"
    ]
   },
   {
@@ -1218,43 +1105,23 @@
    ]
   },
   {
-   "rule": "TV_KL_CASE_TAI_BACH_THAN",
-   "reading": "tiền bạc là mối lo chính của cuộc đời",
+   "rule": "TV_KL_CASE_TU_TUC_TU_PHA_TRIET",
+   "reading": "cả đời phải giao thiệp với giới làm ăn bạo tợn, hay vô ơn",
+   "concepts": []
+  },
+  {
+   "rule": "TV_KL_CT_CNDL_KQL_KV_XK",
+   "reading": "hợp con đường học thuật, giảng dạy có tiếng ; hệ thống đọc 'Khôi Việt, Xương Khúc' là ít nhất một sao mỗi cặp",
    "concepts": [
-    "fin.scarcity"
+    "exp.letters"
    ]
   },
   {
-   "rule": "TV_KL_CASE_TAI_BACH_VU_TUONG_LOC",
-   "reading": "giàu sang bền vững",
+   "rule": "TV_KL_CT_CU_CO_MAO_DAU",
+   "reading": "giàu nhưng hay gặp chuyện ngang trái",
    "concepts": [
-    "fin.stable"
-   ]
-  },
-  {
-   "rule": "TV_KL_CO_LUONG_SAT_TUONG_QUAN",
-   "reading": "nghiêng về võ thuật hoặc đời sống tu hành, di chuyển nhiều",
-   "concepts": [
-    "exp.martial",
-    "spirit.unworldly",
-    "life.mobility"
-   ]
-  },
-  {
-   "rule": "TV_KL_CO_LUONG_THIN_TUAT_NHAN_TU",
-   "reading": "tính nhân từ và thiên về đời sống tu hành",
-   "concepts": [
-    "values.kind",
-    "spirit.unworldly"
-   ]
-  },
-  {
-   "rule": "TV_KL_CT_CNDL",
-   "reading": "hàng trí thức, công bộc, giỏi chữ nghĩa nhưng hay giữ phận, ngại mất cái mình có",
-   "concepts": [
-    "exp.letters",
-    "path.service",
-    "spirit.unworldly"
+    "fin.abundance",
+    "life.hardship"
    ]
   },
   {
@@ -1276,19 +1143,25 @@
    ]
   },
   {
-   "rule": "TV_KL_CT_DAO_HOA",
-   "reading": "đường đời nhiều lận đận, vất vả",
+   "rule": "TV_KL_CT_CU_THU_MENH",
+   "reading": "thông minh, mưu trí, phán xét sáng suốt",
    "concepts": [
-    "life.hardship"
+    "cog.sharp"
    ]
   },
   {
-   "rule": "TV_KL_CT_DAO_NGO",
-   "reading": "có danh cũng kèm điều tiếng, tình cảm dễ dang dở",
+   "rule": "TV_KL_CT_DAO_DAU",
+   "reading": "công danh chậm trễ, sớm yên phận",
    "concepts": [
-    "career.fame",
-    "comm.friction",
-    "rel.strain"
+    "career.late",
+    "spirit.unworldly"
+   ]
+  },
+  {
+   "rule": "TV_KL_CT_DAO_HONG_CUNG",
+   "reading": "công danh và tình cảm đến nhanh",
+   "concepts": [
+    "emo.romantic"
    ]
   },
   {
@@ -1299,23 +1172,6 @@
    ]
   },
   {
-   "rule": "TV_KL_CT_DONG_THU_MENH",
-   "reading": "thông minh, nhân hậu, từ thiện nhưng hay thay đổi ý kiến, có thể tay trắng làm nên",
-   "concepts": [
-    "cog.sharp",
-    "values.kind",
-    "adapt.unsteady",
-    "fin.self_made"
-   ]
-  },
-  {
-   "rule": "TV_KL_CT_HONG_LOAN",
-   "reading": "phong nhã, hào hoa",
-   "concepts": [
-    "presence.charm"
-   ]
-  },
-  {
    "rule": "TV_KL_CT_LIEM_DON_THU",
    "reading": "thiên về sang, địa vị",
    "concepts": [
@@ -1323,36 +1179,11 @@
    ]
   },
   {
-   "rule": "TV_KL_CT_LIEM_TUONG_NGO",
-   "reading": "nghiêm chỉnh, trung thực, căn cơ chắt bóp",
+   "rule": "TV_KL_CT_PHU_THU_MENH",
+   "reading": "tự tin ('ta đây'), dễ bị ganh ghét",
    "concepts": [
-    "values.integrity",
-    "disc.diligent",
-    "fin.frugal"
-   ]
-  },
-  {
-   "rule": "TV_KL_CT_LUONG_DUONG",
-   "reading": "đỗ đạt sớm, giàu sang nổi tiếng",
-   "concepts": [
-    "career.early",
-    "fin.abundance",
-    "career.fame"
-   ]
-  },
-  {
-   "rule": "TV_KL_CT_NHAT_NGUYET_DONG_CUNG",
-   "reading": "lo soi sáng cho người khác, bản thân chưa hẳn hơn người",
-   "concepts": []
-  },
-  {
-   "rule": "TV_KL_CT_PHA_THU_MENH",
-   "reading": "năng động, hiếu thắng, tự đắc, thích nghe nịnh, khí khái hiên ngang nhưng thăng trầm",
-   "concepts": [
-    "amb.drive",
     "temper.proud",
-    "temper.assertive",
-    "life.hardship"
+    "social.isolated"
    ]
   },
   {
@@ -1369,22 +1200,6 @@
    ]
   },
   {
-   "rule": "TV_KL_CT_TUONG_LIEM",
-   "reading": "quán xuyến mọi bề",
-   "concepts": [
-    "disc.diligent"
-   ]
-  },
-  {
-   "rule": "TV_KL_CT_TUONG_THU_MENH",
-   "reading": "đôn hậu, thẳng thắn, thích ăn ngon mặc đẹp",
-   "concepts": [
-    "values.kind",
-    "values.integrity",
-    "life.pleasure"
-   ]
-  },
-  {
    "rule": "TV_KL_CT_TUONG_TRIET",
    "reading": "dễ phải rời bỏ chức vụ giữa chừng",
    "concepts": [
@@ -1392,31 +1207,46 @@
    ]
   },
   {
-   "rule": "TV_KL_CT_TV_PHU_DAN_THAN",
-   "reading": "phúc lớn, giàu sang, ổn định",
+   "rule": "TV_KL_CT_TUONG_VU",
+   "reading": "tài đảm, được nể vì",
    "concepts": [
-    "life.blessed",
-    "fin.abundance",
-    "fin.stable"
+    "disc.diligent",
+    "career.authority"
    ]
   },
   {
-   "rule": "TV_KL_CT_TV_TUONG_THIN_TUAT",
-   "reading": "có danh nhưng phải vất vả mới thành công",
+   "rule": "TV_KL_CT_TV_PHA_SUU_MUI",
+   "reading": "đa đoan, liều lĩnh nhưng cũng nổi danh một thời",
    "concepts": [
-    "career.fame",
     "life.hardship",
-    "career.success"
+    "temper.reckless",
+    "life.transient"
    ]
   },
   {
-   "rule": "TV_KL_CT_VCD_TY_NGO",
-   "reading": "thông minh giỏi giang, có thể không giàu nhưng nổi danh đáng nể",
+   "rule": "TV_KL_CT_TV_THAM_MAO_DAU",
+   "reading": "nhiều tham vọng, thành đạt thì cũng kèm điều tiếng",
    "concepts": [
-    "cog.sharp",
+    "amb.drive",
+    "career.success",
+    "comm.friction"
+   ]
+  },
+  {
+   "rule": "TV_KL_CT_VCD_TU_SAT",
+   "reading": "giỏi giang, đạo đức nhưng không nhất thiết giàu",
+   "concepts": [
     "exp.talent",
-    "fin.scarcity",
-    "career.fame"
+    "values.integrity",
+    "fin.abundance"
+   ]
+  },
+  {
+   "rule": "TV_KL_CT_VU_SAT_MAO_DAU",
+   "reading": "quyết liệt, ít nể nang",
+   "concepts": [
+    "temper.assertive",
+    "temper.headstrong"
    ]
   },
   {
@@ -1424,14 +1254,6 @@
    "reading": "chú trọng tiền bạc, bám giữ của cải",
    "concepts": [
     "fin.frugal"
-   ]
-  },
-  {
-   "rule": "TV_KL_CUNG_DIEN_TRACH_KQL",
-   "reading": "nhà cửa tốt, có điều kiện ở nơi khang trang",
-   "concepts": [
-    "prop.rich",
-    "life.blessed"
    ]
   },
   {
@@ -1443,27 +1265,37 @@
    ]
   },
   {
-   "rule": "TV_KL_CUNG_DIEN_TRACH_THAI_AM",
-   "reading": "nhiều nhà cửa",
+   "rule": "TV_KL_CUNG_MENH_GIAP_KHOI_VIET",
+   "reading": "được người quý trọng, mến chuộng",
    "concepts": [
-    "prop.rich"
+    "presence.charm"
    ]
   },
   {
-   "rule": "TV_KL_CUNG_MENH_GIAP_XUONG_KHUC",
-   "reading": "được người bề trên giúp đỡ",
+   "rule": "TV_KL_CUNG_MENH_GIAP_NHAT_NGUYET",
+   "reading": "đường hiển đạt",
+   "concepts": [
+    "career.status"
+   ]
+  },
+  {
+   "rule": "TV_KL_CUNG_MENH_GIAP_TA_HUU",
+   "reading": "khá giả, nhiều người giúp",
+   "concepts": [
+    "fin.abundance",
+    "social.support"
+   ]
+  },
+  {
+   "rule": "TV_KL_CUNG_NO_BOC_PHA_ALONE_TU",
+   "reading": "bạn bè đắc lực",
    "concepts": [
     "social.support"
    ]
   },
   {
-   "rule": "TV_KL_CUNG_NO_BOC_CU_CO",
-   "reading": "bạn bè không thật lòng, ít giúp được",
-   "concepts": []
-  },
-  {
-   "rule": "TV_KL_CUNG_NO_BOC_PHUC_BINH_KY",
-   "reading": "bạn bè, người giúp việc dễ phản chủ",
+   "rule": "TV_KL_CUNG_NO_BOC_SAT_ALONE_TU",
+   "reading": "bạn bè tận tâm",
    "concepts": []
   },
   {
@@ -1472,11 +1304,11 @@
    "concepts": []
   },
   {
-   "rule": "TV_KL_CUNG_PHUC_DUC_CO_NGUYET_DONG_LUONG",
-   "reading": "bình an, giàu có bậc trung",
+   "rule": "TV_KL_CUNG_PHUC_DUC_TU_PHU_VU_TUONG",
+   "reading": "gốc gác danh giá, tài lộc bền",
    "concepts": [
-    "life.blessed",
-    "fin.abundance"
+    "career.status",
+    "fin.stable"
    ]
   },
   {
@@ -1496,10 +1328,10 @@
    ]
   },
   {
-   "rule": "TV_KL_CUNG_PHU_MAU_TU_VI_SPLT",
-   "reading": "dù cha mẹ khá giả, con cái khó hợp tính cha mẹ",
+   "rule": "TV_KL_CUNG_PHU_THE_KINH_DA_KHONG_KIEP",
+   "reading": "tình cảm khó bền, dễ đổ vỡ",
    "concepts": [
-    "fam.positive"
+    "rel.strain"
    ]
   },
   {
@@ -1511,23 +1343,30 @@
    ]
   },
   {
-   "rule": "TV_KL_CUNG_TAI_BACH_KHOA_LT_HL",
-   "reading": "cách đại phú, của trời cho",
+   "rule": "TV_KL_CUNG_QUAN_LOC_SAT_TT",
+   "reading": "công sức xây dựng dễ đổ vỡ",
    "concepts": [
-    "fin.abundance",
-    "fin.windfall"
+    "rel.strain"
    ]
   },
   {
-   "rule": "TV_KL_CUNG_TAI_BACH_KQL_MA",
-   "reading": "giàu sang rõ nét",
+   "rule": "TV_KL_CUNG_QUAN_LOC_TU_VI_DAC_DIA",
+   "reading": "danh vọng, địa vị cao",
+   "concepts": [
+    "career.fame",
+    "career.status"
+   ]
+  },
+  {
+   "rule": "TV_KL_CUNG_TAI_BACH_LOC_MA",
+   "reading": "giàu sang có ngày",
    "concepts": [
     "fin.abundance"
    ]
   },
   {
-   "rule": "TV_KL_CUNG_TAI_BACH_LOC_TON",
-   "reading": "không lo thiếu thốn",
+   "rule": "TV_KL_CUNG_TAI_BACH_THAN_CU_TAI",
+   "reading": "càng đúng cách càng giàu sang",
    "concepts": [
     "fin.abundance"
    ]
@@ -1541,9 +1380,11 @@
    ]
   },
   {
-   "rule": "TV_KL_CUNG_THIEN_DI_VO_CHINH_DIEU",
-   "reading": "môi trường thả nổi, thành bại tùy người mình gặp",
-   "concepts": []
+   "rule": "TV_KL_CUNG_THIEN_DI_SAT_PHA_THAM",
+   "reading": "môi trường nhiều tranh giành, vất vả",
+   "concepts": [
+    "life.hardship"
+   ]
   },
   {
    "rule": "TV_KL_DHK_00_TY",
@@ -1554,20 +1395,19 @@
    ]
   },
   {
-   "rule": "TV_KL_DHK_03_MAO",
-   "reading": "thông minh lãng mạn, công danh bền bỉ, chỉ tội dễ đèo bòng",
+   "rule": "TV_KL_DHK_02_DAN",
+   "reading": "công danh sớm, tình cảm mau tàn, khôn ngoan biết nắm cơ hội",
    "concepts": [
-    "cog.sharp",
-    "emo.romantic"
+    "career.early",
+    "cog.sharp"
    ]
   },
   {
-   "rule": "TV_KL_DHK_05_TY",
-   "reading": "duyên đến sớm nhưng dễ bẽ bàng, khôn ngoan biết nắm cơ hội",
+   "rule": "TV_KL_DHK_04_THIN",
+   "reading": "công danh đến trễ, mộng ước cao",
    "concepts": [
-    "emo.romantic",
-    "rel.strain",
-    "cog.sharp"
+    "career.late",
+    "cog.fanciful"
    ]
   },
   {
@@ -1579,6 +1419,23 @@
    ]
   },
   {
+   "rule": "TV_KL_DHK_08_THAN",
+   "reading": "công danh đến chậm, tình đầu ngang trái, khôn ngoan biết nắm cơ hội",
+   "concepts": [
+    "career.late",
+    "life.hardship",
+    "cog.sharp"
+   ]
+  },
+  {
+   "rule": "TV_KL_DHK_09_DAU",
+   "reading": "tình đầu dang dở, công danh khó bền",
+   "concepts": [
+    "rel.strain",
+    "career.obstacle"
+   ]
+  },
+  {
    "rule": "TV_KL_DHK_10_TUAT",
    "reading": "hoa đào nở đẹp ban mai, ước vọng cao, công danh sớm, sự nghiệp lớn",
    "concepts": [
@@ -1586,8 +1443,13 @@
    ]
   },
   {
-   "rule": "TV_KL_MENH_CO_NGUYET_DONG_LUONG",
-   "reading": "nhóm “lý luận thuần túy”",
+   "rule": "TV_KL_MENH_SAT_PHA_LIEM_THAM",
+   "reading": "nhóm “hành động mạnh mẽ”",
+   "concepts": []
+  },
+  {
+   "rule": "TV_KL_MENH_TU_PHU_VU_TUONG",
+   "reading": "nhóm “hành động có lý luận”",
    "concepts": [
     "cog.analytic"
    ]
@@ -1608,17 +1470,18 @@
    ]
   },
   {
-   "rule": "TV_KL_PHU2_HOA_LOC_TU_MO",
-   "reading": "tài lộc giảm đi nhiều",
+   "rule": "TV_KL_PHU2_DUONG_XUONG_NGO",
+   "reading": "lịch thiệp, nổi bật",
    "concepts": [
-    "fin.scarcity"
+    "comm.persuasive",
+    "presence.charm"
    ]
   },
   {
-   "rule": "TV_KL_PHU2_KHOA_QUYEN_KHOI_VIET",
-   "reading": "thành công lớn",
+   "rule": "TV_KL_PHU2_LIEM_SAT_GIAP",
+   "reading": "công danh đến muộn, về già mới rõ",
    "concepts": [
-    "career.success"
+    "career.late"
    ]
   },
   {
@@ -1629,11 +1492,10 @@
    ]
   },
   {
-   "rule": "TV_KL_PHU2_PHU_THE_AM_KHUC_HOI",
-   "reading": "bạn đời có địa vị, sang quý",
+   "rule": "TV_KL_PHU2_SAT_THAN",
+   "reading": "phú quý trọn vẹn",
    "concepts": [
-    "rel.partner",
-    "career.status"
+    "fin.abundance"
    ]
   },
   {
@@ -1645,48 +1507,18 @@
    ]
   },
   {
-   "rule": "TV_KL_PHU2_TU_THAM_DAU",
-   "reading": "thiếu sức mạnh quyền hành",
+   "rule": "TV_KL_PHU2_TUONG_TA_HUU_Y",
+   "reading": "hợp nghề thầy thuốc, chữa bệnh",
+   "concepts": [
+    "exp.craft",
+    "well.health"
+   ]
+  },
+  {
+   "rule": "TV_KL_PHU_DUONG_HOI_CU_TY",
+   "reading": "công danh nhiều trắc trở",
    "concepts": [
     "career.obstacle"
-   ]
-  },
-  {
-   "rule": "TV_KL_PHU2_XUONG_KHUC_NHAT_NGUYET",
-   "reading": "thành công mạnh mẽ",
-   "concepts": [
-    "career.success"
-   ]
-  },
-  {
-   "rule": "TV_KL_PHU_AM_HOI_SANG",
-   "reading": "phú quý, chức vị cao",
-   "concepts": [
-    "fin.abundance",
-    "career.status"
-   ]
-  },
-  {
-   "rule": "TV_KL_PHU_AM_KINH_DA",
-   "reading": "dễ trục trặc trong tình cảm đôi lứa và hao tài",
-   "concepts": [
-    "rel.strain",
-    "fin.volatile"
-   ]
-  },
-  {
-   "rule": "TV_KL_PHU_CU_TY_NGO_TAM_HOA",
-   "reading": "như ngọc trong đá, phú quý khi được Khoa, Quyền, Lộc hội chiếu",
-   "concepts": [
-    "fin.abundance"
-   ]
-  },
-  {
-   "rule": "TV_KL_PHU_DONG_LUONG_DAN_THAN",
-   "reading": "rất tốt, vừa giàu vừa sang",
-   "concepts": [
-    "life.blessed",
-    "career.status"
    ]
   },
   {
@@ -1699,18 +1531,18 @@
    ]
   },
   {
-   "rule": "TV_KL_PHU_DUONG_TY_CU_HOI",
-   "reading": "lộc kéo dài",
+   "rule": "TV_KL_PHU_KHOI_VIET_MENH",
+   "reading": "giỏi văn chương, thi cử thuận lợi",
    "concepts": [
-    "fin.abundance"
+    "exp.letters",
+    "life.blessed"
    ]
   },
   {
-   "rule": "TV_KL_PHU_LOC_TON_HOA_LOC",
-   "reading": "tính độc đoán, thích nắm quyền",
+   "rule": "TV_KL_PHU_LOC_TON_TY_NGO",
+   "reading": "tiền bạc dồi dào",
    "concepts": [
-    "temper.headstrong",
-    "amb.drive"
+    "fin.abundance"
    ]
   },
   {
@@ -1721,23 +1553,25 @@
    ]
   },
   {
-   "rule": "TV_KL_PHU_TUONG_TA_HUU",
-   "reading": "phú quý, giàu sang",
+   "rule": "TV_KL_PHU_SAT_TU_MENH",
+   "reading": "giàu sang, phú quý",
    "concepts": [
     "fin.abundance"
    ]
   },
   {
-   "rule": "TV_KL_PHU_TU_PHU_DAN_THAN",
-   "reading": "đời sống thuận lợi, dễ chịu",
+   "rule": "TV_KL_PHU_THAM_HOA_LINH_TU_MO",
+   "reading": "giàu sang, quyền thế",
    "concepts": [
-    "life.blessed"
+    "fin.abundance",
+    "career.authority"
    ]
   },
   {
-   "rule": "TV_KL_PHU_TU_SAT_TY_HOI",
-   "reading": "vừa giàu vừa sang",
+   "rule": "TV_KL_PHU_TU_VI_KHONG_TA_HUU",
+   "reading": "thiếu người phò trợ, thế cô độc dù có địa vị",
    "concepts": [
+    "social.isolated",
     "career.status"
    ]
   },
@@ -1749,33 +1583,18 @@
    ]
   },
   {
-   "rule": "TV_KL_PHU_TU_VI_TA_HUU",
-   "reading": "có uy quyền, hiệu lệnh được nhiều người nghe",
+   "rule": "TV_KL_PHU_TU_VI_NGO_TAM_HOA",
+   "reading": "thế rất tốt, đường hiển đạt rõ",
    "concepts": [
-    "career.authority"
-   ]
-  },
-  {
-   "rule": "TV_KL_PHU_VU_DAC_DIA",
-   "reading": "có uy quyền, nổi danh",
-   "concepts": [
-    "career.authority",
-    "career.fame"
-   ]
-  },
-  {
-   "rule": "TV_KL_PHU_VU_KHOI_VIET",
-   "reading": "hợp làm quan lớn về tài chính",
-   "concepts": [
+    "life.blessed",
     "career.status"
    ]
   },
   {
-   "rule": "TV_KL_PHU_VU_LOC_MA",
-   "reading": "lập nghiệp nơi xa, giàu sang lớn",
+   "rule": "TV_KL_PHU_VCD_NHAT_NGUYET",
+   "reading": "thông minh, học một biết mười",
    "concepts": [
-    "life.mobility",
-    "fin.abundance"
+    "cog.sharp"
    ]
   },
   {
@@ -1783,13 +1602,6 @@
    "reading": "giỏi kỹ nghệ, máy móc",
    "concepts": [
     "exp.craft"
-   ]
-  },
-  {
-   "rule": "TV_KL_PHU_VU_VAN_KHUC",
-   "reading": "học rộng, tài cao",
-   "concepts": [
-    "exp.letters"
    ]
   },
   {
@@ -1801,13 +1613,6 @@
    ]
   },
   {
-   "rule": "TV_KL_STAR_DIEN_TRACH_CO_CU_DAU",
-   "reading": "nhà đất ít, dễ phá sản",
-   "concepts": [
-    "prop.rich"
-   ]
-  },
-  {
    "rule": "TV_KL_STAR_DIEN_TRACH_CO_NHIEU",
    "reading": "có nhiều nhà đất",
    "concepts": [
@@ -1815,18 +1620,19 @@
    ]
   },
   {
-   "rule": "TV_KL_STAR_DIEN_TRACH_TV_SPT",
-   "reading": "khó có nhà cửa, dễ phá sản",
+   "rule": "TV_KL_STAR_DIEN_TRACH_TV_TOT",
+   "reading": "nhà đất tốt",
    "concepts": [
-    "prop.rich"
+    "prop.rich",
+    "life.blessed"
    ]
   },
   {
-   "rule": "TV_KL_STAR_MENH_CO_CAT_TINH",
-   "reading": "giàu có và nổi tiếng",
+   "rule": "TV_KL_STAR_MENH_CO_CU_KINH_DA",
+   "reading": "dễ vướng khẩu thiệt, kiện tụng",
    "concepts": [
-    "fin.abundance",
-    "career.fame"
+    "comm.friction",
+    "life.legal"
    ]
   },
   {
@@ -1837,6 +1643,13 @@
     "cog.sharp",
     "career.success",
     "comm.friction"
+   ]
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_CO_CU_SONG_HAO",
+   "reading": "hưởng phú quý",
+   "concepts": [
+    "fin.abundance"
    ]
   },
   {
@@ -1852,20 +1665,50 @@
    "concepts": []
   },
   {
-   "rule": "TV_KL_STAR_MENH_CO_NGO",
-   "reading": "bén nhạy, mưu lược, lịch thiệp",
+   "rule": "TV_KL_STAR_MENH_CO_LUONG_THIN_TT",
+   "reading": "gian truân, có xu hướng nương cửa tu",
    "concepts": [
-    "cog.sharp",
-    "comm.persuasive"
+    "life.hardship"
    ]
   },
   {
-   "rule": "TV_KL_STAR_MENH_CO_NGUYET_THAN",
-   "reading": "say mê thơ phú, văn chương, có thể nổi danh và giàu",
+   "rule": "TV_KL_STAR_MENH_CO_NGUYET_DAN",
+   "reading": "dễ mơ mộng viễn vông, sống đạm bạc",
    "concepts": [
-    "exp.letters",
-    "career.fame",
+    "cog.fanciful"
+   ]
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_CO_SUU_MUI",
+   "reading": "được nể trọng vì mưu lược, giàu sang",
+   "concepts": [
+    "cog.sharp",
     "fin.abundance"
+   ]
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_CO_TUAN_TRIET",
+   "reading": "dễ phải lang thang, vất vả",
+   "concepts": [
+    "life.hardship"
+   ]
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_CO_TY",
+   "reading": "đầy uy tín, có tài thao lược, giàu sang, hòa đồng",
+   "concepts": [
+    "values.integrity",
+    "exp.talent",
+    "cog.sharp",
+    "fin.abundance"
+   ]
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_CO_VAN_VO",
+   "reading": "làm quan văn thì thanh hiển, võ chức thì trung lương",
+   "concepts": [
+    "career.status",
+    "exp.martial"
    ]
   },
   {
@@ -1876,26 +1719,34 @@
    ]
   },
   {
-   "rule": "TV_KL_STAR_MENH_HOA_LINH_KINH",
-   "reading": "công danh trắc trở, cách xoàng",
+   "rule": "TV_KL_STAR_MENH_HAO_THAM",
+   "reading": "ham mê kín đáo",
    "concepts": [
-    "career.obstacle"
+    "comm.reserved"
    ]
   },
   {
-   "rule": "TV_KL_STAR_MENH_HUU_TUONG",
-   "reading": "hưởng phúc đức phú quý",
+   "rule": "TV_KL_STAR_MENH_KINH_DONG_AM_NGO",
+   "reading": "nổi danh, giàu sang",
    "concepts": [
-    "life.blessed",
+    "career.fame",
     "fin.abundance"
    ]
   },
   {
-   "rule": "TV_KL_STAR_MENH_KK_GIAP_TY_HOI",
-   "reading": "đời lang thang vất vả, thiếu thốn",
+   "rule": "TV_KL_STAR_MENH_KINH_PHUC_LOC",
+   "reading": "có sự nghiệp lớn, hiển đạt võ nghiệp ; sao Hình chưa được kiểm nên chỉ loại trừ Thất Sát",
    "concepts": [
-    "life.hardship",
-    "fin.scarcity"
+    "career.status",
+    "exp.martial"
+   ]
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_KY_VAN_NHAN",
+   "reading": "giỏi văn chương nhưng công danh vẫn trắc trở",
+   "concepts": [
+    "exp.letters",
+    "life.hardship"
    ]
   },
   {
@@ -1904,18 +1755,12 @@
    "concepts": []
   },
   {
-   "rule": "TV_KL_STAR_MENH_LOC_XUNG_PHA",
-   "reading": "tốt hóa xấu, đời nhiều thiếu thốn",
+   "rule": "TV_KL_STAR_MENH_NHAT_DAN_THIN",
+   "reading": "thông minh, quyền quý, giàu sang",
    "concepts": [
-    "life.blessed",
-    "fin.scarcity"
-   ]
-  },
-  {
-   "rule": "TV_KL_STAR_MENH_MINH_AM_LOC",
-   "reading": "có công danh lớn",
-   "concepts": [
-    "career.status"
+    "cog.sharp",
+    "career.status",
+    "fin.abundance"
    ]
   },
   {
@@ -1928,6 +1773,26 @@
    ]
   },
   {
+   "rule": "TV_KL_STAR_MENH_NHAT_HAM_TT",
+   "reading": "sáng lại, như người tài được thả khỏi tù",
+   "concepts": []
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_NHAT_KY_SUU_MUI",
+   "reading": "thật toàn mỹ",
+   "concepts": []
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_NHAT_NGUYET_SUU_MUI",
+   "reading": "hay day dứt nội tâm, lưỡng lự, khó quyết đoán",
+   "concepts": []
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_NHAT_TAM_MINH",
+   "reading": "Thái Dương rất sáng khi tam hợp Đào, Hồng, Hỷ",
+   "concepts": []
+  },
+  {
    "rule": "TV_KL_STAR_MENH_SAT4_THU_MENH",
    "reading": "đời nhiều vất vả khi Kình, Đà, Hỏa hoặc Linh thủ Mệnh",
    "concepts": [
@@ -1935,16 +1800,22 @@
    ]
   },
   {
-   "rule": "TV_KL_STAR_MENH_TAM_KY_KY_KINH",
-   "reading": "đường công danh mờ mịt",
+   "rule": "TV_KL_STAR_MENH_SONG_LOC",
+   "reading": "giàu sang suốt đời",
+   "concepts": [
+    "fin.abundance"
+   ]
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_TA_HUU_VCD",
+   "reading": "phải lập nghiệp phương xa",
    "concepts": []
   },
   {
-   "rule": "TV_KL_STAR_MENH_TA_HUU_GIAP_TU",
-   "reading": "được hưởng phúc, có uy quyền hiển hách",
+   "rule": "TV_KL_STAR_MENH_TA_HUU_XUONG",
+   "reading": "làm nên chức lớn",
    "concepts": [
-    "life.blessed",
-    "career.authority"
+    "career.status"
    ]
   },
   {
@@ -1955,19 +1826,33 @@
    ]
   },
   {
-   "rule": "TV_KL_STAR_MENH_TV_TUAN_TRIET",
-   "reading": "gian khổ lúc thiếu thời, nên xa nhà lập nghiệp",
+   "rule": "TV_KL_STAR_MENH_TV_PHA_SUU_MUI",
+   "reading": "liều lĩnh dám làm, xoay sở giỏi nhưng dễ vô ơn vì tự cao",
    "concepts": [
-    "life.hardship"
+    "temper.reckless",
+    "adapt.flexible",
+    "temper.proud"
    ]
   },
   {
-   "rule": "TV_KL_STAR_MENH_TV_TUONG_THIN_TUAT",
-   "reading": "giỏi giang, tích cực nhưng vất vả ngược xuôi",
+   "rule": "TV_KL_STAR_MENH_TV_PHU",
+   "reading": "tài lộc dồi dào",
    "concepts": [
-    "exp.talent",
-    "life.hardship"
+    "fin.abundance"
    ]
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_TV_THAM_MAO_DAU",
+   "reading": "có sự nghiệp lớn nhờ mánh khóe, giàu nhưng hay gian dối, ham hưởng thụ",
+   "concepts": [
+    "temper.cunning",
+    "fin.abundance"
+   ]
+  },
+  {
+   "rule": "TV_KL_STAR_MENH_TV_TUONG",
+   "reading": "như vua có tôi hiền",
+   "concepts": []
   },
   {
    "rule": "TV_KL_STAR_MENH_TV_TY",
@@ -1977,40 +1862,30 @@
    ]
   },
   {
-   "rule": "TV_KL_STAR_MENH_TV_TY_NGO",
-   "reading": "độc lập, độc đoán, nổi danh, nhân hậu",
+   "rule": "TV_KL_STAR_PHUC_DUC_CO_TY_NGO_MUI",
+   "reading": "hưởng phúc",
    "concepts": [
-    "temper.headstrong",
-    "career.fame",
-    "values.kind"
+    "life.blessed"
    ]
   },
   {
-   "rule": "TV_KL_STAR_PHUC_DUC_CO_HOI_TY_SUU",
-   "reading": "phúc mỏng",
-   "concepts": [
-    "inner.unrest"
-   ]
-  },
-  {
-   "rule": "TV_KL_STAR_PHUC_DUC_QUYEN_LOC",
-   "reading": "giàu sang nổi tiếng",
-   "concepts": [
-    "fin.abundance",
-    "career.fame"
-   ]
-  },
-  {
-   "rule": "TV_KL_STAR_PHU_MAU_TV_SANG",
-   "reading": "cha mẹ sang trọng",
-   "concepts": [
-    "fam.positive"
-   ]
-  },
-  {
-   "rule": "TV_KL_STAR_QUAN_LOC_CO_NGUYET",
-   "reading": "có khiếu y dược",
+   "rule": "TV_KL_STAR_PHUC_DUC_TV_THAT_SAT",
+   "reading": "dễ phải tha phương cầu thực",
    "concepts": []
+  },
+  {
+   "rule": "TV_KL_STAR_PHU_MAU_CU_CO",
+   "reading": "cha mẹ xa cách",
+   "concepts": [
+    "rel.strain"
+   ]
+  },
+  {
+   "rule": "TV_KL_STAR_PHU_THE_TV_SPT",
+   "reading": "hôn nhân trắc trở",
+   "concepts": [
+    "rel.strain"
+   ]
   },
   {
    "rule": "TV_KL_STAR_QUAN_LOC_TV_SAT",
@@ -2025,11 +1900,6 @@
    "concepts": [
     "fin.abundance"
    ]
-  },
-  {
-   "rule": "TV_KL_STAR_THIEN_DI_TV_PHA_THAM",
-   "reading": "ra ngoài hay bị dèm pha, quấy nhiễu",
-   "concepts": []
   },
   {
    "rule": "TV_KL_TU_VI_SAT_PHA",
@@ -2047,33 +1917,12 @@
    ]
   },
   {
-   "rule": "TV_TH_AUX2_DIEN_TRACH_MO",
-   "reading": "tần tiện, chịu dành dụm giữ của",
-   "concepts": [
-    "fin.frugal"
-   ]
-  },
-  {
-   "rule": "TV_TH_AUX2_MENH_DE_VUONG_TU_VI",
-   "reading": "có tài lãnh đạo",
-   "concepts": [
-    "exp.talent"
-   ]
-  },
-  {
    "rule": "TV_TH_AUX2_MENH_HAO_MENH",
    "reading": "không kiên chí, thích ăn ngon mặc đẹp, dễ đam mê chơi bời, vung phí tiền bạc",
    "concepts": [
     "adapt.unsteady",
     "life.pleasure",
     "life.indulgent"
-   ]
-  },
-  {
-   "rule": "TV_TH_AUX2_MENH_HAO_PHA_QUAN",
-   "reading": "dễ túng thiếu",
-   "concepts": [
-    "fin.scarcity"
    ]
   },
   {
@@ -2086,27 +1935,12 @@
    ]
   },
   {
-   "rule": "TV_TH_AUX2_MENH_HO_PHI_LIEM",
-   "reading": "nhẹ bước công danh",
+   "rule": "TV_TH_AUX2_MENH_KINH_KHAC",
+   "reading": "tính hung bạo, liều lĩnh, bướng bỉnh, hay gian trá",
    "concepts": [
-    "career.success"
-   ]
-  },
-  {
-   "rule": "TV_TH_AUX2_MENH_KINH_DAC",
-   "reading": "tính khí cương cường, dũng mãnh, quả quyết, nhiều cơ mưu nhưng hay tự đắc, kiêu căng",
-   "concepts": [
-    "temper.assertive",
-    "cog.sharp",
-    "temper.proud"
-   ]
-  },
-  {
-   "rule": "TV_TH_AUX2_MENH_KINH_HOA_TU_MO",
-   "reading": "có oai quyền, danh tiếng",
-   "concepts": [
-    "career.authority",
-    "career.fame"
+    "temper.headstrong",
+    "temper.reckless",
+    "temper.cunning"
    ]
   },
   {
@@ -2119,38 +1953,40 @@
    ]
   },
   {
-   "rule": "TV_TH_AUX2_MENH_KK_DAO_HONG",
-   "reading": "duyên nợ dang dở, phải trải qua vài lần cưới xin",
+   "rule": "TV_TH_AUX2_MENH_LAM_QUAN",
+   "reading": "nói năng kiêu kỳ, thích khoe điệu bộ",
    "concepts": [
-    "rel.strain"
+    "temper.proud"
    ]
   },
   {
-   "rule": "TV_TH_AUX2_MENH_KK_QUYEN",
-   "reading": "công danh trắc trở",
+   "rule": "TV_TH_AUX2_MENH_LINH_MENH",
+   "reading": "hà tiện, hay so đo chi tiêu",
    "concepts": [
-    "career.obstacle"
+    "fin.frugal"
    ]
   },
   {
-   "rule": "TV_TH_AUX2_MENH_MOC_DUC_VCD",
-   "reading": "học hành dở, dù cố cũng khó hiển danh bằng học vấn",
+   "rule": "TV_TH_AUX2_MENH_TK_DAO",
+   "reading": "đa mưu nhưng xảo trá",
    "concepts": [
-    "exp.letters"
+    "cog.sharp",
+    "temper.cunning"
    ]
   },
   {
-   "rule": "TV_TH_AUX2_MENH_TRIET_THAN_DAU",
-   "reading": "đắc cách, hưng vượng",
-   "concepts": []
+   "rule": "TV_TH_AUX2_MENH_TUAN_DAN_MAO",
+   "reading": "có thể hoạnh phát",
+   "concepts": [
+    "fin.windfall"
+   ]
   },
   {
-   "rule": "TV_TH_AUX2_MENH_TUONG_QUAN",
-   "reading": "can trường, hiên ngang, kiêu căng, thích lãnh đạo",
+   "rule": "TV_TH_AUX2_MENH_TUE_VAN_TINH",
+   "reading": "lợi cho thi cử, cầu công danh",
    "concepts": [
-    "temper.assertive",
-    "temper.proud",
-    "amb.drive"
+    "exp.letters",
+    "career.success"
    ]
   },
   {
@@ -2158,6 +1994,14 @@
    "reading": "đem lại sự rực rỡ",
    "concepts": [
     "life.blessed"
+   ]
+  },
+  {
+   "rule": "TV_TH_AUX2_PHUC_DUC_MO_QUYEN",
+   "reading": "nhà đại phúc đức, bốn đời vinh hiển",
+   "concepts": [
+    "life.blessed",
+    "career.status"
    ]
   },
   {
@@ -2170,49 +2014,44 @@
   {
    "rule": "TV_TH_AUX2_QUAN_LOC_KK_HAM",
    "reading": "khó đạt công danh",
-   "concepts": []
-  },
-  {
-   "rule": "TV_TH_AUX2_TAI_BACH_LINH_TAI",
-   "reading": "tiền của bền vững",
    "concepts": [
-    "fin.stable"
+    "career.obstacle"
    ]
   },
   {
-   "rule": "TV_TH_AUX2_TU_TUC_PHI_LIEM",
-   "reading": "số con có phần ít đi",
+   "rule": "TV_TH_AUX2_TAI_BACH_HOA_TAI",
+   "reading": "dễ tán tài",
    "concepts": [
-    "fam.negative"
+    "fin.volatile"
    ]
   },
   {
-   "rule": "TV_TH_AUX_MENH_DH_CHIEU",
-   "reading": "đẹp hơn khi Đào, Hồng chỉ xung chiếu Mệnh",
+   "rule": "TV_TH_AUX2_TAI_BACH_MO",
+   "reading": "tần tiện, chịu dành dụm giữ của",
    "concepts": [
-    "presence.charm"
+    "fin.frugal"
    ]
   },
   {
-   "rule": "TV_TH_AUX_MENH_DH_OWN",
-   "reading": "may mắn đến nhanh rồi qua nhanh",
+   "rule": "TV_TH_AUX_MENH_CHIEN_MA",
+   "reading": "binh quyền rực rỡ",
    "concepts": [
-    "life.transient"
+    "career.authority",
+    "life.blessed"
    ]
   },
   {
-   "rule": "TV_TH_AUX_MENH_HKY_KHOA",
-   "reading": "cẩn trọng lời nói và việc làm, nhiều người kính trọng",
+   "rule": "TV_TH_AUX_MENH_CHIEN_TUC_MA",
+   "reading": "nhiều trắc trở",
    "concepts": [
-    "values.integrity",
-    "social.support"
+    "life.hardship"
    ]
   },
   {
-   "rule": "TV_TH_AUX_MENH_HKY_MIEU",
-   "reading": "ít bất lợi hơn",
+   "rule": "TV_TH_AUX_MENH_HKY_CU",
+   "reading": "dễ có thị phi, tranh cãi",
    "concepts": [
-    "life.mitigated"
+    "comm.friction"
    ]
   },
   {
@@ -2230,10 +2069,21 @@
    ]
   },
   {
-   "rule": "TV_TH_AUX_MENH_HK_VAN_TINH",
-   "reading": "công danh tất hiển đạt",
+   "rule": "TV_TH_AUX_MENH_HL_LUONG",
+   "reading": "giàu có, hay đem của giúp người khốn khó",
    "concepts": [
-    "career.success"
+    "fin.abundance",
+    "fin.generous",
+    "fin.scarcity"
+   ]
+  },
+  {
+   "rule": "TV_TH_AUX_MENH_HL_MENH",
+   "reading": "tính thẳng, sành ăn, tài lộc vinh vượng",
+   "concepts": [
+    "values.integrity",
+    "life.pleasure",
+    "fin.abundance"
    ]
   },
   {
@@ -2244,19 +2094,58 @@
    ]
   },
   {
-   "rule": "TV_TH_AUX_MENH_LOC_HOA_LOC",
-   "reading": "tính lãnh tụ, chuyên quyền độc đoán",
+   "rule": "TV_TH_AUX_MENH_MA_TAI_NANG",
+   "reading": "tài năng mẫn tiệp, tháo vát, nhanh nhẹn",
    "concepts": [
-    "amb.drive",
-    "temper.headstrong"
+    "exp.talent",
+    "cog.sharp",
+    "adapt.flexible"
    ]
   },
   {
-   "rule": "TV_TH_AUX_MENH_PHU_DU_MA",
-   "reading": "tài cán, uy quyền hiển hách",
+   "rule": "TV_TH_AUX_MENH_TA_HUU_NHAN_HAU",
+   "reading": "nhân hậu, thích giúp người khốn cùng, nhiều mưu trí",
    "concepts": [
-    "exp.talent",
-    "career.authority"
+    "values.kind",
+    "cog.sharp"
+   ]
+  },
+  {
+   "rule": "TV_TH_AUX_MENH_TA_HUU_TU_PHU",
+   "reading": "tướng quý, phúc lộc đầy đủ",
+   "concepts": [
+    "presence.charm",
+    "life.blessed",
+    "fin.abundance"
+   ]
+  },
+  {
+   "rule": "TV_TH_AUX_MENH_XK_HAM",
+   "reading": "hợp nghề thủ công khéo",
+   "concepts": [
+    "exp.craft"
+   ]
+  },
+  {
+   "rule": "TV_TH_AUX_MENH_XK_NOI_KHEO",
+   "reading": "nói khéo, hát hay, thích ca múa ; hai sao sau chưa có trong hệ thống",
+   "concepts": [
+    "comm.persuasive",
+    "life.pleasure"
+   ]
+  },
+  {
+   "rule": "TV_TH_AUX_MENH_XK_TY_HOI",
+   "reading": "giàu sang",
+   "concepts": [
+    "fin.abundance"
+   ]
+  },
+  {
+   "rule": "TV_TH_AUX_THIEN_DI_DAO_HONG",
+   "reading": "rời nhà lập nghiệp",
+   "concepts": [
+    "life.mobility"
    ]
   },
   {
@@ -2265,8 +2154,13 @@
    "concepts": []
   },
   {
-   "rule": "TV_TH_CACH_MENH_BT_LOC_LUONG_SAT",
-   "reading": "cách Lộc phùng lưỡng sát",
+   "rule": "TV_TH_CACH_MENH_BT_KK_SAT",
+   "reading": "cách Không Kiếp sát hội",
+   "concepts": []
+  },
+  {
+   "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+   "reading": "cách Nhật Nguyệt tàn hung",
    "concepts": []
   },
   {
@@ -2277,6 +2171,11 @@
   {
    "rule": "TV_TH_CACH_MENH_CHUNG_THUY",
    "reading": "cách Chúng thuỷ triều đông",
+   "concepts": []
+  },
+  {
+   "rule": "TV_TH_CACH_MENH_CU_CO",
+   "reading": "cách Cự Cơ đồng cung ở Mão hoặc Dậu",
    "concepts": []
   },
   {
@@ -2297,11 +2196,9 @@
    ]
   },
   {
-   "rule": "TV_TH_CACH_MENH_KHOI_VIET",
-   "reading": "cách Thiên Ất quý nhân",
-   "concepts": [
-    "social.support"
-   ]
+   "rule": "TV_TH_CACH_MENH_KIM_DU",
+   "reading": "cách Kim dư phù giá",
+   "concepts": []
   },
   {
    "rule": "TV_TH_CACH_MENH_LOC_MA",
@@ -2311,13 +2208,25 @@
    ]
   },
   {
-   "rule": "TV_TH_CACH_MENH_MINH_AM_LOC",
-   "reading": "cách Minh Lộc, Ám Lộc",
+   "rule": "TV_TH_CACH_MENH_NGHE_DAY_HOC",
+   "reading": "giỏi dạy học, viết văn",
    "concepts": []
   },
   {
-   "rule": "TV_TH_CACH_MENH_NGHE_DAY_HOC",
-   "reading": "giỏi dạy học, viết văn",
+   "rule": "TV_TH_CACH_MENH_NGHICH_LY",
+   "reading": "giờ sinh nghịch lý : độ số bị kém bớt",
+   "concepts": [
+    "life.hardship"
+   ]
+  },
+  {
+   "rule": "TV_TH_CACH_MENH_NGUYET_TY",
+   "reading": "cách Nguyệt sinh thương hải",
+   "concepts": []
+  },
+  {
+   "rule": "TV_TH_CACH_MENH_NHAT_NGUYET",
+   "reading": "cách Nhật Nguyệt đồng cung",
    "concepts": []
   },
   {
@@ -2331,46 +2240,30 @@
    "concepts": []
   },
   {
-   "rule": "TV_TH_CACH_MENH_PHA_TY_NGO",
-   "reading": "hoạnh phát nhưng cũng hoạnh phá",
-   "concepts": [
-    "fin.windfall"
-   ]
-  },
-  {
-   "rule": "TV_TH_CACH_MENH_PHA_TY_NGO",
-   "reading": "hoạnh phát nhưng cũng hoạnh phá",
-   "concepts": [
-    "fin.windfall"
-   ]
-  },
-  {
-   "rule": "TV_TH_CACH_MENH_PHI_THUONG",
-   "reading": "phi thường cách (Tử, Phủ, Vũ, Tướng nhập miếu ở Mệnh, hội nhiều cát tinh); ngưỡng 'nhiều cát tinh' là quy ước của hệ thống",
+   "rule": "TV_TH_CACH_MENH_PHU_BAT",
+   "reading": "cách Phụ Bật củng đế",
    "concepts": []
   },
   {
-   "rule": "TV_TH_CACH_MENH_SV_BAI_TUYET",
-   "reading": "Mệnh ở bại hoặc tuyệt địa, không Tam Hóa hội và không có chính diệu sinh bản mệnh: cuộc đời thăng trầm đáng ngại",
-   "concepts": [
-    "life.hardship"
-   ]
-  },
-  {
-   "rule": "TV_TH_CACH_MENH_TA_HUU",
-   "reading": "cách Tả Hữu đồng cung",
+   "rule": "TV_TH_CACH_MENH_SAT_NGUONG_DAU",
+   "reading": "cách Thất Sát ngưỡng đẩu",
    "concepts": []
   },
   {
-   "rule": "TV_TH_CACH_MENH_TA_HUU_TU_MO",
-   "reading": "cách Tả Hữu Tứ mộ",
+   "rule": "TV_TH_CACH_MENH_SAT_TRIEU_DAU",
+   "reading": "cách Thất Sát triều đẩu",
    "concepts": []
   },
   {
-   "rule": "TV_TH_CACH_MENH_THUAN_LY",
-   "reading": "giờ sinh thuận lý : độ số gia tăng",
+   "rule": "TV_TH_CACH_MENH_THAM_HOA",
+   "reading": "cách Tham Hỏa tương hội",
+   "concepts": []
+  },
+  {
+   "rule": "TV_TH_CACH_MENH_VU_VAN_VO",
+   "reading": "cách Vũ Khúc văn võ",
    "concepts": [
-    "life.blessed"
+    "exp.versatile"
    ]
   },
   {
@@ -2386,29 +2279,49 @@
    ]
   },
   {
+   "rule": "TV_TH_CACH_QUAN_LOC_PHU_BAT",
+   "reading": "cách Phụ Bật củng đế",
+   "concepts": []
+  },
+  {
    "rule": "TV_TH_CACH_QUAN_LOC_THAM_HOA",
    "reading": "cách Tham Hỏa tương hội",
    "concepts": []
   },
   {
-   "rule": "TV_TH_CACH_TAI_BACH_LOC_MA",
-   "reading": "cách Lộc Mã giao trì ở cung Tài Bạch",
+   "rule": "TV_TH_CACH_QUAN_LOC_THAN_TT",
+   "reading": "Thân cư Quan Lộc gặp Tuần, Triệt, Kiếp, Hỏa, Kỵ: công danh đến muộn",
+   "concepts": [
+    "career.late"
+   ]
+  },
+  {
+   "rule": "TV_TH_CACH_THIEN_DI_THAN",
+   "reading": "lập nghiệp phương xa thịnh vượng",
    "concepts": [
     "fin.abundance"
    ]
   },
   {
-   "rule": "TV_TH_CACH_TAI_BACH_THAN_TU_VI",
-   "reading": "có danh giá hoặc tiền tài",
+   "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+   "reading": "Thân cư Sát Phá Liêm Tham nhập miếu vượng, hội nhiều cát tinh: có thể phát mạnh",
+   "concepts": []
+  },
+  {
+   "rule": "TV_TH_COMBO_CỰ_MON_VAN_TAI",
+   "reading": "văn tài lỗi lạc, ăn nói hùng hồn, hợp ngành chính trị, ngoại giao",
    "concepts": [
-    "career.status"
+    "exp.letters",
+    "comm.persuasive",
+    "path.public"
    ]
   },
   {
-   "rule": "TV_TH_COMBO_THAM_LANG_CAT",
-   "reading": "mọi bề thuận lợi, trọn vẹn hơn",
+   "rule": "TV_TH_COMBO_LIEM_TRINH_HUNG",
+   "reading": "công danh trắc trở, tiền của tụ rồi tán",
    "concepts": [
-    "life.blessed"
+    "career.obstacle",
+    "fin.volatile"
    ]
   },
   {
@@ -2421,18 +2334,26 @@
    ]
   },
   {
-   "rule": "TV_TH_COMBO_THIEN_TUONG_TUAN_TRIET",
-   "reading": "công danh trắc trở, tiền bạc eo hẹp",
+   "rule": "TV_TH_COMBO_THIEN_DỒNG_CAT",
+   "reading": "phú quý rất cao",
    "concepts": [
-    "career.obstacle",
-    "fin.scarcity"
+    "fin.abundance"
    ]
   },
   {
-   "rule": "TV_TH_COMBO_THÁI_AM_CAT",
-   "reading": "phú quý đến mức cao",
+   "rule": "TV_TH_COMBO_THIEN_DỒNG_SAT",
+   "reading": "no ấm nhưng cả đời lao tâm khổ tứ",
    "concepts": [
-    "fin.abundance"
+    "fin.abundance",
+    "inner.unrest"
+   ]
+  },
+  {
+   "rule": "TV_TH_COMBO_THÁI_AM_HAM_CAT",
+   "reading": "trở nên tốt và thọ hơn",
+   "concepts": [
+    "life.mitigated",
+    "well.longevity"
    ]
   },
   {
@@ -2444,35 +2365,37 @@
    ]
   },
   {
-   "rule": "TV_TH_COMBO_THÁI_DUONG_CAT",
-   "reading": "tài và quan vinh hiển",
+   "rule": "TV_TH_COMBO_TU_VI_THAM_LANG",
+   "reading": "dễ bi quan, yếm thế, thiên về đời sống tu hành",
    "concepts": [
-    "career.status"
+    "emo.melancholy",
+    "spirit.unworldly"
    ]
   },
   {
-   "rule": "TV_TH_COMBO_THÁI_DUONG_HAM_CAT",
-   "reading": "biến ra tốt đẹp về tài danh",
+   "rule": "TV_TH_COMBO_VŨ_KHÚC_KIEP_SAT",
+   "reading": "tiền phú hậu bần, của cải lúc nhiều lúc sút",
    "concepts": [
-    "life.mitigated"
+    "fin.volatile"
    ]
   },
   {
-   "rule": "TV_TH_COMBO_TU_VI_CAT",
-   "reading": "uy quyền hiển hách khi có các trung tinh hội chiếu",
+   "rule": "TV_TH_CO_TOT_THONG_MINH_MUU_TRI",
+   "reading": "thông minh, nhiều mưu trí, tính nhân hậu từ thiện, đời sống khá giả",
    "concepts": [
-    "career.authority"
-   ]
-  },
-  {
-   "rule": "TV_TH_DONG_TOT_NHAN_HAU_HAY_DOI",
-   "reading": "nhân hậu, hay thay đổi công việc và nơi ở, thường được hưởng sung túc và thọ",
-   "concepts": [
+    "cog.sharp",
     "values.kind",
-    "adapt.unsteady",
-    "life.mobility",
-    "fin.abundance",
-    "well.longevity"
+    "fin.abundance"
+   ]
+  },
+  {
+   "rule": "TV_TH_CU_HAM_GIAN_XAO_DA_NGHI",
+   "reading": "kém sáng suốt, khắc nghiệt, đa nghi, hay nói khoác, ít thuận lợi giao thiệp",
+   "concepts": [
+    "cog.dull",
+    "temper.headstrong",
+    "cog.suspicious",
+    "comm.friction"
    ]
   },
   {
@@ -2485,72 +2408,23 @@
    ]
   },
   {
-   "rule": "TV_TH_DUONG_TOT_THONG_MINH_NHAN_HAU",
-   "reading": "thông minh, cương nghị, nhân hậu (nam mệnh; sinh ban ngày thì thuận hơn)",
+   "rule": "TV_TH_LIEM_TOT_THANG_THAN_NGHIEM_NGHI",
+   "reading": "thẳng thắn, nghiêm nghị, tính nóng, đời khá giả và thọ",
    "concepts": [
-    "cog.sharp",
-    "temper.assertive",
-    "values.kind"
-   ]
-  },
-  {
-   "rule": "TV_TH_LUONG_TOT_KHOAN_HOA_THO",
-   "reading": "thanh tú, khoan hòa, hưởng thọ; có văn tinh hội thì phú quý và có uy quyền",
-   "concepts": [
-    "presence.charm",
-    "values.kind",
-    "well.longevity",
+    "values.integrity",
+    "temper.hot",
     "fin.abundance",
-    "career.authority"
+    "well.longevity"
    ]
   },
   {
-   "rule": "TV_TH_MV_MENH_CO_MIEU_VUONG",
-   "reading": "đa tài, lòng từ, tính cấp, dễ hiển vinh",
+   "rule": "TV_TH_LUONG_HAM_PHONG_DANG_PHIEU_LUU",
+   "reading": "kém thông minh, thích phóng đãng phiêu lưu, hay đổi chí hướng, bôn ba vất vả",
    "concepts": [
-    "career.status"
-   ]
-  },
-  {
-   "rule": "TV_TH_MV_MENH_HOANG_DANG_THAM_DAO",
-   "reading": "dễ đam mê tửu sắc, chuốc tai ương",
-   "concepts": [
-    "life.indulgent"
-   ]
-  },
-  {
-   "rule": "TV_TH_MV_MENH_KHOI_VIET_TRUONG_HUYNH",
-   "reading": "hay giữ ngôi trên trong gia đình, xã hội",
-   "concepts": []
-  },
-  {
-   "rule": "TV_TH_MV_MENH_KHOI_VIET_VAN_CHUONG",
-   "reading": "có cách văn chương",
-   "concepts": [
-    "exp.letters"
-   ]
-  },
-  {
-   "rule": "TV_TH_MV_MENH_KY_NGHE_VU_PHA",
-   "reading": "khéo tay về kỹ nghệ",
-   "concepts": [
-    "exp.craft"
-   ]
-  },
-  {
-   "rule": "TV_TH_MV_MENH_LIEM_THAM_TY_HOI",
-   "reading": "tính tham, thấy của là muốn nắm",
-   "concepts": []
-  },
-  {
-   "rule": "TV_TH_MV_MENH_LIEM_TUONG",
-   "reading": "dáng anh hùng, vũ dũng",
-   "concepts": []
-  },
-  {
-   "rule": "TV_TH_MV_MENH_NGUYET_HAM_LUONG",
-   "reading": "nhiều gian truân",
-   "concepts": [
+    "cog.dull",
+    "life.indulgent",
+    "life.mobility",
+    "adapt.unsteady",
     "life.hardship"
    ]
   }

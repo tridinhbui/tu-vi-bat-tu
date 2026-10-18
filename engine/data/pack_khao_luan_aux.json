@@ -245,7 +245,7 @@
         "value": "Thiên Không"
        },
        {
-        "fact": "palace.tam_phuong_stars",
+        "fact": "palace.rel.opp_stars",
         "operator": "contains",
         "value": "Thiên Không"
        }
@@ -698,7 +698,7 @@
    "consequences": [
     {
      "kind": "finding",
-     "claim": "hay_dinh_viec_cong_mon",
+     "claim": "quan_phu_menh_mieng_tieng",
      "effect": "support",
      "scope": "natal"
     }

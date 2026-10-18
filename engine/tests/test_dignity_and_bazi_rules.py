@@ -126,7 +126,7 @@ def test_combo_rules_follow_the_book_conditions():
     assert "tu_vi_tham_bi_quan" not in run_combo("Tử Vi", "miếu", own=["Tham Lang"], branch="Ngọ")
 
 
-def mk_palace(branch="Tý", own=(), tam=(), tam_hoa=(), tuan=False, no_major=False, dig=None, name="Mệnh"):
+def mk_palace(branch="Tý", own=(), tam=(), tam_hoa=(), tuan=False, no_major=False, dig=None, name="Mệnh", extra=None):
     majors = [s for s in own if s in tuvi.MAJOR_NAMES]
     p = {"palace.name": name, "palace.branch": branch, "palace.own_stars": list(own), "palace.own_major_stars": majors,
          "palace.tam_phuong_majors": list({*majors, *[s for s in tam if s in tuvi.MAJOR_NAMES]}), "palace.tam_phuong_stars": list({*own, *tam}),
@@ -134,6 +134,7 @@ def mk_palace(branch="Tý", own=(), tam=(), tam_hoa=(), tuan=False, no_major=Fal
          "palace.has_no_major": no_major}
     for k, v in (dig or {}).items():
         p[f"palace.dignity.{k}"] = v
+    p.update(extra or {})
     return p
 
 
@@ -152,7 +153,8 @@ def test_khao_luan_phu_rules():
     assert "tu_vi_thieu_phu_tro" in claims_for(mk_palace(own=["Tử Vi"]))
     assert "tu_vi_thieu_phu_tro" not in claims_for(mk_palace(own=["Tử Vi"], tam=["Tả Phụ"]))
     assert "vcd_nhat_nguyet_thong_minh" in claims_for(mk_palace(no_major=True, tam=["Thái Dương", "Thái Âm"]))
-    assert "duong_ty_loc_lau_dai" in claims_for(mk_palace(branch="Tỵ", own=["Thái Dương"], tam=["Cự Môn"]))
+    assert "duong_ty_loc_lau_dai" in claims_for(mk_palace(branch="Tỵ", own=["Thái Dương"], tam=["Cự Môn"], extra={"palace.rel.opp_majors": ["Cự Môn"]}))
+    assert "duong_ty_loc_lau_dai" not in claims_for(mk_palace(branch="Tỵ", own=["Thái Dương"], tam=["Cự Môn"], extra={"palace.rel.opp_majors": []}))   # KL: 'xung chiếu' = opposite palace only
     assert "duong_hoi_cong_danh_trac_tro" not in claims_for(mk_palace(branch="Tỵ", own=["Thái Dương"], tam=["Cự Môn"]))
     assert "tham_vu_truoc_ngheo_sau_giau" in claims_for(mk_palace(branch="Mùi", own=["Tham Lang", "Vũ Khúc"]))
     assert "tham_vu_truoc_ngheo_sau_giau" not in claims_for(mk_palace(branch="Tý", own=["Tham Lang", "Vũ Khúc"]))
@@ -274,7 +276,7 @@ def test_toan_thu_second_batch():
     assert "phu_tuong_ngo_tuat_giap_cao_quy" not in tt_run("Canh", branch="Ngọ", own=["Thiên Phủ"], tam=["Thiên Tướng"])
     assert "phu_tuat_giap_ky_kha_gia" in tt_run("Kỷ", branch="Tuất", own=["Thiên Phủ"])
     assert "phu_tuat_giap_ky_kha_gia" not in tt_run("Kỷ", branch="Tuất", own=["Thiên Phủ"], tam=["Kình Dương"])   # Tứ Sát cancels
-    assert "phu_the_am_khuc_hoi_bat_doi_sang" in tt_run(name="Phu Thê", branch="Mão", own=["Thái Âm", "Văn Khúc"])
+    assert "phu_the_am_khuc_hoi_bat_doi_sang__tt_phu_the_am_van_khuc" in tt_run(name="Phu Thê", branch="Mão", own=["Thái Âm", "Văn Khúc"])   # TT: any branch; its own label (KL's says 'ở Hợi')
     assert "am_ty_tuoi_binh_dinh_phu_quy" in tt_run("Đinh", branch="Tý", own=["Thái Âm"])
     assert "cu_co_mao_cong_khanh" in tt_run("Bính", branch="Mão", own=["Cự Môn", "Thiên Cơ"])
     assert "cu_co_mao_cong_khanh" not in tt_run("Giáp", branch="Mão", own=["Cự Môn", "Thiên Cơ"])
@@ -303,7 +305,9 @@ def test_khao_luan_aux_at_menh_and_year_branch_readings():
     assert "thai_tue_menh_tu_kieu_xet_doan" not in tt_run(name="Tài Bạch", own=["Thái Tuế"])         # Mệnh-only
     assert "song_hao_menh_vat_va_hao_tai" in tt_run(own=["Đại Hao", "Tiểu Hao"])
     assert "song_hao_menh_vat_va_hao_tai" not in tt_run(own=["Đại Hao"])
-    assert "hong_thien_khong_thoat_tuc" in tt_run(own=["Hồng Loan"], tam=["Thiên Không"])
+    assert "hong_thien_khong_thoat_tuc" in tt_run(own=["Hồng Loan", "Thiên Không"])
+    assert "hong_thien_khong_thoat_tuc" in tt_run(own=["Hồng Loan"], extra={"palace.rel.opp_stars": ["Thiên Không"]})
+    assert "hong_thien_khong_thoat_tuc" not in tt_run(own=["Hồng Loan"], tam=["Thiên Không"], extra={"palace.rel.opp_stars": []})   # KL p.225: đồng cung hoặc xung chiếu, not tam hợp
     assert "tuan_triet_menh_vui_it_buon_nhieu" in tt_run(tuan=True)
     for yb, key in (("Mão", "dao_hong_khong_tuoi_03_mao"), ("Hợi", "dao_hong_khong_tuoi_11_hoi")):
         res = engine.run(RULES, SOURCES, {"chart": {"chart.year_branch": yb}}, system="tu_vi")

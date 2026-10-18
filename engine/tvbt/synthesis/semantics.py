@@ -215,7 +215,7 @@ def leaves(expr, out=None) -> list[tuple]:
 
 
 _NORM = {"palace.own_major_stars": "own", "palace.own_stars": "own", "palace.tam_phuong_stars": "tp", "palace.tam_phuong_majors": "tp",
-         "palace.tam_phuong_tu_hoa": "tp", "palace.rel.tp_hoa": "tp", "palace.tu_hoa": "own", "palace.neighbor_stars": "nb", "palace.neighbor_majors": "nb"}
+         "palace.tam_phuong_tu_hoa": "tp", "palace.rel.tp_hoa": "tp", "palace.tu_hoa": "own", "palace.rel.opp_stars": "opp", "palace.rel.opp_majors": "opp", "palace.neighbor_stars": "nb", "palace.neighbor_majors": "nb"}
 
 
 def root_of(lv: list[tuple]) -> tuple:
@@ -239,7 +239,7 @@ def _stars(lv) -> tuple:
     out = []
     for f, _, v in lv:
         for x in (v if isinstance(v, list) else [v]):
-            if isinstance(x, str) and (f.startswith("palace.own") or f.startswith("palace.tu_hoa") or f.startswith("palace.tam_phuong")) and x not in out:
+            if isinstance(x, str) and (f.startswith("palace.own") or f.startswith("palace.tu_hoa") or f.startswith("palace.tam_phuong") or f.startswith("palace.rel.")) and x not in out:
                 out.append(x)
         if f.startswith("palace.dignity."):
             s = f.rsplit(".", 1)[1]
@@ -273,7 +273,7 @@ CHART_FACT_VI = {
 
 def chart_trigger(tl: list[dict], palace: str | None, facts: dict) -> tuple[str, tuple, tuple]:
     """Vietnamese phrase for the satisfied leaves, using the chart's own values (a book 'Kình hoặc Đà' becomes the star actually there)."""
-    own, tp, nb, hoa, tphoa, extra, used = [], [], [], [], [], [], []
+    own, tp, nb, hoa, tphoa, extra, used, opp = [], [], [], [], [], [], [], []
     dig = {}
     for lf in tl:
         f, op, v = lf["fact"], lf.get("operator", "eq"), lf.get("value")
@@ -290,6 +290,8 @@ def chart_trigger(tl: list[dict], palace: str | None, facts: dict) -> tuple[str,
             tp += [x for x in vals if x not in tp]
         elif f in ("palace.neighbor_stars", "palace.neighbor_majors"):
             nb += [x for x in vals if x not in nb]
+        elif f in ("palace.rel.opp_stars", "palace.rel.opp_majors"):
+            opp += [x for x in vals if x not in opp]
         elif f == "palace.tu_hoa":
             hoa += [x for x in vals if x not in hoa]
         elif f in ("palace.tam_phuong_tu_hoa", "palace.rel.tp_hoa"):
@@ -312,12 +314,14 @@ def chart_trigger(tl: list[dict], palace: str | None, facts: dict) -> tuple[str,
     parts = []
     if own or hoa:
         parts.append(_join([star(x) for x in own] + hoa) + f" tại {where}")
+    if opp:
+        parts.append(_join(opp) + f" xung chiếu {where}")
     if tp or tphoa:
         parts.append(_join(tp + tphoa) + f" hội chiếu về {where}")
     if nb:
         parts.append(_join(nb) + f" giáp {where}")
     parts += extra
-    present = tuple(dict.fromkeys(own + hoa + tp + tphoa + nb))
+    present = tuple(dict.fromkeys(own + hoa + opp + tp + tphoa + nb))
     return ", ".join(parts), tuple(used), present
 
 
@@ -457,6 +461,25 @@ def book_pairings(rules, claims_vi) -> dict[frozenset, list[dict]]:
                     if x != y:
                         out.setdefault(frozenset((x, y)), []).append({"rule": r.id, "cites": _CITE.findall(r.description), "reading": _strip_cites(text)})
     return out
+
+
+def claim_tone(label: str) -> str | None:
+    """'+' | '-' | '~' (both sides) for a Vietnamese claim phrase, or None when no concept cue is found. 'hạn chế:' phrases are '-'."""
+    if label.startswith("hạn chế"):
+        return "-"
+    core, _ = split_reading(label)
+    pols = {lexicon()["concepts"][cid]["pol"] for cid, _, _ in match_concepts(core)}
+    if "+" in pols and "-" in pols:
+        return "~"
+    return "+" if "+" in pols else "-" if "-" in pols else None
+
+
+def claim_facet(label: str) -> str | None:
+    """Facet of the first concept a claim phrase names (its leading idea), or None. Used to route readings to the chapter that answers
+    the reader's question instead of the palace that fired them."""
+    core, _ = split_reading(label)
+    hits = match_concepts(core)
+    return lexicon()["concepts"][hits[0][0]]["facet"] if hits else None
 
 
 def stable_hash(*parts) -> int:
