@@ -14,7 +14,7 @@ const read = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 
 const loader = readFileSync(join(ROOT, 'engine', 'tvbt', 'knowledge', 'loader.py'), 'utf8');
 const packs: string[] = JSON.parse(loader.match(/^PACKS = (\[.*\])$/m)![1].replace(/'/g, '"'));
-const CITE = /\[((?:TH|KL|TT)[^\]]*?)\]/g;
+const CITE = /\[((?:TH|KL|TT|TL)[^\]]*?)\]/g;
 const PARA = /paraphrased\)?[^:]{0,80}?:\s*(.+)$/;
 // 八字真宗 (Bát Tự Chân Tông) rules give their place as "[PDF p.25 …]" or "[八字真宗 PDF pp.31-32 …]": PDF page numbers of the circulated scan
 const ZZ_CITE = /\[(?:八字真宗 )?PDF (pp?\.\s?[\d]+(?:[-–][\d]+)?)/g;

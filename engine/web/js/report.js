@@ -35,16 +35,22 @@ function synthHtml(ch) {
 // ---------- reader prose for Mệnh (src/interpret/prose via /api/interpret mode "prose"): clean text, evidence per sentence on click ----------
 const PR_MOVE = { ANCHOR: 'Nét lõi', BORROW: 'Nét lõi, mượn cung đối diện', ELABORATE: 'Biểu hiện', TURN: 'Mặt trái', RESCUE: 'Cứu giải', TENSION: 'Yếu tố làm sắc',
   TIMING: 'Nhịp thời gian', SATELLITE: 'Nét bổ trợ', VALUE: 'Giá trị', TRANSFORM: 'Hướng chuyển hóa', DEGREE: 'Nền độ số', EXTRA: 'Đường đời' };
-const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', ZZ: 'Bát Tự Chân Tông' };
-const prCite = c => String(c).replace(/^(TH|KL|TT|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
+const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Thiên Lương (Nghiệm Lý, bản gõ)', ZZ: 'Bát Tự Chân Tông' };
+const prCite = c => String(c).replace(/^(TH|KL|TT|TL|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
 function proseHtml(p) {
   if (!p?.paragraphs?.length) return '';
   const draft = p.draft !== false;
   const title = `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
   return `<section class="synth prose" data-chapter="${esc(p.chapter)}" aria-label="${title}"><p class="eyebrow">${title}</p>
     ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p">${para.sentences.map((s, j) => `<span class="sy-s pr-s" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
-    <div class="pr-why small" hidden></div>
+    <div class="pr-why small" hidden></div>${prDiverge(p)}
     <p class="muted small sy-foot">Văn bản do bộ máy quy tắc ghép từ các nhận định đã đối chiếu sách (không dùng mô hình AI)${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
+}
+// two schools disagree on this chart: the text says neither; both readings are listed here with their pages
+function prDiverge(p) {
+  const ds = p.evidence?.divergences || [];
+  if (!ds.length) return '';
+  return `<details class="pr-div small"><summary>Các trường phái nhận định khác nhau (${ds.length})</summary>${ds.map(d => `<p>${esc(d.note || '')}</p><ul class="pr-rules">${d.rules.map(r => `<li><b>${esc(r.cites.map(prCite).join('; ') || '—')}</b> ${esc(r.reading)} <code class="muted">${esc(r.id)}</code></li>`).join('')}</ul>`).join('')}<p class="muted">Văn bản phía trên không theo bên nào trong các điểm này.</p></details>`;
 }
 function proseWhy(p, key) {
   const [i, j] = key.split('.').map(Number), s = p.paragraphs[i]?.sentences[j];

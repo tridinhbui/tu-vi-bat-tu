@@ -286,6 +286,86 @@
     "{S} thường có con khi cuộc sống đã ổn định.",
     "Với {S}, chuyện con cái đến khi đã sẵn sàng hơn người cùng tuổi."
    ]
+  },
+  {
+   "id": "health.mild",
+   "status": "draft",
+   "np": "bệnh tật nhẹ, dễ chữa",
+   "pron": "sức khỏe ấy",
+   "pred": [
+    "ít gặp bệnh nặng, có ốm cũng dễ gặp thầy thuốc",
+    "đau ốm phần nhiều nhẹ, mau lành",
+    "ít khi phải nằm lâu vì bệnh"
+   ],
+   "behave": [
+    "Khi có bệnh, {S} thường gặp đúng người chữa.",
+    "Những trận ốm của {S} hiếm khi để lại hậu quả nặng."
+   ],
+   "soft": [
+    "có lúc đau ốm, nhưng thường không nặng",
+    "sức khỏe ở mức khá"
+   ],
+   "value": [
+    "sức khỏe được che chở",
+    "sự may mắn về thể chất"
+   ]
+  },
+  {
+   "id": "health.severe",
+   "status": "draft",
+   "np": "nguy cơ tai ách, bạo bệnh",
+   "pron": "những tai ách ấy",
+   "turn": [
+    "gặp tai ách hay bệnh nặng bất ngờ",
+    "phải chịu những trận ốm khó lường",
+    "gặp tai nạn, bệnh tật cần đề phòng"
+   ],
+   "soft": [
+    "có những lúc sức khỏe cần đề phòng, mức độ được giảm nhẹ",
+    "đôi khi gặp bệnh, nhưng không đến mức nặng"
+   ],
+   "mature": [
+    "giữ sức khỏe đều đặn thay vì đợi đến lúc cần",
+    "đề phòng sớm trước những dấu hiệu nhỏ"
+   ]
+  },
+  {
+   "id": "ally.weak",
+   "status": "draft",
+   "np": "người dưới kém tài, chỉ trông cậy",
+   "pron": "những người ấy",
+   "turn": [
+    "gặp người dưới bất lực, chỉ trông vào mình",
+    "phải gánh thay cho cộng sự kém tài",
+    "có người theo mà chẳng giúp được việc"
+   ],
+   "soft": [
+    "có người dưới chưa đủ sức, nhưng không phải tất cả",
+    "đôi khi phải làm thay người dưới"
+   ],
+   "mature": [
+    "chọn người theo năng lực hơn là theo tình",
+    "rèn người dưới thay vì làm thay họ"
+   ]
+  },
+  {
+   "id": "kin.burden",
+   "status": "draft",
+   "np": "người thân trông cậy vào mình",
+   "pron": "gánh nặng ấy",
+   "turn": [
+    "phải gánh vác cho người thân",
+    "bị anh em trông cậy nhiều hơn được giúp",
+    "lo toan cho người nhà quá sức mình"
+   ],
+   "soft": [
+    "đôi khi phải đỡ đần người thân",
+    "có người thân cần mình giúp, ở mức vừa"
+   ],
+   "mature": [
+    "giúp người thân đứng vững thay vì gánh thay họ",
+    "đặt giới hạn rõ cho việc nâng đỡ người nhà"
+   ]
   }
  ]
 }

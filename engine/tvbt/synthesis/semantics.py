@@ -23,7 +23,7 @@ from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent.parent / "data" / "semantic"
 SCHOOL = {"SRC_THUC_HANH": "Thực Hành", "SRC_KHAO_LUAN": "Khảo Luận", "SRC_TOAN_THU": "Toàn Thư", "SRC_TVDS_TAN_BIEN": "Tân Biên"}
-_CITE = re.compile(r"\[((?:TH|KL|TT)[^\]]*?)\]")
+_CITE = re.compile(r"\[((?:TH|KL|TT|TL)[^\]]*?)\]")
 _PARA = re.compile(r"paraphrased\)?[^:]{0,80}?:\s*(.+)$")
 _CONTRAST = (" nhưng ", " mà ", " song ", " tuy ")
 _CLAUSE = re.compile(r"[,;]| và | nhưng | mà | song | tuy ")

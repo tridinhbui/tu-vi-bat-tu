@@ -6,7 +6,7 @@
 // told twice; a single chapter is computed by running the chain up to it.
 import { run } from '../engine.ts';
 import { lift } from '../kg/lift.ts';
-import { applyQualifiers, resolve, type Resolved, type Tension } from '../kg/resolve.ts';
+import { applyQualifiers, resolve, type KgRelation, type Resolved, type Tension } from '../kg/resolve.ts';
 import type { ChartInput, Concept, Knowledge } from '../types.ts';
 import { chooseSchema, presentMoves } from './discourse.ts';
 import { Micro, fnv, lowerFirst } from './micro.ts';
@@ -60,7 +60,9 @@ export interface ProseChapter {
   paragraphs: ProseParagraph[]; text: string; issues: ProseIssue[]; metrics: ProseMetrics; pass: boolean;
   evidence: { resolved: Array<Pick<Resolved, 'ruleId' | 'concept' | 'stance' | 'status' | 'by' | 'cites'>>; tensions: Tension[]; unused: string[];
     /** every rule a sentence traces to, with its book paraphrase and pages, for the evidence panel */
-    rules: Record<string, { reading: string; cites: string[]; verified: boolean }>; concepts: Record<string, string> };
+    rules: Record<string, { reading: string; cites: string[]; verified: boolean }>; concepts: Record<string, string>;
+    /** two schools disagree on this chart: neither reading is in the text, both are shown here with their pages */
+    divergences: Array<{ relation: string; cite?: string; note?: string; rules: Array<{ id: string; reading: string; cites: string[] }> }> };
 }
 
 /** Starts with a proper name (a star, Tuần/Triệt, a Hóa): its capital stays when the sentence is woven into the previous one. */
@@ -114,11 +116,12 @@ export function proseReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?
   const { assertions } = lift(findings, k, chart.base);
   const { resolved, tensions } = resolve(assertions, k);
   applyQualifiers(resolved, k, chart.base);
+  const fired = new Set(findings.map(f => `${f.ruleId}|${f.subject}`));
   const seed = seedOf(chart);
   const micro = new Micro(seed, k.prose!.connectives, k.prose!.frames);
   const said = new Set<string>(), out: ProseChapter[] = [];
   for (const id of PROSE_ORDER) {
-    const ch = chapterOf(chart, k, id, resolved, tensions, micro, said, !!opts.allowDraft, seed);
+    const ch = chapterOf(chart, k, id, resolved, tensions, micro, said, !!opts.allowDraft, seed, fired);
     ch.paragraphs.forEach(p => p.sentences.forEach(s => (s.trace.keys ?? []).forEach(c => said.add(c))));
     out.push(ch);
     if (id === (opts.until ?? PROSE_ORDER[PROSE_ORDER.length - 1])) break;
@@ -130,7 +133,7 @@ export function proseChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId
 }
 
 function chapterOf(chart: ChartInput, k: Knowledge, id: ProseChapterId, resolvedAll: Resolved[], tensionsAll: Tension[], micro: Micro, said: Set<string>,
-  allowDraft: boolean, seed: string): ProseChapter {
+  allowDraft: boolean, seed: string, fired: Set<string>): ProseChapter {
   const spec = PROSE_SPECS[id];
   const pal = chart.palaces.find(p => p.name === spec.palace)!;
   const oppName = (chart.base[`palace:${spec.palace}`]?.['palace.rel_names'] as Record<string, string> | undefined)?.opp;
@@ -187,14 +190,23 @@ function chapterOf(chart: ChartInput, k: Knowledge, id: ProseChapterId, resolved
     .map(([role, xs]) => ({ role, sentences: xs, text: xs.map(s => s.text).join(' ') }));
   const { issues, metrics } = validateProse(paragraphs, resolved);
   const rmap = new Map(k.rules.map(r => [r.id, r]));
+  const reading = (id: string) => { const r = rmap.get(id)!; return (r.reading ?? k.claims[r.consequences[0]?.claim ?? ''] ?? '').replace(/^(khuynh hướng|hạn chế:)\s*/, ''); };
+  const relById = new Map(((k.kg?.relations ?? []) as KgRelation[]).map(r => [r.id, r]));
+  // from the fired findings, whatever their review status: a draft reading of one school is still worth showing beside the other's rebuttal
+  const divergences = [...relById.values()].filter(r => r.type === 'school_divergence').flatMap(rel => {
+    const subj = [...subjects].find(s => fired.has(`${rel.from}|${s}`) && rel.to.some(t => fired.has(`${t}|${s}`)));
+    if (!subj) return [];
+    const ids = [rel.from, ...rel.to.filter(t => fired.has(`${t}|${subj}`))].sort(), rid = rel.id;
+    return [{ relation: rid, cite: rel.cite, note: rel.note, rules: ids.map(id => ({ id, reading: reading(id), cites: rmap.get(id)!.cites })) }];
+  });
   return {
     engine: PROSE_VERSION, kbVersion: k.version, chapter: id, palace: spec.palace, schema: schema.id, order,
     draft: allowDraft && [...k.prose!.concepts, ...k.prose!.modifiers].some(c => c.status !== 'approved'),
     paragraphs, text: paragraphs.map(p => p.text).join('\n\n'), issues, metrics, pass: !issues.some(i => i.level === 'error'),
     evidence: { resolved: resolved.map(r => ({ ruleId: r.ruleId, concept: r.concept, stance: r.stance, status: r.status, by: r.by, cites: r.cites })), tensions, unused: sel.unused,
       rules: Object.fromEntries([...new Set(paragraphs.flatMap(p => p.sentences.flatMap(s => s.trace.rules)))].sort().map(id => {
-        const r = rmap.get(id)!; return [id, { reading: (r.reading ?? k.claims[r.consequences[0]?.claim ?? ''] ?? '').replace(/^(khuynh hướng|hạn chế:)\s*/, ''), cites: r.cites, verified: r.reviewStatus === 'verified' }];
+        const r = rmap.get(id)!; return [id, { reading: reading(id), cites: r.cites, verified: r.reviewStatus === 'verified' }];
       })),
-      concepts: Object.fromEntries([...new Set(paragraphs.flatMap(p => p.sentences.flatMap(s => s.trace.concepts)))].map(c => [c, k.concepts.concepts.find(x => x.id === c)?.short ?? c])) },
+      concepts: Object.fromEntries([...new Set(paragraphs.flatMap(p => p.sentences.flatMap(s => s.trace.concepts)))].map(c => [c, k.concepts.concepts.find(x => x.id === c)?.short ?? c])), divergences },
   };
 }

@@ -169,6 +169,40 @@
    "kind": "timing",
    "np": "con cái đến muộn",
    "short": "con muộn"
+  },
+  {
+   "id": "health.mild",
+   "facet": "wellbeing.health",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "health.severe",
+   "np": "bệnh tật nhẹ, dễ chữa",
+   "short": "bệnh nhẹ"
+  },
+  {
+   "id": "health.severe",
+   "facet": "wellbeing.health",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "health.mild",
+   "np": "nguy cơ tai ách, bạo bệnh",
+   "short": "tai ách nặng"
+  },
+  {
+   "id": "ally.weak",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "người dưới kém tài, chỉ trông cậy",
+   "short": "người dưới bất lực"
+  },
+  {
+   "id": "kin.burden",
+   "facet": "relationships.kin",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "người thân trông cậy vào mình",
+   "short": "gánh nặng người thân"
   }
  ]
 }

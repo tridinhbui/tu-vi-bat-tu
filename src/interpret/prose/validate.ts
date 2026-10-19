@@ -20,7 +20,7 @@ export function validateProse(paras: ProseParagraph[], resolved: Resolved[]): { 
       const t = s.trace;
       if (t.basis === 'sach' && !t.rules.length) issues.push({ level: 'error', code: 'uncited_factual_sentence', where, msg: s.text });
       if (t.basis === 'he_thong' && t.concepts.some(c => !saidHere.has(c))) issues.push({ level: 'error', code: 'editorial_new_claim', where, msg: `${t.concepts.filter(c => !saidHere.has(c)).join(', ')} not said before: ${s.text}` });
-      for (const c of t.concepts) for (const r of t.rules) if (status.get(`${r}|${c}`) === 'voided') issues.push({ level: 'error', code: 'voided_asserted', where, msg: `${r} ${c}` });
+      for (const c of t.concepts) for (const r of t.rules) if (status.get(`${r}|${c}`) === 'voided' || status.get(`${r}|${c}`) === 'divergent') issues.push({ level: 'error', code: 'voided_asserted', where, msg: `${r} ${c}` });
       if (t.basis === 'sach' && t.move !== 'ELABORATE') for (const k of t.keys ?? []) {
         // closing lines (he_thong) and the elaboration of the core re-voice on purpose; no other two sentences may voice the same reading
         const prev = keysSaid.get(k);
