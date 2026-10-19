@@ -3,6 +3,7 @@
 
 classify(star, branch, school) -> {status: VERIFIED|CONFLICT|UNVERIFIED|NOT_APPLICABLE, ...} with source provenance.
 Only VERIFIED carries a level; dignity() / minor_dignity() return it or None, and None reaches the rules as 'unspecified'.
+A CONFLICT cell's readings also reach the rules as alternatives (reasoning/facts.py, knowledge/dsl.py ALT), read three-valued.
 Nothing is guessed: no default 'bình', no level from a star's cát/hung nature or from another star in the palace.
 Schools: thuc_hanh (default), toan_thu, khao_luan. Phụ tinh fall back star by star to the next book when the chosen book has no table
 for that star (the result names the book used); chính tinh never fall back."""
