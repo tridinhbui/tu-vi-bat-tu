@@ -19,11 +19,15 @@
      "stance": "affirms"
     },
     {
+     "concept": "temper.proud",
+     "stance": "affirms"
+    },
+    {
      "concept": "life.indulgent",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_AUX_HOA_LINH": {
@@ -108,11 +112,11 @@
      "stance": "affirms"
     },
     {
-     "concept": "emo.melancholy",
+     "concept": "social.isolated",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_AUX_PHUC_BINH": {
@@ -129,26 +133,18 @@
    "asserts": [
     {
      "concept": "temper.proud",
-     "stance": "affirms",
-     "strength": "condition"
+     "stance": "affirms"
     },
     {
      "concept": "cog.analytic",
-     "stance": "affirms",
-     "strength": "condition"
+     "stance": "affirms"
     },
     {
      "concept": "path.public",
-     "stance": "affirms",
-     "strength": "condition"
-    },
-    {
-     "concept": "life.blessed",
-     "stance": "affirms",
-     "strength": "condition"
+     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_AUX_QUAN_PHU_VIET": {
@@ -288,11 +284,11 @@
   "TV_KL_AUX_TRUC_TU_PHU": {
    "asserts": [
     {
-     "concept": "adapt.unsteady",
+     "concept": "career.obstacle",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_AUX_TUAN_TRIET": {
@@ -328,7 +324,7 @@
   "TV_KL_AUX_XUONG_KHUC_DAC_DIA": {
    "asserts": [
     {
-     "concept": "presence.charm",
+     "concept": "exp.letters",
      "stance": "affirms"
     },
     {
@@ -336,7 +332,7 @@
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_CASE_MENH_AM_HAM_QUYEN": {
@@ -593,11 +589,11 @@
   "TV_KL_CT_CAP_DOI_BAC_TRUNG": {
    "asserts": [
     {
-     "concept": "presence.charm",
-     "stance": "affirms"
+     "concept": "career.status",
+     "stance": "weakens"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_CT_CNDL": {
@@ -609,13 +605,9 @@
     {
      "concept": "path.service",
      "stance": "affirms"
-    },
-    {
-     "concept": "spirit.unworldly",
-     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_CT_CNDL_KQL_KV_XK": {
@@ -1051,15 +1043,11 @@
      "stance": "affirms"
     },
     {
-     "concept": "fin.scarcity",
-     "stance": "affirms"
-    },
-    {
      "concept": "spirit.unworldly",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_CT_PHU_THU_MENH": {
@@ -1067,13 +1055,9 @@
     {
      "concept": "temper.proud",
      "stance": "affirms"
-    },
-    {
-     "concept": "social.isolated",
-     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_CT_PHU_VU_TY_NGO": {
@@ -1319,10 +1303,10 @@
     },
     {
      "concept": "fin.abundance",
-     "stance": "affirms"
+     "stance": "weakens"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_CT_VCD_TU_TUONG": {
@@ -1347,26 +1331,22 @@
    "asserts": [
     {
      "concept": "cog.sharp",
-     "stance": "affirms",
-     "strength": "potential"
+     "stance": "affirms"
     },
     {
      "concept": "exp.talent",
-     "stance": "affirms",
-     "strength": "potential"
+     "stance": "affirms"
     },
     {
-     "concept": "fin.scarcity",
-     "stance": "affirms",
-     "strength": "potential"
+     "concept": "fin.abundance",
+     "stance": "weakens"
     },
     {
      "concept": "career.fame",
-     "stance": "affirms",
-     "strength": "potential"
+     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_CT_VU_DON_THU": {
@@ -1498,9 +1478,13 @@
     {
      "concept": "career.late",
      "stance": "affirms"
+    },
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_DHK_01_SUU": {
@@ -1512,9 +1496,13 @@
     {
      "concept": "career.early",
      "stance": "affirms"
+    },
+    {
+     "concept": "spirit.unworldly",
+     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_DHK_02_DAN": {
@@ -1606,11 +1594,11 @@
      "stance": "affirms"
     },
     {
-     "concept": "values.kind",
+     "concept": "presence.charm",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_DHK_08_THAN": {
@@ -2887,15 +2875,15 @@
   "TV_KL_STAR_MENH_KINH_LUC_SI": {
    "asserts": [
     {
-     "concept": "career.success",
+     "concept": "disc.diligent",
      "stance": "affirms"
     },
     {
-     "concept": "career.obstacle",
-     "stance": "affirms"
+     "concept": "career.fame",
+     "stance": "weakens"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_STAR_MENH_KINH_PHUC_LOC": {
@@ -3039,11 +3027,11 @@
   "TV_KL_STAR_MENH_NHAT_BAN_DEM": {
    "asserts": [
     {
-     "concept": "adapt.unsteady",
+     "concept": "cog.dull",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_STAR_MENH_NHAT_DAN_THIN": {
@@ -3092,11 +3080,15 @@
      "stance": "affirms"
     },
     {
+     "concept": "values.integrity",
+     "stance": "affirms"
+    },
+    {
      "concept": "exp.letters",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_STAR_MENH_NHAT_HAM_TT": {
@@ -3351,11 +3343,19 @@
      "stance": "affirms"
     },
     {
+     "concept": "career.success",
+     "stance": "affirms"
+    },
+    {
      "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.pleasure",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_STAR_MENH_TV_THAM_SAT": {
@@ -5463,15 +5463,15 @@
      "stance": "affirms"
     },
     {
-     "concept": "fin.scarcity",
-     "stance": "affirms"
+     "concept": "fin.abundance",
+     "stance": "weakens"
     },
     {
      "concept": "well.longevity",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_CO_TOT_THONG_MINH_MUU_TRI": {
@@ -5576,21 +5576,22 @@
    "asserts": [
     {
      "concept": "temper.headstrong",
-     "stance": "affirms",
-     "strength": "condition"
+     "stance": "affirms"
     },
     {
      "concept": "adapt.unsteady",
-     "stance": "affirms",
-     "strength": "condition"
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.early_hardship",
+     "stance": "affirms"
     },
     {
      "concept": "life.late_bloom",
-     "stance": "affirms",
-     "strength": "condition"
+     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_DUONG_TOT_THONG_MINH_NHAN_HAU": {
@@ -5694,17 +5695,9 @@
     {
      "concept": "well.longevity",
      "stance": "affirms"
-    },
-    {
-     "concept": "fin.abundance",
-     "stance": "affirms"
-    },
-    {
-     "concept": "career.authority",
-     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_MV_MENH_AM_KINH_NGO": {
@@ -6032,9 +6025,13 @@
     {
      "concept": "cog.suspicious",
      "stance": "affirms"
+    },
+    {
+     "concept": "temper.headstrong",
+     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_MV_MENH_TRUONG_SINH_DE_VUONG": {
@@ -6191,7 +6188,7 @@
   "TV_TH_P2_MENH_NU_LOC_MA": {
    "asserts": [
     {
-     "concept": "presence.charm",
+     "concept": "values.integrity",
      "stance": "affirms"
     },
     {
@@ -6199,7 +6196,7 @@
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_P2_MENH_NU_MA_TON_DI": {
@@ -6415,11 +6412,15 @@
   "TV_TH_STAR_PHA_QUAN_NAM_HAM": {
    "asserts": [
     {
-     "concept": "emo.melancholy",
+     "concept": "social.isolated",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.hardship",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_STAR_PHA_QUAN_NAM_MV": {
@@ -6537,11 +6538,15 @@
   "TV_TH_STAR_THAI_DUONG_NU_HAM": {
    "asserts": [
     {
-     "concept": "fin.scarcity",
+     "concept": "emo.melancholy",
+     "stance": "affirms"
+    },
+    {
+     "concept": "emo.romantic",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_STAR_THAI_DUONG_NU_MV": {
@@ -6696,14 +6701,14 @@
    "asserts": [
     {
      "concept": "exp.talent",
-     "stance": "weakens"
+     "stance": "affirms"
     },
     {
      "concept": "temper.cunning",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_STAR_THIEN_CO_NU_MV": {
@@ -7052,11 +7057,11 @@
      "stance": "affirms"
     },
     {
-     "concept": "career.success",
+     "concept": "career.late",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_TUONG_TOT_UY_NGHI_DON_HAU": {
@@ -7744,17 +7749,16 @@
   "TV_TT_MENH_THAM_VU_MUON": {
    "asserts": [
     {
-     "concept": "life.blessed",
+     "concept": "career.status",
      "stance": "affirms",
      "strength": "potential"
     },
     {
      "concept": "career.late",
-     "stance": "affirms",
-     "strength": "potential"
+     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TT_MENH_TUONG_HUU_BAT": {
@@ -7975,11 +7979,14 @@
    "asserts": [
     {
      "concept": "presence.charm",
-     "stance": "affirms",
-     "strength": "potential"
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.status",
+     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TT_NU_NHAT_TAO_VAT": {

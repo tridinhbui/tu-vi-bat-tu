@@ -26,20 +26,42 @@ export interface ProseChapter {
 /** Starts with a proper name (a star, Tuần/Triệt, a Hóa): its capital stays when the sentence is woven into the previous one. */
 const properStart = (t: string) => /^(\p{Lu}\p{Ll}*\s\p{Lu})|^(Tuần|Triệt)\b/u.test(t);
 const words = (t: string) => t.split(/\s+/).length;
-/** Weave short factual sentences: an elaboration or a timing remark joins the sentence before it with a semicolon (seeded, about two
- *  times in three), so rhythm varies the way edited prose does. Editorial (he_thong) sentences are never woven. */
-function weave(xs: ProseSentence[], seed: string, tag: string): ProseSentence[] {
-  const out: ProseSentence[] = [];
-  for (const s of xs) {
-    const prev = out[out.length - 1];
-    if (prev && ((s.trace.move === 'ELABORATE' && (prev.trace.move === 'ANCHOR' || prev.trace.move === 'BORROW')) || s.trace.move === 'TIMING' || s.trace.move === 'EXTRA' || (s.trace.move === 'TURN' && prev.trace.move === 'ANCHOR')) && prev.trace.basis === 'sach' && s.trace.basis === 'sach'
-        && words(prev.text) + words(s.text) <= 48 && fnv(`${seed}|weave|${tag}|${out.length}`) % 3 !== 0) {
-      const second = properStart(s.text) ? s.text : lowerFirst(s.text);
-      out[out.length - 1] = { text: `${prev.text.replace(/\.$/, '')}; ${second}`, trace: { ...prev.trace, concepts: [...new Set([...prev.trace.concepts, ...s.trace.concepts])],
-        rules: [...new Set([...prev.trace.rules, ...s.trace.rules])].sort(), cites: [...new Set([...prev.trace.cites, ...s.trace.cites])].sort(), woven: [...(prev.trace.woven ?? []), s.trace.move] } };
-    } else out.push(s);
+/** A sentence may join the one before it with a semicolon: an elaboration after the anchor, a timing or course remark, or the turn
+ *  right after the anchor; both factual (editorial sentences are never woven), and the result at most 48 words. */
+const canWeave = (prev: ProseSentence, s: ProseSentence) =>
+  ((s.trace.move === 'ELABORATE' && (prev.trace.move === 'ANCHOR' || prev.trace.move === 'BORROW')) || s.trace.move === 'TIMING' || s.trace.move === 'EXTRA'
+    || (s.trace.move === 'TURN' && prev.trace.move === 'ANCHOR')) && !prev.trace.woven && prev.trace.basis === 'sach' && s.trace.basis === 'sach' && words(prev.text) + words(s.text) <= 48;
+function join2(prev: ProseSentence, s: ProseSentence): ProseSentence {
+  const second = properStart(s.text) ? s.text : lowerFirst(s.text);
+  return { text: `${prev.text.replace(/\.$/, '')}; ${second}`, trace: { ...prev.trace, concepts: [...new Set([...prev.trace.concepts, ...s.trace.concepts])],
+    rules: [...new Set([...prev.trace.rules, ...s.trace.rules])].sort(), cites: [...new Set([...prev.trace.cites, ...s.trace.cites])].sort(), woven: [...(prev.trace.woven ?? []), s.trace.move] } };
+}
+const spread = (xs: number[]) => { const m = xs.reduce((a, b) => a + b, 0) / xs.length; return Math.sqrt(xs.reduce((a, b) => a + (b - m) ** 2, 0) / xs.length); };
+/** Rhythm (prose plan §6: edited prose varies sentence length — the reference paragraph has sd 7.1 words). First a seeded pass weaves
+ *  about two in three eligible pairs; then, across the whole chapter, while the spread of sentence lengths is under 6 words, the
+ *  eligible pair whose weaving raises it most is woven. Deterministic: same chart, same text. */
+function rhythm(paras: Array<[ProseParagraph['role'], ProseSentence[]]>, seed: string): Array<[ProseParagraph['role'], ProseSentence[]]> {
+  const ps = paras.map(([role, xs]) => {
+    const out: ProseSentence[] = [];
+    for (const s of xs) { const prev = out[out.length - 1]; if (prev && canWeave(prev, s) && fnv(`${seed}|weave|${role}|${out.length}`) % 3 !== 0) out[out.length - 1] = join2(prev, s); else out.push(s); }
+    return [role, out] as [ProseParagraph['role'], ProseSentence[]];
+  });
+  const lens = () => ps.flatMap(([, xs]) => xs.map(s => words(s.text)));
+  for (let guard = 0; guard < 6 && spread(lens()) < 6; guard++) {
+    let best = null as [number, number, number] | null;
+    ps.forEach(([, xs], pi) => xs.forEach((s, i) => {
+      if (!i || !canWeave(xs[i - 1], s)) return;
+      const trial = lens(), off = ps.slice(0, pi).reduce((a, [, ys]) => a + ys.length, 0) + i;
+      trial.splice(off - 1, 2, trial[off - 1] + trial[off]);
+      const sd = spread(trial);
+      if (!best || sd > best[2]) best = [pi, i, sd];
+    }));
+    const pick = best as [number, number, number] | null;
+    if (!pick || pick[2] <= spread(lens())) break;
+    const [pi, i] = pick, xs = ps[pi][1];
+    xs.splice(i - 1, 2, join2(xs[i - 1], xs[i]));
   }
-  return out;
+  return ps;
 }
 
 export function seedOf(chart: ChartInput): string {
@@ -95,8 +117,8 @@ export function proseMenh(chart: ChartInput, k: Knowledge, opts: { allowDraft?: 
   if (d) p3.push(d);
   sel.extra.forEach((x, i) => { const s = R.course(x, i); if (s) p3.push(s); });
 
-  const paragraphs: ProseParagraph[] = ([['core', p1], ['support', p2], ['course', p3]] as const)
-    .filter(([, xs]) => xs.length).map(([role, xs]) => { const w = weave(xs, seed, role); return { role, sentences: w, text: w.map(s => s.text).join(' ') }; });
+  const paragraphs: ProseParagraph[] = rhythm(([['core', p1], ['support', p2], ['course', p3]] as Array<[ProseParagraph['role'], ProseSentence[]]>).filter(([, xs]) => xs.length), seed)
+    .map(([role, xs]) => ({ role, sentences: xs, text: xs.map(s => s.text).join(' ') }));
   const { issues, metrics } = validateProse(paragraphs, resolved);
   const rmap = new Map(k.rules.map(r => [r.id, r]));
   return {
