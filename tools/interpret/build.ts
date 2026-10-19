@@ -76,6 +76,8 @@ const knowledge = {
   concepts: sem('concepts.json'), relations: sem('relations.json'), ontology: sem('ontology.json'),
   starProfiles: read(join(DATA, 'star_profiles.json')),
   modules,
+  // knowledge graph (prose plan §2): page-checked qualifiers now; rule→concept links and rule relations join here in P1
+  kg: { qualifiers: read(join(DATA, 'kg', 'qualifiers.json')).qualifiers },
 };
 const version = createHash('sha256').update(JSON.stringify(knowledge)).digest('hex').slice(0, 16);
 const out = { version, builtFrom: packs, ...knowledge };
