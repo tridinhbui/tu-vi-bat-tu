@@ -637,3 +637,7 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 .ch-more>summary::-webkit-details-marker{display:none}
 .ch-more>summary:before{content:"+";display:inline-block;width:1.2em;font-weight:700}
 .ch-more[open]>summary:before{content:"−"}
+
+.ask-buy{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--parchment)}
+.ask-buy[hidden]{display:none}.ask-buy p{flex:1 0 100%;margin:0}
+.ask-buy-btn{white-space:nowrap}

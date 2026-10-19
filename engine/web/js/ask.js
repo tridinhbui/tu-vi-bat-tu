@@ -12,24 +12,43 @@ const left = w => `${w.free.remaining} lượt miễn phí · ${w.coins} xu`;
 export function initAsk(host, getReq) {
   host.innerHTML = `<button type="button" class="ask-fab" aria-expanded="false" aria-controls="ask-panel" hidden>Hỏi về lá số</button>
     <section class="ask-panel" id="ask-panel" role="dialog" aria-label="Hỏi về lá số" hidden>
-      <header class="ask-h"><b>Hỏi về lá số</b><span class="ask-left muted small"></span><button type="button" class="ask-x" aria-label="Đóng">×</button></header>
+      <header class="ask-h"><b>Hỏi về lá số</b><span class="ask-left muted small"></span><button type="button" class="ask-buy-btn btn btn-sm btn-ghost" hidden>Nạp xu</button><button type="button" class="ask-x" aria-label="Đóng">×</button></header>
+      <div class="ask-buy" hidden></div>
       <div class="ask-deep"><select aria-label="Chương muốn đọc sâu">${CHAPTERS.map(([id, t]) => `<option value="${id}">${t}</option>`).join('')}</select><button type="button" class="btn btn-sm btn-ghost">Luận giải sâu · 20 xu</button></div>
       <div class="ask-log" aria-live="polite"></div>
       <p class="ask-note" hidden></p>
       <form class="ask-form"><textarea rows="1" maxlength="1500" placeholder="Ví dụ: Công danh của tôi mạnh ở đâu?" aria-label="Câu hỏi"></textarea><button class="btn btn-sm" type="submit">Gửi</button></form>
       <p class="ask-fine muted small">Trợ lý chỉ dựa vào lá số và bài luận giải của bạn. Đây là hệ biểu tượng truyền thống, không phải dự báo. Để trả lời, nội dung lá số và câu hỏi của bạn được gửi tới Anthropic (Claude); nội dung chat không được lưu trên Thiên Bàn.</p>
     </section>`;
-  const fab = $('.ask-fab', host), panel = $('.ask-panel', host), log = $('.ask-log', host), note = $('.ask-note', host), form = $('.ask-form', host), ta = $('textarea', host), send = $('.ask-form .btn', host), leftEl = $('.ask-left', host);
+  const fab = $('.ask-fab', host), panel = $('.ask-panel', host), log = $('.ask-log', host), note = $('.ask-note', host), form = $('.ask-form', host), ta = $('textarea', host), send = $('.ask-form .btn', host), leftEl = $('.ask-left', host), buyBtn = $('.ask-buy-btn', host), buyBox = $('.ask-buy', host);
+  const setWallet = w => { wallet = { ...(wallet || {}), ...w }; };
   let me = null, wallet = null, busy = false, forKey = '', history = [];
 
   const say = (cls, text) => { const p = document.createElement('p'); p.className = 'ask-m ' + cls; p.textContent = text; log.appendChild(p); log.scrollTop = log.scrollHeight; return p; };
   const setNote = (html, text) => { note.hidden = !text && !html; note.replaceChildren(); if (text) note.textContent = text; if (html) note.append(html); };
   const lock = () => {
     ta.disabled = send.disabled = true;
-    const a = document.createElement('span'); a.textContent = 'Bạn đã dùng hết lượt miễn phí tháng này. Lượt miễn phí được làm mới vào đầu tháng sau. Gói xu để chat thêm sẽ có sớm.';
-    setNote(a);
+    const a = document.createElement('span');
+    a.textContent = 'Bạn đã dùng hết lượt miễn phí tháng này; lượt miễn phí được làm mới vào đầu tháng sau.' + (wallet?.canBuy ? ' Nạp xu để chat tiếp ngay.' : ' Gói xu để chat thêm sẽ có sớm.');
+    setNote(a); if (wallet?.canBuy) showBuy(true);
   };
+  const vnd = n => n.toLocaleString('vi-VN') + 'đ';
+  function showBuy(on) {
+    buyBox.hidden = !on || !wallet?.canBuy; if (buyBox.hidden) return;
+    buyBox.replaceChildren(...[Object.assign(document.createElement('p'), { className: 'muted small', textContent: 'Chọn gói xu, thanh toán an toàn qua Stripe. Xu không hết hạn.' }),
+      ...wallet.packs.map(p => { const b = document.createElement('button'); b.type = 'button'; b.className = 'btn btn-sm btn-ghost'; b.textContent = `${p.coins} xu · ${vnd(p.amount)}`; b.onclick = () => buy(p.id, b); return b; })]);
+  }
+  async function buy(id, btn) {
+    btn.disabled = true;
+    try {
+      const r = await fetch('/api/me/checkout', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json', 'x-tvbt': '1' }, body: JSON.stringify({ pack: id }) });
+      const b = r.ok ? await r.json() : null; if (!b?.url) throw new Error();
+      location.href = b.url;
+    } catch { btn.disabled = false; say('ask-err', 'Chưa mở được trang thanh toán. Bạn thử lại nhé.'); }
+  }
+  buyBtn.onclick = () => showBuy(buyBox.hidden);
   const paint = () => {
+    buyBtn.hidden = !(me?.user && wallet?.canBuy);
     const signedOut = !me?.user;
     ta.disabled = send.disabled = busy || signedOut; deepBtn.disabled = deepSel.disabled = busy || signedOut; leftEl.textContent = wallet ? left(wallet) : '';
     if (signedOut) {
@@ -73,7 +92,7 @@ export function initAsk(host, getReq) {
         if (ev.type === 'delta') { got += ev.text; out.textContent = got; log.scrollTop = log.scrollHeight; }
         else if (ev.type === 'error') { failed = true; if (!got) out.remove(); say('ask-err', ev.message + (ev.refunded ? ' Lượt này không bị tính.' : '')); }
         else if (ev.type === 'done' && ev.truncated) out.textContent = got + ' …';
-        else if (ev.type === 'wallet') { wallet = ev.wallet; dispatchEvent(new CustomEvent('tvbt:wallet', { detail: wallet })); }
+        else if (ev.type === 'wallet') { setWallet(ev.wallet); dispatchEvent(new CustomEvent('tvbt:wallet', { detail: wallet })); }
       }
     }
     return { got, failed };
@@ -89,7 +108,7 @@ export function initAsk(host, getReq) {
     say('ask-me', `Luận giải sâu: ${title}`); const out = say('ask-bot', 'Đang viết, khoảng nửa phút…');
     try {
       const res = await fetch('/api/me/deep', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json', 'x-tvbt': '1' }, body: JSON.stringify({ birth: pick(req), chapter: deepSel.value }) });
-      if (res.status === 402) { const b = await res.json(); wallet = b.wallet; out.remove(); say('ask-err', `Luận giải sâu cần ${b.need} xu, bạn đang có ${b.wallet.coins} xu. Gói xu sẽ có sớm.`); }
+      if (res.status === 402) { const b = await res.json(); setWallet(b.wallet); out.remove(); say('ask-err', `Luận giải sâu cần ${b.need} xu, bạn đang có ${b.wallet.coins} xu.` + (wallet?.canBuy ? ' Nạp thêm xu ở nút phía trên.' : ' Gói xu sẽ có sớm.')); if (wallet?.canBuy) showBuy(true); }
       else if (res.status === 401) { me = null; out.remove(); }
       else if (!res.ok || !res.body) throw new Error(String(res.status));
       else { out.textContent = ''; const r = await readStream(res, out); if (!r.got && !r.failed) out.remove(); }
@@ -107,7 +126,7 @@ export function initAsk(host, getReq) {
     let r = { got: '', failed: false };
     try {
       const res = await post({ birth: pick(req), messages });
-      if (res.status === 402) { const b = await res.json(); wallet = b.wallet; out.remove(); lock(); busy = false; leftEl.textContent = wallet ? left(wallet) : ''; return; }
+      if (res.status === 402) { const b = await res.json(); setWallet(b.wallet); out.remove(); lock(); busy = false; leftEl.textContent = wallet ? left(wallet) : ''; return; }
       if (res.status === 401) { me = null; out.remove(); busy = false; paint(); return; }
       if (!res.ok || !res.body) throw new Error(String(res.status));
       r = await readStream(res, out);
@@ -117,4 +136,20 @@ export function initAsk(host, getReq) {
     else if (!failed) out.remove();
     busy = false; paint();
   };
+
+  // back from Stripe: the webhook may land a few seconds after the redirect, so look at the wallet a few times
+  const paid = new URLSearchParams(location.search).get('paid');
+  if (paid !== null) {
+    window.history.replaceState(null, '', location.pathname + location.hash);
+    if (paid === '1') (async () => {
+      const before = (await (await fetch('/api/me/wallet', { credentials: 'same-origin' }).catch(() => null))?.json?.().catch(() => null))?.coins ?? 0;
+      reset(); panel.hidden = false; say('ask-bot', 'Cảm ơn bạn! Đang cộng xu vào tài khoản…');
+      for (let i = 0; i < 8; i++) {
+        await load();
+        if ((wallet?.coins ?? 0) > before) { say('ask-bot', `Đã cộng xu. Bạn có ${wallet.coins} xu.`); dispatchEvent(new CustomEvent('tvbt:wallet', { detail: wallet })); return; }
+        await new Promise(r => setTimeout(r, 2500));
+      }
+      say('ask-bot', 'Thanh toán đã ghi nhận nhưng xu chưa hiện. Bạn tải lại trang sau ít phút; nếu vẫn chưa thấy, liên hệ để được hỗ trợ.');
+    })();
+  }
 }

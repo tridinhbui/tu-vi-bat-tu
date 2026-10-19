@@ -3,9 +3,10 @@ import { authUrl, exchangeCode, newState, type GoogleConfig } from "./google.ts"
 import { COOKIE, createSession, currentUser, destroySession, randomToken, readCookie, setCookie } from "./session.ts";
 import { deleteChart, listCharts, syncCharts } from "./charts.ts";
 import { getWallet, grant } from "../billing/wallet.ts";
+import { PACKS } from "../billing/config.ts";
 import { bump } from "../stats/stats.ts";
 
-export interface AuthEnv { DB?: D1Database; GOOGLE_CLIENT_ID?: string; GOOGLE_CLIENT_SECRET?: string; ADMIN_TOKEN?: string }
+export interface AuthEnv { DB?: D1Database; GOOGLE_CLIENT_ID?: string; GOOGLE_CLIENT_SECRET?: string; ADMIN_TOKEN?: string; STRIPE_SECRET_KEY?: string }
 
 const json = (body: unknown, status = 200, headers: HeadersInit = {}) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers } });
@@ -89,7 +90,7 @@ export async function handleAuth(request: Request, env: AuthEnv): Promise<Respon
   // Cookie auth plus SameSite=Lax; writes also need a custom header, which a cross-site form or image cannot send.
   if (request.method !== "GET" && request.headers.get("x-tvbt") !== "1") return json({ detail: "missing x-tvbt header" }, 403);
 
-  if (path === "/api/me/wallet" && request.method === "GET") return json(await getWallet(db, user.id));
+  if (path === "/api/me/wallet" && request.method === "GET") return json({ ...(await getWallet(db, user.id)), packs: PACKS, canBuy: !!env.STRIPE_SECRET_KEY });
   if (path === "/api/me/charts" && request.method === "GET") return json({ charts: await listCharts(db, user.id) });
   if (path === "/api/me/charts/sync" && request.method === "POST") {
     const body = await request.json().catch(() => null) as { charts?: unknown } | null;

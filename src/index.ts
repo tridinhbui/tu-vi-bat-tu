@@ -5,6 +5,7 @@ import { currentUser } from "./auth/session.ts";
 import { bump, handleStats } from "./stats/stats.ts";
 import { handleChat } from "./chat/route.ts";
 import { handleDeep } from "./chat/deep.ts";
+import { handleBilling, isBillingPath, type BillingEnv } from "./billing/route.ts";
 import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS } from "./chat/llm.ts";
 import { handleInterpret } from "./interpret/route.ts";
 import { BundledStore, D1Store, LayeredCache, type D1Like, type R2Like } from "./interpret/store.ts";
@@ -17,7 +18,7 @@ export class TvbtContainer extends Container {
   sleepAfter = "10m";
 }
 
-interface Env extends AuthEnv {
+interface Env extends AuthEnv, BillingEnv {
   ANTHROPIC_API_KEY?: string;       // secret; without it /api/me/chat answers 503
   TVBT: DurableObjectNamespace<TvbtContainer>;
   TVBT_INTERPRET?: string;          // "1" enables /api/interpret (default off: the route answers 404)
@@ -53,6 +54,7 @@ export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const path = new URL(request.url).pathname;
     if (path === "/api/stats") return handleStats(env.DB);
+    if (isBillingPath(path)) return handleBilling(request, env, env.DB ? await currentUser(env.DB, request) : null);
     if (path === "/api/me/chat") return chatRoute(request, env, ctx, false);
     if (path === "/api/me/deep") return chatRoute(request, env, ctx, true);
     if (isAuthPath(path)) return handleAuth(request, env);
