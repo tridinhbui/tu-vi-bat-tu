@@ -11,6 +11,7 @@
 //              that ties them (dominance verdict, lexicon relation, refinement or "both hold"); prose is written per theme, not per rule
 //   exclusions drafts, readings the books give for another palace, and what the rule set cannot decide
 import { ChartGraph, SAT, CAT } from './graph.ts';
+import { citeVi, classify, KB, type School } from './dignity.ts';
 import { joinVi, rootStars, type Evidence, type Lexicon } from './semantic.ts';
 import type { ChapterSpec, SectionSpec } from './chapters.ts';
 import type { ChartInput, Finding, Knowledge, Rule } from './types.ts';
@@ -307,7 +308,9 @@ export function plan(chart: ChartInput, ev: Evidence[], g: ChartGraph, lex: Lexi
   }).filter(Boolean);
   const stage = (ref && dFocus) ? (chart.dai_han_direction === 'thuận' ? ref.lifeStages.thuan : ref.lifeStages.nghich)[focus] ?? '' : '';
   const nowStage = (ref && dNow) ? (chart.dai_han_direction === 'thuận' ? ref.lifeStages.thuan : ref.lifeStages.nghich)[dNow.palace] ?? '' : '';
-  const digLoc = (s: string) => { const m = String(ref?.dignity.locators[s] ?? '').match(/^p+\.?\s?([\d]+(?:-[\d]+)?)/); return m ? `Thực Hành tr.${m[1].replace(/-/g, '–')}` : ''; };
+  // the page of the book the level actually came from (Toàn Thư under that school), from the shared dignity knowledge base
+  const school = ((chart as { dignity_school?: School }).dignity_school ?? KB.default_school) as School;
+  const digLoc = (s: string) => { const r = classify(s, q.branch, school); return r.status === 'VERIFIED' ? citeVi(r.locator) : ''; };
   const digFacts = q.major_stars.filter(s => q.major_dignity[s]).map(s => `${s} ở ${q.branch} được xếp ${q.major_dignity[s]}${digLoc(s) ? ` (${digLoc(s)})` : ''}`);
   const slots: Record<string, string> = {
     'chapter.title': spec.title, 'chapter.scope': spec.scope, 'topic': sec.topic,
