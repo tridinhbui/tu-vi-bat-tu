@@ -163,6 +163,19 @@
    "note": "cụ thể hơn về fin.abundance"
   },
   {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_TU_VI_SAT_M__TV_TT_PAL_NO_BOC_TU_VI_BASE_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_NO_BOC_TU_VI_SAT_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_TU_VI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 83,
+   "note": "cụ thể hơn về ally.loyal"
+  },
+  {
    "id": "AUTO_TV_KL_CUNG_PHU_THE_DEP_DOI__TV_TH_P2_PHU_THE_KHONG_KIEP",
    "type": "both_hold",
    "from": "TV_KL_CUNG_PHU_THE_DEP_DOI",
@@ -226,19 +239,6 @@
    "review": "draft",
    "charts": 50,
    "note": "cụ thể hơn về career.status"
-  },
-  {
-   "id": "AUTO_TV_TH_P2_DIEN_TRACH_LUONG_CO__TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
-   "type": "both_hold",
-   "from": "TV_TH_P2_DIEN_TRACH_LUONG_CO",
-   "to": [
-    "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 49,
-   "note": "prop.rich; nesting {\"same\":37,\"disjoint\":12}"
   },
   {
    "id": "AUTO_TV_KL_CT_CU_THU_MENH__TV_TH_CU_HAM_GIAN_XAO_DA_NGHI",
@@ -358,6 +358,19 @@
    "note": "cụ thể hơn về rel.harmony"
   },
   {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 37,
+   "note": "life.blessed; nesting {\"disjoint\":37}"
+  },
+  {
    "id": "AUTO_TV_KL_CT_DONG_THU_MENH__TV_TH_DONG_HAM_NONG_CAN_KHAM_KHO",
    "type": "unresolved",
    "from": "TV_KL_CT_DONG_THU_MENH",
@@ -382,6 +395,19 @@
    "review": "draft",
    "charts": 36,
    "note": "fin.scarcity; nesting {\"disjoint\":36}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M__TV_TT_PAL_DIEN_TRACH_THIEN_TUONG_MIEU_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_THIEN_TUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 35,
+   "note": "cụ thể hơn về prop.rich"
   },
   {
    "id": "AUTO_TV_TT_PAL_PHUC_DUC_CU_MON_BASE_M__TV_TT_PAL_PHUC_DUC_THIEN_DONG_BASE_P",
@@ -618,6 +644,19 @@
    "note": "fin.scarcity; nesting {\"disjoint\":28}"
   },
   {
+   "id": "AUTO_TV_TH_AUX2_PHUC_DUC_HONG_NGA_MI__TV_TH_P2_PHUC_DUC_TT",
+   "type": "both_hold",
+   "from": "TV_TH_AUX2_PHUC_DUC_HONG_NGA_MI",
+   "to": [
+    "TV_TH_P2_PHUC_DUC_TT"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 28,
+   "note": "life.blessed; nesting {\"disjoint\":28}"
+  },
+  {
    "id": "AUTO_TV_TH_AUX2_QUAN_LOC_KK_HAM__TV_TH_P2_QUAN_LOC_KHOI_VIET",
    "type": "both_hold",
    "from": "TV_TH_AUX2_QUAN_LOC_KK_HAM",
@@ -696,19 +735,6 @@
    "note": "cog.dull; nesting {\"disjoint\":27}"
   },
   {
-   "id": "AUTO_TV_KL_STAR_PHUC_DUC_KHONG_KIEP__TV_TH_P2_PHUC_DUC_TS_DV",
-   "type": "both_hold",
-   "from": "TV_KL_STAR_PHUC_DUC_KHONG_KIEP",
-   "to": [
-    "TV_TH_P2_PHUC_DUC_TS_DV"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 27,
-   "note": "fin.scarcity; nesting {\"disjoint\":27}"
-  },
-  {
    "id": "AUTO_TV_KL_AUX_TRUC_TU_PHU__TV_TT_MENH_QUYEN_LOC",
    "type": "both_hold",
    "from": "TV_KL_AUX_TRUC_TU_PHU",
@@ -746,6 +772,19 @@
    "review": "draft",
    "charts": 26,
    "note": "fin.scarcity; nesting {\"disjoint\":26}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_THIEN_PHU_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THIEN_PHU_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 26,
+   "note": "life.blessed; nesting {\"disjoint\":26}"
   },
   {
    "id": "AUTO_TV_KL_PHU2_HOA_LOC_TU_MO__TV_TH_AUX_MENH_HL_MENH",
@@ -800,17 +839,17 @@
    "note": "rel.harmony; nesting {\"disjoint\":24}"
   },
   {
-   "id": "AUTO_TV_KL_STAR_DIEN_TRACH_CO_NHIEU__TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
-   "type": "narrows",
-   "from": "TV_KL_STAR_DIEN_TRACH_CO_NHIEU",
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_THIEN_TUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
    "to": [
-    "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M"
+    "TV_TT_PAL_PHUC_DUC_THIEN_TUONG_BASE_P"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 24,
-   "note": "cụ thể hơn về prop.rich"
+   "note": "life.blessed; nesting {\"disjoint\":24}"
   },
   {
    "id": "AUTO_TV_KL_AUX_TRUC_TU_PHU__TV_KL_CT_DUONG_THU_MENH",
@@ -850,6 +889,32 @@
    "review": "draft",
    "charts": 23,
    "note": "life.hardship; nesting {\"disjoint\":23}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 23,
+   "note": "life.blessed; nesting {\"disjoint\":23}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 23,
+   "note": "life.blessed; nesting {\"disjoint\":23}"
   },
   {
    "id": "AUTO_TV_KL_CT_PHA_THU_MENH__TV_TH_STAR_PHA_QUAN_NU_MV",
@@ -917,6 +982,19 @@
    "note": "fin.scarcity; nesting {\"disjoint\":21}"
   },
   {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_TU_VI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_TU_VI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 21,
+   "note": "life.blessed; nesting {\"disjoint\":21}"
+  },
+  {
    "id": "AUTO_TV_KL_CT_SAT_THU_MENH__TV_KL_PHU2_BA_KHONG",
    "type": "both_hold",
    "from": "TV_KL_CT_SAT_THU_MENH",
@@ -928,6 +1006,19 @@
    "review": "draft",
    "charts": 19,
    "note": "fin.abundance; nesting {\"disjoint\":19}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_THIEN_DI_VU_CU__TV_TT_PAL_THIEN_DI_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_THIEN_DI_VU_CU",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 19,
+   "note": "inner.unrest; nesting {\"disjoint\":19}"
   },
   {
    "id": "AUTO_TV_KL_AUX_TRUC_TU_PHU__TV_TH_AUX_MENH_XK_CAT",
@@ -1242,6 +1333,19 @@
    "note": "rel.strain; nesting {\"disjoint\":16}"
   },
   {
+   "id": "AUTO_TV_TH_P2_PHU_THE_KHONG_KIEP__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHU_THE_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 16,
+   "note": "rel.strain; nesting {\"disjoint\":16}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_TAI_BACH_KHONG_KIEP__TV_TT_PAL_TAI_BACH_CU_MON_BASE_P",
    "type": "both_hold",
    "from": "TV_TH_P2_TAI_BACH_KHONG_KIEP",
@@ -1266,6 +1370,19 @@
    "review": "draft",
    "charts": 15,
    "note": "fin.abundance; nesting {\"disjoint\":15}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_NO_BOC_CU_CO__TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P",
+   "type": "narrows",
+   "from": "TV_KL_CUNG_NO_BOC_CU_CO",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 15,
+   "note": "cụ thể hơn về ally.disloyal"
   },
   {
    "id": "AUTO_TV_KL_PHU2_BA_KHONG__TV_KL_STAR_MENH_NHAT_DAN_THIN",
@@ -1370,19 +1487,6 @@
    "review": "draft",
    "charts": 15,
    "note": "fin.scarcity; nesting {\"disjoint\":15}"
-  },
-  {
-   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_LIEM_TRINH_MIEU_P",
-   "type": "both_hold",
-   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
-   "to": [
-    "TV_TT_PAL_NO_BOC_LIEM_TRINH_MIEU_P"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 15,
-   "note": "social.support; nesting {\"disjoint\":15}"
   },
   {
    "id": "AUTO_TV_KL_CASE_TAI_BACH_THAN__TV_TT_PAL_TAI_BACH_THIEN_KHOI_BASE_P",
@@ -1515,6 +1619,19 @@
    "note": "fin.abundance; nesting {\"overlap\":14}"
   },
   {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_THAT_SAT_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THAT_SAT_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 14,
+   "note": "life.blessed; nesting {\"disjoint\":14}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_TAI_BACH_HAO__TV_TT_PAL_TAI_BACH_CU_MON_WITH_THAI_DUONG_P",
    "type": "both_hold",
    "from": "TV_TH_P2_TAI_BACH_HAO",
@@ -1538,7 +1655,7 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 14,
-   "note": "social.support; nesting {\"disjoint\":14}"
+   "note": "ally.disloyal; nesting {\"disjoint\":14}"
   },
   {
    "id": "AUTO_TV_KL_AUX_TRUC_TU_PHU__TV_KL_AUX_XUONG_KHUC_DAC_DIA",
@@ -1801,6 +1918,19 @@
    "note": "fin.scarcity; nesting {\"disjoint\":13}"
   },
   {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_PHA_QUAN_BASE_M__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_PHA_QUAN_BASE_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 13,
+   "note": "rel.strain; nesting {\"disjoint\":13}"
+  },
+  {
    "id": "AUTO_TV_TT_PAL_QUAN_LOC_TU_VI_SAT_M__TV_TT_PAL_QUAN_LOC_TU_VI_WITH_PHA_QUAN_P",
    "type": "both_hold",
    "from": "TV_TT_PAL_QUAN_LOC_TU_VI_SAT_M",
@@ -1968,19 +2098,6 @@
    "review": "draft",
    "charts": 12,
    "note": "cụ thể hơn về career.status"
-  },
-  {
-   "id": "AUTO_TV_KL_CUNG_DIEN_TRACH_THAI_AM__TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
-   "type": "both_hold",
-   "from": "TV_KL_CUNG_DIEN_TRACH_THAI_AM",
-   "to": [
-    "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 12,
-   "note": "prop.rich; nesting {\"disjoint\":12}"
   },
   {
    "id": "AUTO_TV_KL_CUNG_PHU_MAU_HUNG__TV_TT_PAL_PHU_MAU_THAM_LANG_WITH_TU_VI_P",
@@ -2178,6 +2295,32 @@
    "note": "life.hardship; nesting {\"disjoint\":12}"
   },
   {
+   "id": "AUTO_TV_KL_STAR_PHUC_DUC_TV_THAT_SAT__TV_TT_PAL_PHUC_DUC_THAT_SAT_MIEU_P",
+   "type": "narrows",
+   "from": "TV_KL_STAR_PHUC_DUC_TV_THAT_SAT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THAT_SAT_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "cụ thể hơn về life.hardship"
+  },
+  {
+   "id": "AUTO_TV_KL_STAR_PHUC_DUC_TV_THAT_SAT__TV_TT_PAL_PHUC_DUC_TU_VI_BASE_P",
+   "type": "narrows",
+   "from": "TV_KL_STAR_PHUC_DUC_TV_THAT_SAT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_TU_VI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "cụ thể hơn về life.hardship"
+  },
+  {
    "id": "AUTO_TV_KL_STAR_TAI_BACH_TV_PHU_VU__TV_TT_PAL_TAI_BACH_TU_VI_SAT_M",
    "type": "both_hold",
    "from": "TV_KL_STAR_TAI_BACH_TV_PHU_VU",
@@ -2189,6 +2332,19 @@
    "review": "draft",
    "charts": 12,
    "note": "fin.abundance; nesting {\"overlap\":12}"
+  },
+  {
+   "id": "AUTO_TV_KL_STAR_THIEN_DI_TV_PHA_THAM__TV_TT_PAL_THIEN_DI_TU_VI_WITH_PHA_QUAN_P",
+   "type": "unresolved",
+   "from": "TV_KL_STAR_THIEN_DI_TV_PHA_THAM",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_TU_VI_WITH_PHA_QUAN_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "cùng dữ kiện, hai chiều về outside.adverse"
   },
   {
    "id": "AUTO_TV_TH_AUX_MENH_HQ_TT__TV_TT_MENH_QUYEN_LOC",
@@ -2230,6 +2386,19 @@
    "note": "cụ thể hơn về life.blessed"
   },
   {
+   "id": "AUTO_TV_TH_P2_DIEN_TRACH_PHA__TV_TT_PAL_DIEN_TRACH_TU_VI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_DIEN_TRACH_PHA",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_TU_VI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "prop.poor; nesting {\"disjoint\":12}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_QUAN_LOC_KHOI_VIET__TV_TT_PAL_QUAN_LOC_TU_VI_SAT_M",
    "type": "both_hold",
    "from": "TV_TH_P2_QUAN_LOC_KHOI_VIET",
@@ -2243,17 +2412,17 @@
    "note": "career.success; nesting {\"disjoint\":12}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_CU_MON_MIEU_P__TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M__TV_TT_PAL_DIEN_TRACH_THIEN_TUONG_MIEU_P",
    "type": "both_hold",
-   "from": "TV_TT_PAL_DIEN_TRACH_CU_MON_MIEU_P",
+   "from": "TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M",
    "to": [
-    "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M"
+    "TV_TT_PAL_DIEN_TRACH_THIEN_TUONG_MIEU_P"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 12,
-   "note": "prop.rich; nesting {\"disjoint\":12}"
+   "note": "prop.poor; nesting {\"disjoint\":12}"
   },
   {
    "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THAM_LANG_HAM_M__TV_TT_PAL_DIEN_TRACH_TU_VI_BASE_P",
@@ -2269,19 +2438,6 @@
    "note": "prop.poor; nesting {\"disjoint\":12}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M__TV_TT_PAL_DIEN_TRACH_THIEN_LUONG_MIEU_P",
-   "type": "both_hold",
-   "from": "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
-   "to": [
-    "TV_TT_PAL_DIEN_TRACH_THIEN_LUONG_MIEU_P"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 12,
-   "note": "prop.rich; nesting {\"disjoint\":12}"
-  },
-  {
    "id": "AUTO_TV_TT_PAL_DIEN_TRACH_TU_VI_WITH_PHA_QUAN_M__TV_TT_PAL_DIEN_TRACH_TU_VI_BASE_P",
    "type": "narrows",
    "from": "TV_TT_PAL_DIEN_TRACH_TU_VI_WITH_PHA_QUAN_M",
@@ -2293,6 +2449,19 @@
    "review": "draft",
    "charts": 12,
    "note": "cụ thể hơn về prop.rich"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THAT_SAT_BASE_M__TV_TT_PAL_NO_BOC_TU_VI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_THAT_SAT_BASE_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_TU_VI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "ally.disloyal; nesting {\"disjoint\":12}"
   },
   {
    "id": "AUTO_TV_TT_PAL_PHUC_DUC_LIEM_TRINH_WITH_THIEN_PHU_P__TV_TT_PAL_PHUC_DUC_THIEN_PHU_WITH_LIEM_TRINH_M",
@@ -2490,6 +2659,84 @@
    "note": "fin.scarcity; nesting {\"disjoint\":12}"
   },
   {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_LIEM_TRINH_BASE_P__TV_TT_PAL_THIEN_DI_PHA_QUAN_BASE_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_LIEM_TRINH_BASE_P",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_PHA_QUAN_BASE_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "outside.favorable; nesting {\"disjoint\":12}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_LIEM_TRINH_BASE_P__TV_TT_PAL_THIEN_DI_THAM_LANG_BASE_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_LIEM_TRINH_BASE_P",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_THAM_LANG_BASE_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "outside.favorable; nesting {\"disjoint\":12}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_THAM_LANG_WITH_LIEM_TRINH_M__TV_TT_PAL_THIEN_DI_LIEM_TRINH_BASE_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_THIEN_DI_THAM_LANG_WITH_LIEM_TRINH_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_LIEM_TRINH_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "cụ thể hơn về outside.favorable"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_TU_VI_WITH_PHA_QUAN_P__TV_TT_PAL_THIEN_DI_PHA_QUAN_BASE_M",
+   "type": "narrows",
+   "from": "TV_TT_PAL_THIEN_DI_TU_VI_WITH_PHA_QUAN_P",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_PHA_QUAN_BASE_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "cụ thể hơn về outside.adverse"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_THAT_SAT_WITH_VU_KHUC_P__TV_TT_PAL_THIEN_DI_VU_KHUC_BASE_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_THIEN_DI_THAT_SAT_WITH_VU_KHUC_P",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VU_KHUC_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "cụ thể hơn về outside.active"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_VU_KHUC_WITH_THAT_SAT_M__TV_TT_PAL_THIEN_DI_VU_KHUC_BASE_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_THIEN_DI_VU_KHUC_WITH_THAT_SAT_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VU_KHUC_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 12,
+   "note": "cụ thể hơn về outside.active"
+  },
+  {
    "id": "AUTO_TV_TT_PHU_MENH_GIAP_NHAT_NGUYET__TV_TT_PHU_MENH_VU_TAM_MENH",
    "type": "both_hold",
    "from": "TV_TT_PHU_MENH_GIAP_NHAT_NGUYET",
@@ -2581,6 +2828,19 @@
    "note": "career.authority; nesting {\"overlap\":11}"
   },
   {
+   "id": "AUTO_TV_KL_STAR_PHUC_DUC_TV_LAU_DAI__TV_TH_P2_PHUC_DUC_TT",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_PHUC_DUC_TV_LAU_DAI",
+   "to": [
+    "TV_TH_P2_PHUC_DUC_TT"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "life.blessed; nesting {\"disjoint\":11}"
+  },
+  {
    "id": "AUTO_TV_TH_AUX_MENH_LOC_MA__TV_TH_AUX_MENH_LOC_PHA",
    "type": "both_hold",
    "from": "TV_TH_AUX_MENH_LOC_MA",
@@ -2620,6 +2880,45 @@
    "note": "cog.sharp; nesting {\"disjoint\":11}"
   },
   {
+   "id": "AUTO_TV_TH_P2_DIEN_TRACH_PHA__TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_DIEN_TRACH_PHA",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "prop.poor; nesting {\"disjoint\":11}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_DIEN_TRACH_PHA__TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_DIEN_TRACH_PHA",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "prop.poor; nesting {\"disjoint\":11}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHU_THE_KHONG_KIEP__TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHU_THE_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "rel.strain; nesting {\"disjoint\":11}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_TAI_BACH_KY__TV_TT_PAL_TAI_BACH_VU_KHUC_BASE_P",
    "type": "both_hold",
    "from": "TV_TH_P2_TAI_BACH_KY",
@@ -2633,6 +2932,32 @@
    "note": "fin.scarcity; nesting {\"disjoint\":11}"
   },
   {
+   "id": "AUTO_TV_TH_P2_THIEN_DI_KHONG_KIEP__TV_TT_PAL_THIEN_DI_LIEM_TRINH_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_THIEN_DI_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_LIEM_TRINH_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "outside.adverse; nesting {\"disjoint\":11}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M__TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "prop.poor; nesting {\"disjoint\":11}"
+  },
+  {
    "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THIEN_PHU_BASE_P__TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M",
    "type": "both_hold",
    "from": "TV_TT_PAL_DIEN_TRACH_THIEN_PHU_BASE_P",
@@ -2644,6 +2969,71 @@
    "review": "draft",
    "charts": 11,
    "note": "prop.rich; nesting {\"disjoint\":11}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THIEN_PHU_WITH_TU_VI_P__TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_THIEN_PHU_WITH_TU_VI_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "prop.rich; nesting {\"overlap\":11}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THIEN_TUONG_MIEU_P__TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_THIEN_TUONG_MIEU_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "prop.rich; nesting {\"disjoint\":11}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_PHA_QUAN_MIEU_P__TV_TT_PAL_NO_BOC_TU_VI_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_PHA_QUAN_MIEU_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_TU_VI_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "ally.loyal; nesting {\"disjoint\":11}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_PHA_QUAN_WITH_TU_VI_P__TV_TT_PAL_NO_BOC_TU_VI_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_PHA_QUAN_WITH_TU_VI_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_TU_VI_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "ally.loyal; nesting {\"overlap\":11}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THIEN_PHU_WITH_TU_VI_P__TV_TT_PAL_NO_BOC_TU_VI_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_THIEN_PHU_WITH_TU_VI_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_TU_VI_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 11,
+   "note": "ally.loyal; nesting {\"overlap\":11}"
   },
   {
    "id": "AUTO_TV_TT_PAL_PHUC_DUC_PHA_QUAN_WITH_TU_VI_P__TV_TT_PAL_PHUC_DUC_TU_VI_SAT_M",
@@ -2867,6 +3257,19 @@
    "note": "fin.scarcity; nesting {\"broader\":9,\"same\":1}"
   },
   {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_CU_MON_WITH_THIEN_DONG_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_CU_MON_WITH_THIEN_DONG_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 10,
+   "note": "life.blessed; nesting {\"disjoint\":10}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_QUAN_LOC_SAT_MIEU__TV_TT_PAL_QUAN_LOC_TU_VI_SAT_M",
    "type": "both_hold",
    "from": "TV_TH_P2_QUAN_LOC_SAT_MIEU",
@@ -2906,6 +3309,19 @@
    "note": "fin.scarcity; nesting {\"disjoint\":10}"
   },
   {
+   "id": "AUTO_TV_TH_P2_THIEN_DI_KHONG_KIEP__TV_TT_PAL_THIEN_DI_THAI_DUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_THIEN_DI_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_THAI_DUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 10,
+   "note": "outside.adverse; nesting {\"disjoint\":10}"
+  },
+  {
    "id": "AUTO_TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M__TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
    "type": "both_hold",
    "from": "TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M",
@@ -2930,6 +3346,19 @@
    "review": "draft",
    "charts": 10,
    "note": "inner.peace; nesting {\"disjoint\":10}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHUC_DUC_THIEN_PHU_WITH_TU_VI_P__TV_TT_PAL_PHUC_DUC_TU_VI_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHUC_DUC_THIEN_PHU_WITH_TU_VI_P",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_TU_VI_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 10,
+   "note": "inner.peace; nesting {\"overlap\":10}"
   },
   {
    "id": "AUTO_TV_TT_PAL_PHUC_DUC_THIEN_TUONG_WITH_TU_VI_P__TV_TT_PAL_PHUC_DUC_TU_VI_SAT_M",
@@ -2982,6 +3411,19 @@
    "review": "draft",
    "charts": 10,
    "note": "fin.abundance; nesting {\"overlap\":10}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_THIEN_CO_SAT_M__TV_TT_PAL_THIEN_DI_THIEN_CO_WITH_THIEN_LUONG_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_THIEN_CO_SAT_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_THIEN_CO_WITH_THIEN_LUONG_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 10,
+   "note": "outside.adverse; nesting {\"overlap\":10}"
   },
   {
    "id": "AUTO_TV_TH_MV_MENH_NN_SUU_MUI_SAT__TV_KL_CT_DUONG_THU_MENH",
@@ -3270,6 +3712,19 @@
    "note": "inner.unrest; nesting {\"disjoint\":9}"
   },
   {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_THAM_LANG_BASE_M__TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_THAM_LANG_BASE_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 9,
+   "note": "outside.adverse; nesting {\"disjoint\":9}"
+  },
+  {
    "id": "AUTO_TV_KL_AUX_LOC_TON__TV_TH_LUONG_HAM_PHONG_DANG_PHIEU_LUU",
    "type": "both_hold",
    "from": "TV_KL_AUX_LOC_TON",
@@ -3398,6 +3853,19 @@
    "review": "draft",
    "charts": 8,
    "note": "rel.harmony; nesting {\"disjoint\":8}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_PHU_THE_THAI_DUONG__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_PHU_THE_THAI_DUONG",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 8,
+   "note": "rel.strain; nesting {\"disjoint\":8}"
   },
   {
    "id": "AUTO_TV_KL_DHK_02_DAN__TV_KL_STAR_MENH_NHAT_BAN_DEM",
@@ -3725,6 +4193,32 @@
    "note": "fin.abundance; nesting {\"overlap\":8}"
   },
   {
+   "id": "AUTO_TV_TH_P2_DIEN_TRACH_PHA__TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_DIEN_TRACH_PHA",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 8,
+   "note": "prop.poor; nesting {\"disjoint\":8}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_NO_BOC_NN_HAM__TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_NN_HAM",
+   "to": [
+    "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 8,
+   "note": "ally.disloyal; nesting {\"disjoint\":8}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_PHU_THE_KHONG_KIEP__TV_TT_PAL_PHU_THE_TA_PHU_WITH_HUU_BAT_P",
    "type": "both_hold",
    "from": "TV_TH_P2_PHU_THE_KHONG_KIEP",
@@ -3803,17 +4297,56 @@
    "note": "prop.poor; nesting {\"disjoint\":8}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M__TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M__TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P",
    "type": "both_hold",
-   "from": "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
+   "from": "TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M",
    "to": [
-    "TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P"
+    "TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 8,
    "note": "prop.rich; nesting {\"disjoint\":8}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LOC_TON_BASE_P__TV_TT_PAL_NO_BOC_TU_VI_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_TU_VI_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 8,
+   "note": "ally.loyal; nesting {\"disjoint\":8}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_TU_VI_SAT_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_TU_VI_SAT_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 8,
+   "note": "ally.disloyal; nesting {\"disjoint\":8}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M__TV_TT_PAL_PHUC_DUC_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 8,
+   "note": "life.hardship; nesting {\"disjoint\":8}"
   },
   {
    "id": "AUTO_TV_KL_AUX_THIEN_MA__TV_TH_AUX2_MENH_TRIET_THAN_DAU",
@@ -3996,6 +4529,19 @@
    "review": "draft",
    "charts": 7,
    "note": "life.hardship; nesting {\"disjoint\":7}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_THIEN_DI_VU_CU__TV_TT_PAL_THIEN_DI_THAI_DUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_THIEN_DI_VU_CU",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_THAI_DUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 7,
+   "note": "outside.adverse; nesting {\"disjoint\":7}"
   },
   {
    "id": "AUTO_TV_KL_DHK_09_DAU__TV_TT_MENH_QUYEN_LOC",
@@ -4284,6 +4830,32 @@
    "note": "cụ thể hơn về life.hardship"
   },
   {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_VU_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_VU_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 7,
+   "note": "life.blessed; nesting {\"disjoint\":7}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHU_THE_TT_KHONG_KIEP__TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHU_THE_TT_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 7,
+   "note": "rel.strain; nesting {\"disjoint\":7}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_QUAN_LOC_TU_PHU_TAM_HOA__TV_TT_PAL_QUAN_LOC_TU_VI_SAT_M",
    "type": "both_hold",
    "from": "TV_TH_P2_QUAN_LOC_TU_PHU_TAM_HOA",
@@ -4336,6 +4908,19 @@
    "note": "fin.abundance; nesting {\"overlap\":7}"
   },
   {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LOC_TON_BASE_P__TV_TT_PAL_NO_BOC_THAT_SAT_BASE_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THAT_SAT_BASE_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 7,
+   "note": "ally.loyal; nesting {\"disjoint\":7}"
+  },
+  {
    "id": "AUTO_TV_TT_PAL_PHUC_DUC_PHA_QUAN_BASE_M__TV_TT_PAL_PHUC_DUC_THIEN_KHOI_BASE_P",
    "type": "both_hold",
    "from": "TV_TT_PAL_PHUC_DUC_PHA_QUAN_BASE_M",
@@ -4373,6 +4958,32 @@
    "review": "draft",
    "charts": 7,
    "note": "inner.peace; nesting {\"disjoint\":7}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_TA_PHU_BASE_P__TV_TT_PAL_THIEN_DI_VU_KHUC_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_TA_PHU_BASE_P",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VU_KHUC_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 7,
+   "note": "outside.active; nesting {\"disjoint\":7}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_THAI_DUONG_WITH_CU_MON_M__TV_TT_PAL_THIEN_DI_THAI_DUONG_BASE_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_THIEN_DI_THAI_DUONG_WITH_CU_MON_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_THAI_DUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 7,
+   "note": "cụ thể hơn về outside.favorable"
   },
   {
    "id": "AUTO_TV_KL_AUX_THIEN_KHONG__TV_KL_STAR_MENH_TV_CO_QUAN",
@@ -4661,6 +5272,19 @@
    "note": "rel.harmony; nesting {\"disjoint\":6}"
   },
   {
+   "id": "AUTO_TV_KL_CUNG_PHU_THE_THAI_DUONG__TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_PHU_THE_THAI_DUONG",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 6,
+   "note": "rel.strain; nesting {\"disjoint\":6}"
+  },
+  {
    "id": "AUTO_TV_KL_CUNG_TAI_BACH_LOC_TON__TV_TH_P2_TAI_BACH_KY",
    "type": "both_hold",
    "from": "TV_KL_CUNG_TAI_BACH_LOC_TON",
@@ -4698,6 +5322,19 @@
    "review": "draft",
    "charts": 6,
    "note": "fin.abundance; nesting {\"disjoint\":6}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_THIEN_DI_VU_CU__TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_THIEN_DI_VU_CU",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 6,
+   "note": "outside.adverse; nesting {\"disjoint\":6}"
   },
   {
    "id": "AUTO_TV_KL_DHK_02_DAN__TV_TH_DONG_HAM_NONG_CAN_KHAM_KHO",
@@ -4841,6 +5478,19 @@
    "review": "draft",
    "charts": 6,
    "note": "cụ thể hơn về prop.rich"
+  },
+  {
+   "id": "AUTO_TV_KL_STAR_DIEN_TRACH_TV_SPT__TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_DIEN_TRACH_TV_SPT",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 6,
+   "note": "prop.rich; nesting {\"disjoint\":6}"
   },
   {
    "id": "AUTO_TV_KL_STAR_DIEN_TRACH_TV_SPT__TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
@@ -5038,17 +5688,17 @@
    "note": "fin.scarcity; nesting {\"disjoint\":6}"
   },
   {
-   "id": "AUTO_TV_TH_P2_DIEN_TRACH_CU_CO_MAO__TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THAI_AM_WITH_THAI_DUONG_P__TV_TH_P2_NO_BOC_NN_HAM",
    "type": "narrows",
-   "from": "TV_TH_P2_DIEN_TRACH_CU_CO_MAO",
+   "from": "TV_TT_PAL_NO_BOC_THAI_AM_WITH_THAI_DUONG_P",
    "to": [
-    "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M"
+    "TV_TH_P2_NO_BOC_NN_HAM"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 6,
-   "note": "cụ thể hơn về prop.rich"
+   "note": "cụ thể hơn về ally.disloyal"
   },
   {
    "id": "AUTO_TV_TH_P2_PHU_THE_KHONG_KIEP__TV_TT_PAL_PHU_THE_LIEM_TRINH_WITH_THIEN_PHU_P",
@@ -5142,30 +5792,17 @@
    "note": "cụ thể hơn về fin.abundance"
   },
   {
-   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THAI_AM_MIEU_P__TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M__TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P",
    "type": "both_hold",
-   "from": "TV_TT_PAL_DIEN_TRACH_THAI_AM_MIEU_P",
+   "from": "TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M",
    "to": [
-    "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M"
+    "TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 6,
-   "note": "prop.rich; nesting {\"disjoint\":6}"
-  },
-  {
-   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_THIEN_LUONG_BASE_P",
-   "type": "both_hold",
-   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
-   "to": [
-    "TV_TT_PAL_NO_BOC_THIEN_LUONG_BASE_P"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 6,
-   "note": "social.support; nesting {\"disjoint\":6}"
+   "note": "prop.poor; nesting {\"disjoint\":6}"
   },
   {
    "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
@@ -5178,7 +5815,33 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 6,
-   "note": "social.support; nesting {\"disjoint\":6}"
+   "note": "ally.disloyal; nesting {\"disjoint\":6}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THAI_DUONG_WITH_CU_MON_M__TV_TT_PAL_NO_BOC_THAI_DUONG_MIEU_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_NO_BOC_THAI_DUONG_WITH_CU_MON_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THAI_DUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 6,
+   "note": "cụ thể hơn về ally.loyal"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THAT_SAT_BASE_M__TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_THAT_SAT_BASE_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 6,
+   "note": "ally.disloyal; nesting {\"disjoint\":6}"
   },
   {
    "id": "AUTO_TV_TT_PAL_TAI_BACH_THAI_AM_MIEU_P__TV_TT_PAL_TAI_BACH_THAI_DUONG_HAM_M",
@@ -5192,6 +5855,32 @@
    "review": "draft",
    "charts": 6,
    "note": "fin.abundance; nesting {\"disjoint\":6}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_THIEN_CO_SAT_M__TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_THIEN_CO_SAT_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 6,
+   "note": "outside.adverse; nesting {\"disjoint\":6}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_THIEN_DONG_SAT_M__TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_THIEN_DONG_SAT_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 6,
+   "note": "outside.adverse; nesting {\"disjoint\":6}"
   },
   {
    "id": "AUTO_TV_KL_AUX_THIEN_KHONG__TV_KL_CT_PHA_THU_MENH",
@@ -5387,19 +6076,6 @@
    "review": "draft",
    "charts": 5,
    "note": "cụ thể hơn về life.hardship"
-  },
-  {
-   "id": "AUTO_TV_KL_CUNG_DIEN_TRACH_KQL__TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
-   "type": "both_hold",
-   "from": "TV_KL_CUNG_DIEN_TRACH_KQL",
-   "to": [
-    "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 5,
-   "note": "prop.rich; nesting {\"disjoint\":5}"
   },
   {
    "id": "AUTO_TV_KL_CUNG_TAI_BACH_LOC_MA__TV_KL_STAR_TAI_BACH_KHONG_KIEP",
@@ -5779,6 +6455,19 @@
    "note": "cụ thể hơn về life.hardship"
   },
   {
+   "id": "AUTO_TV_KL_STAR_PHUC_DUC_CO_TY_NGO_MUI__TV_TH_P2_PHUC_DUC_TT",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_PHUC_DUC_CO_TY_NGO_MUI",
+   "to": [
+    "TV_TH_P2_PHUC_DUC_TT"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 5,
+   "note": "life.blessed; nesting {\"disjoint\":5}"
+  },
+  {
    "id": "AUTO_TV_KL_STAR_PHUC_DUC_KHONG_KIEP__TV_KL_STAR_PHUC_DUC_TV_LAU_DAI",
    "type": "both_hold",
    "from": "TV_KL_STAR_PHUC_DUC_KHONG_KIEP",
@@ -5987,11 +6676,50 @@
    "note": "cụ thể hơn về cog.dull"
   },
   {
+   "id": "AUTO_TV_TH_P2_NO_BOC_NN_HAM__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_NN_HAM",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 5,
+   "note": "ally.disloyal; nesting {\"disjoint\":5}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHU_THE_PHA_TT__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHU_THE_PHA_TT",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 5,
+   "note": "rel.strain; nesting {\"disjoint\":5}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_PHU_THE_TT_KHONG_KIEP__TV_TT_PAL_PHU_THE_THIEN_PHU_BASE_P",
    "type": "both_hold",
    "from": "TV_TH_P2_PHU_THE_TT_KHONG_KIEP",
    "to": [
     "TV_TT_PAL_PHU_THE_THIEN_PHU_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 5,
+   "note": "rel.strain; nesting {\"disjoint\":5}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHU_THE_TT_KHONG_KIEP__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHU_THE_TT_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
    ],
    "effect": "none",
    "basis": "he_thong",
@@ -6130,6 +6858,19 @@
    "note": "fin.scarcity; nesting {\"disjoint\":5}"
   },
   {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_WITH_THIEN_PHU_P__TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M",
+   "type": "narrows",
+   "from": "TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_WITH_THIEN_PHU_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 5,
+   "note": "cụ thể hơn về prop.poor"
+  },
+  {
    "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M__TV_TT_PAL_DIEN_TRACH_THIEN_PHU_BASE_P",
    "type": "both_hold",
    "from": "TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M",
@@ -6143,6 +6884,19 @@
    "note": "prop.poor; nesting {\"disjoint\":5}"
   },
   {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P__TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 5,
+   "note": "prop.rich; nesting {\"disjoint\":5}"
+  },
+  {
    "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_PHA_QUAN_MIEU_P",
    "type": "both_hold",
    "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
@@ -6153,7 +6907,7 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 5,
-   "note": "social.support; nesting {\"disjoint\":5}"
+   "note": "ally.disloyal; nesting {\"disjoint\":5}"
   },
   {
    "id": "AUTO_TV_TT_PAL_PHUC_DUC_LOC_TON_BASE_P__TV_TT_PAL_PHUC_DUC_PHA_QUAN_BASE_M",
@@ -6167,6 +6921,45 @@
    "review": "draft",
    "charts": 5,
    "note": "life.blessed; nesting {\"disjoint\":5}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHUC_DUC_LOC_TON_BASE_P__TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHUC_DUC_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 5,
+   "note": "life.blessed; nesting {\"disjoint\":5}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_LIEM_TRINH_BASE_M__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_LIEM_TRINH_BASE_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 5,
+   "note": "rel.strain; nesting {\"disjoint\":5}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P__TV_TT_PAL_PHU_THE_VU_KHUC_BASE_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "to": [
+    "TV_TT_PAL_PHU_THE_VU_KHUC_BASE_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 5,
+   "note": "rel.harmony; nesting {\"disjoint\":5}"
   },
   {
    "id": "AUTO_TV_TT_PAL_QUAN_LOC_THIEN_DONG_WITH_CU_MON_P__TV_TT_PAL_QUAN_LOC_CU_MON_HAM_M",
@@ -7352,6 +8145,19 @@
    "note": "life.hardship; nesting {\"overlap\":4}"
   },
   {
+   "id": "AUTO_TV_KL_STAR_PHU_THE_TV_SPT__TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_PHU_THE_TV_SPT",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "rel.strain; nesting {\"disjoint\":4}"
+  },
+  {
    "id": "AUTO_TV_KL_STAR_QUAN_LOC_TV_PHA_THAM__TV_TT_PAL_QUAN_LOC_VAN_KHUC_MIEU_P",
    "type": "both_hold",
    "from": "TV_KL_STAR_QUAN_LOC_TV_PHA_THAM",
@@ -7664,6 +8470,45 @@
    "note": "career.obstacle; nesting {\"overlap\":4}"
   },
   {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_TU_VI_WITH_THIEN_PHU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_TU_VI_WITH_THIEN_PHU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "life.blessed; nesting {\"disjoint\":4}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_VU_KHUC_WITH_THAM_LANG_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_VU_KHUC_WITH_THAM_LANG_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "life.blessed; nesting {\"disjoint\":4}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHU_THE_KHONG_KIEP__TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_THIEN_LUONG_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHU_THE_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_THIEN_LUONG_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "rel.strain; nesting {\"disjoint\":4}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_PHU_THE_KHONG_KIEP__TV_TT_PAL_PHU_THE_THIEN_LUONG_WITH_THIEN_DONG_P",
    "type": "both_hold",
    "from": "TV_TH_P2_PHU_THE_KHONG_KIEP",
@@ -7843,20 +8688,33 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 4,
-   "note": "life.hardship; nesting {\"disjoint\":4}"
+   "note": "prop.rich; nesting {\"disjoint\":4}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_TA_PHU_BASE_P",
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P__TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M",
    "type": "both_hold",
-   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "from": "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
    "to": [
-    "TV_TT_PAL_NO_BOC_TA_PHU_BASE_P"
+    "TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 4,
-   "note": "social.support; nesting {\"disjoint\":4}"
+   "note": "prop.rich; nesting {\"disjoint\":4}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_PHA_QUAN_WITH_TU_VI_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_PHA_QUAN_WITH_TU_VI_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "ally.disloyal; nesting {\"disjoint\":4}"
   },
   {
    "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_THIEN_DONG_BASE_P",
@@ -7869,20 +8727,7 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 4,
-   "note": "social.support; nesting {\"disjoint\":4}"
-  },
-  {
-   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_THIEN_PHU_BASE_P",
-   "type": "both_hold",
-   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
-   "to": [
-    "TV_TT_PAL_NO_BOC_THIEN_PHU_BASE_P"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 4,
-   "note": "social.support; nesting {\"disjoint\":4}"
+   "note": "ally.disloyal; nesting {\"disjoint\":4}"
   },
   {
    "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
@@ -7895,7 +8740,46 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 4,
-   "note": "social.support; nesting {\"disjoint\":4}"
+   "note": "ally.disloyal; nesting {\"disjoint\":4}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THAT_SAT_BASE_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_THAT_SAT_BASE_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "ally.disloyal; nesting {\"disjoint\":4}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M__TV_TT_PAL_PHUC_DUC_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "life.hardship; nesting {\"disjoint\":4}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_PHA_QUAN_BASE_M__TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_PHA_QUAN_BASE_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "rel.strain; nesting {\"disjoint\":4}"
   },
   {
    "id": "AUTO_TV_TT_PAL_QUAN_LOC_KINH_DUONG_HAM_M__TV_TT_PAL_QUAN_LOC_THAM_LANG_WITH_TU_VI_P",
@@ -7948,6 +8832,32 @@
    "review": "draft",
    "charts": 4,
    "note": "fin.abundance; nesting {\"disjoint\":4}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_PHA_QUAN_BASE_M__TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_PHA_QUAN_BASE_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "outside.adverse; nesting {\"disjoint\":4}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_THIEN_DONG_WITH_THAI_AM_M__TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_THIEN_DONG_WITH_THAI_AM_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 4,
+   "note": "outside.adverse; nesting {\"disjoint\":4}"
   },
   {
    "id": "AUTO_TV_KL_AUX_THIEN_KHONG__TV_KL_STAR_MENH_KK_GIAP_TY_HOI",
@@ -8444,6 +9354,19 @@
    "note": "life.blessed; nesting {\"disjoint\":3}"
   },
   {
+   "id": "AUTO_TV_KL_CUNG_DIEN_TRACH_KQL__TV_TH_P2_DIEN_TRACH_PHA",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_DIEN_TRACH_KQL",
+   "to": [
+    "TV_TH_P2_DIEN_TRACH_PHA"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "prop.rich; nesting {\"disjoint\":3}"
+  },
+  {
    "id": "AUTO_TV_KL_CUNG_DIEN_TRACH_KQL__TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M",
    "type": "both_hold",
    "from": "TV_KL_CUNG_DIEN_TRACH_KQL",
@@ -8468,6 +9391,32 @@
    "review": "draft",
    "charts": 3,
    "note": "fin.abundance; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_NO_BOC_LIEM_TUONG__TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_NO_BOC_LIEM_TUONG",
+   "to": [
+    "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "ally.loyal; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_NO_BOC_SAT_VU__TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_NO_BOC_SAT_VU",
+   "to": [
+    "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "ally.disloyal; nesting {\"disjoint\":3}"
   },
   {
    "id": "AUTO_TV_KL_CUNG_PHU_MAU_HUNG__TV_TT_PAL_PHU_MAU_VAN_KHUC_MIEU_P",
@@ -9354,6 +10303,32 @@
    "note": "career.authority; nesting {\"overlap\":3}"
   },
   {
+   "id": "AUTO_TV_KL_STAR_PHUC_DUC_KHONG_KIEP__TV_TT_PAL_PHUC_DUC_VU_KHUC_WITH_THAM_LANG_P",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_PHUC_DUC_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_VU_KHUC_WITH_THAM_LANG_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "life.hardship; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_KL_STAR_PHU_THE_TV_SPT__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_PHU_THE_TV_SPT",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "rel.strain; nesting {\"disjoint\":3}"
+  },
+  {
    "id": "AUTO_TV_KL_STAR_QUAN_LOC_TV_PHA_THAM__TV_TH_P2_QUAN_LOC_GIAP_XK",
    "type": "both_hold",
    "from": "TV_KL_STAR_QUAN_LOC_TV_PHA_THAM",
@@ -9560,6 +10535,19 @@
    "review": "draft",
    "charts": 3,
    "note": "career.obstacle; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_TH_AUX2_PHUC_DUC_HONG_NGA_MI__TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TH_AUX2_PHUC_DUC_HONG_NGA_MI",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "life.blessed; nesting {\"disjoint\":3}"
   },
   {
    "id": "AUTO_TV_TH_AUX2_QUAN_LOC_KK_HAM__TV_TT_PAL_QUAN_LOC_THAT_SAT_MIEU_P",
@@ -9835,6 +10823,45 @@
    "note": "career.obstacle; nesting {\"overlap\":3}"
   },
   {
+   "id": "AUTO_TV_TH_P2_NO_BOC_NN_HAM__TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_NN_HAM",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "ally.disloyal; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_NO_BOC_QUYEN_CU__TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_QUYEN_CU",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "ally.disloyal; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHUC_DUC_TT__TV_TT_PAL_PHUC_DUC_THIEN_DONG_WITH_THAI_AM_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHUC_DUC_TT",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THIEN_DONG_WITH_THAI_AM_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "life.blessed; nesting {\"disjoint\":3}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_QUAN_LOC_KHOI_VIET__TV_TT_PAL_QUAN_LOC_THIEN_CO_HAM_M",
    "type": "both_hold",
    "from": "TV_TH_P2_QUAN_LOC_KHOI_VIET",
@@ -9965,17 +10992,17 @@
    "note": "career.status; nesting {\"disjoint\":3}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_THAI_AM_MIEU_P",
-   "type": "both_hold",
-   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M__TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M",
    "to": [
-    "TV_TT_PAL_NO_BOC_THAI_AM_MIEU_P"
+    "TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 3,
-   "note": "social.support; nesting {\"disjoint\":3}"
+   "note": "cụ thể hơn về prop.rich"
   },
   {
    "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P",
@@ -9988,7 +11015,98 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 3,
-   "note": "social.support; nesting {\"disjoint\":3}"
+   "note": "ally.disloyal; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LIEM_TRINH_HAM_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_LIEM_TRINH_HAM_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "ally.disloyal; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_TU_VI_SAT_M__TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_NO_BOC_TU_VI_SAT_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "cụ thể hơn về ally.loyal"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LOC_TON_BASE_P__TV_TT_PAL_NO_BOC_PHA_QUAN_HAM_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_PHA_QUAN_HAM_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "ally.loyal; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LOC_TON_BASE_P__TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THAT_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THAT_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "ally.loyal; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THAI_AM_WITH_THIEN_CO_M__TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_NO_BOC_THAI_AM_WITH_THIEN_CO_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "cụ thể hơn về ally.disloyal"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THIEN_CO_WITH_THAI_AM_M__TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P",
+   "type": "narrows",
+   "from": "TV_TT_PAL_NO_BOC_THIEN_CO_WITH_THAI_AM_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "cụ thể hơn về ally.loyal"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_TU_VI_SAT_M__TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_TU_VI_SAT_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "ally.disloyal; nesting {\"disjoint\":3}"
   },
   {
    "id": "AUTO_TV_TT_PAL_PHU_THE_TA_PHU_WITH_HUU_BAT_P__TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_CU_MON_M",
@@ -9996,6 +11114,32 @@
    "from": "TV_TT_PAL_PHU_THE_TA_PHU_WITH_HUU_BAT_P",
    "to": [
     "TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_CU_MON_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "rel.harmony; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_THAT_SAT_BASE_M__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_THAT_SAT_BASE_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 3,
+   "note": "rel.strain; nesting {\"disjoint\":3}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P__TV_TT_PAL_PHU_THE_TU_VI_WITH_PHA_QUAN_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "to": [
+    "TV_TT_PAL_PHU_THE_TU_VI_WITH_PHA_QUAN_M"
    ],
    "effect": "none",
    "basis": "he_thong",
@@ -10875,6 +12019,19 @@
    "note": "life.blessed; nesting {\"disjoint\":2}"
   },
   {
+   "id": "AUTO_TV_KL_CUNG_DIEN_TRACH_KQL__TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_DIEN_TRACH_KQL",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "prop.rich; nesting {\"disjoint\":2}"
+  },
+  {
    "id": "AUTO_TV_KL_CUNG_MENH_GIAP_TA_HUU__TV_TH_CO_HAM_KEM_NHANH_VAN_DU_AN",
    "type": "both_hold",
    "from": "TV_KL_CUNG_MENH_GIAP_TA_HUU",
@@ -10912,6 +12069,32 @@
    "review": "draft",
    "charts": 2,
    "note": "social.support; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_NO_BOC_CU_CO__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_NO_BOC_CU_CO",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_NO_BOC_PHA_VU__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_NO_BOC_PHA_VU",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
   },
   {
    "id": "AUTO_TV_KL_CUNG_TAI_BACH_KHOA_LT_HL__TV_KL_STAR_TAI_BACH_KHONG_KIEP",
@@ -11744,6 +12927,32 @@
    "review": "draft",
    "charts": 2,
    "note": "career.status; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_KL_STAR_DIEN_TRACH_TV_SPT__TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_DIEN_TRACH_TV_SPT",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "prop.rich; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_KL_STAR_DIEN_TRACH_TV_SPT__TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_DIEN_TRACH_TV_SPT",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "prop.rich; nesting {\"disjoint\":2}"
   },
   {
    "id": "AUTO_TV_KL_STAR_MENH_CO_CAT_TINH__TV_TH_AUX_MENH_HL_LUONG",
@@ -13345,6 +14554,58 @@
    "note": "inner.peace; nesting {\"disjoint\":2}"
   },
   {
+   "id": "AUTO_TV_TH_P2_NO_BOC_NN_HAM__TV_TT_PAL_NO_BOC_THIEN_DONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_NN_HAM",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THIEN_DONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THIEN_DONG_WITH_THAI_AM_P__TV_TH_P2_NO_BOC_NN_HAM",
+   "type": "narrows",
+   "from": "TV_TT_PAL_NO_BOC_THIEN_DONG_WITH_THAI_AM_P",
+   "to": [
+    "TV_TH_P2_NO_BOC_NN_HAM"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "cụ thể hơn về ally.disloyal"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_NO_BOC_PHA_VU__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_PHA_VU",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_NO_BOC_QUYEN_CU__TV_TT_PAL_NO_BOC_THIEN_DONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_QUYEN_CU",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THIEN_DONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_PHU_THE_KHONG_KIEP__TV_TH_P2_PHU_THE_TUONG_DAO_HONG",
    "type": "both_hold",
    "from": "TV_TH_P2_PHU_THE_KHONG_KIEP",
@@ -13358,11 +14619,37 @@
    "note": "rel.strain; nesting {\"disjoint\":2}"
   },
   {
+   "id": "AUTO_TV_TH_P2_PHU_THE_PHA_TT__TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHU_THE_PHA_TT",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "rel.strain; nesting {\"disjoint\":2}"
+  },
+  {
    "id": "AUTO_TV_TH_P2_PHU_THE_TT_KHONG_KIEP__TV_TT_PAL_PHU_THE_TA_PHU_WITH_HUU_BAT_P",
    "type": "both_hold",
    "from": "TV_TH_P2_PHU_THE_TT_KHONG_KIEP",
    "to": [
     "TV_TT_PAL_PHU_THE_TA_PHU_WITH_HUU_BAT_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "rel.strain; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_PHU_THE_TT_KHONG_KIEP__TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_THIEN_LUONG_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_PHU_THE_TT_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_THIEN_LUONG_P"
    ],
    "effect": "none",
    "basis": "he_thong",
@@ -13537,7 +14824,46 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 2,
-   "note": "life.hardship; nesting {\"disjoint\":2}"
+   "note": "outside.adverse; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_THIEN_DI_KHONG_KIEP__TV_TT_PAL_THIEN_DI_TU_VI_WITH_PHA_QUAN_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_THIEN_DI_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_TU_VI_WITH_PHA_QUAN_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "outside.adverse; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_THIEN_DI_KHONG_KIEP__TV_TT_PAL_THIEN_DI_TU_VI_WITH_THIEN_TUONG_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_THIEN_DI_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_TU_VI_WITH_THIEN_TUONG_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "outside.adverse; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_THIEN_DI_TUONG_QUAN_TRIET__TV_TT_PAL_THIEN_DI_TU_VI_WITH_PHA_QUAN_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_THIEN_DI_TUONG_QUAN_TRIET",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_TU_VI_WITH_PHA_QUAN_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "outside.adverse; nesting {\"disjoint\":2}"
   },
   {
    "id": "AUTO_TV_TH_STAR_THAI_AM_NU_TUAN_TRIET__TV_TH_STAR_THIEN_DONG_NU_MV",
@@ -13602,7 +14928,20 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 2,
-   "note": "life.hardship; nesting {\"disjoint\":2}"
+   "note": "prop.rich; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_CU_MON_HAM_M__TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_CU_MON_HAM_M",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "prop.rich; nesting {\"disjoint\":2}"
   },
   {
    "id": "AUTO_TV_TT_PAL_DIEN_TRACH_CU_MON_HAM_M__TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
@@ -13610,6 +14949,19 @@
    "from": "TV_TT_PAL_DIEN_TRACH_CU_MON_HAM_M",
    "to": [
     "TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "prop.rich; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P__TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M"
    ],
    "effect": "none",
    "basis": "he_thong",
@@ -13631,6 +14983,19 @@
    "note": "prop.poor; nesting {\"disjoint\":2}"
   },
   {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_TU_VI_WITH_PHA_QUAN_M__TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_TU_VI_WITH_PHA_QUAN_M",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "prop.poor; nesting {\"disjoint\":2}"
+  },
+  {
    "id": "AUTO_TV_TT_PAL_DIEN_TRACH_TU_VI_WITH_PHA_QUAN_M__TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
    "type": "both_hold",
    "from": "TV_TT_PAL_DIEN_TRACH_TU_VI_WITH_PHA_QUAN_M",
@@ -13644,17 +15009,95 @@
    "note": "prop.poor; nesting {\"disjoint\":2}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_NO_BOC_HUU_BAT_BASE_P__TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P__TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M",
    "type": "both_hold",
-   "from": "TV_TT_PAL_NO_BOC_HUU_BAT_BASE_P",
+   "from": "TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P",
    "to": [
-    "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M"
+    "TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 2,
-   "note": "social.support; nesting {\"disjoint\":2}"
+   "note": "prop.rich; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P__TV_TT_PAL_DIEN_TRACH_VU_KHUC_HAM_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VU_KHUC_HAM_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "prop.rich; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P__TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_PHA_QUAN_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_PHA_QUAN_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "prop.rich; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_HOA_TINH_BASE_M__TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_HOA_TINH_BASE_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_HOA_TINH_BASE_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_HOA_TINH_BASE_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_THAI_AM_WITH_THAI_DUONG_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THAI_AM_WITH_THAI_DUONG_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
   },
   {
    "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_THAI_DUONG_MIEU_P",
@@ -13667,7 +15110,85 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 2,
-   "note": "social.support; nesting {\"disjoint\":2}"
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LIEM_TRINH_WITH_THAT_SAT_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_LIEM_TRINH_WITH_THAT_SAT_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LIEM_TRINH_WITH_THAT_SAT_M__TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_LIEM_TRINH_WITH_THAT_SAT_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P__TV_TT_PAL_NO_BOC_PHA_QUAN_HAM_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_PHA_QUAN_HAM_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.loyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LOC_TON_BASE_P__TV_TT_PAL_NO_BOC_THAI_DUONG_WITH_CU_MON_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THAI_DUONG_WITH_CU_MON_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.loyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_PHA_QUAN_HAM_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_PHA_QUAN_HAM_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_PHA_QUAN_HAM_M__TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_PHA_QUAN_HAM_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "ally.disloyal; nesting {\"disjoint\":2}"
   },
   {
    "id": "AUTO_TV_TT_PAL_PHUC_DUC_CU_MON_WITH_THIEN_CO_M__TV_TT_PAL_PHUC_DUC_THIEN_VIET_BASE_P",
@@ -13681,6 +15202,58 @@
    "review": "draft",
    "charts": 2,
    "note": "life.hardship; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHUC_DUC_THAM_LANG_WITH_LIEM_TRINH_M__TV_TT_PAL_PHUC_DUC_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHUC_DUC_THAM_LANG_WITH_LIEM_TRINH_M",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "life.blessed; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHUC_DUC_THAM_LANG_WITH_LIEM_TRINH_M__TV_TT_PAL_PHUC_DUC_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHUC_DUC_THAM_LANG_WITH_LIEM_TRINH_M",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "life.blessed; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_LIEM_TRINH_BASE_M__TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_LIEM_TRINH_BASE_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "rel.strain; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_LIEM_TRINH_WITH_THAM_LANG_M__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_LIEM_TRINH_WITH_THAM_LANG_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "rel.strain; nesting {\"disjoint\":2}"
   },
   {
    "id": "AUTO_TV_TT_PAL_QUAN_LOC_CU_MON_MIEU_P__TV_TT_PAL_QUAN_LOC_KINH_DUONG_HAM_M",
@@ -13733,6 +15306,19 @@
    "review": "draft",
    "charts": 2,
    "note": "fin.scarcity; nesting {\"disjoint\":2}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_LOC_TON_BASE_P__TV_TT_PAL_THIEN_DI_THAI_DUONG_WITH_CU_MON_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_THAI_DUONG_WITH_CU_MON_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 2,
+   "note": "inner.peace; nesting {\"disjoint\":2}"
   },
   {
    "id": "AUTO_TV_KL_AUX_TA_HUU__TV_TH_STAR_THIEN_TUONG_NU_TUAN_TRIET",
@@ -15022,6 +16608,45 @@
    "note": "social.support; nesting {\"disjoint\":1}"
   },
   {
+   "id": "AUTO_TV_KL_CUNG_NO_BOC_CU_CO__TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_NO_BOC_CU_CO",
+   "to": [
+    "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_NO_BOC_SAT_VU__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_NO_BOC_SAT_VU",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_KL_CUNG_NO_BOC_SAT_VU__TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_KL_CUNG_NO_BOC_SAT_VU",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
+  },
+  {
    "id": "AUTO_TV_KL_CUNG_PHU_THE_THAI_AM__TV_TH_P2_PHU_THE_TT_KHONG_KIEP",
    "type": "both_hold",
    "from": "TV_KL_CUNG_PHU_THE_THAI_AM",
@@ -16088,6 +17713,32 @@
    "note": "career.fame; nesting {\"disjoint\":1}"
   },
   {
+   "id": "AUTO_TV_KL_STAR_DIEN_TRACH_CO_CU_DAU__TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_DIEN_TRACH_CO_CU_DAU",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "prop.rich; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_KL_STAR_DIEN_TRACH_CO_CU_DAU__TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_DIEN_TRACH_CO_CU_DAU",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "prop.rich; nesting {\"disjoint\":1}"
+  },
+  {
    "id": "AUTO_TV_KL_STAR_DIEN_TRACH_CO_CU_DAU__TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
    "type": "both_hold",
    "from": "TV_KL_STAR_DIEN_TRACH_CO_CU_DAU",
@@ -17089,6 +18740,19 @@
    "note": "life.hardship; nesting {\"disjoint\":1}"
   },
   {
+   "id": "AUTO_TV_KL_STAR_PHUC_DUC_TV_THAT_SAT__TV_TH_AUX2_PHUC_DUC_HONG_NGA_MI",
+   "type": "both_hold",
+   "from": "TV_KL_STAR_PHUC_DUC_TV_THAT_SAT",
+   "to": [
+    "TV_TH_AUX2_PHUC_DUC_HONG_NGA_MI"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "life.hardship; nesting {\"disjoint\":1}"
+  },
+  {
    "id": "AUTO_TV_KL_STAR_PHU_THE_TV_SPT__TV_TT_PAL_PHU_THE_TA_PHU_WITH_HUU_BAT_P",
    "type": "both_hold",
    "from": "TV_KL_STAR_PHU_THE_TV_SPT",
@@ -17687,11 +19351,50 @@
    "note": "life.blessed; nesting {\"disjoint\":1}"
   },
   {
+   "id": "AUTO_TV_TH_AUX2_PHUC_DUC_HONG_NGA_MI__TV_TT_PAL_PHUC_DUC_THAM_LANG_WITH_LIEM_TRINH_M",
+   "type": "both_hold",
+   "from": "TV_TH_AUX2_PHUC_DUC_HONG_NGA_MI",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THAM_LANG_WITH_LIEM_TRINH_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "life.blessed; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_AUX2_PHUC_DUC_MO_QUYEN__TV_TH_P2_PHUC_DUC_TT",
+   "type": "both_hold",
+   "from": "TV_TH_AUX2_PHUC_DUC_MO_QUYEN",
+   "to": [
+    "TV_TH_P2_PHUC_DUC_TT"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "life.blessed; nesting {\"disjoint\":1}"
+  },
+  {
    "id": "AUTO_TV_TH_AUX2_PHUC_DUC_MO_QUYEN__TV_TT_PAL_PHUC_DUC_PHA_QUAN_BASE_M",
    "type": "both_hold",
    "from": "TV_TH_AUX2_PHUC_DUC_MO_QUYEN",
    "to": [
     "TV_TT_PAL_PHUC_DUC_PHA_QUAN_BASE_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "life.blessed; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_AUX2_PHUC_DUC_MO_QUYEN__TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TH_AUX2_PHUC_DUC_MO_QUYEN",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THAI_DUONG_SAT_M"
    ],
    "effect": "none",
    "basis": "he_thong",
@@ -18415,19 +20118,6 @@
    "note": "prop.rich; nesting {\"disjoint\":1}"
   },
   {
-   "id": "AUTO_TV_TH_P2_DIEN_TRACH_TAU_XK__TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M",
-   "type": "both_hold",
-   "from": "TV_TH_P2_DIEN_TRACH_TAU_XK",
-   "to": [
-    "TV_TT_PAL_DIEN_TRACH_THIEN_CO_BASE_M"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 1,
-   "note": "prop.rich; nesting {\"disjoint\":1}"
-  },
-  {
    "id": "AUTO_TV_TH_P2_DIEN_TRACH_TAU_XK__TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M",
    "type": "both_hold",
    "from": "TV_TH_P2_DIEN_TRACH_TAU_XK",
@@ -18439,6 +20129,58 @@
    "review": "draft",
    "charts": 1,
    "note": "prop.rich; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_DIEN_TRACH_TAU_XK__TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M",
+   "type": "both_hold",
+   "from": "TV_TH_P2_DIEN_TRACH_TAU_XK",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_THIEN_TUONG_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "prop.rich; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_NO_BOC_NN_HAM__TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_NN_HAM",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THIEN_CO_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_NO_BOC_QUYEN_CU__TV_TT_PAL_NO_BOC_THAI_DUONG_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_QUYEN_CU",
+   "to": [
+    "TV_TT_PAL_NO_BOC_THAI_DUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_NO_BOC_QUYEN_CU__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_NO_BOC_QUYEN_CU",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
   },
   {
    "id": "AUTO_TV_TH_P2_PHU_THE_KHONG_KIEP__TV_TT_PAL_PHU_THE_THIEN_TUONG_WITH_TU_VI_P",
@@ -18698,7 +20440,59 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 1,
-   "note": "life.hardship; nesting {\"disjoint\":1}"
+   "note": "outside.adverse; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_THIEN_DI_KHONG_KIEP__TV_TT_PAL_THIEN_DI_THAT_SAT_WITH_TU_VI_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_THIEN_DI_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_THAT_SAT_WITH_TU_VI_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "outside.adverse; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_THIEN_DI_KHONG_KIEP__TV_TT_PAL_THIEN_DI_THIEN_PHU_WITH_TU_VI_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_THIEN_DI_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_THIEN_PHU_WITH_TU_VI_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "outside.adverse; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_THIEN_DI_KHONG_KIEP__TV_TT_PAL_THIEN_DI_TU_VI_WITH_THIEN_PHU_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_THIEN_DI_KHONG_KIEP",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_TU_VI_WITH_THIEN_PHU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "outside.adverse; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TH_P2_THIEN_DI_TUONG_QUAN_TRIET__TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TH_P2_THIEN_DI_TUONG_QUAN_TRIET",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "outside.adverse; nesting {\"disjoint\":1}"
   },
   {
    "id": "AUTO_TV_TT_MENH_PHA_TY_NGO_GIAP_QUY__TV_TH_PHA_TOT_CUONG_NGHI_TU_DAC",
@@ -18779,9 +20573,61 @@
    "note": "fin.abundance; nesting {\"disjoint\":1}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THIEN_LUONG_WITH_THIEN_DONG_P__TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P",
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P__TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M",
    "type": "both_hold",
-   "from": "TV_TT_PAL_DIEN_TRACH_THIEN_LUONG_WITH_THIEN_DONG_P",
+   "from": "TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_LIEM_TRINH_BASE_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "prop.rich; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P__TV_TT_PAL_DIEN_TRACH_THAM_LANG_HAM_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_THAM_LANG_HAM_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "prop.rich; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P__TV_TT_PAL_DIEN_TRACH_VU_KHUC_HAM_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VU_KHUC_HAM_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "prop.rich; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P__TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_PHA_QUAN_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_DIEN_TRACH_VU_KHUC_WITH_PHA_QUAN_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "prop.rich; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THIEN_DONG_WITH_CU_MON_M__TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_DIEN_TRACH_THIEN_DONG_WITH_CU_MON_M",
    "to": [
     "TV_TT_PAL_DIEN_TRACH_VAN_KHUC_MIEU_P"
    ],
@@ -18789,46 +20635,137 @@
    "basis": "he_thong",
    "review": "draft",
    "charts": 1,
-   "note": "life.hardship; nesting {\"disjoint\":1}"
+   "note": "prop.rich; nesting {\"disjoint\":1}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_THIEN_PHU_WITH_VU_KHUC_P",
+   "id": "AUTO_TV_TT_PAL_DIEN_TRACH_THIEN_DONG_WITH_CU_MON_M__TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P",
    "type": "both_hold",
-   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "from": "TV_TT_PAL_DIEN_TRACH_THIEN_DONG_WITH_CU_MON_M",
    "to": [
-    "TV_TT_PAL_NO_BOC_THIEN_PHU_WITH_VU_KHUC_P"
+    "TV_TT_PAL_DIEN_TRACH_VAN_XUONG_BASE_P"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 1,
-   "note": "social.support; nesting {\"disjoint\":1}"
+   "note": "prop.rich; nesting {\"disjoint\":1}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_VU_KHUC_MIEU_P",
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LIEM_TRINH_HAM_M__TV_TT_PAL_NO_BOC_LOC_TON_BASE_P",
    "type": "both_hold",
-   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "from": "TV_TT_PAL_NO_BOC_LIEM_TRINH_HAM_M",
    "to": [
-    "TV_TT_PAL_NO_BOC_VU_KHUC_MIEU_P"
+    "TV_TT_PAL_NO_BOC_LOC_TON_BASE_P"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 1,
-   "note": "social.support; nesting {\"disjoint\":1}"
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
   },
   {
-   "id": "AUTO_TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M__TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THIEN_PHU_P",
+   "id": "AUTO_TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P__TV_TT_PAL_NO_BOC_THIEN_LUONG_WITH_THIEN_CO_M",
    "type": "both_hold",
-   "from": "TV_TT_PAL_NO_BOC_KINH_DUONG_BASE_M",
+   "from": "TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P",
    "to": [
-    "TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THIEN_PHU_P"
+    "TV_TT_PAL_NO_BOC_THIEN_LUONG_WITH_THIEN_CO_M"
    ],
    "effect": "none",
    "basis": "he_thong",
    "review": "draft",
    "charts": 1,
-   "note": "social.support; nesting {\"disjoint\":1}"
+   "note": "ally.loyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THAI_AM_WITH_THIEN_CO_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_THAI_AM_WITH_THIEN_CO_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THIEN_CO_HAM_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_THIEN_CO_HAM_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THIEN_CO_HAM_M__TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_THIEN_CO_HAM_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_THIEN_CO_WITH_THAI_AM_M__TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_THIEN_CO_WITH_THAI_AM_M",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.disloyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P__TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THAM_LANG_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THAM_LANG_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.loyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P__TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THAT_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_VAN_KHUC_MIEU_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THAT_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.loyal; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P__TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THAT_SAT_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
+   "to": [
+    "TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THAT_SAT_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "ally.loyal; nesting {\"disjoint\":1}"
   },
   {
    "id": "AUTO_TV_TT_PAL_PHUC_DUC_CU_MON_WITH_THIEN_CO_M__TV_TT_PAL_PHUC_DUC_LOC_TON_BASE_P",
@@ -18896,6 +20833,19 @@
    "note": "life.blessed; nesting {\"disjoint\":1}"
   },
   {
+   "id": "AUTO_TV_TT_PAL_PHUC_DUC_LOC_TON_BASE_P__TV_TT_PAL_PHUC_DUC_THAM_LANG_WITH_LIEM_TRINH_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHUC_DUC_LOC_TON_BASE_P",
+   "to": [
+    "TV_TT_PAL_PHUC_DUC_THAM_LANG_WITH_LIEM_TRINH_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "life.blessed; nesting {\"disjoint\":1}"
+  },
+  {
    "id": "AUTO_TV_TT_PAL_PHUC_DUC_THAT_SAT_WITH_LIEM_TRINH_M__TV_TT_PAL_PHUC_DUC_THIEN_KHOI_BASE_P",
    "type": "both_hold",
    "from": "TV_TT_PAL_PHUC_DUC_THAT_SAT_WITH_LIEM_TRINH_M",
@@ -18927,6 +20877,84 @@
    "from": "TV_TT_PAL_PHU_THE_TA_PHU_WITH_HUU_BAT_P",
    "to": [
     "TV_TT_PAL_PHU_THE_TU_VI_WITH_PHA_QUAN_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "rel.harmony; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_THAT_SAT_BASE_M__TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_THAT_SAT_BASE_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "rel.strain; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_CU_MON_M__TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_CU_MON_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "rel.strain; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_CU_MON_M__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_THIEN_DONG_WITH_CU_MON_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "rel.strain; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P__TV_TT_PAL_PHU_THE_TU_VI_WITH_PHA_QUAN_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_THIEN_KHOI_BASE_P",
+   "to": [
+    "TV_TT_PAL_PHU_THE_TU_VI_WITH_PHA_QUAN_M"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "rel.harmony; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_THIEN_TUONG_WITH_VU_KHUC_M__TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_THIEN_TUONG_WITH_VU_KHUC_M",
+   "to": [
+    "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "rel.strain; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P__TV_TT_PAL_PHU_THE_VU_KHUC_BASE_M",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P",
+   "to": [
+    "TV_TT_PAL_PHU_THE_VU_KHUC_BASE_M"
    ],
    "effect": "none",
    "basis": "he_thong",
@@ -19141,6 +21169,19 @@
    "review": "draft",
    "charts": 1,
    "note": "fin.abundance; nesting {\"disjoint\":1}"
+  },
+  {
+   "id": "AUTO_TV_TT_PAL_THIEN_DI_THAM_LANG_WITH_LIEM_TRINH_M__TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P",
+   "type": "both_hold",
+   "from": "TV_TT_PAL_THIEN_DI_THAM_LANG_WITH_LIEM_TRINH_M",
+   "to": [
+    "TV_TT_PAL_THIEN_DI_VAN_XUONG_BASE_P"
+   ],
+   "effect": "none",
+   "basis": "he_thong",
+   "review": "draft",
+   "charts": 1,
+   "note": "outside.adverse; nesting {\"disjoint\":1}"
   }
  ]
 }

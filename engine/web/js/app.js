@@ -161,8 +161,8 @@ async function generate(ev, saved = null) {
     // /api/synthesis is an optional layer (server flag): a 404 or failure just leaves the chapters without the composed section
     const synthReq = post('/api/synthesis', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);
     // /api/interpret mode "prose" (TS engine on the Worker, or tools/interpret/dev_server.ts locally) is optional too: 404 leaves Bản Mệnh as it was
-    const proseReq = Promise.all(['menh', 'cong_danh', 'tai_bach'].map(chapter => post('/api/interpret', { ...req, chapter, mode: 'prose', to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null)))
-      .then(xs => Object.fromEntries(xs.filter(Boolean).map(x => [x.chapter, x])));
+    const proseReq = post('/api/interpret', { ...req, chapter: 'all', mode: 'prose', to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 })
+      .then(r => Object.fromEntries((r.chapters || []).map(x => [x.chapter, x]))).catch(() => null);
     const [chart, reason, analysis, formations, , synth, prose] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady, synthReq, proseReq]);
     // Only readings checked against the books are shown; draft rules stay in the engine and on the rule-library page.
     Object.values(reason.systems).forEach(sys => { sys.findings = sys.findings.filter(f => f.basis === 'verified'); sys.pending = []; });

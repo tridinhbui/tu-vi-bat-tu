@@ -86,8 +86,8 @@ const knowledge = {
   prose: (() => {
     const P = join(ROOT, 'src', 'interpret', 'content', 'prose');
     const cards = readdirSync(P).filter(f => /^concepts_.*\.json$/.test(f)).sort().flatMap(f => read(join(P, f)).cards);
-    const { anchor, anchor_palace, via, dignity, subject } = read(join(P, 'frames.json'));
-    return { version: '0.1.0', concepts: cards, frames: { anchor, anchor_palace, via, dignity, subject }, modifiers: read(join(P, 'modifiers.json')).modifiers,
+    const { anchor, anchor_palace, via, dignity, subject, other } = read(join(P, 'frames.json'));
+    return { version: '0.1.0', concepts: cards, frames: { anchor, anchor_palace, via, dignity, subject, other }, modifiers: read(join(P, 'modifiers.json')).modifiers,
       schemas: read(join(P, 'schemas.json')).schemas, connectives: read(join(P, 'connectives.json')).connectives };
   })(),
 };

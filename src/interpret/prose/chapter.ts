@@ -16,15 +16,33 @@ import { validateProse, type ProseIssue, type ProseMetrics } from './validate.ts
 import type { Move } from './types.ts';
 
 export const PROSE_VERSION = 'prose-0.2.0';
-export type ProseChapterId = 'menh' | 'cong_danh' | 'tai_bach';
-interface ProseSpec { palace: string; pool: (c?: Concept) => boolean; borrowFrom: string[]; chart: boolean; extra: string[]; degree: boolean }
+export type ProseChapterId = 'menh' | 'cong_danh' | 'tai_bach' | 'thien_di' | 'phu_the' | 'phuc_duc' | 'dien_trach' | 'no_boc';
+interface ProseSpec { palace: string; pool: (c?: Concept) => boolean; borrowFrom: string[];
+  /** what may be taken from the borrowFrom palaces (default: pool) — Phu Thê must not take the person's own traits as the partner's */
+  borrowPool?: (c?: Concept) => boolean; chart: boolean; extra: string[]; degree: boolean;
+  /** Phu Thê, Nô Bộc: readings not about the bond describe the other people (frames.other[palace]) */
+  bond?: (c?: Concept) => boolean }
 const facet = (...pre: string[]) => (c?: Concept) => !!c && pre.some(p => c.facet === p || c.facet.startsWith(p + '.'));
 export const PROSE_SPECS: Record<ProseChapterId, ProseSpec> = {
   menh: { palace: 'Mệnh', pool: IDENTITY, borrowFrom: [], chart: true, extra: ['life.transient', 'life.mobility', 'life.late_bloom'], degree: true },
   cong_danh: { palace: 'Quan Lộc', pool: facet('career'), borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false },
   tai_bach: { palace: 'Tài Bạch', pool: facet('finance'), borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false },
+  // Thiên Di: everything that happens away from home — luck, money, conflict, temper and state of mind abroad
+  thien_di: { palace: 'Thiên Di', pool: facet('life', 'finance', 'identity', 'inner', 'career'), borrowPool: facet('life.mobility', 'life.outside'),
+    borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false },
+  // Phu Thê: the bond (relationships.*) is the person's; any other trait describes the partner
+  phu_the: { palace: 'Phu Thê', pool: facet('relationships.marriage', 'relationships.partner', 'relationships.timing', 'identity', 'career', 'finance', 'wellbeing', 'life.course'),
+    borrowPool: facet('relationships.marriage', 'relationships.partner', 'relationships.timing'), borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false,
+    bond: facet('relationships', 'life.course') },
+  phuc_duc: { palace: 'Phúc Đức', pool: facet('inner', 'life', 'wellbeing', 'relationships.family', 'finance', 'career.support', 'identity'),
+    borrowPool: facet('inner', 'life.spirituality'), borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false },
+  dien_trach: { palace: 'Điền Trạch', pool: facet('finance', 'life', 'relationships.family'), borrowPool: facet('finance.property'), borrowFrom: ['Mệnh', 'Tài Bạch'],
+    chart: false, extra: [], degree: false },
+  // Nô Bộc: allies, help and what they cost are the person's; character traits describe the friends and subordinates
+  no_boc: { palace: 'Nô Bộc', pool: facet('relationships.allies', 'career', 'identity', 'finance', 'life.course'), borrowPool: facet('relationships.allies', 'career.support'),
+    borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false, bond: facet('relationships.allies', 'career', 'finance', 'life.course') },
 };
-export const PROSE_ORDER: ProseChapterId[] = ['menh', 'cong_danh', 'tai_bach'];
+export const PROSE_ORDER: ProseChapterId[] = ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc'];
 export interface ProseChapter {
   engine: string; kbVersion: string; chapter: ProseChapterId; palace: string; schema: string; order: Move[];
   /** draft cards were allowed and the library still holds drafts: the reader must be told the wording is unreviewed */
@@ -91,7 +109,7 @@ export function proseReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?
   const said = new Set<string>(), out: ProseChapter[] = [];
   for (const id of PROSE_ORDER) {
     const ch = chapterOf(chart, k, id, resolved, tensions, micro, said, !!opts.allowDraft, seed);
-    ch.paragraphs.forEach(p => p.sentences.forEach(s => s.trace.concepts.forEach(c => said.add(c))));
+    ch.paragraphs.forEach(p => p.sentences.forEach(s => (s.trace.keys ?? []).forEach(c => said.add(c))));
     out.push(ch);
     if (id === (opts.until ?? PROSE_ORDER[PROSE_ORDER.length - 1])) break;
   }
@@ -110,8 +128,9 @@ function chapterOf(chart: ChartInput, k: Knowledge, id: ProseChapterId, resolved
   const subjects = new Set([`palace:${spec.palace}`, ...(spec.chart ? ['chart'] : []), ...spec.borrowFrom.map(b => `palace:${b}`)]);
   const resolved = resolvedAll.filter(r => subjects.has(r.subject));
   const keys = new Set(resolved.map(r => r.key)), tensions = tensionsAll.filter(t => keys.has(t.a) && keys.has(t.b));
-  const sel: Selection = select(resolved, k, { palace: pal, opp, pool: spec.pool, borrowFrom: spec.borrowFrom, chart: spec.chart, exclude: said, extra: spec.extra, degree: spec.degree });
-  const R = new Realizer(k, sel, micro, allowDraft);
+  const sel: Selection = select(resolved, k, { palace: pal, opp, pool: spec.pool, borrowPool: spec.borrowPool, borrowFrom: spec.borrowFrom, chart: spec.chart, exclude: said, extra: spec.extra, degree: spec.degree });
+  const other = spec.bond ? k.prose!.frames.other?.[spec.palace] : undefined;
+  const R = new Realizer(k, sel, micro, allowDraft, other ? { other, bond: spec.bond } : {});
 
   // paragraph 1: the schema's moves
   const present = presentMoves(sel);

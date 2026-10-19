@@ -184,7 +184,11 @@
    "variants": [
     "Bởi vậy, điều đáng quý ở lá số này không chỉ là {value} mà còn là {value2}",
     "Rốt lại, cái vốn quý nhất của người này nằm ở {value}, đi cùng {value2}",
-    "Điều đọng lại sau tất cả là {value} và {value2}"
+    "Điều đọng lại sau tất cả là {value} và {value2}",
+    "Cái nên giữ gìn nhất ở đây là {value}, bên cạnh {value2}",
+    "Nếu phải gọi tên điểm tựa, đó là {value} và {value2}",
+    "Xét cho cùng, chỗ mạnh của lá số nằm ở {value}, rồi đến {value2}",
+    "Vốn liếng đáng kể nhất là {value}, cùng với {value2}"
    ]
   },
   {
@@ -195,7 +199,11 @@
    "variants": [
     "Bởi vậy, điều đáng quý ở lá số này là {value}",
     "Rốt lại, cái vốn quý của người này nằm ở {value}",
-    "Điều đọng lại sau tất cả là {value}"
+    "Điều đọng lại sau tất cả là {value}",
+    "Cái nên giữ gìn nhất ở đây là {value}",
+    "Nếu phải gọi tên một điểm tựa, đó là {value}",
+    "Xét cho cùng, chỗ mạnh của lá số nằm ở {value}",
+    "Vốn liếng đáng kể nhất là {value}"
    ]
   },
   {
@@ -206,7 +214,10 @@
    "variants": [
     "khi biết {mature}, chính điều từng gây vướng bận sẽ trở thành thế mạnh",
     "càng biết {mature}, người này càng phát huy được những gì mình vốn có",
-    "và nếu biết {mature}, mặt khó của lá số sẽ trở thành bài học hơn là trở ngại"
+    "và nếu biết {mature}, mặt khó của lá số sẽ trở thành bài học hơn là trở ngại",
+    "nếu biết {mature}, phần khó ấy sẽ bớt nặng đi nhiều",
+    "biết {mature} là cách để điều bất lợi không đi đến cùng",
+    "khi đã biết {mature}, chỗ yếu cũng thành chỗ rèn mình"
    ]
   },
   {
@@ -261,6 +272,19 @@
     "Lá số sinh chưa thật đúng thời, nên phần nhiều thành quả đến muộn hơn công sức bỏ ra",
     "Xét về năm, mùa và giờ sinh, cái nền có phần nghịch, đòi hỏi sự kiên trì",
     "Cái nền chưa hòa hẳn: đương số phải tự bù bằng nỗ lực những gì ngày giờ sinh chưa cho"
+   ]
+  },
+  {
+   "id": "MOD_VALUE_OTHER",
+   "status": "draft",
+   "move": "VALUE",
+   "when": {},
+   "variants": [
+    "Điều đáng quý ở {other} là {value}",
+    "Cái quý nhất mà {other} mang lại là {value}",
+    "Rốt lại, ở {other} đáng trân trọng nhất là {value}",
+    "Ở {other}, điểm đáng quý nhất là {value}",
+    "Điều nên trân trọng nơi {other} là {value}"
    ]
   }
  ]
