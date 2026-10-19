@@ -8,6 +8,15 @@
    "locator": "pp.124-132, 232",
    "verified": true,
    "note": "Học phái Thiên Lương (schoolId thien_luong). Trích dẫn theo trang in mà bản gõ ghi lại; phần này nằm ngoài bản scan nên chưa đối chiếu với ảnh trang."
+  },
+  {
+   "id": "SRC_TVNL_1974",
+   "title": "Tử Vi Nghiệm Lý",
+   "author": "Thiên Lương",
+   "edition": "Tái bản lần thứ nhất, Sài Gòn 1974 (giấy phép 6028/74); bản scan Tủ sách HELEN, phần 02 (TVnghiemly-LyMenhHoc-02.pdf, 80 trang)",
+   "locator": "HELEN pp.38-114 (lá số danh nhân)",
+   "verified": true,
+   "note": "Số trang theo chân trang HELEN (= trang PDF + 35); trang của sách gốc chỉ có ở mục lục. Phần lý thuyết (phần 01) không có trong bản này."
   }
  ],
  "rules": [
@@ -17576,6 +17585,114 @@
    "priority": 3,
    "sourceIds": [
     "SRC_TVNL_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_NL_TAI_BACH_KY_LOC_TON",
+   "system": "tu_vi",
+   "schoolId": "thien_luong",
+   "category": "tl_palace",
+   "description": "Thiên Lương, Tử Vi Nghiệm Lý (1974, tái bản lần thứ nhất), bản scan Tủ sách HELEN, số trang theo chân trang HELEN, paraphrased, cung Tài Bạch: có Lộc Tồn mà khó được thụ hưởng: với tuổi Kỷ, sách kể như không có Lộc Tồn (tuổi Kỷ, Lộc Tồn ở Tài Bạch) [NL p.67, 86]; sách nói chung cho tuổi Kỷ; hệ thống chỉ áp khi Lộc Tồn ở Tài Bạch; khác cách đọc phổ thông",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "all": [
+       {
+        "fact": "chart.year_stem",
+        "value": "Kỷ"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Lộc Tồn"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nl_tb_ky_loc_ton",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVNL_1974"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_NL_TAI_BACH_PHU_PHUNG_KHONG",
+   "system": "tu_vi",
+   "schoolId": "thien_luong",
+   "category": "tl_palace",
+   "description": "Thiên Lương, Tử Vi Nghiệm Lý (1974, tái bản lần thứ nhất), bản scan Tủ sách HELEN, số trang theo chân trang HELEN, paraphrased, cung Tài Bạch: tiền bạc túng thiếu: Thiên Phủ gặp Không thì kho bị phá (Thiên Phủ ở Tài Bạch gặp Tuần, Triệt, Địa Không hoặc Thiên Không) [NL p.83-84]; lá số mẫu của sách có Thiên Phủ ở Quan Lộc dưới Tuần; hệ thống áp nguyên lý 'Phủ phùng Không' vào Tài Bạch",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "any": [
+         {
+          "fact": "palace.tuan",
+          "operator": "eq",
+          "value": true
+         },
+         {
+          "fact": "palace.triet",
+          "operator": "eq",
+          "value": true
+         },
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains_any",
+          "value": [
+           "Địa Không",
+           "Thiên Không"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "nl_tb_phu_phung_khong",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVNL_1974"
    ],
    "reviewStatus": "verified",
    "version": "0.1.0",

@@ -1,20 +1,21 @@
 # Đánh giá văn đọc chương phu_the trên 1000 lá số
 
-Sinh bởi `tools/interpret/eval_prose.ts --chapter phu_the` (prose prose-0.2.0, knowledge `71a99fbcd138009d`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
+Sinh bởi `tools/interpret/eval_prose.ts --chapter phu_the` (prose prose-0.2.0, knowledge `4db446cf1b5653fc`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
 
 | Chỉ số | Giá trị | Ngưỡng (plan §6) |
 |---|---|---|
 | Chương không lỗi chặn | 1000/1000 | 100% |
 | Lỗi chặn theo loại | {} | 0 |
 | Chương rỗng | 53 | 0 |
-| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 | 64.0% | ≥ 95% |
+| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 (mọi lá số, kể cả chương trống) | 76.3% | ≥ 95% |
+| Như trên, chỉ tính chương có từ 3 câu (751 lá số) | 94.8% | ≥ 95% |
 | 4-gram lặp trong một chương (TB / max) | 0 / 0.023 | < 0.05 |
-| Opener phổ biến nhất (mọi câu) | “chuyện gia” 5.1% | ≤ 8% |
+| Opener phổ biến nhất (mọi câu) | “chuyện gia” 5.4% | ≤ 8% |
 | Opener phổ biến nhất (câu đầu chương) | “nhìn vào” 10.1% | (theo dõi) |
 | Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.112 | ≤ 0.35 |
 | Entropy phân bố schema | 1.832 / log(7) = 1.946 | ≥ 0.7 × log(số schema dùng được) |
 | Câu/đoạn mở dùng > 15% số chương | 0 | 0 |
-| Thời gian sinh một chương (TB / p95, Node) | 65.56 ms / 68.34 ms | p95 < 30 ms |
+| Thời gian sinh một chương (TB / p95, Node) | 72.58 ms / 75.91 ms | p95 < 30 ms |
 
 Schema: S_DOUBLE_EDGE 245, S_EDGE_LATE_ELABORATE 228, S_QUIET_STRENGTH 165, S_LIMIT_CORE 119, S_SATELLITE_WEAVE 117, S_PLAIN 63, S_VCD_BORROW 63
 
@@ -32,7 +33,7 @@ Xét cung Phu Thê tại Dần, nơi Thái Dương và Cự Môn đồng cung, n
 
 ### {"year":1999,"month":1,"day":19,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_LIMIT_CORE
 
-Với Tham Lang ở cung Phu Thê tại Dần, người này dễ gặp dang dở trong chuyện duyên. Khi biết chọn người hợp hơn là người làm mình rung động nhất, chính điều từng gây vướng bận sẽ trở thành thế mạnh.
+Với Tham Lang ở cung Phu Thê tại Dần, người này dễ gặp dang dở trong chuyện duyên. Càng biết chọn người hợp hơn là người làm mình rung động nhất, người này càng phát huy được những gì mình vốn có.
 
 ### {"year":2013,"month":11,"day":22,"hour":21,"minute":30,"gender":"male","to_year":2026} · S_EDGE_LATE_ELABORATE
 
@@ -56,7 +57,7 @@ Từ phía cung Mệnh, đương số thường giữ được mối gắn bó l
 
 ### {"year":1994,"month":8,"day":11,"hour":19,"minute":45,"gender":"female","to_year":2026} · S_SATELLITE_WEAVE
 
-Về cung Phu Thê, nơi Thiên Đồng và Thiên Lương đồng cung tại Thân, người này thường giữ được mối gắn bó lâu dài. Ngoài ra, người mang tổ hợp này thường có duyên đến muộn mà bền, lại có duyên với người khác mình. Chủ nhân lá số biết cách giữ hòa khí trong nhà. Vốn liếng đáng kể nhất là những quan hệ bền lâu.
+Về cung Phu Thê, nơi Thiên Đồng và Thiên Lương đồng cung tại Thân, người này thường giữ được mối gắn bó lâu dài; ngoài ra, người mang tổ hợp này thường có duyên đến muộn mà bền, lại có duyên với người khác mình. Chủ nhân lá số biết cách giữ hòa khí trong nhà. Vốn liếng đáng kể nhất là những quan hệ bền lâu.
 
 Cùng một mạch ấy, người phối ngẫu thường có duyên, dễ gây thiện cảm ngay từ lần gặp đầu.
 

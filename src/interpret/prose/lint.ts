@@ -53,6 +53,7 @@ export function lintLibrary(lib: ProseLibrary, concepts: Concept[], required: st
         else if (/[.!?]$/.test(t) || /^\p{Lu}/u.test(t.replace(/^\{[^}]+\}/, ''))) err(where, `fragment must be lower-case and unpunctuated: ${t}`);
         // the realizer supplies the verb: a pred must not start with 'thường/hay/luôn', a turn not with 'dễ'
         if (f === 'pred' && /^(thường|hay|luôn|dễ) /.test(t)) err(where, `pred follows 'thường': it must not start with its own 'thường/hay/luôn/dễ': ${t}`);
+        if (f === 'mature' && /^biết /.test(t)) err(where, `mature follows 'biết {mature}' in the closing frames: it must not start with 'biết' ('biết biết'): ${t}`);
         if (f === 'turn' && /^(dễ|khó) /.test(t)) err(where, `turn after 'dễ' must not start with 'dễ' or 'khó' ('dễ khó giàu'): ${t}`);
         const words = t.split(/\s+/).length;
         if (words > 32) warn(where, `long (${words} words): ${t}`);

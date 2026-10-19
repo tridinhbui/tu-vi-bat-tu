@@ -4019,6 +4019,22 @@
   "TV_TL_MENH_VCD_TAM_KHONG_BAC_BO": {
    "asserts": [],
    "note": "A rebuttal of another school's formula says nothing about the person by itself; shown in the panel as a school divergence (REL_TL232_VCD_TAM_KHONG)."
+  },
+  "TV_NL_TAI_BACH_KY_LOC_TON": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "weakens"
+    }
+   ]
+  },
+  "TV_NL_TAI_BACH_PHU_PHUNG_KHONG": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ]
   }
  }
 }

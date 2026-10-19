@@ -1,20 +1,21 @@
 # Đánh giá văn đọc chương phuc_duc trên 1000 lá số
 
-Sinh bởi `tools/interpret/eval_prose.ts --chapter phuc_duc` (prose prose-0.2.0, knowledge `71a99fbcd138009d`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
+Sinh bởi `tools/interpret/eval_prose.ts --chapter phuc_duc` (prose prose-0.2.0, knowledge `4db446cf1b5653fc`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
 
 | Chỉ số | Giá trị | Ngưỡng (plan §6) |
 |---|---|---|
 | Chương không lỗi chặn | 1000/1000 | 100% |
 | Lỗi chặn theo loại | {} | 0 |
 | Chương rỗng | 54 | 0 |
-| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 | 66.3% | ≥ 95% |
+| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 (mọi lá số, kể cả chương trống) | 76.5% | ≥ 95% |
+| Như trên, chỉ tính chương có từ 3 câu (729 lá số) | 89.3% | ≥ 95% |
 | 4-gram lặp trong một chương (TB / max) | 0.001 / 0.03 | < 0.05 |
-| Opener phổ biến nhất (mọi câu) | “đường đời” 4.5% | ≤ 8% |
+| Opener phổ biến nhất (mọi câu) | “đường đời” 4.6% | ≤ 8% |
 | Opener phổ biến nhất (câu đầu chương) | “đến cung” 10.0% | (theo dõi) |
-| Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.083 | ≤ 0.35 |
+| Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.084 | ≤ 0.35 |
 | Entropy phân bố schema | 2.13 / log(12) = 2.485 | ≥ 0.7 × log(số schema dùng được) |
 | Câu/đoạn mở dùng > 15% số chương | 0 | 0 |
-| Thời gian sinh một chương (TB / p95, Node) | 65.37 ms / 68.28 ms | p95 < 30 ms |
+| Thời gian sinh một chương (TB / p95, Node) | 73.28 ms / 76.4 ms | p95 < 30 ms |
 
 Schema: S_DOUBLE_EDGE 211, S_QUIET_STRENGTH 178, S_EDGE_LATE_ELABORATE 176, S_LIMIT_CORE 121, S_VCD_BORROW 94, S_SATELLITE_WEAVE 70, S_PLAIN 60, S_TIMING_ARC 28, S_TURN_THEN_TENSION 23, S_TIMING_FIRST 16, S_TENSION_BRIDGE 12, S_TENSION_CORE 11
 
@@ -32,7 +33,7 @@ Soi sang cung Mệnh, lại thấy người này thường sống thanh đạm, 
 
 ### {"year":1999,"month":1,"day":19,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_QUIET_STRENGTH
 
-Nhìn vào Thất Sát ở cung Phúc Đức tại Ngọ, có thể thấy người này thường gặp nhiều điều tốt lành hơn người; đường đời của đương số nhìn chung là đường xuôi, dù không thiếu những khúc quanh. Điều đọng lại sau tất cả là sự thuận lợi của đường đời.
+Nhìn vào Thất Sát ở cung Phúc Đức tại Ngọ, có thể thấy người này thường gặp nhiều điều tốt lành hơn người; đường đời của họ nhìn chung là đường xuôi, dù không thiếu những khúc quanh. Điều đọng lại sau tất cả là sự thuận lợi của đường đời.
 
 ### {"year":2013,"month":11,"day":22,"hour":21,"minute":30,"gender":"male","to_year":2026} · S_QUIET_STRENGTH
 
@@ -64,7 +65,7 @@ Khi Thiên Cơ làm chủ cung Phúc Đức ở Tý, người này dễ lao tâm
 
 Với Vũ Khúc và Thất Sát đồng cung Phúc Đức tại Mão, người này dễ lo trước những điều chưa tới. Nếu biết dành cho mình những khoảng nghỉ thật sự, phần khó ấy sẽ bớt nặng đi nhiều.
 
-Có điều, người mang tổ hợp này cũng dễ có những bất hòa trong nhà. Nhìn từ cung Mệnh, chủ nhân lá số thường an nhiên trước biến động.
+Có một mặt khác cần thấy: đương số cũng dễ có những bất hòa trong nhà; nhìn từ cung Mệnh, họ thường an nhiên trước biến động.
 
 ### {"year":2017,"month":10,"day":19,"hour":21,"minute":30,"gender":"female","to_year":2026} · S_LIMIT_CORE
 
@@ -74,7 +75,7 @@ Từ phía cung Mệnh, chủ nhân lá số thường sống thanh đạm, ít 
 
 ### {"year":2011,"month":8,"day":1,"hour":23,"minute":45,"gender":"female","to_year":2026} · S_QUIET_STRENGTH
 
-Xét cung Phúc Đức tại Tuất, nơi Thiên Cơ và Thiên Lương đồng cung, đương số thường có quãng sau của đời vững vàng hơn quãng đầu; người này gặt hái muộn, nhưng phần gặt hái ấy ở lại lâu.
+Xét cung Phúc Đức tại Tuất, nơi Thiên Cơ và Thiên Lương đồng cung, đương số thường có quãng sau của đời vững vàng hơn quãng đầu. Người này gặt hái muộn, nhưng phần gặt hái ấy ở lại lâu.
 
 ### {"year":1979,"month":5,"day":20,"hour":2,"minute":0,"gender":"male","to_year":2026} · S_DOUBLE_EDGE
 

@@ -15,7 +15,7 @@ const CH = (process.argv.includes('--chapter') ? process.argv[process.argv.index
 
 export interface ProseEval {
   charts: number; errors: Record<string, number>; empty: number; pass: number;
-  sentLenOk: number; rep4Max: number; rep4Mean: number; topOpener: [string, number]; topFirstOpener: [string, number];
+  sentLenOk: number; /** chapters of three sentences or more, and how many of them are in the band */ multi: number; multiOk: number; rep4Max: number; rep4Mean: number; topOpener: [string, number]; topFirstOpener: [string, number];
   jaccardMedian: number; schemaEntropy: number; schemaMax: number; schemas: Record<string, number>; variantOveruse: Array<[string, number]>;
   msMean: number; msP95: number; samples: Array<{ birth: unknown; text: string; schema: string }>;
 }
@@ -28,7 +28,10 @@ export function evaluate(charts: any[], chapter: ProseChapterId = 'menh'): Prose
   for (const c of charts) { const t0 = performance.now(); const o = proseChapter(c.facts, K, chapter, { allowDraft: true }); outs.push({ c, o, ms: performance.now() - t0 }); }
   const errors: Record<string, number> = {};
   for (const { o } of outs) for (const i of o.issues) if (i.level === 'error') errors[i.code] = (errors[i.code] ?? 0) + 1;
-  const sentLenOk = outs.filter(({ o }) => o.metrics.meanSentenceWords >= 18 && o.metrics.meanSentenceWords <= 35 && o.metrics.sdSentenceWords >= 6).length;
+  const inBand = (o: ProseChapter) => o.metrics.meanSentenceWords >= 18 && o.metrics.meanSentenceWords <= 35 && o.metrics.sdSentenceWords >= 6;
+  const sentLenOk = outs.filter(({ o }) => inBand(o)).length;
+  // a chapter of one or two sentences cannot vary its sentence length: the spread criterion is read on chapters of three or more
+  const multiOuts = outs.filter(({ o }) => o.metrics.sentences >= 3), multi = multiOuts.length, multiOk = multiOuts.filter(({ o }) => inBand(o)).length;
   const reps = outs.map(({ o }) => o.metrics.repeated4gramRate);
   const count = (xs: string[]) => { const m = new Map<string, number>(); xs.forEach(x => m.set(x, (m.get(x) ?? 0) + 1)); return [...m.entries()].sort((a, b) => b[1] - a[1]); };
   const allOpen = count(outs.flatMap(({ o }) => o.metrics.openers.map(x => x.toLowerCase())));
@@ -50,7 +53,7 @@ export function evaluate(charts: any[], chapter: ProseChapterId = 'menh'): Prose
   const ms = outs.map(x => x.ms).sort((a, b) => a - b);
   return {
     charts: tot, errors, empty: outs.filter(({ o }) => !o.paragraphs.length).length, pass: outs.filter(({ o }) => o.pass).length,
-    sentLenOk, rep4Max: Math.max(...reps), rep4Mean: +(reps.reduce((a, b) => a + b, 0) / tot).toFixed(3),
+    sentLenOk, multi, multiOk, rep4Max: Math.max(...reps), rep4Mean: +(reps.reduce((a, b) => a + b, 0) / tot).toFixed(3),
     topOpener: [allOpen[0][0], +(allOpen[0][1] / allOpen.reduce((a, [, k]) => a + k, 0)).toFixed(3)],
     topFirstOpener: [firstOpen[0][0], +(firstOpen[0][1] / tot).toFixed(3)],
     jaccardMedian: +(js[Math.floor(js.length / 2)] ?? 0).toFixed(3), schemaEntropy: +H.toFixed(3), schemaMax: +Math.log(sch.length).toFixed(3),
@@ -65,7 +68,8 @@ if (import.meta.main) {
   const md = [`# Đánh giá văn đọc chương ${CH} trên ${e.charts} lá số`, '', `Sinh bởi \`tools/interpret/eval_prose.ts --chapter ${CH}\` (prose ${'prose-0.2.0'}, knowledge \`${K.version}\`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.`, '',
     '| Chỉ số | Giá trị | Ngưỡng (plan §6) |', '|---|---|---|',
     `| Chương không lỗi chặn | ${e.pass}/${e.charts} | 100% |`, `| Lỗi chặn theo loại | ${JSON.stringify(e.errors)} | 0 |`, `| Chương rỗng | ${e.empty} | 0 |`,
-    `| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 | ${(100 * e.sentLenOk / e.charts).toFixed(1)}% | ≥ 95% |`,
+    `| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 (mọi lá số, kể cả chương trống) | ${(100 * e.sentLenOk / e.charts).toFixed(1)}% | ≥ 95% |`,
+    `| Như trên, chỉ tính chương có từ 3 câu (${e.multi} lá số) | ${(100 * e.multiOk / Math.max(1, e.multi)).toFixed(1)}% | ≥ 95% |`,
     `| 4-gram lặp trong một chương (TB / max) | ${e.rep4Mean} / ${e.rep4Max} | < 0.05 |`,
     `| Opener phổ biến nhất (mọi câu) | “${e.topOpener[0]}” ${(100 * e.topOpener[1]).toFixed(1)}% | ≤ 8% |`,
     `| Opener phổ biến nhất (câu đầu chương) | “${e.topFirstOpener[0]}” ${(100 * e.topFirstOpener[1]).toFixed(1)}% | (theo dõi) |`,

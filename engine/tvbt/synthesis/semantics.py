@@ -22,8 +22,8 @@ from functools import lru_cache
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent.parent / "data" / "semantic"
-SCHOOL = {"SRC_THUC_HANH": "Thực Hành", "SRC_KHAO_LUAN": "Khảo Luận", "SRC_TOAN_THU": "Toàn Thư", "SRC_TVDS_TAN_BIEN": "Tân Biên"}
-_CITE = re.compile(r"\[((?:TH|KL|TT|TL)[^\]]*?)\]")
+SCHOOL = {"SRC_THUC_HANH": "Thực Hành", "SRC_KHAO_LUAN": "Khảo Luận", "SRC_TOAN_THU": "Toàn Thư", "SRC_TVDS_TAN_BIEN": "Tân Biên", "SRC_TVNL_TOAN_THU": "Nghiệm Lý (Thiên Lương)", "SRC_TVNL_1974": "Nghiệm Lý 1974 (Thiên Lương)"}
+_CITE = re.compile(r"\[((?:TH|KL|TT|TL|NL)[^\]]*?)\]")
 _PARA = re.compile(r"paraphrased\)?[^:]{0,80}?:\s*(.+)$")
 _CONTRAST = (" nhưng ", " mà ", " song ", " tuy ")
 _CLAUSE = re.compile(r"[,;]| và | nhưng | mà | song | tuy ")

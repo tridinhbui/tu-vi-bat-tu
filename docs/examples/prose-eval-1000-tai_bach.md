@@ -1,22 +1,23 @@
 # Đánh giá văn đọc chương tai_bach trên 1000 lá số
 
-Sinh bởi `tools/interpret/eval_prose.ts --chapter tai_bach` (prose prose-0.2.0, knowledge `71a99fbcd138009d`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
+Sinh bởi `tools/interpret/eval_prose.ts --chapter tai_bach` (prose prose-0.2.0, knowledge `4db446cf1b5653fc`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
 
 | Chỉ số | Giá trị | Ngưỡng (plan §6) |
 |---|---|---|
 | Chương không lỗi chặn | 1000/1000 | 100% |
 | Lỗi chặn theo loại | {} | 0 |
-| Chương rỗng | 71 | 0 |
-| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 | 43.0% | ≥ 95% |
+| Chương rỗng | 63 | 0 |
+| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 (mọi lá số, kể cả chương trống) | 52.0% | ≥ 95% |
+| Như trên, chỉ tính chương có từ 3 câu (484 lá số) | 73.1% | ≥ 95% |
 | 4-gram lặp trong một chương (TB / max) | 0 / 0.028 | < 0.05 |
-| Opener phổ biến nhất (mọi câu) | “càng biết” 4.0% | ≤ 8% |
+| Opener phổ biến nhất (mọi câu) | “càng biết” 4.3% | ≤ 8% |
 | Opener phổ biến nhất (câu đầu chương) | “riêng ở” 7.8% | (theo dõi) |
-| Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.074 | ≤ 0.35 |
-| Entropy phân bố schema | 2.103 / log(12) = 2.485 | ≥ 0.7 × log(số schema dùng được) |
+| Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.076 | ≤ 0.35 |
+| Entropy phân bố schema | 2.097 / log(12) = 2.485 | ≥ 0.7 × log(số schema dùng được) |
 | Câu/đoạn mở dùng > 15% số chương | 0 | 0 |
-| Thời gian sinh một chương (TB / p95, Node) | 65.9 ms / 69.65 ms | p95 < 30 ms |
+| Thời gian sinh một chương (TB / p95, Node) | 73.54 ms / 76.93 ms | p95 < 30 ms |
 
-Schema: S_QUIET_STRENGTH 219, S_LIMIT_CORE 169, S_DOUBLE_EDGE 164, S_EDGE_LATE_ELABORATE 151, S_PLAIN 89, S_VCD_BORROW 80, S_TIMING_ARC 48, S_TURN_THEN_TENSION 24, S_TENSION_BRIDGE 19, S_TIMING_FIRST 16, S_SATELLITE_WEAVE 15, S_TENSION_CORE 6
+Schema: S_QUIET_STRENGTH 210, S_LIMIT_CORE 177, S_DOUBLE_EDGE 170, S_EDGE_LATE_ELABORATE 155, S_PLAIN 81, S_VCD_BORROW 80, S_TIMING_ARC 48, S_TURN_THEN_TENSION 24, S_TENSION_BRIDGE 19, S_TIMING_FIRST 16, S_SATELLITE_WEAVE 14, S_TENSION_CORE 6
 
 
 
@@ -32,13 +33,13 @@ Với Thiên Đồng và Thái Âm cùng ở cung Tài Bạch tại Tý, ngườ
 
 Không chỉ thế, họ thường chặt chẽ trong chi tiêu. Một nét khác đến từ cung Mệnh: đương số thường chi tiêu phóng khoáng.
 
-### {"year":1999,"month":1,"day":19,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_QUIET_STRENGTH
+### {"year":1999,"month":1,"day":19,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_EDGE_LATE_ELABORATE
 
-Nhìn vào bộ Vũ Khúc và Thiên Phủ ở cung Tài Bạch tại Tý, có thể thấy người này có lộc, nhưng phần giữ được không nhiều.
+Nhìn vào bộ Vũ Khúc và Thiên Phủ ở cung Tài Bạch tại Tý, có thể thấy người này có lộc, nhưng phần giữ được không nhiều; nhìn từ phía khác, người mang tổ hợp này cũng dễ phải lo toan nhiều về chuyện tiền nong. Khi đã biết đặt giá trị của mình ở chỗ khác ngoài tiền bạc, chỗ yếu cũng thành chỗ rèn mình.
 
 ### {"year":2013,"month":11,"day":22,"hour":21,"minute":30,"gender":"male","to_year":2026} · S_LIMIT_CORE
 
-Ở Thân, Phá Quân rơi vào hãm địa, nên người có Phá Quân ở cung Tài Bạch dễ kiếm được nhưng khó giữ, của cải dễ trôi đi. Biết biết giữ trước khi mở rộng là cách để điều bất lợi không đi đến cùng.
+Ở Thân, Phá Quân rơi vào hãm địa, nên người có Phá Quân ở cung Tài Bạch dễ kiếm được nhưng khó giữ, của cải dễ trôi đi. Biết giữ trước khi mở rộng là cách để điều bất lợi không đi đến cùng.
 
 ### {"year":1996,"month":10,"day":14,"hour":13,"minute":15,"gender":"male","to_year":2026} · S_DOUBLE_EDGE
 
@@ -64,13 +65,15 @@ Không chỉ thế, chủ nhân lá số thường chặt chẽ trong chi tiêu.
 
 ### {"year":2019,"month":10,"day":10,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_LIMIT_CORE
 
-Khi Thiên Phủ làm chủ cung Tài Bạch ở Dậu, người này dễ hao tán vì những khoản chi bất ngờ. Khi biết biết giữ trước khi mở rộng, chính điều từng gây vướng bận sẽ trở thành thế mạnh.
+Khi Thiên Phủ làm chủ cung Tài Bạch ở Dậu, người này dễ phải lo toan nhiều về chuyện tiền nong. Khi biết đặt giá trị của mình ở chỗ khác ngoài tiền bạc, chính điều từng gây vướng bận sẽ trở thành thế mạnh.
+
+Có điều, người này cũng dễ tiền vào nhanh, ra cũng nhanh.
 
 ### {"year":2017,"month":10,"day":19,"hour":21,"minute":30,"gender":"female","to_year":2026} · S_DOUBLE_EDGE
 
 Khi Thiên Đồng và Thái Âm cùng làm chủ cung Tài Bạch ở Ngọ, đương số thường có nguồn thu rộng mở; tiền bạc đến với chủ nhân lá số không quá khó khăn. Dẫu vậy, người này cũng dễ hao tán vì những khoản chi bất ngờ; xét theo thời gian, đương số thường có công danh đến chậm nhưng bền. Xét cho cùng, chỗ mạnh của lá số nằm ở đường tài lộc; biết dành riêng một phần không động đến là cách để điều bất lợi không đi đến cùng.
 
-Cũng vậy, người mang tổ hợp này thường tự tay làm nên cơ nghiệp, lại gặp tiền đến không báo trước. Cung Mệnh cũng góp một nét vào chuyện này: chủ nhân lá số thường rộng rãi, không tiếc tiền với người khác.
+Cũng vậy, người mang tổ hợp này thường tự tay làm nên cơ nghiệp, lại gặp tiền đến không báo trước; Cung Mệnh cũng góp một nét vào chuyện này: chủ nhân lá số thường rộng rãi, không tiếc tiền với người khác.
 
 ### {"year":2011,"month":8,"day":1,"hour":23,"minute":45,"gender":"female","to_year":2026} · S_PLAIN
 

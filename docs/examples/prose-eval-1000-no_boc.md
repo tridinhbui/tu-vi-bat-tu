@@ -1,20 +1,21 @@
 # Đánh giá văn đọc chương no_boc trên 1000 lá số
 
-Sinh bởi `tools/interpret/eval_prose.ts --chapter no_boc` (prose prose-0.2.0, knowledge `71a99fbcd138009d`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
+Sinh bởi `tools/interpret/eval_prose.ts --chapter no_boc` (prose prose-0.2.0, knowledge `4db446cf1b5653fc`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
 
 | Chỉ số | Giá trị | Ngưỡng (plan §6) |
 |---|---|---|
 | Chương không lỗi chặn | 1000/1000 | 100% |
 | Lỗi chặn theo loại | {} | 0 |
 | Chương rỗng | 142 | 0 |
-| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 | 57.0% | ≥ 95% |
+| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 (mọi lá số, kể cả chương trống) | 64.5% | ≥ 95% |
+| Như trên, chỉ tính chương có từ 3 câu (469 lá số) | 94.5% | ≥ 95% |
 | 4-gram lặp trong một chương (TB / max) | 0 / 0.02 | < 0.05 |
-| Opener phổ biến nhất (mọi câu) | “khi cần” 5.5% | ≤ 8% |
+| Opener phổ biến nhất (mọi câu) | “khi cần” 5.6% | ≤ 8% |
 | Opener phổ biến nhất (câu đầu chương) | “” 14.2% | (theo dõi) |
 | Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.106 | ≤ 0.35 |
 | Entropy phân bố schema | 1.833 / log(8) = 2.079 | ≥ 0.7 × log(số schema dùng được) |
 | Câu/đoạn mở dùng > 15% số chương | 0 | 0 |
-| Thời gian sinh một chương (TB / p95, Node) | 65.75 ms / 68.58 ms | p95 < 30 ms |
+| Thời gian sinh một chương (TB / p95, Node) | 73.52 ms / 76.48 ms | p95 < 30 ms |
 
 Schema: S_QUIET_STRENGTH 254, S_LIMIT_CORE 193, S_PLAIN 155, S_EDGE_LATE_ELABORATE 148, S_DOUBLE_EDGE 143, S_SATELLITE_WEAVE 60, S_VCD_BORROW 46, S_TENSION_BRIDGE 1
 
@@ -60,7 +61,7 @@ Xét cung Nô Bộc tại Mão, nơi Thiên Phủ tọa thủ, đương số th�
 
 ### {"year":2019,"month":10,"day":10,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_QUIET_STRENGTH
 
-Ở cung Nô Bộc, Thiên Cơ đóng tại Ngọ cho thấy đương số thường được người giúp việc, cộng sự trung thành; những người làm việc cùng đương số thường ở lại lâu và giữ chữ tín. Thêm vào đó, chủ nhân lá số thường kết giao thuận lợi, quen biết nhiều nơi, lại làm ra của bằng mồ hôi. Điều đọng lại sau tất cả là sự trung thành của người cùng làm và vòng quan hệ rộng.
+Ở cung Nô Bộc, Thiên Cơ đóng tại Ngọ cho thấy đương số thường được người giúp việc, cộng sự trung thành; những người làm việc cùng đương số thường ở lại lâu và giữ chữ tín. Thêm vào đó, người này thường kết giao thuận lợi, quen biết nhiều nơi, lại làm ra của bằng mồ hôi. Điều đọng lại sau tất cả là sự trung thành của người cùng làm và vòng quan hệ rộng.
 
 ### {"year":2017,"month":10,"day":19,"hour":21,"minute":30,"gender":"female","to_year":2026} · S_EDGE_LATE_ELABORATE
 
