@@ -1,6 +1,6 @@
 {
  "version": "0.1.0",
- "note": "Hand-mapped rule → concept links for Mệnh rules the cue lexicon cannot read (drafted by Claude 2026-10-18 from the rule's own paraphrase; review pending). kind 'formation' = the rule names a cách; it carries polarity only and stays in the evidence panel until a formation card exists. kind 'classification' = a grouping label, never prose. Entries here override the automatic draft in rule_concepts.json. 'additive' marks the birth-structure (độ số) modifiers: in the tradition they add up (độ số tăng / kém bớt) rather than contradict, so two additive assertions are never an opposition; that reading is a system convention (he_thong). Review pass 2026-10-18: the 230 automatically linked rules that reach Mệnh prose on the corpus were read; 29 mislinks fixed here.",
+ "note": "Hand-mapped rule → concept links for Mệnh rules the cue lexicon cannot read (drafted by Claude 2026-10-18 from the rule's own paraphrase; review pending). kind 'formation' = the rule names a cách; it carries polarity only and stays in the evidence panel until a formation card exists. kind 'classification' = a grouping label, never prose. Entries here override the automatic draft in rule_concepts.json. 'additive' marks the birth-structure (độ số) modifiers: in the tradition they add up (độ số tăng / kém bớt) rather than contradict, so two additive assertions are never an opposition; that reading is a system convention (he_thong). Review pass 2026-10-18: the 230 automatically linked rules that reach Mệnh prose on the corpus were read; 29 mislinks fixed here. P5 (2026-10-19): Quan Lộc and Tài Bạch rules the lexicon could not read were linked by hand; readings conditional on facts outside the rule ('gặp sát tinh thì …', 'rất xấu khi …') are linked as a weakened positive, never as the bare negative.",
  "entries": {
   "TV_KL_MENH_SAT_PHA_LIEM_THAM": {
    "kind": "classification",
@@ -1546,6 +1546,347 @@
     },
     {
      "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CASE_TAI_BACH_DONG_LUONG_TRIET_KIEP": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.stable",
+     "stance": "weakens"
+    }
+   ]
+  },
+  "TV_KL_STAR_QUAN_LOC_CO_NGUYET": {
+   "asserts": [
+    {
+     "concept": "exp.craft",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_CACH_QUAN_LOC_KIM_DU": {
+   "kind": "formation",
+   "pol": "+",
+   "asserts": []
+  },
+  "TV_TH_CACH_QUAN_LOC_LOC_MA_BOI_AN": {
+   "kind": "formation",
+   "pol": "+",
+   "asserts": []
+  },
+  "TV_TH_CACH_QUAN_LOC_PHU_BAT": {
+   "kind": "formation",
+   "pol": "+",
+   "asserts": []
+  },
+  "TV_TH_CACH_QUAN_LOC_THAM_HOA": {
+   "kind": "formation",
+   "pol": "+",
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    },
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_QUAN_LOC_NHAT_XUONG": {
+   "asserts": [
+    {
+     "concept": "path.service",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TAI_BACH_CO_TUE": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TAI_BACH_HOA_LINH": {
+   "asserts": [
+    {
+     "concept": "fin.frugal",
+     "stance": "affirms"
+    },
+    {
+     "concept": "values.selfish",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TAI_BACH_KHOI_VIET": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "values.integrity",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TAI_BACH_KY": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TAI_BACH_MO_CO_LUONG": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TAI_BACH_PHU_VU": {
+   "asserts": [
+    {
+     "concept": "fin.stable",
+     "stance": "affirms"
+    },
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TAI_BACH_VAN_TINH_TA_HUU": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_CU_MON_WITH_THAI_DUONG_M": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "adapt.unsteady",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_DA_LA_BASE_M": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "weakens"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_HUU_BAT_HAM_M": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_PHA_QUAN_WITH_VU_KHUC_P": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_THAI_AM_WITH_THIEN_CO_P": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    },
+    {
+     "concept": "adapt.flexible",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_THAT_SAT_WITH_VU_KHUC_P": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_THIEN_CO_HAM_M": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_THIEN_DONG_WITH_CU_MON_P": {
+   "asserts": [
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_THIEN_DONG_WITH_THAI_AM_M": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "weakens"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_TU_VI_WITH_PHA_QUAN_P": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "inner.peace",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_VU_KHUC_HAM_M": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "weakens"
+    }
+   ]
+  },
+  "TV_TT_PAL_QUAN_LOC_VU_KHUC_WITH_PHA_QUAN_P": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_TAI_BACH_CU_MON_WITH_THAI_DUONG_P": {
+   "asserts": [
+    {
+     "concept": "fin.stable",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_TAI_BACH_PHA_QUAN_HAM_M": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_TAI_BACH_PHA_QUAN_WITH_VU_KHUC_M": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_TAI_BACH_THAI_AM_WITH_THIEN_DONG_P": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_TAI_BACH_THIEN_CO_SAT_M": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_TAI_BACH_THIEN_CO_WITH_CU_MON_M": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_TAI_BACH_THIEN_DONG_WITH_CU_MON_M": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_TAI_BACH_TU_VI_SAT_M": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "weakens"
+    }
+   ]
+  },
+  "TV_TT_PAL_TAI_BACH_VU_KHUC_WITH_THAM_LANG_P": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.late",
      "stance": "affirms"
     }
    ]

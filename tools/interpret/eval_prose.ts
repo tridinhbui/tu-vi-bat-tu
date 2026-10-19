@@ -4,13 +4,14 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { join } from 'node:path';
-import { proseMenh, type ProseChapter } from '../../src/interpret/prose/menh.ts';
+import { proseChapter, type ProseChapter, type ProseChapterId } from '../../src/interpret/prose/chapter.ts';
 import type { Knowledge } from '../../src/interpret/types.ts';
 
 const ROOT = join(import.meta.dirname, '..', '..');
 const K: Knowledge = JSON.parse(readFileSync(join(ROOT, 'src', 'interpret', 'generated', 'knowledge.json'), 'utf8'));
 const corpus = JSON.parse(gunzipSync(readFileSync(join(ROOT, 'src', 'interpret', 'test', 'fixtures', 'corpus1000.json.gz'))).toString('utf8'));
 const n = Number(process.argv[process.argv.indexOf('--n') + 1]) || corpus.length;
+const CH = (process.argv.includes('--chapter') ? process.argv[process.argv.indexOf('--chapter') + 1] : 'menh') as ProseChapterId;
 
 export interface ProseEval {
   charts: number; errors: Record<string, number>; empty: number; pass: number;
@@ -22,9 +23,9 @@ export interface ProseEval {
 const grams = (t: string) => { const w = t.toLowerCase().replace(/[.,;:!?]/g, '').split(/\s+/).filter(Boolean); const s = new Set<string>(); for (let i = 0; i + 4 <= w.length; i++) s.add(w.slice(i, i + 4).join(' ')); return s; };
 const jac = (a: Set<string>, b: Set<string>) => { let i = 0; for (const x of a) if (b.has(x)) i++; return i / Math.max(1, a.size + b.size - i); };
 
-export function evaluate(charts: any[]): ProseEval {
+export function evaluate(charts: any[], chapter: ProseChapterId = 'menh'): ProseEval {
   const outs: Array<{ c: any; o: ProseChapter; ms: number }> = [];
-  for (const c of charts) { const t0 = performance.now(); const o = proseMenh(c.facts, K, { allowDraft: true }); outs.push({ c, o, ms: performance.now() - t0 }); }
+  for (const c of charts) { const t0 = performance.now(); const o = proseChapter(c.facts, K, chapter, { allowDraft: true }); outs.push({ c, o, ms: performance.now() - t0 }); }
   const errors: Record<string, number> = {};
   for (const { o } of outs) for (const i of o.issues) if (i.level === 'error') errors[i.code] = (errors[i.code] ?? 0) + 1;
   const sentLenOk = outs.filter(({ o }) => o.metrics.meanSentenceWords >= 18 && o.metrics.meanSentenceWords <= 35 && o.metrics.sdSentenceWords >= 6).length;
@@ -36,7 +37,7 @@ export function evaluate(charts: any[]): ProseEval {
   const groups = new Map<string, Array<Set<string>>>();
   for (const { c, o } of outs) {
     const nuc = o.paragraphs[0]?.sentences.find(s => s.trace.move === 'ANCHOR' || s.trace.move === 'BORROW')?.trace.concepts[0] ?? '-';
-    const key = `${nuc}|${c.facts.palaces.find((p: any) => p.name === 'Mệnh').major_stars.join('+')}`;
+    const key = `${nuc}|${c.facts.palaces.find((p: any) => p.name === o.palace).major_stars.join('+')}`;
     (groups.get(key) ?? groups.set(key, []).get(key)!).push(grams(o.paragraphs[0]?.text ?? ''));
   }
   const js: number[] = [];
@@ -60,8 +61,8 @@ export function evaluate(charts: any[]): ProseEval {
 }
 
 if (import.meta.main) {
-  const e = evaluate(corpus.slice(0, n));
-  const md = [`# Đánh giá văn đọc chương Mệnh trên ${e.charts} lá số`, '', `Sinh bởi \`tools/interpret/eval_prose.ts\` (prose ${'prose-0.1.0'}, knowledge \`${K.version}\`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.`, '',
+  const e = evaluate(corpus.slice(0, n), CH);
+  const md = [`# Đánh giá văn đọc chương ${CH} trên ${e.charts} lá số`, '', `Sinh bởi \`tools/interpret/eval_prose.ts --chapter ${CH}\` (prose ${'prose-0.2.0'}, knowledge \`${K.version}\`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.`, '',
     '| Chỉ số | Giá trị | Ngưỡng (plan §6) |', '|---|---|---|',
     `| Chương không lỗi chặn | ${e.pass}/${e.charts} | 100% |`, `| Lỗi chặn theo loại | ${JSON.stringify(e.errors)} | 0 |`, `| Chương rỗng | ${e.empty} | 0 |`,
     `| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 | ${(100 * e.sentLenOk / e.charts).toFixed(1)}% | ≥ 95% |`,
@@ -75,6 +76,6 @@ if (import.meta.main) {
     `Schema: ${Object.entries(e.schemas).map(([k, v]) => `${k} ${v}`).join(', ')}`, '',
     e.variantOveruse.length ? `Câu dùng quá nhiều: ${e.variantOveruse.map(([v, k]) => `“${v}…” ${k}`).join('; ')}` : '', '', '## Mẫu', '',
     ...e.samples.flatMap(s => [`### ${JSON.stringify(s.birth)} · ${s.schema}`, '', s.text, ''])].join('\n');
-  writeFileSync(join(ROOT, 'docs', 'examples', 'prose-eval-1000.md'), md);
+  writeFileSync(join(ROOT, 'docs', 'examples', CH === 'menh' ? 'prose-eval-1000.md' : `prose-eval-1000-${CH}.md`), md);
   console.log(JSON.stringify({ ...e, samples: undefined }, null, 1));
 }

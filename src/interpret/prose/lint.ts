@@ -53,7 +53,7 @@ export function lintLibrary(lib: ProseLibrary, concepts: Concept[], required: st
         else if (/[.!?]$/.test(t) || /^\p{Lu}/u.test(t.replace(/^\{[^}]+\}/, ''))) err(where, `fragment must be lower-case and unpunctuated: ${t}`);
         // the realizer supplies the verb: a pred must not start with 'thường/hay/luôn', a turn not with 'dễ'
         if (f === 'pred' && /^(thường|hay|luôn) /.test(t)) err(where, `pred carries its own frequency verb: ${t}`);
-        if (f === 'turn' && /^dễ /.test(t)) err(where, `turn carries its own 'dễ': ${t}`);
+        if (f === 'turn' && /^(dễ|khó) /.test(t)) err(where, `turn after 'dễ' must not start with 'dễ' or 'khó' ('dễ khó giàu'): ${t}`);
         const words = t.split(/\s+/).length;
         if (words > 32) warn(where, `long (${words} words): ${t}`);
       }
@@ -75,5 +75,7 @@ export function lintLibrary(lib: ProseLibrary, concepts: Concept[], required: st
     textCheck(c.id, c.text, []);
   }
   for (const [k, vs] of Object.entries(lib.frames.anchor)) for (const v of vs) textCheck(`frames.anchor.${k}`, v, slots.frame);
+  for (const [k, vs] of Object.entries(lib.frames.anchor_palace ?? {})) for (const v of vs) textCheck(`frames.anchor_palace.${k}`, v, slots.frame);
+  for (const v of lib.frames.via ?? []) textCheck('frames.via', v, ['from', 'S']);
   return out;
 }

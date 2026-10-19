@@ -115,10 +115,58 @@ test('route: mode "prose" returns the golden text; other chapters refuse prose; 
   const o = await r.json() as any;
   assert.equal(o.text + '\n', readFileSync(goldenUrl, 'utf8'));
   assert.ok(o.draft && o.evidence.rules.TV_TH_MV_MENH_CU_THIN_TUAT_LOC.cites.includes('TH p.88'));
-  assert.equal((await call({ ...birth, chapter: 'cong_danh', mode: 'prose' })).status, 422);
+  assert.equal((await call({ ...birth, chapter: 'phu_the', mode: 'prose' })).status, 422);
+  assert.equal((await call({ ...birth, chapter: 'cong_danh', mode: 'prose' })).status, 200);
   assert.equal((await call({ ...birth, chapter: 'menh', mode: 'prose' }, { enabled: false })).status, 404);
   const strict = await (await call({ ...birth, chapter: 'menh', mode: 'prose' }, { proseDraft: false })).json() as any;
   assert.equal(strict.paragraphs.length, 0);
   const ev = await (await call({ ...birth, chapter: 'menh' })).json() as any;
   assert.equal(ev.engine, 'interpret-2.1.0');
 });
+
+// ---- P5: Công danh (Quan Lộc) and Tài Bạch, chained after Mệnh ----
+import { proseChapter, proseReport } from '../prose/chapter.ts';
+for (const ch of ['cong_danh', 'tai_bach'] as const) {
+  const url = new URL(`./fixtures/menh_cu_tuat.${ch}.prose.txt`, import.meta.url);
+  test(`worked example, ${ch}: golden text, byte for byte, no blocking issue`, () => {
+    const o = proseChapter(ex.facts, K, ch, { allowDraft: true });
+    if (process.env.UPDATE_GOLDEN === '1' || !existsSync(url)) writeFileSync(url, o.text + '\n');
+    assert.equal(o.text + '\n', readFileSync(url, 'utf8'));
+    assert.ok(o.pass, JSON.stringify(o.issues));
+  });
+}
+
+test('worked example, Tài Bạch: a qualifier-weakened tài lộc is told in its weakened form, never elaborated or praised', () => {
+  const o = proseChapter(ex.facts, K, 'tai_bach', { allowDraft: true });
+  const anchor = o.paragraphs[0].sentences[0];
+  assert.ok(anchor.trace.concepts.includes('fin.abundance'));
+  assert.ok(o.evidence.resolved.some(r => r.concept === 'fin.abundance' && r.by.some(b => b.relation === 'Q_KL197_SONG_LOC')), 'KL p.197 song lộc qualifier applied');
+  assert.ok(!o.paragraphs.flatMap(p => p.sentences).some(s => s.trace.move === 'VALUE' && s.trace.concepts.includes('fin.abundance')));
+});
+
+test('a report never tells one concept twice across its chapters (300 charts)', { skip: !existsSync(corpusUrl) && 'corpus not built' }, () => {
+  const corpus = JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8')).slice(0, 300);
+  const bad: string[] = [];
+  for (const c of corpus) {
+    const seen = new Map<string, string>();
+    for (const o of proseReport(c.facts, K, { allowDraft: true }))
+      for (const p of o.paragraphs) for (const s of p.sentences) {
+        if (s.trace.basis === 'he_thong') continue;                          // closing lines re-voice what their paragraph said
+        for (const x of s.trace.concepts) { const prev = seen.get(x); if (prev && prev !== o.chapter) bad.push(`${JSON.stringify(c.birth)} ${x}: ${prev} and ${o.chapter}`); seen.set(x, o.chapter); }
+      }
+  }
+  assert.deepEqual(bad.slice(0, 5), []);
+});
+
+for (const [ch, maxEmpty] of [['cong_danh', 10], ['tai_bach', 75]] as const) {
+  test(`1,000 charts, ${ch}: no blocking error; repetition, openers, diversity and schema spread within the thresholds`, { skip: !existsSync(corpusUrl) && 'corpus not built' }, () => {
+    const e = evaluate(JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8')), ch);
+    assert.deepEqual(e.errors, {});
+    assert.equal(e.pass, 1000);
+    // empty = no rule at all speaks of this palace's kind on the chart: the chapter stays empty rather than padded (rule-base gap)
+    assert.ok(e.empty <= maxEmpty, `${e.empty} empty`);
+    assert.ok(e.rep4Max < 0.05 && e.jaccardMedian <= 0.35 && e.topOpener[1] <= 0.08, JSON.stringify([e.rep4Max, e.jaccardMedian, e.topOpener]));
+    assert.ok(e.schemaEntropy >= 0.7 * e.schemaMax);
+    assert.deepEqual(e.variantOveruse, []);
+  });
+}

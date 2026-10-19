@@ -26,7 +26,9 @@ export interface ConceptCard {
 
 /** Sentence frames that name the chart (no claims): anchors for the Mệnh configuration, dignity phrases, references to the person. */
 export interface Frames {
-  anchor: Record<'single' | 'pair' | 'vcd', string[]>;     // opener up to the predicate: "Người có {stars} tọa Mệnh tại {branch}"
+  anchor: Record<'single' | 'pair' | 'vcd' | 'vcd_own' | 'vcd_plain', string[]>;     // opener up to the predicate: "Người có {stars} tọa Mệnh tại {branch}"
+  anchor_palace: Record<'single' | 'pair' | 'vcd' | 'vcd_own' | 'vcd_plain', string[]>; // the same for any other palace, named by {palace}
+  via: string[];                                             // a reading carried by another palace: "Nhìn từ cung {from}, {S}"
   dignity: Record<string, string[]>;                         // "hãm" -> ["đứng thế hãm", "ở vào thế hãm"]
   subject: { first: string[]; next: string[] };              // {S}: "Người có lá số này" / "Họ"
 }
