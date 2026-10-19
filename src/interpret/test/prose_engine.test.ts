@@ -188,9 +188,10 @@ for (const [ch, maxEmpty] of [['cong_danh', 10], ['tai_bach', 75]] as const) {
 }
 
 // the five P5 chapters on the first 400 charts (time): empty share = charts where no rule speaks of the palace's topic (rule-base gap)
-// Tử Tức (14 rules), Huynh Đệ (9), Phụ Mẫu (45) and Tật Ách (1) are often empty: the books say little about them, and nothing is padded
-for (const [ch, maxEmpty] of [['thien_di', 0.01], ['phu_the', 0.09], ['phuc_duc', 0.06], ['dien_trach', 0.19], ['no_boc', 0.18],
-  ['tu_tuc', 0.27], ['huynh_de', 0.48], ['phu_mau', 0.17], ['tat_ach', 0.5]] as const) {
+// Tử Tức and Huynh Đệ are still often empty: the books say little about them, and nothing is padded. Thiên Lương's Bào/Nô, Phụ Mẫu
+// and Tật Ách rules (TL pp.124-131) filled most of the gap in Huynh Đệ, Phụ Mẫu, Tật Ách, Nô Bộc and Phu Thê; the limits hold that gain.
+for (const [ch, maxEmpty] of [['thien_di', 0.01], ['phu_the', 0.08], ['phuc_duc', 0.06], ['dien_trach', 0.19], ['no_boc', 0.17],
+  ['tu_tuc', 0.27], ['huynh_de', 0.28], ['phu_mau', 0.08], ['tat_ach', 0.05]] as const) {
   test(`400 charts, ${ch}: no blocking error; repetition, openers, diversity within the thresholds`, { skip: !existsSync(corpusUrl) && 'corpus not built' }, () => {
     const e = evaluate(JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8')).slice(0, 400), ch);
     assert.deepEqual(e.errors, {});

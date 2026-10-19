@@ -9888,6 +9888,310 @@
    "src": "auto",
    "review": "draft"
   },
+  "TV_TL_BAO_A_HAM_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_BAO_A_HAM_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_BAO_A_SANG_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_BAO_A_SANG_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_BAO_B_HAM_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_BAO_B_HAM_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_BAO_B_SANG_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "kin.burden",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_BAO_B_SANG_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_HUYNH_DE_SPT_CHANG_LANH": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_MENH_VCD_TAM_KHONG_BAC_BO": {
+   "asserts": [],
+   "note": "A rebuttal of another school's formula says nothing about the person by itself; shown in the panel as a school divergence (REL_TL232_VCD_TAM_KHONG).",
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_NO_A_HAM_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_NO_A_HAM_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_NO_A_SANG_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_NO_A_SANG_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_NO_BOC_SPT_DAC_MENH_A": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_NO_B_HAM_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.weak",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_NO_B_HAM_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_NO_B_SANG_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.weak",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_NO_B_SANG_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_PHU_MAU_CU_MON": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_PHU_MAU_SPT_CHANG_LANH": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_PHU_MAU_SPT_CU": {
+   "asserts": [
+    {
+     "concept": "life.hardship",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_PHU_MAU_TU_PHA": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_PHU_MAU_TU_SAT": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_PHU_MAU_TU_THAM": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_PHU_THE_SPT_CHANG_LANH": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_PHU_THE_VO_HIEN": {
+   "asserts": [
+    {
+     "concept": "values.kind",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_TAT_ACH_GIAM": {
+   "asserts": [
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_TAT_ACH_NANG": {
+   "asserts": [
+    {
+     "concept": "health.severe",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_TL_TAT_ACH_NHE": {
+   "asserts": [
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
   "TV_TT_DIEN_TRACH_LOC_TON": {
    "asserts": [
     {

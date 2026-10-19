@@ -2,24 +2,25 @@
 //   1. a relation with basis 'sach' (rescues / qualifies / overrides) applies when both of its rules fired on the same subject;
 //   2. otherwise a relation with basis 'he_thong' (narrows: the more specific evidence wins) applies — a system convention, labelled;
 //   3. opposed assertions with no relation stay 'holds' on both sides and are reported as open tensions (both_hold / unresolved);
-//   4. a relation never makes a rule fire or stop firing; it only changes how the assertion may be voiced.
+//   4. a school_divergence (two books disagree) marks both readings 'divergent': the prose voices neither, the panel shows both;
+//   5. a relation never makes a rule fire or stop firing; it only changes how the assertion may be voiced.
 // Every status change records which relation, rule, basis and page caused it, for the evidence panel.
 import type { Concept, Facts, Knowledge } from '../types.ts';
 import { evaluateQualifiers, type Qualifier } from './qualifiers.ts';
 import type { Assertion } from './lift.ts';
 
-export type RelationType = 'rescues' | 'qualifies' | 'overrides' | 'narrows' | 'both_hold' | 'unresolved';
+export type RelationType = 'rescues' | 'qualifies' | 'overrides' | 'narrows' | 'both_hold' | 'unresolved' | 'school_divergence';
 export interface KgRelation {
   id: string; type: RelationType; from: string; to: string[]; effect: 'soften' | 'weaken' | 'cancel' | 'none';
   basis: 'sach' | 'he_thong'; cite?: string; note?: string; review: 'draft' | 'approved'; charts?: number;
 }
-export type Status = 'holds' | 'softened' | 'weakened' | 'voided' | 'narrowed';
+export type Status = 'holds' | 'softened' | 'weakened' | 'voided' | 'narrowed' | 'divergent';
 export interface Resolution { relation: string; type: RelationType; byRule: string; basis: KgRelation['basis']; cite?: string }
 export interface Resolved extends Assertion { status: Status; by: Resolution[] }
 export interface Tension { a: string; b: string; concept: string; kind: 'both_hold' | 'unresolved'; relation?: string }
 
 const STATUS_OF: Record<KgRelation['effect'], Status> = { soften: 'softened', weaken: 'weakened', cancel: 'voided', none: 'holds' };
-const RANK: Record<Status, number> = { holds: 0, narrowed: 1, softened: 2, weakened: 2, voided: 3 };
+const RANK: Record<Status, number> = { holds: 0, narrowed: 1, softened: 2, weakened: 2, divergent: 3, voided: 4 };
 
 /** Two assertions oppose when they speak of the same concept in opposite stances, or affirm a concept and its opposite. */
 export function opposed(a: Assertion, b: Assertion, concepts: Map<string, Concept>): boolean {
@@ -45,7 +46,11 @@ export function resolve(asserts: Assertion[], k: Knowledge): { resolved: Resolve
         if (!rel.to.includes(t.ruleId) || !fired.has(`${rel.from}|${t.subject}`)) continue;
         if (basis === 'he_thong' && t.by.some(b => b.basis === 'sach')) continue;      // the book's own word already decided it
         // narrows: only the broader reading's assertions that the narrower one contradicts are touched
-        if (rel.type === 'narrows') {
+        if (rel.type === 'school_divergence') {
+          // both sides, and only when both fired: one book's reading is not dropped because another school disputes it in general
+          apply(t, rel, 'divergent');
+          for (const f of resolved) if (f.ruleId === rel.from && f.subject === t.subject && !f.by.some(b => b.relation === rel.id)) apply(f, rel, 'divergent');
+        } else if (rel.type === 'narrows') {
           const narrow = resolved.filter(x => x.ruleId === rel.from && x.subject === t.subject);
           if (!narrow.some(n => opposed(n, t, concepts))) continue;
           apply(t, rel, 'narrowed');
@@ -58,7 +63,7 @@ export function resolve(asserts: Assertion[], k: Knowledge): { resolved: Resolve
   for (const r of rels) for (const t of r.to) { decl.set(`${r.from}|${t}`, r); decl.set(`${t}|${r.from}`, r); }
   for (let i = 0; i < resolved.length; i++) for (let j = i + 1; j < resolved.length; j++) {
     const a = resolved[i], b = resolved[j];
-    if (a.subject !== b.subject || a.ruleId === b.ruleId || a.status === 'voided' || b.status === 'voided' || !opposed(a, b, concepts)) continue;
+    if (a.subject !== b.subject || a.ruleId === b.ruleId || a.status === 'voided' || b.status === 'voided' || a.status === 'divergent' || b.status === 'divergent' || !opposed(a, b, concepts)) continue;
     const r = decl.get(`${a.ruleId}|${b.ruleId}`);
     if (r && r.type !== 'both_hold' && r.type !== 'unresolved' && (a.by.length || b.by.length)) continue;   // decided above
     tensions.push({ a: a.key, b: b.key, concept: a.concept, kind: r?.type === 'unresolved' ? 'unresolved' : 'both_hold', relation: r?.id });

@@ -40,7 +40,7 @@ export function select(resolved: Resolved[], k: Knowledge, spec: SelectSpec): Se
   const cmap = new Map(k.concepts.concepts.map(c => [c.id, c]));
   const pal = spec.palace, P = pal.name, majors = pal.major_stars, IDENTITY = (c?: Concept) => spec.pool(c);
   const borrowed = (r: Resolved) => !!r.palace && r.palace !== P && spec.borrowFrom.includes(r.palace);
-  const live = resolved.filter(r => r.status !== 'voided' && !spec.exclude.has(`${r.concept}@${r.palace ?? 'Mệnh'}`)
+  const live = resolved.filter(r => r.status !== 'voided' && r.status !== 'divergent' && !spec.exclude.has(`${r.concept}@${r.palace ?? 'Mệnh'}`)
     && (r.subject === `palace:${P}` || (spec.chart && r.subject === 'chart') || (borrowed(r) && (spec.borrowPool ?? spec.pool)(cmap.get(r.concept)))));
   const byConcept = new Map<string, Resolved[]>();
   for (const r of live) { if (r.additive) continue; (byConcept.get(r.concept) ?? byConcept.set(r.concept, []).get(r.concept)!).push(r); }

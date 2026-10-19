@@ -1,6 +1,6 @@
 {
  "version": "0.1.0",
- "note": "Hand-mapped rule → concept links for Mệnh rules the cue lexicon cannot read (drafted by Claude 2026-10-18 from the rule's own paraphrase; review pending). kind 'formation' = the rule names a cách; it carries polarity only and stays in the evidence panel until a formation card exists. kind 'classification' = a grouping label, never prose. Entries here override the automatic draft in rule_concepts.json. 'additive' marks the birth-structure (độ số) modifiers: in the tradition they add up (độ số tăng / kém bớt) rather than contradict, so two additive assertions are never an opposition; that reading is a system convention (he_thong). Review pass 2026-10-18: the 230 automatically linked rules that reach Mệnh prose on the corpus were read; 29 mislinks fixed here. P5 (2026-10-19): Quan Lộc and Tài Bạch rules the lexicon could not read were linked by hand; readings conditional on facts outside the rule ('gặp sát tinh thì …', 'rất xấu khi …') are linked as a weakened positive, never as the bare negative. P5 (2026-10-19): Thiên Di, Phu Thê, Phúc Đức, Điền Trạch and Nô Bộc rules linked by hand where the lexicon could not read them; eight KG concepts added for allies (Nô Bộc), the outside world (Thiên Di) and inherited vs self-built property (Điền Trạch). P5 review (2026-10-19): the 249 automatic links voiced in Thiên Di, Phu Thê, Phúc Đức, Điền Trạch and Nô Bộc prose were read; 53 fixed (subordinates as allies, the outside world, family line vs the person, property). P5 last step (2026-10-19): all 69 rules of Tử Tức, Huynh Đệ, Phụ Mẫu and Tật Ách read and linked by hand; six kin.* concepts for the family bond (many / few, harmony / strain, apart, late children). Readings conditional on facts outside the rule ('nếu không bị tứ sát', 'miễn là không gặp sát tinh') carry strength 'condition'; 'con đầu là trai / gái' stays a classification, never prose.",
+ "note": "Hand-mapped rule → concept links for Mệnh rules the cue lexicon cannot read (drafted by Claude 2026-10-18 from the rule's own paraphrase; review pending). kind 'formation' = the rule names a cách; it carries polarity only and stays in the evidence panel until a formation card exists. kind 'classification' = a grouping label, never prose. Entries here override the automatic draft in rule_concepts.json. 'additive' marks the birth-structure (độ số) modifiers: in the tradition they add up (độ số tăng / kém bớt) rather than contradict, so two additive assertions are never an opposition; that reading is a system convention (he_thong). Review pass 2026-10-18: the 230 automatically linked rules that reach Mệnh prose on the corpus were read; 29 mislinks fixed here. P5 (2026-10-19): Quan Lộc and Tài Bạch rules the lexicon could not read were linked by hand; readings conditional on facts outside the rule ('gặp sát tinh thì …', 'rất xấu khi …') are linked as a weakened positive, never as the bare negative. P5 (2026-10-19): Thiên Di, Phu Thê, Phúc Đức, Điền Trạch and Nô Bộc rules linked by hand where the lexicon could not read them; eight KG concepts added for allies (Nô Bộc), the outside world (Thiên Di) and inherited vs self-built property (Điền Trạch). P5 review (2026-10-19): the 249 automatic links voiced in Thiên Di, Phu Thê, Phúc Đức, Điền Trạch and Nô Bộc prose were read; 53 fixed (subordinates as allies, the outside world, family line vs the person, property). P5 last step (2026-10-19): all 69 rules of Tử Tức, Huynh Đệ, Phụ Mẫu and Tật Ách read and linked by hand; six kin.* concepts for the family bond (many / few, harmony / strain, apart, late children). Readings conditional on facts outside the rule ('nếu không bị tứ sát', 'miễn là không gặp sát tinh') carry strength 'condition'; 'con đầu là trai / gái' stays a classification, never prose. Thiên Lương (TL, 2026-10-19): the 30 rules of pack_thien_luong.json linked by hand.",
  "entries": {
   "TV_KL_MENH_SAT_PHA_LIEM_THAM": {
    "kind": "classification",
@@ -3775,6 +3775,250 @@
      "stance": "affirms"
     }
    ]
+  },
+  "TV_TL_BAO_A_SANG_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_NO_A_SANG_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_BAO_A_SANG_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_NO_A_SANG_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_BAO_A_HAM_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_NO_A_HAM_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_BAO_A_HAM_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_NO_A_HAM_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_BAO_B_SANG_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_NO_B_SANG_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_BAO_B_SANG_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "kin.burden",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_NO_B_SANG_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.weak",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_BAO_B_HAM_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_NO_B_HAM_BN_SANG": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_BAO_B_HAM_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_NO_B_HAM_BN_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.weak",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_PHU_MAU_TU_SAT": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_PHU_MAU_TU_PHA": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_PHU_MAU_TU_THAM": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_PHU_MAU_CU_MON": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_PHU_MAU_SPT_CU": {
+   "asserts": [
+    {
+     "concept": "life.hardship",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_PHU_MAU_SPT_CHANG_LANH": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_TAT_ACH_NHE": {
+   "asserts": [
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_TAT_ACH_NANG": {
+   "asserts": [
+    {
+     "concept": "health.severe",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_TAT_ACH_GIAM": {
+   "asserts": [
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_HUYNH_DE_SPT_CHANG_LANH": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_PHU_THE_SPT_CHANG_LANH": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_PHU_THE_VO_HIEN": {
+   "asserts": [
+    {
+     "concept": "values.kind",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_NO_BOC_SPT_DAC_MENH_A": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TL_MENH_VCD_TAM_KHONG_BAC_BO": {
+   "asserts": [],
+   "note": "A rebuttal of another school's formula says nothing about the person by itself; shown in the panel as a school divergence (REL_TL232_VCD_TAM_KHONG)."
   }
  }
 }
