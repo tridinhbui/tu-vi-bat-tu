@@ -44,7 +44,9 @@ export class Realizer {
   private who(p: ConceptPick | undefined, opening = false): string {
     // the other people are named in full the first time ('người bạn đời'), then by anaphor ('người ấy')
     if (this.isOther(p)) { const first = opening || !this.otherSaid; this.otherSaid = true; return first ? this.m.pick(`other|${this.s.palace.name}|${opening}`, this.voice.other!.first) : this.m.subject(this.voice.other!.next); }
-    return opening ? this.m.pick(`pfirst|${this.s.palace.name}`, this.k.prose!.frames.subject.palace_first) : this.m.subject();
+    // where other people are spoken of, 'họ' would read as them: the person is then named without it
+    const next = this.voice.other ? this.k.prose!.frames.subject.next.filter(x => x !== 'Họ') : undefined;
+    return opening ? this.m.pick(`pfirst|${this.s.palace.name}`, this.k.prose!.frames.subject.palace_first) : this.m.subject(next);
   }
   private card(id: string) { return this.cards.get(id)!; }
   /** The predicate for a concept, with its verb: 'thường …' (+/~), 'dễ …' (−), or the soft form when the evidence was softened. */

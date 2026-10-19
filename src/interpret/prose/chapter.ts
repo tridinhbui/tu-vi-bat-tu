@@ -16,7 +16,8 @@ import { validateProse, type ProseIssue, type ProseMetrics } from './validate.ts
 import type { Move } from './types.ts';
 
 export const PROSE_VERSION = 'prose-0.2.0';
-export type ProseChapterId = 'menh' | 'cong_danh' | 'tai_bach' | 'thien_di' | 'phu_the' | 'phuc_duc' | 'dien_trach' | 'no_boc';
+export type ProseChapterId = 'menh' | 'cong_danh' | 'tai_bach' | 'thien_di' | 'phu_the' | 'phuc_duc' | 'dien_trach' | 'no_boc'
+  | 'tu_tuc' | 'huynh_de' | 'phu_mau' | 'tat_ach';
 interface ProseSpec { palace: string; pool: (c?: Concept) => boolean; borrowFrom: string[];
   /** what may be taken from the borrowFrom palaces (default: pool) — Phu Thê must not take the person's own traits as the partner's */
   borrowPool?: (c?: Concept) => boolean; chart: boolean; extra: string[]; degree: boolean;
@@ -41,8 +42,17 @@ export const PROSE_SPECS: Record<ProseChapterId, ProseSpec> = {
   // Nô Bộc: allies, help and what they cost are the person's; character traits describe the friends and subordinates
   no_boc: { palace: 'Nô Bộc', pool: facet('relationships.allies', 'career', 'identity', 'finance', 'life.course'), borrowPool: facet('relationships.allies', 'career.support'),
     borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false, bond: facet('relationships.allies', 'career', 'finance', 'life.course') },
+  // Tử Tức, Huynh Đệ, Phụ Mẫu: the family bond (kin.*, family) is the person's; status, wealth, character describe the children,
+  // the siblings, the parents (frames.other[palace])
+  tu_tuc: { palace: 'Tử Tức', pool: facet('relationships.kin', 'relationships.family', 'relationships.allies', 'career', 'finance', 'identity'), borrowFrom: [],
+    chart: false, extra: [], degree: false, bond: facet('relationships') },
+  huynh_de: { palace: 'Huynh Đệ', pool: facet('relationships.kin', 'relationships.family', 'career', 'finance', 'identity'), borrowFrom: [],
+    chart: false, extra: [], degree: false, bond: facet('relationships') },
+  phu_mau: { palace: 'Phụ Mẫu', pool: facet('relationships', 'career', 'finance', 'identity', 'inner', 'life.course'), borrowPool: facet('relationships.family'),
+    borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false, bond: facet('relationships') },
+  tat_ach: { palace: 'Tật Ách', pool: facet('wellbeing', 'life', 'inner'), borrowPool: facet('wellbeing'), borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false },
 };
-export const PROSE_ORDER: ProseChapterId[] = ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc'];
+export const PROSE_ORDER: ProseChapterId[] = ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc', 'tu_tuc', 'huynh_de', 'phu_mau', 'tat_ach'];
 export interface ProseChapter {
   engine: string; kbVersion: string; chapter: ProseChapterId; palace: string; schema: string; order: Move[];
   /** draft cards were allowed and the library still holds drafts: the reader must be told the wording is unreviewed */
@@ -162,7 +172,7 @@ function chapterOf(chart: ChartInput, k: Knowledge, id: ProseChapterId, resolved
   const push = (s: ProseSentence | null) => { if (s) p2.push(s); };
   if (present.has('TENSION') && !placed.has('TENSION')) push(R.tension());
   if (present.has('ELABORATE') && !placed.has('ELABORATE')) push(R.elaborate());
-  const sats = placed.has('SATELLITE') ? sel.satellites.slice(2) : sel.satellites;
+  const sats = sel.satellites.filter(p => !R.saidConcepts().has(p.concept));         // what paragraph 1 actually voiced, not its first two
   push(R.satellite(sats, 'sat2', sel.satelliteNeg));
   if (present.has('TIMING') && !placed.has('TIMING')) push(R.timing());
   push(R.via(sel.via));

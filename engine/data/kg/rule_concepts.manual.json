@@ -1,6 +1,6 @@
 {
  "version": "0.1.0",
- "note": "Hand-mapped rule → concept links for Mệnh rules the cue lexicon cannot read (drafted by Claude 2026-10-18 from the rule's own paraphrase; review pending). kind 'formation' = the rule names a cách; it carries polarity only and stays in the evidence panel until a formation card exists. kind 'classification' = a grouping label, never prose. Entries here override the automatic draft in rule_concepts.json. 'additive' marks the birth-structure (độ số) modifiers: in the tradition they add up (độ số tăng / kém bớt) rather than contradict, so two additive assertions are never an opposition; that reading is a system convention (he_thong). Review pass 2026-10-18: the 230 automatically linked rules that reach Mệnh prose on the corpus were read; 29 mislinks fixed here. P5 (2026-10-19): Quan Lộc and Tài Bạch rules the lexicon could not read were linked by hand; readings conditional on facts outside the rule ('gặp sát tinh thì …', 'rất xấu khi …') are linked as a weakened positive, never as the bare negative. P5 (2026-10-19): Thiên Di, Phu Thê, Phúc Đức, Điền Trạch and Nô Bộc rules linked by hand where the lexicon could not read them; eight KG concepts added for allies (Nô Bộc), the outside world (Thiên Di) and inherited vs self-built property (Điền Trạch). P5 review (2026-10-19): the 249 automatic links voiced in Thiên Di, Phu Thê, Phúc Đức, Điền Trạch and Nô Bộc prose were read; 53 fixed (subordinates as allies, the outside world, family line vs the person, property).",
+ "note": "Hand-mapped rule → concept links for Mệnh rules the cue lexicon cannot read (drafted by Claude 2026-10-18 from the rule's own paraphrase; review pending). kind 'formation' = the rule names a cách; it carries polarity only and stays in the evidence panel until a formation card exists. kind 'classification' = a grouping label, never prose. Entries here override the automatic draft in rule_concepts.json. 'additive' marks the birth-structure (độ số) modifiers: in the tradition they add up (độ số tăng / kém bớt) rather than contradict, so two additive assertions are never an opposition; that reading is a system convention (he_thong). Review pass 2026-10-18: the 230 automatically linked rules that reach Mệnh prose on the corpus were read; 29 mislinks fixed here. P5 (2026-10-19): Quan Lộc and Tài Bạch rules the lexicon could not read were linked by hand; readings conditional on facts outside the rule ('gặp sát tinh thì …', 'rất xấu khi …') are linked as a weakened positive, never as the bare negative. P5 (2026-10-19): Thiên Di, Phu Thê, Phúc Đức, Điền Trạch and Nô Bộc rules linked by hand where the lexicon could not read them; eight KG concepts added for allies (Nô Bộc), the outside world (Thiên Di) and inherited vs self-built property (Điền Trạch). P5 review (2026-10-19): the 249 automatic links voiced in Thiên Di, Phu Thê, Phúc Đức, Điền Trạch and Nô Bộc prose were read; 53 fixed (subordinates as allies, the outside world, family line vs the person, property). P5 last step (2026-10-19): all 69 rules of Tử Tức, Huynh Đệ, Phụ Mẫu and Tật Ách read and linked by hand; six kin.* concepts for the family bond (many / few, harmony / strain, apart, late children). Readings conditional on facts outside the rule ('nếu không bị tứ sát', 'miễn là không gặp sát tinh') carry strength 'condition'; 'con đầu là trai / gái' stays a classification, never prose.",
  "entries": {
   "TV_KL_MENH_SAT_PHA_LIEM_THAM": {
    "kind": "classification",
@@ -3160,6 +3160,618 @@
     },
     {
      "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_VERSE_TU_QUYEN_LOC": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CUNG_TU_TUC_CHINH_TINH_DAC": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CUNG_TU_TUC_PHU_TINH": {
+   "asserts": [
+    {
+     "concept": "kin.many",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "presence.charm",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_AUX2_TU_TUC_PHI_LIEM": {
+   "asserts": [
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TU_TUC_KHOI_VIET": {
+   "asserts": [
+    {
+     "concept": "exp.letters",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.early",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TU_TUC_DONG_AM": {
+   "asserts": [
+    {
+     "concept": "kin.many",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TU_TUC_TU_PHU": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TU_TUC_CO_TUONG": {
+   "asserts": [
+    {
+     "concept": "kin.late",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TU_TUC_NHAT_DUONG": {
+   "kind": "classification",
+   "asserts": []
+  },
+  "TV_TH_P2_TU_TUC_AM_AM": {
+   "kind": "classification",
+   "asserts": []
+  },
+  "TV_TH_P2_TU_TUC_HIEM_CON": {
+   "asserts": [
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_STAR_TU_TUC_TV_PHU_TUONG": {
+   "asserts": [
+    {
+     "concept": "kin.many",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CASE_TU_TUC_TU_PHA_TRIET": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PHU_TU_TUC_TU_VU": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.many",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_AUX2_HUYNH_DE_PHI_LIEM": {
+   "asserts": [
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_HUYNH_DE_TT": {
+   "asserts": [
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_HUYNH_DE_KHONG_KIEP": {
+   "asserts": [
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_HUYNH_DE_TUONG_LOC_MA": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_HUYNH_DE_TS_DV": {
+   "asserts": [
+    {
+     "concept": "kin.many",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_HUYNH_DE_LOC_MA": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_HUYNH_DE_PHA_KY": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_HUYNH_DE_LOC_TON_IT": {
+   "asserts": [
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_HUYNH_DE_KHOI_VIET_HOA": {
+   "asserts": [
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CUNG_PHU_MAU_TU_VI": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CUNG_PHU_MAU_TU_VI_SPLT": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CUNG_PHU_MAU_SAO_TOT": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CUNG_PHU_MAU_HUNG": {
+   "asserts": [
+    {
+     "concept": "life.hardship",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_MAU_VIET_KHOA": {
+   "asserts": [
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_MAU_CAT_TINH": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_MAU_CO_LUONG": {
+   "asserts": [
+    {
+     "concept": "values.kind",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_MAU_LOC_KHONG_KIEP": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_MAU_BAT_TUONG": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_MAU_KINH_DA": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_MAU_LY_TONG": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_MAU_LUONG_MV": {
+   "asserts": [
+    {
+     "concept": "inner.peace",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_MAU_CO_HOI_TY_SUU": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_STAR_PHU_MAU_TV_SANG": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_STAR_PHU_MAU_TV_THAT_SAT": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_STAR_PHU_MAU_CU_CO": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CASE_PHU_MAU_TU_SAT": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.windfall",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_TU_VI_BASE_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_TU_VI_WITH_THIEN_PHU_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_TU_VI_WITH_THIEN_DONG_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_TU_VI_WITH_THAM_LANG_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms",
+     "strength": "condition"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THIEN_CO_MIEU_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THIEN_CO_WITH_THIEN_LUONG_M": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms",
+     "strength": "condition"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THIEN_CO_WITH_CU_MON_M": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THAI_DUONG_WITH_THAI_AM_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms",
+     "strength": "condition"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THAI_DUONG_WITH_CU_MON_M": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_VU_KHUC_BASE_M": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THIEN_DONG_WITH_CU_MON_M": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THIEN_DONG_WITH_THAI_AM_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_LIEM_TRINH_BASE_M": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THIEN_PHU_BASE_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THIEN_PHU_WITH_TU_VI_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THAI_AM_MIEU_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THAI_AM_WITH_THAI_DUONG_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms",
+     "strength": "condition"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THAM_LANG_WITH_TU_VI_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_CU_MON_WITH_THAI_DUONG_M": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THIEN_TUONG_MIEU_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THIEN_TUONG_WITH_TU_VI_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_THAT_SAT_BASE_M": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_PHA_QUAN_BASE_M": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_VAN_XUONG_MIEU_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_VAN_KHUC_MIEU_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_TA_PHU_BASE_P": {
+   "asserts": [
+    {
+     "concept": "fam.positive",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_HUU_BAT_BASE_P": {
+   "asserts": [
+    {
+     "concept": "fam.positive",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_PHU_MAU_LOC_TON_BASE_P": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_KL_CUNG_TAT_ACH_CUOI_DOI": {
+   "asserts": [
+    {
+     "concept": "life.late_bloom",
      "stance": "affirms"
     }
    ]

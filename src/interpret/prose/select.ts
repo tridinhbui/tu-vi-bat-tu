@@ -51,7 +51,8 @@ export function select(resolved: Resolved[], k: Knowledge, spec: SelectSpec): Se
     const as = byConcept.get(id)!;
     const rules = new Set(as.map(a => a.ruleId));
     const score = (as.some(onMajor) ? 10 : 0) + (as.some(onOwn) ? 4 : 0) + Math.min(rules.size, 5) + Math.max(...as.map(a => a.sig.size)) * 0.1;
-    const soft = as.every(a => a.status === 'softened' || a.status === 'weakened' || a.stance === 'weakens');
+    // softened/weakened by a relation or qualifier, a weakening stance, or true only under a condition the rule cannot check: voiced softly
+    const soft = as.every(a => a.status === 'softened' || a.status === 'weakened' || a.stance === 'weakens' || a.strength === 'condition');
     return { concept: id, assertions: as, score, soft };
   };
   const ranked = [...byConcept.keys()].map(pickOf).sort((a, b) => b.score - a.score || (a.concept < b.concept ? -1 : 1));

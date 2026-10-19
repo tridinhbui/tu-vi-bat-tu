@@ -118,7 +118,7 @@ test('route: mode "prose" returns the golden text; other chapters refuse prose; 
   assert.ok(o.draft && o.evidence.rules.TV_TH_MV_MENH_CU_THIN_TUAT_LOC.cites.includes('TH p.88'));
   assert.equal((await call({ ...birth, chapter: 'van_han', mode: 'prose' })).status, 422);
   const all = await (await call({ ...birth, chapter: 'all', mode: 'prose' })).json() as any;
-  assert.deepEqual(all.chapters.map((c: any) => c.chapter), ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc']);
+  assert.deepEqual(all.chapters.map((c: any) => c.chapter), ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc', 'tu_tuc', 'huynh_de', 'phu_mau', 'tat_ach']);
   assert.equal(all.chapters[0].text + '\n', readFileSync(goldenUrl, 'utf8'));
   assert.equal((await call({ ...birth, chapter: 'cong_danh', mode: 'prose' })).status, 200);
   assert.equal((await call({ ...birth, chapter: 'menh', mode: 'prose' }, { enabled: false })).status, 404);
@@ -130,7 +130,7 @@ test('route: mode "prose" returns the golden text; other chapters refuse prose; 
 
 // ---- P5: Công danh (Quan Lộc) and Tài Bạch, chained after Mệnh ----
 import { proseChapter, proseReport } from '../prose/chapter.ts';
-for (const ch of ['cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc'] as const) {
+for (const ch of ['cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc', 'tu_tuc', 'huynh_de', 'phu_mau', 'tat_ach'] as const) {
   const url = new URL(`./fixtures/menh_cu_tuat.${ch}.prose.txt`, import.meta.url);
   test(`worked example, ${ch}: golden text, byte for byte, no blocking issue`, () => {
     const o = proseChapter(ex.facts, K, ch, { allowDraft: true });
@@ -188,7 +188,9 @@ for (const [ch, maxEmpty] of [['cong_danh', 10], ['tai_bach', 75]] as const) {
 }
 
 // the five P5 chapters on the first 400 charts (time): empty share = charts where no rule speaks of the palace's topic (rule-base gap)
-for (const [ch, maxEmpty] of [['thien_di', 0.01], ['phu_the', 0.09], ['phuc_duc', 0.06], ['dien_trach', 0.19], ['no_boc', 0.18]] as const) {
+// Tử Tức (14 rules), Huynh Đệ (9), Phụ Mẫu (45) and Tật Ách (1) are often empty: the books say little about them, and nothing is padded
+for (const [ch, maxEmpty] of [['thien_di', 0.01], ['phu_the', 0.09], ['phuc_duc', 0.06], ['dien_trach', 0.19], ['no_boc', 0.18],
+  ['tu_tuc', 0.27], ['huynh_de', 0.48], ['phu_mau', 0.17], ['tat_ach', 0.5]] as const) {
   test(`400 charts, ${ch}: no blocking error; repetition, openers, diversity within the thresholds`, { skip: !existsSync(corpusUrl) && 'corpus not built' }, () => {
     const e = evaluate(JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8')).slice(0, 400), ch);
     assert.deepEqual(e.errors, {});
