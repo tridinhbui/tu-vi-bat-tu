@@ -2,6 +2,7 @@ import { Container, getContainer } from "@cloudflare/containers";
 import knowledge from "./interpret/generated/knowledge.json" with { type: "json" };
 import { handleAuth, isAuthPath, type AuthEnv } from "./auth/route.ts";
 import { currentUser } from "./auth/session.ts";
+import { bump, handleStats } from "./stats/stats.ts";
 import { handleChat } from "./chat/route.ts";
 import { handleDeep } from "./chat/deep.ts";
 import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS } from "./chat/llm.ts";
@@ -66,11 +67,15 @@ async function chatRoute(request: Request, env: Env, ctx: ExecutionContext, deep
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const path = new URL(request.url).pathname;
+    if (path === "/api/stats") return handleStats(env.DB);
     if (path === "/api/me/chat") return chatRoute(request, env, ctx, false);
     if (path === "/api/me/deep") return chatRoute(request, env, ctx, true);
     if (isAuthPath(path)) return handleAuth(request, env);
     if (path === "/api/interpret") return interpretRoute(request, env, ctx);
     // The container API is stateless and stores nothing (accounts live in the Worker, above), so one shared instance is enough.
-    return getContainer(env.TVBT, "main").fetch(request);
+    const res = await getContainer(env.TVBT, "main").fetch(request);
+    // one more chart made, counted only when the engine really produced it
+    if (request.method === "POST" && path === "/api/chart" && res.ok && env.DB) ctx.waitUntil(bump(env.DB, "charts"));
+    return res;
   },
 };

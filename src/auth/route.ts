@@ -3,6 +3,7 @@ import { authUrl, exchangeCode, newState, type GoogleConfig } from "./google.ts"
 import { COOKIE, createSession, currentUser, destroySession, randomToken, readCookie, setCookie } from "./session.ts";
 import { deleteChart, listCharts, syncCharts } from "./charts.ts";
 import { getWallet, grant } from "../billing/wallet.ts";
+import { bump } from "../stats/stats.ts";
 
 export interface AuthEnv { DB?: D1Database; GOOGLE_CLIENT_ID?: string; GOOGLE_CLIENT_SECRET?: string; ADMIN_TOKEN?: string }
 
@@ -53,6 +54,7 @@ export async function handleAuth(request: Request, env: AuthEnv): Promise<Respon
         user = { id: randomToken(16) };
         await db.prepare("INSERT INTO users (id, google_sub, email, name, picture, created_at) VALUES (?, ?, ?, ?, ?, ?)")
           .bind(user.id, p.sub, p.email, p.name, p.picture, Math.floor(Date.now() / 1000)).run();
+        await bump(db, "users");
       }
       return redirect("/", [clear, await createSession(db, request, user.id)]);
     } catch {
