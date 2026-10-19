@@ -16,6 +16,7 @@
     "src"
   ],
   "exclude": [
-    "src/interpret/test"
+    "src/interpret/test",
+    "src/auth/test"
   ]
 }

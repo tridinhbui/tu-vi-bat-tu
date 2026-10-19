@@ -1,5 +1,6 @@
 import { Container, getContainer } from "@cloudflare/containers";
 import knowledge from "./interpret/generated/knowledge.json" with { type: "json" };
+import { handleAuth, isAuthPath, type AuthEnv } from "./auth/route.ts";
 import { interpret, CHAPTERS, ENGINE_VERSION, type Chapter } from "./interpret/pipeline.ts";
 import { BundledStore, D1Store, LayeredCache, cacheKey, type D1Like, type R2Like } from "./interpret/store.ts";
 import type { ChartInput, Knowledge } from "./interpret/types.ts";
@@ -11,7 +12,7 @@ export class TvbtContainer extends Container {
   sleepAfter = "10m";
 }
 
-interface Env {
+interface Env extends AuthEnv {
   TVBT: DurableObjectNamespace<TvbtContainer>;
   TVBT_INTERPRET?: string;          // "1" enables /api/interpret (default off: the route answers 404)
   INTERPRET_DB?: D1Like;            // optional D1 knowledge base + output cache (migrations/interpret)
@@ -47,8 +48,10 @@ async function interpretRoute(request: Request, env: Env, ctx: ExecutionContext)
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    if (new URL(request.url).pathname === "/api/interpret") return interpretRoute(request, env, ctx);
-    // The rest of the API is stateless and nothing is stored, so one shared instance is enough.
+    const path = new URL(request.url).pathname;
+    if (isAuthPath(path)) return handleAuth(request, env);
+    if (path === "/api/interpret") return interpretRoute(request, env, ctx);
+    // The container API is stateless and stores nothing (accounts live in the Worker, above), so one shared instance is enough.
     return getContainer(env.TVBT, "main").fetch(request);
   },
 };

@@ -10,6 +10,12 @@
   "durable_objects": {
     "bindings": [{ "name": "TVBT", "class_name": "TvbtContainer" }]
   },
+  // Public OAuth client id (not a secret). The client secret is set with `wrangler secret put GOOGLE_CLIENT_SECRET`.
+  "vars": { "GOOGLE_CLIENT_ID": "373246803608-1ivuob3khnch8hko5h42o4fnj5o46kql.apps.googleusercontent.com" },
+  // Accounts + saved charts (migrations/app): `npx wrangler d1 migrations apply tvbt-app --remote`.
+  "d1_databases": [
+    { "binding": "DB", "database_name": "tvbt-app", "database_id": "f8af4737-8f71-4abc-8f7c-84daa6bc0f3a", "migrations_dir": "migrations/app" }
+  ],
   "exports": {
     "TvbtContainer": { "type": "durable-object", "storage": "sqlite" }
   }

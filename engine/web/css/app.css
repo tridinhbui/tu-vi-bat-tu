@@ -578,3 +578,9 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 #tuvi-host,#bazi-host,#tvr-h,#bzr-h{scroll-margin-top:136px}
 @media(max-width:600px){.final-art{display:none}.final{padding:56px 0}.inside-notes{gap:var(--s4)}.inside-notes li{font-size:.9rem;padding-left:46px}.in-n{width:30px;height:30px;font-size:.9rem}.inside-notes b{font-size:1.15rem}}
 @media(max-width:700px){.atl-mast .res-act{flex-wrap:nowrap;gap:6px;width:100%}.atl-mast .res-act .btn{padding:7px 11px;font-size:.78rem;white-space:nowrap}.atl-mast #print-btn{margin-left:auto}}
+
+/* Account slot in the header (js/account.js) */
+.acct{display:inline-flex;align-items:center;gap:.5rem}
+.acct:empty{display:none}
+.acct-name{font-size:.9rem;font-weight:600;max-width:9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:760px){.acct-name{display:none}}

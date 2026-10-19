@@ -5,6 +5,7 @@
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "build:knowledge": "node tools/interpret/build.ts",
+    "test:auth": "node --test src/auth/test/*.test.ts",
     "test:interpret": "node --test src/interpret/test/*.test.ts",
     "typecheck": "tsc -p tsconfig.json",
     "editorial": "node tools/interpret/editorial.ts"
