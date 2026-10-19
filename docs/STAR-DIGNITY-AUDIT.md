@@ -127,10 +127,17 @@ example, Thiên Cơ Thìn is UNVERIFIED in TH, bình in TT and miếu in KL. Rep
 
 ## 7. Open research gaps and decisions for a reviewer
 
-1. **Three-valued use of CONFLICT.** Thái Âm (TT) Tý/Sửu/Hợi/Tuất are conflicts between two bright tiers. A rule gated on
-   `[miếu, vượng, đắc]` holds under both readings but no longer fires. Letting the DSL treat a conflict as "true if every
-   alternative satisfies the condition" would restore those findings without choosing a reading. That change touches both rule
-   engines (Python and TS).
+1. **Three-valued use of CONFLICT — done (dignity-kb-2).** A CONFLICT cell still reaches the facts as
+   `palace.dignity.<star> = "unspecified"` (badges, sentences and every other reader are unchanged). Its readings also go to the
+   rule evaluator as `alt:palace.dignity.<star> = [v1, v2]` (`reasoning/facts.py`). A condition on that fact is TRUE when every
+   reading satisfies it, FALSE when none does, and UNKNOWN otherwise. A reading with no level (`null`) is unknown. No reading is
+   ever picked. Python `knowledge/dsl.py` (`ALT`, `_leaf`) and TS `src/interpret/dsl.ts` (`ALT`, `leaf`) share the cases in
+   `src/interpret/test/fixtures/dsl_alternatives.json`. `fixtures/conflicts.json` (`tools/interpret/make_conflict_fixtures.py`) holds
+   Toàn Thư charts covering every Toàn Thư CONFLICT cell, checked for TS↔Python parity.
+   A/B over 120 seeded births, Tử Vi rules: Thực Hành is unchanged (7,946 findings, +0 −0). Toàn Thư gains 53 (7,762 → 7,815) and
+   loses none. Of the 63 Toàn Thư findings dignity-kb-1 lost against b560c45, 53 come back: Thái Âm Tý/Sửu/Tuất/Hợi and Văn Xương
+   Tỵ/Thìn, where both readings are bright. The other 10 stay UNKNOWN (pending) on purpose. Nine read Văn Xương Mão/Dậu, where one
+   reading has no level (`[đắc, null]`, `[miếu, null]`). One reads Văn Xương Ngọ, where the readings disagree (`[hãm, lợi]`).
 2. **Legacy lợi → đắc** cells: Thiên Đồng Dần (TH), Văn Xương Hợi (TH) and six Văn Xương cells (TT). Keep them, or make them `lợi`?
 3. **Thiên Cơ Thìn/Tuất (TH)**, printed "Ích": read as lợi, or leave unverified?
 4. `TV_TT_MENH_KINH_MIEU` requires exactly "miếu". Under TH, Kình at tứ mộ is "đắc" (AUX-DIGNITY.md).
