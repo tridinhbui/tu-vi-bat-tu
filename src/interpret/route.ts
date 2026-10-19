@@ -1,7 +1,7 @@
 // POST /api/interpret, shared by the Worker (src/index.ts, facts from the Python container) and the local dev server
 // (tools/interpret/dev_server.ts, facts from a local uvicorn), so a local check exercises the same code the Worker runs.
 import { interpret, CHAPTERS, ENGINE_VERSION, type Chapter } from './pipeline.ts';
-import { proseMenh, PROSE_VERSION } from './prose/menh.ts';
+import { proseChapter, PROSE_ORDER, PROSE_VERSION, type ProseChapterId } from './prose/chapter.ts';
 import { cacheKey, type KnowledgeStore, type OutputCache } from './store.ts';
 import type { ChartInput } from './types.ts';
 
@@ -21,9 +21,9 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   if (!body) return json({ detail: 'invalid JSON' }, 400);
   const chapter = (body.chapter ?? 'cong_danh') as Chapter;
   if (!CHAPTERS.includes(chapter)) return json({ detail: `chapter must be one of ${CHAPTERS.join(', ')}` }, 422);
-  // mode "prose": reader prose (src/interpret/prose), Mệnh chapter only for now; default "evidence" keeps the v2 evidence report
+  // mode "prose": reader prose (src/interpret/prose) for the chapters it covers so far; default "evidence" keeps the v2 evidence report
   const mode = body.mode === 'prose' ? 'prose' : 'evidence';
-  if (mode === 'prose' && chapter !== 'menh') return json({ detail: 'mode "prose" is available for chapter "menh" only' }, 422);
+  if (mode === 'prose' && !PROSE_ORDER.includes(chapter as ProseChapterId)) return json({ detail: `mode "prose" is available for chapters ${PROSE_ORDER.join(', ')}` }, 422);
   const { chapter: _c, mode: _m, ...birth } = body;
   const factsRes = await d.facts(birth);
   if (!factsRes.ok) return new Response(factsRes.body, { status: factsRes.status, headers: factsRes.headers });
@@ -33,7 +33,7 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, mode, mode === 'prose' ? [PROSE_VERSION, d.proseDraft] : null]);
   const hit = await d.cache.get(key);
   if (hit) return new Response(hit, { headers: { 'content-type': 'application/json; charset=utf-8', 'x-interpret-cache': 'hit' } });
-  const out = mode === 'prose' ? proseMenh(facts, k, { allowDraft: d.proseDraft }) : interpret(facts, chapter, k);
+  const out = mode === 'prose' ? proseChapter(facts, k, chapter as ProseChapterId, { allowDraft: d.proseDraft }) : interpret(facts, chapter, k);
   const text = JSON.stringify(out);
   const pass = 'quality' in out ? out.quality.pass : out.pass;
   d.defer(d.cache.put(key, chapter, text, { engine: mode === 'prose' ? PROSE_VERSION : ENGINE_VERSION, kb: k.version, pass }));

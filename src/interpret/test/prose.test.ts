@@ -8,8 +8,8 @@ import type { Knowledge } from '../types.ts';
 
 const K: Knowledge = JSON.parse(readFileSync(new URL('../generated/knowledge.json', import.meta.url), 'utf8'));
 export const SLOTS = {
-  fragment: [], behave: ['S'], frame: ['stars', 'star', 'branch', 'opp_stars', 'dignity'],
-  modifier: ['star', 'stars', 'branch', 'hoa', 'tt', 'dignity', 'S', 'concept.np', 'concept.pron', 'concept.say', 'target.np', 'target.pron', 'value', 'value2', 'mature'],
+  fragment: [], behave: ['S'], frame: ['stars', 'star', 'branch', 'opp_stars', 'dignity', 'palace', 'own'],
+  modifier: ['star', 'stars', 'branch', 'hoa', 'tt', 'dignity', 'S', 'palace', 'concept.np', 'concept.pron', 'concept.say', 'target.np', 'target.pron', 'value', 'value2', 'mature'],
 };
 const required = [...new Set(Object.values(K.kg!.ruleConcepts!).flatMap(e => e.asserts.map(a => a.concept)))].sort();
 

@@ -9,7 +9,7 @@ import type { ConceptPick, Selection } from './select.ts';
 import { Micro, finish, lead, lowerFirst } from './micro.ts';
 
 export interface SentenceTrace {
-  move: Move | 'DEGREE' | 'EXTRA'; concepts: string[]; rules: string[]; cites: string[]; basis: 'sach' | 'he_thong';
+  move: Move | 'DEGREE' | 'EXTRA' | 'VIA'; concepts: string[]; rules: string[]; cites: string[]; basis: 'sach' | 'he_thong';
   resolution?: { relation: string; byRule: string; cite?: string }; schema?: string; woven?: Array<SentenceTrace['move']>;
 }
 export interface ProseSentence { text: string; trace: SentenceTrace }
@@ -58,7 +58,18 @@ export class Realizer {
     return { text: t, trace };
   }
   private frameVars() {
-    return { stars: join(this.s.majors), branch: this.s.menh.branch, opp_stars: join(this.s.oppMajors) || 'các sao cung đối diện' };
+    return { stars: join(this.s.majors), branch: this.s.palace.branch, palace: this.s.palace.name, opp_stars: join(this.s.oppMajors) || 'các sao cung đối diện' };
+  }
+  /** The opening frame, naming what the first reading actually rests on. Mệnh has its own frames ('tọa Mệnh'); other palaces are named.
+   *  An empty palace is read through the opposite one's stars only when the reading rests on them (vcd); a reading resting on a star
+   *  standing in the empty palace names that star (vcd_own); otherwise the frame just says the palace has no chính tinh (vcd_plain). */
+  private frame(p: ConceptPick): string {
+    const P = this.s.palace.name, opp = this.s.oppMajors, atoms = p.assertions.flatMap(a => a.atoms);
+    const own = [...new Set(atoms.filter(a => a.kind === 'star' && a.palace === P).map(a => a.name))];
+    const kind = !this.s.vcd ? (this.s.majors.length === 2 ? 'pair' : 'single')
+      : atoms.some(a => a.kind === 'star' && opp.includes(a.name)) ? 'vcd' : own.length ? 'vcd_own' : 'vcd_plain';
+    const frames = P === 'Mệnh' ? this.k.prose!.frames.anchor : this.k.prose!.frames.anchor_palace;
+    return fill(this.m.pick(`frame|${P}|${kind}`, frames[kind]), { ...this.frameVars(), own: join(own) });
   }
   private dignity(level: string | undefined, key: string): string {
     const lv = level === 'lợi' ? 'đắc' : level ?? '';
@@ -70,15 +81,14 @@ export class Realizer {
     const n = this.s.nucleus;
     if (!this.has(n)) return null;
     if (this.frameUsed) return this.sentence(lead(this.m.conn('concession', 'anchor'), `${this.m.subject()} vẫn ${this.pred(n!, 'anchor')}`), this.trace('ANCHOR', [n]));
-    const kind = this.s.vcd ? 'vcd' : this.s.majors.length === 2 ? 'pair' : 'single';
-    const frame = fill(this.m.pick(`frame|${kind}`, this.k.prose!.frames.anchor[kind]), this.frameVars());
+    const frame = this.frame(n!);
     this.frameUsed = true;
     return this.sentence(`${frame} ${this.pred(n!, 'anchor')}`, this.trace(this.s.vcd ? 'BORROW' : 'ANCHOR', [n]));
   }
 
   elaborate(): ProseSentence | null {
     const n = this.s.nucleus;
-    if (!this.has(n) || !this.card(n!.concept).behave?.length) return null;
+    if (!this.has(n) || n!.soft || !this.card(n!.concept).behave?.length) return null;      // a weakened core is not elaborated
     const v = this.m.pick(`elab|${n!.concept}`, this.card(n!.concept).behave!), subj = this.m.subject();
     const t = v.replace('{S}', v.startsWith('{S}') ? subj : lowerFirst(subj));
     return this.sentence(t, this.trace('ELABORATE', [n]));
@@ -92,10 +102,15 @@ export class Realizer {
     let text: string;
     if (c && this.frameUsed && n && this.said.has(n.concept)) {
       const who = this.s.turnIsShadow ? this.card(n.concept).pron : lowerFirst(this.m.subject());
-      text = lead(this.m.conn('contrast', 'turn'), `ở ${this.s.menh.branch}, ${c.star} ${this.dignity(c.dignity, 'turn')}, nên ${who} ${this.pred(t1, 'turn1')}${second}`);
+      text = lead(this.m.conn('contrast', 'turn'), `ở ${this.s.palace.branch}, ${c.star} ${this.dignity(c.dignity, 'turn')}, nên ${who} ${this.pred(t1, 'turn1')}${second}`);
     } else if (c && !this.frameUsed) {
       this.frameUsed = true;
-      text = `Ở ${this.s.menh.branch}, ${c.star} ${this.dignity(c.dignity, 'turn')}, nên người có ${c.star} tọa Mệnh tại đây ${this.pred(t1, 'turn1')}${second}`;
+      const here = this.s.palace.name === 'Mệnh' ? `người có ${c.star} tọa Mệnh tại đây` : `người có ${c.star} ở cung ${this.s.palace.name}`;
+      text = `Ở ${this.s.palace.branch}, ${c.star} ${this.dignity(c.dignity, 'turn')}, nên ${here} ${this.pred(t1, 'turn1')}${second}`;
+    } else if (!this.frameUsed) {
+      // the limit opens the chapter: name the chart first, never a contrast with nothing before it
+      this.frameUsed = true;
+      text = `${this.frame(t1)} ${this.pred(t1, 'turn1')}${second}`;
     } else {
       text = lead(this.m.conn('contrast', 'turn'), `${this.m.subject()} cũng ${this.pred(t1, 'turn1')}${second}`);
     }
@@ -141,7 +156,7 @@ export class Realizer {
     const t = this.s.timing;
     if (!t || !this.has(t.pick)) return null;
     const say = `${lowerFirst(this.m.subject())} ${this.pred(t.pick, 'timing')}`;
-    const text = t.tt ? this.mod('MOD_TIMING_TUAN_TRIET', 'timing', { tt: t.tt, 'concept.say': say }) : this.mod('MOD_TIMING_GENERIC', 'timing', { 'concept.say': say });
+    const text = t.tt ? this.mod('MOD_TIMING_TUAN_TRIET', 'timing', { tt: t.tt, palace: this.s.palace.name, 'concept.say': say }) : this.mod('MOD_TIMING_GENERIC', 'timing', { 'concept.say': say });
     return text ? this.sentence(text, this.trace('TIMING', [t.pick])) : null;
   }
 
@@ -154,6 +169,16 @@ export class Realizer {
     return this.sentence(lead(this.m.conn('addition', key), `${this.m.subject()} ${body}`), this.trace('SATELLITE', [...ps, neg]));
   }
 
+  /** A concept of this chapter's kind that only another palace carries (Mệnh hands career and money on): said with where it is read. */
+  via(items: Selection['via']): ProseSentence | null {
+    const xs = items.filter(x => this.has(x.pick));
+    if (!xs.length) return null;
+    const from = xs[0].from, body = xs.length === 2 && xs[1].from === from ? `${this.pred(xs[0].pick, 'via')}, lại ${this.pred(xs[1].pick, 'via2', false)}` : this.pred(xs[0].pick, 'via');
+    const frame = fill(this.m.pick('via', this.k.prose!.frames.via), { from, S: lowerFirst(this.m.subject()) });
+    const t = this.trace('VIA', xs[0].from === from && xs.length === 2 ? xs.map(x => x.pick) : [xs[0].pick]);
+    return this.sentence(`${frame} ${body}`, t);
+  }
+
   limitAside(p: ConceptPick | undefined): ProseSentence | null {
     if (!this.has(p)) return null;
     return this.sentence(lead(this.m.conn('contrast', 'aside'), `${this.m.subject()} cũng ${this.pred(p!, 'aside')}`), this.trace('SATELLITE', [p]));
@@ -162,8 +187,8 @@ export class Realizer {
   /** VALUE (+ TRANSFORM when both are due): re-voices only concepts already said in this paragraph. */
   close(withValue: boolean, withTransform: boolean, saidHere: Set<string>): ProseSentence | null {
     const n = this.s.nucleus;
-    const value = withValue && this.has(n) && saidHere.has(n!.concept) ? this.m.pick('value1', this.card(n!.concept).value ?? []) : '';
-    const second = [this.s.tension?.pos, ...this.s.satellites].find(p => p && this.has(p) && saidHere.has(p.concept) && this.card(p.concept).value?.length);
+    const value = withValue && this.has(n) && !n!.soft && saidHere.has(n!.concept) ? this.m.pick('value1', this.card(n!.concept).value ?? []) : '';
+    const second = [this.s.tension?.pos, ...this.s.satellites].find(p => p && !p.soft && this.has(p) && saidHere.has(p.concept) && this.card(p.concept).value?.length);
     const value2 = value && second ? this.m.pick('value2', this.card(second.concept).value!) : '';
     let mature = '', matureFrom: ConceptPick | undefined;
     if (withTransform) {

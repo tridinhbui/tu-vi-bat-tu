@@ -40,7 +40,8 @@ const prCite = c => String(c).replace(/^(TH|KL|TT|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_
 function proseHtml(p) {
   if (!p?.paragraphs?.length) return '';
   const draft = p.draft !== false;
-  return `<section class="synth prose" aria-label="Luận giải cung Mệnh"><p class="eyebrow">Luận giải cung Mệnh</p>
+  const title = `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
+  return `<section class="synth prose" data-chapter="${esc(p.chapter)}" aria-label="${title}"><p class="eyebrow">${title}</p>
     ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p">${para.sentences.map((s, j) => `<span class="sy-s pr-s" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
     <div class="pr-why small" hidden></div>
     <p class="muted small sy-foot">Văn bản do bộ máy quy tắc ghép từ các nhận định đã đối chiếu sách (không dùng mô hình AI)${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
@@ -57,9 +58,13 @@ function proseWhy(p, key) {
   const rules = t.rules.map(id => R[id] ? `<li><b>${esc(R[id].cites.map(prCite).join('; ') || '—')}</b> ${esc(R[id].reading)}${softened(id)} <code class="muted">${esc(id)}</code></li>` : `<li><code>${esc(id)}</code></li>`).join('');
   return `<p><b>${esc(moves)}</b> · ${basis}</p>${t.concepts.length ? `<p class="muted">Ý được nói: ${esc(t.concepts.map(c => C[c] || c).join(', '))}</p>` : ''}${res}${rules ? `<ul class="pr-rules">${rules}</ul>` : ''}`;
 }
-function bindProse(host, p) {
-  const box = $('.prose .pr-why', host);
-  if (!box) return;
+function bindProse(host, byChapter) {
+  $$('.prose', host).forEach(sec => {
+    const p = byChapter[sec.dataset.chapter], box = $('.pr-why', sec);
+    if (p && box) bindOne(sec, p, box);
+  });
+}
+function bindOne(host, p, box) {
   $$('.pr-s', host).forEach(s => {
     const open = () => {
       const on = !s.classList.contains('on');
@@ -265,7 +270,9 @@ export function renderTuviReport(host, chart, ctx) {
     const by = Object.fromEntries(ctx.synth.chapters.map(c => [c.id, c]));
     chapters.forEach(c => { c.synth = synthHtml(by[SY_CH[c.id]]); });
   }
-  if (ctx.prose?.paragraphs?.length) { const c = chapters.find(x => x.id === 'ban-menh'); c.synth = proseHtml(ctx.prose) + (c.synth || ''); }
+  // reader prose per chapter (/api/interpret mode "prose"): Mệnh -> Bản Mệnh, Công danh -> Công danh, Tài Bạch -> Tài Bạch
+  const PR_CH = { menh: 'ban-menh', cong_danh: 'cong-danh', tai_bach: 'tai-bach' };
+  for (const [k, id] of Object.entries(PR_CH)) { const p = ctx.prose?.[k], c = chapters.find(x => x.id === id); if (p?.paragraphs?.length && c) c.synth = proseHtml(p) + (c.synth || ''); }
   mount(host, chapters, 'tv', ctx);
   if (ctx.prose) bindProse(host, ctx.prose);
   yearExplorer($('#tv-year', host), ctx.req, b, 'tuvi');
