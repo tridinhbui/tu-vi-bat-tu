@@ -15,8 +15,12 @@ import type { Move } from './types.ts';
 export const PROSE_VERSION = 'prose-0.1.0';
 export interface ProseChapter {
   engine: string; kbVersion: string; chapter: 'menh'; schema: string; order: Move[];
+  /** draft cards were allowed and the library still holds drafts: the reader must be told the wording is unreviewed */
+  draft: boolean;
   paragraphs: ProseParagraph[]; text: string; issues: ProseIssue[]; metrics: ProseMetrics; pass: boolean;
-  evidence: { resolved: Array<Pick<Resolved, 'ruleId' | 'concept' | 'stance' | 'status' | 'by' | 'cites'>>; tensions: Tension[]; unused: string[] };
+  evidence: { resolved: Array<Pick<Resolved, 'ruleId' | 'concept' | 'stance' | 'status' | 'by' | 'cites'>>; tensions: Tension[]; unused: string[];
+    /** every rule a sentence traces to, with its book paraphrase and pages, for the evidence panel */
+    rules: Record<string, { reading: string; cites: string[]; verified: boolean }>; concepts: Record<string, string> };
 }
 
 /** Starts with a proper name (a star, Tuần/Triệt, a Hóa): its capital stays when the sentence is woven into the previous one. */
@@ -94,9 +98,15 @@ export function proseMenh(chart: ChartInput, k: Knowledge, opts: { allowDraft?: 
   const paragraphs: ProseParagraph[] = ([['core', p1], ['support', p2], ['course', p3]] as const)
     .filter(([, xs]) => xs.length).map(([role, xs]) => { const w = weave(xs, seed, role); return { role, sentences: w, text: w.map(s => s.text).join(' ') }; });
   const { issues, metrics } = validateProse(paragraphs, resolved);
+  const rmap = new Map(k.rules.map(r => [r.id, r]));
   return {
     engine: PROSE_VERSION, kbVersion: k.version, chapter: 'menh', schema: schema.id, order,
+    draft: !!opts.allowDraft && [...k.prose!.concepts, ...k.prose!.modifiers].some(c => c.status !== 'approved'),
     paragraphs, text: paragraphs.map(p => p.text).join('\n\n'), issues, metrics, pass: !issues.some(i => i.level === 'error'),
-    evidence: { resolved: resolved.map(r => ({ ruleId: r.ruleId, concept: r.concept, stance: r.stance, status: r.status, by: r.by, cites: r.cites })), tensions, unused: sel.unused },
+    evidence: { resolved: resolved.map(r => ({ ruleId: r.ruleId, concept: r.concept, stance: r.stance, status: r.status, by: r.by, cites: r.cites })), tensions, unused: sel.unused,
+      rules: Object.fromEntries([...new Set(paragraphs.flatMap(p => p.sentences.flatMap(s => s.trace.rules)))].sort().map(id => {
+        const r = rmap.get(id)!; return [id, { reading: (r.reading ?? k.claims[r.consequences[0]?.claim ?? ''] ?? '').replace(/^(khuynh hướng|hạn chế:)\s*/, ''), cites: r.cites, verified: r.reviewStatus === 'verified' }];
+      })),
+      concepts: Object.fromEntries([...new Set(paragraphs.flatMap(p => p.sentences.flatMap(s => s.trace.concepts)))].map(c => [c, k.concepts.concepts.find(x => x.id === c)?.short ?? c])) },
   };
 }

@@ -618,3 +618,8 @@ body.hour-mode #print-btn{display:none}
   .gd-chap svg,.gd-chap .gd-who,.gd-sr{display:none!important}.gd-chap .gd-bub{padding:0}
 }
 .yx-year{margin:0 0 10px;font-size:.95rem;color:var(--text2)}
+/* reader prose (Luận giải cung Mệnh): clean text, evidence under the clicked sentence */
+.prose .pr-s{cursor:pointer;border-radius:4px;transition:background .15s}.prose .pr-s:hover,.prose .pr-s.on{background:color-mix(in srgb,var(--gold) 14%,transparent)}
+.prose .pr-s:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.pr-why{margin:-4px 0 14px;padding:10px 14px;border:1px solid var(--bd);border-radius:10px;background:var(--bg)}.pr-why p{margin:0 0 6px}
+.pr-rules{margin:6px 0 0;padding-left:18px}.pr-rules li{margin:3px 0;line-height:1.5}.pr-rules code{font-size:.78em;margin-left:4px}
