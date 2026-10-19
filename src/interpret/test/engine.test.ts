@@ -1,7 +1,8 @@
 // The TS rule engine must fire exactly the rules the validated Python engine fires, on every regression chart.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { gunzipSync } from 'node:zlib';
 import { run } from '../engine.ts';
 import { compare, evaluate } from '../dsl.ts';
 import type { Knowledge } from '../types.ts';
@@ -39,3 +40,21 @@ for (const c of charts) {
     assert.deepEqual([...py].filter(x => !ts.has(x)), [], 'fired in Python only');
   });
 }
+
+// Prose plan P0: parity over the stratified 1,000-chart corpus (tools/interpret/make_corpus.py), Tử Vi and Bát Tự. One test, a list of
+// mismatching charts on failure, so a regression names the charts and rules instead of drowning the report.
+const corpusUrl = new URL('./fixtures/corpus1000.json.gz', import.meta.url);
+test('parity with the Python engine over the 1,000-chart corpus', { skip: !existsSync(corpusUrl) && 'corpus1000.json.gz not built' }, () => {
+  const corpus = JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8'));
+  assert.equal(corpus.length, 1000);
+  const bad: string[] = [];
+  for (const c of corpus) {
+    for (const [system, base, want] of [['tu_vi', c.facts.base, c.python_fired], ['bat_tu', c.facts.bazi.base, c.python_fired_bazi]] as const) {
+      const ts = new Set(run(K.rules, K.sources, base, system).findings.map(f => [f.ruleId, f.subject, f.claim, f.effect, f.basis].join('|')));
+      const py = new Set<string>(want.map((x: string[]) => x.join('|')));
+      const diff = [...[...ts].filter(x => !py.has(x)).map(x => 'TS+ ' + x), ...[...py].filter(x => !ts.has(x)).map(x => 'PY+ ' + x)];
+      if (diff.length) bad.push(`${JSON.stringify(c.birth)} ${system}: ${diff.slice(0, 3).join('; ')}`);
+    }
+  }
+  assert.deepEqual(bad, []);
+});
