@@ -12,7 +12,7 @@ export interface Evidence {
   root: string[]; books: string[]; cites: string[];
 }
 
-const SCHOOL: Record<string, string> = { SRC_THUC_HANH: 'Thực Hành', SRC_KHAO_LUAN: 'Khảo Luận', SRC_TOAN_THU: 'Toàn Thư', SRC_TVDS_TAN_BIEN: 'Tân Biên', SRC_TVNL_TOAN_THU: 'Thiên Lương' };
+const SCHOOL: Record<string, string> = { SRC_THUC_HANH: 'Thực Hành', SRC_KHAO_LUAN: 'Khảo Luận', SRC_TOAN_THU: 'Toàn Thư', SRC_TVDS_TAN_BIEN: 'Tân Biên', SRC_TVNL_TOAN_THU: 'Nghiệm Lý (Thiên Lương)', SRC_TVNL_1974: 'Nghiệm Lý 1974 (Thiên Lương)' };
 const EDITORIAL = ["'", '‘', '“', 'sách ', 'đây là', 'câu ', 'độ sáng', 'cùng nhận định', 'chưa ', 'đọc là', 'nhưng sách', 'bảng ', 'tức ', 'gọi là', 'mùa lấy theo', 'ngưỡng ', 'hệ thống '];
 const CONTRAST = [' nhưng ', ' mà ', ' song ', ' tuy '];
 const NORM: Record<string, string> = {

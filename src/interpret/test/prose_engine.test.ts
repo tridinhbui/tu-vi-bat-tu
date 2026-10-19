@@ -95,10 +95,9 @@ test('1,000 charts: no blocking error, no empty chapter, repetition, diversity a
   assert.ok(e.topOpener[1] <= 0.08, `opener ${e.topOpener}`);
   assert.ok(e.schemaEntropy >= 0.7 * e.schemaMax, `entropy ${e.schemaEntropy}`);
   assert.deepEqual(e.variantOveruse, []);
-  // sentence rhythm: the plan's target is 95 % of chapters (the reference paragraph itself: mean 30.9, sd 7.1); with the rhythm
-  // pass 87.6 %, 85.9 % since the P5 closing-line variants. Held at a floor so it cannot slide; the rest is library work, tracked in
-  // prose-eval-1000.md.
-  assert.ok(e.sentLenOk >= 850, `sentence rhythm ${e.sentLenOk}/1000`);
+  // sentence rhythm: the plan's target is 95 % of chapters (the reference paragraph itself: mean 30.9, sd 7.1). Reached since the
+  // repair pass weaves toward the band and caps woven length when a chapter runs long (97 % on the first 300 charts).
+  assert.ok(e.sentLenOk >= 950, `sentence rhythm ${e.sentLenOk}/1000`);
 });
 
 // ---- the shared /api/interpret handler (src/interpret/route.ts): what the Worker and tools/interpret/dev_server.ts both run ----
@@ -116,9 +115,11 @@ test('route: mode "prose" returns the golden text; other chapters refuse prose; 
   const o = await r.json() as any;
   assert.equal(o.text + '\n', readFileSync(goldenUrl, 'utf8'));
   assert.ok(o.draft && o.evidence.rules.TV_TH_MV_MENH_CU_THIN_TUAT_LOC.cites.includes('TH p.88'));
-  assert.equal((await call({ ...birth, chapter: 'van_han', mode: 'prose' })).status, 422);
+  assert.equal((await call({ ...birth, chapter: 'tong_quan', mode: 'prose' })).status, 422);
+  assert.equal((await call({ ...birth, chapter: 'van_han', mode: 'prose' })).status, 200);
+  assert.equal((await call({ ...birth, chapter: 'bat_tu', mode: 'prose' })).status, 200);
   const all = await (await call({ ...birth, chapter: 'all', mode: 'prose' })).json() as any;
-  assert.deepEqual(all.chapters.map((c: any) => c.chapter), ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc', 'tu_tuc', 'huynh_de', 'phu_mau', 'tat_ach']);
+  assert.deepEqual(all.chapters.map((c: any) => c.chapter), ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc', 'tu_tuc', 'huynh_de', 'phu_mau', 'tat_ach', 'van_han', 'bat_tu']);
   assert.equal(all.chapters[0].text + '\n', readFileSync(goldenUrl, 'utf8'));
   assert.equal((await call({ ...birth, chapter: 'cong_danh', mode: 'prose' })).status, 200);
   assert.equal((await call({ ...birth, chapter: 'menh', mode: 'prose' }, { enabled: false })).status, 404);

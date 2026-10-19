@@ -4401,6 +4401,26 @@
    "src": "manual",
    "review": "draft"
   },
+  "TV_NL_TAI_BACH_KY_LOC_TON": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_NL_TAI_BACH_PHU_PHUNG_KHONG": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
   "TV_STRUCT_SAT_PHA_THAM_001": {
    "asserts": [],
    "src": "auto",

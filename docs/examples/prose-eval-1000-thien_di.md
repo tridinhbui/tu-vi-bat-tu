@@ -1,20 +1,21 @@
 # Đánh giá văn đọc chương thien_di trên 1000 lá số
 
-Sinh bởi `tools/interpret/eval_prose.ts --chapter thien_di` (prose prose-0.2.0, knowledge `71a99fbcd138009d`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
+Sinh bởi `tools/interpret/eval_prose.ts --chapter thien_di` (prose prose-0.2.0, knowledge `4db446cf1b5653fc`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
 
 | Chỉ số | Giá trị | Ngưỡng (plan §6) |
 |---|---|---|
 | Chương không lỗi chặn | 1000/1000 | 100% |
 | Lỗi chặn theo loại | {} | 0 |
 | Chương rỗng | 0 | 0 |
-| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 | 71.1% | ≥ 95% |
+| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 (mọi lá số, kể cả chương trống) | 85.1% | ≥ 95% |
+| Như trên, chỉ tính chương có từ 3 câu (831 lá số) | 91.1% | ≥ 95% |
 | 4-gram lặp trong một chương (TB / max) | 0.001 / 0.027 | < 0.05 |
-| Opener phổ biến nhất (mọi câu) | “những khúc” 4.4% | ≤ 8% |
+| Opener phổ biến nhất (mọi câu) | “những khúc” 4.5% | ≤ 8% |
 | Opener phổ biến nhất (câu đầu chương) | “về cung” 9.5% | (theo dõi) |
-| Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.1 | ≤ 0.35 |
+| Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.101 | ≤ 0.35 |
 | Entropy phân bố schema | 1.894 / log(11) = 2.398 | ≥ 0.7 × log(số schema dùng được) |
 | Câu/đoạn mở dùng > 15% số chương | 0 | 0 |
-| Thời gian sinh một chương (TB / p95, Node) | 65.34 ms / 68.19 ms | p95 < 30 ms |
+| Thời gian sinh một chương (TB / p95, Node) | 72.98 ms / 75.98 ms | p95 < 30 ms |
 
 Schema: S_EDGE_LATE_ELABORATE 255, S_DOUBLE_EDGE 229, S_VCD_BORROW 208, S_QUIET_STRENGTH 128, S_SATELLITE_WEAVE 50, S_LIMIT_CORE 42, S_TIMING_ARC 31, S_TIMING_FIRST 24, S_TURN_THEN_TENSION 20, S_TENSION_BRIDGE 12, S_TENSION_CORE 1
 
@@ -32,11 +33,11 @@ Bù lại, người mang tổ hợp này cũng dễ bị dèm pha, quấy nhiễ
 
 Không có chính tinh, cung Thiên Di tại Tuất được đọc qua Hữu Bật đóng tại đó; người này thường có người giúp đúng lúc. Vốn liếng đáng kể nhất là những mối quan hệ nâng đỡ.
 
-Những khúc quanh quan trọng của người mang tổ hợp này thường có bàn tay người khác. Song song với điều ấy, họ thường phát nhanh nhưng cũng dễ lắng nhanh.
+Những khúc quanh quan trọng của người mang tổ hợp này thường có bàn tay người khác; song song với điều ấy, họ thường phát nhanh nhưng cũng dễ lắng nhanh.
 
 ### {"year":1999,"month":1,"day":19,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_DOUBLE_EDGE
 
-Khi Phá Quân làm chủ cung Thiên Di ở Tuất, người mang lá số này thường có những lúc lên rất mạnh, cần biết giữ; điều quan trọng với người này không phải là có được mà là giữ được. Nhìn từ phía khác, chủ nhân lá số cũng dễ bị dèm pha, quấy nhiễu nơi xa. Khi đã biết giữ người tin cậy bên cạnh khi làm việc ở nơi lạ, chỗ yếu cũng thành chỗ rèn mình.
+Khi Phá Quân làm chủ cung Thiên Di ở Tuất, người mang lá số này thường có những lúc lên rất mạnh, cần biết giữ; điều quan trọng với đương số không phải là có được mà là giữ được. Tuy nhiên, người này cũng dễ bị dèm pha, quấy nhiễu nơi xa. Khi biết giữ người tin cậy bên cạnh khi làm việc ở nơi lạ, chính điều từng gây vướng bận sẽ trở thành thế mạnh.
 
 ### {"year":2013,"month":11,"day":22,"hour":21,"minute":30,"gender":"male","to_year":2026} · S_DOUBLE_EDGE
 
@@ -68,9 +69,9 @@ Có Thái Âm tọa thủ cung Thiên Di ở Thìn, người mang lá số này 
 
 ### {"year":2019,"month":10,"day":10,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_DOUBLE_EDGE
 
-Có Tử Vi và Phá Quân cùng tọa thủ cung Thiên Di ở Mùi, đương số thường gặp vận thuận theo từng đợt chứ không đều; điều quan trọng với chủ nhân lá số không phải là có được mà là giữ được. Dẫu vậy, người này cũng dễ thấy âu lo, hoang mang khi phải đi xa. Có Kình Dương ở vào thế đắc đi cùng, tài lộc hiện ra rõ hơn. Càng biết giữ người tin cậy bên cạnh khi làm việc ở nơi lạ, người này càng phát huy được những gì mình vốn có.
+Có Tử Vi và Phá Quân cùng tọa thủ cung Thiên Di ở Mùi, đương số thường gặp vận thuận theo từng đợt chứ không đều; điều quan trọng với người mang tổ hợp này không phải là có được mà là giữ được. Nhưng họ cũng dễ thấy âu lo, hoang mang khi phải đi xa. Có Kình Dương ở vào thế đắc đi cùng, tài lộc hiện ra rõ hơn. Càng biết giữ người tin cậy bên cạnh khi làm việc ở nơi lạ, người này càng phát huy được những gì mình vốn có.
 
-Thế nhưng, họ cũng dễ bận lòng vì nhiều chuyện, ít khi thảnh thơi.
+Song chủ nhân lá số cũng dễ bận lòng vì nhiều chuyện, ít khi thảnh thơi.
 
 ### {"year":2017,"month":10,"day":19,"hour":21,"minute":30,"gender":"female","to_year":2026} · S_VCD_BORROW
 
@@ -82,7 +83,7 @@ Những cơ hội đến với họ thường đột ngột và qua cũng nhanh.
 
 Tại Dần, cung Thiên Di không có chính tinh; với Thiên Việt đóng ở đây, người này thường được người trên tin cậy. Điều đọng lại sau tất cả là những mối quan hệ nâng đỡ.
 
-Những khúc quanh quan trọng của đương số thường có bàn tay người khác. Đồng thời, họ thường phát nhanh nhưng cũng dễ lắng nhanh.
+Những khúc quanh quan trọng của đương số thường có bàn tay người khác; đồng thời, họ thường phát nhanh nhưng cũng dễ lắng nhanh.
 
 ### {"year":1979,"month":5,"day":20,"hour":2,"minute":0,"gender":"male","to_year":2026} · S_TIMING_FIRST
 

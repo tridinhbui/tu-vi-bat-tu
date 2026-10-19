@@ -5,7 +5,7 @@
 //              pillars (tinh_toan: facts, no reading)
 //   book       readings of verified rules that fired (today: day-master character, 八字真宗 PDF pp.25-26, and day-pillar nạp âm,
 //              PDF pp.31-32), paraphrased, with the PDF page
-//   limits     draft rules that fired are listed as left out; strength (vượng suy), useful god (dụng thần), structure (cách cục) and the
+//   limits     draft rules that fired are listed as left out (the manual's direct judgements, zz_direct_*, are voiced by prose/bazi.ts instead); strength (vượng suy), useful god (dụng thần), structure (cách cục) and the
 //              manual's direct judgements (PDF pp.51-58) are not in this chapter, because no rule for them is both verified and wired
 // Nothing here is mixed with Tử Vi: the two systems are read separately.
 import { Renderer, citeVi, mergeCites, type Paragraph } from './generator.ts';
@@ -47,7 +47,9 @@ export function baziChapter(chart: ChartInput, k: Knowledge, modules: ContentMod
   const rmap = new Map(k.rules.map(x => [x.id, x]));
   const reading = (f: Finding) => { const rule = rmap.get(f.ruleId); return baziCore(rule?.reading?.replace(/\s*\[[^\]]*\]/g, '') ?? k.claims[f.claim] ?? f.claim); };
   const cite = (f: Finding) => mergeCites((rmap.get(f.ruleId)?.cites ?? []).map(citeVi));
-  const ver = P.findings.filter(f => f.basis === 'verified');
+  // the manual's direct judgements (category zz_direct_*, pp.50-74) belong to the reader prose (prose/bazi.ts), not to this chapter
+  const direct = (f: { ruleId: string }) => (rmap.get(f.ruleId)?.category ?? '').startsWith('zz_direct');
+  const ver = P.findings.filter(f => f.basis === 'verified' && !direct(f));
   const byCat = (cat: string) => ver.filter(f => rmap.get(f.ruleId)?.category === cat).sort((x, y) => x.ruleId.localeCompare(y.ruleId));
   const pil = b.pillars, f = b.base.chart as Record<string, unknown>;
 
@@ -89,8 +91,8 @@ export function baziChapter(chart: ChartInput, k: Knowledge, modules: ContentMod
   r.set('bz.verified_n', String(ver.length));
   r.set('bz.has_readings', ver.length ? '1' : '');
   // ---------- limits
-  const dr = P.drafts.map(d => baziCore((d.rule.reading ?? k.claims[d.claim] ?? d.claim).replace(/\s*\[[^\]]*\]/g, '')));
-  r.set('bz.drafts', dr.length ? `${joinVi(dr.slice(0, 3).map(x => `“${x}”`))}${dr.length > 3 ? ` cùng ${dr.length - 3} câu khác` : ''}` : '', P.drafts.map(d => d.rule.id));
+  const dr = P.drafts.filter(d => !d.rule.category.startsWith('zz_direct')).map(d => baziCore((d.rule.reading ?? k.claims[d.claim] ?? d.claim).replace(/\s*\[[^\]]*\]/g, '')));
+  r.set('bz.drafts', dr.length ? `${joinVi(dr.slice(0, 3).map(x => `“${x}”`))}${dr.length > 3 ? ` cùng ${dr.length - 3} câu khác` : ''}` : '', P.drafts.filter(d => !d.rule.category.startsWith('zz_direct')).map(d => d.rule.id));
   r.set('bz.drafts_n', dr.length ? String(dr.length) : '');
   return { paragraphs: r.render(modules), verified: P.verified };
 }

@@ -73,6 +73,12 @@ const words = (t: string) => t.split(/\s+/).length;
 const canWeave = (prev: ProseSentence, s: ProseSentence) =>
   ((s.trace.move === 'ELABORATE' && (prev.trace.move === 'ANCHOR' || prev.trace.move === 'BORROW')) || s.trace.move === 'TIMING' || s.trace.move === 'EXTRA'
     || (s.trace.move === 'TURN' && prev.trace.move === 'ANCHOR')) && !prev.trace.woven && prev.trace.basis === 'sach' && s.trace.basis === 'sach' && words(prev.text) + words(s.text) <= 48;
+const LOOSE_SECOND = new Set(['ELABORATE', 'TENSION', 'TIMING', 'EXTRA', 'SATELLITE', 'VIA', 'DEGREE']);
+/** a contrast already in the first half and another opening the second reads 'nhưng …; nhưng …': never woven loosely */
+const CONTRAST = /(^|\s)(nhưng|song|tuy|dù|dẫu|có điều|ngược lại|chỉ có điều|thế nhưng)(\s|,)/i;
+const canWeaveLoose = (prev: ProseSentence, s: ProseSentence) => canWeave(prev, s) || (LOOSE_SECOND.has(s.trace.move) && !prev.trace.woven
+  && !(CONTRAST.test(prev.text) && CONTRAST.test(s.text.split(/\s+/).slice(0, 3).join(' ')))
+  && prev.trace.basis === 'sach' && s.trace.basis === 'sach' && words(prev.text) + words(s.text) <= 48);
 function join2(prev: ProseSentence, s: ProseSentence): ProseSentence {
   const second = properStart(s.text) ? s.text : lowerFirst(s.text);
   return { text: `${prev.text.replace(/\.$/, '')}; ${second}`, trace: { ...prev.trace, concepts: [...new Set([...prev.trace.concepts, ...s.trace.concepts])],
@@ -83,23 +89,31 @@ const spread = (xs: number[]) => { const m = xs.reduce((a, b) => a + b, 0) / xs.
  *  about two in three eligible pairs; then, across the whole chapter, while the spread of sentence lengths is under 6 words, the
  *  eligible pair whose weaving raises it most is woven. Deterministic: same chart, same text. */
 function rhythm(paras: Array<[ProseParagraph['role'], ProseSentence[]]>, seed: string): Array<[ProseParagraph['role'], ProseSentence[]]> {
-  const ps = paras.map(([role, xs]) => {
+  // the seeded pass, with a lower cap on a woven sentence's length when the chapter would otherwise average over 35 words a sentence
+  const pass = (cap: number) => paras.map(([role, xs]) => {
     const out: ProseSentence[] = [];
-    for (const s of xs) { const prev = out[out.length - 1]; if (prev && canWeave(prev, s) && fnv(`${seed}|weave|${role}|${out.length}`) % 3 !== 0) out[out.length - 1] = join2(prev, s); else out.push(s); }
+    for (const s of xs) { const prev = out[out.length - 1]; if (prev && canWeave(prev, s) && words(prev.text) + words(s.text) <= cap && fnv(`${seed}|weave|${role}|${out.length}`) % 3 !== 0) out[out.length - 1] = join2(prev, s); else out.push(s); }
     return [role, out] as [ProseParagraph['role'], ProseSentence[]];
   });
+  const avg = (q: Array<[ProseParagraph['role'], ProseSentence[]]>) => { const l = q.flatMap(([, xs]) => xs.map(s => words(s.text))); return l.reduce((a, b) => a + b, 0) / l.length; };
+  let ps = pass(48);
+  for (const cap of [40, 34]) if (avg(ps) > 35) ps = pass(cap);
   const lens = () => ps.flatMap(([, xs]) => xs.map(s => words(s.text)));
-  for (let guard = 0; guard < 6 && spread(lens()) < 6; guard++) {
+  // repair: while the chapter misses the rhythm band (mean 18-35 words, spread >= 6), weave the pair of adjacent factual sentences that
+  // brings it closest; the first rounds use the narrow rule above, then any two factual sentences of one paragraph (never a rescue,
+  // a closing or an anchor as the second half), so short chapters get one long sentence among short ones
+  const miss = (xs: number[]) => { const m = xs.reduce((a, b) => a + b, 0) / xs.length, sd = spread(xs); return Math.max(0, 18 - m) + Math.max(0, m - 35) + Math.max(0, 6 - sd); };
+  for (const rule of [canWeave, canWeaveLoose]) for (let guard = 0; guard < 6 && miss(lens()) > 0; guard++) {
     let best = null as [number, number, number] | null;
     ps.forEach(([, xs], pi) => xs.forEach((s, i) => {
-      if (!i || !canWeave(xs[i - 1], s)) return;
+      if (!i || !rule(xs[i - 1], s)) return;
       const trial = lens(), off = ps.slice(0, pi).reduce((a, [, ys]) => a + ys.length, 0) + i;
       trial.splice(off - 1, 2, trial[off - 1] + trial[off]);
-      const sd = spread(trial);
-      if (!best || sd > best[2]) best = [pi, i, sd];
+      const v = miss(trial);
+      if (!best || v < best[2]) best = [pi, i, v];
     }));
     const pick = best as [number, number, number] | null;
-    if (!pick || pick[2] <= spread(lens())) break;
+    if (!pick || pick[2] >= miss(lens())) break;
     const [pi, i] = pick, xs = ps[pi][1];
     xs.splice(i - 1, 2, join2(xs[i - 1], xs[i]));
   }

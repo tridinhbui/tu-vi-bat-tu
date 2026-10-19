@@ -50,12 +50,12 @@ function evHtml(chs) {
 // ---------- reader prose for Mệnh (src/interpret/prose via /api/interpret mode "prose"): clean text, evidence per sentence on click ----------
 const PR_MOVE = { ANCHOR: 'Nét lõi', BORROW: 'Nét lõi, mượn cung đối diện', ELABORATE: 'Biểu hiện', TURN: 'Mặt trái', RESCUE: 'Cứu giải', TENSION: 'Yếu tố làm sắc',
   TIMING: 'Nhịp thời gian', SATELLITE: 'Nét bổ trợ', VALUE: 'Giá trị', TRANSFORM: 'Hướng chuyển hóa', DEGREE: 'Nền độ số', EXTRA: 'Đường đời' };
-const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Thiên Lương (Nghiệm Lý, bản gõ)', ZZ: 'Bát Tự Chân Tông' };
-const prCite = c => String(c).replace(/^(TH|KL|TT|TL|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
+const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Nghiệm Lý (Thiên Lương, bản gõ)', NL: 'Nghiệm Lý 1974 (Thiên Lương, bản scan HELEN)', ZZ: 'Bát Tự Chân Tông' };
+const prCite = c => String(c).replace(/^(TH|KL|TT|TL|NL|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
 function proseHtml(p) {
   if (!p?.paragraphs?.length) return '';
   const draft = p.draft !== false;
-  const title = `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
+  const title = p.chapter === 'van_han' ? 'Luận giải các đại hạn' : p.chapter === 'bat_tu' ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
   return `<section class="synth prose" data-chapter="${esc(p.chapter)}" aria-label="${title}"><p class="eyebrow">${title}</p>
     ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p">${para.sentences.map((s, j) => `<span class="sy-s pr-s" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
     <div class="pr-why small" hidden></div>${prDiverge(p)}
@@ -63,9 +63,10 @@ function proseHtml(p) {
 }
 // two schools disagree on this chart: the text says neither; both readings are listed here with their pages
 function prDiverge(p) {
-  const ds = p.evidence?.divergences || [];
-  if (!ds.length) return '';
-  return `<details class="pr-div small"><summary>Các trường phái nhận định khác nhau (${ds.length})</summary>${ds.map(d => `<p>${esc(d.note || '')}</p><ul class="pr-rules">${d.rules.map(r => `<li><b>${esc(r.cites.map(prCite).join('; ') || '—')}</b> ${esc(r.reading)} <code class="muted">${esc(r.id)}</code></li>`).join('')}</ul>`).join('')}<p class="muted">Văn bản phía trên không theo bên nào trong các điểm này.</p></details>`;
+  const ds = p.evidence?.divergences || [], lim = p.evidence?.limits || [];
+  const limits = lim.length ? `<p class="muted small">Chưa nói đến: ${lim.map(esc).join('; ')}.</p>` : '';
+  if (!ds.length) return limits;
+  return `<details class="pr-div small"><summary>Các trường phái nhận định khác nhau (${ds.length})</summary>${ds.map(d => `<p>${esc(d.note || '')}</p><ul class="pr-rules">${d.rules.map(r => `<li><b>${esc(r.cites.map(prCite).join('; ') || '—')}</b> ${esc(r.reading)} <code class="muted">${esc(r.id)}</code></li>`).join('')}</ul>`).join('')}<p class="muted">Văn bản phía trên không theo bên nào trong các điểm này.</p></details>${limits}`;
 }
 function proseWhy(p, key) {
   const [i, j] = key.split('.').map(Number), s = p.paragraphs[i]?.sentences[j];
@@ -214,7 +215,11 @@ export function renderBaziReport(host, chart, ctx, parts) {
   ];
   const evBt = ctx.interp?.report?.chapters?.find(c => c.id === 'bat_tu');
   if (evBt) { const cc = chapters.find(c => c.id === 'cach-cuc'); if (cc) cc.synth = evHtml([evBt]) + (cc.synth || ''); }
+  // reader prose for Bát Tự (src/interpret/prose/bazi.ts) heads the Nhật Chủ chapter, evidence per sentence on click
+  const bp = ctx.prose?.bat_tu, nc = chapters.find(x => x.id === 'nhat-chu');
+  if (bp?.paragraphs?.length && nc) nc.synth = proseHtml(bp) + (nc.synth || '');
   mount(host, chapters, 'bt', ctx);
+  if (bp?.paragraphs?.length) bindProse(host, ctx.prose);
   host.insertAdjacentHTML('afterbegin', scopePanelBazi(b));
   yearExplorer($('#bt-year', host), ctx.req, b, 'bazi');
 }
@@ -300,7 +305,7 @@ export function renderTuviReport(host, chart, ctx) {
   }
   // reader prose per chapter (/api/interpret mode "prose"): Mệnh -> Bản Mệnh, Công danh -> Công danh, Tài Bạch -> Tài Bạch
   const PR_CH = { menh: 'ban-menh', cong_danh: 'cong-danh', tai_bach: 'tai-bach', thien_di: 'cong-danh', phu_the: 'quan-he', phuc_duc: 'tinh-cach', dien_trach: 'tai-bach', no_boc: 'quan-he',
-    tu_tuc: 'quan-he', huynh_de: 'quan-he', phu_mau: 'quan-he', tat_ach: 'tinh-cach' };
+    tu_tuc: 'quan-he', huynh_de: 'quan-he', phu_mau: 'quan-he', tat_ach: 'tinh-cach', van_han: 'dai-han' };
   const prByCh = {};
   for (const [k, id] of Object.entries(PR_CH)) { const p = ctx.prose?.[k]; if (p?.paragraphs?.length) prByCh[id] = (prByCh[id] || '') + proseHtml(p); }
   for (const [id, html] of Object.entries(prByCh)) { const c = chapters.find(x => x.id === id); if (c) c.synth = html + (c.synth || ''); }

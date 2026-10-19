@@ -49,4 +49,5 @@ export interface Connective { id: string; rel: ConnRel; text: string; pos: 'init
 
 export interface ProseLibrary {
   version: string; concepts: ConceptCard[]; frames: Frames; modifiers: ModifierCard[]; schemas: ParagraphSchema[]; connectives: Connective[];
+  vanhan?: import('./vanhan.ts').VanHanLibrary; bazi?: import('./bazi.ts').BaziLibrary;
 }

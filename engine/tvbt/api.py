@@ -99,7 +99,7 @@ def chart_facts(req: BirthReq):
         stem = pal["stem"]
         hoa = dict(zip(("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"), tuvi.TU_HOA[STEMS_VI.index(stem)]))
         decades.append({**d, "palace": pal["name"], "stem": stem, "hoa": {k: {"star": v, "palace": star_pal.get(v)} for k, v in hoa.items()},
-                        "readings": van_han.read(tv, pal["name"])})
+                        "readings": van_han.read_traced(tv, pal["name"])})
     year = req.to_year or req.year + 30
     # Bát Tự: the fact base the Python engine reads for system 'bat_tu' (the same call as /api/analysis, so the same rules can fire), and
     # the computed pillars, ten gods and luck pillars for the chapter's frame. Data only.
@@ -107,7 +107,8 @@ def chart_facts(req: BirthReq):
     pil = {k: {"name": p.name, "stem": STEMS_VI[p.stem], "branch": BRANCHES_VI[p.branch], "stem_ten_god": p.stem_ten_god,
                "hidden": [{"stem": h["name"], "element": h["element"], "ten_god": h["ten_god"]} for h in p.hidden],
                "stage": p.stage_vs_day_master} for k, p in bz.pillars.items()}
-    bazi_out = {"base": facts.bazi_facts(bz), "pillars": pil, "day_master": STEMS_VI[bz.day_master], "day_master_element": bz.day_master_element,
+    # zz=True: the 八字真宗 direct-judgement facts (pp.50-74), so its verified rules can fire in the TS prose; /api/reasoning keeps the old view
+    bazi_out = {"base": facts.bazi_facts(bz, zz=True), "pillars": pil, "day_master": STEMS_VI[bz.day_master], "day_master_element": bz.day_master_element,
                 "luck_direction": bz.luck_direction, "luck_start_age": round(bz.luck_start["age_years"], 1),
                 "luck": [{"name": lp.name, "start_age": round(lp.start_age, 1), "start_year": int(lp.start_date[:4]) if lp.start_date else None,
                           "ten_god": lp.ten_god} for lp in bz.luck_pillars],

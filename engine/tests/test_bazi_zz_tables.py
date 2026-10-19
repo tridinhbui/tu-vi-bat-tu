@@ -155,12 +155,22 @@ def test_unverified_rules_stay_draft():
         assert rid in draft
 
 
+def test_api_facts_carries_the_direct_facts():
+    """/api/facts (the TS prose pipeline's input) passes zz=True, so the manual's direct judgements can fire in the reader prose."""
+    from fastapi.testclient import TestClient
+    from tvbt import api
+    r = TestClient(api.app).post("/api/facts", json={"year": 1990, "month": 5, "day": 17, "hour": 8, "minute": 0, "tz": "Asia/Ho_Chi_Minh", "gender": "male"})
+    assert r.status_code == 200
+    base = r.json()["bazi"]["base"]["chart"]
+    assert {"bazi.month_main_god", "bazi.hour_stem_group", "bazi.ma_in_chart"} <= set(base)
+
+
 def test_api_integration_when_wired():
     import inspect
     from fastapi.testclient import TestClient
     from tvbt import api
-    if "zz=True" not in inspect.getsource(api):
-        pytest.skip("api.py does not yet pass zz=True: the 49 rules stay pending in the API (integration point: the two facts.bazi_facts(bz) call sites)")
+    if "facts.bazi_facts(bz, zz=True)" not in inspect.getsource(api.reasoning):
+        pytest.skip("/api/reasoning does not yet pass zz=True: the 49 rules stay pending there (only /api/facts, the prose pipeline's input, has them)")
     r = TestClient(api.app).post("/api/reasoning", json={"year": 1990, "month": 5, "day": 17, "hour": 8, "minute": 0, "tz": "Asia/Ho_Chi_Minh", "gender": "male"})
     assert r.status_code == 200 and r.json()["pack_problems"] == []
     claims = {f["claim"] for f in r.json()["systems"]["bat_tu"]["findings"]}

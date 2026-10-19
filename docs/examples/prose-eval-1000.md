@@ -1,20 +1,21 @@
 # Đánh giá văn đọc chương menh trên 1000 lá số
 
-Sinh bởi `tools/interpret/eval_prose.ts --chapter menh` (prose prose-0.2.0, knowledge `71a99fbcd138009d`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
+Sinh bởi `tools/interpret/eval_prose.ts --chapter menh` (prose prose-0.2.0, knowledge `4db446cf1b5653fc`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
 
 | Chỉ số | Giá trị | Ngưỡng (plan §6) |
 |---|---|---|
 | Chương không lỗi chặn | 1000/1000 | 100% |
 | Lỗi chặn theo loại | {} | 0 |
 | Chương rỗng | 0 | 0 |
-| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 | 85.7% | ≥ 95% |
+| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 (mọi lá số, kể cả chương trống) | 95.9% | ≥ 95% |
+| Như trên, chỉ tính chương có từ 3 câu (1000 lá số) | 95.9% | ≥ 95% |
 | 4-gram lặp trong một chương (TB / max) | 0.004 / 0.025 | < 0.05 |
 | Opener phổ biến nhất (mọi câu) | “lá số” 3.7% | ≤ 8% |
 | Opener phổ biến nhất (câu đầu chương) | “lá số” 23.4% | (theo dõi) |
 | Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.068 | ≤ 0.35 |
 | Entropy phân bố schema | 1.924 / log(12) = 2.485 | ≥ 0.7 × log(số schema dùng được) |
 | Câu/đoạn mở dùng > 15% số chương | 0 | 0 |
-| Thời gian sinh một chương (TB / p95, Node) | 65.2 ms / 68.13 ms | p95 < 30 ms |
+| Thời gian sinh một chương (TB / p95, Node) | 75.17 ms / 78.31 ms | p95 < 30 ms |
 
 Schema: S_DOUBLE_EDGE 240, S_TIMING_ARC 212, S_TIMING_FIRST 181, S_EDGE_LATE_ELABORATE 151, S_TURN_THEN_TENSION 85, S_VCD_BORROW 62, S_LIMIT_CORE 37, S_TENSION_BRIDGE 12, S_QUIET_STRENGTH 9, S_SATELLITE_WEAVE 8, S_CONFLICT_FIRST 2, S_TURN_RESCUE 1
 
@@ -88,7 +89,7 @@ Những yếu tố của năm, tháng, giờ sinh vừa nâng vừa kìm, nên �
 
 ### {"year":2019,"month":10,"day":10,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_SATELLITE_WEAVE
 
-Lá số có Thiên Tướng đóng Mệnh tại Sửu cho thấy một người thường rộng lượng, dễ cảm thông với người khó khăn. Bên cạnh đó, họ thường có một đời sống suy nghĩ khá phong phú, ưa tìm cho ra lẽ, lại biết tận hưởng cuộc sống. Lòng tốt của người mang tổ hợp này không ồn ào, nhưng người gần đều cảm nhận được. Xét theo thời gian, đương số thường sớm có công danh. Bởi vậy, điều đáng quý ở lá số này không chỉ là sự tử tế với người khác mà còn là sự sắc sảo trong cách nhìn vấn đề.
+Lá số có Thiên Tướng đóng Mệnh tại Sửu cho thấy một người thường rộng lượng, dễ cảm thông với người khó khăn; bên cạnh đó, họ thường có một đời sống suy nghĩ khá phong phú, ưa tìm cho ra lẽ, lại biết tận hưởng cuộc sống. Lòng tốt của người mang tổ hợp này không ồn ào, nhưng người gần đều cảm nhận được. Xét theo thời gian, đương số thường sớm có công danh. Bởi vậy, điều đáng quý ở lá số này không chỉ là sự tử tế với người khác mà còn là sự sắc sảo trong cách nhìn vấn đề.
 
 Đi cùng nét này, người này thường mạnh mẽ trong quyết định, ít khi do dự.
 
@@ -112,7 +113,7 @@ Năm, tháng, giờ sinh không cùng một chiều: có điểm nâng, có đi�
 
 ### {"year":1979,"month":5,"day":20,"hour":2,"minute":0,"gender":"male","to_year":2026} · S_TIMING_ARC
 
-Với Liêm Trinh và Thiên Phủ đồng cung ở Mệnh tại Thìn, người mang lá số này thường sống thanh đạm, ít đòi hỏi; về nhịp đời, chủ nhân lá số thường sớm có công danh. Song họ cũng dễ trượt sang đa nghi, khó tin trọn vẹn vào người khác, và cũng dễ cố chấp, khó nhường nhịn. Hơn nữa, người mang tổ hợp này thường thẳng thắn, sống đứng đắn, lại sống tình nghĩa, thương người.
+Với Liêm Trinh và Thiên Phủ đồng cung ở Mệnh tại Thìn, người mang lá số này thường sống thanh đạm, ít đòi hỏi; về nhịp đời, chủ nhân lá số thường sớm có công danh. Song họ cũng dễ trượt sang đa nghi, khó tin trọn vẹn vào người khác, và cũng dễ cố chấp, khó nhường nhịn; hơn nữa, người mang tổ hợp này thường thẳng thắn, sống đứng đắn, lại sống tình nghĩa, thương người.
 
 Điều chủ nhân lá số tìm kiếm thường là sự yên ổn trong lòng hơn là thành tích bên ngoài. Cùng một mạch ấy, người này thường mềm dẻo, thích nghi nhanh, trong khi cũng dễ nóng nảy, phản ứng nhanh hơn suy nghĩ.
 

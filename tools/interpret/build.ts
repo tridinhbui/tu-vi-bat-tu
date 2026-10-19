@@ -14,7 +14,7 @@ const read = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 
 const loader = readFileSync(join(ROOT, 'engine', 'tvbt', 'knowledge', 'loader.py'), 'utf8');
 const packs: string[] = JSON.parse(loader.match(/^PACKS = (\[.*\])$/m)![1].replace(/'/g, '"'));
-const CITE = /\[((?:TH|KL|TT|TL)[^\]]*?)\]/g;
+const CITE = /\[((?:TH|KL|TT|TL|NL)[^\]]*?)\]/g;
 const PARA = /paraphrased\)?[^:]{0,80}?:\s*(.+)$/;
 // 八字真宗 (Bát Tự Chân Tông) rules give their place as "[PDF p.25 …]" or "[八字真宗 PDF pp.31-32 …]": PDF page numbers of the circulated scan
 const ZZ_CITE = /\[(?:八字真宗 )?PDF (pp?\.\s?[\d]+(?:[-–][\d]+)?)/g;
@@ -88,7 +88,8 @@ const knowledge = {
     const cards = readdirSync(P).filter(f => /^concepts_.*\.json$/.test(f)).sort().flatMap(f => read(join(P, f)).cards);
     const { anchor, anchor_palace, via, dignity, subject, other } = read(join(P, 'frames.json'));
     return { version: '0.1.0', concepts: cards, frames: { anchor, anchor_palace, via, dignity, subject, other }, modifiers: read(join(P, 'modifiers.json')).modifiers,
-      schemas: read(join(P, 'schemas.json')).schemas, connectives: read(join(P, 'connectives.json')).connectives };
+      schemas: read(join(P, 'schemas.json')).schemas, connectives: read(join(P, 'connectives.json')).connectives,
+      vanhan: (({ note: _n, ...v }) => v)(read(join(P, 'van_han.json'))), bazi: (({ note: _n, ...v }) => v)(read(join(P, 'bat_tu.json'))) };
   })(),
 };
 const version = createHash('sha256').update(JSON.stringify(knowledge)).digest('hex').slice(0, 16);

@@ -1,0 +1,40 @@
+{
+ "note": "Bát Tự reader prose (prose plan P7). Only verified Bát Tự rules that fired are voiced (today all from 八字真宗, cited ZZ p.N): the day master's character (pp.25-26), the day pillar's nạp âm (pp.31-32), and the manual's direct judgements (pp.50-74). Strength (vượng/nhược), useful god (dụng thần) and structure (cách cục) are not voiced: no verified rule speaks of them. Each rule's book paraphrase is split into its effect and its cause; frames add no claim. {S} = the person. Draft until reviewed.",
+ "status": "draft",
+ "dm_first": [
+  "Người có nhật chủ {dm} (hành {el}) thường {core}.",
+  "Với nhật chủ {dm} thuộc hành {el}, {S} thường {core}.",
+  "Sinh ngày {day}, nhật chủ là {dm} hành {el}: {S} thường {core}."
+ ],
+ "dm_next": [
+  "Nhìn từ phía khác, {S} cũng {core}.",
+  "Bên cạnh đó, {S} còn {core}.",
+  "Song song với những nét ấy, {S} cũng {core}."
+ ],
+ "napam": [
+  "Trụ ngày mang nạp âm {napam}, thêm vào chân dung ấy nét {core}.",
+  "Nạp âm của trụ ngày là {napam}, nên {S} cũng {core}.",
+  "Theo nạp âm {napam} của trụ ngày, {S} còn {core}."
+ ],
+ "skip": ["BT_ZZ_DIRECT_W_NO_STAR"],
+ "topics": {
+  "marriage": {"label": "hôn nhân", "rules": ["BT_ZZ_DIRECT_M_", "BT_ZZ_DIRECT_D_"]},
+  "wealth": {"label": "tiền bạc", "rules": ["BT_ZZ_DIRECT_W_"]},
+  "study": {"label": "học hành", "rules": ["BT_ZZ_DIRECT_E_", "BT_ZZ_DIRECT_WEN_CHANG"]},
+  "work": {"label": "nghề nghiệp", "rules": ["BT_ZZ_DIRECT_HOUR_GROUP_", "BT_ZZ_DIRECT_O_", "BT_ZZ_DIRECT_YIN_SHEN"]},
+  "kin": {"label": "anh em", "rules": ["BT_ZZ_DIRECT_SIB_"]},
+  "blade": {"label": "dương nhẫn", "rules": ["BT_ZZ_DIRECT_REN_"]},
+  "horse": {"label": "dịch mã", "rules": ["BT_ZZ_DIRECT_MA_"]}
+ },
+ "topic_order": ["work", "wealth", "study", "marriage", "kin", "blade", "horse"],
+ "direct": [
+  "Về {topic}, {cause}, nên {effect}.",
+  "Ở phương diện {topic}, vì {cause}, {effect}.",
+  "Chuyện {topic} cũng có dấu hiệu riêng: {cause}, nên {effect}.",
+  "Xét đến {topic}, {cause} cho thấy {effect}."
+ ],
+ "direct_same": [
+  "Cũng về {topic}, {cause}, nên {effect}.",
+  "Thêm nữa, {cause}, nên {effect}."
+ ]
+}

@@ -52,12 +52,17 @@ def both(state, pals):
 rules, claims = [], {}
 
 
-def rule(rid, palace, cond, claim, vi, page, effect="support", status="verified", note=""):
-    rules.append({"id": f"TV_TL_{rid}", "system": "tu_vi", "schoolId": "thien_luong", "category": "tl_palace",
-                  "description": f"Thiên Lương, Tử Vi Nghiệm Lý Toàn Thư (bản gõ 2007), paraphrased, cung {palace}: {vi} [TL p.{page}]{('; ' + note) if note else ''}",
+SRC_NL = "SRC_TVNL_1974"
+NL_BOOK = "Thiên Lương, Tử Vi Nghiệm Lý (1974, tái bản lần thứ nhất), bản scan Tủ sách HELEN, số trang theo chân trang HELEN"
+
+
+def rule(rid, palace, cond, claim, vi, page, effect="support", status="verified", note="", nl=False):
+    book, code, src = (NL_BOOK, "NL", SRC_NL) if nl else ("Thiên Lương, Tử Vi Nghiệm Lý Toàn Thư (bản gõ 2007)", "TL", SRC)
+    rules.append({"id": f"TV_{code}_{rid}" if nl else f"TV_TL_{rid}", "system": "tu_vi", "schoolId": "thien_luong", "category": "tl_palace",
+                  "description": f"{book}, paraphrased, cung {palace}: {vi} [{code} p.{page}]{('; ' + note) if note else ''}",
                   "conditions": {"all": [name(palace), cond]},
                   "consequences": [{"kind": "finding", "claim": claim, "effect": effect, "scope": "natal"}],
-                  "exceptions": [], "conflictsWith": [], "priority": 3, "sourceIds": [SRC], "reviewStatus": status, "version": "0.1.0", "subject": "palace"})
+                  "exceptions": [], "conflictsWith": [], "priority": 3, "sourceIds": [src], "reviewStatus": status, "version": "0.1.0", "subject": "palace"})
     claims[claim] = ("hạn chế: " if effect == "limit" else "khuynh hướng ") + vi
 
 
@@ -120,6 +125,15 @@ rule("PHU_THE_VO_HIEN", "Phu Thê", {"all": [{"fact": "chart.gender", "value": "
 rule("NO_BOC_SPT_DAC_MENH_A", "Nô Bộc", {"all": [fact("palace.own_major_stars", "contains_any", ["Thất Sát", "Phá Quân", "Tham Lang"]), bright(), group_is(A, "Mệnh"), bright("Mệnh")]},
      "tl_no_spt_dac_trung_thanh", "người dưới được việc, không làm xằng phản bội (Nô Bộc có Sát Phá Tham đắc địa, Mệnh Cơ Nguyệt Đồng Lương Cự Nhật đắc địa)", "130", note=STATE)
 
+# ---- Tử Vi Nghiệm Lý (1974), the case essays: two money readings stated as general principles (HELEN pp.67, 83-84, 86) ----
+rule("TAI_BACH_KY_LOC_TON", "Tài Bạch", {"all": [{"fact": "chart.year_stem", "value": "Kỷ"}, fact("palace.own_stars", "contains", "Lộc Tồn")]},
+     "nl_tb_ky_loc_ton", "có Lộc Tồn mà khó được thụ hưởng: với tuổi Kỷ, sách kể như không có Lộc Tồn (tuổi Kỷ, Lộc Tồn ở Tài Bạch)", "67, 86", "limit", nl=True,
+     note="sách nói chung cho tuổi Kỷ; hệ thống chỉ áp khi Lộc Tồn ở Tài Bạch; khác cách đọc phổ thông")
+rule("TAI_BACH_PHU_PHUNG_KHONG", "Tài Bạch", {"all": [fact("palace.own_major_stars", "contains", "Thiên Phủ"),
+     {"any": [fact("palace.tuan", "eq", True), fact("palace.triet", "eq", True), fact("palace.own_stars", "contains_any", ["Địa Không", "Thiên Không"])]}]},
+     "nl_tb_phu_phung_khong", "tiền bạc túng thiếu: Thiên Phủ gặp Không thì kho bị phá (Thiên Phủ ở Tài Bạch gặp Tuần, Triệt, Địa Không hoặc Thiên Không)", "83-84", "limit", nl=True,
+     note="lá số mẫu của sách có Thiên Phủ ở Quan Lộc dưới Tuần; hệ thống áp nguyên lý 'Phủ phùng Không' vào Tài Bạch")
+
 # ---- Mệnh vô chính diệu đắc Tam Không (p.232): Thiên Lương does not accept the classical formula ----
 th = {r["id"]: r for r in json.loads((D / "pack_thuc_hanh_cach.json").read_text("utf-8"))["rules"]}
 vcd = th["TV_TH_CACH_MENH_VCD_TAM_KHONG"]["conditions"]
@@ -132,7 +146,11 @@ claims["tl_menh_vcd_tam_khong_bac_bo"] = "hạn chế: không thể phú quý ch
 json.dump({"sources": [{"id": SRC, "title": "Tử Vi Nghiệm Lý Toàn Thư", "author": "Thiên Lương",
                         "edition": "Bản gõ của hội viên diễn đàn Tử Vi Lý Số (2007), online.fliphtml5.com/dqkgf/htsb (NXB Thời Đại); trang in ghi trong văn bản. Bản scan trích 21 trang đầu: tuviglobal.com",
                         "locator": "pp.124-132, 232", "verified": True,
-                        "note": "Học phái Thiên Lương (schoolId thien_luong). Trích dẫn theo trang in mà bản gõ ghi lại; phần này nằm ngoài bản scan nên chưa đối chiếu với ảnh trang."}],
+                        "note": "Học phái Thiên Lương (schoolId thien_luong). Trích dẫn theo trang in mà bản gõ ghi lại; phần này nằm ngoài bản scan nên chưa đối chiếu với ảnh trang."},
+                       {"id": SRC_NL, "title": "Tử Vi Nghiệm Lý", "author": "Thiên Lương",
+                        "edition": "Tái bản lần thứ nhất, Sài Gòn 1974 (giấy phép 6028/74); bản scan Tủ sách HELEN, phần 02 (TVnghiemly-LyMenhHoc-02.pdf, 80 trang)",
+                        "locator": "HELEN pp.38-114 (lá số danh nhân)", "verified": True,
+                        "note": "Số trang theo chân trang HELEN (= trang PDF + 35); trang của sách gốc chỉ có ở mục lục. Phần lý thuyết (phần 01) không có trong bản này."}],
            "rules": rules}, open(D / "pack_thien_luong.json", "w"), ensure_ascii=False, indent=1)
 cur = json.loads((D / "claims_vi.json").read_text("utf-8")); cur.update(claims)
 json.dump(cur, open(D / "claims_vi.json", "w"), ensure_ascii=False, indent=1)

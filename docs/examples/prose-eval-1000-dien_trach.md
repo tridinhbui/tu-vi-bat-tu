@@ -1,20 +1,21 @@
 # Đánh giá văn đọc chương dien_trach trên 1000 lá số
 
-Sinh bởi `tools/interpret/eval_prose.ts --chapter dien_trach` (prose prose-0.2.0, knowledge `71a99fbcd138009d`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
+Sinh bởi `tools/interpret/eval_prose.ts --chapter dien_trach` (prose prose-0.2.0, knowledge `4db446cf1b5653fc`). Toàn bộ thẻ văn đang là bản nháp (allowDraft); các chỉ số là kiểm tra tự động, chưa phải chấm của người đọc hay chuyên gia.
 
 | Chỉ số | Giá trị | Ngưỡng (plan §6) |
 |---|---|---|
 | Chương không lỗi chặn | 1000/1000 | 100% |
 | Lỗi chặn theo loại | {} | 0 |
 | Chương rỗng | 171 | 0 |
-| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 | 50.2% | ≥ 95% |
+| Độ dài câu TB 18–35 chữ và độ lệch ≥ 6 (mọi lá số, kể cả chương trống) | 67.8% | ≥ 95% |
+| Như trên, chỉ tính chương có từ 3 câu (517 lá số) | 87.4% | ≥ 95% |
 | 4-gram lặp trong một chương (TB / max) | 0.001 / 0.027 | < 0.05 |
-| Opener phổ biến nhất (mọi câu) | “nền tảng” 4.7% | ≤ 8% |
+| Opener phổ biến nhất (mọi câu) | “nền tảng” 4.9% | ≤ 8% |
 | Opener phổ biến nhất (câu đầu chương) | “” 17.1% | (theo dõi) |
 | Jaccard 4-gram đoạn 1, cùng nucleus và cùng chính tinh (trung vị) | 0.076 | ≤ 0.35 |
 | Entropy phân bố schema | 1.804 / log(12) = 2.485 | ≥ 0.7 × log(số schema dùng được) |
 | Câu/đoạn mở dùng > 15% số chương | 0 | 0 |
-| Thời gian sinh một chương (TB / p95, Node) | 65.97 ms / 68.73 ms | p95 < 30 ms |
+| Thời gian sinh một chương (TB / p95, Node) | 73.09 ms / 75.9 ms | p95 < 30 ms |
 
 Schema: S_QUIET_STRENGTH 365, S_PLAIN 171, S_SATELLITE_WEAVE 136, S_DOUBLE_EDGE 123, S_EDGE_LATE_ELABORATE 87, S_VCD_BORROW 70, S_TIMING_ARC 28, S_LIMIT_CORE 8, S_TENSION_CORE 6, S_TIMING_FIRST 3, S_TENSION_BRIDGE 2, S_TURN_THEN_TENSION 1
 
@@ -24,7 +25,7 @@ Schema: S_QUIET_STRENGTH 365, S_PLAIN 171, S_SATELLITE_WEAVE 136, S_DOUBLE_EDGE 
 
 ### {"year":2016,"month":10,"day":17,"hour":11,"minute":0,"gender":"female","to_year":2026} · S_SATELLITE_WEAVE
 
-Có Thiên Phủ tọa thủ cung Điền Trạch ở Mùi, đương số thường tạo dựng được tài sản lớn. Bên cạnh đó, người này thường có tài lộc thuận lợi. Nền tảng vật chất của đương số là chỗ dựa lâu dài. Rốt lại, cái vốn quý nhất của người này nằm ở chốn an cư, đi cùng đường tài lộc.
+Có Thiên Phủ tọa thủ cung Điền Trạch ở Mùi, đương số thường tạo dựng được tài sản lớn; bên cạnh đó, người này thường có tài lộc thuận lợi. Nền tảng vật chất của đương số là chỗ dựa lâu dài. Rốt lại, cái vốn quý nhất của người này nằm ở chốn an cư, đi cùng đường tài lộc.
 
 ### {"year":1943,"month":2,"day":24,"hour":20,"minute":30,"gender":"female","to_year":2026} · S_PLAIN
 
@@ -36,7 +37,7 @@ Có Thiên Phủ tọa thủ cung Điền Trạch ở Mùi, đương số thư�
 
 ### {"year":2013,"month":11,"day":22,"hour":21,"minute":30,"gender":"male","to_year":2026} · S_SATELLITE_WEAVE
 
-Xét cung Điền Trạch tại Mão, nơi Thái Dương và Thiên Lương đồng cung, đương số thường được hưởng nền tảng vật chất tốt. Đi cùng nét này, chủ nhân lá số thường hưởng được phần di sản của gia đình. Nền tảng vật chất của đương số là chỗ dựa lâu dài. Xét cho cùng, chỗ mạnh của lá số nằm ở chốn an cư, rồi đến tổ nghiệp.
+Xét cung Điền Trạch tại Mão, nơi Thái Dương và Thiên Lương đồng cung, đương số thường được hưởng nền tảng vật chất tốt; đi cùng nét này, chủ nhân lá số thường hưởng được phần di sản của gia đình. Nền tảng vật chất của đương số là chỗ dựa lâu dài. Xét cho cùng, chỗ mạnh của lá số nằm ở chốn an cư, rồi đến tổ nghiệp.
 
 ### {"year":1996,"month":10,"day":14,"hour":13,"minute":15,"gender":"male","to_year":2026} · S_DOUBLE_EDGE
 
@@ -58,7 +59,7 @@ Song song với điều ấy, người này thường có nhà của riêng nh�
 
 ### {"year":2019,"month":10,"day":10,"hour":18,"minute":0,"gender":"male","to_year":2026} · S_SATELLITE_WEAVE
 
-Với Thái Dương ở cung Điền Trạch tại Thìn, đương số thường hưởng được phần di sản của gia đình. Ngoài ra, họ thường có nguồn thu rộng mở. Người mang tổ hợp này có điểm tựa vật chất từ gia đình. Rốt lại, cái vốn quý nhất của người này nằm ở điểm tựa từ đời trước, đi cùng đường tài lộc.
+Với Thái Dương ở cung Điền Trạch tại Thìn, đương số thường hưởng được phần di sản của gia đình; ngoài ra, người mang tổ hợp này thường có nguồn thu rộng mở. Chủ nhân lá số có điểm tựa vật chất từ gia đình. Rốt lại, cái vốn quý nhất của người này nằm ở điểm tựa từ đời trước, đi cùng đường tài lộc.
 
 ### {"year":2017,"month":10,"day":19,"hour":21,"minute":30,"gender":"female","to_year":2026} · S_VCD_BORROW
 
