@@ -38,7 +38,9 @@ export class Micro {
 
   /** The next anaphor for the person (or, given a list, for the other people a chapter speaks of), never one of the last two. */
   subject(list?: string[]): string {
-    const xs = (list ?? this.frames.subject.next).filter(x => !this.lastSubj.includes(x));
+    const all = list ?? this.frames.subject.next;
+    // never one of the last two; with a two-item list that leaves at least the one not used just now
+    const xs = all.filter(x => !this.lastSubj.includes(x)).length ? all.filter(x => !this.lastSubj.includes(x)) : all.filter(x => x !== this.lastSubj[0]);
     const s = xs[fnv(`${this.seed}|subj|${this.openers.length}`) % xs.length];
     this.lastSubj = [s, ...this.lastSubj].slice(0, 2);
     return s;

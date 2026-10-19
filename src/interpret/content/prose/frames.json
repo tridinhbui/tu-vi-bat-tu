@@ -79,35 +79,41 @@
  "anchor_palace": {
   "single": [
    "Với {stars} ở cung {palace} tại {branch}, {S}",
-   "Cung {palace} có {stars} đóng tại {branch} cho thấy {S}",
+   "Ở cung {palace}, {stars} đóng tại {branch} cho thấy {S}",
    "Khi {stars} làm chủ cung {palace} ở {branch}, {S}",
    "Xét cung {palace} tại {branch}, nơi {stars} tọa thủ, {S}",
    "Nhìn vào {stars} ở cung {palace} tại {branch}, có thể thấy {S}",
-   "Có {stars} tọa thủ cung {palace} ở {branch}, {S}"
+   "Có {stars} tọa thủ cung {palace} ở {branch}, {S}",
+   "Về cung {palace}, nơi {stars} đóng tại {branch}, {S}",
+   "Đến cung {palace} tại {branch}, với {stars} tọa thủ, {S}",
+   "Riêng ở cung {palace}, {stars} đóng tại {branch} báo hiệu rằng {S}"
   ],
   "pair": [
    "Với {stars} cùng ở cung {palace} tại {branch}, {S}",
-   "Cung {palace} có bộ {stars} đóng tại {branch} cho thấy {S}",
+   "Trong cung {palace}, bộ {stars} đóng tại {branch} cho thấy {S}",
    "Khi {stars} cùng làm chủ cung {palace} ở {branch}, {S}",
    "Với {stars} đồng cung {palace} tại {branch}, {S}",
    "Xét cung {palace} tại {branch}, nơi {stars} đồng cung, {S}",
    "Nhìn vào bộ {stars} ở cung {palace} tại {branch}, có thể thấy {S}",
-   "Có {stars} cùng tọa thủ cung {palace} ở {branch}, {S}"
+   "Có {stars} cùng tọa thủ cung {palace} ở {branch}, {S}",
+   "Về cung {palace}, nơi {stars} đồng cung tại {branch}, {S}",
+   "Đến cung {palace} tại {branch}, với {stars} cùng tọa thủ, {S}",
+   "Riêng ở cung {palace}, bộ {stars} tại {branch} báo hiệu rằng {S}"
   ],
   "vcd": [
-   "Cung {palace} tại {branch} không có chính tinh, nên được đọc qua {opp_stars} từ cung đối diện; {S}",
+   "Tại {branch}, cung {palace} không có chính tinh, nên được đọc qua {opp_stars} từ cung đối diện; {S}",
    "Cung {palace} ở {branch} vô chính diệu, mượn {opp_stars} ở cung xung chiếu để luận; {S}",
    "Với cung {palace} vô chính diệu ở {branch}, nền của nó được soi qua {opp_stars}; {S}",
    "Không có chính tinh, cung {palace} ở {branch} mượn {opp_stars} từ phía đối diện; {S}",
    "Vì cung {palace} tại {branch} vô chính diệu, phải soi qua {opp_stars} ở cung xung chiếu; {S}"
   ],
   "vcd_own": [
-   "Cung {palace} tại {branch} không có chính tinh; với {own} đóng ở đây, {S}",
+   "Tại {branch}, cung {palace} không có chính tinh; với {own} đóng ở đây, {S}",
    "Cung {palace} ở {branch} vô chính diệu, nét chính do {own} tọa thủ mang lại; {S}",
    "Không có chính tinh, cung {palace} tại {branch} được đọc qua {own} đóng tại đó; {S}"
   ],
   "vcd_plain": [
-   "Cung {palace} tại {branch} không có chính tinh; {S}",
+   "Tại {branch}, cung {palace} không có chính tinh; {S}",
    "Cung {palace} ở {branch} vô chính diệu; {S}",
    "Với cung {palace} vô chính diệu ở {branch}, {S}"
   ]
@@ -117,7 +123,7 @@
   "Cung {from} cũng góp một nét vào chuyện này: {S}",
   "Từ phía cung {from}, {S}",
   "Một nét khác đến từ cung {from}: {S}",
-  "Soi sang cung {from}, có thể thấy {S}",
+  "Soi sang cung {from}, lại thấy {S}",
   "Ở cung {from}, điều này cũng hiện ra: {S}"
  ],
  "other": {
@@ -128,7 +134,8 @@
    ],
    "next": [
     "người ấy",
-    "người bạn đời"
+    "người bạn đời",
+    "người phối ngẫu"
    ]
   },
   "Nô Bộc": {
@@ -138,7 +145,41 @@
    ],
    "next": [
     "họ",
-    "những người ấy"
+    "những người ấy",
+    "những người cộng sự"
+   ]
+  },
+  "Tử Tức": {
+   "first": [
+    "con cái",
+    "các con"
+   ],
+   "next": [
+    "các con",
+    "những người con",
+    "con cái"
+   ]
+  },
+  "Huynh Đệ": {
+   "first": [
+    "anh chị em",
+    "anh em trong nhà"
+   ],
+   "next": [
+    "anh em",
+    "những người anh em",
+    "anh chị em"
+   ]
+  },
+  "Phụ Mẫu": {
+   "first": [
+    "cha mẹ",
+    "song thân"
+   ],
+   "next": [
+    "cha mẹ",
+    "hai người",
+    "song thân"
    ]
   }
  }

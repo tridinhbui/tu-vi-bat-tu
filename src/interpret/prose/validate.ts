@@ -9,17 +9,24 @@ export interface ProseMetrics { words: number; sentences: number; meanSentenceWo
 export function validateProse(paras: ProseParagraph[], resolved: Resolved[]): { issues: ProseIssue[]; metrics: ProseMetrics } {
   const issues: ProseIssue[] = [];
   const status = new Map(resolved.map(r => [`${r.ruleId}|${r.concept}`, r.status]));
+  const keysSaid = new Map<string, string>();
   paras.forEach((p, pi) => {
     const saidHere = new Set<string>();
     p.sentences.forEach((s, si) => {
       const where = `p${pi + 1}s${si + 1}`, low = ' ' + s.text.toLowerCase();
       for (const w of META) if (low.includes(' ' + w)) issues.push({ level: 'error', code: 'meta_language', where, msg: `"${w.trim()}" in: ${s.text}` });
       for (const w of ABSOLUTE) if (low.includes(w)) issues.push({ level: 'error', code: 'absolute', where, msg: `"${w}" in: ${s.text}` });
-      if (/\{[a-zA-Z0-9_.]+\}/.test(s.text)) issues.push({ level: 'error', code: 'unfilled_slot', where, msg: s.text });
+      if (/\{[a-zA-Z0-9_.]+\}|\bundefined\b|\bnull\b|NaN/.test(s.text)) issues.push({ level: 'error', code: 'unfilled_slot', where, msg: s.text });
       const t = s.trace;
       if (t.basis === 'sach' && !t.rules.length) issues.push({ level: 'error', code: 'uncited_factual_sentence', where, msg: s.text });
       if (t.basis === 'he_thong' && t.concepts.some(c => !saidHere.has(c))) issues.push({ level: 'error', code: 'editorial_new_claim', where, msg: `${t.concepts.filter(c => !saidHere.has(c)).join(', ')} not said before: ${s.text}` });
       for (const c of t.concepts) for (const r of t.rules) if (status.get(`${r}|${c}`) === 'voided') issues.push({ level: 'error', code: 'voided_asserted', where, msg: `${r} ${c}` });
+      if (t.basis === 'sach' && t.move !== 'ELABORATE') for (const k of t.keys ?? []) {
+        // closing lines (he_thong) and the elaboration of the core re-voice on purpose; no other two sentences may voice the same reading
+        const prev = keysSaid.get(k);
+        if (prev) issues.push({ level: 'error', code: 'duplicated_reading', where, msg: `${k} already in ${prev}: ${s.text}` });
+        else keysSaid.set(k, where);
+      }
       t.concepts.forEach(c => saidHere.add(c));
     });
   });

@@ -117,6 +117,58 @@
    "kind": "style",
    "np": "cơ nghiệp tự tay gây dựng",
    "short": "nhà cửa tự lập"
+  },
+  {
+   "id": "kin.many",
+   "facet": "relationships.kin",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "kin.few",
+   "np": "đông con cháu, anh em",
+   "short": "sự đông đủ"
+  },
+  {
+   "id": "kin.few",
+   "facet": "relationships.kin",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "kin.many",
+   "np": "sự hiếm hoi con cái, anh em",
+   "short": "sự hiếm hoi"
+  },
+  {
+   "id": "kin.harmony",
+   "facet": "relationships.kin",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "kin.strain",
+   "np": "sự hòa thuận trong nhà",
+   "short": "tình thân êm ấm"
+  },
+  {
+   "id": "kin.strain",
+   "facet": "relationships.kin",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "kin.harmony",
+   "np": "sự bất hòa, xung khắc trong nhà",
+   "short": "sự xung khắc"
+  },
+  {
+   "id": "kin.apart",
+   "facet": "relationships.kin",
+   "pol": "~",
+   "kind": "outcome",
+   "np": "sự sớm xa cách người thân",
+   "short": "sự xa cách"
+  },
+  {
+   "id": "kin.late",
+   "facet": "relationships.kin",
+   "pol": "~",
+   "kind": "timing",
+   "np": "con cái đến muộn",
+   "short": "con muộn"
   }
  ]
 }
