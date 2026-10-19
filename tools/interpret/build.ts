@@ -3,7 +3,7 @@
 // Inputs (never edited here): engine/data rule packs (the list in engine/tvbt/knowledge/loader.py), sources.json, claims_vi.json,
 // star_profiles.json, data/semantic/*.json, and the editorial content modules in src/interpret/content/*.json.
 // The same knowledge feeds the bundled store (Worker without D1) and the D1 seed, so both stores answer identically.
-import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -73,11 +73,15 @@ const knowledge = {
   reference,
   sources: [...sources.values()].map(s => ({ id: s.id, title: s.title, author: s.author ?? null, locator: s.locator ?? null, verified: !!s.verified })),
   rules, claims,
-  concepts: sem('concepts.json'), relations: sem('relations.json'), ontology: sem('ontology.json'),
+  // the cue lexicon plus the KG-only concepts (linked by id, no cues): engine/data/kg/concepts.json
+  concepts: (() => { const c = sem('concepts.json'); return { ...c, concepts: [...c.concepts, ...read(join(DATA, 'kg', 'concepts.json')).concepts.map((x: any) => ({ ...x, cues: [] }))] }; })(),
+  relations: sem('relations.json'), ontology: sem('ontology.json'),
   starProfiles: read(join(DATA, 'star_profiles.json')),
   modules,
   // knowledge graph (prose plan §2): page-checked qualifiers now; rule→concept links and rule relations join here in P1
-  kg: { qualifiers: read(join(DATA, 'kg', 'qualifiers.json')).qualifiers },
+  kg: { qualifiers: read(join(DATA, 'kg', 'qualifiers.json')).qualifiers,
+        ruleConcepts: existsSync(join(DATA, 'kg', 'rule_concepts.json')) ? read(join(DATA, 'kg', 'rule_concepts.json')).entries : {},
+        relations: existsSync(join(DATA, 'kg', 'relations.json')) ? read(join(DATA, 'kg', 'relations.json')).relations : [] },
 };
 const version = createHash('sha256').update(JSON.stringify(knowledge)).digest('hex').slice(0, 16);
 const out = { version, builtFrom: packs, ...knowledge };

@@ -1,0 +1,26 @@
+{
+ "version": "0.1.0",
+ "note": "Rule-to-rule relations the BOOK states (basis 'sach'): the later sentence names the earlier reading's condition and turns it ('nhưng … thì vẫn khá', 'đây là điều kiện hạn chế của nhận định trên', 'như Tướng hãm địa'). Drafted by Claude 2026-10-18 from the rule paraphrases; each still needs a reviewer to check the page. Types: rescues (the reading of `to` does not hold in full: soften), qualifies (weakens `to`), overrides (`to` is replaced). A relation applies only when BOTH rules fired on the chart.",
+ "relations": [
+  {"id": "REL_TH88_CU_TUAT_TAN_LOC", "type": "rescues", "from": "TV_TH_MV_MENH_CU_THIN_TUAT_LOC", "to": ["TV_TH_STAR_CU_MON_NAM_HAM_SAT", "TV_TH_STAR_CU_MON_NU_HAM"], "effect": "soften", "basis": "sach", "cite": "TH p.88",
+   "note": "Sách: Cự Môn hãm ở Thìn/Tuất mà hóa Lộc (tuổi Tân) thì vẫn khá; làm mềm các câu kết cục của Cự hãm. Câu tính khí của Cự hãm (TH p.43) không bị chạm: sách chỉ nói về kết cục."},
+  {"id": "REL_KL66_HOA_LOC_TU_MO", "type": "qualifies", "from": "TV_KL_PHU2_HOA_LOC_TU_MO", "to": ["TV_KL_PHU2_HOA_LOC"], "effect": "weaken", "basis": "sach", "cite": "KL p.66",
+   "note": "Sách tự ghi: Hóa Lộc ở Mệnh nhưng đóng Tứ mộ là điều kiện hạn chế của nhận định 'tài lộc thuận lợi'."},
+  {"id": "REL_TH52_HOA_LOC_TU_MO", "type": "qualifies", "from": "TV_TH_AUX_MENH_HL_TU_MO", "to": ["TV_TH_AUX_MENH_HL_MENH"], "effect": "weaken", "basis": "sach", "cite": "TH p.52",
+   "note": "Hóa Lộc ở Tứ mộ thì tài lộc giảm quá nửa. Sách còn nói gặp Tham, Vũ thì lại rực rỡ: chưa dựng thành điều kiện ngoại lệ."},
+  {"id": "REL_TH93_NHAT_HAM_HOI_TAM_HOA", "type": "rescues", "from": "TV_TH_STAR_THAI_DUONG_NAM_HAM_HOI_TAM_HOA", "to": ["TV_TH_STAR_THAI_DUONG_NAM_HAM_SAT"], "effect": "soften", "basis": "sach", "cite": "TH p.93",
+   "note": "Thái Dương hãm ở Hợi được Tam Hóa thì vẫn rực rỡ."},
+  {"id": "REL_KL83_NHAT_HAM_TUAN_TRIET", "type": "rescues", "from": "TV_KL_STAR_MENH_NHAT_HAM_TT", "to": ["TV_TH_STAR_THAI_DUONG_NAM_HAM_SAT", "TV_TH_STAR_THAI_DUONG_NU_HAM"], "effect": "soften", "basis": "sach", "cite": "KL p.83",
+   "note": "Thái Dương hãm gặp Tuần/Triệt thì sáng lại. Câu ở sách khác (Thực Hành) nên đây là liên kết giữa hai sách: chuyên gia cần xác nhận."},
+  {"id": "REL_KL83_NHAT_HAM_CAT", "type": "rescues", "from": "TV_KL_STAR_MENH_NHAT_HAM_CAT", "to": ["TV_TH_STAR_THAI_DUONG_NAM_HAM_SAT", "TV_TH_STAR_THAI_DUONG_NU_HAM"], "effect": "soften", "basis": "sach", "cite": "KL p.83",
+   "note": "Thái Dương hãm gặp nhiều cát tinh vẫn có thể giàu có, danh vọng. Liên kết giữa hai sách: chuyên gia cần xác nhận."},
+  {"id": "REL_TH95_TUONG_TUAN_TRIET_NAM", "type": "overrides", "from": "TV_TH_STAR_THIEN_TUONG_NAM_TUAN_TRIET", "to": ["TV_TH_STAR_THIEN_TUONG_NAM_MV"], "effect": "cancel", "basis": "sach", "cite": "TH p.95",
+   "note": "Thiên Tướng đắc địa gặp Tuần/Triệt án ngữ thì như Tướng hãm địa."},
+  {"id": "REL_TH95_TUONG_TUAN_TRIET_NU", "type": "overrides", "from": "TV_TH_STAR_THIEN_TUONG_NU_TUAN_TRIET", "to": ["TV_TH_STAR_THIEN_TUONG_NU_MV", "TV_TH_STAR_THIEN_TUONG_NU_MV_CAT"], "effect": "cancel", "basis": "sach", "cite": "TH p.95",
+   "note": "Thiên Tướng gặp Tuần/Triệt như Tướng hãm."},
+  {"id": "REL_TH94_PHU_TUAN_TRIET_NAM", "type": "qualifies", "from": "TV_TH_STAR_THIEN_PHU_NAM_TUAN_TRIET", "to": ["TV_TH_STAR_THIEN_PHU_NAM_CAT"], "effect": "weaken", "basis": "sach", "cite": "TH p.94",
+   "note": "Thiên Phủ kỵ nhất gặp Tuần, Triệt hoặc Thiên, Địa Không."},
+  {"id": "REL_TH94_PHU_TUAN_TRIET_NU", "type": "qualifies", "from": "TV_TH_STAR_THIEN_PHU_NU_TUAN_TRIET", "to": ["TV_TH_STAR_THIEN_PHU_NU_CAT"], "effect": "weaken", "basis": "sach", "cite": "TH p.94",
+   "note": "Như trên, nữ mệnh."}
+ ]
+}

@@ -79,3 +79,51 @@ test('qualifiers over the corpus: each one is met on some chart and not met on a
   const lacking = Object.entries(seen).filter(([, s]) => !s.has('met') || !s.has('not_met')).map(([id, s]) => `${id}:${[...s].join('/')}`);
   assert.deepEqual(lacking, []);
 });
+
+// ---- P1: lift (rule → concept) and resolve (declared relations) ----
+import { lift } from '../kg/lift.ts';
+import { resolve } from '../kg/resolve.ts';
+
+test('lift + resolve on the worked example: the book\'s own rescue softens Cự hãm\'s outcome, not its temperament', () => {
+  const b = ex.facts.base;
+  const { assertions, unlinked } = lift(run(K.rules, K.sources, b).findings.filter(f => f.subject === 'palace:Mệnh' || f.subject === 'chart'), K, b);
+  assert.deepEqual(unlinked, []);
+  const { resolved } = resolve(assertions.filter(a => a.subject === 'palace:Mệnh' || a.subject === 'chart'), K);
+  const st = (rule: string, concept: string) => resolved.find(r => r.ruleId === rule && r.concept === concept);
+  assert.equal(st('TV_TH_STAR_CU_MON_NAM_HAM_SAT', 'life.hardship')?.status, 'softened');
+  assert.deepEqual(st('TV_TH_STAR_CU_MON_NAM_HAM_SAT', 'life.hardship')?.by.map(x => [x.relation, x.basis, x.cite]), [['REL_TH88_CU_TUAT_TAN_LOC', 'sach', 'TH p.88']]);
+  assert.equal(st('TV_TH_CU_HAM_GIAN_XAO_DA_NGHI', 'cog.suspicious')?.status, 'holds');
+  assert.equal(st('TV_KL_PHU2_HOA_LOC', 'fin.abundance')?.status, 'weakened');
+  assert.equal(st('TV_TH_AUX_MENH_HL_MENH', 'fin.abundance')?.status, 'weakened');
+  assert.equal(st('TV_TH_MV_MENH_CU_THIN_TUAT_LOC', 'life.mitigated')?.status, 'holds');
+  assert.ok(st('TV_TH_AUX2_MENH_KINH_DAC', 'temper.assertive'), 'Kình đắc địa lifts to quả quyết');
+  assert.ok(st('TV_TH_VERSE_MENH_TRIET_TUAN', 'life.early_hardship'), 'Tuần at Mệnh lifts to a hard start, not a hard life');
+});
+
+test('KG coverage over the corpus: every verified Mệnh/chart finding is linked; additive độ số never forms a tension; book relations fire',
+  { skip: !existsSync(corpusUrl) && 'corpus1000.json.gz not built' }, () => {
+  const corpus = JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8'));
+  const unlinked = new Set<string>(), relFired = new Map<string, number>(), ruleFired = new Set<string>();
+  let tensions = 0, additiveTension = 0, statuses: Record<string, number> = {};
+  const byKey = (rs: ReturnType<typeof resolve>['resolved']) => new Map(rs.map(r => [r.key, r]));
+  for (const c of corpus) {
+    const b = c.facts.base, fs = run(K.rules, K.sources, b).findings.filter(f => f.subject === 'palace:Mệnh' || f.subject === 'chart');
+    const { assertions, unlinked: u } = lift(fs, K, b);
+    u.forEach(id => unlinked.add(id));
+    fs.forEach(f => ruleFired.add(f.ruleId));
+    const { resolved, tensions: ts } = resolve(assertions, K), m = byKey(resolved);
+    for (const r of resolved) { statuses[r.status] = (statuses[r.status] ?? 0) + 1; for (const x of r.by) if (x.basis === 'sach') relFired.set(x.relation, (relFired.get(x.relation) ?? 0) + 1); }
+    tensions += ts.length;
+    additiveTension += ts.filter(t => m.get(t.a)!.additive && m.get(t.b)!.additive).length;
+  }
+  assert.deepEqual([...unlinked], [], 'verified Mệnh/chart rules without a concept link');
+  assert.equal(additiveTension, 0);
+  assert.ok(statuses.softened > 0 && statuses.weakened > 0 && statuses.holds > 0, JSON.stringify(statuses));
+  // every book relation names rules that fire at Mệnh somewhere on the corpus, except one rare configuration (Thái Dương hãm ở Hợi
+  // with all three Hóa, male) that the 1,000 charts do not contain; most relations also co-fire.
+  const sach = K.kg!.relations!.filter(r => r.basis === 'sach');
+  assert.deepEqual(sach.flatMap(r => [r.from, ...r.to].filter(id => !ruleFired.has(id)).map(id => `${r.id}:${id}`)),
+    ['REL_TH93_NHAT_HAM_HOI_TAM_HOA:TV_TH_STAR_THAI_DUONG_NAM_HAM_HOI_TAM_HOA']);
+  assert.ok(sach.filter(r => relFired.has(r.id)).length >= 8, [...relFired.keys()].join(','));
+  assert.ok(tensions > 0, 'opposed readings without a relation remain visible as tensions');
+});
