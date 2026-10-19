@@ -95,9 +95,9 @@ test('1,000 charts: no blocking error, no empty chapter, repetition, diversity a
   assert.ok(e.topOpener[1] <= 0.08, `opener ${e.topOpener}`);
   assert.ok(e.schemaEntropy >= 0.7 * e.schemaMax, `entropy ${e.schemaEntropy}`);
   assert.deepEqual(e.variantOveruse, []);
-  // sentence rhythm: the plan's target is 95 % of chapters (the reference paragraph itself: mean 30.9, sd 7.1); today ≈ 83 %.
-  // Held at a floor so it cannot regress; raising it is library work (longer and shorter variants), tracked in prose-eval-1000.md.
-  assert.ok(e.sentLenOk >= 800, `sentence rhythm ${e.sentLenOk}/1000`);
+  // sentence rhythm: the plan's target is 95 % of chapters (the reference paragraph itself: mean 30.9, sd 7.1); with the rhythm
+  // pass ≈ 87.6 %. Held at a floor so it cannot regress; the rest is library work (shorter elaborations), tracked in prose-eval-1000.md.
+  assert.ok(e.sentLenOk >= 860, `sentence rhythm ${e.sentLenOk}/1000`);
 });
 
 // ---- the shared /api/interpret handler (src/interpret/route.ts): what the Worker and tools/interpret/dev_server.ts both run ----
