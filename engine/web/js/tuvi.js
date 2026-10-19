@@ -105,6 +105,13 @@ export function renderTuvi(host, t, ctx) {
 
   const emptyDrawer = () => `<div class="drawer-empty"><div class="ident-art sm" aria-hidden="true">${compass({ animate: false, detail: 'min' })}</div><h3>Chọn một cung</h3><p class="muted">Nhấn vào một cung để xem sao, Tam Phương Tứ Chính và các nhận định liên quan. Các đường nối cho thấy cung nào đang tương tác với cung nào.</p>${evLegend()}</div>`;
   drawer.innerHTML = emptyDrawer();
+  // the detail drawer, the legend, the reading hint and the scope note live in the right-hand column next to the chat (css/dash.css)
+  const side = document.getElementById('tuvi-side');
+  if (side) {
+    side.querySelectorAll('#tv-drawer,.legend,.tv-hint,.sc').forEach(x => x.remove());
+    side.prepend(drawer);
+    for (const sel of ['.legend', '.tv-hint', '#scope-tv']) { const el = $(sel, host); if (el) side.append(el); }
+  }
 
   function links(i) {
     svg.innerHTML = '';
@@ -134,6 +141,7 @@ export function renderTuvi(host, t, ctx) {
       ${ths ? `<div class="dr-grp"><span class="k">Tứ Hóa tại cung</span><div class="chips">${ths}</div></div>` : ''}
       <h5>Tam Phương Tứ Chính</h5><div class="relps">${rel('Xung chiếu', s.opposite)}${rel('Tam hợp', s.tam_hop[0])}${rel('Tam hợp', s.tam_hop[1])}</div>
       <p class="muted small">Cung giáp: ${s.giap.map(b => `${esc(byBranch[b].name)} (${esc(b)})`).join(' · ')}</p>`;
+    drawer.closest('.dash-side')?.scrollTo(0, 0);
     drawer.innerHTML = `<div class="dr-in">
       <button class="dr-x" type="button" aria-label="Đóng chi tiết cung">×</button>
       <p class="eyebrow">Cung ${esc(p.stem)} ${esc(p.branch)}${p.name === 'Mệnh' ? ' · Mệnh' : ''}${p.is_than ? ' · Thân cư' : ''}</p>

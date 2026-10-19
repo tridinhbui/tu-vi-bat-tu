@@ -1,0 +1,86 @@
+/* One-screen chart layout (desktop). The chart and its instruments fill exactly the viewport under the header, the chart's detail panel and
+   the Tử Tử / Vi Vi (Bát Bát / Tự Tự) chat sit in a right-hand column that scrolls INSIDE its own box, and the written reading (luận giải)
+   is one viewport tall with its table of contents on the left and the text scrolling inside. Below 1100px wide or 600px tall the page keeps
+   its normal flowing layout (the chat then follows the chart). */
+.dash{display:grid;gap:14px;align-items:start}
+.dash-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.dash-side .gd{margin:0}
+
+@media (min-width:1100px) and (min-height:600px){
+  :root{--dash-h:calc(100dvh - 68px - 66px - 49px - 22px)}      /* header + compact masthead + system tabs + stage padding */
+  #chart-view[data-tab=tuvi] .atl-mast,#chart-view[data-tab=bazi] .atl-mast{padding:6px 0}
+  #chart-view[data-tab=tuvi] .atl-mast-in,#chart-view[data-tab=bazi] .atl-mast-in{align-items:center;flex-wrap:nowrap}
+  #chart-view[data-tab=tuvi] .atl-mast .eyebrow,#chart-view[data-tab=bazi] .atl-mast .eyebrow{display:none}
+  #chart-view[data-tab=tuvi] .atl-mast h1,#chart-view[data-tab=bazi] .atl-mast h1{font-size:1.2rem}
+  #chart-view[data-tab=tuvi] .atl-mast .res-sub,#chart-view[data-tab=bazi] .atl-mast .res-sub{margin-top:2px;font-size:.8rem}
+  #chart-view[data-tab=tuvi] .atl-side,#chart-view[data-tab=bazi] .atl-side{grid-auto-flow:column;align-items:center;gap:14px}
+  #chart-view[data-tab=tuvi] .atl-mast .res-hl,#chart-view[data-tab=bazi] .atl-mast .res-hl{display:none}
+  .atl-stage.r-tuvi,.atl-stage.r-bazi{padding:8px 0 14px}
+  .atl-stage .atl-wrap{max-width:1520px}
+
+  .dash-side{grid-area:side;height:var(--dash-h);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:0 2px 0 0}
+  .dash-side .tv-panel,.dash-side .bz-panel{position:static;max-height:none;overflow:visible;width:auto;transform:none;box-shadow:none;border-radius:0;flex:none}
+  .dash-side .drawer-empty{padding:12px 16px}.dash-side .drawer-empty .ident-art.sm{display:none}.dash-side .drawer-empty h3{font-size:1.2rem;margin:0 0 4px}
+  .dash-side .legend{flex:none;font-size:.72rem}
+
+  /* ---------- Tử Vi ---------- */
+  .dash-tv{grid-template-columns:minmax(0,1fr) 400px;grid-template-rows:var(--dash-h) auto;grid-template-areas:"plate side" "time time"}
+  .dash-tv #tuvi-host,.dash-tv .tv-stage{display:contents}
+  .dash-tv .tv-plate{grid-area:plate;height:var(--dash-h);display:flex;flex-direction:column;overflow:hidden;padding:10px 12px}
+  .dash-tv .tv-plate .plate-h{margin:0 0 6px;flex:none}
+  .dash-tv .tv-scroll{flex:1;min-height:0;overflow:hidden}
+  .dash-tv .tv-board{height:100%;min-width:0}
+  .dash-tv #grid{height:100%;grid-template-rows:repeat(4,minmax(0,1fr))}
+  .dash-tv .pal{min-height:0;overflow:hidden;gap:2px;padding:5px 8px 20px}
+  .dash-tv .tv-time{grid-area:time}
+  .dash-tv .pal-name{font-size:.62rem;letter-spacing:.1em}
+  .dash-tv .pal-gz{font-size:.62rem}.dash-tv .pal-gz i{display:none}
+  .dash-tv .pal-tags{gap:3px}.dash-tv .seal-m,.dash-tv .seal-t,.dash-tv .tag{font-size:.5rem;padding:1px 5px}
+  .dash-tv .pal-maj{gap:0 8px;margin-top:0}.dash-tv .st.major{font-size:1.02rem;line-height:1.15}
+  .dash-tv .st{font-size:.68rem;line-height:1.3}.dash-tv .pal-min{gap:0 7px;line-height:1.3}
+  .dash-tv .dg{font-size:.45rem;margin-left:3px;padding:0 3px}.dash-tv .th{width:1rem;height:1rem;font-size:.62rem;margin-left:3px}
+  .dash-tv .pal-foot{bottom:4px}.dash-tv .pal-dh,.dash-tv .pal-dh small{font-size:.7rem}
+  .dash-tv .vcd{font-size:.8rem}
+  .dash-tv .ident{padding:8px 14px}.dash-tv .ident-in{gap:4px}.dash-tv .ident-gz{font-size:clamp(1.7rem,2.6vw,2.2rem)}.dash-tv .ident-line{font-size:.78rem}
+  .dash-tv .ident-dl{gap:4px 24px;margin:4px 0}.dash-tv .ident-dl dd{font-size:.98rem}.dash-tv .ident-sum{font-size:.76rem;line-height:1.35}
+
+  /* ---------- Bát Tự ---------- */
+  .dash-bz{grid-template-columns:minmax(520px,1.25fr) minmax(0,1fr) 360px;grid-template-rows:var(--dash-h) auto;grid-template-areas:"plate instr side" "time time time"}
+  .dash-bz #bazi-host,.dash-bz .bz-stage{display:contents}
+  .dash-bz .bz-plate{grid-area:plate;height:var(--dash-h);overflow:hidden;padding:10px 12px;display:flex;flex-direction:column}
+  .dash-bz .bz-instr{grid-area:instr;height:var(--dash-h);grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:12px}
+  .dash-bz .bz-fe,.dash-bz .bz-dial{padding:10px 12px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+  .dash-bz .bz-time{grid-area:time}
+  .dash-bz .bz-plate .plate-h{margin:0 0 4px;flex:none}.dash-bz .plate-k{display:none}
+  .dash-bz .bz-grid,.dash-bz .bz-arcs{--lab:3.4rem;--cols:var(--lab) repeat(4,minmax(0,1fr))}
+  .dash-bz .bz-arcs{margin-bottom:2px;flex:none}
+  .dash-bz .bz-grid{flex:1;min-height:0;display:flex;flex-direction:column}
+  .dash-bz .bz-row{flex:none}.dash-bz .bz-row.bz-hids,.dash-bz .bz-row.bz-stems,.dash-bz .bz-row.bz-branches{flex:1 1 auto}
+  .dash-bz .bz-rl{font-size:.52rem;letter-spacing:.1em;padding-right:4px}
+  .dash-bz .bz-ch{padding:5px 2px 3px}.dash-bz .bz-ch i{font-size:1.15rem}.dash-bz .bz-ch{font-size:.56rem}
+  .dash-bz .bz-g{padding:4px 2px 4px;gap:0}.dash-bz .g-han{font-size:2.5rem}.dash-bz .g-vn{font-size:1.05rem}.dash-bz .g-el{margin-top:1px;font-size:.6rem}
+  .dash-bz .bz-g .seal{margin-top:4px;padding:2px 5px}
+  .dash-bz .bz-join{height:10px;overflow:hidden}
+  .dash-bz .bz-plate .hid{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:0 4px;padding:1px 2px;line-height:1.15}
+  .dash-bz .bz-plate .hid i{font-size:.46rem}.dash-bz .bz-plate .hid b{font-size:.95rem}.dash-bz .bz-plate .hid em{font-size:.62rem}
+  .dash-bz .bz-hid{display:grid;gap:2px;padding:3px 0}
+  .dash-bz .bz-gods,.dash-bz .bz-life{font-size:.8rem}.dash-bz .bz-gods .bz-c,.dash-bz .bz-life .bz-c{padding:3px 2px}
+  .dash-bz .bz-fe .plate-h,.dash-bz .bz-dial .plate-h{margin:0 0 4px;flex:none}
+  .dash-bz .bz-fe>div,.dash-bz .bz-dial>div{flex:1;min-height:0}
+  .dash-bz .fe,.dash-bz .dl{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:12px;align-items:center;height:100%}
+  .dash-bz .fe>svg,.dash-bz .dl>svg{width:100%;height:auto;max-height:100%;justify-self:center}
+  .dash-bz .fe-side{display:grid;gap:8px;align-content:center}
+  .dash-bz .dl-facts>div{padding:6px 0}
+  .dash-bz .fe-side .seg{display:flex;flex-wrap:wrap;width:100%}.dash-bz .fe-side .seg button{flex:1 1 auto;padding:6px 8px;font-size:.78rem}
+
+  /* ---------- the written reading: one viewport, contents left, text scrolling inside ---------- */
+  .r-report{padding:10px 0 0}
+  .r-report>.wrap{display:flex;flex-direction:column;height:calc(100dvh - 49px - 22px)}
+  .r-report .sec-h{flex:none;margin-bottom:6px}.r-report .sec-h .sec-sub,.r-report .sec-h .eyebrow{display:none}.r-report .sec-h h2{font-size:1.5rem;margin:0}
+  .r-report details.sc{flex:none;margin:0 0 8px}
+  .r-report #tuvi-report,.r-report #bazi-report{flex:1;min-height:0;display:flex;flex-direction:column}
+  .r-report .rp-layout{flex:1;min-height:0;align-items:stretch;gap:var(--s6)}
+  .r-report .rp-toc{position:static;overflow-y:auto}
+  .r-report .rp-main,.r-report .rp-body{min-height:0;overflow-y:auto;max-width:none;overscroll-behavior:contain;scrollbar-width:thin;padding-right:14px}
+  .r-report .chapter{scroll-margin-top:0}
+}
