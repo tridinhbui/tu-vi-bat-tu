@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/atlas.css">
+<link rel="stylesheet" href="/css/dash.css">
 </head>
 <body data-view="home">
 <a class="skip" href="#main">Bỏ qua điều hướng</a>
@@ -152,14 +153,12 @@
 
   <div class="pane" id="pane-hour"><section class="r-sec r-bazi"><div class="wrap"><header class="sec-h"><p class="eyebrow">Giờ sinh chưa rõ</p><h2>Điều gì đổi theo giờ sinh?</h2><p class="sec-sub">Ngày, tháng, năm sinh đã đủ để biết ba trụ đầu của Bát Tự. Giờ sinh quyết định trụ Giờ, cung Mệnh, cung Thân và Cục của Tử Vi.</p></header><div id="hour-host"></div></div></section></div>
   <div class="pane" id="pane-bazi" role="tabpanel" aria-labelledby="tab-bazi">
-    <section class="r-sec r-bazi atl-stage" aria-label="Bát Tự: bốn trụ"><div class="wrap atl-wrap"><div id="bazi-host"></div></div></section>
-    <div class="wrap atl-sum"><div id="bazi-mascot"></div></div>
+    <section class="r-sec r-bazi atl-stage" aria-label="Bát Tự: bốn trụ"><div class="wrap atl-wrap"><div class="dash dash-bz"><div id="bazi-host"></div><aside class="dash-side" id="bazi-side" aria-label="Chi tiết và trợ lý"><div id="bazi-mascot"></div></aside></div></div></section>
     <div class="wrap easy-only atl-sum"><div id="bazi-summary"></div></div>
     <section class="r-sec r-report" aria-labelledby="bzr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Luận giải chi tiết · Bát Tự</p><h2 id="bzr-h">Đọc từng chương Bát Tự</h2><p class="sec-sub">Dữ kiện tính toán, điều sách nói và giả thuyết luôn được tách riêng.</p></header><div id="bazi-report"></div></div></section>
   </div>
   <div class="pane" id="pane-tuvi" role="tabpanel" aria-labelledby="tab-tuvi">
-    <section class="r-sec r-tuvi atl-stage" aria-label="Tử Vi: mười hai cung"><div class="wrap atl-wrap"><div id="tuvi-host"></div></div></section>
-    <div class="wrap atl-sum"><div id="tuvi-mascot"></div></div>
+    <section class="r-sec r-tuvi atl-stage" aria-label="Tử Vi: mười hai cung"><div class="wrap atl-wrap"><div class="dash dash-tv"><div id="tuvi-host"></div><aside class="dash-side" id="tuvi-side" aria-label="Chi tiết và trợ lý"><div id="tuvi-mascot"></div></aside></div></div></section>
     <div class="wrap easy-only atl-sum"><div id="tuvi-summary"></div></div>
     <section class="r-sec r-report" aria-labelledby="tvr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Luận giải chi tiết · Tử Vi</p><h2 id="tvr-h">Đọc từng chương Tử Vi</h2><p class="sec-sub">Dữ kiện tính toán, điều sách nói và giả thuyết luôn được tách riêng.</p></header><div id="tuvi-report"></div></div></section>
   </div>

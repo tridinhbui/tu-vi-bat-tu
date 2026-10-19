@@ -1,0 +1,881 @@
+{
+ "note": "Connectives chosen by the relation between two adjacent moves (prose plan §3.5), never at random. Budget: one use per 3 sentences, two per chapter. Drafted by Claude 2026-10-18, review pending.",
+ "status": "draft",
+ "connectives": [
+  {
+   "id": "C_CONTRAST_I01",
+   "rel": "contrast",
+   "text": "Tuy nhiên,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I02",
+   "rel": "contrast",
+   "text": "Có điều,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I03",
+   "rel": "contrast",
+   "text": "Nhưng",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I04",
+   "rel": "contrast",
+   "text": "Song",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I05",
+   "rel": "contrast",
+   "text": "Ngược lại,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I06",
+   "rel": "contrast",
+   "text": "Mặt khác,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I07",
+   "rel": "contrast",
+   "text": "Dẫu vậy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I08",
+   "rel": "contrast",
+   "text": "Thế nhưng,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I09",
+   "rel": "contrast",
+   "text": "Chỉ có điều,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I10",
+   "rel": "contrast",
+   "text": "Đổi lại,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I11",
+   "rel": "contrast",
+   "text": "Ở chiều ngược lại,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I12",
+   "rel": "contrast",
+   "text": "Bù lại,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I13",
+   "rel": "contrast",
+   "text": "Có một mặt khác cần thấy:",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_I14",
+   "rel": "contrast",
+   "text": "Nhìn từ phía khác,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_M01",
+   "rel": "contrast",
+   "text": "nhưng",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_M02",
+   "rel": "contrast",
+   "text": "song",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_M03",
+   "rel": "contrast",
+   "text": "thế nhưng",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_M04",
+   "rel": "contrast",
+   "text": "trong khi",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_M05",
+   "rel": "contrast",
+   "text": "còn",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONTRAST_M06",
+   "rel": "contrast",
+   "text": "mà",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I01",
+   "rel": "concession",
+   "text": "Dù vậy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I02",
+   "rel": "concession",
+   "text": "Dẫu thế,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I03",
+   "rel": "concession",
+   "text": "Tuy thế,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I04",
+   "rel": "concession",
+   "text": "Dù sao,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I05",
+   "rel": "concession",
+   "text": "Kể cả như vậy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I06",
+   "rel": "concession",
+   "text": "Cho dù thế,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I07",
+   "rel": "concession",
+   "text": "Ngay cả khi ấy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I08",
+   "rel": "concession",
+   "text": "Dẫu có điều đó,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I09",
+   "rel": "concession",
+   "text": "Không phải vì thế mà",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_I10",
+   "rel": "concession",
+   "text": "Có thể vậy, nhưng",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_M01",
+   "rel": "concession",
+   "text": "dù",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_M02",
+   "rel": "concession",
+   "text": "tuy",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_M03",
+   "rel": "concession",
+   "text": "dẫu",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_M04",
+   "rel": "concession",
+   "text": "mặc dù",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_M05",
+   "rel": "concession",
+   "text": "dù rằng",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONCESSION_M06",
+   "rel": "concession",
+   "text": "cho dù",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I01",
+   "rel": "rescue",
+   "text": "May thay,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I02",
+   "rel": "rescue",
+   "text": "Điều xoay chuyển nằm ở chỗ",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I03",
+   "rel": "rescue",
+   "text": "Điều đáng mừng là",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I04",
+   "rel": "rescue",
+   "text": "Cứu vãn cho điều ấy là",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I05",
+   "rel": "rescue",
+   "text": "Bù đắp lại,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I06",
+   "rel": "rescue",
+   "text": "Điều làm khác đi bức tranh là",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I07",
+   "rel": "rescue",
+   "text": "Gỡ lại phần nào,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I08",
+   "rel": "rescue",
+   "text": "Giữ cho cán cân không lệch hẳn là",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I09",
+   "rel": "rescue",
+   "text": "Chỗ hóa giải nằm ở",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_I10",
+   "rel": "rescue",
+   "text": "Cũng may là",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_M01",
+   "rel": "rescue",
+   "text": "nhưng may là",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_M02",
+   "rel": "rescue",
+   "text": "song nhờ",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_M03",
+   "rel": "rescue",
+   "text": "vậy mà nhờ",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_RESCUE_M04",
+   "rel": "rescue",
+   "text": "nhưng bù lại",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I01",
+   "rel": "addition",
+   "text": "Bên cạnh đó,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I02",
+   "rel": "addition",
+   "text": "Thêm vào đó,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I03",
+   "rel": "addition",
+   "text": "Cũng vậy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I04",
+   "rel": "addition",
+   "text": "Ngoài ra,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I05",
+   "rel": "addition",
+   "text": "Song song với điều ấy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I06",
+   "rel": "addition",
+   "text": "Đi cùng nét này,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I07",
+   "rel": "addition",
+   "text": "Không chỉ thế,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I08",
+   "rel": "addition",
+   "text": "Hơn nữa,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I09",
+   "rel": "addition",
+   "text": "Cùng một mạch ấy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I10",
+   "rel": "addition",
+   "text": "Kèm theo đó,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I11",
+   "rel": "addition",
+   "text": "Đồng thời,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_I12",
+   "rel": "addition",
+   "text": "Lại nữa,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_M01",
+   "rel": "addition",
+   "text": "và",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_M02",
+   "rel": "addition",
+   "text": "lại",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_M03",
+   "rel": "addition",
+   "text": "cũng",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_M04",
+   "rel": "addition",
+   "text": "thêm vào đó là",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_M05",
+   "rel": "addition",
+   "text": "kèm theo",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ADDITION_M06",
+   "rel": "addition",
+   "text": "đồng thời",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I01",
+   "rel": "consequence",
+   "text": "Vì vậy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I02",
+   "rel": "consequence",
+   "text": "Bởi vậy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I03",
+   "rel": "consequence",
+   "text": "Do đó,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I04",
+   "rel": "consequence",
+   "text": "Thế nên,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I05",
+   "rel": "consequence",
+   "text": "Từ đó,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I06",
+   "rel": "consequence",
+   "text": "Cho nên,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I07",
+   "rel": "consequence",
+   "text": "Chính vì thế,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I08",
+   "rel": "consequence",
+   "text": "Hệ quả là",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I09",
+   "rel": "consequence",
+   "text": "Nhờ vậy,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_I10",
+   "rel": "consequence",
+   "text": "Vì thế mà",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_M01",
+   "rel": "consequence",
+   "text": "nên",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_M02",
+   "rel": "consequence",
+   "text": "vì vậy",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_M03",
+   "rel": "consequence",
+   "text": "bởi thế",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_M04",
+   "rel": "consequence",
+   "text": "thành ra",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_M05",
+   "rel": "consequence",
+   "text": "đến mức",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_CONSEQUENCE_M06",
+   "rel": "consequence",
+   "text": "khiến",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I01",
+   "rel": "synthesis",
+   "text": "Gộp lại,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I02",
+   "rel": "synthesis",
+   "text": "Nhìn chung,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I03",
+   "rel": "synthesis",
+   "text": "Tựu trung,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I04",
+   "rel": "synthesis",
+   "text": "Suy cho cùng,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I05",
+   "rel": "synthesis",
+   "text": "Nói cho cùng,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I06",
+   "rel": "synthesis",
+   "text": "Rốt lại,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I07",
+   "rel": "synthesis",
+   "text": "Xét cả lá số,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I08",
+   "rel": "synthesis",
+   "text": "Tóm lại,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I09",
+   "rel": "synthesis",
+   "text": "Điều đọng lại là",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_I10",
+   "rel": "synthesis",
+   "text": "Tất cả những điều ấy cho thấy",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_M01",
+   "rel": "synthesis",
+   "text": "rốt cuộc",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_M02",
+   "rel": "synthesis",
+   "text": "xét cho cùng",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_SYNTHESIS_M03",
+   "rel": "synthesis",
+   "text": "tóm lại",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I01",
+   "rel": "elaboration",
+   "text": "Nói cách khác,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I02",
+   "rel": "elaboration",
+   "text": "Cụ thể hơn,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I03",
+   "rel": "elaboration",
+   "text": "Điều đó thể hiện ở chỗ",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I04",
+   "rel": "elaboration",
+   "text": "Trong đời thường,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I05",
+   "rel": "elaboration",
+   "text": "Biểu hiện rõ nhất là",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I06",
+   "rel": "elaboration",
+   "text": "Thường thấy là",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I07",
+   "rel": "elaboration",
+   "text": "Trong cách sống hằng ngày,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I08",
+   "rel": "elaboration",
+   "text": "Ở nét sinh hoạt,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I09",
+   "rel": "elaboration",
+   "text": "Khi bắt tay vào việc,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_I10",
+   "rel": "elaboration",
+   "text": "Trong quan hệ với người khác,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_M01",
+   "rel": "elaboration",
+   "text": "tức là",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_M02",
+   "rel": "elaboration",
+   "text": "nghĩa là",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_M03",
+   "rel": "elaboration",
+   "text": "thể hiện ở chỗ",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_ELABORATION_M04",
+   "rel": "elaboration",
+   "text": "như",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I01",
+   "rel": "timing",
+   "text": "Thuở đầu đời,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I02",
+   "rel": "timing",
+   "text": "Về sau,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I03",
+   "rel": "timing",
+   "text": "Càng về sau,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I04",
+   "rel": "timing",
+   "text": "Những năm trẻ,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I05",
+   "rel": "timing",
+   "text": "Theo thời gian,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I06",
+   "rel": "timing",
+   "text": "Đến tuổi trung niên,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I07",
+   "rel": "timing",
+   "text": "Lúc ban đầu,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I08",
+   "rel": "timing",
+   "text": "Khi đã qua những năm đầu,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I09",
+   "rel": "timing",
+   "text": "Bước sang nửa sau cuộc đời,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_I10",
+   "rel": "timing",
+   "text": "Thời trẻ,",
+   "pos": "initial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_M01",
+   "rel": "timing",
+   "text": "về sau",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_M02",
+   "rel": "timing",
+   "text": "lúc đầu",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_M03",
+   "rel": "timing",
+   "text": "dần dần",
+   "pos": "medial",
+   "register": "neutral"
+  },
+  {
+   "id": "C_TIMING_M04",
+   "rel": "timing",
+   "text": "theo năm tháng",
+   "pos": "medial",
+   "register": "neutral"
+  }
+ ]
+}

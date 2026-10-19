@@ -5,6 +5,7 @@ import { fiveElements } from './elements.js';
 import { timeline, findingCard } from './ui.js';
 import { easyReadings } from './beginner.js';
 import { terms, autoLink } from './glossary.js';
+import { collapseWhenDash } from './dash.js';
 import { tier, evLegend, yearData, periodYears, centerIn, onPick } from './atlas.js';
 
 const ORDER = ['year', 'month', 'day', 'hour'];
@@ -156,6 +157,10 @@ export function renderBazi(host, b, ctx) {
 
   // ---- elements ----
   const plate = $('#bz-plate', host), panel = $('#bz-panel', host), chips = $$('.bz-ch', host);
+  // the detail panel lives in the right-hand column next to the chat (css/dash.css)
+  collapseWhenDash(document.getElementById('bazi-report'));
+  const bzSide = document.getElementById('bazi-side');
+  if (bzSide) { bzSide.querySelector('#bz-panel')?.remove(); bzSide.prepend(panel); }
   const cells = $$('[data-pillar]', plate), cols = $$('.bz-c', plate);
   const glyphs = $$('.bz-g,.hid', plate);
   const apply = el => glyphs.forEach(c => { const hit = el && c.dataset.el === el; c.classList.toggle('hit', !!hit); c.classList.toggle('dim', !!el && !hit); });
@@ -291,6 +296,7 @@ export function renderBazi(host, b, ctx) {
     chips.forEach(c => c.setAttribute('aria-pressed', S.kind === 'pillar' && ORDER[S.i] === c.dataset.pillar));
     $$('.tm-tab', host).forEach(t => t.setAttribute('aria-pressed', (S.kind === 'period' || S.kind === 'year') && +t.dataset.i === S.li));
     paintArcs();
+    panel.closest('.dash-side')?.scrollTo(0, 0);
     panel.innerHTML = `<div class="rd-in">${S.kind === 'pillar' ? panelPillar(S.i) : S.kind === 'element' ? panelElement(S.el) : S.kind === 'rel' ? panelRel(S.id) : S.kind === 'period' ? panelPeriod() : S.kind === 'year' ? panelYear() : panelDefault()}</div>`;
     panel.dataset.kind = S.kind || 'idle';
     $('.rd-x', panel)?.addEventListener('click', () => { if (S.kind === 'element') fe.clear(); else setSel({ kind: null }); });

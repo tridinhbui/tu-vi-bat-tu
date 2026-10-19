@@ -1,0 +1,186 @@
+{
+ "note": "Frames name the chart, never a trait. Slots: {stars} (chính tinh ở Mệnh, nối bằng 'và'), {branch}, {star} (one star), {opp_stars} (chính tinh cung đối diện, for vô chính diệu), {dignity} (a phrase from 'dignity'). Drafted by Claude 2026-10-18, review pending. anchor_palace: the same frames for any palace other than Mệnh ({palace}). via: a concept of the chapter's kind read only at another palace ({from}, {S}). vcd = the reading rests on the opposite palace's stars; vcd_own = it rests on stars standing in the empty palace ({own}); vcd_plain = neither (chart-level facts). anchor_palace frames end in {S}: the person (subject.palace_first) or, in Phu Thê and Nô Bộc, the other people the reading is about (other[palace]) when the concept is not about the bond itself.",
+ "status": "draft",
+ "anchor": {
+  "single": [
+   "Người có {stars} tọa Mệnh tại {branch}",
+   "Với {stars} thủ Mệnh ở {branch}, người mang lá số này",
+   "Lá số có {stars} đóng Mệnh tại {branch} cho thấy một người",
+   "Khi {stars} làm chủ cung Mệnh ở {branch}, đương số"
+  ],
+  "pair": [
+   "Người có {stars} cùng tọa Mệnh tại {branch}",
+   "Với {stars} đồng cung ở Mệnh tại {branch}, người mang lá số này",
+   "Lá số có bộ {stars} đóng Mệnh tại {branch} cho thấy một người",
+   "Khi {stars} cùng làm chủ cung Mệnh ở {branch}, đương số"
+  ],
+  "vcd": [
+   "Mệnh ở {branch} không có chính tinh, nên được đọc qua {opp_stars} từ cung đối diện; người mang lá số này",
+   "Cung Mệnh tại {branch} vô chính diệu, mượn {opp_stars} ở cung xung chiếu để luận; đương số",
+   "Với Mệnh vô chính diệu ở {branch}, cái nền được soi qua {opp_stars} từ phía đối diện; người này"
+  ],
+  "vcd_own": [
+   "Mệnh ở {branch} không có chính tinh; với {own} đóng tại đây, người mang lá số này",
+   "Cung Mệnh tại {branch} vô chính diệu, nét chính do {own} đóng ở Mệnh mang lại; đương số",
+   "Với Mệnh vô chính diệu ở {branch} và {own} tọa thủ, người này"
+  ],
+  "vcd_plain": [
+   "Mệnh ở {branch} không có chính tinh; người mang lá số này",
+   "Cung Mệnh tại {branch} vô chính diệu; đương số",
+   "Với Mệnh vô chính diệu ở {branch}, người này"
+  ]
+ },
+ "dignity": {
+  "miếu": [
+   "đắc thế miếu địa",
+   "ở vào thế miếu",
+   "đứng nơi miếu địa"
+  ],
+  "vượng": [
+   "ở thế vượng",
+   "đứng nơi vượng địa",
+   "được thế vượng"
+  ],
+  "đắc": [
+   "đắc địa",
+   "ở vào thế đắc",
+   "đứng đúng chỗ"
+  ],
+  "bình": [
+   "ở thế bình hòa",
+   "đứng nơi bình địa",
+   "chỉ ở thế bình"
+  ],
+  "hãm": [
+   "đứng thế hãm",
+   "ở vào thế hãm",
+   "rơi vào hãm địa"
+  ]
+ },
+ "subject": {
+  "first": [
+   "Người có lá số này",
+   "Đương số",
+   "Người mang lá số này"
+  ],
+  "next": [
+   "Họ",
+   "Người này",
+   "Người mang tổ hợp này",
+   "Đương số",
+   "Chủ nhân lá số"
+  ],
+  "palace_first": [
+   "đương số",
+   "người mang lá số này",
+   "người này"
+  ]
+ },
+ "anchor_palace": {
+  "single": [
+   "Với {stars} ở cung {palace} tại {branch}, {S}",
+   "Ở cung {palace}, {stars} đóng tại {branch} cho thấy {S}",
+   "Khi {stars} làm chủ cung {palace} ở {branch}, {S}",
+   "Xét cung {palace} tại {branch}, nơi {stars} tọa thủ, {S}",
+   "Nhìn vào {stars} ở cung {palace} tại {branch}, có thể thấy {S}",
+   "Có {stars} tọa thủ cung {palace} ở {branch}, {S}",
+   "Về cung {palace}, nơi {stars} đóng tại {branch}, {S}",
+   "Đến cung {palace} tại {branch}, với {stars} tọa thủ, {S}",
+   "Riêng ở cung {palace}, {stars} đóng tại {branch} báo hiệu rằng {S}"
+  ],
+  "pair": [
+   "Với {stars} cùng ở cung {palace} tại {branch}, {S}",
+   "Trong cung {palace}, bộ {stars} đóng tại {branch} cho thấy {S}",
+   "Khi {stars} cùng làm chủ cung {palace} ở {branch}, {S}",
+   "Với {stars} đồng cung {palace} tại {branch}, {S}",
+   "Xét cung {palace} tại {branch}, nơi {stars} đồng cung, {S}",
+   "Nhìn vào bộ {stars} ở cung {palace} tại {branch}, có thể thấy {S}",
+   "Có {stars} cùng tọa thủ cung {palace} ở {branch}, {S}",
+   "Về cung {palace}, nơi {stars} đồng cung tại {branch}, {S}",
+   "Đến cung {palace} tại {branch}, với {stars} cùng tọa thủ, {S}",
+   "Riêng ở cung {palace}, bộ {stars} tại {branch} báo hiệu rằng {S}"
+  ],
+  "vcd": [
+   "Tại {branch}, cung {palace} không có chính tinh, nên được đọc qua {opp_stars} từ cung đối diện; {S}",
+   "Cung {palace} ở {branch} vô chính diệu, mượn {opp_stars} ở cung xung chiếu để luận; {S}",
+   "Với cung {palace} vô chính diệu ở {branch}, nền của nó được soi qua {opp_stars}; {S}",
+   "Không có chính tinh, cung {palace} ở {branch} mượn {opp_stars} từ phía đối diện; {S}",
+   "Vì cung {palace} tại {branch} vô chính diệu, phải soi qua {opp_stars} ở cung xung chiếu; {S}"
+  ],
+  "vcd_own": [
+   "Tại {branch}, cung {palace} không có chính tinh; với {own} đóng ở đây, {S}",
+   "Cung {palace} ở {branch} vô chính diệu, nét chính do {own} tọa thủ mang lại; {S}",
+   "Không có chính tinh, cung {palace} tại {branch} được đọc qua {own} đóng tại đó; {S}"
+  ],
+  "vcd_plain": [
+   "Tại {branch}, cung {palace} không có chính tinh; {S}",
+   "Cung {palace} ở {branch} vô chính diệu; {S}",
+   "Với cung {palace} vô chính diệu ở {branch}, {S}"
+  ]
+ },
+ "via": [
+  "Nhìn từ cung {from}, {S}",
+  "Cung {from} cũng góp một nét vào chuyện này: {S}",
+  "Từ phía cung {from}, {S}",
+  "Một nét khác đến từ cung {from}: {S}",
+  "Soi sang cung {from}, lại thấy {S}",
+  "Ở cung {from}, điều này cũng hiện ra: {S}"
+ ],
+ "other": {
+  "Phu Thê": {
+   "first": [
+    "người bạn đời",
+    "người phối ngẫu"
+   ],
+   "next": [
+    "người ấy",
+    "người bạn đời",
+    "người phối ngẫu"
+   ]
+  },
+  "Nô Bộc": {
+   "first": [
+    "bạn bè và người dưới quyền",
+    "những người cộng sự"
+   ],
+   "next": [
+    "họ",
+    "những người ấy",
+    "những người cộng sự"
+   ]
+  },
+  "Tử Tức": {
+   "first": [
+    "con cái",
+    "các con"
+   ],
+   "next": [
+    "các con",
+    "những người con",
+    "con cái"
+   ]
+  },
+  "Huynh Đệ": {
+   "first": [
+    "anh chị em",
+    "anh em trong nhà"
+   ],
+   "next": [
+    "anh em",
+    "những người anh em",
+    "anh chị em"
+   ]
+  },
+  "Phụ Mẫu": {
+   "first": [
+    "cha mẹ",
+    "song thân"
+   ],
+   "next": [
+    "cha mẹ",
+    "hai người",
+    "song thân"
+   ]
+  }
+ }
+}

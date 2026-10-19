@@ -47,6 +47,56 @@ function evHtml(chs) {
   return chs.map(ch => `<section class="synth ev-report" aria-label="${esc(ch.title)}"><p class="eyebrow">Luận giải có căn cứ · ${esc(ch.title)} <span class="muted">(thử nghiệm)</span></p>
     ${EV_SECTIONS.map(([k, t]) => ch.sections[k] == null ? '' : (k === 'nhan_dinh_tong_quan' ? `<h5>${t}</h5>${sec(k, ch.sections[k])}` : acc(t, '', sec(k, ch.sections[k])))).join('')}</section>`).join('');
 }
+// ---------- reader prose for Mệnh (src/interpret/prose via /api/interpret mode "prose"): clean text, evidence per sentence on click ----------
+const PR_MOVE = { ANCHOR: 'Nét lõi', BORROW: 'Nét lõi, mượn cung đối diện', ELABORATE: 'Biểu hiện', TURN: 'Mặt trái', RESCUE: 'Cứu giải', TENSION: 'Yếu tố làm sắc',
+  TIMING: 'Nhịp thời gian', SATELLITE: 'Nét bổ trợ', VALUE: 'Giá trị', TRANSFORM: 'Hướng chuyển hóa', DEGREE: 'Nền độ số', EXTRA: 'Đường đời' };
+const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Thiên Lương (Nghiệm Lý, bản gõ)', ZZ: 'Bát Tự Chân Tông' };
+const prCite = c => String(c).replace(/^(TH|KL|TT|TL|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
+function proseHtml(p) {
+  if (!p?.paragraphs?.length) return '';
+  const draft = p.draft !== false;
+  const title = `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
+  return `<section class="synth prose" data-chapter="${esc(p.chapter)}" aria-label="${title}"><p class="eyebrow">${title}</p>
+    ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p">${para.sentences.map((s, j) => `<span class="sy-s pr-s" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
+    <div class="pr-why small" hidden></div>${prDiverge(p)}
+    <p class="muted small sy-foot">Văn bản do bộ máy quy tắc ghép từ các nhận định đã đối chiếu sách (không dùng mô hình AI)${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
+}
+// two schools disagree on this chart: the text says neither; both readings are listed here with their pages
+function prDiverge(p) {
+  const ds = p.evidence?.divergences || [];
+  if (!ds.length) return '';
+  return `<details class="pr-div small"><summary>Các trường phái nhận định khác nhau (${ds.length})</summary>${ds.map(d => `<p>${esc(d.note || '')}</p><ul class="pr-rules">${d.rules.map(r => `<li><b>${esc(r.cites.map(prCite).join('; ') || '—')}</b> ${esc(r.reading)} <code class="muted">${esc(r.id)}</code></li>`).join('')}</ul>`).join('')}<p class="muted">Văn bản phía trên không theo bên nào trong các điểm này.</p></details>`;
+}
+function proseWhy(p, key) {
+  const [i, j] = key.split('.').map(Number), s = p.paragraphs[i]?.sentences[j];
+  if (!s) return '';
+  const t = s.trace, R = p.evidence?.rules || {}, C = p.evidence?.concepts || {};
+  const moves = [t.move, ...(t.woven || [])].map(m => PR_MOVE[m] || m).join(' + ');
+  const basis = t.basis === 'he_thong' ? '<span class="an-b an-he_thong">Lời tổng hợp của hệ thống</span> <span class="muted">không phải lời sách; chỉ nhắc lại những ý đã có căn cứ ở câu trước</span>' : '<span class="an-b an-sach">Theo sách</span>';
+  const res = t.resolution ? `<p><b>Phân xử:</b> câu sách ở ${esc(prCite(t.resolution.cite || ''))} làm mềm nhận định bất lợi đi kèm (quan hệ <code>${esc(t.resolution.relation)}</code>).</p>` : '';
+  // under a rescue, the readings it softened are listed for the record but marked: the text does not voice them as they stand
+  const softened = id => t.resolution && id !== t.resolution.byRule ? ' <span class="muted">· đã được câu sách trên làm mềm, văn bản không nêu nguyên ý này</span>' : '';
+  const rules = t.rules.map(id => R[id] ? `<li><b>${esc(R[id].cites.map(prCite).join('; ') || '—')}</b> ${esc(R[id].reading)}${softened(id)} <code class="muted">${esc(id)}</code></li>` : `<li><code>${esc(id)}</code></li>`).join('');
+  return `<p><b>${esc(moves)}</b> · ${basis}</p>${t.concepts.length ? `<p class="muted">Ý được nói: ${esc(t.concepts.map(c => C[c] || c).join(', '))}</p>` : ''}${res}${rules ? `<ul class="pr-rules">${rules}</ul>` : ''}`;
+}
+function bindProse(host, byChapter) {
+  $$('.prose', host).forEach(sec => {
+    const p = byChapter[sec.dataset.chapter], box = $('.pr-why', sec);
+    if (p && box) bindOne(sec, p, box);
+  });
+}
+function bindOne(host, p, box) {
+  $$('.pr-s', host).forEach(s => {
+    const open = () => {
+      const on = !s.classList.contains('on');
+      $$('.pr-s.on', host).forEach(o => { o.classList.remove('on'); o.setAttribute('aria-expanded', 'false'); });
+      if (on) { s.classList.add('on'); s.setAttribute('aria-expanded', 'true'); s.closest('.pr-p').after(box); box.innerHTML = proseWhy(p, s.dataset.pr); }
+      box.hidden = !on;
+    };
+    s.onclick = e => { if (!e.target.closest('a, .gl')) open(); };
+    s.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } };
+  });
+}
 const SY_CH = { 'tong-quan': 'tong_quan', 'ban-menh': 'ban_menh', 'tinh-cach': 'tinh_cach', 'cong-danh': 'cong_danh', 'tai-bach': 'tai_bach', 'quan-he': 'quan_he', 'dai-han': 'dai_han', 'cach-cuc': 'cach_cuc' };
 
 const WHAT = {
@@ -99,7 +149,7 @@ function topicChapter(f) {
 function mount(host, chapters, prefix, ctx) {
   host.innerHTML = `<div class="rp-layout">
     <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li${c.pro ? ' class="pro-only"' : ''}><a href="#${prefix}-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
-    <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${c.synth || ''}${analysisHtml(c.blocks)}${c.calc || ''}${c.trad || ''}</article>`).join('')}
+    <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${c.prose || ''}${c.prose ? '<details class="ch-more"><summary>Căn cứ chi tiết từ sách: sao, cung, quy tắc và số trang</summary>' : ''}${c.synth || ''}${analysisHtml(c.blocks)}${c.calc || ''}${c.trad || ''}${c.prose ? '</details>' : ''}</article>`).join('')}
       <div class="sys-switch"><div><b>${prefix === 'bt' ? 'Đã đọc hết phần Bát Tự' : 'Đã đọc hết phần Tử Vi'}</b><span>${prefix === 'bt' ? 'Xem cùng thời điểm sinh theo Tử Vi, hoặc lưu bản luận giải đầy đủ.' : 'Xem cùng thời điểm sinh theo Bát Tự, hoặc lưu bản luận giải đầy đủ.'}</span></div>
         <div class="sys-act"><button type="button" class="btn btn-sm" data-go="${prefix === 'bt' ? 'tu-vi' : 'bat-tu'}">${prefix === 'bt' ? 'Xem Tử Vi →' : 'Xem Bát Tự →'}</button><button type="button" class="btn btn-ghost btn-sm" data-act="print">Tải PDF</button><button type="button" class="btn btn-ghost btn-sm" data-act="again">Lập lá số khác</button></div></div></div></div>`;
   autoLink(host, prefix === 'bt' ? 'bt' : 'tv');
@@ -248,6 +298,13 @@ export function renderTuviReport(host, chart, ctx) {
     const ev = Object.fromEntries(ctx.interp.report.chapters.map(c => [c.id, c]));
     chapters.forEach(c => { if (EV_CH[c.id]) c.synth = evHtml(EV_CH[c.id].map(k => ev[k])) + (c.synth || ''); });
   }
+  // reader prose per chapter (/api/interpret mode "prose"): Mệnh -> Bản Mệnh, Công danh -> Công danh, Tài Bạch -> Tài Bạch
+  const PR_CH = { menh: 'ban-menh', cong_danh: 'cong-danh', tai_bach: 'tai-bach', thien_di: 'cong-danh', phu_the: 'quan-he', phuc_duc: 'tinh-cach', dien_trach: 'tai-bach', no_boc: 'quan-he',
+    tu_tuc: 'quan-he', huynh_de: 'quan-he', phu_mau: 'quan-he', tat_ach: 'tinh-cach' };
+  const prByCh = {};
+  for (const [k, id] of Object.entries(PR_CH)) { const p = ctx.prose?.[k]; if (p?.paragraphs?.length) prByCh[id] = (prByCh[id] || '') + proseHtml(p); }
+  for (const [id, html] of Object.entries(prByCh)) { const c = chapters.find(x => x.id === id); if (c) c.prose = html; }
   mount(host, chapters, 'tv', ctx);
+  if (ctx.prose) bindProse(host, ctx.prose);
   yearExplorer($('#tv-year', host), ctx.req, b, 'tuvi');
 }

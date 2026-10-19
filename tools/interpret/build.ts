@@ -3,7 +3,7 @@
 // Inputs (never edited here): engine/data rule packs (the list in engine/tvbt/knowledge/loader.py), sources.json, claims_vi.json,
 // star_profiles.json, data/semantic/*.json, and the editorial content modules in src/interpret/content/*.json.
 // The same knowledge feeds the bundled store (Worker without D1) and the D1 seed, so both stores answer identically.
-import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -14,7 +14,7 @@ const read = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 
 const loader = readFileSync(join(ROOT, 'engine', 'tvbt', 'knowledge', 'loader.py'), 'utf8');
 const packs: string[] = JSON.parse(loader.match(/^PACKS = (\[.*\])$/m)![1].replace(/'/g, '"'));
-const CITE = /\[((?:TH|KL|TT)[^\]]*?)\]/g;
+const CITE = /\[((?:TH|KL|TT|TL)[^\]]*?)\]/g;
 const PARA = /paraphrased\)?[^:]{0,80}?:\s*(.+)$/;
 // 八字真宗 (Bát Tự Chân Tông) rules give their place as "[PDF p.25 …]" or "[八字真宗 PDF pp.31-32 …]": PDF page numbers of the circulated scan
 const ZZ_CITE = /\[(?:八字真宗 )?PDF (pp?\.\s?[\d]+(?:[-–][\d]+)?)/g;
@@ -73,9 +73,23 @@ const knowledge = {
   reference,
   sources: [...sources.values()].map(s => ({ id: s.id, title: s.title, author: s.author ?? null, locator: s.locator ?? null, verified: !!s.verified })),
   rules, claims,
-  concepts: sem('concepts.json'), relations: sem('relations.json'), ontology: sem('ontology.json'),
+  // the cue lexicon plus the KG-only concepts (linked by id, no cues): engine/data/kg/concepts.json
+  concepts: (() => { const c = sem('concepts.json'); return { ...c, concepts: [...c.concepts, ...read(join(DATA, 'kg', 'concepts.json')).concepts.map((x: any) => ({ ...x, cues: [] }))] }; })(),
+  relations: sem('relations.json'), ontology: sem('ontology.json'),
   starProfiles: read(join(DATA, 'star_profiles.json')),
   modules,
+  // knowledge graph (prose plan §2): page-checked qualifiers now; rule→concept links and rule relations join here in P1
+  kg: { qualifiers: read(join(DATA, 'kg', 'qualifiers.json')).qualifiers,
+        ruleConcepts: existsSync(join(DATA, 'kg', 'rule_concepts.json')) ? read(join(DATA, 'kg', 'rule_concepts.json')).entries : {},
+        relations: existsSync(join(DATA, 'kg', 'relations.json')) ? read(join(DATA, 'kg', 'relations.json')).relations : [] },
+  // prose library (prose plan §3): how concepts, chart facts and resolver decisions are voiced in reader prose
+  prose: (() => {
+    const P = join(ROOT, 'src', 'interpret', 'content', 'prose');
+    const cards = readdirSync(P).filter(f => /^concepts_.*\.json$/.test(f)).sort().flatMap(f => read(join(P, f)).cards);
+    const { anchor, anchor_palace, via, dignity, subject, other } = read(join(P, 'frames.json'));
+    return { version: '0.1.0', concepts: cards, frames: { anchor, anchor_palace, via, dignity, subject, other }, modifiers: read(join(P, 'modifiers.json')).modifiers,
+      schemas: read(join(P, 'schemas.json')).schemas, connectives: read(join(P, 'connectives.json')).connectives };
+  })(),
 };
 const version = createHash('sha256').update(JSON.stringify(knowledge)).digest('hex').slice(0, 16);
 const out = { version, builtFrom: packs, ...knowledge };

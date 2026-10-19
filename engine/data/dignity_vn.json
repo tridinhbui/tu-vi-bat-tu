@@ -33,12 +33,10 @@
     "Ngọ": "miếu",
     "Mão": "vượng",
     "Dậu": "vượng",
-    "Dần": "vượng",
-    "Thân": "vượng",
+    "Dần": "đắc",
+    "Thân": "đắc",
     "Tỵ": "bình",
     "Hợi": "bình",
-    "Thìn": "bình",
-    "Tuất": "bình",
     "Sửu": "hãm",
     "Mùi": "hãm"
    }
@@ -239,5 +237,6 @@
     "Dậu": "hãm"
    }
   }
- }
+ },
+ "generated_by": "tools/build_dignity_kb.py (edit there; see dignity_kb.json for statuses)"
 }

@@ -1,0 +1,208 @@
+{
+ "version": "0.1.0",
+ "note": "Concepts used only by the knowledge graph (linked to rules by id in rule_concepts.manual.json, never by cue matching). Merged into knowledge.concepts at build time with cues: [] so the shared cue lexicon (engine/data/semantic/concepts.json) is unchanged.",
+ "concepts": [
+  {
+   "id": "amb.greed",
+   "facet": "identity.ambition",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "lòng ham lợi, thấy của là muốn nắm",
+   "short": "lòng ham lợi"
+  },
+  {
+   "id": "comm.gentle",
+   "facet": "identity.communication",
+   "pol": "+",
+   "kind": "style",
+   "np": "lời nói khoan thai, mềm mỏng",
+   "short": "giọng nói khoan thai"
+  },
+  {
+   "id": "emo.indecisive",
+   "facet": "identity.emotion",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "sự day dứt, lưỡng lự khó quyết",
+   "short": "sự lưỡng lự"
+  },
+  {
+   "id": "social.senior_role",
+   "facet": "career.support",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "vị trí đứng trên, đứng đầu trong nhà và ngoài xã hội",
+   "short": "vai người đứng đầu"
+  },
+  {
+   "id": "rel.jealous",
+   "facet": "relationships.marriage",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "tính hay ghen trong tình cảm",
+   "short": "tính hay ghen"
+  },
+  {
+   "id": "life.degree",
+   "facet": "life.course",
+   "pol": "~",
+   "kind": "modifier",
+   "np": "nền độ số của lá số, thuận hay nghịch theo năm, mùa, giờ sinh và vị trí Mệnh",
+   "short": "nền độ số"
+  },
+  {
+   "id": "ally.loyal",
+   "facet": "relationships.allies",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "ally.disloyal",
+   "np": "bạn bè, người dưới quyền tận tâm",
+   "short": "người dưới tận tâm"
+  },
+  {
+   "id": "ally.disloyal",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "ally.loyal",
+   "np": "bạn bè, người dưới quyền khó tin cậy",
+   "short": "người dưới khó tin"
+  },
+  {
+   "id": "ally.many",
+   "facet": "relationships.allies",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "nhiều bạn bè, đông người theo",
+   "short": "sự đông người theo"
+  },
+  {
+   "id": "outside.favorable",
+   "facet": "life.outside",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "outside.adverse",
+   "np": "sự thuận lợi khi ra ngoài",
+   "short": "vận thuận bên ngoài"
+  },
+  {
+   "id": "outside.adverse",
+   "facet": "life.outside",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "outside.favorable",
+   "np": "những bất trắc khi ra ngoài",
+   "short": "trắc trở bên ngoài"
+  },
+  {
+   "id": "outside.active",
+   "facet": "life.outside",
+   "pol": "~",
+   "kind": "style",
+   "np": "thiên hướng năng ra ngoài, hoạt động",
+   "short": "sự năng hoạt động"
+  },
+  {
+   "id": "prop.inherit",
+   "facet": "finance.property",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "cơ nghiệp thừa hưởng từ ông cha",
+   "short": "tổ nghiệp"
+  },
+  {
+   "id": "prop.self_built",
+   "facet": "finance.property",
+   "pol": "~",
+   "kind": "style",
+   "np": "cơ nghiệp tự tay gây dựng",
+   "short": "nhà cửa tự lập"
+  },
+  {
+   "id": "kin.many",
+   "facet": "relationships.kin",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "kin.few",
+   "np": "đông con cháu, anh em",
+   "short": "sự đông đủ"
+  },
+  {
+   "id": "kin.few",
+   "facet": "relationships.kin",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "kin.many",
+   "np": "sự hiếm hoi con cái, anh em",
+   "short": "sự hiếm hoi"
+  },
+  {
+   "id": "kin.harmony",
+   "facet": "relationships.kin",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "kin.strain",
+   "np": "sự hòa thuận trong nhà",
+   "short": "tình thân êm ấm"
+  },
+  {
+   "id": "kin.strain",
+   "facet": "relationships.kin",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "kin.harmony",
+   "np": "sự bất hòa, xung khắc trong nhà",
+   "short": "sự xung khắc"
+  },
+  {
+   "id": "kin.apart",
+   "facet": "relationships.kin",
+   "pol": "~",
+   "kind": "outcome",
+   "np": "sự sớm xa cách người thân",
+   "short": "sự xa cách"
+  },
+  {
+   "id": "kin.late",
+   "facet": "relationships.kin",
+   "pol": "~",
+   "kind": "timing",
+   "np": "con cái đến muộn",
+   "short": "con muộn"
+  },
+  {
+   "id": "health.mild",
+   "facet": "wellbeing.health",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "health.severe",
+   "np": "bệnh tật nhẹ, dễ chữa",
+   "short": "bệnh nhẹ"
+  },
+  {
+   "id": "health.severe",
+   "facet": "wellbeing.health",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "health.mild",
+   "np": "nguy cơ tai ách, bạo bệnh",
+   "short": "tai ách nặng"
+  },
+  {
+   "id": "ally.weak",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "người dưới kém tài, chỉ trông cậy",
+   "short": "người dưới bất lực"
+  },
+  {
+   "id": "kin.burden",
+   "facet": "relationships.kin",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "người thân trông cậy vào mình",
+   "short": "gánh nặng người thân"
+  }
+ ]
+}

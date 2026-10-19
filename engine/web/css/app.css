@@ -625,3 +625,15 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 @keyframes liveBump{0%{color:var(--cinnabar);transform:translateY(-3px) scale(1.12)}100%{color:var(--ink);transform:none}}
 @media(prefers-reduced-motion:reduce){.live-dot:after{animation:none;opacity:.35;transform:scale(1.2)}.live-item.bump b{animation:none}}
 @media print{.live{display:none}}
+/* reader prose (Luận giải cung Mệnh): clean text, evidence under the clicked sentence */
+.prose .pr-s{cursor:pointer;border-radius:4px;transition:background .15s}.prose .pr-s:hover,.prose .pr-s.on{background:color-mix(in srgb,var(--gold) 14%,transparent)}
+.prose .pr-s:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.pr-why{margin:-4px 0 14px;padding:10px 14px;border:1px solid var(--bd);border-radius:10px;background:var(--bg)}.pr-why p{margin:0 0 6px}
+.pr-rules{margin:6px 0 0;padding-left:18px}.pr-rules li{margin:3px 0;line-height:1.5}.pr-rules code{font-size:.78em;margin-left:4px}
+
+/* the written reading comes first; the book-by-book evidence folds under it */
+.ch-more{margin-top:var(--s5);border-top:1px solid var(--line);padding-top:var(--s3)}
+.ch-more>summary{cursor:pointer;font:600 .9rem var(--sans);color:var(--cinnabar);padding:8px 0;list-style:none}
+.ch-more>summary::-webkit-details-marker{display:none}
+.ch-more>summary:before{content:"+";display:inline-block;width:1.2em;font-weight:700}
+.ch-more[open]>summary:before{content:"−"}

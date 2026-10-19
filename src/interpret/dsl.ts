@@ -38,6 +38,20 @@ export function compare(got: unknown, op: string, want: unknown): Tri {
   throw new Error(`unknown operator ${op}`);
 }
 
+/** facts[ALT + name]: the disagreeing readings of fact `name` (a CONFLICT star-dignity cell). A condition on it is TRUE when every
+ *  alternative satisfies it, FALSE when none does, else UNKNOWN; a null alternative is an unknown reading. Mirrors dsl.py _leaf. */
+export const ALT = 'alt:';
+function leaf(facts: Facts, name: string, op: string, want: unknown): Tri {
+  const alts = facts[ALT + name];
+  if (Array.isArray(alts)) {
+    const v = alts.map(a => a === null ? null : compare(a, op, want));
+    if (!v.length || v.includes(null)) return null;
+    return v.every(x => x === true) ? true : v.every(x => x === false) ? false : null;
+  }
+  if (!(name in facts)) return null;
+  return compare(facts[name], op, want);
+}
+
 export function resolvePalace(target: string, facts: Facts): string | null {
   if (ROLES.has(target)) {
     const names = facts['palace.rel_names'];
@@ -61,11 +75,10 @@ export function evaluate(expr: Expr, facts: Facts, world?: World): Tri {
     if (!world) return null;
     const name = resolvePalace(expr.ref.palace, facts);
     const other = name ? world(name) : null;
-    if (!other || !(expr.ref.fact in other)) return null;
-    return compare(other[expr.ref.fact], expr.operator ?? 'eq', expr.value);
+    if (!other) return null;
+    return leaf(other, expr.ref.fact, expr.operator ?? 'eq', expr.value);
   }
-  if (!(expr.fact in facts)) return null;
-  return compare(facts[expr.fact], expr.operator ?? 'eq', expr.value);
+  return leaf(facts, expr.fact, expr.operator ?? 'eq', expr.value);
 }
 
 /** Leaves of a condition that are TRUE on these facts (refs and negations are not expanded): what the chart actually satisfied. */

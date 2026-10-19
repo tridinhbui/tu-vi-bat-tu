@@ -2,6 +2,7 @@
 // (tam hợp / xung chiếu / giáp), what each finding was fired by, which book it cites, which concept it expresses, and — the basis of
 // cross-palace reasoning — which star placements in WHICH palaces a finding depends on (a Mệnh reading that 'gặp Tử Vi' depends on the
 // palace where Tử Vi actually sits).
+import { classify, KB, type School } from './dignity.ts';
 import { evaluate } from './dsl.ts';
 import type { Evidence } from './semantic.ts';
 import type { ChartInput, Facts, Palace } from './types.ts';
@@ -20,13 +21,26 @@ export class ChartGraph {
     this.chart = chart;
     this.palaces = new Map(chart.palaces.map(p => [p.name, p]));
     this.byBranch = new Map(chart.palaces.map(p => [p.branch_index, p]));
+    const school = ((chart as { dignity_school?: School }).dignity_school ?? KB.default_school) as School;
     for (const p of chart.palaces) {
       this.node({ id: `palace:${p.name}`, kind: 'palace', label: p.name, data: { branch: p.branch, stem: p.stem, tuan: p.tuan, triet: p.triet, than: p.is_than } });
       for (const s of p.stars) {
         this.starAt.set(s, p.name);
-        const dig = p.major_dignity[s] ?? p.minor_dignity[s] ?? null;
-        this.node({ id: `star:${s}`, kind: 'star', label: s, data: { major: p.major_stars.includes(s), dignity: dig } });
-        this.edge(`palace:${p.name}`, `star:${s}`, 'contains', { dignity: dig });
+        // brightness from the shared knowledge base (engine/data/dignity_kb.json), the same one the Python chart used
+        const r = classify(s, p.branch, school);
+        const dig = r.status === 'VERIFIED' ? r.value : null;
+        this.node({ id: `star:${s}`, kind: 'star', label: s, data: {
+          major: p.major_stars.includes(s), dignity: dig, dignityStatus: r.status,
+          ...(r.status === 'VERIFIED' ? { dignityTerm: r.term, dignitySchool: r.school, dignityLocator: r.locator } : {}),
+          ...(r.status === 'CONFLICT' ? { dignityAlternatives: r.alternatives } : {}),
+          ...('variants' in r && r.variants ? { dignityVariants: r.variants } : {}) } });
+        this.edge(`palace:${p.name}`, `star:${s}`, 'contains', { dignity: dig, dignityStatus: r.status });
+        if (r.status === 'VERIFIED' || r.status === 'CONFLICT') {
+          const src = KB.schools[r.school].source;
+          this.node({ id: `source:${src}`, kind: 'source', label: src });
+          const pages = r.status === 'VERIFIED' ? [r.locator] : r.alternatives.map(a => a.locator);
+          this.edge(`star:${s}`, `source:${src}`, 'dignity_from', { branch: p.branch, status: r.status, pages });
+        }
       }
       for (const [d, kind] of [[4, 'tam_hop'], [8, 'tam_hop'], [6, 'xung_chieu'], [1, 'giap'], [11, 'giap']] as Array<[number, string]>) {
         this.edge(`palace:${p.name}`, `palace:${this.byBranch.get((p.branch_index + d) % 12)!.name}`, kind);

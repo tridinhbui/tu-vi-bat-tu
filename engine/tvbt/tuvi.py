@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from typing import Literal
 
 from . import calendar_core as cc
-from .dignity import MINOR_STARS, dignity, minor_dignity_cell
+from .dignity import MINOR_STARS, classify, dignity, minor_dignity_cell
 from .ganzhi import (BRANCHES_VI, STEMS_VI, branch_stem_from_year, controls, cycle_index, from_cycle,
                      generates, gz_name, nap_am_element, nap_am_name, stem_polarity, year_cycle_index)
 from .trace import Trace
@@ -124,6 +124,14 @@ class TuViChart:
     school: dict
     warnings: list[str] = field(default_factory=list)
     extras: dict = field(default_factory=dict)  # mệnh chủ / thân chủ / nhận diện cách cục (see cach_cuc.py)
+
+
+def _status(r: dict) -> dict:
+    """Compact per-palace form of a classification (drops the star/id echo and long UNVERIFIED reasons)."""
+    out = {k: v for k, v in r.items() if k not in ("star", "id", "reason")}
+    if r["status"] in ("UNVERIFIED", "NOT_APPLICABLE"):
+        out.pop("school", None)
+    return out
 
 
 def _m(i: int) -> int:
@@ -302,6 +310,9 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
             "major_dignity": {s.name: dignity(s.name, BRANCHES_VI[br], dignity_school) for s in stars
                               if s.branch == br and s.group.startswith("chính tinh")},
             "tuan": br in tuan, "triet": br in triet,
+            # every star here, classified by the shared knowledge base (VERIFIED / CONFLICT / UNVERIFIED / NOT_APPLICABLE + source);
+            # the level fields above are its VERIFIED values, so badges, rules and the TS pipeline cannot disagree
+            "dignity_status": {s.name: _status(classify(s.name, BRANCHES_VI[br], dignity_school)) for s in stars if s.branch == br},
         })
     structure = {BRANCHES_VI[br]: {
         "same": BRANCHES_VI[br], "opposite": BRANCHES_VI[_m(br + 6)],
