@@ -2,27 +2,278 @@
  "note": "Paragraph shapes for the Mệnh chapter (prose plan §3.4). The planner builds an argument tree (nucleus, elaboration, turn, rescue, tension, timing, satellites) and takes the first schema whose needs are present and whose forbid moves are absent; ties go to hash(seed|chapter). '?' = optional. VALUE and TRANSFORM may only re-voice concepts already said in the paragraph.",
  "status": "draft",
  "schemas": [
-  {"id": "S_TURN_RESCUE", "needs": ["ANCHOR", "TURN", "RESCUE"], "order": ["ANCHOR", "ELABORATE?", "TURN", "RESCUE", "TENSION?", "TIMING?", "VALUE", "TRANSFORM"],
-   "note": "the reference shape: strength, its limiting side, what turns it, what sharpens it, when, then what it is worth"},
-  {"id": "S_CONFLICT_FIRST", "needs": ["TURN", "RESCUE"], "order": ["TURN", "ANCHOR", "RESCUE", "TIMING?", "VALUE", "TRANSFORM?"],
-   "note": "opens on the difficulty, then the core that carries it, then the rescue"},
-  {"id": "S_RESCUE_ONLY", "needs": ["ANCHOR", "RESCUE"], "forbid": ["TURN"], "order": ["ANCHOR", "ELABORATE?", "RESCUE", "SATELLITE?", "TIMING?", "VALUE"]},
-  {"id": "S_DOUBLE_EDGE", "needs": ["ANCHOR", "TURN"], "forbid": ["RESCUE"], "order": ["ANCHOR", "ELABORATE?", "TURN", "TENSION?", "TIMING?", "VALUE", "TRANSFORM"],
-   "note": "a strength whose own shadow is the turn; ends on how the shadow matures"},
-  {"id": "S_TURN_THEN_TENSION", "needs": ["ANCHOR", "TURN", "TENSION"], "forbid": ["RESCUE"], "order": ["ANCHOR", "TENSION", "TURN", "TIMING?", "TRANSFORM", "VALUE?"],
-   "note": "the sharpening factor before the limit, so the limit reads as the price of the edge"},
-  {"id": "S_QUIET_STRENGTH", "needs": ["ANCHOR"], "forbid": ["TURN", "RESCUE"], "order": ["ANCHOR", "ELABORATE", "SATELLITE?", "TENSION?", "TIMING?", "VALUE"],
-   "note": "nothing pulls against the core: elaborate and close on its worth"},
-  {"id": "S_SATELLITE_WEAVE", "needs": ["ANCHOR", "SATELLITE"], "forbid": ["TURN", "RESCUE"], "order": ["ANCHOR", "SATELLITE", "ELABORATE?", "TIMING?", "VALUE"]},
-  {"id": "S_LIMIT_CORE", "needs": ["TURN"], "forbid": ["ANCHOR"], "order": ["TURN", "SATELLITE?", "TIMING?", "TRANSFORM"],
-   "note": "the strongest reading is itself a limit: name it plainly, then how it can be carried"},
-  {"id": "S_TIMING_ARC", "needs": ["ANCHOR", "TIMING"], "forbid": ["RESCUE"], "order": ["ANCHOR", "TIMING", "TURN?", "SATELLITE?", "VALUE"],
-   "note": "the story is about when: a slow start, a late bloom"},
-  {"id": "S_VCD_BORROW", "needs": ["BORROW"], "order": ["BORROW", "ANCHOR?", "TURN?", "RESCUE?", "TIMING?", "VALUE"],
-   "note": "vô chính diệu: the opposite palace's stars carry the core"},
-  {"id": "S_TENSION_CORE", "needs": ["ANCHOR", "TENSION"], "forbid": ["TURN", "RESCUE"], "order": ["ANCHOR", "TENSION", "ELABORATE?", "TIMING?", "TRANSFORM", "VALUE"],
-   "note": "a strength sharpened by a sát or a Hóa: the edge itself is the subject"},
-  {"id": "S_PLAIN", "needs": [], "order": ["ANCHOR?", "SATELLITE?", "TURN?", "TIMING?", "VALUE?"],
-   "note": "fallback: always applicable"}
+  {
+   "id": "S_TURN_RESCUE",
+   "needs": [
+    "ANCHOR",
+    "TURN",
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "ELABORATE?",
+    "TURN",
+    "RESCUE",
+    "TENSION?",
+    "TIMING?",
+    "VALUE",
+    "TRANSFORM"
+   ],
+   "note": "the reference shape: strength, its limiting side, what turns it, what sharpens it, when, then what it is worth"
+  },
+  {
+   "id": "S_CONFLICT_FIRST",
+   "needs": [
+    "TURN",
+    "RESCUE"
+   ],
+   "order": [
+    "TURN",
+    "ANCHOR",
+    "RESCUE",
+    "TIMING?",
+    "VALUE",
+    "TRANSFORM?"
+   ],
+   "note": "opens on the difficulty, then the core that carries it, then the rescue"
+  },
+  {
+   "id": "S_RESCUE_ONLY",
+   "needs": [
+    "ANCHOR",
+    "RESCUE"
+   ],
+   "forbid": [
+    "TURN"
+   ],
+   "order": [
+    "ANCHOR",
+    "ELABORATE?",
+    "RESCUE",
+    "SATELLITE?",
+    "TIMING?",
+    "VALUE"
+   ]
+  },
+  {
+   "id": "S_DOUBLE_EDGE",
+   "needs": [
+    "ANCHOR",
+    "TURN"
+   ],
+   "forbid": [
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "ELABORATE?",
+    "TURN",
+    "TENSION?",
+    "TIMING?",
+    "VALUE",
+    "TRANSFORM"
+   ],
+   "note": "a strength whose own shadow is the turn; ends on how the shadow matures"
+  },
+  {
+   "id": "S_TURN_THEN_TENSION",
+   "needs": [
+    "ANCHOR",
+    "TURN",
+    "TENSION"
+   ],
+   "forbid": [
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "TENSION",
+    "TURN",
+    "TIMING?",
+    "TRANSFORM",
+    "VALUE?"
+   ],
+   "note": "the sharpening factor before the limit, so the limit reads as the price of the edge"
+  },
+  {
+   "id": "S_QUIET_STRENGTH",
+   "needs": [
+    "ANCHOR"
+   ],
+   "forbid": [
+    "TURN",
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "ELABORATE",
+    "SATELLITE?",
+    "TENSION?",
+    "TIMING?",
+    "VALUE"
+   ],
+   "note": "nothing pulls against the core: elaborate and close on its worth"
+  },
+  {
+   "id": "S_SATELLITE_WEAVE",
+   "needs": [
+    "ANCHOR",
+    "SATELLITE"
+   ],
+   "forbid": [
+    "TURN",
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "SATELLITE",
+    "ELABORATE?",
+    "TIMING?",
+    "VALUE"
+   ]
+  },
+  {
+   "id": "S_LIMIT_CORE",
+   "needs": [
+    "TURN"
+   ],
+   "forbid": [
+    "ANCHOR"
+   ],
+   "order": [
+    "TURN",
+    "SATELLITE?",
+    "TIMING?",
+    "TRANSFORM"
+   ],
+   "note": "the strongest reading is itself a limit: name it plainly, then how it can be carried"
+  },
+  {
+   "id": "S_TIMING_ARC",
+   "needs": [
+    "ANCHOR",
+    "TIMING"
+   ],
+   "forbid": [
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "TIMING",
+    "TURN?",
+    "SATELLITE?",
+    "VALUE"
+   ],
+   "note": "the story is about when: a slow start, a late bloom"
+  },
+  {
+   "id": "S_VCD_BORROW",
+   "needs": [
+    "BORROW"
+   ],
+   "order": [
+    "BORROW",
+    "ANCHOR?",
+    "TURN?",
+    "RESCUE?",
+    "TIMING?",
+    "VALUE"
+   ],
+   "note": "vô chính diệu: the opposite palace's stars carry the core"
+  },
+  {
+   "id": "S_TENSION_CORE",
+   "needs": [
+    "ANCHOR",
+    "TENSION"
+   ],
+   "forbid": [
+    "TURN",
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "TENSION",
+    "ELABORATE?",
+    "TIMING?",
+    "TRANSFORM",
+    "VALUE"
+   ],
+   "note": "a strength sharpened by a sát or a Hóa: the edge itself is the subject"
+  },
+  {
+   "id": "S_TIMING_FIRST",
+   "needs": [
+    "ANCHOR",
+    "TIMING",
+    "TURN"
+   ],
+   "forbid": [
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "TIMING",
+    "ELABORATE?",
+    "TURN",
+    "TENSION?",
+    "VALUE",
+    "TRANSFORM"
+   ],
+   "note": "the rhythm of life right after the core, then the limit"
+  },
+  {
+   "id": "S_EDGE_LATE_ELABORATE",
+   "needs": [
+    "ANCHOR",
+    "TURN"
+   ],
+   "forbid": [
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "TURN",
+    "ELABORATE?",
+    "TENSION?",
+    "TIMING?",
+    "TRANSFORM",
+    "VALUE"
+   ],
+   "note": "core, its limit at once, then how the core shows in daily life; ends on worth"
+  },
+  {
+   "id": "S_TENSION_BRIDGE",
+   "needs": [
+    "ANCHOR",
+    "TENSION",
+    "TURN"
+   ],
+   "forbid": [
+    "RESCUE"
+   ],
+   "order": [
+    "ANCHOR",
+    "ELABORATE?",
+    "TENSION",
+    "TIMING?",
+    "TURN",
+    "VALUE",
+    "TRANSFORM"
+   ],
+   "note": "the sharpening factor as a bridge between the core and its limit"
+  },
+  {
+   "id": "S_PLAIN",
+   "needs": [],
+   "order": [
+    "ANCHOR?",
+    "SATELLITE?",
+    "TURN?",
+    "TIMING?",
+    "VALUE?"
+   ],
+   "note": "fallback: always applicable"
+  }
  ]
 }
