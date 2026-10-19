@@ -82,6 +82,14 @@ const knowledge = {
   kg: { qualifiers: read(join(DATA, 'kg', 'qualifiers.json')).qualifiers,
         ruleConcepts: existsSync(join(DATA, 'kg', 'rule_concepts.json')) ? read(join(DATA, 'kg', 'rule_concepts.json')).entries : {},
         relations: existsSync(join(DATA, 'kg', 'relations.json')) ? read(join(DATA, 'kg', 'relations.json')).relations : [] },
+  // prose library (prose plan §3): how concepts, chart facts and resolver decisions are voiced in reader prose
+  prose: (() => {
+    const P = join(ROOT, 'src', 'interpret', 'content', 'prose');
+    const cards = readdirSync(P).filter(f => /^concepts_.*\.json$/.test(f)).sort().flatMap(f => read(join(P, f)).cards);
+    const { anchor, dignity, subject } = read(join(P, 'frames.json'));
+    return { version: '0.1.0', concepts: cards, frames: { anchor, dignity, subject }, modifiers: read(join(P, 'modifiers.json')).modifiers,
+      schemas: read(join(P, 'schemas.json')).schemas, connectives: read(join(P, 'connectives.json')).connectives };
+  })(),
 };
 const version = createHash('sha256').update(JSON.stringify(knowledge)).digest('hex').slice(0, 16);
 const out = { version, builtFrom: packs, ...knowledge };

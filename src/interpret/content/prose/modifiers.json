@@ -1,0 +1,102 @@
+{
+ "note": "How a chart fact or a resolver decision is voiced (prose plan §3.2). Slots: {star} {stars} {branch} {hoa} {tt} (Tuần/Triệt) {dignity} {S}; {concept.np|pron|say} = the concept this move voices (say = pred for +/~ concepts, turn for − concepts, soft when softened); {target.np|pron} = the concept the move acts on; {value} {value2} {mature} for the closing moves. A card names facts and relations only; the trait comes from the concept card. Drafted by Claude 2026-10-18, review pending.",
+ "status": "draft",
+ "modifiers": [
+  {"id": "MOD_RESCUE_HOA_LOC", "status": "draft", "move": "RESCUE", "when": {"relation": "rescues", "hoa": "Hóa Lộc"},
+   "variants": [
+    "Điều xoay chuyển nằm ở năm sinh: {star} được hóa Lộc, nên {target.pron} không còn kéo hẳn xuống mà có thêm một lối ra thuận",
+    "May thay, {star} được hóa Lộc, và đây là trường hợp tuy hãm vẫn khá; phần bất lợi vì thế nhẹ đi đáng kể",
+    "Cái gỡ lại nằm ở Hóa Lộc: có nó, {star} dù ở thế hãm vẫn giữ được chỗ đứng, và {target.pron} chỉ còn là một phần của bức tranh"
+   ]},
+  {"id": "MOD_RESCUE_TUAN_TRIET", "status": "draft", "move": "RESCUE", "when": {"relation": "rescues", "tuan_triet": true},
+   "variants": [
+    "Lạ là chính {tt} lại thành chỗ gỡ: {star} ở thế hãm gặp {tt} thì sáng lại, như người có tài được cởi trói",
+    "Ở đây {tt} không làm tối thêm mà ngược lại, giúp {star} vốn hãm sáng ra; {target.pron} vì thế nhẹ đi nhiều",
+    "{tt} đóng ở Mệnh trong trường hợp này là điều có lợi: thế hãm của {star} được giải phần lớn"
+   ]},
+  {"id": "MOD_RESCUE_CAT", "status": "draft", "move": "RESCUE", "when": {"relation": "rescues", "star_group": "cat"},
+   "variants": [
+    "Bù lại, có các sao tốt hội về, nên {star} dù ở thế yếu vẫn có người nâng đỡ và {target.pron} không đi đến cùng",
+    "Điều giữ cho cán cân không lệch hẳn là những cát tinh chiếu về: nhờ chúng, {target.pron} được giảm nhẹ",
+    "Những sao tốt quanh Mệnh làm phần bất lợi của {star} dịu đi; đường đời vì thế có chỗ dựa hơn vẻ ban đầu"
+   ]},
+  {"id": "MOD_RESCUE_GENERIC", "status": "draft", "move": "RESCUE", "when": {"relation": "rescues"},
+   "variants": [
+    "Tuy vậy, lá số có chỗ hóa giải, nên {target.pron} không phải là toàn bộ câu chuyện",
+    "Điều đáng mừng là phần bất lợi ấy được hóa giải một phần, nên {target.np} chỉ còn là một khía cạnh cần lưu tâm",
+    "Chỗ gỡ lại nằm ngay trong cấu trúc lá số, khiến {target.pron} nhẹ đi đáng kể"
+   ]},
+  {"id": "MOD_QUALIFY_WEAKEN", "status": "draft", "move": "TURN", "when": {"status": "weakened"},
+   "variants": [
+    "có điều {target.np} không trọn vẹn như vẻ ngoài, vì {concept.say}",
+    "nhưng phần thuận ấy bị kéo bớt: {concept.say}",
+    "song {target.pron} chỉ đến được một phần, bởi {concept.say}"
+   ]},
+  {"id": "MOD_TENSION_SAT_DAC", "status": "draft", "move": "TENSION", "when": {"star_group": "sat", "dignity_ok": true},
+   "variants": [
+    "{star} đồng cung lại {dignity}, thêm cho tính cách nét {concept.np}",
+    "Sự có mặt của {star} ở thế {dignity} làm nổi lên {concept.np}",
+    "Có {star} {dignity} đi cùng, {concept.np} hiện ra rõ hơn"
+   ]},
+  {"id": "MOD_TENSION_SAT_HAM", "status": "draft", "move": "TENSION", "when": {"star_group": "sat", "dignity_ok": false},
+   "variants": [
+    "Sự hiện diện của {star} khiến mọi thứ gai góc hơn: {concept.say}",
+    "{star} đóng cùng cung làm tính cách thêm phần căng: {concept.say}",
+    "Có {star} ở Mệnh, khí chất trở nên sắc cạnh hơn, và {concept.say}"
+   ]},
+  {"id": "MOD_TENSION_HOA_QUYEN", "status": "draft", "move": "TENSION", "when": {"hoa": "Hóa Quyền"},
+   "variants": [
+    "Hóa Quyền ở {star} thêm cho người này {concept.np}",
+    "Với {star} hóa Quyền, {concept.np} được đẩy lên rõ rệt",
+    "Hóa Quyền làm {star} mạnh tay hơn, và {concept.np} trở thành nét nổi"
+   ]},
+  {"id": "MOD_TENSION_HOA_KY", "status": "draft", "move": "TENSION", "when": {"hoa": "Hóa Kỵ"},
+   "variants": [
+    "Hóa Kỵ đóng ở {star} làm mọi việc vướng hơn: {concept.say}",
+    "Có Hóa Kỵ đi cùng {star}, {concept.say}",
+    "Hóa Kỵ là chỗ kẹt của Mệnh này: {concept.say}"
+   ]},
+  {"id": "MOD_TENSION_HOA_KHOA", "status": "draft", "move": "TENSION", "when": {"hoa": "Hóa Khoa"},
+   "variants": [
+    "Hóa Khoa ở {star} mang lại {concept.np}",
+    "Với {star} hóa Khoa, {concept.np} được tôn thêm",
+    "Hóa Khoa làm {concept.np} hiện ra nhã nhặn mà rõ ràng"
+   ]},
+  {"id": "MOD_TIMING_TUAN_TRIET", "status": "draft", "move": "TIMING", "when": {"tuan_triet": true},
+   "variants": [
+    "Vì có {tt} án ngữ ở Mệnh, những thuận lợi ấy thường đến muộn; {concept.say}",
+    "{tt} đóng ở Mệnh nên mọi việc thường khởi đầu chậm: {concept.say}",
+    "Với {tt} án ngữ, quãng đầu đời là quãng phải tự mở đường; {concept.say}"
+   ]},
+  {"id": "MOD_TIMING_GENERIC", "status": "draft", "move": "TIMING", "when": {},
+   "variants": [
+    "Về nhịp đời, {concept.say}",
+    "Xét theo thời gian, {concept.say}",
+    "Nhịp đời của người này cũng có điểm riêng: {concept.say}"
+   ]},
+  {"id": "MOD_QUALIFIER_TUAN_TRIET_MODIFIES", "status": "draft", "move": "TIMING", "when": {"tuan_triet": true, "status": "modified"},
+   "variants": [
+    "{tt} ở Mệnh như một lớp màn: cái tốt lộ ra chậm hơn, cái khó cũng bớt gay gắt",
+    "Có {tt} đóng tại Mệnh, mọi nét kể trên đều được làm dịu đi: điều thuận đến chậm, điều nghịch cũng nhẹ bớt",
+    "Vì {tt} án ngữ, cả phần sáng lẫn phần tối của Mệnh đều bị kìm lại một nhịp"
+   ]},
+  {"id": "MOD_VALUE_PAIR", "status": "draft", "move": "VALUE", "when": {},
+   "variants": [
+    "Bởi vậy, điều đáng quý ở lá số này không chỉ là {value} mà còn là {value2}",
+    "Rốt lại, cái vốn quý nhất của người này nằm ở {value}, đi cùng {value2}",
+    "Điều đọng lại sau tất cả là {value} và {value2}"
+   ]},
+  {"id": "MOD_VALUE_ONE", "status": "draft", "move": "VALUE", "when": {},
+   "variants": [
+    "Bởi vậy, điều đáng quý ở lá số này là {value}",
+    "Rốt lại, cái vốn quý của người này nằm ở {value}",
+    "Điều đọng lại sau tất cả là {value}"
+   ]},
+  {"id": "MOD_TRANSFORM", "status": "draft", "move": "TRANSFORM", "when": {},
+   "variants": [
+    "khi biết {mature}, chính điều từng gây vướng bận sẽ trở thành thế mạnh",
+    "càng biết {mature}, người này càng phát huy được những gì mình vốn có",
+    "và nếu biết {mature}, mặt khó của lá số sẽ trở thành bài học hơn là trở ngại"
+   ]}
+ ]
+}

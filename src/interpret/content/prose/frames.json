@@ -1,0 +1,34 @@
+{
+ "note": "Frames name the chart, never a trait. Slots: {stars} (chính tinh ở Mệnh, nối bằng 'và'), {branch}, {star} (one star), {opp_stars} (chính tinh cung đối diện, for vô chính diệu), {dignity} (a phrase from 'dignity'). Drafted by Claude 2026-10-18, review pending.",
+ "status": "draft",
+ "anchor": {
+  "single": [
+   "Người có {stars} tọa Mệnh tại {branch}",
+   "Với {stars} thủ Mệnh ở {branch}, người mang lá số này",
+   "Lá số có {stars} đóng Mệnh tại {branch} cho thấy một người",
+   "Khi {stars} làm chủ cung Mệnh ở {branch}, đương số"
+  ],
+  "pair": [
+   "Người có {stars} cùng tọa Mệnh tại {branch}",
+   "Với {stars} đồng cung ở Mệnh tại {branch}, người mang lá số này",
+   "Lá số có bộ {stars} đóng Mệnh tại {branch} cho thấy một người",
+   "Khi {stars} cùng làm chủ cung Mệnh ở {branch}, đương số"
+  ],
+  "vcd": [
+   "Mệnh ở {branch} không có chính tinh, nên được đọc qua {opp_stars} từ cung đối diện; người mang lá số này",
+   "Cung Mệnh tại {branch} vô chính diệu, mượn {opp_stars} ở cung xung chiếu để luận; đương số",
+   "Với Mệnh vô chính diệu ở {branch}, cái nền được soi qua {opp_stars} từ phía đối diện; người này"
+  ]
+ },
+ "dignity": {
+  "miếu": ["đắc thế miếu địa", "ở vào thế miếu", "đứng nơi miếu địa"],
+  "vượng": ["ở thế vượng", "đứng nơi vượng địa", "được thế vượng"],
+  "đắc": ["đắc địa", "ở vào thế đắc", "đứng đúng chỗ"],
+  "bình": ["ở thế bình hòa", "đứng nơi bình địa", "chỉ ở thế bình"],
+  "hãm": ["đứng thế hãm", "ở vào thế hãm", "rơi vào hãm địa"]
+ },
+ "subject": {
+  "first": ["Người có lá số này", "Đương số", "Người mang lá số này"],
+  "next": ["Họ", "Người này", "Người mang tổ hợp này"]
+ }
+}

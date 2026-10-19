@@ -91,6 +91,7 @@ export interface Knowledge {
   reference?: Reference;
   kg?: { qualifiers: import('./kg/qualifiers.ts').Qualifier[]; ruleConcepts?: Record<string, import('./kg/lift.ts').RuleConcept>;
     relations?: import('./kg/resolve.ts').KgRelation[] };
+  prose?: import('./prose/types.ts').ProseLibrary;
 }
 
 /** Sourced reference material compiled by tools/interpret/build.ts (see the comment there for the page of each table). */
