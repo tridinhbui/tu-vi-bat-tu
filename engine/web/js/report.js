@@ -293,8 +293,10 @@ export function renderTuviReport(host, chart, ctx) {
     chapters.forEach(c => { if (EV_CH[c.id]) c.synth = evHtml(EV_CH[c.id].map(k => ev[k])) + (c.synth || ''); });
   }
   // reader prose per chapter (/api/interpret mode "prose"): Mệnh -> Bản Mệnh, Công danh -> Công danh, Tài Bạch -> Tài Bạch
-  const PR_CH = { menh: 'ban-menh', cong_danh: 'cong-danh', tai_bach: 'tai-bach' };
-  for (const [k, id] of Object.entries(PR_CH)) { const p = ctx.prose?.[k], c = chapters.find(x => x.id === id); if (p?.paragraphs?.length && c) c.synth = proseHtml(p) + (c.synth || ''); }
+  const PR_CH = { menh: 'ban-menh', cong_danh: 'cong-danh', tai_bach: 'tai-bach', thien_di: 'cong-danh', phu_the: 'quan-he', phuc_duc: 'tinh-cach', dien_trach: 'tai-bach', no_boc: 'quan-he' };
+  const prByCh = {};
+  for (const [k, id] of Object.entries(PR_CH)) { const p = ctx.prose?.[k]; if (p?.paragraphs?.length) prByCh[id] = (prByCh[id] || '') + proseHtml(p); }
+  for (const [id, html] of Object.entries(prByCh)) { const c = chapters.find(x => x.id === id); if (c) c.synth = html + (c.synth || ''); }
   mount(host, chapters, 'tv', ctx);
   if (ctx.prose) bindProse(host, ctx.prose);
   yearExplorer($('#tv-year', host), ctx.req, b, 'tuvi');

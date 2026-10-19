@@ -52,13 +52,16 @@ export function lintLibrary(lib: ProseLibrary, concepts: Concept[], required: st
         if (f === 'behave') { if (!/^(\{S\}|\p{Lu})/u.test(t) || !/[.!?]$/.test(t)) err(where, `sentence must start with {S} or a capital and end with a period: ${t}`); }
         else if (/[.!?]$/.test(t) || /^\p{Lu}/u.test(t.replace(/^\{[^}]+\}/, ''))) err(where, `fragment must be lower-case and unpunctuated: ${t}`);
         // the realizer supplies the verb: a pred must not start with 'thường/hay/luôn', a turn not with 'dễ'
-        if (f === 'pred' && /^(thường|hay|luôn) /.test(t)) err(where, `pred carries its own frequency verb: ${t}`);
+        if (f === 'pred' && /^(thường|hay|luôn|dễ) /.test(t)) err(where, `pred follows 'thường': it must not start with its own 'thường/hay/luôn/dễ': ${t}`);
         if (f === 'turn' && /^(dễ|khó) /.test(t)) err(where, `turn after 'dễ' must not start with 'dễ' or 'khó' ('dễ khó giàu'): ${t}`);
         const words = t.split(/\s+/).length;
         if (words > 32) warn(where, `long (${words} words): ${t}`);
       }
     }
   }
+  // the closing line must not repeat the card's own predicate word for word ('giữ được những quan hệ bền lâu … là những quan hệ bền lâu')
+  for (const c of lib.concepts) for (const v of c.value ?? []) for (const t of [...(c.pred ?? []), ...(c.behave ?? [])])
+    if (v.split(/\s+/).length >= 3 && t.toLowerCase().includes(v.toLowerCase())) err(`${c.id}.value`, `value repeats a predicate: "${v}" in "${t}"`);
   for (const id of required) if (!cards.has(id)) err(id, 'no card for a concept that Mệnh rules assert');
 
   const moves = new Set(['ANCHOR', 'ELABORATE', 'TURN', 'RESCUE', 'TENSION', 'TIMING', 'SATELLITE', 'VALUE', 'TRANSFORM', 'BORROW']);

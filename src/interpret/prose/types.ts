@@ -30,7 +30,8 @@ export interface Frames {
   anchor_palace: Record<'single' | 'pair' | 'vcd' | 'vcd_own' | 'vcd_plain', string[]>; // the same for any other palace, named by {palace}
   via: string[];                                             // a reading carried by another palace: "Nhìn từ cung {from}, {S}"
   dignity: Record<string, string[]>;                         // "hãm" -> ["đứng thế hãm", "ở vào thế hãm"]
-  subject: { first: string[]; next: string[] };              // {S}: "Người có lá số này" / "Họ"
+  subject: { first: string[]; next: string[]; palace_first: string[] }; // {S}: "Người có lá số này" / "Họ"; palace frames: "đương số"
+  other: Record<string, { first: string[]; next: string[] }>; // Phu Thê, Nô Bộc: the people a non-bond reading is about
 }
 
 /** Voicing of a chart fact or resolver decision that changes how a concept lands (Tứ Hóa, sát đắc/hãm, Tuần/Triệt, rescues …). */

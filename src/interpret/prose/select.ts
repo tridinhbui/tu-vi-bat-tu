@@ -7,14 +7,14 @@
 //   TIMING    a hard start / late bloom / early or late success, flagged when Tuần or Triệt sits on the palace;
 //   SATELLITE further concepts of the chapter's kind; VIA the same kind read at another palace (Mệnh hands career and money on);
 //   DEGREE    the additive độ số balance (Mệnh only).
-// Every concept is used at most once in a report (spec.exclude carries what earlier chapters said). Voided assertions are never selected.
+// A reading (concept at a palace) is voiced at most once in a report (spec.exclude carries what earlier chapters said). Voided assertions are never selected.
 import type { Concept, Knowledge, Palace } from '../types.ts';
 import type { Resolved } from '../kg/resolve.ts';
 import { SAT } from '../kg/atoms.ts';
 
 export interface ConceptPick { concept: string; assertions: Resolved[]; score: number; soft: boolean }
 export interface SelectSpec {
-  palace: Palace; opp?: Palace; pool: (c?: Concept) => boolean; borrowFrom: string[]; chart: boolean; exclude: Set<string>; extra: string[]; degree: boolean;
+  palace: Palace; opp?: Palace; pool: (c?: Concept) => boolean; borrowPool?: (c?: Concept) => boolean; borrowFrom: string[]; chart: boolean; exclude: Set<string>; extra: string[]; degree: boolean;
 }
 export interface Selection {
   /** the first turn is the nucleus's own shadow (then 'sự sắc sảo ấy dễ …' reads true) */
@@ -40,8 +40,8 @@ export function select(resolved: Resolved[], k: Knowledge, spec: SelectSpec): Se
   const cmap = new Map(k.concepts.concepts.map(c => [c.id, c]));
   const pal = spec.palace, P = pal.name, majors = pal.major_stars, IDENTITY = (c?: Concept) => spec.pool(c);
   const borrowed = (r: Resolved) => !!r.palace && r.palace !== P && spec.borrowFrom.includes(r.palace);
-  const live = resolved.filter(r => r.status !== 'voided' && !spec.exclude.has(r.concept)
-    && (r.subject === `palace:${P}` || (spec.chart && r.subject === 'chart') || (borrowed(r) && spec.pool(cmap.get(r.concept)))));
+  const live = resolved.filter(r => r.status !== 'voided' && !spec.exclude.has(`${r.concept}@${r.palace ?? 'Mệnh'}`)
+    && (r.subject === `palace:${P}` || (spec.chart && r.subject === 'chart') || (borrowed(r) && (spec.borrowPool ?? spec.pool)(cmap.get(r.concept)))));
   const byConcept = new Map<string, Resolved[]>();
   for (const r of live) { if (r.additive) continue; (byConcept.get(r.concept) ?? byConcept.set(r.concept, []).get(r.concept)!).push(r); }
 

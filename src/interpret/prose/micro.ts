@@ -36,8 +36,9 @@ export class Micro {
     return c.text;
   }
 
-  subject(): string {
-    const xs = this.frames.subject.next.filter(x => !this.lastSubj.includes(x));
+  /** The next anaphor for the person (or, given a list, for the other people a chapter speaks of), never one of the last two. */
+  subject(list?: string[]): string {
+    const xs = (list ?? this.frames.subject.next).filter(x => !this.lastSubj.includes(x));
     const s = xs[fnv(`${this.seed}|subj|${this.openers.length}`) % xs.length];
     this.lastSubj = [s, ...this.lastSubj].slice(0, 2);
     return s;

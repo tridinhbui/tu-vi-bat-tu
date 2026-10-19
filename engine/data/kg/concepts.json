@@ -49,6 +49,74 @@
    "kind": "modifier",
    "np": "nền độ số của lá số, thuận hay nghịch theo năm, mùa, giờ sinh và vị trí Mệnh",
    "short": "nền độ số"
+  },
+  {
+   "id": "ally.loyal",
+   "facet": "relationships.allies",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "ally.disloyal",
+   "np": "bạn bè, người dưới quyền tận tâm",
+   "short": "người dưới tận tâm"
+  },
+  {
+   "id": "ally.disloyal",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "ally.loyal",
+   "np": "bạn bè, người dưới quyền khó tin cậy",
+   "short": "người dưới khó tin"
+  },
+  {
+   "id": "ally.many",
+   "facet": "relationships.allies",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "nhiều bạn bè, đông người theo",
+   "short": "sự đông người theo"
+  },
+  {
+   "id": "outside.favorable",
+   "facet": "life.outside",
+   "pol": "+",
+   "kind": "outcome",
+   "opp": "outside.adverse",
+   "np": "sự thuận lợi khi ra ngoài",
+   "short": "vận thuận bên ngoài"
+  },
+  {
+   "id": "outside.adverse",
+   "facet": "life.outside",
+   "pol": "-",
+   "kind": "outcome",
+   "opp": "outside.favorable",
+   "np": "những bất trắc khi ra ngoài",
+   "short": "trắc trở bên ngoài"
+  },
+  {
+   "id": "outside.active",
+   "facet": "life.outside",
+   "pol": "~",
+   "kind": "style",
+   "np": "thiên hướng năng ra ngoài, hoạt động",
+   "short": "sự năng hoạt động"
+  },
+  {
+   "id": "prop.inherit",
+   "facet": "finance.property",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "cơ nghiệp thừa hưởng từ ông cha",
+   "short": "tổ nghiệp"
+  },
+  {
+   "id": "prop.self_built",
+   "facet": "finance.property",
+   "pol": "~",
+   "kind": "style",
+   "np": "cơ nghiệp tự tay gây dựng",
+   "short": "nhà cửa tự lập"
   }
  ]
 }

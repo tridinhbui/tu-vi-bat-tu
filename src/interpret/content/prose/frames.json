@@ -1,5 +1,5 @@
 {
- "note": "Frames name the chart, never a trait. Slots: {stars} (chính tinh ở Mệnh, nối bằng 'và'), {branch}, {star} (one star), {opp_stars} (chính tinh cung đối diện, for vô chính diệu), {dignity} (a phrase from 'dignity'). Drafted by Claude 2026-10-18, review pending. anchor_palace: the same frames for any palace other than Mệnh ({palace}). via: a concept of the chapter's kind read only at another palace ({from}, {S}). vcd = the reading rests on the opposite palace's stars; vcd_own = it rests on stars standing in the empty palace ({own}); vcd_plain = neither (chart-level facts).",
+ "note": "Frames name the chart, never a trait. Slots: {stars} (chính tinh ở Mệnh, nối bằng 'và'), {branch}, {star} (one star), {opp_stars} (chính tinh cung đối diện, for vô chính diệu), {dignity} (a phrase from 'dignity'). Drafted by Claude 2026-10-18, review pending. anchor_palace: the same frames for any palace other than Mệnh ({palace}). via: a concept of the chapter's kind read only at another palace ({from}, {S}). vcd = the reading rests on the opposite palace's stars; vcd_own = it rests on stars standing in the empty palace ({own}); vcd_plain = neither (chart-level facts). anchor_palace frames end in {S}: the person (subject.palace_first) or, in Phu Thê and Nô Bộc, the other people the reading is about (other[palace]) when the concept is not about the bond itself.",
  "status": "draft",
  "anchor": {
   "single": [
@@ -69,43 +69,47 @@
    "Người mang tổ hợp này",
    "Đương số",
    "Chủ nhân lá số"
+  ],
+  "palace_first": [
+   "đương số",
+   "người mang lá số này",
+   "người này"
   ]
  },
  "anchor_palace": {
   "single": [
-   "Với {stars} ở cung {palace} tại {branch}, đương số",
-   "Cung {palace} có {stars} đóng tại {branch} cho thấy một người",
-   "Khi {stars} làm chủ cung {palace} ở {branch}, người mang lá số này",
-   "Người có {stars} ở cung {palace} tại {branch}",
-   "Xét cung {palace} tại {branch}, nơi {stars} tọa thủ, đương số",
-   "Nhìn vào {stars} ở cung {palace} tại {branch}, có thể thấy người này",
-   "Có {stars} tọa thủ cung {palace} ở {branch}, đương số"
+   "Với {stars} ở cung {palace} tại {branch}, {S}",
+   "Cung {palace} có {stars} đóng tại {branch} cho thấy {S}",
+   "Khi {stars} làm chủ cung {palace} ở {branch}, {S}",
+   "Xét cung {palace} tại {branch}, nơi {stars} tọa thủ, {S}",
+   "Nhìn vào {stars} ở cung {palace} tại {branch}, có thể thấy {S}",
+   "Có {stars} tọa thủ cung {palace} ở {branch}, {S}"
   ],
   "pair": [
-   "Với {stars} cùng ở cung {palace} tại {branch}, đương số",
-   "Cung {palace} có bộ {stars} đóng tại {branch} cho thấy một người",
-   "Khi {stars} cùng làm chủ cung {palace} ở {branch}, người mang lá số này",
-   "Người có {stars} đồng cung {palace} tại {branch}",
-   "Xét cung {palace} tại {branch}, nơi {stars} đồng cung, đương số",
-   "Nhìn vào bộ {stars} ở cung {palace} tại {branch}, có thể thấy người này",
-   "Có {stars} cùng tọa thủ cung {palace} ở {branch}, đương số"
+   "Với {stars} cùng ở cung {palace} tại {branch}, {S}",
+   "Cung {palace} có bộ {stars} đóng tại {branch} cho thấy {S}",
+   "Khi {stars} cùng làm chủ cung {palace} ở {branch}, {S}",
+   "Với {stars} đồng cung {palace} tại {branch}, {S}",
+   "Xét cung {palace} tại {branch}, nơi {stars} đồng cung, {S}",
+   "Nhìn vào bộ {stars} ở cung {palace} tại {branch}, có thể thấy {S}",
+   "Có {stars} cùng tọa thủ cung {palace} ở {branch}, {S}"
   ],
   "vcd": [
-   "Cung {palace} tại {branch} không có chính tinh, nên được đọc qua {opp_stars} từ cung đối diện; đương số",
-   "Cung {palace} ở {branch} vô chính diệu, mượn {opp_stars} ở cung xung chiếu để luận; người mang lá số này",
-   "Với cung {palace} vô chính diệu ở {branch}, nền của nó được soi qua {opp_stars}; đương số",
-   "Không có chính tinh, cung {palace} ở {branch} mượn {opp_stars} từ phía đối diện; người này",
-   "Vì cung {palace} tại {branch} vô chính diệu, phải soi qua {opp_stars} ở cung xung chiếu; đương số"
+   "Cung {palace} tại {branch} không có chính tinh, nên được đọc qua {opp_stars} từ cung đối diện; {S}",
+   "Cung {palace} ở {branch} vô chính diệu, mượn {opp_stars} ở cung xung chiếu để luận; {S}",
+   "Với cung {palace} vô chính diệu ở {branch}, nền của nó được soi qua {opp_stars}; {S}",
+   "Không có chính tinh, cung {palace} ở {branch} mượn {opp_stars} từ phía đối diện; {S}",
+   "Vì cung {palace} tại {branch} vô chính diệu, phải soi qua {opp_stars} ở cung xung chiếu; {S}"
   ],
   "vcd_own": [
-   "Cung {palace} tại {branch} không có chính tinh; với {own} đóng ở đây, đương số",
-   "Cung {palace} ở {branch} vô chính diệu, nét chính do {own} tọa thủ mang lại; người mang lá số này",
-   "Không có chính tinh, cung {palace} tại {branch} được đọc qua {own} đóng tại đó; đương số"
+   "Cung {palace} tại {branch} không có chính tinh; với {own} đóng ở đây, {S}",
+   "Cung {palace} ở {branch} vô chính diệu, nét chính do {own} tọa thủ mang lại; {S}",
+   "Không có chính tinh, cung {palace} tại {branch} được đọc qua {own} đóng tại đó; {S}"
   ],
   "vcd_plain": [
-   "Cung {palace} tại {branch} không có chính tinh; đương số",
-   "Cung {palace} ở {branch} vô chính diệu; người mang lá số này",
-   "Với cung {palace} vô chính diệu ở {branch}, người này"
+   "Cung {palace} tại {branch} không có chính tinh; {S}",
+   "Cung {palace} ở {branch} vô chính diệu; {S}",
+   "Với cung {palace} vô chính diệu ở {branch}, {S}"
   ]
  },
  "via": [
@@ -115,5 +119,27 @@
   "Một nét khác đến từ cung {from}: {S}",
   "Soi sang cung {from}, có thể thấy {S}",
   "Ở cung {from}, điều này cũng hiện ra: {S}"
- ]
+ ],
+ "other": {
+  "Phu Thê": {
+   "first": [
+    "người bạn đời",
+    "người phối ngẫu"
+   ],
+   "next": [
+    "người ấy",
+    "người bạn đời"
+   ]
+  },
+  "Nô Bộc": {
+   "first": [
+    "bạn bè và người dưới quyền",
+    "những người cộng sự"
+   ],
+   "next": [
+    "họ",
+    "những người ấy"
+   ]
+  }
+ }
 }
