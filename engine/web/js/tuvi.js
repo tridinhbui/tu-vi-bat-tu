@@ -35,7 +35,7 @@ export function renderTuvi(host, t, ctx) {
   const badge = (ds, major) => {
     if (ds?.status === 'VERIFIED') {
       const dg = ds.value, term = ds.term || dg, o = others(ds);
-      const tip = `Độ sáng: ${term}${term !== dg ? ` (xếp như ${dg})` : ''} · ${DG_BOOK[ds.school] || ds.school} ${page(ds.locator)}${ds.legacy ? ' · cách đọc cũ, chờ thẩm định' : ''}${o ? ` · Sách khác: ${o}` : ''}`;
+      const tip = `Độ sáng: ${term}${term !== dg ? ` (xếp như ${dg})` : ''} · ${DG_BOOK[ds.school] || ds.school} ${page(ds.locator)}${ds.legacy ? ' · sách in “Lợi”, đọc như Đắc (đã xác nhận 19/10/2026)' : ''}${o ? ` · Sách khác: ${o}` : ''}`;
       return `<sup class="dg dg-${dg}${major ? '' : ' dg-aux'}" data-gl="dg:${esc(dg)}" title="${esc(tip)}">${DG[term] || DG[dg] || esc(term)}</sup>`;
     }
     if (ds?.status === 'CONFLICT') {
