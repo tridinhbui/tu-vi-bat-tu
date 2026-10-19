@@ -1,0 +1,54 @@
+{
+ "version": "0.1.0",
+ "note": "Concepts used only by the knowledge graph (linked to rules by id in rule_concepts.manual.json, never by cue matching). Merged into knowledge.concepts at build time with cues: [] so the shared cue lexicon (engine/data/semantic/concepts.json) is unchanged.",
+ "concepts": [
+  {
+   "id": "amb.greed",
+   "facet": "identity.ambition",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "lòng ham lợi, thấy của là muốn nắm",
+   "short": "lòng ham lợi"
+  },
+  {
+   "id": "comm.gentle",
+   "facet": "identity.communication",
+   "pol": "+",
+   "kind": "style",
+   "np": "lời nói khoan thai, mềm mỏng",
+   "short": "giọng nói khoan thai"
+  },
+  {
+   "id": "emo.indecisive",
+   "facet": "identity.emotion",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "sự day dứt, lưỡng lự khó quyết",
+   "short": "sự lưỡng lự"
+  },
+  {
+   "id": "social.senior_role",
+   "facet": "career.support",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "vị trí đứng trên, đứng đầu trong nhà và ngoài xã hội",
+   "short": "vai người đứng đầu"
+  },
+  {
+   "id": "rel.jealous",
+   "facet": "relationships.marriage",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "tính hay ghen trong tình cảm",
+   "short": "tính hay ghen"
+  },
+  {
+   "id": "life.degree",
+   "facet": "life.course",
+   "pol": "~",
+   "kind": "modifier",
+   "np": "nền độ số của lá số, thuận hay nghịch theo năm, mùa, giờ sinh và vị trí Mệnh",
+   "short": "nền độ số"
+  }
+ ]
+}
