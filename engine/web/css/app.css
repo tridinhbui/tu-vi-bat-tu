@@ -578,3 +578,8 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 #tuvi-host,#bazi-host,#tvr-h,#bzr-h{scroll-margin-top:136px}
 @media(max-width:600px){.final-art{display:none}.final{padding:56px 0}.inside-notes{gap:var(--s4)}.inside-notes li{font-size:.9rem;padding-left:46px}.in-n{width:30px;height:30px;font-size:.9rem}.inside-notes b{font-size:1.15rem}}
 @media(max-width:700px){.atl-mast .res-act{flex-wrap:nowrap;gap:6px;width:100%}.atl-mast .res-act .btn{padding:7px 11px;font-size:.78rem;white-space:nowrap}.atl-mast #print-btn{margin-left:auto}}
+/* reader prose (Luận giải cung Mệnh): clean text, evidence under the clicked sentence */
+.prose .pr-s{cursor:pointer;border-radius:4px;transition:background .15s}.prose .pr-s:hover,.prose .pr-s.on{background:color-mix(in srgb,var(--gold) 14%,transparent)}
+.prose .pr-s:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.pr-why{margin:-4px 0 14px;padding:10px 14px;border:1px solid var(--bd);border-radius:10px;background:var(--bg)}.pr-why p{margin:0 0 6px}
+.pr-rules{margin:6px 0 0;padding-left:18px}.pr-rules li{margin:3px 0;line-height:1.5}.pr-rules code{font-size:.78em;margin-left:4px}

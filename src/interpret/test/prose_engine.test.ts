@@ -99,3 +99,26 @@ test('1,000 charts: no blocking error, no empty chapter, repetition, diversity a
   // Held at a floor so it cannot regress; raising it is library work (longer and shorter variants), tracked in prose-eval-1000.md.
   assert.ok(e.sentLenOk >= 800, `sentence rhythm ${e.sentLenOk}/1000`);
 });
+
+// ---- the shared /api/interpret handler (src/interpret/route.ts): what the Worker and tools/interpret/dev_server.ts both run ----
+import { handleInterpret } from '../route.ts';
+import { BundledStore, LayeredCache } from '../store.ts';
+const deps = (over: Partial<Parameters<typeof handleInterpret>[1]> = {}) => ({
+  enabled: true, proseDraft: true, store: new BundledStore(K), cache: new LayeredCache({}), defer: () => {},
+  facts: async () => new Response(JSON.stringify(ex.facts), { headers: { 'content-type': 'application/json' } }), ...over });
+const call = (body: unknown, over = {}) => handleInterpret(new Request('http://x/api/interpret', { method: 'POST', body: JSON.stringify(body) }), deps(over));
+
+test('route: mode "prose" returns the golden text; other chapters refuse prose; the flags gate the route and the drafts', async () => {
+  const birth = { year: 1991, month: 3, day: 2, hour: 8, minute: 30, gender: 'male' };
+  const r = await call({ ...birth, chapter: 'menh', mode: 'prose' });
+  assert.equal(r.status, 200);
+  const o = await r.json() as any;
+  assert.equal(o.text + '\n', readFileSync(goldenUrl, 'utf8'));
+  assert.ok(o.draft && o.evidence.rules.TV_TH_MV_MENH_CU_THIN_TUAT_LOC.cites.includes('TH p.88'));
+  assert.equal((await call({ ...birth, chapter: 'cong_danh', mode: 'prose' })).status, 422);
+  assert.equal((await call({ ...birth, chapter: 'menh', mode: 'prose' }, { enabled: false })).status, 404);
+  const strict = await (await call({ ...birth, chapter: 'menh', mode: 'prose' }, { proseDraft: false })).json() as any;
+  assert.equal(strict.paragraphs.length, 0);
+  const ev = await (await call({ ...birth, chapter: 'menh' })).json() as any;
+  assert.equal(ev.engine, 'interpret-2.1.0');
+});

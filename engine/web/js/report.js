@@ -47,6 +47,45 @@ function evHtml(chs) {
   return chs.map(ch => `<section class="synth ev-report" aria-label="${esc(ch.title)}"><p class="eyebrow">Luận giải có căn cứ · ${esc(ch.title)} <span class="muted">(thử nghiệm)</span></p>
     ${EV_SECTIONS.map(([k, t]) => ch.sections[k] == null ? '' : (k === 'nhan_dinh_tong_quan' ? `<h5>${t}</h5>${sec(k, ch.sections[k])}` : acc(t, '', sec(k, ch.sections[k])))).join('')}</section>`).join('');
 }
+// ---------- reader prose for Mệnh (src/interpret/prose via /api/interpret mode "prose"): clean text, evidence per sentence on click ----------
+const PR_MOVE = { ANCHOR: 'Nét lõi', BORROW: 'Nét lõi, mượn cung đối diện', ELABORATE: 'Biểu hiện', TURN: 'Mặt trái', RESCUE: 'Cứu giải', TENSION: 'Yếu tố làm sắc',
+  TIMING: 'Nhịp thời gian', SATELLITE: 'Nét bổ trợ', VALUE: 'Giá trị', TRANSFORM: 'Hướng chuyển hóa', DEGREE: 'Nền độ số', EXTRA: 'Đường đời' };
+const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', ZZ: 'Bát Tự Chân Tông' };
+const prCite = c => String(c).replace(/^(TH|KL|TT|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
+function proseHtml(p) {
+  if (!p?.paragraphs?.length) return '';
+  const draft = p.draft !== false;
+  return `<section class="synth prose" aria-label="Luận giải cung Mệnh"><p class="eyebrow">Luận giải cung Mệnh</p>
+    ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p">${para.sentences.map((s, j) => `<span class="sy-s pr-s" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
+    <div class="pr-why small" hidden></div>
+    <p class="muted small sy-foot">Văn bản do bộ máy quy tắc ghép từ các nhận định đã đối chiếu sách (không dùng mô hình AI)${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
+}
+function proseWhy(p, key) {
+  const [i, j] = key.split('.').map(Number), s = p.paragraphs[i]?.sentences[j];
+  if (!s) return '';
+  const t = s.trace, R = p.evidence?.rules || {}, C = p.evidence?.concepts || {};
+  const moves = [t.move, ...(t.woven || [])].map(m => PR_MOVE[m] || m).join(' + ');
+  const basis = t.basis === 'he_thong' ? '<span class="an-b an-he_thong">Lời tổng hợp của hệ thống</span> <span class="muted">không phải lời sách; chỉ nhắc lại những ý đã có căn cứ ở câu trước</span>' : '<span class="an-b an-sach">Theo sách</span>';
+  const res = t.resolution ? `<p><b>Phân xử:</b> câu sách ở ${esc(prCite(t.resolution.cite || ''))} làm mềm nhận định bất lợi đi kèm (quan hệ <code>${esc(t.resolution.relation)}</code>).</p>` : '';
+  // under a rescue, the readings it softened are listed for the record but marked: the text does not voice them as they stand
+  const softened = id => t.resolution && id !== t.resolution.byRule ? ' <span class="muted">· đã được câu sách trên làm mềm, văn bản không nêu nguyên ý này</span>' : '';
+  const rules = t.rules.map(id => R[id] ? `<li><b>${esc(R[id].cites.map(prCite).join('; ') || '—')}</b> ${esc(R[id].reading)}${softened(id)} <code class="muted">${esc(id)}</code></li>` : `<li><code>${esc(id)}</code></li>`).join('');
+  return `<p><b>${esc(moves)}</b> · ${basis}</p>${t.concepts.length ? `<p class="muted">Ý được nói: ${esc(t.concepts.map(c => C[c] || c).join(', '))}</p>` : ''}${res}${rules ? `<ul class="pr-rules">${rules}</ul>` : ''}`;
+}
+function bindProse(host, p) {
+  const box = $('.prose .pr-why', host);
+  if (!box) return;
+  $$('.pr-s', host).forEach(s => {
+    const open = () => {
+      const on = !s.classList.contains('on');
+      $$('.pr-s.on', host).forEach(o => { o.classList.remove('on'); o.setAttribute('aria-expanded', 'false'); });
+      if (on) { s.classList.add('on'); s.setAttribute('aria-expanded', 'true'); s.closest('.pr-p').after(box); box.innerHTML = proseWhy(p, s.dataset.pr); }
+      box.hidden = !on;
+    };
+    s.onclick = e => { if (!e.target.closest('a, .gl')) open(); };
+    s.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } };
+  });
+}
 const SY_CH = { 'tong-quan': 'tong_quan', 'ban-menh': 'ban_menh', 'tinh-cach': 'tinh_cach', 'cong-danh': 'cong_danh', 'tai-bach': 'tai_bach', 'quan-he': 'quan_he', 'dai-han': 'dai_han', 'cach-cuc': 'cach_cuc' };
 
 const WHAT = {
@@ -248,6 +287,8 @@ export function renderTuviReport(host, chart, ctx) {
     const ev = Object.fromEntries(ctx.interp.report.chapters.map(c => [c.id, c]));
     chapters.forEach(c => { if (EV_CH[c.id]) c.synth = evHtml(EV_CH[c.id].map(k => ev[k])) + (c.synth || ''); });
   }
+  if (ctx.prose?.paragraphs?.length) { const c = chapters.find(x => x.id === 'ban-menh'); c.synth = proseHtml(ctx.prose) + (c.synth || ''); }
   mount(host, chapters, 'tv', ctx);
+  if (ctx.prose) bindProse(host, ctx.prose);
   yearExplorer($('#tv-year', host), ctx.req, b, 'tuvi');
 }
