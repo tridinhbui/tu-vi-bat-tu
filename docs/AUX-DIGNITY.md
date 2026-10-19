@@ -1,5 +1,7 @@
 # Độ sáng phụ tinh (auxiliary-star dignity) — audit, aux-dignity-1
 
+> Superseded as the runtime source by the shared knowledge base `engine/data/dignity_kb.json` (see [STAR-DIGNITY-AUDIT.md](STAR-DIGNITY-AUDIT.md)); this page remains the transcription record for the phụ tinh tables. Since dignity-kb-1, Toàn Thư's Văn Xương Thìn/Tỵ/Ngọ/Mão/Dậu, Kình Dương Tý and Thực Hành's Linh Tinh Tỵ are CONFLICT (not merely experimental).
+
 Data: `engine/data/dignity_aux.json`, built by `tools/build_aux_dignity.py` (the builder holds the transcription, one line per star,
 with the page and every misprint noted). Lookup: `tvbt/dignity.py` `minor_dignity_cell` / `minor_dignity`. Tests:
 `engine/tests/test_aux_dignity.py` (Python) and `src/interpret/test/dignity.test.ts` (TS parity). Replaces `dignity_minor.json`

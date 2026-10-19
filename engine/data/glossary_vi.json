@@ -595,6 +595,10 @@
   "hãm": {
    "title": "Hãm",
    "plain": "Sao ở vị trí yếu: đặc tính tốt khó phát huy, đặc tính trội dễ lộ mặt trái. Đây là mức 'sáng', không phải 'xấu' tuyệt đối; còn tùy các sao đi cùng."
+  },
+  "conflict": {
+   "title": "Độ sáng chưa thống nhất",
+   "plain": "Cùng một cuốn sách ghi hai mức độ sáng khác nhau cho sao ở cung này (ví dụ một câu phú nói Vượng, câu khác nói Hãm). Phần mềm không tự chọn: không gắn mức sáng, và không quy tắc nào dựa vào độ sáng của sao này được kích hoạt."
   }
  },
  "concepts": {

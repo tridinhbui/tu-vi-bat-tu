@@ -402,6 +402,17 @@ def dignity_table():
     return json.loads((ROOT / "data" / "dignity_vn.json").read_text("utf-8"))
 
 
+@app.get("/api/dignity/classify")
+def dignity_classify(star: str, branch: str, school: str = "thuc_hanh"):
+    """One cell of the shared dignity knowledge base (engine/data/dignity_kb.json): status, level if VERIFIED, source, other books."""
+    from fastapi import HTTPException
+    from .dignity import classify
+    try:
+        return classify(star, branch, school)
+    except ValueError as e:
+        raise HTTPException(422, str(e))
+
+
 from . import formation_api  # noqa: E402  (opt-in draft cách-cục explanations)
 formation_api.register(app, BirthReq, _compute)
 
