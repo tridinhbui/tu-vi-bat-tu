@@ -33,13 +33,16 @@ export async function initAccount(host, onSynced, saver) {
   try { writeSaved(await sync(readSaved())); onSynced(); } catch { /* keep local charts; sync retries on the next visit */ }
 }
 
-/** "7 lượt chat miễn phí · 3 xu" next to the name; the title says when the free allowance resets. */
+/** "7 lượt chat miễn phí · 3 xu" next to the name; the title says when the free allowance resets. Repainted when the chat panel reports a new wallet. */
 async function paintWallet(el) {
+  const render = w => {
+    el.textContent = `${w.free.remaining} lượt chat miễn phí · ${w.coins} xu`;
+    el.title = `Lượt miễn phí tháng này: ${w.free.used}/${w.free.limit}, làm mới ngày ${new Date(w.free.resetsAt).toLocaleDateString('vi-VN')}. Hết lượt miễn phí, mỗi tin nhắn tốn ${w.costs.chat} xu; luận giải sâu tốn ${w.costs.deep} xu.`;
+    el.hidden = false;
+  };
+  addEventListener('tvbt:wallet', e => render(e.detail));
   try {
     const r = await api('/api/me/wallet'); if (!r.ok) return;
-    const w = await r.json();
-    el.textContent = `${w.free.remaining} lượt chat miễn phí · ${w.coins} xu`;
-    el.title = `Lượt miễn phí tháng này: ${w.free.used}/${w.free.limit}, làm mới ngày ${new Date(w.free.resetsAt).toLocaleDateString('vi-VN')}. Hết lượt miễn phí, mỗi tin nhắn tốn ${w.costs.chat} xu.`;
-    el.hidden = false;
+    render(await r.json());
   } catch { /* the chip is optional */ }
 }

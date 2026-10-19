@@ -608,3 +608,7 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 .ask-fine{margin:0;padding:0 14px 10px}
 @media print{.ask-fab,.ask-panel{display:none!important}}
 @media(max-width:600px){.ask-fab{right:12px;bottom:12px}.ask-panel{right:12px;bottom:64px}}
+
+.ask-deep{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.ask-deep select{flex:1;min-width:0;font:inherit;font-size:.88rem;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--ivory);color:var(--ink);text-overflow:ellipsis}
+.ask-deep .btn{white-space:nowrap}

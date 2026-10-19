@@ -7,13 +7,18 @@ export interface LlmRequest { instructions: string; context: string; messages: C
 export type Llm = (req: LlmRequest) => AsyncIterable<LlmEvent>;
 
 export const CHAT_MODEL = "claude-haiku-5-5";
+export const DEEP_MODEL = "claude-sonnet-5-5";
 
-export function anthropicLlm(apiKey: string, model = CHAT_MODEL): Llm {
+export interface LlmOptions { model: string; maxTokens: number; effort: "low" | "medium" | "high" }
+export const CHAT_OPTIONS: LlmOptions = { model: CHAT_MODEL, maxTokens: 1200, effort: "low" };
+export const DEEP_OPTIONS: LlmOptions = { model: DEEP_MODEL, maxTokens: 5000, effort: "medium" };
+
+export function anthropicLlm(apiKey: string, { model, maxTokens, effort }: LlmOptions): Llm {
   const client = new Anthropic({ apiKey, maxRetries: 1 });
   return async function* ({ instructions, context, messages }) {
     const stream = client.messages.stream({
-      model, max_tokens: 1200,
-      output_config: { effort: "low" },
+      model, max_tokens: maxTokens,
+      output_config: { effort },
       // two blocks: the fixed instructions, then this chart's text; the cache breakpoint on the second one lets follow-up messages reuse both
       system: [{ type: "text", text: instructions }, { type: "text", text: context, cache_control: { type: "ephemeral" } }],
       messages,
