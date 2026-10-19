@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from ..bazi import BaziChart
 from ..ganzhi import BRANCHES_VI, BRANCH_ELEMENT, ELEMENTS, STEMS_VI, STEM_ELEMENT, nap_am_name
+from ..knowledge import dsl
 from ..tuvi import TuViChart
 from . import positions
 
@@ -69,6 +70,10 @@ def tuvi_facts(c: TuViChart) -> dict[str, dict]:
             "palace.name": p["name"], "palace.branch": p["branch"], "palace.is_than": p["is_than"],
             "palace.own_stars": p["stars"], "palace.own_major_stars": p["major_stars"],
             **{f"palace.dignity.{k}": (v or "unspecified") for k, v in {**p["minor_dignity"], **p["major_dignity"]}.items()},
+            # CONFLICT cells (the book gives two readings): the level stays 'unspecified' for display, and the readings go to the rule
+            # evaluator, which answers TRUE / FALSE only when every reading agrees (knowledge/dsl.py, ALT); no reading is picked
+            **{f"{dsl.ALT}palace.dignity.{k}": [a["value"] for a in r["alternatives"]]
+               for k, r in p.get("dignity_status", {}).items() if r.get("status") == "CONFLICT"},
             "palace.has_no_major": not p["major_stars"],
             "palace.tam_phuong_majors": majors, "palace.tam_phuong_stars": stars,
             "palace.tuan": p["tuan"], "palace.triet": p["triet"],

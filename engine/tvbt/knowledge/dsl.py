@@ -11,6 +11,9 @@ Phase-1 additions (all backward compatible):
       how many of the sub-expressions are True (an UNKNOWN sub-expression makes the count UNKNOWN unless the answer is already decided).
 Facts are resolved from a flat dict produced by fact extraction (Phase 3); unknown facts are a
 validation error, and a missing fact at run time yields UNKNOWN (three-valued logic), not False.
+A fact whose sources disagree is given as alternatives: facts["alt:<name>"] = [v1, v2, ...] (e.g. a CONFLICT star-dignity cell, where one
+book reads vượng in its phú and đắc in its prose). A condition on that fact is TRUE when every alternative satisfies it, FALSE when none
+does, UNKNOWN otherwise; no reading is ever picked. A null alternative is an unknown reading. The alternatives win over the plain fact.
 """
 from __future__ import annotations
 
@@ -21,6 +24,7 @@ COUNT_OPERATORS = {"eq", "ne", "gte", "lte"}
 ROLES = {"self", "opp", "trine1", "trine2", "flank_prev", "flank_next", "nhi_hop"}
 MAX_DEPTH = 8
 UNKNOWN = None  # three-valued: True / False / None
+ALT = "alt:"    # facts[ALT + name]: the disagreeing readings of fact `name` (see the module docstring)
 
 
 class RuleError(ValueError):
@@ -112,6 +116,18 @@ def _compare(got: Any, op: str, want: Any) -> bool | None:
     raise RuleError(f"unknown operator {op!r}")
 
 
+def _leaf(facts: dict[str, Any], name: str, op: str, want: Any) -> bool | None:
+    alts = facts.get(ALT + name)
+    if isinstance(alts, list):
+        vals = [UNKNOWN if a is None else _compare(a, op, want) for a in alts]
+        if not vals or UNKNOWN in vals:
+            return UNKNOWN
+        return True if all(vals) else (False if not any(vals) else UNKNOWN)
+    if name not in facts:
+        return UNKNOWN
+    return _compare(facts[name], op, want)
+
+
 def evaluate(expr: dict, facts: dict[str, Any], world: Callable[[str], dict[str, Any] | None] | None = None) -> bool | None:
     """world(palace_name) -> that palace's facts (or None). Only needed for `ref` conditions."""
     if "all" in expr:
@@ -134,13 +150,10 @@ def evaluate(expr: dict, facts: dict[str, Any], world: Callable[[str], dict[str,
             return UNKNOWN
         name = resolve_palace(expr["ref"]["palace"], facts)
         other = world(name) if name else None
-        if other is None or expr["ref"]["fact"] not in other:
+        if other is None:
             return UNKNOWN
-        return _compare(other[expr["ref"]["fact"]], expr.get("operator", "eq"), expr["value"])
-    name = expr["fact"]
-    if name not in facts:
-        return UNKNOWN
-    return _compare(facts[name], expr.get("operator", "eq"), expr["value"])
+        return _leaf(other, expr["ref"]["fact"], expr.get("operator", "eq"), expr["value"])
+    return _leaf(facts, expr["fact"], expr.get("operator", "eq"), expr["value"])
 
 
 def leaves(expr: dict, facts: dict[str, Any] | None = None) -> list[tuple[str | None, str]]:
