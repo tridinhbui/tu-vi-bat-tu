@@ -584,3 +584,5 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 .acct:empty{display:none}
 .acct-name{font-size:.9rem;font-weight:600;max-width:9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media (max-width:760px){.acct-name{display:none}}
+.acct-wallet{font-size:.8rem;color:var(--text2);border:1px solid var(--line);border-radius:99px;padding:4px 10px;white-space:nowrap}
+@media (max-width:980px){.acct-wallet{display:none}}

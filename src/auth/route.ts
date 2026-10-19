@@ -2,8 +2,9 @@
 import { authUrl, exchangeCode, newState, type GoogleConfig } from "./google.ts";
 import { COOKIE, createSession, currentUser, destroySession, randomToken, readCookie, setCookie } from "./session.ts";
 import { deleteChart, listCharts, syncCharts } from "./charts.ts";
+import { getWallet, grant } from "../billing/wallet.ts";
 
-export interface AuthEnv { DB?: D1Database; GOOGLE_CLIENT_ID?: string; GOOGLE_CLIENT_SECRET?: string }
+export interface AuthEnv { DB?: D1Database; GOOGLE_CLIENT_ID?: string; GOOGLE_CLIENT_SECRET?: string; ADMIN_TOKEN?: string }
 
 const json = (body: unknown, status = 200, headers: HeadersInit = {}) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers } });
@@ -14,7 +15,14 @@ const redirect = (to: string, cookies: string[] = []) => {
 };
 const OAUTH_COOKIE = "tvbt_oauth";
 
-export const isAuthPath = (p: string) => p.startsWith("/api/auth/") || p.startsWith("/api/me/");
+// Compares through SHA-256 so the comparison does not leak where two secrets first differ.
+async function sameSecret(a: string, b: string): Promise<boolean> {
+  const [x, y] = await Promise.all([a, b].map(async v => new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(v)))));
+  let d = 0; for (let i = 0; i < x.length; i++) d |= x[i] ^ y[i];
+  return d === 0;
+}
+
+export const isAuthPath = (p: string) => p.startsWith("/api/auth/") || p.startsWith("/api/me/") || p.startsWith("/api/admin/");
 
 export async function handleAuth(request: Request, env: AuthEnv): Promise<Response> {
   const url = new URL(request.url), path = url.pathname, db = env.DB;
@@ -52,6 +60,20 @@ export async function handleAuth(request: Request, env: AuthEnv): Promise<Respon
     }
   }
 
+  // Admin grant, for testing before payments exist: needs ADMIN_TOKEN (a Worker secret); without it the route does not exist.
+  if (path === "/api/admin/grant") {
+    if (!env.ADMIN_TOKEN) return json({ detail: "not found" }, 404);
+    if (request.method !== "POST") return json({ detail: "POST only" }, 405);
+    if (!(await sameSecret(request.headers.get("authorization") ?? "", `Bearer ${env.ADMIN_TOKEN}`))) return json({ detail: "forbidden" }, 403);
+    const b = await request.json().catch(() => null) as { email?: unknown; coins?: unknown; ref?: unknown } | null;
+    if (!b || typeof b.email !== "string" || !Number.isInteger(b.coins) || (b.coins as number) <= 0 || (b.coins as number) > 100000 || typeof b.ref !== "string" || !b.ref)
+      return json({ detail: "body must be {email, coins (1..100000), ref}" }, 400);
+    const u = await db.prepare("SELECT id FROM users WHERE email = ?").bind(b.email).first<{ id: string }>();
+    if (!u) return json({ detail: "no such user" }, 404);
+    const applied = await grant(db, u.id, b.coins as number, `admin:${b.ref}`);
+    return json({ applied, wallet: await getWallet(db, u.id) });
+  }
+
   const user = await currentUser(db, request);
 
   if (path === "/api/auth/logout") {
@@ -65,6 +87,7 @@ export async function handleAuth(request: Request, env: AuthEnv): Promise<Respon
   // Cookie auth plus SameSite=Lax; writes also need a custom header, which a cross-site form or image cannot send.
   if (request.method !== "GET" && request.headers.get("x-tvbt") !== "1") return json({ detail: "missing x-tvbt header" }, 403);
 
+  if (path === "/api/me/wallet" && request.method === "GET") return json(await getWallet(db, user.id));
   if (path === "/api/me/charts" && request.method === "GET") return json({ charts: await listCharts(db, user.id) });
   if (path === "/api/me/charts/sync" && request.method === "POST") {
     const body = await request.json().catch(() => null) as { charts?: unknown } | null;

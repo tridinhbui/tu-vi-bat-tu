@@ -25,9 +25,21 @@ export async function initAccount(host, onSynced, saver) {
   cloud.push = item => { sync([item]).catch(() => { /* offline: the chart stays local and is sent on the next sign-in sync */ }); };
   cloud.remove = id => { api('/api/me/charts/' + encodeURIComponent(id), { method: 'DELETE' }).catch(() => {}); };
   const first = (me.user.name || me.user.email).split(' ').slice(-1)[0];
-  host.innerHTML = `<span class="acct-name" title="${me.user.email.replace(/"/g, '&quot;')}"></span><button type="button" class="btn btn-sm btn-ghost acct-out">Đăng xuất</button>`;
+  host.innerHTML = `<span class="acct-wallet" hidden></span><span class="acct-name" title="${me.user.email.replace(/"/g, '&quot;')}"></span><button type="button" class="btn btn-sm btn-ghost acct-out">Đăng xuất</button>`;
   $('.acct-name', host).textContent = first;
   $('.acct-out', host).onclick = async () => { await api('/api/auth/logout', { method: 'POST' }).catch(() => {}); location.reload(); };
   saver?.paint();
+  paintWallet($('.acct-wallet', host));
   try { writeSaved(await sync(readSaved())); onSynced(); } catch { /* keep local charts; sync retries on the next visit */ }
+}
+
+/** "7 lượt chat miễn phí · 3 xu" next to the name; the title says when the free allowance resets. */
+async function paintWallet(el) {
+  try {
+    const r = await api('/api/me/wallet'); if (!r.ok) return;
+    const w = await r.json();
+    el.textContent = `${w.free.remaining} lượt chat miễn phí · ${w.coins} xu`;
+    el.title = `Lượt miễn phí tháng này: ${w.free.used}/${w.free.limit}, làm mới ngày ${new Date(w.free.resetsAt).toLocaleDateString('vi-VN')}. Hết lượt miễn phí, mỗi tin nhắn tốn ${w.costs.chat} xu.`;
+    el.hidden = false;
+  } catch { /* the chip is optional */ }
 }
