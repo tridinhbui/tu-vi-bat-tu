@@ -18,6 +18,7 @@
   "exclude": [
     "src/interpret/test",
     "src/auth/test",
-    "src/billing/test"
+    "src/billing/test",
+    "src/chat/test"
   ]
 }

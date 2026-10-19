@@ -8,17 +8,23 @@ interface Row { id: string; label: string; rel: string; req_json: string }
 
 const prim = (v: unknown) => typeof v === "string" ? v.length <= 40 : typeof v === "number" ? Number.isFinite(v) : typeof v === "boolean";
 
-/** Returns a cleaned item and its fingerprint, or null when the item is malformed. Unknown request fields are dropped. */
-export function clean(x: unknown): { item: ChartItem; fp: string } | null {
-  if (!x || typeof x !== "object") return null;
-  const { id, label, rel, req } = x as Record<string, unknown>;
-  if (typeof id !== "string" || !/^[a-z0-9]{1,20}$/.test(id) || typeof label !== "string" || typeof rel !== "string" || !RELS.has(rel)) return null;
+/** Whitelists the birth request: known fields only, primitives only, integer date and a gender. Returns it with its fingerprint, or null. */
+export function cleanReq(req: unknown): { req: Record<string, unknown>; fp: string } | null {
   if (!req || typeof req !== "object") return null;
   const r: Record<string, unknown> = {};
   for (const k of FIELDS) { const v = (req as Record<string, unknown>)[k]; if (v !== undefined) { if (!prim(v)) return null; r[k] = v; } }
   const nums = ["year", "month", "day", "hour", "minute"].map(k => r[k]);
   if (!nums.every(Number.isInteger) || (r.gender !== "male" && r.gender !== "female")) return null;
-  return { item: { id, label: label.trim().slice(0, 30) || rel, rel, req: r }, fp: [...nums, r.gender].join("-") };
+  return { req: r, fp: [...nums, r.gender].join("-") };
+}
+
+/** Returns a cleaned item and its fingerprint, or null when the item is malformed. Unknown request fields are dropped. */
+export function clean(x: unknown): { item: ChartItem; fp: string } | null {
+  if (!x || typeof x !== "object") return null;
+  const { id, label, rel, req } = x as Record<string, unknown>;
+  if (typeof id !== "string" || !/^[a-z0-9]{1,20}$/.test(id) || typeof label !== "string" || typeof rel !== "string" || !RELS.has(rel)) return null;
+  const c = cleanReq(req);
+  return c && { item: { id, label: label.trim().slice(0, 30) || rel, rel, req: c.req }, fp: c.fp };
 }
 
 export async function listCharts(db: D1Database, userId: string): Promise<ChartItem[]> {
