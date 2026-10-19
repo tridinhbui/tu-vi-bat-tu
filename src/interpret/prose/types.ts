@@ -34,7 +34,7 @@ export interface Frames {
 /** Voicing of a chart fact or resolver decision that changes how a concept lands (Tứ Hóa, sát đắc/hãm, Tuần/Triệt, rescues …). */
 export interface ModifierCard {
   id: string; status: CardStatus; move: Move;
-  when: { relation?: string; hoa?: string; star_group?: 'sat' | 'cat'; dignity_ok?: boolean; tuan_triet?: boolean; status?: string };
+  when: { relation?: string; hoa?: string; star_group?: 'sat' | 'cat'; dignity_ok?: boolean; tuan_triet?: boolean; status?: string; degree?: 'up' | 'down' | 'mixed' };
   variants: string[];
 }
 

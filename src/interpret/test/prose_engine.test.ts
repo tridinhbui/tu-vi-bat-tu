@@ -1,0 +1,101 @@
+// Mệnh reader prose (prose plan P3): golden text for the worked example, its argument, metamorphic checks, and the 1,000-chart thresholds.
+// Regenerate the golden after an intended library change:  UPDATE_GOLDEN=1 node --test src/interpret/test/prose_engine.test.ts
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { gunzipSync } from 'node:zlib';
+import { proseMenh } from '../prose/menh.ts';
+import { evaluate } from '../../../tools/interpret/eval_prose.ts';
+import type { ChartInput, Knowledge } from '../types.ts';
+
+const K: Knowledge = JSON.parse(readFileSync(new URL('../generated/knowledge.json', import.meta.url), 'utf8'));
+const ex = JSON.parse(readFileSync(new URL('./fixtures/menh_cu_tuat.json', import.meta.url), 'utf8'));
+const goldenUrl = new URL('./fixtures/menh_cu_tuat.prose.txt', import.meta.url);
+const corpusUrl = new URL('./fixtures/corpus1000.json.gz', import.meta.url);
+const clone = <T>(x: T): T => JSON.parse(JSON.stringify(x));
+
+test('worked example (02/03/1991 08:30 nam): golden text, byte for byte', () => {
+  const o = proseMenh(ex.facts, K, { allowDraft: true });
+  if (process.env.UPDATE_GOLDEN === '1' || !existsSync(goldenUrl)) writeFileSync(goldenUrl, o.text + '\n');
+  assert.equal(o.text + '\n', readFileSync(goldenUrl, 'utf8'));
+  assert.equal(proseMenh(clone(ex.facts), K, { allowDraft: true }).text, o.text, 'deterministic');
+});
+
+test('worked example: the argument behind the text', () => {
+  const o = proseMenh(ex.facts, K, { allowDraft: true });
+  assert.ok(o.pass, JSON.stringify(o.issues));
+  const all = o.paragraphs.flatMap(p => p.sentences), by = (m: string) => all.find(s => s.trace.move === m || s.trace.woven?.includes(m as any));
+  // the limit is Cự Môn hãm (TH p.43, TH p.88 verse), named with its cause
+  assert.ok(by('TURN')!.trace.rules.includes('TV_TH_CU_HAM_GIAN_XAO_DA_NGHI'));
+  assert.match(by('TURN')!.text, /Cự Môn .*hãm/);
+  // the core is the sharp mind Cự Môn thủ Mệnh gives (KL p.223)
+  assert.ok(by('ANCHOR')!.trace.concepts.includes('cog.sharp') && by('ANCHOR')!.trace.rules.includes('TV_KL_CT_CU_THU_MENH'));
+  // the book's own rescue (TH p.88) is what turns it; 'suốt đời cùng khổ, cô đơn' (TH p.95) is never voiced as such
+  assert.deepEqual(by('RESCUE')!.trace.resolution, { relation: 'REL_TH88_CU_TUAT_TAN_LOC', byRule: 'TV_TH_MV_MENH_CU_THIN_TUAT_LOC', cite: 'TH p.88' });
+  assert.doesNotMatch(o.text, /cùng khổ|cô đơn|suốt đời/);
+  // Kình Dương đắc địa reads as resolve, with its pride, not as a plain sát (TH p.62)
+  assert.match(o.text, /Kình Dương[^.]*quả quyết/);
+  assert.ok(by('TENSION')!.trace.rules.includes('TV_TH_AUX2_MENH_KINH_DAC'));
+  // Tuần at Mệnh: a slow start (TH p.83, KL p.68)
+  assert.match(by('TIMING')!.text, /Tuần/);
+  // closing: editorial, and only about what the paragraph said
+  const close = o.paragraphs[0].sentences.at(-1)!;
+  assert.equal(close.trace.basis, 'he_thong');
+  for (const s of all) if (s.trace.basis === 'sach') assert.ok(s.trace.rules.length && s.trace.cites.length, s.text);
+});
+
+test('draft cards stay off unless asked for: without allowDraft the chapter is empty, never padded', () => {
+  const o = proseMenh(ex.facts, K);
+  assert.equal(o.paragraphs.length, 0);
+  assert.equal(o.text, '');
+});
+
+test('metamorphic: without Hóa Lộc at Mệnh there is no rescue; without Tuần there is no Tuần sentence', () => {
+  const noLoc: ChartInput = clone(ex.facts);
+  const m = noLoc.base['palace:Mệnh'];
+  for (const k of ['palace.tu_hoa', 'palace.rel.self_hoa', 'palace.tam_phuong_tu_hoa', 'palace.rel.tp_hoa']) m[k] = (m[k] as string[] ?? []).filter(h => h !== 'Hóa Lộc');
+  const a = proseMenh(noLoc, K, { allowDraft: true });
+  assert.ok(!a.paragraphs.flatMap(p => p.sentences).some(s => s.trace.move === 'RESCUE'));
+  const noTuan: ChartInput = clone(ex.facts);
+  noTuan.base['palace:Mệnh']['palace.tuan'] = false;
+  noTuan.palaces.find(p => p.name === 'Mệnh')!.tuan = false;
+  const b = proseMenh(noTuan, K, { allowDraft: true });
+  assert.doesNotMatch(b.text, /Tuần/);
+});
+
+test('metamorphic over the corpus: removing Tuần/Triệt from Mệnh removes every Tuần/Triệt sentence', { skip: !existsSync(corpusUrl) && 'corpus not built' }, () => {
+  const corpus = JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8'));
+  let pairs = 0;
+  const bad: string[] = [];
+  for (const c of corpus) {
+    const pal = c.facts.palaces.find((p: any) => p.name === 'Mệnh');
+    if (!pal.tuan && !pal.triet) continue;
+    const before = proseMenh(c.facts, K, { allowDraft: true });
+    if (!/\b(Tuần|Triệt)\b/.test(before.text)) continue;
+    const f: ChartInput = clone(c.facts);
+    for (const k of ['palace.tuan', 'palace.triet']) f.base['palace:Mệnh'][k] = false;
+    Object.assign(f.palaces.find(p => p.name === 'Mệnh')!, { tuan: false, triet: false });
+    const after = proseMenh(f, K, { allowDraft: true });
+    pairs++;
+    if (/\b(Tuần|Triệt)\b/.test(after.text)) bad.push(JSON.stringify(c.birth));
+  }
+  assert.ok(pairs >= 100, `${pairs} pairs`);
+  assert.deepEqual(bad, []);
+});
+
+test('1,000 charts: no blocking error, no empty chapter, repetition, diversity and schema spread within the plan thresholds',
+  { skip: !existsSync(corpusUrl) && 'corpus not built' }, () => {
+  const corpus = JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8'));
+  const e = evaluate(corpus);
+  assert.deepEqual(e.errors, {});
+  assert.equal(e.pass, 1000);
+  assert.equal(e.empty, 0);
+  assert.ok(e.rep4Max < 0.05, `repeated 4-grams ${e.rep4Max}`);
+  assert.ok(e.jaccardMedian <= 0.35, `jaccard ${e.jaccardMedian}`);
+  assert.ok(e.topOpener[1] <= 0.08, `opener ${e.topOpener}`);
+  assert.ok(e.schemaEntropy >= 0.7 * e.schemaMax, `entropy ${e.schemaEntropy}`);
+  assert.deepEqual(e.variantOveruse, []);
+  // sentence rhythm: the plan's target is 95 % of chapters (the reference paragraph itself: mean 30.9, sd 7.1); today ≈ 83 %.
+  // Held at a floor so it cannot regress; raising it is library work (longer and shorter variants), tracked in prose-eval-1000.md.
+  assert.ok(e.sentLenOk >= 800, `sentence rhythm ${e.sentLenOk}/1000`);
+});

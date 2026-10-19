@@ -8,7 +8,7 @@ export interface LintIssue { level: 'error' | 'warning'; where: string; msg: str
 /** Words that would turn reader prose back into an evidence report, or claim certainty the books do not give. */
 export const META = ['sách ', 'căn cứ', 'quy tắc', 'theo thực hành', 'theo khảo luận', 'theo toàn thư', 'nhận định', 'trang ', 'tr.', 'luận đoán'];
 export const ABSOLUTE = ['chắc chắn', 'nhất định', 'suốt đời', 'trọn đời', 'không bao giờ', 'luôn luôn', 'tuyệt đối', 'định mệnh'];
-const SLOT = /\{\??([a-zA-Z_.]+)(\|[^{}]*)?\}/g;
+const SLOT = /\{\??([a-zA-Z0-9_.]+)(\|[^{}]*)?\}/g;
 
 const MIN: Record<'+' | '-' | '~', Partial<Record<keyof ConceptCard, number>>> = {
   '+': { pred: 3, behave: 2, soft: 2, value: 2 },
@@ -51,6 +51,9 @@ export function lintLibrary(lib: ProseLibrary, concepts: Concept[], required: st
         textCheck(where, t, f === 'behave' ? slots.behave : slots.fragment);
         if (f === 'behave') { if (!/^(\{S\}|\p{Lu})/u.test(t) || !/[.!?]$/.test(t)) err(where, `sentence must start with {S} or a capital and end with a period: ${t}`); }
         else if (/[.!?]$/.test(t) || /^\p{Lu}/u.test(t.replace(/^\{[^}]+\}/, ''))) err(where, `fragment must be lower-case and unpunctuated: ${t}`);
+        // the realizer supplies the verb: a pred must not start with 'thường/hay/luôn', a turn not with 'dễ'
+        if (f === 'pred' && /^(thường|hay|luôn) /.test(t)) err(where, `pred carries its own frequency verb: ${t}`);
+        if (f === 'turn' && /^dễ /.test(t)) err(where, `turn carries its own 'dễ': ${t}`);
         const words = t.split(/\s+/).length;
         if (words > 32) warn(where, `long (${words} words): ${t}`);
       }
