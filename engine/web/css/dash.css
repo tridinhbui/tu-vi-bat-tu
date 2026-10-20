@@ -5,6 +5,13 @@
 .dash{display:grid;gap:14px;align-items:start}
 .dash-side{display:flex;flex-direction:column;gap:12px;min-width:0}
 .dash-side .gd{margin:0}
+/* Outside the one-screen layout the side column flows after the chart, so the Tử Vi palace panel (moved there by tuvi.js) is the bottom
+   sheet again: without this a tap only dimmed the page while the panel sat far below the chart (phones) */
+@media (max-width:1099px),(max-height:599px){
+  .dash-side .tv-panel{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:78vh;overflow:auto;border-radius:16px 16px 0 0;border-bottom:0;z-index:60;
+    transform:translateY(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:0 -20px 60px rgba(40,30,15,.35)}
+  .dash-side .tv-panel.open{transform:none}.dash-side .tv-panel:not(.open) .drawer-empty{display:none}
+}
 
 @media (min-width:1100px) and (min-height:600px){
   :root{--dash-h:calc(100dvh - 68px - 66px - 49px - 22px)}      /* header + compact masthead + system tabs + stage padding */
@@ -26,12 +33,13 @@
   /* ---------- Tử Vi ---------- */
   /* the plate's height is fixed to the viewport, so its width follows from it (board 1000×693, see .tv-board) instead of
      stretching across a wide screen into a flat strip; the side column takes whatever width is left */
-  .dash-tv{grid-template-columns:min(calc(100% - 418px),calc((var(--dash-h) - 57px) * 1.443 + 26px)) minmax(400px,1fr);grid-template-rows:var(--dash-h) auto;grid-template-areas:"plate side" "time time"}
+  /* the board pans and zooms inside its frame, so the plate takes a plain share of the width instead of one derived from a fixed aspect */
+  .dash-tv{grid-template-columns:minmax(0,1.5fr) minmax(400px,1fr);grid-template-rows:var(--dash-h) auto;grid-template-areas:"plate side" "time time"}
   .dash-tv #tuvi-host,.dash-tv .tv-stage{display:contents}
   .dash-tv .tv-plate{grid-area:plate;height:var(--dash-h);display:flex;flex-direction:column;overflow:hidden;padding:10px 12px}
   .dash-tv .tv-plate .plate-h{margin:0 0 6px;flex:none}
-  .dash-tv .tv-scroll{flex:1;min-height:0;overflow:auto;scrollbar-width:thin;display:flex;align-items:flex-start}
-  .dash-tv .tv-board{flex:none;margin:0 auto}
+  .dash-tv .tv-scroll{flex:1;min-height:0;height:auto}
+  .dash-tv .tv-zoom{flex:none}
   .dash-tv .tv-time{grid-area:time}
 
   /* ---------- Bát Tự ---------- */

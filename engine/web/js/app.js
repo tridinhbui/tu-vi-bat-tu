@@ -38,6 +38,7 @@ const TITLE = document.title;
 const view = v => { document.body.dataset.view = v; if (v !== 'chart') document.body.classList.remove('sheet-open'); if (v !== 'learn') document.title = TITLE; scrollTo({ top: 0 }); };
 function setTab(tab, scroll = true) {
   $('#chart-view').dataset.tab = tab;
+  document.body.classList.remove('sheet-open');      // a palace sheet left open on the other system must not keep the page dimmed
   $$('.res-tabs button').forEach(b => { const on = b.id === 'tab-' + tab; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
   if (scroll) scrollTo({ top: 0 });
   requestAnimationFrame(() => dispatchEvent(new Event('resize')));

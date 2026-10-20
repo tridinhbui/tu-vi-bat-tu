@@ -2,13 +2,62 @@
 // Presentation only: every value is read from the chart / year responses. Report pieces (`parts`) are unchanged.
 import { $, $$, esc, STEMS, BRANCHES, EL, ELEMENTS, elChip, elIcon, PILLAR_LABEL, tenGodGroup, TEN_GOD_GROUPS } from './util.js';
 import { fiveElements } from './elements.js';
-import { timeline, findingCard } from './ui.js';
+import { timeline, findingList } from './ui.js';
 import { easyReadings } from './beginner.js';
 import { terms, autoLink } from './glossary.js';
 import { collapseWhenDash } from './dash.js';
 import { tier, evLegend, yearData, periodYears, centerIn, onPick } from './atlas.js';
 
 const ORDER = ['year', 'month', 'day', 'hour'];
+// the 30 nạp âm in cycle order, the same table as engine/tvbt/ganzhi.py NAP_AM_NAMES (index = cycle index // 2)
+const NAP_AM = ['Hải Trung Kim', 'Lư Trung Hỏa', 'Đại Lâm Mộc', 'Lộ Bàng Thổ', 'Kiếm Phong Kim', 'Sơn Đầu Hỏa', 'Giản Hạ Thủy', 'Thành Đầu Thổ', 'Bạch Lạp Kim',
+  'Dương Liễu Mộc', 'Tuyền Trung Thủy', 'Ốc Thượng Thổ', 'Tích Lịch Hỏa', 'Tùng Bách Mộc', 'Trường Lưu Thủy', 'Sa Trung Kim', 'Sơn Hạ Hỏa', 'Bình Địa Mộc',
+  'Bích Thượng Thổ', 'Kim Bạch Kim', 'Phú Đăng Hỏa', 'Thiên Hà Thủy', 'Đại Dịch Thổ', 'Thoa Xuyến Kim', 'Tang Đố Mộc', 'Đại Khê Thủy', 'Sa Trung Thổ',
+  'Thiên Thượng Hỏa', 'Thạch Lựu Mộc', 'Đại Hải Thủy'];
+const napAm = (st, br) => NAP_AM[Math.floor((((6 * st - 5 * br) % 60) + 60) % 60 / 2)];
+const GOD_SHORT = { 'Tỉ Kiên': 'Tỉ', 'Kiếp Tài': 'Kiếp', 'Thực Thần': 'Thực', 'Thương Quan': 'Thương', 'Chính Tài': 'Tài', 'Thiên Tài': 'T.Tài', 'Chính Quan': 'Quan',
+  'Thất Sát': 'Sát', 'Chính Ấn': 'Ấn', 'Thiên Ấn': 'Kiêu' };
+const HK = { 'Kim': 'kim', 'Mộc': 'moc', 'Thủy': 'thuy', 'Hỏa': 'hoa', 'Thổ': 'tho' };
+/** "Mệnh bàn tứ trụ": the classic table of the four pillars (dates, ten gods, the eight characters coloured by hành, nạp âm, hidden stems,
+ *  their ten gods, the twelve stages), then ten đại vận and ten lưu niên with the current ones marked, then Mệnh cung, Thai nguyên and the
+ *  two Không vong. Every value comes from the chart response; no thần sát row, the page is not sent them. */
+function menhBan(b, ctx) {
+  const P = b.pillars, req = ctx.req, lunar = ctx.chartRaw?.tuvi?.lunar, now = new Date().getFullYear();
+  const col = f => ORDER.map(k => `<td>${f(P[k], k)}</td>`).join('');
+  const ch = (txt, el, big = false) => `<span class="mb-c h-${HK[el] || 'none'}${big ? ' mb-big' : ''}">${esc(txt)}</span>`;
+  const lp = b.luck_pillars.slice(0, 10), birthY = req.year;
+  const cur = lp.reduce((a, l, i) => Math.floor(l.start_year_approx) <= now ? i : a, -1);
+  const yrs = Array.from({ length: 10 }, (_, i) => now - 3 + i);
+  const gzY = y => `${STEMS[((y - 4) % 10 + 10) % 10].n} ${BRANCHES[((y - 4) % 12 + 12) % 12].n}`;
+  const ex = b.extras || {};
+  const two = s => { const [a, c] = String(s).split(' '); return `${esc(a)}<br>${esc(c || '')}`; };
+  return `<div class="mb" role="table" aria-label="Mệnh bàn tứ trụ">
+    <div class="mb-head"><h3 class="mb-t">Mệnh bàn tứ trụ</h3><dl class="mb-meta">
+      <div><dt>Dương lịch</dt><dd>${req.day}/${req.month}/${req.year} - ${req.hour}:${String(req.minute || 0).padStart(2, '0')}</dd></div>
+      ${lunar ? `<div><dt>Âm lịch</dt><dd>${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}</dd></div>` : ''}
+      <div><dt>Khởi vận</dt><dd>${esc(b.luck_start.start_date.split('-').reverse().join('/'))} · sau ${b.luck_start.years} năm ${b.luck_start.months} tháng</dd></div>
+    </dl></div>
+    <table class="mb-tab"><tbody>
+      <tr class="mb-dates"><th>Năm sinh<br>dương</th><td>${req.year}</td><td>${req.month}</td><td>${req.day}</td><td>${req.hour}:${String(req.minute || 0).padStart(2, '0')}</td></tr>
+      <tr><th>Thập thần</th>${col((p, k) => k === 'day' ? '<b>NHẬT CHỦ</b>' : esc(GOD_SHORT[p.stem_ten_god] || p.stem_ten_god || ''))}</tr>
+      <tr class="mb-bt"><th>Bát tự</th>${col(p => ch(STEMS[p.stem].n.toLocaleUpperCase('vi'), STEMS[p.stem].e, true) + '<br>' + ch(BRANCHES[p.branch].n.toLocaleUpperCase('vi'), BRANCHES[p.branch].e, true))}</tr>
+      <tr><th>Nạp âm<br>ngũ hành</th>${col(p => esc(napAm(p.stem, p.branch)))}</tr>
+      <tr><th>Can chi<br>tàng ẩn</th>${col(p => p.hidden.map(h => ch(h.name, h.element)).join(' '))}</tr>
+      <tr><th>Phó tinh</th>${col(p => p.hidden.map(h => esc(GOD_SHORT[h.ten_god] || h.ten_god)).join(' '))}</tr>
+      <tr><th>Thập nhị<br>thần</th>${col(p => esc(p.stage_vs_day_master || ''))}</tr>
+    </tbody></table>
+    <table class="mb-tab mb-luck"><tbody>
+      <tr><th>Đại vận</th>${lp.map((l, i) => `<td class="${i === cur ? 'mb-now' : ''}">${two(l.name)}</td>`).join('')}</tr>
+      <tr class="mb-red"><th>Năm</th>${lp.map((l, i) => { const a = Math.round(l.start_age) + 1; return `<td class="${i === cur ? 'mb-now' : ''}">${a}-${a + 9}t<br>${Math.floor(l.start_year_approx)}</td>`; }).join('')}</tr>
+      <tr><th>Lưu niên</th>${yrs.map(y => `<td class="${y === now ? 'mb-now' : ''}">${two(gzY(y))}</td>`).join('')}</tr>
+      <tr><th>Năm</th>${yrs.map(y => `<td class="${y === now ? 'mb-now' : ''}">${y}<br><span class="mb-red">${y - birthY + 1}t</span></td>`).join('')}</tr>
+    </tbody></table>
+    <table class="mb-tab mb-menh"><tbody>
+      <tr class="mb-sub"><th rowspan="2">Mệnh</th><td>Mệnh cung</td><td>Thai nguyên</td><td>Niên không</td><td>Nhật không</td></tr>
+      <tr><td>${esc(ex.ming_gong || '—')}</td><td>${esc(ex.thai_yuan || '—')}</td><td>${esc((ex.kong_wang_year_pillar_view || []).join(' - ') || '—')}</td><td>${esc((ex.kong_wang_day || []).join(' - ') || '—')}</td></tr>
+    </tbody></table>
+  </div>`;
+}
 const PL = { year: 'Năm', month: 'Tháng', day: 'Ngày', hour: 'Giờ' };
 const PH = { year: '年', month: '月', day: '日', hour: '時' };
 const plPair = s => String(s).split('-').map(x => PL[x] || x).join(' – ');
@@ -94,8 +143,8 @@ export function renderBazi(host, b, ctx) {
   const none = '<p class="muted">Chưa có quy tắc nào đã đối chiếu sách khớp với mục này. Điều đó không có nghĩa mục này “không có gì”, chỉ là bộ quy tắc hiện hành chưa phủ tới.</p>';
   const readingTiers = fs => {
     const ver = fs.filter(f => f.basis === 'verified'), dr = fs.filter(f => f.basis !== 'verified');
-    return tier('src', `<div class="pro-only">${ver.length ? ver.map(f => findingCard(f)).join('') : none}</div><div class="easy-only">${easyReadings(fs, { empty: none })}</div><p class="muted small">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo.</p>`, { count: ver.length })
-      + (dr.length ? tier('hyp', dr.map(f => findingCard(f)).join(''), { pro: true, count: dr.length }) : '');
+    return tier('src', `<div class="pro-only">${ver.length ? findingList(ver) : none}</div><div class="easy-only">${easyReadings(fs, { empty: none })}</div><p class="muted small">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo.</p>`, { count: ver.length })
+      + (dr.length ? tier('hyp', findingList(dr), { pro: true, count: dr.length }) : '');
   };
 
   // ---- plate markup ----
@@ -107,6 +156,8 @@ export function renderBazi(host, b, ctx) {
   host.innerHTML = `
     <div class="bz-stage">
       <div class="bz-plate" id="bz-plate">
+        ${menhBan(b, ctx)}
+        <details class="bz-more"><summary>Quan hệ can chi và chi tiết từng trụ <span>chạm vào một trụ để mở lớp đọc</span></summary>
         <header class="plate-h"><h3 id="bz-h2"><i lang="zh">八字</i>Bốn trụ · tám chữ</h3><span class="plate-k">Chạm vào một trụ, một cung nối hoặc một vận</span></header>
         <div class="bz-arcs">${lane('can', 'Quan hệ Thiên can')}${lane('chi', 'Quan hệ Địa chi')}</div>
         <div class="bz-grid" role="group" aria-labelledby="bz-h2">
@@ -117,7 +168,7 @@ export function renderBazi(host, b, ctx) {
           ${row('bz-hids', 'Tàng can', (k, p) => `<div class="bz-hid">${p.hidden.map((h, i) => `<span class="hid el-${EL[h.element].slug}" data-el="${h.element}"><i>${i === 0 ? 'Chính' : i === 1 ? 'Trung' : 'Dư'}</i><b>${esc(h.name)}</b>${elIcon(h.element, 10)}<em>${esc(h.ten_god)}</em></span>`).join('')}</div>`)}
           ${row('bz-gods', 'Thập thần', (k, p) => `<b class="${k === 'day' ? 'is-dm' : ''}">${k === 'day' ? 'Nhật Chủ' : esc(p.stem_ten_god)}</b>`)}
           ${row('bz-life', 'Trường sinh', (k, p) => `<span>${esc(p.stage_vs_day_master)}</span>`)}
-        </div>
+        </div></details>
       </div>
       <aside class="bz-panel" id="bz-panel" aria-live="polite" aria-label="Lớp đọc theo lựa chọn"></aside>
     <div class="bz-instr">

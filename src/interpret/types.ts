@@ -52,6 +52,8 @@ export interface BaziInput {
   base: Record<string, Facts>; pillars: Record<'year' | 'month' | 'day' | 'hour', BaziPillar>; day_master: string; day_master_element: string;
   luck_direction: string; luck_start_age: number; luck: Array<{ name: string; start_age: number; start_year: number | null; ten_god: string | null }>;
   kong_wang_day?: string[];
+  /** pillar relations by kind (stem_combine, branch_clash …), each with its pillars "year-hour" (absent in facts produced before the field) */
+  relations?: Record<string, Array<{ pillars: string }>>;
 }
 
 export interface Concept { id: string; facet: string; pol: '+' | '-' | '~'; kind: string; opp?: string; cues: string[]; np: string; short?: string }

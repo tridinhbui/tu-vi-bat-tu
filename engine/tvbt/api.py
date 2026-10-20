@@ -112,7 +112,9 @@ def chart_facts(req: BirthReq):
                 "luck_direction": bz.luck_direction, "luck_start_age": round(bz.luck_start["age_years"], 1),
                 "luck": [{"name": lp.name, "start_age": round(lp.start_age, 1), "start_year": int(lp.start_date[:4]) if lp.start_date else None,
                           "ten_god": lp.ten_god} for lp in bz.luck_pillars],
-                "kong_wang_day": bz.extras.get("kong_wang_day", [])}
+                "kong_wang_day": bz.extras.get("kong_wang_day", []),
+                # pillar relations (hợp, xung, hại, phá, hình) for the per-chapter Bát Tự prose; pillar ids as "year-hour"
+                "relations": {k: [{"pillars": r["pillars"]} for r in v if "pillars" in r] for k, v in bz.relations.items()}}
     return {"engine": "tvbt-facts-1", "dignity_school": req.dignity_school, "birth_year": req.year, "lunar_year": tv.lunar["year"],
             "gender": req.gender, "year_gz": tv.year_gz, "cuc": tv.cuc, "menh_nap_am": tv.menh_nap_am, "menh_cuc_relation": tv.menh_cuc_relation,
             "yin_yang_gender": tv.yin_yang_gender, "dai_han_direction": tv.dai_han_direction,

@@ -1,6 +1,6 @@
 // InterpretationSection chapters: calculations and traditional readings kept visibly separate.
 import { $, $$, esc, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip, CLAIMS } from './util.js';
-import { acc, notice, reasoningPanel, timeline, yearExplorer, findingCard } from './ui.js';
+import { acc, notice, reasoningPanel, timeline, yearExplorer, findingList } from './ui.js';
 import { scopePanelBazi } from './scope.js';
 import { easyReadings, emptyReading, classify, parsePhrase } from './beginner.js';
 import { autoLink, terms } from './glossary.js';
@@ -40,11 +40,19 @@ const prCite = c => String(c).replace(/^(TH|KL|TT|TL|NL|ZZ)\s*(?:PDF\s*)?pp?\.\s
 function proseHtml(p) {
   if (!p?.paragraphs?.length) return '';
   const draft = p.draft !== false;
-  const title = p.chapter === 'van_han' ? 'Luận giải các đại hạn' : p.chapter === 'bat_tu' ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
+  const title = p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
   return `<section class="synth prose" data-chapter="${esc(p.chapter)}" aria-label="${title}"><p class="eyebrow">${title}</p>
     ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p">${para.sentences.map((s, j) => `<span class="sy-s pr-s" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
-    <div class="pr-why small" hidden></div>${prDiverge(p)}
+    <div class="pr-why small" hidden></div>${adviceHtml(p.advice)}${prDiverge(p)}
     <p class="muted small sy-foot">Văn bản do bộ máy quy tắc ghép từ các nhận định đã đối chiếu sách (không dùng mô hình AI)${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
+}
+// what the voiced traits suggest doing (chapter.ts adviceOf): strengths to lean on, habits to watch; the system's wording, said as such
+function adviceHtml(a) {
+  if (!a || (!a.strengths?.length && !a.actions?.length)) return '';
+  const cap = t => t.charAt(0).toLocaleUpperCase('vi') + t.slice(1);
+  return `<div class="pr-adv"><p class="eyebrow">Gợi ý hướng hành động</p>${a.strengths?.length ? `<p class="pr-adv-s"><b>Thế mạnh nên dựa vào:</b> ${esc(a.strengths.join(', '))}.</p>` : ''}`
+    + `${a.actions?.length ? `<ul class="pr-adv-a">${a.actions.map(x => `<li>${esc(cap('nên ' + x))}.</li>`).join('')}</ul>` : ''}`
+    + `<p class="muted small">Gợi ý của hệ thống, rút từ chính các nét đã nêu ở trên; không phải lời sách.</p></div>`;
 }
 // two schools disagree on this chart: the text says neither; both readings are listed here with their pages
 function prDiverge(p) {
@@ -132,10 +140,19 @@ function topicChapter(f) {
   return DOMAIN_CH[dom] || 'ban-menh';
 }
 
+// The reading leads; what it stands on (structural analysis, calculation facts, book-verified findings) folds into one "Căn cứ" box, open only
+// when the chapter has no reading of its own. A chapter whose facts are an instrument (the đại hạn / đại vận timeline) keeps them outside.
+const KEEP_CALC = new Set(['dai-han', 'dai-van', 'muoi-hai-cung', 'tong-quan']);
+function chapterBasis(c) {
+  const inner = analysisHtml(c.blocks) + (KEEP_CALC.has(c.id) ? '' : c.calc || '') + (c.trad || '');
+  const keep = KEEP_CALC.has(c.id) ? c.calc || '' : '';
+  if (!inner.trim()) return keep;
+  return keep + `<details class="ch-basis"${c.synth ? '' : ' open'}><summary><span class="cb-t">Căn cứ của chương này</span><span class="cb-s">dữ kiện lá số, phân tích cấu trúc và các nhận định theo sách</span></summary>${inner}</details>`;
+}
 function mount(host, chapters, prefix, ctx) {
   host.innerHTML = `<div class="rp-layout">
     <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li${c.pro ? ' class="pro-only"' : ''}><a href="#${prefix}-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
-    <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${c.synth || ''}${analysisHtml(c.blocks)}${c.calc || ''}${c.trad || ''}</article>`).join('')}
+    <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${c.synth || ''}${chapterBasis(c)}</article>`).join('')}
       <div class="sys-switch"><span>${prefix === 'bt' ? 'Muốn đọc cùng thời điểm sinh theo Tử Vi?' : 'Muốn đọc cùng thời điểm sinh theo Bát Tự?'}</span><button type="button" class="btn btn-ghost btn-sm" data-go="${prefix === 'bt' ? 'tu-vi' : 'bat-tu'}">${prefix === 'bt' ? 'Xem Tử Vi →' : 'Xem Bát Tự →'}</button></div></div></div>`;
   autoLink(host, prefix === 'bt' ? 'bt' : 'tv');
   $$('[data-jump]', host).forEach(r => r.onclick = () => $('#' + prefix + '-' + r.dataset.jump, host).scrollIntoView({ behavior: 'smooth', block: 'start' }));
@@ -156,10 +173,10 @@ const shell = ctx => {
   const ref = name => `<button type="button" class="ref" data-palace="${esc(name)}">${esc(name)}<svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9l6-6M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>`;
   const where = f => { const pn = palaceOfSubject(f.subject); return pn ? `cung ${ref(pn)}` : 'toàn lá số'; };
   const trad = (fs, note, topic, palace) => `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p>
-    <div class="pro-only">${fs.length ? fs.map(f => findingCard(f, where(f))).join('') + '<p class="muted small">Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán.</p>' : notice('Chưa có quy tắc nào được kích hoạt cho phần này', note || 'Bộ quy tắc hiện hành chưa phủ tới nội dung này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</div>
+    <div class="pro-only">${fs.length ? findingList(fs, { label: true }) + '<p class="muted small">Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán.</p>' : notice('Chưa có quy tắc nào được kích hoạt cho phần này', note || 'Bộ quy tắc hiện hành chưa phủ tới nội dung này, nên hệ thống không đưa ra nhận định thay vì suy đoán.')}</div>
     <div class="easy-only">${easyReadings(fs, { where, empty: emptyReading(topic, terms(), { palace }) })}<p class="muted small">Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán.</p></div></div>`;
   const deep = (sysKey, label, traceObj) => { const d = reason.systems[sysKey]; return `<div class="ch-calc"><p class="eyebrow">Dành cho người muốn kiểm chứng</p>
-    ${d.findings.length ? acc('Tất cả nhận định và chuỗi suy luận', `${d.findings.length} nhận định`, d.findings.map(f => findingCard(f, where(f))).join('')) : ''}
+    ${d.findings.length ? acc('Tất cả nhận định và chuỗi suy luận', `${d.findings.length} nhận định`, findingList(d.findings, { where, byPlace: true, label: true })) : ''}
     ${acc(`Vết tính toán — ${label}`, 'từng bước chuẩn hóa và lập lá số', `<pre class="trace">${esc(JSON.stringify(traceObj, null, 1))}</pre>`)}
     ${reason.pack_problems.length ? notice('Vấn đề trong bộ quy tắc', esc(reason.pack_problems.join('; ')), 'warn') : ''}</div>`; };
   return { blocks, calc, ref, where, trad, deep };
@@ -199,9 +216,17 @@ export function renderBaziReport(host, chart, ctx, parts) {
   ];
   // reader prose for Bát Tự (src/interpret/prose/bazi.ts) heads the Nhật Chủ chapter, evidence per sentence on click
   const bp = ctx.prose?.bat_tu, nc = chapters.find(x => x.id === 'nhat-chu');
-  if (bp?.paragraphs?.length && nc) nc.synth = proseHtml(bp) + (nc.synth || '');
+  // the Bát Tự reading, split by chapter (prose/bazi.ts `chapters`); an older response without the split still goes to Nhật Chủ whole
+  const btBy = {};
+  if (bp?.chapters && Object.keys(bp.chapters).length) {
+    for (const [id, paras] of Object.entries(bp.chapters)) {
+      const c = chapters.find(x => x.id === id); if (!c || !paras?.length) continue;
+      const key = 'bat_tu:' + id; btBy[key] = { ...bp, chapter: key, paragraphs: paras, evidence: { ...bp.evidence, limits: id === 'nhat-chu' ? bp.evidence.limits : [] } };
+      c.synth = proseHtml(btBy[key]) + (c.synth || '');
+    }
+  } else if (bp?.paragraphs?.length && nc) { btBy.bat_tu = bp; nc.synth = proseHtml(bp) + (nc.synth || ''); }
   mount(host, chapters, 'bt', ctx);
-  if (bp?.paragraphs?.length) bindProse(host, ctx.prose);
+  if (Object.keys(btBy).length) bindProse(host, btBy);
   host.insertAdjacentHTML('afterbegin', scopePanelBazi(b));
   yearExplorer($('#bt-year', host), ctx.req, b, 'bazi');
 }
@@ -273,7 +298,7 @@ export function renderTuviReport(host, chart, ctx) {
       calc: calc(`<h5>Các đại hạn</h5>${tv.timelineHtml}<h5>Lưu niên</h5><div id="tv-year"></div>`), trad: '' },
     { id: 'cach-cuc', title: 'Cách cục', lead: 'Các hình thái đặc biệt mà bộ quy tắc hiện hành có thể nhận ra.', blocks: blocks('tv', 'cach-cuc'),
       calc: calc(`${experimentalHtml(ctx.formations)}<h5>Nhận diện theo tên (vị trí sao)</h5>${(t.extras?.cach_cuc || []).length ? `<ul class="cc-list">${t.extras.cach_cuc.map(x => `<li><b>${esc(x.name)}</b><span class="muted">${esc(x.evidence)}</span></li>`).join('')}</ul><p class="muted small">Đây chỉ là nhận diện tên cách theo vị trí các sao. Ý nghĩa cát hay hung của từng cách chưa được đối chiếu sách nên hệ thống không nêu. Tên cách và nhóm sao theo thông lệ phổ biến, chưa đối chiếu trang sách.</p>` : '<p class="muted">Không nhận ra cách nào trong danh sách các cách được kiểm tra.</p>'}<h5>Nhận định từ bộ quy tắc</h5><p>Số nhận định về cách cục: ${of('cach-cuc').length || 'không có'}.</p>`),
-      trad: (() => { const c = of('cach-cuc'); return `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p><div class="pro-only">${c.length ? `<button type="button" class="btn btn-ghost btn-sm ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div class="ig-box" hidden>${inferenceGraph(c[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên.</p></div>${c.map(f => findingCard(f, shell(ctx).where(f))).join('')}` : notice('Không có cách cục nào được nhận ra', '')}</div><div class="easy-only">${easyReadings(c, { where: shell(ctx).where, empty: emptyReading('tv:cach-cuc', terms()) })}</div></div>`; })() },
+      trad: (() => { const c = of('cach-cuc'); return `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p><div class="pro-only">${c.length ? `<button type="button" class="btn btn-ghost btn-sm ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div class="ig-box" hidden>${inferenceGraph(c[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên.</p></div>${findingList(c, { label: true })}` : notice('Không có cách cục nào được nhận ra', '')}</div><div class="easy-only">${easyReadings(c, { where: shell(ctx).where, empty: emptyReading('tv:cach-cuc', terms()) })}</div></div>`; })() },
     { id: 'muoi-hai-cung', title: 'Toàn bộ mười hai cung', lead: 'Tra nhanh từng cung: sao, Tứ Hóa, Tuần Triệt, đại hạn và nhận định.', calc: calc(`<div class="p12">${p12}</div>`), trad: '' },
     { id: 'chuyen-sau', pro: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('tu_vi', 'Tử Vi', { normalization: ctx.chartRaw.normalization_trace.steps, tuvi: t.trace.steps }), trad: '' },
   ];

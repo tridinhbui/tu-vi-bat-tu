@@ -2,11 +2,12 @@
 // Presentation only: every value is read from the chart / year responses; no calculation lives here.
 import { $, $$, esc, starKind, BRANCHES, STEMS, palaceOfSubject } from './util.js';
 import { compass } from './compass.js';
-import { findingCard, timeline } from './ui.js';
+import { findingList, timeline } from './ui.js';
 import { scopeText, scopePanelTuvi } from './scope.js';
 import { terms, autoLink } from './glossary.js';
 import { easyReadings, emptyReading } from './beginner.js';
 import { tier, evLegend, yearData, centerIn } from './atlas.js';
+import { HANH, MAJOR_SIGN, BOLD, TRANG_SINH, BRANCH_HANH, YANG_BRANCH, hk } from './stars_hanh.js';
 
 // Traditional layout: branch index per grid cell (null = centre block). Tỵ top-left, clockwise.
 const CELLS = [5, 6, 7, 8, 4, null, null, 9, 3, null, null, 10, 2, 1, 0, 11];
@@ -49,35 +50,59 @@ export function renderTuvi(host, t, ctx) {
     return `<span class="st gl-s st-${k}${major ? ' major' : ''}${unv.has(s) ? ' unv' : ''}" role="button"${inCell ? '' : ' tabindex="0"'} data-gl="star:${esc(s)}" aria-label="${esc(s)}${esc(lbl)}: xem giải thích">${esc(s)}${badge(ds, major)}${hs ? `<span class="th th-${hs.k}" data-gl="${hs.gl}" title="${esc(h)}"><i lang="zh">${hs.h}</i></span>` : ''}</span>`;
   };
 
+  // Traditional board cell (the Vietnamese lá số convention): can-chi and the palace's hành on the left, the palace name coloured by the hành of
+  // its branch, the đại hạn age on the right; chính tinh in capitals with their dignity letter; phụ tinh in two columns (good left, bad right),
+  // each coloured by its own hành (stars_hanh.js, display only); the foot carries ĐV.<role> / Tràng Sinh stage / LN.<role>.
+  const LETTER = { 'miếu': 'M', 'vượng': 'V', 'đắc': 'Đ', 'bình': 'B', 'hãm': 'H', 'lợi': 'L' };
+  const ROLE = ['MỆNH', 'PHỤ', 'PHÚC', 'ĐIỀN', 'QUAN', 'NÔ', 'DI', 'TẬT', 'TÀI', 'TỬ', 'PHỐI', 'HUYNH'];
+  const dhNow = t.dai_han.find(d => age >= d.age_from && age <= d.age_to), dvRef = dhNow && byBranch[dhNow.branch];
+  const lnRef = by[((now - 4) % 12 + 12) % 12];
+  const roleOf = (p, ref) => ref ? ROLE[(p.branch_index - ref.branch_index + 12) % 12] : '';
+  const dgLetter = ds => ds?.status === 'VERIFIED' ? LETTER[ds.value] : ds?.status === 'CONFLICT' ? '?' : '';
+  const hoaOf = i => Object.entries(t.tu_hoa).filter(([, v]) => v.branch === i).map(([h]) => h);
+  const tStar = (s, ds, major = false) => {
+    const L = dgLetter(ds), h = HANH[s], tip = ds?.status === 'VERIFIED' ? `, ${ds.term || ds.value}` : '';
+    const txt = major ? `${MAJOR_SIGN[s] || ''}${s.toLocaleUpperCase('vi')}` : s;
+    return `<span class="st gl-s tb-s h-${hk(h)}${major ? ' tb-maj' : ''}${BOLD.has(s) ? ' tb-b' : ''}${unv.has(s) ? ' unv' : ''}" role="button" data-gl="star:${esc(s)}" aria-label="${esc(s)}${esc(tip)}">${esc(txt)}${L ? ` (${L})` : ''}</span>`;
+  };
   const cell = i => {
-    const p = by[i], minors = p.stars.filter(s => !p.major_stars.includes(s));
-    const order = { pos: 0, neu: 1, neg: 2 }; minors.sort((a, b) => order[starKind(a)] - order[starKind(b)]);
-    const d = dhByBranch[p.branch], isMenh = p.name === 'Mệnh';
-    return `<button type="button" class="pal${isMenh ? ' is-menh' : ''}${p.is_than ? ' is-than' : ''}" data-i="${i}" aria-pressed="false" aria-label="Cung ${esc(p.name)}, ${esc(p.stem)} ${esc(p.branch)}. Chính tinh: ${esc(p.major_stars.join(', ') || 'vô chính diệu')}">
-      <span class="pal-h"><span class="pal-name">${esc(p.name)}</span><span class="pal-gz"><i lang="zh">${BRANCHES[i].h}</i>${esc(p.stem)} ${esc(p.branch)}</span></span>
-      ${isMenh || p.is_than || p.tuan || p.triet ? `<span class="pal-tags">${isMenh ? '<span class="seal-m" title="Cung Mệnh"><i lang="zh">命</i>Mệnh</span>' : ''}${p.is_than ? '<span class="seal-t" title="Thân cư"><i lang="zh">身</i>Thân</span>' : ''}${p.tuan ? '<span class="tag">Tuần</span>' : ''}${p.triet ? '<span class="tag">Triệt</span>' : ''}</span>` : ''}
-      <span class="pal-maj">${p.major_stars.length ? p.major_stars.map(s => starHtml(s, true, p.dignity_status?.[s], true)).join('') : '<span class="vcd">vô chính diệu</span>'}</span>
-      <span class="pal-min">${minors.map(s => starHtml(s, false, p.dignity_status?.[s], true)).join('')}</span>
-      <span class="pal-foot">${d ? `<span class="pal-dh" title="Đại hạn">${d.age_from}<small>–${d.age_to}</small></span>` : ''}<span class="pal-cy"></span></span>
+    const p = by[i], d = dhByBranch[p.branch], isMenh = p.name === 'Mệnh', ph = BRANCH_HANH[p.branch];
+    const stage = p.stars.find(s => TRANG_SINH.includes(s));
+    const minors = p.stars.filter(s => !p.major_stars.includes(s) && !TRANG_SINH.includes(s));
+    const hoas = hoaOf(i).map(h => ({ s: h, bad: h === 'Hóa Kỵ' }));
+    const left = [...minors.filter(s => starKind(s) !== 'neg').map(s => tStar(s, p.dignity_status?.[s])), ...hoas.filter(x => !x.bad).map(x => tStar(x.s))];
+    const right = [...minors.filter(s => starKind(s) === 'neg').map(s => tStar(s, p.dignity_status?.[s])), ...hoas.filter(x => x.bad).map(x => tStar(x.s))];
+    const nm = `${p.name.toLocaleUpperCase('vi')}${p.is_than ? '<span class="tb-than">&lt;THÂN&gt;</span>' : ''}`;
+    return `<button type="button" class="pal tb-pal${isMenh ? ' is-menh' : ''}${p.is_than ? ' is-than' : ''}" data-i="${i}" aria-pressed="false" aria-label="Cung ${esc(p.name)}, ${esc(p.stem)} ${esc(p.branch)}. Chính tinh: ${esc(p.major_stars.join(', ') || 'vô chính diệu')}">
+      <span class="tb-h"><span class="tb-gz">${esc(p.stem[0])}.${esc(p.branch)}</span><span class="tb-name h-${hk(ph)}">${nm}</span><span class="tb-dh">${d ? d.age_from : ''}</span></span>
+      <span class="tb-h2"><span class="tb-el">${YANG_BRANCH.has(p.branch) ? '+' : '−'}${esc(ph)}</span><span class="tb-majs">${p.major_stars.length ? p.major_stars.map(s => tStar(s, p.dignity_status?.[s], true)).join('') : '<span class="tb-vcd">vô chính diệu</span>'}</span></span>
+      <span class="tb-cols"><span class="tb-col">${left.join('')}</span><span class="tb-col">${right.join('')}</span></span>
+      <span class="tb-foot"><span>${dvRef ? 'ĐV.' + roleOf(p, dvRef) : ''}</span><span class="tb-ts">${esc(stage || '')}</span><span>${lnRef ? 'LN.' + roleOf(p, lnRef) : ''}</span></span>
+      <span class="pal-cy"></span>
     </button>`;
   };
 
-  const center = `<div class="ident" aria-labelledby="id-t">
-      <div class="ident-art" aria-hidden="true">${compass({ animate: false, detail: 'min' })}</div>
-      <div class="ident-in">
-        <p class="eyebrow">Lá số Tử Vi Đẩu Số</p>
-        <h3 id="id-t" class="ident-gz">${esc(t.year_gz)}</h3>
-        <p class="ident-line">${esc(t.yin_yang_gender)} · Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</p>
-        <dl class="ident-dl">
-          <div><dt><span data-gl="palace:Mệnh">Mệnh cung</span></dt><dd>${esc(menh.stem)} ${esc(menh.branch)}</dd></div>
-          <div><dt><span data-gl="c:than-cu">Thân cư</span></dt><dd>${esc(than.name)}</dd></div>
-          <div><dt><span data-gl="c:cuc">Cục</span></dt><dd>${esc(t.cuc.name)}</dd></div>
-          <div><dt><span data-gl="c:nap-am">Bản mệnh</span></dt><dd>${esc(t.menh_nap_am)}</dd></div>
-          ${t.extras?.menh_chu ? `<div><dt>Mệnh chủ</dt><dd>${esc(t.extras.menh_chu.star)}</dd></div><div><dt>Thân chủ</dt><dd>${esc(t.extras.than_chu.star)}</dd></div>` : ''}
-        </dl>
-        <p class="ident-sum">${esc(t.menh_cuc_relation)} · đại hạn ${esc(t.dai_han_direction)}${menh.major_stars.length ? ` · Mệnh có ${esc(menh.major_stars.join(', '))}` : ' · Mệnh vô chính diệu'}</p>
-        <button type="button" class="link" data-scope>Phạm vi tính toán</button>
-      </div></div>`;
+  // centre of the board: the birth data as the traditional board lists it (no branding), the Mệnh–Cục relation, chủ mệnh / chủ thân
+  const P = ctx.chartRaw?.bazi?.pillars || {}, gz = k => P[k]?.name || '';
+  const yNow = `${STEMS[((now - 4) % 10 + 10) % 10].n} ${BRANCHES[((now - 4) % 12 + 12) % 12].n}`;
+  const pad2 = n => String(n).padStart(2, '0');
+  const row = (k, v, g = '') => `<div class="tb-r"><dt>${k}</dt><dd>${v}</dd><dd class="tb-g">${g}</dd></div>`;
+  const center = `<div class="ident tb-centre" aria-labelledby="id-t">
+      <h3 id="id-t" class="tb-title">Lá Số Tử Vi</h3>
+      <dl class="tb-info">
+        ${row('Năm:', `${ctx.req.year}`, esc(t.year_gz))}
+        ${row('Tháng:', `${ctx.req.month} (${t.lunar.month}${t.lunar.leap ? ' nhuận' : ''})`, esc(gz('month')))}
+        ${row('Ngày:', `${ctx.req.day} (${t.lunar.day})`, esc(gz('day')))}
+        ${row('Giờ:', `${ctx.req.hour} giờ ${pad2(ctx.req.minute || 0)} phút`, esc(gz('hour')))}
+        ${row('Năm xem:', `${yNow} (${now}), ${age} tuổi`)}
+        ${row('Âm dương:', esc(t.yin_yang_gender))}
+        ${row('Bản mệnh:', `${esc(t.menh_nap_am)} - ${esc(t.cuc.name)}`)}
+        ${row('', `(${esc(t.menh_cuc_relation)})`)}
+        ${t.extras?.menh_chu ? row('Chủ mệnh:', esc(t.extras.menh_chu.star)) + row('Chủ thân:', esc(t.extras.than_chu.star)) : ''}
+        ${row('Thân cư:', esc(than.name))}
+      </dl>
+      <button type="button" class="link tb-scope" data-scope>Phạm vi tính toán</button>
+    </div>`;
 
   const ovOrder = t.palaces.slice().sort((a, b) => (a.branch_index - menh.branch_index + 12) % 12 - (b.branch_index - menh.branch_index + 12) % 12);
   const yearsOf = d => Array.from({ length: d.age_to - d.age_from + 1 }, (_, k) => ctx.req.year + d.age_from - 1 + k);
@@ -90,9 +115,9 @@ export function renderTuvi(host, t, ctx) {
         <header class="plate-h"><h3 id="tv-h2"><i lang="zh">紫微</i>Mười hai cung</h3><span class="plate-k">Chạm một cung để mở · Tam Phương Tứ Chính sẽ sáng lên</span></header>
         <div class="seg tv-toggle" role="group" aria-label="Chế độ xem lá số"><button type="button" data-v="ov" aria-pressed="true">Sổ tay</button><button type="button" data-v="full" aria-pressed="false">Toàn lá số</button></div>
         <ol class="tv-ov" aria-label="Tổng quan mười hai cung, bắt đầu từ cung Mệnh">${ovOrder.map(p => `<li><button type="button" data-i="${p.branch_index}"><span class="ov-n">${esc(p.name)}${p.is_than ? ' <em>Thân</em>' : ''}</span><span class="ov-gz">${esc(p.stem)} ${esc(p.branch)}</span><span class="ov-s">${esc(p.major_stars.join(' · ') || 'vô chính diệu')}</span></button></li>`).join('')}</ol>
-        <div class="tv-scroll" tabindex="0" role="region" aria-label="Lá số Tử Vi, có thể cuộn ngang"><div class="tv-board" id="tv-board">
+        <div class="tv-zoom" role="group" aria-label="Thu phóng lá số"><button type="button" data-z="out" aria-label="Thu nhỏ">−</button><span class="tv-zl" aria-live="polite">100%</span><button type="button" data-z="in" aria-label="Phóng to">+</button><button type="button" data-z="fit">Vừa khung</button><button type="button" data-z="one">100%</button><span class="tv-zh">Kéo để di chuyển · Ctrl + cuộn để thu phóng</span></div><div class="tv-scroll" tabindex="0" role="region" aria-label="Lá số Tử Vi: kéo để di chuyển, Ctrl + cuộn hoặc chụm hai ngón để thu phóng"><div class="tv-board" id="tv-board">
           <svg class="tv-links" aria-hidden="true"></svg>
-          <div id="grid">${CELLS.map((i, k) => i === null ? (k === 5 ? `<div class="center">${center}</div>` : '') : cell(i)).join('')}</div></div></div>
+          <div id="grid">${CELLS.map((i, k) => i === null ? (k === 5 ? `<div class="center">${center}</div>` : '') : cell(i)).join('')}</div><div class="tb-tt" aria-hidden="true"></div><div class="tb-legend"><span><b class="h-kim">M</b>:Miếu</span><span><b class="h-kim">V</b>:Vượng</span><span><b class="h-kim">Đ</b>:Đắc</span><span><b class="h-kim">B</b>:Bình hòa</span><span><b class="h-kim">H</b>:Hãm</span><span class="tb-lg-gap"></span><span><i class="sw h-kim"></i>Kim</span><span><i class="sw h-moc"></i>Mộc</span><span><i class="sw h-thuy"></i>Thủy</span><span><i class="sw h-hoa"></i>Hỏa</span><span><i class="sw h-tho"></i>Thổ</span></div></div></div>
         <div class="legend" aria-label="Cách đọc bảng">
           <span><i class="lg-seal lg-m" lang="zh">命</i>Cung Mệnh</span><span><i class="lg-seal lg-t" lang="zh">身</i>Thân cư</span>
           <span><i class="lg-maj">Aa</i>Chính tinh</span><span class="l-pos">Cát tinh</span><span class="l-neg">Sát / hung tinh</span><span class="l-neu">Phụ tinh</span>
@@ -116,19 +141,78 @@ export function renderTuvi(host, t, ctx) {
   const stage = $('.tv-stage', host), board = $('#tv-board', host), svg = $('.tv-links', host), drawer = $('#tv-drawer', host);
   let cur = null, cycle = { dh: null, year: null }, yd = null;
 
-  // scale the fixed-size board (--bw × 4·--bh in css/atlas.css) to its box: in the one-screen layout it fits both ways, in the flowing layout
-  // it follows the width; never below 0.8 (a box too small scrolls the board inside it rather than shrink the stars to unreadable)
-  const scroller = board.parentElement, oneScreen = matchMedia('(min-width:1100px) and (min-height:600px)');
-  const fit = () => {
-    const w = scroller.clientWidth, h = scroller.clientHeight, cs = getComputedStyle(board);
-    const BOARD_W = parseFloat(cs.getPropertyValue('--bw')), BOARD_H = 4 * parseFloat(cs.getPropertyValue('--bh')) + 5;
-    if (!w) return;
-    const k = Math.max(oneScreen.matches && board.closest('.dash-tv') ? Math.min(w / BOARD_W, h / BOARD_H) : w / BOARD_W, 0.8);
-    board.style.setProperty('--fit', Math.min(k, 1.3).toFixed(4));
-    if (cur != null) links(cur);
+  // The board keeps ONE design size (portrait, --bw × 4·--bh in css/atlas.css) and is never squeezed to the window: its frame (.tv-scroll)
+  // shows it through a pan/zoom view. Drag moves it, Ctrl/⌘ + wheel or a trackpad pinch zooms at the pointer, two fingers pinch on touch,
+  // plain wheel moves it while it has room and then lets the page scroll; − / + / "Vừa khung" / "100%" sit above the frame.
+  const scroller = board.parentElement, zoomBar = $('.tv-zoom', host), zl = $('.tv-zl', host);
+  const view = { k: 1, x: 0, y: 0, auto: true };
+  const dims = () => [board.offsetWidth, board.offsetHeight];
+  const apply = () => { board.style.transform = `translate(${view.x.toFixed(1)}px,${view.y.toFixed(1)}px) scale(${view.k.toFixed(4)})`; if (zl) zl.textContent = Math.round(view.k * 100) + '%'; };
+  const clampPan = () => {
+    const [W, H] = dims(), fw = scroller.clientWidth, fh = scroller.clientHeight, bw = W * view.k, bh = H * view.k;
+    view.x = bw <= fw ? (fw - bw) / 2 : Math.min(0, Math.max(fw - bw, view.x));
+    view.y = bh <= fh ? Math.max(0, Math.min((fh - bh) / 2, 12)) : Math.min(0, Math.max(fh - bh, view.y));
   };
-  new ResizeObserver(fit).observe(scroller);
-  fit();
+  // default: the width of the frame, never above the design size (a wide frame shows the board at 100 %, a phone shows all of it small)
+  const fitWidth = () => { const [W] = dims(), fw = scroller.clientWidth; if (!fw) return; view.k = Math.min(fw / W, 1); view.x = 0; view.y = 0; view.auto = true; clampPan(); apply(); };
+  const fitAll = () => { const [W, H] = dims(), fw = scroller.clientWidth, fh = scroller.clientHeight; if (!fw || !fh) return; view.k = Math.min(fw / W, fh / H); view.auto = false; clampPan(); apply(); };
+  const zoomAt = (f, cx, cy) => {
+    const k = Math.min(2.5, Math.max(0.2, view.k * f)), r = k / view.k;
+    view.x = cx - (cx - view.x) * r; view.y = cy - (cy - view.y) * r; view.k = k; view.auto = false; clampPan(); apply();
+  };
+  const centre = () => [scroller.clientWidth / 2, scroller.clientHeight / 2];
+  new ResizeObserver(() => { if (view.auto) fitWidth(); else { clampPan(); apply(); } }).observe(scroller);
+  fitWidth();
+  const zh = $('.tv-zh', host); if (zh && matchMedia('(pointer:coarse)').matches) zh.textContent = 'Kéo để di chuyển · chụm hai ngón để thu phóng';
+  // Tuần / Triệt: a black tag on the border shared by the two palaces each one covers (board coordinates, so the view does not move it)
+  const ttTags = () => {
+    const box = $('.tb-tt', host); if (!box) return;
+    box.innerHTML = [['tuan', 'Tuần'], ['triet', 'Triệt']].map(([k, label]) => {
+      const els = t.palaces.filter(p => p[k]).map(p => $(`.pal[data-i="${p.branch_index}"]`, host)).filter(Boolean);
+      if (els.length !== 2) return '';
+      const [a, b] = els.map(e => ({ x: e.offsetLeft, y: e.offsetTop, w: e.offsetWidth, h: e.offsetHeight }));
+      const vertical = Math.abs(a.x - b.x) < 2;         // one above the other: the tag sits on the horizontal edge between them
+      const x = vertical ? a.x + a.w / 2 : Math.max(a.x, b.x), y = vertical ? Math.max(a.y, b.y) : a.y + a.h - 12;
+      return `<span class="tb-tag" style="left:${x}px;top:${y}px">${label}</span>`;
+    }).join('');
+  };
+  ttTags();
+  // built while hidden (the other system's tab, the Sổ tay view): fit the moment the frame becomes visible
+  new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { if (view.auto || !board.style.transform) fitWidth(); ttTags(); if (cur == null) links(menh.branch_index); } }).observe(scroller);
+  if (zoomBar) zoomBar.onclick = e => {
+    const z = e.target.closest('[data-z]')?.dataset.z; if (!z) return;
+    if (z === 'in') zoomAt(1.25, ...centre()); else if (z === 'out') zoomAt(0.8, ...centre());
+    else if (z === 'fit') fitAll(); else if (z === 'one') zoomAt(1 / view.k, ...centre());
+  };
+  scroller.addEventListener('wheel', e => {
+    if (e.ctrlKey || e.metaKey) { e.preventDefault(); const r = scroller.getBoundingClientRect(); zoomAt(Math.exp(-e.deltaY * 0.0025), e.clientX - r.left, e.clientY - r.top); return; }
+    const x0 = view.x, y0 = view.y; view.x -= e.deltaX; view.y -= e.deltaY; clampPan();
+    if (view.x !== x0 || view.y !== y0) { e.preventDefault(); view.auto = false; apply(); }
+  }, { passive: false });
+  // pointers: one drags, two pinch; a press that moved more than 4 px is a drag, and its click must not open a palace
+  const pts = new Map(); let drag = null, pinch = null, moved = false;
+  scroller.addEventListener('pointerdown', e => {
+    pts.set(e.pointerId, [e.clientX, e.clientY]);
+    if (pts.size === 1) { drag = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, id: e.pointerId }; moved = false; }
+    if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = { d: Math.hypot(a[0] - b[0], a[1] - b[1]) || 1, k: view.k }; }
+  });
+  scroller.addEventListener('pointermove', e => {
+    if (!pts.has(e.pointerId)) return;
+    pts.set(e.pointerId, [e.clientX, e.clientY]);
+    const r = scroller.getBoundingClientRect();
+    if (pinch && pts.size >= 2) {
+      const [a, b] = [...pts.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      zoomAt(pinch.k * d / pinch.d / view.k, (a[0] + b[0]) / 2 - r.left, (a[1] + b[1]) / 2 - r.top); moved = true; return;
+    }
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!moved && Math.hypot(dx, dy) < 4) return;
+    if (!moved) { moved = true; scroller.setPointerCapture(e.pointerId); scroller.classList.add('dragging'); }
+    view.x = drag.vx + dx; view.y = drag.vy + dy; view.auto = false; clampPan(); apply();
+  });
+  const up = e => { pts.delete(e.pointerId); if (pts.size < 2) pinch = null; if (!pts.size) { drag = null; scroller.classList.remove('dragging'); } };
+  scroller.addEventListener('pointerup', up); scroller.addEventListener('pointercancel', up);
+  scroller.addEventListener('click', e => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
 
   const emptyDrawer = () => `<div class="drawer-empty"><div class="ident-art sm" aria-hidden="true">${compass({ animate: false, detail: 'min' })}</div><h3>Chọn một cung</h3><p class="muted">Nhấn vào một cung để xem sao, Tam Phương Tứ Chính và các nhận định liên quan. Các đường nối cho thấy cung nào đang tương tác với cung nào.</p>${evLegend()}</div>`;
   drawer.innerHTML = emptyDrawer();
@@ -144,9 +228,10 @@ export function renderTuvi(host, t, ctx) {
     svg.innerHTML = '';
     if (i == null) return;
     const s = t.structure[by[i].branch];
-    const rect = board.getBoundingClientRect();
-    const c = b => { const el = $(`.pal[data-i="${BRANCHES.findIndex(x => x.n === b)}"]`, host), r = el.getBoundingClientRect(); return [r.left - rect.left + r.width / 2, r.top - rect.top + 22]; };
-    svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
+    // in board coordinates: the pan/zoom transform is undone, so the lines stay put whatever the view
+    const rect = board.getBoundingClientRect(), k = view.k;
+    const c = b => { const el = $(`.pal[data-i="${BRANCHES.findIndex(x => x.n === b)}"]`, host), r = el.getBoundingClientRect(); return [(r.left - rect.left) / k + r.width / k / 2, (r.top - rect.top) / k + 22]; };
+    svg.setAttribute('viewBox', `0 0 ${board.offsetWidth} ${board.offsetHeight}`);
     const me = c(by[i].branch), op = c(s.opposite), t1 = c(s.tam_hop[0]), t2 = c(s.tam_hop[1]);
     const ln = (a, b, cls) => `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" class="${cls}"/>`;
     svg.innerHTML = ln(t1, t2, 'lk lk-tri') + ln(me, op, 'lk lk-op') + ln(me, t1, 'lk lk-th') + ln(me, t2, 'lk lk-th') +
@@ -175,8 +260,8 @@ export function renderTuvi(host, t, ctx) {
       <h3 class="dr-t">${esc(p.name)}</h3><span class="dr-han" aria-hidden="true" lang="zh">${BRANCHES[i].h}</span>
       <p class="dr-plain">${esc(terms()['palace:' + p.name]?.plain || '')} <button type="button" class="link" data-gl="palace:${esc(p.name)}">Giải thích thêm</button></p>
       ${tier('calc', calc)}
-      ${tier('src', `<div class="pro-only">${ver.length ? ver.map(f => findingCard(f)).join('') : none}</div><div class="easy-only">${easyReadings(fs, { empty: emptyReading('', terms(), { palace: p.name, brief: true }) })}</div><p class="muted small">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo.</p>`, { count: ver.length })}
-      ${dr.length ? tier('hyp', dr.map(f => findingCard(f)).join(''), { pro: true, count: dr.length }) : ''}
+      ${tier('src', `<div class="pro-only">${ver.length ? findingList(ver) : none}</div><div class="easy-only">${easyReadings(fs, { empty: emptyReading('', terms(), { palace: p.name, brief: true }) })}</div><p class="muted small">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo.</p>`, { count: ver.length })}
+      ${dr.length ? tier('hyp', findingList(dr), { pro: true, count: dr.length }) : ''}
     </div>`;
     autoLink(drawer, 'tv');
     $('.dr-x', drawer).onclick = () => select(null);
@@ -197,7 +282,8 @@ export function renderTuvi(host, t, ctx) {
     $$('.pal', host).forEach(e => e.setAttribute('aria-pressed', +e.dataset.i === cur));
     $$('.tv-ov button', host).forEach(e => e.classList.toggle('hl', +e.dataset.i === cur));
     host.classList.toggle('has-sel', cur != null);
-    const narrow = matchMedia('(max-width:1279px)').matches;
+    // the panel is a bottom sheet only where the CSS makes it one (fixed); in the desktop side column it is static and the page must not dim
+    const narrow = getComputedStyle(drawer).position === 'fixed';
     if (cur == null) { drawer.classList.remove('open'); drawer.innerHTML = emptyDrawer(); document.body.classList.remove('sheet-open'); paintFocus(null); return; }
     detail(cur); drawer.classList.toggle('open', sheet || !narrow); drawer.scrollTop = 0;
     document.body.classList.toggle('sheet-open', narrow && sheet);
