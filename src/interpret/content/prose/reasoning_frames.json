@@ -1,0 +1,218 @@
+{
+ "note": "Sentence frames for the reasoned Mệnh chapter (prose/narrative.ts, plan quirky-tinkering-rabin R4). Frames name chart facts and reasoning steps only; every claim comes from a fired rule in the ReadingPlan. Slots: {S} the person, {ground} chart positions, {claim} a rule's reading, {cond} its condition, {np} a concept's noun phrase, {pred} a concept predicate, {palace}, {star}, {name}, {hoa}. Status draft until reviewed.",
+ "status": "draft",
+ "frame": {
+  "single": [
+   "Mệnh an tại {branch}, có {ground}.",
+   "Cung Mệnh đóng ở {branch}, nơi {ground}.",
+   "Lá số này lập Mệnh tại {branch}, với {ground}."
+  ],
+  "pair": [
+   "Mệnh an tại {branch}, có {ground}.",
+   "Cung Mệnh đóng ở {branch}, nơi có {ground}."
+  ],
+  "vcd": [
+   "Mệnh an tại {branch} mà không có chính tinh, nên phải mượn {borrowed} ở cung đối diện để luận.",
+   "Cung Mệnh ở {branch} vô chính diệu; sao chủ phải mượn từ cung xung chiếu là {borrowed}."
+  ]
+ },
+ "centre": {
+  "major": [
+   "Muốn hiểu người này phải bắt đầu từ {star}.",
+   "Mọi nét chính của lá số đều xoay quanh {star}.",
+   "{star} là trục của cả lá số."
+  ],
+  "formation": [
+   "{star} là chính tinh, nhưng điều làm lá số này khác đi lại nằm ở {name}.",
+   "Sao chủ là {star}, song trọng tâm của lá số dồn vào {name}."
+  ],
+  "outweighs_major": [
+   "{star} là chính tinh, nhưng sức nặng của lá số lại dồn vào {seat}.",
+   "Dù {star} giữ Mệnh, điều quyết định nhiều hơn lại là {seat}."
+  ],
+  "vcd": [
+   "Vì vậy, cái nhìn về người này phải đi qua {seat}.",
+   "Do đó, phần lớn những gì đáng nói đều đến từ {seat}."
+  ]
+ },
+ "claim": [
+  "{ground}, nên {claim}.",
+  "Vì {ground}, {claim}.",
+  "Với {ground}, {claim}."
+ ],
+ "claim_next": [
+  "{conn} {ground} cho thấy {claim}.",
+  "{conn} vì {ground}, {claim}.",
+  "{conn} từ chỗ {ground}, {claim}."
+ ],
+ "claim_card": [
+  "{ground}, nên {S} {pred}.",
+  "Vì {ground}, {S} {pred}.",
+  "Với {ground}, {S} {pred}."
+ ],
+ "formation": [
+  "{ground} thành {name}, vì {cond}.",
+  "{ground}, hợp thành {name}: {cond}.",
+  "Ở đây {ground}, đủ điều kiện của {name}, tức là {cond}."
+ ],
+ "formation_plain": [
+  "{ground} thành {name}.",
+  "{ground}, hợp thành {name}."
+ ],
+ "formation_then": {
+  "+": [
+   "Nhờ vậy, {claim}.",
+   "Cái được của cách này là {claim}.",
+   "Bởi thế, {claim}."
+  ],
+  "-": [
+   "Vì thế, {claim}.",
+   "Hệ quả là {claim}."
+  ],
+  "~": [
+   "Từ đó, {claim}.",
+   "Theo đó, {claim}."
+  ]
+ },
+ "reducer": [
+  "{conn} vì {cond}, {claim}.",
+  "{conn} {cond}, nên {claim}.",
+  "{conn} điều kiện ở đây là {cond}, và như thế {claim}."
+ ],
+ "against": [
+  "{conn} {ground} lại kéo về phía ngược lại: {S} cũng {pred}.",
+  "{conn} {ground} cho một chiều khác: {S} {pred}.",
+  "{conn} nhìn từ {ground}, {S} lại {pred}."
+ ],
+ "contested": [
+  "Ở điểm này lá số có hai chiều: {ground_a} nghiêng về {np_a}, còn {ground_b} nghiêng về {np_b}; chiều này không xóa được chiều kia.",
+  "Hai chiều cùng có mặt: {ground_a} cho thấy {np_a}, trong khi {ground_b} lại cho thấy {np_b}."
+ ],
+ "caveat": [
+  "{conn} chính {hoa} ấy cũng không trọn vẹn: vì {cond}, {claim}.",
+  "{conn} {hoa} vừa gỡ ấy lại có giới hạn của nó: {cond}, nên {claim}."
+ ],
+ "bridge": [
+  "Cũng chính {hoa} vừa nói là chỗ phải xét kỹ khi bàn đến {np}.",
+  "Điều này dẫn sang {hoa}, sao quyết định phần {np} của lá số."
+ ],
+ "corroborated": [
+  "Nhìn sang {palace}, {ground} cũng cùng chiều ấy: {claim}.",
+  "{palace} xác nhận thêm điều đó, vì {ground}: {claim}."
+ ],
+ "countered": [
+  "{conn} ở {palace}, {ground} lại kéo theo chiều khác: {claim}.",
+  "{conn} cung {palace} không hoàn toàn thuận: {ground}, nên {claim}."
+ ],
+ "behave": [
+  "{behave}"
+ ],
+ "course": [
+  "Về đường đời, {ground}, nên {claim}.",
+  "Trên đường đời, vì {ground}, {claim}."
+ ],
+ "degree": {
+  "up": [
+   "Các yếu tố độ số của lá số phần nhiều thuận: {conds}."
+  ],
+  "down": [
+   "Các yếu tố độ số của lá số phần nhiều nghịch: {conds}; chỗ đứng phần lớn phải tự gây dựng."
+  ]
+ },
+ "closing": [
+  "Gom lại, điều riêng nhất của lá số này là {nps}, và tất cả đều quy về {centre}.",
+  "Tóm lại, lá số này được định hình bởi {nps}, với {centre} làm trục."
+ ],
+ "ground": {
+  "major": [
+   "{star} {dignity} tại {branch}",
+   "{star} tọa Mệnh ở {branch}, {dignity}"
+  ],
+  "major_plain": [
+   "{star} tọa Mệnh ở {branch}",
+   "{star} đóng Mệnh tại {branch}"
+  ],
+  "major_borrowed": [
+   "{star} ở cung xung chiếu chiếu về Mệnh"
+  ],
+  "hoa_on": [
+   "{star} {dignity} tại {branch}, lại được hóa {short}",
+   "{star} {dignity} ở {branch} và được hóa {short}"
+  ],
+  "hoa": [
+   "{hoa} đóng trên {star} ngay tại Mệnh",
+   "{hoa} nằm trên {star} ở cung Mệnh"
+  ],
+  "hoa_far": [
+   "{hoa} trên {star} ở {palace} chiếu về Mệnh"
+  ],
+  "star": [
+   "{star} {dignity} ở Mệnh",
+   "Mệnh có {star} {dignity}"
+  ],
+  "star_plain": [
+   "{star} ở Mệnh",
+   "Mệnh có {star}"
+  ],
+  "tuan_triet": [
+   "{name} án ngữ cung Mệnh",
+   "Mệnh bị {name} án ngữ"
+  ],
+  "tam_phuong": [
+   "{stars} ở {palace} chiếu về Mệnh",
+   "{stars} từ {palace} hội về Mệnh"
+  ],
+  "palace": [
+   "{stars} ở {palace}",
+   "{palace} có {stars}"
+  ],
+  "link_but": [
+   " nhưng {link}"
+  ],
+  "link_and": [
+   " cùng {link}"
+  ],
+  "hoa_on_ham": [
+   "{star} {dignity} tại {branch} nhưng được hóa {short}",
+   "{star} tuy {dignity} ở {branch} nhưng được hóa {short}"
+  ],
+  "hoa_on_plain": [
+   "{star} tọa Mệnh ở {branch} và được hóa {short}"
+  ],
+  "pair": [
+   "{a} và {b} đồng cung tại {branch}",
+   "{a} cùng {b} tọa Mệnh ở {branch}"
+  ]
+ },
+ "modifier": [
+  "{conn} {ground}, nên {claim}.",
+  "{conn} vì {ground}, {claim}.",
+  "{conn} {ground} còn cho thấy {claim}."
+ ],
+ "modifier_card": [
+  "{conn} {ground}, nên {S} {pred}.",
+  "{conn} vì {ground}, {S} {pred}."
+ ],
+ "formation_state": {
+  "thanh_plain": [
+   "Lá số vào cách {name}.",
+   "Cấu trúc tam phương hợp thành cách {name}."
+  ],
+  "thanh": [
+   "Lá số vào cách {name}, lại có {boosters} làm tăng thế.",
+   "Cấu trúc tam phương hợp thành cách {name}, được thêm {boosters}."
+  ],
+  "thanh_thuong": [
+   "Lá số vào cách {name} ở thế mạnh, vì có {boosters}.",
+   "Cách {name} ở đây thành ở bậc cao, nhờ {boosters}."
+  ],
+  "bi_pha": [
+   "Lá số có dáng cách {name}, nhưng cách bị phá vì {breakers}.",
+   "Cách {name} có hình mà không trọn: {breakers} làm phá cách."
+  ],
+  "pha_duoc_cuu": [
+   "Lá số có cách {name}; {breakers} làm phá cách, song {rescuers} cứu lại được.",
+   "Cách {name} bị {breakers} làm phá, nhưng có {rescuers} cứu giải."
+  ]
+ }
+}

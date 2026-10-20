@@ -81,7 +81,13 @@ const knowledge = {
   // knowledge graph (prose plan §2): page-checked qualifiers now; rule→concept links and rule relations join here in P1
   kg: { qualifiers: read(join(DATA, 'kg', 'qualifiers.json')).qualifiers,
         ruleConcepts: existsSync(join(DATA, 'kg', 'rule_concepts.json')) ? read(join(DATA, 'kg', 'rule_concepts.json')).entries : {},
-        relations: existsSync(join(DATA, 'kg', 'relations.json')) ? read(join(DATA, 'kg', 'relations.json')).relations : [] },
+        relations: existsSync(join(DATA, 'kg', 'relations.json')) ? read(join(DATA, 'kg', 'relations.json')).relations : [],
+        // corpus rates of each Mệnh concept and rule (tools/interpret/base_rates.ts): the reasoner's measure of what tells a chart apart
+        baseRates: existsSync(join(DATA, 'kg', 'base_rates.json')) ? (({ concept, rule }) => ({ concept, rule }))(read(join(DATA, 'kg', 'base_rates.json'))) : undefined,
+        // draft position guards from the R1 audit (tools/interpret/audit_positions.ts): a rule whose condition is wider than the book's wording
+        positionGuards: existsSync(join(DATA, 'kg', 'position_guards.json')) ? read(join(DATA, 'kg', 'position_guards.json')).guards : [],
+        // the ten draft cách cục with thành / phá / cứu (engine/data/experimental, reason/structures.ts); voiced only with draft prose allowed
+        formations: read(join(DATA, 'experimental', 'formations_experimental.json')).formations },
   // prose library (prose plan §3): how concepts, chart facts and resolver decisions are voiced in reader prose
   prose: (() => {
     const P = join(ROOT, 'src', 'interpret', 'content', 'prose');
@@ -89,7 +95,7 @@ const knowledge = {
     const { anchor, anchor_palace, via, dignity, subject, other } = read(join(P, 'frames.json'));
     return { version: '0.1.0', concepts: cards, frames: { anchor, anchor_palace, via, dignity, subject, other }, modifiers: read(join(P, 'modifiers.json')).modifiers,
       schemas: read(join(P, 'schemas.json')).schemas, connectives: read(join(P, 'connectives.json')).connectives,
-      vanhan: (({ note: _n, ...v }) => v)(read(join(P, 'van_han.json'))), bazi: (({ note: _n, ...v }) => v)(read(join(P, 'bat_tu.json'))) };
+      vanhan: (({ note: _n, ...v }) => v)(read(join(P, 'van_han.json'))), reasoning: (({ note: _n, ...v }) => v)(read(join(P, 'reasoning_frames.json'))), bazi: (({ note: _n, ...v }) => v)(read(join(P, 'bat_tu.json'))) };
   })(),
 };
 const version = createHash('sha256').update(JSON.stringify(knowledge)).digest('hex').slice(0, 16);

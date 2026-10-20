@@ -4,12 +4,15 @@ import { interpret, CHAPTERS, ENGINE_VERSION, type Chapter } from './pipeline.ts
 import { proseChapter, proseReport, seedOf, PROSE_ORDER, PROSE_VERSION, type ProseChapterId } from './prose/chapter.ts';
 import { proseVanHan } from './prose/vanhan.ts';
 import { proseBazi } from './prose/bazi.ts';
+import { reasonedChapter, NARRATIVE_VERSION } from './prose/narrative.ts';
+import { planView } from './reason/plan.ts';
 import { cacheKey, type KnowledgeStore, type OutputCache } from './store.ts';
 import type { ChartInput } from './types.ts';
 
 export interface InterpretDeps {
   enabled: boolean;                                         // TVBT_INTERPRET === "1"
   proseDraft: boolean;                                      // TVBT_PROSE_DRAFT === "1": mode "prose" may use draft cards
+  reasoner?: boolean;                                       // TVBT_REASONER === "1": mode "reasoned" (Mệnh only, plan quirky-tinkering-rabin); off unless set
   facts: (birth: Record<string, unknown>) => Promise<Response>;
   store: KnowledgeStore; cache: OutputCache; defer: (p: Promise<unknown>) => void;
 }
@@ -23,7 +26,10 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   if (!body) return json({ detail: 'invalid JSON' }, 400);
   const chapter = (body.chapter ?? 'cong_danh') as Chapter;
   // mode "prose": reader prose (src/interpret/prose) for the chapters it covers so far; default "evidence" keeps the v2 evidence report
-  const mode = body.mode === 'prose' ? 'prose' : 'evidence';
+  const mode = body.mode === 'prose' ? 'prose' : body.mode === 'reasoned' ? 'reasoned' : 'evidence';
+  // mode "reasoned": the Interpretation Reasoner's plan and the prose argued from it, for the Mệnh chapter only, behind its own flag
+  if (mode === 'reasoned' && !d.reasoner) return json({ detail: 'reasoned mode is disabled' }, 404);
+  if (mode === 'reasoned' && chapter !== ('menh' as Chapter)) return json({ detail: 'mode "reasoned" is available for chapter menh only' }, 422);
   if (mode === 'evidence' && !CHAPTERS.includes(chapter)) return json({ detail: `chapter must be one of ${CHAPTERS.join(', ')}` }, 422);
   // chapter "all" in prose mode returns the whole chained report in one response (the report page asks for it this way)
   if (mode === 'prose' && chapter !== ('all' as Chapter) && chapter !== ('van_han' as Chapter) && chapter !== ('bat_tu' as Chapter) && !PROSE_ORDER.includes(chapter as ProseChapterId)) return json({ detail: `mode "prose" is available for chapters ${PROSE_ORDER.join(', ')}, van_han, bat_tu or "all"` }, 422);
@@ -33,10 +39,11 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   const facts = await factsRes.json() as ChartInput;
   const k = await d.store.load();
   // the Bát Tự chapter reads facts.bazi (pillars, luck), the others the Tử Vi facts; both go into the key so no chapter can hit a stale entry
-  const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, mode, mode === 'prose' ? [PROSE_VERSION, d.proseDraft] : null]);
+  const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, mode, mode === 'prose' ? [PROSE_VERSION, d.proseDraft] : mode === 'reasoned' ? [NARRATIVE_VERSION, d.proseDraft] : null]);
   const hit = await d.cache.get(key);
   if (hit) return new Response(hit, { headers: { 'content-type': 'application/json; charset=utf-8', 'x-interpret-cache': 'hit' } });
-  const out = mode !== 'prose' ? interpret(facts, chapter, k)
+  const out = mode === 'reasoned' ? (o => ({ ...o, plan: planView(o.plan) }))(reasonedChapter(facts, k, { allowDraft: d.proseDraft }))
+    : mode !== 'prose' ? interpret(facts, chapter, k)
     : chapter === ('all' as Chapter) ? (cs => ({ engine: PROSE_VERSION, kbVersion: k.version, chapters: cs, pass: cs.every(c => c.pass) }))(
         [...proseReport(facts, k, { allowDraft: d.proseDraft }), proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)])
     : chapter === ('van_han' as Chapter) ? proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)
@@ -44,6 +51,6 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
     : proseChapter(facts, k, chapter as ProseChapterId, { allowDraft: d.proseDraft });
   const text = JSON.stringify(out);
   const pass = 'quality' in out ? out.quality.pass : out.pass;
-  d.defer(d.cache.put(key, chapter, text, { engine: mode === 'prose' ? PROSE_VERSION : ENGINE_VERSION, kb: k.version, pass }));
+  d.defer(d.cache.put(key, chapter, text, { engine: mode === 'prose' ? PROSE_VERSION : mode === 'reasoned' ? NARRATIVE_VERSION : ENGINE_VERSION, kb: k.version, pass }));
   return new Response(text, { headers: { 'content-type': 'application/json; charset=utf-8', 'x-interpret-cache': 'miss' } });
 }

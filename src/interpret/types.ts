@@ -90,7 +90,11 @@ export interface Knowledge {
   modules: ContentModule[];
   reference?: Reference;
   kg?: { qualifiers: import('./kg/qualifiers.ts').Qualifier[]; ruleConcepts?: Record<string, import('./kg/lift.ts').RuleConcept>;
-    relations?: import('./kg/resolve.ts').KgRelation[] };
+    relations?: import('./kg/resolve.ts').KgRelation[];
+    /** corpus rates (0 … 1) of each concept asserted at Mệnh and each rule firing on Mệnh (engine/data/kg/base_rates.json) */
+    baseRates?: { concept: Record<string, number>; rule: Record<string, number> };
+    positionGuards?: import('./reason/positions.ts').PositionGuard[];
+    formations?: import('./reason/structures.ts').Formation[] };
   prose?: import('./prose/types.ts').ProseLibrary;
 }
 

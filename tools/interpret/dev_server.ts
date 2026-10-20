@@ -39,7 +39,7 @@ createServer(async (req, res) => {
     let out: Response;
     if (url.pathname === '/api/interpret') {
       out = await handleInterpret(new Request(url, init), {
-        enabled: flag('TVBT_INTERPRET'), proseDraft: flag('TVBT_PROSE_DRAFT'),
+        enabled: flag('TVBT_INTERPRET'), proseDraft: flag('TVBT_PROSE_DRAFT'), reasoner: flag('TVBT_REASONER'),
         facts: birth => fetch(`${ORIGIN}/api/facts`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(birth) }),
         store, cache, defer: p => { p.catch(() => {}); },
       });
