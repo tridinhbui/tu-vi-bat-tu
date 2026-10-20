@@ -4,6 +4,8 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-10-13",
   "assets": { "directory": "./engine/web", "run_worker_first": ["/api/*"] },
+  // /api/interpret on, and mode "prose" may use the draft prose cards (none is expert-reviewed yet); the report marks the text as draft
+  "vars": { "TVBT_INTERPRET": "1", "TVBT_PROSE_DRAFT": "1" },
   "containers": [
     { "class_name": "TvbtContainer", "image": "./Dockerfile", "max_instances": 3 }
   ],
