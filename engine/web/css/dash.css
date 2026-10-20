@@ -2,7 +2,7 @@
    the Tử Tử / Vi Vi (Bát Bát / Tự Tự) chat sit in a right-hand column that scrolls INSIDE its own box, and the written reading (luận giải)
    is one viewport tall with its table of contents on the left and the text scrolling inside. Below 1100px wide or 600px tall the page keeps
    its normal flowing layout (the chat then follows the chart). */
-.dash{display:grid;gap:14px;align-items:start}
+.dash{display:grid;gap:14px 18px;align-items:start}
 .dash-side{display:flex;flex-direction:column;gap:12px;min-width:0}
 .dash-side .gd{margin:0}
 
@@ -15,7 +15,7 @@
   #chart-view[data-tab=tuvi] .atl-mast .res-sub,#chart-view[data-tab=bazi] .atl-mast .res-sub{margin-top:2px;font-size:.8rem}
   #chart-view[data-tab=tuvi] .atl-side,#chart-view[data-tab=bazi] .atl-side{grid-auto-flow:column;align-items:center;gap:14px}
   #chart-view[data-tab=tuvi] .atl-mast .res-hl,#chart-view[data-tab=bazi] .atl-mast .res-hl{display:none}
-  .atl-stage.r-tuvi,.atl-stage.r-bazi{padding:8px 0 14px}
+  .atl-stage.r-tuvi,.atl-stage.r-bazi{padding:8px 0 var(--s6)}
   .atl-stage .atl-wrap{max-width:1520px}
 
   .dash-side{grid-area:side;height:var(--dash-h);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:0 2px 0 0}
@@ -24,7 +24,9 @@
   .dash-side .legend{flex:none;font-size:.72rem}
 
   /* ---------- Tử Vi ---------- */
-  .dash-tv{grid-template-columns:minmax(0,1fr) 400px;grid-template-rows:var(--dash-h) auto;grid-template-areas:"plate side" "time time"}
+  /* the plate's height is fixed to the viewport, so its width follows from it (board ≈ 1.4:1, cells a little wider than tall) instead of
+     stretching across a wide screen into a flat strip; the side column takes whatever width is left */
+  .dash-tv{grid-template-columns:min(calc(100% - 418px),calc((var(--dash-h) - 57px) * 1.4 + 26px)) minmax(400px,1fr);grid-template-rows:var(--dash-h) auto;grid-template-areas:"plate side" "time time"}
   .dash-tv #tuvi-host,.dash-tv .tv-stage{display:contents}
   .dash-tv .tv-plate{grid-area:plate;height:var(--dash-h);display:flex;flex-direction:column;overflow:hidden;padding:10px 12px}
   .dash-tv .tv-plate .plate-h{margin:0 0 6px;flex:none}
@@ -74,7 +76,7 @@
   .dash-bz .fe-side .seg{display:flex;flex-wrap:wrap;width:100%}.dash-bz .fe-side .seg button{flex:1 1 auto;padding:6px 8px;font-size:.78rem}
 
   /* ---------- the written reading: one viewport, contents left, text scrolling inside ---------- */
-  .r-report{padding:10px 0 0}
+  .r-report{padding:var(--s6) 0 var(--s5)}
   .r-report>.wrap{display:flex;flex-direction:column;height:calc(100dvh - 49px - 22px)}
   .r-report .sec-h{flex:none;margin-bottom:6px}.r-report .sec-h .sec-sub,.r-report .sec-h .eyebrow{display:none}.r-report .sec-h h2{font-size:1.5rem;margin:0}
   .r-report details.sc{flex:none;margin:0 0 8px}
