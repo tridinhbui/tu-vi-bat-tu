@@ -52,6 +52,8 @@ export interface BaziInput {
   base: Record<string, Facts>; pillars: Record<'year' | 'month' | 'day' | 'hour', BaziPillar>; day_master: string; day_master_element: string;
   luck_direction: string; luck_start_age: number; luck: Array<{ name: string; start_age: number; start_year: number | null; ten_god: string | null }>;
   kong_wang_day?: string[];
+  /** pillar relations by kind (stem_combine, branch_clash …), each with its pillars "year-hour" (absent in facts produced before the field) */
+  relations?: Record<string, Array<{ pillars: string }>>;
 }
 
 export interface Concept { id: string; facet: string; pol: '+' | '-' | '~'; kind: string; opp?: string; cues: string[]; np: string; short?: string }
@@ -90,7 +92,11 @@ export interface Knowledge {
   modules: ContentModule[];
   reference?: Reference;
   kg?: { qualifiers: import('./kg/qualifiers.ts').Qualifier[]; ruleConcepts?: Record<string, import('./kg/lift.ts').RuleConcept>;
-    relations?: import('./kg/resolve.ts').KgRelation[] };
+    relations?: import('./kg/resolve.ts').KgRelation[];
+    /** corpus rates (0 … 1) of each concept asserted at Mệnh and each rule firing on Mệnh (engine/data/kg/base_rates.json) */
+    baseRates?: { concept: Record<string, number>; rule: Record<string, number> };
+    positionGuards?: import('./reason/positions.ts').PositionGuard[];
+    formations?: import('./reason/structures.ts').Formation[] };
   prose?: import('./prose/types.ts').ProseLibrary;
 }
 

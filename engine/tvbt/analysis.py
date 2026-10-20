@@ -272,7 +272,9 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     rel_txt = []
     for key, vi in [("branch_six_combine", "lục hợp"), ("branch_clash", "xung"), ("branch_harm", "hại"), ("branch_destroy", "phá"), ("stem_combine", "can hợp"), ("stem_clash", "can xung")]:
         for r in rel[key]:
-            rel_txt.append(f"{vi} giữa trụ {r['pillars'].replace('-', ' và trụ ')}")
+            # pillar ids are 'year-hour'; the reader sees "trụ năm và trụ giờ"
+            pv = {"year": "năm", "month": "tháng", "day": "ngày", "hour": "giờ"}
+            rel_txt.append(f"{vi} giữa " + " và ".join("trụ " + pv.get(x, x) for x in r["pillars"].split("-")))
     ch["quan-he"].append(B("Bát Tự, quan hệ giữa các trụ: " + ("; ".join(rel_txt) if rel_txt else "không có hợp, xung, hại, phá nào giữa các trụ gốc") + ". Mỗi quan hệ chỉ cho biết có tương tác; việc nó hóa, hợp mà không hóa hay có lực hay không cần điều kiện mà hệ thống chưa xét.", "Thế", "sach", ["八字真宗 PDF pp.19-20"]))
 
     # ---------- Đại vận

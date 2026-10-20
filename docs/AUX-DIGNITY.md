@@ -113,7 +113,7 @@ Tier differences only: Kình/Đà tứ mộ (TH, KL đắc vs TT miếu), Hỏa 
 | thuc_hanh (default) | 22/120 | +15 / −12 | Kình Tý now TH hãm (was TT vượng by fallback): −9 bright, +5 hãm findings. Hỏa Tỵ now TH đắc: +5. Linh Tinh now has levels: +5 (3 rules that could never fire). Kình tứ mộ now TH đắc instead of TT miếu: −2 `TV_TT_MENH_KINH_MIEU`. |
 | toan_thu | 15/120 | +5 / −10 | Kình Tý disputed → unknown: −10. Linh Tinh via TH fallback: +5. |
 
-**Open question for a reviewer:** `TV_TT_MENH_KINH_MIEU` ("Kình Dương nhập miếu", TT p.50) requires exactly `miếu`. In the TH
+**Reviewed 2026-10-19 (kept as is; see STAR-DIGNITY-AUDIT.md §7):** `TV_TT_MENH_KINH_MIEU` ("Kình Dương nhập miếu", TT p.50) requires exactly `miếu`. In the TH
 school, TH labels the same tứ mộ cells `đắc`, so this TT rule no longer fires there. Both books agree tứ mộ is Kình's good seat; only
 the tier label differs. The rule is unchanged. Widening its gate to `[miếu, đắc]` would restore it, but that is a rule edit and needs
 review. The other open point is the `lợi` reading for Văn Xương (`legacy`).

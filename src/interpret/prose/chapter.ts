@@ -15,7 +15,7 @@ import { IDENTITY, select, type Selection } from './select.ts';
 import { validateProse, type ProseIssue, type ProseMetrics } from './validate.ts';
 import type { Move } from './types.ts';
 
-export const PROSE_VERSION = 'prose-0.2.0';
+export const PROSE_VERSION = 'prose-0.2.1';
 export type ProseChapterId = 'menh' | 'cong_danh' | 'tai_bach' | 'thien_di' | 'phu_the' | 'phuc_duc' | 'dien_trach' | 'no_boc'
   | 'tu_tuc' | 'huynh_de' | 'phu_mau' | 'tat_ach';
 interface ProseSpec { palace: string; pool: (c?: Concept) => boolean; borrowFrom: string[];
@@ -52,12 +52,27 @@ export const PROSE_SPECS: Record<ProseChapterId, ProseSpec> = {
     borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false, bond: facet('relationships') },
   tat_ach: { palace: 'Tật Ách', pool: facet('wellbeing', 'life', 'inner'), borrowPool: facet('wellbeing'), borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false },
 };
+export interface Advice { strengths: string[]; actions: string[]; basis: 'he_thong' }
+/** What a chapter's voiced concepts suggest doing: the card's `value` for a positive trait, its `mature` clause for a limiting one. Only concepts
+ *  the text actually said (basis sach) are used, so the advice adds no claim; it is labelled as the system's suggestion, not the book's word. */
+export function adviceOf(paragraphs: ProseParagraph[], k: Knowledge, allowDraft: boolean, seed: string): Advice {
+  const ok = (st: string) => st === 'approved' || (allowDraft && st !== 'retired');
+  const cards = new Map(k.prose!.concepts.filter(c => ok(c.status)).map(c => [c.id, c]));
+  const pol = new Map(k.concepts.concepts.map(c => [c.id, c.pol]));
+  const said = [...new Set(paragraphs.flatMap(p => p.sentences.filter(s => s.trace.basis === 'sach').flatMap(s => s.trace.concepts)))];
+  const pick = (xs: string[] | undefined, id: string) => xs?.length ? xs[fnv(`${seed}|adv|${id}`) % xs.length] : undefined;
+  const strengths = said.filter(c => pol.get(c) === '+').map(c => pick(cards.get(c)?.value, c)).filter((x): x is string => !!x).slice(0, 3);
+  const actions = said.filter(c => pol.get(c) === '-').map(c => pick(cards.get(c)?.mature, c)).filter((x): x is string => !!x).slice(0, 3);
+  return { strengths: [...new Set(strengths)], actions: [...new Set(actions)], basis: 'he_thong' };
+}
 export const PROSE_ORDER: ProseChapterId[] = ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc', 'tu_tuc', 'huynh_de', 'phu_mau', 'tat_ach'];
 export interface ProseChapter {
   engine: string; kbVersion: string; chapter: ProseChapterId; palace: string; schema: string; order: Move[];
   /** draft cards were allowed and the library still holds drafts: the reader must be told the wording is unreviewed */
   draft: boolean;
   paragraphs: ProseParagraph[]; text: string; issues: ProseIssue[]; metrics: ProseMetrics; pass: boolean;
+  /** action suggestions drawn from the cards of the concepts this chapter voices (a strength to lean on, a habit to watch); system wording */
+  advice: Advice;
   evidence: { resolved: Array<Pick<Resolved, 'ruleId' | 'concept' | 'stance' | 'status' | 'by' | 'cites'>>; tensions: Tension[]; unused: string[];
     /** every rule a sentence traces to, with its book paraphrase and pages, for the evidence panel */
     rules: Record<string, { reading: string; cites: string[]; verified: boolean }>; concepts: Record<string, string>;
@@ -216,7 +231,7 @@ function chapterOf(chart: ChartInput, k: Knowledge, id: ProseChapterId, resolved
   return {
     engine: PROSE_VERSION, kbVersion: k.version, chapter: id, palace: spec.palace, schema: schema.id, order,
     draft: allowDraft && [...k.prose!.concepts, ...k.prose!.modifiers].some(c => c.status !== 'approved'),
-    paragraphs, text: paragraphs.map(p => p.text).join('\n\n'), issues, metrics, pass: !issues.some(i => i.level === 'error'),
+    paragraphs, text: paragraphs.map(p => p.text).join('\n\n'), issues, metrics, pass: !issues.some(i => i.level === 'error'), advice: adviceOf(paragraphs, k, allowDraft, cseed),
     evidence: { resolved: resolved.map(r => ({ ruleId: r.ruleId, concept: r.concept, stance: r.stance, status: r.status, by: r.by, cites: r.cites })), tensions, unused: sel.unused,
       rules: Object.fromEntries([...new Set(paragraphs.flatMap(p => p.sentences.flatMap(s => s.trace.rules)))].sort().map(id => {
         const r = rmap.get(id)!; return [id, { reading: reading(id), cites: r.cites, verified: r.reviewStatus === 'verified' }];

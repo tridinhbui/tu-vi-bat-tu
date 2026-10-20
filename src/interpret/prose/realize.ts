@@ -13,6 +13,8 @@ export interface SentenceTrace {
   resolution?: { relation: string; byRule: string; cite?: string }; schema?: string; woven?: Array<SentenceTrace['move']>;
   /** concept@palace of every reading voiced: the report never voices the same reading twice */
   keys?: string[];
+  /** reasoned chapter (narrative.ts): the ReadingPlan step this sentence voices */
+  step?: string;
 }
 /** Who a chapter's sentences are about: in Phu Thê and Nô Bộc a reading that is not about the bond itself describes the other people. */
 export interface Voice { other?: { first: string[]; next: string[] }; bond?: (c?: Concept) => boolean }

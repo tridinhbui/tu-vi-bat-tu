@@ -138,10 +138,12 @@ example, Thiên Cơ Thìn is UNVERIFIED in TH, bình in TT and miếu in KL. Rep
    loses none. Of the 63 Toàn Thư findings dignity-kb-1 lost against b560c45, 53 come back: Thái Âm Tý/Sửu/Tuất/Hợi and Văn Xương
    Tỵ/Thìn, where both readings are bright. The other 10 stay UNKNOWN (pending) on purpose. Nine read Văn Xương Mão/Dậu, where one
    reading has no level (`[đắc, null]`, `[miếu, null]`). One reads Văn Xương Ngọ, where the readings disagree (`[hãm, lợi]`).
-2. **Legacy lợi → đắc** cells: Thiên Đồng Dần (TH), Văn Xương Hợi (TH) and six Văn Xương cells (TT). Keep them, or make them `lợi`?
-3. **Thiên Cơ Thìn/Tuất (TH)**, printed "Ích": read as lợi, or leave unverified?
-4. `TV_TT_MENH_KINH_MIEU` requires exactly "miếu". Under TH, Kình at tứ mộ is "đắc" (AUX-DIGNITY.md).
+2. **Legacy lợi → đắc** cells: Thiên Đồng Dần (TH), Văn Xương Hợi (TH) and six Văn Xương cells (TT). **Decided 2026-10-19: keep
+   đắc.** The `legacy` flag stays, so the badge tooltip can still say that the book prints "Lợi".
+3. **Thiên Cơ Thìn/Tuất (TH)**, printed "Ích". **Decided 2026-10-19: leave UNVERIFIED.**
+4. `TV_TT_MENH_KINH_MIEU` requires exactly "miếu"; under TH, Kình at tứ mộ is "đắc". **Decided 2026-10-19: rule unchanged.** It fires
+   only when the chosen school's book says miếu.
 5. **No book tabulates** Khôi Việt, Đào Hồng Hỷ, Quang Quý, Thai Tọa, the rings, or Tứ Hóa (experimental only). A new source would
    be needed: Hi Di's Chinese text, or 紫微斗數全書 itself rather than a translation.
-6. The API offers only the `thuc_hanh` and `toan_thu` schools. `khao_luan` is available in the classifier but not exposed in the
-   UI.
+6. The API offers only the `thuc_hanh` and `toan_thu` schools. **Decided 2026-10-19: do not expose `khao_luan` yet.** It stays
+   available in the classifier and appears in the "Sách khác" tooltip.

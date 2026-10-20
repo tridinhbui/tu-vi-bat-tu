@@ -5,6 +5,13 @@
 .dash{display:grid;gap:14px 18px;align-items:start}
 .dash-side{display:flex;flex-direction:column;gap:12px;min-width:0}
 .dash-side .gd{margin:0}
+/* Outside the one-screen layout the side column flows after the chart, so the Tử Vi palace panel (moved there by tuvi.js) is the bottom
+   sheet again: without this a tap only dimmed the page while the panel sat far below the chart (phones) */
+@media (max-width:1099px),(max-height:599px){
+  .dash-side .tv-panel{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:78vh;overflow:auto;border-radius:16px 16px 0 0;border-bottom:0;z-index:60;
+    transform:translateY(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:0 -20px 60px rgba(40,30,15,.35)}
+  .dash-side .tv-panel.open{transform:none}.dash-side .tv-panel:not(.open) .drawer-empty{display:none}
+}
 
 @media (min-width:1100px) and (min-height:600px){
   :root{--dash-h:calc(100dvh - 68px - 66px - 49px - 22px)}      /* header + compact masthead + system tabs + stage padding */
@@ -24,27 +31,16 @@
   .dash-side .legend{flex:none;font-size:.72rem}
 
   /* ---------- Tử Vi ---------- */
-  /* the plate's height is fixed to the viewport, so its width follows from it (board ≈ 1.4:1, cells a little wider than tall) instead of
+  /* the plate's height is fixed to the viewport, so its width follows from it (board 1000×693, see .tv-board) instead of
      stretching across a wide screen into a flat strip; the side column takes whatever width is left */
-  .dash-tv{grid-template-columns:min(calc(100% - 418px),calc((var(--dash-h) - 57px) * 1.4 + 26px)) minmax(400px,1fr);grid-template-rows:var(--dash-h) auto;grid-template-areas:"plate side" "time time"}
+  /* the board pans and zooms inside its frame, so the plate takes a plain share of the width instead of one derived from a fixed aspect */
+  .dash-tv{grid-template-columns:minmax(0,1.5fr) minmax(400px,1fr);grid-template-rows:var(--dash-h) auto;grid-template-areas:"plate side" "time time"}
   .dash-tv #tuvi-host,.dash-tv .tv-stage{display:contents}
   .dash-tv .tv-plate{grid-area:plate;height:var(--dash-h);display:flex;flex-direction:column;overflow:hidden;padding:10px 12px}
   .dash-tv .tv-plate .plate-h{margin:0 0 6px;flex:none}
-  .dash-tv .tv-scroll{flex:1;min-height:0;overflow:hidden}
-  .dash-tv .tv-board{height:100%;min-width:0}
-  .dash-tv #grid{height:100%;grid-template-rows:repeat(4,minmax(0,1fr))}
-  .dash-tv .pal{min-height:0;overflow:hidden;gap:2px;padding:5px 8px 20px}
+  .dash-tv .tv-scroll{flex:1;min-height:0;height:auto}
+  .dash-tv .tv-zoom{flex:none}
   .dash-tv .tv-time{grid-area:time}
-  .dash-tv .pal-name{font-size:.62rem;letter-spacing:.1em}
-  .dash-tv .pal-gz{font-size:.62rem}.dash-tv .pal-gz i{display:none}
-  .dash-tv .pal-tags{gap:3px}.dash-tv .seal-m,.dash-tv .seal-t,.dash-tv .tag{font-size:.5rem;padding:1px 5px}
-  .dash-tv .pal-maj{gap:0 8px;margin-top:0}.dash-tv .st.major{font-size:1.02rem;line-height:1.15}
-  .dash-tv .st{font-size:.68rem;line-height:1.3}.dash-tv .pal-min{gap:0 7px;line-height:1.3}
-  .dash-tv .dg{font-size:.45rem;margin-left:3px;padding:0 3px}.dash-tv .th{width:1rem;height:1rem;font-size:.62rem;margin-left:3px}
-  .dash-tv .pal-foot{bottom:4px}.dash-tv .pal-dh,.dash-tv .pal-dh small{font-size:.7rem}
-  .dash-tv .vcd{font-size:.8rem}
-  .dash-tv .ident{padding:8px 14px}.dash-tv .ident-in{gap:4px}.dash-tv .ident-gz{font-size:clamp(1.7rem,2.6vw,2.2rem)}.dash-tv .ident-line{font-size:.78rem}
-  .dash-tv .ident-dl{gap:4px 24px;margin:4px 0}.dash-tv .ident-dl dd{font-size:.98rem}.dash-tv .ident-sum{font-size:.76rem;line-height:1.35}
 
   /* ---------- Bát Tự ---------- */
   .dash-bz{grid-template-columns:minmax(520px,1.25fr) minmax(0,1fr) 360px;grid-template-rows:var(--dash-h) auto;grid-template-areas:"plate instr side" "time time time"}

@@ -11,9 +11,28 @@ export function sourceRef(id, verified = false) {
   return `<span class="src" title="${verified ? 'Đã xác minh nguồn' : 'Nguồn chưa được xác minh trang/mục cụ thể'}"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1.5h6.5a1 1 0 011 1v8H3a1 1 0 01-1-1z" fill="none" stroke="currentColor" stroke-width="1"/></svg>${esc(SOURCES[id] || id)}<em>${verified ? 'đã xác minh' : 'chưa xác minh'}</em></span>`;
 }
 
-export function findingCard(f, refHtml = '') {
-  const ok = f.basis === 'verified';
-  return `<div class="finding-card ${ok ? 'ok' : 'draft'}"><p class="eyebrow">${ok ? 'Đã đối chiếu với sách' : 'Quy tắc nháp, chưa xác minh'}${refHtml ? ' · ' + refHtml : ''}</p>${f.corroborated_by?.length ? `<p class="muted small">Còn được nêu bởi ${f.corroborated_by.length} quy tắc khác: ${esc(f.corroborated_by.map(c => c.sources.map(x => SOURCES[x] || x).join(', ')).filter((v, i, a) => a.indexOf(v) === i).join('; '))}.</p>` : ''}<p class="f-claim">${f.effect === 'limit' ? 'Điều kiện hạn chế:' : 'Có thể nhận thấy một dấu hiệu liên quan đến'} ${esc(f.effect === 'limit' ? claimPhrase(f.claim, f.effect).replace(/^hạn chế:\s*/, '') : claimPhrase(f.claim, f.effect))}.</p>${acc('Vì sao quy tắc này khớp?', 'chuỗi suy luận, quy tắc đối lập, nguồn', reasoningPanel(f))}</div>`;
+/** Findings as compact groups instead of one card each: the evidence label is said once per block, findings are split into signs and limiting
+ *  conditions (or by palace, with `byPlace`), each is one line with its reasoning behind a small "Vì sao?", and a long group folds after
+ *  `show` items. `where(f)` names the palace (HTML); `label` adds the verified / draft heading when the caller has no tier heading of its own. */
+export function findingList(fs, { where = null, byPlace = false, label = false, show = 4 } = {}) {
+  const item = f => {
+    const n = f.corroborated_by?.length || 0;
+    return `<li class="fl-i${f.effect === 'limit' ? ' lim' : ''}"><p class="fl-t">${esc(claimPhrase(f.claim, f.effect).replace(/^(khuynh hướng|hạn chế:)\s*/i, '').replace(/^./, c => c.toLocaleUpperCase('vi')))}${n ? ` <span class="fl-n" title="Còn được ${n} quy tắc khác nêu">+${n}</span>` : ''}</p>`
+      + `<details class="fl-why"><summary>Vì sao?</summary>${reasoningPanel(f)}</details></li>`;
+  };
+  const list = xs => `<ul class="fl">${xs.slice(0, show).map(item).join('')}</ul>`
+    + (xs.length > show ? `<details class="fl-more"><summary>Xem thêm ${xs.length - show}</summary><ul class="fl">${xs.slice(show).map(item).join('')}</ul></details>` : '');
+  const sub = (title, xs) => xs.length ? `<div class="fl-g"><p class="fl-h">${title}<span>${xs.length}</span></p>${list(xs)}</div>` : '';
+  const byEffect = xs => sub('Dấu hiệu', xs.filter(f => f.effect !== 'limit')) + sub('Điều kiện hạn chế', xs.filter(f => f.effect === 'limit'));
+  const body = xs => {
+    if (!byPlace || !where) return byEffect(xs);
+    const groups = new Map();
+    for (const f of xs) { const k = where(f); (groups.get(k) ?? groups.set(k, []).get(k)).push(f); }
+    return [...groups].map(([k, g]) => `<details class="fl-place"><summary>${k}<span>${g.length}</span></summary>${byEffect(g)}</details>`).join('');
+  };
+  const block = (cls, title, xs) => xs.length ? `<div class="fgroup ${cls}">${label ? `<p class="eyebrow">${title}<span>${xs.length}</span></p>` : ''}${body(xs)}</div>` : '';
+  const ok = fs.filter(f => f.basis === 'verified'), dr = fs.filter(f => f.basis !== 'verified');
+  return block('ok', 'Đã đối chiếu với sách', ok) + block('draft', 'Quy tắc nháp, chưa xác minh', dr);
 }
 const KIND = { finding: 'Nhận định', rule: 'Quy tắc', source: 'Nguồn', fact: 'Dữ kiện' };
 const KIND_ORDER = ['finding', 'rule', 'source', 'fact'];
