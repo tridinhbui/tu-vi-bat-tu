@@ -578,8 +578,66 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 #tuvi-host,#bazi-host,#tvr-h,#bzr-h{scroll-margin-top:136px}
 @media(max-width:600px){.final-art{display:none}.final{padding:56px 0}.inside-notes{gap:var(--s4)}.inside-notes li{font-size:.9rem;padding-left:46px}.in-n{width:30px;height:30px;font-size:.9rem}.inside-notes b{font-size:1.15rem}}
 @media(max-width:700px){.atl-mast .res-act{flex-wrap:nowrap;gap:6px;width:100%}.atl-mast .res-act .btn{padding:7px 11px;font-size:.78rem;white-space:nowrap}.atl-mast #print-btn{margin-left:auto}}
+
+/* Account slot in the header (js/account.js) */
+.acct{display:inline-flex;align-items:center;gap:.5rem}
+.acct:empty{display:none}
+.acct-name{font-size:.9rem;font-weight:600;max-width:9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:760px){.acct-name{display:none}}
+.acct-wallet{font-size:.8rem;color:var(--text2);border:1px solid var(--line);border-radius:99px;padding:4px 10px;white-space:nowrap}
+@media (max-width:980px){.acct-wallet{display:none}}
+
+/* Chat about the chart (js/ask.js) */
+.ask-fab{position:fixed;right:20px;bottom:20px;z-index:60;font:600 .92rem var(--sans);color:var(--ivory);background:var(--cinnabar);border:0;border-radius:99px;padding:13px 20px;cursor:pointer;box-shadow:var(--sh)}
+.ask-fab:hover{filter:brightness(1.06)}
+.ask-panel{position:fixed;right:20px;bottom:76px;z-index:61;width:min(400px,calc(100vw - 24px));max-height:min(620px,calc(100vh - 110px));display:flex;flex-direction:column;background:var(--raise);color:var(--ink);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px -20px rgba(60,40,15,.35);overflow:hidden}
+.ask-panel[hidden]{display:none}
+.ask-h{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--parchment)}
+.ask-h b{font:600 1.05rem var(--serif)}.ask-left{margin-left:auto}
+.ask-x{border:0;background:none;font-size:1.4rem;line-height:1;cursor:pointer;color:var(--muted);padding:0 4px}
+.ask-log{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:120px}
+.ask-m{margin:0;padding:9px 13px;border-radius:14px;max-width:92%;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.95rem;line-height:1.55}
+.ask-me{align-self:flex-end;background:var(--cinnabar);color:var(--ivory);border-bottom-right-radius:4px}
+.ask-bot{align-self:flex-start;background:var(--parchment);border-bottom-left-radius:4px}
+.ask-err{align-self:flex-start;background:none;border:1px solid var(--cinnabar);color:var(--cinnabar);font-size:.88rem}
+.ask-note{margin:0;padding:10px 14px;background:var(--parchment);border-top:1px solid var(--line);font-size:.88rem;color:var(--text2)}
+.ask-note a{color:var(--cinnabar);font-weight:600}
+.ask-form{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line);align-items:flex-end}
+.ask-form textarea{flex:1;resize:none;font:inherit;font-size:.95rem;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--ivory);color:var(--ink);max-height:120px}
+.ask-form textarea:disabled{opacity:.6}
+.ask-fine{margin:0;padding:0 14px 10px}
+@media print{.ask-fab,.ask-panel{display:none!important}}
+@media(max-width:600px){.ask-fab{right:12px;bottom:12px}.ask-panel{right:12px;bottom:64px}}
+
+.ask-deep{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.ask-deep select{flex:1;min-width:0;font:inherit;font-size:.88rem;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--ivory);color:var(--ink);text-overflow:ellipsis}
+.ask-deep .btn{white-space:nowrap}
+
+/* Live counters on the landing page (js/live.js) */
+.live{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin:var(--s5) 0 0;font-size:.92rem;color:var(--text2)}
+.live[hidden]{display:none}
+.live-tag{display:inline-flex;align-items:center;gap:8px;font:600 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cinnabar)}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--cinnabar);position:relative}
+.live-dot:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--cinnabar);opacity:0;animation:livePing 2.4s ease-out infinite}
+@keyframes livePing{0%{transform:scale(.4);opacity:.7}80%,100%{transform:scale(1.5);opacity:0}}
+.live-item b{font:600 1.35rem var(--serif);color:var(--ink);font-variant-numeric:tabular-nums;margin-right:4px;display:inline-block}
+.live-item.bump b{animation:liveBump .9s ease-out}
+@keyframes liveBump{0%{color:var(--cinnabar);transform:translateY(-3px) scale(1.12)}100%{color:var(--ink);transform:none}}
+@media(prefers-reduced-motion:reduce){.live-dot:after{animation:none;opacity:.35;transform:scale(1.2)}.live-item.bump b{animation:none}}
+@media print{.live{display:none}}
 /* reader prose (Luận giải cung Mệnh): clean text, evidence under the clicked sentence */
 .prose .pr-s{cursor:pointer;border-radius:4px;transition:background .15s}.prose .pr-s:hover,.prose .pr-s.on{background:color-mix(in srgb,var(--gold) 14%,transparent)}
 .prose .pr-s:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .pr-why{margin:-4px 0 14px;padding:10px 14px;border:1px solid var(--bd);border-radius:10px;background:var(--bg)}.pr-why p{margin:0 0 6px}
 .pr-rules{margin:6px 0 0;padding-left:18px}.pr-rules li{margin:3px 0;line-height:1.5}.pr-rules code{font-size:.78em;margin-left:4px}
+
+/* the written reading comes first; the book-by-book evidence folds under it */
+.ch-more{margin-top:var(--s5);border-top:1px solid var(--line);padding-top:var(--s3)}
+.ch-more>summary{cursor:pointer;font:600 .9rem var(--sans);color:var(--cinnabar);padding:8px 0;list-style:none}
+.ch-more>summary::-webkit-details-marker{display:none}
+.ch-more>summary:before{content:"+";display:inline-block;width:1.2em;font-weight:700}
+.ch-more[open]>summary:before{content:"−"}
+
+.ask-buy{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--parchment)}
+.ask-buy[hidden]{display:none}.ask-buy p{flex:1 0 100%;margin:0}
+.ask-buy-btn{white-space:nowrap}

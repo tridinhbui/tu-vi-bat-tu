@@ -12,6 +12,9 @@ import { initCompare } from './compare.js';
 import { initPrint, printNow } from './print.js';
 import { initChat, initChapterBubbles, dialogueBazi, dialogueTuvi } from './mascots.js';
 import { renderSaved, initSave } from './mine.js';
+import { initAccount } from './account.js';
+import { initAsk } from './ask.js';
+import { initLive } from './live.js';
 import { initGrowth } from './growth.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -158,6 +161,9 @@ renderSaved(savedList, openSaved);
 initCompare($('#cmp-host'));
 initPrint($('#print-btn'));
 const saver = initSave($('#save-host'), () => state?.req, () => renderSaved(savedList, openSaved));
+initAccount($('#acct'), () => renderSaved(savedList, openSaved), saver);
+initAsk($('#ask-host'), () => state?.req);
+initLive($('#live-stats'));
 async function loadSample() {
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });
   form.year.value = 1990; form.month.value = 5; form.day.value = 17; form.time.value = '10:30'; form.gender.value = 'male'; form.place.value = 'TP. Hồ Chí Minh'; syncPlace(); hint();
