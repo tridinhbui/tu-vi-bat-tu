@@ -50,6 +50,8 @@ export interface Connective { id: string; rel: ConnRel; text: string; pos: 'init
 export interface ProseLibrary {
   version: string; concepts: ConceptCard[]; frames: Frames; modifiers: ModifierCard[]; schemas: ParagraphSchema[]; connectives: Connective[];
   vanhan?: import('./vanhan.ts').VanHanLibrary; bazi?: import('./bazi.ts').BaziLibrary;
+  /** palace structure frames and the pho_thong star cards (content/prose/structure.json, content/prose/pho_thong/*.json; prose/deep.ts) */
+  structure?: import('./deep.ts').StructureLib; phoThong?: import('./deep.ts').PhoThongLib;
   /** frames for the reasoned Mệnh chapter (content/prose/reasoning_frames.json, prose/narrative.ts) */
   reasoning?: import('./narrative.ts').ReasoningFrames;
 }

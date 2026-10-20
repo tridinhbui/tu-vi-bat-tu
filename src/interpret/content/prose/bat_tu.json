@@ -1,149 +1,240 @@
 {
- "note": "Bát Tự reader prose (prose plan P7). Only verified Bát Tự rules that fired are voiced (today all from 八字真宗, cited ZZ p.N): the day master's character (pp.25-26), the day pillar's nạp âm (pp.31-32), and the manual's direct judgements (pp.50-74). Strength (vượng/nhược), useful god (dụng thần) and structure (cách cục) are not voiced: no verified rule speaks of them. Each rule's book paraphrase is split into its effect and its cause; frames add no claim. {S} = the person. Draft until reviewed.",
- "status": "draft",
- "dm_first": [
-  "Người có nhật chủ {dm} (hành {el}) thường {core}.",
-  "Với nhật chủ {dm} thuộc hành {el}, {S} thường {core}.",
-  "Sinh ngày {day}, nhật chủ là {dm} hành {el}: {S} thường {core}."
- ],
- "dm_next": [
-  "Nhìn từ phía khác, {S} cũng {core}.",
-  "Bên cạnh đó, {S} còn {core}.",
-  "Song song với những nét ấy, {S} cũng {core}."
- ],
- "napam": [
-  "Trụ ngày mang nạp âm {napam}, thêm vào chân dung ấy nét {core}.",
-  "Nạp âm của trụ ngày là {napam}, nên {S} cũng {core}.",
-  "Theo nạp âm {napam} của trụ ngày, {S} còn {core}."
- ],
- "skip": [
-  "BT_ZZ_DIRECT_W_NO_STAR"
- ],
- "topics": {
-  "marriage": {
-   "label": "hôn nhân",
-   "rules": [
-    "BT_ZZ_DIRECT_M_",
-    "BT_ZZ_DIRECT_D_"
-   ]
+  "note": "Bát Tự reader prose (prose plan P7). Only verified Bát Tự rules that fired are voiced (today all from 八字真宗, cited ZZ p.N): the day master's character (pp.25-26), the day pillar's nạp âm (pp.31-32), and the manual's direct judgements (pp.50-74). Strength (vượng/nhược), useful god (dụng thần) and structure (cách cục) are not voiced: no verified rule speaks of them. Each rule's book paraphrase is split into its effect and its cause; frames add no claim. {S} = the person. Draft until reviewed.",
+  "status": "draft",
+  "dm_first": [
+    "Người có nhật chủ {dm} (hành {el}) thường {core}.",
+    "Với nhật chủ {dm} thuộc hành {el}, {S} thường {core}.",
+    "Sinh ngày {day}, nhật chủ là {dm} hành {el}: {S} thường {core}."
+  ],
+  "dm_next": [
+    "Nhìn từ phía khác, {S} cũng {core}.",
+    "Bên cạnh đó, {S} còn {core}.",
+    "Song song với những nét ấy, {S} cũng {core}."
+  ],
+  "napam": [
+    "Trụ ngày mang nạp âm {napam}, thêm vào chân dung ấy nét {core}.",
+    "Nạp âm của trụ ngày là {napam}, nên {S} cũng {core}.",
+    "Theo nạp âm {napam} của trụ ngày, {S} còn {core}."
+  ],
+  "skip": [
+    "BT_ZZ_DIRECT_W_NO_STAR"
+  ],
+  "topics": {
+    "marriage": {
+      "label": "hôn nhân",
+      "rules": [
+        "BT_ZZ_DIRECT_M_",
+        "BT_ZZ_DIRECT_D_"
+      ]
+    },
+    "wealth": {
+      "label": "tiền bạc",
+      "rules": [
+        "BT_ZZ_DIRECT_W_"
+      ]
+    },
+    "study": {
+      "label": "học hành",
+      "rules": [
+        "BT_ZZ_DIRECT_E_",
+        "BT_ZZ_DIRECT_WEN_CHANG"
+      ]
+    },
+    "work": {
+      "label": "nghề nghiệp",
+      "rules": [
+        "BT_ZZ_DIRECT_HOUR_GROUP_",
+        "BT_ZZ_DIRECT_O_",
+        "BT_ZZ_DIRECT_YIN_SHEN"
+      ]
+    },
+    "kin": {
+      "label": "anh em",
+      "rules": [
+        "BT_ZZ_DIRECT_SIB_"
+      ]
+    },
+    "blade": {
+      "label": "dương nhẫn",
+      "rules": [
+        "BT_ZZ_DIRECT_REN_"
+      ]
+    },
+    "horse": {
+      "label": "dịch mã",
+      "rules": [
+        "BT_ZZ_DIRECT_MA_"
+      ]
+    }
   },
-  "wealth": {
-   "label": "tiền bạc",
-   "rules": [
-    "BT_ZZ_DIRECT_W_"
-   ]
+  "topic_order": [
+    "work",
+    "wealth",
+    "study",
+    "marriage",
+    "kin",
+    "blade",
+    "horse"
+  ],
+  "direct": [
+    "Về {topic}, {cause}, nên {effect}.",
+    "Ở phương diện {topic}, vì {cause}, {effect}.",
+    "Chuyện {topic} cũng có dấu hiệu riêng: {cause}, nên {effect}.",
+    "Xét đến {topic}, {cause} cho thấy {effect}."
+  ],
+  "direct_same": [
+    "Cũng về {topic}, {cause}, nên {effect}.",
+    "Thêm nữa, {cause}, nên {effect}."
+  ],
+  "chapter_topics": {
+    "nhat-chu": [
+      "study"
+    ],
+    "su-nghiep": [
+      "work",
+      "wealth"
+    ],
+    "quan-he": [
+      "marriage",
+      "kin"
+    ],
+    "cach-cuc": [
+      "blade",
+      "horse"
+    ]
   },
-  "study": {
-   "label": "học hành",
-   "rules": [
-    "BT_ZZ_DIRECT_E_",
-    "BT_ZZ_DIRECT_WEN_CHANG"
-   ]
+  "frames": {
+    "chars": [
+      "Tám chữ của lá số gồm {counts}{missing}.",
+      "Đếm theo hành, tám chữ có {counts}{missing}."
+    ],
+    "missing": [
+      ", và vắng hẳn hành {els}",
+      "; hành {els} không có mặt ở chữ nào"
+    ],
+    "layout": [
+      "Trên thiên can, {stems}.",
+      "Nhìn các can lộ ra ngoài, {stems}."
+    ],
+    "wealth_hidden": [
+      "Nhóm Tài không lộ trên thiên can mà chỉ nằm trong tàng can, nên chuyện tiền bạc là phần ẩn của lá số hơn là phần hiện ra ngoài.",
+      "Tài chỉ ẩn trong tàng can chứ không lộ ra thiên can."
+    ],
+    "wealth_shown": [
+      "Tài có lộ trên thiên can, là phần hiện ra ngoài của lá số."
+    ],
+    "day_branch": [
+      "Trụ ngày là {day}; nhật chi {branch}, theo cách gọi thông dụng là chỗ của bạn đời, tàng {hidden}.",
+      "Nhật chi {branch} của trụ ngày {day}, nơi người ta thường xem bạn đời, chứa {hidden}."
+    ],
+    "relations": [
+      "Giữa các trụ có {rels}; đó là những chỗ các trụ tác động lẫn nhau, còn hóa hay không thì cần điều kiện chưa xét đến.",
+      "Các trụ có {rels}: những điểm tương tác của lá số, chưa phải kết luận tốt xấu."
+    ],
+    "no_relations": [
+      "Các trụ gốc không có hợp, xung, hại hay phá nào với nhau, nên lá số khá ít va chạm nội tại."
+    ],
+    "luck_now": [
+      "Hiện tại (năm {year}) bạn đang đi đại vận {name}, bắt đầu từ năm {from}; can vận là {god} so với nhật chủ{next}.",
+      "Năm {year} nằm trong đại vận {name} (từ {from}), can vận mang tính {god}{next}."
+    ],
+    "luck_next": [
+      "; chặng kế tiếp là {name}, từ năm {from}",
+      ", rồi sang {name} từ năm {from}"
+    ],
+    "luck_before": [
+      "Đại vận đầu tiên, {name}, bắt đầu năm {from}; trước đó là giai đoạn chưa vào vận."
+    ]
   },
-  "work": {
-   "label": "nghề nghiệp",
-   "rules": [
-    "BT_ZZ_DIRECT_HOUR_GROUP_",
-    "BT_ZZ_DIRECT_O_",
-    "BT_ZZ_DIRECT_YIN_SHEN"
-   ]
-  },
-  "kin": {
-   "label": "anh em",
-   "rules": [
-    "BT_ZZ_DIRECT_SIB_"
-   ]
-  },
-  "blade": {
-   "label": "dương nhẫn",
-   "rules": [
-    "BT_ZZ_DIRECT_REN_"
-   ]
-  },
-  "horse": {
-   "label": "dịch mã",
-   "rules": [
-    "BT_ZZ_DIRECT_MA_"
-   ]
+  "deep": {
+    "season": [
+      "Nhật chủ {dm} thuộc hành {el}, sinh vào tháng {mb}, lúc hành {el} đang ở thế {state} trong mùa.",
+      "Sinh tháng {mb}, hành {el} của nhật chủ {dm} ở thế {state} theo lệnh tháng."
+    ],
+    "season_state": {
+      "vượng": "vượng, được mùa",
+      "tướng": "tướng, còn mạnh",
+      "hưu": "hưu, đã nghỉ sức",
+      "tù": "tù, bị giam sức",
+      "tử": "tử, yếu nhất"
+    },
+    "strength_border": [
+      "Tính theo cách chấm điểm của Thiệu Vĩ Hoa, phe trợ nhật chủ chiếm khoảng {pct}%, sát ngưỡng {th}%, nên nhật chủ đứng lưng chừng giữa vượng và nhược; cả hai cách đọc đều có lý.",
+      "Chấm theo phép của Thiệu Vĩ Hoa, sức phe nhật chủ khoảng {pct}%, chỉ cách ngưỡng {th}% một chút, nên không nên vội xếp hẳn vào vượng hay nhược."
+    ],
+    "strength_side": [
+      "Tính theo cách chấm điểm của Thiệu Vĩ Hoa, phe trợ nhật chủ chiếm khoảng {pct}%, {cmp} ngưỡng {th}%, nên nhật chủ {side}.",
+      "Chấm theo phép của Thiệu Vĩ Hoa, sức phe nhật chủ khoảng {pct}%, {cmp} ngưỡng {th}%: nhật chủ {side}."
+    ],
+    "climate": [
+      "Sinh tháng {mb}, khí hậu của lá số nghiêng về {climate}; theo bảng điều hậu, nhật chủ {dm} sinh tháng này lấy {main} làm chính, {others} cũng dùng được.",
+      "Về điều hậu, khí lá số {climate}; với nhật chủ {dm} sinh tháng {mb}, can cần trước hết là {main}, sau đó {others}."
+    ],
+    "climate_presence": [
+      "Trong tứ trụ, {present} có lộ ra, còn {absent} thì vắng.",
+      "Lá số có {present}, nhưng thiếu {absent}."
+    ],
+    "need": [
+      "Vì vậy hành nên bổ là {need}, hành nên tránh thêm là {avoid}.",
+      "Nói gọn, lá số cần thêm {need} và nên bớt {avoid}."
+    ],
+    "phu_uc": [
+      "Xét theo phép phù ức, nhật chủ {level} nên lấy {yong} làm chỗ dựa, {xi} giúp sức; còn {ji} là những nhóm làm hao sức nhật chủ.",
+      "Theo cách phù ức, với nhật chủ {level}, nhóm {yong} là dụng, {xi} là hỷ, và {ji} là những nhóm nên dè chừng."
+    ],
+    "geju_inner": [
+      "Cách của lá số, lập từ nguyệt lệnh, là cách {name}, hiện ở thế {state}.",
+      "Từ nguyệt lệnh, lá số thành cách {name}, trạng thái {state}."
+    ],
+    "geju_outer": [
+      "Lá số còn có dáng {name}, nhưng chỉ là {quality}, chưa thành chân cách.",
+      "Bên cạnh đó có bóng dáng {name} ({quality}), chưa đủ để đổi cách."
+    ],
+    "geju_state": {
+      "thanh": "thành",
+      "bai": "bại",
+      "bai_cuu": "bại mà có cứu",
+      "bai_cuu_yeu": "bại, cứu yếu"
+    },
+    "luck": [
+      "Từ {age} tuổi (khoảng năm {year}), đại vận {pillar}: can vận là {god}.",
+      "Đại vận {pillar} bắt đầu khoảng {age} tuổi (năm {year}), can vận mang thập thần {god}."
+    ],
+    "luck_role": {
+      "yong": "Can vận đúng là hành lá số cần, nên đây là vận được tiếp sức.",
+      "xi": "Can vận thuộc nhóm hỗ trợ cho dụng thần, nên vận này khá thuận.",
+      "ji": "Can vận rơi vào hành lá số nên tránh, nên vận này cần đi chậm và chắc.",
+      "none": "Can vận không trực tiếp chạm đến điều lá số cần nhất, nên vận này đi theo nhịp riêng của nó."
+    },
+    "luck_branch_role": {
+      "yong": "Chi vận cũng mang hành lá số cần, làm nền cho cả vận.",
+      "xi": "Chi vận mang nhóm hỗ trợ, đỡ thêm cho vận.",
+      "ji": "Chi vận mang hành nên tránh, nên nửa sau vận cần giữ sức hơn."
+    },
+    "verified_text": {
+      "BT_TTT_HANNOAN_THUAN_NOAN": "Khí nóng của lá số đã quá mà Thủy lại không có gốc, nên không lấy cái lạnh làm cách điều hòa chính.",
+      "BT_TTT_CAIDAU_DIEU_HAU": "Can vận khắc chi vận (thế cái đầu), nên phần tốt của vận chỉ còn chừng một nửa.",
+      "BT_TTT_TIETCUOC_DIEU_HAU": "Can vận vốn là hành tốt nhưng bị chi vận khắc (thế tiệt cước, chi không chở được can), nên cả vận khó trọn phần cát; nhẹ hơn nếu lá số có hành chế ngự."
+    },
+    "pillar_lead": {
+      "year": "Ở trụ năm, can là {god}: {text}",
+      "month": "Can tháng là {god}, vị trí mạnh nhất trong tứ trụ: {text}",
+      "hour": "Trụ giờ có can {god}: {text}",
+      "day_branch": "Chi ngày, cung của người phối ngẫu, mang chính khí {god}: {text}"
+    },
+    "luck_pu": {
+      "yong": [
+        "Theo phép phù ức, {god} thuộc nhóm {group}, đúng nhóm nhật chủ cần dựa, nên vận này dễ được tiếp sức.",
+        "Xét phù ức, can vận là {god} (nhóm {group}), nhóm làm chỗ dựa cho nhật chủ: một vận khá thuận."
+      ],
+      "xi": [
+        "Theo phép phù ức, {god} thuộc nhóm {group}, nhóm giúp sức cho nhật chủ, nên vận này có thêm người cùng gánh.",
+        "Xét phù ức, {god} (nhóm {group}) là nhóm hỗ trợ, vận này nhật chủ đỡ đơn độc."
+      ],
+      "ji": [
+        "Theo phép phù ức, {god} thuộc nhóm {group}, nhóm làm hao sức nhật chủ, nên vận này cơ hội đến kèm áp lực, cần lượng sức.",
+        "Xét phù ức, {god} (nhóm {group}) rút sức nhật chủ: việc nhiều, phải biết chọn việc mà làm."
+      ]
+    }
   }
- },
- "topic_order": [
-  "work",
-  "wealth",
-  "study",
-  "marriage",
-  "kin",
-  "blade",
-  "horse"
- ],
- "direct": [
-  "Về {topic}, {cause}, nên {effect}.",
-  "Ở phương diện {topic}, vì {cause}, {effect}.",
-  "Chuyện {topic} cũng có dấu hiệu riêng: {cause}, nên {effect}.",
-  "Xét đến {topic}, {cause} cho thấy {effect}."
- ],
- "direct_same": [
-  "Cũng về {topic}, {cause}, nên {effect}.",
-  "Thêm nữa, {cause}, nên {effect}."
- ],
- "chapter_topics": {
-  "nhat-chu": [
-   "study"
-  ],
-  "su-nghiep": [
-   "work",
-   "wealth"
-  ],
-  "quan-he": [
-   "marriage",
-   "kin"
-  ],
-  "cach-cuc": [
-   "blade",
-   "horse"
-  ]
- },
- "frames": {
-  "chars": [
-   "Tám chữ của lá số gồm {counts}{missing}.",
-   "Đếm theo hành, tám chữ có {counts}{missing}."
-  ],
-  "missing": [
-   ", và vắng hẳn hành {els}",
-   "; hành {els} không có mặt ở chữ nào"
-  ],
-  "layout": [
-   "Trên thiên can, {stems}.",
-   "Nhìn các can lộ ra ngoài, {stems}."
-  ],
-  "wealth_hidden": [
-   "Nhóm Tài không lộ trên thiên can mà chỉ nằm trong tàng can, nên chuyện tiền bạc là phần ẩn của lá số hơn là phần hiện ra ngoài.",
-   "Tài chỉ ẩn trong tàng can chứ không lộ ra thiên can."
-  ],
-  "wealth_shown": [
-   "Tài có lộ trên thiên can, là phần hiện ra ngoài của lá số."
-  ],
-  "day_branch": [
-   "Trụ ngày là {day}; nhật chi {branch}, theo cách gọi thông dụng là chỗ của bạn đời, tàng {hidden}.",
-   "Nhật chi {branch} của trụ ngày {day}, nơi người ta thường xem bạn đời, chứa {hidden}."
-  ],
-  "relations": [
-   "Giữa các trụ có {rels}; đó là những chỗ các trụ tác động lẫn nhau, còn hóa hay không thì cần điều kiện chưa xét đến.",
-   "Các trụ có {rels}: những điểm tương tác của lá số, chưa phải kết luận tốt xấu."
-  ],
-  "no_relations": [
-   "Các trụ gốc không có hợp, xung, hại hay phá nào với nhau, nên lá số khá ít va chạm nội tại."
-  ],
-  "luck_now": [
-   "Hiện tại (năm {year}) bạn đang đi đại vận {name}, bắt đầu từ năm {from}; can vận là {god} so với nhật chủ{next}.",
-   "Năm {year} nằm trong đại vận {name} (từ {from}), can vận mang tính {god}{next}."
-  ],
-  "luck_next": [
-   "; chặng kế tiếp là {name}, từ năm {from}",
-   ", rồi sang {name} từ năm {from}"
-  ],
-  "luck_before": [
-   "Đại vận đầu tiên, {name}, bắt đầu năm {from}; trước đó là giai đoạn chưa vào vận."
-  ]
- }
 }

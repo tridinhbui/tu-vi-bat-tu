@@ -1,0 +1,190 @@
+{
+  "status": "draft",
+  "basis": "pho_thong",
+  "note": "Nghĩa phổ thông cho Bát Tự; Claude soạn, chưa đối chiếu sách, chờ duyệt.",
+  "ten_god_pillar": {
+    "Tỉ Kiên": {
+      "year": "Tỉ Kiên ở trụ năm thường gợi gốc gác đông anh em họ hàng, tuổi thơ sớm biết tự lo và quen sống giữa cạnh tranh.",
+      "month": "Tỉ Kiên ở trụ tháng thường cho thấy anh em bạn bè có vai trò lớn trong sự nghiệp, vừa là chỗ dựa vừa là người chia phần.",
+      "hour": "Tỉ Kiên ở trụ giờ thường gợi tuổi già giữ được tính độc lập, con cái có cá tính riêng và quan hệ với cấp dưới khá bình đẳng.",
+      "day_branch": "Tỉ Kiên ở chi ngày thường gợi người bạn đời có cá tính mạnh, ngang hàng với mình, đời sống vợ chồng cần học cách nhường nhịn."
+    },
+    "Kiếp Tài": {
+      "year": "Kiếp Tài ở trụ năm thường gợi gia cảnh thuở nhỏ có lúc hao tán, sớm phải va chạm với cạnh tranh và học cách giữ phần mình.",
+      "month": "Kiếp Tài ở trụ tháng thường gợi sự nghiệp nhiều cạnh tranh, tiền bạc dễ ra vào qua tay anh em bạn bè, cần rạch ròi chuyện chung riêng.",
+      "hour": "Kiếp Tài ở trụ giờ thường gợi về sau vẫn còn ý chí bươn chải, con cái năng động và việc chia sẻ thành quả cần được tính toán kỹ.",
+      "day_branch": "Kiếp Tài ở chi ngày thường gợi người bạn đời mạnh mẽ, có chủ kiến, chuyện tiền bạc trong nhà nên bàn bạc rõ ràng để giữ hòa khí."
+    },
+    "Thực Thần": {
+      "year": "Thực Thần ở trụ năm thường gợi gốc gác có phúc, tuổi thơ được nuôi dưỡng êm ấm và sớm bộc lộ năng khiếu riêng.",
+      "month": "Thực Thần ở trụ tháng thường gợi tài năng được dùng vào nghề nghiệp, tính tình ôn hòa, biết hưởng thụ và làm việc bằng sự khéo léo.",
+      "hour": "Thực Thần ở trụ giờ thường gợi tuổi già an nhàn, con cái hiếu thuận, thành quả cuối đời đến từ tài năng được vun đắp lâu dài.",
+      "day_branch": "Thực Thần ở chi ngày thường gợi đời sống vợ chồng hòa nhã, người bạn đời biết chăm lo bữa ăn giấc ngủ và giữ không khí vui vẻ."
+    },
+    "Thương Quan": {
+      "year": "Thương Quan ở trụ năm thường gợi tuổi thơ sớm có cá tính, ít chịu khuôn phép, gốc gác có người tài hoa nhưng không ưa gò bó.",
+      "month": "Thương Quan ở trụ tháng thường gợi sự nghiệp gắn với sáng tạo và ăn nói, dễ bất đồng với cấp trên nếu chưa biết giữ lời.",
+      "hour": "Thương Quan ở trụ giờ thường gợi con cái thông minh, có chính kiến riêng, về sau thành quả đến từ những ý tưởng khác người.",
+      "day_branch": "Thương Quan ở chi ngày thường gợi người bạn đời sắc sảo, nhiều ý kiến, đời sống vợ chồng cần mềm mỏng trong lời nói để tránh va chạm."
+    },
+    "Chính Tài": {
+      "year": "Chính Tài ở trụ năm thường gợi gia đình gốc có nền nếp làm ăn chăm chỉ, tuổi thơ sớm biết quý đồng tiền và sự ổn định.",
+      "month": "Chính Tài ở trụ tháng thường gợi sự nghiệp vững vàng nhờ siêng năng, thu nhập đều đặn từ công việc chính và tính cẩn trọng.",
+      "hour": "Chính Tài ở trụ giờ thường gợi tuổi già có của tích lũy, con cái biết lo toan và thành quả cuối đến từ sự bền bỉ.",
+      "day_branch": "Chính Tài ở chi ngày thường gợi người bạn đời đảm đang, thực tế, với nam giới còn gợi người vợ biết vun vén gia đình."
+    },
+    "Thiên Tài": {
+      "year": "Thiên Tài ở trụ năm thường gợi gốc gác có người làm ăn buôn bán, tuổi thơ chịu ảnh hưởng lớn từ cha và môi trường rộng mở.",
+      "month": "Thiên Tài ở trụ tháng thường gợi khả năng kinh doanh, nhạy cơ hội, hào phóng với người quanh mình và có tiền đến từ nhiều nguồn.",
+      "hour": "Thiên Tài ở trụ giờ thường gợi về sau vẫn còn cơ hội làm ăn, con cái giỏi xoay xở và thành quả cuối có phần bất ngờ.",
+      "day_branch": "Thiên Tài ở chi ngày thường gợi người bạn đời phóng khoáng, giao thiệp rộng, đời sống vợ chồng cần sự tin tưởng và minh bạch về tiền bạc."
+    },
+    "Chính Quan": {
+      "year": "Chính Quan ở trụ năm thường gợi gốc gác có nền nếp, gia đình coi trọng danh dự, tuổi thơ được dạy dỗ theo khuôn phép.",
+      "month": "Chính Quan ở trụ tháng thường gợi sự nghiệp đi theo đường chính, được cấp trên tin dùng, tính kỷ luật và trách nhiệm rõ ràng.",
+      "hour": "Chính Quan ở trụ giờ thường gợi con cái nề nếp, có chí tiến thủ, về sau giữ được danh dự và sự kính trọng của người quanh mình.",
+      "day_branch": "Chính Quan ở chi ngày thường gợi người bạn đời đứng đắn, có trách nhiệm, với nữ giới còn gợi người chồng đáng tin cậy."
+    },
+    "Thất Sát": {
+      "year": "Thất Sát ở trụ năm thường gợi tuổi thơ sớm chịu áp lực, gốc gác có người cứng rắn, môi trường đòi hỏi phải mạnh mẽ.",
+      "month": "Thất Sát ở trụ tháng thường gợi sự nghiệp nhiều thử thách nhưng cũng nhiều cơ hội nắm quyền, hợp với việc cần quyết đoán.",
+      "hour": "Thất Sát ở trụ giờ thường gợi con cái cá tính mạnh, cấp dưới khó quản, về sau vẫn giữ tinh thần quyết liệt và ý chí vươn lên.",
+      "day_branch": "Thất Sát ở chi ngày thường gợi người bạn đời có uy, nóng tính hoặc quyết liệt, đời sống vợ chồng cần kiên nhẫn và tôn trọng lẫn nhau."
+    },
+    "Chính Ấn": {
+      "year": "Chính Ấn ở trụ năm thường gợi gốc gác coi trọng học hành, tuổi thơ được che chở, có ông bà hoặc mẹ hết lòng nâng đỡ.",
+      "month": "Chính Ấn ở trụ tháng thường gợi tình mẹ sâu đậm, học vấn tốt, sự nghiệp thuận lợi nhờ bằng cấp và người đi trước nâng đỡ.",
+      "hour": "Chính Ấn ở trụ giờ thường gợi tuổi già được con cháu chăm sóc, tâm hồn an ổn và về sau vẫn giữ lòng ham học hỏi.",
+      "day_branch": "Chính Ấn ở chi ngày thường gợi người bạn đời hiền hậu, biết quan tâm che chở, đời sống vợ chồng êm ấm như có chỗ nương tựa."
+    },
+    "Thiên Ấn": {
+      "year": "Thiên Ấn ở trụ năm thường gợi gốc gác có người theo nghề đặc biệt, tuổi thơ hơi cô đơn hoặc sớm sống xa vòng tay gia đình.",
+      "month": "Thiên Ấn ở trụ tháng thường gợi sự nghiệp gắn với học thuật lạ, chuyên môn hẹp hoặc nghề cần trực giác, ít đi theo lối mòn.",
+      "hour": "Thiên Ấn ở trụ giờ thường gợi tuổi già thích yên tĩnh, con cái có hướng đi riêng và thành quả cuối đến từ một sở trường độc đáo.",
+      "day_branch": "Thiên Ấn ở chi ngày thường gợi người bạn đời kín đáo, sâu sắc nhưng ít bày tỏ, đời sống vợ chồng cần chủ động chia sẻ."
+    }
+  },
+  "ten_god_luck": {
+    "Tỉ Kiên": {
+      "line": "Đại vận Tỉ Kiên thường mang chủ đề tự lập, bạn bè và đồng nghiệp ngang hàng, cùng những lần phải tự khẳng định mình giữa cạnh tranh.",
+      "good": "Khi là dụng thần, vận này giúp thêm sức, có bạn đồng hành tốt và đủ tự tin để gánh việc lớn.",
+      "hard": "Khi là kỵ thần, vận này dễ có cạnh tranh, chia phần hoặc bướng bỉnh, cần mềm mỏng hơn trong hợp tác.",
+      "advice": "giữ quan hệ bạn bè sòng phẳng và tự lực trong việc chính"
+    },
+    "Kiếp Tài": {
+      "line": "Đại vận Kiếp Tài thường mang chủ đề cạnh tranh, tiền bạc ra vào nhanh, nhiều cơ hội hợp tác nhưng cũng nhiều người cùng giành phần.",
+      "good": "Khi là dụng thần, vận này cho thêm can đảm, dám làm, nhờ bạn bè mà mở được đường mới.",
+      "hard": "Khi là kỵ thần, vận này dễ hao tài vì nể nang hoặc nóng vội, cần giữ tiền kỹ hơn thường lệ.",
+      "advice": "tránh đứng ra bảo lãnh và tách bạch tiền chung với tiền riêng"
+    },
+    "Thực Thần": {
+      "line": "Đại vận Thực Thần thường mang chủ đề phát huy tài năng, hưởng thụ, sáng tác, đời sống tinh thần thư thái hơn và cả chuyện con cái.",
+      "good": "Khi là dụng thần, vận này dễ có niềm vui, công việc thuận tay và tài năng được người khác ghi nhận.",
+      "hard": "Khi là kỵ thần, vận này dễ sinh ham nhàn hoặc tiêu xài theo cảm hứng, cần giữ nhịp làm việc đều đặn.",
+      "advice": "đầu tư vào một tài năng riêng và giữ nếp sinh hoạt điều độ"
+    },
+    "Thương Quan": {
+      "line": "Đại vận Thương Quan thường mang chủ đề đổi mới, thể hiện bản thân, muốn phá khung cũ và tìm cách làm theo ý mình.",
+      "good": "Khi là dụng thần, vận này mở ra sáng tạo, tài ăn nói được trọng và dễ tạo dấu ấn riêng.",
+      "hard": "Khi là kỵ thần, vận này dễ va chạm với cấp trên hoặc lời nói gây hiểu lầm, cần chậm lại trước khi nói.",
+      "advice": "chuyển sự bất mãn thành sản phẩm sáng tạo và cân nhắc lời nói"
+    },
+    "Chính Tài": {
+      "line": "Đại vận Chính Tài thường mang chủ đề tích lũy, công việc ổn định, trách nhiệm gia đình và với nam giới là chuyện vợ con.",
+      "good": "Khi là dụng thần, vận này thu nhập vững, công sức bỏ ra được đền đáp xứng đáng và nhà cửa yên ổn.",
+      "hard": "Khi là kỵ thần, vận này dễ bị tiền bạc và bổn phận đè nặng, cần cân bằng giữa làm và nghỉ.",
+      "advice": "lập kế hoạch tài chính dài hạn và chăm lo người thân"
+    },
+    "Thiên Tài": {
+      "line": "Đại vận Thiên Tài thường mang chủ đề kinh doanh, cơ hội tiền bạc bất ngờ, giao thiệp rộng và mối liên hệ với người cha.",
+      "good": "Khi là dụng thần, vận này nhạy cơ hội, làm ăn dễ có lời và quan hệ rộng mở mang lại lợi ích.",
+      "hard": "Khi là kỵ thần, vận này dễ mạo hiểm quá tay hoặc chi tiêu phóng khoáng, cần giữ mức rủi ro vừa phải.",
+      "advice": "chọn cơ hội có tính toán và để dành một phần lợi nhuận"
+    },
+    "Chính Quan": {
+      "line": "Đại vận Chính Quan thường mang chủ đề địa vị, danh dự, kỷ luật, trách nhiệm với tổ chức và với nữ giới là chuyện chồng con.",
+      "good": "Khi là dụng thần, vận này dễ được đề bạt, được tin cậy và danh tiếng tăng dần theo năm tháng.",
+      "hard": "Khi là kỵ thần, vận này dễ cảm thấy gò bó, nhiều ràng buộc và áp lực phải làm vừa lòng người trên.",
+      "advice": "giữ chữ tín, làm đúng vai trò và chừa khoảng thở cho bản thân"
+    },
+    "Thất Sát": {
+      "line": "Đại vận Thất Sát thường mang chủ đề thử thách, áp lực lớn, cạnh tranh gắt và cơ hội nắm quyền cho người dám đương đầu.",
+      "good": "Khi là dụng thần, vận này rèn bản lĩnh, dễ lập công và có quyền uy trong lĩnh vực của mình.",
+      "hard": "Khi là kỵ thần, vận này áp lực dồn dập, dễ căng thẳng, cần biết lúc nào nên lùi để giữ sức.",
+      "advice": "rèn kỷ luật bản thân và tìm người thầy hoặc đồng minh vững vàng"
+    },
+    "Chính Ấn": {
+      "line": "Đại vận Chính Ấn thường mang chủ đề học hành, bằng cấp, được che chở nâng đỡ và mối gắn bó sâu hơn với người mẹ.",
+      "good": "Khi là dụng thần, vận này học vấn tiến bộ, có quý nhân đỡ đần và tâm trí an ổn hơn.",
+      "hard": "Khi là kỵ thần, vận này dễ ỷ lại, chậm hành động hoặc nghĩ nhiều làm ít, cần tự đặt mục tiêu rõ.",
+      "advice": "học thêm một chuyên môn và biến hiểu biết thành việc làm cụ thể"
+    },
+    "Thiên Ấn": {
+      "line": "Đại vận Thiên Ấn thường mang chủ đề học thuật lạ, trực giác, nhu cầu ở một mình và hứng thú với nghề đặc biệt.",
+      "good": "Khi là dụng thần, vận này dễ có đột phá chuyên môn, trực giác nhạy và tìm được hướng đi riêng.",
+      "hard": "Khi là kỵ thần, vận này dễ cô độc, đa nghi hoặc bỏ dở giữa chừng, cần giữ kết nối với người thân.",
+      "advice": "theo đuổi một chuyên môn sâu và giữ liên lạc đều với người thân"
+    }
+  },
+  "element": {
+    "Mộc": {
+      "strong": "Mộc quá vượng thường khiến tính tình thẳng thắn đến cứng nhắc, nhiều kế hoạch mở rộng nhưng dễ thiếu kiên nhẫn để hoàn tất.",
+      "weak": "Mộc yếu thường khiến sức bật khởi đầu kém, dễ do dự trước việc mới và cần thêm môi trường nuôi dưỡng để lớn lên.",
+      "missing": "Thiếu hẳn Mộc trong lá số thường gợi việc cần chủ động học cách khởi đầu, mở rộng quan hệ và giữ lòng nhân hậu.",
+      "practical": "Khi cần bổ Mộc, có thể dựa vào phương Đông, màu xanh lá, cây cỏ, cùng các nghề giáo dục, xuất bản, nông lâm, thiết kế."
+    },
+    "Hỏa": {
+      "strong": "Hỏa quá vượng thường khiến tính tình nóng vội, nhiệt tình nhưng dễ bốc đồng, nói nhanh hơn nghĩ và mau chán.",
+      "weak": "Hỏa yếu thường khiến nhiệt huyết dễ nguội, ít chủ động thể hiện bản thân và cần người khác khích lệ mới bừng lên.",
+      "missing": "Thiếu hẳn Hỏa trong lá số thường gợi việc cần nuôi dưỡng niềm vui, sự ấm áp và can đảm bước ra trước đám đông.",
+      "practical": "Khi cần bổ Hỏa, có thể dựa vào phương Nam, màu đỏ, hồng, tím, cùng các nghề ánh sáng, điện, truyền thông, ẩm thực, biểu diễn."
+    },
+    "Thổ": {
+      "strong": "Thổ quá vượng thường khiến tính tình vững chãi đến bảo thủ, chậm thay đổi và dễ ôm đồm quá nhiều trách nhiệm.",
+      "weak": "Thổ yếu thường khiến nền tảng thiếu vững, dễ dao động trước biến cố và khó giữ được những gì đã gây dựng.",
+      "missing": "Thiếu hẳn Thổ trong lá số thường gợi việc cần tập tính bền bỉ, giữ chữ tín và xây dựng một chỗ dựa ổn định.",
+      "practical": "Khi cần bổ Thổ, có thể dựa vào vùng trung tâm, màu vàng, nâu, màu đất, cùng các nghề bất động sản, xây dựng, nông nghiệp, quản lý."
+    },
+    "Kim": {
+      "strong": "Kim quá vượng thường khiến tính tình cương quyết đến khắt khe, trọng nguyên tắc nhưng dễ lạnh lùng và cứng rắn với người khác.",
+      "weak": "Kim yếu thường khiến sự quyết đoán kém, khó nói lời từ chối và dễ để người khác lấn át mình.",
+      "missing": "Thiếu hẳn Kim trong lá số thường gợi việc cần rèn tính dứt khoát, biết đặt giới hạn và giữ trọn lời hứa.",
+      "practical": "Khi cần bổ Kim, có thể dựa vào phương Tây, màu trắng, bạc, ánh kim, cùng các nghề tài chính, cơ khí, pháp lý, kỹ thuật."
+    },
+    "Thủy": {
+      "strong": "Thủy quá vượng thường khiến đầu óc nhiều suy tính, linh hoạt nhưng dễ trôi theo hoàn cảnh và thiếu điểm dừng.",
+      "weak": "Thủy yếu thường khiến sự linh hoạt kém, khó thích nghi khi hoàn cảnh đổi khác và ít chịu lắng nghe.",
+      "missing": "Thiếu hẳn Thủy trong lá số thường gợi việc cần nuôi dưỡng sự mềm dẻo, khả năng giao tiếp và lòng ham hiểu biết.",
+      "practical": "Khi cần bổ Thủy, có thể dựa vào phương Bắc, màu đen, xanh dương, cùng các nghề vận tải, du lịch, thương mại, tư vấn, nghiên cứu."
+    }
+  },
+  "strength": {
+    "cực vượng": {
+      "line": "Nhật chủ cực vượng thường cho tính cách mạnh mẽ, tự tin, ít chịu khuất phục, gặp đời bằng ý chí riêng nhưng dễ cố chấp.",
+      "advice": "thuận theo thế mạnh, đồng thời học lắng nghe và biết dừng đúng lúc"
+    },
+    "vượng": {
+      "line": "Nhật chủ vượng thường cho sức chịu đựng tốt, dám gánh việc và chủ động nắm cơ hội, cần lối thoát cho năng lượng dồi dào.",
+      "advice": "dùng sức mạnh vào việc tạo ra giá trị và chia sẻ với người khác"
+    },
+    "trung hòa": {
+      "line": "Nhật chủ trung hòa thường cho tính tình cân bằng, dễ thích nghi, gặp đời bằng sự điềm đạm và ít bị đẩy về thái cực.",
+      "advice": "giữ nhịp sống cân bằng và chọn hướng đi theo sở trường thật của mình"
+    },
+    "nhược": {
+      "line": "Nhật chủ nhược thường cho tính tình mềm mỏng, nhạy cảm, biết dựa vào người khác và môi trường để phát triển từng bước.",
+      "advice": "chọn môi trường nâng đỡ, học tập liên tục và bồi dưỡng sức khỏe"
+    },
+    "cực nhược": {
+      "line": "Nhật chủ cực nhược thường cho khả năng hòa mình vào hoàn cảnh, khéo nương theo thế lớn, thành công khi biết đứng đúng chỗ.",
+      "advice": "thuận theo dòng chảy chung và gắn bó với người hoặc tổ chức vững mạnh"
+    }
+  },
+  "dung_than": {
+    "Mộc": "Khi Mộc là dụng thần, đời sống thuận hơn nếu {S} vun đắp lòng nhân hậu, chịu học hỏi, mở rộng quan hệ và gần gũi thiên nhiên.",
+    "Hỏa": "Khi Hỏa là dụng thần, nên nuôi dưỡng sự nhiệt tình, dám thể hiện bản thân, giữ tinh thần lạc quan và lan tỏa sự ấm áp.",
+    "Thổ": "Khi Thổ là dụng thần, nên vun đắp sự bền bỉ, giữ chữ tín, xây nền tảng vững vàng và làm việc từng bước có kế hoạch.",
+    "Kim": "Khi Kim là dụng thần, nên rèn sự dứt khoát, sống có nguyên tắc, biết đặt giới hạn rõ ràng và giữ trọn lời hứa với người khác.",
+    "Thủy": "Khi Thủy là dụng thần, nên nuôi dưỡng trí tuệ, sự linh hoạt, khả năng lắng nghe và giao tiếp, biết thích nghi mà không đánh mất mình."
+  }
+}

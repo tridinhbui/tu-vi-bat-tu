@@ -1,0 +1,377 @@
+{
+  "status": "draft",
+  "basis": "pho_thong",
+  "note": "Nghĩa chính tinh theo cung, theo thông lệ phổ biến; Claude soạn, chưa đối chiếu sách, chờ duyệt.",
+  "stars": {
+    "Liêm Trinh": {
+      "Mệnh": {
+        "core": "Liêm Trinh ở Mệnh cho thấy {S} sống có nguyên tắc, coi trọng kỷ luật và danh dự, bề ngoài nghiêm cẩn nhưng bên trong nhiều cảm xúc mãnh liệt.",
+        "bright": "Khi sáng, sự liêm chính và óc tổ chức nổi bật, giúp {S} được tin cậy giao việc lớn và giữ vững lập trường.",
+        "dim": "Khi hãm, tính cương dễ thành cố chấp, cảm xúc dồn nén có thể khiến {S} vướng va chạm hoặc chuyện thị phi nhỏ nhặt.",
+        "advice": "giữ sự thẳng thắn đi cùng mềm mỏng và tránh vùng xám về pháp lý"
+      },
+      "Phụ Mẫu": {
+        "core": "Ở cung Phụ Mẫu, Liêm Trinh gợi hình ảnh cha mẹ nghiêm khắc, đặt nặng nề nếp và kỷ luật, tình thương thể hiện qua sự dạy dỗ hơn là lời nói.",
+        "bright": "Khi sáng, sự nghiêm khắc ấy rèn cho {S} tính tự giác, và cha mẹ thường có uy tín, nề nếp đáng nể.",
+        "dim": "Khi hãm, không khí gia đình có lúc căng thẳng, ý kiến hai thế hệ dễ va nhau và cần thời gian để hiểu nhau.",
+        "advice": "lắng nghe lý do đằng sau sự nghiêm khắc của bậc sinh thành"
+      },
+      "Phúc Đức": {
+        "core": "Liêm Trinh tại Phúc Đức cho thấy đời sống nội tâm của {S} nhiều trăn trở về lẽ phải, còn dòng họ thì coi trọng danh dự và gia phong.",
+        "bright": "Khi sáng, {S} tìm được sự an yên nhờ sống ngay thẳng, phúc ấm dòng họ hỗ trợ âm thầm mà bền lâu.",
+        "dim": "Khi hãm, lòng dễ bứt rứt, khó buông bỏ những điều chưa vừa ý, và họ hàng đôi khi có chuyện bất hòa.",
+        "advice": "tập buông những điều ngoài tầm tay và vun đắp nếp nhà"
+      },
+      "Điền Trạch": {
+        "core": "Về nhà cửa, Liêm Trinh cho thấy {S} tạo dựng tài sản bằng sức lao động kỷ luật, việc nhà đất thường phải qua nhiều thủ tục và cân nhắc.",
+        "bright": "Khi sáng, nhà cửa được giữ gìn ngăn nắp, tài sản tích lũy vững vàng nhờ giấy tờ minh bạch, rõ ràng.",
+        "dim": "Khi hãm, việc mua bán nhà đất dễ vướng giấy tờ rắc rối hoặc tranh chấp nhỏ, cần thận trọng hơn mức thường.",
+        "advice": "kiểm tra kỹ pháp lý trước mọi giao dịch nhà đất"
+      },
+      "Quan Lộc": {
+        "core": "Ở cung Quan Lộc, Liêm Trinh cho thấy {S} hợp với môi trường có quy củ như hành chính, pháp luật, kỹ thuật hoặc quản lý, làm việc nghiêm túc, tận lực.",
+        "bright": "Khi sáng, {S} dễ được giao quyền hành, thăng tiến nhờ sự liêm chính và năng lực tổ chức rõ ràng.",
+        "dim": "Khi hãm, công việc dễ gặp áp lực quy định, va chạm cấp trên hoặc thị phi nơi công sở, cần giữ mình cẩn trọng.",
+        "advice": "làm đúng quy trình và giữ hồ sơ công việc minh bạch"
+      },
+      "Nô Bộc": {
+        "core": "Liêm Trinh ở Nô Bộc cho thấy bạn bè và đồng nghiệp quanh {S} thường cứng rắn, có cá tính, quan hệ thiên về công việc hơn tình cảm.",
+        "bright": "Khi sáng, những người này giữ chữ tín, làm việc có kỷ luật và có thể thành chỗ dựa đáng tin.",
+        "dim": "Khi hãm, quan hệ dễ vướng hiểu lầm, cạnh tranh ngầm hoặc lời ra tiếng vào, nhất là khi quyền lợi chưa phân định rõ.",
+        "advice": "rõ ràng chuyện tiền bạc và trách nhiệm với bạn bè, cộng sự"
+      },
+      "Thiên Di": {
+        "core": "Khi ra ngoài, Liêm Trinh khiến {S} giữ vẻ nghiêm trang, được nhìn nhận là người đứng đắn, song môi trường bên ngoài cũng nhiều luật lệ và cạnh tranh.",
+        "bright": "Khi sáng, {S} dễ gây dựng uy tín nơi xa, được người lạ tin cậy và gặp cơ hội qua các tổ chức có quy củ.",
+        "dim": "Khi hãm, đi xa hoặc làm việc bên ngoài dễ gặp phiền phức giấy tờ, va chạm hoặc chuyện thị phi bất chợt.",
+        "advice": "chuẩn bị chu đáo giấy tờ và giữ hòa khí khi ở nơi lạ"
+      },
+      "Tật Ách": {
+        "core": "Về sức khỏe, Liêm Trinh cho thấy {S} dễ cần lưu ý đến khí huyết, hệ tuần hoàn và những căng thẳng do cảm xúc dồn nén lâu ngày.",
+        "bright": "Khi sáng, cơ thể có sức bền tốt, và tính kỷ luật giúp {S} duy trì nếp sinh hoạt lành mạnh.",
+        "dim": "Khi hãm, {S} dễ cần lưu ý va chạm nhỏ, vết thương do bất cẩn và áp lực tinh thần tích tụ.",
+        "advice": "vận động đều đặn và tìm cách giải tỏa cảm xúc lành mạnh"
+      },
+      "Tài Bạch": {
+        "core": "Liêm Trinh tại Tài Bạch cho thấy {S} kiếm tiền bằng năng lực chuyên môn và sự bền bỉ, thu nhập thường gắn với công việc có tổ chức.",
+        "bright": "Khi sáng, tiền bạc đến từ nguồn chính đáng, ổn định dần theo năm tháng và giữ được nhờ tính kỷ luật.",
+        "dim": "Khi hãm, thu nhập có lúc thất thường, dễ hao vì chuyện kiện tụng, phạt phí hoặc đầu tư thiếu minh bạch.",
+        "advice": "giữ nguồn thu chính đáng và tránh xa những khoản lợi mập mờ"
+      },
+      "Tử Tức": {
+        "core": "Ở cung Tử Tức, Liêm Trinh gợi con cái có cá tính mạnh, tự lập sớm, và cách {S} nuôi dạy thường thiên về nề nếp, kỷ luật.",
+        "bright": "Khi sáng, con cái chăm chỉ, có chí hướng, và những gì {S} gây dựng hay đào tạo thường có kết quả vững vàng.",
+        "dim": "Khi hãm, quan hệ với con dễ có khoảng cách vì sự nghiêm khắc, cần thêm kiên nhẫn và trò chuyện cởi mở.",
+        "advice": "kết hợp kỷ luật với sự ấm áp khi dạy dỗ con cái"
+      },
+      "Phu Thê": {
+        "core": "Liêm Trinh ở Phu Thê cho thấy người bạn đời có cá tính, đa cảm nhưng giữ nguyên tắc, và mối gắn bó cần nhiều thời gian để thấu hiểu nhau.",
+        "bright": "Khi sáng, người phối ngẫu chung thủy, đảm đang và có năng lực, hôn nhân bền nhờ sự tôn trọng lẫn nhau.",
+        "dim": "Khi hãm, hai người dễ bất đồng vì ai cũng cứng, cảm xúc thất thường có thể làm mối quan hệ chao đảo.",
+        "advice": "nhường nhịn trong lời nói và thẳng thắn chia sẻ điều mình cần"
+      },
+      "Huynh Đệ": {
+        "core": "Về anh chị em, Liêm Trinh cho thấy mỗi người một cá tính mạnh, tình thân có nhưng ít bày tỏ và đôi khi khác chí hướng với {S}.",
+        "bright": "Khi sáng, anh chị em biết giữ nề nếp, có thể giúp đỡ {S} trong việc lớn bằng sự nghiêm túc.",
+        "dim": "Khi hãm, giữa anh chị em dễ có hiềm khích nhỏ hoặc chuyện tài sản chung cần phân định rõ.",
+        "advice": "giữ hòa khí trong nhà và rõ ràng chuyện tài sản chung"
+      }
+    },
+    "Thiên Phủ": {
+      "Mệnh": {
+        "core": "Thiên Phủ thủ Mệnh cho thấy {S} điềm đạm, rộng lượng, có óc quản lý và giữ gìn, thích sự ổn định hơn là mạo hiểm.",
+        "bright": "Khi sáng, {S} có phong thái đáng tin, biết tích lũy, dễ được giao việc quản lý tài sản hay con người.",
+        "dim": "Khi hãm, tính thận trọng dễ hóa bảo thủ, {S} có thể ngại thay đổi và bỏ lỡ cơ hội cần quyết nhanh.",
+        "advice": "giữ nền tảng vững nhưng mở lòng đón những thay đổi hợp lý"
+      },
+      "Phụ Mẫu": {
+        "core": "Ở cung Phụ Mẫu, Thiên Phủ gợi cha mẹ hiền hòa, chu đáo, lo toan cho gia đình đầy đủ và để lại cho {S} nền nếp vững.",
+        "bright": "Khi sáng, cha mẹ có điều kiện, được trọng vọng, và sự che chở của bậc trên giúp {S} vững vàng từ sớm.",
+        "dim": "Khi hãm, cha mẹ vẫn thương con nhưng có phần bảo thủ, đôi khi kỳ vọng {S} đi theo lối an toàn.",
+        "advice": "trân trọng nền nếp cha mẹ để lại và tự tìm hướng riêng"
+      },
+      "Phúc Đức": {
+        "core": "Thiên Phủ tại Phúc Đức cho thấy dòng họ có nền tảng, phúc ấm dày, và {S} tìm thấy sự bình an trong đời sống giản dị, đủ đầy.",
+        "bright": "Khi sáng, tâm tính an nhiên, được tổ tiên phù trì, gặp khó thường có quý nhân hoặc người thân đỡ đần.",
+        "dim": "Khi hãm, phúc phần vẫn có nhưng mỏng hơn, lòng dễ lo xa và băn khoăn về sự an toàn vật chất.",
+        "advice": "làm việc thiện và giữ gìn mối gắn kết với họ hàng"
+      },
+      "Điền Trạch": {
+        "core": "Về nhà đất, Thiên Phủ vốn là sao kho nên {S} có duyên tích lũy bất động sản, thích nhà cửa rộng rãi, vững chãi và lâu dài.",
+        "bright": "Khi sáng, tài sản nhà đất tăng dần, có thể thừa hưởng hoặc tự tạo dựng được cơ ngơi đáng kể.",
+        "dim": "Khi hãm, việc giữ nhà đất tốn nhiều công sức, có giai đoạn phải xoay xở hoặc chuyển dời chỗ ở.",
+        "advice": "tích lũy nhà đất từ từ và tránh vay mượn quá sức"
+      },
+      "Quan Lộc": {
+        "core": "Ở cung Quan Lộc, Thiên Phủ thuận cho {S} các nghề quản lý, tài chính, ngân hàng, hành chính, nơi cần sự cẩn trọng và chữ tín.",
+        "bright": "Khi sáng, sự nghiệp tiến đều và bền, {S} dễ giữ vị trí quản lý ổn định và được cấp trên tin dùng.",
+        "dim": "Khi hãm, công việc thiếu bứt phá, {S} dễ an phận ở chỗ quen thuộc dù có khả năng làm hơn thế.",
+        "advice": "giữ sự ổn định nhưng chủ động học thêm kỹ năng mới"
+      },
+      "Nô Bộc": {
+        "core": "Thiên Phủ ở Nô Bộc cho thấy bạn bè, cộng sự của {S} phần đông hiền hậu, thực tế và có điều kiện, quan hệ thường bền lâu.",
+        "bright": "Khi sáng, {S} được bạn bè giúp đỡ đúng lúc, cấp dưới trung thành và biết lo việc chung.",
+        "dim": "Khi hãm, bạn bè tuy tử tế nhưng thiên về tính toán, sự giúp đỡ thường có điều kiện đi kèm.",
+        "advice": "đối xử hào phóng vừa phải và giữ chữ tín với bạn bè"
+      },
+      "Thiên Di": {
+        "core": "Khi ra ngoài, Thiên Phủ giúp {S} có phong thái chững chạc, được người lạ nể trọng và dễ tìm chỗ đứng ổn định nơi xa.",
+        "bright": "Khi sáng, đi xa gặp quý nhân, làm ăn bên ngoài thuận lợi, có thể tích lũy được tài sản ở nơi khác.",
+        "dim": "Khi hãm, {S} thường ngại thay đổi môi trường, ra ngoài dễ dè dặt nên cơ hội đến chậm hơn.",
+        "advice": "mạnh dạn mở rộng giao thiệp khi có dịp đi xa"
+      },
+      "Tật Ách": {
+        "core": "Về sức khỏe, Thiên Phủ thường cho nền thể chất khá ổn, nhưng {S} dễ cần lưu ý tiêu hóa, dạ dày và thói quen ăn uống.",
+        "bright": "Khi sáng, cơ thể hồi phục tốt, gặp trục trặc nhỏ thường qua nhanh nếu {S} chịu chăm sóc bản thân.",
+        "dim": "Khi hãm, {S} dễ cần lưu ý chuyện ăn uống thất thường, tăng cân hoặc mệt mỏi do ít vận động.",
+        "advice": "ăn uống điều độ và giữ thói quen vận động hằng ngày"
+      },
+      "Tài Bạch": {
+        "core": "Thiên Phủ tại Tài Bạch là tài tinh đắc chỗ, cho thấy {S} biết giữ tiền, chi tiêu có kế hoạch và tích lũy bền bỉ.",
+        "bright": "Khi sáng, của cải tích tụ dày dần, nguồn thu ổn định và {S} có khả năng quản lý tài chính tốt.",
+        "dim": "Khi hãm, tiền vào không nhiều như mong muốn, {S} dễ chắt bóp quá mức mà bỏ lỡ dịp sinh lời.",
+        "advice": "lập kế hoạch tài chính dài hạn và đầu tư thận trọng"
+      },
+      "Tử Tức": {
+        "core": "Ở cung Tử Tức, Thiên Phủ gợi con cái hiền lành, biết điều, và {S} có xu hướng chăm lo cho con chu đáo, đầy đủ.",
+        "bright": "Khi sáng, con cái có phúc, lớn lên vững vàng và có thể là nơi nương tựa của {S} về sau.",
+        "dim": "Khi hãm, con cái vẫn ngoan nhưng dễ ỷ lại, nên {S} cần tránh bao bọc con quá kỹ.",
+        "advice": "để con tự lập dần thay vì lo hết mọi việc thay con"
+      },
+      "Phu Thê": {
+        "core": "Thiên Phủ ở Phu Thê cho thấy người bạn đời đứng đắn, biết vun vén, coi trọng gia đình, và hôn nhân thường thiên về sự ổn định.",
+        "bright": "Khi sáng, người phối ngẫu có năng lực kinh tế, giúp gia đình khá giả, hai người hòa hợp lâu bền.",
+        "dim": "Khi hãm, người bạn đời có phần bảo thủ hoặc tính toán, đời sống chung cần thêm sự lãng mạn và cởi mở.",
+        "advice": "cùng nhau bàn bạc chuyện chi tiêu và dành thời gian cho nhau"
+      },
+      "Huynh Đệ": {
+        "core": "Về anh chị em, Thiên Phủ cho thấy tình thân êm ấm, anh chị em thường có điều kiện và sẵn lòng giúp {S} khi cần.",
+        "bright": "Khi sáng, anh chị em đông vui hoặc thành đạt, là chỗ dựa vững về vật chất lẫn tinh thần.",
+        "dim": "Khi hãm, tình thân vẫn có nhưng mỗi người lo phần mình, sự hỗ trợ không nhiều như kỳ vọng.",
+        "advice": "giữ liên lạc đều đặn và chia sẻ khi anh chị em gặp khó"
+      }
+    },
+    "Thái Âm": {
+      "Mệnh": {
+        "core": "Thái Âm thủ Mệnh cho thấy {S} dịu dàng, tinh tế, giàu cảm xúc và trí tưởng tượng, có khuynh hướng tích lũy và chăm lo tổ ấm.",
+        "bright": "Khi sáng, {S} thanh nhã, thông minh, dễ được mến, có duyên với tài sản và đời sống sung túc dần.",
+        "dim": "Khi hãm, cảm xúc dễ chao đảo, {S} hay lo nghĩ, thiếu quyết đoán và đôi khi thu mình trước khó khăn.",
+        "advice": "nuôi dưỡng sự nhạy cảm bằng nếp sống điều độ và giấc ngủ đủ"
+      },
+      "Phụ Mẫu": {
+        "core": "Ở cung Phụ Mẫu, Thái Âm nói nhiều về người mẹ, gợi bậc sinh thành hiền hậu, chu đáo và gắn bó tình cảm sâu với {S}.",
+        "bright": "Khi sáng, mẹ hiền đảm và có phúc, tình thương gia đình nâng đỡ {S} vững vàng từ nhỏ.",
+        "dim": "Khi hãm, mẹ có thể vất vả hoặc sức khỏe kém, tình cảm sâu nhưng {S} đôi khi phải sống xa cha mẹ.",
+        "advice": "quan tâm sức khỏe của mẹ và giữ liên lạc thường xuyên"
+      },
+      "Phúc Đức": {
+        "core": "Thái Âm tại Phúc Đức cho thấy đời sống tinh thần của {S} sâu lắng, hướng nội, và phúc ấm thường đến nhiều từ phía ngoại hay nữ giới trong họ.",
+        "bright": "Khi sáng, tâm hồn an nhiên, có duyên với nghệ thuật, tâm linh, và hưởng phúc êm đềm về sau.",
+        "dim": "Khi hãm, lòng dễ buồn vu vơ, mất ngủ hoặc lo âu, cần tìm chỗ dựa tinh thần vững hơn.",
+        "advice": "dành thời gian tĩnh lặng và gìn giữ mối thân với họ ngoại"
+      },
+      "Điền Trạch": {
+        "core": "Về nhà đất, Thái Âm là điền trạch tinh nên {S} có duyên tậu nhà, tích lũy bất động sản và yêu không gian sống ấm cúng.",
+        "bright": "Khi sáng, nhà cửa khang trang, tài sản đất đai tăng dần, có thể nhờ mẹ hoặc phụ nữ trong nhà góp sức.",
+        "dim": "Khi hãm, việc an cư đến muộn, có giai đoạn thay đổi chỗ ở hoặc nhà cửa cần sửa sang nhiều.",
+        "advice": "tích lũy từng bước để an cư và chăm chút không gian nhà"
+      },
+      "Quan Lộc": {
+        "core": "Ở cung Quan Lộc, Thái Âm hợp với {S} các nghề cần sự tinh tế như tài chính, bất động sản, giáo dục, nghệ thuật hay chăm sóc.",
+        "bright": "Khi sáng, sự nghiệp thăng tiến êm, {S} được trọng dụng nhờ sự chu đáo và khả năng quản lý tài sản.",
+        "dim": "Khi hãm, công việc dễ thay đổi, sự thiếu quyết đoán khiến {S} chậm nắm cơ hội thăng tiến.",
+        "advice": "chọn môi trường ổn định và rèn sự quyết đoán trong công việc"
+      },
+      "Nô Bộc": {
+        "core": "Thái Âm ở Nô Bộc cho thấy quanh {S} dễ có bạn bè, đồng nghiệp nữ hoặc người tính nhu hòa, quan hệ thiên về tình cảm.",
+        "bright": "Khi sáng, bạn bè tận tình, giúp đỡ âm thầm, và {S} có người cộng sự tinh ý, đáng tin.",
+        "dim": "Khi hãm, quan hệ dễ dao động theo cảm xúc, có lúc hiểu lầm vì những điều không nói ra.",
+        "advice": "nói rõ suy nghĩ của mình thay vì để người khác tự đoán"
+      },
+      "Thiên Di": {
+        "core": "Khi ra ngoài, Thái Âm giúp {S} được người lạ có thiện cảm nhờ vẻ hiền hòa, đi xa thường gắn với chuyện học hành, làm ăn hay an cư.",
+        "bright": "Khi sáng, ra ngoài gặp nhiều may mắn, dễ được phụ nữ hoặc người lớn tuổi nâng đỡ nơi xa.",
+        "dim": "Khi hãm, đi xa dễ mệt mỏi, cô đơn hoặc gặp chuyện thay đổi kế hoạch, cần chuẩn bị kỹ.",
+        "advice": "giữ kết nối với người thân khi sống hoặc làm việc xa nhà"
+      },
+      "Tật Ách": {
+        "core": "Về sức khỏe, Thái Âm cho thấy {S} dễ cần lưu ý giấc ngủ, mắt, hệ nội tiết và những ảnh hưởng của cảm xúc lên cơ thể.",
+        "bright": "Khi sáng, sức khỏe nhìn chung êm, nếu {S} biết nghỉ ngơi đúng nhịp thì ít khi bị ảnh hưởng lâu.",
+        "dim": "Khi hãm, {S} dễ cần lưu ý mất ngủ, mệt mỏi kéo dài hoặc cơ thể nhạy với thay đổi thời tiết.",
+        "advice": "ngủ đúng giờ và giữ tinh thần thư thái mỗi ngày"
+      },
+      "Tài Bạch": {
+        "core": "Thái Âm tại Tài Bạch cho thấy {S} kiếm tiền đều đặn, biết dành dụm, giỏi tích tiểu thành đại hơn là làm giàu nhanh.",
+        "bright": "Khi sáng, tài lộc tăng dần, của để dành khá, dễ sinh lời từ nhà đất hoặc tích lũy dài hạn.",
+        "dim": "Khi hãm, tiền bạc lên xuống theo giai đoạn, {S} dễ chi tiêu theo cảm xúc nên cần kỷ luật hơn.",
+        "advice": "tiết kiệm đều đặn và tránh mua sắm theo cảm hứng"
+      },
+      "Tử Tức": {
+        "core": "Ở cung Tử Tức, Thái Âm gợi con cái nhạy cảm, hiền lành, gắn bó tình cảm với {S}, theo thông lệ hay được nói là thiên về con gái.",
+        "bright": "Khi sáng, con cái hiếu thảo, tinh tế, và những gì {S} chăm chút nuôi dưỡng thường đơm hoa kết trái.",
+        "dim": "Khi hãm, con cái dễ yếu về tinh thần hoặc sức khỏe lúc nhỏ, cần nhiều sự kiên nhẫn và chăm sóc.",
+        "advice": "lắng nghe cảm xúc của con và tạo cho con cảm giác an toàn"
+      },
+      "Phu Thê": {
+        "core": "Thái Âm ở Phu Thê cho thấy người bạn đời dịu dàng, chu đáo, giàu tình cảm, và mối gắn bó thiên về sự chăm sóc lẫn nhau.",
+        "bright": "Khi sáng, người phối ngẫu đẹp nết, khéo vun vén, hôn nhân êm ấm và nhà cửa đầy đủ.",
+        "dim": "Khi hãm, người bạn đời đa sầu đa cảm, hai người dễ hiểu lầm vì những điều giữ kín trong lòng.",
+        "advice": "chia sẻ cảm xúc thường xuyên và trân trọng sự chăm sóc của nhau"
+      },
+      "Huynh Đệ": {
+        "core": "Về anh chị em, Thái Âm cho thấy tình thân dịu dàng, gắn bó, và chị em gái thường có vai trò quan trọng với {S}.",
+        "bright": "Khi sáng, anh chị em hòa thuận, có điều kiện và sẵn lòng giúp đỡ nhau lúc khó khăn.",
+        "dim": "Khi hãm, anh chị em có thể sống xa nhau, tình thân vẫn có nhưng ít khi gần gũi.",
+        "advice": "chủ động hỏi han và giữ sợi dây gắn kết với anh chị em"
+      }
+    },
+    "Tham Lang": {
+      "Mệnh": {
+        "core": "Tham Lang thủ Mệnh cho thấy {S} đa tài, nhiều ham muốn, giỏi giao tế, có sức hút và luôn khao khát những trải nghiệm mới.",
+        "bright": "Khi sáng, {S} khéo léo, linh hoạt, bền chí theo đuổi mục tiêu và thường thành công rõ rệt khi đã trưởng thành.",
+        "dim": "Khi hãm, ham muốn dễ lấn lý trí, {S} có thể sa vào tửu sắc, cờ bạc hoặc những cuộc vui tốn kém.",
+        "advice": "đặt mục tiêu rõ ràng và giữ chừng mực trong thú vui"
+      },
+      "Phụ Mẫu": {
+        "core": "Ở cung Phụ Mẫu, Tham Lang gợi cha mẹ năng động, giỏi xoay xở, nhiều mối quan tâm, nhưng ít thời gian gần gũi {S}.",
+        "bright": "Khi sáng, cha mẹ tháo vát, có quan hệ rộng, mở cho {S} nhiều cơ hội giao thiệp từ sớm.",
+        "dim": "Khi hãm, giữa {S} và cha mẹ dễ có khoảng cách, quan điểm sống khác nhau cần nhiều thời gian dung hòa.",
+        "advice": "tìm điểm chung với cha mẹ thay vì để khoảng cách lớn dần"
+      },
+      "Phúc Đức": {
+        "core": "Tham Lang tại Phúc Đức cho thấy {S} khó yên một chỗ về tinh thần, luôn tìm niềm vui mới, và dòng họ có người đa tài nhưng phong lưu.",
+        "bright": "Khi sáng, {S} biết hưởng thụ có chừng, tìm được niềm vui trong nghệ thuật, tôn giáo hay sở thích lành mạnh.",
+        "dim": "Khi hãm, lòng dễ bất an, khó thỏa mãn, dễ chạy theo hưởng lạc mà quên nuôi dưỡng nội tâm.",
+        "advice": "nuôi dưỡng một thú vui tĩnh để cân bằng nhu cầu hưởng thụ"
+      },
+      "Điền Trạch": {
+        "core": "Về nhà đất, Tham Lang cho thấy {S} thích nhà cửa đẹp, tiện nghi, nhưng tài sản thường có lúc thăng lúc trầm theo nhu cầu chi tiêu.",
+        "bright": "Khi sáng, {S} gây dựng được nhà cửa bằng sức mình, càng về sau càng vững, nhất là khi sự nghiệp đã ổn định.",
+        "dim": "Khi hãm, việc mua bán nhà đất dễ vội vàng hoặc tài sản tiêu hao vì ham vui, cần giữ vốn gốc cẩn thận.",
+        "advice": "tách riêng khoản dành cho nhà cửa khỏi chi tiêu hưởng thụ"
+      },
+      "Quan Lộc": {
+        "core": "Ở cung Quan Lộc, Tham Lang hợp với {S} các nghề giao tế, kinh doanh, nghệ thuật, giải trí hoặc công việc cần sự khéo léo, linh hoạt.",
+        "bright": "Khi sáng, {S} bền chí, phát muộn mà bền, sự nghiệp đi lên mạnh khi đã tích đủ kinh nghiệm.",
+        "dim": "Khi hãm, {S} dễ đổi việc theo hứng, sa vào xã giao tốn kém mà công việc chính lại chậm tiến.",
+        "advice": "chọn một hướng đi lâu dài và kiên trì theo đuổi"
+      },
+      "Nô Bộc": {
+        "core": "Tham Lang ở Nô Bộc cho thấy {S} có nhiều bạn bè, quan hệ rộng, phần đông vui vẻ, hoạt bát và thích hưởng thụ.",
+        "bright": "Khi sáng, bạn bè giúp {S} mở rộng cơ hội, cộng sự nhanh nhạy và giỏi giao dịch.",
+        "dim": "Khi hãm, bạn bè dễ rủ rê ăn chơi, quan hệ thiên về vụ lợi, cần tỉnh táo chọn người đồng hành.",
+        "advice": "chọn bạn có cùng chí hướng và tránh các cuộc vui kéo dài"
+      },
+      "Thiên Di": {
+        "core": "Khi ra ngoài, Tham Lang giúp {S} giao thiệp rộng, được nhiều người chú ý, đi xa thường gặp cơ hội làm ăn và kết bạn.",
+        "bright": "Khi sáng, {S} dễ thành công nơi xa nhờ tài ứng biến, khéo giao tiếp và biết nắm thời cơ.",
+        "dim": "Khi hãm, ra ngoài dễ sa vào cuộc vui, quan hệ phức tạp hoặc chi tiêu vượt tầm kiểm soát.",
+        "advice": "giữ chừng mực trong giao du khi ở môi trường mới"
+      },
+      "Tật Ách": {
+        "core": "Về sức khỏe, Tham Lang cho thấy {S} dễ cần lưu ý gan, thận, hệ bài tiết và những hệ quả của thói quen ăn uống, thức khuya.",
+        "bright": "Khi sáng, {S} có sức sống dồi dào, hồi phục nhanh nếu giữ được nếp sinh hoạt điều độ.",
+        "dim": "Khi hãm, {S} dễ cần lưu ý tác động của rượu bia, thức khuya và hưởng thụ quá đà lên cơ thể.",
+        "advice": "hạn chế rượu bia và giữ giờ giấc nghỉ ngơi hợp lý"
+      },
+      "Tài Bạch": {
+        "core": "Tham Lang tại Tài Bạch cho thấy {S} kiếm tiền nhờ giao tế, kinh doanh và sự nhanh nhạy, nhưng cũng chi tiêu mạnh tay cho thú vui.",
+        "bright": "Khi sáng, tài lộc có thể phát lớn sau giai đoạn tích lũy, nhất là từ tuổi trung niên trở đi.",
+        "dim": "Khi hãm, tiền đến nhanh đi nhanh, dễ hao vì đầu cơ, cờ bạc hoặc chi tiêu theo ham muốn.",
+        "advice": "đặt giới hạn chi tiêu và tránh xa mọi hình thức đỏ đen"
+      },
+      "Tử Tức": {
+        "core": "Ở cung Tử Tức, Tham Lang gợi con cái lanh lợi, nhiều tài vặt, hiếu động, và mối quan hệ với {S} cần sự hướng dẫn khéo léo.",
+        "bright": "Khi sáng, con cái thông minh, đa tài, có duyên giao tiếp và có thể thành đạt theo cách riêng.",
+        "dim": "Khi hãm, con cái khó bảo, dễ ham chơi, cần {S} kiên nhẫn đặt giới hạn rõ ràng.",
+        "advice": "hướng năng lượng của con vào việc học và sở thích lành mạnh"
+      },
+      "Phu Thê": {
+        "core": "Tham Lang ở Phu Thê cho thấy người bạn đời hấp dẫn, sôi nổi, đa tài, và mối duyên thường đậm màu sắc đào hoa.",
+        "bright": "Khi sáng, người phối ngẫu khéo léo, năng động, đôi bên cùng vun đắp thì hôn nhân càng về sau càng bền.",
+        "dim": "Khi hãm, tình cảm dễ có sóng gió vì ghen tuông, cám dỗ bên ngoài hoặc sự kết duyên vội vàng.",
+        "advice": "xây dựng lòng tin và cùng nhau làm mới đời sống chung"
+      },
+      "Huynh Đệ": {
+        "core": "Về anh chị em, Tham Lang cho thấy mỗi người một hướng, năng động, đa tài, tình thân vui vẻ nhưng không thật sâu đậm.",
+        "bright": "Khi sáng, anh chị em khéo xoay xở, có quan hệ rộng và giúp {S} được việc khi cần.",
+        "dim": "Khi hãm, giữa anh chị em dễ có tranh giành quyền lợi hoặc khác biệt lối sống khó dung hòa.",
+        "advice": "tôn trọng lối sống riêng và rõ ràng chuyện tiền bạc với anh chị em"
+      }
+    },
+    "Cự Môn": {
+      "Mệnh": {
+        "core": "Cự Môn thủ Mệnh cho thấy {S} sắc sảo, giỏi lý luận, hay hoài nghi và thích đào sâu vấn đề, có duyên với những việc dùng lời nói.",
+        "bright": "Khi sáng, tài ăn nói trở thành thế mạnh, {S} có thể nổi bật trong giảng dạy, luật pháp, truyền thông hay kinh doanh.",
+        "dim": "Khi hãm, lời nói dễ gây hiểu lầm, {S} hay vướng thị phi, tranh cãi và đôi khi tự làm khó mình.",
+        "advice": "nói chậm lại và cân nhắc lời trước khi tranh luận"
+      },
+      "Phụ Mẫu": {
+        "core": "Ở cung Phụ Mẫu, Cự Môn gợi sự khác biệt quan điểm giữa {S} và cha mẹ, gia đình hay bàn luận, ít khi đồng lòng hoàn toàn.",
+        "bright": "Khi sáng, cha mẹ có học, giỏi lý lẽ, dạy {S} biết suy xét và tự bảo vệ quan điểm.",
+        "dim": "Khi hãm, lời qua tiếng lại trong nhà dễ làm tổn thương, {S} có thể cảm thấy chưa được thấu hiểu.",
+        "advice": "trao đổi bình tĩnh với cha mẹ và chọn lúc thích hợp để nói"
+      },
+      "Phúc Đức": {
+        "core": "Cự Môn tại Phúc Đức cho thấy {S} hay suy nghĩ, trăn trở, khó an lòng, và trong họ hàng có thể còn những chuyện cũ chưa được nói ra.",
+        "bright": "Khi sáng, sự suy tư giúp {S} hiểu sâu đạo lý, tìm được bình an qua học hỏi hoặc tín ngưỡng.",
+        "dim": "Khi hãm, lòng dễ nặng nề, hay nghi ngại, họ hàng có lúc lời ra tiếng vào làm {S} phiền muộn.",
+        "advice": "tập thiền định hoặc viết lách để giải tỏa những suy nghĩ quẩn quanh"
+      },
+      "Điền Trạch": {
+        "core": "Về nhà đất, Cự Môn cho thấy {S} tạo dựng chỗ ở qua nhiều trắc trở, chuyện giấy tờ hay ranh giới dễ phát sinh bàn cãi.",
+        "bright": "Khi sáng, sau những thương lượng khéo léo, {S} vẫn có được nhà cửa ổn định và tài sản đứng tên rõ ràng.",
+        "dim": "Khi hãm, nhà đất dễ vướng tranh chấp, hàng xóm khó tính hoặc thủ tục kéo dài gây mệt mỏi.",
+        "advice": "làm rõ giấy tờ và giữ quan hệ tốt với hàng xóm"
+      },
+      "Quan Lộc": {
+        "core": "Ở cung Quan Lộc, Cự Môn hợp với {S} các nghề dùng lời nói và lý lẽ như luật sư, giáo viên, truyền thông, tư vấn hay bán hàng.",
+        "bright": "Khi sáng, {S} nổi bật nhờ khả năng thuyết phục, phân tích sắc bén và được nể vì chuyên môn.",
+        "dim": "Khi hãm, nơi làm việc dễ có thị phi, cạnh tranh bằng lời nói, nên {S} cần thận trọng với văn bản và cam kết.",
+        "advice": "rèn chuyên môn sâu và dùng lời nói để xây dựng thay vì tranh hơn thua"
+      },
+      "Nô Bộc": {
+        "core": "Cự Môn ở Nô Bộc cho thấy quan hệ bạn bè, đồng nghiệp của {S} dễ có bất đồng, nhiều lời bàn tán và cần thời gian kiểm chứng.",
+        "bright": "Khi sáng, bạn bè thẳng thắn, góp ý thật lòng, giúp {S} nhìn rõ điểm yếu của mình.",
+        "dim": "Khi hãm, {S} dễ bị nói xấu sau lưng hoặc vướng hiểu lầm từ người cộng tác, cần giữ kín việc riêng.",
+        "advice": "giữ lời nói cẩn trọng và không vội tin những lời đồn"
+      },
+      "Thiên Di": {
+        "core": "Khi ra ngoài, Cự Môn khiến {S} dễ gặp tranh luận và cạnh tranh, nhưng cũng nhờ tài ăn nói mà mở được đường làm ăn nơi xa.",
+        "bright": "Khi sáng, đi xa giúp {S} phát huy khả năng giao tiếp, thuyết phục và tìm thấy cơ hội tốt hơn quê nhà.",
+        "dim": "Khi hãm, ở bên ngoài dễ bị hiểu lầm, vướng thị phi hoặc tranh chấp nhỏ với người lạ.",
+        "advice": "giữ thái độ khiêm tốn và tránh tranh cãi nơi đông người"
+      },
+      "Tật Ách": {
+        "core": "Về sức khỏe, Cự Môn cho thấy {S} dễ cần lưu ý vùng miệng, họng, tiêu hóa và những căng thẳng do suy nghĩ quá nhiều.",
+        "bright": "Khi sáng, những trục trặc nhỏ thường được phát hiện sớm và {S} biết cách tự điều chỉnh.",
+        "dim": "Khi hãm, {S} dễ cần lưu ý lo âu kéo dài, ăn uống thất thường hoặc các vấn đề vùng họng, dạ dày.",
+        "advice": "khám sức khỏe định kỳ và giảm bớt những suy nghĩ lo xa"
+      },
+      "Tài Bạch": {
+        "core": "Cự Môn tại Tài Bạch cho thấy {S} kiếm tiền bằng lời nói, tri thức hoặc tư vấn, tiền bạc thường đến qua cạnh tranh và thương lượng.",
+        "bright": "Khi sáng, khả năng thuyết phục mang lại thu nhập tốt, {S} có thể phát tài nhờ nghề chuyên môn.",
+        "dim": "Khi hãm, tiền bạc dễ vướng tranh chấp, vay mượn khó đòi hoặc hao hụt vì hợp đồng thiếu chặt.",
+        "advice": "lập hợp đồng rõ ràng và hạn chế cho vay mượn"
+      },
+      "Tử Tức": {
+        "core": "Ở cung Tử Tức, Cự Môn gợi con cái thông minh, hay hỏi, có chính kiến, và giữa {S} với con dễ có những cuộc tranh luận.",
+        "bright": "Khi sáng, con cái lanh lợi, giỏi ăn nói, có thể thành đạt trong học vấn hoặc nghề dùng lời.",
+        "dim": "Khi hãm, con cái dễ cãi lời hoặc khó gần, cần {S} kiên nhẫn lắng nghe hơn là áp đặt.",
+        "advice": "đối thoại với con bằng sự tôn trọng thay vì ra lệnh"
+      },
+      "Phu Thê": {
+        "core": "Cự Môn ở Phu Thê cho thấy người bạn đời có chính kiến, giỏi lý lẽ, và hôn nhân cần nhiều sự cởi mở để tránh hiểu lầm.",
+        "bright": "Khi sáng, người phối ngẫu thông minh, thẳng thắn, hai người có thể cùng nhau trao đổi sâu sắc mọi chuyện.",
+        "dim": "Khi hãm, vợ chồng dễ khắc khẩu, nghi ngờ nhau hoặc để lời nói nóng làm tổn thương tình cảm.",
+        "advice": "lắng nghe trọn vẹn trước khi đáp lời và tránh nói lúc nóng giận"
+      },
+      "Huynh Đệ": {
+        "core": "Về anh chị em, Cự Môn cho thấy giữa {S} và anh chị em hay có bất đồng ý kiến, tình thân cần được vun đắp bằng sự nhẫn nại.",
+        "bright": "Khi sáng, anh chị em thẳng thắn, có học, sẵn sàng góp ý thật lòng giúp {S} tiến bộ.",
+        "dim": "Khi hãm, anh chị em dễ xích mích vì lời qua tiếng lại hoặc chuyện quyền lợi chưa rõ ràng.",
+        "advice": "giữ hòa khí bằng lời nói mềm mỏng và phân minh quyền lợi"
+      }
+    }
+  }
+}

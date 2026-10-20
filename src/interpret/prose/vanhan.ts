@@ -9,6 +9,7 @@ import type { ChartInput, Decade, Knowledge } from '../types.ts';
 import { Micro, finish, lowerFirst } from './micro.ts';
 import type { ProseParagraph, ProseSentence } from './realize.ts';
 import { validateProse } from './validate.ts';
+import { readPalace, type StructureLib } from './deep.ts';
 
 export interface VanHanLibrary {
   status: 'draft' | 'approved';
@@ -17,7 +18,16 @@ export interface VanHanLibrary {
   tam_hop: Record<'DONG' | 'SINH_XUAT' | 'KHAC_NHAP' | 'KHAC_XUAT', string[]>;
   readings: Record<string, { dir: 'up' | 'down' | 'mixed'; v: string[] }>;
   both: string[]; hoa: string[];
+  /** Khảo Luận pp.230-233 (decades[].kl), Toàn Thư nhập hạn ca (decades[].tt), the hạn's Hóa Quyền/Khoa, the closing, the current year */
+  kl_rel: Record<string, string[]>; kl_rel_tone: Record<string, '' | 'pos' | 'neg'>; kl_xung: string[]; kl_nhi_hop: string[]; kl_event: string[];
+  tt_lead: string[]; hoa_qk: string[]; sum: Record<'good' | 'mixed' | 'hard', string[]>;
+  year: { frame: string[]; luu_thai_tue: string[]; luu_hoa: string[] };
 }
+interface KlFacts { src: string; relation: string; verdict: string; xung_controlled: boolean; opp_majors: string[];
+  nhi_hop: { branch: string; palace: string; counts: boolean; majors: string[] }; thai_tue_triad: boolean; event: string | null }
+type Tt = Array<{ text: string; src: string }>;
+/** a nhập hạn ca line that tells of a difficulty */
+const HARD = /(hao|khó|trở ngại|rắc rối|hỏng|nợ|bất lợi|mất|tan|kém|tiết chế|giáng)/;
 
 /** đại hạn shown: those starting by this age */
 export const VAN_HAN_LAST_START = 75;
@@ -45,6 +55,8 @@ export interface VanHanChapter {
   paragraphs: ProseParagraph[]; text: string; issues: ReturnType<typeof validateProse>['issues']; metrics: ReturnType<typeof validateProse>['metrics']; pass: boolean;
   /** the ages each paragraph speaks of, straight from chart.decades */
   decades: Array<{ age_from: number; age_to: number; palace: string; branch: string }>;
+  /** index of each decade's first paragraph (a decade has one or two; the year's paragraphs follow the last decade) */
+  starts: number[];
   evidence: { resolved: []; tensions: []; unused: string[]; rules: Record<string, { reading: string; cites: string[]; verified: boolean }>; concepts: Record<string, string>; divergences: [] };
 }
 
@@ -57,11 +69,14 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
   const rules: VanHanChapter['evidence']['rules'] = {};
   const cite = (id: string, reading: string, cites: string[]) => { rules[id] = { reading, cites, verified: true }; return id; };
   const S = () => lowerFirst(m.subject());          // {S} never opens a sentence in van_han.json
-  const sentence = (text: string, ids: string[], cites: string[]): ProseSentence => {
-    const t = finish(text); m.said(t);
-    return { text: t, trace: { move: 'TIMING', concepts: [], rules: ids, cites: [...new Set(cites)].sort(), basis: 'sach' } };
+  const sentence = (text: string, ids: string[], cites: string[], basis: ProseSentence['trace']['basis'] = 'sach', tone?: 'pos' | 'neg' | 'answer'): ProseSentence => {
+    const t = finish(text.replace(/\{S\}/g, () => S())); m.said(t);
+    return { text: t, trace: { move: 'TIMING', concepts: [], rules: ids, cites: [...new Set(cites)].sort(), basis, ...(tone ? { tone } : {}) } };
   };
-  const paragraphs: ProseParagraph[] = [];
+  const ST = k.prose?.structure as StructureLib | undefined;
+  const dom = (pal: string) => ST?.domain_short[pal] ?? pal;
+  const hm = (hoa: string, pal: string) => (k.prose?.phoThong as { hoa?: Record<string, Record<string, string>> } | undefined)?.hoa?.[hoa]?.[pal] ?? `chuyện ${dom(pal)} chịu ảnh hưởng của ${hoa}`;
+  const paragraphs: ProseParagraph[] = [], starts: number[] = [];
   for (const d of decades) {
     const xs: ProseSentence[] = [], key = `vh|${d.index}`;
     const pal = chart.palaces.find(p => p.branch === d.branch)!;
@@ -69,10 +84,31 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     const c0 = L!.rules.VH_CALC_DAI_HAN;
     xs.push(sentence(fill(m.pick(`${key}|frame`, L!.frame), { a: String(d.age_from), b: String(d.age_to), pal: d.palace, br: d.branch, stars }),
       [cite('VH_CALC_DAI_HAN', c0.reading, c0.cites)], c0.cites));
-    const th = tamHop(yb, d.branch);
-    if (th) {
-      const id = `NL_VAN_TAM_HOP_${th.kind}`, r = L!.rules[id];
-      xs.push(sentence(fill(m.pick(`${key}|th`, L!.tam_hop[th.kind]), { yb, g: th.g1, g1: th.g1, g2: th.g2, S: S() }), [cite(id, r.reading, r.cites)], r.cites));
+    // the hạn palace read as a palace: brightness of its stars and what its tam phương tứ chính bring (deep.ts, no domain line: the frame said it)
+    const pr = readPalace(chart, k, d.palace, m, { key: `vh${d.index}`, lead: false });
+    xs.push(...pr.structure.filter(x => x.trace.step === 'gist' || x.trace.step === 'tp' || x.trace.step === 'tuan' || x.trace.step === 'triet'));
+    // the year's tam hợp against the hạn's: Khảo Luận pp.230-233 reads all five cases; Thiên Lương (NL) is voiced where it adds a view —
+    // the đắc thời of the same triad, and the khắc xuất case where it reads the opposite way to Khảo Luận
+    const kl = (d as unknown as { kl?: KlFacts }).kl, th = tamHop(yb, d.branch);
+    if (th?.kind === 'DONG') {
+      const id = 'NL_VAN_TAM_HOP_DONG', r = L!.rules[id];
+      xs.push(sentence(fill(m.pick(`${key}|th`, L!.tam_hop.DONG), { yb, g: th.g1 }), [cite(id, r.reading, r.cites)], [...r.cites, 'KL pp.230-233'], 'sach', 'pos'));
+    } else if (kl && L!.kl_rel[kl.relation]) {
+      xs.push(sentence(fill(m.pick(`${key}|kl`, L!.kl_rel[kl.relation]), { yb }), [], [kl.src.replace('Khảo Luận', 'KL')], 'tinh_toan', (L!.kl_rel_tone[kl.relation] || undefined) as 'pos' | 'neg' | undefined));
+      if (th?.kind === 'KHAC_XUAT') {
+        const id = 'NL_VAN_TAM_HOP_KHAC_XUAT', r = L!.rules[id];
+        xs.push(sentence(fill(m.pick(`${key}|th`, L!.tam_hop.KHAC_XUAT), { yb }), [cite(id, r.reading, r.cites)], r.cites));
+      }
+    }
+    if (kl?.xung_controlled) xs.push(sentence(fill(m.pick(`${key}|xung`, L!.kl_xung), { opp: chart.palaces.find(p => p.branch_index === (pal.branch_index + 6) % 12)!.name }), [], ['KL pp.230-233'], 'tinh_toan', 'pos'));
+    if (kl?.nhi_hop.counts && kl.nhi_hop.majors.length) xs.push(sentence(fill(m.pick(`${key}|nh`, L!.kl_nhi_hop), { nh: `${kl.nhi_hop.palace} (${kl.nhi_hop.branch})`, majors: joinNames(kl.nhi_hop.majors) }), [], ['KL pp.230-233'], 'tinh_toan'));
+    if (kl?.event) xs.push(sentence(fill(m.pick(`${key}|ev`, L!.kl_event), { pal: d.palace, event: kl.event }), [], ['KL pp.230-233'], 'tinh_toan'));
+    const mid = xs.length;                                 // paragraph 2 starts here: what happens in the hạn
+    // Toàn Thư nhập hạn ca: what each star entering the hạn brings (paraphrased, page check pending: said as common reading)
+    for (const t of ((d as unknown as { tt?: Tt }).tt ?? []).slice(0, 3)) {
+      const body = t.text.replace(/^Hạn\s+/, '');
+      const text = /^\p{Ll}/u.test(body) ? t.text : fill(m.pick(`${key}|tt|${body.slice(0, 12)}`, L!.tt_lead), { t: body });
+      xs.push(sentence(text, [], ['TT pp.97-105'], 'pho_thong', HARD.test(body) ? 'neg' : 'pos'));
     }
     const rd = (d.readings as Array<{ text: string; src: string; rule_id?: string | null }>).filter(r => r.rule_id && L!.readings[r.rule_id]);
     const trend = (dir: string) => rd.filter(r => L!.readings[r.rule_id!].dir === dir && /^VH_(TPVT_SAT|TPVT_CNDL|VCD_SPT)$/.test(r.rule_id!));
@@ -84,29 +120,74 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     }
     for (const r of voiced.slice(0, 3)) {
       const c = L!.readings[r.rule_id!];
-      xs.push(sentence(fill(m.pick(`${key}|${r.rule_id}`, c.v), { v_branch: d.branch, S: S() }), [cite(r.rule_id!, r.text, [toCite(r.src)])], [toCite(r.src)]));
+      xs.push(sentence(fill(m.pick(`${key}|${r.rule_id}`, c.v), { v_branch: d.branch, S: S() }), [cite(r.rule_id!, r.text, [toCite(r.src)])], [toCite(r.src)], 'sach', c.dir === 'up' ? 'pos' : c.dir === 'down' ? 'neg' : undefined));
     }
     const lo = d.hoa['Hóa Lộc'], ky = d.hoa['Hóa Kỵ'];
     if (lo?.palace && ky?.palace) {
       const c1 = L!.rules.VH_CALC_TU_HOA;
-      xs.push(sentence(fill(m.pick(`${key}|hoa`, L!.hoa), { stem: d.stem, lstar: lo.star, lpal: lo.palace, kstar: ky.star, kpal: ky.palace }),
+      xs.push(sentence(fill(m.pick(`${key}|hoa`, L!.hoa), { stem: d.stem, lstar: lo.star, lpal: lo.palace, kstar: ky.star, kpal: ky.palace, lmean: hm('Hóa Lộc', lo.palace), kmean: hm('Hóa Kỵ', ky.palace) }),
         [cite('VH_CALC_TU_HOA', c1.reading, c1.cites)], c1.cites));
     }
-    paragraphs.push({ role: 'course', sentences: xs, text: xs.map(s => s.text).join(' ') });
+    const qu = d.hoa['Hóa Quyền'], kh = d.hoa['Hóa Khoa'];
+    if (qu?.palace && kh?.palace) xs.push(sentence(fill(m.pick(`${key}|qk`, L!.hoa_qk), { qstar: qu.star, qpal: qu.palace, cstar: kh.star, cpal: kh.palace, qmean: hm('Hóa Quyền', qu.palace), cmean: hm('Hóa Khoa', kh.palace) }),
+      ['VH_CALC_TU_HOA'], L!.rules.VH_CALC_TU_HOA.cites, 'pho_thong'));
+    // closing: the weight of what was said, then what holds the hạn up and what to do (the hạn palace's balance, deep.ts)
+    const pos = xs.filter(x => x.trace.tone === 'pos').length, neg = xs.filter(x => x.trace.tone === 'neg').length;
+    const verdict = pos >= neg + 2 ? 'good' : neg >= pos + 2 ? 'hard' : 'mixed';
+    xs.push(sentence(m.pick(`${key}|sum|${verdict}`, L!.sum[verdict]), [], [], 'pho_thong', 'answer'));
+    xs.push(...pr.balance.filter(x => verdict !== 'good' || x.trace.step === 'advice'));
+    // one paragraph for where the hạn sits and how it meets the year, one for what happens in it
+    const cut = mid;
+    starts.push(paragraphs.length);
+    for (const part of [xs.slice(0, cut), xs.slice(cut)]) if (part.length) paragraphs.push({ role: 'course', sentences: part, text: part.map(s => s.text).join(' ') });
   }
+  if (usable) paragraphs.push(...yearParagraphs(chart, k, L!, m, S, sentence, dom));
   const { issues, metrics } = validateProse(paragraphs, []);
   // the ages in each paragraph are the chart's: a frame that names other ages is a blocking error
-  paragraphs.forEach((p, i) => {
-    const d = decades[i];
+  starts.forEach((pi, i) => {
+    const d = decades[i], p = paragraphs[pi];
     if (!p.sentences[0].text.includes(String(d.age_from)) || !p.sentences[0].text.includes(String(d.age_to)))
-      issues.push({ level: 'error', code: 'age_mismatch', where: `p${i + 1}s1`, msg: `${d.age_from}-${d.age_to}: ${p.sentences[0].text}` });
+      issues.push({ level: 'error', code: 'age_mismatch', where: `p${pi + 1}s1`, msg: `${d.age_from}-${d.age_to}: ${p.sentences[0].text}` });
   });
   return {
     engine, kbVersion: k.version, chapter: 'van_han', palace: 'Đại hạn', schema: 'VAN_HAN', order: ['TIMING'], draft: usable && L!.status !== 'approved',
     paragraphs, text: paragraphs.map(p => p.text).join('\n\n'), issues, metrics, pass: !issues.some(i => i.level === 'error'),
     decades: decades.map(d => ({ age_from: d.age_from, age_to: d.age_to, palace: d.palace, branch: d.branch })),
+    starts,
     evidence: { resolved: [], tensions: [], unused: [], rules, concepts: {}, divergences: [] },
   };
+}
+
+/** The requested year (chart.year): where the year sits in the đại hạn, its tiểu hạn palace read like a hạn (Khảo Luận pp.230-233, Toàn
+ *  Thư nhập hạn ca), the lưu Thái Tuế palace, and the year stem's lưu Tứ Hóa with Khảo Luận's per-star advice (pp.195-197). */
+function yearParagraphs(chart: ChartInput, k: Knowledge, L: VanHanLibrary, m: Micro, S: () => string,
+  sentence: (text: string, ids: string[], cites: string[], basis?: ProseSentence['trace']['basis'], tone?: 'pos' | 'neg' | 'answer') => ProseSentence,
+  dom: (pal: string) => string): ProseParagraph[] {
+  const y = chart.year as ChartInput['year'] & { tieu_han_kl?: KlFacts; tieu_han_tt?: Tt; luu_tu_hoa_reading?: Array<{ hoa: string; star: string; palace: string | null; advice: string; position_note: string | null }> };
+  if (!y?.tieu_han_palace || !y.dai_han) return [];
+  const key = `ln|${y.year}`, xs: ProseSentence[] = [], ys: ProseSentence[] = [];
+  const th = chart.palaces.find(p => p.name === y.tieu_han_palace)!;
+  xs.push(sentence(fill(m.pick(`${key}|frame`, L.year.frame), { year: String(y.year), pillar: y.annual_pillar ?? '', S: S(), age: String(y.age_tuoi_mu), dh_from: String(y.dai_han.age_from),
+    dh_to: String(y.dai_han.age_to), dh_pal: y.dai_han.palace, th_pal: th.name, th_br: th.branch, th_dom: dom(th.name) }), [], ['TH p.27'], 'tinh_toan'));
+  const kl = y.tieu_han_kl;
+  if (kl && L.kl_rel[kl.relation]) xs.push(sentence(fill(m.pick(`${key}|kl`, L.kl_rel[kl.relation]).replace(/mười năm này/g, 'năm này').replace(/[Cc]ung hạn/g, x => x[0] === 'C' ? 'Cung tiểu hạn' : 'cung tiểu hạn'), { yb: chart.year_gz.split(' ')[1] }),
+    [], ['KL pp.230-233'], 'tinh_toan', (L.kl_rel_tone[kl.relation] || undefined) as 'pos' | 'neg' | undefined));
+  for (const t of (y.tieu_han_tt ?? []).slice(0, 2)) {
+    const body = t.text.replace(/^Hạn\s+/, '');
+    xs.push(sentence(/^\p{Ll}/u.test(body) ? `Tiểu hạn năm nay: ${lowerFirst(t.text)}` : `Ở tiểu hạn năm nay, ${body}`, [], ['TT pp.97-105'], 'pho_thong', HARD.test(body) ? 'neg' : 'pos'));
+  }
+  if (y.luu_thai_tue_palace) xs.push(sentence(fill(m.pick(`${key}|ltt`, L.year.luu_thai_tue), { pal: y.luu_thai_tue_palace, dom: dom(y.luu_thai_tue_palace) }), [], [], 'pho_thong'));
+  for (const r of y.luu_tu_hoa_reading ?? []) {
+    if (!r.palace) continue;
+    // what the Hóa brings to the palace it lands in (pho_thong card); Khảo Luận's own position note is generic or lists other palaces
+    const mean = (k.prose?.phoThong as { hoa?: Record<string, Record<string, string>> } | undefined)?.hoa?.[r.hoa]?.[r.palace];
+    const note = mean ? `: ${mean}` : r.position_note && r.hoa !== 'Hóa Quyền' ? `, ${r.position_note}` : '';
+    ys.push(sentence(fill(m.pick(`${key}|${r.hoa}`, L.year.luu_hoa), { hoa: r.hoa, pillar: y.annual_pillar ?? '', star: r.star, pal: r.palace, note, advice: r.advice }), [], ['KL pp.195-197'], 'tinh_toan',
+      r.hoa === 'Hóa Kỵ' ? 'neg' : 'pos'));
+  }
+  // what holds the year up and what to do: the tiểu hạn palace's balance (deep.ts)
+  ys.push(...readPalace(chart, k, th.name, m, { key: key, lead: false }).balance);
+  return [xs, ys].filter(p => p.length).map(p => ({ role: 'course' as const, sentences: p, text: p.map(s => s.text).join(' ') }));
 }
 
 export type { Decade };

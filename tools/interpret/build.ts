@@ -95,7 +95,17 @@ const knowledge = {
     const { anchor, anchor_palace, via, dignity, subject, other } = read(join(P, 'frames.json'));
     return { version: '0.1.0', concepts: cards, frames: { anchor, anchor_palace, via, dignity, subject, other }, modifiers: read(join(P, 'modifiers.json')).modifiers,
       schemas: read(join(P, 'schemas.json')).schemas, connectives: read(join(P, 'connectives.json')).connectives,
-      vanhan: (({ note: _n, ...v }) => v)(read(join(P, 'van_han.json'))), reasoning: (({ note: _n, ...v }) => v)(read(join(P, 'reasoning_frames.json'))), bazi: (({ note: _n, ...v }) => v)(read(join(P, 'bat_tu.json'))) };
+      vanhan: (({ note: _n, ...v }) => v)(read(join(P, 'van_han.json'))), reasoning: (({ note: _n, ...v }) => v)(read(join(P, 'reasoning_frames.json'))), bazi: (({ note: _n, ...v }) => v)(read(join(P, 'bat_tu.json'))),
+      structure: (({ note: _n, ...v }) => v)(read(join(P, 'structure.json'))),
+      // pho_thong cards: chính tinh × cung (chinh_tinh_*.json) and phụ tinh templates (phu_tinh.json), all draft
+      phoThong: (() => {
+        const D = join(P, 'pho_thong'), fs = existsSync(D) ? readdirSync(D).filter(f => f.endsWith('.json')).sort() : [];
+        const chinh = Object.assign({}, ...fs.filter(f => f.startsWith('chinh_tinh')).map(f => read(join(D, f)).stars));
+        const phu = fs.includes('phu_tinh.json') ? read(join(D, 'phu_tinh.json')).stars : {};
+        const hoa = fs.includes('tu_hoa_cung.json') ? read(join(D, 'tu_hoa_cung.json')).hoa : {};
+        const bazi = fs.includes('bat_tu.json') ? (({ note: _n, ...v }) => v)(read(join(D, 'bat_tu.json'))) : undefined;
+        return { status: 'draft', chinh, phu, hoa, bazi };
+      })() };
   })(),
 };
 const version = createHash('sha256').update(JSON.stringify(knowledge)).digest('hex').slice(0, 16);

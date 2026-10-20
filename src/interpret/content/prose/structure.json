@@ -1,0 +1,168 @@
+{
+  "note": "Lớp cấu trúc của một cung (plan async-inventing-fairy A1): vai trò cung (KL pp.214-220), chính tinh và độ sáng đã đối chiếu, nhóm sao (KL pp.166-167), cát/sát ở tam phương tứ chính, Tứ Hóa (KL pp.195-197), Tuần/Triệt, rồi đoạn cân bằng: điều giữ thăng bằng và hướng nên đi. Câu chữ do Claude soạn, bản nháp. {pal} tên cung, {role} vai trò cung, {domain} lĩnh vực ngắn (domain_short), {S} người xem (không bao giờ đứng đầu câu).",
+  "status": "draft",
+  "domain": [
+    "Cung {pal} là nơi xem {role}.",
+    "Trong lá số, cung {pal} nói về {role}.",
+    "Cung {pal} soi vào {role}."
+  ],
+  "majors": [
+    "Chính tinh của cung là {stars}, an tại {br}.",
+    "Cung đóng ở {br}, với {stars} làm chủ.",
+    "Tại {br}, cung có {stars} tọa thủ."
+  ],
+  "level": {
+    "miếu": "miếu địa",
+    "vượng": "vượng địa",
+    "đắc": "đắc địa",
+    "bình": "bình hòa",
+    "hãm": "hãm địa"
+  },
+  "level_gist": {
+    "bright": [
+      "Sao đứng chỗ sáng nên nét tốt dễ hiện ra trọn vẹn.",
+      "Sao sáng thì sức sao phát huy đầy đủ, mặt tốt dễ thấy."
+    ],
+    "dim": [
+      "Sao đứng chỗ kém sáng nên nét tốt khó phát hết, còn mặt trái dễ lộ hơn.",
+      "Sao kém sáng thì sức sao yếu đi, điều hay phải gắng mới thành."
+    ],
+    "mixed": [
+      "Một sao sáng, một sao kém sáng, nên trong cung có chỗ mạnh lẫn chỗ phải bù đắp."
+    ]
+  },
+  "group": [
+    "{star} thuộc {note}.",
+    "Về tính chất, {star} nằm trong {note}."
+  ],
+  "vcd": [
+    "Cung {pal} vô chính diệu, nên mượn {opp_majors} của cung {opp} chiếu sang để xét; ảnh hưởng vì thế đến gián tiếp và tùy nhiều vào các phụ tinh trong cung.",
+    "Cung {pal} không có chính tinh; khi xét thường mượn {opp_majors} từ cung {opp} đối diện, nên các phụ tinh tại chỗ có tiếng nói lớn hơn thường lệ."
+  ],
+  "vcd_empty": [
+    "Cung {pal} vô chính diệu và cung đối diện cũng không có chính tinh, nên chuyện {domain} chủ yếu do các phụ tinh và tam phương quyết định."
+  ],
+  "tp": {
+    "cat": [
+      "Xét tam phương tứ chính, cung hội được {cats}, là thế được nâng đỡ cho chuyện {domain}.",
+      "Từ tam phương tứ chính, {cats} chiếu về, nên chuyện {domain} có nhiều trợ lực."
+    ],
+    "sat": [
+      "Tam phương tứ chính có {sats}, nên chuyện {domain} thường phải qua va chạm, thử thách rồi mới thành.",
+      "Ở tam phương tứ chính, {sats} hội về: mặt {domain} nhiều sóng gió hơn, đòi sự bền bỉ."
+    ],
+    "mixed": [
+      "Tam phương tứ chính vừa có cát tinh ({cats}) vừa có sát tinh ({sats}): thuận lợi và trở ngại đi cùng nhau.",
+      "Quanh cung, cát tinh ({cats}) và sát tinh ({sats}) cùng hội, nên chuyện {domain} có lúc được giúp, có lúc phải gồng."
+    ],
+    "quiet": [
+      "Tam phương tứ chính khá yên, ít cả cát tinh lẫn sát tinh lớn, nên mặt {domain} chủ yếu dựa vào chính tinh.",
+      "Quanh cung không có nhiều sao lớn hội về, nên chuyện {domain} đi theo nhịp của chính tinh là chính."
+    ]
+  },
+  "hoa_self": [
+    "{hoa} đóng ngay tại cung {pal}, mang nghĩa {meaning}{note}.",
+    "Cung {pal} có {hoa} theo can năm sinh, tức {meaning}{note}."
+  ],
+  "hoa_tp": [
+    "{hoas} từ tam phương chiếu về cung, nên chuyện {domain} có phần nhuốm màu của các Hóa ấy.",
+    "Từ tam phương tứ chính, {hoas} rọi về, ảnh hưởng gián tiếp đến chuyện {domain}."
+  ],
+  "tuan": [
+    "Tuần án ngữ tại cung: sức của các sao trong cung bị chặn bớt, điều tốt đến chậm hơn mà điều xấu cũng nhẹ đi.",
+    "Cung có Tuần: các sao tốt lẫn xấu đều giảm lực, việc thường thành muộn hơn dự tính."
+  ],
+  "triet": [
+    "Triệt đóng tại cung như một nhát cắt: sao tốt giảm sức, sao xấu cũng bị bẻ gãy phần dữ, việc dễ khựng lúc đầu rồi mới thông.",
+    "Có Triệt ở cung, khởi đầu chuyện {domain} hay gặp trắc trở, nhưng phần hung của sát tinh cũng bị cắt bớt."
+  ],
+  "stars_kind": {
+    "cat": [
+      "Tả Phụ",
+      "Hữu Bật",
+      "Văn Xương",
+      "Văn Khúc",
+      "Thiên Khôi",
+      "Thiên Việt",
+      "Lộc Tồn"
+    ],
+    "sat": [
+      "Kình Dương",
+      "Đà La",
+      "Hỏa Tinh",
+      "Linh Tinh",
+      "Địa Không",
+      "Địa Kiếp"
+    ],
+    "rescue": [
+      "Tả Phụ",
+      "Hữu Bật",
+      "Thiên Khôi",
+      "Thiên Việt",
+      "Lộc Tồn",
+      "Thiên Quan",
+      "Thiên Phúc",
+      "Ân Quang",
+      "Thiên Quý",
+      "Thiên Giải",
+      "Địa Giải",
+      "Giải Thần"
+    ]
+  },
+  "colour_lead": {
+    "pair": [
+      "Bên cạnh đó, {star} cùng cung bổ thêm một nét: {text}",
+      "Thêm vào đó, với {star}: {text}"
+    ],
+    "borrow": [
+      "Nét mượn từ {star} của cung đối: {text}",
+      "Qua {star} chiếu sang từ cung đối, {text}"
+    ],
+    "pair_named": [
+      "Bên cạnh đó, {text}",
+      "Thêm vào đó, {text}"
+    ],
+    "borrow_named": [
+      "Xét phần mượn từ cung đối, {text}",
+      "Từ cung đối chiếu sang, {text}"
+    ]
+  },
+  "minor_lead": [
+    "Trong các phụ tinh của cung, đáng chú ý là {stars}.",
+    "Đáng kể nhất trong số phụ tinh tại cung là {stars}."
+  ],
+  "balance": {
+    "rescue": [
+      "Điều giữ thăng bằng cho cung này là {rescuers}: những sao ấy làm dịu phần khó và mở lối ra.",
+      "Phần khó ở đây có chỗ đỡ: {rescuers} cùng có mặt quanh cung, giúp việc xoay chuyển được.",
+      "Cái được ở cung này là có {rescuers} nâng đỡ, nên trở ngại không đến mức bế tắc."
+    ],
+    "self": [
+      "Cung ít sao giải, nên sự tự chủ và bền bỉ của chính {S} là chỗ dựa lớn nhất cho chuyện {domain}.",
+      "Quanh cung không nhiều sao cứu giải, vì vậy chuyện {domain} trông vào sự chủ động của {S} hơn là vận may."
+    ],
+    "good": [
+      "Nhìn chung, chuyện {domain} có nền khá vững; điều cần là giữ được cái thuận ấy lâu dài.",
+      "Tổng thể, cung này thuận nhiều hơn nghịch, là một chỗ dựa của lá số."
+    ],
+    "advice": [
+      "Hướng nên đi: {advice}.",
+      "Điều nên làm là {advice}.",
+      "Để phần tốt của cung được trọn, {S} nên {advice}."
+    ]
+  },
+  "domain_short": {
+    "Mệnh": "bản thân",
+    "Phụ Mẫu": "cha mẹ, bề trên",
+    "Phúc Đức": "phúc phần, đời sống tinh thần",
+    "Điền Trạch": "nhà cửa, tài sản",
+    "Quan Lộc": "công danh, sự nghiệp",
+    "Nô Bộc": "bạn bè, người cộng sự",
+    "Thiên Di": "đi xa, giao thiệp bên ngoài",
+    "Tật Ách": "sức khỏe",
+    "Tài Bạch": "tiền bạc",
+    "Tử Tức": "con cái",
+    "Phu Thê": "hôn nhân",
+    "Huynh Đệ": "anh chị em"
+  }
+}

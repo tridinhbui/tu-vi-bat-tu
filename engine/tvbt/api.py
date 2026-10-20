@@ -88,9 +88,12 @@ def chart_facts(req: BirthReq):
     """Chart facts for the TypeScript interpretation pipeline (src/interpret): the same fact base the Python rule engine reads
     (reasoning/facts.py), plus palaces, Tứ Hóa, every đại hạn with its stem's Tứ Hóa landing and the Khảo Luận / Thực Hành vận
     readings for it, and the requested year. Pure data, nothing interpreted; the TS engine runs the rules itself."""
-    from . import van_han
+    from . import analysis, van_han
     from .ganzhi import STEMS_VI
     nb, bz, tv = _compute(req)
+    from . import van_han_tt
+    from .ganzhi import BRANCHES_VI as _BR
+    ybr = _BR.index(tv.year_gz.split(" ")[1])
     base = facts.tuvi_facts(tv)
     star_pal = {s: p["name"] for p in tv.palaces for s in p["stars"]}
     decades = []
@@ -99,7 +102,9 @@ def chart_facts(req: BirthReq):
         stem = pal["stem"]
         hoa = dict(zip(("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"), tuvi.TU_HOA[STEMS_VI.index(stem)]))
         decades.append({**d, "palace": pal["name"], "stem": stem, "hoa": {k: {"star": v, "palace": star_pal.get(v)} for k, v in hoa.items()},
-                        "readings": van_han.read_traced(tv, pal["name"])})
+                        "readings": van_han.read_traced(tv, pal["name"]),
+                        # Toàn Thư nhập hạn ca (van_han_tt, pp.97-105, paraphrased, page check pending) and Khảo Luận pp.230-233 as data
+                        "tt": van_han_tt.read(tv, pal), "kl": analysis.dai_van_facts(tv, pal["branch_index"], ybr)})
     year = req.to_year or req.year + 30
     # Bát Tự: the fact base the Python engine reads for system 'bat_tu' (the same call as /api/analysis, so the same rules can fire), and
     # the computed pillars, ten gods and luck pillars for the chapter's frame. Data only.
@@ -114,11 +119,35 @@ def chart_facts(req: BirthReq):
                           "ten_god": lp.ten_god} for lp in bz.luck_pillars],
                 "kong_wang_day": bz.extras.get("kong_wang_day", []),
                 # pillar relations (hợp, xung, hại, phá, hình) for the per-chapter Bát Tự prose; pillar ids as "year-hour"
-                "relations": {k: [{"pillars": r["pillars"]} for r in v if "pillars" in r] for k, v in bz.relations.items()}}
+                "relations": {k: [{"pillars": r["pillars"]} for r in v if "pillars" in r] for k, v in bz.relations.items()},
+                # structure analysis for the prose: strength (TVH), điều hậu (TVH table), phù ức, cách, luck pillars (bazi_deep.pipeline)
+                "deep": _bazi_deep(bz, nb, req.gender)}
     return {"engine": "tvbt-facts-1", "dignity_school": req.dignity_school, "birth_year": req.year, "lunar_year": tv.lunar["year"],
             "gender": req.gender, "year_gz": tv.year_gz, "cuc": tv.cuc, "menh_nap_am": tv.menh_nap_am, "menh_cuc_relation": tv.menh_cuc_relation,
             "yin_yang_gender": tv.yin_yang_gender, "dai_han_direction": tv.dai_han_direction,
-            "palaces": tv.palaces, "tu_hoa": tv.tu_hoa, "base": base, "decades": decades, "year": temporal.tuvi_year(tv, year), "bazi": bazi_out}
+            "palaces": tv.palaces, "tu_hoa": tv.tu_hoa, "base": base, "decades": decades, "year": _year_facts(tv, year, ybr), "bazi": bazi_out}
+
+
+def _bazi_deep(bz, nb, gender: str) -> dict | None:
+    from .bazi_deep import pipeline
+    from .bazi_deep.model import ChartView
+    try:
+        luck = [{"index": l.index, "stem": l.stem, "branch": l.branch, "start_year_exact": l.start_year_exact} for l in bz.luck_pillars]
+        return pipeline.prose_summary(ChartView.from_bazi(bz, nb.utc, gender), luck)
+    except Exception:  # the analysis is an extra: a chart it cannot read keeps the rest of the facts
+        return None
+
+
+def _year_facts(tv, year: int, ybr: int) -> dict:
+    """The requested year (temporal.tuvi_year) plus, for its tiểu hạn palace, the Toàn Thư nhập hạn ca readings and the Khảo Luận
+    pp.230-233 facts, the same two views the đại hạn paragraphs use."""
+    from . import analysis, van_han_tt
+    y = temporal.tuvi_year(tv, year)
+    pal = next((p for p in tv.palaces if p["name"] == y.get("tieu_han_palace")), None)
+    if pal:
+        y["tieu_han_tt"] = van_han_tt.read(tv, pal)
+        y["tieu_han_kl"] = analysis.dai_van_facts(tv, pal["branch_index"], ybr)
+    return y
 
 
 @app.post("/api/synthesis")

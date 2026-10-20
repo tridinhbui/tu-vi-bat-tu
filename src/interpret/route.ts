@@ -13,6 +13,8 @@ export interface InterpretDeps {
   enabled: boolean;                                         // TVBT_INTERPRET === "1"
   proseDraft: boolean;                                      // TVBT_PROSE_DRAFT === "1": mode "prose" may use draft cards
   reasoner?: boolean;                                       // TVBT_REASONER === "1": mode "reasoned" (Mệnh only, plan quirky-tinkering-rabin); off unless set
+  /** prose mode: the structure, common-meaning and balance layers around the book readings (prose/deep.ts); on unless set false */
+  deep?: boolean;
   facts: (birth: Record<string, unknown>) => Promise<Response>;
   store: KnowledgeStore; cache: OutputCache; defer: (p: Promise<unknown>) => void;
 }
@@ -39,16 +41,16 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   const facts = await factsRes.json() as ChartInput;
   const k = await d.store.load();
   // the Bát Tự chapter reads facts.bazi (pillars, luck), the others the Tử Vi facts; both go into the key so no chapter can hit a stale entry
-  const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, mode, mode === 'prose' ? [PROSE_VERSION, d.proseDraft] : mode === 'reasoned' ? [NARRATIVE_VERSION, d.proseDraft] : null]);
+  const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, mode, mode === 'prose' ? [PROSE_VERSION, d.proseDraft, d.deep !== false] : mode === 'reasoned' ? [NARRATIVE_VERSION, d.proseDraft] : null]);
   const hit = await d.cache.get(key);
   if (hit) return new Response(hit, { headers: { 'content-type': 'application/json; charset=utf-8', 'x-interpret-cache': 'hit' } });
   const out = mode === 'reasoned' ? (o => ({ ...o, plan: planView(o.plan) }))(reasonedChapter(facts, k, { allowDraft: d.proseDraft }))
     : mode !== 'prose' ? interpret(facts, chapter, k)
     : chapter === ('all' as Chapter) ? (cs => ({ engine: PROSE_VERSION, kbVersion: k.version, chapters: cs, pass: cs.every(c => c.pass) }))(
-        [...proseReport(facts, k, { allowDraft: d.proseDraft }), proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)])
+        [...proseReport(facts, k, { allowDraft: d.proseDraft, deep: d.deep !== false }), proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)])
     : chapter === ('van_han' as Chapter) ? proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)
     : chapter === ('bat_tu' as Chapter) ? proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)
-    : proseChapter(facts, k, chapter as ProseChapterId, { allowDraft: d.proseDraft });
+    : proseChapter(facts, k, chapter as ProseChapterId, { allowDraft: d.proseDraft, deep: d.deep !== false });
   const text = JSON.stringify(out);
   const pass = 'quality' in out ? out.quality.pass : out.pass;
   d.defer(d.cache.put(key, chapter, text, { engine: mode === 'prose' ? PROSE_VERSION : mode === 'reasoned' ? NARRATIVE_VERSION : ENGINE_VERSION, kb: k.version, pass }));

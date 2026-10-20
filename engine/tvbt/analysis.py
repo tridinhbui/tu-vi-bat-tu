@@ -45,6 +45,21 @@ def age_vs_dai_van(age_e: str, dv_e: str) -> tuple[str, str]:
     return "đại vận khắc tuổi", "bất lợi nhất: dễ gặp trở ngại, thất bại trong làm ăn"
 
 
+def dai_van_facts(tv, branch_index: int, year_branch: int) -> dict:
+    """Khảo Luận pp.230-233 as data for one vận palace (the TS prose voices it): the tam hợp of the vận against the birth year's, whether
+    the vận's tam hợp controls the opposite palace's (it then takes the opposite's good stars and refuses its bad ones), whether the nhị hợp
+    palace generates the vận (its stars then count), whether the vận sits in the Thái Tuế – Quan Phù – Bạch Hổ triad, and the palace topic."""
+    age_e, dv_e = TRIAD_ELEM[year_branch], TRIAD_ELEM[branch_index]
+    rel, verdict = age_vs_dai_van(age_e, dv_e)
+    opp, nh = (branch_index + 6) % 12, (1 - branch_index) % 12
+    by_b = {p["branch_index"]: p for p in tv.palaces}
+    return {"src": "Khảo Luận pp.230-233", "age_element": age_e, "van_element": dv_e, "relation": rel, "verdict": verdict,
+            "xung_controlled": controls(dv_e, TRIAD_ELEM[opp]), "opp_majors": by_b[opp]["major_stars"],
+            "nhi_hop": {"branch": BRANCHES_VI[nh], "palace": by_b[nh]["name"], "counts": generates(TRIAD_ELEM[nh], dv_e), "majors": by_b[nh]["major_stars"]},
+            "thai_tue_triad": branch_index in {year_branch, (year_branch + 4) % 12, (year_branch + 8) % 12},
+            "event": DV_EVENT.get(by_b[branch_index]["name"])}
+
+
 def dai_van_reading(v, tv, year_branch: int):
     """Khảo Luận pp.230-233: five-step reading of a đại hạn palace (element of the tam hợp vs the birth year, xung chiếu, nhị hợp, stars, palace topic)."""
     age_e = TRIAD_ELEM[year_branch]

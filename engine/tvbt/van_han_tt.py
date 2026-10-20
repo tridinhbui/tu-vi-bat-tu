@@ -39,9 +39,11 @@ def read(tv, v: dict) -> list[dict]:
     dim = lambda s: lv(s) == "hãm"
 
     if star("Tử Vi"):
-        add("Hạn đến Tử Vi ở thế đẹp, nhiều sao tốt: phúc lộc đầy đủ, người thường kiếm thêm tiền, người có chức dễ thăng tiến.")
+        # the verse's exception replaces its general reading: never both
         if tp_stars & {"Thất Sát", "Phá Quân", "Tham Lang"}:
             add("Tử Vi nhập hạn nhưng tam phương có Thất Sát, Phá Quân hoặc Tham Lang: người thường kém thuận lợi, người có chức dễ bị giáng.")
+        else:
+            add("Hạn đến Tử Vi ở thế đẹp, nhiều sao tốt: phúc lộc đầy đủ, người thường kiếm thêm tiền, người có chức dễ thăng tiến.")
     if star("Thiên Cơ"):
         if hoa & {"Hóa Khoa", "Hóa Quyền", "Hóa Lộc"}:
             add("Hạn Thiên Cơ gặp Khoa, Quyền hoặc Lộc: ra vào làm ăn, kinh doanh được quý nhân giúp đỡ, vinh hiển.")
@@ -85,8 +87,10 @@ def read(tv, v: dict) -> list[dict]:
     if star("Phá Quân"):
         if good("Phá Quân"):
             add("Hạn Phá Quân miếu địa: phúc lộc dồi dào" + ("; thêm Xương, Khôi, Việt thì cuộc sống phong quang." if stars & {"Văn Xương", "Thiên Khôi", "Thiên Việt"} else "."))
-        elif dim("Phá Quân") or sat_tp:
+        elif sat_tp:
             add("Hạn Phá Quân gặp sát tinh: dễ thất thoát, hao tài.")
+        elif dim("Phá Quân"):
+            add("Hạn Phá Quân hãm địa: dễ thất thoát, hao tài.")
     if "Lộc Tồn" in stars:
         add("Hạn Lộc Tồn: rất tốt, mưu sự hay, người có chức dễ chuyển chức, người thường phát tài; cũng là hạn thuận cho hôn nhân, con cái.")
     if "Kình Dương" in stars and v["branch"] in ("Thìn", "Tuất", "Sửu", "Mùi"):

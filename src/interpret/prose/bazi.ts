@@ -8,6 +8,7 @@ import type { ChartInput, Finding, Knowledge } from '../types.ts';
 import { Micro, finish, lowerFirst } from './micro.ts';
 import type { ProseParagraph, ProseSentence } from './realize.ts';
 import { validateProse } from './validate.ts';
+import { deepBazi, type BaziCards, type BaziDeepFrames } from './bazi_deep.ts';
 
 export interface BaziLibrary {
   status: 'draft' | 'approved';
@@ -16,6 +17,8 @@ export interface BaziLibrary {
   direct: string[]; direct_same: string[];
   /** which report chapter tells which topic's judgements, and the frames of the per-chapter calculated sentences */
   chapter_topics?: Record<string, string[]>; frames?: Record<string, string[]>;
+  /** the structure chapters (bazi_deep.ts): strength, điều hậu, phù ức, cách, luck pillars */
+  deep?: BaziDeepFrames;
 }
 export type BaziChapterId = 'nhat-chu' | 'ngu-hanh' | 'su-nghiep' | 'quan-he' | 'dai-van' | 'cach-cuc';
 const STEM_EL: Record<string, string> = { 'Giáp': 'Mộc', 'Ất': 'Mộc', 'Bính': 'Hỏa', 'Đinh': 'Hỏa', 'Mậu': 'Thổ', 'Kỷ': 'Thổ', 'Canh': 'Kim', 'Tân': 'Kim', 'Nhâm': 'Thủy', 'Quý': 'Thủy' };
@@ -130,6 +133,10 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
     chapters['quan-he'] = [...para('core', topics('quan-he')), ...para('support', qh)];
     chapters['dai-van'] = para('core', dv);
     chapters['cach-cuc'] = para('core', topics('cach-cuc'));
+    // the structure analysis (facts.bazi.deep): appended to the chapters it belongs to, and to the whole reading in chapter order
+    const deep = deepBazi(chart, k, m, L!.deep, (k.prose?.phoThong as { bazi?: BaziCards } | undefined)?.bazi, rules);
+    for (const [id, ps] of Object.entries(deep) as Array<[BaziChapterId, ProseParagraph[]]>) chapters[id] = [...(chapters[id] ?? []), ...ps];
+    for (const id of ['nhat-chu', 'cach-cuc', 'ngu-hanh', 'su-nghiep', 'quan-he', 'dai-van'] as const) paragraphs.push(...(deep[id] ?? []));
     for (const id of Object.keys(chapters) as BaziChapterId[]) if (!chapters[id]!.length) delete chapters[id];
   }
   const { issues, metrics } = validateProse(paragraphs, []);
@@ -137,7 +144,7 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
     engine, kbVersion: k.version, chapter: 'bat_tu', palace: 'Bát Tự', schema: 'BAT_TU', order: ['ANCHOR'], draft: usable && L!.status !== 'approved',
     paragraphs, text: paragraphs.map(p => p.text).join('\n\n'), issues, metrics, pass: !issues.some(i => i.level === 'error'),
     evidence: { resolved: [], tensions: [], unused: [], rules, concepts: {}, divergences: [],
-      limits: ['vượng/nhược của nhật chủ, dụng thần và cách cục: chưa có quy tắc đã đối chiếu sách nên không đưa vào văn',
+      limits: ['cách cục và phép phù ức: định nghĩa của hệ thống, chưa đối chiếu sách (câu ghi \'phổ thông\'); vượng/nhược theo điểm Thiệu Vĩ Hoa và điều hậu theo bảng Thiệu Vĩ Hoa đã đối chiếu',
         ...(P?.drafts.length ? [`${P.drafts.length} nhận định Bát Tự còn ở dạng nháp, không đưa vào văn`] : [])] },
     chapters,
   };

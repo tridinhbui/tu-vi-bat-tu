@@ -30,15 +30,17 @@ test('worked example: golden text, ages straight from chart.decades, every sente
   assert.ok(o.pass, JSON.stringify(o.issues));
   const want = (ex.facts as ChartInput).decades.filter(d => d.age_from <= VAN_HAN_LAST_START);
   assert.deepEqual(o.decades.map(d => [d.age_from, d.age_to, d.palace]), want.map(d => [d.age_from, d.age_to, d.palace]));
+  // a book sentence names its rules and pages; a computed or common-meaning sentence (deep layers) says which it is
   for (const s of o.paragraphs.flatMap(p => p.sentences)) {
-    assert.ok(s.trace.rules.length && s.trace.cites.length, s.text);
+    if (s.trace.basis === 'sach') assert.ok(s.trace.rules.length && s.trace.cites.length, s.text);
+    else assert.ok(['tinh_toan', 'pho_thong'].includes(s.trace.basis), s.text);
     for (const id of s.trace.rules) assert.ok(o.evidence.rules[id]?.cites.length, id);
   }
   assert.equal(run(JSON.parse(JSON.stringify(ex.facts))).text, o.text, 'deterministic');
   assert.equal(run(ex.facts, false).paragraphs.length, 0, 'draft library: nothing without allowDraft');
 });
 
-test('1,000 charts: no blocking error, ages always the chart\'s, no sinh nhập sentence, up/down conflicts never voiced one-sided',
+test('1,000 charts: no blocking error, ages always the chart\'s, Thiên Lương never voiced on sinh nhập, up/down conflicts never voiced one-sided',
   { skip: !existsSync(corpusUrl) && 'corpus not built' }, () => {
   const corpus = JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8'));
   let paras = 0, conflicts = 0;
@@ -46,8 +48,11 @@ test('1,000 charts: no blocking error, ages always the chart\'s, no sinh nhập 
     const f = c.facts as ChartInput, o = run(f);
     assert.ok(o.pass, `${c.label}: ${JSON.stringify(o.issues)}`);
     const want = f.decades.filter(d => d.age_from <= VAN_HAN_LAST_START);
-    assert.equal(o.paragraphs.length, want.length);
-    o.paragraphs.forEach((p, i) => {
+    assert.equal(o.starts.length, want.length);
+    o.starts.forEach((pi, i) => {
+      // a decade's sentences: its first paragraph and, when present, the one after it up to the next decade
+      const end = o.starts[i + 1] ?? o.paragraphs.findIndex((q, j) => j > pi && /^Năm \d{4}/.test(q.sentences[0].text));
+      const ps = o.paragraphs.slice(pi, end < 0 ? undefined : end), p = { sentences: ps.flatMap(q => q.sentences) };
       paras++;
       assert.match(p.sentences[0].text, new RegExp(`${want[i].age_from}\\D+${want[i].age_to} tuổi`));
       const ids = p.sentences.flatMap(s => s.trace.rules);

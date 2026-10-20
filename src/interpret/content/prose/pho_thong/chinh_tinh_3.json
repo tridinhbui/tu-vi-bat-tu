@@ -1,0 +1,303 @@
+{
+  "status": "draft",
+  "basis": "pho_thong",
+  "note": "Nghĩa chính tinh theo cung, theo thông lệ phổ biến; Claude soạn, chưa đối chiếu sách, chờ duyệt.",
+  "stars": {
+    "Thiên Tướng": {
+      "Mệnh": {
+        "core": "Thiên Tướng ở Mệnh thường cho thấy {S} là người chính trực, điềm đạm, coi trọng lẽ phải, hay bênh vực kẻ yếu và chuộng vẻ ngoài chỉn chu.",
+        "bright": "Khi sao sáng, {S} có uy tín tự nhiên, được tin cậy giao việc lớn và biết dùng lòng tốt của mình một cách khéo léo.",
+        "dim": "Khi sao tối, lòng tốt dễ bị lợi dụng, {S} có thể ôm việc người khác quá sức hoặc giữ thể diện mà chịu thiệt.",
+        "advice": "giữ lòng chính trực nhưng biết từ chối những việc không thuộc phần mình"
+      },
+      "Phụ Mẫu": {
+        "core": "Với cung Phụ Mẫu, Thiên Tướng gợi hình ảnh cha mẹ đứng đắn, có nề nếp, thường che chở con cái và dạy dỗ theo khuôn phép rõ ràng.",
+        "bright": "Sao sáng thì cha mẹ có vị thế, được nể trọng, và {S} hưởng được sự nâng đỡ vững vàng từ nhỏ.",
+        "dim": "Sao tối thì sự che chở của bề trên có lúc gián đoạn, hoặc kỳ vọng của cha mẹ khiến {S} thấy nặng nề.",
+        "advice": "trò chuyện cởi mở với bề trên thay vì chỉ làm tròn bổn phận bề ngoài"
+      },
+      "Phúc Đức": {
+        "core": "Thiên Tướng tại Phúc Đức cho thấy nền nếp gia tộc tương đối tề chỉnh, nội tâm {S} hướng về sự ngay thẳng và thường được phúc ấm che chở.",
+        "bright": "Sao sáng thì {S} sống thanh thản, ít day dứt, và trong họ có người giúp đỡ nhau khi gặp việc khó.",
+        "dim": "Sao tối thì {S} dễ tự đặt gánh nặng trách nhiệm cho mình, lòng khó yên khi thấy chuyện bất công quanh mình.",
+        "advice": "dành thời gian chăm sóc đời sống tinh thần và giữ gìn nếp nhà"
+      },
+      "Điền Trạch": {
+        "core": "Ở Điền Trạch, Thiên Tướng thường báo hiệu nhà cửa ngăn nắp, có phần khang trang, và {S} coi trọng việc tạo dựng một chốn ở đàng hoàng.",
+        "bright": "Khi sao sáng, việc an cư tương đối thuận, {S} dễ có nhà đất vững và giữ được tài sản lâu dài.",
+        "dim": "Khi sao tối, chuyện nhà đất dễ vướng thủ tục hoặc phải sửa sang, đổi chỗ vài lần mới ổn.",
+        "advice": "kiểm tra kỹ giấy tờ trước khi mua bán hay sửa chữa nhà đất"
+      },
+      "Quan Lộc": {
+        "core": "Quan Lộc có Thiên Tướng là dấu hiệu của người làm việc có trách nhiệm, hợp vai trò quản lý, điều phối hoặc những ngành cần sự công minh.",
+        "bright": "Sao sáng thì đường công danh vững vàng, {S} dễ giữ chức vị và được cấp trên lẫn cấp dưới nể phục.",
+        "dim": "Sao tối thì {S} dễ phải gánh trách nhiệm thay người khác hoặc bị cản trở bởi thủ tục, thăng tiến chậm hơn mong muốn.",
+        "advice": "phân định rõ quyền hạn và trách nhiệm ngay từ đầu mỗi công việc"
+      },
+      "Nô Bộc": {
+        "core": "Thiên Tướng ở Nô Bộc cho thấy bạn bè, đồng nghiệp phần nhiều tử tế, đứng đắn, và quan hệ thường được xây trên sự tôn trọng lẫn nhau.",
+        "bright": "Sao sáng thì {S} có người giúp đúng lúc, cấp dưới trung thành và bạn bè sẵn lòng nói lời công bằng.",
+        "dim": "Sao tối thì có người bề ngoài đàng hoàng nhưng thiếu thực tâm, hoặc {S} phải đứng ra dàn xếp mâu thuẫn của người khác.",
+        "advice": "chọn bạn qua việc làm lâu dài hơn là qua vẻ ngoài lịch sự"
+      },
+      "Thiên Di": {
+        "core": "Khi ra ngoài, Thiên Tướng giúp {S} gây ấn tượng đáng tin, dễ được người lạ giúp đỡ và thường giữ được hình ảnh tử tế nơi xã hội.",
+        "bright": "Sao sáng thì đi xa hay làm việc ở môi trường mới đều thuận, quý nhân xuất hiện khá tự nhiên.",
+        "dim": "Sao tối thì ra ngoài dễ vướng chuyện bao đồng, hoặc phải lo liệu cho người khác mà bản thân mệt mỏi.",
+        "advice": "giữ sự giúp đỡ người ngoài trong giới hạn sức mình cho phép"
+      },
+      "Tật Ách": {
+        "core": "Thiên Tướng tại Tật Ách thường cho thấy sức chịu đựng khá, nhưng {S} dễ cần lưu ý da dẻ, đường tiết niệu và những căng thẳng do ôm việc.",
+        "bright": "Sao sáng thì khó khăn đến thường có người đỡ, cơ thể hồi phục tương đối nhanh sau mỗi đợt mệt.",
+        "dim": "Sao tối thì {S} dễ cần lưu ý chuyện ăn uống, nghỉ ngơi thất thường và áp lực tinh thần kéo dài.",
+        "advice": "khám định kỳ và tránh gồng mình gánh việc thay người khác quá lâu"
+      },
+      "Tài Bạch": {
+        "core": "Tài Bạch có Thiên Tướng gợi nguồn tiền đến từ công việc ổn định, chức phận rõ ràng, và {S} thường chi tiêu có chừng mực, trọng sự đàng hoàng.",
+        "bright": "Khi sao sáng, tiền bạc tương đối đều đặn, {S} dễ tích lũy và ít khi túng thiếu kéo dài.",
+        "dim": "Khi sao tối, tiền dễ hao vì giữ thể diện, cho vay nể nang hoặc chi cho những khoản bề ngoài.",
+        "advice": "đặt giới hạn rõ cho các khoản chi vì thể diện và cho vay"
+      },
+      "Tử Tức": {
+        "core": "Ở Tử Tức, Thiên Tướng thường mô tả con cái ngoan, biết điều, có tinh thần trách nhiệm, và mối quan hệ cha mẹ con cái khá nề nếp.",
+        "bright": "Sao sáng thì con cái dễ thành người đứng đắn, có chỗ đứng, và biết đỡ đần {S} khi cần.",
+        "dim": "Sao tối thì việc con cái có thể đến muộn hoặc cần nhiều công dạy dỗ, kiên nhẫn hơn bình thường.",
+        "advice": "làm gương bằng nếp sống hằng ngày hơn là bằng lời răn dạy"
+      },
+      "Phu Thê": {
+        "core": "Thiên Tướng ở Phu Thê thường chỉ người phối ngẫu đứng đắn, chỉn chu, biết lo toan, và hôn nhân được giữ bằng sự tôn trọng hơn là đam mê.",
+        "bright": "Sao sáng thì người bạn đời có năng lực, giúp {S} vững vàng, gia đạo êm ấm và có thể diện.",
+        "dim": "Sao tối thì hai người dễ giữ khoảng cách, nói chuyện khuôn sáo, hoặc vì sĩ diện mà chậm làm hòa.",
+        "advice": "nói thẳng cảm xúc thật với nhau thay vì chỉ giữ hòa khí bề ngoài"
+      },
+      "Huynh Đệ": {
+        "core": "Huynh Đệ có Thiên Tướng cho thấy anh chị em phần nhiều tử tế, có trách nhiệm, và khi cần thường sẵn lòng đứng ra giúp nhau.",
+        "bright": "Sao sáng thì anh chị em có người thành đạt, tình thân bền và {S} được nâng đỡ đáng kể.",
+        "dim": "Sao tối thì anh em có lúc xa cách, hoặc {S} phải gánh phần lo toan nhiều hơn những người khác.",
+        "advice": "chia sẻ trách nhiệm gia đình rõ ràng để tình anh em không sứt mẻ"
+      }
+    },
+    "Thiên Lương": {
+      "Mệnh": {
+        "core": "Thiên Lương thủ Mệnh thường cho thấy {S} hiền hậu, có lòng che chở, thích khuyên bảo người khác và hợp những nghề như y, giáo, luật hay tư vấn.",
+        "bright": "Khi sao sáng, {S} được nhiều người kính trọng như bậc đàn anh, gặp nạn thường có cách giải và sống khá thọ.",
+        "dim": "Khi sao tối, {S} dễ khuyên bảo quá mức thành ra bị xa lánh, đôi lúc sống khép mình và thấy cô độc.",
+        "advice": "lắng nghe nhiều hơn khuyên và để người khác tự quyết chuyện của họ"
+      },
+      "Phụ Mẫu": {
+        "core": "Ở Phụ Mẫu, Thiên Lương là dấu hiệu cha mẹ hiền từ, hay lo lắng cho con, và {S} lớn lên trong sự che chở, dạy bảo chu đáo.",
+        "bright": "Sao sáng thì cha mẹ thường sống thọ, có đức độ, để lại cho {S} nhiều bài học quý và chỗ dựa tinh thần.",
+        "dim": "Sao tối thì sự quan tâm của bề trên có thể thành can thiệp nhiều, hoặc có giai đoạn {S} sống xa cha mẹ.",
+        "advice": "biết ơn sự che chở của bề trên nhưng tự đứng vững trên đôi chân mình"
+      },
+      "Phúc Đức": {
+        "core": "Thiên Lương vốn là ấm tinh, khi ở Phúc Đức gợi phúc ấm tổ tiên dày, nội tâm {S} hướng thiện và dễ tìm an ủi trong đời sống tâm linh.",
+        "bright": "Sao sáng thì {S} hưởng phúc lâu bền, gặp khó thường được giải, tâm hồn thanh thản về già.",
+        "dim": "Sao tối thì phúc vẫn còn nhưng mỏng hơn, {S} dễ suy tư nhiều và cảm thấy lẻ loi trong họ hàng.",
+        "advice": "làm việc thiện đều đặn và gìn giữ mối liên hệ với họ hàng"
+      },
+      "Điền Trạch": {
+        "core": "Điền Trạch có Thiên Lương thường gợi nhà cửa thanh tịnh, có thể thừa hưởng của ông cha, và {S} giữ chốn ở như nơi nương tựa yên ổn.",
+        "bright": "Khi sao sáng, {S} dễ được thừa kế hoặc có nhà đất vững, giữ gìn được qua nhiều năm.",
+        "dim": "Khi sao tối, chuyện nhà đất dễ chậm, có khi phải ở nhờ hoặc dời chỗ trước khi ổn định.",
+        "advice": "trân trọng tài sản được trao và tránh vay mượn để mua nhà vội"
+      },
+      "Quan Lộc": {
+        "core": "Quan Lộc có Thiên Lương hợp những công việc mang tính che chở, phục vụ, như y tế, giáo dục, pháp luật, tư vấn hay công việc thiện nguyện.",
+        "bright": "Sao sáng thì {S} có tiếng tốt trong nghề, được tin cậy như người cố vấn và giữ vị trí ổn định.",
+        "dim": "Sao tối thì {S} dễ chọn việc nhàn hơn sức mình, hoặc nói đúng nhưng chưa khéo nên ít được nghe.",
+        "advice": "trau dồi chuyên môn sâu để lời khuyên của mình có sức nặng"
+      },
+      "Nô Bộc": {
+        "core": "Ở Nô Bộc, Thiên Lương cho thấy bạn bè, đồng nghiệp hiền lành, phần nhiều lớn tuổi hơn hoặc giữ vai trò người khuyên bảo đối với {S}.",
+        "bright": "Sao sáng thì {S} có những người bạn như thầy, giúp đỡ tận tình và giữ chữ tín lâu dài.",
+        "dim": "Sao tối thì quan hệ dễ nhạt dần, hoặc {S} phải làm người hòa giải mà ít được đáp lại.",
+        "advice": "trân trọng những người bạn biết góp ý thẳng thắn và đúng lúc"
+      },
+      "Thiên Di": {
+        "core": "Khi ra ngoài, Thiên Lương giúp {S} gặp người tốt giúp đỡ, dễ được tin cậy, và thường tránh được những rắc rối lớn nhờ có quý nhân.",
+        "bright": "Sao sáng thì đi xa an lành, {S} được xã hội kính trọng và có tiếng là người nhân hậu.",
+        "dim": "Sao tối thì ra ngoài {S} dễ thấy lạc lõng, phải tự xoay xở nhiều hơn và hay lo xa.",
+        "advice": "chủ động kết nối với cộng đồng mới thay vì thu mình chờ đợi"
+      },
+      "Tật Ách": {
+        "core": "Thiên Lương là thọ tinh nên ở Tật Ách thường giúp giảm nhẹ hoạn nạn, dù {S} vẫn dễ cần lưu ý dạ dày, tiêu hóa và chuyện lo nghĩ nhiều.",
+        "bright": "Sao sáng thì khi đau yếu thường gặp thầy giỏi, thuốc hợp, và {S} hồi phục khá nhanh.",
+        "dim": "Sao tối thì {S} dễ cần lưu ý những mệt mỏi kéo dài do suy nghĩ, ăn uống không đúng bữa.",
+        "advice": "ăn uống đúng giờ và tìm cách xả bớt những lo lắng trong lòng"
+      },
+      "Tài Bạch": {
+        "core": "Tài Bạch có Thiên Lương thường cho tiền bạc đến từ chuyên môn, tư vấn hay sự giúp đỡ của người khác, và {S} không quá nặng lòng vì của cải.",
+        "bright": "Khi sao sáng, tài chính đủ đầy, gặp lúc túng thường có người giúp, có thể hưởng lộc từ gia đình.",
+        "dim": "Khi sao tối, tiền vào chậm, {S} dễ chi cho người khác nhiều hơn khả năng hoặc lơ là chuyện tích lũy.",
+        "advice": "lập kế hoạch tiết kiệm rõ ràng bên cạnh lòng hào phóng của mình"
+      },
+      "Tử Tức": {
+        "core": "Ở Tử Tức, Thiên Lương thường chỉ con cái hiền lành, hiếu thảo, và {S} có xu hướng bao bọc, dạy dỗ con khá kỹ lưỡng.",
+        "bright": "Sao sáng thì con cái nên người, biết điều, về sau là chỗ dựa tinh thần cho {S}.",
+        "dim": "Sao tối thì con cái có thể đến muộn, ít con, hoặc {S} lo lắng cho con nhiều hơn mức cần thiết.",
+        "advice": "cho con không gian tự trải nghiệm thay vì bao bọc mọi bề"
+      },
+      "Phu Thê": {
+        "core": "Thiên Lương ở Phu Thê thường chỉ người bạn đời chín chắn, hiền hậu, hay chăm lo, và cuộc hôn nhân mang màu sắc che chở, nương tựa lẫn nhau.",
+        "bright": "Sao sáng thì vợ chồng hòa thuận, người phối ngẫu như người bạn tri kỷ, cùng {S} đi đường dài.",
+        "dim": "Sao tối thì người bạn đời dễ hay góp ý, quản nhiều, hoặc hai người có giai đoạn lặng lẽ, ít sẻ chia.",
+        "advice": "giữ sự bình đẳng trong hôn nhân và nói chuyện nhẹ nhàng mỗi ngày"
+      },
+      "Huynh Đệ": {
+        "core": "Huynh Đệ có Thiên Lương cho thấy anh chị em hiền hòa, biết thương nhau, và thường có một người đóng vai trò khuyên bảo, che chở.",
+        "bright": "Sao sáng thì anh em đùm bọc, giúp đỡ nhau lâu dài, {S} có chỗ dựa vững chắc trong nhà.",
+        "dim": "Sao tối thì anh em có thể ít người hoặc sống xa, tình cảm có nhưng khó gần gũi thường xuyên.",
+        "advice": "chủ động giữ liên lạc với anh chị em dù mỗi người một nơi"
+      }
+    },
+    "Thất Sát": {
+      "Mệnh": {
+        "core": "Thất Sát thủ Mệnh là dấu hiệu của tướng tinh, cho thấy {S} quyết đoán, gan dạ, dám làm việc lớn, nhưng tính nóng vội và đời có nhiều thăng trầm.",
+        "bright": "Khi sao sáng, {S} có uy, dám nghĩ dám làm, thường phát đạt nhờ chính sự can đảm và bền chí.",
+        "dim": "Khi sao tối, sự nóng nảy dễ làm hỏng việc, {S} hay lao vào rủi ro khi chưa chuẩn bị đủ.",
+        "advice": "dừng lại cân nhắc một nhịp trước khi đưa ra quyết định lớn"
+      },
+      "Phụ Mẫu": {
+        "core": "Ở Phụ Mẫu, Thất Sát gợi cha mẹ cứng rắn, nghiêm khắc, có thể từng trải qua vất vả, và cách dạy con thiên về rèn luyện kỷ luật.",
+        "bright": "Sao sáng thì cha mẹ có bản lĩnh, truyền cho {S} tính tự lập và ý chí vượt khó.",
+        "dim": "Sao tối thì giữa {S} và bề trên dễ có va chạm, khoảng cách tuổi thơ hoặc ít được gần gũi.",
+        "advice": "hiểu sự nghiêm khắc của bề trên như một cách thương theo kiểu riêng"
+      },
+      "Phúc Đức": {
+        "core": "Thất Sát tại Phúc Đức cho thấy dòng họ từng trải qua biến động, nội tâm {S} ít khi yên nghỉ và thường phải tự mình tạo lấy phúc phần.",
+        "bright": "Sao sáng thì trong họ có người lập nghiệp lớn, {S} được tiếp sức và có ý chí mạnh mẽ.",
+        "dim": "Sao tối thì {S} dễ bồn chồn, khó tìm sự an yên, họ hàng mỗi người một ngả ít gắn kết.",
+        "advice": "tìm một thói quen tĩnh tâm đều đặn để cân bằng sự bôn ba"
+      },
+      "Điền Trạch": {
+        "core": "Điền Trạch có Thất Sát thường cho thấy nhà cửa phải tự gây dựng, ít nhờ của cha ông, và chuyện nhà đất có lúc thay đổi khá mạnh.",
+        "bright": "Khi sao sáng, {S} tự tay tạo lập được nhà đất, có khi phát nhờ dám mua bán đúng thời điểm.",
+        "dim": "Khi sao tối, nhà đất dễ biến động, phải dời chỗ hoặc sửa sang nhiều lần trước khi yên ổn.",
+        "advice": "tính toán dòng tiền kỹ trước khi quyết định mua bán nhà đất"
+      },
+      "Quan Lộc": {
+        "core": "Quan Lộc có Thất Sát hợp những ngành đòi hỏi bản lĩnh như quân sự, kỹ thuật, kinh doanh mạo hiểm, nơi {S} có thể đứng mũi chịu sào.",
+        "bright": "Sao sáng thì công danh phát mạnh, {S} dễ nắm quyền, lập công và được giao trọng trách.",
+        "dim": "Sao tối thì sự nghiệp lên xuống thất thường, {S} dễ đổi việc vì va chạm hoặc nóng lòng muốn nhanh.",
+        "advice": "kiên trì ở một hướng đủ lâu để thành quả kịp tích tụ"
+      },
+      "Nô Bộc": {
+        "core": "Ở Nô Bộc, Thất Sát cho thấy bạn bè, đồng nghiệp có cá tính mạnh, thẳng thắn, và quan hệ thường gắn với cạnh tranh hoặc cùng nhau lăn lộn.",
+        "bright": "Sao sáng thì {S} có những người cộng sự giỏi, dám xông pha và giúp sức trong việc khó.",
+        "dim": "Sao tối thì quan hệ dễ va chạm, cấp dưới khó bảo hoặc bạn bè có lúc quay ra cạnh tranh.",
+        "advice": "đặt nguyên tắc hợp tác rõ ràng ngay từ khi bắt đầu làm chung"
+      },
+      "Thiên Di": {
+        "core": "Khi ra ngoài, Thất Sát khiến {S} năng động, dám đi xa lập nghiệp, nhưng cũng hay gặp môi trường cạnh tranh và nhiều thử thách bất ngờ.",
+        "bright": "Sao sáng thì xa quê lại phát, {S} được nể phục nhờ dám làm và gặp thời cơ ở nơi mới.",
+        "dim": "Sao tối thì đi lại dễ vất vả, va chạm với người ngoài hoặc gặp những trở ngại không lường trước.",
+        "advice": "chuẩn bị kỹ lưỡng và giữ hòa khí mỗi khi đến môi trường mới"
+      },
+      "Tật Ách": {
+        "core": "Thất Sát tại Tật Ách cho thấy thể lực khá nhưng hay dùng sức quá mức, {S} dễ cần lưu ý va chạm, chấn thương nhẹ và đường hô hấp.",
+        "bright": "Sao sáng thì sức bền tốt, gặp khó khăn {S} vượt qua nhanh và ít để lại hậu quả lâu dài.",
+        "dim": "Sao tối thì {S} dễ cần lưu ý những lần mệt kiệt do làm việc dồn dập hoặc sơ suất khi vận động.",
+        "advice": "giữ nhịp nghỉ ngơi đều và cẩn trọng khi lái xe hay vận động mạnh"
+      },
+      "Tài Bạch": {
+        "core": "Tài Bạch có Thất Sát cho thấy tiền bạc đến từ sự xông xáo, dám làm, thường lên xuống theo từng đợt chứ ít khi đều đặn.",
+        "bright": "Khi sao sáng, {S} có thể phát tài nhanh nhờ nắm bắt cơ hội và dám bỏ vốn đúng lúc.",
+        "dim": "Khi sao tối, tiền dễ đến nhanh đi nhanh, {S} có thể hao vì đầu tư vội hoặc tin vào vận may.",
+        "advice": "dành riêng một khoản dự phòng không đụng tới cho những kỳ khó khăn"
+      },
+      "Tử Tức": {
+        "core": "Ở Tử Tức, Thất Sát thường chỉ con cái cá tính mạnh, độc lập, có chí lớn, và việc nuôi dạy đòi hỏi {S} nhiều kiên nhẫn.",
+        "bright": "Sao sáng thì con cái gan dạ, tự lập sớm, có thể làm nên sự nghiệp riêng đáng nể.",
+        "dim": "Sao tối thì con cái có lúc bướng bỉnh, khó gần, hoặc chuyện con cái đến muộn và nhiều lo toan.",
+        "advice": "rèn con bằng sự tôn trọng và giới hạn rõ ràng thay vì áp đặt"
+      },
+      "Phu Thê": {
+        "core": "Thất Sát ở Phu Thê thường chỉ người bạn đời mạnh mẽ, quyết đoán, có cá tính riêng, và hôn nhân dễ có những giai đoạn sóng gió cần vượt qua.",
+        "bright": "Sao sáng thì người phối ngẫu giỏi giang, cùng {S} gây dựng sự nghiệp và che chắn cho gia đình.",
+        "dim": "Sao tối thì hai người dễ tranh cãi vì ai cũng muốn làm chủ, có giai đoạn xa cách hoặc lạnh nhạt.",
+        "advice": "học cách nhường nhịn đúng lúc và phân chia vai trò rõ ràng trong nhà"
+      },
+      "Huynh Đệ": {
+        "core": "Huynh Đệ có Thất Sát cho thấy anh chị em cá tính mạnh, mỗi người tự lập một hướng, và tình thân thường được thử thách qua những va chạm.",
+        "bright": "Sao sáng thì có anh chị em thành đạt, gan dạ, sẵn lòng đứng ra giúp {S} khi gặp việc lớn.",
+        "dim": "Sao tối thì anh em dễ bất đồng, sống xa nhau hoặc ít khi hỗ trợ được nhau thường xuyên.",
+        "advice": "tránh làm ăn chung với anh chị em khi chưa thỏa thuận thật rõ"
+      }
+    },
+    "Phá Quân": {
+      "Mệnh": {
+        "core": "Phá Quân thủ Mệnh là hao tinh, cho thấy {S} ưa phá cũ xây mới, thích khai phá, không chịu khuôn khổ, nên đời có nhiều đổi thay lớn.",
+        "bright": "Khi sao sáng, {S} có tài mở đường, dám làm điều người khác e ngại và thường lập nghiệp từ hai bàn tay.",
+        "dim": "Khi sao tối, {S} dễ liều lĩnh, bỏ dở giữa chừng hoặc phá đi những gì đã gây dựng khi chưa có hướng mới.",
+        "advice": "giữ lại phần nền đã vững trước khi bắt tay làm lại từ đầu"
+      },
+      "Phụ Mẫu": {
+        "core": "Ở Phụ Mẫu, Phá Quân gợi cha mẹ có cá tính mạnh, gia cảnh thuở nhỏ của {S} có nhiều biến động hoặc thay đổi nơi ở.",
+        "bright": "Sao sáng thì cha mẹ là người dám làm, dạy {S} tinh thần tự lập và không ngại thay đổi.",
+        "dim": "Sao tối thì quan hệ với bề trên dễ bất đồng quan điểm, hoặc có thời gian {S} phải sống xa cha mẹ.",
+        "advice": "kiên nhẫn tìm điểm chung với bề trên thay vì tranh luận gay gắt"
+      },
+      "Phúc Đức": {
+        "core": "Phá Quân tại Phúc Đức cho thấy gia tộc từng trải qua thăng trầm, nội tâm {S} hay xao động và luôn muốn làm điều gì đó khác thường.",
+        "bright": "Sao sáng thì {S} có thể là người vực dậy, đổi mới nếp nhà và tự tạo phúc cho mình.",
+        "dim": "Sao tối thì lòng {S} khó yên, họ hàng ly tán, phúc phần cần được vun đắp thêm bằng việc làm.",
+        "advice": "tìm sự an yên qua những việc làm thiện nguyện cụ thể và đều đặn"
+      },
+      "Điền Trạch": {
+        "core": "Điền Trạch có Phá Quân thường cho thấy nhà cửa hay thay đổi, sửa sang, mua bán, và {S} ít giữ nguyên một chỗ ở trong thời gian dài.",
+        "bright": "Khi sao sáng, {S} có thể lời nhờ mua bán, cải tạo nhà đất, càng về sau càng vững.",
+        "dim": "Khi sao tối, của cha ông khó giữ, nhà đất dễ hao tán vì đổi chỗ hay sửa chữa liên tục.",
+        "advice": "lập kế hoạch dài hạn trước khi bán đi hay đập bỏ thứ đang có"
+      },
+      "Quan Lộc": {
+        "core": "Quan Lộc có Phá Quân hợp những công việc mang tính khai phá, cải cách, kỹ thuật hay khởi nghiệp, và đường nghề của {S} thường đổi hướng vài lần.",
+        "bright": "Sao sáng thì {S} thành công nhờ đổi mới, dám làm điều mới và tạo dấu ấn riêng trong nghề.",
+        "dim": "Sao tối thì công việc dễ gián đoạn, {S} hay chán và bỏ ngang trước khi thu được thành quả.",
+        "advice": "hoàn thành trọn vẹn một việc trước khi chuyển sang hướng đi mới"
+      },
+      "Nô Bộc": {
+        "core": "Ở Nô Bộc, Phá Quân cho thấy bạn bè, cộng sự thay đổi khá nhiều, có người phóng khoáng, có người dễ bất đồng với {S}.",
+        "bright": "Sao sáng thì {S} quen những người dám nghĩ dám làm, giúp mở ra cơ hội mới trong công việc.",
+        "dim": "Sao tối thì quan hệ dễ đổ vỡ vì tiền bạc hoặc khác chí hướng, cấp dưới ít gắn bó lâu.",
+        "advice": "rạch ròi chuyện tiền bạc khi hợp tác với bạn bè và cộng sự"
+      },
+      "Thiên Di": {
+        "core": "Khi ra ngoài, Phá Quân thúc {S} đi xa, đổi môi trường, thử điều mới, và cuộc sống nơi khác thường có nhiều biến động, cơ hội lẫn rủi ro.",
+        "bright": "Sao sáng thì ly hương lập nghiệp thuận, {S} mở được hướng đi riêng ở nơi xa.",
+        "dim": "Sao tối thì đi lại dễ trục trặc, hao tốn hoặc gặp chuyện thị phi với người ngoài.",
+        "advice": "tìm hiểu kỹ môi trường mới và giữ thái độ mềm mỏng với người lạ"
+      },
+      "Tật Ách": {
+        "core": "Phá Quân tại Tật Ách cho thấy {S} hay làm việc theo hứng, dễ cần lưu ý chuyện tiêu hao sức lực, va quệt nhỏ và đường ruột, răng miệng.",
+        "bright": "Sao sáng thì sức sống mạnh, gặp trắc trở {S} phục hồi nhanh và biết thay đổi lối sống kịp lúc.",
+        "dim": "Sao tối thì {S} dễ cần lưu ý những mệt mỏi do sinh hoạt thất thường hoặc thói quen chủ quan với sức khỏe.",
+        "advice": "giữ giờ giấc sinh hoạt ổn định và cẩn thận khi làm việc tay chân"
+      },
+      "Tài Bạch": {
+        "core": "Tài Bạch có Phá Quân cho thấy tiền đến từ sự liều lĩnh, khai phá, nhưng cũng dễ hao vì {S} tiêu xài phóng khoáng và hay đổi hướng làm ăn.",
+        "bright": "Khi sao sáng, {S} có thể kiếm lớn nhờ dám đầu tư vào điều mới mà người khác còn ngần ngại.",
+        "dim": "Khi sao tối, tiền vào rồi ra nhanh, {S} dễ hao tán vì mua sắm theo hứng hoặc làm ăn vội.",
+        "advice": "tách bạch tiền để đầu tư mạo hiểm với tiền cho sinh hoạt"
+      },
+      "Tử Tức": {
+        "core": "Ở Tử Tức, Phá Quân thường chỉ con cái cá tính, ưa tự do, thích làm theo ý mình, và việc dạy con đòi hỏi {S} mềm dẻo.",
+        "bright": "Sao sáng thì con cái sáng tạo, gan dạ, có thể thành công ở những con đường ít người đi.",
+        "dim": "Sao tối thì con cái có lúc ương bướng, khó nghe lời, hoặc chuyện con cái đến muộn, nhiều trắc trở.",
+        "advice": "khuyến khích sự sáng tạo của con trong những giới hạn an toàn rõ ràng"
+      },
+      "Phu Thê": {
+        "core": "Phá Quân ở Phu Thê thường chỉ người bạn đời cá tính, phóng khoáng, không thích ràng buộc, và hôn nhân dễ có biến chuyển cần cả hai cùng vun đắp.",
+        "bright": "Sao sáng thì người phối ngẫu năng động, cùng {S} làm mới cuộc sống và vượt qua nhiều đổi thay.",
+        "dim": "Sao tối thì hai người dễ bất đồng, có giai đoạn xa nhau, nên kết hôn chín chắn sẽ bền hơn.",
+        "advice": "cùng nhau làm mới đời sống chung thay vì để nhàm chán tích tụ"
+      },
+      "Huynh Đệ": {
+        "core": "Huynh Đệ có Phá Quân cho thấy anh chị em mỗi người một tính, hay sống xa nhau, và tình thân có lúc trải qua những thay đổi đáng kể.",
+        "bright": "Sao sáng thì anh em dám làm, có người tự lập thành công, giúp {S} mở thêm cơ hội.",
+        "dim": "Sao tối thì anh em dễ bất hòa, nhất là quanh chuyện tiền bạc hay của cải chung trong nhà.",
+        "advice": "giữ rõ ràng chuyện tài sản chung để tình anh em được lâu bền"
+      }
+    }
+  }
+}

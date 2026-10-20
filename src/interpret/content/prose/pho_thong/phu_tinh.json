@@ -1,0 +1,295 @@
+{
+  "status": "draft",
+  "basis": "pho_thong",
+  "note": "Nghĩa phụ tinh theo thông lệ phổ biến, dạng khuôn điền theo cung; Claude soạn, chưa đối chiếu sách, chờ duyệt.",
+  "stars": {
+    "Tả Phụ": {
+      "kind": "cat",
+      "line": "Tả Phụ ở cung {pal} mang thêm người trợ giúp và sự nâng đỡ bền bỉ, khiến chuyện {domain} có chỗ dựa, dễ được chung tay gánh vác.",
+      "advice": "chủ động kết nối, đón nhận và ghi nhận sự giúp đỡ của người xung quanh",
+      "rescue": true
+    },
+    "Hữu Bật": {
+      "kind": "cat",
+      "line": "Hữu Bật ở cung {pal} cho thấy chuyện {domain} thường gặp người âm thầm hỗ trợ, có ai đó đứng sau góp sức và gỡ rối.",
+      "advice": "giữ hòa khí, biết nhờ cậy đúng lúc và đền đáp người đã giúp mình",
+      "rescue": true
+    },
+    "Văn Xương": {
+      "kind": "cat",
+      "line": "Văn Xương ở cung {pal} đem lại nét thanh nhã, chữ nghĩa, giúp chuyện {domain} được xử lý bằng hiểu biết, giấy tờ rõ ràng và lời lẽ chừng mực.",
+      "advice": "dùng học vấn, giấy tờ và sự chu đáo để lo chuyện {domain} thêm vững",
+      "rescue": false
+    },
+    "Văn Khúc": {
+      "kind": "cat",
+      "line": "Văn Khúc ở cung {pal} thêm tài ăn nói, năng khiếu nghệ thuật và sự mềm mỏng, khiến chuyện {domain} dễ được thu xếp khéo léo, êm đẹp.",
+      "advice": "phát huy tài giao tiếp nhưng giữ lời nói thật thà, có trước có sau",
+      "rescue": false
+    },
+    "Thiên Khôi": {
+      "kind": "cat",
+      "line": "Thiên Khôi ở cung {pal} là sao quý nhân dương, báo hiệu chuyện {domain} hay được người có vị thế dìu dắt, mở đường vào lúc cần.",
+      "advice": "tìm đến người từng trải để học hỏi và mạnh dạn nắm lấy cơ hội",
+      "rescue": true
+    },
+    "Thiên Việt": {
+      "kind": "cat",
+      "line": "Thiên Việt ở cung {pal} là quý nhân âm, cho thấy chuyện {domain} thường được giúp đỡ kín đáo, gặp may vào những lúc tưởng như bế tắc.",
+      "advice": "giữ lòng tử tế, vì sự giúp đỡ thường đến từ nơi không ngờ",
+      "rescue": true
+    },
+    "Lộc Tồn": {
+      "kind": "cat",
+      "line": "Lộc Tồn ở cung {pal} đem lại lộc bền và sự giữ gìn, giúp chuyện {domain} được tích lũy dần, ổn định nhưng cũng có phần dè dặt.",
+      "advice": "tích lũy đều đặn, giữ chừng mực nhưng đừng quá khép kín, đơn độc",
+      "rescue": true
+    },
+    "Thiên Mã": {
+      "kind": "trung",
+      "line": "Thiên Mã ở cung {pal} mang tính di động, cho thấy chuyện {domain} gắn với đi lại, thay đổi, càng năng động càng dễ mở ra cơ hội.",
+      "advice": "giữ nhịp năng động nhưng có điểm tựa, tránh xoay chuyển quá vội vàng",
+      "rescue": false
+    },
+    "Hóa Lộc": {
+      "kind": "cat",
+      "line": "Hóa Lộc ở cung {pal} là dấu hiệu chuyện {domain} có nguồn lợi, có duyên được hưởng và dễ hanh thông khi biết mở lòng giao thiệp.",
+      "advice": "đón nhận thuận lợi với lòng biết đủ và chia sẻ bớt cho người khác",
+      "rescue": true
+    },
+    "Hóa Quyền": {
+      "kind": "cat",
+      "line": "Hóa Quyền ở cung {pal} thêm uy thế và sức nắm giữ, khiến {S} thường muốn làm chủ chuyện {domain}, có tiếng nói và quyết đoán.",
+      "advice": "dùng quyền chủ động một cách mềm mỏng, lắng nghe trước khi quyết định",
+      "rescue": true
+    },
+    "Hóa Khoa": {
+      "kind": "cat",
+      "line": "Hóa Khoa ở cung {pal} đem lại tiếng tốt và sự sáng sủa, giúp chuyện {domain} được nhìn nhận đúng, có lối thoát êm khi gặp khó.",
+      "advice": "giữ uy tín, sự minh bạch và tiếp tục học hỏi để vững danh",
+      "rescue": true
+    },
+    "Hóa Kỵ": {
+      "kind": "sat",
+      "line": "Hóa Kỵ ở cung {pal} là dấu hiệu chuyện {domain} dễ có điều vướng víu, hiểu lầm, cần nhiều kiên nhẫn hơn người.",
+      "advice": "nói rõ ràng, giữ bình tĩnh và gỡ từng nút thắt một cách kiên nhẫn",
+      "rescue": false
+    },
+    "Kình Dương": {
+      "kind": "sat",
+      "line": "Kình Dương ở cung {pal} đem lại sức bật và tinh thần cạnh tranh cho chuyện {domain}, nhưng cũng dễ sinh va chạm, nóng vội, hơn thua.",
+      "advice": "biến sự quyết liệt thành động lực, tránh tranh chấp và hành động lúc nóng giận",
+      "rescue": false
+    },
+    "Đà La": {
+      "kind": "sat",
+      "line": "Đà La ở cung {pal} khiến chuyện {domain} hay chậm trễ, trắc trở ngầm, nhưng cũng rèn cho {S} sự bền bỉ và lòng nhẫn nại.",
+      "advice": "kiên trì từng bước, giữ thẳng thắn và đừng để ấm ức dồn nén lâu",
+      "rescue": false
+    },
+    "Hỏa Tinh": {
+      "kind": "sat",
+      "line": "Hỏa Tinh ở cung {pal} thêm nhiệt huyết và tốc độ cho chuyện {domain}, song dễ bộc phát, thay đổi đột ngột nếu thiếu sự điềm tĩnh.",
+      "advice": "dùng nhiệt huyết đúng chỗ, dừng lại suy nghĩ trước những quyết định vội",
+      "rescue": false
+    },
+    "Linh Tinh": {
+      "kind": "sat",
+      "line": "Linh Tinh ở cung {pal} mang nét sắc sảo, âm ỉ, khiến chuyện {domain} có lúc bất ngờ xoay chiều, đòi hỏi tỉnh táo và giữ lòng bình thản.",
+      "advice": "giữ tâm bình thản, đón trước những biến chuyển bất ngờ bằng sự chuẩn bị",
+      "rescue": false
+    },
+    "Địa Không": {
+      "kind": "sat",
+      "line": "Địa Không ở cung {pal} cho thấy chuyện {domain} dễ có lúc hụt hẫng, được mất khó lường, nhưng cũng gợi ý tưởng khác lạ, vượt lối mòn.",
+      "advice": "giữ thực tế, tránh đặt cược lớn và biến ý tưởng mới thành việc cụ thể",
+      "rescue": false
+    },
+    "Địa Kiếp": {
+      "kind": "sat",
+      "line": "Địa Kiếp ở cung {pal} báo chuyện {domain} có thể gặp hao tổn, sóng gió bất chợt, đòi hỏi sự dè chừng và tinh thần làm lại không nản.",
+      "advice": "chuẩn bị dự phòng, thận trọng với rủi ro và đứng dậy nhanh sau vấp ngã",
+      "rescue": false
+    },
+    "Đào Hoa": {
+      "kind": "trung",
+      "line": "Đào Hoa ở cung {pal} thêm sức hút, duyên dáng và cảm xúc, khiến chuyện {domain} dễ gắn với tình cảm và sự yêu mến của người khác.",
+      "advice": "dùng nét duyên để kết nối, đồng thời giữ chừng mực trong tình cảm",
+      "rescue": false
+    },
+    "Hồng Loan": {
+      "kind": "cat",
+      "line": "Hồng Loan ở cung {pal} mang nét dịu dàng, tươi vui, cho thấy chuyện {domain} thường có duyên lành, dễ gắn với niềm vui và sự gắn bó.",
+      "advice": "trân trọng những mối duyên tốt và vun đắp chúng bằng sự chân thành",
+      "rescue": false
+    },
+    "Thiên Hỷ": {
+      "kind": "cat",
+      "line": "Thiên Hỷ ở cung {pal} là sao vui mừng, báo chuyện {domain} dễ có tin vui, không khí hòa hợp và những dịp đáng nhớ.",
+      "advice": "giữ tinh thần lạc quan và chia sẻ niềm vui với người thân quanh mình",
+      "rescue": false
+    },
+    "Thiên Khốc": {
+      "kind": "sat",
+      "line": "Thiên Khốc ở cung {pal} gợi nỗi buồn lặng và sự lo nghĩ quanh chuyện {domain}, nhưng cũng cho chiều sâu cảm xúc và sức chịu đựng.",
+      "advice": "chia sẻ nỗi lòng với người tin cậy thay vì ôm buồn một mình",
+      "rescue": false
+    },
+    "Thiên Hư": {
+      "kind": "sat",
+      "line": "Thiên Hư ở cung {pal} khiến chuyện {domain} dễ có cảm giác trống trải, hứa nhiều mà thực ít, cần nhìn vào kết quả cụ thể hơn lời hứa.",
+      "advice": "chú trọng thực chất, kiểm chứng điều nghe được và tránh kỳ vọng hão",
+      "rescue": false
+    },
+    "Tang Môn": {
+      "kind": "sat",
+      "line": "Tang Môn ở cung {pal} gợi những nỗi buồn phiền, tâm trạng nặng nề quanh chuyện {domain}, nhắc {S} biết chăm lo và gìn giữ điều mình quý.",
+      "advice": "quan tâm người thân, giữ tinh thần nhẹ nhõm và đừng ôm phiền muộn lâu",
+      "rescue": false
+    },
+    "Bạch Hổ": {
+      "kind": "sat",
+      "line": "Bạch Hổ ở cung {pal} đem lại sự dũng mãnh, dám nói dám làm cho chuyện {domain}, nhưng cũng dễ gặp tranh cãi, va vấp nếu quá cứng.",
+      "advice": "dùng sự quả cảm có tính toán, mềm mỏng hơn khi xảy ra bất đồng",
+      "rescue": false
+    },
+    "Thiên Hình": {
+      "kind": "sat",
+      "line": "Thiên Hình ở cung {pal} mang tính kỷ luật, nghiêm khắc, khiến chuyện {domain} cần phép tắc rõ ràng và dễ dính đến thủ tục, quy định.",
+      "advice": "tôn trọng luật lệ, giữ kỷ luật và cẩn trọng với giấy tờ",
+      "rescue": false
+    },
+    "Thiên Riêu": {
+      "kind": "sat",
+      "line": "Thiên Riêu ở cung {pal} thêm nét lãng mạn, đa cảm nhưng cũng dễ sa vào cám dỗ, thị phi, khiến chuyện {domain} cần sự tỉnh táo.",
+      "advice": "giữ chừng mực trong vui chơi, tình cảm và tránh xa chuyện thị phi",
+      "rescue": false
+    },
+    "Cô Thần": {
+      "kind": "sat",
+      "line": "Cô Thần ở cung {pal} cho thấy chuyện {domain} hay phải tự mình xoay xở, ít người chia sẻ, nhưng lại rèn được sự độc lập.",
+      "advice": "chủ động mở lòng, tìm người đồng hành thay vì một mình gánh vác",
+      "rescue": false
+    },
+    "Quả Tú": {
+      "kind": "sat",
+      "line": "Quả Tú ở cung {pal} gợi sự lẻ loi, khép kín trong chuyện {domain}, song cũng cho {S} khả năng tự lập và giữ mình kỹ lưỡng.",
+      "advice": "vun đắp sự gắn kết, nói ra mong muốn thay vì giữ kín trong lòng",
+      "rescue": false
+    },
+    "Thái Tuế": {
+      "kind": "trung",
+      "line": "Thái Tuế ở cung {pal} mang tính lý lẽ, thẳng thắn, khiến chuyện {domain} dễ có tranh luận, khẩu thiệt nhưng cũng được nói rõ phải trái.",
+      "advice": "trình bày lý lẽ rõ ràng nhưng ôn hòa, tránh tranh cãi không cần thiết",
+      "rescue": false
+    },
+    "Thiên Quan": {
+      "kind": "cat",
+      "line": "Thiên Quan ở cung {pal} là sao quý hiển, giúp chuyện {domain} dễ gặp may, được che chở và giảm nhẹ những điều không như ý.",
+      "advice": "sống ngay thẳng, làm điều thiện để giữ phúc lành lâu bền",
+      "rescue": true
+    },
+    "Thiên Phúc": {
+      "kind": "cat",
+      "line": "Thiên Phúc ở cung {pal} báo chuyện {domain} có phúc che chở, gặp khó thường có người hoặc cơ duyên giúp hóa giải.",
+      "advice": "giữ lòng nhân hậu và biết ơn những điều tốt đẹp đã nhận",
+      "rescue": true
+    },
+    "Ân Quang": {
+      "kind": "cat",
+      "line": "Ân Quang ở cung {pal} cho thấy chuyện {domain} hay được người khác ban ơn, nâng đỡ, và {S} cũng biết đền đáp tình nghĩa.",
+      "advice": "ghi nhớ ân tình và đáp lại sự giúp đỡ bằng lòng chân thành",
+      "rescue": true
+    },
+    "Thiên Quý": {
+      "kind": "cat",
+      "line": "Thiên Quý ở cung {pal} đem lại sự quý trọng và phúc đức, khiến chuyện {domain} dễ được người tốt giúp đỡ, giảm nhẹ trở ngại.",
+      "advice": "giữ phẩm cách, đối đãi tử tế để thu hút những mối quan hệ tốt",
+      "rescue": true
+    },
+    "Long Trì": {
+      "kind": "cat",
+      "line": "Long Trì ở cung {pal} thêm nét thanh lịch, khéo léo và có tiếng, giúp chuyện {domain} được trau chuốt, dễ gặp may về danh giá.",
+      "advice": "trau dồi tài năng, chăm chút cách thể hiện để được người khác ghi nhận",
+      "rescue": true
+    },
+    "Phượng Các": {
+      "kind": "cat",
+      "line": "Phượng Các ở cung {pal} mang vẻ thanh cao, tiếng tốt, cho thấy chuyện {domain} dễ có hỷ sự và được người đời trọng vọng.",
+      "advice": "giữ gìn danh tiếng và phong thái, tránh khoe khoang hay phô trương quá mức",
+      "rescue": true
+    },
+    "Hoa Cái": {
+      "kind": "trung",
+      "line": "Hoa Cái ở cung {pal} thêm vẻ thanh nhã, ưa cái đẹp và chiều sâu tâm linh, nhưng cũng dễ khiến {S} có phần cô cao trong chuyện {domain}.",
+      "advice": "phát huy óc thẩm mỹ, đồng thời gần gũi và khiêm nhường hơn với mọi người",
+      "rescue": false
+    },
+    "Thiên Giải": {
+      "kind": "cat",
+      "line": "Thiên Giải ở cung {pal} là sao giải ách, giúp chuyện {domain} khi gặp rắc rối thường có lối gỡ, khó khăn dần được hóa giải.",
+      "advice": "bình tĩnh tìm lối gỡ và tin vào khả năng hóa giải của thời gian",
+      "rescue": true
+    },
+    "Địa Giải": {
+      "kind": "cat",
+      "line": "Địa Giải ở cung {pal} giúp những vướng mắc trong chuyện {domain} được tháo gỡ dần, nhất là khi {S} chịu khó vun đắp từ gốc.",
+      "advice": "giải quyết từ gốc rễ, kiên nhẫn sửa chữa thay vì bỏ dở giữa chừng",
+      "rescue": true
+    },
+    "Giải Thần": {
+      "kind": "cat",
+      "line": "Giải Thần ở cung {pal} mang ý cứu giải, cho thấy chuyện {domain} dù gặp trắc trở vẫn thường tìm được người hoặc cách hóa giải.",
+      "advice": "giữ lòng thiện, rộng lượng bỏ qua và mở đường cho sự hòa giải",
+      "rescue": true
+    },
+    "Thiên Y": {
+      "kind": "cat",
+      "line": "Thiên Y ở cung {pal} gắn với sự chăm sóc, chữa lành, giúp chuyện {domain} có điều kiện phục hồi và gặp người biết cách nâng đỡ.",
+      "advice": "chăm lo sức khỏe, tìm đến người có chuyên môn khi cần giúp đỡ",
+      "rescue": true
+    },
+    "Đại Hao": {
+      "kind": "sat",
+      "line": "Đại Hao ở cung {pal} báo chuyện {domain} dễ có chi tiêu lớn, hao phí công sức, nhưng cũng mang tính dám buông bỏ để làm mới.",
+      "advice": "lập kế hoạch chi tiêu chặt chẽ và cân nhắc kỹ trước những khoản lớn",
+      "rescue": false
+    },
+    "Tiểu Hao": {
+      "kind": "sat",
+      "line": "Tiểu Hao ở cung {pal} cho thấy chuyện {domain} hay hao hụt lặt vặt, tốn kém nhỏ mà kéo dài, cần quản lý tỉ mỉ hơn.",
+      "advice": "để ý những khoản nhỏ, giữ thói quen ghi chép và tiết kiệm",
+      "rescue": false
+    },
+    "Thiên Thương": {
+      "kind": "sat",
+      "line": "Thiên Thương ở cung {pal} gợi những lo âu, phiền muộn hay hao tổn tinh thần quanh chuyện {domain}, nhắc {S} thận trọng và giữ vững tinh thần.",
+      "advice": "đề phòng từ sớm, giữ tinh thần vững vàng trước những điều không như ý",
+      "rescue": false
+    },
+    "Thiên Sứ": {
+      "kind": "sat",
+      "line": "Thiên Sứ ở cung {pal} báo chuyện {domain} có lúc gặp trở ngại hay tin không vui, đòi hỏi {S} chuẩn bị kỹ và giữ sự điềm tĩnh.",
+      "advice": "chuẩn bị chu đáo, giữ bình tĩnh và xử lý từng việc một",
+      "rescue": false
+    },
+    "Lưu Hà": {
+      "kind": "sat",
+      "line": "Lưu Hà ở cung {pal} nhắc chuyện {domain} dễ có rủi ro bất ngờ khi đi lại hoặc do sơ ý, cần cẩn thận và chu đáo hơn.",
+      "advice": "cẩn trọng khi đi lại và kiểm tra kỹ trước khi làm việc gì",
+      "rescue": false
+    },
+    "Kiếp Sát": {
+      "kind": "sat",
+      "line": "Kiếp Sát ở cung {pal} cho thấy chuyện {domain} có thể gặp sự giành giật, thất thoát bất ngờ, đòi hỏi tinh thần đề phòng và quyết đoán.",
+      "advice": "giữ gìn cẩn thận những gì quý giá, tránh tin người quá dễ",
+      "rescue": false
+    },
+    "Phá Toái": {
+      "kind": "sat",
+      "line": "Phá Toái ở cung {pal} khiến chuyện {domain} dễ dang dở, đổ vỡ vặt hay kế hoạch xáo trộn, cần sự kiên trì để hoàn tất.",
+      "advice": "làm đến nơi đến chốn, giữ kế hoạch rõ ràng và tránh bỏ ngang",
+      "rescue": false
+    }
+  }
+}

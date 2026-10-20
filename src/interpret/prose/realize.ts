@@ -9,7 +9,12 @@ import type { ConceptPick, Selection } from './select.ts';
 import { Micro, finish, lead, lowerFirst } from './micro.ts';
 
 export interface SentenceTrace {
-  move: Move | 'DEGREE' | 'EXTRA' | 'VIA'; concepts: string[]; rules: string[]; cites: string[]; basis: 'sach' | 'he_thong';
+  move: Move | 'DEGREE' | 'EXTRA' | 'VIA' | import('./deep.ts').DeepMove; concepts: string[]; rules: string[]; cites: string[];
+  /** sach: a verified book rule; he_thong: the system's closing words over what was said; tinh_toan: a computed fact or a page-cited
+   *  table (deep.ts); pho_thong: a draft card of common meanings (deep.ts), labelled as such to the reader */
+  basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong';
+  /** deep.ts: a difficulty ('neg'), something good ('pos'), or what answers a difficulty ('answer') */
+  tone?: 'neg' | 'pos' | 'answer';
   resolution?: { relation: string; byRule: string; cite?: string }; schema?: string; woven?: Array<SentenceTrace['move']>;
   /** concept@palace of every reading voiced: the report never voices the same reading twice */
   keys?: string[];
@@ -19,7 +24,7 @@ export interface SentenceTrace {
 /** Who a chapter's sentences are about: in Phu Thê and Nô Bộc a reading that is not about the bond itself describes the other people. */
 export interface Voice { other?: { first: string[]; next: string[] }; bond?: (c?: Concept) => boolean }
 export interface ProseSentence { text: string; trace: SentenceTrace }
-export interface ProseParagraph { role: 'core' | 'support' | 'course'; sentences: ProseSentence[]; text: string }
+export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structure' | 'colour' | 'balance'; sentences: ProseSentence[]; text: string }
 
 const join = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1).join(', ') + ' và ' + xs[xs.length - 1];
 function fill(t: string, vars: Record<string, string | undefined>): string {

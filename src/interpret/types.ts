@@ -54,6 +54,8 @@ export interface BaziInput {
   kong_wang_day?: string[];
   /** pillar relations by kind (stem_combine, branch_clash …), each with its pillars "year-hour" (absent in facts produced before the field) */
   relations?: Record<string, Array<{ pillars: string }>>;
+  /** structure analysis for the prose (engine/tvbt/bazi_deep pipeline.prose_summary); null when it could not read the chart */
+  deep?: import('./prose/bazi_deep.ts').BaziDeep | null;
 }
 
 export interface Concept { id: string; facet: string; pol: '+' | '-' | '~'; kind: string; opp?: string; cues: string[]; np: string; short?: string }

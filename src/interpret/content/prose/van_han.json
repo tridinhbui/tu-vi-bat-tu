@@ -1,62 +1,352 @@
 {
- "note": "Vận hạn prose (prose plan P6). One paragraph per đại hạn: where the ten years sit (computed), how the year branch's tam hợp meets the vận palace's (Thiên Lương, Tử Vi Nghiệm Lý 1974), the Khảo Luận / Thực Hành vận readings that fired (engine/data/van_han_rules.json, by rule id), and where the vận stem's Hóa Lộc and Hóa Kỵ land (computed). Paraphrased; every sentence carries its rule ids. {S} = the person, chosen by Micro. Draft until reviewed.",
- "status": "draft",
- "rules": {
-  "VH_CALC_DAI_HAN": {"reading": "đại hạn mười năm an từ cung Mệnh theo cục, đi thuận hay nghịch theo âm dương nam nữ", "cites": ["TH p.27"]},
-  "VH_CALC_TU_HOA": {"reading": "Tứ Hóa của một đại hạn lấy theo can của cung đại hạn", "cites": ["TH p.27"]},
-  "NL_VAN_TAM_HOP_DONG": {"reading": "tam hợp của tuổi trùng tam hợp của cung đại hạn: giai đoạn đắc thời", "cites": ["NL p.96"]},
-  "NL_VAN_TAM_HOP_SINH_XUAT": {"reading": "tam hợp tuổi sinh cho tam hợp cung đại hạn (sinh xuất): thế thiệt thòi, làm cho người khác hưởng", "cites": ["NL pp.53, 58, 83"]},
-  "NL_VAN_TAM_HOP_KHAC_NHAP": {"reading": "tam hợp cung đại hạn khắc tam hợp tuổi (khắc nhập): nguy khốn, dễ thất bại", "cites": ["NL pp.44, 66, 79"]},
-  "NL_VAN_TAM_HOP_KHAC_XUAT": {"reading": "tam hợp tuổi khắc tam hợp cung đại hạn (khắc xuất): sa lầy, phải khắc phục", "cites": ["NL pp.38, 63, 68"]}
- },
- "frame": [
-  "Từ {a} đến {b} tuổi, đại hạn đi qua cung {pal} tại {br}{stars}.",
-  "Mười năm {a}–{b} tuổi, vận hành đến cung {pal} ở {br}{stars}.",
-  "Đại hạn {a}–{b} tuổi nằm ở cung {pal} ({br}){stars}.",
-  "Giai đoạn {a} đến {b} tuổi ứng với cung {pal} tại {br}{stars}."
- ],
- "stars_major": [", nơi {majors} tọa thủ", ", có {majors}", ", với {majors} làm chủ"],
- "stars_none": [", một cung vô chính diệu", ", cung không có chính tinh"],
- "tam_hop": {
-  "DONG": ["Cung hạn này cùng nhóm tam hợp {g} với tuổi {yb}, nên đây là quãng {S} đắc thời.", "Tuổi {yb} gặp đúng tam hợp {g} của mình, một giai đoạn {S} được thời."],
-  "SINH_XUAT": ["Tuổi {yb} thuộc nhóm {g1}, sinh cho nhóm {g2} của cung hạn, nên công sức {S} bỏ ra dễ thành phần của người khác.", "Nhóm {g1} của tuổi {yb} phải nuôi nhóm {g2} của cung hạn: {S} làm nhiều mà phần mình hưởng không tương xứng."],
-  "KHAC_NHAP": ["Nhóm {g2} của cung hạn khắc nhóm {g1} của tuổi {yb}, nên đây là mười năm {S} cần thận trọng, dễ bị dồn vào thế khó.", "Tam hợp {g2} của cung hạn khắc tam hợp {g1} của tuổi {yb}: những va vấp lớn dễ đến vào quãng này."],
-  "KHAC_XUAT": ["Tuổi {yb} thuộc nhóm {g1}, khắc nhóm {g2} của cung hạn, nên việc dễ sa lầy, tiến chậm hơn sức bỏ ra.", "Nhóm {g1} của tuổi {yb} khắc nhóm {g2} của cung hạn: {S} phải gắng vượt qua thế bị sa lầy."]
- },
- "readings": {
-  "VH_TPVT_SAT": {"dir": "up", "v": ["Mệnh có Tử Phủ Vũ Tướng mà hạn gặp sát tinh lại là dịp để {S} vươn lên.", "Với Mệnh Tử Phủ Vũ Tướng, sát tinh trong cung hạn lại thúc {S} đi lên."]},
-  "VH_TPVT_CNDL": {"dir": "down", "v": ["Mệnh Tử Phủ Vũ Tướng gặp hạn Cơ Nguyệt Đồng Lương hay Tử Phủ thường là thế đi xuống.", "Với Mệnh Tử Phủ Vũ Tướng, cung hạn này đưa {S} vào một thế kém thuận."]},
-  "VH_VCD_SPT": {"dir": "up", "v": ["Mệnh vô chính diệu gặp hạn Sát Phá Tham là lúc {S} có dịp đi lên, như người chờ lâu nay có việc thực để làm.", "Hạn có Sát Phá Tham mở cho Mệnh vô chính diệu một dịp đi lên rõ rệt."]},
-  "VH_TUAN_TRIET": {"dir": "up", "v": ["Tuần ở Mệnh gặp Triệt ở hạn (hay ngược lại) như được tháo bỏ ràng buộc, {S} dễ thoát thế bó tay.", "Giữa Mệnh và cung hạn, Tuần và Triệt gặp nhau như cởi một lớp xiềng, việc của {S} được thông hơn."]},
-  "VH_NN_DAO_HONG": {"dir": "up", "v": ["Mệnh có Nhật Nguyệt cần hạn có Đào, Hồng, Hỷ mới khá, và mười năm này có đủ những sao ấy.", "Cung hạn có Đào, Hồng, Hỷ, đúng thứ Mệnh Nhật Nguyệt cần để khá lên."]},
-  "VH_NN_KINH_DA": {"dir": "down", "v": ["Mệnh có Nhật Nguyệt mà hạn gặp Kình, Đà thì mọi việc dễ kém đi.", "Kình, Đà trong cung hạn làm Mệnh Nhật Nguyệt thêm chật vật."]},
-  "VH_CU_NHAT_SPT": {"dir": "up", "v": ["Mệnh Cự Nhật gặp hạn có Sát Phá Tham là dịp {S} gây dựng sự nghiệp lớn.", "Sát Phá Tham trong cung hạn cho Mệnh Cự Nhật cơ hội làm nên việc lớn."]},
-  "VH_CNDL_TOT": {"dir": "up", "v": ["Mệnh Cơ Nguyệt Đồng Lương có hạn gặp Xương Khúc hay Khoa Quyền Lộc thì có thêm địa vị, tài lộc.", "Cung hạn có những sao văn, sao hóa tốt giúp Mệnh Cơ Nguyệt Đồng Lương có địa vị, tài lộc."]},
-  "VH_CNDL_XAU": {"dir": "down", "v": ["Mệnh Cơ Nguyệt Đồng Lương gặp hạn có Kình, Đà, Không, Kiếp thì dễ hao hụt đến trắng tay.", "Sát tinh trong cung hạn khiến Mệnh Cơ Nguyệt Đồng Lương dễ mất những gì đã gây dựng."]},
-  "VH_VT_TP": {"dir": "up", "v": ["Mệnh Vũ Tướng gặp hạn Tử Phủ là một bước tiến về chức phận.", "Hạn Tử Phủ đưa Mệnh Vũ Tướng lên thêm một bậc."]},
-  "VH_VT_SPT": {"dir": "up", "v": ["Mệnh Vũ Tướng gặp hạn Sát Phá Tham dễ giàu sang nhanh, nhưng cái nhanh ấy cũng mau qua.", "Hạn Sát Phá Tham cho Mệnh Vũ Tướng một thời phát nhanh, khó giữ lâu."]},
-  "VH_THAI_TUE": {"dir": "up", "v": ["Hạn có Thái Tuế là một trong những mười năm lớn về công danh, mừng nhiều hơn lo.", "Thái Tuế ở cung hạn biến quãng này thành một thời công danh đáng kể."]},
-  "VH_QUAN_PHU": {"dir": "up", "v": ["Hạn gặp Quan Phù là lúc {S} có thể mong việc công danh.", "Quan Phù trong cung hạn mở đường cho chuyện công danh."]},
-  "VH_BACH_HO": {"dir": "mixed", "v": ["Hạn có Bạch Hổ đòi hỏi {S} dám làm dám chịu thì mới có quyền thế, giàu sang.", "Bạch Hổ ở cung hạn chỉ thưởng cho sự can đảm: dám nhận phần khó thì mới có uy quyền."]},
-  "VH_POS_1": {"dir": "up", "v": ["Thất Sát đóng ở {v_branch} trong hạn này giúp việc dễ thành.", "Có Thất Sát ở {v_branch}, nhiều việc trong quãng này dễ thuận."]},
-  "VH_POS_2": {"dir": "down", "v": ["Thất Sát ở {v_branch} khiến nhiều việc dễ dở dang.", "Với Thất Sát ở {v_branch}, việc bắt đầu thì nhiều mà xong thì ít."]},
-  "VH_POS_3": {"dir": "up", "v": ["Phá Quân ở {v_branch} mang lại bạn bè đông đủ.", "Quãng này có Phá Quân ở {v_branch}, quanh {S} thường đông bạn bè."]},
-  "VH_POS_4": {"dir": "down", "v": ["Phá Quân ở {v_branch} dễ khiến {S} cô đơn, lẻ bóng.", "Với Phá Quân ở {v_branch}, đây là quãng {S} dễ thấy mình lẻ loi."]},
-  "VH_POS_5": {"dir": "up", "v": ["Tham Lang ở {v_branch} báo một thời giàu sang, hiển hách.", "Có Tham Lang ở {v_branch}, quãng này dễ phát đạt rõ rệt."]},
-  "VH_POS_6": {"dir": "down", "v": ["Tham Lang ở {v_branch} dễ khiến hao tài, sống buông thả.", "Với Tham Lang ở {v_branch}, {S} dễ tiêu pha quá tay, khó giữ mình."]},
-  "TH_TPVT_LOC_TA_HUU": {"dir": "up", "v": ["Cung hạn có Tử Phủ Vũ Tướng gặp Lộc và Tả Hữu: một dịp có thể phát giàu lớn.", "Tử Phủ Vũ Tướng cùng Lộc và Tả Hữu trong cung hạn mở ra cơ hội làm giàu lớn."]},
-  "TH_NDCC_HOA3": {"dir": "up", "v": ["Cung hạn có Nguyệt Đồng Cơ Cự gặp Khoa Quyền Lộc và các sao trợ: dịp thăng chức hoặc đỗ đạt.", "Quãng này hội đủ Khoa Quyền Lộc quanh Nguyệt Đồng Cơ Cự, thuận cho thăng tiến, khoa cử."]},
-  "TH_CU_NHAT_SONG_LOC": {"dir": "up", "v": ["Cự Nhật trong cung hạn gặp song Lộc và Tả Hữu: buôn bán dễ phát mạnh.", "Có song Lộc và Tả Hữu bên Cự Nhật, đây là thời {S} làm ăn buôn bán thuận."]},
-  "TH_CNDL_TAM_HOA": {"dir": "up", "v": ["Cơ Nguyệt Đồng Lương trong cung hạn gặp Xương Khúc, Hồng Đào và Tam Hóa: dịp phát cả công danh lẫn tiền của.", "Quãng này hội Tam Hóa cùng Xương Khúc, Hồng Đào, công danh và tiền của cùng lên."]},
-  "TH_SPLT_KINH_DOANH": {"dir": "up", "v": ["Sát Phá Liêm Tham trong cung hạn gặp Tả Hữu, Quyền Lộc, Khôi Việt: dịp phát về kinh doanh.", "Cung hạn có Sát Phá Liêm Tham được Tả Hữu, Quyền Lộc nâng đỡ, việc kinh doanh của {S} dễ khởi sắc."]},
-  "TH_DAO_HONG_KHOA_QUYEN": {"dir": "up", "v": ["Đào, Hồng hay Xương Khúc, Khôi Việt đi cùng Khoa, Quyền trong cung hạn là điều kiện để đỗ đạt, thăng chức.", "Quãng này có các sao văn, sao duyên đi cùng Khoa Quyền, thuận cho thi cử và thăng chức."]},
-  "TH_TPVT_KHONG_KIEP_KY": {"dir": "down", "v": ["Tử Phủ Vũ Tướng trong cung hạn gặp Không, Kiếp và Hóa Kỵ: thế bất lợi, dễ bị giáng chức hay hao tài.", "Không, Kiếp và Hóa Kỵ bên Tử Phủ Vũ Tướng khiến quãng này dễ mất chức, mất của."]},
-  "TH_NDCC_KHONG_KIEP": {"dir": "down", "v": ["Nguyệt Đồng Cơ Cự trong cung hạn gặp Không, Kiếp cùng Thái Tuế hay Kỵ: dễ vướng kiện cáo hoặc giáng chức.", "Quãng này Nguyệt Đồng Cơ Cự gặp Không, Kiếp và Kỵ, {S} cần đề phòng chuyện tranh tụng, mất chức."]}
- },
- "both": ["Mười năm này có cả dấu hiệu đi lên lẫn dấu hiệu đi xuống, nên khó nói gọn là thuận hay nghịch.", "Quãng này mang hai chiều trái nhau, vừa có thế lên vừa có thế xuống."],
- "hoa": [
-  "Can {stem} của đại hạn đưa Hóa Lộc đến {lstar} ở cung {lpal}, còn Hóa Kỵ đến {kstar} ở cung {kpal}.",
-  "Theo can {stem}, Hóa Lộc của hạn rơi vào {lstar} (cung {lpal}) và Hóa Kỵ vào {kstar} (cung {kpal}).",
-  "Trong mười năm này, Hóa Lộc theo can {stem} đóng ở cung {lpal} cùng {lstar}, Hóa Kỵ ở cung {kpal} cùng {kstar}."
- ]
+  "note": "Vận hạn prose (prose plan P6). One paragraph per đại hạn: where the ten years sit (computed), how the year branch's tam hợp meets the vận palace's (Thiên Lương, Tử Vi Nghiệm Lý 1974), the Khảo Luận / Thực Hành vận readings that fired (engine/data/van_han_rules.json, by rule id), and where the vận stem's Hóa Lộc and Hóa Kỵ land (computed). Paraphrased; every sentence carries its rule ids. {S} = the person, chosen by Micro. Draft until reviewed.",
+  "status": "draft",
+  "rules": {
+    "VH_CALC_DAI_HAN": {
+      "reading": "đại hạn mười năm an từ cung Mệnh theo cục, đi thuận hay nghịch theo âm dương nam nữ",
+      "cites": [
+        "TH p.27"
+      ]
+    },
+    "VH_CALC_TU_HOA": {
+      "reading": "Tứ Hóa của một đại hạn lấy theo can của cung đại hạn",
+      "cites": [
+        "TH p.27"
+      ]
+    },
+    "NL_VAN_TAM_HOP_DONG": {
+      "reading": "tam hợp của tuổi trùng tam hợp của cung đại hạn: giai đoạn đắc thời",
+      "cites": [
+        "NL p.96"
+      ]
+    },
+    "NL_VAN_TAM_HOP_SINH_XUAT": {
+      "reading": "tam hợp tuổi sinh cho tam hợp cung đại hạn (sinh xuất): thế thiệt thòi, làm cho người khác hưởng",
+      "cites": [
+        "NL pp.53, 58, 83"
+      ]
+    },
+    "NL_VAN_TAM_HOP_KHAC_NHAP": {
+      "reading": "tam hợp cung đại hạn khắc tam hợp tuổi (khắc nhập): nguy khốn, dễ thất bại",
+      "cites": [
+        "NL pp.44, 66, 79"
+      ]
+    },
+    "NL_VAN_TAM_HOP_KHAC_XUAT": {
+      "reading": "tam hợp tuổi khắc tam hợp cung đại hạn (khắc xuất): sa lầy, phải khắc phục",
+      "cites": [
+        "NL pp.38, 63, 68"
+      ]
+    }
+  },
+  "frame": [
+    "Từ {a} đến {b} tuổi, đại hạn đi qua cung {pal} tại {br}{stars}.",
+    "Mười năm {a}–{b} tuổi, vận hành đến cung {pal} ở {br}{stars}.",
+    "Đại hạn {a}–{b} tuổi nằm ở cung {pal} ({br}){stars}.",
+    "Giai đoạn {a} đến {b} tuổi ứng với cung {pal} tại {br}{stars}."
+  ],
+  "stars_major": [
+    ", nơi {majors} tọa thủ",
+    ", có {majors}",
+    ", với {majors} làm chủ"
+  ],
+  "stars_none": [
+    ", một cung vô chính diệu",
+    ", cung không có chính tinh"
+  ],
+  "tam_hop": {
+    "DONG": [
+      "Cung hạn cùng nhóm tam hợp {g} với tuổi {yb}, tức nằm trong bộ Thái Tuế, Quan Phù, Bạch Hổ: một quãng đắc thời, việc dễ hanh thông.",
+      "Tuổi {yb} gặp đúng tam hợp {g} của mình ở cung hạn, chỗ của bộ Thái Tuế, Quan Phù, Bạch Hổ: {S} được thời, nhiều việc thuận chiều."
+    ],
+    "SINH_XUAT": [
+      "Tuổi {yb} thuộc nhóm {g1}, sinh cho nhóm {g2} của cung hạn, nên công sức {S} bỏ ra dễ thành phần của người khác.",
+      "Nhóm {g1} của tuổi {yb} phải nuôi nhóm {g2} của cung hạn: {S} làm nhiều mà phần mình hưởng không tương xứng."
+    ],
+    "KHAC_NHAP": [
+      "Nhóm {g2} của cung hạn khắc nhóm {g1} của tuổi {yb}, nên đây là mười năm {S} cần thận trọng, dễ bị dồn vào thế khó.",
+      "Tam hợp {g2} của cung hạn khắc tam hợp {g1} của tuổi {yb}: những va vấp lớn dễ đến vào quãng này."
+    ],
+    "KHAC_XUAT": [
+      "Có một cách đọc khác về quan hệ này: khi tam hợp của tuổi {yb} khắc tam hợp cung hạn, việc dễ chậm hơn dự tính, cần bền sức mới qua.",
+      "Cũng có cách nhìn cho rằng tuổi {yb} khắc cung hạn thì việc hay kéo dài, {S} phải kiên trì hơn thường lệ."
+    ]
+  },
+  "readings": {
+    "VH_TPVT_SAT": {
+      "dir": "up",
+      "v": [
+        "Mệnh có Tử Phủ Vũ Tướng mà hạn gặp sát tinh lại là dịp để {S} vươn lên.",
+        "Với Mệnh Tử Phủ Vũ Tướng, sát tinh trong cung hạn lại thúc {S} đi lên."
+      ]
+    },
+    "VH_TPVT_CNDL": {
+      "dir": "down",
+      "v": [
+        "Mệnh Tử Phủ Vũ Tướng gặp hạn Cơ Nguyệt Đồng Lương hay Tử Phủ thường là chặng nên chậm lại, giữ những gì đã có hơn là mở rộng.",
+        "Với Mệnh Tử Phủ Vũ Tướng, cung hạn này không phải chặng bứt phá; {S} được lợi hơn khi củng cố nền đã gây dựng."
+      ]
+    },
+    "VH_VCD_SPT": {
+      "dir": "up",
+      "v": [
+        "Mệnh vô chính diệu gặp hạn Sát Phá Tham là lúc {S} có dịp đi lên, như người chờ lâu nay có việc thực để làm.",
+        "Hạn có Sát Phá Tham mở cho Mệnh vô chính diệu một dịp đi lên rõ rệt."
+      ]
+    },
+    "VH_TUAN_TRIET": {
+      "dir": "up",
+      "v": [
+        "Tuần ở Mệnh gặp Triệt ở hạn (hay ngược lại) như được tháo bỏ ràng buộc, {S} dễ thoát thế bó tay.",
+        "Giữa Mệnh và cung hạn, Tuần và Triệt gặp nhau như cởi một lớp xiềng, việc của {S} được thông hơn."
+      ]
+    },
+    "VH_NN_DAO_HONG": {
+      "dir": "up",
+      "v": [
+        "Mệnh có Nhật Nguyệt cần hạn có Đào, Hồng, Hỷ mới khá, và mười năm này có đủ những sao ấy.",
+        "Cung hạn có Đào, Hồng, Hỷ, đúng thứ Mệnh Nhật Nguyệt cần để khá lên."
+      ]
+    },
+    "VH_NN_KINH_DA": {
+      "dir": "down",
+      "v": [
+        "Mệnh có Nhật Nguyệt mà hạn gặp Kình, Đà thì mọi việc dễ kém đi.",
+        "Kình, Đà trong cung hạn làm Mệnh Nhật Nguyệt thêm chật vật."
+      ]
+    },
+    "VH_CU_NHAT_SPT": {
+      "dir": "up",
+      "v": [
+        "Mệnh Cự Nhật gặp hạn có Sát Phá Tham là dịp {S} gây dựng sự nghiệp lớn.",
+        "Sát Phá Tham trong cung hạn cho Mệnh Cự Nhật cơ hội làm nên việc lớn."
+      ]
+    },
+    "VH_CNDL_TOT": {
+      "dir": "up",
+      "v": [
+        "Mệnh Cơ Nguyệt Đồng Lương có hạn gặp Xương Khúc hay Khoa Quyền Lộc thì có thêm địa vị, tài lộc.",
+        "Cung hạn có những sao văn, sao hóa tốt giúp Mệnh Cơ Nguyệt Đồng Lương có địa vị, tài lộc."
+      ]
+    },
+    "VH_CNDL_XAU": {
+      "dir": "down",
+      "v": [
+        "Mệnh Cơ Nguyệt Đồng Lương gặp hạn có Kình, Đà, Không, Kiếp thì dễ hao hụt đến trắng tay.",
+        "Sát tinh trong cung hạn khiến Mệnh Cơ Nguyệt Đồng Lương dễ mất những gì đã gây dựng."
+      ]
+    },
+    "VH_VT_TP": {
+      "dir": "up",
+      "v": [
+        "Mệnh Vũ Tướng gặp hạn Tử Phủ là một bước tiến về chức phận.",
+        "Hạn Tử Phủ đưa Mệnh Vũ Tướng lên thêm một bậc."
+      ]
+    },
+    "VH_VT_SPT": {
+      "dir": "up",
+      "v": [
+        "Mệnh Vũ Tướng gặp hạn Sát Phá Tham dễ giàu sang nhanh, nhưng cái nhanh ấy cũng mau qua.",
+        "Hạn Sát Phá Tham cho Mệnh Vũ Tướng một thời phát nhanh, khó giữ lâu."
+      ]
+    },
+    "VH_THAI_TUE": {
+      "dir": "up",
+      "v": [
+        "Hạn có Thái Tuế là một trong những thập niên lớn về công danh, mừng nhiều hơn lo.",
+        "Thái Tuế ở cung hạn biến quãng này thành một thời công danh đáng kể."
+      ]
+    },
+    "VH_QUAN_PHU": {
+      "dir": "up",
+      "v": [
+        "Hạn gặp Quan Phù là lúc {S} có thể mong việc công danh.",
+        "Quan Phù trong cung hạn mở đường cho chuyện công danh."
+      ]
+    },
+    "VH_BACH_HO": {
+      "dir": "mixed",
+      "v": [
+        "Hạn có Bạch Hổ đòi hỏi {S} dám làm dám chịu thì mới có quyền thế, giàu sang.",
+        "Bạch Hổ ở cung hạn chỉ thưởng cho sự can đảm: dám nhận phần khó thì mới có uy quyền."
+      ]
+    },
+    "VH_POS_1": {
+      "dir": "up",
+      "v": [
+        "Thất Sát đóng ở {v_branch} trong hạn này giúp việc dễ thành.",
+        "Có Thất Sát ở {v_branch}, nhiều việc trong quãng này dễ thuận."
+      ]
+    },
+    "VH_POS_2": {
+      "dir": "down",
+      "v": [
+        "Thất Sát ở {v_branch} khiến nhiều việc dễ dở dang.",
+        "Với Thất Sát ở {v_branch}, việc bắt đầu thì nhiều mà xong thì ít."
+      ]
+    },
+    "VH_POS_3": {
+      "dir": "up",
+      "v": [
+        "Phá Quân ở {v_branch} mang lại bạn bè đông đủ.",
+        "Quãng này có Phá Quân ở {v_branch}, quanh {S} thường đông bạn bè."
+      ]
+    },
+    "VH_POS_4": {
+      "dir": "down",
+      "v": [
+        "Phá Quân ở {v_branch} dễ khiến {S} cô đơn, lẻ bóng.",
+        "Với Phá Quân ở {v_branch}, đây là quãng {S} dễ thấy mình lẻ loi."
+      ]
+    },
+    "VH_POS_5": {
+      "dir": "up",
+      "v": [
+        "Tham Lang ở {v_branch} báo một thời giàu sang, hiển hách.",
+        "Có Tham Lang ở {v_branch}, quãng này dễ phát đạt rõ rệt."
+      ]
+    },
+    "VH_POS_6": {
+      "dir": "down",
+      "v": [
+        "Tham Lang ở {v_branch} dễ khiến hao tài, sống buông thả.",
+        "Với Tham Lang ở {v_branch}, {S} dễ tiêu pha quá tay, khó giữ mình."
+      ]
+    },
+    "TH_TPVT_LOC_TA_HUU": {
+      "dir": "up",
+      "v": [
+        "Cung hạn có Tử Phủ Vũ Tướng gặp Lộc và Tả Hữu: một dịp có thể phát giàu lớn.",
+        "Tử Phủ Vũ Tướng cùng Lộc và Tả Hữu trong cung hạn mở ra cơ hội làm giàu lớn."
+      ]
+    },
+    "TH_NDCC_HOA3": {
+      "dir": "up",
+      "v": [
+        "Cung hạn có Nguyệt Đồng Cơ Cự gặp Khoa Quyền Lộc và các sao trợ: dịp thăng chức hoặc đỗ đạt.",
+        "Quãng này hội đủ Khoa Quyền Lộc quanh Nguyệt Đồng Cơ Cự, thuận cho thăng tiến, khoa cử."
+      ]
+    },
+    "TH_CU_NHAT_SONG_LOC": {
+      "dir": "up",
+      "v": [
+        "Cự Nhật trong cung hạn gặp song Lộc và Tả Hữu: buôn bán dễ phát mạnh.",
+        "Có song Lộc và Tả Hữu bên Cự Nhật, đây là thời {S} làm ăn buôn bán thuận."
+      ]
+    },
+    "TH_CNDL_TAM_HOA": {
+      "dir": "up",
+      "v": [
+        "Cơ Nguyệt Đồng Lương trong cung hạn gặp Xương Khúc, Hồng Đào và Tam Hóa: dịp phát cả công danh lẫn tiền của.",
+        "Quãng này hội Tam Hóa cùng Xương Khúc, Hồng Đào, công danh và tiền của cùng lên."
+      ]
+    },
+    "TH_SPLT_KINH_DOANH": {
+      "dir": "up",
+      "v": [
+        "Sát Phá Liêm Tham trong cung hạn gặp Tả Hữu, Quyền Lộc, Khôi Việt: dịp phát về kinh doanh.",
+        "Cung hạn có Sát Phá Liêm Tham được Tả Hữu, Quyền Lộc nâng đỡ, việc kinh doanh của {S} dễ khởi sắc."
+      ]
+    },
+    "TH_DAO_HONG_KHOA_QUYEN": {
+      "dir": "up",
+      "v": [
+        "Đào, Hồng hay Xương Khúc, Khôi Việt đi cùng Khoa, Quyền trong cung hạn là điều kiện để đỗ đạt, thăng chức.",
+        "Quãng này có các sao văn, sao duyên đi cùng Khoa Quyền, thuận cho thi cử và thăng chức."
+      ]
+    },
+    "TH_TPVT_KHONG_KIEP_KY": {
+      "dir": "down",
+      "v": [
+        "Tử Phủ Vũ Tướng trong cung hạn gặp Không, Kiếp và Hóa Kỵ: thế bất lợi, dễ bị giáng chức hay hao tài.",
+        "Không, Kiếp và Hóa Kỵ bên Tử Phủ Vũ Tướng khiến quãng này dễ mất chức, mất của."
+      ]
+    },
+    "TH_NDCC_KHONG_KIEP": {
+      "dir": "down",
+      "v": [
+        "Nguyệt Đồng Cơ Cự trong cung hạn gặp Không, Kiếp cùng Thái Tuế hay Kỵ: dễ vướng kiện cáo hoặc giáng chức.",
+        "Quãng này Nguyệt Đồng Cơ Cự gặp Không, Kiếp và Kỵ, {S} cần đề phòng chuyện tranh tụng, mất chức."
+      ]
+    }
+  },
+  "both": [
+    "Mười năm này có cả dấu hiệu đi lên lẫn dấu hiệu đi xuống, nên khó nói gọn là thuận hay nghịch.",
+    "Quãng này mang hai chiều trái nhau, vừa có thế lên vừa có thế xuống."
+  ],
+  "hoa": [
+    "Can {stem} của đại hạn đưa Hóa Lộc đến {lstar} ở cung {lpal}: {lmean}; Hóa Kỵ đến {kstar} ở cung {kpal}: {kmean}.",
+    "Theo can {stem}, Hóa Lộc của hạn rơi vào {lstar} (cung {lpal}), nghĩa là {lmean}; còn Hóa Kỵ vào {kstar} (cung {kpal}), {kmean}.",
+    "Trong mười năm này, Hóa Lộc theo can {stem} đóng ở cung {lpal} cùng {lstar}, {lmean}; Hóa Kỵ ở cung {kpal} cùng {kstar}, {kmean}."
+  ],
+  "kl_rel": {
+    "cùng hành": [
+      "Tam hợp cung hạn cùng hành với tam hợp tuổi {yb}, nên mười năm này đi ở mức êm, không quá bứt phá cũng không quá trắc trở."
+    ],
+    "tuổi khắc đại vận": [
+      "Xét theo hành, tam hợp tuổi {yb} khắc tam hợp cung hạn: đây là thế tự mình làm chủ hoàn cảnh, sức bỏ ra của {S} được đền đáp.",
+      "Tuổi {yb} khắc được tam hợp cung hạn, một thế {S} có thể dùng nỗ lực của mình để thắng hoàn cảnh."
+    ],
+    "tuổi sinh xuất cho đại vận": [
+      "Tam hợp tuổi {yb} sinh cho tam hợp cung hạn: việc thường phải qua vất vả rồi mới thành, sức bỏ ra lúc đầu nhiều hơn phần nhận về.",
+      "Tuổi {yb} phải sinh cho cung hạn, nên đây là chặng gieo nhiều gặt sau; thành quả đến muộn mà vững."
+    ],
+    "đại vận sinh nhập cho tuổi": [
+      "Tam hợp cung hạn sinh cho tuổi {yb}: một thế thuận, nhiều việc được hoàn cảnh nâng lên.",
+      "Cung hạn sinh nhập cho tuổi {yb}, nên mười năm này {S} dễ được hoàn cảnh giúp sức."
+    ],
+    "đại vận khắc tuổi": [
+      "Tam hợp cung hạn khắc tam hợp tuổi {yb}: đây là chặng dễ gặp trở ngại hơn cả, nên đi chắc, tránh mở rộng liều.",
+      "Cung hạn khắc tuổi {yb}, nên quãng này {S} cần thận trọng với những quyết định lớn và giữ vững những gì đã có."
+    ]
+  },
+  "kl_rel_tone": {
+    "cùng hành": "",
+    "tuổi khắc đại vận": "pos",
+    "tuổi sinh xuất cho đại vận": "neg",
+    "đại vận sinh nhập cho tuổi": "pos",
+    "đại vận khắc tuổi": "neg"
+  },
+  "kl_xung": [
+    "Tam hợp cung hạn khắc được tam hợp cung xung chiếu ({opp}), nên hạn nhận cái tốt và gạt bớt cái xấu từ phía đối diện.",
+    "Cung hạn khắc được phía xung chiếu ({opp}): điều hay từ đó được đón nhận, điều dở bị chặn lại."
+  ],
+  "kl_nhi_hop": [
+    "Cung nhị hợp {nh} sinh cho cung hạn, nên {majors} ở đó cũng góp sức vào mười năm này.",
+    "Từ cung nhị hợp {nh}, {majors} sinh trợ cho cung hạn và được tính vào vận này."
+  ],
+  "kl_event": [
+    "Hạn đi qua cung {pal}, nên những chuyển động lớn của mười năm thường xoay quanh {event}."
+  ],
+  "tt_lead": [
+    "Ở hạn này, {t}"
+  ],
+  "hoa_qk": [
+    "Hóa Quyền của hạn đến {qstar} ở cung {qpal}, {qmean}; Hóa Khoa đến {cstar} ở cung {cpal}, {cmean}.",
+    "Hạn còn đưa Hóa Quyền vào {qstar} (cung {qpal}): {qmean}; và Hóa Khoa vào {cstar} (cung {cpal}): {cmean}."
+  ],
+  "sum": {
+    "good": [
+      "Nhìn chung, đây là một chặng thuận của lá số."
+    ],
+    "mixed": [
+      "Tổng thể, mười năm này lẫn lộn thuận và nghịch, được mất tùy cách {S} xoay xở."
+    ],
+    "hard": [
+      "Đây là chặng nên giữ nhiều hơn mở; đi chắc thì vẫn qua được."
+    ]
+  },
+  "year": {
+    "frame": [
+      "Năm {year} ({pillar}), {S} {age} tuổi âm, đang ở đại hạn {dh_from}–{dh_to} tuổi tại cung {dh_pal}; tiểu hạn năm nay đóng ở cung {th_pal} ({th_br}), nên chuyện {th_dom} là trọng tâm của năm."
+    ],
+    "luu_thai_tue": [
+      "Lưu Thái Tuế năm nay ở cung {pal}, nên chuyện {dom} là nơi dễ có việc phải lo liệu.",
+      "Năm nay lưu Thái Tuế đóng ở cung {pal}: chuyện {dom} dễ nổi lên thành việc chính."
+    ],
+    "luu_hoa": [
+      "{hoa} lưu năm {pillar} rơi vào {star} ở cung {pal}{note}; {advice}.",
+      "Theo can năm, {hoa} đến {star} (cung {pal}){note}; {advice}."
+    ]
+  }
 }

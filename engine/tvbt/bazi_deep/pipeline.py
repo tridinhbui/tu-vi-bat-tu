@@ -94,3 +94,50 @@ def timeline(view: ChartView, profile: SchoolProfile, luck: list[dict], years: l
             e["findings"] = [{"claim": f["claim"], "effect": f["effect"], "rule_id": f["rule_id"], "basis": f["basis"], "chain": f["chain"]} for f in r["findings"]]
             e["pack_problems"] = r["pack_problems"]
     return out
+
+
+_GROUP_VI = {"Ti": "Tỉ Kiếp", "ThucThuong": "Thực Thương", "Tai": "Tài", "QuanSat": "Quan Sát", "An": "Ấn"}
+
+
+def prose_summary(view: ChartView, luck: list[dict]) -> dict:
+    """What the reader prose (src/interpret/prose/bazi.ts) needs from the structure analysis, flattened: the day master's strength by
+    Thiệu Vĩ Hoa's score (SRC_TVH_DIEM; the verified rules BT_TVH_* decide vượng/nhược/biên), the climate and the điều hậu table cell
+    (SRC_TVH_DIEUHAU, verified), the phù ức reading(s) (system principle), the cách from the month (draft definitions), the verified
+    structure findings with their Vietnamese claim, and per luck pillar its ten god, what it does to the cách and the climate, and its
+    verified 歲運 findings (TTT). Labels say which parts are verified."""
+    a = analyse(view)
+    claims = {k: v for k, v in json.loads((DATA / "claims_vi.json").read_text("utf-8")).items() if not k.startswith("_")}
+    S, Y = a["strength_after"], a["yongshen"]["methods"]
+    tvh = S.get("tvh") or {}
+    dh = Y.get("dieu_hau", {}) or {}
+    tab = dh.get("table") or {}
+    pu = Y.get("phu_uc", {}) or {}
+    alts = pu.get("alternatives") or ([pu] if pu.get("yong") else [])
+    grp = lambda xs: [_GROUP_VI.get(x, x) for x in xs or []]
+    verified = [{"rule_id": f["rule_id"], "claim": f["claim"], "text": claims.get(f["claim"], f["claim"])}
+                for f in a.get("reasoning", {}).get("findings", []) if f["basis"] == "verified"]
+    tl = timeline(view, profile_default(), luck, [])
+    lk = []
+    for e in tl["luck"]:
+        roles = e.get("roles", {}).get("dieu_hau", {})
+        lk.append({"index": e["index"], "pillar": e["pillars"][0], "ten_god": (e.get("ten_gods") or [None])[0], "level": e.get("level"),
+                   "effect": e.get("effect"), "can_chi": [c["relation"] for c in e.get("can_chi", [])],
+                   "dieu_hau": {"stem": roles.get("stem_role"), "branch": roles.get("branch_role")},
+                   "findings": [{"rule_id": f["rule_id"], "text": claims.get(f["claim"], f["claim"])} for f in e.get("findings", []) if f["basis"] == "verified"]})
+    return {
+        "strength": {"dm_strong": tvh.get("dm_strong"), "own_share": tvh.get("own_share"), "threshold": tvh.get("threshold"),
+                     "season_state": S.get("season_state"), "by_element": S.get("by_element"), "src": tvh and "TVH pp.331-355"},
+        "climate": {"label": (dh.get("climate") or {}).get("label"), "han_noan": (dh.get("han_noan") or {}).get("state")},
+        "dieu_hau": {"cell": tab.get("cell"), "need": dh.get("need_elements", []), "avoid": dh.get("avoid_elements", []), "satisfied": tab.get("satisfied"),
+                     "stems": [{k: s.get(k) for k in ("stem", "ten_god", "rank", "visible", "hidden")} for s in tab.get("yong_stems", [])],
+                     "verified": dh.get("status") == "bang_TVH_verified", "src": "TVH pp.389-396"},
+        "phu_uc": [{"level": x.get("level"), "yong": grp(x.get("yong")), "xi": grp(x.get("xi")), "ji": grp(x.get("ji"))} for x in alts],
+        "geju": {"inner": [{"name": c["name"], "state": c.get("state")} for c in a["geju"]["inner"]],
+                 "outer": [{"name": o["name"], "quality": o.get("quality")} for o in a["geju"]["outer"]], "verified": False},
+        "verified": verified, "luck": lk,
+    }
+
+
+def profile_default():
+    from .profile import TVH_40
+    return TVH_40

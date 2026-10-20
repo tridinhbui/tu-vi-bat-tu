@@ -104,7 +104,7 @@ test('1,000 charts: no blocking error, no empty chapter, repetition, diversity a
 import { handleInterpret } from '../route.ts';
 import { BundledStore, LayeredCache } from '../store.ts';
 const deps = (over: Partial<Parameters<typeof handleInterpret>[1]> = {}) => ({
-  enabled: true, proseDraft: true, store: new BundledStore(K), cache: new LayeredCache({}), defer: () => {},
+  enabled: true, proseDraft: true, deep: false, store: new BundledStore(K), cache: new LayeredCache({}), defer: () => {},
   facts: async () => new Response(JSON.stringify(ex.facts), { headers: { 'content-type': 'application/json' } }), ...over });
 const call = (body: unknown, over = {}) => handleInterpret(new Request('http://x/api/interpret', { method: 'POST', body: JSON.stringify(body) }), deps(over));
 

@@ -48,7 +48,7 @@ function evHtml(chs) {
     ${EV_SECTIONS.map(([k, t]) => ch.sections[k] == null ? '' : (k === 'nhan_dinh_tong_quan' ? `<h5>${t}</h5>${sec(k, ch.sections[k])}` : acc(t, '', sec(k, ch.sections[k])))).join('')}</section>`).join('');
 }
 // ---------- reader prose for Mệnh (src/interpret/prose via /api/interpret mode "prose"): clean text, evidence per sentence on click ----------
-const PR_MOVE = { ANCHOR: 'Nét lõi', BORROW: 'Nét lõi, mượn cung đối diện', ELABORATE: 'Biểu hiện', TURN: 'Mặt trái', RESCUE: 'Cứu giải', TENSION: 'Yếu tố làm sắc',
+const PR_MOVE = { STRUCT: 'Cấu trúc cung', PHO_THONG: 'Nghĩa phổ thông', BALANCE: 'Cân bằng và hướng đi', ANCHOR: 'Nét lõi', BORROW: 'Nét lõi, mượn cung đối diện', ELABORATE: 'Biểu hiện', TURN: 'Mặt trái', RESCUE: 'Cứu giải', TENSION: 'Yếu tố làm sắc',
   TIMING: 'Nhịp thời gian', SATELLITE: 'Nét bổ trợ', VALUE: 'Giá trị', TRANSFORM: 'Hướng chuyển hóa', DEGREE: 'Nền độ số', EXTRA: 'Đường đời' };
 const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Nghiệm Lý (Thiên Lương, bản gõ)', NL: 'Nghiệm Lý 1974 (Thiên Lương, bản scan HELEN)', ZZ: 'Bát Tự Chân Tông' };
 const prCite = c => String(c).replace(/^(TH|KL|TT|TL|NL|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
@@ -57,9 +57,9 @@ function proseHtml(p) {
   const draft = p.draft !== false;
   const title = p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
   return `<section class="synth prose" data-chapter="${esc(p.chapter)}" aria-label="${title}"><p class="eyebrow">${title}</p>
-    ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p">${para.sentences.map((s, j) => `<span class="sy-s pr-s" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
+    ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
     <div class="pr-why small" hidden></div>${adviceHtml(p.advice)}${prDiverge(p)}
-    <p class="muted small sy-foot">Văn bản do bộ máy quy tắc ghép từ các nhận định đã đối chiếu sách (không dùng mô hình AI)${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
+    <p class="muted small sy-foot">Văn bản do bộ máy ghép từ ba nguồn, không dùng mô hình AI: nhận định đã đối chiếu sách, dữ kiện tính từ lá số, và <span class="pr-pt">nghĩa sao theo thông lệ phổ biến (chữ nhạt hơn, chưa đối chiếu sách)</span>${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
 }
 // what the voiced traits suggest doing (chapter.ts adviceOf): strengths to lean on, habits to watch; the system's wording, said as such
 function adviceHtml(a) {
@@ -81,12 +81,16 @@ function proseWhy(p, key) {
   if (!s) return '';
   const t = s.trace, R = p.evidence?.rules || {}, C = p.evidence?.concepts || {};
   const moves = [t.move, ...(t.woven || [])].map(m => PR_MOVE[m] || m).join(' + ');
-  const basis = t.basis === 'he_thong' ? '<span class="an-b an-he_thong">Lời tổng hợp của hệ thống</span> <span class="muted">không phải lời sách; chỉ nhắc lại những ý đã có căn cứ ở câu trước</span>' : '<span class="an-b an-sach">Theo sách</span>';
+  const basis = t.basis === 'he_thong' ? '<span class="an-b an-he_thong">Lời tổng hợp của hệ thống</span> <span class="muted">không phải lời sách; chỉ nhắc lại những ý đã có căn cứ ở câu trước</span>'
+    : t.basis === 'tinh_toan' ? '<span class="an-b an-tinh_toan">Tính từ lá số</span> <span class="muted">dữ kiện tính được, hoặc tra từ bảng có ghi trang sách</span>'
+    : t.basis === 'pho_thong' ? '<span class="an-b an-pho_thong">Thông lệ phổ biến</span> <span class="muted">nghĩa thường dùng, do hệ thống soạn, chưa đối chiếu sách</span>'
+    : '<span class="an-b an-sach">Theo sách</span>';
+  const src = !t.rules.length && t.cites?.length ? `<p class="muted">Nguồn: ${esc(t.cites.map(prCite).join('; '))}</p>` : '';
   const res = t.resolution ? `<p><b>Phân xử:</b> câu sách ở ${esc(prCite(t.resolution.cite || ''))} làm mềm nhận định bất lợi đi kèm (quan hệ <code>${esc(t.resolution.relation)}</code>).</p>` : '';
   // under a rescue, the readings it softened are listed for the record but marked: the text does not voice them as they stand
   const softened = id => t.resolution && id !== t.resolution.byRule ? ' <span class="muted">· đã được câu sách trên làm mềm, văn bản không nêu nguyên ý này</span>' : '';
   const rules = t.rules.map(id => R[id] ? `<li><b>${esc(R[id].cites.map(prCite).join('; ') || '—')}</b> ${esc(R[id].reading)}${softened(id)} <code class="muted">${esc(id)}</code></li>` : `<li><code>${esc(id)}</code></li>`).join('');
-  return `<p><b>${esc(moves)}</b> · ${basis}</p>${t.concepts.length ? `<p class="muted">Ý được nói: ${esc(t.concepts.map(c => C[c] || c).join(', '))}</p>` : ''}${res}${rules ? `<ul class="pr-rules">${rules}</ul>` : ''}`;
+  return `<p><b>${esc(moves)}</b> · ${basis}</p>${src}${t.concepts.length ? `<p class="muted">Ý được nói: ${esc(t.concepts.map(c => C[c] || c).join(', '))}</p>` : ''}${res}${rules ? `<ul class="pr-rules">${rules}</ul>` : ''}`;
 }
 function bindProse(host, byChapter) {
   $$('.prose', host).forEach(sec => {
@@ -289,7 +293,9 @@ export function renderTuviReport(host, chart, ctx) {
   const palaceList = names => `<ul class="plist">${names.map(palaceP).join('')}</ul>`;
   const tuHoa = Object.entries(t.tu_hoa).map(([k, v]) => `<li><b>${esc(k)}</b> tại ${esc(v.star)} <span class="muted">· cung ${esc(t.palaces.find(p => p.branch_index === v.branch)?.name || '')}</span></li>`).join('');
   const ph = currentPhase(b, t, ctx.req);
-  // Mười hai cung: one accordion per palace, facts only
+  // Mười hai cung: one accordion per palace, its facts and, when the reader prose has the palace, its whole reading
+  const P12_CH = { 'Mệnh': 'menh', 'Quan Lộc': 'cong_danh', 'Tài Bạch': 'tai_bach', 'Thiên Di': 'thien_di', 'Phu Thê': 'phu_the', 'Phúc Đức': 'phuc_duc', 'Điền Trạch': 'dien_trach',
+    'Nô Bộc': 'no_boc', 'Tử Tức': 'tu_tuc', 'Huynh Đệ': 'huynh_de', 'Phụ Mẫu': 'phu_mau', 'Tật Ách': 'tat_ach' };
   const p12 = t.palaces.slice().sort((a, c) => (a.branch_index - tv.menh.branch_index + 12) % 12 - (c.branch_index - tv.menh.branch_index + 12) % 12).map(p => {
     const s = t.structure[p.branch], mi = p.stars.filter(x => !p.major_stars.includes(x)), g = k => mi.filter(x => starKind(x) === k);
     const hoa = Object.entries(t.tu_hoa).filter(([, v]) => v.branch === p.branch_index).map(([k, v]) => `${k} (${v.star})`);
@@ -300,7 +306,7 @@ export function renderTuviReport(host, chart, ctx) {
       ${row('Cát tinh', esc(g('pos').join(', ')))}${row('Sát / hung tinh', esc(g('neg').join(', ')))}${row('Phụ tinh khác', esc(g('neu').join(', ')))}
       ${row('Tứ Hóa', esc(hoa.join('; ')))}${row('Tuần / Triệt', esc([p.tuan && 'Tuần', p.triet && 'Triệt'].filter(Boolean).join(' + ')))}${row('Đại hạn', d ? `${d.age_from}–${d.age_to} tuổi` : '')}
       ${row('Xung chiếu', `${ref(t.palaces.find(x => x.branch === s.opposite).name)}`)}${row('Tam hợp', s.tam_hop.map(x => ref(t.palaces.find(y => y.branch === x).name)).join(' · '))}
-      ${row('Nhận định', (pf.length ? `<span class="pro-only">${esc(pf.map(f => claimLabel(f.claim)).join('; '))}</span>` : '<span class="pro-only muted">chưa có quy tắc được kích hoạt</span>') + `<span class="easy-only">${(() => { const sh = classify(pf).show; return sh.length ? esc(sh.map(f => parsePhrase(f).core).join('; ')) : `<span class="muted">${esc(terms()['palace:' + p.name]?.plain || '')} Chưa có luận giải cá nhân hóa cho cung này.</span>`; })()}</span>`)}</div>`);
+      ${P12_CH[p.name] && ctx.prose?.[P12_CH[p.name]]?.paragraphs?.length ? `</div>${proseHtml(ctx.prose[P12_CH[p.name]])}<div class="p12-s">` : row('Nhận định', (pf.length ? `<span class="pro-only">${esc(pf.map(f => claimLabel(f.claim)).join('; '))}</span>` : '<span class="pro-only muted">chưa có quy tắc được kích hoạt</span>') + `<span class="easy-only">${(() => { const sh = classify(pf).show; return sh.length ? esc(sh.map(f => parsePhrase(f).core).join('; ')) : `<span class="muted">${esc(terms()['palace:' + p.name]?.plain || '')} Chưa có luận giải cá nhân hóa cho cung này.</span>`; })()}</span>`)}</div>`);
   }).join('');
   const chapters = [
     { id: 'tong-quan', title: 'Tổng quan Tử Vi', lead: `Lá số lập cho người sinh năm ${esc(t.year_gz)} (âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}), ${esc(t.yin_yang_gender)}.`, blocks: blocks('tv', 'tong-quan'),

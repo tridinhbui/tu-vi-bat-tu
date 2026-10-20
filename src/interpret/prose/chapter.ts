@@ -14,6 +14,7 @@ import { Realizer, type ProseParagraph, type ProseSentence } from './realize.ts'
 import { IDENTITY, select, type Selection } from './select.ts';
 import { validateProse, type ProseIssue, type ProseMetrics } from './validate.ts';
 import type { Move } from './types.ts';
+import { bookStarsOf, para, readPalace } from './deep.ts';
 
 export const PROSE_VERSION = 'prose-0.2.1';
 export type ProseChapterId = 'menh' | 'cong_danh' | 'tai_bach' | 'thien_di' | 'phu_the' | 'phuc_duc' | 'dien_trach' | 'no_boc'
@@ -140,7 +141,9 @@ export function seedOf(chart: ChartInput): string {
 }
 
 /** Every chapter of the chain up to `until` (inclusive), sharing rule inference, the variant memory and the concepts already said. */
-export function proseReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?: boolean; until?: ProseChapterId } = {}): ProseChapter[] {
+/** `deep`: add the structure, common-meaning and balance layers around the book readings (prose/deep.ts; draft library, so with allowDraft
+ *  only). The route turns it on; the book-layer tests leave it off so their goldens and thresholds measure the book readings alone. */
+export function proseReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?: boolean; until?: ProseChapterId; deep?: boolean } = {}): ProseChapter[] {
   const findings = run(k.rules, k.sources, chart.base).findings;
   const { assertions } = lift(findings, k, chart.base);
   const { resolved, tensions } = resolve(assertions, k);
@@ -152,12 +155,22 @@ export function proseReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?
   for (const id of PROSE_ORDER) {
     const ch = chapterOf(chart, k, id, resolved, tensions, micro, said, !!opts.allowDraft, seed, fired);
     ch.paragraphs.forEach(p => p.sentences.forEach(s => (s.trace.keys ?? []).forEach(c => said.add(c))));
-    out.push(ch);
+    out.push(opts.allowDraft && opts.deep ? deepen(ch, chart, k, micro, resolved) : ch);
     if (id === (opts.until ?? PROSE_ORDER[PROSE_ORDER.length - 1])) break;
   }
   return out;
 }
-export function proseChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId, opts: { allowDraft?: boolean } = {}): ProseChapter {
+/** The chapter with its structure paragraph first, then the book readings, then the common meanings and the balance (prose/deep.ts).
+ *  Draft library only: the structure frames and the cards are unreviewed. */
+function deepen(ch: ProseChapter, chart: ChartInput, k: Knowledge, micro: Micro, resolved: Resolved[]): ProseChapter {
+  const pal = chart.palaces.find(p => p.name === ch.palace)!;
+  const oppName = (chart.base[`palace:${ch.palace}`]?.['palace.rel_names'] as Record<string, string> | undefined)?.opp;
+  const r = readPalace(chart, k, ch.palace, micro, { key: 'natal', bookStars: bookStarsOf(ch.paragraphs, k, pal, chart.palaces.find(p => p.name === oppName)) });
+  const paragraphs = [...para('structure', r.structure), ...ch.paragraphs, ...para('colour', r.colour), ...para('balance', r.balance)];
+  const { issues, metrics } = validateProse(paragraphs, resolved.filter(x => ch.evidence.resolved.some(e => e.ruleId === x.ruleId)));
+  return { ...ch, paragraphs, text: paragraphs.map(p => p.text).join('\n\n'), issues, metrics, pass: !issues.some(i => i.level === 'error') };
+}
+export function proseChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId, opts: { allowDraft?: boolean; deep?: boolean } = {}): ProseChapter {
   return proseReport(chart, k, { ...opts, until: id }).at(-1)!;
 }
 
