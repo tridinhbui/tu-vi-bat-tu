@@ -608,7 +608,7 @@ body.hour-mode #print-btn{display:none}
   /* trailing padding of the Bát Tự pane spilled onto an otherwise empty page before the forced Tử Vi break */
   #pane-bazi,#pane-bazi>*:last-child,#pane-bazi .r-report,#pane-bazi .wrap,#bazi-report,#bazi-report .rp-layout,#bazi-report .rp-body{padding-bottom:0!important;margin-bottom:0!important}
   .chapter{margin-bottom:10pt}.reveal{opacity:1!important;transform:none!important}
-  .tv-scroll{overflow:visible!important}.tv-board{min-width:0!important;zoom:.62}
+  .tv-scroll{overflow:visible!important}.tv-board{zoom:.58!important}
   .tv-links{display:none}
   .tv-layout{display:block!important}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}

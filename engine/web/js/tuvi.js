@@ -116,6 +116,20 @@ export function renderTuvi(host, t, ctx) {
   const stage = $('.tv-stage', host), board = $('#tv-board', host), svg = $('.tv-links', host), drawer = $('#tv-drawer', host);
   let cur = null, cycle = { dh: null, year: null }, yd = null;
 
+  // scale the fixed-size board (--bw × 4·--bh in css/atlas.css) to its box: in the one-screen layout it fits both ways, in the flowing layout
+  // it follows the width; never below 0.8 (a box too small scrolls the board inside it rather than shrink the stars to unreadable)
+  const scroller = board.parentElement, oneScreen = matchMedia('(min-width:1100px) and (min-height:600px)');
+  const fit = () => {
+    const w = scroller.clientWidth, h = scroller.clientHeight, cs = getComputedStyle(board);
+    const BOARD_W = parseFloat(cs.getPropertyValue('--bw')), BOARD_H = 4 * parseFloat(cs.getPropertyValue('--bh')) + 5;
+    if (!w) return;
+    const k = Math.max(oneScreen.matches && board.closest('.dash-tv') ? Math.min(w / BOARD_W, h / BOARD_H) : w / BOARD_W, 0.8);
+    board.style.setProperty('--fit', Math.min(k, 1.3).toFixed(4));
+    if (cur != null) links(cur);
+  };
+  new ResizeObserver(fit).observe(scroller);
+  fit();
+
   const emptyDrawer = () => `<div class="drawer-empty"><div class="ident-art sm" aria-hidden="true">${compass({ animate: false, detail: 'min' })}</div><h3>Chọn một cung</h3><p class="muted">Nhấn vào một cung để xem sao, Tam Phương Tứ Chính và các nhận định liên quan. Các đường nối cho thấy cung nào đang tương tác với cung nào.</p>${evLegend()}</div>`;
   drawer.innerHTML = emptyDrawer();
   // the detail drawer, the legend, the reading hint and the scope note live in the right-hand column next to the chat (css/dash.css)
