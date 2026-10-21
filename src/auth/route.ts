@@ -5,8 +5,9 @@ import { deleteChart, listCharts, syncCharts } from "./charts.ts";
 import { getWallet, grant } from "../billing/wallet.ts";
 import { PACKS } from "../billing/config.ts";
 import { bump } from "../stats/stats.ts";
+import { isAdmin } from "../admin/route.ts";
 
-export interface AuthEnv { DB?: D1Database; GOOGLE_CLIENT_ID?: string; GOOGLE_CLIENT_SECRET?: string; ADMIN_TOKEN?: string; STRIPE_SECRET_KEY?: string }
+export interface AuthEnv { DB?: D1Database; GOOGLE_CLIENT_ID?: string; GOOGLE_CLIENT_SECRET?: string; ADMIN_TOKEN?: string; ADMIN_EMAILS?: string; STRIPE_SECRET_KEY?: string }
 
 const json = (body: unknown, status = 200, headers: HeadersInit = {}) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers } });
@@ -33,7 +34,8 @@ export async function handleAuth(request: Request, env: AuthEnv): Promise<Respon
   // The page asks this first; "enabled: false" keeps the sign-in button hidden until the database and Google keys are configured.
   if (path === "/api/auth/me") {
     if (!db || !cfg) return json({ enabled: false, user: null });
-    return json({ enabled: true, user: await currentUser(db, request) });
+    const user = await currentUser(db, request);
+    return json({ enabled: true, user, ...(isAdmin(env, user) ? { admin: true } : {}) });      // admin: shows the header link to /admin
   }
   if (!db || !cfg) return json({ detail: "accounts are not configured" }, 404);
 

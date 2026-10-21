@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Quản trị — Thiên Bàn</title>
+<meta name="theme-color" content="#FAF6EF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/feedback.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="adm">
+<header class="site-header stuck">
+  <div class="wrap hdr">
+    <a class="brand" href="/" aria-label="Thiên Bàn — trang chủ"><span class="brand-t"><b>Thiên Bàn</b><small>Quản trị</small></span></a>
+    <nav class="adm-tabs" role="tablist" aria-label="Mục quản trị" hidden>
+      <button type="button" role="tab" data-tab="stats" aria-selected="true">Thống kê</button>
+      <button type="button" role="tab" data-tab="inbox" aria-selected="false">Góp ý <span class="adm-badge" hidden></span></button>
+    </nav>
+    <span class="adm-who muted small"></span>
+  </div>
+</header>
+<main id="main" class="wrap adm-main">
+  <p class="adm-state" id="adm-state">Đang kiểm tra quyền…</p>
+
+  <section id="tab-stats" class="adm-sec" hidden aria-labelledby="st-h">
+    <div class="adm-sec-h"><div><p class="eyebrow">Toàn trang</p><h1 id="st-h">Thống kê</h1></div><p class="muted small adm-at"></p></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="chart-card">
+      <div class="chart-top"><h2 id="chart-h">Lượt vào web, 30 ngày</h2>
+        <div class="seg" role="group" aria-label="Chọn số liệu" id="chart-pick">
+          <button type="button" data-k="visits" aria-pressed="true">Lượt vào</button><button type="button" data-k="visitors" aria-pressed="false">Khách</button><button type="button" data-k="scans" aria-pressed="false">Lượt quét</button><button type="button" data-k="signins" aria-pressed="false">Đăng nhập</button>
+        </div>
+      </div>
+      <div class="chart" id="chart"></div>
+      <details class="chart-table"><summary>Xem dạng bảng</summary><div id="chart-table"></div></details>
+    </div>
+    <p class="muted small adm-note">Ngày tính theo giờ Việt Nam. “Lượt vào web” là số phiên mở trang (một tab tính một lần); “Khách” là số trình duyệt khác nhau. Lượt quét và đăng nhập “tất cả” gồm cả con số ban đầu trên trang chủ; số theo ngày bắt đầu đếm từ khi có trang này.</p>
+  </section>
+
+  <section id="tab-inbox" class="adm-sec" hidden aria-labelledby="ib-h">
+    <div class="adm-sec-h"><div><p class="eyebrow">Bong bóng góp ý</p><h1 id="ib-h">Hộp thư góp ý</h1></div><button type="button" class="btn btn-sm btn-ghost" id="ib-refresh">Làm mới</button></div>
+    <div class="inbox">
+      <ul class="ib-list" id="ib-list" aria-label="Các cuộc trò chuyện"></ul>
+      <section class="ib-thread" id="ib-thread" aria-live="polite">
+        <p class="muted ib-empty">Chọn một cuộc trò chuyện để đọc và trả lời.</p>
+      </section>
+    </div>
+  </section>
+</main>
+<script type="module" src="/js/admin.js"></script>
+</body>
+</html>

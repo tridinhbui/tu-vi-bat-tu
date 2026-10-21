@@ -54,4 +54,4 @@ $('#run').onclick=async()=>{let rule;try{rule=JSON.parse($('#ta').value)}catch(e
  const birth={year:+$('#y').value,month:+$('#m').value,day:+$('#d').value,hour:+$('#h').value,minute:0,gender:$('#g').value};
  const r=await fetchR('/api/rules/test',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rule,birth})});const j=await r.json();
  $('#out').textContent=r.ok?JSON.stringify(j,null,1):'Lỗi: '+JSON.stringify(j.detail)};
-</script></body></html>
+</script><script type="module" src="/js/feedback.js"></script></body></html>

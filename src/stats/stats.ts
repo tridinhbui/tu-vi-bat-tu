@@ -2,6 +2,7 @@
 // (one row per counter in `stats`, each event adds one atomically). Only totals are stored, nothing about a person or a birth.
 export interface Stats { scans: number; signins: number; live: boolean; at: number }
 type Key = "scans" | "signins";
+type Counter = Key | "visits";
 
 /** What the site had already counted before these counters existed; real events add on top. */
 export const BASE: Record<Key, number> = { scans: 102, signins: 75 };
@@ -20,9 +21,14 @@ export async function getStats(db: D1Database | undefined, now = Date.now()): Pr
   return { scans: BASE.scans + rec.scans, signins: BASE.signins + rec.signins, live, at: now };
 }
 
-/** Adds one to a counter, creating the table on first use. Never throws: a counter must not break the request it rides on. */
-export async function bump(db: D1Database, key: Key, now = Date.now()): Promise<void> {
-  const add = () => db.prepare("INSERT INTO stats (key, value, updated_at) VALUES (?1, 1, ?2) ON CONFLICT(key) DO UPDATE SET value = value + 1, updated_at = ?2").bind(key, now).run();
+/** The calendar day in Vietnam time (UTC+7), YYYY-MM-DD: the bucket a daily counter row is named after. */
+export const vnDay = (now = Date.now()) => new Date(now + 7 * 3600_000).toISOString().slice(0, 10);
+
+/** Adds one to a counter and to its row for today ("scans@2026-10-21", read by the admin page), creating the table on first use.
+ *  Never throws: a counter must not break the request it rides on. */
+export async function bump(db: D1Database, key: Counter, now = Date.now()): Promise<void> {
+  const up = db.prepare("INSERT INTO stats (key, value, updated_at) VALUES (?1, 1, ?2) ON CONFLICT(key) DO UPDATE SET value = value + 1, updated_at = ?2");
+  const add = () => db.batch([up.bind(key, now), up.bind(`${key}@${vnDay(now)}`, now)]);
   try { await add(); } catch (e) {
     if (!/no such table/i.test(String(e))) return;
     try { await db.prepare(CREATE).run(); await add(); } catch { /* ignore */ }

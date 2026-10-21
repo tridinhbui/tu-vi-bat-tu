@@ -4,6 +4,8 @@ import { handleAuth, isAuthPath, type AuthEnv } from "./auth/route.ts";
 import { currentUser } from "./auth/session.ts";
 import { bump, handleStats } from "./stats/stats.ts";
 import { handleChat } from "./chat/route.ts";
+import { handleFeedback, isFeedbackPath } from "./feedback/route.ts";
+import { handleAdmin, isAdminPath, type AdminEnv } from "./admin/route.ts";
 import { handleDeep } from "./chat/deep.ts";
 import { handleBilling, isBillingPath, type BillingEnv } from "./billing/route.ts";
 import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS } from "./chat/llm.ts";
@@ -18,7 +20,7 @@ export class TvbtContainer extends Container {
   sleepAfter = "10m";
 }
 
-interface Env extends AuthEnv, BillingEnv {
+interface Env extends AuthEnv, BillingEnv, AdminEnv {
   ANTHROPIC_API_KEY?: string;       // secret; without it /api/me/chat answers 503
   TVBT: DurableObjectNamespace<TvbtContainer>;
   TVBT_INTERPRET?: string;          // "1" enables /api/interpret (default off: the route answers 404)
@@ -57,6 +59,8 @@ export default {
     if (isBillingPath(path)) return handleBilling(request, env, env.DB ? await currentUser(env.DB, request) : null);
     if (path === "/api/me/chat") return chatRoute(request, env, ctx, false);
     if (path === "/api/me/deep") return chatRoute(request, env, ctx, true);
+    if (isFeedbackPath(path)) return handleFeedback(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
+    if (isAdminPath(path)) return handleAdmin(request, env, env.DB ? await currentUser(env.DB, request) : null);
     if (isAuthPath(path)) return handleAuth(request, env);
     if (path === "/api/interpret") return interpretRoute(request, env, ctx);
     // The container API is stateless and stores nothing (accounts live in the Worker, above), so one shared instance is enough.
