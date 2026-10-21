@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FAF6EF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/commerce.css">
+<link rel="stylesheet" href="/css/feedback.css">
+<title>Bảng giá — Thiên Bàn</title>
+<meta name="robots" content="noindex"><!-- giá tạm: bỏ dòng này khi chủ site đặt giá thật (docs/PAYMENTS.md) -->
+<meta name="description" content="Phần miễn phí và phần chuyên sâu của Thiên Bàn, các gói mở khóa bằng xu, nạp xu và mã quà tặng.">
+</head>
+<body>
+<header class="site-header stuck"><div class="wrap hdr cm-hdr"><a class="brand" href="/" aria-label="Thiên Bàn — trang chủ"><span class="brand-t"><b>Thiên Bàn</b><small>Tử Vi · Bát Tự</small></span></a><span class="cm-who" id="cm-who"></span><a class="btn btn-sm btn-ghost" href="/">← Trang chủ</a></div></header>
+<main id="main" class="cm-page">
+  <p class="eyebrow">Bảng giá</p>
+  <h1>Miễn phí và Chuyên sâu</h1>
+  <p class="lead">Lá số, trang tổng quan, các biểu đồ và chương cung Mệnh luôn miễn phí. Phần chuyên sâu (mười một cung còn lại, vận hạn, Bát Tự theo chương) mở bằng xu, cho từng lá số; mỗi chương khóa vẫn cho đọc vài đoạn đầu trước khi quyết định.</p>
+  <div class="cm-banner" id="cm-placeholder" hidden></div>
+
+  <h2>So sánh</h2>
+  <div class="cmp-wrap"><table class="cmp">
+    <thead><tr><th scope="col">Nội dung</th><th scope="col">Miễn phí</th><th scope="col" class="cmp-pro">Chuyên sâu</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Lá số Tử Vi mười hai cung và Bát Tự bốn trụ<small>bảng lá số, sao, Tứ Hóa, Tuần Triệt, sao lưu năm, đại vận</small></th><td class="y">Có</td><td class="y">Có</td></tr>
+      <tr><th scope="row">Trang tổng quan lá số và các biểu đồ vận<small>chỉ số tổng hợp từ quy tắc, không phải xác suất</small></th><td class="y">Có</td><td class="y">Có</td></tr>
+      <tr><th scope="row">Danh sách nhận định đã đối chiếu sách<small>mỗi nhận định ghi sách và trang</small></th><td class="y">Có</td><td class="y">Có</td></tr>
+      <tr><th scope="row">Luận giải cung Mệnh đọc liền mạch<small>kèm căn cứ từng câu</small></th><td class="y">Đầy đủ</td><td class="y">Đầy đủ</td></tr>
+      <tr><th scope="row">Mười một cung còn lại<small>Quan Lộc, Tài Bạch, Thiên Di, Phu Thê, Phúc Đức, Điền Trạch, Nô Bộc, Tử Tức, Huynh Đệ, Phụ Mẫu, Tật Ách</small></th><td class="p">Đọc thử vài đoạn đầu</td><td class="y">Đầy đủ, kèm căn cứ từng câu</td></tr>
+      <tr><th scope="row">Vận hạn<small>từng đại hạn mười năm, tiểu hạn và lưu niên của năm đang xem</small></th><td class="p">Đọc thử vài đoạn đầu</td><td class="y">Đầy đủ</td></tr>
+      <tr><th scope="row">Gợi ý hướng hành động theo từng cung và từng mốc<small>gợi ý của hệ thống rút từ các nét đã nêu, không phải lời sách</small></th><td class="n">Chỉ ở cung Mệnh</td><td class="y">Mọi chương đã mở</td></tr>
+      <tr><th scope="row">Luận giải Bát Tự theo chương</th><td class="p">Đọc thử vài đoạn đầu</td><td class="y">Đầy đủ</td></tr>
+      <tr><th scope="row">Hỏi đáp về lá số<small>trợ lý trả lời dựa trên dữ kiện lá số</small></th><td class="p" id="cmp-chat-free">10 tin mỗi tháng</td><td class="p" id="cmp-chat-pro">thêm tin: 1 xu một tin</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted small">Tử Vi và Bát Tự là hệ biểu tượng truyền thống. Thiên Bàn trình bày cách đọc theo sách, có ghi nguồn; không cam kết điều gì sẽ xảy ra và không thay cho lời khuyên chuyên môn về sức khỏe, pháp lý hay tài chính.</p>
+
+  <h2>Các gói mở khóa</h2>
+  <p class="muted">Trả bằng xu, cho một lá số; mở rồi đọc lại bao nhiêu lần cũng không tốn thêm. Mở ngay trong trang luận giải của lá số, ở thẻ khóa dưới mỗi chương.</p>
+  <div class="cm-grid" id="cm-plans"><p class="muted">Đang tải…</p></div>
+
+  <h2 id="nap-xu">Nạp xu</h2>
+  <div class="cm-card">
+    <div class="cm-row"><label for="cm-code" class="small">Mã giảm giá</label><input id="cm-code" maxlength="32" autocomplete="off" placeholder="nếu có"><button type="button" class="btn btn-sm btn-ghost" id="cm-code-btn">Áp dụng</button><p class="cm-msg" id="cm-code-msg" role="status" aria-live="polite"></p></div>
+    <div class="cm-grid" id="cm-packs"><p class="muted">Đang tải…</p></div>
+    <p class="cm-msg" id="cm-pay-msg" role="status" aria-live="polite"></p>
+    <p class="muted small" id="cm-vat">Giá hiển thị bằng đồng Việt Nam. Thuế giá trị gia tăng: chủ site xác định trước khi bán chính thức. Xem <a href="/chinh-sach-hoan-tien">chính sách hoàn tiền</a>.</p>
+  </div>
+
+  <h2>Mã quà tặng</h2>
+  <div class="cm-card">
+    <div class="cm-row"><label for="cm-gift" class="small">Mã</label><input id="cm-gift" maxlength="32" autocomplete="off"><button type="button" class="btn btn-sm" id="cm-gift-btn">Đổi mã</button><p class="cm-msg" id="cm-gift-msg" role="status" aria-live="polite"></p></div>
+    <p class="muted small">Mỗi tài khoản dùng một mã quà tặng một lần; xu được cộng ngay vào ví.</p>
+  </div>
+
+  <h2 id="lich-su">Ví và lịch sử</h2>
+  <div class="cm-card" id="cm-history"><p class="muted">Đăng nhập để xem ví và lịch sử nạp, dùng xu.</p></div>
+</main>
+<script type="module" src="/js/pricing.js"></script>
+<script type="module" src="/js/feedback.js"></script>
+</body>
+</html>

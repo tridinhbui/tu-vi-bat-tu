@@ -1,5 +1,6 @@
 // Admin page: site statistics and the feedback inbox. The server decides who is an admin (ADMIN_EMAILS); for anyone else
 // every /api/admin route answers 404 and this page shows nothing but a "not found" note.
+import { loadSales } from './admin_sales.js';
 const $ = (s, r = document) => r.querySelector(s);
 const api = (path, opts = {}) => fetch(path, { credentials: 'same-origin', cache: 'no-store', ...opts, headers: { 'x-tvbt': '1', 'content-type': 'application/json', ...(opts.headers || {}) } });
 const fmt = n => Number(n || 0).toLocaleString('vi-VN');
@@ -11,9 +12,9 @@ const state = $('#adm-state');
 // ---------- tabs ----------
 function showTab(name) {
   for (const b of document.querySelectorAll('[data-tab]')) b.setAttribute('aria-selected', String(b.dataset.tab === name));
-  $('#tab-stats').hidden = name !== 'stats'; $('#tab-inbox').hidden = name !== 'inbox';
+  $('#tab-stats').hidden = name !== 'stats'; $('#tab-inbox').hidden = name !== 'inbox'; $('#tab-sales').hidden = name !== 'sales';
   history.replaceState(null, '', '#' + name);
-  if (name === 'inbox') loadInbox(); else loadStats();
+  if (name === 'inbox') loadInbox(); else if (name === 'sales') loadSales(); else loadStats();
 }
 
 // ---------- stats ----------
@@ -33,7 +34,8 @@ async function loadStats() {
     const r = stats[key]; tile(LABEL[key], r.today, [['7 ngày', r.d7], ['30 ngày', r.d30], ['Tất cả', r.all]], 'hôm nay');
   }
   const a = stats.accounts; tile('Tài khoản', a.total, [['Mới hôm nay', a.today], ['Mới 7 ngày', a.d7], ['Lá số đã lưu', a.savedCharts]], 'tổng số');
-  const f = stats.feedback, p = stats.payments; tile('Góp ý & nạp xu', f.threads, [['Chưa đọc', f.unread], ['Lần nạp xu', p.count], ['Xu đã bán', p.coins]], 'cuộc trò chuyện');
+  const f = stats.feedback, p = stats.payments; tile('Góp ý', f.threads, [['Chưa đọc', f.unread]], 'cuộc trò chuyện');
+  tile('Nạp xu', p.count, [['Xu đã bán', p.coins], ['Doanh thu (đ)', p.amount ?? 0]], 'lần thanh toán');
   badge(f.unread);
   drawChart();
 }
@@ -144,5 +146,5 @@ $('#ib-refresh').onclick = loadInbox;
   if (!me?.admin) { state.innerHTML = 'Không tìm thấy trang. <a href="/">Về trang chủ</a>'; return; }
   state.hidden = true; $('.adm-tabs').hidden = false; $('.adm-who').textContent = me.email;
   for (const b of document.querySelectorAll('[data-tab]')) b.onclick = () => showTab(b.dataset.tab);
-  showTab(location.hash === '#inbox' ? 'inbox' : 'stats');
+  showTab(location.hash === '#inbox' ? 'inbox' : location.hash === '#sales' ? 'sales' : 'stats');
 })();

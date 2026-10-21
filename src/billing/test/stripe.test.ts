@@ -111,7 +111,9 @@ test("checkout: needs sign-in, header and key; only known packs; return URLs use
   assert.equal(b.get("line_items[0][price_data][unit_amount]"), String(PACKS[0].amount));         // the browser's "amount" was ignored
   assert.equal(b.get("line_items[0][price_data][currency]"), "vnd");
   assert.equal(b.get("client_reference_id"), uid); assert.equal(b.get("metadata[pack]"), "p50");
-  assert.equal(b.get("success_url"), "https://tu-vi.test/?paid=1");                               // our origin, not the Origin header's
+  // our origin, not the Origin header's; the visitor comes back to the receipt of the order made for this purchase
+  assert.match(b.get("success_url")!, /^https:\/\/tu-vi\.test\/bien-nhan\?order=[0-9a-f]{20}$/);
+  assert.equal(b.get("success_url")!.split("=")[1], b.get("metadata[order]"));
   const r = await call({ pack: "p400" }); assert.equal(((await r.json()) as any).url, "https://checkout.stripe.com/c/pay/cs_1");
   const failing = async () => new Response("{}", { status: 500 });
   assert.equal((await handleBilling(new Request("https://x.test/api/me/checkout", { method: "POST", headers: { "x-tvbt": "1" }, body: JSON.stringify({ pack: "p50" }) }), env, user, failing as any)).status, 502);

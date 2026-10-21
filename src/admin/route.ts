@@ -1,10 +1,11 @@
-// Admin area (/api/admin/*, page /admin): the feedback inbox and site statistics.
+// Admin area (/api/admin/*, page /admin): the feedback inbox, site statistics, discount and gift codes, and orders.
 // An admin is a signed-in Google account whose email is listed in ADMIN_EMAILS (comma-separated; a Worker secret or var).
 // Without ADMIN_EMAILS, or for anyone else, every route here answers 404, as if it did not exist.
 // /api/admin/grant (bearer ADMIN_TOKEN, for scripts) stays in src/auth/route.ts.
 import type { User } from "../auth/session.ts";
 import { addMessage, cleanBody, ensureSchema, listMessages } from "../feedback/route.ts";
 import { getStats, vnDay } from "../stats/stats.ts";
+import { cleanCode, createCode, listCodes, setActive } from "../billing/codes.ts";
 
 export interface AdminEnv { DB?: D1Database; ADMIN_EMAILS?: string }
 
@@ -37,6 +38,27 @@ export async function handleAdmin(request: Request, env: AdminEnv, user: User | 
               (SELECT author FROM feedback_messages m WHERE m.thread_id = t.id ORDER BY m.id DESC LIMIT 1) AS lastAuthor
        FROM feedback_threads t ORDER BY t.updated_at DESC LIMIT 200`).all();
     return json({ threads: results.map(t => ({ ...t, last: String(t.last ?? "").slice(0, 160) })) });
+  }
+
+  // discount and gift codes: list, create, switch on or off (a used code is never deleted: the ledger and orders refer to it)
+  if (path === "/api/admin/codes") {
+    if (request.method === "GET") return json({ codes: await listCodes(db) });
+    if (request.method !== "POST") return json({ detail: "GET or POST" }, 405);
+    const r = await createCode(db, await request.json().catch(() => null) as Record<string, unknown> | null, user!.email);
+    return r.ok ? json(r) : json({ detail: r.detail }, 400);
+  }
+  const cm = path.match(/^\/api\/admin\/codes\/([A-Za-z0-9-]{4,32})$/);
+  if (cm && request.method === "POST") {
+    const b = await request.json().catch(() => null) as { active?: unknown } | null;
+    if (typeof b?.active !== "boolean") return json({ detail: "body must be {active: boolean}" }, 400);
+    return (await setActive(db, cleanCode(cm[1])!, b.active)) ? json({ ok: true }) : json({ detail: "no such code" }, 404);
+  }
+  if (path === "/api/admin/orders" && request.method === "GET") {
+    const { results } = await db.prepare(
+      `SELECT o.id, o.provider, o.provider_ref AS providerRef, o.pack, o.coins, o.list_amount AS listAmount, o.amount, o.discount_code AS discountCode,
+              o.status, o.detail, o.created_at AS createdAt, o.paid_at AS paidAt, u.email
+       FROM orders o LEFT JOIN users u ON u.id = o.user_id ORDER BY o.created_at DESC LIMIT 200`).all();
+    return json({ orders: results });
   }
 
   const m = path.match(/^\/api\/admin\/feedback\/([A-Za-z0-9_-]{6,20})$/);
@@ -88,7 +110,7 @@ export async function siteStats(db: D1Database, now = Date.now()) {
 
   const sec = Math.floor(now / 1000), dayStart = Math.floor(Date.parse(today + "T00:00:00+07:00") / 1000);
   const count = (sql: string, ...args: unknown[]) => safe(async () => (await db.prepare(sql).bind(...args).first<{ n: number }>())?.n ?? 0, 0);
-  const [uAll, uToday, u7, charts, fbThreads, fbUnread, pay, payCoins] = await Promise.all([
+  const [uAll, uToday, u7, charts, fbThreads, fbUnread, pay, payCoins, payAmount] = await Promise.all([
     count("SELECT COUNT(*) AS n FROM users"),
     count("SELECT COUNT(*) AS n FROM users WHERE created_at >= ?", dayStart),
     count("SELECT COUNT(*) AS n FROM users WHERE created_at >= ?", sec - 7 * 86400),
@@ -97,6 +119,7 @@ export async function siteStats(db: D1Database, now = Date.now()) {
     count("SELECT COUNT(*) AS n FROM feedback_threads t WHERE EXISTS (SELECT 1 FROM feedback_messages m WHERE m.thread_id = t.id AND m.author = 'visitor' AND m.id > t.admin_seen)"),
     count("SELECT COUNT(*) AS n FROM payments"),
     count("SELECT COALESCE(SUM(coins), 0) AS n FROM payments"),
+    count("SELECT COALESCE(SUM(amount), 0) AS n FROM payments"),
   ]);
 
   return {
@@ -109,6 +132,6 @@ export async function siteStats(db: D1Database, now = Date.now()) {
     series: { visits: series("visits"), visitors: visitorsByDay, scans: series("scans"), signins: series("signins") },
     accounts: { total: uAll, today: uToday, d7: u7, savedCharts: charts },
     feedback: { threads: fbThreads, unread: fbUnread },
-    payments: { count: pay, coins: payCoins },
+    payments: { count: pay, coins: payCoins, amount: payAmount },
   };
 }
