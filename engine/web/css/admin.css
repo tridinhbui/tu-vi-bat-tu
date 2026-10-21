@@ -64,3 +64,11 @@
   .chart-top .seg{width:100%}.chart-top .seg button{flex:1;padding:0 6px}
   .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi{padding:var(--s3)}.kpi-n{font-size:1.6rem}
 }
+/* sales: code form and tables */
+#tab-sales .chart-card{margin-bottom:var(--s4)}#tab-sales h2{font-size:1.25rem;margin-bottom:var(--s3)}
+.sl-form{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:var(--s3);align-items:end}
+.sl-form label{display:flex;flex-direction:column;gap:4px;font-size:.8rem;color:var(--text2)}
+.sl-form input,.sl-form select{height:40px;font-size:.92rem;width:100%}
+.sl-form .sl-note{grid-column:span 2}.sl-msg{grid-column:1/-1;margin:0}.sl-msg.ok{color:var(--pos)}.sl-msg.err{color:var(--cinnabar)}
+.sl-table{overflow-x:auto}.sl-table .adm-table td,.sl-table .adm-table th{text-align:left;white-space:nowrap}
+@media (max-width:560px){.sl-form .sl-note{grid-column:auto}}

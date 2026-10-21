@@ -20,6 +20,7 @@
     <nav class="adm-tabs" role="tablist" aria-label="Mục quản trị" hidden>
       <button type="button" role="tab" data-tab="stats" aria-selected="true">Thống kê</button>
       <button type="button" role="tab" data-tab="inbox" aria-selected="false">Góp ý <span class="adm-badge" hidden></span></button>
+      <button type="button" role="tab" data-tab="sales" aria-selected="false">Bán hàng</button>
     </nav>
     <span class="adm-who muted small"></span>
   </div>
@@ -50,6 +51,27 @@
         <p class="muted ib-empty">Chọn một cuộc trò chuyện để đọc và trả lời.</p>
       </section>
     </div>
+  </section>
+
+  <section id="tab-sales" class="adm-sec" hidden aria-labelledby="sl-h">
+    <div class="adm-sec-h"><div><p class="eyebrow">Mã và đơn hàng</p><h1 id="sl-h">Bán hàng</h1></div><button type="button" class="btn btn-sm btn-ghost" id="sl-refresh">Làm mới</button></div>
+    <div class="chart-card">
+      <h2>Tạo mã</h2>
+      <form class="sl-form" id="code-form">
+        <label>Loại<select name="kind"><option value="gift">Quà tặng (cộng xu)</option><option value="discount">Giảm giá (% khi nạp xu bằng tiền)</option></select></label>
+        <label>Mã <small class="muted">để trống: tự tạo</small><input name="code" maxlength="32" pattern="[A-Za-z0-9\-]{4,32}" placeholder="VD: TET2027" autocomplete="off"></label>
+        <label class="sl-gift">Số xu<input name="coins" type="number" min="1" max="100000" value="20"></label>
+        <label class="sl-disc" hidden>Giảm (%)<input name="percent" type="number" min="1" max="90" value="10"></label>
+        <label>Số lượt dùng<input name="max_uses" type="number" min="1" max="100000" value="1"></label>
+        <label>Hết hạn <small class="muted">không bắt buộc</small><input name="expires" type="date"></label>
+        <label class="sl-note">Ghi chú<input name="note" maxlength="200" placeholder="Dùng cho đâu, tặng ai"></label>
+        <button class="btn btn-sm" type="submit">Tạo mã</button>
+        <p class="sl-msg small" role="status" aria-live="polite"></p>
+      </form>
+      <p class="muted small">Mã quà tặng: mỗi tài khoản dùng một lần, cộng xu ngay. Mã giảm giá: mỗi tài khoản dùng một lần, giảm trên số tiền nạp xu (Stripe hoặc VNPAY), chỉ tính lượt khi thanh toán thành công.</p>
+    </div>
+    <div class="chart-card"><h2>Các mã</h2><div id="code-list" class="sl-table"></div></div>
+    <div class="chart-card"><h2>Đơn hàng gần đây</h2><div id="order-list" class="sl-table"></div></div>
   </section>
 </main>
 <script type="module" src="/js/admin.js"></script>

@@ -1,0 +1,7671 @@
+{
+ "source": {
+  "title": "Học-Năng, Bát-Tự Hà-Lạc Lược-Khảo (Sài Gòn 1974), Phần II: giải đoán quẻ 1-23",
+  "file": "(kinhdich)-Sách bat-tu-ha-lac-dantocking.com.pdf",
+  "pdf_pages": 633,
+  "page_note": "pages are PRINTED pages of the 1974 book (PDF page = printed page - 2 here); the PDF is page images with no text layer, so this file was made by reading the scans, not by tools/build_ha_lac.py",
+  "printed_pages": [
+   139,
+   277
+  ],
+  "coverage": [
+   1,
+   23
+  ]
+ },
+ "copyright": "Readings are paraphrased (short Vietnamese summaries), not the book's wording; 'quote' holds only the first words of the classical hào text as a page anchor. Poems (THƠ RẰNG) and the per-hào Lược nghĩa are not stored.",
+ "fields": {
+  "layout": "same fields and meaning as hexagrams.json (quẻ 24-64); every field object also carries source = 'scan' and its PRINTED page",
+  "hao[].tue_van_other": "besides 'chung', 'nu_mang', 'buon_ban': 'thay_tu' (Thầy tu / Nhà tu / Tu hành), 'nha_nong' (Nhà nông), 'benh_nhan' (Bệnh nhân), 'so_xau' (Số xấu); several entries of one group keep the printed order",
+  "hao[].line_note": "the printed HÀO heading says the other âm/dương; the line follows the trigram (2.2)",
+  "hao[].y_hao_printed": "false = the book prints no Ý hào for this hào (4.6); y_hao is null",
+  "label_note": "the printed label differs from the field's position (misprint); the field follows the position",
+  "scan_note": "the PDF has two leaves swapped: PDF pp.195-196 hold printed pp.207-208 and PDF pp.205-206 hold printed pp.197-198; printed p.217 is numbered '117'"
+ },
+ "hexagrams": [
+  {
+   "number": 1,
+   "name": "Kiền",
+   "full_name": "Thuần Kiền",
+   "heading_printed": "Thuần-Kiền",
+   "upper": "Kiền",
+   "lower": "Kiền",
+   "pages": [
+    139,
+    144
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Kiền có nghĩa là mạnh mẽ, khỏe khoắn.",
+    "page": 139,
+    "source": "scan"
+   },
+   "month": {
+    "value": 4,
+    "page": 139,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Trời vận hành không ngừng và rất mạnh; người quân tử noi theo đó mà tự cố gắng, không bao giờ nghỉ. Quân tử ở đây là người có học, có tài và có đức.",
+    "page": 139,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Giáp"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     },
+     {
+      "stems": [
+       "Nhâm"
+      ],
+      "branches": [
+       "Ngọ",
+       "Thân",
+       "Tuất"
+      ]
+     },
+     {
+      "stems": [
+       "Giáp"
+      ],
+      "branches": [
+       "Ngọ",
+       "Thân",
+       "Tuất"
+      ]
+     },
+     {
+      "stems": [
+       "Nhâm"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 2,
+     "to": 7
+    },
+    "note": "Sinh đúng mùa thì được hưởng phúc đức, dù ngôi hào kém vẫn tốt. Không hợp tuổi nạp giáp lại sinh trái mùa thì ngôi hào tốt cũng vẫn vất vả, lận đận, lại hay kiêu ngạo dối trá.",
+    "page": 139,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 139,
+     "source": "scan",
+     "quote": {
+      "text": "Tiềm long vật dụng",
+      "page": 139,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tính tình kín đáo; nên giữ mức bình thường.",
+      "page": 140,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Học rộng, suy nghĩ sâu, lòng bình thản, không nóng vội chạy theo danh lợi.",
+      "page": 140,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Ở chỗ thấp kém để nương thân, tài sức nhỏ bé, phải chịu cảnh hình khắc khó khăn.",
+      "page": 140,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Gặp trở ngại, nên lui bước.",
+       "page": 140,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Việc học bị chậm trễ, vội vàng.",
+       "page": 140,
+       "source": "scan"
+      },
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "buon_ban",
+       "text": "Buôn bán ế ẩm.",
+       "page": 140,
+       "source": "scan"
+      },
+      {
+       "group": "thay_tu",
+       "text": "Riêng người tu hành và thầy pháp được yên vui.",
+       "page": 140,
+       "source": "scan"
+      },
+      {
+       "group": "nu_mang",
+       "text": "Phụ nữ làm ăn phát đạt, sinh đẻ dễ.",
+       "page": 140,
+       "source": "scan"
+      },
+      {
+       "group": "chung",
+       "text": "Ai cũng nên giữ yên lặng; hăng hái hành động dễ gây sai lầm và tai họa. Quẻ Kiền biến sang Cấu, nên cẩn thận kẻo bị kẻ xấu làm liên lụy.",
+       "page": 140,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 140,
+     "source": "scan",
+     "quote": {
+      "text": "Hiện long tại điền",
+      "page": 140,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người đức lớn gặp thời được hiển đạt, khiến mọi người tin cậy.",
+      "page": 141,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Thành danh, có lợi, gây dựng được cơ nghiệp riêng.",
+      "page": 141,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người ngay thẳng làm việc đúng, được hưởng phúc lộc.",
+      "page": 141,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Gặp cấp trên sáng suốt, hiền minh.",
+       "page": 141,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ cao.",
+       "page": 141,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Có quý nhân dìu dắt.",
+       "page": 141,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nha_nong",
+       "text": "Nhà nông được mùa.",
+       "page": 141,
+       "source": "scan"
+      },
+      {
+       "group": "buon_ban",
+       "text": "Buôn bán có lãi.",
+       "page": 141,
+       "source": "scan"
+      },
+      {
+       "group": "thay_tu",
+       "text": "Người tu hành tăng thêm đức hạnh.",
+       "page": 141,
+       "source": "scan"
+      },
+      {
+       "group": "nu_mang",
+       "text": "Phụ nữ nhờ chồng thành đạt mà được giàu sang.",
+       "page": 141,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 3,
+     "line": "dương",
+     "page": 141,
+     "source": "scan",
+     "quote": {
+      "text": "Quân tử chung nhật kiền kiền",
+      "page": 141,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Phải chăm chỉ lo toan, bù vào chỗ còn thiếu và sửa chỗ sai.",
+      "page": 141,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Rất chính trực, công bằng, chú tâm học hỏi và làm việc thực tế, nên việc khó mấy cũng trở thành dễ.",
+      "page": 141,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Lúc siêng lúc biếng, thiếu cẩn trọng, làm việc hấp tấp.",
+      "page": 142,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Phải gánh nhiều việc cùng lúc, công việc rối rắm, phải hết sức cẩn thận mới khỏi sai sót.",
+       "page": 142,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Vận chưa tới, thi cử gặp khó.",
+       "page": 142,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Bôn ba vất vả, kiếm tiền khó; việc gì cũng nên cân nhắc kỹ trước khi làm để khỏi thiệt.",
+       "page": 142,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Tính nóng nảy, có hình khắc, khó yên chuyện nội trợ.",
+       "page": 142,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 4,
+     "line": "dương",
+     "page": 142,
+     "source": "scan",
+     "quote": {
+      "text": "Hoặc dược tại uyên",
+      "page": 142,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Cần cân nhắc kỹ khi tiến khi lui, không nên coi thường mà hành động.",
+      "page": 142,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tùy thời mà đi hoặc dừng, trau dồi đức và sự nghiệp, làm đúng lúc; ai chuyên tâm học thì đỗ đạt.",
+      "page": 142,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Dù mong giàu sang nhưng rốt cuộc không được, vì hay nghi ngờ.",
+      "page": 142,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đợi được giao việc.",
+       "page": 142,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đợi thời.",
+       "page": 142,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Việc gì cũng chần chừ.",
+       "page": 142,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "thay_tu",
+       "text": "Chỉ người tu hành và phụ nữ được yên vui, có lợi.",
+       "page": 142,
+       "source": "scan",
+       "shared_with": [
+        "thay_tu",
+        "nu_mang"
+       ]
+      },
+      {
+       "group": "nu_mang",
+       "text": "Chỉ người tu hành và phụ nữ được yên vui, có lợi.",
+       "page": 142,
+       "source": "scan",
+       "shared_with": [
+        "thay_tu",
+        "nu_mang"
+       ]
+      }
+     ]
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 143,
+     "source": "scan",
+     "quote": {
+      "text": "Phi long tại thiên",
+      "page": 143,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Phải là người đức lớn, vị cao mới xứng với hào này; người tầm thường ở đây chỉ thêm khổ nhọc.",
+      "page": 143,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Lập được công danh lớn, hưởng giàu sang lớn.",
+      "page": 143,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Chí lớn nhưng không gánh nổi trọng trách, khó được như ý.",
+      "page": 143,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Có danh tiếng, có giá trị.",
+       "page": 143,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có dịp thăng tiến, lên cao.",
+       "page": 143,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Được quý nhân tiến cử; hoặc dựa vào thế lực mạnh, hoặc lo việc dựng cung điện.",
+       "page": 143,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Giữ quyền như nam giới, khó thoát cảnh cô đơn và hình khắc.",
+       "page": 143,
+       "source": "scan"
+      },
+      {
+       "group": "chung",
+       "text": "Số xấu thì là điềm dữ, dính líu việc quan rắc rối.",
+       "page": 143,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 144,
+     "source": "scan",
+     "quote": {
+      "text": "Kháng long hữu hối",
+      "page": 144,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Lời răn: khi đã lên chỗ cao thì phải để ý, vì sự thịnh vượng lúc ấy chông chênh, nguy hiểm.",
+      "page": 144,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Ngôi vị tuy quý nhưng không có địa vị chính đáng hay danh nghĩa; biết khiêm nhường, tự răn mình thì giàu sang mới bền.",
+      "page": 144,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Kiêu căng tự cao, làm càn trái luật, việc khó thành; phụ nữ thì dữ dằn, việc nhà rối ren.",
+      "page": 144,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Nên rút lui, kẻo bị cách chức.",
+       "page": 144,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Được cất nhắc lên cao rồi sau bị đánh đổ.",
+       "page": 144,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Quá cứng rắn nên hỏng việc; ngoài năm mươi tuổi gặp hào này thì không sống lâu.",
+       "page": 144,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "name": "Khôn",
+   "full_name": "Thuần Khôn",
+   "heading_printed": "Thuần Khôn",
+   "upper": "Khôn",
+   "lower": "Khôn",
+   "pages": [
+    145,
+    150
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Khôn có nghĩa là thuận: xuôi thuận, hiền hòa.",
+    "page": 145,
+    "source": "scan"
+   },
+   "month": {
+    "value": 10,
+    "page": 145,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Đất có thế dày, thuận và bao dung, tượng của đạo Khôn; người quân tử theo đó vun đắp đức cho dày để chứa chở muôn vật.",
+    "page": 145,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Ất",
+       "Quý"
+      ],
+      "branches": [
+       "Mùi",
+       "Tỵ",
+       "Mão",
+       "Sửu",
+       "Hợi",
+       "Dậu"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 10,
+     "to": 10
+    },
+    "note": "Sinh tháng 10 thì chắc chắn giữ chức vị cao (xưa là đại thần), danh vọng lớn, đức dày. Sinh trái mùa mà ngôi hào lại kém thì vẫn làm chủ ruộng đất, có phúc lộc thọ. Người tu hành được phúc dày; phụ nữ hiếu thuận hòa nhã, chồng sang con quý.",
+    "page": 145,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 146,
+     "source": "scan",
+     "quote": {
+      "text": "Lý sương",
+      "page": 146,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Khí âm vừa sinh ra, nên thận trọng khi tiến bước.",
+      "page": 146,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Nhỏ thì được đi học, lớn lên làm nên công danh.",
+      "page": 146,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Bỏ điều tốt theo điều xấu, làm hại người để lợi mình, ai khuyên thì giận, ai nịnh thì vui, cuối cùng chẳng nên chuyện gì.",
+      "page": 146,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Phải coi chừng tai họa do kẻ nịnh bợ, gièm pha.",
+       "page": 146,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Bị người khác đố kỵ.",
+       "page": 146,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Cần phòng kẻ thù oán gây chuyện lo âu.",
+       "page": 146,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Riêng phụ nữ thì làm hưng thịnh cơ nghiệp gia đình.",
+       "page": 146,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 146,
+     "source": "scan",
+     "quote": {
+      "text": "Trực",
+      "page": 146,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đức lớn đến cực điểm.",
+      "page": 147,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người ngay thẳng, giữ đạo trung, có tiếng tăm lớn và địa vị cao.",
+      "page": 147,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người thật thà, năng động, gánh việc quan trọng ở làng xã.",
+      "page": 147,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được thăng chức lên cao.",
+       "page": 147,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ, có tiếng tăm.",
+       "page": 147,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Dư dả tiền bạc lúa gạo.",
+       "page": 147,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Phụ nữ hiền lành, gây dựng được gia nghiệp.",
+       "page": 147,
+       "source": "scan"
+      }
+     ],
+     "line_note": "heading printed 'HÀO 2 DƯƠNG' (p.146); Thuần Khôn is all âm, so the line follows the trigram"
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 147,
+     "source": "scan",
+     "quote": {
+      "text": "Hàm chương khả trinh",
+      "page": 147,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người có đức, giữ kín những điều hay đẹp bên trong.",
+      "page": 147,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Học thức đầy đủ, trở thành gương mẫu của thời mình, cả đời vinh hiển, bổng lộc dồi dào.",
+      "page": 147,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là kẻ sĩ trung hậu, giấu tài, ẩn tên, hiểu người hiểu mình, đối xử tử tế.",
+      "page": 147,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được lên bậc.",
+       "page": 148,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Sẽ có ngày thành danh.",
+       "page": 148,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Biết tính toán khéo léo, thu được lợi.",
+       "page": 148,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Là người vợ có đức.",
+       "page": 148,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 148,
+     "source": "scan",
+     "quote": {
+      "text": "Quát nang vô cữu",
+      "page": 148,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Nên tự giữ mình.",
+      "page": 148,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Dù ở ngôi vị có lộc tốt nhưng việc lớn tính chưa xong, chưa đủ sức gánh nặng đi xa; chỉ nên lo những việc lợi nhỏ.",
+      "page": 148,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người chăm chỉ, chất phác, đủ ăn đủ mặc.",
+      "page": 148,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Nên giữ nếp thường, chưa được thăng bậc.",
+       "page": 148,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Chưa thi đỗ, chưa tiến lên được.",
+       "page": 148,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Việc làm dễ bị đình trệ; nên thu xếp gọn gàng, giữ ở mức vừa phải thì tránh được tai họa.",
+       "page": 148,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Phụ nữ hiền hòa, gia đình êm ấm.",
+       "page": 148,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 149,
+     "source": "scan",
+     "quote": {
+      "text": "Hoàng thường",
+      "page": 149,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Khen người có đức vừa ngay thẳng vừa thuận theo thời, nên được hưởng điều rất tốt lành.",
+      "page": 149,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Đỗ cao, có danh tiếng; màu vàng ở đây ám chỉ bảng vàng, nhà vàng hoặc dòng tôn thất, còn chữ nguyên là đỗ đầu như giải nguyên.",
+      "page": 149,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người cần mẫn, công bằng, ngay thẳng, biết tiến lui, không bị ai nghi kỵ, hưởng lộc dồi dào.",
+      "page": 149,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được chọn vào làm việc trong phủ.",
+       "page": 149,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Được vinh danh lớn.",
+       "page": 149,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Mọi việc yên ổn, thu được tiền của.",
+       "page": 149,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Là người vợ có đức.",
+       "page": 149,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 150,
+     "source": "scan",
+     "quote": {
+      "text": "Long chiến vu dã",
+      "page": 150,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Âm đến cực điểm nên sinh tai họa.",
+      "page": 150,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Làm tướng cầm quân lập công nhưng binh sĩ tử trận nhiều; hoặc ở chức cao hay lấn quyền, chiếm ngôi; hoặc ở thế bấp bênh thì ra oai gây hại.",
+      "page": 150,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Hung dữ, ngang ngược với cấp trên, ham lớn ham công, ý kiến thay đổi; tệ hơn thì làm lính khổ cực, hoặc bị thương tích, chém giết, hoặc khổ vì kiện cáo tù tội.",
+      "page": 150,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị khiển trách, giáng phạt.",
+       "page": 150,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Ngòi bút dù tung hoành nhưng cuối cùng khó tránh tổn hại, phiền muộn.",
+       "page": 150,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Phải đấu tranh, dính chuyện rắc rối, có khi tới chỗ tan hại, nguy vong.",
+       "page": 150,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "name": "Truân",
+   "full_name": "Thủy Lôi Truân",
+   "heading_printed": "Thủy-Lôi-Truân",
+   "upper": "Khảm",
+   "lower": "Chấn",
+   "pages": [
+    151,
+    156
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Truân là gian nan, vất vả, song về sau sẽ gặp dịp may.",
+    "page": 151,
+    "source": "scan"
+   },
+   "month": {
+    "value": 6,
+    "page": 151,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Mây và sấm hợp thành quẻ Truân, cảnh rối ren khó khăn; người quân tử phải chỉnh đốn việc trị nước, giống như sắp xếp từng sợi tơ để dệt thành tấm vải.",
+    "page": 151,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Canh"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     },
+     {
+      "stems": [
+       "Mậu"
+      ],
+      "branches": [
+       "Ngọ",
+       "Thân",
+       "Tuất"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 2,
+     "to": 8
+    },
+    "note": "Sinh tháng 6 là tốt nhất, có công danh giàu sang; sinh trong khoảng tháng 2 đến tháng 8 cũng có phúc dày; các tháng còn lại thì kém.",
+    "page": 151,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 151,
+     "source": "scan",
+     "quote": {
+      "text": "Bàn hoàn",
+      "page": 151,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Thời buổi gian nan: ra làm thì lo việc cho dân cho nước, lui về thì giữ phận mình.",
+      "page": 151,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Đáng giữ ngôi cao, chỉ sợ không gặp thời yên ổn nên dễ bị mắc kẹt ở chỗ hiểm nguy.",
+      "page": 152,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Biết giữ mình làm điều ngay thì cũng có quyền thế, được kính nể; có điều xử việc hay nghi ngại, chậm chạp, thiếu dứt khoát.",
+      "page": 152,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được tuyển chọn, việc học tập nghề nghiệp có tiến bộ.",
+       "page": 152,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Gặp quý nhân giảng giải cho hiểu rõ lẽ phải.",
+       "page": 152,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Nên an phận, suy tính kỹ, đừng làm liều mà sinh chuyện rắc rối.",
+       "page": 152,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Phụ nữ tốt, làm hưng vượng được gia đình.",
+       "page": 152,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 152,
+     "source": "scan",
+     "quote": {
+      "text": "Truân như chiên như",
+      "page": 152,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tả cảnh muốn tiến lên thì ngại vướng lụy, nhưng chịu đi theo thì có lối ra.",
+      "page": 152,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Trước cô độc, khốn khó thì sau hết cô độc, khốn khó; ở làng xóm là bậc hiền sĩ, ở chốn núi non vẫn giữ trọn tiết nghĩa như người phụ nữ đức hạnh hay kẻ sĩ chịu cảnh nghèo.",
+      "page": 152,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Bỏ người gần mà nhớ chỗ xa, lánh người thân mà tìm người lạ; dù được bề trên nâng đỡ cũng bị kẻ dưới nghi ngờ, ghét bỏ.",
+      "page": 153,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được xếp bậc, chuyển chức vụ; thời xưa ứng với việc được làm Ngũ Mã hay Ngự Binh.",
+       "page": 153,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đường tiến thân khó khăn.",
+       "page": 153,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Chuyện cưới hỏi tuy dây dưa nhưng rồi cũng vui; người số xấu thì vướng kiện cáo, đi lại gặp cản trở, tiến lui đều khó.",
+       "page": 153,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 153,
+     "source": "scan",
+     "quote": {
+      "text": "Tức lộc vô ngu",
+      "page": 153,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Chớ liều lĩnh mà chuốc lấy khổ.",
+      "page": 153,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Biết thời cơ, giữ vững chỗ đứng, thuận theo hoàn cảnh cho việc yên ổn để tránh nguy hiểm.",
+      "page": 154,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Liều lĩnh, phiêu lưu.",
+      "page": 154,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị tra hỏi vì tội ăn hối lộ.",
+       "page": 154,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Bị đình trệ, bị bôi xấu.",
+       "page": 154,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Mắc tai họa, bị giam giữ; an phận giữ nếp thường thì tốt hơn.",
+       "page": 154,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 154,
+     "source": "scan",
+     "quote": {
+      "text": "Thừa mã ban như",
+      "page": 154,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đi tìm bậc hiền tài để cùng ra tay cứu thời gian khó, và được toại lòng.",
+      "page": 154,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người hiền tài về sau gặp được người lãnh đạo sáng suốt, được chức lớn; không phải nhờ vả ai, chính người ta tìm tới. Phụ nữ thì chồng sang con quý.",
+      "page": 154,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Phải xa quê lập nghiệp; vì tính mềm yếu nên dù được quý nhân tiến cử cũng chẳng lập được công gì.",
+      "page": 154,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được thăng chức, ban thưởng.",
+       "page": 155,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có dịp tiến lên, vận may tự đến.",
+       "page": 155,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Được lòng người, tính việc gì cũng như ý, nhìn chung được bạn bè giúp, giao du tốt đẹp.",
+       "page": 155,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 155,
+     "source": "scan",
+     "quote": {
+      "text": "Truân kỳ cao",
+      "page": 155,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Có đức nhưng khó thấu hết kẻ dưới, nên sự nghiệp không mở mang được.",
+      "page": 155,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Dẫu có lòng muốn giúp đỡ, ban ơn cho người, kết quả cũng chỉ nhỏ.",
+      "page": 155,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Chỉ ham làm to, lập công lớn, nên tai họa càng nhiều.",
+      "page": 155,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": null,
+      "gioi_si": null,
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Việc gì cũng đừng hấp tấp, liều lĩnh; phải cân nhắc kỹ mới tránh được tai nạn.",
+       "page": 155,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 156,
+     "source": "scan",
+     "quote": {
+      "text": "Thừa mã ban như",
+      "page": 156,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tiến lên mà không biết đi về đâu, hết sức lo sợ.",
+      "page": 156,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Cũng tiến rồi lại lùi, chỉ vì thiếu bền chí; dù học rộng hiểu nhiều mà công danh không thành, sống buồn bực, về già khổ.",
+      "page": 156,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Người thân bị thương tật, hình khắc; hôn nhân lẻ loi, khắc kỵ.",
+      "page": 156,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Coi chừng bị gièm pha.",
+       "page": 156,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Coi chừng bị làm nhục.",
+       "page": 156,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Coi chừng hao tổn; tệ hơn thì giảm thọ, có tang cha mẹ.",
+       "page": 156,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Đang lúc vẻ vang thì gặp ngay điều nhục.",
+       "page": 156,
+       "source": "scan"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "name": "Mông",
+   "full_name": "Sơn Thủy Mông",
+   "heading_printed": "Sơn-Thủy-Mông",
+   "upper": "Cấn",
+   "lower": "Khảm",
+   "pages": [
+    157,
+    162
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Mông là mờ tối: còn non dại, cần có người chỉ bảo.",
+    "page": 157,
+    "source": "scan"
+   },
+   "month": {
+    "value": 8,
+    "page": 157,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Nguồn suối vừa phun ra dưới chân núi, chưa biết chảy về đâu, ấy là quẻ Mông, hình ảnh tuổi thơ; người quân tử theo đó mà rèn nết cho cương quyết, bồi dưỡng đức cho cao.",
+    "page": 157,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Mậu"
+      ],
+      "branches": [
+       "Dần",
+       "Thìn",
+       "Ngọ"
+      ]
+     },
+     {
+      "stems": [
+       "Bính"
+      ],
+      "branches": [
+       "Tuất",
+       "Tý",
+       "Dần"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 8,
+     "to": 8
+    },
+    "note": "Sinh tháng 8 thì có công danh, giàu sang.",
+    "page": 157,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 157,
+     "source": "scan",
+     "quote": {
+      "text": "Phát mông",
+      "page": 157,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Bàn về cách thức, đường lối dạy dỗ trẻ.",
+      "page": 158,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Ở gần người quyền quý, chăm lo đạo đức sự nghiệp; có khi chẳng theo đuổi danh lợi, bằng cấp, chức tước mà đi soạn quốc sử, đặt ra khuôn phép, không cầm quyền mà vẫn định được thưởng phạt.",
+      "page": 158,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người dân lương thiện, đủ ăn đủ mặc, không gặp gian khổ.",
+      "page": 158,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Thuộc giới dạy học, viết văn hoặc làm luật.",
+       "page": 158,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Khởi đầu đi thi.",
+       "page": 158,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Hay dính việc quan, va chạm với bạn bè, tranh giành đấu đá, thị phi mờ ám; về sau cũng thoát nạn. Số xấu thì hay mắc án hình.",
+       "page": 158,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 158,
+     "source": "scan",
+     "quote": {
+      "text": "Bao mông cát",
+      "page": 158,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Giữ đúng đạo làm thầy thì tốt.",
+      "page": 159,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Bậc rất hiền, rộng lượng bao dung mọi chuyện, hòa thuận với mọi người, trọn cả trung lẫn hiếu.",
+      "page": 159,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Cũng dựng được nhà cửa, cơ nghiệp; vợ giỏi giang, con quý hiển.",
+      "page": 159,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Nên giữ phận mình.",
+       "page": 159,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Học trò, sinh viên nên theo ngành sư phạm.",
+       "page": 159,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Được lòng người, việc gì cũng thành; cưới hỏi tốt đẹp, sinh con khỏe, lúc làm lúc nghỉ đều yên ổn.",
+       "page": 159,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 159,
+     "source": "scan",
+     "quote": {
+      "text": "Vật dụng thủ nữ",
+      "page": 159,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Nói về hạng người hèn yếu, dễ đem thân mình bán rẻ, không nên thu nhận.",
+      "page": 160,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Dù học nhiều hiểu rộng, có danh có lợi, vẫn chỉ là hạng bỏ gốc chạy theo ngọn, bỏ chính theo tà. Phụ nữ là số làm vợ lẽ được chiều chuộng; đi tu làm ni cô hoặc làm ca kỹ thì cũng yên.",
+      "page": 160,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Tính thâm độc, giỏi nói xảo, hứa nhiều làm ít, bôn ba lăn lộn, thân tâm mệt nhọc.",
+      "page": 160,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Tham ô, mang nhục.",
+       "page": 160,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Bỏ học, bỏ nghề.",
+       "page": 160,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Mang tiếng thị phi, hoặc gặp họa vì rượu chè, sắc dục, đàn hát.",
+       "page": 160,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Nhìn chung nên giữ yên lặng và đề phòng mọi chuyện.",
+       "page": 160,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 160,
+     "source": "scan",
+     "quote": {
+      "text": "Khốn mông",
+      "page": 160,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Nói về cái hại của việc không chịu gần gũi người giỏi để học hỏi.",
+      "page": 161,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có tài nhưng khó gặp minh chủ, đành lẻ loi giữ tiết một mình, phí tài ở chốn xa vắng.",
+      "page": 161,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Ít giao du, hay khoe mẽ, ít con cháu, chỉ hợp đi tu.",
+      "page": 161,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Không có người nâng đỡ, không vây cánh, lâu được thăng thưởng.",
+       "page": 161,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Không được ai tiến cử, khó đường tiến thân.",
+       "page": 161,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Tình người nhạt nhẽo, việc làm ăn gặp cản trở.",
+       "page": 161,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Nói chung giữ yên thì hơn, làm liều thì có hại.",
+       "page": 161,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 161,
+     "source": "scan",
+     "quote": {
+      "text": "Đồng mông",
+      "page": 161,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Bàn về cách dùng người tài: phải thật lòng thì việc trị nước mới thành.",
+      "page": 161,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Lúc trẻ sáng dạ, trưởng thành thì khiêm nhường; thời thanh niên thi đỗ, nên người nhờ phúc tổ tiên, được chọn ra cai quản dân, lo việc nước, mọi việc suôn sẻ.",
+      "page": 162,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn sống yên phận, hòa mình với đời, không có tai tiếng.",
+      "page": 162,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": null,
+      "gioi_si": null,
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Ai nấy đều được như ý.",
+       "page": 162,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 162,
+     "source": "scan",
+     "quote": {
+      "text": "Kích mông",
+      "page": 162,
+      "source": "scan"
+     },
+     "y_hao": null,
+     "menh_hop_cach": {
+      "text": "Có danh vị, bổng lộc; hoặc sớm được bổ dụng, lập công trận mạc; hoặc giữ những chức như xưa là chỉ huy quân đội, coi việc hình ngục.",
+      "page": 162,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người có khí phách, dám gánh việc lớn, không gian dối trong phần việc nhỏ; hoặc làm chức việc trong làng có quyền.",
+      "page": 162,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Coi việc phòng chống giặc cướp (xưa là chức Tư Khấu).",
+       "page": 162,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Lập công nhờ bắt được giặc cướp.",
+       "page": 162,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Coi chừng kiện cáo, tranh giành, mất trộm hoặc bị kẻ giúp việc hại.",
+       "page": 162,
+       "source": "scan"
+      }
+     },
+     "y_hao_printed": false
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "name": "Nhu",
+   "full_name": "Thủy Thiên Nhu",
+   "heading_printed": "Thủy-Thiên-Nhu",
+   "upper": "Khảm",
+   "lower": "Kiền",
+   "pages": [
+    163,
+    168
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Nhu nghĩa là thuận theo, mềm mỏng mà chờ dịp tốt.",
+    "page": 163,
+    "source": "scan"
+   },
+   "month": {
+    "value": 8,
+    "page": 163,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Mây đã lên trời, mưa sắp đến nên cần chờ; bậc quân tử nhân đó giữ ăn uống vui vẻ, nuôi dưỡng mình đợi thời.",
+    "page": 163,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Giáp"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     },
+     {
+      "stems": [
+       "Mậu"
+      ],
+      "branches": [
+       "Thân",
+       "Tuất",
+       "Tý"
+      ]
+     },
+     {
+      "stems": [
+       "Nhâm"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 8,
+     "to": 8
+    },
+    "note": "Sinh tháng 8 là cách giàu sang; muốn thật tốt còn cần số âm dương, nguyên đường, quẻ và hào cùng hợp cách.",
+    "page": 163,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 163,
+     "source": "scan",
+     "quote": {
+      "text": "Nhu vu giao",
+      "page": 163,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Hiểm nguy còn cách xa, chưa nên thay đổi điều gì.",
+      "page": 164,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người trong sạch, ngay thẳng, giữ một chức nhàn ở nơi xa thành thị.",
+      "page": 164,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Sống ẩn nơi núi rừng, hưởng lộc theo phận và duyên, đứng ngoài chuyện vinh nhục, vui giận của công danh.",
+      "page": 164,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Yên giữ phận thường.",
+       "page": 164,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Tiến lên bằng đường vòng, vẫn tới nơi nhưng không được như ý.",
+       "page": 164,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Nên giữ nếp thường để tránh tai họa; người qua đời được chôn ở nghĩa địa xa.",
+       "page": 164,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 164,
+     "source": "scan",
+     "quote": {
+      "text": "Nhu vu sa",
+      "page": 164,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người có trách nhiệm đã khởi bước; lúc đầu vất vả, về sau đi được.",
+      "page": 164,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Là quý nhân và gặp quý nhân; chữ sa xưa chỉ tể tướng đi kinh lý vùng bãi cát, đê điều, hay tướng quân ngoài sa trường.",
+      "page": 165,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Kẻ bôn ba giang hồ, sống nhờ miệng lưỡi; hoặc lúc trẻ được đi học, về già mới được hưởng phúc.",
+      "page": 165,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị dư luận bóp méo.",
+       "page": 165,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đem văn tài ra thi thố, bị chê trách nhưng rồi cũng êm.",
+       "page": 165,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Vướng tiếng thị phi, kiện cáo, tranh chấp lôi thôi; mọi việc nên từ tốn chờ quý nhân, tự khắc có lối gỡ.",
+       "page": 165,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "dương",
+     "page": 165,
+     "source": "scan",
+     "quote": {
+      "text": "Nhu vu nê",
+      "page": 165,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đã đến sát chỗ hiểm, phải tự giữ mình.",
+      "page": 165,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Dù có danh lợi vẫn thấp thỏm lo âu, mãi không thoát khỏi cảnh long đong.",
+      "page": 165,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Quen tính ương bướng, tự lao vào hiểm nguy, không nghe lời ngay, nói năng bừa bãi, nên khốn đốn giữa chốn gai góc.",
+      "page": 166,
+      "source": "scan",
+      "label_note": "printed as 'KHÔNG HỢP CÁCH'; position is menh_khong_hop"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị cách chức, giáng chức.",
+       "page": 166,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Bị làm nhục, khó ngóc đầu lên.",
+       "page": 166,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Đề phòng trộm cướp bóc lột; đi đường thủy coi chừng sóng gió đắm thuyền.",
+       "page": 166,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 166,
+     "source": "scan",
+     "quote": {
+      "text": "Nhu vu huyết",
+      "page": 166,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Cần biết né tránh tai họa.",
+      "page": 166,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có tài đức và mưu trí, vui vẻ vượt khỏi chỗ hiểm nên được an thân.",
+      "page": 166,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Bỏ người ruột thịt mà gần người xa lạ, rời nhà đi lang bạt; nhỏ mồ côi cha mẹ, lớn lên phải làm đầy tớ cho nhà giàu.",
+      "page": 166,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Giữ được thân, khỏi tai họa, không vinh mà cũng không nhục.",
+       "page": 166,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Học bậc đại học thì nên danh, bậc trung học thì chưa đạt ý.",
+       "page": 167,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Bị tổn thương nhưng hồi phục dần.",
+       "page": 167,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Người tù có thể được thả hoặc thoát ra; người bị giam lâu được giải oan; người đi xa thoát cảnh bị trói buộc nơi đất khách. Số xấu nên lánh vào chỗ vắng, dễ bị đòn roi; phụ nữ có thể sinh khó, ra huyết, hoặc có tang.",
+       "page": 167,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 167,
+     "source": "scan",
+     "quote": {
+      "text": "Nhu vu tửu thực",
+      "page": 167,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Giữ đạo bền lâu thì việc nên.",
+      "page": 167,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Bậc đại quý nhân, công đã thành, danh đã toại.",
+      "page": 167,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn có của cải, lúa đầy kho, được hưởng phúc, chí ít cũng đủ ăn mặc.",
+      "page": 167,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Chức lớn, hưởng lộc nước trọn đời.",
+       "page": 167,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thường xuyên dự tiệc tùng.",
+       "page": 167,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Vui vì lúa vải thêm nhiều, việc cưới hỏi tốt đẹp.",
+       "page": 167,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 168,
+     "source": "scan",
+     "quote": {
+      "text": "Nhập vu huyệt",
+      "page": 168,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người lạ bỗng tìm tới, nếu mình càng tôn kính họ thì có cơ vượt nguy.",
+      "page": 168,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có học; lúc đầu chăm chỉ, về sau lơ là. Trẻ thì mải mê công danh, già thì ở ẩn chốn núi non, vẫn gần điều thiện, không nản chí.",
+      "page": 168,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Nên giữ phận và khiêm nhường, sẽ được quý nhân tiến cử, thoát khỏi hiểm nguy.",
+      "page": 168,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được triệu về trung ương, phải thận trọng vì dễ bị gièm pha.",
+       "page": 168,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Vào được đại học nhưng dễ bị nghi ngờ.",
+       "page": 168,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Dù ở ẩn vẫn lo tai nạn bất ngờ; nhìn chung biết cẩn trọng thì tai qua, oan được sáng tỏ.",
+       "page": 168,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Số xấu: nhẹ thì bị hoảng hốt, nặng thì giảm tuổi thọ.",
+       "page": 168,
+       "source": "scan"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "name": "Tụng",
+   "full_name": "Thiên Thủy Tụng",
+   "heading_printed": "Thiên-Thủy-Tụng",
+   "upper": "Kiền",
+   "lower": "Khảm",
+   "pages": [
+    169,
+    174
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Tụng là bàn cãi, tranh luận, kiện cáo.",
+    "page": 169,
+    "source": "scan"
+   },
+   "month": {
+    "value": 2,
+    "page": 169,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Trời và nước đi ngược chiều nhau nên thành Tụng (kiện cáo); người quân tử theo đó, làm việc gì cũng phải tính kỹ từ lúc khởi đầu.",
+    "page": 169,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Mậu"
+      ],
+      "branches": [
+       "Dần",
+       "Thìn",
+       "Ngọ"
+      ]
+     },
+     {
+      "stems": [
+       "Nhâm",
+       "Giáp"
+      ],
+      "branches": [
+       "Ngọ",
+       "Thân",
+       "Tuất"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 2,
+     "to": 2
+    },
+    "note": "Sinh tháng này là cách được công danh và giàu sang.",
+    "page": 169,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 169,
+     "source": "scan",
+     "quote": {
+      "text": "Bất vĩnh sở sự",
+      "page": 169,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Kiện cáo không kéo dài; ban đầu khuất tất, sau sẽ rõ ràng.",
+      "page": 170,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tính sáng suốt, rộng lượng, có mưu trí, giữ được thân, tránh được hại; gặp thời thì theo nghề trước tác, biên soạn quốc sử, không vướng tai tiếng.",
+      "page": 170,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Cũng biết tùy lúc mà liệu việc, làm nên được nhưng không bền.",
+      "page": 170,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị gièm pha nhưng tự bào chữa được.",
+       "page": 170,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có chút tiếng tăm không hay nhưng chẳng hại mấy.",
+       "page": 170,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Gặp thị phi, kiện cáo, rồi được giải oan; có bệnh không cần thuốc cũng lành; số xấu thì giảm thọ.",
+       "page": 170,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 170,
+     "source": "scan",
+     "quote": {
+      "text": "Bất khắc tụng",
+      "page": 170,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người đi kiện nhưng còn biết điều nên được tốt lành.",
+      "page": 171,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Hoặc làm việc hộ tịch, hoặc ở ẩn chăm lo làm giàu, của cải không gây oán trách.",
+      "page": 171,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Khó khiến người khác nể phục, tiến thì bị cản, lui về an phận thì hơn.",
+      "page": 171,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được hưởng lương lộc ở ấp.",
+       "page": 171,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Phải giữ mình để tránh tai tiếng.",
+       "page": 171,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Gia đạo yên ổn; song nếu nguyên đường với số âm dương chẳng gặp thời thì không hay, dễ nảy ra tranh chấp về giấy tờ hộ tịch hay chuyện cưới xin.",
+       "page": 171,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Nặng hơn thì mắc tội bị đuổi đi, phải trốn tránh, lưu đày khó trở về.",
+       "page": 171,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 171,
+     "source": "scan",
+     "quote": {
+      "text": "Thực cựu đức",
+      "page": 171,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Biết an phận thì được tốt lành.",
+      "page": 171,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Thừa hưởng cơ đồ tổ tiên, hay còn ruộng vườn và nhờ người khác giúp sức mà nên việc.",
+      "page": 172,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Trước gian nan sau thuận lợi, trước chịu nhục sau được vẻ vang.",
+      "page": 172,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Vui với nghề nghiệp.",
+       "page": 172,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Giữ yên được phận mình.",
+       "page": 172,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Bình yên, không có chuyện gì.",
+       "page": 172,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "dương",
+     "page": 172,
+     "source": "scan",
+     "quote": {
+      "text": "Bất khắc tụng",
+      "page": 172,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Biết tự xử và đứng vững thì không phạm lỗi.",
+      "page": 172,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Chí vững vàng, biết tự trọng, hướng thiện và sửa sai; hai chữ an và mệnh báo hiệu mệnh quý, sống lâu, nước yên, nhà yên; phụ nữ thì làm mệnh phụ, vợ quan lớn.",
+      "page": 172,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Ham chơi ngang ngược, phạm đến người trên, không xét lẽ phải để tự sửa, khó được yên.",
+      "page": 172,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được trở lại chức vụ.",
+       "page": 172,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có chí tiến lên.",
+       "page": 173,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Theo điều lành, sửa lỗi, khỏi vướng kiện quan; số xấu thì coi chừng bị đưa đi an trí.",
+       "page": 173,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 173,
+     "source": "scan",
+     "quote": {
+      "text": "Tụng",
+      "page": 173,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đức tốt, ngôi xứng, kiện tụng có lợi.",
+      "page": 173,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Hiểu biết rộng, tài giỏi; hai chữ nguyên và chính là điềm rất hay, thời xưa ứng với người đỗ tam nguyên, giữ chức chính khanh.",
+      "page": 173,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn ngay thẳng, khiêm tốn, có mưu trí, biết giữ mình; ít ra cũng là bậc nhân sĩ trong làng.",
+      "page": 173,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được ban huy chương, thăng thưởng.",
+       "page": 173,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ cao, được vẻ vang.",
+       "page": 173,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Biết tính toán nên làm ăn sinh lợi.",
+       "page": 173,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 174,
+     "source": "scan",
+     "quote": {
+      "text": "Hoặc tích chi bàn đái",
+      "page": 174,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Nên dừng kiện, vì trước được mà sau thua.",
+      "page": 174,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Ham công, tiếc lợi, mưu tính việc to, bạo dạn, không đoái đến danh phận hay lẽ phải, nên có thể leo lên chức cao, giành lợi nhờ may rủi.",
+      "page": 174,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Họa phát từ trong nhà, ập đến không lường; lúc đầu nên việc rồi hỏng, thân và gia đình khó vẹn.",
+      "page": 174,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Nếu chức lớn thì lên xuống, được mất thất thường.",
+       "page": 174,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đạt được chí hướng.",
+       "page": 174,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Bị kiện; nếu đang có tang mà vướng kiện thì chịu thiệt.",
+       "page": 174,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "name": "Sư",
+   "full_name": "Địa Thủy Sư",
+   "heading_printed": "Địa-Thủy-Sư",
+   "upper": "Khôn",
+   "lower": "Khảm",
+   "pages": [
+    175,
+    181
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Sư là đám đông, quân đội; trải gian khó rồi mới nên việc.",
+    "page": 175,
+    "source": "scan"
+   },
+   "month": {
+    "value": 7,
+    "page": 175,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Nước nằm trong lòng đất thành quẻ Sư; người quân tử theo đó bao dung, nuôi dưỡng dân chúng, vì nước vững nhờ đất, quân mạnh nhờ dân.",
+    "page": 175,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Mậu"
+      ],
+      "branches": [
+       "Dần",
+       "Thìn",
+       "Ngọ"
+      ]
+     },
+     {
+      "stems": [
+       "Quý",
+       "Ất"
+      ],
+      "branches": [
+       "Sửu",
+       "Hợi",
+       "Dậu"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 7,
+     "to": 7
+    },
+    "note": "Đó là cách công danh, giàu sang. Chữ sư xưa gợi các chức như sư bảo, sư phó, thiên sư, sư tướng; nay thì giáo sư, luật sư.",
+    "page": 175,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 176,
+     "source": "scan",
+     "quote": {
+      "text": "Sư xuất dĩ luật",
+      "page": 176,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người cầm quân cần hết sức cẩn trọng, không được làm ẩu.",
+      "page": 176,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có uy tín, được dân nể phục, lòng nhân ban ơn rộng khắp, công bằng không tư lợi, hưởng lộc bền lâu.",
+      "page": 176,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Tính thất thường, làm việc hay vượt khuôn phép cũ; giàu sang lúc đầu, về sau sụp đổ.",
+      "page": 176,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Hết lòng với chức phận, công việc trôi chảy.",
+       "page": 176,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Bài thi trúng, nên công danh.",
+       "page": 176,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm ăn có tính toán thì tiền của tăng; hành động khinh suất thì được ít, hỏng nhiều.",
+       "page": 176,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Số xấu thì gặp chỗ hiểm, tuổi thọ bị giảm.",
+       "page": 176,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 177,
+     "source": "scan",
+     "quote": {
+      "text": "Tại sư trung",
+      "page": 177,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Giỏi điều quân, sai tướng nên thành công.",
+      "page": 177,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Cứng rắn mà không ngang ngược, có cả ân lẫn uy; hoặc làm tướng ngoài biên được quân dân đồng lòng, hoặc ở tổng hành dinh được người xa gần quý mến.",
+      "page": 177,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là bậc đàn anh trong làng, trên khen dưới quý.",
+      "page": 177,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đang ở ngoài thì được triệu về trung ương, đang ở trung tâm thì được đưa ra địa phương, hoặc đi hành quân xa.",
+       "page": 177,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đỗ hạng ưu, nên danh.",
+       "page": 177,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Có quý nhân giúp, việc thành.",
+       "page": 177,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "thay_tu",
+       "text": "Người tu hành tiến về đạo đức.",
+       "page": 177,
+       "source": "scan"
+      },
+      {
+       "group": "nu_mang",
+       "text": "Phụ nữ tốt, có tiếng tăm.",
+       "page": 177,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 177,
+     "source": "scan",
+     "quote": {
+      "text": "Sư hoặc dư thi",
+      "page": 177,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Coi thường giặc nên thua trận.",
+      "page": 178,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tài kém đức mỏng, không được dân nghe theo.",
+      "page": 178,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Không sống được lâu.",
+      "page": 178,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đợi được bổ vào chỗ trống.",
+       "page": 178,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Không bị cản trở.",
+       "page": 178,
+       "source": "scan"
+      },
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Buồn lo kéo đến liên tiếp, hoặc gặp đại tang, hoặc phải về ở nơi thôn xóm vắng vẻ.",
+       "page": 178,
+       "source": "scan"
+      },
+      {
+       "group": "chung",
+       "text": "Sinh vào tháng 12 thì tốt.",
+       "page": 178,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 178,
+     "source": "scan",
+     "quote": {
+      "text": "Sư",
+      "page": 178,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Thắng nhờ may thì rồi cũng sẽ thua.",
+      "page": 178,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Thấy trước từng bước, liệu việc từ sớm, biết xoay xở khi còn yên ổn nên khỏi họa lúc loạn; chữ tả xưa chỉ các chức như tả tướng, tả tào.",
+      "page": 178,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Nên lui về giữ chức thấp, sống giản dị yên ổn thì giữ trọn thân mạng.",
+      "page": 178,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Thanh liêm, cần mẫn ở nơi xa xôi hẻo lánh.",
+       "page": 179,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Được vào học nội trú.",
+       "page": 179,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Yên ổn làm ăn, hoặc dựng nhà cửa, hoặc đến ở chỗ xa, tránh khỏi tai họa.",
+       "page": 179,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 179,
+     "source": "scan",
+     "quote": {
+      "text": "Điền hữu cầm",
+      "page": 179,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Bàn về cách dùng binh và đạo của người làm tướng.",
+      "page": 179,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Lập thân đúng đường, có công có đức; đối phương động thì mình đáp lại, cân nhắc kỹ rồi mới ra lệnh, dẹp loạn cứu dân, tiếng tăm vang khắp nơi.",
+      "page": 179,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Sống ở thôn quê, có vườn tược, gia súc, có học và có quyền; con lớn coi sóc được việc nhà, con nhỏ dễ chết yểu. Số xấu thì là người ăn nói liều lĩnh, làm bậy, vụng về, gàn dở.",
+      "page": 180,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Hoặc ra nắm việc chính sự, hoặc nổi danh.",
+       "page": 180,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đỗ thứ hạng và có danh.",
+       "page": 180,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Thuế ruộng mỗi ngày một cao, giao phó cho người khác thì việc xong; trẻ nhỏ cần đề phòng bệnh tật tai nạn.",
+       "page": 180,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 180,
+     "source": "scan",
+     "quote": {
+      "text": "Đại quân hữu mệnh",
+      "page": 180,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Lập công danh đến cực điểm mà không lợi dụng để thăng tiến.",
+      "page": 180,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người lớn lao được bề trên ban ơn, thọ; hay có công to với quốc gia, hay hưởng phúc ấm của ông cha.",
+      "page": 180,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Thiếu lòng công bằng, cậy thế lúc gặp thời mà xem thường dân lành; có thể cùng chịu hoạn nạn nhưng không cùng hưởng vui, phúc đức mỏng.",
+      "page": 180,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đang nắm quyền, lập được công.",
+       "page": 181,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Nên danh về ngành kỹ thuật.",
+       "page": 181,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Nuôi được gia đình, nối được dòng họ, có thêm con cháu.",
+       "page": 181,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Nói chung phải đề phòng kẻ gièm pha toan chiếm chỗ, lấn quyền.",
+       "page": 181,
+       "source": "scan"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "name": "Tỷ",
+   "full_name": "Thủy Địa Tỷ",
+   "heading_printed": "Thủy-Địa Tỷ",
+   "upper": "Khảm",
+   "lower": "Khôn",
+   "pages": [
+    182,
+    187
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Tỷ là hòa hợp: kề vai, gần gũi, gặp lúc thuận lợi để phát triển.",
+    "page": 182,
+    "source": "scan"
+   },
+   "month": {
+    "value": 7,
+    "page": 182,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Nước ở trên mặt đất thành quẻ Tỷ, tức kề vai nhau; các bậc vua xưa theo đó dựng muôn nước, thân thiết với các chư hầu nhỏ phụ thuộc.",
+    "page": 182,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Ất",
+       "Quý"
+      ],
+      "branches": [
+       "Mùi",
+       "Tỵ",
+       "Mão"
+      ]
+     },
+     {
+      "stems": [
+       "Mậu"
+      ],
+      "branches": [
+       "Thân",
+       "Tuất",
+       "Tý"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 7,
+     "to": 7
+    },
+    "note": "Đó là cách công danh, giàu sang.",
+    "page": 182,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 182,
+     "source": "scan",
+     "quote": {
+      "text": "Hữu phu",
+      "page": 182,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đem thành thật cảm hóa người từ buổi đầu thì về sau mọi việc đều tốt.",
+      "page": 183,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Thật lòng nên gặp quý nhân ban lộc và chức vị.",
+      "page": 183,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn thong thả, vui vẻ, tu dưỡng lập đức; nghề nghiệp và gia nghiệp đều nên.",
+      "page": 183,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được chuyển ngạch.",
+       "page": 183,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ và được đề bạt.",
+       "page": 183,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Gặp được bạn hiểu mình, việc dễ xong.",
+       "page": 183,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 183,
+     "source": "scan",
+     "quote": {
+      "text": "Tỷ chi tự nội",
+      "page": 183,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Được người đứng đầu xứng đáng; làm việc vừa ngay thẳng vừa tốt.",
+      "page": 183,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Quý hiển, phúc lớn, lời nói việc làm đều thật lòng; chữ nội xưa gợi nội hàn, nội xá, nay là nội vụ, nội trú.",
+      "page": 184,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Cũng giỏi giang, được nhà vợ có thế lực, nương nhờ quý nhân.",
+      "page": 184,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Làm việc ở bên trong (nội).",
+       "page": 184,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Nên danh trong nước, tại địa phương.",
+       "page": 184,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Nhờ được thế lực, làm ăn vừa ý.",
+       "page": 184,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Phụ nữ có chồng giỏi giang.",
+       "page": 184,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 184,
+     "source": "scan",
+     "quote": {
+      "text": "Tỷ chi phỉ nhân",
+      "page": 184,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Không biết chọn bạn nên chịu nhiều tổn hại.",
+      "page": 184,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Bên trong không có người thân, bên ngoài không người giúp; dù có lộc vị vẫn lo tuổi thọ ngắn và chuyện con cái gian nan.",
+      "page": 184,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Học hành dang dở; hay giao du với kẻ xấu nên gặp tai họa, bệnh tật, làm càn mà bị tổn hại.",
+      "page": 184,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Không hòa với đồng nghiệp, bị lỗi.",
+       "page": 184,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Bị giáng chức, cách chức.",
+       "page": 185,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Bị bạn bè hại, khí huyết suy tổn.",
+       "page": 185,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Phụ nữ lấy phải chồng du đãng hoặc phá của; nếu không thì vướng kiện cáo, mất tiền mang bệnh, lại có tang.",
+       "page": 185,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 185,
+     "source": "scan",
+     "quote": {
+      "text": "Ngoại tỷ chi",
+      "page": 185,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Kết giao với bên ngoài, đúng là bậc trên mình; vừa chính đáng vừa tốt.",
+      "page": 185,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Hết lòng với công việc, trong lòng và bề ngoài như một, giàu sang lâu bền.",
+      "page": 185,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn ngay thẳng, không xu nịnh, không tùy tiện, được làng xóm kính nể.",
+      "page": 185,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Thăng chức, được lợi lộc.",
+       "page": 185,
+       "source": "scan"
+      },
+      "gioi_si": null,
+      "nguoi_thuong": {
+       "text": "Ra ngoài có bạn giúp sức đắc lực.",
+       "page": 185,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 186,
+     "source": "scan",
+     "quote": {
+      "text": "Hiển tỷ",
+      "page": 186,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Có đức thì cả thiên hạ đều muốn gần gũi mình.",
+      "page": 186,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Hết sức công bằng, ngay thẳng, cư xử với trên dưới đều hợp đạo; cao thì ở trung ương, thấp nhất cũng hưởng lộc quận, ấp.",
+      "page": 186,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Cũng ngay thẳng, có đức; trước lẻ loi sau có bạn, trước khó nhọc sau dễ dàng; dù sao cũng đủ ăn mặc, văn võ đều có tài.",
+      "page": 186,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được thăng tiến vẻ vang.",
+       "page": 186,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ và được đề cử.",
+       "page": 186,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Lúc đầu trắc trở, sau thì thuận.",
+       "page": 186,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 186,
+     "source": "scan",
+     "quote": {
+      "text": "Tỷ chi vô thủ",
+      "page": 186,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đức kém thì làm sao khiến thiên hạ nể phục.",
+      "page": 187,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Dù giỏi văn giỏi võ cũng đã lỡ thời cơ, không còn kịp.",
+      "page": 187,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Thọ giảm, lẻ loi, không ai che chở.",
+      "page": 187,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Mất lòng dân, nguy hiểm.",
+       "page": 187,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Không ai giúp, khó nên danh.",
+       "page": 187,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Bị hình khắc, gặp tai ương, nặng hơn thì giảm thọ.",
+       "page": 187,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "name": "Tiểu Súc",
+   "full_name": "Phong Thiên Tiểu Súc",
+   "heading_printed": "Phong-Thiên-Tiểu-Súc",
+   "upper": "Tốn",
+   "lower": "Kiền",
+   "pages": [
+    188,
+    193
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Tiểu Súc nghĩa là tắc: bế tắc nhỏ, sắp được gỡ ra.",
+    "page": 188,
+    "source": "scan"
+   },
+   "month": {
+    "value": 11,
+    "page": 188,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Gió thổi trên trời là tượng Tiểu Súc; người quân tử theo đó trau dồi văn đức, đợi thời rồi mới ra tay.",
+    "page": 188,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Giáp",
+       "Nhâm"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     },
+     {
+      "stems": [
+       "Tân"
+      ],
+      "branches": [
+       "Tỵ",
+       "Mão",
+       "Mùi"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 11,
+     "to": 11
+    },
+    "note": "Người sinh vào tháng 11 thì thành cách có công danh, giàu sang.",
+    "page": 188,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 188,
+     "source": "scan",
+     "quote": {
+      "text": "Phục tự đạo",
+      "page": 188,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tiến lên theo lẽ chính nên được tốt.",
+      "page": 188,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Hợp lẽ thì tiến, thấy thời cơ thì dừng; kẻ tầm thường chẳng có chỗ nào để chê bai, trên dưới đều hài lòng.",
+      "page": 189,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là kẻ sĩ đứng đắn, không ưa hào nhoáng; dù sống nơi vắng vẻ cũng không xu nịnh; hợp với cảnh tăng ni.",
+      "page": 189,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đang nghỉ việc thì được trở lại chức cũ.",
+       "page": 189,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Lấy lại được nghề tự do của mình.",
+       "page": 189,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Đi xa rồi về. Số xấu thì lưỡng lự tiến lui, bị nghi kỵ và nhìn lệch.",
+       "page": 189,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 189,
+     "source": "scan",
+     "quote": {
+      "text": "Khiên phục",
+      "page": 189,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người cùng chí hướng dắt nhau mà đi.",
+      "page": 189,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Kết bạn với người hiền, đứng ra dẫn dắt và thỏa được chí.",
+      "page": 189,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Thích giao du với kẻ tiểu nhân; dẫu ngôi vị có sang cũng chẳng làm nên việc lớn.",
+      "page": 189,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được làm người đứng đầu, đường thăng tiến mở ra.",
+       "page": 190,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Là người dẫn dắt giỏi.",
+       "page": 190,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm ăn chung với bạn thì thành. Số xấu thì bị dính líu rắc rối, hỏng việc.",
+       "page": 190,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "dương",
+     "page": 190,
+     "source": "scan",
+     "quote": {
+      "text": "Dư thoát phúc",
+      "page": 190,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Quá cứng rắn nên có người kìm giữ lại.",
+      "page": 190,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Chỉ nên làm ăn nhỏ; mưu cầu lớn sẽ chuốc tổn hại.",
+      "page": 190,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Quá cứng, chẳng chịu nghe can ngăn nên gặp hại: hoặc mất lòng tin, vợ chồng xích mích, bạn bè cãi cọ, khí huyết suy tổn.",
+      "page": 190,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Vinh có thể thành nhục, tiến có thể thành lùi; có khi bệnh ở mắt, ở chân, hoặc người nhà ốm đau.",
+       "page": 190,
+       "source": "scan"
+      },
+      "gioi_si": null,
+      "nguoi_thuong": null
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 191,
+     "source": "scan",
+     "quote": {
+      "text": "Hữu phu",
+      "page": 191,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Có lòng thành khiến người khác cảm phục nên tai họa đều qua.",
+      "page": 191,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người sang gặp được tri kỷ; được đổi chỗ tốt, buồn chuyển vui, xấu chuyển tốt.",
+      "page": 191,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Hay ngờ vực, không có chính kiến; có khi đau chân, trúng độc nhẹ; thiếu hòa thuận, ngày ngày lo buồn.",
+      "page": 191,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được người tiến cử, ở lâu thì được thuyên chuyển.",
+       "page": 191,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Hợp ý bề trên, đường tiến mở rộng.",
+       "page": 191,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Được lòng người, buôn bán tạm ổn. Số xấu thì phải giữ gìn thân thể khỏi thương tổn.",
+       "page": 191,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 192,
+     "source": "scan",
+     "quote": {
+      "text": "Hữu phu",
+      "page": 192,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đức lớn làm người ta cảm phục, ngăn được điều tàn bạo.",
+      "page": 192,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Sang mà không kiêu, giàu mà biết giúp đỡ; người thân kẻ sơ đều đồng lòng như anh em, gần xa đều kính mến.",
+      "page": 192,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Nhờ của cải mà được trọng dụng, hoặc có người ngầm giúp; phúc phận ở mức thường.",
+      "page": 192,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Người trên quý, kẻ dưới nể, được thăng chức.",
+       "page": 192,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Gặp người hợp ý, thành danh.",
+       "page": 192,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Có người giúp, mọi việc vừa ý.",
+       "page": 192,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 192,
+     "source": "scan",
+     "quote": {
+      "text": "Ký vu",
+      "page": 192,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đề cao sức mạnh của phía âm là điều có hại.",
+      "page": 193,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Đủ ăn, của cải sung túc, không hao tổn.",
+      "page": 193,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Hễ được danh lợi là kèm theo hao phá; nữ mệnh thì tính nết không đoan chính, thọ kém, hay mắc tai ách bệnh tật.",
+      "page": 193,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Dễ sa vào đường sai trái, mờ ám.",
+       "page": 193,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Bị người gạt bỏ, chê bai.",
+       "page": 193,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Dễ mắc mưu gian, thị phi, bị quấy nhiễu; lui về giữ yên thì tránh được họa.",
+       "page": 193,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "name": "Lý",
+   "full_name": "Thiên Trạch Lý",
+   "heading_printed": "Thiên-Trạch-Lý",
+   "upper": "Kiền",
+   "lower": "Đoài",
+   "pages": [
+    194,
+    199
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Lý nghĩa là lễ: trật tự, phép tắc tự nhiên.",
+    "page": 194,
+    "source": "scan"
+   },
+   "month": {
+    "value": 3,
+    "page": 194,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Trời ở trên, đầm ở dưới là tượng Lý; người quân tử theo đó phân định tôn ti trên dưới và làm cho chí dân được yên định.",
+    "page": 194,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Đinh"
+      ],
+      "branches": [
+       "Tỵ",
+       "Mão",
+       "Sửu"
+      ]
+     },
+     {
+      "stems": [
+       "Nhâm",
+       "Giáp"
+      ],
+      "branches": [
+       "Ngọ",
+       "Thân",
+       "Tuất"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 3,
+     "to": 3
+    },
+    "note": "Người sinh vào tháng 3 thì thành cách có công danh, giàu sang.",
+    "page": 194,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 194,
+     "source": "scan",
+     "quote": {
+      "text": "Tố lý",
+      "page": 194,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đạt được điều mong muốn mà vẫn giữ đạo lý; biết lúc nên tiến.",
+      "page": 195,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Giữ đức, mộc mạc chân thật; khi thỏa chí thì cả thiên hạ được nhờ, không lấn quyền người trên, không làm hại dân.",
+      "page": 195,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Lặng lẽ giữ điều lành cho riêng mình, theo nghiệp văn hóa hoặc tu hành thanh tịnh.",
+      "page": 195,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Thi hành được chủ trương của mình, gặp thời mà thăng tiến.",
+       "page": 195,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Nhỏ được học hành, lớn đem ra dùng, danh lợi đều thành.",
+       "page": 195,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm ăn có tính toán, tiền bạc ngày một thêm. Gặp vận xấu thì có tang.",
+       "page": 195,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 195,
+     "source": "scan",
+     "quote": {
+      "text": "Lý đạo thản thản",
+      "page": 195,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Là người ở ẩn, giữ mình thanh cao.",
+      "page": 196,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Không giàu sang tột bậc nhưng cũng chẳng túng thiếu, vui thú ruộng vườn làng quê.",
+      "page": 196,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Cũng được nhàn nhã, không vẻ vang mà cũng không nhục, chẳng phải lo chuyện ăn mặc.",
+      "page": 196,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Về hưu, nghỉ ngơi thì tốt.",
+       "page": 196,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Khó gặp được dịp may, người tri ngộ.",
+       "page": 196,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Nên ở yên, tự lo lấy thân; định làm gì phải cân nhắc kỹ. Số xấu thì sống cô quạnh.",
+       "page": 196,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 196,
+     "source": "scan",
+     "quote": {
+      "text": "Diêu năng thị",
+      "page": 196,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Theo đường lối sai lầm nên xấu.",
+      "page": 196,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tự cho mình là nhất, coi như đời không còn ai; mưu tính chẳng nên, lại vì tính hung bạo mà rước họa.",
+      "page": 197,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Có khi phải đi lính phương xa, có khi bị hỏng mắt, tật chân, hoặc kém cỏi, yếu mà chết sớm.",
+      "page": 197,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị cách chức, giáng chức.",
+       "page": 197,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Phải chịu khuất phục, nhục nhã.",
+       "page": 197,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Vướng kiện cáo, tù tội; nặng hơn thì nhà tan, thân mất.",
+       "page": 197,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "dương",
+     "page": 197,
+     "source": "scan",
+     "quote": {
+      "text": "Lý hổ vĩ",
+      "page": 197,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Kính trọng bề trên nên được như ý.",
+      "page": 197,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Thận trọng kính cẩn với người trên, khéo mềm mỏng mà chế phục được kẻ hung hăng; người thời nay mà lòng hướng về xưa; biến khó thành dễ, chuyển dữ thành lành.",
+      "page": 197,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Gây dựng cơ nghiệp vất vả.",
+      "page": 197,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Có điềm được mang huy hiệu tướng soái.",
+       "page": 197,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ cử nhân, tú tài.",
+       "page": 197,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Dù gặp hiểm nguy, biết cẩn trọng thì qua khỏi.",
+       "page": 198,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Nữ mệnh thì hình khắc, phá hoại gia đình, tính dâm đãng.",
+       "page": 198,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 198,
+     "source": "scan",
+     "quote": {
+      "text": "Quyết lý",
+      "page": 198,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Cần xét xem mỗi bước đi có gây tổn hại hay không.",
+      "page": 198,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Đức mạnh, tiến nhanh để dẹp điều tà, chẳng bận tâm khen chê hay lợi hại.",
+      "page": 198,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Khó hòa hợp với người, đường đời khó khăn, mỗi bước đều chông gai rồi mới thành.",
+      "page": 198,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Lập công to mà không được ban thưởng.",
+       "page": 198,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Là người nổi bật nhưng khó nên danh.",
+       "page": 198,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Hành động hung hăng, tai họa có thể đến mất mạng.",
+       "page": 198,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 199,
+     "source": "scan",
+     "quote": {
+      "text": "Thị lý khảo tường",
+      "page": 199,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Hết lòng với đạo lý, được hưởng phúc báo.",
+      "page": 199,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tài giỏi, đức lớn, phúc lộc đầy đủ.",
+      "page": 199,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Trở nên xu nịnh, không ngay thẳng, có hại.",
+      "page": 199,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đã thành đạt thì nên rút lui để giữ trọn tiếng tốt và hưởng phúc.",
+       "page": 199,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ cao, tiến lên được.",
+       "page": 199,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Tiền bạc thêm nhiều, nhưng có thể gặp tang.",
+       "page": 199,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "name": "Thái",
+   "full_name": "Địa Thiên Thái",
+   "heading_printed": "Địa-Thiên-Thái",
+   "upper": "Khôn",
+   "lower": "Kiền",
+   "pages": [
+    200,
+    206
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Thái nghĩa là thông: vận thời suôn sẻ, rất tốt.",
+    "page": 200,
+    "source": "scan"
+   },
+   "month": {
+    "value": 1,
+    "page": 200,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Trời đất giao hòa là tượng Thái; bậc quân vương theo đó điều chỉnh, hoàn thiện đạo trời đất, bổ sung lễ nghi của trời đất để giúp đỡ dân về mọi mặt.",
+    "page": 200,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Giáp",
+       "Nhâm"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     },
+     {
+      "stems": [
+       "Quý",
+       "Ất"
+      ],
+      "branches": [
+       "Sửu",
+       "Hợi",
+       "Dậu"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 1,
+     "to": 1
+    },
+    "note": "Số gặp quẻ này mà hợp cách cục thì cực tốt, có điềm ra ngoài cầm quân, về triều làm quan lớn. Sinh tháng 1 thì có công danh, giàu sang; sinh không hợp thời, phúc mỏng thì chỉ nên an phận sống bình thường.",
+    "page": 200,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 201,
+     "source": "scan",
+     "quote": {
+      "text": "Bại mao nhự",
+      "page": 201,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Một bước tiến lớn.",
+      "page": 201,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Sáng suốt, ngay thẳng, gây dựng sự nghiệp và được hưởng giàu sang.",
+      "page": 201,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Cũng đồng lòng cùng bạn bè mà làm việc.",
+      "page": 201,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Chung sức với đồng nghiệp mà tiến lên.",
+       "page": 201,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Cùng bạn bè đồng hành, sẽ có ngày vượt lên.",
+       "page": 201,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm chung với phe nhóm, tiền lợi tăng thêm.",
+       "page": 201,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 201,
+     "source": "scan",
+     "quote": {
+      "text": "Bao hoang",
+      "page": 201,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Có đức cứng rắn mà trung chính, giữ vững được cơ nghiệp lớn.",
+      "page": 202,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Rộng lượng bao dung mọi người, không thiên vị kẻ gần mà bỏ người xa, mở ra thời thái bình và hưởng giàu sang.",
+      "page": 202,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là kẻ sĩ chăm chỉ, đôn hậu, được làng xóm kính nể, của cải đầy đủ.",
+      "page": 202,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Lo việc giữ gìn biên giới, sông nước.",
+       "page": 202,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Cầu tiến mà thành danh, mưu tính làm ăn được lợi.",
+       "page": 202,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Được đến chốn sang trọng. Nếu cách cục không hợp, không đắc vị thì phải đề phòng người bề trên trong nhà bị tổn hại, lời nói gây mất lòng mà sinh hại.",
+       "page": 202,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "dương",
+     "page": 202,
+     "source": "scan",
+     "quote": {
+      "text": "Vô bình bất bí",
+      "page": 202,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Biết cách giữ gìn khi thời thịnh sắp đổi sang bế tắc nên rốt cuộc vẫn giữ được giàu có.",
+      "page": 203,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tuy có lo âu nhưng vẫn vững, kéo lại được vận cũ mà hưởng phúc bình an.",
+      "page": 203,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Lúc thành lúc bại, giữa khó khăn vẫn có phúc.",
+      "page": 203,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Vượt qua gian khó, phải đề phòng kẻ đố kỵ.",
+       "page": 203,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Giữ nguyên nếp cũ, không cầu thăng tiến dựa vào may rủi.",
+       "page": 203,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Biết giữ thân và gia đình. Nhìn chung gặp khó thì lui một bước vẫn có kết quả, thận trọng thì vẫn yên ổn; phải đề phòng tiểu nhân hãm hại.",
+       "page": 203,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 203,
+     "source": "scan",
+     "quote": {
+      "text": "Phiên phiên",
+      "page": 203,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Thời tới thì cả đám tiểu nhân cũng tiến lên.",
+      "page": 203,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Gặp nhiều trở ngại và nghi ngại, được mất bấp bênh, công danh khó vẹn, phải bôn ba vất vả mới lo xong việc nhà.",
+      "page": 204,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Phải dựa dẫm vào nhà giàu trong làng xóm.",
+      "page": 204,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Nên lui thì tốt, khó mà tiến.",
+       "page": 204,
+       "source": "scan"
+      },
+      "gioi_si": null,
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Mưu tính làm ăn thì thiệt; càng xao động càng bị nói xấu, giữ yên thì tránh được tai họa. Nếu có Hóa công thì được bổ làm quan nơi xa, ngày ngày cực nhọc.",
+       "page": 204,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 204,
+     "source": "scan",
+     "quote": {
+      "text": "Đế Ất quy muội",
+      "page": 204,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đem lòng thành hạ mình với người hiền (hào 5 ứng xuống hào 2) để đổi mới việc trị dân.",
+      "page": 204,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Giàu sang mà không kiêu căng; hoặc có vợ hiền đỡ đần, con cái quý hiển gánh vác gia đình, chỉ tiếc là không nắm được quyền. Nữ mệnh thì cần cù tiết kiệm mà dựng nên nhà.",
+      "page": 204,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người lương thiện, không dùng uy mà người ta vẫn quý phục; cả đời yên vui, có vợ đảm đang.",
+      "page": 204,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được đổi ngạch, có tin vui.",
+       "page": 204,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có điềm thi đỗ, tiến lên.",
+       "page": 204,
+       "source": "scan",
+       "label_note": "printed as 'Giới chức'; position is Giới sĩ"
+      },
+      "nguoi_thuong": {
+       "text": "Được người giới thiệu, hoặc chuyện cưới hỏi, sinh con đều tốt.",
+       "page": 205,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 205,
+     "source": "scan",
+     "quote": {
+      "text": "Thành phục vu hoàng",
+      "page": 205,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Cố giữ quyền cai trị khi thời bế tắc đã tới thì cuối cùng chỉ thêm xấu hổ.",
+      "page": 205,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Đã chịu phận nhỏ, gây dựng quy mô nhỏ mà rốt cuộc vẫn bị vấp ngã, mắc lỗi.",
+      "page": 205,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Phô trương bản thân, làm mạnh nên nhà tan, thân lâm nguy.",
+      "page": 205,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị triệu hồi hoặc mất chức.",
+       "page": 205,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Gặp điều xấu hổ.",
+       "page": 205,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Hao tổn, đau ốm khó qua; thận trọng, đôn hậu thì bớt tai họa.",
+       "page": 206,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "name": "Bĩ",
+   "full_name": "Thiên Địa Bĩ",
+   "heading_printed": "Thiên-Địa-Bĩ",
+   "upper": "Kiền",
+   "lower": "Khôn",
+   "pages": [
+    207,
+    212
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Bĩ nghĩa là tắc: bế tắc, kẹt lại.",
+    "page": 207,
+    "source": "scan"
+   },
+   "month": {
+    "value": 7,
+    "page": 207,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Trời đất không giao hòa là tượng Bĩ; người quân tử theo đó thu liễm đức mình để tránh tai nạn, không lấy bổng lộc làm điều vẻ vang.",
+    "page": 207,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Ất",
+       "Quý"
+      ],
+      "branches": [
+       "Mùi",
+       "Tỵ",
+       "Mão"
+      ]
+     },
+     {
+      "stems": [
+       "Nhâm",
+       "Giáp"
+      ],
+      "branches": [
+       "Ngọ",
+       "Thân",
+       "Tuất"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 7,
+     "to": 7
+    },
+    "note": "Gặp quẻ này, ba hào trên thuộc đạo quân tử nên tốt, ba hào dưới thuộc đạo tiểu nhân nên xấu. Sinh tháng 7 thì có công danh, giàu sang.",
+    "page": 207,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 207,
+     "source": "scan",
+     "quote": {
+      "text": "Bạt mao như",
+      "page": 207,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Quay về với lẽ phải thì được tốt.",
+      "page": 208,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người trọng danh dự, rời quê cha đất tổ ra ngoài lập nghiệp, bỏ chỗ gần mà đi xa; dốc chí vào việc chung, không vụ lợi riêng thì được phúc.",
+      "page": 208,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Gặp thời khó khăn: xét thời mà tiến, thấy cơ thì lui; khó thực hiện chí hướng, nên giữ thân và gia đình cho khỏi tai họa.",
+      "page": 208,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đang đợi được bổ dụng; người đang giữ chức thì bị nói xấu.",
+       "page": 208,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Khó có dịp may.",
+       "page": 208,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Nên giữ nếp cũ, đề phòng bị dính dáng vào chuyện rắc rối.",
+       "page": 208,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 208,
+     "source": "scan",
+     "quote": {
+      "text": "Bao thừa",
+      "page": 208,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Thân phận thấp nhưng không hại điều lành thì vẫn được tốt.",
+      "page": 208,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Ngay thẳng, rộng lượng, yên lòng chờ phúc; về sau có thể chuyển bế tắc thành hanh thông và được hưởng ân phúc.",
+      "page": 209,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Sống theo lối tầm thường, danh chẳng chính đáng, lợi chẳng lâu dài; biết an phận thì bớt tai họa.",
+      "page": 209,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Gặp dịp thì cứ làm.",
+       "page": 209,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Nên chờ thời.",
+       "page": 209,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Phải nhịn nhục mà giữ thân và nhà; bằng không khó thoát thị phi, tai ương.",
+       "page": 209,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 209,
+     "source": "scan",
+     "quote": {
+      "text": "Bao tu",
+      "page": 209,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Kẻ tiểu nhân có ý làm điều ác nhưng chưa thực hiện được.",
+      "page": 209,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tuy có người quyền quý che chở hoặc giữ chức nhỏ, nhưng chỉ có danh mà không có lợi; riêng người tu hành thì tốt.",
+      "page": 209,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Khi gặp cảnh cùng khốn thì không giữ nổi nền nếp.",
+      "page": 209,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Xin nghỉ hưu.",
+       "page": 210,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Cần đề phòng mang tiếng xấu.",
+       "page": 210,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Bị người dị nghị, kiện cáo.",
+       "page": 210,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "dương",
+     "page": 210,
+     "source": "scan",
+     "quote": {
+      "text": "Hữu mệnh vô cữu",
+      "page": 210,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Có dịp gặp gỡ may mắn.",
+      "page": 210,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Công danh, phúc lộc, tuổi thọ đều có; được đối đãi như thượng khách của quốc gia, nhờ vậy thỏa được hoài bão.",
+      "page": 210,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn được hưởng phúc, có ruộng vườn; tính năng động, ít chịu ngồi yên.",
+      "page": 210,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được đồng nghiệp giúp sức, bổng lộc và chức vị tăng lên.",
+       "page": 210,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Được tiến cử, danh tiếng nâng cao.",
+       "page": 210,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Hoa lợi ruộng vườn tăng, nhiều chuyện vui, con cháu đông đủ.",
+       "page": 210,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 211,
+     "source": "scan",
+     "quote": {
+      "text": "Hữu bĩ",
+      "page": 211,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Làm rõ hình mẫu con người thời hòa bình, hiểu được cách giữ gìn cơ nghiệp lớn.",
+      "page": 211,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Đức độ lớn, công minh, thận trọng, kỹ lưỡng, không để lỡ thời cơ nên giàu sang được lâu bền.",
+      "page": 211,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Có tài có đức nhưng không gặp thời; cả đời yên vui, không vinh hiển cũng không nhục nhã.",
+      "page": 211,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Ở đúng vị trí chính đáng.",
+       "page": 211,
+       "source": "scan"
+      },
+      "gioi_si": null,
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Tai họa qua, phúc sắp tới; kẻ thù rút lui dần; ruộng vườn có thu hoạch; lo chuyển thành vui, mất lại hóa được.",
+       "page": 211,
+       "source": "scan"
+      },
+      {
+       "group": "chung",
+       "text": "Số xấu thì có chuyện sống chết, hình khắc.",
+       "page": 211,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 212,
+     "source": "scan",
+     "quote": {
+      "text": "Khuynh bĩ",
+      "page": 212,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Bế tắc bị lật đổ, được hưởng phúc.",
+      "page": 212,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Chí lớn, quyết đoán, sắp xếp giỏi hơn người; lúc đầu vất vả, về sau an nhàn vui vẻ.",
+      "page": 212,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Khó nên danh lợi, người thân ruột thịt bị hình khắc tổn thương; người tu hành thì tốt.",
+      "page": 212,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Mất chức thì được trở lại, đang đợi việc thì được bổ dụng.",
+       "page": 212,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đang bế tắc thì hoạt động trở lại, khốn đốn lâu ngày được tháo gỡ, kiện cáo kéo dài được giải quyết. Số xấu thì gặp biến cố, giảm thọ.",
+       "page": 212,
+       "source": "scan"
+      },
+      "nguoi_thuong": null
+     }
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "name": "Đồng Nhân",
+   "full_name": "Thiên Hỏa Đồng Nhân",
+   "heading_printed": "Thiên-Hỏa-Đồng-Nhân",
+   "upper": "Kiền",
+   "lower": "Ly",
+   "pages": [
+    213,
+    218
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Đồng Nhân nghĩa là gần gũi thân thiết: tìm được bạn cùng lòng cùng sức.",
+    "page": 213,
+    "source": "scan"
+   },
+   "month": {
+    "value": 1,
+    "page": 213,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Trời ở trên, lửa ở dưới là quẻ Đồng Nhân; bậc quân tử theo đó mà xếp loại, phân định từng loài từng vật.",
+    "page": 213,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Kỷ"
+      ],
+      "branches": [
+       "Mão",
+       "Sửu",
+       "Hợi"
+      ]
+     },
+     {
+      "stems": [
+       "Giáp",
+       "Nhâm"
+      ],
+      "branches": [
+       "Ngọ",
+       "Thân",
+       "Tuất"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 1,
+     "to": 1
+    },
+    "note": "Ai sinh vào tháng giêng thì được cách công danh và giàu sang.",
+    "page": 213,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 213,
+     "source": "scan",
+     "quote": {
+      "text": "Đồng nhân vu môn",
+      "page": 213,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đổi mới, cải cách thì tốt.",
+      "page": 213,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Rộng lượng, giữ lòng công bằng, không vị kỷ.",
+      "page": 213,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Xa quê nhà, hoặc về sống bên nhà vợ, hoặc đi buôn bán, hoặc đi tu.",
+      "page": 214,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được vào làm việc nội vụ, có thăng chuyển.",
+       "page": 214,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Học xong ra trường, được người tiến cử.",
+       "page": 214,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm ăn chung với bạn có lời, hoặc đi xa, hoặc sửa sang nhà cửa, hoặc phải nương nhờ nhà người khác.",
+       "page": 214,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 214,
+     "source": "scan",
+     "quote": {
+      "text": "Đồng nhân vu tông",
+      "page": 214,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Có kết giao sánh vai với người, nhưng chẳng hay.",
+      "page": 214,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tài đức cao nhưng thiên vị; có thể đỗ đầu, làm trưởng khoa, hoặc là người thân tín trong bộ máy cầm quyền.",
+      "page": 214,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Sống nơi núi rừng như khách lạ, nương vào họ hàng.",
+      "page": 214,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Chỉ giữ địa vị trong phạm vi hẹp, bổng lộc thường thường.",
+       "page": 214,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đỗ được bằng cấp thấp.",
+       "page": 215,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Lắm chuyện do dự, bạn bè nghi kỵ lẫn nhau; khư khư với người gần, hờ hững với người xa; mang tiếng thị phi.",
+       "page": 215,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "dương",
+     "page": 215,
+     "source": "scan",
+     "quote": {
+      "text": "Phục nhung vu mãng",
+      "page": 215,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Không có phần thì cầu xin cũng vô ích.",
+      "page": 215,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Ỷ sức mạnh, dựa thế; muốn thứ này lại ham thứ khác, chí không vững nên hay lo sợ, lòng khó lường; có khi làm lính đi xa, hoặc ẩn mình nơi rừng sâu đồi cao.",
+      "page": 215,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Buông thả, làm trái luật, rước lấy tai vạ.",
+      "page": 215,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đề phòng bị hạ chức.",
+       "page": 215,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có dịp được thăng tiến lên cao.",
+       "page": 215,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Ngờ vực, tranh giành, vinh lẫn nhục đi kèm; nói chung việc gì cũng phải phòng bị.",
+       "page": 215,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "dương",
+     "page": 216,
+     "source": "scan",
+     "quote": {
+      "text": "Thừa kỳ dung",
+      "page": 216,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Biết dùng lẽ phải để kiềm chế thế lực.",
+      "page": 216,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Hiểu thời cơ mà lui, biết đủ nên chẳng tham; hoặc trấn giữ thành nơi biên cương, hoặc giàu có ở nhà cao cửa rộng.",
+      "page": 216,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn được bề trên tin cậy, kẻ dưới phục tùng.",
+      "page": 216,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Có công sửa sang thành lũy, cơ sở.",
+       "page": 216,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Chưa lập công gì nhưng có dịp được vẻ vang.",
+       "page": 216,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Có chuyện ngờ vực, tranh đấu; vinh đi đôi với nhục.",
+       "page": 216,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 216,
+     "source": "scan",
+     "quote": {
+      "text": "Đồng nhân",
+      "page": 216,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Lúc đầu bực bội, về sau mới gặp được nhau; cần nhờ sức mạnh mới thành.",
+      "page": 217,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có đủ tài đức, danh và lợi, nhưng lúc đầu khó khăn rồi sau mới thuận; có thể làm tư lệnh quân đội hay giữ chức bậc trung trong dinh phủ.",
+      "page": 217,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Gian khổ, tổn thương, rất lâu mới gặp cơ hội mà phúc thì ít, họa lại nhiều.",
+      "page": 217,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Ban đầu bị cách chức hay giáng chức, về sau mới gượng dậy được.",
+       "page": 217,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Lúc đầu cực nhọc, về sau mới gặp cơ hội.",
+       "page": 217,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Đầu khó sau dễ, vui buồn thất thường.",
+       "page": 217,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 217,
+     "source": "scan",
+     "quote": {
+      "text": "Đồng nhân vu giao",
+      "page": 217,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đứng một mình, tự giữ lấy mình, cũng có điều thu được.",
+      "page": 218,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Lòng rộng rãi, có tài có đức, giàu sang.",
+      "page": 218,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Làm người tu ở ngoài thành, hoặc đi buôn mà chưa được như ý.",
+      "page": 218,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Hay phải đi nhận việc ở quận xa.",
+       "page": 218,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Ít gặp được dịp tốt.",
+       "page": 218,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Yên phận, sống bình thường, kiếm sống đơn sơ.",
+       "page": 218,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "name": "Đại Hữu",
+   "full_name": "Hỏa Thiên Đại Hữu",
+   "heading_printed": "Hỏa-Thiên-Đại-Hữu",
+   "upper": "Ly",
+   "lower": "Kiền",
+   "pages": [
+    219,
+    224
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Đại Hữu mang nghĩa khoan, tức là rộng rãi và lớn lao.",
+    "page": 219,
+    "source": "scan"
+   },
+   "month": {
+    "value": 1,
+    "page": 219,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Lửa sáng trên cao trời là quẻ Đại Hữu; bậc quân tử theo đó ngăn điều xấu, đề cao điều lành, vâng theo mệnh tốt trời ban.",
+    "page": 219,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Giáp",
+       "Nhâm"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     },
+     {
+      "stems": [
+       "Kỷ"
+      ],
+      "branches": [
+       "Dậu",
+       "Mùi",
+       "Tỵ"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 1,
+     "to": 1
+    },
+    "note": "Ai sinh vào tháng giêng thì được cách công danh và giàu sang.",
+    "page": 219,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 220,
+     "source": "scan",
+     "quote": {
+      "text": "Vô giao hại",
+      "page": 220,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đã có của rồi thì đừng tham thêm; chịu khó nhọc sẽ thoát được tai ương.",
+      "page": 220,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có tài đức nhưng chưa được dùng; dư tiền của mà ít tiếng tăm.",
+      "page": 220,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Chịu nhục, khó khăn, phải gắng giữ mình để khỏi mắc tội.",
+      "page": 220,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Thấy thời cơ thì rút lui ngay, đừng ham chức tước bổng lộc.",
+       "page": 220,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Chưa nên tiến vội.",
+       "page": 220,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Người dưới hỗn hào với bề trên; có biến cố, nếu kiên trì giữ vững thì không đến nỗi đổ vỡ.",
+       "page": 220,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 220,
+     "source": "scan",
+     "quote": {
+      "text": "Đại xa dĩ tải",
+      "page": 220,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Hoàn thành được việc lớn.",
+      "page": 221,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có tài có đức, gặp lúc loạn lạc lập nên công lớn.",
+      "page": 221,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn được hưởng phúc, sống lâu, giàu có, không có gì phải lo.",
+      "page": 221,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được phong làm tướng, đem quân ra trận lập công.",
+       "page": 221,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Tiến lên và nên danh.",
+       "page": 221,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Buôn bán được lời to; riêng người cao tuổi thì tuổi thọ bị giảm.",
+       "page": 221,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "dương",
+     "page": 221,
+     "source": "scan",
+     "quote": {
+      "text": "Công dụng hưởng vu thiên tử",
+      "page": 221,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Bậc quyền quý được bề trên tin tưởng giao việc.",
+      "page": 221,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tài cao, đức lớn, hết lòng phục vụ việc nước.",
+      "page": 221,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Tham thì hại; khó nên việc mà dễ thất bại.",
+      "page": 221,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Gánh vác nổi trách nhiệm nặng.",
+       "page": 221,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ hạng ưu.",
+       "page": 222,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Gặp tai nạn, công việc trắc trở bế tắc, lại hỗn với bề trên.",
+       "page": 222,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "dương",
+     "page": 222,
+     "source": "scan",
+     "quote": {
+      "text": "Phỉ kỳ bành",
+      "page": 222,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Ở chức cao mà biết kiềm bớt kiêu căng tự mãn thì ít mắc sai lầm.",
+      "page": 222,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Không kiêu ngạo, buông thả; vừa sáng suốt vừa hiểu biết sâu, từ đầu đến cuối đều tốt.",
+      "page": 222,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Tham chút ít đã mau đầy; phải dè chừng họa bị kẻ khác chiếm đoạt.",
+      "page": 222,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Giữ chức vị cho yên ổn thì không ai động đến.",
+       "page": 222,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Chờ thời thì không bị mất phần.",
+       "page": 222,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Yên phận; có bệnh về mắt.",
+       "page": 222,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 223,
+     "source": "scan",
+     "quote": {
+      "text": "Quyết phu giao như",
+      "page": 223,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người ở địa vị cao cần có uy để cai trị dân.",
+      "page": 223,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Vừa ban ơn vừa giữ uy, người gần kẻ xa đều theo; lập công lớn, được giàu sang.",
+      "page": 223,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Mềm yếu nên bị coi thường; làm ơn mà hóa ra thù.",
+      "page": 223,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Biết thời cơ thì nên lui.",
+       "page": 223,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Nhân dịp thuận mà tiến lên.",
+       "page": 223,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Tùy thời mà hành động hay ngồi yên; chớ kiêu căng tự mãn kẻo gặp tai họa.",
+       "page": 223,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 224,
+     "source": "scan",
+     "quote": {
+      "text": "Tự thiên hựu chi",
+      "page": 224,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Biết ứng xử khéo trong lúc thịnh đạt nên được trời phù hộ.",
+      "page": 224,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Địa vị lớn mà vẫn khiêm tốn, được trời thương, giàu sang bền lâu.",
+      "page": 224,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người học có đạo đức, tính phúc hậu, điềm tĩnh, tránh được tai ương.",
+      "page": 224,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Địa vị vững chắc.",
+       "page": 224,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Tiến lên, nên danh.",
+       "page": 224,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Kính người trên, được bao bọc; nghề nông phát đạt.",
+       "page": 224,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "name": "Khiêm",
+   "full_name": "Địa Sơn Khiêm",
+   "heading_printed": "Địa-Sơn-Khiêm",
+   "upper": "Khôn",
+   "lower": "Cấn",
+   "pages": [
+    225,
+    230
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Khiêm nghĩa là lui về, chịu nhường bước, giữ thái độ khiêm tốn.",
+    "page": 225,
+    "source": "scan"
+   },
+   "month": {
+    "value": 9,
+    "page": 225,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Núi nằm giữa lòng đất là quẻ Khiêm; bậc quân tử theo đó lấy bớt chỗ thừa, bù vào chỗ thiếu, giữ cho mọi vật được đều nhau.",
+    "page": 225,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Bính"
+      ],
+      "branches": [
+       "Thìn",
+       "Ngọ",
+       "Thân"
+      ]
+     },
+     {
+      "stems": [
+       "Quý",
+       "Ất"
+      ],
+      "branches": [
+       "Sửu",
+       "Hợi",
+       "Dậu"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 9,
+     "to": 9
+    },
+    "note": "Ai sinh vào tháng chín thì được cách công danh và giàu sang.",
+    "page": 225,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 225,
+     "source": "scan",
+     "quote": {
+      "text": "Khiêm khiêm quân tử",
+      "page": 225,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Phải khiêm tốn thì mới thành được ý chí.",
+      "page": 226,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Hiểu đạo khiêm cung nên qua được hiểm nguy; người trên tin, người dưới dựa; giữ được ruộng đất, sống an nhàn tu dưỡng.",
+      "page": 226,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Biếng nhác, lùi bước, không khéo đem tài ra dùng, đành chịu ở dưới người.",
+      "page": 226,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Trấn giữ một châu quận, sát gần với dân.",
+       "page": 226,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đợi được mời gọi ra làm việc.",
+       "page": 226,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Đi buôn, bôn ba khắp chốn; số xấu thì bị tổn thương.",
+       "page": 226,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 226,
+     "source": "scan",
+     "quote": {
+      "text": "Minh khiêm trinh cát",
+      "page": 226,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tiếng tăm vang xa nhưng vẫn giữ được đức ngay thẳng.",
+      "page": 226,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có tài đức, không nịnh bợ; hợp với các việc như ngôn luận, giảng dạy, thông tin.",
+      "page": 226,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Được người đề cử.",
+      "page": 226,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được lên bậc hoặc chuyển sang chức khác.",
+       "page": 227,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Lúc tiến hay lúc giữ đều nên danh.",
+       "page": 227,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Không hành động hấp tấp nhưng nắm bắt được cơ hội tốt.",
+       "page": 227,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "dương",
+     "page": 227,
+     "source": "scan",
+     "quote": {
+      "text": "Lao khiêm",
+      "page": 227,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Nhường công cho người, cùng chung sức góp mặt.",
+      "page": 227,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tài đức hơn người, lập nên công lớn.",
+      "page": 227,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn ngay thật, được làng xóm quý trọng; có đức mà không phô trương, giúp người không mong đáp lại.",
+      "page": 227,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được thăng lên cao.",
+       "page": 227,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Gặp cơ hội.",
+       "page": 227,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Có lợi nhưng phải hao tâm tốn sức.",
+       "page": 227,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 228,
+     "source": "scan",
+     "quote": {
+      "text": "Vô bất lợi",
+      "page": 228,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đạt được đến đâu thì hưởng đến đó, vẫn giữ mình khiêm tốn.",
+      "page": 228,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có tài đức, biết nói lời có giá trị, vẫn khiêm tốn, không dối trá; được giàu sang.",
+      "page": 228,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn gần gũi người hiền, làm gương cho xóm làng.",
+      "page": 228,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": null,
+      "gioi_si": null,
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Người học, nhà nông, thợ thuyền, kẻ buôn đều thành đạt mà vẫn giữ khiêm tốn.",
+       "page": 228,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 228,
+     "source": "scan",
+     "quote": {
+      "text": "Bất phú dĩ kỳ lân",
+      "page": 228,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Ở ngôi cao, đức khiêm cũng phải biết linh hoạt thay đổi.",
+      "page": 228,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Nhờ khiêm nhường nên người tài tìm về, việc gì cũng nên, cơ nghiệp vững chắc.",
+      "page": 229,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn thành đạt cả văn lẫn võ, giàu có trở về quê, khuất phục được kẻ cứng đầu.",
+      "page": 229,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Giỏi cả văn lẫn võ, nắm quyền binh.",
+       "page": 229,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ.",
+       "page": 229,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Gặp người quý giúp đỡ, lợi thu gấp bội, nhưng nên đề phòng chuyện kiện cáo.",
+       "page": 229,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 229,
+     "source": "scan",
+     "quote": {
+      "text": "Minh khiêm",
+      "page": 229,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Khiêm nhường và chỉ dùng tài trong giới hạn.",
+      "page": 229,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Noi theo lối xưa, cư xử hợp đạo lý; làm chức võ thì được như ý.",
+      "page": 229,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Bạn tri kỷ nhiều mà ít ai giúp đỡ; việc chỉ gói gọn trong phạm vi gia đình.",
+      "page": 229,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được trao quyền quân sự lo việc nội bộ.",
+       "page": 230,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đỗ bằng thấp, tiếng tăm tăng dần.",
+       "page": 230,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Vướng kiện cáo nhưng tự nhiên rồi gỡ ra được.",
+       "page": 230,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "name": "Dự",
+   "full_name": "Lôi Địa Dự",
+   "heading_printed": "Lôi Địa Dự",
+   "upper": "Chấn",
+   "lower": "Khôn",
+   "pages": [
+    231,
+    236
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Dự nghĩa là vui vẻ, hòa hợp vui lòng.",
+    "page": 231,
+    "source": "scan"
+   },
+   "month": {
+    "value": 5,
+    "page": 231,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Sấm vọt khỏi mặt đất làm đất rung chuyển là quẻ Dự; các bậc vua xưa theo đó soạn nhạc tôn vinh đức, thành kính dâng lên Thượng Đế và cho tổ tiên cùng hưởng.",
+    "page": 231,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Ất"
+      ],
+      "branches": [
+       "Mùi",
+       "Tỵ",
+       "Mão"
+      ]
+     },
+     {
+      "stems": [
+       "Quý"
+      ],
+      "branches": [
+       "Sửu",
+       "Hợi",
+       "Dậu",
+       "Mùi",
+       "Tỵ",
+       "Mão"
+      ]
+     },
+     {
+      "stems": [
+       "Canh"
+      ],
+      "branches": [
+       "Ngọ",
+       "Thân",
+       "Tuất"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 5,
+     "to": 5
+    },
+    "note": "Sinh tháng 5 được cách công danh giàu sang; sinh tháng 3 hoặc tháng 8 cũng nổi danh, rất giàu sang; các tháng còn lại thì phúc mỏng.",
+    "page": 231,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 231,
+     "source": "scan",
+     "quote": {
+      "text": "Minh dự hung",
+      "page": 231,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Vừa được vui đã phô trương rùm beng nên lại sa sút.",
+      "page": 232,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có thế lực để nương tựa nhưng chỉ làm nên việc nhỏ.",
+      "page": 232,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Bụng hẹp mà nhiều tham vọng, e rằng thất bại.",
+      "page": 232,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Băn khoăn, chờ được ơn trên; có việc phải tâu trình để tránh mắc lỗi.",
+       "page": 232,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có dịp nên danh.",
+       "page": 232,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Lo âu, bị miệng tiếng, gặp trở ngại.",
+       "page": 232,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 232,
+     "source": "scan",
+     "quote": {
+      "text": "Giới vu thạch",
+      "page": 232,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Giữ được đạo trung chính, gặp dịp tốt.",
+      "page": 232,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Chăm chỉ tu đức và gây dựng sự nghiệp; nhanh nhạy, tiếng tăm lớn.",
+      "page": 233,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn vững vàng, không nịnh hót, không để lòng ham muốn nhơ bẩn, hiểu thời cơ; tốt.",
+      "page": 233,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Hiểu lúc nào nên tiến, lúc nào nên lui.",
+       "page": 233,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Tiến hay giữ đều nên danh.",
+       "page": 233,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Tính toán làm ăn có lời.",
+       "page": 233,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 233,
+     "source": "scan",
+     "quote": {
+      "text": "Hu dự",
+      "page": 233,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Vui nhờ trông cậy vào người; biết hối sớm thì tránh được hối hận.",
+      "page": 233,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Dẫu có bề trên nâng đỡ cũng chẳng nên việc; chức nhỏ mà vẫn hay gặp trở ngại.",
+      "page": 233,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Lòng do dự, tâm trí bất an.",
+      "page": 233,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": null,
+      "gioi_si": null,
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Việc gì cũng xa rời thực tế, tiến lui không định, chuyện phải trái khó mà lường.",
+       "page": 233,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 4,
+     "line": "dương",
+     "page": 234,
+     "source": "scan",
+     "quote": {
+      "text": "Do dự",
+      "page": 234,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Có công mang niềm vui tới, lại chỉ cho người cách giữ được niềm vui ấy.",
+      "page": 234,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Danh thơm, đức dày, quyền lớn, công cao; làm và giải quyết được việc lớn.",
+      "page": 234,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn có phúc đức, được kính trọng, vợ chồng êm ấm; người vợ mạng âm thì có phúc thọ nhưng không giữ ngôi chính.",
+      "page": 234,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được người biết đến và thấu hiểu.",
+       "page": 234,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Được đề cử.",
+       "page": 234,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Buôn bán có lời.",
+       "page": 234,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 235,
+     "source": "scan",
+     "quote": {
+      "text": "Trinh tật",
+      "page": 235,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Hễ vui cho thỏa thích thì sẽ sa vào đam mê.",
+      "page": 235,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Là người quý hiển ngay thẳng, nhưng chỉ khi mềm yếu để quyền hành vào tay người khác; dù hiển đạt cũng phải mang bệnh tật mới thọ.",
+      "page": 235,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Yếu đuối, không tự đứng vững, hay đau ốm.",
+      "page": 235,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Phải nương vào thế lực của người khác.",
+       "page": 235,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Không ai giúp đỡ, ít gặp cơ hội.",
+       "page": 235,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Nhiều nỗi lo âu, khó thoát khỏi tai nạn; có bệnh ở tim hoặc bụng.",
+       "page": 235,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 235,
+     "source": "scan",
+     "quote": {
+      "text": "Minh dự",
+      "page": 235,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Vui chơi thỏa thích nhưng biết thay đổi thì không mắc lỗi.",
+      "page": 235,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Chịu nghe lời khuyên can, sửa sai, nên có chút danh lợi.",
+      "page": 236,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vui quá rồi chuyển thành buồn.",
+      "page": 236,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị cách chức vì tham ô.",
+       "page": 236,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Mê muội, sai lệch.",
+       "page": 236,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Kiêu căng, tranh chấp kiện cáo; phải sửa mình mới tránh được lỗi.",
+       "page": 236,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "name": "Tùy",
+   "full_name": "Trạch Lôi Tùy",
+   "heading_printed": "Trạch-Lôi Tùy",
+   "upper": "Đoài",
+   "lower": "Chấn",
+   "pages": [
+    237,
+    242
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Tùy có nghĩa là thuận, tức là theo hoàn cảnh mà đi.",
+    "page": 237,
+    "source": "scan"
+   },
+   "month": {
+    "value": 7,
+    "page": 237,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Sấm nằm giữa đầm nước thành quẻ Tùy. Người quân tử noi theo, khi trời về tối thì vào nhà nghỉ ngơi yên ổn.",
+    "page": 237,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Canh"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     },
+     {
+      "stems": [
+       "Đinh"
+      ],
+      "branches": [
+       "Hợi",
+       "Dậu",
+       "Mùi"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 2,
+     "to": 8
+    },
+    "note": "Người sinh tháng 7 được cách công danh giàu sang; sinh trong khoảng tháng 9 tới tháng 1 thì phúc mỏng.",
+    "page": 237,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 237,
+     "source": "scan",
+     "quote": {
+      "text": "Quan hữu du",
+      "page": 237,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Biết đổi thay theo người theo việc, miễn giữ được sự công bằng ngay thẳng là không có lỗi.",
+      "page": 238,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người tài cao đức lớn, lo liệu được những việc trọng đại.",
+      "page": 238,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Có thế lực để nương tựa; giữ lòng công tâm thì không hỏng việc, được nhiều người theo, hoặc đi xa làm ăn buôn bán cũng thành.",
+      "page": 238,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Có sự thay đổi để làm việc cho ngay chính.",
+       "page": 238,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Gặp dịp may thuận lợi.",
+       "page": 238,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Kiếm được lợi.",
+       "page": 238,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 238,
+     "source": "scan",
+     "quote": {
+      "text": "Hệ tiểu tử",
+      "page": 238,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đi lạc khỏi lẽ tùy thuận đúng đắn.",
+      "page": 238,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tài mọn, tính hay đổi, không gần gũi người quân tử. Đàn bà thì lấy được chồng sang, có con thứ đỡ đần.",
+      "page": 238,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Phận tôi tớ hoặc giữ chức nhỏ, chỉ để sai phái.",
+      "page": 239,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Nên rút lui; không yên, mang tiếng, có khi bị bắt giam.",
+       "page": 239,
+       "source": "scan"
+      },
+      "gioi_si": null,
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Ai cũng nên biết thời cơ, xét hoàn cảnh mà tiến hay lui.",
+       "page": 239,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 239,
+     "source": "scan",
+     "quote": {
+      "text": "Hệ trượng phu",
+      "page": 239,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đã theo được lẽ phải lại nhờ có thế, nên được lợi.",
+      "page": 239,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Được bề trên giúp, toại ý; song bị kẻ dưới hèn kém gièm pha, cứ thong thả, chớ vội vàng.",
+      "page": 239,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Có danh có lợi nhưng hiếm muộn hay kém đường con. Đàn bà nhờ chồng mà nên, song khắc con.",
+      "page": 239,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được đề bạt, vẻ vang.",
+       "page": 239,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Gặp người quý giúp, thành danh phận.",
+       "page": 239,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm ăn mưu tính có lời, nhưng phải giữ điều nhân nghĩa; coi chừng chuyện thị phi miệng lưỡi.",
+       "page": 240,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "dương",
+     "page": 240,
+     "source": "scan",
+     "quote": {
+      "text": "Tùy hữu hoạch",
+      "page": 240,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Theo đạo tùy, dẫu gặp chỗ hiểm, hễ giữ lòng thành và ngay thẳng thì không mắc lỗi.",
+      "page": 240,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Biết lẽ phải trái, ở ngôi cao mà không lạm quyền.",
+      "page": 240,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Dù có bổng lộc chức vị vẫn gặp chuyện không hay, hoặc bị quở trách, ngờ vực, hoặc buôn bán lên xuống cực nhọc.",
+      "page": 240,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Nắm quyền một mình.",
+       "page": 240,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Tiến lên, thành danh.",
+       "page": 240,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Được cất nhắc, việc xấu hóa ra tốt.",
+       "page": 240,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 241,
+     "source": "scan",
+     "quote": {
+      "text": "Phu vu gia",
+      "page": 241,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Thành tâm dùng người tài đức nên việc có kết quả.",
+      "page": 241,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Bản thân hiền đức, nhiều người đi theo, làm nên công trạng.",
+      "page": 241,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người ngay thẳng giữ mức trung, chẳng bị ai đố kỵ.",
+      "page": 241,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Có tin vui được lên chức.",
+       "page": 241,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ, được đề cử.",
+       "page": 241,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Lắm chuyện mừng.",
+       "page": 241,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 241,
+     "source": "scan",
+     "quote": {
+      "text": "Câu hệ chi",
+      "page": 241,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đem lòng thành mà theo đạo tùy thì cảm thông được cả với thần linh.",
+      "page": 242,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Chân thật, hiền hòa, sáng suốt, được người kính phục, thỏa chí và thông với thần linh.",
+      "page": 242,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Càng làm càng khốn khó; chỉ lui về ở ẩn nơi rừng núi mới tốt.",
+      "page": 242,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Thường bị gièm pha.",
+       "page": 242,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Bị bêu xấu.",
+       "page": 242,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Đề phòng hao tổn, hoặc bị bắt giam.",
+       "page": 242,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Ai gặp hào này hay lo sợ tai họa, chí không thành, tuổi thọ ngắn.",
+       "page": 242,
+       "source": "scan"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "name": "Cổ",
+   "full_name": "Sơn Phong Cổ",
+   "heading_printed": "Sơn-Phong-Cổ",
+   "upper": "Cấn",
+   "lower": "Tốn",
+   "pages": [
+    243,
+    248
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Cổ có nghĩa là sự việc, cũng là hư hỏng: tức là việc đã đổ nát cần làm lại.",
+    "page": 243,
+    "source": "scan"
+   },
+   "month": {
+    "value": 1,
+    "page": 243,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Gió thổi dưới chân núi thành quẻ Cổ. Người quân tử theo đó mà khích lệ dân chúng và bồi dưỡng đạo đức.",
+    "page": 243,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Tân"
+      ],
+      "branches": [
+       "Sửu",
+       "Hợi",
+       "Dậu"
+      ]
+     },
+     {
+      "stems": [
+       "Bính"
+      ],
+      "branches": [
+       "Tuất",
+       "Tý",
+       "Dần"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 1,
+     "to": 1
+    },
+    "note": "Gặp quẻ này thường lúc đầu khó khăn hay mờ mịt, về sau mới nên việc và được hưởng cơ nghiệp tổ tiên. Sinh tháng 1 thì có công danh giàu sang, song với cha mẹ và gia đình thì không êm thuận.",
+    "page": 243,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 244,
+     "source": "scan",
+     "quote": {
+      "text": "Cán phụ chi cổ",
+      "page": 244,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Chấn chỉnh lại cơ nghiệp của tổ tiên.",
+      "page": 244,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Hăng hái, quyết chí làm, vượt qua nhiều khó khăn, lập được công, giữ đúng đạo của người trước và để lại nền nếp cho đời sau.",
+      "page": 244,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Không được hưởng nhờ cơ nghiệp tổ tiên; gặp khó chẳng nản, lúc vẻ vang chẳng kiêu.",
+      "page": 244,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Gánh việc nặng là dẹp kẻ gian, bỏ thói xấu.",
+       "page": 244,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Nối được chí hướng của cha ông, toại nguyện, có dịp đi thi.",
+       "page": 244,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Buôn bán có lời; số xấu thì buồn lo; người già bị giảm tuổi thọ.",
+       "page": 244,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 244,
+     "source": "scan",
+     "quote": {
+      "text": "Cán mẫu chi cổ",
+      "page": 244,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Kẻ dưới ngợi khen công việc bề trên đã làm, tỏ ý vâng thuận.",
+      "page": 244,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Cứng rắn, ngay thẳng giữ mức trung, nhưng khó tìm người hiểu mình; sửa sang những gì hư nát, được người đời trông vào.",
+      "page": 245,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người trung thực, ngay thẳng.",
+      "page": 245,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đủ tài để cải cách những việc cũ.",
+       "page": 245,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Nối được cơ nghiệp làm ăn lớn của cha mẹ, song phải chỉnh đốn lại toàn bộ.",
+       "page": 245,
+       "source": "scan",
+       "shared_with": [
+        "gioi_si",
+        "nguoi_thuong"
+       ]
+      },
+      "nguoi_thuong": {
+       "text": "Nối được cơ nghiệp làm ăn lớn của cha mẹ, song phải chỉnh đốn lại toàn bộ.",
+       "page": 245,
+       "source": "scan",
+       "shared_with": [
+        "gioi_si",
+        "nguoi_thuong"
+       ]
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Siêng năng tằn tiện lo việc nhà, làm nên giàu có.",
+       "page": 245,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 3,
+     "line": "dương",
+     "page": 245,
+     "source": "scan",
+     "quote": {
+      "text": "Cán phụ chi cổ",
+      "page": 245,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Chấn chỉnh quá mạnh tay nên khó tránh khỏi điều phải hối tiếc.",
+      "page": 245,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người có học, cứng cỏi, sửa sai không nể ai; có khi lỡ làm sai nhưng sau đó lại sửa được.",
+      "page": 245,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Lúc đầu khổ nhọc, về sau mới được trọng dụng.",
+      "page": 245,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Có chủ trương riêng, nên thận trọng.",
+       "page": 245,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Vì nóng vội mà sinh sai sót.",
+       "page": 246,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Mọi việc nên dè dặt, chớ nghe kẻ xu nịnh gian dối thì ít phải hối tiếc.",
+       "page": 246,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 246,
+     "source": "scan",
+     "quote": {
+      "text": "Dụ phụ chi cổ",
+      "page": 246,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người ở trên muốn bỏ thói hư nhưng cứ dây dưa, rốt cuộc không sửa nổi.",
+      "page": 246,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tính yếu mềm; dù tài lớn vẫn không làm xong cả việc nhỏ.",
+      "page": 246,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Hay ngờ vực, lo nghĩ, thiếu quyết đoán, chỉ làm được việc nhỏ.",
+      "page": 246,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Có chức mà không thực quyền, ngồi không.",
+       "page": 246,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Ham rượu chè, bỏ dở sự nghiệp.",
+       "page": 246,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Biếng nhác, chỉ lo ăn chơi; bị hao tổn; đau ở chân.",
+       "page": 246,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 247,
+     "source": "scan",
+     "quote": {
+      "text": "Cán phụ chi cổ",
+      "page": 247,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Biết dùng người giỏi để trị nước, được tiếng tốt.",
+      "page": 247,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Làm nên sự nghiệp lớn, cha mẹ cũng được vẻ vang.",
+      "page": 247,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Cũng dựng được nhà cửa, được làng xóm kính nể.",
+      "page": 247,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Vẻ vang hiển đạt.",
+       "page": 247,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có thể thi đỗ hoặc được đề cử, thành danh.",
+       "page": 247,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Dựng lại nền nếp dòng họ, có tiếng tăm, gặp chuyện vui.",
+       "page": 247,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 247,
+     "source": "scan",
+     "quote": {
+      "text": "Bất sự vương hầu",
+      "page": 247,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Có đức nhưng không được trọng dụng, giữ chí sống ẩn dật.",
+      "page": 248,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Giữ chí hướng cao, xem nhẹ tiếng tăm và lợi lộc.",
+      "page": 248,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Thanh cao hơn người, sống giản dị, không chạy theo thói tục.",
+      "page": 248,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Xin về nghỉ.",
+       "page": 248,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Chờ thời.",
+       "page": 248,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Yên phận.",
+       "page": 248,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "name": "Lâm",
+   "full_name": "Địa Trạch Lâm",
+   "heading_printed": "Địa-Trạch-Lâm",
+   "upper": "Khôn",
+   "lower": "Đoài",
+   "pages": [
+    249,
+    254
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Lâm có nghĩa là lớn, tức bậc trên đi xuống với kẻ dưới.",
+    "page": 249,
+    "source": "scan"
+   },
+   "month": {
+    "value": 12,
+    "page": 249,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Đất nằm trên đầm nước thành quẻ Lâm. Người quân tử theo đó mà dạy dân suy xét không ngừng, bao bọc che chở dân không bờ bến.",
+    "page": 249,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Đinh"
+      ],
+      "branches": [
+       "Tỵ",
+       "Mão",
+       "Sửu"
+      ]
+     },
+     {
+      "stems": [
+       "Quý",
+       "Ất"
+      ],
+      "branches": [
+       "Sửu",
+       "Hợi",
+       "Dậu"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 12,
+     "to": 12
+    },
+    "page": 249,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 249,
+     "source": "scan",
+     "quote": {
+      "text": "Hàm lâm trinh cát",
+      "page": 249,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Có cách hay để gần gũi, đến với những người bé nhỏ.",
+      "page": 250,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tài giỏi, đức dày, trọng người trên, thương kẻ dưới, gạt bỏ lời gièm; là bậc rất sang trọng.",
+      "page": 250,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người ngay thẳng công minh, biết thuận theo thời, được láng giềng nể trọng.",
+      "page": 250,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Có người cộng sự giỏi, được thăng tiến.",
+       "page": 250,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đường công danh như ý.",
+       "page": 250,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Đi đứng hợp lẽ phải, buôn bán có lời.",
+       "page": 250,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "dương",
+     "page": 250,
+     "source": "scan",
+     "quote": {
+      "text": "Hàm lâm cát",
+      "page": 250,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Kẻ tiểu nhân ở sát bên, mình đến với họ bằng thái độ thân tình.",
+      "page": 250,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Trau đức, làm theo đạo, dùng lòng nhân cảm hóa sự hung bạo, thực hiện được chí hướng và thành công.",
+      "page": 250,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người tốt, đem lại lợi cho gia đình.",
+      "page": 250,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Phò người chính trực, dẹp kẻ gian, tiếng tăm lớn.",
+       "page": 251,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Tiến lên thuận lợi.",
+       "page": 251,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Buôn bán được lời; nói chung nên liệu chừng cho hợp với thời thế.",
+       "page": 251,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 251,
+     "source": "scan",
+     "quote": {
+      "text": "Cam lâm",
+      "page": 251,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đến với người bằng lời ngọt, trong đó có ý khuyên răn.",
+      "page": 251,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Sửa cái sai thành cái đúng, người trên gần được kẻ dưới, song chức phận chỉ là việc dạy dỗ.",
+      "page": 251,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Bày điều sai trái để lấy lòng đời, lừa người, hại vật. Đàn bà lắm lời, mất đức.",
+      "page": 251,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Hay nói xấu người, xu nịnh.",
+       "page": 251,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Bợ đỡ, chạy chọt.",
+       "page": 251,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Buồn rầu, chịu oan ức khổ sở.",
+       "page": 251,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 252,
+     "source": "scan",
+     "quote": {
+      "text": "Trí lâm",
+      "page": 252,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đối xử thật lòng, bù đắp chỗ thiếu cho người khác.",
+      "page": 252,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Ngay thẳng, giữ mức trung, bạn bè cùng phe tin cậy nhau nên sự nghiệp dễ nên.",
+      "page": 252,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn có phúc, ít gặp tai họa, nổi tiếng nhờ nghề khéo tay.",
+      "page": 252,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Đồng nghiệp chung sức giúp.",
+       "page": 252,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Văn chương tốt đẹp.",
+       "page": 252,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Hòa thuận với mọi người, buôn bán như ý; nhưng vì quẻ biến thành Quy muội nên việc gì cũng phải xem xét kỹ trước khi làm.",
+       "page": 252,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 253,
+     "source": "scan",
+     "quote": {
+      "text": "Trí lâm",
+      "page": 253,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Làm trọn đạo của người đứng đầu, ung dung mà mọi việc đều xong.",
+      "page": 253,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Quý người hiền, trọng kẻ sĩ, lại sáng suốt, nên trên thì cảm động được trời, dưới thì dân mến phục.",
+      "page": 253,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn được hưởng phúc.",
+      "page": 253,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Hiển vinh, thành đạt.",
+       "page": 253,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Được thăng tiến.",
+       "page": 253,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Như ý.",
+       "page": 253,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "âm",
+     "page": 253,
+     "source": "scan",
+     "quote": {
+      "text": "Đôn lâm",
+      "page": 253,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Gần gũi với người một cách hết sức hậu hĩ.",
+      "page": 253,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Bậc rất cao sang, cùng đồng nghiệp đổi mới phong tục không biết mệt, phúc dày.",
+      "page": 254,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Sống lâu, đức lớn, rời quê đi gây dựng sự nghiệp.",
+      "page": 254,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được vào làm việc ở nội các, coi việc nội vụ.",
+       "page": 254,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Được vào học ở bậc đại học.",
+       "page": 254,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Buôn bán thu được lợi.",
+       "page": 254,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "name": "Quan",
+   "full_name": "Phong Địa Quan",
+   "heading_printed": "Phong-Địa-Quan",
+   "upper": "Tốn",
+   "lower": "Khôn",
+   "pages": [
+    255,
+    260
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Quan có nghĩa là quan sát, tức là nhìn ngắm, xét duyệt kỹ càng.",
+    "page": 255,
+    "source": "scan"
+   },
+   "month": {
+    "value": 8,
+    "page": 255,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Gió thổi khắp mặt đất thành quẻ Quan. Bậc vua đời trước theo đó đi khắp các miền, xem đời sống dân để lập ra việc dạy dỗ.",
+    "page": 255,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Tân",
+       "Ất",
+       "Quý"
+      ],
+      "branches": [
+       "Mùi",
+       "Tỵ",
+       "Mão"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 8,
+     "to": 8
+    },
+    "page": 255,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 255,
+     "source": "scan",
+     "quote": {
+      "text": "Đồng quan",
+      "page": 255,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Thiếu đức, không xứng ở gần người đứng đầu.",
+      "page": 256,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Nhanh nhẹn, sáng dạ; học nghề dạy trẻ nhỏ, đủ sống qua ngày.",
+      "page": 256,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Có danh lợi thì cũng chỉ chút ít.",
+      "page": 256,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Ngôi thấp, khó khăn.",
+       "page": 256,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đang tiến thì đổi ý, quay lại.",
+       "page": 256,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Tính toán thì giỏi nhưng làm thì kém, khờ khạo nên dễ bị lừa.",
+       "page": 256,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 256,
+     "source": "scan",
+     "quote": {
+      "text": "Khuy quan",
+      "page": 256,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Chí hướng hẹp, không trông được xa.",
+      "page": 256,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tài kém đức mỏng, giữ chức nhỏ yên phận, về sau vẫn có điều ân hận. Có thể được người quý giúp hoặc lấy vợ giàu. Đàn bà thì có phúc, sống lâu.",
+      "page": 256,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Kế sinh nhai thấp kém, mộc mạc quê mùa.",
+      "page": 256,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Sức và tài không đủ.",
+       "page": 257,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Văn chương lý lẽ không thông suốt.",
+       "page": 257,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Sớm ra chợ, tối về nhà, vui buồn lẫn lộn, hoặc mang tiếng xấu vì chuyện đàn bà.",
+       "page": 257,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Hào này đàn bà gặp thì tốt, đàn ông gặp thì xấu.",
+       "page": 257,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 257,
+     "source": "scan",
+     "quote": {
+      "text": "Quan ngã sinh",
+      "page": 257,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tự xét mình để tiến hay lui cho đúng lẽ.",
+      "page": 257,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Biết đúng lúc trau đức, gây nghiệp; là người sáng suốt hiểu biết.",
+      "page": 257,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Hôm tiến hôm lui, đơn độc, vất vả.",
+      "page": 257,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Lên xuống thất thường.",
+       "page": 257,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Tranh đua lúc được lúc không.",
+       "page": 257,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Có được có mất, phải cân nhắc kỹ.",
+       "page": 257,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 258,
+     "source": "scan",
+     "quote": {
+      "text": "Quan quốc chi quang",
+      "page": 258,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đạo vua tôi trong thời hưng thịnh.",
+      "page": 258,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Đủ tài đủ đức, là trụ cột của đất nước, nắm quyền kiểm soát.",
+      "page": 258,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn có tài đức, làm khách quý của một nước nhỏ, như chức đại sứ ngày nay.",
+      "page": 258,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Làm ở Hàn lâm viện hoặc giữ chức thanh nhã, cao quý.",
+       "page": 258,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Thi đỗ cao ở xứ người.",
+       "page": 258,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Đi xa làm ăn buôn bán lớn.",
+       "page": 258,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "dương",
+     "page": 258,
+     "source": "scan",
+     "quote": {
+      "text": "Quan ngã sinh",
+      "page": 258,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Người đứng đầu xem xét kỹ lối sống của mình khi trị nước thì xứng với chức vị.",
+      "page": 259,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Lấy sự ngay thẳng của mình mà cảm hóa mọi người; khen người hiền, trọng người có đức.",
+      "page": 259,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Vẫn là người có học, được tiếng tăm và sống lâu.",
+      "page": 259,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được bề trên yêu, dân kính; bổng lộc chức vị cao.",
+       "page": 259,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Văn hay nổi danh ở trường Quốc học.",
+       "page": 259,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Kiếm sống thoải mái.",
+       "page": 259,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Có con.",
+       "page": 259,
+       "source": "scan"
+      },
+      {
+       "group": "benh_nhan",
+       "text": "Qua khỏi.",
+       "page": 259,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 259,
+     "source": "scan",
+     "quote": {
+      "text": "Quan kỳ sinh",
+      "page": 259,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Quay về xét mình để tự biết mình, làm khuôn mẫu cho dân.",
+      "page": 259,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người thuộc hàng trên, nêu gương cho dân noi theo.",
+      "page": 260,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Bực bội vì tài không được thi thố, nên theo đường tu hành thanh tịnh.",
+      "page": 260,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Rút về tu dưỡng, có điều thu được.",
+       "page": 260,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đường tiến khó khăn, chưa như ý.",
+       "page": 260,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm ăn bế tắc; có bệnh thì khỏi, sinh con nuôi được.",
+       "page": 260,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "name": "Phệ Hạp",
+   "full_name": "Hỏa Lôi Phệ Hạp",
+   "heading_printed": "Hỏa-Lôi-Phệ-Hạp",
+   "upper": "Ly",
+   "lower": "Chấn",
+   "pages": [
+    261,
+    265
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Phệ Hạp là cắn cho hai hàm khép lại; tên quẻ cũng gợi tới việc hình ngục.",
+    "page": 261,
+    "source": "scan"
+   },
+   "month": {
+    "value": 9,
+    "page": 261,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Sấm và chớp hợp thành quẻ Phệ Hạp; bậc tiên vương noi theo đó mà làm rõ các hình phạt, chỉnh đốn luật lệ.",
+    "page": 261,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Canh"
+      ],
+      "branches": [
+       "Tý",
+       "Dần",
+       "Thìn"
+      ]
+     },
+     {
+      "stems": [
+       "Kỷ"
+      ],
+      "branches": [
+       "Dậu",
+       "Mùi",
+       "Tỵ"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 2,
+     "to": 8
+    },
+    "page": 261,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 261,
+     "source": "scan",
+     "quote": {
+      "text": "Lũ giảo diệt chỉ",
+      "page": 261,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Điều xấu còn nhỏ mà kịp răn phạt thì bớt được lỗi.",
+      "page": 261,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Khởi đầu ở chỗ thấp, về sau thăng tiến, vẫn thành người quý hiển.",
+      "page": 262,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Người bình thường, yếu đuối, hoặc có tật ở chân.",
+      "page": 262,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị giáng chức.",
+       "page": 262,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Vận không may.",
+       "page": 262,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Nên giữ mình tránh vướng hình phạt và bệnh tật.",
+       "page": 262,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 262,
+     "source": "scan",
+     "quote": {
+      "text": "Phệ phu",
+      "page": 262,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đã cầm quyền xử phạt thì khó tránh làm người khác bị tổn hại; hào 2 nắm quyền hình phạt.",
+      "page": 262,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Bậc lớn thì giữ việc hình án lớn; kém nhất cũng ở chức có quyền xử phạt người khác.",
+      "page": 262,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Thân thể bị thương tổn, sống ẩn tránh danh tiếng, hợp với đường tu hành.",
+      "page": 262,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Phải xử phạt dân không giữ phép, rồi chính mình cũng gặp chuyện phiền.",
+       "page": 262,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Vận chưa may mắn.",
+       "page": 263,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Chạy vạy nhiều việc cực nhọc, bị điều tiếng, hoặc mắc bệnh ngầm, thương tích ngoài da.",
+       "page": 263,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 263,
+     "source": "scan",
+     "quote": {
+      "text": "Phệ tích nhục",
+      "page": 263,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Đức chưa đủ để cai quản người khác nên bị người không phục.",
+      "page": 263,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Tài ít nhưng chí cứng, danh phận chỉ ở mức nhỏ.",
+      "page": 263,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Hành động là dễ ân hận, lại phải chật vật vì miếng ăn cái mặc.",
+      "page": 263,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Chức thấp mà còn hay gặp rắc rối.",
+       "page": 263,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Tài bình thường lại bị nói xấu.",
+       "page": 263,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Việc khó hoàn tất, hoặc mắc nạn ở vùng tim bụng, hoảng sợ.",
+       "page": 263,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "dương",
+     "page": 264,
+     "source": "scan",
+     "quote": {
+      "text": "Phệ can trị",
+      "page": 264,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Nắm quyền xử phạt và biết vận dụng khéo léo.",
+      "page": 264,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người rất quý hiển, đảm đương việc lớn, ngay thẳng không e ngại.",
+      "page": 264,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Chỉ giàu có mà kém học thức.",
+      "page": 264,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được thăng chức vẻ vang.",
+       "page": 264,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Được người đề cử, nên danh.",
+       "page": 264,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm ăn buôn bán có lãi.",
+       "page": 264,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 264,
+     "source": "scan",
+     "quote": {
+      "text": "Phệ can nhục",
+      "page": 264,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Cai trị dân phải đề phòng kẻ cứng đầu.",
+      "page": 264,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Sáng dạ, đủ tài dẹp yên loạn lạc.",
+      "page": 265,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Được giàu to.",
+      "page": 265,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Dùng luật pháp diệt kẻ gian.",
+       "page": 265,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Nên danh.",
+       "page": 265,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Được lợi, khỏi bệnh, thoát nạn.",
+       "page": 265,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 265,
+     "source": "scan",
+     "quote": {
+      "text": "Hà giảo diệt nhĩ",
+      "page": 265,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Điều ác đã lớn, tội lỗi nặng nề.",
+      "page": 265,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Có phú quý song nhiều nỗi lo.",
+      "page": 265,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Tính hung bạo, gặp hiểm nguy, thường mắc tội vạ.",
+      "page": 265,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Bị gièm siểm rồi mất chức.",
+       "page": 265,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Gặp điều nhục nhã.",
+       "page": 265,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Vướng chuyện kiện cáo.",
+       "page": 265,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "so_xau",
+       "text": "Người số xấu thì tai và mắt yếu, khí huyết suy, có khi hao tổn đến mất mạng.",
+       "page": 265,
+       "source": "scan"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 22,
+   "name": "Bí",
+   "full_name": "Sơn Hỏa Bí",
+   "heading_printed": "Sơn-Hỏa-Bí",
+   "upper": "Cấn",
+   "lower": "Ly",
+   "pages": [
+    266,
+    271
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Bí nghĩa là tô điểm, trang hoàng cho đẹp hơn.",
+    "page": 266,
+    "source": "scan"
+   },
+   "month": {
+    "value": 11,
+    "page": 266,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Lửa ở chân núi là hình quẻ Bí; người quân tử noi đó làm rõ các việc chính sự thông thường, nhưng không dám tự quyết các vụ án hình.",
+    "page": 266,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Kỷ"
+      ],
+      "branches": [
+       "Mão",
+       "Sửu",
+       "Hợi"
+      ]
+     },
+     {
+      "stems": [
+       "Bính"
+      ],
+      "branches": [
+       "Tuất",
+       "Tý",
+       "Dần"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 11,
+     "to": 11
+    },
+    "page": 266,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "dương",
+     "page": 266,
+     "source": "scan",
+     "quote": {
+      "text": "Bí kỳ chỉ",
+      "page": 266,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Yên lòng với địa vị thấp.",
+      "page": 267,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Cứng cỏi ngay thẳng; gặp thời thì làm đẹp cho đời, lúc bế tắc thì giữ mình trong sạch. Tài đức lớn nên không vì vận thăng trầm mà đổi vui buồn.",
+      "page": 267,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Lặn lội cực nhọc, phải nương nhờ nhà giàu có thế lực.",
+      "page": 267,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Coi chừng phải lui chức.",
+       "page": 267,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đề phòng bị giáng truất.",
+       "page": 267,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Bôn ba khắp nơi, bỏ chỗ dễ theo chỗ khó, xa người ruột thịt mà gần kẻ lạ. Ngồi yên thì xấu, hành động thì tốt, đừng để bị gò bó một chỗ.",
+       "page": 267,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 267,
+     "source": "scan",
+     "quote": {
+      "text": "Bí kỳ tu",
+      "page": 267,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tô điểm cho người khác để thúc đẩy công việc.",
+      "page": 267,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Học thức và văn tài rực rỡ, đem ra giúp nước.",
+      "page": 267,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Hiểu biết rộng, tài lanh lợi, đời thường yên vui.",
+      "page": 267,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Nhờ người khác mà nên việc, được thăng bổ.",
+       "page": 268,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Văn tài được người nâng đỡ.",
+       "page": 268,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Được giới thiệu, làm ăn suôn sẻ; dù có bạn tri âm cũng chớ ỷ thế.",
+       "page": 268,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "dương",
+     "page": 268,
+     "source": "scan",
+     "quote": {
+      "text": "Bí như nhu như",
+      "page": 268,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Cuộc sống thong thả, yên ổn.",
+      "page": 268,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Danh tiếng lớn, được kính trọng, rất hiển đạt.",
+      "page": 268,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Hiểu biết vượt người, hoặc của cải nhiều, sống thọ, có người trợ giúp.",
+      "page": 268,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được tuyên dương hoặc nhận huân chương.",
+       "page": 268,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có người đỡ đần, nên danh.",
+       "page": 268,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Được nhiều người hỗ trợ, chẳng phải vất vả.",
+       "page": 268,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 269,
+     "source": "scan",
+     "quote": {
+      "text": "Bí như",
+      "page": 269,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tìm đến nhau và quý mến nhau.",
+      "page": 269,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Học rộng tài giỏi, thành bậc lão luyện ở Hàn lâm viện; lúc đầu khó sau dễ, dù người thân nghi ngại, ra làm quan vẫn được trọng dụng.",
+      "page": 269,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Thời trẻ vất vả, về sau mới thành.",
+      "page": 269,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Ban đầu gian nan, sau thì nên việc.",
+       "page": 269,
+       "source": "scan"
+      },
+      "gioi_si": null,
+      "nguoi_thuong": {
+       "text": "Vui buồn lẫn lộn, khởi đầu gập ghềnh sau yên ổn; gặp vận xấu thì có tang.",
+       "page": 269,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 269,
+     "source": "scan",
+     "quote": {
+      "text": "Bí vu khâu viên thúc bạch tiên tiên",
+      "page": 269,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Cai trị bằng đức cần kiệm.",
+      "page": 270,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Chuộng sự mộc mạc thật thà; dù trông quê kệch, nhờ tằn tiện mà nước giàu đủ. Hưởng thọ và phúc.",
+      "page": 270,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Thô kệch quá mức mà vẫn túng thiếu.",
+      "page": 270,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": null,
+      "gioi_si": null,
+      "nguoi_thuong": null
+     },
+     "tue_van_other": [
+      {
+       "group": "chung",
+       "text": "Có phúc lộc, sống lâu; việc lớn khó tiến, việc nhỏ thì thuận.",
+       "page": 270,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 270,
+     "source": "scan",
+     "quote": {
+      "text": "Bạch bí vô cữu",
+      "page": 270,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tô điểm tới tận cùng rồi quay về chất mộc ban đầu, nhờ vậy khỏi sai lầm.",
+      "page": 270,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Noi người xưa, mộc mạc, học thức vượt người, phúc lộc đầy đủ.",
+      "page": 270,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Tính trầm tĩnh, thật thà, biết thuận theo thời thế.",
+      "page": 271,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được thăng bổ.",
+       "page": 271,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có đường tiến lên.",
+       "page": 271,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm ăn ngay thật; có tang bên họ ngoại.",
+       "page": 271,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "number": 23,
+   "name": "Bác",
+   "full_name": "Sơn Địa Bác",
+   "heading_printed": "Sơn-Địa-Bác",
+   "upper": "Cấn",
+   "lower": "Khôn",
+   "pages": [
+    272,
+    277
+   ],
+   "source": "scan",
+   "name_gloss": {
+    "text": "Bác là rơi rụng, bị bóc mòn dần tới chỗ tan mất.",
+    "page": 272,
+    "source": "scan"
+   },
+   "month": {
+    "value": 9,
+    "page": 272,
+    "source": "scan"
+   },
+   "tuong": {
+    "text": "Núi dựa trên đất là hình quẻ Bác; bề trên noi theo mà vun đắp cho bề dưới vững dày, nhờ vậy nơi ở mới yên.",
+    "page": 272,
+    "source": "scan"
+   },
+   "nap_giap": {
+    "ages": [
+     {
+      "stems": [
+       "Ất",
+       "Quý"
+      ],
+      "branches": [
+       "Mùi",
+       "Tỵ",
+       "Mão"
+      ]
+     },
+     {
+      "stems": [
+       "Bính"
+      ],
+      "branches": [
+       "Tuất",
+       "Tý",
+       "Dần"
+      ]
+     }
+    ],
+    "favoured_birth_months": {
+     "from": 9,
+     "to": 9
+    },
+    "note": "Gặp quẻ này phần đông là người có địa vị hoặc quý nhân, song khó tránh cảnh lẻ loi và hình khắc. Sinh vào tháng khác thì anh em không hòa, cuộc sống lao đao cực nhọc.",
+    "page": 272,
+    "source": "scan"
+   },
+   "hao": [
+    {
+     "hao": 1,
+     "line": "âm",
+     "page": 272,
+     "source": "scan",
+     "quote": {
+      "text": "Bác sàng dĩ túc",
+      "page": 272,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Kẻ tiểu nhân phá hoại lẽ chính.",
+      "page": 273,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Vẫn thuộc bậc quân tử song suy nghĩ hạn hẹp.",
+      "page": 273,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Không đứng vững chỗ nào, công việc bấp bênh; hoặc bị kẻ xấu hại, hoặc tự gây rắc rối vì chuyện vặt.",
+      "page": 273,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Gặp dịp thì tiến được. Ngoài ra dễ đau tay chân, bị kẻ dưới làm hại, anh em không hòa, chỉ thuận đường tu hành; tệ hơn thì tan cửa nát nhà, mưu tính làm ăn đều hỏng.",
+       "page": 273,
+       "source": "scan"
+      },
+      "gioi_si": null,
+      "nguoi_thuong": null
+     }
+    },
+    {
+     "hao": 2,
+     "line": "âm",
+     "page": 273,
+     "source": "scan",
+     "quote": {
+      "text": "Bác sàng dĩ biện",
+      "page": 273,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tai họa từ kẻ tiểu nhân đã đến sát bên.",
+      "page": 273,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người phú quý, ngay thẳng nhưng bị gièm siểm.",
+      "page": 273,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Gia đạo bất an, không trông cậy được họ hàng, chuyện cưới hỏi khó nên.",
+      "page": 273,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Coi chừng bị hạ chức.",
+       "page": 274,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Khó tiến lên.",
+       "page": 274,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Việc chẳng như ý, kẻ dưới oán, người trên nghi.",
+       "page": 274,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 3,
+     "line": "âm",
+     "page": 274,
+     "source": "scan",
+     "quote": {
+      "text": "Bác chi vô cữu",
+      "page": 274,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Kẻ tiểu nhân biết quay về điều phải, nhờ có hào 6 ứng.",
+      "page": 274,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Người quý hiển đứng riêng, không giống số đông.",
+      "page": 274,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Phúc phận ít ỏi.",
+      "page": 274,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được bề trên thương trọng.",
+       "page": 274,
+       "source": "scan"
+      },
+      "gioi_si": null,
+      "nguoi_thuong": {
+       "text": "Ít người tri âm, phải đi đường riêng để dựng sự nghiệp; hoặc có nỗi lo về cha mẹ, vợ con.",
+       "page": 274,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 4,
+     "line": "âm",
+     "page": 275,
+     "source": "scan",
+     "quote": {
+      "text": "Bác sàng dĩ phu",
+      "page": 275,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Tai họa ngầm đã kề sát thân.",
+      "page": 275,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Dẫu là quý nhân, về sau cũng mất hết thể diện địa vị.",
+      "page": 275,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Toan tính điều xấu nên chuốc họa, tự làm hại bản thân.",
+      "page": 275,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Coi chừng bị nói xấu.",
+       "page": 275,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Ít có dịp may.",
+       "page": 275,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Khốn khó, hình khắc, dính kiện cáo.",
+       "page": 275,
+       "source": "scan"
+      }
+     }
+    },
+    {
+     "hao": 5,
+     "line": "âm",
+     "page": 275,
+     "source": "scan",
+     "quote": {
+      "text": "Quán ngư",
+      "page": 275,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Dẫn dắt số đông về điều lành, thu lợi lớn.",
+      "page": 275,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Bậc rất quý hiển, giỏi cả văn lẫn võ.",
+      "page": 276,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Làm đầu một nhóm người, nương nhà giàu, đủ ăn đủ mặc.",
+      "page": 276,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Được thăng quan, nắm việc quan trọng.",
+       "page": 276,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Đỗ đầu, có danh.",
+       "page": 276,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Làm ăn hơn người, quan hệ êm thuận.",
+       "page": 276,
+       "source": "scan"
+      }
+     },
+     "tue_van_other": [
+      {
+       "group": "nu_mang",
+       "text": "Phụ nữ thì của cải, nhà cửa tăng thêm, có phúc.",
+       "page": 276,
+       "source": "scan"
+      }
+     ]
+    },
+    {
+     "hao": 6,
+     "line": "dương",
+     "page": 276,
+     "source": "scan",
+     "quote": {
+      "text": "Thạc quả bất thực",
+      "page": 276,
+      "source": "scan"
+     },
+     "y_hao": {
+      "text": "Dù đến bước cùng, người quân tử vẫn giữ nguyên mình.",
+      "page": 276,
+      "source": "scan"
+     },
+     "menh_hop_cach": {
+      "text": "Địa vị cao, dẹp yên loạn, cai quản việc nước.",
+      "page": 276,
+      "source": "scan"
+     },
+     "menh_khong_hop": {
+      "text": "Đức mỏng thì giỏi giữ phép tắc cũng chẳng ích gì.",
+      "page": 276,
+      "source": "scan"
+     },
+     "tue_van": {
+      "quan_chuc": {
+       "text": "Nắm quyền hành.",
+       "page": 276,
+       "source": "scan"
+      },
+      "gioi_si": {
+       "text": "Có người đề bạt.",
+       "page": 277,
+       "source": "scan"
+      },
+      "nguoi_thuong": {
+       "text": "Thận trọng, tuân phép nước thì yên ổn; hoặc sửa sang, xây dựng nhà cửa.",
+       "page": 277,
+       "source": "scan"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

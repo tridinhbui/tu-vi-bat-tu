@@ -21,8 +21,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/commerce.css">
 <link rel="stylesheet" href="/css/atlas.css">
 <link rel="stylesheet" href="/css/dash.css">
+<link rel="stylesheet" href="/css/overview.css">
+<link rel="stylesheet" href="/css/account.css">
 </head>
 <body data-view="home">
 <a class="skip" href="#main">Bỏ qua điều hướng</a>
@@ -145,6 +148,7 @@
 
 <!-- ================= CHART RESULT ================= -->
 <div id="chart-view" data-tab="tuvi">
+  <div class="sh-ban" id="share-banner" hidden></div>
   <section class="atl-mast" aria-labelledby="atl-h">
     <div class="wrap atl-mast-in">
       <div class="atl-id">
@@ -154,11 +158,13 @@
       </div>
       <div class="atl-side">
         <div class="res-hl" id="res-hl"></div>
-        <div class="res-act"><button class="btn btn-ghost btn-sm" id="again" type="button">← Lập lá số khác</button><span id="save-host" class="sv-host"></span><button class="btn btn-sm" id="print-btn" type="button" title="Mở hộp thoại in; chọn “Lưu thành PDF” để tải về">Tải PDF</button></div>
+        <div class="res-act"><button class="btn btn-ghost btn-sm" id="again" type="button">← Lập lá số khác</button><span id="save-host" class="sv-host"></span><button class="btn btn-ghost btn-sm" id="share-btn" type="button" hidden>Chia sẻ</button><button class="btn btn-ghost btn-sm" id="png-btn" type="button" title="Lưu bảng lá số Tử Vi thành ảnh PNG">Tải ảnh</button><button class="btn btn-sm" id="print-btn" type="button" title="Mở hộp thoại in; chọn “Lưu thành PDF” để tải về">Tải PDF</button></div>
+        <label class="chk chk-sm res-hide" id="hide-birth-wrap"><input type="checkbox" id="hide-birth"><span>Ẩn thông tin sinh khi tải ảnh, PDF<small>Bỏ tên, ngày, tháng, giờ sinh và vết tính toán khỏi bản tải; năm Can Chi và bốn trụ vẫn hiện</small></span></label><p class="muted small res-msg" id="res-msg" role="status" hidden></p>
       </div>
     </div>
   </section>
   <nav class="res-nav" aria-label="Chọn hệ thống"><div class="wrap res-tabs" role="tablist">
+    <button type="button" role="tab" id="tab-overview" data-go="tong-quan" aria-controls="pane-overview" aria-selected="false" hidden><i lang="zh">總覽</i>Tổng quan</button>
     <button type="button" role="tab" id="tab-tuvi" data-go="tu-vi" aria-controls="pane-tuvi" aria-selected="true"><i lang="zh">紫微</i>Tử Vi</button>
     <button type="button" role="tab" id="tab-bazi" data-go="bat-tu" aria-controls="pane-bazi" aria-selected="false"><i lang="zh">八字</i>Bát Tự</button>
     <button type="button" role="tab" id="tab-growth" data-go="truong-thanh" aria-controls="pane-growth" aria-selected="false" hidden><i lang="zh">修身</i>Trưởng thành</button>
@@ -170,6 +176,9 @@
     <div class="wrap easy-only atl-sum"><div id="bazi-summary"></div></div>
     <section class="r-sec r-report" aria-labelledby="bzr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Luận giải chi tiết · Bát Tự</p><h2 id="bzr-h">Đọc từng chương Bát Tự</h2><p class="sec-sub">Dữ kiện tính toán, điều sách nói và giả thuyết luôn được tách riêng.</p></header><div id="bazi-report"></div></div></section>
   </div>
+  <div class="pane" id="pane-overview" role="tabpanel" aria-labelledby="tab-overview">
+    <section class="r-overview" aria-labelledby="ov-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Tổng quan lá số · Tử Vi</p><h2 id="ov-h">Một màn hình cho cả lá số</h2><p class="sec-sub">Khung lá số, các luận điểm chính về Mệnh, và bốn biểu đồ chỉ số hệ thống: mỗi con số đều lần ra được quy tắc và trang sách.</p></header><div id="overview-host"></div></div></section>
+  </div>
   <div class="pane" id="pane-tuvi" role="tabpanel" aria-labelledby="tab-tuvi">
     <section class="r-sec r-tuvi atl-stage" aria-label="Tử Vi: mười hai cung"><div class="wrap atl-wrap"><div class="dash dash-tv"><div id="tuvi-host"></div><aside class="dash-side" id="tuvi-side" aria-label="Chi tiết và trợ lý"><div id="tuvi-mascot"></div></aside></div></div></section>
     <div class="wrap easy-only atl-sum"><div id="tuvi-summary"></div></div>
@@ -180,12 +189,15 @@
   </div>
   <p class="print-note">Thiên Bàn · Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Chỉ các nhận định đã đối chiếu sách được hiển thị.</p>
 </div>
+
+<!-- ================= ACCOUNT (#tai-khoan) ================= -->
+<div id="account-view"></div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap foot">
     <div class="foot-brand"><span data-brand="lg"></span><div><b>Thiên Bàn</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div></div>
-    <p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Chỉ hiển thị nhận định đã đối chiếu sách; dữ liệu ngày giờ sinh chỉ được lưu khi bạn chọn lưu lá số. <a class="link" href="/library">Quy tắc và nguồn</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/xem-ngay/">Xem ngày</a></p>
+    <p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Chỉ hiển thị nhận định đã đối chiếu sách; dữ liệu ngày giờ sinh chỉ được lưu khi bạn chọn lưu lá số. <a class="link" href="/library">Quy tắc và nguồn</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/privacy">Chính sách dữ liệu</a></p>
   </div>
 </footer>
 

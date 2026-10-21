@@ -1,6 +1,6 @@
 // Local stand-in for the Worker, for checking /api/interpret (both modes) without Docker or wrangler:
 //   node tools/interpret/dev_server.ts [--port 8768] [--app-dir engine]   (--app-dir: another checkout's engine/, e.g. a clean worktree)
-// It starts the Python engine (uvicorn) on PORT+1 and serves the web app on PORT: POST /api/interpret goes through
+// It starts the Python engine (uvicorn) on PORT+1 and serves the web app on PORT: POST /api/interpret (and /api/overview) goes through
 // src/interpret/route.ts — the same handler the Worker uses — with chart facts from the local engine; every other request is proxied.
 // TVBT_INTERPRET and TVBT_PROSE_DRAFT default to "1" here (override with the environment).
 import { createServer } from 'node:http';
@@ -8,6 +8,7 @@ import { spawn } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { handleInterpret } from '../../src/interpret/route.ts';
+import { handleOverview } from '../../src/interpret/overview.ts';
 import { BundledStore, LayeredCache } from '../../src/interpret/store.ts';
 import type { Knowledge } from '../../src/interpret/types.ts';
 
@@ -42,6 +43,11 @@ createServer(async (req, res) => {
         enabled: flag('TVBT_INTERPRET'), proseDraft: flag('TVBT_PROSE_DRAFT'), reasoner: flag('TVBT_REASONER'), luan: process.env.TVBT_LUAN !== '0',
         facts: birth => fetch(`${ORIGIN}/api/facts`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(birth) }),
         store, cache, defer: p => { p.catch(() => {}); },
+      });
+    } else if (url.pathname === '/api/overview') {
+      out = await handleOverview(new Request(url, init), {
+        enabled: flag('TVBT_INTERPRET'), store,
+        facts: birth => fetch(`${ORIGIN}/api/facts`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(birth) }),
       });
     } else out = await fetch(`${ORIGIN}${url.pathname}${url.search}`, init);
     res.writeHead(out.status, Object.fromEntries([...out.headers.entries()].filter(([k]) => !['content-encoding', 'content-length', 'transfer-encoding'].includes(k))));

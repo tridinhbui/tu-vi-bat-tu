@@ -1,6 +1,6 @@
 // Bát Tự "Energy Architecture": pillar plate + relation arcs, seasonal dial, Five Elements, Đại vận timeline and one contextual reading panel.
 // Presentation only: every value is read from the chart / year responses. Report pieces (`parts`) are unchanged.
-import { $, $$, esc, STEMS, BRANCHES, EL, ELEMENTS, elChip, elIcon, PILLAR_LABEL, tenGodGroup, TEN_GOD_GROUPS } from './util.js';
+import { $, $$, esc, bd, DM, STEMS, BRANCHES, EL, ELEMENTS, elChip, elIcon, PILLAR_LABEL, tenGodGroup, TEN_GOD_GROUPS } from './util.js';
 import { fiveElements } from './elements.js';
 import { timeline, findingList } from './ui.js';
 import { easyReadings } from './beginner.js';
@@ -33,12 +33,12 @@ function menhBan(b, ctx) {
   const two = s => { const [a, c] = String(s).split(' '); return `${esc(a)}<br>${esc(c || '')}`; };
   return `<div class="mb" role="table" aria-label="Mệnh bàn tứ trụ">
     <div class="mb-head"><h3 class="mb-t">Mệnh bàn tứ trụ</h3><dl class="mb-meta">
-      <div><dt>Dương lịch</dt><dd>${req.day}/${req.month}/${req.year} - ${req.hour}:${String(req.minute || 0).padStart(2, '0')}</dd></div>
-      ${lunar ? `<div><dt>Âm lịch</dt><dd>${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}</dd></div>` : ''}
+      <div><dt>Dương lịch</dt><dd>${bd(`${req.day}/${req.month}/`, req.day != null, DM)}${req.year}${bd(` - ${req.hour}:${String(req.minute || 0).padStart(2, '0')}`, req.hour != null, ' - giờ ẩn')}</dd></div>
+      ${lunar ? `<div><dt>Âm lịch</dt><dd>${bd(`${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/`, lunar.day != null, DM)}${lunar.year}</dd></div>` : ''}
       <div><dt>Khởi vận</dt><dd>${esc(b.luck_start.start_date.split('-').reverse().join('/'))} · sau ${b.luck_start.years} năm ${b.luck_start.months} tháng</dd></div>
     </dl></div>
     <table class="mb-tab"><tbody>
-      <tr class="mb-dates"><th>Năm sinh<br>dương</th><td>${req.year}</td><td>${req.month}</td><td>${req.day}</td><td>${req.hour}:${String(req.minute || 0).padStart(2, '0')}</td></tr>
+      <tr class="mb-dates"><th>Năm sinh<br>dương</th><td>${req.year}</td><td>${bd(req.month)}</td><td>${bd(req.day)}</td><td>${bd(`${req.hour}:${String(req.minute || 0).padStart(2, '0')}`, req.hour != null)}</td></tr>
       <tr><th>Thập thần</th>${col((p, k) => k === 'day' ? '<b>NHẬT CHỦ</b>' : esc(GOD_SHORT[p.stem_ten_god] || p.stem_ten_god || ''))}</tr>
       <tr class="mb-bt"><th>Bát tự</th>${col(p => ch(STEMS[p.stem].n.toLocaleUpperCase('vi'), STEMS[p.stem].e, true) + '<br>' + ch(BRANCHES[p.branch].n.toLocaleUpperCase('vi'), BRANCHES[p.branch].e, true))}</tr>
       <tr><th>Nạp âm<br>ngũ hành</th>${col(p => esc(napAm(p.stem, p.branch)))}</tr>

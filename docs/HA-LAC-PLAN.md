@@ -15,7 +15,7 @@ Nguồn người dùng cung cấp: `~/Downloads/Bát-tự-Hà-Lạc-dantocking.c
 | Thiếu | Hệ quả |
 |---|---|
 | **Phần I — cách lập quẻ**: số Hà Đồ của 10 can, 12 chi; cộng số âm/dương, trừ bội số, ra quái thượng/hạ; quẻ Tiên Thiên; định **Nguyên đường** theo giờ sinh và âm/dương nam nữ; quẻ **Hậu Thiên**; số năm mỗi hào (đại vận), tuế vận; **Hóa công**, **Thiên/Địa nguyên khí**; "Thể cách" (mục 9) | không thể lập quẻ cho người dùng mà không tự đặt quy tắc — không làm |
-| Quẻ 1–23 | 23/64 quẻ chưa có lời giải |
+| Quẻ 1–23 | Đã bổ sung từ ảnh quét (K2–K3) |
 
 ## Kế hoạch
 
@@ -46,3 +46,20 @@ Vai trò khi có PDF:
 | K5 | Trang "Kinh Dịch" trong mục Bài viết: 64 trang quẻ, mỗi trang có nguồn |
 
 Kinh Dịch **không** chứa cách lập quẻ Hà Lạc theo giờ sinh: vẫn cần Phần I của sách Hà Lạc (bước H0).
+
+## Tình trạng (2026-10-21, nhánh `claude/ha-lac-data-4734d6`)
+
+Đã nhận thêm hai tệp: sách gốc đầy đủ **Học-Năng, *Bát-Tự Hà-Lạc Lược-Khảo* (Sài Gòn 1974)** — `(kinhdich)-Sách bat-tu-ha-lac-dantocking.com.pdf`, 633 trang **ảnh quét, không có lớp chữ** (Phần I tr.15–135, Phần II tr.136–528; ở Phần I trang PDF = trang in − 2) — và **Kinh Dịch, Ngô Tất Tố dịch và chú giải (NXB Văn Học)** — `KINH DỊCH TRỌN BỘ.PDF`, 666 trang ảnh quét (lớp chữ chỉ là dấu tải về; trang in = trang PDF + 4).
+
+| Bước | Trạng thái |
+|---|---|
+| H0 | **Xong**: Phần I đọc từ ảnh quét. Cách lập quẻ tr.35–90 (trị số can chi, Lạc Thư, thứ tự trên/dưới, rút gọn tổng, số 5 theo Tam Nguyên, Hóa công, nguyên khí, Nguyên đường gồm quẻ thuần Kiền/Khôn, Hậu Thiên, hỗ, đại vận, lưu niên) |
+| H1 | **Xong**: `engine/data/ha_lac/hexagrams.json` (quẻ 24–64, tóm ý có trang), `tools/build_ha_lac.py`, `worked_examples.json` |
+| H2 | **Xong**: `engine/tvbt/ha_lac.py` — `cast()` (từ bốn trụ), `cast_birth()` (từ ngày giờ sinh, trụ lấy từ `tvbt.bazi`), `luu_nien_at()`, `summary()` (JSON gọn cho văn luận giải) |
+| H3 | **Xong**: `engine/data/ha_lac/golden_part1.json` chép mọi ví dụ Phần I (tr.43–96) + 5 lá mẫu Phần II; `tests/test_ha_lac_cast.py` khớp từng con số sách in (chỗ in sai được ghi lại) |
+| H4–H6 | Chưa làm (giao diện, luận thể cách, nối vào báo cáo) |
+| K1 | **Xong**: bản Ngô Tất Tố, mỗi quẻ: lời kinh (chữ Hán), dịch âm, dịch nghĩa, Truyện của Trình Di, Bản nghĩa của Chu Hy, lời bàn của tiên nho; ảnh rõ, đọc được |
+| K2–K3 | **Xong** (nhánh `claude/ha-lac-1-23`): `engine/data/ha_lac/hexagrams_1_23.json` — quẻ 1–23 đọc từ ảnh quét Phần II (tr. in 139–277; ở đây trang PDF = trang in − 2), cùng cấu trúc với `hexagrams.json`, mỗi trường ghi trang in và `"source": "scan"`; chỉ tóm ý + câu hào mở đầu ≤ 8 chữ. `tvbt.ha_lac.readings()` / `hao_reading()` đọc cả hai tệp: đủ 64 quẻ. Chỗ in sai ghi lại trong dữ liệu: Khôn hào 2 in "DƯƠNG" (tr.146), Mông hào 6 không có Ý hào (tr.162), Nhu hào 3 in "KHÔNG HỢP CÁCH" (tr.166), Thái hào 5 in "Giới chức" (tr.204), tr.217 đánh số "117"; trong PDF hai tờ bị đảo (PDF 195–196 = tr.207–208, PDF 205–206 = tr.197–198) |
+| K4 | Không cần cho lập quẻ nữa: Phần I đã cho số Lạc Thư của 8 quái và bảng nguyên khí |
+
+Còn mở: sách ghi Tam Nguyên 1864–2043 (tr.48) và chú thích rằng sách Dương Trạch tính khác (1984 là Thượng nguyên mới) — bộ lập quẻ theo sách này. Giờ Tý và ngày: theo quy ước Tý của engine (sách tr.31 chỉ cho bảng giờ và các lần đổi giờ ở Việt Nam 1943–1960).

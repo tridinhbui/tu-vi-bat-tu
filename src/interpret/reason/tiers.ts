@@ -25,7 +25,8 @@ const STRONG_MINOR = new Set([...SAT, ...CAT, 'Lộc Tồn', 'Thiên Mã']);
 export const TU_MO = new Set(['Thìn', 'Tuất', 'Sửu', 'Mùi']);
 
 /** Positions relative to the palace being read (Mệnh unless another is named), from branch indices (the palace, its opposite, the two
- *  tam hợp, the two neighbours). `menh` is that anchor palace: the name is kept from when only Mệnh was read. */
+ *  tam hợp, the two neighbours). `menh` is that anchor palace (the name is kept from when only Mệnh was read): the palace reasoner
+ *  (plan.ts reasonPalace) and the system indices (indices.ts) read another palace the same way. */
 export class Geo {
   readonly menh: Palace; readonly palace: string; readonly byName: Map<string, Palace>; readonly majors: string[]; readonly vcd: boolean; readonly opp: Palace;
   readonly hoaCarrier: Record<string, { star: string; palace: string | undefined }>;

@@ -1,0 +1,57 @@
+/* Account page (#tai-khoan), share links, "Ẩn thông tin sinh" and the personal chapter order. Uses the tokens of app.css. */
+body:not([data-view=account]) #account-view{display:none}
+body[data-view=account] #home,body[data-view=account] #chart-view{display:none}
+body[data-view=account] .nav,body[data-view=account] .hdr-pdf{display:none}
+
+/* birth data: hidden on exports when the owner asks, and printed as "ẩn" when a share link never sent it */
+.bd-x{display:none;font-style:italic;color:inherit;opacity:.75}
+.bd-x.bd-on,body.hide-birth .bd-x{display:inline}
+body.hide-birth .bd,body.hide-birth .trace,body.hide-birth .res-name{display:none}
+.res-hide{margin-top:var(--s3);max-width:34em}.res-msg{margin:6px 0 0}
+
+/* personal order note at the top of the overview chapter */
+.focus-note{margin:0 0 var(--s4);padding:10px 14px;border-left:3px solid var(--brass);background:var(--raise);border-radius:0 10px 10px 0;font-size:.9rem;color:var(--text2)}
+
+/* shared view */
+.sh-ban{background:var(--parchment);border-bottom:1px solid var(--line)}
+.sh-ban-in{display:flex;gap:var(--s4);align-items:center;justify-content:space-between;padding-block:12px;flex-wrap:wrap}.sh-ban-in p{margin:0;font-size:.92rem;max-width:52em}
+body.shared #save-host,body.shared #share-btn,body.shared #again,body.shared #hide-birth-wrap,body.shared #ask-host{display:none!important}
+
+/* share dialog and link rows */
+.sh-dlg{max-width:min(620px,94vw)}.sh-b{padding:clamp(20px,4vw,32px)}
+.sh-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.sh-h h3{font-size:1.6rem;margin:0}
+.sh-body h4{margin:var(--s4) 0 var(--s2);font-size:1.05rem}
+.sh-links{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.sh-link{padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--raise)}.sh-link p{margin:0 0 6px}
+.sh-url{display:flex;gap:8px;align-items:center}.sh-url input{flex:1;min-width:0;height:40px;font-size:.85rem}
+.sh-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:8px}.sh-row .link{margin-left:auto}
+.sh-new{display:grid;gap:10px;justify-items:start;margin-top:var(--s3)}.sh-err:empty{display:none}
+
+/* account page */
+.acc-mast{padding:var(--s7) 0 var(--s5);border-bottom:1px solid var(--line);background:var(--parchment)}.acc-mast h1{margin:0 0 6px}
+.acc-nav{display:flex;gap:6px 20px;flex-wrap:wrap;margin-top:var(--s4)}.acc-nav a{color:var(--accent);font-weight:600;font-size:.92rem;text-decoration:none}
+.acc-out{padding:var(--s7) 0}.acc-sec{padding:var(--s7) clamp(16px,4vw,40px);border-bottom:1px solid var(--line);scroll-margin-top:80px}
+.acc-sec>h2{margin:0 0 6px}.pf-form{max-width:760px;margin-top:var(--s4)}
+.pf-act{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.mc-bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:var(--s4) 0}
+.mc-g{margin:var(--s5) 0 var(--s2);font-size:1.05rem}.mc-g small{color:var(--muted);font-weight:400}
+.mc-list{list-style:none;padding:0;margin:0;display:grid;gap:8px;max-width:900px}
+.mc-list>li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px 14px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--raise)}
+.mc-pick input{width:20px;height:20px;accent-color:var(--cinnabar)}
+.mc-main{display:grid;gap:2px}.mc-main b{font:500 1.15rem var(--serif)}.mc-main small{color:var(--muted)}
+.mc-sh{font-size:.75rem;color:var(--jade);font-weight:600}
+.mc-act{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.mc-ren{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;align-items:end}.mc-ren label{display:grid;gap:4px;font-size:.8rem;color:var(--muted);flex:1 1 180px}.mc-ren input,.mc-ren select{height:44px}
+.mc-del{color:var(--accent)}
+.mc-links{max-width:900px}
+.acc-danger{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5);margin-top:var(--s4);max-width:980px}
+.acc-danger>div{padding:var(--s5);border:1px solid color-mix(in srgb,var(--cinnabar) 45%,var(--line));border-radius:var(--r);background:var(--raise)}
+.acc-danger h3{font-size:1.3rem;margin:0 0 8px}.acc-danger p{font-size:.92rem;color:var(--text2)}
+.acc-danger form{display:grid;gap:10px;justify-items:start}.acc-danger label{display:grid;gap:4px;font-size:.85rem;width:100%;max-width:260px}.acc-danger input{height:44px}
+/* the result toolbar gained Chia sẻ and Tải ảnh: on phones it wraps instead of running off the screen */
+@media (max-width:700px){.atl-mast .res-act{flex-wrap:wrap}.atl-mast #print-btn{margin-left:0}}
+@media (max-width:720px){
+  .mc-list>li{grid-template-columns:auto minmax(0,1fr)}.mc-act{grid-column:1/-1;justify-content:flex-start}
+  .acc-danger{grid-template-columns:minmax(0,1fr)}
+}
+@media print{.sh-ban,.res-hide,.res-msg{display:none!important}}
