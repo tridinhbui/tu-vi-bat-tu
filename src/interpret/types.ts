@@ -96,7 +96,9 @@ export interface Knowledge {
   kg?: { qualifiers: import('./kg/qualifiers.ts').Qualifier[]; ruleConcepts?: Record<string, import('./kg/lift.ts').RuleConcept>;
     relations?: import('./kg/resolve.ts').KgRelation[];
     /** corpus rates (0 … 1) of each concept asserted at Mệnh and each rule firing on Mệnh (engine/data/kg/base_rates.json) */
-    baseRates?: { concept: Record<string, number>; rule: Record<string, number> };
+    baseRates?: { concept: Record<string, number>; rule: Record<string, number>;
+      /** the same rates for each other palace (tools/interpret/base_rates.ts), for the palace reasoner */
+      palaces?: Record<string, { concept: Record<string, number>; rule: Record<string, number> }> };
     positionGuards?: import('./reason/positions.ts').PositionGuard[];
     formations?: import('./reason/structures.ts').Formation[] };
   prose?: import('./prose/types.ts').ProseLibrary;

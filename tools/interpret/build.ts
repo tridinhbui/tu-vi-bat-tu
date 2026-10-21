@@ -83,7 +83,7 @@ const knowledge = {
         ruleConcepts: existsSync(join(DATA, 'kg', 'rule_concepts.json')) ? read(join(DATA, 'kg', 'rule_concepts.json')).entries : {},
         relations: existsSync(join(DATA, 'kg', 'relations.json')) ? read(join(DATA, 'kg', 'relations.json')).relations : [],
         // corpus rates of each Mệnh concept and rule (tools/interpret/base_rates.ts): the reasoner's measure of what tells a chart apart
-        baseRates: existsSync(join(DATA, 'kg', 'base_rates.json')) ? (({ concept, rule }) => ({ concept, rule }))(read(join(DATA, 'kg', 'base_rates.json'))) : undefined,
+        baseRates: existsSync(join(DATA, 'kg', 'base_rates.json')) ? (({ concept, rule, palaces }) => ({ concept, rule, ...(palaces ? { palaces } : {}) }))(read(join(DATA, 'kg', 'base_rates.json'))) : undefined,
         // draft position guards from the R1 audit (tools/interpret/audit_positions.ts): a rule whose condition is wider than the book's wording
         positionGuards: existsSync(join(DATA, 'kg', 'position_guards.json')) ? read(join(DATA, 'kg', 'position_guards.json')).guards : [],
         // the ten draft cách cục with thành / phá / cứu (engine/data/experimental, reason/structures.ts); voiced only with draft prose allowed

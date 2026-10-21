@@ -14,10 +14,15 @@ import type { Knowledge } from '../../src/interpret/types.ts';
 
 const ROOT = join(import.meta.dirname, '..', '..');
 
-export interface BaseRates { charts: number; corpus: string; concept: Record<string, number>; rule: Record<string, number> }
+export interface PalaceRates { concept: Record<string, number>; rule: Record<string, number> }
+/** `concept` / `rule`: at Mệnh (or chart-level), as before; `palaces`: the same two rates for each other palace (the palace reasoner,
+ *  reason/plan.ts reasonPalace, weighs a Quan Lộc reading against what most charts' Quan Lộc also get). */
+export interface BaseRates { charts: number; corpus: string; concept: Record<string, number>; rule: Record<string, number>; palaces: Record<string, PalaceRates> }
+const OTHER = ['Phụ Mẫu', 'Phúc Đức', 'Điền Trạch', 'Quan Lộc', 'Nô Bộc', 'Thiên Di', 'Tật Ách', 'Tài Bạch', 'Tử Tức', 'Phu Thê', 'Huynh Đệ'];
 
 export function baseRates(K: Knowledge, charts: any[]): BaseRates {
   const cc = new Map<string, number>(), rc = new Map<string, number>();
+  const pc = new Map(OTHER.map(p => [p, { c: new Map<string, number>(), r: new Map<string, number>() }]));
   const inc = (m: Map<string, number>, k: string) => m.set(k, (m.get(k) ?? 0) + 1);
   for (const c of charts) {
     const base = c.facts.base;
@@ -28,9 +33,14 @@ export function baseRates(K: Knowledge, charts: any[]): BaseRates {
     applyQualifiers(resolved, K, base);
     new Set(resolved.filter(r => (r.subject === 'palace:Mệnh' || r.subject === 'chart') && r.status !== 'voided' && r.stance === 'affirms')
       .map(r => r.concept)).forEach(id => inc(cc, id));
+    for (const [p, m] of pc) {
+      new Set(findings.filter(f => f.subject === `palace:${p}`).map(f => f.ruleId)).forEach(id => inc(m.r, id));
+      new Set(resolved.filter(r => r.subject === `palace:${p}` && r.status !== 'voided' && r.stance === 'affirms').map(r => r.concept)).forEach(id => inc(m.c, id));
+    }
   }
   const n = charts.length, rate = (m: Map<string, number>) => Object.fromEntries([...m.entries()].sort((a, b) => b[1] - a[1]).map(([k, v]) => [k, +(v / n).toFixed(4)]));
-  return { charts: n, corpus: 'corpus1000.json.gz', concept: rate(cc), rule: rate(rc) };
+  return { charts: n, corpus: 'corpus1000.json.gz', concept: rate(cc), rule: rate(rc),
+    palaces: Object.fromEntries([...pc.entries()].map(([p, m]) => [p, { concept: rate(m.c), rule: rate(m.r) }])) };
 }
 
 if (import.meta.main) {

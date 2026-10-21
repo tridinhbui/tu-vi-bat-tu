@@ -33,7 +33,7 @@ const STRONG = (x: Reading) => x.r.status === 'holds' || x.r.status === 'narrowe
 const specSig = (x: Reading) => new Set([...x.r.sig, ...x.r.atoms.filter(a => a.kind === 'dignity').map(a => `dignity|${a.name}|${a.palace}|${a.value}`)]);
 
 export function readingsOf(resolved: Resolved[], g: Geo, k: Knowledge): Reading[] {
-  return resolved.filter(LIVE).map(r => ({ r, ...seatOf(r, g), rarity: rarity(k, r.ruleId) }));
+  return resolved.filter(LIVE).map(r => ({ r, ...seatOf(r, g), rarity: rarity(k, r.ruleId, g.palace) }));
 }
 
 /** The reading that stands for a side: the most fundamental seat, then the rarest rule. */

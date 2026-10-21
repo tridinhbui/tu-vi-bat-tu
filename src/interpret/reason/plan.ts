@@ -15,7 +15,7 @@ import { applyQualifiers, resolve, type Resolved } from '../kg/resolve.ts';
 import { triggerAtoms } from '../kg/atoms.ts';
 import type { World } from '../dsl.ts';
 import { axes, best, readingsOf, type Axis, type Reading, type Step } from './adjudicate.ts';
-import { Geo, SCOPE_WEIGHT, TIER_WEIGHT, conceptRate, rarity, seatOf, type SeatRef } from './tiers.ts';
+import { Geo, SCOPE_WEIGHT, TIER_WEIGHT, conceptRate, rarity, ruleRate, seatOf, type SeatRef } from './tiers.ts';
 import { guardHolds } from './positions.ts';
 import { detectStructures, evaluateFormations, type FormationState as FState, type Structure, type Verification } from './structures.ts';
 
@@ -41,7 +41,8 @@ export interface Thesis {
   rescuerCaveat?: { seat: SeatRef; axis: Axis };
 }
 export interface ReadingPlan {
-  version: string; palace: 'Mệnh';
+  /** the palace read: Mệnh (reasonMenh) or any other (reasonPalace); every field below is relative to it */
+  version: string; palace: string;
   frame: { branch: string; majors: Array<{ star: string; dignity?: string; hoa: string[] }>; vcd: boolean; borrowed: string[]; tuan: boolean; triet: boolean;
     than: boolean; formations: Formation[]; states: CachState[]; centre: { seat: SeatRef; why: 'major' | 'formation' | 'outweighs_major' | 'vcd' } };
   theses: Thesis[];
@@ -66,6 +67,25 @@ const CLAIMABLE = (c?: Concept) => !!c && (c.facet.startsWith('identity.') || c.
   || c.facet === 'life.spirituality' || c.facet === 'finance.flow' || c.facet === 'career.trajectory' || c.facet === 'career.authority');
 const COURSE = (c?: Concept) => !!c && (c.facet === 'life.timing' || c.facet === 'life.mobility');
 const CROSS: Array<[RegExp, string[]]> = [[/^finance\./, ['Tài Bạch']], [/^career\./, ['Quan Lộc']], [/^(identity|inner)\./, ['Thiên Di']], [/^life\.course/, ['Quan Lộc', 'Tài Bạch']]];
+const facetIn = (...pre: string[]) => (c?: Concept) => !!c && pre.some(p => c.facet === p || c.facet.startsWith(p + '.'));
+/** What each other palace may make a thesis of (the topics of chapter.ts PROSE_SPECS, the same split): the palace's own subject and what
+ *  the books say of the people it stands for. Timing concepts go to the course line, as at Mệnh. */
+const POOL: Record<string, (c?: Concept) => boolean> = {
+  'Quan Lộc': facetIn('career', 'finance.flow', 'life.course', 'life.legal'),
+  'Tài Bạch': facetIn('finance', 'life.course'),
+  'Thiên Di': facetIn('life', 'finance', 'identity', 'inner', 'career'),
+  'Phu Thê': facetIn('relationships.marriage', 'relationships.partner', 'relationships.romance', 'identity', 'career', 'finance', 'wellbeing', 'life.course'),
+  'Phúc Đức': facetIn('inner', 'life', 'wellbeing', 'relationships.family', 'finance', 'career.support', 'identity'),
+  'Điền Trạch': facetIn('finance', 'life', 'relationships.family'),
+  'Nô Bộc': facetIn('relationships.allies', 'career', 'identity', 'finance', 'life.course'),
+  'Tử Tức': facetIn('relationships.kin', 'relationships.family', 'relationships.allies', 'career', 'finance', 'identity'),
+  'Huynh Đệ': facetIn('relationships.kin', 'relationships.family', 'career', 'finance', 'identity'),
+  'Phụ Mẫu': facetIn('relationships', 'career', 'finance', 'identity', 'inner', 'life.course'),
+  'Tật Ách': facetIn('wellbeing', 'life', 'inner'),
+};
+const TIMING = (c?: Concept) => !!c && (c.facet.endsWith('.timing') || c.facet === 'life.mobility');
+/** the palaces of a palace's tam phương tứ chính (its opposite and its two tam hợp), by branch */
+const tamPhuong = (g: Geo) => [...g.byName.values()].filter(p => { const d = (p.branch_index - g.menh.branch_index + 12) % 12; return d === 4 || d === 6 || d === 8; }).map(p => p.name);
 /** A concept at least this common (≥ 60 % of the corpus), carried only by rules firing on more than ~7 % of it, does not tell the chart apart. */
 const BARNUM_RATE = 0.6, BARNUM_RARITY = 0.5;
 
@@ -79,6 +99,15 @@ export interface ReasonOptions {
 }
 
 export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Resolved[]; labelled: Labelled[] }, opts: ReasonOptions = {}): ReadingPlan {
+  return reasonPalace(chart, k, 'Mệnh', pre, opts);
+}
+
+/** The same reasoning for any palace (prose-style plan S4): its own readings on seats relative to it, the corpus rates of that palace, its
+ *  topic pool, corroboration from its tam phương tứ chính. Mệnh keeps its own pool, chart-level readings and cross-palace map. */
+export function reasonPalace(chart: ChartInput, k: Knowledge, P: string, pre?: { resolved: Resolved[]; labelled: Labelled[] }, opts: ReasonOptions = {}): ReadingPlan {
+  const isMenh = P === 'Mệnh';
+  const claimable = isMenh ? CLAIMABLE : (c?: Concept) => !!POOL[P]?.(c) && !TIMING(c);
+  const course = isMenh ? COURSE : (c?: Concept) => !!POOL[P]?.(c) && TIMING(c);
   let resolvedAll: Resolved[], labelled: Labelled[];
   if (pre) ({ resolved: resolvedAll, labelled } = pre);
   else {
@@ -88,16 +117,16 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
     applyQualifiers(resolvedAll, k, chart.base);
     labelled = lifted.labelled;
   }
-  const g = new Geo(chart);
+  const g = new Geo(chart, P);
   const cmap = new Map(k.concepts.concepts.map(c => [c.id, c]));
   const rmap = new Map<string, Rule>(k.rules.map(r => [r.id, r]));
-  const here = (r: { subject: string }) => r.subject === 'palace:Mệnh' || r.subject === 'chart';
+  const here = (r: { subject: string }) => r.subject === `palace:${P}` || (isMenh && r.subject === 'chart');
   // position guards (R1): a fired rule whose atoms do not stand where the book's wording puts them is not used, and is listed as guarded
   const guards = new Map((k.kg?.positionGuards ?? []).map(x => [x.ruleId, x]));
   const guarded: Guarded[] = [];
   const placed = (r: { ruleId: string; atoms: Resolved['atoms']; palace: string | null; concept?: string }) => {
     const gd = guards.get(r.ruleId);
-    if (!gd || guardHolds(gd, r.atoms, chart.palaces, { here: r.palace ?? 'Mệnh', tuHoa: chart.tu_hoa, strict: !!opts.strictGuards })) return true;
+    if (!gd || guardHolds(gd, r.atoms, chart.palaces, { here: r.palace ?? P, tuHoa: chart.tu_hoa, strict: !!opts.strictGuards })) return true;
     if (!guarded.some(x => x.ruleId === r.ruleId && x.concept === (r.concept ?? ''))) guarded.push({ ruleId: r.ruleId, concept: r.concept ?? '', reason: gd.reason, cite: gd.cite });
     return false;
   };
@@ -118,8 +147,8 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
     const { seat } = seatOf({ atoms, subject: l.subject }, g);
     const text = (rule.reading ?? k.claims[rule.consequences[0]?.claim ?? ''] ?? '').trim();
     const m = text.match(/^(.*?)\s*\((.*)\)\s*$/);
-    const rate = k.kg?.baseRates?.rule?.[l.ruleId] ?? 0.5;
-    const f: Formation = { ruleId: l.ruleId, name: (m?.[1] ?? text).replace(/^nhóm\s+/, 'nhóm '), condition: m?.[2] ?? '', rate, rarity: rarity(k, l.ruleId), seat: seat.id,
+    const rate = ruleRate(k, l.ruleId, P);
+    const f: Formation = { ruleId: l.ruleId, name: (m?.[1] ?? text).replace(/^nhóm\s+/, 'nhóm '), condition: m?.[2] ?? '', rate, rarity: rarity(k, l.ruleId, P), seat: seat.id,
       kind: l.kind, pol: l.pol, cites: l.cites };
     formations.push(f);
     seatFor(seat).formations.push(f);
@@ -127,11 +156,11 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
   // draft cách cục at Mệnh (R2a port of the Python evaluator): the state sits on the seat of its core stars and weighs on it
   const states: CachState[] = [];
   if (opts.draftFormations ?? true) {
-    const menhFacts = { ...(chart.base.chart ?? {}), ...(chart.base['palace:Mệnh'] ?? {}) };
+    const menhFacts = { ...(chart.base.chart ?? {}), ...(chart.base[`palace:${P}`] ?? {}) };
     const defs = new Map((k.kg?.formations ?? []).map(f => [f.id, f]));
     for (const f of evaluateFormations(k.kg?.formations ?? [], chart.base)) {
-      if (f.anchor !== 'Mệnh' || !TOLD.has(f.state)) continue;
-      const { seat } = seatOf({ atoms: triggerAtoms(defs.get(f.id)!.core, menhFacts, world, 'Mệnh'), subject: 'palace:Mệnh' }, g);
+      if (f.anchor !== P || !TOLD.has(f.state)) continue;
+      const { seat } = seatOf({ atoms: triggerAtoms(defs.get(f.id)!.core, menhFacts, world, P), subject: `palace:${P}` }, g);
       const st: CachState = { id: f.id, name: f.name, state: f.state, stateVi: f.stateVi, seat: seat.id, boosters: f.boosters.map(x => x.label), breakers: f.breakers.map(x => x.label),
         rescuers: f.rescuers.map(x => x.label), uncovered: f.uncovered.map(x => x.label), verification: f.verification, experimental: f.experimental };
       states.push(st);
@@ -150,9 +179,9 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
   const owner = (ax: Axis) => best(ax.base.length ? ax.base : [...ax.against, ...ax.reducers])?.seat.id;
   const claimOf = (ax: Axis): Claim | null => {
     const c = cmap.get(ax.concept);
-    if (!CLAIMABLE(c) || !ax.base.length && ax.verdict !== 'contested') return null;
+    if (!claimable(c) || !ax.base.length && ax.verdict !== 'contested') return null;
     const rarest = Math.max(...[...ax.base, ...ax.reducers, ...ax.against].map(x => x.rarity));
-    const cr = conceptRate(k, ax.concept);
+    const cr = conceptRate(k, ax.concept, P);
     if (cr >= BARNUM_RATE && rarest < BARNUM_RARITY) return null;
     const info = Math.max(0, Math.min(1, Math.log2(1 / Math.max(cr, 0.02)) / Math.log2(20)));
     const soft = ax.verdict !== 'affirmed' && (ax.reducers.length > 0 || ax.base.every(x => x.r.status !== 'holds' && x.r.status !== 'narrowed'));
@@ -178,7 +207,7 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
     const cross: Cross[] = [];
     for (const c of claims) {
       const facet = cmap.get(c.concept)!.facet, opp = cmap.get(c.concept)?.opp;
-      const pals = CROSS.find(([re]) => re.test(facet))?.[1] ?? [];
+      const pals = isMenh ? CROSS.find(([re]) => re.test(facet))?.[1] ?? [] : tamPhuong(g);
       for (const r of resolvedOther(pals)) {
         if (r.concept === c.concept && r.stance === 'affirms') cross.push({ type: 'corroborated', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0] });
         else if ((r.concept === opp && r.stance === 'affirms') || (r.concept === c.concept && r.stance === 'weakens')) cross.push({ type: 'countered', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0] });
@@ -197,7 +226,7 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
   }
 
   // ---- special structures at Mệnh: their limiters, rescuers and caveat become steps of the thesis standing on their seats ----
-  const structures = structuresAtMenh(detectStructures(chart.palaces, chart.tu_hoa), g.vcd ? g.opp.major_stars : g.majors, g.vcd);
+  const structures = structuresAtMenh(detectStructures(chart.palaces, chart.tu_hoa), g.vcd ? g.opp.major_stars : g.majors, g.vcd, P);
   for (const st of structures) {
     const t = theses.find(t => st.note.seats.includes(t.seat.id));
     if (!t) continue;
@@ -209,12 +238,12 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
   const thesisRules = new Set(theses.flatMap(t => t.claims.flatMap(c => [...c.axis.base, ...c.axis.against, ...c.axis.reducers].map(x => x.r.ruleId))));
   const isMod = (s: Seat) => s.ref.scope === 'self' && (s.ref.kind === 'hoa' || s.ref.kind === 'tuan_triet' || (s.ref.kind === 'star' && s.ref.tier === 4));
   const modifiers = [...seats.values()].filter(s => isMod(s) && !theses.some(t => t.seat.id === s.ref.id))
-    .map(s => ({ seat: s.ref, reading: [...s.readings].filter(x => !thesisRules.has(x.r.ruleId) && !x.r.additive && (CLAIMABLE(cmap.get(x.r.concept)) || COURSE(cmap.get(x.r.concept))))
+    .map(s => ({ seat: s.ref, reading: [...s.readings].filter(x => !thesisRules.has(x.r.ruleId) && !x.r.additive && (claimable(cmap.get(x.r.concept)) || course(cmap.get(x.r.concept))))
       .sort((a, b) => Number(b.r.status === 'holds') - Number(a.r.status === 'holds') || b.rarity - a.rarity || (a.r.ruleId < b.r.ruleId ? -1 : 1))[0], score: s.score }))
     .filter(m => m.reading).sort((a, b) => b.score - a.score || (a.seat.id < b.seat.id ? -1 : 1)).slice(0, 4).map(({ seat, reading }) => ({ seat, reading }));
 
   // ---- course line, độ số, residue ----
-  const courseAx = all.filter(ax => COURSE(cmap.get(ax.concept)) && ax.base.length)
+  const courseAx = all.filter(ax => course(cmap.get(ax.concept)) && ax.base.length)
     .map(ax => ({ axis: ax, rarest: Math.max(...ax.base.map(x => x.rarity)) })).sort((a, b) => b.rarest - a.rarest)[0];
   const deg = readings.filter(x => x.r.additive && x.r.concept === 'life.degree');
   const up = [...new Set(deg.filter(x => x.r.stance === 'affirms').map(x => x.r.ruleId))].sort(), down = [...new Set(deg.filter(x => x.r.stance === 'weakens').map(x => x.r.ruleId))].sort();
@@ -226,10 +255,10 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
     : centreSeat?.formations.some(f => f.kind === 'formation') || centreSeat?.states.length ? 'formation' : 'outweighs_major';
   const usedRules = [...new Set(theses.flatMap(t => [...t.claims.flatMap(c => [...c.axis.base, ...c.axis.reducers].map(x => x.r.ruleId)), ...t.formations.map(f => f.ruleId)]))];
   return {
-    version: REASONER_VERSION, palace: 'Mệnh',
+    version: REASONER_VERSION, palace: P,
     frame: {
       branch: g.menh.branch, vcd: g.vcd, borrowed: g.vcd ? g.opp.major_stars : [], tuan: !!g.menh.tuan, triet: !!g.menh.triet, than: !!g.menh.is_than,
-      majors: g.majors.map(s => ({ star: s, dignity: g.dignity(s, 'Mệnh'), hoa: Object.entries(g.hoaCarrier).filter(([, v]) => v.star === s && v.palace === 'Mệnh').map(([h]) => h) })),
+      majors: g.majors.map(s => ({ star: s, dignity: g.dignity(s, P), hoa: Object.entries(g.hoaCarrier).filter(([, v]) => v.star === s && v.palace === P).map(([h]) => h) })),
       formations: formations.filter(f => f.kind === 'formation' || f.rarity >= 0.3).sort((a, b) => b.rarity - a.rarity),
       states: [...states].sort((a, b) => (STATE_BONUS[b.state] ?? 0) - (STATE_BONUS[a.state] ?? 0) || (a.id < b.id ? -1 : 1)),
       centre: { seat: (why === 'major' || why === 'vcd') && majorSeat ? majorSeat.ref : centreSeat?.ref ?? { id: 'degree', kind: 'degree', tier: 5, scope: 'chart' }, why },
@@ -240,7 +269,7 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
     degree: { up, down, lean: up.length - down.length >= 2 ? 'up' : down.length - up.length >= 2 ? 'down' : 'mixed' },
     contested: all.filter(ax => ax.verdict === 'contested'),
     residue,
-    distinct: { rules: usedRules.map(id => ({ id, rate: k.kg?.baseRates?.rule?.[id] ?? 0.5 })).sort((a, b) => a.rate - b.rate),
+    distinct: { rules: usedRules.map(id => ({ id, rate: ruleRate(k, id, P) })).sort((a, b) => a.rate - b.rate),
       meanConceptRate: +(theses.flatMap(t => t.claims).reduce((a, c, _, xs) => a + c.conceptRate / xs.length, 0)).toFixed(3) },
     seats: [...seats.values()].sort((a, b) => b.score - a.score).map(s => ({ id: s.ref.id, tier: s.ref.tier, score: s.score, rules: new Set(s.readings.map(x => x.r.ruleId)).size })),
     guarded,
@@ -265,8 +294,8 @@ function structureSeats(s: Structure, majors: string[], vcd: boolean): string[] 
 }
 
 /** Present structures that stand at Mệnh, each with the steps it adds. A chua_du_nguon structure adds one position step and nothing else. */
-export function structuresAtMenh(all: Structure[], majors: string[], vcd = false): Array<{ note: StructureNote; steps: Step[] }> {
-  return all.filter(s => s.present && s.palaces.includes('Mệnh')).map(s => {
+export function structuresAtMenh(all: Structure[], majors: string[], vcd = false, palace = 'Mệnh'): Array<{ note: StructureNote; steps: Step[] }> {
+  return all.filter(s => s.present && s.palaces.includes(palace)).map(s => {
     const position = s.verification === 'chua_du_nguon';
     const note: StructureNote = { id: s.id, name: s.name, verification: s.verification, position, seats: structureSeats(s, majors, vcd),
       limiters: position ? [] : s.limiters, rescuers: position ? [] : s.rescuers, caveat: position ? '' : s.caveat, cites: s.cites, matrixIds: s.matrix_ids };

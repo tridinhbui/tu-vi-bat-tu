@@ -24,13 +24,15 @@ export const SCOPE_WEIGHT: Record<Scope, number> = { self: 1, opp: 0.85, trine: 
 const STRONG_MINOR = new Set([...SAT, ...CAT, 'Lộc Tồn', 'Thiên Mã']);
 export const TU_MO = new Set(['Thìn', 'Tuất', 'Sửu', 'Mùi']);
 
-/** Positions relative to the Mệnh palace, from branch indices (Mệnh, opposite, the two tam hợp, the two neighbours). */
+/** Positions relative to the palace being read (Mệnh unless another is named), from branch indices (the palace, its opposite, the two
+ *  tam hợp, the two neighbours). `menh` is that anchor palace: the name is kept from when only Mệnh was read. */
 export class Geo {
-  readonly menh: Palace; readonly byName: Map<string, Palace>; readonly majors: string[]; readonly vcd: boolean; readonly opp: Palace;
+  readonly menh: Palace; readonly palace: string; readonly byName: Map<string, Palace>; readonly majors: string[]; readonly vcd: boolean; readonly opp: Palace;
   readonly hoaCarrier: Record<string, { star: string; palace: string | undefined }>;
-  constructor(chart: ChartInput) {
+  constructor(chart: ChartInput, palace = 'Mệnh') {
     this.byName = new Map(chart.palaces.map(p => [p.name, p]));
-    this.menh = this.byName.get('Mệnh')!;
+    this.palace = palace;
+    this.menh = this.byName.get(palace)!;
     const byIdx = new Map(chart.palaces.map(p => [p.branch_index, p]));
     this.opp = byIdx.get((this.menh.branch_index + 6) % 12)!;
     this.majors = this.menh.major_stars;
@@ -73,17 +75,23 @@ export function atomSeat(a: Atom, g: Geo): SeatRef | null {
   }
   if (a.kind === 'hoa') return { id: `hoa:${a.name}`, kind: 'hoa', tier: 3, scope, hoa: a.name, palace: a.palace, star: g.hoaCarrier[a.name]?.star };
   if (a.kind === 'tuan_triet') return scope === 'self' ? { id: `tt:${a.name}`, kind: 'tuan_triet', tier: 5, scope, palace: a.palace } : null;
-  if (a.kind === 'vcd') return { id: 'major:vcd', kind: 'major', tier: 1, scope: 'self', palace: 'Mệnh' };
+  if (a.kind === 'vcd') return { id: 'major:vcd', kind: 'major', tier: 1, scope: 'self', palace: g.palace };
   if (a.kind === 'count') return null;
   return { id: 'degree', kind: 'degree', tier: 5, scope: 'chart' };
 }
 
-/** 0 … 1: how rare a rule's firing is on Mệnh across the corpus (rate 0.5 → 0.13, 0.1 → 0.43, 0.02 → 0.74, ≤ 0.005 → 1). */
-export function rarity(k: Knowledge, ruleId: string): number {
-  const rate = k.kg?.baseRates?.rule?.[ruleId] ?? 0.5;
+/** The corpus rates of one palace: Mệnh's are the top-level tables, the others' sit under `palaces`. */
+const ratesOf = (k: Knowledge, palace: string) => palace === 'Mệnh' ? k.kg?.baseRates : k.kg?.baseRates?.palaces?.[palace];
+/** How often a rule fires on the palace across the corpus (0 … 1; 0.5 when unknown). */
+export function ruleRate(k: Knowledge, ruleId: string, palace = 'Mệnh'): number {
+  return ratesOf(k, palace)?.rule?.[ruleId] ?? 0.5;
+}
+/** 0 … 1: how rare a rule's firing is on the palace across the corpus (rate 0.5 → 0.13, 0.1 → 0.43, 0.02 → 0.74, ≤ 0.005 → 1). */
+export function rarity(k: Knowledge, ruleId: string, palace = 'Mệnh'): number {
+  const rate = ruleRate(k, ruleId, palace);
   return Math.max(0, Math.min(1, Math.log2(1 / Math.max(rate, 0.005)) / Math.log2(200)));
 }
-/** How common a concept is at Mệnh across the corpus (0 … 1). */
-export function conceptRate(k: Knowledge, concept: string): number {
-  return k.kg?.baseRates?.concept?.[concept] ?? 0.5;
+/** How common a concept is at the palace across the corpus (0 … 1). */
+export function conceptRate(k: Knowledge, concept: string, palace = 'Mệnh'): number {
+  return ratesOf(k, palace)?.concept?.[concept] ?? 0.5;
 }
