@@ -91,6 +91,7 @@ function label(h) {
   const ref = h.ref || '';
   if (h.kind === 'grant' && (ref.startsWith('stripe:') || ref.startsWith('vnpay:'))) return `Nạp xu${h.amount ? ` · ${vnd(h.amount)}` : ''}${h.order ? ` · <a href="/bien-nhan?order=${esc(h.order)}">biên nhận</a>` : ''}`;
   if (h.kind === 'grant' && ref.startsWith('admin:')) return 'Quản trị viên tặng xu';
+  if (h.kind === 'grant' && ref.startsWith('referral:')) return ref === 'referral:joined' ? 'Thưởng khi tham gia qua lời mời' : 'Thưởng mời bạn';
   if (h.kind === 'grant') return 'Cộng xu';
   if (h.kind === 'gift') return `Mã quà tặng <code>${esc(ref.slice(5))}</code>`;
   if (h.kind === 'refund_coin') return 'Hoàn xu';
