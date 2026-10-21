@@ -24,7 +24,10 @@ export interface SentenceTrace {
 /** Who a chapter's sentences are about: in Phu Thê and Nô Bộc a reading that is not about the bond itself describes the other people. */
 export interface Voice { other?: { first: string[]; next: string[] }; bond?: (c?: Concept) => boolean }
 export interface ProseSentence { text: string; trace: SentenceTrace }
-export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structure' | 'colour' | 'balance'; sentences: ProseSentence[]; text: string }
+export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structure' | 'colour' | 'balance'; sentences: ProseSentence[]; text: string;
+  /** luận cung (prose/luan.ts): the bold lead-in the paragraph opens with ("Về tính cách và cách giao tiếp"); the first sentence's text starts
+   *  with it, so a plain-text reader sees it too. `topic` is its key (tinh_cach, su_nghiep, than, hau_van, tong_ket, …). */
+  lead?: string; topic?: string }
 
 const join = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1).join(', ') + ' và ' + xs[xs.length - 1];
 function fill(t: string, vars: Record<string, string | undefined>): string {

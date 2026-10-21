@@ -1,0 +1,513 @@
+{
+  "note": "Frames for the luận cung chapters (prose/luan.ts, prose-style plan S2–S4): the palace frame sentence, bold topic lead-ins, the tail of each argued paragraph (synthesis, advice, the two-edged image), Thân cư, the cung giáp / nhị hợp / lục hại positions, hậu vận and the closing. Frames name chart facts and reasoning steps only; every claim still comes from a fired rule of the palace's ReadingPlan, and the tail sentences only juxtapose what the paragraph already said (basis he_thong). Slots: {pal} palace, {branch}, {majors} the palace's chính tinh named with brightness, {star} a star named with brightness, {from} where it shines from, {group}/{note} a Khảo Luận star group, {pair} a giáp pair, {S} the person, {a}/{b} noun phrases said in the paragraph, {seat} the star they come from, {mature} a card's 'mature' clause, {domain} a palace's domain (KL pp.233-236), {config} a palace's stars. Status draft until reviewed.",
+  "status": "draft",
+  "lead": {
+    "tinh_cach": [
+      "Về tính cách và cách giao tiếp",
+      "Về tính cách và cách ứng xử",
+      "Về tâm tính và lối nghĩ",
+      "Về con người và cách giao tiếp"
+    ],
+    "su_nghiep": [
+      "Về năng lực và sự nghiệp",
+      "Về tài năng và đường công danh",
+      "Về chí hướng và sự nghiệp",
+      "Về năng lực làm việc và công danh"
+    ],
+    "tai_loc": [
+      "Về tiền bạc",
+      "Về tài lộc",
+      "Về chuyện tiền bạc và của cải"
+    ],
+    "quy_nhan": [
+      "Về quý nhân và người nâng đỡ",
+      "Về các mối quan hệ và quý nhân",
+      "Về sự trợ giúp từ người xung quanh"
+    ],
+    "quan_he": [
+      "Về các mối quan hệ",
+      "Về gia đạo và các mối quan hệ",
+      "Về tình thân và các mối quan hệ"
+    ],
+    "duong_doi": [
+      "Về đường đời",
+      "Về nhịp đi của cuộc đời",
+      "Về những khúc quanh của đời người"
+    ],
+    "the_trang": [
+      "Về thể trạng",
+      "Về sức vóc và thể trạng"
+    ],
+    "vi_tri": [
+      "Về các cung giáp, nhị hợp và lục hại",
+      "Về thế đứng giữa các cung xung quanh",
+      "Về các cung kề bên, nhị hợp và lục hại"
+    ],
+    "than": [
+      "Thân cư {pal}"
+    ],
+    "than_same": [
+      "Thân Mệnh đồng cung"
+    ],
+    "than_style": [
+      "Về phong cách khi trưởng thành",
+      "Về con người ở tuổi trưởng thành",
+      "Về cách thể hiện khi đã trưởng thành"
+    ],
+    "hau_van": [
+      "Về biến động và rủi ro hậu vận",
+      "Về những thăng trầm ở hậu vận",
+      "Về nửa sau của cuộc đời"
+    ],
+    "tong_ket": [
+      "Tổng kết lại",
+      "Nhìn lại toàn cục",
+      "Gom lại cả lá số"
+    ],
+    "tom_lai": [
+      "Tóm lại",
+      "Nhìn chung",
+      "Gom lại"
+    ],
+    "pho_thong": [
+      "Theo cách hiểu phổ thông",
+      "Theo cách luận thông dụng"
+    ]
+  },
+  "lead_pair": {
+    "su_nghiep|duong_doi": [
+      "Về sự nghiệp và đường đời",
+      "Về công danh và nhịp đi của cuộc đời"
+    ],
+    "tinh_cach|duong_doi": [
+      "Về tính cách và đường đời",
+      "Về con người và nhịp đời"
+    ],
+    "su_nghiep|quy_nhan": [
+      "Về sự nghiệp và người nâng đỡ",
+      "Về công danh và quý nhân"
+    ],
+    "tinh_cach|quy_nhan": [
+      "Về tính cách và những người quanh mình",
+      "Về con người và quý nhân"
+    ],
+    "quy_nhan|duong_doi": [
+      "Về quý nhân và đường đời",
+      "Về người nâng đỡ và nhịp đời"
+    ],
+    "quan_he|duong_doi": [
+      "Về các mối quan hệ và đường đời"
+    ],
+    "tai_loc|duong_doi": [
+      "Về tiền bạc và đường đời"
+    ],
+    "su_nghiep|tai_loc": [
+      "Về công việc và tiền bạc",
+      "Về công danh và tài lộc"
+    ],
+    "tinh_cach|su_nghiep": [
+      "Về tính cách và công việc",
+      "Về con người và sự nghiệp"
+    ],
+    "tinh_cach|tai_loc": [
+      "Về tính cách và tiền bạc"
+    ],
+    "quy_nhan|quan_he": [
+      "Về quý nhân và các mối quan hệ"
+    ]
+  },
+  "lead_palace": {
+    "Quan Lộc": {
+      "su_nghiep": [
+        "Về con đường công danh",
+        "Về sự nghiệp và địa vị",
+        "Về đường công danh"
+      ],
+      "tinh_cach": [
+        "Về cách làm việc",
+        "Về phong cách làm việc"
+      ],
+      "tai_loc": [
+        "Về tiền bạc đi cùng công việc",
+        "Về phần lộc từ công việc"
+      ],
+      "duong_doi": [
+        "Về nhịp đi của công danh",
+        "Về các chặng của sự nghiệp"
+      ]
+    },
+    "Tài Bạch": {
+      "tai_loc": [
+        "Về nguồn tiền và cách giữ của",
+        "Về tiền bạc",
+        "Về chuyện kiếm tiền và giữ tiền"
+      ],
+      "su_nghiep": [
+        "Về tiền bạc và công việc",
+        "Về nghề làm ra tiền"
+      ],
+      "tinh_cach": [
+        "Về cách tiêu tiền",
+        "Về thói quen với tiền bạc"
+      ],
+      "duong_doi": [
+        "Về nhịp kiếm tiền qua các chặng đời",
+        "Về tiền bạc theo thời gian"
+      ]
+    },
+    "Thiên Di": {
+      "duong_doi": [
+        "Về những chuyến đi và môi trường bên ngoài",
+        "Về đời sống bên ngoài"
+      ],
+      "tinh_cach": [
+        "Về cách ứng xử khi ra ngoài",
+        "Về con người khi ở nơi xa"
+      ],
+      "su_nghiep": [
+        "Về công việc ở nơi xa",
+        "Về cơ hội ở bên ngoài"
+      ],
+      "tai_loc": [
+        "Về tiền bạc ở nơi xa",
+        "Về tài lộc khi ra ngoài"
+      ],
+      "quan_he": [
+        "Về người gặp ở bên ngoài"
+      ]
+    },
+    "Phu Thê": {
+      "quan_he": [
+        "Về hôn nhân",
+        "Về chuyện vợ chồng",
+        "Về đời sống lứa đôi"
+      ],
+      "tinh_cach": [
+        "Về người bạn đời",
+        "Về con người của người phối ngẫu"
+      ],
+      "su_nghiep": [
+        "Về công việc của người bạn đời",
+        "Về sự nghiệp của người phối ngẫu"
+      ],
+      "tai_loc": [
+        "Về tiền bạc của người bạn đời",
+        "Về của cải trong hôn nhân"
+      ],
+      "duong_doi": [
+        "Về duyên phận",
+        "Về đường hôn nhân"
+      ]
+    },
+    "Phúc Đức": {
+      "tinh_cach": [
+        "Về đời sống tinh thần",
+        "Về sự an ổn trong lòng"
+      ],
+      "quan_he": [
+        "Về họ hàng",
+        "Về dòng họ"
+      ],
+      "duong_doi": [
+        "Về phúc phần",
+        "Về phúc đức và đường đời"
+      ],
+      "tai_loc": [
+        "Về phúc lộc",
+        "Về của cải trong dòng họ"
+      ],
+      "su_nghiep": [
+        "Về phúc phần cho công danh"
+      ]
+    },
+    "Điền Trạch": {
+      "tai_loc": [
+        "Về nhà cửa và điền sản",
+        "Về cơ nghiệp nhà đất"
+      ],
+      "quan_he": [
+        "Về gia đạo",
+        "Về nếp nhà"
+      ],
+      "duong_doi": [
+        "Về cơ nghiệp trên đường đời",
+        "Về nhà cửa qua các chặng đời"
+      ]
+    },
+    "Nô Bộc": {
+      "quan_he": [
+        "Về bạn bè và người cộng sự",
+        "Về người dưới quyền và bạn bè"
+      ],
+      "tinh_cach": [
+        "Về những người cộng sự",
+        "Về bạn bè quanh mình"
+      ],
+      "su_nghiep": [
+        "Về sự trợ giúp trong công việc",
+        "Về người cộng tác"
+      ],
+      "tai_loc": [
+        "Về tiền bạc qua bạn bè",
+        "Về chuyện tiền nong với người cộng sự"
+      ],
+      "duong_doi": [
+        "Về đường giao du",
+        "Về bạn bè trên đường đời"
+      ]
+    },
+    "Tử Tức": {
+      "quan_he": [
+        "Về con cái",
+        "Về đường con cái"
+      ],
+      "tinh_cach": [
+        "Về các con",
+        "Về con người của các con"
+      ],
+      "su_nghiep": [
+        "Về đường lập thân của các con",
+        "Về công danh của con cái"
+      ],
+      "tai_loc": [
+        "Về của cải của các con",
+        "Về đời sống vật chất của con cái"
+      ],
+      "duong_doi": [
+        "Về đường con cái",
+        "Về duyên con cái"
+      ]
+    },
+    "Huynh Đệ": {
+      "quan_he": [
+        "Về anh chị em",
+        "Về tình anh em"
+      ],
+      "tinh_cach": [
+        "Về những người anh em",
+        "Về anh chị em trong nhà"
+      ],
+      "su_nghiep": [
+        "Về công danh của anh chị em",
+        "Về đường lập thân của anh em"
+      ],
+      "tai_loc": [
+        "Về của cải của anh chị em",
+        "Về tiền bạc trong anh em"
+      ],
+      "duong_doi": [
+        "Về tình anh em trên đường đời"
+      ]
+    },
+    "Phụ Mẫu": {
+      "quan_he": [
+        "Về cha mẹ",
+        "Về song thân"
+      ],
+      "tinh_cach": [
+        "Về con người của cha mẹ",
+        "Về song thân"
+      ],
+      "su_nghiep": [
+        "Về công danh của cha mẹ",
+        "Về địa vị của song thân"
+      ],
+      "tai_loc": [
+        "Về gia cảnh của cha mẹ",
+        "Về của cải của song thân"
+      ],
+      "duong_doi": [
+        "Về phúc phần từ cha mẹ"
+      ]
+    },
+    "Tật Ách": {
+      "the_trang": [
+        "Về thể trạng",
+        "Về sức vóc"
+      ],
+      "duong_doi": [
+        "Về những hạn ách",
+        "Về tai ách trên đường đời"
+      ],
+      "tinh_cach": [
+        "Về tâm trạng",
+        "Về đời sống tinh thần"
+      ]
+    }
+  },
+  "frame": {
+    "open": [
+      "Cung {pal} an tại {branch}, có {majors} tọa thủ",
+      "Cung {pal} đóng ở {branch}, nơi {majors} tọa thủ",
+      "Lá số đặt cung {pal} tại {branch}, với {majors} tọa thủ"
+    ],
+    "open_pair": [
+      "Cung {pal} an tại {branch}, có {majors} đồng cung",
+      "Cung {pal} đóng ở {branch}, nơi {majors} cùng tọa thủ"
+    ],
+    "open_vcd": [
+      "Cung {pal} an tại {branch} mà vô chính diệu, phải mượn {majors} ở cung đối diện",
+      "Cung {pal} đóng ở {branch}, vô chính diệu, nên mượn {majors} từ cung xung chiếu để luận"
+    ],
+    "open_empty": [
+      "Cung {pal} an tại {branch}, vô chính diệu, cung đối diện cũng không có chính tinh"
+    ],
+    "tp_contrast": [
+      "nhưng lại nhận được hội chiếu của {star} từ {from}",
+      "song được {star} từ {from} chiếu về",
+      "nhưng có {star} từ {from} hội chiếu"
+    ],
+    "tp_add": [
+      "lại thêm {star} từ {from} hội chiếu",
+      "cùng nhận hội chiếu của {star} ở {from}",
+      "và được {star} từ {from} chiếu về"
+    ],
+    "opp_contrast": [
+      "nhưng đối diện có {star} ở {from} xung chiếu",
+      "song cung xung chiếu là {from}, có {star}"
+    ],
+    "opp_add": [
+      "đối diện là {star} ở {from} xung chiếu",
+      "cung xung chiếu là {from}, có {star}"
+    ],
+    "with": [
+      "Trong cung còn có {stars}",
+      "Đi cùng trong cung có {stars}",
+      "Cung này còn có {stars}"
+    ],
+    "tt": [
+      "{tt} án ngữ",
+      "lại có {tt} án ngữ"
+    ],
+    "tt_alone": [
+      "{tt} án ngữ cung {pal}",
+      "Cung {pal} có {tt} án ngữ"
+    ],
+    "group": [
+      "{a} và {b} cùng thuộc nhóm {group}, tức {note}",
+      "Đây là thế {a} gặp {b}, hai sao cùng nhóm {group} ({note})",
+      "{a} với {b} là một bộ trong nhóm {group}, {note}"
+    ],
+    "group_self": [
+      "{a} thuộc nhóm {group}, {note}",
+      "Về tính chất, {a} nằm trong nhóm {group}, {note}"
+    ]
+  },
+  "tail": {
+    "synth": [
+      "{a} cộng với {b} là chỗ mạnh rõ nhất của phần này",
+      "Đặt cạnh nhau, {a} và {b} bổ cho nhau",
+      "Hai điều ấy, {a} và {b}, đi cùng một hướng"
+    ],
+    "advice": [
+      "Điều này đòi hỏi {S} phải biết {mature}",
+      "Cái cần rèn ở đây là {mature}",
+      "Muốn giữ phần hay mà bớt phần dở, {S} nên {mature}",
+      "Bài học của cấu hình này là {mature}",
+      "Vì thế, việc của {S} là {mature}"
+    ],
+    "edge": [
+      "{a} và {b} vì thế là hai mặt của cùng một {seat}: con dao hai lưỡi, dùng đúng chỗ thì thành sức mạnh, sơ ý thì thành vướng mắc",
+      "Cũng như con dao hai lưỡi, {a} đi liền với {b}, cùng sinh ra từ {seat}",
+      "{a} và {b} không tách rời nhau: cùng một gốc {seat}, khác nhau ở cách dùng",
+      "Đó là hai lưỡi của cùng một con dao: {a} ở mặt này, {b} ở mặt kia, đều từ {seat} mà ra"
+    ]
+  },
+  "than": {
+    "pos": [
+      "cung an Thân đóng tại {branch}, {config}",
+      "Thân an ở {branch}, nơi {config}",
+      "cung Thân nằm ở {branch}: {config}"
+    ],
+    "meaning": [
+      "Theo cách đọc thông dụng, cung an Thân nói về con người khi đã trưởng thành, nên từ tuổi ấy trọng tâm của đời sống dời về {domain}",
+      "Cách đọc thông dụng coi cung an Thân là con người ở nửa sau cuộc đời; ở đây nửa sau ấy xoay quanh {domain}"
+    ],
+    "same": [
+      "cung an Thân cũng chính là cung Mệnh, nên con người được tả ở trên theo đương số đến cả tuổi trưởng thành",
+      "Thân và Mệnh cùng một cung, nên những nét chính đã nói không đổi hướng khi đương số trưởng thành"
+    ],
+    "rule": [
+      "Thân đóng ở {pal} nên {claim}",
+      "Với Thân cư {pal}, {claim}"
+    ],
+    "borrow": [
+      "Theo cách hiểu phổ thông, {text}"
+    ]
+  },
+  "pos": {
+    "giap": [
+      "cung {pal} được giáp bởi {pair} ở hai cung kề bên ({left} và {right})",
+      "hai cung kề {pal} là {left} và {right} giáp {pal} bằng {pair}"
+    ],
+    "nhi_hop": [
+      "cung {pal} ở {branch} nhị hợp với {other}, nơi đóng cung {opal}{stars}",
+      "theo phép nhị hợp, {branch} hợp với {other}, tức cung {opal}{stars}"
+    ],
+    "luc_hai": [
+      "còn theo bảng lục hại, {branch} hại {other}, là cung {opal}{stars}",
+      "về lục hại, {branch} gặp {other}, nơi có cung {opal}{stars}"
+    ],
+    "note": [
+      "Đây là vị trí tính theo địa chi; phép nhị hợp chỉ được dùng để luận khi xét đại hạn, nên ở đây chưa gán thêm ý nghĩa"
+    ]
+  },
+  "late": {
+    "neg": [
+      "đại hạn {age} tuổi đi qua cung {pal}, tam hợp cung hạn so với tuổi là thế {rel}, nên {verdict}",
+      "mười năm {age} tuổi ở cung {pal} gặp thế {rel}, tức là {verdict}"
+    ],
+    "pos": [
+      "Bù lại, đại hạn {age} tuổi ở cung {pal} được thế {rel}, nên {verdict}",
+      "Ngược lại, mười năm {age} tuổi ở cung {pal} thuận hơn: thế {rel}, tức là {verdict}"
+    ],
+    "calm": [
+      "các đại hạn từ {age} tuổi trở đi không có hạn nào nghịch hẳn với tuổi theo phép tam hợp",
+      "xét theo tam hợp tuổi, các đại hạn của nửa sau cuộc đời không có hạn nào khắc hay hao tuổi"
+    ],
+    "course": [
+      "Về nhịp chung, {claim}"
+    ]
+  },
+  "summary": {
+    "arc": [
+      "{S} bước vào đời với {young}{mature}{late}",
+      "cuộc đời {S} đi từ {young} của thuở đầu{mature}{late}",
+      "hành trình của {S} bắt đầu từ {young}{mature}{late}"
+    ],
+    "mature": [
+      "; khi trưởng thành, Thân cư {pal} kéo trọng tâm sang {np}",
+      ", rồi đến tuổi trưởng thành thì Thân cư {pal} đưa {np} lên hàng đầu"
+    ],
+    "mature_same": [
+      "; Thân Mệnh đồng cung nên những nét ấy theo suốt tuổi trưởng thành"
+    ],
+    "late": [
+      "; hậu vận cần để ý nhất quãng {age} tuổi",
+      "; ở nửa sau cuộc đời, quãng {age} tuổi là chặng phải giữ mình nhất"
+    ],
+    "late_calm": [
+      "; nửa sau cuộc đời không có đại hạn nào nghịch hẳn với tuổi"
+    ],
+    "turn": [
+      "Điều quyết định là {S} dùng {pos} thế nào và giữ mình trước {neg} ra sao",
+      "Mọi sự lên xuống phần lớn tùy ở chỗ {S} phát huy {pos} và kiềm chế {neg} đến đâu"
+    ],
+    "close": [
+      "{a} là phần sáng nhất của cung này; {b} là chỗ cần giữ",
+      "cung này mạnh ở {a} và cần giữ ở {b}",
+      "cái được của cung này là {a}, cái phải giữ là {b}"
+    ],
+    "close_pos": [
+      "cung này mạnh ở {a}",
+      "{a} là phần sáng nhất của cung này"
+    ],
+    "close_neg": [
+      "chỗ cần giữ ở cung này là {b}",
+      "điều phải giữ nhất ở cung này là {b}"
+    ]
+  },
+  "health_note": [
+    "Những dòng về cung Tật Ách ở đây không thay cho lời khuyên của thầy thuốc"
+  ]
+}

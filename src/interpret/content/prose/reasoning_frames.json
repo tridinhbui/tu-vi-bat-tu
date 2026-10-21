@@ -104,6 +104,10 @@
   "{conn} ở {palace}, {ground} lại kéo theo chiều khác: {claim}.",
   "{conn} cung {palace} không hoàn toàn thuận: {ground}, nên {claim}."
  ],
+  "countered_up": [
+    "{conn} ở {palace}, {ground}, nên {claim}.",
+    "{conn} cung {palace} mở ra chiều thuận hơn: {ground}, nên {claim}."
+  ],
  "behave": [
   "{behave}"
  ],

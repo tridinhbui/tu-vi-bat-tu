@@ -99,6 +99,8 @@ const knowledge = {
       structure: (({ note: _n, ...v }) => v)(read(join(P, 'structure.json'))),
       // the Tử Vi overview block (prose-style plan S1, prose/overview.ts)
       overview: (({ note: _n, ...v }) => v)(read(join(P, 'overview.json'))),
+      // the luận cung chapters (prose-style plan S2–S4, prose/luan.ts)
+      luan: (({ note: _n, ...v }) => v)(read(join(P, 'luan.json'))),
       // pho_thong cards: chính tinh × cung (chinh_tinh_*.json) and phụ tinh templates (phu_tinh.json), all draft
       phoThong: (() => {
         const D = join(P, 'pho_thong'), fs = existsSync(D) ? readdirSync(D).filter(f => f.endsWith('.json')).sort() : [];

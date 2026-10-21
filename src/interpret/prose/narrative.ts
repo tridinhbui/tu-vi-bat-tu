@@ -25,6 +25,8 @@ export interface ReasoningFrames {
   claim: string[]; claim_next: string[]; claim_card: string[]; formation: string[]; formation_plain: string[]; formation_then: Record<'+' | '-' | '~', string[]>;
   reducer: string[]; against: string[]; modifier: string[]; modifier_card: string[]; formation_state: Record<string, string[]>; contested: string[]; caveat: string[]; bridge: string[]; corroborated: string[]; countered: string[];
   behave: string[]; course: string[]; degree: Record<'up' | 'down', string[]>; closing: string[]; ground: Record<string, string[]>;
+  /** counter-evidence that is better news than the claim it qualifies (a limit answered by a strength in the tam phương) */
+  countered_up?: string[];
   /** special structures at Mệnh (plan.ts StructureNote): `lines` turns a verbatim structure line into reader words (regex + named groups) */
   structure: { head: Record<'sach' | 'he_thong', string[]>; limit: string[]; limit_named: string[]; rescue: string[]; rescue_named: string[]; position: string[];
     lines: Array<{ type: 'limit' | 'rescue' | 'caveat'; structure?: string; match: string; say: string[] }> };
@@ -368,7 +370,8 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     const rr = W.read(cr.ruleId);
     if (!rr.claim) continue;
     const g = rr.cond ? lowerSafe(rr.cond) : `cung ${cr.palace}`;
-    xs.push(W.sentence(fill(W.pick(`${type}|${cr.ruleId}`, F[type]), { conn: W.conn('contrast', `${type}|${cr.ruleId}`), palace: cr.palace, ground: g, claim: rr.claim }),
+    const tpl = type === 'countered' && W.pol(cr.concept) === '+' && F.countered_up?.length ? F.countered_up : F[type];
+    xs.push(W.sentence(fill(W.pick(`${type}|${cr.ruleId}`, tpl), { conn: W.conn('contrast', `${type}|${cr.ruleId}`), palace: cr.palace, ground: g, claim: rr.claim }),
       { move: 'VIA', step: `${type}:${cr.palace}:${cr.ruleId}`, concepts: [cr.concept], rules: [cr.ruleId], cites: cr.cite ? [cr.cite] : [], keys: [`${cr.concept}@${cr.palace}`] }));
   }
 }
@@ -397,7 +400,7 @@ function structureLine(W: Writer, F: ReasoningFrames['structure'], type: 'limit'
  *  is told as a position fact and nothing else. A limit or rescue line whose pages are already cited by a limit sentence of the chapter (the
  *  KG reducers) is not said again. The structure's name opens the first line about it; it has a sentence of its own when it is a book reading
  *  (da_doi_chieu) or nothing else is said of it. Sentences are the system's (basis he_thong); the pages a line names stay in the trace. */
-function structureSentences(W: Writer, F: ReasoningFrames['structure'], plan: ReadingPlan, t: Thesis, said: ProseSentence[]): ProseSentence[] {
+export function structureSentences(W: Writer, F: ReasoningFrames['structure'], plan: ReadingPlan, t: Thesis, said: ProseSentence[]): ProseSentence[] {
   const out: ProseSentence[] = [];
   const told = (note: string) => { const pg = pagesOf(note); return pg.length > 0 && [...said, ...out].some(s => ['TURN', 'RESCUE', 'TENSION'].includes(s.trace.move) && pg.every(p => s.trace.cites.includes(p))); };
   for (const id of [...new Set(t.steps.filter(st => st.structure).map(st => st.structure!))]) {

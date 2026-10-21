@@ -56,4 +56,6 @@ export interface ProseLibrary {
   reasoning?: import('./narrative.ts').ReasoningFrames;
   /** the overview block's frames (content/prose/overview.json, prose/overview.ts) */
   overview?: import('./overview.ts').OverviewLib;
+  /** the luận cung chapters' frames (content/prose/luan.json, prose/luan.ts) */
+  luan?: import('./luan.ts').LuanLib;
 }
