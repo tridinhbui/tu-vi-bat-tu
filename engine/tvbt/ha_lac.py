@@ -3,7 +3,8 @@
 
 Every rule is transcribed from Học-Năng, "Bát-Tự Hà-Lạc Lược-Khảo" (Sài Gòn 1974), Phần I (scanned PDF
 "(kinhdich)-Sách bat-tu-ha-lac-dantocking.com.pdf"; printed page = PDF page + 2 in Phần I). Page cites below are printed pages.
-Nothing here interprets: readings of the quẻ / hào live in engine/data/ha_lac/hexagrams.json (Phần II, quẻ 24-64 only so far).
+Nothing here interprets: readings of the quẻ / hào live in engine/data/ha_lac/hexagrams.json (Phần II, quẻ 24-64, from a text-layer
+extract) and hexagrams_1_23.json (Phần II, quẻ 1-23, read from the scan; printed pp.139-277).
 
   p.35-36  bảng trị số of the 10 can and 12 chi (Hà Đồ)            p.41  8 quẻ of Lạc Thư with their numbers (nạp giáp)
   p.42     dương nam / âm nữ: dương quái above; âm nam / dương nữ: âm quái above
@@ -308,13 +309,14 @@ _READINGS: dict | None = None
 
 
 def readings() -> dict[int, dict]:
-    """Phần II paraphrases by quẻ number (engine/data/ha_lac/hexagrams.json: quẻ 24-64 only for now)."""
+    """Phần II paraphrases by quẻ number: hexagrams_1_23.json (quẻ 1-23, scan, printed pages) + hexagrams.json (quẻ 24-64, extract)."""
     global _READINGS
     if _READINGS is None:
         import json
         from pathlib import Path
-        p = Path(__file__).resolve().parent.parent / "data" / "ha_lac" / "hexagrams.json"
-        _READINGS = {h["number"]: h for h in json.loads(p.read_text("utf-8"))["hexagrams"]}
+        d = Path(__file__).resolve().parent.parent / "data" / "ha_lac"
+        _READINGS = {h["number"]: h for f in ("hexagrams_1_23.json", "hexagrams.json")
+                     for h in json.loads((d / f).read_text("utf-8"))["hexagrams"]}
     return _READINGS
 
 
@@ -324,7 +326,9 @@ def hao_reading(number: int, hao: int) -> dict | None:
         return None
     a = h["hao"][hao - 1]
     return {"que": h["full_name"], "hao": hao, "line": a["line"], "y_hao": a["y_hao"], "menh_hop_cach": a["menh_hop_cach"],
-            "menh_khong_hop": a["menh_khong_hop"], "tue_van": a["tue_van"], "page_note": "Phần II extract (dantocking.com), pages as given"}
+            "menh_khong_hop": a["menh_khong_hop"], "tue_van": a["tue_van"], "tue_van_other": a.get("tue_van_other", []),
+            "page_note": "Phần II, printed pages of the 1974 scan" if h.get("source") == "scan"
+            else "Phần II extract (dantocking.com), pages as given"}
 
 
 def summary(c: dict, age: int | None = None) -> dict:
@@ -347,7 +351,7 @@ def summary(c: dict, age: int | None = None) -> dict:
         "dia_nguyen_khi": {"trigram": c["dia_nguyen_khi"]["trigram"], "present": bool(c["dia_nguyen_khi"]["where"]),
                            "where": c["dia_nguyen_khi"]["where"]},
         "nguyen_duong_reading": hao_reading(tt["number"], tt["nguyen_duong_hao"]),
-        "readings_coverage": "quẻ 24-64 (Phần II extract); quẻ 1-23 not yet transcribed",
+        "readings_coverage": "quẻ 1-64 (Phần II: 1-23 from the 1974 scan, 24-64 from the extract)",
     }
     if age is not None and "bazi_year" in c:
         hit = dai_van_at(c, age)

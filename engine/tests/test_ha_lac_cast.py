@@ -196,8 +196,10 @@ def test_summary_for_prose():
     assert s["validated"] and s["tien_thien"]["name"] == r["tien_thien"]["full_name"]
     assert s["dai_van_now"]["from_age"] <= 36 <= s["dai_van_now"]["to_age"]
     ln = s["luu_nien_now"]
-    if ln["number"] >= 24:
-        assert ln["reading"]["que"] == ln["que"]
-    for n in range(24, 65):
-        assert H.hao_reading(n, 1)["que"]
-    assert H.hao_reading(23, 1) is None
+    assert ln["reading"]["que"] == ln["que"] and s["nguyen_duong_reading"]["que"] == s["tien_thien"]["name"]
+    for n in range(1, 65):
+        for h in range(1, 7):
+            r = H.hao_reading(n, h)
+            assert r["que"] == H.HEXAGRAMS[n][0] or r["que"].endswith(" " + H.HEXAGRAMS[n][0]), (n, h)
+            assert (r["y_hao"] or r["menh_hop_cach"])["text"] and r["page_note"]
+    assert H.hao_reading(65, 1) is None

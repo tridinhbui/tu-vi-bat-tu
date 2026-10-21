@@ -15,7 +15,7 @@ Nguồn người dùng cung cấp: `~/Downloads/Bát-tự-Hà-Lạc-dantocking.c
 | Thiếu | Hệ quả |
 |---|---|
 | **Phần I — cách lập quẻ**: số Hà Đồ của 10 can, 12 chi; cộng số âm/dương, trừ bội số, ra quái thượng/hạ; quẻ Tiên Thiên; định **Nguyên đường** theo giờ sinh và âm/dương nam nữ; quẻ **Hậu Thiên**; số năm mỗi hào (đại vận), tuế vận; **Hóa công**, **Thiên/Địa nguyên khí**; "Thể cách" (mục 9) | không thể lập quẻ cho người dùng mà không tự đặt quy tắc — không làm |
-| Quẻ 1–23 | 23/64 quẻ chưa có lời giải |
+| Quẻ 1–23 | Đã bổ sung từ ảnh quét (K2–K3) |
 
 ## Kế hoạch
 
@@ -59,7 +59,7 @@ Kinh Dịch **không** chứa cách lập quẻ Hà Lạc theo giờ sinh: vẫn
 | H3 | **Xong**: `engine/data/ha_lac/golden_part1.json` chép mọi ví dụ Phần I (tr.43–96) + 5 lá mẫu Phần II; `tests/test_ha_lac_cast.py` khớp từng con số sách in (chỗ in sai được ghi lại) |
 | H4–H6 | Chưa làm (giao diện, luận thể cách, nối vào báo cáo) |
 | K1 | **Xong**: bản Ngô Tất Tố, mỗi quẻ: lời kinh (chữ Hán), dịch âm, dịch nghĩa, Truyện của Trình Di, Bản nghĩa của Chu Hy, lời bàn của tiên nho; ảnh rõ, đọc được |
-| K2–K3 | Chưa làm. Lời giải đoán Hà Lạc cho **quẻ 1–23** có sẵn ở Phần II của sách gốc (ảnh quét, tr.139–277 theo bảng "Đồ biểu 64 quẻ": Kiền 139 … Bác 272, Phục 278) — nguồn đúng hơn Kinh Dịch cho phần Ý hào / Mệnh hợp cách / Tuế vận; cần chép (tóm ý) từ ảnh |
+| K2–K3 | **Xong** (nhánh `claude/ha-lac-1-23`): `engine/data/ha_lac/hexagrams_1_23.json` — quẻ 1–23 đọc từ ảnh quét Phần II (tr. in 139–277; ở đây trang PDF = trang in − 2), cùng cấu trúc với `hexagrams.json`, mỗi trường ghi trang in và `"source": "scan"`; chỉ tóm ý + câu hào mở đầu ≤ 8 chữ. `tvbt.ha_lac.readings()` / `hao_reading()` đọc cả hai tệp: đủ 64 quẻ. Chỗ in sai ghi lại trong dữ liệu: Khôn hào 2 in "DƯƠNG" (tr.146), Mông hào 6 không có Ý hào (tr.162), Nhu hào 3 in "KHÔNG HỢP CÁCH" (tr.166), Thái hào 5 in "Giới chức" (tr.204), tr.217 đánh số "117"; trong PDF hai tờ bị đảo (PDF 195–196 = tr.207–208, PDF 205–206 = tr.197–198) |
 | K4 | Không cần cho lập quẻ nữa: Phần I đã cho số Lạc Thư của 8 quái và bảng nguyên khí |
 
 Còn mở: sách ghi Tam Nguyên 1864–2043 (tr.48) và chú thích rằng sách Dương Trạch tính khác (1984 là Thượng nguyên mới) — bộ lập quẻ theo sách này. Giờ Tý và ngày: theo quy ước Tý của engine (sách tr.31 chỉ cho bảng giờ và các lần đổi giờ ở Việt Nam 1943–1960).

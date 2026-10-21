@@ -1,4 +1,5 @@
-"""Hà Lạc data (plan step H1): engine/data/ha_lac/hexagrams.json (Part II readings of quẻ 24-64, paraphrased, with pages) and
+"""Hà Lạc data (plan steps H1, K2-K3): engine/data/ha_lac/hexagrams.json (Part II readings of quẻ 24-64 from the text-layer extract,
+paraphrased, with pages), hexagrams_1_23.json (quẻ 1-23 read from the 1974 scan, printed pages, same layout) and
 engine/data/ha_lac/worked_examples.json (the book's example charts transcribed as numbers, future golden tests for the caster).
 Book-dependent checks skip when the PDF or PyMuPDF is missing (books are not in the repository)."""
 import json
@@ -14,7 +15,11 @@ D = ROOT / "engine" / "data" / "ha_lac"
 H = json.loads((D / "hexagrams.json").read_text("utf-8"))
 W = json.loads((D / "worked_examples.json").read_text("utf-8"))
 HEX = {h["number"]: h for h in H["hexagrams"]}
+S = json.loads((D / "hexagrams_1_23.json").read_text("utf-8"))
+SCAN = {h["number"]: h for h in S["hexagrams"]}
+ALL = {**SCAN, **HEX}
 PDF_PAGES = 129
+SCAN_PAGES = (139, 277)  # printed pages of quẻ 1-23 in the 1974 book (Phục starts on p.278)
 
 LINES = {"Kiền": "111", "Đoài": "110", "Ly": "101", "Chấn": "100", "Tốn": "011", "Khảm": "010", "Cấn": "001", "Khôn": "000"}  # hào 1..3
 STEMS = {"Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"}
@@ -26,11 +31,34 @@ def bits(lines):
     return "".join("1" if x == "dương" else "0" for x in lines)
 
 
-def test_every_hexagram_24_to_64_with_six_hao_matching_its_trigrams():
-    assert sorted(HEX) == list(range(24, 65))
-    for n, h in HEX.items():
+def test_every_hexagram_1_to_64_with_six_hao_matching_its_trigrams():
+    from tvbt.ha_lac import HEXAGRAMS
+    assert sorted(HEX) == list(range(24, 65)) and sorted(SCAN) == list(range(1, 24))
+    for n, h in ALL.items():
+        assert (h["name"], h["upper"], h["lower"]) == HEXAGRAMS[n], n
         assert [a["hao"] for a in h["hao"]] == [1, 2, 3, 4, 5, 6], n
         assert bits(a["line"] for a in h["hao"]) == LINES[h["lower"]] + LINES[h["upper"]], n
+
+
+def _fields(h):
+    fields = [h["name_gloss"], h["tuong"], h["month"], h["nap_giap"]]
+    for a in h["hao"]:
+        fields += [x for x in (a, a["quote"], a["y_hao"], a["menh_hop_cach"], a["menh_khong_hop"]) if x]
+        fields += [v for v in a["tue_van"].values() if v] + a.get("tue_van_other", [])
+    return fields
+
+
+def test_scan_pages_are_printed_pages_inside_each_hexagram():
+    assert S["source"]["coverage"] == [1, 23] and S["source"]["printed_pages"] == list(SCAN_PAGES)
+    assert SCAN[1]["pages"][0] == SCAN_PAGES[0] and SCAN[23]["pages"][1] == SCAN_PAGES[1]
+    for n, h in SCAN.items():
+        lo, hi = h["pages"]
+        assert SCAN_PAGES[0] <= lo <= hi <= SCAN_PAGES[1] and h["source"] == "scan", n
+        for f in _fields(h):
+            assert lo <= f["page"] <= hi and f["source"] == "scan", (n, f)
+        assert [a["page"] for a in h["hao"]] == sorted(a["page"] for a in h["hao"]), n
+    for a, b in zip(sorted(SCAN), sorted(SCAN)[1:]):
+        assert SCAN[a]["pages"][1] <= SCAN[b]["pages"][0], (a, b)
 
 
 def test_pages_lie_inside_the_pdf_and_inside_each_hexagram():
@@ -50,7 +78,7 @@ def test_pages_lie_inside_the_pdf_and_inside_each_hexagram():
 
 
 def test_hexagram_header_fields():
-    for n, h in HEX.items():
+    for n, h in ALL.items():
         assert 1 <= h["month"]["value"] <= 12, n
         assert h["name_gloss"]["text"] and h["tuong"]["text"], n
         ng = h["nap_giap"]
@@ -59,13 +87,19 @@ def test_hexagram_header_fields():
             assert row["stems"] and set(row["stems"]) <= STEMS, n
             assert row["branches"] and set(row["branches"]) <= BRANCHES, n
         fav = ng["favoured_birth_months"]
-        assert fav and 1 <= fav["from"] <= fav["to"] <= 12, n
+        if n >= 24:
+            assert fav and 1 <= fav["from"] <= fav["to"] <= 12, n
+        elif fav:
+            assert 1 <= fav["from"] <= 12 and 1 <= fav["to"] <= 12, n
 
 
 def test_every_hao_has_its_readings():
-    for n, h in HEX.items():
+    for n, h in ALL.items():
         for a in h["hao"]:
             for k in ("y_hao", "menh_hop_cach", "menh_khong_hop"):
+                if (n, a["hao"], k) == (4, 6, "y_hao"):  # the book prints no Ý hào here (p.162)
+                    assert a[k] is None and a["y_hao_printed"] is False
+                    continue
                 assert a[k] and a[k]["text"].strip(), (n, a["hao"], k)
             assert set(a["tue_van"]) == set(GROUPS)
             given = [v for v in a["tue_van"].values() if v] + a.get("tue_van_other", [])
@@ -82,14 +116,27 @@ def test_label_misprints_are_recorded_not_hidden():
     assert HEX[48]["heading_reprinted_on"] == 71
 
 
+def test_scan_misprints_are_recorded_not_hidden():
+    line_notes = {(n, a["hao"]) for n, h in SCAN.items() for a in h["hao"] if a.get("line_note")}
+    assert line_notes == {(2, 2)} and SCAN[2]["hao"][1]["line"] == "âm"  # printed 'HÀO 2 DƯƠNG' in Thuần Khôn (p.146)
+    no_y = {(n, a["hao"]) for n, h in SCAN.items() for a in h["hao"] if a.get("y_hao_printed") is False}
+    assert no_y == {(4, 6)}
+    labels = {(n, a["hao"], k) for n, h in SCAN.items() for a in h["hao"] for k in ("y_hao", "menh_hop_cach", "menh_khong_hop")
+              if a[k] and a[k].get("label_note")}
+    assert labels == {(5, 3, "menh_khong_hop")}  # printed 'KHÔNG HỢP CÁCH' (p.166)
+    assert SCAN[11]["hao"][4]["tue_van"]["gioi_si"]["label_note"]  # printed 'Giới chức' (p.205)
+    groups = {x["group"] for h in ALL.values() for a in h["hao"] for x in a.get("tue_van_other", [])}
+    assert groups == {"chung", "nu_mang", "buon_ban", "thay_tu", "nha_nong", "benh_nhan", "so_xau"}
+
+
 def test_stored_text_is_short_paraphrase_not_the_book():
-    for n, h in HEX.items():
+    for n, h in ALL.items():
         for a in h["hao"]:
             assert len(a["quote"]["text"].split()) <= 8
             for k in ("y_hao", "menh_hop_cach", "menh_khong_hop"):
-                assert len(a[k]["text"].split()) <= 60, (n, a["hao"], k)
+                assert a[k] is None or len(a[k]["text"].split()) <= 60, (n, a["hao"], k)
         assert len(h["tuong"]["text"].split()) <= 60, n
-    readings = json.dumps(H["hexagrams"], ensure_ascii=False).lower()
+    readings = json.dumps(H["hexagrams"] + S["hexagrams"], ensure_ascii=False).lower()
     assert "thơ rằng" not in readings
 
 
