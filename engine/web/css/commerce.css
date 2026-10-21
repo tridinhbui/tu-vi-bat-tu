@@ -1,0 +1,51 @@
+/* Paid chapters, pricing, receipt and policy pages (js/paywall.js, js/pricing.js, js/receipt.js). Tokens from app.css. */
+/* lock card under a cut chapter; the last preview paragraph fades out */
+.pw-cut .pr-p:has(+ .pr-why){-webkit-mask-image:linear-gradient(#000 40%,transparent);mask-image:linear-gradient(#000 40%,transparent)}
+.pw-lock{margin:var(--s4) 0 var(--s3);padding:var(--s4);border:1px solid var(--brass);border-radius:var(--r-sm);background:color-mix(in srgb,var(--brass) 9%,var(--raise))}
+.pw-lock .eyebrow{margin-bottom:var(--s2)}.pw-lock p{margin:0 0 var(--s3)}.pw-lock p:last-child{margin-bottom:0}
+.pw-plans{display:flex;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s3)}
+.pw-plans .btn{gap:6px}.pw-plans .coin,.cm-page .coin{width:1.05em;height:1.05em;vertical-align:-.15em}
+.pw-msg.err,.cm-msg.err{color:var(--neg)}.cm-msg.ok{color:var(--pos)}
+.pw-lock a:not(.btn){color:var(--accent)}
+
+/* pages */
+.cm-page{max-width:1040px;margin:0 auto;padding:var(--s6) clamp(16px,4vw,40px) var(--s8)}
+.cm-page h1{font-size:clamp(2.1rem,5vw,3.2rem);margin:var(--s2) 0 var(--s3)}
+.cm-page h2{font-size:clamp(1.5rem,3vw,1.9rem);margin:var(--s7) 0 var(--s3)}
+.cm-page .lead{color:var(--text2);font-size:1.05rem;max-width:44rem}
+.cm-page a:not(.btn){color:var(--accent)}
+.cm-banner{margin:var(--s4) 0;padding:var(--s3) var(--s4);border:1px dashed var(--cinnabar);border-radius:var(--r-sm);background:color-mix(in srgb,var(--cinnabar) 7%,var(--raise));color:var(--text);font-size:.92rem}
+.cm-banner b{color:var(--cinnabar)}
+.cm-card{border:1px solid var(--bd);border-radius:var(--r);background:var(--raise);padding:var(--s4) var(--s5)}
+.cm-hdr{display:flex;align-items:center;gap:var(--s3)}.cm-hdr .cm-who{margin-left:auto;font-size:.88rem;color:var(--text2)}
+/* comparison table */
+.cmp-wrap{overflow-x:auto;border:1px solid var(--bd);border-radius:var(--r);background:var(--raise)}
+.cmp{width:100%;border-collapse:collapse;min-width:560px;font-size:.94rem}
+.cmp th,.cmp td{padding:12px 16px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
+.cmp thead th{font:600 .8rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--surface)}
+.cmp thead th.cmp-pro{color:var(--cinnabar)}
+.cmp tbody tr:last-child td,.cmp tbody tr:last-child th{border-bottom:0}
+.cmp td{width:28%}.cmp .y{color:var(--pos);font-weight:600}.cmp .p{color:var(--text2)}.cmp .n{color:var(--muted)}
+.cmp th[scope=row]{font-weight:500}.cmp th[scope=row] small{display:block;color:var(--muted);font-weight:400}
+/* packages and coin packs */
+.cm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--s3)}
+.cm-plan{display:flex;flex-direction:column;gap:var(--s2)}
+.cm-plan h3{font-size:1.2rem;margin:0}.cm-plan p{margin:0;color:var(--text2);font-size:.92rem}
+.cm-price{font:600 1.6rem/1.1 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}.cm-price small{font-size:.85rem;font-weight:500;color:var(--muted)}
+.cm-was{text-decoration:line-through;color:var(--muted);font-size:.9rem;margin-left:6px}
+.cm-pay{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:auto;padding-top:var(--s2)}
+.cm-row{display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center;margin:var(--s3) 0}
+.cm-row input{height:44px;max-width:16rem;text-transform:uppercase;letter-spacing:.06em}
+.cm-msg{margin:0;font-size:.9rem}
+/* history and receipt */
+.cm-table{width:100%;border-collapse:collapse;font-size:.9rem;font-variant-numeric:tabular-nums}
+.cm-table th,.cm-table td{padding:8px 10px;border-bottom:1px solid var(--bd);text-align:left}
+.cm-table th{font:600 .72rem var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cm-table .plus{color:var(--pos);font-weight:600}.cm-table .minus{color:var(--neg);font-weight:600}
+.cm-scroll{overflow-x:auto}
+.rc{max-width:620px}.rc dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin:var(--s4) 0}.rc dt{color:var(--muted)}.rc dd{margin:0;font-weight:600}
+.rc-status{display:inline-block;padding:4px 12px;border-radius:99px;font:600 .85rem var(--sans)}
+.rc-paid{background:color-mix(in srgb,var(--pos) 15%,var(--raise));color:var(--pos)}.rc-pending{background:var(--surface);color:var(--text2)}.rc-failed{background:color-mix(in srgb,var(--neg) 12%,var(--raise));color:var(--neg)}
+.policy{max-width:760px}.policy h2{font-size:1.35rem;margin:var(--s6) 0 var(--s2)}.policy li{margin:6px 0}
+@media print{.site-header,.no-print{display:none!important}.cm-page{padding:0}}
+@media (max-width:560px){.cm-hdr .cm-who{display:none}}

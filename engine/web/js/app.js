@@ -14,6 +14,7 @@ import { initChat, initChapterBubbles, dialogueBazi, dialogueTuvi } from './masc
 import { renderSaved, initSave } from './mine.js';
 import { initAccount } from './account.js';
 import { initAsk } from './ask.js';
+import { initPaywall } from './paywall.js';
 import { initLive } from './live.js';
 import { initGrowth } from './growth.js';
 
@@ -120,6 +121,14 @@ function readForm() {
 const fmtDate = r => `${String(r.day).padStart(2, '0')}/${String(r.month).padStart(2, '0')}/${r.year}`;
 
 addEventListener('tvbt:dignity', e => { if (state?.req) generate(null, { ...state.req, dignity_school: e.detail }); });
+// a chapter was opened with xu (js/paywall.js): draw the report again, the server now sends that chapter whole
+addEventListener('tvbt:unlocked', async e => {
+  if (!state?.req) return;
+  const id = e.detail?.chapter, sys = $('.res-tabs button[aria-selected=true]')?.id?.replace('tab-', '');
+  await generate(null, { ...state.req });
+  if (sys) setTab(sys, false);
+  if (id) requestAnimationFrame(() => document.querySelector(`.prose[data-chapter="${id}"]`)?.scrollIntoView({ block: 'start' }));
+});
 async function generate(ev, saved = null) {
   ev?.preventDefault();
   const err = $('#form-err'), btn = $('#submit-btn'); err.hidden = true;
@@ -166,6 +175,7 @@ initPrint($('#print-btn'));
 const saver = initSave($('#save-host'), () => state?.req, () => renderSaved(savedList, openSaved));
 initAccount($('#acct'), () => renderSaved(savedList, openSaved), saver);
 initAsk($('#ask-host'), () => state?.req);
+initPaywall(() => state?.req);
 initLive($('#live-stats'));
 async function loadSample() {
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });
