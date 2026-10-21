@@ -13,6 +13,8 @@ import { run } from '../engine.ts';
 import { luanReport, luanChapter, luanShared, withLead, type LuanChapter } from '../prose/luan.ts';
 import { reasonedChapter } from '../prose/narrative.ts';
 import { ABSOLUTE, META } from '../prose/lint.ts';
+import { SAT } from '../kg/atoms.ts';
+import type { ProseSentence } from '../prose/realize.ts';
 
 const FX = join(import.meta.dirname, 'fixtures');
 const K: Knowledge = JSON.parse(readFileSync(join(import.meta.dirname, '..', 'generated', 'knowledge.json'), 'utf8'));
@@ -109,4 +111,79 @@ test('corpus: every luận cung chapter passes; book sentences fire and are veri
     }
   }
   assert.ok(luan / total > 0.6, `luận cung chapters ${luan}/${total}`);
+});
+
+// ---- the owner's own chart (09/01/2002 04:30 nam, Khảo Luận table, facts as /api/facts gave them on 2026-10-21): three reasoning defects ----
+const mine = JSON.parse(readFileSync(join(FX, 'ref_2002_01_09_kl.json'), 'utf8'));
+const polOf = new Map(K.concepts.concepts.map(c => [c.id, c.pol]));
+/** names of the limiting atoms (sát tinh, Hóa Kỵ, Tuần/Triệt, a chính tinh in hãm) a book sentence's own rules rest on */
+function limitingAtoms(s: ProseSentence, sh: ReturnType<typeof luanShared>, chart: typeof mine): string[] {
+  const rs = sh.resolved.filter(r => s.trace.rules.includes(r.ruleId) && s.trace.concepts.includes(r.concept));
+  // the trace lists every rule on the claim's axis; the sentence voices one of them: when one of them rests on no limiting atom at all,
+  // the sentence may be voicing that one
+  const lim = (r: typeof rs[number]) => r.atoms.some(a => (a.kind === 'star' && SAT.includes(a.name)) || (a.kind === 'hoa' && a.name === 'Hóa Kỵ') || a.kind === 'tuan_triet'
+    || (a.kind === 'dignity' && a.value === 'hãm') || (a.kind === 'star' && chart.palaces.find((p: any) => p.name === a.palace)?.major_dignity?.[a.name] === 'hãm'));
+  if (rs.some(r => !lim(r))) return [];
+  const ham = (star: string, palace: string | null) => chart.palaces.find((p: any) => p.name === palace)?.major_dignity?.[star] === 'hãm';
+  return [...new Set(rs.flatMap(r => r.atoms.filter(a => (a.kind === 'star' && (SAT.includes(a.name) || ham(a.name, a.palace))) || (a.kind === 'hoa' && a.name === 'Hóa Kỵ')
+    || a.kind === 'tuan_triet' || (a.kind === 'dignity' && a.value === 'hãm')).map(a => a.name)))];
+}
+/** the book's short forms of the limiting stars ("Kình", "Không Kiếp", "Kỵ") count as naming them */
+const SHORT: Record<string, string> = { 'Kình Dương': 'Kình', 'Đà La': 'Đà', 'Địa Không': 'Không', 'Địa Kiếp': 'Kiếp', 'Hỏa Tinh': 'Hỏa', 'Linh Tinh': 'Linh', 'Hóa Kỵ': 'Kỵ' };
+/** a limiting claim names at least one limiting atom of its own rule, when the rule has one */
+function negativeClaimsNameTheirCause(ch: LuanChapter, sh: ReturnType<typeof luanShared>, chart: typeof mine): string[] {
+  const bad: string[] = [];
+  for (const p of ch.paragraphs) p.sentences.forEach((s, i) => {
+    if (s.trace.basis !== 'sach' || !(s.trace.step ?? '').startsWith('claim:')) return;
+    if (!s.trace.concepts.some(c => polOf.get(c) === '-')) return;
+    // the cause may have been named just before ("Cùng thế ấy, …", "Hệ quả là …"): this sentence or an earlier one of the paragraph
+    const said = p.sentences.slice(0, i + 1).map(x => x.text).join(' ');
+    const atoms = limitingAtoms(s, sh, chart);
+    if (atoms.length && !atoms.some(a => said.includes(a) || (SHORT[a] && new RegExp(`(^|[^\\p{L}])${SHORT[a]}(?![\\p{L}])`, 'u').test(said)))) bad.push(`${atoms.join('/')} not named: ${s.text}`);
+  });
+  return bad;
+}
+
+test('own chart (1): a limiting claim names the limiting atom of its rule, not only the helping stars', () => {
+  const sh = luanShared(mine, K, true), ch = luanChapter(mine, K, 'menh', sh)!;
+  assert.deepEqual(negativeClaimsNameTheirCause(ch, sh, mine), []);
+  const s = ch.paragraphs.flatMap(p => p.sentences).find(x => x.text.includes('đường công danh mờ mịt'))!;
+  assert.ok(s && s.text.includes('Kình Dương'), s?.text);
+});
+
+test('own chart (2): within a paragraph a cause clause is not said twice', () => {
+  const ch = luanChapter(mine, K, 'menh', luanShared(mine, K, true))!;
+  for (const p of ch.paragraphs) {
+    const claims = p.sentences.filter(s => (s.trace.step ?? '').startsWith('claim:')).map(s => s.text.toLowerCase().replace(/[.,;:]/g, '').split(/\s+/));
+    const seen = new Map<string, number>();
+    claims.forEach((w, i) => { for (let j = 0; j + 5 <= w.length; j++) { const g = w.slice(j, j + 5).join(' '); if (seen.has(g) && seen.get(g) !== i) assert.fail(`"${g}" repeated in: ${p.text}`); seen.set(g, i); } });
+  }
+  assert.ok(!/Hóa Khoa trên Văn Khúc[^.]*\.[^.]*Hóa Khoa trên Văn Khúc/.test(ch.text));
+});
+
+test('own chart (3): the Hóa Lộc rescue of Cự Môn hãm is told soft, with the Tứ Mộ reduction right after it, once', () => {
+  const ch = luanChapter(mine, K, 'menh', luanShared(mine, K, true))!;
+  const p = ch.paragraphs.find(q => q.sentences.some(s => s.trace.step === 'claim:T:major:Cự Môn:life.mitigated'))!;
+  const i = p.sentences.findIndex(s => s.trace.step === 'claim:T:major:Cự Môn:life.mitigated');
+  assert.equal(p.sentences[i + 1]?.trace.step, 'caveat:T:major:Cự Môn', p.text);
+  assert.match(p.sentences[i + 1].text, /Tứ Mộ/);
+  assert.ok(!ch.paragraphs.some(q => q.sentences.some(s => s.trace.step?.startsWith('behave:') && s.trace.concepts.includes('life.mitigated'))), 'no behaviour line amplifies the rescue');
+  assert.ok(!/vẫn giữ được thế khá|cơ chế tự cân bằng|hết hãm/.test(ch.text.replace(/không có nghĩa là Cự Môn hết hãm/, '')), ch.text);
+  assert.equal((ch.text.match(/đóng ở Tứ Mộ/g) ?? []).length, 1, 'the Tứ Mộ reduction is told once');
+});
+
+test('own chart: Tả Phụ at Dần is hãm in Khảo Luận (KL p.121 "Tả Hữu đắc địa tứ mộ, còn hãm địa tất cả các cung khác"), shown with its page', () => {
+  const ch = luanChapter(mine, K, 'menh', luanShared(mine, K, true))!;
+  const s = ch.paragraphs.flatMap(p => p.sentences).find(x => x.text.includes('Tả Phụ (Hãm Địa)'))!;
+  assert.ok(s && s.trace.cites.includes('KL p.121'), s?.text);
+});
+
+test('corpus: every limiting claim names a limiting atom of its rule', { skip: !existsSync(corpusFile) && 'corpus not built' }, () => {
+  const corpus = JSON.parse(gunzipSync(readFileSync(corpusFile)).toString('utf8'));
+  const bad: string[] = [];
+  for (const c of corpus.slice(0, 200)) {
+    const sh = luanShared(c.facts, K, true);
+    for (const id of ['menh', 'cong_danh', 'tai_bach'] as const) { const ch = luanChapter(c.facts, K, id, sh); if (ch) bad.push(...negativeClaimsNameTheirCause(ch, sh, c.facts)); }
+  }
+  assert.deepEqual(bad.slice(0, 5), [], `${bad.length} limiting claims without their cause`);
 });

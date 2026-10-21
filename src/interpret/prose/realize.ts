@@ -16,6 +16,8 @@ export interface SentenceTrace {
   /** deep.ts: a difficulty ('neg'), something good ('pos'), or what answers a difficulty ('answer') */
   tone?: 'neg' | 'pos' | 'answer';
   resolution?: { relation: string; byRule: string; cite?: string }; schema?: string; woven?: Array<SentenceTrace['move']>;
+  /** narrative.ts: the full form of an anaphoric claim ("Cùng thế ấy, …"), used when the sentence it leans on is not told */
+  alt?: string;
   /** concept@palace of every reading voiced: the report never voices the same reading twice */
   keys?: string[];
   /** reasoned chapter (narrative.ts): the ReadingPlan step this sentence voices */

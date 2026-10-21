@@ -15,6 +15,7 @@ import { Geo, type SeatRef } from '../reason/tiers.ts';
 import type { Reading, Step } from '../reason/adjudicate.ts';
 import { Micro, finish, lowerFirst } from './micro.ts';
 import { ABSOLUTE, META } from './lint.ts';
+import { CAT, SAT } from '../kg/atoms.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 import { validateProse, type ProseIssue, type ProseMetrics } from './validate.ts';
 import type { ConceptCard } from './types.ts';
@@ -27,6 +28,8 @@ export interface ReasoningFrames {
   behave: string[]; course: string[]; degree: Record<'up' | 'down', string[]>; closing: string[]; ground: Record<string, string[]>;
   /** counter-evidence that is better news than the claim it qualifies (a limit answered by a strength in the tam phương) */
   countered_up?: string[];
+  /** a second claim on a ground the thesis already named: the ground is not repeated */
+  claim_same?: string[]; claim_same_card?: string[]; claim_also?: string[]; claim_also_card?: string[];
   /** special structures at Mệnh (plan.ts StructureNote): `lines` turns a verbatim structure line into reader words (regex + named groups) */
   structure: { head: Record<'sach' | 'he_thong', string[]>; limit: string[]; limit_named: string[]; rescue: string[]; rescue_named: string[]; position: string[];
     lines: Array<{ type: 'limit' | 'rescue' | 'caveat'; structure?: string; match: string; say: string[] }> };
@@ -87,6 +90,10 @@ export class Writer {
   }
   concept(id: string) { return this.cmap.get(id); }
   conn(rel: Parameters<Micro['conn']>[0], key: string) { return this.m.conn(rel, key) || ''; }
+  /** a turn toward a limit: never a word of compensation ("Bù lại") */
+  limitConn(key: string) { return this.m.conn('contrast', key, 'initial', ['Bù lại,', 'Đổi lại,']) || ''; }
+  /** a turn toward better news: never a word that announces a drawback ("Có điều") */
+  upConn(key: string) { return this.m.conn('contrast', key, 'initial', ['Có điều,', 'Chỉ có điều,', 'Có một mặt khác cần thấy:', 'Dẫu vậy,']) || ''; }
   sentence(text: string, trace: Partial<SentenceTrace> & { move: SentenceTrace['move']; step: string }): ProseSentence {
     const t = finish(text.replace(/^\s*,\s*/, ''));
     this.m.said(t);
@@ -141,9 +148,28 @@ export class Writer {
     return 'thế của năm, tháng, giờ sinh';
   }
   /** The ground of one reading: its seat, plus the most fundamental other seat its rule needed. */
+  /** an element that limits: a sát tinh, Hóa Kỵ, Tuần/Triệt, a chính tinh in hãm */
+  negSeat(s: SeatRef, x?: Reading): boolean {
+    return (s.kind === 'star' && SAT.includes(s.star!)) || s.hoa === 'Hóa Kỵ' || s.kind === 'tuan_triet' || (s.kind === 'major' && !!s.star && this.g.dignity(s.star, this.P) === 'hãm')
+      // a palace of the tam phương counts when the reading's own atoms there are a sát tinh or Hóa Kỵ
+      || (s.kind === 'tam_phuong' && !!x && x.r.atoms.some(a => a.palace === s.palace && ((a.kind === 'star' && SAT.includes(a.name)) || (a.kind === 'hoa' && a.name === 'Hóa Kỵ'))));
+  }
+  /** an element that helps: Hóa Lộc / Quyền / Khoa, a cát tinh, a bright chính tinh */
+  posSeat(s: SeatRef): boolean {
+    return (s.kind === 'hoa' && s.hoa !== 'Hóa Kỵ') || (s.kind === 'star' && CAT.includes(s.star!))
+      || (s.kind === 'major' && !!s.star && ['miếu', 'vượng', 'đắc'].includes(this.g.dignity(s.star, this.P) ?? ''));
+  }
+  /** The other seat a reading's ground names beside its own: a limiting claim names the limiting atom its rule rests on ("Khoa Quyền Lộc
+   *  hội MÀ Kình đồng cung"), never only the helping stars; otherwise the most fundamental link. */
+  groundLink(x: Reading, named?: Set<string>): { link?: SeatRef; negLink: boolean } {
+    const links = x.links.filter(y => y.kind !== 'degree' && !named?.has(y.id));
+    // a seat already named (named) is no longer limiting news: the limiting link is then looked for even when the seat itself limits
+    const neg = this.pol(x.r.concept) === '-' && (!this.negSeat(x.seat, x) || named?.has(x.seat.id)) ? links.find(y => this.negSeat(y, x)) : undefined;
+    return { link: neg ?? links[0], negLink: !!neg };
+  }
   ground(x: Reading): string {
     const base = this.seatGround(x.seat, x);
-    const l = x.links.find(y => y.kind !== 'degree');
+    const { link: l, negLink } = this.groundLink(x);
     if (!l) return base;
     if (x.seat.kind === 'major' && l.kind === 'hoa' && this.g.hoaCarrier[l.hoa!]?.star === x.seat.star) {
       const d = this.g.dignity(x.seat.star!, this.P);
@@ -151,11 +177,11 @@ export class Writer {
       return fill(this.pick(`g|hoaon|${l.id}`, tpl), { star: x.seat.star!, dignity: d ? this.dig(d, x.seat.star!) : '', branch: this.g.menh.branch, short: l.hoa!.replace(/^Hóa\s+/, '') });
     }
     // two chính tinh of Mệnh in one reading: they sit together
-    if (x.seat.kind === 'major' && l.kind === 'major' && l.scope === 'self' && x.seat.scope === 'self')
+    if (!negLink && x.seat.kind === 'major' && l.kind === 'major' && l.scope === 'self' && x.seat.scope === 'self')
       return fill(this.pick(`g|pair|${x.r.ruleId}`, this.T(this.f.ground.pair)), { a: x.seat.star!, b: l.star!, branch: this.g.menh.branch });
     // a linked star reads "… lại có Thái Tuế ở Mệnh", never "… lại có Mệnh có Thái Tuế"
     const has = `${this.P} có `, lg0 = this.seatGround(l, x), lg = lg0.startsWith(has) ? lg0.slice(has.length) + ` ở ${this.P}` : lg0;
-    const contrast = x.seat.kind === 'major' && this.g.dignity(x.seat.star!, this.P) === 'hãm' && this.pol(x.r.concept) !== '-';
+    const contrast = (x.seat.kind === 'major' && this.g.dignity(x.seat.star!, this.P) === 'hãm' && this.pol(x.r.concept) !== '-') || (!!negLink && this.posSeat(x.seat));
     return base + fill(this.pick(`g|link|${x.r.ruleId}`, contrast ? this.f.ground.link_but : this.f.ground.link_and), { link: lowerSafe(lg) });
   }
   /** Stars a reading of another palace stands on, in words ("Hóa Kỵ ở Tài Bạch"). */
@@ -283,12 +309,31 @@ export function reasonedChapter(chart: ChartInput, k: Knowledge, opts: { allowDr
 
 /** What the per-thesis argument shares with the chapter around it: the rules already voiced (none is told twice), the concepts said, and
  *  the theses whose special structures are told once the whole chapter is written (structureSentences). */
-export interface ArgueCtx { voiced: Set<string>; allConcepts: Set<string>; structAt: Array<{ t: Thesis; xs: ProseSentence[]; at: number }> }
+export interface ArgueCtx { voiced: Set<string>; allConcepts: Set<string>; structAt: Array<{ t: Thesis; xs: ProseSentence[]; at: number }>;
+  /** the rescue lock (luận cung): a claim that rests on a rescuer the book itself reduces is told in its soft form, with that reduction right
+   *  after it, in the same paragraph — the rescuer's own thesis may be told elsewhere, but the rescue never stands without its limit */
+  lockRescue?: boolean }
+const RESCUE_C = new Set(['life.mitigated', 'life.blessed']);
 /** One thesis argued into `xs`: the bridge from the thesis before it, its cách cục, each claim (its ground and the rule's own reading, or the
  *  concept card), what it looks like in a life, the book's reducers, the other side of the axis, the rescuer's own limit, corroboration
  *  and counter-evidence from the tam phương. Every sentence voices a step of the plan. */
 export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thesis | undefined, order: Thesis[], xs: ProseSentence[], ctx: ArgueCtx): void {
   const { voiced, allConcepts, structAt } = ctx, P = W.P;
+  const cav = t.rescuerCaveat;
+  let cavDone = false;
+  /** the cause clauses this thesis has already said: a second claim on the same ground does not repeat it */
+  const grounds = new Set<string>();
+  const sayCaveat = (move: SentenceTrace['move']) => {
+    const red = rarest(cav!.axis.reducers), r = red && W.read(red.r.ruleId);
+    if (!(r?.claim && r.cond && cav!.seat.hoa)) return;
+    // every reducer of the rescuer is told by this one sentence: its rules and pages all go to the trace (a structure line naming the same
+    // pages is then not said again)
+    const all = cav!.axis.reducers;
+    all.forEach(y => voiced.add(y.r.ruleId));
+    xs.push(W.sentence(fill(W.pick(`cav|${t.id}`, F.caveat), { conn: W.limitConn(`cav|${t.id}`), hoa: cav!.seat.hoa, cond: lowerSafe(r.cond), claim: r.claim }),
+      { move, step: `caveat:${t.id}`, concepts: [cav!.axis.concept], rules: [...new Set(all.map(y => y.r.ruleId))], cites: [...new Set(all.flatMap(y => y.r.cites))], keys: [`${cav!.axis.concept}@${P}|caveat`] }));
+    cavDone = true; grounds.clear();
+  };
   const bridged = !!prev?.rescuerCaveat && prev.rescuerCaveat.seat.id === t.seat.id;
   if (bridged && t.seat.hoa) xs.push(W.sentence(fill(W.pick(`bridge|${t.id}`, F.bridge), { hoa: t.seat.hoa, np: W.np(t.claims[0].concept) }), { move: 'VIA', step: `bridge:${prev.id}>${t.id}`, basis: 'he_thong' }));
   let usedFormation = false;
@@ -307,7 +352,15 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     if (!x) return;
     const rd = voiced.has(x.r.ruleId) ? { claim: null, cond: null } : W.read(x.r.ruleId);
     voiced.add(x.r.ruleId);
-    const ground = W.ground(x);
+    // the cause clause: in full the first time the thesis names this seat; after that only a link not yet named ("Có thêm …"), or nothing
+    const seatSeen = grounds.has(x.seat.id), gl = W.groundLink(x, seatSeen ? grounds : undefined).link, linkNew = !!gl && !grounds.has(gl.id);
+    const also = seatSeen && linkNew && !!F.claim_also?.length, repeated = seatSeen && !also;
+    // a linked star alone reads "Thiên Khôi ở Mệnh", never "Mệnh có Thiên Khôi" after "Có thêm"
+    const has = `${P} có `, linkG = also ? W.seatGround(gl!, x) : '', ground = also ? (linkG.startsWith(has) ? linkG.slice(has.length) + ` ở ${P}` : linkG) : W.ground(x);
+    grounds.add(x.seat.id); if (gl) grounds.add(gl.id);
+    // a rescue whose rescuer the book reduces (rescue lock): soft, no behaviour line, the reduction follows at once
+    const locked = !!ctx.lockRescue && !!cav && !cavDone && (RESCUE_C.has(c.concept) || ax.steps.some(st => st.type === 'rescue'));
+    const soft = c.soft || locked;
     const rules = [...new Set(ax.base.map(y => y.r.ruleId))], cites = [...new Set(ax.base.flatMap(y => y.r.cites))];
     const tr = { concepts: [c.concept], rules, cites, keys: [`${c.concept}@${P}`] };
     if (ax.verdict === 'contested') {
@@ -316,21 +369,34 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
         { move: 'TENSION', step: `contested:${ax.key}`, ...tr, concepts: [ax.concept, ax.opp ?? b.r.concept], rules: [x.r.ruleId, b.r.ruleId] }));
       return;
     }
-    const claimText = rd.claim && !c.soft ? rd.claim : null;
-    if (ci === 0 && usedFormation && claimText) {
+    const claimText = rd.claim && !soft ? rd.claim : null;
+    // "Hệ quả là …" only for a claim the cách's own rule yields: a claim of another rule never reads as the consequence of a cách
+    const fromFormation = t.formations.some(f => f.kind === 'formation' && ax.base.some(y => y.r.ruleId === f.ruleId));
+    if (ci === 0 && usedFormation && claimText && fromFormation) {
       voiced.add(x.r.ruleId);
       xs.push(W.sentence(fill(W.pick(`fthen|${t.id}`, F.formation_then[W.pol(c.concept) as '+' | '-' | '~']), { claim: claimText }), { move: 'ELABORATE', step: `claim:${t.id}:${c.concept}`, ...tr }));
+    } else if (claimText && (also || (repeated && F.claim_same?.length))) {
+      // an anaphoric claim ("Có thêm …", "Cùng thế ấy, …") keeps its full form beside it: a chapter that drops the sentence before it uses that
+      const text = also ? fill(W.pick(`claima|${t.id}|${ci}`, F.claim_also!), { ground: lowerSafe(ground), claim: claimText })
+        : fill(W.pick(`claims|${t.id}|${ci}`, F.claim_same!), { claim: claimText, conn: W.conn('addition', `${t.id}|s${ci}`) });
+      const alt = finish(fill(F.claim[0], { ground: W.ground(x), claim: claimText }));
+      xs.push(W.sentence(text, { move: 'SATELLITE', step: `claim:${t.id}:${c.concept}`, ...tr, alt }));
     } else if (claimText) {
       const tpl = ci === 0 ? F.claim : F.claim_next;
       xs.push(W.sentence(fill(W.pick(`claim|${t.id}|${ci}`, tpl), { ground, claim: claimText, conn: ci === 0 ? '' : W.conn('addition', `${t.id}|${ci}`) }), { move: ci === 0 ? 'ANCHOR' : 'SATELLITE', step: `claim:${t.id}:${c.concept}`, ...tr }));
     } else {
-      const p = W.pred(c.concept, c.soft, `claim|${t.id}|${ci}`);
+      const p = W.pred(c.concept, soft, `claim|${t.id}|${ci}`);
       if (!p) return;
-      xs.push(W.sentence(fill(W.pick(`claimc|${t.id}|${ci}`, F.claim_card), { ground, S: W.S(c.concept), pred: p }), { move: ci === 0 ? 'ANCHOR' : 'SATELLITE', step: `claim:${t.id}:${c.concept}`, ...tr }));
+      const ana = (also && !!F.claim_also_card?.length) || (repeated && !!F.claim_same_card?.length);
+      const tpl = also && F.claim_also_card?.length ? F.claim_also_card : repeated && F.claim_same_card?.length ? F.claim_same_card : F.claim_card;
+      const S0 = W.S(c.concept);
+      const alt = ana ? finish(fill(F.claim_card[0], { ground: W.ground(x), S: S0, pred: p })) : undefined;
+      xs.push(W.sentence(fill(W.pick(`claimc|${t.id}|${ci}`, tpl), { ground: also ? lowerSafe(ground) : ground, S: S0, pred: p }), { move: ci === 0 ? 'ANCHOR' : 'SATELLITE', step: `claim:${t.id}:${c.concept}`, ...tr, ...(alt ? { alt } : {}) }));
     }
+    if (locked) sayCaveat('RESCUE');
     // what the claim looks like in a life, from the card: once per thesis, after its first claim
     const card = W.card(c.concept);
-    if (ci === 0 && !c.soft && card?.behave?.length) {
+    if (ci === 0 && !soft && card?.behave?.length) {
       const b = W.pick(`behave|${c.concept}`, card.behave);
       xs.push(W.sentence(b.replace('{S}', W.S(c.concept)), { move: 'ELABORATE', step: `behave:${t.id}:${c.concept}`, concepts: [c.concept], rules, cites, keys: [`${c.concept}@${P}`] }));
     }
@@ -339,7 +405,8 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     if (red) {
       voiced.add(red.r.ruleId);
       const r = W.read(red.r.ruleId);
-      if (r.claim && r.cond) xs.push(W.sentence(fill(W.pick(`red|${red.r.ruleId}`, F.reducer), { conn: W.conn('contrast', `red|${red.r.ruleId}`), cond: lowerSafe(r.cond), claim: r.claim }),
+      if (r.claim && r.cond) grounds.clear();
+      if (r.claim && r.cond) xs.push(W.sentence(fill(W.pick(`red|${red.r.ruleId}`, F.reducer), { conn: W.limitConn(`red|${red.r.ruleId}`), cond: lowerSafe(r.cond), claim: r.claim }),
         { move: 'TURN', step: `reducer:${red.r.ruleId}`, concepts: [c.concept], rules: [...new Set(ax.reducers.map(y => y.r.ruleId))], cites: [...new Set(ax.reducers.flatMap(y => y.r.cites))], keys: [`${c.concept}@${P}|reduced`] }));
     }
     // a limit from the other side of the axis (a less fundamental seat)
@@ -349,19 +416,15 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
       const r = W.read(ag.r.ruleId), p = W.pred(ag.r.concept, false, `ag|${ag.r.ruleId}`);
       const text = r.claim ? `${W.conn('concession', `ag|${ag.r.ruleId}`)} ${W.ground(ag)} kéo theo chiều ngược lại: ${r.claim}`
         : p ? fill(W.pick(`ag|${ag.r.ruleId}`, F.against), { conn: W.conn('concession', `ag2|${ag.r.ruleId}`), ground: W.ground(ag), S: W.S(ag.r.concept), pred: p }) : '';
+      if (text) grounds.clear();
       if (text) { xs.push(W.sentence(text, { move: 'TURN', step: `against:${ax.key}`, concepts: [ag.r.concept], rules: [ag.r.ruleId], cites: ag.r.cites, keys: [`${ag.r.concept}@${P}`] })); allConcepts.add(ag.r.concept); }
     }
   });
   // the special structures this thesis carries are told here, once the whole chapter is written (a limit the book's reducers voice later
   // in the chapter, e.g. Hóa Lộc ở Tứ Mộ on the Hóa Lộc thesis, is not said twice)
   if (t.steps.some(st => st.structure)) structAt.push({ t, xs, at: xs.length });
-  // the rescuer's own limit, when its thesis is not told next
-  const cav = t.rescuerCaveat;
-  if (cav && !order.some(u => u.seat.id === cav.seat.id)) {
-    const red = rarest(cav.axis.reducers), r = red && W.read(red.r.ruleId);
-    if (r?.claim && r.cond && cav.seat.hoa) xs.push(W.sentence(fill(W.pick(`cav|${t.id}`, F.caveat), { conn: W.conn('contrast', `cav|${t.id}`), hoa: cav.seat.hoa, cond: lowerSafe(r.cond), claim: r.claim }),
-      { move: 'RESCUE', step: `caveat:${t.id}`, concepts: [cav.axis.concept], rules: [red.r.ruleId], cites: red.r.cites, keys: [`${cav.axis.concept}@${P}|caveat`] }));
-  }
+  // the rescuer's own limit, when its thesis is not told next (and the rescue lock has not told it already)
+  if (cav && !cavDone && !order.some(u => u.seat.id === cav.seat.id)) sayCaveat('RESCUE');
   // corroboration / counter-evidence from the tam phương
   for (const type of ['corroborated', 'countered'] as const) {
     const cr = t.cross.find(x => x.type === type && !voiced.has(x.ruleId));
@@ -370,8 +433,10 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     const rr = W.read(cr.ruleId);
     if (!rr.claim) continue;
     const g = rr.cond ? lowerSafe(rr.cond) : `cung ${cr.palace}`;
-    const tpl = type === 'countered' && W.pol(cr.concept) === '+' && F.countered_up?.length ? F.countered_up : F[type];
-    xs.push(W.sentence(fill(W.pick(`${type}|${cr.ruleId}`, tpl), { conn: W.conn('contrast', `${type}|${cr.ruleId}`), palace: cr.palace, ground: g, claim: rr.claim }),
+    const up = type === 'countered' && W.pol(cr.concept) === '+' && !!F.countered_up?.length;
+    const tpl = up ? F.countered_up! : F[type];
+    const conn = type === 'corroborated' ? W.conn('contrast', `${type}|${cr.ruleId}`) : up ? W.upConn(`${type}|${cr.ruleId}`) : W.limitConn(`${type}|${cr.ruleId}`);
+    xs.push(W.sentence(fill(W.pick(`${type}|${cr.ruleId}`, tpl), { conn, palace: cr.palace, ground: g, claim: rr.claim }),
       { move: 'VIA', step: `${type}:${cr.palace}:${cr.ruleId}`, concepts: [cr.concept], rules: [cr.ruleId], cites: cr.cite ? [cr.cite] : [], keys: [`${cr.concept}@${cr.palace}`] }));
   }
 }

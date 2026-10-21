@@ -28,8 +28,9 @@ export class Micro {
   /** Records a finished sentence's opener so the next picks avoid it. */
   said(sentence: string) { this.openers.push(opener(sentence)); }
 
-  conn(rel: ConnRel, key: string, pos: 'initial' | 'medial' = 'initial'): string {
-    const xs = this.conns.filter(c => c.rel === rel && c.pos === pos && !this.usedConn.has(c.id));
+  /** `avoid`: connectives that would say the wrong thing here (a compensation word before a limit) */
+  conn(rel: ConnRel, key: string, pos: 'initial' | 'medial' = 'initial', avoid: string[] = []): string {
+    const xs = this.conns.filter(c => c.rel === rel && c.pos === pos && !this.usedConn.has(c.id) && !avoid.includes(c.text));
     if (!xs.length) return '';
     const c = xs[fnv(`${this.seed}|conn|${key}`) % xs.length];
     this.usedConn.add(c.id);

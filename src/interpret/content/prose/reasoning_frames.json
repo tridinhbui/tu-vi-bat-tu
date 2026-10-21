@@ -108,6 +108,24 @@
     "{conn} ở {palace}, {ground}, nên {claim}.",
     "{conn} cung {palace} mở ra chiều thuận hơn: {ground}, nên {claim}."
   ],
+  "claim_same": [
+    "Cũng từ thế ấy, {claim}.",
+    "Cùng thế ấy, {claim}.",
+    "Cũng vì vậy, {claim}."
+  ],
+  "claim_same_card": [
+    "Cũng từ thế ấy, {S} {pred}.",
+    "Cùng thế ấy, {S} {pred}."
+  ],
+  "claim_also": [
+    "Có thêm {ground}, nên {claim}.",
+    "Thêm vào đó là {ground}, nên {claim}.",
+    "Lại có {ground}, nên {claim}."
+  ],
+  "claim_also_card": [
+    "Có thêm {ground}, nên {S} {pred}.",
+    "Lại có {ground}, nên {S} {pred}."
+  ],
  "behave": [
   "{behave}"
  ],

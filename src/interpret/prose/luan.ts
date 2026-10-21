@@ -75,11 +75,16 @@ export function withLead(lead: string, text: string, names: Set<string> = new Se
 }
 /** a book sentence voicing a reading (concept@palace) the report already voiced is dropped: no reading is told twice */
 function dedupe(xs: ProseSentence[], keys: Set<string>): ProseSentence[] {
-  return xs.filter(s => {
-    if (s.trace.basis !== 'sach' || s.trace.move === 'ELABORATE' || !s.trace.keys?.length) return true;
-    if (s.trace.keys.some(x => keys.has(x))) return false;
+  let dropped = false;
+  return xs.flatMap(s => {
+    if (s.trace.move === 'ELABORATE') return [s];
+    if (s.trace.basis !== 'sach' || !s.trace.keys?.length) { dropped = false; return [s]; }
+    if (s.trace.keys.some(x => keys.has(x))) { dropped = true; return []; }
     s.trace.keys.forEach(x => keys.add(x));
-    return true;
+    // an anaphoric claim whose antecedent was just dropped says its ground in full
+    const out = dropped && s.trace.alt ? { ...s, text: s.trace.alt } : s;
+    dropped = false;
+    return [out];
   });
 }
 
@@ -131,7 +136,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   if (!plan.theses.length && !plan.modifiers.length) return null;
   const other = spec.bond ? k.prose!.frames.other?.[P] : undefined;
   const W = new Writer(chart, k, plan, sh.allowDraft, { micro: sh.micro, other, bond: spec.bond });
-  const ctx: ArgueCtx = { voiced: sh.voiced, allConcepts: new Set(), structAt: [] };
+  const ctx: ArgueCtx = { voiced: sh.voiced, allConcepts: new Set(), structAt: [], lockRescue: true };
   const lead = (topic: Topic, v: Record<string, string> = {}) => fill(W.pick(`lead|${P}|${topic}`, L.lead_palace[P]?.[topic] ?? L.lead[topic]), v);
   const S = (text: string, trace: Partial<SentenceTrace> & { move: SentenceTrace['move']; step: string }) => W.sentence(text, trace);
 
@@ -139,7 +144,13 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const frame = frameSentences(W, L, F, chart, pal, plan);
 
   // ---- theses, in the reasoned chapter's order (a thesis whose rescuer is reduced elsewhere is followed by the rescuer's thesis) ----
-  const order: Thesis[] = [], pending = [...plan.theses];
+  // a rescued thesis is argued before its rescuer's (rescue lock): the rescuer's limit is told with the rescue, not later on its own
+  const ranked = [...plan.theses];
+  for (const t of plan.theses.filter(t => t.rescuerCaveat)) {
+    const ri = ranked.findIndex(u => u.seat.id === t.rescuerCaveat!.seat.id), ti = ranked.indexOf(t);
+    if (ri >= 0 && ri < ti) { ranked.splice(ti, 1); ranked.splice(ri, 0, t); }
+  }
+  const order: Thesis[] = [], pending = [...ranked];
   while (pending.length) {
     const t = pending.shift()!;
     order.push(t);
@@ -436,7 +447,7 @@ function thanSentences(W: Writer, L: LuanLib, F: ReasoningFrames, chart: ChartIn
   let np: string | null = null;
   const units: Array<{ seat?: Thesis['seat']; own: Set<string> }> = [];
   if (t0) {
-    const ctx: ArgueCtx = { voiced: sh.voiced, allConcepts: new Set(), structAt: [] };
+    const ctx: ArgueCtx = { voiced: sh.voiced, allConcepts: new Set(), structAt: [], lockRescue: true };
     argueThesis(W2, F, t0, undefined, [t0], style, ctx);
     for (const { t, xs, at } of ctx.structAt) xs.splice(at, 0, ...structureSentences(W2, F.structure, plan, t, style));
     if (style.length) {
