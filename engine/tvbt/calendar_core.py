@@ -33,7 +33,7 @@ class BirthInput:
     tz: str                       # IANA, e.g. "Asia/Ho_Chi_Minh"
     gender: Literal["male", "female"]
     longitude: float | None = None  # degrees east, required for true solar time
-    calendar: Literal["vn", "vn_south", "cn"] = "vn"
+    calendar: Literal["vn", "vn_south", "vn_utc7", "cn"] = "vn"   # vn_utc7: UTC+7 for every year (what popular boards use)
     zi_rule: ZiRule = "early_zi_next_day"
     use_true_solar_time: bool = False
     fold: int = 0                 # disambiguates repeated wall times at DST end
@@ -108,8 +108,10 @@ def normalize(b: BirthInput) -> NormalizedBirth:
     tr.add("day.rule_date", "Date used for day pillar & lunar day after Zi-hour rule",
            {"clock": clock.isoformat(), "zi_rule": b.zi_rule}, rule_date.isoformat())
 
-    if b.calendar in ("vn", "vn_south"):
-        tzh = vn_calendar_offset(rule_date.year, b.calendar == "vn_south")
+    if b.calendar in ("vn", "vn_south", "vn_utc7"):
+        # vn / vn_south: the historical offset (UTC+8 before 1968 / 1976); vn_utc7: UTC+7 for every year. They differ only for births before
+        # 1968 when a new moon falls between 23:00 and 24:00 Vietnam time (e.g. 31/12/1910 23:21 UTC+7 -> 1/1/1911 is day 1 or day 2).
+        tzh = 7.0 if b.calendar == "vn_utc7" else vn_calendar_offset(rule_date.year, b.calendar == "vn_south")
         ld, lm, ly, leap = lunar_vn.solar_to_lunar(rule_date, tzh)
         src = f"astronomical lunisolar rules @UTC{tzh:+g} (PyEphem new moons + sxtwl solar terms)"
     else:

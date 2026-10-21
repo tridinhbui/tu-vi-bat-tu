@@ -24,7 +24,7 @@ def lunar_to_solar(day: int, month: int, year: int, leap: bool = False, calendar
     hits = []
     for k in range(-5, 6):
         s = seed + dt.timedelta(days=k)
-        tzh = vn_calendar_offset(s.year, False)
+        tzh = 7.0 if calendar == "vn_utc7" else vn_calendar_offset(s.year, False)
         ld, lm, ly, lp = lunar_vn.solar_to_lunar(s, tzh)
         if (ld, lm, ly, lp) == (day, month, year, leap):
             hits.append(s)
