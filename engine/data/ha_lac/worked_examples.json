@@ -1,0 +1,1239 @@
+{
+ "source": {
+  "title": "Bát tự Hà Lạc (Phần II, bản dantocking.com)",
+  "file": "Bát-tự-Hà-Lạc-dantocking.com.pdf",
+  "pdf_pages": 129,
+  "page_note": "printed page = PDF page index + 1; diagrams were read from the rendered page images (their text layer is out of order)"
+ },
+ "status": "Transcribed numbers, now golden tests for tvbt.ha_lac (tests/test_ha_lac_cast.py). The casting rules come from Phần I of the full 1974 book (engine/data/ha_lac/golden_part1.json has its own examples). Where the print contradicts itself the printed value is kept and 'reading' gives what the page and the book's rules support.",
+ "conventions": {
+  "lines": "hào 1 (bottom) to hào 6 (top), 'dương' / 'âm'",
+  "ho": "hỗ quái as labelled on the diagram: upper = hào 3-5 (left brace), lower = hào 2-4 (right brace)",
+  "dai_van": "đại vận ages per hào as printed beside the diagram line; 'reading' = the span the diagram and the rule of Phần I p.86 (hào dương 9 years, hào âm 6) support when the printed one is impossible",
+  "nguyen_duong_mark_on": "the hào the printed 'NĐ' mark sits on (or between) in the diagram",
+  "khi": "Hóa công, Thiên nguyên khí (T.N.K), Địa nguyên khí (Đ.N.K): trigram as printed, present = whether the book says it is found, where = the book's own words for where (chính = main trigrams, hỗ = nuclear trigrams, T.T = Tiên Thiên, H.T = Hậu Thiên)"
+ },
+ "numbers_printed_in_examples": {
+  "note": "Every can/chi number that appears in the five examples (pp.125-128). Not a full table: Tân, Nhâm and Sửu, Mão, Thìn, Mùi, Tuất never appear; p.122 prints no numbers.",
+  "stems": {
+   "Giáp": 6,
+   "Ất": 2,
+   "Bính": 8,
+   "Đinh": 7,
+   "Mậu": 1,
+   "Kỷ": 9,
+   "Canh": 3,
+   "Quý": 2
+  },
+  "branches": {
+   "Tý": [
+    1,
+    6
+   ],
+   "Dần": [
+    3,
+    8
+   ],
+   "Tỵ": [
+    2,
+    7
+   ],
+   "Ngọ": [
+    2,
+    7
+   ],
+   "Thân": [
+    4,
+    9
+   ],
+   "Dậu": [
+    4,
+    9
+   ],
+   "Hợi": [
+    1,
+    6
+   ]
+  },
+  "trigrams": {
+   "1": "Khảm",
+   "2": "Khôn",
+   "3": "Chấn",
+   "6": "Kiền",
+   "8": "Cấn",
+   "9": "Ly"
+  },
+  "pages": [
+   125,
+   126,
+   127
+  ]
+ },
+ "examples": [
+  {
+   "id": "p122_mong",
+   "pages": [
+    122
+   ],
+   "label": "Ví dụ trong 'Cách dùng Phần II để giải đoán' (sách dẫn lại từ mục Thực tập trang 93 của bản đầy đủ, không có trong PDF này)",
+   "subject": "một kỹ sư đỗ sớm ở trường Bách khoa Pháp (Polytechnique) và làm việc luôn ở đó",
+   "sex_polarity": null,
+   "birth": {
+    "year": "Bính Tý",
+    "month": "Quý Tỵ",
+    "day": "Bính Ngọ",
+    "hour": "Tân Mão",
+    "lunar_date_printed": null,
+    "era": null
+   },
+   "pillars": null,
+   "season_printed": "mùa xuân",
+   "solar_term": null,
+   "nguyet_lenh": null,
+   "sum_am": {
+    "terms": null,
+    "total": 40,
+    "reductions": null,
+    "trigram": null
+   },
+   "sum_duong": {
+    "terms": null,
+    "total": 18,
+    "reductions": null,
+    "trigram": null
+   },
+   "tien_thien": {
+    "name": "Sơn Thủy Mông",
+    "number": 4,
+    "upper": "Cấn",
+    "lower": "Khảm",
+    "lines": [
+     "âm",
+     "dương",
+     "âm",
+     "âm",
+     "âm",
+     "dương"
+    ],
+    "nguyen_duong_hao": 6,
+    "nguyen_duong_basis": "NĐ mark on the top line; text: 'hào thượng'",
+    "nguyen_duong_mark_on": 6,
+    "ho": null,
+    "dai_van": [
+     {
+      "hao": 6,
+      "printed": "1 - 9",
+      "from": 1,
+      "to": 9
+     },
+     {
+      "hao": 1,
+      "printed": "10 - 45",
+      "from": 10,
+      "to": 45,
+      "misprint": true,
+      "reading": [
+       10,
+       15
+      ]
+     },
+     {
+      "hao": 2,
+      "printed": "46 - 24",
+      "from": 46,
+      "to": 24,
+      "misprint": true,
+      "reading": [
+       16,
+       24
+      ]
+     },
+     {
+      "hao": 3,
+      "printed": "25 - 30",
+      "from": 25,
+      "to": 30
+     },
+     {
+      "hao": 4,
+      "printed": "31 - 36",
+      "from": 31,
+      "to": 36
+     },
+     {
+      "hao": 5,
+      "printed": "37 - 42",
+      "from": 37,
+      "to": 42
+     }
+    ]
+   },
+   "hau_thien": {
+    "name": "Thủy Địa Tỷ",
+    "name_printed": "Thiên Thủy Địa Tỷ (in 'biến Hậu, Thiên Thủy Địa Tỷ': the comma is misplaced, read 'biến Hậu Thiên: Thủy Địa Tỷ')",
+    "number": 8,
+    "upper": "Khảm",
+    "lower": "Khôn",
+    "lines": [
+     "âm",
+     "âm",
+     "âm",
+     "âm",
+     "dương",
+     "âm"
+    ],
+    "nguyen_duong_hao": null,
+    "nguyen_duong_basis": "not printed (no Hậu Thiên diagram on this page)",
+    "start_age": 43,
+    "start_age_basis": "text: 'Từ 43 trở ra' about quẻ Tỷ (H.T)",
+    "dai_van": []
+   },
+   "hoa_cong": {
+    "trigram": "Chấn",
+    "present": true,
+    "where": "quẻ Hỗ T.T"
+   },
+   "thien_nguyen_khi": {
+    "trigram": "Cấn",
+    "present": true,
+    "where": "quẻ chính T.T và Hỗ H.T"
+   },
+   "dia_nguyen_khi": {
+    "trigram": "Khảm",
+    "present": true,
+    "where": "quẻ chính T.T và chính H.T"
+   },
+   "ung_vien": "hào 3 âm",
+   "the_cach_points": [
+    "tuổi Bính Tý gặp quẻ Mông là được nạp giáp (công danh phú quý)",
+    "tên quẻ khá tốt",
+    "tổng âm 40 hợp mùa sinh; tổng dương 18 tuy ít nhưng đúng số 18 nên được cách (thiếu dương, đắc phúc, lợi cho nam)",
+    "Nguyên đường ở hào thượng, vị không đẹp, nhưng có đủ Thiên Địa nguyên khí, Hóa công và hào 3 âm ứng viện",
+    "nạp âm Bính Tý thuộc Thủy, Nguyên đường ở quái Khảm: hợp",
+    "quẻ Tỷ (Hậu Thiên) một hào dương thống năm hào âm: cách chúng tông; từ 43 tuổi danh vọng hơn trước"
+   ],
+   "verdict": {
+    "class": "Mệnh hợp cách bậc trung",
+    "score_printed": "13 – 14"
+   },
+   "dai_van_comment": "tiền vận đẹp nhất khi qua hào 2 và hào 5 quẻ Mông; hậu vận quẻ Tỷ, hào 4 và hào 5 rất tốt",
+   "tue_van_example": {
+    "age": 15,
+    "from": {
+     "hexagram": "Đồng Nhân",
+     "number": 13,
+     "hao": 6,
+     "line": "dương"
+    },
+    "to": {
+     "hexagram": "Cách",
+     "number": 49,
+     "hao": 6,
+     "line": "âm"
+    },
+    "group": "gioi_si",
+    "quote": "Tiến lên",
+    "quote_page": 122,
+    "lookup_page": 76,
+    "note": "the book looks up quẻ Cách hào 6 âm, mục Giới sĩ, for a 15-year-old pupil; hexagrams.json 49 hào 6 gioi_si is that entry"
+   },
+   "quotes": [
+    {
+     "text": "Tổng số âm (40) đúng với mùa sanh (mùa xuân)",
+     "page": 122
+    },
+    {
+     "text": "Từ 43 trở ra",
+     "page": 122
+    }
+   ],
+   "ambiguities": [
+    "Đại vận labels '10 - 45' (hào 1) and '46 - 24' (hào 2) are impossible; the same wrong label '46 - 24' reappears on p.127, so it looks like a copied diagram template. Readings 10-15 / 16-24 follow the diagram's other spans (hào âm 6 years, hào dương 9).",
+    "Birth month Quý Tỵ is normally the 4th lunar month (early summer), yet the book calls the birth season 'mùa xuân'; the solar date is not given, so this cannot be checked here.",
+    "Polarity (dương nam / âm nữ…) is not printed for this example."
+   ]
+  },
+  {
+   "id": "p125_canh_ngo",
+   "pages": [
+    125,
+    126
+   ],
+   "label": "Bài giải đoán mẫu 1",
+   "subject": "về sau được phong 'Đoan minh điện đại học sĩ'",
+   "sex_polarity": "Dương nam",
+   "birth": {
+    "year": "Canh Ngọ",
+    "month": "Giáp Thân",
+    "day": "Bính Thân",
+    "hour": "Đinh Dậu",
+    "lunar_date_printed": "tháng 7, ngày 22, giờ Dậu",
+    "era": "Thiệu Hưng"
+   },
+   "pillars": [
+    {
+     "pillar": "year",
+     "can": "Canh",
+     "can_number": 3,
+     "chi": "Ngọ",
+     "chi_numbers": [
+      2,
+      7
+     ],
+     "label_printed": "Tuổi"
+    },
+    {
+     "pillar": "month",
+     "can": "Giáp",
+     "can_number": 6,
+     "chi": "Thân",
+     "chi_numbers": [
+      4,
+      9
+     ],
+     "label_printed": "Tuổi"
+    },
+    {
+     "pillar": "day",
+     "can": "Bính",
+     "can_number": 8,
+     "chi": "Thân",
+     "chi_numbers": [
+      4,
+      9
+     ],
+     "label_printed": "Ngày"
+    },
+    {
+     "pillar": "hour",
+     "can": "Đinh",
+     "can_number": 7,
+     "chi": "Dậu",
+     "chi_numbers": [
+      4,
+      9
+     ],
+     "label_printed": "Giờ"
+    }
+   ],
+   "season_printed": "mùa thu",
+   "solar_term": {
+    "name": "Xử Thử",
+    "kind": "khí",
+    "date_printed": "ngày 21 tháng 7"
+   },
+   "nguyet_lenh": {
+    "hexagram": "Thiên Địa Bĩ",
+    "printed": "Thiên Địa bĩ (3 hào Dương, 3 hào âm)"
+   },
+   "sum_duong": {
+    "terms": [
+     3,
+     7,
+     7,
+     9,
+     9,
+     9
+    ],
+    "total": 44,
+    "reductions": [
+     19,
+     9
+    ],
+    "trigram": "Ly",
+    "trigram_number": 9
+   },
+   "sum_am": {
+    "terms": [
+     6,
+     8,
+     2,
+     4,
+     4,
+     4
+    ],
+    "total": 28,
+    "reductions": [
+     8
+    ],
+    "trigram": "Cấn",
+    "trigram_number": 8
+   },
+   "tien_thien": {
+    "name": "Hỏa Sơn Lữ",
+    "number": 56,
+    "upper": "Ly",
+    "lower": "Cấn",
+    "upper_from": "sum_duong",
+    "lower_from": "sum_am",
+    "lines": [
+     "âm",
+     "âm",
+     "dương",
+     "dương",
+     "âm",
+     "dương"
+    ],
+    "nguyen_duong_hao": 1,
+    "nguyen_duong_basis": "text: 'Nguyên Đường ở hào 1 Âm'; NĐ mark on hào 1",
+    "nguyen_duong_mark_on": 1,
+    "ho": {
+     "upper": "Đoài",
+     "lower": "Tốn"
+    },
+    "dai_van": [
+     {
+      "hao": 1,
+      "printed": "1 - 6",
+      "from": 1,
+      "to": 6
+     },
+     {
+      "hao": 2,
+      "printed": "7 - 12",
+      "from": 7,
+      "to": 12
+     },
+     {
+      "hao": 3,
+      "printed": "13 - 21",
+      "from": 13,
+      "to": 21
+     },
+     {
+      "hao": 4,
+      "printed": "22 - 30",
+      "from": 22,
+      "to": 30
+     },
+     {
+      "hao": 5,
+      "printed": "31 - 38",
+      "from": 31,
+      "to": 38,
+      "misprint": true,
+      "reading": [
+       31,
+       36
+      ]
+     },
+     {
+      "hao": 6,
+      "printed": "87 - 45",
+      "from": 87,
+      "to": 45,
+      "misprint": true,
+      "reading": [
+       37,
+       45
+      ]
+     }
+    ]
+   },
+   "hau_thien": {
+    "name": "Thuần Ly",
+    "number": 30,
+    "upper": "Ly",
+    "lower": "Ly",
+    "lines": [
+     "dương",
+     "âm",
+     "dương",
+     "dương",
+     "âm",
+     "dương"
+    ],
+    "nguyen_duong_hao": 4,
+    "nguyen_duong_basis": "text: 'Đại vận 46 – 54 sang quẻ Hậu Thiên Thuần Ly hào 4 Dương'",
+    "nguyen_duong_mark_on": 5,
+    "ho": {
+     "upper": "Đoài",
+     "lower": "Tốn"
+    },
+    "start_age": 46,
+    "dai_van": [
+     {
+      "hao": 4,
+      "printed": "46 - 54",
+      "from": 46,
+      "to": 54
+     },
+     {
+      "hao": 5,
+      "printed": "55 - 61",
+      "from": 55,
+      "to": 61,
+      "misprint": true,
+      "reading": [
+       55,
+       60
+      ]
+     }
+    ]
+   },
+   "hoa_cong": {
+    "trigram": "Ly",
+    "present": true,
+    "where": "cả ở Tiên Thiên và Hậu Thiên (quẻ chính)"
+   },
+   "thien_nguyen_khi": {
+    "trigram": "Chấn",
+    "printed_with": "canh",
+    "present": false,
+    "where": null
+   },
+   "dia_nguyen_khi": {
+    "trigram": "Ly",
+    "printed_with": "Ngọ",
+    "present": true,
+    "where": "cả ở Tiên, Hậu Thiên"
+   },
+   "ung_vien": "hào 4 dương (ở thể Ly, có Hóa công) ứng với Nguyên đường hào 1",
+   "verdict": {
+    "class": "công danh quý hiển",
+    "summary": "Nguyên đường vị không đẹp và số âm thiếu (28), nhưng được hào 4 dương có Hóa công ứng viện; vận 22-30 vào quái Ly có Hóa công và Địa nguyên khí; vận Hậu Thiên 46-54 thăng tiến, nắm quyền"
+   },
+   "quotes": [
+    {
+     "text": "Tổng số Dương = 3 + 7 + 7 + 9 + 9 + 9 = 44",
+     "page": 125
+    },
+    {
+     "text": "Đại vận 46 – 54 sang quẻ Hậu Thiên Thuần Ly hào 4 Dương",
+     "page": 126
+    },
+    {
+     "text": "lữ tỏa tỏa",
+     "page": 126
+    }
+   ],
+   "ambiguities": [
+    "The month line is labelled 'Tuổi Giáp 6 Thân' (should be 'Tháng').",
+    "Đại vận '31 - 38' (hào 5 âm, 8 years) and '87 - 45' (hào 6) break the diagram's own pattern (âm 6 years, dương 9) and 87 > 45; readings 31-36 / 37-45 fit it and still end at 45 as printed.",
+    "Hậu Thiên hào 5 '55 - 61' is 7 years for a hào âm (reading 55-60).",
+    "The Hậu Thiên 'NĐ' mark is drawn on hào 5 while the text and the age labels put the first Hậu Thiên vận on hào 4.",
+    "For that Hậu Thiên vận the text quotes the hào text 'lữ vu xử, đắc kỳ tư phủ', which is quẻ Lữ hào 4 (the Tiên Thiên quẻ, p.95 of this PDF), not Thuần Ly hào 4.",
+    "Phần I p.84 confirms the Hậu Thiên Nguyên đường used here (Tiên Thiên hào ±3); the printed NĐ marks in the Hậu Thiên diagrams sit one line off."
+   ]
+  },
+  {
+   "id": "p126_at_hoi",
+   "pages": [
+    126,
+    127
+   ],
+   "label": "Bài giải đoán mẫu 2",
+   "subject": "về sau giữ chức Tham chính, thanh liêm",
+   "sex_polarity": "Âm nam",
+   "birth": {
+    "year": "Ất Hợi",
+    "month": "Ất Dậu",
+    "day": "Mậu Dần",
+    "hour": "Canh Thân",
+    "lunar_date_printed": "tháng 8, ngày 3, giờ Thân",
+    "era": "Thiệu Hưng"
+   },
+   "pillars": [
+    {
+     "pillar": "year",
+     "can": "Ất",
+     "can_number": 2,
+     "chi": "Hợi",
+     "chi_numbers": [
+      1,
+      6
+     ]
+    },
+    {
+     "pillar": "month",
+     "can": "Ất",
+     "can_number": 2,
+     "chi": "Dậu",
+     "chi_numbers": [
+      4,
+      9
+     ]
+    },
+    {
+     "pillar": "day",
+     "can": "Mậu",
+     "can_number": 1,
+     "chi": "Dần",
+     "chi_numbers": [
+      3,
+      8
+     ]
+    },
+    {
+     "pillar": "hour",
+     "can": "Canh",
+     "can_number": 3,
+     "chi": "Thân",
+     "chi_numbers": [
+      4,
+      9
+     ]
+    }
+   ],
+   "season_printed": "mùa thu (tháng 8)",
+   "solar_term": {
+    "name": "Bạch Lộ",
+    "kind": "tiết",
+    "date_printed": "ngày 1 tháng 8"
+   },
+   "nguyet_lenh": {
+    "hexagram": "Thiên Địa Bĩ",
+    "printed": "Bĩ"
+   },
+   "sum_am": {
+    "terms": [
+     2,
+     2,
+     6,
+     4,
+     8,
+     4
+    ],
+    "total": 26,
+    "reductions": [
+     6
+    ],
+    "trigram": "Kiền",
+    "trigram_number": 6
+   },
+   "sum_duong": {
+    "terms": [
+     1,
+     3,
+     1,
+     9,
+     3,
+     9
+    ],
+    "total": 26,
+    "reductions": [
+     1
+    ],
+    "trigram": "Khảm",
+    "trigram_number": 1
+   },
+   "tien_thien": {
+    "name": "Thiên Thủy Tụng",
+    "number": 6,
+    "upper": "Kiền",
+    "lower": "Khảm",
+    "upper_from": "sum_am",
+    "lower_from": "sum_duong",
+    "lines": [
+     "âm",
+     "dương",
+     "âm",
+     "dương",
+     "dương",
+     "dương"
+    ],
+    "nguyen_duong_hao": 1,
+    "nguyen_duong_basis": "text: 'Nguyên đường ở hào 1 âm quẻ Tụng'; NĐ mark on hào 1",
+    "nguyen_duong_mark_on": 1,
+    "ho": {
+     "upper": "Tốn",
+     "lower": "Ly"
+    },
+    "dai_van": [
+     {
+      "hao": 1,
+      "printed": "1 - 6",
+      "from": 1,
+      "to": 6
+     },
+     {
+      "hao": 2,
+      "printed": "7 - 15",
+      "from": 7,
+      "to": 15
+     },
+     {
+      "hao": 3,
+      "printed": "16 - 21",
+      "from": 16,
+      "to": 21
+     },
+     {
+      "hao": 4,
+      "printed": "22 - 30",
+      "from": 22,
+      "to": 30
+     },
+     {
+      "hao": 5,
+      "printed": "31 - 39",
+      "from": 31,
+      "to": 39
+     },
+     {
+      "hao": 6,
+      "printed": "40 - 48",
+      "from": 40,
+      "to": 48
+     }
+    ]
+   },
+   "hau_thien": {
+    "name": "Trạch Thiên Quải",
+    "number": 43,
+    "upper": "Đoài",
+    "lower": "Kiền",
+    "lines": [
+     "dương",
+     "dương",
+     "dương",
+     "dương",
+     "dương",
+     "âm"
+    ],
+    "nguyen_duong_hao": 4,
+    "nguyen_duong_basis": "text: 'Đại vận 49 – 57 đi vào quẻ Kiền (HỖ), hào 4 dương'",
+    "nguyen_duong_mark_on": 5,
+    "ho": {
+     "upper": "Kiền",
+     "lower": "Kiền"
+    },
+    "start_age": 49,
+    "dai_van": [
+     {
+      "hao": 4,
+      "printed": "49 - 57",
+      "from": 49,
+      "to": 57
+     },
+     {
+      "hao": 5,
+      "printed": "58 - 66",
+      "from": 58,
+      "to": 66
+     }
+    ]
+   },
+   "hoa_cong": {
+    "trigram": "Ly",
+    "present": true,
+    "where": "quẻ Hỗ Tiên Thiên"
+   },
+   "thien_nguyen_khi": {
+    "trigram": "Khôn",
+    "present": false,
+    "where": null
+   },
+   "dia_nguyen_khi": {
+    "trigram": "Kiền",
+    "present": true,
+    "where": "cả 2 quẻ Hỗ Hậu Thiên"
+   },
+   "ung_vien": "4 hào dương; hào 4 dương ứng với Nguyên đường hào 1",
+   "verdict": {
+    "class": "Mệnh hợp cách, quý",
+    "summary": "hào từ Nguyên đường tốt; sinh tháng 8 (thu phân) mà hai tổng âm dương bằng nhau là tốt; hào 4 dương có Hóa công Ly và Địa nguyên khí Kiền; vận Hậu Thiên 49-57 vào chức lớn"
+   },
+   "quotes": [
+    {
+     "text": "Tổng số âm: 2 + 2 + 6 + 4 + 8 + 4 = 26",
+     "page": 126
+    },
+    {
+     "text": "Đại vận 49 – 57 đi vào quẻ Kiền (HỖ), hào 4",
+     "page": 127
+    }
+   ],
+   "ambiguities": [
+    "Hóa công Ly is 'có ở quẻ Hỗ Tiên Thiên' in b), and Địa nguyên khí Kiền 'có ở cả 2 quẻ Hỗ Hậu Thiên', but the Lược phê says hào 4 has 'Hóa Công Ly (Hỗ)' and 'Địa nguyên khí Kiền (chính)' (Kiền is also the main upper trigram of Tụng).",
+    "Nguyệt lệnh printed as Bĩ although the birth is after Bạch Lộ (the Dậu month); example 1, born after Xử Thử in the Thân month, also has Bĩ. The table of nguyệt lệnh quẻ is in Part I, not in this PDF.",
+    "The Hậu Thiên 'NĐ' mark is drawn above hào 5 while the text puts the first Hậu Thiên vận (49-57) on hào 4.",
+    "The quoted Nguyên đường hào text '… tiển hữu ngôn, chung cát' has 'tiển' for 'tiểu'; quẻ Tụng (6) is not in this PDF.",
+    "Phần I p.84 confirms the Hậu Thiên Nguyên đường used here (Tiên Thiên hào ±3); the printed NĐ marks in the Hậu Thiên diagrams sit one line off."
+   ]
+  },
+  {
+   "id": "p127_binh_dan",
+   "pages": [
+    127
+   ],
+   "label": "Bài giải đoán mẫu 3",
+   "subject": "làm lớn nhưng ở chức phụ tá; danh thần đại nho",
+   "sex_polarity": "Dương nam",
+   "birth": {
+    "year": "Bính Dần",
+    "month": "Canh Tý",
+    "day": "Bính Tý",
+    "hour": "Kỷ Hợi",
+    "lunar_date_printed": "tháng 10, ngày 28, giờ Hợi",
+    "era": "Khai Hy"
+   },
+   "pillars": [
+    {
+     "pillar": "year",
+     "can": "Bính",
+     "can_number": 8,
+     "chi": "Dần",
+     "chi_numbers": [
+      3,
+      8
+     ]
+    },
+    {
+     "pillar": "month",
+     "can": "Canh",
+     "can_number": 3,
+     "chi": "Tý",
+     "chi_numbers": [
+      1,
+      6
+     ]
+    },
+    {
+     "pillar": "day",
+     "can": "Bính",
+     "can_number": 8,
+     "chi": "Tý",
+     "chi_numbers": [
+      1,
+      6
+     ]
+    },
+    {
+     "pillar": "hour",
+     "can": "Kỷ",
+     "can_number": 9,
+     "chi": "Hợi",
+     "chi_numbers": [
+      1,
+      6
+     ],
+     "label_printed": "Giời"
+    }
+   ],
+   "season_printed": "mùa đông",
+   "solar_term": {
+    "name": "Đại Tuyết",
+    "kind": "tiết",
+    "date_printed": "Ngày 28 - 10"
+   },
+   "nguyet_lenh": {
+    "hexagram": "Thuần Khôn",
+    "printed": "Thuần Khôn"
+   },
+   "sum_duong": {
+    "terms": [
+     3,
+     9,
+     3,
+     1,
+     1,
+     1
+    ],
+    "total": 18,
+    "reductions": [
+     8
+    ],
+    "trigram": "Cấn",
+    "trigram_number": 8
+   },
+   "sum_am": {
+    "terms": [
+     8,
+     8,
+     8,
+     6,
+     6,
+     6
+    ],
+    "total": 42,
+    "reductions": [
+     2
+    ],
+    "trigram": "Khôn",
+    "trigram_number": 2
+   },
+   "tien_thien": {
+    "name": "Sơn Địa Bác",
+    "number": 23,
+    "upper": "Cấn",
+    "lower": "Khôn",
+    "upper_from": "sum_duong",
+    "lower_from": "sum_am",
+    "lines": [
+     "âm",
+     "âm",
+     "âm",
+     "âm",
+     "âm",
+     "dương"
+    ],
+    "nguyen_duong_hao": 6,
+    "nguyen_duong_basis": "text: 'Nguyên đường ở hào 6 dương quẻ Tiên Thiên Bác'; NĐ mark on hào 6",
+    "nguyen_duong_mark_on": 6,
+    "ho": {
+     "upper": "Khôn",
+     "lower": "Khôn"
+    },
+    "dai_van": [
+     {
+      "hao": 6,
+      "printed": "1 - 9",
+      "from": 1,
+      "to": 9
+     },
+     {
+      "hao": 1,
+      "printed": "10 - 15",
+      "from": 10,
+      "to": 15
+     },
+     {
+      "hao": 2,
+      "printed": "46 - 24",
+      "from": 46,
+      "to": 24,
+      "misprint": true,
+      "reading": [
+       16,
+       21
+      ]
+     },
+     {
+      "hao": 3,
+      "printed": "22 - 27",
+      "from": 22,
+      "to": 27
+     },
+     {
+      "hao": 4,
+      "printed": "28 - 33",
+      "from": 28,
+      "to": 33
+     },
+     {
+      "hao": 5,
+      "printed": "34 - 39",
+      "from": 34,
+      "to": 39
+     }
+    ]
+   },
+   "hau_thien": {
+    "name": "Thuần Khôn",
+    "number": 2,
+    "upper": "Khôn",
+    "lower": "Khôn",
+    "lines": [
+     "âm",
+     "âm",
+     "âm",
+     "âm",
+     "âm",
+     "âm"
+    ],
+    "nguyen_duong_hao": 3,
+    "nguyen_duong_basis": "Phần I p.84 (the Nguyên đường moves with its quái when Tiên Thiên becomes Hậu Thiên: hào 6 -> hào 3); the Lược phê quotes 'Dĩ Thời Phát Kỳ Quang Đại', Kinh Dịch's words on Khôn hào 3. The diagram draws the NĐ mark between hào 3 and 4 and prints '40 - 45' beside hào 4, one line too high",
+    "nguyen_duong_mark_on": "between 3 and 4",
+    "ho": {
+     "upper": "Khôn",
+     "lower": "Khôn"
+    },
+    "start_age": 40,
+    "dai_van": [
+     {
+      "hao": 3,
+      "printed": "40 - 45",
+      "from": 40,
+      "to": 45,
+      "printed_beside_hao": 4
+     },
+     {
+      "hao": 4,
+      "printed": "46 - 51",
+      "from": 46,
+      "to": 51,
+      "printed_beside_hao": 5
+     }
+    ]
+   },
+   "hoa_cong": {
+    "trigram": "Đoài",
+    "present": false,
+    "where": null
+   },
+   "thien_nguyen_khi": {
+    "trigram": "Cấn",
+    "present": true,
+    "where": "Tiên Thiên, quẻ chính"
+   },
+   "dia_nguyen_khi": {
+    "trigram": null,
+    "present": null,
+    "where": null,
+    "note": "not listed in b); by Phần I p.50 (Dần thuộc Cấn) it would be Cấn, while the Lược phê speaks of 'Thiên Địa Nguyên Khí Khôn'"
+   },
+   "ung_vien": null,
+   "verdict": {
+    "class": "Mệnh hợp cách, quý lắm",
+    "summary": "hai tổng âm dương hợp thời (mùa đông: âm trên 30, dương dưới 25); Bác một hào dương thống năm hào âm (cách chúng tông); được nguyên khí nhưng thiếu Hóa công nên chỉ ở chức phụ tá"
+   },
+   "quotes": [
+    {
+     "text": "Quân tử đắc dư",
+     "page": 127
+    },
+    {
+     "text": "Dĩ Thời Phát Kỳ Quang Đại",
+     "page": 127
+    }
+   ],
+   "ambiguities": [
+    "The âm sum is printed '8 + 8 + 8 + 6 + 6 + 6 + 42' ('+' for '=').",
+    "Hào 2 đại vận is printed '46 - 24' (same wrong label as p.122); the neighbours 10-15 and 22-27 fix it at 16-21.",
+    "Thiên nguyên khí is Cấn in b) but the Lược phê speaks of 'Thiên Địa Nguyên Khí Khôn'; Địa nguyên khí is not listed.",
+    "The tiết Đại Tuyết (start of the Tý month) is dated 28-10 and the month pillar is Canh Tý, yet the nguyệt lệnh is printed as Thuần Khôn.",
+    "Hậu Thiên Nguyên đường: the diagram is ambiguous (hào 3 or 4); Phần I p.84 settles it at hào 3."
+   ]
+  },
+  {
+   "id": "p127_mau_ty",
+   "pages": [
+    127,
+    128
+   ],
+   "label": "Bài giải đoán mẫu 4",
+   "subject": "quý cách nơi triều đình",
+   "sex_polarity": "Dương nam",
+   "birth": {
+    "year": "Mậu Tý",
+    "month": "Giáp Tý",
+    "day": "Quý Tỵ",
+    "hour": "Quý Hợi",
+    "lunar_date_printed": "tháng 11, ngày 23, giờ Hợi",
+    "era": "Thiệu Hưng"
+   },
+   "pillars": [
+    {
+     "pillar": "year",
+     "can": "Mậu",
+     "can_number": 1,
+     "chi": "Tý",
+     "chi_numbers": [
+      1,
+      6
+     ]
+    },
+    {
+     "pillar": "month",
+     "can": "Giáp",
+     "can_number": 6,
+     "chi": "Tý",
+     "chi_numbers": [
+      1,
+      6
+     ]
+    },
+    {
+     "pillar": "day",
+     "can": "Quý",
+     "can_number": 2,
+     "chi": "Tỵ",
+     "chi_numbers": [
+      2,
+      7
+     ]
+    },
+    {
+     "pillar": "hour",
+     "can": "Quý",
+     "can_number": 2,
+     "chi": "Hợi",
+     "chi_numbers": [
+      1,
+      6
+     ]
+    }
+   ],
+   "season_printed": "sau Đông Chí",
+   "solar_term": {
+    "name": "Đông Chí",
+    "kind": "khí",
+    "date_printed": "16 tháng 11"
+   },
+   "nguyet_lenh": {
+    "hexagram": "Địa Lôi Phục",
+    "printed": "Quẻ Phục"
+   },
+   "sum_duong": {
+    "terms": [
+     1,
+     1,
+     1,
+     7,
+     1
+    ],
+    "total": 11,
+    "reductions": [
+     1
+    ],
+    "trigram": "Khảm",
+    "trigram_number": 1
+   },
+   "sum_am": {
+    "terms": [
+     6,
+     2,
+     2,
+     6,
+     6,
+     2,
+     6
+    ],
+    "total": 30,
+    "reductions": [
+     3
+    ],
+    "trigram": "Chấn",
+    "trigram_number": 3
+   },
+   "tien_thien": {
+    "name": "Thủy Lôi Truân",
+    "number": 3,
+    "upper": "Khảm",
+    "lower": "Chấn",
+    "upper_from": "sum_duong",
+    "lower_from": "sum_am",
+    "lines": [
+     "dương",
+     "âm",
+     "âm",
+     "âm",
+     "dương",
+     "âm"
+    ],
+    "nguyen_duong_hao": 5,
+    "nguyen_duong_basis": "text: 'Nguyên đường ngồi hào 5 dương quẻ Truân'; NĐ mark on hào 5",
+    "nguyen_duong_mark_on": 5,
+    "ho": {
+     "upper": "Cấn",
+     "lower": "Khôn"
+    },
+    "dai_van": [
+     {
+      "hao": 5,
+      "printed": "1 - 9",
+      "from": 1,
+      "to": 9
+     },
+     {
+      "hao": 6,
+      "printed": "40 - 45",
+      "from": 40,
+      "to": 45,
+      "misprint": true,
+      "reading": [
+       10,
+       15
+      ]
+     },
+     {
+      "hao": 1,
+      "printed": "16 - 24",
+      "from": 16,
+      "to": 24
+     },
+     {
+      "hao": 2,
+      "printed": "25 - 30",
+      "from": 25,
+      "to": 30
+     },
+     {
+      "hao": 3,
+      "printed": "31 - 36",
+      "from": 31,
+      "to": 36
+     },
+     {
+      "hao": 4,
+      "printed": "37 - 42",
+      "from": 37,
+      "to": 42
+     }
+    ]
+   },
+   "hau_thien": {
+    "name": "Lôi Địa Dự",
+    "number": 16,
+    "upper": "Chấn",
+    "lower": "Khôn",
+    "lines": [
+     "âm",
+     "âm",
+     "âm",
+     "dương",
+     "âm",
+     "âm"
+    ],
+    "nguyen_duong_hao": 2,
+    "nguyen_duong_basis": "the first Hậu Thiên vận '43 - 48' is printed beside hào 2 (text silent; in examples 1-2 the first Hậu Thiên vận is the Nguyên đường hào)",
+    "nguyen_duong_mark_on": 3,
+    "ho": {
+     "upper": "Khảm",
+     "lower": "Cấn"
+    },
+    "start_age": 43,
+    "dai_van": [
+     {
+      "hao": 2,
+      "printed": "43 - 48",
+      "from": 43,
+      "to": 48
+     },
+     {
+      "hao": 3,
+      "printed": "49 - 54",
+      "from": 49,
+      "to": 54
+     }
+    ]
+   },
+   "hoa_cong": {
+    "trigram": "Khảm",
+    "present": true,
+    "where": "Tiên thiên quẻ Chính và Hậu Thiên quẻ Hỗ"
+   },
+   "thien_nguyen_khi": {
+    "trigram": "Khảm",
+    "present": true,
+    "where": "có cả"
+   },
+   "dia_nguyen_khi": {
+    "trigram": "Khảm",
+    "present": true,
+    "where": "có cả"
+   },
+   "ung_vien": null,
+   "verdict": {
+    "class": "mệnh quý nhân",
+    "summary": "Nguyên đường hào 5 dương đắc vị trung chính; đủ Thiên địa nguyên khí và Hóa công; sinh sau Đông Chí, nguyệt lệnh Phục, dương 11 âm 30 đều không thiếu"
+   },
+   "quotes": [
+    {
+     "text": "Tổng số dương: 1 + 1 + 1 + 7 + 1 = 11",
+     "page": 127
+    },
+    {
+     "text": "Nguyên đường ngồi hào 5 dương quẻ Truân",
+     "page": 128
+    }
+   ],
+   "ambiguities": [
+    "Hào 6 đại vận is printed '40 - 45', which overlaps hào 4 (37-42) and the Hậu Thiên start (43); the order of the other spans (hào 5 from 1, hào 1 from 16) puts hào 6 at 10-15.",
+    "The Hậu Thiên 'NĐ' mark is drawn on hào 3 while the first Hậu Thiên vận label is beside hào 2.",
+    "Phần I p.84 confirms the Hậu Thiên Nguyên đường used here (Tiên Thiên hào ±3); the printed NĐ marks in the Hậu Thiên diagrams sit one line off."
+   ]
+  }
+ ]
+}
