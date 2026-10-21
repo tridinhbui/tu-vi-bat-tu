@@ -45,3 +45,30 @@ Mẫu tham khảo: đoạn "Tổng quan lá số tử vi" người dùng dán (l
 ## 5. Thứ tự
 
 S1 → S3 → S2 (Mệnh trước) → B1–B3 → S4 → S5/B6 → S6 → S7. Không đổi câu chữ thành "hay" bằng cách thêm ý không nguồn.
+
+## 6. Trạng thái (2026-10-21, nhánh `claude/luan-cung-prose-59ef13`)
+
+Mẫu tham khảo thứ hai (ảnh chụp "Luận cung" của lá 2002, Cự Môn hãm tại Tuất) được dùng cho **cấu trúc và giọng**, không chép câu. Phần làm theo mẫu ấy gọi là **luận cung** (`src/interpret/prose/luan.ts`, thư viện câu `content/prose/luan.json`, bản nháp).
+
+| # | Trạng thái | Ghi chú |
+|---|---|---|
+| S1 | xong | khối tổng quan (WIP 1df89a5, đã rà): bản mệnh, cục, quan hệ Mệnh–Cục (câu KL p.238 khi luật bắn), chủ mệnh / chủ thân (bảng thông dụng, nhãn phổ thông), độ số. Khi bật luận cung, tổng quan **không** kể lại sao cung Mệnh và Thân cư (chương Mệnh mở bằng chúng); thẻ dữ kiện vẫn giữ |
+| S2 | xong, theo mẫu mới | không còn bốn chủ đề cố định: mỗi cung là một chương luận cung gồm câu mở (cung + chi, chính tinh kèm độ sáng đã kiểm, sao sáng nhất trong tam phương tứ chính và cung nó chiếu từ, nhóm sao KL tr.166-167 khi hai sao cùng nhóm, sao đi cùng, Tuần/Triệt), rồi các đoạn chủ đề có **mở đoạn in đậm** ("Về tính cách và cách giao tiếp", "Về năng lực và sự nghiệp", "Về quý nhân…", "Thân cư …", "Về biến động và rủi ro hậu vận", "Tổng kết lại"). Tật Ách: chỉ câu sách, kèm câu "không thay cho lời khuyên của thầy thuốc"; không tự nêu tên bệnh |
+| S3 | xong (nháp) | mỗi đoạn: luận điểm (luật) → biểu hiện (thẻ khái niệm) → "Tuy nhiên / Có điều" (luật làm giảm, chiều ngược, giới hạn của sao cứu) → lời khuyên (thẻ `mature` của khái niệm bất lợi vừa nói) → hình ảnh "con dao hai lưỡi" **chỉ khi** điểm mạnh và điểm yếu cùng do một sao khẳng định (ghế của sao đó). Câu khuyên / câu gộp là `he_thong`, không thêm ý mới (validator chặn) |
+| S4 | xong | `reasonPalace(chart, k, palace)` cho cả 12 cung (`reasonMenh` = trường hợp Mệnh, golden reasoned không đổi); tỉ lệ nền theo từng cung (`base_rates.json` → `palaces`); Thân cư lấy luận điểm mạnh nhất của cung an Thân mà chương Mệnh chưa nói, và chương của cung ấy bỏ luận điểm đó đi |
+| S5 | một phần | đoạn "hậu vận" trong chương Mệnh: các đại hạn từ 43 tuổi (mốc của hệ thống) xét theo tam hợp tuổi (KL tr.230-233), gọn một câu; từng hạn vẫn được luận đủ ở chương đại hạn (`vanhan.ts`). Tiểu vận năm không đổi |
+| S6 | xong cho chương luận cung | câu "cung này xem gì" lặp mọi lá số không còn trong chương luận cung; chương cũ (khi cung không có luận điểm) vẫn giữ |
+| S7 | xong | `tools/interpret/eval_distinct.ts --engine luan` (số ở mục 7) |
+| B1 | xong | câu mở chương Nhật Chủ: nhật chủ, hành, tháng sinh, bốn trụ, nạp âm trụ năm và trụ ngày (chỉ hai trụ có trong dữ kiện; không thêm bảng nạp âm chưa nguồn) |
+| B2 | đã có | vượng/nhược theo điểm Thiệu Vĩ Hoa (BT_TVH_*) |
+| B3 | đã có | thẻ thập thần theo trụ (phổ thông) |
+| B4 | chưa | hợp xung hình hại: chỉ có câu tính toán; ý nghĩa theo ZZ tr.19-20 chưa thêm |
+| B5 | xong | phán đoán trực tiếp ZZ tr.50-74: câu "trung tính" trước, câu "hạn chế" sau có "Có điều / Tuy nhiên"; mở đoạn in đậm thay cho cụm chủ đề trong câu |
+| B6 | đã có | đại vận (thập thần, điều hậu, phù ức) |
+| B7 | xong | mở đoạn in đậm cho mọi đoạn Bát Tự; "Tổng kết lại": các vận được tiếp sức và các vận phải lượng sức theo đúng vai trò mà đoạn đại vận đã nêu |
+
+**Hiển thị** (`engine/web/js/report.js`, `css/app.css`): mở đoạn in đậm; tên sao tô màu ngũ hành như trên lá số (`stars_hanh.js`, quy ước hiển thị), chính tinh in đậm; dưới mỗi đoạn có 👍 👎 💬 gửi vào `/api/feedback` (luồng góp ý sẵn có, cùng khóa với bong bóng Góp ý) với chương, số đoạn, phiên bản văn và knowledge; chạy được ở bề ngang 375px.
+
+**Cờ**: `TVBT_LUAN` (Worker, mặc định bật; `"0"` để về chương cũ). Cần `TVBT_PROSE_DRAFT=1` (thư viện còn nháp). `PROSE_VERSION` = `prose-0.4.0`, `LUAN_VERSION` = `luan-0.1.0`.
+
+**Không làm / còn chặn**: Bát Tự Hà Lạc (chưa có phần cách lập quẻ, xem `docs/HA-LAC-PLAN.md`) → chương không có đoạn Hà Lạc. Nhị hợp, lục hại: sách trong kho chỉ dùng nhị hợp khi xét đại hạn (KL tr.230-233), không có câu đọc nghĩa cho lá số gốc → chỉ nêu **vị trí**, và chỉ khi cung kia có Tứ Hóa gốc, Lộc Tồn hoặc sát tinh (lựa chọn của hệ thống). "Tam Ám" và các nhóm sao không có định nghĩa trong kho → không dùng. "Giáp Tử Vi" kiểu một sao: không có; chỉ giáp theo cặp (Tả Hữu, Xương Khúc, Khôi Việt, Nhật Nguyệt, Tử Phủ, Khoa/Quyền/Lộc, Kình Đà, Không Kiếp, Hỏa Linh) — vị trí, còn ý nghĩa chỉ khi luật giáp của sách bắn.

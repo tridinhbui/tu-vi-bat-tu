@@ -406,7 +406,7 @@
       "đối diện là {star} ở {from} xung chiếu",
       "cung xung chiếu là {from}, có {star}",
       "{star} từ {from} xung chiếu về",
-      "xung chiếu sang là {star} ({from})"
+      "xung chiếu sang là {star} từ {from}"
     ],
     "with": [
       "Trong cung còn có {stars}",
@@ -439,7 +439,6 @@
       "{a} cộng với {b} là chỗ mạnh rõ nhất của phần này",
       "Đặt cạnh nhau, {a} và {b} bổ cho nhau",
       "Hai điều ấy, {a} và {b}, đi cùng một hướng",
-      "{a} có {b} đỡ thêm",
       "{a} và {b} cùng một chiều thuận"
     ],
     "advice": [
@@ -483,7 +482,7 @@
     "same": [
       "cung an Thân cũng chính là cung Mệnh, nên con người được tả ở trên theo đương số đến cả tuổi trưởng thành",
       "Thân và Mệnh cùng một cung, nên những nét chính đã nói không đổi hướng khi đương số trưởng thành",
-      "Thân không tách khỏi Mệnh: những gì đã nói theo người này suốt đời",
+      "Thân không tách khỏi Mệnh: những gì đã nói theo người này cả khi trưởng thành",
       "cung Thân trùng cung Mệnh, nên tuổi trưởng thành vẫn đi theo những nét đã nêu",
       "không có cung Thân riêng, vì Thân an ngay tại Mệnh"
     ],
@@ -541,7 +540,7 @@
       "{age} tuổi ở {pal}",
       "{pal} ({age} tuổi)",
       "chặng {age} tuổi qua {pal}",
-      "hạn {pal} lúc {age} tuổi",
+      "{pal} lúc {age} tuổi",
       "quãng {age} (cung {pal})"
     ],
     "calm": [
@@ -560,7 +559,7 @@
       "cuộc đời {S} đi từ {young} của thuở đầu{mature}{late}",
       "hành trình của {S} bắt đầu từ {young}{mature}{late}",
       "thuở đầu là {young}{mature}{late}",
-      "từ {young} lúc trẻ{mature}{late}"
+      "{young} là vốn liếng thuở đầu{mature}{late}"
     ],
     "mature": [
       "; khi trưởng thành, Thân cư {pal} kéo trọng tâm sang {np}",

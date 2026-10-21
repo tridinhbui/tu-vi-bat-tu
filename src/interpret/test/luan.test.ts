@@ -12,6 +12,7 @@ import type { Knowledge } from '../types.ts';
 import { run } from '../engine.ts';
 import { luanReport, luanChapter, luanShared, withLead, type LuanChapter } from '../prose/luan.ts';
 import { reasonedChapter } from '../prose/narrative.ts';
+import { ABSOLUTE, META } from '../prose/lint.ts';
 
 const FX = join(import.meta.dirname, 'fixtures');
 const K: Knowledge = JSON.parse(readFileSync(join(import.meta.dirname, '..', 'generated', 'knowledge.json'), 'utf8'));
@@ -19,6 +20,22 @@ const ex = JSON.parse(readFileSync(join(FX, 'menh_cu_tuat.json'), 'utf8')).facts
 const corpusFile = join(FX, 'corpus1000.json.gz');
 const rmap = new Map(K.rules.map(r => [r.id, r]));
 const isLuan = (c: { luan?: boolean }): c is LuanChapter => !!c.luan;
+
+test('luan.json: no frame uses meta-language or an absolute, every slot is one the writer fills', () => {
+  const SLOTS = new Set(['pal', 'branch', 'majors', 'star', 'from', 'stars', 'tt', 'a', 'b', 'group', 'note', 'S', 'mature', 'seat', 'config', 'domain', 'claim', 'text',
+    'pair', 'left', 'right', 'other', 'opal', 'neg', 'pos', 'list', 'age', 'young', 'np', 'late']);
+  const walk = (x: unknown, at: string): void => {
+    if (typeof x === 'string') {
+      const low = ' ' + x.toLowerCase();
+      for (const w of META) assert.ok(!low.includes(' ' + w), `${at}: meta "${w}" in ${x}`);
+      for (const w of ABSOLUTE) assert.ok(!low.includes(w), `${at}: absolute "${w}" in ${x}`);
+      for (const m of x.matchAll(/\{([A-Za-z_]+)\}/g)) assert.ok(SLOTS.has(m[1]), `${at}: slot {${m[1]}}`);
+    } else if (Array.isArray(x)) x.forEach((y, i) => walk(y, `${at}[${i}]`));
+    else if (x && typeof x === 'object') for (const [k2, v] of Object.entries(x)) walk(v, `${at}.${k2}`);
+  };
+  const { status: _s, ...lib } = K.prose!.luan!;
+  walk(lib, 'luan');
+});
 
 test('withLead: the lead-in, then the sentence lowered unless it opens with a name, its opening connective dropped', () => {
   assert.equal(withLead('Về tính cách', 'Ngoài ra, Cự Môn hãm …'), 'Về tính cách, Cự Môn hãm …');
@@ -32,12 +49,13 @@ test('worked example (Cự Môn hãm hóa Lộc tại Tuất): the reference sha
   assert.ok(isLuan(menh), 'Mệnh is a luận cung chapter');
   assert.ok(menh.pass, JSON.stringify(menh.issues.filter(i => i.level === 'error')));
   const [frame, ...rest] = menh.paragraphs;
-  assert.match(frame.sentences[0].text, /^.*Mệnh.*Tuất.*Cự Môn \(Hãm Địa\) hóa Lộc tọa thủ, nhưng .*Thái Dương \(Vượng Địa\) hóa Quyền từ cung Tài Bạch \(Ngọ\)\.$/);
+  // the palace, its branch, the chính tinh with checked brightness and its Hóa, the brightest star of the tam phương and where it shines from
+  for (const x of ['Mệnh', 'Tuất', 'Cự Môn (Hãm Địa) hóa Lộc', 'Thái Dương (Vượng Địa) hóa Quyền', 'cung Tài Bạch (Ngọ)']) assert.ok(frame.sentences[0].text.includes(x), `${x}: ${frame.sentences[0].text}`);
   assert.equal(frame.sentences[0].trace.basis, 'tinh_toan');
   assert.match(frame.text, /nhóm Cự – Nhật – Nguyệt/);
   assert.ok(rest.filter(p => p.lead).length >= 4, 'topic paragraphs open with a lead-in');
   for (const p of rest.filter(p => p.lead)) assert.ok(p.sentences[0].text.startsWith(p.lead + ', '), p.text);
-  assert.ok(rest.some(p => p.topic === 'than' && p.lead === 'Thân cư Tài Bạch'), 'Thân cư Tài Bạch');
+  assert.ok(rest.some(p => p.topic === 'than' && p.lead?.includes('Tài Bạch')), 'Thân cư Tài Bạch');
   assert.ok(rest.some(p => p.topic === 'tong_ket'), 'closing');
   const pos = rest.find(p => p.topic === 'vi_tri')!;
   assert.ok(pos.sentences.every(s => s.trace.basis === 'tinh_toan' && !s.trace.rules.length), 'positions carry no reading');

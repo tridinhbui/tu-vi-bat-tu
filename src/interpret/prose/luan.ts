@@ -116,7 +116,7 @@ export function luanReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?:
   const pre = infer(chart, k);
   const old = proseReport(chart, k, { ...opts, pre });
   const sh = luanShared(chart, k, allowDraft, pre);
-  return PROSE_ORDER.map((id, i) => luanChapter(chart, k, id, sh) ?? old[i]);
+  return PROSE_ORDER.map((id, i) => luanChapter(chart, k, id, sh) ?? withoutTold(old[i], sh.keys));
 }
 
 /** One palace in the luận cung form, or null when its plan gives nothing to argue (the caller keeps the older chapter). */
@@ -125,7 +125,10 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const pal = chart.palaces.find(p => p.name === P)!;
   const full = reasonPalace(chart, k, P, { resolved: sh.resolved, labelled: sh.labelled }, { draftFormations: sh.allowDraft });
   const plan: ReadingPlan = { ...full, theses: full.theses.filter(t => !sh.told.has(`${P}|${t.id}`)) };
-  if (!plan.theses.length && !plan.modifiers.length) return null;
+  // the Thân palace whose strongest thesis Thân cư told keeps a luận cung chapter even when nothing else is left to argue (frame and the
+  // common reading): the older chapter would tell that thesis again
+  const toldHere = full.theses.length > plan.theses.length;
+  if (!plan.theses.length && !plan.modifiers.length && !toldHere) return null;
   const other = spec.bond ? k.prose!.frames.other?.[P] : undefined;
   const W = new Writer(chart, k, plan, sh.allowDraft, { micro: sh.micro, other, bond: spec.bond });
   const ctx: ArgueCtx = { voiced: sh.voiced, allConcepts: new Set(), structAt: [] };
@@ -268,10 +271,11 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   }
   // a palace the books say little about: the common reading of its chính tinh and notable phụ tinh, labelled phổ thông (deep.ts), for the
   // stars no book sentence of the chapter already speaks of
-  if (!isMenh && paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').length < 4) {
+  if (!isMenh && (toldHere || paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').length < 4)) {
     const opp = chart.palaces.find(p => p.branch_index === (pal.branch_index + 6) % 12);
     // a star a book sentence of the chapter (or Thân cư, for this palace) already speaks of is not read again from the common cards
-    const ruleIds = new Set(paras.flatMap(p => p.sentences.flatMap(s => s.trace.rules)));
+    const firedHere = new Set(sh.findings.filter(f => f.subject === `palace:${P}`).map(f => f.ruleId));
+    const ruleIds = new Set([...paras.flatMap(p => p.sentences.flatMap(s => s.trace.rules)), ...[...sh.voiced].filter(id => firedHere.has(id))]);
     const inBook = new Set([...names].filter(n => k.rules.some(r => ruleIds.has(r.id) && JSON.stringify(r.conditions).includes(`"${n}"`))));
     const bookStars = new Set([...bookStarsOf(paras, k, pal, opp), ...[...sh.colourTold].filter(x => x.startsWith(`${P}|`)).map(x => x.slice(P.length + 1))]);
     const colour = readPalace(chart, k, P, sh.micro, { key: 'luan', bookStars, lead: false }).colour
@@ -292,7 +296,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const reading = (rid: string) => { const r = rmap.get(rid)!; return (r.reading ?? k.claims[r.consequences[0]?.claim ?? ''] ?? '').replace(/^(khuynh hướng|hạn chế:)\s*/, ''); };
   const ruleIds = [...new Set(paras.flatMap(p => p.sentences.flatMap(s => s.trace.rules)))].filter(r => rmap.has(r)).sort();
   const book = paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').length;
-  if (!book) return null;
+  if (!book && !toldHere) return null;
   return {
     engine: `${PROSE_VERSION}/${LUAN_VERSION}`, kbVersion: k.version, chapter: id, palace: P, title: `Luận cung ${P}`, luan: true, schema: 'luan', order: [],
     theses: plan.theses.map(t => t.id),
@@ -312,6 +316,13 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
 function thesisTopic(W: Writer, t: Thesis, P: string): Topic {
   const flank = t.seat.scope === 'flank';
   return t.claims.map(c => topicOf(W.concept(c.concept), P, flank)).find(x => x !== 'duong_doi') ?? 'duong_doi';
+}
+/** An older chapter kept for a palace with nothing to argue, less the book sentences voicing a reading the luận cung chapters already told. */
+function withoutTold(ch: ProseChapter, keys: Set<string>): ProseChapter {
+  const paragraphs = ch.paragraphs.map(p => ({ ...p, sentences: p.sentences.filter(s => s.trace.basis !== 'sach' || !(s.trace.keys ?? []).some(x => keys.has(x))) }))
+    .filter(p => p.sentences.some(s => s.trace.basis === 'sach' || s.trace.basis === 'pho_thong' || s.trace.basis === 'tinh_toan'))
+    .map(p => ({ ...p, text: p.sentences.map(s => s.text).join(' ') }));
+  return { ...ch, paragraphs, text: paragraphs.map(p => p.text).join('\n\n') };
 }
 const rarestOf = (xs: Reading[]) => [...xs].sort((a, b) => Number(b.r.status === 'holds') - Number(a.r.status === 'holds') || b.rarity - a.rarity || (a.r.ruleId < b.r.ruleId ? -1 : 1))[0];
 
