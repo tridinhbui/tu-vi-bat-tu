@@ -59,7 +59,7 @@ Kinh Dịch **không** chứa cách lập quẻ Hà Lạc theo giờ sinh: vẫn
 | H3 | **Xong**: `engine/data/ha_lac/golden_part1.json` chép mọi ví dụ Phần I (tr.43–96) + 5 lá mẫu Phần II; `tests/test_ha_lac_cast.py` khớp từng con số sách in (chỗ in sai được ghi lại) |
 | H4–H6 | Chưa làm (giao diện, luận thể cách, nối vào báo cáo) |
 | K1 | **Xong**: bản Ngô Tất Tố, mỗi quẻ: lời kinh (chữ Hán), dịch âm, dịch nghĩa, Truyện của Trình Di, Bản nghĩa của Chu Hy, lời bàn của tiên nho; ảnh rõ, đọc được |
-| K2–K3 | Chưa làm. Lời giải đoán Hà Lạc cho **quẻ 1–23** có sẵn ở Phần II của sách gốc (ảnh quét, tr.139–307 theo bảng "Đồ biểu 64 quẻ") — nguồn đúng hơn Kinh Dịch cho phần Ý hào / Mệnh hợp cách / Tuế vận; cần chép (tóm ý) từ ảnh |
+| K2–K3 | Chưa làm. Lời giải đoán Hà Lạc cho **quẻ 1–23** có sẵn ở Phần II của sách gốc (ảnh quét, tr.139–277 theo bảng "Đồ biểu 64 quẻ": Kiền 139 … Bác 272, Phục 278) — nguồn đúng hơn Kinh Dịch cho phần Ý hào / Mệnh hợp cách / Tuế vận; cần chép (tóm ý) từ ảnh |
 | K4 | Không cần cho lập quẻ nữa: Phần I đã cho số Lạc Thư của 8 quái và bảng nguyên khí |
 
 Còn mở: sách ghi Tam Nguyên 1864–2043 (tr.48) và chú thích rằng sách Dương Trạch tính khác (1984 là Thượng nguyên mới) — bộ lập quẻ theo sách này. Giờ Tý và ngày: theo quy ước Tý của engine (sách tr.31 chỉ cho bảng giờ và các lần đổi giờ ở Việt Nam 1943–1960).
