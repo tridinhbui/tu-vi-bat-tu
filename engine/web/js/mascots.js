@@ -77,22 +77,37 @@ export function initChat(host, sys, turns) {
   const log = $('.gd-log', host), skip = $('[data-gd=skip]', host), replay = $('[data-gd=replay]', host);
   let ctl = null;
   const abort = () => { if (ctl) { ctl.stop = true; clearTimeout(ctl.t); } };
+  // every bubble is laid out at its final size before the first one speaks (hidden, with its whole text as an invisible ghost under the
+  // typed text), so the conversation never grows while it plays and nothing below it moves (on a phone the page used to jump each line)
+  const build = () => {
+    log.textContent = ''; log.scrollTop = 0;
+    return turns.map(turn => {
+      const g = GUIDES[turn.who], segs = parseMarkup(turn.t);
+      const row = document.createElement('div'); row.className = `gd-row gd-${turn.who} gd-wait`;
+      row.innerHTML = `${avatar(turn.who, 44)}<div class="gd-bub"><span class="gd-who">${g.name}</span><div class="gd-tx"><p class="gd-ghost" aria-hidden="true"></p><p class="gd-t" aria-hidden="true"></p><span class="gd-dots" aria-hidden="true"><i></i><i></i><i></i></span></div><span class="gd-sr"></span></div>`;
+      $('.gd-sr', row).textContent = `${g.name}: ${segs.map(s => s.t).join('')}`;
+      renderSegments($('.gd-ghost', row), segs, Infinity);
+      log.append(row);
+      return { row, segs };
+    });
+  };
+  let rows = build();          // laid out now, so the panel already has its size before it starts playing
   const run = async () => {
     abort(); ctl = { stop: false, skipped: false }; const my = ctl;
-    log.textContent = ''; skip.hidden = false; replay.hidden = true; host.classList.remove('gd-done');
-    for (const turn of turns) {
+    if (!rows.every(r => r.row.classList.contains('gd-wait'))) rows = build();
+    skip.hidden = false; replay.hidden = true; host.classList.remove('gd-done');
+    for (const { row, segs } of rows) {
       if (my.stop) return;
-      const g = GUIDES[turn.who], segs = parseMarkup(turn.t);
-      const row = document.createElement('div'); row.className = `gd-row gd-${turn.who}`;
-      row.innerHTML = `${avatar(turn.who, 44)}<div class="gd-bub"><span class="gd-who">${g.name}</span><p class="gd-t" aria-hidden="true"></p><span class="gd-sr"></span><span class="gd-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>`;
-      $('.gd-sr', row).textContent = `${g.name}: ${segs.map(s => s.t).join('')}`;
-      log.append(row);
+      row.classList.remove('gd-wait');
+      // the log scrolls inside itself to the bubble now speaking; the page never moves
+      const below = row.offsetTop + row.offsetHeight - log.clientHeight;
+      if (below > log.scrollTop) log.scrollTo({ top: below, behavior: reduce() ? 'auto' : 'smooth' });
       row.classList.add('gd-typing');
       await wait(my, 520); if (my.stop) return;
       row.classList.add('gd-talk');
       await typeInto($('.gd-t', row), segs, my);
       if (my.stop) return;
-      row.classList.remove('gd-typing', 'gd-talk'); row.classList.add('gd-said');
+      row.classList.remove('gd-typing', 'gd-talk'); row.classList.add('gd-said'); $('.gd-ghost', row).remove();
       autoLink($('.gd-t', row), sys === 'tv' ? 'tv' : 'bt');
       await wait(my, 380);
     }

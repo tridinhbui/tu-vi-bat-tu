@@ -488,10 +488,13 @@ body[data-depth=pro] .sy-b-he_thong{text-decoration:underline dotted color-mix(i
 .gd-tv{--ma0:#6C5BB5}.gd-bt{--ma0:var(--cinnabar)}
 .gd-h{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--ma0) 6%,var(--ivory))}
 .gd-h .eyebrow{margin:0 0 2px}.gd-h h3{font-size:1.15rem}.gd-pair{display:flex}.gd-pair .gd-av+.gd-av{margin-left:-10px}.gd-act{margin-left:auto;display:flex;gap:8px}
-.gd-log{display:grid;gap:12px;padding:16px 18px;min-height:96px}
+.gd-log{display:grid;gap:12px;padding:16px 18px;min-height:96px;position:relative;max-height:min(70vh,560px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
 .gd-row{display:flex;gap:10px;align-items:flex-start;animation:gd-in .3s ease both}
 @keyframes gd-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .gd-row.gd-vi,.gd-row.gd-tu2{flex-direction:row-reverse}
+/* a bubble keeps its final size while it is typed (mascots.js): the whole text sits invisibly under the typed one, and a bubble not yet
+   spoken holds its place hidden, so the conversation never grows while it plays */
+.gd-row.gd-wait{visibility:hidden;animation:none}.gd-tx{display:grid}.gd-tx>*{grid-area:1/1}.gd-ghost{visibility:hidden;margin:0}.gd-tx .gd-dots{align-self:start}
 .gd-bub{position:relative;max-width:min(560px,100%);padding:10px 14px;border-radius:16px;background:var(--surface);border:1px solid var(--line);font-size:.96rem;line-height:1.55}
 .gd-row.gd-tu1 .gd-bub,.gd-row.gd-bat .gd-bub{border-top-left-radius:4px}.gd-row.gd-vi .gd-bub,.gd-row.gd-tu2 .gd-bub{border-top-right-radius:4px;background:color-mix(in srgb,var(--ma0) 9%,var(--ivory))}
 .gd-who{display:block;font:600 .64rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
