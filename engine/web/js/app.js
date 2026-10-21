@@ -16,6 +16,7 @@ import { initAccount } from './account.js';
 import { initAsk } from './ask.js';
 import { initLive } from './live.js';
 import { initGrowth } from './growth.js';
+import { renderOverview } from './overview.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const metaReady = Promise.all([loadMeta(), loadGlossary()]);
@@ -45,7 +46,7 @@ function setTab(tab, scroll = true) {
   requestAnimationFrame(() => dispatchEvent(new Event('resize')));
 }
 function go(id) {
-  const tabs = { 'bat-tu': 'bazi', 'tu-vi': 'tuvi', 'truong-thanh': 'growth' };
+  const tabs = { 'tong-quan': 'overview', 'bat-tu': 'bazi', 'tu-vi': 'tuvi', 'truong-thanh': 'growth' };
   if (tabs[id] && state?.chart) { if (document.body.dataset.view !== 'chart') view('chart'); setTab(tabs[id]); history.replaceState({ v: 'chart' }, '', '#la-so/' + id); return; }
   const target = $('#' + id) ? id : 'lap-la-so'; // retired anchors from older links land on the form
   if (document.body.dataset.view !== 'home') view('home');
@@ -148,10 +149,12 @@ async function generate(ev, saved = null) {
     const proseReq = post('/api/interpret', { ...req, chapter: 'all', mode: 'prose', to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 })
       .then(r => Object.fromEntries((r.chapters || []).map(x => [x.chapter, x]))).catch(() => null);
     const interpReq = post('/api/interpretation', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);   // optional, same flag
-    const [chart, reason, analysis, formations, , synth, interp, prose] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady, synthReq, interpReq, proseReq]);
+    // "Tổng quan lá số" (/api/overview, TS on the Worker): optional too; without it the result opens on Tử Vi as before
+    const overviewReq = post('/api/overview', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);
+    const [chart, reason, analysis, formations, , synth, interp, prose, overview] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady, synthReq, interpReq, proseReq, overviewReq]);
     // Only readings checked against the books are shown; draft rules stay in the engine and on the rule-library page.
     Object.values(reason.systems).forEach(sys => { sys.findings = sys.findings.filter(f => f.basis === 'verified'); sys.pending = []; });
-    state = { req, chart, reason, analysis, lunarIn, formations, synth, interp, prose };
+    state = { req, chart, reason, analysis, lunarIn, formations, synth, interp, prose, overview };
     showResults();
   } catch (x) {
     err.innerHTML = notice('Chưa lập được lá số', esc(x.message), 'warn'); err.hidden = false;
@@ -226,8 +229,13 @@ function showResults() {
   $('#res-sub').innerHTML = lu + `<span><b>${fmtDate(req)}</b> · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
   $('#res-hl').innerHTML = `<button type="button" class="hl-chip gl" data-gl="c:nhat-chu">${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></button><button type="button" class="hl-chip gl" data-gl="c:cuc">${esc(t.cuc.name)}</button><button type="button" class="hl-chip gl" data-gl="c:nap-am">Mệnh ${esc(t.menh_nap_am)}</button>`;
   saver.paint();
-  setTab('tuvi', false); view('chart');
-  history.pushState({ v: 'chart' }, '', '#la-so/tu-vi');
+  // the overview tab opens first when the server sent it; its chapter buttons open the matching Tử Vi chapter
+  const ov = !!state.overview?.indices;
+  $('#tab-overview').hidden = !ov;
+  if (ov) renderOverview($('#overview-host'), state.overview, { onChapter: id => { setTab('tuvi', false); history.replaceState({ v: 'chart' }, '', '#la-so/tu-vi'); setTimeout(() => $('#tv-' + id)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }), 60); } });
+  else $('#overview-host').innerHTML = '';
+  setTab(ov ? 'overview' : 'tuvi', false); view('chart');
+  history.pushState({ v: 'chart' }, '', ov ? '#la-so/tong-quan' : '#la-so/tu-vi');
 }
 function again() { view('home'); history.replaceState(null, '', '#lap-la-so'); requestAnimationFrame(() => $('#lap-la-so').scrollIntoView({ behavior: 'smooth', block: 'start' })); }
 $('#again').onclick = again;

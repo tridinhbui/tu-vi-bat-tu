@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/atlas.css">
 <link rel="stylesheet" href="/css/dash.css">
+<link rel="stylesheet" href="/css/overview.css">
 </head>
 <body data-view="home">
 <a class="skip" href="#main">Bỏ qua điều hướng</a>
@@ -146,6 +147,7 @@
     </div>
   </section>
   <nav class="res-nav" aria-label="Chọn hệ thống"><div class="wrap res-tabs" role="tablist">
+    <button type="button" role="tab" id="tab-overview" data-go="tong-quan" aria-controls="pane-overview" aria-selected="false" hidden><i lang="zh">總覽</i>Tổng quan</button>
     <button type="button" role="tab" id="tab-tuvi" data-go="tu-vi" aria-controls="pane-tuvi" aria-selected="true"><i lang="zh">紫微</i>Tử Vi</button>
     <button type="button" role="tab" id="tab-bazi" data-go="bat-tu" aria-controls="pane-bazi" aria-selected="false"><i lang="zh">八字</i>Bát Tự</button>
     <button type="button" role="tab" id="tab-growth" data-go="truong-thanh" aria-controls="pane-growth" aria-selected="false" hidden><i lang="zh">修身</i>Trưởng thành</button>
@@ -156,6 +158,9 @@
     <section class="r-sec r-bazi atl-stage" aria-label="Bát Tự: bốn trụ"><div class="wrap atl-wrap"><div class="dash dash-bz"><div id="bazi-host"></div><aside class="dash-side" id="bazi-side" aria-label="Chi tiết và trợ lý"><div id="bazi-mascot"></div></aside></div></div></section>
     <div class="wrap easy-only atl-sum"><div id="bazi-summary"></div></div>
     <section class="r-sec r-report" aria-labelledby="bzr-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Luận giải chi tiết · Bát Tự</p><h2 id="bzr-h">Đọc từng chương Bát Tự</h2><p class="sec-sub">Dữ kiện tính toán, điều sách nói và giả thuyết luôn được tách riêng.</p></header><div id="bazi-report"></div></div></section>
+  </div>
+  <div class="pane" id="pane-overview" role="tabpanel" aria-labelledby="tab-overview">
+    <section class="r-overview" aria-labelledby="ov-h"><div class="wrap"><header class="sec-h"><p class="eyebrow">Tổng quan lá số · Tử Vi</p><h2 id="ov-h">Một màn hình cho cả lá số</h2><p class="sec-sub">Khung lá số, các luận điểm chính về Mệnh, và bốn biểu đồ chỉ số hệ thống: mỗi con số đều lần ra được quy tắc và trang sách.</p></header><div id="overview-host"></div></div></section>
   </div>
   <div class="pane" id="pane-tuvi" role="tabpanel" aria-labelledby="tab-tuvi">
     <section class="r-sec r-tuvi atl-stage" aria-label="Tử Vi: mười hai cung"><div class="wrap atl-wrap"><div class="dash dash-tv"><div id="tuvi-host"></div><aside class="dash-side" id="tuvi-side" aria-label="Chi tiết và trợ lý"><div id="tuvi-mascot"></div></aside></div></div></section>
