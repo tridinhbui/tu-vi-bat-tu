@@ -175,7 +175,7 @@ export function renderTuvi(host, t, ctx) {
       if (els.length !== 2) return '';
       const [a, b] = els.map(e => ({ x: e.offsetLeft, y: e.offsetTop, w: e.offsetWidth, h: e.offsetHeight }));
       const vertical = Math.abs(a.x - b.x) < 2;         // one above the other: the tag sits on the horizontal edge between them
-      const x = vertical ? a.x + a.w / 2 : Math.max(a.x, b.x), y = vertical ? Math.max(a.y, b.y) : a.y + a.h - 12;
+      const x = vertical ? a.x + a.w / 2 : Math.max(a.x, b.x), y = vertical ? Math.max(a.y, b.y) : a.y + a.h;   // on the border itself, never over a row of text
       return `<span class="tb-tag" style="left:${x}px;top:${y}px">${label}</span>`;
     }).join('');
   };
