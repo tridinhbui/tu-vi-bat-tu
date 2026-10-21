@@ -6,6 +6,7 @@ import { bump, handleStats } from "./stats/stats.ts";
 import { handleChat } from "./chat/route.ts";
 import { handleFeedback, isFeedbackPath } from "./feedback/route.ts";
 import { handleAdmin, isAdminPath, type AdminEnv } from "./admin/route.ts";
+import { handleReferral, isReferralPath } from "./referral/route.ts";
 import { handleDeep } from "./chat/deep.ts";
 import { handleBilling, isBillingPath, type BillingEnv } from "./billing/route.ts";
 import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS } from "./chat/llm.ts";
@@ -60,6 +61,7 @@ export default {
     if (path === "/api/me/chat") return chatRoute(request, env, ctx, false);
     if (path === "/api/me/deep") return chatRoute(request, env, ctx, true);
     if (isFeedbackPath(path)) return handleFeedback(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
+    if (isReferralPath(path)) return handleReferral(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isAdminPath(path)) return handleAdmin(request, env, env.DB ? await currentUser(env.DB, request) : null);
     if (isAuthPath(path)) return handleAuth(request, env);
     if (path === "/api/interpret") return interpretRoute(request, env, ctx);

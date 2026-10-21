@@ -29,7 +29,7 @@ class BirthReq(BaseModel):
     year: int = Field(ge=1900, le=2049); month: int = Field(ge=1, le=12); day: int = Field(ge=1, le=31)
     hour: int = Field(ge=0, le=23); minute: int = Field(ge=0, le=59)
     tz: str = "Asia/Ho_Chi_Minh"; gender: str = Field(pattern="^(male|female)$")
-    longitude: float | None = None; calendar: str = Field("vn", pattern="^(vn|vn_south|cn)$")
+    longitude: float | None = None; calendar: str = Field("vn", pattern="^(vn|vn_south|vn_utc7|cn)$")
     zi_rule: str = Field("early_zi_next_day", pattern="^(early_zi_next_day|late_zi_same_day)$")
     use_true_solar_time: bool = False; level: int = Field(3, ge=1, le=5)
     to_year: int | None = None
@@ -333,7 +333,7 @@ def compare_charts(a: BirthReq, b: BirthReq):
 
 class LunarReq(BaseModel):
     year: int = Field(ge=1900, le=2049); month: int = Field(ge=1, le=12); day: int = Field(ge=1, le=30)
-    leap: bool = False; calendar: str = Field("vn", pattern="^(vn|cn)$")
+    leap: bool = False; calendar: str = Field("vn", pattern="^(vn|vn_utc7|cn)$")
 
 
 @app.post("/api/lunar-to-solar")
@@ -348,6 +348,19 @@ def lunar_to_solar_endpoint(req: LunarReq):
         raise HTTPException(422, "Không có ngày dương lịch nào khớp với ngày âm lịch này (có thể tháng không có ngày 30 hoặc không phải tháng nhuận).")
     s = hits[0]
     return {"solar": {"year": s.year, "month": s.month, "day": s.day}, "matches": len(hits)}
+
+
+@app.get("/api/calendar")
+def calendar_month(year: int, month: int, calendar: str = "vn", branch: int | None = None):
+    """Xem ngày: one month of solar/lunar dates, can chi, solar terms and lục xung with a birth-year branch (computed parts only)."""
+    from fastapi.responses import JSONResponse
+    from . import xem_ngay
+    try:
+        body = xem_ngay.month_view(year, month, calendar, branch)
+    except ValueError as e:
+        raise HTTPException(422, str(e))
+    # the same month always gives the same answer: let the browser and the edge keep it
+    return JSONResponse(body, headers={"cache-control": "public, max-age=86400"})
 
 
 @app.post("/api/hour-sweep")
@@ -478,3 +491,7 @@ from . import phi_hoa_api  # noqa: E402  (opt-in draft Phi Hóa school)
 phi_hoa_api.register(app, BirthReq, _compute)
 from . import growth_api  # noqa: E402  (Personal Growth layer, behind TVBT_GROWTH)
 growth_api.register(app, BirthReq, _compute)
+
+# Everything else under web/ (generated article pages, xem-ngay, manifest, service worker, icons): last, so it never shadows an API
+# route. Production serves these as Worker static assets; this mount makes a local uvicorn run match.
+app.mount("/", StaticFiles(directory=ROOT / "web", html=True), name="web")
