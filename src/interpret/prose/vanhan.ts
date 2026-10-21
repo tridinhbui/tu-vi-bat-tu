@@ -163,7 +163,7 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
 function yearParagraphs(chart: ChartInput, k: Knowledge, L: VanHanLibrary, m: Micro, S: () => string,
   sentence: (text: string, ids: string[], cites: string[], basis?: ProseSentence['trace']['basis'], tone?: 'pos' | 'neg' | 'answer') => ProseSentence,
   dom: (pal: string) => string): ProseParagraph[] {
-  const y = chart.year as ChartInput['year'] & { tieu_han_kl?: KlFacts; tieu_han_tt?: Tt; luu_tu_hoa_reading?: Array<{ hoa: string; star: string; palace: string | null; advice: string; position_note: string | null }> };
+  const y = chart.year as ChartInput['year'] & { tieu_han_kl?: KlFacts; tieu_han_tt?: Tt; luu_tu_hoa_reading?: Array<{ hoa: string; star: string; palace: string | null; advice?: string | null; position_note: string | null }> };
   if (!y?.tieu_han_palace || !y.dai_han) return [];
   const key = `ln|${y.year}`, xs: ProseSentence[] = [], ys: ProseSentence[] = [];
   const th = chart.palaces.find(p => p.name === y.tieu_han_palace)!;
@@ -182,7 +182,7 @@ function yearParagraphs(chart: ChartInput, k: Knowledge, L: VanHanLibrary, m: Mi
     // what the Hóa brings to the palace it lands in (pho_thong card); Khảo Luận's own position note is generic or lists other palaces
     const mean = (k.prose?.phoThong as { hoa?: Record<string, Record<string, string>> } | undefined)?.hoa?.[r.hoa]?.[r.palace];
     const note = mean ? `: ${mean}` : r.position_note && r.hoa !== 'Hóa Quyền' ? `, ${r.position_note}` : '';
-    ys.push(sentence(fill(m.pick(`${key}|${r.hoa}`, L.year.luu_hoa), { hoa: r.hoa, pillar: y.annual_pillar ?? '', star: r.star, pal: r.palace, note, advice: r.advice }), [], ['KL pp.195-197'], 'tinh_toan',
+    ys.push(sentence(fill(m.pick(`${key}|${r.hoa}`, L.year.luu_hoa), { hoa: r.hoa, pillar: y.annual_pillar ?? '', star: r.star, pal: r.palace, note, advice: r.advice ? `; ${r.advice}` : '' }), [], ['KL pp.195-197'], 'tinh_toan',
       r.hoa === 'Hóa Kỵ' ? 'neg' : 'pos'));
   }
   // what holds the year up and what to do: the tiểu hạn palace's balance (deep.ts)
