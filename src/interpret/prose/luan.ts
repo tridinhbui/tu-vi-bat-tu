@@ -13,9 +13,9 @@
 //   other       a short closing over the strength and the limit the chapter said.
 // A palace whose plan has no thesis and no modifier keeps the older chapter (chapter.ts), so no chapter is emptier than before.
 import type { ChartInput, Concept, Knowledge, Palace } from '../types.ts';
-import { run } from '../engine.ts';
-import { lift, type Labelled } from '../kg/lift.ts';
-import { applyQualifiers, resolve, type Resolved } from '../kg/resolve.ts';
+import type { run } from '../engine.ts';
+import type { Labelled } from '../kg/lift.ts';
+import type { Resolved } from '../kg/resolve.ts';
 import { reasonPalace, type ReadingPlan, type Thesis } from '../reason/plan.ts';
 import type { Reading } from '../reason/adjudicate.ts';
 import { Micro } from './micro.ts';
@@ -24,7 +24,7 @@ import { configClause, dignityOf, hoaOn, joinVi, named, palaceConfig } from './n
 import { bookStarsOf, readPalace } from './deep.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 import { validateProse } from './validate.ts';
-import { PROSE_ORDER, PROSE_SPECS, PROSE_VERSION, proseReport, seedOf, type ProseChapter, type ProseChapterId } from './chapter.ts';
+import { PROSE_ORDER, PROSE_SPECS, PROSE_VERSION, infer, proseReport, seedOf, type Inference, type ProseChapter, type ProseChapterId } from './chapter.ts';
 
 export type Topic = 'tinh_cach' | 'su_nghiep' | 'tai_loc' | 'quy_nhan' | 'quan_he' | 'duong_doi' | 'the_trang' | 'vi_tri' | 'than' | 'than_same' | 'than_style'
   | 'hau_van' | 'tong_ket' | 'tom_lai' | 'pho_thong';
@@ -37,7 +37,7 @@ export interface LuanLib {
   tail: Record<'synth' | 'advice' | 'edge', string[]>;
   than: Record<'pos' | 'meaning' | 'same' | 'rule' | 'borrow', string[]>;
   pos: Record<'giap' | 'nhi_hop' | 'luc_hai', string[]>;
-  late: Record<'neg' | 'pos' | 'calm' | 'course', string[]>;
+  late: Record<'list' | 'pos' | 'item' | 'calm' | 'course', string[]>;
   summary: Record<'arc' | 'mature' | 'mature_same' | 'late' | 'late_calm' | 'turn' | 'close' | 'close_pos' | 'close_neg', string[]>;
   health_note: string[];
 }
@@ -103,21 +103,19 @@ export interface LuanShared { findings: ReturnType<typeof run>['findings']; reso
   /** palace|star whose common (phổ thông) reading was already told (Thân cư borrows it) */
   colourTold: Set<string> }
 
-export function luanShared(chart: ChartInput, k: Knowledge, allowDraft: boolean): LuanShared {
-  const findings = run(k.rules, k.sources, chart.base).findings;
-  const lifted = lift(findings, k, chart.base);
-  const resolved = resolve(lifted.assertions, k).resolved;
-  applyQualifiers(resolved, k, chart.base);
+export function luanShared(chart: ChartInput, k: Knowledge, allowDraft: boolean, pre?: Inference): LuanShared {
+  const { findings, resolved, labelled } = pre ?? infer(chart, k);
   const seed = seedOf(chart);
-  return { findings, resolved, labelled: lifted.labelled, micro: new Micro(`${seed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft, colourTold: new Set() };
+  return { findings, resolved, labelled, micro: new Micro(`${seed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft, colourTold: new Set() };
 }
 
 /** The twelve palace chapters: the luận cung chapter where the palace's plan has something to argue, the older chapter otherwise. */
 export function luanReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?: boolean; deep?: boolean } = {}): ProseChapter[] {
   const allowDraft = !!opts.allowDraft;
   if (!k.prose?.luan || !(allowDraft || k.prose.luan.status === 'approved')) return proseReport(chart, k, opts);
-  const old = proseReport(chart, k, opts);
-  const sh = luanShared(chart, k, allowDraft);
+  const pre = infer(chart, k);
+  const old = proseReport(chart, k, { ...opts, pre });
+  const sh = luanShared(chart, k, allowDraft, pre);
   return PROSE_ORDER.map((id, i) => luanChapter(chart, k, id, sh) ?? old[i]);
 }
 
@@ -350,8 +348,6 @@ function frameSentences(W: Writer, L: LuanLib, F: ReasoningFrames, chart: ChartI
   const grp = gn && a ? Object.entries(gn.members).find(([, ms]) => ms.includes(a)) : undefined;
   if (grp && tpStar && grp[1].includes(tpStar) && tpStar !== a)
     out.push(W.sentence(fill(W.pick(`frame|group|${P}`, L.frame.group), { a, b: tpStar, group: grp[0], note: gn!.notes[grp[0]] }), { move: 'ANCHOR', step: `frame:group:${grp[0]}`, basis: 'tinh_toan', cites: ['KL pp.166-167'] }));
-  else if (grp && P === 'Mệnh')
-    out.push(W.sentence(fill(W.pick(`frame|group1|${P}`, L.frame.group_self), { a, group: grp[0], note: gn!.notes[grp[0]] }), { move: 'ANCHOR', step: `frame:group:${grp[0]}`, basis: 'tinh_toan', cites: ['KL pp.166-167'] }));
   // companions and Tuần / Triệt
   const comp = [...cfg.sat, ...cfg.cat, ...cfg.other].slice(0, 4);
   const tt = cfg.tuanTriet.length ? fill(W.pick(`frame|tt|${P}`, L.frame.tt), { tt: joinVi(cfg.tuanTriet) }) : '';
@@ -419,8 +415,11 @@ function positionSentences(W: Writer, L: LuanLib, chart: ChartInput, pal: Palace
     return xs.length ? `, có ${joinVi(xs)}` : ', vô chính diệu';
   };
   const nh = byIdx.get((13 - pal.branch_index) % 12)!, lh = byIdx.get((19 - pal.branch_index) % 12)!;
-  out.push(W.sentence(fill(W.pick(`pos|nh|${pal.name}`, L.pos.nhi_hop), { pal: pal.name, branch: pal.branch, other: nh.branch, opal: nh.name, stars: brief(nh) }), { move: 'ANCHOR', step: 'position:nhi_hop', basis: 'tinh_toan' }));
-  if (lh !== nh) out.push(W.sentence(fill(W.pick(`pos|lh|${pal.name}`, L.pos.luc_hai), { branch: pal.branch, other: lh.branch, opal: lh.name, stars: brief(lh) }), { move: 'ANCHOR', step: 'position:luc_hai', basis: 'tinh_toan' }));
+  // a partner palace is named only when it holds something that weighs (a natal Hóa, Lộc Tồn, a sát tinh): the selection is this system's
+  const SAT6 = ['Kình Dương', 'Đà La', 'Địa Không', 'Địa Kiếp', 'Hỏa Tinh', 'Linh Tinh'];
+  const weighs = (p: Palace) => Object.values(chart.tu_hoa).some(h => h.branch === p.branch_index) || p.stars.some(x => x === 'Lộc Tồn' || SAT6.includes(x));
+  if (weighs(nh)) out.push(W.sentence(fill(W.pick(`pos|nh|${pal.name}`, L.pos.nhi_hop), { pal: pal.name, branch: pal.branch, other: nh.branch, opal: nh.name, stars: brief(nh) }), { move: 'ANCHOR', step: 'position:nhi_hop', basis: 'tinh_toan' }));
+  if (lh !== nh && weighs(lh)) out.push(W.sentence(fill(W.pick(`pos|lh|${pal.name}`, L.pos.luc_hai), { pal: pal.name, branch: pal.branch, other: lh.branch, opal: lh.name, stars: brief(lh) }), { move: 'ANCHOR', step: 'position:luc_hai', basis: 'tinh_toan' }));
   return out;
 }
 
@@ -470,21 +469,21 @@ function thanSentences(W: Writer, L: LuanLib, F: ReasoningFrames, chart: ChartIn
   return { position, style, np, units, W: W2 };
 }
 
-/** Hậu vận: the đại hạn from LATE_FROM years of age on, read by Khảo Luận's tam hợp rule (tuổi against the hạn's tam hợp, KL pp.230-233):
- *  the first two that run against the age, one that runs with it, or that none runs against it. */
+/** Hậu vận: the đại hạn from LATE_FROM years of age on, by Khảo Luận's tam hợp rule (tuổi against the hạn's tam hợp, KL pp.230-233), in one
+ *  sentence: the hạn that run against the age (sinh xuất, bị khắc) and those that run with it (khắc được, được sinh); or that none runs
+ *  against it. Each hạn is told in full in the đại hạn chapter (vanhan.ts), with the verdict's words. */
 function lateSentences(W: Writer, L: LuanLib, chart: ChartInput): { xs: ProseSentence[]; age: string | null; calm: boolean } {
   type Kl = { relation: string; verdict: string };
   const ds = (chart.decades ?? []).map(d => ({ d, kl: (d as unknown as { kl?: Kl }).kl })).filter(x => x.kl && x.d.age_from >= LATE_FROM && x.d.age_from <= 83);
-  const xs: ProseSentence[] = [];
-  if (!ds.length) return { xs, age: null, calm: false };
+  if (!ds.length) return { xs: [], age: null, calm: false };
   const age = (d: { age_from: number; age_to: number }) => `${d.age_from}–${d.age_to}`;
-  const neg = ds.filter(x => KL_NEG.has(x.kl!.relation)).slice(0, 2), pos = ds.filter(x => KL_POS.has(x.kl!.relation)).slice(0, 1);
-  const verdict = (kl: Kl) => kl.verdict.replace(/:\s*/g, ', ');
+  const item = (x: typeof ds[number], i: number) => fill(W.pick(`late|item|${i}`, L.late.item), { age: age(x.d), pal: x.d.palace });
+  const neg = ds.filter(x => KL_NEG.has(x.kl!.relation)).slice(0, 3), pos = ds.filter(x => KL_POS.has(x.kl!.relation)).slice(0, 2);
   const cite = ['KL pp.230-233'];
-  neg.forEach((x, i) => xs.push(W.sentence(fill(W.pick(`late|neg|${i}`, L.late.neg), { age: age(x.d), pal: x.d.palace, rel: x.kl!.relation, verdict: verdict(x.kl!) }), { move: 'TIMING', step: `late:neg:${x.d.index}`, basis: 'tinh_toan', cites: cite })));
-  if (neg.length && pos.length) xs.push(W.sentence(fill(W.pick('late|pos', L.late.pos), { age: age(pos[0].d), pal: pos[0].d.palace, rel: pos[0].kl!.relation, verdict: verdict(pos[0].kl!) }), { move: 'TIMING', step: `late:pos:${pos[0].d.index}`, basis: 'tinh_toan', cites: cite }));
-  if (!neg.length) xs.push(W.sentence(fill(W.pick('late|calm', L.late.calm), { age: String(LATE_FROM) }), { move: 'TIMING', step: 'late:calm', basis: 'tinh_toan', cites: cite }));
-  return { xs, age: neg.length ? age(neg[0].d) : null, calm: !neg.length };
+  const text = neg.length
+    ? fill(W.pick('late|list', L.late.list), { neg: joinVi(neg.map(item)), pos: pos.length ? fill(W.pick('late|pos', L.late.pos), { list: joinVi(pos.map((x, i) => item(x, i + 5))) }) : '' })
+    : fill(W.pick('late|calm', L.late.calm), { age: String(LATE_FROM) });
+  return { xs: [W.sentence(text, { move: 'TIMING', step: 'late:tam_hop', basis: 'tinh_toan', cites: cite })], age: neg.length ? age(neg[0].d) : null, calm: !neg.length };
 }
 
 /** Adapter for tools/interpret/eval_distinct.ts: the luận cung Mệnh chapter of one chart. */

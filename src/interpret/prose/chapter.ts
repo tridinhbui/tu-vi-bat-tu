@@ -143,11 +143,18 @@ export function seedOf(chart: ChartInput): string {
 /** Every chapter of the chain up to `until` (inclusive), sharing rule inference, the variant memory and the concepts already said. */
 /** `deep`: add the structure, common-meaning and balance layers around the book readings (prose/deep.ts; draft library, so with allowDraft
  *  only). The route turns it on; the book-layer tests leave it off so their goldens and thresholds measure the book readings alone. */
-export function proseReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?: boolean; until?: ProseChapterId; deep?: boolean } = {}): ProseChapter[] {
+/** One rule run, lifted and resolved with the page-checked qualifiers applied: what every chapter of a report reads (proseReport and the
+ *  luận cung chain share it, so a report infers once). */
+export interface Inference { findings: ReturnType<typeof run>['findings']; labelled: ReturnType<typeof lift>['labelled']; resolved: Resolved[]; tensions: Tension[] }
+export function infer(chart: ChartInput, k: Knowledge): Inference {
   const findings = run(k.rules, k.sources, chart.base).findings;
-  const { assertions } = lift(findings, k, chart.base);
+  const { assertions, labelled } = lift(findings, k, chart.base);
   const { resolved, tensions } = resolve(assertions, k);
   applyQualifiers(resolved, k, chart.base);
+  return { findings, labelled, resolved, tensions };
+}
+export function proseReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?: boolean; until?: ProseChapterId; deep?: boolean; pre?: Inference } = {}): ProseChapter[] {
+  const { findings, resolved, tensions } = opts.pre ?? infer(chart, k);
   const fired = new Set(findings.map(f => `${f.ruleId}|${f.subject}`));
   const seed = seedOf(chart);
   const micro = new Micro(seed, k.prose!.connectives, k.prose!.frames);

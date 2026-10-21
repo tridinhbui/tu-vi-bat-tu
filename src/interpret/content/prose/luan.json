@@ -6,13 +6,19 @@
       "Về tính cách và cách giao tiếp",
       "Về tính cách và cách ứng xử",
       "Về tâm tính và lối nghĩ",
-      "Về con người và cách giao tiếp"
+      "Về con người và cách giao tiếp",
+      "Về cá tính",
+      "Về lối sống và tính nết",
+      "Xét tính cách"
     ],
     "su_nghiep": [
       "Về năng lực và sự nghiệp",
       "Về tài năng và đường công danh",
       "Về chí hướng và sự nghiệp",
-      "Về năng lực làm việc và công danh"
+      "Về năng lực làm việc và công danh",
+      "Về công danh, tiền bạc",
+      "Xét đường sự nghiệp",
+      "Về việc làm ăn"
     ],
     "tai_loc": [
       "Về tiền bạc",
@@ -22,7 +28,9 @@
     "quy_nhan": [
       "Về quý nhân và người nâng đỡ",
       "Về các mối quan hệ và quý nhân",
-      "Về sự trợ giúp từ người xung quanh"
+      "Về sự trợ giúp từ người xung quanh",
+      "Về người giúp sức",
+      "Xét quý nhân"
     ],
     "quan_he": [
       "Về các mối quan hệ",
@@ -32,7 +40,9 @@
     "duong_doi": [
       "Về đường đời",
       "Về nhịp đi của cuộc đời",
-      "Về những khúc quanh của đời người"
+      "Về những khúc quanh của đời người",
+      "Xét đường đời",
+      "Về vận đời"
     ],
     "the_trang": [
       "Về thể trạng",
@@ -41,28 +51,42 @@
     "vi_tri": [
       "Về các cung giáp, nhị hợp và lục hại",
       "Về thế đứng giữa các cung xung quanh",
-      "Về các cung kề bên, nhị hợp và lục hại"
+      "Về các cung kề bên, nhị hợp và lục hại",
+      "Về vị trí với các cung liên quan",
+      "Xét các cung giáp và nhị hợp"
     ],
     "than": [
-      "Thân cư {pal}"
+      "Thân cư {pal}",
+      "Cung Thân ở {pal}",
+      "Thân nằm ở cung {pal}",
+      "Thân an tại {pal}"
     ],
     "than_same": [
-      "Thân Mệnh đồng cung"
+      "Thân Mệnh đồng cung",
+      "Về cung Thân",
+      "Xét cung Thân"
     ],
     "than_style": [
       "Về phong cách khi trưởng thành",
       "Về con người ở tuổi trưởng thành",
-      "Về cách thể hiện khi đã trưởng thành"
+      "Về cách thể hiện khi đã lớn",
+      "Lúc chín chắn",
+      "Ở những năm vững vàng",
+      "Về sau"
     ],
     "hau_van": [
       "Về biến động và rủi ro hậu vận",
       "Về những thăng trầm ở hậu vận",
-      "Về nửa sau của cuộc đời"
+      "Về nửa sau của cuộc đời",
+      "Xét hậu vận",
+      "Về hậu vận"
     ],
     "tong_ket": [
       "Tổng kết lại",
       "Nhìn lại toàn cục",
-      "Gom lại cả lá số"
+      "Gom lại cả lá số",
+      "Tóm cả lá số",
+      "Nói gọn lại"
     ],
     "tom_lai": [
       "Tóm lại",
@@ -339,15 +363,22 @@
     "open": [
       "Cung {pal} an tại {branch}, có {majors} tọa thủ",
       "Cung {pal} đóng ở {branch}, nơi {majors} tọa thủ",
-      "Lá số đặt cung {pal} tại {branch}, với {majors} tọa thủ"
+      "Lá số đặt cung {pal} tại {branch}, với {majors} tọa thủ",
+      "{majors} tọa thủ cung {pal} ở {branch}",
+      "Tại {branch}, cung {pal} do {majors} làm chủ",
+      "Ở {branch} là cung {pal}, chính tinh là {majors}"
     ],
     "open_pair": [
       "Cung {pal} an tại {branch}, có {majors} đồng cung",
-      "Cung {pal} đóng ở {branch}, nơi {majors} cùng tọa thủ"
+      "Cung {pal} đóng ở {branch}, nơi {majors} cùng tọa thủ",
+      "{majors} đồng cung tại {branch}, giữ cung {pal}",
+      "Tại {branch}, cung {pal} có {majors} cùng làm chủ"
     ],
     "open_vcd": [
       "Cung {pal} an tại {branch} mà vô chính diệu, phải mượn {majors} ở cung đối diện",
-      "Cung {pal} đóng ở {branch}, vô chính diệu, nên mượn {majors} từ cung xung chiếu để luận"
+      "Cung {pal} đóng ở {branch}, vô chính diệu, nên mượn {majors} từ cung xung chiếu để luận",
+      "{branch} là cung {pal} vô chính diệu; sao chủ phải mượn là {majors} ở cung đối",
+      "Không có chính tinh ở cung {pal} ({branch}), nên lấy {majors} ở cung đối diện mà luận"
     ],
     "open_empty": [
       "Cung {pal} an tại {branch}, vô chính diệu, cung đối diện cũng không có chính tinh"
@@ -355,25 +386,34 @@
     "tp_contrast": [
       "nhưng lại nhận được hội chiếu của {star} từ {from}",
       "song được {star} từ {from} chiếu về",
-      "nhưng có {star} từ {from} hội chiếu"
+      "nhưng có {star} từ {from} hội chiếu",
+      "bù lại {from} chiếu sang {star}",
+      "nhưng đứng trong thế hội của {star} ở {from}"
     ],
     "tp_add": [
       "lại thêm {star} từ {from} hội chiếu",
       "cùng nhận hội chiếu của {star} ở {from}",
-      "và được {star} từ {from} chiếu về"
+      "và được {star} từ {from} chiếu về",
+      "trong thế hội với {star} ở {from}",
+      "{from} chiếu sang thêm {star}"
     ],
     "opp_contrast": [
       "nhưng đối diện có {star} ở {from} xung chiếu",
-      "song cung xung chiếu là {from}, có {star}"
+      "song cung xung chiếu là {from}, có {star}",
+      "bù lại {star} từ {from} xung chiếu sang"
     ],
     "opp_add": [
       "đối diện là {star} ở {from} xung chiếu",
-      "cung xung chiếu là {from}, có {star}"
+      "cung xung chiếu là {from}, có {star}",
+      "{star} từ {from} xung chiếu về",
+      "xung chiếu sang là {star} ({from})"
     ],
     "with": [
       "Trong cung còn có {stars}",
       "Đi cùng trong cung có {stars}",
-      "Cung này còn có {stars}"
+      "Cung này còn có {stars}",
+      "Bên cạnh chính tinh là {stars}",
+      "{stars} cũng đóng ở đây"
     ],
     "tt": [
       "{tt} án ngữ",
@@ -386,7 +426,8 @@
     "group": [
       "{a} và {b} cùng thuộc nhóm {group}, tức {note}",
       "Đây là thế {a} gặp {b}, hai sao cùng nhóm {group} ({note})",
-      "{a} với {b} là một bộ trong nhóm {group}, {note}"
+      "{a} với {b} là một bộ trong nhóm {group}, {note}",
+      "Hai sao {a}, {b} chung nhóm {group}: {note}"
     ],
     "group_self": [
       "{a} thuộc nhóm {group}, {note}",
@@ -397,39 +438,60 @@
     "synth": [
       "{a} cộng với {b} là chỗ mạnh rõ nhất của phần này",
       "Đặt cạnh nhau, {a} và {b} bổ cho nhau",
-      "Hai điều ấy, {a} và {b}, đi cùng một hướng"
+      "Hai điều ấy, {a} và {b}, đi cùng một hướng",
+      "{a} có {b} đỡ thêm",
+      "{a} và {b} cùng một chiều thuận"
     ],
     "advice": [
       "Điều này đòi hỏi {S} phải biết {mature}",
       "Cái cần rèn ở đây là {mature}",
       "Muốn giữ phần hay mà bớt phần dở, {S} nên {mature}",
       "Bài học của cấu hình này là {mature}",
-      "Vì thế, việc của {S} là {mature}"
+      "Vì thế, việc của {S} là {mature}",
+      "Chỗ {S} cần tập là {mature}",
+      "Lời nhắc cho {S}: {mature}",
+      "Nên {mature}",
+      "Cách gỡ nằm ở chỗ {mature}",
+      "{S} sẽ đi xa hơn nếu biết {mature}"
     ],
     "edge": [
       "{a} và {b} vì thế là hai mặt của cùng một {seat}: con dao hai lưỡi, dùng đúng chỗ thì thành sức mạnh, sơ ý thì thành vướng mắc",
       "Cũng như con dao hai lưỡi, {a} đi liền với {b}, cùng sinh ra từ {seat}",
       "{a} và {b} không tách rời nhau: cùng một gốc {seat}, khác nhau ở cách dùng",
-      "Đó là hai lưỡi của cùng một con dao: {a} ở mặt này, {b} ở mặt kia, đều từ {seat} mà ra"
+      "Đó là hai lưỡi của cùng một con dao: {a} ở mặt này, {b} ở mặt kia, đều từ {seat} mà ra",
+      "{seat} cho cả {a} lẫn {b}; chọn dùng mặt nào là việc của người mang nó",
+      "Cùng từ {seat} mà có {a}, cũng từ đó mà có {b}"
     ]
   },
   "than": {
     "pos": [
       "cung an Thân đóng tại {branch}, {config}",
       "Thân an ở {branch}, nơi {config}",
-      "cung Thân nằm ở {branch}: {config}"
+      "cung Thân nằm ở {branch}: {config}",
+      "ở {branch}, {config}",
+      "Thân đóng {branch} với {config}"
     ],
     "meaning": [
-      "Theo cách đọc thông dụng, cung an Thân nói về con người khi đã trưởng thành, nên từ tuổi ấy trọng tâm của đời sống dời về {domain}",
-      "Cách đọc thông dụng coi cung an Thân là con người ở nửa sau cuộc đời; ở đây nửa sau ấy xoay quanh {domain}"
+      "Theo cách đọc thông dụng, từ tuổi trưởng thành trọng tâm dời về {domain}",
+      "Thân là con người lúc đã lớn, theo lối đọc quen thuộc, nên nửa sau đời xoay quanh {domain}",
+      "Lối đọc phổ biến lấy cung Thân cho những năm chín chắn: lúc ấy {domain} thành mối quan tâm lớn",
+      "Về sau, theo thông lệ, {domain} sẽ là trọng tâm",
+      "Như cách hiểu quen thuộc, phần đời về sau nghiêng về {domain}",
+      "Nửa sau cuộc đời, theo thông lệ, gắn với {domain}",
+      "Khi đã vững vàng, {domain} là nơi đời sống dồn về, theo lối hiểu phổ biến"
     ],
     "same": [
       "cung an Thân cũng chính là cung Mệnh, nên con người được tả ở trên theo đương số đến cả tuổi trưởng thành",
-      "Thân và Mệnh cùng một cung, nên những nét chính đã nói không đổi hướng khi đương số trưởng thành"
+      "Thân và Mệnh cùng một cung, nên những nét chính đã nói không đổi hướng khi đương số trưởng thành",
+      "Thân không tách khỏi Mệnh: những gì đã nói theo người này suốt đời",
+      "cung Thân trùng cung Mệnh, nên tuổi trưởng thành vẫn đi theo những nét đã nêu",
+      "không có cung Thân riêng, vì Thân an ngay tại Mệnh"
     ],
     "rule": [
       "Thân đóng ở {pal} nên {claim}",
-      "Với Thân cư {pal}, {claim}"
+      "Với Thân cư {pal}, {claim}",
+      "Vì Thân ở {pal}, {claim}",
+      "Thân nằm ở {pal}, nên {claim}"
     ],
     "borrow": [
       "Theo cách hiểu phổ thông, {text}"
@@ -438,60 +500,91 @@
   "pos": {
     "giap": [
       "cung {pal} được giáp bởi {pair} ở hai cung kề bên ({left} và {right})",
-      "hai cung kề {pal} là {left} và {right} giáp {pal} bằng {pair}"
+      "hai cung kề {pal} là {left} và {right} giáp {pal} bằng {pair}",
+      "{pair} đứng hai bên, ở {left} và {right}, giáp lấy cung {pal}",
+      "{left} và {right} kẹp cung {pal} giữa {pair}"
     ],
     "nhi_hop": [
       "cung {pal} ở {branch} nhị hợp với {other}, nơi đóng cung {opal}{stars}",
-      "theo phép nhị hợp, {branch} hợp với {other}, tức cung {opal}{stars}"
+      "theo phép nhị hợp, {branch} hợp với {other}, tức cung {opal}{stars}",
+      "nhị hợp của {branch} là {other} (cung {opal}{stars})",
+      "{branch} và {other} là một cặp nhị hợp; ở {other} là cung {opal}{stars}",
+      "cung nhị hợp với {pal} là {opal} tại {other}{stars}"
     ],
     "luc_hai": [
-      "còn theo bảng lục hại, {branch} hại {other}, là cung {opal}{stars}",
-      "về lục hại, {branch} gặp {other}, nơi có cung {opal}{stars}"
+      "theo bảng lục hại, {branch} hại {other}, là cung {opal}{stars}",
+      "về lục hại, {branch} gặp {other}, nơi có cung {opal}{stars}",
+      "{branch} với {other} thành thế lục hại; {other} là cung {opal}{stars}",
+      "lục hại của {branch} rơi vào {other} (cung {opal}{stars})",
+      "cặp lục hại là {branch} và {other}, tức cung {opal}{stars}",
+      "cung lục hại với {pal} là {opal} ở {other}{stars}"
     ],
     "note": [
       "Đây là vị trí tính theo địa chi; phép nhị hợp chỉ được dùng để luận khi xét đại hạn, nên ở đây chưa gán thêm ý nghĩa"
     ]
   },
   "late": {
-    "neg": [
-      "đại hạn {age} tuổi đi qua cung {pal}, tam hợp cung hạn so với tuổi là thế {rel}, nên {verdict}",
-      "mười năm {age} tuổi ở cung {pal} gặp thế {rel}, tức là {verdict}"
+    "list": [
+      "đại hạn {neg} nghịch với tuổi theo phép tam hợp{pos}",
+      "theo tam hợp tuổi, {neg} là những hạn nghịch{pos}",
+      "những chặng phải giữ mình là {neg}{pos}",
+      "{neg} là các hạn tam hợp không thuận với tuổi{pos}",
+      "xét tam hợp, hạn khó của nửa sau đời là {neg}{pos}"
     ],
     "pos": [
-      "Bù lại, đại hạn {age} tuổi ở cung {pal} được thế {rel}, nên {verdict}",
-      "Ngược lại, mười năm {age} tuổi ở cung {pal} thuận hơn: thế {rel}, tức là {verdict}"
+      ", còn {list} thuận",
+      "; {list} thì thuận hơn",
+      ", bù lại có {list} đi thuận",
+      "; ngược lại {list} thuận tuổi"
+    ],
+    "item": [
+      "{age} tuổi ở {pal}",
+      "{pal} ({age} tuổi)",
+      "chặng {age} tuổi qua {pal}",
+      "hạn {pal} lúc {age} tuổi",
+      "quãng {age} (cung {pal})"
     ],
     "calm": [
       "các đại hạn từ {age} tuổi trở đi không có hạn nào nghịch hẳn với tuổi theo phép tam hợp",
-      "xét theo tam hợp tuổi, các đại hạn của nửa sau cuộc đời không có hạn nào khắc hay hao tuổi"
+      "xét theo tam hợp tuổi, các đại hạn của nửa sau cuộc đời không có hạn nào khắc hay hao tuổi",
+      "nửa sau đời không gặp đại hạn nào nghịch tuổi theo tam hợp"
     ],
     "course": [
-      "Về nhịp chung, {claim}"
+      "Về nhịp chung, {claim}",
+      "Nhìn cả chặng dài, {claim}"
     ]
   },
   "summary": {
     "arc": [
       "{S} bước vào đời với {young}{mature}{late}",
       "cuộc đời {S} đi từ {young} của thuở đầu{mature}{late}",
-      "hành trình của {S} bắt đầu từ {young}{mature}{late}"
+      "hành trình của {S} bắt đầu từ {young}{mature}{late}",
+      "thuở đầu là {young}{mature}{late}",
+      "từ {young} lúc trẻ{mature}{late}"
     ],
     "mature": [
       "; khi trưởng thành, Thân cư {pal} kéo trọng tâm sang {np}",
-      ", rồi đến tuổi trưởng thành thì Thân cư {pal} đưa {np} lên hàng đầu"
+      ", rồi đến tuổi trưởng thành thì Thân cư {pal} đưa {np} lên hàng đầu",
+      "; về sau {np} nổi lên theo Thân cư {pal}",
+      "; lớn lên, {np} thành trọng tâm khi Thân ở {pal}"
     ],
     "mature_same": [
       "; Thân Mệnh đồng cung nên những nét ấy theo suốt tuổi trưởng thành"
     ],
     "late": [
       "; hậu vận cần để ý nhất quãng {age} tuổi",
-      "; ở nửa sau cuộc đời, quãng {age} tuổi là chặng phải giữ mình nhất"
+      "; ở nửa sau cuộc đời, quãng {age} tuổi là chặng phải giữ mình nhất",
+      "; chặng {age} tuổi là lúc nên thận trọng hơn cả",
+      "; quãng {age} tuổi đòi hỏi giữ mình"
     ],
     "late_calm": [
       "; nửa sau cuộc đời không có đại hạn nào nghịch hẳn với tuổi"
     ],
     "turn": [
       "Điều quyết định là {S} dùng {pos} thế nào và giữ mình trước {neg} ra sao",
-      "Mọi sự lên xuống phần lớn tùy ở chỗ {S} phát huy {pos} và kiềm chế {neg} đến đâu"
+      "Mọi sự lên xuống phần lớn tùy ở chỗ {S} phát huy {pos} và kiềm chế {neg} đến đâu",
+      "Cái then chốt nằm ở {pos} được dùng ra sao và {neg} được giữ lại thế nào",
+      "{pos} và {neg}: cách {S} cân hai điều ấy sẽ định phần lớn đường đi"
     ],
     "close": [
       "{a} là phần sáng nhất của cung này; {b} là chỗ cần giữ",

@@ -33,7 +33,9 @@ const STARS = ['Tử Vi', 'Thiên Cơ', 'Thái Dương', 'Vũ Khúc', 'Thiên Đ
   'Thất Sát', 'Phá Quân', 'Kình Dương', 'Đà La', 'Hỏa Tinh', 'Linh Tinh', 'Địa Không', 'Địa Kiếp', 'Tả Phụ', 'Hữu Bật', 'Văn Xương', 'Văn Khúc', 'Thiên Khôi',
   'Thiên Việt', 'Lộc Tồn', 'Thiên Mã', 'Hóa Lộc', 'Hóa Quyền', 'Hóa Khoa', 'Hóa Kỵ', 'Tuần', 'Triệt'];
 const NAMES = new RegExp([...STARS, 'Mệnh', 'Tài Bạch', 'Quan Lộc', 'Thiên Di', 'Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi',
-  'miếu', 'vượng', 'đắc', 'hãm', 'bình'].sort((a, b) => b.length - a.length).join('|'), 'g');
+  'miếu', 'vượng', 'đắc', 'hãm', 'bình',
+  // the same brightness written as a label, "Cự Môn (Hãm Địa)" (prose/named.ts): a chart fact like "hãm", not template wording
+  'Miếu Địa', 'Vượng Địa', 'Đắc Địa', 'Lợi Địa', 'Bình Hòa', 'Hãm Địa'].sort((a, b) => b.length - a.length).join('|'), 'g');
 const words = (t: string) => t.toLowerCase().replace(/[.,;:!?()“”"]/g, ' ').split(/\s+/).filter(Boolean);
 const grams = (t: string, n = 3) => { const w = words(t), s = new Set<string>(); for (let i = 0; i + n <= w.length; i++) s.add(w.slice(i, i + n).join(' ')); return s; };
 const jac = <T>(a: Set<T>, b: Set<T>) => { if (!a.size && !b.size) return 1; let i = 0; for (const x of a) if (b.has(x)) i++; return i / (a.size + b.size - i); };
@@ -156,10 +158,12 @@ if (import.meta.main) {
   const engines: Record<string, () => Promise<Engine>> = {
     old: async () => oldEngine,
     reasoned: async () => (await import('../../src/interpret/prose/narrative.ts')).reasonedSaid as Engine,
+    // the luận cung Mệnh chapter (prose/luan.ts): the same plan as 'reasoned', in the reference reading's shape
+    luan: async () => (await import('../../src/interpret/prose/luan.ts')).luanSaid as Engine,
   };
   const eng = await engines[name]();
   const md = report(name, eng, Number(arg('--n', '1000')));
-  const out = arg('--out', join('docs', name === 'old' ? 'REASONER-BASELINE.md' : 'REASONER-EVAL.md'));
+  const out = arg('--out', join('docs', name === 'old' ? 'REASONER-BASELINE.md' : name === 'luan' ? 'LUAN-EVAL.md' : 'REASONER-EVAL.md'));
   writeFileSync(join(ROOT, out), md);
   console.log(md.split('\n').slice(0, 26).join('\n'));
 }

@@ -236,5 +236,86 @@
         "Xét phù ức, {god} (nhóm {group}) rút sức nhật chủ: việc nhiều, phải biết chọn việc mà làm."
       ]
     }
+  },
+  "luan": {
+    "note": "prose-style plan B1/B7 (prose/bazi.ts): the opening that names the four pillars, the bold lead-in of each paragraph, the closing over the luck pillars. Names chart facts only; the closing juxtaposes the roles the structure paragraphs gave the luck pillars (basis he_thong).",
+    "frame": [
+      "Lá số Bát Tự lấy nhật chủ {dm}, hành {el}, sinh tháng {mb}; tứ trụ gồm {pillars}",
+      "Tứ trụ của lá số là {pillars}, với nhật chủ {dm} thuộc hành {el}, sinh vào tháng {mb}",
+      "Nhật chủ của lá số là {dm}, hành {el}, sinh tháng {mb}; bốn trụ là {pillars}"
+    ],
+    "lead": {
+      "nhat_chu": [
+        "Về tính cách theo nhật chủ",
+        "Về con người theo nhật chủ",
+        "Về tâm tính của nhật chủ"
+      ],
+      "study": [
+        "Về học hành",
+        "Về đường học vấn"
+      ],
+      "strength": [
+        "Về sức vượng nhược",
+        "Về thế mạnh yếu của nhật chủ"
+      ],
+      "cach": [
+        "Về cách cục và dụng thần",
+        "Về cách cục và hành cần dùng"
+      ],
+      "ngu_hanh": [
+        "Về sự cân bằng ngũ hành",
+        "Về năm hành trong tứ trụ"
+      ],
+      "work": [
+        "Về nghề nghiệp và tiền bạc",
+        "Về công việc và tài vận"
+      ],
+      "pillar_work": [
+        "Về thập thần ở trụ tháng và trụ giờ",
+        "Về những thập thần nói chuyện làm ăn"
+      ],
+      "kin": [
+        "Về hôn nhân và anh em",
+        "Về gia đạo"
+      ],
+      "pillar_kin": [
+        "Về thập thần ở trụ năm và chi ngày",
+        "Về gốc gác và người phối ngẫu"
+      ],
+      "blade": [
+        "Về dương nhẫn và dịch mã",
+        "Về những thần sát đáng kể"
+      ],
+      "dai_van": [
+        "Về các đại vận",
+        "Về những chặng đại vận"
+      ],
+      "tong_ket": [
+        "Tổng kết lại",
+        "Nhìn lại toàn cục"
+      ]
+    },
+    "summary": [
+      "nhật chủ {dm} {level}, sinh tháng {mb}{need}{good}{bad}",
+      "nhật chủ {dm} sinh tháng {mb} và {level}{need}{good}{bad}"
+    ],
+    "need": [
+      "; lá số cần thêm {need}",
+      "; hành lá số cần là {need}"
+    ],
+    "good": [
+      "; các vận {list} là những chặng được tiếp sức",
+      "; {list} là những vận thuận"
+    ],
+    "bad": [
+      ", còn {list} là chặng phải lượng sức",
+      ", trong khi {list} đòi hỏi giữ sức và chọn việc"
+    ],
+    "level": {
+      "vượng": "thuộc thế vượng",
+      "nhược": "thuộc thế nhược",
+      "trung hòa": "ở mức cân bằng",
+      "biên": "ở sát ngưỡng vượng nhược"
+    }
   }
 }

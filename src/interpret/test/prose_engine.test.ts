@@ -110,17 +110,21 @@ const call = (body: unknown, over = {}) => handleInterpret(new Request('http://x
 
 test('route: mode "prose" returns the golden text; other chapters refuse prose; the flags gate the route and the drafts', async () => {
   const birth = { year: 1991, month: 3, day: 2, hour: 8, minute: 30, gender: 'male' };
-  const r = await call({ ...birth, chapter: 'menh', mode: 'prose' });
+  // with the luận cung form off (TVBT_LUAN=0) the older chapter, byte for byte
+  const r = await call({ ...birth, chapter: 'menh', mode: 'prose' }, { luan: false });
   assert.equal(r.status, 200);
   const o = await r.json() as any;
   assert.equal(o.text + '\n', readFileSync(goldenUrl, 'utf8'));
   assert.ok(o.draft && o.evidence.rules.TV_TH_MV_MENH_CU_THIN_TUAT_LOC.cites.includes('TH p.88'));
+  // by default the luận cung chapter (prose/luan.ts; its own golden in luan.test.ts)
+  const l = await (await call({ ...birth, chapter: 'menh', mode: 'prose' })).json() as any;
+  assert.ok(l.luan && l.title === 'Luận cung Mệnh' && l.paragraphs.some((p: any) => p.lead), 'luận cung Mệnh with lead-ins');
   assert.equal((await call({ ...birth, chapter: 'tong_quan', mode: 'prose' })).status, 422);
   assert.equal((await call({ ...birth, chapter: 'van_han', mode: 'prose' })).status, 200);
   assert.equal((await call({ ...birth, chapter: 'bat_tu', mode: 'prose' })).status, 200);
-  const all = await (await call({ ...birth, chapter: 'all', mode: 'prose' })).json() as any;
-  assert.deepEqual(all.chapters.map((c: any) => c.chapter), ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc', 'tu_tuc', 'huynh_de', 'phu_mau', 'tat_ach', 'van_han', 'bat_tu']);
-  assert.equal(all.chapters[0].text + '\n', readFileSync(goldenUrl, 'utf8'));
+  const all = await (await call({ ...birth, chapter: 'all', mode: 'prose' }, { luan: false })).json() as any;
+  assert.deepEqual(all.chapters.map((c: any) => c.chapter), ['tong_quan', 'menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc', 'tu_tuc', 'huynh_de', 'phu_mau', 'tat_ach', 'van_han', 'bat_tu']);
+  assert.equal(all.chapters[1].text + '\n', readFileSync(goldenUrl, 'utf8'));
   assert.equal((await call({ ...birth, chapter: 'cong_danh', mode: 'prose' })).status, 200);
   assert.equal((await call({ ...birth, chapter: 'menh', mode: 'prose' }, { enabled: false })).status, 404);
   const strict = await (await call({ ...birth, chapter: 'menh', mode: 'prose' }, { proseDraft: false })).json() as any;
