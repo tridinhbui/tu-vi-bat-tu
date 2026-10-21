@@ -4,6 +4,7 @@ import { interpret, CHAPTERS, ENGINE_VERSION, type Chapter } from './pipeline.ts
 import { proseChapter, proseReport, seedOf, PROSE_ORDER, PROSE_VERSION, type ProseChapterId } from './prose/chapter.ts';
 import { proseVanHan } from './prose/vanhan.ts';
 import { proseBazi } from './prose/bazi.ts';
+import { proseThemes } from './prose/themes.ts';
 import { reasonedChapter, NARRATIVE_VERSION } from './prose/narrative.ts';
 import { planView } from './reason/plan.ts';
 import { cacheKey, type KnowledgeStore, type OutputCache } from './store.ts';
@@ -47,7 +48,7 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   const out = mode === 'reasoned' ? (o => ({ ...o, plan: planView(o.plan) }))(reasonedChapter(facts, k, { allowDraft: d.proseDraft }))
     : mode !== 'prose' ? interpret(facts, chapter, k)
     : chapter === ('all' as Chapter) ? (cs => ({ engine: PROSE_VERSION, kbVersion: k.version, chapters: cs, pass: cs.every(c => c.pass) }))(
-        [...proseReport(facts, k, { allowDraft: d.proseDraft, deep: d.deep !== false }), proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)])
+        [...proseThemes(facts, k, PROSE_VERSION, { allowDraft: d.proseDraft }), ...proseReport(facts, k, { allowDraft: d.proseDraft, deep: d.deep !== false }), proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)])
     : chapter === ('van_han' as Chapter) ? proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)
     : chapter === ('bat_tu' as Chapter) ? proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)
     : proseChapter(facts, k, chapter as ProseChapterId, { allowDraft: d.proseDraft, deep: d.deep !== false });

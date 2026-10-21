@@ -97,6 +97,8 @@ const knowledge = {
       schemas: read(join(P, 'schemas.json')).schemas, connectives: read(join(P, 'connectives.json')).connectives,
       vanhan: (({ note: _n, ...v }) => v)(read(join(P, 'van_han.json'))), reasoning: (({ note: _n, ...v }) => v)(read(join(P, 'reasoning_frames.json'))), bazi: (({ note: _n, ...v }) => v)(read(join(P, 'bat_tu.json'))),
       structure: (({ note: _n, ...v }) => v)(read(join(P, 'structure.json'))),
+      // the Tử Vi overview block (prose-style plan S1, prose/overview.ts)
+      overview: (({ note: _n, ...v }) => v)(read(join(P, 'overview.json'))),
       // pho_thong cards: chính tinh × cung (chinh_tinh_*.json) and phụ tinh templates (phu_tinh.json), all draft
       phoThong: (() => {
         const D = join(P, 'pho_thong'), fs = existsSync(D) ? readdirSync(D).filter(f => f.endsWith('.json')).sort() : [];

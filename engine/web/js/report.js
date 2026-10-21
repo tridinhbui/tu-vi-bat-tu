@@ -55,7 +55,7 @@ const prCite = c => String(c).replace(/^(TH|KL|TT|TL|NL|ZZ)\s*(?:PDF\s*)?pp?\.\s
 function proseHtml(p) {
   if (!p?.paragraphs?.length) return '';
   const draft = p.draft !== false;
-  const title = p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
+  const title = p.title ? esc(p.title) : p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
   return `<section class="synth prose" data-chapter="${esc(p.chapter)}" aria-label="${title}"><p class="eyebrow">${title}</p>
     ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
     <div class="pr-why small" hidden></div>${adviceHtml(p.advice)}${prDiverge(p)}
@@ -335,7 +335,7 @@ export function renderTuviReport(host, chart, ctx) {
     chapters.forEach(c => { if (EV_CH[c.id]) c.synth = evHtml(EV_CH[c.id].map(k => ev[k])) + (c.synth || ''); });
   }
   // reader prose per chapter (/api/interpret mode "prose"): Mệnh -> Bản Mệnh, Công danh -> Công danh, Tài Bạch -> Tài Bạch
-  const PR_CH = { menh: 'ban-menh', cong_danh: 'cong-danh', tai_bach: 'tai-bach', thien_di: 'cong-danh', phu_the: 'quan-he', phuc_duc: 'tinh-cach', dien_trach: 'tai-bach', no_boc: 'quan-he',
+  const PR_CH = { tong_quan: 'tong-quan', menh: 'ban-menh', cong_danh: 'cong-danh', tai_bach: 'tai-bach', thien_di: 'cong-danh', phu_the: 'quan-he', phuc_duc: 'tinh-cach', dien_trach: 'tai-bach', no_boc: 'quan-he',
     tu_tuc: 'quan-he', huynh_de: 'quan-he', phu_mau: 'quan-he', tat_ach: 'tinh-cach', van_han: 'dai-han' };
   const prByCh = {};
   for (const [k, id] of Object.entries(PR_CH)) { const p = ctx.prose?.[k]; if (p?.paragraphs?.length) prByCh[id] = (prByCh[id] || '') + proseHtml(p); }

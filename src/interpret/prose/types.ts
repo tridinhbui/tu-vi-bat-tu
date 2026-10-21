@@ -54,4 +54,6 @@ export interface ProseLibrary {
   structure?: import('./deep.ts').StructureLib; phoThong?: import('./deep.ts').PhoThongLib;
   /** frames for the reasoned Mệnh chapter (content/prose/reasoning_frames.json, prose/narrative.ts) */
   reasoning?: import('./narrative.ts').ReasoningFrames;
+  /** the overview block's frames (content/prose/overview.json, prose/overview.ts) */
+  overview?: import('./overview.ts').OverviewLib;
 }

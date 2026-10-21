@@ -1,0 +1,115 @@
+{
+  "note": "Khối tổng quan Tử Vi (prose-style plan S1, prose/overview.ts). Chỉ nêu dữ kiện tính từ lá số (bản mệnh, cục, quan hệ Mệnh–Cục, Thân cư, cấu hình cung Mệnh) và lời của các luật độ số đã bắn (KL pp.238-244, TH pp.75-76), diễn lại theo đúng ý luật, không thêm ý. Ý nghĩa nạp âm, lai nhân cung, cân lượng: chưa có nguồn nên không nói. Mệnh chủ / Thân chủ: bảng thông dụng, chưa đối chiếu sách, chỉ nêu tên (basis pho_thong). Slot: {year_gz} {yyg} {napam} {mel} {cuc} {cel} {branch} {config} {palace} {mc} {tc} {mpol} {hpol} {ypol} {season} {state} {stem} {sel} {ybr} {bel}. Bản nháp do Claude soạn.",
+  "status": "draft",
+  "identity": [
+    "Lá số tuổi {year_gz}, {yyg}: bản mệnh {napam}, thuộc hành {mel}; cục là {cuc}, thuộc hành {cel}.",
+    "Đây là lá số tuổi {year_gz}, {yyg}, bản mệnh {napam} (hành {mel}), an {cuc} (hành {cel})."
+  ],
+  "relation": {
+    "Cục sinh Mệnh": [
+      "Hành của cục ({cel}) sinh cho hành bản mệnh ({mel}), tức Cục sinh Mệnh."
+    ],
+    "Mệnh sinh Cục": [
+      "Hành bản mệnh ({mel}) sinh cho hành của cục ({cel}), tức Mệnh sinh Cục."
+    ],
+    "Mệnh khắc Cục": [
+      "Hành bản mệnh ({mel}) khắc hành của cục ({cel}), tức Mệnh khắc Cục."
+    ],
+    "Cục khắc Mệnh": [
+      "Hành của cục ({cel}) khắc hành bản mệnh ({mel}), tức Cục khắc Mệnh."
+    ],
+    "bình hòa (cùng hành)": [
+      "Cục và bản mệnh cùng hành {mel}, thế bình hòa."
+    ]
+  },
+  "menh": [
+    "Mệnh an tại {branch}, {config}.",
+    "Cung Mệnh đóng ở {branch}: {config}."
+  ],
+  "than_same": [
+    "Thân cư Mệnh, tức Thân và Mệnh đồng cung ở {branch}.",
+    "Thân an cùng cung với Mệnh, tại {branch}."
+  ],
+  "than": [
+    "Thân cư {palace} ở {branch}: {config}.",
+    "Cung an Thân là {palace} (ở {branch}): {config}."
+  ],
+  "than_meaning": [
+    "Cung an Thân thường được xem là nơi cho thấy nửa sau cuộc đời, khi {S} đã tự đứng trên đôi chân của mình.",
+    "Theo cách đọc thông dụng, cung an Thân nói về con người khi đã trưởng thành và nửa sau của cuộc đời."
+  ],
+  "than_rule": [
+    "Vì Thân cư {palace}, {claim}.",
+    "Thân đóng ở {palace} nên {claim}."
+  ],
+  "chu": [
+    "Theo bảng thông dụng, Mệnh chủ là {mc} (theo chi cung Mệnh), Thân chủ là {tc} (theo chi năm sinh).",
+    "Mệnh chủ của lá số là {mc}, Thân chủ là {tc}, tra theo bảng thông dụng."
+  ],
+  "degree_lead": [
+    "Về độ số, tức thế của năm, tháng, giờ sinh đối với cung Mệnh:",
+    "Xét độ số của lá số:"
+  ],
+  "degree": {
+    "TV_KL_CASE_MENH_CUC_KHAC_MENH": [
+      "Cục khắc Mệnh nên đường đời dễ gặp trở ngại.",
+      "Thế Cục khắc Mệnh khiến đường đời dễ gặp trở ngại."
+    ],
+    "TV_TH_CACH_MENH_NGHICH_LY": [
+      "Mệnh ở cung {mpol} mà giờ sinh là giờ {hpol}, tức giờ sinh nghịch lý, nên độ số kém bớt."
+    ],
+    "TV_TH_CACH_MENH_THUAN_LY": [
+      "Mệnh ở cung {mpol}, giờ sinh cũng là giờ {mpol}, tức giờ sinh thuận lý, nên độ số được tăng."
+    ],
+    "TV_KL_CASE_MENH_KHONG_DAC_CHINH": [
+      "Tuổi {ypol} mà Mệnh đóng cung {mpol}, chưa đắc chính, nên lúc ra đời dễ gặp trở ngại, khó khăn ban đầu vì chưa đúng chỗ của mình."
+    ],
+    "TV_KL_CASE_MENH_DAC_CHINH_DUONG": [
+      "Tuổi dương, Mệnh đóng cung dương: Mệnh đắc chính, đứng đúng chỗ của mình."
+    ],
+    "TV_KL_CASE_MENH_DAC_CHINH_AM": [
+      "Tuổi âm, Mệnh đóng cung âm: Mệnh đắc chính, chủ sự mềm dẻo, khôn khéo."
+    ],
+    "TV_TH_CACH_MENH_MUA_SINH": [
+      "Sinh mùa {season}, bản mệnh hành {mel} được thế {state} theo mùa, tức thuận mùa sinh, nên độ số được tăng."
+    ],
+    "TV_TH_CACH_MENH_GIO_SINH": [
+      "Giờ sinh hợp với mùa {season}, tức thuận giờ sinh, nên độ số gia tăng."
+    ],
+    "TV_KL_CASE_MENH_TU_MO": [
+      "Mệnh ở {branch}, một cung Tứ Mộ, đất tối hơn các cung khác, nên phải cố gắng giành một chỗ đứng, khiêm nhường và khéo léo để vươn lên."
+    ],
+    "TV_KL_CASE_MENH_GOC_PHA_NGON": [
+      "Can {stem} ({sel}) khắc chi {ybr} ({bel}), thế gốc phá ngọn, nên phúc khó hưởng lâu dài."
+    ],
+    "TV_KL_CASE_MENH_NGON_NUOI_GOC": [
+      "Chi {ybr} ({bel}) sinh can {stem} ({sel}), thế ngọn nuôi gốc là nghịch lý, nên phúc khó được lâu dài."
+    ],
+    "TV_KL_CASE_MENH_GOC_NUOI_NGON": [
+      "Can {stem} ({sel}) sinh chi {ybr} ({bel}), thế gốc nuôi ngọn, nên được hưởng phúc về sau."
+    ]
+  },
+  "degree_generic": [
+    "Vì {cond}, {claim}."
+  ],
+  "lean": {
+    "up": [
+      "Gộp lại, các yếu tố độ số phần nhiều thuận.",
+      "Nhìn chung, độ số của lá số nghiêng về thuận."
+    ],
+    "down": [
+      "Gộp lại, các yếu tố độ số phần nhiều nghịch, nên chỗ đứng phần lớn phải tự gây dựng.",
+      "Nhìn chung, độ số nghiêng về nghịch: chỗ đứng phần lớn do tự mình gây dựng."
+    ],
+    "mixed": [
+      "Các yếu tố độ số có thuận có nghịch, không bên nào trội hẳn.",
+      "Độ số thuận nghịch đan xen, không nghiêng hẳn về bên nào."
+    ]
+  },
+  "relation_book": {
+    "TV_KL_CASE_MENH_CUC_KHAC_MENH": [
+      "Hành của cục ({cel}) khắc hành bản mệnh ({mel}), tức Cục khắc Mệnh, thế khiến đường đời dễ gặp trở ngại.",
+      "Cục hành {cel} khắc bản mệnh hành {mel}; Cục khắc Mệnh nên đường đời dễ gặp trở ngại."
+    ]
+  }
+}
