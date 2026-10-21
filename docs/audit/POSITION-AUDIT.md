@@ -26,12 +26,12 @@ stands with the fact scope its `conditions` test. Packs are not edited; the draf
 
 | kind | rules | certain | needs-reading |
 |---|---:|---:|---:|
-| wider | 45 | 6 | 39 |
+| wider | 44 | 6 | 38 |
 | narrower | 37 | 6 | 31 |
 | mismatch | 4 | 0 | 4 |
-| hoa_unbound | 15 | 4 | 11 |
+| hoa_unbound | 16 | 4 | 12 |
 | dead | 1 | 1 | 0 |
-| mixed | 213 | 213 | 0 |
+| mixed | 212 | 212 | 0 |
 
 A rule can carry several kinds; each row counts rules with at least one flag of that kind.
 
@@ -39,7 +39,8 @@ Rules with a non-`mixed` flag, by pack: `pack_khao_luan_aux.json` 1, `pack_khao_
 
 ## Flagged rules (wider / narrower / mismatch / hoa_unbound / dead)
 
-`?` = needs-reading. Certain rules first, Mệnh rules first within each group.
+`?` = needs-reading; `→ promote | drop | keep_condition` = the book review's decision (see the last section). Certain rules first, Mệnh rules first
+within each group.
 
 | rule | cite | flags | description scope | condition scope |
 |---|---|---|---|---|
@@ -60,87 +61,87 @@ Rules with a non-`mixed` flag, by pack: `pack_khao_luan_aux.json` 1, `pack_khao_
 | `TV_KL_CASE_TAI_BACH_CO_KY_HOA_LINH` | KL p.246 | hoa_unbound | Hóa Kỵ: Thiên Cơ hóa Kỵ | Hóa Kỵ: own palace lists Hóa Kỵ, carrier untested |
 | `TV_KL_CUNG_TAI_BACH_KHOA_LT_HL` | KL p.216 | narrower | Lộc Tồn: 'hội' (tam_phuong) | Lộc Tồn: own palace |
 | `TV_TT_PHU_TU_TUC_TU_VU` | TT p.157 | narrower | Vũ Khúc: 'hội' (tam_phuong) | Vũ Khúc: own palace |
-| `TV_KL_AUX_HONG_KHONG` | KL p.225 | narrower? | Hồng Loan: 'gặp' (tam_phuong, mơ hồ) | Hồng Loan: own palace |
-| `TV_KL_CT_NHAT_NGUYET_DAO_HONG` | KL p.224 | wider? | Đào Hoa: 'đồng cung hoặc tam hợp chiếu' (self+trine) | Đào Hoa: tam phương |
-| `TV_KL_PHU_PHU_XUONG_KHUC_TA_HUU` | KL p.55 | wider?, wider?, wider?, wider? | Văn Xương: 'hợp chiếu' (opp+trine); Văn Khúc: 'hợp chiếu' (opp+trine); Tả Phụ: 'hợp chiếu' (opp+trine); Hữu Bật: 'hợp chiếu' (opp+trine) | Văn Xương: tam phương; Văn Khúc: tam phương; Tả Phụ: tam phương; Hữu Bật: tam phương |
-| `TV_KL_PHU_VU_LOC_MA` | KL p.54 | wider?, wider? | Lộc Tồn: 'hợp chiếu' (opp+trine); Thiên Mã: 'hợp chiếu' (opp+trine) | Lộc Tồn: tam phương; Thiên Mã: tam phương |
-| `TV_KL_PHU2_KHOA_QUYEN_KHOI_VIET` | KL p.73 | wider?, wider? | Thiên Khôi: 'hợp chiếu' (opp+trine); Thiên Việt: 'hợp chiếu' (opp+trine) | Thiên Khôi: tam phương; Thiên Việt: tam phương |
-| `TV_KL_PHU2_KHOA_VAN_TINH` | KL p.71 | hoa_unbound? | Hóa Khoa: Hóa Khoa beside Văn Xương, Văn Khúc | Hóa Khoa: own palace lists Hóa Khoa; a co-tested star could carry it |
-| `TV_KL_PHU2_XUONG_KHUC_NHAT_NGUYET` | KL p.73 | wider?, wider? | Thái Dương: 'hợp chiếu' (opp+trine); Thái Âm: 'hợp chiếu' (opp+trine) | Thái Dương: tam phương; Thái Âm: tam phương |
-| `TV_KL_STAR_MENH_CO_LOC` | KL p.81 | narrower?, narrower?, hoa_unbound? | Lộc Tồn: 'gặp' (tam_phuong, mơ hồ); Hóa Lộc: 'gặp' (tam_phuong, mơ hồ); Hóa Lộc: Hóa Lộc beside Thiên Cơ | Lộc Tồn: own palace; Hóa Lộc: own palace; Hóa Lộc: own palace lists Hóa Lộc; a co-tested star could carry it |
-| `TV_KL_STAR_MENH_CO_VAN_VO` | KL p.80 | wider?, wider?, wider?, wider?, wider? | Thiên Lương: 'đi cùng' (self); Tả Phụ: 'đi cùng' (self); Hữu Bật: 'đi cùng' (self); Văn Xương: 'đi cùng' (self); Văn Khúc: 'đi cùng' (self) | Thiên Lương: tam phương; Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương |
-| `TV_KL_STAR_MENH_HAO_MAO_DAU_KY` | KL p.67 | narrower? | Hóa Lộc: 'gặp' (tam_phuong, mơ hồ) | Hóa Lộc: own palace |
-| `TV_KL_STAR_MENH_HOA_LINH_TUONG_NGO` | KL p.65 | narrower?, narrower? | Hỏa Tinh: 'thủ / chiếu' (tam_phuong); Linh Tinh: 'thủ / chiếu' (tam_phuong) | Hỏa Tinh: own palace\|xung chiếu; Linh Tinh: xung chiếu\|own palace |
-| `TV_KL_STAR_MENH_KINH_LUC_SI` | KL p.64 | mismatch? | Lực Sĩ: 'hợp chiếu' (opp+trine) | Lực Sĩ: own palace |
-| `TV_KL_STAR_MENH_NHAT_KY_SUU_MUI` | KL p.83 | hoa_unbound? | Hóa Kỵ: Hóa Kỵ beside Thái Dương | Hóa Kỵ: own palace lists Hóa Kỵ; a co-tested star could carry it |
-| `TV_KL_STAR_MENH_NHAT_TAM_MINH` | KL p.83 | wider?, wider?, wider? | Đào Hoa: 'tam hợp' (trine); Hồng Loan: 'tam hợp' (trine); Thiên Hỷ: 'tam hợp' (trine) | Đào Hoa: tam phương; Hồng Loan: tam phương; Thiên Hỷ: tam phương |
-| `TV_KL_STAR_MENH_TA_HUU_TU_MO` | KL p.63 | wider?, wider? | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương |
-| `TV_KL_STAR_MENH_TA_HUU_XUONG` | KL p.63 | wider?, wider? | Tả Phụ: '(chủ thể)' (self); Hữu Bật: '(chủ thể)' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương |
-| `TV_KL_STAR_MENH_TU_PHU_TRIEU_VIEN` | KL p.78 | wider?, wider? | Tử Vi: 'triều viên' (opp+trine); Thiên Phủ: 'triều viên' (opp+trine) | Tử Vi: tam phương; Thiên Phủ: tam phương |
-| `TV_TH_AUX_MENH_HKY_CU` | TH p.54 | hoa_unbound? | Hóa Kỵ: Hóa Kỵ beside Cự Môn | Hóa Kỵ: own palace lists Hóa Kỵ; a co-tested star could carry it |
-| `TV_TH_AUX_MENH_HKY_TU_MO_NHAT_NGUYET` | TH p.54 | narrower?, narrower?, hoa_unbound? | Thái Dương: 'gặp' (tam_phuong, mơ hồ); Thái Âm: 'gặp' (tam_phuong, mơ hồ); Hóa Kỵ: Hóa Kỵ beside Thái Dương, Thái Âm | Thái Dương: own palace; Thái Âm: own palace; Hóa Kỵ: own palace lists Hóa Kỵ; a co-tested star could carry it |
-| `TV_TH_AUX_MENH_HL_LUONG` | TH p.53 | hoa_unbound? | Hóa Lộc: Hóa Lộc beside Thiên Lương | Hóa Lộc: own palace lists Hóa Lộc; a co-tested star could carry it |
-| `TV_TH_AUX_MENH_LOC_HOA_LOC` | TH p.51 | narrower? | Hóa Lộc: 'gặp' (tam_phuong, mơ hồ) | Hóa Lộc: own palace |
-| `TV_TH_AUX_MENH_XK_LOC_TON` | TH p.50 | narrower? | Lộc Tồn: 'gặp' (tam_phuong, mơ hồ) | Lộc Tồn: own palace |
-| `TV_TH_AUX2_MENH_HO_TAU_THU` | TH p.66 | narrower? | Tấu Thư: 'gặp' (tam_phuong, mơ hồ) | Tấu Thư: own palace |
-| `TV_TH_AUX2_MENH_KK_QUYEN` | TH p.68 | narrower? | Hóa Quyền: 'gặp' (tam_phuong, mơ hồ) | Hóa Quyền: own palace |
-| `TV_TH_AUX2_MENH_TK_TUONG` | TH p.67 | narrower? | Thiên Không: 'gặp' (tam_phuong, mơ hồ) | Thiên Không: own palace |
-| `TV_TH_CACH_MENH_HA_CACH` | TH p.77 | wider? | Hóa Kỵ: 'có' (self) | Hóa Kỵ: tam phương |
-| `TV_TH_CACH_MENH_KHOI_VIET` | TH p.72 | mismatch?, mismatch? | Thiên Khôi: 'chiếu' (opp+trine); Thiên Việt: 'chiếu' (opp+trine) | Thiên Khôi: own palace\|xung chiếu; Thiên Việt: xung chiếu\|own palace |
-| `TV_TH_CACH_MENH_NGHE_DAY_HOC` | TH p.77 | wider?, wider?, wider?, wider? | Thiên Cơ: '(chủ thể)' (self); Thái Âm: '(chủ thể)' (self); Thiên Đồng: '(chủ thể)' (self); Thiên Lương: '(chủ thể)' (self) | Thiên Cơ: tam phương; Thái Âm: tam phương; Thiên Đồng: tam phương; Thiên Lương: tam phương |
-| `TV_TH_CACH_MENH_NGHE_IN_AN` | TH p.77 | wider?, wider?, wider?, wider? | Thiên Cơ: '(chủ thể)' (self); Thái Âm: '(chủ thể)' (self); Thiên Đồng: '(chủ thể)' (self); Thiên Lương: '(chủ thể)' (self) | Thiên Cơ: tam phương; Thái Âm: tam phương; Thiên Đồng: tam phương; Thiên Lương: tam phương |
-| `TV_TH_CACH_MENH_NHAT_MAO` | TH p.73 | narrower? | Thái Dương: 'chiếu / ở Mão' (tam_phuong) | Thái Dương: own palace |
-| `TV_TH_CACH_MENH_PHU_BAT` | TH p.73 | wider?, wider? | Tả Phụ: 'hợp chiếu' (opp+trine); Hữu Bật: 'hợp chiếu' (opp+trine) | Tả Phụ: tam phương; Hữu Bật: tam phương |
-| `TV_TH_CACH_MENH_SAT_TRIEU_DAU` | TH p.73 | mismatch? | Thất Sát: 'triều' (opp+trine) | Thất Sát: own palace |
-| `TV_TH_MV_MENH_TU_HANH_TU_THAM` | TH p.78 | narrower?, narrower? | Địa Không: 'gặp' (tam_phuong, mơ hồ); Địa Kiếp: 'gặp' (tam_phuong, mơ hồ) | Địa Không: own palace; Địa Kiếp: own palace |
-| `TV_TH_MV_MENH_XK_TY_HOI_LIEM` | TH p.88 | wider? | Liêm Trinh: 'có' (self) | Liêm Trinh: tam phương |
-| `TV_TH_P2_MENH_NU_NHAT` | TH p.96 | wider?, wider?, wider?, wider?, wider?, wider? | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
-| `TV_TH_P2_MENH_NU_PHU_TUONG` | TH p.96 | wider?, wider? | Thiên Phủ: 'chầu' (opp+trine); Thiên Tướng: 'chầu' (opp+trine) | Thiên Phủ: tam phương; Thiên Tướng: tam phương |
-| `TV_TH_P2_MENH_NU_VU_QUYEN` | TH p.99 | hoa_unbound? | Hóa Quyền: Hóa Quyền beside Vũ Khúc | Hóa Quyền: own palace lists Hóa Quyền; a co-tested star could carry it |
-| `TV_TH_STAR_THIEN_CO_NAM_HAO` | TH p.93 | wider?, wider? | Đại Hao: 'có' (self); Tiểu Hao: 'có' (self) | Đại Hao: tam phương; Tiểu Hao: tam phương |
-| `TV_TT_MENH_DONG_TUAT_KY_DINH` | TT p.28 | narrower? | Hóa Kỵ: 'gặp' (tam_phuong, mơ hồ) | Hóa Kỵ: own palace |
-| `TV_TT_MENH_HOA_LINH` | TT p.52 | narrower? | Linh Tinh: 'gặp' (tam_phuong, mơ hồ) | Linh Tinh: own palace |
-| `TV_TT_MENH_KHOA_MENH_QUYEN_CHIEU` | TT p.49 | wider? | Hóa Quyền: 'chiếu' (opp+trine) | Hóa Quyền: tam phương |
-| `TV_TT_MENH_KQL_HOP` | TT p.49 | wider?, wider?, wider? | Hóa Khoa: 'hợp chiếu' (opp+trine); Hóa Quyền: 'hợp chiếu' (opp+trine); Hóa Lộc: 'hợp chiếu' (opp+trine) | Hóa Khoa: tam phương; Hóa Quyền: tam phương; Hóa Lộc: tam phương |
-| `TV_TT_MENH_LUONG_TY_XUONG_LOC_NHAT` | TT p.37 | wider? | Thái Dương: 'chiếu' (opp+trine) | Thái Dương: tam phương |
-| `TV_TT_MENH_PHU_TUONG_NGO_TUAT_GIAP` | TT p.31 | wider? | Thiên Tướng: 'chầu' (opp+trine) | Thiên Tướng: tam phương |
-| `TV_TT_MENH_THAM_HOA_LINH_TU_MO` | TT p.33 | narrower?, narrower? | Hỏa Tinh: 'gặp' (tam_phuong, mơ hồ); Linh Tinh: 'gặp' (tam_phuong, mơ hồ) | Hỏa Tinh: own palace; Linh Tinh: own palace |
-| `TV_TT_MENH_TU_LOC_NHAT_NGUYET` | TT p.22 | wider?, wider? | Thái Dương: 'chiếu' (opp+trine); Thái Âm: 'chiếu' (opp+trine) | Thái Dương: tam phương; Thái Âm: tam phương |
-| `TV_TT_MENH_TU_PHU_LOC_TON` | TT p.22 | wider? | Lộc Tồn: 'có' (self) | Lộc Tồn: tam phương |
-| `TV_TT_MENH_TU_SAT_QUYEN` | TT p.22 | hoa_unbound? | Hóa Quyền: Hóa Quyền beside Tử Vi | Hóa Quyền: own palace lists Hóa Quyền; a co-tested star could carry it |
-| `TV_TT_MENH_VU_PHA` | TT p.27 | narrower? | Phá Quân: 'gặp' (tam_phuong, mơ hồ) | Phá Quân: own palace |
-| `TV_TT_NU_CO_CAT_QUYEN_LOC` | TT p.108 | wider?, wider?, wider?, wider?, wider?, wider? | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
-| `TV_TT_NU_NGUYET_NHAT_CAT` | TT p.111 | wider?, wider?, wider?, wider?, wider?, wider? | Tả Phụ: 'chiếu' (opp+trine); Hữu Bật: 'chiếu' (opp+trine); Văn Xương: 'chiếu' (opp+trine); Văn Khúc: 'chiếu' (opp+trine); Thiên Khôi: 'chiếu' (opp+trine); Thiên Việt: 'chiếu' (opp+trine) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
-| `TV_TT_NU_NHAT_CAT_TINH` | TT p.108 | wider?, wider?, wider?, wider?, wider?, wider? | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
-| `TV_TT_PHU_MENH_CO_LUONG_THIN` | TT p.158 | wider?, wider?, wider?, wider?, wider?, wider? | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
-| `TV_TT_PHU_MENH_DONG_LUONG_KHOI_QUYEN` | TT p.162 | narrower?, narrower?, narrower?, narrower?, hoa_unbound?, hoa_unbound? | Thiên Khôi: 'gặp' (tam_phuong, mơ hồ); Hóa Quyền: 'gặp' (tam_phuong, mơ hồ); Lộc Tồn: 'gặp' (tam_phuong, mơ hồ); Hóa Lộc: 'gặp' (tam_phuong, mơ hồ); Hóa Quyền: Hóa Quyền beside Thiên Đồng, Thiên Lương; Hóa Lộc: Hóa Lộc beside Thiên Đồng, Thiên Lương | Thiên Khôi: own palace; Hóa Quyền: own palace; Lộc Tồn: own palace; Hóa Lộc: own palace; Hóa Quyền: own palace lists Hóa Quyền; a co-tested star could carry it; Hóa Lộc: own palace lists Hóa Lộc; a co-tested star could carry it |
-| `TV_TT_PHU_MENH_DONG_NGO_KINH` | TT p.156 | narrower? | Kình Dương: 'gặp' (tam_phuong, mơ hồ) | Kình Dương: own palace |
-| `TV_TT_PHU_MENH_KHOA_QUYEN_SOM` | TT p.154 | mismatch?, wider? | Hóa Khoa: 'chiếu' (opp+trine); Hóa Quyền: 'chiếu' (opp+trine) | Hóa Khoa: own palace; Hóa Quyền: tam phương |
-| `TV_TT_PHU_MENH_LUONG_VU_SUU` | TT p.154 | wider?, wider? | Thiên Lương: 'chiếu' (opp+trine); Vũ Khúc: 'chiếu' (opp+trine) | Thiên Lương: tam phương; Vũ Khúc: tam phương |
-| `TV_TT_PHU_MENH_PHU_TUAT_CAT` | TT p.153 | wider?, wider?, wider?, wider?, wider?, wider? | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
-| `TV_TT_PHU_MENH_TAM_QUAN_DE` | TT p.159 | narrower?, narrower? | Thiên Phủ: 'gặp' (tam_phuong, mơ hồ); Thiên Tướng: 'gặp' (tam_phuong, mơ hồ) | Thiên Phủ: own palace; Thiên Tướng: own palace |
-| `TV_KL_CUNG_PHU_THE_KINH_DA_KHONG_KIEP` | KL p.217 | narrower?, narrower?, narrower?, narrower? | Kình Dương: 'gặp' (tam_phuong, mơ hồ); Đà La: 'gặp' (tam_phuong, mơ hồ); Địa Không: 'gặp' (tam_phuong, mơ hồ); Địa Kiếp: 'gặp' (tam_phuong, mơ hồ) | Kình Dương: own palace; Đà La: own palace; Địa Không: own palace; Địa Kiếp: own palace |
-| `TV_KL_CUNG_TAI_BACH_KQL_MA` | KL p.216 | wider? | Thiên Mã: 'chiếu' (opp+trine) | Thiên Mã: tam phương |
-| `TV_KL_CUNG_TAI_BACH_LOC_MA` | KL p.216 | wider? | Thiên Mã: 'chiếu' (opp+trine) | Thiên Mã: tam phương |
-| `TV_KL_CUNG_TAI_BACH_SONG_LOC` | KL p.216 | wider? | Hóa Lộc: 'chiếu' (opp+trine) | Hóa Lộc: tam phương |
-| `TV_KL_CUNG_TAT_ACH_CUOI_DOI` | KL p.218 | wider?, wider?, wider? | Hóa Khoa: 'có' (self); Hóa Quyền: 'có' (self); Hóa Lộc: 'có' (self) | Hóa Khoa: tam phương; Hóa Quyền: tam phương; Hóa Lộc: tam phương |
-| `TV_KL_STAR_TAI_BACH_CO_LOC_MA` | KL p.80 | hoa_unbound? | Hóa Lộc: Hóa Lộc beside Thiên Cơ | Hóa Lộc: own palace lists Hóa Lộc; a co-tested star could carry it |
-| `TV_NL_TAI_BACH_PHU_PHUNG_KHONG` |  | narrower?, narrower? | Địa Không: 'gặp' (tam_phuong, mơ hồ); Thiên Không: 'gặp' (tam_phuong, mơ hồ) | Địa Không: own palace; Thiên Không: own palace |
-| `TV_TH_AUX2_PHUC_DUC_MO_QUYEN` | TH p.59 | narrower? | Hóa Quyền: 'gặp' (tam_phuong, mơ hồ) | Hóa Quyền: own palace |
-| `TV_TH_CACH_QUAN_LOC_PHU_BAT` | TH p.73 | wider?, wider? | Tả Phụ: 'hợp chiếu' (opp+trine); Hữu Bật: 'hợp chiếu' (opp+trine) | Tả Phụ: tam phương; Hữu Bật: tam phương |
-| `TV_TH_P2_NO_BOC_DA_KY` | TH p.109 | narrower? | Hóa Kỵ: 'gặp' (tam_phuong, mơ hồ) | Hóa Kỵ: own palace |
-| `TV_TH_P2_NO_BOC_LUONG_CO_VAN_TINH` | TH p.109 | narrower?, narrower?, narrower?, narrower? | Tả Phụ: 'gặp' (tam_phuong, mơ hồ); Hữu Bật: 'gặp' (tam_phuong, mơ hồ); Văn Xương: 'gặp' (tam_phuong, mơ hồ); Văn Khúc: 'gặp' (tam_phuong, mơ hồ) | Tả Phụ: own palace; Hữu Bật: own palace; Văn Xương: own palace; Văn Khúc: own palace |
-| `TV_TH_P2_NO_BOC_QUYEN_CU` | TH p.109 | hoa_unbound? | Hóa Quyền: Hóa Quyền beside Cự Môn | Hóa Quyền: own palace lists Hóa Quyền; a co-tested star could carry it |
-| `TV_TH_P2_PHU_MAU_LOC_KHONG_KIEP` | TH p.113 | narrower?, narrower? | Địa Không: 'gặp' (tam_phuong, mơ hồ); Địa Kiếp: 'gặp' (tam_phuong, mơ hồ) | Địa Không: own palace; Địa Kiếp: own palace |
-| `TV_TH_P2_PHU_THE_CU_LINH_HOA` | TH p.102 | narrower?, narrower? | Hỏa Tinh: 'gặp' (tam_phuong, mơ hồ); Linh Tinh: 'gặp' (tam_phuong, mơ hồ) | Hỏa Tinh: own palace; Linh Tinh: own palace |
-| `TV_TH_P2_PHU_THE_TT_KHONG_KIEP` | TH p.102 | narrower?, narrower? | Địa Không: 'gặp' (tam_phuong, mơ hồ); Địa Kiếp: 'gặp' (tam_phuong, mơ hồ) | Địa Không: own palace; Địa Kiếp: own palace |
-| `TV_TH_P2_PHUC_DUC_KHOI_VIET_DAO` | TH p.112 | wider?, wider? | Thiên Khôi: '(chủ thể)' (self); Thiên Việt: '(chủ thể)' (self) | Thiên Khôi: tam phương; Thiên Việt: tam phương |
-| `TV_TH_P2_QUAN_LOC_TU_PHU_TAM_HOA` | TH p.110 | wider?, wider?, wider?, wider?, wider? | Tử Vi: '(chủ thể)' (self); Thiên Phủ: '(chủ thể)' (self); Hóa Khoa: 'triều' (opp+trine); Hóa Quyền: 'triều' (opp+trine); Hóa Lộc: 'triều' (opp+trine) | Tử Vi: tam phương; Thiên Phủ: tam phương; Hóa Khoa: tam phương; Hóa Quyền: tam phương; Hóa Lộc: tam phương |
-| `TV_TH_P2_QUAN_LOC_TUE_HO_PHU` | TH p.110 | wider? | Thái Tuế: '(chủ thể)' (self) | Thái Tuế: tam phương |
-| `TV_TH_P2_TAI_BACH_MA_TON` | TH p.106 | narrower? | Lộc Tồn: 'gặp' (tam_phuong, mơ hồ) | Lộc Tồn: own palace |
-| `TV_TH_P2_THIEN_DI_VU_DA_KINH` | TH p.108 | narrower?, narrower? | Đà La: 'gặp' (tam_phuong, mơ hồ); Kình Dương: 'gặp' (tam_phuong, mơ hồ) | Đà La: own palace; Kình Dương: own palace |
-| `TV_TT_DIEN_TRACH_PHU_VU_QUYEN_LOC` | TT p.31 | narrower? | Lộc Tồn: 'tụ vào' (tam_phuong, mơ hồ) | Lộc Tồn: own palace |
-| `TV_TT_TAI_BACH_PHU_VU_QUYEN_LOC` | TT p.31 | narrower? | Lộc Tồn: 'tụ vào' (tam_phuong, mơ hồ) | Lộc Tồn: own palace |
+| `TV_KL_AUX_HONG_KHONG` | KL p.225 | narrower? → drop | Hồng Loan: 'gặp' (tam_phuong, mơ hồ) | Hồng Loan: own palace |
+| `TV_KL_CT_NHAT_NGUYET_DAO_HONG` | KL p.224 | wider? → promote | Đào Hoa: 'đồng cung hoặc tam hợp chiếu' (self+trine) | Đào Hoa: tam phương |
+| `TV_KL_PHU_PHU_XUONG_KHUC_TA_HUU` | KL p.55 | wider? → promote, wider? → promote, wider? → promote, wider? → promote | Văn Xương: 'hợp chiếu' (opp+trine); Văn Khúc: 'hợp chiếu' (opp+trine); Tả Phụ: 'hợp chiếu' (opp+trine); Hữu Bật: 'hợp chiếu' (opp+trine) | Văn Xương: tam phương; Văn Khúc: tam phương; Tả Phụ: tam phương; Hữu Bật: tam phương |
+| `TV_KL_PHU_VU_LOC_MA` | KL p.54 | wider? → promote, wider? → promote | Lộc Tồn: 'hợp chiếu' (opp+trine); Thiên Mã: 'hợp chiếu' (opp+trine) | Lộc Tồn: tam phương; Thiên Mã: tam phương |
+| `TV_KL_PHU2_KHOA_QUYEN_KHOI_VIET` | KL p.73 | wider? → promote, wider? → promote | Thiên Khôi: 'hợp chiếu' (opp+trine); Thiên Việt: 'hợp chiếu' (opp+trine) | Thiên Khôi: tam phương; Thiên Việt: tam phương |
+| `TV_KL_PHU2_KHOA_VAN_TINH` | KL p.71 | hoa_unbound? → drop | Hóa Khoa: Hóa Khoa beside Văn Xương, Văn Khúc | Hóa Khoa: own palace lists Hóa Khoa; a co-tested star could carry it |
+| `TV_KL_PHU2_XUONG_KHUC_NHAT_NGUYET` | KL p.73 | wider? → promote, wider? → promote | Thái Dương: 'hợp chiếu' (opp+trine); Thái Âm: 'hợp chiếu' (opp+trine) | Thái Dương: tam phương; Thái Âm: tam phương |
+| `TV_KL_STAR_MENH_CO_LOC` | KL p.81 | narrower? → keep_condition, narrower? → keep_condition, hoa_unbound? → drop | Lộc Tồn: 'gặp' (tam_phuong, mơ hồ); Hóa Lộc: 'gặp' (tam_phuong, mơ hồ); Hóa Lộc: Hóa Lộc beside Thiên Cơ | Lộc Tồn: own palace; Hóa Lộc: own palace; Hóa Lộc: own palace lists Hóa Lộc; a co-tested star could carry it |
+| `TV_KL_STAR_MENH_CO_VAN_VO` | KL p.80 | wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop | Thiên Lương: 'đi cùng' (self); Tả Phụ: 'đi cùng' (self); Hữu Bật: 'đi cùng' (self); Văn Xương: 'đi cùng' (self); Văn Khúc: 'đi cùng' (self) | Thiên Lương: tam phương; Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương |
+| `TV_KL_STAR_MENH_HAO_MAO_DAU_KY` | KL p.67 | narrower? → keep_condition | Hóa Lộc: 'gặp' (tam_phuong, mơ hồ) | Hóa Lộc: own palace |
+| `TV_KL_STAR_MENH_HOA_LINH_TUONG_NGO` | KL p.65 | narrower? → keep_condition, narrower? → keep_condition | Hỏa Tinh: 'thủ / chiếu' (tam_phuong); Linh Tinh: 'thủ / chiếu' (tam_phuong) | Hỏa Tinh: own palace\|xung chiếu; Linh Tinh: xung chiếu\|own palace |
+| `TV_KL_STAR_MENH_KINH_LUC_SI` | KL p.64 | mismatch? → drop | Lực Sĩ: 'hợp chiếu' (opp+trine) | Lực Sĩ: own palace |
+| `TV_KL_STAR_MENH_NHAT_KY_SUU_MUI` | KL p.83 | hoa_unbound? → drop | Hóa Kỵ: Hóa Kỵ beside Thái Dương | Hóa Kỵ: own palace lists Hóa Kỵ; a co-tested star could carry it |
+| `TV_KL_STAR_MENH_NHAT_TAM_MINH` | KL p.83 | wider? → drop, wider? → drop, wider? → drop | Đào Hoa: 'tam hợp' (trine); Hồng Loan: 'tam hợp' (trine); Thiên Hỷ: 'tam hợp' (trine) | Đào Hoa: tam phương; Hồng Loan: tam phương; Thiên Hỷ: tam phương |
+| `TV_KL_STAR_MENH_TA_HUU_TU_MO` | KL p.63 | wider? → keep_condition, wider? → keep_condition | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương |
+| `TV_KL_STAR_MENH_TA_HUU_XUONG` | KL p.63 | wider? → keep_condition, wider? → keep_condition | Tả Phụ: '(chủ thể)' (self); Hữu Bật: '(chủ thể)' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương |
+| `TV_KL_STAR_MENH_TU_PHU_TRIEU_VIEN` | KL p.78 | wider? → promote, wider? → promote | Tử Vi: 'triều viên' (opp+trine); Thiên Phủ: 'triều viên' (opp+trine) | Tử Vi: tam phương; Thiên Phủ: tam phương |
+| `TV_TH_AUX_MENH_HKY_CU` | TH p.54 | hoa_unbound? → drop | Hóa Kỵ: Hóa Kỵ beside Cự Môn | Hóa Kỵ: own palace lists Hóa Kỵ; a co-tested star could carry it |
+| `TV_TH_AUX_MENH_HKY_TU_MO_NHAT_NGUYET` | TH p.54 | narrower? → keep_condition, narrower? → keep_condition, hoa_unbound? → drop | Thái Dương: 'gặp' (tam_phuong, mơ hồ); Thái Âm: 'gặp' (tam_phuong, mơ hồ); Hóa Kỵ: Hóa Kỵ beside Thái Dương, Thái Âm | Thái Dương: own palace; Thái Âm: own palace; Hóa Kỵ: own palace lists Hóa Kỵ; a co-tested star could carry it |
+| `TV_TH_AUX_MENH_HL_LUONG` | TH p.53 | hoa_unbound? → drop | Hóa Lộc: Hóa Lộc beside Thiên Lương | Hóa Lộc: own palace lists Hóa Lộc; a co-tested star could carry it |
+| `TV_TH_AUX_MENH_LOC_HOA_LOC` | TH p.51 | narrower? → keep_condition | Hóa Lộc: 'gặp' (tam_phuong, mơ hồ) | Hóa Lộc: own palace |
+| `TV_TH_AUX_MENH_XK_LOC_TON` | TH p.50 | narrower? → keep_condition | Lộc Tồn: 'gặp' (tam_phuong, mơ hồ) | Lộc Tồn: own palace |
+| `TV_TH_AUX2_MENH_HO_TAU_THU` | TH p.66 | narrower? → drop | Tấu Thư: 'gặp' (tam_phuong, mơ hồ) | Tấu Thư: own palace |
+| `TV_TH_AUX2_MENH_KK_QUYEN` | TH p.68 | narrower? → keep_condition | Hóa Quyền: 'gặp' (tam_phuong, mơ hồ) | Hóa Quyền: own palace |
+| `TV_TH_AUX2_MENH_TK_TUONG` | TH p.67 | narrower? → keep_condition | Thiên Không: 'gặp' (tam_phuong, mơ hồ) | Thiên Không: own palace |
+| `TV_TH_CACH_MENH_HA_CACH` | TH p.77 | wider? → drop | Hóa Kỵ: 'có' (self) | Hóa Kỵ: tam phương |
+| `TV_TH_CACH_MENH_KHOI_VIET` | TH p.72 | mismatch? → keep_condition, mismatch? → keep_condition | Thiên Khôi: 'chiếu' (opp+trine); Thiên Việt: 'chiếu' (opp+trine) | Thiên Khôi: own palace\|xung chiếu; Thiên Việt: xung chiếu\|own palace |
+| `TV_TH_CACH_MENH_NGHE_DAY_HOC` | TH p.77 | wider? → drop, wider? → drop, wider? → drop, wider? → drop | Thiên Cơ: '(chủ thể)' (self); Thái Âm: '(chủ thể)' (self); Thiên Đồng: '(chủ thể)' (self); Thiên Lương: '(chủ thể)' (self) | Thiên Cơ: tam phương; Thái Âm: tam phương; Thiên Đồng: tam phương; Thiên Lương: tam phương |
+| `TV_TH_CACH_MENH_NGHE_IN_AN` | TH p.77 | wider? → drop, wider? → drop, wider? → drop, wider? → drop | Thiên Cơ: '(chủ thể)' (self); Thái Âm: '(chủ thể)' (self); Thiên Đồng: '(chủ thể)' (self); Thiên Lương: '(chủ thể)' (self) | Thiên Cơ: tam phương; Thái Âm: tam phương; Thiên Đồng: tam phương; Thiên Lương: tam phương |
+| `TV_TH_CACH_MENH_NHAT_MAO` | TH p.73 | narrower? → drop | Thái Dương: 'chiếu / ở Mão' (tam_phuong) | Thái Dương: own palace |
+| `TV_TH_CACH_MENH_PHU_BAT` | TH p.73 | wider? → promote, wider? → promote | Tả Phụ: 'hợp chiếu' (opp+trine); Hữu Bật: 'hợp chiếu' (opp+trine) | Tả Phụ: tam phương; Hữu Bật: tam phương |
+| `TV_TH_CACH_MENH_SAT_TRIEU_DAU` | TH p.73 | mismatch? → drop | Thất Sát: 'triều' (opp+trine) | Thất Sát: own palace |
+| `TV_TH_MV_MENH_TU_HANH_TU_THAM` | TH p.78 | narrower? → keep_condition, narrower? → keep_condition | Địa Không: 'gặp' (tam_phuong, mơ hồ); Địa Kiếp: 'gặp' (tam_phuong, mơ hồ) | Địa Không: own palace; Địa Kiếp: own palace |
+| `TV_TH_MV_MENH_XK_TY_HOI_LIEM` | TH p.88 | wider? → promote | Liêm Trinh: 'có' (self) | Liêm Trinh: tam phương |
+| `TV_TH_P2_MENH_NU_NHAT` | TH p.96 | wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
+| `TV_TH_P2_MENH_NU_PHU_TUONG` | TH p.96 | wider? → promote, wider? → promote | Thiên Phủ: 'chầu' (opp+trine); Thiên Tướng: 'chầu' (opp+trine) | Thiên Phủ: tam phương; Thiên Tướng: tam phương |
+| `TV_TH_P2_MENH_NU_VU_QUYEN` | TH p.99 | hoa_unbound? → drop | Hóa Quyền: Hóa Quyền beside Vũ Khúc | Hóa Quyền: own palace lists Hóa Quyền; a co-tested star could carry it |
+| `TV_TH_STAR_THIEN_CO_NAM_HAO` | TH p.93 | wider? → promote, wider? → promote | Đại Hao: 'có' (self); Tiểu Hao: 'có' (self) | Đại Hao: tam phương; Tiểu Hao: tam phương |
+| `TV_TT_MENH_DONG_TUAT_KY_DINH` | TT p.28 | narrower? → keep_condition | Hóa Kỵ: 'gặp' (tam_phuong, mơ hồ) | Hóa Kỵ: own palace |
+| `TV_TT_MENH_HOA_LINH` | TT p.52 | narrower? → keep_condition | Linh Tinh: 'gặp' (tam_phuong, mơ hồ) | Linh Tinh: own palace |
+| `TV_TT_MENH_KHOA_MENH_QUYEN_CHIEU` | TT p.49 | wider? → promote | Hóa Quyền: 'chiếu' (opp+trine) | Hóa Quyền: tam phương |
+| `TV_TT_MENH_KQL_HOP` | TT p.49 | wider? → drop, wider? → drop, wider? → drop | Hóa Khoa: 'hợp chiếu' (opp+trine); Hóa Quyền: 'hợp chiếu' (opp+trine); Hóa Lộc: 'hợp chiếu' (opp+trine) | Hóa Khoa: tam phương; Hóa Quyền: tam phương; Hóa Lộc: tam phương |
+| `TV_TT_MENH_LUONG_TY_XUONG_LOC_NHAT` | TT p.37 | wider? → promote | Thái Dương: 'chiếu' (opp+trine) | Thái Dương: tam phương |
+| `TV_TT_MENH_PHU_TUONG_NGO_TUAT_GIAP` | TT p.31 | wider? → promote | Thiên Tướng: 'chầu' (opp+trine) | Thiên Tướng: tam phương |
+| `TV_TT_MENH_THAM_HOA_LINH_TU_MO` | TT p.33 | narrower? → keep_condition, narrower? → keep_condition | Hỏa Tinh: 'gặp' (tam_phuong, mơ hồ); Linh Tinh: 'gặp' (tam_phuong, mơ hồ) | Hỏa Tinh: own palace; Linh Tinh: own palace |
+| `TV_TT_MENH_TU_LOC_NHAT_NGUYET` | TT p.22 | wider? → promote, wider? → promote | Thái Dương: 'chiếu' (opp+trine); Thái Âm: 'chiếu' (opp+trine) | Thái Dương: tam phương; Thái Âm: tam phương |
+| `TV_TT_MENH_TU_PHU_LOC_TON` | TT p.22 | wider? → drop | Lộc Tồn: 'có' (self) | Lộc Tồn: tam phương |
+| `TV_TT_MENH_TU_SAT_QUYEN` | TT p.22 | hoa_unbound? → drop | Hóa Quyền: Hóa Quyền beside Tử Vi | Hóa Quyền: own palace lists Hóa Quyền; a co-tested star could carry it |
+| `TV_TT_MENH_VU_PHA` | TT p.27 | narrower? → drop | Phá Quân: 'gặp' (tam_phuong, mơ hồ) | Phá Quân: own palace |
+| `TV_TT_NU_CO_CAT_QUYEN_LOC` | TT p.108 | wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
+| `TV_TT_NU_NGUYET_NHAT_CAT` | TT p.111 | wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop | Tả Phụ: 'chiếu' (opp+trine); Hữu Bật: 'chiếu' (opp+trine); Văn Xương: 'chiếu' (opp+trine); Văn Khúc: 'chiếu' (opp+trine); Thiên Khôi: 'chiếu' (opp+trine); Thiên Việt: 'chiếu' (opp+trine) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
+| `TV_TT_NU_NHAT_CAT_TINH` | TT p.108 | wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
+| `TV_TT_PHU_MENH_CO_LUONG_THIN` | TT p.158 | wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
+| `TV_TT_PHU_MENH_DONG_LUONG_KHOI_QUYEN` | TT p.162 | narrower? → keep_condition, narrower? → keep_condition, narrower? → keep_condition, narrower? → keep_condition, hoa_unbound? → drop, hoa_unbound? → drop | Thiên Khôi: 'gặp' (tam_phuong, mơ hồ); Hóa Quyền: 'gặp' (tam_phuong, mơ hồ); Lộc Tồn: 'gặp' (tam_phuong, mơ hồ); Hóa Lộc: 'gặp' (tam_phuong, mơ hồ); Hóa Quyền: Hóa Quyền beside Thiên Đồng, Thiên Lương; Hóa Lộc: Hóa Lộc beside Thiên Đồng, Thiên Lương | Thiên Khôi: own palace; Hóa Quyền: own palace; Lộc Tồn: own palace; Hóa Lộc: own palace; Hóa Quyền: own palace lists Hóa Quyền; a co-tested star could carry it; Hóa Lộc: own palace lists Hóa Lộc; a co-tested star could carry it |
+| `TV_TT_PHU_MENH_DONG_NGO_KINH` | TT p.156 | narrower? → drop | Kình Dương: 'gặp' (tam_phuong, mơ hồ) | Kình Dương: own palace |
+| `TV_TT_PHU_MENH_KHOA_QUYEN_SOM` | TT p.154 | mismatch? → drop, wider? → promote | Hóa Khoa: 'chiếu' (opp+trine); Hóa Quyền: 'chiếu' (opp+trine) | Hóa Khoa: own palace; Hóa Quyền: tam phương |
+| `TV_TT_PHU_MENH_LUONG_VU_SUU` | TT p.154 | wider? → promote, wider? → promote | Thiên Lương: 'chiếu' (opp+trine); Vũ Khúc: 'chiếu' (opp+trine) | Thiên Lương: tam phương; Vũ Khúc: tam phương |
+| `TV_TT_PHU_MENH_PHU_TUAT_CAT` | TT p.153 | wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop | Tả Phụ: 'có' (self); Hữu Bật: 'có' (self); Văn Xương: 'có' (self); Văn Khúc: 'có' (self); Thiên Khôi: 'có' (self); Thiên Việt: 'có' (self) | Tả Phụ: tam phương; Hữu Bật: tam phương; Văn Xương: tam phương; Văn Khúc: tam phương; Thiên Khôi: tam phương; Thiên Việt: tam phương |
+| `TV_TT_PHU_MENH_TAM_QUAN_DE` | TT p.159 | narrower? → keep_condition, narrower? → keep_condition | Thiên Phủ: 'gặp' (tam_phuong, mơ hồ); Thiên Tướng: 'gặp' (tam_phuong, mơ hồ) | Thiên Phủ: own palace; Thiên Tướng: own palace |
+| `TV_KL_CUNG_PHU_THE_KINH_DA_KHONG_KIEP` | KL p.217 | narrower? → drop, narrower? → drop, narrower? → drop, narrower? → drop | Kình Dương: 'gặp' (tam_phuong, mơ hồ); Đà La: 'gặp' (tam_phuong, mơ hồ); Địa Không: 'gặp' (tam_phuong, mơ hồ); Địa Kiếp: 'gặp' (tam_phuong, mơ hồ) | Kình Dương: own palace; Đà La: own palace; Địa Không: own palace; Địa Kiếp: own palace |
+| `TV_KL_CUNG_TAI_BACH_KQL_MA` | KL p.216 | wider? → promote | Thiên Mã: 'chiếu' (opp+trine) | Thiên Mã: tam phương |
+| `TV_KL_CUNG_TAI_BACH_LOC_MA` | KL p.216 | wider? → promote | Thiên Mã: 'chiếu' (opp+trine) | Thiên Mã: tam phương |
+| `TV_KL_CUNG_TAI_BACH_SONG_LOC` | KL p.216 | wider? → promote | Hóa Lộc: 'chiếu' (opp+trine) | Hóa Lộc: tam phương |
+| `TV_KL_CUNG_TAT_ACH_CUOI_DOI` | KL p.218 | hoa_unbound? → drop, hoa_unbound? → drop, hoa_unbound? → drop | Hóa Khoa: Hóa Khoa beside Tử Vi, Vũ Khúc, Tả Phụ, Hữu Bật; Hóa Quyền: Hóa Quyền beside Tử Vi, Vũ Khúc; Hóa Lộc: Hóa Lộc beside Vũ Khúc | Hóa Khoa: own palace lists Hóa Khoa; a co-tested star could carry it; Hóa Quyền: own palace lists Hóa Quyền; a co-tested star could carry it; Hóa Lộc: own palace lists Hóa Lộc; a co-tested star could carry it |
+| `TV_KL_STAR_TAI_BACH_CO_LOC_MA` | KL p.80 | hoa_unbound? → drop | Hóa Lộc: Hóa Lộc beside Thiên Cơ | Hóa Lộc: own palace lists Hóa Lộc; a co-tested star could carry it |
+| `TV_NL_TAI_BACH_PHU_PHUNG_KHONG` |  | narrower? → keep_condition, narrower? → keep_condition | Địa Không: 'gặp' (tam_phuong, mơ hồ); Thiên Không: 'gặp' (tam_phuong, mơ hồ) | Địa Không: own palace; Thiên Không: own palace |
+| `TV_TH_AUX2_PHUC_DUC_MO_QUYEN` | TH p.59 | narrower? → keep_condition | Hóa Quyền: 'gặp' (tam_phuong, mơ hồ) | Hóa Quyền: own palace |
+| `TV_TH_CACH_QUAN_LOC_PHU_BAT` | TH p.73 | wider? → promote, wider? → promote | Tả Phụ: 'hợp chiếu' (opp+trine); Hữu Bật: 'hợp chiếu' (opp+trine) | Tả Phụ: tam phương; Hữu Bật: tam phương |
+| `TV_TH_P2_NO_BOC_DA_KY` | TH p.109 | narrower? → drop | Hóa Kỵ: 'gặp' (tam_phuong, mơ hồ) | Hóa Kỵ: own palace |
+| `TV_TH_P2_NO_BOC_LUONG_CO_VAN_TINH` | TH p.109 | narrower? → drop, narrower? → drop, narrower? → drop, narrower? → drop | Tả Phụ: 'gặp' (tam_phuong, mơ hồ); Hữu Bật: 'gặp' (tam_phuong, mơ hồ); Văn Xương: 'gặp' (tam_phuong, mơ hồ); Văn Khúc: 'gặp' (tam_phuong, mơ hồ) | Tả Phụ: own palace; Hữu Bật: own palace; Văn Xương: own palace; Văn Khúc: own palace |
+| `TV_TH_P2_NO_BOC_QUYEN_CU` | TH p.109 | hoa_unbound? → drop | Hóa Quyền: Hóa Quyền beside Cự Môn | Hóa Quyền: own palace lists Hóa Quyền; a co-tested star could carry it |
+| `TV_TH_P2_PHU_MAU_LOC_KHONG_KIEP` | TH p.113 | narrower? → drop, narrower? → drop | Địa Không: 'gặp' (tam_phuong, mơ hồ); Địa Kiếp: 'gặp' (tam_phuong, mơ hồ) | Địa Không: own palace; Địa Kiếp: own palace |
+| `TV_TH_P2_PHU_THE_CU_LINH_HOA` | TH p.102 | narrower? → keep_condition, narrower? → keep_condition | Hỏa Tinh: 'gặp' (tam_phuong, mơ hồ); Linh Tinh: 'gặp' (tam_phuong, mơ hồ) | Hỏa Tinh: own palace; Linh Tinh: own palace |
+| `TV_TH_P2_PHU_THE_TT_KHONG_KIEP` | TH p.102 | narrower? → drop, narrower? → drop | Địa Không: 'gặp' (tam_phuong, mơ hồ); Địa Kiếp: 'gặp' (tam_phuong, mơ hồ) | Địa Không: own palace; Địa Kiếp: own palace |
+| `TV_TH_P2_PHUC_DUC_KHOI_VIET_DAO` | TH p.112 | wider? → keep_condition, wider? → keep_condition | Thiên Khôi: '(chủ thể)' (self); Thiên Việt: '(chủ thể)' (self) | Thiên Khôi: tam phương; Thiên Việt: tam phương |
+| `TV_TH_P2_QUAN_LOC_TU_PHU_TAM_HOA` | TH p.110 | wider? → drop, wider? → drop, wider? → drop, wider? → drop, wider? → drop | Tử Vi: '(chủ thể)' (self); Thiên Phủ: '(chủ thể)' (self); Hóa Khoa: 'triều' (opp+trine); Hóa Quyền: 'triều' (opp+trine); Hóa Lộc: 'triều' (opp+trine) | Tử Vi: tam phương; Thiên Phủ: tam phương; Hóa Khoa: tam phương; Hóa Quyền: tam phương; Hóa Lộc: tam phương |
+| `TV_TH_P2_QUAN_LOC_TUE_HO_PHU` | TH p.110 | wider? → drop | Thái Tuế: '(chủ thể)' (self) | Thái Tuế: tam phương |
+| `TV_TH_P2_TAI_BACH_MA_TON` | TH p.106 | narrower? → keep_condition | Lộc Tồn: 'gặp' (tam_phuong, mơ hồ) | Lộc Tồn: own palace |
+| `TV_TH_P2_THIEN_DI_VU_DA_KINH` | TH p.108 | narrower? → drop, narrower? → drop | Đà La: 'gặp' (tam_phuong, mơ hồ); Kình Dương: 'gặp' (tam_phuong, mơ hồ) | Đà La: own palace; Kình Dương: own palace |
+| `TV_TT_DIEN_TRACH_PHU_VU_QUYEN_LOC` | TT p.31 | narrower? → keep_condition | Lộc Tồn: 'tụ vào' (tam_phuong, mơ hồ) | Lộc Tồn: own palace |
+| `TV_TT_TAI_BACH_PHU_VU_QUYEN_LOC` | TT p.31 | narrower? → keep_condition | Lộc Tồn: 'tụ vào' (tam_phuong, mơ hồ) | Lộc Tồn: own palace |
 
 ## Mixed-scope rules with no other flag (172)
 
@@ -323,16 +324,28 @@ The condition matches the book, but the atoms sit in different scopes; the guard
 
 ## Effect on the 1,000-chart corpus
 
-Guarded rules (other than mixed-only) fired **3573** times over the corpus (all palaces). The default guards (`condition` + `book` requirements) block **409**
-of them; strict mode (also `book?`) blocks 2012. Rules whose default guard blocks at least one firing:
+Guarded rules (other than mixed-only) fired **3129** times over the corpus (all palaces). The default guards (`condition` + `book` requirements) block **539**
+of them; strict mode (also `book?`) blocks 1003. Rules whose default guard blocks at least one firing:
 
 | rule | fired | blocked | blocked (strict) |
 |---|---:|---:|---:|
 | `TV_TH_AUX_MENH_DH_CHIEU` | 296 | 216 | 216 |
 | `TV_TT_MENH_TA_HUU_TAI_QUAN` | 212 | 154 | 154 |
+| `TV_TH_P2_MENH_NU_PHU_TUONG` | 51 | 36 | 36 |
 | `TV_TH_AUX_MENH_LOC_PHA` | 34 | 27 | 27 |
+| `TV_KL_PHU_PHU_XUONG_KHUC_TA_HUU` | 34 | 20 | 20 |
+| `TV_KL_CUNG_TAI_BACH_LOC_MA` | 33 | 18 | 18 |
+| `TV_KL_CT_NHAT_NGUYET_DAO_HONG` | 49 | 17 | 17 |
 | `TV_TH_VERSE_MENH_CU_HOA_KY` | 18 | 9 | 9 |
+| `TV_TH_CACH_QUAN_LOC_PHU_BAT` | 17 | 9 | 9 |
+| `TV_KL_CUNG_TAI_BACH_SONG_LOC` | 25 | 9 | 9 |
+| `TV_TH_MV_MENH_XK_TY_HOI_LIEM` | 5 | 5 | 5 |
+| `TV_TT_MENH_KHOA_MENH_QUYEN_CHIEU` | 32 | 4 | 4 |
+| `TV_TT_PHU_MENH_KHOA_QUYEN_SOM` | 32 | 4 | 4 |
+| `TV_KL_PHU_VU_LOC_MA` | 6 | 4 | 4 |
+| `TV_TH_CACH_MENH_PHU_BAT` | 18 | 3 | 3 |
 | `TV_KL_CASE_MENH_AM_HAM_QUYEN` | 9 | 2 | 2 |
+| `TV_KL_CUNG_TAI_BACH_KQL_MA` | 14 | 1 | 1 |
 | `TV_KL_CASE_TAI_BACH_CO_KY_HOA_LINH` | 3 | 1 | 1 |
 
 ## Reviewer notes (hand-checked while building the audit)
@@ -353,4 +366,54 @@ of them; strict mode (also `book?`) blocks 2012. Rules whose default guard block
 - `TV_TH_AUX_MENH_LOC_HOA_LOC` ("Lộc Tồn gặp Hóa Lộc", TH p.51) is narrower? (the condition wants Hóa Lộc in Mệnh, "gặp" is read as hội elsewhere in TH).
   `TV_KL_STAR_MENH_TAM_KY_KY_KINH` is consistent with its book line (Khoa Quyền Lộc hội, Kỵ/Kình đồng cung): mixed only.
 - Needs-reading flags come from wording the parser cannot settle ('gặp', 'có', a bare 'chiếu', an implied subject, "chiếu nhau"/"ngược lại");
-  their tightenings are `book?` and are not applied unless strict.
+  their tightenings are `book?` and are not applied unless strict, or until the book review below promotes them.
+
+## Book review of the needs-reading flags
+
+Each needs-reading flag was read against its page image (KL/TH/TT, Thiên Lương NL); the decisions are in `engine/data/kg/position_guards.review.json`
+(85 entries over 81 rules, each with page and quote) and this tool applies them to the guards. A rule can carry
+more than one decision (e.g. keep the position, drop the carrier).
+
+| decision | rules | flags | effect on the guard |
+|---|---:|---:|---|
+| promote | 20 | 33 | the book's seat or carrier becomes a default requirement (`book`) |
+| drop | 41 | 101 | the flag misread the book; the requirement is the condition's seat, any draft `book?` tightening is withdrawn |
+| keep_condition | 24 | 39 | default stays the condition; a seat inside it stays strict-only (`book?`), a wider book reading needs a pack change |
+
+Needs-reading flags: 173, settled 173.
+
+Promoted (now applied by default):
+
+| rule | atoms | seat | page |
+|---|---|---|---|
+| `TV_KL_CT_NHAT_NGUYET_DAO_HONG` | Đào Hoa, Hồng Loan | self+trine | KL p.224 |
+| `TV_KL_PHU_PHU_XUONG_KHUC_TA_HUU` | Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật | opp+trine | KL p.55 (Thiên Phủ #5) |
+| `TV_KL_PHU_VU_LOC_MA` | Lộc Tồn, Thiên Mã | opp+trine | KL p.54 (Vũ Khúc #3) |
+| `TV_KL_PHU2_KHOA_QUYEN_KHOI_VIET` | Thiên Khôi, Thiên Việt | opp+trine | KL p.73 |
+| `TV_KL_PHU2_XUONG_KHUC_NHAT_NGUYET` | Thái Dương, Thái Âm | opp+trine | KL p.73 |
+| `TV_KL_STAR_MENH_TU_PHU_TRIEU_VIEN` | Tử Vi, Thiên Phủ | trine | KL p.78 |
+| `TV_KL_CUNG_TAI_BACH_KQL_MA` | Thiên Mã | opp+trine | KL p.216 (Cung Tài) |
+| `TV_KL_CUNG_TAI_BACH_LOC_MA` | Thiên Mã | opp+trine | KL p.216 (Cung Tài) |
+| `TV_KL_CUNG_TAI_BACH_SONG_LOC` | Hóa Lộc | opp+trine | KL p.216 (Cung Tài) |
+| `TV_TH_CACH_MENH_PHU_BAT` | Tả Phụ, Hữu Bật | opp+trine | TH p.73 (#31) |
+| `TV_TH_CACH_QUAN_LOC_PHU_BAT` | Tả Phụ, Hữu Bật | opp+trine | TH p.73 (#31) |
+| `TV_TH_MV_MENH_XK_TY_HOI_LIEM` | Liêm Trinh | self | TH p.88 |
+| `TV_TH_P2_MENH_NU_PHU_TUONG` | Thiên Phủ, Thiên Tướng | trine | TH p.96 |
+| `TV_TH_STAR_THIEN_CO_NAM_HAO` | Đại Hao, Tiểu Hao | self+opp | TH p.93 |
+| `TV_TT_MENH_KHOA_MENH_QUYEN_CHIEU` | Hóa Quyền | opp+trine | TT p.49 |
+| `TV_TT_MENH_LUONG_TY_XUONG_LOC_NHAT` | Thái Dương | opp | TT p.37 |
+| `TV_TT_MENH_PHU_TUONG_NGO_TUAT_GIAP` | Thiên Tướng | trine | TT p.31 |
+| `TV_TT_MENH_TU_LOC_NHAT_NGUYET` | Thái Dương, Thái Âm | opp+trine | TT p.22 |
+| `TV_TT_PHU_MENH_KHOA_QUYEN_SOM` | Hóa Quyền | opp+trine | TT p.154 (#31) |
+| `TV_TT_PHU_MENH_LUONG_VU_SUU` | Thiên Lương, Vũ Khúc | opp+trine | TT p.154 (#33) |
+
+Kept for strict mode only (book seat inside the condition, but a guard cannot say "one of the pair"): `TV_KL_STAR_MENH_TA_HUU_XUONG`, `TV_KL_STAR_MENH_TA_HUU_TU_MO`, `TV_TH_P2_PHUC_DUC_KHOI_VIET_DAO`.
+
+Findings for an upstream pack change (packs are frozen here):
+
+- `TV_TT_MENH_DONG_TUAT_KY_DINH` (TT p.28) never fires: for tuổi Đinh the Kỵ rides Cự Môn, which stands at Thìn when Thiên Đồng is at Tuất, so the
+  Kỵ always shines from xung while the condition wants it in Mệnh.
+- `TV_TH_CACH_MENH_KHOI_VIET` cites TH p.72 #16 (Khôi Việt both chiếu Mệnh) but tests p.73 #45 Tọa quý hướng quý (one in Mệnh, the other xung).
+- `TV_TH_AUX_MENH_HKY_CU` (TH p.54): "thị phi" belongs to the next sentence (Thái Tuế, Đà La đồng cung); the Cự Môn line says ốm đau tai nạn.
+- 20 keep_condition entries are narrower rules: the book's 'gặp' / 'ngộ' / 'chiếu' is hội
+  while the condition tests the own palace (or xung only); a guard cannot widen them.

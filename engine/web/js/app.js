@@ -113,10 +113,13 @@ function readForm() {
   const unknown = $('#no-hour').checked, [h, m] = unknown ? [12, 0] : form.time.value.split(':').map(Number);
   const o = { year: +form.year.value, month: +form.month.value, day: +form.day.value, hour: h, minute: m, gender: form.gender.value, tz: form.tz.value.trim() || 'Asia/Ho_Chi_Minh', calendar: form.calsys.value, zi_rule: form.zi_rule.value, level: +form.level.value };
   if ($('#solar').checked) { o.use_true_solar_time = true; o.longitude = +form.longitude.value; }
+  // dignity table chosen on the board (tuvi.js): the whole chart, board and readings, is computed with the same one
+  try { const dg = localStorage.getItem('tvbt.dignity'); if (dg === 'khao_luan' || dg === 'toan_thu') o.dignity_school = dg; } catch {}
   return o;
 }
 const fmtDate = r => `${String(r.day).padStart(2, '0')}/${String(r.month).padStart(2, '0')}/${r.year}`;
 
+addEventListener('tvbt:dignity', e => { if (state?.req) generate(null, { ...state.req, dignity_school: e.detail }); });
 async function generate(ev, saved = null) {
   ev?.preventDefault();
   const err = $('#form-err'), btn = $('#submit-btn'); err.hidden = true;

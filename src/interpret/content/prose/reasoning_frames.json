@@ -214,5 +214,145 @@
    "Lá số có cách {name}; {breakers} làm phá cách, song {rescuers} cứu lại được.",
    "Cách {name} bị {breakers} làm phá, nhưng có {rescuers} cứu giải."
   ]
+ },
+ "structure": {
+  "note": "Special structures at Mệnh (reason/plan.ts StructureNote, port of synthesis/structures.py) voiced on the thesis that carries them. A line of the plan is matched by `lines` (type + regex on the plan's verbatim note, optionally limited to one structure) and said with `say`; named groups of the regex fill the slots (a comma list becomes 'A, B và C'); an empty `say` keeps the line silent on purpose. Pages and school codes stay in the trace, never in the text. A line with no entry is said only when, once its pages and codes are removed, it passes the reader lint. `position` is the only frame for a structure with no book sentence (chua_du_nguon): it states where things stand and nothing else.",
+  "head": {
+   "sach": [
+    "Lá số vào thế {name}.",
+    "Lá số có thế {name}."
+   ],
+   "he_thong": [
+    "Lá số còn mang thế {name}.",
+    "Ở đây còn có thế {name}."
+   ]
+  },
+  "limit": [
+   "Có điều, thế này có chỗ vướng: {lines}.",
+   "Tuy vậy, thế ấy không trọn: {lines}."
+  ],
+  "limit_named": [
+   "Có điều, thế {name} có chỗ vướng: {lines}.",
+   "Tuy vậy, thế {name} ở đây không trọn: {lines}."
+  ],
+  "rescue": [
+   "Ở chiều gỡ lại, {lines}.",
+   "Về phần cứu giải, {lines}."
+  ],
+  "rescue_named": [
+   "Với thế {name}, chỗ gỡ lại là {lines}.",
+   "Thế {name} có chỗ được gỡ: {lines}."
+  ],
+  "position": [
+   "Về vị trí, lá số có {name}; thế này chưa có nguồn đọc riêng, nên ở đây chỉ ghi nhận vị trí ấy.",
+   "Lá số có {name}, nhưng đây mới là một vị trí trên lá số: thế này chưa có nguồn đọc riêng nên không suy thêm."
+  ],
+  "lines": [
+   {
+    "type": "limit",
+    "match": "^Hóa Lộc đóng ở Tứ Mộ",
+    "say": [
+     "Hóa Lộc đóng ở Tứ Mộ làm tài lộc giảm đi nhiều, có chỗ nói giảm quá nửa trừ khi gặp Tham Lang, Vũ Khúc"
+    ]
+   },
+   {
+    "type": "limit",
+    "match": "^Sát tinh (?:khác )?trong tam phương(?: tứ chính)?: không có$",
+    "say": []
+   },
+   {
+    "type": "limit",
+    "match": "^Sát tinh khác trong tam phương(?<tc> tứ chính)?: (?<stars>.+)$",
+    "say": [
+     "trong tam phương{tc} còn có sát tinh khác là {stars}"
+    ]
+   },
+   {
+    "type": "limit",
+    "match": "^Sát tinh trong tam phương(?<tc> tứ chính)?: (?<stars>.+)$",
+    "say": [
+     "trong tam phương{tc} có sát tinh {stars}"
+    ]
+   },
+   {
+    "type": "limit",
+    "match": "^Hóa Kỵ cũng nằm trong tam phương: bốn hóa tề tụ",
+    "say": [
+     "Hóa Kỵ cũng hội về, thành thế bốn hóa tề tụ, một trường hợp chưa có lời phân xử"
+    ]
+   },
+   {
+    "type": "limit",
+    "match": "^Hóa Kỵ cũng nằm trong tam phương tứ chính",
+    "say": [
+     "Hóa Kỵ cũng nằm trong tam phương tứ chính, theo bảng Tứ Hóa đang dùng"
+    ]
+   },
+   {
+    "type": "limit",
+    "match": "^Hóa Kỵ trong tam phương$",
+    "say": [
+     "Hóa Kỵ cũng nằm trong tam phương"
+    ]
+   },
+   {
+    "type": "limit",
+    "match": "^Cả ba hóa chỉ đến từ hai cung tam hợp",
+    "say": [
+     "cả ba hóa chỉ đến từ hai cung tam hợp, nên nếu hiểu chữ ‘hội’ hẹp hơn thì không còn đủ ba"
+    ]
+   },
+   {
+    "type": "limit",
+    "structure": "KINH_DUONG_TU_MO",
+    "match": "^Đồng cung Thất Sát",
+    "say": [
+     "Kình Dương lại đồng cung với Thất Sát hay Thiên Hình, thế vốn bị coi là xấu khi Kình ở Ngọ, còn ở Tứ Mộ thì chưa có lời tương ứng"
+    ]
+   },
+   {
+    "type": "rescue",
+    "structure": "CU_MON_HOA_LOC",
+    "match": "^Cung có (?<tt>.+?): sách có hai chiều",
+    "say": [
+     "{tt} ở cung Mệnh có hai cách hiểu, hoặc làm hại quý tinh, hoặc cứu hung tinh, có nơi còn coi là kỳ cách với Cự Môn ở Tý, Ngọ; hai chiều ấy cùng được giữ, ở đây không chọn chiều nào"
+    ]
+   },
+   {
+    "type": "rescue",
+    "structure": "KINH_DUONG_TU_MO",
+    "match": "^Có (?<hoas>.+?) trong tam phương \\(KL tr\\.64",
+    "say": [
+     "có {hoas} trong tam phương, mà Kình gặp Khoa, Quyền, Lộc được coi là thế tốt, với điều kiện Kình xa Thất Sát và Thiên Hình"
+    ]
+   },
+   {
+    "type": "caveat",
+    "structure": "CU_MON_HOA_LOC",
+    "match": "hãm biến thành tốt",
+    "say": [
+     "Dù vậy, Hóa Lộc không làm Cự Môn hết hãm: tổ hợp này chưa có nguồn đọc riêng, nên không thể coi thế hãm đã thành tốt.",
+     "Dẫu thế, có Hóa Lộc cũng không có nghĩa là Cự Môn hết hãm; tổ hợp này chưa có nguồn đọc riêng, nên không thể coi thế hãm đã thành tốt."
+    ]
+   },
+   {
+    "type": "caveat",
+    "structure": "SAT_PHA_THAM",
+    "match": "^Ngưỡng phá cách chưa đủ nguồn",
+    "say": [
+     "Chưa có nguồn xác định cần bao nhiêu sát tinh mới phá được cách Sát – Phá – Tham, nên ở đây không kết luận là cách đã bị phá.",
+     "Bao nhiêu sát tinh thì đủ phá cách Sát – Phá – Tham vẫn chưa có nguồn xác định, nên ở đây không kết luận là cách đã bị phá."
+    ]
+   },
+   {
+    "type": "caveat",
+    "structure": "TAM_HOA_HOI_MENH",
+    "match": "^Chữ ‘hội’ không nêu phạm vi",
+    "say": [
+     "Chữ ‘hội’ không được nói rõ phạm vi, nên thế này được xét theo cả ba cách hiểu chứ không chọn một.",
+     "Vì chữ ‘hội’ không được nói rõ phạm vi, thế này được xét theo cả ba cách hiểu, không chọn một."
+    ]
+   }
+  ]
  }
 }

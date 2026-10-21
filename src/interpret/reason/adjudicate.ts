@@ -12,8 +12,11 @@ import type { Resolved } from '../kg/resolve.ts';
 import { rarity, seatOf, type Geo, type SeatRef } from './tiers.ts';
 
 export type StepType = 'reading' | 'book_qualifies' | 'narrower_wins' | 'tier_precedence' | 'contested' | 'rescue' | 'corroborated' | 'countered'
-  | 'formation' | 'interaction';
-export interface Step { type: StepType; ruleId?: string; against?: string; seat?: string; palace?: string; cite?: string; basis: 'sach' | 'he_thong'; note?: string }
+  | 'formation' | 'interaction'
+  // a special structure (reason/structures.ts detectStructures) on the thesis' seat: its name, each limiter / rescuer, its caveat; a structure
+  // with no book sentence (chua_du_nguon) gives only 'structure_position', a position fact
+  | 'structure' | 'structure_limit' | 'structure_rescue' | 'structure_caveat' | 'structure_position';
+export interface Step { type: StepType; ruleId?: string; against?: string; seat?: string; palace?: string; cite?: string; basis: 'sach' | 'he_thong'; note?: string; structure?: string }
 
 /** One reading as the reasoner sees it: the resolved assertion plus its seat, links and rarity. */
 export interface Reading { r: Resolved; seat: SeatRef; links: SeatRef[]; rarity: number }

@@ -81,6 +81,31 @@ def bazi_year(chart: BaziChart, birth_year: int, year: int) -> dict:
     }
 
 
+# Lưu stars of the viewed year shown on the board ("L." prefix). The nine of Khảo Luận pp.41-42 / Thực Hành p.114 come from
+# reasoning/temporal_facts.luu_tinh (Kình/Đà direction per KL p.42); the rest follow the common board convention (not in the three books):
+# lưu Văn Xương / Văn Khúc by the year's stem, Đào Hoa / Hồng Loan / Kiếp Sát by the year's branch, lưu Tứ Hóa on the stars of the year's stem.
+LUU_XUONG = [5, 6, 8, 9, 8, 9, 11, 0, 2, 3]
+LUU_KHUC = [9, 8, 6, 5, 6, 5, 3, 2, 0, 11]
+
+
+def luu_stars(chart: TuViChart, year: int) -> list[dict]:
+    from .reasoning.temporal_facts import luu_tinh
+    from .tuvi import TRIAD_GROUP
+    ys, yb = year_cycle_index(year) % 10, year_cycle_index(year) % 12
+    by_branch = {p["branch_index"]: p["name"] for p in chart.palaces}
+    g = TRIAD_GROUP[yb]
+    out = [{"name": k.replace("Lưu ", ""), "palace": v, "basis": "KL tr.41-42" if k not in ("Lưu Thiên Khôi", "Lưu Thiên Việt") else "thông lệ"}
+           for k, v in luu_tinh(chart, year).items()]
+    conv = {"Văn Xương": LUU_XUONG[ys], "Văn Khúc": LUU_KHUC[ys], "Đào Hoa": {0: 3, 1: 9, 2: 6, 3: 0}[g], "Hồng Loan": (3 - yb) % 12,
+            "Kiếp Sát": {0: 11, 1: 5, 2: 2, 3: 8}[g]}
+    out += [{"name": k, "palace": by_branch[v], "basis": "thông lệ"} for k, v in conv.items()]
+    for k, star in zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], TU_HOA[ys]):
+        pal = next((p["name"] for p in chart.palaces if star in p["stars"]), None)
+        if pal:
+            out.append({"name": k, "palace": pal, "basis": "thông lệ"})
+    return out
+
+
 def tuvi_year(chart: TuViChart, year: int) -> dict:
     age = year - chart.lunar["year"] + 1  # tuổi mụ
     dh = next((d for d in chart.dai_han if d["age_from"] <= age <= d["age_to"]), None)
@@ -103,13 +128,23 @@ def tuvi_year(chart: TuViChart, year: int) -> dict:
     hoa_read = [{"hoa": k, "star": hoa[k]["star"], "palace": hoa[k]["natal_palace"], "advice": None, "position_note": None,
                  "src": LUU_HOA_BASIS} for k in ["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"]]
     th_palace = by_branch[BRANCHES_VI[th]]["name"]
+    # Nguyệt hạn (TH p.115, "Lưu nguyệt hãy lấy năm Tiểu hạn, làm tháng Giêng ngược tháng năm sinh, đến đó lấy Tí rành rành, thuận về giờ
+    # đẻ, ấy cung tháng đầu"): from the year's tiểu hạn palace as month 1 count backward to the birth month, from there count Tý forward to
+    # the birth hour; that palace is tháng Giêng, then forward. "năm Tiểu hạn" is read as the tiểu hạn palace (the year's own branch is the
+    # other reading); the tiểu hạn reading matches the reference board in tests/reference_charts.
+    hb = BRANCHES_VI.index(chart.extras["hour_branch"]) if isinstance(chart.extras.get("hour_branch"), str) else chart.extras.get("hour_branch")
+    nguyet = None
+    if isinstance(hb, int):
+        m1 = (th - (chart.effective_lunar_month - 1) + hb) % 12
+        nguyet = {by_branch[BRANCHES_VI[(m1 + k) % 12]]["name"]: k + 1 for k in range(12)}
     return {
         "luu_tu_hoa_reading": hoa_read,
         "tieu_han_reading": van_han.read(chart, th_palace),
         "tieu_han_topic": van_han.DOMAIN.get(th_palace),
         "year": year, "age_tuoi_mu": age, "tieu_han_branch": BRANCHES_VI[th], "tieu_han_palace": by_branch[BRANCHES_VI[th]]["name"], "annual_pillar": gz_name(s, b),
         "dai_han": dh, "luu_thai_tue_palace": tt["name"], "luu_thai_tue_branch": tt["branch"],
-        "luu_tu_hoa": hoa, "scope": "temporal",
+        "luu_tu_hoa": hoa, "luu_stars": luu_stars(chart, year), "nguyet_han": nguyet, "nguyet_han_basis": "TH p.115 (năm Tiểu hạn = cung tiểu hạn)",
+        "scope": "temporal",
         "note": "Tiểu hạn: age 1 by year-branch triad (Thực Hành p.27); the vận reading follows Khảo Luận pp.233-236; lưu Tứ Hóa: positions only (the natal Tứ Hóa table applied to the year stem), a common convention not found in the three books.",
     }
 

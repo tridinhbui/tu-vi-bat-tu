@@ -11,10 +11,27 @@ Branch indices: 0 Tý … 11 Hợi. Stems: 0 Giáp … 9 Quý. `month` is the ef
 from __future__ import annotations
 
 GROUP = "phụ tinh (chưa đối chiếu sách)"
+# Stars whose formula IS printed in the books (audit docs/audit/tuvi-calc.md TV-9; TH p.26 page image for Văn Tinh / Thiên Trù): rule -> pages
+GROUP_SRC = "phụ tinh (đã đối chiếu sách)"
+SOURCED = {
+    "quoc_an_loc_ton_plus_8": "TH p.22 (trước Lộc Tồn 9 vị); KL p.29",
+    "duong_phu_loc_ton_plus_5": "TH p.22; KL p.29",
+    "thai_phu_van_khuc_plus_2": "TH p.19; KL p.27",
+    "phong_cao_van_khuc_minus_2": "TH p.19; KL p.27",
+    "giai_than_with_phuong_cac": "TH p.20; KL p.31",
+    "van_tinh_by_year_stem": "TH p.26 (39> Văn Tinh)",
+    "thien_tru_by_year_stem": "TH p.26 (37> Lưu Hà – Thiên Trù, second branch)",
+}
+# TH p.26: year stem -> branch
+VAN_TINH = {0: 5, 1: 6, 2: 8, 3: 9, 4: 8, 5: 9, 6: 11, 7: 0, 8: 2, 9: 3}
+THIEN_TRU = {0: 5, 1: 6, 2: 0, 3: 5, 4: 6, 5: 8, 6: 2, 7: 6, 8: 9, 9: 10}
+
+
+def group_of(rule: str) -> str:
+    return GROUP_SRC if rule in SOURCED else GROUP
 
 # Stars the common 14+ star procedure also has but which are NOT placed here (formula not confidently known).
 NOT_PLACED = [
-    "Quốc Ấn, Đường Phù, Phong Cáo, Giải Thần chưa được an (chưa chắc công thức)",
     "Tiểu hạn/lưu niên xem ở mục Đại hạn & lưu niên; lưu Lộc Tồn, lưu Kình Đà, lưu Mã chưa được an",
 ]
 
@@ -39,6 +56,15 @@ def place(*, ys: int, yb: int, month: int, day: int, hb: int, menh: int, than: i
     add("Thiên Hư", 6 + yb, "thien_hu_from_ngo_forward_to_year")
     add("Long Trì", 4 + yb, "long_tri_from_thin_forward_to_year")
     add("Phượng Các", 10 - yb, "phuong_cac_from_tuat_back_to_year")
+    add("Giải Thần", 10 - yb, "giai_than_with_phuong_cac")
+    add("Văn Tinh", VAN_TINH[ys], "van_tinh_by_year_stem")
+    add("Thiên Trù", THIEN_TRU[ys], "thien_tru_by_year_stem")
+    if "Lộc Tồn" in placed:
+        add("Quốc Ấn", placed["Lộc Tồn"] + 8, "quoc_an_loc_ton_plus_8")
+        add("Đường Phù", placed["Lộc Tồn"] + 5, "duong_phu_loc_ton_plus_5")
+    if "Văn Khúc" in placed:
+        add("Thai Phụ", placed["Văn Khúc"] + 2, "thai_phu_van_khuc_plus_2")
+        add("Phong Cáo", placed["Văn Khúc"] - 2, "phong_cao_van_khuc_minus_2")
     g = (yb + 1) // 3 % 4
     add("Cô Thần", CO_THAN[g], "co_than_by_season_of_year_branch")
     add("Quả Tú", QUA_TU[g], "qua_tu_by_season_of_year_branch")

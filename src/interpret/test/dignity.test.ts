@@ -59,7 +59,7 @@ test('the knowledge base: every star × 12 branches × 3 schools has exactly one
       if (r.status === 'CONFLICT') assert.ok(r.alternatives.length >= 2);
     }
   }
-  assert.equal(Object.keys(KB.stars).length, 102);
+  assert.equal(Object.keys(KB.stars).length, 109);      // 102 + the seven book-sourced stars of TH pp.19-26 (Quốc Ấn, Đường Phù, Văn Tinh, Thiên Trù, Phong Cáo, Thai Phụ, Giải Thần)
 });
 
 test('star identifiers: TS slug == Python slug, names / ids / aliases normalise, ambiguous ids refuse to guess', () => {

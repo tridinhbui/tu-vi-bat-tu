@@ -17,14 +17,19 @@ import type { World } from '../dsl.ts';
 import { axes, best, readingsOf, type Axis, type Reading, type Step } from './adjudicate.ts';
 import { Geo, SCOPE_WEIGHT, TIER_WEIGHT, conceptRate, rarity, seatOf, type SeatRef } from './tiers.ts';
 import { guardHolds } from './positions.ts';
-import { evaluateFormations, type FormationState as FState } from './structures.ts';
+import { detectStructures, evaluateFormations, type FormationState as FState, type Structure, type Verification } from './structures.ts';
 
-export const REASONER_VERSION = 'reasoner-0.2.0';
+export const REASONER_VERSION = 'reasoner-0.3.0';
 
 export interface Formation { ruleId: string; name: string; condition: string; rate: number; rarity: number; seat: string; kind: 'formation' | 'classification'; pol?: '+' | '-'; cites: string[] }
 /** A draft cách cục (engine/data/experimental/formations_experimental.json) evaluated on the chart: thành / thành thượng / bị phá / phá được cứu. */
 export interface CachState { id: string; name: string; state: FState; stateVi: string; seat: string; boosters: string[]; breakers: string[]; rescuers: string[]; uncovered: string[];
   verification: string; experimental: boolean }
+/** A special structure at Mệnh (structures.ts detectStructures, port of synthesis/structures.py). `position`: no book sentence for it
+ *  (chua_du_nguon), so it is told only as where things stand — no limiter, rescuer, reading or caveat is carried. `thesis`: the thesis whose
+ *  seat it concerns and whose steps carry it; absent when no thesis stands on those seats. */
+export interface StructureNote { id: string; name: string; verification: Verification; position: boolean; seats: string[]; thesis?: string;
+  limiters: string[]; rescuers: string[]; caveat: string; cites: string[]; matrixIds: string[] }
 /** An assertion the R1 position guard rejected: its rule fired, but an atom does not stand where the book's wording puts it. */
 export interface Guarded { ruleId: string; concept: string; reason: string; cite: string }
 export interface Seat { ref: SeatRef; readings: Reading[]; formations: Formation[]; states: CachState[]; score: number }
@@ -50,6 +55,7 @@ export interface ReadingPlan {
   distinct: { rules: Array<{ id: string; rate: number }>; meanConceptRate: number };
   seats: Array<{ id: string; tier: number; score: number; rules: number }>;
   guarded: Guarded[];
+  structures: StructureNote[];
 }
 /** States of a cách cục worth telling: one that only has the shape (hình thức), is absent or lacks data says nothing about the chart. */
 const TOLD: Set<FState> = new Set(['thanh', 'thanh_thuong', 'bi_pha', 'pha_duoc_cuu'] as FState[]);
@@ -190,6 +196,15 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
     if (red && !t.rescuerCaveat) t.rescuerCaveat = { seat: l, axis: red };
   }
 
+  // ---- special structures at Mệnh: their limiters, rescuers and caveat become steps of the thesis standing on their seats ----
+  const structures = structuresAtMenh(detectStructures(chart.palaces, chart.tu_hoa), g.vcd ? g.opp.major_stars : g.majors, g.vcd);
+  for (const st of structures) {
+    const t = theses.find(t => st.note.seats.includes(t.seat.id));
+    if (!t) continue;
+    st.note.thesis = t.id;
+    t.steps.push(...st.steps);
+  }
+
   // ---- modifiers: Hóa, sát/cát tinh and Tuần/Triệt in Mệnh that no thesis carries ----
   const thesisRules = new Set(theses.flatMap(t => t.claims.flatMap(c => [...c.axis.base, ...c.axis.against, ...c.axis.reducers].map(x => x.r.ruleId))));
   const isMod = (s: Seat) => s.ref.scope === 'self' && (s.ref.kind === 'hoa' || s.ref.kind === 'tuan_triet' || (s.ref.kind === 'star' && s.ref.tier === 4));
@@ -229,7 +244,45 @@ export function reasonMenh(chart: ChartInput, k: Knowledge, pre?: { resolved: Re
       meanConceptRate: +(theses.flatMap(t => t.claims).reduce((a, c, _, xs) => a + c.conceptRate / xs.length, 0)).toFixed(3) },
     seats: [...seats.values()].sort((a, b) => b.score - a.score).map(s => ({ id: s.ref.id, tier: s.ref.tier, score: s.score, rules: new Set(s.readings.map(x => x.r.ruleId)).size })),
     guarded,
+    structures: structures.map(x => x.note),
   };
+}
+
+/** A page named in a structure line ("… (KL tr.66; TH tr.52 …)"): the line is then a book sentence, the juxtaposition is still the system's. */
+const PAGE = /\b(?:KL|TH|TT) tr\.\d+(?:–\d+)?/;
+/** The seats a structure concerns, by its kind (seat ids of tiers.ts): Cự Môn and the Lộc it carries; the Kình Dương in Mệnh; the Sát/Phá/Tham
+ *  that stand in Mệnh; the three Hóa and Mệnh's own chính tinh. For Mệnh vô chính diệu `majors` are the borrowed stars of the opposite palace
+ *  (their seat ids are `major:<star>` too) and the vô chính diệu seat counts as Mệnh's own. */
+function structureSeats(s: Structure, majors: string[], vcd: boolean): string[] {
+  const own = (xs: string[]) => [...(vcd ? ['major:vcd'] : []), ...xs.filter(x => majors.includes(x)).map(x => `major:${x}`)];
+  switch (s.id) {
+    case 'CU_MON_HOA_LOC': return ['major:Cự Môn', 'hoa:Hóa Lộc'];
+    case 'KINH_DUONG_TU_MO': return ['star:Kình Dương'];
+    case 'SAT_PHA_THAM': return own(['Thất Sát', 'Phá Quân', 'Tham Lang']);
+    case 'TAM_HOA_HOI_MENH': return ['hoa:Hóa Lộc', 'hoa:Hóa Quyền', 'hoa:Hóa Khoa', ...own(majors)];
+    default: return [];
+  }
+}
+
+/** Present structures that stand at Mệnh, each with the steps it adds. A chua_du_nguon structure adds one position step and nothing else. */
+export function structuresAtMenh(all: Structure[], majors: string[], vcd = false): Array<{ note: StructureNote; steps: Step[] }> {
+  return all.filter(s => s.present && s.palaces.includes('Mệnh')).map(s => {
+    const position = s.verification === 'chua_du_nguon';
+    const note: StructureNote = { id: s.id, name: s.name, verification: s.verification, position, seats: structureSeats(s, majors, vcd),
+      limiters: position ? [] : s.limiters, rescuers: position ? [] : s.rescuers, caveat: position ? '' : s.caveat, cites: s.cites, matrixIds: s.matrix_ids };
+    if (position) return { note, steps: [{ type: 'structure_position', structure: s.id, note: s.name, basis: 'he_thong' }] };
+    const line = (type: Step['type'], text: string): Step => {
+      const cite = text.match(PAGE)?.[0];
+      return { type, structure: s.id, note: text, basis: cite ? 'sach' : 'he_thong', ...(cite ? { cite } : {}) };
+    };
+    // the structure itself is a book reading only when every component is (da_doi_chieu); otherwise the system juxtaposes, with no page of its own
+    const head: Step = s.verification === 'da_doi_chieu' ? { type: 'structure', structure: s.id, note: s.name, cite: s.cites[0], basis: 'sach' }
+      : { type: 'structure', structure: s.id, note: s.name, basis: 'he_thong' };
+    const steps: Step[] = [head,
+      ...s.limiters.map(x => line('structure_limit', x)), ...s.rescuers.map(x => line('structure_rescue', x))];
+    if (s.caveat) steps.push({ type: 'structure_caveat', structure: s.id, note: s.caveat, basis: 'he_thong' });
+    return { note, steps };
+  });
 }
 
 function dedupeCross(xs: Cross[]): Cross[] {

@@ -264,7 +264,7 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
 
     for name, pos, rule in aux_stars.place(ys=ys, yb=yb, month=month, day=L.day, hb=hb, menh=menh, than=than,
                                           placed={s.name: s.branch for s in stars}):
-        put(name, pos, aux_stars.GROUP, rule)
+        put(name, pos, aux_stars.group_of(rule), rule)
 
     # Tứ Hóa
     th = dict(zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], TU_HOA[ys]))

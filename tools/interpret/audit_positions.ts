@@ -12,7 +12,7 @@
 // is ambiguous: 'gặp', 'có', 'chiếu' without 'xung'/'tam hợp', an implied subject …). The packs are NOT edited (they feed the live Python
 // /api/reasoning); the result is a draft guard file that the reasoner applies on top.
 //   node tools/interpret/audit_positions.ts   → docs/audit/POSITION-AUDIT.md + engine/data/kg/position_guards.json
-import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { CAT, SAT, triggerAtoms } from '../../src/interpret/kg/atoms.ts';
@@ -334,12 +334,29 @@ export function parseDescription(desc: string, fullNames: string[], ctx: DescCtx
 
 // ---- comparison ----
 export type FlagKind = 'wider' | 'narrower' | 'mismatch' | 'mixed' | 'hoa_unbound' | 'dead';
-export interface Flag { kind: FlagKind; certain: boolean; atom?: string; book?: string; cond?: string; note?: string }
+export interface Flag { kind: FlagKind; certain: boolean; atom?: string; book?: string; cond?: string; note?: string; review?: Decision }
 /** from: 'condition' = the seat the rule's condition already guarantees (holds whenever the rule fires; recorded so prose knows the seat);
- *  'book' = tightened to the book's wording by a certain flag; 'book?' = tightened by a needs-reading flag (applied only in strict mode). */
+ *  'book' = tightened to the book's wording by a certain flag or a promoted book review; 'book?' = tightened by a needs-reading flag (applied
+ *  only in strict mode). */
 export interface Require { atom: string; relation: 'self' | 'opp' | 'trine' | 'tam_phuong' | 'flank' | 'nhi_hop' | Pos[]; of: string;
   carrier?: string; carrierCandidates?: string[]; from: 'condition' | 'book' | 'book?' }
-export interface Guard { ruleId: string; requires: Require[]; reason: string; cite: string; review: 'draft'; certainty: 'certain' | 'needs-reading'; kinds: FlagKind[] }
+export interface Guard { ruleId: string; requires: Require[]; reason: string; cite: string; review: 'draft'; certainty: 'certain' | 'needs-reading'; kinds: FlagKind[]; reviewed?: true }
+
+// ---- book review of the needs-reading flags (engine/data/kg/position_guards.review.json, read by hand from the page images) ----
+// aspect 'position' settles wider/narrower/mismatch flags, 'carrier' settles hoa_unbound flags, for the listed atoms.
+//   promote         the book's seat (relation ∩ what the condition can see) or carrier becomes a default ('book') requirement
+//   drop            the flag misread the book: the requirement is the condition's seat (a draft 'book?' tightening is withdrawn)
+//   keep_condition  the default stays the condition; a relation inside the condition's seats is kept as the strict-mode ('book?') reading,
+//                   any other relation (book wider than the condition, or a seat the condition never tests) only records the book's seat
+export type Decision = 'promote' | 'drop' | 'keep_condition';
+export interface Review { ruleId: string; decision: Decision; aspect: 'position' | 'carrier'; atoms: string[]; relation?: Pos | Pos[]; carrier?: string; page: string; quote?: string; note: string }
+const REVIEW_FILE = join(DATA, 'kg', 'position_guards.review.json');
+export function loadReviews(): Review[] {
+  if (!existsSync(REVIEW_FILE)) return [];
+  const rv = JSON.parse(readFileSync(REVIEW_FILE, 'utf8')).reviews as Review[];
+  for (const x of rv) if (!x.page || !x.atoms?.length || !['promote', 'drop', 'keep_condition'].includes(x.decision)) throw new Error(`review ${x.ruleId}: needs atoms, a decision and a page`);
+  return rv;
+}
 
 const set = (xs: Pos[]) => [...new Set(xs)].sort();
 const sub = (a: Pos[], b: Pos[]) => a.every(x => b.includes(x));
@@ -360,7 +377,7 @@ function carriersByHoa(): Record<string, Set<string>> {
 
 export interface Audited { id: string; pack: string; cite: string; description: string; of: string; flags: Flag[]; guard: Guard | null; bookScope: string; condScope: string; positional: boolean }
 
-export function auditRule(r: any, pack: string, fullNames: string[], carriers: Record<string, Set<string>>): Audited {
+export function auditRule(r: any, pack: string, fullNames: string[], carriers: Record<string, Set<string>>, reviews: Review[] = []): Audited {
   const scan = scanConditions(r.conditions);
   const desc: string = r.description ?? '';
   const cite = (/\[([^\]]+)\]\s*$/.exec(desc) ?? [, ''])[1]!;
@@ -424,6 +441,11 @@ export function auditRule(r: any, pack: string, fullNames: string[], carriers: R
 
   const bookScope = [...book.entries()].map(([n, m]) => `${n}: '${m.kw}' → ${posLabel(m.pos)}${m.documented ? ' (ghi chú hệ thống)' : ''}`).join('; ');
   const condScope = [...cond.entries()].map(([n, c]) => `${n}: ${[...c.scopes].map(s => SCOPE_LABEL[s]).join('|')}`).join('; ') + (scan.refs.length ? `; ${[...new Set(scan.refs)].join(', ')}` : '');
+  // the book review settles needs-reading flags by atom and aspect
+  const rv = reviews.filter(x => x.ruleId === r.id);
+  const reviewOf = (atom: string, aspect: Review['aspect']) => rv.find(x => x.aspect === aspect && x.atoms.includes(atom));
+  for (const f of flags) if (!f.certain && f.atom && f.kind !== 'mixed' && f.kind !== 'dead') f.review = reviewOf(f.atom, f.kind === 'hoa_unbound' ? 'carrier' : 'position')?.decision;
+  for (const x of rv) for (const a of x.atoms) if (!cond.has(a)) throw new Error(`review ${r.id}: ${a} is not tested by the rule's condition`);
   let guard: Guard | null = null;
   if (flags.length) {
     const flagged = new Map(flags.filter(f => f.atom && f.kind !== 'hoa_unbound').map(f => [f.atom!, f]));
@@ -433,15 +455,27 @@ export function auditRule(r: any, pack: string, fullNames: string[], carriers: R
       // a flagged wider/mismatch atom takes the book's seat (∩ what the condition can see); everything else keeps the condition's seat
       let p = c.pos, from: Require['from'] = 'condition';
       if (f && (f.kind === 'wider' || f.kind === 'mismatch') && m) { const inter = c.pos.filter(x => m.pos.includes(x)); p = inter.length ? inter : m.pos; from = f.certain ? 'book' : 'book?'; }
+      const pr = reviewOf(n, 'position');
+      if (pr && from !== 'book') {
+        const want = pr.relation === undefined ? p : ([] as Pos[]).concat(pr.relation), inter = c.pos.filter(x => want.includes(x));
+        if (pr.decision === 'promote') {
+          if (!inter.length) throw new Error(`review ${r.id}: promoting ${n} to ${want.join('+')} leaves no seat the condition can see`);
+          p = inter; from = 'book';
+        } else if (pr.decision === 'keep_condition' && pr.relation !== undefined && sub(want, c.pos) && !sub(c.pos, want)) { p = inter; from = 'book?'; }
+        else { p = c.pos; from = 'condition'; }
+      }
       const req: Require = { atom: n, relation: relationOf(p), of: scan.of, from };
-      const car = carrierOf.get(n);
-      if (car?.certain) { req.carrier = car.star; req.from = 'book'; }
-      else if (car) { req.carrierCandidates = car.star.split('|'); if (req.from === 'condition') req.from = 'book?'; }
+      const car = carrierOf.get(n), cr = reviewOf(n, 'carrier');
+      if (cr?.decision === 'promote') { if (!cr.carrier) throw new Error(`review ${r.id}: promoting the carrier of ${n} needs a carrier`); req.carrier = cr.carrier; req.from = 'book'; }
+      else if (car?.certain) { req.carrier = car.star; req.from = 'book'; }
+      else if (car && cr?.decision !== 'drop') { req.carrierCandidates = car.star.split('|'); if (req.from === 'condition') req.from = 'book?'; }
       requires.push(req);
     }
     const reason = flags.map(f => f.kind === 'mixed' ? `mixed scopes (${f.note})` : f.kind === 'dead' ? `dead condition: ${f.cond}` : `${f.kind} ${f.atom}: book ${f.book}, condition ${f.cond}`).join('; ');
-    const certain = flags.filter(f => f.kind !== 'mixed').every(f => f.certain);
+    const open = flags.filter(f => f.kind !== 'mixed' && !f.certain);
+    const certain = !open.length;
     guard = { ruleId: r.id, requires, reason, cite, review: 'draft', certainty: certain ? 'certain' : 'needs-reading', kinds: [...new Set(flags.map(f => f.kind))] };
+    if (!certain && open.every(f => f.review)) guard.reviewed = true;
   }
   return { id: r.id, pack, cite, description: desc, of: scan.of, flags, guard, bookScope, condScope, positional: cond.size > 0 };
 }
@@ -461,7 +495,8 @@ function main() {
   for (const { rule } of rules) for (const l of scanConditions(rule.conditions).leaves) names.add(l.name);
   const fullNames = [...names].filter(n => n.includes(' '));
   const carriers = carriersByHoa();
-  const res = rules.map(({ rule, pack }) => auditRule(rule, pack, fullNames, carriers));
+  const reviews = loadReviews();
+  const res = rules.map(({ rule, pack }) => auditRule(rule, pack, fullNames, carriers, reviews));
   const flagged = res.filter(r => r.flags.length);
   const guards = flagged.map(r => r.guard!).filter(Boolean);
 
@@ -496,11 +531,12 @@ function main() {
   const byPack = new Map<string, number>();
   for (const r of flagged.filter(r => r.flags.some(f => f.kind !== 'mixed'))) byPack.set(r.pack, (byPack.get(r.pack) ?? 0) + 1);
   md.push('Rules with a non-`mixed` flag, by pack: ' + [...byPack.entries()].map(([p, n]) => `\`${p}\` ${n}`).join(', ') + '.', '');
-  const row = (r: Audited, fl: Flag[]) => `| \`${r.id}\` | ${esc(r.cite)} | ${fl.map(f => `${f.kind}${f.certain ? '' : '?'}`).join(', ')} | ${esc(fl.filter(f => f.book).map(f => `${f.atom}: ${f.book}`).join('; ') || r.bookScope)} | ${esc(fl.filter(f => f.cond).map(f => `${f.atom ? f.atom + ': ' : ''}${f.cond}`).join('; ') || r.condScope)} |`;
+  const row = (r: Audited, fl: Flag[]) => `| \`${r.id}\` | ${esc(r.cite)} | ${fl.map(f => `${f.kind}${f.certain ? '' : '?'}${f.review ? ` → ${f.review}` : ''}`).join(', ')} | ${esc(fl.filter(f => f.book).map(f => `${f.atom}: ${f.book}`).join('; ') || r.bookScope)} | ${esc(fl.filter(f => f.cond).map(f => `${f.atom ? f.atom + ': ' : ''}${f.cond}`).join('; ') || r.condScope)} |`;
   const main = flagged.filter(r => r.flags.some(f => f.kind !== 'mixed'));
   const sortK = (a: Audited, b: Audited) => Number(b.guard?.certainty === 'certain') - Number(a.guard?.certainty === 'certain') || (a.of === 'Mệnh' ? 0 : 1) - (b.of === 'Mệnh' ? 0 : 1) || a.id.localeCompare(b.id);
   md.push('## Flagged rules (wider / narrower / mismatch / hoa_unbound / dead)', '',
-    '`?` = needs-reading. Certain rules first, Mệnh rules first within each group.', '',
+    '`?` = needs-reading; `→ promote | drop | keep_condition` = the book review\'s decision (see the last section). Certain rules first, Mệnh rules first',
+    'within each group.', '',
     '| rule | cite | flags | description scope | condition scope |', '|---|---|---|---|---|',
     ...main.sort(sortK).map(r => row(r, r.flags.filter(f => f.kind !== 'mixed'))), '');
   const mixedOnly = flagged.filter(r => r.flags.every(f => f.kind === 'mixed'));
@@ -550,17 +586,51 @@ function main() {
     '- `TV_TH_AUX_MENH_LOC_HOA_LOC` ("Lộc Tồn gặp Hóa Lộc", TH p.51) is narrower? (the condition wants Hóa Lộc in Mệnh, "gặp" is read as hội elsewhere in TH).',
     '  `TV_KL_STAR_MENH_TAM_KY_KY_KINH` is consistent with its book line (Khoa Quyền Lộc hội, Kỵ/Kình đồng cung): mixed only.',
     '- Needs-reading flags come from wording the parser cannot settle (\'gặp\', \'có\', a bare \'chiếu\', an implied subject, "chiếu nhau"/"ngược lại");',
-    '  their tightenings are `book?` and are not applied unless strict.', '');
+    '  their tightenings are `book?` and are not applied unless strict, or until the book review below promotes them.', '');
+  // book review: what was decided, what it changed, and anything left open
+  const open = flagged.flatMap(r => r.flags.filter(f => !f.certain && f.kind !== 'mixed').map(f => ({ r, f })));
+  const unsettled = open.filter(x => !x.f.review);
+  const flaggedIds = new Set(open.map(x => x.r.id));
+  const unused = reviews.filter(x => !flaggedIds.has(x.ruleId));
+  const DEC: Decision[] = ['promote', 'drop', 'keep_condition'];
+  const seat = (x: Review) => x.carrier ? `carrier ${x.carrier}` : x.relation === undefined ? '—' : ([] as string[]).concat(x.relation).join('+');
+  const strictKept = guards.filter(g => g.reviewed && g.requires.some(q => q.from === 'book?'));
+  md.push('## Book review of the needs-reading flags', '',
+    `Each needs-reading flag was read against its page image (KL/TH/TT, Thiên Lương NL); the decisions are in \`engine/data/kg/position_guards.review.json\``,
+    `(${reviews.length} entries over ${new Set(reviews.map(x => x.ruleId)).size} rules, each with page and quote) and this tool applies them to the guards. A rule can carry`,
+    'more than one decision (e.g. keep the position, drop the carrier).', '',
+    '| decision | rules | flags | effect on the guard |', '|---|---:|---:|---|',
+    ...DEC.map(d => `| ${d} | ${new Set(reviews.filter(x => x.decision === d).map(x => x.ruleId)).size} | ${open.filter(x => x.f.review === d).length} | ${({
+      promote: 'the book\'s seat or carrier becomes a default requirement (`book`)',
+      drop: 'the flag misread the book; the requirement is the condition\'s seat, any draft `book?` tightening is withdrawn',
+      keep_condition: 'default stays the condition; a seat inside it stays strict-only (`book?`), a wider book reading needs a pack change',
+    } as Record<Decision, string>)[d]} |`), '',
+    `Needs-reading flags: ${open.length}, settled ${open.length - unsettled.length}` + (unsettled.length ? `; **unsettled**: ${unsettled.map(x => `\`${x.r.id}\` ${x.f.kind} ${x.f.atom}`).join(', ')}` : '') +
+    (unused.length ? `; **review entries with no needs-reading flag**: ${[...new Set(unused.map(x => x.ruleId))].join(', ')}` : '') + '.', '',
+    'Promoted (now applied by default):', '',
+    '| rule | atoms | seat | page |', '|---|---|---|---|',
+    ...reviews.filter(x => x.decision === 'promote').map(x => `| \`${x.ruleId}\` | ${x.atoms.join(', ')} | ${seat(x)} | ${esc(x.page)} |`), '',
+    `Kept for strict mode only (book seat inside the condition, but a guard cannot say "one of the pair"): ${strictKept.map(g => `\`${g.ruleId}\``).join(', ') || 'none'}.`, '',
+    'Findings for an upstream pack change (packs are frozen here):', '',
+    '- `TV_TT_MENH_DONG_TUAT_KY_DINH` (TT p.28) never fires: for tuổi Đinh the Kỵ rides Cự Môn, which stands at Thìn when Thiên Đồng is at Tuất, so the',
+    '  Kỵ always shines from xung while the condition wants it in Mệnh.',
+    '- `TV_TH_CACH_MENH_KHOI_VIET` cites TH p.72 #16 (Khôi Việt both chiếu Mệnh) but tests p.73 #45 Tọa quý hướng quý (one in Mệnh, the other xung).',
+    '- `TV_TH_AUX_MENH_HKY_CU` (TH p.54): "thị phi" belongs to the next sentence (Thái Tuế, Đà La đồng cung); the Cự Môn line says ốm đau tai nạn.',
+    `- ${reviews.filter(x => x.decision === 'keep_condition' && x.aspect === 'position' && x.relation === undefined).length} keep_condition entries are narrower rules: the book's 'gặp' / 'ngộ' / 'chiếu' is hội`,
+    '  while the condition tests the own palace (or xung only); a guard cannot widen them.', '');
+  if (unsettled.length) console.warn(`unsettled needs-reading flags: ${unsettled.map(x => `${x.r.id} ${x.f.kind} ${x.f.atom}`).join('; ')}`);
+  if (unused.length) console.warn(`review entries with no needs-reading flag: ${[...new Set(unused.map(x => x.ruleId))].join(', ')}`);
   mkdirSync(join(ROOT, 'docs', 'audit'), { recursive: true });
   writeFileSync(join(ROOT, 'docs', 'audit', 'POSITION-AUDIT.md'), md.join('\n'));
   const head = {
     generated: 'node tools/interpret/audit_positions.ts', plan: 'quirky-tinkering-rabin R1', report: 'docs/audit/POSITION-AUDIT.md',
-    note: 'Draft guards over the Tử Vi packs (not edited). An assertion of ruleId may be used only if each listed atom present in its trigger atoms stands in `relation` to palace `of` (\'@palace\' = the palace the rule fired on) and, when `carrier` is set, the Hóa rides that star (`carrierCandidates`: one of them). relation: self|opp|trine|tam_phuong|flank|nhi_hop or a list (any of). from: condition (already guaranteed by the rule), book (certain tightening), book? (needs reading; strict mode only). Applied by src/interpret/reason/positions.ts guardHolds.',
+    note: 'Draft guards over the Tử Vi packs (not edited). An assertion of ruleId may be used only if each listed atom present in its trigger atoms stands in `relation` to palace `of` (\'@palace\' = the palace the rule fired on) and, when `carrier` is set, the Hóa rides that star (`carrierCandidates`: one of them). relation: self|opp|trine|tam_phuong|flank|nhi_hop or a list (any of). from: condition (already guaranteed by the rule), book (certain tightening, or promoted by the book review), book? (needs reading; strict mode only). reviewed: every needs-reading flag of the rule has a decision in position_guards.review.json. Applied by src/interpret/reason/positions.ts guardHolds.',
   };
   writeFileSync(join(DATA, 'kg', 'position_guards.json'),
     JSON.stringify(head, null, 1).replace(/\n}$/, ',\n "guards": [\n') + guards.map(g => '  ' + JSON.stringify(g)).join(',\n') + '\n ]\n}\n');
   const summary = Object.fromEntries(kinds.map(k => [k, { rules: count(k), certain: count(k, true), needsReading: count(k, false) }]));
-  console.log(JSON.stringify({ scanned: res.length, flagged: flagged.length, nonMixed: main.length, guards: guards.length, summary }, null, 1));
+  const decided = Object.fromEntries((['promote', 'drop', 'keep_condition'] as Decision[]).map(d => [d, open.filter(x => x.f.review === d).length]));
+  console.log(JSON.stringify({ scanned: res.length, flagged: flagged.length, nonMixed: main.length, guards: guards.length, summary, review: { entries: reviews.length, flags: open.length, unsettled: unsettled.length, ...decided } }, null, 1));
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) main();

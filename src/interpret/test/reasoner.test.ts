@@ -7,7 +7,8 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { join } from 'node:path';
 import type { Knowledge } from '../types.ts';
-import { reasonMenh } from '../reason/plan.ts';
+import { reasonMenh, structuresAtMenh } from '../reason/plan.ts';
+import { detectStructures } from '../reason/structures.ts';
 import { reasonedChapter, reasonedSaid } from '../prose/narrative.ts';
 import { counterfactual, distinct, oldEngine } from '../../../tools/interpret/eval_distinct.ts';
 
@@ -34,6 +35,45 @@ test('worked example: Cự Môn hãm hóa Lộc at Tuất — the rescue and the
   assert.ok(o.pass, o.issues.map(i => i.code + ' ' + i.msg).join('\n'));
   assert.match(o.text, /Tứ Mộ/);
   assert.match(o.text, /Kình Dương nhập miếu/);
+});
+
+test('special structures: Cự Môn hãm hóa Lộc at Tuất puts its Tứ Mộ limit, the Tuần rescue and the caveat on the Cự Môn thesis', () => {
+  const p = reasonMenh(ref.facts, K);
+  const cu = p.structures.find(s => s.id === 'CU_MON_HOA_LOC')!;
+  assert.equal(cu.verification, 'mot_phan');
+  assert.equal(cu.thesis, 'T:major:Cự Môn');
+  const steps = p.theses.find(t => t.id === 'T:major:Cự Môn')!.steps.filter(x => x.structure === 'CU_MON_HOA_LOC');
+  assert.deepEqual(steps[0], { type: 'structure', structure: 'CU_MON_HOA_LOC', note: 'Cự Môn hãm gặp Hóa Lộc', basis: 'he_thong' },
+    'the combination has no book sentence: the structure itself is the system\'s, with no page');
+  const tuMo = steps.find(x => x.type === 'structure_limit' && x.note!.startsWith('Hóa Lộc đóng ở Tứ Mộ'))!;
+  assert.equal(tuMo.cite, 'KL tr.66');
+  assert.equal(tuMo.basis, 'sach');
+  assert.match(tuMo.note!, /TH tr\.52/);
+  assert.ok(steps.some(x => x.type === 'structure_limit' && /Kình Dương/.test(x.note!) && x.basis === 'he_thong'));
+  assert.ok(steps.some(x => x.type === 'structure_rescue' && x.note!.startsWith('Cung có Tuần') && /R07, không tự chọn/.test(x.note!)));
+  assert.ok(steps.some(x => x.type === 'structure_caveat' && /không được đọc thành ‘hãm biến thành tốt’/.test(x.note!)));
+  // the Kình Dương at Tuất is its own structure, on the Kình Dương thesis, with the Khoa–Quyền–Lộc rescue paged KL tr.64
+  const kinh = p.theses.find(t => t.id === 'T:star:Kình Dương')!.steps.filter(x => x.structure === 'KINH_DUONG_TU_MO');
+  assert.ok(kinh.some(x => x.type === 'structure_rescue' && x.cite === 'KL tr.64'));
+  // a structure is carried by one thesis only
+  assert.equal(p.theses.flatMap(t => t.steps).filter(x => x.type === 'structure').length, p.structures.filter(s => s.thesis).length);
+});
+
+test('special structures: one with no book sentence (chua_du_nguon) is a position fact only — no limiter, rescuer or caveat', () => {
+  const ss = detectStructures(ref.facts.palaces, ref.facts.tu_hoa).map(s => s.id === 'KINH_DUONG_TU_MO' ? { ...s, verification: 'chua_du_nguon' as const } : s);
+  const kinh = structuresAtMenh(ss, ['Cự Môn']).find(x => x.note.id === 'KINH_DUONG_TU_MO')!;
+  assert.equal(kinh.note.position, true);
+  assert.deepEqual([kinh.note.limiters, kinh.note.rescuers, kinh.note.caveat], [[], [], '']);
+  assert.deepEqual(kinh.steps, [{ type: 'structure_position', structure: 'KINH_DUONG_TU_MO', note: 'Kình Dương ở Tứ Mộ (Tuất) — cung Mệnh', basis: 'he_thong' }]);
+  // structures elsewhere (Phu Thê, Quan Lộc) do not enter the Mệnh chapter
+  assert.ok(structuresAtMenh(detectStructures(ref.facts.palaces, ref.facts.tu_hoa), ['Cự Môn']).every(x => !['CO_NGUYET_PHU_THE', 'THAN_QUAN_VCD'].includes(x.note.id)));
+});
+
+test('special structures on Mệnh vô chính diệu: Tam Hóa hội Mệnh lands on the vô chính diệu seat', () => {
+  const b = bench.find((x: any) => x.label === 'tam_hoa_hoi');
+  const st = reasonMenh(b.facts, K).structures.find(s => s.id === 'TAM_HOA_HOI_MENH')!;
+  assert.equal(st.verification, 'da_doi_chieu');
+  assert.equal(st.thesis, 'T:major:vcd');
 });
 
 test('position guards: a rule whose stars do not stand where the book says is not used (Tả Hữu "ở Tài Bạch, Quan Lộc", here Hữu Bật in Mệnh)', () => {

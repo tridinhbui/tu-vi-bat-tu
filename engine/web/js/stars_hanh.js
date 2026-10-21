@@ -19,6 +19,7 @@ export const HANH = {
   'Thiên Quan': 'Hỏa', 'Thiên Phúc': 'Thổ', 'Thiên Giải': 'Hỏa', 'Địa Giải': 'Thổ', 'Thiên Đức': 'Thổ', 'Nguyệt Đức': 'Hỏa', 'Hoa Cái': 'Kim', 'Kiếp Sát': 'Hỏa',
   'Phá Toái': 'Hỏa', 'Đẩu Quân': 'Hỏa', 'Lưu Hà': 'Thủy', 'Thiên Thọ': 'Thổ', 'Thiên Tài': 'Thổ', 'Thiên Thương': 'Thổ', 'Thiên Sứ': 'Thủy', 'Thiên La': 'Kim',
   'Địa Võng': 'Kim', 'Thiên Không': 'Hỏa',
+  'Quốc Ấn': 'Thổ', 'Đường Phù': 'Mộc', 'Văn Tinh': 'Hỏa', 'Thiên Trù': 'Thổ', 'Phong Cáo': 'Thổ', 'Thai Phụ': 'Kim', 'Giải Thần': 'Mộc',
 };
 /** Âm (−) / dương (+) of the chính tinh, as the board prints it before the name. */
 export const MAJOR_SIGN = { 'Tử Vi': '+', 'Thái Dương': '+', 'Thiên Đồng': '+', 'Thiên Lương': '+', 'Thiên Tướng': '+', 'Thất Sát': '+',

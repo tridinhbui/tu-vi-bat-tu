@@ -76,7 +76,7 @@ export function renderTuvi(host, t, ctx) {
     const nm = `${p.name.toLocaleUpperCase('vi')}${p.is_than ? '<span class="tb-than">&lt;THÂN&gt;</span>' : ''}`;
     return `<button type="button" class="pal tb-pal${isMenh ? ' is-menh' : ''}${p.is_than ? ' is-than' : ''}" data-i="${i}" aria-pressed="false" aria-label="Cung ${esc(p.name)}, ${esc(p.stem)} ${esc(p.branch)}. Chính tinh: ${esc(p.major_stars.join(', ') || 'vô chính diệu')}">
       <span class="tb-h"><span class="tb-gz">${esc(p.stem[0])}.${esc(p.branch)}</span><span class="tb-name h-${hk(ph)}">${nm}</span><span class="tb-dh">${d ? d.age_from : ''}</span></span>
-      <span class="tb-h2"><span class="tb-el">${YANG_BRANCH.has(p.branch) ? '+' : '−'}${esc(ph)}</span><span class="tb-majs">${p.major_stars.length ? p.major_stars.map(s => tStar(s, p.dignity_status?.[s], true)).join('') : '<span class="tb-vcd">vô chính diệu</span>'}</span></span>
+      <span class="tb-h2"><span class="tb-el">${YANG_BRANCH.has(p.branch) ? '+' : '−'}${esc(ph)}</span><span class="tb-majs">${p.major_stars.length ? p.major_stars.map(s => tStar(s, p.dignity_status?.[s], true)).join('') : '<span class="tb-vcd">vô chính diệu</span>'}</span><span class="tb-th"></span></span>
       <span class="tb-cols"><span class="tb-col">${left.join('')}</span><span class="tb-col">${right.join('')}</span></span>
       <span class="tb-foot"><span>${dvRef ? 'ĐV.' + roleOf(p, dvRef) : ''}</span><span class="tb-ts">${esc(stage || '')}</span><span>${lnRef ? 'LN.' + roleOf(p, lnRef) : ''}</span></span>
       <span class="pal-cy"></span>
@@ -116,7 +116,7 @@ export function renderTuvi(host, t, ctx) {
         <header class="plate-h"><h3 id="tv-h2"><i lang="zh">紫微</i>Mười hai cung</h3><span class="plate-k">Chạm một cung để mở · Tam Phương Tứ Chính sẽ sáng lên</span></header>
         <div class="seg tv-toggle" role="group" aria-label="Chế độ xem lá số"><button type="button" data-v="ov" aria-pressed="true">Sổ tay</button><button type="button" data-v="full" aria-pressed="false">Toàn lá số</button></div>
         <ol class="tv-ov" aria-label="Tổng quan mười hai cung, bắt đầu từ cung Mệnh">${ovOrder.map(p => `<li><button type="button" data-i="${p.branch_index}"><span class="ov-n">${esc(p.name)}${p.is_than ? ' <em>Thân</em>' : ''}</span><span class="ov-gz">${esc(p.stem)} ${esc(p.branch)}</span><span class="ov-s">${esc(p.major_stars.join(' · ') || 'vô chính diệu')}</span></button></li>`).join('')}</ol>
-        <div class="tv-zoom" role="group" aria-label="Thu phóng lá số"><button type="button" data-z="out" aria-label="Thu nhỏ">−</button><span class="tv-zl" aria-live="polite">100%</span><button type="button" data-z="in" aria-label="Phóng to">+</button><button type="button" data-z="fit">Vừa khung</button><button type="button" data-z="one">100%</button><span class="tv-zh">Kéo để di chuyển · Ctrl + cuộn để thu phóng</span></div><div class="tv-scroll" tabindex="0" role="region" aria-label="Lá số Tử Vi: kéo để di chuyển, Ctrl + cuộn hoặc chụm hai ngón để thu phóng"><div class="tv-board" id="tv-board">
+        <div class="tv-zoom" role="group" aria-label="Thu phóng lá số"><button type="button" data-z="out" aria-label="Thu nhỏ">−</button><span class="tv-zl" aria-live="polite">100%</span><button type="button" data-z="in" aria-label="Phóng to">+</button><button type="button" data-z="fit">Vừa khung</button><button type="button" data-z="one">100%</button><span class="tv-zh">Kéo để di chuyển · Ctrl + cuộn để thu phóng</span><label class="tv-dg">Bảng độ sáng <select data-dg><option value="thuc_hanh">Thực Hành (mặc định)</option><option value="khao_luan">Khảo Luận (bảng phổ thông)</option><option value="toan_thu">Toàn Thư</option></select></label></div><div class="tv-scroll" tabindex="0" role="region" aria-label="Lá số Tử Vi: kéo để di chuyển, Ctrl + cuộn hoặc chụm hai ngón để thu phóng"><div class="tv-board" id="tv-board">
           <svg class="tv-links" aria-hidden="true"></svg>
           <div id="grid">${CELLS.map((i, k) => i === null ? (k === 5 ? `<div class="center">${center}</div>` : '') : cell(i)).join('')}</div><div class="tb-tt" aria-hidden="true"></div><div class="tb-legend"><span><b class="h-kim">M</b>:Miếu</span><span><b class="h-kim">V</b>:Vượng</span><span><b class="h-kim">Đ</b>:Đắc</span><span><b class="h-kim">B</b>:Bình hòa</span><span><b class="h-kim">H</b>:Hãm</span><span class="tb-lg-gap"></span><span><i class="sw h-kim"></i>Kim</span><span><i class="sw h-moc"></i>Mộc</span><span><i class="sw h-thuy"></i>Thủy</span><span><i class="sw h-hoa"></i>Hỏa</span><span><i class="sw h-tho"></i>Thổ</span></div></div></div>
         <div class="legend" aria-label="Cách đọc bảng">
@@ -164,6 +164,8 @@ export function renderTuvi(host, t, ctx) {
   const centre = () => [scroller.clientWidth / 2, scroller.clientHeight / 2];
   new ResizeObserver(() => { if (view.auto) fitWidth(); else { clampPan(); apply(); } }).observe(scroller);
   fitWidth();
+  const dgSel = $('[data-dg]', host);
+  if (dgSel) { dgSel.value = t.school?.dignity_school || 'thuc_hanh'; dgSel.onchange = () => { try { localStorage.setItem('tvbt.dignity', dgSel.value); } catch {} dispatchEvent(new CustomEvent('tvbt:dignity', { detail: dgSel.value })); }; }
   const zh = $('.tv-zh', host); if (zh && matchMedia('(pointer:coarse)').matches) zh.textContent = 'Kéo để di chuyển · chụm hai ngón để thu phóng';
   // Tuần / Triệt: a black tag on the border shared by the two palaces each one covers (board coordinates, so the view does not move it)
   const ttTags = () => {
@@ -178,6 +180,15 @@ export function renderTuvi(host, t, ctx) {
     }).join('');
   };
   ttTags();
+  // lưu stars of the current year ("L." prefix, /api/year luu_stars): appended to each palace's columns, bad ones on the right
+  yearData(ctx.req, now).then(y => {
+    for (const x of y.tuvi?.luu_stars || []) {
+      const p = byName[x.palace], el = p && $(`.pal[data-i="${p.branch_index}"] .tb-col:${starKind(x.name) === 'neg' || x.name === 'Hóa Kỵ' ? 'last' : 'first'}-child`, host);
+      if (el) el.insertAdjacentHTML('beforeend', `<span class="st tb-s tb-luu${x.basis === 'thông lệ' ? ' tb-conv' : ''} h-${hk(HANH[x.name])}${BOLD.has(x.name) ? ' tb-b' : ''}" title="Lưu ${esc(x.name)} năm ${now} · ${x.basis === 'thông lệ' ? 'theo thông lệ, chưa đối chiếu sách' : 'theo ' + esc(x.basis)}">L.${esc(x.name)}</span>`);
+    }
+    // nguyệt hạn of the year (TH p.115): "Th.N" at the right of the second row
+    for (const [name, m] of Object.entries(y.tuvi?.nguyet_han || {})) { const p = byName[name], th = p && $(`.pal[data-i="${p.branch_index}"] .tb-th`, host); if (th) { th.textContent = `Th.${m}`; th.title = `Tháng ${m} âm lịch năm ${now} (nguyệt hạn, ${y.tuvi.nguyet_han_basis})`; } }
+  }).catch(() => {});
   // built while hidden (the other system's tab, the Sổ tay view): fit the moment the frame becomes visible
   new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { if (view.auto || !board.style.transform) fitWidth(); ttTags(); if (cur == null) links(menh.branch_index); } }).observe(scroller);
   if (zoomBar) zoomBar.onclick = e => {

@@ -1,6 +1,6 @@
 # Interpretation Reasoner — chương Mệnh (luận trước, viết sau)
 
-Kế hoạch: `~/.claude/plans/quirky-tinkering-rabin.md`. Phiên bản: `reasoner-0.2.0` (guard vị trí + cách cục nháp), `narrative-0.1.0`. Trạng thái 2026-10-20: chỉ chương **Mệnh**, sau cờ `TVBT_REASONER=1` (route `mode: "reasoned"`); production không đổi (Worker không truyền cờ này). 11 chương còn lại đóng băng trên đường `mode: "prose"` cũ. Không có chuyên gia trong vòng kiểm định; mọi chỉ số dưới đây là tự động.
+Kế hoạch: `~/.claude/plans/quirky-tinkering-rabin.md`. Phiên bản: `reasoner-0.3.0` (guard vị trí + cách cục nháp + cấu trúc đặc biệt thành bước của luận điểm), `narrative-0.1.0`. Trạng thái 2026-10-20: chỉ chương **Mệnh**, sau cờ `TVBT_REASONER=1` (route `mode: "reasoned"`); production không đổi (Worker không truyền cờ này). 11 chương còn lại đóng băng trên đường `mode: "prose"` cũ. Không có chuyên gia trong vòng kiểm định; mọi chỉ số dưới đây là tự động.
 
 ## Vì sao
 

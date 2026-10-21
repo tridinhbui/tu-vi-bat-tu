@@ -40,7 +40,7 @@ export const elChip = (e, extra = '') => e && EL[e]
   ? `<span class="el el-${EL[e].slug}" data-el="${e}">${elIcon(e)}<span class="el-h" lang="zh">${EL[e].h}</span>${esc(e)}${extra}</span>` : '';
 
 // ----- star vocabulary (classification is presentation only) -----
-const POS = new Set(['Tả Phụ', 'Hữu Bật', 'Văn Xương', 'Văn Khúc', 'Thiên Khôi', 'Thiên Việt', 'Lộc Tồn', 'Thiên Quan', 'Thiên Phúc', 'Thiên Đức', 'Nguyệt Đức', 'Long Trì', 'Phượng Các', 'Tam Thai', 'Bát Tọa', 'Bát Tòa', 'Ân Quang', 'Thiên Quý', 'Giải Thần', 'Thiên Giải', 'Địa Giải', 'Thiên Y', 'Hồng Loan', 'Thiên Hỷ', 'Thanh Long', 'Hoa Cái', 'Quốc Ấn', 'Đường Phù', 'Phúc Đức', 'Thiên Tài', 'Thiên Thọ', 'Phong Cáo', 'Thái Phụ']);
+const POS = new Set(['Tả Phụ', 'Hữu Bật', 'Văn Xương', 'Văn Khúc', 'Thiên Khôi', 'Thiên Việt', 'Lộc Tồn', 'Thiên Quan', 'Thiên Phúc', 'Thiên Đức', 'Nguyệt Đức', 'Long Trì', 'Phượng Các', 'Tam Thai', 'Bát Tọa', 'Bát Tòa', 'Ân Quang', 'Thiên Quý', 'Giải Thần', 'Thiên Giải', 'Địa Giải', 'Thiên Y', 'Hồng Loan', 'Thiên Hỷ', 'Thanh Long', 'Hoa Cái', 'Quốc Ấn', 'Đường Phù', 'Phúc Đức', 'Thiên Tài', 'Thiên Thọ', 'Phong Cáo', 'Thai Phụ', 'Văn Tinh', 'Thiên Trù']);
 const NEG = new Set(['Kình Dương', 'Đà La', 'Hỏa Tinh', 'Linh Tinh', 'Địa Không', 'Địa Kiếp', 'Thiên Hình', 'Thiên Riêu', 'Đại Hao', 'Tiểu Hao', 'Kiếp Sát', 'Thiên Không', 'Cô Thần', 'Quả Tú', 'Bệnh Phù', 'Tang Môn', 'Bạch Hổ', 'Điếu Khách', 'Thiên Khốc', 'Thiên Hư', 'Phi Liêm', 'Quan Phù', 'Tử Phù', 'Phục Binh', 'Quan Phủ', 'Thiên Thương', 'Thiên Sứ', 'Lưu Hà', 'Thiên La', 'Địa Võng', 'Phá Toái']);
 export const starKind = s => POS.has(s) ? 'pos' : NEG.has(s) ? 'neg' : 'neu';
 

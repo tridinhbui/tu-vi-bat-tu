@@ -84,5 +84,9 @@ def test_invariants_over_many_charts():
             assert (pos["Thiên Khốc"] - 6) % 12 == (-(pos["Thiên Hư"] - 6)) % 12
             assert (pos["Hồng Loan"] - pos["Thiên Hỷ"]) % 12 == 6
             assert t["extras"]["menh_chu"]["star"] and t["extras"]["than_chu"]["star"]
+            # the seven book-sourced stars (TH pp.19-22, 26; KL pp.27-31): their relations to the stars they hang on
+            assert (pos["Quốc Ấn"] - pos["Lộc Tồn"]) % 12 == 8 and (pos["Đường Phù"] - pos["Lộc Tồn"]) % 12 == 5
+            assert (pos["Thai Phụ"] - pos["Văn Khúc"]) % 12 == 2 and (pos["Phong Cáo"] - pos["Văn Khúc"]) % 12 == 10
+            assert pos["Giải Thần"] == pos["Phượng Các"]
             seen_names |= set(names)
-    assert "Quốc Ấn" not in seen_names and "Giải Thần" not in seen_names      # deliberately not placed (formula unknown)
+    assert {"Quốc Ấn", "Đường Phù", "Văn Tinh", "Thiên Trù", "Phong Cáo", "Thai Phụ", "Giải Thần"} <= seen_names
