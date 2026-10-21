@@ -350,6 +350,19 @@ def lunar_to_solar_endpoint(req: LunarReq):
     return {"solar": {"year": s.year, "month": s.month, "day": s.day}, "matches": len(hits)}
 
 
+@app.get("/api/calendar")
+def calendar_month(year: int, month: int, calendar: str = "vn", branch: int | None = None):
+    """Xem ngày: one month of solar/lunar dates, can chi, solar terms and lục xung with a birth-year branch (computed parts only)."""
+    from fastapi.responses import JSONResponse
+    from . import xem_ngay
+    try:
+        body = xem_ngay.month_view(year, month, calendar, branch)
+    except ValueError as e:
+        raise HTTPException(422, str(e))
+    # the same month always gives the same answer: let the browser and the edge keep it
+    return JSONResponse(body, headers={"cache-control": "public, max-age=86400"})
+
+
 @app.post("/api/hour-sweep")
 def hour_sweep(req: BirthReq):
     """For an unknown birth hour: what each of the 12 hour branches would give, so the UI can show what does not depend on it."""
@@ -478,3 +491,7 @@ from . import phi_hoa_api  # noqa: E402  (opt-in draft Phi Hóa school)
 phi_hoa_api.register(app, BirthReq, _compute)
 from . import growth_api  # noqa: E402  (Personal Growth layer, behind TVBT_GROWTH)
 growth_api.register(app, BirthReq, _compute)
+
+# Everything else under web/ (generated article pages, xem-ngay, manifest, service worker, icons): last, so it never shadows an API
+# route. Production serves these as Worker static assets; this mount makes a local uvicorn run match.
+app.mount("/", StaticFiles(directory=ROOT / "web", html=True), name="web")

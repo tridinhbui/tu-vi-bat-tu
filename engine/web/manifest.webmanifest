@@ -1,0 +1,24 @@
+{
+  "name": "Thiên Bàn — Tử Vi và Bát Tự",
+  "short_name": "Thiên Bàn",
+  "description": "Lập lá số Tử Vi và Bát Tự, luận giải đã đối chiếu sách có ghi trang.",
+  "lang": "vi",
+  "id": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FAF6EF",
+  "theme_color": "#FAF6EF",
+  "categories": ["lifestyle", "education"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Lập lá số", "url": "/#lap-la-so", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Xem ngày", "url": "/xem-ngay/", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Bài viết", "url": "/bai-viet/", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
