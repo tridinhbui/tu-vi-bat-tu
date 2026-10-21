@@ -51,9 +51,9 @@
     "vi_tri": [
       "Về các cung giáp, nhị hợp và lục hại",
       "Về thế đứng giữa các cung xung quanh",
-      "Về các cung kề bên, nhị hợp và lục hại",
+      "Về các cung liên đới",
       "Về vị trí với các cung liên quan",
-      "Xét các cung giáp và nhị hợp"
+      "Về những cung có liên hệ với Mệnh"
     ],
     "than": [
       "Thân cư {pal}",
@@ -67,10 +67,10 @@
       "Xét cung Thân"
     ],
     "than_style": [
-      "Ở cung an Thân",
-      "Xét riêng cung an Thân",
+      "Ở cung Thân",
+      "Xét riêng nơi Thân đóng",
       "Tại cung an Thân",
-      "Về chính cung an Thân"
+      "Riêng cung Thân"
     ],
     "hau_van": [
       "Về biến động và rủi ro hậu vận",
@@ -465,7 +465,7 @@
       "Thân đóng {branch} với {config}"
     ],
     "same": [
-      "cung an Thân cũng chính là cung Mệnh",
+      "Thân trùng với Mệnh",
       "Thân và Mệnh cùng một cung",
       "Thân an ngay tại cung Mệnh",
       "cung Thân trùng cung Mệnh",
@@ -540,7 +540,7 @@
       "{S} bước vào đời với {young}{mature}{late}",
       "cuộc đời {S} đi từ {young} của thuở đầu{mature}{late}",
       "hành trình của {S} bắt đầu từ {young}{mature}{late}",
-      "thuở đầu là {young}{mature}{late}",
+      "{young} đánh dấu thuở đầu{mature}{late}",
       "{young} là vốn liếng thuở đầu{mature}{late}"
     ],
     "mature": [

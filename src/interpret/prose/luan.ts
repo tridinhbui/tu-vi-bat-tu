@@ -106,7 +106,10 @@ export interface LuanShared { findings: ReturnType<typeof run>['findings']; reso
 export function luanShared(chart: ChartInput, k: Knowledge, allowDraft: boolean, pre?: Inference): LuanShared {
   const { findings, resolved, labelled } = pre ?? infer(chart, k);
   const seed = seedOf(chart);
-  return { findings, resolved, labelled, micro: new Micro(`${seed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft };
+  // variant choice is seeded by what the reading stands on (the chính tinh of every palace, the Tứ Hóa, the year), not by every minor star,
+  // so a change the reasoning ignores does not reword the text (the reasoned chapter seeds by its plan for the same reason)
+  const vseed = [chart.year_gz, chart.gender, ...chart.palaces.map(p => p.major_stars.join('+')), ...Object.entries(chart.tu_hoa).map(([h, v]) => `${h}:${v.star}`)].join('|');
+  return { findings, resolved, labelled, micro: new Micro(`${vseed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft };
 }
 
 /** The twelve palace chapters: the luận cung chapter where the palace's plan has something to argue, the older chapter otherwise. */

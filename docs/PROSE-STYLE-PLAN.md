@@ -72,3 +72,21 @@ Mẫu tham khảo thứ hai (ảnh chụp "Luận cung" của lá 2002, Cự Mô
 **Cờ**: `TVBT_LUAN` (Worker, mặc định bật; `"0"` để về chương cũ). Cần `TVBT_PROSE_DRAFT=1` (thư viện còn nháp). `PROSE_VERSION` = `prose-0.4.0`, `LUAN_VERSION` = `luan-0.1.0`.
 
 **Không làm / còn chặn**: Bát Tự Hà Lạc (chưa có phần cách lập quẻ, xem `docs/HA-LAC-PLAN.md`) → chương không có đoạn Hà Lạc. Nhị hợp, lục hại: sách trong kho chỉ dùng nhị hợp khi xét đại hạn (KL tr.230-233), không có câu đọc nghĩa cho lá số gốc → chỉ nêu **vị trí**, và chỉ khi cung kia có Tứ Hóa gốc, Lộc Tồn hoặc sát tinh (lựa chọn của hệ thống). "Tam Ám" và các nhóm sao không có định nghĩa trong kho → không dùng. "Giáp Tử Vi" kiểu một sao: không có; chỉ giáp theo cặp (Tả Hữu, Xương Khúc, Khôi Việt, Nhật Nguyệt, Tử Phủ, Khoa/Quyền/Lộc, Kình Đà, Không Kiếp, Hỏa Linh) — vị trí, còn ý nghĩa chỉ khi luật giáp của sách bắn.
+
+**Quyết định của chủ dự án trong phiên này (2026-10-21):**
+- *"Bỏ ngay cái chưa đối chiếu sách"*: mọi câu `pho_thong` bị bỏ khỏi văn trả về (`src/interpret/prose/checked.ts`, áp dụng trong route cho mọi chương: luận cung, chương cũ, đại hạn, tổng quan và thẻ của nó, Bát Tự). Chương luận cung không còn tạo câu phổ thông, không nói "Thân = tuổi trưởng thành" (không có trang sách nào trong kho nói vậy), không kể trạng thái cách cục nháp. Tổng kết Bát Tự chỉ dựa bảng điều hậu (TVH tr.389-396), không dựa phép phù ức.
+- *Bảng độ sáng*: mặc định chuyển sang **Khảo Luận "Thế đứng"** (bảng các trang phổ biến dùng; lá 09/01/2002 khớp tuvi.vn trừ hai ô KL không in: Tử Vi Dậu, Liêm Trinh Sửu). Thực Hành / Toàn Thư vẫn chọn được trên lá số. Nhận định sách Thực Hành / Toàn Thư được xét trên bảng đang chọn (ghi ở chân văn). Fixture và goldens TS vẫn dựng bằng Thực Hành (các tool sinh fixture được ghim `thuc_hanh`).
+- Đã đẩy lên `main` theo yêu cầu trực tiếp (01c336e), kiểm trên trang thật: 198 câu, 0 câu phổ thông, lá số dùng bảng Khảo Luận.
+
+## 7. Đo (eval_distinct, 1.000 lá + benchmark20; chương Mệnh)
+
+| | reasoned (mốc) | luận cung |
+|---|---|---|
+| Barnum, corpus / benchmark | 47.5% / 47.6% | **42.7% / 40.5%** |
+| Tỉ lệ khái niệm ≥ 50% lá đều có | 40.5% / 37.7% | 34.1% / 30.1% |
+| Căn cứ (tần suất luật hiếm nhất mỗi câu) | 7.0% / 7.1% | 5.3% / 5.2% |
+| Strip test, corpus / benchmark | 0.078 / 0.068 | **0.072 / 0.065** |
+| Phản thực: critical đổi đúng chỗ | 95.9% | 89.2% |
+| Phản thực: inert giữ nguyên văn | 100% (giống văn 1) | 100% (giống văn 1) |
+
+Ghi chú: strip test nay bỏ cả nhãn độ sáng viết hoa ("Hãm Địa", "Miếu Địa") như đã bỏ "hãm", "miếu" (mốc reasoned không đổi vì nó không dùng nhãn viết hoa). Critical thấp hơn vì chương luận cung không còn kể trạng thái cách cục nháp: ở các biến thể bỏ / thêm Hóa, chương reasoned chỉ đổi qua một trạng thái `cach:` (ví dụ bỏ Hóa Khoa ở lá Cơ Nguyệt Đồng Lương). Báo cáo đầy đủ: `docs/LUAN-EVAL.md`, mốc: `docs/REASONER-EVAL.md`. Ví dụ trước/sau: `docs/examples/luan-cung-*.md`.
