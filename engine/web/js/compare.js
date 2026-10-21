@@ -75,6 +75,8 @@ export function initCompare(host) {
   const changed = () => { if (selA.value === selB.value) { const other = list.find(x => x.id !== selA.value); if (other) (document.activeElement === selA ? selB : selA).value = other.id; } writeSel({ a: selA.value, b: selB.value }); run(); };
   selA.onchange = changed; selB.onchange = changed;
   $('#cmp-swap', dlg).onclick = () => { const a = selA.value; selA.value = selB.value; selB.value = a; writeSel({ a: selA.value, b: selB.value }); run(); };
-  $('#cmp-open', host).onclick = () => { fill(); if (!dlg.open) dlg.showModal(); run(); };
-  return { refresh: paintHost };
+  const open = () => { fill(); if (!dlg.open) dlg.showModal(); run(); };
+  $('#cmp-open', host).onclick = open;
+  // "Lá số của tôi" picks the pair itself (mycharts.js)
+  return { refresh: paintHost, open: (a, b) => { writeSel({ a, b }); open(); } };
 }

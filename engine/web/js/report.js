@@ -1,11 +1,12 @@
 // InterpretationSection chapters: calculations and traditional readings kept visibly separate.
-import { $, $$, esc, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip, CLAIMS } from './util.js';
+import { $, $$, esc, bd, DM, STEMS, BRANCHES, EL, starKind, tenGodGroup, TEN_GOD_GROUPS, palaceOfSubject, claimLabel, elChip, CLAIMS } from './util.js';
 import { acc, notice, reasoningPanel, timeline, yearExplorer, findingList } from './ui.js';
 import { scopePanelBazi } from './scope.js';
 import { easyReadings, emptyReading, classify, parsePhrase } from './beginner.js';
 import { autoLink, terms } from './glossary.js';
 import { lockHtml } from './paywall.js';
 import { elementBalanceHtml, godDistributionHtml, menhTamPhuongHtml, currentPhase, currentPhaseHtml } from './insights.js';
+import { orderChapters, focusIds, focusNote } from './focus.js';
 
 const LAYER_HINT = { 'Tượng': 'ý nghĩa biểu tượng', 'Khí': 'điều kiện mạnh yếu', 'Thế': 'vị trí trong cấu trúc', 'Cách': 'cách cục', 'Dụng': 'vai trò theo lĩnh vực', 'Biến': 'biến đổi theo thời gian', 'Phản': 'yếu tố đối trọng', 'Tổng': 'tổng hợp' };
 const BASIS = { tinh_toan: ['Tính toán', 'dữ kiện lập từ lá số'], sach: ['Theo sách', 'có trích dẫn trang'], he_thong: ['Định nghĩa của hệ thống', 'cách hệ thống chọn để mô tả; không phải lời sách'] };
@@ -170,6 +171,12 @@ function chapterBasis(c) {
   return keep + `<details class="ch-basis"${c.synth ? '' : ' open'}><summary><span class="cb-t">Căn cứ của chương này</span><span class="cb-s">dữ kiện lá số, phân tích cấu trúc và các nhận định theo sách</span></summary>${inner}</details>`;
 }
 function mount(host, chapters, prefix, ctx) {
+  // the user's own chart, with career / relationship status in the profile: those chapters come right after the overview (focus.js)
+  if (ctx.focus?.length) {
+    chapters = orderChapters(chapters, prefix, ctx.focus);
+    const tq = chapters.find(c => c.id === 'tong-quan'), titles = focusIds(prefix, ctx.focus).map(id => chapters.find(c => c.id === id)?.title).filter(Boolean);
+    if (tq && titles.length) tq.synth = focusNote(ctx.focus, titles) + (tq.synth || '');
+  }
   host.innerHTML = `<div class="rp-layout">
     <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li${c.pro ? ' class="pro-only"' : ''}><a href="#${prefix}-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
     <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${c.synth || ''}${chapterBasis(c)}</article>`).join('')}
@@ -310,7 +317,7 @@ export function renderTuviReport(host, chart, ctx) {
       ${P12_CH[p.name] && ctx.prose?.[P12_CH[p.name]]?.paragraphs?.length ? `</div>${proseHtml(ctx.prose[P12_CH[p.name]])}<div class="p12-s">` : row('Nhận định', (pf.length ? `<span class="pro-only">${esc(pf.map(f => claimLabel(f.claim)).join('; '))}</span>` : '<span class="pro-only muted">chưa có quy tắc được kích hoạt</span>') + `<span class="easy-only">${(() => { const sh = classify(pf).show; return sh.length ? esc(sh.map(f => parsePhrase(f).core).join('; ')) : `<span class="muted">${esc(terms()['palace:' + p.name]?.plain || '')} Chưa có luận giải cá nhân hóa cho cung này.</span>`; })()}</span>`)}</div>`);
   }).join('');
   const chapters = [
-    { id: 'tong-quan', title: 'Tổng quan Tử Vi', lead: `Lá số lập cho người sinh năm ${esc(t.year_gz)} (âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}), ${esc(t.yin_yang_gender)}.`, blocks: blocks('tv', 'tong-quan'),
+    { id: 'tong-quan', title: 'Tổng quan Tử Vi', lead: `Lá số lập cho người sinh năm ${esc(t.year_gz)} (âm lịch ${bd(`${t.lunar.day}/${t.lunar.month}/`, t.lunar.day != null, DM)}${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}), ${esc(t.yin_yang_gender)}.`, blocks: blocks('tv', 'tong-quan'),
       calc: calc(`<div class="facts"><div><span class="k">Mệnh cung</span><b>${esc(tv.menh.stem)} ${esc(tv.menh.branch)}</b></div><div><span class="k">Thân cư</span><b>${esc(tv.than.name)}</b></div><div><span class="k">Cục</span><b>${esc(t.cuc.name)}</b></div><div><span class="k">Bản mệnh</span><b>${esc(t.menh_nap_am)}</b></div><div><span class="k">Cục và Mệnh</span><b>${esc(t.menh_cuc_relation)}</b></div><div><span class="k">Đại hạn hiện tại</span><b>${ph.dh ? `${esc(ph.dh.palace)} (${ph.dh.age_from}–${ph.dh.age_to})` : 'chưa vào'}</b></div></div><div class="pro-only">${highlightsHtml(fs, TITLE, chOf)}</div>`),
       trad: `<div class="ch-trad">${notice('Về mức độ tin cậy', 'Chỉ các nhận định đã đối chiếu sách mới được hiển thị. Đây là cách đọc theo hệ biểu tượng, không phải kết luận.', 'info')}</div>` },
     { id: 'ban-menh', title: 'Bản Mệnh', lead: `Bản mệnh ${esc(t.menh_nap_am)} thuộc hành ${esc(t.menh_element)}; ${esc(t.cuc.name)} thuộc hành ${esc(t.cuc.element)}.`, blocks: blocks('tv', 'ban-menh'),

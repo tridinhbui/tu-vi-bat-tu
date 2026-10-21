@@ -1,5 +1,5 @@
 // App shell: navigation, home interactions, BirthChartForm, results orchestration.
-import { $, $$, esc, post, hourBranch, STEMS, BRANCHES, loadMeta } from './util.js';
+import { $, $$, esc, bd, DM, post, hourBranch, STEMS, BRANCHES, loadMeta, shareMode } from './util.js';
 import { compass, brandMark } from './compass.js';
 import { renderBazi } from './bazi.js';
 import { renderTuvi } from './tuvi.js';
@@ -11,8 +11,12 @@ import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
 import { initPrint, printNow } from './print.js';
 import { initChat, initChapterBubbles, dialogueBazi, dialogueTuvi } from './mascots.js';
-import { renderSaved, initSave } from './mine.js';
-import { initAccount } from './account.js';
+import { renderSaved, initSave, isSaved } from './mine.js';
+import { initAccount, session } from './account.js';
+import { initAccountPage } from './acctpage.js';
+import { focusFor } from './profile.js';
+import { openShareDialog, loadShare, shareBanner, SHARE_HASH } from './share.js';
+import { exportBoardPng } from './png.js';
 import { initAsk } from './ask.js';
 import { initPaywall } from './paywall.js';
 import { initLive } from './live.js';
@@ -47,8 +51,10 @@ function setTab(tab, scroll = true) {
   requestAnimationFrame(() => dispatchEvent(new Event('resize')));
 }
 function go(id) {
+  if (id === 'tai-khoan') { if (shareMode.id) { leaveShare('#tai-khoan'); return; } view('account'); acctPage.paint(); history.replaceState(null, '', '#tai-khoan'); return; }
   const tabs = { 'tong-quan': 'overview', 'bat-tu': 'bazi', 'tu-vi': 'tuvi', 'truong-thanh': 'growth' };
   if (tabs[id] && state?.chart) { if (document.body.dataset.view !== 'chart') view('chart'); setTab(tabs[id]); history.replaceState({ v: 'chart' }, '', '#la-so/' + id); return; }
+  if (shareMode.id) { leaveShare('#' + id); return; }   // a shared view is read-only: going anywhere else starts the site afresh
   const target = $('#' + id) ? id : 'lap-la-so'; // retired anchors from older links land on the form
   if (document.body.dataset.view !== 'home') view('home');
   requestAnimationFrame(() => $('#' + target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }));
@@ -111,6 +117,21 @@ const hint = () => { const [h] = (form.time.value || '00:00').split(':').map(Num
 form.time.oninput = hint; hint();
 $('#solar').onchange = e => { $('#lon-wrap').hidden = !e.target.checked; };
 
+// "Thông tin cá nhân" fills the form once it has loaded, unless the visitor already started typing
+let formTouched = false;
+form.addEventListener('input', () => { formTouched = true; }, { once: true });
+function prefill(p, force = false) {
+  if (!p || (formTouched && !force)) return;
+  setCal(p.cal === 'lunar');
+  form.year.value = p.year; form.month.value = p.month; setCal(p.cal === 'lunar'); form.day.value = p.day; $('#leap').checked = !!p.leap;
+  const unknown = p.hour === null; $('#no-hour').checked = unknown; $('#no-hour').onchange({ target: { checked: unknown } });
+  if (!unknown) form.time.value = `${String(p.hour).padStart(2, '0')}:${String(p.minute).padStart(2, '0')}`;
+  if (p.gender) form.gender.value = p.gender;
+  if (p.place && [...form.place.options].some(o => o.value === p.place)) form.place.value = p.place;
+  syncPlace(); hint();
+  const note = $('.form-sample-note'); if (note) note.innerHTML = 'Các ô đang điền sẵn từ <a class="link" href="#tai-khoan" data-go="tai-khoan">Thông tin cá nhân</a> của bạn.';
+}
+
 function readForm() {
   const unknown = $('#no-hour').checked, [h, m] = unknown ? [12, 0] : form.time.value.split(':').map(Number);
   const o = { year: +form.year.value, month: +form.month.value, day: +form.day.value, hour: h, minute: m, gender: form.gender.value, tz: form.tz.value.trim() || 'Asia/Ho_Chi_Minh', calendar: form.calsys.value, zi_rule: form.zi_rule.value, level: +form.level.value };
@@ -121,7 +142,7 @@ function readForm() {
 }
 const fmtDate = r => `${String(r.day).padStart(2, '0')}/${String(r.month).padStart(2, '0')}/${r.year}`;
 
-addEventListener('tvbt:dignity', e => { if (state?.req) generate(null, { ...state.req, dignity_school: e.detail }); });
+addEventListener('tvbt:dignity', e => { if (state?.req) (shareMode.id ? compute : generate.bind(null, null))({ ...state.req, dignity_school: e.detail }); });
 // a chapter was opened with xu (js/paywall.js): draw the report again, the server now sends that chapter whole
 addEventListener('tvbt:unlocked', async e => {
   if (!state?.req) return;
@@ -152,33 +173,41 @@ async function generate(ev, saved = null) {
       showHourSweep();
       return;
     }
-    // /api/synthesis is an optional layer (server flag): a 404 or failure just leaves the chapters without the composed section
-    const synthReq = post('/api/synthesis', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);
-    // /api/interpret mode "prose" (TS engine on the Worker, or tools/interpret/dev_server.ts locally) is optional too: 404 leaves Bản Mệnh as it was
-    const proseReq = post('/api/interpret', { ...req, chapter: 'all', mode: 'prose', to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 })
-      .then(r => Object.fromEntries((r.chapters || []).map(x => [x.chapter, x]))).catch(() => null);
-    const interpReq = post('/api/interpretation', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);   // optional, same flag
-    // "Tổng quan lá số" (/api/overview, TS on the Worker): optional too; without it the result opens on Tử Vi as before
-    const overviewReq = post('/api/overview', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);
-    const [chart, reason, analysis, formations, , synth, interp, prose, overview] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady, synthReq, interpReq, proseReq, overviewReq]);
-    // Only readings checked against the books are shown; draft rules stay in the engine and on the rule-library page.
-    Object.values(reason.systems).forEach(sys => { sys.findings = sys.findings.filter(f => f.basis === 'verified'); sys.pending = []; });
-    state = { req, chart, reason, analysis, lunarIn, formations, synth, interp, prose, overview };
-    showResults();
+    await compute(req, lunarIn);
   } catch (x) {
     err.innerHTML = notice('Chưa lập được lá số', esc(x.message), 'warn'); err.hidden = false;
     $('#lap-la-so').scrollIntoView({ block: 'center' });
   } finally { btn.disabled = false; btn.classList.remove('busy'); $('#loading').hidden = true; }
 }
+/** Every engine call for one chart, then the result page. A shared view passes its masked request; util.js post() reroutes the calls. */
+async function compute(req, lunarIn = null) {
+  // /api/synthesis is an optional layer (server flag): a 404 or failure just leaves the chapters without the composed section
+  const synthReq = post('/api/synthesis', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);
+  // /api/interpret mode "prose" (TS engine on the Worker, or tools/interpret/dev_server.ts locally) is optional too: 404 leaves Bản Mệnh as it was
+  const proseReq = post('/api/interpret', { ...req, chapter: 'all', mode: 'prose', to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 })
+    .then(r => Object.fromEntries((r.chapters || []).map(x => [x.chapter, x]))).catch(() => null);
+  const interpReq = post('/api/interpretation', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);   // optional, same flag
+  // "Tổng quan lá số" (/api/overview, TS on the Worker): optional too; without it the result opens on Tử Vi as before
+  const overviewReq = post('/api/overview', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);
+  const [chart, reason, analysis, formations, , synth, interp, prose, overview] = await Promise.all([post('/api/chart', req), post('/api/reasoning', req), post('/api/analysis', req), expOn() ? post('/api/formations', req).catch(() => null) : null, metaReady, synthReq, interpReq, proseReq, overviewReq]);
+  // Only readings checked against the books are shown; draft rules stay in the engine and on the rule-library page.
+  Object.values(reason.systems).forEach(sys => { sys.findings = sys.findings.filter(f => f.basis === 'verified'); sys.pending = []; });
+  state = { req, chart, reason, analysis, lunarIn, formations, synth, interp, prose, overview };
+  showResults();
+}
 form.onsubmit = generate;
 const savedList = $('#saved-list'), openSaved = r => generate(null, r);
 renderSaved(savedList, openSaved);
-initCompare($('#cmp-host'));
+const compare = initCompare($('#cmp-host'));
 initPrint($('#print-btn'));
-const saver = initSave($('#save-host'), () => state?.req, () => renderSaved(savedList, openSaved));
-initAccount($('#acct'), () => renderSaved(savedList, openSaved), saver);
-initAsk($('#ask-host'), () => state?.req);
-initPaywall(() => state?.req);
+const saver = initSave($('#save-host'), () => state?.req, () => { renderSaved(savedList, openSaved); paintShareBtn(); });
+const acctPage = initAccountPage($('#account-view'), {
+  placeOptions: form.place.innerHTML, onPrefill: p => prefill(p), compare,
+  onRun: p => { prefill(p, true); generate(); }, onOpen: req => generate(null, req), onChange: () => renderSaved(savedList, openSaved),
+});
+initAccount($('#acct'), () => { renderSaved(savedList, openSaved); acctPage.paint(); }, saver);
+initAsk($('#ask-host'), () => shareMode.id ? null : state?.req);
+initPaywall(() => shareMode.id ? null : state?.req);
 initLive($('#live-stats'));
 async function loadSample() {
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });
@@ -219,7 +248,7 @@ function initYearCards() {
 function showResults() {
   document.body.classList.remove('hour-mode');
   const { req, chart, reason, analysis } = state;
-  const ctx = { req, reason, formations: state.formations, synth: state.synth, interp: state.interp, prose: state.prose, highlight: (items, label) => state.tv.highlight(items, label), analysis: analysis.chapters, chartRaw: chart, openPalace: name => { setTab('tuvi', false); setTimeout(() => { $('#tuvi-host').scrollIntoView({ behavior: 'smooth', block: 'start' }); state.tv.select(name); }, 120); } };
+  const ctx = { req, focus: shareMode.id ? [] : focusFor(req), reason, formations: state.formations, synth: state.synth, interp: state.interp, prose: state.prose, highlight: (items, label) => state.tv.highlight(items, label), analysis: analysis.chapters, chartRaw: chart, openPalace: name => { setTab('tuvi', false); setTimeout(() => { $('#tuvi-host').scrollIntoView({ behavior: 'smooth', block: 'start' }); state.tv.select(name); }, 120); } };
   setChart(chart);
   const tv = renderTuvi($('#tuvi-host'), chart.tuvi, ctx);
   state.tv = tv; ctx.tv = tv;
@@ -229,24 +258,61 @@ function showResults() {
   const T = terms();
   $('#bazi-summary').innerHTML = summaryBazi(chart, ctx, T); $('#tuvi-summary').innerHTML = summaryTuvi(chart, ctx, T);
   initYearCards();
-  initGrowth($('#growth-host'), $('#tab-growth'), req); // optional layer: the tab stays hidden when the server has it switched off
+  if (!shareMode.id) initGrowth($('#growth-host'), $('#tab-growth'), req); // optional layer: the tab stays hidden when the server has it switched off
   // the guides (scripted from the chart's facts, no AI): a conversation at the top of each system, one bubble per chapter, one per palace
   initChat($('#bazi-mascot'), 'bt', dialogueBazi(chart, ctx, T)); initChat($('#tuvi-mascot'), 'tv', dialogueTuvi(chart, ctx, T));
   initChapterBubbles($('#bazi-report'), 'bt'); initChapterBubbles($('#tuvi-report'), 'tv');
   autoLink($('#bazi-host'), 'bt'); autoLink($('#bazi-summary'), 'bt'); autoLink($('#tuvi-host'), 'tv'); autoLink($('#tuvi-summary'), 'tv');
   const t = chart.tuvi, b = chart.bazi;
   const lu = state.lunarIn ? `<span>Nhập âm lịch ${state.lunarIn.day}/${state.lunarIn.month}/${state.lunarIn.year}${state.lunarIn.leap ? ' nhuận' : ''}</span>` : '';
-  $('#res-sub').innerHTML = lu + `<span><b>${fmtDate(req)}</b> · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${t.lunar.day}/${t.lunar.month}/${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
+  const has = req.day != null;   // false on a share link with the birth hidden: the page never received the day, month or hour
+  $('#res-sub').innerHTML = (has && lu ? bd(lu) : '') + `<span><b>${bd(`${String(req.day).padStart(2, '0')}/${String(req.month).padStart(2, '0')}/`, has, DM)}${req.year}</b>${bd(` · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}`, has, ' · giờ sinh ẩn')}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${bd(`${t.lunar.day}/${t.lunar.month}/`, t.lunar.day != null, DM)}${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
   $('#res-hl').innerHTML = `<button type="button" class="hl-chip gl" data-gl="c:nhat-chu">${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></button><button type="button" class="hl-chip gl" data-gl="c:cuc">${esc(t.cuc.name)}</button><button type="button" class="hl-chip gl" data-gl="c:nap-am">Mệnh ${esc(t.menh_nap_am)}</button>`;
-  saver.paint();
+  saver.paint(); paintShareBtn();
   // the overview tab opens first when the server sent it; its chapter buttons open the matching Tử Vi chapter
   const ov = !!state.overview?.indices;
   $('#tab-overview').hidden = !ov;
   if (ov) renderOverview($('#overview-host'), state.overview, { onChapter: id => { setTab('tuvi', false); history.replaceState({ v: 'chart' }, '', '#la-so/tu-vi'); setTimeout(() => $('#tv-' + id)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }), 60); } });
   else $('#overview-host').innerHTML = '';
   setTab(ov ? 'overview' : 'tuvi', false); view('chart');
-  history.pushState({ v: 'chart' }, '', ov ? '#la-so/tong-quan' : '#la-so/tu-vi');
+  if (!shareMode.id) history.pushState({ v: 'chart' }, '', ov ? '#la-so/tong-quan' : '#la-so/tu-vi');
 }
+
+// ---------- share link, PNG, "Ẩn thông tin sinh" on exports ----------
+function paintShareBtn() { $('#share-btn').hidden = !session.user || !!shareMode.id || !state?.req; }
+addEventListener('tvbt:account', paintShareBtn);
+$('#share-btn').onclick = () => {
+  const item = state?.req && isSaved(state.req);
+  if (item) { openShareDialog(item, () => renderSaved(savedList, openSaved)); return; }
+  resMsg('Lưu lá số này trước, rồi chia sẻ.'); $('#save-host button')?.click();
+};
+const resMsg = t => { const m = $('#res-msg'); m.textContent = t; m.hidden = !t; };
+$('#hide-birth').onchange = e => document.body.classList.toggle('hide-birth', e.target.checked);
+$('#png-btn').onclick = async e => {
+  const b = e.currentTarget; b.disabled = true; resMsg('Đang dựng ảnh…');
+  try { await exportBoardPng(); resMsg(''); } catch (x) { resMsg(x.message); } finally { b.disabled = false; }
+};
+function leaveShare(hash) { location.replace('/' + hash); location.reload(); }
+document.addEventListener('click', e => { if (shareMode.id && e.target.closest('[data-leave-share]')) { e.preventDefault(); leaveShare('#lap-la-so'); } });
+async function openShare(id) {
+  $('#loading').hidden = false;
+  try {
+    const s = await loadShare(id);
+    if (!s) { $('#form-err').innerHTML = notice('Không mở được lá số được chia sẻ', 'Liên kết không tồn tại hoặc đã bị chủ lá số thu hồi.', 'warn'); $('#form-err').hidden = false; history.replaceState(null, '', '#lap-la-so'); go('lap-la-so'); return; }
+    document.body.classList.add('shared');
+    if (s.hide) document.body.classList.add('hide-birth');
+    $('#share-banner').innerHTML = shareBanner(s); $('#share-banner').hidden = false;
+    $('#atl-h').innerHTML = s.label ? `Lá số của <span class="res-name">${esc(s.label)}</span>` : 'Lá số được chia sẻ';
+    $('.atl-id .eyebrow').textContent = 'Lá số được chia sẻ · chỉ xem';
+    let dg = null; try { dg = localStorage.getItem('tvbt.dignity'); } catch { /* storage unavailable */ }
+    await compute(dg === 'khao_luan' || dg === 'toan_thu' ? { ...s.req, dignity_school: dg } : s.req);
+  } catch (x) {
+    $('#form-err').innerHTML = notice('Chưa mở được lá số được chia sẻ', esc(x.message), 'warn'); $('#form-err').hidden = false; view('home');
+  } finally { $('#loading').hidden = true; }
+}
+// a pasted share link or the account page, on load and when only the hash changes (same document)
+const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); };
+route(); addEventListener('hashchange', route);
 function again() { view('home'); history.replaceState(null, '', '#lap-la-so'); requestAnimationFrame(() => $('#lap-la-so').scrollIntoView({ behavior: 'smooth', block: 'start' })); }
 $('#again').onclick = again;
 // the header's "Tải PDF" appears once the result masthead (with its own buttons) has scrolled away

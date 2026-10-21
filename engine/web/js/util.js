@@ -84,7 +84,18 @@ export const palaceOfSubject = s => /^palace:/.test(s) ? s.slice(7) : null;
 
 const sleepMs = ms => new Promise(r => setTimeout(r, ms));
 /** POST JSON. Retries network errors and 5xx (the engine container can drop a request under load); never retries 4xx. */
+/** Birth data on screen, wrapped so the "Ẩn thông tin sinh" export option can hide it (body.hide-birth). has = false: the page never
+ *  received the value (a share link with the birth hidden), so only the stand-in shows ("ẩn", or alt, e.g. "··/··/" before a year). */
+export const bd = (v, has = v !== undefined && v !== null, alt = 'ẩn') => has ? `<span class="bd">${v}</span><span class="bd-x">${alt}</span>` : `<span class="bd-x bd-on">${alt}</span>`;
+export const DM = '··/··/';
+
+/** Set while a share link is open (share.js): engine calls then go through /api/share/<id>/<endpoint>, which adds the stored birth. */
+export const shareMode = { id: null };
+const SHARED = /^\/api\/(chart|reasoning|analysis|synthesis|interpretation|interpret|year|formations)$/;
+const VIEWER = ['to_year', 'chapter', 'mode', 'experimental', 'dignity_school'];
+
 export async function post(u, b, { retries = 3 } = {}) {
+  if (shareMode.id && SHARED.test(u)) { b = Object.fromEntries(VIEWER.filter(k => b?.[k] !== undefined).map(k => [k, b[k]])); u = `/api/share/${shareMode.id}/${u.slice(5)}`; }
   let last;
   for (let i = 0; i <= retries; i++) {
     try {
