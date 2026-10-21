@@ -77,7 +77,8 @@ test("every #id the account, share and export code looks up exists in the page o
   const page = readFileSync("engine/web/index.html", "utf8");
   const files = ["app", "acctpage", "profile", "mycharts", "share", "png"].map(f => readFileSync(`engine/web/js/${f}.js`, "utf8"));
   const all = page + readdirSync("engine/web/js").filter(f => f.endsWith(".js")).map(f => readFileSync(`engine/web/js/${f}`, "utf8")).join("\n");
-  const wanted = new Set(files.join("\n").match(/\$\('#[a-z0-9-]+/gi)!.map(s => s.slice(4)));
+  // a prefix with a value appended ($('#tv-' + id)) names a family of rendered ids, not one fixed id
+  const wanted = new Set(files.join("\n").match(/\$\('#[a-z0-9-]+'(?!\s*\+)/gi)!.map(s => s.slice(4, -1)));
   for (const id of wanted) assert.ok(new RegExp(`id="${id}"|id = '${id}'|\\.id = '${id}'`).test(all), `#${id} is looked up but never defined`);
   for (const id of ["share-btn", "png-btn", "hide-birth", "share-banner", "account-view", "res-msg"]) assert.ok(wanted.has(id), id);
   assert.match(page, /href="\/css\/account\.css"/);
