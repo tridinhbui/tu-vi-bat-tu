@@ -6,7 +6,7 @@ const KEY = 'tvbt-saved-v1';
 export const cloud = { on: false, push: null, remove: null };
 const max = () => cloud.on ? 200 : 12;
 const FIELDS = ['year', 'month', 'day', 'hour', 'minute', 'gender', 'tz', 'calendar', 'zi_rule', 'level', 'use_true_solar_time', 'longitude'];
-const RELS = ['Tôi', 'Người thân', 'Bạn bè'];
+export const RELS = ['Tôi', 'Người thân', 'Bạn bè'];
 
 export const readSaved = () => { try { const a = JSON.parse(localStorage.getItem(KEY)); return Array.isArray(a) ? a : []; } catch { return []; } };
 export const writeSaved = a => { try { localStorage.setItem(KEY, JSON.stringify(a)); return true; } catch { return false; } };
@@ -24,6 +24,8 @@ export function saveChart(req, label, rel) {
   return item;
 }
 export const isSaved = req => readSaved().find(x => same(x.req, pick(req)));
+export function removeSaved(id) { writeSaved(readSaved().filter(x => x.id !== id)); cloud.remove?.(id); }
+export const fmtBirth = fmt;
 
 /** Home list of saved charts; onOpen(req) generates the chart again from the stored birth data. Comparing two charts lives in compare.js. */
 export function renderSaved(host, onOpen) {
@@ -31,7 +33,7 @@ export function renderSaved(host, onOpen) {
   sec.hidden = !list.length;
   host.innerHTML = list.map(x => `<li><button type="button" class="sv-open" data-id="${esc(x.id)}"><span class="sv-rel">${esc(x.rel)}</span><b>${esc(x.label)}</b><small>${esc(fmt(x.req))}</small></button><button type="button" class="sv-del" data-id="${esc(x.id)}" aria-label="Xóa lá số ${esc(x.label)}">Xóa</button></li>`).join('');
   $$('.sv-open', host).forEach(b => b.onclick = () => onOpen(list.find(x => x.id === b.dataset.id).req));
-  $$('.sv-del', host).forEach(b => b.onclick = () => { writeSaved(readSaved().filter(x => x.id !== b.dataset.id)); cloud.remove?.(b.dataset.id); renderSaved(host, onOpen); });
+  $$('.sv-del', host).forEach(b => b.onclick = () => { removeSaved(b.dataset.id); renderSaved(host, onOpen); });
 }
 
 /** Save control on the result page: one button that expands to name + relation. */

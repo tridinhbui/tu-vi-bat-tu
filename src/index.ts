@@ -1,6 +1,7 @@
 import { Container, getContainer } from "@cloudflare/containers";
 import knowledge from "./interpret/generated/knowledge.json" with { type: "json" };
 import { handleAuth, isAuthPath, type AuthEnv } from "./auth/route.ts";
+import { handleAccount, isAccountPath } from "./account/route.ts";
 import { currentUser } from "./auth/session.ts";
 import { bump, handleStats } from "./stats/stats.ts";
 import { handleChat } from "./chat/route.ts";
@@ -52,6 +53,12 @@ async function chatRoute(request: Request, env: Env, ctx: ExecutionContext, deep
   return deep ? handleDeep(request, { ...deps, defer: p => ctx.waitUntil(p) }) : handleChat(request, deps);
 }
 
+// A shared chart is computed from the birth stored with it: the engine call is built here, never from the viewer's body alone.
+const shareForward = (request: Request, env: Env, ctx: ExecutionContext) => (path: string, body: Record<string, unknown>) => {
+  const req = new Request(new URL(path, request.url), { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+  return path === "/api/interpret" ? interpretRoute(req, env, ctx) : getContainer(env.TVBT, "main").fetch(req);
+};
+
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const path = new URL(request.url).pathname;
@@ -61,6 +68,7 @@ export default {
     if (path === "/api/me/deep") return chatRoute(request, env, ctx, true);
     if (isFeedbackPath(path)) return handleFeedback(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isAdminPath(path)) return handleAdmin(request, env, env.DB ? await currentUser(env.DB, request) : null);
+    if (isAccountPath(path)) return handleAccount(request, env.DB, shareForward(request, env, ctx));
     if (isAuthPath(path)) return handleAuth(request, env);
     if (path === "/api/interpret") return interpretRoute(request, env, ctx);
     // The container API is stateless and stores nothing (accounts live in the Worker, above), so one shared instance is enough.

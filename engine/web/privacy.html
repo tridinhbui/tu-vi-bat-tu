@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chính sách dữ liệu · Thiên Bàn</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.css">
+<style>
+main.pv{max-width:820px;margin:0 auto;padding:40px clamp(16px,4vw,40px) 96px}
+.pv h1{font-size:clamp(2.2rem,5vw,3.2rem);margin:8px 0 12px}.pv h2{font-size:1.6rem;margin:44px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.pv p,.pv li{color:var(--text2)}.pv li{margin-bottom:6px}
+.pv table{width:100%;border-collapse:collapse;font-size:.9rem;margin:8px 0}.pv th,.pv td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.pv th{background:var(--parchment);font-weight:600}
+.pv .draft{border:2px dashed var(--cinnabar);border-radius:12px;padding:14px 18px;background:var(--raise);color:var(--ink)}
+.pv .todo{background:#FFF1D6;padding:1px 6px;border-radius:4px;font-weight:600;color:#7A4B00}
+.pv .owner{margin-top:48px;border:1px solid var(--line);border-radius:12px;padding:16px 20px;background:var(--raise)}
+</style></head>
+<body><header class="site-header stuck"><div class="wrap hdr"><a class="brand" href="/"><b style="font:600 1.3rem var(--serif)">Thiên Bàn</b></a></div></header>
+<main class="pv">
+<p class="draft"><b>Bản nháp, chờ chủ trang duyệt.</b> Trang này mô tả đúng những gì mã nguồn hiện lưu (ngày 21/10/2026), nhưng chưa phải văn bản pháp lý. Các chỗ <span class="todo">cần điền</span> phải do chủ trang hoàn thiện trước khi công bố; phần “Ghi chú cho chủ trang” ở cuối cần xóa khi công bố.</p>
+<p class="eyebrow">Quyền riêng tư</p><h1>Chính sách dữ liệu</h1>
+<p>Thiên Bàn lập lá số Tử Vi và Bát Tự từ ngày giờ sinh. Ngày giờ sinh là thông tin riêng tư, nên mặc định hệ thống không lưu gì cả: chỉ khi bạn chọn lưu lá số, đăng nhập, hoặc gửi góp ý thì mới có dữ liệu được giữ lại. Trang này liệt kê từng loại dữ liệu, lý do giữ và cách xóa.</p>
+
+<h2>Đơn vị vận hành</h2>
+<p>Thiên Bàn do <span class="todo">tên cá nhân hoặc pháp nhân, mã số thuế</span> vận hành, địa chỉ <span class="todo">địa chỉ</span>. Liên hệ về dữ liệu cá nhân: <span class="todo">email hỗ trợ</span>.</p>
+
+<h2>Khi bạn lập lá số mà không đăng nhập</h2>
+<ul>
+<li>Ngày, giờ, giới tính và nơi sinh được gửi đến máy chủ để tính lá số rồi trả kết quả về ngay. Máy chủ tính toán không ghi lại yêu cầu; hệ thống chỉ tăng một bộ đếm tổng “lượt lập lá số”, không kèm ngày giờ sinh.</li>
+<li>Nếu bạn bấm “Lưu lá số này”, lá số được lưu <b>trong trình duyệt của bạn</b> (bộ nhớ cục bộ, tối đa 12 lá số), không gửi lên máy chủ.</li>
+<li>Trình duyệt cũng giữ vài lựa chọn của bạn: bảng độ sáng sao, nhật ký và bài tập ở phần “Trưởng thành” (gắn với mã băm của lá số, không phải ngày giờ sinh), mã của cuộc trò chuyện góp ý, và một mã khách ngẫu nhiên dùng để đếm số người ghé thăm mỗi ngày.</li>
+</ul>
+
+<h2>Khi bạn đăng nhập bằng Google</h2>
+<table><thead><tr><th>Dữ liệu</th><th>Vì sao giữ</th><th>Giữ đến khi</th></tr></thead><tbody>
+<tr><td>Mã tài khoản Google, email, tên và ảnh đại diện Google</td><td>Nhận ra bạn khi đăng nhập lại</td><td>Bạn xóa tài khoản</td></tr>
+<tr><td>Phiên đăng nhập (cookie). Máy chủ chỉ lưu mã băm SHA-256 của cookie</td><td>Giữ trạng thái đăng nhập</td><td>30 ngày, hoặc khi bạn đăng xuất</td></tr>
+<tr><td>Lá số đã lưu: ngày giờ sinh, cài đặt lập lá số, tên gọi và mối quan hệ bạn đặt (tối đa 200)</td><td>Mở lại lá số trên mọi thiết bị</td><td>Bạn xóa lá số, xóa dữ liệu hoặc xóa tài khoản</td></tr>
+<tr><td>Thông tin cá nhân (nếu bạn điền): họ tên, giới tính, ngày giờ sinh, nơi sinh, công việc hiện nay, tình trạng quan hệ</td><td>Điền sẵn ô lập lá số; đưa các chương bạn quan tâm lên trước. Không dùng để suy thêm nhận định</td><td>Như trên</td></tr>
+<tr><td>Liên kết chia sẻ: mã ngẫu nhiên, lá số được chia sẻ, có ẩn thông tin sinh hay không</td><td>Cho người có liên kết xem lá số</td><td>Bạn thu hồi liên kết hoặc xóa lá số</td></tr>
+<tr><td>Bản luận giải sâu đã mua</td><td>Mở lại không tốn thêm xu</td><td>Bạn xóa dữ liệu hoặc xóa tài khoản</td></tr>
+<tr><td>Ví xu: số xu, lượt dùng miễn phí, lịch sử cộng trừ xu</td><td>Tính đúng số xu của bạn</td><td>Bạn xóa tài khoản</td></tr>
+<tr><td>Giao dịch nạp xu: mã phiên thanh toán, gói, số xu, số tiền, đơn vị tiền. Thông tin thẻ do cổng thanh toán (Stripe<span class="todo">, VNPAY nếu có</span>) xử lý, Thiên Bàn không nhận số thẻ</td><td>Đối soát và hỗ trợ khi có sự cố thanh toán</td><td>Bạn xóa tài khoản <span class="todo">(xem ghi chú 1)</span></td></tr>
+</tbody></table>
+
+<h2>Trò chuyện và luận giải sâu</h2>
+<p>Khi bạn dùng phần trò chuyện hoặc luận giải sâu, câu hỏi của bạn cùng các dữ kiện của lá số (năm sinh, giới tính, các cung, sao, bốn trụ; không gồm ngày, tháng, giờ sinh cụ thể) được gửi tới dịch vụ mô hình ngôn ngữ của Anthropic (Claude) để soạn câu trả lời. Tin nhắn trò chuyện không được lưu trên máy chủ Thiên Bàn. Bản luận giải sâu được lưu trong tài khoản như bảng trên.</p>
+
+<h2>Góp ý</h2>
+<p>Nội dung góp ý, trang bạn đang xem, và tên cùng email nếu bạn đang đăng nhập, được lưu để trả lời bạn. Địa chỉ IP chỉ được lưu dưới dạng mã băm, dùng để hạn chế gửi tràn.</p>
+
+<h2>Chia sẻ lá số</h2>
+<ul>
+<li>Liên kết chia sẻ dùng một mã ngẫu nhiên 128 bit; ai có liên kết đều xem được lá số đó (chỉ xem). Liên kết ngừng hoạt động khi bạn thu hồi hoặc xóa lá số.</li>
+<li>Với tùy chọn <b>Ẩn thông tin sinh</b> (bật sẵn), người xem không nhận được tên và ngày, tháng, giờ sinh: máy chủ tự tính lá số và bỏ các trường ghi lại thời điểm sinh. Năm sinh vẫn hiện, vì năm Can Chi và tuổi trên lá số đã cho biết năm. Người thạo lịch Can Chi vẫn có thể suy ngược gần đúng ngày giờ sinh từ bốn trụ; nếu điều đó quan trọng với bạn, đừng chia sẻ lá số.</li>
+<li>Tùy chọn cùng tên khi tải ảnh hoặc PDF bỏ tên, ngày, tháng, giờ sinh và vết tính toán khỏi bản tải.</li>
+</ul>
+
+<h2>Bên thứ ba</h2>
+<ul>
+<li>Cloudflare: lưu trữ trang, chạy máy chủ và cơ sở dữ liệu. Máy chủ có thể đặt ngoài Việt Nam.</li>
+<li>Google: đăng nhập; phông chữ của trang tải từ Google Fonts (Google nhận địa chỉ IP của trình duyệt khi tải phông).</li>
+<li>Anthropic: soạn câu trả lời cho phần trò chuyện và luận giải sâu, như mục trên.</li>
+<li>Stripe<span class="todo">, VNPAY</span>: xử lý thanh toán.</li>
+<li>Thiên Bàn không dùng công cụ quảng cáo hay đo lường của bên thứ ba và không bán dữ liệu.</li>
+</ul>
+
+<h2>Quyền của bạn</h2>
+<ul>
+<li><b>Xem và sửa:</b> trang <a class="link" href="/#tai-khoan">Tài khoản</a> hiện thông tin cá nhân, lá số đã lưu và các liên kết chia sẻ; bạn sửa hoặc xóa từng mục ở đó.</li>
+<li><b>Xóa toàn bộ dữ liệu:</b> xóa thông tin cá nhân, lá số, liên kết chia sẻ, bản luận giải sâu và góp ý; giữ tài khoản, số xu và lịch sử giao dịch.</li>
+<li><b>Xóa tài khoản:</b> xóa tất cả, kể cả số xu và lịch sử giao dịch, rồi đăng xuất. Không hoàn tác được.</li>
+<li>Bản sao lưu tự động của cơ sở dữ liệu có thể còn giữ dữ liệu đã xóa tối đa <span class="todo">30 ngày</span> rồi tự hết hạn.</li>
+<li>Dữ liệu trong trình duyệt (lá số lưu trên máy, nhật ký) bị xóa cùng lúc trên thiết bị bạn đang dùng; trên thiết bị khác, xóa dữ liệu trang web trong cài đặt trình duyệt.</li>
+<li>Câu hỏi hoặc yêu cầu khác: <span class="todo">email hỗ trợ</span>.</li>
+</ul>
+
+<section class="owner"><h2 style="margin-top:0">Ghi chú cho chủ trang (xóa trước khi công bố)</h2>
+<ol>
+<li><b>Giao dịch khi xóa tài khoản.</b> Hiện tại xóa tài khoản xóa luôn bảng payments và ledger (ON DELETE CASCADE). Nếu luật kế toán hoặc thuế yêu cầu giữ chứng từ giao dịch, cần đổi thành giữ bản ghi thanh toán đã ẩn danh. Đây là quyết định của chủ trang, thuộc phần thanh toán (giai đoạn 2).</li>
+<li><b>Nghị định 13/2023/NĐ-CP</b> về bảo vệ dữ liệu cá nhân: ngày giờ sinh, tình trạng quan hệ có thể cần sự đồng ý rõ ràng và thông báo xử lý dữ liệu; nên nhờ người có chuyên môn pháp lý xem lại. Trang này không khẳng định đã tuân thủ.</li>
+<li>Thời gian lưu bản sao lưu: xác nhận thời hạn Time Travel của D1 theo gói Cloudflare đang dùng (7 hoặc 30 ngày).</li>
+<li>Điền tên pháp nhân, địa chỉ, email; bỏ thẻ noindex khi công bố.</li>
+</ol></section>
+</main></body></html>

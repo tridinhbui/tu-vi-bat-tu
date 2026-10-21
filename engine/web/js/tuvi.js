@@ -1,6 +1,6 @@
 // Tử Vi "Twelve Palaces": the real 12-palace plate, Tam Phương Tứ Chính on select/hover, one contextual panel, đại hạn → năm timeline.
 // Presentation only: every value is read from the chart / year responses; no calculation lives here.
-import { $, $$, esc, starKind, BRANCHES, STEMS, palaceOfSubject } from './util.js';
+import { $, $$, esc, bd, starKind, BRANCHES, STEMS, palaceOfSubject } from './util.js';
 import { compass } from './compass.js';
 import { findingList, timeline } from './ui.js';
 import { scopeText, scopePanelTuvi } from './scope.js';
@@ -92,9 +92,9 @@ export function renderTuvi(host, t, ctx) {
       <h3 id="id-t" class="tb-title">Lá Số Tử Vi</h3>
       <dl class="tb-info">
         ${row('Năm:', `${ctx.req.year}`, esc(t.year_gz))}
-        ${row('Tháng:', `${ctx.req.month} (${t.lunar.month}${t.lunar.leap ? ' nhuận' : ''})`, esc(gz('month')))}
-        ${row('Ngày:', `${ctx.req.day} (${t.lunar.day})`, esc(gz('day')))}
-        ${row('Giờ:', `${ctx.req.hour} giờ ${pad2(ctx.req.minute || 0)} phút`, esc(gz('hour')))}
+        ${row('Tháng:', bd(`${ctx.req.month} (${t.lunar.month}${t.lunar.leap ? ' nhuận' : ''})`, ctx.req.month != null), esc(gz('month')))}
+        ${row('Ngày:', bd(`${ctx.req.day} (${t.lunar.day})`, ctx.req.day != null), esc(gz('day')))}
+        ${row('Giờ:', bd(`${ctx.req.hour} giờ ${pad2(ctx.req.minute || 0)} phút`, ctx.req.hour != null), esc(gz('hour')))}
         ${row('Năm xem:', `${yNow} (${now}), ${age} tuổi`)}
         ${row('Âm dương:', esc(t.yin_yang_gender))}
         ${row('Bản mệnh:', `${esc(t.menh_nap_am)} - ${esc(t.cuc.name)}`)}
