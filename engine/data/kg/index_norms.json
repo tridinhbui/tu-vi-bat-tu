@@ -1,0 +1,56 @@
+{
+ "version": "indices-1.0.0",
+ "kbVersion": "9db0e8a4691224c9",
+ "charts": 1000,
+ "corpus": "corpus1000.json.gz",
+ "palace": {
+  "Tài Bạch": {
+   "support": 12.213,
+   "limit": 3.166
+  },
+  "Tử Tức": {
+   "support": 2.437,
+   "limit": 1.279
+  },
+  "Phu Thê": {
+   "support": 3.648,
+   "limit": 1.754
+  },
+  "Huynh Đệ": {
+   "support": 1.771,
+   "limit": 1.146
+  },
+  "Mệnh": {
+   "support": 16.728,
+   "limit": 3.673
+  },
+  "Phụ Mẫu": {
+   "support": 2.279,
+   "limit": 1.331
+  },
+  "Phúc Đức": {
+   "support": 3.557,
+   "limit": 2.156
+  },
+  "Điền Trạch": {
+   "support": 1.829,
+   "limit": 0.768
+  },
+  "Quan Lộc": {
+   "support": 12.625,
+   "limit": 3.06
+  },
+  "Nô Bộc": {
+   "support": 1.731,
+   "limit": 1.468
+  },
+  "Thiên Di": {
+   "support": 14.828,
+   "limit": 3.628
+  },
+  "Tật Ách": {
+   "support": 2.228,
+   "limit": 1.431
+  }
+ }
+}

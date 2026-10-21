@@ -24,13 +24,14 @@ export const SCOPE_WEIGHT: Record<Scope, number> = { self: 1, opp: 0.85, trine: 
 const STRONG_MINOR = new Set([...SAT, ...CAT, 'Lộc Tồn', 'Thiên Mã']);
 export const TU_MO = new Set(['Thìn', 'Tuất', 'Sửu', 'Mùi']);
 
-/** Positions relative to the Mệnh palace, from branch indices (Mệnh, opposite, the two tam hợp, the two neighbours). */
+/** Positions relative to the Mệnh palace, from branch indices (Mệnh, opposite, the two tam hợp, the two neighbours). `centre` reads another
+ *  palace the same way (its own chính tinh, opposite, tam hợp): the system indices (indices.ts) weigh a finding on its own palace with it. */
 export class Geo {
   readonly menh: Palace; readonly byName: Map<string, Palace>; readonly majors: string[]; readonly vcd: boolean; readonly opp: Palace;
   readonly hoaCarrier: Record<string, { star: string; palace: string | undefined }>;
-  constructor(chart: ChartInput) {
+  constructor(chart: ChartInput, centre = 'Mệnh') {
     this.byName = new Map(chart.palaces.map(p => [p.name, p]));
-    this.menh = this.byName.get('Mệnh')!;
+    this.menh = this.byName.get(centre)!;
     const byIdx = new Map(chart.palaces.map(p => [p.branch_index, p]));
     this.opp = byIdx.get((this.menh.branch_index + 6) % 12)!;
     this.majors = this.menh.major_stars;
