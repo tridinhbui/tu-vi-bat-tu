@@ -119,6 +119,11 @@ test('route: mode "prose" returns the golden text; other chapters refuse prose; 
   // by default the luận cung chapter (prose/luan.ts; its own golden in luan.test.ts)
   const l = await (await call({ ...birth, chapter: 'menh', mode: 'prose' })).json() as any;
   assert.ok(l.luan && l.title === 'Luận cung Mệnh' && l.paragraphs.some((p: any) => p.lead), 'luận cung Mệnh with lead-ins');
+  // only checked readings reach the reader: no phổ thông sentence in any chapter of the whole report, Bát Tự sections included
+  const full = await (await call({ ...birth, chapter: 'all', mode: 'prose' })).json() as any;
+  const sents = full.chapters.flatMap((c: any) => [...c.paragraphs, ...Object.values(c.chapters ?? {}).flat()].flatMap((p: any) => p.sentences));
+  assert.ok(sents.length > 50 && sents.every((s: any) => s.trace.basis !== 'pho_thong'), 'no phổ thông sentence');
+  assert.ok(full.chapters.find((c: any) => c.chapter === 'tong_quan').card.every((f: any) => f.basis !== 'pho_thong'));
   assert.equal((await call({ ...birth, chapter: 'tong_quan', mode: 'prose' })).status, 422);
   assert.equal((await call({ ...birth, chapter: 'van_han', mode: 'prose' })).status, 200);
   assert.equal((await call({ ...birth, chapter: 'bat_tu', mode: 'prose' })).status, 200);

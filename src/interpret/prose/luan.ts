@@ -21,7 +21,6 @@ import type { Reading } from '../reason/adjudicate.ts';
 import { Micro } from './micro.ts';
 import { Writer, argueThesis, lowerSafe, structureSentences, type ArgueCtx, type ReasoningFrames } from './narrative.ts';
 import { configClause, dignityOf, hoaOn, joinVi, named, palaceConfig } from './named.ts';
-import { bookStarsOf, readPalace } from './deep.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 import { validateProse } from './validate.ts';
 import { PROSE_ORDER, PROSE_SPECS, PROSE_VERSION, infer, proseReport, seedOf, type Inference, type ProseChapter, type ProseChapterId } from './chapter.ts';
@@ -53,6 +52,8 @@ const GIAP: Array<[string, string]> = [['Tả Phụ', 'Hữu Bật'], ['Văn Xư
 const KL_NEG = new Set(['tuổi sinh xuất cho đại vận', 'đại vận khắc tuổi']), KL_POS = new Set(['tuổi khắc đại vận', 'đại vận sinh nhập cho tuổi']);
 /** where hậu vận starts, in years of age: a convention of this system (he_thong), not a page */
 const LATE_FROM = 43;
+/** the last đại hạn told there starts at this age (a hạn from 83 on is left to the đại hạn chapter) */
+const LATE_TO = 73;
 const TOPIC_ORDER: Topic[] = ['tinh_cach', 'su_nghiep', 'tai_loc', 'quy_nhan', 'quan_he', 'the_trang', 'duong_doi'];
 const CONNECTIVE_OPEN = /^(Cũng vậy|Ngoài ra|Đồng thời|Thêm vào đó|Bên cạnh đó|Mặt khác|Hơn nữa|Lại nữa|Cũng thế|Về đường đời|Trên đường đời|Về nhịp chung),\s*/u;
 /** a paragraph holds at most this many sentences before the topic goes on in the next one (the reference's paragraphs run 5–8) */
@@ -100,13 +101,12 @@ function topicOf(c: Concept | undefined, palace: string, flank = false): Topic {
 export interface LuanShared { findings: ReturnType<typeof run>['findings']; resolved: Resolved[]; labelled: Labelled[]; micro: Micro; voiced: Set<string>;
   /** readings (concept@palace) told so far in the report */
   keys: Set<string>; told: Set<string>; seed: string; allowDraft: boolean;
-  /** palace|star whose common (phổ thông) reading was already told (Thân cư borrows it) */
-  colourTold: Set<string> }
+}
 
 export function luanShared(chart: ChartInput, k: Knowledge, allowDraft: boolean, pre?: Inference): LuanShared {
   const { findings, resolved, labelled } = pre ?? infer(chart, k);
   const seed = seedOf(chart);
-  return { findings, resolved, labelled, micro: new Micro(`${seed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft, colourTold: new Set() };
+  return { findings, resolved, labelled, micro: new Micro(`${seed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft };
 }
 
 /** The twelve palace chapters: the luận cung chapter where the palace's plan has something to argue, the older chapter otherwise. */
@@ -125,10 +125,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const pal = chart.palaces.find(p => p.name === P)!;
   const full = reasonPalace(chart, k, P, { resolved: sh.resolved, labelled: sh.labelled }, { draftFormations: sh.allowDraft });
   const plan: ReadingPlan = { ...full, theses: full.theses.filter(t => !sh.told.has(`${P}|${t.id}`)) };
-  // the Thân palace whose strongest thesis Thân cư told keeps a luận cung chapter even when nothing else is left to argue (frame and the
-  // common reading): the older chapter would tell that thesis again
-  const toldHere = full.theses.length > plan.theses.length;
-  if (!plan.theses.length && !plan.modifiers.length && !toldHere) return null;
+  if (!plan.theses.length && !plan.modifiers.length) return null;
   const other = spec.bond ? k.prose!.frames.other?.[P] : undefined;
   const W = new Writer(chart, k, plan, sh.allowDraft, { micro: sh.micro, other, bond: spec.bond });
   const ctx: ArgueCtx = { voiced: sh.voiced, allConcepts: new Set(), structAt: [] };
@@ -235,7 +232,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     if (vt.length) para('support', 'vi_tri', vt, lead('vi_tri'));
     const than = chart.palaces.find(p => p.is_than) ?? pal;
     thanPal = than;
-    if (than === pal) para('support', 'than_same', [S(W.pick('than|same', L.than.same), { move: 'ANCHOR', step: 'than:same', basis: 'pho_thong' })], lead('than_same'));
+    if (than === pal) para('support', 'than_same', [S(W.pick('than|same', L.than.same), { move: 'ANCHOR', step: 'than:same', basis: 'tinh_toan' })], lead('than_same'));
     else {
       const r = thanSentences(W, L, F, chart, k, than, sh, new Set(paras.flatMap(p => p.sentences.flatMap(s => s.trace.concepts))));
       thanNp = r.np;
@@ -269,23 +266,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     if (tpl.length) closing.push(S(fill(W.pick(`sum|close|${P}`, tpl), { a: pos.length ? W.np(pos[0]) : '', b: neg.length ? W.np(neg[0]) : '' }), { move: 'VALUE', step: 'closing', basis: 'he_thong' }));
     if (closing.length) para('course', 'tom_lai', closing, lead('tom_lai'));
   }
-  // a palace the books say little about: the common reading of its chính tinh and notable phụ tinh, labelled phổ thông (deep.ts), for the
-  // stars no book sentence of the chapter already speaks of
-  if (!isMenh && (toldHere || paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').length < 4)) {
-    const opp = chart.palaces.find(p => p.branch_index === (pal.branch_index + 6) % 12);
-    // a star a book sentence of the chapter (or Thân cư, for this palace) already speaks of is not read again from the common cards
-    const firedHere = new Set(sh.findings.filter(f => f.subject === `palace:${P}`).map(f => f.ruleId));
-    const ruleIds = new Set([...paras.flatMap(p => p.sentences.flatMap(s => s.trace.rules)), ...[...sh.voiced].filter(id => firedHere.has(id))]);
-    const inBook = new Set([...names].filter(n => k.rules.some(r => ruleIds.has(r.id) && JSON.stringify(r.conditions).includes(`"${n}"`))));
-    const bookStars = new Set([...bookStarsOf(paras, k, pal, opp), ...[...sh.colourTold].filter(x => x.startsWith(`${P}|`)).map(x => x.slice(P.length + 1))]);
-    const colour = readPalace(chart, k, P, sh.micro, { key: 'luan', bookStars, lead: false }).colour
-      .filter(s => ![...inBook].some(n => s.text.startsWith(`${n} ở cung`)));
-    const at = paras.findIndex(p => p.topic === 'tom_lai');
-    const before = at < 0 ? paras.length : at;
-    const n = paras.length;
-    para('colour', 'pho_thong', colour, lead('pho_thong' as Topic));
-    if (paras.length > n && before < n) paras.splice(before, 0, paras.pop()!);
-  }
+  // no phổ thông (common, unchecked) reading is told: a palace the books say little about stays short (owner's decision, 2026-10-21)
   if (P === 'Tật Ách' && paras.some(p => p.topic === 'the_trang')) paras.at(-1)!.sentences.push(S(W.pick('health', L.health_note), { move: 'VALUE', step: 'health_note', basis: 'he_thong' }));
   for (const p of paras) p.text = p.sentences.map(s => s.text).join(' ');
 
@@ -296,7 +277,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const reading = (rid: string) => { const r = rmap.get(rid)!; return (r.reading ?? k.claims[r.consequences[0]?.claim ?? ''] ?? '').replace(/^(khuynh hướng|hạn chế:)\s*/, ''); };
   const ruleIds = [...new Set(paras.flatMap(p => p.sentences.flatMap(s => s.trace.rules)))].filter(r => rmap.has(r)).sort();
   const book = paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').length;
-  if (!book && !toldHere) return null;
+  if (!book) return null;
   return {
     engine: `${PROSE_VERSION}/${LUAN_VERSION}`, kbVersion: k.version, chapter: id, palace: P, title: `Luận cung ${P}`, luan: true, schema: 'luan', order: [],
     theses: plan.theses.map(t => t.id),
@@ -375,15 +356,7 @@ function frameSentences(W: Writer, L: LuanLib, F: ReasoningFrames, chart: ChartI
     const why = fr.centre.why !== 'major' && fr.centre.why !== 'vcd' && (formName === star || centreName === star) ? 'major' : fr.centre.why;
     out.push(W.sentence(fill(W.pick(`centre|${why}`, F.centre[why]), { star: star || centreName, name: formName, seat: centreName }), { move: 'ANCHOR', step: `centre:${centre.id}`, basis: 'he_thong' }));
   }
-  const norm = (x: string) => x.toLowerCase().replace(/^cách\s+/, '').trim();
-  const verifiedNames = new Set(fr.formations.map(f => norm(f.name)));
-  for (const st of fr.states.slice(0, 2)) {
-    if ([...verifiedNames].some(v => v.includes(norm(st.name)) || norm(st.name).includes(v))) continue;
-    const list = (xs: string[]) => joinVi(xs.slice(0, 2).map(x => lowerSafe(x.replace(/\s*\([^()]*\)/g, ''))));
-    const v = { name: st.name, boosters: list(st.boosters), breakers: list(st.uncovered.length ? st.uncovered : st.breakers), rescuers: list(st.rescuers) };
-    const tpl = (F.formation_state as Record<string, string[]>)[st.state + (st.state === 'thanh' && !st.boosters.length ? '_plain' : '')] ?? [];
-    if (tpl.length) out.push(W.sentence(fill(W.pick(`fstate|${st.id}`, tpl), v), { move: 'ANCHOR', step: `cach:${st.id}:${st.state}`, basis: 'he_thong', concepts: [`cach:${st.id}:${st.state}`] }));
-  }
+  // the draft cách cục states (formations_experimental.json) are not checked against a page: not told here (the reasoned chapter keeps them)
   return out;
 }
 
@@ -441,8 +414,6 @@ function thanSentences(W: Writer, L: LuanLib, F: ReasoningFrames, chart: ChartIn
   const position: ProseSentence[] = [], style: ProseSentence[] = [];
   const cfg = configClause(chart, than);
   position.push(W.sentence(fill(W.pick('than|pos', L.than.pos), { branch: than.branch, config: cfg.text }), { move: 'ANCHOR', step: `than:${than.name}`, basis: 'tinh_toan', cites: cfg.cites }));
-  const domain = (k.reference as { lifeStages?: { domain: Record<string, string> } } | undefined)?.lifeStages?.domain?.[than.name];
-  if (domain) position.push(W.sentence(fill(W.pick('than|meaning', L.than.meaning), { domain }), { move: 'TIMING', step: 'than:meaning', basis: 'pho_thong', cites: ['KL pp.233-236'] }));
   const rmap = new Map(k.rules.map(r => [r.id, r]));
   const thanRules = [...new Set(sh.findings.filter(f => f.subject === `palace:${than.name}` && rmap.get(f.ruleId)?.reviewStatus === 'verified'
     && JSON.stringify(rmap.get(f.ruleId)!.conditions).includes('"palace.is_than"')).map(f => f.ruleId))].sort();
@@ -471,12 +442,6 @@ function thanSentences(W: Writer, L: LuanLib, F: ReasoningFrames, chart: ChartIn
       const c = t0.claims[0]?.concept; if (c && W2.card(c)) np = W2.np(c);
     }
   }
-  if (!style.length && !than.major_stars.length) {
-    const opp = chart.palaces.find(p => p.branch_index === (than.branch_index + 6) % 12)!;
-    const card = (k.prose?.phoThong as { chinh?: Record<string, Record<string, { core: string }>> } | undefined)?.chinh?.[opp.major_stars[0] ?? '']?.[than.name];
-    if (card) sh.colourTold.add(`${than.name}|${opp.major_stars[0]}`);
-    if (card) style.push(W.sentence(fill(W.pick('than|borrow', L.than.borrow), { text: lowerSafe(card.core).replace(/\{S\}/g, () => W.S()) }), { move: 'BORROW', step: `than:borrow:${opp.major_stars[0]}`, basis: 'pho_thong' }));
-  }
   return { position, style, np, units, W: W2 };
 }
 
@@ -485,7 +450,7 @@ function thanSentences(W: Writer, L: LuanLib, F: ReasoningFrames, chart: ChartIn
  *  against it. Each hạn is told in full in the đại hạn chapter (vanhan.ts), with the verdict's words. */
 function lateSentences(W: Writer, L: LuanLib, chart: ChartInput): { xs: ProseSentence[]; age: string | null; calm: boolean } {
   type Kl = { relation: string; verdict: string };
-  const ds = (chart.decades ?? []).map(d => ({ d, kl: (d as unknown as { kl?: Kl }).kl })).filter(x => x.kl && x.d.age_from >= LATE_FROM && x.d.age_from <= 83);
+  const ds = (chart.decades ?? []).map(d => ({ d, kl: (d as unknown as { kl?: Kl }).kl })).filter(x => x.kl && x.d.age_from >= LATE_FROM && x.d.age_from <= LATE_TO);
   if (!ds.length) return { xs: [], age: null, calm: false };
   const age = (d: { age_from: number; age_to: number }) => `${d.age_from}–${d.age_to}`;
   const item = (x: typeof ds[number], i: number) => fill(W.pick(`late|item|${i}`, L.late.item), { age: age(x.d), pal: x.d.palace });

@@ -6,6 +6,7 @@ import { proseVanHan } from './prose/vanhan.ts';
 import { proseBazi } from './prose/bazi.ts';
 import { proseThemes } from './prose/themes.ts';
 import { luanReport, LUAN_VERSION } from './prose/luan.ts';
+import { checkedOnly } from './prose/checked.ts';
 import { reasonedChapter, NARRATIVE_VERSION } from './prose/narrative.ts';
 import { planView } from './reason/plan.ts';
 import { cacheKey, type KnowledgeStore, type OutputCache } from './store.ts';
@@ -45,12 +46,12 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   const facts = await factsRes.json() as ChartInput;
   const k = await d.store.load();
   // the Bát Tự chapter reads facts.bazi (pillars, luck), the others the Tử Vi facts; both go into the key so no chapter can hit a stale entry
-  const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, mode, mode === 'prose' ? [PROSE_VERSION, d.proseDraft, d.deep !== false, d.luan !== false ? LUAN_VERSION : null] : mode === 'reasoned' ? [NARRATIVE_VERSION, d.proseDraft] : null]);
+  const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, mode, mode === 'prose' ? [PROSE_VERSION, d.proseDraft, d.deep !== false, d.luan !== false ? LUAN_VERSION : null, 'checked'] : mode === 'reasoned' ? [NARRATIVE_VERSION, d.proseDraft] : null]);
   const hit = await d.cache.get(key);
   if (hit) return new Response(hit, { headers: { 'content-type': 'application/json; charset=utf-8', 'x-interpret-cache': 'hit' } });
   const luan = d.luan !== false;
   const palaces = (o: { allowDraft: boolean; deep: boolean }) => luan ? luanReport(facts, k, o) : proseReport(facts, k, o);
-  const out = mode === 'reasoned' ? (o => ({ ...o, plan: planView(o.plan) }))(reasonedChapter(facts, k, { allowDraft: d.proseDraft }))
+  const out0 = mode === 'reasoned' ? (o => ({ ...o, plan: planView(o.plan) }))(reasonedChapter(facts, k, { allowDraft: d.proseDraft }))
     : mode !== 'prose' ? interpret(facts, chapter, k)
     : chapter === ('all' as Chapter) ? (cs => ({ engine: PROSE_VERSION, kbVersion: k.version, chapters: cs, pass: cs.every(c => c.pass) }))(
         [...proseThemes(facts, k, PROSE_VERSION, { allowDraft: d.proseDraft, luan }), ...palaces({ allowDraft: d.proseDraft, deep: d.deep !== false }), proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)])
@@ -58,6 +59,10 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
     : chapter === ('bat_tu' as Chapter) ? proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)
     : luan ? palaces({ allowDraft: d.proseDraft, deep: d.deep !== false }).find(c => c.chapter === chapter)!
     : proseChapter(facts, k, chapter as ProseChapterId, { allowDraft: d.proseDraft, deep: d.deep !== false });
+  // only checked readings reach the reader: the phổ thông sentences are removed from every prose output (prose/checked.ts)
+  type Checkable = Parameters<typeof checkedOnly>[0];
+  const out = (mode !== 'prose' ? out0 : 'chapters' in out0 && Array.isArray(out0.chapters)
+    ? { ...out0, chapters: out0.chapters.map(c => checkedOnly(c as Checkable)) } : checkedOnly(out0 as Checkable)) as typeof out0;
   const text = JSON.stringify(out);
   const pass = 'quality' in out ? out.quality.pass : out.pass;
   d.defer(d.cache.put(key, chapter, text, { engine: mode === 'prose' ? PROSE_VERSION : mode === 'reasoned' ? NARRATIVE_VERSION : ENGINE_VERSION, kb: k.version, pass }));

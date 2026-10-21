@@ -98,6 +98,7 @@ test('corpus: every luận cung chapter passes; book sentences fire and are veri
             assert.equal(rmap.get(id)?.reviewStatus, 'verified', `${id}: ${s.text}`);
           }
           if (s.trace.basis === 'he_thong') assert.equal(s.trace.rules.length, 0, s.text);
+          assert.notEqual(s.trace.basis, 'pho_thong', `a phổ thông sentence in a luận cung chapter: ${s.text}`);
           if (s.trace.basis === 'sach' && s.trace.move !== 'ELABORATE') for (const k of s.trace.keys ?? []) {
             assert.ok(!keys.has(k), `${k} told twice: ${keys.get(k)} / ${s.text}`);
             keys.set(k, s.text);

@@ -159,7 +159,7 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
 
 /** prose-style B1/B7 on the Bát Tự chapters, as on the luận cung ones: the opening that names the four pillars (nạp âm of the year and day
  *  pillars, the only ones the facts carry), a bold lead-in on each paragraph, the manual's limiting judgements after the plain ones with a
- *  turn between them, and a closing over the luck pillars by the role the structure paragraphs gave them (điều hậu, else phù ức). */
+ *  turn between them, and a closing over the luck pillars by the role the điều hậu table gives them. */
 function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<BaziLibrary['luan']>, chapters: BaziProse['chapters'], paragraphs: ProseParagraph[],
   parts: { p1: ProseSentence[]; deep: Partial<Record<BaziChapterId, ProseParagraph[]>>; topicsOf: (id: string) => ProseSentence[]; dv: ProseSentence[]; ngu: ProseSentence[];
     sn: ProseSentence[]; qh: ProseSentence[] }) {
@@ -200,8 +200,9 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   chapters['dai-van'] = [...P('core', parts.dv).map(p => lead('dai_van', p)), ...deepOf('dai-van', null)];
   // ---- the closing: the luck pillars the structure paragraphs called supported, and those to take carefully ----
   if (!D) return;
-  const pu = D.phu_uc[0], yr = chart.year?.year ?? new Date().getFullYear();
-  const role = (l: BaziDeep['luck'][number]) => { const g = l.ten_god ? TEN_GROUP[l.ten_god] : undefined; return l.dieu_hau.stem ?? (g && pu ? (pu.yong.includes(g) ? 'yong' : pu.xi.includes(g) ? 'xi' : pu.ji.includes(g) ? 'ji' : null) : null); };
+  const yr = chart.year?.year ?? new Date().getFullYear();
+  // only the điều hậu table (TVH pp.389-396, checked) gives a luck pillar its role here; the phù ức reading is the system's principle, unchecked
+  const role = (l: BaziDeep['luck'][number]) => l.dieu_hau.stem ?? null;
   const told = D.luck.map(l => ({ l, meta: b.luck[l.index - 1] ?? b.luck.find(x => x.name === l.pillar) })).filter(x => x.meta && x.meta.start_year != null && x.meta.start_age <= 80 && x.meta.start_year <= yr + 60);
   const name = (x: typeof told[number]) => `${x.l.pillar} (từ ${Math.round(x.meta!.start_age)} tuổi)`;
   const good = told.filter(x => ['yong', 'xi'].includes(role(x.l) ?? '')).map(name), bad = told.filter(x => role(x.l) === 'ji').map(name);

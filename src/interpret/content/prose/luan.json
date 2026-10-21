@@ -1,5 +1,5 @@
 {
-  "note": "Frames for the luận cung chapters (prose/luan.ts, prose-style plan S2–S4): the palace frame sentence, bold topic lead-ins, the tail of each argued paragraph (synthesis, advice, the two-edged image), Thân cư, the cung giáp / nhị hợp / lục hại positions, hậu vận and the closing. Frames name chart facts and reasoning steps only; every claim still comes from a fired rule of the palace's ReadingPlan, and the tail sentences only juxtapose what the paragraph already said (basis he_thong). Slots: {pal} palace, {branch}, {majors} the palace's chính tinh named with brightness, {star} a star named with brightness, {from} where it shines from, {group}/{note} a Khảo Luận star group, {pair} a giáp pair, {S} the person, {a}/{b} noun phrases said in the paragraph, {seat} the star they come from, {mature} a card's 'mature' clause, {domain} a palace's domain (KL pp.233-236), {config} a palace's stars. Status draft until reviewed.",
+  "note": "Frames for the luận cung chapters (prose/luan.ts, prose-style plan S2–S4): the palace frame sentence, bold topic lead-ins, the tail of each argued paragraph (synthesis, advice, the two-edged image), Thân cư, the cung giáp / nhị hợp / lục hại positions, hậu vận and the closing. Frames name chart facts and reasoning steps only; every claim still comes from a fired rule of the palace's ReadingPlan, and the tail sentences only juxtapose what the paragraph already said (basis he_thong). Slots: {pal} palace, {branch}, {majors} the palace's chính tinh named with brightness, {star} a star named with brightness, {from} where it shines from, {group}/{note} a Khảo Luận star group, {pair} a giáp pair, {S} the person, {a}/{b} noun phrases said in the paragraph, {seat} the star they come from, {mature} a card's 'mature' clause, {domain} a palace's domain (KL pp.233-236), {config} a palace's stars. Only book readings (sach), computed facts and page-cited tables (tinh_toan) and the system's restatements (he_thong); no phổ thông card. Status draft until reviewed.",
   "status": "draft",
   "lead": {
     "tinh_cach": [
@@ -67,12 +67,10 @@
       "Xét cung Thân"
     ],
     "than_style": [
-      "Về phong cách khi trưởng thành",
-      "Về con người ở tuổi trưởng thành",
-      "Về cách thể hiện khi đã lớn",
-      "Lúc chín chắn",
-      "Ở những năm vững vàng",
-      "Về sau"
+      "Ở cung an Thân",
+      "Xét riêng cung an Thân",
+      "Tại cung an Thân",
+      "Về chính cung an Thân"
     ],
     "hau_van": [
       "Về biến động và rủi ro hậu vận",
@@ -92,10 +90,6 @@
       "Tóm lại",
       "Nhìn chung",
       "Gom lại"
-    ],
-    "pho_thong": [
-      "Theo cách hiểu phổ thông",
-      "Theo cách luận thông dụng"
     ]
   },
   "lead_pair": {
@@ -470,30 +464,18 @@
       "ở {branch}, {config}",
       "Thân đóng {branch} với {config}"
     ],
-    "meaning": [
-      "Theo cách đọc thông dụng, từ tuổi trưởng thành trọng tâm dời về {domain}",
-      "Thân là con người lúc đã lớn, theo lối đọc quen thuộc, nên nửa sau đời xoay quanh {domain}",
-      "Lối đọc phổ biến lấy cung Thân cho những năm chín chắn: lúc ấy {domain} thành mối quan tâm lớn",
-      "Về sau, theo thông lệ, {domain} sẽ là trọng tâm",
-      "Như cách hiểu quen thuộc, phần đời về sau nghiêng về {domain}",
-      "Nửa sau cuộc đời, theo thông lệ, gắn với {domain}",
-      "Khi đã vững vàng, {domain} là nơi đời sống dồn về, theo lối hiểu phổ biến"
-    ],
     "same": [
-      "cung an Thân cũng chính là cung Mệnh, nên con người được tả ở trên theo đương số đến cả tuổi trưởng thành",
-      "Thân và Mệnh cùng một cung, nên những nét chính đã nói không đổi hướng khi đương số trưởng thành",
-      "Thân không tách khỏi Mệnh: những gì đã nói theo người này cả khi trưởng thành",
-      "cung Thân trùng cung Mệnh, nên tuổi trưởng thành vẫn đi theo những nét đã nêu",
-      "không có cung Thân riêng, vì Thân an ngay tại Mệnh"
+      "cung an Thân cũng chính là cung Mệnh",
+      "Thân và Mệnh cùng một cung",
+      "Thân an ngay tại cung Mệnh",
+      "cung Thân trùng cung Mệnh",
+      "không có cung Thân riêng: Thân an tại Mệnh"
     ],
     "rule": [
       "Thân đóng ở {pal} nên {claim}",
       "Với Thân cư {pal}, {claim}",
       "Vì Thân ở {pal}, {claim}",
       "Thân nằm ở {pal}, nên {claim}"
-    ],
-    "borrow": [
-      "Theo cách hiểu phổ thông, {text}"
     ]
   },
   "pos": {
@@ -562,13 +544,14 @@
       "{young} là vốn liếng thuở đầu{mature}{late}"
     ],
     "mature": [
-      "; khi trưởng thành, Thân cư {pal} kéo trọng tâm sang {np}",
-      ", rồi đến tuổi trưởng thành thì Thân cư {pal} đưa {np} lên hàng đầu",
-      "; về sau {np} nổi lên theo Thân cư {pal}",
-      "; lớn lên, {np} thành trọng tâm khi Thân ở {pal}"
+      "; ở cung an Thân ({pal}) nổi lên {np}",
+      ", còn Thân cư {pal} đưa {np} lên",
+      "; Thân ở {pal} thêm vào đó {np}",
+      "; cung an Thân ({pal}) góp thêm {np}"
     ],
     "mature_same": [
-      "; Thân Mệnh đồng cung nên những nét ấy theo suốt tuổi trưởng thành"
+      "; Thân an tại Mệnh nên không thêm một trục nào khác",
+      "; Thân và Mệnh cùng một cung"
     ],
     "late": [
       "; hậu vận cần để ý nhất quãng {age} tuổi",
