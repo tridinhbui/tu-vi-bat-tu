@@ -452,3 +452,8 @@
 
 .tv-board .tb-pal .tb-h2{grid-template-columns:auto 1fr auto}.tv-board .tb-pal .tb-h2 .tb-majs{grid-column:2/3}.tb-th{text-align:right;white-space:nowrap}
 .tb-s.tb-conv{text-decoration:underline dotted;text-underline-offset:3px;text-decoration-thickness:1px}
+/* "Dữ kiện tính toán" grid: the small-caps label and the value had no space between them and their line boxes overlapped */
+.facts>div{gap:4px;align-content:start;padding:12px 14px 13px}.facts .k{line-height:1.35}.facts b{line-height:1.3;display:block}
+/* the Tuần / Triệt tag straddles the border between two palaces: keep the palace's first and last rows clear of it */
+.tv-board .tb-pal{padding-top:14px;padding-bottom:12px}
+.tv-dg{white-space:nowrap}
