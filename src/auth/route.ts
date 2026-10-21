@@ -55,8 +55,8 @@ export async function handleAuth(request: Request, env: AuthEnv): Promise<Respon
         user = { id: randomToken(16) };
         await db.prepare("INSERT INTO users (id, google_sub, email, name, picture, created_at) VALUES (?, ?, ?, ?, ?, ?)")
           .bind(user.id, p.sub, p.email, p.name, p.picture, Math.floor(Date.now() / 1000)).run();
-        await bump(db, "users");
       }
+      await bump(db, "signins");                                 // every successful sign-in, new account or returning
       return redirect("/", [clear, await createSession(db, request, user.id)]);
     } catch {
       return redirect("/?login=failed", [clear]);

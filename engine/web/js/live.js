@@ -22,14 +22,14 @@ export function initLive(host) {
 
   function show(s) {
     if (!shown) {                                        // first reading: count up from zero once, no flash
-      shown = { charts: 0, users: 0 };
+      shown = { scans: 0, signins: 0 };
       host.hidden = false;
     }
-    for (const k of ['charts', 'users']) {
+    for (const k of ['scans', 'signins']) {
       if (s[k] === shown[k]) continue;
       const grew = shown[k] > 0 && s[k] > shown[k];
       tween(els[k], shown[k], s[k]);
-      if (grew && !calm) { const item = els[k].parentElement; item.classList.remove('bump'); void item.offsetWidth; item.classList.add('bump'); }
+      if (grew && !calm) { const item = els[k].closest('.live-item'); item.classList.remove('bump'); void item.offsetWidth; item.classList.add('bump'); }
       shown[k] = s[k];
     }
   }

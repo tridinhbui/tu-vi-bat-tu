@@ -61,8 +61,8 @@ export default {
     if (path === "/api/interpret") return interpretRoute(request, env, ctx);
     // The container API is stateless and stores nothing (accounts live in the Worker, above), so one shared instance is enough.
     const res = await getContainer(env.TVBT, "main").fetch(request);
-    // one more chart made, counted only when the engine really produced it
-    if (request.method === "POST" && path === "/api/chart" && res.ok && env.DB) ctx.waitUntil(bump(env.DB, "charts"));
+    // one more chart scan, counted only when the engine really produced the chart
+    if (request.method === "POST" && path === "/api/chart" && res.ok && env.DB) ctx.waitUntil(bump(env.DB, "scans"));
     return res;
   },
 };
