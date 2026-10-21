@@ -33,7 +33,9 @@ class BirthReq(BaseModel):
     zi_rule: str = Field("early_zi_next_day", pattern="^(early_zi_next_day|late_zi_same_day)$")
     use_true_solar_time: bool = False; level: int = Field(3, ge=1, le=5)
     to_year: int | None = None
-    dignity_school: str = Field("thuc_hanh", pattern="^(thuc_hanh|toan_thu|khao_luan)$")   # khao_luan: KL "Thế đứng" (the table popular boards use); opt-in
+    # khao_luan: KL "Thế đứng", the table popular boards use — the default since 2026-10-21 (owner's decision, so the board matches them);
+    # thuc_hanh / toan_thu stay selectable on the board
+    dignity_school: str = Field("khao_luan", pattern="^(thuc_hanh|toan_thu|khao_luan)$")
     experimental: bool = False      # opt-in: also evaluate the DRAFT cách cục + engine-demo rules (never part of production readings)
 
     def birth(self) -> BirthInput:

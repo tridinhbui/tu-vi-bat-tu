@@ -66,7 +66,7 @@ def _scan(client):
             break
         body = {"year": srnd.randint(1940, 2015), "month": srnd.randint(1, 12), "day": srnd.randint(1, 28), "hour": srnd.randint(0, 23), "minute": 15,
                 "gender": srnd.choice(["male", "female"]), "to_year": 2026}
-        f = client.post("/api/facts", json=body).json()
+        f = client.post("/api/facts", json={**body, "dignity_school": "thuc_hanh"}).json()
         for t in list(todo):
             if t[1](f):
                 found.append({**body, "label": t[0]})
@@ -85,7 +85,7 @@ def main():
     out = []
     for c in CHARTS:
         body = {k: v for k, v in c.items() if k != "label"}
-        f = client.post("/api/facts", json=body).json()
+        f = client.post("/api/facts", json={**body, "dignity_school": "thuc_hanh"}).json()
         res = engine.run(rules, sources, f["base"], system="tu_vi")
         fired = sorted({(x.rule_id, x.subject, x.claim, x.effect, x.basis) for x in res.findings})
         bres = engine.run(rules, sources, f["bazi"]["base"], system="bat_tu")

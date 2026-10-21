@@ -199,6 +199,6 @@ def test_facts_endpoint_carries_the_same_levels():
     from fastapi.testclient import TestClient
     from tvbt.api import app
     b = {"year": 1990, "month": 5, "day": 17, "hour": 10, "minute": 30, "gender": "male"}
-    got = TestClient(app).post("/api/facts", json=b).json()["palaces"]
+    got = TestClient(app).post("/api/facts", json={**b, "dignity_school": "thuc_hanh"}).json()["palaces"]
     want = tuvi.compute(normalize(BirthInput(1990, 5, 17, 10, 30, "Asia/Ho_Chi_Minh", "male"))).palaces
     assert [(p["minor_dignity"], p["minor_dignity_src"]) for p in got] == [(p["minor_dignity"], p["minor_dignity_src"]) for p in want]

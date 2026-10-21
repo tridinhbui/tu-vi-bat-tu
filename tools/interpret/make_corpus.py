@@ -62,7 +62,7 @@ def main():
     for k in range(a.pool):
         b = {"year": rnd.randint(1930, 2024), "month": rnd.randint(1, 12), "day": rnd.randint(1, 28), "hour": rnd.randint(0, 23),
              "minute": rnd.choice([0, 15, 30, 45]), "gender": rnd.choice(["male", "female"]), "to_year": 2026}
-        r = client.post("/api/facts", json=b)
+        r = client.post("/api/facts", json={**b, "dignity_school": "thuc_hanh"})
         if r.status_code == 200:
             f = r.json()
             pool.append((b, f, strata(f)))

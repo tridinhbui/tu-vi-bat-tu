@@ -53,7 +53,7 @@ if __name__ == "__main__":
         b = dict(year=y, month=rnd.randint(1, 12), day=d, hour=rnd.choice([0, 1, 11, 12, 23, rnd.randint(0, 23)]), minute=rnd.choice([0, 59, 30]),
                  gender=rnd.choice(["male", "female"]))
         try:
-            _, _, tv = _compute(BirthReq(**b))
+            _, _, tv = _compute(BirthReq(**{"dignity_school": "thuc_hanh", **b}))
         except Exception:
             continue                                   # invalid date (31/2 …): skipped, not a failure
         done += 1

@@ -1,12 +1,12 @@
-# Luận cung — trước / sau: 02/03/1991 08:30 nam (fixture menh_cu_tuat: Cự Môn hãm hóa Lộc tại Tuất)
+# Luận cung — trước / sau: 02/03/1991 08:30 nam (fixture menh_cu_tuat: Cự Môn hãm hóa Lộc tại Tuất; fixture dùng bảng Thực Hành)
 
-Sinh tự động, không sửa tay (một script tạm gọi `proseThemes` + `luanReport` — hoặc `proseReport` cho bản trước — + các chương `proseBazi`): **Trước** = commit `96c62ce` (nhánh khởi đầu: WIP prose-style + main), **Sau** = nhánh `claude/luan-cung-prose-59ef13`. Cả hai dùng thư viện nháp (`allowDraft`, như TVBT_PROSE_DRAFT=1 trên Worker). Mở đoạn in đậm là phần trên trang hiện **đậm**; trên trang web tên sao còn được tô màu ngũ hành. Câu "phổ thông" (nghĩa thông dụng, chưa đối chiếu sách) được trang hiển thị nhạt hơn và ghi rõ trong ô căn cứ.
+Sinh tự động, không sửa tay (một script tạm gọi `proseThemes` + `luanReport` — hoặc `proseReport` cho bản trước — + các chương `proseBazi`, rồi bỏ câu phổ thông như route làm ở bản sau). **Trước** = commit `96c62ce` (nhánh khởi đầu), bảng độ sáng Thực Hành (mặc định cũ). **Sau** = nhánh `claude/luan-cung-prose-59ef13`, bảng Khảo Luận (mặc định mới từ 2026-10-21; trừ fixture menh_cu_tuat vốn dựng bằng Thực Hành). Thư viện nháp (`allowDraft`, như TVBT_PROSE_DRAFT=1). Mở đoạn in đậm là phần trên trang hiện **đậm**; trên trang tên sao còn tô màu ngũ hành.
 
 ## Sau
 
 ### Tổng quan lá số
 
-Lá số tuổi Tân Mùi, âm nam: bản mệnh Lộ Bàng Thổ, thuộc hành Thổ; cục là Mộc tam cục, thuộc hành Mộc. Hành của cục (Mộc) khắc hành bản mệnh (Thổ), tức Cục khắc Mệnh, thế khiến đường đời dễ gặp trở ngại. Theo bảng thông dụng, Mệnh chủ là Lộc Tồn (theo chi cung Mệnh), Thân chủ là Thiên Tướng (theo chi năm sinh).
+Lá số tuổi Tân Mùi, âm nam: bản mệnh Lộ Bàng Thổ, thuộc hành Thổ; cục là Mộc tam cục, thuộc hành Mộc. Hành của cục (Mộc) khắc hành bản mệnh (Thổ), tức Cục khắc Mệnh, thế khiến đường đời dễ gặp trở ngại.
 
 Xét độ số của lá số: tuổi âm mà Mệnh đóng cung dương, chưa đắc chính, nên lúc ra đời dễ gặp trở ngại, khó khăn ban đầu vì chưa đúng chỗ của mình. Chi Mùi (Thổ) sinh can Tân (Kim), thế ngọn nuôi gốc là nghịch lý, nên phúc khó được lâu dài. Mệnh ở Tuất, một cung Tứ Mộ, đất tối hơn các cung khác, nên phải cố gắng giành một chỗ đứng, khiêm nhường và khéo léo để vươn lên. Giờ sinh hợp với mùa xuân, tức thuận giờ sinh, nên độ số gia tăng. Mệnh ở cung dương, giờ sinh cũng là giờ dương, tức giờ sinh thuận lý, nên độ số được tăng. Gộp lại, các yếu tố độ số phần nhiều nghịch, nên chỗ đứng phần lớn phải tự gây dựng.
 
@@ -22,11 +22,11 @@ Xét độ số của lá số: tuổi âm mà Mệnh đóng cung dương, chưa
 
 **Về vị trí với các cung liên quan**, cung Mệnh ở Tuất nhị hợp với Mão, nơi đóng cung Nô Bộc, có Địa Kiếp. Theo bảng lục hại, Tuất hại Dậu, là cung Huynh Đệ, có Tử Vi (Bình Hòa) và Tham Lang (Hãm Địa).
 
-**Cung Thân ở Tài Bạch**, ở Ngọ, Thái Dương (Vượng Địa) hóa Quyền tọa thủ, cùng Văn Xương (Hãm Địa) hóa Kỵ và Thiên Khôi. Thân là con người lúc đã lớn, theo lối đọc quen thuộc, nên nửa sau đời xoay quanh tiền bạc. Thân đóng ở Tài Bạch nên tiền bạc là mối lo chính của cuộc đời.
+**Cung Thân ở Tài Bạch**, ở Ngọ, Thái Dương (Vượng Địa) hóa Quyền tọa thủ, cùng Văn Xương (Hãm Địa) hóa Kỵ và Thiên Khôi. Thân đóng ở Tài Bạch nên tiền bạc là mối lo chính của cuộc đời.
 
-**Về con người ở tuổi trưởng thành**, vì Tiểu Hao đứng thế hãm ở Tài Bạch, tiền bạc hao tán. Điều này đòi hỏi người mang lá số này phải biết giữ trước khi mở rộng.
+**Về chính cung an Thân**, vì Tiểu Hao đứng thế hãm ở Tài Bạch, tiền bạc hao tán. Điều này đòi hỏi người mang lá số này phải biết giữ trước khi mở rộng.
 
-**Nhìn lại toàn cục**, cuộc đời người mang tổ hợp này đi từ sự quả quyết và chuyện thị phi, tranh cãi của thuở đầu; lớn lên, sự khó giữ của thành trọng tâm khi Thân ở Tài Bạch. Điều quyết định là người này dùng sự quả quyết thế nào và giữ mình trước chuyện thị phi, tranh cãi ra sao.
+**Nhìn lại toàn cục**, cuộc đời người này đi từ sự quả quyết và chuyện thị phi, tranh cãi của thuở đầu; cung an Thân (Tài Bạch) góp thêm sự khó giữ của. Điều quyết định là đương số dùng sự quả quyết thế nào và giữ mình trước chuyện thị phi, tranh cãi ra sao.
 
 ### Luận cung Quan Lộc
 
@@ -34,21 +34,15 @@ Không có chính tinh ở cung Quan Lộc (Dần), nên lấy Thiên Cơ (Đắ
 
 **Về đường công danh**, với Thiên Việt ở Quan Lộc cùng Thiên Khôi ở Tài Bạch chiếu về Quan Lộc, công danh cát tường. Công việc của người có lá số này thường đi trơn tru hơn người khác ở cùng hoàn cảnh.
 
-**Theo cách luận thông dụng**, qua Thiên Cơ chiếu sang từ cung đối, ở cung Quan Lộc, Thiên Cơ cho thấy đương số hợp với công việc dùng trí óc, kỹ thuật, kế hoạch, tư vấn hoặc nghề cần sự khéo léo và linh hoạt. Linh Tinh ở cung Quan Lộc mang nét sắc sảo, âm ỉ, khiến chuyện công danh, sự nghiệp có lúc bất ngờ xoay chiều, đòi hỏi tỉnh táo và giữ lòng bình thản. Thiên Hỷ ở cung Quan Lộc là sao vui mừng, báo chuyện công danh, sự nghiệp dễ có tin vui, không khí hòa hợp và những dịp đáng nhớ.
+### Luận giải cung Tài Bạch _(chương cũ: cung chưa có luận điểm để lập luận)_
 
-### Luận cung Tài Bạch
-
-Tại Ngọ, cung Tài Bạch do Thái Dương (Vượng Địa) hóa Quyền làm chủ, đối diện là Thiên Lương (Vượng Địa) ở cung Phúc Đức (Tý) xung chiếu. Bên cạnh chính tinh là Văn Xương (Hãm Địa) hóa Kỵ và Thiên Khôi.
-
-**Theo cách hiểu phổ thông**, với Thái Dương ở Tài Bạch, chủ nhân lá số kiếm tiền công khai, rộng rãi, dễ có thu nhập nhờ danh tiếng nhưng cũng hào phóng chi tiêu cho người khác. Khi sao sáng, tài lộc dồi dào, tiền đến từ uy tín và những công việc minh bạch. Văn Xương ở cung Tài Bạch đem lại nét thanh nhã, chữ nghĩa, giúp chuyện tiền bạc được xử lý bằng hiểu biết, giấy tờ rõ ràng và lời lẽ chừng mực.
+Cung Tài Bạch là nơi xem tiền bạc, của cải. Chính tinh của cung là Thái Dương (vượng địa), an tại Ngọ. Thái Dương thuộc nhóm “lý luận thực hành”. Cung Tài Bạch có Hóa Quyền (Thái Dương) theo can năm sinh, tức địa vị, quyền. Cung Tài Bạch có Hóa Kỵ (Văn Xương) theo can năm sinh, tức điều xấu xa, ghen ghét, ô nhục; đóng ở cung nào thì gây điều không êm ở cung đó (ví dụ ở Tài thì dễ mang nỗi nhục về tiền).
 
 ### Luận cung Thiên Di
 
 Thiên Đồng (Bình Hòa) tọa thủ cung Thiên Di ở Thìn, lại thêm Thiên Lương (Vượng Địa) từ cung Phúc Đức (Tý) hội chiếu. Hai sao Thiên Đồng, Thiên Lương chung nhóm Cơ – Nguyệt – Đồng – Lương: nhóm “lý luận thuần túy”. Trong cung còn có Tả Phụ (Đắc Địa); Triệt án ngữ.
 
 **Về những chuyến đi và môi trường bên ngoài**, Thiên Đồng tọa Thiên Di ở Thìn, ở thế bình hòa cùng Kình Dương từ Mệnh hội về Thiên Di, nên ở ngoài khó toại chí. Vì Thiên Di có Tả Phụ đứng đúng chỗ, cần hoạt động luôn mới dễ gặp quý nhân phù trì. Ngồi một chỗ lâu, đương số dễ thấy bế tắc; đi lại nhiều lại mở ra cơ hội.
-
-**Theo cách hiểu phổ thông**, Quả Tú ở cung Thiên Di gợi sự lẻ loi, khép kín trong chuyện đi xa, giao thiệp bên ngoài, song cũng cho người mang tổ hợp này khả năng tự lập và giữ mình kỹ lưỡng.
 
 ### Luận cung Phu Thê
 
@@ -66,23 +60,15 @@ Cung Phúc Đức an tại Tý, có Thiên Lương (Vượng Địa) tọa thủ
 
 **Về họ hàng**, Phúc Đức có Dưỡng, nên được nhiều người mến, có người muốn nhận làm con nuôi. Gia đình là hậu phương vững của đương số.
 
-**Theo cách luận thông dụng**, Thiên Lương vốn là ấm tinh, khi ở Phúc Đức gợi phúc ấm tổ tiên dày, nội tâm họ hướng thiện và dễ tìm an ủi trong đời sống tâm linh. Sao sáng thì đương số hưởng phúc lâu bền, gặp khó thường được giải, tâm hồn thanh thản về già. Đại Hao ở cung Phúc Đức báo chuyện phúc phần, đời sống tinh thần dễ có chi tiêu lớn, hao phí công sức, nhưng cũng mang tính dám buông bỏ để làm mới. Đào Hoa ở cung Phúc Đức thêm sức hút, duyên dáng và cảm xúc, khiến chuyện phúc phần, đời sống tinh thần dễ gắn với tình cảm và sự yêu mến của người khác.
-
 ### Luận cung Điền Trạch
 
 Cung Điền Trạch đóng ở Sửu, nơi Liêm Trinh (Vượng Địa) và Thất Sát (Đắc Địa) cùng tọa thủ, Thiên Phủ (Miếu Địa) từ cung Tử Tức (Mùi) xung chiếu về.
 
 **Về cơ nghiệp nhà đất**, Liêm Trinh cùng Thất Sát tọa Điền Trạch ở Sửu, nên tự gây dựng. Những gì đương số có phần lớn đến từ chính công sức của mình. Ngoài ra, từ chỗ Liêm Trinh tọa Điền Trạch ở Sửu, đứng nơi vượng địa, dễ phá tổ nghiệp. Cái cần rèn ở đây là giữ tài sản bằng sự cẩn trọng hơn là may mắn. Sự tự lập về tài chính và sự khó giữ cơ nghiệp không tách rời nhau: cùng một gốc Liêm Trinh, khác nhau ở cách dùng.
 
-**Theo cách hiểu phổ thông**, Thiên Riêu ở cung Điền Trạch thêm nét lãng mạn, đa cảm nhưng cũng dễ sa vào cám dỗ, thị phi, khiến chuyện nhà cửa, tài sản cần sự tỉnh táo. Thiên Y ở cung Điền Trạch gắn với sự chăm sóc, chữa lành, giúp chuyện nhà cửa, tài sản có điều kiện phục hồi và gặp người biết cách nâng đỡ. Thiên Hư ở cung Điền Trạch khiến chuyện nhà cửa, tài sản dễ có cảm giác trống trải, hứa nhiều mà thực ít, cần nhìn vào kết quả cụ thể hơn lời hứa.
-
 ### Luận giải cung Nô Bộc _(chương cũ: cung chưa có luận điểm để lập luận)_
 
-Cung Nô Bộc soi vào bạn bè và người giúp việc (tấm gương soi bản thân). Cung Nô Bộc không có chính tinh; khi xét thường mượn Tử Vi và Tham Lang từ cung Huynh Đệ đối diện, nên các phụ tinh tại chỗ có tiếng nói lớn hơn thường lệ. Ở tam phương tứ chính, Địa Kiếp và Địa Không hội về: mặt bạn bè, người cộng sự nhiều sóng gió hơn, đòi sự bền bỉ.
-
-Từ cung đối chiếu sang, Tử Vi đóng ở Nô Bộc cho thấy bạn bè, đồng nghiệp quanh đương số thường là người có cá tính mạnh, có địa vị, khó sai khiến nhưng đáng để học hỏi. Địa Kiếp ở cung Nô Bộc báo chuyện bạn bè, người cộng sự có thể gặp hao tổn, sóng gió bất chợt, đòi hỏi sự dè chừng và tinh thần làm lại không nản. Phượng Các ở cung Nô Bộc mang vẻ thanh cao, tiếng tốt, cho thấy chuyện bạn bè, người cộng sự dễ có hỷ sự và được người đời trọng vọng. Bạch Hổ ở cung Nô Bộc đem lại sự dũng mãnh, dám nói dám làm cho chuyện bạn bè, người cộng sự, nhưng cũng dễ gặp tranh cãi, va vấp nếu quá cứng.
-
-Phần khó ở đây có chỗ đỡ: Lộc Tồn, Thiên Quan và Địa Giải cùng có mặt quanh cung, giúp việc xoay chuyển được. Hướng nên đi: dùng sự quả cảm có tính toán, mềm mỏng hơn khi xảy ra bất đồng, đồng thời chuẩn bị dự phòng, thận trọng với rủi ro và đứng dậy nhanh sau vấp ngã.
+Cung Nô Bộc soi vào bạn bè và người giúp việc (tấm gương soi bản thân).
 
 ### Luận cung Tử Tức
 
@@ -90,7 +76,7 @@ Lá số đặt cung Tử Tức tại Mùi, với Thiên Phủ (Miếu Địa) t
 
 **Về công danh của con cái**, vì Thiên Phủ tọa Tử Tức ở Mùi, đứng nơi miếu địa, con cái làm được việc lớn, đáng làm rường cột. Đường công danh mở ra với con cái rộng hơn mức trung bình.
 
-**Về của cải của các con**, với Thanh Long ở Tử Tức cùng Đế Vượng ở Tử Tức, con cái dễ có, khá giả, xinh đẹp. Con cái thường có điều kiện vật chất tốt hơn mức trung bình. Thanh Long ở Tử Tức cùng Đế Vượng ở Tử Tức, nên các con thường có dáng vẻ dễ mến, được nhiều người để ý. Nhìn sang Phụ Mẫu, cung Phụ Mẫu cũng cùng chiều ấy: cha mẹ khá giả, con cái hòa thuận. Đặt cạnh nhau, tài lộc và sức hút bổ cho nhau.
+**Về của cải của các con**, với Thanh Long ở Tử Tức cùng Đế Vượng ở Tử Tức, con cái dễ có, khá giả, xinh đẹp. Các con thường có điều kiện vật chất tốt hơn mức trung bình. Thanh Long ở Tử Tức cùng Đế Vượng ở Tử Tức, nên con cái thường có dáng vẻ dễ mến, được nhiều người để ý. Nhìn sang Phụ Mẫu, cung Phụ Mẫu cũng cùng chiều ấy: cha mẹ khá giả, con cái hòa thuận. Đặt cạnh nhau, tài lộc và sức hút bổ cho nhau.
 
 **Tóm lại**, triển vọng địa vị là phần sáng nhất của cung này.
 
@@ -100,23 +86,17 @@ Tử Vi (Bình Hòa) và Tham Lang (Hãm Địa) đồng cung tại Dậu, giữ
 
 **Về anh chị em**, Tham Lang tọa Huynh Đệ ở Dậu, đứng thế hãm, nên chuyện chẳng lành với anh em, dù sao đắc hay hãm. Muốn giữ phần hay mà bớt phần dở, đương số nên nói rõ điều mình nghĩ trước khi điều ấy thành bất hòa.
 
-**Theo cách luận thông dụng**, ở cung Huynh Đệ, Tử Vi cho thấy anh chị em của đương số thường có người nổi trội, có uy và giữ vai trò đầu tàu khi gia đình có việc. Thiên Hình ở cung Huynh Đệ mang tính kỷ luật, nghiêm khắc, khiến chuyện anh chị em cần phép tắc rõ ràng và dễ dính đến thủ tục, quy định. Lộc Tồn ở cung Huynh Đệ đem lại lộc bền và sự giữ gìn, giúp chuyện anh chị em được tích lũy dần, ổn định nhưng cũng có phần dè dặt. Tang Môn ở cung Huynh Đệ gợi những nỗi buồn phiền, tâm trạng nặng nề quanh chuyện anh chị em, nhắc người này biết chăm lo và gìn giữ điều mình quý.
-
 ### Luận cung Phụ Mẫu
 
 Cung Phụ Mẫu đóng ở Hợi, nơi Thiên Tướng (Đắc Địa) tọa thủ, trong thế hội với Thiên Phủ (Miếu Địa) ở cung Tử Tức (Mùi). Thiên Tướng và Thiên Phủ cùng thuộc nhóm Tử – Phủ – Vũ – Tướng, tức nhóm “hành động có lý luận”. Tuần án ngữ cung Phụ Mẫu.
 
 **Về song thân**, Thiên Tướng tọa Phụ Mẫu ở Hợi, đắc địa, nên tốt. Tình thân của đương số bền theo năm tháng.
 
-**Theo cách hiểu phổ thông**, Thiên Khốc ở cung Phụ Mẫu gợi nỗi buồn lặng và sự lo nghĩ quanh chuyện cha mẹ, bề trên, nhưng cũng cho chiều sâu cảm xúc và sức chịu đựng. Long Trì ở cung Phụ Mẫu thêm nét thanh lịch, khéo léo và có tiếng, giúp chuyện cha mẹ, bề trên được trau chuốt, dễ gặp may về danh giá.
-
 ### Luận cung Tật Ách
 
 Tại Tỵ, cung Tật Ách có Vũ Khúc (Hãm Địa) và Phá Quân (Bình Hòa) cùng làm chủ, lại thêm Liêm Trinh (Vượng Địa) từ cung Điền Trạch (Sửu) hội chiếu. Đi cùng trong cung có Hỏa Tinh (Đắc Địa) và Thiên Mã (Đắc Địa); Triệt án ngữ.
 
-**Về sức vóc**, ở điểm này lá số có hai chiều: Tật Ách bị Triệt án ngữ nghiêng về bệnh tật nhẹ, dễ chữa, còn Thiên Tướng từ Phụ Mẫu hội về Tật Ách nghiêng về nguy cơ tai ách, bạo bệnh; chiều này không xóa được chiều kia.
-
-**Theo cách luận thông dụng**, Vũ Khúc ở Tật Ách cho thấy chủ nhân lá số dễ cần lưu ý đường hô hấp, phổi, răng xương và những va chạm do làm việc với máy móc, kim khí. Sao tối thì cơ thể dễ hao vì làm quá sức, người mang tổ hợp này cần cẩn thận hơn với dụng cụ sắc nhọn. Hỏa Tinh ở cung Tật Ách thêm nhiệt huyết và tốc độ cho chuyện sức khỏe, song dễ bộc phát, thay đổi đột ngột nếu thiếu sự điềm tĩnh. Thiên Mã ở cung Tật Ách mang tính di động, cho thấy chuyện sức khỏe gắn với đi lại, thay đổi, càng năng động càng dễ mở ra cơ hội. Thiên Sứ ở cung Tật Ách báo chuyện sức khỏe có lúc gặp trở ngại hay tin không vui, đòi hỏi người này chuẩn bị kỹ và giữ sự điềm tĩnh. Những dòng về cung Tật Ách ở đây không thay cho lời khuyên của thầy thuốc.
+**Về sức vóc**, ở điểm này lá số có hai chiều: Tật Ách bị Triệt án ngữ nghiêng về bệnh tật nhẹ, dễ chữa, còn Thiên Tướng từ Phụ Mẫu hội về Tật Ách nghiêng về nguy cơ tai ách, bạo bệnh; chiều này không xóa được chiều kia. Những dòng về cung Tật Ách ở đây không thay cho lời khuyên của thầy thuốc.
 
 ### Bát Tự · nhat-chu
 

@@ -30,7 +30,7 @@ def main():
             break
         body = {"year": rnd.randint(1940, 2015), "month": rnd.randint(1, 12), "day": rnd.randint(1, 28), "hour": rnd.randint(0, 23), "minute": 15,
                 "gender": rnd.choice(["male", "female"]), "to_year": 2026, "dignity_school": SCHOOL}
-        f = client.post("/api/facts", json=body).json()
+        f = client.post("/api/facts", json={**body, "dignity_school": "thuc_hanh"}).json()
         hit = {(s, p["branch"]) for p in f["palaces"] for s in p["stars"]} & todo
         if not hit:
             continue

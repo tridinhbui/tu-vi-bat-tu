@@ -60,6 +60,9 @@ const PR_STAR_RE = new RegExp(`(?<![\\p{L}])(${PR_STARS.join('|')})(?![\\p{L}])`
 const starsHtml = t => esc(t).replace(PR_STAR_RE, n => `<span class="pr-star h-${hk(HANH[n])}${MAJOR_SIGN[n] ? ' pr-maj' : ''}">${n}</span>`);
 /** a sentence: its bold lead-in when the paragraph has one (luận cung, prose/luan.ts), the rest with coloured star names */
 const prSentence = (s, lead) => lead && s.text.startsWith(lead) ? `<strong class="pr-lead">${starsHtml(lead)}</strong>${starsHtml(s.text.slice(lead.length))}` : starsHtml(s.text);
+/** the dignity table the chart was computed with (renderTuviReport sets it): the prose footer names it */
+let prSchool = 'khao_luan';
+const DG_NAME = { khao_luan: 'Khảo Luận', thuc_hanh: 'Thực Hành', toan_thu: 'Toàn Thư' };
 const PR_FB_ICON = {
   up: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v10H4V10h3zM7 10l4-7c1.4 0 2.3 1 2 2.4L12.4 9H19a2 2 0 0 1 2 2.3l-1.2 7A2 2 0 0 1 17.8 20H7"/></svg>',
   down: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14V4h3v10h-3zM17 14l-4 7c-1.4 0-2.3-1-2-2.4l.6-3.6H5a2 2 0 0 1-2-2.3l1.2-7A2 2 0 0 1 6.2 4H17"/></svg>',
@@ -77,7 +80,7 @@ function proseHtml(p) {
   return `<section class="synth prose${p.luan ? ' pr-luan' : ''}" data-chapter="${esc(p.chapter)}" data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
     ${p.paragraphs.map((para, i) => `<div class="pr-block"><p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`).join('')}
     <div class="pr-why small" hidden></div>${adviceHtml(p.advice)}${prDiverge(p)}
-    <p class="muted small sy-foot">Văn bản do bộ máy ghép, không dùng mô hình AI: chỉ gồm nhận định đã đối chiếu sách, dữ kiện tính từ lá số và lời nối của hệ thống${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
+    <p class="muted small sy-foot">Văn bản do bộ máy ghép, không dùng mô hình AI: chỉ gồm nhận định đã đối chiếu sách, dữ kiện tính từ lá số và lời nối của hệ thống; độ sáng các sao theo bảng ${DG_NAME[prSchool] || prSchool}${prSchool !== 'thuc_hanh' ? ' (nhận định của sách Thực Hành, Toàn Thư được xét trên bảng này)' : ''}${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
 }
 // what the voiced traits suggest doing (chapter.ts adviceOf): strengths to lean on, habits to watch; the system's wording, said as such
 function adviceHtml(a) {
@@ -349,6 +352,7 @@ function experimentalHtml(x) {
 
 export function renderTuviReport(host, chart, ctx) {
   const b = chart.bazi, t = chart.tuvi, tv = ctx.tv, { blocks, calc, ref, trad, deep } = shell(ctx);
+  prSchool = t?.school?.dignity_school || 'khao_luan';
   const fs = (ctx.reason.systems.tu_vi?.findings || []).map(f => ({ ...f, sys: 'tu_vi' }));
   const chOf = f => /^cach_|thanh_cach/.test(f.claim) ? 'cach-cuc' : (topicChapter(f) || PAL_CH[palaceOfSubject(f.subject)] || 'chuyen-sau');
   const of = id => fs.filter(f => chOf(f) === id);

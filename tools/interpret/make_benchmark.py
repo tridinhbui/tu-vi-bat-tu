@@ -87,7 +87,7 @@ WANT = ["menh_vcd", "sat_pha_tham", "co_nguyet_dong_luong", "tu_phu_vu_tuong", "
 
 def facts_of(birth: dict, tv=None) -> dict:
     """/api/facts for `birth`, optionally with the computed Tử Vi chart replaced by `tv` (a mutated copy)."""
-    req = BirthReq(**birth)
+    req = BirthReq(**{"dignity_school": "thuc_hanh", **birth})
     if tv is None:
         return api.chart_facts(req)
     orig = api._compute
@@ -165,7 +165,7 @@ def variants(birth, tv) -> list[dict]:
 def main():
     rnd = random.Random(20261020)
     charts = [{"label": "ref_cu_tuat", "labels": [], "birth": REF}]
-    _, _, tv = api._compute(BirthReq(**REF))
+    _, _, tv = api._compute(BirthReq(**{"dignity_school": "thuc_hanh", **REF}))
     charts[0]["labels"] = sorted(labels(tv))
     got = set()
     tries = 0
@@ -174,7 +174,7 @@ def main():
         b = {"year": rnd.randint(1935, 2020), "month": rnd.randint(1, 12), "day": rnd.randint(1, 28), "hour": rnd.randint(0, 23),
              "minute": rnd.choice([0, 30]), "gender": rnd.choice(["male", "female"]), "to_year": 2026}
         try:
-            _, _, tv = api._compute(BirthReq(**b))
+            _, _, tv = api._compute(BirthReq(**{"dignity_school": "thuc_hanh", **b}))
         except Exception:
             continue
         ls = labels(tv)
@@ -188,7 +188,7 @@ def main():
     for c in charts:
         f = facts_of(c["birth"])
         bench.append({**c, "facts": f})
-        _, _, tv = api._compute(BirthReq(**c["birth"]))
+        _, _, tv = api._compute(BirthReq(**{"dignity_school": "thuc_hanh", **c["birth"]}))
         for v in variants(c["birth"], tv):
             t = v.pop("tv")
             cf.append({"base": c["label"], **v, "birth": c["birth"], "facts": facts_of(c["birth"], t)})

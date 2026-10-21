@@ -18,10 +18,12 @@ def test_every_cell_comes_from_the_selected_school(school):
             assert dignity.dignity(s, b, school) == (r["value"] if r["status"] == "VERIFIED" else None)
 
 
-def test_thuc_hanh_is_the_default_and_khao_luan_matches_the_reference_board():
+def test_khao_luan_is_the_default_and_matches_the_reference_board():
+    # owner's decision 2026-10-21: the site defaults to Khảo Luận "Thế đứng" (the table popular boards use); Thực Hành stays selectable
     from tvbt.api import BirthReq, _compute
-    _, _, th = _compute(BirthReq(year=2002, month=1, day=9, hour=4, minute=30, gender="male"))
+    _, _, th = _compute(BirthReq(year=2002, month=1, day=9, hour=4, minute=30, gender="male", dignity_school="thuc_hanh"))
     assert th.school["dignity_school"] == "thuc_hanh"
-    _, _, kl = _compute(BirthReq(year=2002, month=1, day=9, hour=4, minute=30, gender="male", dignity_school="khao_luan"))
+    _, _, kl = _compute(BirthReq(year=2002, month=1, day=9, hour=4, minute=30, gender="male"))
+    assert kl.school["dignity_school"] == "khao_luan"
     got = {s: d for p in kl.palaces for s, d in p["major_dignity"].items()}
     assert got["Thái Dương"] == "miếu" and got["Thiên Phủ"] == "đắc" and got["Thiên Cơ"] == "vượng" and got["Thiên Đồng"] == "hãm"

@@ -21,7 +21,7 @@ CHAIN = ["Dữ kiện", "Quan hệ", "Cách cục"]
 
 
 def formations(birth):
-    r = client.post("/api/formations", json=birth)
+    r = client.post("/api/formations", json={"dignity_school": "thuc_hanh", **birth})
     assert r.status_code == 200
     return {f["id"]: f for f in r.json()["formations"]}
 
@@ -124,8 +124,8 @@ def test_all_ten_formations_reach_every_reachable_state_in_the_scan():
 
 def test_endpoint_is_additive_and_the_production_reading_is_unchanged():
     b = dict(year=1990, month=5, day=17, hour=10, minute=30, gender="male")
-    plain = client.post("/api/reasoning", json=b).json()
-    again = client.post("/api/reasoning", json={**b, "experimental": False}).json()
+    plain = client.post("/api/reasoning", json={"dignity_school": "thuc_hanh", **b}).json()
+    again = client.post("/api/reasoning", json={"dignity_school": "thuc_hanh", **b, "experimental": False}).json()
     assert plain == again and "experimental" not in plain
-    client.post("/api/formations", json=b)
-    assert client.post("/api/reasoning", json=b).json() == plain
+    client.post("/api/formations", json={"dignity_school": "thuc_hanh", **b})
+    assert client.post("/api/reasoning", json={"dignity_school": "thuc_hanh", **b}).json() == plain
