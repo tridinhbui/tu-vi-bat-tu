@@ -296,7 +296,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const book = paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').length;
   if (!book) return null;
   return {
-    engine: PROSE_VERSION, kbVersion: k.version, chapter: id, palace: P, title: `Luận cung ${P}`, luan: true, schema: 'luan', order: [],
+    engine: `${PROSE_VERSION}/${LUAN_VERSION}`, kbVersion: k.version, chapter: id, palace: P, title: `Luận cung ${P}`, luan: true, schema: 'luan', order: [],
     theses: plan.theses.map(t => t.id),
     draft: sh.allowDraft && (L.status !== 'approved' || F.status !== 'approved' || k.prose!.concepts.some(c => c.status !== 'approved')),
     paragraphs: paras, text: paras.map(p => p.text).join('\n\n'), issues, metrics, pass: !issues.some(i => i.level === 'error'),

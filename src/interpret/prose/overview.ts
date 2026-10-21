@@ -40,7 +40,11 @@ const fill = (t: string, v: Record<string, string>) => t.replace(/\{([A-Za-z_]+)
 /** a rule whose condition names the palace that holds Thân */
 const isThanRule = (conditions: unknown) => JSON.stringify(conditions).includes('"palace.is_than"');
 
-export function proseOverview(chart: ChartInput, k: Knowledge, findings: Finding[], plan: ReadingPlan, seed: string, engine: string, allowDraft: boolean): ProseOverview {
+/** `palaces` (default true): also name the Mệnh and Thân palaces star by star and the Thân readings; off when the luận cung Mệnh chapter
+ *  (prose/luan.ts) tells them, so the report does not say them twice. The card keeps them either way. */
+export function proseOverview(chart: ChartInput, k: Knowledge, findings: Finding[], plan: ReadingPlan, seed: string, engine: string, allowDraft: boolean,
+  o: { palaces?: boolean } = {}): ProseOverview {
+  const palaces = o.palaces !== false;
   const L = k.prose?.overview;
   const usable = !!L && (allowDraft || L.status === 'approved');
   const m = new Micro(`${seed}|tong_quan`, k.prose!.connectives, k.prose!.frames);
@@ -84,13 +88,14 @@ export function proseOverview(chart: ChartInput, k: Knowledge, findings: Finding
       { key: 'am_duong', label: 'Âm dương', value: chart.yin_yang_gender, basis: 'tinh_toan', cites: [] });
     // ---- the Mệnh palace, star by star ----
     const mcfg = configClause(chart, menh);
-    say(p1, fill(m.pick('menh', L!.menh), { ...v, config: mcfg.text }), 'tinh_toan', [], mcfg.cites);
+    if (palaces) say(p1, fill(m.pick('menh', L!.menh), { ...v, config: mcfg.text }), 'tinh_toan', [], mcfg.cites);
     card.push({ key: 'menh', label: 'Mệnh', value: `${menh.stem} ${menh.branch}`, basis: 'tinh_toan', cites: [] });
     // ---- Thân ----
-    if (than === menh) say(p1, fill(m.pick('than_same', L!.than_same), v), 'tinh_toan');
-    else { const tcfg = configClause(chart, than); say(p1, fill(m.pick('than', L!.than), { ...v, palace: than.name, branch: than.branch, config: tcfg.text }), 'tinh_toan', [], tcfg.cites); }
-    say(p1, m.pick('than_meaning', L!.than_meaning), 'pho_thong');
-    const thanRules = findings.filter(f => f.subject === `palace:${than.name}` && verified(f.ruleId) && isThanRule(rmap.get(f.ruleId)!.conditions))
+    // with `palaces` off the luận cung Mệnh chapter tells Thân cư (its position, the common reading, the Thân readings)
+    if (palaces && than === menh) say(p1, fill(m.pick('than_same', L!.than_same), v), 'tinh_toan');
+    else if (palaces) { const tcfg = configClause(chart, than); say(p1, fill(m.pick('than', L!.than), { ...v, palace: than.name, branch: than.branch, config: tcfg.text }), 'tinh_toan', [], tcfg.cites); }
+    if (palaces) say(p1, m.pick('than_meaning', L!.than_meaning), 'pho_thong');
+    const thanRules = !palaces ? [] : findings.filter(f => f.subject === `palace:${than.name}` && verified(f.ruleId) && isThanRule(rmap.get(f.ruleId)!.conditions))
       .map(f => f.ruleId).filter((id, i, a) => a.indexOf(id) === i).sort();
     for (const id of thanRules.slice(0, 2)) {
       const r = splitReading(rmap.get(id), k);

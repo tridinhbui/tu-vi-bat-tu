@@ -5,6 +5,7 @@ import { scopePanelBazi } from './scope.js';
 import { easyReadings, emptyReading, classify, parsePhrase } from './beginner.js';
 import { autoLink, terms } from './glossary.js';
 import { elementBalanceHtml, godDistributionHtml, menhTamPhuongHtml, currentPhase, currentPhaseHtml } from './insights.js';
+import { HANH, MAJOR_SIGN, hk } from './stars_hanh.js';
 
 const LAYER_HINT = { 'Tượng': 'ý nghĩa biểu tượng', 'Khí': 'điều kiện mạnh yếu', 'Thế': 'vị trí trong cấu trúc', 'Cách': 'cách cục', 'Dụng': 'vai trò theo lĩnh vực', 'Biến': 'biến đổi theo thời gian', 'Phản': 'yếu tố đối trọng', 'Tổng': 'tổng hợp' };
 const BASIS = { tinh_toan: ['Tính toán', 'dữ kiện lập từ lá số'], sach: ['Theo sách', 'có trích dẫn trang'], he_thong: ['Định nghĩa của hệ thống', 'cách hệ thống chọn để mô tả; không phải lời sách'] };
@@ -52,12 +53,29 @@ const PR_MOVE = { STRUCT: 'Cấu trúc cung', PHO_THONG: 'Nghĩa phổ thông', 
   TIMING: 'Nhịp thời gian', SATELLITE: 'Nét bổ trợ', VALUE: 'Giá trị', TRANSFORM: 'Hướng chuyển hóa', DEGREE: 'Nền độ số', EXTRA: 'Đường đời' };
 const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Nghiệm Lý (Thiên Lương, bản gõ)', NL: 'Nghiệm Lý 1974 (Thiên Lương, bản scan HELEN)', ZZ: 'Bát Tự Chân Tông' };
 const prCite = c => String(c).replace(/^(TH|KL|TT|TL|NL|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
+// star names in reader prose take the board's ngũ hành colour (stars_hanh.js, a display convention) and the chính tinh are bold, as on the
+// board; "Phúc Đức" is left alone (it is also the palace's name)
+const PR_STARS = Object.keys(HANH).filter(n => n !== 'Phúc Đức').sort((a, b) => b.length - a.length);
+const PR_STAR_RE = new RegExp(`(?<![\\p{L}])(${PR_STARS.join('|')})(?![\\p{L}])`, 'gu');
+const starsHtml = t => esc(t).replace(PR_STAR_RE, n => `<span class="pr-star h-${hk(HANH[n])}${MAJOR_SIGN[n] ? ' pr-maj' : ''}">${n}</span>`);
+/** a sentence: its bold lead-in when the paragraph has one (luận cung, prose/luan.ts), the rest with coloured star names */
+const prSentence = (s, lead) => lead && s.text.startsWith(lead) ? `<strong class="pr-lead">${starsHtml(lead)}</strong>${starsHtml(s.text.slice(lead.length))}` : starsHtml(s.text);
+const PR_FB_ICON = {
+  up: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v10H4V10h3zM7 10l4-7c1.4 0 2.3 1 2 2.4L12.4 9H19a2 2 0 0 1 2 2.3l-1.2 7A2 2 0 0 1 17.8 20H7"/></svg>',
+  down: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14V4h3v10h-3zM17 14l-4 7c-1.4 0-2.3-1-2-2.4l.6-3.6H5a2 2 0 0 1-2-2.3l1.2-7A2 2 0 0 1 6.2 4H17"/></svg>',
+  say: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17.5H4A1.5 1.5 0 0 1 2.5 16V7A1.5 1.5 0 0 1 4 5.5z"/></svg>',
+};
+/** 👍 👎 💬 under a paragraph: sent to /api/feedback with the chapter, the paragraph's index and the prose version (bindProseFeedback) */
+const prFeedback = i => `<div class="pr-fb" data-p="${i}" role="group" aria-label="Đánh giá đoạn này">
+  <button type="button" class="pr-fb-b" data-v="up" aria-label="Đoạn này hữu ích" aria-pressed="false">${PR_FB_ICON.up}</button>
+  <button type="button" class="pr-fb-b" data-v="down" aria-label="Đoạn này chưa ổn" aria-pressed="false">${PR_FB_ICON.down}</button>
+  <button type="button" class="pr-fb-b" data-v="say" aria-label="Góp ý cho đoạn này" aria-expanded="false">${PR_FB_ICON.say}</button></div>`;
 function proseHtml(p) {
   if (!p?.paragraphs?.length) return '';
   const draft = p.draft !== false;
   const title = p.title ? esc(p.title) : p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
-  return `<section class="synth prose" data-chapter="${esc(p.chapter)}" aria-label="${title}"><p class="eyebrow">${title}</p>
-    ${p.paragraphs.map((para, i) => `<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${esc(s.text)}</span>`).join(' ')}</p>`).join('')}
+  return `<section class="synth prose${p.luan ? ' pr-luan' : ''}" data-chapter="${esc(p.chapter)}" data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
+    ${p.paragraphs.map((para, i) => `<div class="pr-block"><p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`).join('')}
     <div class="pr-why small" hidden></div>${adviceHtml(p.advice)}${prDiverge(p)}
     <p class="muted small sy-foot">Văn bản do bộ máy ghép từ ba nguồn, không dùng mô hình AI: nhận định đã đối chiếu sách, dữ kiện tính từ lá số, và <span class="pr-pt">nghĩa sao theo thông lệ phổ biến (chữ nhạt hơn, chưa đối chiếu sách)</span>${draft ? '; thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt' : ''}. Nhấn vào một câu để xem căn cứ. Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p></section>`;
 }
@@ -96,6 +114,56 @@ function bindProse(host, byChapter) {
   $$('.prose', host).forEach(sec => {
     const p = byChapter[sec.dataset.chapter], box = $('.pr-why', sec);
     if (p && box) bindOne(sec, p, box);
+    if (p) bindProseFeedback(sec, p);
+  });
+}
+// Paragraph feedback goes into the visitor's feedback thread (src/feedback/route.ts, the same thread the Góp ý bubble uses: its key is
+// shared through localStorage), one message per reaction, tagged so the admin page can tell which paragraph of which chapter and which
+// prose version it is about. A reaction already sent from this browser is shown pressed and is not sent again.
+const FB_KEY = 'tvbt.fb.key', FB_DONE = 'tvbt.prfb';
+const fbStore = { get: k => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } } };
+async function sendProseFeedback(body) {
+  const key = fbStore.get(FB_KEY);
+  const r = await fetch('/api/feedback', { method: 'POST', credentials: 'same-origin', cache: 'no-store',
+    headers: { 'x-tvbt': '1', 'content-type': 'application/json', ...(key ? { 'x-feedback-key': key } : {}) },
+    body: JSON.stringify({ body, page: location.pathname + location.search }) });
+  const j = await r.json().catch(() => ({}));
+  if (j.key) fbStore.set(FB_KEY, j.key);
+  if (!r.ok) throw new Error(j.detail || r.status);
+}
+function bindProseFeedback(sec, p) {
+  const done = (() => { try { return JSON.parse(fbStore.get(FB_DONE) || '{}'); } catch { return {}; } })();
+  const tag = i => `${p.chapter}#${i}@${p.engine || ''}`;
+  const head = (i, v) => {
+    const para = p.paragraphs[i], first = para?.sentences?.[0]?.text || '';
+    return `[đoạn văn] ${v} · chương ${p.chapter} · đoạn ${i + 1}${para?.lead ? ` «${para.lead}»` : ''} · ${p.engine || ''}${p.kbVersion ? ' / ' + p.kbVersion : ''}\n${first.slice(0, 160)}`;
+  };
+  $$('.pr-fb', sec).forEach(row => {
+    const i = Number(row.dataset.p);
+    const mark = v => $$('.pr-fb-b', row).forEach(b => { if (b.dataset.v !== 'say') b.setAttribute('aria-pressed', String(b.dataset.v === v)); });
+    if (done[tag(i)]) mark(done[tag(i)]);
+    $$('.pr-fb-b', row).forEach(b => b.onclick = async () => {
+      const v = b.dataset.v;
+      if (v === 'say') {
+        const open = $('.pr-fb-form', row.parentElement);
+        if (open) { open.remove(); b.setAttribute('aria-expanded', 'false'); return; }
+        b.setAttribute('aria-expanded', 'true');
+        row.insertAdjacentHTML('afterend', `<form class="pr-fb-form"><label class="fb-sr" for="prfb-${esc(p.chapter)}-${i}">Góp ý cho đoạn này</label><textarea id="prfb-${esc(p.chapter)}-${i}" rows="2" maxlength="1500" placeholder="Đoạn này chỗ nào chưa đúng hay khó hiểu?" required></textarea><button class="btn btn-sm" type="submit">Gửi</button><span class="pr-fb-msg small muted" aria-live="polite"></span></form>`);
+        const f = $('.pr-fb-form', row.parentElement), ta = $('textarea', f), msg = $('.pr-fb-msg', f);
+        ta.focus();
+        f.onsubmit = async e => {
+          e.preventDefault();
+          const t = ta.value.trim(); if (!t) return;
+          msg.textContent = 'Đang gửi…';
+          try { await sendProseFeedback(`${head(i, '💬')}\n— ${t}`); msg.textContent = 'Đã gửi, cảm ơn bạn.'; ta.value = ''; } catch { msg.textContent = 'Chưa gửi được, bạn thử lại sau.'; }
+        };
+        return;
+      }
+      if (done[tag(i)] === v) return;
+      mark(v);
+      try { await sendProseFeedback(head(i, v === 'up' ? '👍' : '👎')); done[tag(i)] = v; fbStore.set(FB_DONE, JSON.stringify(done)); }
+      catch { mark(done[tag(i)] || ''); }
+    });
   });
 }
 function bindOne(host, p, box) {

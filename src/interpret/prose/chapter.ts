@@ -16,7 +16,7 @@ import { validateProse, type ProseIssue, type ProseMetrics } from './validate.ts
 import type { Move } from './types.ts';
 import { bookStarsOf, para, readPalace } from './deep.ts';
 
-export const PROSE_VERSION = 'prose-0.3.0';
+export const PROSE_VERSION = 'prose-0.4.0';
 export type ProseChapterId = 'menh' | 'cong_danh' | 'tai_bach' | 'thien_di' | 'phu_the' | 'phuc_duc' | 'dien_trach' | 'no_boc'
   | 'tu_tuc' | 'huynh_de' | 'phu_mau' | 'tat_ach';
 interface ProseSpec { palace: string; pool: (c?: Concept) => boolean; borrowFrom: string[];

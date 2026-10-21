@@ -26,13 +26,14 @@ interface Env extends AuthEnv, BillingEnv, AdminEnv {
   TVBT: DurableObjectNamespace<TvbtContainer>;
   TVBT_INTERPRET?: string;          // "1" enables /api/interpret (default off: the route answers 404)
   TVBT_PROSE_DRAFT?: string;        // "1" lets mode "prose" use prose cards that are still drafts (default: approved cards only)
+  TVBT_LUAN?: string;               // "0" turns off the luận cung chapters (prose/luan.ts) in the whole-report prose; on unless set to "0"
   INTERPRET_DB?: D1Like;            // optional D1 knowledge base + output cache (migrations/interpret)
   INTERPRET_CACHE?: R2Like;         // optional R2 bucket for cached outputs
 }
 
 async function interpretRoute(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
   return handleInterpret(request, {
-    enabled: env.TVBT_INTERPRET === "1", proseDraft: env.TVBT_PROSE_DRAFT === "1",
+    enabled: env.TVBT_INTERPRET === "1", proseDraft: env.TVBT_PROSE_DRAFT === "1", luan: env.TVBT_LUAN !== "0",
     facts: birth => getContainer(env.TVBT, "main").fetch(new Request(new URL("/api/facts", request.url), {
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(birth) })),
     store: env.INTERPRET_DB ? new D1Store(env.INTERPRET_DB, knowledge as unknown as Knowledge) : new BundledStore(knowledge as unknown as Knowledge),

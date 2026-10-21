@@ -9,10 +9,12 @@ import { seedOf } from './chapter.ts';
 
 export type ThemeChapter = ProseOverview;
 
-export function proseThemes(chart: ChartInput, k: Knowledge, engine: string, opts: { allowDraft?: boolean } = {}): ThemeChapter[] {
+/** `luan`: the palace chapters are the luận cung ones, whose Mệnh chapter opens with the Mệnh stars and tells Thân cư: the overview then
+ *  leaves those to it and keeps the chart-wide facts (bản mệnh, cục, chủ mệnh / chủ thân, độ số). */
+export function proseThemes(chart: ChartInput, k: Knowledge, engine: string, opts: { allowDraft?: boolean; luan?: boolean } = {}): ThemeChapter[] {
   const allowDraft = !!opts.allowDraft;
   const findings = run(k.rules, k.sources, chart.base).findings;
   const plan = reasonMenh(chart, k, undefined, { draftFormations: allowDraft });
-  const overview = proseOverview(chart, k, findings, plan, seedOf(chart), engine, allowDraft);
+  const overview = proseOverview(chart, k, findings, plan, seedOf(chart), engine, allowDraft, { palaces: !opts.luan });
   return [overview];
 }
