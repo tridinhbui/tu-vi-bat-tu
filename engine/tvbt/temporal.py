@@ -54,13 +54,14 @@ def bazi_year(chart: BaziChart, birth_year: int, year: int) -> dict:
     luck = None
     # Lập Xuân falls around 4 Feb (~0.09 of a year), so the BaZi year `year` starts at year + 0.09. Luck pillars begin on
     # exact calendar dates (start_year_exact); the old age-based test used whole years and could be a year off.
-    t0 = year + 0.09
+    from .bazi import LICHUN_FRAC, LUCK_YEAR_POINT
+    t0 = year + LUCK_YEAR_POINT                 # the luck in force for most of the Bát Tự year (bazi.luck_first_year, audit BZ-6)
     exact = [lp for lp in chart.luck_pillars if lp.start_year_exact]
     if exact:
         for lp in exact:
             if lp.start_year_exact <= t0:
                 luck = lp
-        boundary = any(t0 < lp.start_year_exact <= t0 + 1 for lp in exact)
+        boundary = any(year + LICHUN_FRAC < lp.start_year_exact <= year + LICHUN_FRAC + 1 for lp in exact)   # a change inside the Bát Tự year
     else:
         for lp in chart.luck_pillars:
             if lp.start_age <= age < lp.start_age + 10:

@@ -42,8 +42,8 @@ export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structu
   /** luận cung (prose/luan.ts): the bold lead-in the paragraph opens with ("Về tính cách và cách giao tiếp"); the first sentence's text starts
    *  with it, so a plain-text reader sees it too. `topic` is its key (tinh_cach, su_nghiep, than, hau_van, tong_ket, …). */
   lead?: string; topic?: string;
-  /** luận cung: the frame part the paragraph serves (its sentences' parts in order; the first is the paragraph's own) */
-  part?: number }
+  /** the frame part the paragraph serves: luận cung numbers it 1 … 5 (trace.part); the Bát Tự cách cục chapter names it (bazi_deep.ts FramePart) */
+  part?: number | string }
 
 const join = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1).join(', ') + ' và ' + xs[xs.length - 1];
 function fill(t: string, vars: Record<string, string | undefined>): string {

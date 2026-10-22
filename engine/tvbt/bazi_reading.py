@@ -24,7 +24,7 @@ SEASON = {2: "xuân", 3: "xuân", 4: "xuân", 5: "hạ", 6: "hạ", 7: "hạ", 8
 PILLAR_VI = {"year": "Năm", "month": "Tháng", "day": "Ngày", "hour": "Giờ"}
 REL_VI = {"stem_combine": "thiên can hợp", "stem_clash": "thiên can xung/khắc", "branch_six_combine": "địa chi lục hợp",
           "branch_clash": "địa chi lục xung", "branch_harm": "địa chi hại", "branch_destroy": "địa chi phá", "branch_penalty": "địa chi hình",
-          "branch_self_penalty": "tự hình", "branch_triad_complete": "tam hợp đủ bộ", "branch_meeting_complete": "tam hội đủ bộ"}
+          "branch_self_penalty": "tự hình", "branch_triad_complete": "tam hợp đủ bộ", "branch_semi_triad": "bán hợp", "branch_meeting_complete": "tam hội đủ bộ"}
 ORDER = ["year", "month", "day", "hour"]
 
 

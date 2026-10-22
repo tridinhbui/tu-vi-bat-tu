@@ -56,6 +56,10 @@ export function tenGodGroup(n = '') {
 }
 export const TEN_GOD_GROUPS = ['Tỉ Kiếp', 'Thực Thương', 'Tài', 'Quan Sát', 'Ấn'];
 
+/** The civil time zone of a birthplace on the form (audit BZ-8): the north kept +07 from October 1954 (tzdb backzone Asia/Hanoi, which
+ *  the engine reads), while Asia/Ho_Chi_Minh is the south's clock, +08 from 1960 to mid-1975. Vinh lies north of the 17th parallel. */
+const NORTH = new Set(['Hà Nội', 'Hải Phòng', 'Vinh']);
+export const placeTz = place => NORTH.has(place) ? 'Asia/Hanoi' : 'Asia/Ho_Chi_Minh';
 export const PILLAR_LABEL = { year: 'Năm', month: 'Tháng', day: 'Ngày', hour: 'Giờ' };
 export const SIX_HOUR = ['Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi'];
 export const hourBranch = h => SIX_HOUR[Math.floor(((h + 1) % 24) / 2)];

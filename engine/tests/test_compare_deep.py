@@ -359,7 +359,7 @@ from tvbt import temporal
 
 # Tables of 八字真宗 pp.19-20 written out again here, independently of tvbt.bazi, to cross-check the comparison.
 ZZ_STEM_COMBINE = {(0, 5), (1, 6), (2, 7), (3, 8), (4, 9)}
-ZZ_STEM_CLASH = {(0, 6), (1, 7), (2, 8), (3, 9)}
+ZZ_STEM_CLASH = {(0, 6), (1, 7), (2, 8), (3, 9), (0, 4), (1, 5), (2, 6), (3, 7), (4, 8), (5, 9)}   # 八字真宗 p.20 「干冲克」, ten pairs (BZ-1)
 ZZ_LIUHE = {(0, 1), (2, 11), (3, 10), (4, 9), (5, 8), (6, 7)}
 ZZ_CHONG = {(i, i + 6) for i in range(6)}
 ZZ_HAI = {(0, 7), (1, 6), (2, 5), (3, 4), (8, 11), (9, 10)}

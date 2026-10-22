@@ -139,7 +139,7 @@ def score(view: ChartView) -> dict:
         partners = sum(1 for (a, b, _) in hop_pairs if i in (a, b)) > 1 or sum(1 for (a, b, _) in hop_pairs if j in (a, b)) > 1
         if partners:
             for k in {i, j} | {x for (a, b, _) in hop_pairs for x in (a, b) if {a, b} & {i, j}}:
-                deg[k] = max(0.0, 36.0 - 12) if root[k] or True else 9
+                deg[k] = 24.0              # tranh hợp: 36 - 12 whether rooted or not (audit BZ-23: was `if root[k] or True else 9`)
             notes["steps"].append({"step": "tranh hợp", "pairs": [i, j]})
             continue
         both_xu = not root[i] and not root[j]

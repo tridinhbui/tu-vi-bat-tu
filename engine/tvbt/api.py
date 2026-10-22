@@ -122,8 +122,9 @@ def chart_facts(req: BirthReq):
     # zz=True: the 八字真宗 direct-judgement facts (pp.50-74), so its verified rules can fire in the TS prose; /api/reasoning keeps the old view
     bazi_out = {"base": facts.bazi_facts(bz, zz=True), "pillars": pil, "day_master": STEMS_VI[bz.day_master], "day_master_element": bz.day_master_element,
                 "luck_direction": bz.luck_direction, "luck_start_age": round(bz.luck_start["age_years"], 1),
-                "luck": [{"name": lp.name, "start_age": round(lp.start_age, 1), "start_year": int(lp.start_date[:4]) if lp.start_date else None,
-                          "ten_god": lp.ten_god} for lp in bz.luck_pillars],
+                # start_year: the Bát Tự year the pillar is in force from (Lập Xuân rule, bazi.luck_first_year; audit BZ-5/6), start_date: the exact day
+                "luck": [{"name": lp.name, "start_age": round(lp.start_age, 1), "start_year": lp.first_year or (int(lp.start_date[:4]) if lp.start_date else None),
+                          "start_date": lp.start_date, "ten_god": lp.ten_god} for lp in bz.luck_pillars],
                 "kong_wang_day": bz.extras.get("kong_wang_day", []),
                 # pillar relations (hợp, xung, hại, phá, hình) for the per-chapter Bát Tự prose; pillar ids as "year-hour"
                 "relations": {k: [{"pillars": r["pillars"]} for r in v if "pillars" in r] for k, v in bz.relations.items()},

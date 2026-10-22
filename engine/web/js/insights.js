@@ -1,5 +1,6 @@
 // Derived, objective summaries computed from the chart data already returned by the API (no new rules, no prose claims).
 import { esc, STEMS, BRANCHES, EL, ELEMENTS, elChip, elIcon, tenGodGroup, TEN_GOD_GROUPS, starKind } from './util.js';
+import { luckIndexOn } from './atlas.js';
 
 const KEYS = ['year', 'month', 'day', 'hour'];
 
@@ -52,7 +53,7 @@ export function menhTamPhuongHtml(t) {
 /** Current Đại vận (Bát Tự) and Đại hạn (Tử Vi) for today's date. */
 export function currentPhase(b, t, req) {
   const now = new Date().getFullYear(), age = now - req.year + 1;
-  const lp = b.luck_pillars, i = lp.findIndex((l, k) => l.start_year_approx <= now && (!lp[k + 1] || now < lp[k + 1].start_year_approx));
+  const lp = b.luck_pillars, i = luckIndexOn(lp);   // exact start dates (audit BZ-5/6)
   const dh = t.dai_han.find(d => age >= d.age_from && age <= d.age_to);
   return { now, age, luck: i >= 0 ? lp[i] : null, dh };
 }

@@ -168,8 +168,8 @@ def _zz_direct_facts(c: BaziChart) -> dict:
 def bazi_facts(c: BaziChart, zz: bool = False) -> dict[str, dict]:
     """zz=True adds the 八字真宗 direct-judgement facts (hour-pillar group, month/day branch ten god and state); default off so the frozen old-pipeline view is unchanged."""
     dm_el = c.day_master_element
-    roots = [k for k, p in c.pillars.items() if k != "day" or True
-             for h in p.hidden if STEM_ELEMENT[h["stem"]] == dm_el]
+    # every pillar's hidden stems, the day branch included (audit BZ-23: the old `k != "day" or True` was always true)
+    roots = [k for k, p in c.pillars.items() for h in p.hidden if STEM_ELEMENT[h["stem"]] == dm_el]
     visible_el = {STEM_ELEMENT[p.stem] for p in c.pillars.values()} | {BRANCH_ELEMENT[p.branch] for p in c.pillars.values()}
     return {"chart": {"chart.system": "bat_tu", "bazi.day_master_stem": STEMS_VI[c.day_master],
                       "bazi.day_nap_am": nap_am_name(c.pillars["day"].stem, c.pillars["day"].branch),

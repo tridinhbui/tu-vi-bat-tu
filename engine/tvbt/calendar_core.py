@@ -73,9 +73,51 @@ def vn_calendar_offset(year: int, south: bool = False) -> float:
     return 8.0 if year < (1976 if south else 1968) else 7.0
 
 
+class _Backzone(dt.tzinfo):
+    """A zone the installed tzdata does not ship (it lives in tzdb's 'backzone' file), from its Zone lines: (until local wall time, offset)."""
+
+    def __init__(self, name: str, lines: list[tuple[dt.datetime | None, dt.timedelta]]):
+        self.name, self.lines = name, lines
+
+    def _off(self, wall: dt.datetime) -> dt.timedelta:
+        w = wall.replace(tzinfo=None)
+        return next(off for until, off in self.lines if until is None or w < until)
+
+    def utcoffset(self, d):
+        return self._off(d)
+
+    def dst(self, d):
+        return dt.timedelta(0)
+
+    def tzname(self, d):
+        return self.name
+
+    def fromutc(self, d):
+        u = d.replace(tzinfo=None)
+        for until, off in self.lines:                # the first line whose end, as a UTC instant, is after `u`
+            if until is None or u + off < until:
+                return (u + off).replace(tzinfo=self)
+        raise ValueError(d)
+
+
+_H = lambda h, m=0, s=0: dt.timedelta(hours=h, minutes=m, seconds=s)
+# tzdb 'backzone', Zone Asia/Hanoi (north Vietnam; from Trần Tiến Bình, "Lịch Việt Nam thế kỷ XX-XXI", pp.49-50, as quoted in the tzdb 'asia'
+# comments): +08 from 1947-04-01 until October 1954, +07 since. Asia/Ho_Chi_Minh is the south: +08 from 1959-12-31 23:00 to 1975-06-13,
+# so a northern birth of 1960-1975 given that zone was an hour off (audit BZ-8). The page maps each city to its zone (web/js/app.js PLACES).
+ASIA_HANOI = _Backzone("Asia/Hanoi", [(dt.datetime(1906, 7, 1), _H(7, 3, 24)), (dt.datetime(1911, 5, 1), _H(7, 6, 30)),
+                                      (dt.datetime(1942, 12, 31, 23), _H(7)), (dt.datetime(1945, 3, 14, 23), _H(8)),
+                                      (dt.datetime(1945, 9, 2), _H(9)), (dt.datetime(1947, 4, 1), _H(7)),
+                                      (dt.datetime(1954, 10, 1), _H(8)), (None, _H(7))])
+
+
+def zone_of(name: str) -> dt.tzinfo:
+    """IANA zone by name; Asia/Hanoi (tzdb backzone, not in the installed tzdata) from its Zone lines."""
+    return ASIA_HANOI if name == "Asia/Hanoi" else ZoneInfo(name)
+
+
 def normalize(b: BirthInput) -> NormalizedBirth:
     tr = Trace()
-    zone = ZoneInfo(b.tz)
+    zone = zone_of(b.tz)
     naive = dt.datetime(b.year, b.month, b.day, b.hour, b.minute)
     local = naive.replace(tzinfo=zone, fold=b.fold)
     # detect non-existent wall times (spring-forward gap)

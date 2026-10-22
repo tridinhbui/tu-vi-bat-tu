@@ -25,8 +25,23 @@ def test_twelve_growth_stages_table_pp24_25():
 def test_stem_relations_p20():
     for pair, el in [("甲己", "Thổ"), ("乙庚", "Kim"), ("丙辛", "Thủy"), ("丁壬", "Mộc"), ("戊癸", "Hỏa")]:
         assert bazi.STEM_COMBINE[frozenset(ST[c] for c in pair)] == el
-    for pair in ["甲庚", "乙辛", "丙壬", "丁癸"]:
-        assert frozenset(ST[c] for c in pair) in bazi.STEM_CLASH
+    # 「干冲克」 prints ten pairs, each stem against the one seven places on; three of them are 克, the rest 冲 (audit BZ-1)
+    printed = {"甲庚": "khắc", "乙辛": "xung", "丙壬": "xung", "丁癸": "xung", "戊甲": "khắc", "己乙": "xung", "庚丙": "xung", "辛丁": "xung",
+               "壬戊": "xung", "癸己": "khắc"}
+    assert {frozenset(ST[c] for c in pair): kind for pair, kind in printed.items()} == bazi.STEM_CLASH_KIND
+    assert set(bazi.STEM_CLASH) == set(bazi.STEM_CLASH_KIND)
+
+
+def test_bazi_deep_uses_the_ten_pair_stem_table_p20():
+    """bazi_deep (natal interactions and the luck/year overlay) reads the same ten 干冲克 pairs as production (audit BZ-1)."""
+    from tvbt.bazi_deep import interact, temporal_deep
+    from tvbt.bazi_deep.model import ChartView
+    assert not hasattr(bazi, "STEM_CLASH_LEGACY4")
+    # 庚 year against 丙 hour: 庚丙冲 is one of the six pairs the old four-pair table lacked
+    v = ChartView.from_names("Canh Tý / Bính Dần / Mậu Ngọ / Bính Thìn")
+    kinds = {(tuple(r["pillars"]), r.get("subtype")) for r in interact.detect(v) if r["kind"] == "stem_clash"}
+    assert {(("year", "month"), "xung"), (("year", "hour"), "xung")} <= kinds
+    assert temporal_deep.STEM_CLASH is bazi.STEM_CLASH_KIND
 
 
 def test_branch_relations_p20():

@@ -6,7 +6,7 @@ import { timeline, findingList } from './ui.js';
 import { easyReadings } from './beginner.js';
 import { terms, autoLink } from './glossary.js';
 import { collapseWhenDash } from './dash.js';
-import { tier, evLegend, yearData, periodYears, centerIn, onPick } from './atlas.js';
+import { tier, evLegend, yearData, periodYears, luckFirstYear, luckIndexOn, centerIn, onPick } from './atlas.js';
 
 const ORDER = ['year', 'month', 'day', 'hour'];
 // the 30 nạp âm in cycle order, the same table as engine/tvbt/ganzhi.py NAP_AM_NAMES (index = cycle index // 2)
@@ -26,7 +26,7 @@ function menhBan(b, ctx) {
   const col = f => ORDER.map(k => `<td>${f(P[k], k)}</td>`).join('');
   const ch = (txt, el, big = false) => `<span class="mb-c h-${HK[el] || 'none'}${big ? ' mb-big' : ''}">${esc(txt)}</span>`;
   const lp = b.luck_pillars.slice(0, 10), birthY = req.year;
-  const cur = lp.reduce((a, l, i) => Math.floor(l.start_year_approx) <= now ? i : a, -1);
+  const cur = luckIndexOn(lp);                // by the exact start date, not the birth year + age (audit BZ-5)
   const yrs = Array.from({ length: 10 }, (_, i) => now - 3 + i);
   const gzY = y => `${STEMS[((y - 4) % 10 + 10) % 10].n} ${BRANCHES[((y - 4) % 12 + 12) % 12].n}`;
   const ex = b.extras || {};
@@ -48,7 +48,7 @@ function menhBan(b, ctx) {
     </tbody></table>
     <table class="mb-tab mb-luck"><tbody>
       <tr><th>Đại vận</th>${lp.map((l, i) => `<td class="${i === cur ? 'mb-now' : ''}">${two(l.name)}</td>`).join('')}</tr>
-      <tr class="mb-red"><th>Năm</th>${lp.map((l, i) => { const a = Math.round(l.start_age) + 1; return `<td class="${i === cur ? 'mb-now' : ''}">${a}-${a + 9}t<br>${Math.floor(l.start_year_approx)}</td>`; }).join('')}</tr>
+      <tr class="mb-red"><th>Năm</th>${lp.map((l, i) => { const a = Math.round(l.start_age) + 1; return `<td class="${i === cur ? 'mb-now' : ''}">${a}-${a + 9}t<br>${luckFirstYear(l.start_year_exact)}</td>`; }).join('')}</tr>
       <tr><th>Lưu niên</th>${yrs.map(y => `<td class="${y === now ? 'mb-now' : ''}">${two(gzY(y))}</td>`).join('')}</tr>
       <tr><th>Năm</th>${yrs.map(y => `<td class="${y === now ? 'mb-now' : ''}">${y}<br><span class="mb-red">${y - birthY + 1}t</span></td>`).join('')}</tr>
     </tbody></table>
@@ -63,13 +63,13 @@ const PH = { year: '年', month: '月', day: '日', hour: '時' };
 const plPair = s => String(s).split('-').map(x => PL[x] || x).join(' – ');
 const REL_TITLE = {
   stem_combine: 'Thiên can hợp', stem_clash: 'Thiên can xung', branch_six_combine: 'Địa chi lục hợp', branch_clash: 'Địa chi lục xung',
-  branch_harm: 'Địa chi lục hại', branch_destroy: 'Địa chi phá', branch_triad_complete: 'Tam hợp', branch_meeting_complete: 'Tam hội',
+  branch_harm: 'Địa chi lục hại', branch_destroy: 'Địa chi phá', branch_triad_complete: 'Tam hợp', branch_meeting_complete: 'Tam hội', branch_semi_triad: 'Bán hợp',
   branch_penalty: 'Hình', branch_self_penalty: 'Tự hình',
 };
 // Han marks for the relation badges (vocabulary only) and which lane (stems / branches) a relation belongs to.
 const REL_META = {
   stem_combine: ['合', 'can'], stem_clash: ['沖', 'can'], branch_six_combine: ['合', 'chi'], branch_clash: ['沖', 'chi'], branch_harm: ['害', 'chi'],
-  branch_destroy: ['破', 'chi'], branch_triad_complete: ['三合', 'chi'], branch_meeting_complete: ['三會', 'chi'], branch_penalty: ['刑', 'chi'], branch_self_penalty: ['自刑', 'chi'],
+  branch_destroy: ['破', 'chi'], branch_triad_complete: ['三合', 'chi'], branch_meeting_complete: ['三會', 'chi'], branch_semi_triad: ['半合', 'chi'], branch_penalty: ['刑', 'chi'], branch_self_penalty: ['自刑', 'chi'],
 };
 const YEAR_REL = { can_hợp: 'Thiên can hợp', can_xung: 'Thiên can xung', 'chi_lục hợp': 'Địa chi lục hợp', chi_xung: 'Địa chi xung', chi_hại: 'Địa chi hại', chi_phá: 'Địa chi phá', chi_hình: 'Địa chi hình', chi_tam_hợp: 'Địa chi tam hợp', chi_tam_hội: 'Địa chi tam hội' };
 const WITH = { year: 'trụ Năm', month: 'trụ Tháng', day: 'trụ Ngày', hour: 'trụ Giờ' };
@@ -102,9 +102,9 @@ export function renderBazi(host, b, ctx) {
   const godChips = TEN_GOD_GROUPS.filter(g => gods[g]).map(g => `<span class="chip">${g}<b>×${gods[g]}</b></span>`).join('') || '<span class="muted">—</span>';
   const now = new Date().getFullYear(), nowFrac = now + (new Date() - new Date(now, 0, 1)) / (365.25 * 864e5);
   const lp = b.luck_pillars;
-  const curIdx = lp.findIndex((l, i) => l.start_year_approx <= now && (!lp[i + 1] || now < lp[i + 1].start_year_approx));
+  const curIdx = luckIndexOn(lp);
   const tl = timeline(lp.map((l, i) => ({
-    title: `<span class="tl-han">${esc(l.name)}</span>`, sub: `${esc(l.ten_god)}`, meta: `${Math.round(l.start_age)} tuổi · ${Math.round(l.start_year_approx)}`,
+    title: `<span class="tl-han">${esc(l.name)}</span>`, sub: `${esc(l.ten_god)}`, meta: `${Math.round(l.start_age)} tuổi · ${luckFirstYear(l.start_year_exact)}`,
     el: EL[STEMS[l.stem].e].slug, current: i === curIdx,
   })), { label: 'Các đại vận Bát Tự' });
 
@@ -114,7 +114,7 @@ export function renderBazi(host, b, ctx) {
     ? rels.map(([k, v]) => `<div class="rel-g"><h5>${REL_TITLE[k] || k}</h5><ul class="rel">${v.map(it => relText(k, it)).join('')}</ul></div>`).join('') + '<p class="muted small">Chỉ là dữ kiện về quan hệ giữa các chữ; việc “hóa” hay “hợp mà không hóa” chưa được xét.</p>'
     : '<p class="muted">Không phát hiện quan hệ hợp, xung, hại, phá, hình nào giữa các trụ.</p>';
 
-  const nguyetLenh = `<p>Nguyệt lệnh là địa chi của tháng sinh (<b>${esc(mb.n)}</b>, hành ${mb.e}). Nhật Chủ ${esc(dmS.n)} ở trạng thái <b>${esc(month.stage_vs_day_master)}</b> tại tháng này.</p><p class="muted">Tháng Bát Tự đổi theo <i>tiết</i> trong 24 tiết khí chứ không theo mùng một âm lịch. Tiết gần nhất trước giờ sinh: <b>${new Date(b.jie_used.prev_jie_utc).toLocaleDateString('vi-VN', { timeZone: ctx.req.tz || 'Asia/Ho_Chi_Minh', day: 'numeric', month: 'numeric', year: 'numeric' })}</b>.</p>`;
+  const nguyetLenh = `<p>Nguyệt lệnh là địa chi của tháng sinh (<b>${esc(mb.n)}</b>, hành ${mb.e}). Nhật Chủ ${esc(dmS.n)} ở trạng thái <b>${esc(month.stage_vs_day_master)}</b> tại tháng này.</p><p class="muted">Tháng Bát Tự đổi theo <i>tiết</i> trong 24 tiết khí chứ không theo mùng một âm lịch. Tiết gần nhất trước giờ sinh: <b>${new Date(b.jie_used.prev_jie_utc).toLocaleDateString('vi-VN', { timeZone: ctx.req.tz === 'Asia/Hanoi' ? 'Asia/Bangkok' : ctx.req.tz || 'Asia/Ho_Chi_Minh', day: 'numeric', month: 'numeric', year: 'numeric' })}</b>.</p>`;
   const thapThan = `<div class="tg-rows">${ORDER.map(k => { const p = b.pillars[k]; return `<div><span class="k">${PL[k]}</span><b>${k === 'day' ? 'Nhật Chủ' : esc(p.stem_ten_god)}</b><span class="muted">can ${esc(STEMS[p.stem].n)}</span></div>`; }).join('')}</div>`;
   const tangCan = `<div class="tc-rows">${ORDER.map(k => { const p = b.pillars[k]; return `<div><h5>${PL[k]} · ${esc(BRANCHES[p.branch].n)}</h5>${p.hidden.map(h => `<div class="tc">${elChip(h.element)} <b>${esc(h.name)}</b> <span class="muted">${esc(h.ten_god)}</span></div>`).join('')}</div>`; }).join('')}</div>`;
   // Thấu can / thông căn: purely positional facts (is a visible stem's own character hidden in some branch, and vice versa).

@@ -56,8 +56,41 @@ def test_natal_extras(owner):
 
 def test_no_draft_premise_rules_reach_the_prose(owner):
     ids = [f["rule_id"] for x in owner["luck"] for f in x["findings"]]
-    assert ids and not any(i.endswith(("_CACH_CUC", "_PHU_UC")) for i in ids)
-    assert "BT_TTT_CAIDAU_DIEU_HAU" in ids
+    assert not any(i.endswith(("_CACH_CUC", "_PHU_UC")) for i in ids)
+    # S2: the cái đầu / tiệt cước rules need a luck stem the điều hậu cell names. The owner's cell (Đinh, tháng Sửu) names Giáp and Canh;
+    # Ất Mùi used to fire BT_TTT_CAIDAU_DIEU_HAU because Ất shares Giáp's ten-god group (Ấn). It no longer does.
+    ate = next(x for x in owner["luck"] if x["pillar"] == "Ất Mùi")
+    assert "BT_TTT_CAIDAU_DIEU_HAU" not in [f["rule_id"] for f in ate["findings"]] and ate["dieu_hau"]["stem"] is None
+
+
+def test_dieu_hau_role_is_by_the_stem_the_cell_names(owner):
+    """luck_role.yong only for the cell's chính stem (Giáp), xi for the other stem it names (Canh); Ất (same group as Giáp) gets nothing."""
+    by = {x["pillar"]: x["dieu_hau"] for x in owner["luck"]}
+    assert owner["dieu_hau"]["table"] == ["Giáp", "Canh"]
+    assert by["Giáp Ngọ"]["stem"] == "yong" and by["Canh Tý"]["stem"] == "xi" and by["Ất Mùi"]["stem"] is None
+    assert by["Bính Thân"]["branch"] == "xi"            # Thân's main qi is Canh
+
+
+def test_need_element_is_the_heat_index_not_the_table(owner):
+    """'cần Hỏa' comes from the system's cold/heat index (he_thong) and is voiced through the fired TTT hàn noãn rule; the table names stems."""
+    dh = owner["dieu_hau"]
+    assert dh["need"] == ["Hỏa"] and dh["need_src"] == "he_thong"
+    assert dh["need_rule"] == "BT_TTT_HANNOAN_CAN_NOAN" and dh["need_rule_element"] == "Hỏa"
+    assert "Hỏa" not in dh["table"] and all(len(x) <= 5 for x in dh["table"])
+
+
+def test_reconcile_one_verdict_per_luck_pillar(owner):
+    """Plan step 3: the cách table and the điều hậu table combined into one verdict per luck pillar (owner chart, hand-checked against the
+    tables: Thiên Tài cách, nhật chủ nhược, Tài largest → vận tốt Tỉ Kiếp, vận xấu Tài / Quan Sát / Thực Thương, TVH pp.378, 383; điều hậu
+    Đinh tháng Sửu → Giáp (chính), Canh, TVH pp.389-396)."""
+    v = {x["pillar"]: x["reconcile"] for x in owner["luck"]}
+    assert v["Canh Tý"]["agree"] == "khac" and v["Canh Tý"]["verdict"] == "co_dieu_kien"       # Tài (bad by cách) but Canh is a điều hậu stem
+    assert v["Kỷ Hợi"]["verdict"] == "nang" and [x["stem"] for x in v["Kỷ Hợi"]["support"]] == ["Giáp"]
+    assert v["Mậu Tuất"]["verdict"] == "nang" and [x["stem"] for x in v["Mậu Tuất"]["support"]] == ["Đinh"]
+    assert v["Giáp Ngọ"]["verdict"] == "thuan" and v["Giáp Ngọ"]["agree"] == "cung"
+    assert v["Đinh Dậu"]["agree"] == "tron"                                                  # Đinh good, Dậu (Tài) bad
+    mt = next(x for x in owner["luck"] if x["pillar"] == "Mậu Tuất")
+    assert [y["year"] for y in mt["good_years"]][:3] == [2024, 2026, 2027]                     # Giáp Thìn (Giáp), Bính Ngọ, Đinh Mùi (Tỉ Kiếp)
 
 
 def test_shensha_stem_named_in_vietnamese():

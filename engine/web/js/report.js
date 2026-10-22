@@ -322,6 +322,15 @@ const highlightsHtml = (fs, chTitle, chOf, extra) => {
   return `<h5>Điểm nổi bật</h5><p class="hl-sum"><b>${ver.length}</b> nhận định được kích hoạt từ quy tắc đã đối chiếu sách.</p>${top.length ? `<ul class="hl-list">${top.map(f => `<li><button type="button" data-jump="${chOf(f)}"><span class="k">${chTitle[chOf(f)] || ''}</span><span>${esc(claimLabel(f.claim))}</span></button></li>`).join('')}</ul>` : ''}${extra || ''}`;
 };
 
+// Part 6 of the Bát Tự chapter frame (plan quirky-tinkering-rabin step 4): the books and pages a chapter's sentences rest on, listed once in
+// its "Căn cứ" fold, never in the text. TVH = Thiệu Vĩ Hoa, Dự Đoán Theo Tứ Trụ; TTT = Trích Thiên Tủy; ZZ = 八字真宗 (Bát Tự Chân Tông).
+const BT_BOOK = { TVH: 'Thiệu Vĩ Hoa, Dự Đoán Theo Tứ Trụ', TTT: 'Trích Thiên Tủy', ZZ: 'Bát Tự Chân Tông' };
+const btCite = c => String(c).replace(/^(TVH|TTT|ZZ)\b\s*(?:PDF\s*)?(pp?\.\s*)?/, (_, b, pg) => `${BT_BOOK[b] || b}${pg ? ' tr.' : ' '}`).trim();
+function btSources(paras, rules) {
+  const cs = [...new Set(paras.flatMap(p => p.sentences.flatMap(s => [...(s.trace.cites || []), ...(s.trace.rules || []).flatMap(id => rules?.[id]?.cites || [])])))].filter(Boolean);
+  return cs.length ? `<h5>Nguồn của phần luận giải</h5><ul class="pr-rules">${cs.map(c => `<li>${esc(btCite(c))}</li>`).join('')}</ul>` : '';
+}
+
 export function renderBaziReport(host, chart, ctx, parts) {
   const b = chart.bazi, t = chart.tuvi, { blocks, calc, trad, deep } = shell(ctx);
   const dm = STEMS[b.pillars.day.stem], month = b.pillars.month, mb = BRANCHES[month.branch];
@@ -366,6 +375,7 @@ export function renderBaziReport(host, chart, ctx, parts) {
       html[id] = proseHtml(btBy[key]);
       const c = chapters.find(x => x.id === host);
       c.btProse = (c.btProse || '') + html[id];
+      c.trad = (c.trad || '') + btSources(paras, bp.evidence?.rules);
     }
     for (const c of chapters) if (c.btProse) { c.synth = c.btProse + (c.synth || ''); delete c.btProse; }
   } else if (bp?.paragraphs?.length && nc) { btBy.bat_tu = bp; nc.synth = proseHtml(bp) + (nc.synth || ''); }

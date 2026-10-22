@@ -16,6 +16,7 @@
    "bz.elements",
    "bz.stem_clash.day-day.stem",
    "bz.stem_clash.hour-hour.stem",
+   "bz.stem_clash.year-day.stem",
    "bz.stem_combine.month-day.stem",
    "bz.stem_same.day-year.stem",
    "bz.stem_same.month-hour.stem",
@@ -42,7 +43,7 @@
    "tv.place.b"
   ],
   "tiers": {
-   "direct": 32,
+   "direct": 33,
    "support": 0,
    "limit": 0,
    "insufficient": 7
@@ -74,6 +75,8 @@
    "bz.stem_clash.day-day.stem",
    "bz.stem_clash.day-month.stem",
    "bz.stem_clash.month-year.stem",
+   "bz.stem_clash.year-day.stem",
+   "bz.stem_clash.year-month.stem",
    "bz.stem_combine.month-day.stem",
    "bz.stem_combine.month-month.stem",
    "bz.stem_combine.year-year.stem",
@@ -102,7 +105,7 @@
    "tv.place.b"
   ],
   "tiers": {
-   "direct": 31,
+   "direct": 33,
    "support": 0,
    "limit": 0,
    "insufficient": 7
@@ -208,6 +211,8 @@
    "bz.branch_six_combine.day-hour.branch",
    "bz.branch_six_combine.year-hour.branch",
    "bz.elements",
+   "bz.stem_clash.month-hour.stem",
+   "bz.stem_clash.month-month.stem",
    "bz.stem_clash.year-year.stem",
    "bz.stem_combine.day-hour.stem",
    "bz.stem_combine.day-month.stem",
@@ -236,7 +241,7 @@
    "tv.place.b"
   ],
   "tiers": {
-   "direct": 39,
+   "direct": 41,
    "support": 0,
    "limit": 0,
    "insufficient": 8

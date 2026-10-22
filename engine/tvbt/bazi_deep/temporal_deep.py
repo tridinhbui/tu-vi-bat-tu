@@ -7,7 +7,8 @@ from __future__ import annotations
 
 import copy
 
-from ..bazi import (DESTROY, HARM, HIDDEN_STEMS, MEETING, PENALTY_PAIR, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_LEGACY4 as STEM_CLASH, STEM_COMBINE, TRIAD)
+from .interact import CALIBRATED_STEM_CLASH
+from ..bazi import (DESTROY, HARM, HIDDEN_STEMS, MEETING, PENALTY_PAIR, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_KIND as STEM_CLASH, STEM_COMBINE, TRIAD)
 from ..ganzhi import BRANCHES_VI, BRANCH_ELEMENT, STEM_ELEMENT, STEMS_VI, controls, generates, gz_name, tiger_month_stem
 from . import geju, interact, patterns, strength, yongshen
 from .model import PILLARS, ChartView, group_of
@@ -59,8 +60,9 @@ def overlay(view: ChartView, profile: SchoolProfile, R, pillars: list[dict]):
                     hit(p, f"{p}.stem", profile.bound_mult, f"{lab} hợp {p}")
                 tmult[cs] = tmult.get(cs, 1.0) * profile.bound_mult
             if frozenset((ts, ns)) in STEM_CLASH:
-                ev("stem_clash", lab, f"{p}.stem", "xung_ke")
-                if p != "day":
+                calibrated = frozenset((ts, ns)) in CALIBRATED_STEM_CLASH
+                ev("stem_clash", lab, f"{p}.stem", "xung_ke" if calibrated else "ghi_nhan", subtype=STEM_CLASH[frozenset((ts, ns))])
+                if p != "day" and calibrated:
                     hit(p, f"{p}.stem", profile.stem_clash_adj, f"{lab} xung {p}")
             if ts == ns and tb == nb:
                 ev("phuc_ngam", lab, p, "phuc_ngam")
@@ -102,7 +104,7 @@ def overlay(view: ChartView, profile: SchoolProfile, R, pillars: list[dict]):
                             if not cur or cur[1] < share:
                                 R2.shifts[f"{natal_b[o]}.branch"] = (el, share)
         for el, tri in TRIAD.items():
-            if tb in tri and tb not in ():
+            if tb in tri:
                 idx = tri.index(tb)
                 for j in range(3):
                     if j != idx and tri[j] in natal_b and (idx, j) in ((0, 1), (1, 0), (1, 2), (2, 1)) and cb not in tshift:
@@ -176,6 +178,12 @@ def _roles(view: ChartView, Y: dict, T: dict) -> dict:
     for name, m in Y["methods"].items():
         flat = yongshen._flat(m)
         out[name] = {"stem_group": sg, "stem_role": flat.get(sg), "branch_group": bg, "branch_role": flat.get(bg), "status": m["status"]}
+        if name == "dieu_hau" and (m.get("table") or {}).get("yong_stems"):
+            # the điều hậu cell names STEMS (TVH pp.389-396): a luck stem plays its role only when it is one of them, not when it merely shares
+            # a ten-god group with one (Ất is not Giáp). The TTT 歲運 rules keyed on this role (cái đầu, tiệt cước) read it from here (S2).
+            names = [x["stem"] for x in m["table"]["yong_stems"]]
+            role = lambda st: None if STEMS_VI[st] not in names else "yong" if STEMS_VI[st] == names[0] else "xi"
+            out[name].update({"stem_role": role(T["stem"]), "branch_role": role(HIDDEN_STEMS[T["branch"]][0]), "by": "stem_name"})
     return out
 
 

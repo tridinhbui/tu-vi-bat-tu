@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from itertools import product
 
 from ..bazi import (DESTROY, HARM, MEETING, PENALTY_PAIR, PENALTY_TRIPLES, SELF_PENALTY, SIX_CLASH, SIX_COMBINE,
-                    STEM_CLASH_LEGACY4 as STEM_CLASH, STEM_COMBINE, TRIAD)
+                    STEM_CLASH_KIND, STEM_COMBINE, TRIAD)
 from ..ganzhi import BRANCHES_VI, BRANCH_ELEMENT, STEM_ELEMENT, STEMS_VI, controls
 from .model import PIL_VI, PILLARS, ChartView
 from .position import KHO, root_grade, roots
@@ -16,6 +16,9 @@ from .profile import DEFAULT, SchoolProfile
 from .season import season_states
 
 PAIR_TABLES = [("branch_six_combine", SIX_COMBINE), ("branch_clash", SIX_CLASH), ("branch_harm", HARM), ("branch_destroy", DESTROY)]
+# The draft clash multipliers (profile.stem_clash_adj / _far) were calibrated on these four 冲 pairs only. The other six pairs of 八字真宗 p.20
+# are detected and reported, but no page gives their effect size, so they are recorded without one (status "ghi_nhan"; audit BZ-1).
+CALIBRATED_STEM_CLASH = {frozenset((0, 6)), frozenset((1, 7)), frozenset((2, 8)), frozenset((3, 9))}
 SEMI_KIND = {(0, 1): "sinh_vuong", (1, 2): "vuong_mo", (0, 2): "cung"}   # indexes into TRIAD tuples (sinh, vượng, mộ)
 
 
@@ -46,8 +49,8 @@ def detect(view: ChartView) -> list[dict]:
             ps = frozenset((view.stem(a), view.stem(b)))
             if ps in STEM_COMBINE:
                 add("stem_combine", [_cid(a, "stem"), _cid(b, "stem")], [a, b], element=STEM_COMBINE[ps])
-            if ps in STEM_CLASH:
-                add("stem_clash", [_cid(a, "stem"), _cid(b, "stem")], [a, b])
+            if ps in STEM_CLASH_KIND:             # the ten 干冲克 pairs of 八字真宗 p.20, subtype as printed (冲 or 克; audit BZ-1)
+                add("stem_clash", [_cid(a, "stem"), _cid(b, "stem")], [a, b], subtype=STEM_CLASH_KIND[ps])
             pb = frozenset((view.branch(a), view.branch(b)))
             for kind, tbl in PAIR_TABLES:
                 if pb in tbl:
@@ -250,6 +253,10 @@ def _stage_clash(view, profile, R, states, mul):
     cuc_of = {m: u for u in R.cuc for m in u["members"]}
     luhe = [r for r in _by_kind(R, "branch_six_combine") if r.get("status") == "formed"]
     for r in _by_kind(R, "stem_clash"):
+        if frozenset(view.stem(p) for p in r["pillars"]) not in CALIBRATED_STEM_CLASH:
+            r["status"] = "ghi_nhan"
+            r["note"] = "cặp có trong bảng 干冲克 tr.20 nhưng chưa có hệ số tác động"
+            continue
         f = profile.stem_clash_adj if r["adjacent"] else profile.stem_clash_far
         r["status"] = "xung_ke" if r["adjacent"] else "xung_xa"
         for m in r["members"]:
@@ -258,7 +265,7 @@ def _stage_clash(view, profile, R, states, mul):
         m1, m2 = r["members"]
         p1, p2 = r["pillars"]
         for p in r["pillars"]:
-            if view.branch(p) in KHO and (r["adjacent"] or True):
+            if view.branch(p) in KHO:                 # a clash opens the khố at any distance (audit BZ-23: was `adjacent or True`)
                 R.opened.add(p)
         hits = [(m, cuc_of[m]) for m in r["members"] if m in cuc_of]
         if len(hits) == 1:

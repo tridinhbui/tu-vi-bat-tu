@@ -1,4 +1,5 @@
 import datetime as dt
+import math
 
 import pytest
 
@@ -63,11 +64,28 @@ def test_luck_boundary_flag_in_the_year_it_happens():
 
 
 def test_old_integer_age_test_would_have_picked_a_different_luck_for_some_years():
-    nb, bz = chart(1990, 12, 15)
+    nb, bz = chart(2002, 1, 9)            # early-January birth, luck starts in March: the integer age is a year early for every pillar
     diffs = 0
-    for y in range(1990, 2060):
-        age = y - 1990
+    for y in range(2002, 2072):
+        age = y - 2002
         old = next((lp.name for lp in bz.luck_pillars if lp.start_age <= age < lp.start_age + 10), None)
-        new = temporal.bazi_year(bz, 1990, y)["luck_pillar"]
+        new = temporal.bazi_year(bz, 2002, y)["luck_pillar"]
         diffs += old != new
     assert diffs >= 1          # this is the bug the exact start date fixes
+
+
+def test_a_year_gets_the_luck_in_force_for_most_of_it_and_the_rule_is_shared():
+    """BZ-6: one rule for the backend, the prose facts and the page (atlas.js luckFirstYear): the Bát Tự year Y (Lập Xuân ≈ Y + 0.09 to
+    Y + 1.09) belongs to the luck pillar in force at its middle. A luck starting on 20 March 2003 holds the year 2003; one starting on
+    23 December 2026 does not hold 2026, and that year carries the change flag."""
+    from tvbt.bazi import LICHUN_FRAC, luck_first_year
+    for y, m, d in [(2002, 1, 9), (1990, 12, 15), (1985, 10, 30), (1991, 11, 25)]:
+        nb, bz = chart(y, m, d)
+        for lp in bz.luck_pillars[:6]:
+            fy = luck_first_year(lp.start_year_exact)
+            assert temporal.bazi_year(bz, y, fy)["luck_pillar"] == lp.name
+            assert temporal.bazi_year(bz, y, fy - 1)["luck_pillar"] != lp.name
+            holder = math.floor(lp.start_year_exact - LICHUN_FRAC)        # the Bát Tự year the start date falls in
+            assert temporal.bazi_year(bz, y, holder)["luck_changes_within_year"] and holder in (fy - 1, fy)
+    assert luck_first_year(decimal_year(dt.date(2003, 3, 20))) == 2003
+    assert luck_first_year(decimal_year(dt.date(2026, 12, 23))) == 2027

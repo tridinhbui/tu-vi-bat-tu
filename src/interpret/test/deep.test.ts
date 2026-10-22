@@ -66,6 +66,8 @@ test('the user\'s chart: đại hạn read with Khảo Luận and the nhập h�
   const b = proseBazi(user, K, seedOf(user), PROSE_VERSION, true);
   assert.ok(b.pass, JSON.stringify(b.issues));
   for (const id of ['nhat-chu', 'cach-cuc', 'ngu-hanh', 'su-nghiep', 'quan-he', 'dai-van'] as const) assert.ok(b.chapters[id]?.length, id);
-  assert.ok(b.chapters['nhat-chu']!.flatMap(p => p.sentences).some(s => s.trace.rules.includes('BT_TVH_BIEN')), 'own share 38 % against 40 %: the border rule');
+  // own share 38 % against 40 %: the book's rule decides (TVH p.355 calls 39.6 % "hơi nhược"); the system's ±3 % band is only the note (S2, BZ-9/10)
+  const near = b.chapters['nhat-chu']!.flatMap(p => p.sentences).find(s => /hơi nhược/.test(s.text));
+  assert.ok(near && /không phải của sách/.test(near.trace.note ?? ''), 'near the line: "hơi nhược", with the band as a note');
   assert.ok(b.chapters['dai-van']!.length >= 6, 'one paragraph per luck pillar');
 });

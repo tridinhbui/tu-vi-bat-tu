@@ -1,7 +1,7 @@
 // "Thông tin cá nhân" (account page): name, gender, birth date (dương or âm lịch), birth hour, place, career and relationship status,
 // stored in the signed-in account (/api/me/profile). It prefills the chart form and orders the reading's chapters (focus.js); it never
 // adds a claim. Signed out, nothing here is shown or stored.
-import { $, $$, esc, post } from './util.js';
+import { $, $$, esc, post, placeTz } from './util.js';
 import { api, session } from './account.js';
 import { CAREER, RELATIONSHIP, focusOf } from './focus.js';
 
@@ -59,7 +59,7 @@ export function initProfile(host, { placeOptions, onPrefill, onRun }) {
   const read = () => {
     const [h, m] = (f.time.value || '12:00').split(':').map(Number);
     return { name: f.name.value, gender: f.gender.value || '', cal: lunar ? 'lunar' : 'solar', year: +f.year.value, month: +f.month.value, day: +f.day.value, leap: lunar && f.leap.checked,
-      hour: f.nohour.checked ? null : h, minute: f.nohour.checked ? 0 : m, place: f.place.value, tz: f.place.value === '__other' ? '' : 'Asia/Ho_Chi_Minh',
+      hour: f.nohour.checked ? null : h, minute: f.nohour.checked ? 0 : m, place: f.place.value, tz: f.place.value === '__other' ? '' : placeTz(f.place.value),
       career: f.career.value, relationship: f.relationship.value };
   };
 
