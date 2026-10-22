@@ -325,9 +325,9 @@ export function renderBaziReport(host, chart, ctx, parts) {
       calc: calc(parts.relations), trad: '' },
     { id: 'dai-van', title: 'Đại vận & lưu niên', lead: `Đại vận ${esc(b.luck_direction)}; hiện ở ${ph.luck ? `đại vận ${esc(ph.luck.name)} (${esc(ph.luck.ten_god)})` : 'giai đoạn chưa khởi vận'}.`, blocks: blocks('bt', 'dai-van'),
       calc: calc(`<h5>Các đại vận</h5>${parts.luck}<h5>Lưu niên và lưu nguyệt</h5><div id="bt-year"></div>`), trad: '' },
-    { id: 'cach-cuc', title: 'Cách cục & Dụng thần', lead: 'Phân loại cấu trúc và hành cần cân bằng của lá số.',
-      calc: '', trad: trad(of('cach-cuc'), 'Không có cách cục nào được nhận ra.', 'bt:cach-cuc') },
-    { id: 'chuyen-sau', pro: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('bat_tu', 'Bát Tự', { normalization: ctx.chartRaw.normalization_trace.steps, bazi: b.trace.steps }), trad: '' },
+    // the engine's full finding list and calculation trace sit in this chapter's "Căn cứ" fold, out of the reading
+    { id: 'cach-cuc', title: 'Cách cục & Dụng thần', lead: 'Cách lập từ nguyệt lệnh, dụng thần theo bảng của Thiệu Vĩ Hoa, điều hậu và thần sát.',
+      calc: `<div class="pro-only">${deep('bat_tu', 'Bát Tự', { normalization: ctx.chartRaw.normalization_trace.steps, bazi: b.trace.steps })}</div>`, trad: trad(of('cach-cuc'), 'Không có cách cục nào được nhận ra.', 'bt:cach-cuc') },
   ];
   const evBt = ctx.interp?.report?.chapters?.find(c => c.id === 'bat_tu');
   if (evBt) { const cc = chapters.find(c => c.id === 'cach-cuc'); if (cc) cc.synth = evHtml([evBt]) + (cc.synth || ''); }
@@ -335,12 +335,19 @@ export function renderBaziReport(host, chart, ctx, parts) {
   const bp = ctx.prose?.bat_tu, nc = chapters.find(x => x.id === 'nhat-chu');
   // the Bát Tự reading, split by chapter (prose/bazi.ts `chapters`); an older response without the split still goes to Nhật Chủ whole
   const btBy = {};
+  // lưu niên and the closing over the timeline (prose/bazi_deep.ts) follow the đại vận reading in the đại vận chapter, each under its own title
+  const BT_HOST = { 'luu-nien': 'dai-van', 'tong-ket': 'dai-van' }, BT_TITLE = { 'luu-nien': 'Luận giải lưu niên', 'tong-ket': 'Tổng kết theo trục thời gian' };
   if (bp?.chapters && Object.keys(bp.chapters).length) {
-    for (const [id, paras] of Object.entries(bp.chapters)) {
-      const c = chapters.find(x => x.id === id); if (!c || !paras?.length) continue;
-      const key = 'bat_tu:' + id; btBy[key] = { ...bp, chapter: key, paragraphs: paras, evidence: { ...bp.evidence, limits: id === 'nhat-chu' ? bp.evidence.limits : [] } };
-      c.synth = proseHtml(btBy[key]) + (c.synth || '');
+    const html = {};
+    for (const id of ['nhat-chu', 'ngu-hanh', 'su-nghiep', 'quan-he', 'dai-van', 'cach-cuc', 'luu-nien', 'tong-ket', ...Object.keys(bp.chapters)]) {
+      const paras = bp.chapters[id], host = BT_HOST[id] || id;
+      if (!paras?.length || html[id] != null || !chapters.some(x => x.id === host)) continue;
+      const key = 'bat_tu:' + id; btBy[key] = { ...bp, chapter: key, paragraphs: paras, ...(BT_TITLE[id] ? { title: BT_TITLE[id] } : {}), evidence: { ...bp.evidence, limits: id === 'nhat-chu' ? bp.evidence.limits : [] } };
+      html[id] = proseHtml(btBy[key]);
+      const c = chapters.find(x => x.id === host);
+      c.btProse = (c.btProse || '') + html[id];
     }
+    for (const c of chapters) if (c.btProse) { c.synth = c.btProse + (c.synth || ''); delete c.btProse; }
   } else if (bp?.paragraphs?.length && nc) { btBy.bat_tu = bp; nc.synth = proseHtml(bp) + (nc.synth || ''); }
   mount(host, chapters, 'bt', ctx);
   if (Object.keys(btBy).length) bindProse(host, btBy);
