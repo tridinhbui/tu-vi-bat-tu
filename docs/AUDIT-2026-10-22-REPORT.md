@@ -138,3 +138,5 @@ Phần còn lại BLOCKED. Các luật Cơ–Âm ở Quan Lộc (KL tr.80, TT tr
 
 Chạy lại sau khi đổi luật: `refire_fixtures.py`, `base_rates.ts`, `index_norms.ts`, `build.ts`, `build_site.py`, goldens.
 
+
+Kết quả test trên cây đã gộp `origin/main` (`d9bdc15`): `tsc` sạch · `node --test src/interpret/test/*.test.ts` **220 pass, 0 fail** · `npm run test:auth` **88 pass, 0 fail** · `cd engine && pytest -q` **1.767 passed**, 2 skipped, 2 xfailed.
