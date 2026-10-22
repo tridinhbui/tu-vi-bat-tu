@@ -1,15 +1,20 @@
-// "Tổng quan lá số" (docs/PRODUCT-PLAN.md 1.5): the reasoner's frame and theses for Mệnh and four charts of SYSTEM INDICES from
-// POST /api/overview (src/interpret/overview.ts, indices.ts). Plain SVG, drawn at the host's real width (re-drawn on resize) so text keeps its
-// size on phones. Every chart says in words that an index is a weighted count of book rules, not a probability; clicking a mark lists the
-// rules behind it. No calculation lives here: the numbers come from the server as they are.
+// "Tổng quan lá số" (docs/PRODUCT-PLAN.md 1.5): the reasoner's frame and theses for Mệnh, and four charts from POST /api/overview
+// (src/interpret/overview.ts, indices.ts). The period charts (đại vận, years, months) show one of five levels per period — how the period
+// activates the whole chart, against 1,000 sample charts — with two to four plain sentences; rule ids, weights and formulas stay in the
+// "Căn cứ" fold. The radar shows the natal quality of each palace only. Plain SVG, drawn at the host's real width (re-drawn on resize) so
+// text keeps its size on phones. No calculation lives here: levels, sentences and numbers come from the server as they are.
 import { esc } from './util.js';
 
 const SIDE = { support: 'Mức thuận lợi', limit: 'Mức thử thách' };
-const LAYER = { ban_menh: 'Bản mệnh (cung và tam phương)', van: 'Câu sách về cung vận', luu_thai_tue: 'Lưu Thái Tuế', luu_tu_hoa: 'Lưu Tứ Hóa (thông lệ)' };
-const BASIS = { sach: 'sách', sach_dien_giai: 'sách, diễn ý', thong_le: 'thông lệ' };
-const SCOPE = { self: 'chính cung', opp: 'xung chiếu', trine: 'tam hợp' };
+const LAYER = { ban_menh: 'Bản mệnh (cung và tam phương)', hoa_van: 'Tứ Hóa theo can đại vận', van: 'Câu sách về cung vận', nen: 'Nền bẩm sinh của cung',
+  vung: 'Độ vững của cả lá số', dai_van: 'Đại vận đang đi', tieu_han: 'Câu sách về cung tiểu hạn', luu_thai_tue: 'Cung lưu Thái Tuế',
+  luu_sao: 'Sao lưu (KL tr.41-42)', luu_tu_hoa: 'Lưu Tứ Hóa', nam: 'Mức của năm', nguyet: 'Cung nguyệt hạn' };
+const METHOD = { thang: 'Thang năm mức', dai_van: 'Đại vận', nam: 'Từng năm', thang_am: 'Từng tháng', ban_menh: 'Mười hai cung', bat_tu: 'Dải Bát Tự' };
+const BASIS = { sach: 'sách', sach_dien_giai: 'sách, diễn ý', thong_le: 'thông lệ', nhap: 'thử nghiệm', tinh_toan: 'tính toán' };
+const SCOPE = { self: 'chính cung', opp: 'xung chiếu', trine: 'tam hợp', menh: 'Mệnh' };
 /** a claim's verdict said in words after its sentence, not as a badge */
 const VERDICT = { affirmed: '', qualified: 'Điều này có giới hạn.', contested: 'Lá số cũng có chiều ngược lại ở điểm này.' };
+const LEVELS = ['Rất thử thách', 'Nhiều thử thách', 'Trung bình', 'Thuận', 'Rất thuận'];
 const CHAPTERS = [['ban-menh', 'Bản Mệnh'], ['tinh-cach', 'Tính cách'], ['cong-danh', 'Công danh'], ['tai-bach', 'Tài Bạch'], ['quan-he', 'Quan hệ'],
   ['dai-han', 'Đại hạn & lưu niên'], ['cach-cuc', 'Cách cục'], ['muoi-hai-cung', 'Mười hai cung']];
 const NS = 'http://www.w3.org/2000/svg';
@@ -17,30 +22,32 @@ const fmt = x => (Math.round(x * 100) / 100).toLocaleString('vi-VN', { maximumFr
 const niceMax = v => { const s = [0.5, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 15, 20]; return s.find(x => x >= v) ?? Math.ceil(v); };
 
 export function overviewHtml(o, prose = null) {
+  const I = o.indices, lv = I.levels || LEVELS;
   return `<div class="ov">
-    <p class="ov-disc" role="note"><b>Chỉ số tổng hợp từ quy tắc sách, không phải xác suất hay dự báo.</b> Mỗi cột, mỗi điểm là tổng có trọng số của các câu sách đã đối chiếu bắn vào một cung; bấm vào để xem từng quy tắc và trang sách.</p>
+    <p class="ov-disc" role="note"><b>Mỗi chặng, mỗi năm được xếp vào một trong năm mức</b> (${lv.slice().reverse().map(esc).join(' · ')}), so với 1.000 lá số mẫu. Đây là mức tổng hợp từ câu sách và thông lệ có ghi nhãn, không phải xác suất hay dự báo; bấm một cột để đọc vì sao.</p>
     ${frameHtml(o, prose?.menh)}
     <div class="ov-grid">
-      ${card('dv', 'Xu hướng đại vận', 'Mười chặng đại vận. Mỗi chặng: chỉ số bản mệnh của cung đại vận (so với mức thường gặp) cộng các câu sách về cung vận.')}
-      ${card('tv', 'Tiểu vận từng năm', `Mười năm trước và sau năm ${o.indices.year}: cung tiểu hạn, nửa trọng số cung lưu Thái Tuế, và lưu Tứ Hóa (thông lệ, trọng số thấp).`)}
-      ${card('rd', 'Mười hai cung', 'Mỗi cung cùng tam phương của nó, so với mức trung bình của chính cung đó trên 1.000 lá số mẫu. Vòng tròn đậm là mức thường gặp (1).')}
-      ${o.indices.months ? card('nv', `Nguyệt vận năm ${o.indices.months.year}`, 'Cung của từng tháng theo nguyệt hạn (Thực Hành tr.115); mức của tháng là chỉ số bản mệnh của cung đó. Không có “nhật vận”.') : ''}
+      ${card('dv', 'Xu hướng đại vận', 'Mười chặng, mỗi chặng mười năm: chặng ấy đánh thức lá số ra sao — Tứ Hóa theo can của chặng, lời sách về cung vận, trên nền cung vận và độ vững của cả lá số. Đường ngang giữa là mức thường gặp; cột lên là thuận hơn, cột xuống là nhiều thử thách hơn.', lv)}
+      ${card('tv', 'Tiểu vận từng năm', `Mười năm trước và sau năm ${I.year}: đại vận đang đi, cung tiểu hạn, sao lưu và lưu Tứ Hóa (thông lệ).`, lv)}
+      ${card('rd', 'Mười hai cung (bẩm sinh)', 'Chất lượng bẩm sinh của từng cung cùng tam phương, so với mức thường gặp (vòng tròn đậm). Không đổi theo thời gian.')}
+      ${I.months ? card('nv', `Nguyệt vận năm ${I.months.year}`, 'Mức của năm, nhích nhẹ theo cung của từng tháng (vị trí theo Thực Hành tr.115). Không có “nhật vận”.', lv) : ''}
     </div>
-    <details class="ov-method"><summary>Cách tính chỉ số</summary><ul>${Object.entries(o.indices.method).map(([k, v]) => `<li><b>${esc(LAYER[k] || (k === 'nguyet' ? 'Nguyệt vận' : k))}:</b> ${esc(v)}.</li>`).join('')}
-      ${o.indices.norms ? `<li>Mức thường gặp: ${o.indices.norms.charts} lá số mẫu (${esc(o.indices.norms.corpus)}, bộ mẫu phân tầng, không phải dân số thật).</li>` : ''}
-      <li>Phiên bản ${esc(o.indices.version)}, tri thức ${esc(o.kbVersion)}. Cùng ngày giờ sinh luôn cho cùng con số.</li></ul></details>
+    <details class="ov-method"><summary>Cách tính</summary><ul>${Object.entries(I.method).map(([k, v]) => `<li><b>${esc(METHOD[k] || LAYER[k] || k)}:</b> ${esc(v)}.</li>`).join('')}
+      ${I.norms ? `<li>Mức thường gặp: ${I.norms.charts} lá số mẫu (${esc(I.norms.corpus)}, bộ mẫu phân tầng, không phải dân số thật).</li>` : ''}
+      <li>Phiên bản ${esc(I.version)}, tri thức ${esc(o.kbVersion)}. Cùng ngày giờ sinh luôn cho cùng kết quả.</li></ul></details>
     <nav class="ov-ch" aria-label="Đọc từng chương"><p class="eyebrow">Đọc tiếp từng chương</p>${CHAPTERS.map(([id, t]) => `<button type="button" class="ov-chip" data-ov-ch="${id}">${t}</button>`).join('')}</nav>
   </div>`;
 }
 
-function card(id, title, sub) {
+function card(id, title, sub, levels) {
   return `<section class="ov-card" data-chart="${id}" aria-labelledby="ov-${id}-h"><header><h3 id="ov-${id}-h">${title}</h3><p>${sub}</p></header>
-    ${legend(id)}<div class="ov-plot" data-plot="${id}"></div>
-    <p class="ov-cap">Chỉ số tổng hợp từ quy tắc sách, không phải xác suất hay dự báo.</p>
-    <div class="ov-why" data-why="${id}" aria-live="polite"><p class="ov-hint">Bấm vào ${id === 'rd' ? 'tên một cung' : id === 'tv' ? 'một năm' : 'một cột'} để xem các quy tắc phía sau.</p></div>
-    <details class="ov-tbl"><summary>Xem bảng số</summary><div data-table="${id}"></div></details></section>`;
+    ${levels ? levelLegend(levels) : legend()}<div class="ov-plot" data-plot="${id}"></div>
+    ${id === 'dv' ? '<div class="ov-bz" data-bz></div>' : ''}
+    <div class="ov-why" data-why="${id}" aria-live="polite"><p class="ov-hint">Bấm vào ${id === 'rd' ? 'tên một cung' : id === 'tv' ? 'một năm' : id === 'nv' ? 'một tháng' : 'một chặng'} để đọc vì sao.</p></div>
+    <details class="ov-tbl"><summary>Xem bảng</summary><div data-table="${id}"></div></details></section>`;
 }
-const legend = id => `<p class="ov-leg"><span><i class="sw sw-s${id === 'tv' || id === 'rd' ? ' sw-line' : ''}"></i>${SIDE.support}</span><span><i class="sw sw-l${id === 'tv' || id === 'rd' ? ' sw-line sw-dash' : ''}"></i>${SIDE.limit}</span></p>`;
+const legend = () => `<p class="ov-leg"><span><i class="sw sw-s sw-line"></i>${SIDE.support}</span><span><i class="sw sw-l sw-line sw-dash"></i>${SIDE.limit}</span></p>`;
+const levelLegend = lv => `<p class="ov-leg ov-leg-lv">${lv.map((t, i) => `<span><i class="sw ov-lv-bg-${i}"></i>${esc(t)}</span>`).slice().reverse().join('')}</p>`;
 
 /** The reading's own words for a thesis claim: the sentence the Mệnh chapter (prose.menh, luận cung) argued it with — its full form when it
  *  leans on the sentence before ("Cùng thế ấy, …"), without the paragraph's lead-in or an opening connective; null when the chapter has none. */
@@ -74,88 +81,102 @@ function frameHtml(o, menh) {
 }
 const cap = s => s ? s[0].toUpperCase() + s.slice(1) : s;
 
-// ---------- the "why" panel ----------
-function whyHtml(title, s) {
-  const items = side => s.items.filter(i => i.side === side).sort((a, b) => b.w - a.w);
-  const list = side => { const xs = items(side); return xs.length ? `<ul>${xs.map(i => `<li><p>${esc(i.text)}</p><p class="ov-src"><code>${esc(i.id)}</code> · ${esc(i.cite)} · ${LAYER[i.layer]}${i.layer === 'ban_menh' ? `, ${esc(i.palace)} (${SCOPE[i.scope]})` : ''} · <span class="ov-tag ov-b-${i.basis}">${BASIS[i.basis]}</span> · trọng số ${fmt(i.w)}</p></li>`).join('')}</ul>` : '<p class="ov-none">Không có quy tắc nào.</p>'; };
-  return `<h4>${title}</h4><p class="ov-vals"><span class="v-s">${SIDE.support}: <b>${fmt(s.support)}</b></span><span class="v-l">${SIDE.limit}: <b>${fmt(s.limit)}</b></span></p>
-    <ul class="ov-parts">${s.parts.map(p => `<li><b>${LAYER[p.layer]}</b>: +${fmt(p.support)} / +${fmt(p.limit)} <small>(${esc(p.note)})</small></li>`).join('')}</ul>
+// ---------- the "why" panels ----------
+const basisTag = b => `<span class="ov-tag ov-b-${b}">${BASIS[b] || b}</span>`;
+function itemsList(items) {
+  return items.length ? `<ul class="ov-items">${items.slice().sort((a, b) => b.w - a.w).map(i => `<li><p>${esc(i.text)}</p><p class="ov-src"><code>${esc(i.id)}</code> · ${esc(i.cite)} · ${SCOPE[i.scope] || ''} · ${basisTag(i.basis)} · trọng số ${fmt(i.w)}${i.side === 'limit' ? ' · bên bất lợi' : ' · bên thuận'}</p></li>`).join('')}</ul>` : '';
+}
+/** A period (decade, year, month): its level, its sentences, and everything else folded into "Căn cứ". */
+function periodWhy(title, s) {
+  return `<h4>${esc(title)}</h4><p class="ov-level"><span class="ov-lvchip ov-lv-bg-${s.level}">${esc(s.level_vi)}</span></p>
+    <div class="ov-text">${s.text.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+    <details class="ov-basis"><summary>Căn cứ</summary>
+      <table class="ov-table ov-parts"><thead><tr><th>Lớp</th><th>Thô</th><th>Điểm chuẩn</th><th>Trọng số</th><th>Góp vào</th></tr></thead><tbody>
+      ${s.parts.map(p => `<tr><td>${esc(LAYER[p.layer] || p.layer)} ${basisTag(p.basis)}<br><small>${esc(p.note)}</small></td><td>${fmt(p.raw)}</td><td>${fmt(p.z)}</td><td>${fmt(p.weight)}</td><td>${fmt(p.value)}</td></tr>`).join('')}
+      <tr class="is-cur"><td>Tổng</td><td></td><td></td><td></td><td>${fmt(s.score)}</td></tr></tbody></table>
+      ${itemsList(s.items)}</details>`;
+}
+/** A palace on the radar: natal readings in words; ids, pages and weights folded. */
+function palaceWhy(title, s) {
+  const side = k => s.items.filter(i => i.side === k).sort((a, b) => b.w - a.w);
+  const list = k => { const xs = side(k); return xs.length ? `<ul>${xs.slice(0, 6).map(i => `<li>${esc(i.text)}${i.scope !== 'self' ? ` <small>(${esc(i.palace)}, ${SCOPE[i.scope]})</small>` : ''}</li>`).join('')}</ul>${xs.length > 6 ? `<p class="ov-none">và ${xs.length - 6} câu khác trong phần căn cứ.</p>` : ''}` : '<p class="ov-none">Không có câu sách nào.</p>'; };
+  return `<h4>${esc(title)}</h4>
     <div class="ov-sides"><div><h5>Phía thuận lợi</h5>${list('support')}</div><div><h5>Phía thử thách</h5>${list('limit')}</div></div>
-    <p class="ov-cap">Chỉ số tổng hợp từ quy tắc sách, không phải xác suất hay dự báo.</p>`;
+    <details class="ov-basis"><summary>Căn cứ</summary><p class="ov-src">${esc(s.note)}; ${SIDE.support.toLowerCase()} ${fmt(s.support)}, ${SIDE.limit.toLowerCase()} ${fmt(s.limit)} (1 là mức thường gặp).</p>${itemsList(s.items)}</details>`;
 }
 
 // ---------- SVG helpers ----------
 const el = (tag, attrs = {}, kids = []) => { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); kids.forEach(k => e.append(k)); return e; };
 const txt = (x, y, s, attrs = {}) => { const t = el('text', { x, y, ...attrs }); t.textContent = s; return t; };
-const colPath = (x, y0, w, h) => { const r = Math.min(4, w / 2, h); return h <= 0 ? '' : `M${x} ${y0}V${y0 - h + r}Q${x} ${y0 - h} ${x + r} ${y0 - h}H${x + w - r}Q${x + w} ${y0 - h} ${x + w} ${y0 - h + r}V${y0}Z`; };
 function svgFor(w, h, label) { return el('svg', { width: w, height: h, viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': label, class: 'ov-svg' }); }
-function yAxis(svg, x0, x1, y0, plotH, max) {
-  for (let i = 0; i <= 4; i++) {
-    const v = max * i / 4, y = y0 - plotH * i / 4;
-    svg.append(el('line', { x1: x0, x2: x1, y1: y, y2: y, class: i ? 'ov-grid' : 'ov-base' }), txt(x0 - 6, y + 4, fmt(v), { class: 'ov-tick', 'text-anchor': 'end' }));
-  }
-}
+/** A column from the zero line up (or down) to v, its far end rounded. */
+const barPath = (x, y0, w, y1) => {
+  const h = Math.abs(y1 - y0), r = Math.min(4, w / 2, h), up = y1 < y0;
+  if (h < 0.5) return `M${x} ${y0 - 1}H${x + w}V${y0 + 1}H${x}Z`;
+  return up ? `M${x} ${y0}V${y1 + r}Q${x} ${y1} ${x + r} ${y1}H${x + w - r}Q${x + w} ${y1} ${x + w} ${y1 + r}V${y0}Z`
+    : `M${x} ${y0}V${y1 - r}Q${x} ${y1} ${x + r} ${y1}H${x + w - r}Q${x + w} ${y1} ${x + w} ${y1 - r}V${y0}Z`;
+};
 
-/** Grouped columns (two per group): đại vận and nguyệt vận. */
-function columns(host, groups, { label, sub, title, current, onPick, xCaption }) {
-  const W = Math.max(300, host.clientWidth), small = W < 560, H = small ? 250 : 280;
-  const m = { l: 34, r: 8, t: 18, b: small ? 46 : 42 }, pw = W - m.l - m.r, ph = H - m.t - m.b, y0 = m.t + ph;
-  const max = niceMax(Math.max(1, ...groups.flatMap(g => [g.support, g.limit])));
+/** Diverging columns of period levels (đại vận, years, months): one column per period from the "thường gặp" line, coloured by level,
+ *  over faint bands of the five levels (the corpus cut points). An optional Bát Tự strip runs under the đại vận on the same year axis. */
+function levelBars(host, groups, { label, sub, title, current, onPick, xCaption, cuts, strip }) {
+  const W = Math.max(300, host.clientWidth), small = W < 560, stripH = strip ? 46 : 0, H = (small ? 236 : 262) + stripH;
+  const m = { l: 8, r: small ? 8 : 92, t: 18, b: (small ? 40 : 38) + stripH }, pw = W - m.l - m.r, ph = H - m.t - m.b;   // wide: a right gutter names the bands
+  const c = cuts && cuts.length === 4 ? cuts : [-1.2816, -0.5244, 0.5244, 1.2816];
+  const lim = Math.max(...groups.map(g => Math.abs(g.score)), Math.abs(c[0]), Math.abs(c[3])) * 1.18;
+  const Y = v => m.t + ph / 2 - (ph / 2) * v / lim, y0 = Y(0);
   const svg = svgFor(W, H, label);
-  yAxis(svg, m.l, W - m.r, y0, ph, max);
-  const band = pw / groups.length, bw = Math.min(24, (band - 10) / 2);
+  const edges = [lim, c[3], c[2], c[1], c[0], -lim];
+  for (let i = 0; i < 5; i++) {
+    const a = Math.min(lim, Math.max(-lim, edges[i])), b = Math.min(lim, Math.max(-lim, edges[i + 1])), lv = 4 - i;
+    const ya = Y(a), yb = Y(b);
+    if (yb - ya < 1) continue;
+    svg.append(el('rect', { x: m.l, y: ya, width: pw, height: yb - ya, class: `ov-band ov-band-${lv}` }));
+    if (!small && yb - ya >= 12) svg.append(txt(W - m.r + 6, (ya + yb) / 2 + 3.5, LEVELS[lv], { class: 'ov-bandl' }));
+  }
+  svg.append(el('line', { x1: m.l, x2: W - m.r, y1: y0, y2: y0, class: 'ov-base' }));
+  const band = pw / groups.length, bw = Math.max(5, Math.min(26, band - (small ? 4 : 10)));
   groups.forEach((g, i) => {
-    const gx = m.l + band * i, cx = gx + band / 2;
-    const grp = el('g', { class: `ov-grp${current?.(g) ? ' is-cur' : ''}`, tabindex: 0, role: 'button', 'aria-label': `${title(g)}: ${SIDE.support} ${fmt(g.support)}, ${SIDE.limit} ${fmt(g.limit)}` });
-    if (current?.(g)) grp.append(el('rect', { x: gx + 1, y: m.t - 14, width: band - 2, height: ph + 14, class: 'ov-curband', rx: 6 }), txt(cx, m.t - 3, small ? 'Nay' : 'Hiện tại', { class: 'ov-curlbl', 'text-anchor': 'middle' }));
-    grp.append(el('rect', { x: gx, y: m.t, width: band, height: ph + m.b, class: 'ov-hit' }));
-    grp.append(el('path', { d: colPath(cx - bw - 1, y0, bw, ph * g.support / max), class: 'ov-col-s' }));
-    grp.append(el('path', { d: colPath(cx + 1, y0, bw, ph * g.limit / max), class: 'ov-col-l' }));
+    const gx = m.l + band * i, cx = gx + band / 2, cur = current?.(g);
+    const grp = el('g', { class: `ov-grp${cur ? ' is-cur' : ''}`, tabindex: 0, role: 'button', 'aria-label': `${title(g)}: ${g.level_vi}` });
+    if (cur) grp.append(el('rect', { x: gx + 1, y: m.t - 14, width: band - 2, height: ph + 14, class: 'ov-curband', rx: 6 }), txt(cx, m.t - 3, small ? 'Nay' : 'Hiện tại', { class: 'ov-curlbl', 'text-anchor': 'middle' }));
+    grp.append(el('rect', { x: gx, y: m.t, width: band, height: ph + m.b - stripH, class: 'ov-hit' }));
+    grp.append(el('path', { d: barPath(cx - bw / 2, y0, bw, Y(g.score)), class: `ov-bar ov-lv-${g.level}` }));
     const [l1, l2] = sub(g, small);
-    grp.append(txt(cx, y0 + 16, l1, { class: 'ov-xl', 'text-anchor': 'middle' }));
-    if (l2) grp.append(txt(cx, y0 + 30, l2, { class: 'ov-xl2', 'text-anchor': 'middle' }));
+    if (l1) grp.append(txt(cx, m.t + ph + 15, l1, { class: `ov-xl${cur ? ' is-cur' : ''}`, 'text-anchor': 'middle' }));
+    if (l2) grp.append(txt(cx, m.t + ph + 28, l2, { class: 'ov-xl2', 'text-anchor': 'middle' }));
     grp.addEventListener('click', () => onPick(g, grp));
     grp.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPick(g, grp); } });
-    tip(grp, () => `<b>${esc(title(g))}</b><br>${SIDE.support}: ${fmt(g.support)}<br>${SIDE.limit}: ${fmt(g.limit)}`);
+    tip(grp, () => `<b>${esc(title(g))}</b><br>${esc(g.level_vi)}`);
     svg.append(grp);
   });
-  if (small && xCaption) svg.append(txt(m.l + pw / 2, H - 6, xCaption, { class: 'ov-xl2', 'text-anchor': 'middle' }));
+  if (strip) strip(svg, { x0: m.l, pw, y: H - stripH + 6, h: 22, small });
+  else if (small && xCaption) svg.append(txt(m.l + pw / 2, H - 4, xCaption, { class: 'ov-xl2', 'text-anchor': 'middle' }));
   host.replaceChildren(svg);
 }
 
-/** Two lines over the years, with the "Năm nay" marker: tiểu vận. */
-function lines(host, ys, { onPick }) {
-  const W = Math.max(300, host.clientWidth), small = W < 560, H = small ? 240 : 270;
-  const m = { l: 34, r: 12, t: 22, b: 40 }, pw = W - m.l - m.r, ph = H - m.t - m.b, y0 = m.t + ph;
-  const max = niceMax(Math.max(1, ...ys.flatMap(g => [g.support, g.limit])));
-  const svg = svgFor(W, H, 'Tiểu vận từng năm: mức thuận lợi và mức thử thách');
-  yAxis(svg, m.l, W - m.r, y0, ph, max);
-  const step = pw / Math.max(1, ys.length - 1), X = i => m.l + step * i, Y = v => y0 - ph * v / max;
-  const cur = ys.findIndex(y => y.current);
-  if (cur >= 0) svg.append(el('line', { x1: X(cur), x2: X(cur), y1: m.t - 6, y2: y0, class: 'ov-now' }), txt(X(cur), m.t - 10, 'Năm nay', { class: 'ov-curlbl', 'text-anchor': cur > ys.length - 3 ? 'end' : 'middle' }));
-  for (const [side, cls] of [['support', 'ov-ln-s'], ['limit', 'ov-ln-l']]) {
-    svg.append(el('path', { d: ys.map((y, i) => `${i ? 'L' : 'M'}${X(i).toFixed(1)} ${Y(y[side]).toFixed(1)}`).join(''), class: cls }));
-  }
-  const every = small ? 5 : 2;
-  ys.forEach((y, i) => {
-    const g = el('g', { class: 'ov-grp ov-pt', tabindex: 0, role: 'button', 'aria-label': `Năm ${y.year}, cung ${y.palace}: ${SIDE.support} ${fmt(y.support)}, ${SIDE.limit} ${fmt(y.limit)}` });
-    g.append(el('rect', { x: X(i) - step / 2, y: m.t, width: step, height: ph + m.b, class: 'ov-hit' }));
-    g.append(el('circle', { cx: X(i), cy: Y(y.support), r: i === cur ? 5 : 4, class: 'ov-dot-s' }), el('circle', { cx: X(i), cy: Y(y.limit), r: i === cur ? 5 : 4, class: 'ov-dot-l' }));
-    if (i % every === 0 || i === cur) g.append(txt(X(i), y0 + 16, String(y.year), { class: `ov-xl${i === cur ? ' is-cur' : ''}`, 'text-anchor': 'middle' }));
-    g.addEventListener('click', () => onPick(y, g));
-    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPick(y, g); } });
-    tip(g, () => `<b>${y.year} (${esc(y.can_chi)}), ${y.age} tuổi</b><br>Tiểu hạn: ${esc(y.palace)} · Thái Tuế: ${esc(y.thai_tue)}<br>${SIDE.support}: ${fmt(y.support)}<br>${SIDE.limit}: ${fmt(y.limit)}`);
+/** The Bát Tự luck pillars under the đại vận, on the same year axis (decade bands are ten years each). */
+const baziStrip = (bz, decades) => (svg, { x0, pw, y, h, small }) => {
+  const Y1 = decades[0].year_from, Y2 = decades.at(-1).year_to + 1, X = yr => x0 + pw * (yr - Y1) / (Y2 - Y1);
+  svg.append(txt(x0, y - 1, small ? 'Bát Tự · điều hậu' : 'Bát Tự: đại vận mang thần điều hậu (Thiệu Vĩ Hoa)', { class: 'ov-xl2 ov-bzh' }));
+  for (const p of bz.pillars) {
+    if (p.year_from == null) continue;
+    const a = Math.max(Y1, p.year_from), b = Math.min(Y2, (p.year_to ?? p.year_from + 9) + 1);
+    if (b <= a) continue;
+    const g = el('g', { class: `ov-bzseg ov-bz-${p.tag}${p.current ? ' is-cur' : ''}`, tabindex: 0, role: 'img', 'aria-label': `Vận ${p.pillar} (${p.year_from}–${p.year_to}): ${p.tag_vi}` });
+    g.append(el('rect', { x: X(a) + 1, y: y + 4, width: Math.max(1, X(b) - X(a) - 2), height: h, rx: 4 }));
+    if (X(b) - X(a) > (small ? 34 : 54)) g.append(txt((X(a) + X(b)) / 2, y + 4 + h / 2 + 4, p.pillar, { 'text-anchor': 'middle' }));
+    tip(g, () => `<b>Vận ${esc(p.pillar)}</b> (${p.year_from}–${p.year_to})<br>${esc(p.tag_vi)}${p.reduced ? `<br><small>${esc(p.reduced)}</small>` : ''}`);
     svg.append(g);
-  });
-  host.replaceChildren(svg);
-}
+  }
+};
 
 /** Radar of the twelve palaces (support and limit polygons) with the ring at 1 = the corpus' typical chart. */
 function radar(host, ps, { onPick }) {
   const W = Math.max(300, host.clientWidth), S = Math.min(W, 460), small = S < 400;
   const cx = W / 2, cy = S / 2, R = S / 2 - (small ? 66 : 62);   // room for the longest side label ("Điền Trạch")
   const max = niceMax(Math.max(1.5, ...ps.flatMap(p => [p.support, p.limit])));
-  const svg = svgFor(W, S, 'Mười hai cung: mức thuận lợi và mức thử thách so với mức thường gặp');
+  const svg = svgFor(W, S, 'Mười hai cung: mức thuận lợi và mức thử thách bẩm sinh so với mức thường gặp');
   const ang = i => -Math.PI / 2 + 2 * Math.PI * i / ps.length, pt = (i, v) => [cx + Math.cos(ang(i)) * R * v / max, cy + Math.sin(ang(i)) * R * v / max];
   for (let k = 1; k <= 4; k++) svg.append(el('circle', { cx, cy, r: R * k / 4, class: 'ov-grid ov-ring' }));
   const ta = -Math.PI / 2 + Math.PI / 12, tr = R / max;   // the label sits between the Mệnh and Phụ Mẫu axes, just outside the ring
@@ -195,29 +216,35 @@ const table = (head, rows) => `<table class="ov-table"><thead><tr>${head.map(h =
 /** Draw the four charts into a host already holding overviewHtml(o). */
 export function drawCharts(root, o) {
   const I = o.indices, q = s => root.querySelector(s);
-  const pick = (id, title) => (s, node) => {
+  const pick = (id, title, why) => (s, node) => {
     root.querySelectorAll(`[data-chart="${id}"] .ov-grp.is-pick`).forEach(n => n.classList.remove('is-pick'));
     node.classList.add('is-pick');
-    q(`[data-why="${id}"]`).innerHTML = whyHtml(title(s), s);
+    q(`[data-why="${id}"]`).innerHTML = why(title(s), s);
   };
-  const dvTitle = d => `Đại vận ${d.age_from}–${d.age_to} tuổi (${d.year_from}–${d.year_to}) · cung ${d.palace} (${d.branch})`;
+  const dvTitle = d => `Đại vận ${d.age_from}–${d.age_to} tuổi (${d.year_from}–${d.year_to}) · cung ${d.palace} (${d.stem} ${d.branch})`;
+  const yTitle = y => `Năm ${y.year} (${y.can_chi}), ${y.age} tuổi · tiểu hạn ở ${y.palace}`;
+  const mTitle = m => `Tháng ${m.month} âm lịch năm ${I.months.year} · nguyệt hạn ở cung ${m.palace}`;
   const draw = () => {
-    columns(q('[data-plot="dv"]'), I.decades, { label: 'Xu hướng đại vận: mức thuận lợi và mức thử thách', title: dvTitle, current: d => d.current, xCaption: 'tuổi bắt đầu mỗi chặng',
-      sub: (d, small) => small ? [String(d.age_from), ''] : [`${d.age_from}–${d.age_to}`, String(d.year_from)], onPick: pick('dv', dvTitle) });
-    lines(q('[data-plot="tv"]'), I.years, { onPick: pick('tv', y => `Năm ${y.year} (${y.can_chi}), ${y.age} tuổi · tiểu hạn ở ${y.palace}, lưu Thái Tuế ở ${y.thai_tue}`) });
-    radar(q('[data-plot="rd"]'), I.palaces, { onPick: pick('rd', p => `Cung ${p.palace} (${p.branch}) và tam phương`) });
-    if (I.months) columns(q('[data-plot="nv"]'), I.months.months, { label: `Nguyệt vận năm ${I.months.year}`, title: m => `Tháng ${m.month} âm lịch · cung ${m.palace}`,
-      sub: (m, small) => [`T${m.month}`, small ? '' : m.palace.split(' ').map(w => w[0]).join('')], onPick: pick('nv', m => `Tháng ${m.month} âm lịch năm ${I.months.year} · nguyệt hạn ở cung ${m.palace}`) });
+    levelBars(q('[data-plot="dv"]'), I.decades, { label: 'Xu hướng đại vận: mức của từng chặng', title: dvTitle, current: d => d.current, xCaption: 'tuổi bắt đầu mỗi chặng',
+      sub: (d, small) => small ? [String(d.age_from), ''] : [`${d.age_from}–${d.age_to}`, String(d.year_from)], onPick: pick('dv', dvTitle, periodWhy),
+      cuts: I.cuts?.decade, strip: I.bazi ? baziStrip(I.bazi, I.decades) : null });
+    levelBars(q('[data-plot="tv"]'), I.years, { label: 'Tiểu vận từng năm: mức của từng năm', title: yTitle, current: y => y.current,
+      sub: (y, small) => [(I.years.indexOf(y) % (small ? 5 : 2) === 0 || y.current) ? String(y.year) : '', ''], onPick: pick('tv', yTitle, periodWhy), cuts: I.cuts?.year });
+    radar(q('[data-plot="rd"]'), I.palaces, { onPick: pick('rd', p => `Cung ${p.palace} (${p.branch}) và tam phương`, palaceWhy) });
+    if (I.months) levelBars(q('[data-plot="nv"]'), I.months.months, { label: `Nguyệt vận năm ${I.months.year}`, title: mTitle,
+      sub: (m, small) => [`T${m.month}`, small ? '' : m.palace.split(' ').map(w => w[0]).join('')], onPick: pick('nv', mTitle, periodWhy), cuts: I.cuts?.month });
   };
   draw();
-  q('[data-table="dv"]').innerHTML = table(['Chặng', 'Cung', SIDE.support, SIDE.limit], I.decades.map(d => ({ cur: d.current, cells: [`${d.age_from}–${d.age_to} tuổi (${d.year_from}–${d.year_to})`, esc(d.palace), fmt(d.support), fmt(d.limit)] })));
-  q('[data-table="tv"]').innerHTML = table(['Năm', 'Tiểu hạn', 'Lưu Thái Tuế', SIDE.support, SIDE.limit], I.years.map(y => ({ cur: y.current, cells: [`${y.year} (${esc(y.can_chi)})`, esc(y.palace), esc(y.thai_tue), fmt(y.support), fmt(y.limit)] })));
+  if (I.bazi) q('[data-bz]').innerHTML = `<p class="ov-cap">${esc(I.bazi.note)} <span class="ov-bzleg"><i class="ov-bz-dung"></i>dụng <i class="ov-bz-hy"></i>hỷ <i class="ov-bz-khong"></i>không mang</span></p>`;
+  q('[data-table="dv"]').innerHTML = table(['Chặng', 'Cung', 'Mức'], I.decades.map(d => ({ cur: d.current, cells: [`${d.age_from}–${d.age_to} tuổi (${d.year_from}–${d.year_to})`, esc(d.palace), esc(d.level_vi)] })))
+    + (I.bazi ? table(['Vận Bát Tự', 'Năm', 'Điều hậu'], I.bazi.pillars.map(p => ({ cur: p.current, cells: [esc(p.pillar), `${p.year_from ?? ''}–${p.year_to ?? ''}`, esc(p.tag_vi) + (p.reduced ? ' (giảm)' : '')] }))) : '');
+  q('[data-table="tv"]').innerHTML = table(['Năm', 'Tiểu hạn', 'Mức'], I.years.map(y => ({ cur: y.current, cells: [`${y.year} (${esc(y.can_chi)})`, esc(y.palace), esc(y.level_vi)] })));
   q('[data-table="rd"]').innerHTML = table(['Cung', SIDE.support, SIDE.limit], I.palaces.map(p => ({ cells: [esc(p.palace), fmt(p.support), fmt(p.limit)] })));
-  if (I.months) q('[data-table="nv"]').innerHTML = table(['Tháng', 'Cung', SIDE.support, SIDE.limit], I.months.months.map(m => ({ cells: [String(m.month), esc(m.palace), fmt(m.support), fmt(m.limit)] })));
-  // the current decade and year open with their rules listed: the page answers "why" before anyone asks
+  if (I.months) q('[data-table="nv"]').innerHTML = table(['Tháng', 'Cung', 'Mức'], I.months.months.map(m => ({ cells: [String(m.month), esc(m.palace), esc(m.level_vi)] })));
+  // the current decade and year open with their reading: the page answers "why" before anyone asks
   const cd = I.decades.find(d => d.current), cy = I.years.find(y => y.current);
-  if (cd) q('[data-why="dv"]').innerHTML = whyHtml(dvTitle(cd), cd);
-  if (cy) q('[data-why="tv"]').innerHTML = whyHtml(`Năm ${cy.year} (${cy.can_chi}), ${cy.age} tuổi · tiểu hạn ở ${cy.palace}, lưu Thái Tuế ở ${cy.thai_tue}`, cy);
+  if (cd) q('[data-why="dv"]').innerHTML = periodWhy(dvTitle(cd), cd);
+  if (cy) q('[data-why="tv"]').innerHTML = periodWhy(yTitle(cy), cy);
   return draw;
 }
 

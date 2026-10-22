@@ -1,56 +1,110 @@
 {
- "version": "indices-1.0.0",
- "kbVersion": "9db0e8a4691224c9",
+ "version": "indices-2.0.0",
+ "kbVersion": "4251f698bbc4cc84",
  "charts": 1000,
  "corpus": "corpus1000.json.gz",
  "palace": {
   "Tài Bạch": {
-   "support": 12.213,
-   "limit": 3.166
+   "support": 13.838,
+   "limit": 4.042
   },
   "Tử Tức": {
-   "support": 2.437,
-   "limit": 1.279
+   "support": 3.641,
+   "limit": 1.869
   },
   "Phu Thê": {
-   "support": 3.648,
-   "limit": 1.754
+   "support": 5.732,
+   "limit": 2.74
   },
   "Huynh Đệ": {
-   "support": 1.771,
-   "limit": 1.146
+   "support": 2.68,
+   "limit": 1.675
   },
   "Mệnh": {
-   "support": 16.728,
-   "limit": 3.673
+   "support": 18.403,
+   "limit": 4.456
   },
   "Phụ Mẫu": {
-   "support": 2.279,
-   "limit": 1.331
+   "support": 3.053,
+   "limit": 1.813
   },
   "Phúc Đức": {
-   "support": 3.557,
-   "limit": 2.156
+   "support": 5.687,
+   "limit": 3.359
   },
   "Điền Trạch": {
-   "support": 1.829,
-   "limit": 0.768
+   "support": 2.592,
+   "limit": 1.102
   },
   "Quan Lộc": {
-   "support": 12.625,
-   "limit": 3.06
+   "support": 14.314,
+   "limit": 3.837
   },
   "Nô Bộc": {
-   "support": 1.731,
-   "limit": 1.468
+   "support": 2.54,
+   "limit": 2.039
   },
   "Thiên Di": {
-   "support": 14.828,
-   "limit": 3.628
+   "support": 16.422,
+   "limit": 4.467
   },
   "Tật Ách": {
-   "support": 2.228,
-   "limit": 1.431
+   "support": 3.051,
+   "limit": 1.9
   }
+ },
+ "layers": {
+  "vung": {
+   "mean": 0.041,
+   "sd": 0.802
+  },
+  "hoa_van": {
+   "mean": 0.621,
+   "sd": 0.761
+  },
+  "van": {
+   "mean": 0.66,
+   "sd": 1.217
+  },
+  "nen": {
+   "mean": 0,
+   "sd": 0.592
+  },
+  "tieu_han": {
+   "mean": 0.66,
+   "sd": 1.222
+  },
+  "luu_sao": {
+   "mean": -1.882,
+   "sd": 1.108
+  },
+  "luu_tu_hoa": {
+   "mean": 0.627,
+   "sd": 0.781
+  },
+  "dai_van": {
+   "mean": -0.001,
+   "sd": 0.665
+  }
+ },
+ "cuts": {
+  "decade": [
+   -0.849,
+   -0.339,
+   0.323,
+   0.828
+  ],
+  "year": [
+   -0.667,
+   -0.264,
+   0.266,
+   0.658
+  ],
+  "month": [
+   -0.86,
+   -0.383,
+   0.246,
+   0.685
+  ]
  }
 }
