@@ -100,7 +100,9 @@ export interface Knowledge {
       /** the same rates for each other palace (tools/interpret/base_rates.ts), for the palace reasoner */
       palaces?: Record<string, { concept: Record<string, number>; rule: Record<string, number> }> };
     positionGuards?: import('./reason/positions.ts').PositionGuard[];
-    formations?: import('./reason/structures.ts').Formation[] };
+    formations?: import('./reason/structures.ts').Formation[];
+    /** life domains for the report-wide ledger (engine/data/kg/domains.json, reason/ledger.ts) */
+    domains?: import('./reason/ledger.ts').DomainsFile };
   prose?: import('./prose/types.ts').ProseLibrary;
 }
 

@@ -18,8 +18,9 @@ import { axes, best, readingsOf, type Axis, type Reading, type Step } from './ad
 import { Geo, SCOPE_WEIGHT, TIER_WEIGHT, conceptRate, rarity, ruleRate, seatOf, type SeatRef } from './tiers.ts';
 import { guardHolds } from './positions.ts';
 import { detectStructures, evaluateFormations, type FormationState as FState, type Structure, type Verification } from './structures.ts';
+import { palaceEvidence, readsElement, TIMING_FACET, type Element, type PalaceEvidence } from './evidence.ts';
 
-export const REASONER_VERSION = 'reasoner-0.3.0';
+export const REASONER_VERSION = 'reasoner-0.4.0';
 
 export interface Formation { ruleId: string; name: string; condition: string; rate: number; rarity: number; seat: string; kind: 'formation' | 'classification'; pol?: '+' | '-'; cites: string[] }
 /** A draft cách cục (engine/data/experimental/formations_experimental.json) evaluated on the chart: thành / thành thượng / bị phá / phá được cứu. */
@@ -33,7 +34,16 @@ export interface StructureNote { id: string; name: string; verification: Verific
 /** An assertion the R1 position guard rejected: its rule fired, but an atom does not stand where the book's wording puts it. */
 export interface Guarded { ruleId: string; concept: string; reason: string; cite: string }
 export interface Seat { ref: SeatRef; readings: Reading[]; formations: Formation[]; states: CachState[]; score: number }
-export interface Claim { axis: Axis; concept: string; soft: boolean; score: number; conceptRate: number; rarest: number }
+export interface Claim { axis: Axis; concept: string; soft: boolean; score: number; conceptRate: number; rarest: number;
+  /** a big conclusion (career, money, marriage, health) resting on one minor star or one rule of minor stars, with no other seat or palace
+   *  saying the same: told as what that star alone suggests, never as the palace's conclusion (the stars it rests on) */
+  single?: string[];
+  /** the claim is a strength, but a star it rests on carries Hóa Kỵ in this palace: it is never told as a plain positive */
+  kyCarrier?: string;
+}
+/** A limiting element standing in the palace (Hóa Kỵ, a sát tinh not checked đắc, a hãm chính tinh, Tuần / Triệt, a star carrying Kỵ) and
+ *  the verified readings that stand on it: the chapter must face it — by one of these readings, or by a structural conditional sentence. */
+export interface Confront { element: Element; readings: Reading[] }
 export interface Cross { type: 'corroborated' | 'countered'; palace: string; ruleId: string; concept: string; cite?: string }
 export interface Thesis {
   id: string; seat: SeatRef; formations: Formation[]; states: CachState[]; claims: Claim[]; steps: Step[]; cross: Cross[]; score: number;
@@ -57,7 +67,15 @@ export interface ReadingPlan {
   seats: Array<{ id: string; tier: number; score: number; rules: number }>;
   guarded: Guarded[];
   structures: StructureNote[];
+  /** every structural element of the palace (reason/evidence.ts), whether or not a rule read it */
+  evidence: PalaceEvidence;
+  /** the limiting elements of the palace, each with the verified readings standing on it (limits first) */
+  confront: Confront[];
+  /** verified timing readings of the palace (rel.timing, career.late, …): told, never dropped as a mere course line */
+  timings: Reading[];
 }
+/** facets of the big conclusions that may not rest on one minor star */
+export const BIG = /^(career|finance|wellbeing)\.|^relationships\.(marriage|partner|romance)$/;
 /** States of a cách cục worth telling: one that only has the shape (hình thức), is absent or lacks data says nothing about the chart. */
 const TOLD: Set<FState> = new Set(['thanh', 'thanh_thuong', 'bi_pha', 'pha_duoc_cuu'] as FState[]);
 const STATE_BONUS: Partial<Record<FState, number>> = { thanh_thuong: 1.2, thanh: 1, pha_duoc_cuu: 0.8, bi_pha: 0.8 };
@@ -254,6 +272,35 @@ export function reasonPalace(chart: ChartInput, k: Knowledge, P: string, pre?: {
   const why: ReadingPlan['frame']['centre']['why'] = g.vcd ? 'vcd' : centreSeat?.ref.kind === 'major' ? 'major'
     : centreSeat?.formations.some(f => f.kind === 'formation') || centreSeat?.states.length ? 'formation' : 'outweighs_major';
   const usedRules = [...new Set(theses.flatMap(t => [...t.claims.flatMap(c => [...c.axis.base, ...c.axis.reducers].map(x => x.r.ruleId)), ...t.formations.map(f => f.ruleId)]))];
+
+  // ---- evidence, guards on big conclusions, the limits to face, the timing readings ----
+  const evidence = palaceEvidence(chart, k, P, { resolved: resolvedAll });
+  const kyStars = new Set(evidence.mixed.filter(e => e.kind === 'ky_carrier').map(e => e.star!));
+  for (const t of theses) for (const c of t.claims) {
+    const con = cmap.get(c.concept);
+    // a strength resting on a star that carries Hóa Kỵ here is never a plain positive
+    if (con?.pol !== '-') {
+      const ky = c.axis.base.flatMap(x => x.r.atoms).find(a => a.kind === 'star' && a.palace === P && kyStars.has(a.name));
+      if (ky) c.kyCarrier = ky.name;
+    }
+    // one minor star (or one rule of minor stars) is not enough for a big conclusion
+    if (con && BIG.test(con.facet) && c.axis.verdict !== 'contested' && c.axis.base.length && c.axis.base.every(x => x.seat.tier >= 4)
+      && new Set(c.axis.base.map(x => x.r.ruleId)).size <= 1 && !t.cross.some(x => x.type === 'corroborated' && x.concept === c.concept))
+      c.single = [...new Set(c.axis.base.flatMap(x => x.r.atoms).filter(a => (a.kind === 'star' || a.kind === 'hoa') && a.palace !== null).map(a => a.name))];
+  }
+  const live = readings.filter(x => rmap.get(x.r.ruleId)?.reviewStatus === 'verified');
+  const confront: Confront[] = [...evidence.limit, ...evidence.mixed.filter(e => e.kind === 'ky_carrier')].map(e => ({
+    element: e,
+    readings: live.filter(x => readsElement(x.r, e, P) && !x.r.additive)
+      .sort((a, b) => Number(isLimit(b)) - Number(isLimit(a)) || b.rarity - a.rarity || (a.r.ruleId < b.r.ruleId ? -1 : 1)),
+  }));
+  function isLimit(x: Reading) { return cmap.get(x.r.concept)?.pol === '-' || x.r.stance === 'weakens' || TIMING_FACET(cmap.get(x.r.concept)?.facet ?? ''); }
+  // a timing reading stands on a star, a Hóa or Tuần/Triệt of the palace (the độ số timings of the chart are the overview's)
+  const timings = live.filter(x => x.r.subject === `palace:${P}` && x.r.atoms.some(a => a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet') && TIMING_FACET(cmap.get(x.r.concept)?.facet ?? '') && (isMenh || POOL[P]?.(cmap.get(x.r.concept)) || x.r.concept.startsWith('rel.') || x.r.concept.startsWith('career.')))
+    // at Mệnh (whose course line already tells the rarest timing) only a timing that tells the chart apart: a concept under half the corpus,
+    // a rule as rare as the course line's (rarity ≥ 0.3)
+    .filter(x => !isMenh || (conceptRate(k, x.r.concept, P) < 0.5 && x.rarity >= 0.3))
+    .sort((a, b) => b.rarity - a.rarity || (a.r.ruleId < b.r.ruleId ? -1 : 1));
   return {
     version: REASONER_VERSION, palace: P,
     frame: {
@@ -274,6 +321,7 @@ export function reasonPalace(chart: ChartInput, k: Knowledge, P: string, pre?: {
     seats: [...seats.values()].sort((a, b) => b.score - a.score).map(s => ({ id: s.ref.id, tier: s.ref.tier, score: s.score, rules: new Set(s.readings.map(x => x.r.ruleId)).size })),
     guarded,
     structures: structures.map(x => x.note),
+    evidence, confront, timings,
   };
 }
 
@@ -328,5 +376,7 @@ export function planView(p: ReadingPlan) {
     modifiers: p.modifiers.map(m => ({ seat: m.seat, reading: rd(m.reading) })),
     course: p.course && { axis: ax(p.course.axis), rarest: p.course.rarest },
     contested: p.contested.map(ax),
+    confront: p.confront.map(c => ({ element: c.element, readings: c.readings.map(rd) })),
+    timings: p.timings.map(rd),
   };
 }

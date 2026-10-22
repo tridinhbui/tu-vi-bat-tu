@@ -87,7 +87,9 @@ add(Q, "NGHICH_LY", [eq("chart.hour_menh_polarity", "nghich_ly")], [("menh_gio_n
 # --- Thân cư (p.75)
 add("Thiên Di", "THAN", [THAN, anyof(*tp("Tả Phụ", "Hữu Bật", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt"))], "than_cu_di_lap_nghiep_xa", "verified", "p.75", "Thân cư Thiên Di có cát tinh hội: lập nghiệp phương xa thịnh vượng")
 add("Tài Bạch", "THAN_TU_VI", [THAN] + own("Tử Vi"), "than_cu_tai_co_danh_gia_tien_tai", "verified", "p.75", "Thân cư Tài Bạch có Tử Vi tọa thủ: có danh giá hoặc tiền tài")
-add("Quan Lộc", "THAN_TT", [THAN, anyof(TT, *tp("Địa Kiếp", "Hỏa Tinh"), has(TPH, "Hóa Kỵ"))], [("than_cu_quan_muon_cong_danh", "limit")], "draft", "p.75", "Thân cư Quan Lộc gặp Tuần, Triệt, Kiếp, Hỏa, Kỵ: công danh đến muộn; sách nói riêng cho đàn ông, hệ thống không phân giới tính ở đây")
+# page image checked 2026-10-22 (TH p.75 "Quan Lộc: Có Tuần Triệt, Kiếp Hỏa, Kỵ hội đàn ông muộn công danh"): verified with the page's own
+# gender condition; the women's line of the same entry (Tuần Triệt hội sát tinh …) is not built
+add("Quan Lộc", "THAN_TT", [THAN, eq("chart.gender", "nam"), anyof(TT, *tp("Địa Kiếp", "Hỏa Tinh"), has(TPH, "Hóa Kỵ"))], [("than_cu_quan_muon_cong_danh", "limit")], "verified", "p.75", "công danh đến muộn (Thân cư Quan Lộc gặp Tuần Triệt, Kiếp Hỏa hoặc Hóa Kỵ hội; sách nói cho đàn ông)")
 # --- phi thường / nghề nghiệp (pp.76-77)
 MAJ4 = ("Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng")
 add(Q, "PHI_THUONG", [anyof(*[allof(has(OWNM, s), dig(s, MV)) for s in MAJ4]), CATN(2)], "cach_phi_thuong", "draft", "p.76", "phi thường cách (Tử, Phủ, Vũ, Tướng nhập miếu ở Mệnh, hội nhiều cát tinh); ngưỡng 'nhiều cát tinh' là quy ước của hệ thống (từ hai sao trở lên)")

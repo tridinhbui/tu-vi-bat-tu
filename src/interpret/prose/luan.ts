@@ -17,6 +17,8 @@ import type { run } from '../engine.ts';
 import type { Labelled } from '../kg/lift.ts';
 import type { Resolved } from '../kg/resolve.ts';
 import { reasonPalace, type ReadingPlan, type Thesis } from '../reason/plan.ts';
+import { buildLedger, type DomainVerdict, type Ledger, type LedgerItem } from '../reason/ledger.ts';
+import type { Element } from '../reason/evidence.ts';
 import type { Reading } from '../reason/adjudicate.ts';
 import { Micro } from './micro.ts';
 import { Writer, addNote, argueThesis, foldAsides, lowerSafe, structureSentences, type ArgueCtx, type ReasoningFrames } from './narrative.ts';
@@ -26,7 +28,7 @@ import { validateProse } from './validate.ts';
 import { PROSE_ORDER, PROSE_SPECS, PROSE_VERSION, infer, proseReport, seedOf, type Inference, type ProseChapter, type ProseChapterId } from './chapter.ts';
 
 export type Topic = 'tinh_cach' | 'su_nghiep' | 'tai_loc' | 'quy_nhan' | 'quan_he' | 'duong_doi' | 'the_trang' | 'vi_tri' | 'than' | 'than_same' | 'than_style'
-  | 'hau_van' | 'tong_ket' | 'tom_lai' | 'pho_thong';
+  | 'hau_van' | 'tong_ket' | 'tom_lai' | 'pho_thong' | 'ket_luan' | 'tai_kiem' | 'tai_giu' | 'tai_tich';
 export interface LuanLib {
   status: string;
   lead: Record<Topic, string[]>; lead_palace: Record<string, Partial<Record<Topic, string[]>>>;
@@ -39,11 +41,19 @@ export interface LuanLib {
   late: Record<'list' | 'pos' | 'item' | 'calm' | 'course', string[]>;
   summary: Record<'arc' | 'mature' | 'mature_same' | 'late' | 'late_calm' | 'turn' | 'close' | 'close_pos' | 'close_neg', string[]>;
   health_note: string[];
+  /** the domain ledger's conclusion (reason/ledger.ts): verdict words and the sentence frames by case */
+  ledger: Record<string, string[]> & { verdict: Record<string, string[]> };
+  /** a limiting element of the palace no reading of the chapter faced: the structural conditional sentence, by element kind */
+  confront: Record<string, string[]>;
+  /** a big conclusion resting on one minor star */
+  single: string[];
+  /** a verified timing reading of the palace */
+  timing: string[];
 }
 /** A luận cung chapter: the shape of the older chapter (report.js reads either), plus a title and the plan it was argued from. */
 export interface LuanChapter extends ProseChapter { title: string; luan: true; theses: string[] }
 
-export const LUAN_VERSION = 'luan-0.1.0';
+export const LUAN_VERSION = 'luan-0.2.0';
 const fill = (t: string, v: Record<string, string>) => t.replace(/\{([A-Za-z_]+)\}/g, (_, key) => { if (v[key] === undefined) throw new Error(`slot {${key}} unfilled in: ${t}`); return v[key]; });
 const RANK: Record<string, number> = { 'miếu': 6, 'vượng': 5, 'đắc': 4, 'lợi': 3, 'bình': 2, 'hãm': 1 };
 /** pairs that flank a palace from its two neighbours (cung giáp), named as the books name them; Hóa pairs from the natal Tứ Hóa */
@@ -77,6 +87,8 @@ export function withLead(lead: string, text: string, names: Set<string> = new Se
 function dedupe(xs: ProseSentence[], keys: Set<string>): ProseSentence[] {
   let dropped = false;
   return xs.flatMap(s => {
+    // what follows a claim the report already told (its behaviour line, its one-star or Kỵ caveat) goes with it: a card line never stands alone
+    if (dropped && /^(behave|single|kyc):/.test(s.trace.step ?? '')) return [];
     if (s.trace.move === 'ELABORATE') return [s];
     if (s.trace.basis !== 'sach' || !s.trace.keys?.length) { dropped = false; return [s]; }
     if (s.trace.keys.some(x => keys.has(x))) { dropped = true; return []; }
@@ -106,6 +118,10 @@ function topicOf(c: Concept | undefined, palace: string, flank = false): Topic {
 export interface LuanShared { findings: ReturnType<typeof run>['findings']; resolved: Resolved[]; labelled: Labelled[]; micro: Micro; voiced: Set<string>;
   /** readings (concept@palace) told so far in the report */
   keys: Set<string>; told: Set<string>; seed: string; allowDraft: boolean;
+  /** the report-wide domain ledger: one verdict per domain, which every chapter tells the same way */
+  ledger: Ledger;
+  /** domain id → the chapter that first told its conclusion (later chapters say it agrees, in brief) */
+  domainsTold: Map<string, string>;
 }
 
 export function luanShared(chart: ChartInput, k: Knowledge, allowDraft: boolean, pre?: Inference): LuanShared {
@@ -114,7 +130,8 @@ export function luanShared(chart: ChartInput, k: Knowledge, allowDraft: boolean,
   // variant choice is seeded by what the reading stands on (the chính tinh of every palace, the Tứ Hóa, the year), not by every minor star,
   // so a change the reasoning ignores does not reword the text (the reasoned chapter seeds by its plan for the same reason)
   const vseed = [chart.year_gz, chart.gender, ...chart.palaces.map(p => p.major_stars.join('+')), ...Object.entries(chart.tu_hoa).map(([h, v]) => `${h}:${v.star}`)].join('|');
-  return { findings, resolved, labelled, micro: new Micro(`${vseed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft };
+  return { findings, resolved, labelled, micro: new Micro(`${vseed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft,
+    ledger: buildLedger(chart, k, resolved), domainsTold: new Map() };
 }
 
 /** The twelve palace chapters: the luận cung chapter where the palace's plan has something to argue, the older chapter otherwise. */
@@ -133,7 +150,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const pal = chart.palaces.find(p => p.name === P)!;
   const full = reasonPalace(chart, k, P, { resolved: sh.resolved, labelled: sh.labelled }, { draftFormations: sh.allowDraft });
   const plan: ReadingPlan = { ...full, theses: full.theses.filter(t => !sh.told.has(`${P}|${t.id}`)) };
-  if (!plan.theses.length && !plan.modifiers.length) return null;
+  if (!plan.theses.length && !plan.modifiers.length && !plan.timings.length && !(sh.ledger.byChapter[id] ?? []).length) return null;
   const other = spec.bond ? k.prose!.frames.other?.[P] : undefined;
   const W = new Writer(chart, k, plan, sh.allowDraft, { micro: sh.micro, other, bond: spec.bond });
   const ctx: ArgueCtx = { voiced: sh.voiced, allConcepts: new Set(), structAt: [], lockRescue: true };
@@ -166,6 +183,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     const xs: ProseSentence[] = [];
     argueThesis(W, F, t, order[ti - 1], order, xs, ctx);
     if (!xs.length && !t.steps.some(st => st.structure)) return;
+    caveats(W, L, t, xs, P);
     // a thesis bridged from the one before it ("Cũng chính Hóa Lộc vừa nói …") keeps that bridge only if it is told right after it
     const prev = order[ti - 1], bridged = !!prev?.rescuerCaveat && prev.rescuerCaveat.seat.id === t.seat.id;
     units.push({ topic: thesisTopic(W, t, P), xs, seat: t.seat, own: ownConcepts(t), ...(bridged && units.length ? { after: units[units.length - 1] } : {}) });
@@ -191,11 +209,46 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     if (r.claim && !sh.voiced.has(x.r.ruleId)) {
       sh.voiced.add(x.r.ruleId); ctx.allConcepts.add(x.r.concept);
       const late = isMenh && x.r.concept === 'life.late_bloom';
-      const s = S(fill(W.pick(late ? 'late|course' : 'course', late ? L.late.course : F.course), { ground: W.ground(x), claim: r.claim }),
+      const thanRule = !isMenh && JSON.stringify(W.rule(x.r.ruleId)?.conditions ?? {}).includes('"palace.is_than"');
+      const s = S(thanRule ? fill(W.pick(`than|rule|${x.r.ruleId}`, L.than.rule), { pal: P, claim: r.claim })
+        : fill(W.pick(late ? 'late|course' : 'course', late ? L.late.course : F.course), { ground: W.ground(x), claim: r.claim }),
         { move: 'EXTRA', step: `course:${plan.course.axis.key}`, concepts: [x.r.concept], rules: [x.r.ruleId], cites: x.r.cites, keys: [`${x.r.concept}@${P}`] });
       if (late) lateCourse = s; else units.push({ topic: 'duong_doi', xs: [s], own: new Set() });
     }
   }
+  // ---- the palace's verified timing readings (rel.timing, career.late, …): told, never left as a mere course line ----
+  for (const x of plan.timings) {
+    // one sentence per timing concept: a second rule saying the same thing ("thời trẻ nhiều vất vả" twice) is not told again
+    if (sh.voiced.has(x.r.ruleId) || ctx.allConcepts.has(x.r.concept) || units.filter(u => u.xs.some(s => s.trace.step?.startsWith('timing:'))).length >= 2) continue;
+    const r = W.read(x.r.ruleId);
+    if (!r.claim) continue;
+    sh.voiced.add(x.r.ruleId); ctx.allConcepts.add(x.r.concept);
+    const isThan = JSON.stringify(W.rule(x.r.ruleId)?.conditions ?? {}).includes('"palace.is_than"');
+    const text = isThan ? fill(W.pick(`than|rule|${x.r.ruleId}`, L.than.rule), { pal: P, claim: r.claim }) : fill(W.pick(`timing|${x.r.ruleId}`, L.timing), { ground: plainGround(W, x, P), claim: r.claim });
+    units.push({ topic: topicOf(W.concept(x.r.concept), P), own: new Set([x.r.concept]), xs: [S(text,
+      { move: 'TIMING', step: `timing:${x.r.ruleId}`, concepts: [x.r.concept], rules: [x.r.ruleId], cites: x.r.cites, keys: [`${x.r.concept}@${P}|${x.r.ruleId}`], part: 2 })] });
+  }
+  // ---- every limiting element of the palace is faced: by a reading the chapter tells, else by a verified reading standing on it, else by a
+  // structural conditional sentence (the element's position, and that the good readings of the palace hold only on condition) ----
+  const mainTopic = units[0]?.topic ?? (plan.theses[0] ? thesisTopic(W, plan.theses[0], P) : 'duong_doi');
+  for (const c of plan.confront) {
+    const ids = new Set(c.readings.map(x => x.r.ruleId));
+    const faced = (xs: ProseSentence[]) => xs.some(s => s.trace.rules.some(r => ids.has(r)) || (s.trace.confront ?? []).includes(c.element.id));
+    if (faced(units.flatMap(u => u.xs))) continue;
+    const x = c.readings.find(y => !sh.voiced.has(y.r.ruleId) && W.read(y.r.ruleId).claim && W.pol(y.r.concept) !== '+');
+    if (x) {
+      const r = W.read(x.r.ruleId);
+      sh.voiced.add(x.r.ruleId); ctx.allConcepts.add(x.r.concept);
+      units.push({ topic: topicOf(W.concept(x.r.concept), P), own: new Set([x.r.concept]), xs: [S(fill(W.pick(`mod|${x.r.ruleId}`, F.modifier), { conn: W.limitConn(`cf|${x.r.ruleId}`), ground: plainGround(W, x, P), claim: r.claim! }),
+        { move: 'TURN', step: `confront:${c.element.id}`, concepts: [x.r.concept], rules: [x.r.ruleId], cites: x.r.cites, keys: [`${x.r.concept}@${P}|${x.r.ruleId}`], confront: [c.element.id], part: 4 })] });
+      continue;
+    }
+    const tpl = L.confront[c.element.kind];
+    if (!tpl?.length) continue;
+    units.push({ topic: mainTopic, own: new Set(), xs: [S(fill(W.pick(`cf|${P}|${c.element.id}`, tpl), { star: c.element.star ?? '', pal: P }),
+      { move: 'TURN', step: `confront:${c.element.id}`, basis: 'he_thong', confront: [c.element.id, ...(c.element.kind === 'ky_carrier' ? ['hoa:Hóa Kỵ'] : [])], part: 4 })] });
+  }
+
   // ---- special structures, on the units of the theses that carry them (written last, so the text before them does not move) ----
   for (const { t, xs, at } of ctx.structAt) xs.splice(at, 0, ...structureSentences(W, F.structure, plan, t, [...frame, ...units.flatMap(u => u.xs)]));
 
@@ -210,7 +263,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     // a method sentence (a caveat, a structure with no reading) is the note of the reading next to it, not a sentence of the text
     let xs = foldAsides(dedupe(xs0, sh.keys), paras.at(-1)?.sentences.at(-1));
     // a paragraph of the system's words alone stands only as the closing
-    if (!xs.length || (!xs.some(s => s.trace.basis !== 'he_thong') && topic !== 'tong_ket' && topic !== 'tom_lai')) return null;
+    if (!xs.length || (!xs.some(s => s.trace.basis !== 'he_thong') && topic !== 'tong_ket' && topic !== 'tom_lai' && !xs.some(s => s.trace.ledger))) return null;
     if (tailOf) xs = [...xs, ...tailOf(xs)];
     if (leadText) xs[0] = { ...xs[0], text: withLead(leadText, xs[0].text, names) };
     const p: ProseParagraph = { role, sentences: xs, text: xs.map(s => s.text).join(' '), ...(leadText ? { lead: leadText } : {}), ...(topic ? { topic } : {}) };
@@ -274,6 +327,34 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     }
   } else if (lateCourse) para('course', 'duong_doi', [lateCourse], lead('duong_doi'));
 
+  // a limit whose facing sentence the report had already told elsewhere (dropped above as a repeat) is faced here by its structural sentence
+  for (const c of plan.confront) {
+    const ids = new Set(c.readings.map(x => x.r.ruleId)), all = paras.flatMap(p => p.sentences);
+    if (all.some(s => s.trace.rules.some(r => ids.has(r)) || (s.trace.confront ?? []).includes(c.element.id))) continue;
+    const tpl = L.confront[c.element.kind];
+    if (!tpl?.length) continue;
+    // with no reading paragraph left, the limits get a paragraph of their own (it then stands before the conclusion)
+    let host = [...paras].reverse().find(p => p.role !== 'structure');
+    if (!host) { host = { role: 'support', sentences: [], text: '', topic: mainTopic }; paras.push(host); }
+    host.sentences.push(S(fill(W.pick(`cf2|${P}|${c.element.id}`, tpl), { star: c.element.star ?? '', pal: P }),
+      { move: 'TURN', step: `confront:${c.element.id}`, basis: 'he_thong', confront: [c.element.id, ...(c.element.kind === 'ky_carrier' ? ['hoa:Hóa Kỵ'] : [])], part: 4 }));
+  }
+
+  // ---- the conditional conclusion: the domain ledger's verdict for the domains this chapter reads (Tài Bạch in three parts) ----
+  // Mệnh concludes on career, read through Mệnh–Tài–Quan–Di; money is concluded, in its three parts, in the Tài Bạch chapter (a second full
+  // money conclusion at Mệnh would only repeat it)
+  const verdicts = (sh.ledger.byChapter[id] ?? []).filter(v => !isMenh || !v.part);
+  let concluded = false;
+  if (verdicts.length) {
+    const parts = verdicts.filter(v => v.part);
+    if (parts.length && !isMenh) for (const v of parts) {
+      const xs = ledgerSentences(W, L, v, P, sh, id, paras.flatMap(p => p.sentences));
+      if (xs.length) { para('course', `tai_${v.part === 'kiem' ? 'kiem' : v.part === 'giu' ? 'giu' : 'tich'}` as Topic, xs, lead(`tai_${v.part === 'kiem' ? 'kiem' : v.part === 'giu' ? 'giu' : 'tich'}` as Topic)); concluded = true; }
+    }
+    const xs = verdicts.filter(v => !v.part || isMenh).flatMap(v => ledgerSentences(W, L, v, P, sh, id, paras.flatMap(p => p.sentences)));
+    if (xs.length) { para('course', 'ket_luan', xs, lead('ket_luan')); concluded = true; }
+  }
+
   // ---- closing ----
   const said = paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach');
   const conceptsSaid = [...new Set(said.flatMap(s => s.trace.concepts))].filter(c => W.card(c) && TRAIT.test(W.concept(c)?.facet ?? ''));
@@ -290,14 +371,15 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
       if (pos.length && neg.length) closing.push(S(fill(W.pick('sum|turn', L.summary.turn), { S: W.S(), pos: W.np(pos[0]), neg: W.np(neg[0]) }), { move: 'VALUE', step: 'closing:turn', basis: 'he_thong' }));
     }
     if (closing.length) para('course', 'tong_ket', closing, lead('tong_ket'));
-  } else if (paras.filter(p => p.lead).length >= 2) {
+  } else if (!concluded && paras.filter(p => p.lead).length >= 2) {
     const tpl = pos.length && neg.length ? L.summary.close : pos.length ? L.summary.close_pos : neg.length ? L.summary.close_neg : [];
     if (tpl.length) closing.push(S(fill(W.pick(`sum|close|${P}`, tpl), { a: pos.length ? W.np(pos[0]) : '', b: neg.length ? W.np(neg[0]) : '' }), { move: 'VALUE', step: 'closing', basis: 'he_thong' }));
     if (closing.length) para('course', 'tom_lai', closing, lead('tom_lai'));
   }
   // no phổ thông (common, unchecked) reading is told: a palace the books say little about stays short (owner's decision, 2026-10-21)
   if (P === 'Tật Ách' && paras.some(p => p.topic === 'the_trang')) paras.at(-1)!.sentences.push(S(W.pick('health', L.health_note), { move: 'VALUE', step: 'health_note', basis: 'he_thong' }));
-  for (const p of paras) p.text = p.sentences.map(s => s.text).join(' ');
+  for (const p of paras) { p.text = p.sentences.map(s => s.text).join(' '); for (const x of p.sentences) x.trace.part ??= partOf(x);
+    p.part = /^(ket_luan|tai_|tong_ket|tom_lai)/.test(p.topic ?? '') ? 5 : p.sentences[0]?.trace.part; }
 
   const resolvedHere = sh.resolved.filter(r => r.subject === `palace:${P}` || (isMenh && r.subject === 'chart'));
   const { issues, metrics } = validateProse(paras, resolvedHere);
@@ -306,7 +388,8 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const reading = (rid: string) => { const r = rmap.get(rid)!; return (r.reading ?? k.claims[r.consequences[0]?.claim ?? ''] ?? '').replace(/^(khuynh hướng|hạn chế:)\s*/, ''); };
   const ruleIds = [...new Set(paras.flatMap(p => p.sentences.flatMap(s => s.trace.rules)))].filter(r => rmap.has(r)).sort();
   const book = paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').length;
-  if (!book) return null;
+  // a chapter whose readings the report already told still gives its domain conclusion (frame and conclusion only)
+  if (!book && !concluded) return null;
   return {
     engine: `${PROSE_VERSION}/${LUAN_VERSION}`, kbVersion: k.version, chapter: id, palace: P, title: `Luận cung ${P}`, luan: true, schema: 'luan', order: [],
     theses: plan.theses.map(t => t.id),
@@ -318,6 +401,9 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
       rules: Object.fromEntries(ruleIds.map(rid => [rid, { reading: reading(rid), cites: rmap.get(rid)!.cites, verified: rmap.get(rid)!.reviewStatus === 'verified' }])),
       concepts: Object.fromEntries([...new Set(paras.flatMap(p => p.sentences.flatMap(s => s.trace.concepts)))].map(c => [c, k.concepts.concepts.find(x => x.id === c)?.short ?? c])),
       divergences: [],
+      // the domain verdicts this chapter concludes on, with their evidence chains (part 6: shown in the chapter's Căn cứ fold)
+      ledger: verdicts.map(v => ({ id: v.id, label: v.label, verdict: v.verdict, base: v.base, link: v.link ?? null, chain: v.chain,
+        limits: v.limits.map(l => ({ id: l.id, palace: l.palace })) })),
     },
   };
 }
@@ -450,6 +536,8 @@ function thanSentences(W: Writer, L: LuanLib, F: ReasoningFrames, chart: ChartIn
   for (const id of thanRules.slice(0, 2)) {
     const r = W.read(id);
     if (!r.claim || sh.voiced.has(id)) continue;
+    // a timing reading of the Thân palace ("công danh đến muộn") is told in that palace's own chapter, with its domain's conclusion
+    if (sh.resolved.some(x => x.ruleId === id && /\.timing$/.test(W.concept(x.concept)?.facet ?? ''))) continue;
     sh.voiced.add(id);
     const concepts = [...new Set(sh.resolved.filter(x => x.ruleId === id).map(x => x.concept))];
     position.push(W.sentence(fill(W.pick(`than|rule|${id}`, L.than.rule), { pal: than.name, claim: r.claim }), { move: 'ELABORATE', step: `than:rule:${id}`, rules: [id], cites: rmap.get(id)!.cites, concepts }));
@@ -498,3 +586,118 @@ export const luanSaid = (facts: any, k: Knowledge) => {
   const o = luanChapter(facts, k, 'menh', sh);
   return { text: o?.text ?? '', sentences: (o?.paragraphs ?? []).flatMap(p => p.sentences.map(s => ({ text: s.text, concepts: s.trace.concepts, rules: s.trace.rules }))) };
 };
+
+/** The frame part of a sentence by what it does: the palace's structure (1), a reading for or against (2), how elements act on each other —
+ *  tam phương, structures, Thân (3), a limit faced or a contradiction explained (4), the conclusion and the closing (5). */
+function partOf(x: ProseSentence): 1 | 2 | 3 | 4 | 5 {
+  const st = x.trace.step ?? '', m = x.trace.move;
+  if (x.trace.ledger || /^(closing|sum|advice|edge|synth|health_note)/.test(st) || m === 'VALUE' || m === 'TRANSFORM') return 5;
+  if (/^(frame|centre|position|than:same)/.test(st)) return 1;
+  if (/^(confront|kyc|single|contested|against|reducer|caveat)/.test(st) || m === 'TURN' || m === 'TENSION') return 4;
+  if (/^(structure|corroborated|countered|bridge|than|late|formation)/.test(st) || m === 'VIA') return 3;
+  return 2;
+}
+
+/** After a thesis is argued: a big conclusion resting on one minor star is said to be only that star's suggestion, and a strength resting on a
+ *  star that carries Hóa Kỵ is never left as a plain positive (plan.ts Claim.single / kyCarrier). */
+const kySaid = new WeakMap<Writer, Set<string>>();
+function caveats(W: Writer, L: LuanLib, t: Thesis, xs: ProseSentence[], P: string): void {
+  const said = kySaid.get(W) ?? kySaid.set(W, new Set()).get(W)!;
+  for (const c of t.claims) {
+    const at = xs.findIndex(s => s.trace.step === `claim:${t.id}:${c.concept}`);
+    if (at < 0) continue;
+    const add: ProseSentence[] = [];
+    if (c.kyCarrier && !said.has(c.kyCarrier) && said.add(c.kyCarrier)) add.push(W.sentence(fill(W.pick(`kyc|${P}|${c.kyCarrier}`, L.confront.ky_carrier), { star: c.kyCarrier, pal: P }),
+      { move: 'TURN', step: `kyc:${t.id}:${c.concept}`, basis: 'he_thong', confront: [`cat:${c.kyCarrier}`, `major:${c.kyCarrier}`, 'hoa:Hóa Kỵ'], part: 4 }));
+    if (c.single?.length) add.push(W.sentence(fill(W.pick(`single|${P}|${t.id}`, L.single), { stars: joinVi(c.single) }),
+      { move: 'TURN', step: `single:${t.id}:${c.concept}`, basis: 'he_thong', part: 4 }));
+    // after the claim and its behaviour line
+    const after = xs[at + 1]?.trace.step?.startsWith('behave:') ? at + 2 : at + 1;
+    xs.splice(after, 0, ...add);
+  }
+}
+
+const elName = (e: Element) => e.kind === 'tuan' ? 'Tuần' : e.kind === 'triet' ? 'Triệt' : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ`
+  : e.kind === 'hoa_ky' ? `Hóa Kỵ` : e.kind === 'major_ham' ? `${e.star} hãm` : e.star ?? e.id;
+
+/** The ledger's conclusion for one domain, as this chapter tells it: the contradiction and what ties it (part 4) when both sides stand, then
+ *  the conditional verdict (part 5). A domain an earlier chapter concluded is said to agree, in brief. Basis he_thong: the words are the
+ *  system's; the readings they gather are in the trace (rules, cites) and were told with their grounds in the chapters. */
+function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh: LuanShared, chapter: string, said: ProseSentence[]): ProseSentence[] {
+  const G = L.ledger;
+  const vkey = v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict;
+  const verdictWords = G.verdict[vkey] ? W.pick(`lv|${v.id}`, G.verdict[vkey]) : '';
+  const rules = [...new Set([...v.pos, ...v.neg, ...v.timing, ...v.mixed].map(x => x.ruleId))].sort();
+  const cites = [...new Set([...v.pos, ...v.neg, ...v.timing, ...v.mixed].flatMap(x => x.cites))].sort();
+  const tr = (part: 4 | 5, step: string) => ({ move: 'VALUE' as const, step, basis: 'he_thong' as const, rules, cites, concepts: [], ledger: { domain: v.id, verdict: v.verdict, base: v.base }, part });
+  if (v.verdict === 'chua_du' && !(v.limits.length && v.supports.length)) return [];
+  // the full conclusion goes to the first chapter that voiced one of the domain's readings (it then explains what it said), or to the
+  // domain's home chapter; every other chapter says, in brief, that it agrees
+  const ids = new Set([...v.pos, ...v.neg, ...v.timing, ...v.mixed].map(x => x.ruleId));
+  const voicedHere = said.some(s => s.trace.basis === 'sach' && s.trace.rules.some(r => ids.has(r)));
+  const first = sh.domainsTold.get(v.id) ?? (voicedHere || v.home === chapter || !v.home ? undefined : 'later');
+  if (first && first !== chapter) {
+    if (!verdictWords || sh.domainsTold.get(`${v.id}|again`) === chapter) return [];
+    if (first !== 'later') sh.domainsTold.set(`${v.id}|again`, chapter);
+    return [W.sentence(fill(W.pick(`lagain|${v.id}|${P}`, G.again), { domain: v.label, verdict: verdictWords }), tr(5, `ledger:${v.id}:again`))];
+  }
+  sh.domainsTold.set(v.id, chapter);
+  // the item that stands for a side: the domain's own subject first (its first facet), then the core palace, then the more fundamental seat
+  const fi = (x: LedgerItem) => { const f = W.concept(x.concept)?.facet ?? ''; const i = v.facets.findIndex(y => f === y || f.startsWith(y + '.')); return i < 0 ? 99 : i; };
+  const core = v.limits[0]?.palace ?? v.supports[0]?.palace;
+  const best = (xs: LedgerItem[]) => [...xs].sort((a, b) => fi(a) - fi(b) || Number(b.palace === core) - Number(a.palace === core) || a.seat.tier - b.seat.tier || b.rarity - a.rarity || (a.ruleId < b.ruleId ? -1 : 1))[0];
+  const np = (x?: LedgerItem) => x ? W.np(x.concept) : '';
+  const bp = best(v.pos), bn = best(v.neg);
+  const claimOf = (ruleId?: string) => ruleId ? W.read(ruleId).claim : null;
+  const linkText = () => {
+    if (v.link?.kind === 'timing') {
+      const t = [...v.timing].sort((a, b) => Number(b.ruleId === v.link?.ruleId) - Number(a.ruleId === v.link?.ruleId) || Number(b.palace === core) - Number(a.palace === core) || a.seat.tier - b.seat.tier).find(x => claimOf(x.ruleId)) ?? v.timing[0];
+      return claimOf(t?.ruleId) ?? np(t);
+    }
+    return claimOf(v.link?.ruleId) ?? '';
+  };
+  const ground = (x?: LedgerItem) => x?.seat.star ? `${x.seat.star}${x.seat.scope === 'opp' && x.seat.kind === 'major' ? ' mượn từ cung đối' : ''} ở cung ${x.palace}` : `cung ${x?.palace ?? P}`;
+  const limits = joinVi([...new Set(v.limits.filter(l => !(l.kind === 'hoa_ky' && v.limits.some(m => m.kind === 'ky_carrier' && m.star === l.star))).map(elName))].slice(0, 3));
+  const palace = v.limits[0]?.palace ?? P;
+  const singleStars = (x?: LedgerItem) => joinVi(x?.stars.length ? x.stars : [x?.seat.star ?? `cung ${x?.palace}`]);
+  const lk = v.link?.kind;
+  let key: string | null = null;
+  const vals: Record<string, string> = { domain: v.label, pos: np(bp), neg: np(bn), link: '', ground: '', limits, palace, stars: '', mitig: '', supports: joinVi(v.supports.map(elName)), S: W.S() };
+  const OPTIONAL = new Set(['mitig']);
+  if (v.verdict === 'chua_du') key = 'struct_only';
+  else if (v.verdict === 'hai_chieu') key = 'two_ways';
+  else if (bp && bn) {
+    if (lk === 'timing') { key = 'both_timing'; vals.link = linkText(); }
+    else if (lk === 'book') { key = v.link?.reduces === '-' ? 'both_book_reduced' : 'both_book'; vals.link = linkText() || np(v.link?.reduces === '-' ? bp : bn); }
+    else if (v.base === '+') { key = 'both_pos'; vals.ground = ground(bp); }
+    else { key = 'both_neg'; vals.ground = ground(bn); }
+  } else if (bp) {
+    if (lk === 'timing') { key = 'pos_timing'; vals.link = linkText(); }
+    else if (lk === 'structure') key = 'pos_struct';
+    else if (lk === 'single') { key = 'pos_single'; vals.stars = singleStars(bp); }
+    else key = 'thuan';
+  } else if (bn) {
+    if (lk === 'single') { key = 'neg_single'; vals.stars = singleStars(bn); }
+    else if (lk === 'timing') { key = 'neg_timing'; vals.link = linkText(); }
+    else if (v.limits.some(l => !bn.stars.includes(l.star ?? ''))) { key = 'neg_struct'; vals.limits = joinVi([...new Set(v.limits.filter(l => !bn.stars.includes(l.star ?? '')).map(elName))]); }
+    else key = 'neg';
+  } else if (lk === 'timing') { key = 'timing_only'; vals.link = linkText(); }
+  if (!key || !G[key]?.length || Object.entries(vals).some(([k2, x]) => !x && !OPTIONAL.has(k2) && G[key!].some(t => t.includes(`{${k2}}`)))) {
+    return verdictWords ? [W.sentence(fill(W.pick(`lalone|${v.id}`, G.verdict_alone), { domain: v.label, verdict: verdictWords }), tr(5, `ledger:${v.id}`))] : [];
+  }
+  const main = W.sentence(fill(W.pick(`l|${v.id}|${key}`, G[key]), vals), tr(key.startsWith('both') || key === 'two_ways' ? 4 : 5, `ledger:${v.id}:${key}`));
+  const out = [main];
+  // the verdict, naming the limits of the core palace when the conclusion is conditional on them
+  const withLimits = v.verdict === 'co_dieu_kien' && !!limits && key !== 'pos_struct' && key !== 'neg_struct';
+  if ((key.startsWith('both') || key === 'two_ways' || withLimits) && verdictWords)
+    out.push(W.sentence(fill(W.pick(`lverdict|${v.id}`, withLimits ? G.verdict_line_limits : G.verdict_line), { domain: v.label, verdict: verdictWords, limits, palace }), tr(5, `ledger:${v.id}`)));
+  return out;
+}
+
+/** The ground of a reading named plainly: its stars in the palace, with the brightness only when the rule itself turned on it (a reading of
+ *  "Vũ Khúc ở Tật Ách" is not grounded on "Vũ Khúc hãm"). */
+function plainGround(W: Writer, x: Reading, P: string): string {
+  if (x.r.atoms.some(a => a.kind === 'dignity') || x.seat.kind !== 'major') return W.ground(x);
+  const stars = [...new Set(x.r.atoms.filter(a => a.kind === 'star' && a.palace === P).map(a => a.name))];
+  return stars.length ? `${joinVi(stars)} ở cung ${P}` : W.ground(x);
+}

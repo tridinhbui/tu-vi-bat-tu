@@ -1,0 +1,124 @@
+{
+ "version": "domains-1.0.0",
+ "basis": "he_thong",
+ "note": "Which palaces and concepts a life domain gathers, for the report-wide ledger (src/interpret/reason/ledger.ts). A system convention (he_thong), labelled as such: the usual practice of reading a matter through its own palace, the palace's tam phương tứ chính and the palaces the books tie to it. Where a book sentence ties palaces together it is cited in `cite`. The ledger adjudicates each domain once (book link → specificity → tier → two-ways, the order of reason/adjudicate.ts); it never sums scores. Roles: core = the palace of the matter; tam_hop / xung = its tam phương tứ chính; support = a palace the convention adds.",
+ "verdicts": {
+  "thuan": "the readings point one way and nothing in the core palace limits them",
+  "co_dieu_kien": "one side is the base, the other (or a limiting element of the core palace) sets its conditions — or a timing reading ties both sides to different times",
+  "hai_chieu": "both sides rest on seats of the same weight and nothing ties them: told as two sides",
+  "tro_ngai": "the limiting side is the base; what helps only softens it"
+ },
+ "domains": {
+  "cong_danh": {
+   "label": "đường công danh",
+   "palaces": {
+    "Quan Lộc": "core",
+    "Mệnh": "tam_hop",
+    "Tài Bạch": "tam_hop",
+    "Thiên Di": "xung"
+   },
+   "facets": [
+    "career.trajectory",
+    "career.authority",
+    "career.timing",
+    "career.support",
+    "career.expertise"
+   ],
+   "than": true,
+   "chapters": [
+    "menh",
+    "cong_danh"
+   ],
+   "home": "cong_danh"
+  },
+  "tai_loc": {
+   "label": "tiền bạc",
+   "cite": "KL p.216 (cung Phúc, cung Quan giữ phần chế tài, cân bằng thế mạnh yếu của cung Tài)",
+   "parts": {
+    "kiem": {
+     "label": "khả năng kiếm tiền",
+     "palaces": {
+      "Tài Bạch": "core",
+      "Quan Lộc": "tam_hop",
+      "Mệnh": "tam_hop"
+     },
+     "facets": [
+      "finance.flow",
+      "finance.source"
+     ]
+    },
+    "giu": {
+     "label": "cách giữ và quản lý tiền",
+     "palaces": {
+      "Tài Bạch": "core"
+     },
+     "facets": [
+      "finance.retention",
+      "finance.style"
+     ],
+     "elements": [
+      "Hóa Kỵ",
+      "Địa Không",
+      "Địa Kiếp",
+      "Đại Hao",
+      "Tiểu Hao"
+     ]
+    },
+    "tich_luy": {
+     "label": "phần tích lũy, nhà cửa",
+     "palaces": {
+      "Điền Trạch": "core",
+      "Tài Bạch": "support"
+     },
+     "facets": [
+      "finance.property"
+     ],
+     "elements": [
+      "Lộc Tồn",
+      "Thiên Phủ"
+     ]
+    }
+   },
+   "chapters": [
+    "tai_bach"
+   ],
+   "home": "tai_bach"
+  },
+  "hon_nhan": {
+   "label": "hôn nhân",
+   "palaces": {
+    "Phu Thê": "core",
+    "Phúc Đức": "support",
+    "Mệnh": "support"
+   },
+   "facets": [
+    "relationships.marriage",
+    "relationships.timing"
+   ],
+   "elements": [
+    "Hóa Kỵ",
+    "Tuần",
+    "Triệt"
+   ],
+   "chapters": [
+    "phu_the"
+   ],
+   "home": "phu_the"
+  },
+  "suc_khoe": {
+   "label": "sức khỏe",
+   "palaces": {
+    "Tật Ách": "core",
+    "Mệnh": "support"
+   },
+   "facets": [
+    "wellbeing.health",
+    "wellbeing.longevity"
+   ],
+   "chapters": [
+    "tat_ach"
+   ],
+   "home": "tat_ach"
+  }
+ }
+}

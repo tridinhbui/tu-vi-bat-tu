@@ -7,10 +7,14 @@ import { withLead } from './luan.ts';
 
 const UNCHECKED = new Set(['pho_thong']);
 
+/** A system sentence that stands on its own ground rather than restating a removed one: a domain conclusion of the ledger, a hạn's level
+ *  on the indices, a hạn's Hóa or natal link (reason/ledger.ts, prose/vanhan.ts). */
+const OWN = (s: ProseParagraph['sentences'][number]) => !!s.trace.ledger || /^(level|hoa|natal):/.test(s.trace.step ?? '');
+
 export function checkedParagraphs(ps: ProseParagraph[]): ProseParagraph[] {
   return ps.flatMap(p => {
     const kept = p.sentences.filter(s => !UNCHECKED.has(s.trace.basis));
-    if (!kept.length || (kept.length < p.sentences.length && kept.every(s => s.trace.basis === 'he_thong'))) return [];
+    if (!kept.length || (kept.length < p.sentences.length && kept.every(s => s.trace.basis === 'he_thong' && !OWN(s)))) return [];
     if (kept.length === p.sentences.length) return [p];
     let sentences = kept;
     if (p.lead && !kept[0].text.startsWith(p.lead)) sentences = [{ ...kept[0], text: withLead(p.lead, kept[0].text) }, ...kept.slice(1)];

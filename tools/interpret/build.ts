@@ -87,7 +87,9 @@ const knowledge = {
         // draft position guards from the R1 audit (tools/interpret/audit_positions.ts): a rule whose condition is wider than the book's wording
         positionGuards: existsSync(join(DATA, 'kg', 'position_guards.json')) ? read(join(DATA, 'kg', 'position_guards.json')).guards : [],
         // the ten draft cách cục with thành / phá / cứu (engine/data/experimental, reason/structures.ts); voiced only with draft prose allowed
-        formations: read(join(DATA, 'experimental', 'formations_experimental.json')).formations },
+        formations: read(join(DATA, 'experimental', 'formations_experimental.json')).formations,
+        // which palaces and concepts each life domain gathers, for the report-wide ledger (reason/ledger.ts); a labelled system convention
+        domains: existsSync(join(DATA, 'kg', 'domains.json')) ? read(join(DATA, 'kg', 'domains.json')) : undefined },
   // prose library (prose plan §3): how concepts, chart facts and resolver decisions are voiced in reader prose
   prose: (() => {
     const P = join(ROOT, 'src', 'interpret', 'content', 'prose');

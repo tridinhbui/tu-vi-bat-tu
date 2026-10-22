@@ -27,6 +27,13 @@ export interface SentenceTrace {
   note?: string;
   /** a method sentence (narrative.ts foldAsides): it becomes the note of the reading next to it and is not told */
   aside?: boolean;
+  /** luận cung (prose/luan.ts): which part of the chapter frame the sentence belongs to — 1 structure, 2 support / limit, 3 interaction,
+   *  4 a contradiction and how it is explained, 5 the conditional conclusion from the domain ledger (6, the sources, is the Căn cứ fold) */
+  part?: 1 | 2 | 3 | 4 | 5;
+  /** the domain verdict a conclusion sentence voices (reason/ledger.ts): every chapter says the same verdict for the same domain */
+  ledger?: { domain: string; verdict: string; base: '+' | '-' | null };
+  /** the limiting elements of the palace (reason/evidence.ts ids) the sentence faces */
+  confront?: string[];
 }
 /** Who a chapter's sentences are about: in Phu Thê and Nô Bộc a reading that is not about the bond itself describes the other people. */
 export interface Voice { other?: { first: string[]; next: string[] }; bond?: (c?: Concept) => boolean }
@@ -34,7 +41,9 @@ export interface ProseSentence { text: string; trace: SentenceTrace }
 export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structure' | 'colour' | 'balance'; sentences: ProseSentence[]; text: string;
   /** luận cung (prose/luan.ts): the bold lead-in the paragraph opens with ("Về tính cách và cách giao tiếp"); the first sentence's text starts
    *  with it, so a plain-text reader sees it too. `topic` is its key (tinh_cach, su_nghiep, than, hau_van, tong_ket, …). */
-  lead?: string; topic?: string }
+  lead?: string; topic?: string;
+  /** luận cung: the frame part the paragraph serves (its sentences' parts in order; the first is the paragraph's own) */
+  part?: number }
 
 const join = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1).join(', ') + ' và ' + xs[xs.length - 1];
 function fill(t: string, vars: Record<string, string | undefined>): string {

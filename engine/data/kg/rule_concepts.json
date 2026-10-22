@@ -1754,11 +1754,15 @@
   "TV_KL_CUNG_PHUC_DUC_SAT_PHA_LIEM_THAM": {
    "asserts": [
     {
-     "concept": "fin.volatile",
+     "concept": "fam.negative",
+     "stance": "affirms"
+    },
+    {
+     "concept": "inner.unrest",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_KL_CUNG_PHUC_DUC_TU_PHU_VU_TUONG": {
@@ -8086,12 +8090,11 @@
   "TV_TH_P2_PHU_THE_PHA_TIEN_TRO": {
    "asserts": [
     {
-     "concept": "life.hardship",
-     "stance": "affirms",
-     "strength": "condition"
+     "concept": "rel.timing",
+     "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_P2_PHU_THE_PHA_TT": {
@@ -8608,13 +8611,9 @@
     {
      "concept": "fin.scarcity",
      "stance": "affirms"
-    },
-    {
-     "concept": "fin.self_made",
-     "stance": "weakens"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TH_P2_TAI_BACH_TU_PHU_PHU_GIA": {
@@ -14548,15 +14547,11 @@
   "TV_TT_PAL_THIEN_DI_HOA_TINH_BASE_M": {
    "asserts": [
     {
-     "concept": "inner.unrest",
-     "stance": "affirms"
-    },
-    {
-     "concept": "fin.windfall",
+     "concept": "outside.adverse",
      "stance": "affirms"
     }
    ],
-   "src": "auto",
+   "src": "manual",
    "review": "draft"
   },
   "TV_TT_PAL_THIEN_DI_HUU_BAT_BASE_P": {

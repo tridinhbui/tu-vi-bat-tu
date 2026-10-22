@@ -1,0 +1,422 @@
+{
+ "version": "2026-10-22",
+ "note": "Page check of the draft rules that fire on corpus1000 with a limiting meaning (plan quirky-tinkering-rabin step 2, S1). Each was read on the rendered page image (TH text layer scrambles lines). verified = the page carries the reading and the rule is no broader than the page; draft = kept out of the text, with the reason. Quotes are verbatim from the page image. Pack JSON was patched in place (regenerating packs from tools/build_*.py drops later fixes); the KL cung and TH cách builders were synced.",
+ "rules": [
+  {
+   "id": "TV_KL_CUNG_PHU_THE_KINH_DA_KHONG_KIEP",
+   "page": "KL p.217",
+   "status": "verified",
+   "quote": "Gặp lũ sát tinh Kình Đà  Không Kiếp thì dễ tan vỡ.",
+   "note": "stars checked in the palace itself, the reading this page's verified rules give to \"gặp\" (Thái âm, Thái dương)",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_CUNG_PHU_THE_SAT_PHA_LIEM_THAM",
+   "page": "KL p.217",
+   "status": "verified",
+   "quote": "Chẳng nên gặp đám Sát Phá Liêm Tham, dễ sinh một dạ hai lòng, bất hòa xa cách.",
+   "note": "chính tinh of the group in the palace",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_CUNG_PHUC_DUC_SAT_PHA_LIEM_THAM",
+   "page": "KL p.217",
+   "status": "verified",
+   "quote": "Gặp Sát Phá Liêm Tham: thì khắc tổ ly tông, hao tâm tổn trí.",
+   "note": "concept link corrected from fin.volatile to fam.negative + inner.unrest (the page speaks of leaving the family line and worry, not money)",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_CUNG_THIEN_DI_SAT_PHA_THAM",
+   "page": "KL p.219",
+   "status": "verified",
+   "quote": "Di có Sát Phá Tham thì tranh giành, lam lũ.",
+   "note": "chính tinh in the palace",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_CUNG_NO_BOC_THAM_ALONE",
+   "page": "KL p.219",
+   "status": "verified",
+   "quote": "Tham lang độc thủ: không trung thành",
+   "note": "Tham Lang the only chính tinh",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_CUNG_NO_BOC_PHUC_BINH_KY",
+   "page": "KL p.219",
+   "status": "verified",
+   "quote": "Nhược bằng gặp lũ Phục binh, Hóa kỵ, Phá toái thì bạn bè, gia nhân phản chủ",
+   "note": "the rule needs Phục Binh and Hóa Kỵ both in the palace: narrower than any reading of \"lũ\"",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_CACH_QUAN_LOC_THAN_TT",
+   "page": "TH p.75",
+   "status": "verified",
+   "quote": "Quan Lộc: Có Tuần Triệt, Kiếp Hỏa, Kỵ hội đàn ông muộn công danh.",
+   "note": "page image read; the page's own gender condition (đàn ông) added to the rule",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_CUNG_QUAN_LOC_SAT_TT",
+   "page": "KL p.216",
+   "status": "draft",
+   "quote": "Nhược bằng gặp lũ Không Kiếp, Kình Đà, Hỏa Linh, Kiếp Sát, Hóa Kỵ, Tuần Triệt thì đỗ vỡ cơ đồ đầy công xây dựng.",
+   "note": "the rule reads \"gặp\" as the tam phương for the sát tinh; the page does not say hội/chiếu",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_CUNG_TAI_BACH_KHONG_KIEP",
+   "page": "KL p.216",
+   "status": "draft",
+   "quote": "Nhược bằng bị lũ Không Kiếp, Liêm Tham, Song Hao ghé vào thì nghèo muôn thuở.",
+   "note": "\"ghé vào\" read as tam phương (fires on 58 % of the corpus); the paraphrase softens \"nghèo muôn thuở\"; Song Hao not built",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_CUNG_DIEN_TRACH_NGHEO",
+   "page": "KL p.220",
+   "status": "draft",
+   "quote": "Nghèo về điền trạch thì gặp những sao sau đây: sát; Phá, Tham, Âm Dương hãm địa, Không Kiếp hãm địa, Kình Đà , Tuần Triệt.",
+   "note": "the rule counts Không Kiếp without the hãm địa the page requires; Âm Dương hãm not built",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_SAT4_THU_MENH",
+   "page": "KL 64",
+   "status": "verified",
+   "quote": "2 . Kình Đà Linh Hỏa thủ mệnh yếu đà bối khúc chi nhân / Mệnh có Kình Đà Hỏa Tinh, Linh Tinh là người vất vả nghèo khổ, ví như phải còng lưng đi kiếm ăn.",
+   "note": "Phú #2: the four sát thủ Mệnh, no dignity; 'any one in Mệnh' is the only workable reading (Kình and Đà never share a palace).",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_KY_VAN_NHAN",
+   "page": "KL 66-67 (sentence runs onto p.67)",
+   "status": "draft",
+   "quote": "11. Hoá kỵ văn nhân bất nại : Cung mệnh có Hóa kỵ gặp được phúc tinh, quí tinh thì giỏi văn chương nhưng đường [p.67] công danh vẫn trắc trở không thành.",
+   "note": "kept draft: broader — page says 'gặp' (not hội/chiếu) but the rule reads it as tam phương; the phúc tinh/quý tinh set (Tử, Phủ, Khôi, Việt, Tả, Hữu) is not given by the page. Meaning matches, but the location and the star set are the system's own choices.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_TU_VI_SAT_PHA",
+   "page": "KL 50",
+   "status": "draft",
+   "quote": "16 . Tử vi tu cần Tam Hóa, nhược phùng Tứ Sát phong bãi hà hoa. Mệnh có Tử vi rất cần Khoa, Quyền Lộc hội chiếu, nếu chẳng may gặp Kình Đà Không Kiếp thì tan nát cuộc đời",
+   "note": "kept draft: broader — Page names the four together ('phùng Tứ Sát', 'gặp Kình Đà Không Kiếp'), but the rule fires on any single one. It also says 'gặp' for the sát, while 'hội chiếu' is used only for Khoa Quyền Lộc.. Item #16 is on the page, but the rule fires on a single sát in tam phương, which is looser than the page.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_CO_TUAN_TRIET",
+   "page": "KL 79",
+   "status": "draft",
+   "quote": "Khi gặp Tuần Triệt thì nghèo khó lang thang, (nhưng lại có ý kiến đáng tin cậy cho rằng Thiên cơ gặp Tuần Triệt mới tới vận hay",
+   "note": "the same page gives a contrary view it calls reliable (Thiên Cơ gặp Tuần Triệt mới tới vận hay); a one-sided limit would misstate the page",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_KL_CT_PHU_LAC_KHONG_VONG",
+   "page": "KL 222",
+   "status": "draft",
+   "quote": "Gặp Không Kiếp, Tuần không là lạc không vong thì phiêu bạt giang hồ, mất mát lớn lao, như cảnh hoa lạc giữa rừng gươm",
+   "note": "kept draft: broader — page says 'gặp' (not hội/chiếu) but the rule reads it as tam phương for Không/Kiếp; page lists Không Kiếp + Tuần together as 'lạc không vong', rule fires on any one. Sentence is on the page under Thiên phủ; the location reading and any-one logic are looser than the text.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_AUX_MENH_HK_SAT",
+   "page": "TH 53",
+   "status": "draft",
+   "quote": "Nếu Khoa lại bị nhiều hung tinh, hay sát tinh xâm phạm thì công danh chẳng thành đạt, tiền của cũng khó khăn.",
+   "note": "kept draft: broader — Page says 'nhiều' (many) hung/sát tinh; rule fires on a single sát. The page's 'xâm phạm' is also read as tam phương.. Meaning matches; the threshold 'nhiều' is not encoded.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_AUX_MENH_HQ_SAT",
+   "page": "TH 53",
+   "status": "draft",
+   "quote": "Quyền gặp Sát tinh thì tính hay liều lĩnh. Nên làm việc gì cũng thường thất bại, gặp lắm buồn phiền về con cái.",
+   "note": "kept draft: broader — page says 'gặp' (not hội/chiếu) but the rule reads it as tam phương. Meaning matches, but the location reading is looser than the page.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_AUX_MENH_VCD_TAM_KHONG_LOC",
+   "page": "TH 53",
+   "status": "draft",
+   "quote": "Mệnh vô chính diệu gặp tam không (Tuần, Triệt, Thiên, Địakhông) mà lại gặp Lộc, và Tồn thì tất được giàu sang, song không bền.",
+   "note": "kept draft: broader — 'tam không' = three Không, but the rule needs only one of four. 'Lộc, và Tồn' = Hóa Lộc AND Lộc Tồn, but the rule checks only Lộc Tồn. 'gặp' is read as tam phương.. Sentence is on the page; the rule needs far less than the page states.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_COMBO_LIEM_TRINH_HUNG",
+   "page": "TH 37",
+   "status": "draft",
+   "quote": "LIÊM : MIẾU, VƯỢNG, ĐẮC ĐỊA ... Trái lại nếu bị hung tinh ám thì không được xứng ý, toại lòng. Công danh trắc trở, tiên của tựu tản",
+   "note": "kept draft: broader — 'bị hung tinh ám' is read as any one of Kình/Đà/Hỏa/Linh/Không/Kiếp in tam phương; the page does not say hội/chiếu or name the set. Dignity (miếu/vượng/đắc) is correctly encoded; only the location reading and the hung-tinh set are assumptions.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_DỒNG_SAT",
+   "page": "TH 36 (dignity header at foot of TH 35)",
+   "status": "draft",
+   "quote": "Trái lại nếu gặp phải hung tinh như Hình, Kỵ, Linh Hỏa, Kình Đà, Không Kiếp, thì tuy được no ấm, song trọn đời lao tâm, khổ tứ",
+   "note": "kept draft: broader — page says 'gặp' (not hội/chiếu) but the rule reads it as tam phương (only the preceding cát-tinh clause says 'hội'). Paragraph begins on TH35 'ĐỒNG : MIẾU, VƯỢNG hay ĐẮC địa', so the dignity is right; the location reading is the only gap.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_COMBO_VŨ_KHÚC_KIEP_SAT",
+   "page": "TH 34",
+   "status": "draft",
+   "quote": "Tráilại nếu đắc địa mà gặp Kiếp, Sát thì biến ra tiền phú hậu bần, tức khoảng ngoài55 sa sút.",
+   "note": "kept draft: broader — Page names Kiếp and Sát together ('Kiếp, Sát', possibly the star Kiếp Sát), but the rule fires on any one of five, including Kình/Đà/Hỏa/Linh without any Kiếp. 'gặp' is read as tam phương.. Sentence and dignity are present; the star logic is much looser than 'Kiếp, Sát'.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_COMBO_THIEN_PHU_TT_KK",
+   "page": "TH 39",
+   "status": "draft",
+   "quote": "Nếu gặp phải Tuần, Triệt hay Không, Kiếp thì mình hơi cao, tính hơi ương ngạnh, thích hoang phí, phóng đãng, hay tính chuyện viễn vông",
+   "note": "kept draft: broader — page says 'gặp' (not hội/chiếu) but the rule reads it as tam phương for Không/Kiếp; page gives a separate NỮ MỆNH reading for the same stars ('đau khổ, lo âu vì chồng con'), rule has no gender split. 'hay' licenses any-one; only the location reading and the missing gender split are looser.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_NO_BOC_DA_KY",
+   "page": "TH 109",
+   "status": "draft",
+   "quote": "Dương Đà Kỵ Phá hãm bên / Bạn bè tôi tớ đảo điên khó lường",
+   "note": "kept draft: broader — Phá Quân hãm is dropped while Kỵ is kept; the page groups Dương Đà Kỵ Phá hãm as one configuration. Line is on the page (Cung Nô); the rule encodes only part of the star group.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_THIEN_DI_VU_DA_KINH",
+   "page": "TH 108",
+   "status": "verified",
+   "quote": "Vũ, Đà Kình tất âu lo",
+   "note": "Thiên Di verse; Vũ with Đà or Kình in the palace.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_TAI_BACH_DA_KHONG",
+   "page": "TH 106",
+   "status": "verified",
+   "quote": "Đà Không nghèo khó tai ương",
+   "note": "Tài Bạch verse; 'Không' read as Địa Không is the only interpretive step.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_TAI_BACH_TT",
+   "page": "TH 106",
+   "status": "verified",
+   "quote": "Tuần Triệt trước đất cùng khong",
+   "note": "Tài Bạch verse: Tuần/Triệt means empty-handed at first; the paraphrase 'phải tự gây dựng' is a fair gloss.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_TAI_BACH_HOA_LINH",
+   "page": "TH 106",
+   "status": "verified",
+   "quote": "Hỏa Linh biển lận đáng chê vô cùng",
+   "note": "Tài Bạch verse: Hỏa/Linh = stingy; the page also has 'Hỏa Linh miếu, phát nhiều phen', which can co-fire.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_TAI_BACH_CO_TUE",
+   "page": "TH 106",
+   "status": "verified",
+   "quote": "Thiên cơ, Thái tuế gian nan mọi đường",
+   "note": "Tài Bạch verse, exact.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_HUYNH_DE_PHA_KY",
+   "page": "TH 100",
+   "status": "draft",
+   "quote": "Phá phùng Hình Kỵ đồng xung / Anh em bất thuận những đường trở tranh",
+   "note": "kept draft: broader — Thiên Hình is required by the page but missing from the rule. 'đồng xung' would also allow Hình/Kỵ in the opposite palace, so on location the rule is narrower.. Without Hình the rule fires on Phá + Kỵ alone.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_HUYNH_DE_LOC_TON_IT",
+   "page": "TH 100",
+   "status": "draft",
+   "quote": "Lộc Tồn Cô quả, anh em có nào",
+   "note": "kept draft: broader — Cô Thần/Quả Tú not required; the line pairs Lộc Tồn with Cô quả (ambiguous: stars, or 'lonely'). If 'Cô quả' means the stars Cô Thần/Quả Tú, the rule is missing them; if it just means 'lonely', the rule matches.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_PHU_THE_PHA_TIEN_TRO",
+   "page": "TH 102",
+   "status": "verified",
+   "quote": "Phá quân tiên trở hậu thành mới hay",
+   "note": "Phu Thê verse, exact.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_PHU_THE_XK_TUE",
+   "page": "TH 103",
+   "status": "draft",
+   "quote": "Khúc Xương Thái Tuế liệt hòi / Chua ngoa miệng, lưỡi, ấy người đa ngôn",
+   "note": "the verse names the pair Khúc Xương with Thái Tuế; the rule fires on either star alone",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_TU_TUC_CO_TUONG",
+   "page": "TH 104",
+   "status": "verified",
+   "quote": "Tướng, Cơ số hiếm muộn màng",
+   "note": "Cung Tử verse. Cơ and Tướng can never share a palace, so the rule's either-one reading is the right one.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_PHUC_DUC_KHONG_KIEP",
+   "page": "TH 112",
+   "status": "draft",
+   "quote": "Phúc cung hãm, ngộ Kiếp Không / Họ hàng lăm kẻ hành hung ở ngoài",
+   "note": "kept draft: broader — The page's 'Phúc cung hãm' condition is missing. The meaning also drifts: the page says relatives who act violently outside, not 'sống xa, biến động'.. Line is on the page, but the rule drops the hãm condition and softens the meaning.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_PHU_MAU_LOC_KHONG_KIEP",
+   "page": "TH 113",
+   "status": "verified",
+   "quote": "Lộc Tồn Không Kiếp lại điều phá gia",
+   "note": "Cung Phụ Mẫu verse, exact.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_P2_DIEN_TRACH_TANG_HO",
+   "page": "TH 111",
+   "status": "verified",
+   "quote": "Tang Môn Bạch Hổ tương hành / Cửa nhà vừa đủ nấu mình mà thôi",
+   "note": "Cung Trạch verse. Tang and Hổ always face each other, so 'both in tam phương' amounts to 'one of them in Điền Trạch'.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_HA_CACH",
+   "page": "TH 77",
+   "status": "draft",
+   "quote": "4. Hạ cách: ...không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. ... Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa",
+   "note": "kept draft: broader — Two page conditions are missing: the stars must be hãm địa, and cát tinh must not form a full set. Hóa Kỵ is only one item in the page's example list. The '≥3' threshold is the system's own.. Hạ cách is on the page, but the rule omits the hãm-địa and no-cát-tinh conditions.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+   "page": "TH 74",
+   "status": "draft",
+   "quote": "7. Nhật, Nguyệt tàn hung (Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh, hoặc hãm mà gặp sát tinh)",
+   "note": "kept draft: broader — page says 'gặp' (not hội/chiếu) but the rule reads it as tam phương. Note: 'không có cứu tinh' is an alternative ('hoặc'), not a missing extra condition, so the description's caveat is wrong.. The hãm + sát branch stands on its own; only the location reading is loose.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_TAI_TU_CUU",
+   "page": "TH 74",
+   "status": "draft",
+   "quote": "6. Tài dữ tù cừu (Vũ hay Liêm hãm tại Mệnh lại gặp sát tinh)",
+   "note": "kept draft: broader — page says 'gặp' (not hội/chiếu) but the rule reads it as tam phương. Dignity and palace are right; only the location reading is loose.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_BT_THAT_SINH",
+   "page": "TH 73",
+   "status": "draft",
+   "quote": "2. Thất sinh cô bần ( Phá Cóng Mệnh tại Dần, Thân gặp sát tinh)",
+   "note": "kept draft: broader — page says 'gặp' (not hội/chiếu) but the rule reads it as tam phương. Branch and palace are right; only the location reading is loose.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_AUX2_TAI_BACH_HOA_TAI",
+   "page": "TH 64",
+   "status": "verified",
+   "quote": "Hỏa đóng ở cung Điền, gặp tang môn mà khong có cát sao thuộc Thủy chế ngự thì dễ bị cháy nhà. Nếu đóng ở cung Tài thì tán tài.",
+   "note": "Subject is clearly Hỏa; the sentence is not broken in the image (the description's 'đứt chữ' note is a text-layer artefact).",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_AUX2_MENH_HAO_PHA_QUAN",
+   "page": "TH 65",
+   "status": "draft",
+   "quote": "Song Hao gặp Phá quân trở nên túng thiếu.",
+   "note": "kept draft: broader — page says 'gặp' (not hội/chiếu) but the rule reads it as tam phương; page is not Mệnh-specific (restricting to Mệnh narrows it). Meaning matches; only the location reading is loose.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_AUX2_MENH_KK_QUYEN",
+   "page": "TH 68",
+   "status": "verified",
+   "quote": "Kiếp, Không gặp Hóa quyền tất làm trắc trở công danh.",
+   "note": "The rule needs Kiếp/Không and Quyền in the same Mệnh palace, which is narrower than the page's 'gặp'.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_MV_MENH_NGUYET_HAM_LUONG",
+   "page": "TH 87",
+   "status": "draft",
+   "quote": "Mão đến Tỵ bónh đen Nguyệt hãm, / Gặp Lương càng bi thảm gian truân.",
+   "note": "kept draft: broader — The page limits 'Nguyệt hãm' to Mão–Tỵ, but the rule uses any hãm branch with no branch limit. 'Gặp Lương' read as tam phương is always true, because Thiên Lương always sits in tam hợp with Thái Âm.. The rule is effectively 'Thái Âm hãm in Mệnh' at any hãm branch.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TH_MV_MENH_PHU_SAT_TAO_BAO",
+   "page": "TH 84",
+   "status": "draft",
+   "quote": "Phủ phùng thất sát chí khôn. / Việc làm táo bạo, những toan hơn người",
+   "note": "kept draft: broader — 'phùng' is read as tam phương, which is always true: Thất Sát always sits opposite Thiên Phủ. So the rule fires for every Thiên Phủ Mệnh.. Verse is on the page, but the condition as written adds nothing.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TT_PAL_NO_BOC_DA_LA_BASE_M",
+   "page": "TT 88",
+   "status": "verified",
+   "quote": "Có sao Đà La oán chủ, nếu nhập miếu mới bớt xấu.",
+   "note": "Bát Nô Bộc cung entry (page 88, not 87).",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TT_PAL_PHU_THE_THAM_LANG_BASE_M",
+   "page": "TT 82",
+   "status": "verified",
+   "quote": "Có sao Tham Lang vợ chồng đều thường không đẹp ba bốn lần làm chú rể, nhập miếu nên lấy muộn",
+   "note": "Ngũ Phu Thê entry. 'ba bốn lần làm chú rể' is worded for a man, but the opening clause covers both partners.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TT_PAL_PHU_THE_THAI_DUONG_WITH_CU_MON_M",
+   "page": "TT 82",
+   "status": "draft",
+   "quote": "Có sao Thái Dương miếu vượng lấy vợ muộn tốt, ... ; cùng Cự Môn thêm Dương Đà, Hỏa Linh, Không Kiếp khắc",
+   "note": "kept draft: broader — Requirement of Dương Đà / Hỏa Linh / Không Kiếp missing; the Cự Môn entry on the same page says 'cùng Thái Dương mà không bị Tứ Sát xung phá giai lão'. Without the sát condition the rule fires a negative reading where the book reads it as good.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TT_PAL_QUAN_LOC_VU_KHUC_HAM_M",
+   "page": "TT 79",
+   "status": "draft",
+   "quote": "ở hãm địa bị Kinh Đà, Linh Hỏa xung phá công danh vô phận.",
+   "note": "kept draft: broader — Requirement of Kình/Đà/Linh/Hỏa (xung phá) missing. The rule fires on Vũ hãm alone; the page needs the sát as well.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TT_PAL_QUAN_LOC_THIEN_DONG_WITH_THAI_AM_M",
+   "page": "TT 79",
+   "status": "draft",
+   "quote": "Có sao Thiên Đồng ... ; cùng Thái Âm hãm địa rất xấu.",
+   "note": "kept draft: broader — Thái Âm hãm dignity missing (Đồng Âm at Tý has Thái Âm miếu). Only the hãm case is 'rất xấu'; the rule fires at both Tý and Ngọ.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TT_PAL_THIEN_DI_HOA_TINH_BASE_M",
+   "page": "TT 78",
+   "status": "verified",
+   "quote": "Có sao Hoả Tinh độc thủ xuất ngoại bất an, được cát tinh phù trì hay hoạnh tài",
+   "note": "'độc thủ' encoded as no chính tinh; page 78.",
+   "checked_by": "page image, 2026-10-22"
+  },
+  {
+   "id": "TV_TT_PAL_DIEN_TRACH_THAI_DUONG_HAM_M",
+   "page": "TT 88",
+   "status": "draft",
+   "quote": "Thái Dương cư hãm địa lại gặp Dương Đà, Linh Hỏa, Kiếp Không chẳng có tấc đất cắm dùi.",
+   "note": "kept draft: broader — Requirement of Dương Đà / Linh Hỏa / Kiếp Không missing. Cửu Điền Trạch entry is on p.88; the rule fires on Thái Dương hãm alone.",
+   "checked_by": "page image, 2026-10-22"
+  }
+ ]
+}

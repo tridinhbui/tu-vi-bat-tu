@@ -3193,7 +3193,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "th_cach",
-   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Quan Lộc: Thân cư Quan Lộc gặp Tuần, Triệt, Kiếp, Hỏa, Kỵ: công danh đến muộn; sách nói riêng cho đàn ông, hệ thống không phân giới tính ở đây [TH p.75]",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Quan Lộc: công danh đến muộn (Thân cư Quan Lộc gặp Tuần Triệt, Kiếp Hỏa hoặc Hóa Kỵ hội; sách nói cho đàn ông) [TH p.75]",
    "conditions": {
     "all": [
      {
@@ -3203,6 +3203,11 @@
      {
       "fact": "palace.is_than",
       "value": true
+     },
+     {
+      "fact": "chart.gender",
+      "operator": "eq",
+      "value": "nam"
      },
      {
       "any": [
@@ -3251,7 +3256,7 @@
    "sourceIds": [
     "SRC_THUC_HANH"
    ],
-   "reviewStatus": "draft",
+   "reviewStatus": "verified",
    "version": "0.1.0",
    "subject": "palace"
   },

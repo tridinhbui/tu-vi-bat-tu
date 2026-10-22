@@ -90,6 +90,28 @@
       "Tóm lại",
       "Nhìn chung",
       "Gom lại"
+    ],
+    "ket_luan": [
+      "Gộp các cung lại",
+      "Nhìn chung cả thế cục",
+      "Tóm lại sau khi đặt các cung cạnh nhau",
+      "Rút lại",
+      "Đặt các cung cạnh nhau",
+      "Xét chung",
+      "Kết lại",
+      "Cân cả hai phía"
+    ],
+    "tai_kiem": [
+      "Về khả năng kiếm tiền",
+      "Về đường kiếm tiền"
+    ],
+    "tai_giu": [
+      "Về cách giữ và quản lý tiền",
+      "Về chuyện giữ tiền"
+    ],
+    "tai_tich": [
+      "Về phần tích lũy và nhà cửa",
+      "Về của để dành và nhà cửa"
     ]
   },
   "lead_pair": {
@@ -584,5 +606,188 @@
   },
   "health_note": [
     "Những dòng về cung Tật Ách ở đây không thay cho lời khuyên của thầy thuốc"
+  ],
+  "ledger": {
+    "verdict": {
+      "thuan": [
+        "nhìn chung thuận",
+        "đi theo chiều thuận"
+      ],
+      "co_dieu_kien+": [
+        "thuận nhưng có điều kiện",
+        "có mặt thuận, song kèm điều kiện",
+        "thuận, với điều kiện đi kèm",
+        "có lợi thế nhưng không trọn"
+      ],
+      "co_dieu_kien-": [
+        "có vướng nhưng có lối gỡ",
+        "khó trước, có lối ra",
+        "vướng, nhưng gỡ được",
+        "có trở ngại mà vẫn có đường ra"
+      ],
+      "co_dieu_kien": [
+        "tùy thời điểm và hoàn cảnh",
+        "phụ thuộc nhiều vào thời điểm",
+        "tùy lúc"
+      ],
+      "hai_chieu": [
+        "có hai chiều ngang nhau",
+        "chưa nghiêng hẳn về bên nào",
+        "còn bỏ ngỏ giữa hai chiều"
+      ],
+      "tro_ngai": [
+        "là chỗ phải gắng sức",
+        "nhiều trở ngại hơn thuận lợi",
+        "đòi hỏi nhiều công sức"
+      ]
+    },
+    "both_timing": [
+      "{domain} của {S} có cả {pos} lẫn {neg}; điều nối hai mặt ấy là {link}",
+      "{domain} có mặt thuận là {pos}, mặt vướng là {neg}; hai điều không loại trừ nhau, vì {link}",
+      "{pos} và {neg} cùng đúng, ở những thời điểm khác nhau: {link}",
+      "chuyện {domain} có hai mặt, {pos} và {neg}, nối với nhau ở chỗ {link}",
+      "nhìn chung {domain} vừa có {pos}, vừa có {neg}; cái nối hai điều ấy là {link}",
+      "{neg} không xóa được {pos} trong {domain}, vì {link}"
+    ],
+    "both_book": [
+      "{pos} là phần thuận của {domain}, nhưng phần ấy bị thu hẹp: {link}",
+      "{domain} có {pos}, có điều không trọn vì {link}",
+      "trong {domain}, {pos} có thật nhưng bị giới hạn: {link}",
+      "{pos} của {domain} chỉ đến một mức, vì {link}"
+    ],
+    "both_pos": [
+      "{domain} nghiêng về phía thuận: {pos} dựa vào {ground}, còn {neg} chỉ là điều kiện đi kèm",
+      "phía thuận của {domain} vững hơn: {pos} dựa vào {ground}; {neg} chỉ đặt điều kiện",
+      "{pos} là cái nền của {domain}, nhờ {ground}; {neg} chỉ khiến nền ấy cần giữ gìn",
+      "cán cân {domain} nghiêng về {pos}, vốn đứng trên {ground}; {neg} là phần phải tính thêm"
+    ],
+    "both_neg": [
+      "{domain} nghiêng về phía khó: {neg} dựa vào {ground}, còn {pos} chỉ làm nhẹ bớt",
+      "phía vướng của {domain} nặng hơn: {neg} dựa vào {ground}; {pos} chỉ là chỗ đỡ",
+      "{neg} là cái nền của {domain}, vì đứng trên {ground}; {pos} chỉ là chỗ dựa phụ",
+      "cán cân {domain} nghiêng về {neg}, vốn đứng trên {ground}; {pos} chỉ đỡ được một phần"
+    ],
+    "two_ways": [
+      "{domain} có hai chiều ngang nhau: {pos}, nhưng cũng {neg}; chưa bên nào lấn hẳn bên nào",
+      "về {domain}, {pos} và {neg} cùng có căn nguyên ngang nhau, nên phải xem cả hai",
+      "{domain} giằng co giữa {pos} và {neg}, chưa bên nào trội hẳn",
+      "trong {domain}, {pos} và {neg} ngang sức nhau"
+    ],
+    "pos_struct": [
+      "{domain} nghiêng về phía thuận nhờ {pos}, nhưng {limits} ở cung {palace} khiến điều thuận ấy phải kèm điều kiện",
+      "{pos} là mặt thuận của {domain}; có điều {limits} ở cung {palace} đặt điều kiện cho nó",
+      "{domain} có {pos} làm nền, song vì {limits} đóng ở cung {palace}, nền ấy không trọn"
+    ],
+    "pos_timing": [
+      "{domain} nghiêng về phía thuận nhờ {pos}, với điều kiện về thời điểm: {link}",
+      "{pos} là mặt thuận của {domain}, song đến theo nhịp riêng: {link}",
+      "{domain} có {pos}, nhưng phải đúng lúc: {link}"
+    ],
+    "pos_single": [
+      "{pos} mới chỉ dựa vào {stars}, nên về {domain} đây là một chiều hướng cần các cung khác xác nhận thêm",
+      "riêng {stars} gợi ra {pos}, nhưng một mình nó chưa đủ để kết luận về {domain}"
+    ],
+    "thuan": [
+      "{domain} nhìn chung thuận: {pos} có chỗ dựa từ nhiều phía",
+      "{domain} đi theo chiều thuận, với {pos} được nhiều cung cùng nói tới",
+      "{pos} được nhiều cung cùng xác nhận, nên {domain} khá vững"
+    ],
+    "neg_struct": [
+      "{domain} là chỗ phải gắng sức: {neg}, lại thêm {limits} ở cung {palace}",
+      "{neg} là điều cần để ý nhất về {domain}, và {limits} ở cung {palace} càng làm rõ điều đó"
+    ],
+    "neg": [
+      "{domain} là chỗ phải gắng sức: {neg}{mitig}",
+      "điều cần để ý nhất về {domain} là {neg}{mitig}",
+      "{domain} cần nhiều công sức nhất ở chỗ {neg}{mitig}"
+    ],
+    "neg_timing": [
+      "{domain} khó ở chặng đầu, {neg}, nhưng {link}",
+      "{neg} là mặt vướng của {domain}, có điều {link}"
+    ],
+    "neg_single": [
+      "{neg} mới dựa vào {stars}, nên chỉ là một điểm cần để ý về {domain}, chưa phải trở ngại chung",
+      "riêng {stars} cho thấy {neg}; một mình điều ấy chưa đủ để coi {domain} là trở ngại"
+    ],
+    "timing_only": [
+      "về {domain}, điều rõ nhất là chuyện thời điểm: {link}",
+      "{domain} trước hết là chuyện thời điểm: {link}"
+    ],
+    "mitig": [
+      ", dù {pos} làm nhẹ bớt phần nào",
+      ", chỉ {pos} là chỗ đỡ"
+    ],
+    "again": [
+      "Xét chung các cung, {domain} {verdict}",
+      "Đặt cạnh các cung liên quan, {domain} {verdict}",
+      "Nhìn rộng ra các cung khác, {domain} {verdict}",
+      "Các cung khác cũng cho thấy {domain} {verdict}",
+      "Ghép với các cung còn lại, {domain} {verdict}"
+    ],
+    "struct_only": [
+      "cung {palace} có {supports} nhưng cũng có {limits}, nên {domain} chưa thể kết luận một chiều",
+      "{domain} còn tùy cung {palace}: có {supports} đỡ, nhưng cũng có {limits}"
+    ],
+    "verdict_line": [
+      "Vì vậy, {domain} {verdict}",
+      "Nói gọn lại, {domain} {verdict}",
+      "Kết lại, {domain} {verdict}",
+      "Tóm một câu, {domain} {verdict}",
+      "Như vậy, {domain} {verdict}",
+      "Gọn lại, {domain} {verdict}"
+    ],
+    "verdict_line_limits": [
+      "Vì có {limits} trong cung {palace}, {domain} {verdict}",
+      "Với {limits} ở cung {palace}, {domain} {verdict}",
+      "Do {limits} nằm ở cung {palace}, {domain} {verdict}",
+      "Có {limits} ở cung {palace} nên {domain} {verdict}",
+      "{limits} ở cung {palace} khiến {domain} {verdict}"
+    ],
+    "both_book_reduced": [
+      "{domain} có {neg}, nhưng điều ấy được làm nhẹ đi: {link}",
+      "về {domain}, {neg} có thật, song nhẹ hơn vẻ ngoài vì {link}",
+      "{neg} trong {domain} được giảm nhẹ, vì {link}",
+      "mặt vướng của {domain} là {neg}, song đã được đỡ bớt: {link}"
+    ],
+    "verdict_alone": [
+      "{domain} {verdict}",
+      "xét chung, {domain} {verdict}",
+      "nói chung {domain} {verdict}",
+      "đặt cạnh các cung khác, {domain} {verdict}"
+    ]
+  },
+  "confront": {
+    "sat": [
+      "{star} đóng ngay trong cung {pal}, nên những điều tốt ở đây cần được giữ gìn mới bền",
+      "có {star} đồng cung, nên mặt thuận của cung {pal} không thể xem là trọn vẹn"
+    ],
+    "hoa_ky": [
+      "Hóa Kỵ nằm trên {star} ngay tại cung {pal}, nên chuyện của cung này khó êm trọn",
+      "{star} hóa Kỵ ở cung {pal} là điểm vướng phải tính đến"
+    ],
+    "tuan": [
+      "Tuần án ngữ cung {pal}, nên điều tốt ở đây thường không đến thẳng mà phải qua một khúc quanh",
+      "cung {pal} có Tuần, nên mọi kết luận tốt ở đây đều kèm điều kiện"
+    ],
+    "triet": [
+      "Triệt án ngữ cung {pal}, nên điều tốt ở đây thường bị chặn lại lúc đầu",
+      "cung {pal} có Triệt, nên mọi kết luận tốt ở đây đều kèm điều kiện"
+    ],
+    "major_ham": [
+      "{star} ở thế hãm tại cung {pal}, nên phần tốt của cung phải nhờ các sao khác đỡ",
+      "chính tinh {star} hãm địa khiến cung {pal} khó thuận một chiều"
+    ],
+    "ky_carrier": [
+      "chính {star} lại mang Hóa Kỵ, nên điểm tốt ấy đi kèm điều không êm",
+      "có điều {star} ở đây mang Hóa Kỵ, nên phần tốt nó đem lại chưa thể xem là trọn"
+    ]
+  },
+  "single": [
+    "Có điều, điều này mới dựa vào {stars}, nên chỉ nên xem là một chiều hướng",
+    "Riêng {stars} thì chưa đủ để kết luận; đây mới là một chiều hướng"
+  ],
+  "timing": [
+    "Về thời điểm, {ground}, nên {claim}",
+    "Riêng chuyện thời điểm, vì {ground}, {claim}"
   ]
 }

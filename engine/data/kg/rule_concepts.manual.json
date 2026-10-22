@@ -4035,6 +4035,42 @@
      "stance": "affirms"
     }
    ]
+  },
+  "TV_KL_CUNG_PHUC_DUC_SAT_PHA_LIEM_THAM": {
+   "asserts": [
+    {
+     "concept": "fam.negative",
+     "stance": "affirms"
+    },
+    {
+     "concept": "inner.unrest",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_TAI_BACH_TT": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TH_P2_PHU_THE_PHA_TIEN_TRO": {
+   "asserts": [
+    {
+     "concept": "rel.timing",
+     "stance": "affirms"
+    }
+   ]
+  },
+  "TV_TT_PAL_THIEN_DI_HOA_TINH_BASE_M": {
+   "asserts": [
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    }
+   ]
   }
  }
 }

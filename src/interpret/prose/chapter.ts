@@ -78,7 +78,9 @@ export interface ProseChapter {
     /** every rule a sentence traces to, with its book paraphrase and pages, for the evidence panel */
     rules: Record<string, { reading: string; cites: string[]; verified: boolean }>; concepts: Record<string, string>;
     /** two schools disagree on this chart: neither reading is in the text, both are shown here with their pages */
-    divergences: Array<{ relation: string; cite?: string; note?: string; rules: Array<{ id: string; reading: string; cites: string[] }> }> };
+    divergences: Array<{ relation: string; cite?: string; note?: string; rules: Array<{ id: string; reading: string; cites: string[] }> }>;
+    /** luận cung: the domain verdicts of the report-wide ledger this chapter concludes on (reason/ledger.ts), with their evidence chains */
+    ledger?: Array<{ id: string; label: string; verdict: string; base: '+' | '-' | null; link: unknown; chain: unknown[]; limits: Array<{ id: string; palace: string }> }> };
 }
 
 /** Starts with a proper name (a star, Tuần/Triệt, a Hóa): its capital stays when the sentence is woven into the previous one. */

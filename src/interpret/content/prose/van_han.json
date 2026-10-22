@@ -347,6 +347,73 @@
     "luu_hoa": [
       "{hoa} lưu năm {pillar} rơi vào {star} ở cung {pal}{note}{advice}.",
       "Theo can năm, {hoa} đến {star} (cung {pal}){note}{advice}."
+    ],
+    "luu_hoa_kl": [
+      "{hoa} lưu năm {pillar} rơi vào {star} ở cung {pal}{note}{advice}",
+      "Theo can năm, {hoa} đến {star} (cung {pal}){note}{advice}"
     ]
+  },
+  "hoa_loc": [
+    "Theo can {stem} của hạn, Hóa Lộc rơi vào {star} ở cung {pal}, nên chuyện {dom} dễ chịu hơn",
+    "Can {stem} đưa Hóa Lộc của hạn đến {star} (cung {pal}): chuyện {dom} có phần dễ chịu"
+  ],
+  "hoa_ky": [
+    "Hóa Kỵ của hạn rơi vào {star} ở cung {pal}, nên chuyện {dom} khó êm",
+    "Còn Hóa Kỵ của hạn đến {star} (cung {pal}), khiến chuyện {dom} dễ có điều không êm"
+  ],
+  "natal_link": {
+    "same": [
+      "Đó cũng chính là cung hạn đang đi qua",
+      "Cung ấy lại chính là cung hạn"
+    ],
+    "domain": [
+      "Đó là nơi xem {domain}, vốn {verdict}",
+      "Cung ấy là nơi xem {domain}, mà {domain} vốn {verdict}"
+    ]
+  },
+  "ledger_palace": [
+    "Cung hạn là nơi xem {domain}; xét cả lá số, {domain} {verdict}{limits}",
+    "Đây là cung của {domain}, phần mà cả lá số cho thấy {verdict}{limits}"
+  ],
+  "ledger_limits": [
+    " vì có {limits}",
+    ", với {limits} nằm sẵn trong cung"
+  ],
+  "luu": [
+    "Riêng năm {year}, {stars} lưu vào chính cung hạn",
+    "Năm {year}, cung hạn còn đón {stars} lưu tới"
+  ],
+  "level": {
+    "0": [
+      "Tính chung, đây là một chặng rất thử thách so với các chặng thường gặp, nên giữ nhiều hơn mở"
+    ],
+    "1": [
+      "Tính chung, đây là chặng nhiều thử thách; đi chắc thì vẫn qua được"
+    ],
+    "2": [
+      "Tính chung, mười năm này ở mức trung bình, được mất tùy cách {S} xoay xở"
+    ],
+    "3": [
+      "Tính chung, đây là một chặng thuận so với các chặng thường gặp"
+    ],
+    "4": [
+      "Tính chung, đây là một chặng rất thuận của lá số"
+    ]
+  },
+  "level_against": {
+    "low": [
+      "Dù có những điểm thuận ấy, cộng cả các yếu tố khác của hạn thì đây vẫn là chặng {w}",
+      "Những điểm thuận trên chưa đủ kéo cả chặng lên: tính chung đây vẫn là chặng {w}"
+    ],
+    "high": [
+      "Dù có những điểm vướng ấy, cộng cả các yếu tố khác của hạn thì đây vẫn là chặng {w}",
+      "Những điểm vướng trên không lật được cả chặng: tính chung đây vẫn là chặng {w}"
+    ]
+  },
+  "level_word": {
+    "0": "rất thử thách",
+    "1": "nhiều thử thách",
+    "3": "thuận",
+    "4": "rất thuận"
   }
 }

@@ -25,7 +25,9 @@ const isLuan = (c: { luan?: boolean }): c is LuanChapter => !!c.luan;
 
 test('luan.json: no frame uses meta-language or an absolute, every slot is one the writer fills', () => {
   const SLOTS = new Set(['pal', 'branch', 'majors', 'star', 'from', 'stars', 'tt', 'a', 'b', 'group', 'note', 'S', 'mature', 'seat', 'config', 'domain', 'claim', 'text',
-    'pair', 'left', 'right', 'other', 'opal', 'neg', 'pos', 'list', 'age', 'young', 'np', 'late']);
+    'pair', 'left', 'right', 'other', 'opal', 'neg', 'pos', 'list', 'age', 'young', 'np', 'late',
+    // the ledger conclusion, the confronted limits, the one-star caveat (S1)
+    'domain', 'verdict', 'link', 'ground', 'limits', 'palace', 'supports', 'mitig']);
   const walk = (x: unknown, at: string): void => {
     if (typeof x === 'string') {
       const low = ' ' + x.toLowerCase();
@@ -100,7 +102,9 @@ test('corpus: every luận cung chapter passes; book sentences fire and are veri
             assert.ok(fired.has(id), `${id} did not fire: ${s.text}`);
             assert.equal(rmap.get(id)?.reviewStatus, 'verified', `${id}: ${s.text}`);
           }
-          if (s.trace.basis === 'he_thong') assert.equal(s.trace.rules.length, 0, s.text);
+          // a system sentence claims nothing of its own; a domain conclusion (trace.ledger) lists the verified readings it gathers
+          if (s.trace.basis === 'he_thong' && !s.trace.ledger) assert.equal(s.trace.rules.length, 0, s.text);
+          if (s.trace.ledger) for (const id of s.trace.rules) assert.equal(rmap.get(id)?.reviewStatus, 'verified', `${id}: ${s.text}`);
           assert.notEqual(s.trace.basis, 'pho_thong', `a phổ thông sentence in a luận cung chapter: ${s.text}`);
           if (s.trace.basis === 'sach' && s.trace.move !== 'ELABORATE') for (const k of s.trace.keys ?? []) {
             assert.ok(!keys.has(k), `${k} told twice: ${keys.get(k)} / ${s.text}`);

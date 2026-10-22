@@ -5,8 +5,8 @@
   "life.degree": 0.902,
   "cog.sharp": 0.894,
   "fin.abundance": 0.829,
+  "life.hardship": 0.791,
   "values.kind": 0.767,
-  "life.hardship": 0.697,
   "presence.charm": 0.694,
   "life.early_hardship": 0.69,
   "career.status": 0.678,
@@ -23,7 +23,7 @@
   "life.pleasure": 0.499,
   "emo.melancholy": 0.498,
   "adapt.flexible": 0.485,
-  "career.obstacle": 0.421,
+  "career.obstacle": 0.428,
   "life.late_bloom": 0.411,
   "comm.friction": 0.4,
   "fin.scarcity": 0.396,
@@ -729,8 +729,8 @@
     "career.status": 0.098,
     "inner.peace": 0.042,
     "fam.positive": 0.028,
+    "fin.volatile": 0.021,
     "fin.windfall": 0.012,
-    "fin.volatile": 0.012,
     "rel.strain": 0.012,
     "values.kind": 0.012,
     "career.fame": 0.01
@@ -792,7 +792,8 @@
   "Phúc Đức": {
    "concept": {
     "life.blessed": 0.558,
-    "inner.unrest": 0.346,
+    "inner.unrest": 0.478,
+    "fam.negative": 0.338,
     "life.hardship": 0.317,
     "inner.peace": 0.276,
     "fam.positive": 0.257,
@@ -801,7 +802,6 @@
     "fin.scarcity": 0.143,
     "life.mitigated": 0.138,
     "life.early_hardship": 0.107,
-    "fam.negative": 0.071,
     "life.mobility": 0.015,
     "fin.abundance": 0.005,
     "career.fame": 0.005,
@@ -887,10 +887,10 @@
   "Điền Trạch": {
    "concept": {
     "prop.rich": 0.588,
+    "prop.poor": 0.329,
     "prop.inherit": 0.267,
     "prop.self_built": 0.189,
     "fin.abundance": 0.183,
-    "prop.poor": 0.171,
     "life.late_bloom": 0.159,
     "fin.frugal": 0.083,
     "life.blessed": 0.06,
@@ -977,8 +977,8 @@
     "career.status": 0.265,
     "career.success": 0.238,
     "life.mitigated": 0.232,
+    "career.late": 0.186,
     "career.early": 0.153,
-    "career.late": 0.131,
     "life.early_hardship": 0.091,
     "life.hardship": 0.086,
     "life.blessed": 0.078,
@@ -1004,7 +1004,6 @@
     "TV_TH_AUX_QUAN_LOC_DAO_HONG": 0.153,
     "TV_TH_P2_QUAN_LOC_DAO_HONG": 0.153,
     "TV_KL_CUNG_QUAN_LOC_VU_THAM_PHA": 0.145,
-    "TV_TH_CACH_QUAN_LOC_THAN_TT": 0.144,
     "TV_TT_PHU_QUAN_LOC_QUYEN_LOC_VINH_HOA": 0.141,
     "TV_TH_AUX2_QUAN_LOC_KK_HAM": 0.132,
     "TV_KL_CUNG_QUAN_LOC_LIEM_TUONG_SAT": 0.112,
@@ -1016,6 +1015,7 @@
     "TV_TT_PAL_QUAN_LOC_THIEN_PHU_MIEU_P": 0.079,
     "TV_TT_PAL_QUAN_LOC_LIEM_TRINH_MIEU_P": 0.072,
     "TV_TT_PAL_QUAN_LOC_VAN_XUONG_BASE_P": 0.072,
+    "TV_TH_CACH_QUAN_LOC_THAN_TT": 0.065,
     "TV_TH_P2_QUAN_LOC_THAM_LUONG_KHUC": 0.061,
     "TV_TT_PAL_QUAN_LOC_TU_VI_SAT_M": 0.059,
     "TV_TH_P2_QUAN_LOC_KINH_DA_MA": 0.054,
@@ -1092,7 +1092,7 @@
   },
   "Nô Bộc": {
    "concept": {
-    "ally.disloyal": 0.486,
+    "ally.disloyal": 0.552,
     "ally.loyal": 0.476,
     "ally.many": 0.383,
     "fin.effortful": 0.141,
@@ -1170,10 +1170,11 @@
   "Thiên Di": {
    "concept": {
     "social.support": 0.617,
-    "outside.adverse": 0.481,
+    "outside.adverse": 0.499,
     "life.mobility": 0.349,
     "comm.friction": 0.328,
     "life.transient": 0.307,
+    "life.hardship": 0.247,
     "outside.favorable": 0.245,
     "fin.abundance": 0.232,
     "inner.unrest": 0.225,
@@ -1296,12 +1297,13 @@
   "Tài Bạch": {
    "concept": {
     "fin.abundance": 0.614,
-    "fin.scarcity": 0.412,
-    "fin.volatile": 0.326,
+    "fin.scarcity": 0.602,
+    "fin.volatile": 0.388,
+    "fin.frugal": 0.236,
     "life.hardship": 0.234,
     "fin.self_made": 0.215,
     "fin.windfall": 0.18,
-    "fin.frugal": 0.162,
+    "values.selfish": 0.16,
     "career.late": 0.11,
     "temper.proud": 0.081,
     "fam.negative": 0.071,
@@ -1441,10 +1443,11 @@
     "kin.many": 0.609,
     "fin.abundance": 0.599,
     "presence.charm": 0.599,
+    "kin.few": 0.272,
     "exp.letters": 0.198,
     "career.early": 0.198,
-    "kin.few": 0.153,
     "career.status": 0.15,
+    "kin.late": 0.145,
     "ally.disloyal": 0.001
    },
    "rule": {
@@ -1466,8 +1469,8 @@
   },
   "Phu Thê": {
    "concept": {
-    "rel.timing": 0.659,
-    "rel.strain": 0.596,
+    "rel.timing": 0.7,
+    "rel.strain": 0.654,
     "rel.harmony": 0.542,
     "rel.partner": 0.341,
     "presence.charm": 0.199,

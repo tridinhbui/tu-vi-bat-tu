@@ -78,8 +78,26 @@ function proseHtml(p) {
   if (!p?.paragraphs?.length) return '';
   const title = p.title ? esc(p.title) : p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
   return `<section class="synth prose${p.luan ? ' pr-luan' : ''}${p.locked ? ' pw-cut' : ''}" data-chapter="${esc(p.chapter)}" data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
-    ${p.paragraphs.map((para, i) => `<div class="pr-block"><p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`).join('')}
-    <div class="pr-why small" hidden></div>${lockHtml(p)}${adviceHtml(p.advice)}${prDiverge(p)}</section>`;
+    ${p.paragraphs.map((para, i) => `<div class="pr-block"${para.part ? ` data-part="${para.part}"` : ''}><p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`).join('')}
+    <div class="pr-why small" hidden></div>${lockHtml(p)}${adviceHtml(p.advice)}${prDiverge(p)}${luanBasis(p)}</section>`;
+}
+// Tử Vi luận cung: the chapter's sources and the domain verdicts it concluded on (frame part 6), folded under the reading, closed. Each verdict
+// is the report-wide ledger's (src/interpret/reason/ledger.ts): every chapter says the same about the same domain.
+const LV_VI = { thuan: 'thuận', co_dieu_kien: 'có điều kiện', hai_chieu: 'hai chiều', tro_ngai: 'trở ngại', chua_du: 'chưa đủ căn cứ' };
+const LK_VI = { timing: 'lời sách về thời điểm nối hai mặt', book: 'quan hệ sách giữa hai nhận định', specific: 'nhận định cụ thể hơn được lấy làm nền', tier: 'nhận định đứng trên sao gốc hơn được lấy làm nền',
+  structure: 'yếu tố hạn chế ngay trong cung', single: 'chỉ dựa vào một sao phụ' };
+function luanBasis(p) {
+  if (!p?.luan) return '';
+  const R = p.evidence?.rules || {}, L = p.evidence?.ledger || [];
+  const cites = [...new Set(p.paragraphs.flatMap(x => x.sentences.flatMap(s => s.trace.cites || [])))].sort();
+  const step = x => x.type === 'reading' ? `<li><b>${esc((R[x.ruleId]?.cites || [x.cite || '']).map(prCite).join('; ') || '—')}</b> ${esc(R[x.ruleId]?.reading || x.note)} <span class="muted">· cung ${esc(x.palace || '')}</span></li>`
+    : x.type === 'fact' ? `<li><span class="an-b an-tinh_toan">Dữ kiện</span> ${esc(x.note)}</li>`
+    : x.type === 'verdict' ? '' : `<li><span class="an-b an-he_thong">Phân xử</span> ${esc(LK_VI[x.note] || x.note)}${x.ruleId && R[x.ruleId] ? ` · ${esc(R[x.ruleId].reading)}` : ''}</li>`;
+  const doms = L.map(v => `<h5>${esc(v.label)}: ${esc(LV_VI[v.verdict] || v.verdict)}${v.link ? ` <span class="muted">(${esc(LK_VI[v.link.kind] || v.link.kind)})</span>` : ''}</h5><ul class="pr-rules">${v.chain.map(step).join('')}</ul>`).join('');
+  if (!doms && !cites.length) return '';
+  return `<details class="ch-basis pr-basis"><summary><span class="cb-t">Căn cứ của phần luận này</span><span class="cb-s">kết luận chung theo từng lĩnh vực và trang sách đã dùng</span></summary>
+    ${doms}${doms ? '<p class="muted small">Kết luận chung là của hệ thống: gộp các nhận định đã đối chiếu sách của các cung liên quan, phân xử theo thứ tự lời sách → nhận định cụ thể → sao gốc → hai chiều, không cộng điểm.</p>' : ''}
+    ${cites.length ? `<p class="small"><b>Trang sách:</b> ${esc(cites.map(prCite).join('; '))}</p>` : ''}</details>`;
 }
 /** The one line under a whole report (Tử Vi or Bát Tự), with what used to sit under every chapter folded beneath it: how the text is made,
  *  the dignity table, the draft status, what the reading does not cover yet. `prose` are the report's prose chapters. */
@@ -128,7 +146,9 @@ function proseWhy(p, key) {
   const rules = t.rules.map(id => R[id] ? `<li><b>${esc(R[id].cites.map(prCite).join('; ') || '—')}</b> ${esc(R[id].reading)}${softened(id)} <code class="muted">${esc(id)}</code></li>` : `<li><code>${esc(id)}</code></li>`).join('');
   // what the text leaves out on purpose (a caveat, a position the books give no reading, the centre of the reading): the sentence's note
   const note = t.note ? `<p class="pr-note"><b>Ghi chú:</b> ${esc(t.note)}</p>` : '';
-  return `<p><b>${esc(moves)}</b> · ${basis}</p>${note}${src}${t.concepts.length ? `<p class="muted">Ý được nói: ${esc(t.concepts.map(c => C[c] || c).join(', '))}</p>` : ''}${res}${rules ? `<ul class="pr-rules">${rules}</ul>` : ''}`;
+  // a conclusion sentence: the domain verdict it voices; the whole chain is in the chapter's Căn cứ fold
+  const lv = t.ledger ? `<p><b>Kết luận chung:</b> ${esc(LV_VI[t.ledger.verdict] || t.ledger.verdict)} <span class="muted">· cùng một kết luận ở mọi chương nói về lĩnh vực này; chuỗi căn cứ ở mục “Căn cứ của phần luận này”</span></p>` : '';
+  return `<p><b>${esc(moves)}</b> · ${basis}</p>${note}${lv}${src}${t.concepts.length ? `<p class="muted">Ý được nói: ${esc(t.concepts.map(c => C[c] || c).join(', '))}</p>` : ''}${res}${rules ? `<ul class="pr-rules">${rules}</ul>` : ''}`;
 }
 function bindProse(host, byChapter) {
   $$('.prose', host).forEach(sec => {
