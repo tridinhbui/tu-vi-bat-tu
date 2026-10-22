@@ -49,7 +49,7 @@ export interface BaziDeepFrames {
   luck_head: string[]; luck_head_short: string[]; luck_now: string; tvh_both: string[]; tvh_same: string[]; tvh_split: string[]; tvh_one: string[]; tvh_none: string[]; verdict: Record<string, string>;
   ev_open: string[]; ev_none: string[]; ev_kind: Record<string, string>; spouse_first: string; spouse_next: string; marriage: string;
   year_head: string[]; year_luck: Record<string, string>; year_advice: string[];
-  tk_open: string[]; tk_phase: string[]; tk_phase_name: string[]; tk_verdict: Record<string, string>; tk_advice: string[];
+  tk_open: string[]; tk_phase: string[]; tk_phase_name: string[]; tk_verdict: Record<string, string>; tk_verdict_dh: Record<string, string>; tk_advice: string[];
   premise: Record<string, 'strong' | 'weak'>;
 }
 export type BaziDeepChapter = 'nhat-chu' | 'ngu-hanh' | 'su-nghiep' | 'quan-he' | 'dai-van' | 'cach-cuc' | 'luu-nien' | 'tong-ket';
@@ -90,7 +90,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
   if (D.strength.season_state && sh != null && F.frame2) {
     const need = dh.verified && dh.need.length ? join(dh.need) : '';
     say(frame, fill(m.pick('bd|frame2', need ? F.frame2 : F.frame2_no_need), { mb, season: F.season_name[mb] ?? '', el, dm, state: F.season_state[D.strength.season_state]?.split(',')[0] ?? D.strength.season_state,
-      level: levelVi, need }), 'tinh_toan', ['TVH pp.331-355', ...(need ? ['TVH pp.389-396'] : [])], [], { step: 'frame:bat_tu:2' });
+      need }), 'tinh_toan', ['ZZ (ngũ hành vượng tướng hưu tù tử)', ...(need ? ['TVH pp.389-396'] : [])], [], { step: 'frame:bat_tu:2' });
   }
   if (frame.length) para('nhat-chu', frame, 'structure');
 
@@ -239,7 +239,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       let text = '';
       if (v.stem && v.branch && v.stem === v.branch) text = m.pick(`bd|tb|${key}`, vs.sg === vs.bg ? F.tvh_same : F.tvh_both);
       else if (v.stem && v.branch) text = m.pick(`bd|ts|${key}`, F.tvh_split);
-      else if (v.stem || v.branch) text = fill(m.pick(`bd|t1|${key}`, F.tvh_one), { part: v.stem ? 'can' : 'chi', who: v.stem ? who.stem : who.branch, g: v.stem ? vs.sg : vs.bg, v: F.verdict[(v.stem ?? v.branch)!] });
+      else if (v.stem || v.branch) text = fill(m.pick(`bd|t1|${key}`, F.tvh_one), { Part: v.stem ? 'Can' : 'Chi', who: v.stem ? who.stem : who.branch, g: v.stem ? vs.sg : vs.bg, v: F.verdict[(v.stem ?? v.branch)!] });
       else text = m.pick(`bd|tn|${key}`, F.tvh_none);
       say(xs, fill(text, vs), 'tinh_toan', [CT!.special ? 'TVH pp.385-386' : tvhPage], [], { tone: (v.stem ?? v.branch) === 'xau' ? 'neg' : (v.stem ?? v.branch) === 'tot' ? 'pos' : undefined });
       tvhBad = v.stem === 'xau' || (!v.stem && v.branch === 'xau'); tvhGood = v.stem === 'tot' || (!v.stem && v.branch === 'tot');
@@ -307,7 +307,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       if (!xsP.length) return;
       const g = xsP.filter(x => x.good).length, bd = xsP.filter(x => x.bad).length;
       const v = g && !bd ? 'tot' : bd && !g ? 'xau' : g || bd ? 'mix' : 'none';
-      say(xs, fill(m.pick(`bd|tkp${i}`, F.tk_phase), { phase: ph, list: join(xsP.map(x => x.name)), verdict: fill(F.tk_verdict[v], { src: tableOk || CT?.special ? 'hỷ kỵ' : 'điều hậu' }) }), 'he_thong', [], [], { step: 'closing:bat_tu', tone: v === 'xau' ? 'neg' : v === 'tot' ? 'pos' : undefined });
+      say(xs, fill(m.pick(`bd|tkp${i}`, F.tk_phase), { phase: ph, list: join(xsP.map(x => x.name)), verdict: (tableOk || CT?.special ? F.tk_verdict : F.tk_verdict_dh)[v] }), 'he_thong', [], [], { step: 'closing:bat_tu', tone: v === 'xau' ? 'neg' : v === 'tot' ? 'pos' : undefined });
     });
     const good = tableOk ? CT!.van_tot : [], badG = tableOk ? CT!.van_xau : [];
     if (F.tk_advice.length && (good.length || dh.need.length)) say(xs, fill(m.pick('bd|tka', F.tk_advice), { good: join(good.length ? good.map(x => `nhóm ${x}`) : dh.need.map(x => `hành ${x}`)),

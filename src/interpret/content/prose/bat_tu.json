@@ -230,8 +230,8 @@
     },
     "note_track_c": "Track C (plan quirky-tinkering-rabin): every frame below states a computed fact, a page-cited table (TVH pp.378-386, 389-396; 八字真宗 pp.19-25, 57) or a verified rule's own claim. No meaning is given to hợp/xung/hình/hại/phá: 八字真宗 pp.19-20 prints the tables only. Words 'sách ', 'tr.', 'nhận định', 'quy tắc', 'nguồn', 'hệ thống' never appear in a frame (lint).",
     "frame2": [
-      "Sinh tháng {mb}{season}, hành {el} của nhật chủ ở thế {state}; chấm theo Thiệu Vĩ Hoa thì nhật chủ {level}, và theo bảng điều hậu lá số cần {need}.",
-      "Nhật chủ {dm} sinh tháng {mb}{season}, hành {el} đang ở thế {state}; theo cách chấm điểm của Thiệu Vĩ Hoa nhật chủ {level}, còn bảng điều hậu cho biết lá số cần {need}."
+      "Sinh tháng {mb}{season}, hành {el} của nhật chủ ở thế {state}; theo bảng điều hậu, lá số cần {need}.",
+      "Nhật chủ {dm} sinh tháng {mb}{season}, lúc hành {el} đang ở thế {state}, và bảng điều hậu cho biết lá số cần {need}."
     ],
     "season_name": {
       "Dần": " (mùa xuân)",
@@ -307,20 +307,20 @@
     ],
     "luck_now": " (chặng của năm {year})",
     "tvh_both": [
-      "Theo bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach}, nhóm {sg} của can và nhóm {bg} của chi đều thuộc vận {v}.",
-      "Bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} xếp cả can ({sg}) lẫn chi ({bg}) vào vận {v}."
+      "Can ({sg}) và chi ({bg}) đều thuộc vận {v}.",
+      "Cả can ({sg}) lẫn chi ({bg}) đều là vận {v}."
     ],
     "tvh_split": [
-      "Theo bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach}, can {stem} (nhóm {sg}) thuộc vận {v}, còn chi {branch} (nhóm {bg}) thuộc vận {v2}.",
-      "Bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} xếp can {stem} ({sg}) vào vận {v} nhưng chi {branch} ({bg}) vào vận {v2}."
+      "Can {stem} (nhóm {sg}) thuộc vận {v}, còn chi {branch} (nhóm {bg}) thuộc vận {v2}.",
+      "Can {stem} ({sg}) là vận {v} nhưng chi {branch} ({bg}) là vận {v2}."
     ],
     "tvh_one": [
-      "Theo bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach}, {part} {who} thuộc nhóm {g}, nhóm vận {v}.",
-      "Bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} xếp {part} {who} (nhóm {g}) vào vận {v}."
+      "{Part} {who} thuộc nhóm {g}, nhóm vận {v}.",
+      "{Part} {who} ({g}) là vận {v}."
     ],
     "tvh_none": [
-      "Bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} không xếp nhóm {sg} hay {bg} vào vận tốt hoặc vận xấu.",
-      "Nhóm {sg} của can và {bg} của chi không nằm trong vận tốt hay vận xấu mà bảng của Thiệu Vĩ Hoa nêu cho cách {cach}."
+      "Nhóm {sg} của can và {bg} của chi không thuộc vận tốt hay vận xấu của cách {cach}.",
+      "Can ({sg}) và chi ({bg}) không rơi vào vận tốt hay vận xấu nào của cách {cach}."
     ],
     "verdict": {
       "tot": "tốt",
@@ -379,10 +379,10 @@
       "{phase} đi qua {list}, {verdict}."
     ],
     "tk_verdict": {
-      "tot": "phần nhiều là vận tốt theo bảng {src}",
-      "xau": "phần nhiều là vận xấu theo bảng {src}, cần lượng sức",
+      "tot": "phần nhiều là vận tốt",
+      "xau": "phần nhiều là vận xấu, cần lượng sức",
       "mix": "tốt xấu đan xen",
-      "none": "không được bảng {src} xếp vào vận tốt hay vận xấu"
+      "none": "không thuộc vận tốt hay vận xấu"
     },
     "tk_advice": [
       "Vì vậy, nên dựa vào những chặng và những năm mang {good} để tiến, và giữ sức ở những chặng mang {bad}.",
@@ -402,17 +402,23 @@
       "BT_TTT_HONTAP_CO_BENH": "weak"
     },
     "frame2_no_need": [
-      "Sinh tháng {mb}{season}, hành {el} của nhật chủ ở thế {state}; chấm theo Thiệu Vĩ Hoa thì nhật chủ {level}.",
-      "Nhật chủ {dm} sinh tháng {mb}{season}, hành {el} đang ở thế {state}; theo cách chấm điểm của Thiệu Vĩ Hoa nhật chủ {level}."
+      "Sinh tháng {mb}{season}, hành {el} của nhật chủ ở thế {state}.",
+      "Nhật chủ {dm} sinh tháng {mb}{season}, lúc hành {el} đang ở thế {state}."
     ],
     "luck_head_short": [
       "Từ {age} tuổi ({from}–{to}), đại vận {pillar}{cur}: can vận là {god}.",
       "Đại vận {pillar}{cur} chạy từ {age} tuổi ({from}–{to}), can vận mang thập thần {god}."
     ],
     "tvh_same": [
-      "Theo bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach}, can {stem} và chi {branch} cùng thuộc nhóm {sg}, nhóm vận {v}.",
-      "Can {stem} lẫn chi {branch} đều thuộc nhóm {sg}, mà bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} xếp vào vận {v}."
-    ]
+      "Can {stem} và chi {branch} cùng thuộc nhóm {sg}, nhóm vận {v}.",
+      "Can {stem} lẫn chi {branch} đều thuộc nhóm {sg}, tức vận {v}."
+    ],
+    "tk_verdict_dh": {
+      "tot": "phần nhiều được điều hậu đỡ",
+      "xau": "phần nhiều gặp hành điều hậu nên tránh, cần lượng sức",
+      "mix": "tốt xấu đan xen",
+      "none": "không chạm đến hành điều hậu cần"
+    }
   },
   "luan": {
     "note": "prose-style plan B1/B7 (prose/bazi.ts): the opening that names the four pillars with their nạp âm, the bold lead-in of each paragraph. The closing over the timeline is built in bazi_deep.ts (deep.tk_*).",
