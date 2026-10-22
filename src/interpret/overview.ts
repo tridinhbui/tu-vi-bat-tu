@@ -1,15 +1,15 @@
 // POST /api/overview: the "Tổng quan lá số" page (docs/PRODUCT-PLAN.md 1.5) in one light response — the reasoner's frame and theses for Mệnh
-// (reason/plan.ts, told as data: star, concept, verdict, rules and pages; no prose) and the four system indices (indices.ts). Shared by the
+// (reason/plan.ts, told as data: star, concept, verdict, rules and pages; no prose), the natal radar and the period levels (indices.ts). Shared by the
 // Worker (src/index.ts) and tools/interpret/dev_server.ts. Book cách cục only: the draft formations stay out (draftFormations: false).
 import norms from '../../engine/data/kg/index_norms.json' with { type: 'json' };
-import { computeIndices, type IndexNorms, type Indices } from './indices.ts';
+import { computeIndices, INDICES_VERSION, type IndexNorms, type Indices } from './indices.ts';
 import { reasonMenh, REASONER_VERSION, type ReadingPlan } from './reason/plan.ts';
 import type { Reading } from './reason/adjudicate.ts';
 import type { SeatRef } from './reason/tiers.ts';
 import { cacheKey, type KnowledgeStore, type OutputCache } from './store.ts';
 import type { ChartInput, Knowledge } from './types.ts';
 
-export const OVERVIEW_VERSION = 'overview-1.0.0';
+export const OVERVIEW_VERSION = 'overview-2.0.0';
 const NORMS = norms as IndexNorms;
 
 export interface OverviewThesis {
@@ -81,7 +81,7 @@ export async function handleOverview(request: Request, d: OverviewDeps): Promise
   if (!factsRes.ok) return new Response(factsRes.body, { status: factsRes.status, headers: factsRes.headers });
   const facts = await factsRes.json() as ChartInput;
   const k = await d.store.load();
-  const key = await cacheKey([facts.base, facts.decades, facts.year, 'overview', OVERVIEW_VERSION, REASONER_VERSION, k.version, NORMS.kbVersion]);
+  const key = await cacheKey([facts.base, facts.decades, facts.year, 'overview', OVERVIEW_VERSION, INDICES_VERSION, REASONER_VERSION, k.version, NORMS.kbVersion, NORMS.version]);
   const hit = await d.cache?.get(key);
   if (hit) return new Response(hit, { headers: { 'content-type': 'application/json; charset=utf-8', 'x-overview-cache': 'hit' } });
   const text = JSON.stringify(overview(facts, k));
