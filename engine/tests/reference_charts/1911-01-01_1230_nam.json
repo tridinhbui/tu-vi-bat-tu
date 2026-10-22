@@ -1,5 +1,5 @@
 {
- "source": "Board screenshot supplied by the user (tuvi.vn, chart #13405), transcribed by hand 2026-10-21. Natal content only (L.* annual stars, Hóa entries, Th.N and the centre are checked elsewhere). Dignity letters follow that board's table.",
+ "source": "Board screenshot supplied by the user (tuvi.vn, chart #13405, năm xem Bính Ngọ 2026), transcribed by hand 2026-10-21. Natal content only (natal and lưu Hóa are in 'hoa'; the other L.* annual stars, Th.N and the centre are not compared). Dignity letters follow that board's table.",
  "birth": {
   "year": 1911,
   "month": 1,
@@ -241,9 +241,39 @@
    ]
   }
  },
+ "hoa": {
+  "natal": {
+   "Hóa Lộc": "Thái Dương",
+   "Hóa Quyền": "Vũ Khúc",
+   "Hóa Khoa": "Thái Âm",
+   "Hóa Kỵ": "Thiên Đồng"
+  },
+  "natal_branch": {
+   "Hóa Lộc": "Tuất",
+   "Hóa Quyền": "Dậu",
+   "Hóa Khoa": "Thìn",
+   "Hóa Kỵ": "Thân"
+  },
+  "luu": {
+   "year": 2026,
+   "Hóa Lộc": "Thiên Đồng",
+   "Hóa Quyền": "Thiên Cơ",
+   "Hóa Khoa": "Văn Xương",
+   "Hóa Kỵ": "Liêm Trinh",
+   "branch": {
+    "Hóa Lộc": "Thân",
+    "Hóa Quyền": "Tý",
+    "Hóa Khoa": "Thìn",
+    "Hóa Kỵ": "Tỵ"
+   }
+  },
+  "note": "The board prints only the palace of each Hóa ('Hóa Lộc' natal, 'L.Hóa Lộc' lưu, as separate lines). The star is the one in that palace that some Tứ Hóa table (engine/data/experimental/tu_hoa_tables.json: KL, TH, TT_WS) gives for that Hóa of that stem; recorded only where exactly one such star is there (all were unambiguous on these boards). The top of the Mùi cell is covered by a pop-up on the screenshot; no Hóa line is visible there and none is expected."
+ },
  "calendar_note": "The board uses UTC+7 for 1911; the engine's default 'vn' uses UTC+8 before 1968 (historical), giving lunar day 1 instead of 2. Compared under vn_utc7.",
  "known_gaps": [
-  "Sửu Thiên Di: Tử Vi dignity — != Đ (khao_luan)"
+  "Sửu Thiên Di: Tử Vi dignity — != Đ (khao_luan)",
+  "natal Hóa Khoa: Thiên Đồng@Thân != Thái Âm@Thìn",
+  "natal Hóa Kỵ: Thái Âm@Thìn != Thiên Đồng@Thân"
  ],
- "known_gaps_note": "Khảo Luận prints no level for Tử Vi at Sửu."
+ "known_gaps_note": "Khảo Luận prints no level for Tử Vi at Sửu. Natal Hóa (Canh year): the board's Canh row is 紫微斗數全書 (Dương Vũ Âm Đồng: Khoa Thái Âm, Kỵ Thiên Đồng); the engine's default KL (= TH) row is Dương Vũ Đồng Âm (Khảo Luận p.36). School difference, not an engine error; with tu_hoa_table=TT_WS the engine gives the board's row."
 }

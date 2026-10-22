@@ -472,3 +472,13 @@
   .res-tabs>button[role=tab]{flex:1 1 0;justify-content:center;padding:10px 6px;font-size:1rem;gap:5px;min-width:0}
   .res-tabs>button[role=tab] i{font-size:.82rem}
 }
+
+/* "Tính theo sách nào": the source each disputed calculation follows, with a picker (collapsed by default) */
+.tv-var{margin:6px 0 10px;font:400 .86rem var(--sans);color:var(--ink-2)}
+.tv-var summary{cursor:pointer;color:var(--seal);font-weight:600;padding:4px 0}
+.tv-var p{margin:4px 0 8px;color:var(--ink-3)}
+.tv-var ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.tv-var li{display:grid;grid-template-columns:84px auto 1fr;gap:4px 10px;align-items:center}
+.tv-var li span{color:var(--ink-3);font-size:.8rem}
+.tv-var select{font:inherit;padding:3px 6px;border:1px solid var(--hair);border-radius:6px;background:#fff}
+@media (max-width:640px){.tv-var li{grid-template-columns:1fr auto}.tv-var li span{grid-column:1/-1}}

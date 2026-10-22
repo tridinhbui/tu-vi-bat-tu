@@ -138,10 +138,22 @@ function readForm() {
   if ($('#solar').checked) { o.use_true_solar_time = true; o.longitude = +form.longitude.value; }
   // dignity table chosen on the board (tuvi.js): the whole chart, board and readings, is computed with the same one
   try { const dg = localStorage.getItem('tvbt.dignity'); if (dg === 'khao_luan' || dg === 'toan_thu' || dg === 'thuc_hanh') o.dignity_school = dg; } catch {}
+  Object.assign(o, storedVariants());
   return o;
 }
 const fmtDate = r => `${String(r.day).padStart(2, '0')}/${String(r.month).padStart(2, '0')}/${r.year}`;
 
+// calculation items where the books disagree (tiểu hạn, Tứ Hóa table, Lưu Hà): the viewer's pick, kept per browser
+const VARIANT_OK = { tu_hoa_table: ['KL', 'TH', 'TT_WS'], tieu_han_rule: ['TH', 'KL'], luu_ha_table: ['board', 'KL', 'TH'] };
+function storedVariants() {
+  let v = {}; try { v = JSON.parse(localStorage.getItem('tvbt.variants') || '{}') || {}; } catch { v = {}; }
+  return Object.fromEntries(Object.entries(v).filter(([k, x]) => VARIANT_OK[k]?.includes(x)));
+}
+addEventListener('tvbt:variant', e => {
+  const { key, value } = e.detail || {}; if (!VARIANT_OK[key]?.includes(value)) return;
+  try { localStorage.setItem('tvbt.variants', JSON.stringify({ ...storedVariants(), [key]: value })); } catch {}
+  if (state?.req) (shareMode.id ? compute : generate.bind(null, null))({ ...state.req, [key]: value });
+});
 addEventListener('tvbt:dignity', e => { if (state?.req) (shareMode.id ? compute : generate.bind(null, null))({ ...state.req, dignity_school: e.detail }); });
 // a chapter was opened with xu (js/paywall.js): draw the report again, the server now sends that chapter whole
 addEventListener('tvbt:unlocked', async e => {

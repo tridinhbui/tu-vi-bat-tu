@@ -203,7 +203,7 @@ def build_deep_reading(tv, bz, rules, sources, claims_vi, birth_year: int, year:
     ty = temporal.tuvi_year(tv, year)
     dh = ty["dai_han"]
     stem_i = STEMS_VI.index(dh["stem"])
-    dh_hoa = dict(zip(("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"), tv_mod.TU_HOA[stem_i]))
+    dh_hoa = dict(zip(("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"), tv_mod.hoa_of(tv, stem_i)))
     star_pal = {s: p["name"] for p in tv.palaces for s in p["major_stars"] + p["stars"]}
     landing = {h: star_pal.get(s) for h, s in dh_hoa.items()}
     natal_pal = {h: star_pal.get(v["star"]) for h, v in tv.tu_hoa.items()}

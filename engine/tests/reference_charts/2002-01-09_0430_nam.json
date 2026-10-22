@@ -1,5 +1,5 @@
 {
- "source": "Board screenshot supplied by the user (tuvi.vn, chart #260902), transcribed by hand 2026-10-20. Natal content only; the L.* annual stars, Th.N and the centre are not compared here. Dignity letters follow that board's table (matches Khảo Luận 'Thế đứng' on 12/14 cells).",
+ "source": "Board screenshot supplied by the user (tuvi.vn, chart #260902; screenshots with năm xem Đinh Mùi 2027, Canh Tuất 2030, Quý Sửu 2033 — identical natal content), transcribed by hand 2026-10-20. Natal content only; natal and lưu Hóa are in 'hoa'; the other L.* annual stars, Th.N and the centre are not compared here. Dignity letters follow that board's table (matches Khảo Luận 'Thế đứng' on 12/14 cells).",
  "birth": {
   "year": 2002,
   "month": 1,
@@ -242,9 +242,67 @@
    ]
   }
  },
+ "hoa": {
+  "natal": {
+   "Hóa Lộc": "Cự Môn",
+   "Hóa Quyền": "Thái Dương",
+   "Hóa Khoa": "Văn Khúc",
+   "Hóa Kỵ": "Văn Xương"
+  },
+  "natal_branch": {
+   "Hóa Lộc": "Tuất",
+   "Hóa Quyền": "Ngọ",
+   "Hóa Khoa": "Ngọ",
+   "Hóa Kỵ": "Thân"
+  },
+  "luu": [
+   {
+    "year": 2027,
+    "Hóa Lộc": "Thái Âm",
+    "Hóa Quyền": "Thiên Đồng",
+    "Hóa Khoa": "Thiên Cơ",
+    "Hóa Kỵ": "Cự Môn",
+    "branch": {
+     "Hóa Lộc": "Thân",
+     "Hóa Quyền": "Thìn",
+     "Hóa Khoa": "Thân",
+     "Hóa Kỵ": "Tuất"
+    }
+   },
+   {
+    "year": 2030,
+    "Hóa Lộc": "Thái Dương",
+    "Hóa Quyền": "Vũ Khúc",
+    "Hóa Khoa": "Thái Âm",
+    "Hóa Kỵ": "Thiên Đồng",
+    "branch": {
+     "Hóa Lộc": "Ngọ",
+     "Hóa Quyền": "Tỵ",
+     "Hóa Khoa": "Thân",
+     "Hóa Kỵ": "Thìn"
+    }
+   },
+   {
+    "year": 2033,
+    "Hóa Lộc": "Phá Quân",
+    "Hóa Quyền": "Cự Môn",
+    "Hóa Khoa": "Thái Âm",
+    "Hóa Kỵ": "Tham Lang",
+    "branch": {
+     "Hóa Lộc": "Tỵ",
+     "Hóa Quyền": "Tuất",
+     "Hóa Khoa": "Thân",
+     "Hóa Kỵ": "Dậu"
+    }
+   }
+  ],
+  "note": "The board prints only the palace of each Hóa ('Hóa Lộc' natal, 'L.Hóa Lộc' lưu, as separate lines). The star is the one in that palace that some Tứ Hóa table (engine/data/experimental/tu_hoa_tables.json: KL, TH, TT_WS) gives for that Hóa of that stem; recorded only where exactly one such star is there (all were unambiguous on these boards)."
+ },
  "known_gaps": [
   "Dậu Huynh Đệ: Tử Vi dignity — != B (khao_luan)",
-  "Sửu Điền Trạch: Liêm Trinh dignity — != Đ (khao_luan)"
+  "Sửu Điền Trạch: Liêm Trinh dignity — != Đ (khao_luan)",
+  "lưu Hóa 2030 Hóa Khoa: Thiên Đồng@Thìn != Thái Âm@Thân",
+  "lưu Hóa 2030 Hóa Kỵ: Thái Âm@Thân != Thiên Đồng@Thìn"
  ],
- "known_gaps_note": "Khảo Luận prints no level for these two cells; the board's B / Đ come from a source the project does not have. Left blank, not copied from the screenshot."
+ "known_gaps_note": "Khảo Luận prints no level for these two cells; the board's B / Đ come from a source the project does not have. Left blank, not copied from the screenshot. Lưu Hóa 2030 (Canh): the board's Canh row is 紫微斗數全書 (Dương Vũ Âm Đồng: Khoa Thái Âm, Kỵ Thiên Đồng); the engine's default KL (= TH) row is Dương Vũ Đồng Âm (Khảo Luận p.36 'Canh Nhật Vũ Đồng Âm'). School difference, not an engine error; with tu_hoa_table=TT_WS the engine gives the board's row."
 }

@@ -21,7 +21,8 @@ def test_aux_stars_are_placed_in_their_own_group():
     grp = {s["name"]: s["group"] for s in t["stars"]}
     for n in ("Thiên Khốc", "Thiên Hư", "Long Trì", "Phượng Các", "Cô Thần", "Quả Tú", "Tam Thai", "Bát Tọa", "Thiên Thương", "Thiên Sứ"):
         assert grp[n] == "phụ tinh (chưa đối chiếu sách)", n
-    assert t["school"]["rule_review"]["aux_stars"][0] == "unverified"
+    # most formulas now carry a page (aux_stars.SOURCED); the rest stay in the unverified group checked above
+    assert t["school"]["rule_review"]["aux_stars"][0] == "partially_verified"
     assert len({n for p in t["palaces"] for n in p["stars"]}) >= 95
 
 

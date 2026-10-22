@@ -63,7 +63,7 @@ anything, which means the two pipelines cannot drift apart. Tests prove they agr
 
 | School | Reachable cells | VERIFIED | CONFLICT | UNVERIFIED | NOT_APPLICABLE |
 |---|---|---|---|---|---|
-| Thực Hành (default) | 1030 | 299 (29.0%) | 1 | 706 | 24 |
+| Thực Hành (default until 2026-10-21) | 1030 | 299 (29.0%) | 1 | 706 | 24 |
 | Toàn Thư | 1030 | 264 (25.6%) | 12 | 730 | 24 |
 | Khảo Luận | 1030 | 305 (29.6%) | 5 | 696 | 24 |
 
@@ -145,5 +145,5 @@ example, Thiên Cơ Thìn is UNVERIFIED in TH, bình in TT and miếu in KL. Rep
    only when the chosen school's book says miếu.
 5. **No book tabulates** Khôi Việt, Đào Hồng Hỷ, Quang Quý, Thai Tọa, the rings, or Tứ Hóa (experimental only). A new source would
    be needed: Hi Di's Chinese text, or 紫微斗數全書 itself rather than a translation.
-6. The API offers only the `thuc_hanh` and `toan_thu` schools. **Decided 2026-10-19: do not expose `khao_luan` yet.** It stays
+6. *(Superseded 2026-10-21: the owner made `khao_luan` the default, selectable with the other two on the board.)* The API offered only the `thuc_hanh` and `toan_thu` schools. **Decided 2026-10-19: do not expose `khao_luan` yet.** It stays
    available in the classifier and appears in the "Sách khác" tooltip.

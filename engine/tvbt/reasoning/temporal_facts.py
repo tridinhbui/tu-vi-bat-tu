@@ -10,23 +10,27 @@ Which palace each hóa lands on is "the palace holding that star" in the natal c
 from __future__ import annotations
 
 from ..ganzhi import BRANCHES_VI, STEMS_VI, from_cycle, year_cycle_index
-from ..tuvi import KHOI_VIET, LOC_TON, TRIAD_GROUP, TU_HOA, TuViChart
+from ..tuvi import KHOI_VIET, LOC_TON, TRIAD_GROUP, TU_HOA, TuViChart, chart_variants, hoa_of
 
 HOA = ("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ")
 LAYER_VI = {"natal": "bản mệnh", "dai_han": "đại hạn", "luu": "lưu niên"}
 
 
 def tieu_han_branch(chart: TuViChart, age: int) -> int:
-    """Tiểu hạn (SRC_THUC_HANH p.27), the same rule temporal.tuvi_year uses."""
+    """Tiểu hạn: age 1 at Thìn/Tuất/Mùi/Sửu by year-branch triad (TH p.27 and KL pp.39-40 agree). Direction by the chart's
+    tieu_han_rule: "TH" (p.27) nam thuận, nữ nghịch; "KL" (pp.39-40) dương nam / âm nữ thuận, âm nam / dương nữ nghịch."""
     start = {0: 4, 1: 10, 2: 7, 3: 1}[TRIAD_GROUP[from_cycle(year_cycle_index(chart.lunar["year"]))[1]]]
-    male = chart.yin_yang_gender.endswith("nam")
-    return (start + (age - 1) * (1 if male else -1)) % 12
+    if chart_variants(chart)["tieu_han_rule"] == "KL":
+        forward = chart.yin_yang_gender in ("dương nam", "âm nữ")
+    else:
+        forward = chart.yin_yang_gender.endswith("nam")
+    return (start + (age - 1) * (1 if forward else -1)) % 12
 
 
 def _hoa_landing(chart: TuViChart, stem: int) -> dict[str, str | None]:
     """{'Hóa Lộc': palace name holding that star, ...} for a given stem."""
     out = {}
-    for k, star in zip(HOA, TU_HOA[stem]):
+    for k, star in zip(HOA, hoa_of(chart, stem)):
         out[k] = next((p["name"] for p in chart.palaces if star in p["stars"]), None)
     return out
 

@@ -13,7 +13,11 @@ const VIEWER_FIELDS: Record<string, (v: unknown) => boolean> = {
   chapter: v => typeof v === "string" && /^[a-z_]{1,30}$/.test(v),
   mode: v => typeof v === "string" && /^[a-z_]{1,20}$/.test(v),
   experimental: v => typeof v === "boolean",
-  dignity_school: v => v === "khao_luan" || v === "toan_thu",          // the dignity table the viewer picked on the board
+  dignity_school: v => v === "khao_luan" || v === "toan_thu" || v === "thuc_hanh",   // the dignity table the viewer picked on the board
+  // where the books disagree on a calculation (engine/tvbt/tuvi.py VARIANTS): the source the viewer picked
+  tu_hoa_table: v => v === "KL" || v === "TH" || v === "TT_WS",
+  tieu_han_rule: v => v === "TH" || v === "KL",
+  luu_ha_table: v => v === "board" || v === "KL" || v === "TH",
 };
 // what a hidden share keeps of the birth request: enough for the page to lay out years and ages, nothing that pins the day
 const BIRTH = ["month", "day", "hour", "minute", "longitude", "use_true_solar_time"];

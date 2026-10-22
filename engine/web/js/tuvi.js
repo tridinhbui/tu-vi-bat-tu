@@ -18,6 +18,18 @@ const DG = { 'miếu': 'Miếu', 'vượng': 'Vượng', 'đắc': 'Đắc', 'b�
 // book a brightness came from (dignity_status.school), for the badge tooltip
 const DG_BOOK = { thuc_hanh: 'Thực Hành', toan_thu: 'Toàn Thư', khao_luan: 'Khảo Luận' };
 
+// Where the books disagree on a calculation, the chart says which source each item follows (engine/tvbt/tuvi.py VARIANTS) and lets the viewer switch.
+const VARIANT_UI = [
+  ['tu_hoa_table', 'Tứ Hóa', [['KL', 'Khảo Luận'], ['TH', 'Thực Hành'], ['TT_WS', 'Toàn Thư (bản chữ Hán)']]],
+  ['tieu_han_rule', 'Tiểu hạn', [['TH', 'Thực Hành'], ['KL', 'Khảo Luận']]],
+  ['luu_ha_table', 'Lưu Hà', [['board', 'Bảng phổ biến'], ['KL', 'Khảo Luận'], ['TH', 'Thực Hành']]],
+];
+function variantPanel(t) {
+  const v = t.school?.variants, lab = t.school?.variant_labels; if (!v || !lab) return '';
+  const row = ([k, name, opts]) => `<li><b>${name}</b> <select data-var="${k}" aria-label="${name}: chọn sách">${opts.map(([o, n]) => `<option value="${o}"${v[k] === o ? ' selected' : ''}>${n}</option>`).join('')}</select><span>${esc(lab[k] || '')}</span></li>`;
+  return `<details class="tv-var"><summary>Tính theo sách nào</summary><p>Ở vài mục các sách tính khác nhau. Mặc định theo cách các bảng lá số phổ biến dùng; chọn sách khác để lập lại lá số.</p><ul><li><b>Độ sáng</b> <span>chọn ở ô "Bảng độ sáng" phía trên</span></li>${VARIANT_UI.map(row).join('')}</ul></details>`;
+}
+
 export function renderTuvi(host, t, ctx) {
   const by = Object.fromEntries(t.palaces.map(p => [p.branch_index, p]));
   const byBranch = Object.fromEntries(t.palaces.map(p => [p.branch, p]));
@@ -116,7 +128,7 @@ export function renderTuvi(host, t, ctx) {
         <header class="plate-h"><h3 id="tv-h2"><i lang="zh">紫微</i>Mười hai cung</h3><span class="plate-k">Chạm một cung để mở · Tam Phương Tứ Chính sẽ sáng lên</span></header>
         <div class="seg tv-toggle" role="group" aria-label="Chế độ xem lá số"><button type="button" data-v="ov" aria-pressed="true">Sổ tay</button><button type="button" data-v="full" aria-pressed="false">Toàn lá số</button></div>
         <ol class="tv-ov" aria-label="Tổng quan mười hai cung, bắt đầu từ cung Mệnh">${ovOrder.map(p => `<li><button type="button" data-i="${p.branch_index}"><span class="ov-n">${esc(p.name)}${p.is_than ? ' <em>Thân</em>' : ''}</span><span class="ov-gz">${esc(p.stem)} ${esc(p.branch)}</span><span class="ov-s">${esc(p.major_stars.join(' · ') || 'vô chính diệu')}</span></button></li>`).join('')}</ol>
-        <div class="tv-zoom" role="group" aria-label="Thu phóng lá số"><button type="button" data-z="out" aria-label="Thu nhỏ">−</button><span class="tv-zl" aria-live="polite">100%</span><button type="button" data-z="in" aria-label="Phóng to">+</button><button type="button" data-z="fit">Vừa khung</button><button type="button" data-z="one">100%</button><span class="tv-zh">Kéo để di chuyển · Ctrl + cuộn để thu phóng</span><label class="tv-dg">Bảng độ sáng <select data-dg><option value="khao_luan">Khảo Luận (mặc định, bảng phổ thông)</option><option value="thuc_hanh">Thực Hành</option><option value="toan_thu">Toàn Thư</option></select></label></div><div class="tv-scroll" tabindex="0" role="region" aria-label="Lá số Tử Vi: kéo để di chuyển, Ctrl + cuộn hoặc chụm hai ngón để thu phóng"><div class="tv-board" id="tv-board">
+        <div class="tv-zoom" role="group" aria-label="Thu phóng lá số"><button type="button" data-z="out" aria-label="Thu nhỏ">−</button><span class="tv-zl" aria-live="polite">100%</span><button type="button" data-z="in" aria-label="Phóng to">+</button><button type="button" data-z="fit">Vừa khung</button><button type="button" data-z="one">100%</button><span class="tv-zh">Kéo để di chuyển · Ctrl + cuộn để thu phóng</span><label class="tv-dg">Bảng độ sáng <select data-dg><option value="khao_luan">Khảo Luận (mặc định, bảng phổ thông)</option><option value="thuc_hanh">Thực Hành</option><option value="toan_thu">Toàn Thư</option></select></label></div>${variantPanel(t)}<div class="tv-scroll" tabindex="0" role="region" aria-label="Lá số Tử Vi: kéo để di chuyển, Ctrl + cuộn hoặc chụm hai ngón để thu phóng"><div class="tv-board" id="tv-board">
           <svg class="tv-links" aria-hidden="true"></svg>
           <div id="grid">${CELLS.map((i, k) => i === null ? (k === 5 ? `<div class="center">${center}</div>` : '') : cell(i)).join('')}</div><div class="tb-tt" aria-hidden="true"></div><div class="tb-legend"><span><b class="h-kim">M</b>:Miếu</span><span><b class="h-kim">V</b>:Vượng</span><span><b class="h-kim">Đ</b>:Đắc</span><span><b class="h-kim">B</b>:Bình hòa</span><span><b class="h-kim">H</b>:Hãm</span><span class="tb-lg-gap"></span><span><i class="sw h-kim"></i>Kim</span><span><i class="sw h-moc"></i>Mộc</span><span><i class="sw h-thuy"></i>Thủy</span><span><i class="sw h-hoa"></i>Hỏa</span><span><i class="sw h-tho"></i>Thổ</span></div></div></div>
         <div class="legend" aria-label="Cách đọc bảng">
@@ -164,6 +176,7 @@ export function renderTuvi(host, t, ctx) {
   const centre = () => [scroller.clientWidth / 2, scroller.clientHeight / 2];
   new ResizeObserver(() => { if (view.auto) fitWidth(); else { clampPan(); apply(); } }).observe(scroller);
   fitWidth();
+  $$('[data-var]', host).forEach(sel => { sel.onchange = () => dispatchEvent(new CustomEvent('tvbt:variant', { detail: { key: sel.dataset.var, value: sel.value } })); });
   const dgSel = $('[data-dg]', host);
   if (dgSel) { dgSel.value = t.school?.dignity_school || 'khao_luan'; dgSel.onchange = () => { try { localStorage.setItem('tvbt.dignity', dgSel.value); } catch {} dispatchEvent(new CustomEvent('tvbt:dignity', { detail: dgSel.value })); }; }
   const zh = $('.tv-zh', host); if (zh && matchMedia('(pointer:coarse)').matches) zh.textContent = 'Kéo để di chuyển · chụm hai ngón để thu phóng';

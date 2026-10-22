@@ -45,11 +45,11 @@ SCHOOL_PACK = {
         "hoa_linh": ["verified", "SRC_THUC_HANH p.25 (Hỏa thuận / Linh nghịch for dương nam, âm nữ)"],
         "triet": ["verified", "SRC_THUC_HANH p.20"],
         "tuan": ["verified", "SRC_THUC_HANH p.20"],
-        "tu_hoa": ["verified", "SRC_THUC_HANH p.21 + SRC_KHAO_LUAN pp.196-197 agree on nine of the ten stems (Khảo Luận p.36 table misprints Tân-Lộc as Thiên Cơ; its own prose p.196 says Cự Môn). They DISAGREE on Nhâm-Khoa: Khảo Luận pp.36,197 = Tả Phụ (production follows it), Thực Hành pp.20-21 = Thiên Phủ in both verse and prose; a digitized 紫微斗數全書 verse also reads 府, so this is a source/school difference, not a misprint (Phase 7 dossier; tables kept in data/experimental/tu_hoa_tables.json)"],
-        "dignity_table": ["verified", "SRC_THUC_HANH pp.29-48 (14 chính tinh; unlisted branches stay unspecified; Tham Lang Tý/Ngọ disputed with Khảo Luận)"],
+        "tu_hoa": ["verified_with_variants", "Selectable (VARIANTS.tu_hoa_table, default KL). SRC_THUC_HANH p.21 + SRC_KHAO_LUAN pp.196-197 agree on nine of the ten stems (Khảo Luận p.36 table misprints Tân-Lộc as Thiên Cơ; its own prose p.196 says Cự Môn). They DISAGREE on Nhâm-Khoa: Khảo Luận pp.36,197 = Tả Phụ (production follows it), Thực Hành pp.20-21 = Thiên Phủ in both verse and prose; a digitized 紫微斗數全書 verse also reads 府, so this is a source/school difference, not a misprint (Phase 7 dossier; tables kept in data/experimental/tu_hoa_tables.json)"],
+        "dignity_table": ["verified", "Three selectable tables (dignity_school; default khao_luan since 2026-10-21, as popular boards). SRC_THUC_HANH pp.29-48 (14 chính tinh; unlisted branches stay unspecified; Tham Lang Tý/Ngọ disputed with Khảo Luận)"],
         "dai_han": ["verified", "SRC_THUC_HANH p.27 (first decade starts at Mệnh at age = cục number; thuận for dương nam/âm nữ, nghịch otherwise)"],
-        "tieu_han": ["verified", "SRC_THUC_HANH p.27 (age 1 at Thìn/Tuất/Mùi/Sửu by year-branch triad; nam thuận, nữ nghịch)"],
-        "aux_stars": ["unverified", "Công thức phổ biến trong sách Việt (xem aux_stars.py); chưa đối chiếu trang sách cụ thể"],
+        "tieu_han": ["verified_with_variants", "SRC_THUC_HANH p.27 (age 1 at Thìn/Tuất/Mùi/Sửu by year-branch triad; nam thuận, nữ nghịch) = default; SRC_KHAO_LUAN pp.39-40 (dương nam / âm nữ thuận) selectable (VARIANTS.tieu_han_rule)"],
+        "aux_stars": ["partially_verified", "Most formulas carry a TH/KL page in aux_stars.py (SOURCED); Lưu Hà: books disagree on Đinh/Canh/Tân, default = popular board (Canh matches neither book), KL p.29 / TH p.26 selectable (VARIANTS.luu_ha_table); the rest stay marked unverified"],
         "menh_chu_than_chu": ["unverified", "Bảng Mệnh chủ (theo chi cung Mệnh) và Thân chủ (theo chi năm) phổ biến; chưa đối chiếu trang sách"],
         "cach_cuc_names": ["unverified", "Chỉ nhận diện tên cách theo vị trí sao; ý nghĩa cát/hung chưa được đối chiếu"],
         "leap_month": ["verified_with_variants", "SRC_KHAO_LUAN p.41 (same month number); other conventions kept as options"],
@@ -77,6 +77,54 @@ TU_HOA = {  # stem -> (Lộc, Quyền, Khoa, Kỵ)
     8: ("Thiên Lương", "Tử Vi", "Tả Phụ", "Vũ Khúc"),
     9: ("Phá Quân", "Cự Môn", "Thái Âm", "Tham Lang"),
 }
+def _load_tu_hoa_tables() -> dict[str, dict[int, tuple]]:
+    """Per-source Tứ Hóa tables from data/experimental/tu_hoa_tables.json (KL = production default, TH, TT_WS)."""
+    import json
+    from pathlib import Path
+    d = json.loads((Path(__file__).resolve().parent.parent / "data" / "experimental" / "tu_hoa_tables.json").read_text(encoding="utf-8"))
+    order = ("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ")
+    return {src: {d["stems"].index(stem): tuple(row[k] for k in order) for stem, row in tab.items()} for src, tab in d["tables"].items()}
+
+
+TU_HOA_TABLES = _load_tu_hoa_tables()
+assert TU_HOA_TABLES["KL"] == TU_HOA, "tu_hoa_tables.json KL table drifted from TU_HOA"
+
+# Where the books disagree, each item follows one named source; the chart carries the choice (school["variants"]) and
+# the UI shows it. Defaults (owner's decision 2026-10-22) = what popular boards use, except where the board contradicts
+# both repo books (then the books win and the board's table stays an option).
+VARIANTS = {
+    "tu_hoa_table": {
+        "KL": "Khảo Luận tr.36, tr.196-197 (mặc định; Thực Hành tr.20-21 cùng bảng trừ Nhâm-Khoa)",
+        "TH": "Thực Hành tr.20-21 (Nhâm: Khoa ở Thiên Phủ)",
+        "TT_WS": "紫微斗數全書 bản số hóa — nguồn ngoài (Canh: Khoa Thái Âm, Kỵ Thiên Đồng; Nhâm: Khoa Thiên Phủ); bảng tuvi.vn dùng cho Canh",
+    },
+    "tieu_han_rule": {
+        "TH": "Thực Hành tr.27: nam thuận, nữ nghịch (mặc định; khớp bảng phổ biến)",
+        "KL": "Khảo Luận tr.39-40: dương nam / âm nữ thuận, âm nam / dương nữ nghịch",
+    },
+    "luu_ha_table": {
+        "board": "bảng phổ biến (tuvi.vn): Đinh Thân, Canh Thìn, Tân Mão — Canh không khớp sách nào (mặc định)",
+        "KL": "Khảo Luận tr.29: Đinh Thân, Canh Mão, Tân Thìn",
+        "TH": "Thực Hành tr.26: Đinh Thìn, Canh Thân, Tân Mão",
+    },
+}
+DEFAULT_VARIANTS = {"tu_hoa_table": "KL", "tieu_han_rule": "TH", "luu_ha_table": "board"}
+
+
+def chart_variants(chart) -> dict[str, str]:
+    return {**DEFAULT_VARIANTS, **((getattr(chart, "school", None) or {}).get("variants") or {})}
+
+
+def tu_hoa_row(stem: int, table: str = "KL") -> tuple:
+    """(Lộc, Quyền, Khoa, Kỵ) of a stem under the chosen table."""
+    return TU_HOA_TABLES[table][stem]
+
+
+def hoa_of(chart, stem: int) -> tuple:
+    """Tứ Hóa row for any stem (natal, đại hạn, lưu niên) under the table the chart was built with."""
+    return tu_hoa_row(stem, chart_variants(chart)["tu_hoa_table"])
+
+
 TRIAD_GROUP = {2: 0, 6: 0, 10: 0, 8: 1, 0: 1, 4: 1, 5: 2, 9: 2, 1: 2, 11: 3, 3: 3, 7: 3}
 THAI_TUE_RING = ["Thái Tuế", "Thiếu Dương", "Tang Môn", "Thiếu Âm", "Quan Phù", "Tử Phù", "Tuế Phá",
                  "Long Đức", "Bạch Hổ", "Phúc Đức", "Điếu Khách", "Trực Phù"]
@@ -173,7 +221,8 @@ def tuvi_position(day: int, cuc: int) -> tuple[int, dict]:
 
 
 def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_han: int = 12,
-            dignity_school: str = "thuc_hanh") -> TuViChart:
+            dignity_school: str = "thuc_hanh", tu_hoa_table: str = "KL", tieu_han_rule: str = "TH",
+            luu_ha_table: str = "board") -> TuViChart:
     tr = Trace()
     b = nb.input
     L = nb.lunar
@@ -263,15 +312,15 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
         put(n, ts + sgn * i, "vòng Trường Sinh", "truong_sinh_ring_by_cuc")
 
     for name, pos, rule in aux_stars.place(ys=ys, yb=yb, month=month, day=L.day, hb=hb, menh=menh, than=than,
-                                          placed={s.name: s.branch for s in stars}):
+                                          placed={s.name: s.branch for s in stars}, luu_ha_table=luu_ha_table):
         put(name, pos, aux_stars.group_of(rule), rule)
 
     # Tứ Hóa
-    th = dict(zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], TU_HOA[ys]))
+    th = dict(zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], tu_hoa_row(ys, tu_hoa_table)))
     placed = {s.name: s.branch for s in stars}
     th_pos = {k: {"star": v, "branch": placed.get(v)} for k, v in th.items()}
     tr.add("tv.tu_hoa", "Tứ Hóa by year stem", {"year_stem": STEMS_VI[ys]},
-           {k: f"{v['star']}@{BRANCHES_VI[v['branch']]}" for k, v in th_pos.items()}, rule="tu_hoa_vn")
+           {k: f"{v['star']}@{BRANCHES_VI[v['branch']]}" for k, v in th_pos.items()}, rule=f"tu_hoa_{tu_hoa_table}")
 
     # Tuần / Triệt
     xun_start = ycyc - ycyc % 10
@@ -333,6 +382,10 @@ def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_ha
         dai_han=dh, structure=structure,
         unsupported=list(aux_stars.NOT_PLACED) + ["Tuần/Triệt school variants",
                      "late-Tý (23h) lunar-day edge under late_zi_same_day"],
-        trace=tr, school={**SCHOOL_PACK, "dignity_school": dignity_school}, warnings=warnings, extras=extras)
+        trace=tr, school={**SCHOOL_PACK, "dignity_school": dignity_school,
+                          "variants": {"tu_hoa_table": tu_hoa_table, "tieu_han_rule": tieu_han_rule, "luu_ha_table": luu_ha_table},
+                          "variant_labels": {k: VARIANTS[k][v] for k, v in (("tu_hoa_table", tu_hoa_table), ("tieu_han_rule", tieu_han_rule),
+                                                                            ("luu_ha_table", luu_ha_table))}},
+        warnings=warnings, extras=extras)
     extras["cach_cuc"] = cach_cuc.detect(chart)
     return chart

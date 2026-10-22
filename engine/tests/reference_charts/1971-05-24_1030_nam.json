@@ -1,0 +1,279 @@
+{
+ "source": "Board screenshot supplied by the user (tuvi.vn, chart #598191, năm xem Canh Tuất 2030), transcribed by hand 2026-10-22. The centre prints 'Ngày: 24 (1)', 'Tháng: 5 (5)' = solar 24/05/1971, lunar 1/5 Tân Hợi (same solar (lunar) order as #260902); Tử Vi at Ngọ with Thổ ngũ cục confirms lunar day 1. Natal content only: the L.* annual stars, Th.N, ĐV./LN. labels and the centre are not compared; natal and lưu Hóa are in 'hoa'. Dignity letters follow that board's table.",
+ "birth": {
+  "year": 1971,
+  "month": 5,
+  "day": 24,
+  "hour": 10,
+  "minute": 30,
+  "gender": "male"
+ },
+ "dignity_school": "khao_luan",
+ "aliases": {
+  "Thiên Diêu": "Thiên Riêu",
+  "Tả Phù": "Tả Phụ",
+  "Lực Sỹ": "Lực Sĩ",
+  "Bác Sỹ": "Bác Sĩ",
+  "Thiên Hỉ": "Thiên Hỷ"
+ },
+ "year_gz": "Tân Hợi",
+ "lunar": {
+  "day": 1,
+  "month": 5,
+  "year": 1971
+ },
+ "cuc": "Thổ ngũ cục",
+ "menh_nap_am": "Thoa Xuyến Kim",
+ "palaces": {
+  "Tỵ": {
+   "name": "Quan Lộc",
+   "stem": "Quý",
+   "dai_han": 85,
+   "stage": "Lâm Quan",
+   "triet": true,
+   "majors": {
+    "Thiên Cơ": "V"
+   },
+   "stars": [
+    "Văn Xương",
+    "Thiên Y",
+    "Thiên Phúc",
+    "Quốc Ấn",
+    "Thiên Mã",
+    "Thiên Diêu",
+    "Thiên Hư",
+    "Tuế Phá",
+    "Tướng Quân"
+   ]
+  },
+  "Ngọ": {
+   "name": "Nô Bộc",
+   "stem": "Giáp",
+   "dai_han": 75,
+   "stage": "Quan Đới",
+   "majors": {
+    "Tử Vi": "M"
+   },
+   "stars": [
+    "Hữu Bật",
+    "Thiên Khôi",
+    "Thiên Trù",
+    "Long Đức",
+    "Bát Tọa",
+    "Địa Không",
+    "Tiểu Hao",
+    "Thiên Thương"
+   ]
+  },
+  "Mùi": {
+   "name": "Thiên Di",
+   "stem": "Ất",
+   "dai_han": 65,
+   "stage": "Mộc Dục",
+   "majors": {},
+   "stars": [
+    "Phong Cáo",
+    "Hoa Cái",
+    "Thanh Long",
+    "Thiên Khốc",
+    "Bạch Hổ"
+   ]
+  },
+  "Thân": {
+   "name": "Tật Ách",
+   "stem": "Bính",
+   "dai_han": 55,
+   "stage": "Trường Sinh",
+   "majors": {
+    "Phá Quân": "H"
+   },
+   "stars": [
+    "Tả Phù",
+    "Thiên Đức",
+    "Phúc Đức",
+    "Lực Sỹ",
+    "Tam Thai",
+    "Đà La",
+    "Kiếp Sát",
+    "Thiên Sứ"
+   ]
+  },
+  "Dậu": {
+   "name": "Tài Bạch",
+   "stem": "Đinh",
+   "dai_han": 45,
+   "stage": "Dưỡng",
+   "majors": {},
+   "stars": [
+    "Văn Khúc",
+    "Lộc Tồn",
+    "Thiên Quan",
+    "Bác Sỹ",
+    "Phá Toái",
+    "Điếu Khách"
+   ]
+  },
+  "Tuất": {
+   "name": "Tử Tức",
+   "stem": "Mậu",
+   "dai_han": 35,
+   "stage": "Thai",
+   "majors": {
+    "Liêm Trinh": "M",
+    "Thiên Phủ": "V"
+   },
+   "stars": [
+    "Thiên Hỉ",
+    "Thiên Quý",
+    "Thiên Thọ",
+    "Kình Dương",
+    "Quả Tú",
+    "Trực Phù",
+    "Quan Phủ",
+    "Địa Võng"
+   ]
+  },
+  "Hợi": {
+   "name": "Phu Thê",
+   "stem": "Kỷ",
+   "dai_han": 25,
+   "stage": "Tuyệt",
+   "than": true,
+   "majors": {
+    "Thái Âm": "M"
+   },
+   "stars": [
+    "Thai Phụ",
+    "Địa Giải",
+    "Giải Thần",
+    "Phượng Các",
+    "Thái Tuế",
+    "Phục Binh"
+   ]
+  },
+  "Tý": {
+   "name": "Huynh Đệ",
+   "stem": "Canh",
+   "dai_han": 15,
+   "stage": "Mộ",
+   "majors": {
+    "Tham Lang": "H"
+   },
+   "stars": [
+    "Thiên Giải",
+    "Văn Tinh",
+    "Đào Hoa",
+    "Thiếu Dương",
+    "Thiên Tài",
+    "Thiên Không",
+    "Đại Hao",
+    "Đẩu Quân"
+   ]
+  },
+  "Sửu": {
+   "name": "Mệnh",
+   "stem": "Tân",
+   "dai_han": 5,
+   "stage": "Tử",
+   "majors": {
+    "Thiên Đồng": "H",
+    "Cự Môn": "H"
+   },
+   "stars": [
+    "Thiên Hình",
+    "Tang Môn",
+    "Bệnh Phù"
+   ]
+  },
+  "Dần": {
+   "name": "Phụ Mẫu",
+   "stem": "Canh",
+   "dai_han": 115,
+   "stage": "Bệnh",
+   "tuan": true,
+   "majors": {
+    "Thiên Tướng": "M",
+    "Vũ Khúc": "V"
+   },
+   "stars": [
+    "Thiên Việt",
+    "Đường Phù",
+    "Thiếu Âm",
+    "Hỷ Thần",
+    "Cô Thần"
+   ]
+  },
+  "Mão": {
+   "name": "Phúc Đức",
+   "stem": "Tân",
+   "dai_han": 105,
+   "stage": "Suy",
+   "tuan": true,
+   "majors": {
+    "Thiên Lương": "V",
+    "Thái Dương": "V"
+   },
+   "stars": [
+    "Long Trì",
+    "Linh Tinh",
+    "Lưu Hà",
+    "Quan Phù",
+    "Phi Liêm"
+   ]
+  },
+  "Thìn": {
+   "name": "Điền Trạch",
+   "stem": "Nhâm",
+   "dai_han": 95,
+   "stage": "Đế Vượng",
+   "triet": true,
+   "majors": {
+    "Thất Sát": "H"
+   },
+   "stars": [
+    "Hồng Loan",
+    "Nguyệt Đức",
+    "Tấu Thư",
+    "Ân Quang",
+    "Hỏa Tinh",
+    "Địa Kiếp",
+    "Tử Phù",
+    "Thiên La"
+   ]
+  }
+ },
+ "hoa": {
+  "natal": {
+   "Hóa Lộc": "Cự Môn",
+   "Hóa Quyền": "Thái Dương",
+   "Hóa Khoa": "Văn Khúc",
+   "Hóa Kỵ": "Văn Xương"
+  },
+  "natal_branch": {
+   "Hóa Lộc": "Sửu",
+   "Hóa Quyền": "Mão",
+   "Hóa Khoa": "Dậu",
+   "Hóa Kỵ": "Tỵ"
+  },
+  "luu": {
+   "year": 2030,
+   "Hóa Lộc": "Thái Dương",
+   "Hóa Quyền": "Vũ Khúc",
+   "Hóa Khoa": "Thái Âm",
+   "Hóa Kỵ": "Thiên Đồng",
+   "branch": {
+    "Hóa Lộc": "Mão",
+    "Hóa Quyền": "Dần",
+    "Hóa Khoa": "Hợi",
+    "Hóa Kỵ": "Sửu"
+   }
+  },
+  "note": "The board prints only the palace of each Hóa ('Hóa Lộc', 'L.Hóa Lộc' as a separate line). The star is the one in that palace that any of the engine's Tứ Hóa tables (KL, TH, TT_WS) gives for that Hóa of that stem; recorded only where exactly one such star is there. Lưu Hóa Canh 2030: L.Hóa Khoa sits in Hợi (Thái Âm), L.Hóa Kỵ in Sửu (Thiên Đồng + Cự Môn) = 紫微斗數全書 'Canh: Dương Vũ Âm Đồng'."
+ },
+ "known_gaps": [
+  "Ngọ Nô Bộc: Tử Vi dignity — != M (khao_luan)",
+  "lưu Hóa 2030 Hóa Khoa: Thiên Đồng@Sửu != Thái Âm@Hợi",
+  "lưu Hóa 2030 Hóa Kỵ: Thái Âm@Hợi != Thiên Đồng@Sửu"
+ ],
+ "known_gaps_note": "Khảo Luận gives no table for Tử Vi (dignity_kb: UNVERIFIED under khao_luan; TH p.29 and TT p.21 both say miếu at Ngọ); the board's M is left blank, not copied. Lưu Hóa 2030 (Canh): the board's Canh row is 紫微斗數全書 (Dương Vũ Âm Đồng: Khoa Thái Âm, Kỵ Thiên Đồng); the engine's default KL (= TH) row is Dương Vũ Đồng Âm (Khảo Luận p.36 'Canh Nhật Vũ Đồng Âm'). School difference, not an engine error; with tu_hoa_table=TT_WS the engine gives the board's row."
+}

@@ -36,6 +36,10 @@ class BirthReq(BaseModel):
     # khao_luan: KL "Thế đứng", the table popular boards use — the default since 2026-10-21 (owner's decision, so the board matches them);
     # thuc_hanh / toan_thu stay selectable on the board
     dignity_school: str = Field("khao_luan", pattern="^(thuc_hanh|toan_thu|khao_luan)$")
+    # where the books disagree (tuvi.VARIANTS): defaults = popular-board convention, each choice is reported back in chart.school
+    tu_hoa_table: str = Field("KL", pattern="^(KL|TH|TT_WS)$")
+    tieu_han_rule: str = Field("TH", pattern="^(TH|KL)$")
+    luu_ha_table: str = Field("board", pattern="^(board|KL|TH)$")
     experimental: bool = False      # opt-in: also evaluate the DRAFT cách cục + engine-demo rules (never part of production readings)
 
     def birth(self) -> BirthInput:
@@ -48,7 +52,8 @@ def _compute(req: BirthReq):
         nb = normalize(req.birth())
     except Exception as e:  # invalid date, DST gap, unknown tz, missing longitude
         raise HTTPException(422, str(e))
-    return nb, bazi.compute(nb), tuvi.compute(nb, dignity_school=req.dignity_school)
+    return nb, bazi.compute(nb), tuvi.compute(nb, dignity_school=req.dignity_school, tu_hoa_table=req.tu_hoa_table,
+                                                tieu_han_rule=req.tieu_han_rule, luu_ha_table=req.luu_ha_table)
 
 
 @app.post("/api/chart")
@@ -102,7 +107,7 @@ def chart_facts(req: BirthReq):
     for d in tv.dai_han:
         pal = next(p for p in tv.palaces if p["branch"] == d["branch"])
         stem = pal["stem"]
-        hoa = dict(zip(("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"), tuvi.TU_HOA[STEMS_VI.index(stem)]))
+        hoa = dict(zip(("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"), tuvi.hoa_of(tv, STEMS_VI.index(stem))))
         decades.append({**d, "palace": pal["name"], "stem": stem, "hoa": {k: {"star": v, "palace": star_pal.get(v)} for k, v in hoa.items()},
                         "readings": van_han.read_traced(tv, pal["name"]),
                         # Toàn Thư nhập hạn ca (van_han_tt, pp.97-105, paraphrased, page check pending) and Khảo Luận pp.230-233 as data

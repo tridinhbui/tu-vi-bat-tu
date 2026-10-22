@@ -5,7 +5,7 @@ from __future__ import annotations
 from .bazi import (BaziChart, HARM, DESTROY, PENALTY_PAIR, PENALTY_PAIRS, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_KIND,
                    STEM_COMBINE, ten_god)
 from .ganzhi import BRANCHES_VI, STEMS_VI, from_cycle, gz_name, year_cycle_index
-from .tuvi import TU_HOA, TuViChart
+from .tuvi import TU_HOA, TuViChart, hoa_of
 
 
 LUU_HOA_BASIS = ("thông lệ phổ biến, chưa đối chiếu sách: Khảo Luận tr.41-42 và Thực Hành tr.114 liệt kê chín sao lưu (Thái Tuế, Tang Môn, "
@@ -99,7 +99,7 @@ def luu_stars(chart: TuViChart, year: int) -> list[dict]:
     conv = {"Văn Xương": LUU_XUONG[ys], "Văn Khúc": LUU_KHUC[ys], "Đào Hoa": {0: 3, 1: 9, 2: 6, 3: 0}[g], "Hồng Loan": (3 - yb) % 12,
             "Kiếp Sát": {0: 11, 1: 5, 2: 2, 3: 8}[g]}
     out += [{"name": k, "palace": by_branch[v], "basis": "thông lệ"} for k, v in conv.items()]
-    for k, star in zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], TU_HOA[ys]):
+    for k, star in zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], hoa_of(chart, ys)):
         pal = next((p["name"] for p in chart.palaces if star in p["stars"]), None)
         if pal:
             out.append({"name": k, "palace": pal, "basis": "thông lệ"})
@@ -113,14 +113,13 @@ def tuvi_year(chart: TuViChart, year: int) -> dict:
     by_branch = {p["branch"]: p for p in chart.palaces}
     tt = by_branch[BRANCHES_VI[b]]
     hoa = {}
-    for k, star in zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], TU_HOA[s]):
+    for k, star in zip(["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"], hoa_of(chart, s)):
         pal = next((p["name"] for p in chart.palaces if star in p["stars"]), None)
         hoa[k] = {"star": star, "natal_palace": pal}
     # tiểu hạn (SRC_THUC_HANH p.27): age 1 sits at Thìn/Tuất/Mùi/Sửu for Dần-Ngọ-Tuất / Thân-Tý-Thìn / Tỵ-Dậu-Sửu / Hợi-Mão-Mùi births
     from .tuvi import TRIAD_GROUP
-    start = {0: 4, 1: 10, 2: 7, 3: 1}[TRIAD_GROUP[from_cycle(year_cycle_index(chart.lunar["year"]))[1]]]
-    male = chart.yin_yang_gender.endswith("nam")
-    th = (start + (age - 1) * (1 if male else -1)) % 12
+    from .reasoning.temporal_facts import tieu_han_branch
+    th = tieu_han_branch(chart, age)
     from . import van_han
     # Lưu Tứ Hóa: only the POSITIONS are given. Khảo Luận pp.195-197 describes the Tứ Hóa of a person's BIRTH-year stem ("Tuổi Bính …",
     # "Hóa Kỵ ở Tài thì suốt đời …"); reading those lines off the stem of the year being viewed misapplied the source (audit TV-P0-1).

@@ -408,7 +408,7 @@ def dai_han(ctx: Context, year: int) -> dict:
         p2.sentences.append(Sentence(f"Bộ quy tắc đã đối chiếu không có nhận định nguyên cục nào được kích hoạt ở cung {P}, nên phần này chỉ nêu vị trí.", "limit", "he_thong"))
     paras.append(p2)
     stem_i = STEMS_VI.index(dh["stem"])
-    dh_hoa = dict(zip(("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"), tv_mod.TU_HOA[stem_i]))
+    dh_hoa = dict(zip(("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"), tv_mod.hoa_of(tv, stem_i)))
     star_pal = {s: p["name"] for p in tv.palaces for s in p["major_stars"] + p["stars"]}
     landing = {h: star_pal.get(s) for h, s in dh_hoa.items()}
     p3 = Paragraph("theme", facet="dai_han_hoa")

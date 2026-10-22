@@ -92,7 +92,7 @@ export const DM = '··/··/';
 /** Set while a share link is open (share.js): engine calls then go through /api/share/<id>/<endpoint>, which adds the stored birth. */
 export const shareMode = { id: null };
 const SHARED = /^\/api\/(chart|reasoning|analysis|synthesis|interpretation|interpret|year|formations)$/;
-const VIEWER = ['to_year', 'chapter', 'mode', 'experimental', 'dignity_school'];
+const VIEWER = ['to_year', 'chapter', 'mode', 'experimental', 'dignity_school', 'tu_hoa_table', 'tieu_han_rule', 'luu_ha_table'];
 
 export async function post(u, b, { retries = 3 } = {}) {
   if (shareMode.id && SHARED.test(u)) { b = Object.fromEntries(VIEWER.filter(k => b?.[k] !== undefined).map(k => [k, b[k]])); u = `/api/share/${shareMode.id}/${u.slice(5)}`; }

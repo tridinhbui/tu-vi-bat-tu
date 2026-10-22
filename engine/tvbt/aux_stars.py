@@ -38,7 +38,10 @@ NOT_PLACED = [
 # year stem -> branch
 THIEN_QUAN = {0: 7, 1: 4, 2: 5, 3: 2, 4: 3, 5: 9, 6: 11, 7: 9, 8: 10, 9: 6}
 THIEN_PHUC = {0: 9, 1: 8, 2: 0, 3: 11, 4: 3, 5: 2, 6: 6, 7: 5, 8: 6, 9: 5}
-LUU_HA = {0: 9, 1: 10, 2: 7, 3: 8, 4: 5, 5: 6, 6: 4, 7: 3, 8: 11, 9: 2}
+LUU_HA = {0: 9, 1: 10, 2: 7, 3: 8, 4: 5, 5: 6, 6: 4, 7: 3, 8: 11, 9: 2}   # "board": what tuvi.vn shows (Canh Thìn matches neither book, TV-2)
+LUU_HA_TABLES = {"board": LUU_HA,
+                 "KL": {**LUU_HA, 3: 8, 6: 3, 7: 4},     # KL p.29: Đinh Thân, Canh Mão, Tân Thìn
+                 "TH": {**LUU_HA, 3: 4, 6: 8, 7: 3}}     # TH p.26: Đinh Thìn, Canh Thân, Tân Mão
 # year-branch season group (Hợi Tý Sửu / Dần Mão Thìn / Tỵ Ngọ Mùi / Thân Dậu Tuất) -> Cô Thần, Quả Tú
 CO_THAN = [2, 5, 8, 11]
 QUA_TU = [10, 1, 4, 7]
@@ -48,7 +51,8 @@ HOA_CAI = {0: 10, 1: 4, 2: 1, 3: 7}
 KIEP_SAT = {0: 11, 1: 5, 2: 2, 3: 8}
 
 
-def place(*, ys: int, yb: int, month: int, day: int, hb: int, menh: int, than: int, placed: dict[str, int]):
+def place(*, ys: int, yb: int, month: int, day: int, hb: int, menh: int, than: int, placed: dict[str, int],
+          luu_ha_table: str = "board"):
     """Yield (name, branch, rule_id)."""
     out = []
     add = lambda n, p, r: out.append((n, p % 12, r))
@@ -86,7 +90,7 @@ def place(*, ys: int, yb: int, month: int, day: int, hb: int, menh: int, than: i
     add("Hoa Cái", HOA_CAI[t], "hoa_cai_by_year_triad")
     add("Kiếp Sát", KIEP_SAT[t], "kiep_sat_by_year_triad")
     add("Phá Toái", 5 if yb in (0, 6, 3, 9) else 9 if yb in (2, 8, 5, 11) else 1, "pha_toai_by_year_branch")
-    add("Lưu Hà", LUU_HA[ys], "luu_ha_by_year_stem")
+    add("Lưu Hà", LUU_HA_TABLES[luu_ha_table][ys], "luu_ha_by_year_stem")
     add("Thiên Đức", 9 + yb, "thien_duc_from_dau_forward_to_year")
     add("Nguyệt Đức", 5 + yb, "nguyet_duc_from_ty_forward_to_year")
     if "Tả Phụ" in placed:

@@ -2,6 +2,8 @@
 
 Phạm vi: phần **tính toán** (vị trí sao, độ sáng, lớp lưu niên, nguyệt hạn). Phần luận giải ở `docs/REASONER-DESIGN.md`.
 
+> **Cập nhật 2026-10-22:** bảng độ sáng mặc định là **Khảo Luận** (`khao_luan`, quyết định của chủ 2026-10-21, khớp bảng phổ biến); Thực Hành và Toàn Thư chọn được trên bảng lá số. Ba mục sách bất đồng — Tứ Hóa (mặc định KL), tiểu hạn (mặc định TH tr.27), Lưu Hà (mặc định bảng phổ biến) — chọn được và ghi nguồn trên lá số (`tuvi.VARIANTS`, `test_school_variants.py`). Các dòng nói "Thực Hành là mặc định" bên dưới là trạng thái cũ.
+
 ## Bằng chứng đối chiếu
 
 | Loại | Gì | Ý nghĩa |
