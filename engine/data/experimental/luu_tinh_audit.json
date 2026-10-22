@@ -1,0 +1,63 @@
+{
+ "version": 1,
+ "status": "experimental",
+ "label": "experimental",
+ "summary": "Lưu tinh = áp bảng an sao NGUYÊN CỤC (đã verified cho lá số sinh) lên can/chi của năm xem. Việc áp lên năm xem (an lưu) là quy ước, không có luật nguồn trong registry.",
+ "flow_rule_source": null,
+ "registry_rules_found": 0,
+ "registry_search": "tìm trong engine/data/pack_*.json mọi luật có 'Lưu Lộc/Kình/Đà/Khôi/Việt/Thiên Mã' trong mô tả: 0 kết quả; tvbt/aux_stars.py ghi lưu Lộc Tồn, lưu Kình Đà, lưu Mã 'chưa đ(ược kiểm)'",
+ "not_produced": [
+  "Lưu Văn Xương",
+  "Lưu Văn Khúc",
+  "Lưu Hỏa Tinh",
+  "Lưu Linh Tinh",
+  "Lưu Địa Không",
+  "Lưu Địa Kiếp",
+  "nguyệt hạn (Đẩu Quân)"
+ ],
+ "stars": {
+  "Lưu Lộc Tồn": {
+   "formula": "Lộc Tồn theo can của năm xem (bảng LOC_TON)",
+   "natal_formula_review": "verified",
+   "natal_source": "Thực Hành pp.21,24 (rule_review loc_ton_kinh_da)",
+   "annual_flow_review": "none",
+   "label": "experimental"
+  },
+  "Lưu Kình Dương": {
+   "formula": "cung kế sau Lưu Lộc Tồn (+1)",
+   "natal_formula_review": "verified",
+   "natal_source": "Thực Hành pp.21,24",
+   "annual_flow_review": "none",
+   "label": "experimental"
+  },
+  "Lưu Đà La": {
+   "formula": "cung kế trước Lưu Lộc Tồn (-1)",
+   "natal_formula_review": "verified",
+   "natal_source": "Thực Hành pp.21,24",
+   "annual_flow_review": "none",
+   "label": "experimental"
+  },
+  "Lưu Thiên Khôi": {
+   "formula": "Thiên Khôi theo can của năm xem (bảng KHOI_VIET)",
+   "natal_formula_review": "verified",
+   "natal_source": "Thực Hành p.19",
+   "annual_flow_review": "none",
+   "label": "experimental"
+  },
+  "Lưu Thiên Việt": {
+   "formula": "Thiên Việt theo can của năm xem (bảng KHOI_VIET)",
+   "natal_formula_review": "verified",
+   "natal_source": "Thực Hành p.19",
+   "annual_flow_review": "none",
+   "label": "experimental"
+  },
+  "Lưu Thiên Mã": {
+   "formula": "Thiên Mã theo chi của năm xem (nhóm tam hợp)",
+   "natal_formula_review": "verified",
+   "natal_source": "Thực Hành p.21",
+   "annual_flow_review": "none",
+   "label": "experimental"
+  }
+ },
+ "upgrade_requires": "một nguồn có trang nói rõ lưu Lộc Tồn/Kình/Đà/Khôi/Việt/Mã an theo can/chi năm xem bằng đúng các bảng nguyên cục, và một lá số mẫu trong sách để làm golden test"
+}
