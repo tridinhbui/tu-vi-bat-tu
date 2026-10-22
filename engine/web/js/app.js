@@ -272,7 +272,7 @@ function showResults() {
   // the overview tab opens first when the server sent it; its chapter buttons open the matching Tử Vi chapter
   const ov = !!state.overview?.indices;
   $('#tab-overview').hidden = !ov;
-  if (ov) renderOverview($('#overview-host'), state.overview, { onChapter: id => { setTab('tuvi', false); history.replaceState({ v: 'chart' }, '', '#la-so/tu-vi'); setTimeout(() => $('#tv-' + id)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }), 60); } });
+  if (ov) renderOverview($('#overview-host'), state.overview, { prose: state.prose, onChapter: id => { setTab('tuvi', false); history.replaceState({ v: 'chart' }, '', '#la-so/tu-vi'); setTimeout(() => $('#tv-' + id)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }), 60); } });
   else $('#overview-host').innerHTML = '';
   setTab(ov ? 'overview' : 'tuvi', false); view('chart');
   if (!shareMode.id) history.pushState({ v: 'chart' }, '', ov ? '#la-so/tong-quan' : '#la-so/tu-vi');

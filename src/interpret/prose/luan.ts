@@ -19,7 +19,7 @@ import type { Resolved } from '../kg/resolve.ts';
 import { reasonPalace, type ReadingPlan, type Thesis } from '../reason/plan.ts';
 import type { Reading } from '../reason/adjudicate.ts';
 import { Micro } from './micro.ts';
-import { Writer, argueThesis, lowerSafe, structureSentences, type ArgueCtx, type ReasoningFrames } from './narrative.ts';
+import { Writer, addNote, argueThesis, foldAsides, lowerSafe, structureSentences, type ArgueCtx, type ReasoningFrames } from './narrative.ts';
 import { configClause, dignityOf, hoaOn, joinVi, named, palaceConfig } from './named.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 import { validateProse } from './validate.ts';
@@ -207,7 +207,8 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const names = new Set(chart.palaces.flatMap(p => [...p.stars, ...p.major_stars]));
   /** a paragraph: its sentences less any reading the report already told, then its tail (computed on what is left), then its lead-in */
   const para = (role: ProseParagraph['role'], topic: Topic | null, xs0: ProseSentence[], leadText?: string, tailOf?: (xs: ProseSentence[]) => ProseSentence[]): ProseParagraph | null => {
-    let xs = dedupe(xs0, sh.keys);
+    // a method sentence (a caveat, a structure with no reading) is the note of the reading next to it, not a sentence of the text
+    let xs = foldAsides(dedupe(xs0, sh.keys), paras.at(-1)?.sentences.at(-1));
     // a paragraph of the system's words alone stands only as the closing
     if (!xs.length || (!xs.some(s => s.trace.basis !== 'he_thong') && topic !== 'tong_ket' && topic !== 'tom_lai')) return null;
     if (tailOf) xs = [...xs, ...tailOf(xs)];
@@ -240,23 +241,37 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   });
 
   // ---- Mệnh only: cung giáp / nhị hợp / lục hại, Thân cư, hậu vận, the closing arc ----
-  let thanNp: string | null = null, thanPal: Palace | null = null, lateAge: string | null = null, lateCalm = false;
+  let thanNp: string | null = null, thanPal: Palace | null = null, lateAge: string | null = null, lateCalm = false, thanAlone: ProseSentence[] = [];
   if (isMenh) {
-    const vt = positionSentences(W, L, chart, pal);
-    if (vt.length) para('support', 'vi_tri', vt, lead('vi_tri'));
+    // cung giáp, nhị hợp, lục hại are positions the books in the repository give no natal reading: notes on the frame, not a paragraph
+    const vt = positionSentences(W, L, chart, pal), frameEnd = paras[0]?.sentences.at(-1);
+    if (vt.length && frameEnd) addNote(frameEnd, withLead(lead('vi_tri'), vt.map(s => s.text).join(' ')));
     const than = chart.palaces.find(p => p.is_than) ?? pal;
     thanPal = than;
-    if (than === pal) para('support', 'than_same', [S(W.pick('than|same', L.than.same), { move: 'ANCHOR', step: 'than:same', basis: 'tinh_toan' })], lead('than_same'));
+    if (than === pal) thanAlone = [S(W.pick('than|same', L.than.same), { move: 'ANCHOR', step: 'than:same', basis: 'tinh_toan' })];
     else {
       const r = thanSentences(W, L, F, chart, k, than, sh, new Set(paras.flatMap(p => p.sentences.flatMap(s => s.trace.concepts))));
       thanNp = r.np;
-      para('support', 'than', r.position, lead('than', { pal: than.name }));
-      if (r.style.length) para('support', 'than_style', r.style, lead('than_style'), ys => tail(r.W, L, ys, r.units, `than|${than.name}`));
+      // where Thân stands is not a paragraph of its own that ends on a position: it opens the paragraph of what the Thân palace brings
+      // (its strongest thesis), or, with nothing read there, the hậu vận paragraph
+      if (r.style.length) {
+        const st = [{ ...r.style[0], text: withLead(lead('than_style'), r.style[0].text, names) }, ...r.style.slice(1)];
+        para('support', 'than', [...r.position, ...st], lead('than', { pal: than.name }), ys => tail(r.W, L, ys, r.units, `than|${than.name}`));
+      } else if (r.position.length > 1) para('support', 'than', r.position, lead('than', { pal: than.name }));
+      else thanAlone = r.position;
     }
     const late = lateSentences(W, L, chart);
     lateAge = late.age; lateCalm = late.calm;
     const lx = [...late.xs, ...(lateCourse ? [lateCourse] : [])];
-    if (lx.length) para('course', 'hau_van', lx, lead('hau_van'));
+    // Thân an tại Mệnh, or a Thân palace with nothing read there: one sentence, said at the head of the hậu vận paragraph
+    const thanLead = than === pal ? lead('than_same') : lead('than', { pal: than.name }), thanTopic = than === pal ? 'than_same' : 'than';
+    if (thanAlone.length && lx.length) {
+      lx[0] = { ...lx[0], text: withLead(lead('hau_van'), lx[0].text, names) };
+      para('course', thanTopic, [...thanAlone, ...lx], thanLead);
+    } else {
+      if (thanAlone.length) para('support', thanTopic, thanAlone, thanLead);
+      if (lx.length) para('course', 'hau_van', lx, lead('hau_van'));
+    }
   } else if (lateCourse) para('course', 'duong_doi', [lateCourse], lead('duong_doi'));
 
   // ---- closing ----
@@ -368,7 +383,8 @@ function frameSentences(W: Writer, L: LuanLib, F: ReasoningFrames, chart: ChartI
     const formName = fr.formations.find(f => f.seat === centre.id && f.kind === 'formation')?.name ?? centreName;
     // "Cự Môn là chính tinh, nhưng điều làm lá số này khác đi lại nằm ở Cự Môn" says nothing: a centre that is the star itself reads as a major
     const why = fr.centre.why !== 'major' && fr.centre.why !== 'vcd' && (formName === star || centreName === star) ? 'major' : fr.centre.why;
-    out.push(W.sentence(fill(W.pick(`centre|${why}`, F.centre[why]), { star: star || centreName, name: formName, seat: centreName }), { move: 'ANCHOR', step: `centre:${centre.id}`, basis: 'he_thong' }));
+    // which seat the reading is centred on is how it was reached: a note on the frame, not a sentence ("Cự Môn là trục của cả lá số")
+    out.push(W.sentence(fill(W.pick(`centre|${why}`, F.centre[why]), { star: star || centreName, name: formName, seat: centreName }), { move: 'ANCHOR', step: `centre:${centre.id}`, basis: 'he_thong', aside: true }));
   }
   // the draft cách cục states (formations_experimental.json) are not checked against a page: not told here (the reasoned chapter keeps them)
   return out;

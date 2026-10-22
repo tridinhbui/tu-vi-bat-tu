@@ -12,7 +12,8 @@ const LAYER = { ban_menh: 'Bản mệnh (cung và tam phương)', hoa_van: 'Tứ
 const METHOD = { thang: 'Thang năm mức', dai_van: 'Đại vận', nam: 'Từng năm', thang_am: 'Từng tháng', ban_menh: 'Mười hai cung', bat_tu: 'Dải Bát Tự' };
 const BASIS = { sach: 'sách', sach_dien_giai: 'sách, diễn ý', thong_le: 'thông lệ', nhap: 'thử nghiệm', tinh_toan: 'tính toán' };
 const SCOPE = { self: 'chính cung', opp: 'xung chiếu', trine: 'tam hợp', menh: 'Mệnh' };
-const VERDICT = { affirmed: '', qualified: 'có giới hạn', contested: 'hai chiều' };
+/** a claim's verdict said in words after its sentence, not as a badge */
+const VERDICT = { affirmed: '', qualified: 'Điều này có giới hạn.', contested: 'Lá số cũng có chiều ngược lại ở điểm này.' };
 const LEVELS = ['Rất thử thách', 'Nhiều thử thách', 'Trung bình', 'Thuận', 'Rất thuận'];
 const CHAPTERS = [['ban-menh', 'Bản Mệnh'], ['tinh-cach', 'Tính cách'], ['cong-danh', 'Công danh'], ['tai-bach', 'Tài Bạch'], ['quan-he', 'Quan hệ'],
   ['dai-han', 'Đại hạn & lưu niên'], ['cach-cuc', 'Cách cục'], ['muoi-hai-cung', 'Mười hai cung']];
@@ -20,11 +21,11 @@ const NS = 'http://www.w3.org/2000/svg';
 const fmt = x => (Math.round(x * 100) / 100).toLocaleString('vi-VN', { maximumFractionDigits: 2 });
 const niceMax = v => { const s = [0.5, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 15, 20]; return s.find(x => x >= v) ?? Math.ceil(v); };
 
-export function overviewHtml(o) {
+export function overviewHtml(o, prose = null) {
   const I = o.indices, lv = I.levels || LEVELS;
   return `<div class="ov">
     <p class="ov-disc" role="note"><b>Mỗi chặng, mỗi năm được xếp vào một trong năm mức</b> (${lv.slice().reverse().map(esc).join(' · ')}), so với 1.000 lá số mẫu. Đây là mức tổng hợp từ câu sách và thông lệ có ghi nhãn, không phải xác suất hay dự báo; bấm một cột để đọc vì sao.</p>
-    ${frameHtml(o)}
+    ${frameHtml(o, prose?.menh)}
     <div class="ov-grid">
       ${card('dv', 'Xu hướng đại vận', 'Mười chặng, mỗi chặng mười năm: chặng ấy đánh thức lá số ra sao — Tứ Hóa theo can của chặng, lời sách về cung vận, trên nền cung vận và độ vững của cả lá số. Đường ngang giữa là mức thường gặp; cột lên là thuận hơn, cột xuống là nhiều thử thách hơn.', lv)}
       ${card('tv', 'Tiểu vận từng năm', `Mười năm trước và sau năm ${I.year}: đại vận đang đi, cung tiểu hạn, sao lưu và lưu Tứ Hóa (thông lệ).`, lv)}
@@ -48,14 +49,26 @@ function card(id, title, sub, levels) {
 const legend = () => `<p class="ov-leg"><span><i class="sw sw-s sw-line"></i>${SIDE.support}</span><span><i class="sw sw-l sw-line sw-dash"></i>${SIDE.limit}</span></p>`;
 const levelLegend = lv => `<p class="ov-leg ov-leg-lv">${lv.map((t, i) => `<span><i class="sw ov-lv-bg-${i}"></i>${esc(t)}</span>`).slice().reverse().join('')}</p>`;
 
-function frameHtml(o) {
+/** The reading's own words for a thesis claim: the sentence the Mệnh chapter (prose.menh, luận cung) argued it with — its full form when it
+ *  leans on the sentence before ("Cùng thế ấy, …"), without the paragraph's lead-in or an opening connective; null when the chapter has none. */
+const OPEN = /^(Cũng vậy|Ngoài ra|Đồng thời|Thêm vào đó|Bên cạnh đó|Mặt khác|Hơn nữa|Lại nữa|Cũng thế|Song|Tuy vậy|Tuy nhiên|Dẫu vậy),\s*/u;
+function claimSentence(menh, tid, concept) {
+  for (const p of menh?.paragraphs || []) {
+    const s = p.sentences.find(x => x.trace?.step === `claim:${tid}:${concept}`);
+    if (!s) continue;
+    const t = s.trace.alt || (p.lead && s.text.startsWith(p.lead + ', ') ? s.text.slice(p.lead.length + 2) : s.text);
+    return cap(t.replace(OPEN, ''));
+  }
+  return null;
+}
+function frameHtml(o, menh) {
   const f = o.frame;
   if (!f) return '';
   const majors = f.vcd ? `Vô chính diệu${f.borrowed.length ? `, mượn ${esc(f.borrowed.join(', '))} của cung xung chiếu` : ''}`
     : f.majors.map(m => `${esc(m.star)}${m.dignity ? ` <small>(${esc(m.dignity)})</small>` : ''}${m.hoa.length ? ` <small>hóa ${esc(m.hoa.map(h => h.replace('Hóa ', '')).join(', '))}</small>` : ''}`).join(', ');
   const marks = [f.than && 'Thân cư Mệnh', f.tuan && 'Tuần', f.triet && 'Triệt'].filter(Boolean).join(' · ');
   const theses = o.theses.map((t, i) => `<li class="ov-th"><p class="ov-th-h"><span class="ov-no">${i + 1}</span>${esc(t.label)}</p>
-    <ul>${t.claims.map(c => `<li>${esc(cap(c.text))}${VERDICT[c.verdict] ? ` <span class="ov-tag">${VERDICT[c.verdict]}</span>` : ''}</li>`).join('')}</ul>
+    <ul>${t.claims.map(c => `<li>${esc(claimSentence(menh, t.id, c.concept) || cap(c.text))}${VERDICT[c.verdict] ? ` <span class="ov-vw">${VERDICT[c.verdict]}</span>` : ''}</li>`).join('')}</ul>
     <details><summary>Căn cứ</summary><ul class="ov-rules">${[...new Map(t.claims.flatMap(c => c.rules).map(r => [r.id, r])).values()]
       .map(r => `<li><code>${esc(r.id)}</code> ${esc(r.cite)}${r.role !== 'base' ? ` <span class="ov-tag">${r.role === 'reducer' ? 'giảm nhẹ' : 'chiều ngược'}</span>` : ''}</li>`).join('')}
       ${t.formations.map(x => `<li>${esc(x.name)} · ${esc(x.cites.join('; '))}</li>`).join('')}</ul></details></li>`).join('');
@@ -64,8 +77,7 @@ function frameHtml(o) {
     ${marks ? `<p class="ov-marks">${marks}</p>` : ''}
     <p class="ov-centre">Trọng tâm khi đọc: <b>${esc(f.centre)}</b></p>
     ${f.formations.length ? `<p class="ov-forms">Cách cục theo sách: ${f.formations.map(x => `<span class="ov-form">${esc(x.name)} <small>${esc(x.cites.join('; '))}</small></span>`).join(' ')}</p>` : ''}</div>
-    ${theses ? `<div class="ov-fr-th"><p class="eyebrow">Luận điểm chính về Mệnh</p><ol class="ov-ths">${theses}</ol>
-      <p class="ov-note">Do bộ suy luận chọn theo tầng và độ hiếm của quy tắc; chỉ dùng quy tắc đã đối chiếu sách.</p></div>` : ''}</section>`;
+    ${theses ? `<div class="ov-fr-th"><p class="eyebrow">Luận điểm chính về Mệnh</p><ol class="ov-ths">${theses}</ol></div>` : ''}</section>`;
 }
 const cap = s => s ? s[0].toUpperCase() + s.slice(1) : s;
 
@@ -237,8 +249,8 @@ export function drawCharts(root, o) {
 }
 
 /** Render the overview into `host`; `onChapter(id)` opens a Tử Vi chapter. Returns nothing; redraws on resize while visible. */
-export function renderOverview(host, o, { onChapter } = {}) {
-  host.innerHTML = overviewHtml(o);
+export function renderOverview(host, o, { onChapter, prose } = {}) {
+  host.innerHTML = overviewHtml(o, prose);
   const draw = drawCharts(host, o);
   host.querySelectorAll('[data-ov-ch]').forEach(b => b.onclick = () => onChapter?.(b.dataset.ovCh));
   // drawn while the tab may still be hidden (width 0): redraw once the plots have a real width, and whenever it changes
