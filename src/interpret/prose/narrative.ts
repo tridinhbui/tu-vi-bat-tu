@@ -32,7 +32,11 @@ export interface ReasoningFrames {
   claim_same?: string[]; claim_same_card?: string[]; claim_also?: string[]; claim_also_card?: string[];
   /** special structures at Mệnh (plan.ts StructureNote): `lines` turns a verbatim structure line into reader words (regex + named groups) */
   structure: { head: Record<'sach' | 'he_thong', string[]>; limit: string[]; limit_named: string[]; rescue: string[]; rescue_named: string[]; position: string[];
-    lines: Array<{ type: 'limit' | 'rescue' | 'caveat'; structure?: string; match: string; say: string[] }> };
+    /** a structure whose limit another structure of the chapter has just named */
+    limit_same?: string[];
+    /** `note`: what the line leaves open (a reading the books do not settle, the table a position is read from): the note of the sentence
+     *  that tells the line, never in the text; with an empty `say` the line is told by its note alone */
+    lines: Array<{ type: 'limit' | 'rescue' | 'caveat'; structure?: string; match: string; say: string[]; note?: string[] }> };
 }
 export interface ReasonedChapter {
   engine: string; chapter: 'menh'; palace: 'Mệnh'; draft: boolean; plan: ReadingPlan;
@@ -221,7 +225,7 @@ export function reasonedChapter(chart: ChartInput, k: Knowledge, opts: { allowDr
   if (star || fr.vcd) {
     const formName = fr.formations.find(f => f.seat === centreSeat.id && f.kind === 'formation')?.name ?? centreName;
     p1.push(W.sentence(fill(W.pick(`centre|${fr.centre.why}`, F.centre[fr.centre.why]), { star: star || centreName, name: formName, seat: centreName }),
-      { move: 'ANCHOR', step: `centre:${centreSeat.id}`, basis: 'he_thong' }));
+      { move: 'ANCHOR', step: `centre:${centreSeat.id}`, basis: 'he_thong', aside: true }));
   }
   void centreF;
   // draft cách cục states (thành / thượng / bị phá / phá được cứu): told after the centre, never twice under two names
@@ -287,16 +291,14 @@ export function reasonedChapter(chart: ChartInput, k: Knowledge, opts: { allowDr
   // ---- special structures, on the thesis paragraphs that carry them (written last, so the text before them does not move) ----
   for (const { t, xs, at } of structAt) xs.splice(at, 0, ...structureSentences(W, F.structure, plan, t, paras.flatMap(([, ys]) => ys)));
 
-  const paragraphs: ProseParagraph[] = paras.filter(([, xs]) => xs.length).map(([role, xs]) => ({ role, sentences: xs, text: xs.map(s => s.text).join(' ') }));
+  const paragraphs: ProseParagraph[] = foldParagraphs(paras.map(([role, xs]) => ({ role, sentences: xs, text: '' })));
   const resolved = plan.theses.flatMap(t => t.claims.flatMap(c => [...c.axis.base, ...c.axis.against, ...c.axis.reducers].map(x => x.r)));
   const { issues, metrics } = validateProse(paragraphs, resolved);
   // every sentence voices a step of the plan; concepts outside the plan may not appear
   const planConcepts = new Set([...allConcepts, 'life.degree', ...plan.theses.flatMap(t => [...t.claims.flatMap(c => [c.concept, c.axis.opp ?? '']), ...t.cross.map(x => x.concept), t.rescuerCaveat?.axis.concept ?? ''])]);
-  // a structure whose caveat forbids reading 'hãm' as turned good (Cự Môn hãm gặp Hóa Lộc): no sentence but that caveat may say so
-  const hamCaveat = plan.structures.some(s => /hãm biến thành tốt/.test(s.caveat));
+  issues.push(...hamIssues(plan, paragraphs));
   paragraphs.forEach((p, pi) => p.sentences.forEach((s, si) => {
     const where = `p${pi + 1}s${si + 1}`;
-    if (hamCaveat && !(s.trace.step ?? '').endsWith(':caveat') && HAM_GOOD.test(s.text)) issues.push({ level: 'error', code: 'ham_turned_good', where, msg: s.text });
     if (!s.trace.step) issues.push({ level: 'error', code: 'no_plan_step', where, msg: s.text });
     for (const c of s.trace.concepts) if (!planConcepts.has(c)) issues.push({ level: 'error', code: 'outside_plan', where, msg: `${c}: ${s.text}` });
   }));
@@ -443,23 +445,58 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
 
 /** A sentence saying a hãm star became good ("hết hãm", "hãm … biến thành tốt"). */
 const HAM_GOOD = /(?:hết|không còn) hãm|hãm[^.;:]*?(?:biến|trở|chuyển|hóa)\s+(?:thành|nên)\s+(?:tốt|cát|đẹp)/iu;
+/** A structure whose caveat forbids reading 'hãm' as turned good (Cự Môn hãm gặp Hóa Lộc): the text never says so (not even to deny it:
+ *  the caveat is a note, shown when the sentence is opened), and the caveat is not lost — some sentence of the chapter carries it. */
+export function hamIssues(plan: ReadingPlan, paragraphs: ProseParagraph[]): ProseIssue[] {
+  const out: ProseIssue[] = [];
+  const caveat = plan.theses.some(t => t.steps.some(st => st.type === 'structure_caveat' && /hãm biến thành tốt/.test(st.note ?? '')));
+  if (!plan.structures.some(s => /hãm biến thành tốt/.test(s.caveat))) return out;
+  paragraphs.forEach((p, pi) => p.sentences.forEach((s, si) => { if (HAM_GOOD.test(s.text)) out.push({ level: 'error', code: 'ham_turned_good', where: `p${pi + 1}s${si + 1}`, msg: s.text }); }));
+  if (caveat && !paragraphs.some(p => p.sentences.some(s => HAM_GOOD.test(s.trace.note ?? ''))))
+    out.push({ level: 'error', code: 'ham_caveat_lost', where: '-', msg: 'the caveat on a hãm star that Hóa Lộc does not make good is in no note' });
+  return out;
+}
+
+export const addNote = (s: ProseSentence, note: string) => { s.trace.note = s.trace.note ? `${s.trace.note} ${note}` : note; };
+/** Method sentences (trace.aside: a caveat, a structure with no reading of its own, the centre of the reading) are not told: each becomes the
+ *  note of the reading before it, or after it when it opens the sentences; asides alone give their notes to `prev` (the last sentence before
+ *  them), or are dropped when there is none. */
+export function foldAsides(xs: ProseSentence[], prev?: ProseSentence): ProseSentence[] {
+  const kept: ProseSentence[] = [], waiting: string[] = [];
+  for (const s of xs) {
+    if (!s.trace.aside) { if (waiting.length) { addNote(s, waiting.join(' ')); waiting.length = 0; } kept.push(s); continue; }
+    const n = s.trace.note ? `${s.text} ${s.trace.note}` : s.text;
+    if (kept.length) addNote(kept[kept.length - 1], n); else waiting.push(n);
+  }
+  if (!kept.length && prev && waiting.length) addNote(prev, waiting.join(' '));
+  return kept;
+}
+/** foldAsides over a chapter's paragraphs; a paragraph left empty goes, its text is rebuilt from what is left. */
+export function foldParagraphs(ps: ProseParagraph[]): ProseParagraph[] {
+  const out: ProseParagraph[] = [];
+  for (const p of ps) {
+    const kept = foldAsides(p.sentences, out.at(-1)?.sentences.at(-1));
+    if (kept.length) out.push({ ...p, sentences: kept, text: kept.map(s => s.text).join(' ') });
+  }
+  return out;
+}
 /** Pages a structure line names ("KL tr.66; TH tr.52 …"), in the rules' cite form ("KL p.66"). */
 const pagesOf = (s: string) => [...s.matchAll(/\b(KL|TH|TT) tr\.(\d+)/g)].map(m => `${m[1]} p.${m[2]}`);
 /** A structure line in reader words: its `lines` entry (null when the entry keeps it silent); without one, the line itself once its pages and
  *  school codes are removed, if it then passes the reader lint. */
-function structureLine(W: Writer, F: ReasoningFrames['structure'], type: 'limit' | 'rescue' | 'caveat', id: string, note: string, key: string): string | null {
+function structureLine(W: Writer, F: ReasoningFrames['structure'], type: 'limit' | 'rescue' | 'caveat', id: string, note: string, key: string): { text: string | null; note?: string } {
   for (const e of F.lines) {
     if (e.type !== type || (e.structure && e.structure !== id)) continue;
     const m = note.match(new RegExp(e.match, 'u'));
     if (!m) continue;
-    if (!e.say.length) return null;
     const v = Object.fromEntries(Object.entries(m.groups ?? {}).map(([k, x]) => [k, x === undefined ? '' : x.includes(', ') ? joinVi(x.split(', ')) : x]));
-    return fill(W.pick(`sline|${key}`, e.say), v);
+    const n = e.note?.length ? finish(fill(W.pick(`snote|${key}`, e.note), v)) : undefined;
+    return { text: e.say.length ? fill(W.pick(`sline|${key}`, e.say), v) : null, ...(n ? { note: n } : {}) };
   }
   const t = note.replace(/\s*\([^()]*\b(?:KL|TH|TT) tr\.[^()]*\)/g, '').replace(/\s*\((?:R\d+|U_[A-Z_]+)\)/g, '').replace(/\s*—\s*R\d+.*$/, '').trim().replace(/\.$/, '');
   const low = ' ' + t.toLowerCase();
-  if (!t || /[/()]/.test(t) || META.some(w => low.includes(' ' + w)) || ABSOLUTE.some(w => low.includes(w))) return null;
-  return type === 'caveat' ? t : lowerSafe(t);
+  if (!t || /[/()]/.test(t) || META.some(w => low.includes(' ' + w)) || ABSOLUTE.some(w => low.includes(w))) return { text: null };
+  return { text: type === 'caveat' ? t : lowerSafe(t) };
 }
 /** The sentences of the special structures a thesis carries (plan steps 'structure*'). A structure with no book sentence (structure_position)
  *  is told as a position fact and nothing else. A limit or rescue line whose pages are already cited by a limit sentence of the chapter (the
@@ -472,21 +509,34 @@ export function structureSentences(W: Writer, F: ReasoningFrames['structure'], p
     const steps = t.steps.filter(st => st.structure === id), sn = plan.structures.find(x => x.id === id);
     const head = steps.find(st => st.type === 'structure');
     const name = (sn?.name ?? head?.note ?? steps[0].note ?? id).replace(/\s*—\s*cung Mệnh$/, '');
-    const S = (text: string, part: string, move: SentenceTrace['move'], cites: string[] = []) =>
-      out.push(W.sentence(text, { move, step: `structure:${id}:${part}`, basis: 'he_thong', cites: [...new Set(cites)], concepts: [] }));
-    if (sn?.position || steps.some(st => st.type === 'structure_position')) { S(fill(W.pick(`spos|${id}`, F.position), { name }), 'position', 'ANCHOR'); continue; }
+    const S = (text: string, part: string, move: SentenceTrace['move'], cites: string[] = [], extra: Partial<SentenceTrace> = {}) =>
+      out.push(W.sentence(text, { move, step: `structure:${id}:${part}`, basis: 'he_thong', cites: [...new Set(cites)], concepts: [], ...extra }));
+    const notes = (xs: Array<{ note?: string }>) => { const n = xs.map(x => x.note).filter(Boolean).join(' '); return n ? { note: n } : {}; };
+    // a structure the books do not read is a position only: a note, never a sentence of the text
+    if (sn?.position || steps.some(st => st.type === 'structure_position')) { S(fill(W.pick(`spos|${id}`, F.position), { name }), 'position', 'ANCHOR', [], { aside: true }); continue; }
     const lines = (type: 'limit' | 'rescue', st: Step['type']) => steps.filter(x => x.type === st && x.note && !told(x.note))
-      .map((x, i) => ({ text: structureLine(W, F, type, id, x.note!, `${id}|${type}|${i}`), cites: pagesOf(x.note!) })).filter((x): x is { text: string; cites: string[] } => !!x.text);
-    const limits = lines('limit', 'structure_limit'), rescues = lines('rescue', 'structure_rescue');
-    const alone = head?.basis === 'sach' || (!limits.length && !rescues.length);
+      .map((x, i) => ({ ...structureLine(W, F, type, id, x.note!, `${id}|${type}|${i}`), cites: pagesOf(x.note!) }));
+    const limitsAll = lines('limit', 'structure_limit'), rescuesAll = lines('rescue', 'structure_rescue');
+    // a limit line another structure of the same thesis has just said ("trong tam phương có sát tinh Kình Dương") is not said again: the
+    // structure is told as sharing that limit (limit_same)
+    const norm = (t: string) => t.toLowerCase().replace(/ tứ chính/g, '');
+    const sameAs = (t: string) => out.some(s => !s.trace.aside && norm(s.text).includes(norm(t)));
+    const repeated = limitsAll.filter(x => x.text && sameAs(x.text));
+    const limits = limitsAll.filter(x => x.text && !repeated.includes(x)), rescues = rescuesAll.filter(x => x.text);
+    const alone = head?.basis === 'sach' || (!limits.length && !rescues.length && !repeated.length);
     if (head && alone) S(fill(W.pick(`shead|${id}`, F.head[head.basis]), { name }), 'head', 'ANCHOR', head.cite ? [head.cite.replace(' tr.', ' p.')] : []);
+    // a line told by its note alone goes with the structure's other lines of its kind (or the next sentence about the structure)
     if (limits.length) S(fill(W.pick(`slim|${id}`, alone ? F.limit : F.limit_named), { name, lines: limits.map(x => x.text).join('; ') }),
-      'limit', 'TURN', limits.flatMap(x => x.cites));
+      'limit', 'TURN', limitsAll.flatMap(x => x.cites), notes(limitsAll));
+    else if (repeated.length && F.limit_same?.length) S(W.pick(`slims|${id}`, F.limit_same), 'limit', 'TURN', limitsAll.flatMap(x => x.cites), notes(limitsAll));
+    else if (limitsAll.some(x => x.note)) S(notes(limitsAll).note!, 'limit', 'TURN', limitsAll.flatMap(x => x.cites), { aside: true });
     if (rescues.length) S(fill(W.pick(`sres|${id}`, alone || limits.length ? F.rescue : F.rescue_named), { name, lines: rescues.map(x => x.text).join('; ') }),
-      'rescue', 'RESCUE', rescues.flatMap(x => x.cites));
+      'rescue', 'RESCUE', rescuesAll.flatMap(x => x.cites), notes(rescuesAll));
+    else if (rescuesAll.some(x => x.note)) S(notes(rescuesAll).note!, 'rescue', 'RESCUE', rescuesAll.flatMap(x => x.cites), { aside: true });
+    // the caveat (what the structure does not allow to conclude) is how the reading was reached: a note
     const cav = steps.find(st => st.type === 'structure_caveat');
-    const ct = cav?.note && structureLine(W, F, 'caveat', id, cav.note, `${id}|caveat`);
-    if (ct) S(ct, 'caveat', 'TENSION');
+    const ct = cav?.note ? structureLine(W, F, 'caveat', id, cav.note, `${id}|caveat`) : null;
+    if (ct?.text) S(ct.text, 'caveat', 'TENSION', [], { aside: true, ...(ct.note ? { note: ct.note } : {}) });
   }
   return out;
 }

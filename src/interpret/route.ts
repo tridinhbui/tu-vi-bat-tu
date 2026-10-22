@@ -10,7 +10,7 @@ import { checkedOnly } from './prose/checked.ts';
 import { reasonedChapter, NARRATIVE_VERSION } from './prose/narrative.ts';
 import { planView } from './reason/plan.ts';
 import { cacheKey, type KnowledgeStore, type OutputCache } from './store.ts';
-import type { ChartInput } from './types.ts';
+import type { ChartInput, Knowledge } from './types.ts';
 
 export interface InterpretDeps {
   enabled: boolean;                                         // TVBT_INTERPRET === "1"
@@ -22,6 +22,13 @@ export interface InterpretDeps {
   luan?: boolean;
   facts: (birth: Record<string, unknown>) => Promise<Response>;
   store: KnowledgeStore; cache: OutputCache; defer: (p: Promise<unknown>) => void;
+}
+
+/** Every prose chapter of chapter "all", in the report's order: the overview themes, the twelve palaces, the đại hạn, Bát Tự (unchecked:
+ *  the route applies checkedOnly). Shared with the readability gate (test/readable.test.ts). */
+export function proseAllChapters(facts: ChartInput, k: Knowledge, o: { allowDraft: boolean; deep: boolean; luan: boolean }) {
+  const palaces = o.luan ? luanReport(facts, k, o) : proseReport(facts, k, o);
+  return [...proseThemes(facts, k, PROSE_VERSION, { allowDraft: o.allowDraft, luan: o.luan }), ...palaces, proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, o.allowDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, o.allowDraft)];
 }
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8' } });
@@ -54,7 +61,7 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   const out0 = mode === 'reasoned' ? (o => ({ ...o, plan: planView(o.plan) }))(reasonedChapter(facts, k, { allowDraft: d.proseDraft }))
     : mode !== 'prose' ? interpret(facts, chapter, k)
     : chapter === ('all' as Chapter) ? (cs => ({ engine: PROSE_VERSION, kbVersion: k.version, chapters: cs, pass: cs.every(c => c.pass) }))(
-        [...proseThemes(facts, k, PROSE_VERSION, { allowDraft: d.proseDraft, luan }), ...palaces({ allowDraft: d.proseDraft, deep: d.deep !== false }), proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)])
+        proseAllChapters(facts, k, { allowDraft: d.proseDraft, deep: d.deep !== false, luan }))
     : chapter === ('van_han' as Chapter) ? proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)
     : chapter === ('bat_tu' as Chapter) ? proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)
     : luan ? palaces({ allowDraft: d.proseDraft, deep: d.deep !== false }).find(c => c.chapter === chapter)!

@@ -59,9 +59,10 @@ test('worked example (Cự Môn hãm hóa Lộc tại Tuất): the reference sha
   for (const p of rest.filter(p => p.lead)) assert.ok(p.sentences[0].text.startsWith(p.lead + ', '), p.text);
   assert.ok(rest.some(p => p.topic === 'than' && p.lead?.includes('Tài Bạch')), 'Thân cư Tài Bạch');
   assert.ok(rest.some(p => p.topic === 'tong_ket'), 'closing');
-  const pos = rest.find(p => p.topic === 'vi_tri')!;
-  assert.ok(pos.sentences.every(s => s.trace.basis === 'tinh_toan' && !s.trace.rules.length), 'positions carry no reading');
-  assert.match(pos.text, /nhị hợp/); assert.match(pos.text, /Mão/);
+  // cung giáp / nhị hợp / lục hại carry no reading: a note on the frame, not a paragraph of the text
+  assert.ok(!rest.some(p => p.topic === 'vi_tri'), 'no paragraph of bare positions');
+  const pos = frame.sentences.at(-1)!.trace.note ?? '';
+  assert.match(pos, /nhị hợp/); assert.match(pos, /Mão/);
   // the reasoned Mệnh chapter (mode reasoned) is not changed by the luận cung form
   assert.ok(reasonedChapter(ex, K, { allowDraft: true }).pass);
   const golden = join(FX, 'menh_cu_tuat.luan.txt');
