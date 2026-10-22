@@ -458,3 +458,17 @@
 /* the Tuần / Triệt tag straddles the border between two palaces: keep the palace's first and last rows clear of it */
 .tv-board .tb-pal{padding-top:14px;padding-bottom:12px}
 .tv-dg{white-space:nowrap}
+
+/* Result tabs (Tổng quan · Tử Vi · Bát Tự) as large pill buttons: each tab reads as a button, the open one filled in seal red */
+.res-nav .wrap.res-tabs{gap:10px;padding:10px 0;align-items:center}
+.res-tabs>button[role=tab]{font:600 1.12rem var(--serif);padding:11px 24px;border:1.5px solid var(--hair);border-radius:999px;background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(60,40,20,.08);transition:background .15s,border-color .15s,color .15s}
+.res-tabs>button[role=tab] i{font-size:1rem}
+.res-tabs>button[role=tab]:hover{border-color:var(--seal);color:var(--seal)}
+.res-tabs>button[role=tab]:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.res-tabs>button[aria-selected=true]{background:var(--seal);border-color:var(--seal);color:#fff;box-shadow:0 2px 6px rgba(167,67,44,.28)}
+.res-tabs>button[aria-selected=true] i{color:#fff;opacity:.85}
+@media (max-width:640px){
+  .res-nav .wrap.res-tabs{gap:6px;padding:8px 0}
+  .res-tabs>button[role=tab]{flex:1 1 0;justify-content:center;padding:10px 6px;font-size:1rem;gap:5px;min-width:0}
+  .res-tabs>button[role=tab] i{font-size:.82rem}
+}
