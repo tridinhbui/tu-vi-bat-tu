@@ -10,11 +10,13 @@ export const CHAT_MODEL = "claude-haiku-5-5";
 export const DEEP_MODEL = "claude-sonnet-5-5";
 
 export interface LlmOptions { model: string; maxTokens: number; effort: "low" | "medium" | "high" }
-export const CHAT_OPTIONS: LlmOptions = { model: CHAT_MODEL, maxTokens: 1200, effort: "low" };
-export const DEEP_OPTIONS: LlmOptions = { model: DEEP_MODEL, maxTokens: 5000, effort: "medium" };
+// both models think before answering (adaptive thinking is on by default) and thinking counts against max_tokens, so leave room above the answer
+export const CHAT_OPTIONS: LlmOptions = { model: CHAT_MODEL, maxTokens: 4000, effort: "low" };
+export const DEEP_OPTIONS: LlmOptions = { model: DEEP_MODEL, maxTokens: 12000, effort: "medium" };
 
-export function anthropicLlm(apiKey: string, { model, maxTokens, effort }: LlmOptions): Llm {
-  const client = new Anthropic({ apiKey, maxRetries: 1 });
+// `fetch` is for tests only: the real Worker uses the global one
+export function anthropicLlm(apiKey: string, { model, maxTokens, effort }: LlmOptions, fetch?: typeof globalThis.fetch): Llm {
+  const client = new Anthropic({ apiKey, maxRetries: 1, ...(fetch ? { fetch } : {}) });
   return async function* ({ instructions, context, messages }) {
     const stream = client.messages.stream({
       model, max_tokens: maxTokens,
