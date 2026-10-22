@@ -11,13 +11,14 @@
 
 /* ---------- masthead + system switch ---------- */
 .atl-mast{background:linear-gradient(180deg,var(--parchment),var(--ivory));padding:clamp(14px,2vw,26px) 0 clamp(8px,1.2vw,14px)}
-.atl-mast-in{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 32px;flex-wrap:wrap}
+.atl-mast-in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:12px 32px}   /* two columns, never a half-wrap: the side is right-aligned beside the title or left-aligned under it */
 .atl-mast .eyebrow{margin-bottom:6px}
 .atl-mast h1{font:500 clamp(1.45rem,2.6vw,2.15rem)/1.1 var(--serif);letter-spacing:-.01em}
-.atl-mast .res-sub{margin-top:10px;gap:2px 0;font-size:.88rem;color:var(--text2)}
+.atl-mast .res-sub{margin-top:10px;gap:2px 0;font-size:.88rem;color:var(--text2);overflow:hidden}   /* clips the separator dot of an item that wraps to a new line */
 .atl-mast .res-sub>span{position:relative;padding-right:14px;margin-right:14px}
 .atl-mast .res-sub>span+span:before{content:"";position:absolute;left:-15px;top:.55em;width:3px;height:3px;border-radius:50%;background:var(--brass)}
-.atl-side{display:grid;gap:10px;justify-items:end}
+.atl-side{display:grid;gap:10px;justify-items:end;min-width:0}
+.atl-mast .res-hide{margin-top:0}.atl-mast .res-hide small{display:none}   /* the note lives in the label's title; the checkbox alone keeps the masthead calm */
 .atl-mast .res-hl{margin:0;gap:8px}
 .hl-chip{font-size:.98rem;padding:4px 14px}
 .atl-mast .res-act{align-items:center}
@@ -307,7 +308,7 @@
 .sc{border-radius:2px;background:transparent;border-color:var(--hair)}
 
 /* ---------- mobile: field notebook ---------- */
-@media(max-width:1100px){.atl-side{justify-items:start}}
+@media(max-width:1100px){.atl-mast-in{grid-template-columns:minmax(0,1fr)}.atl-side{justify-items:start}}
 @media(max-width:700px){
   .atl-mast-in{display:block}.atl-mast .eyebrow{display:none}.atl-side{justify-items:start;margin-top:10px;gap:8px}
   .atl-mast h1{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

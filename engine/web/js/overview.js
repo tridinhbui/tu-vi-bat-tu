@@ -165,7 +165,7 @@ const baziStrip = (bz, decades) => (svg, { x0, pw, y, h, small }) => {
     if (b <= a) continue;
     const g = el('g', { class: `ov-bzseg ov-bz-${p.tag}${p.current ? ' is-cur' : ''}`, tabindex: 0, role: 'img', 'aria-label': `Vận ${p.pillar} (${p.year_from}–${p.year_to}): ${p.tag_vi}` });
     g.append(el('rect', { x: X(a) + 1, y: y + 4, width: Math.max(1, X(b) - X(a) - 2), height: h, rx: 4 }));
-    if (X(b) - X(a) > (small ? 34 : 54)) g.append(txt((X(a) + X(b)) / 2, y + 4 + h / 2 + 4, p.pillar, { 'text-anchor': 'middle' }));
+    if (X(b) - X(a) - 2 >= p.pillar.length * 6.2 + 8) g.append(txt((X(a) + X(b)) / 2, y + 4 + h / 2 + 4, p.pillar, { 'text-anchor': 'middle' }));
     tip(g, () => `<b>Vận ${esc(p.pillar)}</b> (${p.year_from}–${p.year_to})<br>${esc(p.tag_vi)}${p.reduced ? `<br><small>${esc(p.reduced)}</small>` : ''}`);
     svg.append(g);
   }
