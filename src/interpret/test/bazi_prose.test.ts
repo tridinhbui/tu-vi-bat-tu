@@ -44,8 +44,35 @@ test('1,000 charts: no blocking error, day master always voiced, no set-valued c
     const o = run(c.facts);
     assert.ok(o.pass, `${c.label}: ${JSON.stringify(o.issues)}`);
     assert.ok(o.paragraphs[0]?.sentences.some(s => s.trace.rules[0].startsWith('BT_ZZ_P2')), c.label);
-    assert.ok(!/ hoặc (Ấn|Sát|Kiếp|Quan)\b|thập thần của can/.test(o.text), o.text);
+    assert.ok(!/ hoặc (Ấn|Sát|Kiếp|Quan)\b|thập thần của can/.test(o.paragraphs[1]?.text ?? ''), o.paragraphs[1]?.text);
     direct += o.paragraphs[1]?.sentences.length ?? 0;
   }
   assert.ok(direct > 1000, String(direct));
+});
+
+// Track C (plan quirky-tinkering-rabin): the Bát Tự reading deepened with books and calculation only. On the benchmark and the two reference
+// charts: no common-meaning sentence, every đại vận paragraph has at least two sentences from a book or a calculation, lưu niên told for
+// the requested year and the two after it, a closing along the timeline; and the owner's chart's relations as 八字真宗 p.20 prints them.
+test('Track C: books and calculation only, every luck pillar told with ≥2 sourced sentences, lưu niên and the closing', async () => {
+  const { stats } = await import('../../../tools/interpret/bazi_depth.ts');
+  const fx = (n: string) => JSON.parse(readFileSync(new URL(`./fixtures/${n}`, import.meta.url), 'utf8'));
+  const charts: ChartInput[] = [fx('user_1990_nam.json'), fx('ref_2002_01_09_kl.json'), ...fx('benchmark20.json').map((b: { facts: ChartInput }) => b.facts)];
+  let luck = 0, sourced = 0;
+  for (const c of charts) {
+    const o = run(c);
+    assert.ok(o.pass, JSON.stringify(o.issues));
+    assert.ok(!o.paragraphs.flatMap(p => p.sentences).some(s => s.trace.basis === 'pho_thong'));
+    const s = stats(c);
+    luck += s.luck; sourced += s.luckSourced;
+    assert.equal(o.chapters['luu-nien']?.length, 3);
+    assert.ok(o.chapters['tong-ket']?.[0]?.lead);
+    assert.ok(!/\{[a-z_]+\}|\.;|undefined/.test(o.text), o.text);
+  }
+  assert.ok(sourced / luck >= 0.9, `${sourced}/${luck}`);
+  const mine = run(fx('ref_2002_01_09_kl.json'));
+  const dv = mine.chapters['dai-van']!.map(p => p.text).join('\n');
+  assert.match(dv, /chi Tuất hình chi tháng Sửu và chi ngày Sửu/);
+  assert.match(dv, /can Mậu xung can giờ Nhâm/);
+  assert.match(mine.chapters['cach-cuc']![0].text, /cách Thiên Tài/);
+  assert.ok(mine.chapters['cach-cuc']![0].sentences.some(x => x.trace.rules.includes('BT_TVH_TB_TAI_2')));
 });

@@ -40,3 +40,24 @@ Vì vậy profile `tvh40_v1` (quyết định vượng/nhược theo Thiệu Vĩ
 - Nhãn loại tòng Vượng/Cường của sách không tách được bằng tỉ trọng nhóm (hai nhóm chồng nhau), nên hệ thống vẫn xuất hai tên theo ngưỡng cố định.
 
 - Kiểm toán điều hậu/dụng thần tr.386–399: xem `docs/BAZI_DEEP_TVH_AUDIT.md` (sinh bởi `tools/bazi_deep_tvh_audit.py`). Tác giả nói ở tr.388 rằng bảng điều hậu do một độc giả tặng, không rõ nguồn: trạng thái `verified` chỉ có nghĩa bản cài khớp với trang in.
+
+## 八字真宗 pp.19-22, 57 re-read (Track C, 2026-10-21)
+
+PDF `~/Downloads/bát tự chân tông -[ChienNguyen] 八字真宗.pdf` (96 pp., text layer; printed page = PDF page).
+
+- **pp.19-20** (地支论 grid; 干支刑冲合害破): tables only — 干五合, 干冲克 (ten pairs, 甲庚/戊甲/癸己 labelled 克), 支六合, 支三合 and 半合局
+  ("中间一字不可少": a half-combination needs the middle branch), 支六冲, 支三刑 (pairwise, 子卯 相刑, 辰午酉亥 自刑), 支六害, 支六破. The pages print
+  **no meaning** for any relation. The reading therefore states positions only ("chi Tuất hình chi tháng Sửu"); the luck and year relations are
+  computed from these tables (`bazi_deep/pipeline._events`), not from `temporal_deep.overlay`, which keeps the four-pair stem clash and the single
+  子卯 penalty its draft effect sizes were calibrated on.
+- **p.57**: 婚姻宫 = 月令 (month branch), 配偶宫 = 日支 (day branch). The reading names the day branch the spouse palace and the month branch the
+  marriage palace when a luck pillar or a year touches them; nothing more.
+- **pp.21-22** (神煞 by day stem / day branch / month branch / year branch, column 说明): the glosses in `data/shensha.json` match the printed
+  说明 for 天乙贵人, 文昌贵人, 学堂贵人, 金舆, 十干禄, 飞刃, 将星, 驿马, 华盖, 月德, 天喜, 三台 — those are voiced with their gloss. 正桃花 / 桃花 / 红鸾
+  glosses soften the print and are told by position only; the harm stars (羊刃, 亡神, 劫煞, 孤神, 寡宿) are named as the hung group without
+  their printed outcomes (p.22 also prints "岁运相冲或合羊刃 灾祸临头"; not voiced, same policy).
+
+The Bát Tự reader prose now also voices: TVH thành bại sentences pp.367-369 (BT_TVH_TB_*), the TVH dụng thần / vận hỷ kỵ table pp.378-386 per
+luck pillar and year, the special cách pp.369-376, the Trích Thiên Tủy rules on nguyên lưu, Quan Sát hỗn tạp, Thương Quan, tòng and hóa (a rule
+whose premise names the day master's strength only when the TVH 40% verdict agrees), and 天克地冲 between a year and its luck pillar keyed on
+the natal TVH verdict (BZ-10). Rules on draft premises (BZ-11: `*_CACH_CUC`, `*_PHU_UC`) are not passed to the prose.

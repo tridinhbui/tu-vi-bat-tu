@@ -123,19 +123,20 @@ def chart_facts(req: BirthReq):
                 # pillar relations (hợp, xung, hại, phá, hình) for the per-chapter Bát Tự prose; pillar ids as "year-hour"
                 "relations": {k: [{"pillars": r["pillars"]} for r in v if "pillars" in r] for k, v in bz.relations.items()},
                 # structure analysis for the prose: strength (TVH), điều hậu (TVH table), phù ức, cách, luck pillars (bazi_deep.pipeline)
-                "deep": _bazi_deep(bz, nb, req.gender)}
+                "deep": _bazi_deep(bz, nb, req.gender, [year, year + 1, year + 2])}
     return {"engine": "tvbt-facts-1", "dignity_school": req.dignity_school, "birth_year": req.year, "lunar_year": tv.lunar["year"],
             "gender": req.gender, "year_gz": tv.year_gz, "cuc": tv.cuc, "menh_nap_am": tv.menh_nap_am, "menh_cuc_relation": tv.menh_cuc_relation,
             "yin_yang_gender": tv.yin_yang_gender, "dai_han_direction": tv.dai_han_direction,
             "palaces": tv.palaces, "tu_hoa": tv.tu_hoa, "base": base, "decades": decades, "year": _year_facts(tv, year, ybr), "bazi": bazi_out}
 
 
-def _bazi_deep(bz, nb, gender: str) -> dict | None:
+def _bazi_deep(bz, nb, gender: str, years: list[int] | None = None) -> dict | None:
+    """The structure analysis for the Bát Tự prose, with the lưu niên of `years` (the requested year and the two after it)."""
     from .bazi_deep import pipeline
     from .bazi_deep.model import ChartView
     try:
         luck = [{"index": l.index, "stem": l.stem, "branch": l.branch, "start_year_exact": l.start_year_exact} for l in bz.luck_pillars]
-        return pipeline.prose_summary(ChartView.from_bazi(bz, nb.utc, gender), luck)
+        return pipeline.prose_summary(ChartView.from_bazi(bz, nb.utc, gender), luck, years)
     except Exception:  # the analysis is an extra: a chart it cannot read keeps the rest of the facts
         return None
 
