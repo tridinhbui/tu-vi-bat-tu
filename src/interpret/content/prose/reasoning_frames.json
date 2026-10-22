@@ -85,8 +85,8 @@
   "{conn} nhìn từ {ground}, {S} lại {pred}."
  ],
  "contested": [
-  "Ở điểm này lá số có hai chiều: {ground_a} nghiêng về {np_a}, còn {ground_b} nghiêng về {np_b}; chiều này không xóa được chiều kia.",
-  "Hai chiều cùng có mặt: {ground_a} cho thấy {np_a}, trong khi {ground_b} lại cho thấy {np_b}."
+  "{ground_a} nghiêng về {np_a}, còn {ground_b} nghiêng về {np_b}: hai chiều cùng có mặt.",
+  "{ground_a} cho thấy {np_a}, nhưng {ground_b} lại cho thấy {np_b}."
  ],
  "caveat": [
   "{conn} chính {hoa} ấy cũng không trọn vẹn: vì {cond}, {claim}.",
@@ -238,7 +238,7 @@
   ]
  },
  "structure": {
-  "note": "Special structures at Mệnh (reason/plan.ts StructureNote, port of synthesis/structures.py) voiced on the thesis that carries them. A line of the plan is matched by `lines` (type + regex on the plan's verbatim note, optionally limited to one structure) and said with `say`; named groups of the regex fill the slots (a comma list becomes 'A, B và C'); an empty `say` keeps the line silent on purpose. Pages and school codes stay in the trace, never in the text. A line with no entry is said only when, once its pages and codes are removed, it passes the reader lint. `position` is the only frame for a structure with no book sentence (chua_du_nguon): it states where things stand and nothing else.",
+  "note": "Special structures at Mệnh (reason/plan.ts StructureNote, port of synthesis/structures.py) voiced on the thesis that carries them. Caveats and `position` sentences are method, not reading: they become the note of the sentence next to them (narrative.ts foldAsides), shown when the reader opens it; a line's `note` likewise. A line of the plan is matched by `lines` (type + regex on the plan's verbatim note, optionally limited to one structure) and said with `say`; named groups of the regex fill the slots (a comma list becomes 'A, B và C'); an empty `say` keeps the line silent on purpose. Pages and school codes stay in the trace, never in the text. A line with no entry is said only when, once its pages and codes are removed, it passes the reader lint. `position` is the only frame for a structure with no book sentence (chua_du_nguon): it states where things stand and nothing else.",
   "head": {
    "sach": [
     "Lá số vào thế {name}.",
@@ -256,6 +256,10 @@
   "limit_named": [
    "Có điều, thế {name} có chỗ vướng: {lines}.",
    "Tuy vậy, thế {name} ở đây không trọn: {lines}."
+  ],
+  "limit_same": [
+   "Có điều, thế này cũng vướng đúng chỗ ấy.",
+   "Thế này cũng không tránh được chỗ vướng ấy."
   ],
   "rescue": [
    "Ở chiều gỡ lại, {lines}.",
@@ -300,14 +304,20 @@
     "type": "limit",
     "match": "^Hóa Kỵ cũng nằm trong tam phương: bốn hóa tề tụ",
     "say": [
-     "Hóa Kỵ cũng hội về, thành thế bốn hóa tề tụ, một trường hợp chưa có lời phân xử"
+     "Hóa Kỵ cũng hội về, thành thế bốn hóa tề tụ"
+    ],
+    "note": [
+     "Sách chưa phân xử thế bốn hóa tề tụ, nên văn bản không kết luận thêm về nó"
     ]
    },
    {
     "type": "limit",
     "match": "^Hóa Kỵ cũng nằm trong tam phương tứ chính",
     "say": [
-     "Hóa Kỵ cũng nằm trong tam phương tứ chính, theo bảng Tứ Hóa đang dùng"
+     "Hóa Kỵ cũng nằm trong tam phương tứ chính"
+    ],
+    "note": [
+     "Vị trí của Hóa Kỵ tính theo bảng Tứ Hóa đang dùng"
     ]
    },
    {
@@ -320,8 +330,9 @@
    {
     "type": "limit",
     "match": "^Cả ba hóa chỉ đến từ hai cung tam hợp",
-    "say": [
-     "cả ba hóa chỉ đến từ hai cung tam hợp, nên nếu hiểu chữ ‘hội’ hẹp hơn thì không còn đủ ba"
+    "say": [],
+    "note": [
+     "Cả ba hóa chỉ đến từ hai cung tam hợp: nếu hiểu chữ ‘hội’ hẹp hơn thì không còn đủ ba"
     ]
    },
    {
@@ -329,7 +340,10 @@
     "structure": "KINH_DUONG_TU_MO",
     "match": "^Đồng cung Thất Sát",
     "say": [
-     "Kình Dương lại đồng cung với Thất Sát hay Thiên Hình, thế vốn bị coi là xấu khi Kình ở Ngọ, còn ở Tứ Mộ thì chưa có lời tương ứng"
+     "Kình Dương lại đồng cung với Thất Sát hay Thiên Hình, thế vốn bị coi là xấu khi Kình ở Ngọ"
+    ],
+    "note": [
+     "Với Kình ở Tứ Mộ, sách chưa có lời tương ứng cho thế đồng cung này"
     ]
    },
    {
@@ -337,7 +351,10 @@
     "structure": "CU_MON_HOA_LOC",
     "match": "^Cung có (?<tt>.+?): sách có hai chiều",
     "say": [
-     "{tt} ở cung Mệnh có hai cách hiểu, hoặc làm hại quý tinh, hoặc cứu hung tinh, có nơi còn coi là kỳ cách với Cự Môn ở Tý, Ngọ; hai chiều ấy cùng được giữ, ở đây không chọn chiều nào"
+     "{tt} ở cung Mệnh có thể làm hại quý tinh mà cũng có thể cứu hung tinh"
+    ],
+    "note": [
+     "Sách có hai chiều về {tt} ở Mệnh: làm hại quý tinh, hoặc cứu hung tinh; có nơi còn coi là kỳ cách với Cự Môn ở Tý, Ngọ. Hai chiều cùng được giữ, văn bản không chọn chiều nào"
     ]
    },
    {

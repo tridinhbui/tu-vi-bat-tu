@@ -654,6 +654,9 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 .prose .pr-pt,.sy-foot .pr-pt{color:var(--text2)}
 .an-tinh_toan{color:var(--blue);border-color:color-mix(in srgb,var(--blue) 40%,transparent)}.an-pho_thong{color:var(--muted);border-color:color-mix(in srgb,var(--muted) 45%,transparent)}
 .pr-why{margin:-4px 0 14px;padding:10px 14px;border:1px solid var(--bd);border-radius:10px;background:var(--bg)}.pr-why p{margin:0 0 6px}
+.pr-why .pr-note{color:var(--text2)}
+.rp-foot{margin:28px 0 8px;padding-top:12px;border-top:1px solid var(--bd);color:var(--text2)}.rp-foot p{margin:0 0 6px}.rp-foot summary{cursor:pointer}.rp-foot ul{margin:8px 0 0;padding-left:18px}.rp-foot li{margin:0 0 4px}
+.ov-vw{color:var(--muted)}
 .pr-rules{margin:6px 0 0;padding-left:18px}.pr-rules li{margin:3px 0;line-height:1.5}.pr-rules code{font-size:.78em;margin-left:4px}
 /* luận cung (prose/luan.ts): bold lead-in per paragraph; star names in the board's ngũ hành colours (stars_hanh.js), chính tinh bold;
    text tones a little deeper than the board's so they read on the ivory prose card (atlas.css .chapter .synth.prose) */

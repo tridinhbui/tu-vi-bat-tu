@@ -22,6 +22,11 @@ export interface SentenceTrace {
   keys?: string[];
   /** reasoned chapter (narrative.ts): the ReadingPlan step this sentence voices */
   step?: string;
+  /** how the reading was reached or what the books leave open (a caveat, a position with no reading of its own, the centre of the
+   *  reading): never told in the text, shown when the reader opens this sentence (report.js proseWhy) */
+  note?: string;
+  /** a method sentence (narrative.ts foldAsides): it becomes the note of the reading next to it and is not told */
+  aside?: boolean;
 }
 /** Who a chapter's sentences are about: in Phu Thê and Nô Bộc a reading that is not about the bond itself describes the other people. */
 export interface Voice { other?: { first: string[]; next: string[] }; bond?: (c?: Concept) => boolean }

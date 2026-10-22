@@ -125,8 +125,10 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     const lo = d.hoa['Hóa Lộc'], ky = d.hoa['Hóa Kỵ'];
     if (lo?.palace && ky?.palace) {
       const c1 = L!.rules.VH_CALC_TU_HOA;
-      xs.push(sentence(fill(m.pick(`${key}|hoa`, L!.hoa), { stem: d.stem, lstar: lo.star, lpal: lo.palace, kstar: ky.star, kpal: ky.palace, lmean: hm('Hóa Lộc', lo.palace), kmean: hm('Hóa Kỵ', ky.palace) }),
-        [cite('VH_CALC_TU_HOA', c1.reading, c1.cites)], c1.cites));
+      // Hóa Lộc and Hóa Kỵ are told as two sentences (the frame joins them with "; "): one sentence each reads more easily
+      const t = fill(m.pick(`${key}|hoa`, L!.hoa), { stem: d.stem, lstar: lo.star, lpal: lo.palace, kstar: ky.star, kpal: ky.palace, lmean: hm('Hóa Lộc', lo.palace), kmean: hm('Hóa Kỵ', ky.palace) });
+      const semi = t.indexOf('; ');
+      for (const part of semi > 0 ? [t.slice(0, semi), t.slice(semi + 2)] : [t]) xs.push(sentence(part, [cite('VH_CALC_TU_HOA', c1.reading, c1.cites)], c1.cites));
     }
     const qu = d.hoa['Hóa Quyền'], kh = d.hoa['Hóa Khoa'];
     if (qu?.palace && kh?.palace) xs.push(sentence(fill(m.pick(`${key}|qk`, L!.hoa_qk), { qstar: qu.star, qpal: qu.palace, cstar: kh.star, cpal: kh.palace, qmean: hm('Hóa Quyền', qu.palace), cmean: hm('Hóa Khoa', kh.palace) }),
@@ -137,7 +139,8 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     xs.push(sentence(m.pick(`${key}|sum|${verdict}`, L!.sum[verdict]), [], [], 'pho_thong', 'answer'));
     xs.push(...pr.balance.filter(x => verdict !== 'good' || x.trace.step === 'advice'));
     // one paragraph for where the hạn sits and how it meets the year, one for what happens in it
-    const cut = mid;
+    // a first paragraph that would only name the hạn palace is not a paragraph of its own: the hạn is told in one
+    const cut = mid > 1 ? mid : 0;
     starts.push(paragraphs.length);
     for (const part of [xs.slice(0, cut), xs.slice(cut)]) if (part.length) paragraphs.push({ role: 'course', sentences: part, text: part.map(s => s.text).join(' ') });
   }
