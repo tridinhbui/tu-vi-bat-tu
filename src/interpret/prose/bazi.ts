@@ -28,7 +28,7 @@ const STEM_EL: Record<string, string> = { 'Giáp': 'Mộc', 'Ất': 'Mộc', 'B�
 const BRANCH_EL: Record<string, string> = { 'Tý': 'Thủy', 'Sửu': 'Thổ', 'Dần': 'Mộc', 'Mão': 'Mộc', 'Thìn': 'Thổ', 'Tỵ': 'Hỏa', 'Ngọ': 'Hỏa', 'Mùi': 'Thổ', 'Thân': 'Kim', 'Dậu': 'Kim', 'Tuất': 'Thổ', 'Hợi': 'Thủy' };
 const PILLAR_VI: Record<string, string> = { year: 'năm', month: 'tháng', day: 'ngày', hour: 'giờ' };
 const REL_VI: Record<string, string> = { stem_combine: 'can hợp', stem_clash: 'can xung', branch_six_combine: 'lục hợp', branch_clash: 'xung', branch_harm: 'hại', branch_destroy: 'phá',
-  branch_penalty: 'hình', branch_self_penalty: 'tự hình', branch_triad_complete: 'tam hợp', branch_meeting_complete: 'tam hội' };
+  branch_penalty: 'hình', branch_self_penalty: 'tự hình', branch_triad_complete: 'tam hợp', branch_meeting_complete: 'tam hội', branch_semi_triad: 'bán hợp' };
 const TEN_GROUP: Record<string, string> = { 'Tỉ Kiên': 'Tỉ Kiếp', 'Kiếp Tài': 'Tỉ Kiếp', 'Thực Thần': 'Thực Thương', 'Thương Quan': 'Thực Thương', 'Chính Tài': 'Tài', 'Thiên Tài': 'Tài',
   'Chính Quan': 'Quan Sát', 'Thất Sát': 'Quan Sát', 'Chính Ấn': 'Ấn', 'Thiên Ấn': 'Ấn' };
 /** the ten gods' names keep their capitals inside a sentence ("Xét đến tiền bạc, Thiên Tài thấu can …") */
@@ -159,6 +159,8 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
       limits: ['thành bại của cách theo bảng riêng của bộ máy và phép phù ức: chưa có trang sách, không đưa vào văn',
         'ý nghĩa của hợp, xung, hình, hại, phá giữa vận, năm và tứ trụ: Bát Tự Chân Tông tr.19-20 chỉ in bảng, nên văn chỉ nêu vị trí',
         'hệ quả của các thần sát nhóm hung: chỉ nêu tên và vị trí',
+        'chỗ bảng dụng thần theo cách và bảng điều hậu của Thiệu Vĩ Hoa cho kết quả khác nhau: kết luận có điều kiện, không xếp bảng nào trên bảng nào',
+        'một năm được tính vào đại vận đang hiệu lực ở giữa năm Bát Tự (quy ước hiển thị); ngày đổi vận chính xác có ở dải đại vận',
         'lưu nguyệt',
         ...(P?.drafts.length ? [`${P.drafts.length} nhận định Bát Tự còn ở dạng nháp, không đưa vào văn`] : [])] },
     chapters,
@@ -202,7 +204,7 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
     : { year: chart.menh_nap_am ?? '', day: String((b.base.chart as Record<string, unknown>)['bazi.day_nap_am'] ?? '') };
   const pillars = (['year', 'month', 'day', 'hour'] as const).map(x => `${PILLAR_VI[x]} ${pil[x].name}${nap[x] ? ` (${nap[x]})` : ''}`);
   const frame = say(fill(m.pick('btframe', LU.frame), { dm: b.day_master, el: b.day_master_element, mb: pil.month.branch, pillars: joinVi(pillars) }), 'tinh_toan', 'ANCHOR', 'frame:bat_tu');
-  frame.trace.cites = D?.pillars ? ['ZZ pp.20-21'] : [];
+  frame.trace.cites = ['ZZ pp.20-21'];                   // the nạp âm table, whether the names come from the analysis or the older facts
   const nc = parts.deep['nhat-chu'] ?? [], frame2 = nc.filter(p => p.role === 'structure').flatMap(p => p.sentences), ncRest = nc.filter(p => p.role !== 'structure');
   const cc = parts.deep['cach-cuc'] ?? [], ss = cc.filter(p => p.topic === 'than_sat'), ccRest = cc.filter(p => p.topic !== 'than_sat');
   const leadAll = (key: string, ps: ProseParagraph[]) => ps.map((p, i) => i === 0 ? lead(key, p) : p);
@@ -210,7 +212,11 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   chapters['ngu-hanh'] = [...P('core', [...parts.ngu, ...(parts.deep['ngu-hanh'] ?? []).flatMap(p => p.sentences)]).map(p => lead('ngu_hanh', p))];
   chapters['su-nghiep'] = [...P('core', turned(parts.topicsOf('su-nghiep'), 'sn')).map(p => lead('work', p)), ...P('support', parts.sn), ...deepOf('su-nghiep', 'pillar_work')];
   chapters['quan-he'] = [...P('core', turned(parts.topicsOf('quan-he'), 'qh')).map(p => lead('kin', p)), ...P('support', parts.qh), ...deepOf('quan-he', 'pillar_kin')];
-  chapters['cach-cuc'] = [...leadAll('cach', ccRest), ...P('support', [...turned(parts.topicsOf('cach-cuc'), 'cc'), ...ss.flatMap(p => p.sentences)]).map(p => lead('blade', p))];
+  // the cách chapter in the frame of plan step 4: the first paragraph under the chapter's lead-in, each later part under its own
+  // (điểm tựa và giới hạn, điều hậu, chỗ hai cách xét khác nhau, kết luận); the sources are each sentence's trace
+  const leadParts = (ps: ProseParagraph[]) => ps.map((p, i) => { const pt = (p as ProseParagraph & { part?: string }).part;
+    return i === 0 ? lead('cach', p) : pt && LU.lead[`part_${pt}`] ? lead(`part_${pt}`, p) : p; });
+  chapters['cach-cuc'] = [...leadParts(ccRest), ...P('support', [...turned(parts.topicsOf('cach-cuc'), 'cc'), ...ss.flatMap(p => p.sentences)]).map(p => lead('blade', p))];
   chapters['dai-van'] = [...P('core', parts.dv).map(p => lead('dai_van', p)), ...deepOf('dai-van', null)];
   chapters['luu-nien'] = leadAll('luu_nien', parts.deep['luu-nien'] ?? []);
   chapters['tong-ket'] = leadAll('tong_ket', parts.deep['tong-ket'] ?? []);

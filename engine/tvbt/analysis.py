@@ -285,12 +285,19 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     ch["quan-he"].append(B(f"Nhật chi {BRANCHES_VI[dp.branch]} (vị trí bạn đời trong Bát Tự theo cách gọi thông dụng) tàng " + _join([f"{h['name']} ({h['ten_god']})" for h in dp.hidden]) + ".", "Thế", "he_thong"))
     rel = bz.relations
     rel_txt = []
-    for key, vi in [("branch_six_combine", "lục hợp"), ("branch_clash", "xung"), ("branch_harm", "hại"), ("branch_destroy", "phá"), ("stem_combine", "can hợp"), ("stem_clash", "can xung")]:
-        for r in rel[key]:
+    # every pairwise relation of 八字真宗 pp.19-20 the chart has, hình and bán hợp included (audit BZ-17; the hình used to be left out here
+    # although the relation panel showed it); 干冲克 says xung or khắc per pair (BZ-1)
+    for key, vi in [("branch_six_combine", "lục hợp"), ("branch_semi_triad", "bán hợp"), ("branch_clash", "xung"), ("branch_harm", "hại"), ("branch_destroy", "phá"),
+                    ("branch_penalty", "hình"), ("branch_self_penalty", "tự hình"), ("stem_combine", "can hợp"), ("stem_clash", "can xung")]:
+        for r in rel.get(key, []):
+            label = f"can {r['kind']}" if key == "stem_clash" and r.get("kind") else vi
+            if "pillars" not in r:                  # a full 三刑 set: named by its three branches, not by a pair of pillars
+                rel_txt.append(f"{vi} đủ bộ " + "–".join(BRANCHES_VI[x] for x in r.get("branches", [])))
+                continue
             # pillar ids are 'year-hour'; the reader sees "trụ năm và trụ giờ"
             pv = {"year": "năm", "month": "tháng", "day": "ngày", "hour": "giờ"}
-            rel_txt.append(f"{vi} giữa " + " và ".join("trụ " + pv.get(x, x) for x in r["pillars"].split("-")))
-    ch["quan-he"].append(B("Bát Tự, quan hệ giữa các trụ: " + ("; ".join(rel_txt) if rel_txt else "không có hợp, xung, hại, phá nào giữa các trụ gốc") + ". Mỗi quan hệ chỉ cho biết có tương tác; việc nó hóa, hợp mà không hóa hay có lực hay không cần điều kiện mà hệ thống chưa xét.", "Thế", "sach", ["八字真宗 PDF pp.19-20"]))
+            rel_txt.append(f"{label} giữa " + " và ".join("trụ " + pv.get(x, x) for x in r["pillars"].split("-")))
+    ch["quan-he"].append(B("Bát Tự, quan hệ giữa các trụ: " + ("; ".join(rel_txt) if rel_txt else "không có hợp, xung, hình, hại, phá nào giữa các trụ gốc") + ". Mỗi quan hệ chỉ cho biết có tương tác; việc nó hóa, hợp mà không hóa hay có lực hay không cần điều kiện mà hệ thống chưa xét.", "Thế", "sach", ["八字真宗 PDF pp.19-20"]))
 
     # ---------- Đại vận
     dh_lines = []

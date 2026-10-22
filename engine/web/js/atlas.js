@@ -24,8 +24,14 @@ export function yearData(req, y) {
 }
 
 /** Gregorian years covered by one 10-year period, from the engine's exact start instants (fractional years). */
+/** The first Bát Tự year a luck pillar holds for most of it: the year whose middle (Lập Xuân ≈ Y + 0.09, plus half a year) falls on or
+ *  after its exact start. Same rule as tvbt.bazi.luck_first_year and temporal.bazi_year (audit BZ-5/6), so the strip, the year labels and
+ *  the report never disagree. */
+export const luckFirstYear = startExact => Math.ceil(Math.round((startExact - 0.59) * 1e6) / 1e6);
+/** The luck pillar in force on a day (ISO date, default today): the last one whose exact start_date is on or before it; -1 before the first. */
+export const luckIndexOn = (lp, iso = new Date().toISOString().slice(0, 10)) => lp.reduce((a, l, i) => l.start_date && l.start_date <= iso ? i : a, -1);
 export const periodYears = (startExact, nextStartExact) => {
-  const a = Math.ceil(startExact), b = nextStartExact != null ? Math.ceil(nextStartExact) - 1 : a + 9;
+  const a = luckFirstYear(startExact), b = nextStartExact != null ? luckFirstYear(nextStartExact) - 1 : a + 9;
   return Array.from({ length: Math.max(1, b - a + 1) }, (_, i) => a + i);
 };
 

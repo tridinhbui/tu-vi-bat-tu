@@ -15,10 +15,11 @@ import json
 from dataclasses import dataclass
 from itertools import product
 from pathlib import Path
-from zoneinfo import ZoneInfo
+
+from .calendar_core import zone_of
 
 from . import calendar_core as cc, compare_tuvi, lunar_vn
-from .bazi import (DESTROY, HARM, MEETING, PENALTY_PAIR, PENALTY_TRIPLES, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_LEGACY4 as STEM_CLASH, STEM_COMBINE, TRIAD, BaziChart)
+from .bazi import (DESTROY, HARM, MEETING, PENALTY_PAIR, PENALTY_TRIPLES, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_KIND as STEM_CLASH, STEM_COMBINE, TRIAD, BaziChart)
 from .bazi_deep import position, season, tvh_cach, tvh_score
 from .bazi_deep.model import PILLARS, PIL_VI, ChartView, group_of
 from .bazi_deep.profile import TVH_40
@@ -145,7 +146,7 @@ def _stem_rel(ta: dict, tb: dict) -> dict | None:
     if pair in STEM_COMBINE:
         return {"kind": "stem_combine", "vi": "Thiên can hợp", "element": STEM_COMBINE[pair]}
     if pair in STEM_CLASH:
-        return {"kind": "stem_clash", "vi": "Thiên can xung"}
+        return {"kind": "stem_clash", "vi": f"Thiên can {STEM_CLASH[pair]}"}      # 冲 or 克 as 八字真宗 p.20 prints the pair (BZ-1)
     return None
 
 
@@ -336,7 +337,7 @@ def current_phase(nb, bz: BaziChart, tv: TuViChart, today: dt.date | None = None
     """Đại vận (exact start dates) and đại hạn (tuổi mụ by LUNAR year) on `today`, in the birth place's time zone. Never rounds a boundary
     into a conclusion: near a change the result says so. The browser's clock, time zone and Gregorian year play no part."""
     tz = nb.input.tz
-    today = today or dt.datetime.now(ZoneInfo(tz)).date()
+    today = today or dt.datetime.now(zone_of(tz)).date()
     limits = [f"Ngày hôm nay lấy theo múi giờ nơi sinh ({tz}).",
               "Ngày khởi vận theo quy tắc ba ngày bằng một năm, chính xác đến ngày; các trường phái làm tròn khác nhau có thể lệch vài tháng.",
               "Đại hạn đổi theo năm âm lịch (tuổi mụ), không đổi vào sinh nhật."]

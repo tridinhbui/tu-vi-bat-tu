@@ -50,7 +50,7 @@ def reason(base: dict, pack: str = "pack_structure.json") -> dict:
         findings.append({"claim": f.claim, "effect": f.effect, "rule_id": f.rule_id, "depth": f.depth, "status": f.status, "basis": f.basis, "chain": chain,
                          "opposed_by": why["opposed_by"]})
     return {"pack_problems": problems, "findings": findings, "fired": [list(x) for x in res.fired], "blocked": res.blocked, "conflicts": res.conflicts,
-            "pending": [p for p in res.pending if not p["missing_facts"] or True][:30], "derived": res.derived.get("chart", {}),
+            "pending": res.pending[:30], "derived": res.derived.get("chart", {}),
             "text": nlg.render(nlg.realize(interps, 3)), "all_rules_draft": all(r.reviewStatus == "draft" for r in rules)}
 
 
@@ -189,6 +189,61 @@ def _pillar_facts(view: ChartView, Y: dict, stem: int, branch: int) -> dict:
             "dieu_hau": {"stem": dh.get(sg), "branch": dh.get(bg)}}
 
 
+# The Trích Thiên Tủy hàn noãn rules that name the element a chart needs (pp.113-114, verified): "hàn quá mà noãn hữu khí thì cần noãn",
+# "noãn quá mà hàn hữu căn thì cần hàn". The other two (thuận hàn / thuận noãn) name no element to add. The cold/hot index they read is the
+# system's (yongshen.dieu_hau `need_elements`, he_thong): the element is voiced only when one of these rules fired, and as its finding.
+_HANNOAN_NEED = {"BT_TTT_HANNOAN_CAN_NOAN": "Hỏa", "BT_TTT_HANNOAN_CAN_HAN": "Thủy"}
+
+
+def _dh_role(stem: int | None, table: list[str]) -> str | None:
+    """The điều hậu table's role of a stem: 'yong' when it is the cell's chính stem (first of TVH's note order, pp.391-396), 'xi' when the
+    cell names it among the usable stems (pp.389-390), None otherwise. By the stem itself, never by its ten-god group: a cell naming Giáp
+    says nothing of Ất (the old group-based role called Ất 'the element the chart needs' while the cell named Giáp, Canh)."""
+    if stem is None or not table:
+        return None
+    n = STEMS_VI[stem]
+    return "yong" if n == table[0] else "xi" if n in table else None
+
+
+def reconcile(tvh: dict, dh: dict, warm: bool) -> dict:
+    """One verdict for a luck pillar or a year from the two tables of the same book that judge it (plan quirky-tinkering-rabin step 3):
+    Thiệu Vĩ Hoa's dụng thần table by cách (pp.378-386: the balance of the day master against the largest group) and his điều hậu table
+    (pp.389-396: the cold or heat of the birth season), plus the element a fired hàn noãn rule asks for (`warm`).
+      cach:    'tot' / 'xau' by the cách table (stem first; stem and branch disagreeing = 'tron'); None when the table has no row for it;
+      climate: 'thuan' when the luck stem, or the branch's main qi, is a stem the điều hậu cell names, or the stem brings the hàn noãn element;
+      agree:   'cung' (both say good), 'khac' (cách bad, climate good), 'tron' (stem and branch split), 'mot_phia' (only one table speaks),
+               'khong' (neither);
+      verdict: 'thuan' | 'kha_thuan' | 'co_dieu_kien' | 'nang' | 'trung'. No table outranks the other: when they differ the verdict is
+               conditional and the prose says where they differ. The điều hậu table gives no 'bad' stems, so climate never makes a luck bad."""
+    cs, cb = tvh.get("stem"), tvh.get("branch")
+    cach = cs if cs and cb in (None, cs) else cb if not cs else "tron"
+    climate = "thuan" if dh.get("stem") or dh.get("branch") or warm else None
+    if cach == "tot":
+        agree, verdict = ("cung", "thuan") if climate else ("mot_phia", "kha_thuan")
+    elif cach == "xau":
+        agree, verdict = ("khac", "co_dieu_kien") if climate else ("mot_phia", "nang")
+    elif cach == "tron":
+        agree, verdict = "tron", "co_dieu_kien"
+    else:
+        agree, verdict = ("mot_phia", "kha_thuan") if climate else ("khong", "trung")
+    return {"cach": cach, "climate": climate, "warm": bool(warm), "agree": agree, "verdict": verdict}
+
+
+def _support(view: ChartView, branch: int, yong_groups: list[str], table: list[str], bad_groups: list[str] = ()) -> list[dict]:
+    """What in a luck or year branch answers the chart's need when the cách table calls the pillar bad: its hidden stems that belong to the
+    cách's dụng thần group, or that the điều hậu cell names, leaving out stems of a group the cách table calls bad (those are the clash
+    itself, told by `reconcile`). Computed facts (hidden stems: 八字真宗 pp.7-8; ten gods p.17)."""
+    from ..bazi import HIDDEN_STEMS
+    from .temporal_deep import _group
+    out = []
+    for h in HIDDEN_STEMS[branch]:
+        g = _GROUP_VI.get(_group(view, h), _group(view, h))
+        why = [w for w, ok in (("cach", g in yong_groups), ("dieu_hau", STEMS_VI[h] in table)) if ok]
+        if why and g not in bad_groups:
+            out.append({"stem": STEMS_VI[h], "ten_god": view.god(h), "group": g, "why": why})
+    return out
+
+
 def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = None) -> dict:
     """What the reader prose (src/interpret/prose/bazi.ts) needs from the structure analysis, flattened: the day master's strength by
     Thiệu Vĩ Hoa's score (SRC_TVH_DIEM; the verified rules BT_TVH_* decide vượng/nhược/biên), the climate and the điều hậu table cell
@@ -209,6 +264,18 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
     pu = Y.get("phu_uc", {}) or {}
     alts = pu.get("alternatives") or ([pu] if pu.get("yong") else [])
     grp = lambda xs: [_GROUP_VI.get(x, x) for x in xs or []]
+    # the cách table read on the side the 40% rule gives (TVH p.355 calls 39.6% "hơi nhược": a verdict, not two readings); the ±margin band
+    # around 40% is the system's display convention (profile.tvh_margin) and only marks the reading as near the line (audit BZ-9/10)
+    cct0 = Y.get("cach_cuc_tvh", {}) or {}
+    if cct0.get("status") == "hai_cach_doc":
+        alt = next((x for x in cct0.get("alternatives", []) if x.get("follows_book_rule") and "yong" in x), None)
+        if alt:
+            Y = {**Y, "cach_cuc_tvh": {**cct0, "status": "ap_dung", "dm": alt["dm_vi"], "dominant": alt["dominant"], "yong": alt["yong"][:1], "yong_alternatives": alt["yong"],
+                                       "van_tot": alt["van_tot"], "van_xau": alt["van_xau"], "page": alt["page"], "near_threshold": True}}
+    YS = {**a["yongshen"], "methods": Y}         # the yongshen result with the cách read on the book's side
+    table = [x["stem"] for x in tab.get("yong_stems", [])]
+    hn = next((rid for rid in _HANNOAN_NEED for f in a.get("reasoning", {}).get("findings", []) if f["rule_id"] == rid and f["basis"] == "verified"), None)
+    need_el = _HANNOAN_NEED.get(hn)
     tb_verdict = {f"BT_TVH_TB_{x['id'].upper().replace('.', '_')}": x["verdict"] for c in a["geju"]["inner"][:1] for x in c.get("tvh_danh_gia", [])}
     verified = [{"rule_id": f["rule_id"], "claim": f["claim"], "text": claims.get(f["claim"], f["claim"]), **({"verdict": tb_verdict[f["rule_id"]]} if f["rule_id"] in tb_verdict else {})}
                 for f in a.get("reasoning", {}).get("findings", []) if f["basis"] == "verified"]
@@ -217,19 +284,44 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
     border = bool(tvh) and bool(S.get("ambiguous"))
     ok = lambda fs: [{"rule_id": f["rule_id"], "text": claims.get(f["claim"], f["claim"])} for f in fs
                      if f["basis"] == "verified" and not f["rule_id"].endswith(_DRAFT_PREMISE) and "THIENKHAC" not in f["rule_id"]]
+    cct1 = Y.get("cach_cuc_tvh", {}) or {}
+    yong_g = grp(cct1.get("yong_alternatives") or cct1.get("yong")) if cct1.get("status") == "ap_dung" else []
+    tot_g = grp(cct1.get("van_tot")) if cct1.get("status") == "ap_dung" else []
+    xau_g = grp(cct1.get("van_xau")) if cct1.get("status") == "ap_dung" else []
+    from ..bazi import HIDDEN_STEMS, luck_first_year
+    from ..ganzhi import STEM_ELEMENT
+    from .temporal_deep import _group
+
+    def judged(stem: int, branch: int, pf: dict) -> dict:
+        dhr = {"stem": _dh_role(stem, table), "branch": _dh_role(HIDDEN_STEMS[branch][0], table)}
+        rc = reconcile(pf["tvh"], dhr, bool(need_el) and STEM_ELEMENT[stem] == need_el)
+        if rc["cach"] in ("xau", "tron"):
+            rc["support"] = _support(view, branch, yong_g, table, xau_g)
+        return {"dieu_hau": dhr, "reconcile": rc}
+
+    def good_years(first: int) -> list[dict]:
+        """the years of a luck pillar whose stem the cách table calls good or the điều hậu cell names (TVH pp.378-386, 389-396)"""
+        out = []
+        for y in range(first, first + 10):
+            s, b = _year_pillar(y)
+            g = _GROUP_VI.get(_group(view, s), _group(view, s))
+            if g in tot_g or (STEMS_VI[s] in table and g not in xau_g):
+                out.append({"year": y, "pillar": f"{STEMS_VI[s]} {BRANCHES_VI[b]}", "group": g, "why": [w for w, ok in (("cach", g in tot_g), ("dieu_hau", STEMS_VI[s] in table and g not in xau_g)) if ok]})
+        return out
+
     lk = []
     for e, L in zip(tl["luck"], luck):
-        roles = e.get("roles", {}).get("dieu_hau", {})
         cc = next((c for c in e.get("can_chi", []) if c["label"] == "luck"), None)
         lk.append({"index": e["index"], "pillar": e["pillars"][0], "ten_god": (e.get("ten_gods") or [None])[0], "level": e.get("level"),
                    "effect": e.get("effect"), "can_chi": [c["relation"] for c in e.get("can_chi", [])],
                    "can_chi_detail": cc and {"relation": cc["relation"], "mitigated": cc["mitigated"], "aggravated": cc["aggravated"]},
-                   "dieu_hau": {"stem": roles.get("stem_role"), "branch": roles.get("branch_role")},
-                   **{k: v for k, v in _pillar_facts(view, a["yongshen"], L["stem"], L["branch"]).items() if k != "dieu_hau"},
+                   **{k: v for k, v in _pillar_facts(view, YS, L["stem"], L["branch"]).items() if k != "dieu_hau"},
+                   **judged(L["stem"], L["branch"], _pillar_facts(view, YS, L["stem"], L["branch"])),
+                   **({"first_year": luck_first_year(L["start_year_exact"]), "good_years": good_years(luck_first_year(L["start_year_exact"]))} if L.get("start_year_exact") else {}),
                    "events": _events(view, L["stem"], L["branch"]), "findings": ok(e.get("findings", []))})
     yr = []
     for e, (y, s, b) in zip(tl["years"], ys):
-        pf = _pillar_facts(view, a["yongshen"], s, b)
+        pf = _pillar_facts(view, YS, s, b)
         cc = next((c for c in e.get("can_chi", []) if c["label"] == "year"), None)
         ev = _events(view, s, b) + [{"kind": x["kind"], "targets": ["luck"], "part": "pillar"} for x in e["events"]
                                                     if x["kind"] in ("thien_khac_dia_xung", "tue_van_tinh_lam")]
@@ -239,7 +331,8 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
         if any(x["kind"] == "thien_khac_dia_xung" for x in ev) and tvh and not border:
             rid = "BT_TTT_THIENKHAC_VUONG" if tvh.get("dm_strong") else "BT_TTT_THIENKHAC_NHUOC"
             fs.append({"rule_id": rid, "text": claims.get(rid.lower().replace("bt_ttt_thienkhac", "bt_ttt_thien_khac"), rid)})
-        yr.append({"year": y, "pillar": f"{STEMS_VI[s]} {BRANCHES_VI[b]}", "luck": e["pillars"][0] if len(e["pillars"]) > 1 else None, **pf,
+        pf = {k: v for k, v in pf.items() if k != "dieu_hau"}
+        yr.append({"year": y, "pillar": f"{STEMS_VI[s]} {BRANCHES_VI[b]}", "luck": e["pillars"][0] if len(e["pillars"]) > 1 else None, **pf, **judged(s, b, pf),
                    "can_chi_detail": cc and {"relation": cc["relation"], "mitigated": cc["mitigated"], "aggravated": cc["aggravated"]},
                    "events": ev, "findings": fs})
     cct, ttv = Y.get("cach_cuc_tvh", {}) or {}, Y.get("thuan_the_tvh", {}) or {}
@@ -249,13 +342,18 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
     ss = [{"vi": x["vi"], "kind": x["kind"], "pillar": x["pillar"], "at": STEMS_VI[STEMS_HAN.index(x["at"])] if x["at"] in STEMS_HAN else x["at"], "gloss": x["gloss"] if x["zh"] in _SHENSHA_GLOSS_OK else None}
           for x in shensha.find(vars(pv))]
     return {
-        "strength": {"dm_strong": tvh.get("dm_strong"), "own_share": tvh.get("own_share"), "threshold": tvh.get("threshold"),
+        # dm_strong: the 40% rule of TVH p.355, always decided; near_threshold: within the system's display band (profile.tvh_margin, he_thong),
+        # told as "hơi vượng / hơi nhược" the way the book words its own near-40% example, never as a third level
+        "strength": {"dm_strong": tvh.get("dm_strong"), "own_share": tvh.get("own_share"), "threshold": tvh.get("threshold"), "near_threshold": border,
                      "season_state": S.get("season_state"), "by_element": S.get("by_element"), "src": tvh and "TVH pp.331-355",
                      "tvh_totals": {k: round(v, 1) for k, v in (tvh.get("totals") or {}).items()}},
         "climate": {"label": (dh.get("climate") or {}).get("label"), "han_noan": (dh.get("han_noan") or {}).get("state")},
         "dieu_hau": {"cell": tab.get("cell"), "need": dh.get("need_elements", []), "avoid": dh.get("avoid_elements", []), "satisfied": tab.get("satisfied"),
                      "stems": [{k: s.get(k) for k in ("stem", "ten_god", "rank", "visible", "hidden")} for s in tab.get("yong_stems", [])],
-                     "verified": dh.get("status") == "bang_TVH_verified", "src": "TVH pp.389-396"},
+                     "verified": dh.get("status") == "bang_TVH_verified", "src": "TVH pp.389-396",
+                     # `need` / `avoid` above come from the system's cold/heat index (he_thong), not from the table, whose cell names stems
+                     # (`table`); the prose voices the element only through the fired hàn noãn rule `need_rule` (TTT pp.113-114)
+                     "need_src": "he_thong", "table": table, "need_rule": hn, "need_rule_element": need_el},
         "phu_uc": [{"level": x.get("level"), "yong": grp(x.get("yong")), "xi": grp(x.get("xi")), "ji": grp(x.get("ji"))} for x in alts],
         "geju": {"inner": [{"name": c["name"], "state": c.get("state")} for c in a["geju"]["inner"]],
                  "outer": [{"name": o["name"], "quality": o.get("quality")} for o in a["geju"]["outer"]], "verified": False},
@@ -263,6 +361,7 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
         # the dụng thần and the luck groups the book calls good / bad; or the special cách (pp.369-376) with its elements
         "cach_tvh": {"status": cct.get("status"), "cach": cct.get("cach") or (inner or {}).get("name"), "dm": cct.get("dm"), "dominant": _GROUP_VI.get(cct.get("dominant"), cct.get("dominant")),
                      "yong": grp(cct.get("yong_alternatives") or cct.get("yong")), "van_tot": grp(cct.get("van_tot")), "van_xau": grp(cct.get("van_xau")), "page": cct.get("page"),
+                     "near_threshold": bool(cct.get("near_threshold")),
                      "special": ttv.get("outer") if ttv.get("status") == "ap_dung" else None,
                      "special_tot": ttv.get("van_tot_elements") or grp(ttv.get("yong", []) + ttv.get("xi", [])) if ttv.get("status") == "ap_dung" else [],
                      "special_xau": ttv.get("van_xau_elements") or grp(ttv.get("ji", [])) if ttv.get("status") == "ap_dung" else []},

@@ -28,9 +28,7 @@ STEM_COMBINE = {frozenset((0, 5)): "Thổ", frozenset((1, 6)): "Kim", frozenset(
 STEM_CLASH_KIND = {frozenset((0, 6)): "khắc", frozenset((1, 7)): "xung", frozenset((2, 8)): "xung", frozenset((3, 9)): "xung",
                    frozenset((4, 0)): "khắc", frozenset((5, 1)): "xung", frozenset((6, 2)): "xung", frozenset((7, 3)): "xung",
                    frozenset((8, 4)): "xung", frozenset((9, 5)): "khắc"}
-STEM_CLASH = list(STEM_CLASH_KIND)
-# The four pairs the deep pipeline's draft effect sizes were calibrated on; kept so bazi_deep/compare_deep do not change silently.
-STEM_CLASH_LEGACY4 = [frozenset((0, 6)), frozenset((1, 7)), frozenset((2, 8)), frozenset((3, 9))]
+STEM_CLASH = list(STEM_CLASH_KIND)          # bazi_deep and compare_deep read the same ten pairs (the four-pair STEM_CLASH_LEGACY4 is gone, BZ-1)
 SIX_COMBINE = [frozenset(p) for p in [(0, 1), (2, 11), (3, 10), (4, 9), (5, 8), (6, 7)]]
 SIX_CLASH = [frozenset((i, i + 6)) for i in range(6)]
 HARM = [frozenset(p) for p in [(0, 7), (1, 6), (2, 5), (3, 4), (8, 11), (9, 10)]]
@@ -85,6 +83,21 @@ class LuckPillar:
     ten_god: str
     start_date: str = ""            # exact calendar date of the start (birth date + years/months/days), ISO
     start_year_exact: float = 0.0   # decimal year of that date; start_year_approx ignores the birth month and can be a year off
+    first_year: int = 0             # the first Bát Tự year this luck pillar holds for most of it: luck_first_year(start_year_exact)
+
+
+# Lập Xuân falls around 4 February, ~0.09 of a calendar year, so the Bát Tự year Y runs from Y + 0.09 to Y + 1.09. A year is assigned the
+# luck pillar in force for the larger part of it, i.e. at its middle Y + LUCK_YEAR_POINT (a display convention, no source rules on it); the
+# backend (temporal.bazi_year), the prose (facts bazi.luck[].start_year) and the page (atlas.js) all use this one rule (audit BZ-5/6), and
+# `luck_changes_within_year` / the exact start_date say when a change falls inside the year.
+LICHUN_FRAC = 0.09
+LUCK_YEAR_POINT = LICHUN_FRAC + 0.5
+
+
+def luck_first_year(start_year_exact: float) -> int:
+    """The first Bát Tự year whose middle (Y + LUCK_YEAR_POINT) falls on or after the luck pillar's exact start."""
+    import math
+    return math.ceil(round(start_year_exact - LUCK_YEAR_POINT, 6))
 
 
 def add_ymd(d: dt.date, years: int, months: int, days: int) -> dt.date:
@@ -156,7 +169,7 @@ def _relations(pillars: dict[str, Pillar]) -> dict:
     rel: dict[str, list] = {k: [] for k in ["stem_combine", "stem_clash", "branch_six_combine",
                                              "branch_clash", "branch_harm", "branch_destroy",
                                              "branch_triad_complete", "branch_meeting_complete",
-                                             "branch_penalty", "branch_self_penalty"]}
+                                             "branch_semi_triad", "branch_penalty", "branch_self_penalty"]}
     for i in range(4):
         for j in range(i + 1, 4):
             a, b = pillars[keys[i]], pillars[keys[j]]
@@ -181,6 +194,15 @@ def _relations(pillars: dict[str, Pillar]) -> dict:
     for el, tri in TRIAD.items():
         if all(b in present for b in tri):
             rel["branch_triad_complete"].append({"element": el, "branches": list(tri)})
+    # 半合局 (八字真宗 p.20): two branches of a tam hợp, one of them the middle (vượng) branch, when the three are not all present (audit BZ-14).
+    # The sinh + mộ pair without the middle is not a bán hợp on that page; bazi_deep keeps it as its own school-dependent "cung" subtype.
+    complete = {el for el, tri in TRIAD.items() if all(b in present for b in tri)}
+    for i in range(4):
+        for j in range(i + 1, 4):
+            a, b = pillars[keys[i]], pillars[keys[j]]
+            for el, tri in TRIAD.items():
+                if el not in complete and a.branch != b.branch and {a.branch, b.branch} <= set(tri) and tri[1] in (a.branch, b.branch):
+                    rel["branch_semi_triad"].append({"pillars": f"{keys[i]}-{keys[j]}", "branches": [a.branch, b.branch], "element": el})
     for el, tri in MEETING.items():
         if all(b in present for b in tri):
             rel["branch_meeting_complete"].append({"element": el, "branches": list(tri)})
@@ -260,7 +282,8 @@ def compute(nb: NormalizedBirth, n_luck: int = 10) -> BaziChart:
         sm = int(srem)
         sd = add_ymd(nb.local.date(), sy, sm, round((srem - sm) * 30))
         luck.append(LuckPillar(k, s, br, gz_name(s, br), round(sa, 3),
-                               round(nb.local.year + sa, 2), ten_god(ds, s), sd.isoformat(), round(decimal_year(sd), 3)))
+                               round(nb.local.year + sa, 2), ten_god(ds, s), sd.isoformat(), round(decimal_year(sd), 3),
+                               luck_first_year(round(decimal_year(sd), 3))))
     from .ganzhi import branch_stem_from_year
     mg, sg = ming_gong_branch(mb, hb), shen_gong_branch(mb, hb)
     ty_s, ty_b = thai_yuan(ms, mb)

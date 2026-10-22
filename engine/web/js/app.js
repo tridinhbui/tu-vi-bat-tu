@@ -1,5 +1,5 @@
 // App shell: navigation, home interactions, BirthChartForm, results orchestration.
-import { $, $$, esc, bd, DM, post, hourBranch, STEMS, BRANCHES, loadMeta, shareMode } from './util.js';
+import { $, $$, esc, bd, DM, post, hourBranch, placeTz, STEMS, BRANCHES, loadMeta, shareMode } from './util.js';
 import { compass, brandMark } from './compass.js';
 import { renderBazi } from './bazi.js';
 import { renderTuvi } from './tuvi.js';
@@ -97,7 +97,7 @@ form.place.innerHTML = Object.keys(PLACES).map((p, i) => opt(p, p, i === 1)).joi
 const syncPlace = () => {
   const other = form.place.value === '__other';
   $('#tz-other').hidden = !other;
-  if (!other) { form.tz.value = 'Asia/Ho_Chi_Minh'; form.longitude.value = PLACES[form.place.value]; }
+  if (!other) { form.tz.value = placeTz(form.place.value); form.longitude.value = PLACES[form.place.value]; }
 };
 form.place.onchange = syncPlace; syncPlace();
 const CHI = ['Tý (23h–1h)', 'Sửu (1h–3h)', 'Dần (3h–5h)', 'Mão (5h–7h)', 'Thìn (7h–9h)', 'Tỵ (9h–11h)', 'Ngọ (11h–13h)', 'Mùi (13h–15h)', 'Thân (15h–17h)', 'Dậu (17h–19h)', 'Tuất (19h–21h)', 'Hợi (21h–23h)'];

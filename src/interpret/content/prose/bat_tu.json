@@ -158,41 +158,22 @@
       "tù": "tù, bị giam sức",
       "tử": "tử, yếu nhất"
     },
-    "strength_border": [
-      "Tính theo cách chấm điểm của Thiệu Vĩ Hoa, phe trợ nhật chủ chiếm khoảng {pct}%, sát ngưỡng {th}%, nên nhật chủ đứng lưng chừng giữa vượng và nhược; cả hai cách đọc đều có lý.",
-      "Chấm theo phép của Thiệu Vĩ Hoa, sức phe nhật chủ khoảng {pct}%, chỉ cách ngưỡng {th}% một chút, nên không nên vội xếp hẳn vào vượng hay nhược."
-    ],
     "strength_side": [
       "Tính theo cách chấm điểm của Thiệu Vĩ Hoa, phe trợ nhật chủ chiếm khoảng {pct}%, {cmp} ngưỡng {th}%, nên nhật chủ {side}.",
       "Chấm theo phép của Thiệu Vĩ Hoa, sức phe nhật chủ khoảng {pct}%, {cmp} ngưỡng {th}%: nhật chủ {side}."
     ],
     "climate": [
       "Sinh tháng {mb}, khí hậu của lá số nghiêng về {climate}; theo bảng điều hậu, nhật chủ {dm} sinh tháng này lấy {main} làm chính, {others} cũng dùng được.",
-      "Về điều hậu, khí lá số {climate}; với nhật chủ {dm} sinh tháng {mb}, can cần trước hết là {main}, sau đó {others}."
+      "Khí lá số {climate}; với nhật chủ {dm} sinh tháng {mb}, can cần trước hết là {main}, sau đó {others}."
     ],
     "climate_presence": [
       "Trong tứ trụ, {present} có lộ ra, còn {absent} thì vắng.",
       "Lá số có {present}, nhưng thiếu {absent}."
     ],
-    "need": [
-      "Vì vậy hành nên bổ là {need}, hành nên tránh thêm là {avoid}.",
-      "Nói gọn, lá số cần thêm {need} và nên bớt {avoid}."
-    ],
-    "luck_role": {
-      "yong": "Can vận đúng là hành lá số cần, nên đây là vận được tiếp sức.",
-      "xi": "Can vận thuộc nhóm hỗ trợ cho dụng thần, nên vận này khá thuận.",
-      "ji": "Can vận rơi vào hành lá số nên tránh, nên vận này cần đi chậm và chắc.",
-      "none": "Can vận không trực tiếp chạm đến điều lá số cần nhất, nên vận này đi theo nhịp riêng của nó."
-    },
-    "luck_branch_role": {
-      "yong": "Chi vận cũng mang hành lá số cần, làm nền cho cả vận.",
-      "xi": "Chi vận mang nhóm hỗ trợ, đỡ thêm cho vận.",
-      "ji": "Chi vận mang hành nên tránh, nên nửa sau vận cần giữ sức hơn."
-    },
     "verified_text": {
       "BT_TTT_HANNOAN_THUAN_NOAN": "Khí nóng của lá số đã quá mà Thủy lại không có gốc, nên không lấy cái lạnh làm cách điều hòa chính.",
-      "BT_TTT_CAIDAU_DIEU_HAU": "Can vận khắc chi vận (thế cái đầu), nên phần tốt của vận chỉ còn chừng một nửa.",
-      "BT_TTT_TIETCUOC_DIEU_HAU": "Can vận vốn là hành tốt nhưng bị chi vận khắc (thế tiệt cước, chi không chở được can), nên cả vận khó trọn phần cát; nhẹ hơn nếu lá số có hành chế ngự.",
+      "BT_TTT_CAIDAU_DIEU_HAU": "Can {stem} khắc chi {branch} (thế cái đầu), nên phần tốt của vận chỉ còn chừng một nửa.",
+      "BT_TTT_TIETCUOC_DIEU_HAU": "Can {stem} vốn là hành tốt nhưng bị chi {branch} khắc (thế tiệt cước, chi không chở được can), nên cả vận khó trọn phần cát; nhẹ hơn nếu lá số có hành chế ngự.",
       "BT_TTT_HANNOAN_CAN_NOAN": "Khí lá số lạnh quá mà Hỏa vẫn có khí, nên theo Trích Thiên Tủy cần sưởi ấm, tức cần Hỏa.",
       "BT_TTT_HANNOAN_THUAN_HAN": "Khí lá số lạnh quá mà Hỏa không có khí, nên theo Trích Thiên Tủy lại thuận theo cái lạnh mà dùng.",
       "BT_TTT_HANNOAN_CAN_HAN": "Khí lá số nóng quá mà Thủy có gốc, nên theo Trích Thiên Tủy cần làm mát, tức cần Thủy.",
@@ -225,13 +206,13 @@
       "BT_TVH_HOA_THO": "Nhật chủ hợp với can kề bên mà hóa Thổ, hóa thần cùng hành chi tháng và vượng chuyên nhất: cách Hóa Thổ theo Thiệu Vĩ Hoa.",
       "BT_TVH_HOA_KIM": "Nhật chủ hợp với can kề bên mà hóa Kim, hóa thần cùng hành chi tháng và vượng chuyên nhất: cách Hóa Kim theo Thiệu Vĩ Hoa.",
       "BT_TVH_HOA_THUY": "Nhật chủ hợp với can kề bên mà hóa Thủy, hóa thần cùng hành chi tháng và vượng chuyên nhất: cách Hóa Thủy theo Thiệu Vĩ Hoa.",
-      "BT_TTT_THIENKHAC_VUONG": "Nhật chủ vượng, nên theo Trích Thiên Tủy thế thiên khắc địa xung này tuy hung mà không đáng ngại.",
-      "BT_TTT_THIENKHAC_NHUOC": "Nhật chủ lại nhược, nên Trích Thiên Tủy coi thế thiên khắc địa xung này là điềm hung lớn của năm."
+      "BT_TTT_THIENKHAC_VUONG": "Nhật chủ vượng, nên theo Trích Thiên Tủy thế thiên khắc địa xung của năm {year} tuy hung mà không đáng ngại.",
+      "BT_TTT_THIENKHAC_NHUOC": "Nhật chủ lại nhược, nên Trích Thiên Tủy coi thế thiên khắc địa xung này là điềm hung lớn của năm {year}."
     },
     "note_track_c": "Track C (plan quirky-tinkering-rabin): every frame below states a computed fact, a page-cited table (TVH pp.378-386, 389-396; 八字真宗 pp.19-25, 57) or a verified rule's own claim. No meaning is given to hợp/xung/hình/hại/phá: 八字真宗 pp.19-20 prints the tables only. Words 'sách ', 'tr.', 'nhận định', 'quy tắc', 'nguồn', 'hệ thống' never appear in a frame (lint).",
     "frame2": [
-      "Sinh tháng {mb}{season}, hành {el} của nhật chủ ở thế {state}; theo bảng điều hậu, lá số cần {need}.",
-      "Nhật chủ {dm} sinh tháng {mb}{season}, lúc hành {el} đang ở thế {state}, và bảng điều hậu cho biết lá số cần {need}."
+      "Sinh tháng {mb}{season}, hành {el} của nhật chủ ở thế {state}; về điều hậu, can nên có là {need}.",
+      "Nhật chủ {dm} sinh tháng {mb}{season}, lúc hành {el} đang ở thế {state}; xét điều hậu, lá số nên có can {need}."
     ],
     "season_name": {
       "Dần": " (mùa xuân)",
@@ -282,12 +263,12 @@
       "Với cách đặc biệt {name}, Thiệu Vĩ Hoa xếp vận {tot} là vận tốt, vận {xau} là vận xấu."
     ],
     "dh_turn": [
-      "Tuy nhiên, xét điều hậu thì nhật chủ {dm} sinh tháng {mb}, khí {climate}, lấy {main} làm chính, khác với dụng thần {yong} theo cách.",
-      "Tuy nhiên, bảng điều hậu cho nhật chủ {dm} sinh tháng {mb} (khí {climate}) lại đặt {main} lên đầu, không trùng với dụng thần {yong} theo cách."
+      "Xét điều hậu, nhật chủ {dm} sinh tháng {mb}, khí {climate}, lấy {main} làm chính, khác với dụng thần {yong} theo cách.",
+      "Bảng điều hậu cho nhật chủ {dm} sinh tháng {mb} (khí {climate}) lại đặt {main} lên đầu, không trùng với dụng thần {yong} theo cách."
     ],
     "advice": [
-      "Vì vậy, chỗ nên dựa là {lean}; những chặng gặp {tot} thuận hơn những chặng gặp {xau}.",
-      "Điều nên làm là dựa vào {lean}, tiến ở những chặng gặp {tot} và giữ sức ở những chặng gặp {xau}."
+      "Chỗ nên dựa là {lean}; những chặng gặp {tot} thuận hơn những chặng gặp {xau}.",
+      "Nên dựa vào {lean}, tiến ở những chặng gặp {tot} và giữ sức ở những chặng gặp {xau}."
     ],
     "shensha": [
       "Tra bảng thần sát, lá số có {list}.",
@@ -307,8 +288,8 @@
     ],
     "luck_now": " (chặng của năm {year})",
     "tvh_both": [
-      "Can ({sg}) và chi ({bg}) đều thuộc vận {v}.",
-      "Cả can ({sg}) lẫn chi ({bg}) đều là vận {v}."
+      "Can {stem} ({sg}) và chi {branch} ({bg}) đều thuộc vận {v}.",
+      "Cả can {stem} ({sg}) lẫn chi {branch} ({bg}) đều là vận {v}."
     ],
     "tvh_split": [
       "Can {stem} (nhóm {sg}) thuộc vận {v}, còn chi {branch} (nhóm {bg}) thuộc vận {v2}.",
@@ -319,8 +300,8 @@
       "{Part} {who} ({g}) là vận {v}."
     ],
     "tvh_none": [
-      "Nhóm {sg} của can và {bg} của chi không thuộc vận tốt hay vận xấu của cách {cach}.",
-      "Can ({sg}) và chi ({bg}) không rơi vào vận tốt hay vận xấu nào của cách {cach}."
+      "Nhóm {sg} của can {stem} và {bg} của chi {branch} không thuộc vận tốt hay vận xấu của cách {cach}.",
+      "Can {stem} ({sg}) và chi {branch} ({bg}) không rơi vào vận tốt hay vận xấu nào của cách {cach}."
     ],
     "verdict": {
       "tot": "tốt",
@@ -332,7 +313,7 @@
       "Trên nguyên cục, {list}."
     ],
     "ev_none": [
-      "Can chi này không hợp, xung, hình, hại hay phá với chữ nào của nguyên cục."
+      "{Who} không hợp, xung, hình, hại hay phá với chữ nào của nguyên cục."
     ],
     "ev_kind": {
       "stem_combine": "hợp",
@@ -375,15 +356,9 @@
       "Về sau"
     ],
     "tk_phase": [
-      "{phase}, các vận {list} {verdict}.",
-      "{phase} đi qua {list}, {verdict}."
+      "{phase}, {list}.",
+      "{phase}: {list}."
     ],
-    "tk_verdict": {
-      "tot": "phần nhiều là vận tốt",
-      "xau": "phần nhiều là vận xấu, cần lượng sức",
-      "mix": "tốt xấu đan xen",
-      "none": "không thuộc vận tốt hay vận xấu"
-    },
     "tk_advice": [
       "Vì vậy, nên dựa vào những chặng và những năm mang {good} để tiến, và giữ sức ở những chặng mang {bad}.",
       "Nói gọn, những vận và năm mang {good} là lúc nên tiến, còn khi gặp {bad} thì nên giữ."
@@ -413,12 +388,102 @@
       "Can {stem} và chi {branch} cùng thuộc nhóm {sg}, nhóm vận {v}.",
       "Can {stem} lẫn chi {branch} đều thuộc nhóm {sg}, tức vận {v}."
     ],
-    "tk_verdict_dh": {
-      "tot": "phần nhiều được điều hậu đỡ",
-      "xau": "phần nhiều gặp hành điều hậu nên tránh, cần lượng sức",
-      "mix": "tốt xấu đan xen",
-      "none": "không chạm đến hành điều hậu cần"
-    }
+    "strength_near": [
+      "Tính theo cách chấm điểm của Thiệu Vĩ Hoa, phe trợ nhật chủ chiếm khoảng {pct}%, {cmp} ngưỡng {th}% một chút, nên nhật chủ hơi {side}.",
+      "Chấm theo phép của Thiệu Vĩ Hoa, sức phe nhật chủ khoảng {pct}%, chỉ {cmp} ngưỡng {th}% một chút: nhật chủ hơi {side}."
+    ],
+    "dh_role": {
+      "yong": "Về khí hậu, can {stem} chính là can điều hậu đứng đầu của lá số, nên {pk} được tiếp sức.",
+      "xi": "Về khí hậu, can {stem} là một can điều hậu của lá số, nên {pk} được đỡ thêm.",
+      "branch_yong": "Về khí hậu, chi {branch} tàng {h}, can điều hậu đứng đầu của lá số, làm nền cho {pk}.",
+      "branch_xi": "Về khí hậu, chi {branch} tàng {h}, một can điều hậu của lá số, đỡ thêm cho {pk}.",
+      "warm": "Về khí hậu, can {stem} hành {el} mang hơi ấm mà khí lạnh của lá số đang cần, nên {pk} được sưởi ấm.",
+      "cool": "Về khí hậu, can {stem} hành {el} mang hơi mát mà khí nóng của lá số đang cần, nên {pk} được làm dịu."
+    },
+    "yong_where": {
+      "vis": "Nhóm dụng thần {yong} có lộ ra ở {vis}{hid2}, nên lá số có sẵn chỗ dựa.",
+      "and_hid": ", lại tàng ở {hid}",
+      "hid": "Nhóm dụng thần {yong} không lộ ra thiên can, chỉ tàng ở {hid}, nên lá số cần những vận và năm mang nhóm này để chỗ dựa ấy lộ ra.",
+      "none": "Trong tứ trụ không có chữ nào thuộc nhóm dụng thần {yong}, nên phải trông vào những vận và năm mang nhóm này."
+    },
+    "reliability": [
+      "Hai bảng xét hai việc khác nhau: bảng theo cách cân sức nhật chủ {dm} với nhóm {dom} đang nhiều nhất, còn bảng điều hậu xét khí {climate} của mùa sinh tháng {mb}.",
+      "Bảng theo cách đi cùng phép chấm điểm sức nhật chủ ở trên, còn bảng điều hậu thì chính Thiệu Vĩ Hoa ghi là do một độc giả gửi, chưa rõ xuất xứ; vì vậy chỗ hai bảng vênh nhau chỉ nên đọc là có điều kiện."
+    ],
+    "conclusion_split": [
+      "Chỗ dựa chính là {lean}, thêm {extra} về khí hậu; ở những chặng hai bảng vênh nhau, vận tốt hay nặng tùy lúc có nhóm {yong} đi kèm.",
+      "Nên dựa vào {lean}, có thêm {extra} thì càng ấm lá số; chặng nào hai bảng vênh nhau thì thuận hay nặng tùy lúc có nhóm {yong} đi kèm."
+    ],
+    "rc_khac": [
+      "Hai cách xét vênh nhau ở {pk}: theo cách, {who} thuộc nhóm {g}, nhóm vận xấu khi nhật chủ {dm} mà nhóm {dom} đã nhiều nhất; theo khí hậu, {whoH} lại là chỗ lá số cần.",
+      "Ở {pk}, hai cách xét không trùng nhau: nhóm {g} của {who} là vận xấu theo cách, vì nhật chủ {dm} mà nhóm {dom} đã nhiều nhất; còn về khí hậu, {whoH} lại đúng chỗ lá số cần."
+    ],
+    "rc_note": "Hai bảng cùng của Thiệu Vĩ Hoa: bảng dụng thần theo cách (tr.378-386) cân nhật chủ với nhóm nhiều nhất; bảng điều hậu (tr.389-396) xét hàn noãn của tháng sinh. Không bảng nào được xếp trên bảng nào; kết luận vì vậy là có điều kiện.",
+    "rc_support": [
+      "{c}hi {branch} còn tàng {list}, nên {pk} không thiếu chỗ dựa."
+    ],
+    "rc_years": "; những năm nên tiến trong chặng là {list}",
+    "rc": {
+      "thuan": [
+        "Hai cách xét cùng thuận, nên {pk} là lúc nên chủ động tiến.",
+        "Cả hai cách xét đều thuận, nên {pk} là lúc nên chủ động tiến."
+      ],
+      "kha_thuan": [
+        "Nhìn chung {pk} khá thuận, hợp với việc tiến từng bước chắc.",
+        "Nhìn chung {pk} khá thuận, nên tiến từng bước chắc."
+      ],
+      "co_dieu_kien": [
+        "Vì vậy {pk} thuận hay nặng tùy lúc có {yong} đi kèm{yearsTail}.",
+        "Do đó, {pk} tốt hay nặng tùy lúc có {yong} đi kèm{yearsTail}."
+      ],
+      "co_dieu_kien_no_yong": [
+        "Vì vậy {pk} tốt xấu đan xen, nên tiến ở phần thuận và giữ sức ở phần nặng."
+      ],
+      "tron": [
+        "Vì vậy {pk} tốt xấu đan xen: can {stem} thuận, chi {branch} nặng{yearsTail}.",
+        "Do đó {pk} tốt xấu đan xen, can {stem} thuận mà chi {branch} nặng{yearsTail}."
+      ],
+      "tron_rev": [
+        "Vì vậy {pk} tốt xấu đan xen: can {stem} nặng, chi {branch} thuận{yearsTail}.",
+        "Do đó {pk} tốt xấu đan xen, can {stem} nặng mà chi {branch} thuận{yearsTail}."
+      ],
+      "nang": [
+        "Trong {pk}, những năm nên tiến là {years}; các năm còn lại nên giữ nhịp, làm chắc từng bước.",
+        "Vì thế, trong {pk} nên dồn sức vào các năm {years}, còn những năm khác thì giữ nhịp, làm chắc từng bước."
+      ],
+      "nang_no_years": [
+        "Vì thế {pk} nên đi chậm, làm chắc từng bước và dựa vào {yong}."
+      ],
+      "nang_year": [
+        "Vì thế, {pk} nên đi chậm và giữ chắc những gì đã có.",
+        "Một năm như {pk} hợp với việc giữ sức, làm chắc từng bước hơn là mở rộng."
+      ],
+      "trung": [
+        "{Pk} không chạm đến điều lá số cần nhất, nên đi theo nhịp riêng của nó, không cần vội.",
+        "{Pk} không nghiêng về phía nào của lá số, nên cứ đi đều tay."
+      ]
+    },
+    "tk_class": {
+      "thuan": "{list} là vận thuận",
+      "kha_thuan": "{list} khá thuận",
+      "co_dieu_kien": "{list} thuận hay nặng tùy lúc có {yong} đi kèm",
+      "nang": "{list} là vận nặng",
+      "trung": "{list} đi theo nhịp riêng",
+      "tron": "{list} tốt xấu đan xen"
+    },
+    "tk_class_many": {
+      "thuan": "{list} là những vận thuận",
+      "kha_thuan": "{list} khá thuận",
+      "co_dieu_kien": "{list} thuận hay nặng tùy lúc có {yong} đi kèm",
+      "nang": "{list} là những vận nặng",
+      "trung": "{list} đi theo nhịp riêng",
+      "tron": "{list} tốt xấu đan xen"
+    },
+    "note_s2": "S2 (2026-10-22): luck_role (by ten-god group) became dh_role (by the stem the điều hậu cell names); 'need' (the system's cold/heat index voiced as the table's) is gone, the element is told only through the fired hàn noãn rule; strength_border (two readings) became strength_near ('hơi vượng / hơi nhược', TVH p.355); the closing reads the per-luck verdicts (rc). No frame names a page, a method word or a phù ức reason.",
+    "ev_open_year": [
+      "Năm {year} đặt lên nguyên cục: {list}.",
+      "Với tứ trụ gốc, năm {year} có {list}."
+    ]
   },
   "luan": {
     "note": "prose-style plan B1/B7 (prose/bazi.ts): the opening that names the four pillars with their nạp âm, the bold lead-in of each paragraph. The closing over the timeline is built in bazi_deep.ts (deep.tk_*).",
@@ -480,6 +545,22 @@
       "luu_nien": [
         "Về lưu niên",
         "Về những năm sắp tới"
+      ],
+      "part_ho_tro": [
+        "Về điểm tựa và giới hạn",
+        "Về chỗ mạnh, chỗ yếu của cách"
+      ],
+      "part_tuong_tac": [
+        "Về khí hậu của lá số",
+        "Về phần điều hậu"
+      ],
+      "part_mau_thuan": [
+        "Về chỗ hai cách xét khác nhau",
+        "Về chỗ hai bảng không trùng nhau"
+      ],
+      "part_ket_luan": [
+        "Tóm lại",
+        "Nói gọn lại"
       ]
     }
   }
