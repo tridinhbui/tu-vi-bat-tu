@@ -1,4 +1,4 @@
-// Google sign-in and saved-chart sync. Everything works signed out (charts stay on this device); signing in only adds sync.
+// Google sign-in and saved-chart sync. Reading charts works signed out; saving, the chat assistant, sharing and the profile are for members.
 import { $ } from './util.js';
 import { cloud, readSaved, writeSaved } from './mine.js';
 
@@ -27,6 +27,7 @@ export async function initAccount(host, onSynced, saver) {
 
   if (!me.user) {
     host.innerHTML = '<a class="btn btn-sm btn-ghost acct-in" href="/api/auth/google">Đăng nhập với Google</a>';
+    cloud.needLogin = true; saver?.paint();
     announce();
     return;
   }

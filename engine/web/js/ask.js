@@ -53,7 +53,7 @@ export function initAsk(host, getReq) {
     ta.disabled = send.disabled = busy || signedOut; deepBtn.disabled = deepSel.disabled = busy || signedOut; leftEl.textContent = wallet ? left(wallet) : '';
     if (signedOut) {
       const a = document.createElement('a'); a.href = '/api/auth/google'; a.textContent = 'Đăng nhập với Google';
-      setNote(a); note.prepend('Đăng nhập để hỏi trợ lý, mỗi tháng có 10 lượt miễn phí. ');
+      setNote(a); note.prepend('Trợ lý dành cho thành viên: đăng nhập Google để hỏi, mỗi tháng có 10 lượt miễn phí. ');
     } else if (wallet && wallet.free.remaining <= 0 && wallet.coins < wallet.costs.chat) lock();
     else setNote(null, '');
   };

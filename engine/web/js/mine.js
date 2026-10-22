@@ -1,9 +1,10 @@
-// "Của bạn" layer: charts saved on this device only (localStorage; nothing is sent to the server).
+// "Của bạn" layer: saved charts. Saving is for signed-in members (synced to the account); a guest who presses Save is asked to sign in,
+// and the chart waits in this browser until the sign-in sync sends it. Charts a guest saved before this rule stay listed and sync on sign-in.
 import { $, $$, esc } from './util.js';
 
 const KEY = 'tvbt-saved-v1';
 /** Set by account.js: hooks run after a local change, and whether this device is signed in (limit 12 local charts becomes 200). */
-export const cloud = { on: false, push: null, remove: null };
+export const cloud = { on: false, push: null, remove: null, needLogin: false };   // needLogin: sign-in is available and nobody is signed in
 const max = () => cloud.on ? 200 : 12;
 const FIELDS = ['year', 'month', 'day', 'hour', 'minute', 'gender', 'tz', 'calendar', 'zi_rule', 'level', 'use_true_solar_time', 'longitude'];
 export const RELS = ['Tôi', 'Người thân', 'Bạn bè'];
@@ -44,12 +45,22 @@ export function initSave(host, getReq, onChange) {
     <button class="btn btn-sm" type="submit"></button><p class="muted small sv-note"></p></form>`;
   const btn = $('#sv-btn', host), form = $('#sv-form', host);
   const note = () => { $('.sv-note', host).textContent = cloud.on ? 'Lưu vào tài khoản của bạn và đồng bộ giữa các thiết bị. Xóa được bất cứ lúc nào ở trang chủ.' : 'Chỉ lưu trong trình duyệt của bạn; máy chủ không nhận được gì. Đăng nhập để đồng bộ giữa các thiết bị.'; $('button[type=submit]', form).textContent = cloud.on ? 'Lưu vào tài khoản' : 'Lưu trên máy này'; };
-  const paint = () => { note(); const s = getReq() && isSaved(getReq()); btn.textContent = s ? `Đã lưu: ${s.label} · sửa tên` : 'Lưu lá số này'; };
+  const guest = () => cloud.needLogin && !cloud.on;
+  const paint = () => {
+    note(); const s = getReq() && isSaved(getReq());
+    btn.textContent = s ? `Đã lưu: ${s.label} · sửa tên` : 'Lưu lá số này';
+    if (guest()) {
+      $('.sv-note', host).innerHTML = 'Lưu lá số dành cho thành viên: đăng nhập bằng Google, lá số được lưu vào tài khoản và mở được trên mọi thiết bị. <a href="#quyen-loi" data-go="quyen-loi">Xem quyền lợi khi đăng nhập</a>';
+      $('button[type=submit]', form).textContent = 'Đăng nhập Google và lưu';
+    }
+  };
   btn.onclick = () => { const o = form.hidden; form.hidden = !o; btn.setAttribute('aria-expanded', o); const s = isSaved(getReq()); if (s) { form.label.value = s.label; form.rel.value = s.rel; } };
   form.onsubmit = e => {
     e.preventDefault();
     const ok = saveChart(getReq(), form.label.value, form.rel.value);
     if (!ok) { $('.muted', form).textContent = 'Trình duyệt không cho phép lưu (chế độ riêng tư hoặc đã chặn lưu trữ).'; return; }
+    // guest: the chart is now held in this browser; after Google sign-in, account.js syncs it into the account
+    if (guest()) { location.href = '/api/auth/google'; return; }
     form.hidden = true; btn.setAttribute('aria-expanded', 'false'); paint(); onChange();
   };
   paint();

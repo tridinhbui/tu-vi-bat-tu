@@ -694,3 +694,17 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 .ask-buy{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--parchment)}
 .ask-buy[hidden]{display:none}.ask-buy p{flex:1 0 100%;margin:0}
 .ask-buy-btn{white-space:nowrap}
+
+/* "Khách và thành viên": what signing in adds (index.html #quyen-loi) */
+.perks{margin:48px auto 0;max-width:820px;background:var(--ivory);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+.perks h3{margin:0 0 6px;font:600 1.35rem var(--serif)}
+.perks-sub{margin:0 0 16px;color:var(--text2)}
+.perks-t{width:100%;border-collapse:collapse;font-size:.95rem}
+.perks-t th,.perks-t td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.perks-t thead th{font:600 .8rem var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text2)}
+.perks-t tbody th{font-weight:500}
+.perks-t td{width:24%}
+.perks-t td.y{color:var(--jade);font-weight:600}
+.perks-t td.n{color:var(--text2)}
+.perks-btn{margin-top:18px}
+@media (max-width:640px){.perks{padding:18px 14px}.perks-t{font-size:.86rem}.perks-t td{width:28%}.perks-t th,.perks-t td{padding:8px 4px}}
