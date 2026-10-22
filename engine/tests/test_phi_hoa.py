@@ -216,11 +216,18 @@ def test_deterministic_and_traceable():
         assert a["result"].why(f.id)["chain"]
 
 
-def test_api_phi_hoa_endpoint_is_draft_and_complete():
+def test_api_phi_hoa_endpoint_separates_computation_from_interpretation():
     c = TestClient(app)
     r = c.post("/api/phi-hoa", json=dict(year=1990, month=5, day=17, hour=10, minute=30, gender="male"))
     assert r.status_code == 200
     j = r.json()
-    assert j["status"] == "draft" and j["school"] == "phi_tinh_draft" and j["problems"] == [] and "CHƯA đối chiếu" in j["warning"]
-    assert len(j["edges"]) == 48 and all(e["trace"] and e["from"] and e["hoa"] in HOAS for e in j["edges"])
-    assert j["table"]["status"] == "reused_unverified_for_phi_tinh" and j["findings"] and all(f["why"]["chain"] for f in j["findings"])
+    assert j["status"] == "draft" and j["school"] == "phi_tinh_draft" and "CHƯA được xác minh" in j["warning"] and "Tam Hợp" in j["warning"]
+    comp, itp = j["computation"], j["interpretation"]
+    assert comp["level"] == "computed" and comp["table"]["school"] == "tam_hop" and comp["table"]["status"] == "reused_unverified_for_phi_tinh"
+    assert comp["table"]["verified_for"] == ["tam_hop_natal_tu_hoa"]
+    assert len(comp["edges"]) == 48 and all(e["trace"] and e["from"] and e["hoa"] in HOAS for e in comp["edges"])
+    assert all("tam hợp" in e["trace"] and "chưa xác minh cho Phi Tinh" in e["trace"] for e in comp["edges"])
+    assert itp["level"] == "experimental" and itp["reviewStatus"] == "draft" and itp["problems"] == [] and itp["findings"]
+    assert all(f["why"]["chain"] for f in itp["findings"])
+    assert not any(k in comp for k in ("findings", "rules", "conflicts"))                  # the graph part carries no interpretation
+    assert "edges" not in itp

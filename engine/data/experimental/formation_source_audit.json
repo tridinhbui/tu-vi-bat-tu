@@ -1,0 +1,2848 @@
+{
+ "version": 1,
+ "tiers": {
+  "T0": "đọc trực tiếp trang sách trong lần audit này",
+  "T1": "luật trong registry, đã verified (diễn giải, không độc lập)",
+  "T2": "luật trong registry, còn draft",
+  "T3": "câu phú gốc từ một bản web, chưa đối chiếu bản in",
+  "T4": "giả thuyết thiết kế"
+ },
+ "classical_url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+ "classical": {
+  "C_TP_DONG": {
+   "sec": "斗數骨髓賦",
+   "zh": "紫府同宮終身福厚",
+   "vi": "Tử Phủ đồng cung, suốt đời phúc dày."
+  },
+  "C_TP_TRIEU": {
+   "sec": "斗數骨髓賦",
+   "zh": "紫府朝垣食祿萬鍾",
+   "vi": "Tử Phủ chầu viên (triều viên), hưởng lộc muôn chung."
+  },
+  "C_CNDL": {
+   "sec": "斗數骨髓賦",
+   "zh": "七殺破軍宜出外，機月同梁作吏人",
+   "vi": "Thất Sát, Phá Quân nên ra ngoài; Cơ Nguyệt Đồng Lương làm hạng lại viên (viên chức)."
+  },
+  "C_NN_MINH": {
+   "sec": "斗數骨髓賦",
+   "zh": "日月並明佐九重於堯殿",
+   "vi": "Nhật Nguyệt cùng sáng, giúp chín tầng cung điện vua Nghiêu."
+  },
+  "C_NN_BOI": {
+   "sec": "太微賦",
+   "zh": "日月最嫌反背",
+   "vi": "Nhật Nguyệt rất ngại bị phản bối (đảo ngược)."
+  },
+  "C_NLTT": {
+   "sec": "太微賦",
+   "zh": "太陽居午，謂之日麗中天，有專權之貴，敵國之富",
+   "vi": "Thái Dương ở Ngọ gọi là Nhật lệ trung thiên: có cái quý chuyên quyền, cái giàu địch quốc."
+  },
+  "C_TTAN": {
+   "sec": "斗數骨髓賦",
+   "zh": "子午巨門石中隱玉，明祿暗祿錦上添花",
+   "vi": "Cự Môn ở Tý Ngọ là ngọc ẩn trong đá; minh lộc, ám lộc thêm hoa trên gấm."
+  },
+  "C_TTAN_PHU": {
+   "sec": "論石中隱玉格（以檢索工具轉述）",
+   "zh": "巨門子午二宮逢，身命逢之必貴榮，更得三方科祿照，石中隱玉是豐隆",
+   "vi": "Cự Môn gặp ở hai cung Tý Ngọ, thân hoặc mệnh gặp ắt vinh quý; lại được tam phương Khoa, Lộc chiếu thì ngọc ẩn trong đá là thịnh vượng."
+  },
+  "C_MDDK": {
+   "sec": "太微賦",
+   "zh": "馬頭帶劍，鎮衛邊疆",
+   "vi": "Đầu ngựa đeo gươm, trấn giữ biên cương."
+  },
+  "C_MDDK_CHU": {
+   "sec": "定貴局（chú）",
+   "zh": "馬頭帶劍 謂馬有刃是也不是居午格",
+   "vi": "Mã đầu đới kiếm: nghĩa là (Thiên) Mã có 'nhận' (lưỡi), chứ không phải cách ở cung Ngọ."
+  },
+  "C_KV": {
+   "sec": "定貴局（chú）",
+   "zh": "坐貴向貴 謂魁鉞在命迭相坐拱是也",
+   "vi": "Tọa quý hướng quý: Khôi Việt ở Mệnh, thay nhau tọa và củng chiếu."
+  }
+ },
+ "conflicts": [
+  {
+   "id": "X_MDDK_NGO",
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "sides": [
+    "KL p.64 (registry, draft): Kình Dương ở Ngọ",
+    "chú giải 定貴局 (T3): 'Mã có nhận', không phải cách ở cung Ngọ"
+   ],
+   "effect": "điều kiện lõi của cách chưa thể coi là đã xác định; giữ draft, cần đọc lại cả hai trang sách"
+  },
+  {
+   "id": "X_TTAN_HOA",
+   "formation": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "sides": [
+    "KL p.58 và TT p.34 (registry, verified): Khoa+Quyền+Lộc đủ",
+    "phú gốc (T3): tam phương có Khoa, Lộc chiếu (không nêu Quyền)"
+   ],
+   "effect": "booster 'tam_hoa_hoi_du' chặt hơn câu phú; cần xem bản chú Việt có thêm Quyền hay không"
+  },
+  {
+   "id": "X_TRIET_GIAI",
+   "formation": "*",
+   "sides": [
+    "mọi bản nháp v1: Triệt giải sát tinh (đã bỏ ở v2)",
+    "TH pp.94-95 (registry, verified): Tuần/Triệt bất lợi cho Phủ, Tướng, Âm, Lương"
+   ],
+   "effect": "đã loại khỏi v2; ghi lại để không tái xuất hiện"
+  }
+ ],
+ "formations": {
+  "CACH_X_TU_PHU_VU_TUONG": {
+   "name_vi": "Tử Phủ Vũ Tướng",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 0,
+    "T2": 0,
+    "T3": 0,
+    "T4": 10
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "palace.rel.tp_majors contains_all [\"Tử Vi\", \"Thiên Phủ\", \"Vũ Khúc\", \"Thiên Tướng\"]",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn có nhóm Tử Phủ Vũ Tướng ở các cung khác (Phúc Đức, Tử Tức, Nô Bộc); không có luật nói bốn sao hội ở tam phương Mệnh thành một cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_CUNG_PHUC_DUC_TU_PHU_VU_TUONG",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.217",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, tóm tắt từng cung (paraphrased), cung Phúc Đức: gốc gác danh giá, tài lộc bền (Phúc Đức có nhóm Tử Phủ Vũ Tướng) [KL p.217]",
+       "registry_condition": "VÀ(palace.name eq \"Phúc Đức\"; derived.group.tu_phu_vu_tuong eq true)",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_TP_TRIEU",
+       "section": "斗數骨髓賦",
+       "zh": "紫府朝垣食祿萬鍾",
+       "vi_literal": "Tử Phủ chầu viên (triều viên), hưởng lộc muôn chung.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": false,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "lien_quan",
+       "note": "chỉ nói Tử Vi + Thiên Phủ chầu viên, không nói Vũ Khúc, Thiên Tướng"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_any [\"Văn Xương\", \"Văn Khúc\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "loc_hoi",
+     "label": "Lộc Tồn hoặc Hóa Lộc hội trong tam phương",
+     "machine": "HOẶC(palace.rel.tp_stars contains \"Lộc Tồn\"; palace.rel.tp_hoa contains \"Hóa Lộc\")",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "machine": "palace.rel.self_stars contains_any [\"Kình Dương\", \"Đà La\", \"Hỏa Tinh\", \"Linh Tinh\", \"Địa Không\", \"Địa Kiếp\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "machine": "palace.rel.self_hoa contains \"Hóa Kỵ\"",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "machine": "palace.rel.self_hoa contains \"Hóa Khoa\"",
+     "rescues": [
+      "ky_dong_cung"
+     ],
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.branch in [\"Hợi\", \"Tý\"]; palace.rel.tp_hoa contains \"Hóa Khoa\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: cẩn trọng lời nói và việc làm, nhiều người kính trọng (Hóa Kỵ gặp Hóa Khoa ở Hợi hoặc Tý) [TH p.53]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.branch in [\"Hợi\", \"Tý\"])",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": [
+      "*"
+     ],
+     "provenance_status": "long_hon",
+     "provenance_note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở bại địa hoặc tuyệt địa nhưng được Tam Hóa hội: 'tuyệt xứ phùng sinh', được cứu giải [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.menh_stage_th in [\"bai\", \"tuyet\"]; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\")",
+       "correspondence": "long_hon"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Thiên Phủ gặp Tuần/Triệt là điều kỵ nhất (TH p.94); chưa có nguồn cho cả nhóm bốn sao",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_STAR_THIEN_PHU_NAM_TUAN_TRIET",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.94",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, phụ giải sao chính ở Mệnh nam (paraphrased): cùng khổ, chỉ tu hành mới yên thân (Thiên Phủ kỵ nhất gặp Tuần, Triệt hoặc Thiên, Địa Không) [TH p.94]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.gender eq \"nam\"; palace.own_major_stars contains \"Thiên Phủ\"; HOẶC(HOẶC(palace.tuan eq true; palace.triet eq true); palace.rel.tp_stars contains \"Thiên Không\"; palace.rel.tp_stars contains \"Địa Không\"))",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "Thiên_Tướng_ham",
+     "label": "Thiên Tướng ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "machine": "palace.tp_rank.Thiên Tướng lte 0",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn nói Thiên Tướng gặp Tuần/Triệt như hãm; không nói Tướng hãm hạ cả cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_STAR_THIEN_TUONG_NAM_TUAN_TRIET",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.95",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, phụ giải sao chính ở Mệnh nam (paraphrased): như Tướng hãm địa: lao đao, chỉ tu hành mới tránh đơn độc, phiền lụy (Thiên Tướng đắc địa gặp Tuần/Triệt án ngữ) [TH p.95]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.gender eq \"nam\"; palace.own_major_stars contains \"Thiên Tướng\"; palace.dignity.Thiên Tướng in [\"miếu\", \"vượng\", \"đắc\"]; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  },
+  "CACH_X_TU_PHU_DONG_CUNG": {
+   "name_vi": "Tử Phủ đồng cung",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 1,
+    "T2": 0,
+    "T3": 1,
+    "T4": 7
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "palace.rel.self_majors contains_all [\"Tử Vi\", \"Thiên Phủ\"]",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "KL p.55 lấy Tử Vi và Thiên Phủ đồng cung ở Mệnh làm khung nhưng không gọi là một cách",
+     "effective_tier": "T3",
+     "supports": [
+      "C_TP_DONG"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_PHU_TU_PHU_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.55",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú đoán (paraphrased): phúc lộc kém đi (Tử Phủ bị Tuần hoặc Triệt án ngữ); đây là điều kiện hạn chế của chính nhận định trên [KL p.55]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.own_major_stars contains \"Tử Vi\"; palace.own_major_stars contains \"Thiên Phủ\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_TP_DONG",
+       "section": "斗數骨髓賦",
+       "zh": "紫府同宮終身福厚",
+       "vi_literal": "Tử Phủ đồng cung, suốt đời phúc dày.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": true,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "khop",
+       "note": "khớp tên và vị trí đồng cung; câu phú không nêu điều kiện thành/phá"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_any [\"Văn Xương\", \"Văn Khúc\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_any [\"Thiên Khôi\", \"Thiên Việt\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "machine": "palace.rel.self_stars contains_any [\"Kình Dương\", \"Đà La\", \"Hỏa Tinh\", \"Linh Tinh\", \"Địa Không\", \"Địa Kiếp\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "machine": "palace.rel.self_hoa contains \"Hóa Kỵ\"",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "machine": "palace.rel.self_hoa contains \"Hóa Khoa\"",
+     "rescues": [
+      "ky_dong_cung"
+     ],
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.branch in [\"Hợi\", \"Tý\"]; palace.rel.tp_hoa contains \"Hóa Khoa\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: cẩn trọng lời nói và việc làm, nhiều người kính trọng (Hóa Kỵ gặp Hóa Khoa ở Hợi hoặc Tý) [TH p.53]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.branch in [\"Hợi\", \"Tý\"])",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": [
+      "*"
+     ],
+     "provenance_status": "long_hon",
+     "provenance_note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở bại địa hoặc tuyệt địa nhưng được Tam Hóa hội: 'tuyệt xứ phùng sinh', được cứu giải [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.menh_stage_th in [\"bai\", \"tuyet\"]; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\")",
+       "correspondence": "long_hon"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "KL p.55: Tử Phủ bị Tuần hoặc Triệt án ngữ thì phúc lộc kém đi; TH p.94: Thiên Phủ kỵ Tuần, Triệt",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_KL_PHU_TU_PHU_TUAN_TRIET",
+      "TV_TH_STAR_THIEN_PHU_NAM_TUAN_TRIET"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_PHU_TU_PHU_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.55",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú đoán (paraphrased): phúc lộc kém đi (Tử Phủ bị Tuần hoặc Triệt án ngữ); đây là điều kiện hạn chế của chính nhận định trên [KL p.55]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.own_major_stars contains \"Tử Vi\"; palace.own_major_stars contains \"Thiên Phủ\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_STAR_THIEN_PHU_NAM_TUAN_TRIET",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.94",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, phụ giải sao chính ở Mệnh nam (paraphrased): cùng khổ, chỉ tu hành mới yên thân (Thiên Phủ kỵ nhất gặp Tuần, Triệt hoặc Thiên, Địa Không) [TH p.94]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.gender eq \"nam\"; palace.own_major_stars contains \"Thiên Phủ\"; HOẶC(HOẶC(palace.tuan eq true; palace.triet eq true); palace.rel.tp_stars contains \"Thiên Không\"; palace.rel.tp_stars contains \"Địa Không\"))",
+       "correspondence": "khop"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG": {
+   "name_vi": "Cơ Nguyệt Đồng Lương",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 1,
+    "T2": 0,
+    "T3": 0,
+    "T4": 7
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "palace.rel.tp_majors contains_all [\"Thiên Cơ\", \"Thái Âm\", \"Thiên Đồng\", \"Thiên Lương\"]",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "Toàn Thư p.24: Mệnh đủ bốn sao Cơ Nguyệt Đồng Lương trong tam phương",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_TT_MENH_CNDL_CONG_CHUC",
+      "TV_KL_CT_CNDL"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TT_MENH_CNDL_CONG_CHUC",
+       "book": "SRC_TOAN_THU",
+       "page": "TT p.24",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: chỉ ở mức công chức bình thường nếu không có cát tinh khác trợ lực (Mệnh đủ bốn sao Cơ Nguyệt Đồng Lương trong tam phương) [TT p.24]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tam_phuong_majors contains \"Thiên Cơ\"; palace.tam_phuong_majors contains \"Thái Âm\"; palace.tam_phuong_majors contains \"Thiên Đồng\"; palace.tam_phuong_majors contains \"Thiên Lương\"; KHÔNG(HOẶC(palace.tam_phuong_stars contains \"Tả Phụ\"; palace.tam_phuong_stars contains \"Hữu Bật\"; palace.tam_phuong_stars contains \"Văn Xương\"; palace.tam_phuong_stars contains \"Văn Khúc\"; palace.tam_phuong_stars contains \"Thiên Khôi\"; palace.tam_phuong_stars contains \"Thiên Việt\")))",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_KL_CT_CNDL",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.221",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): hàng trí thức, công bộc, giỏi chữ nghĩa nhưng hay giữ phận, ngại mất cái mình có (Cơ Nguyệt Đồng Lương) [KL p.221]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; derived.group.co_nguyet_dong_luong eq true)",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_CNDL",
+       "section": "斗數骨髓賦",
+       "zh": "七殺破軍宜出外，機月同梁作吏人",
+       "vi_literal": "Thất Sát, Phá Quân nên ra ngoài; Cơ Nguyệt Đồng Lương làm hạng lại viên (viên chức).",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": false,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "lien_quan",
+       "note": "chỉ nêu tên nhóm và 'làm lại viên'; không nêu vị trí tam phương hay số sao"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "cat_tinh_hoi",
+     "label": "một cát tinh (Tả, Hữu, Xương, Khúc, Khôi, Việt) hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_any [\"Tả Phụ\", \"Hữu Bật\", \"Văn Xương\", \"Văn Khúc\", \"Thiên Khôi\", \"Thiên Việt\"]",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "TT p.24: thiếu cát tinh trợ lực thì chỉ ở mức công chức bình thường; KL p.221 (nháp): hội Khôi Việt, Xương Khúc thì hợp đường học thuật",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TT_MENH_CNDL_CONG_CHUC",
+       "book": "SRC_TOAN_THU",
+       "page": "TT p.24",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: chỉ ở mức công chức bình thường nếu không có cát tinh khác trợ lực (Mệnh đủ bốn sao Cơ Nguyệt Đồng Lương trong tam phương) [TT p.24]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tam_phuong_majors contains \"Thiên Cơ\"; palace.tam_phuong_majors contains \"Thái Âm\"; palace.tam_phuong_majors contains \"Thiên Đồng\"; palace.tam_phuong_majors contains \"Thiên Lương\"; KHÔNG(HOẶC(palace.tam_phuong_stars contains \"Tả Phụ\"; palace.tam_phuong_stars contains \"Hữu Bật\"; palace.tam_phuong_stars contains \"Văn Xương\"; palace.tam_phuong_stars contains \"Văn Khúc\"; palace.tam_phuong_stars contains \"Thiên Khôi\"; palace.tam_phuong_stars contains \"Thiên Việt\")))",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_KL_CT_CNDL_KQL_KV_XK",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.221",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): hợp con đường học thuật, giảng dạy có tiếng (Cơ Nguyệt Đồng Lương hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc); hệ thống đọc 'Khôi Việt, Xương Khúc' là ít nhất một sao mỗi cặp [KL p.221]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; derived.group.co_nguyet_dong_luong eq true; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.tam_phuong_tu_hoa contains \"Hóa Quyền\"; palace.tam_phuong_tu_hoa contains \"Hóa Lộc\"; HOẶC(palace.tam_phuong_stars contains \"Thiên Khôi\"; palace.tam_phuong_stars contains \"Thiên Việt\"); HOẶC(palace.tam_phuong_stars contains \"Văn Xương\"; palace.tam_phuong_stars contains \"Văn Khúc\"))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_loc_hoi",
+     "label": "Hóa Khoa, Quyền hoặc Lộc hội trong tam phương",
+     "machine": "palace.rel.tp_hoa contains_any [\"Hóa Khoa\", \"Hóa Quyền\", \"Hóa Lộc\"]",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "luật nháp có trang (KL p.221): hội Khoa Quyền Lộc thì hợp đường học thuật",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_CT_CNDL_KQL_KV_XK",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.221",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): hợp con đường học thuật, giảng dạy có tiếng (Cơ Nguyệt Đồng Lương hội Khoa Quyền Lộc, Khôi Việt, Xương Khúc); hệ thống đọc 'Khôi Việt, Xương Khúc' là ít nhất một sao mỗi cặp [KL p.221]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; derived.group.co_nguyet_dong_luong eq true; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.tam_phuong_tu_hoa contains \"Hóa Quyền\"; palace.tam_phuong_tu_hoa contains \"Hóa Lộc\"; HOẶC(palace.tam_phuong_stars contains \"Thiên Khôi\"; palace.tam_phuong_stars contains \"Thiên Việt\"); HOẶC(palace.tam_phuong_stars contains \"Văn Xương\"; palace.tam_phuong_stars contains \"Văn Khúc\"))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "khong_kiep_dong_cung",
+     "label": "Địa Không hoặc Địa Kiếp đồng cung với Mệnh",
+     "machine": "palace.rel.self_stars contains_any [\"Địa Không\", \"Địa Kiếp\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "machine": "palace.rel.self_hoa contains \"Hóa Kỵ\"",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "machine": "palace.rel.self_hoa contains \"Hóa Khoa\"",
+     "rescues": [
+      "ky_dong_cung"
+     ],
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.branch in [\"Hợi\", \"Tý\"]; palace.rel.tp_hoa contains \"Hóa Khoa\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: cẩn trọng lời nói và việc làm, nhiều người kính trọng (Hóa Kỵ gặp Hóa Khoa ở Hợi hoặc Tý) [TH p.53]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.branch in [\"Hợi\", \"Tý\"])",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": [
+      "*"
+     ],
+     "provenance_status": "long_hon",
+     "provenance_note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở bại địa hoặc tuyệt địa nhưng được Tam Hóa hội: 'tuyệt xứ phùng sinh', được cứu giải [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.menh_stage_th in [\"bai\", \"tuyet\"]; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\")",
+       "correspondence": "long_hon"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM": {
+   "name_vi": "Sát Phá Liêm Tham",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 0,
+    "T2": 1,
+    "T3": 0,
+    "T4": 10
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "đếm(palace.rel.tp_majors contains \"Thất Sát\"; palace.rel.tp_majors contains \"Phá Quân\"; palace.rel.tp_majors contains \"Liêm Trinh\"; palace.rel.tp_majors contains \"Tham Lang\") gte 3",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "ngưỡng ba trong bốn sao là quy ước của bản nháp; nguồn nói về chính tinh Sát Phá Liêm Tham ở Mệnh/Thân",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_HA_CACH",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.77",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: hạ cách: chính tinh Sát Phá Liêm Tham mà hung tinh, sát tinh hội nhiều, có Hóa Kỵ; đời nhiều vất vả (ngưỡng 'nhiều' = từ ba sát tinh) [TH p.77]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.own_major_stars contains \"Thất Sát\"; palace.own_major_stars contains \"Phá Quân\"; palace.own_major_stars contains \"Liêm Trinh\"; palace.own_major_stars contains \"Tham Lang\"); palace.khi.sat_tp gte 3; palace.rel.tp_hoa contains \"Hóa Kỵ\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Thiên Di: Thân cư Sát Phá Liêm Tham nhập miếu vượng, hội nhiều cát tinh: có thể phát mạnh [TH p.76]",
+       "registry_condition": "VÀ(palace.name eq \"Thiên Di\"; palace.is_than eq true; HOẶC(VÀ(palace.own_major_stars contains \"Thất Sát\"; palace.dignity.Thất Sát in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Phá Quân\"; palace.dignity.Phá Quân in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Liêm Trinh\"; palace.dignity.Liêm Trinh in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Tham Lang\"; palace.dignity.Tham Lang in [\"miếu\", \"vượng\"])); palace.khi.cat_tp gte 2)",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_CNDL",
+       "section": "斗數骨髓賦",
+       "zh": "七殺破軍宜出外，機月同梁作吏人",
+       "vi_literal": "Thất Sát, Phá Quân nên ra ngoài; Cơ Nguyệt Đồng Lương làm hạng lại viên (viên chức).",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": false,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "lien_quan",
+       "note": "câu phú chỉ nói Thất Sát, Phá Quân; không nêu Liêm Trinh, Tham Lang hay tam phương"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "machine": "palace.rel.tp_hoa contains_any [\"Hóa Khoa\", \"Hóa Quyền\"]",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn (nháp): miếu vượng, hội nhiều cát tinh thì có thể phát mạnh, nói cho Thân cư Thiên Di",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Thiên Di: Thân cư Sát Phá Liêm Tham nhập miếu vượng, hội nhiều cát tinh: có thể phát mạnh [TH p.76]",
+       "registry_condition": "VÀ(palace.name eq \"Thiên Di\"; palace.is_than eq true; HOẶC(VÀ(palace.own_major_stars contains \"Thất Sát\"; palace.dignity.Thất Sát in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Phá Quân\"; palace.dignity.Phá Quân in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Liêm Trinh\"; palace.dignity.Liêm Trinh in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Tham Lang\"; palace.dignity.Tham Lang in [\"miếu\", \"vượng\"])); palace.khi.cat_tp gte 2)",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Thiên Di: Thân cư Sát Phá Liêm Tham nhập miếu vượng, hội nhiều cát tinh: có thể phát mạnh [TH p.76]",
+       "registry_condition": "VÀ(palace.name eq \"Thiên Di\"; palace.is_than eq true; HOẶC(VÀ(palace.own_major_stars contains \"Thất Sát\"; palace.dignity.Thất Sát in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Phá Quân\"; palace.dignity.Phá Quân in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Liêm Trinh\"; palace.dignity.Liêm Trinh in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Tham Lang\"; palace.dignity.Tham Lang in [\"miếu\", \"vượng\"])); palace.khi.cat_tp gte 2)",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_any [\"Văn Xương\", \"Văn Khúc\"]",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Thiên Di: Thân cư Sát Phá Liêm Tham nhập miếu vượng, hội nhiều cát tinh: có thể phát mạnh [TH p.76]",
+       "registry_condition": "VÀ(palace.name eq \"Thiên Di\"; palace.is_than eq true; HOẶC(VÀ(palace.own_major_stars contains \"Thất Sát\"; palace.dignity.Thất Sát in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Phá Quân\"; palace.dignity.Phá Quân in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Liêm Trinh\"; palace.dignity.Liêm Trinh in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Tham Lang\"; palace.dignity.Tham Lang in [\"miếu\", \"vượng\"])); palace.khi.cat_tp gte 2)",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_any [\"Thiên Khôi\", \"Thiên Việt\"]",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Thiên Di: Thân cư Sát Phá Liêm Tham nhập miếu vượng, hội nhiều cát tinh: có thể phát mạnh [TH p.76]",
+       "registry_condition": "VÀ(palace.name eq \"Thiên Di\"; palace.is_than eq true; HOẶC(VÀ(palace.own_major_stars contains \"Thất Sát\"; palace.dignity.Thất Sát in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Phá Quân\"; palace.dignity.Phá Quân in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Liêm Trinh\"; palace.dignity.Liêm Trinh in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Tham Lang\"; palace.dignity.Tham Lang in [\"miếu\", \"vượng\"])); palace.khi.cat_tp gte 2)",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ba_sat_va_ky_trong_tam_phuong",
+     "label": "từ ba sát tinh trở lên và Hóa Kỵ cùng trong tam phương",
+     "machine": "VÀ(palace.khi.sat_tp gte 3; palace.rel.tp_hoa contains \"Hóa Kỵ\")",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "TH p.77 (luật nguồn còn ở mức nháp): hạ cách khi từ ba sát tinh hội kèm Hóa Kỵ",
+     "effective_tier": "T2",
+     "supports": [
+      "TV_TH_CACH_MENH_HA_CACH"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_HA_CACH",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.77",
+       "review": "draft",
+       "tier": "T2",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: hạ cách: chính tinh Sát Phá Liêm Tham mà hung tinh, sát tinh hội nhiều, có Hóa Kỵ; đời nhiều vất vả (ngưỡng 'nhiều' = từ ba sát tinh) [TH p.77]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.own_major_stars contains \"Thất Sát\"; palace.own_major_stars contains \"Phá Quân\"; palace.own_major_stars contains \"Liêm Trinh\"; palace.own_major_stars contains \"Tham Lang\"); palace.khi.sat_tp gte 3; palace.rel.tp_hoa contains \"Hóa Kỵ\")",
+       "correspondence": "khop"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "machine": "palace.rel.self_hoa contains \"Hóa Kỵ\"",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_HA_CACH",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.77",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: hạ cách: chính tinh Sát Phá Liêm Tham mà hung tinh, sát tinh hội nhiều, có Hóa Kỵ; đời nhiều vất vả (ngưỡng 'nhiều' = từ ba sát tinh) [TH p.77]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.own_major_stars contains \"Thất Sát\"; palace.own_major_stars contains \"Phá Quân\"; palace.own_major_stars contains \"Liêm Trinh\"; palace.own_major_stars contains \"Tham Lang\"); palace.khi.sat_tp gte 3; palace.rel.tp_hoa contains \"Hóa Kỵ\")",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "machine": "palace.rel.self_hoa contains \"Hóa Khoa\"",
+     "rescues": [
+      "ky_dong_cung"
+     ],
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.branch in [\"Hợi\", \"Tý\"]; palace.rel.tp_hoa contains \"Hóa Khoa\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: cẩn trọng lời nói và việc làm, nhiều người kính trọng (Hóa Kỵ gặp Hóa Khoa ở Hợi hoặc Tý) [TH p.53]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.branch in [\"Hợi\", \"Tý\"])",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": [
+      "*"
+     ],
+     "provenance_status": "long_hon",
+     "provenance_note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở bại địa hoặc tuyệt địa nhưng được Tam Hóa hội: 'tuyệt xứ phùng sinh', được cứu giải [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.menh_stage_th in [\"bai\", \"tuyet\"]; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\")",
+       "correspondence": "long_hon"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "Thất_Sát_ham",
+     "label": "Thất Sát ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "machine": "palace.tp_rank.Thất Sát lte 0",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn đòi chính tinh nhập miếu vượng mới phát mạnh",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_THIEN_DI_THAN_SPLT",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.76",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Thiên Di: Thân cư Sát Phá Liêm Tham nhập miếu vượng, hội nhiều cát tinh: có thể phát mạnh [TH p.76]",
+       "registry_condition": "VÀ(palace.name eq \"Thiên Di\"; palace.is_than eq true; HOẶC(VÀ(palace.own_major_stars contains \"Thất Sát\"; palace.dignity.Thất Sát in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Phá Quân\"; palace.dignity.Phá Quân in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Liêm Trinh\"; palace.dignity.Liêm Trinh in [\"miếu\", \"vượng\"]); VÀ(palace.own_major_stars contains \"Tham Lang\"; palace.dignity.Tham Lang in [\"miếu\", \"vượng\"])); palace.khi.cat_tp gte 2)",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH": {
+   "name_vi": "Nhật Nguyệt tịnh minh",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 1,
+    "T2": 0,
+    "T3": 1,
+    "T4": 10
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "palace.rel.tp_majors contains_all [\"Thái Dương\", \"Thái Âm\"]",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "hai luật có trang: Nhật Nguyệt đồng cung hoặc chiếu Mệnh",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_KL_CT_NHAT_NGUYET_DONG_CUNG",
+      "TV_KL_CT_NHAT_NGUYET_CHIEU"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_CT_NHAT_NGUYET_DONG_CUNG",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.224",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): lo soi sáng cho người khác, bản thân chưa hẳn hơn người (Nhật Nguyệt đồng cung) [KL p.224]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.own_major_stars contains \"Thái Dương\"; palace.own_major_stars contains \"Thái Âm\")",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_KL_CT_NHAT_NGUYET_CHIEU",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.224",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, chính tinh cung Mệnh (paraphrased): thông minh sáng suốt, làm việc tài giỏi, dễ thành công (Nhật Nguyệt chiếu Mệnh) [KL p.224]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tam_phuong_majors contains \"Thái Dương\"; palace.tam_phuong_majors contains \"Thái Âm\"; KHÔNG(VÀ(palace.own_major_stars contains \"Thái Dương\"; palace.own_major_stars contains \"Thái Âm\")))",
+       "correspondence": "khop"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "nhat_nguyet_deu_sang",
+     "label": "Thái Dương và Thái Âm đều sáng (độ sáng từ đắc trở lên)",
+     "machine": "VÀ(palace.tp_rank.Thái Dương gte 2; palace.tp_rank.Thái Âm gte 2)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn (nháp) nói Nhật hoặc Nguyệt hãm gặp sát tinh là tàn hung, nên độ sáng có liên quan",
+     "effective_tier": "T3",
+     "supports": [
+      "C_NN_MINH"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt tàn hung (Nhật hoặc Nguyệt hãm ở Mệnh gặp sát tinh); sách còn nói 'không có cứu tinh' mà hệ thống chưa kiểm [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(VÀ(palace.own_major_stars contains \"Thái Dương\"; palace.dignity.Thái Dương in [\"hãm\"]); VÀ(palace.own_major_stars contains \"Thái Âm\"; palace.dignity.Thái Âm in [\"hãm\"])); HOẶC(palace.rel.tp_stars contains \"Kình Dương\"; palace.rel.tp_stars contains \"Đà La\"; palace.rel.tp_stars contains \"Địa Không\"; palace.rel.tp_stars contains \"Địa Kiếp\"; palace.rel.tp_stars contains \"Hỏa Tinh\"; palace.rel.tp_stars contains \"Linh Tinh\"))",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_NN_MINH",
+       "section": "斗數骨髓賦",
+       "zh": "日月並明佐九重於堯殿",
+       "vi_literal": "Nhật Nguyệt cùng sáng, giúp chín tầng cung điện vua Nghiêu.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": true,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "khop",
+       "note": "'tịnh minh' = cùng sáng; câu phú không nêu ngưỡng độ sáng"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "machine": "palace.rel.tp_hoa contains_any [\"Hóa Khoa\", \"Hóa Quyền\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "nhat_nguyet_ham_gap_sat",
+     "label": "Thái Dương hoặc Thái Âm hãm, lại có sát tinh trong tam phương",
+     "machine": "VÀ(HOẶC(palace.tp_rank.Thái Dương lte 0; palace.tp_rank.Thái Âm lte 0); palace.khi.sat_tp gte 1)",
+     "rescues": null,
+     "provenance_status": "long_hon",
+     "provenance_note": "TH p.74 (nháp): Nhật hoặc Nguyệt hãm Ở MỆNH gặp sát tinh; bản nháp xét sát tinh trong cả tam phương",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt tàn hung (Nhật hoặc Nguyệt hãm ở Mệnh gặp sát tinh); sách còn nói 'không có cứu tinh' mà hệ thống chưa kiểm [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(VÀ(palace.own_major_stars contains \"Thái Dương\"; palace.dignity.Thái Dương in [\"hãm\"]); VÀ(palace.own_major_stars contains \"Thái Âm\"; palace.dignity.Thái Âm in [\"hãm\"])); HOẶC(palace.rel.tp_stars contains \"Kình Dương\"; palace.rel.tp_stars contains \"Đà La\"; palace.rel.tp_stars contains \"Địa Không\"; palace.rel.tp_stars contains \"Địa Kiếp\"; palace.rel.tp_stars contains \"Hỏa Tinh\"; palace.rel.tp_stars contains \"Linh Tinh\"))",
+       "correspondence": "long_hon"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "machine": "palace.rel.self_hoa contains \"Hóa Kỵ\"",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "khong_kiep_dong_cung",
+     "label": "Địa Không hoặc Địa Kiếp đồng cung với Mệnh",
+     "machine": "palace.rel.self_stars contains_any [\"Địa Không\", \"Địa Kiếp\"]",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn nói sát tinh gặp Nhật/Nguyệt hãm; không nói riêng Không Kiếp",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt tàn hung (Nhật hoặc Nguyệt hãm ở Mệnh gặp sát tinh); sách còn nói 'không có cứu tinh' mà hệ thống chưa kiểm [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(VÀ(palace.own_major_stars contains \"Thái Dương\"; palace.dignity.Thái Dương in [\"hãm\"]); VÀ(palace.own_major_stars contains \"Thái Âm\"; palace.dignity.Thái Âm in [\"hãm\"])); HOẶC(palace.rel.tp_stars contains \"Kình Dương\"; palace.rel.tp_stars contains \"Đà La\"; palace.rel.tp_stars contains \"Địa Không\"; palace.rel.tp_stars contains \"Địa Kiếp\"; palace.rel.tp_stars contains \"Hỏa Tinh\"; palace.rel.tp_stars contains \"Linh Tinh\"))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "machine": "palace.rel.self_hoa contains \"Hóa Khoa\"",
+     "rescues": [
+      "ky_dong_cung"
+     ],
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.branch in [\"Hợi\", \"Tý\"]; palace.rel.tp_hoa contains \"Hóa Khoa\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: cẩn trọng lời nói và việc làm, nhiều người kính trọng (Hóa Kỵ gặp Hóa Khoa ở Hợi hoặc Tý) [TH p.53]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.branch in [\"Hợi\", \"Tý\"])",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": [
+      "*"
+     ],
+     "provenance_status": "long_hon",
+     "provenance_note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở bại địa hoặc tuyệt địa nhưng được Tam Hóa hội: 'tuyệt xứ phùng sinh', được cứu giải [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.menh_stage_th in [\"bai\", \"tuyet\"]; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\")",
+       "correspondence": "long_hon"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "Thái_Dương_ham",
+     "label": "Thái Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "machine": "palace.tp_rank.Thái Dương lte 0",
+     "rescues": null,
+     "provenance_status": "long_hon",
+     "provenance_note": "nguồn đòi hãm VÀ gặp sát tinh mới là tàn hung; bản nháp chỉ cần hãm",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt tàn hung (Nhật hoặc Nguyệt hãm ở Mệnh gặp sát tinh); sách còn nói 'không có cứu tinh' mà hệ thống chưa kiểm [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(VÀ(palace.own_major_stars contains \"Thái Dương\"; palace.dignity.Thái Dương in [\"hãm\"]); VÀ(palace.own_major_stars contains \"Thái Âm\"; palace.dignity.Thái Âm in [\"hãm\"])); HOẶC(palace.rel.tp_stars contains \"Kình Dương\"; palace.rel.tp_stars contains \"Đà La\"; palace.rel.tp_stars contains \"Địa Không\"; palace.rel.tp_stars contains \"Địa Kiếp\"; palace.rel.tp_stars contains \"Hỏa Tinh\"; palace.rel.tp_stars contains \"Linh Tinh\"))",
+       "correspondence": "long_hon"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_NN_BOI",
+       "section": "太微賦",
+       "zh": "日月最嫌反背",
+       "vi_literal": "Nhật Nguyệt rất ngại bị phản bối (đảo ngược).",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": false,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "lien_quan",
+       "note": "'phản bối' là sai vị trí/đảo ngược, không nhất thiết đồng nghĩa 'hãm' theo bảng"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "Thái_Âm_ham",
+     "label": "Thái Âm ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "machine": "palace.tp_rank.Thái Âm lte 0",
+     "rescues": null,
+     "provenance_status": "long_hon",
+     "provenance_note": "như trên",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt tàn hung (Nhật hoặc Nguyệt hãm ở Mệnh gặp sát tinh); sách còn nói 'không có cứu tinh' mà hệ thống chưa kiểm [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(VÀ(palace.own_major_stars contains \"Thái Dương\"; palace.dignity.Thái Dương in [\"hãm\"]); VÀ(palace.own_major_stars contains \"Thái Âm\"; palace.dignity.Thái Âm in [\"hãm\"])); HOẶC(palace.rel.tp_stars contains \"Kình Dương\"; palace.rel.tp_stars contains \"Đà La\"; palace.rel.tp_stars contains \"Địa Không\"; palace.rel.tp_stars contains \"Địa Kiếp\"; palace.rel.tp_stars contains \"Hỏa Tinh\"; palace.rel.tp_stars contains \"Linh Tinh\"))",
+       "correspondence": "long_hon"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_NN_BOI",
+       "section": "太微賦",
+       "zh": "日月最嫌反背",
+       "vi_literal": "Nhật Nguyệt rất ngại bị phản bối (đảo ngược).",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": false,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "lien_quan",
+       "note": "như trên"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN": {
+   "name_vi": "Nhật lệ trung thiên",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 1,
+    "T2": 0,
+    "T3": 0,
+    "T4": 9
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "VÀ(palace.branch eq \"Ngọ\"; palace.rel.self_majors contains \"Thái Dương\")",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "Thực Hành p.72: Thái Dương cư Ngọ có Mệnh là cách Nhật lệ trung thiên",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_TH_CACH_MENH_NHAT_NGO",
+      "TV_KL_PHU_DUONG_NGO",
+      "C_NLTT"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_NHAT_NGO",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.72",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật lệ trung thiên (Thái Dương cư Ngọ có Mệnh) [TH p.72]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.own_stars contains \"Thái Dương\"; palace.branch in [\"Ngọ\"])",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_KL_PHU_DUONG_NGO",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.52",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú đoán (paraphrased): danh vọng và tài lộc nổi bật, như mặt trời giữa trưa (Thái Dương ở Ngọ) [KL p.52]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.branch in [\"Ngọ\"]; palace.own_major_stars contains \"Thái Dương\")",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_NLTT",
+       "section": "太微賦",
+       "zh": "太陽居午，謂之日麗中天，有專權之貴，敵國之富",
+       "vi_literal": "Thái Dương ở Ngọ gọi là Nhật lệ trung thiên: có cái quý chuyên quyền, cái giàu địch quốc.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": true,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "khop",
+       "note": "Thái Dương ở Ngọ"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_hoi",
+     "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+     "machine": "palace.rel.tp_hoa contains_any [\"Hóa Khoa\", \"Hóa Quyền\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_any [\"Văn Xương\", \"Văn Khúc\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "machine": "palace.rel.self_stars contains_any [\"Kình Dương\", \"Đà La\", \"Hỏa Tinh\", \"Linh Tinh\", \"Địa Không\", \"Địa Kiếp\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "machine": "palace.rel.self_hoa contains \"Hóa Kỵ\"",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "machine": "palace.rel.self_hoa contains \"Hóa Khoa\"",
+     "rescues": [
+      "ky_dong_cung"
+     ],
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.branch in [\"Hợi\", \"Tý\"]; palace.rel.tp_hoa contains \"Hóa Khoa\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: cẩn trọng lời nói và việc làm, nhiều người kính trọng (Hóa Kỵ gặp Hóa Khoa ở Hợi hoặc Tý) [TH p.53]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.branch in [\"Hợi\", \"Tý\"])",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": [
+      "*"
+     ],
+     "provenance_status": "long_hon",
+     "provenance_note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở bại địa hoặc tuyệt địa nhưng được Tam Hóa hội: 'tuyệt xứ phùng sinh', được cứu giải [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.menh_stage_th in [\"bai\", \"tuyet\"]; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\")",
+       "correspondence": "long_hon"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "Thái_Dương_ham",
+     "label": "Thái Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "machine": "palace.tp_rank.Thái Dương lte 0",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn nói Thái Dương hãm gặp sát tinh là tàn hung",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_BT_NN_TAN_HUNG",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "draft",
+       "tier": "T2",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Nhật Nguyệt tàn hung (Nhật hoặc Nguyệt hãm ở Mệnh gặp sát tinh); sách còn nói 'không có cứu tinh' mà hệ thống chưa kiểm [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(VÀ(palace.own_major_stars contains \"Thái Dương\"; palace.dignity.Thái Dương in [\"hãm\"]); VÀ(palace.own_major_stars contains \"Thái Âm\"; palace.dignity.Thái Âm in [\"hãm\"])); HOẶC(palace.rel.tp_stars contains \"Kình Dương\"; palace.rel.tp_stars contains \"Đà La\"; palace.rel.tp_stars contains \"Địa Không\"; palace.rel.tp_stars contains \"Địa Kiếp\"; palace.rel.tp_stars contains \"Hỏa Tinh\"; palace.rel.tp_stars contains \"Linh Tinh\"))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC": {
+   "name_vi": "Thạch trung ẩn ngọc",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 3,
+    "T2": 0,
+    "T3": 0,
+    "T4": 4
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "VÀ(palace.branch in [\"Tý\", \"Ngọ\"]; palace.rel.self_majors contains \"Cự Môn\")",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "cả hai luật nguồn lấy Cự Môn ở Tý/Ngọ làm nền",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_KL_PHU_CU_TY_NGO_TAM_HOA",
+      "TV_TT_MENH_CU_TY_NGO_TAM_HOA",
+      "C_TTAN",
+      "C_TTAN_PHU"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_PHU_CU_TY_NGO_TAM_HOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.58",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú đoán (paraphrased): như ngọc trong đá, phú quý khi được Khoa, Quyền, Lộc hội chiếu (Cự Môn ở Tý hoặc Ngọ) [KL p.58]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.branch in [\"Tý\", \"Ngọ\"]; palace.own_major_stars contains \"Cự Môn\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.tam_phuong_tu_hoa contains \"Hóa Quyền\"; palace.tam_phuong_tu_hoa contains \"Hóa Lộc\")",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TT_MENH_CU_TY_NGO_TAM_HOA",
+       "book": "SRC_TOAN_THU",
+       "page": "TT p.34",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: như ngọc ẩn trong đá, hưởng phúc lớn (Cự Môn ở Tý hoặc Ngọ hội Khoa, Quyền, Lộc) [TT p.34]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.branch in [\"Tý\", \"Ngọ\"]; palace.own_major_stars contains \"Cự Môn\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.tam_phuong_tu_hoa contains \"Hóa Quyền\"; palace.tam_phuong_tu_hoa contains \"Hóa Lộc\")",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_TTAN",
+       "section": "斗數骨髓賦",
+       "zh": "子午巨門石中隱玉，明祿暗祿錦上添花",
+       "vi_literal": "Cự Môn ở Tý Ngọ là ngọc ẩn trong đá; minh lộc, ám lộc thêm hoa trên gấm.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": true,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "khop",
+       "note": "Cự Môn ở Tý/Ngọ"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_TTAN_PHU",
+       "section": "論石中隱玉格（以檢索工具轉述）",
+       "zh": "巨門子午二宮逢，身命逢之必貴榮，更得三方科祿照，石中隱玉是豐隆",
+       "vi_literal": "Cự Môn gặp ở hai cung Tý Ngọ, thân hoặc mệnh gặp ắt vinh quý; lại được tam phương Khoa, Lộc chiếu thì ngọc ẩn trong đá là thịnh vượng.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": true,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "khop",
+       "note": "cũng Tý/Ngọ; nói 'thân hoặc mệnh'"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "tam_hoa_hoi_du",
+     "label": "Hóa Khoa, Quyền và Lộc cùng hội đủ trong tam phương",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Khoa\", \"Hóa Quyền\", \"Hóa Lộc\"]",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "hai luật nguồn: Cự Môn ở Tý/Ngọ hội đủ Khoa, Quyền, Lộc thì như ngọc ẩn trong đá",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_KL_PHU_CU_TY_NGO_TAM_HOA",
+      "TV_TT_MENH_CU_TY_NGO_TAM_HOA"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_PHU_CU_TY_NGO_TAM_HOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.58",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú đoán (paraphrased): như ngọc trong đá, phú quý khi được Khoa, Quyền, Lộc hội chiếu (Cự Môn ở Tý hoặc Ngọ) [KL p.58]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.branch in [\"Tý\", \"Ngọ\"]; palace.own_major_stars contains \"Cự Môn\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.tam_phuong_tu_hoa contains \"Hóa Quyền\"; palace.tam_phuong_tu_hoa contains \"Hóa Lộc\")",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TT_MENH_CU_TY_NGO_TAM_HOA",
+       "book": "SRC_TOAN_THU",
+       "page": "TT p.34",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), paraphrased: như ngọc ẩn trong đá, hưởng phúc lớn (Cự Môn ở Tý hoặc Ngọ hội Khoa, Quyền, Lộc) [TT p.34]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.branch in [\"Tý\", \"Ngọ\"]; palace.own_major_stars contains \"Cự Môn\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.tam_phuong_tu_hoa contains \"Hóa Quyền\"; palace.tam_phuong_tu_hoa contains \"Hóa Lộc\")",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_TTAN_PHU",
+       "section": "論石中隱玉格（以檢索工具轉述）",
+       "zh": "巨門子午二宮逢，身命逢之必貴榮，更得三方科祿照，石中隱玉是豐隆",
+       "vi_literal": "Cự Môn gặp ở hai cung Tý Ngọ, thân hoặc mệnh gặp ắt vinh quý; lại được tam phương Khoa, Lộc chiếu thì ngọc ẩn trong đá là thịnh vượng.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": false,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "khac",
+       "note": "câu phú chỉ nêu Khoa và Lộc (科祿) chiếu, KHÔNG nêu Quyền; sách Việt (KL p.58, TT p.34) đòi đủ Khoa+Quyền+Lộc"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_hoac_kinh_dong_cung",
+     "label": "Hóa Kỵ hoặc Kình Dương đồng cung với Mệnh",
+     "machine": "HOẶC(palace.rel.self_hoa contains \"Hóa Kỵ\"; palace.rel.self_stars contains \"Kình Dương\")",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "KL p.66: khi Khoa Quyền Lộc hội mà Hóa Kỵ hoặc Kình đồng cung thì mờ mịt; áp cho cấu trúc Tam Hóa hội của cách này",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_KL_STAR_MENH_TAM_KY_KY_KINH"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_TAM_KY_KY_KINH",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.66",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: đường công danh mờ mịt (Khoa Quyền Lộc hội mà Hóa Kỵ hoặc Kình đồng cung) [KL p.66]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\"; HOẶC(palace.tu_hoa contains \"Hóa Kỵ\"; HOẶC(palace.own_stars contains \"Kình Dương\")))",
+       "correspondence": "khop"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "machine": "palace.rel.self_hoa contains \"Hóa Khoa\"",
+     "rescues": [
+      "ky_hoac_kinh_dong_cung"
+     ],
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.branch in [\"Hợi\", \"Tý\"]; palace.rel.tp_hoa contains \"Hóa Khoa\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: cẩn trọng lời nói và việc làm, nhiều người kính trọng (Hóa Kỵ gặp Hóa Khoa ở Hợi hoặc Tý) [TH p.53]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.branch in [\"Hợi\", \"Tý\"])",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "Cự_Môn_ham",
+     "label": "Cự Môn ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+     "machine": "palace.tp_rank.Cự Môn lte 0",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Cự Môn hãm hội sát tinh thì suốt đời cùng khổ",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_STAR_CU_MON_NAM_HAM_SAT",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.95",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, phụ giải sao chính ở Mệnh nam (paraphrased): suốt đời cùng khổ, cô đơn (Cự Môn hãm hội sát tinh) [TH p.95]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.gender eq \"nam\"; palace.own_major_stars contains \"Cự Môn\"; palace.dignity.Cự Môn in [\"hãm\"]; palace.khi.sat_tp gte 1)",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  },
+  "CACH_X_MA_DAU_DOI_KIEM": {
+   "name_vi": "Mã đầu đới kiếm",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 0,
+    "T2": 3,
+    "T3": 0,
+    "T4": 6
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "VÀ(palace.branch eq \"Ngọ\"; palace.rel.self_stars contains \"Kình Dương\")",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "KL p.64 (luật còn ở mức nháp): Kình Dương ở Ngọ",
+     "effective_tier": "T2",
+     "supports": [
+      "TV_KL_STAR_MENH_KINH_PHUC_LOC"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KINH_PHUC_LOC",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.64",
+       "review": "draft",
+       "tier": "T2",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: có sự nghiệp lớn, hiển đạt võ nghiệp (Kình ở Ngọ, tránh Sát và Hình, gặp Khoa Quyền Lộc); sao Hình chưa được kiểm nên chỉ loại trừ Thất Sát [KL p.64]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.own_stars contains \"Kình Dương\"); HOẶC(palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\"); palace.branch in [\"Ngọ\"]; KHÔNG(HOẶC(palace.rel.tp_stars contains \"Thất Sát\")))",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_MDDK",
+       "section": "太微賦",
+       "zh": "馬頭帶劍，鎮衛邊疆",
+       "vi_literal": "Đầu ngựa đeo gươm, trấn giữ biên cương.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": false,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "lien_quan",
+       "note": "chỉ nêu tên và 'trấn giữ biên cương'"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_MDDK_CHU",
+       "section": "定貴局（chú）",
+       "zh": "馬頭帶劍 謂馬有刃是也不是居午格",
+       "vi_literal": "Mã đầu đới kiếm: nghĩa là (Thiên) Mã có 'nhận' (lưỡi), chứ không phải cách ở cung Ngọ.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": false,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "khac",
+       "note": "chú giải nói 'Mã có nhận' và phủ nhận đó là cách ở Ngọ; định nghĩa nháp (Kình Dương ở Ngọ, theo KL p.64 trong registry) CÓ THỂ mâu thuẫn"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "khoa_quyen_loc_hoi",
+     "label": "Hóa Khoa, Quyền hoặc Lộc hội trong tam phương",
+     "machine": "palace.rel.tp_hoa contains_any [\"Hóa Khoa\", \"Hóa Quyền\", \"Hóa Lộc\"]",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "KL p.64: gặp Khoa, Quyền, Lộc (luật nguồn còn ở mức nháp)",
+     "effective_tier": "T2",
+     "supports": [
+      "TV_KL_STAR_MENH_KINH_PHUC_LOC"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KINH_PHUC_LOC",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.64",
+       "review": "draft",
+       "tier": "T2",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: có sự nghiệp lớn, hiển đạt võ nghiệp (Kình ở Ngọ, tránh Sát và Hình, gặp Khoa Quyền Lộc); sao Hình chưa được kiểm nên chỉ loại trừ Thất Sát [KL p.64]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.own_stars contains \"Kình Dương\"); HOẶC(palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\"); palace.branch in [\"Ngọ\"]; KHÔNG(HOẶC(palace.rel.tp_stars contains \"Thất Sát\")))",
+       "correspondence": "khop"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "that_sat_trong_tam_phuong",
+     "label": "Thất Sát hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains \"Thất Sát\"",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "KL p.64 (luật nguồn còn ở mức nháp): tránh Thất Sát; sao Hình chưa được kiểm nên chưa đưa vào",
+     "effective_tier": "T2",
+     "supports": [
+      "TV_KL_STAR_MENH_KINH_PHUC_LOC"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KINH_PHUC_LOC",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.64",
+       "review": "draft",
+       "tier": "T2",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: có sự nghiệp lớn, hiển đạt võ nghiệp (Kình ở Ngọ, tránh Sát và Hình, gặp Khoa Quyền Lộc); sao Hình chưa được kiểm nên chỉ loại trừ Thất Sát [KL p.64]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.own_stars contains \"Kình Dương\"); HOẶC(palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\"); palace.branch in [\"Ngọ\"]; KHÔNG(HOẶC(palace.rel.tp_stars contains \"Thất Sát\")))",
+       "correspondence": "khop"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_khac_dong_cung",
+     "label": "Hỏa, Linh, Không hoặc Kiếp đồng cung với Mệnh",
+     "machine": "palace.rel.self_stars contains_any [\"Hỏa Tinh\", \"Linh Tinh\", \"Địa Không\", \"Địa Kiếp\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "machine": "palace.rel.self_hoa contains \"Hóa Kỵ\"",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "machine": "palace.rel.self_hoa contains \"Hóa Khoa\"",
+     "rescues": [
+      "ky_dong_cung"
+     ],
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.branch in [\"Hợi\", \"Tý\"]; palace.rel.tp_hoa contains \"Hóa Khoa\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: cẩn trọng lời nói và việc làm, nhiều người kính trọng (Hóa Kỵ gặp Hóa Khoa ở Hợi hoặc Tý) [TH p.53]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.branch in [\"Hợi\", \"Tý\"])",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": [
+      "*"
+     ],
+     "provenance_status": "long_hon",
+     "provenance_note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở bại địa hoặc tuyệt địa nhưng được Tam Hóa hội: 'tuyệt xứ phùng sinh', được cứu giải [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.menh_stage_th in [\"bai\", \"tuyet\"]; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\")",
+       "correspondence": "long_hon"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  },
+  "CACH_X_TAM_KY_GIA_HOI": {
+   "name_vi": "Tam kỳ gia hội",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 2,
+    "T2": 0,
+    "T3": 0,
+    "T4": 5
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "Khoa, Quyền, Lộc cùng hội ở tam phương Mệnh",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_KL_STAR_MENH_TAM_KY_KY_KINH"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_TAM_KY_KY_KINH",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.66",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: đường công danh mờ mịt (Khoa Quyền Lộc hội mà Hóa Kỵ hoặc Kình đồng cung) [KL p.66]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\"; HOẶC(palace.tu_hoa contains \"Hóa Kỵ\"; HOẶC(palace.own_stars contains \"Kình Dương\")))",
+       "correspondence": "khop"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "hoa_o_ban_cung",
+     "label": "có ít nhất một trong ba hóa ngay ở bản cung Mệnh",
+     "machine": "palace.rel.self_hoa contains_any [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_any [\"Văn Xương\", \"Văn Khúc\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_hoac_kinh_dong_cung",
+     "label": "Hóa Kỵ hoặc Kình Dương đồng cung với Mệnh",
+     "machine": "HOẶC(palace.rel.self_hoa contains \"Hóa Kỵ\"; palace.rel.self_stars contains \"Kình Dương\")",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "KL p.66: Hóa Kỵ hoặc Kình Dương đồng cung thì công danh mờ mịt",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_KL_STAR_MENH_TAM_KY_KY_KINH"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_TAM_KY_KY_KINH",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.66",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: đường công danh mờ mịt (Khoa Quyền Lộc hội mà Hóa Kỵ hoặc Kình đồng cung) [KL p.66]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\"; HOẶC(palace.tu_hoa contains \"Hóa Kỵ\"; HOẶC(palace.own_stars contains \"Kình Dương\")))",
+       "correspondence": "khop"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "ta_huu_giai_ky",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương (giải Kỵ)",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": [
+      "ky_hoac_kinh_dong_cung"
+     ],
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH": {
+   "name_vi": "Khôi Việt giáp Mệnh",
+   "reviewStatus": "draft",
+   "definition_version": 2,
+   "summary": {
+    "T1": 1,
+    "T2": 0,
+    "T3": 0,
+    "T4": 9
+   },
+   "elements": [
+    {
+     "role": "core",
+     "id": "core",
+     "label": "lõi",
+     "machine": "HOẶC(VÀ(palace.rel.flank_prev_stars contains \"Thiên Khôi\"; palace.rel.flank_next_stars contains \"Thiên Việt\"); VÀ(palace.rel.flank_prev_stars contains \"Thiên Việt\"; palace.rel.flank_next_stars contains \"Thiên Khôi\"))",
+     "rescues": null,
+     "provenance_status": "khop",
+     "provenance_note": "Khôi, Việt giáp hai bên Mệnh",
+     "effective_tier": "T1",
+     "supports": [
+      "TV_KL_CUNG_MENH_GIAP_KHOI_VIET"
+     ],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_CUNG_MENH_GIAP_KHOI_VIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.215",
+       "review": "verified",
+       "tier": "T1",
+       "supports": true,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, tóm tắt từng cung (paraphrased), cung Mệnh: được người quý trọng, mến chuộng (Khôi, Việt giáp hai bên Mệnh) [KL p.215]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.neighbor_stars contains \"Thiên Khôi\"; palace.neighbor_stars contains \"Thiên Việt\")",
+       "correspondence": "khop"
+      },
+      {
+       "kind": "classical_web",
+       "id": "C_KV",
+       "section": "定貴局（chú）",
+       "zh": "坐貴向貴 謂魁鉞在命迭相坐拱是也",
+       "vi_literal": "Tọa quý hướng quý: Khôi Việt ở Mệnh, thay nhau tọa và củng chiếu.",
+       "url": "https://zh.wikisource.org/wiki/紫微斗數全書/卷一",
+       "tier": "T3",
+       "supports": false,
+       "independent": false,
+       "retrieved_via": "WebFetch (tóm tắt trang), chưa đối chiếu bản in",
+       "correspondence": "lien_quan",
+       "note": "'tọa quý hướng quý' là Khôi Việt tọa/củng Mệnh, không phải kẹp hai bên (giáp)"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "co_chinh_tinh",
+     "label": "cung Mệnh có chính tinh",
+     "machine": "palace.has_no_major eq false",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_all [\"Tả Phụ\", \"Hữu Bật\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "boosters",
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+     "machine": "palace.rel.tp_stars contains_any [\"Văn Xương\", \"Văn Khúc\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "sat_dong_cung",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+     "machine": "palace.rel.self_stars contains_any [\"Kình Dương\", \"Đà La\", \"Hỏa Tinh\", \"Linh Tinh\", \"Địa Không\", \"Địa Kiếp\"]",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "breakers",
+     "id": "ky_dong_cung",
+     "label": "Hóa Kỵ đồng cung với Mệnh",
+     "machine": "palace.rel.self_hoa contains \"Hóa Kỵ\"",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "khoa_dong_cung",
+     "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+     "machine": "palace.rel.self_hoa contains \"Hóa Khoa\"",
+     "rescues": [
+      "ky_dong_cung"
+     ],
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn chỉ nói Hóa Kỵ gặp Hóa Khoa ở Hợi/Tý (kết quả tốt); bản nháp khái quát cho mọi vị trí",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_STAR_MENH_KY_KHOA",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.67",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phú và ý nghĩa các sao (paraphrased), cung Mệnh: cẩn trọng lời ăn tiếng nói nên được kính nể (Hóa Kỵ ở Hợi/Tý gặp Hóa Khoa) [KL p.67]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.branch in [\"Hợi\", \"Tý\"]; palace.rel.tp_hoa contains \"Hóa Khoa\")",
+       "correspondence": "lien_quan"
+      },
+      {
+       "kind": "registry",
+       "rule": "TV_TH_AUX_MENH_HKY_KHOA",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.53",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: cẩn trọng lời nói và việc làm, nhiều người kính trọng (Hóa Kỵ gặp Hóa Khoa ở Hợi hoặc Tý) [TH p.53]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; palace.tu_hoa contains \"Hóa Kỵ\"; palace.tam_phuong_tu_hoa contains \"Hóa Khoa\"; palace.branch in [\"Hợi\", \"Tý\"])",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "rescuers",
+     "id": "tam_hoa_hoi_cuu",
+     "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+     "machine": "palace.rel.tp_hoa contains_all [\"Hóa Lộc\", \"Hóa Quyền\", \"Hóa Khoa\"]",
+     "rescues": [
+      "*"
+     ],
+     "provenance_status": "long_hon",
+     "provenance_note": "nguồn nói Mệnh ở bại địa hoặc tuyệt địa mà được Tam Hóa hội thì được cứu giải; bản nháp khái quát cho mọi yếu tố phá cách",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_TH_CACH_MENH_SV_CUU_GIAI",
+       "book": "SRC_THUC_HANH",
+       "page": "TH p.74",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: Mệnh an ở bại địa hoặc tuyệt địa nhưng được Tam Hóa hội: 'tuyệt xứ phùng sinh', được cứu giải [TH p.74]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; chart.menh_stage_th in [\"bai\", \"tuyet\"]; palace.rel.tp_hoa contains \"Hóa Khoa\"; palace.rel.tp_hoa contains \"Hóa Quyền\"; palace.rel.tp_hoa contains \"Hóa Lộc\")",
+       "correspondence": "long_hon"
+      }
+     ],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "vo_chinh_dieu",
+     "label": "Mệnh vô chính diệu (phải mượn sao đối cung)",
+     "machine": "palace.has_no_major eq true",
+     "rescues": null,
+     "provenance_status": "khong_co_nguon",
+     "provenance_note": "giả thuyết thiết kế của bản nháp, chưa có luật nguồn trong kho",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [],
+     "verdict": "draft"
+    },
+    {
+     "role": "refutations",
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+     "machine": "HOẶC(palace.tuan eq true; palace.triet eq true)",
+     "rescues": null,
+     "provenance_status": "lien_quan",
+     "provenance_note": "nguồn: Tuần hoặc Triệt đóng ở Mệnh thì vui ít buồn nhiều (điểm kém); việc coi đó là phản chứng hạ một bậc là suy diễn của bản nháp",
+     "effective_tier": "T4",
+     "supports": [],
+     "sources": [
+      {
+       "kind": "registry",
+       "rule": "TV_KL_AUX_TUAN_TRIET",
+       "book": "SRC_KHAO_LUAN",
+       "page": "KL p.228",
+       "review": "verified",
+       "tier": "T1",
+       "supports": false,
+       "independent": false,
+       "nguyen_van": "không có trong repo (registry chỉ lưu diễn giải)",
+       "registry_paraphrase": "Tử Vi Khảo Luận, phụ tinh ở Mệnh (paraphrased): vui ít buồn nhiều (Tuần hoặc Triệt đóng ở Mệnh) [KL p.228]",
+       "registry_condition": "VÀ(palace.name eq \"Mệnh\"; HOẶC(palace.tuan eq true; palace.triet eq true))",
+       "correspondence": "lien_quan"
+      }
+     ],
+     "verdict": "draft"
+    }
+   ]
+  }
+ }
+}
