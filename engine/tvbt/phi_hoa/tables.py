@@ -13,7 +13,9 @@ HOA = ("Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ")
 TABLES: dict[str, dict] = {
     "tam_hop_vn": {
         "stars": TU_HOA,                                  # stem index -> (Lộc, Quyền, Khoa, Kỵ)
-        "status": "reused_unverified_for_phi_tinh",
+        "school": "tam_hop",                              # the table belongs to the Tam Hợp school ...
+        "status": "reused_unverified_for_phi_tinh",       # ... and has NOT been verified as the table a Phi Tinh text uses
+        "verified_for": ["tam_hop_natal_tu_hoa"],         # what it IS verified for (Thực Hành p.21 + Khảo Luận pp.196-197 agree)
         "note": "Same table as the natal Tứ Hóa (verified for the tam hợp school). Its use by the Phi Tinh school is not verified.",
     },
 }
