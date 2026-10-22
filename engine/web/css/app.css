@@ -601,6 +601,15 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 .coin-hole{fill:var(--bg,#FAF6EF);stroke:#86642F;stroke-width:.9}.coin-shine{fill:none;stroke:#FFF4DA;stroke-width:1.3;stroke-linecap:round;opacity:.85}
 .acct-admin{font:600 .8rem var(--sans);color:var(--accent);text-decoration:none;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:99px;padding:5px 10px;white-space:nowrap}
 .acct-admin:hover{background:var(--surface)}
+/* header on one line at every width: brand, menu and account never wrap; as room runs out the least needed pieces go first
+   (the free-chat count below 1180px, then "Bạn nhận được gì" for a signed-in visitor, whose account controls take the space; the
+   thresholds leave room for a 9rem account name) */
+.brand,.nav,.acct,.hdr-cta{flex:none}
+.brand-t b,.brand-t small,.nav a,.nav button{white-space:nowrap}
+@media (max-width:1440px){.hdr{gap:var(--s4)}.nav{gap:2px}.nav a,.nav button{padding:10px 10px}}
+@media (max-width:1260px){.hdr:has(.acct-out) .nav [data-go="ban-nhan-duoc"]{display:none}}
+@media (max-width:1060px){.hdr:has(.acct-out) .brand-t small{display:none}.hdr{gap:var(--s3)}}
+@media (max-width:600px){.hdr{gap:8px}.brand{flex:0 1 auto;min-width:0}.brand-t{min-width:0}.brand-t b{overflow:hidden;text-overflow:ellipsis}}
 
 /* Chat about the chart (js/ask.js) */
 .ask-fab{position:fixed;right:20px;bottom:20px;z-index:60;font:600 .92rem var(--sans);color:var(--ivory);background:var(--cinnabar);border:0;border-radius:99px;padding:13px 20px;cursor:pointer;box-shadow:var(--sh)}
