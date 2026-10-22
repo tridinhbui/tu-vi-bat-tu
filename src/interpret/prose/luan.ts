@@ -45,6 +45,8 @@ export interface LuanLib {
   ledger: Record<string, string[]> & { verdict: Record<string, string[]> };
   /** a limiting element of the palace no reading of the chapter faced: the structural conditional sentence, by element kind */
   confront: Record<string, string[]>;
+  /** the same, for an older chapter with no reading of its own to qualify ({el}: the element) */
+  confront_alone?: string[];
   /** a big conclusion resting on one minor star */
   single: string[];
   /** a verified timing reading of the palace */
@@ -141,7 +143,24 @@ export function luanReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?:
   const pre = infer(chart, k);
   const old = proseReport(chart, k, { ...opts, pre });
   const sh = luanShared(chart, k, allowDraft, pre);
-  return PROSE_ORDER.map((id, i) => luanChapter(chart, k, id, sh) ?? withoutTold(old[i], sh.keys));
+  return PROSE_ORDER.map((id, i) => luanChapter(chart, k, id, sh) ?? withConfront(chart, k, id, withoutTold(old[i], sh.keys), sh));
+}
+
+/** An older chapter (a palace with nothing to argue) still faces the limiting elements of its palace that none of its readings stands on:
+ *  one structural conditional sentence each, in a paragraph of their own (frame part 4). */
+function withConfront(chart: ChartInput, k: Knowledge, id: ProseChapterId, ch: ProseChapter, sh: LuanShared): ProseChapter {
+  const T = k.prose!.luan!.confront_alone, P = PROSE_SPECS[id].palace;
+  if (!T?.length) return ch;
+  const plan = reasonPalace(chart, k, P, { resolved: sh.resolved, labelled: sh.labelled }, { draftFormations: sh.allowDraft });
+  const said = new Set(ch.paragraphs.flatMap(p => p.sentences.flatMap(s => s.trace.rules)));
+  const open = plan.confront.filter(c => !c.readings.some(x => said.has(x.r.ruleId)));
+  if (!open.length) return ch;
+  const W = new Writer(chart, k, plan, sh.allowDraft, { micro: sh.micro });
+  const xs = open.map(c => W.sentence(fill(W.pick(`cfa|${P}|${c.element.id}`, T), { el: elName(c.element), pal: P }),
+    { move: 'TURN', step: `confront:${c.element.id}`, basis: 'he_thong', confront: [c.element.id, ...(c.element.kind === 'ky_carrier' ? ['hoa:Hóa Kỵ'] : [])], part: 4 }));
+  const para: ProseParagraph = { role: 'support', sentences: xs, text: xs.map(s => s.text).join(' '), part: 4 };
+  const paragraphs = [...ch.paragraphs, para];
+  return { ...ch, paragraphs, text: paragraphs.map(p => p.text).join('\n\n') };
 }
 
 /** One palace in the luận cung form, or null when its plan gives nothing to argue (the caller keeps the older chapter). */
@@ -609,7 +628,8 @@ function caveats(W: Writer, L: LuanLib, t: Thesis, xs: ProseSentence[], P: strin
     const add: ProseSentence[] = [];
     if (c.kyCarrier && !said.has(c.kyCarrier) && said.add(c.kyCarrier)) add.push(W.sentence(fill(W.pick(`kyc|${P}|${c.kyCarrier}`, L.confront.ky_carrier), { star: c.kyCarrier, pal: P }),
       { move: 'TURN', step: `kyc:${t.id}:${c.concept}`, basis: 'he_thong', confront: [`cat:${c.kyCarrier}`, `major:${c.kyCarrier}`, 'hoa:Hóa Kỵ'], part: 4 }));
-    if (c.single?.length) add.push(W.sentence(fill(W.pick(`single|${P}|${t.id}`, L.single), { stars: joinVi(c.single) }),
+    // one minor star: unless the thesis goes on to tell another palace saying the same thing
+    if (c.single?.length && !xs.some(s => s.trace.step?.startsWith('corroborated:') && s.trace.concepts.includes(c.concept))) add.push(W.sentence(fill(W.pick(`single|${P}|${t.id}`, L.single), { stars: joinVi(c.single) }),
       { move: 'TURN', step: `single:${t.id}:${c.concept}`, basis: 'he_thong', part: 4 }));
     // after the claim and its behaviour line
     const after = xs[at + 1]?.trace.step?.startsWith('behave:') ? at + 2 : at + 1;

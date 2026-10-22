@@ -35,8 +35,8 @@ export interface StructureNote { id: string; name: string; verification: Verific
 export interface Guarded { ruleId: string; concept: string; reason: string; cite: string }
 export interface Seat { ref: SeatRef; readings: Reading[]; formations: Formation[]; states: CachState[]; score: number }
 export interface Claim { axis: Axis; concept: string; soft: boolean; score: number; conceptRate: number; rarest: number;
-  /** a big conclusion (career, money, marriage, health) resting on one minor star or one rule of minor stars, with no other seat or palace
-   *  saying the same: told as what that star alone suggests, never as the palace's conclusion (the stars it rests on) */
+  /** a big conclusion (career, money, marriage, health) resting on one minor star or one rule of minor stars: unless the chapter tells
+   *  another palace saying the same (a corroboration), it is told as what that star alone suggests, never as the palace's conclusion */
   single?: string[];
   /** the claim is a strength, but a star it rests on carries Hóa Kỵ in this palace: it is never told as a plain positive */
   kyCarrier?: string;
@@ -285,7 +285,7 @@ export function reasonPalace(chart: ChartInput, k: Knowledge, P: string, pre?: {
     }
     // one minor star (or one rule of minor stars) is not enough for a big conclusion
     if (con && BIG.test(con.facet) && c.axis.verdict !== 'contested' && c.axis.base.length && c.axis.base.every(x => x.seat.tier >= 4)
-      && new Set(c.axis.base.map(x => x.r.ruleId)).size <= 1 && !t.cross.some(x => x.type === 'corroborated' && x.concept === c.concept))
+      && new Set(c.axis.base.map(x => x.r.ruleId)).size <= 1)
       c.single = [...new Set(c.axis.base.flatMap(x => x.r.atoms).filter(a => (a.kind === 'star' || a.kind === 'hoa') && a.palace !== null).map(a => a.name))];
   }
   const live = readings.filter(x => rmap.get(x.r.ruleId)?.reviewStatus === 'verified');

@@ -63,7 +63,8 @@ for (const c of corpus.slice(0, N)) {
       m.claims++;
       const rs = resolved.filter(x => s.trace.rules.includes(x.ruleId) && x.subject === `palace:${P}`);
       if (!rs.length || new Set(rs.map(x => x.ruleId)).size > 1 || !rs.every(x => seatOf(x, g).seat.tier >= 4)) return;
-      const caveat = ss.slice(i + 1, i + 4).some(x => (x.trace.step ?? '').startsWith('single:'));
+      // a caveat after it, or another palace saying the same (corroboration from the tam phương): not a one-star conclusion
+      const caveat = ss.slice(i + 1, i + 5).some(x => /^(single|corroborated):/.test(x.trace.step ?? ''));
       if (!caveat) { m.oneStar++; if (examples.oneStar.length < 8) examples.oneStar.push(`${f.year_gz} ${P}: ${s.text}`); }
     });
     // sides voiced per domain, and the domain conclusions
