@@ -84,7 +84,7 @@ def build(chart: TuViChart, table_id: str = "tam_hop_vn", stem_override: dict[st
         for hoa, star in stars_for(stem, table_id).items():
             q = holder.get(star)
             e = Edge(p["name"], q["name"] if q else None, hoa, star, STEMS_VI[stem], _kinds(chart, p, q))
-            e.trace = (f"cung {p['name']} (can {STEMS_VI[stem]}) phát {hoa} → sao {star} (bảng {table_id}) "
+            e.trace = (f"cung {p['name']} (can {STEMS_VI[stem]}) phát {hoa} → sao {star} (bảng {table_id}: Tứ Hóa tam hợp, chưa xác minh cho Phi Tinh) "
                        + (f"đang ở cung {q['name']} → cung nhận hóa" if q else "không có trong lá số"))
             edges.append(e)
             out[p["name"]][hoa] = e
