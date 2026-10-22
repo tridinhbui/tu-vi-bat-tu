@@ -1,5 +1,5 @@
 {
-  "note": "Bát Tự reader prose (prose plan P7). Only verified Bát Tự rules that fired are voiced (today all from 八字真宗, cited ZZ p.N): the day master's character (pp.25-26), the day pillar's nạp âm (pp.31-32), and the manual's direct judgements (pp.50-74). Strength (vượng/nhược), useful god (dụng thần) and structure (cách cục) are not voiced: no verified rule speaks of them. Each rule's book paraphrase is split into its effect and its cause; frames add no claim. {S} = the person. Draft until reviewed.",
+  "note": "Bát Tự reader prose (prose plan P7). Only verified Bát Tự rules that fired are voiced (today all from 八字真宗, cited ZZ p.N): the day master's character (pp.25-26), the day pillar's nạp âm (pp.31-32), and the manual's direct judgements (pp.50-74). Strength (TVH 40% rule), useful god (TVH tables) and the cách's thành bại (TVH pp.367-369) are voiced by bazi_deep.ts (deep.*). Each rule's book paraphrase is split into its effect and its cause; frames add no claim. {S} = the person. Draft until reviewed.",
   "status": "draft",
   "dm_first": [
     "Người có nhật chủ {dm} (hành {el}) thường {core}.",
@@ -124,19 +124,19 @@
       "Tài có lộ trên thiên can, là phần hiện ra ngoài của lá số."
     ],
     "day_branch": [
-      "Trụ ngày là {day}; nhật chi {branch}, theo cách gọi thông dụng là chỗ của bạn đời, tàng {hidden}.",
-      "Nhật chi {branch} của trụ ngày {day}, nơi người ta thường xem bạn đời, chứa {hidden}."
+      "Bát Tự Chân Tông lấy nguyệt lệnh làm cung hôn nhân và nhật chi làm cung phối ngẫu; nhật chi {branch} của trụ ngày {day} tàng {hidden}.",
+      "Nhật chi {branch} của trụ ngày {day} là cung phối ngẫu (còn chi tháng {mb} là cung hôn nhân) theo Bát Tự Chân Tông, và tàng {hidden}."
     ],
     "relations": [
-      "Giữa các trụ có {rels}; đó là những chỗ các trụ tác động lẫn nhau, còn hóa hay không thì cần điều kiện chưa xét đến.",
-      "Các trụ có {rels}: những điểm tương tác của lá số, chưa phải kết luận tốt xấu."
+      "Giữa các trụ gốc có {rels}.",
+      "Trong tứ trụ có {rels}."
     ],
     "no_relations": [
-      "Các trụ gốc không có hợp, xung, hại hay phá nào với nhau, nên lá số khá ít va chạm nội tại."
+      "Các trụ gốc không có hợp, xung, hại hay phá nào với nhau."
     ],
     "luck_now": [
-      "Hiện tại (năm {year}) bạn đang đi đại vận {name}, bắt đầu từ năm {from}; can vận là {god} so với nhật chủ{next}.",
-      "Năm {year} nằm trong đại vận {name} (từ {from}), can vận mang tính {god}{next}."
+      "Năm {year} nằm trong đại vận {name}, bắt đầu từ năm {from}; can vận là {god} so với nhật chủ{next}.",
+      "Năm {year} thuộc đại vận {name} (từ {from}), can vận mang tính {god}{next}."
     ],
     "luck_next": [
       "; chặng kế tiếp là {name}, từ năm {from}",
@@ -178,28 +178,6 @@
       "Vì vậy hành nên bổ là {need}, hành nên tránh thêm là {avoid}.",
       "Nói gọn, lá số cần thêm {need} và nên bớt {avoid}."
     ],
-    "phu_uc": [
-      "Xét theo phép phù ức, nhật chủ {level} nên lấy {yong} làm chỗ dựa, {xi} giúp sức; còn {ji} là những nhóm làm hao sức nhật chủ.",
-      "Theo cách phù ức, với nhật chủ {level}, nhóm {yong} là dụng, {xi} là hỷ, và {ji} là những nhóm nên dè chừng."
-    ],
-    "geju_inner": [
-      "Cách của lá số, lập từ nguyệt lệnh, là cách {name}, hiện ở thế {state}.",
-      "Từ nguyệt lệnh, lá số thành cách {name}, trạng thái {state}."
-    ],
-    "geju_outer": [
-      "Lá số còn có dáng {name}, nhưng chỉ là {quality}, chưa thành chân cách.",
-      "Bên cạnh đó có bóng dáng {name} ({quality}), chưa đủ để đổi cách."
-    ],
-    "geju_state": {
-      "thanh": "thành",
-      "bai": "bại",
-      "bai_cuu": "bại mà có cứu",
-      "bai_cuu_yeu": "bại, cứu yếu"
-    },
-    "luck": [
-      "Từ {age} tuổi (khoảng năm {year}), đại vận {pillar}: can vận là {god}.",
-      "Đại vận {pillar} bắt đầu khoảng {age} tuổi (năm {year}), can vận mang thập thần {god}."
-    ],
     "luck_role": {
       "yong": "Can vận đúng là hành lá số cần, nên đây là vận được tiếp sức.",
       "xi": "Can vận thuộc nhóm hỗ trợ cho dụng thần, nên vận này khá thuận.",
@@ -214,31 +192,230 @@
     "verified_text": {
       "BT_TTT_HANNOAN_THUAN_NOAN": "Khí nóng của lá số đã quá mà Thủy lại không có gốc, nên không lấy cái lạnh làm cách điều hòa chính.",
       "BT_TTT_CAIDAU_DIEU_HAU": "Can vận khắc chi vận (thế cái đầu), nên phần tốt của vận chỉ còn chừng một nửa.",
-      "BT_TTT_TIETCUOC_DIEU_HAU": "Can vận vốn là hành tốt nhưng bị chi vận khắc (thế tiệt cước, chi không chở được can), nên cả vận khó trọn phần cát; nhẹ hơn nếu lá số có hành chế ngự."
+      "BT_TTT_TIETCUOC_DIEU_HAU": "Can vận vốn là hành tốt nhưng bị chi vận khắc (thế tiệt cước, chi không chở được can), nên cả vận khó trọn phần cát; nhẹ hơn nếu lá số có hành chế ngự.",
+      "BT_TTT_HANNOAN_CAN_NOAN": "Khí lá số lạnh quá mà Hỏa vẫn có khí, nên theo Trích Thiên Tủy cần sưởi ấm, tức cần Hỏa.",
+      "BT_TTT_HANNOAN_THUAN_HAN": "Khí lá số lạnh quá mà Hỏa không có khí, nên theo Trích Thiên Tủy lại thuận theo cái lạnh mà dùng.",
+      "BT_TTT_HANNOAN_CAN_HAN": "Khí lá số nóng quá mà Thủy có gốc, nên theo Trích Thiên Tủy cần làm mát, tức cần Thủy.",
+      "BT_TTT_NGUYENLUU_HI": "Khí vượng nhất của lá số chảy từ Tỉ Kiếp hoặc Ấn sang Tài Quan, dòng chảy mà Trích Thiên Tủy gọi là hỉ.",
+      "BT_TTT_NGUYENLUU_KY": "Khí của lá số chảy ngược từ Tài Quan về Tỉ Kiếp, dòng chảy mà Trích Thiên Tủy gọi là kỵ.",
+      "BT_TTT_HONTAP_KHONG_NGAI": "Quan Sát lẫn lộn trong tứ trụ, nhưng nhật chủ vượng, hoặc tọa Ấn, hoặc được trụ giờ sinh phù, nên theo Trích Thiên Tủy không đáng ngại.",
+      "BT_TTT_HONTAP_CO_BENH": "Quan Sát lẫn lộn mà nhật chủ không vượng, không tọa Ấn, trụ giờ cũng không sinh phù, nên Trích Thiên Tủy coi là có bệnh, không nghèo thì cũng kém sang.",
+      "BT_TTT_TQ_TAI": "Cách Thương Quan ở đây là nhật chủ vượng, Thương Quan cũng vượng, nên theo Trích Thiên Tủy lấy Tài làm dụng; vận Tài, vận Thương vượng thì giàu, vận Ấn, vận Kiếp vượng thì nghèo.",
+      "BT_TTT_TQ_AN": "Cách Thương Quan ở đây là nhật chủ nhược, Thương Quan vượng, có Ấn, nên theo Trích Thiên Tủy lấy Ấn làm dụng, kỵ thấy Tài; vận Ấn vượng, thân vượng thì hiển quý.",
+      "BT_TTT_TQ_KIEP": "Cách Thương Quan ở đây là nhật chủ nhược, Thương Quan vượng mà không có Ấn, nên theo Trích Thiên Tủy lấy Tỉ Kiếp làm dụng, kỵ thấy Tài Quan; vận Ấn vượng thì quý.",
+      "BT_TTT_TQ_THUONG": "Cách Thương Quan ở đây là nhật chủ vượng mà không có Tài Quan, nên theo Trích Thiên Tủy lấy Thực Thương làm dụng, kỵ gặp Quan Ấn; vận Tài vượng thì giàu mà sang.",
+      "BT_TTT_TQ_QUAN": "Cách Thương Quan ở đây là nhật chủ vượng, Tỉ Kiếp nhiều, Tài suy, Thương Quan nhẹ, nên theo Trích Thiên Tủy lấy Quan Sát làm dụng, mừng gặp Tài Quan; vận Tài vượng thì giàu.",
+      "BT_TTT_TONG_VUONG": "Lá số có dáng Tòng Vượng: tứ trụ toàn Tỉ Kiếp, không Quan Sát chế, có Ấn sinh; theo Trích Thiên Tủy vận Tỉ Kiếp, Ấn là cát, vận Quan Sát phạm vào thế vượng.",
+      "BT_TTT_TONG_CUONG": "Lá số có dáng Tòng Cường: Ấn và Tỉ Kiếp trùng điệp, nhật chủ nắm lệnh, không có khí Tài Quan; theo Trích Thiên Tủy chỉ nên thuận, vận Tỉ Kiếp, Ấn là cát, vận Tài Quan là chọc giận cường thần.",
+      "BT_TTT_TONG_THE": "Lá số có dáng Tòng Thế: nhật chủ không có gốc, Tài, Quan, Thực Thương cùng vượng, không có Kiếp Ấn; theo Trích Thiên Tủy nên đi vận Tài, rồi đến Quan Sát, Thực Thương, còn vận Tỉ Kiếp, Ấn là hung.",
+      "BT_TTT_TONG_TAI": "Lá số có dáng Tòng Tài; theo Trích Thiên Tủy cần Thực Thương làm tiết tú khí và kỵ nhất là vận Kiếp.",
+      "BT_TTT_TONG_SAT": "Lá số có dáng Tòng Sát; theo Trích Thiên Tủy nên đi vận Tài, Quan vượng.",
+      "BT_TTT_HOA_DU": "Hóa thần vượng mà có dư, nên theo Trích Thiên Tủy lấy hành tiết bớt hóa thần làm dụng.",
+      "BT_TTT_HOA_THIEU": "Hóa thần suy mà không đủ, nên theo Trích Thiên Tủy lấy hành sinh trợ hóa thần làm dụng.",
+      "BT_TVH_CV_KHUC_TRUC": "Lá số hợp điều kiện cách Khúc Trực của Thiệu Vĩ Hoa: nhật chủ Mộc sinh tháng Mộc nắm lệnh, không có Canh, Tân, Dậu khắc Mộc, Mộc rất nhiều hoặc thành cục.",
+      "BT_TVH_CV_VIEM_THUONG": "Lá số hợp điều kiện cách Viêm Thượng của Thiệu Vĩ Hoa: nhật chủ Hỏa sinh tháng Hỏa nắm lệnh, không có Nhâm, Quý, Hợi, Tý, Hỏa Mộc nhiều hoặc thành cục.",
+      "BT_TVH_CV_GIA_SAC": "Lá số hợp điều kiện cách Gia Sắc của Thiệu Vĩ Hoa: nhật chủ Thổ sinh tháng tứ khố, đủ ba hoặc bốn kho, không có Giáp, Ất, Dần, Mão phá cách.",
+      "BT_TVH_CV_TONG_CACH": "Lá số hợp điều kiện Tòng Cách (Kim độc vượng) của Thiệu Vĩ Hoa: nhật chủ Kim sinh tháng Kim nắm lệnh, địa chi thành cục Kim, không có Bính, Đinh, Ngọ, Tỵ phá cách.",
+      "BT_TVH_CV_NHUAN_HA": "Lá số hợp điều kiện cách Nhuận Hạ của Thiệu Vĩ Hoa: nhật chủ Thủy sinh tháng Thủy nắm lệnh, không có Mậu, Kỷ, Tuất, Mùi khắc Thủy, Thủy rất nhiều hoặc thành cục.",
+      "BT_TVH_TONG_TAI": "Lá số hợp điều kiện cách Tòng Tài của Thiệu Vĩ Hoa: nhật chủ nhược, không có khí gốc, không có Tỉ Kiếp hay Ấn sinh phù, Tài vượng.",
+      "BT_TVH_TONG_SAT": "Lá số hợp điều kiện cách Tòng Sát của Thiệu Vĩ Hoa: nhật chủ nhược, không có khí gốc, Quan Sát nhiều, không có Thực Thương chế, có Tài sinh Quan Sát.",
+      "BT_TVH_TONG_NHI": "Lá số hợp điều kiện cách Tòng Nhi của Thiệu Vĩ Hoa: chi tháng có Thực Thương, Thực Thương vượng khắp cục, có Tài, không có Quan Sát hay Ấn.",
+      "BT_TVH_HOA_MOC": "Nhật chủ hợp với can kề bên mà hóa Mộc, hóa thần cùng hành chi tháng và vượng chuyên nhất: cách Hóa Mộc theo Thiệu Vĩ Hoa.",
+      "BT_TVH_HOA_HOA": "Nhật chủ hợp với can kề bên mà hóa Hỏa, hóa thần cùng hành chi tháng và vượng chuyên nhất: cách Hóa Hỏa theo Thiệu Vĩ Hoa.",
+      "BT_TVH_HOA_THO": "Nhật chủ hợp với can kề bên mà hóa Thổ, hóa thần cùng hành chi tháng và vượng chuyên nhất: cách Hóa Thổ theo Thiệu Vĩ Hoa.",
+      "BT_TVH_HOA_KIM": "Nhật chủ hợp với can kề bên mà hóa Kim, hóa thần cùng hành chi tháng và vượng chuyên nhất: cách Hóa Kim theo Thiệu Vĩ Hoa.",
+      "BT_TVH_HOA_THUY": "Nhật chủ hợp với can kề bên mà hóa Thủy, hóa thần cùng hành chi tháng và vượng chuyên nhất: cách Hóa Thủy theo Thiệu Vĩ Hoa.",
+      "BT_TTT_THIENKHAC_VUONG": "Nhật chủ vượng, nên theo Trích Thiên Tủy thế thiên khắc địa xung này tuy hung mà không đáng ngại.",
+      "BT_TTT_THIENKHAC_NHUOC": "Nhật chủ lại nhược, nên Trích Thiên Tủy coi thế thiên khắc địa xung này là điềm hung lớn của năm."
     },
-    "pillar_lead": {
-      "year": "Ở trụ năm, can là {god}: {text}",
-      "month": "Can tháng là {god}, vị trí mạnh nhất trong tứ trụ: {text}",
-      "hour": "Trụ giờ có can {god}: {text}",
-      "day_branch": "Chi ngày, cung của người phối ngẫu, mang chính khí {god}: {text}"
+    "note_track_c": "Track C (plan quirky-tinkering-rabin): every frame below states a computed fact, a page-cited table (TVH pp.378-386, 389-396; 八字真宗 pp.19-25, 57) or a verified rule's own claim. No meaning is given to hợp/xung/hình/hại/phá: 八字真宗 pp.19-20 prints the tables only. Words 'sách ', 'tr.', 'nhận định', 'quy tắc', 'nguồn', 'hệ thống' never appear in a frame (lint).",
+    "frame2": [
+      "Sinh tháng {mb}{season}, hành {el} của nhật chủ ở thế {state}; chấm theo Thiệu Vĩ Hoa thì nhật chủ {level}, và theo bảng điều hậu lá số cần {need}.",
+      "Nhật chủ {dm} sinh tháng {mb}{season}, hành {el} đang ở thế {state}; theo cách chấm điểm của Thiệu Vĩ Hoa nhật chủ {level}, còn bảng điều hậu cho biết lá số cần {need}."
+    ],
+    "season_name": {
+      "Dần": " (mùa xuân)",
+      "Mão": " (mùa xuân)",
+      "Thìn": " (cuối xuân)",
+      "Tỵ": " (mùa hạ)",
+      "Ngọ": " (mùa hạ)",
+      "Mùi": " (cuối hạ)",
+      "Thân": " (mùa thu)",
+      "Dậu": " (mùa thu)",
+      "Tuất": " (cuối thu)",
+      "Hợi": " (mùa đông)",
+      "Tý": " (mùa đông)",
+      "Sửu": " (cuối đông)"
     },
-    "luck_pu": {
-      "yong": [
-        "Theo phép phù ức, {god} thuộc nhóm {group}, đúng nhóm nhật chủ cần dựa, nên vận này dễ được tiếp sức.",
-        "Xét phù ức, can vận là {god} (nhóm {group}), nhóm làm chỗ dựa cho nhật chủ: một vận khá thuận."
-      ],
-      "xi": [
-        "Theo phép phù ức, {god} thuộc nhóm {group}, nhóm giúp sức cho nhật chủ, nên vận này có thêm người cùng gánh.",
-        "Xét phù ức, {god} (nhóm {group}) là nhóm hỗ trợ, vận này nhật chủ đỡ đơn độc."
-      ],
-      "ji": [
-        "Theo phép phù ức, {god} thuộc nhóm {group}, nhóm làm hao sức nhật chủ, nên vận này cơ hội đến kèm áp lực, cần lượng sức.",
-        "Xét phù ức, {god} (nhóm {group}) rút sức nhật chủ: việc nhiều, phải biết chọn việc mà làm."
-      ]
-    }
+    "stages": [
+      "Xét mười hai giai đoạn trường sinh, nhật chủ {dm} gặp {list}.",
+      "Theo vòng trường sinh, nhật chủ {dm} gặp {list}."
+    ],
+    "stage_turn": [
+      "Tuy vậy, {at} cho nhật chủ thế {stage}, {dir}.",
+      "Dẫu vậy, ở {at} nhật chủ đứng thế {stage}, {dir}."
+    ],
+    "totals": [
+      "Theo điểm Thiệu Vĩ Hoa, {top} mạnh nhất, {low} yếu nhất; nhóm {dom} chiếm nhiều nhất so với nhật chủ.",
+      "Cộng điểm theo phép Thiệu Vĩ Hoa, hai hành mạnh nhất là {top}, yếu nhất là {low}; so với nhật chủ thì nhóm {dom} nhiều nhất."
+    ],
+    "cach_first": [
+      "Lập từ nguyệt lệnh {mb}, lá số thuộc cách {cach}; với cách này, Thiệu Vĩ Hoa xếp trường hợp {cond} vào loại {verdict}.",
+      "Cách của lá số, lấy từ chi tháng {mb}, là cách {cach}, và Thiệu Vĩ Hoa đánh giá trường hợp {cond} là {verdict}."
+    ],
+    "tb_next": [
+      "Cũng với cách ấy, trường hợp {cond} được xếp là {verdict}.",
+      "Thiệu Vĩ Hoa còn xếp trường hợp {cond} vào loại {verdict}."
+    ],
+    "tb_turn": [
+      "Tuy nhiên, trường hợp {cond} lại bị Thiệu Vĩ Hoa xếp vào loại {verdict}.",
+      "Tuy nhiên, lá số cũng khớp trường hợp {cond}, mà Thiệu Vĩ Hoa xếp là {verdict}."
+    ],
+    "table": [
+      "Theo bảng dụng thần của Thiệu Vĩ Hoa, cách {cach} khi nhật chủ {dm} và nhóm {dom} nhiều nhất thì lấy {yong} làm dụng thần; vận {tot} là vận tốt, vận {xau} là vận xấu.",
+      "Bảng dụng thần của Thiệu Vĩ Hoa cho cách {cach}, nhật chủ {dm}, nhóm {dom} nhiều nhất: dụng thần là {yong}, gặp vận {tot} thì tốt, gặp vận {xau} thì xấu."
+    ],
+    "table_no_van": [
+      "Theo bảng dụng thần của Thiệu Vĩ Hoa, cách {cach} khi nhật chủ {dm} và nhóm {dom} nhiều nhất thì lấy {yong} làm dụng thần."
+    ],
+    "table_special": [
+      "Với cách đặc biệt {name}, Thiệu Vĩ Hoa xếp vận {tot} là vận tốt, vận {xau} là vận xấu."
+    ],
+    "dh_turn": [
+      "Tuy nhiên, xét điều hậu thì nhật chủ {dm} sinh tháng {mb}, khí {climate}, lấy {main} làm chính, khác với dụng thần {yong} theo cách.",
+      "Tuy nhiên, bảng điều hậu cho nhật chủ {dm} sinh tháng {mb} (khí {climate}) lại đặt {main} lên đầu, không trùng với dụng thần {yong} theo cách."
+    ],
+    "advice": [
+      "Vì vậy, chỗ nên dựa là {lean}; những chặng gặp {tot} thuận hơn những chặng gặp {xau}.",
+      "Điều nên làm là dựa vào {lean}, tiến ở những chặng gặp {tot} và giữ sức ở những chặng gặp {xau}."
+    ],
+    "shensha": [
+      "Tra bảng thần sát, lá số có {list}.",
+      "Trong bảng thần sát, tứ trụ có {list}."
+    ],
+    "shensha_hung": [
+      "Ngoài ra, {list} là {them} thuộc nhóm hung.",
+      "Lá số cũng mang {list}, thuộc nhóm sao hung."
+    ],
+    "shensha_plain": [
+      "Tứ trụ còn có {list}.",
+      "Cũng có mặt {list}."
+    ],
+    "luck_head": [
+      "Từ {age} tuổi ({from}–{to}), đại vận {pillar}{cur}: can {stem} là {god}, chi {branch} mang chính khí {bgod}; nhật chủ đến chi này ở thế {stage}.",
+      "Đại vận {pillar}{cur} chạy từ {age} tuổi ({from}–{to}): can {stem} mang thập thần {god}, chi {branch} tàng chính khí {bgod}, nhật chủ gặp chi này ở thế {stage}."
+    ],
+    "luck_now": " (chặng của năm {year})",
+    "tvh_both": [
+      "Theo bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach}, nhóm {sg} của can và nhóm {bg} của chi đều thuộc vận {v}.",
+      "Bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} xếp cả can ({sg}) lẫn chi ({bg}) vào vận {v}."
+    ],
+    "tvh_split": [
+      "Theo bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach}, can {stem} (nhóm {sg}) thuộc vận {v}, còn chi {branch} (nhóm {bg}) thuộc vận {v2}.",
+      "Bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} xếp can {stem} ({sg}) vào vận {v} nhưng chi {branch} ({bg}) vào vận {v2}."
+    ],
+    "tvh_one": [
+      "Theo bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach}, {part} {who} thuộc nhóm {g}, nhóm vận {v}.",
+      "Bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} xếp {part} {who} (nhóm {g}) vào vận {v}."
+    ],
+    "tvh_none": [
+      "Bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} không xếp nhóm {sg} hay {bg} vào vận tốt hoặc vận xấu.",
+      "Nhóm {sg} của can và {bg} của chi không nằm trong vận tốt hay vận xấu mà bảng của Thiệu Vĩ Hoa nêu cho cách {cach}."
+    ],
+    "verdict": {
+      "tot": "tốt",
+      "xau": "xấu"
+    },
+    "ev_open": [
+      "Đặt lên nguyên cục, {list}.",
+      "Với tứ trụ gốc, {list}.",
+      "Trên nguyên cục, {list}."
+    ],
+    "ev_none": [
+      "Can chi này không hợp, xung, hình, hại hay phá với chữ nào của nguyên cục."
+    ],
+    "ev_kind": {
+      "stem_combine": "hợp",
+      "stem_clash": "xung",
+      "branch_six_combine": "lục hợp",
+      "branch_clash": "xung",
+      "branch_clash_kho": "xung mở kho",
+      "branch_penalty": "hình",
+      "branch_harm": "hại",
+      "branch_destroy": "phá",
+      "branch_triad": "cùng {with} đủ tam hợp {el} cục",
+      "branch_meeting": "cùng {with} đủ tam hội {el}",
+      "branch_semi_triad": "bán hợp {el} với",
+      "phuc_ngam": "{who} trùng hẳn {with} (phục ngâm)",
+      "phan_ngam": "{who} thiên khắc địa xung với {with} (phản ngâm)",
+      "stem_control": "khắc"
+    },
+    "spouse_first": "; nhật chi là cung phối ngẫu theo Bát Tự Chân Tông",
+    "spouse_next": "; nhật chi là cung phối ngẫu",
+    "marriage": "; chi tháng là cung hôn nhân theo Bát Tự Chân Tông",
+    "year_head": [
+      "Năm {year} là năm {pillar}, đi trong đại vận {luck}: can {stem} là {god}, chi {branch} mang chính khí {bgod}.",
+      "Năm {pillar} ({year}) nằm trong đại vận {luck}; can năm {stem} là {god}, chi năm {branch} tàng chính khí {bgod}."
+    ],
+    "year_luck": {
+      "thien_khac_dia_xung": "Can chi năm này với đại vận {luck} là thế thiên khắc địa xung.",
+      "tue_van_tinh_lam": "Năm này trùng hẳn can chi với đại vận {luck} (tuế vận tịnh lâm)."
+    },
+    "year_advice": [
+      "Vì thế, năm này nên đi chậm và giữ chắc những gì đã có.",
+      "Năm như vậy hợp với việc giữ sức, làm chắc từng bước hơn là mở rộng."
+    ],
+    "tk_open": [
+      "nhật chủ {dm} {level}, sinh tháng {mb}, lá số cần {need}.",
+      "nhật chủ {dm} sinh tháng {mb} và {level}; hành cần bổ là {need}."
+    ],
+    "tk_phase_name": [
+      "Thời trẻ",
+      "Tuổi trung niên",
+      "Về sau"
+    ],
+    "tk_phase": [
+      "{phase}, các vận {list} {verdict}.",
+      "{phase} đi qua {list}, {verdict}."
+    ],
+    "tk_verdict": {
+      "tot": "phần nhiều là vận tốt theo bảng {src}",
+      "xau": "phần nhiều là vận xấu theo bảng {src}, cần lượng sức",
+      "mix": "tốt xấu đan xen",
+      "none": "không được bảng {src} xếp vào vận tốt hay vận xấu"
+    },
+    "tk_advice": [
+      "Vì vậy, nên dựa vào những chặng và những năm mang {good} để tiến, và giữ sức ở những chặng mang {bad}.",
+      "Nói gọn, những vận và năm mang {good} là lúc nên tiến, còn khi gặp {bad} thì nên giữ."
+    ],
+    "premise": {
+      "BT_TTT_TQ_TAI": "strong",
+      "BT_TTT_TQ_THUONG": "strong",
+      "BT_TTT_TQ_QUAN": "strong",
+      "BT_TTT_TQ_AN": "weak",
+      "BT_TTT_TQ_KIEP": "weak",
+      "BT_TTT_TONG_VUONG": "strong",
+      "BT_TTT_TONG_CUONG": "strong",
+      "BT_TTT_TONG_THE": "weak",
+      "BT_TTT_TONG_TAI": "weak",
+      "BT_TTT_TONG_SAT": "weak",
+      "BT_TTT_HONTAP_CO_BENH": "weak"
+    },
+    "frame2_no_need": [
+      "Sinh tháng {mb}{season}, hành {el} của nhật chủ ở thế {state}; chấm theo Thiệu Vĩ Hoa thì nhật chủ {level}.",
+      "Nhật chủ {dm} sinh tháng {mb}{season}, hành {el} đang ở thế {state}; theo cách chấm điểm của Thiệu Vĩ Hoa nhật chủ {level}."
+    ],
+    "luck_head_short": [
+      "Từ {age} tuổi ({from}–{to}), đại vận {pillar}{cur}: can vận là {god}.",
+      "Đại vận {pillar}{cur} chạy từ {age} tuổi ({from}–{to}), can vận mang thập thần {god}."
+    ],
+    "tvh_same": [
+      "Theo bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach}, can {stem} và chi {branch} cùng thuộc nhóm {sg}, nhóm vận {v}.",
+      "Can {stem} lẫn chi {branch} đều thuộc nhóm {sg}, mà bảng hỷ kỵ của Thiệu Vĩ Hoa cho cách {cach} xếp vào vận {v}."
+    ]
   },
   "luan": {
-    "note": "prose-style plan B1/B7 (prose/bazi.ts): the opening that names the four pillars, the bold lead-in of each paragraph, the closing over the luck pillars. Names chart facts only; the closing juxtaposes the roles the structure paragraphs gave the luck pillars (basis he_thong).",
+    "note": "prose-style plan B1/B7 (prose/bazi.ts): the opening that names the four pillars with their nạp âm, the bold lead-in of each paragraph. The closing over the timeline is built in bazi_deep.ts (deep.tk_*).",
     "frame": [
       "Lá số Bát Tự lấy nhật chủ {dm}, hành {el}, sinh tháng {mb}; tứ trụ gồm {pillars}",
       "Tứ trụ của lá số là {pillars}, với nhật chủ {dm} thuộc hành {el}, sinh vào tháng {mb}",
@@ -283,8 +460,8 @@
         "Về gốc gác và người phối ngẫu"
       ],
       "blade": [
-        "Về dương nhẫn và dịch mã",
-        "Về những thần sát đáng kể"
+        "Về thần sát",
+        "Về những thần sát trong tứ trụ"
       ],
       "dai_van": [
         "Về các đại vận",
@@ -293,29 +470,11 @@
       "tong_ket": [
         "Tổng kết lại",
         "Nhìn lại toàn cục"
+      ],
+      "luu_nien": [
+        "Về lưu niên",
+        "Về những năm sắp tới"
       ]
-    },
-    "summary": [
-      "nhật chủ {dm} {level}, sinh tháng {mb}{need}{good}{bad}",
-      "nhật chủ {dm} sinh tháng {mb} và {level}{need}{good}{bad}"
-    ],
-    "need": [
-      "; lá số cần thêm {need}",
-      "; hành lá số cần là {need}"
-    ],
-    "good": [
-      "; các vận {list} là những chặng được tiếp sức",
-      "; {list} là những vận thuận"
-    ],
-    "bad": [
-      ", còn {list} là chặng phải lượng sức",
-      ", trong khi {list} đòi hỏi giữ sức và chọn việc"
-    ],
-    "level": {
-      "vượng": "thuộc thế vượng",
-      "nhược": "thuộc thế nhược",
-      "trung hòa": "ở mức cân bằng",
-      "biên": "ở sát ngưỡng vượng nhược"
     }
   }
 }
