@@ -134,6 +134,8 @@ Barnum/strip (eval_distinct, chương Mệnh, benchmark20): trước 40,5 % / 0,
 
 ## 8. Còn mở (không nhận là xong)
 
+> Cập nhật 2026-10-22: hai mục đầu (102 luận điểm một sao, 27 mâu thuẫn) đã về 0. Xem `docs/AUDIT-2026-10-22-REPORT.md` §7.
+
 - **Luận điểm một sao còn lại: 102**, gần như tất cả cùng một mẫu: Tuần/Triệt ở Tật Ách “làm giảm cường độ tật ách” (luật giảm nhẹ, tầng 5). Chương Tật
   Ách vẫn có kết luận sức khỏe từ ledger, nhưng câu ấy chưa có cảnh báo “một sao”. Tiêu chí “không kết luận lớn nào dựa một sao” vì vậy **chưa đạt
   trọn (FAILED một phần)**: còn 102 / 8.722 câu luận điểm.

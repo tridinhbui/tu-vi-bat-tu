@@ -15886,6 +15886,16 @@
    ],
    "src": "auto",
    "review": "draft"
+  },
+  "TV_TH_CACH_QUAN_LOC_THAN_TT_CAT": {
+   "asserts": [
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "verified"
   }
  }
 }

@@ -30,7 +30,7 @@ def fired(p, chart=None):
 
 def test_pack_valid():
     assert validate_pack(RULES, SOURCES, {"palace.*", "chart.*", "bazi.*", "derived.*"}) == []
-    assert sum(r.id.startswith("TV_TH_CACH_") for r in RULES) == 64
+    assert sum(r.id.startswith("TV_TH_CACH_") for r in RULES) == 65
 
 
 def test_named_patterns_follow_branch_conditions():
@@ -40,6 +40,19 @@ def test_named_patterns_follow_branch_conditions():
     assert ("cach_nhat_le_trung_thien", "support") not in fired(pal(branch="Mão", own=["Thái Dương"]))
     assert ("cach_thien_at_quy_nhan", "support") in fired(pal(own=["Thiên Khôi"], opp=["Thiên Việt"]))
     assert ("cach_thien_at_quy_nhan", "support") not in fired(pal(own=["Thiên Khôi"], opp=["Thiên Khôi"]))
+
+
+def test_than_cu_quan_loc_late_and_after_forty():
+    # TH p.75: "Quan Lộc: Có Tuần Triệt, Kiếp Hỏa, Kỵ hội đàn ông muộn công danh. Nếu có Cát tinh hội cũng phải ngoài 40 tuổi …"
+    base = dict(is_than=True, tuan=True)
+    k = lambda **kw: {f"palace.{a}": v for a, v in kw.items()}
+    men = {"chart.gender": "nam"}
+    c = fired(pal("Quan Lộc", tp=["Thiên Việt"], **k(**base)), men)
+    assert ("than_cu_quan_muon_cong_danh", "limit") in c and ("than_cu_quan_cat_ngoai_40", "limit") in c
+    c = fired(pal("Quan Lộc", **k(**base)), men)
+    assert ("than_cu_quan_muon_cong_danh", "limit") in c and ("than_cu_quan_cat_ngoai_40", "limit") not in c   # no cát tinh hội
+    assert ("than_cu_quan_cat_ngoai_40", "limit") not in fired(pal("Quan Lộc", tp=["Thiên Việt"], **k(**base)), {"chart.gender": "nu"})
+    assert ("than_cu_quan_cat_ngoai_40", "limit") not in fired(pal("Quan Lộc", tp=["Thiên Việt"], **k(is_than=True)), men)  # no Tuần/Triệt, Kiếp Hỏa, Kỵ
 
 
 def test_pha_quan_ty_ngo_emits_both_sides():

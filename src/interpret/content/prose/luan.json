@@ -644,16 +644,16 @@
     "both_timing": [
       "{domain} của {S} có cả {pos} lẫn {neg}; điều nối hai mặt ấy là {link}",
       "{domain} có mặt thuận là {pos}, mặt vướng là {neg}; hai điều không loại trừ nhau, vì {link}",
-      "{pos} và {neg} cùng đúng, ở những thời điểm khác nhau: {link}",
+      "{pos} và {neg} cùng có mặt; điều nối hai mặt ấy là {link}",
       "chuyện {domain} có hai mặt, {pos} và {neg}, nối với nhau ở chỗ {link}",
       "nhìn chung {domain} vừa có {pos}, vừa có {neg}; cái nối hai điều ấy là {link}",
       "{neg} không xóa được {pos} trong {domain}, vì {link}"
     ],
     "both_book": [
-      "{pos} là phần thuận của {domain}, nhưng phần ấy bị thu hẹp: {link}",
-      "{domain} có {pos}, có điều không trọn vì {link}",
-      "trong {domain}, {pos} có thật nhưng bị giới hạn: {link}",
-      "{pos} của {domain} chỉ đến một mức, vì {link}"
+      "mặt thuận dựa vào {ground}, nhưng không trọn vẹn: {link}",
+      "{ground} cho {domain} một mặt thuận, có điều mặt ấy bị thu hẹp: {link}",
+      "{domain} có chỗ dựa ở {ground}, nhưng chỗ dựa ấy chỉ đến một mức, vì {link}",
+      "phần thuận có thật, nhờ {ground}, song bị giới hạn: {link}"
     ],
     "both_pos": [
       "{domain} nghiêng về phía thuận: {pos} dựa vào {ground}, còn {neg} chỉ là điều kiện đi kèm",
@@ -699,7 +699,7 @@
     "neg": [
       "{domain} là chỗ phải gắng sức: {neg}{mitig}",
       "điều cần để ý nhất về {domain} là {neg}{mitig}",
-      "{domain} cần nhiều công sức nhất ở chỗ {neg}{mitig}"
+      "chỗ đòi hỏi nhiều công sức nhất ở {domain} là {neg}{mitig}"
     ],
     "neg_timing": [
       "{domain} khó ở chặng đầu, {neg}, nhưng {link}",
@@ -716,6 +716,9 @@
     "mitig": [
       ", dù {pos} làm nhẹ bớt phần nào",
       ", chỉ {pos} là chỗ đỡ"
+    ],
+    "part_self": [
+      "phần này"
     ],
     "again": [
       "Xét chung các cung, {domain} {verdict}",

@@ -29,7 +29,9 @@ export interface LedgerStep { type: 'fact' | 'reading' | 'link' | 'precedence' |
   basis: 'sach' | 'he_thong' | 'tinh_toan'; note: string }
 export interface Link { kind: 'timing' | 'book' | 'specific' | 'tier' | 'structure' | 'single'; ruleId?: string; elements?: string[];
   /** book link: the side the book's own relation reduces ('-': a limit made lighter, '+': a strength narrowed) */
-  reduces?: '+' | '-' }
+  reduces?: '+' | '-';
+  /** book link: the reading the book's relation qualifies (the one it makes lighter or narrower) */
+  target?: string }
 export interface DomainVerdict {
   id: string; part?: string; label: string; verdict: Verdict; base: '+' | '-' | null;
   pos: LedgerItem[]; neg: LedgerItem[]; timing: LedgerItem[]; mixed: LedgerItem[];
@@ -144,12 +146,12 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
   } else {
     const bp = best(pos), bn = best(neg);
     // a book relation between the two sides: the reading it qualifies is the reduced side
-    const bookRel = [...pos.map(x => ['+', x] as const), ...neg.map(x => ['-', x] as const)].flatMap(([sd, x]) => live.filter(r => r.ruleId === x.ruleId).flatMap(r => r.by.map(b => ({ b, sd }))))
+    const bookRel = [...pos.map(x => ['+', x] as const), ...neg.map(x => ['-', x] as const)].flatMap(([sd, x]) => live.filter(r => r.ruleId === x.ruleId).flatMap(r => r.by.map(b => ({ b, sd, x }))))
       .find(({ b }) => b.basis === 'sach' && [...pos, ...neg].some(y => y.ruleId === b.byRule));
     const sig = (x: LedgerItem) => new Set(live.filter(r => r.ruleId === x.ruleId && r.subject === `palace:${x.palace}`).flatMap(r => [...r.sig]));
     const n = nesting(sig(bp), sig(bn));
     if (timing.length) { verdict = 'co_dieu_kien'; link = tlink(); base = bp.seat.tier <= bn.seat.tier ? '+' : '-'; }
-    else if (bookRel) { verdict = 'co_dieu_kien'; link = { kind: 'book', ruleId: bookRel.b.byRule, reduces: bookRel.sd }; base = bookRel.sd === '-' ? '+' : bp.seat.tier <= bn.seat.tier ? '+' : '-'; }
+    else if (bookRel) { verdict = 'co_dieu_kien'; link = { kind: 'book', ruleId: bookRel.b.byRule, reduces: bookRel.sd, target: bookRel.x.ruleId }; base = bookRel.sd === '-' ? '+' : bp.seat.tier <= bn.seat.tier ? '+' : '-'; }
     else if (n === 'narrower' || n === 'broader') { base = n === 'narrower' ? '+' : '-'; verdict = base === '+' ? 'co_dieu_kien' : 'tro_ngai'; link = { kind: 'specific', ruleId: (base === '+' ? bp : bn).ruleId }; }
     else if (bp.seat.tier !== bn.seat.tier) { base = bp.seat.tier < bn.seat.tier ? '+' : '-'; verdict = base === '+' ? 'co_dieu_kien' : 'tro_ngai'; link = { kind: 'tier', ruleId: (base === '+' ? bp : bn).ruleId }; }
     else verdict = 'hai_chieu';

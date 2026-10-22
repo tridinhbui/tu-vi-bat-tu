@@ -286,7 +286,11 @@ export function reasonPalace(chart: ChartInput, k: Knowledge, P: string, pre?: {
     // one minor star (or one rule of minor stars) is not enough for a big conclusion
     if (con && BIG.test(con.facet) && c.axis.verdict !== 'contested' && c.axis.base.length && c.axis.base.every(x => x.seat.tier >= 4)
       && new Set(c.axis.base.map(x => x.r.ruleId)).size <= 1)
-      c.single = [...new Set(c.axis.base.flatMap(x => x.r.atoms).filter(a => (a.kind === 'star' || a.kind === 'hoa') && a.palace !== null).map(a => a.name))];
+      // the stars, Hóa or Tuần / Triệt the claim stands on (a claim resting on Tuần / Triệt alone is as single as one resting on a minor star)
+      c.single = [...new Set(c.axis.base.flatMap(x => x.r.atoms).filter(a => (a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet') && a.palace !== null).map(a => a.name))];
+    // a chart-level reading on the birth year alone (KL pp.225-227 độ số by tuổi) stands on the year, named as such
+    if (c.single && !c.single.length)
+      c.single = [...new Set(c.axis.base.flatMap(x => x.r.atoms).filter(a => a.kind === 'chart' && a.name === 'chart.year_branch' && a.value).map(a => `tuổi ${a.value}`))];
   }
   const live = readings.filter(x => rmap.get(x.r.ruleId)?.reviewStatus === 'verified');
   const confront: Confront[] = [...evidence.limit, ...evidence.mixed.filter(e => e.kind === 'ky_carrier')].map(e => ({

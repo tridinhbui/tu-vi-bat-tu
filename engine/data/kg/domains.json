@@ -1,5 +1,5 @@
 {
- "version": "domains-1.0.0",
+ "version": "domains-1.1.0",
  "basis": "he_thong",
  "note": "Which palaces and concepts a life domain gathers, for the report-wide ledger (src/interpret/reason/ledger.ts). A system convention (he_thong), labelled as such: the usual practice of reading a matter through its own palace, the palace's tam phương tứ chính and the palaces the books tie to it. Where a book sentence ties palaces together it is cited in `cite`. The ledger adjudicates each domain once (book link → specificity → tier → two-ways, the order of reason/adjudicate.ts); it never sums scores. Roles: core = the palace of the matter; tam_hop / xung = its tam phương tứ chính; support = a palace the convention adds.",
  "verdicts": {
@@ -33,14 +33,15 @@
   },
   "tai_loc": {
    "label": "tiền bạc",
-   "cite": "KL p.216 (cung Phúc, cung Quan giữ phần chế tài, cân bằng thế mạnh yếu của cung Tài)",
+   "cite": "KL p.216 (cung Phúc, cung Quan giữ phần chế tài, cân bằng thế mạnh yếu của cung Tài); KL p.65 (Không, Kiếp thủ cung Tài hoặc cung Phúc: số nghèo khổ — Phúc Đức read for the person's own money)",
    "parts": {
     "kiem": {
      "label": "khả năng kiếm tiền",
      "palaces": {
       "Tài Bạch": "core",
       "Quan Lộc": "tam_hop",
-      "Mệnh": "tam_hop"
+      "Mệnh": "tam_hop",
+      "Phúc Đức": "support"
      },
      "facets": [
       "finance.flow",
