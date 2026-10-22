@@ -7,6 +7,8 @@ const pick = r => Object.fromEntries(['year', 'month', 'day', 'hour', 'minute', 
 const key = r => ['year', 'month', 'day', 'hour', 'minute', 'gender'].map(k => r[k]).join('-');
 const CHAPTERS = [['menh', 'Mệnh, Thân và tính cách'], ['cong_danh', 'Công danh'], ['tai_bach', 'Tài Bạch'], ['dien_trach', 'Điền Trạch'], ['phu_the', 'Phu Thê'], ['phuc_duc', 'Phúc Đức'],
   ['gia_dao', 'Phụ Mẫu, Huynh Đệ và Tử Tức'], ['di_no_tat', 'Thiên Di, Nô Bộc và Tật Ách'], ['van_han', 'Đại hạn và tiểu hạn'], ['bat_tu', 'Bát Tự: tứ trụ và nhật chủ']];
+// 503: the server has no model key yet; nothing was charged
+const OFF = 'Trợ lý chưa được bật trên máy chủ. Lượt này không bị tính; bạn quay lại sau nhé.';
 const left = w => `${w.free.remaining} lượt miễn phí · ${w.coins} xu`;
 
 export function initAsk(host, getReq) {
@@ -110,6 +112,7 @@ export function initAsk(host, getReq) {
       const res = await fetch('/api/me/deep', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json', 'x-tvbt': '1' }, body: JSON.stringify({ birth: pick(req), chapter: deepSel.value }) });
       if (res.status === 402) { const b = await res.json(); setWallet(b.wallet); out.remove(); say('ask-err', `Luận giải sâu cần ${b.need} xu, bạn đang có ${b.wallet.coins} xu.` + (wallet?.canBuy ? ' Nạp thêm xu ở nút phía trên.' : ' Gói xu sẽ có sớm.')); if (wallet?.canBuy) showBuy(true); }
       else if (res.status === 401) { me = null; out.remove(); }
+      else if (res.status === 503) { out.remove(); say('ask-err', OFF); }
       else if (!res.ok || !res.body) throw new Error(String(res.status));
       else { out.textContent = ''; const r = await readStream(res, out); if (!r.got && !r.failed) out.remove(); }
     } catch { out.remove(); say('ask-err', 'Không kết nối được. Bạn thử lại nhé.'); }
@@ -128,6 +131,7 @@ export function initAsk(host, getReq) {
       const res = await post({ birth: pick(req), messages });
       if (res.status === 402) { const b = await res.json(); setWallet(b.wallet); out.remove(); lock(); busy = false; leftEl.textContent = wallet ? left(wallet) : ''; return; }
       if (res.status === 401) { me = null; out.remove(); busy = false; paint(); return; }
+      if (res.status === 503) { r.failed = true; out.remove(); say('ask-err', OFF); busy = false; paint(); return; }
       if (!res.ok || !res.body) throw new Error(String(res.status));
       r = await readStream(res, out);
     } catch { r.failed = true; if (!r.got) out.remove(); say('ask-err', 'Không kết nối được. Bạn thử lại nhé.'); }
