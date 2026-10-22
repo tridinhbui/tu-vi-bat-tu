@@ -121,13 +121,23 @@ Các test cũ được sửa có lý do: chỗ cho phép câu kết luận ledge
 
 Số đo trên 1.000 lá corpus (`node tools/interpret/eval_synthesis.ts --n 1000`; “trước” chạy cùng công cụ trên cây e186628):
 
-METRICS_TABLE
+| Số đo (1.000 lá, 12.000 chương cung) | Trước (e186628) | Sau (S1) |
+|---|---|---|
+| Cung có yếu tố hạn chế mà chương không đối diện | 5.769 / 8.248 (69,9 %) | **0 / 8.248 (0 %)** |
+| Yếu tố hạn chế không được nhắc (Kỵ, sát chưa đắc, chính tinh hãm, Tuần/Triệt, sao mang Kỵ) | 8.287 / 13.816 (60 %) | **0** |
+| Luận điểm lớn chỉ dựa một luật sao phụ, không cảnh báo, không cung khác xác nhận | 2.221 | **102** |
+| Cặp chương nói ngược nhau về một lĩnh vực mà báo cáo không có kết luận giải thích | 4.284 | **27** |
+| Một lĩnh vực có hai kết luận khác nhau trong cùng báo cáo | — (chưa có kết luận) | **0** |
+| Chương có lỗi chặn (validateProse) | 0 | 0 |
 
-Barnum/strip (eval_distinct, chương Mệnh, benchmark20): trước 40,5 % / 0,058; sau BARNUM_AFTER.
+Barnum/strip (eval_distinct, chương Mệnh, benchmark20): trước 40,5 % / 0,058; sau 40,2 % / 0,063 (cổng readable.test: ≤ 40,55 % / ≤ 0,0655).
 
 ## 8. Còn mở (không nhận là xong)
 
-- **Mâu thuẫn còn lại** CONTRA_AFTER cặp, chủ yếu ở lĩnh vực tiền bạc: các cung con cái, cha mẹ, nô bộc nói về tiền của người khác (“con cái khá
+- **Luận điểm một sao còn lại: 102**, gần như tất cả cùng một mẫu: Tuần/Triệt ở Tật Ách “làm giảm cường độ tật ách” (luật giảm nhẹ, tầng 5). Chương Tật
+  Ách vẫn có kết luận sức khỏe từ ledger, nhưng câu ấy chưa có cảnh báo “một sao”. Tiêu chí “không kết luận lớn nào dựa một sao” vì vậy **chưa đạt
+  trọn (FAILED một phần)**: còn 102 / 8.722 câu luận điểm.
+- **Mâu thuẫn còn lại: 27** cặp, chủ yếu ở lĩnh vực tiền bạc: các cung con cái, cha mẹ, nô bộc nói về tiền của người khác (“con cái khá
   giả”), không phải tiền của đương số. Bộ đo hiện gom theo facet `finance.*`.
 - **Mâu thuẫn thời điểm trong công danh** chưa được ledger giải thích riêng. Lá 2002 có “đỗ đạt sớm” (Mệnh) và “công danh đến muộn” (Thân cư Quan
   Lộc). Ledger lấy câu thứ hai làm liên kết, còn câu thứ nhất vẫn nằm trong văn Mệnh.

@@ -235,6 +235,8 @@ Liêm Trinh và Thất Sát (Đắc Địa) đồng cung tại Sửu, giữ cung
 
 Cung Nô Bộc là nơi xem bạn bè và người giúp việc (tấm gương soi bản thân).
 
+Với Tham Lang hãm ở cung Nô Bộc, chuyện của cung này cần được giữ gìn hơn thường lệ.
+
 
 ### Sau · Luận cung Tử Tức
 
@@ -242,7 +244,7 @@ Lá số đặt cung Tử Tức tại Mùi, với Thiên Phủ (Đắc Địa) t
 
 **Về đường lập thân của các con**, Thiên Phủ tọa Tử Tức ở Mùi, đứng đúng chỗ, nên con cái làm được việc lớn, đáng làm rường cột. Đường công danh mở ra với các con rộng hơn mức trung bình.
 
-**Về đời sống vật chất của con cái**, vì Tử Tức có Thanh Long cùng Đế Vượng ở Tử Tức, con cái dễ có, khá giả, xinh đẹp. Tiền bạc đến với con cái không quá khó khăn. Cũng từ thế ấy, các con thường có duyên, dễ gây thiện cảm ngay từ lần gặp đầu. Phụ Mẫu xác nhận thêm điều đó, vì cung Phụ Mẫu: cha mẹ khá giả, con cái hòa thuận. Hai điều ấy, tài lộc và sức hút, đi cùng một hướng.
+**Về đời sống vật chất của con cái**, vì Tử Tức có Thanh Long cùng Đế Vượng ở Tử Tức, con cái dễ có, khá giả, xinh đẹp. Tiền bạc đến với các con không quá khó khăn. Cũng từ thế ấy, con cái thường có duyên, dễ gây thiện cảm ngay từ lần gặp đầu. Phụ Mẫu xác nhận thêm điều đó, vì cung Phụ Mẫu: cha mẹ khá giả, con cái hòa thuận. Hai điều ấy, tài lộc và sức hút, đi cùng một hướng.
 
 **Nhìn chung**, triển vọng địa vị là phần sáng nhất của cung này.
 
@@ -251,7 +253,7 @@ Lá số đặt cung Tử Tức tại Mùi, với Thiên Phủ (Đắc Địa) t
 
 Tại Dậu, cung Huynh Đệ có Tử Vi và Tham Lang (Hãm Địa) cùng làm chủ, và được Thất Sát (Đắc Địa) từ cung Điền Trạch (Sửu) chiếu về. Trong cung còn có Địa Không (Hãm Địa) và Lộc Tồn (Miếu Địa); lại có Tuần án ngữ.
 
-**Về tình anh em**, với Tham Lang tọa Huynh Đệ ở Dậu, đứng thế hãm, chuyện chẳng lành với anh em, dù sao đắc hay hãm. Tuần án ngữ cung Huynh Đệ, nên anh em ít, mỗi người một ngả. Đường đời đưa đương số đi xa nơi gia đình ở. Cùng thế ấy, họ dễ ít người thân bên cạnh. Có Địa Không đồng cung, nên mặt thuận của cung Huynh Đệ không thể xem là trọn vẹn. Cách gỡ nằm ở chỗ giữ khoảng cách vừa đủ để tình thân không sứt mẻ.
+**Về tình anh em**, với Tham Lang tọa Huynh Đệ ở Dậu, đứng thế hãm, chuyện chẳng lành với anh em, dù sao đắc hay hãm. Tuần án ngữ cung Huynh Đệ, nên anh em ít, mỗi người một ngả. Đường đời đưa đương số đi xa nơi gia đình ở. Cùng thế ấy, chủ nhân lá số dễ ít người thân bên cạnh. Có Địa Không đồng cung, nên mặt thuận của cung Huynh Đệ không thể xem là trọn vẹn. Cách gỡ nằm ở chỗ giữ khoảng cách vừa đủ để tình thân không sứt mẻ.
 
 
 ### Sau · Luận cung Phụ Mẫu
