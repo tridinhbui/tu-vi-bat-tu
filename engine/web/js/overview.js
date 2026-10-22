@@ -8,8 +8,8 @@ import { esc } from './util.js';
 const SIDE = { support: 'Mức thuận lợi', limit: 'Mức thử thách' };
 const LAYER = { ban_menh: 'Bản mệnh (cung và tam phương)', hoa_van: 'Tứ Hóa theo can đại vận', van: 'Câu sách về cung vận', nen: 'Nền bẩm sinh của cung',
   vung: 'Độ vững của cả lá số', dai_van: 'Đại vận đang đi', tieu_han: 'Câu sách về cung tiểu hạn', luu_thai_tue: 'Cung lưu Thái Tuế',
-  luu_sao: 'Sao lưu (KL tr.41-42)', luu_tu_hoa: 'Lưu Tứ Hóa', nam: 'Mức của năm', nguyet: 'Cung nguyệt hạn' };
-const METHOD = { thang: 'Thang năm mức', dai_van: 'Đại vận', nam: 'Từng năm', thang_am: 'Từng tháng', ban_menh: 'Mười hai cung', bat_tu: 'Dải Bát Tự' };
+  luu_sao: 'Lưu Khốc, Hư ở tiểu hạn (TH tr.114)', luu_sao_tl: 'Sao lưu khác (thông lệ)', luu_tu_hoa: 'Lưu Tứ Hóa', thong_le_cap: 'Giới hạn phần thông lệ', nam: 'Mức của năm', nguyet: 'Cung nguyệt hạn' };
+const METHOD = { thang: 'Thang năm mức', sach_truoc: 'Sách trước, thông lệ sau', dai_van: 'Đại vận', nam: 'Từng năm', thang_am: 'Từng tháng', ban_menh: 'Mười hai cung', bat_tu: 'Dải Bát Tự' };
 const BASIS = { sach: 'sách', sach_dien_giai: 'sách, diễn ý', thong_le: 'thông lệ', nhap: 'thử nghiệm', tinh_toan: 'tính toán' };
 const SCOPE = { self: 'chính cung', opp: 'xung chiếu', trine: 'tam hợp', menh: 'Mệnh' };
 /** a claim's verdict said in words after its sentence, not as a badge */

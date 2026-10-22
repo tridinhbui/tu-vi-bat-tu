@@ -10,7 +10,7 @@ import { gunzipSync } from 'node:zlib';
 import { join } from 'node:path';
 import type { ChartInput, Knowledge } from '../types.ts';
 import { computeIndices, natalRawAll, luuStars, gistOf, DISCLAIMER, INDICES_VERSION, KL_RELATION, LEVELS, NORM_SMOOTH, TT_SENTENCES, VAN_RULES,
-  W_DECADE, W_YEAR, W_MONTH, type IndexNorms, type Period } from '../indices.ts';
+  W_DECADE, W_YEAR, W_MONTH, CONVENTION, CONV_K, CONV_FLOOR, type IndexNorms, type Period } from '../indices.ts';
 import { overview, handleOverview } from '../overview.ts';
 import { BundledStore } from '../store.ts';
 import { TIER_WEIGHT, rarity } from '../reason/tiers.ts';
@@ -29,7 +29,7 @@ const periods = (x: typeof X): Period[] => [...x.decades, ...x.years, ...(x.mont
 test('norms: current version, a mean and spread for every period layer, ordered cut points for each kind of period', () => {
   assert.equal(N.version, INDICES_VERSION);
   assert.equal(N.charts, 1000);
-  for (const k of ['hoa_van', 'van', 'nen', 'vung', 'dai_van', 'tieu_han', 'luu_sao', 'luu_tu_hoa']) assert.ok(N.layers?.[k] && N.layers[k].sd > 0, `layer ${k}`);
+  for (const k of ['hoa_van', 'van', 'nen', 'vung', 'dai_van', 'tieu_han', 'luu_sao', 'luu_sao_tl', 'luu_tu_hoa']) assert.ok(N.layers?.[k] && N.layers[k].sd > 0, `layer ${k}`);
   for (const k of ['decade', 'year', 'month'] as const) {
     const c = N.cuts![k];
     assert.equal(c.length, 4);
@@ -42,7 +42,7 @@ test('every period score is the sum of its parts, and each layer part is weight 
     assert.ok(Math.abs(s.score - s.parts.reduce((a, p) => a + p.value, 0)) < 0.01, 'score = Σ parts');
     assert.equal(s.level_vi, LEVELS[s.level]);
     for (const p of s.parts) {
-      if (p.layer === 'vung' || p.layer === 'nam' || p.layer === 'dai_van') continue;
+      if (p.layer === 'vung' || p.layer === 'nam' || p.layer === 'dai_van' || p.layer === 'thong_le_cap') continue;
       const key = p.layer === 'luu_thai_tue' || p.layer === 'nguyet' ? 'nen' : p.layer, n = N.layers![key];
       assert.ok(Math.abs(p.z - (p.raw - n.mean) / n.sd) < 0.01, `${p.layer}: z against the corpus`);
       assert.ok(Math.abs(p.value - p.weight * p.z) < 0.01, `${p.layer}: value = weight × z`);
@@ -56,9 +56,27 @@ test('natal findings are never a period\'s reasons; the natal background is at m
   const w = W_DECADE.hoa_van + W_DECADE.van + W_DECADE.nen;
   assert.ok(W_DECADE.nen / w <= 0.3);
   assert.ok(W_YEAR.nen / Object.values(W_YEAR).reduce((a, x) => a + x, 0) <= 0.3);
+  // the experimental cách cục (all draft) never enter a live score
+  assert.ok(periods(X).every(s => s.items.every(i => i.basis !== 'nhap')));
+  assert.ok(X.decades.every(d => d.parts.find(p => p.layer === 'vung')!.basis === 'sach'));
   assert.ok(Math.abs(W_YEAR.dai_van - 0.4) < 1e-9, 'the year carries its đại vận at 40 %');
   // the reported bug: TV_KL_CUNG_PHU_THE_THAI_AM (a natal reading of Phu Thê) was listed for decade 23–32 and again for 2026
   assert.ok(!periods(X).some(s => s.items.some(i => i.id.startsWith('TV_'))));
+});
+
+test('book before convention: convention weights stay below the book layers, and no convention flips the books\' direction', () => {
+  const sum = (o: Record<string, number>, conv: boolean) => Object.entries(o).filter(([k]) => CONVENTION.has(k as any) === conv).reduce((a, [, v]) => a + v, 0);
+  assert.ok(sum(W_DECADE, true) < sum(W_DECADE, false) / 2);
+  assert.ok(sum(W_YEAR, true) < sum(W_YEAR, false) / 2);
+  let capped = 0;
+  for (const b of bench) for (const s of [...computeIndices(b.facts, K, N).decades, ...computeIndices(b.facts, K, N).years]) {
+    const S = s.parts.filter(p => !CONVENTION.has(p.layer) && p.layer !== 'thong_le_cap' && p.layer !== 'vung').reduce((a, p) => a + p.value, 0);
+    const C = s.parts.filter(p => CONVENTION.has(p.layer) || p.layer === 'thong_le_cap').reduce((a, p) => a + p.value, 0);
+    assert.ok(Math.abs(C) <= CONV_K * Math.abs(S) + CONV_FLOOR + 0.002, `${b.label}: convention ${C} within the cap of book ${S}`);
+    if (Math.abs(S) > 0.01 && Math.sign(C) !== Math.sign(S)) assert.equal(Math.sign(S + C), Math.sign(S), `${b.label}: the books' direction stands`);
+    if (s.parts.some(p => p.layer === 'thong_le_cap')) capped++;
+  }
+  assert.ok(capped > 0, 'the cap is exercised on the benchmark');
 });
 
 test('radar: natal ratio to the corpus mean of the same palace, rarity read on the palace the finding stands on', () => {
@@ -128,9 +146,13 @@ test('year: the current đại vận carries 40 %, lưu stars and lưu Tứ Hóa
   assert.deepEqual(y26.items.filter(i => i.layer === 'luu_tu_hoa').map(i => i.id).sort(), ['LUU_HOA_KHOA', 'LUU_HOA_LOC', 'LUU_HOA_QUYEN']);
   assert.ok(X.years.flatMap(y => y.items.filter(i => i.layer === 'luu_tu_hoa')).every(i => i.basis === 'thong_le'));
   // TH tr.114: lưu Khốc, Hư at the tiểu hạn are bad (book); elsewhere their side is a convention
-  const luu = X.years.flatMap(y => y.items.filter(i => i.layer === 'luu_sao'));
+  const luu = X.years.flatMap(y => y.items.filter(i => i.layer === 'luu_sao' || i.layer === 'luu_sao_tl'));
   assert.ok(luu.length > 0);
-  for (const i of luu) assert.equal(i.basis, (i.id === 'LUU_KHOC' || i.id === 'LUU_HU') && i.scope === 'self' || i.id === 'TH_LUU_KHOC_HU_HUNG' ? 'sach' : 'thong_le', i.id);
+  for (const i of luu) {
+    const book = (i.id === 'LUU_KHOC' || i.id === 'LUU_HU') && i.scope === 'self' || i.id === 'TH_LUU_KHOC_HU_HUNG';
+    assert.equal(i.basis, book ? 'sach' : 'thong_le', i.id);
+    assert.equal(i.layer, book ? 'luu_sao' : 'luu_sao_tl', `${i.id}: book and convention lưu stars in separate layers`);
+  }
   assert.ok(y26.items.some(i => (i.id === 'LUU_KHOC' || i.id === 'LUU_HU') && i.scope === 'self' && i.cite.includes('TH tr.114')));
 });
 
