@@ -106,7 +106,7 @@ Chính sách minh họa (`prose/checked.ts`): câu `minh_hoa` chỉ ở lại kh
 | Chương | chữ | trong đó Đọc sâu | đơn vị | cơ chế | tương tác | có điều kiện | chữ/đơn vị | có cơ chế | liên kết cung khác | chương 0 đơn vị | lặp |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Quan Lộc | 166 → 322 | 145 | **4,4 → 10,2** | 0 → 2,6 | 0,7 → 2,2 | 0,2 → 0,9 | **43,8 → 34,1** | 0 → 96 % | 2,1 → 2,6 | 65 → 1 | 0,04 → 0,06 |
-| Tài Bạch | 202 → 410 | 174 | **7,8 → 13,2** | 0 → 1,9 | 1,6 → 2,2 | 3,2 → 5,0 | 28,6 → 32,1 | 0 → 91 % | 2,3 → 3,8 | 7 → 0 | 0,06 → 0,11 |
+| Tài Bạch | 202 → 385 | 150 | **7,8 → 12,2** | 0 → 1,9 | 1,6 → 2,2 | 3,2 → 4,1 | 28,6 → 32,7 | 0 → 91 % | 2,3 → 3,8 | 7 → 0 | 0,06 → 0,10 |
 | Phu Thê | 152 → 235 | 74 | **5,0 → 6,8** | 0 → 1,6 | 0,4 → 0,5 | 1,6 → 1,2 | 33,3 → 36,8 | 0 → 90 % | 0,3 → 0,5 | 23 → 3 | 0,04 → 0,05 |
 | Điền Trạch | 130 → 218 | 86 | **3,6 → 6,7** | 0 → 0,9 | 0,1 → 1,5 | 0 → 0 | 39,3 → 35,4 | 0 → 62 % | 0,1 → 1,0 | 27 → 15 | 0,03 → 0,07 |
 | Mệnh | 465 → 483 | 0 | 15,3 → 14,5 | 0 | 4,6 → 4,0 | 1,6 → 1,3 | 31,5 → 34,5 | — | 2,8 → 2,8 | 0 | 0,05 → 0,05 |
@@ -117,15 +117,15 @@ Chính sách minh họa (`prose/checked.ts`): câu `minh_hoa` chỉ ở lại kh
 | Tứ Hóa trong cung không nhắc | 201 → **0** | 199 → **1** | 272 → **74** | 206 → 127 |
 | cặp chính tinh không đọc cùng | 96 → 29 | 56 → 30 | 54 → 43 | 137 → 99 |
 | Thân cư không giải nghĩa | 140 → **0** | 162 → **0** | 157 → **0** | — |
-| kết luận không có luận điểm trong chương | 226 → 235 | 1.793 → 1.791 | 72 → 31 | — |
+| kết luận không có luận điểm trong chương | 226 → 235 | 1.793 → 1.676 | 72 → 31 | — |
 
-Cấu hình thường / hiếm (đơn vị): Quan Lộc 4,2 / 4,4 → 9,5 / 11,1; Tài Bạch 7,5 / 10,7 → 12,6 / 15,5; Phu Thê 4,8 / 5,1 → 6,7 / 8,0.
+Cấu hình thường / hiếm (đơn vị): Quan Lộc 4,2 / 4,4 → 9,5 / 11,1; Tài Bạch 7,5 / 10,7 → 11,7 / 14,5; Phu Thê 4,8 / 5,1 → 6,7 / 8,0.
 
-Cổng giữ nguyên: một sao kết luận lớn 0, yếu tố hạn chế không đối diện 0, verdict khác nhau trong một báo cáo 0, chương có lỗi chặn 0 (`eval_synthesis.ts`, xem §6); Barnum / strip Mệnh benchmark20 40,1 % / 0,064 (cổng 40,55 % / 0,0655); câu trung bình 21,0 chữ, 4,6 % quá 35 chữ (cổng 23 / 5 %).
+Cổng giữ nguyên (`eval_synthesis.ts --n 1000`): luận điểm lớn một sao 0 / 9.703, yếu tố hạn chế không đối diện 0 / 13.816, cặp chương ngược nhau không có kết luận giải thích 0, verdict khác nhau trong một báo cáo 0, chương có lỗi chặn 0; Barnum / strip Mệnh benchmark20 40,1 % / 0,064 (cổng 40,55 % / 0,0655); câu trung bình 21,0 chữ, 4,6 % quá 35 chữ (cổng 23 / 5 %).
 
 Đánh giá thẳng:
-- Quan Lộc và Điền Trạch sâu hơn mà **gọn hơn** (chữ/đơn vị giảm). Tài Bạch và Phu Thê sâu hơn nhưng chữ/đơn vị **tăng** (28,6 → 32,1; 33,3 → 36,8): câu liên kết sách (chế tài) và câu nhắc lại + lý do dài hơn một luận điểm đơn. Đã cắt: nhắc lại và lý do gộp một câu; Tài Bạch không nhắc lại kết luận ba phần; câu quan hệ sách viết chung với phía lá số.
-- **Lặp** tăng ở Tài Bạch (0,06 → 0,11) và Điền Trạch (0,03 → 0,07): câu bản chất sao giống nhau giữa hai lá có cùng sao (đúng nghĩa), và khung liên kết cố định. Vẫn dưới mức của chương Mệnh cũ trong eval_prose, nhưng là điều phải theo dõi.
+- Quan Lộc và Điền Trạch sâu hơn mà **gọn hơn** (chữ/đơn vị giảm). Tài Bạch và Phu Thê sâu hơn nhưng chữ/đơn vị **tăng** (28,6 → 32,7; 33,3 → 36,8): câu liên kết sách (chế tài) và câu nhắc lại + lý do dài hơn một luận điểm đơn. Đã cắt: nhắc lại và lý do gộp một câu; Tài Bạch không nhắc lại kết luận ba phần; câu quan hệ sách viết chung với phía lá số.
+- **Lặp** tăng ở Tài Bạch (0,06 → 0,10) và Điền Trạch (0,03 → 0,07): câu bản chất sao giống nhau giữa hai lá có cùng sao (đúng nghĩa), và khung liên kết cố định. Vẫn dưới mức của chương Mệnh cũ trong eval_prose, nhưng là điều phải theo dõi.
 - "Kết luận không có luận điểm trong chương" của Tài Bạch không giảm: kết luận phần kiếm tiền gom luận điểm của Mệnh/Quan Lộc theo `domains.json`; câu Đọc sâu không nhắc lại các luận điểm ấy (đã nói ở chương Mệnh).
 
 Lá cổng (`node tools/interpret/eval_deep.ts --gates`), đơn vị trước → sau (chữ/đơn vị):

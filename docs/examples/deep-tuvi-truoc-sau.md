@@ -58,9 +58,9 @@ Về của để dành và nhà cửa, phần này là chỗ phải gắng sức
 
 **Đọc sâu — Tiền đến từ đâu.** Thái Dương ở cung Tài Bạch cho thấy no đủ, sung túc. Cụ thể là phần thu thường đủ để đương số không phải tính từng khoản nhỏ. Đằng sau điều ấy là bản chất của Thái Dương: sao này chủ về công danh, quan lộc, mà hễ có danh thì dễ kiếm tiền. Thái Dương hóa Quyền ngay ở cung Tài Bạch; Hóa Quyền ở cung Tài Bạch thì người khác nể mình vì tiền. Ở cung Tài Bạch có Văn Khúc mang Hóa Khoa, mà Hóa Khoa cho tiếng hơn cho miếng, và người có Hóa Khoa phải khiêm nhường mới thành công.
 
-**Đọc sâu — Chỗ dễ hao hụt.** Tiền bạc khó giữ nói ở phần trên đứng trên Tiểu Hao ở cung Tài Bạch. Đằng sau điều ấy là bản chất của Tiểu Hao: sao này tượng trưng cho sự hao tán, nên đóng ở cung nào cũng làm giảm cái tốt của cung ấy.
+**Đọc sâu — Chỗ dễ hao hụt.** Tiền bạc khó giữ đã nói có gốc ở Tiểu Hao ở cung Tài Bạch: Tiểu Hao vốn tượng trưng cho sự hao tán, nên đóng ở cung nào cũng làm giảm cái tốt của cung ấy.
 
-**Đọc sâu — Mệnh, Tài, Quan, Điền nhìn cùng nhau.** Tứ Hóa của lá số rơi vào bộ ba Mệnh, Tài Bạch, Quan Lộc như sau: Cự Môn hóa Lộc ở Mệnh và Thái Dương hóa Quyền và Văn Khúc hóa Khoa ở Tài Bạch. Cung Phúc Đức và cung Quan Lộc giữ phần chế tài, cân bằng chỗ mạnh yếu của cung Tài Bạch. Ở lá số này, Phúc Đức có Thiên Lương (vượng), Quan Lộc không có chính tinh; đường công danh đã được xét là còn hai mặt chưa phân xử được. Nhiều tiền là giàu nhưng chưa đủ, nhà cửa đất đai mới là sự giàu sang cụ thể và vững bền. Trên lá số, Điền Trạch có Liêm Trinh và Thất Sát (đắc). Đặt cạnh nhau, khả năng kiếm tiền thuận, với điều kiện đi kèm, còn cách giữ và quản lý tiền đòi hỏi nhiều công sức.
+**Đọc sâu — Tài Bạch giữa các cung.** Phần chế tài của Tài Bạch nằm ở hai cung: Phúc Đức có Thiên Lương (vượng), Quan Lộc không có chính tinh; đường công danh đã được xét là còn hai mặt chưa phân xử được.
 
 ### Luận cung Phu Thê
 
@@ -78,15 +78,15 @@ Xét chung, sự hòa hợp và sự trắc trở tình cảm cùng có mặt; �
 
 Cung Phu Thê đóng ở Thân, nơi Thiên Cơ (Vượng Địa) và Thái Âm (Vượng Địa) cùng tọa thủ, lại thêm Thiên Lương (Vượng Địa) từ cung Phúc Đức (Tý) hội chiếu. Thiên Cơ với Thiên Lương là một bộ trong nhóm Cơ – Nguyệt – Đồng – Lương, nhóm “lý luận thuần túy”. Bên cạnh chính tinh là Đà La và Văn Xương hóa Kỵ; lại có Tuần án ngữ.
 
-Về hôn nhân, vì Thiên Cơ tọa Phu Thê ở Thân, ở thế vượng cùng Văn Xương ở Phu Thê, người phối ngẫu đẹp. Bạn đời có vai trò lớn trong những ngã rẽ của đương số. Chính Văn Xương lại mang Hóa Kỵ, nên điểm tốt ấy đi kèm điều không êm. Có thêm Thái Âm đứng nơi vượng địa tại Thân, nên người vợ hiền hậu, vợ chồng chung lưng đến bạc đầu. Mặt khác, Phu Thê có Đà La, nên tình cảm khó bền, dễ đổ vỡ. Về thời điểm, Tuần án ngữ cung Phu Thê, nên hôn nhân xảy ra trong hoàn cảnh đặc biệt, đôi lứa ban đầu ngỡ ngàng. Gợi ý cho chủ nhân lá số, vì sự trắc trở tình cảm: chọn người hợp hơn là người làm mình rung động nhất.
+Về hôn nhân, vì Thiên Cơ tọa Phu Thê ở Thân, ở thế vượng cùng Văn Xương ở Phu Thê, người phối ngẫu đẹp. Bạn đời có vai trò lớn trong những ngã rẽ của đương số. Chính Văn Xương lại mang Hóa Kỵ, nên điểm tốt ấy đi kèm điều không êm. Có thêm Thái Âm đứng nơi vượng địa tại Thân, nên người vợ hiền hậu, vợ chồng chung lưng đến bạc đầu. Mặt khác, Phu Thê có Đà La, nên tình cảm khó bền, dễ đổ vỡ. Về thời điểm, Tuần án ngữ cung Phu Thê, nên hôn nhân xảy ra trong hoàn cảnh đặc biệt, đôi lứa ban đầu ngỡ ngàng. Gợi ý cho người này, vì sự trắc trở tình cảm: chọn người hợp hơn là người làm mình rung động nhất.
 
 Về con người của người phối ngẫu, Văn Xương ở Phu Thê, nên người phối ngẫu ít tuổi, thông minh. Người phối ngẫu thường lật đi lật lại một chuyện cho tới khi thấy rõ ngọn ngành.
 
-Cân cả hai phía, hôn nhân có hai mặt: sự hòa hợp, đứng trên Thiên Cơ và Thái Âm ở cung Phu Thê, và sự trắc trở tình cảm, đứng trên Đà La ở cung Phu Thê; hai điều ấy chưa phân xử được.
+Cân cả hai phía, hôn nhân có hai mặt: sự hòa hợp, đứng trên Thiên Cơ và Thái Âm ở cung Phu Thê, và sự trắc trở tình cảm, đứng trên Đà La ở cung Phu Thê; hai điều ấy chưa phân xử được. Đà La, Tuần và Văn Xương hóa Kỵ đóng ngay ở cung Phu Thê, nên mặt thuận không thể xem là trọn vẹn.
 
-**Đọc sâu — Nguồn căng thẳng.** Điều đã nói về sự trắc trở tình cảm có gốc ở Đà La ở cung Phu Thê. Đằng sau điều ấy là bản chất của Đà La: sao này là sự cản trở, nặng lên khi mình nhu nhược, chần chờ. Ở cung Phu Thê có Văn Xương mang Hóa Kỵ, mà Hóa Kỵ đóng ở cung nào thì gây điều không êm cho cung ấy.
+**Đọc sâu — Nguồn căng thẳng.** Sự trắc trở tình cảm nói ở trên đứng trên Đà La ở cung Phu Thê, mà Đà La vốn là sự cản trở, nặng lên khi mình nhu nhược, chần chờ. Văn Xương hóa Kỵ ngay ở cung Phu Thê; Hóa Kỵ đóng ở cung nào thì gây điều không êm cho cung ấy.
 
-**Đọc sâu — Điều giữ cho êm.** Sự hòa hợp nói ở phần trên đứng trên Thái Âm ở cung Phu Thê. Điều này gắn với bản chất của Thái Âm, vốn tượng trưng cho sự thừa hành, bao dung, nuôi dưỡng.
+**Đọc sâu — Điều giữ cho êm.** Sự hòa hợp nói ở trên đứng trên Thái Âm ở cung Phu Thê, mà Thái Âm vốn tượng trưng cho sự thừa hành, bao dung, nuôi dưỡng.
 
 ## 01/01/1911 12:30 nam (lá tham chiếu tuvi.vn)
 
@@ -132,11 +132,11 @@ Cung Tài Bạch an tại Mão, có Thiên Phủ (Bình Hòa) tọa thủ, Vũ K
 
 Về chuyện tiền vào và cách giữ của, vì Thiên Phủ tọa Tài Bạch ở Mão, chỉ ở thế bình cùng Tài Bạch bị Tuần án ngữ, người có lá số này dễ chật vật về sinh kế. Dù vậy, Thiên Phủ ở thế bình hòa tại Mão kéo theo chiều ngược lại: thường rất tốt. Mệnh xác nhận thêm điều đó, vì Thiên Tướng gặp Tuần hoặc Triệt: công danh trắc trở, tiền bạc eo hẹp. Tuy nhiên, cung Mệnh mở ra chiều thuận hơn: Tả Hữu ở Tài Bạch, Quan Lộc chiếu Mệnh, nên đời sống đầy đủ. Từ sự eo hẹp tài chính, một gợi ý là đặt giá trị của mình ở chỗ khác ngoài tiền bạc. Cũng như con dao hai lưỡi, tài lộc đi liền với sự eo hẹp tài chính, cùng sinh ra từ Thiên Phủ.
 
-Về khả năng kiếm tiền, phần này vừa có tài lộc nhờ Thiên Phủ ở cung Tài Bạch, vừa có sự eo hẹp tài chính vì Thiên Phủ ở cung Tài Bạch; mặt nào nặng hơn thì chưa phân xử được.
+Về khả năng kiếm tiền, phần này vừa có tài lộc nhờ Thiên Phủ ở cung Tài Bạch, vừa có sự eo hẹp tài chính vì Thiên Phủ ở cung Tài Bạch; mặt nào nặng hơn thì chưa phân xử được. Tuần đóng ngay ở cung Tài Bạch, nên mặt thuận không thể xem là trọn vẹn.
 
-**Đọc sâu — Tiền đến từ đâu.** Tài lộc nói ở phần trên đứng trên Thiên Phủ ở cung Tài Bạch. Điều này gắn với bản chất của Thiên Phủ, vốn không tự mình làm nên chuyện mà điều hành, vun đắp, như người mẹ hiền chăm đàn con.
+**Đọc sâu — Tiền đến từ đâu.** Tài lộc nói ở trên đứng trên Thiên Phủ ở cung Tài Bạch, mà Thiên Phủ vốn không tự mình làm nên chuyện mà điều hành, vun đắp, như người mẹ hiền chăm đàn con.
 
-**Đọc sâu — Mệnh, Tài, Quan, Điền nhìn cùng nhau.** Cung Phúc Đức và cung Quan Lộc giữ phần chế tài, cân bằng chỗ mạnh yếu của cung Tài Bạch. Trên lá số, Phúc Đức có Vũ Khúc (đắc) và Thất Sát (hãm), Quan Lộc không có chính tinh; đường công danh đã được xét là có cả hai mặt. Nhiều tiền là giàu nhưng chưa đủ, nhà cửa đất đai mới là sự giàu sang cụ thể và vững bền. Ở lá số này, Điền Trạch có Thái Dương (hãm). Gom lại, khả năng kiếm tiền không có chính tinh sáng đỡ ngay trong cung, còn Tuần kéo lại.
+**Đọc sâu — Tài Bạch giữa các cung.** Hai cung giữ phần chế tài cho Tài Bạch là Phúc Đức có Vũ Khúc (đắc) và Thất Sát (hãm), Quan Lộc không có chính tinh; đường công danh đã được xét là có cả hai mặt. Gom lại, khả năng kiếm tiền không có chính tinh sáng đỡ ngay trong cung, còn Tuần kéo lại.
 
 Đặt cạnh các cung liên quan, đường công danh có cả hai mặt, mỗi mặt nói về một chuyện.
 
@@ -158,7 +158,7 @@ Về đời sống lứa đôi, Liêm Trinh cùng Tham Lang tọa Phu Thê ở T
 
 Cân cả hai phía, chỗ đòi hỏi nhiều công sức nhất ở hôn nhân là sự trắc trở tình cảm.
 
-**Đọc sâu — Nguồn căng thẳng.** Sự trắc trở tình cảm nói ở phần trên đứng trên Địa Không và Địa Kiếp ở cung Phu Thê. Điều này gắn với bản chất của Địa Không, vốn là sự phá tán, nặng lên khi mình quá tham. Phá Quân từ cung Thiên Di hội chiếu về vốn giải được tính ác của Địa Không, Địa Kiếp, nên Địa Kiếp và Địa Không trong cung Phu Thê có sao kìm lại.
+**Đọc sâu — Nguồn căng thẳng.** Sự trắc trở tình cảm đã nói có gốc ở Địa Không và Địa Kiếp ở cung Phu Thê: Địa Không vốn là sự phá tán, nặng lên khi mình quá tham. Phá Quân từ cung Thiên Di hội chiếu về vốn giải được tính ác của Địa Không, Địa Kiếp, nên Địa Kiếp và Địa Không trong cung Phu Thê có sao kìm lại.
 
 ## 24/05/1971 10:30 nam (lá tham chiếu tuvi.vn)
 
@@ -178,7 +178,7 @@ Cung Quan Lộc an tại Tỵ, có Thiên Cơ (Vượng Địa) tọa thủ, đ�
 
 Hóa Kỵ nằm trên Văn Xương ngay tại cung Quan Lộc, nên chuyện của cung này khó êm trọn. Cung Quan Lộc có Triệt, nên mọi kết luận tốt ở đây đều kèm điều kiện. Chính Văn Xương lại mang Hóa Kỵ, nên điểm tốt ấy đi kèm điều không êm.
 
-Đặt các cung cạnh nhau, đường công danh có cả năng lực học thuật, văn chương lẫn triển vọng địa vị; hai điều không loại nhau, vì năng lực học thuật, văn chương thuộc về tay nghề, còn triển vọng địa vị thuộc về đường thăng tiến.
+Đặt các cung cạnh nhau, đường công danh có cả năng lực học thuật, văn chương lẫn triển vọng địa vị; hai điều không loại nhau, vì năng lực học thuật, văn chương thuộc về tay nghề, còn triển vọng địa vị thuộc về đường thăng tiến. Ngay trong cung Quan Lộc còn có Triệt và Văn Xương hóa Kỵ, nên mặt thuận không thể xem là trọn.
 
 **Đọc sâu — Thiên hướng công việc.** Thiên Cơ đóng ngay ở cung Quan Lộc; sao này có tài tổ chức, có mưu lược.
 
@@ -210,7 +210,7 @@ Về phần tích lũy và nhà cửa, phần này là chỗ phải gắng sức
 
 **Đọc sâu — Tiền đến từ đâu.** Tài lộc nói ở phần trên đứng trên Lộc Tồn và Văn Khúc hóa Khoa ở cung Tài Bạch. Điều này không đến từ chính cung Tài Bạch mà từ Cự Môn hóa Lộc ở cung Mệnh hội chiếu về. Đằng sau điều ấy là bản chất của Lộc Tồn: sao này tượng trưng cho sự bảo vệ, giữ gìn. Điều đã nói về nguồn lợi bất ngờ có gốc ở Lộc Tồn và Văn Khúc hóa Khoa ở cung Tài Bạch. Yếu tố làm nên điều ấy nằm ngoài cung Tài Bạch: Cự Môn hóa Lộc ở cung Mệnh hội chiếu về. Văn Khúc hóa Khoa ngay ở cung Tài Bạch; Hóa Khoa cho tiếng hơn cho miếng, và người có Hóa Khoa phải khiêm nhường mới thành công.
 
-**Đọc sâu — Mệnh, Tài, Quan, Điền nhìn cùng nhau.** Tứ Hóa của lá số rơi vào bộ ba Mệnh, Tài Bạch, Quan Lộc như sau: Cự Môn hóa Lộc ở Mệnh, Văn Khúc hóa Khoa ở Tài Bạch và Văn Xương hóa Kỵ ở Quan Lộc. Cung Phúc Đức và cung Quan Lộc giữ phần chế tài, cân bằng chỗ mạnh yếu của cung Tài Bạch. Trên lá số, Phúc Đức có Thái Dương (vượng) và Thiên Lương (vượng), Quan Lộc có Thiên Cơ (vượng); đường công danh đã được xét là có cả hai mặt. Nhiều tiền là giàu nhưng chưa đủ, nhà cửa đất đai mới là sự giàu sang cụ thể và vững bền. Ở lá số này, Điền Trạch có Thất Sát (hãm). Đặt cạnh nhau, khả năng kiếm tiền có lợi thế nhưng không trọn, còn cách giữ và quản lý tiền vướng, nhưng gỡ được.
+**Đọc sâu — Tài Bạch giữa các cung.** Hai cung giữ phần chế tài cho Tài Bạch là Phúc Đức có Thái Dương (vượng) và Thiên Lương (vượng), Quan Lộc có Thiên Cơ (vượng); đường công danh đã được xét là có cả hai mặt.
 
 ### Luận cung Phu Thê
 
@@ -228,7 +228,7 @@ Kết lại, sự hòa hợp được nhiều cung cùng xác nhận, nên hôn 
 
 **Đọc sâu — Cách hai người gắn với nhau.** Thân cư Phu Thê thì đời mình gắn nhiều với người phối ngẫu, cùng nhau sẻ ngọt chia bùi.
 
-**Đọc sâu — Người phối ngẫu và độ hợp.** Điều đã nói về lòng nhân hậu có gốc ở Thái Âm ở cung Phu Thê. Điều này gắn với bản chất của Thái Âm, vốn tượng trưng cho sự thừa hành, bao dung, nuôi dưỡng.
+**Đọc sâu — Người phối ngẫu và độ hợp.** Lòng nhân hậu đã nói có gốc ở Thái Âm ở cung Phu Thê: Thái Âm vốn tượng trưng cho sự thừa hành, bao dung, nuôi dưỡng.
 
 **Đọc sâu — Nguồn căng thẳng.** Cung Phu Thê không chứa Hóa Kỵ, nhưng Văn Xương hóa Kỵ ở cung Quan Lộc xung chiếu sang.
 
@@ -260,7 +260,7 @@ Cân cả hai phía, các cung khác cũng cho thấy đường công danh có c
 
 **Đọc sâu — Thiên hướng công việc.** Tử Vi đóng ngay ở cung Quan Lộc; sao này là sao cứu giải trong mọi hoàn cảnh. Tử Vi hóa Khoa ngay ở cung Quan Lộc; Hóa Khoa cho tiếng hơn cho miếng, và người có Hóa Khoa phải khiêm nhường mới thành công.
 
-**Đọc sâu — Chỗ vướng trên đường công danh.** Điều đã nói về trở ngại trong công việc có gốc ở Địa Không ở cung Quan Lộc. Đằng sau điều ấy là bản chất của Địa Không: sao này là sự phá tán, nặng lên khi mình quá tham. Đại Hao ở cung Quan Lộc cho thấy hay thay đổi chỗ làm. Trong đời thường, điều đó hiện ra ở những lần đổi chỗ làm khi việc cũ chưa kịp thành nếp. Điều này gắn với bản chất của Đại Hao, vốn tượng trưng cho sự hao tán, nên đóng ở cung nào cũng làm giảm cái tốt của cung ấy. Hóa Khoa ngay trong cung vốn chế ngự được các sát tinh Kình Đà, Không Kiếp, Hỏa Linh, nên Địa Không trong cung Quan Lộc có sao kìm lại.
+**Đọc sâu — Chỗ vướng trên đường công danh.** Trở ngại trong công việc đã nói có gốc ở Địa Không ở cung Quan Lộc: Địa Không vốn là sự phá tán, nặng lên khi mình quá tham. Từ Đại Hao ở cung Quan Lộc có thể thấy hay thay đổi chỗ làm. Cụ thể là người này dễ thấy chán khi một việc kéo dài mà không có gì mới, rồi muốn đổi sang chỗ khác. Đằng sau điều ấy là bản chất của Đại Hao: sao này tượng trưng cho sự hao tán, nên đóng ở cung nào cũng làm giảm cái tốt của cung ấy. Hóa Khoa ngay trong cung vốn chế ngự được các sát tinh Kình Đà, Không Kiếp, Hỏa Linh, nên Địa Không trong cung Quan Lộc có sao kìm lại.
 
 Đặt cạnh các cung liên quan, khả năng kiếm tiền còn hai mặt chưa phân xử được.
 
@@ -290,11 +290,11 @@ Về chuyện giữ tiền, riêng Hỏa Tinh cho thấy tiền bạc khó giữ
 
 Về phần tích lũy và nhà cửa, trong phần này, cơ nghiệp đến từ Văn Xương ở cung Điền Trạch, còn sự khó giữ cơ nghiệp đến từ Bạch Hổ ở cung Điền Trạch và Tang Môn ở cung Tử Tức; cả hai được nêu, chưa có phân xử.
 
-**Đọc sâu — Tiền đến từ đâu.** Từ Thiên Phủ ở cung Tài Bạch có thể thấy thường rất tốt. Trong đời thường, điều đó hiện ra ở chỗ chuyện tiền ít khi là nỗi lo hằng ngày. Đằng sau điều ấy là bản chất của Thiên Phủ: sao này không tự mình làm nên chuyện mà điều hành, vun đắp, như người mẹ hiền chăm đàn con. Hỏa Tinh ở cung Tài Bạch cho thấy phát tài nhiều phen.
+**Đọc sâu — Tiền đến từ đâu.** Thiên Phủ ở cung Tài Bạch cho thấy thường rất tốt. Trong đời thường, điều đó hiện ra ở chỗ chuyện tiền ít khi là nỗi lo hằng ngày. Điều này gắn với bản chất của Thiên Phủ, vốn không tự mình làm nên chuyện mà điều hành, vun đắp, như người mẹ hiền chăm đàn con. Hỏa Tinh ở cung Tài Bạch cho thấy phát tài nhiều phen.
 
-**Đọc sâu — Chỗ dễ hao hụt.** Tiền bạc khó giữ nói ở phần trên đứng trên Hỏa Tinh ở cung Tài Bạch. Điều này gắn với bản chất của Hỏa Tinh, vốn là sự hao mòn, nặng lên khi mình quá cứng rắn. Thiên Phủ ngay trong cung vốn chế ngự được Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, nên Hỏa Tinh trong cung Tài Bạch có sao kìm lại.
+**Đọc sâu — Chỗ dễ hao hụt.** Tiền bạc khó giữ nói ở trên đứng trên Hỏa Tinh ở cung Tài Bạch, mà Hỏa Tinh vốn là sự hao mòn, nặng lên khi mình quá cứng rắn. Thiên Phủ ngay trong cung vốn chế ngự được Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, nên Hỏa Tinh trong cung Tài Bạch có sao kìm lại.
 
-**Đọc sâu — Mệnh, Tài, Quan, Điền nhìn cùng nhau.** Cung Phúc Đức và cung Quan Lộc giữ phần chế tài, cân bằng chỗ mạnh yếu của cung Tài Bạch. Trên lá số, Phúc Đức có Thất Sát (hãm), Quan Lộc có Tử Vi (miếu); đường công danh đã được xét là có cả hai mặt. Nhiều tiền là giàu nhưng chưa đủ, nhà cửa đất đai mới là sự giàu sang cụ thể và vững bền. Ở lá số này, Điền Trạch có Thiên Cơ (bình). Đặt cạnh nhau, khả năng kiếm tiền còn hai mặt chưa phân xử được, còn cách giữ và quản lý tiền vướng, nhưng gỡ được.
+**Đọc sâu — Tài Bạch giữa các cung.** Hai cung giữ phần chế tài cho Tài Bạch là Phúc Đức có Thất Sát (hãm), Quan Lộc có Tử Vi (miếu); đường công danh đã được xét là có cả hai mặt.
 
 ### Luận cung Phu Thê
 
@@ -312,7 +312,7 @@ Xét chung, hôn nhân có cả sự hòa hợp (dựa vào Thiên Khôi ở cun
 
 **Đọc sâu — Cách hai người gắn với nhau.** Thân cư Phu Thê thì đời mình gắn nhiều với người phối ngẫu, cùng nhau sẻ ngọt chia bùi.
 
-**Đọc sâu — Người phối ngẫu và độ hợp.** Điều đã nói về sức hút có gốc ở Thiên Khôi ở cung Phu Thê. Đằng sau điều ấy là bản chất của Thiên Khôi: sao này ở cung nào cũng đem lợi điểm cho cung đó.
+**Đọc sâu — Người phối ngẫu và độ hợp.** Sức hút đã nói có gốc ở Thiên Khôi ở cung Phu Thê: Thiên Khôi vốn ở cung nào cũng đem lợi điểm cho cung đó.
 
 **Đọc sâu — Nguồn căng thẳng.** Từ Tham Lang ở cung Phu Thê có thể thấy chuyện chẳng lành trong hôn nhân, dù sao đắc hay hãm. Trong đời thường, điều đó hay hiện ra ở những lần hai người khó đi đến một ý chung về cùng một chuyện.
 
@@ -366,13 +366,13 @@ Về khả năng kiếm tiền, tài lộc là mặt thuận của phần này; 
 
 Về chuyện giữ tiền, phần này là chỗ phải gắng sức: tiền bạc khó giữ, lại thêm Tham Lang hãm (mượn từ cung đối), Linh Tinh và Đại Hao ở cung Tài Bạch.
 
-Về phần tích lũy và nhà cửa, phần này có hai mặt: cơ nghiệp, đứng trên Cự Môn ở cung Điền Trạch, và cơ nghiệp, đứng trên Cự Môn ở cung Điền Trạch; hai điều ấy chưa phân xử được.
+Về phần tích lũy và nhà cửa, phần này có hai mặt: cơ nghiệp, đứng trên Cự Môn ở cung Điền Trạch, và cơ nghiệp, đứng trên Cự Môn ở cung Điền Trạch; hai điều ấy chưa phân xử được. Hỏa Tinh đóng ngay ở cung Điền Trạch, nên mặt thuận không thể xem là trọn vẹn.
 
 **Đọc sâu — Tiền đến từ đâu.** Cung Tài Bạch không có chính tinh; sao sáng hội về là Thiên Phủ từ cung Mệnh, vốn không tự mình làm nên chuyện mà điều hành, vun đắp, như người mẹ hiền chăm đàn con. Cùng hội về còn có Thiên Tướng từ cung Quan Lộc; sao này đi đến đâu cũng trung hòa được cái xấu của các sao xấu và giữ cho tình thế ổn định.
 
-**Đọc sâu — Chỗ dễ hao hụt.** Tiền bạc khó giữ nói ở phần trên đứng trên Đại Hao ở cung Tài Bạch. Điều này gắn với bản chất của Đại Hao, vốn tượng trưng cho sự hao tán, nên đóng ở cung nào cũng làm giảm cái tốt của cung ấy. Linh Tinh ở cung Tài Bạch vốn là sự hao mòn, nặng lên khi mình quá cứng rắn. Thiên Phủ từ cung Mệnh hội chiếu về vốn chế ngự được Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, nên Linh Tinh trong cung Tài Bạch có sao kìm lại. Cung Tài Bạch không chứa Hóa Kỵ, nhưng Tham Lang hóa Kỵ ở cung Phúc Đức xung chiếu sang.
+**Đọc sâu — Chỗ dễ hao hụt.** Tiền bạc khó giữ nói ở trên đứng trên Đại Hao ở cung Tài Bạch, mà Đại Hao vốn tượng trưng cho sự hao tán, nên đóng ở cung nào cũng làm giảm cái tốt của cung ấy. Riêng Linh Tinh trong cung Tài Bạch: sao này là sự hao mòn, nặng lên khi mình quá cứng rắn. Thiên Phủ từ cung Mệnh hội chiếu về vốn chế ngự được Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, nên Linh Tinh trong cung Tài Bạch có sao kìm lại. Hóa Kỵ không ở ngay cung Tài Bạch mà đóng trên Tham Lang ở cung Phúc Đức đối diện, chiếu thẳng sang.
 
-**Đọc sâu — Mệnh, Tài, Quan, Điền nhìn cùng nhau.** Cung Phúc Đức và cung Quan Lộc giữ phần chế tài, cân bằng chỗ mạnh yếu của cung Tài Bạch. Trên lá số, Phúc Đức có Tử Vi (bình) và Tham Lang (hãm), Quan Lộc có Thiên Tướng (đắc); đường công danh đã được xét là có cả hai mặt. Nhiều tiền là giàu nhưng chưa đủ, nhà cửa đất đai mới là sự giàu sang cụ thể và vững bền. Ở lá số này, Điền Trạch có Cự Môn (hãm). Gom lại, khả năng kiếm tiền không có chính tinh sáng đỡ ngay trong cung, còn Tham Lang hãm (mượn từ cung đối) và Linh Tinh kéo lại. Đặt cạnh nhau, khả năng kiếm tiền có mặt thuận, song kèm điều kiện, còn cách giữ và quản lý tiền là chỗ phải gắng sức.
+**Đọc sâu — Tài Bạch giữa các cung.** Hai cung giữ phần chế tài cho Tài Bạch là Phúc Đức có Tử Vi (bình) và Tham Lang (hãm), Quan Lộc có Thiên Tướng (đắc); đường công danh đã được xét là có cả hai mặt. Gom lại, khả năng kiếm tiền không có chính tinh sáng đỡ ngay trong cung, còn Tham Lang hãm (mượn từ cung đối) và Linh Tinh kéo lại.
 
 ### Luận cung Phu Thê
 
@@ -394,7 +394,7 @@ Về chuyện vợ chồng, Phá Quân tọa Phu Thê ở Hợi, đứng nơi b�
 
 **Đọc sâu — Cách hai người gắn với nhau.** Ở cung Phu Thê có Phá Quân mang Hóa Lộc, mà Hóa Lộc ở cung nào cũng mang đến thịnh đạt, nếu không gặp sao xấu.
 
-**Đọc sâu — Nguồn căng thẳng.** Điều đã nói về sự trắc trở tình cảm có gốc ở Đà La ở cung Phu Thê. Đằng sau điều ấy là bản chất của Đà La: sao này là sự cản trở, nặng lên khi mình nhu nhược, chần chờ. Thất Sát từ cung Thiên Di hội chiếu về vốn là 'thầy' của Kình Dương, Đà La nên chế ngự được hai sao này, nên Đà La trong cung Phu Thê có sao kìm lại.
+**Đọc sâu — Nguồn căng thẳng.** Sự trắc trở tình cảm đã nói có gốc ở Đà La ở cung Phu Thê: Đà La vốn là sự cản trở, nặng lên khi mình nhu nhược, chần chờ. Thất Sát từ cung Thiên Di hội chiếu về vốn là 'thầy' của Kình Dương, Đà La nên chế ngự được hai sao này, nên Đà La trong cung Phu Thê có sao kìm lại.
 
 ## Phu Thê vô chính diệu, nữ (23/12/1947 09:15 nữ)
 
@@ -412,13 +412,13 @@ Xét chung, ghép với các cung còn lại, đường công danh có hai chi�
 
 Tại Hợi, cung Quan Lộc có Liêm Trinh (Hãm Địa) và Tham Lang (Hãm Địa) cùng làm chủ, bù lại cung Mệnh (Mùi) chiếu sang Phá Quân (Vượng Địa). Liêm Trinh với Phá Quân là một bộ trong nhóm Sát – Phá – Liêm – Tham, nhóm “hành động mạnh mẽ”. Thiên Khôi cũng đóng ở đây.
 
-Về sự nghiệp và đường đời, vì Liêm Trinh và Tham Lang đồng cung tại Hợi, đương số đạt được vị trí ở mức khá chứ chưa phải hàng đầu. Nhìn từ phía khác, vì Tham Lang ở Quan Lộc, thế hãm, làm quan dễ tham ô, tầm thường. Vì Tham Lang tọa Quan Lộc ở Hợi, đứng thế hãm, đương số dễ vướng chuyện thủ tục, giấy tờ, kiện tụng.
+Về sự nghiệp và đường đời, vì Liêm Trinh và Tham Lang đồng cung tại Hợi, đương số đạt được vị trí ở mức khá chứ chưa phải hàng đầu. Nhìn từ phía khác, vì Tham Lang ở Quan Lộc, thế hãm, làm quan dễ tham ô, tầm thường. Vì Tham Lang tọa Quan Lộc ở Hợi, đứng thế hãm, người này dễ vướng chuyện thủ tục, giấy tờ, kiện tụng.
 
 Tóm lại sau khi đặt các cung cạnh nhau, ghép với các cung còn lại, đường công danh có cả hai mặt, mỗi mặt nói về một chuyện.
 
 **Đọc sâu — Thiên hướng công việc.** Ngay trong cung Quan Lộc có Tham Lang, vốn tượng trưng cho uy quyền và tài lộc.
 
-**Đọc sâu — Quyền hành và vị thế.** Điều đã nói về triển vọng địa vị có gốc ở Liêm Trinh và Tham Lang ở cung Quan Lộc. Đằng sau điều ấy là bản chất của Liêm Trinh: sao này chủ quan lộc.
+**Đọc sâu — Quyền hành và vị thế.** Triển vọng địa vị đã nói có gốc ở Liêm Trinh và Tham Lang ở cung Quan Lộc: Liêm Trinh vốn chủ quan lộc.
 
 ### Luận cung Tài Bạch
 
@@ -440,17 +440,17 @@ Cung Tài Bạch đóng ở Mão, nơi Vũ Khúc và Thất Sát (Hãm Địa) c
 
 Về chuyện kiếm tiền và giữ tiền, với Thất Sát cùng Vũ Khúc tọa Tài Bạch ở Mão, người mang lá số này tự lập được phần nào. Vì Đại Hao đắc địa ở Tài Bạch, tán tài. Nhìn sang Mệnh, cung Mệnh cũng cùng chiều ấy: thông minh, cương nghị, can đảm, thích hoạt động. Cung Tài Bạch có Triệt, nên mọi kết luận tốt ở đây đều kèm điều kiện. Một gợi ý để bớt tiền bạc khó giữ: dành riêng một phần không động đến.
 
-Về đường kiếm tiền, Vũ Khúc ở cung Tài Bạch cho tài lộc, cung Tài Bạch lại cho sự eo hẹp tài chính; đây là hai mặt chưa phân xử được.
+Về đường kiếm tiền, Vũ Khúc ở cung Tài Bạch cho tài lộc, cung Tài Bạch lại cho sự eo hẹp tài chính; đây là hai mặt chưa phân xử được. Ngay trong cung Tài Bạch còn có Thất Sát hãm và Triệt, nên mặt thuận không thể xem là trọn.
 
 Về cách giữ và quản lý tiền, tiền bạc khó giữ là điều cần để ý nhất về phần này, và Thất Sát hãm và Triệt ở cung Tài Bạch càng làm rõ điều đó.
 
 Về của để dành và nhà cửa, phần này đi theo chiều thuận, với cơ nghiệp được nhiều cung cùng nói tới.
 
-**Đọc sâu — Tiền đến từ đâu.** Vũ Khúc ở cung Tài Bạch cho thấy giàu có. Cụ thể là phần thu thường đủ để người này không phải tính từng khoản nhỏ. Điều này gắn với bản chất của Vũ Khúc, vốn chủ tiền bạc, nên cần cho cung Tài Bạch.
+**Đọc sâu — Tiền đến từ đâu.** Vũ Khúc ở cung Tài Bạch cho thấy giàu có. Cụ thể là phần thu thường đủ để họ không phải tính từng khoản nhỏ. Điều này gắn với bản chất của Vũ Khúc, vốn chủ tiền bạc, nên cần cho cung Tài Bạch.
 
-**Đọc sâu — Chỗ dễ hao hụt.** Tiền bạc khó giữ nói ở phần trên đứng trên Đại Hao ở cung Tài Bạch. Đằng sau điều ấy là bản chất của Đại Hao: sao này tượng trưng cho sự hao tán, nên đóng ở cung nào cũng làm giảm cái tốt của cung ấy.
+**Đọc sâu — Chỗ dễ hao hụt.** Tiền bạc khó giữ nói ở trên đứng trên Đại Hao ở cung Tài Bạch, mà Đại Hao vốn tượng trưng cho sự hao tán, nên đóng ở cung nào cũng làm giảm cái tốt của cung ấy.
 
-**Đọc sâu — Mệnh, Tài, Quan, Điền nhìn cùng nhau.** Cung Phúc Đức và cung Quan Lộc giữ phần chế tài, cân bằng chỗ mạnh yếu của cung Tài Bạch. Ở lá số này, Phúc Đức có Thiên Phủ (đắc), Quan Lộc có Liêm Trinh (hãm) và Tham Lang (hãm); đường công danh đã được xét là có cả hai mặt. Nhiều tiền là giàu nhưng chưa đủ, nhà cửa đất đai mới là sự giàu sang cụ thể và vững bền. Trên lá số, Điền Trạch có Thái Âm (vượng). Gom lại, khả năng kiếm tiền không có chính tinh sáng đỡ ngay trong cung, còn Thất Sát hãm và Triệt kéo lại. Nhìn cùng lúc, khả năng kiếm tiền có cả hai mặt, mỗi mặt nói về một chuyện; cách giữ và quản lý tiền là chỗ phải gắng sức.
+**Đọc sâu — Tài Bạch giữa các cung.** Phần chế tài của Tài Bạch nằm ở hai cung: Phúc Đức có Thiên Phủ (đắc), Quan Lộc có Liêm Trinh (hãm) và Tham Lang (hãm); đường công danh đã được xét là có cả hai mặt. Gom lại, khả năng kiếm tiền không có chính tinh sáng đỡ ngay trong cung, còn Thất Sát hãm và Triệt kéo lại.
 
 ### Luận cung Phu Thê
 
@@ -468,8 +468,8 @@ Tỵ là cung Phu Thê vô chính diệu; sao chủ phải mượn là Liêm Tri
 
 Về hôn nhân, nhưng vì Phu Thê có Đà La đứng thế hãm, tình cảm khó bền, dễ đổ vỡ. Cung Phu Thê không có chính tinh, phải mượn Liêm Trinh từ cung Quan Lộc, mà Liêm Trinh lại ở thế hãm, nên phần tốt của cung phải nhờ các sao khác đỡ. Tham Lang mượn từ cung Quan Lộc đang hãm địa, nên cung Phu Thê khó thuận một chiều. Có Linh Tinh đồng cung, nên mặt thuận của cung Phu Thê không thể xem là trọn vẹn. Từ sự trắc trở tình cảm, một gợi ý là chọn người hợp hơn là người làm mình rung động nhất.
 
-Rút lại, hôn nhân có cả sự hòa hợp (dựa vào Tử Vi ở cung Mệnh) lẫn sự trắc trở tình cảm (dựa vào Đà La ở cung Phu Thê); chưa phân xử được mặt nào trội.
+Rút lại, hôn nhân có cả sự hòa hợp (dựa vào Tử Vi ở cung Mệnh) lẫn sự trắc trở tình cảm (dựa vào Đà La ở cung Phu Thê); chưa phân xử được mặt nào trội. Liêm Trinh hãm (mượn từ cung đối), Tham Lang hãm (mượn từ cung đối) và Đà La đóng ngay ở cung Phu Thê, nên mặt thuận không thể xem là trọn vẹn.
 
 **Đọc sâu — Cách hai người gắn với nhau.** Cung Phu Thê không có chính tinh; sao sáng hội về là Thiên Tướng từ cung Thiên Di, vốn đi đến đâu cũng trung hòa được cái xấu của các sao xấu và giữ cho tình thế ổn định. Cùng hội về còn có Thiên Phủ từ cung Phúc Đức; sao này không tự mình làm nên chuyện mà điều hành, vun đắp, như người mẹ hiền chăm đàn con. Thân cư Phu Thê thì đời mình gắn nhiều với người phối ngẫu, cùng nhau sẻ ngọt chia bùi.
 
-**Đọc sâu — Nguồn căng thẳng.** Điều đã nói về sự trắc trở tình cảm có gốc ở Đà La ở cung Phu Thê. Đằng sau điều ấy là bản chất của Đà La: sao này là sự cản trở, nặng lên khi mình nhu nhược, chần chờ. Riêng Linh Tinh trong cung Phu Thê: sao này là sự hao mòn, nặng lên khi mình quá cứng rắn. Thiên Phủ từ cung Phúc Đức hội chiếu về vốn chế ngự được Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, nên Đà La và Linh Tinh trong cung Phu Thê có sao kìm lại.
+**Đọc sâu — Nguồn căng thẳng.** Sự trắc trở tình cảm đã nói có gốc ở Đà La ở cung Phu Thê: Đà La vốn là sự cản trở, nặng lên khi mình nhu nhược, chần chờ. Linh Tinh ở cung Phu Thê vốn là sự hao mòn, nặng lên khi mình quá cứng rắn. Thiên Phủ từ cung Phúc Đức hội chiếu về vốn chế ngự được Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, nên Đà La và Linh Tinh trong cung Phu Thê có sao kìm lại.
