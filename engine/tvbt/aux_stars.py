@@ -30,9 +30,11 @@ THIEN_TRU = {0: 5, 1: 6, 2: 0, 3: 5, 4: 6, 5: 8, 6: 2, 7: 6, 8: 9, 9: 10}
 def group_of(rule: str) -> str:
     return GROUP_SRC if rule in SOURCED else GROUP
 
-# Stars the common 14+ star procedure also has but which are NOT placed here (formula not confidently known).
+# What is computed vs interpreted for the yearly layers (shown in the scope panel). Three states kept apart (owner review 2026-10-22):
+# position computed · reading available · experimental index only.
 NOT_PLACED = [
-    "Tiểu hạn/lưu niên xem ở mục Đại hạn & lưu niên; lưu Lộc Tồn, lưu Kình Đà, lưu Mã chưa được an",
+    "Sao lưu năm (lưu Lộc Tồn, Kình, Đà, Mã, Khốc, Hư, Tang Môn, Bạch Hổ, Thái Tuế): đã an vị trí theo Khảo Luận tr.41-42; các sao lưu khác (Xương, Khúc, Đào, Hồng, Kiếp Sát, lưu Tứ Hóa) an theo thông lệ. Chưa có lời luận riêng cho từng sao lưu.",
+    "Nguyệt hạn: đã tính vị trí theo Thực Hành tr.115 và có chỉ số thử nghiệm trên trang Tổng quan; chưa có lời luận theo từng tháng.",
 ]
 
 # year stem -> branch

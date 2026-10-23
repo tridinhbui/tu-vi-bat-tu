@@ -40,7 +40,7 @@ export function renderTuvi(host, t, ctx) {
   const than = t.palaces.find(p => p.is_than), menh = t.palaces.find(p => p.name === 'Mệnh');
   const findings = (ctx.reason?.systems?.tu_vi?.findings || []);
   const fOf = name => findings.filter(f => palaceOfSubject(f.subject) === name);
-  const now = new Date().getFullYear(), age = now - ctx.req.year + 1;
+  const now = new Date().getFullYear(), age = now - (t.lunar?.year ?? ctx.req.year) + 1;   // tuổi mụ: from the lunar birth year
 
   // Badge from the shared dignity knowledge base (palace.dignity_status, engine/data/dignity_kb.json): VERIFIED prints the book's own
   // term (Lợi, Đắc…); CONFLICT prints a muted '?' listing the readings; UNVERIFIED / NOT_APPLICABLE print nothing (never a guess).
@@ -107,7 +107,7 @@ export function renderTuvi(host, t, ctx) {
         ${row('Tháng:', bd(`${ctx.req.month} (${t.lunar.month}${t.lunar.leap ? ' nhuận' : ''})`, ctx.req.month != null), esc(gz('month')))}
         ${row('Ngày:', bd(`${ctx.req.day} (${t.lunar.day})`, ctx.req.day != null), esc(gz('day')))}
         ${row('Giờ:', bd(`${ctx.req.hour} giờ ${pad2(ctx.req.minute || 0)} phút`, ctx.req.hour != null), esc(gz('hour')))}
-        ${row('Năm xem:', `${yNow} (${now}), ${age} tuổi`)}
+        ${row('Năm xem:', `${yNow} (${now}), ${age} tuổi mụ`)}
         ${row('Âm dương:', esc(t.yin_yang_gender))}
         ${row('Bản mệnh:', `${esc(t.menh_nap_am)} - ${esc(t.cuc.name)}`)}
         ${row('', `(${esc(t.menh_cuc_relation)})`)}
