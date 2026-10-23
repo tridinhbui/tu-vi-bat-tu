@@ -1,7 +1,9 @@
 """Refresh facts.bazi.deep (bazi_deep.pipeline.prose_summary), and the Bát Tự luck list and pillar relations, in the prose test fixtures,
 leaving every other fact untouched, so the TS goldens of the Tử Vi chapters do not move when the Bát Tự facts grow (S2 2026-10-22: luck
 start_year by the shared mid-year rule plus start_date, bán hợp and 10-pair can xung/khắc in the relations).
-    .venv/bin/python tools/interpret/refresh_bazi_deep.py
+    .venv/bin/python tools/interpret/refresh_bazi_deep.py [--corpus]
+--corpus also refreshes the same three facts in corpus1000.json.gz (DEEP-BAZI-2: so the 1,000-chart Bát Tự tests read the current deep facts,
+the 八字真宗 kin layer included; the corpus's Tử Vi facts and its python_fired lists are left as they are).
 Each fixture's birth is checked against its stored pillars and luck start before anything is written."""
 import json
 import sys
@@ -48,5 +50,17 @@ def main():
     print("refreshed benchmark20.json", len(bench))
 
 
+def corpus():
+    import gzip
+    p = FX / "corpus1000.json.gz"
+    items = json.loads(gzip.decompress(p.read_bytes()).decode("utf-8"))
+    for c in items:
+        c["facts"]["bazi"].update(fresh({"dignity_school": "thuc_hanh", **c["birth"]}, c["facts"]["bazi"]))
+    p.write_bytes(gzip.compress(json.dumps(items, ensure_ascii=False, separators=(",", ":")).encode("utf-8"), mtime=0))
+    print("refreshed corpus1000.json.gz", len(items))
+
+
 if __name__ == "__main__":
     main()
+    if "--corpus" in sys.argv:
+        corpus()

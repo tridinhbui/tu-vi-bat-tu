@@ -359,6 +359,9 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
         return {"touch": dp.touches(view, stem, branch, y_el), "why": {"stem": dp.luck_reason(view, tvh, pf["stem_group"], pf["tvh"]["stem"], yd),
                                                                       "branch": dp.luck_reason(view, tvh, pf["branch_group"], pf["tvh"]["branch"], yd)}}
 
+    # 八字真宗 pp.50-65 (DEEP-BAZI-2): Tài, nghề, lục thân by position, and per year the 流年 judgements (bazi_deep.kin)
+    from . import kin
+    kn = kin.natal(view, tvh or None, {"hi": list(dict.fromkeys(yong_g + tot_g)), "ky": xau_g, "yong": yong_g} if yong_g or tot_g else None)
     lk = []
     for e, L in zip(tl["luck"], luck):
         cc = next((c for c in e.get("can_chi", []) if c["label"] == "luck"), None)
@@ -391,7 +394,8 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
         yr.append({"year": y, "pillar": f"{STEMS_VI[s]} {BRANCHES_VI[b]}", "luck": lname, **pf, **judged(s, b, pf), **why_of(s, b, pf), "luck_half": half,
                    "vs_luck": _vs_pillar(s, b, *(STEMS_VI.index(lname.split()[0]), BRANCHES_VI.index(lname.split()[1])) if lname else (None, None)),
                    "can_chi_detail": cc and {"relation": cc["relation"], "mitigated": cc["mitigated"], "aggravated": cc["aggravated"]},
-                   "events": ev, "findings": fs})
+                   "events": ev, "findings": fs,
+                   "kin": kin.year(view, tvh or None, kn["facts"], s, b, (STEMS_VI.index(lname.split()[0]), BRANCHES_VI.index(lname.split()[1])) if lname else None)})
     cct, ttv = Y.get("cach_cuc_tvh", {}) or {}, Y.get("thuan_the_tvh", {}) or {}
     inner = a["geju"]["inner"][0] if a["geju"]["inner"] else None
     pv = SimpleNamespace(**{k: SimpleNamespace(stem=view.stem(k), branch=view.branch(k)) for k in _PIL})
@@ -433,6 +437,7 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
                   "dh_note": dp.dh_note(view, tvh)} if tvh else None,
         "shensha": ss,
         "verified": verified, "luck": lk, "years": yr,
+        "kin": {"detail": kn["detail"], "findings": kn["findings"]},
     }
 
 

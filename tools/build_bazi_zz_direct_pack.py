@@ -1,4 +1,4 @@
-"""Generates data/pack_bazi_zz_direct.json from 八字真宗 pp.51-58: occupation by the hour pillar (干为表: ten-god group of the hour stem; the stem itself) and
+"""Generates data/pack_bazi_zz_direct.json from 八字真宗 pp.51-74: trade (p.51), education (p.56) and
 marriage by the month branch (月令) and day branch (日支). Paraphrased, page-cited. Skipped: infidelity, second-marriage, officialdom/prison, parents' lifespan, illness."""
 import json
 import unicodedata
@@ -10,18 +10,10 @@ inn = lambda f, v: {"fact": f, "operator": "in", "value": v}
 R = []
 def add(rid, cond, claim, page, phrase, tone="neutral", status="verified", cat="occupation"):
     R.append((rid, cond, claim, page, phrase, tone, status, cat))
-GROUP = {"thuc_thuong": "ăn uống, thủ công, kỹ thuật, biểu diễn, chăn nuôi (Thực Thần, Thương Quan)", "an": "văn hóa, giáo dục (Ấn)", "quan": "hành chính (Quan, Sát)",
-         "tai": "tài chính (Tài)", "ty_kiep": "nghề tự do, việc tạp (Tỉ Kiếp)"}
-for g, ph in GROUP.items():
-    add(f"HOUR_GROUP_{g}", eq("bazi.hour_stem_group", g), f"bt_zz_nghe_tru_gio_{g}", "p.52", f"nghề hợp thiên về {ph} (thập thần của can trụ giờ: 'can là biểu')")
-STEM = {"Giáp": "y sĩ, thương nhân, chính pháp, kiến trúc, nông lâm, hóa học, âm nhạc", "Ất": "vườn cảnh, môi giới, thủ công, in ấn, du lịch",
-        "Bính": "giải trí, kiểm sát, giám định, xét nghiệm, thẩm mỹ, luyện kim, nhãn khoa, quà tặng, thời trang, hóa học, điện",
-        "Đinh": "họa sĩ, biểu diễn, sử học, thẩm mỹ, ẩm thực", "Mậu": "chăn nuôi, nông nghiệp, xây dựng, giết mổ, da lông, đồ gỗ",
-        "Kỷ": "thư ký, đánh máy, sắp chữ, phục vụ, nghệ nhân dân gian, địa chính, mầm non, sản phụ khoa, đô thị, vệ sinh, vật tư",
-        "Canh": "kim loại, điêu khắc, tư pháp, y sĩ, đạo diễn, võ thuật, đồ tể", "Tân": "trang sức, khóa, luật sư, nghị sĩ, thẩm phán, bói toán",
-        "Nhâm": "vận tải, đóng tàu, thủy lợi, chữa cháy, thủy sản, môi trường", "Quý": "tâm lý học, tham mưu, điều độ, thiết kế, hoạch định"}
-for s, ph in STEM.items():
-    add(f"HOUR_STEM_{s}", eq("bazi.hour_stem", s), f"bt_zz_nghe_can_gio_{unicodedata.normalize('NFD', s.replace('Đ', 'D').replace('đ', 'd')).encode('ascii', 'ignore').decode().lower()}", "p.52", f"nghề có thể thuộc nhóm: {ph} (can trụ giờ {s})", status="draft")
+# p.52 occupation (工作环境、性质 by the pillar left of the Quan pillar, 干为表) and the p.50 wealth / p.52 #4 rank judgements moved to
+# data/bazi_deep/pack_zz_kin.json (tools/build_bazi_kin_pack.py, DEEP-BAZI-2 2026-10-23): the old HOUR_GROUP_* / HOUR_STEM_* rules read the hour
+# pillar for every chart, while p.52 #6-7 and the two p.53 examples read the pillar left of the Quan pillar; the wealth rules there use the
+# manual's own 流入日主 condition (p.50 断语条件) and its narrower 有根.
 add("YIN_SHEN_JIA", eq("bazi.has_yin_shen_jia", True), "bt_zz_dan_than_giap_buon_ban", "p.51", "hợp việc kinh doanh, buôn bán (trong tứ trụ có đủ Dần, Thân và can Giáp)")
 M = lambda *g: inn("bazi.month_main_god", list(g))
 add("M_HURT", eq("bazi.month_branch_hurt", True), "bt_zz_hn_nguyet_lenh_hinh_xung", "p.57", "hôn nhân thiếu ổn định (nguyệt lệnh gặp hình, xung, xuyên, tuyệt); hệ thống chưa tính quan hệ 'tuyệt' nên chỉ kiểm hình, xung, hại", "limit", "draft", cat="marriage")
@@ -35,13 +27,8 @@ add("D_QUAN_SAT", inn("bazi.day_main_god", ["Chính Quan", "Thất Sát"]), "bt_
 add("D_TAI", inn("bazi.day_main_god", ["Thiên Tài", "Chính Tài"]), "bt_zz_hn_nhat_chi_tai", "p.57", "được lợi về tiền của nhờ người phối ngẫu (nhật chi là Tài)", cat="marriage")
 add("D_THUC_THUONG", inn("bazi.day_main_god", ["Thực Thần", "Thương Quan"]), "bt_zz_hn_nhat_chi_thuc_thuong", "p.57", "người phối ngẫu tốn kém tiền của (nhật chi là Thực hoặc Thương)", "limit", cat="marriage")
 G = lambda g: eq("chart.gender", g)          # "nam" / "nữ" (same vocabulary as the Tử Vi facts)
-add("W_CHINH_TAI_ROOT", {"all": [eq("bazi.chinh_tai_tho_can", True), eq("bazi.chinh_tai_rooted", True)]}, "bt_zz_tai_chinh_tai_tho_can_co_can", "p.50", "tài vận tốt (Chính Tài thấu can và có gốc)", cat="wealth")
-add("W_THIEN_TAI_TD", eq("bazi.thien_tai_tho_can", True), "bt_zz_tai_thien_tai_tho_can_tieu_nhieu", "p.50", "tiêu xài mạnh tay (Thiên Tài thấu can)", "limit", cat="wealth")
-add("W_THIEN_TAI_ROOT", {"all": [eq("bazi.thien_tai_tho_can", True), eq("bazi.thien_tai_rooted", True)]}, "bt_zz_tai_thien_tai_tho_can_co_can", "p.50", "tài vận tốt (Thiên Tài thấu can và có gốc)", cat="wealth")
-add("W_NO_STAR", eq("bazi.no_wealth_star", True), "bt_zz_tai_khong_hien_xem_thuc_thuong", "p.50", "tài tinh không hiện: phải xét thêm Thực, Thương để luận tài vận", cat="wealth")
 add("E_AN_ROOT", {"all": [eq("bazi.an_tho_can", True), eq("bazi.an_rooted", True)]}, "bt_zz_hoc_an_tho_can_co_can", "p.56", "học vấn, bằng cấp cao (Ấn thấu can có gốc)", cat="education")
 add("E_AN_VOID", {"all": [eq("bazi.an_tho_can", True), eq("bazi.an_rooted", False)]}, "bt_zz_hoc_an_tho_hu", "p.56", "học vấn ở mức bình thường (Ấn thấu can nhưng không có gốc)", cat="education")
-add("O_QUAN_SAT_ROOT", eq("bazi.quan_sat_both_rooted", True), "bt_zz_quan_quan_sat_deu_tho_co_can", "p.52", "một người đảm nhiều chức vụ (Quan và Sát đều thấu can, có gốc)", cat="career")
 add("S_PURE_YIN_M", {"all": [eq("bazi.all_yin", True), G("nam")]}, "bt_zz_nam_thuan_am_mem_yeu", "p.59", "tính mềm, thiếu quyết đoán (nam mệnh thuần âm: kiểu 'nam hóa nữ')", "limit", "draft", cat="character")
 add("S_PURE_YANG_F", {"all": [eq("bazi.all_yang", True), G("nữ")]}, "bt_zz_nu_thuan_duong_cuong", "p.59", "tính mạnh mẽ, quyết đoán (nữ mệnh thuần dương: kiểu 'nữ cường nhân')", status="draft", cat="character")
 add("S_TMM_YIN_M", {"all": [eq("bazi.tmm_all_yin", True), G("nam")]}, "bt_zz_nam_thai_than_menh_am", "p.59", "tính mềm, nặng về tình (nam mệnh thai, thân, mệnh đều âm)", "limit", "draft", cat="character")

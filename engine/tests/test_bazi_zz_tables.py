@@ -132,7 +132,7 @@ def test_zz_flag_off_means_no_zz_rule_can_fire():
 
 def test_pack_loads_validates_and_every_condition_fact_is_produced():
     zz = [r for r in RULES if r.id.startswith("BT_ZZ_DIRECT_")]
-    assert len(zz) == 49 and validate_pack(zz, SOURCES, {"bazi.*", "chart.*"}) == []
+    assert len(zz) == 29 and validate_pack(zz, SOURCES, {"bazi.*", "chart.*"}) == []
     produced = set(facts.bazi_facts(CHARTS[0], zz=True)["chart"])
     def leaves(c):
         if isinstance(c, dict):
@@ -151,7 +151,7 @@ def test_pack_loads_validates_and_every_condition_fact_is_produced():
 
 def test_unverified_rules_stay_draft():
     draft = {r.id for r in RULES if r.id.startswith("BT_ZZ_DIRECT_") and r.reviewStatus == "draft"}
-    for rid in ("BT_ZZ_DIRECT_HOUR_STEM_GIAP", "BT_ZZ_DIRECT_S_PURE_YIN_M", "BT_ZZ_DIRECT_S_PURE_YANG_F", "BT_ZZ_DIRECT_S_TMM_YIN_M", "BT_ZZ_DIRECT_S_TMM_YANG_F"):
+    for rid in ("BT_ZZ_DIRECT_S_PURE_YIN_M", "BT_ZZ_DIRECT_S_PURE_YANG_F", "BT_ZZ_DIRECT_S_TMM_YIN_M", "BT_ZZ_DIRECT_S_TMM_YANG_F"):
         assert rid in draft
 
 
@@ -209,7 +209,7 @@ def test_gender_source_input_is_preferred_and_inference_is_the_exact_inverse_of_
 def test_rule_audit_provenance_status_and_trigger_rates():
     import collections
     zz = [r for r in RULES if r.id.startswith("BT_ZZ_DIRECT_")]
-    assert len({r.id for r in zz}) == 49
+    assert len({r.id for r in zz}) == 29     # 20 moved to data/bazi_deep/pack_zz_kin.json (DEEP-BAZI-2)
     for r in zz:
         assert r.sourceIds == ["SRC_BAZI_ZHENZONG"] and "[PDF p." in r.description and r.subject == "chart" and r.system == "bat_tu"
     n = collections.Counter()

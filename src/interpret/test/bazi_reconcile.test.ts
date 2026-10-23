@@ -64,7 +64,8 @@ export function baziProblems(label: string, f: ChartInput): string[] {
     if (s.trace.basis === 'sach' && !s.trace.rules.some(id => o.evidence.rules[id]?.verified)) bad.push(`${label}: book sentence without a verified rule: ${s.text}`);
     if (s.trace.basis === 'tinh_toan' && !s.trace.cites.length && !s.trace.rules.length) bad.push(`${label}: computed sentence without its table: ${s.text}`);
     if (METHOD.test(s.text)) bad.push(`${label}: method word: ${s.text}`);
-    if (/cực nhược|cực vượng|thiên nhược|thiên vượng|trung hòa|sát ngưỡng vượng nhược/.test(s.text)) bad.push(`${label}: seven-level label: ${s.text}`);
+    // (DEEP-BAZI-2) the printed điều hậu note "Nhâm, Kỷ không nên thiên vượng" (TVH p.393) is a book quote about two stems, not the system's level label
+    if (/cực nhược|cực vượng|thiên nhược|(?<!không nên )thiên vượng|trung hòa|sát ngưỡng vượng nhược/.test(s.text)) bad.push(`${label}: seven-level label: ${s.text}`);
     if (/bảng điều hậu[^.]*cần (Hỏa|Thủy|Mộc|Kim|Thổ)|theo bảng điều hậu, lá số cần/.test(s.text)) bad.push(`${label}: điều hậu table named as the source of an element: ${s.text}`);
     if (/phù ức|sinh phù cho thân|thân nhược nên cần/.test(s.text)) bad.push(`${label}: phù ức reasoning in the text: ${s.text}`);
   }
@@ -175,15 +176,20 @@ test('owner review 2026-10-22: one cách status, Tài in three layers, year × �
     if (v) assert.equal(v.trace.conditional, 'cach_partial', v.text);
   }
   assert.ok((ch['tong-ket'] ?? []).flatMap(p => p.sentences).some(s => s.trace.conditional === 'cach_partial'));
-  // 2. Tài: position (八字真宗 p.50), the day master's strength, the conclusion under the cách; the deciding condition named, left open
+  // 2. Tài (DEEP-BAZI-2): the manual's own condition decides first (八字真宗 p.50 断语条件 2: Tài strong but not flowing into the day master ->
+  // tài vận bình thường), with why (the three places next to the day master hold no Ấn); then the day master's strength and the cách; and
+  // the two books meet (no open tension left on this chart)
   const tai = (ch['su-nghiep'] ?? []).flatMap(p => p.sentences);
-  for (const step of ['tai:pos', 'tai:dm', 'tai:method', 'tai:decide']) assert.ok(tai.some(s => s.trace.step === step), step);
-  assert.match(tai.find(s => s.trace.step === 'tai:decide')!.text, /quyết định[^.]*sức nhật chủ[^.]*để ngỏ/);
-  // (2026-10-23) no unqualified "tài vận tốt" anywhere: the positional reading carries its condition, quotes of it stay in quotes
-  for (const s of all) for (const m of s.text.matchAll(/tài vận tốt(?! xét riêng vị trí)/g))
-    assert.ok(s.text[m.index! - 1] === '“' && s.text[m.index! + m[0].length] === '”', s.text);
-  const zz = tai.find(s => /BT_ZZ_DIRECT_W_THIEN_TAI_ROOT/.test(s.trace.rules.join()) && s.trace.step !== 'tai:pos');
-  assert.ok(zz && /xét riêng vị trí[^.]*tùy sức nhật chủ/.test(zz.text) && zz.trace.conditional === 'tai_position_only', zz?.text);
+  for (const step of ['kin:tai', 'kin:flow', 'tai:dm', 'tai:method', 'tai:decide']) assert.ok(tai.some(s => s.trace.step === step), step);
+  assert.match(tai.find(s => s.trace.step === 'kin:tai')!.text, /chưa (chảy|có đường chảy)[^.]*nhật chủ[^.]*bình thường/);
+  assert.match(tai.find(s => s.trace.step === 'tai:decide')!.text, /gặp nhau/);
+  // no unqualified "tài vận tốt" anywhere: every one carries its condition (trace.conditional) or is a quote
+  for (const s of all) for (const m of s.text.matchAll(/tài vận tốt/g))
+    assert.ok((s.text[m.index! - 1] === '“' && s.text[m.index! + m[0].length] === '”') || ['tai_flow', 'tai_position_only'].includes(s.trace.conditional ?? ''), s.text);
+  const zz = tai.find(s => s.trace.rules[0] === 'BT_ZZK_W10R');
+  assert.ok(zz && zz.trace.rules.includes('BT_ZZK_W24') && zz.trace.conditional === 'tai_flow', zz?.text);
+  // the work field is read at the pillar left of the Quan pillar (p.52 #6-7, p.53 examples): the hour stem Nhâm is the Quan, so the day pillar
+  assert.ok(tai.some(s => s.trace.step === 'kin:work_field' && /trụ ngày Đinh Sửu/.test(s.text)));
   // 3. 2027 (Đinh Mùi) is not among the Mậu Tuất years to press on: its own verdict is mixed and its branch meets the luck branch Tuất
   const mt = D.luck.find(l => l.pillar === 'Mậu Tuất')!;
   assert.ok(!(mt.good_years ?? []).some(g => g.year === 2027));

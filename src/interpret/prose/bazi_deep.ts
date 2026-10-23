@@ -21,6 +21,7 @@
 import type { ChartInput, Knowledge } from '../types.ts';
 import { Micro, finish, lowerFirst } from './micro.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
+import { kinYear, type BaziKin, type KinFrames, type KinYear } from './bazi_kin.ts';
 
 type Role = 'yong' | 'xi' | 'ji' | null;
 type Verdict = 'tot' | 'xau' | null;
@@ -97,7 +98,7 @@ export interface DepthFrames {
   touch: string[]; touch_year?: string[]; touch_kind: Record<string, string>; year_half: string[]; year_half_tail: string; tk_diag: string[]; tk_diag_heat: string; tk_diag_special: string[];
   tk_turn: string[]; tk_turn_what: Record<string, string>; special_yong?: string[]; special_pick?: string[]; dom_skip?: string[];
   cach_status?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
-  tai_layers?: Record<'pos' | 'dm' | 'method' | 'method_no_tb' | 'decide', string[]>;
+  tai_layers?: Record<'pos' | 'dm' | 'method' | 'method_no_tb' | 'decide', string[]> & { decide_agree?: string[] };
 }
 export interface BaziDeepFrames {
   season: string[]; season_state: Record<string, string>; strength_near: string[]; strength_side: string[]; climate: string[]; climate_presence: string[];
@@ -158,6 +159,8 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     xs.push({ text: t, trace: { move: 'ELABORATE', concepts: [], rules: ids, cites, basis, ...extra } });
   };
   const MH = F.mh, Dd = F.d, P = D.depth ?? null;
+  const kinF = (F as BaziDeepFrames & { kin?: KinFrames }).kin, kinD = (D as BaziDeep & { kin?: BaziKin }).kin?.detail;
+  const kinGender = String((b.base.chart as Record<string, unknown>)['chart.gender'] ?? '') || null;
   /** an illustration (minh họa) attached to the sourced sentence of step `attach`, which must be the last one said in `xs` */
   const mh = (xs: ProseSentence[], key: string, vars: Record<string, string>, attach: string) => {
     if (!MH?.[key]?.length || !xs.some(s => s.trace.step === attach)) return;
@@ -489,22 +492,32 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     if (xs.length) (out['cach-cuc'] ??= []).push({ role: 'support', sentences: xs, text: xs.map(s => s.text).join(' '), topic: 'than_sat' });
   }
 
-  // ---- sự nghiệp: Tài in three layers (owner review 2026-10-22). 八字真宗 p.50 reads "Tài thấu can và có gốc: tài vận tốt" from the Tài's
-  // position alone; Thiệu Vĩ Hoa reads the same chart through the day master's strength and the cách. Where the day master is weak and the
-  // cách table calls Tài a bad luck, the three layers are told apart, and the condition that decides is named; no page weighs the two.
-  const TL = Dd?.tai_layers, zzW = Object.keys(rules).find(id => /^BT_ZZ_DIRECT_W_(CHINH|THIEN)_TAI_ROOT$/.test(id));
+  // ---- sự nghiệp: Tài in layers (owner review 2026-10-22; DEEP-BAZI-2 2026-10-23). 八字真宗 p.50 reads Tài by position ("Tài thấu can và có
+  // gốc: tài vận tốt") under its own conditions (断语条件 1-3: when Tài is strong it must flow into the day master); Thiệu Vĩ Hoa reads the same
+  // chart through the day master's strength and the cách. Where the day master is weak and the cách table calls Tài a bad luck: the position layer
+  // (only when no 断语条件 verdict was told, prose/bazi_kin.ts), the strength layer, the cách layer, and what decides. When the manual's own
+  // condition already says "tài vận bình thường" (Tài strong, not flowing), the two books meet and the last sentence says where; when the
+  // manual says "tài vận tốt" by position or by flow, the tension stays open and is named.
+  const TL = Dd?.tai_layers, zzIds = Object.keys(rules);
+  const zzHead = zzIds.find(id => /^BT_ZZK_W2[456]$/.test(id)), zzPos = zzIds.find(id => /^BT_ZZK_W(02R|10R)$/.test(id));
+  const zzW = zzHead ?? zzPos;
   if (TL && zzW && strong === false && tableOk && (xauG.includes('Tài') || CT!.dominant === 'Tài')) {
     const xs: ProseSentence[] = [], zz = rules[zzW].reading.replace(/\s*\(.*$/, '').trim();
-    const visT = (['year', 'month', 'hour'] as const).filter(x => GROUP_OF[pil[x].stem_ten_god ?? ''] === 'Tài').map(x => `can ${PIL_VI[x]} ${pil[x].stem}`);
-    const hidT = [...new Set(K.flatMap(x => pil[x].hidden.filter(h => GROUP_OF[h.ten_god] === 'Tài').map(() => `chi ${PIL_VI[x]} ${pil[x].branch}`)))];
-    const where = `Tài lộ ở ${join(visT)}${hidT.length ? ` và có gốc trong ${join(hidT)}` : ''}`;
-    say(xs, fill(m.pick('bd|tl1', TL.pos), { where, zz }), 'sach', ['ZZ p.50'], [zzW], { step: 'tai:pos', note: 'Bát Tự Chân Tông tr.50: lời về tài vận xét vị trí của Tài (thấu can, có gốc), không xét sức nhật chủ.' });
+    if (!zzHead) {
+      const visT = (['year', 'month', 'hour'] as const).filter(x => GROUP_OF[pil[x].stem_ten_god ?? ''] === 'Tài').map(x => `can ${PIL_VI[x]} ${pil[x].stem}`);
+      const hidT = [...new Set(K.flatMap(x => pil[x].hidden.filter(h => GROUP_OF[h.ten_god] === 'Tài').map(() => `chi ${PIL_VI[x]} ${pil[x].branch}`)))];
+      const where = `Tài lộ ở ${join(visT)}${hidT.length ? ` và có gốc trong ${join(hidT)}` : ''}`;
+      say(xs, fill(m.pick('bd|tl1', TL.pos), { where, zz }), 'sach', ['ZZ p.50'], [zzW], { step: 'tai:pos', note: 'Bát Tự Chân Tông tr.50: lời về tài vận xét vị trí của Tài (thấu can, có gốc), không xét sức nhật chủ.' });
+    }
     say(xs, fill(m.pick('bd|tl2', TL.dm), { dm, level: levelVi }), 'tinh_toan', ['TVH pp.331-355'], [], { step: 'tai:dm', note: NOTE.score, mech: true });
     const tbT = tbOrder.find(v => /^BT_TVH_TB_TAI_/.test(v.rule_id));
     const tbTxt = tbT ? (() => { const p2 = tbParts(tbT.text)!; return `trường hợp ${lowerFirst(p2.cond)} được xếp là ${lowerFirst(p2.verdict)}`; })() : '';
     say(xs, fill(m.pick('bd|tl3', tbTxt ? TL.method : TL.method_no_tb), { cach: CT!.cach!, tb: tbTxt }), 'tinh_toan', ['TVH pp.367-369', tvhPage], [],
       { step: 'tai:method', conditional: cachPartial ? 'cach_partial' : undefined, note: `${NOTE.tb} ${NOTE.yong}` } as Partial<SentenceTrace>);
-    say(xs, fill(m.pick('bd|tl4', TL.decide), { zz }), 'he_thong', [], [], { step: 'tai:decide', tone: 'answer',
+    if (zzHead === 'BT_ZZK_W24' && TL.decide_agree?.length)
+      say(xs, fill(m.pick('bd|tl4a', TL.decide_agree), { level: levelVi }), 'he_thong', [], [], { step: 'tai:decide', tone: 'answer',
+        note: 'Hai lời gặp nhau mà không cần phân xử: điều kiện cuối bảng tài vận của Bát Tự Chân Tông (tr.50: Tài vượng mà chưa chảy vào nhật chủ thì tài vận bình thường) và sức nhật chủ theo Thiệu Vĩ Hoa (tr.367-369, 378-383) cùng nói Tài nhiều chưa thành lợi cho bản thân.' });
+    else say(xs, fill(m.pick('bd|tl4', TL.decide), { zz }), 'he_thong', [], [], { step: 'tai:decide', tone: 'answer',
       note: 'Phân xử của hệ thống: lời có điều kiện cụ thể hơn (nêu cả sức nhật chủ, Thiệu Vĩ Hoa tr.367-369) được lấy làm điều quyết định; lời chung về vị trí của Tài (Bát Tự Chân Tông tr.50) giữ nguyên nhưng chỉ trọn khi điều kiện ấy có. Không trang sách nào trong bộ đang dùng cân hai lời này với nhau: chỗ vênh còn mở.' });
     para('su-nghiep', xs);
   }
@@ -706,6 +719,10 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     }
     let neg = false;
     for (const f of y.findings) if (F.verified_text[f.rule_id]) { neg ||= f.rule_id.endsWith('NHUOC'); say(xs, fill(F.verified_text[f.rule_id], { year: String(y.year), stem, branch }), 'sach', ['TTT'], [cite(f.rule_id, f.text, ['TTT'])], { tone: f.rule_id.endsWith('NHUOC') ? 'neg' : 'pos', step, note: 'Trích Thiên Tủy, Tuế Vận (tr.229-233).' }); }
+    // việc, tiền, người in the year (八字真宗 pp.50-65, prose/bazi_kin.ts): the year's two gods as the manual reads them, and its 流年 judgements
+    const kv = classOf(rc), kn = kinYear(y as BaziTemporal & { year: number; kin?: KinYear }, m, kinF, rules, { gender: kinGender, dm, strong, stem, branch,
+      good: !neg && (kv === 'thuan' || kv === 'kha_thuan'), childStars: kinD?.children.stars ?? [], years: (D.years ?? []) as Array<{ year: number; kin?: KinYear }> });
+    xs.push(...kn.short); ds.push(...kn.deep);
     // a year the thiên khắc địa xung rule calls a great ill is told so, with what to do, whatever the tables say
     verdictOf(xs, y, neg && rc.verdict !== 'nang' ? { ...rc, verdict: 'nang', support: [] } : rc, key, who, { year: true });
     para('luu-nien', xs);

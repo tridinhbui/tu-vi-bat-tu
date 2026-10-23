@@ -22,7 +22,9 @@ def test_facts_and_rules_on_a_known_chart():
     f, claims = run(1990, 5, 17, 8)          # Canh Ngọ / Tân Tỵ / Nhâm Ngọ / Giáp Thìn
     assert f["bazi.hour_stem"] == "Giáp" and f["bazi.hour_stem_group"] == "thuc_thuong"
     assert f["bazi.month_main_god"] == "Thiên Tài" and f["bazi.day_main_god"] == "Chính Tài"      # Tỵ 本气 Bính, Ngọ 本气 Đinh vs Nhâm
-    assert "bt_zz_nghe_tru_gio_thuc_thuong" in claims and "bt_zz_nghe_can_gio_giap" in claims
+    # the occupation judgements (p.52) read the pillar left of the Quan pillar since DEEP-BAZI-2 (data/bazi_deep/pack_zz_kin.json); the hour-pillar
+    # rules are gone from this pack
+    assert not any(c.startswith("bt_zz_nghe_") for c in claims)
     assert "bt_zz_hn_nguyet_kien_tai_quan_an" in claims and "bt_zz_hn_nhat_chi_tai" in claims
     assert "bt_zz_hn_nguyet_kien_thuong_kieu_sat" not in claims
 
@@ -51,4 +53,4 @@ def test_blade_horse_tables_follow_the_manual_p72():
 
 
 def test_total_rule_count():
-    assert sum(r.id.startswith("BT_ZZ_DIRECT_") for r in RULES) == 49
+    assert sum(r.id.startswith("BT_ZZ_DIRECT_") for r in RULES) == 29     # 20 moved to data/bazi_deep/pack_zz_kin.json (DEEP-BAZI-2)

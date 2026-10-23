@@ -10,6 +10,7 @@ import type { ProseParagraph, ProseSentence } from './realize.ts';
 import { validateProse } from './validate.ts';
 import { deepBazi, type BaziDeep, type BaziDeepFrames } from './bazi_deep.ts';
 import { withLead } from './luan.ts';
+import { kinBazi, type KinFrames } from './bazi_kin.ts';
 
 export interface BaziLibrary {
   status: 'draft' | 'approved';
@@ -21,6 +22,8 @@ export interface BaziLibrary {
   /** the structure chapters (bazi_deep.ts): strength, điều hậu, phù ức, cách, luck pillars */
   deep?: BaziDeepFrames;
   /** prose-style B1/B7: the opening naming the four pillars, the paragraphs' lead-ins, the closing over the luck pillars */
+  /** DEEP-BAZI-2 (prose/bazi_kin.ts): Tài, nghề, quan hệ and the years by 八字真宗 pp.50-65 */
+  kin?: KinFrames;
   luan?: { frame: string[]; lead: Record<string, string[]>; summary: string[]; need: string[]; good: string[]; bad: string[]; level: Record<string, string> };
 }
 export type BaziChapterId = 'nhat-chu' | 'ngu-hanh' | 'su-nghiep' | 'quan-he' | 'dai-van' | 'cach-cuc' | 'luu-nien' | 'tong-ket';
@@ -114,10 +117,12 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
     // sự nghiệp: which ten-god groups the stems show, and whether Tài shows at all
     const stems = (['year', 'month', 'hour'] as const).map(k => [k, pil[k].stem_ten_god] as const).filter(([, g]) => g);
     const sn: ProseSentence[] = [];
-    if (F.layout && stems.length) sn.push(calc(fill(m.pick('layout', F.layout), { stems: joinVi(stems.map(([k, g]) => `can trụ ${PILLAR_VI[k]} là ${g}`)) })));
+    const hasKin = !!(b as typeof b & { deep?: { kin?: unknown } }).deep?.kin && !!L!.kin;
+    if (F.layout && stems.length && !hasKin) sn.push(calc(fill(m.pick('layout', F.layout), { stems: joinVi(stems.map(([k, g]) => `can trụ ${PILLAR_VI[k]} là ${g}`)) })));
     const wealthShown = stems.some(([, g]) => TEN_GROUP[g!] === 'Tài');
     const wealthHidden = K.some(k => pil[k].hidden.some(h => TEN_GROUP[h.ten_god] === 'Tài'));
-    if (wealthShown && F.wealth_shown) sn.push(calc(m.pick('wshown', F.wealth_shown)));
+    if (hasKin) { /* the kin layout says where Tài stands */ }
+    else if (wealthShown && F.wealth_shown) sn.push(calc(m.pick('wshown', F.wealth_shown)));
     else if (wealthHidden && F.wealth_hidden) sn.push(calc(m.pick('whidden', F.wealth_hidden)));
     // quan hệ: the day branch and what it holds; the relations between pillars
     const qh: ProseSentence[] = [];
@@ -144,19 +149,17 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
     chapters['dai-van'] = para('core', dv);
     chapters['cach-cuc'] = para('core', topics('cach-cuc'));
     // the structure analysis (facts.bazi.deep): appended to the chapters it belongs to, and to the whole reading in chapter order
-    const deep = deepBazi(chart, k, m, L!.deep, rules);
-    // owner review 2026-10-23: where the Tài reading is told in three layers (bazi_deep.ts, step tai:pos), the first, positional "tài vận tốt"
-    // (八字真宗 p.50) carries the same condition and points at that paragraph; no unqualified "tài vận tốt" stays in the report
-    if ((deep['su-nghiep'] ?? []).some(p => p.sentences.some(s => s.trace.step === 'tai:pos'))) {
-      for (const s of p2) if (/^BT_ZZ_DIRECT_W_(CHINH|THIEN)_TAI_ROOT$/.test(s.trace.rules[0] ?? '') && /tài vận tốt/.test(s.text)) {
-        s.text = finish(s.text.replace(/\.$/, '').replace(/tài vận tốt/, 'tài vận tốt xét riêng vị trí của Tài') + ', còn tùy sức nhật chủ, như đoạn về Tài bên dưới');
-        s.trace.conditional = 'tai_position_only';
-      }
-      for (const p of [...paragraphs, ...Object.values(chapters).flat()]) if (p) p.text = p.sentences.map(x => x.text).join(' ');
-    }
+    // 八字真宗 pp.50-65 by position and flow (prose/bazi_kin.ts), told before the structure analysis so the Tài layers know what was said
+    const Dk = (b as typeof b & { deep?: { strength?: { dm_strong: boolean | null }; cach_tvh?: { status: string | null; van_xau: string[]; dominant: string | null; cach: string | null; verification?: string } } }).deep;
+    const kin = kinBazi(chart, m, L!.kin, rules, { gender: String(bf['chart.gender'] ?? '') || null, dm: b!.day_master, strong: Dk?.strength?.dm_strong ?? null,
+      taiDm: Dk?.strength?.dm_strong === false && Dk?.cach_tvh?.status === 'ap_dung' && (Dk.cach_tvh.van_xau.includes('Tài') || Dk.cach_tvh.dominant === 'Tài'),
+      cach: Dk?.cach_tvh?.status === 'ap_dung' ? Dk.cach_tvh.cach : null, cachPartial: Dk?.cach_tvh?.status === 'ap_dung' && Dk.cach_tvh.verification !== 'verified' });
+    const deep0 = { ...kin };
+    const deep = deepBazi(chart, k, m, L!.deep ? { ...L!.deep, kin: L!.kin } as NonNullable<BaziLibrary['deep']> : undefined, rules);
     for (const [id, ps] of Object.entries(deep) as Array<[BaziChapterId, ProseParagraph[]]>) chapters[id] = [...(chapters[id] ?? []), ...ps];
-    for (const id of ['nhat-chu', 'cach-cuc', 'ngu-hanh', 'su-nghiep', 'quan-he', 'dai-van', 'luu-nien', 'tong-ket'] as const) paragraphs.push(...(deep[id] ?? []));
-    if (L!.luan) luanBazi(chart, k, m, L!.luan, chapters, { p1, deep, topicsOf: topics, dv, ngu, sn, qh });
+    for (const id of ['nhat-chu', 'cach-cuc', 'ngu-hanh', 'su-nghiep', 'quan-he', 'dai-van', 'luu-nien', 'tong-ket'] as const) paragraphs.push(...(id === 'su-nghiep' || id === 'quan-he' ? deep0[id] : []), ...(deep[id] ?? []));
+    for (const id of ['su-nghiep', 'quan-he'] as const) chapters[id] = [...(chapters[id] ?? []), ...deep0[id]];
+    if (L!.luan) luanBazi(chart, k, m, L!.luan, chapters, { p1, deep, topicsOf: topics, dv, ngu, sn, qh, kin });
     for (const id of Object.keys(chapters) as BaziChapterId[]) if (!chapters[id]!.length) delete chapters[id];
   }
   const { issues, metrics } = validateProse(paragraphs, []);
@@ -181,14 +184,16 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
  *  with a turn between them, the luck pillars and the years (lưu niên), and a closing along the timeline (bazi_deep.ts). */
 function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<BaziLibrary['luan']>, chapters: BaziProse['chapters'],
   parts: { p1: ProseSentence[]; deep: Partial<Record<BaziChapterId, ProseParagraph[]>>; topicsOf: (id: string) => ProseSentence[]; dv: ProseSentence[]; ngu: ProseSentence[];
-    sn: ProseSentence[]; qh: ProseSentence[] }) {
+    sn: ProseSentence[]; qh: ProseSentence[]; kin: ReturnType<typeof kinBazi> }) {
   const b = chart.bazi!, pil = b.pillars, D = (b as typeof b & { deep?: BaziDeep | null }).deep;
   const rmap = new Map(k.rules.map(r => [r.id, r]));
   const say = (text: string, basis: 'tinh_toan' | 'he_thong', move: 'ANCHOR' | 'VALUE', step: string): ProseSentence => { const t = finish(text); m.said(t); return { text: t, trace: { move, concepts: [], rules: [], cites: [], basis, step } }; };
   // a judgement that opens by naming its topic ("Chuyện nghề nghiệp cũng có dấu hiệu riêng: …", "Về dương nhẫn, …") drops that opening
   // under a lead-in that already names it
   const labels = Object.values((k.prose?.bazi as BaziLibrary).topics).map(t => t.label);
-  const unTopic = (t: string) => { const m2 = t.match(/^([^,:]{0,48})[,:]\s+/); return m2 && labels.some(x => m2[1].toLowerCase().includes(x)) ? t.slice(m2[0].length) : t; };
+  // (2026-10-23) a paragraph's first sentence never opens on a "more of the same" connective ("Thêm nữa, …") once the order put it first
+  const unTopic = (t: string) => { t = t.replace(/^(Thêm nữa|Ngoài ra|Cũng vậy|Bên cạnh đó|Hơn nữa),\s*/u, '');
+    const m2 = t.match(/^([^,:]{0,48})[,:]\s+/); return m2 && labels.some(x => m2[1].toLowerCase().includes(x)) ? t.slice(m2[0].length) : t; };
   const lead = (key: string, p: ProseParagraph): ProseParagraph => {
     const l = LU.lead[key]?.length ? m.pick(`btlead|${key}`, LU.lead[key]) : '';
     if (!l || !p.sentences.length) return p;
@@ -220,8 +225,19 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   chapters['nhat-chu'] = [...P('structure', [frame, ...frame2]), ...P('core', parts.p1).map(p => lead('nhat_chu', p)), ...P('support', turned(parts.topicsOf('nhat-chu'), 'nc')).map(p => lead('study', p)), ...leadAll('strength', ncRest)];
   const nh = parts.deep['ngu-hanh'] ?? [];
   chapters['ngu-hanh'] = [...P('core', [...parts.ngu, ...nh.filter(p => p.depth !== 'sau').flatMap(p => p.sentences)]).map(p => lead('ngu_hanh', p)), ...nh.filter(p => p.depth === 'sau')];
-  chapters['su-nghiep'] = [...P('core', turned(parts.topicsOf('su-nghiep'), 'sn')).map(p => lead('work', p)), ...P('support', parts.sn), ...deepOf('su-nghiep', 'tai_layers')];
-  chapters['quan-he'] = [...P('core', turned(parts.topicsOf('quan-he'), 'qh')).map(p => lead('kin', p)), ...P('support', parts.qh), ...deepOf('quan-he', 'pillar_kin')];
+  // sự nghiệp & quan hệ (DEEP-BAZI-2): the short reading (bazi_kin main paragraphs, the manual's other judgements, the computed positions),
+  // the Tài layers, then the Đọc sâu paragraphs
+  const kMain = (id: 'su-nghiep' | 'quan-he') => parts.kin[id].filter(p => p.depth !== 'sau'), kDeep = (id: 'su-nghiep' | 'quan-he') => parts.kin[id].filter(p => p.depth === 'sau');
+  const snTop = P('core', turned(parts.topicsOf('su-nghiep'), 'sn'));
+  chapters['su-nghiep'] = [...kMain('su-nghiep'), ...(kMain('su-nghiep').length ? snTop : snTop.map(p => lead('work', p))), ...P('support', parts.sn), ...deepOf('su-nghiep', 'tai_layers'), ...kDeep('su-nghiep')];
+  // the manual's older marriage judgements and the new ones in one paragraph under one lead-in
+  const unlead = (p: ProseParagraph): ProseSentence[] => p.lead && p.sentences[0].text.startsWith(`${p.lead}, `)
+    ? [{ ...p.sentences[0], text: p.sentences[0].text.slice(p.lead.length + 2).replace(/^./u, c => c.toLocaleUpperCase('vi')) }, ...p.sentences.slice(1)] : p.sentences;
+  const kq = kMain('quan-he'), km = kq.find(p => p.topic === 'kin_marriage');
+  // siblings have their own paragraph (bazi_kin) when the chart has a sibling star: the lead-in then names marriage only
+  let qhTop = P('core', turned(parts.topicsOf('quan-he'), 'qh')).map(p => lead(kq.some(x => x.topic === 'kin_family') && LU.lead.marriage ? 'marriage' : 'kin', p));
+  if (qhTop.length && km) { const xs = [...qhTop[0].sentences, ...unlead(km)]; qhTop = [{ ...qhTop[0], sentences: xs, text: xs.map(x => x.text).join(' ') }, ...qhTop.slice(1)]; }
+  chapters['quan-he'] = [...qhTop, ...kq.filter(p => !(qhTop.length && p === km)), ...P('support', parts.qh), ...deepOf('quan-he', 'pillar_kin'), ...kDeep('quan-he')];
   // the cách chapter in the frame of plan step 4: the first paragraph under the chapter's lead-in, each later part under its own
   // (điểm tựa và giới hạn, điều hậu, chỗ hai cách xét khác nhau, kết luận); the sources are each sentence's trace
   const leadParts = (ps: ProseParagraph[]) => ps.map((p, i) => { const pt = (p as ProseParagraph & { part?: string }).part;

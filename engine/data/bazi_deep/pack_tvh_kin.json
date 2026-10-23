@@ -1,0 +1,2091 @@
+{
+ "sources": [
+  {
+   "id": "SRC_TVH_KIN",
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa) — lục thân, tài vận, quan vận, hôn nhân",
+   "author": "Thiệu Vĩ Hoa",
+   "locator": "trang in 149-155, 463-478, 520-537 (bản scan; chép lại trong data/bazi_deep/mined/tvh_pNNN.txt)",
+   "verified": true,
+   "edition": null,
+   "note": "Chép từ ảnh trang (Claude, 2026-10-23), đối chiếu từng câu được dùng với ảnh; câu in nguyên văn trong quotes_tvh_kin.json."
+  }
+ ],
+ "rules": [
+  {
+   "id": "BT_TVHK_W01",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.520: Tài nên tàng ẩn, tàng thì phong phú hùng hậu — của cải dồi dào (Tài chỉ tàng trong địa chi, không lộ ra can)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.trans",
+       "operator": "contains",
+       "value": "Tai"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W02",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.520: Thân vượng, tài nhiều là tiền của vừa ý — tiền của vừa ý (nhật chủ vượng mà Tài nhiều)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w02",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W03",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.520: Tài làm dụng thần là người giàu có — là người giàu có (dụng thần là Tài)",
+   "conditions": {
+    "fact": "bazi.k.yong",
+    "operator": "contains",
+    "value": "Tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w03",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W04",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.520: Thân vượng, tài nhược, nếu được thực thương sinh tài thì mới giàu — có thể giàu lên (nhật chủ vượng, Tài nhược nhưng có Thực Thương đứng sát sinh Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.adj",
+      "operator": "contains",
+      "value": "Tai|ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w04",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W05",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.520: Tài gặp trường sinh là ruộng vườn vạn mẫu — giàu ruộng đất (can Tài ngồi trên đất Trường Sinh của nó)",
+   "conditions": {
+    "fact": "bazi.k.tai_changsinh",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w05",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W06",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.521: Trong trụ đủ cả tài, quan, ấn là người không sang thì giàu — không sang thì giàu (tứ trụ có đủ Tài, Quan Sát và Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w06",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W07",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.522: Tài nhiều lại lộ rõ thì thành bại thất thường — thành bại thất thường (Tài nhiều mà lại lộ can)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.trans",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w07",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W08",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.522: Tài nhiều gặp tỉ kiếp trợ giúp là nhà giàu thịnh vượng — nhà giàu thịnh vượng (Tài nhiều mà có Tỉ Kiếp đỡ thân)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Ti"
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w08",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W09",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.523: Trước tỉ, sau tài là trước nghèo sau giàu — trước nghèo sau giàu (Tỉ Kiếp ở trụ năm, tháng, còn Tài ở trụ ngày, giờ)",
+   "conditions": {
+    "fact": "bazi.k.front_ti_back_tai",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w09",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W10",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.522: trước tài sau ấn thì chuyển thành người có phúc — về sau thành người có phúc (Tài ở trụ năm, tháng, còn Ấn ở trụ ngày, giờ)",
+   "conditions": {
+    "fact": "bazi.k.front_tai_back_an",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w10",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W11",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.527: Tài nhiều, thân nhược là nhà cửa nhiều, nhưng của cải ít — nhà cửa có thể nhiều nhưng của cải ít (Tài nhiều mà nhật chủ nhược)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "not": {
+       "fact": "bazi.k.present",
+       "operator": "contains",
+       "value": "Ti"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w11",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W12",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.527: Thân vượng, ấn vượng là tiền hao tán không tụ — tiền hao tán khó tụ, giữ bằng bất động sản thì hơn (nhật chủ vượng mà Ấn cũng vượng)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w12",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W13",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.527: Thực thần gặp kiêu là tài vật hao tán — tài vật dễ hao tán (Thực Thần gặp Thiên Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thực Thần"
+     },
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thiên Ấn"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w13",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_W14",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.527: Tứ trụ không có tài để giữ cho mình thì khi ra ngoài cầu tài cần phải cẩn thận — đi xa cầu tài nên thận trọng (tứ trụ không có Tài)",
+   "conditions": {
+    "fact": "bazi.k.absent",
+    "operator": "contains",
+    "value": "Tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_w14",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_Q01",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.533: Trong trụ sát vượng, thân vượng là bậc quan thanh liêm cao quý — dễ giữ chức vụ mà vẫn thanh liêm (Sát vượng mà nhật chủ cũng vượng)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_q01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_Q02",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.535: Tài vượng sinh quan là tự mình thành đạt — tự mình thành đạt (Tài vượng, đứng sát sinh Quan Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.adj",
+      "operator": "contains",
+      "value": "QuanSat|Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_q02",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_Q03",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.535: Thực thần chế ngự sát là anh hùng — có bản lĩnh trội hơn người (Thực Thần đứng sát chế Thất Sát)",
+   "conditions": {
+    "fact": "bazi.k.thuc_che_sat",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_q03",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_Q04",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.534: Quan, sát rơi vào tuần không vong thì lênh đênh không có chức gì ra hồn — khó có chức vụ vững (chữ Quan Sát rơi vào không vong)",
+   "conditions": {
+    "fact": "bazi.k.qs_void",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_q04",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_Q05",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.536: Có một ngôi chính quan là quý nhân, quân tử; thuần tuý là quan cương trực, liêm chính — là người ngay thẳng, cương trực (tứ trụ chỉ có một chữ Chính Quan, không lẫn Thất Sát)",
+   "conditions": {
+    "fact": "bazi.k.one_cq",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_q05",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_Q06",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.535: Trước tài sau ấn là thăng chức luôn luôn — đường chức vụ dễ đi lên đều (Tài ở trụ năm, tháng, còn Ấn ở trụ ngày, giờ)",
+   "conditions": {
+    "fact": "bazi.k.front_tai_back_an",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_q06",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_Q07",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.535: Trụ năm có quan tinh, gặp được tài, ấn, thân vượng là phúc khí dồi dào, phát đạt rất sớm — phát đạt sớm (trụ năm có Quan, tứ trụ có Tài và Ấn, nhật chủ vượng)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.year_groups",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_q07",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_Q08",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.537: Trụ năm chính ấn, trụ tháng chính quan là người nhậm chức ngành giáo dục — hợp với ngành giáo dục (trụ năm có Chính Ấn, trụ tháng có Chính Quan)",
+   "conditions": {
+    "fact": "bazi.k.ya_mq",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_q08",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_L01",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_parents",
+   "description": "Thiệu Vĩ Hoa p.149: có người trụ năm là dụng thần, có lực thì người đó xuất thân ở gia đình cha ông có sản nghiệp — xuất thân trong nhà có sản nghiệp (can trụ năm là dụng thần)",
+   "conditions": {
+    "fact": "bazi.k.year_stem_yong",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_l01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_L02",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_parents",
+   "description": "Thiệu Vĩ Hoa p.150: Nếu trụ năm là: kiêu thần, thất sát, kình dương, kiếp tài, là kị thần thì tổ tiên và người đó xuất thân đều nghèo đói — xuất thân khó khăn (trụ năm mang Thiên Ấn, Thất Sát, dương nhẫn hoặc Kiếp Tài, mà đó là chữ lá số kỵ)",
+   "conditions": {
+    "fact": "bazi.k.year_bad_ky",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_l02",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_L03",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_parents",
+   "description": "Thiệu Vĩ Hoa p.150: Nếu nhật chủ là hỉ quan, ngày giờ lại gặp tài, nhật chủ là hỉ ấn, ngày giờ lại gặp quan thì người đó nhất định hơn ông cha — làm nên hơn đời cha ông (lá số cần Quan mà ngày, giờ gặp Tài, hoặc cần Ấn mà ngày, giờ gặp Quan)",
+   "conditions": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "bazi.k.hi",
+        "operator": "contains",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.dayhour_groups",
+        "operator": "contains",
+        "value": "Tai"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.hi",
+        "operator": "contains",
+        "value": "An"
+       },
+       {
+        "fact": "bazi.k.dayhour_groups",
+        "operator": "contains",
+        "value": "QuanSat"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_l03",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_L04",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_parents",
+   "description": "Thiệu Vĩ Hoa p.150: Ngược lại nhật chủ là hỉ quan, nhưng ngày giờ gặp thương; nhật chủ là hỉ ấn, nhưng ngày, giờ gặp tài thì người đó sa sút hơn ông cha — khó giữ được bằng đời cha ông (lá số cần Quan mà ngày, giờ gặp Thương Quan, hoặc cần Ấn mà ngày, giờ gặp Tài)",
+   "conditions": {
+    "all": [
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "bazi.k.hi",
+          "operator": "contains",
+          "value": "QuanSat"
+         },
+         {
+          "fact": "bazi.k.dayhour_gods",
+          "operator": "contains",
+          "value": "Thương Quan"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "bazi.k.hi",
+          "operator": "contains",
+          "value": "An"
+         },
+         {
+          "fact": "bazi.k.dayhour_groups",
+          "operator": "contains",
+          "value": "Tai"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "all": [
+          {
+           "fact": "bazi.k.hi",
+           "operator": "contains",
+           "value": "QuanSat"
+          },
+          {
+           "fact": "bazi.k.dayhour_groups",
+           "operator": "contains",
+           "value": "Tai"
+          }
+         ]
+        },
+        {
+         "all": [
+          {
+           "fact": "bazi.k.hi",
+           "operator": "contains",
+           "value": "An"
+          },
+          {
+           "fact": "bazi.k.dayhour_groups",
+           "operator": "contains",
+           "value": "QuanSat"
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_l04",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_L05",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_parents",
+   "description": "Thiệu Vĩ Hoa p.150: Chi năm là thực thần, không có kiêu thần thì cha mẹ cao to, béo, tính cách thành thực, của cải nhiều — cha mẹ tính thành thực, có của (chi năm mang Thực Thần, lá số không có Thiên Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.year_branch_god",
+      "value": "Thực Thần"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.gods",
+       "operator": "contains",
+       "value": "Thiên Ấn"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_l05",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_L06",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_parents",
+   "description": "Thiệu Vĩ Hoa p.150: Chi năm là chính quan, cha mẹ đôn hậu hòa nhã — cha mẹ đôn hậu, hòa nhã (chi năm mang Chính Quan)",
+   "conditions": {
+    "fact": "bazi.k.year_branch_god",
+    "value": "Chính Quan"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_l06",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_L07",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_siblings",
+   "description": "Thiệu Vĩ Hoa p.151: Dụng thần hiện ở can tháng hoặc chi tháng là anh chị em không sang thì cũng giàu, người đó được nhờ — anh chị em khá giả, mình được nhờ (dụng thần có ở trụ tháng)",
+   "conditions": {
+    "fact": "bazi.k.month_yong",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_l07",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_L08",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_siblings",
+   "description": "Thiệu Vĩ Hoa p.152: nhật chủ vượng lại gặp tỉ kiếp vượng là mình giúp anh em nhiều — mình giúp anh em nhiều (nhật chủ vượng, Tỉ Kiếp cũng vượng)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Ti"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_l08",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_L09",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_siblings",
+   "description": "Thiệu Vĩ Hoa p.153: Nếu nhật chủ nhược thì lại là người được anh em, bạn bè giúp đỡ — được anh em, bạn bè giúp đỡ (nhật chủ nhược mà có Tỉ Kiếp)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Ti"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_l09",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S01",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.154: Chi ngày là chính quan thì vợ tướng mạo đoan trang, ôn hoà, hiền thục, nội trợ tốt — vợ đoan trang, hiền thục, giỏi việc nhà (chi ngày mang Chính Quan)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.day_god",
+      "operator": "in",
+      "value": [
+       "Chính Quan"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S02",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.154: Chi ngày đóng tài tinh là hỉ, người đó được vợ giúp đỡ hoặc có của nhờ vợ — được vợ giúp đỡ hoặc có của nhờ vợ (chi ngày mang Tài mà Tài là chữ lá số cần)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.day_god",
+      "operator": "in",
+      "value": [
+       "Chính Tài",
+       "Thiên Tài"
+      ]
+     },
+     {
+      "fact": "bazi.k.hi",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s02",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S03",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.154: Chi ngày đóng chính ấn là vợ hiền, được vợ giúp, thân nhược càng tốt — vợ hiền, được vợ giúp (chi ngày mang Chính Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.day_god",
+      "operator": "in",
+      "value": [
+       "Chính Ấn"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s03",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S04",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.154: Chi ngày đóng tỉ kiếp mà thân nhược là vợ tháo vát — vợ tháo vát (chi ngày mang Tỉ Kiếp mà nhật chủ nhược)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.day_god",
+      "operator": "in",
+      "value": [
+       "Tỉ Kiên",
+       "Kiếp Tài"
+      ]
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s04",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S05",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.155: Chi ngày là thiên ấn mà thân nhược là vợ hiền, tháo vát — vợ hiền, tháo vát (chi ngày mang Thiên Ấn mà nhật chủ nhược)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.day_god",
+      "operator": "in",
+      "value": [
+       "Thiên Ấn"
+      ]
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s05",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S06",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.155: Thất sát đóng chi ngày và là dụng thần cũng là được vợ giúp đỡ — được vợ giúp đỡ (chi ngày mang Thất Sát mà Quan Sát là dụng thần)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.day_god",
+      "operator": "in",
+      "value": [
+       "Thất Sát"
+      ]
+     },
+     {
+      "fact": "bazi.k.yong",
+      "operator": "contains",
+      "value": "QuanSat"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s06",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S07",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.155: Nhật chủ vượng, chi ngày là tỉ kiếp là vợ làm hao tài, hay cãi cọ — vợ làm hao tài, hay cãi cọ (nhật chủ vượng mà chi ngày mang Tỉ Kiếp)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.day_god",
+      "operator": "in",
+      "value": [
+       "Tỉ Kiên",
+       "Kiếp Tài"
+      ]
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s07",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S08",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.463: Nam gặp tài nhiều và thân nhược là chồng hay nghe lời vợ — người chồng hay nghe lời vợ (lá số nam, Tài nhiều mà nhật chủ nhược)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s08",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S09",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.464: Tỷ kiếp vượng lại có thực thương sinh tài thì gặp vợ hiền — gặp vợ hiền (Tỉ Kiếp vượng, có Thực Thương đứng sát sinh Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Ti"
+     },
+     {
+      "fact": "bazi.k.adj",
+      "operator": "contains",
+      "value": "Tai|ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s09",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_S10",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.469: Kình dương đóng ở trụ ngày thì vợ không hiền và hao tài — vợ khó hiền, dễ hao tài (chi ngày là dương nhẫn của nhật chủ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.day_ren",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_s10",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H01",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.465: Mệnh nữ có một quan hay một sát rõ là tốt. Có cả quan và sát là kém — đường chồng tốt (lá số nữ chỉ có Quan hoặc chỉ có Sát, lộ rõ trên can)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.one_qs_clear",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H02",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.465: Có cả quan và sát là kém — đường chồng kém (lá số nữ có cả Chính Quan lẫn Thất Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Chính Quan"
+     },
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h02",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H03",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.465: Quan rõ là chồng vinh hoa, vàng bạc đầy nhà — chồng vinh hiển, nhà sung túc (lá số nữ có Quan lộ can)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.trans",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "not": {
+       "all": [
+        {
+         "fact": "bazi.k.gods",
+         "operator": "contains",
+         "value": "Chính Quan"
+        },
+        {
+         "fact": "bazi.k.gods",
+         "operator": "contains",
+         "value": "Thất Sát"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h03",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H04",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.466: Người có quan vượng lại tài cũng vượng là lấy được chồng hiền chồng tốt — lấy được chồng hiền, chồng tốt (lá số nữ, Quan Sát vượng và Tài cũng vượng)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h04",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H05",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.466: Người có đủ tài quan ấn thụ là lấy chồng thịnh vượng — lấy chồng thịnh vượng (lá số nữ có đủ Tài, Quan Sát và Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h05",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H06",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.466: Ấn vượng quan yếu là chồng tự tìm đến mình — người chồng tự tìm đến (lá số nữ, Ấn vượng mà Quan Sát yếu)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "QuanSat"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h06",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H07",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.466: Quan mạnh thương yếu là giúp chồng xây dựng cơ đồ — giúp chồng gây dựng cơ đồ (lá số nữ, Quan Sát mạnh mà Thực Thương yếu)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h07",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H08",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.466: Quan, sát yếu, có tài sinh quan là giúp đỡ chồng được nhiều — giúp đỡ chồng được nhiều (lá số nữ, Quan Sát yếu mà có Tài đứng sát sinh Quan)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.adj",
+      "operator": "contains",
+      "value": "QuanSat|Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h08",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H09",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.478: Quan sát vượng quá lại không bị chế ngự là chồng không theo lời vợ — chồng không nghe lời vợ (lá số nữ, Quan Sát vượng mà không có Thực Thương đứng sát chế)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.adj",
+       "operator": "contains",
+       "value": "QuanSat|ThucThuong"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h09",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_H10",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.478: Mệnh nữ tài quá yếu thì khó giúp đỡ được chồng — khó giúp đỡ chồng (lá số nữ, Tài quá yếu)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_h10",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_C01",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.467: can sinh chi là chồng yêu vợ, chi sinh can là vợ yêu chồng — vợ chồng thương nhau (can ngày và chi ngày sinh cho nhau)",
+   "conditions": {
+    "fact": "bazi.k.day_sheng",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_c01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_C02",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.470: Trụ ngày bị thương quan là vợ chồng không hoà thuận nhau — vợ chồng khó hòa thuận (chi ngày mang Thương Quan)",
+   "conditions": {
+    "fact": "bazi.k.day_god",
+    "operator": "in",
+    "value": [
+     "Thương Quan"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_c02",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_C03",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.471: Ngày giờ đối xung nhau thì vợ chồng bất hoà — vợ chồng dễ bất hòa (chi ngày và chi giờ xung nhau)",
+   "conditions": {
+    "fact": "bazi.k.dh_clash",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_c03",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  }
+ ]
+}

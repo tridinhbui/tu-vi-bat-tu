@@ -1,0 +1,3272 @@
+{
+ "sources": [
+  {
+   "id": "SRC_BAZI_ZHENZONG_KIN",
+   "title": "八字真宗 (Bát Tự Chân Tông) — 财运、工作、官职、父母、婚姻、兄弟、流年直断",
+   "author": "unknown (PDF circulated via ChienNguyen)",
+   "locator": "PDF pp.50-58, 63-65 (text layer in data/bazi_deep/mined/)",
+   "verified": true,
+   "edition": "PDF, simplified Chinese, 96 pp.",
+   "note": "Đọc trực tiếp lớp chữ của bản PDF (Claude, 2026-10-23); mỗi luật có câu in nguyên văn trong quotes_zz_kin.json, test đối chiếu với trang đã chép."
+  }
+ ],
+ "rules": [
+  {
+   "id": "BT_ZZK_W01",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 身旺比劫重重无财，巨富 — có thể giàu lớn (nhật chủ vượng, Tỉ Kiếp trùng điệp mà không có Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.ti_count",
+      "operator": "gte",
+      "value": 3
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W02R",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 正财透干有根或得生，财运佳 — tài vận tốt (Chính Tài thấu can và có gốc)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.ct_trans",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.ct_rooted",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w02r",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W02",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 正财透干有根或得生，财运佳 — tài vận tốt (Chính Tài thấu can, tuy không có gốc nhưng được chữ đứng sát bên sinh cho)",
+   "conditions": {
+    "fact": "bazi.k.ct_gen_unrooted",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w02",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W04",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 正财坐墓地，靠勤俭持家 — giữ của nhờ cần kiệm (Chính Tài ở can tháng ngồi trên đất Mộ của nó)",
+   "conditions": {
+    "fact": "bazi.k.ct_tomb",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w04",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W05",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 正财无根且不受生，劳碌之格 — phải lao lực mới có tiền (Chính Tài thấu can mà không có gốc, cũng không được chữ nào đứng sát bên sinh cho)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.ct_lone",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.ct_lone_hurt",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w05",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W06",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 正财无根不受生，受刑冲，贫寒 — dễ túng thiếu (Chính Tài thấu can không gốc, không được sinh, lại bị hình xung)",
+   "conditions": {
+    "fact": "bazi.k.ct_lone_hurt",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w06",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W07",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 正财不透干受生，财运佳，勤俭 — tài vận tốt, lại biết cần kiệm (Chính Tài không lộ ra can mà nằm trong chi, được chữ đứng sát bên sinh cho)",
+   "conditions": {
+    "fact": "bazi.k.ct_hidden_gen",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w07",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W08",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 正财透干被截脚，花钱大手脚 — tiêu tiền mạnh tay (Chính Tài thấu can nhưng bị chi ngay dưới nó khắc (bị chặt chân))",
+   "conditions": {
+    "fact": "bazi.k.ct_cut",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w08",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W09",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 偏财透干，花钱大 — tiêu xài mạnh tay (Thiên Tài thấu can)",
+   "conditions": {
+    "fact": "bazi.k.tt_trans",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w09",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W10R",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 偏财透干有根或得生，财运佳 — tài vận tốt (Thiên Tài thấu can và có gốc)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.tt_trans",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.tt_rooted",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w10r",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W10",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 偏财透干有根或得生，财运佳 — tài vận tốt (Thiên Tài thấu can, tuy không có gốc nhưng được chữ đứng sát bên sinh cho)",
+   "conditions": {
+    "fact": "bazi.k.tt_gen_unrooted",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w10",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W11",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 偏财坐库，财运佳 — tài vận tốt (Thiên Tài ở trụ năm hoặc trụ giờ ngồi trên khố của nó)",
+   "conditions": {
+    "fact": "bazi.k.tt_kho",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w11",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W12",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 偏财被截脚，穷，爱花钱 — dễ thiếu thốn, lại ưa tiêu xài (Thiên Tài thấu can nhưng bị chi ngay dưới nó khắc (bị chặt chân))",
+   "conditions": {
+    "fact": "bazi.k.tt_cut",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w12",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W13",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 偏财不透受生，财运佳 — tài vận tốt (Thiên Tài không lộ ra can mà nằm trong chi, được chữ đứng sát bên sinh cho)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.tt_hidden_gen",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.tt_hidden_covered",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w13",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W14",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 偏财不透被盖头，贫命流 — khó khá lên về tiền bạc (Thiên Tài chỉ nằm trong chi, lại bị can ngay trên nó khắc (bị che đầu))",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.tt_hidden_covered",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.tt_hidden_gen",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w14",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W16",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 偏财、正财两旺，身兼多职 — có thể kiêm nhiều việc một lúc (Chính Tài và Thiên Tài đều thấu can và có gốc)",
+   "conditions": {
+    "fact": "bazi.k.both_tai_rooted",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w16",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W18",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 财星被争合，花钱不计花 — tiêu tiền không tính toán (chữ Tài bị hai chữ tranh nhau hợp)",
+   "conditions": {
+    "fact": "bazi.k.tai_contested",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w18",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W19",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 财星守胎身命，财运佳 — tài vận tốt (Tài nằm ở thai nguyên, mệnh cung hoặc thân cung)",
+   "conditions": {
+    "fact": "bazi.k.tai_tmm",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w19",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W21",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 财星空亡，一生财不聚 — tiền khó tụ lại (chữ Tài rơi vào không vong)",
+   "conditions": {
+    "fact": "bazi.k.tai_void",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w21",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W22",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 财星遇合，反主失 — dễ mất tiền (chữ Tài gặp hợp)",
+   "conditions": {
+    "fact": "bazi.k.tai_combined",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w22",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W23",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 财星不现，看食伤 — chuyện tiền bạc phải xét qua Thực Thương (lá số không có Tài, kể cả trong tàng can)",
+   "conditions": {
+    "fact": "bazi.k.absent",
+    "operator": "contains",
+    "value": "Tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w23",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W24",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 财星旺，但未流入日，则财运平常 — tài vận ở mức bình thường (Tài vượng nhưng chưa chảy vào nhật chủ (chưa có chuỗi Tài sinh Quan, Quan sinh Ấn với Ấn đứng ở chi ngày, can tháng hoặc can giờ))",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.tai_flow",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w24",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W25",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 财星旺，流入日主，则本人财运佳 — tài vận tốt (Tài vượng và chảy được vào nhật chủ qua chuỗi Tài sinh Quan, Quan sinh Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.tai_flow",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.tmm_hurt",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w25",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_W26",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.50: 财运佳，如果“胎身命”遇“刑穿冲绝”时，只为布衣平民 — tiền bạc chỉ ở mức người thường (Tài vượng, chảy vào nhật chủ, nhưng thai nguyên, mệnh cung hoặc thân cung bị chi trong tứ trụ hình, xung, hại)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.tai_flow",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.tmm_hurt",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_w26",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_O03A",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.51: 官星（正官、七杀）透干有气流入日主，工作好 — công việc tốt (Quan Sát thấu can, có gốc và chảy vào nhật chủ qua Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.quan_trans",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.quan_trans_rooted",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.quan_flow",
+      "value": true
+     },
+     {
+      "not": {
+       "fact": "bazi.k.vuong",
+       "operator": "contains",
+       "value": "QuanSat"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_o03a",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_O03B",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.51: 透干有气流入日主，工作好；若不流入日主，工作一般 — công việc ở mức bình thường (Quan Sát thấu can, có gốc nhưng chưa chảy vào nhật chủ (không có Ấn đứng sát nhật chủ nối với nó))",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.quan_trans",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.quan_trans_rooted",
+      "value": true
+     },
+     {
+      "not": {
+       "fact": "bazi.k.quan_flow",
+       "value": true
+      }
+     },
+     {
+      "not": {
+       "fact": "bazi.k.vuong",
+       "operator": "contains",
+       "value": "QuanSat"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_o03b",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_O04A",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.51: 官星透干无气流入日主，工作一般 — công việc ở mức bình thường (Quan Sát thấu can không có gốc, nhưng chảy được vào nhật chủ qua Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.quan_trans",
+      "value": true
+     },
+     {
+      "not": {
+       "fact": "bazi.k.quan_trans_rooted",
+       "value": true
+      }
+     },
+     {
+      "fact": "bazi.k.quan_flow",
+      "value": true
+     },
+     {
+      "not": {
+       "fact": "bazi.k.vuong",
+       "operator": "contains",
+       "value": "QuanSat"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_o04a",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_O04B",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.51: 若不流入日主，工作便差 — công việc kém thuận (Quan Sát thấu can không có gốc, lại không chảy vào nhật chủ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.quan_trans",
+      "value": true
+     },
+     {
+      "not": {
+       "fact": "bazi.k.quan_trans_rooted",
+       "value": true
+      }
+     },
+     {
+      "not": {
+       "fact": "bazi.k.quan_flow",
+       "value": true
+      }
+     },
+     {
+      "not": {
+       "fact": "bazi.k.vuong",
+       "operator": "contains",
+       "value": "QuanSat"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_o04b",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_O05A",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.51: 官星旺流入日主，工作极佳 — công việc rất tốt (Quan Sát vượng và chảy vào nhật chủ qua Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.quan_flow",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_o05a",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_O05B",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.51: 若不流入日主，没有凶灾 — công việc không đến nỗi gặp chuyện dữ (Quan Sát vượng nhưng không chảy vào nhật chủ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.quan_flow",
+       "value": true
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_o05b",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_O06A",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 左柱旺：工作单位大，效益好 — nơi làm việc thường lớn, hiệu quả tốt (can của trụ bên trái trụ Quan ngồi trên gốc của nó)",
+   "conditions": {
+    "fact": "bazi.k.work_strong",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_o06a",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_O06B",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 左柱弱：工作单位小，效益差 — nơi làm việc thường nhỏ, hiệu quả không cao (can của trụ bên trái trụ Quan không có gốc ngay dưới nó)",
+   "conditions": {
+    "fact": "bazi.k.work_strong",
+    "value": false
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_o06b",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OG_THUCTHUONG",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为食伤：为餐饮业、手工业、技术业、演艺业、饲养业 — nghề hợp thiên về ăn uống, thủ công, kỹ thuật, biểu diễn, chăn nuôi (can của trụ bên trái trụ Quan là Thực Thương)",
+   "conditions": {
+    "fact": "bazi.k.work_group",
+    "value": "ThucThuong"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_og_thucthuong",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OG_AN",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为印星：为文化业、教育业 — nghề hợp thiên về văn hóa, giáo dục (can của trụ bên trái trụ Quan là Ấn)",
+   "conditions": {
+    "fact": "bazi.k.work_group",
+    "value": "An"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_og_an",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OG_QUANSAT",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为官星：为行政业 — nghề hợp thiên về hành chính (can của trụ bên trái trụ Quan là Quan Sát)",
+   "conditions": {
+    "fact": "bazi.k.work_group",
+    "value": "QuanSat"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_og_quansat",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OG_TAI",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为财星：为金融业 — nghề hợp thiên về tài chính (can của trụ bên trái trụ Quan là Tài)",
+   "conditions": {
+    "fact": "bazi.k.work_group",
+    "value": "Tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_og_tai",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OG_TI",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为比劫：为自由业、杂工 — nghề hợp thiên về nghề tự do, việc tạp (can của trụ bên trái trụ Quan là Tỉ Kiếp)",
+   "conditions": {
+    "fact": "bazi.k.work_group",
+    "value": "Ti"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_og_ti",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_GIAP",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为甲木：医生、商人、政法、建筑、农林、化学、音乐 — nghề có thể thuộc nhóm y khoa, buôn bán, chính pháp, kiến trúc, nông lâm, hóa học, âm nhạc (can của trụ bên trái trụ Quan là Giáp)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Giáp"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_giap",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_AT",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为乙木：园林、中介、手艺、印刷、旅游 — nghề có thể thuộc nhóm vườn cảnh, môi giới, nghề thủ công, in ấn, du lịch (can của trụ bên trái trụ Quan là Ất)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Ất"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_at",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_BINH",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为丙火：游乐、检查官、鉴定师、化验师、美容师、冶炼业 — nghề có thể thuộc nhóm vui chơi giải trí, kiểm tra, giám định, xét nghiệm, làm đẹp, luyện kim, nhãn khoa, quà tặng, may mặc, hóa học, điện (can của trụ bên trái trụ Quan là Bính)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Bính"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_binh",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_DINH",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为丁火：画家、演艺、历史学者、美容业、烹饪业 — nghề có thể thuộc nhóm hội họa, biểu diễn, nghiên cứu lịch sử, làm đẹp, nấu ăn (can của trụ bên trái trụ Quan là Đinh)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Đinh"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_dinh",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_MAU",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为戊土：牧业、农业、建筑、屠宰业、皮草业、家具业 — nghề có thể thuộc nhóm chăn nuôi, nông nghiệp, xây dựng, giết mổ, da lông, đồ gỗ (can của trụ bên trái trụ Quan là Mậu)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Mậu"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_mau",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_KY",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为己土：秘书、打字员、排版员、服务员、民俗艺人 — nghề có thể thuộc nhóm thư ký, đánh máy, sắp chữ, phục vụ, nghệ nhân dân gian, địa chính, giáo viên mầm non, sản phụ khoa, đô thị, vệ sinh, vật tư (can của trụ bên trái trụ Quan là Kỷ)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Kỷ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_ky",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_CANH",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为庚金：金属业、雕刻、司法、医生、导演、武术、屠夫 — nghề có thể thuộc nhóm kim loại, điêu khắc, tư pháp, y khoa, đạo diễn, võ thuật, giết mổ (can của trụ bên trái trụ Quan là Canh)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Canh"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_canh",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_TAN",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为辛金：首饰、锁业、律师、议员、法官、占卜 — nghề có thể thuộc nhóm kim hoàn, khóa, luật sư, nghị sĩ, thẩm phán, bói toán (can của trụ bên trái trụ Quan là Tân)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Tân"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_tan",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_NHAM",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为壬水：运输业、造船业、水利、消防、水产、环保 — nghề có thể thuộc nhóm vận tải, đóng tàu, thủy lợi, phòng cháy, thủy sản, môi trường (can của trụ bên trái trụ Quan là Nhâm)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Nhâm"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_nham",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_OS_QUY",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_work",
+   "description": "八字真宗 p.52: 干为癸水：心理学、参谋、调度、设计、策划 — nghề có thể thuộc nhóm tâm lý học, tham mưu, điều độ, thiết kế, hoạch định (can của trụ bên trái trụ Quan là Quý)",
+   "conditions": {
+    "fact": "bazi.k.work_stem",
+    "value": "Quý"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_os_quy",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_R01",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_rank",
+   "description": "八字真宗 p.52: 时上一位贵而清和，必在仕途发达 — đường công danh dễ hanh thông (can giờ là Chính Quan duy nhất trong lá số, không bị hợp, xung)",
+   "conditions": {
+    "fact": "bazi.k.hour_lone_quan",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_r01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_R03",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_rank",
+   "description": "八字真宗 p.52: 官星印：一气互通，仕途明亮 — đường công danh sáng sủa (Quan Sát nối với Ấn đứng sát nhật chủ, khí thông một mạch)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.quan_flow",
+      "value": true
+     },
+     {
+      "not": {
+       "all": [
+        {
+         "fact": "bazi.k.quan_trans",
+         "value": true
+        },
+        {
+         "not": {
+          "fact": "bazi.k.quan_trans_rooted",
+          "value": true
+         }
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_r03",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_R04",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_rank",
+   "description": "八字真宗 p.52: 官杀均透而通根，无破流入日主，一身多职 — một người kiêm nhiều chức vụ (Chính Quan và Thất Sát đều thấu can, có gốc và chảy vào nhật chủ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.quan_sat_both",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.quan_flow",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_r04",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_R05",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_rank",
+   "description": "八字真宗 p.52: 官旺透干而未流入日主，一生无官 — khó có chức vụ (Quan Sát vượng, thấu can mà không chảy vào nhật chủ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.quan_trans",
+      "value": true
+     },
+     {
+      "not": {
+       "fact": "bazi.k.quan_flow",
+       "value": true
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_r05",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_R06",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_rank",
+   "description": "八字真宗 p.53: 官虚透，虽流入日主，而无官 — khó có chức vụ (Quan Sát thấu can mà không có gốc, dù chảy được vào nhật chủ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.quan_trans",
+      "value": true
+     },
+     {
+      "not": {
+       "fact": "bazi.k.quan_trans_rooted",
+       "value": true
+      }
+     },
+     {
+      "fact": "bazi.k.quan_flow",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_r06",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_R08",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_rank",
+   "description": "八字真宗 p.53: 官星近身，虽与官人亲近，而无官缘 — gần gũi người có chức quyền nhưng bản thân ít duyên chức vụ (Quan Sát đứng sát nhật chủ (ở can tháng, can giờ hoặc chi ngày) mà không qua Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.quan_near_dm",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.hour_lone_quan",
+      "value": false
+     },
+     {
+      "not": {
+       "fact": "bazi.k.quan_flow",
+       "value": true
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_r08",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_R10",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_rank",
+   "description": "八字真宗 p.53: 官星伏库逢冲，官场显达 — có thể hiển đạt trên đường quan chức (Quan Sát ẩn trong khố ở trụ năm hoặc giờ, khố ấy bị xung mở)",
+   "conditions": {
+    "fact": "bazi.k.quan_kho_clash",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_r10",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_P03",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_parents",
+   "description": "八字真宗 p.55: 财印相战无官流通，父母不和 — cha mẹ không hòa thuận (Tài và Ấn đứng sát nhau khắc nhau mà không có Quan Sát thông khí)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.tai_an_war",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.quan_present",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_p03",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_P04",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_parents",
+   "description": "八字真宗 p.55: 财印相战有官流通，父母感情浓厚 — cha mẹ tình cảm đằm thắm (Tài và Ấn đứng sát nhau khắc nhau nhưng có Quan Sát thông khí)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.tai_an_war",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.quan_present",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_p04",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_P05",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_parents",
+   "description": "八字真宗 p.55: 财星重重无印，父母感情深 — cha mẹ tình cảm sâu nặng (Tài trùng điệp mà không có Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.tai_count",
+      "operator": "gte",
+      "value": 3
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_p05",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M07",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.57: 月日为刑冲穿绝：被父母所迫婚姻，夫妻不和 — hôn nhân dễ chịu sức ép từ cha mẹ, vợ chồng khó hòa (chi tháng và chi ngày hình, xung hoặc hại nhau)",
+   "conditions": {
+    "fact": "bazi.k.md_hurt",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m07",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M18",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.57: 日支为枭伤劫杀者：配偶不佳 — người phối ngẫu khó được như ý (chi ngày mang chính khí Thiên Ấn, Thương Quan, Kiếp Tài hoặc Thất Sát)",
+   "conditions": {
+    "fact": "bazi.k.day_god",
+    "operator": "in",
+    "value": [
+     "Thiên Ấn",
+     "Thương Quan",
+     "Kiếp Tài",
+     "Thất Sát"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m18",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M19",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.57: 命局七柱构成三连、四连字者：婚姻不吉 — hôn nhân kém thuận (một địa chi lặp từ ba lần trở lên trong bảy trụ (tứ trụ cùng thai, mệnh, thân))",
+   "conditions": {
+    "fact": "bazi.k.triple_branch",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m19",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M20",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.57: 配偶宫在月时伏吟：感情风波 — tình cảm dễ có sóng gió (chi ngày (cung phối ngẫu) trùng chi tháng hoặc chi giờ)",
+   "conditions": {
+    "fact": "bazi.k.spouse_fuyin",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m20",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M23",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.57: 胎身命合日支：婚姻美满 — hôn nhân êm đẹp (thai nguyên, mệnh cung hoặc thân cung lục hợp với chi ngày)",
+   "conditions": {
+    "fact": "bazi.k.tmm_combine_day",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m23",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M24M",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.57: 日主入日支墓：男惧内 — người chồng thường nể vợ (nhật chủ ở giai đoạn Mộ trên chính chi ngày)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_tomb_day",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m24m",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M24F",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.57: 日主入日支墓：男惧内，女从夫 — người vợ thường thuận theo chồng (nhật chủ ở giai đoạn Mộ trên chính chi ngày)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_tomb_day",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m24f",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M29",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.58: 男命财旺流入日主：得妻助 — được vợ giúp sức (lá số nam, Tài (sao vợ) vượng và chảy vào nhật chủ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.spouse_flow",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m29",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M30",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.58: 女命官旺流入日主：夫妻感情深 — vợ chồng tình cảm sâu nặng (lá số nữ, Quan Sát (sao chồng) vượng và chảy vào nhật chủ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.spouse_flow",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m30",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_M33",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.58: 夫妻星空亡：配偶感情不真 — tình cảm của người phối ngẫu khó thật lòng (sao phối ngẫu rơi vào không vong)",
+   "conditions": {
+    "fact": "bazi.k.spouse_void",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_m33",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_S21",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_siblings",
+   "description": "八字真宗 p.64: 比劫过盛，为兄弟所累 — dễ vì anh em mà vất vả (Tỉ Kiếp quá nhiều)",
+   "conditions": {
+    "fact": "bazi.k.ti_count",
+    "operator": "gte",
+    "value": 3
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_s21",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_S22",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_siblings",
+   "description": "八字真宗 p.64: 身旺而比劫弱近身，则扶助兄弟 — thường là người đỡ đần anh em (nhật chủ vượng, có Tỉ Kiếp yếu (không ngồi trên gốc) đứng sát bên)",
+   "conditions": {
+    "fact": "bazi.k.ti_weak_near",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_s22",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_S24",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_siblings",
+   "description": "八字真宗 p.64: 比劫与日主夹印，为家产反目 — anh em dễ bất hòa vì tài sản trong nhà (Tỉ Kiếp ở can năm và nhật chủ kẹp Ấn ở can tháng)",
+   "conditions": {
+    "fact": "bazi.k.ti_an_dm",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_s24",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_S25",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_siblings",
+   "description": "八字真宗 p.64: 比劫与日主夹财，为家财争夺 — anh em dễ tranh nhau của cải trong nhà (Tỉ Kiếp ở can năm và nhật chủ kẹp Tài ở can tháng)",
+   "conditions": {
+    "fact": "bazi.k.ti_tai_dm",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_s25",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_S26",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_siblings",
+   "description": "八字真宗 p.64: 比劫与日主夹杀，同心同德 — anh em đồng lòng (Tỉ Kiếp ở can năm và nhật chủ kẹp Thất Sát ở can tháng)",
+   "conditions": {
+    "fact": "bazi.k.ti_sat_dm",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_s26",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_S27",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_siblings",
+   "description": "八字真宗 p.64: 比劫坐印或通根而日弱，兄弟强 — anh em mạnh hơn mình (Tỉ Kiếp ngồi trên Ấn hoặc có gốc, còn nhật chủ nhược)",
+   "conditions": {
+    "fact": "bazi.k.ti_over_dm",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_s27",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_S28",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_siblings",
+   "description": "八字真宗 p.64: 比劫坐支克泄而日主坐印或通根 — mình mạnh hơn anh em (Tỉ Kiếp ngồi trên chi khắc hoặc rút khí nó, còn nhật chủ ngồi trên Ấn hoặc có gốc)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_over_ti",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.ti_over_dm",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_s28",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y01",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.64: 四库相冲：换房或修造装饰 — dễ đổi chỗ ở hoặc sửa sang nhà cửa (chi năm là một trong bốn khố, xung một khố trong tứ trụ)",
+   "conditions": {
+    "fact": "bazi.ky.tomb_clash",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y01",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y08",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.64: 大岁运并临：定多忧 — nhiều điều lo nghĩ (năm trùng hẳn can chi với đại vận đang đi)",
+   "conditions": {
+    "fact": "bazi.ky.same_as_luck",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y08",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y13",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.64: 刃头财年运：必破财 — dễ hao tài (can năm là Tài đứng trên chi dương nhẫn của nhật chủ)",
+   "conditions": {
+    "fact": "bazi.ky.tai_on_blade",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y13",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y14",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.64: 空亡填实之年是什么，则什么凶 — chuyện ứng với chữ ấy dễ trắc trở (chi năm lấp đúng chỗ không vong của lá số)",
+   "conditions": {
+    "fact": "bazi.ky.fill_void",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y14",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y21",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 刑冲穿绝胎身命，年运者：必凶 — dễ có trắc trở (chi năm hình, xung hoặc hại thai nguyên, mệnh cung hoặc thân cung)",
+   "conditions": {
+    "fact": "bazi.ky.tmm_hurt",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y21",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y22",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 命局中印官财为流年空亡字：必应凶 — dễ có chuyện không như ý (chữ Ấn, Quan hoặc Tài trong tứ trụ rơi vào không vong của năm)",
+   "conditions": {
+    "fact": "bazi.ky.natal_void_gods",
+    "operator": "contains_any",
+    "value": [
+     "Chính Ấn",
+     "Thiên Ấn",
+     "Chính Quan",
+     "Chính Tài",
+     "Thiên Tài"
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y22",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y23",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 命局中杀伤枭刃为流年空亡字：必应凶 — dễ có chuyện không như ý (chữ Sát, Thương hoặc Kiêu trong tứ trụ rơi vào không vong của năm)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.ky.natal_void_gods",
+      "operator": "contains_any",
+      "value": [
+       "Thất Sát",
+       "Thương Quan",
+       "Thiên Ấn"
+      ]
+     },
+     {
+      "not": {
+       "fact": "bazi.ky.natal_void_gods",
+       "operator": "contains_any",
+       "value": [
+        "Chính Ấn",
+        "Thiên Ấn",
+        "Chính Quan",
+        "Chính Tài",
+        "Thiên Tài"
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y23",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y24",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 身弱官杀旺行杀运：必应凶 — dễ gặp chuyện không thuận (nhật chủ nhược, Quan Sát vượng, năm lại mang Thất Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.ky.gods",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y24",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y25",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 身旺印枭旺入枭地：必应凶 — dễ gặp chuyện không thuận (nhật chủ vượng, Ấn vượng, năm lại mang Thiên Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.ky.gods",
+      "operator": "contains",
+      "value": "Thiên Ấn"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y25",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y26",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 身旺比劫旺入刃地：必应灾 — dễ gặp chuyện không thuận (nhật chủ vượng, Tỉ Kiếp vượng, chi năm lại là dương nhẫn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Ti"
+     },
+     {
+      "fact": "bazi.ky.blade",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y26",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y28",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 弱伤行官杀旺地：应灾 — dễ gặp chuyện không thuận (Thực Thương yếu, năm lại mang Quan Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "ThucThuong"
+     },
+     {
+      "fact": "bazi.ky.groups",
+      "operator": "contains",
+      "value": "QuanSat"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y28",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y29",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 官杀混杂而旺入杀运：应凶 — dễ gặp chuyện không thuận (Chính Quan và Thất Sát lẫn nhau mà vượng, năm lại mang Thất Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.ky.guan_mixed",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.ky.gods",
+      "operator": "contains",
+      "value": "Thất Sát"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y29",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y30",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 官杀旺身弱入刃地：应凶 — dễ gặp chuyện không thuận (Quan Sát vượng, nhật chủ nhược, chi năm là dương nhẫn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.ky.blade",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y30",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y31",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 身弱印弱行财乡：应凶 — dễ gặp chuyện không thuận (nhật chủ nhược, Ấn yếu, năm lại mang Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.ky.groups",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y31",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y32",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 身弱印弱行食伤旺地：应凶 — dễ gặp chuyện không thuận (nhật chủ nhược, Ấn yếu, năm lại mang Thực Thương)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.ky.groups",
+      "operator": "contains",
+      "value": "ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y32",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y34",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 身旺官杀弱行刃地：应凶 — dễ gặp chuyện không thuận (nhật chủ vượng, Quan Sát yếu, chi năm là dương nhẫn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.ky.blade",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y34",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y35",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 身旺官杀弱行食伤运：应凶 — dễ gặp chuyện không thuận (nhật chủ vượng, Quan Sát yếu, năm lại mang Thực Thương)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.ky.groups",
+      "operator": "contains",
+      "value": "ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y35",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y36",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 财旺无印枭入印运：应凶 — dễ gặp chuyện không thuận (Tài vượng mà không có Ấn, năm lại mang Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.ky.groups",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y36",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y37",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 印旺无食伤入食运：应凶 — dễ gặp chuyện không thuận (Ấn vượng mà không có Thực Thương, năm lại mang Thực Thần)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "ThucThuong"
+     },
+     {
+      "fact": "bazi.ky.gods",
+      "operator": "contains",
+      "value": "Thực Thần"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y37",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y38",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 食伤旺无官杀入官运：应凶 — dễ gặp chuyện không thuận (Thực Thương vượng mà không có Quan Sát, năm lại mang Chính Quan)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "ThucThuong"
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.ky.gods",
+      "operator": "contains",
+      "value": "Chính Quan"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y38",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y42",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 比劫刃禄旺入财乡：应凶 — dễ gặp chuyện không thuận (Tỉ Kiếp vượng, năm lại mang Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Ti"
+     },
+     {
+      "fact": "bazi.ky.groups",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y42",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_Y44",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_year",
+   "description": "八字真宗 p.65: 身弱财旺行官杀乡：应灾 — dễ gặp chuyện không thuận (nhật chủ nhược, Tài vượng, năm lại mang Quan Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.ky.groups",
+      "operator": "contains",
+      "value": "QuanSat"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_y44",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  }
+ ]
+}
