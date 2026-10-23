@@ -53,7 +53,7 @@ async function paintWallet(el) {
   const render = w => {
     el.innerHTML = `<span class="aw-free">${Number(w.free.remaining)} lượt chat miễn phí ·</span> <span class="aw-coins">${COIN_SVG}<b>${Number(w.coins).toLocaleString('vi-VN')}</b><span class="aw-x">xu</span></span>`;
     el.setAttribute('aria-label', `${w.free.remaining} lượt chat miễn phí, ${w.coins} xu`);
-    el.title = `Lượt miễn phí tháng này: ${w.free.used}/${w.free.limit}, làm mới ngày ${new Date(w.free.resetsAt).toLocaleDateString('vi-VN')}. Hết lượt miễn phí, mỗi tin nhắn tốn ${w.costs.chat} xu; luận giải sâu tốn ${w.costs.deep} xu.`;
+    el.title = `Lượt miễn phí tháng này: ${w.free.used}/${w.free.limit}, làm mới ngày ${new Date(w.free.resetsAt).toLocaleDateString('vi-VN')}. Hết lượt miễn phí, mỗi tin nhắn tốn ${w.costs.chat} xu; luận giải bằng AI tốn ${w.costs.deep} xu một chương.`;
     el.hidden = false;
   };
   addEventListener('tvbt:wallet', e => render(e.detail));
