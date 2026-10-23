@@ -191,6 +191,8 @@ def _norm(c):
         return (k, frozenset(_norm(x) for x in c[k]))
     if "not" in c:
         return ("not", _norm(c["not"]))
+    if "count" in c:
+        return ("count", c.get("operator", "eq"), c.get("value"), frozenset(_norm(x) for x in c["count"]))
     f = c.get("fact") or ("ref", c["ref"].get("palace"), c["ref"].get("fact"))
     if isinstance(f, str):
         f = f.replace("own_major_stars", "own_stars")
