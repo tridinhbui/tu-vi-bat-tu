@@ -275,7 +275,8 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     push({ kind: 'link', section: obst, link: 'ky_opp', elements: [{ name: `${chart.tu_hoa['Hóa Kỵ'].star}|Hóa Kỵ`, palace: kyAt.name, where: 'opp' }] });
 
   // ---- the conditional conclusion: the domain verdicts with their limits ----
-  const ids = domain === 'cong_danh' ? ['cong_danh', 'tai_loc.kiem'] : domain === 'tai_bach' ? ['tai_loc.kiem', 'tai_loc.giu', 'tai_loc.tich_luy'] : domain === 'dien_trach' ? [] : ['hon_nhan'];
+  // the money chapter already concludes its three parts in the short reading: its deep reading only adds the sides of the earning part
+  const ids = domain === 'cong_danh' ? ['cong_danh', 'tai_loc.kiem'] : domain === 'tai_bach' ? ['tai_loc.kiem'] : domain === 'dien_trach' ? [] : ['hon_nhan'];
   const verdicts = ids.map(id => inp.ledger.domains.find(v => v.id === id)).filter((v): v is DomainVerdict => !!v && v.verdict !== 'chua_du');
   if (verdicts.length) push({ kind: 'condition', section: domain === 'cong_danh' ? 'tien_bac' : domain === 'tai_bach' ? 'lien_cung' : 'dieu_kien', verdicts });
 

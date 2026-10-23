@@ -29,7 +29,8 @@ const cmap = new Map(K.concepts.concepts.map(c => [c.id, c]));
 const BIG = /^(career|finance|wellbeing)\.|^relationships\.(marriage|partner|romance)$/;
 const DOMAIN = (facet: string) => facet.startsWith('career.') && !facet.endsWith('.timing') ? 'cong_danh' : facet.startsWith('finance.') ? 'tai_loc'
   : facet === 'relationships.marriage' ? 'hon_nhan' : facet.startsWith('wellbeing.') ? 'suc_khoe' : null;
-const EXPLAINS = new Set(['co_dieu_kien', 'hai_chieu', 'tro_ngai']);
+// a conclusion that names both sides explains them: conditional, two-ways, adverse, and (owner review 2026-10-22) unresolved, two facets, mitigated, health named without verdict
+const EXPLAINS = new Set(['co_dieu_kien', 'hai_chieu', 'tro_ngai', 'chua_phan_xu', 'hai_mat', 'giam_nhe', 'khong_ket_luan']);
 const BOND = new Map(Object.values(PROSE_SPECS).filter(sp => sp.bond).map(sp => [sp.palace, sp.bond!]));
 
 type S = { text: string; trace: { step?: string; rules: string[]; concepts: string[]; basis: string; confront?: string[]; ledger?: { domain: string; verdict: string } } };
