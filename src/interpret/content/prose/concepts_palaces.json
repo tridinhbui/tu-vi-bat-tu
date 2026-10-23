@@ -293,22 +293,9 @@
    "np": "bệnh tật nhẹ, dễ chữa",
    "pron": "sức khỏe ấy",
    "pred": [
-    "ít gặp bệnh nặng, có ốm cũng dễ gặp thầy thuốc",
-    "đau ốm phần nhiều nhẹ, mau lành",
-    "ít khi phải nằm lâu vì bệnh"
+    "có bệnh thì thường nhẹ, dễ chữa"
    ],
-   "behave": [
-    "Khi có bệnh, {S} thường gặp đúng người chữa.",
-    "Những trận ốm của {S} hiếm khi để lại hậu quả nặng."
-   ],
-   "soft": [
-    "có lúc đau ốm, nhưng thường không nặng",
-    "sức khỏe ở mức khá"
-   ],
-   "value": [
-    "sức khỏe được che chở",
-    "sự may mắn về thể chất"
-   ]
+   "note": "health (owner review 2026-10-22): only the book words, no soft form, no illustration, no value or advice line"
   },
   {
    "id": "health.severe",
@@ -316,18 +303,9 @@
    "np": "nguy cơ tai ách, bạo bệnh",
    "pron": "những tai ách ấy",
    "turn": [
-    "gặp tai ách hay bệnh nặng bất ngờ",
-    "phải chịu những trận ốm khó lường",
-    "gặp tai nạn, bệnh tật cần đề phòng"
+    "gặp tai ách hay bạo bệnh"
    ],
-   "soft": [
-    "có những lúc sức khỏe cần đề phòng, mức độ được giảm nhẹ",
-    "đôi khi gặp bệnh, nhưng không đến mức nặng"
-   ],
-   "mature": [
-    "giữ sức khỏe đều đặn thay vì đợi đến lúc cần",
-    "đề phòng sớm trước những dấu hiệu nhỏ"
-   ]
+   "note": "health (owner review 2026-10-22): only the book words (TL p.127), no soft form, no illustration, no value or advice line"
   },
   {
    "id": "ally.weak",
