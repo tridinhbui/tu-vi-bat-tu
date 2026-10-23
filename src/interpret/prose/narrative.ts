@@ -356,7 +356,7 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     const x = rarest(own.length ? own : pool.filter(y => !voiced.has(y.r.ruleId)).length ? pool.filter(y => !voiced.has(y.r.ruleId)) : pool);
     if (!x) return;
     // a second concept of a rule this thesis has just told in the rule's own words: those words already said it (no card line repeats it)
-    const same = ci > 0 && voiced.has(x.r.ruleId) ? xs.find(s => s.trace.rules.includes(x.r.ruleId) && s.trace.basis === 'sach' && (s.trace.step ?? '').startsWith(`claim:${t.id}:`)) : undefined;
+    const same = ci > 0 && ax.verdict !== "contested" && voiced.has(x.r.ruleId) ? xs.find(s => s.trace.rules.includes(x.r.ruleId) && s.trace.basis === 'sach' && (s.trace.step ?? '').startsWith(`claim:${t.id}:`)) : undefined;
     if (same) { if (!same.trace.concepts.includes(c.concept)) same.trace.concepts.push(c.concept); (same.trace.keys ??= []).push(`${c.concept}@${P}`); return; }
     const rd = voiced.has(x.r.ruleId) ? { claim: null, cond: null } : W.read(x.r.ruleId);
     voiced.add(x.r.ruleId);
