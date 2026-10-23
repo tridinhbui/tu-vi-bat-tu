@@ -1,0 +1,908 @@
+{
+ "note": "page quotes of pack_cung_bay.json (tools/build_cung_bay_pack.py, from engine/data/kg/mined), checked by engine/tests/test_cung_bay.py",
+ "quotes": [
+  {
+   "rule": "TV_KL7_NO_BOC_CO_LUONG_TA_HUU",
+   "book": "KL",
+   "page": 80,
+   "quote": "Cơ Lương, Tả Hữu có bạn bè tốt giúp",
+   "mined": "kl080_no_co_luong_ta_huu"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_NHAT_SANG",
+   "book": "KL",
+   "page": 84,
+   "quote": "Nhật Nguyệt sáng : người dưới lạm quyền",
+   "mined": "kl084_no_nhat_nguyet_sang"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_NHAT_HAM",
+   "book": "KL",
+   "page": 84,
+   "quote": "Nhật Nguyệt hãm địa: tôi tớ ra vào luôn không ai được ở được lâu",
+   "mined": "kl084_no_nhat_nguyet_ham"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_LIEM_LAM_ON",
+   "book": "KL",
+   "page": 93,
+   "quote": "- Làm ơn nên oán",
+   "mined": "kl093_no_liem_lam_on_nen_oan"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_NGUYET_SANG",
+   "book": "KL",
+   "page": 99,
+   "quote": "Nhật Nguyệt sáng : tôi tớ lạm quyền, có phụ tá đắc lực",
+   "mined": "kl099_no_nhat_nguyet_sang"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_CU_OAN",
+   "book": "KL",
+   "page": 105,
+   "quote": "Tôi tớ bạn bè oán trách",
+   "mined": "kl105_no_cu_mon_oan_trach"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_CU_HAM",
+   "book": "KL",
+   "page": 105,
+   "quote": "Bị phản bội nếu hãm địa",
+   "mined": "kl105_no_cu_mon_ham_phan_boi"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_TA_HUU",
+   "book": "KL",
+   "page": 121,
+   "quote": "Tả Hữu cung Nô có nhiều bạn và người giúp đỡ",
+   "mined": "kl121_no_ta_huu"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_KHONG_KIEP",
+   "book": "KL",
+   "page": 127,
+   "quote": "Tôi tớ phản chủ",
+   "mined": "kl127_no_khong_kiep_phan_chu"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_QUAN_PHU",
+   "book": "KL",
+   "page": 139,
+   "quote": "kiện tụng, cãi vã, phản bội nhất là ở Tài và Nô",
+   "mined": "kl139_no_quan_phu"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_CO_QUA",
+   "book": "KL",
+   "page": 153,
+   "quote": "Ít bạn bè, không thích nghi với xã hội vì tính lạnh lùng",
+   "mined": "kl153_no_co_qua"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_HOA_QUYEN",
+   "book": "KL",
+   "page": 156,
+   "quote": "Nô:   có bạn bè có uy quyền",
+   "mined": "kl156_no_hoa_quyen"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_HOA_KY",
+   "book": "KL",
+   "page": 157,
+   "quote": "Tôi tới nói xấu chủ",
+   "mined": "kl157_no_hoa_ky"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_PHA_LIEM",
+   "book": "KL",
+   "page": 219,
+   "quote": "đi với Liêm trinh thì có bạn cũng như",
+   "mined": "kl219_no_pha_liem"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_LIEM_DOC",
+   "book": "KL",
+   "page": 219,
+   "quote": "Liêm trinh độc thủ thì bạn bè được việc nhưng không g",
+   "mined": "kl219_no_liem_doc_thu"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_LIEM_THAM",
+   "book": "KL",
+   "page": 219,
+   "quote": "Liêm Tham: bất lực",
+   "mined": "kl219_no_liem_tham"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_LIEM_SAT",
+   "book": "KL",
+   "page": 219,
+   "quote": "Sát thì pha",
+   "mined": "kl219_no_liem_sat"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_THAM_TU_VU",
+   "book": "KL",
+   "page": 219,
+   "quote": "đi với Tử vi hoặc đi với Vũ khúc thì bạn bè tham",
+   "mined": "kl219_no_tham_tu_vu"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_NHAT_NGUYET_DAC",
+   "book": "KL",
+   "page": 219,
+   "quote": "đắc địa thì bạn bè được việc, nhưng hãm địa thì thay mâm, đổi áo là",
+   "mined": "kl219_no_nhat_nguyet_dac"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_NHAT_NGUYET_HAM",
+   "book": "KL",
+   "page": 219,
+   "quote": "nhưng hãm địa thì thay mâm, đổi áo là",
+   "mined": "kl219_no_nhat_nguyet_ham"
+  },
+  {
+   "rule": "TV_KL7_NO_BOC_QUY_TINH",
+   "book": "KL",
+   "page": 219,
+   "quote": "cung Nô có thêm quí tinh, phúc tinh như",
+   "mined": "kl219_no_quy_tinh"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_NHAT_TAM_HOA",
+   "book": "KL",
+   "page": 84,
+   "quote": "Nhật Nguyệt, Tam hóa: phú quí, quyền uy",
+   "mined": "kl084_di_nhat_nguyet_tam_hoa"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_VU",
+   "book": "KL",
+   "page": 88,
+   "quote": "Đi xa làm ăn tốt hơn ở nhà",
+   "mined": "kl088_di_vu_khuc_di_xa"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_VU_PHU_TUONG",
+   "book": "KL",
+   "page": 88,
+   "quote": "Có Phủ, Tướng đồng cung rất tốt",
+   "mined": "kl088_di_vu_khuc_phu_tuong"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_LIEM_TOT",
+   "book": "KL",
+   "page": 93,
+   "quote": "Rất tốt nếu đồng cung với Thiên phủ, Thiên tướng hoặc đơn thủ tại Dần, Thân",
+   "mined": "kl093_di_liem_phu_tuong_dan_than"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_LIEM_PHA",
+   "book": "KL",
+   "page": 93,
+   "quote": "Có Phá quân đồng cung thì may rủi đi liền nhau",
+   "mined": "kl093_di_liem_pha"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_LIEM_LAM_ON",
+   "book": "KL",
+   "page": 93,
+   "quote": "Làm ơn nên oán",
+   "mined": "kl093_di_liem_lam_on_nen_oan"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_NGUYET_TAM_HOA",
+   "book": "KL",
+   "page": 99,
+   "quote": "Nhật Nguyệt sáng gặp Tam hóa : được nhiều người quí trọng",
+   "mined": "kl099_di_nhat_nguyet_sang_tam_hoa"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_CU",
+   "book": "KL",
+   "page": 105,
+   "quote": "Cự môn: bị khẩu thiệt",
+   "mined": "kl105_di_cu_mon_khau_thiet"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_LUONG_TOT",
+   "book": "KL",
+   "page": 111,
+   "quote": "Lương  Đồng Dần Thân, Lương  Nhật ở Mão, Lương Cơ đồng cung, Lương  ở Tí Ngọ: được",
+   "mined": "kl111_di_luong_kinh_ne"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_LUONG_TY_HOI",
+   "book": "KL",
+   "page": 111,
+   "quote": "Lương  Tỵ Hợi: lang thang",
+   "mined": "kl111_di_luong_ty_hoi_lang_thang"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_PHA_TY_NGO",
+   "book": "KL",
+   "page": 117,
+   "quote": "Ở Tí Ngọ: được trọng nể, dễ kiếm tiền",
+   "mined": "kl117_di_pha_ty_ngo"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_PHA_TU",
+   "book": "KL",
+   "page": 117,
+   "quote": "Đồng cung với Tử vi: gặp quí nhân",
+   "mined": "kl117_di_pha_tu_vi"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_PHA_VU_LIEM",
+   "book": "KL",
+   "page": 117,
+   "quote": "Đồng cung với Vũ Liêm: may ít rủi nhiều",
+   "mined": "kl117_di_pha_vu_liem"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_TA_HUU",
+   "book": "KL",
+   "page": 121,
+   "quote": "bạt kỳ hồ, ý nghĩa lang bạt này rõ rệt khi Tả Hữu nằm ở cung Thiên di",
+   "mined": "kl121_di_ta_huu_lang_bat"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_SONG_HAO",
+   "book": "KL",
+   "page": 136,
+   "quote": "ra ngoài tốn tiền",
+   "mined": "kl136_di_song_hao_ton_tien"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_LOC_MA_MENH",
+   "book": "KL",
+   "page": 142,
+   "quote": "Mệnh có Lộc tồn, Thiên di có Mã, hoặc ngược lại thì tốt",
+   "mined": "kl142_di_loc_ma_giao_tri"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_THAI_TUE",
+   "book": "KL",
+   "page": 147,
+   "quote": "Miệng tiếng, cãi vã",
+   "mined": "kl147_di_thai_tue"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_TUE_PHA",
+   "book": "KL",
+   "page": 149,
+   "quote": "Tuế Phá ở Di: ưa châm chọc người khác",
+   "mined": "kl149_di_tue_pha"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_THIEN_MA",
+   "book": "KL",
+   "page": 153,
+   "quote": "Hay xuất ngoại, du lịch, công cán ở ngoại quốc",
+   "mined": "kl153_di_thien_ma"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_CO_QUA",
+   "book": "KL",
+   "page": 153,
+   "quote": "không thích nghi với xã hội vì tính lạnh lùng, không thích giao thiệp",
+   "mined": "kl153_di_co_qua"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_HOA_QUYEN",
+   "book": "KL",
+   "page": 156,
+   "quote": "Di:   có thế lực trong xã hội",
+   "mined": "kl156_di_hoa_quyen"
+  },
+  {
+   "rule": "TV_KL7_THIEN_DI_RIEU_DA_KY_KK",
+   "book": "KL",
+   "page": 219,
+   "quote": "thì long đong vất vả, cơm thừa canh cặn với lũ",
+   "mined": "kl219_di_rieu_da_ky_khong_kiep"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_TU_PHA_THAM",
+   "book": "KL",
+   "page": 76,
+   "quote": "Xấu nếu đi với Phá quân, Tham lang",
+   "mined": "kl076_phuc_tu_pha_tham"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_TU_SAT",
+   "book": "KL",
+   "page": 76,
+   "quote": "Riêng gặp Không Kiếp, Kình Đà, Hỏa Linh thì rất bất lợi",
+   "mined": "kl076_phuc_tu_sat_tinh"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_CO_DAN",
+   "book": "KL",
+   "page": 81,
+   "quote": "Cơ ở Dần thì kém phúc",
+   "mined": "kl081_phuc_co_dan"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_LUONG_TOT",
+   "book": "KL",
+   "page": 111,
+   "quote": "Các cung tốt và xấu cũng như ở cung Quan",
+   "mined": "kl111_phuc_luong_cung_tot"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_LUONG_TY_HOI",
+   "book": "KL",
+   "page": 111,
+   "quote": "Các cung tốt và xấu cũng như ở cung Quan",
+   "mined": "kl111_phuc_luong_ty_hoi"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_SAT_TRIEU",
+   "book": "KL",
+   "page": 114,
+   "quote": "Ở thế triều đẩu và ngưỡng đẩu đắc phúc nhưng phải ly hương lập nghiệp",
+   "mined": "kl114_phuc_sat_trieu_nguong_dau"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_SAT_TU",
+   "book": "KL",
+   "page": 114,
+   "quote": "Sát Tử đồng cung: phải ly hương mới khá",
+   "mined": "kl114_phuc_sat_tu"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_PHA",
+   "book": "KL",
+   "page": 117,
+   "quote": "Rất xấu, họ hàng ly tán, mình tha hướng lập nghiệp",
+   "mined": "kl117_phuc_pha_base"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_PHA_TY_NGO",
+   "book": "KL",
+   "page": 117,
+   "quote": "Ở Tí Ngọ: được phúc, sống lâu",
+   "mined": "kl117_phuc_pha_ti_ngo"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_PHA_DAN_THAN",
+   "book": "KL",
+   "page": 117,
+   "quote": "Ở Dần Thân: kém phúc, họ hàng sa sút",
+   "mined": "kl117_phuc_pha_dan_than"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_PHA_VU_LIEM_TU",
+   "book": "KL",
+   "page": 117,
+   "quote": "Đồng cung với Vũ Liêm hay đồng cung với Tử vi vất vả, xa quê",
+   "mined": "kl117_phuc_pha_vu_liem_tu"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_KK_DAC",
+   "book": "KL",
+   "page": 127,
+   "quote": "Đắc địa : hưởng lộc một thời gian",
+   "mined": "kl127_phuc_khong_kiep_dac"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_KK_HAM",
+   "book": "KL",
+   "page": 127,
+   "quote": "Hãm địa: bất hạnh lớn",
+   "mined": "kl127_phuc_khong_kiep_ham"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_QUANG_QUY",
+   "book": "KL",
+   "page": 132,
+   "quote": "Được thần linh che chở, ước gì được nấy",
+   "mined": "kl132_phuc_quang_quy_than_linh"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_DA_VCD",
+   "book": "KL",
+   "page": 135,
+   "quote": "Đà Dần Thân Vô chính diệu: phúc thọ may mắn",
+   "mined": "kl135_phuc_da_dan_than_vcd"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_SONG_HAO",
+   "book": "KL",
+   "page": 136,
+   "quote": "Bần tàn, ly tán",
+   "mined": "kl136_phuc_song_hao"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_LONG_PHUONG",
+   "book": "KL",
+   "page": 149,
+   "quote": "Long Phượng rất tốt cho các cung Phối, Tử, và Phúc, Điền",
+   "mined": "kl149_phuc_long_phuong"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_DONG",
+   "book": "KL",
+   "page": 188,
+   "quote": "nằm trong cung phúc đức rất tốt",
+   "mined": "kl188_phuc_thien_dong"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_VU_CU_CO",
+   "book": "KL",
+   "page": 217,
+   "quote": "Vũ khúc, Cự môn, Thiên cơ: thì cũng khá giả, có danh nhưng hay gặp tai bay vạ gió",
+   "mined": "kl217_phuc_vu_cu_co"
+  },
+  {
+   "rule": "TV_KL7_PHUC_DUC_RIEU_DA_KY",
+   "book": "KL",
+   "page": 217,
+   "quote": "Phàm vào lũ Riêu Đà Kỵ thì trong đời có lúc mang họa tai tiếng chẳng sai",
+   "mined": "kl217_phuc_rieu_da_ky"
+  },
+  {
+   "rule": "TV_TH7_PHUC_DUC_TUONG_BINH",
+   "book": "TH",
+   "page": 112,
+   "quote": "g Binh Đế Tuyệt đóng thành ba phương",
+   "mined": "th112_phuc_tuong_binh_de_tuyet"
+  },
+  {
+   "rule": "TV_TH7_PHUC_DUC_CU_LOC_MA",
+   "book": "TH",
+   "page": 112,
+   "quote": "Cự Môn, Lộc ; Mã tương phùng",
+   "mined": "th112_phuc_cu_loc_ma"
+  },
+  {
+   "rule": "TV_TH7_PHUC_DUC_LOC_CO_QUA",
+   "book": "TH",
+   "page": 112,
+   "quote": "Lộc Tồn, Cô Quả độc đinh đó mà",
+   "mined": "th112_phuc_loc_co_qua"
+  },
+  {
+   "rule": "TV_TH7_PHUC_DUC_QUAN_PHUC",
+   "book": "TH",
+   "page": 112,
+   "quote": "Vượng đường quan trưởng thân vinh chẳng ngờ",
+   "mined": "th112_phuc_quan_phuc"
+  },
+  {
+   "rule": "TV_TH7_PHUC_DUC_VU_VUONG",
+   "book": "TH",
+   "page": 112,
+   "quote": "Phúc cung ắt hẳn hoà hài vũ ban",
+   "mined": "th112_phuc_vu_vuong"
+  },
+  {
+   "rule": "TV_TH7_PHUC_DUC_DA_KK",
+   "book": "TH",
+   "page": 113,
+   "quote": "Đẹp gì trong họ, ắt rằng suy hao",
+   "mined": "th113_phuc_da_khong_kiep"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_LIEM_PHU_TUONG",
+   "book": "KL",
+   "page": 94,
+   "quote": "Đồng cung với Thiên phủ, Thiên tướng thì cha mẹ khá giả",
+   "mined": "kl094_phu_liem_phu_tuong"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_CU",
+   "book": "KL",
+   "page": 105,
+   "quote": "Cha mẹ bật hòa",
+   "mined": "kl105_phu_cu_bat_hoa"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_TUONG",
+   "book": "KL",
+   "page": 108,
+   "quote": "Ở cung nào cha mẹ cũng khá giả",
+   "mined": "kl108_phu_tuong_moi_cung"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_LUONG_TOT",
+   "book": "KL",
+   "page": 111,
+   "quote": "Các cung tốt và xấu cũng như ở cung Quan",
+   "mined": "kl111_phu_luong_cung_tot"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_LUONG_TY_HOI",
+   "book": "KL",
+   "page": 111,
+   "quote": "Các cung tốt và xấu cũng như ở cung Quan",
+   "mined": "kl111_phu_luong_ty_hoi"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_KK_LY",
+   "book": "KL",
+   "page": 126,
+   "quote": "Cha mẹ ly cách",
+   "mined": "kl126_phu_khong_kiep_ly_cach"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_KK_NO",
+   "book": "KL",
+   "page": 126,
+   "quote": "Không nhờ vả anh mẹ mà còn gánh nợ di truyền",
+   "mined": "kl126_phu_khong_kiep_ganh_no"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_HOA_KY",
+   "book": "KL",
+   "page": 157,
+   "quote": "Cha mẹ bất hòa",
+   "mined": "kl157_phu_hoa_ky"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_XUONG_KHUC_HOA",
+   "book": "KL",
+   "page": 220,
+   "quote": "Khoa Quyền Lộc dĩ nhiên là đem lại hạnh phúc cho bất cứ cung nào, nhất",
+   "mined": "kl220_phu_xuong_khuc_khoa_quyen_loc"
+  },
+  {
+   "rule": "TV_KL7_PHU_MAU_MA_KY_CO_QUA",
+   "book": "KL",
+   "page": 220,
+   "quote": "đóng ở Phụ mẫu, lại thêm Cô Quả chen vào thì cha mẹ bất hoà",
+   "mined": "kl220_phu_ma_ky_tuan_triet_co_qua"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_HY_NHAT_NGUYET_NU",
+   "book": "KL",
+   "page": 73,
+   "quote": "Cung tử tức có Thiên hỷ gặp Nhật Nguyệt hội chiếu, đàn bà có con quí tử",
+   "mined": "kl73_tu_thien_hy_nhat_nguyet"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_CO_LUONG_AM",
+   "book": "KL",
+   "page": 80,
+   "quote": "Cơ Lương hay Nguyệt: 3-5 con",
+   "mined": "kl80_tu_co_luong_nguyet"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_DONG_MAO",
+   "book": "KL",
+   "page": 90,
+   "quote": "Ở Mão: đông con",
+   "mined": "kl90_tu_dong_mao"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_DONG_TY_HOI",
+   "book": "KL",
+   "page": 90,
+   "quote": "Ở Tỵ Hợi ít con",
+   "mined": "kl90_tu_dong_ty_hoi"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_DONG_THIN_TUAT",
+   "book": "KL",
+   "page": 90,
+   "quote": "Ở Thìn Tuất nhất là đồng cung với Cự thì hiếm con",
+   "mined": "kl90_tu_dong_thin_tuat_cu"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_LIEM",
+   "book": "KL",
+   "page": 93,
+   "quote": "Chậm con, ít con trừ khi đồng cung với Thiên phủ",
+   "mined": "kl93_tu_liem_cham_it"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_THAM",
+   "book": "KL",
+   "page": 102,
+   "quote": "Tham lang ít hợp với Tử tức cho nên ở các cung đều muộn con hay con phá gia chi tử",
+   "mined": "kl102_tu_tham_lang"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_TUONG_LIEM_VU",
+   "book": "KL",
+   "page": 108,
+   "quote": "Liêm, Vũ ít con, muộn con",
+   "mined": "kl108_tu_tuong_liem_vu"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_LUONG_DONG_TY_NGO",
+   "book": "KL",
+   "page": 110,
+   "quote": "đồng Dần Thân hay Lương Tí Ngọ: đông con",
+   "mined": "kl110_tu_luong_dong_ti_ngo"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_LUONG_NHAT_CO",
+   "book": "KL",
+   "page": 110,
+   "quote": "Cơ: đông con, con khá giả",
+   "mined": "kl110_tu_luong_nhat_co"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_LUONG_TY_HOI",
+   "book": "KL",
+   "page": 110,
+   "quote": "Tỵ Hợi: ít con",
+   "mined": "kl110_tu_luong_ty_hoi"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_SAT",
+   "book": "KL",
+   "page": 113,
+   "quote": "Trừ hai cung Dần Thân còn các cung khác thì bất lợi cho tử tức",
+   "mined": "kl113_tu_that_sat"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_PHA",
+   "book": "KL",
+   "page": 116,
+   "quote": "Hiếm con",
+   "mined": "kl116_tu_pha_hiem"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_TA_HUU",
+   "book": "KL",
+   "page": 121,
+   "quote": "Tả Hữu tại cung Bào, Tử: đông anh em, nhiều con",
+   "mined": "kl121_tu_ta_huu"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_KK",
+   "book": "KL",
+   "page": 126,
+   "quote": "Con du đãng, phá sản",
+   "mined": "kl126_tu_kk_du_dang"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_QUANG_QUY",
+   "book": "KL",
+   "page": 131,
+   "quote": "Con hiếu đễ",
+   "mined": "kl131_tu_quang_qui_hieu"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_LOC_TON",
+   "book": "KL",
+   "page": 133,
+   "quote": "Ở Tử thì chận và hiếm con",
+   "mined": "kl133_tu_loc_ton"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_DA_KK_HOA",
+   "book": "KL",
+   "page": 135,
+   "quote": "Đà Không Kiếp Hỏa (Linh): con ngỗ ngược",
+   "mined": "kl135_tu_da_kk_hoa"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_LONG_PHUONG",
+   "book": "KL",
+   "page": 149,
+   "quote": "Long Phượng rất tốt cho các cung Phối, Tử, và Phúc, Điền",
+   "mined": "kl149_tu_long_phuong"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_CO_QUA",
+   "book": "KL",
+   "page": 153,
+   "quote": "Ít anh em hiếm muộn",
+   "mined": "kl153_tu_co_qua"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_HOA_KY",
+   "book": "KL",
+   "page": 157,
+   "quote": "Cha mẹ xung khắc con cái",
+   "mined": "kl157_tu_hoa_ky"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_MOC_DUC",
+   "book": "KL",
+   "page": 161,
+   "quote": "hiếm muộn",
+   "mined": "kl161_tu_moc_duc"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_SUY",
+   "book": "KL",
+   "page": 162,
+   "quote": "Ở Tử thì hiếm con",
+   "mined": "kl162_tu_suy"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_DAU_QUAN",
+   "book": "KL",
+   "page": 193,
+   "quote": "Đẩu quân đóng tại Tử tức là dấu hiệu hiếm con",
+   "mined": "kl193_tu_dau_quan"
+  },
+  {
+   "rule": "TV_KL7_TU_TUC_SAT_PHA_THAM_VU_LOC",
+   "book": "KL",
+   "page": 218,
+   "quote": "Hiếm con có thể rơi vào các sao trong bộ Sát, Phá, Tham, Vũ khúc, Lộc tồn",
+   "mined": "kl218_tu_hiem_con_sat_pha_tham"
+  },
+  {
+   "rule": "TV_KL7_HUYNH_DE_PHA_HIEM",
+   "book": "KL",
+   "page": 116,
+   "quote": "Hiếm anh em",
+   "mined": "kl116_bao_pha_hiem"
+  },
+  {
+   "rule": "TV_KL7_HUYNH_DE_PHA_BAT_HOA",
+   "book": "KL",
+   "page": 116,
+   "quote": "Anh em bất hòa",
+   "mined": "kl116_bao_pha_bat_hoa"
+  },
+  {
+   "rule": "TV_KL7_HUYNH_DE_TA_HUU",
+   "book": "KL",
+   "page": 121,
+   "quote": "Tả Hữu tại cung Bào, Tử: đông anh em, nhiều con",
+   "mined": "kl121_bao_ta_huu"
+  },
+  {
+   "rule": "TV_KL7_HUYNH_DE_KK_LY_TAN",
+   "book": "KL",
+   "page": 126,
+   "quote": "Anh em ly tán",
+   "mined": "kl126_bao_kk_ly_tan"
+  },
+  {
+   "rule": "TV_KL7_HUYNH_DE_KK_NGANG",
+   "book": "KL",
+   "page": 126,
+   "quote": "Anh em côn đồ",
+   "mined": "kl126_bao_kk_con_do"
+  },
+  {
+   "rule": "TV_KL7_HUYNH_DE_KK_LIEN_LUY",
+   "book": "KL",
+   "page": 126,
+   "quote": "Liên lụy vì anh em",
+   "mined": "kl126_bao_kk_lien_luy"
+  },
+  {
+   "rule": "TV_KL7_HUYNH_DE_CO_QUA",
+   "book": "KL",
+   "page": 153,
+   "quote": "Ít anh em hiếm muộn",
+   "mined": "kl153_bao_co_qua"
+  },
+  {
+   "rule": "TV_KL7_HUYNH_DE_HOA_KY",
+   "book": "KL",
+   "page": 156,
+   "quote": "Anh em xung khắc",
+   "mined": "kl156_bao_hoa_ky"
+  },
+  {
+   "rule": "TV_TH7_HUYNH_DE_TUONG_LOC_MA",
+   "book": "TH",
+   "page": 99,
+   "quote": "Anh em có kẻ thuận chi",
+   "mined": "th99_bao_tuong_loc_ma_trieu"
+  },
+  {
+   "rule": "TV_TH7_HUYNH_DE_TANG_MA",
+   "book": "TH",
+   "page": 100,
+   "quote": "Mõi người mỗi xứ gia đình quạnh hi",
+   "mined": "th100_bao_tang_ma"
+  },
+  {
+   "rule": "TV_TH7_HUYNH_DE_HINH",
+   "book": "TH",
+   "page": 100,
+   "quote": "Thiên Hình xung khắc trong nhà ghét nha",
+   "mined": "th100_bao_thien_hinh"
+  },
+  {
+   "rule": "TV_TH7_HUYNH_DE_XUONG_KHUC_THAI_TUE",
+   "book": "TH",
+   "page": 100,
+   "quote": "Có người anh trưởng thấp cao tung hoa",
+   "mined": "th100_bao_xuong_khuc_thai_tue"
+  },
+  {
+   "rule": "TV_TH7_HUYNH_DE_KINH_DA",
+   "book": "TH",
+   "page": 101,
+   "quote": "Dươnng Đà xung khắc chẳng sai",
+   "mined": "th101_bao_duong_da"
+  },
+  {
+   "rule": "TV_KL7_TAT_ACH_TU_VI",
+   "book": "KL",
+   "page": 76,
+   "quote": "Tử vi rất tốt cho cung này vì tính cách cứu giải, dù có đồng cung với Thất sát",
+   "mined": "kl76_tat_tu_vi"
+  },
+  {
+   "rule": "TV_KL7_TAT_ACH_THIEN_KHONG",
+   "book": "KL",
+   "page": 218,
+   "quote": "Thiên không thì lại cứu giải bất ngờ",
+   "mined": "kl218_tat_thien_khong"
+  },
+  {
+   "rule": "TV_KL7_TAT_ACH_PHA_SAT",
+   "book": "KL",
+   "page": 218,
+   "quote": "Tốt: nếu có những sao: Phá quân, Phá toái, Thất sát sẽ phá hết hạn xấu",
+   "mined": "kl218_tat_pha_sat_doc_tri_doc"
+  },
+  {
+   "rule": "TV_KL7_TAT_ACH_SONG_HAO",
+   "book": "KL",
+   "page": 218,
+   "quote": "Hao giải trừ nạn xấu",
+   "mined": "kl218_tat_song_hao"
+  },
+  {
+   "rule": "TV_KL7_TAT_ACH_TOI_KY",
+   "book": "KL",
+   "page": 218,
+   "quote": "Tối kỵ cho cung Tật khi có Tham lang, Hóa kỵ, Không Kiếp dự vào",
+   "mined": "kl218_tat_toi_ky"
+  }
+ ],
+ "skipped": {
+  "kl113_di_sat_dan_than_tu_vi": "'Ngoài vị trí Dần Thân' can be read as 'except Dần Thân' or 'ra ngoài at Dần Thân': the page does not settle it",
+  "kl142_di_loc_dao": "'chiếu vào' does not say which palace Không Kiếp aim at",
+  "kl102_phuc_tham_vu_thin_tuat": "Tham–Vũ share a palace only at Sửu/Mùi: the printed Thìn/Tuất cannot occur",
+  "kl108_phuc_tuong_tu_liem_vu": "Thiên Tướng is alone at Tỵ Hợi Sửu Mùi: 'kết hợp với Tử, Liêm, Vũ' has no position the page states",
+  "kl132_phuc_quang_quy_tho": "longevity (health policy)",
+  "kl153_phuc_co_qua": "the line under 'Phúc. Tử, Bào' speaks of siblings and children",
+  "kl217_phuc_sat_tinh": "illness (health policy)",
+  "kl217_phuc_cat_tinh_cuu_giai": "a rescue on the sát line before it: which stars must stand together is not stated",
+  "th112_phuc_cu_loc_tuong": "'Lộc' and 'Tướng' are both ambiguous on the verse",
+  "th112_phuc_am_tu_hong_dao_cai": "cung phi (archaic, appearance)",
+  "th112_phuc_tang_linh_hoa": "fire (an event)",
+  "th113_phuc_chinh_dieu": "any chính tinh: too broad to tell a chart apart, and about siblings",
+  "kl094_phu_liem_tham_dan_than": "Liêm–Tham share a palace only at Tỵ/Hợi: the printed Dần/Thân cannot occur",
+  "kl117_phu_pha_ti_ngo_tu": "Tử–Phá share a palace only at Sửu/Mùi: the printed 'Tí Ngọ đồng cung Tử vi' cannot occur",
+  "th113_phu_dong_co_tu_phu": "whether 'Nhật Nguyệt sinh địa' is a second condition is not clear from the verse",
+  "kl84_tu_nhat_nguyet_thai": "twins (an event)",
+  "kl105_tu_cu_co": "half-siblings (an event)",
+  "kl131_tu_quang_qui_con_nuoi": "adoption (an event)",
+  "kl108_tu_tuong_tu_vi": "Tử Vi and Thiên Tướng are not together at Tỵ Hợi Sửu Mùi: 'đi với' has no position the page states",
+  "kl80_bao_co_cu_di_bao": "half-siblings (an event)",
+  "kl99_bao_nhat_nguyet_giap_thai": "twins (an event)",
+  "th100_bao_thai_nhat_nguyet": "twins (an event)",
+  "th100_bao_duong_thai_triet_vuong": "half-siblings (an event)",
+  "th100_bao_am_phuc_di_bao": "half-siblings (an event)",
+  "th100_bao_tuong_thai_vuong_di_bao": "half-siblings (an event)",
+  "th100_bao_tam_khong_duong": "adoption (an event)",
+  "th100_bao_khoi_viet_counts": "a count of siblings",
+  "th100_bao_counts_chinh_tinh": "a count of siblings",
+  "th101_bao_counts": "a count of siblings",
+  "th100_bao_hoa_ky": "the KL p.156 line says the same (one rule kept)",
+  "th100_bao_tuong_phuc_y_cong": "'Tướng phục' and the trade it names are the miner's reading, not the page's",
+  "th101_bao_dau_quan_ky": "the verse's second half ('còn hưng') is read either way",
+  "th100_bao_tu_tang_ta_huu": "a sister's marriage (an event about another person's fate)",
+  "kl127_no_khong_kiep_ban_xau": "the same page line as kl127_no_khong_kiep_phan_chu (one rule, both clauses)",
+  "kl148_tat_thien_khong": "the KL p.218 line says the same (one rule kept)",
+  "kl218_tat_triet": "TV_TL_TAT_ACH_GIAM (TL p.128) already reads Triệt at Tật Ách",
+  "kl55_tat_thien_phu": "a health state (no conclusion on health)",
+  "kl88_tat_vu_khuc_kim_thuy": "a health state",
+  "kl88_tat_vu_khuc_moc_hoa": "a health state",
+  "kl121_tat_ta_huu": "a health state",
+  "kl131_tat_quang_qui_it_benh": "a health state",
+  "kl132_tat_quang_qui_chong_khoi": "a health state",
+  "kl140_tat_quan_phuc_thien_su": "longevity (health policy)",
+  "kl142_tat_tuan_triet_vcd": "the book itself says 'phải xét tùy từng hoàn cảnh'",
+  "kl161_tat_truong_sinh_sao_xau": "a health state",
+  "kl246_tat_vcd_trong_khong": "a worked case, not a rule of the palace",
+  "kl282_tat_phuc_qui_tinh": "a health state"
+ }
+}

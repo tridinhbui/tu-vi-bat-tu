@@ -344,6 +344,536 @@
     "giúp người thân đứng vững thay vì gánh thay họ",
     "đặt giới hạn rõ cho việc nâng đỡ người nhà"
    ]
+  },
+  {
+   "id": "ally.helpful",
+   "status": "draft",
+   "np": "bạn bè, người giúp việc được việc",
+   "pron": "người giúp được việc ấy",
+   "pred": [
+    "có bạn bè, người giúp việc được việc",
+    "có người dưới làm được việc"
+   ],
+   "soft": [
+    "có người giúp được việc, dù không nhiều"
+   ],
+   "value": [
+    "những người làm được việc bên cạnh"
+   ]
+  },
+  {
+   "id": "ally.overstep",
+   "status": "draft",
+   "np": "người dưới dễ lạm quyền, lấn quyền",
+   "pron": "sự lấn quyền của người dưới ấy",
+   "turn": [
+    "gặp người dưới lạm quyền",
+    "để người dưới lấn quyền"
+   ],
+   "soft": [
+    "đôi khi để người dưới lấn quyền"
+   ],
+   "mature": [
+    "giao việc kèm giới hạn rõ ràng"
+   ]
+  },
+  {
+   "id": "ally.fickle",
+   "status": "draft",
+   "np": "người giúp việc hay đổi, ít ai ở lâu",
+   "pron": "sự đổi thay của người giúp việc ấy",
+   "turn": [
+    "có người giúp việc hay đổi, ít ai ở lâu"
+   ],
+   "soft": [
+    "có lúc người giúp việc không ở lâu"
+   ],
+   "mature": [
+    "giữ người bằng sự rõ ràng hơn là lời hứa"
+   ]
+  },
+  {
+   "id": "ally.resent",
+   "status": "draft",
+   "np": "sự oán trách từ bạn bè, người dưới",
+   "pron": "sự oán trách của người dưới ấy",
+   "turn": [
+    "bị bạn bè, người dưới oán trách",
+    "làm ơn mà nên oán"
+   ],
+   "soft": [
+    "đôi khi bị người dưới oán trách"
+   ],
+   "mature": [
+    "giữ ân oán rạch ròi, giúp người có chừng mực"
+   ]
+  },
+  {
+   "id": "ally.dispute",
+   "status": "draft",
+   "np": "cãi vã, kiện tụng với bạn bè, người dưới",
+   "pron": "sự va chạm với người dưới ấy",
+   "turn": [
+    "vướng cãi vã, kiện tụng với bạn bè, người dưới"
+   ],
+   "soft": [
+    "có lúc va chạm với người dưới"
+   ],
+   "mature": [
+    "giao kèo với người cùng làm cho rõ từ đầu"
+   ]
+  },
+  {
+   "id": "ally.few",
+   "status": "draft",
+   "np": "sự ít bạn bè",
+   "pron": "sự ít bạn ấy",
+   "turn": [
+    "ít bạn bè",
+    "không có nhiều người quen thân"
+   ],
+   "soft": [
+    "bạn bè không đông"
+   ],
+   "mature": [
+    "giữ kỹ vài người bạn thật"
+   ]
+  },
+  {
+   "id": "ally.powerful",
+   "status": "draft",
+   "np": "bạn bè có thế lực",
+   "pron": "bạn bè có thế lực ấy",
+   "pred": [
+    "có bạn bè có uy quyền, thế lực"
+   ],
+   "soft": [
+    "có vài người quen có thế lực"
+   ],
+   "value": [
+    "những người bạn có thế lực"
+   ]
+  },
+  {
+   "id": "ally.slander",
+   "status": "draft",
+   "np": "người dưới nói xấu chủ",
+   "pron": "lời nói xấu của người dưới ấy",
+   "turn": [
+    "bị người dưới nói xấu sau lưng"
+   ],
+   "soft": [
+    "có lúc bị người dưới nói ra nói vào"
+   ],
+   "mature": [
+    "để việc mình làm tự nói thay mình"
+   ]
+  },
+  {
+   "id": "ally.greedy",
+   "status": "draft",
+   "np": "bạn bè tham lam",
+   "pron": "lòng tham của bạn bè ấy",
+   "turn": [
+    "gặp bạn bè tham lam"
+   ],
+   "soft": [
+    "có người bạn hay tính phần lợi"
+   ],
+   "mature": [
+    "tách bạch chuyện tiền với chuyện tình bạn"
+   ]
+  },
+  {
+   "id": "ally.drain",
+   "status": "draft",
+   "np": "người dưới chỉ tốn kém, ăn hại",
+   "pron": "người ăn hại ấy",
+   "turn": [
+    "có người dưới chỉ ăn hại"
+   ],
+   "soft": [
+    "có người dưới tốn kém hơn được việc"
+   ],
+   "mature": [
+    "chọn người theo việc chứ không theo cảm tình"
+   ]
+  },
+  {
+   "id": "travel.helped",
+   "status": "draft",
+   "np": "sự được kính nể, giúp đỡ khi ra ngoài",
+   "pron": "sự được giúp khi ra ngoài ấy",
+   "pred": [
+    "ra ngoài được người kính nể, giúp đỡ",
+    "ra ngoài gặp quý nhân"
+   ],
+   "soft": [
+    "ra ngoài có lúc được người giúp"
+   ],
+   "value": [
+    "những người giúp mình ở bên ngoài"
+   ]
+  },
+  {
+   "id": "travel.gain",
+   "status": "draft",
+   "np": "cái lợi khi đi xa, ra ngoài",
+   "pron": "cái lợi nơi xa ấy",
+   "pred": [
+    "đi xa làm ăn tốt hơn ở nhà",
+    "ra ngoài dễ kiếm tiền"
+   ],
+   "soft": [
+    "đi xa có phần lợi hơn"
+   ],
+   "value": [
+    "cái lợi của việc đi xa"
+   ]
+  },
+  {
+   "id": "travel.dispute",
+   "status": "draft",
+   "np": "khẩu thiệt, cãi vã khi ra ngoài",
+   "pron": "khẩu thiệt bên ngoài ấy",
+   "turn": [
+    "ra ngoài hay vướng khẩu thiệt, cãi vã"
+   ],
+   "soft": [
+    "ra ngoài đôi khi vướng điều tiếng"
+   ],
+   "mature": [
+    "nói ít hơn ở nơi lạ"
+   ]
+  },
+  {
+   "id": "travel.toil",
+   "status": "draft",
+   "np": "sự long đong khi ra ngoài",
+   "pron": "sự long đong ấy",
+   "turn": [
+    "ra ngoài long đong vất vả",
+    "ra ngoài lang thang, không ổn định"
+   ],
+   "soft": [
+    "ra ngoài có lúc vất vả"
+   ],
+   "mature": [
+    "có một chỗ dựa cố định trước khi đi xa"
+   ]
+  },
+  {
+   "id": "travel.mixed",
+   "status": "draft",
+   "np": "sự may rủi đi liền nhau khi ra ngoài",
+   "pron": "may rủi nơi xa ấy",
+   "pred": [
+    "ra ngoài may rủi đi liền nhau"
+   ]
+  },
+  {
+   "id": "travel.costly",
+   "status": "draft",
+   "np": "sự tốn kém khi ra ngoài",
+   "pron": "sự tốn kém khi ra ngoài ấy",
+   "turn": [
+    "ra ngoài tốn tiền"
+   ],
+   "soft": [
+    "ra ngoài hay tốn hơn dự tính"
+   ],
+   "mature": [
+    "định trước khoản chi cho mỗi chuyến đi"
+   ]
+  },
+  {
+   "id": "fortune.away",
+   "status": "draft",
+   "np": "việc phải rời quê mới khá lên",
+   "pron": "sự rời quê lập nghiệp ấy",
+   "pred": [
+    "phải rời quê lập nghiệp mới khá lên"
+   ]
+  },
+  {
+   "id": "fortune.clan_scattered",
+   "status": "draft",
+   "np": "sự ly tán của họ hàng",
+   "pron": "họ hàng ly tán ấy",
+   "turn": [
+    "có họ hàng ly tán"
+   ],
+   "soft": [
+    "họ hàng không gần gũi"
+   ],
+   "mature": [
+    "giữ liên lạc với những người thân còn gần"
+   ]
+  },
+  {
+   "id": "fortune.clan_decline",
+   "status": "draft",
+   "np": "sự sa sút của dòng họ",
+   "pron": "họ hàng sa sút ấy",
+   "turn": [
+    "có dòng họ sa sút"
+   ],
+   "soft": [
+    "dòng họ không còn thịnh như trước"
+   ],
+   "mature": [
+    "tự gây nền cho mình thay vì trông vào gốc họ"
+   ]
+  },
+  {
+   "id": "fortune.clan_prosper",
+   "status": "draft",
+   "np": "sự hiển đạt trong dòng họ",
+   "pron": "dòng họ hiển đạt ấy",
+   "pred": [
+    "có người hiển đạt trong họ",
+    "có dòng họ thịnh vượng"
+   ],
+   "soft": [
+    "trong họ có người khá giả"
+   ],
+   "value": [
+    "chỗ dựa của dòng họ"
+   ]
+  },
+  {
+   "id": "fortune.clan_military",
+   "status": "draft",
+   "np": "truyền thống võ nghiệp trong họ",
+   "pron": "võ nghiệp trong họ ấy",
+   "pred": [
+    "có người trong họ theo nghiệp võ"
+   ]
+  },
+  {
+   "id": "fortune.clan_few",
+   "status": "draft",
+   "np": "dòng họ ít người nối dõi",
+   "pron": "họ ít người ấy",
+   "turn": [
+    "có dòng họ ít người nối dõi"
+   ]
+  },
+  {
+   "id": "fortune.mishap",
+   "status": "draft",
+   "np": "những rắc rối bất ngờ",
+   "pron": "rắc rối bất ngờ ấy",
+   "turn": [
+    "hay gặp chuyện rắc rối bất ngờ"
+   ],
+   "soft": [
+    "đôi khi gặp chuyện bất ngờ"
+   ],
+   "mature": [
+    "giữ một phần dự phòng cho việc không lường trước"
+   ]
+  },
+  {
+   "id": "fortune.protected",
+   "status": "draft",
+   "np": "sự được che chở",
+   "pron": "sự che chở ấy",
+   "pred": [
+    "được che chở, mong gì được nấy"
+   ],
+   "soft": [
+    "có lúc được che chở"
+   ],
+   "value": [
+    "sự che chở của phúc phần"
+   ]
+  },
+  {
+   "id": "fortune.reputation",
+   "status": "draft",
+   "np": "những lúc mang tai tiếng",
+   "pron": "tai tiếng ấy",
+   "turn": [
+    "có lúc mang tai tiếng"
+   ],
+   "soft": [
+    "đôi khi vướng điều tiếng"
+   ],
+   "mature": [
+    "giữ mình ở những chỗ dễ sinh điều tiếng"
+   ]
+  },
+  {
+   "id": "parents.prosper",
+   "status": "draft",
+   "np": "sự khá giả của cha mẹ",
+   "pron": "cha mẹ khá giả ấy",
+   "pred": [
+    "có cha mẹ khá giả"
+   ],
+   "soft": [
+    "có cha mẹ đủ đầy ở mức vừa"
+   ],
+   "value": [
+    "nền nhà của cha mẹ"
+   ]
+  },
+  {
+   "id": "parents.poor",
+   "status": "draft",
+   "np": "sự vất vả, thiếu thốn của cha mẹ",
+   "pron": "cha mẹ vất vả ấy",
+   "turn": [
+    "có cha mẹ vất vả, chẳng giàu"
+   ],
+   "mature": [
+    "tự đứng vững sớm để đỡ đần cha mẹ"
+   ]
+  },
+  {
+   "id": "parents.strain",
+   "status": "draft",
+   "np": "sự bất hòa của cha mẹ",
+   "pron": "cha mẹ bất hòa ấy",
+   "turn": [
+    "có cha mẹ bất hòa"
+   ],
+   "soft": [
+    "cha mẹ đôi khi không hợp ý nhau"
+   ],
+   "mature": [
+    "giữ mình đứng ngoài những bất hòa của cha mẹ"
+   ]
+  },
+  {
+   "id": "parents.apart",
+   "status": "draft",
+   "np": "sự xa cách giữa cha mẹ",
+   "pron": "cha mẹ xa cách ấy",
+   "turn": [
+    "có cha mẹ xa cách nhau"
+   ]
+  },
+  {
+   "id": "parents.burden",
+   "status": "draft",
+   "np": "gánh phần của cha mẹ để lại",
+   "pron": "gánh của cha mẹ ấy",
+   "turn": [
+    "không nhờ được cha mẹ, lại phải gánh phần để lại"
+   ],
+   "mature": [
+    "tách bạch phần mình gánh được với phần không"
+   ]
+  },
+  {
+   "id": "kin.talented",
+   "status": "draft",
+   "np": "người con, người anh em có tài, hiển đạt",
+   "pron": "người thân hiển đạt ấy",
+   "pred": [
+    "có người thân hiển đạt",
+    "có con hay anh em thành danh"
+   ],
+   "soft": [
+    "có người thân khá thành đạt"
+   ],
+   "value": [
+    "những người thân thành đạt"
+   ]
+  },
+  {
+   "id": "kin.prosper",
+   "status": "draft",
+   "np": "sự khá giả của con cái, anh em",
+   "pron": "người thân khá giả ấy",
+   "pred": [
+    "có con cái, anh em khá giả"
+   ],
+   "soft": [
+    "người thân đủ đầy ở mức vừa"
+   ],
+   "value": [
+    "sự khá giả của người thân"
+   ]
+  },
+  {
+   "id": "kin.wayward",
+   "status": "draft",
+   "np": "tính ngỗ ngược, phá tán ở người thân",
+   "pron": "sự ngỗ ngược ấy",
+   "turn": [
+    "có người thân ngỗ ngược, hay phá tán"
+   ],
+   "soft": [
+    "có người thân khó bảo"
+   ],
+   "mature": [
+    "đặt giới hạn rõ ràng với người thân hay phá"
+   ]
+  },
+  {
+   "id": "kin.filial",
+   "status": "draft",
+   "np": "lòng hiếu thảo của con cái",
+   "pron": "con cái hiếu thảo ấy",
+   "pred": [
+    "có con cái hiếu thảo"
+   ],
+   "soft": [
+    "con cái biết nghĩ cho cha mẹ"
+   ],
+   "value": [
+    "lòng hiếu thảo của con cái"
+   ]
+  },
+  {
+   "id": "kin.good",
+   "status": "draft",
+   "np": "đường con cái thuận",
+   "pron": "đường con cái thuận ấy",
+   "pred": [
+    "có đường con cái tốt"
+   ],
+   "soft": [
+    "đường con cái khá thuận"
+   ],
+   "value": [
+    "đường con cái"
+   ]
+  },
+  {
+   "id": "kin.adverse",
+   "status": "draft",
+   "np": "đường con cái kém thuận",
+   "pron": "đường con cái kém thuận ấy",
+   "turn": [
+    "có đường con cái kém thuận"
+   ],
+   "mature": [
+    "kiên nhẫn với chuyện con cái"
+   ]
+  },
+  {
+   "id": "health.shielded",
+   "status": "draft",
+   "np": "sao cứu giải ở cung Tật Ách",
+   "pron": "sao cứu giải ấy",
+   "pred": [
+    "có sao cứu giải ở cung Tật Ách"
+   ],
+   "note": "health (owner review 2026-10-22): only the book words, no soft form, no illustration, no value or advice line"
+  },
+  {
+   "id": "health.exposed",
+   "status": "draft",
+   "np": "sao mà sách bảo là tối kỵ ở cung Tật Ách",
+   "pron": "sao tối kỵ ở Tật Ách ấy",
+   "turn": [
+    "có sao mà sách bảo là tối kỵ ở cung Tật Ách"
+   ],
+   "note": "health (owner review 2026-10-22): only the book words, no soft form, no illustration, no value or advice line"
   }
  ]
 }

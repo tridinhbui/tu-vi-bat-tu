@@ -203,6 +203,320 @@
    "kind": "outcome",
    "np": "người thân trông cậy vào mình",
    "short": "gánh nặng người thân"
+  },
+  {
+   "id": "ally.helpful",
+   "facet": "relationships.allies",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "bạn bè, người giúp việc được việc",
+   "short": "người giúp được việc",
+   "opp": "ally.weak"
+  },
+  {
+   "id": "ally.overstep",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "người dưới dễ lạm quyền, lấn quyền",
+   "short": "sự lấn quyền của người dưới"
+  },
+  {
+   "id": "ally.fickle",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "người giúp việc hay đổi, ít ai ở lâu",
+   "short": "sự đổi thay của người giúp việc"
+  },
+  {
+   "id": "ally.resent",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "sự oán trách từ bạn bè, người dưới",
+   "short": "sự oán trách của người dưới"
+  },
+  {
+   "id": "ally.dispute",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "cãi vã, kiện tụng với bạn bè, người dưới",
+   "short": "sự va chạm với người dưới"
+  },
+  {
+   "id": "ally.few",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sự ít bạn bè",
+   "short": "sự ít bạn",
+   "opp": "ally.many"
+  },
+  {
+   "id": "ally.powerful",
+   "facet": "relationships.allies",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "bạn bè có thế lực",
+   "short": "bạn bè có thế lực"
+  },
+  {
+   "id": "ally.slander",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "người dưới nói xấu chủ",
+   "short": "lời nói xấu của người dưới"
+  },
+  {
+   "id": "ally.greedy",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "bạn bè tham lam",
+   "short": "lòng tham của bạn bè"
+  },
+  {
+   "id": "ally.drain",
+   "facet": "relationships.allies",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "người dưới chỉ tốn kém, ăn hại",
+   "short": "người ăn hại"
+  },
+  {
+   "id": "travel.helped",
+   "facet": "life.outside",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "sự được kính nể, giúp đỡ khi ra ngoài",
+   "short": "sự được giúp khi ra ngoài"
+  },
+  {
+   "id": "travel.gain",
+   "facet": "life.outside",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "cái lợi khi đi xa, ra ngoài",
+   "short": "cái lợi nơi xa"
+  },
+  {
+   "id": "travel.dispute",
+   "facet": "life.outside",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "khẩu thiệt, cãi vã khi ra ngoài",
+   "short": "khẩu thiệt bên ngoài"
+  },
+  {
+   "id": "travel.toil",
+   "facet": "life.outside",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sự long đong khi ra ngoài",
+   "short": "sự long đong"
+  },
+  {
+   "id": "travel.mixed",
+   "facet": "life.outside",
+   "pol": "~",
+   "kind": "outcome",
+   "np": "sự may rủi đi liền nhau khi ra ngoài",
+   "short": "may rủi nơi xa"
+  },
+  {
+   "id": "travel.costly",
+   "facet": "life.outside",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sự tốn kém khi ra ngoài",
+   "short": "sự tốn kém khi ra ngoài"
+  },
+  {
+   "id": "fortune.away",
+   "facet": "life.fortune",
+   "pol": "~",
+   "kind": "outcome",
+   "np": "việc phải rời quê mới khá lên",
+   "short": "sự rời quê lập nghiệp"
+  },
+  {
+   "id": "fortune.clan_scattered",
+   "facet": "life.fortune",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sự ly tán của họ hàng",
+   "short": "họ hàng ly tán"
+  },
+  {
+   "id": "fortune.clan_decline",
+   "facet": "life.fortune",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sự sa sút của dòng họ",
+   "short": "họ hàng sa sút",
+   "opp": "fortune.clan_prosper"
+  },
+  {
+   "id": "fortune.clan_prosper",
+   "facet": "life.fortune",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "sự hiển đạt trong dòng họ",
+   "short": "dòng họ hiển đạt",
+   "opp": "fortune.clan_decline"
+  },
+  {
+   "id": "fortune.clan_military",
+   "facet": "life.fortune",
+   "pol": "~",
+   "kind": "outcome",
+   "np": "truyền thống võ nghiệp trong họ",
+   "short": "võ nghiệp trong họ"
+  },
+  {
+   "id": "fortune.clan_few",
+   "facet": "life.fortune",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "dòng họ ít người nối dõi",
+   "short": "họ ít người"
+  },
+  {
+   "id": "fortune.mishap",
+   "facet": "life.fortune",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "những rắc rối bất ngờ",
+   "short": "rắc rối bất ngờ"
+  },
+  {
+   "id": "fortune.protected",
+   "facet": "life.fortune",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "sự được che chở",
+   "short": "sự che chở"
+  },
+  {
+   "id": "fortune.reputation",
+   "facet": "life.fortune",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "những lúc mang tai tiếng",
+   "short": "tai tiếng"
+  },
+  {
+   "id": "parents.prosper",
+   "facet": "relationships.parents",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "sự khá giả của cha mẹ",
+   "short": "cha mẹ khá giả",
+   "opp": "parents.poor"
+  },
+  {
+   "id": "parents.poor",
+   "facet": "relationships.parents",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sự vất vả, thiếu thốn của cha mẹ",
+   "short": "cha mẹ vất vả",
+   "opp": "parents.prosper"
+  },
+  {
+   "id": "parents.strain",
+   "facet": "relationships.parents",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sự bất hòa của cha mẹ",
+   "short": "cha mẹ bất hòa"
+  },
+  {
+   "id": "parents.apart",
+   "facet": "relationships.parents",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sự xa cách giữa cha mẹ",
+   "short": "cha mẹ xa cách"
+  },
+  {
+   "id": "parents.burden",
+   "facet": "relationships.parents",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "gánh phần của cha mẹ để lại",
+   "short": "gánh của cha mẹ"
+  },
+  {
+   "id": "kin.talented",
+   "facet": "relationships.kin",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "người con, người anh em có tài, hiển đạt",
+   "short": "người thân hiển đạt"
+  },
+  {
+   "id": "kin.prosper",
+   "facet": "relationships.kin",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "sự khá giả của con cái, anh em",
+   "short": "người thân khá giả"
+  },
+  {
+   "id": "kin.wayward",
+   "facet": "relationships.kin",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "tính ngỗ ngược, phá tán ở người thân",
+   "short": "sự ngỗ ngược"
+  },
+  {
+   "id": "kin.filial",
+   "facet": "relationships.kin",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "lòng hiếu thảo của con cái",
+   "short": "con cái hiếu thảo"
+  },
+  {
+   "id": "kin.good",
+   "facet": "relationships.kin",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "đường con cái thuận",
+   "short": "đường con cái thuận",
+   "opp": "kin.adverse"
+  },
+  {
+   "id": "kin.adverse",
+   "facet": "relationships.kin",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "đường con cái kém thuận",
+   "short": "đường con cái kém thuận",
+   "opp": "kin.good"
+  },
+  {
+   "id": "health.shielded",
+   "facet": "wellbeing.health",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "sao cứu giải ở cung Tật Ách",
+   "short": "sao cứu giải",
+   "opp": "health.exposed"
+  },
+  {
+   "id": "health.exposed",
+   "facet": "wellbeing.health",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sao mà sách bảo là tối kỵ ở cung Tật Ách",
+   "short": "sao tối kỵ ở Tật Ách",
+   "opp": "health.shielded"
   }
  ]
 }
