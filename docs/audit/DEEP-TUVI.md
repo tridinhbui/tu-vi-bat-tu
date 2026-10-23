@@ -132,7 +132,7 @@ Lá cổng (`node tools/interpret/eval_deep.ts --gates`), đơn vị trước �
 
 | Lá | Quan Lộc | Tài Bạch | Phu Thê |
 |---|---|---|---|
-| 2002 (ref_2002_01_09_kl) | 1 → 9 (98 → 35,7) | 9 → 13 (21,6 → 28,5) | 10 → 12 (29,7 → 32,9) |
+| 2002 (ref_2002_01_09_kl) | 1 → 9 (98 → 35,7) | 9 → 12 (21,6 → 28,8) | 10 → 12 (29,7 → 32,9) |
 | 1911 | 5 → 10 (37,2 → 34,9) | 8 → 10 (30,8 → 37,4) | 2 → 5 (57,5 → 38,0) |
 | 1971 | 6 → 11 (26,8 → 29,4) | 6 → 16 (28,7 → 28,9) | 0 → 4 (– → 33,0) |
 | Tuần Triệt ở Quan Lộc | 9 → 16 (37,2 → 31,4) | 15 → 17 (19,4 → 29,0) | 3 → 4 (24,0 → 40,0) |
@@ -154,3 +154,5 @@ Mới: `src/interpret/test/depth.test.ts` (mọi câu Đọc sâu có bước, c
 - **Dòng KL bỏ qua có chủ ý** (§3) và các mục "và các sao khác" có điều kiện "hoặc" nhiều nhánh: chưa thành luật.
 - **Ô trống của bảng sách**: luật đọc bảng của chính nó; khi sách đó không có ô, lùi về bảng của lá số — lượt bắn ấy chưa được gắn nhãn riêng trong ô căn cứ.
 - **Trung tâm lá mẫu** (02/03/1991): nay có thể là Kình Dương thay vì Cự Môn vì TT "Kình miếu" bắn đúng bảng TT; chủ dự án nên xem lại quy ước chọn trung tâm.
+
+Kết quả trên cây đã gộp `origin/main` (4502c73): `npx tsc -p tsconfig.json` sạch · `node --test src/interpret/test/*.test.ts` **233 pass, 0 fail** · `npm run test:auth` **88 pass, 0 fail** · `cd engine && pytest -q` **1.784 passed**, 2 skipped, 2 xfailed · parity TS↔Python (engine.test) xanh · `tools/compare_reference.py` khớp 3 lá. Giao diện "Đọc sâu" (report.js) chưa được xem trên trình duyệt thật trong phiên này (không có dev server trong worktree).
