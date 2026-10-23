@@ -709,14 +709,15 @@ const kySaid = new WeakMap<Writer, Set<string>>();
 function caveats(W: Writer, L: LuanLib, t: Thesis, xs: ProseSentence[], P: string, told: Set<string>): void {
   const said = kySaid.get(W) ?? kySaid.set(W, new Set()).get(W)!;
   for (const c of t.claims) {
-    const at = xs.findIndex(s => s.trace.step === `claim:${t.id}:${c.concept}`);
+    // the claim sentence of this concept: its own, or the sentence of a sibling concept whose rule words already said it (narrative.ts)
+    const at = xs.findIndex(s => s.trace.step === `claim:${t.id}:${c.concept}` || ((s.trace.step ?? "").startsWith(`claim:${t.id}:`) && s.trace.concepts.includes(c.concept)));
     if (at < 0) continue;
     const add: ProseSentence[] = [];
     if (c.kyCarrier && !said.has(c.kyCarrier) && said.add(c.kyCarrier)) add.push(W.sentence(fill(W.pick(`kyc|${P}|${c.kyCarrier}`, L.confront.ky_carrier), { star: c.kyCarrier, pal: P }),
       { move: 'TURN', step: `kyc:${t.id}:${c.concept}`, basis: 'he_thong', confront: [`cat:${c.kyCarrier}`, `major:${c.kyCarrier}`, 'hoa:Hóa Kỵ'], part: 4 }));
     // one minor star: unless the thesis goes on to tell another palace saying the same thing
     // (a corroboration an earlier chapter already told is dropped from this one by dedupe, so it does not count)
-    if (c.single?.length && !xs.some(s => s.trace.step?.startsWith('corroborated:') && s.trace.concepts.includes(c.concept) && !(s.trace.keys ?? []).some(x => told.has(x)))) add.push(W.sentence(fill(W.pick(`single|${P}|${t.id}`, L.single), { stars: joinVi(c.single) }),
+    if (c.single?.length && !(xs[at + 1]?.trace.step ?? "").startsWith("single:") && !(xs[at + 2]?.trace.step ?? "").startsWith("single:") && !xs.some(s => s.trace.step?.startsWith('corroborated:') && s.trace.concepts.includes(c.concept) && !(s.trace.keys ?? []).some(x => told.has(x)))) add.push(W.sentence(fill(W.pick(`single|${P}|${t.id}`, L.single), { stars: joinVi(c.single) }),
       { move: 'TURN', step: `single:${t.id}:${c.concept}`, basis: 'he_thong', part: 4 }));
     // after the claim and its behaviour line
     const after = xs[at + 1]?.trace.step?.startsWith('behave:') ? at + 2 : at + 1;
