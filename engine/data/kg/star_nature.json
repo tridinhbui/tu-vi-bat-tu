@@ -1911,6 +1911,7 @@
    "page": 215,
    "quote": "Mệnh Phúc tốt mà Di, Tật, Vận ngộ hung sát cũng đỡ xấu",
    "text": "Mệnh và Phúc Đức tốt thì Thiên Di, Tật Ách có gặp hung sát tinh cũng đỡ xấu",
+   "when": "sat_here",
    "with": [
     "Mệnh",
     "Phúc Đức"
@@ -1926,8 +1927,10 @@
    "page": 215,
    "quote": "Mệnh Thân ngộ hung, sát tinh mà cung Phúc có phúc tinh đắc địa thì có thể cứu vãn được",
    "text": "Mệnh, Thân gặp hung sát tinh mà cung Phúc Đức có phúc tinh đắc địa thì có thể cứu vãn",
+   "when": "menh_hard_phuc_bright",
    "with": [
-    "Mệnh"
+    "Mệnh",
+    "Phúc Đức"
    ],
    "chapters": [
     "phuc_duc"
@@ -1966,6 +1969,7 @@
    "page": 220,
    "quote": "Có điều là cung Phụ mẫu mà quá đẹp thì cung Tật ách của đương số lại heo hút nghèo nàn",
    "text": "cung Phụ Mẫu quá đẹp thì cung Tật Ách lại heo hút",
+   "when": "bright_no_sat",
    "with": [
     "Tật Ách"
    ],

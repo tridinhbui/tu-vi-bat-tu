@@ -273,6 +273,9 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
       const r = (k.kg?.starNature?.relations ?? []).find(x => x.id === id);
       // a relation the book states only for a woman's chart (TH p.96: Phu Thê with Phúc Đức) is told only there
       if (r?.when === 'nu' && chart.gender !== 'female') continue;
+      // a relation whose sentence is a condition ("Mệnh, Thân gặp hung sát tinh mà Phúc có phúc tinh đắc địa …") is told only on a chart that
+      // has it: a general line that does not apply would repeat from chart to chart
+      if (r?.when && !relationHolds(chart, r.when, P)) continue;
       if (r && !said.has(r.id)) { said.add(r.id); push({ kind: 'link', section: linkSec, link: 'relation', relation: r, palace: r.palace }); }
     }
   }
@@ -298,6 +301,18 @@ function groundAtoms(atoms: Resolved['atoms'], chart: ChartInput): Array<{ name:
   const present = (name: string, palace: string) => !!chart.palaces.find(p => p.name === palace && (p.stars.includes(name) || p.major_stars.includes(name)));
   return atoms.filter(a => a.palace && (a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet' || a.kind === 'vcd' || (a.kind === 'dignity' && (atoms.some(b => b.kind === 'star' && b.name === a.name && b.palace === a.palace) || present(a.name, a.palace!)))))
     .map(a => ({ name: a.kind === 'vcd' ? 'vô chính diệu' : a.name, palace: a.palace! }));
+}
+/** The chart side a conditional palace relation needs (star_nature.json relations[].when). */
+function relationHolds(chart: ChartInput, when: string, P: string): boolean {
+  const pal = (n: string) => chart.palaces.find(p => p.name === n)!;
+  const sat = (n: string) => pal(n).stars.some(s => SATS.includes(s));
+  const dig = (n: string) => pal(n).major_stars.map(s => (pal(n).major_dignity as Record<string, string> | undefined)?.[s]);
+  const bright = (n: string) => dig(n).some(x => x === 'miếu' || x === 'vượng' || x === 'đắc');
+  if (when === 'nu' || when === 'than') return true;
+  if (when === 'menh_hard_phuc_bright') return (sat('Mệnh') || dig('Mệnh').includes('hãm')) && bright('Phúc Đức');
+  if (when === 'sat_here') return sat(P);
+  if (when === 'bright_no_sat') return dig(P).length > 0 && dig(P).every(x => x === 'miếu' || x === 'vượng' || x === 'đắc') && !sat(P);
+  return false;
 }
 function dedupeAtoms(xs: Array<{ name: string; palace: string }>) {
   const seen = new Set<string>();

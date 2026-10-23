@@ -59,7 +59,10 @@
  },
  "claim": [
   "{Ground} cho thấy {claim}",
-  "Từ {ground} có thể thấy {claim}"
+  "Từ {ground} có thể thấy {claim}",
+  "Với {ground}, {claim}",
+  "{Ground} ứng với chỗ {claim}",
+  "Riêng {ground}: {claim}"
  ],
  "reduced": [
   "Có điều, {claim}",
@@ -71,7 +74,8 @@
  ],
  "mech_reading": [
   "Đằng sau điều ấy là bản chất của {star}: sao này {text}",
-  "Điều này gắn với bản chất của {star}, vốn {text}"
+  "Điều này gắn với bản chất của {star}, vốn {text}",
+  "Lý do nằm ở {star}: sao này {text}"
  ],
  "mech_self": [
   "{star} đóng ngay ở cung {pal}; sao này {text}",
@@ -109,7 +113,9 @@
  ],
  "relation_facts": [
   "Ở lá số này, {facts}",
-  "Trên lá số, {facts}"
+  "Trên lá số, {facts}",
+  "Ở đây, {facts}",
+  "Với lá số này, {facts}"
  ],
  "ky_opp": [
   "Hóa Kỵ không ở ngay cung {pal} mà đóng trên {star} ở cung {from} đối diện, chiếu thẳng sang",
@@ -144,7 +150,9 @@
  ],
  "back_mech": [
   "{Np} nói ở trên đứng trên {ground}, mà {star} vốn {text}",
-  "{Np} đã nói có gốc ở {ground}: {star} vốn {text}"
+  "{Np} đã nói có gốc ở {ground}: {star} vốn {text}",
+  "{Np} đứng trên {ground}; {star} vốn {text}",
+  "Gốc của {np} là {ground}, mà {star} vốn {text}"
  ],
  "relation_with": {
   "tai.che_tai": [
@@ -158,11 +166,14 @@
  },
  "back_with": [
   "{Np} nói ở phần trên đứng trên {ground}. Điều ấy còn cần đến {els}",
-  "Điều đã nói về {np} có gốc ở {ground}. Cùng góp vào còn có {els}"
+  "Điều đã nói về {np} có gốc ở {ground}. Cùng góp vào còn có {els}",
+  "{Np} có gốc ở {ground}. Góp phần vào đó còn có {els}"
  ],
  "borrow_claim": [
   "Cung {pal} không có chính tinh nên mượn {stars} từ cung {from}{extra}; theo sao mượn ấy, phần nào có thể thấy {claim}",
-  "Mượn {stars} từ cung {from} làm chủ{extra}, cung {pal} phần nào cho thấy {claim}"
+  "Mượn {stars} từ cung {from} làm chủ{extra}, cung {pal} phần nào cho thấy {claim}",
+  "Với {stars} mượn từ cung {from}{extra}, cung {pal} phần nào nghiêng về chỗ {claim}",
+  "Lấy {stars} mượn từ cung {from} làm chủ{extra}, có thể thấy phần nào {claim}"
  ],
  "claim_against": [
   "Ở chiều ngược lại, {ground} cho thấy {claim}",
