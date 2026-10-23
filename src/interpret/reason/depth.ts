@@ -21,69 +21,46 @@ import type { Resolved } from '../kg/resolve.ts';
 import { guardHolds } from './positions.ts';
 import { palaceEvidence, tamPhuongOf, type Element, type PalaceEvidence, type Where } from './evidence.ts';
 import type { DomainVerdict, Ledger } from './ledger.ts';
+import type { Borrowed } from './borrow.ts';
 
-export const DEPTH_VERSION = 'depth-1.0.0';
-export type Use = 'career' | 'money' | 'marriage' | 'property';
+export const DEPTH_VERSION = 'depth-2.0.0';
+/** the matter a star-nature line speaks of (star_nature.json `use`) */
+export type Use = string;
 export interface StarNature { id: string; star: string; also?: string[]; page: number; quote: string; text: string; use: Use[]; palace?: string;
   /** '+' (default) a strength, '-' a limit, '±' a nature with both edges: told after a reading only of a matching side */
   pol?: '+' | '-' | '±';
   tames?: string[]; link?: string[];
   /** the readings (concept ids, or prefixes ending in '.') this nature may be the 'why' of */
-  explains?: string[] }
-export interface PalaceRelation { id: string; palace: string; page: number; quote: string; text: string; when?: string; with?: string[] }
+  explains?: string[];
+  /** the book (default KL) */
+  book?: string }
+export interface PalaceRelation { id: string; palace: string; page: number; quote: string; text: string; when?: string; with?: string[]; book?: string;
+  /** the palaces whose chapters may tell it (default: `palace`) */
+  chapters?: string[] }
 export interface StarNatureFile { version: string; basis: string; entries: StarNature[]; relations: PalaceRelation[] }
 
-export type DepthDomain = 'cong_danh' | 'tai_bach' | 'phu_the' | 'dien_trach';
-export const DEPTH_PALACE: Record<DepthDomain, string> = { cong_danh: 'Quan Lộc', tai_bach: 'Tài Bạch', phu_the: 'Phu Thê', dien_trach: 'Điền Trạch' };
-const USE: Record<DepthDomain, Use> = { cong_danh: 'career', tai_bach: 'money', phu_the: 'marriage', dien_trach: 'property' };
-/** the palaces whose readings a domain's deep reading gathers (domains.json, a labelled system convention) and their place in it */
-const PALACES: Record<DepthDomain, string[]> = { cong_danh: ['Quan Lộc', 'Mệnh', 'Tài Bạch', 'Thiên Di'], tai_bach: ['Tài Bạch', 'Mệnh', 'Quan Lộc', 'Phúc Đức', 'Điền Trạch'],
-  phu_the: ['Phu Thê', 'Phúc Đức', 'Mệnh'], dien_trach: ['Điền Trạch'] };
-/** the sections of each domain, in reading order */
-export const SECTIONS: Record<DepthDomain, string[]> = {
-  cong_danh: ['huong', 'the_manh', 'moi_truong', 'quyen', 'nhip', 'tro_ngai', 'tien_bac'],
-  tai_bach: ['kiem', 'tich_luy', 'ben', 'chi_tieu', 'rui_ro', 'lien_cung'],
-  phu_the: ['dong_luc', 'hop', 'giao_tiep', 'cang_thang', 'giu', 'dieu_kien'],
-  // Điền Trạch (the first palace after the three of the plan): what holds the property, what wears it down, how it stands with Tài Bạch
-  dien_trach: ['nha_dat', 'hao_ton', 'voi_tai'],
-};
-/** which section a reading of a concept belongs to, by domain (concept id first, then facet prefix) */
-function sectionOf(d: DepthDomain, c: Concept, palace: string): string | null {
-  const f = c.facet, id = c.id;
-  if (d === 'cong_danh') {
-    if (palace !== 'Quan Lộc' && !f.startsWith('career.')) return null;
-    if (f.startsWith('career.path') || f.startsWith('career.expertise') || id === 'adapt.unsteady') return c.pol === '-' ? 'tro_ngai' : 'huong';
-    if (id === 'career.authority' || id === 'career.status') return 'quyen';
-    if (id === 'career.success' || id === 'career.fame') return 'the_manh';
-    if (f === 'career.support') return c.pol === '-' ? 'tro_ngai' : 'moi_truong';
-    if (f === 'career.timing') return 'nhip';
-    if (f.startsWith('career.')) return c.pol === '-' ? 'tro_ngai' : 'the_manh';
-    if (f.startsWith('finance.') && palace === 'Quan Lộc') return 'tien_bac';
-    return null;
-  }
-  if (d === 'dien_trach') {
-    if (f !== 'finance.property' && !(f.startsWith('finance.') && palace === 'Điền Trạch')) return null;
-    return c.pol === '-' ? 'hao_ton' : 'nha_dat';
-  }
-  if (d === 'tai_bach') {
-    if (!f.startsWith('finance.')) return null;
-    if (f === 'finance.property') return 'tich_luy';
-    if (f === 'finance.source') return 'kiem';
-    if (f === 'finance.style') return 'chi_tieu';
-    if (f === 'finance.retention') return c.pol === '-' ? 'rui_ro' : 'ben';
-    if (f === 'finance.flow') return c.pol === '-' ? 'rui_ro' : 'kiem';
-    return null;
-  }
-  // Phu Thê: the bond; never a timing or event concept
-  if (f.endsWith('.timing') || f === 'life.mobility') return null;
-  if (palace !== 'Phu Thê' && !f.startsWith('relationships.marriage')) return null;
-  if (id === 'rel.harmony') return 'giu';
-  if (id === 'rel.strain' || id === 'rel.jealous') return 'cang_thang';
-  if (id === 'rel.partner' || f.startsWith('identity.') || f.startsWith('values.') || f.startsWith('career.') || f.startsWith('finance.')) return 'hop';
-  if (f.startsWith('cognition') || id.startsWith('cog.') || id.startsWith('comm.') || id.startsWith('temper.')) return 'giao_tiep';
-  if (f.startsWith('relationships.marriage')) return c.pol === '-' ? 'cang_thang' : 'giu';
-  return palace === 'Phu Thê' ? 'dong_luc' : null;
+/** One chapter's deep reading, as engine/data/kg/domains.json `depth` configures it (a system convention, he_thong). */
+export interface DepthConfig {
+  palace: string; use: Use; prefix: string[]; sections: string[];
+  /** which section a reading of a concept goes to: first match wins; `fallback` takes any other reading of the palace */
+  map: Array<{ match: string[]; to?: string; pos?: string; neg?: string }>; fallback?: { to?: string; pos?: string; neg?: string };
+  orient: string; obst: string; quyen: string; link: string; cond: string | null; verdicts: string[];
+  noTiming?: boolean; noEvents?: boolean; noVerdict?: boolean; thanSection?: string; relations?: string[]; hoaLink?: boolean;
 }
+export type DepthDomain = string;
+export const depthConfig = (k: Knowledge, d: DepthDomain): DepthConfig | undefined => (k.kg?.domains as { depth?: Record<string, DepthConfig> } | undefined)?.depth?.[d];
+/** the sections of a domain, in reading order */
+export const sectionsOf = (k: Knowledge, d: DepthDomain) => depthConfig(k, d)?.sections ?? [];
+const matches = (m: string, c: Concept) => m.startsWith('#') ? (m.endsWith('.') ? c.id.startsWith(m.slice(1)) : c.id === m.slice(1))
+  : m.endsWith('.') ? c.facet.startsWith(m) : c.facet === m || c.facet.startsWith(m + '.');
+/** which section a reading of a concept belongs to (by the concept's own polarity) */
+function sectionOf(cfg: DepthConfig, c: Concept): string | null {
+  const pick = (e: { to?: string; pos?: string; neg?: string }) => e.to ?? (c.pol === '-' ? e.neg : e.pos) ?? null;
+  const e = cfg.map.find(x => x.match.some(m => matches(m, c)));
+  return e ? pick(e) : cfg.fallback ? pick(cfg.fallback) : null;
+}
+/** why a verified reading of the palace was not told in the deep reading (kept in the trace, chapter evidence `untold`) */
+export type UntoldReason = 'timing_main' | 'event' | 'no_section' | 'no_text' | 'same_reading' | 'guarded' | 'sensitive';
 
 export interface DepthReading { ruleId: string; concept: string; palace: string; pol: '+' | '-' | '~'; status: Resolved['status']; cites: string[];
   /** the stars / Hóa / Tuần-Triệt the reading fired on, with the palace each stands in */
@@ -91,7 +68,9 @@ export interface DepthReading { ruleId: string; concept: string; palace: string;
   /** the reading's main star (the first chính tinh, else the first star / Hóa it names in its own palace) */
   star?: string;
   /** a book relation that reduces it (its status is weakened / softened / narrowed) */
-  reducedBy?: string }
+  reducedBy?: string;
+  /** a reading of the chính tinh this vô chính diệu palace borrows from the opposite palace (reason/borrow.ts, TT p.18) */
+  borrowed?: { from: string; stars: string[] } }
 export interface DepthUnit {
   kind: 'reading' | 'mechanism' | 'trigger' | 'link' | 'tame' | 'condition';
   section: string;
@@ -107,7 +86,9 @@ export interface DepthUnit {
   tamed?: string;
   verdicts?: DomainVerdict[];
 }
-export interface DepthPlan { version: string; domain: DepthDomain; palace: string; sections: Array<{ id: string; units: DepthUnit[] }> }
+export interface DepthPlan { version: string; domain: DepthDomain; palace: string; sections: Array<{ id: string; units: DepthUnit[] }>;
+  /** verified readings of the palace the deep reading does not tell, and why */
+  untold: Array<{ ruleId: string; reason: UntoldReason }> }
 
 const LIVE = (r: Resolved) => r.status !== 'voided' && r.status !== 'divergent';
 const SATS = ['Kình Dương', 'Đà La', 'Hỏa Tinh', 'Linh Tinh', 'Địa Không', 'Địa Kiếp'];
@@ -115,15 +96,15 @@ const HOA = ['Hóa Lộc', 'Hóa Quyền', 'Hóa Khoa', 'Hóa Kỵ'];
 /** words of an event or a time in a marriage reading */
 const EVENT = /lần|dang dở|ly dị|ly hôn|ly tán|bỏ nhau|góa|tái giá|tái hôn|muộn|sớm|xa cách|chia lìa|cưới|hai đời|tuổi|khóc/u;
 
-const DOMAIN_PREFIX: Record<Use, string[]> = { career: ['career.', 'exp.', 'path.'], money: ['fin.'], marriage: ['rel.', 'values.kind'], property: ['prop.'] };
-export function natureOf(k: Knowledge, star: string, use: Use, said: Set<string>, opts: { palace?: string; pol?: '-' | '+'; concept?: string } = {}): StarNature | undefined {
+export function natureOf(k: Knowledge, star: string, use: Use, said: Set<string>, opts: { palace?: string; pol?: '-' | '+'; concept?: string; prefix?: string[] } = {}): StarNature | undefined {
+  const prefix = opts.prefix ?? [];
   // a nature is told after a reading only on the reading's own side: a limit is never the "reason" of a strength, nor the reverse
   const fits = (e: StarNature) => (!opts.pol || (e.pol ?? '+') === '±' || (e.pol ?? '+') === opts.pol)
     // after a reading, only a nature that speaks of that reading's matter (explains), never a generic trait of the star
     && (!opts.concept || (e.explains ?? []).some(x => x === opts.concept || (x.endsWith('.') && opts.concept!.startsWith(x))))
     // as the palace's own structure (no reading to explain), a nature is told only when it speaks of the domain: it names the palace, or it
     // explains readings of the domain's matter (Thiên Cơ's "tài tổ chức" says nothing about a marriage)
-    && (!!opts.concept || e.palace === opts.palace || e.star.startsWith('Hóa ') || (e.explains ?? []).some(x => DOMAIN_PREFIX[use].some(d => x.startsWith(d))));
+    && (!!opts.concept || e.palace === opts.palace || e.star.startsWith('Hóa ') || (e.explains ?? []).some(x => prefix.some(d => x.startsWith(d))));
   const xs = (k.kg?.starNature?.entries ?? []).filter(e => (e.star === star || (e.also ?? []).includes(star)) && e.use.includes(use) && !said.has(e.id) && !e.tames && fits(e)
     && (!e.palace || e.palace === opts.palace));
   // the entry naming the domain's palace first, then one of exactly the asked side, then the file's order
@@ -132,8 +113,11 @@ export function natureOf(k: Knowledge, star: string, use: Use, said: Set<string>
 }
 
 /** The deep reading of one domain: data only, no prose. `said` are the star-nature ids the report already told (each is told once). */
-export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain, inp: { resolved: Resolved[]; ledger: Ledger; said?: Set<string> }): DepthPlan {
-  const P = DEPTH_PALACE[domain], use = USE[domain];
+export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain, inp: { resolved: Resolved[]; ledger: Ledger; said?: Set<string>; borrowed?: Borrowed[] }): DepthPlan {
+  const cfg = depthConfig(k, domain);
+  if (!cfg) return { version: DEPTH_VERSION, domain, palace: '', sections: [], untold: [] };
+  const P = cfg.palace, use = cfg.use, prefix = cfg.prefix;
+  const untold: DepthPlan['untold'] = [];
   const cmap = new Map<string, Concept>(k.concepts.concepts.map(c => [c.id, c]));
   const rmap = new Map(k.rules.map(r => [r.id, r]));
   const guards = new Map((k.kg?.positionGuards ?? []).map(x => [x.ruleId, x]));
@@ -142,26 +126,33 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
   const tp = tamPhuongOf(chart, P);
   const whereOf = (palace: string): Where | 'elsewhere' => tp.find(x => x.p.name === palace)?.where ?? 'elsewhere';
   const said = inp.said ?? new Set<string>();
-  const sections = new Map<string, DepthUnit[]>(SECTIONS[domain].map(s => [s, []]));
+  const sections = new Map<string, DepthUnit[]>(cfg.sections.map(s => [s, []]));
   const push = (u: DepthUnit) => sections.get(u.section)?.push(u);
   const ev: PalaceEvidence = palaceEvidence(chart, k, P, { resolved: inp.resolved });
 
   // ---- readings of the domain's palaces, by section ----
   const placed = inp.resolved.filter(r => LIVE(r) && rmap.get(r.ruleId)?.reviewStatus === 'verified' && !r.additive).filter(r => {
     const gd = guards.get(r.ruleId);
-    return !gd || guardHolds(gd, r.atoms, chart.palaces, { here: r.palace ?? 'Mệnh', tuHoa: chart.tu_hoa });
+    const ok = !gd || guardHolds(gd, r.atoms, chart.palaces, { here: r.palace ?? 'Mệnh', tuHoa: chart.tu_hoa });
+    // a reading whose atoms do not stand where the book's wording puts them (position guard, R1) is not told, and says so
+    if (!ok && r.subject === `palace:${P}`) untold.push({ ruleId: r.ruleId, reason: 'guarded' });
+    return ok;
   });
   const seen = new Set<string>();
   const readings: DepthReading[] = [];
   // the domain's own palace: the readings of Mệnh, Tài Bạch, Thiên Di… are their chapters' (a Mệnh reading the Mệnh plan left out stays out)
-  for (const palace of PALACES[domain].slice(0, 1)) for (const r of placed) {
+  const palace = P;
+  for (const r of placed) {
     if (r.subject !== `palace:${palace}`) continue;
     const c = cmap.get(r.concept);
     if (!c) continue;
-    const sec = sectionOf(domain, c, palace);
-    // Phu Thê: a reading whose words tell an event or a time (dang dở, nhiều lần, xa cách, sớm / muộn …) is not told in the deep reading
-    if (domain === 'phu_the' && EVENT.test(rmap.get(r.ruleId)?.reading ?? k.claims[rmap.get(r.ruleId)?.consequences[0]?.claim ?? ''] ?? '')) continue;
-    if (!sec || seen.has(`${r.ruleId}|${r.concept}`)) continue;
+    // Phu Thê: a timing reading stays with the main reading; a reading whose words tell an event or a time (dang dở, nhiều lần, xa cách, sớm /
+    // muộn …) is not told in the deep reading
+    if (cfg.noTiming && (c.facet.endsWith('.timing') || c.facet === 'life.mobility')) { untold.push({ ruleId: r.ruleId, reason: 'timing_main' }); continue; }
+    if (cfg.noEvents && EVENT.test(rmap.get(r.ruleId)?.reading ?? k.claims[rmap.get(r.ruleId)?.consequences[0]?.claim ?? ''] ?? '')) { untold.push({ ruleId: r.ruleId, reason: 'event' }); continue; }
+    const sec = sectionOf(cfg, c);
+    if (!sec) { untold.push({ ruleId: r.ruleId, reason: 'no_section' }); continue; }
+    if (seen.has(`${r.ruleId}|${r.concept}`)) continue;
     seen.add(`${r.ruleId}|${r.concept}`);
     const atoms = r.atoms.filter(a => (a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet' || a.kind === 'dignity') && a.palace)
       .map(a => ({ name: a.kind === 'tuan_triet' ? a.name : a.name, palace: a.palace! }));
@@ -170,6 +161,22 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     const pol = (c.pol === '~' ? '~' : (c.pol === '+') === (r.stance === 'affirms') ? '+' : '-') as DepthReading['pol'];
     const x: DepthReading = { ruleId: r.ruleId, concept: r.concept, palace, pol, status: r.status, cites: r.cites, atoms: dedupeAtoms(atoms), ...(star ? { star } : {}),
       ...(r.status !== 'holds' && r.by[0] ? { reducedBy: r.by[0].byRule } : {}) };
+    readings.push(x);
+    push({ kind: 'reading', section: sec, reading: x });
+  }
+  // ---- the chính tinh a vô chính diệu palace borrows (TT p.18): after its own readings, lower confidence; a rule whose wording the
+  // position guards hold to a seated star is not read on a borrowed one ----
+  for (const r of (inp.borrowed ?? []).filter(b => b.subject === `palace:${P}` && LIVE(b) && !b.additive && rmap.get(b.ruleId)?.reviewStatus === 'verified' && !guards.has(b.ruleId))) {
+    const c = cmap.get(r.concept);
+    if (!c || (cfg.noTiming && (c.facet.endsWith('.timing') || c.facet === 'life.mobility'))) continue;
+    if (cfg.noEvents && EVENT.test(rmap.get(r.ruleId)?.reading ?? k.claims[rmap.get(r.ruleId)?.consequences[0]?.claim ?? ''] ?? '')) continue;
+    const sec = sectionOf(cfg, c);
+    if (!sec || seen.has(`${r.ruleId}|${r.concept}`)) continue;
+    seen.add(`${r.ruleId}|${r.concept}`);
+    const atoms = dedupeAtoms(r.atoms.filter(a => (a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet' || a.kind === 'dignity') && a.palace).map(a => ({ name: a.name, palace: a.palace! })));
+    const star = atoms.find(a => r.borrowed.stars.includes(a.name))?.name;
+    const pol = (c.pol === '~' ? '~' : (c.pol === '+') === (r.stance === 'affirms') ? '+' : '-') as DepthReading['pol'];
+    const x: DepthReading = { ruleId: r.ruleId, concept: r.concept, palace, pol, status: r.status, cites: r.cites, atoms, ...(star ? { star } : {}), borrowed: r.borrowed };
     readings.push(x);
     push({ kind: 'reading', section: sec, reading: x });
   }
@@ -182,17 +189,17 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     if (x.palace === P && far.length) us.push({ kind: 'trigger', section: sec, reading: x, elements: far.map(a => ({ ...a, where: whereOf(a.palace) })) });
     // a timing or neutral reading has no 'why' in a star's nature (công danh đến muộn is not explained by what Tả Phụ is)
     if (x.star && x.pol !== '~' && !toldStar.has(x.star)) {
-      const n = natureOf(k, x.star, use, said, { palace: P, pol: x.pol === '-' ? '-' : '+', concept: x.concept });
+      const n = natureOf(k, x.star, use, said, { palace: P, pol: x.pol === '-' ? '-' : '+', concept: x.concept, prefix });
       if (n) { toldStar.add(x.star); said.add(n.id); us.push({ kind: 'mechanism', section: sec, reading: x, nature: n, star: x.star, palace: x.palace, where: whereOf(x.palace) }); }
     }
   }
 
   // ---- the domain palace's own structure where no reading stood on it ----
   const majorsHere = ev.majors.map(m => m.star);
-  const orient = domain === 'cong_danh' ? 'huong' : domain === 'tai_bach' ? 'kiem' : domain === 'dien_trach' ? 'nha_dat' : 'dong_luc';
+  const orient = cfg.orient;
   for (const m of ev.majors) {
     if (toldStar.has(m.star) || m.borrowed) continue;
-    const n = natureOf(k, m.star, use, said, { palace: P });
+    const n = natureOf(k, m.star, use, said, { palace: P, prefix });
     if (!n) continue;
     toldStar.add(m.star); said.add(n.id);
     push({ kind: 'mechanism', section: orient, nature: n, star: m.star, palace: P, where: 'self' });
@@ -203,7 +210,7 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     const near = ev.tamPhuong.filter(m => m.where === 'trine' && (m.dignity === 'miếu' || m.dignity === 'vượng' || m.dignity === 'đắc'));
     for (const m of near.slice(0, 2)) {
       if (toldStar.has(m.star)) continue;
-      const n = natureOf(k, m.star, use, said, { palace: P });
+      const n = natureOf(k, m.star, use, said, { palace: P, prefix });
       if (!n) continue;
       toldStar.add(m.star); said.add(n.id);
       push({ kind: 'mechanism', section: orient, nature: n, star: m.star, palace: m.palace, where: 'trine' });
@@ -211,20 +218,19 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
   }
   // the Hóa standing in the palace (KL pp.195-197 on what each Hóa is)
   for (const h of ev.hoa.filter(x => x.where === 'self')) {
-    const n = natureOf(k, h.hoa, use, said, { palace: P });
+    const n = natureOf(k, h.hoa, use, said, { palace: P, prefix });
     if (!n) continue;
     said.add(n.id); toldStar.add(h.hoa);
-    const sec = h.hoa === 'Hóa Kỵ' ? (domain === 'cong_danh' ? 'tro_ngai' : domain === 'tai_bach' ? 'rui_ro' : domain === 'dien_trach' ? 'hao_ton' : 'cang_thang')
-      : h.hoa === 'Hóa Quyền' ? (domain === 'cong_danh' ? 'quyen' : domain === 'tai_bach' ? 'kiem' : domain === 'dien_trach' ? 'nha_dat' : 'hop') : orient;
+    const sec = h.hoa === 'Hóa Kỵ' ? cfg.obst : h.hoa === 'Hóa Quyền' ? cfg.quyen : orient;
     push({ kind: 'mechanism', section: sec, nature: n, star: h.hoa, palace: P, where: 'self', elements: [{ name: `${h.star}|${h.hoa}`, palace: P, where: 'self' }] });
   }
   // limiting elements of the palace: the sát / Hao / Kỵ nature, in the obstacle section
-  const obst = domain === 'cong_danh' ? 'tro_ngai' : domain === 'tai_bach' ? 'rui_ro' : domain === 'dien_trach' ? 'hao_ton' : 'cang_thang';
+  const obst = cfg.obst;
   for (const e of [...ev.limit, ...ev.mixed.filter(x => x.kind === 'ky_carrier')]) {
     const name = e.kind === 'hoa_ky' ? 'Hóa Kỵ' : e.star;
     // a borrowed chính tinh does not stand in the palace: its nature is not told as the palace's own
     if (!name || toldStar.has(name) || e.borrowed || e.kind === 'major_ham' || e.kind === 'tuan' || e.kind === 'triet') continue;
-    const n = natureOf(k, name, use, said, { palace: P, pol: '-' });
+    const n = natureOf(k, name, use, said, { palace: P, pol: '-', prefix });
     if (!n || n.pol !== '-') continue;
     toldStar.add(name); said.add(n.id);
     push({ kind: 'mechanism', section: obst, nature: n, star: name, palace: P, where: 'self' });
@@ -244,12 +250,12 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
   }
 
   // ---- links to the other palaces of the domain ----
-  const linkSec = domain === 'cong_danh' ? 'tien_bac' : domain === 'tai_bach' ? 'lien_cung' : domain === 'dien_trach' ? 'voi_tai' : 'dieu_kien';
+  const linkSec = cfg.link;
   // Thân cư: Khảo Luận's sentence on what the Thân palace means (KL p.215)
   const thanRel = (k.kg?.starNature?.relations ?? []).find(r => r.when === 'than' && r.palace === P);
-  if (pal.is_than && thanRel && !said.has(thanRel.id)) { said.add(thanRel.id); push({ kind: 'link', section: domain === 'phu_the' ? 'dong_luc' : linkSec, link: 'than', relation: thanRel, palace: P }); }
+  if (pal.is_than && thanRel && !said.has(thanRel.id)) { said.add(thanRel.id); push({ kind: 'link', section: cfg.thanSection ?? linkSec, link: 'than', relation: thanRel, palace: P }); }
   // the natal Tứ Hóa across Mệnh–Tài–Quan: told once, in the career chapter (the money chapter would only repeat it)
-  if (domain === 'cong_danh') {
+  if (cfg.hoaLink) {
     const hs = Object.entries(chart.tu_hoa).map(([h, v]) => ({ h, star: v.star, palace: chart.palaces.find(p => p.branch_index === v.branch)!.name }))
       .filter(x => ['Mệnh', 'Tài Bạch', 'Quan Lộc'].includes(x.palace));
     if (hs.length >= 2) push({ kind: 'link', section: linkSec, link: 'hoa', elements: hs.map(x => ({ name: `${x.star}|${x.h}`, palace: x.palace, where: whereOf(x.palace) })) });
@@ -263,8 +269,8 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     push({ kind: 'link', section: linkSec, link: 'shared_star', nature: e, star: e.star, palace: at.name, where: whereOf(at.name) });
   }
   // Tài Bạch: the palaces Khảo Luận says hold its balance (KL p.216); Điền Trạch: nhà đất as the lasting form of wealth (KL p.219)
-  if (domain === 'tai_bach' || domain === 'dien_trach') {
-    for (const id of domain === 'tai_bach' ? ['tai.che_tai'] : ['dien.ben']) {
+  {
+    for (const id of cfg.relations ?? []) {
       const r = (k.kg?.starNature?.relations ?? []).find(x => x.id === id);
       if (r && !said.has(r.id)) { said.add(r.id); push({ kind: 'link', section: linkSec, link: 'relation', relation: r, palace: r.palace }); }
     }
@@ -276,18 +282,18 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
 
   // ---- the conditional conclusion: the domain verdicts with their limits ----
   // the money chapter already concludes its three parts in the short reading: its deep reading only adds the sides of the earning part
-  const ids = domain === 'cong_danh' ? ['cong_danh', 'tai_loc.kiem'] : domain === 'tai_bach' ? ['tai_loc.kiem'] : domain === 'dien_trach' ? [] : ['hon_nhan'];
+  const ids = cfg.verdicts;
   const verdicts = ids.map(id => inp.ledger.domains.find(v => v.id === id)).filter((v): v is DomainVerdict => !!v && v.verdict !== 'chua_du');
-  if (verdicts.length) push({ kind: 'condition', section: domain === 'cong_danh' ? 'tien_bac' : domain === 'tai_bach' ? 'lien_cung' : 'dieu_kien', verdicts });
+  if (verdicts.length && cfg.cond) push({ kind: 'condition', section: cfg.cond, verdicts });
 
   // a section stands only on a chart-specific anchor: a reading, a trigger, a link, a tame or a mechanism of a star the palace holds
-  const out = SECTIONS[domain].map(id => ({ id, units: sections.get(id)! })).filter(s => s.units.some(u => u.kind !== 'mechanism' || u.palace === P || u.where === 'trine'));
-  return { version: DEPTH_VERSION, domain, palace: P, sections: out };
+  const out = cfg.sections.map(id => ({ id, units: sections.get(id)! })).filter(s => s.units.some(u => u.kind !== 'mechanism' || u.palace === P || u.where === 'trine'));
+  return { version: DEPTH_VERSION, domain, palace: P, sections: out, untold };
 }
 
 function dedupeAtoms(xs: Array<{ name: string; palace: string }>) {
   const seen = new Set<string>();
   return xs.filter(x => !seen.has(`${x.name}@${x.palace}`) && seen.add(`${x.name}@${x.palace}`));
 }
-export const _test = { sectionOf };
+export const _test = { sectionOf, matches };
 export type { Element, Palace };

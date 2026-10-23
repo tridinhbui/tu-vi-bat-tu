@@ -80,7 +80,9 @@ export interface ProseChapter {
     /** two schools disagree on this chart: neither reading is in the text, both are shown here with their pages */
     divergences: Array<{ relation: string; cite?: string; note?: string; rules: Array<{ id: string; reading: string; cites: string[] }> }>;
     /** luận cung: the domain verdicts of the report-wide ledger this chapter concludes on (reason/ledger.ts), with their evidence chains */
-    ledger?: Array<{ id: string; label: string; verdict: string; base: '+' | '-' | null; link: unknown; chain: unknown[]; limits: Array<{ id: string; palace: string }> }> };
+    ledger?: Array<{ id: string; label: string; verdict: string; base: '+' | '-' | null; link: unknown; chain: unknown[]; limits: Array<{ id: string; palace: string }> }>;
+    /** verified readings of the palace the chapter does not tell, with the reason (prose/luan.ts) */
+    untold?: Array<{ ruleId: string; reason: string }> };
 }
 
 /** Starts with a proper name (a star, Tuần/Triệt, a Hóa): its capital stays when the sentence is woven into the previous one. */

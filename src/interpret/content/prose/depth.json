@@ -23,7 +23,39 @@
   "dieu_kien": "Mặt thuận đứng được khi nào",
   "nha_dat": "Nhà đất và của để dành",
   "hao_ton": "Điều làm hao cơ nghiệp",
-  "voi_tai": "Điền Trạch và Tài Bạch"
+  "voi_tai": "Điền Trạch và Tài Bạch",
+  "m_tinh_cach": "Thêm về tính cách",
+  "m_nang_luc": "Thêm về năng lực và việc làm",
+  "m_quan_he": "Thêm về các mối quan hệ",
+  "m_duong_doi": "Thêm về đường đời",
+  "di_ra_ngoai": "Khi ra ngoài",
+  "di_quy_nhan": "Người gặp ở bên ngoài",
+  "di_nhip": "Sự đi lại, đổi chỗ",
+  "di_tro_ngai": "Chỗ vướng khi ra ngoài",
+  "di_lien_cung": "Thiên Di với các cung khác",
+  "phuc_goc": "Phúc phần và họ hàng",
+  "phuc_tam": "Đời sống bên trong",
+  "phuc_tro": "Điều làm giảm phúc",
+  "phuc_lien": "Phúc Đức với các cung khác",
+  "no_ban": "Bạn bè và người giúp việc",
+  "no_viec": "Người cùng làm và việc chung",
+  "no_tro": "Chỗ vướng với người ngoài",
+  "no_lien": "Nô Bộc với các cung khác",
+  "tu_con": "Đường con cái",
+  "tu_net": "Nét của các con",
+  "tu_tro": "Điều khó ở đường con cái",
+  "tu_lien": "Tử Tức với các cung khác",
+  "hd_tinh": "Tình anh em",
+  "hd_net": "Nét của anh chị em",
+  "hd_tro": "Điều khó giữa anh em",
+  "hd_lien": "Huynh Đệ với các cung khác",
+  "pm_tinh": "Cha mẹ và mình",
+  "pm_net": "Nét của cha mẹ",
+  "pm_tro": "Điều khó với cha mẹ",
+  "pm_lien": "Phụ Mẫu với các cung khác",
+  "ta_giai": "Sao che chở, cứu giải",
+  "ta_ky": "Sao sách bảo kỵ",
+  "ta_lien": "Tật Ách với các cung khác"
  },
  "claim": [
   "{Ground} cho thấy {claim}",
@@ -123,5 +155,21 @@
    "Nhà đất là dạng bền của của cải; ở đây, {facts}",
    "Của cải bền nhất là nhà đất, và ở lá số này {facts}"
   ]
- }
+ },
+ "back_with": [
+  "{Np} nói ở phần trên đứng trên {ground}, và còn cần đến {els}",
+  "Điều đã nói về {np} có gốc ở {ground}, cùng với {els}"
+ ],
+ "borrow_claim": [
+  "Cung {pal} không có chính tinh nên mượn {stars} từ cung {from}{extra}; theo sao mượn ấy, phần nào có thể thấy {claim}",
+  "Mượn {stars} từ cung {from} làm chủ{extra}, cung {pal} phần nào cho thấy {claim}"
+ ],
+ "claim_against": [
+  "Ở chiều ngược lại, {ground} cho thấy {claim}",
+  "Song cũng có mặt khác: {ground} cho thấy {claim}"
+ ],
+ "claim_reduced": [
+  "{Ground} vốn cho thấy {claim}, nhưng ở lá số này điều ấy không còn trọn, như đã nói",
+  "Riêng {ground} vốn cho thấy {claim}; điều ấy đã bị giới hạn như nói ở trên"
+ ]
 }

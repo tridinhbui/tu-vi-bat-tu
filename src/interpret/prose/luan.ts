@@ -26,6 +26,7 @@ import { configClause, dignityOf, hoaOn, joinVi, named, palaceConfig } from './n
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 import { validateProse } from './validate.ts';
 import { deepParagraphs } from './luan_deep.ts';
+import { borrowedReadings, type Borrowed } from '../reason/borrow.ts';
 import { PROSE_ORDER, PROSE_SPECS, PROSE_VERSION, infer, proseReport, seedOf, type Inference, type ProseChapter, type ProseChapterId } from './chapter.ts';
 
 export type Topic = 'tinh_cach' | 'su_nghiep' | 'tai_loc' | 'quy_nhan' | 'quan_he' | 'duong_doi' | 'the_trang' | 'vi_tri' | 'than' | 'than_same' | 'than_style'
@@ -129,6 +130,10 @@ export interface LuanShared { findings: ReturnType<typeof run>['findings']; reso
   natureSaid: Set<string>; minhSaid: Set<string>;
   /** every sentence the luận chapters told so far (the deep reading recalls, never repeats) */
   saidAll: ProseSentence[];
+  /** chapter id → verified readings of its palace the chapter does not tell, with the reason (evidence `untold`) */
+  untold: Map<string, Array<{ ruleId: string; reason: string }>>;
+  /** readings of the chính tinh each vô chính diệu palace borrows from its opposite palace (reason/borrow.ts): deep reading only */
+  borrowed: Borrowed[];
 }
 
 export function luanShared(chart: ChartInput, k: Knowledge, allowDraft: boolean, pre?: Inference): LuanShared {
@@ -138,7 +143,7 @@ export function luanShared(chart: ChartInput, k: Knowledge, allowDraft: boolean,
   // so a change the reasoning ignores does not reword the text (the reasoned chapter seeds by its plan for the same reason)
   const vseed = [chart.year_gz, chart.gender, ...chart.palaces.map(p => p.major_stars.join('+')), ...Object.entries(chart.tu_hoa).map(([h, v]) => `${h}:${v.star}`)].join('|');
   return { findings, resolved, labelled, micro: new Micro(`${vseed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft,
-    ledger: buildLedger(chart, k, resolved), domainsTold: new Map(), natureSaid: new Set(), minhSaid: new Set(), saidAll: [] };
+    ledger: buildLedger(chart, k, resolved), domainsTold: new Map(), natureSaid: new Set(), minhSaid: new Set(), saidAll: [], untold: new Map(), borrowed: borrowedReadings(chart, k, resolved) };
 }
 
 /** The twelve palace chapters: the luận cung chapter where the palace's plan has something to argue, the older chapter otherwise. */
@@ -218,7 +223,8 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const pal = chart.palaces.find(p => p.name === P)!;
   const full = reasonPalace(chart, k, P, { resolved: sh.resolved, labelled: sh.labelled }, { draftFormations: sh.allowDraft });
   const plan: ReadingPlan = { ...full, theses: full.theses.filter(t => !sh.told.has(`${P}|${t.id}`)) };
-  if (!plan.theses.length && !plan.modifiers.length && !plan.timings.length && !(sh.ledger.byChapter[id] ?? []).length) return null;
+  // a palace with nothing to argue in the main reading still gets its frame, its limits and its deep reading (the older chapter is kept only
+  // when the deep reading has nothing either, plan 2026-10-23 P0)
   const other = spec.bond ? k.prose!.frames.other?.[P] : undefined;
   const W = new Writer(chart, k, plan, sh.allowDraft, { micro: sh.micro, other, bond: spec.bond });
   const ctx: ArgueCtx = { voiced: sh.voiced, allConcepts: new Set(), structAt: [], lockRescue: true };
@@ -464,12 +470,19 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   const { issues, metrics } = validateProse(paras, resolvedHere);
   paras.forEach((p, pi) => p.sentences.forEach((s, si) => { if (!s.trace.step) issues.push({ level: 'error', code: 'no_plan_step', where: `p${pi + 1}s${si + 1}`, msg: s.text }); }));
   // ---- the deep reading ("Đọc sâu", plan DEEP-TUVI): after the short reading, never inside it; its own checks are in luan_deep.ts ----
+  const mainBook = paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').length;
   const deep = deepParagraphs(chart, k, id, sh, W, [...paras.flatMap(p => p.sentences), ...sh.saidAll]);
+  // a main reading with no book reading of its own: the first deep sections that carry one are the main reading (the caps of the main reading
+  // left nothing there; what they left goes on in the deep part)
+  if (!mainBook && !concluded) {
+    const lead = deep.filter(p => p.sentences.some(s => s.trace.basis === 'sach' && s.trace.rules.length)).slice(0, 2);
+    for (const p of lead) { p.deep = false; p.promoted = true; }
+  }
   paras.push(...deep);
   sh.saidAll.push(...paras.flatMap(p => p.sentences));
   const rmap = new Map(k.rules.map(r => [r.id, r]));
   const reading = (rid: string) => { const r = rmap.get(rid)!; return (r.reading ?? k.claims[r.consequences[0]?.claim ?? ''] ?? '').replace(/^(khuynh hướng|hạn chế:)\s*/, ''); };
-  const ruleIds = [...new Set(paras.flatMap(p => p.sentences.flatMap(s => s.trace.rules)))].filter(r => rmap.has(r)).sort();
+  const ruleIds = [...new Set(paras.flatMap(p => p.sentences.flatMap(s => [...s.trace.rules, ...(s.trace.also ?? [])])))].filter(r => rmap.has(r)).sort();
   const book = paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').length;
   // a chapter whose readings the report already told still gives its domain conclusion (frame and conclusion only)
   if (!book && !concluded) return null;
@@ -484,6 +497,8 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
       rules: Object.fromEntries(ruleIds.map(rid => [rid, { reading: reading(rid), cites: rmap.get(rid)!.cites, verified: rmap.get(rid)!.reviewStatus === 'verified' }])),
       concepts: Object.fromEntries([...new Set(paras.flatMap(p => p.sentences.flatMap(s => s.trace.concepts)))].map(c => [c, k.concepts.concepts.find(x => x.id === c)?.short ?? c])),
       divergences: [],
+      // verified readings of the palace this chapter does not tell, each with its reason (plan 2026-10-23 P0: none is dropped silently)
+      untold: sh.untold.get(id) ?? [],
       // the domain verdicts this chapter concludes on, with their evidence chains (part 6: shown in the chapter's Căn cứ fold)
       ledger: verdicts.map(v => ({ id: v.id, label: v.label, verdict: v.verdict, base: v.base, link: v.link ?? null, chain: v.chain,
         limits: v.limits.map(l => ({ id: l.id, palace: l.palace })) })),

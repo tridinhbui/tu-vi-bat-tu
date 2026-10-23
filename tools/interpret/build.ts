@@ -91,7 +91,9 @@ const knowledge = {
         // which palaces and concepts each life domain gathers, for the report-wide ledger (reason/ledger.ts); a labelled system convention
         domains: existsSync(join(DATA, 'kg', 'domains.json')) ? read(join(DATA, 'kg', 'domains.json')) : undefined,
         // what Khảo Luận says each star stands for and how palaces bear on one another, page-checked (plan DEEP-TUVI, reason/depth.ts)
-        starNature: existsSync(join(DATA, 'kg', 'star_nature.json')) ? (({ note: _n, ...v }) => v)(read(join(DATA, 'kg', 'star_nature.json'))) : undefined },
+        starNature: existsSync(join(DATA, 'kg', 'star_nature.json')) ? (({ note: _n, ...v }) => v)(read(join(DATA, 'kg', 'star_nature.json'))) : undefined,
+        // reader words for verified rules whose stored reading cannot be voiced as is (prose/narrative.ts splitReading)
+        ruleVoice: existsSync(join(DATA, 'kg', 'rule_voice.json')) ? read(join(DATA, 'kg', 'rule_voice.json')).voice : {} },
   // prose library (prose plan §3): how concepts, chart facts and resolver decisions are voiced in reader prose
   prose: (() => {
     const P = join(ROOT, 'src', 'interpret', 'content', 'prose');

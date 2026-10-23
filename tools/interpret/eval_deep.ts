@@ -45,8 +45,8 @@ const median = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); retu
 const mean = (xs: number[]) => xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0;
 const r2 = (x: number) => +x.toFixed(2);
 
-type S = { text: string; trace: { step?: string; move: string; rules: string[]; concepts: string[]; basis: string; part?: number; ledger?: { domain: string; verdict: string } } };
-type Ch = { chapter: string; palace: string; paragraphs: Array<{ sentences: S[]; deep?: boolean }> };
+type S = { text: string; trace: { step?: string; move: string; rules: string[]; also?: string[]; concepts: string[]; basis: string; part?: number; ledger?: { domain: string; verdict: string } } };
+type Ch = { chapter: string; palace: string; paragraphs: Array<{ sentences: S[]; deep?: boolean }>; evidence?: { untold?: Array<{ ruleId: string; reason: string }> } };
 const LIVE = (r: { status: string }) => r.status !== 'voided' && r.status !== 'divergent';
 const NOT_CLAIM = /^(behave|minh_hoa|frame|centre|position|mechanism|link|cond|trigger|tame|deep:back)/;
 const COUNTER = /^(confront|kyc|single|contested|against|reducer|caveat|modifier)/;
@@ -54,13 +54,15 @@ const INTER = /^(corroborated|countered|structure|bridge|than|link|formation|tri
 
 export interface ChapterRow { chart: number; chapter: string; config: string; words: number; sentences: number; deepWords: number;
   claims: number; mechanisms: number; supports: number; counters: number; interactions: number; conditions: number; illustrations: number; units: number;
-  cross: number; unreasoned: number; overlookedRules: string[]; overlookedHoa: string[]; overlookedPair: boolean; overlookedThan: boolean; text: string }
+  cross: number; unreasoned: number; overlookedRules: string[]; explained: Array<{ ruleId: string; reason: string }>; overlookedHoa: string[]; overlookedPair: boolean; overlookedThan: boolean; text: string }
 
 export function rowsOf(idx: number, f: ChartInput, k: Knowledge, chapters: string[]): ChapterRow[] {
   const { resolved } = infer(f, k);
   const all = luanReport(f, k, { allowDraft: true, deep: true }).map(c => checkedOnly(c as never) as unknown as Ch);
   const themes = proseThemes(f, k, 'eval', { allowDraft: true, luan: true }).map(c => checkedOnly(c as never) as unknown as Ch);
-  const voicedRules = new Set([...all, ...themes].flatMap(c => c.paragraphs.flatMap(p => p.sentences.filter(s => s.trace.basis === 'sach').flatMap(s => s.trace.rules))));
+  const voicedRules = new Set([...all, ...themes].flatMap(c => c.paragraphs.flatMap(p => p.sentences.filter(s => s.trace.basis === 'sach').flatMap(s => [...s.trace.rules, ...(s.trace.also ?? [])]))));
+  // verified readings a chapter does not tell, with the reason it records (evidence.untold): counted apart, not as overlooked
+  const reasons = new Map(all.flatMap(c => c.evidence?.untold ?? []).map(u => [u.ruleId, u.reason]));
   const out: ChapterRow[] = [];
   for (const ch of all) {
     if (!chapters.includes(ch.chapter)) continue;
@@ -88,7 +90,8 @@ export function rowsOf(idx: number, f: ChartInput, k: Knowledge, chapters: strin
     const unreasoned = ss.filter(s => s.trace.ledger && s.trace.rules.length && !s.trace.rules.some(r => chRules.has(r))).length;
     // overlooked
     const live = resolved.filter(r => r.subject === `palace:${P}` && LIVE(r) && rmap.get(r.ruleId)?.reviewStatus === 'verified');
-    const overlookedRules = [...new Set(live.map(r => r.ruleId))].filter(id => !voicedRules.has(id));
+    const notVoiced = [...new Set(live.map(r => r.ruleId))].filter(id => !voicedRules.has(id));
+    const overlookedRules = notVoiced.filter(id => !reasons.has(id)), explained = notVoiced.filter(id => reasons.has(id)).map(id => ({ ruleId: id, reason: reasons.get(id)! }));
     const past = ss.filter(s => !/^(frame|centre|position)/.test(s.trace.step ?? ''));
     const pastText = past.map(s => s.text).join(' ');
     const hoaSelf = Object.entries(f.tu_hoa).filter(([, v]) => v.branch === pal.branch_index).map(([h, v]) => ({ h, star: v.star }));
@@ -100,7 +103,7 @@ export function rowsOf(idx: number, f: ChartInput, k: Knowledge, chapters: strin
     const units = claimC.size + mechanisms + counters + interactions + conditions;
     out.push({ chart: idx, chapter: ch.chapter, config: pal.major_stars.length ? [...pal.major_stars].sort().join('+') : 'VCD', words: n, sentences: ss.length, deepWords,
       claims: claimC.size, mechanisms, supports, counters, interactions, conditions, illustrations, units, cross: cross.size, unreasoned,
-      overlookedRules, overlookedHoa, overlookedPair, overlookedThan, text });
+      overlookedRules, explained, overlookedHoa, overlookedPair, overlookedThan, text });
   }
   return out;
 }
@@ -127,6 +130,7 @@ export function summarize(rows: ChapterRow[]) {
       mechanismCoverage: r2(rs.filter(r => r.mechanisms > 0).length / rs.length), crossLinks: r2(mean(rs.map(r => r.cross))),
       zeroUnits: rs.filter(r => !r.units).length, unreasoned: rs.reduce((a, r) => a + r.unreasoned, 0),
       overlookedRules: rs.reduce((a, r) => a + r.overlookedRules.length, 0), chartsWithOverlookedRule: rs.filter(r => r.overlookedRules.length).length,
+      untoldWithReason: Object.fromEntries([...rs.flatMap(r => r.explained).reduce((m, u) => m.set(u.reason, (m.get(u.reason) ?? 0) + 1), new Map<string, number>())]),
       overlookedHoa: rs.reduce((a, r) => a + r.overlookedHoa.length, 0), overlookedPair: rs.filter(r => r.overlookedPair).length, overlookedThan: rs.filter(r => r.overlookedThan).length,
       repetition: r2(median(sims)),
       typical: { commonCharts: common.length, commonUnits: r2(mean(common.map(r => r.units))), rareCharts: rare.length, rareUnits: r2(mean(rare.map(r => r.units))) },

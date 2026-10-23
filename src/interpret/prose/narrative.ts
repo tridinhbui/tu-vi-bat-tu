@@ -54,7 +54,10 @@ const fnvStr = (s: string) => { let h = 2166136261; for (let i = 0; i < s.length
 /** A rule's reading split into its claim and its condition, cleaned for a reader; claim null when it is not fit to be voiced as is. */
 export function splitReading(rule: Rule | undefined, k: Knowledge): { claim: string | null; cond: string | null } {
   if (!rule) return { claim: null, cond: null };
-  const raw = (rule.reading ?? k.claims[rule.consequences[0]?.claim ?? ''] ?? '').trim();
+  // a rule whose stored reading cannot be voiced as is has its reader words in rule_voice.json (same claim, cleaned)
+  const v = k.kg?.ruleVoice?.[rule.id];
+  if (v) return { claim: lowerSafe(v), cond: null };
+  const raw =(rule.reading ?? k.claims[rule.consequences[0]?.claim ?? ''] ?? '').trim();
   const m = raw.match(/^(.*?)\s*\(([^()]*)\)\s*(?:[;:].*)?$/);
   let claim = (m ? m[1] : raw).replace(/^(khuynh hướng|hạn chế:)\s*/i, '').replace(/;.*$/, '').trim();
   const cond = m ? m[2].trim() : null;

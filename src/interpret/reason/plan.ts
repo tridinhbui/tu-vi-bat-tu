@@ -305,8 +305,9 @@ export function reasonPalace(chart: ChartInput, k: Knowledge, P: string, pre?: {
       .sort((a, b) => Number(isLimit(b)) - Number(isLimit(a)) || b.rarity - a.rarity || (a.r.ruleId < b.r.ruleId ? -1 : 1)),
   }));
   function isLimit(x: Reading) { return cmap.get(x.r.concept)?.pol === '-' || x.r.stance === 'weakens' || TIMING_FACET(cmap.get(x.r.concept)?.facet ?? ''); }
-  // a timing reading stands on a star, a Hóa or Tuần/Triệt of the palace (the độ số timings of the chart are the overview's)
-  const timings = live.filter(x => x.r.subject === `palace:${P}` && x.r.atoms.some(a => a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet') && TIMING_FACET(cmap.get(x.r.concept)?.facet ?? '') && (isMenh || POOL[P]?.(cmap.get(x.r.concept)) || x.r.concept.startsWith('rel.') || x.r.concept.startsWith('career.')))
+  // a timing reading stands on a star, a Hóa or Tuần/Triệt of the palace (the độ số timings of the chart are the overview's) — or, with no
+  // star to stand on, on the palace itself (vô chính diệu, Thân cư: KL p.218 "Thiên Di vô chính diệu"), told as a trait of the palace
+  const timings = live.filter(x => x.r.subject === `palace:${P}` && x.r.atoms.some(a => a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet' || a.kind === 'vcd' || a.kind === 'than') &&TIMING_FACET(cmap.get(x.r.concept)?.facet ?? '') && (isMenh || POOL[P]?.(cmap.get(x.r.concept)) || x.r.concept.startsWith('rel.') || x.r.concept.startsWith('career.')))
     // at Mệnh (whose course line already tells the rarest timing) only a timing that tells the chart apart: a concept under half the corpus,
     // a rule as rare as the course line's (rarity ≥ 0.3)
     .filter(x => !isMenh || (conceptRate(k, x.r.concept, P) < 0.5 && x.rarity >= 0.3))

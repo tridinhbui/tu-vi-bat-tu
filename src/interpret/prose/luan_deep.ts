@@ -9,7 +9,7 @@
 //   minh_hoa       one illustration line tied to the claim right before it (owner's policy 2026-10-22; prose/checked.ts drops it with its claim).
 // Each paragraph adds what the short reading did not say; a section with nothing new is left out. No timing and no event in Phu Thê.
 import type { ChartInput, Knowledge } from '../types.ts';
-import { domainDepth, DEPTH_PALACE, type DepthDomain, type DepthReading, type DepthUnit } from '../reason/depth.ts';
+import { depthConfig, domainDepth, type DepthReading, type DepthUnit, type UntoldReason } from '../reason/depth.ts';
 import type { Writer } from './narrative.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 import type { LuanShared } from './luan.ts';
@@ -20,7 +20,6 @@ export interface DepthLib {
   ky_opp: string[]; condition_both: string[]; condition_sup: string[]; condition_lim: string[]; condition_pair: string[]; where: Record<string, string>;
 }
 export interface MinhHoaLib { status: string; concepts: Record<string, string[]> }
-export const DEEP_CHAPTERS: Record<string, DepthDomain> = { cong_danh: 'cong_danh', tai_bach: 'tai_bach', phu_the: 'phu_the', dien_trach: 'dien_trach' };
 
 const fill = (t: string, v: Record<string, string>) => t.replace(/\{([A-Za-z_0-9]+)\}/g, (_, key) => { if (v[key] === undefined) throw new Error(`slot {${key}} unfilled in: ${t}`); return v[key]; });
 const joinVi = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1).join(', ') + ' và ' + xs[xs.length - 1];
@@ -29,10 +28,16 @@ const HOA_SHORT: Record<string, string> = { 'Hóa Lộc': 'Lộc', 'Hóa Quyền
 
 /** The deep paragraphs of one chapter (empty for a chapter without a deep reading). `said`: every sentence the report told before. */
 export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: LuanShared, W: Writer, said: ProseSentence[]): ProseParagraph[] {
-  const domain = DEEP_CHAPTERS[id], D = k.prose?.depth;
-  if (!domain || !D) return [];
-  const P = DEPTH_PALACE[domain];
-  const plan = domainDepth(chart, k, domain, { resolved: sh.resolved, ledger: sh.ledger, said: sh.natureSaid });
+  const D = k.prose?.depth;
+  if (!depthConfig(k, id) || !D) return [];
+  const plan = domainDepth(chart, k, id, { resolved: sh.resolved, ledger: sh.ledger, said: sh.natureSaid, borrowed: sh.borrowed });
+  const P = plan.palace;
+  const untold = (sh.untold.get(id) ?? sh.untold.set(id, []).get(id)!);
+  untold.push(...plan.untold);
+  const note = (ruleId: string, reason: UntoldReason) => { if (!untold.some(u => u.ruleId === ruleId)) untold.push({ ruleId, reason }); };
+  /** the sentence of the report that already voices this concept on this palace (a reading of another rule): the new rule corroborates it */
+  const made: ProseSentence[] = [];
+  const voicing = (concept: string, palace: string) => [...said, ...made].reverse().find(s => s.trace.basis === 'sach' && (s.trace.keys ?? []).some(x => x === `${concept}@${palace}` || x.startsWith(`${concept}@${palace}|`)));
   const MH = k.prose?.minhHoa?.concepts ?? {};
   const toldRules = new Set(said.filter(s => s.trace.basis === 'sach').flatMap(s => s.trace.rules));
   const toldText = new Set(said.map(s => s.text));
@@ -52,8 +57,17 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
     const parts = [...by].sort((a, b) => Number(b[0] === x.palace) - Number(a[0] === x.palace)).map(([p, ns]) => `${joinVi(ns)} ở cung ${p}`);
     return parts.length ? joinVi(parts) : `cung ${x.palace}`;
   };
-  const trigEls = (u: DepthUnit) => joinVi(named(u.elements!).map(e => `${elName(e)} ở cung ${e.palace}${(e as { where?: string }).where === 'opp' ? ' xung chiếu sang' : (e as { where?: string }).where === 'trine' ? ' hội chiếu về' : ''}`));
+  // the elements of a trigger, grouped by the palace they stand in ("Văn Khúc hóa Khoa và Thái Dương hóa Quyền ở cung Tài Bạch hội chiếu về")
+  const trigEls = (u: DepthUnit) => {
+    const by = new Map<string, { names: string[]; where?: string }>();
+    for (const e of named(u.elements!)) { const g = by.get(e.palace) ?? by.set(e.palace, { names: [], where: (e as { where?: string }).where }).get(e.palace)!; const n = elName(e); if (!g.names.includes(n)) g.names.push(n); }
+    return joinVi([...by].map(([p, g]) => `${joinVi(g.names)} ở cung ${p}${g.where === 'opp' ? ' xung chiếu sang' : g.where === 'trine' ? ' hội chiếu về' : ''}`));
+  };
   const backed = new Set<string>(), consumed = new Set<DepthUnit>(), alone = new Set<DepthUnit>();
+  // a trigger names where a reading's elements stand; the same elements are named once per chapter (no sentence repeats another's ground)
+  const trigSeen = new Set<string>();
+  const tsig = (u: DepthUnit) => named(u.elements!).map(e => `${e.name}@${e.palace}`).sort().join('|');
+  const trigNew = (u?: DepthUnit) => !!u && !trigSeen.has(tsig(u));
   const S = (text: string, trace: Partial<SentenceTrace> & { move: SentenceTrace['move']; step: string }) => W.sentence(text, trace);
   for (const sec of plan.sections) {
     const xs: ProseSentence[] = [];
@@ -68,39 +82,82 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
         const r = W.read(x.ruleId);
         if (told) {
           // a reading the report already told is only recalled when a mechanism or a trigger follows to explain it, once per concept
-          if (backed.has(x.concept)) { if (trig) consumed.add(trig); if (mech) alone.add(mech); continue; }
-          if (!mech && !trig) continue;
+          // a borrowed reading's rule told once covers all it reads (its words name the borrowed stars); nothing to recall
+          if (backed.has(x.concept) || x.borrowed) { if (trig) consumed.add(trig); if (mech) alone.add(mech); continue; }
+          if (!mech && !trigNew(trig)) { if (trig) consumed.add(trig); continue; }
           backed.add(x.concept);
           const np = W.np(x.concept);
-          if (trig && !x.atoms.some(a => a.palace === x.palace)) {
-            consumed.add(trig);
-            xs.push(S(fill(W.pick(`${key}|bf`, D.back_far), { np, pal: P, els: trigEls(trig) }), { move: 'VIA', step: `trigger:${x.ruleId}`, basis: 'tinh_toan', rules: [x.ruleId], cites: x.cites, concepts: [] }));
+          if (trig && !trigNew(trig)) { consumed.add(trig); }
+          if (trigNew(trig) && !x.atoms.some(a => a.palace === x.palace)) {
+            consumed.add(trig!); trigSeen.add(tsig(trig!));
+            xs.push(S(fill(W.pick(`${key}|bf`, D.back_far), { np, pal: P, els: trigEls(trig!) }), { move: 'VIA', step: `trigger:${x.ruleId}`, basis: 'tinh_toan', rules: [x.ruleId], cites: x.cites, concepts: [] }));
             anchored = true;
-          } else if (mech && !trig && D.back_mech?.length) {
+          } else if (mech && (!trig || consumed.has(trig)) && D.back_mech?.length) {
             // the recall and its reason in one sentence: the reading told above, and what the star it stands on is (no words spent on a bare recall)
             consumed.add(mech);
             xs.push(S(fill(W.pick(`${key}|bm`, D.back_mech), { Np: cap(np), np, ground: ground(x, true), star: mech.star!, text: mech.nature!.text }),
               { move: 'ELABORATE', step: `mechanism:${mech.nature!.id}`, basis: 'sach', cites: [`KL p.${mech.nature!.page}`], concepts: [] }));
             anchored = true;
-          } else xs.push(S(fill(W.pick(`${key}|back`, D.back), { Np: cap(np), np, ground: ground(x, true) }), { move: 'ELABORATE', step: `deep:back:${x.ruleId}`, basis: 'he_thong', concepts: [x.concept] }));
+          } else if (trigNew(trig) && (D as DepthLib & { back_with?: string[] }).back_with?.length) {
+            // the recall and the elements outside the palace it also needs, in one sentence
+            consumed.add(trig!); trigSeen.add(tsig(trig!));
+            xs.push(S(fill(W.pick(`${key}|bw`, (D as DepthLib & { back_with: string[] }).back_with), { Np: cap(np), np, ground: ground(x, true), els: trigEls(trig!) }),
+              { move: 'VIA', step: `trigger:${x.ruleId}`, basis: 'tinh_toan', rules: [x.ruleId], cites: x.cites, concepts: [] }));
+            anchored = true;
+          }
+          continue;
+        }
+        // the same reading (concept and palace) already told by another rule: this rule corroborates that sentence, it is not told twice
+        const same = voicing(x.concept, x.palace);
+        if (same) {
+          (same.trace.also ??= []).includes(x.ruleId) || same.trace.also!.push(x.ruleId);
+          sh.voiced.add(x.ruleId); toldRules.add(x.ruleId);
+          if (mech) alone.add(mech); if (trig) consumed.add(trig);
           continue;
         }
         const claim = r.claim ?? (W.pred(x.concept, x.status !== 'holds', key) ? `${W.S(x.concept)} ${W.pred(x.concept, x.status !== 'holds', key)}` : null);
-        if (!claim) { if (mech) alone.add(mech); if (trig) consumed.add(trig); continue; }
+        if (x.borrowed) {
+          // a borrowed chính tinh (TT p.18): named as borrowed, from where it stands; lower confidence, said in the words and in the note
+          if (trig) consumed.add(trig);
+          const BT = (D as DepthLib & { borrow_claim?: string[] }).borrow_claim;
+          if (!claim || !BT?.length) { if (mech) alone.add(mech); continue; }
+          const stars = x.borrowed.stars.filter(st => x.atoms.some(a => a.name === st));
+          const rest = x.atoms.filter(a => !(stars.includes(a.name) && a.palace === x.borrowed!.from));
+          const extra = rest.length ? `, cùng ${ground({ ...x, atoms: rest })}` : '';
+          sh.voiced.add(x.ruleId); toldRules.add(x.ruleId);
+          const step = `deep:borrowed:${x.ruleId}`;
+          xs.push(S(fill(W.pick(`${key}|bc`, BT), { pal: P, stars: joinVi(stars.length ? stars : x.borrowed.stars), from: x.borrowed.from, extra, claim }),
+            { move: 'ANCHOR', step, concepts: [x.concept], rules: [x.ruleId], cites: x.cites, keys: [`${x.concept}@${x.palace}|${x.ruleId}`],
+              note: 'Cung vô chính diệu mượn chính tinh của cung xung chiếu làm chủ (Toàn Thư tr.18); nhận định đứng trên sao mượn nhẹ hơn nhận định của sao tọa thủ.' }));
+          made.push(xs[xs.length - 1]);
+          anchored = true;
+          continue;
+        }
+        if (!claim) { note(x.ruleId, 'no_text'); if (mech) alone.add(mech); if (trig) consumed.add(trig); continue; }
+        // the claim's ground already names every element it stands on, wherever it stands: no separate trigger sentence
+        if (trig) { consumed.add(trig); trigSeen.add(tsig(trig)); }
         sh.voiced.add(x.ruleId); toldRules.add(x.ruleId);
         const step = `deep:reading:${x.ruleId}`;
         const g = ground(x);
-        xs.push(S(fill(W.pick(`${key}|claim`, D.claim), { ground: g, Ground: cap(g), claim }), { move: 'ANCHOR', step, concepts: [x.concept], rules: [x.ruleId], cites: x.cites,
-          keys: [`${x.concept}@${x.palace}|${x.ruleId}`] }));
+        const DX = D as DepthLib & { claim_against?: string[]; claim_reduced?: string[] };
+        // the other side of a reading the report already told (its opposite concept on the same palace): told as the other side, never as if
+        // nothing had been said; a reading whose book reducer the report already told is told as reduced
+        const opp = W.concept(x.concept)?.opp;
+        const against = !!opp && !!voicing(opp, x.palace) && !!DX.claim_against?.length;
+        const reducedTold = !!x.reducedBy && toldRules.has(x.reducedBy) && !!DX.claim_reduced?.length;
+        const frame = against ? DX.claim_against! : reducedTold ? DX.claim_reduced! : D.claim;
+        xs.push(S(fill(W.pick(`${key}|claim`, frame), { ground: g, Ground: cap(g), claim }), { move: against || reducedTold ? 'TURN' : 'ANCHOR', step, concepts: [x.concept], rules: [x.ruleId], cites: x.cites,
+          keys: [`${x.concept}@${x.palace}|${x.ruleId}`], ...(reducedTold ? { soft: true } : {}) }));
+        made.push(xs[xs.length - 1]);
         anchored = true;
         if (x.reducedBy) {
           const rc = W.read(x.reducedBy).claim;
           const rr = W.rule(x.reducedBy);
           if (rc && rr && !toldRules.has(x.reducedBy)) xs.push(S(fill(W.pick(`${key}|red`, D.reduced), { claim: rc }), { move: 'TURN', step: `deep:reducer:${x.reducedBy}`, rules: [x.reducedBy], cites: rr.cites, concepts: [] }));
         }
-        // the minh họa of this claim (only for a claim told here, so that the line sits next to it)
+        // the minh họa of this claim (only for a claim told here and told plainly, so that the line sits next to it)
         const mh = MH[x.concept];
-        if (mh?.length && !sh.minhSaid.has(x.concept)) {
+        if (mh?.length && !against && !x.reducedBy && !sh.minhSaid.has(x.concept)) {
           sh.minhSaid.add(x.concept);
           const t = W.pick(`${key}|mh`, mh).replace(/\{S\}/g, W.S(x.concept));
           xs.push(S(t, { move: 'ELABORATE', step: `minh_hoa:${x.concept}`, basis: 'minh_hoa', tied: step, concepts: [], rules: [] }));
@@ -118,7 +175,8 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
         anchored = true;
         xs.push(S(text, { move: 'ELABORATE', step: `mechanism:${n.id}`, basis: 'sach', cites: cite, concepts: [] }));
       } else if (u.kind === 'trigger') {
-        if (consumed.has(u)) continue;
+        if (consumed.has(u) || !trigNew(u)) continue;
+        trigSeen.add(tsig(u));
         xs.push(S(fill(W.pick(`${key}|tr`, D.trigger), { pal: P, els: trigEls(u) }), { move: 'VIA', step: `trigger:${u.reading!.ruleId}`, basis: 'tinh_toan', rules: [u.reading!.ruleId], cites: u.reading!.cites, concepts: [] }));
         anchored = true;
       } else if (u.kind === 'tame') {

@@ -44,6 +44,9 @@ export interface SentenceTrace {
   ledger?: { domain: string; verdict: string; base: '+' | '-' | null };
   /** the limiting elements of the palace (reason/evidence.ts ids) the sentence faces */
   confront?: string[];
+  /** other verified rules that read the same thing on the same palace (concept@palace): they corroborate this sentence and are not told
+   *  again in a sentence of their own (Đọc sâu, plan 2026-10-23: no idea is repeated to add length) */
+  also?: string[];
 }
 /** Who a chapter's sentences are about: in Phu Thê and Nô Bộc a reading that is not about the bond itself describes the other people. */
 export interface Voice { other?: { first: string[]; next: string[] }; bond?: (c?: Concept) => boolean }
@@ -56,6 +59,8 @@ export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structu
   part?: number | string;
   /** the deep reading (prose/luan_deep.ts): folded under "Đọc sâu" on the page, with its subsection title */
   deep?: boolean; title?: string;
+  /** a deep section told as the main reading because the main reading had no book reading of its own (prose/luan.ts) */
+  promoted?: boolean;
   /** Bát Tự (bazi_deep.ts): 'sau' = the paragraph belongs to the "Đọc sâu" fold under the short reading; `depthTitle` names what it deepens */
   depth?: 'sau'; depthTitle?: string }
 

@@ -104,7 +104,9 @@ export interface Knowledge {
     /** life domains for the report-wide ledger (engine/data/kg/domains.json, reason/ledger.ts) */
     domains?: import('./reason/ledger.ts').DomainsFile;
     /** Khảo Luận's statements of what each star stands for, and palace relations (engine/data/kg/star_nature.json, reason/depth.ts) */
-    starNature?: import('./reason/depth.ts').StarNatureFile };
+    starNature?: import('./reason/depth.ts').StarNatureFile;
+    /** reader words for verified rules whose stored reading the prose cannot voice as is (engine/data/kg/rule_voice.json) */
+    ruleVoice?: Record<string, string> };
   prose?: import('./prose/types.ts').ProseLibrary;
 }
 

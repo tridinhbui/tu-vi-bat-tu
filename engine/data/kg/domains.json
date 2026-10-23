@@ -125,5 +125,583 @@
    "home": "tat_ach",
    "verdict": false
   }
+ },
+ "depth_note": "Đọc sâu (reason/depth.ts) per chapter: the palace it reads, the star-nature `use` it tells, its sections in reading order, which section a reading of a concept goes to (`map`, first match wins; `fallback` takes any other reading of the palace so that no verified reading is left untold), the sections of the palace's own structure (`orient`), its limits (`obst`), Hóa Quyền (`quyen`), links (`link`) and the ledger conclusion (`cond`, `verdicts`). `noTiming`: a timing reading of the palace is left to the main reading (Phu Thê, owner's rule 2026-10-22); `noEvents`: a reading whose words tell an event is not told. A system convention (he_thong), not a page.",
+ "depth": {
+  "cong_danh": {
+   "palace": "Quan Lộc",
+   "use": "career",
+   "prefix": [
+    "career.",
+    "exp.",
+    "path."
+   ],
+   "sections": [
+    "huong",
+    "the_manh",
+    "moi_truong",
+    "quyen",
+    "nhip",
+    "tro_ngai",
+    "tien_bac"
+   ],
+   "map": [
+    {
+     "match": [
+      "career.path",
+      "career.expertise",
+      "#adapt.unsteady"
+     ],
+     "pos": "huong",
+     "neg": "tro_ngai"
+    },
+    {
+     "match": [
+      "#career.authority",
+      "#career.status"
+     ],
+     "to": "quyen"
+    },
+    {
+     "match": [
+      "#career.success",
+      "#career.fame"
+     ],
+     "to": "the_manh"
+    },
+    {
+     "match": [
+      "career.support"
+     ],
+     "pos": "moi_truong",
+     "neg": "tro_ngai"
+    },
+    {
+     "match": [
+      "career.timing"
+     ],
+     "to": "nhip"
+    },
+    {
+     "match": [
+      "career."
+     ],
+     "pos": "the_manh",
+     "neg": "tro_ngai"
+    },
+    {
+     "match": [
+      "finance."
+     ],
+     "to": "tien_bac"
+    }
+   ],
+   "fallback": {
+    "pos": "the_manh",
+    "neg": "tro_ngai"
+   },
+   "orient": "huong",
+   "obst": "tro_ngai",
+   "quyen": "quyen",
+   "link": "tien_bac",
+   "cond": "tien_bac",
+   "verdicts": [
+    "cong_danh",
+    "tai_loc.kiem"
+   ],
+   "hoaLink": true
+  },
+  "tai_bach": {
+   "palace": "Tài Bạch",
+   "use": "money",
+   "prefix": [
+    "fin."
+   ],
+   "sections": [
+    "kiem",
+    "tich_luy",
+    "ben",
+    "chi_tieu",
+    "rui_ro",
+    "lien_cung"
+   ],
+   "map": [
+    {
+     "match": [
+      "finance.property"
+     ],
+     "to": "tich_luy"
+    },
+    {
+     "match": [
+      "finance.source"
+     ],
+     "to": "kiem"
+    },
+    {
+     "match": [
+      "finance.style"
+     ],
+     "to": "chi_tieu"
+    },
+    {
+     "match": [
+      "finance.retention"
+     ],
+     "pos": "ben",
+     "neg": "rui_ro"
+    },
+    {
+     "match": [
+      "finance.flow"
+     ],
+     "pos": "kiem",
+     "neg": "rui_ro"
+    }
+   ],
+   "fallback": {
+    "pos": "kiem",
+    "neg": "rui_ro"
+   },
+   "orient": "kiem",
+   "obst": "rui_ro",
+   "quyen": "kiem",
+   "link": "lien_cung",
+   "cond": "lien_cung",
+   "verdicts": [
+    "tai_loc.kiem"
+   ],
+   "relations": [
+    "tai.che_tai"
+   ]
+  },
+  "phu_the": {
+   "palace": "Phu Thê",
+   "use": "marriage",
+   "prefix": [
+    "rel.",
+    "values.kind"
+   ],
+   "sections": [
+    "dong_luc",
+    "hop",
+    "giao_tiep",
+    "cang_thang",
+    "giu",
+    "dieu_kien"
+   ],
+   "map": [
+    {
+     "match": [
+      "#rel.harmony"
+     ],
+     "to": "giu"
+    },
+    {
+     "match": [
+      "#rel.strain",
+      "#rel.jealous"
+     ],
+     "to": "cang_thang"
+    },
+    {
+     "match": [
+      "#rel.partner",
+      "identity.",
+      "values.",
+      "career.",
+      "finance."
+     ],
+     "to": "hop"
+    },
+    {
+     "match": [
+      "cognition",
+      "#cog.",
+      "#comm.",
+      "#temper."
+     ],
+     "to": "giao_tiep"
+    },
+    {
+     "match": [
+      "relationships.marriage"
+     ],
+     "pos": "giu",
+     "neg": "cang_thang"
+    }
+   ],
+   "fallback": {
+    "to": "dong_luc"
+   },
+   "noTiming": true,
+   "noEvents": true,
+   "thanSection": "dong_luc",
+   "orient": "dong_luc",
+   "obst": "cang_thang",
+   "quyen": "hop",
+   "link": "dieu_kien",
+   "cond": "dieu_kien",
+   "verdicts": [
+    "hon_nhan"
+   ]
+  },
+  "dien_trach": {
+   "palace": "Điền Trạch",
+   "use": "property",
+   "prefix": [
+    "prop."
+   ],
+   "sections": [
+    "nha_dat",
+    "hao_ton",
+    "voi_tai"
+   ],
+   "map": [
+    {
+     "match": [
+      "finance."
+     ],
+     "pos": "nha_dat",
+     "neg": "hao_ton"
+    }
+   ],
+   "fallback": {
+    "pos": "nha_dat",
+    "neg": "hao_ton"
+   },
+   "orient": "nha_dat",
+   "obst": "hao_ton",
+   "quyen": "nha_dat",
+   "link": "voi_tai",
+   "cond": "voi_tai",
+   "verdicts": [],
+   "relations": [
+    "dien.ben"
+   ]
+  },
+  "menh": {
+   "palace": "Mệnh",
+   "use": "self",
+   "prefix": [
+    "identity.",
+    "inner."
+   ],
+   "sections": [
+    "m_tinh_cach",
+    "m_nang_luc",
+    "m_quan_he",
+    "m_duong_doi"
+   ],
+   "map": [
+    {
+     "match": [
+      "identity.",
+      "inner."
+     ],
+     "to": "m_tinh_cach"
+    },
+    {
+     "match": [
+      "career.",
+      "finance."
+     ],
+     "to": "m_nang_luc"
+    },
+    {
+     "match": [
+      "relationships."
+     ],
+     "to": "m_quan_he"
+    }
+   ],
+   "fallback": {
+    "to": "m_duong_doi"
+   },
+   "orient": "m_tinh_cach",
+   "obst": "m_duong_doi",
+   "quyen": "m_nang_luc",
+   "link": "m_duong_doi",
+   "cond": null,
+   "verdicts": []
+  },
+  "thien_di": {
+   "palace": "Thiên Di",
+   "use": "travel",
+   "prefix": [
+    "outside.",
+    "travel.",
+    "life.mobility"
+   ],
+   "sections": [
+    "di_ra_ngoai",
+    "di_quy_nhan",
+    "di_nhip",
+    "di_tro_ngai",
+    "di_lien_cung"
+   ],
+   "map": [
+    {
+     "match": [
+      "career.support",
+      "relationships.allies",
+      "#travel.helped"
+     ],
+     "pos": "di_quy_nhan",
+     "neg": "di_tro_ngai"
+    },
+    {
+     "match": [
+      "life.mobility",
+      "life.timing"
+     ],
+     "to": "di_nhip"
+    }
+   ],
+   "fallback": {
+    "pos": "di_ra_ngoai",
+    "neg": "di_tro_ngai"
+   },
+   "orient": "di_ra_ngoai",
+   "obst": "di_tro_ngai",
+   "quyen": "di_ra_ngoai",
+   "link": "di_lien_cung",
+   "cond": null,
+   "verdicts": []
+  },
+  "phuc_duc": {
+   "palace": "Phúc Đức",
+   "use": "fortune",
+   "prefix": [
+    "fortune.",
+    "inner.",
+    "life.blessed",
+    "fam."
+   ],
+   "sections": [
+    "phuc_goc",
+    "phuc_tam",
+    "phuc_tro",
+    "phuc_lien"
+   ],
+   "map": [
+    {
+     "match": [
+      "inner.",
+      "identity.",
+      "life.spirituality"
+     ],
+     "pos": "phuc_tam",
+     "neg": "phuc_tro"
+    }
+   ],
+   "fallback": {
+    "pos": "phuc_goc",
+    "neg": "phuc_tro"
+   },
+   "orient": "phuc_goc",
+   "obst": "phuc_tro",
+   "quyen": "phuc_goc",
+   "link": "phuc_lien",
+   "cond": null,
+   "verdicts": []
+  },
+  "no_boc": {
+   "palace": "Nô Bộc",
+   "use": "allies",
+   "prefix": [
+    "ally.",
+    "social."
+   ],
+   "sections": [
+    "no_ban",
+    "no_viec",
+    "no_tro",
+    "no_lien"
+   ],
+   "map": [
+    {
+     "match": [
+      "relationships.allies",
+      "career.support"
+     ],
+     "pos": "no_ban",
+     "neg": "no_tro"
+    },
+    {
+     "match": [
+      "career.",
+      "finance."
+     ],
+     "pos": "no_viec",
+     "neg": "no_tro"
+    }
+   ],
+   "fallback": {
+    "pos": "no_ban",
+    "neg": "no_tro"
+   },
+   "orient": "no_ban",
+   "obst": "no_tro",
+   "quyen": "no_viec",
+   "link": "no_lien",
+   "cond": null,
+   "verdicts": []
+  },
+  "tu_tuc": {
+   "palace": "Tử Tức",
+   "use": "children",
+   "prefix": [
+    "kin.",
+    "fam."
+   ],
+   "sections": [
+    "tu_con",
+    "tu_net",
+    "tu_tro",
+    "tu_lien"
+   ],
+   "map": [
+    {
+     "match": [
+      "relationships.kin",
+      "relationships.family"
+     ],
+     "pos": "tu_con",
+     "neg": "tu_tro"
+    },
+    {
+     "match": [
+      "career.",
+      "finance.",
+      "identity."
+     ],
+     "pos": "tu_net",
+     "neg": "tu_tro"
+    }
+   ],
+   "fallback": {
+    "pos": "tu_con",
+    "neg": "tu_tro"
+   },
+   "orient": "tu_con",
+   "obst": "tu_tro",
+   "quyen": "tu_net",
+   "link": "tu_lien",
+   "cond": null,
+   "verdicts": []
+  },
+  "huynh_de": {
+   "palace": "Huynh Đệ",
+   "use": "siblings",
+   "prefix": [
+    "kin.",
+    "fam."
+   ],
+   "sections": [
+    "hd_tinh",
+    "hd_net",
+    "hd_tro",
+    "hd_lien"
+   ],
+   "map": [
+    {
+     "match": [
+      "relationships.kin",
+      "relationships.family"
+     ],
+     "pos": "hd_tinh",
+     "neg": "hd_tro"
+    },
+    {
+     "match": [
+      "career.",
+      "finance.",
+      "identity."
+     ],
+     "pos": "hd_net",
+     "neg": "hd_tro"
+    }
+   ],
+   "fallback": {
+    "pos": "hd_tinh",
+    "neg": "hd_tro"
+   },
+   "orient": "hd_tinh",
+   "obst": "hd_tro",
+   "quyen": "hd_net",
+   "link": "hd_lien",
+   "cond": null,
+   "verdicts": []
+  },
+  "phu_mau": {
+   "palace": "Phụ Mẫu",
+   "use": "parents",
+   "prefix": [
+    "parents.",
+    "fam.",
+    "kin."
+   ],
+   "sections": [
+    "pm_tinh",
+    "pm_net",
+    "pm_tro",
+    "pm_lien"
+   ],
+   "map": [
+    {
+     "match": [
+      "relationships."
+     ],
+     "pos": "pm_tinh",
+     "neg": "pm_tro"
+    },
+    {
+     "match": [
+      "career.",
+      "finance.",
+      "identity.",
+      "inner."
+     ],
+     "pos": "pm_net",
+     "neg": "pm_tro"
+    }
+   ],
+   "fallback": {
+    "pos": "pm_tinh",
+    "neg": "pm_tro"
+   },
+   "orient": "pm_tinh",
+   "obst": "pm_tro",
+   "quyen": "pm_net",
+   "link": "pm_lien",
+   "cond": null,
+   "verdicts": []
+  },
+  "tat_ach": {
+   "palace": "Tật Ách",
+   "use": "health",
+   "prefix": [
+    "health.",
+    "well."
+   ],
+   "sections": [
+    "ta_giai",
+    "ta_ky",
+    "ta_lien"
+   ],
+   "map": [],
+   "fallback": {
+    "pos": "ta_giai",
+    "neg": "ta_ky"
+   },
+   "noVerdict": true,
+   "orient": "ta_giai",
+   "obst": "ta_ky",
+   "quyen": "ta_giai",
+   "link": "ta_lien",
+   "cond": null,
+   "verdicts": []
+  }
  }
 }
