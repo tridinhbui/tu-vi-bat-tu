@@ -23,7 +23,7 @@
           "value": "Văn Xương"
          },
          {
-          "fact": "palace.dignity.Văn Xương",
+          "fact": "palace.dignity@thuc_hanh.Văn Xương",
           "operator": "in",
           "value": [
            "miếu",
@@ -41,7 +41,7 @@
           "value": "Văn Khúc"
          },
          {
-          "fact": "palace.dignity.Văn Khúc",
+          "fact": "palace.dignity@thuc_hanh.Văn Khúc",
           "operator": "in",
           "value": [
            "miếu",
@@ -140,7 +140,7 @@
       "value": "Văn Khúc"
      },
      {
-      "fact": "palace.dignity.Văn Khúc",
+      "fact": "palace.dignity@thuc_hanh.Văn Khúc",
       "operator": "in",
       "value": [
        "miếu",
@@ -195,7 +195,7 @@
           "value": "Văn Xương"
          },
          {
-          "fact": "palace.dignity.Văn Xương",
+          "fact": "palace.dignity@thuc_hanh.Văn Xương",
           "operator": "in",
           "value": [
            "hãm"
@@ -211,7 +211,7 @@
           "value": "Văn Khúc"
          },
          {
-          "fact": "palace.dignity.Văn Khúc",
+          "fact": "palace.dignity@thuc_hanh.Văn Khúc",
           "operator": "in",
           "value": [
            "hãm"
@@ -335,7 +335,7 @@
      {
       "any": [
        {
-        "fact": "palace.dignity.Văn Xương",
+        "fact": "palace.dignity@thuc_hanh.Văn Xương",
         "operator": "in",
         "value": [
          "miếu",
@@ -344,7 +344,7 @@
         ]
        },
        {
-        "fact": "palace.dignity.Văn Khúc",
+        "fact": "palace.dignity@thuc_hanh.Văn Khúc",
         "operator": "in",
         "value": [
          "miếu",
@@ -1411,7 +1411,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "th_aux",
-   "description": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: giàu có, hay đem của giúp người khốn khó (Hóa Lộc đồng cung Thiên Lương miếu địa) [TH p.53]",
+   "description": "Tử Vi Thực Hành, sao phụ (paraphrased), cung Mệnh: giàu có, hay đem của giúp người khốn khó (Hóa Lộc đồng cung Thiên Lương miếu địa) [TH p.53] ; độ sáng thu về 'miếu' đúng chữ 'nhập miếu' của sách (audit 2026-10-22)",
    "conditions": {
     "all": [
      {
@@ -1429,12 +1429,10 @@
       "value": "Thiên Lương"
      },
      {
-      "fact": "palace.dignity.Thiên Lương",
+      "fact": "palace.dignity@thuc_hanh.Thiên Lương",
       "operator": "in",
       "value": [
-       "miếu",
-       "vượng",
-       "đắc"
+       "miếu"
       ]
      }
     ]

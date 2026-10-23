@@ -116,7 +116,28 @@ def _compare(got: Any, op: str, want: Any) -> bool | None:
     raise RuleError(f"unknown operator {op!r}")
 
 
+SRC_DIGNITY = "palace.dignity@"   # palace.dignity@<school>.<star>: the star's brightness in the table of the rule's own book
+
+
+def _own_book_dignity(facts: dict[str, Any], name: str) -> tuple[str, Any]:
+    """A rule from Thực Hành, Toàn Thư or Khảo Luận tests brightness in its own book's table (audit 2026-10-23). The cell is looked up in the
+    shared dignity KB for the palace's branch; a cell that book leaves empty (or unverified) falls back to the table the chart was drawn with
+    (palace.dignity.<star>), which is what the reading then rests on."""
+    school, star = name[len(SRC_DIGNITY):].split(".", 1)
+    from .. import dignity as dg   # local import: the DSL stays importable without the KB
+    br = facts.get("palace.branch")
+    try:
+        lv = dg.dignity(star, br, school) if br else None
+    except ValueError:
+        lv = None
+    return (name, lv) if lv else (f"palace.dignity.{star}", None)
+
+
 def _leaf(facts: dict[str, Any], name: str, op: str, want: Any) -> bool | None:
+    if name.startswith(SRC_DIGNITY):
+        name, lv = _own_book_dignity(facts, name)
+        if lv is not None:
+            return _compare(lv, op, want)
     alts = facts.get(ALT + name)
     if isinstance(alts, list):
         vals = [UNKNOWN if a is None else _compare(a, op, want) for a in alts]

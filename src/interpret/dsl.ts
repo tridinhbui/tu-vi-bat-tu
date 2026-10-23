@@ -1,3 +1,4 @@
+import { verifiedLevel, type School } from './dignity.ts';
 // Rule-condition evaluator: a faithful port of engine/tvbt/knowledge/dsl.py (three-valued logic; a missing fact is UNKNOWN, never false).
 // Parity with the Python engine is enforced by test/engine.test.ts over the regression fixtures.
 import type { Expr, Facts, Tri } from './types.ts';
@@ -41,7 +42,19 @@ export function compare(got: unknown, op: string, want: unknown): Tri {
 /** facts[ALT + name]: the disagreeing readings of fact `name` (a CONFLICT star-dignity cell). A condition on it is TRUE when every
  *  alternative satisfies it, FALSE when none does, else UNKNOWN; a null alternative is an unknown reading. Mirrors dsl.py _leaf. */
 export const ALT = 'alt:';
-function leaf(facts: Facts, name: string, op: string, want: unknown): Tri {
+/** palace.dignity@<school>.<star>: the star's brightness in the table of the rule's own book (audit 2026-10-23); a cell that book leaves empty
+ *  falls back to the chart's table (palace.dignity.<star>) — the same lookup as engine/tvbt/knowledge/dsl.py _own_book_dignity */
+export const SRC_DIGNITY = 'palace.dignity@';
+function ownBookDignity(facts: Facts, name: string): [string, string | null] {
+  const [school, ...rest] = name.slice(SRC_DIGNITY.length).split('.'); const star = rest.join('.');
+  const br = facts['palace.branch'] as string | undefined;
+  let lv: string | null = null;
+  try { lv = br ? verifiedLevel(star, br, school as School) : null; } catch { lv = null; }
+  return lv ? [name, lv] : [`palace.dignity.${star}`, null];
+}
+function leaf(facts: Facts, name0: string, op: string, want: unknown): Tri {
+  let name = name0;
+  if (name.startsWith(SRC_DIGNITY)) { const [n, lv] = ownBookDignity(facts, name); if (lv !== null) return compare(lv, op, want); name = n; }
   const alts = facts[ALT + name];
   if (Array.isArray(alts)) {
     const v = alts.map(a => a === null ? null : compare(a, op, want));

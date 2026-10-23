@@ -1524,7 +1524,7 @@
       "value": "Thiên Đồng"
      },
      {
-      "fact": "palace.dignity.Thiên Đồng",
+      "fact": "palace.dignity@toan_thu.Thiên Đồng",
       "operator": "in",
       "value": [
        "miếu",
@@ -2385,7 +2385,7 @@
      {
       "any": [
        {
-        "fact": "palace.dignity.Kình Dương",
+        "fact": "palace.dignity@toan_thu.Kình Dương",
         "operator": "in",
         "value": [
          "miếu",
@@ -2394,7 +2394,7 @@
         ]
        },
        {
-        "fact": "palace.dignity.Hỏa Tinh",
+        "fact": "palace.dignity@toan_thu.Hỏa Tinh",
         "operator": "in",
         "value": [
          "miếu",
@@ -2919,7 +2919,7 @@
       "value": "Phá Quân"
      },
      {
-      "fact": "palace.dignity.Phá Quân",
+      "fact": "palace.dignity@toan_thu.Phá Quân",
       "operator": "in",
       "value": [
        "hãm"

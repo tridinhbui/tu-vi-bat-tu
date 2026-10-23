@@ -1,0 +1,62 @@
+{
+ "version": "2026-10-23",
+ "note": "tools/interpret/audit_widening.py --apply: rules whose condition was wider than the page's wording (nhập miếu read as any bright cell; độc thủ with no exclusion). Packs patched in place.",
+ "rules": [
+  {
+   "id": "TV_TH_AUX_MENH_HL_LUONG",
+   "pack": "pack_thuc_hanh_aux.json",
+   "check": "mieu",
+   "action": "dignity narrowed to miếu",
+   "phrase": ", cung Mệnh: giàu có, hay đem của giúp người khốn khó (Hóa Lộc đồng cung Thiên Lương miếu địa)"
+  },
+  {
+   "id": "TV_TH_CACH_MENH_VU_VAN_VO",
+   "pack": "pack_thuc_hanh_cach.json",
+   "check": "mieu",
+   "action": "dignity narrowed to miếu",
+   "phrase": ", cung Mệnh: cách Vũ Khúc văn võ (Vũ Khúc nhập miếu hợp Xương, Khúc: văn võ toàn tài)"
+  },
+  {
+   "id": "TV_TT_PAL_TAI_BACH_LINH_TINH_MIEU_P",
+   "pack": "pack_toan_thu_palaces.json",
+   "check": "mieu",
+   "action": "dignity narrowed to miếu",
+   "phrase": ": độc thủ nhập miếu: hoạnh phát (Linh Tinh ở Tài Bạch, thế sáng)"
+  },
+  {
+   "id": "TV_TT_PAL_PHU_MAU_VAN_KHUC_MIEU_P",
+   "pack": "pack_toan_thu_palaces.json",
+   "check": "mieu",
+   "action": "dignity narrowed to miếu",
+   "phrase": ": độc thủ nhập miếu: tốt (Văn Khúc ở Phụ Mẫu, thế sáng)"
+  },
+  {
+   "id": "TV_TT_PAL_NO_BOC_VAN_XUONG_MIEU_P",
+   "pack": "pack_toan_thu_palaces.json",
+   "check": "doc_thu",
+   "action": "draft",
+   "phrase": ": đơn thủ: đắc lực trợ chủ (Văn Xương ở Nô Bộc, thế sáng)"
+  },
+  {
+   "id": "TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P",
+   "pack": "pack_toan_thu_palaces.json",
+   "check": "mieu",
+   "action": "dignity narrowed to miếu",
+   "phrase": ": nhập miếu: tốt (Linh Tinh ở Nô Bộc, thế sáng)"
+  },
+  {
+   "id": "TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P",
+   "pack": "pack_toan_thu_palaces.json",
+   "check": "mieu",
+   "action": "dignity narrowed to miếu",
+   "phrase": ": nhập miếu: tốt (Hỏa Tinh ở Điền Trạch, thế sáng)"
+  },
+  {
+   "id": "TV_KL_STAR_MENH_TA_HUU_TU_MO",
+   "pack": "pack_khao_luan_stars.json",
+   "check": "seat",
+   "action": "draft",
+   "phrase": "Mộ phùng Tả Hữu tôn cư bát tọa chi quí: Mệnh ở tứ mộ có Tả Hữu thì sớm được công danh (KL p.63)"
+  }
+ ]
+}

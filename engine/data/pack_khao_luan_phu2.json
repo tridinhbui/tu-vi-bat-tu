@@ -245,7 +245,7 @@
       "value": "Thiên Cơ"
      },
      {
-      "fact": "palace.dignity.Thiên Cơ",
+      "fact": "palace.dignity@khao_luan.Thiên Cơ",
       "operator": "in",
       "value": [
        "miếu",
@@ -891,7 +891,7 @@
      {
       "any": [
        {
-        "fact": "palace.dignity.Thiên Đồng",
+        "fact": "palace.dignity@khao_luan.Thiên Đồng",
         "operator": "in",
         "value": [
          "miếu",
@@ -900,7 +900,7 @@
         ]
        },
        {
-        "fact": "palace.dignity.Tham Lang",
+        "fact": "palace.dignity@khao_luan.Tham Lang",
         "operator": "in",
         "value": [
          "miếu",

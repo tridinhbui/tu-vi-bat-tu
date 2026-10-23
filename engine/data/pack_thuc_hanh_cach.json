@@ -324,7 +324,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "th_cach",
-   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Vũ Khúc văn võ (Vũ Khúc nhập miếu hợp Xương, Khúc: văn võ toàn tài) [TH p.72]",
+   "description": "Tử Vi Thực Hành, cách cuộc (paraphrased), cung Mệnh: cách Vũ Khúc văn võ (Vũ Khúc nhập miếu hợp Xương, Khúc: văn võ toàn tài) [TH p.72] ; độ sáng thu về 'miếu' đúng chữ 'nhập miếu' của sách (audit 2026-10-22)",
    "conditions": {
     "all": [
      {
@@ -337,11 +337,10 @@
       "value": "Vũ Khúc"
      },
      {
-      "fact": "palace.dignity.Vũ Khúc",
+      "fact": "palace.dignity@thuc_hanh.Vũ Khúc",
       "operator": "in",
       "value": [
-       "miếu",
-       "vượng"
+       "miếu"
       ]
      },
      {
@@ -1528,7 +1527,7 @@
       "value": "Thiên Tướng"
      },
      {
-      "fact": "palace.dignity.Thiên Tướng",
+      "fact": "palace.dignity@thuc_hanh.Thiên Tướng",
       "operator": "in",
       "value": [
        "miếu",
@@ -1818,7 +1817,7 @@
       "value": "Thiên Tướng"
      },
      {
-      "fact": "palace.dignity.Thiên Tướng",
+      "fact": "palace.dignity@thuc_hanh.Thiên Tướng",
       "operator": "in",
       "value": [
        "miếu",
@@ -2504,7 +2503,7 @@
           "value": "Vũ Khúc"
          },
          {
-          "fact": "palace.dignity.Vũ Khúc",
+          "fact": "palace.dignity@thuc_hanh.Vũ Khúc",
           "operator": "in",
           "value": [
            "hãm"
@@ -2520,7 +2519,7 @@
           "value": "Liêm Trinh"
          },
          {
-          "fact": "palace.dignity.Liêm Trinh",
+          "fact": "palace.dignity@thuc_hanh.Liêm Trinh",
           "operator": "in",
           "value": [
            "hãm"
@@ -2606,7 +2605,7 @@
           "value": "Thái Dương"
          },
          {
-          "fact": "palace.dignity.Thái Dương",
+          "fact": "palace.dignity@thuc_hanh.Thái Dương",
           "operator": "in",
           "value": [
            "hãm"
@@ -2622,7 +2621,7 @@
           "value": "Thái Âm"
          },
          {
-          "fact": "palace.dignity.Thái Âm",
+          "fact": "palace.dignity@thuc_hanh.Thái Âm",
           "operator": "in",
           "value": [
            "hãm"
@@ -3388,7 +3387,7 @@
           "value": "Tử Vi"
          },
          {
-          "fact": "palace.dignity.Tử Vi",
+          "fact": "palace.dignity@thuc_hanh.Tử Vi",
           "operator": "in",
           "value": [
            "miếu",
@@ -3405,7 +3404,7 @@
           "value": "Thiên Phủ"
          },
          {
-          "fact": "palace.dignity.Thiên Phủ",
+          "fact": "palace.dignity@thuc_hanh.Thiên Phủ",
           "operator": "in",
           "value": [
            "miếu",
@@ -3422,7 +3421,7 @@
           "value": "Vũ Khúc"
          },
          {
-          "fact": "palace.dignity.Vũ Khúc",
+          "fact": "palace.dignity@thuc_hanh.Vũ Khúc",
           "operator": "in",
           "value": [
            "miếu",
@@ -3439,7 +3438,7 @@
           "value": "Thiên Tướng"
          },
          {
-          "fact": "palace.dignity.Thiên Tướng",
+          "fact": "palace.dignity@thuc_hanh.Thiên Tướng",
           "operator": "in",
           "value": [
            "miếu",
@@ -3501,7 +3500,7 @@
           "value": "Thất Sát"
          },
          {
-          "fact": "palace.dignity.Thất Sát",
+          "fact": "palace.dignity@thuc_hanh.Thất Sát",
           "operator": "in",
           "value": [
            "miếu",
@@ -3518,7 +3517,7 @@
           "value": "Phá Quân"
          },
          {
-          "fact": "palace.dignity.Phá Quân",
+          "fact": "palace.dignity@thuc_hanh.Phá Quân",
           "operator": "in",
           "value": [
            "miếu",
@@ -3535,7 +3534,7 @@
           "value": "Liêm Trinh"
          },
          {
-          "fact": "palace.dignity.Liêm Trinh",
+          "fact": "palace.dignity@thuc_hanh.Liêm Trinh",
           "operator": "in",
           "value": [
            "miếu",
@@ -3552,7 +3551,7 @@
           "value": "Tham Lang"
          },
          {
-          "fact": "palace.dignity.Tham Lang",
+          "fact": "palace.dignity@thuc_hanh.Tham Lang",
           "operator": "in",
           "value": [
            "miếu",
@@ -3606,7 +3605,7 @@
       "value": "Thiên Tướng"
      },
      {
-      "fact": "palace.dignity.Thiên Tướng",
+      "fact": "palace.dignity@thuc_hanh.Thiên Tướng",
       "operator": "in",
       "value": [
        "miếu",

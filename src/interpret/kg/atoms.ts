@@ -42,6 +42,7 @@ function leafAtoms(fact: string, op: string, value: unknown, f: Facts, here: str
   if (HOA_ROLES[fact] && isContains) {
     return vals.filter(v => listHas(got, v)).flatMap(h => { const ps = palacesOf(h as string, HOA_ROLES[fact], f, 'hoa'); return (ps.length ? ps : [null]).map(p => ({ kind: 'hoa' as const, name: h as string, palace: p })); });
   }
+  if (fact.startsWith('palace.dignity@')) fact = `palace.dignity.${fact.slice(fact.indexOf('.', 15) + 1)}`;
   if (fact.startsWith('palace.dignity.') || fact.startsWith('palace.dignity_rank.')) {
     const star = fact.split('.').slice(2).join('.');
     return [{ kind: 'dignity', name: star, palace: here, value: f[`palace.dignity.${star}`] ?? got }];
