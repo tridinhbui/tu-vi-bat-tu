@@ -50,7 +50,7 @@ test('a minh họa line is tied to one book claim of its own paragraph, and goes
     assert.equal(claim.length, 1, s.text);
     assert.equal(claim[0].trace.basis, 'sach');
     assert.ok(claim[0].trace.rules.length);
-    assert.ok(!/\b(19|20)\d\d\b|\btuổi\b|năm nay|sắp tới|bệnh/.test(s.text), `timing or health in a minh họa: ${s.text}`);
+    assert.ok(!/\b(19|20)\d\d\b|\btuổi\b|năm nay|sắp tới|bệnh|từ sớm|về già/.test(s.text), `timing or health in a minh họa: ${s.text}`);
   }
   assert.ok(n > 0, 'some minh họa lines are told');
   // without its claim, the line is removed

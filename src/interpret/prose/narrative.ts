@@ -399,7 +399,9 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     // what the claim looks like in a life, from the card: once per thesis, after its first claim
     const card = W.card(c.concept);
     // never for health: a minh họa may not describe illness (owner's policy 2026-10-22)
-    if (ci === 0 && !soft && card?.behave?.length && !(W.concept(c.concept)?.facet ?? '').startsWith('wellbeing.')) {
+    // nor for a time or an event: a minh họa makes a claim concrete, it never dates it (owner's policy 2026-10-22)
+    const fct = W.concept(c.concept)?.facet ?? '';
+    if (ci === 0 && !soft && card?.behave?.length && !fct.startsWith('wellbeing.') && !fct.endsWith('.timing') && !['life.late_bloom', 'kin.late'].includes(c.concept)) {
       const b = W.pick(`behave|${c.concept}`, card.behave);
       // a minh họa line (owner's policy 2026-10-22): the system's illustration of the claim just made, tied to it, never a book sentence
       xs.push(W.sentence(b.replace('{S}', W.S(c.concept)), { move: 'ELABORATE', step: `behave:${t.id}:${c.concept}`, basis: 'minh_hoa', tied: `claim:${t.id}:${c.concept}`, concepts: [c.concept], rules: [], cites: [] }));
