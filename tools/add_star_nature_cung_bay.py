@@ -73,6 +73,9 @@ REL = [
  ("menh.quan_di_tai", "menh.quan_di_tai", "Mệnh", "các cung Quan Lộc, Thiên Di, Tài Bạch có nhiều ảnh hưởng đến Mệnh", None, ["Quan Lộc", "Thiên Di", "Tài Bạch"], ["menh"]),
 ]
 GENERIC = ["hoa_ky.cung", "hoa_loc.tien", "song_hao.giam", "kinh_da.can_tro", "khong_kiep.pha", "hoa_linh.hao_mon", "khoi_viet.loi", "thien_tuong.on_dinh", "tu_vi.cuu_giai", "ta_huu.phu_ta"]
+# natures whose words fit any palace's limit or plenty ("ở cung nào cũng …"): they may explain a reading of the new palaces; the others only
+# take the new uses (told as the palace's structure, never as the reason of a reading)
+EXPLAINS_ANY = {"hoa_ky.cung", "hoa_loc.tien", "song_hao.giam", "kinh_da.can_tro", "khong_kiep.pha", "hoa_linh.hao_mon"}
 
 d = json.loads((KG / "star_nature.json").read_text("utf-8"))
 ent = {e["id"]: e for e in d["entries"]}
@@ -84,8 +87,10 @@ for nid, mid, star, also, text, use, pol, explains, palace in E:
 for gid in GENERIC:
     g = ent[gid]
     g["use"] = list(dict.fromkeys(g["use"] + NEW_USES))
-    if "explains" in g:
+    if "explains" in g and gid in EXPLAINS_ANY:
         g["explains"] = list(dict.fromkeys(g["explains"] + PEOPLE))
+    elif "explains" in g:
+        g["explains"] = [x for x in g["explains"] if x not in PEOPLE]
 d["entries"] = list(ent.values())
 rel = {r["id"]: r for r in d["relations"]}
 for rid, mid, palace, text, when, with_, chapters in REL:

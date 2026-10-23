@@ -72,7 +72,7 @@ C = [
   {"turn": ["có cha mẹ xa cách nhau"]}),
  ("parents.burden", "relationships.parents", "-", "outcome", None, "gánh phần của cha mẹ để lại", "gánh của cha mẹ",
   {"turn": ["không nhờ được cha mẹ, lại phải gánh phần để lại"], "mature": ["tách bạch phần mình gánh được với phần không"]}),
- ("kin.talented", "relationships.kin", "+", "outcome", None, "người con, người anh em có tài, hiển đạt", "người thân hiển đạt",
+ ("kin.talented", "relationships.kin", "+", "outcome", None, "người thân có tài, hiển đạt", "người thân hiển đạt",
   {"pred": ["có người thân hiển đạt", "có con hay anh em thành danh"], "soft": ["có người thân khá thành đạt"], "value": ["những người thân thành đạt"]}),
  ("kin.prosper", "relationships.kin", "+", "outcome", None, "sự khá giả của con cái, anh em", "người thân khá giả",
   {"pred": ["có con cái, anh em khá giả"], "soft": ["người thân đủ đầy ở mức vừa"], "value": ["sự khá giả của người thân"]}),
