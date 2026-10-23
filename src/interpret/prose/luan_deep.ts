@@ -100,6 +100,8 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
           xs.push(S(t, { move: 'ELABORATE', step: `minh_hoa:${x.concept}`, basis: 'minh_hoa', tied: step, concepts: [], rules: [] }));
         }
       } else if (u.kind === 'mechanism') {
+        // the mechanism of a reading that was not told (or folded into another of the same matter) has nothing to explain
+        if (alone.has(u)) continue;
         const n = u.nature!, cite = [`KL p.${n.page}`];
         let text: string;
         if (u.reading && !alone.has(u)) text = fill(W.pick(`${key}|mr`, D.mech_reading), { star: u.star!, text: n.text });

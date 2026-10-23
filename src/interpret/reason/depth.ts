@@ -27,7 +27,9 @@ export type Use = 'career' | 'money' | 'marriage' | 'property';
 export interface StarNature { id: string; star: string; also?: string[]; page: number; quote: string; text: string; use: Use[]; palace?: string;
   /** '+' (default) a strength, '-' a limit, '±' a nature with both edges: told after a reading only of a matching side */
   pol?: '+' | '-' | '±';
-  tames?: string[]; link?: string[] }
+  tames?: string[]; link?: string[];
+  /** the readings (concept ids, or prefixes ending in '.') this nature may be the 'why' of */
+  explains?: string[] }
 export interface PalaceRelation { id: string; palace: string; page: number; quote: string; text: string; when?: string; with?: string[] }
 export interface StarNatureFile { version: string; basis: string; entries: StarNature[]; relations: PalaceRelation[] }
 
@@ -107,9 +109,15 @@ const HOA = ['Hóa Lộc', 'Hóa Quyền', 'Hóa Khoa', 'Hóa Kỵ'];
 /** words of an event or a time in a marriage reading */
 const EVENT = /lần|dang dở|ly dị|ly hôn|ly tán|bỏ nhau|góa|tái giá|tái hôn|muộn|sớm|xa cách|chia lìa|cưới|hai đời|tuổi|khóc/u;
 
-export function natureOf(k: Knowledge, star: string, use: Use, said: Set<string>, opts: { palace?: string; pol?: '-' | '+' } = {}): StarNature | undefined {
+const DOMAIN_PREFIX: Record<Use, string[]> = { career: ['career.', 'exp.', 'path.'], money: ['fin.'], marriage: ['rel.', 'values.kind'], property: ['prop.'] };
+export function natureOf(k: Knowledge, star: string, use: Use, said: Set<string>, opts: { palace?: string; pol?: '-' | '+'; concept?: string } = {}): StarNature | undefined {
   // a nature is told after a reading only on the reading's own side: a limit is never the "reason" of a strength, nor the reverse
-  const fits = (e: StarNature) => !opts.pol || (e.pol ?? '+') === '±' || (e.pol ?? '+') === opts.pol;
+  const fits = (e: StarNature) => (!opts.pol || (e.pol ?? '+') === '±' || (e.pol ?? '+') === opts.pol)
+    // after a reading, only a nature that speaks of that reading's matter (explains), never a generic trait of the star
+    && (!opts.concept || (e.explains ?? []).some(x => x === opts.concept || (x.endsWith('.') && opts.concept!.startsWith(x))))
+    // as the palace's own structure (no reading to explain), a nature is told only when it speaks of the domain: it names the palace, or it
+    // explains readings of the domain's matter (Thiên Cơ's "tài tổ chức" says nothing about a marriage)
+    && (!!opts.concept || e.palace === opts.palace || e.star.startsWith('Hóa ') || (e.explains ?? []).some(x => DOMAIN_PREFIX[use].some(d => x.startsWith(d))));
   const xs = (k.kg?.starNature?.entries ?? []).filter(e => (e.star === star || (e.also ?? []).includes(star)) && e.use.includes(use) && !said.has(e.id) && !e.tames && fits(e)
     && (!e.palace || e.palace === opts.palace));
   // the entry naming the domain's palace first, then one of exactly the asked side, then the file's order
@@ -168,7 +176,7 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     if (x.palace === P && far.length) us.push({ kind: 'trigger', section: sec, reading: x, elements: far.map(a => ({ ...a, where: whereOf(a.palace) })) });
     // a timing or neutral reading has no 'why' in a star's nature (công danh đến muộn is not explained by what Tả Phụ is)
     if (x.star && x.pol !== '~' && !toldStar.has(x.star)) {
-      const n = natureOf(k, x.star, use, said, { palace: P, pol: x.pol === '-' ? '-' : '+' });
+      const n = natureOf(k, x.star, use, said, { palace: P, pol: x.pol === '-' ? '-' : '+', concept: x.concept });
       if (n) { toldStar.add(x.star); said.add(n.id); us.push({ kind: 'mechanism', section: sec, reading: x, nature: n, star: x.star, palace: x.palace, where: whereOf(x.palace) }); }
     }
   }

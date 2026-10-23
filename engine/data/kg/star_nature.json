@@ -1,7 +1,7 @@
 {
  "version": "star-nature-1.0.0",
  "basis": "sach",
- "note": "What Tử Vi Khảo Luận says a star stands for (tượng trưng / chủ / là sao của) and which palace it suits: the MECHANISM a reading of that star rests on (plan DEEP-TUVI, 2026-10-22). Each entry is the book's own statement, rendered in plain words in `text` (a clause that follows the star's name), with the verbatim `quote` checked against the PDF page by engine/tests/test_star_nature.py and the page image read for line order. `use` lists the domains whose deep reading may voice it (career, money, marriage, property); `palace`, when set, is the palace the book says the star suits or needs ('rất cần ở cung Quan'). Nothing here is a reading about a person: the depth layer (src/interpret/reason/depth.ts) voices an entry only right after a reading or a chart fact that stands on that star, as the reason behind it. Moral judgements, health and sexual lines of the same pages are left out.",
+ "note": "What Tử Vi Khảo Luận says a star stands for (tượng trưng / chủ / là sao của) and which palace it suits: the MECHANISM a reading of that star rests on (plan DEEP-TUVI, 2026-10-22). Each entry is the book's own statement, rendered in plain words in `text` (a clause that follows the star's name), with the verbatim `quote` checked against the PDF page by engine/tests/test_star_nature.py and the page image read for line order. `use` lists the domains whose deep reading may voice it (career, money, marriage, property); `palace`, when set, is the palace the book says the star suits or needs ('rất cần ở cung Quan'). Nothing here is a reading about a person: the depth layer (src/interpret/reason/depth.ts) voices an entry only right after a reading or a chart fact that stands on that star, as the reason behind it. Moral judgements, health and sexual lines of the same pages are left out. `explains`: the readings (concept ids, or prefixes ending in '.') whose 'why' the entry may be — a nature told after a reading must speak of the same thing; an entry with none is told only as the palace's own structure.",
  "entries": [
   {
    "id": "tu_vi.cuu_giai",
@@ -14,6 +14,14 @@
     "money",
     "marriage",
     "property"
+   ],
+   "explains": [
+    "career.success",
+    "career.status",
+    "fin.abundance",
+    "rel.harmony",
+    "prop.rich",
+    "life.mitigated"
    ]
   },
   {
@@ -24,6 +32,11 @@
    "text": "cần nhất có Tả Phụ, Hữu Bật làm tay chân",
    "use": [
     "career"
+   ],
+   "explains": [
+    "career.authority",
+    "career.status",
+    "social.support"
    ]
   },
   {
@@ -36,6 +49,11 @@
     "career",
     "money",
     "marriage"
+   ],
+   "explains": [
+    "career.",
+    "exp.",
+    "path."
    ]
   },
   {
@@ -47,7 +65,10 @@
    "use": [
     "career"
    ],
-   "palace": "Quan Lộc"
+   "palace": "Quan Lộc",
+   "explains": [
+    "career."
+   ]
   },
   {
    "id": "thai_duong.danh_tien",
@@ -61,6 +82,11 @@
    "link": [
     "Quan Lộc",
     "Tài Bạch"
+   ],
+   "explains": [
+    "fin.abundance",
+    "fin.self_made",
+    "fin.effortful"
    ]
   },
   {
@@ -73,7 +99,12 @@
     "money",
     "property"
    ],
-   "palace": "Tài Bạch"
+   "palace": "Tài Bạch",
+   "explains": [
+    "fin.abundance",
+    "prop.rich",
+    "fin.self_made"
+   ]
   },
   {
    "id": "vu_khuc.kinh_doanh",
@@ -83,6 +114,11 @@
    "text": "là sao chủ về tài lộc, tính cương nghị, có óc kinh doanh",
    "use": [
     "career"
+   ],
+   "explains": [
+    "path.business",
+    "career.success",
+    "exp."
    ]
   },
   {
@@ -93,6 +129,10 @@
    "text": "là sao 'bạch thủ thành gia', tay trắng làm nên",
    "use": [
     "money"
+   ],
+   "explains": [
+    "fin.self_made",
+    "fin.effortful"
    ]
   },
   {
@@ -105,7 +145,12 @@
     "marriage",
     "career"
    ],
-   "pol": "±"
+   "pol": "±",
+   "explains": [
+    "adapt.unsteady",
+    "fin.volatile",
+    "rel.strain"
+   ]
   },
   {
    "id": "liem_trinh.quan",
@@ -115,6 +160,9 @@
    "text": "chủ quan lộc",
    "use": [
     "career"
+   ],
+   "explains": [
+    "career."
    ]
   },
   {
@@ -125,6 +173,9 @@
    "text": "chủ quan lộc, lại chủ cả tình yêu",
    "use": [
     "marriage"
+   ],
+   "explains": [
+    "rel."
    ]
   },
   {
@@ -135,6 +186,10 @@
    "text": "là sao quyền lệnh",
    "use": [
     "career"
+   ],
+   "explains": [
+    "career.authority",
+    "career.status"
    ]
   },
   {
@@ -147,7 +202,11 @@
     "marriage"
    ],
    "palace": "Phu Thê",
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "rel.strain",
+    "rel.jealous"
+   ]
   },
   {
    "id": "thien_phu.dieu_hanh",
@@ -160,7 +219,15 @@
     "money",
     "marriage"
    ],
-   "pol": "±"
+   "pol": "±",
+   "explains": [
+    "career.status",
+    "career.success",
+    "fin.stable",
+    "fin.abundance",
+    "rel.harmony",
+    "path.service"
+   ]
   },
   {
    "id": "thien_phu.che_sat",
@@ -179,7 +246,8 @@
     "Đà La",
     "Hỏa Tinh",
     "Linh Tinh"
-   ]
+   ],
+   "explains": []
   },
   {
    "id": "thai_am.dien",
@@ -191,7 +259,12 @@
     "money",
     "property"
    ],
-   "palace": "Điền Trạch"
+   "palace": "Điền Trạch",
+   "explains": [
+    "fin.abundance",
+    "prop.rich",
+    "fin.stable"
+   ]
   },
   {
    "id": "thai_am.nuoi_duong",
@@ -202,6 +275,12 @@
    "use": [
     "marriage",
     "career"
+   ],
+   "explains": [
+    "rel.harmony",
+    "values.kind",
+    "rel.partner",
+    "path.service"
    ]
   },
   {
@@ -213,7 +292,11 @@
    "use": [
     "career"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "career.obstacle",
+    "exp.unfulfilled"
+   ]
   },
   {
    "id": "tham_lang.quyen_tai",
@@ -224,6 +307,11 @@
    "use": [
     "career",
     "money"
+   ],
+   "explains": [
+    "career.authority",
+    "fin.abundance",
+    "fin.windfall"
    ]
   },
   {
@@ -235,6 +323,11 @@
    "use": [
     "money",
     "career"
+   ],
+   "explains": [
+    "path.business",
+    "fin.windfall",
+    "fin.abundance"
    ]
   },
   {
@@ -247,7 +340,13 @@
     "career",
     "marriage"
    ],
-   "pol": "±"
+   "pol": "±",
+   "explains": [
+    "comm.",
+    "rel.strain",
+    "career.obstacle",
+    "path.public"
+   ]
   },
   {
    "id": "cu_mon.tai",
@@ -258,7 +357,10 @@
    "use": [
     "money"
    ],
-   "pol": "±"
+   "pol": "±",
+   "explains": [
+    "fin."
+   ]
   },
   {
    "id": "cu_mon.thuyet_phuc",
@@ -268,6 +370,11 @@
    "text": "hoạt bát, có sức thuyết phục",
    "use": [
     "career"
+   ],
+   "explains": [
+    "path.public",
+    "career.success",
+    "exp."
    ]
   },
   {
@@ -278,6 +385,9 @@
    "text": "là sao chủ về quan lộc và phúc thiện",
    "use": [
     "career"
+   ],
+   "explains": [
+    "career."
    ]
   },
   {
@@ -291,6 +401,12 @@
     "money",
     "marriage",
     "property"
+   ],
+   "explains": [
+    "life.mitigated",
+    "fin.stable",
+    "rel.harmony",
+    "career.success"
    ]
   },
   {
@@ -303,6 +419,11 @@
     "marriage",
     "career",
     "money"
+   ],
+   "explains": [
+    "rel.harmony",
+    "values.kind",
+    "life.mitigated"
    ]
   },
   {
@@ -313,6 +434,10 @@
    "text": "tượng trưng cho uy quyền, cho sự trừng trị kẻ gian",
    "use": [
     "career"
+   ],
+   "explains": [
+    "career.authority",
+    "exp.martial"
    ]
   },
   {
@@ -324,7 +449,11 @@
    "use": [
     "marriage"
    ],
-   "pol": "±"
+   "pol": "±",
+   "explains": [
+    "rel.strain",
+    "temper."
+   ]
   },
   {
    "id": "that_sat.che_kinh_da",
@@ -341,7 +470,8 @@
    "tames": [
     "Kình Dương",
     "Đà La"
-   ]
+   ],
+   "explains": []
   },
   {
    "id": "pha_quan.hao",
@@ -353,7 +483,12 @@
     "marriage",
     "money"
    ],
-   "pol": "±"
+   "pol": "±",
+   "explains": [
+    "rel.strain",
+    "fin.volatile",
+    "fin.scarcity"
+   ]
   },
   {
    "id": "pha_quan.dung",
@@ -365,7 +500,13 @@
     "career",
     "property"
    ],
-   "pol": "±"
+   "pol": "±",
+   "explains": [
+    "exp.martial",
+    "career.authority",
+    "prop.poor",
+    "adapt.unsteady"
+   ]
   },
   {
    "id": "pha_quan.che_kk",
@@ -382,7 +523,8 @@
    "tames": [
     "Địa Không",
     "Địa Kiếp"
-   ]
+   ],
+   "explains": []
   },
   {
    "id": "ta_huu.phu_ta",
@@ -399,7 +541,12 @@
     "marriage",
     "property"
    ],
-   "pol": "±"
+   "pol": "±",
+   "explains": [
+    "social.support",
+    "career.success",
+    "career.status"
+   ]
   },
   {
    "id": "ta_huu.tai_nang",
@@ -412,6 +559,10 @@
    "text": "chủ về tài năng và sức làm việc",
    "use": [
     "career"
+   ],
+   "explains": [
+    "exp.",
+    "career.success"
    ]
   },
   {
@@ -426,6 +577,12 @@
    "use": [
     "career",
     "marriage"
+   ],
+   "explains": [
+    "exp.letters",
+    "cog.",
+    "career.fame",
+    "path.public"
    ]
   },
   {
@@ -441,7 +598,11 @@
     "marriage",
     "money"
    ],
-   "pol": "±"
+   "pol": "±",
+   "explains": [
+    "fin.frugal",
+    "fin.stable"
+   ]
   },
   {
    "id": "khoi_viet.loi",
@@ -457,6 +618,15 @@
     "money",
     "marriage",
     "property"
+   ],
+   "explains": [
+    "career.success",
+    "career.status",
+    "career.fame",
+    "fin.abundance",
+    "rel.harmony",
+    "social.support",
+    "presence."
    ]
   },
   {
@@ -470,6 +640,10 @@
    "text": "là bộ sao tốt cho học hành, thi cử, công danh",
    "use": [
     "career"
+   ],
+   "explains": [
+    "career.",
+    "exp.letters"
    ]
   },
   {
@@ -484,7 +658,10 @@
    "use": [
     "money"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "fin.scarcity"
+   ]
   },
   {
    "id": "loc_ton.giu",
@@ -495,6 +672,11 @@
    "use": [
     "money",
     "property"
+   ],
+   "explains": [
+    "fin.stable",
+    "fin.abundance",
+    "prop.rich"
    ]
   },
   {
@@ -506,7 +688,10 @@
    "use": [
     "career"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "career.late"
+   ]
   },
   {
    "id": "thien_ma.nang_luc",
@@ -517,6 +702,11 @@
    "use": [
     "career",
     "money"
+   ],
+   "explains": [
+    "career.success",
+    "fin.abundance",
+    "fin.effortful"
    ]
   },
   {
@@ -534,7 +724,14 @@
     "marriage",
     "property"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "career.obstacle",
+    "rel.strain",
+    "fin.scarcity",
+    "fin.volatile",
+    "prop.poor"
+   ]
   },
   {
    "id": "kinh_da.giang_co",
@@ -548,7 +745,10 @@
    "use": [
     "marriage"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "rel.strain"
+   ]
   },
   {
    "id": "khong_kiep.pha",
@@ -565,7 +765,14 @@
     "marriage",
     "property"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "fin.volatile",
+    "fin.scarcity",
+    "prop.poor",
+    "career.obstacle",
+    "rel.strain"
+   ]
   },
   {
    "id": "khong_kiep.vu_bao",
@@ -580,7 +787,12 @@
     "career",
     "money"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "fin.volatile",
+    "fin.windfall",
+    "career.obstacle"
+   ]
   },
   {
    "id": "hoa_linh.hao_mon",
@@ -597,7 +809,13 @@
     "marriage",
     "property"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "career.obstacle",
+    "fin.volatile",
+    "rel.strain",
+    "prop.poor"
+   ]
   },
   {
    "id": "song_hao.giam",
@@ -614,7 +832,14 @@
     "marriage",
     "property"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "fin.volatile",
+    "fin.scarcity",
+    "prop.poor",
+    "rel.strain",
+    "adapt.unsteady"
+   ]
   },
   {
    "id": "hoa_loc.tien",
@@ -627,6 +852,14 @@
     "money",
     "marriage",
     "property"
+   ],
+   "explains": [
+    "fin.abundance",
+    "career.success",
+    "career.status",
+    "rel.harmony",
+    "prop.rich",
+    "life.mitigated"
    ]
   },
   {
@@ -637,6 +870,10 @@
    "text": "là địa vị",
    "use": [
     "career"
+   ],
+   "explains": [
+    "career.authority",
+    "career.status"
    ]
   },
   {
@@ -648,7 +885,8 @@
    "use": [
     "money",
     "marriage"
-   ]
+   ],
+   "explains": []
   },
   {
    "id": "hoa_quyen.tai",
@@ -659,7 +897,8 @@
    "use": [
     "money"
    ],
-   "palace": "Tài Bạch"
+   "palace": "Tài Bạch",
+   "explains": []
   },
   {
    "id": "hoa_quyen.the",
@@ -670,7 +909,8 @@
    "use": [
     "marriage"
    ],
-   "palace": "Phu Thê"
+   "palace": "Phu Thê",
+   "explains": []
   },
   {
    "id": "hoa_khoa.khiem",
@@ -681,6 +921,10 @@
    "use": [
     "career",
     "money"
+   ],
+   "explains": [
+    "career.fame",
+    "exp.letters"
    ]
   },
   {
@@ -702,7 +946,8 @@
     "Địa Kiếp",
     "Hỏa Tinh",
     "Linh Tinh"
-   ]
+   ],
+   "explains": []
   },
   {
    "id": "hoa_ky.cung",
@@ -716,7 +961,15 @@
     "marriage",
     "property"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": [
+    "career.obstacle",
+    "fin.volatile",
+    "fin.scarcity",
+    "rel.strain",
+    "prop.poor",
+    "career.late"
+   ]
   },
   {
    "id": "hoa_ky.nang",
@@ -729,7 +982,8 @@
     "money",
     "marriage"
    ],
-   "pol": "-"
+   "pol": "-",
+   "explains": []
   }
  ],
  "relations": [
