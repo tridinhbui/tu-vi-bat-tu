@@ -510,7 +510,7 @@ function hoaSentence(items: Item[], stem: string, home: string, scopeWord: strin
 function decadeText(d: DecadeFacts, y1: number, y2: number, parts: Part[], layers: RawLayer[], level: number): string[] {
   const out: string[] = [];
   const ev = d.kl?.event, dom = DOMAIN[d.palace];
-  out.push(`Chặng ${d.age_from}–${d.age_to} tuổi (${y1}–${y2}) đi qua cung ${d.palace}${ev ? `, nên theo Khảo Luận biến cố của chặng thường liên quan đến ${ev}` : dom ? ` (cung của ${dom})` : ''}.`);
+  out.push(`Chặng ${d.age_from}–${d.age_to} tuổi mụ (${y1}–${y2}) đi qua cung ${d.palace}${ev ? `, nên theo Khảo Luận biến cố của chặng thường liên quan đến ${ev}` : dom ? ` (cung của ${dom})` : ''}.`);
   out.push(hoaSentence(layers.find(l => l.layer === 'hoa_van')!.items, d.stem, 'ngay cung vận', 'cung vận'));
   const b = bookSentence(layers.find(l => l.layer === 'van')!.items, 'Sách về vận ghi:');
   if (b) out.push(b);
@@ -528,7 +528,7 @@ function decadeText(d: DecadeFacts, y1: number, y2: number, parts: Part[], layer
 function yearText(y: YearRaw, dec: DecadeIndex | null, level: number, parts: Part[]): string[] {
   const out: string[] = [];
   const dom = DOMAIN[y.palace];
-  out.push(`Năm ${y.year} (${y.can_chi}), ${y.age} tuổi, ${dec ? `nằm trong chặng ${dec.age_from}–${dec.age_to} (cung ${dec.palace}, mức “${dec.level_vi}”)` : 'chưa vào đại vận đầu tiên'}; tiểu hạn ở cung ${y.palace}${dom ? ` (cung của ${dom})` : ''}.`);
+  out.push(`Năm ${y.year} (${y.can_chi}), ${y.age} tuổi mụ, ${dec ? `nằm trong chặng ${dec.age_from}–${dec.age_to} (cung ${dec.palace}, mức “${dec.level_vi}”)` : 'chưa vào đại vận đầu tiên'}; tiểu hạn ở cung ${y.palace}${dom ? ` (cung của ${dom})` : ''}.`);
   const thItems = y.layers.find(l => l.layer === 'tieu_han')!.items;
   // tiểu hạn in the đại vận's own palace: the decade panel already quotes the same sentences
   const b = dec && dec.palace === y.palace ? (thItems.length ? `Tiểu hạn trùng cung đại vận, nên những lời sách về cung ${y.palace} của chặng này được nhấn thêm trong năm.` : '')

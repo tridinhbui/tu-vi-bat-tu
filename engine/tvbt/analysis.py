@@ -245,8 +245,10 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     ch["tinh-cach"].append(B("Ba tiêu chí mà 八字真宗 (p.26) dùng để xét một hành mạnh hay yếu là đắc lệnh, đắc vị, đắc sinh. Với Nhật Chủ của lá số này, theo cách hệ thống định nghĩa từng tiêu chí: " + "; ".join(crit) + ". Hệ thống chỉ nêu từng tiêu chí, không gộp thành nhãn “thân vượng/nhược” vì sách không đưa ngưỡng tính.", "Khí", "he_thong", ["八字真宗 PDF p.26"]))
 
     # ---------- Công danh
-    ql, td = v.by_n["Quan Lộc"], v.by_n["Thiên Di"]
-    ch["cong-danh"] += [B(f"Cung Quan Lộc ({ql['stem']} {ql['branch']}) nói về {PALACE_ROLE['Quan Lộc']}: " + (_join(v.star_phrase(ql)) or "vô chính diệu") + f". Cung đối là Thiên Di ({td['branch']}): " + (_join(v.star_phrase(td)) or "vô chính diệu") + ".", "Thế", "sach", PALACE_SRC)]
+    # the palace opposite Quan Lộc is the one six branches away (always Phu Thê); Thiên Di is in its tam hợp, not opposite it
+    ql = v.by_n["Quan Lộc"]
+    qd = v.by_b[(ql["branch_index"] + 6) % 12]
+    ch["cong-danh"] += [B(f"Cung Quan Lộc ({ql['stem']} {ql['branch']}) nói về {PALACE_ROLE['Quan Lộc']}: " + (_join(v.star_phrase(ql)) or "vô chính diệu") + f". Cung đối là {qd['name']} ({qd['branch']}): " + (_join(v.star_phrase(qd)) or "vô chính diệu") + ".", "Thế", "sach", PALACE_SRC)]
     ch["cong-danh"] += star_profile_blocks(v, "Quan Lộc")
     ch["cong-danh"].append(B(reach_note(v, "Quan Lộc"), "Thế"))
     ql_aux = v.stars(ql, SAT)

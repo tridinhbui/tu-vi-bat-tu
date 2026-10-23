@@ -15,7 +15,7 @@ export function scopePanelTuvi(t) {
   return `<details class="sc" id="scope-tv"><summary><span class="sc-n">${names.length}</span><span><b>sao đã được an</b> trên lá số này: ${names.length - unv.size} theo bảng đã đối chiếu sách, ${unv.size} theo công thức phổ biến chưa đối chiếu</span><span class="muted small">Xem chi tiết</span></summary>
     <h5>Đã đối chiếu sách</h5><ul><li>14 chính tinh, Tả Hữu, Xương Khúc, Khôi Việt, Lộc Tồn, Kình Đà, Thiên Mã, Hỏa Linh, Không Kiếp, Thiên Không, Đào Hồng Hỷ, Tuần Triệt, ba vòng sao (Thái Tuế, Lộc Tồn, Trường Sinh), Tứ Hóa và đại hạn.</li><li>Độ sáng (miếu, vượng, đắc, bình, hãm) theo bảng đang chọn ở ô "Bảng độ sáng" (mặc định Khảo Luận, như các bảng lá số phổ biến); ô nào không có nhãn nghĩa là bảng đó không ghi vị trí ấy.</li><li>Ba mục các sách tính khác nhau (Tứ Hóa, tiểu hạn, Lưu Hà) ghi rõ theo sách nào trong ô "Tính theo sách nào" dưới bảng lá số.</li></ul>
     <h5>Theo công thức phổ biến, chưa đối chiếu sách (gạch chân chấm)</h5><p>${[...unv].map(esc).join(', ') || 'không có'}. Vị trí của các sao này có thể được kiểm tra lại khi có nguồn; chưa có quy tắc luận giải nào dùng chúng.</p>
-    <h5>Chưa được an hoặc chưa xử lý</h5><ul>${rest.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    <h5>Lớp năm và tháng: đã tính gì, đã luận gì</h5><ul>${rest.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
     <p class="muted small">Một lá số đầy đủ theo truyền thống có hơn một trăm sao. Hệ thống ưu tiên đúng và có nguồn hơn là đủ, nên các sao chưa chắc công thức bị bỏ trống thay vì an đại.</p></details>`;
 }
 

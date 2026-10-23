@@ -482,3 +482,13 @@
 .tv-var li span{color:var(--ink-3);font-size:.8rem}
 .tv-var select{font:inherit;padding:3px 6px;border:1px solid var(--hair);border-radius:6px;background:#fff}
 @media (max-width:640px){.tv-var li{grid-template-columns:1fr auto}.tv-var li span{grid-column:1/-1}}
+
+/* print: the four-pillar table and the Bát Tự plate always fit the page width (owner review 2026-10-22: the hour pillar was cut off) */
+@media print{
+  .bz-plate,.mb,.bz-grid,.bz-more{max-width:100%!important;width:auto!important;overflow:visible!important}
+  .mb-tab{width:100%!important;table-layout:fixed}
+  .mb-tab th{width:62px!important;font-size:7pt!important}
+  .mb-tab td{font-size:8.5pt!important;padding:4px 2px!important;word-break:break-word}
+  .mb-head{flex-wrap:wrap}
+  .mb{break-inside:avoid}
+}
