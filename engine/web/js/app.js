@@ -18,7 +18,7 @@ import { focusFor } from './profile.js';
 import { openShareDialog, loadShare, shareBanner, SHARE_HASH } from './share.js';
 import { exportBoardPng } from './png.js';
 import { initAsk } from './ask.js';
-import { initPaywall } from './paywall.js';
+import { initPaywall, takeResume } from './paywall.js';
 import { initLive } from './live.js';
 import { initGrowth } from './growth.js';
 import { renderOverview } from './overview.js';
@@ -155,13 +155,17 @@ addEventListener('tvbt:variant', e => {
   if (state?.req) (shareMode.id ? compute : generate.bind(null, null))({ ...state.req, [key]: value });
 });
 addEventListener('tvbt:dignity', e => { if (state?.req) (shareMode.id ? compute : generate.bind(null, null))({ ...state.req, dignity_school: e.detail }); });
-// a chapter was opened with xu (js/paywall.js): draw the report again, the server now sends that chapter whole
+// a chapter's Đọc sâu part was opened with xu (js/paywall.js): draw the report again, the server now sends it, and open its fold
 addEventListener('tvbt:unlocked', async e => {
   if (!state?.req) return;
   const id = e.detail?.chapter, sys = $('.res-tabs button[aria-selected=true]')?.id?.replace('tab-', '');
   await generate(null, { ...state.req });
   if (sys) setTab(sys, false);
-  if (id) requestAnimationFrame(() => document.querySelector(`.prose[data-chapter="${id}"]`)?.scrollIntoView({ block: 'start' }));
+  if (id) requestAnimationFrame(() => {
+    const sec = document.querySelector(`.prose[data-chapter="${CSS.escape(id)}"]`);
+    sec?.querySelector('details.pr-deep, details.bt-sau')?.setAttribute('open', '');
+    sec?.scrollIntoView({ block: 'start' });
+  });
 });
 async function generate(ev, saved = null) {
   ev?.preventDefault();
@@ -325,6 +329,8 @@ async function openShare(id) {
 // a pasted share link or the account page, on load and when only the hash changes (same document)
 const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); };
 route(); addEventListener('hashchange', route);
+// back from "Đăng nhập để đọc tiếp" on a guest lock card (js/paywall.js): the chart that was on screen, now read at the member tier
+{ const resume = takeResume(); if (resume && !SHARE_HASH.test(location.hash)) generate(null, resume); }
 function again() { view('home'); history.replaceState(null, '', '#lap-la-so'); requestAnimationFrame(() => $('#lap-la-so').scrollIntoView({ behavior: 'smooth', block: 'start' })); }
 $('#again').onclick = again;
 // the header's "Tải PDF" appears once the result masthead (with its own buttons) has scrolled away

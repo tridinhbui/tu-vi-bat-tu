@@ -16,7 +16,7 @@ export function initAsk(host, getReq) {
     <section class="ask-panel" id="ask-panel" role="dialog" aria-label="Hỏi về lá số" hidden>
       <header class="ask-h"><b>Hỏi về lá số</b><span class="ask-left muted small"></span><button type="button" class="ask-buy-btn btn btn-sm btn-ghost" hidden>Nạp xu</button><button type="button" class="ask-x" aria-label="Đóng">×</button></header>
       <div class="ask-buy" hidden></div>
-      <div class="ask-deep"><select aria-label="Chương muốn đọc sâu">${CHAPTERS.map(([id, t]) => `<option value="${id}">${t}</option>`).join('')}</select><button type="button" class="btn btn-sm btn-ghost">Luận giải sâu · 20 xu</button></div>
+      <div class="ask-deep"><select aria-label="Chương muốn luận giải bằng AI">${CHAPTERS.map(([id, t]) => `<option value="${id}">${t}</option>`).join('')}</select><button type="button" class="btn btn-sm btn-ghost">Luận giải bằng AI · 20 xu</button></div>
       <div class="ask-log" aria-live="polite"></div>
       <p class="ask-note" hidden></p>
       <form class="ask-form"><textarea rows="1" maxlength="1500" placeholder="Ví dụ: Công danh của tôi mạnh ở đâu?" aria-label="Câu hỏi"></textarea><button class="btn btn-sm" type="submit">Gửi</button></form>
@@ -100,17 +100,17 @@ export function initAsk(host, getReq) {
     return { got, failed };
   }
 
-  // "Luận giải sâu": one chapter written out in full by the model; costs coins once, then it is kept
+  // "Luận giải bằng AI" (shown so, not to be confused with the book-based "Đọc sâu (theo sách)"): one chapter written out in full by the model; costs coins once, then it is kept
   const deepBtn = $('.ask-deep .btn', host), deepSel = $('.ask-deep select', host);
   deepBtn.onclick = async () => {
     const req = getReq(); if (!req || busy) return;
     if (!me?.user) { paint(); return; }
     const title = deepSel.selectedOptions[0].textContent;
     busy = true; paint(); deepBtn.disabled = deepSel.disabled = true;
-    say('ask-me', `Luận giải sâu: ${title}`); const out = say('ask-bot', 'Đang viết, khoảng nửa phút…');
+    say('ask-me', `Luận giải bằng AI: ${title}`); const out = say('ask-bot', 'Đang viết, khoảng nửa phút…');
     try {
       const res = await fetch('/api/me/deep', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json', 'x-tvbt': '1' }, body: JSON.stringify({ birth: pick(req), chapter: deepSel.value }) });
-      if (res.status === 402) { const b = await res.json(); setWallet(b.wallet); out.remove(); say('ask-err', `Luận giải sâu cần ${b.need} xu, bạn đang có ${b.wallet.coins} xu.` + (wallet?.canBuy ? ' Nạp thêm xu ở nút phía trên.' : ' Gói xu sẽ có sớm.')); if (wallet?.canBuy) showBuy(true); }
+      if (res.status === 402) { const b = await res.json(); setWallet(b.wallet); out.remove(); say('ask-err', `Luận giải bằng AI cần ${b.need} xu, bạn đang có ${b.wallet.coins} xu.` + (wallet?.canBuy ? ' Nạp thêm xu ở nút phía trên.' : ' Gói xu sẽ có sớm.')); if (wallet?.canBuy) showBuy(true); }
       else if (res.status === 401) { me = null; out.remove(); }
       else if (res.status === 503) { out.remove(); say('ask-err', OFF); }
       else if (!res.ok || !res.body) throw new Error(String(res.status));

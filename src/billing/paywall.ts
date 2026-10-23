@@ -1,13 +1,10 @@
-// Paid report chapters: opening them with coins, and the paywall over /api/interpret. The Worker computes (or reads from cache) the whole
-// reading, then cuts every paid chapter the signed-in reader has not opened down to a short preview BEFORE it leaves the server. The
-// browser is told what is locked and how to open it; it is never trusted to hide anything itself.
+// The three reading tiers (config.ts): guests read the first third of each chapter's main reading, members read every main reading, and the
+// "Đọc sâu (theo sách)" part of a chapter needs that chapter opened with xu. The Worker computes (or reads from cache) the WHOLE reading — the
+// viewer is never part of a cache key — and this file cuts it per request, after the cache, BEFORE it leaves the server. The browser is told
+// what was held back and how to get it; it is never trusted to hide anything itself. Every filtered response is `private, no-store`.
 import { cleanReq } from "../auth/charts.ts";
-import { CHAPTER_TITLES, PREVIEW_PARAGRAPHS, PREVIEW_SENTENCES, isPaidChapter, periodOf, planById, planChapters, plansFor, type PaidChapter } from "./config.ts";
-
-/** Evidence-mode chapters that cover several palaces need every one of them open. */
-const GROUPS: Record<string, PaidChapter[]> = { gia_dao: ["phu_mau", "huynh_de", "tu_tuc"], di_no_tat: ["thien_di", "no_boc", "tat_ach"] };
-/** The paid chapters a served chapter id needs; [] when it is free. */
-export const needs = (id: unknown): PaidChapter[] => typeof id !== "string" ? [] : GROUPS[id] ?? (isPaidChapter(id) ? [id] : []);
+import { currentUser } from "../auth/session.ts";
+import { BAZI_TAB_TITLES, CHAPTER_TITLES, guestShown, isDeepChapter, periodOf, planById, planChapters, plansFor, type DeepChapter, type Tier } from "./config.ts";
 
 export async function unlockedChapters(db: D1Database, userId: string, fp: string): Promise<Set<string>> {
   const { results } = await db.prepare("SELECT chapter FROM unlocks WHERE user_id = ? AND fp = ?").bind(userId, fp).all<{ chapter: string }>();
@@ -15,7 +12,7 @@ export async function unlockedChapters(db: D1Database, userId: string, fp: strin
 }
 
 export type UnlockResult =
-  | { ok: true; charged: number; chapters: PaidChapter[]; already: boolean }
+  | { ok: true; charged: number; chapters: DeepChapter[]; already: boolean }
   | { ok: false; reason: "bad_plan" | "insufficient"; need?: number };
 
 /** Opens a plan's chapters for one chart. One D1 batch (a transaction): the ledger row is written only when the wallet holds enough, the
@@ -45,67 +42,159 @@ export async function buyPlan(db: D1Database, userId: string, fp: string, planId
   return { ok: false, reason: "insufficient", need: cost };
 }
 
-// ---------- the filter ----------
-export interface Access { signedIn: boolean; open: Set<string> }
-type Json = Record<string, any>;
+// ---------- who is reading ----------
+/** `open`: the chapters whose Đọc sâu part this member opened for the chart in the request. `shared`: the reader came through a share link. */
+export interface Access { tier: Tier; open: Set<string>; shared?: boolean }
+export const GUEST: Access = Object.freeze({ tier: "guest", open: new Set<string>() }) as Access;
+/** A share link's viewer reads at the guest tier, whoever they are: the link opens someone else's chart. */
+export const SHARED: Access = Object.freeze({ tier: "guest", open: new Set<string>(), shared: true }) as Access;
 
-const lockInfo = (id: string, need: PaidChapter[], a: Access, shown: number, total: number) => {
-  // a group chapter (evidence mode) is offered through the plans that open its first palace
-  const first = need[0];
-  return { chapter: id, title: CHAPTER_TITLES[id] ?? id, signedIn: a.signedIn, shown, total, missing: need.filter(c => !a.open.has(c)),
-    plans: plansFor(first).map(p => ({ id: p.id, name: p.name, coins: p.coins, chapter: p.chapters === "one" ? first : undefined })) };
-};
-
-/** The first paragraphs of a chapter, never most of it: PREVIEW_PARAGRAPHS of a long chapter, one of a short one, and of a one-paragraph
- *  chapter its first sentences (never all of them). */
-export function preview(ps: Json[]): Json[] {
-  if (ps.length >= 2 * PREVIEW_PARAGRAPHS) return ps.slice(0, PREVIEW_PARAGRAPHS);
-  if (ps.length >= 2) return ps.slice(0, 1);
-  const ss: Json[] = Array.isArray(ps[0]?.sentences) ? ps[0].sentences : [];
-  const n = Math.min(PREVIEW_SENTENCES, ss.length - 1);
-  if (n < 1) return [];
-  const s = ss.slice(0, n);
-  return [{ ...ps[0], sentences: s, text: s.map(x => x.text).join(" ") }];
+/** The tier for one request. Signed out: guest. Signed in: member, with the chapters opened for the chart in the body (a body that is not a
+ *  birth record, or a failing lookup, opens nothing: fail closed). */
+export async function accessFor(db: D1Database | undefined, user: { id: string } | null, body: unknown): Promise<Access> {
+  if (!user) return GUEST;
+  const birth = cleanReq(body);
+  const open = birth && db ? await unlockedChapters(db, user.id, birth.fp).catch(() => new Set<string>()) : new Set<string>();
+  return { tier: "member", open };
 }
 
-/** One served chapter, cut to its preview when it is paid and not open. Only listed fields survive, so nothing new added to a chapter
- *  later can leak through a lock by accident. */
-export function gateChapter(c: Json, a: Access): Json {
-  const need = needs(c?.chapter);
-  if (!need.length) return c;
-  if (need.every(x => a.open.has(x))) return { ...c, unlocked: true };
-  const all: Json[] = Array.isArray(c.paragraphs) ? c.paragraphs : [], kept = preview(all);
-  const used = new Set<string>(), concepts = new Set<string>();
-  for (const p of kept) for (const s of p.sentences ?? []) { for (const r of s.trace?.rules ?? []) used.add(r); for (const k of s.trace?.concepts ?? []) concepts.add(k); }
-  const pick = (o: Json | undefined, keys: Set<string>) => Object.fromEntries(Object.entries(o ?? {}).filter(([k]) => keys.has(k)));
+// ---------- the filter ----------
+type Json = Record<string, any>;
+/** A paragraph of the Đọc sâu part: Tử Vi luận cung `deep`, Bát Tự depth 'sau'. */
+export const isDeep = (p: Json) => p?.deep === true || p?.depth === "sau";
+
+interface Cut { kept: Json[]; main: number; mainShown: number; deep: number; deepShown: number }
+/** The paragraphs this reader gets of one run, in their order: a guest the first third of the main ones, a member all of them; the Đọc sâu
+ *  ones only when `deepOpen`. */
+function cutParagraphs(ps: Json[], tier: Tier, deepOpen: boolean): Cut {
+  const main = ps.filter(p => !isDeep(p)), deep = ps.filter(isDeep);
+  const keepMain = new Set(tier === "guest" ? main.slice(0, guestShown(main.length)) : main);
+  const keepDeep = tier === "member" && deepOpen;
+  const kept = ps.filter(p => keepMain.has(p) || (keepDeep && isDeep(p)));
+  return { kept, main: main.length, mainShown: keepMain.size, deep: deep.length, deepShown: keepDeep ? deep.length : 0 };
+}
+const hidden = (c: Cut) => c.main - c.mainShown + c.deep - c.deepShown;
+
+/** What the lock card shows: a guest is asked to sign in (or, on a share link, told why the reading is short); a member is offered the
+ *  plans that open the chapter's Đọc sâu part. Counts only: no word of the held-back text. */
+function lockInfo(chapter: string, title: string, a: Access, c: Cut): Json {
+  const base = { chapter, title, tier: a.tier, shown: c.mainShown, total: c.main, deep: c.deep - c.deepShown };
+  if (a.tier === "guest") return { ...base, ...(a.shared ? { shared: true } : {}) };
+  const sold = isDeepChapter(chapter.split(":")[0]) ? chapter.split(":")[0] as DeepChapter : null;
+  return { ...base, plans: sold ? plansFor(sold).map(p => ({ id: p.id, name: p.name, coins: p.coins, chapter: p.chapters === "one" ? sold : undefined })) : [] };
+}
+
+const TOP_KEEP = ["engine", "kbVersion", "chapter", "palace", "title", "schema", "order", "draft", "pass", "luan", "card"];
+const MEMBER_KEEP = ["theses", "advice"];
+
+/** One served chapter for this reader. Nothing held back: the chapter as it was. Otherwise only listed fields survive, so nothing added to a
+ *  chapter later can leak through a cut by accident; the evidence keeps only the rules and concepts behind the sentences sent (a member also
+ *  keeps the verdict ledger and its rules: the reading's footing, not the Đọc sâu prose). */
+export function gateChapter(ch: Json, a: Access): Json {
+  if (!ch || typeof ch !== "object" || !Array.isArray(ch.paragraphs)) return ch;
+  const id = String(ch.chapter ?? ""), deepOpen = a.tier === "member" && a.open.has(id);
+  const tabs: Array<[string, Json[]]> = ch.chapters && typeof ch.chapters === "object" && !Array.isArray(ch.chapters)
+    ? Object.entries(ch.chapters as Record<string, Json[]>).filter(([, ps]) => Array.isArray(ps)) : [];
+  const flat = cutParagraphs(ch.paragraphs, a.tier, deepOpen);
+  const tabCuts = tabs.map(([t, ps]) => [t, cutParagraphs(ps, a.tier, deepOpen)] as const);
+  const anyDeep = flat.deep > 0 || tabCuts.some(([, c]) => c.deep > 0);
+  if (!hidden(flat) && tabCuts.every(([, c]) => !hidden(c))) return deepOpen && anyDeep ? { ...ch, unlocked: true } : ch;
+
   const out: Json = {};
-  for (const k of ["engine", "kbVersion", "chapter", "palace", "title", "schema", "order", "draft", "pass"]) if (k in c) out[k] = c[k];
+  for (const k of TOP_KEEP) if (k in ch) out[k] = ch[k];
+  if (a.tier === "member") for (const k of MEMBER_KEEP) if (k in ch) out[k] = ch[k];
+  // Bát Tự: each tab cut on its own (a guest reads the first third of every tab); the flat reading becomes what the tabs kept
+  if (tabs.length) {
+    out.chapters = Object.fromEntries(tabCuts.filter(([, c]) => c.kept.length).map(([t, c]) => [t, c.kept]));
+    out.locks = Object.fromEntries(tabCuts.filter(([, c]) => hidden(c)).map(([t, c]) => [t, lockInfo(`${id}:${t}`, BAZI_TAB_TITLES[t] ?? t, a, c)]));
+  }
+  const kept: Json[] = tabs.length ? tabCuts.flatMap(([, c]) => c.kept) : flat.kept;
   out.paragraphs = kept;
   out.text = kept.map(p => p.text ?? "").join("\n\n");
   out.issues = [];
-  out.evidence = { resolved: [], tensions: [], unused: [], divergences: [], limits: [], rules: pick(c.evidence?.rules, used), concepts: pick(c.evidence?.concepts, concepts) };
-  if (Array.isArray(c.decades)) out.decades = c.decades;                               // ages and palaces: facts already on the board
-  if (Array.isArray(c.starts)) out.starts = c.starts.filter((i: number) => i < kept.length);
-  if (c.chapters && typeof c.chapters === "object") out.chapters = { "nhat-chu": kept };   // Bát Tự: the preview heads its first chapter
-  out.locked = lockInfo(String(c.chapter), need, a, kept.length, all.length);
+  const used = new Set<string>(), concepts = new Set<string>();
+  for (const p of kept) for (const s of p.sentences ?? []) { for (const r of s.trace?.rules ?? []) used.add(r); for (const k of s.trace?.concepts ?? []) concepts.add(k); }
+  const ev: Json = ch.evidence ?? {};
+  const ledger: Json[] = a.tier === "member" && Array.isArray(ev.ledger) ? ev.ledger : [];
+  for (const d of ledger) { if (d?.link?.ruleId) used.add(d.link.ruleId); for (const x of d?.chain ?? []) if (x?.ruleId) used.add(x.ruleId); }
+  const pick = (o: Json | undefined, keys: Set<string>) => Object.fromEntries(Object.entries(o ?? {}).filter(([k]) => keys.has(k)));
+  out.evidence = { resolved: [], tensions: [], unused: [], limits: Array.isArray(ev.limits) ? ev.limits : [], rules: pick(ev.rules, used), concepts: pick(ev.concepts, concepts),
+    divergences: a.tier === "member" && Array.isArray(ev.divergences) ? ev.divergences : [], ...(a.tier === "member" && Array.isArray(ev.ledger) ? { ledger } : {}) };
+  // van_han: the decade facts are on the board already; the paragraph index of each decade's start follows the paragraphs kept
+  if (Array.isArray(ch.decades)) out.decades = ch.decades;
+  if (Array.isArray(ch.starts)) {
+    const at = new Map(ch.paragraphs.map((p: Json, i: number) => [p, i]));
+    const newIdx = new Map(kept.map((p, j) => [at.get(p), j]));
+    out.starts = ch.starts.filter((i: number) => newIdx.has(i)).map((i: number) => newIdx.get(i));
+  }
+  const whole = tabs.length
+    ? tabCuts.reduce((s, [, c]) => ({ kept: [], main: s.main + c.main, mainShown: s.mainShown + c.mainShown, deep: s.deep + c.deep, deepShown: s.deepShown + c.deepShown }), { kept: [], main: 0, mainShown: 0, deep: 0, deepShown: 0 } as Cut)
+    : flat;
+  out.locked = lockInfo(id, CHAPTER_TITLES[id] ?? String(ch.title ?? id), a, whole);
   return out;
 }
 
 /** A whole /api/interpret answer: one chapter, or {chapters: [...]} for chapter "all". */
 export function gateOutput(out: Json, a: Access): Json {
   if (Array.isArray(out?.chapters) && !("paragraphs" in out)) return { ...out, chapters: out.chapters.map((c: Json) => gateChapter(c, a)) };
+  if (out && typeof out === "object" && "plan" in out && a.tier === "guest") { const { plan: _p, ...rest } = out; return gateChapter(rest, a); }   // mode "reasoned"
   return gateChapter(out, a);
 }
 
-/** The paywall over a finished /api/interpret response: the reader's open chapters for the chart in the request body, then gateOutput.
- *  Signed out, or with a body that is not a birth record, nothing paid is open. A failing lookup also opens nothing (fail closed). */
-export async function gateResponse(res: Response, body: unknown, db: D1Database | undefined, user: { id: string } | null): Promise<Response> {
+/** POST /api/overview ("Tổng quan lá số"): the Mệnh theses are the Mệnh reading told as data, so a guest gets the first third of them; the
+ *  frame (the palace's stars) and the charts are chart facts and stay. */
+export function gateOverview(out: Json, a: Access): Json {
+  if (a.tier !== "guest" || !Array.isArray(out?.theses)) return out;
+  const n = out.theses.length, k = guestShown(n);
+  if (k >= n) return out;
+  return { ...out, theses: out.theses.slice(0, k), locked: { chapter: "overview", title: "Luận điểm chính về Mệnh", tier: "guest", shown: k, total: n, deep: 0, ...(a.shared ? { shared: true } : {}) } };
+}
+
+/** POST /api/synthesis (engine flag TVBT_DEEP_INTERPRETATION): a chapter list of paragraphs; a guest gets the first third of each. The
+ *  Semantic IR (level 5) is the whole reading as data and never goes to a guest. */
+export function gateSynthesis(out: Json, a: Access): Json {
+  if (a.tier !== "guest" || !out || typeof out !== "object") return out;
+  const { semantic_ir: _ir, ...rest } = out;
+  if (!Array.isArray(rest.chapters)) return rest;
+  return { ...rest, chapters: rest.chapters.map((c: Json) => {
+    const ps: Json[] = Array.isArray(c?.paragraphs) ? c.paragraphs : [], k = guestShown(ps.length);
+    if (k >= ps.length) return c;
+    return { id: c.id, title: c.title, paragraphs: ps.slice(0, k), locked: { chapter: String(c.id), title: String(c.title ?? c.id), tier: "guest", shown: k, total: ps.length, deep: 0, ...(a.shared ? { shared: true } : {}) } };
+  }) };
+}
+
+export type Filter = (out: Json, a: Access) => Json;
+/** The filter for each gated path. /api/interpretation (the evidence engine: every conclusion of every palace, with its sources) has no
+ *  first-third form: a guest is refused it (the report works without it). */
+export const FILTERS: Record<string, Filter | "members"> = {
+  "/api/interpret": gateOutput, "/api/overview": gateOverview, "/api/synthesis": gateSynthesis, "/api/interpretation": "members",
+};
+
+const PRIVATE = "private, no-store";
+/** A finished engine response, cut for this reader. Errors pass through untouched; whatever is sent is never stored by a shared cache. */
+export async function gateResponse(res: Response, a: Access, filter: Filter | "members" = gateOutput): Promise<Response> {
   if (!res.ok) return res;
-  const birth = cleanReq(body);
-  const open = user && birth && db ? await unlockedChapters(db, user.id, birth.fp).catch(() => new Set<string>()) : new Set<string>();
-  const out = await res.json() as Json;
   const headers = new Headers(res.headers);
-  headers.set("cache-control", "private, no-store");
+  headers.set("cache-control", PRIVATE);
   headers.delete("content-length");
-  return new Response(JSON.stringify(gateOutput(out, { signedIn: !!user, open })), { status: res.status, headers });
+  headers.set("content-type", "application/json; charset=utf-8");
+  if (filter === "members") {
+    if (a.tier === "guest") return new Response(JSON.stringify({ detail: "Đăng nhập để xem phần này.", locked: { tier: "guest", ...(a.shared ? { shared: true } : {}) } }), { status: 401, headers });
+    return new Response(res.body, { status: res.status, headers });
+  }
+  const out = await res.json() as Json;
+  return new Response(JSON.stringify(filter(out, a)), { status: res.status, headers });
+}
+
+/** One gated route (src/index.ts): with the paywall on, a POST to a path in FILTERS runs, then leaves cut to the reader's tier. The cut runs on
+ *  the finished response, after the cache, so the cache never holds a per-reader copy. `shared`: the request was built by a share link's
+ *  forward, so the reader is a guest whoever is signed in. Only /api/interpret carries Đọc sâu: the chart in its body picks the member's
+ *  opened chapters. */
+export async function gated(request: Request, o: { db?: D1Database; paywall: boolean; path: string; shared: boolean }, run: (r: Request) => Promise<Response>): Promise<Response> {
+  const filter = FILTERS[o.path];
+  if (!o.paywall || request.method !== "POST" || !filter) return run(request);
+  const body = o.path === "/api/interpret" && !o.shared ? await request.clone().json().catch(() => null) : null;
+  const who = o.shared ? Promise.resolve(SHARED) : o.db ? currentUser(o.db, request).then(u => accessFor(o.db, u, body)).catch(() => GUEST) : Promise.resolve(GUEST);
+  const [res, access] = await Promise.all([run(request), who]);
+  return gateResponse(res, access, filter);
 }

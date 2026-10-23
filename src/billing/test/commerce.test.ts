@@ -1,16 +1,16 @@
-// Phase 2 money rules against a real local D1: the paywall cuts paid chapters on the server, unlocking spends coins once, gift and
+// Phase 2 money rules against a real local D1: unlocking the Đọc sâu part spends coins once (the reading tiers themselves: tiers.test.ts), gift and
 // discount codes, Stripe orders with a discount, the wallet history, and the admin code routes.
 import { test, before, after, beforeEach } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import { getPlatformProxy } from "wrangler";
-import { buyPlan, gateOutput, gateResponse, needs, preview, unlockedChapters } from "../paywall.ts";
+import { buyPlan, unlockedChapters } from "../paywall.ts";
 import { createCode, redeemGift, checkDiscount, setActive } from "../codes.ts";
 import { completeOrder, createOrder, getOrder, walletHistory, receiptEmail } from "../orders.ts";
 import { handleEvent } from "../stripe.ts";
 import { handleBilling, plansView } from "../route.ts";
 import { getWallet, grant } from "../wallet.ts";
-import { PACKS, PAID_CHAPTERS, PALACE_CHAPTERS, PLANS, PRICES_ARE_PLACEHOLDERS, discounted, planById } from "../config.ts";
+import { DEEP_CHAPTERS, PACKS, PALACE_CHAPTERS, PLANS, PRICES_ARE_PLACEHOLDERS, discounted, planById } from "../config.ts";
 import { handleAdmin } from "../../admin/route.ts";
 
 let proxy: Awaited<ReturnType<typeof getPlatformProxy>>, db: D1Database, n = 0, uid = "", user: any;
@@ -35,57 +35,15 @@ const me = (path: string, body?: unknown, u: any = user, method = body === undef
   handleBilling(new Request(`https://tu-vi.test${path}`, { method, headers: { "x-tvbt": "1" }, body: body === undefined ? undefined : JSON.stringify(body) }), { DB: db, STRIPE_SECRET_KEY: "sk_test" } as any, u,
     (async () => new Response(JSON.stringify({ url: "https://checkout.stripe.com/c/pay/cs_x", id: `cs_${Math.random().toString(36).slice(2)}` }))) as any, T);
 
-// a prose chapter as /api/interpret mode "prose" serves it: paragraphs of traced sentences, evidence, advice
-const sent = (t: string, rules: string[] = []) => ({ text: t, trace: { move: "ANCHOR", basis: "sach", rules, concepts: [`k_${t}`], cites: [] } });
-const para = (i: number) => ({ role: "core", sentences: [sent(`P${i}a.`, [`R${i}`]), sent(`P${i}b.`)], text: `P${i}a. P${i}b.` });
-const chapter = (id: string, nPara = 5) => ({
-  engine: "e", kbVersion: "k", chapter: id, palace: "X", schema: "S", order: [], draft: true, pass: true,
-  paragraphs: Array.from({ length: nPara }, (_, i) => para(i)), text: "all the text", issues: [{ level: "warn", code: "x", msg: "secret detail" }], metrics: { secret: 1 },
-  advice: { strengths: ["a"], actions: ["b"] },
-  evidence: { resolved: [1], tensions: [1], unused: ["R9"], rules: Object.fromEntries(Array.from({ length: nPara }, (_, i) => [`R${i}`, { reading: `reading ${i}`, cites: [] }])), concepts: { "k_P0a.": "c0", "k_P4a.": "c4" }, divergences: [{ note: "n", rules: [] }], limits: ["l"] },
-});
-
-test("config: one source of prices, all marked as placeholders; plans open only paid chapters; discount rounding has a floor", () => {
+test("config: one source of prices, all marked as placeholders; plans open only chapters with a Đọc sâu part; discount rounding has a floor", () => {
   assert.equal(PRICES_ARE_PLACEHOLDERS, true);
   const v = plansView({} as any);
   assert.equal(v.placeholder, true); assert.match(v.placeholderLabel, /GIÁ TẠM/);
   assert.deepEqual(v.providers, { stripe: false, vnpay: false }); assert.equal(v.paywall, false);
   assert.equal(plansView({ TVBT_PAYWALL: "1" } as any).paywall, true);
-  for (const p of PLANS) if (p.chapters !== "one") for (const c of p.chapters) assert.ok((PAID_CHAPTERS as readonly string[]).includes(c), `${p.id}: ${c}`);
-  assert.ok(!(PAID_CHAPTERS as readonly string[]).includes("menh"));
+  for (const p of PLANS) if (p.chapters !== "one") for (const c of p.chapters) assert.ok((DEEP_CHAPTERS as readonly string[]).includes(c), `${p.id}: ${c}`);
+  assert.ok(!(DEEP_CHAPTERS as readonly string[]).includes("tong_quan"));
   assert.equal(discounted(49000, 0), 49000); assert.equal(discounted(129000, 10), 116000); assert.equal(discounted(49000, 90), 10000); assert.equal(discounted(8000, 50), 8000);
-  assert.deepEqual(needs("gia_dao"), ["phu_mau", "huynh_de", "tu_tuc"]); assert.deepEqual(needs("menh"), []); assert.deepEqual(needs("van_han"), ["van_han"]);
-});
-
-test("preview: two paragraphs of a long chapter, one of a short one, first sentences of a one-paragraph chapter, never all of it", () => {
-  assert.equal(preview(chapter("x", 5).paragraphs).length, 2);
-  assert.equal(preview(chapter("x", 3).paragraphs).length, 1);
-  const one = preview(chapter("x", 1).paragraphs);
-  assert.equal(one.length, 1); assert.equal(one[0].sentences.length, 1); assert.equal(one[0].text, "P0a.");
-  assert.deepEqual(preview([{ sentences: [sent("only")] }]), []);
-  assert.deepEqual(preview([]), []);
-});
-
-test("paywall: a locked chapter leaves only its preview and the rules behind it; advice, issues, other evidence and the full text are gone", () => {
-  const out = gateOutput({ engine: "e", chapters: [chapter("menh"), chapter("cong_danh"), chapter("van_han", 12), { ...chapter("bat_tu"), chapters: { "nhat-chu": [para(0)], "su-nghiep": [para(3)] } }], pass: true }, { signedIn: false, open: new Set() });
-  const [menh, cd, vh, bt] = out.chapters;
-  assert.equal(menh.paragraphs.length, 5); assert.ok(menh.advice); assert.equal(menh.locked, undefined);          // free chapter untouched
-  assert.equal(cd.paragraphs.length, 2); assert.equal(cd.text, "P0a. P0b.\n\nP1a. P1b.");
-  assert.equal(cd.advice, undefined); assert.deepEqual(cd.issues, []); assert.equal(cd.metrics, undefined);
-  assert.deepEqual(Object.keys(cd.evidence.rules).sort(), ["R0", "R1"]); assert.deepEqual(cd.evidence.concepts, { "k_P0a.": "c0" });
-  assert.deepEqual(cd.evidence.divergences, []); assert.deepEqual(cd.evidence.unused, []);
-  assert.ok(!JSON.stringify(cd).includes("P4a") && !JSON.stringify(cd).includes("reading 4") && !JSON.stringify(cd).includes("all the text"));
-  assert.deepEqual(cd.locked.plans.map((p: any) => p.id), ["chuong", "van_han", "cung12", "tron_bo"].filter(id => planById(id)!.chapters === "one" || (planById(id)!.chapters as readonly string[]).includes("cong_danh")));
-  assert.equal(cd.locked.plans.find((p: any) => p.id === "chuong").chapter, "cong_danh");
-  assert.equal(cd.locked.signedIn, false); assert.deepEqual([cd.locked.shown, cd.locked.total], [2, 5]);
-  assert.equal(vh.paragraphs.length, 2); assert.ok(vh.locked.plans.some((p: any) => p.id === "van_han"));
-  assert.deepEqual(Object.keys(bt.chapters), ["nhat-chu"]); assert.equal(bt.chapters["nhat-chu"].length, 2);    // other Bát Tự chapters are not sent
-  // opened: whole again, marked
-  const open = gateOutput(chapter("cong_danh"), { signedIn: true, open: new Set(["cong_danh"]) });
-  assert.equal(open.paragraphs.length, 5); assert.equal(open.unlocked, true); assert.ok(open.advice);
-  // a group chapter (evidence mode) needs all of its palaces
-  assert.ok(gateOutput(chapter("gia_dao"), { signedIn: true, open: new Set(["phu_mau", "huynh_de"]) }).locked);
-  assert.equal(gateOutput(chapter("gia_dao"), { signedIn: true, open: new Set(["phu_mau", "huynh_de", "tu_tuc"]) }).locked, undefined);
 });
 
 test("buying a plan: refused without coins (nothing charged, nothing opened), charged once, double clicks and repeats are free", async () => {
@@ -101,7 +59,7 @@ test("buying a plan: refused without coins (nothing charged, nothing opened), ch
   assert.deepEqual(await buyPlan(db, uid, FP, "cung12", undefined, T), { ok: true, charged: 0, chapters: [...PALACE_CHAPTERS], already: true });
   // one chapter of another chart; a chapter must be named for "chuong", and must be a paid one
   assert.deepEqual(await buyPlan(db, uid, "other-fp", "chuong", undefined, T), { ok: false, reason: "bad_plan" });
-  assert.deepEqual(await buyPlan(db, uid, "other-fp", "chuong", "menh", T), { ok: false, reason: "bad_plan" });
+  assert.deepEqual(await buyPlan(db, uid, "other-fp", "chuong", "tong_quan", T), { ok: false, reason: "bad_plan" });     // no Đọc sâu part to sell
   assert.deepEqual(await buyPlan(db, uid, "other-fp", "nope", undefined, T), { ok: false, reason: "bad_plan" });
   const one = await buyPlan(db, uid, "other-fp", "chuong", "van_han", T);
   assert.ok(one.ok && one.charged === planById("chuong")!.coins);
@@ -112,30 +70,18 @@ test("buying a plan: refused without coins (nothing charged, nothing opened), ch
   assert.equal((await unlockedChapters(db, other, FP)).size, 0);
 });
 
-test("unlock route and gated response: the server decides, per signed-in account and chart", async () => {
-  assert.equal((await me("/api/me/unlock", { birth: BIRTH, plan: "van_han" }, null)).status, 401);
-  assert.equal((await me("/api/me/unlock", { birth: { year: "x" }, plan: "van_han" })).status, 400);
-  const poor = await me("/api/me/unlock", { birth: BIRTH, plan: "van_han" });
-  assert.equal(poor.status, 402); assert.equal(((await poor.json()) as any).need, planById("van_han")!.coins);
-  const served = () => new Response(JSON.stringify({ chapters: [chapter("menh"), chapter("van_han"), chapter("tai_bach")] }), { headers: { "content-type": "application/json" } });
-  const gated = async (body: unknown, u: any) => (await (await gateResponse(served(), body, db, u)).json() as any).chapters;
-  let [, vh, tb] = await gated({ ...BIRTH, chapter: "all", mode: "prose" }, user);
-  assert.ok(vh.locked && tb.locked); assert.equal(vh.locked.signedIn, true);
+test("unlock route: the server decides, per signed-in account and chart", async () => {
+  const VH = { plan: "chuong", chapter: "van_han" }, cost = planById("chuong")!.coins;
+  assert.equal((await me("/api/me/unlock", { birth: BIRTH, ...VH }, null)).status, 401);
+  assert.equal((await me("/api/me/unlock", { birth: { year: "x" }, ...VH })).status, 400);
+  assert.equal((await me("/api/me/unlock", { birth: BIRTH, plan: "van_han" })).status, 400);                  // retired plan
+  const poor = await me("/api/me/unlock", { birth: BIRTH, ...VH });
+  assert.equal(poor.status, 402); assert.equal(((await poor.json()) as any).need, cost);
   await grant(db, uid, 100, "t2", T);
-  const ok = await me("/api/me/unlock", { birth: { ...BIRTH, to_year: 2026, chapter: "all" }, plan: "van_han" });
+  const ok = await me("/api/me/unlock", { birth: { ...BIRTH, to_year: 2026, chapter: "all" }, ...VH });
   const j = await ok.json() as any;
-  assert.equal(ok.status, 200); assert.equal(j.charged, planById("van_han")!.coins); assert.deepEqual(j.open, ["van_han"]); assert.equal(j.wallet.coins, 100 - planById("van_han")!.coins);
-  [, vh, tb] = await gated({ ...BIRTH, chapter: "all", mode: "prose", to_year: 2026 }, user);
-  assert.equal(vh.paragraphs.length, 5); assert.ok(tb.locked);
-  // signed out, another account, another chart, or a body that is not a birth record: still locked
-  assert.ok((await gated({ ...BIRTH }, null))[1].locked);
-  assert.ok((await gated({ ...BIRTH, day: 18 }, user))[1].locked);
-  assert.ok((await gated({ nonsense: true }, user))[1].locked);
-  const res = await gateResponse(served(), BIRTH, db, user);
-  assert.equal(res.headers.get("cache-control"), "private, no-store");
-  // an error from the engine passes through untouched
-  const err = new Response("{}", { status: 502 });
-  assert.equal(await gateResponse(err, BIRTH, db, user), err);
+  assert.equal(ok.status, 200); assert.equal(j.charged, cost); assert.deepEqual(j.open, ["van_han"]); assert.equal(j.wallet.coins, 100 - cost);
+  assert.deepEqual([...await unlockedChapters(db, uid, FP)], ["van_han"]);
 });
 
 test("gift codes: credited once per account, capped by max uses, refused when expired or switched off", async () => {
@@ -215,14 +161,14 @@ test("wallet history: top-ups with their VND amount and receipt, gifts, unlocks;
   const order = await createOrder(db, { userId: uid, provider: "vnpay", pack: PACKS[0] }, T);
   assert.equal(await completeOrder(db, order, "TXN1", "vnp 00/00", T), "credited");
   await createCode(db, { kind: "gift", code: "HIST-1", coins: 10 }, "a", T); await redeemGift(db, uid, "HIST-1", T);
-  await buyPlan(db, uid, FP, "van_han", undefined, T + 1);
+  await buyPlan(db, uid, FP, "chuong", "van_han", T + 1);
   await db.prepare("INSERT INTO ledger (user_id, kind, usage, delta, period, created_at) VALUES (?, 'free_spend', 'chat', 0, '2026-10', ?)").bind(uid, T).run();
   const h = await walletHistory(db, uid);
-  assert.deepEqual(h.map(x => [x.kind, x.delta]), [["coin_spend", -planById("van_han")!.coins], ["gift", 10], ["grant", PACKS[0].coins]]);
+  assert.deepEqual(h.map(x => [x.kind, x.delta]), [["coin_spend", -planById("chuong")!.coins], ["gift", 10], ["grant", PACKS[0].coins]]);
   assert.equal(h[2].order, order.id); assert.equal(h[2].amount, order.amount); assert.equal(h[2].provider, "vnpay");
-  assert.equal(h[0].usage, "unlock:van_han");
+  assert.equal(h[0].usage, "unlock:chuong");
   const r = await me("/api/me/wallet/history"), j = await r.json() as any;
-  assert.equal(r.status, 200); assert.equal(j.history.length, 3); assert.equal(j.orders[0].status, "paid"); assert.equal(j.wallet.coins, PACKS[0].coins + 10 - planById("van_han")!.coins);
+  assert.equal(r.status, 200); assert.equal(j.history.length, 3); assert.equal(j.orders[0].status, "paid"); assert.equal(j.wallet.coins, PACKS[0].coins + 10 - planById("chuong")!.coins);
   // the receipt e-mail says what was paid and leaves the seller lines for the owner
   const mail = receiptEmail((await getOrder(db, order.id))!, "https://tu-vi.test", { email: user.email });
   assert.match(mail.subject, new RegExp(order.id)); assert.match(mail.text, /49\.000đ/); assert.match(mail.text, /chủ site điền/); assert.match(mail.html, /bien-nhan\?order=/);
