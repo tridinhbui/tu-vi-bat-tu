@@ -90,7 +90,8 @@ def test_reconcile_one_verdict_per_luck_pillar(owner):
     assert v["Giáp Ngọ"]["verdict"] == "thuan" and v["Giáp Ngọ"]["agree"] == "cung"
     assert v["Đinh Dậu"]["agree"] == "tron"                                                  # Đinh good, Dậu (Tài) bad
     mt = next(x for x in owner["luck"] if x["pillar"] == "Mậu Tuất")
-    assert [y["year"] for y in mt["good_years"]][:3] == [2024, 2026, 2027]                     # Giáp Thìn (Giáp), Bính Ngọ, Đinh Mùi (Tỉ Kiếp)
+    # owner review 2026-10-22: the years follow each year's own verdict (2024 Giáp Thìn: Thìn bad; 2027 Đinh Mùi: Mùi bad, hình + phá the luck Tuất)
+    assert [y["year"] for y in mt["good_years"]] == [2025, 2026]
 
 
 def test_shensha_stem_named_in_vietnamese():
