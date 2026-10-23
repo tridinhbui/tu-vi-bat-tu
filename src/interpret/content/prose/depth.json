@@ -20,7 +20,10 @@
   "giao_tiep": "Cách trò chuyện",
   "cang_thang": "Nguồn căng thẳng",
   "giu": "Điều giữ cho êm",
-  "dieu_kien": "Mặt thuận đứng được khi nào"
+  "dieu_kien": "Mặt thuận đứng được khi nào",
+  "nha_dat": "Nhà đất và của để dành",
+  "hao_ton": "Điều làm hao cơ nghiệp",
+  "voi_tai": "Điền Trạch và Tài Bạch"
  },
  "claim": [
   "{Ground} cho thấy {claim}",
@@ -110,5 +113,15 @@
  "back_mech": [
   "{Np} nói ở trên đứng trên {ground}, mà {star} vốn {text}",
   "{Np} đã nói có gốc ở {ground}: {star} vốn {text}"
- ]
+ ],
+ "relation_with": {
+  "tai.che_tai": [
+   "Hai cung giữ phần chế tài cho Tài Bạch là {facts}",
+   "Phần chế tài của Tài Bạch nằm ở hai cung: {facts}"
+  ],
+  "dien.ben": [
+   "Nhà đất là dạng bền của của cải; ở đây, {facts}",
+   "Của cải bền nhất là nhà đất, và ở lá số này {facts}"
+  ]
+ }
 }

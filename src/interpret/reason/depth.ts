@@ -33,17 +33,19 @@ export interface StarNature { id: string; star: string; also?: string[]; page: n
 export interface PalaceRelation { id: string; palace: string; page: number; quote: string; text: string; when?: string; with?: string[] }
 export interface StarNatureFile { version: string; basis: string; entries: StarNature[]; relations: PalaceRelation[] }
 
-export type DepthDomain = 'cong_danh' | 'tai_bach' | 'phu_the';
-export const DEPTH_PALACE: Record<DepthDomain, string> = { cong_danh: 'Quan Lộc', tai_bach: 'Tài Bạch', phu_the: 'Phu Thê' };
-const USE: Record<DepthDomain, Use> = { cong_danh: 'career', tai_bach: 'money', phu_the: 'marriage' };
+export type DepthDomain = 'cong_danh' | 'tai_bach' | 'phu_the' | 'dien_trach';
+export const DEPTH_PALACE: Record<DepthDomain, string> = { cong_danh: 'Quan Lộc', tai_bach: 'Tài Bạch', phu_the: 'Phu Thê', dien_trach: 'Điền Trạch' };
+const USE: Record<DepthDomain, Use> = { cong_danh: 'career', tai_bach: 'money', phu_the: 'marriage', dien_trach: 'property' };
 /** the palaces whose readings a domain's deep reading gathers (domains.json, a labelled system convention) and their place in it */
 const PALACES: Record<DepthDomain, string[]> = { cong_danh: ['Quan Lộc', 'Mệnh', 'Tài Bạch', 'Thiên Di'], tai_bach: ['Tài Bạch', 'Mệnh', 'Quan Lộc', 'Phúc Đức', 'Điền Trạch'],
-  phu_the: ['Phu Thê', 'Phúc Đức', 'Mệnh'] };
+  phu_the: ['Phu Thê', 'Phúc Đức', 'Mệnh'], dien_trach: ['Điền Trạch'] };
 /** the sections of each domain, in reading order */
 export const SECTIONS: Record<DepthDomain, string[]> = {
   cong_danh: ['huong', 'the_manh', 'moi_truong', 'quyen', 'nhip', 'tro_ngai', 'tien_bac'],
   tai_bach: ['kiem', 'tich_luy', 'ben', 'chi_tieu', 'rui_ro', 'lien_cung'],
   phu_the: ['dong_luc', 'hop', 'giao_tiep', 'cang_thang', 'giu', 'dieu_kien'],
+  // Điền Trạch (the first palace after the three of the plan): what holds the property, what wears it down, how it stands with Tài Bạch
+  dien_trach: ['nha_dat', 'hao_ton', 'voi_tai'],
 };
 /** which section a reading of a concept belongs to, by domain (concept id first, then facet prefix) */
 function sectionOf(d: DepthDomain, c: Concept, palace: string): string | null {
@@ -58,6 +60,10 @@ function sectionOf(d: DepthDomain, c: Concept, palace: string): string | null {
     if (f.startsWith('career.')) return c.pol === '-' ? 'tro_ngai' : 'the_manh';
     if (f.startsWith('finance.') && palace === 'Quan Lộc') return 'tien_bac';
     return null;
+  }
+  if (d === 'dien_trach') {
+    if (f !== 'finance.property' && !(f.startsWith('finance.') && palace === 'Điền Trạch')) return null;
+    return c.pol === '-' ? 'hao_ton' : 'nha_dat';
   }
   if (d === 'tai_bach') {
     if (!f.startsWith('finance.')) return null;
@@ -183,7 +189,7 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
 
   // ---- the domain palace's own structure where no reading stood on it ----
   const majorsHere = ev.majors.map(m => m.star);
-  const orient = domain === 'cong_danh' ? 'huong' : domain === 'tai_bach' ? 'kiem' : 'dong_luc';
+  const orient = domain === 'cong_danh' ? 'huong' : domain === 'tai_bach' ? 'kiem' : domain === 'dien_trach' ? 'nha_dat' : 'dong_luc';
   for (const m of ev.majors) {
     if (toldStar.has(m.star) || m.borrowed) continue;
     const n = natureOf(k, m.star, use, said, { palace: P });
@@ -208,12 +214,12 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     const n = natureOf(k, h.hoa, use, said, { palace: P });
     if (!n) continue;
     said.add(n.id); toldStar.add(h.hoa);
-    const sec = h.hoa === 'Hóa Kỵ' ? (domain === 'cong_danh' ? 'tro_ngai' : domain === 'tai_bach' ? 'rui_ro' : 'cang_thang')
-      : h.hoa === 'Hóa Quyền' ? (domain === 'cong_danh' ? 'quyen' : domain === 'tai_bach' ? 'kiem' : 'hop') : orient;
+    const sec = h.hoa === 'Hóa Kỵ' ? (domain === 'cong_danh' ? 'tro_ngai' : domain === 'tai_bach' ? 'rui_ro' : domain === 'dien_trach' ? 'hao_ton' : 'cang_thang')
+      : h.hoa === 'Hóa Quyền' ? (domain === 'cong_danh' ? 'quyen' : domain === 'tai_bach' ? 'kiem' : domain === 'dien_trach' ? 'nha_dat' : 'hop') : orient;
     push({ kind: 'mechanism', section: sec, nature: n, star: h.hoa, palace: P, where: 'self', elements: [{ name: `${h.star}|${h.hoa}`, palace: P, where: 'self' }] });
   }
   // limiting elements of the palace: the sát / Hao / Kỵ nature, in the obstacle section
-  const obst = domain === 'cong_danh' ? 'tro_ngai' : domain === 'tai_bach' ? 'rui_ro' : 'cang_thang';
+  const obst = domain === 'cong_danh' ? 'tro_ngai' : domain === 'tai_bach' ? 'rui_ro' : domain === 'dien_trach' ? 'hao_ton' : 'cang_thang';
   for (const e of [...ev.limit, ...ev.mixed.filter(x => x.kind === 'ky_carrier')]) {
     const name = e.kind === 'hoa_ky' ? 'Hóa Kỵ' : e.star;
     // a borrowed chính tinh does not stand in the palace: its nature is not told as the palace's own
@@ -238,12 +244,12 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
   }
 
   // ---- links to the other palaces of the domain ----
-  const linkSec = domain === 'cong_danh' ? 'tien_bac' : domain === 'tai_bach' ? 'lien_cung' : 'dieu_kien';
+  const linkSec = domain === 'cong_danh' ? 'tien_bac' : domain === 'tai_bach' ? 'lien_cung' : domain === 'dien_trach' ? 'voi_tai' : 'dieu_kien';
   // Thân cư: Khảo Luận's sentence on what the Thân palace means (KL p.215)
   const thanRel = (k.kg?.starNature?.relations ?? []).find(r => r.when === 'than' && r.palace === P);
   if (pal.is_than && thanRel && !said.has(thanRel.id)) { said.add(thanRel.id); push({ kind: 'link', section: domain === 'phu_the' ? 'dong_luc' : linkSec, link: 'than', relation: thanRel, palace: P }); }
-  // the natal Tứ Hóa across the domain's tam phương (career / money: Mệnh–Tài–Quan; marriage: the Kỵ reaching Phu Thê)
-  if (domain !== 'phu_the') {
+  // the natal Tứ Hóa across Mệnh–Tài–Quan: told once, in the career chapter (the money chapter would only repeat it)
+  if (domain === 'cong_danh') {
     const hs = Object.entries(chart.tu_hoa).map(([h, v]) => ({ h, star: v.star, palace: chart.palaces.find(p => p.branch_index === v.branch)!.name }))
       .filter(x => ['Mệnh', 'Tài Bạch', 'Quan Lộc'].includes(x.palace));
     if (hs.length >= 2) push({ kind: 'link', section: linkSec, link: 'hoa', elements: hs.map(x => ({ name: `${x.star}|${x.h}`, palace: x.palace, where: whereOf(x.palace) })) });
@@ -256,9 +262,9 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     said.add(e.id);
     push({ kind: 'link', section: linkSec, link: 'shared_star', nature: e, star: e.star, palace: at.name, where: whereOf(at.name) });
   }
-  // Tài Bạch: the palaces Khảo Luận says hold its balance (KL p.216), and Điền Trạch (KL p.219)
-  if (domain === 'tai_bach') {
-    for (const id of ['tai.che_tai', 'dien.ben']) {
+  // Tài Bạch: the palaces Khảo Luận says hold its balance (KL p.216); Điền Trạch: nhà đất as the lasting form of wealth (KL p.219)
+  if (domain === 'tai_bach' || domain === 'dien_trach') {
+    for (const id of domain === 'tai_bach' ? ['tai.che_tai'] : ['dien.ben']) {
       const r = (k.kg?.starNature?.relations ?? []).find(x => x.id === id);
       if (r && !said.has(r.id)) { said.add(r.id); push({ kind: 'link', section: linkSec, link: 'relation', relation: r, palace: r.palace }); }
     }
@@ -269,7 +275,7 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     push({ kind: 'link', section: obst, link: 'ky_opp', elements: [{ name: `${chart.tu_hoa['Hóa Kỵ'].star}|Hóa Kỵ`, palace: kyAt.name, where: 'opp' }] });
 
   // ---- the conditional conclusion: the domain verdicts with their limits ----
-  const ids = domain === 'cong_danh' ? ['cong_danh', 'tai_loc.kiem'] : domain === 'tai_bach' ? ['tai_loc.kiem', 'tai_loc.giu', 'tai_loc.tich_luy'] : ['hon_nhan'];
+  const ids = domain === 'cong_danh' ? ['cong_danh', 'tai_loc.kiem'] : domain === 'tai_bach' ? ['tai_loc.kiem', 'tai_loc.giu', 'tai_loc.tich_luy'] : domain === 'dien_trach' ? [] : ['hon_nhan'];
   const verdicts = ids.map(id => inp.ledger.domains.find(v => v.id === id)).filter((v): v is DomainVerdict => !!v && v.verdict !== 'chua_du');
   if (verdicts.length) push({ kind: 'condition', section: domain === 'cong_danh' ? 'tien_bac' : domain === 'tai_bach' ? 'lien_cung' : 'dieu_kien', verdicts });
 

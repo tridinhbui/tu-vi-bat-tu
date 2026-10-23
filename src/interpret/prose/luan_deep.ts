@@ -20,7 +20,7 @@ export interface DepthLib {
   ky_opp: string[]; condition_both: string[]; condition_sup: string[]; condition_lim: string[]; condition_pair: string[]; where: Record<string, string>;
 }
 export interface MinhHoaLib { status: string; concepts: Record<string, string[]> }
-export const DEEP_CHAPTERS: Record<string, DepthDomain> = { cong_danh: 'cong_danh', tai_bach: 'tai_bach', phu_the: 'phu_the' };
+export const DEEP_CHAPTERS: Record<string, DepthDomain> = { cong_danh: 'cong_danh', tai_bach: 'tai_bach', phu_the: 'phu_the', dien_trach: 'dien_trach' };
 
 const fill = (t: string, v: Record<string, string>) => t.replace(/\{([A-Za-z_0-9]+)\}/g, (_, key) => { if (v[key] === undefined) throw new Error(`slot {${key}} unfilled in: ${t}`); return v[key]; });
 const joinVi = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1).join(', ') + ' và ' + xs[xs.length - 1];
@@ -129,9 +129,14 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
       } else if (u.kind === 'link') {
         if (u.link === 'than' || u.link === 'relation') {
           const r = u.relation!;
-          xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`KL p.${r.page}`], concepts: [] }));
           const facts = relationFacts(chart, r.id, sh);
-          if (facts) xs.push(S(fill(W.pick(`${key}|rf`, D.relation_facts), { facts }), { move: 'VIA', step: `link:${r.id}:facts`, basis: 'tinh_toan', concepts: [] }));
+          // a relation the book states for every chart is told with this chart's side in the same sentence (a bare general line repeats from chart to chart)
+          const rel = (D as DepthLib & { relation_with?: Record<string, string[]> }).relation_with?.[r.id];
+          if (facts && rel?.length) xs.push(S(fill(W.pick(`${key}|rw`, rel), { facts }), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`KL p.${r.page}`], concepts: [] }));
+          else {
+            xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`KL p.${r.page}`], concepts: [] }));
+            if (facts) xs.push(S(fill(W.pick(`${key}|rf`, D.relation_facts), { facts }), { move: 'VIA', step: `link:${r.id}:facts`, basis: 'tinh_toan', concepts: [] }));
+          }
           anchored = true;
         } else if (u.link === 'hoa') {
           const list = joinVi(groupHoa(u.elements!.map(e => ({ text: elName(e), palace: e.palace }))));
@@ -191,7 +196,10 @@ function relationFacts(chart: ChartInput, id: string, sh: LuanShared): string | 
     const v = sh.ledger.domains.find(d => d.id === 'cong_danh');
     return `${brief('Phúc Đức')}, ${brief('Quan Lộc')}` + (v && v.verdict !== 'chua_du' ? `; đường công danh đã được xét là ${LV[v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict] ?? v.verdict}` : '');
   }
-  if (id === 'dien.ben') return brief('Điền Trạch');
+  if (id === 'dien.ben') {
+    const v = sh.ledger.domains.find(d => d.id === 'tai_loc.tich_luy');
+    return `${brief('Tài Bạch')}` + (v && !['chua_du', 'khong_ket_luan'].includes(v.verdict) ? `, còn phần tích lũy, nhà cửa đã được xét là ${LV[v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict] ?? v.verdict}` : '');
+  }
   return null;
 }
 const LV: Record<string, string> = { thuan: 'thuận', 'co_dieu_kien+': 'thuận có điều kiện', 'co_dieu_kien-': 'vướng nhưng có lối gỡ', co_dieu_kien: 'tùy lúc', hai_chieu: 'hai chiều', tro_ngai: 'chỗ phải gắng sức', chua_phan_xu: 'còn hai mặt chưa phân xử được', hai_mat: 'có cả hai mặt', giam_nhe: 'vướng, có yếu tố giảm nhẹ' };
