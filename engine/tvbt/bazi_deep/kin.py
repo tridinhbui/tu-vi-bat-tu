@@ -334,6 +334,28 @@ def natal_facts(view: ChartView, tvh: dict | None, yong: dict | None = None) -> 
     F["bazi.k.ym_hurt_by_dh"] = any(_hurt(v.branch(p), v.branch(q)) for p in ("year", "month") for q in ("day", "hour"))
     F["bazi.k.ren_present"] = ZZ_REN[dm] in [v.branch(p) for p in PILLARS]
     F["bazi.k.tai_rooted_any"] = any(c.rooted((p, "stem")) for p in ct + tt) or any(c.group(n) == "Tai" for n in c.nodes if n[1] == "branch" and n[0] == "month")
+    # ---- Thiệu Vĩ Hoa (pp.149-155, 463-478, 520-537): the positions its judgements name
+    YG = set(F["bazi.k.yong"])
+    F["bazi.k.tai_changsinh"] = any(growth_stage(v.stem(p), v.branch(p)) == "Trường Sinh" for p in ct + tt)
+    F["bazi.k.qs_void"] = any(c.group(n) == "QuanSat" for n in void_nodes)
+    cq = [n for n in c.nodes if c.god(n) == "Chính Quan"]
+    F["bazi.k.one_cq"] = len(cq) == 1 and not any(c.god(n) == "Thất Sát" for n in c.nodes)
+    F["bazi.k.one_qs_clear"] = len(qs_nodes) == 1 and qs_nodes[0][1] == "stem"
+    del_el, db_el = STEM_ELEMENT[dm], STEM_ELEMENT[HIDDEN_STEMS[v.branch("day")][0]]
+    F["bazi.k.day_sheng"] = generates(del_el, db_el) or generates(db_el, del_el)
+    F["bazi.k.dh_clash"] = frozenset((v.branch("day"), v.branch("hour"))) in SIX_CLASH
+    F["bazi.k.day_ren"] = v.branch("day") == ZZ_REN[dm]
+    F["bazi.k.year_branch_god"] = branch_main["year"]
+    F["bazi.k.year_stem_yong"] = GROUP[stems["year"]] in YG
+    F["bazi.k.month_yong"] = bool({G(("month", "stem")), G(("month", "branch"))} & YG)
+    ky = set(F["bazi.k.ky"])
+    F["bazi.k.year_bad_ky"] = any(c.god(n) in ("Thiên Ấn", "Thất Sát", "Kiếp Tài") and c.group(n) in ky for n in (("year", "stem"), ("year", "branch"))) \
+        or (v.branch("year") == ZZ_REN[dm] and "Ti" in ky)
+    front = set(F["bazi.k.year_groups"]) | set(F["bazi.k.month_groups"])
+    F["bazi.k.front_ti_back_tai"] = "Ti" in front and "Tai" in F["bazi.k.dayhour_groups"] and "Tai" not in front
+    F["bazi.k.front_tai_back_an"] = "Tai" in front and "An" in F["bazi.k.dayhour_groups"] and "An" not in front
+    F["bazi.k.ya_mq"] = "Chính Ấn" in (c.god(("year", "stem")), c.god(("year", "branch"))) and "Chính Quan" in (c.god(("month", "stem")), c.god(("month", "branch")))
+    F["bazi.k.thuc_che_sat"] = any(c.god(a) == "Thực Thần" and c.god(b) == "Thất Sát" and c.adj(a, b) for a in c.nodes for b in c.nodes)
     # the characters each judgement names, for its condition in the text ("Thiên Tài ở can năm Tân bị chi Tỵ ngay dưới khắc")
     lab = lambda ns: _join([_label(c, n) for n in ns])
     tmm_vi = {"thai": "thai nguyên", "menh": "mệnh cung", "than": "thân cung"}
@@ -356,7 +378,11 @@ def natal_facts(view: ChartView, tvh: dict | None, yong: dict | None = None) -> 
         "pm10": _join([f"{GROUP_VI[g]} ở trụ {PIL_VI[p]}" for p in ("year", "month") for g in ("Tai", "QuanSat", "An")
                        if g in F["bazi.k.hi"] and g in {G((p, "stem")), G((p, "branch"))}]),
         "ym": f"trụ năm {STEMS_VI[v.stem('year')]} {BRANCHES_VI[v.branch('year')]} ({stems['year']}, {branch_main['year']}) và trụ tháng {STEMS_VI[v.stem('month')]} {BRANCHES_VI[v.branch('month')]} ({stems['month']}, {branch_main['month']})",
-        "war": _join(D["tai_an_war"]), "md": f"chi tháng {BRANCHES_VI[v.branch('month')]} {_hurt_vi(v.branch('month'), v.branch('day'))} chi ngày {BRANCHES_VI[v.branch('day')]}",
+        "war": _join(D["tai_an_war"]),
+        "yong_vi": _join([GROUP_VI[g] for g in F["bazi.k.yong"]]), "ys_name": STEMS_VI[v.stem("year")],
+        "mp_name": f"{STEMS_VI[v.stem('month')]} {BRANCHES_VI[v.branch('month')]}",
+        "day_sheng": (f"can ngày {STEMS_VI[dm]} sinh chi ngày {BRANCHES_VI[v.branch('day')]}" if generates(del_el, db_el)
+                      else f"chi ngày {BRANCHES_VI[v.branch('day')]} sinh can ngày {STEMS_VI[dm]}" if generates(db_el, del_el) else ""), "md": f"chi tháng {BRANCHES_VI[v.branch('month')]} {_hurt_vi(v.branch('month'), v.branch('day'))} chi ngày {BRANCHES_VI[v.branch('day')]}",
     }
     return F, D
 
@@ -423,7 +449,9 @@ def _fill(t: str, V: dict) -> str | None:
     return re.sub(r"\{(\w+)\}", lambda m: str(V[m.group(1)]), t)
 
 
-def fire(facts: dict, V: dict | None = None) -> list[dict]:
+def fire(facts: dict, V: dict | None = None, year: bool = False) -> list[dict]:
+    """the verified findings of one evaluation: the year judgements (topic 'year') on a year's facts, every other topic on the natal facts
+    (a year's facts carry the natal strength facts too, so a natal rule on those alone would otherwise fire again in each year)"""
     rules, sources, meta = pack()
     res = engine.run(rules, sources, {"chart": facts}, system="bat_tu")
     out = []
@@ -431,6 +459,8 @@ def fire(facts: dict, V: dict | None = None) -> list[dict]:
         if f.basis != "verified":
             continue
         m = meta[f.rule_id]
+        if (m["topic"] == "year") != year:
+            continue
         said = _fill(m["say"], V or {}) if m.get("say") else None
         out.append({"rule_id": f.rule_id, "topic": m["topic"], "tone": m["tone"], "effect": m["effect"], "cause": said or m["cause"], "page": m["page"],
                     "book": m.get("book", "zz"), **({"note": m["note"]} if m.get("note") else {}), **({"hi": True} if m.get("hi") else {})})
@@ -445,4 +475,4 @@ def natal(view: ChartView, tvh: dict | None, yong: dict | None = None) -> dict:
 def year(view: ChartView, tvh: dict | None, nat_facts: dict, stem: int, branch: int, luck: tuple[int, int] | None) -> dict:
     F, V = year_facts(view, tvh, nat_facts, stem, branch, luck)
     return {"gods": [F["bazi.ky.stem_god"], F["bazi.ky.branch_god"]], "fill_void": F["bazi.ky.fill_void"], "natal_void_gods": F["bazi.ky.natal_void_gods"],
-            "findings": fire(F, V)}
+            "findings": fire(F, V, year=True)}

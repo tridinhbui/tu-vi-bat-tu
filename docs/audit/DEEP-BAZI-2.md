@@ -11,21 +11,21 @@ của commit ấy; "sau" = nhánh này, `corpus1000.json.gz` đã làm tươi fa
 
 | Chỉ số (trung bình / lá số) | Trước | Sau |
 |---|---|---|
-| Số từ | 3.410 | 3.989 |
-| Đơn vị phân tích (câu sách / tính toán) | 99,4 | 122,4 |
-| Từ trên một đơn vị | 34,3 | **32,6** (không tăng) |
-| Kết luận / kết luận trơ | 21,7 / 11,8 | 20,3 / **9,9** |
-| Tỉ lệ kết luận có câu nguồn đi kèm (1 − trơ / kết luận) | 45,6 % | **51,4 %** |
-| Độ phủ cơ chế | 0,659 | **0,716** |
-| Strip sim (khuôn sáo giữa các lá) | 0,331 | **0,313** |
+| Số từ | 3.410 | 4.175 |
+| Đơn vị phân tích (câu sách / tính toán) | 99,4 | 129,4 |
+| Từ trên một đơn vị | 34,3 | **32,3** (không tăng) |
+| Kết luận / kết luận trơ | 21,7 / 11,8 | 21,2 / **9,9** |
+| Tỉ lệ kết luận có câu nguồn đi kèm (1 − trơ / kết luận) | 45,6 % | **53,5 %** |
+| Độ phủ cơ chế | 0,659 | **0,730** |
+| Strip sim (khuôn sáo giữa các lá) | 0,331 | **0,306** |
 
 Đơn vị theo chương (từ / đơn vị):
 
 | Chương | Trước | Sau |
 |---|---|---|
-| Sự nghiệp & tài lộc | 2,3 (43,1) | **8,4** (34,4) |
-| Quan hệ | 4,3 (27,0) | **12,8** (23,6) |
-| Lưu niên (3 năm) | 19,8 (29,1) | **28,1** (27,7) |
+| Sự nghiệp & tài lộc | 2,3 (43,1) | **11,7** (33,4) |
+| Quan hệ | 4,3 (27,0) | **16,8** (23,0) |
+| Lưu niên (3 năm) | 19,8 (29,1) | **27,9** (27,7) |
 | Nhật chủ, ngũ hành, đại vận, cách cục | không đổi | không đổi |
 
 Lá số thiếu câu theo chủ đề (câu có nguồn — sách hoặc tính toán — mang từ khóa của chủ đề, trong chương tương ứng; tiền: "Tài / tiền / tài
@@ -34,9 +34,9 @@ vận / của cải / tài lộc", nghề: "nghề / công việc / chức vụ 
 | Trên 1.000 lá | Trước | Sau |
 |---|---|---|
 | không có câu anh em (Quan hệ) | 317 | **2** |
-| có ≤ 1 câu Tài (Sự nghiệp) | 536 | **9** |
+| có ≤ 1 câu Tài (Sự nghiệp) | 536 | **6** |
 | có ≤ 1 câu nghề (Sự nghiệp) | 939 | **25** |
-| có ≤ 1 câu anh em (Quan hệ) | 784 | 227 |
+| có ≤ 1 câu anh em (Quan hệ) | 784 | **105** |
 
 Cổng: `bazi_reconcile` (không mâu thuẫn chưa giải thích, không "tài vận tốt" trơ — nay trên 1.000 lá với facts tươi: 0 vấn đề), `bazi_prose`,
 `readable`, `engine` (parity), `test_bazi_reference_charts.py`, `test_bazi_deep_kin.py` đều xanh.
@@ -56,14 +56,16 @@ cách ví dụ của chính sách dùng:
 - "vượng / nhược" của một nhóm: phần độ Thiệu Vĩ Hoa từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — **ngưỡng của hệ thống**,
   ghi ở note từng câu dựa vào nó.
 
-**Luật** (`pack_zz_kin.json` 96 luật, `pack_ttt_kin.json` 51 luật; câu in nguyên văn trong `quotes_*_kin.json`, test đối chiếu từng câu với
-trang đã chép; builder `tools/build_bazi_kin_pack.py`, `tools/build_bazi_ttt_kin_pack.py`):
+**Luật** (`pack_zz_kin.json` 96 luật, `pack_ttt_kin.json` 51 luật, `pack_tvh_kin.json` 54 luật; câu in nguyên văn trong `quotes_*_kin.json`, test đối chiếu từng câu với
+trang đã chép; builder `tools/build_bazi_kin_pack.py`, `tools/build_bazi_ttt_kin_pack.py`, `tools/build_bazi_tvh_kin_pack.py`):
 - 八字真宗: tr.50 tài vận (21 mục + điều kiện cuối trang), tr.51-52 công việc (流入日主, trụ bên trái trụ Quan: lớn / nhỏ, nhóm nghề theo thập
   thần, nghề theo hành của can), tr.52-53 quan chức (7), tr.55 cha mẹ (3, bỏ mọi mục về thọ yểu), tr.57-58 hôn nhân (9), tr.64 anh em (7),
   tr.64-65 lưu niên (22).
 - Trích Thiên Tủy Phần II: Hà Tri — giàu (tr.137, 6 thế "Tài khí thông môn hộ"), nghèo (tr.139, 7 thế "Tài bất chân"), quý (tr.138, 6 thế
   "Quan tinh hữu lý hội"), tiện (tr.142, 5); Phụ Mẫu (tr.133, 9); Huynh Đệ (tr.135, 10); Phu Thê lá số nam (tr.128-129, 7, không có lời khắc vợ);
-  Địa Vị "Sát Nhận thần thanh" (tr.224). Các luật đọc "nhật chủ hỉ / kỵ X" lấy hỉ / kỵ từ bảng dụng thần và vận tốt xấu theo cách của Thiệu Vĩ Hoa
+  Địa Vị "Sát Nhận thần thanh" (tr.224).
+- Thiệu Vĩ Hoa (bản quét, §5): tài vận tr.520-527 (14), quan vận tr.533-537 (8), lục thân tr.149-155 (9 cha mẹ, anh em) và vợ theo chi ngày
+  tr.154-155 (7), hôn nhân tr.463-478 (nam 3, nữ 10, chung 3). Các luật đọc "nhật chủ hỉ / kỵ X" lấy hỉ / kỵ từ bảng dụng thần và vận tốt xấu theo cách của Thiệu Vĩ Hoa
   (tr.378-386), nên câu mang điều kiện "nếu cách … đứng được" (trace.conditional `cach_partial`).
 
 **Sửa tận gốc: nghề đọc ở trụ bên trái trụ Quan, không phải trụ giờ.** Tr.52 mục 6-7 "以官星左柱论 … 年柱的左柱为时柱"; ví dụ 1 tr.53 (Quan ở
@@ -110,12 +112,24 @@ lớp này thay vì "để ngỏ". Câu đã sửa ở `bazi_reconcile.test.ts` 
   bảng tr.72 (Mậu Ngọ, Kỷ Tỵ) — vênh trong sách; hệ thống giữ bảng tr.72. Không mã hóa, cần người đọc lại ý tác giả.
 - Ngưỡng "vượng / nhược" của nhóm thập thần (25 % / 12 %) là của hệ thống; sách không có thước đo. Luật hay bắn nhất: tr.65 #21 (chi năm hình /
   xung / hại thai, mệnh, thân cung) ở ~58 % số năm — đúng chữ sách nhưng dày; nói một lần cho các năm cùng điều kiện.
-- 11/147 luật chưa bắn trên 300 lá thử (`BT_ZZK_W25` Tài vượng chảy vào nhật chủ, `R01`, `Y13`, `Y37`, `OG_QUANSAT`, `BT_TTTK_PHU3/5`, `TIEN5`,
+- 11/201 luật chưa bắn trên 300 lá thử (`BT_ZZK_W25` Tài vượng chảy vào nhật chủ, `R01`, `Y13`, `Y37`, `OG_QUANSAT`, `BT_TTTK_PHU3/5`, `TIEN5`,
   `DV1`, `HD1`, `HD9`): điều kiện hẹp, không phải lỗi; `OG_QUANSAT` gần như không thể (trụ bên trái trụ Quan có Quan thì Quan đã ở hai trụ).
-- Thiệu Vĩ Hoa (bản quét) tr.148-173, 462-499, 519-556: đã chép lại toàn văn và lập danh sách điều kiện → nhận định (xem §5); chưa mã hóa ở commit này.
 - Trang giới thiệu (`/gioi-thieu/`) chỉ đếm gói luật cấp cao (`engine/data/pack_*.json`): con số 八字真宗 giảm 83 → 73 vì 20 luật chuyển sang gói
   `bazi_deep/`; các gói `bazi_deep` (TTT, TVH, kin) chưa được đếm ở trang này (của luồng khác).
 
 ## 5. Thiệu Vĩ Hoa — tình trạng
 
-(cập nhật ở commit sau)
+Bản quét, không có lớp chữ. Đã chép lại toàn văn từ ảnh trang (render 110-170 dpi) **tr.148-173, 462-499, 519-556** (102 trang) vào
+`engine/data/bazi_deep/mined/tvh_pNNN.txt`, kèm ba bảng điều kiện → nhận định `mined/rules_148_173.md`, `rules_462_499.md`, `rules_519_556.md`
+(1.213 dòng, mỗi dòng gắn nhãn SENSITIVE / VAGUE / TIMING; chữ in lỗi giữ nguyên). Câu của 54 luật đã mã hóa được so lại với ảnh.
+
+Mã hóa (54): xem §2. Chưa mã hóa, ghi lại để làm tiếp:
+- **Thần sát** (đào hoa, hoa cái, quý nhân, lộc, dịch mã, tướng tinh, thiên / nguyệt đức, tam kì, củng lộc, khôi canh, kim thần, học đường): khoảng
+  một nửa số dòng "usable" của tr.520-556 và tr.150-155, 463-466. Cần bảng thần sát đã đối chiếu (hệ thống mới có các sao của 八字真宗 tr.21-22).
+- **Lời về đại vận** ("hành đến vận …", khoảng 170 dòng TIMING ở tr.519-556): thuộc chương đại vận; chưa nối vì kế hoạch đợt này chỉ đụng lưu niên.
+- **Công danh tr.545-556** (học hành, thi cử, danh tiếng; 168 dòng): chưa mã hóa — phần lớn dựa thần sát (văn xương, học đường) hoặc lời định tính.
+- **Giàu sang tr.164-170**: phần lớn trùng ý với Trích Thiên Tủy Hà Tri (tr.137-142) đã mã hóa; không lặp.
+- **Con cái theo chi giờ** (tr.158-159): kế hoạch chỉ đọc trụ giờ là con cái qua 八字真宗 tr.60.
+- **Hôn nhân tr.479-499**: phần lớn là ví dụ, lời về tái hôn / ly hôn / khắc (SENSITIVE), bảng năm hợp hôn và phương kết hôn (ngoài tứ trụ).
+- Vênh trong sách, đã ghi trong note: tr.527 / tr.553 (thân vượng ấn vượng), tr.152 / tr.153 (thân vượng tỉ kiếp vượng), tr.548 / tr.551 (thực thương
+  nhiều), tr.463 / tr.470 (dịch mã chi ngày), tr.471 / tr.477 (nữ thuần dương / thuần âm), tr.478 / tr.480 (Quan đế vượng ở lá số nữ).

@@ -101,7 +101,8 @@ def test_owner_chart_2002():
 def test_book_internal_conflicts_are_kept_apart():
     """pairs of judgements that would contradict each other never fire together (the conditions in tools/build_bazi_kin_pack.py)"""
     pairs = [("BT_ZZK_R03", "BT_ZZK_R08"), ("BT_ZZK_R03", "BT_ZZK_R06"), ("BT_ZZK_W13", "BT_ZZK_W14"), ("BT_ZZK_W05", "BT_ZZK_W06"), ("BT_ZZK_S27", "BT_ZZK_S28"),
-             ("BT_ZZK_W24", "BT_ZZK_W25"), ("BT_ZZK_R01", "BT_ZZK_R08"), ("BT_ZZK_Y22", "BT_ZZK_Y23")]
+             ("BT_ZZK_W24", "BT_ZZK_W25"), ("BT_ZZK_R01", "BT_ZZK_R08"), ("BT_ZZK_Y22", "BT_ZZK_Y23"),
+             ("BT_TVHK_W08", "BT_TVHK_W11"), ("BT_TVHK_H01", "BT_TVHK_H02"), ("BT_TVHK_S04", "BT_TVHK_S07"), ("BT_TTTK_QUY6", "BT_TTTK_TIEN4"), ("BT_TTTK_QUY1", "BT_TTTK_TIEN8")]
     import itertools
     from tvbt.ganzhi import BRANCHES_VI, STEMS_VI
     pil = [f"{STEMS_VI[i % 10]} {BRANCHES_VI[i % 12]}" for i in range(60)]
@@ -114,6 +115,15 @@ def test_book_internal_conflicts_are_kept_apart():
             assert not ({x, y} <= ids), (v.name(), x, y)
         n += 1
     assert n > 1000
+
+
+def test_natal_and_year_rules_fire_apart():
+    """a year's facts carry the natal strength facts, but only the year judgements (topic 'year') are read there"""
+    v = ChartView.from_names("Tân Tỵ / Tân Sửu / Đinh Sửu / Nhâm Dần", gender="male")
+    tvh = pipeline.analyse(v)["strength_after"].get("tvh")
+    nat = kin.natal(v, tvh, {"hi": ["Tỉ Kiếp"], "ky": ["Tài"], "yong": ["Tỉ Kiếp"]})
+    y = kin.year(v, tvh, nat["facts"], 2, 6, (4, 10))
+    assert all(f["topic"] == "year" for f in y["findings"]) and all(f["topic"] != "year" for f in nat["findings"])
 
 
 def test_year_judgements_on_2002():

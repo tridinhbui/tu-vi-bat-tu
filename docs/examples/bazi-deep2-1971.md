@@ -47,13 +47,13 @@ Năm 2028 là năm Mậu Thân, đi trong đại vận Đinh Hợi: can Mậu l�
 
 ### quan-he
 
-**Về chuyện vợ chồng** · Về chuyện vợ chồng, nguyệt kiến là Chính Ấn, nên tình cảm vợ chồng hòa thuận. [sach] Nhưng về hôn nhân, nhật chi là Thực Thần, nên người phối ngẫu tốn kém tiền của. [sach] Sao vợ của lá số nam là Tài, nằm ở chi năm Hợi và can tháng Quý. [tinh_toan] Quan nhẹ, Thương Quan nặng, có Tài đứng sát nhận khí Thương Quan, nên vợ hiền, hoặc nhờ của vợ mà khá giả. [sach]
+**Về chuyện vợ chồng** · Về chuyện vợ chồng, nguyệt kiến là Chính Ấn, nên tình cảm vợ chồng hòa thuận. [sach] Nhưng về hôn nhân, nhật chi là Thực Thần, nên người phối ngẫu tốn kém tiền của. [sach] Sao vợ của lá số nam là Tài, nằm ở chi năm Hợi và can tháng Quý. [tinh_toan] Quan nhẹ, Thương Quan nặng, có Tài đứng sát nhận khí Thương Quan, nên vợ hiền, hoặc nhờ của vợ mà khá giả. [sach] Bên cạnh đó, can ngày Kỷ sinh chi ngày Dậu; vì vậy vợ chồng thương nhau. [sach]
 
-**Về anh chị em** · Về anh chị em, sao anh chị em là Tỉ Kiếp, ở can giờ Kỷ. [tinh_toan] Vì Tỉ Kiếp ngồi trên Ấn hoặc có gốc, còn nhật chủ nhược, anh em mạnh hơn mình. [sach]
+**Về anh chị em** · Về anh chị em, sao anh chị em là Tỉ Kiếp, ở can giờ Kỷ. [tinh_toan] Vì dụng thần Ấn và Tỉ Kiếp có ở trụ tháng Quý Tỵ, nếu cách Chính Ấn đứng được, anh chị em khá giả, mình được nhờ. [sach] Thêm nữa, nhật chủ nhược mà có Tỉ Kiếp, nên được anh em, bạn bè giúp đỡ. [sach]
 
 Nhật chi Dậu của trụ ngày Kỷ Dậu là cung phối ngẫu, chi tháng Tỵ là cung hôn nhân; nhật chi tàng Tân (Thực Thần). [tinh_toan] Trong tứ trụ có can xung giữa trụ tháng và trụ ngày, can xung giữa trụ tháng và trụ giờ, xung giữa trụ năm và trụ tháng, xung giữa trụ năm và trụ giờ, bán hợp giữa trụ tháng và trụ ngày và bán hợp giữa trụ ngày và trụ giờ. [tinh_toan]
 
-*Đọc sâu — cha mẹ, anh em, con cái* · Lá số lấy sao cha là Thiên Tài, ở can tháng Quý, sao mẹ là Ấn, ở chi tháng Tỵ và chi giờ Tỵ. [tinh_toan] Ấn ở trụ tháng là chữ lá số cần, nếu cách Chính Ấn đứng được; điều đó cho thấy cha mẹ không giàu cũng sang. [sach] Bên cạnh đó, trụ năm Tân Hợi (Thực Thần, Chính Tài) và trụ tháng Quý Tỵ (Thiên Tài, Chính Ấn): năm có Tài, tháng có Ấn; lá số cần Ấn và ngày, giờ gặp Quan, Ấn, nếu cách Chính Ấn đứng được; vì vậy giúp cha chấn hưng gia đình. [sach] Thêm nữa, chi năm Hợi khắc chi tháng Tỵ và can tháng Quý khắc chi tháng Tỵ mà không có Quan Sát thông khí, nên cha mẹ không hòa thuận. [sach] Sao con cái của lá số là Thất Sát và Thương Quan, chỉ ẩn trong tàng can. [tinh_toan]
+*Đọc sâu — cha mẹ, anh em, con cái* · Tỉ Kiếp ngồi trên Ấn hoặc có gốc, còn nhật chủ nhược; điều đó cho thấy anh em mạnh hơn mình. [sach] Lá số lấy sao cha là Thiên Tài, ở can tháng Quý, sao mẹ là Ấn, ở chi tháng Tỵ và chi giờ Tỵ. [tinh_toan] Ấn ở trụ tháng là chữ lá số cần, nếu cách Chính Ấn đứng được; điều đó cho thấy cha mẹ không giàu cũng sang. [sach] Thêm nữa, trụ năm Tân Hợi (Thực Thần, Chính Tài) và trụ tháng Quý Tỵ (Thiên Tài, Chính Ấn): năm có Tài, tháng có Ấn; lá số cần Ấn và ngày, giờ gặp Quan, Ấn, nếu cách Chính Ấn đứng được, nên giúp cha chấn hưng gia đình. [sach] Thêm nữa, chi năm Hợi khắc chi tháng Tỵ và can tháng Quý khắc chi tháng Tỵ mà không có Quan Sát thông khí, nên cha mẹ không hòa thuận. [sach] Sao con cái của lá số là Thất Sát và Thương Quan, chỉ ẩn trong tàng can. [tinh_toan]
 
 ### luu-nien
 

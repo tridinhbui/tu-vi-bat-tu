@@ -139,7 +139,7 @@ add("R05", "p.52", "官旺透干而未流入日主，一生无官", "rank", "neg
     ALL(V("QuanSat"), QT, no(QF)), CONV)
 add("R06", "p.53", "官虚透，虽流入日主，而无官", "rank", "neg", "khó có chức vụ", "Quan Sát thấu can mà không có gốc, dù chảy được vào nhật chủ",
     ALL(QT, no(QR), QF))
-add("R08", "p.53", "官星近身，虽与官人亲近，而无官缘", "rank", "neutral", "gần gũi người có chức quyền nhưng bản thân ít duyên chức vụ",
+add("R08", "p.53", "官星近身，虽与官人亲近，而无官缘", "rank", "neg", "gần gũi người có chức quyền nhưng bản thân ít duyên chức vụ",
     "Quan Sát đứng sát nhật chủ (ở can tháng, can giờ hoặc chi ngày) mà không qua Ấn", ALL(eq("bazi.k.quan_near_dm", True), eq("bazi.k.hour_lone_quan", False), no(QF)),
     "Khi Quan chảy vào nhật chủ qua Ấn thì là 'một khí thông nhau' (tr.52 mục 3), không còn là Quan đứng sát thân; khi can giờ là Chính Quan duy nhất, "
     "thanh hòa (tr.52 mục 1), lời ấy cụ thể hơn và đứng thay câu này (quy ước của hệ thống).")

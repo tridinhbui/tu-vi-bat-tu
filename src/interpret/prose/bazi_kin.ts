@@ -79,7 +79,9 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
   /** one fired rule as a sentence: its condition (with this chart's characters where given), then its effect */
   const rule = (xs: ProseSentence[], f: KinFinding, key: string, i: number, cause0 = f.cause, extra: Partial<SentenceTrace> = {}) => {
     const cause = hiCause(f, cause0);
-    say(xs, fill(m.pick(`kin|${key}|${i ? 'n' : 'f'}`, i ? F.rule_next : F.rule), { Cause: cap(cause), cause: low(cause), effect: low(f.effect) }), 'sach', [CITE(f)], [reg(f)],
+    // the 'more of the same' openers only after another sentence of the same paragraph
+    const nx = i > 0 && xs.length > 0;
+    say(xs, fill(m.pick(`kin|${key}|${nx ? 'n' : 'f'}`, nx ? F.rule_next : F.rule), { Cause: cap(cause), cause: low(cause), effect: low(f.effect) }), 'sach', [CITE(f)], [reg(f)],
       { ...tone(f), step: `kin:${f.rule_id}`, ...(f.note ? { note: f.note } : {}), ...hiTrace(f), ...extra });
   };
   const P = (id: 'su-nghiep' | 'quan-he', xs: ProseSentence[], extra: Partial<ProseParagraph> = {}) => {
@@ -137,7 +139,7 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
       { step: 'kin:tai_two', tone: 'answer', note: 'Kết của hệ thống: các lời về Tài ở tr.50 đứng cạnh nhau; khi Tài không vượng, điều kiện cuối trang không áp dụng và không lời nào xếp dấu hiệu nào nặng hơn.' });
   // Trích Thiên Tủy, Hà Tri (pp.137, 139): giàu (Tài khí thông môn hộ) / nghèo (Tài bất chân) by the balance of the groups; told after the
   // manual's position reading, and where the two books point different ways the sentence after says so
-  const tw = fs.filter(f => f.topic === 'wealth' && f.book === 'ttt');
+  const tw = fs.filter(f => f.topic === 'wealth' && (f.book === 'ttt' || f.book === 'tvh'));
   const byEff = new Map<string, KinFinding[]>();
   for (const f of tw) (byEff.get(f.effect) ?? byEff.set(f.effect, []).get(f.effect)!).push(f);
   [...byEff.values()].forEach((g, i) => {
@@ -147,8 +149,8 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
       { ...tone(g[0]), step: `kin:${g[0].rule_id}`, ...(note ? { note } : {}), ...(g.some(f => f.hi) ? hiTrace(g.find(f => f.hi)!) : {}) });
   });
   const tPos = tw.some(f => f.tone === 'pos'), tNeg = tw.some(f => f.tone === 'neg');
-  if (tPos && tNeg && F.two_books.length) say(tdeep, fill(m.pick('kin|tt2', F.two_books), { a: 'thông suốt', b: 'khó thành thật' }), 'he_thong', [], [],
-    { step: 'kin:tai_ttt2', tone: 'answer', note: 'Trích Thiên Tủy tr.137 và tr.139 đặt các thế "Tài khí thông" và "Tài bất chân" cạnh nhau mà không xếp thế nào nặng hơn.' });
+  if (tPos && tNeg && F.two_books.length) say(tdeep, fill(m.pick('kin|tt2', F.two_books), { pos: join([...new Set(tw.filter(f => f.tone === 'pos').map(f => low(f.effect)))]), neg: join([...new Set(tw.filter(f => f.tone === 'neg').map(f => low(f.effect)))]) }), 'he_thong', [], [],
+    { step: 'kin:tai_ttt2', tone: 'answer', note: 'Trích Thiên Tủy tr.137, 139 và Thiệu Vĩ Hoa tr.520-527 đặt các thế thuận và nghịch về tiền của cạnh nhau mà không xếp thế nào nặng hơn.' });
   else if (w && ((tPos && w.tone !== 'pos') || (tNeg && w.tone === 'pos')) && F.two_ways.length)
     say(tdeep, fill(m.pick('kin|tw2', F.two_ways), { zz: low(w.effect), ttt: low(tw.find(f => f.tone === (tPos ? 'pos' : 'neg'))!.effect) }), 'he_thong', [], [],
       { step: 'kin:tai_books', tone: 'answer', note: 'Kết của hệ thống: lời theo đường chảy của Tài (Bát Tự Chân Tông tr.50) và lời theo thế cân bằng (Trích Thiên Tủy tr.137, 139) xét hai việc khác nhau; không trang nào cân hai lời này, nên cả hai được giữ, mỗi lời với điều kiện của nó.' });
