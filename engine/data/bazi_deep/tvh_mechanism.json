@@ -1,0 +1,178 @@
+{
+ "_status": "verified_text",
+ "_source": "SRC_TVH_DUNGTHAN",
+ "_note": "Lý do Thiệu Vĩ Hoa nêu cho từng lựa chọn dụng thần (Dự Đoán Theo Tứ Trụ, mục IV 'Bàn về dụng thần', trang in 376-386, bản scan; đọc 2026-10-22). Mỗi dòng diễn lại bằng lời của sách cái lý của một ô trong tvh_dungthan.json: dụng thần (yong) khi nhật chủ vượng/nhược (dm) và nhóm nhiều nhất (dom, '*' = mọi nhóm). Những ô sách chỉ nêu thứ tự lựa chọn mà không nêu lý ('không có X thì chọn Y') không có dòng. van_why: vì sao một nhóm là vận tốt / xấu, theo định nghĩa hỉ thần, kị thần ở tr.382 và lý về bệnh / thuốc ở tr.376-377.",
+ "benh_thuoc": {
+  "page": "376-377",
+  "text": "Trong tám chữ có cái bất cập hoặc thái quá thì gọi là bệnh; cái để trị sự bất cập và thái quá ấy là thuốc, tức dụng thần."
+ },
+ "hy_ky": {
+  "page": "382",
+  "text": "Can chi sinh trợ, giải cứu dụng thần, hoặc khắc chế kị thần là hỉ thần; can chi khắc, xung, hợp dụng thần, hoặc làm hại hỉ thần là kị thần. Dụng thần không nên bị tổn thương, nên được sinh trợ."
+ },
+ "halves": {
+  "page": "382",
+  "text": "Đại vận gồm một can, một chi; một vận mười năm, thiên can quản năm năm đầu, địa chi quản năm năm sau."
+ },
+ "bo_cuu": {
+  "page": "377",
+  "text": "Khi bệnh nặng mà thuốc nhẹ, hoặc bệnh nhẹ mà thuốc nặng, thì dựa vào can của lưu niên, đại vận để bổ cứu sự bất túc, tìm sự cân bằng."
+ },
+ "dungthan_why": {
+  "rows": [
+   {
+    "yong": "Ti",
+    "dom": "Tai",
+    "dm": "weak",
+    "text": "Tỉ Kiếp trợ giúp nhật chủ và chế ngự Tài",
+    "page": "378, 383"
+   },
+   {
+    "yong": "Ti",
+    "dom": "QuanSat",
+    "dm": "weak",
+    "text": "Tỉ Kiếp giúp đỡ nhật chủ đứng được trước sức khắc của Quan Sát",
+    "page": "379"
+   },
+   {
+    "yong": "Ti",
+    "dom": "ThucThuong",
+    "dm": "weak",
+    "text": "Tỉ Kiếp giúp nhật chủ bù phần khí bị Thực Thương rút đi",
+    "page": "378"
+   },
+   {
+    "yong": "An",
+    "dom": "QuanSat",
+    "dm": "weak",
+    "text": "Ấn làm hao bớt khí của Quan Sát và sinh cho nhật chủ",
+    "page": "378-379"
+   },
+   {
+    "yong": "An",
+    "dom": "ThucThuong",
+    "dm": "weak",
+    "text": "Ấn vừa sinh cho nhật chủ vừa chế ngự Thực Thương",
+    "page": "380"
+   },
+   {
+    "yong": "An",
+    "dom": "Tai",
+    "dm": "weak",
+    "text": "Ấn sinh cho nhật chủ",
+    "page": "379"
+   },
+   {
+    "yong": "QuanSat",
+    "dom": "Ti",
+    "dm": "strong",
+    "text": "Quan Sát chế ngự Tỉ Kiếp đang quá nhiều",
+    "page": "378-380"
+   },
+   {
+    "yong": "ThucThuong",
+    "dom": "Ti",
+    "dm": "strong",
+    "text": "Thực Thương làm xì hơi Tỉ Kiếp",
+    "page": "379"
+   },
+   {
+    "yong": "Tai",
+    "dom": "An",
+    "dm": "strong",
+    "text": "Tài khắc chế Ấn đang quá nhiều",
+    "page": "378-379"
+   },
+   {
+    "yong": "ThucThuong",
+    "dom": "An",
+    "dm": "strong",
+    "text": "Thực Thương làm hao tổn khí của Ấn",
+    "page": "379"
+   },
+   {
+    "yong": "QuanSat",
+    "dom": "Tai",
+    "dm": "strong",
+    "text": "Quan Sát làm xì hơi Tài",
+    "page": "379"
+   },
+   {
+    "yong": "Tai",
+    "dom": "ThucThuong",
+    "dm": "strong",
+    "text": "Thực Thương có chỗ để sinh ra Tài",
+    "page": "378"
+   },
+   {
+    "yong": "An",
+    "dom": "ThucThuong",
+    "dm": "strong",
+    "text": "Ấn chế ngự Thực Thương",
+    "page": "379"
+   },
+   {
+    "yong": "ThucThuong",
+    "dom": "QuanSat",
+    "dm": "strong",
+    "text": "Thực Thương chế ngự Quan Sát",
+    "page": "379-380"
+   }
+  ]
+ },
+ "van_why": {
+  "is_yong": {
+   "text": "đây chính là nhóm dụng thần",
+   "page": "382"
+  },
+  "sinh_yong": {
+   "text": "nhóm này sinh cho dụng thần",
+   "page": "382"
+  },
+  "khac_ky": {
+   "text": "nhóm này khắc chế cái đang khắc dụng thần",
+   "page": "382"
+  },
+  "khac_yong": {
+   "text": "nhóm này khắc dụng thần",
+   "page": "382"
+  },
+  "add_dom": {
+   "text": "nhóm này dồn thêm vào nhóm vốn đã nhiều nhất",
+   "page": "377"
+  },
+  "sinh_dom": {
+   "text": "nhóm này sinh thêm cho nhóm vốn đã nhiều nhất",
+   "page": "377"
+  },
+  "weak_ThucThuong": {
+   "text": "Thực Thương xì hơi nhật chủ vốn đã nhược",
+   "page": "367-369, 377"
+  },
+  "weak_Tai": {
+   "text": "nhật chủ vốn đã nhược lại phải hao sức khắc Tài",
+   "page": "377-378"
+  },
+  "weak_QuanSat": {
+   "text": "Quan Sát khắc nhật chủ vốn đã nhược",
+   "page": "377"
+  },
+  "strong_Ti": {
+   "text": "Tỉ Kiếp trợ thêm cho nhật chủ vốn đã vượng",
+   "page": "377"
+  },
+  "strong_An": {
+   "text": "Ấn sinh thêm cho nhật chủ vốn đã vượng",
+   "page": "377"
+  },
+  "thuan_the": {
+   "text": "thuận theo thế của cách",
+   "page": "381"
+  },
+  "nghich_the": {
+   "text": "đi ngược thế của cách",
+   "page": "381"
+  }
+ },
+ "_note_special": "Cách đặc biệt (tr.381): những cách nhật chủ chuyên vượng đều lấy theo thế vượng của nó làm dụng thần; tòng tài lấy Thực Thương sinh Tài, tòng quan sát lấy Tài, tòng nhi lấy Thực Thương, hóa khí lấy hành hóa. Vận thuận thế là vận tốt, vận nghịch thế là vận xấu (danh sách vận tr.385-386)."
+}

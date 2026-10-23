@@ -1167,5 +1167,629 @@
     "Đinh"
    ]
   }
- }
+ },
+ "notes_text": {
+  "Dần": {
+   "Giáp": {
+    "text": "Bính hỏa là chủ, quý thủy là phụ.",
+    "page": "391",
+    "say": "Bính Hỏa là chủ, Quý Thủy là phụ."
+   },
+   "Ất": {
+    "text": "Lấy bính làm điều hầu. Quý thủy lấy qua là đủ. Nếu hỏa nhiều thì lấy quý.",
+    "page": "391-392",
+    "say": "Lấy Bính làm điều hậu. Quý Thủy lấy qua là đủ. Nếu Hỏa nhiều thì lấy Quý."
+   },
+   "Bính": {
+    "text": "Nhâm thủy là dụng thần, canh là tả.",
+    "page": "392",
+    "say": "Nhâm Thủy là dụng thần, Canh là tả."
+   },
+   "Đinh": {
+    "text": "Dùng giáp mộc phải kiêm dùng cả canh kim.",
+    "page": "392-393",
+    "say": "Dùng Giáp Mộc phải kiêm dùng cả Canh Kim."
+   },
+   "Mậu": {
+    "text": "Cả ba không thể thiếu. Đầu tiên chọn bính, sau mới đến giáp, đến quý.",
+    "page": "393",
+    "say": "Cả ba không thể thiếu. Đầu tiên chọn Bính, sau mới đến Giáp, đến Quý."
+   },
+   "Kỷ": {
+    "text": "Kị nhâm thủy có căn. Nếu có thủy cục thì phải chọn dụng thần là mậu thổ.",
+    "page": "394",
+    "say": "Kỵ Nhâm Thủy có căn. Nếu có Thủy cục thì phải chọn dụng thần là Mậu Thổ."
+   },
+   "Canh": {
+    "text": "Hỏa nhiều thổ năng, hỏa thành cục thì chọn nhâm.",
+    "page": "394-395",
+    "say": "Hỏa thành cục thì chọn Nhâm."
+   },
+   "Tân": {
+    "text": "Chọn kỉ thổ sinh kim làm chính. Kỉ, nhâm không nên cạnh tranh nhau.",
+    "page": "395",
+    "say": "Chọn Kỷ Thổ sinh Kim làm chính. Kỷ, Nhâm không nên cạnh tranh nhau."
+   },
+   "Nhâm": {
+    "text": "Tỉ kiếp nhiều thì ưu tiên lấy mậu.",
+    "page": "395-396",
+    "say": "Tỉ Kiếp nhiều thì ưu tiên lấy Mậu."
+   },
+   "Quý": {
+    "text": "Người không có tân thì chọn canh. Bính, canh đòi hỏi thế phải ngang nhau.",
+    "page": "396-397",
+    "say": "Người không có Tân thì chọn Canh. Bính, Canh đòi hỏi thế phải ngang nhau."
+   }
+  },
+  "Mão": {
+   "Giáp": {
+    "text": "Kình dương thêm sát, chuyên lấy canh kim làm dụng thần. Nếu không có canh kim thì dùng bính, đinh.",
+    "page": "391",
+    "say": "Kình dương thêm sát, chuyên lấy Canh Kim làm dụng thần. Nếu không có Canh Kim thì dùng Bính, Đinh."
+   },
+   "Ất": {
+    "text": "Lấy giống tháng giêng. Có mão thì kị kim mạnh.",
+    "page": "391-392",
+    "ref": "Dần"
+   },
+   "Bính": {
+    "text": "Thủy nhiều kiêm dùng mậu.",
+    "page": "392",
+    "say": "Thủy nhiều kiêm dùng Mậu."
+   },
+   "Đinh": {
+    "text": "Người có ất ưu tiên lấy canh.",
+    "page": "392-393",
+    "say": "Người có Ất ưu tiên lấy Canh."
+   },
+   "Mậu": {
+    "text": "Chọn dụng thần như tháng giêng.",
+    "page": "393",
+    "ref": "Dần"
+   },
+   "Kỷ": {
+    "text": "Kị giáp kỉ hợp thành thổ cục.",
+    "page": "394",
+    "say": "Kỵ Giáp Kỷ hợp thành Thổ cục."
+   },
+   "Canh": {
+    "text": "Không có đinh có thể dùng bính để thay.",
+    "page": "394-395",
+    "say": "Không có Đinh có thể dùng Bính để thay."
+   },
+   "Tân": {
+    "text": "Kị đinh thấu can, chi.",
+    "page": "395",
+    "say": "Kỵ Đinh thấu can, chi."
+   },
+   "Nhâm": {
+    "text": "Có nhiều cách cục thì cũng lấy mậu là tốt nhất.",
+    "page": "395-396"
+   },
+   "Quý": {
+    "text": "Ất, mão hợp với canh nên ưu tiên chọn tân.",
+    "page": "396-397",
+    "say": "Ất, Mão hợp với Canh nên ưu tiên chọn Tân."
+   }
+  },
+  "Thìn": {
+   "Giáp": {
+    "text": "Dùng canh tất cần có đinh, không có canh thì dùng nhâm.",
+    "page": "391",
+    "say": "Dùng Canh tất cần có Đinh, không có Canh thì dùng Nhâm."
+   },
+   "Ất": {
+    "text": "Các chi thành thủy cục. Người có thủy cục phải lấy mậu thổ để chế ngự thủy.",
+    "page": "391-392",
+    "say": "Người có Thủy cục phải lấy Mậu Thổ để chế ngự Thủy."
+   },
+   "Bính": {
+    "text": "Chuyên dùng nhâm thủy, đất dày thì lấy giáp để tả.",
+    "page": "392",
+    "say": "Chuyên dùng Nhâm Thủy, đất dày thì lấy Giáp để tả."
+   },
+   "Đinh": {
+    "text": "Mộc thịnh dùng canh, thủy nhiều dùng mậu.",
+    "page": "392-393",
+    "say": "Mộc thịnh dùng Canh, Thủy nhiều dùng Mậu."
+   },
+   "Mậu": {
+    "text": "Nếu thổ đang nắm lệnh thì trước hết chọn giáp, sau đó mới lấy bính, rồi mới đến quý.",
+    "page": "393",
+    "say": "Nếu Thổ đang nắm lệnh thì trước hết chọn Giáp, sau đó mới lấy Bính, rồi mới đến Quý."
+   },
+   "Kỷ": {
+    "text": "Người thổ nhiều thì trước hết chọn giáp.",
+    "page": "394",
+    "say": "Người Thổ nhiều thì trước hết chọn Giáp."
+   },
+   "Canh": {
+    "text": "Chi hỏa vượng dùng quý, can hỏa vượng thì dùng nhâm.",
+    "page": "394-395",
+    "say": "Chi Hỏa vượng dùng Quý, can Hỏa vượng thì dùng Nhâm."
+   },
+   "Tân": {
+    "text": "Nếu bính, tân hợp thành thủy cục thì phải dùng cả bính.",
+    "page": "395",
+    "say": "Nếu Bính, Tân hợp thành Thủy cục thì phải dùng cả Bính."
+   },
+   "Nhâm": {
+    "text": "Nếu thành kim cục thì phải dùng cả bính nữa mới tốt.",
+    "page": "395-396",
+    "say": "Nếu thành Kim cục thì phải dùng cả Bính nữa mới tốt."
+   },
+   "Quý": {
+    "text": "Thượng tuần chọn bính, hạ tuần chọn cả tân giáp, không được chọn đinh.",
+    "page": "396-397",
+    "say": "Thượng tuần chọn Bính, hạ tuần chọn cả Tân Giáp, không được chọn Đinh."
+   }
+  },
+  "Tỵ": {
+   "Giáp": {
+    "text": "Nếu điều hầu không tốt thì lấy quý làm dụng thần.",
+    "page": "391",
+    "say": "Nếu điều hậu không tốt thì lấy Quý làm dụng thần."
+   },
+   "Ất": {
+    "text": "Chuyên lấy quý thủy làm điều hầu.",
+    "page": "391-392",
+    "say": "Chuyên lấy Quý Thủy làm điều hậu."
+   },
+   "Bính": {
+    "text": "Lấy canh làm tả, kị mậu thổ hỗn tạp. Không có nhâm có thể dùng quý.",
+    "page": "392",
+    "say": "Lấy Canh làm tả, kỵ Mậu Thổ hỗn tạp. Không có Nhâm có thể dùng Quý."
+   },
+   "Đinh": {
+    "text": "Người mộc nhiều lấy canh trước.",
+    "page": "392-393",
+    "say": "Người Mộc nhiều lấy Canh trước."
+   },
+   "Mậu": {
+    "text": "Chọn dụng thần như tháng ba.",
+    "page": "393",
+    "ref": "Thìn"
+   },
+   "Kỷ": {
+    "text": "Điều hầu là trên hết. Quý là tốt nhất.",
+    "page": "394",
+    "say": "Điều hầu là trên hết. Quý là tốt nhất."
+   },
+   "Canh": {
+    "text": "Các chi thành kim cục lấy đinh làm chính.",
+    "page": "394-395",
+    "say": "Các chi thành Kim cục lấy Đinh làm chính."
+   },
+   "Tân": {
+    "text": "Người không có mậu là tốt nhất.",
+    "page": "395",
+    "say": "Người không có Mậu là tốt nhất."
+   },
+   "Nhâm": {
+    "text": "Tỉ kiếp phục tàng ở canh tân.",
+    "page": "395-396",
+    "say": "Tỉ Kiếp phục tàng ở Canh Tân."
+   },
+   "Quý": {
+    "text": "Có thể chọn canh để thay.",
+    "page": "396-397",
+    "say": "Có thể chọn Canh để thay."
+   }
+  },
+  "Ngọ": {
+   "Giáp": {
+    "text": "Không có quý thì dùng đinh. Người mộc nhiều thì lấy canh.",
+    "page": "391",
+    "say": "Không có Quý thì dùng Đinh. Người Mộc nhiều thì lấy Canh."
+   },
+   "Ất": {
+    "text": "Thượng tuần lấy quý, hạ tuần lấy cả bính lẫn quý kiêm dùng.",
+    "page": "391-392",
+    "say": "Thượng tuần lấy Quý, hạ tuần lấy cả Bính lẫn Quý kiêm dùng."
+   },
+   "Bính": {
+    "text": "Người có canh thông với chi thân càng tốt.",
+    "page": "392",
+    "say": "Người có Canh thông với chi Thân càng tốt."
+   },
+   "Đinh": {
+    "text": "Người thành hỏa cục, thấu cả nhâm và quý là quý cách, người không có nhâm có thể lấy quý.",
+    "page": "392-393",
+    "say": "Người thành Hỏa cục, người không có Nhâm có thể lấy Quý."
+   },
+   "Mậu": {
+    "text": "Điều hầu trước hết chọn nhâm thủy, giáp, bính lấy sau.",
+    "page": "393",
+    "say": "Điều hầu trước hết chọn Nhâm Thủy, Giáp, Bính lấy sau."
+   },
+   "Kỷ": {
+    "text": "Chọn dụng thần như tháng tư.",
+    "page": "394",
+    "ref": "Tỵ"
+   },
+   "Canh": {
+    "text": "Người mà hỏa vượng nhưng không có nhâm, quý thì có thể chọn mậu, kỉ.",
+    "page": "394-395",
+    "say": "Người mà Hỏa vượng nhưng không có Nhâm, Quý thì có thể chọn Mậu, Kỷ."
+   },
+   "Tân": {
+    "text": "Nhâm, kỉ không nên thiên vượng, không có nhâm thì dùng quý, kiêng dùng đinh.",
+    "page": "395",
+    "say": "Nhâm, Kỷ không nên thiên vượng, không có Nhâm thì dùng Quý, kiêng dùng Đinh."
+   },
+   "Nhâm": {
+    "text": "Kị đinh thấu can nào đó chế ngự quý.",
+    "page": "395-396",
+    "say": "Kỵ Đinh thấu can nào đó chế ngự Quý."
+   },
+   "Quý": {
+    "text": "Kị gặp đinh hỏa vượng.",
+    "page": "396-397",
+    "say": "Kỵ gặp Đinh Hỏa vượng."
+   }
+  },
+  "Mùi": {
+   "Giáp": {
+    "text": "Nửa tháng đầu dùng quý, nửa tháng sau lấy canh, đinh.",
+    "page": "391",
+    "say": "Nửa tháng đầu dùng Quý, nửa tháng sau lấy Canh, Đinh."
+   },
+   "Ất": {
+    "text": "Trong Tứ trụ nhiều kim thủy thì trước hết lấy bính hỏa, kị mậu thổ, kị hỗn tạp.",
+    "page": "391-392",
+    "say": "Trong tứ trụ nhiều Kim Thủy thì trước hết lấy Bính Hỏa, kỵ Mậu Thổ, kỵ hỗn tạp."
+   },
+   "Bính": {
+    "text": "Giống tháng năm.",
+    "page": "392",
+    "say": "Giống tháng năm."
+   },
+   "Đinh": {
+    "text": "Nếu dùng giáp không được thiếu canh.",
+    "page": "392-393",
+    "say": "Nếu dùng Giáp không được thiếu Canh."
+   },
+   "Mậu": {
+    "text": "Nhâm thủy không đủ để điều hầu, nên trước hết chọn quý thủy.",
+    "page": "393",
+    "say": "Nhâm Thủy không đủ để điều hậu, nên trước hết chọn Quý Thủy."
+   },
+   "Kỷ": {
+    "text": "Cách chọn như tháng tư.",
+    "page": "394",
+    "ref": "Tỵ"
+   },
+   "Canh": {
+    "text": "Các chi thành thổ cục thì trước hết lấy giáp, sau đó mới lấy đinh.",
+    "page": "394-395",
+    "say": "Các chi thành Thổ cục thì trước hết lấy Giáp, sau đó mới lấy Đinh."
+   },
+   "Tân": {
+    "text": "Kị thổ vượng.",
+    "page": "395",
+    "say": "Kỵ Thổ vượng."
+   },
+   "Nhâm": {
+    "text": "Gặp thổ nhiều thì chọn giáp trước, thứ nữa mới đến tân.",
+    "page": "395-396",
+    "say": "Gặp Thổ nhiều thì chọn Giáp trước, thứ nữa mới đến Tân."
+   },
+   "Quý": {
+    "text": "Cách chọn như tháng năm.",
+    "page": "396-397",
+    "ref": "Ngọ"
+   }
+  },
+  "Thân": {
+   "Giáp": {
+    "text": "Cách thương quan có thể chuyên dùng nhâm.",
+    "page": "391",
+    "say": "Cách Thương Quan có thể chuyên dùng Nhâm."
+   },
+   "Ất": {
+    "text": "Có canh thì lấy bính, quý để khắc xì hơi, lấy kỉ thổ để tả bớt.",
+    "page": "391-392",
+    "say": "Có Canh thì lấy Bính, Quý để khắc xì hơi, lấy Kỷ Thổ để tả bớt."
+   },
+   "Bính": {
+    "text": "Thủy nhiều lấy mậu thổ kiềm chế.",
+    "page": "392",
+    "say": "Thủy nhiều lấy Mậu Thổ kiềm chế."
+   },
+   "Đinh": {
+    "text": "Người có kỉ, lấy kỉ làm dụng thần.",
+    "page": "392-393",
+    "say": "Người có Kỷ, lấy Kỷ làm dụng thần."
+   },
+   "Mậu": {
+    "text": "Đầu thu trước hết lấy bính hỏa. Người thủy nhiều thì trước hết chọn giáp không chọn quý.",
+    "page": "393",
+    "say": "Đầu thu trước hết lấy Bính Hỏa. Người Thủy nhiều thì trước hết chọn Giáp không chọn Quý."
+   },
+   "Kỷ": {
+    "text": "Canh kim nắm lệnh thì phải chọn bính hỏa để chế ngự.",
+    "page": "394",
+    "say": "Canh Kim nắm lệnh thì phải chọn Bính Hỏa để chế ngự."
+   },
+   "Canh": {
+    "text": "Chuyên dùng đinh hỏa, nếu không có giáp thì không được chọn ất.",
+    "page": "394-395",
+    "say": "Chuyên dùng Đinh Hỏa, nếu không có Giáp thì không được chọn Ất."
+   },
+   "Tân": {
+    "text": "Nhâm thủy là tốt nhất, nếu không kị hỗn tạp thì chọn quý thủy.",
+    "page": "395",
+    "say": "Nhâm Thủy là tốt nhất, nếu không kỵ hỗn tạp thì chọn Quý Thủy."
+   },
+   "Nhâm": {
+    "text": "Mậu phải đóng ở thìn tuất, đinh phải đóng ở ngọ tuất.",
+    "page": "395-396",
+    "say": "Mậu phải đóng ở Thìn Tuất, Đinh phải đóng ở Ngọ Tuất."
+   },
+   "Quý": {
+    "text": "Người có kim cục, đinh phải thông với ngọ, tuất, mùi.",
+    "page": "396-397",
+    "say": "Người có Kim cục, Đinh phải thông với Ngọ, Tuất, Mùi."
+   }
+  },
+  "Dậu": {
+   "Giáp": {
+    "text": "Bính là điều hầu, canh là chủ.",
+    "page": "391",
+    "say": "Bính là điều hậu, Canh là chủ."
+   },
+   "Ất": {
+    "text": "Thượng tuần lấy quý trước, bính sau, hạ tuần lấy bính trước, quý sau. Không có quý có thể lấy nhâm, các chi thành kim cục thì chuyên lấy đinh.",
+    "page": "391-392",
+    "say": "Thượng tuần lấy Quý trước, Bính sau, hạ tuần lấy Bính trước, Quý sau. Không có Quý có thể lấy Nhâm, các chi thành Kim cục thì chuyên lấy Đinh."
+   },
+   "Bính": {
+    "text": "Tứ trụ bính nhiều, chỉ có một mình nhâm là tốt, không có nhâm lấy quý.",
+    "page": "392",
+    "say": "Tứ trụ Bính nhiều, chỉ có một mình Nhâm là tốt, không có Nhâm lấy Quý."
+   },
+   "Đinh": {
+    "text": "Nếu có mậu thổ thành cục tức là thương quan bị tổn thương hết.",
+    "page": "392-393",
+    "say": "Nếu có Mậu Thổ thành cục tức là Thương Quan bị tổn thương hết."
+   },
+   "Mậu": {
+    "text": "Giữa thu lấy bính hỏa là tốt nhất.",
+    "page": "393",
+    "say": "Giữa thu lấy Bính Hỏa là tốt nhất."
+   },
+   "Kỷ": {
+    "text": "Cách chọn dụng thần giống tháng bảy, nhưng cũng có thể tùy đó mà chọn tân kim.",
+    "page": "394",
+    "ref_also": "Thân",
+    "say": "Cũng có thể tùy đó mà chọn Tân Kim."
+   },
+   "Canh": {
+    "text": "Nếu bính hỏa không thấu chi thì có thể chọn tạm.",
+    "page": "394-395"
+   },
+   "Tân": {
+    "text": "Nếu thổ thịnh trước hết cần chọn giáp, kim vượng nên chọn thêm cả đinh.",
+    "page": "395",
+    "say": "Nếu Thổ thịnh trước hết cần chọn Giáp, Kim vượng nên chọn thêm cả Đinh."
+   },
+   "Nhâm": {
+    "text": "Nên chỉ có một ngôi thủy.",
+    "page": "395-396",
+    "say": "Nên chỉ có một ngôi Thủy."
+   },
+   "Quý": {
+    "text": "Người mà cả hai đều có thì thủy ấm, kim ôn, nhưng không nên sát liền nhau mà cách một ngôi thì tốt.",
+    "page": "396-397",
+    "say": "Người mà cả hai đều có thì Thủy ấm, Kim ôn, nhưng không nên sát liền nhau mà cách một ngôi thì tốt."
+   }
+  },
+  "Tuất": {
+   "Giáp": {
+    "text": "Thổ nhiều dùng giáp, mộc nhiều dùng canh.",
+    "page": "391",
+    "say": "Thổ nhiều dùng Giáp, Mộc nhiều dùng Canh."
+   },
+   "Ất": {
+    "text": "Quý, tân kim gặp giáp gọi là dây leo cây tùng, cây bách.",
+    "page": "391-392",
+    "say": "Quý, Tân Kim gặp Giáp gọi là dây leo cây tùng, cây bách."
+   },
+   "Bính": {
+    "text": "Kị thổ nhiều, trước hết lấy giáp.",
+    "page": "392",
+    "say": "Kỵ Thổ nhiều, trước hết lấy Giáp."
+   },
+   "Đinh": {
+    "text": "Cách chọn dụng thần như tháng tám.",
+    "page": "392-393",
+    "ref": "Dậu"
+   },
+   "Mậu": {
+    "text": "Người có kim cục, trước hết lấy quý sau nữa mới lấy bính.",
+    "page": "393",
+    "say": "Người có Kim cục, trước hết lấy Quý sau nữa mới lấy Bính."
+   },
+   "Kỷ": {
+    "text": "Thổ thịnh thì chọn giáp, thổ không thành cục thì dùng bính.",
+    "page": "394",
+    "say": "Thổ thịnh thì chọn Giáp, Thổ không thành cục thì dùng Bính."
+   },
+   "Canh": {
+    "text": "Người chọn nhâm thì kị gặp kỉ thổ.",
+    "page": "394-395",
+    "say": "Người chọn Nhâm thì kỵ gặp Kỷ Thổ."
+   },
+   "Tân": {
+    "text": "Sợ hỏa thổ vượng.",
+    "page": "395",
+    "say": "Sợ Hỏa Thổ vượng."
+   },
+   "Nhâm": {
+    "text": "Người có hợp thì chọn bính trước, chọn giáp sau.",
+    "page": "395-396",
+    "say": "Người có hợp thì chọn Bính trước, chọn Giáp sau."
+   },
+   "Quý": {
+    "text": "Kị thổ thịnh.",
+    "page": "396-397",
+    "say": "Kỵ Thổ thịnh."
+   }
+  },
+  "Hợi": {
+   "Giáp": {
+    "text": "Dùng canh, đinh, bính làm điều hầu, thủy nhiều thì dùng mậu.",
+    "page": "391",
+    "say": "Dùng Canh, Đinh, Bính làm điều hậu, Thủy nhiều thì dùng Mậu."
+   },
+   "Ất": {
+    "text": "Chuyên dùng bính. Thủy nhiều kiêm dùng cả mậu.",
+    "page": "391-392",
+    "say": "Chuyên dùng Bính. Thủy nhiều kiêm dùng cả Mậu."
+   },
+   "Bính": {
+    "text": "Thủy nhiều lấy giáp; hỏa vượng lấy nhâm, mộc vượng lấy canh.",
+    "page": "392",
+    "say": "Thủy nhiều lấy Giáp; Hỏa vượng lấy Nhâm, Mộc vượng lấy Canh."
+   },
+   "Đinh": {
+    "text": "Giáp là chủ, canh là phụ. Còn có thể chọn mậu, quý để hỗ trợ.",
+    "page": "392-393",
+    "say": "Giáp là chủ, Canh là phụ. Còn có thể chọn Mậu, Quý để hỗ trợ."
+   },
+   "Mậu": {
+    "text": "Cả hai đều không thể thiếu, nếu thiếu là người rất tầm thường.",
+    "page": "393",
+    "say": "Cả hai đều không thể thiếu,."
+   },
+   "Kỷ": {
+    "text": "Điều hầu lấy bính làm đầu, nếu nhâm vượng kiêm cả dùng mậu.",
+    "page": "394",
+    "say": "Điều hầu lấy Bính làm đầu, nếu Nhâm vượng kiêm cả dùng Mậu."
+   },
+   "Canh": {
+    "text": "Không có giáp có thể chọn giáp mộc.",
+    "page": "394-395"
+   },
+   "Tân": {
+    "text": "Là cách các kim thủy thuần khiết.",
+    "page": "395"
+   },
+   "Nhâm": {
+    "text": "Người mà mộc cục nhiều, nên chọn canh trước.",
+    "page": "395-396",
+    "say": "Người mà Mộc cục nhiều, nên chọn Canh trước."
+   },
+   "Quý": {
+    "text": "Thủy nhiều thì chọn mậu trước, kim nhiều chọn đinh trước.",
+    "page": "396-397",
+    "say": "Thủy nhiều thì chọn Mậu trước, Kim nhiều chọn Đinh trước."
+   }
+  },
+  "Tý": {
+   "Giáp": {
+    "text": "Đinh trước, canh sau nếu có tị dần.",
+    "page": "391",
+    "say": "Đinh trước, Canh sau nếu có Tỵ Dần."
+   },
+   "Ất": {
+    "text": "Chuyên dùng bính hỏa, kị quý thủy.",
+    "page": "391-392",
+    "say": "Chuyên dùng Bính Hỏa, kỵ Quý Thủy."
+   },
+   "Bính": {
+    "text": "Thủy nhiều thì lấy thổ của mậu, kỉ để kiềm chế.",
+    "page": "392",
+    "say": "Thủy nhiều thì lấy Thổ của Mậu, Kỷ để kiềm chế."
+   },
+   "Đinh": {
+    "text": "Cách chọn dụng thần giống tháng mười.",
+    "page": "392-393",
+    "ref": "Hợi"
+   },
+   "Mậu": {
+    "text": "Chọn bính trước, giáp là phụ.",
+    "page": "393",
+    "say": "Chọn Bính trước, Giáp là phụ."
+   },
+   "Kỷ": {
+    "text": "Cách chọn dụng thần giống tháng mười.",
+    "page": "394",
+    "ref": "Hợi"
+   },
+   "Canh": {
+    "text": "Không thể thiếu bính. Người thiếu bính là người rất tầm thường.",
+    "page": "394-395",
+    "say": "Không thể thiếu Bính."
+   },
+   "Tân": {
+    "text": "Bính không được thiếu, còn những can chi khác thì tùy đó mà chọn.",
+    "page": "395",
+    "say": "Bính không được thiếu, còn những can chi khác thì tùy đó mà chọn."
+   },
+   "Nhâm": {
+    "text": "Cả hai không được thiếu cái nào.",
+    "page": "395-396",
+    "say": "Cả hai không được thiếu cái nào."
+   },
+   "Quý": {
+    "text": "Bính không thể thiếu, thiếu thì sẽ thành tầm thường.",
+    "page": "396-397",
+    "say": "Bính không thể thiếu."
+   }
+  },
+  "Sửu": {
+   "Giáp": {
+    "text": "Lấy đinh thông với dần, tị là tốt.",
+    "page": "391",
+    "say": "Lấy Đinh thông với Dần, Tỵ là tốt."
+   },
+   "Ất": {
+    "text": "Gỗ ở thung lũng lạnh, chuyên dùng bính hỏa.",
+    "page": "391-392",
+    "say": "Gỗ ở thung lũng lạnh, chuyên dùng Bính Hỏa."
+   },
+   "Bính": {
+    "text": "Người gặp thổ nhiều phải lấy giáp để bổ tả.",
+    "page": "392",
+    "say": "Người gặp Thổ nhiều phải lấy Giáp để bổ tả."
+   },
+   "Đinh": {
+    "text": "Lấy giống tháng mười.",
+    "page": "392-393",
+    "ref": "Hợi"
+   },
+   "Mậu": {
+    "text": "Chọn dụng thần giống tháng mười một.",
+    "page": "393",
+    "ref": "Tý"
+   },
+   "Kỷ": {
+    "text": "Cách chọn dụng thần giống tháng mười.",
+    "page": "394",
+    "ref": "Hợi"
+   },
+   "Canh": {
+    "text": "Chọn dụng thần như tháng mười một.",
+    "page": "394-395",
+    "ref": "Tý"
+   },
+   "Tân": {
+    "text": "Bính không được thiếu, những can khác tùy đó mà chọn.",
+    "page": "395",
+    "say": "Bính không được thiếu, những can khác tùy đó mà chọn."
+   },
+   "Nhâm": {
+    "text": "Thượng tuần chọn bính, hạ tuần chọn cả đinh và giáp.",
+    "page": "395-396",
+    "say": "Thượng tuần chọn Bính, hạ tuần chọn cả Đinh và Giáp."
+   },
+   "Quý": {
+    "text": "Nên sinh vào ban đêm. Người mà căn thông với (kỉ) ngọ, mùi, tuất thì quý, nếu có hỏa cục thì cần có canh, tân.",
+    "page": "396-397",
+    "say": "Nếu có Hỏa cục thì cần có Canh, Tân."
+   }
+  }
+ },
+ "_notes_text": "Lời chú của từng ô trong 'Chú thích bảng dụng thần điều hậu', Thiệu Vĩ Hoa tr.391-397 (bản scan, chép phần sau danh sách can; 2026-10-22). 'text' = như in (chính tả gốc: kỉ, tị, điều hầu); 'say' = phần đưa vào văn (bỏ lời phán về người: 'tầm thường', 'quý cách', 'thì quý'; bỏ câu in lỗi hoặc tối nghĩa: Canh tháng 8 và 10, Canh tháng giêng 'thổ năng', Nhâm tháng 2, Tân tháng 10, Ất tháng 3 'các chi thành thủy cục'); 'ref' = ô chỉ nói 'như tháng X' (văn theo lời chú của tháng X); 'ref_also' = ô vừa dẫn tháng X vừa có lời riêng."
 }

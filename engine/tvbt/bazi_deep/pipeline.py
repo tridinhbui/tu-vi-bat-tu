@@ -159,6 +159,35 @@ def _events(view: ChartView, stem: int, branch: int) -> list[dict]:
     return out
 
 
+def _vs_pillar(stem: int, branch: int, ls: int | None, lb: int | None) -> list[dict]:
+    """What a year does to its luck pillar, by the same 八字真宗 pp.19-20 tables as the natal relations (positions only; the page prints no
+    meaning): stem hợp / xung / khắc, branch lục hợp / xung / hình / hại / phá, phục ngâm (the same pillar) and phản ngâm (stem clash + branch
+    clash, the thiên khắc địa xung of TTT Tuế Vận)."""
+    from ..bazi import DESTROY, HARM, PENALTY_PAIR, PENALTY_PAIRS, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_KIND, STEM_COMBINE
+    if ls is None or lb is None:
+        return []
+    out, ps, pb = [], frozenset((stem, ls)), frozenset((branch, lb))
+    if ps in STEM_COMBINE:
+        out.append({"kind": "stem_combine", "part": "stem", "element": STEM_COMBINE[ps]})
+    if ps in STEM_CLASH_KIND:
+        out.append({"kind": "stem_clash" if STEM_CLASH_KIND[ps] == "xung" else "stem_control", "part": "stem"})
+    if pb in SIX_COMBINE:
+        out.append({"kind": "branch_six_combine", "part": "branch"})
+    if pb in SIX_CLASH:
+        out.append({"kind": "branch_clash", "part": "branch"})
+    if pb in PENALTY_PAIRS or pb == PENALTY_PAIR or (branch == lb and branch in SELF_PENALTY):
+        out.append({"kind": "branch_penalty", "part": "branch"})
+    if pb in HARM:
+        out.append({"kind": "branch_harm", "part": "branch"})
+    if pb in DESTROY:
+        out.append({"kind": "branch_destroy", "part": "branch"})
+    if stem == ls and branch == lb:
+        out.append({"kind": "phuc_ngam", "part": "pillar"})
+    if ps in STEM_CLASH_KIND and pb in SIX_CLASH:
+        out.append({"kind": "phan_ngam", "part": "pillar"})
+    return out
+
+
 def _tvh_role(Y: dict, group: str, element: str) -> str | None:
     """'tot' / 'xau' for a luck or year group by Thiệu Vĩ Hoa's table of vận hỷ/kỵ per cách (pp.378-386), or by the special cách's elements
     (pp.385-386); None when the table gives no row (two readings at the 40% border, no inner cách, the group not named)."""
@@ -299,15 +328,32 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
             rc["support"] = _support(view, branch, yong_g, table, xau_g)
         return {"dieu_hau": dhr, "reconcile": rc}
 
-    def good_years(first: int) -> list[dict]:
-        """the years of a luck pillar whose stem the cách table calls good or the điều hậu cell names (TVH pp.378-386, 389-396)"""
+    def good_years(first: int, ls: int | None = None, lb: int | None = None) -> list[dict]:
+        """the years of a luck pillar that are worth pressing on: those whose own final verdict (stem AND branch by the cách table, the điều hậu
+        cell, `reconcile`) is thuận or khá thuận, and that do not clash head-on with the luck pillar itself (thiên khắc địa xung). Owner review
+        2026-10-22: the list used to follow the year's stem group alone, so a year told "tốt xấu đan xen" could still be listed as one to lean on."""
         out = []
         for y in range(first, first + 10):
             s, b = _year_pillar(y)
             g = _GROUP_VI.get(_group(view, s), _group(view, s))
-            if g in tot_g or (STEMS_VI[s] in table and g not in xau_g):
-                out.append({"year": y, "pillar": f"{STEMS_VI[s]} {BRANCHES_VI[b]}", "group": g, "why": [w for w, ok in (("cach", g in tot_g), ("dieu_hau", STEMS_VI[s] in table and g not in xau_g)) if ok]})
+            rc = judged(s, b, _pillar_facts(view, YS, s, b))["reconcile"]
+            vs = _vs_pillar(s, b, ls, lb) if ls is not None else []
+            if rc["verdict"] in ("thuan", "kha_thuan") and not any(e["kind"] == "phan_ngam" for e in vs):
+                out.append({"year": y, "pillar": f"{STEMS_VI[s]} {BRANCHES_VI[b]}", "group": g, "verdict": rc["verdict"],
+                            "why": [w for w, ok in (("cach", rc["cach"] == "tot"), ("dieu_hau", rc["climate"] == "thuan")) if ok]})
         return out
+
+    from . import depth as dp
+    ttv0 = Y.get("thuan_the_tvh", {}) or {}
+    yd = dp.yong(view, tvh, cct1, ttv0) if tvh else None
+    y_el = yd["el"] if yd else None
+
+    def why_of(stem: int, branch: int, pf: dict) -> dict:
+        """what a temporal pillar does to the useful god (TVH p.382), and why the cách table calls its stem / branch good or bad (pp.377-382)"""
+        if not yd:
+            return {}
+        return {"touch": dp.touches(view, stem, branch, y_el), "why": {"stem": dp.luck_reason(view, tvh, pf["stem_group"], pf["tvh"]["stem"], yd),
+                                                                      "branch": dp.luck_reason(view, tvh, pf["branch_group"], pf["tvh"]["branch"], yd)}}
 
     lk = []
     for e, L in zip(tl["luck"], luck):
@@ -317,7 +363,9 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
                    "can_chi_detail": cc and {"relation": cc["relation"], "mitigated": cc["mitigated"], "aggravated": cc["aggravated"]},
                    **{k: v for k, v in _pillar_facts(view, YS, L["stem"], L["branch"]).items() if k != "dieu_hau"},
                    **judged(L["stem"], L["branch"], _pillar_facts(view, YS, L["stem"], L["branch"])),
-                   **({"first_year": luck_first_year(L["start_year_exact"]), "good_years": good_years(luck_first_year(L["start_year_exact"]))} if L.get("start_year_exact") else {}),
+                   **({"first_year": luck_first_year(L["start_year_exact"]), "good_years": good_years(luck_first_year(L["start_year_exact"]), L["stem"], L["branch"]),
+                       "halves": dp.halves(luck_first_year(L["start_year_exact"]))} if L.get("start_year_exact") else {}),
+                   **why_of(L["stem"], L["branch"], _pillar_facts(view, YS, L["stem"], L["branch"])),
                    "events": _events(view, L["stem"], L["branch"]), "findings": ok(e.get("findings", []))})
     yr = []
     for e, (y, s, b) in zip(tl["years"], ys):
@@ -332,7 +380,12 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
             rid = "BT_TTT_THIENKHAC_VUONG" if tvh.get("dm_strong") else "BT_TTT_THIENKHAC_NHUOC"
             fs.append({"rule_id": rid, "text": claims.get(rid.lower().replace("bt_ttt_thienkhac", "bt_ttt_thien_khac"), rid)})
         pf = {k: v for k, v in pf.items() if k != "dieu_hau"}
-        yr.append({"year": y, "pillar": f"{STEMS_VI[s]} {BRANCHES_VI[b]}", "luck": e["pillars"][0] if len(e["pillars"]) > 1 else None, **pf, **judged(s, b, pf),
+        lname = e["pillars"][0] if len(e["pillars"]) > 1 else None
+        lmeta = next((x for x in lk if x["pillar"] == lname and x.get("first_year") is not None and x["first_year"] <= y < x["first_year"] + 10), None)
+        half = ({"part": "stem" if y - lmeta["first_year"] < 5 else "branch", "index": y - lmeta["first_year"] + 1,
+                 "verdict": (lmeta.get("tvh") or {}).get("stem" if y - lmeta["first_year"] < 5 else "branch")} if lmeta else None)
+        yr.append({"year": y, "pillar": f"{STEMS_VI[s]} {BRANCHES_VI[b]}", "luck": lname, **pf, **judged(s, b, pf), **why_of(s, b, pf), "luck_half": half,
+                   "vs_luck": _vs_pillar(s, b, *(STEMS_VI.index(lname.split()[0]), BRANCHES_VI.index(lname.split()[1])) if lname else (None, None)),
                    "can_chi_detail": cc and {"relation": cc["relation"], "mitigated": cc["mitigated"], "aggravated": cc["aggravated"]},
                    "events": ev, "findings": fs})
     cct, ttv = Y.get("cach_cuc_tvh", {}) or {}, Y.get("thuan_the_tvh", {}) or {}
@@ -362,10 +415,18 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
         "cach_tvh": {"status": cct.get("status"), "cach": cct.get("cach") or (inner or {}).get("name"), "dm": cct.get("dm"), "dominant": _GROUP_VI.get(cct.get("dominant"), cct.get("dominant")),
                      "yong": grp(cct.get("yong_alternatives") or cct.get("yong")), "van_tot": grp(cct.get("van_tot")), "van_xau": grp(cct.get("van_xau")), "page": cct.get("page"),
                      "near_threshold": bool(cct.get("near_threshold")),
+                     # one status for the cách everywhere (owner review 2026-10-22): the table is transcribed as printed but the rule that names the
+                     # cách from the month is only partly checked against TVH pp.356-366 (yongshen.METHOD_META cach_cuc_tvh), so every verdict drawn
+                     # from the cách is conditional on the cách standing
+                     "verification": (cct.get("meta") or {}).get("verification") or "partial",
                      "special": ttv.get("outer") if ttv.get("status") == "ap_dung" else None,
                      "special_tot": ttv.get("van_tot_elements") or grp(ttv.get("yong", []) + ttv.get("xi", [])) if ttv.get("status") == "ap_dung" else [],
                      "special_xau": ttv.get("van_xau_elements") or grp(ttv.get("ji", [])) if ttv.get("status") == "ap_dung" else []},
         "pillars": {k: {"nap_am": nap_am_name(view.stem(k), view.branch(k)), "stage": view.stage(view.dm, k)} for k in _PIL},
+        # the why behind the verdicts (bazi_deep.depth): the 40% verdict in degrees, each stem's degrees and roots, the branch combinations, the
+        # groups in degrees and their sinh links, the useful god's reason / fallback / place / natal health, the điều hậu cell's printed note
+        "depth": {"score": dp.score(view, tvh), "stems": dp.stems(view, tvh), "units": dp.units(view, tvh), "flow": dp.flow(view, tvh), "yong": yd,
+                  "dh_note": dp.dh_note(view, tvh)} if tvh else None,
         "shensha": ss,
         "verified": verified, "luck": lk, "years": yr,
     }

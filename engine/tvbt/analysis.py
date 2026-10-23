@@ -355,8 +355,21 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     mon_h = [h for h in bz.pillars["month"].hidden]
     vis_st = {bz.pillars[k].stem: PIL[k] for k in ("year", "month", "hour")}
     thau = [f"{h['name']} (lộ ở thiên can trụ {vis_st[h['stem']]})" for h in mon_h if h["stem"] in vis_st]
-    ch["cach-cuc"].append(B("Tàng can của nguyệt lệnh " + BRANCHES_VI[mb] + ": " + (_join([f"{h['name']} ({h['ten_god']})" for h in mon_h])) + "; " + ("các chữ lộ ra thiên can: " + _join(thau) if thau else "không có chữ nào lộ ra thiên can khác") + ". Việc nguyệt lệnh “thấu can” được các sách Tử Bình dùng để định cách; hệ thống chỉ nêu dữ kiện vì quy tắc định cách chưa được xác minh.", "Cách", "he_thong"))
-    ch["cach-cuc"].append(B("Bát Tự: hệ thống chưa có quy tắc cách cục đã xác minh (Tử Bình Chân Thuyên chưa được đưa vào), nên không xác định cách cục từ nguyệt lệnh.", "Cách", "he_thong"))
+    # Bát Tự cách: ONE status everywhere (owner review 2026-10-22). The reading (bazi_deep, prose/bazi_deep.ts) names the cách from the month
+    # and draws the dụng thần and the luck verdicts from Thiệu Vĩ Hoa's table; that method is "partial" (yongshen.METHOD_META cach_cuc_tvh: the
+    # table is transcribed as printed, the rule that names the cách is only partly checked against TVH pp.356-366). Said so here too.
+    cach_name, cach_ver = None, "partial"
+    try:
+        from .bazi_deep import pipeline as _bp
+        from .bazi_deep.model import ChartView as _CV
+        _a = _bp.analyse(_CV.from_bazi(bz), with_rules=False)
+        cach_name = (_a["geju"]["inner"][0]["name"] if _a["geju"]["inner"] else None)
+        cach_ver = ((_a["yongshen"]["methods"].get("cach_cuc_tvh") or {}).get("meta") or {}).get("verification") or "partial"
+    except Exception:  # the structure analysis is an extra here
+        pass
+    ch["cach-cuc"].append(B("Tàng can của nguyệt lệnh " + BRANCHES_VI[mb] + ": " + (_join([f"{h['name']} ({h['ten_god']})" for h in mon_h])) + "; " + ("các chữ lộ ra thiên can: " + _join(thau) if thau else "không có chữ nào lộ ra thiên can khác") + ". Chữ của nguyệt lệnh lộ ra thiên can là căn cứ để định cách; phép định cách này mới được đối chiếu một phần với Thiệu Vĩ Hoa (Dự Đoán Theo Tứ Trụ tr.356-366).", "Cách", "he_thong"))
+    ch["cach-cuc"].append(B(("Bát Tự: cách lập từ nguyệt lệnh là cách " + cach_name + "; trạng thái: xác lập một phần" + ("" if cach_ver == "partial" else f" ({cach_ver})") + ". Dụng thần và vận tốt, vận xấu tra theo bảng của Thiệu Vĩ Hoa cho cách này (tr.378-386) vì vậy đều có điều kiện: chúng đúng nếu cách " + cach_name + " được xác lập.")
+                            if cach_name else "Bát Tự: không lập được cách từ nguyệt lệnh (hoặc lá số theo một cách đặc biệt), nên phần dụng thần theo cách không áp dụng.", "Cách", "he_thong"))
 
     # ---------- Phản + Tổng ở mỗi chương liên quan
     ch["tong-quan"].append(B("Điều cần nhớ khi đọc: một sao hay một cách cục chưa nói lên điều gì khi tách khỏi độ sáng, sao đi cùng, Tuần/Triệt và vận hạn. Phần “diễn giải truyền thống” liệt kê từng quy tắc đã khớp kèm trạng thái nguồn; các quy tắc đối lập được tách riêng để bạn tự cân nhắc, không có điểm tổng.", "Tổng"))
