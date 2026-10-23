@@ -163,7 +163,7 @@ addEventListener('tvbt:unlocked', async e => {
   if (sys) setTab(sys, false);
   if (id) requestAnimationFrame(() => {
     const sec = document.querySelector(`.prose[data-chapter="${CSS.escape(id)}"]`);
-    sec?.querySelector('details.pr-deep, details.bt-sau')?.setAttribute('open', '');
+    // the bought Đọc sâu stays folded; the reader opens it from its dropdown
     sec?.scrollIntoView({ block: 'start' });
   });
 });

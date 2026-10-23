@@ -63,3 +63,12 @@
 .policy{max-width:760px}.policy h2{font-size:1.35rem;margin:var(--s6) 0 var(--s2)}.policy li{margin:6px 0}
 @media print{.site-header,.no-print{display:none!important}.cm-page{padding:0}}
 @media (max-width:560px){.cm-hdr .cm-who{display:none}}
+
+/* "Đọc sâu (theo sách)" offer for members: a closed dropdown under the chapter; the plans and prices show only when opened */
+.pw-deep-fold{margin:var(--s3) 0;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--raise)}
+.pw-deep-fold>summary{display:flex;gap:10px;align-items:baseline;padding:10px 14px;cursor:pointer;list-style:none}
+.pw-deep-fold>summary::-webkit-details-marker{display:none}
+.pw-deep-fold>summary::before{content:"▸";color:var(--accent);transition:transform .15s}
+.pw-deep-fold[open]>summary::before{transform:rotate(90deg)}
+.pw-deep-fold>summary .cb-t{font-weight:600}.pw-deep-fold>summary .cb-s{color:var(--text2);font-size:.85rem}
+.pw-deep-fold>.pw-lock{margin:0 10px 10px}

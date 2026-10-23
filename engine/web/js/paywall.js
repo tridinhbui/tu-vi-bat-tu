@@ -26,7 +26,7 @@ export function lockHtml(p) {
 
 function guestCard(L) {
   const left = Math.max(0, (L.total || 0) - (L.shown || 0));
-  const what = left ? `còn ${left} đoạn luận chính${L.deep ? ` và phần Đọc sâu (theo sách)` : ''}` : L.deep ? 'còn phần Đọc sâu (theo sách)' : 'còn phần tiếp theo';
+  const what = left ? `còn ${left} đoạn luận chính` : 'còn phần tiếp theo';
   const head = L.shared
     ? `<p>Đây là lá số được chia sẻ: người xem qua liên kết đọc phần đầu mỗi chương. <b>${esc(L.title)}</b> ${what}.</p>`
     : `<p>Bạn đang đọc phần đầu của <b>${esc(L.title)}</b>; ${what}.</p>`;
@@ -35,7 +35,7 @@ function guestCard(L) {
     : `<a class="btn btn-sm" href="/api/auth/google" data-pw-signin>Đăng nhập để đọc tiếp</a>`;
   return `<div class="pw-lock pw-guest" data-tier="guest" data-locked="${esc(L.chapter)}">${blur(left || 1)}
     <div class="pw-over"><p class="eyebrow">Đọc tiếp</p>${head}<p>${cta}</p>
-    <p class="small muted">Đăng nhập bằng Google, miễn phí: đọc trọn phần luận chính của mọi chương.${L.deep ? ' Phần Đọc sâu (theo sách) mở thêm bằng xu.' : ''} <a href="/#quyen-loi">Quyền lợi thành viên</a></p></div></div>`;
+    <p class="small muted">Đăng nhập bằng Google, miễn phí: đọc trọn phần luận chính của mọi chương. <a href="/#quyen-loi">Quyền lợi thành viên</a></p></div></div>`;
 }
 
 function memberCard(L) {
@@ -45,9 +45,10 @@ function memberCard(L) {
     const P = byId[x.id] || x;
     return `<button type="button" class="btn btn-sm${x.id === 'chuong' ? '' : ' btn-ghost'}" data-plan="${esc(x.id)}"${x.chapter ? ` data-chapter="${esc(x.chapter)}"` : ''} title="${esc(P.blurb || '')}">${esc(P.name || x.name)} · ${COIN_SVG}<b>${Number(P.coins ?? x.coins)}</b> xu</button>`;
   }).join('');
-  return `<div class="pw-lock pw-deep" data-tier="member" data-locked="${esc(L.chapter)}"><p class="eyebrow">Đọc sâu (theo sách)</p>
+  // collapsed: the offer opens only when the reader clicks the "Đọc sâu" line (owner 2026-10-23: no xu cards spread open across the page)
+  return `<details class="pw-deep-fold"><summary><span class="cb-t">Đọc sâu (theo sách)</span><span class="cb-s">${Number(L.deep) || ''} đoạn</span></summary><div class="pw-lock pw-deep" data-tier="member" data-locked="${esc(L.chapter)}">
     <p><b>${esc(L.title)}</b> còn ${Number(L.deep) || ''} đoạn Đọc sâu: vì sao có kết luận, tổ hợp sao hỗ trợ, yếu tố làm mạnh hay yếu, kèm trang sách. Phần này viết theo luật từ sách, không phải AI.</p>
-    ${buttons ? `<div class="pw-plans">${buttons}</div>` : ''}<p class="small muted">Mở một lần cho lá số này, đọc lại không tốn thêm.${tag} <a href="/bang-gia">Xem bảng giá và nạp xu</a></p><p class="pw-msg small" role="status" aria-live="polite"></p></div>`;
+    ${buttons ? `<div class="pw-plans">${buttons}</div>` : ''}<p class="small muted">Mở một lần cho lá số này, đọc lại không tốn thêm.${tag} <a href="/bang-gia">Xem bảng giá và nạp xu</a></p><p class="pw-msg small" role="status" aria-live="polite"></p></div></details>`;
 }
 
 /** Click handling for every lock card on the page. getReq(): the birth record of the chart on screen (null on a share link). */
