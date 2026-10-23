@@ -76,7 +76,7 @@ test('evidence: every palace; a VCD palace borrows the opposite chính tinh, lab
   assert.ok(ev['Mệnh'].majors.some(m => m.star === 'Cự Môn' && m.role === 'mixed'), 'Cự Môn hãm hóa Lộc is mixed');
 });
 
-test('2002 Phu Thê: Cơ–Âm vượng, Văn Xương hóa Kỵ, Đà La and Tuần are named and the conclusion is conditional', () => {
+test('2002 Phu Thê: Cơ–Âm vượng, Văn Xương hóa Kỵ, Đà La and Tuần are named; harmony and strain are left unresolved, with the limits named', () => {
   const c = ch('phu_the');
   assert.ok(c.luan && c.pass, JSON.stringify(c.issues));
   const text = c.text;
@@ -86,7 +86,9 @@ test('2002 Phu Thê: Cơ–Âm vượng, Văn Xương hóa Kỵ, Đà La and Tu�
   const body = c.paragraphs.slice(1).map(p => p.text).join(' ');
   for (const x of ['Đà La', 'Tuần', 'Hóa Kỵ']) assert.ok(body.includes(x), `${x} faced in the reading`);
   const end = conclusions(c, 'hon_nhan');
-  assert.ok(end.length && end.every(s => s.trace.ledger!.verdict === 'co_dieu_kien'), end.map(s => s.text).join(' | '));
+  // no book sentence decides between sự hòa hợp and sự trắc trở, and Tuần's timing reading no longer ties them (owner review 2026-10-22)
+  assert.ok(end.length && end.every(s => s.trace.ledger!.verdict === 'chua_phan_xu'), end.map(s => s.text).join(' | '));
+  assert.ok(end.some(s => /Đà La/.test(s.text) && /Tuần/.test(s.text)), 'the limits of the palace are named with the conclusion');
   assert.ok(end.some(s => s.trace.part === 5));
   // Văn Xương carries Kỵ: every strength resting on it is followed by its caveat
   const ss = sentences(c);

@@ -262,7 +262,8 @@ test('overview: the reasoner frame and theses of the worked example, the disclai
   assert.equal(o.disclaimer, DISCLAIMER);
   assert.match(o.disclaimer, /không phải xác suất hay dự báo/);
   assert.equal(o.frame?.branch, 'Tuất');
-  assert.equal(o.frame?.centre, 'Cự Môn (hãm) ở Mệnh');
+  // Cự Môn, or the Kình Dương formation seat now that Toàn Thư's 'Kình miếu' fires on its own table (owner review 2026-10-22 item 8)
+  assert.ok(['Cự Môn (hãm) ở Mệnh', 'Kình Dương ở Mệnh'].includes(o.frame?.centre ?? ''), o.frame?.centre);
   assert.ok(o.frame!.formations.some(f => f.ruleId === 'TV_TH_CACH_MENH_KINH_NHAP_MIEU'));
   assert.ok(o.theses.length >= 2 && o.theses.length <= 3);
   for (const t of o.theses) for (const c of t.claims) assert.ok(c.text && c.rules.length && c.rules.every(r => r.id && r.cite));

@@ -806,6 +806,9 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   const mainText = v.part ? mainText0.replace(new RegExp(`^về ${mainVals.domain},\\s*`), '') : mainText0;
   const main = W.sentence(mainText, tr(key.startsWith('both') || key === 'two_ways' || key === 'chua_phan_xu' || key === 'coexist' || key === 'health_both' ? 4 : 5, `ledger:${v.id}:${key}`));
   const out = [main];
+  // an unresolved domain still names the limits standing in its own palace: they bound whatever the stronger side turns out to be
+  if ((key === 'chua_phan_xu' || key === 'coexist') && limits && (G as Record<string, string[]>).unresolved_limits?.length)
+    out.push(W.sentence(fill(W.pick(`lul|${v.id}`, (G as Record<string, string[]>).unresolved_limits), { limits, palace }), tr(5, `ledger:${v.id}:limits`)));
   // the verdict, naming the limits of the core palace when the conclusion is conditional on them
   const withLimits = v.verdict === 'co_dieu_kien' && !!limits && key !== 'pos_struct' && key !== 'neg_struct';
   if ((key.startsWith('both') || key === 'two_ways' || withLimits) && verdictWords)
