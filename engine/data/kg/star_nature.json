@@ -13,7 +13,14 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "explains": [
     "career.success",
@@ -21,7 +28,16 @@
     "fin.abundance",
     "rel.harmony",
     "prop.rich",
-    "life.mitigated"
+    "life.mitigated",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -400,13 +416,29 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "explains": [
     "life.mitigated",
     "fin.stable",
     "rel.harmony",
-    "career.success"
+    "career.success",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -539,13 +571,29 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "pol": "±",
    "explains": [
     "social.support",
     "career.success",
-    "career.status"
+    "career.status",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -617,7 +665,14 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "explains": [
     "career.success",
@@ -626,7 +681,16 @@
     "fin.abundance",
     "rel.harmony",
     "social.support",
-    "presence."
+    "presence.",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -722,7 +786,14 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "pol": "-",
    "explains": [
@@ -730,7 +801,16 @@
     "rel.strain",
     "fin.scarcity",
     "fin.volatile",
-    "prop.poor"
+    "prop.poor",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -763,7 +843,14 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "pol": "-",
    "explains": [
@@ -771,7 +858,16 @@
     "fin.scarcity",
     "prop.poor",
     "career.obstacle",
-    "rel.strain"
+    "rel.strain",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -807,14 +903,30 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "pol": "-",
    "explains": [
     "career.obstacle",
     "fin.volatile",
     "rel.strain",
-    "prop.poor"
+    "prop.poor",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -830,7 +942,14 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "pol": "-",
    "explains": [
@@ -838,7 +957,16 @@
     "fin.scarcity",
     "prop.poor",
     "rel.strain",
-    "adapt.unsteady"
+    "adapt.unsteady",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -851,7 +979,14 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "explains": [
     "fin.abundance",
@@ -859,7 +994,16 @@
     "career.status",
     "rel.harmony",
     "prop.rich",
-    "life.mitigated"
+    "life.mitigated",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -959,7 +1103,14 @@
     "career",
     "money",
     "marriage",
-    "property"
+    "property",
+    "allies",
+    "travel",
+    "fortune",
+    "children",
+    "siblings",
+    "parents",
+    "health"
    ],
    "pol": "-",
    "explains": [
@@ -968,7 +1119,16 @@
     "fin.scarcity",
     "rel.strain",
     "prop.poor",
-    "career.late"
+    "career.late",
+    "ally.",
+    "kin.",
+    "parents.",
+    "travel.",
+    "fortune.",
+    "health.",
+    "life.blessed",
+    "life.hardship",
+    "outside."
    ]
   },
   {
@@ -984,6 +1144,670 @@
    ],
    "pol": "-",
    "explains": []
+  },
+  {
+   "id": "khoi_viet.quy_nhan",
+   "star": "Thiên Khôi",
+   "also": [
+    "Thiên Việt"
+   ],
+   "page": 145,
+   "quote": "Khôi Việt thực sự là hai quí nhân",
+   "text": "thực sự là hai quý nhân",
+   "use": [
+    "allies",
+    "travel"
+   ],
+   "explains": [
+    "travel.helped",
+    "social.support",
+    "outside.favorable",
+    "ally.powerful"
+   ]
+  },
+  {
+   "id": "ta_huu.tay_sai",
+   "star": "Tả Phụ",
+   "also": [
+    "Hữu Bật"
+   ],
+   "page": 120,
+   "quote": "Tả Hữu tượng trưng cho người phụ tá, tay sai, bảo vệ",
+   "text": "tượng trưng cho người phụ tá, người giúp việc, người bảo vệ",
+   "use": [
+    "allies"
+   ],
+   "explains": [
+    "ally.helpful",
+    "ally.many",
+    "ally.loyal"
+   ]
+  },
+  {
+   "id": "ta_huu.nguoi_doi_giup",
+   "star": "Tả Phụ",
+   "also": [
+    "Hữu Bật"
+   ],
+   "page": 120,
+   "quote": "Tả Hữu, Giải thần, Thiên quan, Thiên phúc biểu hiện sự giúp đỡ của người đời",
+   "text": "biểu hiện sự giúp đỡ của người đời",
+   "use": [
+    "travel",
+    "siblings",
+    "children"
+   ],
+   "explains": [
+    "travel.helped",
+    "kin.many"
+   ]
+  },
+  {
+   "id": "quang_quy.troi_giup",
+   "star": "Ân Quang",
+   "also": [
+    "Thiên Quý"
+   ],
+   "page": 131,
+   "quote": "Quang Quí biểu hiện sự giúp đỡ của Trời, Tả Hữu, nói lên sự giúp đỡ của người",
+   "text": "biểu hiện sự giúp đỡ của Trời",
+   "use": [
+    "fortune",
+    "travel",
+    "children"
+   ],
+   "explains": [
+    "fortune.protected",
+    "travel.helped",
+    "life.blessed",
+    "kin.filial"
+   ]
+  },
+  {
+   "id": "thanh_long.giao_te",
+   "star": "Thanh Long",
+   "page": 135,
+   "quote": "Tượng trưng cho thành công trong giao tế",
+   "text": "tượng trưng cho thành công trong giao tế",
+   "use": [
+    "travel",
+    "allies"
+   ],
+   "explains": [
+    "outside.favorable",
+    "travel.helped",
+    "ally.many"
+   ]
+  },
+  {
+   "id": "song_hao.du_lich",
+   "star": "Đại Hao",
+   "also": [
+    "Tiểu Hao"
+   ],
+   "page": 136,
+   "quote": "Song Hao còn biểu hiện cho du lịch nữa",
+   "text": "còn biểu hiện cho sự đi lại, du lịch",
+   "use": [
+    "travel"
+   ],
+   "pol": "±",
+   "explains": [
+    "life.mobility",
+    "travel.costly"
+   ]
+  },
+  {
+   "id": "tu_duc.ban_tot",
+   "star": "Long Đức",
+   "also": [
+    "Phúc Đức",
+    "Nguyệt Đức",
+    "Thiên Đức"
+   ],
+   "page": 149,
+   "quote": "hạnh, bộ sao của người bạn tốt hay giúp đỡ tha thứ",
+   "text": "là bộ sao của người bạn tốt hay giúp đỡ",
+   "use": [
+    "allies"
+   ],
+   "explains": [
+    "ally.helpful",
+    "ally.loyal"
+   ]
+  },
+  {
+   "id": "thien_ma.du_lich",
+   "star": "Thiên Mã",
+   "page": 152,
+   "quote": "Tượng trưng cho thay đổi, du lịch, lang thang",
+   "text": "tượng trưng cho thay đổi, đi lại, du lịch",
+   "use": [
+    "travel"
+   ],
+   "pol": "±",
+   "explains": [
+    "life.mobility",
+    "outside.active",
+    "travel.toil",
+    "kin.apart"
+   ]
+  },
+  {
+   "id": "hoa_quyen.di_chuyen",
+   "star": "Hóa Quyền",
+   "page": 156,
+   "quote": "Hóa quyền còn tượng trưng cho di chuyển, du lịch",
+   "text": "còn tượng trưng cho di chuyển, du lịch",
+   "use": [
+    "travel"
+   ],
+   "pol": "±",
+   "explains": [
+    "life.mobility",
+    "outside.active"
+   ]
+  },
+  {
+   "id": "hoa_ky.do_ky",
+   "star": "Hóa Kỵ",
+   "page": 156,
+   "quote": "Hóa kỵ là sao Thủy, chủ đố kỵ, ghen ghét, dèm pha",
+   "text": "chủ đố kỵ, ghen ghét, dèm pha",
+   "use": [
+    "allies",
+    "travel",
+    "siblings",
+    "children",
+    "parents"
+   ],
+   "pol": "-",
+   "explains": [
+    "ally.slander",
+    "ally.disloyal",
+    "ally.resent",
+    "travel.dispute",
+    "kin.strain",
+    "parents.strain"
+   ]
+  },
+  {
+   "id": "tham_lang.giao_te",
+   "star": "Tham Lang",
+   "page": 102,
+   "quote": "Thích giao tế, lui tới chốn ăn nhậu ồn ào",
+   "text": "thích giao tế, hay lui tới chốn đông vui",
+   "use": [
+    "allies",
+    "travel"
+   ],
+   "pol": "±",
+   "explains": [
+    "ally.many",
+    "ally.greedy",
+    "outside.active"
+   ]
+  },
+  {
+   "id": "cu_mon.dieu_tieng",
+   "star": "Cự Môn",
+   "page": 118,
+   "quote": "Cự môn: điều tiếng",
+   "text": "chủ điều tiếng",
+   "use": [
+    "travel",
+    "allies",
+    "parents",
+    "siblings"
+   ],
+   "pol": "-",
+   "explains": [
+    "travel.dispute",
+    "ally.resent",
+    "parents.strain",
+    "kin.strain"
+   ]
+  },
+  {
+   "id": "liem_trinh.soi_moi",
+   "star": "Liêm Trinh",
+   "page": 118,
+   "quote": "Liêm trinh: soi mói",
+   "text": "hay soi mói, xét nét",
+   "use": [
+    "allies",
+    "travel"
+   ],
+   "pol": "-",
+   "explains": [
+    "ally.resent",
+    "travel.dispute"
+   ]
+  },
+  {
+   "id": "pha_quan.chu_no_tu",
+   "star": "Phá Quân",
+   "page": 116,
+   "quote": "Phá quân là tinh đẩu chủ các việc phu thê, nô bộc và tử tức",
+   "text": "chủ các việc phu thê, nô bộc và tử tức, mà vào số là hao",
+   "use": [
+    "allies",
+    "children"
+   ],
+   "pol": "-",
+   "explains": [
+    "ally.drain",
+    "ally.weak",
+    "ally.fickle",
+    "kin.few"
+   ]
+  },
+  {
+   "id": "thien_tuong.phuc_duc",
+   "star": "Thiên Tướng",
+   "page": 118,
+   "quote": "Thiên tướng: phúc đức",
+   "text": "chủ phúc đức",
+   "use": [
+    "fortune"
+   ],
+   "explains": [
+    "life.blessed"
+   ]
+  },
+  {
+   "id": "tu_vi.cuu_kho",
+   "star": "Tử Vi",
+   "page": 118,
+   "quote": "Tử vi: cứu khổ cứu nạn",
+   "text": "cứu khổ cứu nạn",
+   "use": [
+    "fortune",
+    "health"
+   ],
+   "explains": [
+    "life.mitigated",
+    "health.shielded",
+    "life.blessed"
+   ]
+  },
+  {
+   "id": "thien_dong.chu_te_phuc",
+   "star": "Thiên Đồng",
+   "page": 90,
+   "quote": "Thiên đồng là chủ tể cung Phúc đức",
+   "text": "là sao chủ tể của cung Phúc Đức",
+   "use": [
+    "fortune"
+   ],
+   "explains": [
+    "life.blessed",
+    "inner.peace"
+   ],
+   "palace": "Phúc Đức"
+  },
+  {
+   "id": "thien_luong.phuc_tho",
+   "star": "Thiên Lương",
+   "page": 111,
+   "quote": "Thiên lương là sao chủ về phúc thọ",
+   "text": "là sao chủ về phúc thọ",
+   "use": [
+    "fortune"
+   ],
+   "explains": [
+    "life.blessed",
+    "inner.peace"
+   ]
+  },
+  {
+   "id": "thien_tuong.dong_dau_phuc_day",
+   "star": "Thiên Tướng",
+   "page": 108,
+   "quote": "Thiên tướng đóng đâu phúc đấy, không bị sao ác làm biến đổi",
+   "text": "đóng ở đâu thì phúc ở đó",
+   "use": [
+    "fortune",
+    "parents"
+   ],
+   "explains": [
+    "life.blessed",
+    "parents.prosper",
+    "fam.positive",
+    "kin.harmony"
+   ]
+  },
+  {
+   "id": "tu_vi.ban_phuc",
+   "star": "Tử Vi",
+   "page": 75,
+   "quote": "Nói chung thì Tử vi ban phúc nhiều hơn lộc, ban sức khỏe, ban cứu giải nhiều hơn tiền bạc",
+   "text": "ban phúc nhiều hơn lộc, ban sức khỏe và cứu giải nhiều hơn tiền bạc",
+   "use": [
+    "fortune",
+    "parents"
+   ],
+   "explains": [
+    "life.blessed",
+    "life.mitigated",
+    "kin.harmony"
+   ]
+  },
+  {
+   "id": "quan_phuc.phuc_tinh",
+   "star": "Thiên Quan",
+   "also": [
+    "Thiên Phúc"
+   ],
+   "page": 140,
+   "quote": "Tăng phúc thọ do tu nhân tích đức giúp đỡ Thất sát nhân",
+   "text": "đều là phúc tinh, chủ cứu giải, đức độ",
+   "use": [
+    "fortune",
+    "health"
+   ],
+   "explains": [
+    "life.blessed",
+    "fortune.clan_prosper",
+    "life.mitigated",
+    "health.shielded"
+   ]
+  },
+  {
+   "id": "thai_duong.cha",
+   "star": "Thái Dương",
+   "page": 85,
+   "quote": "Là biểu tượng người cha, người chồng, con mắt, sự sáng tạo, chỉ huy, tư cách",
+   "text": "là biểu tượng người cha",
+   "use": [
+    "parents"
+   ],
+   "pol": "±",
+   "explains": [
+    "parents.",
+    "fam.",
+    "kin.harmony",
+    "kin.strain"
+   ]
+  },
+  {
+   "id": "thai_am.me",
+   "star": "Thái Âm",
+   "page": 100,
+   "quote": "Biểu tượng người mẹ, người vợ, con mắt",
+   "text": "là biểu tượng người mẹ",
+   "use": [
+    "parents"
+   ],
+   "pol": "±",
+   "explains": [
+    "parents.",
+    "fam.",
+    "kin.harmony",
+    "kin.strain"
+   ]
+  },
+  {
+   "id": "tham_lang.it_hop_tu",
+   "star": "Tham Lang",
+   "page": 102,
+   "quote": "Tham lang ít hợp với Tử tức",
+   "text": "ít hợp với cung Tử Tức",
+   "use": [
+    "children"
+   ],
+   "pol": "-",
+   "explains": [
+    "kin.late",
+    "kin.wayward",
+    "kin.few"
+   ],
+   "palace": "Tử Tức"
+  },
+  {
+   "id": "loc_ton.cham_tre",
+   "star": "Lộc Tồn",
+   "page": 133,
+   "quote": "Lộc tồn cũng có nghĩa là chận trễ",
+   "text": "cũng có nghĩa là chậm trễ",
+   "use": [
+    "children"
+   ],
+   "pol": "-",
+   "explains": [
+    "kin.late"
+   ]
+  },
+  {
+   "id": "phi_liem.hiem_muon",
+   "star": "Phi Liêm",
+   "page": 137,
+   "quote": "Tượng trưng cho mau mắn, lanh lợi, hiếm muộn",
+   "text": "tượng trưng cho mau mắn, lanh lợi và hiếm muộn",
+   "use": [
+    "children",
+    "siblings"
+   ],
+   "pol": "-",
+   "explains": [
+    "kin.few",
+    "kin.late"
+   ]
+  },
+  {
+   "id": "long_phuong.sinh_no",
+   "star": "Long Trì",
+   "also": [
+    "Phượng Các"
+   ],
+   "page": 149,
+   "quote": "may mắn trong hôn nhân",
+   "text": "chủ may mắn trong hôn nhân và sinh nở",
+   "use": [
+    "children"
+   ],
+   "explains": [
+    "kin.good",
+    "kin.many"
+   ]
+  },
+  {
+   "id": "truong_sinh.sinh_de",
+   "star": "Trường Sinh",
+   "page": 160,
+   "quote": "tốt cho sinh đẻ",
+   "text": "tượng trưng cho bền vững, tốt cho sinh đẻ",
+   "use": [
+    "children",
+    "siblings"
+   ],
+   "explains": [
+    "kin.many",
+    "kin.good"
+   ]
+  },
+  {
+   "id": "de_vuong.sinh_no",
+   "star": "Đế Vượng",
+   "page": 162,
+   "quote": "Đế vượng gia tăng phúc thọ, giải trừ bệnh tật, tai họa, tăng tiến công danh, lợi ích cho",
+   "text": "gia tăng phúc thọ, giải trừ bệnh tật, tai họa, lợi cho sinh nở",
+   "use": [
+    "children",
+    "siblings",
+    "health"
+   ],
+   "explains": [
+    "kin.many",
+    "kin.good",
+    "health.shielded"
+   ]
+  },
+  {
+   "id": "suy.sa_sut",
+   "star": "Suy",
+   "page": 162,
+   "quote": "Tượng trưng cho sa sút suy bại dù ở cung nào cũng vậy",
+   "text": "chủ yếu đuối, suy thoái, ở cung nào cũng tượng trưng sa sút",
+   "use": [
+    "children",
+    "fortune",
+    "siblings"
+   ],
+   "pol": "-",
+   "explains": [
+    "kin.few",
+    "fortune.clan_decline"
+   ]
+  },
+  {
+   "id": "khong_kiep.bat_kha_khang",
+   "star": "Địa Không",
+   "also": [
+    "Địa Kiếp"
+   ],
+   "page": 126,
+   "quote": "Không Kiếp ví như một nghiệp chướng bám vào con người",
+   "text": "tượng trưng cho những trường hợp bất khả kháng, khó chế ngự",
+   "use": [
+    "children",
+    "siblings",
+    "parents",
+    "allies",
+    "health"
+   ],
+   "pol": "-",
+   "explains": [
+    "kin.wayward",
+    "kin.apart",
+    "kin.burden",
+    "parents.apart",
+    "parents.burden",
+    "ally.disloyal",
+    "health.exposed"
+   ]
+  },
+  {
+   "id": "hoa_linh.xa_anh_em",
+   "star": "Hỏa Tinh",
+   "also": [
+    "Linh Tinh"
+   ],
+   "page": 200,
+   "quote": "Hỏa Linh thích cô độc, xa lánh anh em, nóng nẩy nên gây họa",
+   "text": "thích cô độc, xa lánh anh em",
+   "use": [
+    "siblings"
+   ],
+   "pol": "-",
+   "explains": [
+    "kin.apart",
+    "kin.strain"
+   ],
+   "palace": "Huynh Đệ"
+  },
+  {
+   "id": "thien_phu.giai_tai_ach",
+   "star": "Thiên Phủ",
+   "page": 96,
+   "quote": "Thiên phủ là giải tai ách chi tinh",
+   "text": "là sao giải tai ách",
+   "use": [
+    "health"
+   ],
+   "explains": [
+    "health.shielded",
+    "life.mitigated"
+   ]
+  },
+  {
+   "id": "thien_luong.cuu_giai",
+   "star": "Thiên Lương",
+   "page": 109,
+   "quote": "Cứu giải tai họa, bệnh tật, từ thiện",
+   "text": "có tính cứu giải tai họa, bệnh tật",
+   "use": [
+    "health"
+   ],
+   "explains": [
+    "health.shielded",
+    "life.mitigated"
+   ]
+  },
+  {
+   "id": "cuu_giai.manh",
+   "star": "Vũ Khúc",
+   "also": [
+    "Hóa Khoa",
+    "Tử Vi",
+    "Thiên Phủ",
+    "Thiên Lương",
+    "Thiên Đồng",
+    "Tuần",
+    "Triệt"
+   ],
+   "page": 120,
+   "quote": "Vũ khúc, Hóa khoa, Tử vi, Thiên phủ, Thiên lương, Thiên đồng, Tuần Triệt",
+   "text": "là một trong các sao cứu giải mạnh",
+   "use": [
+    "health"
+   ],
+   "explains": [
+    "health.shielded",
+    "life.mitigated"
+   ]
+  },
+  {
+   "id": "thien_y.cuu_giai",
+   "star": "Thiên Y",
+   "page": 122,
+   "quote": "Thiên y là sao cứu giải bệnh tất, chủ việc thuốc men, nghề y dược",
+   "text": "là sao cứu giải bệnh tật",
+   "use": [
+    "health"
+   ],
+   "explains": [
+    "health.shielded"
+   ]
+  },
+  {
+   "id": "tuan_triet.bao_ve_vcd",
+   "star": "Tuần",
+   "also": [
+    "Triệt"
+   ],
+   "page": 146,
+   "quote": "Tuần Triệt cón bảo vệ cho những cung vô chính diệu",
+   "text": "bảo vệ cung vô chính diệu, che chắn không cho hung tinh bên ngoài xâm nhập",
+   "use": [
+    "health",
+    "fortune",
+    "children",
+    "siblings"
+   ],
+   "explains": [
+    "health.shielded",
+    "life.mitigated"
+   ]
+  },
+  {
+   "id": "tu_duc.giai_nho",
+   "star": "Thiên Đức",
+   "also": [
+    "Nguyệt Đức",
+    "Long Đức",
+    "Phúc Đức"
+   ],
+   "page": 149,
+   "quote": "Tứ đức giải trừ các bệnh nhỏ và tai họa nhỏ, mang lại may mắn và hỉ sự",
+   "text": "giải trừ các tai họa nhỏ",
+   "use": [
+    "health"
+   ],
+   "explains": [
+    "health.shielded",
+    "life.mitigated"
+   ]
   }
  ],
  "relations": [
@@ -1061,6 +1885,164 @@
    "text": "nhiều tiền là giàu nhưng chưa đủ, nhà cửa đất đai mới là sự giàu sang cụ thể và vững bền",
    "with": [
     "Tài Bạch"
+   ]
+  },
+  {
+   "id": "than.di",
+   "palace": "Thiên Di",
+   "page": 215,
+   "quote": "Cung Thân ở Di thì phải bôn ba ngoài xã hội lấy nghĩa khí",
+   "text": "Thân cư Thiên Di thì phải bôn ba ngoài xã hội, lấy nghĩa khí, trung tín mà giao tiếp bạn bè mới mong thành đạt",
+   "when": "than"
+  },
+  {
+   "id": "no.giau_ngheo_vi_ban",
+   "palace": "Nô Bộc",
+   "page": 219,
+   "quote": "Giầu nhờ bạn mà nghèo cũng vì bạn",
+   "text": "giàu có thể nhờ bạn mà nghèo cũng có thể vì bạn",
+   "with": [
+    "Tài Bạch"
+   ],
+   "chapters": [
+    "no_boc"
+   ]
+  },
+  {
+   "id": "no.tuy_ket_hop",
+   "palace": "Nô Bộc",
+   "page": 219,
+   "quote": "Các sao trong cung Nô xấu hay tốt cũng còn tùy vào",
+   "text": "sao ở cung Nô Bộc tốt hay xấu còn tùy vào sự kết hợp với các sao khác"
+  },
+  {
+   "id": "di.giao_thiep",
+   "palace": "Thiên Di",
+   "page": 218,
+   "quote": "Thiên là chỗ giao thiệp bên ngoài, gần hay xa cũng là Thiên di cả",
+   "text": "Thiên Di là chỗ giao thiệp bên ngoài, gần hay xa đều thuộc Thiên Di",
+   "with": [
+    "Nô Bộc"
+   ],
+   "chapters": [
+    "thien_di",
+    "no_boc"
+   ]
+  },
+  {
+   "id": "di.chinh_tinh_nhan_vat",
+   "palace": "Thiên Di",
+   "page": 218,
+   "quote": "Di có chính tinh thì các sao này là hìn",
+   "text": "chính tinh ở Thiên Di là hình ảnh những người mình thường gặp",
+   "with": [
+    "Thiên Di"
+   ],
+   "chapters": [
+    "thien_di"
+   ]
+  },
+  {
+   "id": "di.menh_phuc_do",
+   "palace": "Thiên Di",
+   "page": 215,
+   "quote": "Mệnh Phúc tốt mà Di, Tật, Vận ngộ hung sát cũng đỡ xấu",
+   "text": "Mệnh và Phúc Đức tốt thì Thiên Di, Tật Ách có gặp hung sát tinh cũng đỡ xấu",
+   "with": [
+    "Mệnh",
+    "Phúc Đức"
+   ],
+   "chapters": [
+    "thien_di",
+    "tat_ach"
+   ]
+  },
+  {
+   "id": "phuc.cuu_menh_than",
+   "palace": "Phúc Đức",
+   "page": 215,
+   "quote": "Mệnh Thân ngộ hung, sát tinh mà cung Phúc có phúc tinh đắc địa thì có thể cứu vãn được",
+   "text": "Mệnh, Thân gặp hung sát tinh mà cung Phúc Đức có phúc tinh đắc địa thì có thể cứu vãn",
+   "with": [
+    "Mệnh"
+   ],
+   "chapters": [
+    "phuc_duc"
+   ]
+  },
+  {
+   "id": "phuc.dep_hon_cac_cung",
+   "palace": "Phúc Đức",
+   "page": 217,
+   "quote": "Cung Phúc đẹp thì dù các cung khác có xấu cũng không đáng lo",
+   "text": "cung Phúc Đức đẹp thì dù các cung khác xấu cũng không đáng lo lắm, còn Phúc Đức xấu mà các cung khác đẹp thì đừng vội mừng",
+   "chapters": [
+    "phuc_duc"
+   ]
+  },
+  {
+   "id": "phuc.nu_menh_phu_phuc",
+   "palace": "Phúc Đức",
+   "page": 96,
+   "quote": "Cung Phu, Phúc đôi nơi phải rõ",
+   "text": "xem số nữ mệnh phải xét cả cung Phu Thê và cung Phúc Đức mới luận được hay dở",
+   "when": "nu",
+   "with": [
+    "Phu Thê",
+    "Phúc Đức"
+   ],
+   "chapters": [
+    "phu_the",
+    "phuc_duc"
+   ],
+   "book": "TH"
+  },
+  {
+   "id": "phu_mau.qua_dep_tat_kem",
+   "palace": "Phụ Mẫu",
+   "page": 220,
+   "quote": "Có điều là cung Phụ mẫu mà quá đẹp thì cung Tật ách của đương số lại heo hút nghèo nàn",
+   "text": "cung Phụ Mẫu quá đẹp thì cung Tật Ách lại heo hút",
+   "with": [
+    "Tật Ách"
+   ],
+   "chapters": [
+    "phu_mau"
+   ]
+  },
+  {
+   "id": "tu.ve_gia",
+   "palace": "Tử Tức",
+   "page": 218,
+   "quote": "Cung tử tức cũng là hình ảnh đời mình về già",
+   "text": "cung Tử Tức cũng là hình ảnh đời mình lúc về già",
+   "chapters": [
+    "tu_tuc"
+   ]
+  },
+  {
+   "id": "tat.tho_au_cuoi_doi",
+   "palace": "Tật Ách",
+   "page": 218,
+   "quote": "Cung Tật ách cũng thật đặc biệt, Đây là hình ảnh của thuở thơ ấu đầu đời",
+   "text": "cung Tật Ách là hình ảnh thuở đầu đời và cũng là hình ảnh lúc cuối đời",
+   "chapters": [
+    "tat_ach"
+   ]
+  },
+  {
+   "id": "menh.quan_di_tai",
+   "palace": "Mệnh",
+   "page": 215,
+   "quote": "ài có nhiều ảnh hưởng đến Mệnh của đương số",
+   "text": "các cung Quan Lộc, Thiên Di, Tài Bạch có nhiều ảnh hưởng đến Mệnh",
+   "with": [
+    "Quan Lộc",
+    "Thiên Di",
+    "Tài Bạch"
+   ],
+   "chapters": [
+    "menh"
    ]
   }
  ]

@@ -154,8 +154,7 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     if (!sec) { untold.push({ ruleId: r.ruleId, reason: 'no_section' }); continue; }
     if (seen.has(`${r.ruleId}|${r.concept}`)) continue;
     seen.add(`${r.ruleId}|${r.concept}`);
-    const atoms = r.atoms.filter(a => (a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet' || a.kind === 'dignity') && a.palace)
-      .map(a => ({ name: a.kind === 'tuan_triet' ? a.name : a.name, palace: a.palace! }));
+    const atoms = groundAtoms(r.atoms, chart);
     const own = byName.get(palace)!;
     const star = atoms.find(a => a.palace === palace && own.major_stars.includes(a.name))?.name ?? atoms.find(a => a.palace === palace)?.name ?? atoms[0]?.name;
     const pol = (c.pol === '~' ? '~' : (c.pol === '+') === (r.stance === 'affirms') ? '+' : '-') as DepthReading['pol'];
@@ -173,7 +172,7 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     const sec = sectionOf(cfg, c);
     if (!sec || seen.has(`${r.ruleId}|${r.concept}`)) continue;
     seen.add(`${r.ruleId}|${r.concept}`);
-    const atoms = dedupeAtoms(r.atoms.filter(a => (a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet' || a.kind === 'dignity') && a.palace).map(a => ({ name: a.name, palace: a.palace! })));
+    const atoms = dedupeAtoms(groundAtoms(r.atoms, chart));
     const star = atoms.find(a => r.borrowed.stars.includes(a.name))?.name;
     const pol = (c.pol === '~' ? '~' : (c.pol === '+') === (r.stance === 'affirms') ? '+' : '-') as DepthReading['pol'];
     const x: DepthReading = { ruleId: r.ruleId, concept: r.concept, palace, pol, status: r.status, cites: r.cites, atoms, ...(star ? { star } : {}), borrowed: r.borrowed };
@@ -272,6 +271,8 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
   {
     for (const id of cfg.relations ?? []) {
       const r = (k.kg?.starNature?.relations ?? []).find(x => x.id === id);
+      // a relation the book states only for a woman's chart (TH p.96: Phu Thê with Phúc Đức) is told only there
+      if (r?.when === 'nu' && chart.gender !== 'female') continue;
       if (r && !said.has(r.id)) { said.add(r.id); push({ kind: 'link', section: linkSec, link: 'relation', relation: r, palace: r.palace }); }
     }
   }
@@ -291,6 +292,13 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
   return { version: DEPTH_VERSION, domain, palace: P, sections: out, untold };
 }
 
+/** The elements a reading stands on, by palace: stars, Hóa, Tuần/Triệt, a vô chính diệu palace; a brightness only for a star that stands
+ *  there (a rule testing a star's brightness without its presence leaves a dignity atom of an absent star: never a ground) */
+function groundAtoms(atoms: Resolved['atoms'], chart: ChartInput): Array<{ name: string; palace: string }> {
+  const present = (name: string, palace: string) => !!chart.palaces.find(p => p.name === palace && (p.stars.includes(name) || p.major_stars.includes(name)));
+  return atoms.filter(a => a.palace && (a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet' || a.kind === 'vcd' || (a.kind === 'dignity' && (atoms.some(b => b.kind === 'star' && b.name === a.name && b.palace === a.palace) || present(a.name, a.palace!)))))
+    .map(a => ({ name: a.kind === 'vcd' ? 'vô chính diệu' : a.name, palace: a.palace! }));
+}
 function dedupeAtoms(xs: Array<{ name: string; palace: string }>) {
   const seen = new Set<string>();
   return xs.filter(x => !seen.has(`${x.name}@${x.palace}`) && seen.add(`${x.name}@${x.palace}`));

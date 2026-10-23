@@ -785,13 +785,17 @@
   ],
   "unresolved_limits": [
    "Ngay trong cung {palace} còn có {limits}, nên mặt thuận không thể xem là trọn",
-   "{limits} đóng ngay ở cung {palace}, nên mặt thuận không thể xem là trọn vẹn"
+   "{limits} đóng ngay ở cung {palace}, nên mặt thuận không thể xem là trọn vẹn",
+   "Bên trong cung {palace} vẫn có {limits}, nên phần thuận còn kèm giới hạn",
+   "{limits} ở ngay cung {palace} khiến mặt thuận chỉ đứng được có điều kiện"
   ]
  },
  "confront": {
   "sat": [
    "{star} đóng ngay trong cung {pal}, nên những điều tốt ở đây cần được giữ gìn mới bền",
-   "có {star} đồng cung, nên mặt thuận của cung {pal} không thể xem là trọn vẹn"
+   "có {star} đồng cung, nên mặt thuận của cung {pal} không thể xem là trọn vẹn",
+   "{star} ở ngay cung {pal}, nên cái tốt của cung này phải được giữ mới bền",
+   "cung {pal} có {star} đi kèm, nên phần thuận ở đây còn có chỗ vướng"
   ],
   "hoa_ky": [
    "Hóa Kỵ nằm trên {star} ngay tại cung {pal}, nên chuyện của cung này khó êm trọn",

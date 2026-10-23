@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import book_text  # noqa: E402
 
 KB = json.loads((ROOT / "engine" / "data" / "kg" / "star_nature.json").read_text("utf-8"))
-USE = {"career", "money", "marriage", "property"}
+USE = {"career", "money", "marriage", "property", "self", "allies", "travel", "fortune", "children", "siblings", "parents", "health"}
 
 
 def test_shape():
@@ -25,5 +25,5 @@ def test_shape():
 
 @pytest.mark.skipif(not book_text.available("KL"), reason="Tử Vi Khảo Luận PDF not present")
 def test_quotes_on_page():
-    bad = [(e["id"], e["page"]) for e in KB["entries"] + KB["relations"] if not book_text.quote_on_page("KL", e["page"], e["quote"])]
+    bad = [(e["id"], e["page"]) for e in KB["entries"] + KB["relations"] if not book_text.quote_on_page(e.get("book", "KL"), e["page"], e["quote"])]
     assert not bad, bad

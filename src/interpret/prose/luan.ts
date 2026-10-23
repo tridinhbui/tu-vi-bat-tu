@@ -687,7 +687,9 @@ function lateSentences(W: Writer, L: LuanLib, chart: ChartInput): { xs: ProseSen
 export const luanSaid = (facts: any, k: Knowledge) => {
   const sh = luanShared(facts, k, true);
   const o = luanChapter(facts, k, 'menh', sh);
-  return { text: o?.text ?? '', sentences: (o?.paragraphs ?? []).flatMap(p => p.sentences.map(s => ({ text: s.text, concepts: s.trace.concepts, rules: s.trace.rules }))) };
+  // the main reading only: the deep reading holds, by design, the common readings the main reading's Barnum filter demoted (plan 2026-10-23)
+  const ps = (o?.paragraphs ?? []).filter(p => !p.deep);
+  return { text: ps.map(p => p.text).join('\n\n'), sentences: ps.flatMap(p => p.sentences.map(s => ({ text: s.text, concepts: s.trace.concepts, rules: s.trace.rules }))) };
 };
 
 /** The frame part of a sentence by what it does: the palace's structure (1), a reading for or against (2), how elements act on each other —

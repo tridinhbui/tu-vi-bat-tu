@@ -30,6 +30,7 @@ const HOA_SHORT: Record<string, string> = { 'Hóa Lộc': 'Lộc', 'Hóa Quyền
 export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: LuanShared, W: Writer, said: ProseSentence[]): ProseParagraph[] {
   const D = k.prose?.depth;
   if (!depthConfig(k, id) || !D) return [];
+  for (const r of k.kg?.starNature?.relations ?? []) REL_OF.set(r.id, r);
   const plan = domainDepth(chart, k, id, { resolved: sh.resolved, ledger: sh.ledger, said: sh.natureSaid, borrowed: sh.borrowed });
   const P = plan.palace;
   const untold = (sh.untold.get(id) ?? sh.untold.set(id, []).get(id)!);
@@ -37,7 +38,9 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
   const note = (ruleId: string, reason: UntoldReason) => { if (!untold.some(u => u.ruleId === ruleId)) untold.push({ ruleId, reason }); };
   /** the sentence of the report that already voices this concept on this palace (a reading of another rule): the new rule corroborates it */
   const made: ProseSentence[] = [];
-  const voicing = (concept: string, palace: string) => [...said, ...made].reverse().find(s => s.trace.basis === 'sach' && (s.trace.keys ?? []).some(x => x === `${concept}@${palace}` || x.startsWith(`${concept}@${palace}|`)));
+  // only a sentence of this chapter (the palace's own reading of the same thing): another chapter's corroboration line is not this palace's reading
+  const own = new Set(sh.saidAll);
+  const voicing = (concept: string, palace: string) => [...said.filter(s => !own.has(s)), ...made].reverse().find(s => s.trace.basis === 'sach' && (s.trace.keys ?? []).some(x => x === `${concept}@${palace}` || x.startsWith(`${concept}@${palace}|`)));
   const MH = k.prose?.minhHoa?.concepts ?? {};
   const toldRules = new Set(said.filter(s => s.trace.basis === 'sach').flatMap(s => s.trace.rules));
   const toldText = new Set(said.map(s => s.text));
@@ -54,7 +57,14 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
   const ground = (x: DepthReading, onlyHere = false) => {
     const by = new Map<string, string[]>();
     for (const a of named(x.atoms.filter(a => !onlyHere || a.palace === x.palace))) { const n = elName(a); const xs = by.get(a.palace) ?? by.set(a.palace, []).get(a.palace)!; if (!xs.includes(n)) xs.push(n); }
-    const parts = [...by].sort((a, b) => Number(b[0] === x.palace) - Number(a[0] === x.palace)).map(([p, ns]) => `${joinVi(ns)} ở cung ${p}`);
+    // a long ground (more than four names) keeps the palace's own elements and names the others only by the palace they come from
+    const total = [...by.values()].reduce((n, ns) => n + ns.length, 0);
+    const parts = [...by].sort((a, b) => Number(b[0] === x.palace) - Number(a[0] === x.palace)).map(([p, ns]) => {
+      const vcd = ns.includes('vô chính diệu'), rest = ns.filter(n => n !== 'vô chính diệu');
+      if (vcd) return rest.length ? `cung ${p} vô chính diệu có ${joinVi(rest)}` : `cung ${p} vô chính diệu`;
+      if (total > 4 && p !== x.palace && rest.length > 1) return `các sao ở cung ${p}`;
+      return `${joinVi(rest)} ở cung ${p}`;
+    });
     return parts.length ? joinVi(parts) : `cung ${x.palace}`;
   };
   // the elements of a trigger, grouped by the palace they stand in ("Văn Khúc hóa Khoa và Thái Dương hóa Quyền ở cung Tài Bạch hội chiếu về")
@@ -86,7 +96,8 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
           if (backed.has(x.concept) || x.borrowed) { if (trig) consumed.add(trig); if (mech) alone.add(mech); continue; }
           if (!mech && !trigNew(trig)) { if (trig) consumed.add(trig); continue; }
           backed.add(x.concept);
-          const np = W.np(x.concept);
+          // a recall names the reading by its short form: the full noun phrase was said where it was told
+          const np = W.concept(x.concept)?.short ?? W.np(x.concept);
           if (trig && !trigNew(trig)) { consumed.add(trig); }
           if (trigNew(trig) && !x.atoms.some(a => a.palace === x.palace)) {
             consumed.add(trig!); trigSeen.add(tsig(trig!));
@@ -95,14 +106,15 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
           } else if (mech && (!trig || consumed.has(trig)) && D.back_mech?.length) {
             // the recall and its reason in one sentence: the reading told above, and what the star it stands on is (no words spent on a bare recall)
             consumed.add(mech);
-            xs.push(S(fill(W.pick(`${key}|bm`, D.back_mech), { Np: cap(np), np, ground: ground(x, true), star: mech.star!, text: mech.nature!.text }),
-              { move: 'ELABORATE', step: `mechanism:${mech.nature!.id}`, basis: 'sach', cites: [`KL p.${mech.nature!.page}`], concepts: [] }));
+            xs.push(S(fill(W.pick(`${key}|bm`, D.back_mech), { Np: cap(np), np, ground: x.atoms.some(a => a.name === mech.star && a.palace === x.palace) ? `${mech.star} ở cung ${x.palace}` : ground(x, true), star: mech.star!, text: mech.nature!.text }),
+              { move: 'ELABORATE', step: `mechanism:${mech.nature!.id}`, basis: 'sach', cites: [`${mech.nature!.book ?? "KL"} p.${mech.nature!.page}`], concepts: [] }));
             anchored = true;
           } else if (trigNew(trig) && (D as DepthLib & { back_with?: string[] }).back_with?.length) {
-            // the recall and the elements outside the palace it also needs, in one sentence
+            // the recall, then the elements outside the palace it also needs (two short sentences of one frame)
             consumed.add(trig!); trigSeen.add(tsig(trig!));
-            xs.push(S(fill(W.pick(`${key}|bw`, (D as DepthLib & { back_with: string[] }).back_with), { Np: cap(np), np, ground: ground(x, true), els: trigEls(trig!) }),
-              { move: 'VIA', step: `trigger:${x.ruleId}`, basis: 'tinh_toan', rules: [x.ruleId], cites: x.cites, concepts: [] }));
+            const [t1, t2] = fill(W.pick(`${key}|bw`, (D as DepthLib & { back_with: string[] }).back_with), { Np: cap(np), np, ground: ground(x, true), els: trigEls(trig!) }).split('. ');
+            xs.push(S(t1, { move: 'VIA', step: `trigger:${x.ruleId}`, basis: 'tinh_toan', rules: [x.ruleId], cites: x.cites, concepts: [] }));
+            if (t2) xs.push(S(t2, { move: 'VIA', step: `trigger:${x.ruleId}:far`, basis: 'tinh_toan', rules: [x.ruleId], cites: x.cites, concepts: [] }));
             anchored = true;
           }
           continue;
@@ -165,7 +177,7 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
       } else if (u.kind === 'mechanism') {
         // the mechanism of a reading that was not told (or folded into another of the same matter) has nothing to explain
         if (alone.has(u) || consumed.has(u)) continue;
-        const n = u.nature!, cite = [`KL p.${n.page}`];
+        const n = u.nature!, cite = [`${n.book ?? "KL"} p.${n.page}`];
         let text: string;
         if (u.reading && !alone.has(u)) text = fill(W.pick(`${key}|mr`, D.mech_reading), { star: u.star!, text: n.text });
         else if (u.elements?.length && u.star?.startsWith('Hóa ')) text = fill(W.pick(`${key}|mh`, D.mech_hoa), { carrier: u.elements[0].name.split('|')[0], short: HOA_SHORT[u.star], hoa: u.star, pal: P, text: n.text });
@@ -182,7 +194,7 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
       } else if (u.kind === 'tame') {
         const n = u.nature!;
         xs.push(S(fill(W.pick(`${key}|tm`, D.tame), { holder: u.star!, where: where(u.where, u.palace!), text: n.text, tamed: joinVi(u.tamed!.split('|')), pal: P }),
-          { move: 'TURN', step: `tame:${n.id}`, basis: 'sach', cites: [`KL p.${n.page}`], concepts: [] }));
+          { move: 'TURN', step: `tame:${n.id}`, basis: 'sach', cites: [`${n.book ?? "KL"} p.${n.page}`], concepts: [] }));
         anchored = true;
       } else if (u.kind === 'link') {
         if (u.link === 'than' || u.link === 'relation') {
@@ -190,9 +202,9 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
           const facts = relationFacts(chart, r.id, sh);
           // a relation the book states for every chart is told with this chart's side in the same sentence (a bare general line repeats from chart to chart)
           const rel = (D as DepthLib & { relation_with?: Record<string, string[]> }).relation_with?.[r.id];
-          if (facts && rel?.length) xs.push(S(fill(W.pick(`${key}|rw`, rel), { facts }), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`KL p.${r.page}`], concepts: [] }));
+          if (facts && rel?.length) xs.push(S(fill(W.pick(`${key}|rw`, rel), { facts }), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
           else {
-            xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`KL p.${r.page}`], concepts: [] }));
+            xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
             if (facts) xs.push(S(fill(W.pick(`${key}|rf`, D.relation_facts), { facts }), { move: 'VIA', step: `link:${r.id}:facts`, basis: 'tinh_toan', concepts: [] }));
           }
           anchored = true;
@@ -207,7 +219,7 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
         } else if (u.link === 'shared_star') {
           const n = u.nature!;
           xs.push(S(fill(W.pick(`${key}|ls`, D.link_shared), { star: u.star!, where: u.palace === P ? `ở cung ${P}` : `ở cung ${u.palace}`, text: n.text }),
-            { move: 'VIA', step: `link:${n.id}`, basis: 'sach', cites: [`KL p.${n.page}`], concepts: [] }));
+            { move: 'VIA', step: `link:${n.id}`, basis: 'sach', cites: [`${n.book ?? "KL"} p.${n.page}`], concepts: [] }));
           anchored = true;
         } else if (u.link === 'ky_opp') {
           const e = u.elements![0];
@@ -258,8 +270,17 @@ function relationFacts(chart: ChartInput, id: string, sh: LuanShared): string | 
     const v = sh.ledger.domains.find(d => d.id === 'tai_loc.tich_luy');
     return `${brief('Tài Bạch')}` + (v && !['chua_du', 'khong_ket_luan'].includes(v.verdict) ? `, còn phần tích lũy, nhà cửa đã được xét là ${LV[v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict] ?? v.verdict}` : '');
   }
-  return null;
+  // any other relation: the book's statement told with what stands, on this chart, in the palaces it names (its own palace when it names
+  // none), and the ledger's verdict of the domain it ties to (Mệnh–Quan Lộc: công danh; Phu Thê–Phúc Đức: hôn nhân; Nô Bộc: kiếm tiền)
+  const rel = (REL_OF.get(id));
+  if (!rel) return null;
+  const v = REL_VERDICT[id] ? sh.ledger.domains.find(d => d.id === REL_VERDICT[id]) : undefined;
+  const verdict = v && !['chua_du', 'khong_ket_luan'].includes(v.verdict) ? `; ${v.label} đã được xét là ${LV[v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict] ?? v.verdict}` : '';
+  return joinVi((rel.with ?? [rel.palace]).map(brief)) + verdict;
 }
+/** the relation of each id (set by deepParagraphs from the knowledge) and the ledger domain a relation ties to */
+const REL_OF = new Map<string, { palace: string; with?: string[] }>();
+const REL_VERDICT: Record<string, string> = { 'menh.quan_di_tai': 'cong_danh', 'phuc.nu_menh_phu_phuc': 'hon_nhan', 'no.giau_ngheo_vi_ban': 'tai_loc.kiem' };
 const LV: Record<string, string> = { thuan: 'thuận', 'co_dieu_kien+': 'thuận có điều kiện', 'co_dieu_kien-': 'vướng nhưng có lối gỡ', co_dieu_kien: 'tùy lúc', hai_chieu: 'hai chiều', tro_ngai: 'chỗ phải gắng sức', chua_phan_xu: 'còn hai mặt chưa phân xử được', hai_mat: 'có cả hai mặt', giam_nhe: 'vướng, có yếu tố giảm nhẹ' };
 
 function conditionSentences(W: Writer, k: Knowledge, D: DepthLib, u: DepthUnit, key: string, P: string): ProseSentence[] {

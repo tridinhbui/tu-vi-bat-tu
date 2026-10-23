@@ -79,7 +79,7 @@
  ],
  "mech_vcd": [
   "Cung {pal} không có chính tinh; sao sáng hội về là {star} từ cung {from}, vốn {text}",
-  "Không có chính tinh tọa thủ, cung {pal} nhận {star} từ cung {from} hội chiếu về; sao này {text}"
+  "Cung {pal} không có chính tinh tọa thủ; {star} từ cung {from} hội về, vốn {text}"
  ],
  "mech_hoa": [
   "{carrier} hóa {short} ngay ở cung {pal}; {hoa} {text}",
@@ -157,8 +157,8 @@
   ]
  },
  "back_with": [
-  "{Np} nói ở phần trên đứng trên {ground}, và còn cần đến {els}",
-  "Điều đã nói về {np} có gốc ở {ground}, cùng với {els}"
+  "{Np} nói ở phần trên đứng trên {ground}. Điều ấy còn cần đến {els}",
+  "Điều đã nói về {np} có gốc ở {ground}. Cùng góp vào còn có {els}"
  ],
  "borrow_claim": [
   "Cung {pal} không có chính tinh nên mượn {stars} từ cung {from}{extra}; theo sao mượn ấy, phần nào có thể thấy {claim}",

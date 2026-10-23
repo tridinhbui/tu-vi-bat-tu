@@ -34,7 +34,7 @@ test('every deep sentence has a step and stands on a reading, a page or a chart 
     for (const s of p.sentences) {
       const t = s.trace;
       if (!t.step) bad.push(`${label}/${c.chapter} no step: ${s.text}`);
-      if (t.basis === 'sach' && !t.rules.length && !t.cites.some(x => /^KL p/.test(x))) bad.push(`${label}/${c.chapter} sach without rule or page: ${s.text}`);
+      if (t.basis === 'sach' && !t.rules.length && !t.cites.some(x => /^(KL|TH|TT) p/.test(x))) bad.push(`${label}/${c.chapter} sach without rule or page: ${s.text}`);
       if (t.basis === 'pho_thong') bad.push(`${label}/${c.chapter} phổ thông in deep: ${s.text}`);
       if (METHOD.test(s.text)) bad.push(`${label}/${c.chapter} method word: ${s.text}`);
     }

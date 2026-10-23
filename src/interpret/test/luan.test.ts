@@ -101,7 +101,8 @@ test('corpus: every luận cung chapter passes; book sentences fire and are veri
         for (const s of p.sentences) {
           assert.ok(s.trace.step, `no step: ${s.text}`);
           if (s.trace.basis === 'sach') for (const id of s.trace.rules) {
-            assert.ok(fired.has(id), `${id} did not fire: ${s.text}`);
+            // a borrowed chính tinh's reading (reason/borrow.ts, TT p.18) fires in the borrowed reading of a vô chính diệu palace, not on the chart
+            if (!(s.trace.step ?? '').startsWith('deep:borrowed:')) assert.ok(fired.has(id), `${id} did not fire: ${s.text}`);
             assert.equal(rmap.get(id)?.reviewStatus, 'verified', `${id}: ${s.text}`);
           }
           // a system sentence claims nothing of its own; a domain conclusion (trace.ledger) lists the verified readings it gathers
