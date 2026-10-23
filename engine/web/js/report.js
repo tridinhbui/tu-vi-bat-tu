@@ -340,7 +340,7 @@ function btSources(paras, rules) {
  *  and vận as well as the personality readings. */
 const BT_BASIS = { sach: ['an-sach', 'Theo sách'], tinh_toan: ['an-tinh_toan', 'Tính từ lá số'], he_thong: ['an-he_thong', 'Kết luận của hệ thống'], minh_hoa: ['an-minh_hoa', 'Minh họa'], pho_thong: ['an-pho_thong', 'Thông lệ'] };
 const BT_CH = { 'nhat-chu': 'Nhật chủ', 'ngu-hanh': 'Ngũ hành', 'su-nghiep': 'Sự nghiệp & tài lộc', 'quan-he': 'Quan hệ', 'cach-cuc': 'Cách cục & dụng thần', 'dai-van': 'Đại vận', 'luu-nien': 'Lưu niên', 'tong-ket': 'Tổng kết' };
-const BT_COND = { cach_partial: 'đúng nếu cách được xác lập (cách mới xác lập một phần)' };
+const BT_COND = { cach_partial: 'đúng nếu cách được xác lập (cách mới xác lập một phần)', tai_position_only: 'chỉ xét vị trí của Tài; kết luận cuối ở đoạn về Tài' };
 /** one line under the overview's highlights: the reading's sentences by basis, pointing to the full scope panel */
 function btScopeLine(bp) {
   const all = Object.values(bp?.chapters || {}).flat().flatMap(p => p?.sentences || []);

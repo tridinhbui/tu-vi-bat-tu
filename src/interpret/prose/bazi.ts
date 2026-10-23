@@ -145,6 +145,15 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
     chapters['cach-cuc'] = para('core', topics('cach-cuc'));
     // the structure analysis (facts.bazi.deep): appended to the chapters it belongs to, and to the whole reading in chapter order
     const deep = deepBazi(chart, k, m, L!.deep, rules);
+    // owner review 2026-10-23: where the Tài reading is told in three layers (bazi_deep.ts, step tai:pos), the first, positional "tài vận tốt"
+    // (八字真宗 p.50) carries the same condition and points at that paragraph; no unqualified "tài vận tốt" stays in the report
+    if ((deep['su-nghiep'] ?? []).some(p => p.sentences.some(s => s.trace.step === 'tai:pos'))) {
+      for (const s of p2) if (/^BT_ZZ_DIRECT_W_(CHINH|THIEN)_TAI_ROOT$/.test(s.trace.rules[0] ?? '') && /tài vận tốt/.test(s.text)) {
+        s.text = finish(s.text.replace(/\.$/, '').replace(/tài vận tốt/, 'tài vận tốt xét riêng vị trí của Tài') + ', còn tùy sức nhật chủ, như đoạn về Tài bên dưới');
+        s.trace.conditional = 'tai_position_only';
+      }
+      for (const p of [...paragraphs, ...Object.values(chapters).flat()]) if (p) p.text = p.sentences.map(x => x.text).join(' ');
+    }
     for (const [id, ps] of Object.entries(deep) as Array<[BaziChapterId, ProseParagraph[]]>) chapters[id] = [...(chapters[id] ?? []), ...ps];
     for (const id of ['nhat-chu', 'cach-cuc', 'ngu-hanh', 'su-nghiep', 'quan-he', 'dai-van', 'luu-nien', 'tong-ket'] as const) paragraphs.push(...(deep[id] ?? []));
     if (L!.luan) luanBazi(chart, k, m, L!.luan, chapters, { p1, deep, topicsOf: topics, dv, ngu, sn, qh });

@@ -179,6 +179,11 @@ test('owner review 2026-10-22: one cách status, Tài in three layers, year × �
   const tai = (ch['su-nghiep'] ?? []).flatMap(p => p.sentences);
   for (const step of ['tai:pos', 'tai:dm', 'tai:method', 'tai:decide']) assert.ok(tai.some(s => s.trace.step === step), step);
   assert.match(tai.find(s => s.trace.step === 'tai:decide')!.text, /quyết định[^.]*sức nhật chủ[^.]*để ngỏ/);
+  // (2026-10-23) no unqualified "tài vận tốt" anywhere: the positional reading carries its condition, quotes of it stay in quotes
+  for (const s of all) for (const m of s.text.matchAll(/tài vận tốt(?! xét riêng vị trí)/g))
+    assert.ok(s.text[m.index! - 1] === '“' && s.text[m.index! + m[0].length] === '”', s.text);
+  const zz = tai.find(s => /BT_ZZ_DIRECT_W_THIEN_TAI_ROOT/.test(s.trace.rules.join()) && s.trace.step !== 'tai:pos');
+  assert.ok(zz && /xét riêng vị trí[^.]*tùy sức nhật chủ/.test(zz.text) && zz.trace.conditional === 'tai_position_only', zz?.text);
   // 3. 2027 (Đinh Mùi) is not among the Mậu Tuất years to press on: its own verdict is mixed and its branch meets the luck branch Tuất
   const mt = D.luck.find(l => l.pillar === 'Mậu Tuất')!;
   assert.ok(!(mt.good_years ?? []).some(g => g.year === 2027));
