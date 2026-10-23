@@ -78,7 +78,7 @@ export function scrub(x: unknown): unknown {
 }
 
 const json = (body: unknown, status = 200) =>
-  new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", "x-robots-tag": "noindex" } });
+  new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "private, no-store", "x-robots-tag": "noindex" } });
 const GONE = { detail: "Liên kết chia sẻ không tồn tại hoặc đã bị chủ lá số thu hồi." };
 
 export type Forward = (path: string, body: Record<string, unknown>) => Promise<Response>;

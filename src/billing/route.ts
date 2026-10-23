@@ -1,9 +1,9 @@
 // Billing routes.
-//   GET  /api/plans                public: packages, coin packs, which chapters are free, which payment methods are on
+//   GET  /api/plans                public: the reading tiers, packages, coin packs, which payment methods are on
 //   POST /api/me/checkout          start a purchase {pack, provider?: "stripe" | "vnpay", code?}: makes an order, answers {url, order}
 //   POST /api/me/quote             every pack's price with a discount code {code}
 //   POST /api/me/redeem            redeem a gift code {code}
-//   POST /api/me/unlock            open report chapters with coins {birth, plan, chapter?}
+//   POST /api/me/unlock            open the Đọc sâu part of report chapters with coins {birth, plan, chapter?}
 //   GET  /api/me/wallet/history    coin movements and orders
 //   GET  /api/me/orders/<id>       one order of the signed-in account (the receipt page)
 //   POST /api/stripe/webhook       Stripe says a Checkout session was paid
@@ -11,7 +11,7 @@
 //   GET  /api/vnpay/return         the visitor's browser comes back from VNPAY; redirected to the receipt page
 import type { User } from "../auth/session.ts";
 import { cleanReq } from "../auth/charts.ts";
-import { CHAPTER_TITLES, COSTS, FREE_CHAPTERS, PACKS, PAID_CHAPTERS, PLACEHOLDER_LABEL, PLANS, PREVIEW_PARAGRAPHS, PRICES_ARE_PLACEHOLDERS, discounted, packById } from "./config.ts";
+import { CHAPTER_TITLES, COSTS, DEEP_CHAPTERS, FREE_MESSAGES_PER_MONTH, PACKS, PLACEHOLDER_LABEL, PLANS, PRICES_ARE_PLACEHOLDERS, RETIRED_PLAN_NAMES, discounted, packById } from "./config.ts";
 import { CODE_PROBLEM_VI, checkDiscount, redeemGift } from "./codes.ts";
 import { createOrder, getOrder, isOrderId, listOrders, receiptOf, setProviderRef, walletHistory } from "./orders.ts";
 import { buyPlan, unlockedChapters } from "./paywall.ts";
@@ -34,8 +34,9 @@ export function plansView(env: BillingEnv) {
   return {
     placeholder: PRICES_ARE_PLACEHOLDERS, placeholderLabel: PLACEHOLDER_LABEL, paywall: paywallOn(env),
     plans: PLANS.map(p => ({ id: p.id, name: p.name, coins: p.coins, blurb: p.blurb, chapters: p.chapters === "one" ? "one" : [...p.chapters] })),
-    packs: PACKS, costs: COSTS, previewParagraphs: PREVIEW_PARAGRAPHS,
-    chapters: { free: [...FREE_CHAPTERS], paid: [...PAID_CHAPTERS], titles: CHAPTER_TITLES },
+    retiredPlans: RETIRED_PLAN_NAMES, packs: PACKS, costs: COSTS, freeMessages: FREE_MESSAGES_PER_MONTH,
+    // guests read the first third of each chapter's main reading, members all of it; the Đọc sâu part of these chapters is opened with xu
+    tiers: { guestShare: "1/3", deepChapters: [...DEEP_CHAPTERS], titles: CHAPTER_TITLES },
     providers: { stripe: !!env.STRIPE_SECRET_KEY, vnpay: !!vnpayConfig(env) },
   };
 }

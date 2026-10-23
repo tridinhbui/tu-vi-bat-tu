@@ -10,7 +10,7 @@ import { handleAdmin, isAdminPath, type AdminEnv } from "./admin/route.ts";
 import { handleReferral, isReferralPath } from "./referral/route.ts";
 import { handleDeep } from "./chat/deep.ts";
 import { handleBilling, isBillingPath, paywallOn, type BillingEnv } from "./billing/route.ts";
-import { gateResponse } from "./billing/paywall.ts";
+import { gated as gatedRoute } from "./billing/paywall.ts";
 import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS } from "./chat/llm.ts";
 import { handleInterpret } from "./interpret/route.ts";
 import { handleOverview } from "./interpret/overview.ts";
@@ -35,11 +35,13 @@ interface Env extends AuthEnv, BillingEnv, AdminEnv {
   INTERPRET_CACHE?: R2Like;         // optional R2 bucket for cached outputs
 }
 
+/** TVBT_PAYWALL=1: every reading leaves the Worker cut to the reader's tier (src/billing/paywall.ts): guest, member, Đọc sâu opened. The cut
+ *  runs on the finished response, after the cache, so the cache never holds a per-reader copy. A share link's viewer reads at the guest tier. */
+const gated = (request: Request, env: Env, path: string, shared: boolean, run: (r: Request) => Promise<Response>) =>
+  gatedRoute(request, { db: env.DB, paywall: paywallOn(env), path, shared }, run);
+
 async function interpretRoute(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-  // TVBT_PAYWALL=1: paid chapters the reader has not opened leave the Worker as a short preview (src/billing/paywall.ts)
-  const gate = paywallOn(env) && request.method === "POST";
-  const body = gate ? await request.clone().json().catch(() => null) : null;
-  const res = await handleInterpret(request, {
+  return handleInterpret(request, {
     enabled: env.TVBT_INTERPRET === "1", proseDraft: env.TVBT_PROSE_DRAFT === "1", luan: env.TVBT_LUAN !== "0",
     facts: birth => getContainer(env.TVBT, "main").fetch(new Request(new URL("/api/facts", request.url), {
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(birth) })),
@@ -47,7 +49,6 @@ async function interpretRoute(request: Request, env: Env, ctx: ExecutionContext)
     cache: new LayeredCache({ db: env.INTERPRET_DB, r2: env.INTERPRET_CACHE, edge: (globalThis as any).caches?.default }),
     defer: p => ctx.waitUntil(p), codeRev: env.CF_VERSION_METADATA?.id,
   });
-  return gate ? gateResponse(res, body, env.DB, env.DB ? await currentUser(env.DB, request) : null) : res;
 }
 
 // "Tổng quan lá số": reasoner frame + system indices for the charts (src/interpret/overview.ts), on the same switch as /api/interpret
@@ -74,10 +75,11 @@ async function chatRoute(request: Request, env: Env, ctx: ExecutionContext, deep
   return deep ? handleDeep(request, { ...deps, defer: p => ctx.waitUntil(p) }) : handleChat(request, deps);
 }
 
-// A shared chart is computed from the birth stored with it: the engine call is built here, never from the viewer's body alone.
+// A shared chart is computed from the birth stored with it: the engine call is built here, never from the viewer's body alone. Its readings
+// are cut at the guest tier, labelled as a share (the viewer may be signed in, but the chart is not theirs).
 const shareForward = (request: Request, env: Env, ctx: ExecutionContext) => (path: string, body: Record<string, unknown>) => {
   const req = new Request(new URL(path, request.url), { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
-  return path === "/api/interpret" ? interpretRoute(req, env, ctx) : getContainer(env.TVBT, "main").fetch(req);
+  return gated(req, env, path, true, r => path === "/api/interpret" ? interpretRoute(r, env, ctx) : getContainer(env.TVBT, "main").fetch(r));
 };
 
 export default {
@@ -92,8 +94,10 @@ export default {
     if (isAdminPath(path)) return handleAdmin(request, env, env.DB ? await currentUser(env.DB, request) : null);
     if (isAccountPath(path)) return handleAccount(request, env.DB, shareForward(request, env, ctx));
     if (isAuthPath(path)) return handleAuth(request, env);
-    if (path === "/api/interpret") return interpretRoute(request, env, ctx);
-    if (path === "/api/overview") return overviewRoute(request, env, ctx);
+    if (path === "/api/interpret") return gated(request, env, path, false, r => interpretRoute(r, env, ctx));
+    if (path === "/api/overview") return gated(request, env, path, false, r => overviewRoute(r, env, ctx));
+    // the engine's own reading layers (behind TVBT_DEEP_INTERPRETATION in the container): cut like the rest
+    if (path === "/api/synthesis" || path === "/api/interpretation") return gated(request, env, path, false, r => getContainer(env.TVBT, "main").fetch(r));
     // The container API is stateless and stores nothing (accounts live in the Worker, above), so one shared instance is enough.
     const res = await getContainer(env.TVBT, "main").fetch(request);
     // one more chart scan, counted only when the engine really produced the chart
