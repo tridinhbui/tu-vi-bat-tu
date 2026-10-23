@@ -15,7 +15,7 @@ import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts'
 import type { LuanShared } from './luan.ts';
 
 export interface DepthLib {
-  status: string; titles: Record<string, string>; claim: string[]; reduced: string[]; back: string[]; back_far: string[]; mech_reading: string[]; mech_self: string[]; mech_vcd: string[]; mech_vcd_more: string[];
+  status: string; titles: Record<string, string>; claim: string[]; reduced: string[]; back: string[]; back_far: string[]; back_mech: string[]; mech_reading: string[]; mech_self: string[]; mech_vcd: string[]; mech_vcd_more: string[];
   mech_hoa: string[]; mech_limit: string[]; trigger: string[]; tame: string[]; link_hoa: string[]; hoa_meaning: string[]; link_shared: string[]; relation_facts: string[];
   ky_opp: string[]; condition_both: string[]; condition_sup: string[]; condition_lim: string[]; condition_pair: string[]; where: Record<string, string>;
 }
@@ -76,6 +76,12 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
             consumed.add(trig);
             xs.push(S(fill(W.pick(`${key}|bf`, D.back_far), { np, pal: P, els: trigEls(trig) }), { move: 'VIA', step: `trigger:${x.ruleId}`, basis: 'tinh_toan', rules: [x.ruleId], cites: x.cites, concepts: [] }));
             anchored = true;
+          } else if (mech && !trig && D.back_mech?.length) {
+            // the recall and its reason in one sentence: the reading told above, and what the star it stands on is (no words spent on a bare recall)
+            consumed.add(mech);
+            xs.push(S(fill(W.pick(`${key}|bm`, D.back_mech), { Np: cap(np), np, ground: ground(x, true), star: mech.star!, text: mech.nature!.text }),
+              { move: 'ELABORATE', step: `mechanism:${mech.nature!.id}`, basis: 'sach', cites: [`KL p.${mech.nature!.page}`], concepts: [] }));
+            anchored = true;
           } else xs.push(S(fill(W.pick(`${key}|back`, D.back), { Np: cap(np), np, ground: ground(x, true) }), { move: 'ELABORATE', step: `deep:back:${x.ruleId}`, basis: 'he_thong', concepts: [x.concept] }));
           continue;
         }
@@ -101,7 +107,7 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
         }
       } else if (u.kind === 'mechanism') {
         // the mechanism of a reading that was not told (or folded into another of the same matter) has nothing to explain
-        if (alone.has(u)) continue;
+        if (alone.has(u) || consumed.has(u)) continue;
         const n = u.nature!, cite = [`KL p.${n.page}`];
         let text: string;
         if (u.reading && !alone.has(u)) text = fill(W.pick(`${key}|mr`, D.mech_reading), { star: u.star!, text: n.text });
