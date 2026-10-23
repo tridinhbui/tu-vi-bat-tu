@@ -40,8 +40,10 @@ class Finding:
     effect: str            # support | limit | neutral
     rule_id: str
     depth: int
+    # supported | adverse (a limiting reading, nothing opposes it) | limited (another rule narrows it: limited_by) | unresolved
     status: str = "supported"
     basis: str = "draft"   # draft | verified
+    limited_by: str = ""   # the rule that limits this finding, when status is "limited"
     notes: list[str] = field(default_factory=list)
 
 

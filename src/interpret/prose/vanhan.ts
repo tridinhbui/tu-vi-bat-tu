@@ -104,7 +104,7 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
   const paragraphs: ProseParagraph[] = [], starts: number[] = [];
   // the natal ledger (one verdict per domain, as the luận chapters tell it) and the hạn levels of the system indices
   const L0 = usable ? (ledger ?? buildLedger(chart, k, infer(chart, k).resolved)) : null;
-  const domainAt = (pal: string) => (L0?.domains ?? []).filter(v => v.verdict !== 'chua_du' && (v.limits[0]?.palace ?? v.supports[0]?.palace ?? null) === pal
+  const domainAt = (pal: string) => (L0?.domains ?? []).filter(v => v.verdict !== 'chua_du' && v.verdict !== 'khong_ket_luan' && (v.limits[0]?.palace ?? v.supports[0]?.palace ?? null) === pal
     && (!v.part || v.part !== 'kiem' || pal === 'Tài Bạch'));
   const levels = usable && decades.length ? computeIndices(chart, k, NORMS).decades : [];
   const curYear = chart.year?.year, luu = usable && curYear ? luuStars(chart, curYear) : {};

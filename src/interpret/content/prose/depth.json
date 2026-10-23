@@ -1,0 +1,110 @@
+{
+ "status": "draft",
+ "note": "Frames of the deep reading (plan DEEP-TUVI, prose/luan_deep.ts, reason/depth.ts). Slots: {ground} where a reading stands, {claim} the book's reading, {np}/{Np} a concept's noun phrase, {star} a star, {text} its nature as Khảo Luận states it (engine/data/kg/star_nature.json), {pal} the palace, {from} another palace, {where} how a star reaches the palace, {els} elements, {list} the Tứ Hóa of Mệnh–Tài–Quan, {label}/{verdict} a domain and the ledger's verdict words, {supports}/{limits} elements. A frame claims nothing the slots do not carry.",
+ "titles": {
+  "huong": "Thiên hướng công việc",
+  "the_manh": "Thế mạnh trong công việc",
+  "moi_truong": "Người nâng đỡ",
+  "quyen": "Quyền hành và vị thế",
+  "nhip": "Nhịp đi của công danh",
+  "tro_ngai": "Chỗ vướng trên đường công danh",
+  "tien_bac": "Từ công danh đến tiền bạc",
+  "kiem": "Tiền đến từ đâu",
+  "tich_luy": "Tích lũy và nhà cửa",
+  "ben": "Độ bền của đồng tiền",
+  "chi_tieu": "Cách tiêu tiền",
+  "rui_ro": "Chỗ dễ hao hụt",
+  "lien_cung": "Mệnh, Tài, Quan, Điền nhìn cùng nhau",
+  "dong_luc": "Cách hai người gắn với nhau",
+  "hop": "Người phối ngẫu và độ hợp",
+  "giao_tiep": "Cách trò chuyện",
+  "cang_thang": "Nguồn căng thẳng",
+  "giu": "Điều giữ cho êm",
+  "dieu_kien": "Mặt thuận đứng được khi nào"
+ },
+ "claim": [
+  "{Ground} cho thấy {claim}",
+  "Từ {ground} có thể thấy {claim}"
+ ],
+ "reduced": [
+  "Có điều, {claim}",
+  "Song điều ấy bị giới hạn: {claim}"
+ ],
+ "back": [
+  "{Np} nói ở phần trên đứng trên {ground}",
+  "Điều đã nói về {np} có gốc ở {ground}"
+ ],
+ "mech_reading": [
+  "Đằng sau điều ấy là bản chất của {star}: sao này {text}",
+  "Điều này gắn với bản chất của {star}, vốn {text}"
+ ],
+ "mech_self": [
+  "{star} đóng ngay ở cung {pal}; sao này {text}",
+  "Ngay trong cung {pal} có {star}, vốn {text}"
+ ],
+ "mech_vcd": [
+  "Cung {pal} không có chính tinh; sao sáng hội về là {star} từ cung {from}, vốn {text}",
+  "Không có chính tinh tọa thủ, cung {pal} nhận {star} từ cung {from} hội chiếu về; sao này {text}"
+ ],
+ "mech_hoa": [
+  "{carrier} hóa {short} ngay ở cung {pal}; {hoa} {text}",
+  "Ở cung {pal} có {carrier} mang {hoa}, mà {hoa} {text}"
+ ],
+ "mech_limit": [
+  "{star} ở cung {pal} vốn {text}",
+  "Riêng {star} trong cung {pal}: sao này {text}"
+ ],
+ "trigger": [
+  "Điều này không đến từ chính cung {pal} mà từ {els}",
+  "Yếu tố làm nên điều ấy nằm ngoài cung {pal}: {els}"
+ ],
+ "tame": [
+  "{holder} {where} vốn {text}, nên {tamed} trong cung {pal} có sao kìm lại"
+ ],
+ "link_hoa": [
+  "Trong bộ ba Mệnh, Tài Bạch, Quan Lộc, {list}",
+  "Tứ Hóa của lá số rơi vào bộ ba Mệnh, Tài Bạch, Quan Lộc như sau: {list}"
+ ],
+ "hoa_meaning": [
+  "Theo nghĩa của Tứ Hóa, {list}"
+ ],
+ "link_shared": [
+  "{star} {where} vốn {text}",
+  "Riêng {star} {where}: sao này {text}"
+ ],
+ "relation_facts": [
+  "Ở lá số này, {facts}",
+  "Trên lá số, {facts}"
+ ],
+ "ky_opp": [
+  "Hóa Kỵ không ở ngay cung {pal} mà đóng trên {star} ở cung {from} đối diện, chiếu thẳng sang",
+  "Cung {pal} không chứa Hóa Kỵ, nhưng {star} hóa Kỵ ở cung {from} xung chiếu sang"
+ ],
+ "condition_both": [
+  "Gom lại, phía đỡ cho {label} là {supports}; phía vướng là {limits}",
+  "Đặt hai phía cạnh nhau: {supports} đỡ cho {label}, còn {limits} kéo lại"
+ ],
+ "condition_sup": [
+  "Gom lại, chỗ dựa của {label} là {supports}, và trong cung không có sao nào kéo lại"
+ ],
+ "condition_lim": [
+  "Gom lại, {label} không có chính tinh sáng đỡ ngay trong cung, còn {limits} kéo lại"
+ ],
+ "condition_pair": [
+  "Đặt cạnh nhau, {label1} {verdict1}, còn {label2} {verdict2}",
+  "Nhìn cùng lúc, {label1} {verdict1}; {label2} {verdict2}"
+ ],
+ "where": {
+  "self": "ngay trong cung",
+  "trine": "từ cung {from} hội chiếu về",
+  "opp": "từ cung {from} chiếu sang",
+  "elsewhere": "ở cung {from}"
+ },
+ "back_far": [
+  "Còn {np} đã nói ở trên thì không đến từ chính cung {pal} mà từ {els}",
+  "Về {np} đã nói ở trên, yếu tố làm nên nó nằm ngoài cung {pal}: {els}"
+ ],
+ "mech_vcd_more": [
+  "Cùng hội về còn có {star} từ cung {from}; sao này {text}"
+ ]
+}

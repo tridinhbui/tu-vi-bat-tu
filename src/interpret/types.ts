@@ -102,7 +102,9 @@ export interface Knowledge {
     positionGuards?: import('./reason/positions.ts').PositionGuard[];
     formations?: import('./reason/structures.ts').Formation[];
     /** life domains for the report-wide ledger (engine/data/kg/domains.json, reason/ledger.ts) */
-    domains?: import('./reason/ledger.ts').DomainsFile };
+    domains?: import('./reason/ledger.ts').DomainsFile;
+    /** Khảo Luận's statements of what each star stands for, and palace relations (engine/data/kg/star_nature.json, reason/depth.ts) */
+    starNature?: import('./reason/depth.ts').StarNatureFile };
   prose?: import('./prose/types.ts').ProseLibrary;
 }
 

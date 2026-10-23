@@ -18,7 +18,11 @@ import { guardHolds } from './positions.ts';
 import { palaceEvidence, TIMING_FACET, type Element, type PalaceEvidence } from './evidence.ts';
 
 export const LEDGER_VERSION = 'ledger-1.0.0';
-export type Verdict = 'thuan' | 'co_dieu_kien' | 'hai_chieu' | 'tro_ngai' | 'chua_du';
+/** thuan / tro_ngai: one side, nothing in the way; co_dieu_kien: one side with a concrete, sourced or structural condition, or a book relation
+ *  narrowing a strength; giam_nhe: a limit that a book relation makes lighter (never turned into a strength); chua_phan_xu: both sides stand
+ *  and no book sentence adjudicates them (named, not merged); khong_ket_luan: a domain the report never judges good or bad (health: only the
+ *  book readings are told); chua_du: nothing to conclude. hai_chieu is kept for older payloads only. */
+export type Verdict = 'thuan' | 'co_dieu_kien' | 'hai_chieu' | 'tro_ngai' | 'chua_du' | 'giam_nhe' | 'chua_phan_xu' | 'khong_ket_luan';
 export type Side = '+' | '-' | 'timing' | 'mixed';
 export interface LedgerItem { ruleId: string; palace: string; concept: string; side: Side; seat: SeatRef; rarity: number; cites: string[];
   /** the stars and Hóa the reading stands on */
@@ -27,7 +31,7 @@ export interface LedgerItem { ruleId: string; palace: string; concept: string; s
   kyCarrier?: string }
 export interface LedgerStep { type: 'fact' | 'reading' | 'link' | 'precedence' | 'verdict'; palace?: string; element?: string; ruleId?: string; cite?: string;
   basis: 'sach' | 'he_thong' | 'tinh_toan'; note: string }
-export interface Link { kind: 'timing' | 'book' | 'specific' | 'tier' | 'structure' | 'single'; ruleId?: string; elements?: string[];
+export interface Link { kind: 'timing' | 'book' | 'specific' | 'tier' | 'structure' | 'single' | 'mitigation' | 'unresolved'; ruleId?: string; elements?: string[];
   /** book link: the side the book's own relation reduces ('-': a limit made lighter, '+': a strength narrowed) */
   reduces?: '+' | '-';
   /** book link: the reading the book's relation qualifies (the one it makes lighter or narrower) */
@@ -35,6 +39,8 @@ export interface Link { kind: 'timing' | 'book' | 'specific' | 'tier' | 'structu
 export interface DomainVerdict {
   id: string; part?: string; label: string; verdict: Verdict; base: '+' | '-' | null;
   pos: LedgerItem[]; neg: LedgerItem[]; timing: LedgerItem[]; mixed: LedgerItem[];
+  /** readings that only make a limit lighter (a book reducer of a negative item): never a side of their own */
+  mitig: LedgerItem[];
   /** limiting / helping elements of the core palace(s), each with its palace */
   limits: Array<Element & { palace: string }>; supports: Array<Element & { palace: string }>;
   link?: Link; chain: LedgerStep[]; chapters: string[];
@@ -45,7 +51,9 @@ export interface DomainVerdict {
 }
 export interface Ledger { version: string; domains: DomainVerdict[]; byChapter: Record<string, DomainVerdict[]> }
 
-interface DomainDef { label: string; home?: string; palaces?: Record<string, string>; facets?: string[]; elements?: string[]; than?: boolean; cite?: string; chapters: string[];
+interface DomainDef { label: string; home?: string;
+  /** false: the domain gets no good / bad verdict at all (health, audit 2026-10-22); only its book readings are told */
+  verdict?: boolean; palaces?: Record<string, string>; facets?: string[]; elements?: string[]; than?: boolean; cite?: string; chapters: string[];
   parts?: Record<string, { label: string; palaces: Record<string, string>; facets: string[]; elements?: string[] }> }
 export interface DomainsFile { version: string; domains: Record<string, DomainDef> }
 
@@ -76,7 +84,7 @@ export function buildLedger(chart: ChartInput, k: Knowledge, resolved: Resolved[
   const thanPal = chart.palaces.find(p => p.is_than)?.name;
   for (const [id, d] of Object.entries(file.domains)) {
     const parts = d.parts ? Object.entries(d.parts).map(([pid, p]) => ({ pid, ...p })) : [{ pid: undefined as string | undefined, label: d.label, palaces: d.palaces!, facets: d.facets!, elements: d.elements }];
-    for (const part of parts) out.push({ ...decide(chart, k, cmap, live, evOf, id, part.pid, part.label, part.palaces, part.facets, part.elements, d.chapters, d.than && thanPal && part.palaces[thanPal] ? thanPal : undefined),
+    for (const part of parts) out.push({ ...decide(chart, k, cmap, live, evOf, id, part.pid, part.label, part.palaces, part.facets, part.elements, d.chapters, d.than && thanPal && part.palaces[thanPal] ? thanPal : undefined, d.verdict === false),
       ...(d.home ? { home: d.home } : {}), facets: part.facets });
   }
   const byChapter: Record<string, DomainVerdict[]> = {};
@@ -85,7 +93,7 @@ export function buildLedger(chart: ChartInput, k: Knowledge, resolved: Resolved[
 }
 
 function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, live: Resolved[], evOf: (P: string) => PalaceEvidence, id: string, part: string | undefined,
-  label: string, palaces: Record<string, string>, facets: string[], elements: string[] | undefined, chapters: string[], than?: string): DomainVerdict {
+  label: string, palaces: Record<string, string>, facets: string[], elements: string[] | undefined, chapters: string[], than?: string, noVerdict = false): DomainVerdict {
   const chain: LedgerStep[] = [];
   const items: LedgerItem[] = [];
   const core = Object.entries(palaces).filter(([, r]) => r === 'core').map(([p]) => p);
@@ -122,44 +130,46 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
   for (const s of supports) chain.push({ type: 'fact', palace: s.palace, element: s.id, basis: 'tinh_toan', note: `${elementName(s)}${s.dignity ? ` (${s.dignity})` : ''}${s.borrowed ? ' mượn' : ''} ở ${s.palace}` });
   if (than) chain.push({ type: 'fact', palace: than, basis: 'tinh_toan', note: `Thân cư ${than}` });
 
-  const pos = items.filter(x => x.side === '+'), neg = items.filter(x => x.side === '-'), timing = items.filter(x => x.side === 'timing'), mixed = items.filter(x => x.side === 'mixed');
+  const neg = items.filter(x => x.side === '-'), timing = items.filter(x => x.side === 'timing'), mixed = items.filter(x => x.side === 'mixed');
+  // a strength that only exists as the book's reducer of a limit ("cường độ tật ách được giảm bớt") is a mitigation, not a side of its own:
+  // it may make the limit lighter, never turn the domain into a strength (audit 2026-10-22)
+  const reducerOf = (x: LedgerItem) => neg.find(n => live.some(r => r.ruleId === n.ruleId && r.by.some(b => b.basis === 'sach' && b.byRule === x.ruleId)));
+  const mitig = items.filter(x => x.side === '+' && !!reducerOf(x));
+  const pos = items.filter(x => x.side === '+' && !mitig.includes(x));
   const best = (xs: LedgerItem[]) => [...xs].sort((a, b) => a.seat.tier - b.seat.tier || b.rarity - a.rarity || (a.ruleId < b.ruleId ? -1 : 1))[0];
   const indep = (xs: LedgerItem[]) => new Set(xs.map(x => `${x.palace}|${x.seat.id}`)).size;
   const strong = (xs: LedgerItem[]) => xs.some(x => x.seat.tier <= 3) || indep(xs) >= 2;
   let verdict: Verdict, base: '+' | '-' | null = null, link: Link | undefined;
-  const tlink = (): Link => ({ kind: 'timing', ruleId: best(timing).ruleId });
   const slink = (): Link => ({ kind: 'structure', elements: limits.map(elementName) });
-  if (!pos.length && !neg.length) {
-    if (timing.length) { verdict = 'co_dieu_kien'; link = tlink(); }
-    else verdict = 'chua_du';
+  // timing is its own dimension: it is told as such, never the condition of a quality verdict nor the link between two qualities
+  if (noVerdict) {
+    verdict = 'khong_ket_luan';
+    if (pos.length && neg.length) link = { kind: 'unresolved' };
+  } else if (!pos.length && !neg.length) {
+    verdict = 'chua_du';
   } else if (!neg.length) {
     base = '+';
-    if (timing.length) { verdict = 'co_dieu_kien'; link = tlink(); }
-    else if (limits.length || mixed.length) { verdict = 'co_dieu_kien'; link = slink(); }
+    if (limits.length || mixed.length) { verdict = 'co_dieu_kien'; link = slink(); }
     else if (!strong(pos)) { verdict = 'co_dieu_kien'; link = { kind: 'single', ruleId: best(pos).ruleId }; }
     else verdict = 'thuan';
   } else if (!pos.length) {
     base = '-';
-    if (!strong(neg) && !limits.length) { verdict = 'co_dieu_kien'; link = { kind: 'single', ruleId: best(neg).ruleId }; }
-    else if (timing.length) { verdict = 'co_dieu_kien'; link = tlink(); }
+    const m = mitig[0];
+    if (m) { verdict = 'giam_nhe'; link = { kind: 'mitigation', ruleId: m.ruleId, reduces: '-', target: reducerOf(m)!.ruleId }; }
+    else if (!strong(neg) && !limits.length) { verdict = 'co_dieu_kien'; link = { kind: 'single', ruleId: best(neg).ruleId }; }
     else verdict = 'tro_ngai';
   } else {
     const bp = best(pos), bn = best(neg);
-    // a book relation between the two sides: the reading it qualifies is the reduced side
-    const bookRel = [...pos.map(x => ['+', x] as const), ...neg.map(x => ['-', x] as const)].flatMap(([sd, x]) => live.filter(r => r.ruleId === x.ruleId).flatMap(r => r.by.map(b => ({ b, sd, x }))))
-      .find(({ b }) => b.basis === 'sach' && [...pos, ...neg].some(y => y.ruleId === b.byRule));
-    const sig = (x: LedgerItem) => new Set(live.filter(r => r.ruleId === x.ruleId && r.subject === `palace:${x.palace}`).flatMap(r => [...r.sig]));
-    const n = nesting(sig(bp), sig(bn));
-    if (timing.length) { verdict = 'co_dieu_kien'; link = tlink(); base = bp.seat.tier <= bn.seat.tier ? '+' : '-'; }
-    else if (bookRel) { verdict = 'co_dieu_kien'; link = { kind: 'book', ruleId: bookRel.b.byRule, reduces: bookRel.sd, target: bookRel.x.ruleId }; base = bookRel.sd === '-' ? '+' : bp.seat.tier <= bn.seat.tier ? '+' : '-'; }
-    else if (n === 'narrower' || n === 'broader') { base = n === 'narrower' ? '+' : '-'; verdict = base === '+' ? 'co_dieu_kien' : 'tro_ngai'; link = { kind: 'specific', ruleId: (base === '+' ? bp : bn).ruleId }; }
-    else if (bp.seat.tier !== bn.seat.tier) { base = bp.seat.tier < bn.seat.tier ? '+' : '-'; verdict = base === '+' ? 'co_dieu_kien' : 'tro_ngai'; link = { kind: 'tier', ruleId: (base === '+' ? bp : bn).ruleId }; }
-    else verdict = 'hai_chieu';
+    // only a book relation between the two sides adjudicates them: a strength the book narrows is the base, with that condition
+    const bookRel = pos.flatMap(x => live.filter(r => r.ruleId === x.ruleId).flatMap(r => r.by.map(b => ({ b, x }))))
+      .find(({ b }) => b.basis === 'sach' && neg.some(y => y.ruleId === b.byRule));
+    if (bookRel) { verdict = 'co_dieu_kien'; base = '+'; link = { kind: 'book', ruleId: bookRel.b.byRule, reduces: '+', target: bookRel.x.ruleId }; }
+    else { verdict = 'chua_phan_xu'; link = { kind: 'unresolved', ruleId: bp.ruleId, target: bn.ruleId }; }
   }
-  if (link) chain.push({ type: link.kind === 'timing' || link.kind === 'book' ? 'link' : 'precedence', ruleId: link.ruleId, basis: link.kind === 'timing' || link.kind === 'book' ? 'sach' : 'he_thong',
+  if (link) chain.push({ type: link.kind === 'book' || link.kind === 'mitigation' ? 'link' : 'precedence', ruleId: link.ruleId, basis: link.kind === 'book' || link.kind === 'mitigation' ? 'sach' : 'he_thong',
     note: link.kind === 'structure' ? `yếu tố hạn chế: ${link.elements!.join(', ')}` : link.kind });
   chain.push({ type: 'verdict', basis: 'he_thong', note: `${verdict}${base ? ` (${base})` : ''}` });
-  return { id: part ? `${id}.${part}` : id, ...(part ? { part } : {}), label, verdict, base, pos, neg, timing, mixed, limits, supports, ...(link ? { link } : {}), chain, chapters, facets };
+  return { id: part ? `${id}.${part}` : id, ...(part ? { part } : {}), label, verdict, base, pos, neg, timing, mixed, mitig, limits, supports, ...(link ? { link } : {}), chain, chapters, facets };
 }
 
 /** The ledger as plain JSON for the API and the evidence panel. */

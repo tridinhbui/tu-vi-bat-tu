@@ -75,6 +75,8 @@ export interface ReadingPlan {
   timings: Reading[];
 }
 /** facets of the big conclusions that may not rest on one minor star */
+/** palaces whose readings are about other people or the bond with them (prose/chapter.ts PROSE_SPECS.bond) */
+const PEOPLE = new Set(['Phu Thê', 'Tử Tức', 'Huynh Đệ', 'Phụ Mẫu', 'Nô Bộc']);
 export const BIG = /^(career|finance|wellbeing)\.|^relationships\.(marriage|partner|romance)$/;
 /** States of a cách cục worth telling: one that only has the shape (hình thức), is absent or lacks data says nothing about the chart. */
 const TOLD: Set<FState> = new Set(['thanh', 'thanh_thuong', 'bi_pha', 'pha_duoc_cuu'] as FState[]);
@@ -227,6 +229,10 @@ export function reasonPalace(chart: ChartInput, k: Knowledge, P: string, pre?: {
       const facet = cmap.get(c.concept)!.facet, opp = cmap.get(c.concept)?.opp;
       const pals = isMenh ? CROSS.find(([re]) => re.test(facet))?.[1] ?? [] : tamPhuong(g);
       for (const r of resolvedOther(pals)) {
+        // a palace of other people (children, parents, siblings, partner, friends) speaks of them, or of the bond with them: its reading is
+        // never the same subject as another palace's, so it neither corroborates nor counters it (audit 2026-10-22: "cha mẹ khá giả" is not
+        // the children's wealth). Only two palaces of the person's own life may confirm each other.
+        if (PEOPLE.has(P) || PEOPLE.has(r.palace ?? '')) continue;
         if (r.concept === c.concept && r.stance === 'affirms') cross.push({ type: 'corroborated', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0] });
         else if ((r.concept === opp && r.stance === 'affirms') || (r.concept === c.concept && r.stance === 'weakens')) cross.push({ type: 'countered', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0] });
       }

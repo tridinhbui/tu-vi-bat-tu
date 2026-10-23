@@ -45,11 +45,15 @@ export function reasoningPanel(f, { graph = true } = {}) {
   const label = c => c.kind === 'finding' ? claimLabel(c.text.replace(/\s*\(.*$/, '')) : c.text.replace(/\s*@.*$/, '');
   const nodes = chain.map(c => `<li class="rn rn-${c.kind}"><span class="rn-k">${KIND[c.kind] || c.kind}</span><span class="rn-t">${esc(label(c))}</span></li>`).join('');
   return `<div class="why">
-    <div class="why-h"><span class="badge ${f.basis === 'verified' ? 'ok' : 'draft'}">${f.basis === 'verified' ? 'Quy tắc đã xác minh' : 'Quy tắc nháp'}</span><span class="badge">${esc({ supported: 'Được hỗ trợ', limited: 'Bị giới hạn bởi quy tắc đối lập', unresolved: 'Chưa thể kết luận' }[f.status] || f.status)}</span><code>${esc(f.rule_id)}</code></div>
+    <div class="why-h"><span class="badge ${f.basis === 'verified' ? 'ok' : 'draft'}">${f.basis === 'verified' ? 'Quy tắc đã xác minh' : 'Quy tắc nháp'}</span><span class="badge">${esc({ supported: 'Được hỗ trợ', adverse: 'Nhận định bất lợi', limited: `Bị giới hạn bởi ${f.limited_by || 'quy tắc khác'}`, unresolved: 'Mâu thuẫn chưa phân xử' }[f.status] || f.status)}</span><code>${esc(f.rule_id)}</code></div>
     <h5>Chuỗi suy luận ngược — vì sao nhận định này xuất hiện</h5>
     <ol class="chain">${nodes}</ol>
     <h5>Yếu tố đối lập</h5>
-    ${f.why.opposed_by.length ? `<ul>${f.why.opposed_by.map(o => `<li>${esc(o)}</li>`).join('')}</ul>` : '<p class="muted">Không có quy tắc đối lập nào khớp trong bộ quy tắc hiện hành.</p>'}
+    ${f.why.opposed_by.length ? `<ul>${f.why.opposed_by.map(o => `<li>${esc(o)}</li>`).join('')}</ul>`
+      : f.status === 'limited' && f.limited_by ? `<p>Bị giới hạn bởi quy tắc <code>${esc(f.limited_by)}</code>.</p>`
+      : f.status === 'unresolved' ? '<p class="muted">Có quy tắc ngược chiều nhưng sách không nói bên nào được ưu tiên; cả hai được nêu.</p>'
+      : f.status === 'adverse' ? '<p class="muted">Đây là một nhận định bất lợi tự thân; không có quy tắc nào giới hạn nó.</p>'
+      : '<p class="muted">Không có quy tắc đối lập nào khớp trong bộ quy tắc hiện hành.</p>'}
     ${srcs.length ? `<h5>Nguồn tham chiếu</h5><p>${srcs.map(s => sourceRef(s, verified(s))).join(' ')}</p>` : ''}
   </div>`;
 }

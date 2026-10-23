@@ -5,7 +5,8 @@ Procedure (matches the spec's ordered checks):
  3. declared `conflictsWith` pairs also count (even when the two rules reach DIFFERENT claims on the same subject)   4. specificity = number of leaf conditions
  5. a more specific rule wins ONLY if it is verified with verified sources (else we can't claim
     the school documents that precedence)  6. otherwise status = "unresolved" and both are shown.
-Statuses: supported | qualified (supported but limited by a counter-finding) | limited | unresolved
+Statuses (per finding): supported | adverse (a limiting reading nothing opposes) | limited (narrowed by the rule in limited_by) | unresolved.
+The group entry keeps its own status (supported | limited | unresolved).
 """
 from __future__ import annotations
 
@@ -48,15 +49,23 @@ def resolve(res: InferenceResult, rules: list[KnowledgeRule]) -> list[dict]:
                 entry["resolution"] = ("unresolved: opposing rules, precedence not documented by a verified "
                                        "source; both readings are shown")
                 status = "unresolved"
+            win_side = sup if winner in sup else lim
             for f in fs:
-                f.status = status
+                # three statuses kept apart (audit 2026-10-22): an adverse reading, a reading limited by another rule (named), an
+                # unresolved conflict; the winning side keeps its own status, only the losing side is "limited"
+                if status == "unresolved":
+                    f.status = "unresolved"
+                elif f in win_side:
+                    f.status = "supported" if f.effect != "limit" else "adverse"
+                else:
+                    f.status, f.limited_by = "limited", winner.rule_id
                 if f.effect == "limit":
                     res.edges.append(Edge(f.id, best_s.id, "opposes"))
             entry["status"] = status
         else:
             entry["status"] = "supported"
             for f in fs:
-                f.status = "supported" if f.effect != "limit" else "limited"
+                f.status = "supported" if f.effect != "limit" else "adverse"
             entry["status"] = fs[0].status
         entry["basis"] = "verified" if all(f.basis == "verified" for f in fs) else "draft (unverified rules)"
         report.append(entry)
@@ -81,8 +90,8 @@ def resolve(res: InferenceResult, rules: list[KnowledgeRule]) -> list[dict]:
                     status = "supported" if win is fa else "limited"
                     resolution = f"specific rule {win.rule_id} takes precedence (verified)"
                     loser = fb if win is fa else fa
-                    loser.status = "limited"
-                    win.status = "supported"
+                    loser.status, loser.limited_by = "limited", win.rule_id
+                    win.status = "supported" if win.effect != "limit" else "adverse"
                 else:
                     status = "unresolved"
                     resolution = "unresolved: rules declare conflictsWith each other; precedence not documented by a verified source; both readings are shown"

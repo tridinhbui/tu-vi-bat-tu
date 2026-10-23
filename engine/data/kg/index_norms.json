@@ -1,62 +1,62 @@
 {
  "version": "indices-2.1.0",
- "kbVersion": "b458254305579ee6",
+ "kbVersion": "f5a0c8bbdefea6f7",
  "charts": 1000,
  "corpus": "corpus1000.json.gz",
  "palace": {
   "Tài Bạch": {
-   "support": 14.012,
-   "limit": 4.465
+   "support": 14.418,
+   "limit": 4.592
   },
   "Tử Tức": {
-   "support": 3.666,
-   "limit": 2.119
+   "support": 3.787,
+   "limit": 2.221
   },
   "Phu Thê": {
-   "support": 6.222,
-   "limit": 3.009
+   "support": 6.573,
+   "limit": 3.338
   },
   "Huynh Đệ": {
-   "support": 2.711,
-   "limit": 1.791
+   "support": 2.811,
+   "limit": 1.876
   },
   "Mệnh": {
-   "support": 18.625,
-   "limit": 4.887
+   "support": 18.972,
+   "limit": 4.983
   },
   "Phụ Mẫu": {
    "support": 3.079,
    "limit": 1.959
   },
   "Phúc Đức": {
-   "support": 6.183,
-   "limit": 3.705
+   "support": 6.422,
+   "limit": 4.001
   },
   "Điền Trạch": {
-   "support": 2.592,
-   "limit": 1.29
+   "support": 2.735,
+   "limit": 1.411
   },
   "Quan Lộc": {
-   "support": 14.607,
-   "limit": 4.354
+   "support": 15.127,
+   "limit": 4.714
   },
   "Nô Bộc": {
    "support": 2.577,
    "limit": 2.203
   },
   "Thiên Di": {
-   "support": 16.9,
-   "limit": 4.756
+   "support": 16.971,
+   "limit": 4.966
   },
   "Tật Ách": {
-   "support": 3.051,
-   "limit": 1.966
+   "support": 3.151,
+   "limit": 2.05
   }
  },
  "layers": {
   "vung": {
    "mean": 0,
-   "sd": 0.523
+   "sd": 0.519
   },
   "hoa_van": {
    "mean": 0.621,
@@ -68,7 +68,7 @@
   },
   "nen": {
    "mean": 0,
-   "sd": 0.571
+   "sd": 0.572
   },
   "tieu_han": {
    "mean": 0.66,
@@ -87,28 +87,28 @@
    "sd": 0.781
   },
   "dai_van": {
-   "mean": -0.002,
+   "mean": -0.001,
    "sd": 0.715
   }
  },
  "cuts": {
   "decade": [
-   -0.81,
-   -0.295,
-   0.265,
+   -0.814,
+   -0.294,
+   0.264,
    0.807
   ],
   "year": [
-   -0.613,
-   -0.224,
-   0.215,
-   0.595
+   -0.61,
+   -0.223,
+   0.213,
+   0.593
   ],
   "month": [
-   -0.792,
-   -0.308,
-   0.213,
-   0.655
+   -0.787,
+   -0.305,
+   0.214,
+   0.647
   ]
  }
 }

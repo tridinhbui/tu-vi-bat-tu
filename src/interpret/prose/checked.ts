@@ -11,10 +11,20 @@ const UNCHECKED = new Set(['pho_thong']);
  *  on the indices, a hạn's Hóa or natal link (reason/ledger.ts, prose/vanhan.ts). */
 const OWN = (s: ProseParagraph['sentences'][number]) => !!s.trace.ledger || /^(level|hoa|natal):/.test(s.trace.step ?? '');
 
+/** A minh họa line (owner's policy 2026-10-22) passes only while the ONE sourced claim it makes concrete is told in the same paragraph: its
+ *  `tied` step names that claim, which must be a book sentence (basis sach) with a rule. A line with no tie, or whose claim was removed,
+ *  goes. */
+function tiedOk(s: ProseParagraph['sentences'][number], kept: ProseParagraph['sentences']): boolean {
+  if (s.trace.basis !== 'minh_hoa') return true;
+  const t = s.trace.tied;
+  return !!t && kept.some(x => x !== s && x.trace.step === t && x.trace.basis === 'sach' && x.trace.rules.length > 0);
+}
+
 export function checkedParagraphs(ps: ProseParagraph[]): ProseParagraph[] {
   return ps.flatMap(p => {
-    const kept = p.sentences.filter(s => !UNCHECKED.has(s.trace.basis));
-    if (!kept.length || (kept.length < p.sentences.length && kept.every(s => s.trace.basis === 'he_thong' && !OWN(s)))) return [];
+    const kept0 = p.sentences.filter(s => !UNCHECKED.has(s.trace.basis));
+    const kept = kept0.filter(s => tiedOk(s, kept0));
+    if (!kept.length || (kept.length < p.sentences.length && kept.every(s => (s.trace.basis === 'he_thong' || s.trace.basis === 'minh_hoa') && !OWN(s)))) return [];
     if (kept.length === p.sentences.length) return [p];
     let sentences = kept;
     if (p.lead && !kept[0].text.startsWith(p.lead)) sentences = [{ ...kept[0], text: withLead(p.lead, kept[0].text) }, ...kept.slice(1)];

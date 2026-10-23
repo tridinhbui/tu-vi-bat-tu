@@ -16413,33 +16413,48 @@
      {
       "all": [
        {
-        "ref": {
-         "palace": "Phụ Mẫu",
-         "fact": "palace.own_major_stars"
-        },
-        "operator": "contains_any",
-        "value": [
-         "Tử Vi",
-         "Thiên Phủ",
-         "Thiên Tướng",
-         "Thiên Đồng",
-         "Thiên Lương"
+        "all": [
+         {
+          "ref": {
+           "palace": "Phụ Mẫu",
+           "fact": "palace.own_major_stars"
+          },
+          "operator": "contains_any",
+          "value": [
+           "Tử Vi",
+           "Thiên Phủ",
+           "Thiên Tướng",
+           "Thiên Đồng",
+           "Thiên Lương"
+          ]
+         },
+         {
+          "not": {
+           "ref": {
+            "palace": "Phụ Mẫu",
+            "fact": "palace.own_major_stars"
+           },
+           "operator": "contains_any",
+           "value": [
+            "Thất Sát",
+            "Phá Quân",
+            "Tham Lang",
+            "Cự Môn"
+           ]
+          }
+         }
         ]
        },
        {
-        "not": {
-         "ref": {
-          "palace": "Phụ Mẫu",
-          "fact": "palace.own_major_stars"
-         },
-         "operator": "contains_any",
-         "value": [
-          "Thất Sát",
-          "Phá Quân",
-          "Tham Lang",
-          "Cự Môn"
-         ]
-        }
+        "fact": "palace.own_major_stars",
+        "operator": "contains_any",
+        "value": [
+         "Thất Sát",
+         "Phá Quân",
+         "Tham Lang",
+         "Cự Môn",
+         "Thái Dương"
+        ]
        }
       ]
      }

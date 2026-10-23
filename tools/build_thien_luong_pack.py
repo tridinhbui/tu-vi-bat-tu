@@ -101,7 +101,9 @@ rule("TAT_ACH_NHE", "Tật Ách", {"any": [tu_with_spt, fact("palace.own_major_s
      "tl_ta_benh_nhe", "bệnh tật nhẹ, phần nhiều nội thương, dễ gặp thầy thuốc: cha mẹ gánh phần vất vả thay (Phụ Mẫu có Sát Phá Tham hoặc Cự Môn)", "127-128")
 gentle_parents = {"all": [fact("palace.own_major_stars", "contains_any", ["Tử Vi", "Thiên Phủ", "Thiên Tướng", "Thiên Đồng", "Thiên Lương"], "Phụ Mẫu"),
                           {"not": fact("palace.own_major_stars", "contains_any", SPT_CU, "Phụ Mẫu")}]}
-rule("TAT_ACH_NANG", "Tật Ách", gentle_parents, "tl_ta_benh_nang",
+# the book: gentle parents are NOT strong enough against Sát Phá Tham, Cự Nhật standing at Tật Ách — those stars are the cause and part of the
+# condition (audit 2026-10-22: the rule fired without them); the Phụ Mẫu stars are the insufficient protection, never the seat of the reading
+rule("TAT_ACH_NANG", "Tật Ách", {"all": [gentle_parents, fact("palace.own_major_stars", "contains_any", ["Thất Sát", "Phá Quân", "Tham Lang", "Cự Môn", "Thái Dương"])]}, "tl_ta_benh_nang",
      "dễ gặp tai ách hay bạo bệnh: cha mẹ hiền (Tử Phủ, Tử Tướng, Đồng Lương) không đủ sức chống bộ Sát Phá Tham, Cự Nhật đóng ở Tật Ách", "127", "limit")
 rule("TAT_ACH_GIAM", "Tật Ách", {"any": [{"fact": "palace.tuan", "value": True}, {"fact": "palace.triet", "value": True}, {"fact": "palace.has_no_major", "value": True}]},
      "tl_ta_giam_cuong_do", "cường độ tật ách được giảm bớt (Tật Ách có Tuần, Triệt hoặc vô chính diệu)", "128")

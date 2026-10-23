@@ -12,6 +12,9 @@ export interface RuleConcept {
   kind?: 'meaning' | 'formation' | 'classification'; pol?: '+' | '-'; src: 'auto' | 'manual'; review: 'draft' | 'approved';
   /** độ số modifiers (season, hour, đắc chính, gốc–ngọn): they add up, two additive assertions never oppose (system convention) */
   additive?: boolean;
+  /** palaces whose stars the book names as a protection that is NOT enough (TL p.127: gentle parents cannot hold off the bad stars at Tật
+   *  Ách): their atoms are not a ground of the reading, which stands on the other atoms (audit 2026-10-22) */
+  protectors?: string[];
 }
 export interface Assertion {
   key: string; ruleId: string; subject: string; palace: string | null; concept: string; stance: Stance; strength: Strength;
@@ -33,7 +36,7 @@ export function lift(findings: Finding[], k: Knowledge, base: Record<string, Fac
       out.labelled.push({ ruleId: f.ruleId, subject: f.subject, palace: f.palace, kind: link.kind, pol: link.pol, cites: rule.cites });
     }
     const facts = { ...(base.chart ?? {}), ...(base[f.subject] ?? {}) };
-    const atoms = triggerAtoms(rule.conditions, facts, world, f.palace), sig = signature(atoms);
+    const atoms = triggerAtoms(rule.conditions, facts, world, f.palace).filter(x => !x.palace || !(link.protectors ?? []).includes(x.palace)), sig = signature(atoms);
     for (const a of link.asserts) {
       out.assertions.push({ key: `${f.ruleId}|${f.subject}|${a.concept}`, ruleId: f.ruleId, subject: f.subject, palace: f.palace, concept: a.concept,
         stance: a.stance, strength: a.strength ?? 'tendency', effect: f.effect, atoms, sig, cites: rule.cites, review: link.review, additive: !!link.additive });

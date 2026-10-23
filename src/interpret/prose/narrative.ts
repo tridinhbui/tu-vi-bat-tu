@@ -398,9 +398,11 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     if (locked) sayCaveat('RESCUE');
     // what the claim looks like in a life, from the card: once per thesis, after its first claim
     const card = W.card(c.concept);
-    if (ci === 0 && !soft && card?.behave?.length) {
+    // never for health: a minh họa may not describe illness (owner's policy 2026-10-22)
+    if (ci === 0 && !soft && card?.behave?.length && !(W.concept(c.concept)?.facet ?? '').startsWith('wellbeing.')) {
       const b = W.pick(`behave|${c.concept}`, card.behave);
-      xs.push(W.sentence(b.replace('{S}', W.S(c.concept)), { move: 'ELABORATE', step: `behave:${t.id}:${c.concept}`, concepts: [c.concept], rules, cites, keys: [`${c.concept}@${P}`] }));
+      // a minh họa line (owner's policy 2026-10-22): the system's illustration of the claim just made, tied to it, never a book sentence
+      xs.push(W.sentence(b.replace('{S}', W.S(c.concept)), { move: 'ELABORATE', step: `behave:${t.id}:${c.concept}`, basis: 'minh_hoa', tied: `claim:${t.id}:${c.concept}`, concepts: [c.concept], rules: [], cites: [] }));
     }
     // the book's reducers of this claim
     const red = rarest(ax.reducers.filter(y => !voiced.has(y.r.ruleId)));

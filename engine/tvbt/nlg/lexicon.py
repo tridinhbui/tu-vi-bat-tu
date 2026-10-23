@@ -5,6 +5,7 @@ CLAIMS: dict[str, dict[str, str]] = {}   # filled by rule packs / fixtures: {cla
 STATUS_VI = {
     "supported": "được các quy tắc đã khớp hỗ trợ",
     "qualified": "được hỗ trợ nhưng có điều kiện hạn chế",
+    "adverse": "là một nhận định bất lợi, không có quy tắc nào giới hạn nó",
     "limited": "bị giới hạn bởi quy tắc đối lập",
     "unresolved": "chưa thể kết luận vì có quy tắc đối lập mà nguồn chưa xác định thứ tự ưu tiên",
 }

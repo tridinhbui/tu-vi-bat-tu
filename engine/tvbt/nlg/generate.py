@@ -125,7 +125,7 @@ def realize(interps: list[Interpretation], level: int = 1) -> list[Sentence]:
             entry = lx.CLAIMS.get(it.claim)
             label = entry["label"] if entry else f"“{it.claim}” (chưa có mô tả tiếng Việt)"
             prov = it.finding_ids + it.supporting + it.opposing
-            lead = "Có thể nhận thấy" if it.status in ("supported", "qualified") else "Chưa thể khẳng định"
+            lead = "Có thể nhận thấy" if it.status in ("supported", "qualified", "adverse") else "Chưa thể khẳng định"
             out.append(Sentence(f"{lead} một dấu hiệu {lx.EFFECT_VI[it.effect]} {label}; nhận định này "
                                 f"{lx.STATUS_VI[it.status]}.", prov))
             if level >= 2 and it.facts:

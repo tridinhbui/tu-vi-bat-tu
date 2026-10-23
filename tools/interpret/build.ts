@@ -89,7 +89,9 @@ const knowledge = {
         // the ten draft cách cục with thành / phá / cứu (engine/data/experimental, reason/structures.ts); voiced only with draft prose allowed
         formations: read(join(DATA, 'experimental', 'formations_experimental.json')).formations,
         // which palaces and concepts each life domain gathers, for the report-wide ledger (reason/ledger.ts); a labelled system convention
-        domains: existsSync(join(DATA, 'kg', 'domains.json')) ? read(join(DATA, 'kg', 'domains.json')) : undefined },
+        domains: existsSync(join(DATA, 'kg', 'domains.json')) ? read(join(DATA, 'kg', 'domains.json')) : undefined,
+        // what Khảo Luận says each star stands for and how palaces bear on one another, page-checked (plan DEEP-TUVI, reason/depth.ts)
+        starNature: existsSync(join(DATA, 'kg', 'star_nature.json')) ? (({ note: _n, ...v }) => v)(read(join(DATA, 'kg', 'star_nature.json'))) : undefined },
   // prose library (prose plan §3): how concepts, chart facts and resolver decisions are voiced in reader prose
   prose: (() => {
     const P = join(ROOT, 'src', 'interpret', 'content', 'prose');
@@ -103,6 +105,9 @@ const knowledge = {
       overview: (({ note: _n, ...v }) => v)(read(join(P, 'overview.json'))),
       // the luận cung chapters (prose-style plan S2–S4, prose/luan.ts)
       luan: (({ note: _n, ...v }) => v)(read(join(P, 'luan.json'))),
+      // the deep reading of Quan Lộc, Tài Bạch and Phu Thê (plan DEEP-TUVI, prose/luan_deep.ts) and the minh họa lines tied to one reading each
+      depth: existsSync(join(P, 'depth.json')) ? (({ note: _n, ...v }) => v)(read(join(P, 'depth.json'))) : undefined,
+      minhHoa: existsSync(join(P, 'minh_hoa.json')) ? (({ note: _n, ...v }) => v)(read(join(P, 'minh_hoa.json'))) : undefined,
       // pho_thong cards: chính tinh × cung (chinh_tinh_*.json) and phụ tinh templates (phu_tinh.json), all draft
       phoThong: (() => {
         const D = join(P, 'pho_thong'), fs = existsSync(D) ? readdirSync(D).filter(f => f.endsWith('.json')).sort() : [];

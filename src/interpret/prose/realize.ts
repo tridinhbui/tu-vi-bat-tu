@@ -12,7 +12,10 @@ export interface SentenceTrace {
   move: Move | 'DEGREE' | 'EXTRA' | 'VIA' | import('./deep.ts').DeepMove; concepts: string[]; rules: string[]; cites: string[];
   /** sach: a verified book rule; he_thong: the system's closing words over what was said; tinh_toan: a computed fact or a page-cited
    *  table (deep.ts); pho_thong: a draft card of common meanings (deep.ts), labelled as such to the reader */
-  basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong';
+  basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong' | 'minh_hoa';
+  /** minh_hoa (owner's policy 2026-10-22): the step of the ONE sourced claim this illustration makes concrete (prose/checked.ts keeps the line
+   *  only while that claim is in the same paragraph) */
+  tied?: string;
   /** deep.ts: a difficulty ('neg'), something good ('pos'), or what answers a difficulty ('answer') */
   tone?: 'neg' | 'pos' | 'answer';
   resolution?: { relation: string; byRule: string; cite?: string }; schema?: string; woven?: Array<SentenceTrace['move']>;
@@ -43,7 +46,9 @@ export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structu
    *  with it, so a plain-text reader sees it too. `topic` is its key (tinh_cach, su_nghiep, than, hau_van, tong_ket, …). */
   lead?: string; topic?: string;
   /** the frame part the paragraph serves: luận cung numbers it 1 … 5 (trace.part); the Bát Tự cách cục chapter names it (bazi_deep.ts FramePart) */
-  part?: number | string }
+  part?: number | string;
+  /** the deep reading (prose/luan_deep.ts): folded under "Đọc sâu" on the page, with its subsection title */
+  deep?: boolean; title?: string }
 
 const join = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1).join(', ') + ' và ' + xs[xs.length - 1];
 function fill(t: string, vars: Record<string, string | undefined>): string {

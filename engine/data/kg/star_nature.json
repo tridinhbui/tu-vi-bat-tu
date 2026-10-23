@@ -1,0 +1,813 @@
+{
+ "version": "star-nature-1.0.0",
+ "basis": "sach",
+ "note": "What Tử Vi Khảo Luận says a star stands for (tượng trưng / chủ / là sao của) and which palace it suits: the MECHANISM a reading of that star rests on (plan DEEP-TUVI, 2026-10-22). Each entry is the book's own statement, rendered in plain words in `text` (a clause that follows the star's name), with the verbatim `quote` checked against the PDF page by engine/tests/test_star_nature.py and the page image read for line order. `use` lists the domains whose deep reading may voice it (career, money, marriage, property); `palace`, when set, is the palace the book says the star suits or needs ('rất cần ở cung Quan'). Nothing here is a reading about a person: the depth layer (src/interpret/reason/depth.ts) voices an entry only right after a reading or a chart fact that stands on that star, as the reason behind it. Moral judgements, health and sexual lines of the same pages are left out.",
+ "entries": [
+  {
+   "id": "tu_vi.cuu_giai",
+   "star": "Tử Vi",
+   "page": 186,
+   "quote": "Tử vi là sao cứu giải trong mọi hoàn cảnh",
+   "text": "là sao cứu giải trong mọi hoàn cảnh",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ]
+  },
+  {
+   "id": "tu_vi.ta_huu",
+   "star": "Tử Vi",
+   "page": 186,
+   "quote": "Tử vi cần nhất Tả Hữu, hai tay chân đắc lực nhất",
+   "text": "cần nhất có Tả Phụ, Hữu Bật làm tay chân",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "thien_co.to_chuc",
+   "star": "Thiên Cơ",
+   "page": 187,
+   "quote": "Thiên cơ có tài tổ chức, có mưu lược, từ thiện như Tử vi nhưng kém Tử vi về cứu giải",
+   "text": "có tài tổ chức, có mưu lược",
+   "use": [
+    "career",
+    "money",
+    "marriage"
+   ]
+  },
+  {
+   "id": "thai_duong.quan",
+   "star": "Thái Dương",
+   "page": 187,
+   "quote": "Tượng trưng cho uy quyền, quan lộc, danh vọng nên rất cần ở cung Quan",
+   "text": "tượng trưng cho uy quyền, quan lộc, danh vọng, nên rất cần ở cung Quan Lộc",
+   "use": [
+    "career"
+   ],
+   "palace": "Quan Lộc"
+  },
+  {
+   "id": "thai_duong.danh_tien",
+   "star": "Thái Dương",
+   "page": 85,
+   "quote": "Sao Thái dương (gọi tắt là Nhật, Dương) chủ về công danh, quan lộc, Ở đời hễ có danh thì dễ kiếm tiền",
+   "text": "chủ về công danh, quan lộc, mà hễ có danh thì dễ kiếm tiền",
+   "use": [
+    "money"
+   ],
+   "link": [
+    "Quan Lộc",
+    "Tài Bạch"
+   ]
+  },
+  {
+   "id": "vu_khuc.tai",
+   "star": "Vũ Khúc",
+   "page": 187,
+   "quote": "Vũ khúc cần cho cung Tài Lộc vì chủ tiền bạc",
+   "text": "chủ tiền bạc, nên cần cho cung Tài Bạch",
+   "use": [
+    "money",
+    "property"
+   ],
+   "palace": "Tài Bạch"
+  },
+  {
+   "id": "vu_khuc.kinh_doanh",
+   "star": "Vũ Khúc",
+   "page": 88,
+   "quote": "Vũ khúc là sao chủ về tài lộc, tính cương nghị có óc kinh doanh",
+   "text": "là sao chủ về tài lộc, tính cương nghị, có óc kinh doanh",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "thien_dong.bach_thu",
+   "star": "Thiên Đồng",
+   "page": 188,
+   "quote": "Thiên đồng là sao Bạch thủ thành gia",
+   "text": "là sao 'bạch thủ thành gia', tay trắng làm nên",
+   "use": [
+    "money"
+   ]
+  },
+  {
+   "id": "thien_dong.canh_cai",
+   "star": "Thiên Đồng",
+   "page": 89,
+   "quote": "Thiên đồng tượng trưng cho thay đổi bất thường, cho phúc lộc và trường thọ",
+   "text": "tượng trưng cho sự thay đổi bất thường và cho phúc lộc",
+   "use": [
+    "marriage",
+    "career"
+   ],
+   "pol": "±"
+  },
+  {
+   "id": "liem_trinh.quan",
+   "star": "Liêm Trinh",
+   "page": 188,
+   "quote": "Liêm trinh chủ quan lộc, chủ tình yêu (Đào hoa tinh)",
+   "text": "chủ quan lộc",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "liem_trinh.tinh",
+   "star": "Liêm Trinh",
+   "page": 188,
+   "quote": "Liêm trinh chủ quan lộc, chủ tình yêu (Đào hoa tinh)",
+   "text": "chủ quan lộc, lại chủ cả tình yêu",
+   "use": [
+    "marriage"
+   ]
+  },
+  {
+   "id": "liem_trinh.quyen",
+   "star": "Liêm Trinh",
+   "page": 93,
+   "quote": "Liêm trinh là quyền lệnh tinh",
+   "text": "là sao quyền lệnh",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "liem_trinh.the",
+   "star": "Liêm Trinh",
+   "page": 188,
+   "quote": "Thường xấu ở các cung Thê, Tử và Tật",
+   "text": "thường xấu khi đóng ở cung Phu Thê",
+   "use": [
+    "marriage"
+   ],
+   "palace": "Phu Thê",
+   "pol": "-"
+  },
+  {
+   "id": "thien_phu.dieu_hanh",
+   "star": "Thiên Phủ",
+   "page": 97,
+   "quote": "Không tự mình làm nên chuyện, mà chỉ điều hành vun đắp, ví như mẹ hiền săn sóc đàn con",
+   "text": "không tự mình làm nên chuyện mà điều hành, vun đắp, như người mẹ hiền chăm đàn con",
+   "use": [
+    "career",
+    "money",
+    "marriage"
+   ],
+   "pol": "±"
+  },
+  {
+   "id": "thien_phu.che_sat",
+   "star": "Thiên Phủ",
+   "page": 188,
+   "quote": "Thiên phủ chế ngự được Kình Đà, Hỏa Linh",
+   "text": "chế ngự được Kình Dương, Đà La, Hỏa Tinh, Linh Tinh",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "tames": [
+    "Kình Dương",
+    "Đà La",
+    "Hỏa Tinh",
+    "Linh Tinh"
+   ]
+  },
+  {
+   "id": "thai_am.dien",
+   "star": "Thái Âm",
+   "page": 188,
+   "quote": "Tượng trưng cho tiền bạc và điền cao trạch nên cần cho cung Điền",
+   "text": "tượng trưng cho tiền bạc và nhà đất, nên cần cho cung Điền Trạch",
+   "use": [
+    "money",
+    "property"
+   ],
+   "palace": "Điền Trạch"
+  },
+  {
+   "id": "thai_am.nuoi_duong",
+   "star": "Thái Âm",
+   "page": 100,
+   "quote": "Tượng trưng sự thừa hành, bao dung, nuôi dưỡng",
+   "text": "tượng trưng cho sự thừa hành, bao dung, nuôi dưỡng",
+   "use": [
+    "marriage",
+    "career"
+   ]
+  },
+  {
+   "id": "thai_am.tranh_dau",
+   "star": "Thái Âm",
+   "page": 98,
+   "quote": "Thái âm là mặt trăng, hiền lành, nhu mì, nên khi đóng ở những chỗ tranh đấu thì không có khả năng vì không đúng chỗ",
+   "text": "hiền lành, nhu mì, nên đặt vào chỗ phải tranh đấu thì không đúng chỗ",
+   "use": [
+    "career"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "tham_lang.quyen_tai",
+   "star": "Tham Lang",
+   "page": 189,
+   "quote": "tượng trưng cho uy quyền tài lộc",
+   "text": "tượng trưng cho uy quyền và tài lộc",
+   "use": [
+    "career",
+    "money"
+   ]
+  },
+  {
+   "id": "tham_lang.kinh_doanh",
+   "star": "Tham Lang",
+   "page": 102,
+   "quote": "Có óc kinh doanh, hay suy tính làm ăn lớn",
+   "text": "có óc kinh doanh, hay tính chuyện làm ăn lớn",
+   "use": [
+    "money",
+    "career"
+   ]
+  },
+  {
+   "id": "cu_mon.ngon_ngu",
+   "star": "Cự Môn",
+   "page": 103,
+   "quote": "Cự môn tượng trưng cho cái mồm cho nên chủ ngôn ngữ, thị phi",
+   "text": "tượng trưng cho cái miệng, nên chủ ngôn ngữ và thị phi",
+   "use": [
+    "career",
+    "marriage"
+   ],
+   "pol": "±"
+  },
+  {
+   "id": "cu_mon.tai",
+   "star": "Cự Môn",
+   "page": 189,
+   "quote": "Chủ thị phi, tài lộc",
+   "text": "chủ cả thị phi lẫn tài lộc",
+   "use": [
+    "money"
+   ],
+   "pol": "±"
+  },
+  {
+   "id": "cu_mon.thuyet_phuc",
+   "star": "Cự Môn",
+   "page": 103,
+   "quote": "Hoạt bát và thuyết phục, có uy quyền và tài lộc",
+   "text": "hoạt bát, có sức thuyết phục",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "thien_tuong.quan",
+   "star": "Thiên Tướng",
+   "page": 108,
+   "quote": "Thiên tướng là sao chủ về quan lộc, phúc thiện",
+   "text": "là sao chủ về quan lộc và phúc thiện",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "thien_tuong.on_dinh",
+   "star": "Thiên Tướng",
+   "page": 107,
+   "quote": "Thiên tướng đi đến chỗ nào cũng trung hòa được cái xấu và cái ác của các sao xấu và ổn định tình thế",
+   "text": "đi đến đâu cũng trung hòa được cái xấu của các sao xấu và giữ cho tình thế ổn định",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ]
+  },
+  {
+   "id": "thien_luong.phuc",
+   "star": "Thiên Lương",
+   "page": 189,
+   "quote": "Là sao phúc đức, hóa giải bệnh tật, trung hậu và từ thiện, hợp với phụ nữ",
+   "text": "là sao phúc đức, trung hậu và từ thiện",
+   "use": [
+    "marriage",
+    "career",
+    "money"
+   ]
+  },
+  {
+   "id": "that_sat.uy_quyen",
+   "star": "Thất Sát",
+   "page": 112,
+   "quote": "Thất sát tượng trưng cho: - uy quyền, sát phạt kẻ gian",
+   "text": "tượng trưng cho uy quyền, cho sự trừng trị kẻ gian",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "that_sat.tinh",
+   "star": "Thất Sát",
+   "page": 190,
+   "quote": "Can đảm, nóng nẩy, vui giận bất thường nhưng quân tử",
+   "text": "can đảm, nóng nảy, vui giận thất thường nhưng quân tử",
+   "use": [
+    "marriage"
+   ],
+   "pol": "±"
+  },
+  {
+   "id": "that_sat.che_kinh_da",
+   "star": "Thất Sát",
+   "page": 190,
+   "quote": "Thất Sát là thầy Kình Đà nên chế ngự được Kình Đà",
+   "text": "là 'thầy' của Kình Dương, Đà La nên chế ngự được hai sao này",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "tames": [
+    "Kình Dương",
+    "Đà La"
+   ]
+  },
+  {
+   "id": "pha_quan.hao",
+   "star": "Phá Quân",
+   "page": 117,
+   "quote": "Phá quân là sao chủ về phu thê, hao tán",
+   "text": "là sao chủ về chuyện vợ chồng và sự hao tán",
+   "use": [
+    "marriage",
+    "money"
+   ],
+   "pol": "±"
+  },
+  {
+   "id": "pha_quan.dung",
+   "star": "Phá Quân",
+   "page": 190,
+   "quote": "Dũng mãnh, hao tán, cương nghị, chẳng sợ sao nào, lại thích Không Kiếp",
+   "text": "dũng mãnh, cương nghị nhưng hao tán, không sợ sao nào",
+   "use": [
+    "career",
+    "property"
+   ],
+   "pol": "±"
+  },
+  {
+   "id": "pha_quan.che_kk",
+   "star": "Phá Quân",
+   "page": 190,
+   "quote": "Phá quân giải trừ được ác tính của Không Kiếp",
+   "text": "giải được tính ác của Địa Không, Địa Kiếp",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "tames": [
+    "Địa Không",
+    "Địa Kiếp"
+   ]
+  },
+  {
+   "id": "ta_huu.phu_ta",
+   "star": "Tả Phụ",
+   "also": [
+    "Hữu Bật"
+   ],
+   "page": 121,
+   "quote": "Tả Hữu làm phụ tá cho các sao khác, khi đi với phúc tinh thì làm cho các sao này sáng hơn, nhưng khi đi với các ác tinh lại làm cho các sao này thêm xấu",
+   "text": "làm phụ tá cho các sao khác: đi với sao tốt thì làm sao ấy sáng hơn, đi với sao xấu thì làm sao ấy xấu thêm",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "pol": "±"
+  },
+  {
+   "id": "ta_huu.tai_nang",
+   "star": "Tả Phụ",
+   "also": [
+    "Hữu Bật"
+   ],
+   "page": 123,
+   "quote": "Là hai sao tháng quan trọng về mặt tài năng và mức độ làm việc của đương số",
+   "text": "chủ về tài năng và sức làm việc",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "xuong_khuc.van",
+   "star": "Văn Xương",
+   "also": [
+    "Văn Khúc"
+   ],
+   "page": 124,
+   "quote": "Thông minh, có năng khiếu sắc bén về văn chương, có tài hùng biện",
+   "text": "chủ sự thông minh, năng khiếu văn chương và tài ăn nói",
+   "use": [
+    "career",
+    "marriage"
+   ]
+  },
+  {
+   "id": "xuong_khuc.de_dat",
+   "star": "Văn Xương",
+   "also": [
+    "Văn Khúc"
+   ],
+   "page": 128,
+   "quote": "Xương Khúc là biểu tượng của tính dè dặt, thận trọng, rụt rè",
+   "text": "là biểu tượng của tính dè dặt, thận trọng",
+   "use": [
+    "marriage",
+    "money"
+   ],
+   "pol": "±"
+  },
+  {
+   "id": "khoi_viet.loi",
+   "star": "Thiên Khôi",
+   "also": [
+    "Thiên Việt"
+   ],
+   "page": 140,
+   "quote": "Ở bất cứ cung nào, Khôi Việt đều ban lợi điểm cho cung đó",
+   "text": "ở cung nào cũng đem lợi điểm cho cung đó",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ]
+  },
+  {
+   "id": "khoi_viet.cong_danh",
+   "star": "Thiên Khôi",
+   "also": [
+    "Thiên Việt"
+   ],
+   "page": 194,
+   "quote": "Khôi Việt là bộ sao tốt cho học hành, thi cử, công danh, tin mừng",
+   "text": "là bộ sao tốt cho học hành, thi cử, công danh",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "khoi_viet.ngheo",
+   "star": "Thiên Khôi",
+   "also": [
+    "Thiên Việt"
+   ],
+   "page": 194,
+   "quote": "Khôi Việt thông minh, cao thượng, chủ quí hiển nên có thể nghèo",
+   "text": "chủ sự quý hiển, cao thượng, không chủ sự giàu",
+   "use": [
+    "money"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "loc_ton.giu",
+   "star": "Lộc Tồn",
+   "page": 133,
+   "quote": "Bảo vệ, giữ gìn",
+   "text": "tượng trưng cho sự bảo vệ, giữ gìn",
+   "use": [
+    "money",
+    "property"
+   ]
+  },
+  {
+   "id": "loc_ton.cham",
+   "star": "Lộc Tồn",
+   "page": 142,
+   "quote": "cô đơn, chậm trễ",
+   "text": "cũng mang nghĩa chậm trễ",
+   "use": [
+    "career"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "thien_ma.nang_luc",
+   "star": "Thiên Mã",
+   "page": 193,
+   "quote": "Thiên mã là năng lực. Chỗ nào có Thiên mã thì làm việc giỏi và có hiệu quả",
+   "text": "là năng lực: ở đâu có Thiên Mã thì việc ở đó làm giỏi và có hiệu quả",
+   "use": [
+    "career",
+    "money"
+   ]
+  },
+  {
+   "id": "kinh_da.can_tro",
+   "star": "Kình Dương",
+   "also": [
+    "Đà La"
+   ],
+   "page": 130,
+   "quote": "Bị Kình Đà (cản trở) đánh vì mình quá nhu nhược chần chờ",
+   "text": "là sự cản trở, nặng lên khi mình nhu nhược, chần chờ",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "kinh_da.giang_co",
+   "star": "Kình Dương",
+   "also": [
+    "Đà La"
+   ],
+   "page": 142,
+   "quote": "Là hai sát tinh cỡ nặng, có tác tụng suốt cả cuộc đời, là hình ảnh giằng co nội tâm",
+   "text": "là hình ảnh sự giằng co trong lòng",
+   "use": [
+    "marriage"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "khong_kiep.pha",
+   "star": "Địa Không",
+   "also": [
+    "Địa Kiếp"
+   ],
+   "page": 130,
+   "quote": "Bị Không Kiếp (phá tán) đánh vì mình quá tham lam",
+   "text": "là sự phá tán, nặng lên khi mình quá tham",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "khong_kiep.vu_bao",
+   "star": "Địa Không",
+   "also": [
+    "Địa Kiếp"
+   ],
+   "page": 125,
+   "quote": "Không Kiếp tượng trưng cho: thánh công vũ bão, thất bại thê thảm",
+   "text": "tượng trưng cho thành công như vũ bão mà thất bại cũng nặng nề",
+   "use": [
+    "career",
+    "money"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "hoa_linh.hao_mon",
+   "star": "Hỏa Tinh",
+   "also": [
+    "Linh Tinh"
+   ],
+   "page": 130,
+   "quote": "Bị Hỏa Linh (hao mòn) đánh vì mình quá cương cứng",
+   "text": "là sự hao mòn, nặng lên khi mình quá cứng rắn",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "song_hao.giam",
+   "star": "Đại Hao",
+   "also": [
+    "Tiểu Hao"
+   ],
+   "page": 135,
+   "quote": "Tượng trưng cho mất mát chia lìa, hao tán cho nên đóng ở cung nào cũng làm giảm cái tốt của cung đó",
+   "text": "tượng trưng cho sự hao tán, nên đóng ở cung nào cũng làm giảm cái tốt của cung ấy",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "hoa_loc.tien",
+   "star": "Hóa Lộc",
+   "page": 155,
+   "quote": "Ở bất luận cung nào, Hóa lộc cũng mang đến thịnh đạt nếu không gặp xấu",
+   "text": "ở cung nào cũng mang đến thịnh đạt, nếu không gặp sao xấu",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ]
+  },
+  {
+   "id": "hoa_quyen.dia_vi",
+   "star": "Hóa Quyền",
+   "page": 195,
+   "quote": "Quyền cho địa vị",
+   "text": "là địa vị",
+   "use": [
+    "career"
+   ]
+  },
+  {
+   "id": "hoa_quyen.ne",
+   "star": "Hóa Quyền",
+   "page": 197,
+   "quote": "có tính nể vì",
+   "text": "mang tính nể vì",
+   "use": [
+    "money",
+    "marriage"
+   ]
+  },
+  {
+   "id": "hoa_quyen.tai",
+   "star": "Hóa Quyền",
+   "page": 197,
+   "quote": "khi ở cung Tài thì được người nể mình vì tiền",
+   "text": "ở cung Tài Bạch thì người khác nể mình vì tiền",
+   "use": [
+    "money"
+   ],
+   "palace": "Tài Bạch"
+  },
+  {
+   "id": "hoa_quyen.the",
+   "star": "Hóa Quyền",
+   "page": 197,
+   "quote": "khi ở cung Thê nghĩa là mình nể vợ",
+   "text": "ở cung Phu Thê thì mình là người nể vì bạn đời",
+   "use": [
+    "marriage"
+   ],
+   "palace": "Phu Thê"
+  },
+  {
+   "id": "hoa_khoa.khiem",
+   "star": "Hóa Khoa",
+   "page": 197,
+   "quote": "có tiếng nhưng không có miếng, có Hóa khoa phải biết khiêm nhường thì mới thành công",
+   "text": "cho tiếng hơn cho miếng, và người có Hóa Khoa phải khiêm nhường mới thành công",
+   "use": [
+    "career",
+    "money"
+   ]
+  },
+  {
+   "id": "hoa_khoa.che_sat",
+   "star": "Hóa Khoa",
+   "page": 155,
+   "quote": "chế ngự được các sát tinh Kình Đà, Không Kiếp, Hỏa Linh",
+   "text": "chế ngự được các sát tinh Kình Đà, Không Kiếp, Hỏa Linh",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "tames": [
+    "Kình Dương",
+    "Đà La",
+    "Địa Không",
+    "Địa Kiếp",
+    "Hỏa Tinh",
+    "Linh Tinh"
+   ]
+  },
+  {
+   "id": "hoa_ky.cung",
+   "star": "Hóa Kỵ",
+   "page": 197,
+   "quote": "tượng trưng cho ô nhục, đóng ở cung nào làm nhục cung đó",
+   "text": "đóng ở cung nào thì gây điều không êm cho cung ấy",
+   "use": [
+    "career",
+    "money",
+    "marriage",
+    "property"
+   ],
+   "pol": "-"
+  },
+  {
+   "id": "hoa_ky.nang",
+   "star": "Hóa Kỵ",
+   "page": 195,
+   "quote": "Ba sao tốt, Lộc Quyền Khoa cộng lại cũng chỉ mạnh bằng một sao xấu Hóa kỵ mà thôi",
+   "text": "nặng ngang cả ba sao Lộc, Quyền, Khoa cộng lại",
+   "use": [
+    "career",
+    "money",
+    "marriage"
+   ],
+   "pol": "-"
+  }
+ ],
+ "relations": [
+  {
+   "id": "than.quan",
+   "palace": "Quan Lộc",
+   "page": 215,
+   "quote": "Cung Thân ở Quan Lộc thì liên quan đến công danh, lấy sự nghiệp là chính, dùng tài năng, danh tiếng của mình để chu toàn cuộc sống",
+   "text": "Thân cư Quan Lộc thì lấy sự nghiệp làm chính, dùng tài năng và danh tiếng của mình để lo cho cuộc sống",
+   "when": "than"
+  },
+  {
+   "id": "than.tai",
+   "palace": "Tài Bạch",
+   "page": 215,
+   "quote": "Cung Thân ở Tài bạch thì liên quan đến tiền bạc, lấy tiền để lo liệu mọi chuyện",
+   "text": "Thân cư Tài Bạch thì đời gắn với tiền bạc, lấy tiền để lo liệu mọi chuyện",
+   "when": "than"
+  },
+  {
+   "id": "than.phu",
+   "palace": "Phu Thê",
+   "page": 215,
+   "quote": "Cung Thân ở Phối là mình có liên quan nhiều đến người hôi phối của mình, sống chết có nhau, cùng nhau sẻ ngọt chia bùi",
+   "text": "Thân cư Phu Thê thì đời mình gắn nhiều với người phối ngẫu, cùng nhau sẻ ngọt chia bùi",
+   "when": "than"
+  },
+  {
+   "id": "than.phuc",
+   "palace": "Phúc Đức",
+   "page": 215,
+   "quote": "Cung Thân ở Phúc đức thì lấy hạnh kiểm, lòng khiêm ái, nhún nhường của bản thân để lo chống",
+   "text": "Thân cư Phúc Đức thì lấy hạnh kiểm, sự khiêm nhường của bản thân để chống đỡ việc đời",
+   "when": "than"
+  },
+  {
+   "id": "tai.che_tai",
+   "palace": "Tài Bạch",
+   "page": 216,
+   "quote": "Có điều cung Phúc, cung Quan ở đây cũng giữ phần chế tài, cân bằng thế mạnh yếu của cung",
+   "text": "cung Phúc Đức và cung Quan Lộc giữ phần chế tài, cân bằng chỗ mạnh yếu của cung Tài Bạch",
+   "with": [
+    "Phúc Đức",
+    "Quan Lộc"
+   ]
+  },
+  {
+   "id": "tai.dep_phuc_quan_xau",
+   "palace": "Tài Bạch",
+   "page": 216,
+   "quote": "Cung Tài đẹp mà cung Phúc, cung Quan xấu thì hãy coi chừng có ngày điêu đứng",
+   "text": "Tài Bạch đẹp mà Phúc Đức, Quan Lộc xấu thì phải coi chừng có ngày điêu đứng",
+   "when": "tai_good_others_bad"
+  },
+  {
+   "id": "tai.xau_phuc_quan_dep",
+   "palace": "Tài Bạch",
+   "page": 216,
+   "quote": "Cung Tài xấu mà cung Phúc, cung Quan đẹp cho du",
+   "text": "Tài Bạch xấu mà Phúc Đức, Quan Lộc đẹp thì dù không giàu vẫn đủ ăn",
+   "when": "tai_bad_others_good"
+  },
+  {
+   "id": "quan.nghia",
+   "palace": "Quan Lộc",
+   "page": 216,
+   "quote": "Cung Quan chủ về danh vọng, địa vị trong xã hội",
+   "text": "cung Quan Lộc chủ về danh vọng, địa vị trong xã hội"
+  },
+  {
+   "id": "dien.ben",
+   "palace": "Điền Trạch",
+   "page": 219,
+   "quote": "Nhiều tiền là giàu",
+   "text": "nhiều tiền là giàu nhưng chưa đủ, nhà cửa đất đai mới là sự giàu sang cụ thể và vững bền",
+   "with": [
+    "Tài Bạch"
+   ]
+  }
+ ]
+}

@@ -3970,7 +3970,11 @@
      "concept": "health.severe",
      "stance": "affirms"
     }
-   ]
+   ],
+   "protectors": [
+    "Phụ Mẫu"
+   ],
+   "note": "TL p.127: the Phụ Mẫu stars are the protection the book calls insufficient; the reading stands on the bad stars at Tật Ách (audit 2026-10-22)"
   },
   "TV_TL_TAT_ACH_GIAM": {
    "asserts": [
@@ -4071,6 +4075,824 @@
      "stance": "affirms"
     }
    ]
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_VU": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_DIEN_TRACH_VU": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_VU_PHU": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_VU_SAT": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_VU_THAM": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_DONG_DAU": {
+   "asserts": [
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_DONG_CU": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_DONG_AM_TY": {
+   "asserts": [
+    {
+     "concept": "fin.self_made",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_DONG_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_DONG_CU": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_DONG_TY_DAU": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_DONG_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_LIEM_QUYEN": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_LIEM_SAT": {
+   "asserts": [
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_LIEM_PHA": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_LIEM_PHU_TUONG": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_LIEM_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_LIEM_SAT": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_LIEM_PHA": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_LIEM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_DIEN_TRACH_LIEM_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_DIEN_TRACH_LIEM_THAM": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_PHU": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_DIEN_TRACH_PHU": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_PHU": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_PHU_TY_HOI": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_PHU_BAT_HOA": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_NHAT_NGUYET_SUU_MUI": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_THAM_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_THAM_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "rel.jealous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_CU_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "exp.versatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_CU_TY": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_CU_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_CU_HOI_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.self_made",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_CU_DAN": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_CU_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_CU_CO": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_CU_TY_NGO_HOI": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_CU": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_TUONG": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_TUONG_TU_VU": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_TUONG_LIEM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_TUONG_MAO_DAU": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_LUONG_NHAT_MAO": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_LUONG_CO": {
+   "asserts": [
+    {
+     "concept": "values.kind",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_LUONG_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_LUONG_TY_HOI": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_LUONG_NHAT_DAU": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_LUONG_QUY": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.talent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_LUONG_TY_HOI": {
+   "asserts": [
+    {
+     "concept": "adapt.unsteady",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_SAT_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "exp.talent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_SAT_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_SAT_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_SAT_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_SAT_TU_TY": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_SAT_VU": {
+   "asserts": [
+    {
+     "concept": "fin.self_made",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_SAT_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_SAT": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_SAT_TRIEU": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_PHA": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_PHA_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_PHU_THE_PHA_LIEM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_PHA_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_PHA_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_PHA_TU_VU": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_PHA_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_PHA_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "exp.versatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_PHA_VO": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_PHA_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "exp.craft",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_SAT_LIEM_VU": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_DIEN_TRACH_CU": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_DIEN_TRACH_SAT": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_DIEN_TRACH_PHA": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_KHONG_KIEP": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_KHONG_KIEP": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_SONG_HAO": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_DIEN_TRACH_SONG_HAO": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_QUAN_LOC_SONG_HAO": {
+   "asserts": [
+    {
+     "concept": "adapt.unsteady",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_LOC_TON": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_LOC_TON_KHONG_KIEP": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_KL_SAO_CUNG_TAI_BACH_XUONG_KHUC": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
   }
  }
 }

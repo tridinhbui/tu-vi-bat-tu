@@ -77,8 +77,13 @@ const prFeedback = i => `<div class="pr-fb" data-p="${i}" role="group" aria-labe
 function proseHtml(p) {
   if (!p?.paragraphs?.length) return '';
   const title = p.title ? esc(p.title) : p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
+  const block = (para, i) => `<div class="pr-block"${para.part ? ` data-part="${para.part}"` : ''}>${para.deep && para.title ? `<h5 class="pr-deep-t">${esc(para.title)}</h5>` : ''}<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`;
+  // Tử Vi luận cung: the short reading first; the deep reading (prose/luan_deep.ts, paragraphs marked deep) folds under "Đọc sâu", closed
+  const items = p.paragraphs.map((para, i) => ({ para, i }));
+  const short = items.filter(x => !(p.luan && x.para.deep)), deep = p.luan ? items.filter(x => x.para.deep) : [];
+  const deepHtml = deep.length ? `<details class="pr-deep"><summary><span class="cb-t">Đọc sâu</span><span class="cb-s">${deep.map(x => esc(x.para.title || '')).filter(Boolean).join(' · ')}</span></summary>${deep.map(x => block(x.para, x.i)).join('')}</details>` : '';
   return `<section class="synth prose${p.luan ? ' pr-luan' : ''}${p.locked ? ' pw-cut' : ''}" data-chapter="${esc(p.chapter)}" data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
-    ${p.paragraphs.map((para, i) => `<div class="pr-block"${para.part ? ` data-part="${para.part}"` : ''}><p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`).join('')}
+    ${short.map(x => block(x.para, x.i)).join('')}${deepHtml}
     <div class="pr-why small" hidden></div>${lockHtml(p)}${adviceHtml(p.advice)}${prDiverge(p)}${luanBasis(p)}</section>`;
 }
 // Tử Vi luận cung: the chapter's sources and the domain verdicts it concluded on (frame part 6), folded under the reading, closed. Each verdict
@@ -94,10 +99,11 @@ function luanBasis(p) {
     : x.type === 'fact' ? `<li><span class="an-b an-tinh_toan">Dữ kiện</span> ${esc(x.note)}</li>`
     : x.type === 'verdict' ? '' : `<li><span class="an-b an-he_thong">Phân xử</span> ${esc(LK_VI[x.note] || x.note)}${x.ruleId && R[x.ruleId] ? ` · ${esc(R[x.ruleId].reading)}` : ''}</li>`;
   const doms = L.map(v => `<h5>${esc(v.label)}: ${esc(LV_VI[v.verdict] || v.verdict)}${v.link ? ` <span class="muted">(${esc(LK_VI[v.link.kind] || v.link.kind)})</span>` : ''}</h5><ul class="pr-rules">${v.chain.map(step).join('')}</ul>`).join('');
+  const mh = p.paragraphs.flatMap(x => x.sentences).filter(s => s.trace.basis === 'minh_hoa').length;
   if (!doms && !cites.length) return '';
   return `<details class="ch-basis pr-basis"><summary><span class="cb-t">Căn cứ của phần luận này</span><span class="cb-s">kết luận chung theo từng lĩnh vực và trang sách đã dùng</span></summary>
     ${doms}${doms ? '<p class="muted small">Kết luận chung là của hệ thống: gộp các nhận định đã đối chiếu sách của các cung liên quan, phân xử theo thứ tự lời sách → nhận định cụ thể → sao gốc → hai chiều, không cộng điểm.</p>' : ''}
-    ${cites.length ? `<p class="small"><b>Trang sách:</b> ${esc(cites.map(prCite).join('; '))}</p>` : ''}</details>`;
+    ${cites.length ? `<p class="small"><b>Trang sách:</b> ${esc(cites.map(prCite).join('; '))}</p>` : ''}${mh ? `<p class="small"><span class="an-b an-minh_hoa">Minh họa</span> ${mh} câu: lời hệ thống soạn để cụ thể hóa một nhận định sách ngay trước nó, không thêm nhận định nào; nhấn vào câu để xem nhận định nó gắn với.</p>` : ''}</details>`;
 }
 /** The one line under a whole report (Tử Vi or Bát Tự), with what used to sit under every chapter folded beneath it: how the text is made,
  *  the dignity table, the draft status, what the reading does not cover yet. `prose` are the report's prose chapters. */
@@ -138,6 +144,7 @@ function proseWhy(p, key) {
   const basis = t.basis === 'he_thong' ? '<span class="an-b an-he_thong">Lời tổng hợp của hệ thống</span> <span class="muted">không phải lời sách; chỉ nhắc lại những ý đã có căn cứ ở câu trước</span>'
     : t.basis === 'tinh_toan' ? '<span class="an-b an-tinh_toan">Tính từ lá số</span> <span class="muted">dữ kiện tính được, hoặc tra từ bảng có ghi trang sách</span>'
     : t.basis === 'pho_thong' ? '<span class="an-b an-pho_thong">Thông lệ phổ biến</span> <span class="muted">nghĩa thường dùng, do hệ thống soạn, chưa đối chiếu sách</span>'
+    : t.basis === 'minh_hoa' ? '<span class="an-b an-minh_hoa">Minh họa</span> <span class="muted">lời hệ thống soạn để cụ thể hóa đúng một nhận định sách ngay trước nó; không thêm nhận định, không nói sự kiện hay thời điểm</span>'
     : '<span class="an-b an-sach">Theo sách</span>';
   const src = !t.rules.length && t.cites?.length ? `<p class="muted">Nguồn: ${esc(t.cites.map(prCite).join('; '))}</p>` : '';
   const res = t.resolution ? `<p><b>Phân xử:</b> câu sách ở ${esc(prCite(t.resolution.cite || ''))} làm mềm nhận định bất lợi đi kèm (quan hệ <code>${esc(t.resolution.relation)}</code>).</p>` : '';

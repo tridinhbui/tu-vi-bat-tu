@@ -708,3 +708,14 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 .perks-t td.n{color:var(--text2)}
 .perks-btn{margin-top:18px}
 @media (max-width:640px){.perks{padding:18px 14px}.perks-t{font-size:.86rem}.perks-t td{width:28%}.perks-t th,.perks-t td{padding:8px 4px}}
+/* Tử Vi luận cung: the deep reading ("Đọc sâu", prose/luan_deep.ts), folded under the short reading; minh họa lines (owner policy 2026-10-22) */
+.pr-deep{margin:14px 0 0;border:1px solid var(--hair,var(--line,#ddd));background:transparent}
+.pr-deep>summary{display:flex;flex-direction:column;gap:2px;padding:12px 14px;cursor:pointer;list-style:none}
+.pr-deep>summary::-webkit-details-marker{display:none}
+.pr-deep>summary .cb-t{font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.pr-deep>summary .cb-t:after{content:" ▾"}.pr-deep[open]>summary .cb-t:after{content:" ▴"}
+.pr-deep>summary .cb-s{font-size:.85rem;opacity:.75}
+.pr-deep[open]{padding:0 14px 12px}.pr-deep[open]>summary{padding:12px 0}
+.pr-deep-t{margin:12px 0 4px;font-size:.95rem;font-weight:600}
+.prose .pr-mh{font-style:italic}
+.an-minh_hoa{color:var(--muted);border-color:color-mix(in srgb,var(--muted) 45%,transparent)}

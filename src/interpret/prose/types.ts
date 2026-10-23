@@ -58,4 +58,6 @@ export interface ProseLibrary {
   overview?: import('./overview.ts').OverviewLib;
   /** the luận cung chapters' frames (content/prose/luan.json, prose/luan.ts) */
   luan?: import('./luan.ts').LuanLib;
+  /** the deep reading's frames (content/prose/depth.json, prose/luan_deep.ts) and the minh họa lines (content/prose/minh_hoa.json) */
+  depth?: import('./luan_deep.ts').DepthLib; minhHoa?: import('./luan_deep.ts').MinhHoaLib;
 }
