@@ -76,6 +76,14 @@ export interface CounterEval {
   inert: number; inertSame: number; inertTextSim: number; byKind: Record<string, { n: number; changed: number; local: number; textSim: number }>;
   rows: Array<{ base: string; kind: string; note: string; expect: string; changed: boolean; local: boolean; textSim: number; added: string[]; removed: string[] }>;
 }
+function mirrorDignity(f: any, star: string): any {
+  const base = Object.fromEntries(Object.entries(f.base as Record<string, Record<string, unknown>>).map(([sub, fx]) => {
+    const key = `palace.dignity.${star}`;
+    if (!(key in fx)) return [sub, fx];
+    return [sub, { ...fx, ...Object.fromEntries(['thuc_hanh', 'toan_thu', 'khao_luan'].map(sc => [`palace.dignity@${sc}.${star}`, fx[key]])) }];
+  }));
+  return { ...f, base };
+}
 export function counterfactual(engine: Engine, k: Knowledge, bench: any[], variants: any[]): CounterEval {
   const rmap = new Map(k.rules.map(r => [r.id, r]));
   const baseSaid = new Map(bench.map(b => [b.label, engine(b.facts, k)]));
@@ -88,7 +96,10 @@ export function counterfactual(engine: Engine, k: Knowledge, bench: any[], varia
   };
   const rows: CounterEval['rows'] = [];
   for (const v of variants) {
-    const a = baseSaid.get(v.base)!, b = engine(v.facts, k);
+    // a synthetic brightness flip changes the chart's table only; rules read their own book's table (palace.dignity@<school>.<star>, owner
+    // review 2026-10-22), so the flip is given to every table — as a real change of the star's cell would be
+    const facts = v.kind === 'flip_dignity' ? mirrorDignity(v.facts, v.element) : v.facts;
+    const a = baseSaid.get(v.base)!, b = engine(facts, k);
     const ca = concepts(a), cb = concepts(b);
     const changed = jac(ca, cb) < 1;
     // a cách cục state counts as its own evidence item (its definition names the stars it rests on)

@@ -38,9 +38,9 @@ test('worked example: the argument behind the text', () => {
   assert.ok(by('TENSION')!.trace.rules.includes('TV_TH_AUX2_MENH_KINH_DAC'));
   // Tuần at Mệnh: a slow start (TH p.83, KL p.68)
   assert.match(by('TIMING')!.text, /Tuần/);
-  // closing: editorial, and only about what the paragraph said
+  // closing: editorial (advice is labelled 'lời khuyên chung', owner review 2026-10-22), and only about what the paragraph said
   const close = o.paragraphs[0].sentences.at(-1)!;
-  assert.equal(close.trace.basis, 'he_thong');
+  assert.ok(['he_thong', 'loi_khuyen'].includes(close.trace.basis), close.trace.basis);
   for (const s of all) if (s.trace.basis === 'sach') assert.ok(s.trace.rules.length && s.trace.cites.length, s.text);
 });
 
@@ -201,9 +201,10 @@ for (const [ch, maxEmpty] of [['cong_danh', 10], ['tai_bach', 75]] as const) {
 // Tử Tức and Huynh Đệ are still often empty: the books say little about them, and nothing is padded. Thiên Lương's Bào/Nô, Phụ Mẫu
 // and Tật Ách rules (TL pp.124-131) filled most of the gap in Huynh Đệ, Phụ Mẫu, Tật Ách, Nô Bộc and Phu Thê; the limits hold that gain.
 // Tật Ách is 0.12 since the Khảo Luận p.218 rule 'về già sung túc' again carries the book's own exclusions (no Tham Lang, Hóa Kỵ, Không Kiếp;
-// engine audit 0b0bd5c): fewer charts qualify, and an empty chapter is the honest result, not a gap to pad.
+// engine audit 0b0bd5c): fewer charts qualify, and an empty chapter is the honest result, not a gap to pad. 0.13 since TL p.127 again needs the
+// bad stars at Tật Ách that its sentence names (owner review 2026-10-22).
 for (const [ch, maxEmpty] of [['thien_di', 0.01], ['phu_the', 0.08], ['phuc_duc', 0.06], ['dien_trach', 0.19], ['no_boc', 0.17],
-  ['tu_tuc', 0.27], ['huynh_de', 0.28], ['phu_mau', 0.08], ['tat_ach', 0.12]] as const) {
+  ['tu_tuc', 0.27], ['huynh_de', 0.28], ['phu_mau', 0.08], ['tat_ach', 0.13]] as const) {
   test(`400 charts, ${ch}: no blocking error; repetition, openers, diversity within the thresholds`, { skip: !existsSync(corpusUrl) && 'corpus not built' }, () => {
     const e = evaluate(JSON.parse(gunzipSync(readFileSync(corpusUrl)).toString('utf8')).slice(0, 400), ch);
     assert.deepEqual(e.errors, {});

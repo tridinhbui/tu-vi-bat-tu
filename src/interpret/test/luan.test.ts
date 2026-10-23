@@ -27,7 +27,9 @@ test('luan.json: no frame uses meta-language or an absolute, every slot is one t
   const SLOTS = new Set(['pal', 'branch', 'majors', 'star', 'from', 'stars', 'tt', 'a', 'b', 'group', 'note', 'S', 'mature', 'seat', 'config', 'domain', 'claim', 'text',
     'pair', 'left', 'right', 'other', 'opal', 'neg', 'pos', 'list', 'age', 'young', 'np', 'late',
     // the ledger conclusion, the confronted limits, the one-star caveat (S1)
-    'domain', 'verdict', 'link', 'ground', 'limits', 'palace', 'supports', 'mitig', 'el']);
+    'domain', 'verdict', 'link', 'ground', 'limits', 'palace', 'supports', 'mitig', 'el',
+    // the two sides of an unresolved or two-faceted domain (owner review 2026-10-22): what each stands on, what each is about
+    'gpos', 'gneg', 'fpos', 'fneg']);
   const walk = (x: unknown, at: string): void => {
     if (typeof x === 'string') {
       const low = ' ' + x.toLowerCase();

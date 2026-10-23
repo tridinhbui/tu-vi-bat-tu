@@ -97,7 +97,7 @@
   {"id": "fin.stable", "status": "draft", "np": "sự bền của tài sản", "pron": "sự vững vàng ấy",
    "pred": ["giữ của tốt, tài sản bền", "tích cóp được, khá giả nhờ cần kiệm", "có nền vật chất ổn định"],
    "behave": ["Những gì {S} tích lũy thường ở lại lâu.", "{S} không giàu nhanh, nhưng giàu chắc."],
-   "soft": ["giữ được của ở mức vừa", "giữ được của, dù không chắc chắn"],
+   "soft": ["giữ được của ở mức vừa", "giữ được của, dù chưa vững"],
    "value": ["sự vững vàng về vật chất", "khả năng tích lũy"]},
   {"id": "fin.frugal", "status": "draft", "np": "sự dè dặt khi chi tiêu", "pron": "sự dè dặt ấy",
    "pred": ["chặt chẽ trong chi tiêu", "giữ của kỹ, ít khi tiêu hoang", "tính toán cẩn thận với đồng tiền"],

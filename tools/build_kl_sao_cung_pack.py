@@ -127,7 +127,7 @@ add(T, "KHONG_KIEP", [KK], "phát nhanh mà tàn cũng nhanh (Địa Không, Đ�
 add(T, "SONG_HAO", [HAO], "tán tài (Đại Hao, Tiểu Hao ở Tài Bạch)", "limit", "p.136", "Tán tài, không có điền sản", [("fin.volatile", A)])
 add(DT, "SONG_HAO", [HAO], "khó có điền sản (Đại Hao, Tiểu Hao ở Điền Trạch)", "limit", "p.136", "Tán tài, không có điền sản", [("prop.poor", A)])
 add(Q, "SONG_HAO", [HAO], "hay thay đổi chỗ làm (Đại Hao, Tiểu Hao ở Quan Lộc)", "limit", "p.136", "Thay đổi chỗ làm, ra ngoài tốn tiền", [("adapt.unsteady", A)])
-add(T, "LOC_TON", [has(OWN, "Lộc Tồn"), nt(KK)], "chắc chắn giàu, cách 'lộc cư lộc vị' (Lộc Tồn ở Tài Bạch, không có Không, Kiếp đồng cung)", "support", "p.142",
+add(T, "LOC_TON", [has(OWN, "Lộc Tồn"), nt(KK)], "giàu, cách 'lộc cư lộc vị' (Lộc Tồn ở Tài Bạch, không có Không, Kiếp đồng cung)", "support", "p.142",
     "Đóng ở cung Tài là cách \"lộc cư lộc vị\", chắc chắn là giầu", [("fin.abundance", A)])
 add(T, "LOC_TON_KHONG_KIEP", [has(OWN, "Lộc Tồn"), KK], "kho tiền như bị lấy sạch (Lộc Tồn ở Tài Bạch gặp Không, Kiếp đồng cung)", "limit", "p.142",
     "ngoại trừ có Không Kiếp đồng cung thì là số ăn mày, có nghĩa là kho tàng bị cướp sạch", [("fin.scarcity", A)])
