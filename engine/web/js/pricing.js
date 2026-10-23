@@ -20,9 +20,11 @@ async function boot() {
   else if (me?.enabled) who.innerHTML = '<a class="btn btn-sm btn-ghost" href="/api/auth/google">Đăng nhập với Google</a>';
   // the page never describes a lock the server does not apply: with the paywall off (TVBT_PAYWALL), every chapter is open and it says so
   const notes = [plans.placeholder && `<b>${esc(plans.placeholderLabel)}.</b> Các mức giá trên trang này đang là giá tạm để thử hệ thống, chưa phải giá bán chính thức.`,
-    !plans.paywall && 'Trong thời gian thử nghiệm, mọi chương luận giải đang mở miễn phí; chưa chương nào bị khóa.'].filter(Boolean);
+    !plans.paywall && 'Trong thời gian thử nghiệm, mọi chương luận giải, kể cả phần Đọc sâu, đang mở cho mọi người; chưa phần nào bị khóa.'].filter(Boolean);
   if (notes.length) { const b = $('#cm-placeholder'); b.innerHTML = notes.join(' '); b.hidden = false; }
+  $('#cmp-chat-free').textContent = `${plans.freeMessages ?? 10} tin mỗi tháng`;
   $('#cmp-chat-pro').textContent = `thêm tin: ${plans.costs.chat} xu một tin`;
+  $('#cmp-ai').textContent = `${plans.costs.deep} xu một chương`;
   paintPlans(); paintPacks(); paintHistory();
   if (new URLSearchParams(location.search).get('paid') === '0') say($('#cm-pay-msg'), 'Bạn đã dừng thanh toán; chưa có khoản nào bị trừ.');
 }
@@ -30,7 +32,7 @@ async function boot() {
 function paintPlans() {
   const tag = plans.placeholder ? `<small class="muted"> · ${esc(plans.placeholderLabel)}</small>` : '';
   $('#cm-plans').innerHTML = plans.plans.map(p => `<article class="cm-card cm-plan"><h3>${esc(p.name)}</h3><p class="cm-price">${xu(p.coins)}${tag}</p><p>${esc(p.blurb)}</p></article>`).join('')
-    + `<article class="cm-card cm-plan"><h3>Bài luận viết dài theo chương</h3><p class="cm-price">${xu(plans.costs.deep)}${tag}</p><p>Một bài viết dài cho một chương, do mô hình ngôn ngữ soạn chỉ từ dữ kiện và luận giải đã có của lá số; mở trong khung hỏi đáp. Viết hỏng thì xu được hoàn lại.</p></article>`;
+    + `<article class="cm-card cm-plan"><h3>Luận giải bằng AI</h3><p class="cm-price">${xu(plans.costs.deep)}${tag}</p><p>Một bài viết dài cho một chương, do mô hình ngôn ngữ soạn chỉ từ dữ kiện và luận giải đã có của lá số; mở trong khung hỏi đáp. Khác với phần Đọc sâu (theo sách), bài này do AI viết. Viết hỏng thì xu được hoàn lại.</p></article>`;
 }
 
 function paintPacks() {
@@ -86,7 +88,7 @@ $('#cm-gift-btn').onclick = async () => {
   } catch (x) { say(msg, x.message, 'err'); } finally { b.disabled = false; }
 };
 
-const PLAN_NAME = () => Object.fromEntries((plans?.plans || []).map(p => [p.id, p.name]));
+const PLAN_NAME = () => ({ ...(plans?.retiredPlans || {}), ...Object.fromEntries((plans?.plans || []).map(p => [p.id, p.name])) });
 function label(h) {
   const ref = h.ref || '';
   if (h.kind === 'grant' && (ref.startsWith('stripe:') || ref.startsWith('vnpay:'))) return `Nạp xu${h.amount ? ` · ${vnd(h.amount)}` : ''}${h.order ? ` · <a href="/bien-nhan?order=${esc(h.order)}">biên nhận</a>` : ''}`;
@@ -96,8 +98,8 @@ function label(h) {
   if (h.kind === 'gift') return `Mã quà tặng <code>${esc(ref.slice(5))}</code>`;
   if (h.kind === 'refund_coin') return 'Hoàn xu';
   if (h.usage === 'chat') return 'Hỏi đáp về lá số';
-  if (h.usage === 'deep') return 'Bài luận viết dài';
-  if (h.usage.startsWith('unlock:')) return `Mở khóa: ${esc(PLAN_NAME()[h.usage.slice(7)] || h.usage.slice(7))}`;
+  if (h.usage === 'deep') return 'Luận giải bằng AI';
+  if (h.usage.startsWith('unlock:')) return `Mở Đọc sâu: ${esc(PLAN_NAME()[h.usage.slice(7)] || h.usage.slice(7))}`;
   return esc(h.kind);
 }
 const STATUS = { pending: ['Đang chờ', 'rc-pending'], paid: ['Đã thanh toán', 'rc-paid'], failed: ['Không thành công', 'rc-failed'] };

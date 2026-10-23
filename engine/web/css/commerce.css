@@ -1,6 +1,19 @@
 /* Paid chapters, pricing, receipt and policy pages (js/paywall.js, js/pricing.js, js/receipt.js). Tokens from app.css. */
-/* lock card under a cut chapter; the last preview paragraph fades out */
-.pw-cut .pr-p:has(+ .pr-why){-webkit-mask-image:linear-gradient(#000 40%,transparent);mask-image:linear-gradient(#000 40%,transparent)}
+/* lock card under a cut chapter (js/paywall.js). Guest: the paragraphs sent, then a blurred stand-in (filler, never the reading: the rest
+   stayed on the server) under the sign-in card. Member: the "Đọc sâu (theo sách)" card with the plans. */
+.pw-cut:has(> .pw-guest) > .pr-block:has(+ .pr-why) .pr-p{-webkit-mask-image:linear-gradient(#000 70%,rgba(0,0,0,.55));mask-image:linear-gradient(#000 70%,rgba(0,0,0,.55))}
+.pw-lock.pw-guest{display:grid;margin:0 0 var(--s4);padding:0;border:0;background:none}
+.pw-guest>*{grid-area:1/1;min-width:0}
+.pw-blur{overflow:hidden;max-height:19rem;padding-top:var(--s1,4px);color:var(--text2);filter:blur(5px);opacity:.6;user-select:none;pointer-events:none;
+  -webkit-mask-image:linear-gradient(#000 45%,transparent);mask-image:linear-gradient(#000 45%,transparent)}
+.pw-blur p{margin:0 0 var(--s3);line-height:1.8}
+.pw-over{align-self:start;justify-self:center;width:min(100%,36rem);margin:var(--s5) 0 var(--s2);padding:var(--s4);border:1px solid var(--brass);border-radius:var(--r-sm);
+  background:color-mix(in srgb,var(--brass) 9%,var(--raise));box-shadow:0 10px 30px -18px rgba(0,0,0,.45)}
+.pw-over .eyebrow{margin-bottom:var(--s2)}.pw-over p{margin:0 0 var(--s3)}.pw-over p:last-child{margin-bottom:0}
+.pw-over a:not(.btn){color:var(--accent)}
+.pw-tag{color:var(--cinnabar);font-weight:600}
+@media (max-width:560px){.pw-over{margin-top:var(--s3);padding:var(--s3)}.pw-blur{max-height:24rem}}
+@media print{.pw-blur{display:none}}
 .pw-lock{margin:var(--s4) 0 var(--s3);padding:var(--s4);border:1px solid var(--brass);border-radius:var(--r-sm);background:color-mix(in srgb,var(--brass) 9%,var(--raise))}
 .pw-lock .eyebrow{margin-bottom:var(--s2)}.pw-lock p{margin:0 0 var(--s3)}.pw-lock p:last-child{margin-bottom:0}
 .pw-plans{display:flex;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s3)}
@@ -25,7 +38,8 @@
 .cmp thead th{font:600 .8rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--surface)}
 .cmp thead th.cmp-pro{color:var(--cinnabar)}
 .cmp tbody tr:last-child td,.cmp tbody tr:last-child th{border-bottom:0}
-.cmp td{width:28%}.cmp .y{color:var(--pos);font-weight:600}.cmp .p{color:var(--text2)}.cmp .n{color:var(--muted)}
+.cmp td{width:28%}.cmp3 td{width:21%}
+.perks-t th[scope=row] small{display:block;color:var(--muted);font-weight:400;font-size:.85em}.cmp .y{color:var(--pos);font-weight:600}.cmp .p{color:var(--text2)}.cmp .n{color:var(--muted)}
 .cmp th[scope=row]{font-weight:500}.cmp th[scope=row] small{display:block;color:var(--muted);font-weight:400}
 /* packages and coin packs */
 .cm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--s3)}
