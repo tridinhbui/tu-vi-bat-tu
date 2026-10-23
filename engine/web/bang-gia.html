@@ -32,7 +32,7 @@
       <tr><th scope="row">Luận giải từng chương<small>tổng quan, mười hai cung, đại hạn và lưu niên, từng mục Bát Tự; kèm căn cứ từng câu</small></th><td class="p">Khoảng một phần ba đầu mỗi chương</td><td class="y">Trọn phần luận chính của mọi chương</td><td class="n">—</td></tr>
       <tr><th scope="row">Gợi ý hướng hành động theo từng cung<small>gợi ý của hệ thống rút từ các nét đã nêu, không phải lời sách</small></th><td class="n">Không</td><td class="y">Có</td><td class="n">—</td></tr>
       <tr><th scope="row">Đọc sâu (theo sách)<small>vì sao có kết luận, tổ hợp sao hỗ trợ, yếu tố làm mạnh hay yếu, trang sách; viết theo luật, không dùng AI</small></th><td class="n">Không</td><td class="n">Không</td><td class="y">Theo chương hoặc trọn gói</td></tr>
-      <tr><th scope="row">Hỏi đáp về lá số<small>trợ lý trả lời dựa trên dữ kiện lá số</small></th><td class="n">Không</td><td class="p" id="cmp-chat-free">10 tin mỗi tháng</td><td class="p" id="cmp-chat-pro">thêm tin: 1 xu một tin</td></tr>
+      <tr><th scope="row">Hỏi Bát Bát (chat AI)<small>trả lời dựa trên dữ kiện lá số của bạn, hoặc câu hỏi chung</small></th><td class="n">Không</td><td class="p" id="cmp-chat-free">2 câu mỗi ngày</td><td class="p" id="cmp-chat-pro">sau mỗi lần nạp: 30 ngày chat (tới 30 câu/ngày); thêm câu: 1 xu</td></tr>
       <tr><th scope="row">Luận giải bằng AI<small>một bài viết dài cho một chương, soạn từ dữ kiện và luận giải đã có</small></th><td class="n">Không</td><td class="n">Không</td><td class="p" id="cmp-ai">20 xu một chương</td></tr>
     </tbody>
   </table></div>
@@ -47,6 +47,7 @@
     <div class="cm-row"><label for="cm-code" class="small">Mã giảm giá</label><input id="cm-code" maxlength="32" autocomplete="off" placeholder="nếu có"><button type="button" class="btn btn-sm btn-ghost" id="cm-code-btn">Áp dụng</button><p class="cm-msg" id="cm-code-msg" role="status" aria-live="polite"></p></div>
     <div class="cm-grid" id="cm-packs"><p class="muted">Đang tải…</p></div>
     <p class="cm-msg" id="cm-pay-msg" role="status" aria-live="polite"></p>
+    <p class="small">Mỗi lần nạp xu (hoặc đổi mã quà tặng) kèm <b>30 ngày chat với Bát Bát, tới 30 câu mỗi ngày</b>; nạp tiếp thì cộng dồn thêm 30 ngày.</p>
     <p class="muted small" id="cm-vat">Giá hiển thị bằng đồng Việt Nam. Thuế giá trị gia tăng: chủ site xác định trước khi bán chính thức. Xem <a href="/chinh-sach-hoan-tien">chính sách hoàn tiền</a>.</p>
   </div>
 
@@ -61,5 +62,6 @@
 </main>
 <script type="module" src="/js/pricing.js"></script>
 <script type="module" src="/js/feedback.js"></script>
+<script type="module" src="/js/ask.js"></script>
 </body>
 </html>

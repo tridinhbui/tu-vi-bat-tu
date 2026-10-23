@@ -17,7 +17,7 @@ function clearDevice() {
 export function initAccountPage(root, deps) {
   root.innerHTML = `<section class="acc-mast"><div class="wrap"><p class="eyebrow">Tài khoản</p><h1>Tài khoản của bạn</h1><p class="acc-who muted"></p>
       <nav class="acc-nav" aria-label="Các phần của trang tài khoản"><a href="#acc-profile">Thông tin cá nhân</a><a href="#acc-charts">Lá số của tôi</a><a href="#acc-privacy">Quyền riêng tư</a></nav></div></section>
-    <div class="acc-out wrap" hidden><p>Đăng nhập để lưu lá số, hỏi trợ lý về lá số (10 lượt miễn phí mỗi tháng), lưu thông tin cá nhân và tạo liên kết chia sẻ. <a href="#quyen-loi" data-go="quyen-loi">Xem đầy đủ quyền lợi</a></p><a class="btn" href="/api/auth/google">Đăng nhập với Google</a></div>
+    <div class="acc-out wrap" hidden><p>Đăng nhập để lưu lá số, hỏi Bát Bát về lá số (2 câu miễn phí mỗi ngày), lưu thông tin cá nhân và tạo liên kết chia sẻ. <a href="#quyen-loi" data-go="quyen-loi">Xem đầy đủ quyền lợi</a></p><a class="btn" href="/api/auth/google">Đăng nhập với Google</a></div>
     <div class="acc-in" hidden>
       <section class="wrap acc-sec" id="acc-profile" aria-labelledby="acc-profile-h"><h2 id="acc-profile-h">Thông tin cá nhân</h2><p class="sec-sub">Dùng để điền sẵn ô lập lá số và sắp xếp các chương bạn quan tâm lên trước khi xem lá số của chính bạn.</p><div data-profile></div></section>
       <section class="wrap acc-sec" id="acc-charts" aria-labelledby="acc-charts-h"><h2 id="acc-charts-h">Lá số của tôi</h2><p class="sec-sub">Lá số của bạn, người thân và bạn bè. Mở lại, đổi tên, chia sẻ, xóa, hoặc chọn hai lá số để so sánh.</p><div data-charts></div></section>

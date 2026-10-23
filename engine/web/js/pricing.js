@@ -22,8 +22,8 @@ async function boot() {
   const notes = [plans.placeholder && `<b>${esc(plans.placeholderLabel)}.</b> Các mức giá trên trang này đang là giá tạm để thử hệ thống, chưa phải giá bán chính thức.`,
     !plans.paywall && 'Trong thời gian thử nghiệm, mọi chương luận giải, kể cả phần Đọc sâu, đang mở cho mọi người; chưa phần nào bị khóa.'].filter(Boolean);
   if (notes.length) { const b = $('#cm-placeholder'); b.innerHTML = notes.join(' '); b.hidden = false; }
-  $('#cmp-chat-free').textContent = `${plans.freeMessages ?? 10} tin mỗi tháng`;
-  $('#cmp-chat-pro').textContent = `thêm tin: ${plans.costs.chat} xu một tin`;
+  $('#cmp-chat-free').textContent = `${plans.freeMessagesPerDay ?? 2} câu mỗi ngày`;
+  $('#cmp-chat-pro').textContent = `sau mỗi lần nạp: ${plans.topupChat?.days ?? 30} ngày chat (tới ${plans.topupChat?.perDay ?? 30} câu/ngày); thêm câu: ${plans.costs.chat} xu`;
   $('#cmp-ai').textContent = `${plans.costs.deep} xu một chương`;
   paintPlans(); paintPacks(); paintHistory();
   if (new URLSearchParams(location.search).get('paid') === '0') say($('#cm-pay-msg'), 'Bạn đã dừng thanh toán; chưa có khoản nào bị trừ.');
@@ -111,7 +111,7 @@ async function paintHistory() {
   dispatchEvent(new CustomEvent('tvbt:wallet', { detail: j.wallet }));
   const rows = j.history.map(h => `<tr><td>${when(h.at)}</td><td>${label(h)}</td><td class="${h.delta > 0 ? 'plus' : 'minus'}">${h.delta > 0 ? '+' : ''}${h.delta}</td></tr>`).join('');
   const orders = j.orders.filter(o => o.status !== 'paid').slice(0, 10).map(o => `<tr><td>${when(o.createdAt)}</td><td>${o.coins} xu · ${vnd(o.amount)} · ${o.provider === 'vnpay' ? 'VNPAY' : 'Stripe'}</td><td><span class="rc-status ${STATUS[o.status][1]}">${STATUS[o.status][0]}</span> <a href="/bien-nhan?order=${esc(o.id)}">chi tiết</a></td></tr>`).join('');
-  host.innerHTML = `<p>Ví hiện có ${xu(j.wallet.coins)} · ${j.wallet.free.remaining}/${j.wallet.free.limit} lượt hỏi đáp miễn phí tháng này.</p>`
+  host.innerHTML = `<p>Ví hiện có ${xu(j.wallet.coins)} · ${j.wallet.free.remaining}/${j.wallet.free.limit} câu chat miễn phí hôm nay${j.wallet.pass?.active ? ` · gói chat tới ${new Date(j.wallet.pass.until).toLocaleDateString('vi-VN')}` : ''}.</p>`
     + (rows ? `<div class="cm-scroll"><table class="cm-table"><thead><tr><th>Thời gian</th><th>Nội dung</th><th>Xu</th></tr></thead><tbody>${rows}</tbody></table></div>` : '<p class="muted">Chưa có giao dịch xu nào.</p>')
     + (orders ? `<h3 class="small muted" style="margin-top:var(--s4)">Lần thanh toán chưa hoàn tất</h3><div class="cm-scroll"><table class="cm-table"><tbody>${orders}</tbody></table></div>` : '');
 }

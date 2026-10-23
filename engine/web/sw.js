@@ -3,7 +3,7 @@
 // are always live). Bump VERSION to drop every old cache.
 const VERSION = 'tvbt-v1';
 const SHELL = ['/', '/css/app.css', '/css/atlas.css', '/css/dash.css', '/css/content.css', '/css/feedback.css', '/js/app.js', '/js/util.js',
-  '/js/pwa.js', '/js/ref.js', '/js/feedback.js', '/manifest.webmanifest', '/icons/icon-192.png', '/bai-viet/', '/xem-ngay/', '/hoi-dap/', '/gioi-thieu/'];
+  '/js/pwa.js', '/js/ref.js', '/js/feedback.js', '/js/ask.js', '/js/guides.js', '/css/ask.css', '/manifest.webmanifest', '/icons/icon-192.png', '/bai-viet/', '/xem-ngay/', '/hoi-dap/', '/gioi-thieu/'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => Promise.all(SHELL.map(u => c.add(u).catch(() => { /* one missing file must not block install */ })))).then(() => self.skipWaiting()));

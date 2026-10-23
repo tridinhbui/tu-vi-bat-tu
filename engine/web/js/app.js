@@ -222,7 +222,7 @@ const acctPage = initAccountPage($('#account-view'), {
   onRun: p => { prefill(p, true); generate(); }, onOpen: req => generate(null, req), onChange: () => renderSaved(savedList, openSaved),
 });
 initAccount($('#acct'), () => { renderSaved(savedList, openSaved); acctPage.paint(); }, saver);
-initAsk($('#ask-host'), () => shareMode.id ? null : state?.req);
+initAsk(() => shareMode.id ? null : state?.req);                // "Hỏi Bát Bát": the chart on screen, never a shared one
 initPaywall(() => shareMode.id ? null : state?.req);
 initLive($('#live-stats'));
 async function loadSample() {

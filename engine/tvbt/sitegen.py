@@ -330,7 +330,7 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
             for i, (h, t) in enumerate(trail)) + "</ol></nav>"
         lds.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "name": t, "item": ORIGIN + h} for i, (h, t) in enumerate(trail)]})
-    script_tags = "".join(f'<script type="module" src="{s}"></script>' for s in ["/js/pwa.js", "/js/ref.js", "/js/feedback.js", *scripts])
+    script_tags = "".join(f'<script type="module" src="{s}"></script>' for s in ["/js/pwa.js", "/js/ref.js", "/js/feedback.js", "/js/ask.js", *scripts])
     return f"""<!doctype html>
 <html lang="vi">
 <head>
@@ -621,7 +621,8 @@ FAQ = [
      "Nếu muốn tìm hiểu thêm, mục Bài viết giải thích từng sao, từng cung theo sách."),
     ("Phần nào miễn phí?",
      "Lập lá số Tử Vi và Bát Tự, bảng lá số, bài luận giải chuẩn theo các chương, lưu lá số trên máy và tải PDF đều miễn phí, không cần tài khoản. "
-     "Khi đăng nhập, bạn có một số lượt hỏi trợ lý miễn phí mỗi tháng (con số hiện cạnh tên bạn). Luận giải sâu do AI viết và các lượt hỏi thêm dùng xu."),
+     "Khi đăng nhập, bạn hỏi Bát Bát (chat AI) miễn phí 2 câu mỗi ngày; mỗi lần nạp xu có thêm 30 ngày chat, tới 30 câu mỗi ngày. "
+     "Luận giải bằng AI và các câu hỏi thêm dùng xu."),
     ("Luận giải có đáng tin không?",
      "Phần tính toán (lịch âm, vị trí sao, độ sáng) được kiểm bằng bảng lịch độc lập và trang sách, nhưng đối chiếu với lá số thật mới có ít mẫu. "
      "Phần ý nghĩa là cách đọc của sách Tử Vi, mỗi câu ghi trang để bạn tự kiểm. Tử Vi chưa được khoa học kiểm chứng là phương pháp dự báo; "
@@ -634,10 +635,11 @@ FAQ = [
      "Nếu bạn chỉ biết ngày âm lịch, chọn \"Âm lịch\" ở ô ngày sinh, hệ thống tự đổi sang dương lịch."),
     ("Dữ liệu của tôi được giữ thế nào?",
      "Ngày giờ sinh được xử lý tức thời để lập lá số và không được lưu, trừ khi bạn bấm lưu. Lá số đã lưu nằm trong trình duyệt của bạn; "
-     "khi đăng nhập Google, lá số đó được đồng bộ vào tài khoản. Khi bạn dùng trợ lý hỏi đáp hoặc luận giải sâu, dữ kiện lá số và câu hỏi được gửi tới nhà cung cấp mô hình AI để soạn câu trả lời. "
+     "khi đăng nhập Google, lá số đó được đồng bộ vào tài khoản. Khi bạn chat với Bát Bát hoặc dùng luận giải bằng AI, dữ kiện lá số và câu hỏi được gửi tới Anthropic (mô hình Claude) để soạn câu trả lời; "
+     "tin nhắn chat không được lưu trên máy chủ Thiên Bàn. "
      "Thống kê truy cập chỉ đếm tổng số, không gắn với người hay ngày sinh. Muốn xóa tài khoản, hãy nhắn qua nút Góp ý."),
     ("Thiên Bàn có dùng AI để viết luận giải không?",
-     "Bài luận giải chuẩn thì không: mọi câu đến từ quy tắc lấy từ sách có ghi trang. Chỉ trợ lý hỏi đáp và luận giải sâu dùng mô hình AI, và hai phần đó được ghi rõ."),
+     "Bài luận giải chuẩn thì không: mọi câu đến từ quy tắc lấy từ sách có ghi trang. Chỉ Bát Bát (chat) và luận giải bằng AI dùng mô hình AI, và hai phần đó được ghi rõ."),
     ("Vì sao Xem ngày không có ngày hoàng đạo?",
      "Ngày hoàng đạo, sao tốt xấu của ngày lấy từ sách lịch pháp như Ngọc Hạp Thông Thư, mà Thiên Bàn chưa có trong kho nguồn. "
      "Trang Xem ngày chỉ hiển thị phần tính được: âm lịch, can chi, tiết khí và ngày xung với tuổi."),

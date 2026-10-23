@@ -5,13 +5,9 @@ import { $, $$, esc, STEMS, BRANCHES } from './util.js';
 import { classify, parsePhrase, plainElem } from './beginner.js';
 import { currentPhase } from './insights.js';
 import { autoLink } from './glossary.js';
+import { GUIDES, avatar } from './guides.js';
+export { GUIDES, avatar };
 
-export const GUIDES = {
-  tu1: { name: 'Tử Tử', side: 'tv', role: 'người dẫn đường Tử Vi' },
-  vi: { name: 'Vi Vi', side: 'tv', role: 'người bạn Tử Vi' },
-  bat: { name: 'Bát Bát', side: 'bt', role: 'người dẫn đường Bát Tự' },
-  tu2: { name: 'Tự Tự', side: 'bt', role: 'người bạn Bát Tự' },
-};
 const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const first = s => (s || '').split(/(?<=\.)\s/)[0];
 const cap = t => t ? t[0].toUpperCase() + t.slice(1) : t;
@@ -21,20 +17,6 @@ export function parseMarkup(s) {
   return plain.split('**').map((t, i) => ({ t, b: i % 2 === 1 })).filter(x => x.t);
 }
 export const plainOf = s => parseMarkup(s).map(x => x.t).join('');
-
-// ---------- avatars (inline SVG, colour from CSS variables per guide) ----------
-export function avatar(id, size = 52) {
-  const acc = {
-    tu1: '<path class="gd-acc" d="M32 5l2.6 5.6 6 .7-4.5 4.1 1.2 6L32 18.5 26.7 21.4l1.2-6-4.5-4.1 6-.7z"/>',
-    vi: '<path class="gd-acc" d="M20 13a8 8 0 1 0 10 9 6.5 6.5 0 0 1-10-9z"/><circle class="gd-acc" cx="44" cy="15" r="2.6"/>',
-    bat: '<path class="gd-tuft" d="M24 14c-3-6 1-9 4-8M33 12c-1-6 4-8 7-5" fill="none" stroke-width="3" stroke-linecap="round"/><text x="32" y="60" class="gd-glyph" text-anchor="middle" lang="zh">八</text>',
-    tu2: '<circle class="gd-glass" cx="25" cy="34" r="6.4"/><circle class="gd-glass" cx="39" cy="34" r="6.4"/><path class="gd-glass" d="M31.4 34h1.2"/><text x="32" y="60" class="gd-glyph" text-anchor="middle" lang="zh">字</text>',
-  }[id];
-  return `<svg class="gd-av gd-${id}" width="${size}" height="${size}" viewBox="0 0 64 64" role="img" aria-label="${GUIDES[id].name}"><circle class="gd-face" cx="32" cy="34" r="22"/>${acc}
-    <g class="gd-eyes"><circle class="gd-eye" cx="25" cy="34" r="2.6"/><circle class="gd-eye" cx="39" cy="34" r="2.6"/></g>
-    <ellipse class="gd-cheek" cx="20.5" cy="41" rx="3.4" ry="2.2"/><ellipse class="gd-cheek" cx="43.5" cy="41" rx="3.4" ry="2.2"/>
-    <path class="gd-mouth" d="M27 43q5 5 10 0" fill="none" stroke-width="2" stroke-linecap="round"/></svg>`;
-}
 
 // ---------- typing animation ----------
 function renderSegments(host, segs, n) {

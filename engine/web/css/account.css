@@ -15,7 +15,7 @@ body.hide-birth .bd,body.hide-birth .trace,body.hide-birth .res-name{display:non
 /* shared view */
 .sh-ban{background:var(--parchment);border-bottom:1px solid var(--line)}
 .sh-ban-in{display:flex;gap:var(--s4);align-items:center;justify-content:space-between;padding-block:12px;flex-wrap:wrap}.sh-ban-in p{margin:0;font-size:.92rem;max-width:52em}
-body.shared #save-host,body.shared #share-btn,body.shared #again,body.shared #hide-birth-wrap,body.shared #ask-host{display:none!important}
+body.shared #save-host,body.shared #share-btn,body.shared #again,body.shared #hide-birth-wrap{display:none!important}
 
 /* share dialog and link rows */
 .sh-dlg{max-width:min(620px,94vw)}.sh-b{padding:clamp(20px,4vw,32px)}
