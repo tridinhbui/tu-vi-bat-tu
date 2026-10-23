@@ -1,5 +1,14 @@
 import json
 
+# rules read brightness in their own book's table (palace.dignity@<school>.<star>, audit 2026-10-23): a hand-built palace gives the level
+# it names to every table
+def _all_tables(p):
+    for k in [k for k in list(p) if k.startswith('palace.dignity.')]:
+        for school in ('thuc_hanh', 'toan_thu', 'khao_luan'):
+            p[f'palace.dignity@{school}.' + k[len('palace.dignity.'):]] = p[k]
+    return p
+
+
 from tvbt import bazi, dignity, tuvi
 from tvbt.calendar_core import BirthInput, normalize
 from tvbt.knowledge.loader import DATA, load_all, load_claims
@@ -34,7 +43,7 @@ def run_tv(**kw):
     p = {"palace.name": "Mệnh", "palace.branch": "Tý", "palace.own_major_stars": ["Thiên Cơ"], "palace.tam_phuong_majors": ["Thiên Cơ"],
          "palace.tam_phuong_stars": ["Thiên Cơ"], "palace.tam_phuong_tu_hoa": [], "palace.own_stars": ["Thiên Cơ"]}
     p.update(kw)
-    res = engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": p}, system="tu_vi")
+    res = engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": _all_tables(p)}, system="tu_vi")
     return {f.claim for f in res.findings}
 
 
@@ -68,7 +77,7 @@ def run_palace(name, branch="Tý", own=(), majors=(), tam_majors=(), hoa=(), tam
     p = {"palace.name": name, "palace.branch": branch, "palace.own_stars": list(own), "palace.own_major_stars": list(majors),
          "palace.tam_phuong_majors": list(tam_majors) or list(majors), "palace.tam_phuong_stars": list(own),
          "palace.tam_phuong_tu_hoa": list(tam_hoa), "palace.tu_hoa": list(hoa), "palace.tuan": tuan, "palace.triet": triet}
-    res = engine.run(RULES, SOURCES, {"chart": {}, f"palace:{name}": p}, system="tu_vi")
+    res = engine.run(RULES, SOURCES, {"chart": {}, f"palace:{name}": _all_tables(p)}, system="tu_vi")
     return {f.claim for f in res.findings}
 
 
@@ -108,7 +117,7 @@ def run_combo(star, level, tam_stars=(), tam_hoa=(), tuan=False, own=(), branch=
     p = {"palace.name": "Mệnh", "palace.branch": branch, "palace.own_stars": [star, *own], "palace.own_major_stars": [star, *own],
          "palace.tam_phuong_majors": [star], "palace.tam_phuong_stars": [star, *tam_stars], "palace.tam_phuong_tu_hoa": list(tam_hoa),
          "palace.tu_hoa": [], "palace.tuan": tuan, "palace.triet": False, f"palace.dignity.{star}": level}
-    res = engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": p}, system="tu_vi")
+    res = engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": _all_tables(p)}, system="tu_vi")
     return {f.claim: f.basis for f in res.findings}
 
 
@@ -139,7 +148,7 @@ def mk_palace(branch="Tý", own=(), tam=(), tam_hoa=(), tuan=False, no_major=Fal
 
 
 def claims_for(p, resolve=False):
-    res = engine.run(RULES, SOURCES, {"chart": {}, f"palace:{p['palace.name']}": p}, system="tu_vi")
+    res = engine.run(RULES, SOURCES, {"chart": {}, f"palace:{p['palace.name']}": _all_tables(p)}, system="tu_vi")
     if resolve:
         from tvbt.reasoning import conflict
         return {r["claim"]: r for r in conflict.resolve(res, RULES)}
@@ -193,7 +202,7 @@ def test_khao_luan_phu2_rules_and_neighbor_facts():
 def palace_run(name, **kw):
     p = mk_palace(name=name, **kw)
     p.setdefault("palace.is_than", False)
-    res = engine.run(RULES, SOURCES, {"chart": {}, f"palace:{name}": p}, system="tu_vi")
+    res = engine.run(RULES, SOURCES, {"chart": {}, f"palace:{name}": _all_tables(p)}, system="tu_vi")
     return {f.claim: f for f in res.findings}
 
 
@@ -211,9 +220,9 @@ def test_khao_luan_cung_rules():
     assert "mau_tu_vi_sat_con_khong_hop_tinh" in palace_run("Phụ Mẫu", own=["Tử Vi", "Thất Sát"])
     assert "di_vo_chinh_dieu_tha_noi" in palace_run("Thiên Di", no_major=True)
     p = {**mk_palace(name="Mệnh"), "palace.rel.flank_prev_majors": ["Thái Dương"], "palace.rel.flank_next_majors": ["Thái Âm"], "palace.is_than": False}
-    assert "menh_giap_nhat_nguyet_hien_dat" in {f.claim for f in engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": p}, system="tu_vi").findings}
+    assert "menh_giap_nhat_nguyet_hien_dat" in {f.claim for f in engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": _all_tables(p)}, system="tu_vi").findings}
     p = {**p, "palace.rel.flank_prev_majors": ["Thái Dương", "Thái Âm"], "palace.rel.flank_next_majors": ["Thiên Đồng"]}
-    assert "menh_giap_nhat_nguyet_hien_dat" not in {f.claim for f in engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": p}, system="tu_vi").findings}
+    assert "menh_giap_nhat_nguyet_hien_dat" not in {f.claim for f in engine.run(RULES, SOURCES, {"chart": {}, "palace:Mệnh": _all_tables(p)}, system="tu_vi").findings}
 
 
 def test_group_facts_chain_into_palace_rules():
@@ -226,7 +235,7 @@ def test_group_facts_chain_into_palace_rules():
 def ct_run(base_chart=None, **kw):
     p = mk_palace(**kw)
     p.setdefault("palace.is_than", False)
-    res = engine.run(RULES, SOURCES, {"chart": base_chart or {}, f"palace:{p['palace.name']}": p}, system="tu_vi")
+    res = engine.run(RULES, SOURCES, {"chart": base_chart or {}, f"palace:{p['palace.name']}": _all_tables(p)}, system="tu_vi")
     return {f.claim for f in res.findings}
 
 
@@ -254,7 +263,7 @@ def test_khao_luan_chinh_tinh_rules():
 
 def test_second_source_corroborates_and_api_merges():
     p = {**mk_palace(own=["Tử Vi", "Tả Phụ", "Hữu Bật"]), "palace.is_than": False}
-    res = engine.run(RULES, SOURCES, {"chart": {"chart.year_stem": "Giáp"}, "palace:Mệnh": p}, system="tu_vi")
+    res = engine.run(RULES, SOURCES, {"chart": {"chart.year_stem": "Giáp"}, "palace:Mệnh": _all_tables(p)}, system="tu_vi")
     srcs = {r.sourceIds[0] for r in RULES if r.id in {f.rule_id for f in res.findings if f.claim == "tu_vi_ta_huu_uy_quyen"}}
     assert srcs == {"SRC_KHAO_LUAN", "SRC_TOAN_THU"}                    # same claim, two independent books
     q = {**mk_palace(branch="Ngọ", own=["Thái Dương"]), "palace.is_than": False}
@@ -271,7 +280,7 @@ def test_second_source_corroborates_and_api_merges():
 
 def tt_run(stem="Giáp", **kw):
     p = {**mk_palace(**kw), "palace.is_than": False}
-    res = engine.run(RULES, SOURCES, {"chart": {"chart.year_stem": stem}, f"palace:{p['palace.name']}": p}, system="tu_vi")
+    res = engine.run(RULES, SOURCES, {"chart": {"chart.year_stem": stem}, f"palace:{p['palace.name']}": _all_tables(p)}, system="tu_vi")
     return {f.claim for f in res.findings}
 
 

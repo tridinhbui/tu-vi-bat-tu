@@ -37,7 +37,10 @@ export function lintLibrary(lib: ProseLibrary, concepts: Concept[], required: st
     const con = cmap.get(c.id);
     if (!con) { err(c.id, 'card for an unknown concept'); continue; }
     if (!c.np || !c.pron) err(c.id, 'np and pron are required');
+    // a health card carries the book's words only (owner review 2026-10-22): no soft form, illustration, value or advice, one predicate
+    const health = con.facet.startsWith('wellbeing.');
     for (const [field, n] of Object.entries(MIN[con.pol])) {
+      if (health) continue;
       const have = (c[field as keyof ConceptCard] as string[] | undefined)?.length ?? 0;
       if (have < n!) err(c.id, `${field}: ${have} variant(s), need ${n}`);
     }

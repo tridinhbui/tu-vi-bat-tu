@@ -53,7 +53,9 @@ test('17/05/1990 Công danh: configuration, grounds, counters, cross-palace link
   // the limiting readings sit next to the lead: the same-book one first, with its sát-star condition, then the other books
   assert.match(t, /Toàn Thư[^“]{0,60}“công danh tầm thường”[^.]{0,30}Tử Vi tại Quan Lộc, sát tinh Địa Kiếp và Linh Tinh \(từ Phu Thê\) hội về Quan Lộc/);
   assert.match(t, /Thực Hành cũng ghi “khó đạt công danh”/);
-  assert.match(t, /câu thuận vẫn đứng như mô tả tiềm năng[^.]*phần điều chỉnh mức độ/);   // the limiting reading only adds sát stars: a degree adjustment
+  // the limiting readings add sát stars (a degree adjustment) — with TH p.110 firing too since rules read their own book's table (audit
+  // 2026-10-23), the text frames it as potential vs present conditions
+  assert.match(t, /câu thuận vẫn đứng như mô tả tiềm năng[^.]*phần điều chỉnh mức độ|phía thuận nói tiềm năng của tổ hợp sao, còn phía hạn chế nói điều kiện đang có mặt/);   // the limiting reading only adds sát stars: a degree adjustment
   // cross-palace necessity is tested counterfactually: 'Hóa Quyền gặp Tử hoặc Phủ' holds through Thiên Phủ in Mệnh itself, so the text must NOT
   // claim it stands on Tử Vi in Quan Lộc (audit finding); Lộc Mã from Tài Bạch IS necessary for 'lập nghiệp nơi xa'
   assert.doesNotMatch(t, /“tạo được uy quyền hiển hách”.{0,200}(đứng được|chỉ đứng|nhờ Tử Vi|Tử Vi nằm ở cung Quan Lộc)/s);

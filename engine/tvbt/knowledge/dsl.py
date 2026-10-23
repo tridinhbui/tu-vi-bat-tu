@@ -134,7 +134,8 @@ def _own_book_dignity(facts: dict[str, Any], name: str) -> tuple[str, Any]:
 
 
 def _leaf(facts: dict[str, Any], name: str, op: str, want: Any) -> bool | None:
-    if name.startswith(SRC_DIGNITY):
+    # a fact given outright (a hand-built test palace) is used as given
+    if name.startswith(SRC_DIGNITY) and name not in facts:
         name, lv = _own_book_dignity(facts, name)
         if lv is not None:
             return _compare(lv, op, want)

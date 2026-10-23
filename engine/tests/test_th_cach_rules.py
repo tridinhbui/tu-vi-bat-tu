@@ -4,6 +4,15 @@ from tvbt.knowledge.loader import load_all
 from tvbt.knowledge.schema import validate_pack
 from tvbt.reasoning import engine, facts
 
+# rules read brightness in their own book's table (palace.dignity@<school>.<star>, audit 2026-10-23): a hand-built palace gives the level
+# it names to every table
+def _all_tables(p):
+    for k in [k for k in list(p) if k.startswith('palace.dignity.')]:
+        for school in ('thuc_hanh', 'toan_thu', 'khao_luan'):
+            p[f'palace.dignity@{school}.' + k[len('palace.dignity.'):]] = p[k]
+    return p
+
+
 RULES, SOURCES = load_all()
 
 
@@ -24,7 +33,7 @@ def pal(name="Mệnh", branch="Dần", own=(), opp=(), flank=(), tp=(), tphoa=()
 
 
 def fired(p, chart=None):
-    base = {"chart": {"chart.system": "tu_vi", **(chart or {})}, "palace:" + p["palace.name"]: p}
+    base = {"chart": {"chart.system": "tu_vi", **(chart or {})}, "palace:" + p["palace.name"]: _all_tables(p)}
     return {(f.claim, f.effect) for f in engine.run(RULES, SOURCES, base, system="tu_vi").findings}
 
 

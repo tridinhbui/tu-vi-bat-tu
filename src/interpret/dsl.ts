@@ -54,7 +54,7 @@ function ownBookDignity(facts: Facts, name: string): [string, string | null] {
 }
 function leaf(facts: Facts, name0: string, op: string, want: unknown): Tri {
   let name = name0;
-  if (name.startsWith(SRC_DIGNITY)) { const [n, lv] = ownBookDignity(facts, name); if (lv !== null) return compare(lv, op, want); name = n; }
+  if (name.startsWith(SRC_DIGNITY) && !(name in facts)) { const [n, lv] = ownBookDignity(facts, name); if (lv !== null) return compare(lv, op, want); name = n; }
   const alts = facts[ALT + name];
   if (Array.isArray(alts)) {
     const v = alts.map(a => a === null ? null : compare(a, op, want));

@@ -185,9 +185,10 @@ def test_rules_the_new_levels_switch():
     # 'lợi' is not bright: Hỏa Tinh at Hợi in Điền Trạch does not fire the 'thế sáng' rule (TT itself calls Hợi hãm).
     c, p = _find(lambda p: p["name"] == "Điền Trạch" and "Hỏa Tinh" in p["stars"] and p["branch"] == "Hợi")
     assert p["minor_dignity"]["Hỏa Tinh"] == "lợi" and not _fired(c, "TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P")
-    # TH p.64 Hỏa đắc at Tỵ (TT: bình) does.
+    # TH p.64 Hỏa đắc at Tỵ, but this is a Toàn Thư rule: it reads Toàn Thư's own table (bình at Tỵ) and the book's 'nhập miếu'
+    # (audit 2026-10-23: each rule's brightness in its own book; nhập miếu no longer read as any bright cell), so it does not fire
     c, _ = _find(lambda p: p["name"] == "Điền Trạch" and "Hỏa Tinh" in p["stars"] and p["branch"] == "Tỵ")
-    assert _fired(c, "TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P")
+    assert not _fired(c, "TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P")
     # unknown -> 'unspecified' in the facts, so neither the bright nor the hãm rule fires
     c, _ = _find(lambda p: p["name"] == "Tài Bạch" and "Kình Dương" in p["stars"] and p["branch"] == "Tý", "toan_thu")
     f = facts.tuvi_facts(c)["palace:Tài Bạch"]

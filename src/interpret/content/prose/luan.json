@@ -770,15 +770,19 @@
    "{neg} trong {domain} vẫn là điều cần để ý, nhưng có yếu tố giảm nhẹ: {link}"
   ],
   "health_both": [
-   "{domain} được sách nêu cả {pos} lẫn {neg}; phần này chỉ ghi lại các lời ấy, không kết luận tốt hay xấu"
+   "{domain} có cả {pos} lẫn {neg} được nêu ra; ở đây chỉ ghi lại hai điều ấy, không kết luận tốt hay xấu"
   ],
   "coexist": [
    "{domain} có cả {pos} lẫn {neg}; hai điều không loại nhau, vì {pos} thuộc về {fpos}, còn {neg} thuộc về {fneg}",
    "{domain} có {pos} và có {neg}; một bên là chuyện {fpos}, một bên là chuyện {fneg}, nên cả hai cùng đứng được"
   ],
   "chua_phan_xu": [
-   "{domain} có cả {pos} (dựa vào {gpos}) lẫn {neg} (dựa vào {gneg}); không có câu sách nào cho biết bên nào nặng hơn, nên hai mặt này chưa phân xử được",
-   "{domain} có hai mặt: {pos}, đứng trên {gpos}, và {neg}, đứng trên {gneg}; chưa có lời sách nào phân xử giữa hai điều ấy"
+   "{domain} có cả {pos} (dựa vào {gpos}) lẫn {neg} (dựa vào {gneg}); chưa phân xử được mặt nào trội",
+   "{domain} có hai mặt: {pos}, đứng trên {gpos}, và {neg}, đứng trên {gneg}; hai điều ấy chưa phân xử được",
+   "{pos} (từ {gpos}) và {neg} (từ {gneg}) cùng có mặt trong {domain}, và không bên nào được xếp trên bên nào",
+   "trong {domain}, {pos} đến từ {gpos}, còn {neg} đến từ {gneg}; cả hai được nêu, chưa có phân xử",
+   "{domain} vừa có {pos} nhờ {gpos}, vừa có {neg} vì {gneg}; mặt nào nặng hơn thì chưa phân xử được",
+   "về {domain}, {gpos} cho {pos}, {gneg} lại cho {neg}; đây là hai mặt chưa phân xử được"
   ]
  },
  "confront": {

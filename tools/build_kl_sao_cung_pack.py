@@ -49,7 +49,7 @@ add(Q, "LIEM_SAT", M("Liêm Trinh", "Thất Sát"), "công danh chậm (Liêm Tr
 add(Q, "LIEM_PHA", M("Liêm Trinh", "Phá Quân"), "công danh không toại ý (Liêm Trinh đồng cung Phá Quân ở Quan Lộc)", "limit", "p.94", "Khi có Phá quân đồng cung bất toại công danh", [("career.obstacle", A)])
 add(T, "LIEM_PHU_TUONG", M("Liêm Trinh") + [anyof(has(OWNM, "Thiên Phủ"), has(OWNM, "Thiên Tướng"))], "giàu có lớn (Liêm Trinh đồng cung Phủ hoặc Tướng ở Tài Bạch)", "support", "p.93", "Giầu có lớn khi có Thiên phủ, Thiên tướng đồng cung", [("fin.abundance", A)])
 add(T, "LIEM_DAN_THAN", M("Liêm Trinh") + [br("Dần", "Thân")], "tiền bạc khá nhưng phải cạnh tranh mới giàu (Liêm Trinh ở Tài Bạch tại Dần, Thân)", "support", "p.93", "Tốt ở Dần Thân, nhưng phải cạnh tranh với giầu có", [("fin.effortful", A)])
-add(T, "LIEM_SAT", M("Liêm Trinh", "Thất Sát"), "giàu có nhưng thất thường (Liêm Trinh đồng cung Thất Sát ở Tài Bạch)", "limit", "p.93", "Nếu đồng cung với Thất sát thì giầu có thất thường", [("fin.volatile", A)])
+add(T, "LIEM_SAT", M("Liêm Trinh", "Thất Sát"), "của cải thất thường, lúc có lúc không (Liêm Trinh đồng cung Thất Sát ở Tài Bạch)", "limit", "p.93", "Nếu đồng cung với Thất sát thì giầu có thất thường", [("fin.volatile", A)])
 add(T, "LIEM_PHA", M("Liêm Trinh", "Phá Quân"), "tiền bạc đi liền với tai ương (Liêm Trinh đồng cung Phá Quân ở Tài Bạch)", "limit", "p.93", "Đồng cung với Phá quân thì tiền bạc đi liền với tai ương", [("fin.volatile", A)])
 add(P, "LIEM", M("Liêm Trinh"), "hầu hết các vị trí đều bất lợi cho gia đạo (Liêm Trinh ở Phu Thê)", "limit", "p.93", "Hầu hết các vị thế đều bất lợi cho gia đạo", [("rel.strain", A)])
 add(DT, "LIEM_DAN_THAN", M("Liêm Trinh") + [br("Dần", "Thân")], "khó có điền sản (Liêm Trinh ở Điền Trạch tại Dần, Thân)", "limit", "p.94", "Ở Dần Thân không có điền sản", [("prop.poor", A)])
@@ -152,7 +152,7 @@ ids = [r["id"] for r in rules]
 assert len(ids) == len(set(ids)), [i for i in ids if ids.count(i) > 1]
 json.dump({"sources": [], "rules": rules}, open(D / "pack_khao_luan_sao_cung.json", "w"), ensure_ascii=False, indent=1)
 json.dump({"note": "page quotes of pack_khao_luan_sao_cung.json (tools/build_kl_sao_cung_pack.py), checked by engine/tests/test_kl_sao_cung.py", "quotes": quotes},
-          open(D / "pack_khao_luan_sao_cung.quotes.json", "w"), ensure_ascii=False, indent=1)
+          open(D / "quotes_khao_luan_sao_cung.json", "w"), ensure_ascii=False, indent=1)
 cur = json.loads((D / "claims_vi.json").read_text("utf-8"))
 for k, v in claims.items():
     cur[k] = v

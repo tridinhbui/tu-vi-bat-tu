@@ -14,7 +14,7 @@ from tvbt.knowledge.loader import load_all  # noqa: E402
 from tvbt.reasoning import engine  # noqa: E402
 
 PACK = json.loads((ROOT / "engine" / "data" / "pack_khao_luan_sao_cung.json").read_text("utf-8"))["rules"]
-QUOTES = json.loads((ROOT / "engine" / "data" / "pack_khao_luan_sao_cung.quotes.json").read_text("utf-8"))["quotes"]
+QUOTES = json.loads((ROOT / "engine" / "data" / "quotes_khao_luan_sao_cung.json").read_text("utf-8"))["quotes"]
 RULES, SOURCES = load_all()
 
 

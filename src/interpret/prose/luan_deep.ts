@@ -195,7 +195,8 @@ function conditionSentences(W: Writer, k: Knowledge, D: DepthLib, u: DepthUnit, 
     : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ${(e as { borrowed?: boolean }).borrowed ? ' (mượn từ cung đối)' : ''}` : e.kind === 'major_ham' ? `${e.star} hãm${(e as { borrowed?: boolean }).borrowed ? ' (mượn từ cung đối)' : ''}` : e.kind === 'hoa_good' ? `${e.hoa}` : e.star ?? '';
   const tr = (v: NonNullable<DepthUnit['verdicts']>[number], step: string): Partial<SentenceTrace> & { move: SentenceTrace['move']; step: string } => {
     const items = [...v.pos, ...v.neg, ...v.timing, ...v.mixed];
-    return { move: 'VALUE', step, basis: 'he_thong', concepts: [], rules: [...new Set(items.map(x => x.ruleId))].sort(), cites: [...new Set(items.flatMap(x => x.cites))].sort() };
+    return { move: 'VALUE', step, basis: 'he_thong', concepts: [], rules: [...new Set(items.map(x => x.ruleId))].sort(), cites: [...new Set(items.flatMap(x => x.cites))].sort(),
+      ledger: { domain: v.id, verdict: v.verdict, base: v.base } };
   };
   const vs = u.verdicts!, out: ProseSentence[] = [];
   const main = vs[0];
