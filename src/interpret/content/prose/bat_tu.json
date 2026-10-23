@@ -872,6 +872,9 @@
         ],
         "decide": [
           "Điều quyết định kết luận cuối là sức nhật chủ và chỗ hộ thân: lời “{zz}” chỉ xét vị trí của Tài, chưa xét sức nhật chủ, nên chỉ trọn khi nhật chủ có Tỉ Kiếp, Ấn đỡ; hai lời này chưa được cân với nhau ở đâu, nên chỗ vênh ấy còn để ngỏ."
+        ],
+        "decide_agree": [
+          "Hai cách xét gặp nhau ở cùng một chỗ: Tài nhiều mà chưa thành lợi cho bản thân, một bên vì Tài chưa chảy vào nhật chủ, một bên vì nhật chủ {level} phải gánh Tài; chỗ đỡ là Tỉ Kiếp, Ấn."
         ]
       }
     },
@@ -997,5 +1000,144 @@
         "Về chuyện tiền bạc, xét từng lớp"
       ]
     }
+  },
+  "kin": {
+    "note": "DEEP-BAZI-2 (prose/bazi_kin.ts): Tài, nghề, quan hệ and the years by the 八字真宗 judgements of pp.50-65 (engine/tvbt/bazi_deep/kin.py).",
+    "rule": [
+      "{Cause}, nên {effect}.",
+      "Vì {cause}, {effect}.",
+      "{Cause}; điều đó cho thấy {effect}."
+    ],
+    "rule_next": [
+      "Thêm nữa, {cause}, nên {effect}.",
+      "Ngoài ra, vì {cause}, {effect}.",
+      "Bên cạnh đó, {cause} cho thấy {effect}."
+    ],
+    "lead": {
+      "work": [
+        "Về tiền bạc và công việc",
+        "Về tài lộc và nghề nghiệp"
+      ],
+      "marriage": [
+        "Về hôn nhân",
+        "Về chuyện vợ chồng"
+      ],
+      "family": [
+        "Về anh chị em",
+        "Về anh em trong nhà"
+      ]
+    },
+    "tai_flat": [
+      "Tài là nhóm mạnh nhất của lá số ({pct}% tổng số độ) nhưng chưa chảy được vào nhật chủ, nên tài vận ở mức bình thường.",
+      "Nhóm Tài chiếm {pct}% số độ, đủ gọi là vượng, song chưa có đường chảy vào nhật chủ; vì thế tài vận chỉ ở mức bình thường."
+    ],
+    "tai_flow": [
+      "Tài vượng ({pct}% tổng số độ) và chảy được vào nhật chủ qua {chain}, nên tài vận tốt.",
+      "Nhóm Tài chiếm {pct}% số độ và có đường chảy vào nhật chủ qua {chain}; vì thế tài vận tốt."
+    ],
+    "tai_flow_tmm": [
+      "Tài vượng và chảy được vào nhật chủ qua {chain}, nhưng {tmm} bị chữ trong tứ trụ hình, xung hoặc hại, nên tiền bạc chỉ ở mức người thường."
+    ],
+    "why_noflow": [
+      "Ba chỗ đứng sát nhật chủ là {near}; không chỗ nào là Ấn, nên Tài và Quan chưa có lối đi vào nhật chủ.",
+      "Đứng sát nhật chủ chỉ có {near}, không có Ấn, nên mạch Tài sinh Quan, Quan sinh Ấn chưa nối được tới nhật chủ."
+    ],
+    "why_noflow_an": [
+      "Ba chỗ đứng sát nhật chủ là {near}; Ấn ở {an} nhưng không nối được với Quan Sát, nên mạch Tài sinh Quan, Quan sinh Ấn chưa tới được nhật chủ."
+    ],
+    "why_flow": [
+      "Đường chảy vào nhật chủ là {chain}: chữ trước sinh chữ sau, chữ cuối đứng sát nhật chủ.",
+      "Mạch đi qua {chain}, mỗi chữ sinh chữ kế bên, chữ cuối đứng sát nhật chủ."
+    ],
+    "capped": [
+      "{Cause}: xét riêng chữ ấy thì {effect}, nhưng chưa vượt qua được điều kiện chảy vào nhật chủ nói trên.",
+      "{Cause} là điểm cộng riêng ({effect}); song khi Tài vượng mà chưa chảy vào nhật chủ, điểm cộng ấy chưa đổi được mức chung."
+    ],
+    "capped_dm": [
+      "{Cause}: xét riêng vị trí thì {effect}, còn trọn hay không tùy sức nhật chủ, như đoạn về Tài bên dưới.",
+      "{Cause}, nên xét riêng vị trí của Tài thì {effect}; trọn hay không còn tùy sức nhật chủ, như đoạn bên dưới."
+    ],
+    "layout": [
+      "Trong tứ trụ, {list}{none}.",
+      "Xét chỗ đứng của từng nhóm, {list}{none}."
+    ],
+    "work_field": [
+      "Trụ bên trái trụ có {basis} ({from}) là {left}; can {stem} là {god}, nên nghề hợp thiên về {field}, cụ thể có thể là {list}.",
+      "Nghề xét ở {left}, trụ bên trái {from} nơi có {basis}: can {stem} là {god}, nên hợp thiên về {field}, cụ thể có thể là {list}."
+    ],
+    "work_field_day": [
+      "Trụ bên trái trụ có {basis} ({from}) là {left}, can {stem} chính là nhật chủ, nên chỉ xét theo hành của can: nghề có thể thuộc nhóm {list}.",
+      "Nghề xét ở {left}, trụ bên trái {from} nơi có {basis}; can {stem} là nhật chủ nên xét theo hành của nó: nghề có thể thuộc nhóm {list}."
+    ],
+    "work_place": [
+      "Ở {left}, can {stem} {sits}, nên {effect}.",
+      "Can {stem} của {left} {sits}; vì vậy {effect}."
+    ],
+    "work_none": [
+      "Quan Sát có mặt ở {list}, không có một Quan lộ can duy nhất, nên chưa xác định được trụ để xét nghề."
+    ],
+    "spouse": [
+      "Với lá số {gender}, sao {who} là {group}; {group} có ở {at}.",
+      "Sao {who} của lá số {gender} là {group}, nằm ở {at}."
+    ],
+    "spouse_none": [
+      "Với lá số {gender}, sao {who} là {group}, nhưng tứ trụ không có {group}."
+    ],
+    "day_combine": [
+      "{list} hợp với nhật can {dm}, và đó chính là sao {who}.",
+      "Sao {who} ở {list} hợp với nhật can {dm}."
+    ],
+    "parents": [
+      "Sao cha của lá số là {father}; sao mẹ là {mother}.",
+      "Lá số lấy sao cha là {father}, sao mẹ là {mother}."
+    ],
+    "siblings": [
+      "Sao anh chị em là Tỉ Kiếp, ở {at}.",
+      "Anh chị em ứng với Tỉ Kiếp, có ở {at}."
+    ],
+    "siblings_an": [
+      "Lá số không có Tỉ Kiếp, nên anh chị em xét theo Ấn, ở {at}."
+    ],
+    "children": [
+      "Sao con cái của lá số là {stars}, {at}.",
+      "Con cái ứng với {stars}, {at}."
+    ],
+    "children_hour": [
+      "Lá số không có sao con cái, nên chuyện con cái xét ở trụ giờ {hour}."
+    ],
+    "tmm": [
+      "Ba trụ phụ của lá số là {list}.",
+      "Lá số có {list}."
+    ],
+    "year_link": [
+      "Xét việc, tiền và người, năm {year} mang {sg} ở can và {bg} ở chi: {list}.",
+      "Năm {year} đem {sg} ở can, {bg} ở chi; trong đó {list}.",
+      "Về việc, tiền và người, can năm {year} là {sg}, chi là {bg}: {list}."
+    ],
+    "year_link_none": [
+      "Năm {year} mang {sg} ở can và {bg} ở chi, không chạm tới sao tiền bạc, công việc hay sao phối ngẫu của lá số."
+    ],
+    "year_rule": [
+      "Năm {year}, {cause}, nên {effect}.",
+      "Riêng năm {year}: {cause}; vì vậy {effect}.",
+      "Trong năm {year}, vì {cause}, {effect}."
+    ],
+    "year_rule_good": [
+      "Dù nhìn chung năm {year} thuận, vẫn có một mặt cần giữ: {cause}, nên {effect}.",
+      "Năm {year} thuận ở phần lớn, nhưng {cause}, nên {effect}."
+    ],
+    "year_void": [],
+    "domain": {
+      "tai": "tiền bạc",
+      "tai_nam": "tiền bạc, và cũng là sao vợ",
+      "quan": "công việc, chức vụ",
+      "quan_nu": "công việc, chức vụ, và cũng là sao chồng",
+      "an": "học hành, văn bằng",
+      "ti": "anh chị em",
+      "con": "con cái"
+    },
+    "dm_wait": [
+      ", còn trọn hay không tùy sức nhật chủ, như đoạn về Tài bên dưới."
+    ]
   }
 }

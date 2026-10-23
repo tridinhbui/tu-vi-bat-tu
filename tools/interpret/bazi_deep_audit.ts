@@ -56,10 +56,17 @@ const STRUCT: Array<{ id: string; label: string; has: (c: ChartInput) => boolean
 function deep(c: ChartInput): any { return (c.bazi as { deep?: unknown } | undefined)?.deep; }
 
 export function audit(charts: Array<[string, ChartInput]>) {
-  const per: Record<string, { sentences: number; units: number }> = {};
+  const per: Record<string, { sentences: number; units: number; words: number }> = {};
   let W = 0, U = 0, MH = 0, concl = 0, bare = 0, conclParas = 0, mechParas = 0, n = 0;
   const has: Record<string, number> = {}, said: Record<string, number> = {};
   const texts: Array<{ dm: string; t: string }> = [], skel = new Map<string, number>();
+  // topic coverage (DEEP-BAZI-2): sourced sentences (book or computed) about money, work and siblings, in the chapters where the reader looks
+  const TOPIC: Record<string, { ch: string[]; re: RegExp }> = {
+    tai: { ch: ['su-nghiep'], re: /\bTài\b|tiền|tài vận|của cải|tài lộc/u },
+    nghe: { ch: ['su-nghiep'], re: /nghề|công việc|chức vụ|chức|sự nghiệp|việc làm|đơn vị làm việc|quan lộc/u },
+    anh_em: { ch: ['quan-he'], re: /anh em|anh chị em|huynh đệ/u },
+  };
+  const none: Record<string, number> = { tai: 0, nghe: 0, anh_em: 0 }, single: Record<string, number> = { tai: 0, nghe: 0, anh_em: 0 };
   for (const [, c] of charts) {
     let ch: Chs;
     try { ch = reader(c); } catch { continue; }
@@ -67,8 +74,8 @@ export function audit(charts: Array<[string, ChartInput]>) {
     const all = Object.values(ch).flat() as ProseParagraph[];
     for (const [id, ps] of Object.entries(ch)) {
       const ss = (ps ?? []).flatMap(p => p.sentences);
-      const e = (per[id] ??= { sentences: 0, units: 0 });
-      e.sentences += ss.length; e.units += ss.filter(s => SOURCED.has(s.trace.basis)).length;
+      const e = (per[id] ??= { sentences: 0, units: 0, words: 0 });
+      e.sentences += ss.length; e.units += ss.filter(s => SOURCED.has(s.trace.basis)).length; e.words += ss.reduce((a, s) => a + words(s.text).length, 0);
     }
     for (const p of all) {
       const ss = p.sentences, cs = ss.filter(isConcl);
@@ -86,14 +93,20 @@ export function audit(charts: Array<[string, ChartInput]>) {
       if (s.said.test(text)) said[s.id] = (said[s.id] ?? 0) + 1;
     }
     texts.push({ dm: c.bazi?.day_master ?? '', t: all.map(p => p.text).join(' ') });
+    for (const [k, T] of Object.entries(TOPIC)) {
+      const nT = T.ch.flatMap(id => ch[id] ?? []).flatMap(p => p!.sentences).filter(s => SOURCED.has(s.trace.basis) && T.re.test(s.text)).length;
+      if (!nT) none[k]++;
+      if (nT <= 1) single[k]++;
+    }
   }
   const gs = texts.map(x => ({ dm: x.dm, g: grams(x.t) })), sims: number[] = [];
   for (let i = 0; i < gs.length && i < 300; i++) for (let j = i + 1; j < gs.length && j < 300; j += 7) if (gs[i].dm !== gs[j].dm) sims.push(jac(gs[i].g, gs[j].g));
   return {
     charts: n, words: Math.round(W / n), units: r3(U / n), minhHoa: r3(MH / n), wordsPerUnit: r3(W / Math.max(1, U)),
-    unitsPerChapter: Object.fromEntries(Object.entries(per).map(([k, v]) => [k, { sentences: r3(v.sentences / n), units: r3(v.units / n) }])),
+    unitsPerChapter: Object.fromEntries(Object.entries(per).map(([k, v]) => [k, { sentences: r3(v.sentences / n), units: r3(v.units / n), wordsPerUnit: r3(v.words / Math.max(1, v.units)) }])),
     conclusions: r3(concl / n), bareConclusions: r3(bare / n), mechanismCoverage: r3(mechParas / Math.max(1, conclParas)), stripSim: r3(median(sims)),
     structures: Object.fromEntries(STRUCT.map(s => [s.id, { label: s.label, has: r3((has[s.id] ?? 0) / n), voiced: r3((said[s.id] ?? 0) / Math.max(1, has[s.id] ?? 0)) }])),
+    topics: { none, atMostOne: single },
     repeated: [...skel.entries()].filter(([, v]) => v > n * 0.3).sort((a, b) => b[1] - a[1]).slice(0, 12).map(([k, v]) => [k.slice(0, 110), r3(v / n)]),
   };
 }
