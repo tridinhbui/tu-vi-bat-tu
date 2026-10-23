@@ -6091,19 +6091,6 @@
    "note": "ally.few; nesting {\"disjoint\":9}"
   },
   {
-   "id": "AUTO_TV_KL7_PHUC_DUC_KK_DAC__TV_KL7_PHUC_DUC_VU_CU_CO",
-   "type": "both_hold",
-   "from": "TV_KL7_PHUC_DUC_KK_DAC",
-   "to": [
-    "TV_KL7_PHUC_DUC_VU_CU_CO"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 9,
-   "note": "fin.volatile; nesting {\"disjoint\":9}"
-  },
-  {
    "id": "AUTO_TV_KL7_PHUC_DUC_KK_HAM__TV_TH_AUX2_PHUC_DUC_HONG_NGA_MI",
    "type": "both_hold",
    "from": "TV_KL7_PHUC_DUC_KK_HAM",

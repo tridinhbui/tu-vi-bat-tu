@@ -62,6 +62,7 @@ C = [
   {"pred": ["được che chở, mong gì được nấy"], "soft": ["có lúc được che chở"], "value": ["sự che chở của phúc phần"]}),
  ("fortune.reputation", "life.fortune", "-", "outcome", None, "những lúc mang tai tiếng", "tai tiếng",
   {"turn": ["có lúc mang tai tiếng"], "soft": ["đôi khi vướng điều tiếng"], "mature": ["giữ mình ở những chỗ dễ sinh điều tiếng"]}),
+ ("fortune.brief_luck", "life.fortune", "-", "outcome", None, "phần lộc không bền", "lộc không bền", {}),
  ("parents.prosper", "relationships.parents", "+", "outcome", "parents.poor", "sự khá giả của cha mẹ", "cha mẹ khá giả",
   {"pred": ["có cha mẹ khá giả"], "soft": ["có cha mẹ đủ đầy ở mức vừa"], "value": ["nền nhà của cha mẹ"]}),
  ("parents.poor", "relationships.parents", "-", "outcome", "parents.prosper", "sự vất vả, thiếu thốn của cha mẹ", "cha mẹ vất vả",
@@ -86,7 +87,7 @@ C = [
   {"turn": ["có đường con cái kém thuận"], "mature": ["kiên nhẫn với chuyện con cái"]}),
  ("health.shielded", "wellbeing.health", "+", "outcome", "health.exposed", "sao cứu giải ở cung Tật Ách", "sao cứu giải",
   {"pred": ["có sao cứu giải ở cung Tật Ách"], "note": "health (owner review 2026-10-22): only the book words, no soft form, no illustration, no value or advice line"}),
- ("health.exposed", "wellbeing.health", "-", "outcome", "health.shielded", "sao mà sách bảo là tối kỵ ở cung Tật Ách", "sao tối kỵ ở Tật Ách",
+ ("health.exposed", "wellbeing.health", "-", "outcome", "health.shielded", "sao tối kỵ của cung Tật Ách", "sao tối kỵ ở Tật Ách",
   {"turn": ["có sao mà sách bảo là tối kỵ ở cung Tật Ách"], "note": "health (owner review 2026-10-22): only the book words, no soft form, no illustration, no value or advice line"}),
 ]
 RELINK = {
@@ -116,10 +117,11 @@ for cid, facet, pol, kind, opp, np, short, _ in C:
         cf["concepts"].append(e)
 (KG / "concepts.json").write_text(json.dumps(cf, ensure_ascii=False, indent=1) + "\n", "utf-8")
 
+FULL = json.loads((ROOT / "tools" / "data" / "cung_bay_cards.json").read_text("utf-8"))["cards"]
 cards = json.loads(CARDS.read_text("utf-8"))
 byid = {c["id"]: i for i, c in enumerate(cards["cards"])}
 for cid, facet, pol, kind, opp, np, short, fields in C:
-    card = {"id": cid, "status": "draft", "np": np, "pron": f"{short} ấy", **fields}
+    card = {"id": cid, "status": "draft", "np": np, "pron": f"{short} ấy", **fields, **FULL.get(cid, {})}
     if cid in byid:
         cards["cards"][byid[cid]] = card
     else:

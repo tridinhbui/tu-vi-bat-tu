@@ -352,13 +352,20 @@
    "pron": "người giúp được việc ấy",
    "pred": [
     "có bạn bè, người giúp việc được việc",
-    "có người dưới làm được việc"
+    "có người dưới làm được việc",
+    "được người cùng làm đỡ đần đắc lực"
    ],
    "soft": [
-    "có người giúp được việc, dù không nhiều"
+    "có người giúp được việc, dù không nhiều",
+    "có người đỡ đần, ở mức vừa"
    ],
    "value": [
-    "những người làm được việc bên cạnh"
+    "những người làm được việc bên cạnh",
+    "sức đỡ đần của người cùng làm"
+   ],
+   "behave": [
+    "Việc giao cho người bên cạnh {S} thường được làm đến nơi đến chốn.",
+    "Khi cần một tay đỡ, {S} thường có người làm được việc ngay bên cạnh."
    ]
   },
   {
@@ -368,13 +375,16 @@
    "pron": "sự lấn quyền của người dưới ấy",
    "turn": [
     "gặp người dưới lạm quyền",
-    "để người dưới lấn quyền"
+    "để người dưới lấn quyền",
+    "bị người cùng làm vượt phần mình"
    ],
    "soft": [
-    "đôi khi để người dưới lấn quyền"
+    "đôi khi để người dưới lấn quyền",
+    "có lúc bị người dưới vượt phần"
    ],
    "mature": [
-    "giao việc kèm giới hạn rõ ràng"
+    "giao việc kèm giới hạn rõ ràng",
+    "giữ phần quyết định ở tay mình trong việc lớn"
    ]
   },
   {
@@ -383,13 +393,17 @@
    "np": "người giúp việc hay đổi, ít ai ở lâu",
    "pron": "sự đổi thay của người giúp việc ấy",
    "turn": [
-    "có người giúp việc hay đổi, ít ai ở lâu"
+    "có người giúp việc hay đổi, ít ai ở lâu",
+    "gặp người dưới lúc ở lúc đi",
+    "không giữ được người cùng làm lâu dài"
    ],
    "soft": [
-    "có lúc người giúp việc không ở lâu"
+    "có lúc người giúp việc không ở lâu",
+    "đôi khi phải thay người cùng làm"
    ],
    "mature": [
-    "giữ người bằng sự rõ ràng hơn là lời hứa"
+    "giữ người bằng sự rõ ràng hơn là lời hứa",
+    "chuẩn bị sẵn người thay cho những việc quan trọng"
    ]
   },
   {
@@ -399,13 +413,16 @@
    "pron": "sự oán trách của người dưới ấy",
    "turn": [
     "bị bạn bè, người dưới oán trách",
-    "làm ơn mà nên oán"
+    "làm ơn mà nên oán",
+    "gặp người dưới hay kêu ca, trách móc"
    ],
    "soft": [
-    "đôi khi bị người dưới oán trách"
+    "đôi khi bị người dưới oán trách",
+    "có lúc giúp người mà không được nhớ ơn"
    ],
    "mature": [
-    "giữ ân oán rạch ròi, giúp người có chừng mực"
+    "giữ ân oán rạch ròi, giúp người có chừng mực",
+    "nói rõ điều mình giúp được và không giúp được"
    ]
   },
   {
@@ -414,13 +431,17 @@
    "np": "cãi vã, kiện tụng với bạn bè, người dưới",
    "pron": "sự va chạm với người dưới ấy",
    "turn": [
-    "vướng cãi vã, kiện tụng với bạn bè, người dưới"
+    "vướng cãi vã, kiện tụng với bạn bè, người dưới",
+    "có chuyện tranh chấp với người cùng làm",
+    "va chạm với người dưới vì chuyện quyền lợi"
    ],
    "soft": [
-    "có lúc va chạm với người dưới"
+    "có lúc va chạm với người dưới",
+    "đôi khi bất đồng với người cùng làm"
    ],
    "mature": [
-    "giao kèo với người cùng làm cho rõ từ đầu"
+    "giao kèo với người cùng làm cho rõ từ đầu",
+    "ghi lại những thỏa thuận quan trọng"
    ]
   },
   {
@@ -430,13 +451,16 @@
    "pron": "sự ít bạn ấy",
    "turn": [
     "ít bạn bè",
-    "không có nhiều người quen thân"
+    "không có nhiều người quen thân",
+    "giữ một vòng quen biết hẹp"
    ],
    "soft": [
-    "bạn bè không đông"
+    "bạn bè không đông",
+    "có ít người thân thiết"
    ],
    "mature": [
-    "giữ kỹ vài người bạn thật"
+    "giữ kỹ vài người bạn thật",
+    "chủ động giữ liên lạc với những người mình quý"
    ]
   },
   {
@@ -445,13 +469,21 @@
    "np": "bạn bè có thế lực",
    "pron": "bạn bè có thế lực ấy",
    "pred": [
-    "có bạn bè có uy quyền, thế lực"
+    "có bạn bè có uy quyền, thế lực",
+    "quen biết những người có tiếng nói",
+    "có người có thế lực đứng sau"
    ],
    "soft": [
-    "có vài người quen có thế lực"
+    "có vài người quen có thế lực",
+    "có người có tiếng nói trong vòng quen biết"
    ],
    "value": [
-    "những người bạn có thế lực"
+    "những người bạn có thế lực",
+    "tiếng nói của những người quen có uy tín"
+   ],
+   "behave": [
+    "Khi việc cần một lời nói có trọng lượng, {S} thường biết tìm đến ai.",
+    "Trong vòng quen biết của {S} có những người nói ra là được nghe."
    ]
   },
   {
@@ -460,13 +492,17 @@
    "np": "người dưới nói xấu chủ",
    "pron": "lời nói xấu của người dưới ấy",
    "turn": [
-    "bị người dưới nói xấu sau lưng"
+    "bị người dưới nói xấu sau lưng",
+    "gặp người cùng làm hay đặt điều",
+    "bị người giúp việc nói ra nói vào"
    ],
    "soft": [
-    "có lúc bị người dưới nói ra nói vào"
+    "có lúc bị người dưới nói ra nói vào",
+    "đôi khi nghe điều tiếng từ người cùng làm"
    ],
    "mature": [
-    "để việc mình làm tự nói thay mình"
+    "để việc mình làm tự nói thay mình",
+    "giữ chuyện riêng ở ngoài chỗ làm"
    ]
   },
   {
@@ -475,13 +511,17 @@
    "np": "bạn bè tham lam",
    "pron": "lòng tham của bạn bè ấy",
    "turn": [
-    "gặp bạn bè tham lam"
+    "gặp bạn bè tham lam",
+    "có người quen hay tính phần lợi",
+    "bị người cùng làm lợi dụng"
    ],
    "soft": [
-    "có người bạn hay tính phần lợi"
+    "có người bạn hay tính phần lợi",
+    "đôi khi gặp người quen hám lợi"
    ],
    "mature": [
-    "tách bạch chuyện tiền với chuyện tình bạn"
+    "tách bạch chuyện tiền với chuyện tình bạn",
+    "rõ ràng phần chia ngay từ đầu"
    ]
   },
   {
@@ -490,13 +530,17 @@
    "np": "người dưới chỉ tốn kém, ăn hại",
    "pron": "người ăn hại ấy",
    "turn": [
-    "có người dưới chỉ ăn hại"
+    "có người dưới chỉ ăn hại",
+    "nuôi người cùng làm mà không được việc",
+    "tốn kém vì người giúp việc"
    ],
    "soft": [
-    "có người dưới tốn kém hơn được việc"
+    "có người dưới tốn kém hơn được việc",
+    "đôi khi phải gánh người không được việc"
    ],
    "mature": [
-    "chọn người theo việc chứ không theo cảm tình"
+    "chọn người theo việc chứ không theo cảm tình",
+    "đặt kết quả rõ cho từng người"
    ]
   },
   {
@@ -506,13 +550,20 @@
    "pron": "sự được giúp khi ra ngoài ấy",
    "pred": [
     "ra ngoài được người kính nể, giúp đỡ",
-    "ra ngoài gặp quý nhân"
+    "ra ngoài gặp quý nhân",
+    "được người nơi khác nâng đỡ"
    ],
    "soft": [
-    "ra ngoài có lúc được người giúp"
+    "ra ngoài có lúc được người giúp",
+    "ở nơi xa cũng gặp người tốt"
    ],
    "value": [
-    "những người giúp mình ở bên ngoài"
+    "những người giúp mình ở bên ngoài",
+    "sự kính nể của người ngoài"
+   ],
+   "behave": [
+    "Đến một nơi lạ, {S} thường sớm có người chỉ đường mở lối.",
+    "Người ở nơi khác thường sớm tin cậy {S}."
    ]
   },
   {
@@ -522,13 +573,20 @@
    "pron": "cái lợi nơi xa ấy",
    "pred": [
     "đi xa làm ăn tốt hơn ở nhà",
-    "ra ngoài dễ kiếm tiền"
+    "ra ngoài dễ kiếm tiền",
+    "có lợi khi làm ăn ở nơi khác"
    ],
    "soft": [
-    "đi xa có phần lợi hơn"
+    "đi xa có phần lợi hơn",
+    "ra ngoài kiếm được thêm"
    ],
    "value": [
-    "cái lợi của việc đi xa"
+    "cái lợi của việc đi xa",
+    "những cơ hội ở nơi khác"
+   ],
+   "behave": [
+    "Những khoản thu đáng kể của {S} hay đến từ việc ở nơi khác.",
+    "Đổi chỗ làm ăn thường mở thêm đường tiền cho {S}."
    ]
   },
   {
@@ -537,13 +595,17 @@
    "np": "khẩu thiệt, cãi vã khi ra ngoài",
    "pron": "khẩu thiệt bên ngoài ấy",
    "turn": [
-    "ra ngoài hay vướng khẩu thiệt, cãi vã"
+    "ra ngoài hay vướng khẩu thiệt, cãi vã",
+    "gặp điều tiếng ở chốn đông người",
+    "bị miệng tiếng khi giao thiệp bên ngoài"
    ],
    "soft": [
-    "ra ngoài đôi khi vướng điều tiếng"
+    "ra ngoài đôi khi vướng điều tiếng",
+    "có lúc va chạm lời qua tiếng lại"
    ],
    "mature": [
-    "nói ít hơn ở nơi lạ"
+    "nói ít hơn ở nơi lạ",
+    "giữ lời nói chừng mực khi giao thiệp"
    ]
   },
   {
@@ -553,13 +615,16 @@
    "pron": "sự long đong ấy",
    "turn": [
     "ra ngoài long đong vất vả",
-    "ra ngoài lang thang, không ổn định"
+    "ra ngoài lang thang, không ổn định",
+    "bôn ba nhiều mà ít yên chỗ"
    ],
    "soft": [
-    "ra ngoài có lúc vất vả"
+    "ra ngoài có lúc vất vả",
+    "đôi khi bôn ba hơn mong muốn"
    ],
    "mature": [
-    "có một chỗ dựa cố định trước khi đi xa"
+    "có một chỗ dựa cố định trước khi đi xa",
+    "lo chỗ ở ổn định trước, việc khác sau"
    ]
   },
   {
@@ -568,7 +633,13 @@
    "np": "sự may rủi đi liền nhau khi ra ngoài",
    "pron": "may rủi nơi xa ấy",
    "pred": [
-    "ra ngoài may rủi đi liền nhau"
+    "ra ngoài may rủi đi liền nhau",
+    "gặp cả may lẫn rủi khi ra ngoài",
+    "có được có mất ở nơi xa"
+   ],
+   "behave": [
+    "Một chuyến đi của {S} có thể mở một việc hay, kèm một việc phải gỡ.",
+    "Ở bên ngoài, cái lợi và cái hại đến với {S} thường không cách xa nhau."
    ]
   },
   {
@@ -577,13 +648,17 @@
    "np": "sự tốn kém khi ra ngoài",
    "pron": "sự tốn kém khi ra ngoài ấy",
    "turn": [
-    "ra ngoài tốn tiền"
+    "ra ngoài tốn tiền",
+    "hao tiền vì đi lại",
+    "chi nhiều cho việc giao thiệp bên ngoài"
    ],
    "soft": [
-    "ra ngoài hay tốn hơn dự tính"
+    "ra ngoài hay tốn hơn dự tính",
+    "đi lại tốn kém hơn người khác"
    ],
    "mature": [
-    "định trước khoản chi cho mỗi chuyến đi"
+    "định trước khoản chi cho mỗi chuyến đi",
+    "giữ một khoản riêng cho việc đi lại"
    ]
   },
   {
@@ -592,7 +667,13 @@
    "np": "việc phải rời quê mới khá lên",
    "pron": "sự rời quê lập nghiệp ấy",
    "pred": [
-    "phải rời quê lập nghiệp mới khá lên"
+    "phải rời quê lập nghiệp mới khá lên",
+    "khá lên khi sống xa quê",
+    "gây dựng ở nơi khác thuận hơn quê nhà"
+   ],
+   "behave": [
+    "Nền đời của {S} thường dựng ở một nơi khác chỗ mình lớn lên.",
+    "Đi xa quê, {S} lại thấy đường mình rộng hơn."
    ]
   },
   {
@@ -601,13 +682,17 @@
    "np": "sự ly tán của họ hàng",
    "pron": "họ hàng ly tán ấy",
    "turn": [
-    "có họ hàng ly tán"
+    "có họ hàng ly tán",
+    "có dòng họ mỗi người một nơi",
+    "ít được họ hàng quây quần"
    ],
    "soft": [
-    "họ hàng không gần gũi"
+    "họ hàng không gần gũi",
+    "họ hàng ở rải rác nhiều nơi"
    ],
    "mature": [
-    "giữ liên lạc với những người thân còn gần"
+    "giữ liên lạc với những người thân còn gần",
+    "tự giữ lấy những mối thân tình"
    ]
   },
   {
@@ -616,13 +701,17 @@
    "np": "sự sa sút của dòng họ",
    "pron": "họ hàng sa sút ấy",
    "turn": [
-    "có dòng họ sa sút"
+    "có dòng họ sa sút",
+    "có họ hàng suy hao",
+    "thấy nếp nhà dần kém đi"
    ],
    "soft": [
-    "dòng họ không còn thịnh như trước"
+    "dòng họ không còn thịnh như trước",
+    "họ hàng có phần kém đi"
    ],
    "mature": [
-    "tự gây nền cho mình thay vì trông vào gốc họ"
+    "tự gây nền cho mình thay vì trông vào gốc họ",
+    "dựng nếp riêng cho nhà mình"
    ]
   },
   {
@@ -632,13 +721,20 @@
    "pron": "dòng họ hiển đạt ấy",
    "pred": [
     "có người hiển đạt trong họ",
-    "có dòng họ thịnh vượng"
+    "có dòng họ thịnh vượng",
+    "có họ hàng đông đúc, khá giả"
    ],
    "soft": [
-    "trong họ có người khá giả"
+    "trong họ có người khá giả",
+    "dòng họ đủ đầy ở mức vừa"
    ],
    "value": [
-    "chỗ dựa của dòng họ"
+    "chỗ dựa của dòng họ",
+    "tiếng tốt của gia tộc"
+   ],
+   "behave": [
+    "Trong những dịp họ hàng gặp nhau, {S} thường nghe nhắc đến những người thành đạt.",
+    "Tên của dòng họ thường mở được vài cánh cửa cho {S}."
    ]
   },
   {
@@ -647,7 +743,13 @@
    "np": "truyền thống võ nghiệp trong họ",
    "pron": "võ nghiệp trong họ ấy",
    "pred": [
-    "có người trong họ theo nghiệp võ"
+    "có người trong họ theo nghiệp võ",
+    "có truyền thống võ nghiệp trong họ",
+    "có họ hàng gắn với binh nghiệp"
+   ],
+   "behave": [
+    "Trong họ của {S}, chuyện nghiệp võ thường không xa lạ.",
+    "Những câu chuyện họ hàng kể với {S} hay có người làm việc binh."
    ]
   },
   {
@@ -656,7 +758,17 @@
    "np": "dòng họ ít người nối dõi",
    "pron": "họ ít người ấy",
    "turn": [
-    "có dòng họ ít người nối dõi"
+    "có dòng họ ít người nối dõi",
+    "có họ ít người",
+    "thuộc một nhánh họ thưa người"
+   ],
+   "soft": [
+    "dòng họ không đông",
+    "họ hàng ít người"
+   ],
+   "mature": [
+    "giữ gìn những người thân đang có",
+    "vun tình thân với cả họ ngoại"
    ]
   },
   {
@@ -665,13 +777,17 @@
    "np": "những rắc rối bất ngờ",
    "pron": "rắc rối bất ngờ ấy",
    "turn": [
-    "hay gặp chuyện rắc rối bất ngờ"
+    "hay gặp chuyện rắc rối bất ngờ",
+    "dính vào việc không lường trước",
+    "có lúc vướng phiền phức từ đâu tới"
    ],
    "soft": [
-    "đôi khi gặp chuyện bất ngờ"
+    "đôi khi gặp chuyện bất ngờ",
+    "có lúc gặp việc không định trước"
    ],
    "mature": [
-    "giữ một phần dự phòng cho việc không lường trước"
+    "giữ một phần dự phòng cho việc không lường trước",
+    "đọc kỹ trước khi nhận việc mới"
    ]
   },
   {
@@ -680,13 +796,21 @@
    "np": "sự được che chở",
    "pron": "sự che chở ấy",
    "pred": [
-    "được che chở, mong gì được nấy"
+    "được che chở, mong gì được nấy",
+    "có phúc che chở",
+    "gặp lúc khó thường có lối ra"
    ],
    "soft": [
-    "có lúc được che chở"
+    "có lúc được che chở",
+    "đôi khi gặp may lúc khó"
    ],
    "value": [
-    "sự che chở của phúc phần"
+    "sự che chở của phúc phần",
+    "những lối ra lúc khó"
+   ],
+   "behave": [
+    "Những lúc tưởng bế tắc, {S} thường vẫn có một lối ra.",
+    "Điều {S} cầu mong thường không đến mức phải bỏ dở."
    ]
   },
   {
@@ -695,13 +819,17 @@
    "np": "những lúc mang tai tiếng",
    "pron": "tai tiếng ấy",
    "turn": [
-    "có lúc mang tai tiếng"
+    "có lúc mang tai tiếng",
+    "vướng điều tiếng không đáng",
+    "bị người ta nói ra nói vào"
    ],
    "soft": [
-    "đôi khi vướng điều tiếng"
+    "đôi khi vướng điều tiếng",
+    "có lúc bị hiểu lầm"
    ],
    "mature": [
-    "giữ mình ở những chỗ dễ sinh điều tiếng"
+    "giữ mình ở những chỗ dễ sinh điều tiếng",
+    "minh bạch những việc dễ bị hiểu sai"
    ]
   },
   {
@@ -710,13 +838,21 @@
    "np": "sự khá giả của cha mẹ",
    "pron": "cha mẹ khá giả ấy",
    "pred": [
-    "có cha mẹ khá giả"
+    "có cha mẹ khá giả",
+    "có cha mẹ có địa vị, của cải",
+    "được nền nhà vững từ cha mẹ"
    ],
    "soft": [
-    "có cha mẹ đủ đầy ở mức vừa"
+    "có cha mẹ đủ đầy ở mức vừa",
+    "có cha mẹ không thiếu thốn"
    ],
    "value": [
-    "nền nhà của cha mẹ"
+    "nền nhà của cha mẹ",
+    "chỗ dựa vật chất từ cha mẹ"
+   ],
+   "behave": [
+    "Những năm đầu đời của {S} ít phải lo chuyện thiếu thốn.",
+    "Cha mẹ của {S} thường có điều kiện lo cho con."
    ]
   },
   {
@@ -725,10 +861,17 @@
    "np": "sự vất vả, thiếu thốn của cha mẹ",
    "pron": "cha mẹ vất vả ấy",
    "turn": [
-    "có cha mẹ vất vả, chẳng giàu"
+    "có cha mẹ vất vả, chẳng giàu",
+    "có cha mẹ phải lo toan nhiều",
+    "sinh ra trong nhà không dư dả"
    ],
    "mature": [
-    "tự đứng vững sớm để đỡ đần cha mẹ"
+    "tự đứng vững sớm để đỡ đần cha mẹ",
+    "trân trọng những gì cha mẹ đã gắng lo"
+   ],
+   "soft": [
+    "cha mẹ không dư dả",
+    "cha mẹ có lúc chật vật"
    ]
   },
   {
@@ -737,13 +880,17 @@
    "np": "sự bất hòa của cha mẹ",
    "pron": "cha mẹ bất hòa ấy",
    "turn": [
-    "có cha mẹ bất hòa"
+    "có cha mẹ bất hòa",
+    "thấy cha mẹ hay bất đồng",
+    "lớn lên giữa những lời qua tiếng lại của cha mẹ"
    ],
    "soft": [
-    "cha mẹ đôi khi không hợp ý nhau"
+    "cha mẹ đôi khi không hợp ý nhau",
+    "cha mẹ có lúc bất đồng"
    ],
    "mature": [
-    "giữ mình đứng ngoài những bất hòa của cha mẹ"
+    "giữ mình đứng ngoài những bất hòa của cha mẹ",
+    "nói chuyện riêng với từng người khi cần"
    ]
   },
   {
@@ -752,7 +899,17 @@
    "np": "sự xa cách giữa cha mẹ",
    "pron": "cha mẹ xa cách ấy",
    "turn": [
-    "có cha mẹ xa cách nhau"
+    "có cha mẹ xa cách nhau",
+    "có cha mẹ mỗi người một nơi",
+    "thấy cha mẹ ít ở bên nhau"
+   ],
+   "soft": [
+    "cha mẹ có lúc ở xa nhau",
+    "cha mẹ không gần gũi nhau"
+   ],
+   "mature": [
+    "giữ liên lạc với cả hai bên",
+    "không để mình bị kéo về một phía"
    ]
   },
   {
@@ -761,10 +918,17 @@
    "np": "gánh phần của cha mẹ để lại",
    "pron": "gánh của cha mẹ ấy",
    "turn": [
-    "không nhờ được cha mẹ, lại phải gánh phần để lại"
+    "không nhờ được cha mẹ, lại phải gánh phần để lại",
+    "phải lo phần việc cha mẹ để lại",
+    "gánh thay cha mẹ những khoản chưa xong"
    ],
    "mature": [
-    "tách bạch phần mình gánh được với phần không"
+    "tách bạch phần mình gánh được với phần không",
+    "giải quyết dứt điểm từng khoản để lại"
+   ],
+   "soft": [
+    "phải gánh một phần việc của cha mẹ",
+    "có lúc phải lo thay cho cha mẹ"
    ]
   },
   {
@@ -774,13 +938,20 @@
    "pron": "người thân hiển đạt ấy",
    "pred": [
     "có người thân hiển đạt",
-    "có con hay anh em thành danh"
+    "có con hay anh em thành danh",
+    "có người trong nhà có tài"
    ],
    "soft": [
-    "có người thân khá thành đạt"
+    "có người thân khá thành đạt",
+    "có người thân có chút tiếng"
    ],
    "value": [
-    "những người thân thành đạt"
+    "những người thân thành đạt",
+    "tài của người trong nhà"
+   ],
+   "behave": [
+    "Trong nhà {S}, có người được người ngoài biết đến vì tài.",
+    "Thành công của người thân thường là niềm tự hào của {S}."
    ]
   },
   {
@@ -789,13 +960,21 @@
    "np": "sự khá giả của con cái, anh em",
    "pron": "người thân khá giả ấy",
    "pred": [
-    "có con cái, anh em khá giả"
+    "có con cái, anh em khá giả",
+    "có người thân đủ đầy",
+    "có người trong nhà làm ăn được"
    ],
    "soft": [
-    "người thân đủ đầy ở mức vừa"
+    "người thân đủ đầy ở mức vừa",
+    "có người thân không thiếu thốn"
    ],
    "value": [
-    "sự khá giả của người thân"
+    "sự khá giả của người thân",
+    "nền vật chất của người trong nhà"
+   ],
+   "behave": [
+    "Người thân của {S} ít khi phải nhờ cậy chuyện tiền.",
+    "Trong nhà {S}, chuyện làm ăn của người thân thường đi được."
    ]
   },
   {
@@ -804,13 +983,17 @@
    "np": "tính ngỗ ngược, phá tán ở người thân",
    "pron": "sự ngỗ ngược ấy",
    "turn": [
-    "có người thân ngỗ ngược, hay phá tán"
+    "có người thân ngỗ ngược, hay phá tán",
+    "có con cái hay anh em khó bảo",
+    "phải lo cho người thân hay gây chuyện"
    ],
    "soft": [
-    "có người thân khó bảo"
+    "có người thân khó bảo",
+    "có người thân bướng bỉnh"
    ],
    "mature": [
-    "đặt giới hạn rõ ràng với người thân hay phá"
+    "đặt giới hạn rõ ràng với người thân hay phá",
+    "không gánh thay hậu quả cho người thân"
    ]
   },
   {
@@ -819,13 +1002,21 @@
    "np": "lòng hiếu thảo của con cái",
    "pron": "con cái hiếu thảo ấy",
    "pred": [
-    "có con cái hiếu thảo"
+    "có con cái hiếu thảo",
+    "được con cái thương yêu, chăm lo",
+    "có con biết nghĩ cho cha mẹ"
    ],
    "soft": [
-    "con cái biết nghĩ cho cha mẹ"
+    "con cái biết nghĩ cho cha mẹ",
+    "có con khá hiếu thuận"
    ],
    "value": [
-    "lòng hiếu thảo của con cái"
+    "lòng hiếu thảo của con cái",
+    "sự chăm lo của các con"
+   ],
+   "behave": [
+    "Các con của {S} thường nhớ đến cha mẹ trong những việc nhỏ.",
+    "Khi {S} cần, các con thường có mặt."
    ]
   },
   {
@@ -834,13 +1025,21 @@
    "np": "đường con cái thuận",
    "pron": "đường con cái thuận ấy",
    "pred": [
-    "có đường con cái tốt"
+    "có đường con cái tốt",
+    "thuận đường con cái",
+    "có con cái mang lại niềm vui"
    ],
    "soft": [
-    "đường con cái khá thuận"
+    "đường con cái khá thuận",
+    "con cái không làm phiền lòng"
    ],
    "value": [
-    "đường con cái"
+    "sự thuận hòa giữa cha mẹ và các con",
+    "niềm vui từ con cái"
+   ],
+   "behave": [
+    "Chuyện con cái thường là chỗ {S} yên lòng.",
+    "Nói đến các con, {S} ít khi phải thở dài."
    ]
   },
   {
@@ -849,10 +1048,17 @@
    "np": "đường con cái kém thuận",
    "pron": "đường con cái kém thuận ấy",
    "turn": [
-    "có đường con cái kém thuận"
+    "có đường con cái kém thuận",
+    "gặp khó ở đường con cái",
+    "phải lo nhiều về con cái"
    ],
    "mature": [
-    "kiên nhẫn với chuyện con cái"
+    "kiên nhẫn với chuyện con cái",
+    "dành thời gian cho các con hơn là lời dạy"
+   ],
+   "soft": [
+    "đường con cái có chỗ vướng",
+    "chuyện con cái không thật suôn"
    ]
   },
   {
@@ -861,19 +1067,38 @@
    "np": "sao cứu giải ở cung Tật Ách",
    "pron": "sao cứu giải ấy",
    "pred": [
-    "có sao cứu giải ở cung Tật Ách"
+    "được sao cứu giải che chở"
    ],
    "note": "health (owner review 2026-10-22): only the book words, no soft form, no illustration, no value or advice line"
   },
   {
    "id": "health.exposed",
    "status": "draft",
-   "np": "sao mà sách bảo là tối kỵ ở cung Tật Ách",
+   "np": "sao tối kỵ của cung Tật Ách",
    "pron": "sao tối kỵ ở Tật Ách ấy",
    "turn": [
-    "có sao mà sách bảo là tối kỵ ở cung Tật Ách"
+    "chịu ảnh hưởng của sao tối kỵ"
    ],
    "note": "health (owner review 2026-10-22): only the book words, no soft form, no illustration, no value or advice line"
+  },
+  {
+   "id": "fortune.brief_luck",
+   "status": "draft",
+   "np": "phần lộc không bền",
+   "pron": "lộc không bền ấy",
+   "turn": [
+    "được hưởng lộc một thời gian nhưng không bền",
+    "có lộc mà khó giữ lâu",
+    "có lúc khá lên rồi lại lùi"
+   ],
+   "soft": [
+    "có lộc nhưng không đều",
+    "được lộc từng lúc"
+   ],
+   "mature": [
+    "để dành phần lộc lúc đang có",
+    "biến lộc tạm thành thứ bền hơn"
+   ]
   }
  ]
 }

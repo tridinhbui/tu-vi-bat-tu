@@ -42,6 +42,16 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
   const own = new Set(sh.saidAll);
   const voicing = (concept: string, palace: string) => [...said.filter(s => !own.has(s)), ...made].reverse().find(s => s.trace.basis === 'sach' && (s.trace.keys ?? []).some(x => x === `${concept}@${palace}` || x.startsWith(`${concept}@${palace}|`)));
   const MH = k.prose?.minhHoa?.concepts ?? {};
+  const DOM = (facet: string) => facet.startsWith('career.') && !facet.endsWith('.timing') ? 'cong_danh' : facet.startsWith('finance.') ? 'tai_loc'
+    : facet === 'relationships.marriage' ? 'hon_nhan' : facet.startsWith('wellbeing.') ? 'suc_khoe' : null;
+  const tied = (d: string) => sh.ledger.domains.some(v => v.id.split('.')[0] === d && !['thuan', 'chua_du', 'khong_ket_luan'].includes(v.verdict));
+  const unexplained = (concept: string) => {
+    const c = W.concept(concept), d = c && DOM(c.facet);
+    if (!c || !d || c.pol === '~' || tied(d)) return false;
+    // a limit against a domain the ledger concluded thuận (the report says so in the domain's own chapter, whatever the order of chapters)
+    if (c.pol === '-' && sh.ledger.domains.some(v => v.id.split('.')[0] === d && v.verdict === 'thuan')) return true;
+    return [...said, ...made].some(s0 => s0.trace.basis === 'sach' && s0.trace.concepts.some(y => { const cy = W.concept(y); return !!cy && DOM(cy.facet) === d && cy.pol !== '~' && cy.pol !== c.pol; }));
+  };
   const toldRules = new Set(said.filter(s => s.trace.basis === 'sach').flatMap(s => s.trace.rules));
   const toldText = new Set(said.map(s => s.text));
   const out: ProseParagraph[] = [];
@@ -120,6 +130,9 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
           continue;
         }
         // the same reading (concept and palace) already told by another rule: this rule corroborates that sentence, it is not told twice
+        // a reading against the side the report already told of a life domain (career, money, marriage, health) when no conditional verdict of
+        // that domain ties the two sides: it would be a contradiction left unexplained — not told, and the trace says why
+        if (unexplained(x.concept)) { note(x.ruleId, 'domain_unexplained'); if (mech) alone.add(mech); if (trig) consumed.add(trig); continue; }
         const same = voicing(x.concept, x.palace);
         if (same) {
           (same.trace.also ??= []).includes(x.ruleId) || same.trace.also!.push(x.ruleId);
@@ -273,13 +286,13 @@ function relationFacts(chart: ChartInput, id: string, sh: LuanShared): string | 
   // any other relation: the book's statement told with what stands, on this chart, in the palaces it names (its own palace when it names
   // none), and the ledger's verdict of the domain it ties to (Mệnh–Quan Lộc: công danh; Phu Thê–Phúc Đức: hôn nhân; Nô Bộc: kiếm tiền)
   const rel = (REL_OF.get(id));
-  if (!rel) return null;
+  if (!rel || rel.when === "than") return null;
   const v = REL_VERDICT[id] ? sh.ledger.domains.find(d => d.id === REL_VERDICT[id]) : undefined;
   const verdict = v && !['chua_du', 'khong_ket_luan'].includes(v.verdict) ? `; ${v.label} đã được xét là ${LV[v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict] ?? v.verdict}` : '';
   return joinVi((rel.with ?? [rel.palace]).map(brief)) + verdict;
 }
 /** the relation of each id (set by deepParagraphs from the knowledge) and the ledger domain a relation ties to */
-const REL_OF = new Map<string, { palace: string; with?: string[] }>();
+const REL_OF = new Map<string, { palace: string; with?: string[]; when?: string }>();
 const REL_VERDICT: Record<string, string> = { 'menh.quan_di_tai': 'cong_danh', 'phuc.nu_menh_phu_phuc': 'hon_nhan', 'no.giau_ngheo_vi_ban': 'tai_loc.kiem' };
 const LV: Record<string, string> = { thuan: 'thuận', 'co_dieu_kien+': 'thuận có điều kiện', 'co_dieu_kien-': 'vướng nhưng có lối gỡ', co_dieu_kien: 'tùy lúc', hai_chieu: 'hai chiều', tro_ngai: 'chỗ phải gắng sức', chua_phan_xu: 'còn hai mặt chưa phân xử được', hai_mat: 'có cả hai mặt', giam_nhe: 'vướng, có yếu tố giảm nhẹ' };
 

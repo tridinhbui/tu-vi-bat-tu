@@ -61,7 +61,7 @@ REL = [
  ("than.di", "than.di", "Thiên Di", "Thân cư Thiên Di thì phải bôn ba ngoài xã hội, lấy nghĩa khí, trung tín mà giao tiếp bạn bè mới mong thành đạt", "than", None, None),
  ("no.giau_ngheo_vi_ban", "no.giau_ngheo_vi_ban", "Nô Bộc", "giàu có thể nhờ bạn mà nghèo cũng có thể vì bạn", None, ["Tài Bạch"], ["no_boc"]),
  ("no.tuy_ket_hop", "no.tuy_ket_hop", "Nô Bộc", "sao ở cung Nô Bộc tốt hay xấu còn tùy vào sự kết hợp với các sao khác", None, None, None),
- ("di.giao_thiep", "di.giao_thiep", "Thiên Di", "Thiên Di là chỗ giao thiệp bên ngoài, gần hay xa đều thuộc Thiên Di", None, ["Nô Bộc"], ["thien_di", "no_boc"]),
+ ("di.giao_thiep", "di.giao_thiep", "Thiên Di", "Thiên Di là chỗ giao thiệp bên ngoài, gần hay xa đều thuộc Thiên Di", None, ["Thiên Di"], ["no_boc"]),
  ("di.chinh_tinh_nhan_vat", "di.chinh_tinh_nhan_vat", "Thiên Di", "chính tinh ở Thiên Di là hình ảnh những người mình thường gặp", None, ["Thiên Di"], ["thien_di"]),
  ("di.menh_phuc_do", "menh_phuc.di_tat_van_do", "Thiên Di", "Mệnh và Phúc Đức tốt thì Thiên Di, Tật Ách có gặp hung sát tinh cũng đỡ xấu", None, ["Mệnh", "Phúc Đức"], ["thien_di", "tat_ach"]),
  ("phuc.cuu_menh_than", "phuc.cuu_menh_than", "Phúc Đức", "Mệnh, Thân gặp hung sát tinh mà cung Phúc Đức có phúc tinh đắc địa thì có thể cứu vãn", None, ["Mệnh"], ["phuc_duc"]),

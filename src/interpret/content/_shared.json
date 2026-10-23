@@ -303,7 +303,9 @@
      },
      "variants": [
       "Phía cần cân nhắc là {t.np}, và dấu hiệu nằm ở {t.where}.",
-      "Mặt cần để ý là {t.np}; nó đến từ {t.where}."
+      "Mặt cần để ý là {t.np}; nó đến từ {t.where}.",
+      "Điều phải tính đến là {t.np}, thấy ở {t.where}.",
+      "Chỗ vướng ở đây là {t.np}, nằm ở {t.where}."
      ]
     },
     {
@@ -622,7 +624,9 @@
      "basis": "sach",
      "kind": "claim",
      "variants": [
-      "Ngoài các trục trên, lá số còn có {rest}; những điểm này ít căn cứ hơn nên chỉ được nêu ngắn."
+      "Ngoài các trục trên, lá số còn có {rest}; những điểm này ít căn cứ hơn nên chỉ được nêu ngắn.",
+      "Bên cạnh đó còn có {rest}; những điểm này chỉ được nêu ngắn.",
+      "Thêm vào các điều trên là {rest}, được nêu ngắn vì ít căn cứ hơn."
      ]
     },
     {
@@ -855,7 +859,9 @@
      ],
      "variants": [
       "Theo cách Khảo Luận gọi tên các chặng, đó là chặng {dh.focus_stage} (Khảo Luận tr.233–236).",
-      "Khảo Luận gọi chặng ấy là {dh.focus_stage} (Khảo Luận tr.233–236)."
+      "Khảo Luận gọi chặng ấy là {dh.focus_stage} (Khảo Luận tr.233–236).",
+      "Trong cách chia các chặng đời của Khảo Luận, đây là quãng {dh.focus_stage} (Khảo Luận tr.233–236).",
+      "Chặng này, theo Khảo Luận, ứng với {dh.focus_stage} (Khảo Luận tr.233–236)."
      ]
     },
     {

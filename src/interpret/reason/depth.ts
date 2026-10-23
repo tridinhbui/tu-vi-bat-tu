@@ -60,7 +60,7 @@ function sectionOf(cfg: DepthConfig, c: Concept): string | null {
   return e ? pick(e) : cfg.fallback ? pick(cfg.fallback) : null;
 }
 /** why a verified reading of the palace was not told in the deep reading (kept in the trace, chapter evidence `untold`) */
-export type UntoldReason = 'timing_main' | 'event' | 'no_section' | 'no_text' | 'same_reading' | 'guarded' | 'sensitive';
+export type UntoldReason = 'timing_main' | 'event' | 'no_section' | 'no_text' | 'same_reading' | 'guarded' | 'sensitive' | 'domain_unexplained';
 
 export interface DepthReading { ruleId: string; concept: string; palace: string; pol: '+' | '-' | '~'; status: Resolved['status']; cites: string[];
   /** the stars / Hóa / Tuần-Triệt the reading fired on, with the palace each stands in */

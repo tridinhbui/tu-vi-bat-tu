@@ -514,9 +514,17 @@
    "facet": "wellbeing.health",
    "pol": "-",
    "kind": "outcome",
-   "np": "sao mà sách bảo là tối kỵ ở cung Tật Ách",
+   "np": "sao tối kỵ của cung Tật Ách",
    "short": "sao tối kỵ ở Tật Ách",
    "opp": "health.shielded"
+  },
+  {
+   "id": "fortune.brief_luck",
+   "facet": "life.fortune",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "phần lộc không bền",
+   "short": "lộc không bền"
   }
  ]
 }

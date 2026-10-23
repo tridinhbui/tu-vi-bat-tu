@@ -344,6 +344,9 @@
    "cond": "dieu_kien",
    "verdicts": [
     "hon_nhan"
+   ],
+   "relations": [
+    "phuc.nu_menh_phu_phuc"
    ]
   },
   "dien_trach": {
@@ -423,7 +426,10 @@
    "quyen": "m_nang_luc",
    "link": "m_duong_doi",
    "cond": null,
-   "verdicts": []
+   "verdicts": [],
+   "relations": [
+    "menh.quan_di_tai"
+   ]
   },
   "thien_di": {
    "palace": "Thiên Di",
@@ -467,7 +473,11 @@
    "quyen": "di_ra_ngoai",
    "link": "di_lien_cung",
    "cond": null,
-   "verdicts": []
+   "verdicts": [],
+   "relations": [
+    "di.chinh_tinh_nhan_vat",
+    "di.menh_phuc_do"
+   ]
   },
   "phuc_duc": {
    "palace": "Phúc Đức",
@@ -504,7 +514,11 @@
    "quyen": "phuc_goc",
    "link": "phuc_lien",
    "cond": null,
-   "verdicts": []
+   "verdicts": [],
+   "relations": [
+    "phuc.cuu_menh_than",
+    "phuc.dep_hon_cac_cung"
+   ]
   },
   "no_boc": {
    "palace": "Nô Bộc",
@@ -546,7 +560,11 @@
    "quyen": "no_viec",
    "link": "no_lien",
    "cond": null,
-   "verdicts": []
+   "verdicts": [],
+   "relations": [
+    "no.giau_ngheo_vi_ban",
+    "di.giao_thiep"
+   ]
   },
   "tu_tuc": {
    "palace": "Tử Tức",
@@ -589,7 +607,10 @@
    "quyen": "tu_net",
    "link": "tu_lien",
    "cond": null,
-   "verdicts": []
+   "verdicts": [],
+   "relations": [
+    "tu.ve_gia"
+   ]
   },
   "huynh_de": {
    "palace": "Huynh Đệ",
@@ -676,7 +697,10 @@
    "quyen": "pm_net",
    "link": "pm_lien",
    "cond": null,
-   "verdicts": []
+   "verdicts": [],
+   "relations": [
+    "phu_mau.qua_dep_tat_kem"
+   ]
   },
   "tat_ach": {
    "palace": "Tật Ách",
@@ -701,7 +725,11 @@
    "quyen": "ta_giai",
    "link": "ta_lien",
    "cond": null,
-   "verdicts": []
+   "verdicts": [],
+   "relations": [
+    "tat.tho_au_cuoi_doi",
+    "di.menh_phuc_do"
+   ]
   }
  }
 }

@@ -1,62 +1,62 @@
 {
  "version": "indices-2.1.0",
- "kbVersion": "a88f011fe747f43f",
+ "kbVersion": "844e9bdc8f4b1285",
  "charts": 1000,
  "corpus": "corpus1000.json.gz",
  "palace": {
   "Tài Bạch": {
-   "support": 14.715,
-   "limit": 5.098
+   "support": 14.909,
+   "limit": 5.625
   },
   "Tử Tức": {
-   "support": 3.798,
-   "limit": 2.338
+   "support": 4.554,
+   "limit": 4.21
   },
   "Phu Thê": {
-   "support": 6.752,
-   "limit": 3.708
+   "support": 7.217,
+   "limit": 4.432
   },
   "Huynh Đệ": {
-   "support": 2.796,
-   "limit": 1.991
+   "support": 3.546,
+   "limit": 3.43
   },
   "Mệnh": {
-   "support": 19.237,
-   "limit": 5.383
+   "support": 19.608,
+   "limit": 5.735
   },
   "Phụ Mẫu": {
-   "support": 3.027,
-   "limit": 1.986
+   "support": 4.106,
+   "limit": 3.826
   },
   "Phúc Đức": {
-   "support": 6.626,
-   "limit": 4.447
+   "support": 7.16,
+   "limit": 5.357
   },
   "Điền Trạch": {
-   "support": 2.809,
-   "limit": 1.556
+   "support": 3.279,
+   "limit": 3.039
   },
   "Quan Lộc": {
    "support": 15.499,
    "limit": 5.345
   },
   "Nô Bộc": {
-   "support": 2.501,
-   "limit": 2.214
+   "support": 3.461,
+   "limit": 4.58
   },
   "Thiên Di": {
-   "support": 17.016,
-   "limit": 5.101
+   "support": 17.612,
+   "limit": 5.95
   },
   "Tật Ách": {
-   "support": 3.205,
-   "limit": 2.164
+   "support": 3.929,
+   "limit": 3.193
   }
  },
  "layers": {
   "vung": {
    "mean": 0,
-   "sd": 0.516
+   "sd": 0.51
   },
   "hoa_van": {
    "mean": 0.621,
@@ -68,7 +68,7 @@
   },
   "nen": {
    "mean": 0.001,
-   "sd": 0.58
+   "sd": 0.56
   },
   "tieu_han": {
    "mean": 0.66,
@@ -87,28 +87,28 @@
    "sd": 0.781
   },
   "dai_van": {
-   "mean": -0.002,
+   "mean": -0.001,
    "sd": 0.715
   }
  },
  "cuts": {
   "decade": [
    -0.818,
-   -0.296,
-   0.265,
-   0.808
+   -0.295,
+   0.267,
+   0.804
   ],
   "year": [
-   -0.608,
-   -0.224,
-   0.211,
-   0.592
+   -0.609,
+   -0.223,
+   0.212,
+   0.595
   ],
   "month": [
-   -0.78,
-   -0.308,
-   0.214,
-   0.642
+   -0.772,
+   -0.309,
+   0.211,
+   0.648
   ]
  }
 }

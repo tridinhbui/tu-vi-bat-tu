@@ -20,6 +20,7 @@ import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json'
 import { computeIndices, luuStars, type IndexNorms } from '../indices.ts';
 import { buildLedger, type DomainVerdict, type Ledger } from '../reason/ledger.ts';
 import { infer } from './chapter.ts';
+import { khaoLuanLines, toanThuLines, trungPhung } from './vanhan_books.ts';
 
 export interface VanHanLibrary {
   status: 'draft' | 'approved';
@@ -30,7 +31,7 @@ export interface VanHanLibrary {
   both: string[]; hoa: string[];
   /** Khảo Luận pp.230-233 (decades[].kl), Toàn Thư nhập hạn ca (decades[].tt), the hạn's Hóa Quyền/Khoa, the closing, the current year */
   kl_rel: Record<string, string[]>; kl_rel_tone: Record<string, '' | 'pos' | 'neg'>; kl_xung: string[]; kl_nhi_hop: string[]; kl_event: string[];
-  tt_lead: string[]; hoa_qk: string[]; sum: Record<'good' | 'mixed' | 'hard', string[]>;
+  tt_lead: string[]; hoa_qk: string[]; kl_stage?: string[]; sum: Record<'good' | 'mixed' | 'hard', string[]>;
   year: { frame: string[]; luu_thai_tue: string[]; luu_hoa: string[] };
   /** the hạn's Hóa Lộc / Hóa Kỵ with KL's meaning of a Hóa in a palace, and the natal link where they land */
   hoa_loc: string[]; hoa_ky: string[]; natal_link: Record<'same' | 'domain', string[]>;
@@ -143,12 +144,17 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     if (kl?.xung_controlled) xs.push(sentence(fill(m.pick(`${key}|xung`, L!.kl_xung), { opp: chart.palaces.find(p => p.branch_index === (pal.branch_index + 6) % 12)!.name }), [], ['KL pp.230-233'], 'tinh_toan', 'pos'));
     if (kl?.nhi_hop.counts && kl.nhi_hop.majors.length) xs.push(sentence(fill(m.pick(`${key}|nh`, L!.kl_nhi_hop), { nh: `${kl.nhi_hop.palace} (${kl.nhi_hop.branch})`, majors: joinNames(kl.nhi_hop.majors) }), [], ['KL pp.230-233'], 'tinh_toan'));
     if (kl?.event) xs.push(sentence(fill(m.pick(`${key}|ev`, L!.kl_event), { pal: d.palace, event: kl.event }), [], ['KL pp.230-233'], 'tinh_toan'));
+    // Khảo Luận pp.234-235: the stage of life this palace stands for in the chart's direction of the hạn
+    const klb = khaoLuanLines(chart, d);
+    if (klb.stage && L!.kl_stage?.length) { const b = klb.stage; xs.push(sentence(fill(m.pick(`${key}|stage`, L!.kl_stage), { pal: d.palace, stage: b.text }), [cite(b.id, b.text, [b.cite])], [b.cite], 'sach')); xs.at(-1)!.trace.step = 'stage'; }
     const mid = xs.length;                                 // paragraph 2 starts here: what happens in the hạn
-    // Toàn Thư nhập hạn ca: what each star entering the hạn brings (paraphrased, page check pending: said as common reading)
-    for (const t of ((d as unknown as { tt?: Tt }).tt ?? []).slice(0, 3)) {
-      const body = t.text.replace(/^Hạn\s+/, '');
-      const text = /^\p{Ll}/u.test(body) ? t.text : fill(m.pick(`${key}|tt|${body.slice(0, 12)}`, L!.tt_lead), { t: body });
-      xs.push(sentence(text, [], ['TT pp.97-105'], 'pho_thong', HARD.test(body) ? 'neg' : 'pos'));
+    // Khảo Luận p.233: the hạn's chính tinh and hung tinh đắc / hãm, Tuần / Triệt that giải, a hung tinh with its quan thầy; pp.235-236: the
+    // opening sentence of a Sát / Phá / Tham hạn
+    for (const b of klb.lines) { const st = sentence(b.text, [cite(b.id, b.text, [b.cite])], [b.cite], 'sach', (b.tone || undefined) as 'pos' | 'neg' | undefined); st.trace.step = b.id; xs.push(st); }
+    // Toàn Thư nhập hạn ca (pp.96-106, page-checked): what the stars of the hạn palace bring, read with the hạn's own Tứ Hóa
+    for (const b of toanThuLines(chart, d, 2)) {
+      const st = sentence(fill(m.pick(`${key}|tt|${b.id}`, L!.tt_lead), { t: b.text, T: b.text.charAt(0).toLocaleUpperCase("vi") + b.text.slice(1) }), [cite(b.id, b.text, [b.cite])], [b.cite], 'sach', (b.tone || undefined) as 'pos' | 'neg' | undefined);
+      st.trace.step = b.id; xs.push(st);
     }
     const rd = (d.readings as Array<{ text: string; src: string; rule_id?: string | null }>).filter(r => r.rule_id && L!.readings[r.rule_id]);
     const trend = (dir: string) => rd.filter(r => L!.readings[r.rule_id!].dir === dir && /^VH_(TPVT_SAT|TPVT_CNDL|VCD_SPT)$/.test(r.rule_id!));
@@ -175,6 +181,15 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       xs.push(st);
       // where the Hóa lands, in the natal reading: its own short sentence
       if (natal) { const nl = sentence(natal, [], [], 'he_thong'); nl.trace.step = `natal:${v && x.palace !== d.palace ? v.id : 'same'}`; if (v && x.palace !== d.palace) nl.trace.ledger = { domain: v.id, verdict: v.verdict, base: v.base }; xs.push(nl); }
+    }
+    // the hạn's Hóa Quyền and Hóa Khoa: where they land (KL pp.195-197 on what each Hóa is)
+    const q = d.hoa['Hóa Quyền'], kh = d.hoa['Hóa Khoa'], M = k.reference?.tuHoa?.meaning ?? {};
+    if (q?.palace && kh?.palace && L!.hoa_qk?.length && M['Hóa Quyền'] && M['Hóa Khoa']) {
+      const short = (x: string) => x.replace(/\s*\(.*\)$/, '');
+      const st = sentence(fill(m.pick(`${key}|qk`, L!.hoa_qk), { qstar: q.star, qpal: q.palace, qmean: short(M['Hóa Quyền']), cstar: kh.star, cpal: kh.palace, cmean: short(M['Hóa Khoa']) }), [], ['KL pp.195-197'], 'he_thong', 'pos');
+      st.trace.step = 'hoa:qk';
+      st.trace.note = 'Tứ Hóa theo can của cung đại hạn là thông lệ; nghĩa của mỗi Hóa theo Khảo Luận tr.195-197.';
+      xs.push(st);
     }
     // the current hạn: the year's lưu stars that land in it (KL pp.41-42; positions only)
     if (chart.year?.dai_han?.age_from === d.age_from && curYear) {
@@ -231,10 +246,9 @@ function yearParagraphs(chart: ChartInput, k: Knowledge, L: VanHanLibrary, m: Mi
   const kl = y.tieu_han_kl;
   if (kl && L.kl_rel[kl.relation]) xs.push(sentence(fill(m.pick(`${key}|kl`, L.kl_rel[kl.relation]).replace(/mười năm này/g, 'năm này').replace(/[Cc]ung hạn/g, x => x[0] === 'C' ? 'Cung tiểu hạn' : 'cung tiểu hạn'), { yb: chart.year_gz.split(' ')[1] }),
     [], ['KL pp.230-233'], 'tinh_toan', (L.kl_rel_tone[kl.relation] || undefined) as 'pos' | 'neg' | undefined));
-  for (const t of (y.tieu_han_tt ?? []).slice(0, 2)) {
-    const body = t.text.replace(/^Hạn\s+/, '');
-    xs.push(sentence(/^\p{Ll}/u.test(body) ? `Tiểu hạn năm nay: ${lowerFirst(t.text)}` : `Ở tiểu hạn năm nay, ${body}`, [], ['TT pp.97-105'], 'pho_thong', HARD.test(body) ? 'neg' : 'pos'));
-  }
+  // Thực Hành p.119: đại hạn and tiểu hạn on one palace
+  const tp = trungPhung(y.tieu_han_palace, y.dai_han?.palace);
+  if (tp) xs.push(sentence(tp.text, [tp.id], [tp.cite], 'sach'));
   if (y.luu_thai_tue_palace) xs.push(sentence(fill(m.pick(`${key}|ltt`, L.year.luu_thai_tue), { pal: y.luu_thai_tue_palace, dom: dom(y.luu_thai_tue_palace) }), [], [], 'pho_thong'));
   for (const r of y.luu_tu_hoa_reading ?? []) {
     if (!r.palace) continue;

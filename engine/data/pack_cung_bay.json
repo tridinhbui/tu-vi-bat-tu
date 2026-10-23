@@ -3209,7 +3209,7 @@
     {
      "kind": "finding",
      "claim": "c7_kl7_phuc_duc_vu_cu_co",
-     "effect": "support",
+     "effect": "limit",
      "scope": "natal"
     }
    ],
@@ -5989,7 +5989,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "cung_bay",
-   "description": "Tử Vi Khảo Luận, ý nghĩa các sao ở các cung (paraphrased), cung Tật Ách: có sao mà sách bảo là tối kỵ ở cung này (Tham Lang, Hóa Kỵ, Địa Không, Địa Kiếp ở Tật Ách) [KL p.218]",
+   "description": "Tử Vi Khảo Luận, ý nghĩa các sao ở các cung (paraphrased), cung Tật Ách: gặp sao tối kỵ của cung này (Tham Lang, Hóa Kỵ, Địa Không, Địa Kiếp ở Tật Ách) [KL p.218]",
    "conditions": {
     "all": [
      {

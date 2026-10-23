@@ -240,8 +240,10 @@ export class Realizer extends Renderer {
       't.np_is_topic': { text: npIsTopic(c?.np ?? '', c?.short ?? '', this.slots.get('topic')?.text ?? '') ? '1' : '', rules: [] },
       't.dep_palaces': { text: joinVi([...new Set(t.deps.map(d => `cung ${d.palace}`))]), rules: [] },
       // a supporting reading of another palace names its palace: the book said it of that palace, not of this one
+      // a supporting reading whose words are the lead's own quote (two books or two palaces, same sentence) is not told again
       't.more': { text: [...t.support].sort((x, y) => Number(x.palace !== lead.palace) - Number(y.palace !== lead.palace))
-        .map(s => `${s.palace !== lead.palace ? (s.palace === 'chart' ? 'theo tuổi sinh, ' : `ở cung ${s.palace}, `) : ''}${fragment(s, 'cũng ghi', this.sc)}`).join('; '), rules: t.support.flatMap(s => s.rules) },
+        .map(s => `${s.palace !== lead.palace ? (s.palace === 'chart' ? 'theo tuổi sinh, ' : `ở cung ${s.palace}, `) : ''}${fragment(s, 'cũng ghi', this.sc)}`)
+        .filter(x => !lead.quotes.some(q => q && x.includes(q))).join('; '), rules: t.support.flatMap(s => s.rules) },
       't.more_n': { text: t.support.length ? NUM[t.support.length] ?? String(t.support.length) : '', rules: [] },
     };
     // a cross-palace dependency already explained for an earlier theme is only recalled, not explained again
