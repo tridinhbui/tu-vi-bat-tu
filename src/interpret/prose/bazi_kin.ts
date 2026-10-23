@@ -11,7 +11,9 @@ import type { ChartInput } from '../types.ts';
 import { Micro, finish, lowerFirst } from './micro.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 
-export interface KinFinding { rule_id: string; topic: string; tone: 'pos' | 'neg' | 'neutral'; effect: string; cause: string; page: string; note?: string }
+export interface KinFinding { rule_id: string; topic: string; tone: 'pos' | 'neg' | 'neutral'; effect: string; cause: string; page: string; note?: string;
+  /** which book: zz 八字真宗, ttt Trích Thiên Tủy, tvh Thiệu Vĩ Hoa */ book?: 'zz' | 'ttt' | 'tvh';
+  /** the condition names what the chart needs (hỉ / kỵ by Thiệu Vĩ Hoa's cách table): it holds only if the cách stands */ hi?: boolean }
 export interface KinDetail {
   tmm: Array<{ key: 'thai' | 'menh' | 'than'; stem: string; branch: string; god_stem: string; god_branch: string }>;
   tai_flow: string[]; quan_flow: string[]; near_dm: Array<{ at: string; god: string }>; quan_trans: string[];
@@ -30,7 +32,7 @@ export interface BaziKin { detail: KinDetail; findings: KinFinding[] }
 export interface KinYear { gods: string[]; fill_void: boolean; natal_void_gods: string[]; findings: KinFinding[] }
 export interface KinFrames {
   rule: string[]; rule_next: string[]; lead: Record<string, string[]>;
-  tai_flat: string[]; tai_flow: string[]; tai_flow_tmm: string[]; dm_wait: string[]; why_noflow: string[]; why_noflow_an: string[]; why_flow: string[]; capped: string[]; capped_dm: string[];
+  two_books: string[]; rule_many: string[]; two_ways: string[]; rank_two: string[]; tai_flat: string[]; tai_flow: string[]; tai_flow_tmm: string[]; dm_wait: string[]; why_noflow: string[]; why_noflow_an: string[]; why_flow: string[]; capped: string[]; capped_dm: string[]; two_sides: string[];
   layout: string[]; work_field: string[]; work_field_day: string[]; work_place: string[]; work_none: string[];
   spouse: string[]; spouse_none: string[]; day_combine: string[]; parents: string[]; siblings: string[]; siblings_an: string[]; children: string[]; children_hour: string[];
   tmm: string[];
@@ -48,6 +50,8 @@ const TEN = new Set(Object.keys(GROUP).concat(Object.values(GROUP), ['Quan']));
 /** lower the first letter unless the text opens with a ten god's name (they keep their capitals inside a sentence) */
 const low = (t: string) => [...TEN].some(g => t.startsWith(g)) ? t : lowerFirst(t);
 const ZZ = (page: string) => `ZZ ${page}`;
+/** the cite of a finding: its book and page */
+const CITE = (f: KinFinding) => `${({ ttt: 'TTT', tvh: 'TVH' } as Record<string, string>)[f.book ?? ''] ?? 'ZZ'} ${f.page}`;
 const FLOW_NOTE = 'Bát Tự Chân Tông tr.50, điều kiện cuối bảng tài vận: "Tài sinh Quan, Quan sinh Ấn, Ấn đứng ở chi ngày, can tháng hoặc can giờ" mới là "chảy vào nhật chủ"; '
   + 'hai chữ "đứng sát" là cùng một trụ (can với chi) hoặc cùng hàng ở hai trụ liền nhau (ví dụ 2 tr.58: can không sinh chi của trụ khác).';
 const SHARE_NOTE = 'Tài "vượng": phần độ của nhóm Tài trên tổng độ (phép chấm Thiệu Vĩ Hoa tr.331-355) từ 25% — ngưỡng của hệ thống, sách không cho thước đo.';
@@ -55,7 +59,7 @@ const DOM_SHORT: Record<string, string> = { 'Tài': 'tiền bạc', 'Quan Sát':
 const WAR = new Set(['BT_ZZK_W24', 'BT_ZZK_W25', 'BT_ZZK_W26']);
 const WORK_VERDICT = /^BT_ZZK_O0[345][AB]$/;
 
-export interface KinContext { gender: string | null; dm: string; strong: boolean | null; taiDm?: boolean }
+export interface KinContext { gender: string | null; dm: string; strong: boolean | null; taiDm?: boolean; cach?: string | null; cachPartial?: boolean }
 
 /** the natal part: su-nghiep (Tài, the work, the rank) and quan-he (spouse, marriage, parents, siblings, children) */
 export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, rules: Record<string, { reading: string; cites: string[]; verified: boolean }>,
@@ -67,12 +71,17 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
   const say = (xs: ProseSentence[], text: string, basis: SentenceTrace['basis'], cites: string[], ids: string[], extra: Partial<SentenceTrace> = {}) => {
     const t = finish(text); m.said(t); xs.push({ text: t, trace: { move: 'ELABORATE', concepts: [], rules: ids, cites, basis, ...extra } });
   };
-  const reg = (f: KinFinding) => { rules[f.rule_id] = { reading: `${f.effect} (${f.cause})`, cites: [ZZ(f.page)], verified: true }; return f.rule_id; };
+  const reg = (f: KinFinding) => { rules[f.rule_id] = { reading: `${f.effect} (${f.cause})`, cites: [CITE(f)], verified: true }; return f.rule_id; };
+  // a judgement read through what the chart needs (hỉ / kỵ) stands only if the cách stands: said in the sentence (owner review 2026-10-22)
+  const hiCause = (f: KinFinding, cause: string) => f.hi && ctx.cachPartial && ctx.cach ? `${cause}, nếu cách ${ctx.cach} đứng được` : cause;
+  const hiTrace = (f: KinFinding): Partial<SentenceTrace> => f.hi && ctx.cachPartial ? { conditional: 'cach_partial' } : {};
   const tone = (f: KinFinding): Partial<SentenceTrace> => f.tone === 'pos' ? { tone: 'pos' } : f.tone === 'neg' ? { tone: 'neg' } : {};
   /** one fired rule as a sentence: its condition (with this chart's characters where given), then its effect */
-  const rule = (xs: ProseSentence[], f: KinFinding, key: string, i: number, cause = f.cause, extra: Partial<SentenceTrace> = {}) =>
-    say(xs, fill(m.pick(`kin|${key}|${i ? 'n' : 'f'}`, i ? F.rule_next : F.rule), { Cause: cap(cause), cause: low(cause), effect: low(f.effect) }), 'sach', [ZZ(f.page)], [reg(f)],
-      { ...tone(f), step: `kin:${f.rule_id}`, ...(f.note ? { note: f.note } : {}), ...extra });
+  const rule = (xs: ProseSentence[], f: KinFinding, key: string, i: number, cause0 = f.cause, extra: Partial<SentenceTrace> = {}) => {
+    const cause = hiCause(f, cause0);
+    say(xs, fill(m.pick(`kin|${key}|${i ? 'n' : 'f'}`, i ? F.rule_next : F.rule), { Cause: cap(cause), cause: low(cause), effect: low(f.effect) }), 'sach', [CITE(f)], [reg(f)],
+      { ...tone(f), step: `kin:${f.rule_id}`, ...(f.note ? { note: f.note } : {}), ...hiTrace(f), ...extra });
+  };
   const P = (id: 'su-nghiep' | 'quan-he', xs: ProseSentence[], extra: Partial<ProseParagraph> = {}) => {
     if (xs.length) out[id].push({ role: 'support', sentences: xs, text: xs.map(s => s.text).join(' '), ...extra });
   };
@@ -104,19 +113,45 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
     else say(tdeep, fill(m.pick(an.length ? 'kin|whyna' : 'kin|whyn', an.length ? F.why_noflow_an : F.why_noflow), { near: join(near), an: join(an.map(x => x.at)) }), 'tinh_toan', ['ZZ p.50'], [],
       { step: 'kin:flow', mech: true, note: FLOW_NOTE });
   }
-  // each Tài judgement by position; a "tài vận tốt" is capped by the manual's own condition when Tài is strong and does not flow
-  const capped = by.has('BT_ZZK_W24') || by.has('BT_ZZK_W26');
-  fs.filter(f => f.topic === 'wealth' && !WAR.has(f.rule_id)).forEach((f, i) => {
-    const where = '';
-    if (capped && f.tone === 'pos' && w) {
-      say(tdeep, fill(m.pick(`kin|cap|${i}`, F.capped), { Cause: cap(f.cause + where), effect: low(f.effect) }), 'sach', [ZZ(f.page), ZZ(w.page)], [reg(f), w.rule_id],
-        { step: `kin:${f.rule_id}`, conditional: 'tai_flow', note: `${f.note ? f.note + ' ' : ''}${FLOW_NOTE}` });
-    } else if (ctx.taiDm && f.tone === 'pos' && !w) {
-      // the weak day master with Tài a bad luck (the Tài layers below): a positional "tài vận tốt" waits on the day master's strength
-      say(tdeep, fill(m.pick(`kin|capdm|${i}`, F.capped_dm), { Cause: cap(f.cause + where), effect: low(f.effect) }), 'sach', [ZZ(f.page)], [reg(f)],
-        { step: `kin:${f.rule_id}`, conditional: 'tai_position_only', note: `${f.note ? f.note + ' ' : ''}Bát Tự Chân Tông tr.50: lời về tài vận xét vị trí của Tài, không xét sức nhật chủ.` });
-    } else rule(tdeep, f, 'w', i, f.cause + where);
+  // each Tài judgement by position. The good ones are said together: under the manual's own cap when Tài is strong and does not flow (p.50
+  // 断语条件 2), under the day master's strength when the Tài layers say Tài is a burden, or as one side when the chart also has bad ones (two
+  // sides, no page weighs them: said so)
+  const wf = fs.filter(f => f.topic === 'wealth' && !WAR.has(f.rule_id) && (f.book ?? 'zz') === 'zz');
+  const pos = wf.filter(f => f.tone === 'pos'), rest = wf.filter(f => f.tone !== 'pos'), bad = rest.filter(f => f.tone === 'neg');
+  const capped = !!w && (w.rule_id === 'BT_ZZK_W24' || w.rule_id === 'BT_ZZK_W26');
+  if (pos.length) {
+    // effects said once: "tài vận tốt" inside "tài vận tốt, lại biết cần kiệm" is not said again
+    const eff = [...new Set(pos.map(f => low(f.effect)))], effects = join(eff.filter(e => !eff.some(o => o !== e && o.includes(e))));
+    const causes = pos.map(f => f.cause).join('; '), ids = pos.map(reg);
+    const note = [...new Set(pos.map(f => f.note).filter(Boolean))].join(' ');
+    if (capped) say(tdeep, fill(m.pick('kin|cap', F.capped), { Cause: cap(causes), effect: effects }), 'sach', [ZZ('p.50')], [...ids, w!.rule_id],
+      { step: 'kin:tai_pos', conditional: 'tai_flow', note: `${note ? note + ' ' : ''}${FLOW_NOTE}` });
+    else if (ctx.taiDm) say(tdeep, fill(m.pick('kin|capdm', F.capped_dm), { Cause: cap(causes), effect: effects }), 'sach', [ZZ('p.50')], ids,
+      { step: 'kin:tai_pos', conditional: 'tai_position_only', note: `${note ? note + ' ' : ''}Bát Tự Chân Tông tr.50: lời về tài vận xét vị trí của Tài, không xét sức nhật chủ.` });
+    else say(tdeep, fill(m.pick('kin|wpos', F.rule), { Cause: cap(causes), cause: low(causes), effect: effects }), 'sach', [ZZ('p.50')], ids,
+      { step: 'kin:tai_pos', tone: 'pos', ...(bad.length ? { conditional: 'tai_two_sides' } : {}), ...(note ? { note } : {}) });
+  }
+  rest.forEach((f, i) => rule(tdeep, f, 'w', pos.length ? 1 : i));
+  if (pos.length && bad.length && !capped && !ctx.taiDm && F.two_sides.length)
+    say(tdeep, fill(m.pick('kin|two', F.two_sides), { pos: join([...new Set(pos.map(f => low(f.effect)))]), neg: join([...new Set(bad.map(f => low(f.effect)))]) }), 'he_thong', [], [],
+      { step: 'kin:tai_two', tone: 'answer', note: 'Kết của hệ thống: các lời về Tài ở tr.50 đứng cạnh nhau; khi Tài không vượng, điều kiện cuối trang không áp dụng và không lời nào xếp dấu hiệu nào nặng hơn.' });
+  // Trích Thiên Tủy, Hà Tri (pp.137, 139): giàu (Tài khí thông môn hộ) / nghèo (Tài bất chân) by the balance of the groups; told after the
+  // manual's position reading, and where the two books point different ways the sentence after says so
+  const tw = fs.filter(f => f.topic === 'wealth' && f.book === 'ttt');
+  const byEff = new Map<string, KinFinding[]>();
+  for (const f of tw) (byEff.get(f.effect) ?? byEff.set(f.effect, []).get(f.effect)!).push(f);
+  [...byEff.values()].forEach((g, i) => {
+    if (g.length === 1) return rule(tdeep, g[0], 'tw', i ? 1 : 0);
+    const cause = g.map(f => hiCause(f, f.cause)).join('; '), ids = g.map(reg), note = [...new Set(g.map(f => f.note).filter(Boolean))].join(' ');
+    say(tdeep, fill(m.pick(`kin|twg|${i}`, F.rule_many), { Cause: cap(cause), cause: low(cause), effect: low(g[0].effect) }), 'sach', [...new Set(g.map(CITE))], ids,
+      { ...tone(g[0]), step: `kin:${g[0].rule_id}`, ...(note ? { note } : {}), ...(g.some(f => f.hi) ? hiTrace(g.find(f => f.hi)!) : {}) });
   });
+  const tPos = tw.some(f => f.tone === 'pos'), tNeg = tw.some(f => f.tone === 'neg');
+  if (tPos && tNeg && F.two_books.length) say(tdeep, fill(m.pick('kin|tt2', F.two_books), { a: 'thông suốt', b: 'khó thành thật' }), 'he_thong', [], [],
+    { step: 'kin:tai_ttt2', tone: 'answer', note: 'Trích Thiên Tủy tr.137 và tr.139 đặt các thế "Tài khí thông" và "Tài bất chân" cạnh nhau mà không xếp thế nào nặng hơn.' });
+  else if (w && ((tPos && w.tone !== 'pos') || (tNeg && w.tone === 'pos')) && F.two_ways.length)
+    say(tdeep, fill(m.pick('kin|tw2', F.two_ways), { zz: low(w.effect), ttt: low(tw.find(f => f.tone === (tPos ? 'pos' : 'neg'))!.effect) }), 'he_thong', [], [],
+      { step: 'kin:tai_books', tone: 'answer', note: 'Kết của hệ thống: lời theo đường chảy của Tài (Bát Tự Chân Tông tr.50) và lời theo thế cân bằng (Trích Thiên Tủy tr.137, 139) xét hai việc khác nhau; không trang nào cân hai lời này, nên cả hai được giữ, mỗi lời với điều kiện của nó.' });
   // ---------------- công việc: the verdict by 流入日主, the field and the size by the pillar left of the Quan pillar
   const work: ProseSentence[] = [], wdeep: ProseSentence[] = [];
   const wv = fs.find(f => WORK_VERDICT.test(f.rule_id));
@@ -124,11 +159,11 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
   const og = fs.find(f => f.rule_id.startsWith('BT_ZZK_OG_')), os = fs.find(f => f.rule_id.startsWith('BT_ZZK_OS_')), op = fs.find(f => /^BT_ZZK_O06[AB]$/.test(f.rule_id));
   const Wk = D.work;
   if ((og || os) && Wk.left) {
-    const basis = Wk.basis === 'tai' ? 'Tài (lá số không có Quan Sát)' : 'Quan';
+    const basis = Wk.basis === 'tai' ? 'Tài, vì lá số không có Quan Sát' : 'Quan';
     const vars = { basis, from: `trụ ${PIL_VI[Wk.from!]} ${Wk.from_name}`, left: `trụ ${PIL_VI[Wk.left]} ${Wk.left_name}`, stem: Wk.left_name.split(' ')[0], god: Wk.stem_god ?? '',
       field: og ? low(og.effect.replace(/^nghề hợp thiên về /, '')) : '', list: os ? os.effect.replace(/^nghề có thể thuộc nhóm /, '') : '' };
     const ids = [og, os].filter(Boolean).map(f => reg(f!));
-    say(work, fill(m.pick('kin|field', Wk.left === 'day' || !og ? F.work_field_day : F.work_field), vars).replace(/, cụ thể có thể là \./, '.'), 'sach', ['ZZ p.52', 'ZZ p.53'], ids,
+    say(work, fill(m.pick('kin|field', Wk.left === 'day' || !og ? F.work_field_day : F.work_field), vars).replace(/; (xét )?theo hành của can \S+, (nghề )?có thể là \./, '.'), 'sach', ['ZZ p.52', 'ZZ p.53'], ids,
       { step: 'kin:work_field', mech: true, note: (og ?? os)!.note });
   } else if (Wk.candidates.length > 1 && F.work_none.length) {
     say(wdeep, fill(m.pick('kin|wnone', F.work_none), { list: join(Wk.candidates.map(p => `trụ ${PIL_VI[p]}`)) }), 'tinh_toan', ['ZZ p.52'], [],
@@ -136,7 +171,11 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
   }
   if (op && Wk.left) say(wdeep, fill(m.pick('kin|place', F.work_place), { left: `trụ ${PIL_VI[Wk.left]} ${Wk.left_name}`, stem: Wk.left_name.split(' ')[0], effect: low(op.effect),
     sits: op.rule_id.endsWith('A') ? 'ngồi trên gốc của nó' : 'không có gốc ngay dưới' }), 'sach', [ZZ(op.page)], [reg(op)], { ...tone(op), step: `kin:${op.rule_id}`, note: op.note });
-  fs.filter(f => f.topic === 'rank').forEach((f, i) => rule(i ? wdeep : work, f, 'rank', i ? 1 : 0, f.cause, { step: `kin:${f.rule_id}` }));
+  const rk = fs.filter(f => f.topic === 'rank');
+  rk.forEach((f, i) => rule(i ? wdeep : work, f, 'rank', i ? 1 : 0, f.cause, { step: `kin:${f.rule_id}` }));
+  if (rk.some(f => f.tone === 'pos') && rk.some(f => f.tone === 'neg') && F.rank_two.length)
+    say(wdeep, fill(m.pick('kin|rk2', F.rank_two), { pos: join([...new Set(rk.filter(f => f.tone === 'pos').map(f => low(f.effect)))]), neg: join([...new Set(rk.filter(f => f.tone === 'neg').map(f => low(f.effect)))]) }),
+      'he_thong', [], [], { step: 'kin:rank_two', tone: 'answer', note: 'Kết của hệ thống: các lời về chức vụ đứng cạnh nhau, không lời nào xếp thế nào nặng hơn.' });
   // ---------------- the layout of the ten-god groups by pillar (computed; owner plan P2): Tài, Quan Sát, Ấn, Thực Thương, Tỉ Kiếp
   const where: Record<string, string[]> = {};
   for (const p of ['year', 'month', 'day', 'hour'] as const) {

@@ -998,6 +998,10 @@
       "tai_layers": [
         "Về Tài trong lá số",
         "Về chuyện tiền bạc, xét từng lớp"
+      ],
+      "marriage": [
+        "Về hôn nhân",
+        "Về chuyện vợ chồng"
       ]
     }
   },
@@ -1011,7 +1015,7 @@
     "rule_next": [
       "Thêm nữa, {cause}, nên {effect}.",
       "Ngoài ra, vì {cause}, {effect}.",
-      "Bên cạnh đó, {cause} cho thấy {effect}."
+      "Bên cạnh đó, {cause}; vì vậy {effect}."
     ],
     "lead": {
       "work": [
@@ -1050,24 +1054,24 @@
       "Mạch đi qua {chain}, mỗi chữ sinh chữ kế bên, chữ cuối đứng sát nhật chủ."
     ],
     "capped": [
-      "{Cause}: xét riêng chữ ấy thì {effect}, nhưng chưa vượt qua được điều kiện chảy vào nhật chủ nói trên.",
-      "{Cause} là điểm cộng riêng ({effect}); song khi Tài vượng mà chưa chảy vào nhật chủ, điểm cộng ấy chưa đổi được mức chung."
+      "{Cause}: xét riêng những chữ ấy thì {effect}, nhưng chưa vượt qua được điều kiện chảy vào nhật chủ nói trên.",
+      "{Cause} là những điểm cộng riêng ({effect}); song khi Tài vượng mà chưa chảy vào nhật chủ, chúng chưa đổi được mức chung."
     ],
     "capped_dm": [
-      "{Cause}: xét riêng vị trí thì {effect}, còn trọn hay không tùy sức nhật chủ, như đoạn về Tài bên dưới.",
-      "{Cause}, nên xét riêng vị trí của Tài thì {effect}; trọn hay không còn tùy sức nhật chủ, như đoạn bên dưới."
+      "{Cause}: xét riêng vị trí thì {effect}, còn trọn hay không tùy sức nhật chủ, như đoạn về Tài ở trên.",
+      "{Cause}, nên xét riêng vị trí của Tài thì {effect}; trọn hay không còn tùy sức nhật chủ, như đã nói ở trên."
     ],
     "layout": [
       "Trong tứ trụ, {list}{none}.",
       "Xét chỗ đứng của từng nhóm, {list}{none}."
     ],
     "work_field": [
-      "Trụ bên trái trụ có {basis} ({from}) là {left}; can {stem} là {god}, nên nghề hợp thiên về {field}, cụ thể có thể là {list}.",
-      "Nghề xét ở {left}, trụ bên trái {from} nơi có {basis}: can {stem} là {god}, nên hợp thiên về {field}, cụ thể có thể là {list}."
+      "Nghề xét ở {left}, trụ bên trái {from}, trụ có {basis}; can {stem} là {god}, nên nghề hợp thiên về {field}; xét theo hành của can {stem}, có thể là {list}.",
+      "Trụ bên trái {from} (trụ có {basis}) là {left}: can {stem} là {god}, nên hợp thiên về {field}; theo hành của can {stem}, nghề có thể là {list}."
     ],
     "work_field_day": [
-      "Trụ bên trái trụ có {basis} ({from}) là {left}, can {stem} chính là nhật chủ, nên chỉ xét theo hành của can: nghề có thể thuộc nhóm {list}.",
-      "Nghề xét ở {left}, trụ bên trái {from} nơi có {basis}; can {stem} là nhật chủ nên xét theo hành của nó: nghề có thể thuộc nhóm {list}."
+      "Nghề xét ở {left}, trụ bên trái {from}, trụ có {basis}; can {stem} chính là nhật chủ, nên chỉ xét theo hành của can: nghề có thể thuộc nhóm {list}.",
+      "Trụ bên trái {from} (trụ có {basis}) là {left}; can {stem} là nhật chủ nên xét theo hành của nó: nghề có thể thuộc nhóm {list}."
     ],
     "work_place": [
       "Ở {left}, can {stem} {sits}, nên {effect}.",
@@ -1138,6 +1142,24 @@
     },
     "dm_wait": [
       ", còn trọn hay không tùy sức nhật chủ, như đoạn về Tài bên dưới."
+    ],
+    "two_sides": [
+      "Như vậy chữ Tài vừa có mặt thuận ({pos}) vừa có mặt nghịch ({neg}), và không lời nào xếp bên nào nặng hơn, nên chuyện tiền bạc nên đọc là hai mặt.",
+      "Hai chiều ấy cùng có trong lá số: một bên {pos}, một bên {neg}; không lời nào cân hai bên với nhau, nên tiền bạc ở đây là chuyện hai mặt."
+    ],
+    "two_books": [
+      "Như vậy về thế cân bằng, lá số vừa có chỗ cho tiền của thông suốt vừa có chỗ khiến nó khó thành thật; không lời nào xếp bên nào nặng hơn, nên đọc là hai mặt."
+    ],
+    "two_ways": [
+      "Xét đường chảy của Tài thì {zz}, còn xét thế cân bằng của cả lá số thì {ttt}: hai cách nhìn vào hai việc khác nhau, nên cả hai được giữ, mỗi lời với điều kiện của nó.",
+      "Hai cách xét không trùng nhau: theo đường chảy của Tài thì {zz}, theo thế cân bằng thì {ttt}; mỗi lời đứng trên điều kiện riêng của nó."
+    ],
+    "rank_two": [
+      "Như vậy về chức vụ, lá số có cả dấu hiệu thuận ({pos}) lẫn dấu hiệu nghịch ({neg}); không lời nào xếp bên nào nặng hơn, nên đây là chuyện hai mặt."
+    ],
+    "rule_many": [
+      "Có mấy thế cùng chỉ một chiều: {cause}; theo đó {effect}.",
+      "{Cause}: những thế ấy đều cho thấy {effect}."
     ]
   }
 }

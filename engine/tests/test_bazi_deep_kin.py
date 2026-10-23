@@ -9,6 +9,7 @@ import glob
 import json
 import os
 import re
+import unicodedata
 
 import pytest
 
@@ -18,12 +19,12 @@ from tvbt.bazi_deep.profile import DATA
 from tvbt.knowledge.schema import validate_pack
 
 MINED = DATA / "mined"
-norm = lambda t: re.sub(r"\s+", "", t)
+norm = lambda t: re.sub(r"\s+", "", unicodedata.normalize("NFC", t))
 
 
-def page_text(page: str) -> str:
+def page_text(page: str, book: str = "zz") -> str:
     n = int(page.removeprefix("p."))
-    return norm((MINED / f"zz_p{n}.txt").read_text("utf-8"))
+    return norm((MINED / f"{book}_p{n}.txt").read_text("utf-8"))
 
 
 def test_pack_is_valid_and_every_rule_has_its_words():
@@ -32,19 +33,20 @@ def test_pack_is_valid_and_every_rule_has_its_words():
     assert {r.id for r in rules} == set(meta)
     for r in rules:
         m = meta[r.id]
-        assert norm(m["quote"]) in page_text(m["page"]), (r.id, m["quote"])
+        assert norm(m["quote"]) in page_text(m["page"], m.get("book", "zz")), (r.id, m["quote"])
         assert m["topic"] in {"wealth", "work", "rank", "parents", "marriage", "siblings", "year"}
         assert r.reviewStatus == "verified"
 
 
-def test_mined_pages_are_the_pdf_text_layer():
-    pdfs = [p for p in glob.glob(os.path.expanduser("~/Downloads/*.pdf")) if "真宗" in p]
+@pytest.mark.parametrize("book,pattern", [("zz", "*真宗*.pdf"), ("ttt", "Trích Thiên Tủy.pdf")])
+def test_mined_pages_are_the_pdf_text_layer(book, pattern):
+    pdfs = sorted(glob.glob(os.path.expanduser(f"~/Downloads/{pattern}")))
     if not pdfs:
-        pytest.skip("八字真宗 PDF not on this machine")
+        pytest.skip(f"{pattern} not on this machine")
     pymupdf = pytest.importorskip("pymupdf")
     d = pymupdf.open(pdfs[0])
-    for f in MINED.glob("zz_p*.txt"):
-        n = int(f.stem.removeprefix("zz_p"))
+    for f in MINED.glob(f"{book}_p*.txt"):
+        n = int(f.stem.removeprefix(f"{book}_p"))
         assert norm(f.read_text("utf-8")) == norm(d[n - 1].get_text()), f.name
 
 

@@ -23,7 +23,7 @@ V = lambda g: has("bazi.k.vuong", g)
 N = lambda g: has("bazi.k.nhuoc", g)
 A = lambda g: has("bazi.k.absent", g)
 R = []
-CONV = ("'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, "
+CONV = ("'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, "
         "sách không cho thước đo.")
 
 
@@ -233,11 +233,12 @@ SAY = {
     "W11": "Thiên Tài ở {tt} ngồi trên khố của nó", "W12": "Thiên Tài ở {tt_cut}",
     "W13": "Thiên Tài không lộ ra can mà nằm ở {tt_hidden}, được chữ đứng sát bên sinh cho", "W14": "Thiên Tài chỉ nằm ở {tt_cover}",
     "W16": "Chính Tài ({ct}) và Thiên Tài ({tt}) đều lộ can và có gốc", "W19": "Tài nằm ở {tmm_tai}", "W21": "chữ Tài ở {tai_void} rơi vào không vong",
-    "O03A": "Quan lộ ở {qtrans}, có gốc và chảy vào nhật chủ qua Ấn", "O03B": "Quan lộ ở {qtrans}, có gốc nhưng chưa chảy vào nhật chủ",
-    "O04A": "Quan lộ ở {qtrans} không có gốc, nhưng chảy được vào nhật chủ qua Ấn", "O04B": "Quan lộ ở {qtrans} không có gốc, lại không chảy vào nhật chủ",
-    "O05A": "Quan Sát vượng ({qs_pct}% số độ) và chảy vào nhật chủ qua Ấn", "O05B": "Quan Sát vượng ({qs_pct}% số độ) nhưng không chảy vào nhật chủ",
+    "O03A": "Quan lộ ở {qtrans}, có gốc và chảy vào nhật chủ ({qchain})", "O03B": "Quan lộ ở {qtrans}, có gốc nhưng chưa chảy vào nhật chủ",
+    "O04A": "Quan lộ ở {qtrans} không có gốc, nhưng chảy được vào nhật chủ ({qchain})", "O04B": "Quan lộ ở {qtrans} không có gốc, lại không chảy vào nhật chủ",
+    "O05A": "Quan Sát vượng ({qs_pct}% số độ) và chảy vào nhật chủ ({qchain})", "O05B": "Quan Sát vượng ({qs_pct}% số độ) nhưng không chảy vào nhật chủ",
     "R05": "Quan Sát vượng, lộ ở {qtrans} mà không chảy vào nhật chủ", "R06": "Quan lộ ở {qtrans} mà không có gốc, dù chảy được vào nhật chủ",
-    "R08": "Quan Sát ở {qnear} đứng sát nhật chủ mà không qua Ấn", "P03": "{war} mà không có Quan Sát thông khí", "P04": "{war}, có Quan Sát thông khí",
+    "R08": "Quan Sát ở {qnear} đứng sát nhật chủ mà không qua Ấn",
+    "R03": "Quan Sát và Ấn nối nhau ({qchain}), Ấn đứng sát nhật chủ, khí thông một mạch", "R04": "Chính Quan và Thất Sát đều lộ can, có gốc và chảy vào nhật chủ ({qchain})", "P03": "{war} mà không có Quan Sát thông khí", "P04": "{war}, có Quan Sát thông khí",
     "P05": "Tài có {tai_n} chữ mà lá số không có Ấn", "M07": "{md}", "M18": "chi ngày {db} mang chính khí {day_god}",
     "M19": "địa chi {triple} lặp từ ba lần trở lên trong bảy trụ", "M20": "chi ngày {db}, cung phối ngẫu, trùng {fuyin}", "M23": "{tmm_day} lục hợp với chi ngày {db}",
     "M24M": "nhật chủ {dm} ở giai đoạn Mộ trên chính chi ngày {db}", "M24F": "nhật chủ {dm} ở giai đoạn Mộ trên chính chi ngày {db}",

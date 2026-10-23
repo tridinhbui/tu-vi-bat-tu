@@ -361,7 +361,7 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
 
     # 八字真宗 pp.50-65 (DEEP-BAZI-2): Tài, nghề, lục thân by position, and per year the 流年 judgements (bazi_deep.kin)
     from . import kin
-    kn = kin.natal(view, tvh or None)
+    kn = kin.natal(view, tvh or None, {"hi": list(dict.fromkeys(yong_g + tot_g)), "ky": xau_g, "yong": yong_g} if yong_g or tot_g else None)
     lk = []
     for e, L in zip(tl["luck"], luck):
         cc = next((c for c in e.get("can_chi", []) if c["label"] == "luck"), None)

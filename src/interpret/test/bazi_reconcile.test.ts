@@ -64,7 +64,8 @@ export function baziProblems(label: string, f: ChartInput): string[] {
     if (s.trace.basis === 'sach' && !s.trace.rules.some(id => o.evidence.rules[id]?.verified)) bad.push(`${label}: book sentence without a verified rule: ${s.text}`);
     if (s.trace.basis === 'tinh_toan' && !s.trace.cites.length && !s.trace.rules.length) bad.push(`${label}: computed sentence without its table: ${s.text}`);
     if (METHOD.test(s.text)) bad.push(`${label}: method word: ${s.text}`);
-    if (/cực nhược|cực vượng|thiên nhược|thiên vượng|trung hòa|sát ngưỡng vượng nhược/.test(s.text)) bad.push(`${label}: seven-level label: ${s.text}`);
+    // (DEEP-BAZI-2) the printed điều hậu note "Nhâm, Kỷ không nên thiên vượng" (TVH p.393) is a book quote about two stems, not the system's level label
+    if (/cực nhược|cực vượng|thiên nhược|(?<!không nên )thiên vượng|trung hòa|sát ngưỡng vượng nhược/.test(s.text)) bad.push(`${label}: seven-level label: ${s.text}`);
     if (/bảng điều hậu[^.]*cần (Hỏa|Thủy|Mộc|Kim|Thổ)|theo bảng điều hậu, lá số cần/.test(s.text)) bad.push(`${label}: điều hậu table named as the source of an element: ${s.text}`);
     if (/phù ức|sinh phù cho thân|thân nhược nên cần/.test(s.text)) bad.push(`${label}: phù ức reasoning in the text: ${s.text}`);
   }

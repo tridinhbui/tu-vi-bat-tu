@@ -202,7 +202,7 @@
   "tone": "neutral",
   "effect": "tài vận ở mức bình thường",
   "cause": "Tài vượng nhưng chưa chảy vào nhật chủ (chưa có chuỗi Tài sinh Quan, Quan sinh Ấn với Ấn đứng ở chi ngày, can tháng hoặc can giờ)",
-  "note": "Điều kiện 1-2 cuối tr.50 áp cho cả bảng tài vận: Tài vượng thì phải 'chảy vào nhật chủ' mới thành tài vận tốt. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "Điều kiện 1-2 cuối tr.50 áp cho cả bảng tài vận: Tài vượng thì phải 'chảy vào nhật chủ' mới thành tài vận tốt. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_W25": {
   "page": "p.50",
@@ -211,7 +211,7 @@
   "tone": "pos",
   "effect": "tài vận tốt",
   "cause": "Tài vượng và chảy được vào nhật chủ qua chuỗi Tài sinh Quan, Quan sinh Ấn",
-  "note": "Điều kiện 1 và 3 cuối tr.50. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "Điều kiện 1 và 3 cuối tr.50. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_W26": {
   "page": "p.50",
@@ -220,7 +220,7 @@
   "tone": "neutral",
   "effect": "tiền bạc chỉ ở mức người thường",
   "cause": "Tài vượng, chảy vào nhật chủ, nhưng thai nguyên, mệnh cung hoặc thân cung bị chi trong tứ trụ hình, xung, hại",
-  "note": "Điều kiện 4 cuối tr.50; hệ thống chưa tính 'tuyệt', nên chỉ xét hình, xung, hại. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "Điều kiện 4 cuối tr.50; hệ thống chưa tính 'tuyệt', nên chỉ xét hình, xung, hại. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_O03A": {
   "page": "p.51",
@@ -229,7 +229,7 @@
   "tone": "pos",
   "effect": "công việc tốt",
   "cause": "Quan Sát thấu can, có gốc và chảy vào nhật chủ qua Ấn",
-  "say": "Quan lộ ở {qtrans}, có gốc và chảy vào nhật chủ qua Ấn"
+  "say": "Quan lộ ở {qtrans}, có gốc và chảy vào nhật chủ ({qchain})"
  },
  "BT_ZZK_O03B": {
   "page": "p.51",
@@ -247,7 +247,7 @@
   "tone": "neutral",
   "effect": "công việc ở mức bình thường",
   "cause": "Quan Sát thấu can không có gốc, nhưng chảy được vào nhật chủ qua Ấn",
-  "say": "Quan lộ ở {qtrans} không có gốc, nhưng chảy được vào nhật chủ qua Ấn"
+  "say": "Quan lộ ở {qtrans} không có gốc, nhưng chảy được vào nhật chủ ({qchain})"
  },
  "BT_ZZK_O04B": {
   "page": "p.51",
@@ -265,8 +265,8 @@
   "tone": "pos",
   "effect": "công việc rất tốt",
   "cause": "Quan Sát vượng và chảy vào nhật chủ qua Ấn",
-  "say": "Quan Sát vượng ({qs_pct}% số độ) và chảy vào nhật chủ qua Ấn",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "say": "Quan Sát vượng ({qs_pct}% số độ) và chảy vào nhật chủ ({qchain})",
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_O05B": {
   "page": "p.51",
@@ -276,7 +276,7 @@
   "effect": "công việc không đến nỗi gặp chuyện dữ",
   "cause": "Quan Sát vượng nhưng không chảy vào nhật chủ",
   "say": "Quan Sát vượng ({qs_pct}% số độ) nhưng không chảy vào nhật chủ",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_O06A": {
   "page": "p.52",
@@ -447,6 +447,7 @@
   "tone": "pos",
   "effect": "đường công danh sáng sủa",
   "cause": "Quan Sát nối với Ấn đứng sát nhật chủ, khí thông một mạch",
+  "say": "Quan Sát và Ấn nối nhau ({qchain}), Ấn đứng sát nhật chủ, khí thông một mạch",
   "note": "'Một khí thông nhau': Quan sinh Ấn, Ấn đứng sát nhật chủ (cùng chuỗi 'chảy vào nhật chủ' của tr.50-51). Khi Quan thấu can mà không gốc thì tr.53 mục 6 ('Quan hư thấu, dù chảy vào nhật chủ, cũng không có chức') đứng thay."
  },
  "BT_ZZK_R04": {
@@ -456,6 +457,7 @@
   "tone": "pos",
   "effect": "một người kiêm nhiều chức vụ",
   "cause": "Chính Quan và Thất Sát đều thấu can, có gốc và chảy vào nhật chủ",
+  "say": "Chính Quan và Thất Sát đều lộ can, có gốc và chảy vào nhật chủ ({qchain})",
   "note": "Thay cho BT_ZZ_DIRECT_O_QUAN_SAT_ROOT, vốn bỏ qua điều kiện 'chảy vào nhật chủ'; 'không bị phá' chưa được tính riêng."
  },
  "BT_ZZK_R05": {
@@ -466,7 +468,7 @@
   "effect": "khó có chức vụ",
   "cause": "Quan Sát vượng, thấu can mà không chảy vào nhật chủ",
   "say": "Quan Sát vượng, lộ ở {qtrans} mà không chảy vào nhật chủ",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_R06": {
   "page": "p.53",
@@ -596,7 +598,7 @@
   "tone": "pos",
   "effect": "được vợ giúp sức",
   "cause": "lá số nam, Tài (sao vợ) vượng và chảy vào nhật chủ",
-  "note": "Vế sau của câu (Tài chảy vào trụ khác) nói chuyện ngoại tình: không đưa vào văn. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "Vế sau của câu (Tài chảy vào trụ khác) nói chuyện ngoại tình: không đưa vào văn. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_M30": {
   "page": "p.58",
@@ -605,7 +607,7 @@
   "tone": "pos",
   "effect": "vợ chồng tình cảm sâu nặng",
   "cause": "lá số nữ, Quan Sát (sao chồng) vượng và chảy vào nhật chủ",
-  "note": "Vế sau của câu nói chuyện ngoại tình: không đưa vào văn. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "Vế sau của câu nói chuyện ngoại tình: không đưa vào văn. 'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_M33": {
   "page": "p.58",
@@ -749,7 +751,7 @@
   "tone": "neg",
   "effect": "dễ gặp chuyện không thuận",
   "cause": "nhật chủ nhược, Quan Sát vượng, năm lại mang Thất Sát",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y25": {
   "page": "p.65",
@@ -758,7 +760,7 @@
   "tone": "neg",
   "effect": "dễ gặp chuyện không thuận",
   "cause": "nhật chủ vượng, Ấn vượng, năm lại mang Thiên Ấn",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y26": {
   "page": "p.65",
@@ -767,7 +769,7 @@
   "tone": "neg",
   "effect": "dễ gặp chuyện không thuận",
   "cause": "nhật chủ vượng, Tỉ Kiếp vượng, chi năm lại là dương nhẫn",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y28": {
   "page": "p.65",
@@ -777,7 +779,7 @@
   "effect": "dễ gặp chuyện không thuận",
   "cause": "Thực Thương yếu, năm lại mang Quan Sát",
   "say": "Thực Thương yếu, năm lại mang {qs_y}",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y29": {
   "page": "p.65",
@@ -786,7 +788,7 @@
   "tone": "neg",
   "effect": "dễ gặp chuyện không thuận",
   "cause": "Chính Quan và Thất Sát lẫn nhau mà vượng, năm lại mang Thất Sát",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y30": {
   "page": "p.65",
@@ -795,7 +797,7 @@
   "tone": "neg",
   "effect": "dễ gặp chuyện không thuận",
   "cause": "Quan Sát vượng, nhật chủ nhược, chi năm là dương nhẫn",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y31": {
   "page": "p.65",
@@ -805,7 +807,7 @@
   "effect": "dễ gặp chuyện không thuận",
   "cause": "nhật chủ nhược, Ấn yếu, năm lại mang Tài",
   "say": "nhật chủ nhược, Ấn yếu, năm lại mang {tai_y}",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y32": {
   "page": "p.65",
@@ -815,7 +817,7 @@
   "effect": "dễ gặp chuyện không thuận",
   "cause": "nhật chủ nhược, Ấn yếu, năm lại mang Thực Thương",
   "say": "nhật chủ nhược, Ấn yếu, năm lại mang {tt_y}",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y34": {
   "page": "p.65",
@@ -824,7 +826,7 @@
   "tone": "neg",
   "effect": "dễ gặp chuyện không thuận",
   "cause": "nhật chủ vượng, Quan Sát yếu, chi năm là dương nhẫn",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y35": {
   "page": "p.65",
@@ -834,7 +836,7 @@
   "effect": "dễ gặp chuyện không thuận",
   "cause": "nhật chủ vượng, Quan Sát yếu, năm lại mang Thực Thương",
   "say": "nhật chủ vượng, Quan Sát yếu, năm lại mang {tt_y}",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y36": {
   "page": "p.65",
@@ -844,7 +846,7 @@
   "effect": "dễ gặp chuyện không thuận",
   "cause": "Tài vượng mà không có Ấn, năm lại mang Ấn",
   "say": "Tài vượng mà không có Ấn, năm lại mang {an_y}",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y37": {
   "page": "p.65",
@@ -853,7 +855,7 @@
   "tone": "neg",
   "effect": "dễ gặp chuyện không thuận",
   "cause": "Ấn vượng mà không có Thực Thương, năm lại mang Thực Thần",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y38": {
   "page": "p.65",
@@ -862,7 +864,7 @@
   "tone": "neg",
   "effect": "dễ gặp chuyện không thuận",
   "cause": "Thực Thương vượng mà không có Quan Sát, năm lại mang Chính Quan",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y42": {
   "page": "p.65",
@@ -872,7 +874,7 @@
   "effect": "dễ gặp chuyện không thuận",
   "cause": "Tỉ Kiếp vượng, năm lại mang Tài",
   "say": "Tỉ Kiếp vượng, năm lại mang {tai_y}",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  },
  "BT_ZZK_Y44": {
   "page": "p.65",
@@ -882,6 +884,6 @@
   "effect": "dễ gặp chuyện không thuận",
   "cause": "nhật chủ nhược, Tài vượng, năm lại mang Quan Sát",
   "say": "nhật chủ nhược, Tài vượng, năm lại mang {qs_y}",
-  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % — ngưỡng của hệ thống, sách không cho thước đo."
+  "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
  }
 }

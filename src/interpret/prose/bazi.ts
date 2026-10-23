@@ -150,9 +150,10 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
     chapters['cach-cuc'] = para('core', topics('cach-cuc'));
     // the structure analysis (facts.bazi.deep): appended to the chapters it belongs to, and to the whole reading in chapter order
     // 八字真宗 pp.50-65 by position and flow (prose/bazi_kin.ts), told before the structure analysis so the Tài layers know what was said
-    const Dk = (b as typeof b & { deep?: { strength?: { dm_strong: boolean | null }; cach_tvh?: { status: string | null; van_xau: string[]; dominant: string | null } } }).deep;
+    const Dk = (b as typeof b & { deep?: { strength?: { dm_strong: boolean | null }; cach_tvh?: { status: string | null; van_xau: string[]; dominant: string | null; cach: string | null; verification?: string } } }).deep;
     const kin = kinBazi(chart, m, L!.kin, rules, { gender: String(bf['chart.gender'] ?? '') || null, dm: b!.day_master, strong: Dk?.strength?.dm_strong ?? null,
-      taiDm: Dk?.strength?.dm_strong === false && Dk?.cach_tvh?.status === 'ap_dung' && (Dk.cach_tvh.van_xau.includes('Tài') || Dk.cach_tvh.dominant === 'Tài') });
+      taiDm: Dk?.strength?.dm_strong === false && Dk?.cach_tvh?.status === 'ap_dung' && (Dk.cach_tvh.van_xau.includes('Tài') || Dk.cach_tvh.dominant === 'Tài'),
+      cach: Dk?.cach_tvh?.status === 'ap_dung' ? Dk.cach_tvh.cach : null, cachPartial: Dk?.cach_tvh?.status === 'ap_dung' && Dk.cach_tvh.verification !== 'verified' });
     const deep0 = { ...kin };
     const deep = deepBazi(chart, k, m, L!.deep ? { ...L!.deep, kin: L!.kin } as NonNullable<BaziLibrary['deep']> : undefined, rules);
     for (const [id, ps] of Object.entries(deep) as Array<[BaziChapterId, ProseParagraph[]]>) chapters[id] = [...(chapters[id] ?? []), ...ps];
@@ -190,7 +191,9 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   // a judgement that opens by naming its topic ("Chuyện nghề nghiệp cũng có dấu hiệu riêng: …", "Về dương nhẫn, …") drops that opening
   // under a lead-in that already names it
   const labels = Object.values((k.prose?.bazi as BaziLibrary).topics).map(t => t.label);
-  const unTopic = (t: string) => { const m2 = t.match(/^([^,:]{0,48})[,:]\s+/); return m2 && labels.some(x => m2[1].toLowerCase().includes(x)) ? t.slice(m2[0].length) : t; };
+  // (2026-10-23) a paragraph's first sentence never opens on a "more of the same" connective ("Thêm nữa, …") once the order put it first
+  const unTopic = (t: string) => { t = t.replace(/^(Thêm nữa|Ngoài ra|Cũng vậy|Bên cạnh đó|Hơn nữa),\s*/u, '');
+    const m2 = t.match(/^([^,:]{0,48})[,:]\s+/); return m2 && labels.some(x => m2[1].toLowerCase().includes(x)) ? t.slice(m2[0].length) : t; };
   const lead = (key: string, p: ProseParagraph): ProseParagraph => {
     const l = LU.lead[key]?.length ? m.pick(`btlead|${key}`, LU.lead[key]) : '';
     if (!l || !p.sentences.length) return p;
@@ -231,7 +234,8 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   const unlead = (p: ProseParagraph): ProseSentence[] => p.lead && p.sentences[0].text.startsWith(`${p.lead}, `)
     ? [{ ...p.sentences[0], text: p.sentences[0].text.slice(p.lead.length + 2).replace(/^./u, c => c.toLocaleUpperCase('vi')) }, ...p.sentences.slice(1)] : p.sentences;
   const kq = kMain('quan-he'), km = kq.find(p => p.topic === 'kin_marriage');
-  let qhTop = P('core', turned(parts.topicsOf('quan-he'), 'qh')).map(p => lead('kin', p));
+  // siblings have their own paragraph (bazi_kin) when the chart has a sibling star: the lead-in then names marriage only
+  let qhTop = P('core', turned(parts.topicsOf('quan-he'), 'qh')).map(p => lead(kq.some(x => x.topic === 'kin_family') && LU.lead.marriage ? 'marriage' : 'kin', p));
   if (qhTop.length && km) { const xs = [...qhTop[0].sentences, ...unlead(km)]; qhTop = [{ ...qhTop[0], sentences: xs, text: xs.map(x => x.text).join(' ') }, ...qhTop.slice(1)]; }
   chapters['quan-he'] = [...qhTop, ...kq.filter(p => !(qhTop.length && p === km)), ...P('support', parts.qh), ...deepOf('quan-he', 'pillar_kin'), ...kDeep('quan-he')];
   // the cách chapter in the frame of plan step 4: the first paragraph under the chapter's lead-in, each later part under its own

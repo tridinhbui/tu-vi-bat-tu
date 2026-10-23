@@ -19,8 +19,9 @@ words the manual itself defines are computed the way its own examples use them:
                Quan in the year: the left pillar is the one before, the year's is the hour's. The Quan pillar is the one pillar holding Quan
                Sát (a transparent Quan first); with none, Tài (p.51 #3 "官星不现，以财星论").
   - 胎身命:     胎元, 身宫, 命宫 by pp.35-38 (bazi.thai_yuan / ming_gong_branch / shen_gong_branch).
-  - vượng / nhược of a ten-god group: its share of Thiệu Vĩ Hoa's degrees (pp.331-355) at least 25 % / under 12 % (the manual gives no measure:
-               a system convention, said so in the note of every sentence that rests on it); "không có" = no stem and no hidden stem of the group.
+  - vượng / nhược of a ten-god group: its share of Thiệu Vĩ Hoa's degrees (pp.331-355) at least 25 % / under 12 %, Tỉ Kiếp without the day
+               master's own degrees (the manual gives no measure: a system convention, said so in the note of every sentence that rests on it);
+               "không có" = no stem and no hidden stem of the group.
 """
 from __future__ import annotations
 
@@ -126,7 +127,10 @@ class Chart:
             return None
         from .depth import _el_of_group
         s = sum(tot.values()) or 1
-        return tot[_el_of_group(STEM_ELEMENT[self.dm], g)] / s
+        own = tot[_el_of_group(STEM_ELEMENT[self.dm], g)]
+        if g == "Ti":                      # Tỉ Kiếp beside the day master: its own degrees are not counted (the day master is not its own sibling)
+            own -= (self.tvh.get("stem_deg") or [0, 0, 0, 0])[2]
+        return max(own, 0) / s
 
     def flows(self, start: str) -> list:
         """the chain of p.50 condition 1 from `start` ('Tai' or 'QuanSat') to the day master, as the list of nodes, or [] when there is none"""
@@ -154,8 +158,10 @@ def _label(c: Chart, n) -> str:
     return f"{'can' if r == 'stem' else 'chi'} {PIL_VI[p]} {STEMS_VI[c.v.stem(p)] if r == 'stem' else BRANCHES_VI[c.v.branch(p)]}"
 
 
-def natal_facts(view: ChartView, tvh: dict | None) -> tuple[dict, dict]:
-    """(facts for the rules, detail for the prose: which characters, which pillar)"""
+def natal_facts(view: ChartView, tvh: dict | None, yong: dict | None = None) -> tuple[dict, dict]:
+    """(facts for the rules, detail for the prose: which characters, which pillar). `yong`: {"hi": [...], "ky": [...], "cach": name} in Vietnamese group
+    names, from Thiệu Vĩ Hoa's cách table (pp.378-386: dụng thần + vận tốt = hỉ, vận xấu = kỵ), for the Trích Thiên Tủy judgements that read "nhật chủ
+    hỉ X"; None when the table does not apply (those judgements then stay silent)."""
     c = Chart(view, tvh)
     v, dm = view, view.dm
     gender = {"male": "nam", "female": "nữ"}.get(view.gender or "")
@@ -302,6 +308,32 @@ def natal_facts(view: ChartView, tvh: dict | None) -> tuple[dict, dict]:
                         if frozenset((v.stem(p), dm)) in STEM_COMBINE]
     D["share"] = {GROUP_VI[g]: (round(s, 3) if s is not None else None) for g, s in share.items()}
     D["vuong"], D["nhuoc"], D["absent"] = [GROUP_VI[g] for g in vuong], [GROUP_VI[g] for g in nhuoc], [GROUP_VI[g] for g in absent]
+    # ---- Trích Thiên Tủy Phần II (pp.128-139, 224): the shapes its judgements name (DEEP-BAZI-2)
+    G = lambda n: c.group(n)
+    VG = {v_: k_ for k_, v_ in GROUP_VI.items()}
+    F["bazi.k.hi"] = [VG[g] for g in (yong or {}).get("hi", []) if g in VG]
+    F["bazi.k.ky"] = [VG[g] for g in (yong or {}).get("ky", []) if g in VG]
+    F["bazi.k.yong"] = [VG[g] for g in (yong or {}).get("yong", []) if g in VG]
+    F["bazi.k.trans"] = sorted({G((p, "stem")) for p in PILLARS if p != "day"})
+    F["bazi.k.present"] = sorted({G(n) for n in c.nodes})
+    F["bazi.k.hidden_only"] = sorted({GROUP[ten_god(dm, h)] for p in PILLARS for h in HIDDEN_STEMS[v.branch(p)]} - set(F["bazi.k.trans"]))
+    F["bazi.k.gods"] = sorted({c.god(n) for n in c.nodes})
+    F["bazi.k.adj"] = sorted({"|".join(sorted((G(a), G(b)))) for a in c.nodes for b in c.nodes if c.adj(a, b) and G(a) != G(b)})
+    F["bazi.k.year_groups"] = sorted({G(("year", "stem")), G(("year", "branch"))})
+    F["bazi.k.month_groups"] = sorted({G(("month", "stem")), G(("month", "branch"))})
+    F["bazi.k.month_group"] = G(("month", "branch"))
+    F["bazi.k.dayhour_groups"] = sorted({G(("day", "branch")), G(("hour", "stem")), G(("hour", "branch"))})
+    F["bazi.k.dayhour_gods"] = sorted({c.god(("day", "branch")), c.god(("hour", "stem")), c.god(("hour", "branch"))})
+    F["bazi.k.day_group"] = G(("day", "branch"))
+    from ..bazi import MEETING, TRIAD
+    tai_el = STEM_ELEMENT[next(h for h in range(10) if GROUP[ten_god(dm, h)] == "Tai")]
+    bs = {v.branch(p) for p in PILLARS}
+    F["bazi.k.tai_cuc"] = (tai_el in TRIAD and set(TRIAD[tai_el]) <= bs) or (tai_el in MEETING and set(MEETING[tai_el]) <= bs)   # 财局: tam hợp / tam hội of the Tài element
+    F["bazi.k.kiep_hop_sat"] = any(stems[p] == "Kiếp Tài" and any(stems[q] == "Thất Sát" and frozenset((v.stem(p), v.stem(q))) in STEM_COMBINE for q in stems if q != p) for p in stems)
+    F["bazi.k.ti_vs_sat"] = any(c.god(a) == "Tỉ Kiên" and c.god(b) == "Thất Sát" and c.adj(a, b) for a in c.nodes for b in c.nodes)
+    F["bazi.k.ym_hurt_by_dh"] = any(_hurt(v.branch(p), v.branch(q)) for p in ("year", "month") for q in ("day", "hour"))
+    F["bazi.k.ren_present"] = ZZ_REN[dm] in [v.branch(p) for p in PILLARS]
+    F["bazi.k.tai_rooted_any"] = any(c.rooted((p, "stem")) for p in ct + tt) or any(c.group(n) == "Tai" for n in c.nodes if n[1] == "branch" and n[0] == "month")
     # the characters each judgement names, for its condition in the text ("Thiên Tài ở can năm Tân bị chi Tỵ ngay dưới khắc")
     lab = lambda ns: _join([_label(c, n) for n in ns])
     tmm_vi = {"thai": "thai nguyên", "menh": "mệnh cung", "than": "thân cung"}
@@ -316,11 +348,14 @@ def natal_facts(view: ChartView, tvh: dict | None) -> tuple[dict, dict]:
         "tmm_tai": _join([f"{tmm_vi[k]} {STEMS_VI[s_]} {BRANCHES_VI[b_]}" for k, s_, b_ in tmm if "Tai" in (GROUP[ten_god(dm, s_)], GROUP[ten_god(dm, HIDDEN_STEMS[b_][0])])]),
         "tmm_day": _join([f"{tmm_vi[k]} {STEMS_VI[s_]} {BRANCHES_VI[b_]}" for k, s_, b_ in tmm if frozenset((b_, v.branch("day"))) in SIX_COMBINE]),
         "tmm_hurt": _join([f"{tmm_vi[k]} {STEMS_VI[s_]} {BRANCHES_VI[b_]}" for k, s_, b_ in tmm if any(_hurt(b_, v.branch(p)) for p in PILLARS)]),
-        "qtrans": lab([(p, "stem") for p in qt]), "qnear": lab(near_q), "dm": STEMS_VI[dm], "db": BRANCHES_VI[v.branch("day")],
+        "qtrans": lab([(p, "stem") for p in qt]), "qchain": " sinh ".join(D["quan_flow"]), "tchain": " sinh ".join(D["tai_flow"]), "qnear": lab(near_q), "dm": STEMS_VI[dm], "db": BRANCHES_VI[v.branch("day")],
         "mb": BRANCHES_VI[v.branch("month")],
         "fuyin": _join([f"chi {PIL_VI[p]}" for p in ("month", "hour") if v.branch(p) == v.branch("day")]),
         "day_god": branch_main["day"], "triple": _join(D["triple"]), "tai_pct": _pct(share.get("Tai")), "qs_pct": _pct(share.get("QuanSat")),
         "ti": lab(c.of("Ti")), "ti_n": str(ti_n), "tai_n": str(len(c.of("Tai"))),
+        "pm10": _join([f"{GROUP_VI[g]} ở trụ {PIL_VI[p]}" for p in ("year", "month") for g in ("Tai", "QuanSat", "An")
+                       if g in F["bazi.k.hi"] and g in {G((p, "stem")), G((p, "branch"))}]),
+        "ym": f"trụ năm {STEMS_VI[v.stem('year')]} {BRANCHES_VI[v.branch('year')]} ({stems['year']}, {branch_main['year']}) và trụ tháng {STEMS_VI[v.stem('month')]} {BRANCHES_VI[v.branch('month')]} ({stems['month']}, {branch_main['month']})",
         "war": _join(D["tai_an_war"]), "md": f"chi tháng {BRANCHES_VI[v.branch('month')]} {_hurt_vi(v.branch('month'), v.branch('day'))} chi ngày {BRANCHES_VI[v.branch('day')]}",
     }
     return F, D
@@ -367,9 +402,16 @@ def year_facts(view: ChartView, tvh: dict | None, nat: dict, stem: int, branch: 
 
 @lru_cache(maxsize=1)
 def pack() -> tuple[list[KnowledgeRule], list[Source], dict]:
-    d = json.loads((DATA / "pack_zz_kin.json").read_text("utf-8"))
-    meta = json.loads((DATA / "quotes_zz_kin.json").read_text("utf-8"))
-    return [KnowledgeRule(**r) for r in d["rules"]], [Source(**s) for s in d["sources"]], meta
+    """八字真宗 (pack_zz_kin) and Trích Thiên Tủy Phần II (pack_ttt_kin) and Thiệu Vĩ Hoa (pack_tvh_kin, when present), with their page quotes"""
+    rules, sources, meta = [], [], {}
+    for name in ("zz", "ttt", "tvh"):
+        if not (DATA / f"pack_{name}_kin.json").exists():
+            continue
+        d = json.loads((DATA / f"pack_{name}_kin.json").read_text("utf-8"))
+        rules += [KnowledgeRule(**r) for r in d["rules"]]
+        sources += [Source(**s) for s in d["sources"]]
+        meta |= json.loads((DATA / f"quotes_{name}_kin.json").read_text("utf-8"))
+    return rules, sources, meta
 
 
 def _fill(t: str, V: dict) -> str | None:
@@ -391,12 +433,12 @@ def fire(facts: dict, V: dict | None = None) -> list[dict]:
         m = meta[f.rule_id]
         said = _fill(m["say"], V or {}) if m.get("say") else None
         out.append({"rule_id": f.rule_id, "topic": m["topic"], "tone": m["tone"], "effect": m["effect"], "cause": said or m["cause"], "page": m["page"],
-                    **({"note": m["note"]} if m.get("note") else {})})
+                    "book": m.get("book", "zz"), **({"note": m["note"]} if m.get("note") else {}), **({"hi": True} if m.get("hi") else {})})
     return out
 
 
-def natal(view: ChartView, tvh: dict | None) -> dict:
-    F, D = natal_facts(view, tvh)
+def natal(view: ChartView, tvh: dict | None, yong: dict | None = None) -> dict:
+    F, D = natal_facts(view, tvh, yong)
     return {"facts": {k: v for k, v in F.items() if k != "chart.system"}, "detail": D, "findings": fire(F, D["vars"])}
 
 
