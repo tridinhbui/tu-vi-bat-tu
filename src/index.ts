@@ -27,6 +27,7 @@ export class TvbtContainer extends Container {
 interface Env extends AuthEnv, BillingEnv, AdminEnv {
   ANTHROPIC_API_KEY?: string;       // secret; without it /api/me/chat answers 503
   TVBT: DurableObjectNamespace<TvbtContainer>;
+  CF_VERSION_METADATA?: { id: string };   // deploy version id (wrangler version_metadata); keys the interpretation cache
   TVBT_INTERPRET?: string;          // "1" enables /api/interpret (default off: the route answers 404)
   TVBT_PROSE_DRAFT?: string;        // "1" lets mode "prose" use prose cards that are still drafts (default: approved cards only)
   TVBT_LUAN?: string;               // "0" turns off the luận cung chapters (prose/luan.ts) in the whole-report prose; on unless set to "0"
@@ -44,7 +45,7 @@ async function interpretRoute(request: Request, env: Env, ctx: ExecutionContext)
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(birth) })),
     store: env.INTERPRET_DB ? new D1Store(env.INTERPRET_DB, knowledge as unknown as Knowledge) : new BundledStore(knowledge as unknown as Knowledge),
     cache: new LayeredCache({ db: env.INTERPRET_DB, r2: env.INTERPRET_CACHE, edge: (globalThis as any).caches?.default }),
-    defer: p => ctx.waitUntil(p),
+    defer: p => ctx.waitUntil(p), codeRev: env.CF_VERSION_METADATA?.id,
   });
   return gate ? gateResponse(res, body, env.DB, env.DB ? await currentUser(env.DB, request) : null) : res;
 }
@@ -57,7 +58,7 @@ async function overviewRoute(request: Request, env: Env, ctx: ExecutionContext):
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(birth) })),
     store: env.INTERPRET_DB ? new D1Store(env.INTERPRET_DB, knowledge as unknown as Knowledge) : new BundledStore(knowledge as unknown as Knowledge),
     cache: new LayeredCache({ db: env.INTERPRET_DB, r2: env.INTERPRET_CACHE, edge: (globalThis as any).caches?.default }),
-    defer: p => ctx.waitUntil(p),
+    defer: p => ctx.waitUntil(p), codeRev: env.CF_VERSION_METADATA?.id,
   });
 }
 

@@ -22,6 +22,8 @@ export interface InterpretDeps {
   luan?: boolean;
   facts: (birth: Record<string, unknown>) => Promise<Response>;
   store: KnowledgeStore; cache: OutputCache; defer: (p: Promise<unknown>) => void;
+  /** deploy version id: in the cache key, so code changes that keep the version constants never serve an older deploy's output */
+  codeRev?: string;
 }
 
 /** Every prose chapter of chapter "all", in the report's order: the overview themes, the twelve palaces, the đại hạn, Bát Tự (unchecked:
@@ -53,7 +55,7 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   const facts = await factsRes.json() as ChartInput;
   const k = await d.store.load();
   // the Bát Tự chapter reads facts.bazi (pillars, luck), the others the Tử Vi facts; both go into the key so no chapter can hit a stale entry
-  const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, mode, mode === 'prose' ? [PROSE_VERSION, d.proseDraft, d.deep !== false, d.luan !== false ? LUAN_VERSION : null, 'checked'] : mode === 'reasoned' ? [NARRATIVE_VERSION, d.proseDraft] : null]);
+  const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, d.codeRev ?? null, mode, mode === 'prose' ? [PROSE_VERSION, d.proseDraft, d.deep !== false, d.luan !== false ? LUAN_VERSION : null, 'checked'] : mode === 'reasoned' ? [NARRATIVE_VERSION, d.proseDraft] : null]);
   const hit = await d.cache.get(key);
   if (hit) return new Response(hit, { headers: { 'content-type': 'application/json; charset=utf-8', 'x-interpret-cache': 'hit' } });
   const luan = d.luan !== false;
