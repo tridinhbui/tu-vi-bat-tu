@@ -106,16 +106,16 @@ test('report-wide rules hold on the 1,000-chart corpus (facts from before the Py
 test('owner chart (09/01/2002): the findings of the audit are gone', () => {
   const o = reader(owner), ch = o.chapters as Ch;
   const dv = (ch['dai-van'] ?? []).map(p => p.text), tk = (ch['tong-ket'] ?? []).map(p => p.text).join(' ');
-  const luck = (name: string) => dv.find(t => t.toLowerCase().includes(`đại vận ${name.toLowerCase()}`) && /tuổi \(\d{4}–/.test(t)) ?? '';
+  const luck = (name: string) => dv.find(t => t.toLowerCase().includes(`đại vận ${name.toLowerCase()}`) && /tuổi thực \(\d{4}–/.test(t)) ?? '';
   // Canh Tý: no longer "vận xấu" then "khá thuận" with nothing between: the two tables are said to differ, the verdict is conditional, and
   // the closing says the same
   assert.ok(/vênh nhau|không trùng nhau/.test(luck('Canh Tý')) && /thuận hay nặng tùy lúc có nhóm Tỉ Kiếp/.test(luck('Canh Tý')), luck('Canh Tý'));
   assert.ok(!/khá thuận/.test(luck('Canh Tý')));
-  assert.match(tk, /Canh Tý \(từ 1 tuổi\) thuận hay nặng tùy lúc có nhóm Tỉ Kiếp/);
+  assert.match(tk, /Canh Tý \(từ 1 tuổi thực\) thuận hay nặng tùy lúc có nhóm Tỉ Kiếp/);
   // Mậu Tuất and Kỷ Hợi: the turn (what the branch still holds) and the years to lean on
-  assert.match(luck('Mậu Tuất'), /chi Tuất còn tàng Đinh \(Tỉ Kiên\)[^.]*\. [^.]*những năm nên tiến là 2024 \(Giáp Thìn\), 2026 \(Bính Ngọ\) và 2027 \(Đinh Mùi\)/);
+  assert.match(luck('Mậu Tuất'), /chi Tuất còn tàng Đinh \(Tỉ Kiên\)[^.]*\. [^.]*những năm nên tiến là 2025 \(Ất Tỵ\) và 2026 \(Bính Ngọ\)/);
   assert.match(luck('Kỷ Hợi'), /chi Hợi còn tàng Giáp \(Chính Ấn\), can điều hậu đứng đầu/);
-  assert.match(tk, /Kỷ Hợi \(từ 11 tuổi\) và Mậu Tuất \(từ 21 tuổi\) là những vận nặng/);
+  assert.match(tk, /Kỷ Hợi \(từ 11 tuổi thực\) và Mậu Tuất \(từ 21 tuổi thực\) là những vận nặng/);
   // "theo bảng điều hậu lá số cần Hỏa": the frame names the table's stems; Hỏa is the Trích Thiên Tủy rule's
   const nc = (ch['nhat-chu'] ?? []).map(p => p.text).join(' ');
   assert.match(nc, /về điều hậu, can nên có là Giáp và Canh/);
@@ -127,8 +127,10 @@ test('owner chart (09/01/2002): the findings of the audit are gone', () => {
   assert.ok(!/thế cái đầu/.test(luck('Ất Mùi')), luck('Ất Mùi'));
   // the cách chapter explains the two tables and how far each goes, then concludes conditionally
   const cc = (ch['cach-cuc'] ?? []).map(p => p.text).join(' ');
-  assert.match(cc, /Hai bảng xét hai việc khác nhau/);
-  assert.match(cc, /chưa rõ xuất xứ/);
+  assert.match(cc, /Hai phía xét hai việc khác nhau/);
+  // how far each table goes (the điều hậu table's origin, TVH p.388) is in the sentence note, not in the text (2026-10-22 readability)
+  assert.ok((ch['cach-cuc'] ?? []).flatMap(p => p.sentences).some(s => /chưa rõ xuất xứ/.test(s.trace.note ?? '')));
+  assert.ok(!/Thiệu Vĩ Hoa|Trích Thiên Tủy|Bát Tự Chân Tông/.test(cc));
   // 2026 (Bính Ngọ) is one of the years the đại vận names to lean on, and the lưu niên agrees
   assert.match((ch['luu-nien'] ?? [])[0]?.text ?? '', /Bính Ngọ[^]*cùng thuận|Bính Ngọ[^]*đều thuận/);
 });
@@ -151,9 +153,47 @@ test('the TS fallback gives the Python verdict wherever the facts carry both', (
       assert.equal(classOf(ts), classOf(py));
       n++;
     }
-    for (const l2 of D.luck) if (l2.good_years && l2.first_year != null)
-      assert.deepEqual(goodYearsTs(l2.first_year, f.bazi!.day_master, table, tot, xau), l2.good_years, `${l} ${l2.pillar}`);
+    for (const l2 of D.luck) if (ok && l2.good_years && l2.first_year != null)
+      assert.deepEqual(goodYearsTs(l2.first_year, f.bazi!.day_master, table, tot, xau, needEl, l2.pillar), l2.good_years, `${l} ${l2.pillar}`);
     for (const t of D.luck) if (t.stem) assert.equal(dhRoleOf(t.stem, table), (t as { dieu_hau: { stem: string | null } }).dieu_hau.stem ?? null, `${l} ${t.pillar}`);
   }
   assert.ok(n > 100, `${n} pillars compared`);
+});
+
+// Owner review 2026-10-22, on the owner's chart (09/01/2002 04:30 nam): five correctness points, each at its root.
+test('owner review 2026-10-22: one cách status, Tài in three layers, year × đại vận, every sentence with its basis, one age convention', () => {
+  const o = reader(owner), ch = o.chapters as Ch, all = sentences(ch);
+  const D = (owner.bazi as { deep?: BaziDeep | null }).deep!;
+  // 1. the cách is "xác lập một phần" everywhere: said once in the cách chapter, and every luck / year verdict drawn from it is conditional
+  assert.equal((D.cach_tvh as { verification?: string }).verification, 'partial');
+  assert.ok((ch['cach-cuc'] ?? []).flatMap(p => p.sentences).some(s => s.trace.step === 'cach:status' && /xác lập (được )?một phần/.test(s.text)));
+  const luckShort = (ch['dai-van'] ?? []).filter(p => p.depth !== 'sau' && p.sentences.some(s => (s.trace.step ?? '').startsWith('luck:')));
+  for (const p of luckShort) {
+    const cachSide = p.sentences.find(s => /vận (tốt|xấu)/.test(s.text) && s.trace.basis === 'tinh_toan');
+    if (cachSide) assert.match(cachSide.text, /cách Thiên Tài[^.]*đứng được|đứng được[^.]*cách Thiên Tài/, cachSide.text);
+    const v = p.sentences.find(s => (s.trace.step ?? '').startsWith('verdict:'));
+    if (v) assert.equal(v.trace.conditional, 'cach_partial', v.text);
+  }
+  assert.ok((ch['tong-ket'] ?? []).flatMap(p => p.sentences).some(s => s.trace.conditional === 'cach_partial'));
+  // 2. Tài: position (八字真宗 p.50), the day master's strength, the conclusion under the cách; the deciding condition named, left open
+  const tai = (ch['su-nghiep'] ?? []).flatMap(p => p.sentences);
+  for (const step of ['tai:pos', 'tai:dm', 'tai:method', 'tai:decide']) assert.ok(tai.some(s => s.trace.step === step), step);
+  assert.match(tai.find(s => s.trace.step === 'tai:decide')!.text, /quyết định[^.]*sức nhật chủ[^.]*để ngỏ/);
+  // (2026-10-23) no unqualified "tài vận tốt" anywhere: the positional reading carries its condition, quotes of it stay in quotes
+  for (const s of all) for (const m of s.text.matchAll(/tài vận tốt(?! xét riêng vị trí)/g))
+    assert.ok(s.text[m.index! - 1] === '“' && s.text[m.index! + m[0].length] === '”', s.text);
+  const zz = tai.find(s => /BT_ZZ_DIRECT_W_THIEN_TAI_ROOT/.test(s.trace.rules.join()) && s.trace.step !== 'tai:pos');
+  assert.ok(zz && /xét riêng vị trí[^.]*tùy sức nhật chủ/.test(zz.text) && zz.trace.conditional === 'tai_position_only', zz?.text);
+  // 3. 2027 (Đinh Mùi) is not among the Mậu Tuất years to press on: its own verdict is mixed and its branch meets the luck branch Tuất
+  const mt = D.luck.find(l => l.pillar === 'Mậu Tuất')!;
+  assert.ok(!(mt.good_years ?? []).some(g => g.year === 2027));
+  for (const l of D.luck) for (const g of l.good_years ?? []) assert.ok(['thuan', 'kha_thuan'].includes(g.verdict ?? ''), `${l.pillar} ${g.year}`);
+  const y27 = (ch['luu-nien'] ?? []).find(p => /Năm 2027|năm 2027/.test(p.sentences[0].text) && p.depth !== 'sau')!;
+  assert.ok(y27.sentences.some(s => /đại vận Mậu Tuất, năm 2027 có[^.]*chi Mùi hình và phá chi Tuất của vận/.test(s.text)), y27.text);
+  assert.ok(!/những năm nên tiến[^.]*2027/.test((ch['dai-van'] ?? []).map(p => p.text).join(' ')));
+  // 4. every sentence carries its basis (the report's "Phạm vi kiểm chứng" lists them all, report.js btLedgerHtml)
+  for (const s of all) assert.ok(['sach', 'tinh_toan', 'he_thong', 'minh_hoa'].includes(s.trace.basis), s.text);
+  for (const s of all.filter(x => x.trace.basis === 'minh_hoa')) assert.ok(all.some(t => t.trace.step === s.trace.attach && t !== s), s.text);
+  // 5. one age convention on the Bát Tự surface, named at every age: tuổi thực
+  for (const s of all) assert.ok(!/\d+ tuổi(?! thực)/.test(s.text), s.text);
 });

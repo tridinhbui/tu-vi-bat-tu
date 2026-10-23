@@ -221,8 +221,8 @@ export function drawCharts(root, o) {
     node.classList.add('is-pick');
     q(`[data-why="${id}"]`).innerHTML = why(title(s), s);
   };
-  const dvTitle = d => `Đại vận ${d.age_from}–${d.age_to} tuổi (${d.year_from}–${d.year_to}) · cung ${d.palace} (${d.stem} ${d.branch})`;
-  const yTitle = y => `Năm ${y.year} (${y.can_chi}), ${y.age} tuổi · tiểu hạn ở ${y.palace}`;
+  const dvTitle = d => `Đại vận ${d.age_from}–${d.age_to} tuổi mụ (${d.year_from}–${d.year_to}) · cung ${d.palace} (${d.stem} ${d.branch})`;
+  const yTitle = y => `Năm ${y.year} (${y.can_chi}), ${y.age} tuổi mụ · tiểu hạn ở ${y.palace}`;
   const mTitle = m => `Tháng ${m.month} âm lịch năm ${I.months.year} · nguyệt hạn ở cung ${m.palace}`;
   const draw = () => {
     levelBars(q('[data-plot="dv"]'), I.decades, { label: 'Xu hướng đại vận: mức của từng chặng', title: dvTitle, current: d => d.current, xCaption: 'tuổi bắt đầu mỗi chặng',

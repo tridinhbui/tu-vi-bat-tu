@@ -52,7 +52,7 @@ export function menhTamPhuongHtml(t) {
 
 /** Current Đại vận (Bát Tự) and Đại hạn (Tử Vi) for today's date. */
 export function currentPhase(b, t, req) {
-  const now = new Date().getFullYear(), age = now - req.year + 1;
+  const now = new Date().getFullYear(), age = now - (t.lunar?.year ?? req.year) + 1;   // tuổi mụ from the lunar birth year; picks the current đại hạn
   const lp = b.luck_pillars, i = luckIndexOn(lp);   // exact start dates (audit BZ-5/6)
   const dh = t.dai_han.find(d => age >= d.age_from && age <= d.age_to);
   return { now, age, luck: i >= 0 ? lp[i] : null, dh };

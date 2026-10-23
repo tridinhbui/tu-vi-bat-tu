@@ -92,6 +92,7 @@ def score(view: ChartView) -> dict:
             tranh = any(sum(1 for v in units if v["kind"] == "luc" and i in v["idx"]) > 1 for i in u["idx"])
             u["hoa"] = u["hoa"] and not tranh
         taken |= set(u["idx"])
+        u["processed"] = True
         (formed if u["hoa"] else []).append(u)
         if not u["hoa"]:
             khu_bi |= set(u["idx"])
@@ -134,6 +135,7 @@ def score(view: ChartView) -> dict:
     hua_stem = {}
     # PDF p.336 lists 'nhân nguyên tàng trong chi tháng'; the book's own example 6 (Mùi tháng, Ất 3 độ) does not let a 3-degree tạp khí qualify, so only >= 9 degrees count
     lenh_branch_el = {_el(s) for s, g in HID_DEG[br[1]] if g >= 9} | {month_main_el}
+    hop_detail: list[dict] = []            # what each adjacent ngũ hợp came to (for the reading; numbers unchanged)
     for (i, j, e) in hop_pairs:
         stem_hop |= {i, j}
         partners = sum(1 for (a, b, _) in hop_pairs if i in (a, b)) > 1 or sum(1 for (a, b, _) in hop_pairs if j in (a, b)) > 1
@@ -141,11 +143,13 @@ def score(view: ChartView) -> dict:
             for k in {i, j} | {x for (a, b, _) in hop_pairs for x in (a, b) if {a, b} & {i, j}}:
                 deg[k] = 24.0              # tranh hợp: 36 - 12 whether rooted or not (audit BZ-23: was `if root[k] or True else 9`)
             notes["steps"].append({"step": "tranh hợp", "pairs": [i, j]})
+            hop_detail.append({"pair": [i, j], "el": e, "outcome": "tranh_hop"})
             continue
         both_xu = not root[i] and not root[j]
         if both_xu:
             deg[i] = deg[j] = 9.0
             stem_hop -= {i, j}
+            hop_detail.append({"pair": [i, j], "el": e, "outcome": "hu_phu"})
             continue
         deg[i] = deg[j] = 36.0               # a hư phù stem in a hợp is not counted as hư phù
         support = any(BRANCH_ELEMENT[br[p]] == e or generates(BRANCH_ELEMENT[br[p]], e) for p in (i, j)) or any(u["el"] == e for u in formed)
@@ -154,13 +158,16 @@ def score(view: ChartView) -> dict:
         if lenh_hit or (season_hit and support):
             deg[i] = deg[j] = 30.0
             hua_stem[i] = hua_stem[j] = e
+            hop_detail.append({"pair": [i, j], "el": e, "outcome": "hoa", "why": "lenh" if lenh_hit else "mua_va_goc"})
         else:
             ctrl_i = controls(stem_el[i], stem_el[j])
             victim = j if ctrl_i else i
             deg[victim] = 24.0
+            hop_detail.append({"pair": [i, j], "el": e, "outcome": "khong_hoa", "victim": victim, "season_hit": season_hit})
     notes["steps"].append({"step": "ngũ hợp", "deg": deg[:], "hoa": dict(hua_stem)})
     # khắc between stems (stems in a hợp neither attack nor are attacked)
     base = deg[:]
+    khac_detail: list[dict] = []
     for v in range(4):
         if v in stem_hop:
             continue
@@ -170,26 +177,33 @@ def score(view: ChartView) -> dict:
         left = [a for a in atk if a < v and v - a == 1]
         right = [a for a in atk if a > v and a - v == 1]
         if left and right:
+            khac_detail.append({"target": v, "by": [left[0], right[0]], "loss": min(24.0, deg[v]), "kep": True})
             deg[v] = max(0.0, deg[v] - 24)
             continue
-        loss = 0
+        loss, by = 0, None
         for a in atk:
             d = abs(a - v)
-            loss = max(loss, 12 if d == 1 else 6 if d == 2 else 0)
+            if (12 if d == 1 else 6 if d == 2 else 0) > loss:
+                loss, by = (12 if d == 1 else 6 if d == 2 else 0), a
+        if loss:
+            khac_detail.append({"target": v, "by": [by], "loss": min(float(loss), deg[v]), "kep": False})
         deg[v] = max(0.0, deg[v] - loss)
     notes["steps"].append({"step": "khắc can", "deg": deg[:]})
     # same-pillar can–chi relation, on the effective branch element
+    tru_detail: list[dict] = []
     for i in range(4):
         be = in_unit[i]["el"] if i in in_unit else BRANCH_ELEMENT[br[i]]
         se = stem_el[i]
         if se == be or generates(be, se):
             continue
         loss = 6 if generates(se, be) else 12 if controls(se, be) else 18
+        tru_detail.append({"pillar": i, "kind": "can_sinh_chi" if loss == 6 else "can_khac_chi" if loss == 12 else "chi_khac_can", "loss": min(float(loss), deg[i])})
         deg[i] = max(0.0, deg[i] - loss)
     notes["steps"].append({"step": "can–chi cùng trụ", "deg": deg[:]})
 
     # ---------- địa chi
     br_deg: list[dict[str, float]] = []
+    xung_detail: list[dict] = []
     for i in range(4):
         d: dict[str, float] = {}
         if i in in_unit:
@@ -219,6 +233,7 @@ def score(view: ChartView) -> dict:
                 frac = 1 / 3
             for e in d:
                 d[e] = d[e] * (1 - frac)
+            xung_detail.append({"pillar": i, "frac": round(frac, 4)})
         br_deg.append(d)
     totals = {e: 0.0 for e in ELEMENTS}
     for i in range(4):
@@ -263,4 +278,9 @@ def score(view: ChartView) -> dict:
     return {"stem_deg": [round(x, 2) for x in deg], "hua_stem": {PILLARS[k]: v for k, v in hua_stem.items()}, "branch_units": [{"kind": u["kind"], "el": u["el"], "branches": u["branches"], "deg": u["deg"]} for u in formed],
             "khu_bi": sorted(khu_bi), "xung": sorted(xung), "heaven": {e: round(v, 2) for e, v in heaven.items()}, "earth": earth, "lenh": lenh,
             "totals_before_lenh": {e: round(v, 2) for e, v in totals.items()}, "totals": {e: round(v, 2) for e, v in adj.items()},
-            "root_main": root_main, "dm_element": dm_el, "own_share": round(own / total, 4), "dm_strong": decide(own, total)[1], "threshold": THRESHOLD, "notes": notes, "src": "SRC_TVH_DIEM"}
+            "root_main": root_main, "dm_element": dm_el,
+            # what each step did, for the reading (bazi_deep.depth): the root test, the adjacent ngũ hợp, the stem khắc, the same-pillar can–chi
+            # relation, the xung loss, every branch combination considered (formed = hóa), the branch degrees by element; numbers unchanged
+            "detail": {"root": root, "avail": [sorted(a) for a in avail], "hop": hop_detail, "khac": khac_detail, "tru": tru_detail, "xung": xung_detail,
+                       "units": [{"kind": u["kind"], "el": u["el"], "idx": u["idx"], "hoa": bool(u["hoa"]), "taken": bool(u.get("processed"))} for u in units],
+                       "branch_deg": [{e: round(g, 2) for e, g in d.items()} for d in br_deg]}, "own_share": round(own / total, 4), "dm_strong": decide(own, total)[1], "threshold": THRESHOLD, "notes": notes, "src": "SRC_TVH_DIEM"}

@@ -717,5 +717,12 @@ body[data-view=chart].mast-off:not(.hour-mode) .hdr-pdf{display:inline-flex;marg
 .pr-deep>summary .cb-s{font-size:.85rem;opacity:.75}
 .pr-deep[open]{padding:0 14px 12px}.pr-deep[open]>summary{padding:12px 0}
 .pr-deep-t{margin:12px 0 4px;font-size:.95rem;font-weight:600}
-.prose .pr-mh{font-style:italic}
-.an-minh_hoa{color:var(--muted);border-color:color-mix(in srgb,var(--muted) 45%,transparent)}
+/* Bát Tự: the "Đọc sâu" fold under each short reading, and the illustration sentences (minh họa) — report.js btProseHtml */
+.bt-sau{margin:4px 0 14px;border-left:2px solid var(--line);padding:2px 0 2px 14px}
+.bt-sau>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font:500 .86rem var(--sans);color:var(--gold);padding:4px 0}
+.bt-sau>summary::-webkit-details-marker{display:none}
+.bt-sau>summary::before{content:"+";font-weight:600;width:1em}.bt-sau[open]>summary::before{content:"−"}
+.bt-sau-s{color:var(--muted);font-weight:400}
+.bt-sau .pr-p{font-size:.95em}
+.pr-mh{font-style:italic;color:var(--text2)}
+.an-minh_hoa{color:var(--gold);border-color:color-mix(in srgb,var(--gold) 45%,transparent)}

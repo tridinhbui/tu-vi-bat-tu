@@ -64,7 +64,7 @@ test('Track C: books and calculation only, every luck pillar told with ≥2 sour
     assert.ok(!o.paragraphs.flatMap(p => p.sentences).some(s => s.trace.basis === 'pho_thong'));
     const s = stats(c);
     luck += s.luck; sourced += s.luckSourced;
-    assert.equal(o.chapters['luu-nien']?.length, 3);
+    assert.equal(o.chapters['luu-nien']?.filter(p => p.depth !== 'sau').length, 3);   // one short paragraph per year; the Đọc sâu ones follow (2026-10-22)
     assert.ok(o.chapters['tong-ket']?.[0]?.lead);
     assert.ok(!/\{[a-z_]+\}|\.;|undefined/.test(o.text), o.text);
   }

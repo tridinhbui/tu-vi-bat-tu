@@ -15,9 +15,14 @@ export interface SentenceTrace {
   basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong' | 'minh_hoa' | 'loi_khuyen';
   /** narrative.ts: the claim was told in its card's soft form (a weakened reading): it is never set side by side with another as a plain strength */
   soft?: boolean;
-  /** minh_hoa (owner's policy 2026-10-22): the step of the ONE sourced claim this illustration makes concrete (prose/checked.ts keeps the line
-   *  only while that claim is in the same paragraph) */
+  /** minh_hoa (owner policy 2026-10-22): the step of the ONE sourced sentence this illustration makes concrete — `tied` (Tử Vi,
+   *  prose/luan_deep.ts, narrative.ts) or `attach` (Bát Tự, bazi_deep.ts); prose/checked.ts drops the line when that sentence goes */
   tied?: string;
+  attach?: string;
+  /** Bát Tự (bazi_deep.ts): the sentence says why (a mechanism), not only what */
+  mech?: boolean;
+  /** Bát Tự (bazi_deep.ts): the condition a verdict stands on, e.g. 'cach_partial' = true only if the cách is established (owner review 2026-10-22) */
+  conditional?: string;
   /** deep.ts: a difficulty ('neg'), something good ('pos'), or what answers a difficulty ('answer') */
   tone?: 'neg' | 'pos' | 'answer';
   resolution?: { relation: string; byRule: string; cite?: string }; schema?: string; woven?: Array<SentenceTrace['move']>;
@@ -50,7 +55,9 @@ export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structu
   /** the frame part the paragraph serves: luận cung numbers it 1 … 5 (trace.part); the Bát Tự cách cục chapter names it (bazi_deep.ts FramePart) */
   part?: number | string;
   /** the deep reading (prose/luan_deep.ts): folded under "Đọc sâu" on the page, with its subsection title */
-  deep?: boolean; title?: string }
+  deep?: boolean; title?: string;
+  /** Bát Tự (bazi_deep.ts): 'sau' = the paragraph belongs to the "Đọc sâu" fold under the short reading; `depthTitle` names what it deepens */
+  depth?: 'sau'; depthTitle?: string }
 
 const join = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1).join(', ') + ' và ' + xs[xs.length - 1];
 function fill(t: string, vars: Record<string, string | undefined>): string {

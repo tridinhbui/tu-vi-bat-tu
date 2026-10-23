@@ -13,7 +13,7 @@
   .dash-side .tv-panel.open{transform:none}.dash-side .tv-panel:not(.open) .drawer-empty{display:none}
 }
 
-@media (min-width:1100px) and (min-height:600px){
+@media screen and (min-width:1100px) and (min-height:600px){   /* screen only: printing a wide window must not keep the fixed-height dashboard (it cut the Bát Tự table off the page) */
   :root{--dash-h:calc(100dvh - 68px - 66px - 49px - 22px)}      /* header + compact masthead + system tabs + stage padding */
   #chart-view[data-tab=tuvi] .atl-mast,#chart-view[data-tab=bazi] .atl-mast{padding:6px 0}
   #chart-view[data-tab=tuvi] .atl-mast-in,#chart-view[data-tab=bazi] .atl-mast-in{align-items:center;flex-wrap:nowrap}

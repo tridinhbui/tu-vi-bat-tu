@@ -11,13 +11,13 @@ const UNCHECKED = new Set(['pho_thong']);
  *  on the indices, a hạn's Hóa or natal link (reason/ledger.ts, prose/vanhan.ts). */
 const OWN = (s: ProseParagraph['sentences'][number]) => !!s.trace.ledger || /^(level|hoa|natal):/.test(s.trace.step ?? '');
 
-/** A minh họa line (owner's policy 2026-10-22) passes only while the ONE sourced claim it makes concrete is told in the same paragraph: its
- *  `tied` step names that claim, which must be a book sentence (basis sach) with a rule. A line with no tie, or whose claim was removed,
- *  goes. */
+/** A minh họa line (owner's policy 2026-10-22) passes only while the ONE sourced sentence it makes concrete is told in the same paragraph:
+ *  Tử Vi ties it by `tied` to a book sentence with a rule; Bát Tự by `attach` to a book or computed sentence. A line with no tie, or whose
+ *  sentence was removed, goes. */
 function tiedOk(s: ProseParagraph['sentences'][number], kept: ProseParagraph['sentences']): boolean {
   if (s.trace.basis !== 'minh_hoa') return true;
-  const t = s.trace.tied;
-  return !!t && kept.some(x => x !== s && x.trace.step === t && x.trace.basis === 'sach' && x.trace.rules.length > 0);
+  if (s.trace.tied) return kept.some(x => x !== s && x.trace.step === s.trace.tied && x.trace.basis === 'sach' && x.trace.rules.length > 0);
+  return !!s.trace.attach && kept.some(k => k !== s && k.trace.step === s.trace.attach && (k.trace.basis === 'sach' || k.trace.basis === 'tinh_toan'));
 }
 
 export function checkedParagraphs(ps: ProseParagraph[]): ProseParagraph[] {

@@ -145,7 +145,7 @@ function proseWhy(p, key) {
     : t.basis === 'tinh_toan' ? '<span class="an-b an-tinh_toan">Tính từ lá số</span> <span class="muted">dữ kiện tính được, hoặc tra từ bảng có ghi trang sách</span>'
     : t.basis === 'pho_thong' ? '<span class="an-b an-pho_thong">Thông lệ phổ biến</span> <span class="muted">nghĩa thường dùng, do hệ thống soạn, chưa đối chiếu sách</span>'
     : t.basis === 'loi_khuyen' ? '<span class="an-b an-he_thong">Lời khuyên chung</span> <span class="muted">gợi ý của hệ thống rút từ nhận định vừa nêu; không phải lời sách, không phải lời phán của lá số</span>'
-    : t.basis === 'minh_hoa' ? '<span class="an-b an-minh_hoa">Minh họa</span> <span class="muted">lời hệ thống soạn để cụ thể hóa đúng một nhận định sách ngay trước nó; không thêm nhận định, không nói sự kiện hay thời điểm</span>'
+    : t.basis === 'minh_hoa' ? '<span class="an-b an-minh_hoa">Minh họa</span> <span class="muted">câu soạn sẵn, chỉ làm cụ thể câu có nguồn ngay trước; không phải lời sách, không thêm nhận định</span>'
     : '<span class="an-b an-sach">Theo sách</span>';
   const src = !t.rules.length && t.cites?.length ? `<p class="muted">Nguồn: ${esc(t.cites.map(prCite).join('; '))}</p>` : '';
   const res = t.resolution ? `<p><b>Phân xử:</b> câu sách ở ${esc(prCite(t.resolution.cite || ''))} làm mềm nhận định bất lợi đi kèm (quan hệ <code>${esc(t.resolution.relation)}</code>).</p>` : '';
@@ -336,7 +336,58 @@ const BT_BOOK = { TVH: 'Thiệu Vĩ Hoa, Dự Đoán Theo Tứ Trụ', TTT: 'Tr�
 const btCite = c => String(c).replace(/^(TVH|TTT|ZZ)\b\s*(?:PDF\s*)?(pp?\.\s*)?/, (_, b, pg) => `${BT_BOOK[b] || b}${pg ? ' tr.' : ' '}`).trim();
 function btSources(paras, rules) {
   const cs = [...new Set(paras.flatMap(p => p.sentences.flatMap(s => [...(s.trace.cites || []), ...(s.trace.rules || []).flatMap(id => rules?.[id]?.cites || [])])))].filter(Boolean);
-  return cs.length ? `<h5>Nguồn của phần luận giải</h5><ul class="pr-rules">${cs.map(c => `<li>${esc(btCite(c))}</li>`).join('')}</ul>` : '';
+  // the illustrations (basis minh_hoa, owner policy 2026-10-22), each with the sourced sentence it makes concrete
+  const ss = paras.flatMap(p => p.sentences), mh = ss.filter(s => s.trace.basis === 'minh_hoa');
+  const of = s => ss.find(x => x !== s && x.trace.step === s.trace.attach && x.trace.basis !== 'minh_hoa');
+  const mhHtml = mh.length ? `<h5>Câu minh họa</h5><p class="muted small">Không phải lời sách: mỗi câu chỉ làm cụ thể một câu có nguồn, không thêm nhận định.</p><ul class="pr-rules">${mh.map(s => `<li><span class="an-b an-minh_hoa">minh họa</span> ${esc(s.text)}${of(s) ? ` <span class="muted">· cho câu: “${esc(of(s).text.slice(0, 90))}${of(s).text.length > 90 ? '…' : ''}”</span>` : ''}</li>`).join('')}</ul>` : '';
+  return (cs.length ? `<h5>Nguồn của phần luận giải</h5><ul class="pr-rules">${cs.map(c => `<li>${esc(btCite(c))}</li>`).join('')}</ul>` : '') + mhHtml;
+}
+/** Verified scope of the whole Bát Tự reading (owner review 2026-10-22): every sentence of every chapter with its basis — book, calculation,
+ *  the system's conclusion, illustration — and the condition a verdict stands on, so the panel covers career, wealth, dụng thần, thần sát
+ *  and vận as well as the personality readings. */
+const BT_BASIS = { sach: ['an-sach', 'Theo sách'], tinh_toan: ['an-tinh_toan', 'Tính từ lá số'], he_thong: ['an-he_thong', 'Kết luận của hệ thống'], minh_hoa: ['an-minh_hoa', 'Minh họa'], pho_thong: ['an-pho_thong', 'Thông lệ'] };
+const BT_CH = { 'nhat-chu': 'Nhật chủ', 'ngu-hanh': 'Ngũ hành', 'su-nghiep': 'Sự nghiệp & tài lộc', 'quan-he': 'Quan hệ', 'cach-cuc': 'Cách cục & dụng thần', 'dai-van': 'Đại vận', 'luu-nien': 'Lưu niên', 'tong-ket': 'Tổng kết' };
+const BT_COND = { cach_partial: 'đúng nếu cách được xác lập (cách mới xác lập một phần)', tai_position_only: 'chỉ xét vị trí của Tài; kết luận cuối ở đoạn về Tài' };
+/** one line under the overview's highlights: the reading's sentences by basis, pointing to the full scope panel */
+function btScopeLine(bp) {
+  const all = Object.values(bp?.chapters || {}).flat().flatMap(p => p?.sentences || []);
+  if (!all.length) return '';
+  const n = b => all.filter(s => s.trace.basis === b).length;
+  return `<p class="small muted">Phần luận Bát Tự gồm ${all.length} câu: ${n('sach')} câu theo sách, ${n('tinh_toan')} câu tính từ lá số, ${n('he_thong')} câu kết luận của hệ thống, ${n('minh_hoa')} câu minh họa. Từng câu và căn cứ của nó ở mục “Phạm vi kiểm chứng của phần Bát Tự”.</p>`;
+}
+function btLedgerHtml(bp) {
+  const chs = Object.entries(bp?.chapters || {}).filter(([, ps]) => ps?.length);
+  if (!chs.length) return '';
+  const all = chs.flatMap(([, ps]) => ps.flatMap(p => p.sentences)), n = b => all.filter(s => s.trace.basis === b).length;
+  const sum = Object.keys(BT_BASIS).filter(n).map(b => `<span class="an-b ${BT_BASIS[b][0]}">${BT_BASIS[b][1]}</span> ${n(b)}`).join(' · ');
+  const rows = ([id, ps]) => {
+    const ss = ps.flatMap(p => p.sentences);
+    return `<details><summary>${esc(BT_CH[id] || id)} <span class="muted small">· ${ss.length} câu</span></summary><ul class="pr-rules">${ss.map(s => `<li><span class="an-b ${(BT_BASIS[s.trace.basis] || ['an-b', s.trace.basis])[0]}">${esc((BT_BASIS[s.trace.basis] || [0, s.trace.basis])[1])}</span> ${esc(s.text)}${s.trace.conditional ? ` <span class="muted small">· ${esc(BT_COND[s.trace.conditional] || s.trace.conditional)}</span>` : ''}${(s.trace.rules || []).length ? ` <code class="muted">${esc(s.trace.rules.join(', '))}</code>` : ''}</li>`).join('')}</ul></details>`;
+  };
+  return `<details class="ch-basis bt-ledger"><summary><span class="cb-t">Phạm vi kiểm chứng của phần Bát Tự</span><span class="cb-s">${all.length} câu, mỗi câu kèm căn cứ</span></summary><p class="small">${sum}</p>${chs.map(rows).join('')}</details>`;
+}
+/** The Bát Tự reading of one chapter: the short reading, and each run of paragraphs marked depth 'sau' (prose/bazi_deep.ts) folded under
+ *  "Đọc sâu" where it stands. The sentence keys (data-pr) are the paragraph indices of the whole chapter, so the evidence on click and the
+ *  paragraph feedback work as for proseHtml. */
+function btProseHtml(p) {
+  if (!p?.paragraphs?.length) return '';
+  const title = p.title ? esc(p.title) : 'Luận giải Bát Tự';
+  const sent = (s, i, j, lead) => `<span class="sy-s pr-s${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, lead)}</span>`;
+  const block = (para, i) => `<div class="pr-block"${para.part ? ` data-part="${para.part}"` : ''}><p class="sy-p pr-p${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => sent(s, i, j, j === 0 ? para.lead : null)).join(' ')}</p>${prFeedback(i)}</div>`;
+  let html = '', run = [];
+  const flush = () => {
+    if (!run.length) return;
+    const t = run[0].para.depthTitle;
+    html += `<details class="bt-sau"><summary><span class="bt-sau-t">Đọc sâu</span>${t ? `<span class="bt-sau-s">${esc(t)}</span>` : ''}</summary>${run.map(x => block(x.para, x.i)).join('')}</details>`;
+    run = [];
+  };
+  p.paragraphs.forEach((para, i) => {
+    if (para.depth === 'sau') { if (run.length && para.depthTitle && para.depthTitle !== run[0].para.depthTitle) flush(); run.push({ para, i }); return; }
+    flush(); html += block(para, i);
+  });
+  flush();
+  return `<section class="synth prose bt-prose${p.locked ? ' pw-cut' : ''}" data-chapter="${esc(p.chapter)}" data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
+    ${html}<div class="pr-why small" hidden></div>${lockHtml(p)}${prDiverge(p)}</section>`;
 }
 
 export function renderBaziReport(host, chart, ctx, parts) {
@@ -350,7 +401,7 @@ export function renderBaziReport(host, chart, ctx, parts) {
   const godCount = ks => Object.entries(ks.reduce((o, k) => { const g = tenGodGroup(b.pillars[k].stem_ten_god); if (g) o[g] = (o[g] || 0) + 1; return o; }, {})).map(([g, n]) => `${g} ×${n}`).join(', ') || 'không có';
   const chapters = [
     { id: 'tong-quan', title: 'Tổng quan Bát Tự', lead: `Nhật Chủ <b>${esc(dm.n)}</b> (${dm.e}) sinh vào tháng ${esc(mb.n)}; đại vận ${esc(b.luck_direction)}, khởi vận sau khoảng ${b.luck_start.years} năm ${b.luck_start.months} tháng.`, blocks: blocks('bt', 'tong-quan'),
-      calc: calc(`<div class="facts"><div><span class="k">Nhật Chủ</span><b>${esc(dm.n)} ${dm.e}</b></div><div><span class="k">Nguyệt lệnh</span><b>${esc(mb.n)} (${mb.e})</b></div><div><span class="k">Trường sinh so với nguyệt lệnh</span><b>${esc(month.stage_vs_day_master)}</b></div><div><span class="k">Đại vận</span><b>${esc(b.luck_direction)}</b></div><div><span class="k">Khởi vận</span><b>${b.luck_start.years} năm ${b.luck_start.months} tháng</b></div><div><span class="k">Đại vận hiện tại</span><b>${ph.luck ? `${esc(ph.luck.name)}` : 'chưa khởi'}</b></div></div><div class="pro-only">${highlightsHtml(fs, TITLE, chOf)}</div>${acc('Nguyệt Lệnh', 'Tháng sinh và mùa của lá số', parts.nguyetLenh)}`),
+      calc: calc(`<div class="facts"><div><span class="k">Nhật Chủ</span><b>${esc(dm.n)} ${dm.e}</b></div><div><span class="k">Nguyệt lệnh</span><b>${esc(mb.n)} (${mb.e})</b></div><div><span class="k">Trường sinh so với nguyệt lệnh</span><b>${esc(month.stage_vs_day_master)}</b></div><div><span class="k">Đại vận</span><b>${esc(b.luck_direction)}</b></div><div><span class="k">Khởi vận</span><b>${b.luck_start.years} năm ${b.luck_start.months} tháng</b></div><div><span class="k">Đại vận hiện tại</span><b>${ph.luck ? `${esc(ph.luck.name)}` : 'chưa khởi'}</b></div></div><div class="pro-only">${highlightsHtml(fs, TITLE, chOf, btScopeLine(ctx.prose?.bat_tu))}</div>${acc('Nguyệt Lệnh', 'Tháng sinh và mùa của lá số', parts.nguyetLenh)}`),
       trad: notice('Về mức độ tin cậy', 'Chỉ các nhận định đã đối chiếu sách mới được hiển thị.', 'info') && `<div class="ch-trad">${notice('Về mức độ tin cậy', 'Chỉ các nhận định đã đối chiếu sách mới được hiển thị. Đây là cách đọc theo hệ biểu tượng, không phải kết luận.', 'info')}</div>` },
     { id: 'nhat-chu', title: 'Nhật Chủ & tính cách', lead: `Nhật Chủ ${esc(dm.n)} thuộc hành ${elChip(dm.e)}; Thập thần trên thiên can: ${esc(godCount(['year', 'month', 'hour']))}.`, blocks: blocks('bt', 'tinh-cach'),
       calc: calc(`<h5>Thấu can và thông căn (dữ kiện vị trí)</h5>${parts.thongCan}`), trad: trad(of('nhat-chu'), null, 'bt:nhat-chu') },
@@ -380,12 +431,14 @@ export function renderBaziReport(host, chart, ctx, parts) {
       const paras = bp.chapters[id], host = BT_HOST[id] || id;
       if (!paras?.length || html[id] != null || !chapters.some(x => x.id === host)) continue;
       const key = 'bat_tu:' + id; btBy[key] = { ...bp, chapter: key, paragraphs: paras, ...(BT_TITLE[id] ? { title: BT_TITLE[id] } : {}), evidence: { ...bp.evidence, limits: id === 'nhat-chu' ? bp.evidence.limits : [] } };
-      html[id] = proseHtml(btBy[key]);
+      html[id] = btProseHtml(btBy[key]);
       const c = chapters.find(x => x.id === host);
       c.btProse = (c.btProse || '') + html[id];
       c.trad = (c.trad || '') + btSources(paras, bp.evidence?.rules);
     }
     for (const c of chapters) if (c.btProse) { c.synth = c.btProse + (c.synth || ''); delete c.btProse; }
+    // the verified scope of the whole reading, in the overview chapter (every conclusion with its basis)
+    const tq = chapters.find(x => x.id === 'tong-quan'); if (tq) tq.trad = (tq.trad || '') + btLedgerHtml(bp);
   } else if (bp?.paragraphs?.length && nc) { btBy.bat_tu = bp; nc.synth = proseHtml(bp) + (nc.synth || ''); }
   mount(host, chapters, 'bt', ctx);
   if (Object.keys(btBy).length) bindProse(host, btBy);
