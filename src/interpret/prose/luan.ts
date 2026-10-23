@@ -575,7 +575,7 @@ function tail(W: Writer, L: LuanLib, xs: ProseSentence[], units: Array<{ seat?: 
   if (answer) {
     const m = W.pick(`tail|mature|${answer}`, W.card(answer)!.mature!);
     // a suggestion, labelled as one ('lời khuyên chung'), naming the reading it answers: the system's advice, not something the chart says
-    out.push(W.sentence(fill(W.pick(`tail|advice|${key}`, L.tail.advice), { S: W.S(answer), mature: m, np: W.np(answer) }), { move: 'TRANSFORM', step: `advice:${answer}`, basis: 'loi_khuyen', concepts: [answer],
+    out.push(W.sentence(fill(W.pick(`tail|advice|${key}|${answer}`, L.tail.advice), { S: W.S(answer), mature: m, np: W.np(answer) }), { move: 'TRANSFORM', step: `advice:${answer}`, basis: 'loi_khuyen', concepts: [answer],
       note: 'Gợi ý của hệ thống rút từ nhận định vừa nêu, không phải lời phán đoán của lá số.' }));
   }
   // the two-edged image only for a strength and a limit the same star asserts (its own seat), named by that star
