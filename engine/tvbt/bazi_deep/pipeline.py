@@ -181,6 +181,10 @@ def _vs_pillar(stem: int, branch: int, ls: int | None, lb: int | None) -> list[d
         out.append({"kind": "branch_harm", "part": "branch"})
     if pb in DESTROY:
         out.append({"kind": "branch_destroy", "part": "branch"})
+    from ..bazi import TRIAD
+    for el, tri in TRIAD.items():                     # 半合: the two branches of a triad, one of them its middle branch (八字真宗 p.20)
+        if branch != lb and branch in tri and lb in tri and tri[1] in (branch, lb):
+            out.append({"kind": "branch_semi_triad", "part": "branch", "element": el})
     if stem == ls and branch == lb:
         out.append({"kind": "phuc_ngam", "part": "pillar"})
     if ps in STEM_CLASH_KIND and pb in SIX_CLASH:

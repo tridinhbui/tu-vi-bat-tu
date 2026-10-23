@@ -843,7 +843,8 @@
         "Đặt cạnh đại vận {luck}, năm {year} có {list}."
       ],
       "vs_luck_none": [
-        "Năm {year} không hợp, xung, hình, hại hay phá với chính đại vận {luck}."
+        "Năm {year} không hợp, xung, hình, hại hay phá với chính đại vận {luck}.",
+        "Giữa năm {year} và đại vận {luck} không có hợp, xung, hình, hại hay phá nào."
       ],
       "vs_luck_kind": {
         "stem_combine": "hợp",
@@ -853,7 +854,8 @@
         "branch_clash": "xung",
         "branch_penalty": "hình",
         "branch_harm": "hại",
-        "branch_destroy": "phá"
+        "branch_destroy": "phá",
+        "branch_semi_triad": "bán hợp"
       },
       "tai_layers": {
         "pos": [
