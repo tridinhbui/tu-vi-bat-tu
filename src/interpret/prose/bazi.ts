@@ -209,8 +209,9 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   const cc = parts.deep['cach-cuc'] ?? [], ss = cc.filter(p => p.topic === 'than_sat'), ccRest = cc.filter(p => p.topic !== 'than_sat');
   const leadAll = (key: string, ps: ProseParagraph[]) => ps.map((p, i) => i === 0 ? lead(key, p) : p);
   chapters['nhat-chu'] = [...P('structure', [frame, ...frame2]), ...P('core', parts.p1).map(p => lead('nhat_chu', p)), ...P('support', turned(parts.topicsOf('nhat-chu'), 'nc')).map(p => lead('study', p)), ...leadAll('strength', ncRest)];
-  chapters['ngu-hanh'] = [...P('core', [...parts.ngu, ...(parts.deep['ngu-hanh'] ?? []).flatMap(p => p.sentences)]).map(p => lead('ngu_hanh', p))];
-  chapters['su-nghiep'] = [...P('core', turned(parts.topicsOf('su-nghiep'), 'sn')).map(p => lead('work', p)), ...P('support', parts.sn), ...deepOf('su-nghiep', 'pillar_work')];
+  const nh = parts.deep['ngu-hanh'] ?? [];
+  chapters['ngu-hanh'] = [...P('core', [...parts.ngu, ...nh.filter(p => p.depth !== 'sau').flatMap(p => p.sentences)]).map(p => lead('ngu_hanh', p)), ...nh.filter(p => p.depth === 'sau')];
+  chapters['su-nghiep'] = [...P('core', turned(parts.topicsOf('su-nghiep'), 'sn')).map(p => lead('work', p)), ...P('support', parts.sn), ...deepOf('su-nghiep', 'tai_layers')];
   chapters['quan-he'] = [...P('core', turned(parts.topicsOf('quan-he'), 'qh')).map(p => lead('kin', p)), ...P('support', parts.qh), ...deepOf('quan-he', 'pillar_kin')];
   // the cách chapter in the frame of plan step 4: the first paragraph under the chapter's lead-in, each later part under its own
   // (điểm tựa và giới hạn, điều hậu, chỗ hai cách xét khác nhau, kết luận); the sources are each sentence's trace

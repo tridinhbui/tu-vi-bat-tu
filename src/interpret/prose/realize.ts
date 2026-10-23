@@ -12,7 +12,13 @@ export interface SentenceTrace {
   move: Move | 'DEGREE' | 'EXTRA' | 'VIA' | import('./deep.ts').DeepMove; concepts: string[]; rules: string[]; cites: string[];
   /** sach: a verified book rule; he_thong: the system's closing words over what was said; tinh_toan: a computed fact or a page-cited
    *  table (deep.ts); pho_thong: a draft card of common meanings (deep.ts), labelled as such to the reader */
-  basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong';
+  basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong' | 'minh_hoa';
+  /** minh_hoa (owner policy 2026-10-22): the step of the one sourced sentence this illustration makes concrete; it goes when that sentence goes */
+  attach?: string;
+  /** Bát Tự (bazi_deep.ts): the sentence says why (a mechanism), not only what */
+  mech?: boolean;
+  /** Bát Tự (bazi_deep.ts): the condition a verdict stands on, e.g. 'cach_partial' = true only if the cách is established (owner review 2026-10-22) */
+  conditional?: string;
   /** deep.ts: a difficulty ('neg'), something good ('pos'), or what answers a difficulty ('answer') */
   tone?: 'neg' | 'pos' | 'answer';
   resolution?: { relation: string; byRule: string; cite?: string }; schema?: string; woven?: Array<SentenceTrace['move']>;
@@ -43,7 +49,9 @@ export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structu
    *  with it, so a plain-text reader sees it too. `topic` is its key (tinh_cach, su_nghiep, than, hau_van, tong_ket, …). */
   lead?: string; topic?: string;
   /** the frame part the paragraph serves: luận cung numbers it 1 … 5 (trace.part); the Bát Tự cách cục chapter names it (bazi_deep.ts FramePart) */
-  part?: number | string }
+  part?: number | string;
+  /** Bát Tự (bazi_deep.ts): 'sau' = the paragraph belongs to the "Đọc sâu" fold under the short reading; `depthTitle` names what it deepens */
+  depth?: 'sau'; depthTitle?: string }
 
 const join = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1).join(', ') + ' và ' + xs[xs.length - 1];
 function fill(t: string, vars: Record<string, string | undefined>): string {

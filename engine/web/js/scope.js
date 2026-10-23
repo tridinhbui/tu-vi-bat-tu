@@ -25,7 +25,7 @@ export function scopePanelBazi(b) {
   return `<details class="sc" id="scope-bz" open><summary><span class="sc-n">8</span><span><b>chữ</b> trên bốn trụ, cùng tàng can, Thập thần, đại vận và các quan hệ Can Chi</span><span class="muted small">Phạm vi luận giải</span></summary>
     <h5>Đã tính và đưa vào luận giải</h5><ul>
       <li><b>Thân vượng hay nhược</b>: theo phép chấm điểm của Thiệu Vĩ Hoa (Dự Đoán Theo Tứ Trụ, tr.331-355), phe nhật chủ từ 40% trở lên là vượng, dưới 40% là nhược. Sát ngưỡng thì gọi là “hơi vượng”, “hơi nhược” như sách gọi ở ví dụ tr.355. Ba tiêu chí đắc lệnh, đắc vị, đắc sinh của 八字真宗 (tr.26) vẫn được nêu riêng.</li>
-      <li><b>Cách cục và dụng thần</b>: cách lập từ chi tháng; dụng thần và vận tốt, vận xấu theo bảng của Thiệu Vĩ Hoa (tr.378-386).</li>
+      <li><b>Cách cục và dụng thần</b>: cách lập từ chi tháng; dụng thần và vận tốt, vận xấu theo bảng của Thiệu Vĩ Hoa (tr.378-386). Phép định cách mới xác lập một phần (tr.356-366), nên mọi lời xếp vận suy từ cách đều có điều kiện là cách được xác lập.</li>
       <li><b>Điều hậu</b>: các can bảng điều hậu nêu cho nhật chủ và tháng sinh (tr.389-396). Chính Thiệu Vĩ Hoa ghi bảng này do một độc giả gửi, chưa rõ xuất xứ (tr.388).</li>
       <li>Khi hai bảng trên cho kết quả khác nhau ở một đại vận hay một năm, bài luận nói rõ chỗ khác và đưa ra kết luận có điều kiện, không chọn ngầm một bên.</li>
       <li><b>Thần sát</b> (八字真宗 tr.21-22), <b>không vong</b>, <b>nạp âm</b> từng trụ, <b>trường sinh</b> (tr.24-25), cung hôn nhân và cung phối ngẫu (tr.57).</li>

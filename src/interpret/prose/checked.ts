@@ -11,9 +11,15 @@ const UNCHECKED = new Set(['pho_thong']);
  *  on the indices, a hạn's Hóa or natal link (reason/ledger.ts, prose/vanhan.ts). */
 const OWN = (s: ProseParagraph['sentences'][number]) => !!s.trace.ledger || /^(level|hoa|natal):/.test(s.trace.step ?? '');
 
+/** An illustration (basis minh_hoa, owner policy 2026-10-22) stays only next to the one sourced sentence it makes concrete: its trace.attach
+ *  names that sentence's step, and that sentence must be kept and be a book sentence or a computed one. */
+const attachedOk = (s: ProseParagraph['sentences'][number], kept: ProseParagraph['sentences']) =>
+  s.trace.basis !== 'minh_hoa' || (!!s.trace.attach && kept.some(k => k !== s && k.trace.step === s.trace.attach && (k.trace.basis === 'sach' || k.trace.basis === 'tinh_toan')));
+
 export function checkedParagraphs(ps: ProseParagraph[]): ProseParagraph[] {
   return ps.flatMap(p => {
-    const kept = p.sentences.filter(s => !UNCHECKED.has(s.trace.basis));
+    const kept0 = p.sentences.filter(s => !UNCHECKED.has(s.trace.basis));
+    const kept = kept0.filter(s => attachedOk(s, kept0));
     if (!kept.length || (kept.length < p.sentences.length && kept.every(s => s.trace.basis === 'he_thong' && !OWN(s)))) return [];
     if (kept.length === p.sentences.length) return [p];
     let sentences = kept;

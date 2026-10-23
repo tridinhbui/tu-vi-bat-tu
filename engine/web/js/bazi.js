@@ -104,7 +104,7 @@ export function renderBazi(host, b, ctx) {
   const lp = b.luck_pillars;
   const curIdx = luckIndexOn(lp);
   const tl = timeline(lp.map((l, i) => ({
-    title: `<span class="tl-han">${esc(l.name)}</span>`, sub: `${esc(l.ten_god)}`, meta: `${Math.round(l.start_age)} tuổi · ${luckFirstYear(l.start_year_exact)}`,
+    title: `<span class="tl-han">${esc(l.name)}</span>`, sub: `${esc(l.ten_god)}`, meta: `${Math.round(l.start_age)} tuổi thực · ${luckFirstYear(l.start_year_exact)}`,
     el: EL[STEMS[l.stem].e].slug, current: i === curIdx,
   })), { label: 'Các đại vận Bát Tự' });
 
@@ -180,7 +180,7 @@ export function renderBazi(host, b, ctx) {
       <div class="tm-scroll" id="tm-scroll"><ol class="tm-track" id="tm-track" style="--n:${lp.length}">${lp.map((l, i) => {
         const st = STEMS[l.stem], br = BRANCHES[l.branch], yrs = periodYears(l.start_year_exact, lp[i + 1]?.start_year_exact);
         return `<li><button type="button" class="tm-tab el-${EL[st.e].slug}${i === curIdx ? ' now' : ''}" data-i="${i}" aria-pressed="false"${i === curIdx ? ' aria-current="true"' : ''}>
-          <span class="tm-age">${Math.round(l.start_age)} tuổi</span><span class="tm-han" lang="zh">${st.h}${br.h}</span><span class="tm-vn">${esc(l.name)}</span><span class="tm-god">${esc(l.ten_god)}</span><span class="tm-yr">${yrs[0]}–${yrs[yrs.length - 1]}</span>${i === curIdx ? '<span class="tm-now">Hiện tại</span>' : ''}</button></li>`; }).join('')}
+          <span class="tm-age">${Math.round(l.start_age)} tuổi thực</span><span class="tm-han" lang="zh">${st.h}${br.h}</span><span class="tm-vn">${esc(l.name)}</span><span class="tm-god">${esc(l.ten_god)}</span><span class="tm-yr">${yrs[0]}–${yrs[yrs.length - 1]}</span>${i === curIdx ? '<span class="tm-now">Hiện tại</span>' : ''}</button></li>`; }).join('')}
         ${(() => { const i = curIdx; if (i < 0) return ''; const l = lp[i], nx = lp[i + 1], span = (nx ? nx.start_year_exact : l.start_year_exact + 10) - l.start_year_exact, f = Math.min(Math.max((nowFrac - l.start_year_exact) / span, 0), 1); return `<span class="tm-needle" style="left:${((i + f) / lp.length * 100).toFixed(2)}%" title="Hôm nay"><i>Nay ${now}</i></span>`; })()}
       </ol></div>
       <div class="tm-years" id="tm-years" aria-live="polite"></div>
@@ -288,8 +288,8 @@ export function renderBazi(host, b, ctx) {
   function panelPeriod() {
     const l = lp[S.li], st = STEMS[l.stem], br = BRANCHES[l.branch], yrs = periodYears(l.start_year_exact, lp[S.li + 1]?.start_year_exact);
     const god = terms()['god:' + l.ten_god]?.plain;
-    const calc = `<dl class="rd-dl">${row2('Đại vận', `${esc(l.name)} <span lang="zh">${st.h}${br.h}</span>`)}${row2('Thập thần của can', `<span class="gl" role="button" tabindex="0" data-gl="god:${esc(l.ten_god)}">${esc(l.ten_god)}</span>`)}${row2('Hành của can', elChip(st.e))}${row2('Bắt đầu', `${Math.round(l.start_age)} tuổi · ${esc(l.start_date)}`)}${row2('Các năm', `${yrs[0]}–${yrs[yrs.length - 1]}`)}</dl>${god ? `<p class="easy-only muted small">${esc(first(god))}</p>` : ''}<div id="rd-luckrel"><p class="muted small">Đang tải quan hệ với nguyên cục…</p></div>`;
-    return `${head('Đại vận', `<span class="rd-glyph el-${EL[st.e].slug}"><span lang="zh">${st.h}${br.h}</span>${esc(l.name)}</span>`, `${Math.round(l.start_age)}–${Math.round(l.start_age) + 9} tuổi`)}${tier('calc', calc)}${tier('src', `<p class="muted">Từng đại vận chỉ có dữ kiện; chưa có quy tắc đã đối chiếu sách cho từng chặng. Phân tích chung về đại vận nằm ở chương dưới.</p>${jump('dai-van', 'Mở chương Đại vận & lưu niên ↓')}`)}`;
+    const calc = `<dl class="rd-dl">${row2('Đại vận', `${esc(l.name)} <span lang="zh">${st.h}${br.h}</span>`)}${row2('Thập thần của can', `<span class="gl" role="button" tabindex="0" data-gl="god:${esc(l.ten_god)}">${esc(l.ten_god)}</span>`)}${row2('Hành của can', elChip(st.e))}${row2('Bắt đầu', `${Math.round(l.start_age)} tuổi thực · ${esc(l.start_date)}`)}${row2('Các năm', `${yrs[0]}–${yrs[yrs.length - 1]}`)}</dl>${god ? `<p class="easy-only muted small">${esc(first(god))}</p>` : ''}<div id="rd-luckrel"><p class="muted small">Đang tải quan hệ với nguyên cục…</p></div>`;
+    return `${head('Đại vận', `<span class="rd-glyph el-${EL[st.e].slug}"><span lang="zh">${st.h}${br.h}</span>${esc(l.name)}</span>`, `${Math.round(l.start_age)}–${Math.round(l.start_age) + 9} tuổi thực`)}${tier('calc', calc)}${tier('src', `<p class="muted">Từng đại vận chỉ có dữ kiện; chưa có quy tắc đã đối chiếu sách cho từng chặng. Phân tích chung về đại vận nằm ở chương dưới.</p>${jump('dai-van', 'Mở chương Đại vận & lưu niên ↓')}`)}`;
   }
   function panelYear() {
     const l = lp[S.li], y = S.year;
