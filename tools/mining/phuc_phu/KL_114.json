@@ -1,0 +1,33 @@
+{"pages_read": [
+  {"book": "KL", "page": 114, "image_checked": true, "note": "Thất Sát ở các cung: Phúc 3 lines, Phụ 1 line (khắc); triều đẩu = Dần Thân, ngưỡng đẩu = Tí Ngọ per the Quan line at top of the same page"}
+ ],
+ "entries": [
+  {"id": "kl114_phuc_sat_trieu_nguong_dau", "book": "KL", "page": 114, "palace": "Phúc Đức", "heading": "Thất sát ở các cung / Phúc:",
+   "full_line": "Ở thế triều đẩu và ngưỡng đẩu đắc phúc nhưng phải ly hương lập nghiệp.",
+   "quote": "Ở thế triều đẩu và ngưỡng đẩu đắc phúc nhưng phải ly hương lập nghiệp",
+   "condition_text": "Thất Sát ở Phúc, thế triều đẩu (Dần, Thân) hoặc ngưỡng đẩu (Tí, Ngọ)",
+   "condition": {"own_major": ["Thất Sát"], "branch": ["Dần", "Thân", "Tí", "Ngọ"],
+                 "other": "triều đẩu = Dần Thân, ngưỡng đẩu = Tí Ngọ as defined in the Quan line on the same page"},
+   "reading_vi": "được phúc nhưng phải rời quê lập nghiệp", "polarity": "support", "concepts": ["life.blessed", "life.mobility", "NEW:fortune.away_from_home"],
+   "notes": "two-sided: 'đắc phúc' + 'phải ly hương'"},
+  {"id": "kl114_phuc_sat_tu", "book": "KL", "page": 114, "palace": "Phúc Đức", "heading": "Thất sát ở các cung / Phúc:",
+   "full_line": "Sát Tử đồng cung: phải ly hương mới khá.", "quote": "Sát Tử đồng cung: phải ly hương mới khá",
+   "condition_text": "Thất Sát đồng cung Tử Vi ở Phúc",
+   "condition": {"own_major": ["Thất Sát", "Tử Vi"]},
+   "reading_vi": "phải rời quê mới khá lên", "polarity": "neutral", "concepts": ["life.mobility", "NEW:fortune.away_from_home"],
+   "notes": "related existing rule TV_KL_STAR_PHUC_DUC_TV_THAT_SAT (KL p.75-76, Tử Vi section: tha phương cầu thực) — this is the Thất Sát section's own line"},
+  {"id": "kl114_phuc_sat_liem_vu", "book": "KL", "page": 114, "palace": "Phúc Đức", "heading": "Thất sát ở các cung / Phúc:",
+   "full_line": "Sát Liêm hay Sát Vũ: giảm thọ vì bạc phúc.", "quote": "Sát Liêm hay Sát Vũ: giảm thọ vì bạc phúc",
+   "condition_text": "Thất Sát đi với Liêm Trinh hoặc với Vũ Khúc ở Phúc",
+   "condition": {"own_major": ["Thất Sát"], "with_any": ["Liêm Trinh", "Vũ Khúc"], "other": "Sát Liêm / Sát Vũ = đồng cung (only possible as same-palace pairs)"},
+   "reading_vi": "phúc mỏng nên kém thọ", "polarity": "limit", "concepts": ["life.hardship", "well.longevity"],
+   "skip": "lifespan reduction (giảm thọ) — close to yểu; 'bạc phúc' half could be used alone if the owner allows"},
+  {"id": "kl114_phu_sat_moi_cung", "book": "KL", "page": 114, "palace": "Phụ Mẫu", "heading": "Thất sát ở các cung / Phụ:",
+   "full_line": "Bất luận cung nào cũng xung khắc cha mẹ.", "quote": "Bất luận cung nào cũng xung khắc cha mẹ",
+   "condition_text": "Thất Sát ở Phụ Mẫu, bất cứ chi nào",
+   "condition": {"own_major": ["Thất Sát"], "other": "any branch"},
+   "reading_vi": "xung khắc với cha mẹ", "polarity": "limit", "concepts": ["NEW:parents.strain"],
+   "skip": "khắc cha mẹ (wording 'xung khắc'); note: existing verified TV_TH_P2_PHU_MAU_CO_HOI_TY_SUU reads 'xung khắc' as discord, so the owner may un-skip this"}
+ ],
+ "natures": []
+}

@@ -1,0 +1,45 @@
+PAGES = [{"book": "KL", "page": 102, "image_checked": True,
+          "note": "'Tham lang ở các cung' (Phối, Tài, Quan, Phúc, Tử) + 'Bài đọc thêm về sao Tham lang': no Di/Nô lines; one nature (thích giao tế)."},
+         {"book": "KL", "page": 105, "image_checked": True,
+          "note": "'Cự môn ở các cung': Di (2 bullets, 1 skipped: chết đường), Nô (2 bullets). Text layer in order."}]
+
+H = "Cự môn ở các cung"
+ENTRIES = [
+    {"id": "kl105_di_cu_mon_khau_thiet", "page": 105, "palace": "Thiên Di", "heading": H + " — Di",
+     "full_line": "Cự môn: bị khẩu thiệt.",
+     "quote": "Cự môn: bị khẩu thiệt",
+     "condition_text": "Cự Môn tọa thủ Thiên Di",
+     "condition": {"own_major": ["Cự Môn"]},
+     "reading_vi": "ra ngoài hay bị khẩu thiệt, điều tiếng",
+     "polarity": "limit", "concepts": ["outside.adverse", "NEW:travel.dispute"]},
+    {"id": "kl105_di_cu_hoa_linh", "page": 105, "palace": "Thiên Di", "heading": H + " — Di",
+     "full_line": "Cự môn, Hỏa Linh: chết đường.",
+     "quote": "Cự môn, Hỏa Linh: chết đường",
+     "condition_text": "Cự Môn ở Thiên Di with Hỏa Tinh, Linh Tinh",
+     "condition": {"own_major": ["Cự Môn"], "with_any": ["Hỏa Tinh", "Linh Tinh"]},
+     "reading_vi": "(không dùng)", "polarity": "limit", "concepts": [],
+     "skip": "death away from home (chết đường) — excluded by assignment"},
+    {"id": "kl105_no_cu_mon_oan_trach", "page": 105, "palace": "Nô Bộc", "heading": H + " — Nô",
+     "full_line": "Tôi tớ bạn bè oán trách.",
+     "quote": "Tôi tớ bạn bè oán trách",
+     "condition_text": "Cự Môn tọa thủ Nô Bộc",
+     "condition": {"own_major": ["Cự Môn"]},
+     "reading_vi": "người giúp việc, bạn bè hay oán trách",
+     "polarity": "limit", "concepts": ["NEW:ally.resent"]},
+    {"id": "kl105_no_cu_mon_ham_phan_boi", "page": 105, "palace": "Nô Bộc", "heading": H + " — Nô",
+     "full_line": "Bị phản bội nếu hãm địa.",
+     "quote": "Bị phản bội nếu hãm địa",
+     "condition_text": "Cự Môn hãm địa ở Nô Bộc",
+     "condition": {"own_major": ["Cự Môn"], "dignity": {"Cự Môn": ["hãm"]}},
+     "reading_vi": "bị bạn bè, người dưới phản bội",
+     "polarity": "limit", "concepts": ["ally.disloyal", "NEW:ally.betray"]},
+]
+
+NATURES = [
+    {"id": "tham_lang.giao_te", "kind": "star_nature", "star": "Tham Lang", "palace": None, "page": 102,
+     "quote": "Thích giao tế, lui tới chốn ăn nhậu ồn ào",
+     "full_line": "Thích giao tế, lui tới chốn ăn nhậu ồn ào.",
+     "text": "thích giao tế, hay lui tới chốn đông vui ồn ào", "use": ["allies", "travel"], "pol": "±",
+     "explains": ["ally.many", "outside.active"],
+     "notes": "Bullet of 'Bài đọc thêm về sao Tham lang'. Not star-in-palace; a trait usable as the 'why' of Tham Lang at Nô/Di readings about many contacts."},
+]

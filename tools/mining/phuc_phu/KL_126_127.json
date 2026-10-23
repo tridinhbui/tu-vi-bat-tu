@@ -1,0 +1,31 @@
+{"pages_read": [
+  {"book": "KL", "page": 126, "image_checked": true, "note": "Không Kiếp ở các cung: Phụ 2 lines"},
+  {"book": "KL", "page": 127, "image_checked": true, "note": "Không Kiếp ở các cung (cont.): Phúc 2 lines (đắc/hãm)"}
+ ],
+ "entries": [
+  {"id": "kl126_phu_khong_kiep_ly_cach", "book": "KL", "page": 126, "palace": "Phụ Mẫu", "heading": "Không Kiếp ở các cung / Phụ:",
+   "full_line": "Cha mẹ ly cách.", "quote": "Cha mẹ ly cách",
+   "condition_text": "Không Kiếp ở Phụ Mẫu",
+   "condition": {"own_stars": ["Địa Không", "Địa Kiếp"], "other": "section treats Không Kiếp as a pair; whether one star suffices is not stated"},
+   "reading_vi": "cha mẹ xa cách nhau / ly cách", "polarity": "limit", "concepts": ["NEW:parents.apart", "kin.apart"],
+   "notes": "'ly cách' = separation (of parents, or parent from child); not a death statement"},
+  {"id": "kl126_phu_khong_kiep_ganh_no", "book": "KL", "page": 126, "palace": "Phụ Mẫu", "heading": "Không Kiếp ở các cung / Phụ:",
+   "full_line": "Không nhờ vả anh mẹ mà còn gánh nợ di truyền.", "quote": "Không nhờ vả anh mẹ mà còn gánh nợ di truyền",
+   "condition_text": "Không Kiếp ở Phụ Mẫu",
+   "condition": {"own_stars": ["Địa Không", "Địa Kiếp"]},
+   "reading_vi": "không nhờ được cha mẹ mà còn phải gánh nợ để lại", "polarity": "limit", "concepts": ["kin.burden", "NEW:parents.no_support"],
+   "notes": "'anh mẹ' sic on the page (= cha mẹ, under heading Phụ). 'gánh nợ di truyền' could mean inherited debt or inherited burden; paraphrase kept literal-ish"},
+  {"id": "kl127_phuc_khong_kiep_dac", "book": "KL", "page": 127, "palace": "Phúc Đức", "heading": "Không Kiếp ở các cung / Phúc:",
+   "full_line": "Đắc địa : hưởng lộc một thời gian.", "quote": "Đắc địa : hưởng lộc một thời gian",
+   "condition_text": "Không Kiếp đắc địa ở Phúc",
+   "condition": {"own_stars": ["Địa Không", "Địa Kiếp"], "dignity": {"Địa Không": ["đắc"], "Địa Kiếp": ["đắc"]}},
+   "reading_vi": "được hưởng lộc một thời gian (không bền)", "polarity": "support", "concepts": ["fin.volatile", "life.transient"],
+   "notes": "existing TV_KL_STAR_PHUC_DUC_KHONG_KIEP (KL p.65: Không Kiếp thủ Tài/Phúc → nghèo khổ) is a different line without dignity"},
+  {"id": "kl127_phuc_khong_kiep_ham", "book": "KL", "page": 127, "palace": "Phúc Đức", "heading": "Không Kiếp ở các cung / Phúc:",
+   "full_line": "Hãm địa: bất hạnh lớn.", "quote": "Hãm địa: bất hạnh lớn",
+   "condition_text": "Không Kiếp hãm địa ở Phúc",
+   "condition": {"own_stars": ["Địa Không", "Địa Kiếp"], "dignity": {"Địa Không": ["hãm"], "Địa Kiếp": ["hãm"]}},
+   "reading_vi": "bất hạnh lớn", "polarity": "limit", "concepts": ["life.hardship"]}
+ ],
+ "natures": []
+}

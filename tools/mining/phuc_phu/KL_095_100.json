@@ -1,0 +1,22 @@
+{"pages_read": [
+  {"book": "KL", "page": 95, "image_checked": true, "note": "Chòm Thiên Phủ intro: 'đa số thường được coi là phúc tinh'"},
+  {"book": "KL", "page": 96, "image_checked": true, "note": "Thiên phủ ở các cung: Mệnh, Tài/Điền/Quan, Phối, Vận — no Phúc/Phụ heading. 'Tử vi là người cha… / Thiên phủ là người mẹ hiền' are character metaphors, not the parents palace — not recorded"},
+  {"book": "KL", "page": 97, "image_checked": true, "note": "Bài đọc thêm Thiên phủ + Thế đứng; no Phúc/Phụ lines"},
+  {"book": "KL", "page": 98, "image_checked": true, "note": "Thái âm natures/combos; no Phúc/Phụ"},
+  {"book": "KL", "page": 99, "image_checked": true, "note": "Thái âm ở các cung: Mệnh, Bào, Phối, Tử, Tài, Di, Nô, Quan — no Phúc/Phụ heading"},
+  {"book": "KL", "page": 100, "image_checked": true, "note": "Bài đọc thêm Thái âm: 'Biểu tượng người mẹ, người vợ'; Thế đứng lines are Mệnh"}
+ ],
+ "entries": [],
+ "natures": [
+  {"id": "tu_phu.phuc_tinh", "kind": "star_nature", "star": "chòm Tử Vi, chòm Thiên Phủ", "book": "KL", "page": 95,
+   "quote": "Các sao trong hai chòm Tử vi và Thiên phủ đa số thường được coi là phúc tinh",
+   "full_line": "Các sao trong hai chòm Tử vi và Thiên phủ đa số thường được coi là phúc tinh.",
+   "text": "đa số các sao trong hai chòm Tử Vi và Thiên Phủ được coi là phúc tinh", "use": ["fortune"], "pol": "+",
+   "explains": ["life.blessed"], "notes": "group statement ('đa số'), weak; useful only as background"},
+  {"id": "thai_am.bieu_tuong_me", "kind": "star_nature", "star": "Thái Âm", "book": "KL", "page": 100,
+   "quote": "Biểu tượng người mẹ, người vợ, con mắt",
+   "full_line": "Biểu tượng người mẹ, người vợ, con mắt",
+   "text": "Thái Âm là biểu tượng người mẹ, người vợ, con mắt", "use": ["parents"], "pol": "±",
+   "explains": ["NEW:parents.prosper", "NEW:parents.strain"], "notes": "bullet of 'Bài đọc thêm về Sao Thái âm' (heading on p.99)"}
+ ]
+}

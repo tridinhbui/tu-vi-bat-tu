@@ -1,0 +1,20 @@
+{"pages_read": [
+  {"book": "KL", "page": 134, "image_checked": true, "note": "Kình Dương and các sao khác (no Phúc/Phụ heading); Đà La section begins"},
+  {"book": "KL", "page": 135, "image_checked": true, "note": "Đà La ở các cung: Phúc 1 line"},
+  {"book": "KL", "page": 136, "image_checked": true, "note": "Song Hao ở các cung: combined heading 'Phúc, Nô' with two lines; text layer scrambled (heading separated from its lines)"}
+ ],
+ "entries": [
+  {"id": "kl135_phuc_da_dan_than_vcd", "book": "KL", "page": 135, "palace": "Phúc Đức", "heading": "Đà la ở các cung / Phúc:",
+   "full_line": "Đà Dần Thân Vô chính diệu: phúc thọ may mắn.", "quote": "Đà Dần Thân Vô chính diệu: phúc thọ may mắn",
+   "condition_text": "Đà La ở Phúc tại Dần hoặc Thân, cung Phúc vô chính diệu",
+   "condition": {"own_major": [], "own_stars": ["Đà La"], "branch": ["Dần", "Thân"], "other": "Phúc vô chính diệu (no chính tinh)"},
+   "reading_vi": "phúc thọ, may mắn", "polarity": "support", "concepts": ["life.blessed", "well.longevity"]},
+  {"id": "kl136_phuc_song_hao", "book": "KL", "page": 136, "palace": "Phúc Đức", "heading": "Song Hao ở các cung / Phúc, Nô :",
+   "full_line": "Bần tàn, ly tán.", "quote": "Bần tàn, ly tán",
+   "condition_text": "Song Hao (Đại Hao, Tiểu Hao) ở Phúc",
+   "condition": {"own_stars": ["Đại Hao", "Tiểu Hao"], "other": "combined heading 'Phúc, Nô'; the first line (bần tàn, ly tán) is read as the Phúc line and the second (tôi tớ trộm cắp) as the Nô line — this pairing is by order, not stated"},
+   "reading_vi": "nghèo khó, ly tán", "polarity": "limit", "concepts": ["life.hardship", "NEW:fortune.clan_scattered"],
+   "notes": "uncertain mapping of line → palace under a combined heading; Song Hao as a pair"}
+ ],
+ "natures": []
+}

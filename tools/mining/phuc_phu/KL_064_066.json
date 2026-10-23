@@ -1,0 +1,21 @@
+{"pages_read": [
+  {"book": "KL", "page": 64, "image_checked": false, "note": "text layer only: 'khắc sát … cha mẹ' is a Mệnh phú line (Kình, Hư, Tuế, Khách) — not a Phụ Mẫu line, not recorded"},
+  {"book": "KL", "page": 65, "image_checked": true, "note": "Phú đoán Không Kiếp #1: Tài/Phúc line (existing rule)"},
+  {"book": "KL", "page": 66, "image_checked": true, "note": "Phú đoán Tứ hóa #6: Tài/Phúc line (existing rule)"}
+ ],
+ "entries": [
+  {"id": "kl065_phuc_khong_kiep_tai_phuc", "book": "KL", "page": 65, "palace": "Phúc Đức", "heading": "PHÚ ĐOÁN VỀ KHÔNG KIẾP / 1. Kiếp, Không lâm tài phúc chi hương, sinh lai bần tiện",
+   "full_line": "Cung Tài, cung Phúc có Không Kiếp toạ thủ là người có số nghèo khổ.", "quote": "Cung Tài, cung Phúc có Không Kiếp toạ thủ là người có số nghèo khổ",
+   "condition_text": "Không Kiếp tọa thủ cung Phúc (or cung Tài)",
+   "condition": {"own_stars": ["Địa Không", "Địa Kiếp"], "other": "tọa thủ; line covers Tài or Phúc"},
+   "reading_vi": "số nghèo khổ", "polarity": "limit", "concepts": ["fin.scarcity", "life.hardship"],
+   "duplicate_of": "TV_KL_STAR_PHUC_DUC_KHONG_KIEP"},
+  {"id": "kl066_phuc_quyen_loc_tai_phuc", "book": "KL", "page": 66, "palace": "Phúc Đức", "heading": "PHÚ ĐOÁN VỀ SAO TỨ HÓA / 6. Quyền, Lộc thủ Tài, Phúc chi vị, sử thê vinh hoa",
+   "full_line": "Cung Tài, cung phúc có Hóa quyền, Hoá lộc toạ thủ thì được giàu sang nổi tiếng.", "quote": "Cung Tài, cung phúc có Hóa quyền, Hoá lộc toạ thủ thì được giàu",
+   "condition_text": "Hóa Quyền, Hóa Lộc tọa thủ cung Phúc (or cung Tài)",
+   "condition": {"own_stars": ["Hóa Quyền", "Hóa Lộc"], "other": "tọa thủ; line covers Tài or Phúc"},
+   "reading_vi": "được giàu sang, nổi tiếng", "polarity": "support", "concepts": ["fin.abundance", "career.fame"],
+   "duplicate_of": "TV_KL_STAR_PHUC_DUC_QUYEN_LOC"}
+ ],
+ "natures": []
+}

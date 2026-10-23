@@ -1,0 +1,24 @@
+{"pages_read": [
+  {"book": "KL", "page": 93, "image_checked": true, "note": "Liêm trinh ở các cung: Mệnh..Nô; no Phúc/Phụ here"},
+  {"book": "KL", "page": 94, "image_checked": true, "note": "Liêm trinh ở các cung (cont.): Phụ 3 lines; no Phúc heading. 'Liêm trinh ở Dần, đơn thủ ... sinh ra đời giữa lúc bố mẹ đang gặp khó khăn' is a Thế đứng (Mệnh) line — not recorded"}
+ ],
+ "entries": [
+  {"id": "kl094_phu_liem_phu_tuong", "book": "KL", "page": 94, "palace": "Phụ Mẫu", "heading": "Liêm trinh ở các cung / Phụ:",
+   "full_line": "Đồng cung với Thiên phủ, Thiên tướng thì cha mẹ khá giả.", "quote": "Đồng cung với Thiên phủ, Thiên tướng thì cha mẹ khá giả",
+   "condition_text": "Liêm Trinh đồng cung Thiên Phủ hoặc Thiên Tướng ở Phụ Mẫu",
+   "condition": {"own_major": ["Liêm Trinh"], "with_any": ["Thiên Phủ", "Thiên Tướng"], "other": "đồng cung with either (Liêm Phủ Thìn Tuất, Liêm Tướng Tí Ngọ)"},
+   "reading_vi": "cha mẹ khá giả", "polarity": "support", "concepts": ["NEW:parents.prosper"]},
+  {"id": "kl094_phu_liem_tham_dan_than", "book": "KL", "page": 94, "palace": "Phụ Mẫu", "heading": "Liêm trinh ở các cung / Phụ:",
+   "full_line": "Đồng cung với Tham lang tại Dần Thân, cha mẹ nghèo.", "quote": "Đồng cung với Tham lang tại Dần Thân, cha mẹ nghèo",
+   "condition_text": "Liêm Trinh đồng cung Tham Lang tại Dần Thân ở Phụ Mẫu (as printed)",
+   "condition": {"own_major": ["Liêm Trinh", "Tham Lang"], "branch": ["Dần", "Thân"],
+                 "other": "as printed; Liêm Tham đồng cung only occurs at Tỵ/Hợi, so the literal condition can never fire — probably a book slip for Tỵ Hợi; owner to decide, do not silently change the branch"},
+   "reading_vi": "cha mẹ nghèo", "polarity": "limit", "concepts": ["NEW:parents.poor"]},
+  {"id": "kl094_phu_liem_sat_tham", "book": "KL", "page": 94, "palace": "Phụ Mẫu", "heading": "Liêm trinh ở các cung / Phụ:",
+   "full_line": "Đông cung với Thất sát, Tham lang: mồ côi sớm.", "quote": "Đông cung với Thất sát, Tham lang: mồ côi sớm",
+   "condition_text": "Liêm Trinh đồng cung Thất Sát hoặc Tham Lang ở Phụ Mẫu",
+   "condition": {"own_major": ["Liêm Trinh"], "with_any": ["Thất Sát", "Tham Lang"]},
+   "reading_vi": "mồ côi sớm", "polarity": "limit", "concepts": ["NEW:parents.strain"], "skip": "mồ côi sớm (early death of parents)"}
+ ],
+ "natures": []
+}

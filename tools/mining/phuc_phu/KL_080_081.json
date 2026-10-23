@@ -1,0 +1,25 @@
+{"pages_read": [
+  {"book": "KL", "page": 80, "image_checked": true, "note": "Thiên cơ ở các cung: 'Phúc:' heading at page bottom, its lines are on p.81"},
+  {"book": "KL", "page": 81, "image_checked": true, "note": "Thiên cơ Phúc 3 lines (2 already rules), Phụ 1 line (rule)"}
+ ],
+ "entries": [
+  {"id": "kl081_phuc_co_hoi_ti_suu", "book": "KL", "page": 81, "palace": "Phúc Đức", "heading": "Thiên cơ ở các cung / Phúc: (heading on p.80)",
+   "full_line": "Cơ ở Hợi Tí Sửu thì bạc phúc", "quote": "Cơ ở Hợi Tí Sửu thì bạc phúc",
+   "condition_text": "Thiên Cơ ở Phúc tại Hợi, Tí, Sửu", "condition": {"own_major": ["Thiên Cơ"], "branch": ["Hợi", "Tí", "Sửu"]},
+   "reading_vi": "phúc mỏng", "polarity": "limit", "concepts": ["life.hardship"], "duplicate_of": "TV_KL_STAR_PHUC_DUC_CO_HOI_TY_SUU"},
+  {"id": "kl081_phuc_co_ty_ngo_mui", "book": "KL", "page": 81, "palace": "Phúc Đức", "heading": "Thiên cơ ở các cung / Phúc: (heading on p.80)",
+   "full_line": "Cơ ở Tỵ Ngọ Mùi thì hưởng phúc", "quote": "Cơ ở Tỵ Ngọ Mùi thì hưởng phúc",
+   "condition_text": "Thiên Cơ ở Phúc tại Tỵ, Ngọ, Mùi", "condition": {"own_major": ["Thiên Cơ"], "branch": ["Tỵ", "Ngọ", "Mùi"]},
+   "reading_vi": "được hưởng phúc", "polarity": "support", "concepts": ["life.blessed"], "duplicate_of": "TV_KL_STAR_PHUC_DUC_CO_TY_NGO_MUI"},
+  {"id": "kl081_phuc_co_dan", "book": "KL", "page": 81, "palace": "Phúc Đức", "heading": "Thiên cơ ở các cung / Phúc: (heading on p.80)",
+   "full_line": "Cơ ở Dần thì kém phúc, đàn bà trắc trở vợ chồng.", "quote": "Cơ ở Dần thì kém phúc",
+   "condition_text": "Thiên Cơ ở Phúc tại Dần", "condition": {"own_major": ["Thiên Cơ"], "branch": ["Dần"]},
+   "reading_vi": "kém phúc; nữ mệnh trắc trở vợ chồng", "polarity": "limit", "concepts": ["life.hardship"],
+   "notes": "second half ('đàn bà trắc trở vợ chồng') is a marriage statement for women carried by a Phúc line — use only the 'kém phúc' half for Phúc Đức"},
+  {"id": "kl081_phu_co_cu", "book": "KL", "page": 81, "palace": "Phụ Mẫu", "heading": "Thiên cơ ở các cung / Phụ:",
+   "full_line": "Cơ Cự cha mẹ xa cách", "quote": "Cơ Cự cha mẹ xa cách",
+   "condition_text": "Thiên Cơ, Cự Môn (đồng cung) ở Phụ Mẫu", "condition": {"own_major": ["Thiên Cơ", "Cự Môn"]},
+   "reading_vi": "xa cách cha mẹ", "polarity": "limit", "concepts": ["NEW:parents.apart", "kin.apart"], "duplicate_of": "TV_KL_STAR_PHU_MAU_CU_CO"}
+ ],
+ "natures": []
+}

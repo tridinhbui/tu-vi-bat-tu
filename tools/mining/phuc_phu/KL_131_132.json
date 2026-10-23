@@ -1,0 +1,31 @@
+{"pages_read": [
+  {"book": "KL", "page": 131, "image_checked": true, "note": "Ân Quang - Thiên Quí section: natures (phúc đức đời sau, giúp đỡ của Trời); 'Quan Quí ở các cung' starts (no Phúc/Phụ here)"},
+  {"book": "KL", "page": 132, "image_checked": true, "note": "Quang Quí ở các cung (cont.): Phúc 2 lines; nature 'chủ về lễ bái ... mối bận tâm'"}
+ ],
+ "entries": [
+  {"id": "kl132_phuc_quang_quy_than_linh", "book": "KL", "page": 132, "palace": "Phúc Đức", "heading": "Quan Quí [Ân Quang - Thiên Quí] ở các cung / Phúc:",
+   "full_line": "Được thần linh che chở, ước gì được nấy.", "quote": "Được thần linh che chở, ước gì được nấy",
+   "condition_text": "Ân Quang, Thiên Quí ở Phúc",
+   "condition": {"own_stars": ["Ân Quang", "Thiên Quý"], "other": "section heading treats Quang Quí as a pair; one star alone not stated"},
+   "reading_vi": "được che chở, mong gì được nấy", "polarity": "support", "concepts": ["life.blessed", "NEW:fortune.protected"],
+   "notes": "heading misprinted 'Quan Quí ở các cung' on p.131 (section 2. Ân quang - Thiên quí)"},
+  {"id": "kl132_phuc_quang_quy_tho", "book": "KL", "page": 132, "palace": "Phúc Đức", "heading": "Quan Quí [Ân Quang - Thiên Quí] ở các cung / Phúc:",
+   "full_line": "Được hưởng thọ.", "quote": "Được hưởng thọ",
+   "condition_text": "Ân Quang, Thiên Quí ở Phúc",
+   "condition": {"own_stars": ["Ân Quang", "Thiên Quý"]},
+   "reading_vi": "được hưởng thọ", "polarity": "support", "concepts": ["well.longevity"]}
+ ],
+ "natures": [
+  {"id": "quang_quy.phuc_duc_doi_sau", "kind": "star_nature", "star": "Ân Quang, Thiên Quý", "book": "KL", "page": 131,
+   "quote": "Quang Quí biểu hiện sự giúp đỡ của Trời, Tả Hữu, nói lên sự giúp đỡ của người",
+   "full_line": "Hai sao tượng trưng cho: - phúc đức đời sau - thông minh, tin vui, Quang Quí biểu hiện sự giúp đỡ của Trời, Tả Hữu, nói lên sự giúp đỡ của người.",
+   "text": "Quang Quý tượng trưng cho phúc đức đời sau, biểu hiện sự giúp đỡ của Trời (Tả Hữu là sự giúp đỡ của người)", "use": ["fortune"], "pol": "+",
+   "explains": ["life.blessed", "NEW:fortune.protected"],
+   "notes": "'phúc đức đời sau' is a separate bullet; it also passes --check"},
+  {"id": "quang_quy.le_bai_ban_tam", "kind": "star_nature", "star": "Ân Quang, Thiên Quý", "book": "KL", "page": 132,
+   "quote": "Quang Quí còn có nghĩa là mối bận tâm, lo lắng",
+   "full_line": "Ngoài ra, Quang Quí chủ về lễ bái. Khi phải lễ bái để cầu xin ơn trên phù hộ là đang có việc lo âu, cho nên Quang Quí còn có nghĩa là mối bận tâm, lo lắng.",
+   "text": "Quang Quý chủ về lễ bái; phải cầu xin phù hộ là đang có việc lo, nên Quang Quý còn là mối bận tâm, lo lắng", "use": ["fortune"], "pol": "±",
+   "explains": ["inner.unrest", "life.mitigated"], "notes": "the book adds: like Hóa Khoa, a cứu giải star signals a difficulty in progress"}
+ ]
+}

@@ -1,0 +1,26 @@
+{"pages_read": [
+  {"book": "TH", "page": 96, "image_checked": true, "note": "B. ĐOÁN VỀ NỮ MỆNH verse: 'Cung Phu, Phúc đôi nơi phải rõ' (palace relation for women's charts)"},
+  {"book": "TH", "page": 97, "image_checked": false, "note": "text layer only: 'Sát hung kém phúc' is a nữ mệnh (Mệnh) line — not recorded"},
+  {"book": "TH", "page": 98, "image_checked": true, "note": "nữ mệnh verse; 'Hồng Đào ngộ Kỵ Phụ cung' continues on p.99 with a marriage line ('Tơ hồng đã dứt') — it is Phu (husband) cung, not Phụ Mẫu; not recorded"},
+  {"book": "TH", "page": 99, "image_checked": true, "note": "nữ mệnh verse: 'Thất sát cung Phúc đáng lo / Nhỡ nhàng số ấy ca nô hành nghề' (skip); then CUNG BÀO"},
+  {"book": "TH", "page": 105, "image_checked": false, "note": "text layer only: 'phúc trọng' is in CUNG TÀI — not recorded"},
+  {"book": "TH", "page": 107, "image_checked": false, "note": "text layer only: 'Ấu nhi cha mẹ âu lo thuốc thầy' is in the Tật Ách verse (children's illness) — not recorded"},
+  {"book": "TH", "page": 111, "image_checked": false, "note": "text layer only: 'Ân quang, phúc lộc' is in the Điền Trạch verse — not recorded"}
+ ],
+ "entries": [
+  {"id": "th099_phuc_that_sat_nu_menh", "book": "TH", "page": 99, "palace": "Phúc Đức", "heading": "B. ĐOÁN VỀ NỮ MỆNH (verse)",
+   "full_line": "Thất sát cung Phúc đáng lo. / Nhỡ nhàng số ấy ca nô hành nghề",
+   "quote": "Thất sát cung Phúc đáng lo",
+   "condition_text": "nữ mệnh, Thất Sát ở cung Phúc",
+   "condition": {"own_major": ["Thất Sát"], "other": "women's charts only (nữ mệnh section)"},
+   "reading_vi": "đáng lo; số lỡ làng phải hành nghề ca nô", "polarity": "limit", "concepts": ["life.hardship"],
+   "skip": "sexual reputation (ca nô) in a nữ mệnh line"}
+ ],
+ "natures": [
+  {"id": "th.nu_menh_phu_phuc", "kind": "palace_relation", "palace": "Phúc Đức", "book": "TH", "page": 96,
+   "quote": "Cung Phu, Phúc đôi nơi phải rõ",
+   "full_line": "Cung Phu, Phúc đôi nơi phải rõ / Mới luận bàn độ số hư nên.",
+   "text": "xem số nữ mệnh phải xét rõ cả cung Phu và cung Phúc mới luận được hay dở", "use": ["fortune", "marriage"], "pol": "±",
+   "explains": ["life.blessed", "life.hardship"], "notes": "nữ mệnh section"}
+ ]
+}

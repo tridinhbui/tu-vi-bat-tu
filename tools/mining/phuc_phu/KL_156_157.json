@@ -1,0 +1,13 @@
+{"pages_read": [
+  {"book": "KL", "page": 156, "image_checked": true, "note": "Hóa quyền ở các cung (no Phúc/Phụ); Hóa kỵ section starts, 'Hóa kỵ ở các cung' heading"},
+  {"book": "KL", "page": 157, "image_checked": true, "note": "Hóa kỵ ở các cung (cont.): Phụ 1 line. 'Tử: Cha mẹ xung khắc con cái' belongs to Tử Tức — not recorded here"}
+ ],
+ "entries": [
+  {"id": "kl157_phu_hoa_ky", "book": "KL", "page": 157, "palace": "Phụ Mẫu", "heading": "Hóa kỵ ở các cung / Phụ:",
+   "full_line": "Cha mẹ bất hòa.", "quote": "Cha mẹ bất hòa",
+   "condition_text": "Hóa Kỵ ở Phụ Mẫu",
+   "condition": {"own_stars": ["Hóa Kỵ"]},
+   "reading_vi": "cha mẹ bất hòa", "polarity": "limit", "concepts": ["NEW:parents.strain", "kin.strain"]}
+ ],
+ "natures": []
+}

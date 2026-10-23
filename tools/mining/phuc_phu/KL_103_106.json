@@ -1,0 +1,22 @@
+{"pages_read": [
+  {"book": "KL", "page": 104, "image_checked": true, "note": "Cự môn thế đứng / các sao khác / ở các cung (Mệnh); no Phúc/Phụ"},
+  {"book": "KL", "page": 105, "image_checked": true, "note": "Cự môn ở các cung: Phụ 1 line; no Phúc heading"},
+  {"book": "KL", "page": 106, "image_checked": true, "note": "Bài đọc thêm Cự môn: Phu Thê xấu + Mệnh/Thân/Phúc xấu sentence (palace relation); 'dựa hơi bố mẹ' is a Thế đứng (Mệnh) line — not recorded"}
+ ],
+ "entries": [
+  {"id": "kl105_phu_cu_bat_hoa", "book": "KL", "page": 105, "palace": "Phụ Mẫu", "heading": "Cự môn ở các cung / Phụ:",
+   "full_line": "Cha mẹ bật hòa.", "quote": "Cha mẹ bật hòa",
+   "condition_text": "Cự Môn ở Phụ Mẫu (no branch / brightness given)",
+   "condition": {"own_major": ["Cự Môn"]},
+   "reading_vi": "cha mẹ bất hòa (với nhau hoặc với mình)", "polarity": "limit", "concepts": ["NEW:parents.strain", "kin.strain"],
+   "notes": "'bật hòa' sic (= bất hòa). Same meaning as part of KL p.220 rule TV_KL_CUNG_PHU_MAU_HUNG (Cự Môn among bad stars) but a separate line"}
+ ],
+ "natures": [
+  {"id": "phuc.phu_the_cu_mon", "kind": "palace_relation", "star": "Cự Môn", "palace": "Phúc Đức", "book": "KL", "page": 106,
+   "quote": "Cự môn đóng ở cung Phu Thê là xấu nhất, nếu cung Mệnh, Thân, Phúc cũng xấu thì vợ chồng",
+   "full_line": "Cự môn đóng ở cung Phu Thê là xấu nhất, nếu cung Mệnh, Thân, Phúc cũng xấu thì vợ chồng khắc khẩu, sinh ly, tử biệt.",
+   "text": "Cự Môn ở Phu Thê là xấu nhất; nếu Mệnh, Thân, Phúc cũng xấu thì vợ chồng khắc khẩu, chia lìa", "use": ["fortune", "marriage"], "pol": "-",
+   "explains": ["life.hardship"],
+   "notes": "shows a bad Phúc aggravating a bad Phu Thê; the sentence ends with 'tử biệt' (death) — use only the relation, never the death word"}
+ ]
+}

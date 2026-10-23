@@ -1,0 +1,27 @@
+{"pages_read": [
+  {"book": "KL", "page": 86, "image_checked": true, "note": "Thế đứng Thái dương (Mệnh lines only; 'dựa hơi cha mẹ' is a Mệnh line for Cự Nhật Dần — not recorded)"},
+  {"book": "KL", "page": 87, "image_checked": true, "note": "Vũ Khúc natures; Vũ khúc ở các cung starts; no Phúc/Phụ"},
+  {"book": "KL", "page": 88, "image_checked": true, "note": "Vũ khúc ở các cung: Tài/Điền, Tật, Di, Quan only — no Phúc/Phụ heading"},
+  {"book": "KL", "page": 89, "image_checked": true, "note": "Thiên Đồng natures: 'đại phúc tinh (hơn cả Tử vi)'"},
+  {"book": "KL", "page": 90, "image_checked": true, "note": "Thiên đồng ở các cung: Mệnh bullet 'Thiên đồng là chủ tể cung Phúc đức'; no Phúc/Phụ heading"},
+  {"book": "KL", "page": 91, "image_checked": true, "note": "Bài đọc thêm Thiên đồng: 'sao phủ về phúc thọ'"}
+ ],
+ "entries": [],
+ "natures": [
+  {"id": "thien_dong.dai_phuc_tinh", "kind": "star_nature", "star": "Thiên Đồng", "book": "KL", "page": 89,
+   "quote": "Thiên đồng là một trong những đại phúc tinh (hơn cả Tử vi)",
+   "full_line": "Rộng lượng và từ thiện. Thiên đồng là một trong những đại phúc tinh (hơn cả Tử vi).",
+   "text": "Thiên Đồng là một trong những đại phúc tinh, hơn cả Tử Vi", "use": ["fortune"], "pol": "+",
+   "explains": ["life.blessed"]},
+  {"id": "thien_dong.chu_te_phuc", "kind": "palace_relation", "star": "Thiên Đồng", "palace": "Phúc Đức", "book": "KL", "page": 90,
+   "quote": "Thiên đồng là chủ tể cung Phúc đức",
+   "full_line": "Thiên đồng là chủ tể cung Phúc đức",
+   "text": "Thiên Đồng là sao chủ tể của cung Phúc Đức", "use": ["fortune"], "pol": "+",
+   "explains": ["life.blessed"], "notes": "printed as the first bullet under 'Thiên đồng ở các cung / Mệnh:' but states the star's ruling palace"},
+  {"id": "thien_dong.phuc_tho", "kind": "star_nature", "star": "Thiên Đồng", "book": "KL", "page": 91,
+   "quote": "Thiên đồng là sao phủ về phúc thọ",
+   "full_line": "Thiên đồng là sao phủ về phúc thọ,",
+   "text": "Thiên Đồng là sao chủ về phúc thọ", "use": ["fortune"], "pol": "+",
+   "explains": ["life.blessed", "well.longevity"], "notes": "'phủ' sic (= chủ)"}
+ ]
+}

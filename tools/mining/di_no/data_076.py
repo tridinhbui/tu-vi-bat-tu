@@ -1,0 +1,25 @@
+PAGES = [{"book": "KL", "page": 76, "image_checked": True,
+          "note": "'Tử vi ở các cung' (cont.): Di has one bullet; no Nô heading for Tử Vi. Text layer in order."},
+         {"book": "KL", "page": 80, "image_checked": True,
+          "note": "'Thiên cơ ở các cung': Nô has one bullet; no Di heading for Thiên Cơ (p.81 has only Phụ, Vận). Text layer in order."}]
+
+ENTRIES = [
+    {"id": "kl076_di_tu_vi_pha_tham", "page": 76, "palace": "Thiên Di", "heading": "Tử vi ở các cung — Di",
+     "full_line": "Gặp Phá quân Tham lang thường bị dèm pha, quấy nhiễu.",
+     "quote": "Gặp Phá quân Tham lang thường bị dèm pha, quấy nhiễu",
+     "condition_text": "Tử Vi ở Thiên Di gặp Phá Quân, Tham Lang",
+     "condition": {"own_major": ["Tử Vi"], "with_any": ["Phá Quân", "Tham Lang"],
+                   "other": "book word 'gặp' (meets) Phá quân / Tham lang; with Tử Vi in Di, Phá or Tham can only be đồng cung (Tử Phá Sửu Mùi, Tử Tham Mão Dậu)"},
+     "reading_vi": "ra ngoài thường bị dèm pha, quấy nhiễu",
+     "polarity": "limit", "concepts": ["outside.adverse", "NEW:travel.dispute"],
+     "duplicate_of": "TV_KL_STAR_THIEN_DI_TV_PHA_THAM"},
+    {"id": "kl080_no_co_luong_ta_huu", "page": 80, "palace": "Nô Bộc", "heading": "Thiên cơ ở các cung — Nô",
+     "full_line": "Cơ Lương, Tả Hữu có bạn bè tốt giúp.",
+     "quote": "Cơ Lương, Tả Hữu có bạn bè tốt giúp",
+     "condition_text": "Nô Bộc: Thiên Cơ with Thiên Lương, (and/or) Tả Phụ Hữu Bật",
+     "condition": {"own_major": ["Thiên Cơ", "Thiên Lương"], "with_any": ["Tả Phụ", "Hữu Bật"],
+                   "other": "book writes 'Cơ Lương, Tả Hữu' — a comma list; it may mean Cơ Lương together with Tả Hữu, or either. Recorded as Cơ Lương + Tả Hữu (the narrower reading)."},
+     "reading_vi": "có bạn bè tốt giúp đỡ",
+     "polarity": "support", "concepts": ["ally.loyal", "NEW:ally.helpful"],
+     "notes": "Ambiguous list; owner should decide whether Cơ Lương alone suffices."},
+]

@@ -1,0 +1,32 @@
+{"pages_read": [
+  {"book": "KL", "page": 83, "image_checked": true, "note": "Thái Dương/Thái Âm 'Chú ý': Thái Dương = hình ảnh người cha, Thái Âm = người mẹ (explicit)"},
+  {"book": "KL", "page": 84, "image_checked": true, "note": "Thái dương ở các cung: Phụ 1 line (mất sớm → skip); no Phúc heading"},
+  {"book": "KL", "page": 85, "image_checked": true, "note": "Bài đọc thêm Thái dương: 'biểu tượng người cha'"}
+ ],
+ "entries": [
+  {"id": "kl084_phu_nhat_nguyet_tuan_triet", "book": "KL", "page": 84, "palace": "Phụ Mẫu", "heading": "Thái dương ở các cung / Phụ:",
+   "full_line": "Nhật Nguyệt gặp Tuần Triệt: cha mẹ mất sớm.", "quote": "Nhật Nguyệt gặp Tuần Triệt: cha mẹ mất sớm",
+   "condition_text": "Thái Dương, Thái Âm ở Phụ Mẫu gặp Tuần hoặc Triệt",
+   "condition": {"own_major": ["Thái Dương", "Thái Âm"], "tuan_triet": "any", "other": "'Nhật Nguyệt' with Tuần/Triệt; whether both lights must be in Phụ Mẫu is not stated"},
+   "reading_vi": "cha mẹ mất sớm", "polarity": "limit", "concepts": ["NEW:parents.strain"], "skip": "cha mẹ mất sớm"}
+ ],
+ "natures": [
+  {"id": "thai_duong.cha_thai_am.me", "kind": "star_nature", "star": "Thái Dương, Thái Âm", "book": "KL", "page": 83,
+   "quote": "nhìn vào Thái dương ta thấy hình ảnh người cha, người chồng, nhìn vào Thái âm, hình ảnh người mẹ, người vợ",
+   "full_line": "Khi giải đoán, nhìn vào Thái dương ta thấy hình ảnh người cha, người chồng, nhìn vào Thái âm, hình ảnh người mẹ, người vợ, nhìn thái dương biết công danh, sự nghiệp, nhìn Thái âm biết tiền tài danh vọng bất cứ ở cung nào.",
+   "text": "khi giải đoán, Thái Dương cho thấy hình ảnh người cha (người chồng), Thái Âm cho thấy hình ảnh người mẹ (người vợ)", "use": ["parents"], "pol": "±",
+   "explains": ["NEW:parents.prosper", "NEW:parents.strain"],
+   "notes": "explicit Thái Dương = cha, Thái Âm = mẹ ('Chú ý' paragraph)"},
+  {"id": "thai_duong.bieu_tuong_cha", "kind": "star_nature", "star": "Thái Dương", "book": "KL", "page": 85,
+   "quote": "Là biểu tượng người cha, người chồng, con mắt, sự sáng tạo, chỉ huy, tư cách",
+   "full_line": "Là biểu tượng người cha, người chồng, con mắt, sự sáng tạo, chỉ huy, tư cách.",
+   "text": "Thái Dương là biểu tượng người cha, người chồng, con mắt, sự sáng tạo, chỉ huy", "use": ["parents"], "pol": "±",
+   "explains": ["NEW:parents.prosper", "NEW:parents.strain"],
+   "notes": "KL p.85 does not state Thái Âm = mẹ; that is on p.83 (entry thai_duong.cha_thai_am.me)"},
+  {"id": "thai_duong.van_tinh_phuc_loc", "kind": "star_nature", "star": "Thái Dương", "book": "KL", "page": 85,
+   "quote": "Thái dương thích Xương, Khúc, Khoa, Quyền, Lộc, có nhóm văn tinh này giúp sức thì được",
+   "full_line": "Thái dương thích Xương, Khúc, Khoa, Quyền, Lộc, có nhóm văn tinh này giúp sức thì được hưởng phúc lộc.",
+   "text": "Thái Dương thích Xương, Khúc, Khoa, Quyền, Lộc; có nhóm văn tinh này giúp sức thì được hưởng phúc lộc", "use": ["fortune", "career"], "pol": "+",
+   "explains": ["life.blessed"]}
+ ]
+}

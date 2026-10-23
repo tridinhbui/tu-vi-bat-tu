@@ -1,0 +1,69 @@
+{
+ "pages_read": [
+  {
+   "book": "KL",
+   "page": 101,
+   "image_checked": true,
+   "note": "Tham Lang natures/combos; no Phúc/Phụ Mẫu line"
+  },
+  {
+   "book": "KL",
+   "page": 102,
+   "image_checked": true,
+   "note": "Tham Lang ở các cung: Phúc 2 lines; no Phụ Mẫu heading"
+  }
+ ],
+ "entries": [
+  {
+   "id": "kl102_phuc_tham_vu_thin_tuat",
+   "book": "KL",
+   "page": 102,
+   "palace": "Phúc Đức",
+   "heading": "Tham lang ở các cung / Phúc:",
+   "full_line": "Đi cùng Vũ Khúc ở Thìn Tuất : tốt.",
+   "quote": "Đi cùng Vũ Khúc ở Thìn Tuất : tốt",
+   "condition_text": "Tham Lang đi cùng (đồng cung) Vũ Khúc ở Thìn hoặc Tuất, tại cung Phúc",
+   "condition": {
+    "own_major": [
+     "Tham Lang",
+     "Vũ Khúc"
+    ],
+    "branch": [
+     "Thìn",
+     "Tuất"
+    ],
+    "other": "'đi cùng' = đồng cung"
+   },
+   "reading_vi": "Phúc Đức tốt",
+   "polarity": "support",
+   "concepts": [
+    "life.blessed",
+    "NEW:fortune.stable"
+   ]
+  },
+  {
+   "id": "kl102_phuc_tham_liem",
+   "book": "KL",
+   "page": 102,
+   "palace": "Phúc Đức",
+   "heading": "Tham lang ở các cung / Phúc:",
+   "full_line": "Đi với Liêm trinh : tai họa về hình tù.",
+   "quote": "Đi với Liêm trinh : tai họa về hình tù",
+   "condition_text": "Tham Lang đi với Liêm Trinh tại cung Phúc",
+   "condition": {
+    "own_major": [
+     "Tham Lang",
+     "Liêm Trinh"
+    ],
+    "other": "'đi với' = đồng cung (Liêm Tham chỉ đồng cung ở Tỵ Hợi)"
+   },
+   "reading_vi": "tai họa về hình tù",
+   "polarity": "limit",
+   "concepts": [
+    "life.hardship"
+   ],
+   "skip": "prison (hình tù)"
+  }
+ ],
+ "natures": []
+}

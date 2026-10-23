@@ -1,0 +1,42 @@
+{"pages_read": [
+  {"book": "KL", "page": 140, "image_checked": true, "note": "Khôi Việt ở các cung (general only); Thiên quan - Thiên phúc natures + 'Quan Phúc ở các cung' (general only)"},
+  {"book": "KL", "page": 149, "image_checked": true, "note": "Long đức-Phúc đức (Tứ đức natures, no palace line); Long trì-Phượng các: 'rất tốt cho các cung Phối, Tử, và Phúc, Điền'"},
+  {"book": "KL", "page": 153, "image_checked": true, "note": "Cô quả ở các cung: combined heading 'Phúc. Tử, Bào' with one line"},
+  {"book": "KL", "page": 154, "image_checked": true, "note": "Khốc Hư 'ở Phúc nếu hãm địa thì tổn thọ' (skip); Thiên thương-Thiên sứ: 'cung Phúc có nhiều sao tốt và mạnh thì cũng giải được phần nào' (palace relation)"}
+ ],
+ "entries": [
+  {"id": "kl149_phuc_long_phuong", "book": "KL", "page": 149, "palace": "Phúc Đức", "heading": "10. Long trì - Phượng các",
+   "full_line": "Long Phượng rất tốt cho các cung Phối, Tử, và Phúc, Điền.", "quote": "Long Phượng rất tốt cho các cung Phối, Tử, và Phúc, Điền",
+   "condition_text": "Long Trì, Phượng Các ở cung Phúc",
+   "condition": {"own_stars": ["Long Trì", "Phượng Các"], "other": "pair named together ('Long Phượng'); one star alone not stated"},
+   "reading_vi": "rất tốt cho cung Phúc", "polarity": "support", "concepts": ["life.blessed"],
+   "notes": "general section sentence, not under a 'Phúc:' heading"},
+  {"id": "kl153_phuc_co_qua", "book": "KL", "page": 153, "palace": "Phúc Đức", "heading": "Cô quả ở các cung / Phúc. Tử, Bào :",
+   "full_line": "Ít anh em hiếm muộn.", "quote": "Ít anh em hiếm muộn",
+   "condition_text": "Cô Thần, Quả Tú ở Phúc (combined heading with Tử, Bào)",
+   "condition": {"own_stars": ["Cô Thần", "Quả Tú"], "other": "combined heading 'Phúc. Tử, Bào'; the single line speaks of anh em (Bào) and hiếm muộn (Tử) — nothing explicit for Phúc beyond 'ít người'"},
+   "reading_vi": "ít người, hiếm muộn", "polarity": "limit", "concepts": ["kin.few"],
+   "notes": "uncertain for Phúc: the line's words fit Bào/Tử; a Phúc reading ('họ hàng ít người') would be an extension — recommend not using for Phúc unless the owner accepts"},
+  {"id": "kl154_phuc_khoc_hu_ham", "book": "KL", "page": 154, "palace": "Phúc Đức", "heading": "16. Thiên khốc - Thiên hư",
+   "full_line": "Khốc Hư gặp Tang là có tang chế, ở Phu thê là nhân duyên trắc trở buổi đầu, nếu có thêm Kình Đà thì vợ chồng xung khắc, ở Tài thì khó kiếm tiền, ở Tí Ngọ thì trước nghèo sau giầu, ở Phúc nếu hãm địa thì tổn thọ.",
+   "quote": "ở Phúc nếu hãm địa thì tổn thọ",
+   "condition_text": "Thiên Khốc, Thiên Hư hãm địa ở Phúc",
+   "condition": {"own_stars": ["Thiên Khốc", "Thiên Hư"], "dignity": {"Thiên Khốc": ["hãm"], "Thiên Hư": ["hãm"]}, "other": "p.153 says only Tí Ngọ is good for Khốc Hư"},
+   "reading_vi": "kém thọ", "polarity": "limit", "concepts": ["well.longevity"],
+   "skip": "lifespan reduction (tổn thọ) — close to yểu"}
+ ],
+ "natures": [
+  {"id": "quan_phuc.phuc_tinh", "kind": "star_nature", "star": "Thiên Quan, Thiên Phúc", "book": "KL", "page": 140,
+   "quote": "Tăng phúc thọ do tu nhân tích đức giúp đỡ Thất sát nhân",
+   "full_line": "Cả hai đều sao Hỏa và đều là phúc tinh. Quan Phúc tượng trưng cho - Cứu giải, đức độ, tin tưởng trời phật, - Có số tu hành, có tính cách làm giảm bệnh tật, - Tăng phúc thọ do tu nhân tích đức giúp đỡ Thất sát nhân.",
+   "text": "Thiên Quan, Thiên Phúc đều là phúc tinh, chủ cứu giải, đức độ, tăng phúc thọ nhờ tu nhân tích đức", "use": ["fortune"], "pol": "+",
+   "explains": ["life.blessed", "life.mitigated", "values.kind"],
+   "notes": "'Cả hai đều sao Hỏa và đều là phúc tinh' also passes --check; 'Quan Phúc ở các cung: Ở bất luận cung nào cũng mang lại tốt đẹp cho cung đó' (same page) is a general all-palace line"},
+  {"id": "phuc.giai_han", "kind": "palace_relation", "palace": "Phúc Đức", "book": "KL", "page": 154,
+   "quote": "Ngoài ra nếu cung Phúc có nhiều sao tốt và mạnh thì cũng giải được phần nào",
+   "full_line": "Ngoài ra nếu cung Phúc có nhiều sao tốt và mạnh thì cũng giải được phần nào",
+   "text": "cung Phúc có nhiều sao tốt và mạnh thì cũng giải được phần nào cái xấu của hạn (Thiên Thương, Thiên Sứ)", "use": ["fortune", "health"], "pol": "+",
+   "explains": ["life.mitigated"],
+   "notes": "context: năm hạn gặp Thiên Thương, Thiên Sứ; Phúc listed after the cứu giải stars. A Phúc→hạn mitigation relation"}
+ ]
+}

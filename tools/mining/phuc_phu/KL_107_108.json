@@ -1,0 +1,34 @@
+{"pages_read": [
+  {"book": "KL", "page": 107, "image_checked": true, "note": "Thiên Tướng natures (ban phúc về vật chất); 'phúc lai lâm' sentence already in star_nature as thien_tuong.on_dinh"},
+  {"book": "KL", "page": 108, "image_checked": true, "note": "Thiên Tướng ở các cung: Phụ 1 line, Phúc 1 line; nature 'đóng đâu phúc đấy'"}
+ ],
+ "entries": [
+  {"id": "kl108_phu_tuong_moi_cung", "book": "KL", "page": 108, "palace": "Phụ Mẫu", "heading": "Thiên tướng ở các cung / Phụ:",
+   "full_line": "Ở cung nào cha mẹ cũng khá giả.", "quote": "Ở cung nào cha mẹ cũng khá giả",
+   "condition_text": "Thiên Tướng ở cung Phụ Mẫu, ở bất cứ vị trí (chi) nào",
+   "condition": {"own_major": ["Thiên Tướng"], "other": "any branch ('ở cung nào')"},
+   "reading_vi": "cha mẹ khá giả", "polarity": "support", "concepts": ["NEW:parents.prosper"],
+   "notes": "KL p.220 rule TV_KL_CUNG_PHU_MAU_SAO_TOT lists Thiên Tướng among good stars (cha mẹ khá giả, hòa thuận) — overlapping meaning but different page/line"},
+  {"id": "kl108_phuc_tuong_tu_liem_vu", "book": "KL", "page": 108, "palace": "Phúc Đức", "heading": "Thiên tướng ở các cung / Phúc:",
+   "full_line": "Kết hợp với Tử, Liêm, Vũ ở Tỵ Hợi Sửu Mùi, có nghĩa là phúc đức cho dòng họ và cho cả mình nữa.",
+   "quote": "Kết hợp với Tử, Liêm, Vũ ở Tỵ Hợi Sửu Mùi, có nghĩa là phúc đức cho dòng họ và cho cả",
+   "condition_text": "Thiên Tướng ở Phúc, 'kết hợp với' Tử Vi, Liêm Trinh, Vũ Khúc, Thiên Tướng ở Tỵ, Hợi, Sửu, Mùi",
+   "condition": {"own_major": ["Thiên Tướng"], "branch": ["Tỵ", "Hợi", "Sửu", "Mùi"], "with_any": ["Tử Vi", "Liêm Trinh", "Vũ Khúc"],
+                 "other": "book word 'kết hợp với' (not 'đồng cung'); at Tỵ/Hợi/Sửu/Mùi Thiên Tướng is the only chính tinh, so Tử/Liêm/Vũ can only come from tam phương/xung chiếu — the engine must not read this as đồng cung"},
+   "reading_vi": "phúc đức cho dòng họ và cho cả bản thân", "polarity": "support", "concepts": ["life.blessed", "NEW:fortune.ancestral"]}
+ ],
+ "natures": [
+  {"id": "thien_tuong.dong_dau_phuc_day", "kind": "star_nature", "star": "Thiên Tướng", "book": "KL", "page": 108,
+   "quote": "Thiên tướng đóng đâu phúc đấy, không bị sao ác làm biến đổi",
+   "full_line": "Thiên tướng đóng đâu phúc đấy, không bị sao ác làm biến đổi, không vì hung sát mà thay lòng.",
+   "text": "Thiên Tướng đóng ở đâu thì phúc ở đó, không bị sao ác làm biến đổi", "use": ["fortune", "parents"], "pol": "+",
+   "explains": ["life.blessed", "life.mitigated", "NEW:parents.prosper"],
+   "notes": "related to existing thien_tuong.on_dinh (p.107, 'phúc lai lâm') but different sentence/page"},
+  {"id": "thien_tuong.ban_phuc_vat_chat", "kind": "star_nature", "star": "Thiên Tướng", "book": "KL", "page": 107,
+   "quote": "Tử vi ban phúc về tinh thần, cứu giải đau ốm, bệnh tật, khó khăn thì Thiên tướng ban phúc về vật chất, tiền bạc và danh vọng",
+   "full_line": "Trong khi Tử vi ban phúc về tinh thần, cứu giải đau ốm, bệnh tật, khó khăn thì Thiên tướng ban phúc về vật chất, tiền bạc và danh vọng.",
+   "text": "Thiên Tướng ban phúc về vật chất, tiền bạc và danh vọng (Tử Vi ban phúc về tinh thần, cứu giải khó khăn)", "use": ["fortune"], "pol": "+",
+   "explains": ["life.blessed", "fin.abundance"],
+   "notes": ""}
+ ]
+}

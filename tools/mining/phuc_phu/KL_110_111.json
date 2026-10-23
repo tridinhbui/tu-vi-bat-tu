@@ -1,0 +1,42 @@
+{"pages_read": [
+  {"book": "KL", "page": 110, "image_checked": true, "note": "Thiên lương ở các cung: Mệnh, Phối, Tử, Tài, Di… no Phúc/Phụ here"},
+  {"book": "KL", "page": 111, "image_checked": true, "note": "Thiên lương: 'Điền và Phúc Phụ: Các cung tốt và xấu cũng như ở cung Quan' — positions taken from the Quan block on the same page; nature 'chủ về phúc thọ'"}
+ ],
+ "entries": [
+  {"id": "kl111_phuc_luong_cung_tot", "book": "KL", "page": 111, "palace": "Phúc Đức", "heading": "Thiên lương ở các cung / Điền và Phúc Phụ:",
+   "full_line": "Các cung tốt và xấu cũng như ở cung Quan. [Quan good positions: Lương Đồng Dần Thân, Lương Tí Ngọ, Lương Cơ đồng cung, Lương Nhật ở Mão]",
+   "quote": "Các cung tốt và xấu cũng như ở cung Quan",
+   "condition_text": "Thiên Lương ở Phúc: Lương Đồng ở Dần Thân, Lương ở Tí Ngọ, Lương Cơ đồng cung, Lương Nhật ở Mão (the positions the Quan block calls good)",
+   "condition": {"own_major": ["Thiên Lương"], "other": "any of: đồng cung Thiên Đồng at Dần/Thân; at Tí/Ngọ; đồng cung Thiên Cơ (Thìn/Tuất); đồng cung Thái Dương at Mão — positions by reference to the Quan block"},
+   "reading_vi": "Phúc Đức tốt", "polarity": "support", "concepts": ["life.blessed"],
+   "notes": "book gives only tốt/xấu for Phúc by cross-reference; the Quan meanings (quí hiển, sư phạm…) must NOT be carried over"},
+  {"id": "kl111_phuc_luong_ty_hoi", "book": "KL", "page": 111, "palace": "Phúc Đức", "heading": "Thiên lương ở các cung / Điền và Phúc Phụ:",
+   "full_line": "Các cung tốt và xấu cũng như ở cung Quan. [Quan bad position: Lương Tỵ Hợi]",
+   "quote": "Các cung tốt và xấu cũng như ở cung Quan",
+   "condition_text": "Thiên Lương ở Phúc tại Tỵ hoặc Hợi (the position the Quan block calls bad)",
+   "condition": {"own_major": ["Thiên Lương"], "branch": ["Tỵ", "Hợi"], "other": "by reference to the Quan block"},
+   "reading_vi": "Phúc Đức xấu", "polarity": "limit", "concepts": ["life.hardship"],
+   "notes": "cross-reference line; only 'xấu' may be used"},
+  {"id": "kl111_phu_luong_cung_tot", "book": "KL", "page": 111, "palace": "Phụ Mẫu", "heading": "Thiên lương ở các cung / Điền và Phúc Phụ:",
+   "full_line": "Các cung tốt và xấu cũng như ở cung Quan. [Quan good positions: Lương Đồng Dần Thân, Lương Tí Ngọ, Lương Cơ đồng cung, Lương Nhật ở Mão]",
+   "quote": "Các cung tốt và xấu cũng như ở cung Quan",
+   "condition_text": "Thiên Lương ở Phụ Mẫu: Lương Đồng ở Dần Thân, Lương ở Tí Ngọ, Lương Cơ đồng cung, Lương Nhật ở Mão",
+   "condition": {"own_major": ["Thiên Lương"], "other": "same position list as kl111_phuc_luong_cung_tot"},
+   "reading_vi": "cung Phụ Mẫu tốt", "polarity": "support", "concepts": ["NEW:parents.prosper"],
+   "notes": "'Phụ' here = Phụ Mẫu (heading 'Phúc Phụ'); meaning only 'tốt'"},
+  {"id": "kl111_phu_luong_ty_hoi", "book": "KL", "page": 111, "palace": "Phụ Mẫu", "heading": "Thiên lương ở các cung / Điền và Phúc Phụ:",
+   "full_line": "Các cung tốt và xấu cũng như ở cung Quan. [Quan bad position: Lương Tỵ Hợi]",
+   "quote": "Các cung tốt và xấu cũng như ở cung Quan",
+   "condition_text": "Thiên Lương ở Phụ Mẫu tại Tỵ hoặc Hợi",
+   "condition": {"own_major": ["Thiên Lương"], "branch": ["Tỵ", "Hợi"]},
+   "reading_vi": "cung Phụ Mẫu xấu", "polarity": "limit", "concepts": ["NEW:parents.strain"],
+   "notes": "meaning only 'xấu'"}
+ ],
+ "natures": [
+  {"id": "thien_luong.chu_phuc_tho", "kind": "star_nature", "star": "Thiên Lương", "book": "KL", "page": 111,
+   "quote": "Thiên lương là sao chủ về phúc thọ",
+   "full_line": "Thiên lương là sao chủ về phúc thọ.",
+   "text": "Thiên Lương là sao chủ về phúc thọ", "use": ["fortune"], "pol": "+",
+   "explains": ["life.blessed", "well.longevity"], "notes": "p.110 Mệnh block also: 'Thiên lương là Nam đẩu thuộc âm Mộc, chủ phúc thọ'"}
+ ]
+}
