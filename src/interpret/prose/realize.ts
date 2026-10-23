@@ -12,7 +12,9 @@ export interface SentenceTrace {
   move: Move | 'DEGREE' | 'EXTRA' | 'VIA' | import('./deep.ts').DeepMove; concepts: string[]; rules: string[]; cites: string[];
   /** sach: a verified book rule; he_thong: the system's closing words over what was said; tinh_toan: a computed fact or a page-cited
    *  table (deep.ts); pho_thong: a draft card of common meanings (deep.ts), labelled as such to the reader */
-  basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong' | 'minh_hoa';
+  basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong' | 'minh_hoa' | 'loi_khuyen';
+  /** narrative.ts: the claim was told in its card's soft form (a weakened reading): it is never set side by side with another as a plain strength */
+  soft?: boolean;
   /** minh_hoa (owner's policy 2026-10-22): the step of the ONE sourced claim this illustration makes concrete (prose/checked.ts keeps the line
    *  only while that claim is in the same paragraph) */
   tied?: string;
@@ -87,7 +89,7 @@ export class Realizer {
     if (pol === '-') return `${verb ? 'dễ ' : ''}${this.m.pick(`${key}|turn|${p.concept}`, c.turn ?? [])}`;
     return `${verb ? 'thường ' : ''}${this.m.pick(`${key}|pred|${p.concept}`, c.pred ?? [])}`;
   }
-  private trace(move: SentenceTrace['move'], picks: Array<ConceptPick | undefined>, extra: Resolved[] = [], basis: 'sach' | 'he_thong' = 'sach'): SentenceTrace {
+  private trace(move: SentenceTrace['move'], picks: Array<ConceptPick | undefined>, extra: Resolved[] = [], basis: 'sach' | 'he_thong' | 'loi_khuyen' = 'sach'): SentenceTrace {
     const ps = picks.filter((x): x is ConceptPick => !!x);
     ps.forEach(p => this.said.add(p.concept));
     const as = [...ps.flatMap(p => p.assertions), ...extra];
@@ -248,7 +250,8 @@ export class Realizer {
     const tr = mature ? this.mod('MOD_TRANSFORM', 'transform', { mature }) : null;
     if (!v && !tr) return null;
     const text = v && tr ? `${v}; ${tr}` : (v ?? tr!);
-    const t = this.trace(v && tr ? 'VALUE' : v ? 'VALUE' : 'TRANSFORM', [value ? n : undefined, value2 ? second : undefined, matureFrom], [], 'he_thong');
+    // a sentence carrying a 'mature' clause is advice: labelled 'lời khuyên chung', never the chart's word (audit 2026-10-22)
+    const t = this.trace(v && tr ? 'VALUE' : v ? 'VALUE' : 'TRANSFORM', [value ? n : undefined, value2 ? second : undefined, matureFrom], [], tr ? 'loi_khuyen' : 'he_thong');
     return this.sentence(text, t);
   }
 

@@ -22,11 +22,13 @@ export const LEDGER_VERSION = 'ledger-1.0.0';
  *  narrowing a strength; giam_nhe: a limit that a book relation makes lighter (never turned into a strength); chua_phan_xu: both sides stand
  *  and no book sentence adjudicates them (named, not merged); khong_ket_luan: a domain the report never judges good or bad (health: only the
  *  book readings are told); chua_du: nothing to conclude. hai_chieu is kept for older payloads only. */
-export type Verdict = 'thuan' | 'co_dieu_kien' | 'hai_chieu' | 'tro_ngai' | 'chua_du' | 'giam_nhe' | 'chua_phan_xu' | 'khong_ket_luan';
+export type Verdict = 'thuan' | 'co_dieu_kien' | 'hai_chieu' | 'tro_ngai' | 'chua_du' | 'giam_nhe' | 'chua_phan_xu' | 'hai_mat' | 'khong_ket_luan';
 export type Side = '+' | '-' | 'timing' | 'mixed';
 export interface LedgerItem { ruleId: string; palace: string; concept: string; side: Side; seat: SeatRef; rarity: number; cites: string[];
   /** the stars and Hóa the reading stands on */
   stars: string[];
+  /** the same, each with the palace it stands in (a sentence naming them says where each one is) */
+  at: Array<{ name: string; palace: string }>;
   /** the star carrying Hóa Kỵ this strength rests on (the item is then 'mixed', never a plain positive) */
   kyCarrier?: string }
 export interface LedgerStep { type: 'fact' | 'reading' | 'link' | 'precedence' | 'verdict'; palace?: string; element?: string; ruleId?: string; cite?: string;
@@ -110,10 +112,18 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
       if (ky) side = 'mixed';
       if (items.some(x => x.ruleId === r.ruleId && x.palace === P && x.concept === r.concept)) continue;
       items.push({ ruleId: r.ruleId, palace: P, concept: r.concept, side, seat, rarity: rarity(k, r.ruleId, P), cites: r.cites,
-        stars: [...new Set(r.atoms.filter(a => (a.kind === 'star' || a.kind === 'hoa') && a.palace !== null).map(a => a.name))], ...(ky ? { kyCarrier: ky.name } : {}) });
+        stars: [...new Set(r.atoms.filter(a => (a.kind === 'star' || a.kind === 'hoa') && a.palace !== null).map(a => a.name))],
+        at: r.atoms.filter(a => (a.kind === 'star' || a.kind === 'hoa') && a.palace !== null).map(a => ({ name: a.name, palace: a.palace! })).filter((a, i, xs) => xs.findIndex(b => b.name === a.name && b.palace === a.palace) === i),
+        ...(ky ? { kyCarrier: ky.name } : {}) });
     }
   }
-  for (const x of items) chain.push({ type: 'reading', palace: x.palace, ruleId: x.ruleId, cite: x.cites[0], basis: 'sach', note: `${x.concept} (${x.side})${x.kyCarrier ? `, ${x.kyCarrier} mang Hóa Kỵ` : ''}` });
+  // one reading step per rule: a rule read at several palaces or for several concepts is listed once, with all of them
+  for (const id of [...new Set(items.map(x => x.ruleId))]) {
+    const xs = items.filter(x => x.ruleId === id);
+    const ky = xs.find(x => x.kyCarrier)?.kyCarrier;
+    chain.push({ type: 'reading', palace: [...new Set(xs.map(x => x.palace))].join(', '), ruleId: id, cite: xs[0].cites[0], basis: 'sach',
+      note: `${[...new Set(xs.map(x => `${x.concept} (${x.side})`))].join('; ')}${ky ? `, ${ky} mang Hóa Kỵ` : ''}` });
+  }
   // the structural elements of the core palace(s): those the domain names (elements), or every limit / Kỵ-carrier / bright chính tinh
   const limits: DomainVerdict['limits'] = [], supports: DomainVerdict['supports'] = [];
   for (const P of core) {
@@ -164,7 +174,14 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
     const bookRel = pos.flatMap(x => live.filter(r => r.ruleId === x.ruleId).flatMap(r => r.by.map(b => ({ b, x }))))
       .find(({ b }) => b.basis === 'sach' && neg.some(y => y.ruleId === b.byRule));
     if (bookRel) { verdict = 'co_dieu_kien'; base = '+'; link = { kind: 'book', ruleId: bookRel.b.byRule, reduces: '+', target: bookRel.x.ruleId }; }
-    else { verdict = 'chua_phan_xu'; link = { kind: 'unresolved', ruleId: bp.ruleId, target: bn.ruleId }; }
+    else {
+      // two sides on different facets of the matter (money coming in vs money kept) both hold: 'hai_mat', said as such; two sides on the
+      // same facet, or KG opposites, oppose head-on and stay 'chua_phan_xu' (owner review 2026-10-22: never merged into a conditional)
+      const cp = cmap.get(bp.concept), cn = cmap.get(bn.concept);
+      const oppose = !cp || !cn || cp.facet === cn.facet || cp.opp === cn.id || cn.opp === cp.id;
+      verdict = oppose ? 'chua_phan_xu' : 'hai_mat';
+      link = { kind: 'unresolved', ruleId: bp.ruleId, target: bn.ruleId };
+    }
   }
   if (link) chain.push({ type: link.kind === 'book' || link.kind === 'mitigation' ? 'link' : 'precedence', ruleId: link.ruleId, basis: link.kind === 'book' || link.kind === 'mitigation' ? 'sach' : 'he_thong',
     note: link.kind === 'structure' ? `yếu tố hạn chế: ${link.elements!.join(', ')}` : link.kind });

@@ -88,18 +88,18 @@
   ],
   "tom_lai": [
    "Tóm lại",
-   "Nhìn chung",
+   "Nói lại cho gọn",
    "Gom lại"
   ],
   "ket_luan": [
    "Gộp các cung lại",
-   "Nhìn chung cả thế cục",
    "Tóm lại sau khi đặt các cung cạnh nhau",
    "Rút lại",
    "Đặt các cung cạnh nhau",
    "Xét chung",
    "Kết lại",
-   "Cân cả hai phía"
+   "Cân cả hai phía",
+   "Cân cả các cung"
   ],
   "tai_kiem": [
    "Về khả năng kiếm tiền",
@@ -458,16 +458,14 @@
    "{a} và {b} cùng một chiều thuận"
   ],
   "advice": [
-   "Điều này đòi hỏi {S} phải biết {mature}",
-   "Cái cần rèn ở đây là {mature}",
-   "Muốn giữ phần hay mà bớt phần dở, {S} nên {mature}",
-   "Bài học của cấu hình này là {mature}",
-   "Vì thế, việc của {S} là {mature}",
-   "Chỗ {S} cần tập là {mature}",
-   "Lời nhắc cho {S}: {mature}",
-   "Nên {mature}",
-   "Cách gỡ nằm ở chỗ {mature}",
-   "{S} sẽ đi xa hơn nếu biết {mature}"
+   "Gợi ý cho {S}, vì {np}: {mature}",
+   "Từ {np}, một gợi ý là {mature}",
+   "Gợi ý: trước {np}, {S} nên {mature}",
+   "Nếu cần một lời khuyên trước {np}, đó là {mature}",
+   "Một gợi ý để bớt {np}: {mature}",
+   "Gợi ý rút từ {np}: {mature}",
+   "Với {np}, lời gợi ý là {mature}",
+   "Gợi ý cho chỗ {np}: {mature}"
   ],
   "edge": [
    "{a} và {b} vì thế là hai mặt của cùng một {seat}: con dao hai lưỡi, dùng đúng chỗ thì thành sức mạnh, sơ ý thì thành vướng mắc",
@@ -610,8 +608,9 @@
  "ledger": {
   "verdict": {
    "thuan": [
-    "nhìn chung thuận",
-    "đi theo chiều thuận"
+    "thuận",
+    "đi theo chiều thuận",
+    "khá xuôi"
    ],
    "co_dieu_kien+": [
     "thuận nhưng có điều kiện",
@@ -645,6 +644,9 @@
    ],
    "giam_nhe": [
     "có yếu tố giảm nhẹ"
+   ],
+   "hai_mat": [
+    "có cả hai mặt, mỗi mặt nói về một chuyện"
    ]
   },
   "both_timing": [
@@ -652,8 +654,8 @@
    "{domain} có mặt thuận là {pos}, mặt vướng là {neg}; hai điều không loại trừ nhau, vì {link}",
    "{pos} và {neg} cùng có mặt; điều nối hai mặt ấy là {link}",
    "chuyện {domain} có hai mặt, {pos} và {neg}, nối với nhau ở chỗ {link}",
-   "nhìn chung {domain} vừa có {pos}, vừa có {neg}; cái nối hai điều ấy là {link}",
-   "{neg} không xóa được {pos} trong {domain}, vì {link}"
+   "{neg} không xóa được {pos} trong {domain}, vì {link}",
+   "{domain} có {pos}, cũng có {neg}; hai mặt ấy gặp nhau ở chỗ {link}"
   ],
   "both_book": [
    "mặt thuận dựa vào {ground}, nhưng không trọn vẹn: {link}",
@@ -694,7 +696,7 @@
    "riêng {stars} gợi ra {pos}, nhưng một mình nó chưa đủ để kết luận về {domain}"
   ],
   "thuan": [
-   "{domain} nhìn chung thuận: {pos} có chỗ dựa từ nhiều phía",
+   "{domain} thuận: {pos} có chỗ dựa từ nhiều phía",
    "{domain} đi theo chiều thuận, với {pos} được nhiều cung cùng nói tới",
    "{pos} được nhiều cung cùng xác nhận, nên {domain} khá vững"
   ],
@@ -764,15 +766,19 @@
    "nói chung {domain} {verdict}",
    "đặt cạnh các cung khác, {domain} {verdict}"
   ],
-  "unresolved": [
-   "{domain} có cả {pos} (dựa vào {gpos}) lẫn {neg} (dựa vào {gneg}); không có câu sách nào cho biết bên nào nặng hơn, nên hai mặt này chưa phân xử được",
-   "{domain} có hai mặt: {pos}, đứng trên {gpos}, và {neg}, đứng trên {gneg}; chưa có lời sách nào phân xử giữa hai điều ấy"
-  ],
   "neg_mitigated": [
    "{neg} trong {domain} vẫn là điều cần để ý, nhưng có yếu tố giảm nhẹ: {link}"
   ],
   "health_both": [
    "{domain} được sách nêu cả {pos} lẫn {neg}; phần này chỉ ghi lại các lời ấy, không kết luận tốt hay xấu"
+  ],
+  "coexist": [
+   "{domain} có cả {pos} lẫn {neg}; hai điều không loại nhau, vì {pos} thuộc về {fpos}, còn {neg} thuộc về {fneg}",
+   "{domain} có {pos} và có {neg}; một bên là chuyện {fpos}, một bên là chuyện {fneg}, nên cả hai cùng đứng được"
+  ],
+  "chua_phan_xu": [
+   "{domain} có cả {pos} (dựa vào {gpos}) lẫn {neg} (dựa vào {gneg}); không có câu sách nào cho biết bên nào nặng hơn, nên hai mặt này chưa phân xử được",
+   "{domain} có hai mặt: {pos}, đứng trên {gpos}, và {neg}, đứng trên {gneg}; chưa có lời sách nào phân xử giữa hai điều ấy"
   ]
  },
  "confront": {
@@ -821,5 +827,24 @@
  "confront_alone_borrowed": [
   "Cung {pal} không có chính tinh, phải mượn {el} từ cung {from}, nên chuyện của cung này cần được giữ gìn hơn thường lệ",
   "Mượn {el} từ cung {from}, cung {pal} khó thuận một chiều"
- ]
+ ],
+ "facet_label": {
+  "career.trajectory": "đường thăng tiến",
+  "career.authority": "uy quyền",
+  "career.timing": "nhịp thời gian",
+  "career.support": "người nâng đỡ",
+  "career.expertise": "tay nghề",
+  "career.path": "hướng đi",
+  "finance.flow": "dòng tiền vào",
+  "finance.source": "đường kiếm tiền",
+  "finance.retention": "chuyện giữ tiền",
+  "finance.style": "cách tiêu tiền",
+  "finance.property": "nhà cửa, của để dành",
+  "relationships.marriage": "chuyện hôn nhân",
+  "relationships.partner": "người phối ngẫu",
+  "relationships.romance": "tình duyên",
+  "relationships.timing": "nhịp cưới hỏi",
+  "wellbeing.health": "sức khỏe",
+  "wellbeing.longevity": "tuổi thọ"
+ }
 }

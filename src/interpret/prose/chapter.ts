@@ -53,7 +53,7 @@ export const PROSE_SPECS: Record<ProseChapterId, ProseSpec> = {
     borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false, bond: facet('relationships') },
   tat_ach: { palace: 'Tật Ách', pool: facet('wellbeing', 'life', 'inner'), borrowPool: facet('wellbeing'), borrowFrom: ['Mệnh'], chart: false, extra: [], degree: false },
 };
-export interface Advice { strengths: string[]; actions: string[]; basis: 'he_thong' }
+export interface Advice { strengths: string[]; actions: string[]; basis: 'loi_khuyen' }
 /** What a chapter's voiced concepts suggest doing: the card's `value` for a positive trait, its `mature` clause for a limiting one. Only concepts
  *  the text actually said (basis sach) are used, so the advice adds no claim; it is labelled as the system's suggestion, not the book's word. */
 export function adviceOf(paragraphs: ProseParagraph[], k: Knowledge, allowDraft: boolean, seed: string): Advice {
@@ -64,7 +64,7 @@ export function adviceOf(paragraphs: ProseParagraph[], k: Knowledge, allowDraft:
   const pick = (xs: string[] | undefined, id: string) => xs?.length ? xs[fnv(`${seed}|adv|${id}`) % xs.length] : undefined;
   const strengths = said.filter(c => pol.get(c) === '+').map(c => pick(cards.get(c)?.value, c)).filter((x): x is string => !!x).slice(0, 3);
   const actions = said.filter(c => pol.get(c) === '-').map(c => pick(cards.get(c)?.mature, c)).filter((x): x is string => !!x).slice(0, 3);
-  return { strengths: [...new Set(strengths)], actions: [...new Set(actions)], basis: 'he_thong' };
+  return { strengths: [...new Set(strengths)], actions: [...new Set(actions)], basis: 'loi_khuyen' };
 }
 export const PROSE_ORDER: ProseChapterId[] = ['menh', 'cong_danh', 'tai_bach', 'thien_di', 'phu_the', 'phuc_duc', 'dien_trach', 'no_boc', 'tu_tuc', 'huynh_de', 'phu_mau', 'tat_ach'];
 export interface ProseChapter {

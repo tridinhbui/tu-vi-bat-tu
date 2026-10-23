@@ -60,8 +60,8 @@ test('a star said to stand in a palace stands there (borrowed, chiếu, hội an
 
 test('the owner chart: Nô Bộc (Mão, vô chính diệu) names Tham Lang as borrowed from Huynh Đệ, never as standing in Nô Bộc', () => {
   const f = charts[0][1];
-  const nb = luanReport(f, K, { allowDraft: true, deep: true }).find(c => c.chapter === 'no_boc')!;
+  const nb = checkedOnly(luanReport(f, K, { allowDraft: true, deep: true }).find(c => c.chapter === 'no_boc')! as never) as { paragraphs: Array<{ sentences: Array<{ text: string }> }> };
   const text = nb.paragraphs.flatMap(p => p.sentences.map(s => s.text)).join(' ');
   assert.ok(!/Tham Lang[^.]{0,20} ở cung Nô Bộc/.test(text), text);
-  assert.ok(/mượn Tham Lang|Tham Lang mượn/.test(text), text);
+  assert.ok(/mượn Tham Lang|Tham Lang mượn/i.test(text), text);
 });

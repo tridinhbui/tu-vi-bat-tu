@@ -208,7 +208,8 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
   const obst = domain === 'cong_danh' ? 'tro_ngai' : domain === 'tai_bach' ? 'rui_ro' : 'cang_thang';
   for (const e of [...ev.limit, ...ev.mixed.filter(x => x.kind === 'ky_carrier')]) {
     const name = e.kind === 'hoa_ky' ? 'Hóa Kỵ' : e.star;
-    if (!name || toldStar.has(name) || e.kind === 'major_ham' || e.kind === 'tuan' || e.kind === 'triet') continue;
+    // a borrowed chính tinh does not stand in the palace: its nature is not told as the palace's own
+    if (!name || toldStar.has(name) || e.borrowed || e.kind === 'major_ham' || e.kind === 'tuan' || e.kind === 'triet') continue;
     const n = natureOf(k, name, use, said, { palace: P, pol: '-' });
     if (!n || n.pol !== '-') continue;
     toldStar.add(name); said.add(n.id);

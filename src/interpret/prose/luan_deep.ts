@@ -186,13 +186,13 @@ function relationFacts(chart: ChartInput, id: string, sh: LuanShared): string | 
   if (id === 'dien.ben') return brief('Điền Trạch');
   return null;
 }
-const LV: Record<string, string> = { thuan: 'thuận', 'co_dieu_kien+': 'thuận có điều kiện', 'co_dieu_kien-': 'vướng nhưng có lối gỡ', co_dieu_kien: 'tùy lúc', hai_chieu: 'hai chiều', tro_ngai: 'chỗ phải gắng sức', chua_phan_xu: 'còn hai mặt chưa phân xử được', giam_nhe: 'vướng, có yếu tố giảm nhẹ' };
+const LV: Record<string, string> = { thuan: 'thuận', 'co_dieu_kien+': 'thuận có điều kiện', 'co_dieu_kien-': 'vướng nhưng có lối gỡ', co_dieu_kien: 'tùy lúc', hai_chieu: 'hai chiều', tro_ngai: 'chỗ phải gắng sức', chua_phan_xu: 'còn hai mặt chưa phân xử được', hai_mat: 'có cả hai mặt', giam_nhe: 'vướng, có yếu tố giảm nhẹ' };
 
 function conditionSentences(W: Writer, k: Knowledge, D: DepthLib, u: DepthUnit, key: string, P: string): ProseSentence[] {
   const G = k.prose!.luan!.ledger;
   const words = (v: NonNullable<DepthUnit['verdicts']>[number]) => { const vk = v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict; return G.verdict[vk] ? W.pick(`dv|${v.id}`, G.verdict[vk]) : ''; };
   const name = (e: { kind: string; star?: string; hoa?: string; dignity?: string }) => e.kind === 'tuan' ? 'Tuần' : e.kind === 'triet' ? 'Triệt' : e.kind === 'hoa_ky' ? 'Hóa Kỵ'
-    : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ` : e.kind === 'major_ham' ? `${e.star} hãm` : e.kind === 'hoa_good' ? `${e.hoa}` : e.star ?? '';
+    : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ${(e as { borrowed?: boolean }).borrowed ? ' (mượn từ cung đối)' : ''}` : e.kind === 'major_ham' ? `${e.star} hãm${(e as { borrowed?: boolean }).borrowed ? ' (mượn từ cung đối)' : ''}` : e.kind === 'hoa_good' ? `${e.hoa}` : e.star ?? '';
   const tr = (v: NonNullable<DepthUnit['verdicts']>[number], step: string): Partial<SentenceTrace> & { move: SentenceTrace['move']; step: string } => {
     const items = [...v.pos, ...v.neg, ...v.timing, ...v.mixed];
     return { move: 'VALUE', step, basis: 'he_thong', concepts: [], rules: [...new Set(items.map(x => x.ruleId))].sort(), cites: [...new Set(items.flatMap(x => x.cites))].sort() };

@@ -393,7 +393,7 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
       const tpl = also && F.claim_also_card?.length ? F.claim_also_card : repeated && F.claim_same_card?.length ? F.claim_same_card : F.claim_card;
       const S0 = W.S(c.concept);
       const alt = ana ? finish(fill(F.claim_card[0], { ground: W.ground(x), S: S0, pred: p })) : undefined;
-      xs.push(W.sentence(fill(W.pick(`claimc|${t.id}|${ci}`, tpl), { ground: also ? lowerSafe(ground) : ground, S: S0, pred: p }), { move: ci === 0 ? 'ANCHOR' : 'SATELLITE', step: `claim:${t.id}:${c.concept}`, ...tr, ...(alt ? { alt } : {}) }));
+      xs.push(W.sentence(fill(W.pick(`claimc|${t.id}|${ci}`, tpl), { ground: also ? lowerSafe(ground) : ground, S: S0, pred: p }), { move: ci === 0 ? 'ANCHOR' : 'SATELLITE', step: `claim:${t.id}:${c.concept}`, ...tr, ...(alt ? { alt } : {}), ...(soft ? { soft: true } : {}) }));
     }
     if (locked) sayCaveat('RESCUE');
     // what the claim looks like in a life, from the card: once per thesis, after its first claim

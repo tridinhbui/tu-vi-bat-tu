@@ -160,7 +160,7 @@ function echoLedger(k: Knowledge, chs: ProseChapter[], sh: LuanShared): ProseCha
   const said = new Set(chs.flatMap(c => c.paragraphs.flatMap(p => p.sentences.map(s => s.text))));
   const add = new Map<number, ProseSentence[]>();
   for (const v of sh.ledger.domains) {
-    if (!['co_dieu_kien', 'hai_chieu', 'tro_ngai', 'chua_phan_xu', 'giam_nhe'].includes(v.verdict) || !sh.domainsTold.has(v.id)) continue;
+    if (!['co_dieu_kien', 'hai_chieu', 'tro_ngai', 'chua_phan_xu', 'hai_mat', 'giam_nhe'].includes(v.verdict) || !sh.domainsTold.has(v.id)) continue;
     const pos = new Set(v.pos.map(x => x.ruleId)), neg = new Set(v.neg.map(x => x.ruleId));
     const sideOf = (c: ProseChapter) => {
       const rs = c.paragraphs.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').flatMap(s => s.trace.rules);
@@ -478,7 +478,7 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     theses: plan.theses.map(t => t.id),
     draft: sh.allowDraft && (L.status !== 'approved' || F.status !== 'approved' || k.prose!.concepts.some(c => c.status !== 'approved')),
     paragraphs: paras, text: paras.map(p => p.text).join('\n\n'), issues, metrics, pass: !issues.some(i => i.level === 'error'),
-    advice: { strengths: [], actions: [], basis: 'he_thong' },
+    advice: { strengths: [], actions: [], basis: 'loi_khuyen' },
     evidence: {
       resolved: resolvedHere.map(r => ({ ruleId: r.ruleId, concept: r.concept, stance: r.stance, status: r.status, by: r.by, cites: r.cites })), tensions: [], unused: [],
       rules: Object.fromEntries(ruleIds.map(rid => [rid, { reading: reading(rid), cites: rmap.get(rid)!.cites, verified: rmap.get(rid)!.reviewStatus === 'verified' }])),
@@ -569,17 +569,22 @@ function tail(W: Writer, L: LuanLib, xs: ProseSentence[], units: Array<{ seat?: 
   const pos = concepts.filter(c => W.pol(c) === '+'), neg = concepts.filter(c => W.pol(c) === '-');
   // a limit the book put on a strength (a reducer) counts as the strength's limit: its card's mature clause answers it
   const reduced = book.filter(s => s.trace.move === 'TURN').flatMap(s => s.trace.concepts).filter(c => W.pol(c) !== '-' && W.card(c)?.mature?.length);
+  const softened = new Set(book.filter(s => s.trace.soft || s.trace.move === 'TURN').flatMap(s => s.trace.concepts));
+  const strong = pos.filter(c => !softened.has(c));
   const answer = [...neg, ...reduced].find(c => W.card(c)?.mature?.length);
   if (answer) {
     const m = W.pick(`tail|mature|${answer}`, W.card(answer)!.mature!);
-    out.push(W.sentence(fill(W.pick(`tail|advice|${key}`, L.tail.advice), { S: W.S(answer), mature: m }), { move: 'TRANSFORM', step: `advice:${answer}`, basis: 'he_thong', concepts: [answer] }));
+    // a suggestion, labelled as one ('lời khuyên chung'), naming the reading it answers: the system's advice, not something the chart says
+    out.push(W.sentence(fill(W.pick(`tail|advice|${key}`, L.tail.advice), { S: W.S(answer), mature: m, np: W.np(answer) }), { move: 'TRANSFORM', step: `advice:${answer}`, basis: 'loi_khuyen', concepts: [answer],
+      note: 'Gợi ý của hệ thống rút từ nhận định vừa nêu, không phải lời phán đoán của lá số.' }));
   }
   // the two-edged image only for a strength and a limit the same star asserts (its own seat), named by that star
   const edge = units.map(u => ({ u, p: pos.find(c => u.own.has(c)), n: neg.find(c => u.own.has(c)) })).find(x => x.p && x.n && x.u.seat?.star && x.u.seat.kind !== 'hoa');
   if (edge)
     out.push(W.sentence(fill(W.pick(`tail|edge|${key}`, L.tail.edge), { a: W.np(edge.p!), b: W.np(edge.n!), seat: edge.u.seat!.star! }), { move: 'VALUE', step: `edge:${edge.p}|${edge.n}`, basis: 'he_thong', concepts: [edge.p!, edge.n!] }));
-  else if (!neg.length && !answer && pos.length >= 2)
-    out.push(W.sentence(fill(W.pick(`tail|synth|${key}`, L.tail.synth), { a: W.np(pos[0]), b: W.np(pos[1]) }), { move: 'VALUE', step: `synth:${pos[0]}|${pos[1]}`, basis: 'he_thong', concepts: [pos[0], pos[1]] }));
+  // two strengths set side by side only when both were told plainly: a softened claim means the two do not simply 'go one way'
+  else if (!neg.length && !answer && strong.length >= 2)
+    out.push(W.sentence(fill(W.pick(`tail|synth|${key}`, L.tail.synth), { a: W.np(strong[0]), b: W.np(strong[1]) }), { move: 'VALUE', step: `synth:${strong[0]}|${strong[1]}`, basis: 'he_thong', concepts: [strong[0], strong[1]] }));
   return out;
 }
 
@@ -706,7 +711,7 @@ function caveats(W: Writer, L: LuanLib, t: Thesis, xs: ProseSentence[], P: strin
 const oppName = (chart: ChartInput, P: string) => { const p = chart.palaces.find(x => x.name === P)!; return chart.palaces.find(x => x.branch_index === (p.branch_index + 6) % 12)!.name; };
 /** the confront frames of an element: a hãm chính tinh the palace only borrows has its own frames, which say where it stands */
 const confrontTpl = (L: LuanLib, e: Element) => e.borrowed && e.kind === 'major_ham' && L.confront.major_ham_borrowed?.length ? L.confront.major_ham_borrowed : L.confront[e.kind];
-const elName = (e: Element) => e.kind === 'tuan' ? 'Tuần' : e.kind === 'triet' ? 'Triệt' : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ`
+const elName = (e: Element) => e.kind === 'tuan' ? 'Tuần' : e.kind === 'triet' ? 'Triệt' : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ${e.borrowed ? ' (mượn từ cung đối)' : ''}`
   : e.kind === 'hoa_ky' ? `Hóa Kỵ` : e.kind === 'major_ham' ? `${e.star} hãm${e.borrowed ? ' (mượn từ cung đối)' : ''}` : e.star ?? e.id;
 
 /** The ledger's conclusion for one domain, as this chapter tells it: the contradiction and what ties it (part 4) when both sides stand, then
@@ -748,18 +753,27 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   // a Hóa seat is named with its Hóa ("Cự Môn hóa Lộc ở cung Mệnh"): the star alone is not what the reading stands on
   const ground = (x?: LedgerItem) => x?.seat.star ? `${x.seat.star}${x.seat.kind === 'hoa' && x.seat.id.startsWith('hoa:Hóa ') ? ` hóa ${x.seat.id.slice(8)}` : ''}${x.seat.scope === 'opp' && x.seat.kind === 'major' ? ' mượn từ cung đối' : ''} ở cung ${x.palace}` : `cung ${x?.palace ?? P}`;
   // what a reading of an unresolved pair stands on: all its stars and Hóa (the rule's own condition), with the palace when they share one
-  const starsGround = (x?: LedgerItem) => { if (!x?.stars.length) return ground(x); return `${joinVi(x.stars)}${x.stars.length <= 2 ? ` ở cung ${x.palace}` : ''}`; };
+  const starsGround = (x?: LedgerItem) => {
+    if (!x?.at?.length) return ground(x);
+    const by = new Map<string, string[]>();
+    for (const a of x.at) (by.get(a.palace) ?? by.set(a.palace, []).get(a.palace)!).push(a.name);
+    return joinVi([...by].sort((a, b) => Number(b[0] === x.palace) - Number(a[0] === x.palace)).map(([p, ns]) => `${joinVi(ns)} ở cung ${p}`));
+  };
   const limits = joinVi([...new Set(v.limits.filter(l => !(l.kind === 'hoa_ky' && v.limits.some(m => m.kind === 'ky_carrier' && m.star === l.star))).map(elName))].slice(0, 3));
   const palace = v.limits[0]?.palace ?? P;
   const singleStars = (x?: LedgerItem) => joinVi(x?.stars.length ? x.stars : [x?.seat.star ?? `cung ${x?.palace}`]);
   const lk = v.link?.kind;
   let key: string | null = null;
-  const vals: Record<string, string> = { domain: v.label, pos: np(bp), neg: np(bn), link: '', ground: '', limits, palace, stars: '', mitig: '', supports: joinVi(v.supports.map(elName)), S: W.S(), gpos: '', gneg: '' };
+  const vals: Record<string, string> = { domain: v.label, pos: np(bp), neg: np(bn), link: '', ground: '', limits, palace, stars: '', mitig: '', supports: joinVi(v.supports.map(elName)), S: W.S(), gpos: '', gneg: '', fpos: '', fneg: '' };
   const OPTIONAL = new Set(['mitig']);
   // health is never judged good or bad: with both sides, the two book readings are named and nothing is concluded (audit 2026-10-22)
   if (v.verdict === 'khong_ket_luan') { const bm = bp ?? best(v.mitig ?? []); if (!(bm && bn) || !G.health_both?.length) return []; key = 'health_both'; vals.pos = np(bm); }
   // both sides and no book sentence between them: named, with what each stands on, and left unresolved
-  else if (v.verdict === 'chua_phan_xu') { key = 'unresolved'; vals.gpos = starsGround(bp); vals.gneg = starsGround(bn); }
+  else if (v.verdict === 'chua_phan_xu') { key = 'chua_phan_xu'; vals.gpos = starsGround(bp); vals.gneg = starsGround(bn); }
+  // two sides on different facets: both hold, each named with what it is about
+  else if (v.verdict === 'hai_mat') { const fl = (L as LuanLib & { facet_label?: Record<string, string> }).facet_label ?? {}; key = 'coexist';
+    vals.fpos = fl[W.concept(bp!.concept)?.facet ?? ''] ?? ''; vals.fneg = fl[W.concept(bn!.concept)?.facet ?? ''] ?? '';
+    if (!vals.fpos || !vals.fneg || vals.fpos === vals.fneg) { key = 'chua_phan_xu'; vals.gpos = starsGround(bp); vals.gneg = starsGround(bn); } }
   // a limit a book relation makes lighter: still a limit, with its mitigating factor
   else if (v.verdict === 'giam_nhe') { key = 'neg_mitigated'; vals.link = claimOf(v.link?.ruleId) ?? np(v.mitig?.[0]); }
   else if (v.verdict === 'chua_du') key = 'struct_only';
@@ -790,7 +804,7 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   const mainVals = v.part && G.part_self?.length ? { ...vals, domain: W.pick(`lself|${v.id}`, G.part_self) } : vals;
   const mainText0 = fill(W.pick(`l|${v.id}|${key}`, G[key]), mainVals);
   const mainText = v.part ? mainText0.replace(new RegExp(`^về ${mainVals.domain},\\s*`), '') : mainText0;
-  const main = W.sentence(mainText, tr(key.startsWith('both') || key === 'two_ways' || key === 'unresolved' || key === 'health_both' ? 4 : 5, `ledger:${v.id}:${key}`));
+  const main = W.sentence(mainText, tr(key.startsWith('both') || key === 'two_ways' || key === 'chua_phan_xu' || key === 'coexist' || key === 'health_both' ? 4 : 5, `ledger:${v.id}:${key}`));
   const out = [main];
   // the verdict, naming the limits of the core palace when the conclusion is conditional on them
   const withLimits = v.verdict === 'co_dieu_kien' && !!limits && key !== 'pos_struct' && key !== 'neg_struct';

@@ -144,6 +144,7 @@ function proseWhy(p, key) {
   const basis = t.basis === 'he_thong' ? '<span class="an-b an-he_thong">Lời tổng hợp của hệ thống</span> <span class="muted">không phải lời sách; chỉ nhắc lại những ý đã có căn cứ ở câu trước</span>'
     : t.basis === 'tinh_toan' ? '<span class="an-b an-tinh_toan">Tính từ lá số</span> <span class="muted">dữ kiện tính được, hoặc tra từ bảng có ghi trang sách</span>'
     : t.basis === 'pho_thong' ? '<span class="an-b an-pho_thong">Thông lệ phổ biến</span> <span class="muted">nghĩa thường dùng, do hệ thống soạn, chưa đối chiếu sách</span>'
+    : t.basis === 'loi_khuyen' ? '<span class="an-b an-he_thong">Lời khuyên chung</span> <span class="muted">gợi ý của hệ thống rút từ nhận định vừa nêu; không phải lời sách, không phải lời phán của lá số</span>'
     : t.basis === 'minh_hoa' ? '<span class="an-b an-minh_hoa">Minh họa</span> <span class="muted">lời hệ thống soạn để cụ thể hóa đúng một nhận định sách ngay trước nó; không thêm nhận định, không nói sự kiện hay thời điểm</span>'
     : '<span class="an-b an-sach">Theo sách</span>';
   const src = !t.rules.length && t.cites?.length ? `<p class="muted">Nguồn: ${esc(t.cites.map(prCite).join('; '))}</p>` : '';
