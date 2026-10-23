@@ -6,7 +6,7 @@ import { getPlatformProxy } from "wrangler";
 import knowledge from "../../interpret/generated/knowledge.json" with { type: "json" };
 import { handleDeep, DEEP_INSTRUCTIONS, type DeepDeps } from "../deep.ts";
 import { getWallet, grant } from "../../billing/wallet.ts";
-import { COSTS } from "../../billing/config.ts";
+import { COSTS, FREE_MESSAGES_PER_DAY } from "../../billing/config.ts";
 import type { Llm, LlmEvent } from "../llm.ts";
 
 const chart = JSON.parse(readFileSync("src/interpret/test/fixtures/charts.json", "utf8"))[0];
@@ -61,7 +61,7 @@ test("never uses the free chats: no coins means locked even with free chats left
   const s = make(llmOf(good));
   const res = await handleDeep(post(ask()), s.deps);
   assert.equal(res.status, 402);
-  const b = await res.json() as any; assert.equal(b.need, COSTS.deep); assert.equal(b.wallet.free.remaining, 10);
+  const b = await res.json() as any; assert.equal(b.need, COSTS.deep); assert.equal(b.wallet.free.remaining, FREE_MESSAGES_PER_DAY);
   assert.equal(s.llmCalls, 0);
   await grant(db, uid, COSTS.deep - 1, "short");
   assert.equal((await handleDeep(post(ask()), s.deps)).status, 402);                 // one coin short

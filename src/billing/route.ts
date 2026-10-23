@@ -11,7 +11,7 @@
 //   GET  /api/vnpay/return         the visitor's browser comes back from VNPAY; redirected to the receipt page
 import type { User } from "../auth/session.ts";
 import { cleanReq } from "../auth/charts.ts";
-import { CHAPTER_TITLES, COSTS, DEEP_CHAPTERS, FREE_MESSAGES_PER_MONTH, PACKS, PLACEHOLDER_LABEL, PLANS, PRICES_ARE_PLACEHOLDERS, RETIRED_PLAN_NAMES, discounted, packById } from "./config.ts";
+import { CHAPTER_TITLES, COSTS, DEEP_CHAPTERS, FREE_MESSAGES_PER_DAY, PACKS, PLACEHOLDER_LABEL, PLANS, PRICES_ARE_PLACEHOLDERS, RETIRED_PLAN_NAMES, TOPUP_CHAT, discounted, packById } from "./config.ts";
 import { CODE_PROBLEM_VI, checkDiscount, redeemGift } from "./codes.ts";
 import { createOrder, getOrder, isOrderId, listOrders, receiptOf, setProviderRef, walletHistory } from "./orders.ts";
 import { buyPlan, unlockedChapters } from "./paywall.ts";
@@ -34,7 +34,7 @@ export function plansView(env: BillingEnv) {
   return {
     placeholder: PRICES_ARE_PLACEHOLDERS, placeholderLabel: PLACEHOLDER_LABEL, paywall: paywallOn(env),
     plans: PLANS.map(p => ({ id: p.id, name: p.name, coins: p.coins, blurb: p.blurb, chapters: p.chapters === "one" ? "one" : [...p.chapters] })),
-    retiredPlans: RETIRED_PLAN_NAMES, packs: PACKS, costs: COSTS, freeMessages: FREE_MESSAGES_PER_MONTH,
+    retiredPlans: RETIRED_PLAN_NAMES, packs: PACKS, costs: COSTS, freeMessagesPerDay: FREE_MESSAGES_PER_DAY, topupChat: TOPUP_CHAT,
     // guests read the first third of each chapter's main reading, members all of it; the Đọc sâu part of these chapters is opened with xu
     tiers: { guestShare: "1/3", deepChapters: [...DEEP_CHAPTERS], titles: CHAPTER_TITLES },
     providers: { stripe: !!env.STRIPE_SECRET_KEY, vnpay: !!vnpayConfig(env) },

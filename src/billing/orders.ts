@@ -1,6 +1,7 @@
 // Orders: one per purchase attempt, made before the visitor leaves for the payment page, and completed (coins credited) exactly once by
 // the provider's signed callback. Also the wallet history and the receipt.
 import { CURRENCY, discounted, periodOf, type Pack } from "./config.ts";
+import { grantPass } from "./wallet.ts";
 
 export type Provider = "stripe" | "vnpay";
 export interface Order {
@@ -41,7 +42,10 @@ export async function completeOrder(db: D1Database, order: Order, providerRef: s
     db.prepare("INSERT OR IGNORE INTO payments (session_id, user_id, pack, coins, amount, currency, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)")
       .bind(o.provider === "stripe" ? o.provider_ref : `vnpay:${o.id}`, o.user_id, o.pack, o.coins, o.amount, o.currency, now),
   ]);
-  return (led.meta?.changes ?? 0) > 0 && (upd.meta?.changes ?? 0) > 0 ? "credited" : "duplicate";
+  const result: CompleteResult = (led.meta?.changes ?? 0) > 0 && (upd.meta?.changes ?? 0) > 0 ? "credited" : "duplicate";
+  // every top-up opens (or extends) the 30-day chat pass; once per order, and a retried callback heals a pass that failed to land
+  await grantPass(db, o.user_id, ref, now);
+  return result;
 }
 
 /** A payment the provider reports as not completed (cancelled, declined). A paid order never goes back. */
@@ -52,12 +56,12 @@ export const failOrder = (db: D1Database, id: string, detail: string) =>
 export interface HistoryRow { id: number; kind: string; usage: string; delta: number; ref: string | null; at: number; order: string | null; amount: number | null; provider: string | null }
 
 /** Every coin movement of the account, newest first: top-ups (with the order and the VND paid), gift codes, admin grants, coin spends and
- *  refunds. Free chat uses move no coins and are left out. */
+ *  refunds. Free chat uses and chat-pass rows move no coins and are left out. */
 export async function walletHistory(db: D1Database, userId: string, limit = 200): Promise<HistoryRow[]> {
   const { results } = await db.prepare(
     `SELECT l.id, l.kind, l.usage, l.delta, l.ref, l.created_at AS at, o.id AS "order", o.amount, o.provider
      FROM ledger l LEFT JOIN orders o ON o.user_id = l.user_id AND l.ref = o.provider || ':' || (CASE o.provider WHEN 'stripe' THEN o.provider_ref ELSE o.id END)
-     WHERE l.user_id = ? AND l.kind NOT IN ('free_spend', 'refund_free') ORDER BY l.id DESC LIMIT ?`).bind(userId, limit).all<HistoryRow>();
+     WHERE l.user_id = ? AND l.kind NOT IN ('free_spend', 'refund_free', 'pass') ORDER BY l.id DESC LIMIT ?`).bind(userId, limit).all<HistoryRow>();
   return results;
 }
 export async function listOrders(db: D1Database, userId: string, limit = 50): Promise<Order[]> {

@@ -9,8 +9,8 @@ import { createCode, redeemGift, checkDiscount, setActive } from "../codes.ts";
 import { completeOrder, createOrder, getOrder, walletHistory, receiptEmail } from "../orders.ts";
 import { handleEvent } from "../stripe.ts";
 import { handleBilling, plansView } from "../route.ts";
-import { getWallet, grant } from "../wallet.ts";
-import { DEEP_CHAPTERS, PACKS, PALACE_CHAPTERS, PLANS, PRICES_ARE_PLACEHOLDERS, discounted, planById } from "../config.ts";
+import { getWallet, grant, passUntil } from "../wallet.ts";
+import { DEEP_CHAPTERS, PACKS, PALACE_CHAPTERS, PLANS, PRICES_ARE_PLACEHOLDERS, TOPUP_CHAT, discounted, planById } from "../config.ts";
 import { handleAdmin } from "../../admin/route.ts";
 
 let proxy: Awaited<ReturnType<typeof getPlatformProxy>>, db: D1Database, n = 0, uid = "", user: any;
@@ -204,4 +204,29 @@ test("before migration 0007 (no orders table) Stripe checkout still works the ol
   assert.equal(sent[0].get("line_items[0][price_data][unit_amount]"), String(PACKS[0].amount));
   assert.equal((await call({ pack: "p50", code: "GIAM20" }, { STRIPE_SECRET_KEY: "sk" })).status, 503);
   assert.equal(sent.length, 1);
+});
+
+test("every top-up opens the 30-day chat pass (VNPAY or Stripe order, older Stripe session, gift code); admin grants do not; repeats add nothing", async () => {
+  const DAY = 86400_000, span = TOPUP_CHAT.days * DAY;
+  await grant(db, uid, 5, "admin:x", T);                                          // an admin grant is not a top-up
+  assert.equal(await passUntil(db, uid), 0);
+  const vn = await createOrder(db, { userId: uid, provider: "vnpay", pack: PACKS[0] }, T);
+  assert.equal(await completeOrder(db, vn, "TXN9", "vnp 00/00", T), "credited");
+  assert.equal(await passUntil(db, uid), T + span);
+  assert.equal(await completeOrder(db, vn, "TXN9", "vnp 00/00", T + DAY), "duplicate");   // a repeated IPN
+  assert.equal(await passUntil(db, uid), T + span);
+  await createCode(db, { kind: "gift", code: "PASS-1", coins: 10 }, "a", T);
+  assert.ok((await redeemGift(db, uid, "PASS-1", T + DAY)).ok);                   // extends from the current end, not from now
+  assert.equal(await passUntil(db, uid), T + 2 * span);
+  const st = await createOrder(db, { userId: uid, provider: "stripe", pack: PACKS[1] }, T);
+  const ev = (id: string, o: Record<string, unknown>) => ({ type: "checkout.session.completed", data: { object: { id, payment_status: "paid", currency: "vnd", client_reference_id: uid, ...o } } });
+  assert.equal(await handleEvent(db, ev("cs_pass", { amount_total: st.amount, metadata: { order: st.id } }), T + 2 * DAY), "credited");
+  assert.equal(await passUntil(db, uid), T + 3 * span);
+  assert.equal(await handleEvent(db, ev("cs_legacy", { amount_total: PACKS[0].amount, metadata: { pack: PACKS[0].id } }), T + 2 * DAY), "credited");
+  assert.equal(await passUntil(db, uid), T + 4 * span);
+  assert.equal(await handleEvent(db, ev("cs_legacy", { amount_total: PACKS[0].amount, metadata: { pack: PACKS[0].id } }), T + 2 * DAY), "duplicate");
+  assert.equal(await passUntil(db, uid), T + 4 * span);
+  const w = await getWallet(db, uid, T + 2 * DAY);
+  assert.equal(w.pass.active, true); assert.equal(w.free.limit, TOPUP_CHAT.perDay);
+  assert.equal((await walletHistory(db, uid)).some(h => h.kind === "pass"), false);       // pass rows move no coins: not in the history
 });

@@ -1,7 +1,7 @@
 // Stripe over plain fetch (nothing to install in the Worker): create a Checkout Session, verify a webhook, credit coins once.
 import { CURRENCY, packById, type Pack } from "./config.ts";
 import { completeOrder, getOrder, isOrderId, type Order } from "./orders.ts";
-import { grant } from "./wallet.ts";
+import { grant, grantPass } from "./wallet.ts";
 
 export type Fetch = (input: string, init?: RequestInit) => Promise<Response>;
 
@@ -65,5 +65,6 @@ export async function handleEvent(db: D1Database, event: { type?: string; data?:
   const applied = await grant(db, userId, pack.coins, `stripe:${s.id}`, now);
   await db.prepare("INSERT OR IGNORE INTO payments (session_id, user_id, pack, coins, amount, currency, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)")
     .bind(s.id, userId, pack.id, pack.coins, pack.amount, CURRENCY, now).run();
+  await grantPass(db, userId, `stripe:${s.id}`, now);                         // a top-up: the 30-day chat pass, once per session
   return applied ? "credited" : "duplicate";
 }

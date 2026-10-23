@@ -1,5 +1,6 @@
 // Discount codes (percent off a coin pack bought with money) and gift codes (free coins, once per account), made on /admin.
 import { MAX_DISCOUNT_PCT, periodOf } from "./config.ts";
+import { grantPass } from "./wallet.ts";
 
 export interface PromoCode {
   code: string; kind: "discount" | "gift"; percent: number; coins: number; max_uses: number; used: number;
@@ -82,7 +83,8 @@ export async function redeemGift(db: D1Database, userId: string, raw: unknown, n
     db.prepare("UPDATE wallets SET coins = coins + (SELECT coins FROM promo_codes WHERE code = ?1), updated_at = ?2 WHERE user_id = ?3 AND changes() > 0").bind(code, now, userId),
   ]);
   const row = await getCode(db, code);
-  if ([led, use, upd].every(r => (r.meta?.changes ?? 0) > 0)) return { ok: true, coins: row!.coins, code };
+  // a gift code counts as a top-up: it opens (or extends) the 30-day chat pass
+  if ([led, use, upd].every(r => (r.meta?.changes ?? 0) > 0)) { await grantPass(db, userId, `gift:${code}`, now); return { ok: true, coins: row!.coins, code }; }
   if (await db.prepare("SELECT 1 AS x FROM ledger WHERE user_id = ? AND ref = ?").bind(userId, `gift:${code}`).first()) return { ok: false, reason: "already" };
   return { ok: false, reason: problemOf(row, "gift", now) ?? "invalid" };
 }

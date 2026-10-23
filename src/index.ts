@@ -65,14 +65,15 @@ async function overviewRoute(request: Request, env: Env, ctx: ExecutionContext):
 
 async function chatRoute(request: Request, env: Env, ctx: ExecutionContext, deep: boolean): Promise<Response> {
   const user = env.DB ? await currentUser(env.DB, request) : null;
-  if (!env.DB || !user) return new Response(JSON.stringify({ detail: "sign in required" }), { status: 401, headers: { "content-type": "application/json" } });
+  if (!env.DB || (!user && deep)) return new Response(JSON.stringify({ detail: "sign in required" }), { status: 401, headers: { "content-type": "application/json" } });
   const deps = {
-    db: env.DB, user, knowledge: knowledge as unknown as Knowledge,
+    db: env.DB, knowledge: knowledge as unknown as Knowledge,
     llm: env.ANTHROPIC_API_KEY ? anthropicLlm(env.ANTHROPIC_API_KEY, deep ? DEEP_OPTIONS : CHAT_OPTIONS) : null,
     facts: (birth: Record<string, unknown>) => getContainer(env.TVBT, "main").fetch(new Request(new URL("/api/facts", request.url), {
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(birth) })),
   };
-  return deep ? handleDeep(request, { ...deps, defer: p => ctx.waitUntil(p) }) : handleChat(request, deps);
+  // a guest reaches handleChat, which answers 401 itself (the panel opens for anyone; sending needs sign-in)
+  return deep && user ? handleDeep(request, { ...deps, user, defer: p => ctx.waitUntil(p) }) : handleChat(request, { ...deps, user });
 }
 
 // A shared chart is computed from the birth stored with it: the engine call is built here, never from the viewer's body alone. Its readings

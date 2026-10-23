@@ -1,16 +1,20 @@
-// POST /api/me/chat — a streamed answer about the user's own chart. Order matters: validate, get the chart, charge, then call the model;
-// a failure before any text reached the user gives the charge back.
+// POST /api/me/chat — a streamed answer from "Bát Bát". Three modes, by what the body names:
+//   {chart_id, messages}  a chart saved in the asker's own account (looked up with the user id, so another user's id finds nothing);
+//   {birth, messages}     the chart on screen;
+//   {messages}            general mode: no chart facts, a short prompt that says so.
+// Order matters: sign-in, validate, get the chart, charge, then call the model; a failure before any text reached the user gives the charge back.
 import { cleanReq } from "../auth/charts.ts";
 import { COSTS } from "../billing/config.ts";
 import { getWallet, refund, spend } from "../billing/wallet.ts";
 import type { User } from "../auth/session.ts";
 import { buildContext } from "./context.ts";
-import { INSTRUCTIONS } from "./prompt.ts";
+import { GENERAL_CONTEXT, GENERAL_INSTRUCTIONS, INSTRUCTIONS } from "./prompt.ts";
 import type { ChatMessage, Llm } from "./llm.ts";
 import type { ChartInput, Knowledge } from "../interpret/types.ts";
 
 export interface ChatDeps {
-  db: D1Database; user: User; llm: Llm | null; knowledge: Knowledge;
+  /** null for a guest: the panel opens for anyone, but sending needs sign-in (401) */
+  db: D1Database; user: User | null; llm: Llm | null; knowledge: Knowledge;
   facts: (birth: Record<string, unknown>) => Promise<Response>;
   now?: () => number;
 }
@@ -36,37 +40,53 @@ export function cleanMessages(x: unknown): ChatMessage[] | null {
   return out;
 }
 
+export const isChartId = (v: unknown): v is string => typeof v === "string" && /^[a-z0-9]{1,20}$/.test(v);
+
 export async function handleChat(request: Request, d: ChatDeps): Promise<Response> {
   if (request.method !== "POST") return json({ detail: "POST only" }, 405);
+  if (!d.user) return json({ detail: "sign in required" }, 401);
   if (request.headers.get("x-tvbt") !== "1") return json({ detail: "missing x-tvbt header" }, 403);
   if (!d.llm) return json({ detail: "chat is not configured" }, 503);
-  const body = await request.json().catch(() => null) as { birth?: unknown; messages?: unknown } | null;
-  const birth = cleanReq(body?.birth), messages = cleanMessages(body?.messages);
-  if (!birth || !messages) return json({ detail: "body must be {birth, messages}: up to 20 messages, last from the user, each up to 1500 characters" }, 400);
+  const user = d.user;
+  const body = await request.json().catch(() => null) as { birth?: unknown; chart_id?: unknown; messages?: unknown } | null;
+  const messages = cleanMessages(body?.messages);
+  const byId = body?.chart_id !== undefined && body?.chart_id !== null, byBirth = body?.birth !== undefined && body?.birth !== null;
+  let birth = byBirth ? cleanReq(body!.birth) : null;
+  if (!messages || (byId && byBirth) || (byId && !isChartId(body!.chart_id)) || (byBirth && !birth))
+    return json({ detail: "body must be {messages} with at most one of {birth} or {chart_id}: up to 20 messages, last from the user, each up to 1500 characters" }, 400);
+  if (byId) {
+    // only the asker's own saved charts: the lookup is by (user, id), so another user's chart id is simply not found
+    const row = await d.db.prepare("SELECT req_json FROM charts WHERE user_id = ? AND id = ?").bind(user.id, body!.chart_id).first<{ req_json: string }>();
+    birth = row ? cleanReq(JSON.parse(row.req_json)) : null;
+    if (!birth) return json({ detail: "no such saved chart" }, 404);
+  }
 
   // Fail before charging when the lock is the only problem: a locked user sees the lock, not a facts error.
-  const before = await getWallet(d.db, d.user.id, d.now?.());
+  const before = await getWallet(d.db, user.id, d.now?.());
   if (before.free.remaining <= 0 && before.coins < COSTS.chat) return json({ detail: "locked", wallet: before }, 402);
 
-  const nowYear = new Date((d.now?.() ?? Date.now()) + 7 * 3600e3).getUTCFullYear();
-  const factsRes = await d.facts({ ...birth.req, to_year: nowYear });
-  if (!factsRes.ok) return json({ detail: "could not compute the chart" }, 502);
-  const chart = await factsRes.json() as ChartInput;
-  const context = buildContext(chart, d.knowledge);
+  let instructions = GENERAL_INSTRUCTIONS, context = GENERAL_CONTEXT;
+  if (birth) {
+    const nowYear = new Date((d.now?.() ?? Date.now()) + 7 * 3600e3).getUTCFullYear();
+    const factsRes = await d.facts({ ...birth.req, to_year: nowYear });
+    if (!factsRes.ok) return json({ detail: "could not compute the chart" }, 502);
+    const chart = await factsRes.json() as ChartInput;
+    instructions = INSTRUCTIONS; context = buildContext(chart, d.knowledge);
+  }
 
-  const paid = await spend(d.db, d.user.id, "chat", d.now?.());
-  if (!paid.ok) return json({ detail: "locked", wallet: await getWallet(d.db, d.user.id, d.now?.()) }, 402);
+  const paid = await spend(d.db, user.id, "chat", d.now?.());
+  if (!paid.ok) return json({ detail: "locked", wallet: await getWallet(d.db, user.id, d.now?.()) }, 402);
 
   const llm = d.llm;
   let cancelled = false;
   const stream = new ReadableStream<Uint8Array>({
     async start(ctl) {
       let delivered = false;
-      const giveBack = async () => { try { return await refund(d.db, d.user.id, paid.ref, d.now?.()); } catch { return false; } };
-      ctl.enqueue(sse({ type: "meta", source: paid.source }));
+      const giveBack = async () => { try { return await refund(d.db, user.id, paid.ref, d.now?.()); } catch { return false; } };
+      ctl.enqueue(sse({ type: "meta", source: paid.source, mode: birth ? "chart" : "general" }));
       try {
         let stop = "";
-        for await (const ev of llm({ instructions: INSTRUCTIONS, context, messages })) {
+        for await (const ev of llm({ instructions, context, messages })) {
           if (cancelled) return;
           if ("text" in ev) { if (ev.text) { delivered = true; ctl.enqueue(sse({ type: "delta", text: ev.text })); } }
           else stop = ev.stop;
@@ -80,7 +100,7 @@ export async function handleChat(request: Request, d: ChatDeps): Promise<Respons
         const refunded = delivered ? false : await giveBack();
         try { ctl.enqueue(sse({ type: "error", message: "Trợ lý đang gặp sự cố. Bạn thử lại sau nhé.", refunded })); } catch { /* the client is gone */ }
       }
-      try { ctl.enqueue(sse({ type: "wallet", wallet: await getWallet(d.db, d.user.id, d.now?.()) })); ctl.close(); } catch { /* closed */ }
+      try { ctl.enqueue(sse({ type: "wallet", wallet: await getWallet(d.db, user.id, d.now?.()) })); ctl.close(); } catch { /* closed */ }
     },
     cancel() { cancelled = true; },
   });

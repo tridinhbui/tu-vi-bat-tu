@@ -8,8 +8,9 @@ import { CHAPTER_IDS, SPECS, type ChapterId } from "../interpret/chapters.ts";
 import { buildContext } from "./context.ts";
 import { DEEP_MODEL } from "./llm.ts";
 import type { ChatDeps } from "./route.ts";
+import type { User } from "../auth/session.ts";
 
-export interface DeepDeps extends ChatDeps { defer: (p: Promise<unknown>) => void }
+export interface DeepDeps extends Omit<ChatDeps, "user"> { user: User; defer: (p: Promise<unknown>) => void }
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
 const sse = (o: unknown) => new TextEncoder().encode(`data: ${JSON.stringify(o)}\n\n`);
