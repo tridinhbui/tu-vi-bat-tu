@@ -8,6 +8,8 @@
   "vars": { "TVBT_INTERPRET": "1", "TVBT_PROSE_DRAFT": "1",
     // Public OAuth client id (not a secret). The client secret is set with `wrangler secret put GOOGLE_CLIENT_SECRET`.
     "GOOGLE_CLIENT_ID": "373246803608-1ivuob3khnch8hko5h42o4fnj5o46kql.apps.googleusercontent.com" },
+  // the deploy's version id: part of the interpretation cache key, so a code change never serves a reading cached by the previous deploy
+  "version_metadata": { "binding": "CF_VERSION_METADATA" },
   "containers": [
     { "class_name": "TvbtContainer", "image": "./Dockerfile", "max_instances": 3 }
   ],

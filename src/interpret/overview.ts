@@ -69,6 +69,7 @@ export interface OverviewDeps {
   enabled: boolean;                                         // TVBT_INTERPRET === "1" (the same switch as /api/interpret)
   facts: (birth: Record<string, unknown>) => Promise<Response>;
   store: KnowledgeStore; cache?: OutputCache; defer?: (p: Promise<unknown>) => void;
+  codeRev?: string;                                         // deploy version id, in the cache key (see InterpretDeps.codeRev)
 }
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8' } });
 
@@ -81,7 +82,7 @@ export async function handleOverview(request: Request, d: OverviewDeps): Promise
   if (!factsRes.ok) return new Response(factsRes.body, { status: factsRes.status, headers: factsRes.headers });
   const facts = await factsRes.json() as ChartInput;
   const k = await d.store.load();
-  const key = await cacheKey([facts.base, facts.decades, facts.year, 'overview', OVERVIEW_VERSION, INDICES_VERSION, REASONER_VERSION, k.version, NORMS.kbVersion, NORMS.version]);
+  const key = await cacheKey([facts.base, facts.decades, facts.year, 'overview', OVERVIEW_VERSION, INDICES_VERSION, REASONER_VERSION, k.version, NORMS.kbVersion, NORMS.version, d.codeRev ?? null]);
   const hit = await d.cache?.get(key);
   if (hit) return new Response(hit, { headers: { 'content-type': 'application/json; charset=utf-8', 'x-overview-cache': 'hit' } });
   const text = JSON.stringify(overview(facts, k));
