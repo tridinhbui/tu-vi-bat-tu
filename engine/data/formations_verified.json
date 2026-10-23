@@ -1,0 +1,3177 @@
+{
+ "version": 1,
+ "generated_by": "tools/build_formations_verified.py",
+ "date": "2026-10-23",
+ "note": "Mười cách cục định nghĩa lại theo trang sách (KL, TH, TT). Chỉ formations có reviewStatus 'verified' được đưa ra người đọc; 'disputed' là các sách không thống nhất lõi. Báo cáo: docs/audit/CACH-CUC-SOURCES.md.",
+ "formations": [
+  {
+   "id": "CACH_X_TU_PHU_VU_TUONG",
+   "name_vi": "Tử Phủ Vũ Tướng",
+   "anchor": "Mệnh",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Tử Vi",
+     "Thiên Phủ",
+     "Vũ Khúc",
+     "Thiên Tướng"
+    ]
+   },
+   "kind": "cat",
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương, Văn Khúc hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    },
+    {
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi, Thiên Việt hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    },
+    {
+     "id": "long_phuong_hoi",
+     "label": "Long Trì, Phượng Các hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Long Trì",
+       "Phượng Các"
+      ]
+     }
+    },
+    {
+     "id": "hong_dao_hoi",
+     "label": "Hồng Loan, Đào Hoa hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Hồng Loan",
+       "Đào Hoa"
+      ]
+     }
+    },
+    {
+     "id": "tam_hoa_hoi",
+     "label": "Hóa Lộc, Hóa Quyền, Hóa Khoa cùng hội trong tam phương (Tam Hóa)",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "ha_cach",
+     "label": "hạ cách: không bộ cát tinh nào hội đủ (Tả Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa) mà Mệnh có từ hai hung, sát tinh đóng (Kình, Đà, Hỏa, Linh, Không, Kiếp, Song Hao, Hóa Kỵ)",
+     "when": {
+      "all": [
+       {
+        "not": {
+         "any": [
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Tả Phụ",
+            "Hữu Bật"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Văn Xương",
+            "Văn Khúc"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Thiên Khôi",
+            "Thiên Việt"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Long Trì",
+            "Phượng Các"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Hồng Loan",
+            "Đào Hoa"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_hoa",
+           "operator": "contains_all",
+           "value": [
+            "Hóa Lộc",
+            "Hóa Quyền",
+            "Hóa Khoa"
+           ]
+          }
+         ]
+        }
+       },
+       {
+        "count": [
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Kình Dương"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Đà La"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Hỏa Tinh"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Linh Tinh"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Đại Hao"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Tiểu Hao"
+         },
+         {
+          "fact": "palace.rel.self_hoa",
+          "operator": "contains",
+          "value": "Hóa Kỵ"
+         }
+        ],
+        "operator": "gte",
+        "value": 2
+       }
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": [
+    {
+     "id": "chinh_tinh_kem_sang",
+     "label": "chính tinh của cách không nhập miếu, vượng hay đắc địa (bình hoặc hãm)",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.tp_rank.Tử Vi",
+        "operator": "lte",
+        "value": 1
+       },
+       {
+        "fact": "palace.tp_rank.Thiên Phủ",
+        "operator": "lte",
+        "value": 1
+       },
+       {
+        "fact": "palace.tp_rank.Vũ Khúc",
+        "operator": "lte",
+        "value": 1
+       },
+       {
+        "fact": "palace.tp_rank.Thiên Tướng",
+        "operator": "lte",
+        "value": 1
+       }
+      ]
+     }
+    }
+   ],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_TU_PHU_DONG_CUNG",
+   "name_vi": "Tử Phủ đồng cung",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "fact": "palace.rel.self_majors",
+    "operator": "contains_all",
+    "value": [
+     "Tử Vi",
+     "Thiên Phủ"
+    ]
+   },
+   "boosters": [
+    {
+     "id": "loc_ton_hoi",
+     "label": "Lộc Tồn hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "sat_tinh_hoi",
+     "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La",
+       "Hỏa Tinh",
+       "Linh Tinh",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": [
+    {
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt án ngữ ở cung Mệnh",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     }
+    }
+   ],
+   "thuong_at": 1,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_THUC_HANH",
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "name_vi": "Cơ Nguyệt Đồng Lương",
+   "anchor": "Mệnh",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Thiên Cơ",
+     "Thái Âm",
+     "Thiên Đồng",
+     "Thiên Lương"
+    ]
+   },
+   "kind": "cat",
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương, Văn Khúc hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    },
+    {
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi, Thiên Việt hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    },
+    {
+     "id": "long_phuong_hoi",
+     "label": "Long Trì, Phượng Các hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Long Trì",
+       "Phượng Các"
+      ]
+     }
+    },
+    {
+     "id": "hong_dao_hoi",
+     "label": "Hồng Loan, Đào Hoa hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Hồng Loan",
+       "Đào Hoa"
+      ]
+     }
+    },
+    {
+     "id": "tam_hoa_hoi",
+     "label": "Hóa Lộc, Hóa Quyền, Hóa Khoa cùng hội trong tam phương (Tam Hóa)",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "ha_cach",
+     "label": "hạ cách: không bộ cát tinh nào hội đủ (Tả Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa) mà Mệnh có từ hai hung, sát tinh đóng (Kình, Đà, Hỏa, Linh, Không, Kiếp, Song Hao, Hóa Kỵ)",
+     "when": {
+      "all": [
+       {
+        "not": {
+         "any": [
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Tả Phụ",
+            "Hữu Bật"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Văn Xương",
+            "Văn Khúc"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Thiên Khôi",
+            "Thiên Việt"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Long Trì",
+            "Phượng Các"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Hồng Loan",
+            "Đào Hoa"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_hoa",
+           "operator": "contains_all",
+           "value": [
+            "Hóa Lộc",
+            "Hóa Quyền",
+            "Hóa Khoa"
+           ]
+          }
+         ]
+        }
+       },
+       {
+        "count": [
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Kình Dương"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Đà La"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Hỏa Tinh"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Linh Tinh"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Đại Hao"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Tiểu Hao"
+         },
+         {
+          "fact": "palace.rel.self_hoa",
+          "operator": "contains",
+          "value": "Hóa Kỵ"
+         }
+        ],
+        "operator": "gte",
+        "value": 2
+       }
+      ]
+     }
+    },
+    {
+     "id": "khong_kiep_ky_hoi",
+     "label": "Địa Không, Địa Kiếp, Hóa Kỵ (từ hai trong ba) hội trong tam phương",
+     "when": {
+      "count": [
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       },
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       }
+      ],
+      "operator": "gte",
+      "value": 2
+     }
+    },
+    {
+     "id": "hoa_linh_hoi",
+     "label": "Hỏa Tinh, Linh Tinh cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Hỏa Tinh",
+       "Linh Tinh"
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": [
+    {
+     "id": "chinh_tinh_kem_sang",
+     "label": "chính tinh của cách không nhập miếu, vượng hay đắc địa (bình hoặc hãm)",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.tp_rank.Thiên Cơ",
+        "operator": "lte",
+        "value": 1
+       },
+       {
+        "fact": "palace.tp_rank.Thái Âm",
+        "operator": "lte",
+        "value": 1
+       },
+       {
+        "fact": "palace.tp_rank.Thiên Đồng",
+        "operator": "lte",
+        "value": 1
+       },
+       {
+        "fact": "palace.tp_rank.Thiên Lương",
+        "operator": "lte",
+        "value": 1
+       }
+      ]
+     }
+    }
+   ],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_THUC_HANH",
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_SAT_PHA_LIEM_THAM",
+   "name_vi": "Sát Phá Liêm Tham",
+   "anchor": "Mệnh",
+   "core": {
+    "fact": "palace.rel.tp_majors",
+    "operator": "contains_all",
+    "value": [
+     "Thất Sát",
+     "Phá Quân",
+     "Tham Lang"
+    ]
+   },
+   "kind": "cat",
+   "boosters": [
+    {
+     "id": "ta_huu_hoi",
+     "label": "Tả Phụ, Hữu Bật hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    },
+    {
+     "id": "xuong_khuc_hoi",
+     "label": "Văn Xương, Văn Khúc hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    },
+    {
+     "id": "khoi_viet_hoi",
+     "label": "Thiên Khôi, Thiên Việt hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Thiên Khôi",
+       "Thiên Việt"
+      ]
+     }
+    },
+    {
+     "id": "long_phuong_hoi",
+     "label": "Long Trì, Phượng Các hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Long Trì",
+       "Phượng Các"
+      ]
+     }
+    },
+    {
+     "id": "hong_dao_hoi",
+     "label": "Hồng Loan, Đào Hoa hội đủ bộ trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Hồng Loan",
+       "Đào Hoa"
+      ]
+     }
+    },
+    {
+     "id": "tam_hoa_hoi",
+     "label": "Hóa Lộc, Hóa Quyền, Hóa Khoa cùng hội trong tam phương (Tam Hóa)",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "ha_cach",
+     "label": "hạ cách: không bộ cát tinh nào hội đủ (Tả Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa) mà Mệnh có từ hai hung, sát tinh đóng (Kình, Đà, Hỏa, Linh, Không, Kiếp, Song Hao, Hóa Kỵ)",
+     "when": {
+      "all": [
+       {
+        "not": {
+         "any": [
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Tả Phụ",
+            "Hữu Bật"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Văn Xương",
+            "Văn Khúc"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Thiên Khôi",
+            "Thiên Việt"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Long Trì",
+            "Phượng Các"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_stars",
+           "operator": "contains_all",
+           "value": [
+            "Hồng Loan",
+            "Đào Hoa"
+           ]
+          },
+          {
+           "fact": "palace.rel.tp_hoa",
+           "operator": "contains_all",
+           "value": [
+            "Hóa Lộc",
+            "Hóa Quyền",
+            "Hóa Khoa"
+           ]
+          }
+         ]
+        }
+       },
+       {
+        "count": [
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Kình Dương"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Đà La"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Hỏa Tinh"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Linh Tinh"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Đại Hao"
+         },
+         {
+          "fact": "palace.rel.self_stars",
+          "operator": "contains",
+          "value": "Tiểu Hao"
+         },
+         {
+          "fact": "palace.rel.self_hoa",
+          "operator": "contains",
+          "value": "Hóa Kỵ"
+         }
+        ],
+        "operator": "gte",
+        "value": 2
+       }
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": [
+    {
+     "id": "chinh_tinh_kem_sang",
+     "label": "chính tinh của cách không nhập miếu, vượng hay đắc địa (bình hoặc hãm)",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.tp_rank.Thất Sát",
+        "operator": "lte",
+        "value": 1
+       },
+       {
+        "fact": "palace.tp_rank.Phá Quân",
+        "operator": "lte",
+        "value": 1
+       },
+       {
+        "fact": "palace.tp_rank.Tham Lang",
+        "operator": "lte",
+        "value": 1
+       }
+      ]
+     }
+    }
+   ],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "name_vi": "Nhật Nguyệt tịnh minh",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "palace.branch",
+        "operator": "in",
+        "value": [
+         "Thìn",
+         "Tỵ"
+        ]
+       },
+       {
+        "fact": "palace.rel.self_majors",
+        "operator": "contains",
+        "value": "Thái Dương"
+       },
+       {
+        "fact": "palace.rel.tp_majors",
+        "operator": "contains",
+        "value": "Thái Âm"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.branch",
+        "operator": "in",
+        "value": [
+         "Dậu",
+         "Tuất"
+        ]
+       },
+       {
+        "fact": "palace.rel.self_majors",
+        "operator": "contains",
+        "value": "Thái Âm"
+       },
+       {
+        "fact": "palace.rel.tp_majors",
+        "operator": "contains",
+        "value": "Thái Dương"
+       }
+      ]
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_THUC_HANH"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "name_vi": "Nhật lệ trung thiên",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "eq",
+      "value": "Ngọ"
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Thái Dương"
+     }
+    ]
+   },
+   "boosters": [
+    {
+     "id": "tuoi_canh_tan_dinh_ky",
+     "label": "tuổi Canh, Tân, Đinh, Kỷ",
+     "when": {
+      "fact": "chart.year_stem",
+      "operator": "in",
+      "value": [
+       "Canh",
+       "Tân",
+       "Đinh",
+       "Kỷ"
+      ]
+     }
+    }
+   ],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 1,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_THUC_HANH",
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "name_vi": "Thạch trung ẩn ngọc",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Cự Môn"
+     }
+    ]
+   },
+   "boosters": [
+    {
+     "id": "tuan_triet_an_ngu",
+     "label": "Tuần hoặc Triệt ở cung Mệnh (đẽo đá lộ ngọc)",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.tuan",
+        "operator": "eq",
+        "value": true
+       },
+       {
+        "fact": "palace.triet",
+        "operator": "eq",
+        "value": true
+       }
+      ]
+     }
+    },
+    {
+     "id": "hoa_loc_hoi",
+     "label": "Hóa Lộc hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     }
+    },
+    {
+     "id": "tam_hoa_hoi_du",
+     "label": "Hóa Khoa, Hóa Quyền, Hóa Lộc cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
+     }
+    },
+    {
+     "id": "song_hao",
+     "label": "Song Hao (Đại Hao, Tiểu Hao) ở cung Mệnh cùng Cự Môn",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Đại Hao",
+       "Tiểu Hao"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "loc_ton_hoi",
+     "label": "Lộc Tồn hội trong tam phương (ngọc chìm)",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     }
+    },
+    {
+     "id": "ky_hinh_hoi",
+     "label": "Hóa Kỵ hoặc Thiên Hình hội trong tam phương",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Thiên Hình"
+       }
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_THUC_HANH",
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_MA_DAU_DOI_KIEM",
+   "name_vi": "Mã đầu đới kiếm",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "eq",
+      "value": "Ngọ"
+     },
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains",
+      "value": "Kình Dương"
+     }
+    ]
+   },
+   "boosters": [
+    {
+     "id": "khoa_quyen_loc_hoi",
+     "label": "Hóa Khoa, Hóa Quyền, Hóa Lộc cùng hội trong tam phương",
+     "when": {
+      "fact": "palace.rel.tp_hoa",
+      "operator": "contains_all",
+      "value": [
+       "Hóa Lộc",
+       "Hóa Quyền",
+       "Hóa Khoa"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "that_sat_thien_hinh_dong_cung",
+     "label": "Thất Sát hoặc Thiên Hình đồng cung với Kình Dương ở Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thất Sát",
+       "Thiên Hình"
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 1,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "disputed",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": "Các sách không thống nhất lõi (KL p.64 Kình ở Ngọ; TT p.142 Kình gặp Mã ở tứ mộ, ở Ngọ xấu; KL p.200 thêm Mã, Tham). Không đưa ra người đọc như cách đã xác định."
+  },
+  {
+   "id": "CACH_X_TAM_KY_GIA_HOI",
+   "name_vi": "Tam kỳ gia hội",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "fact": "palace.rel.tp_hoa",
+    "operator": "contains_all",
+    "value": [
+     "Hóa Lộc",
+     "Hóa Quyền",
+     "Hóa Khoa"
+    ]
+   },
+   "boosters": [
+    {
+     "id": "van_chuc_cach",
+     "label": "Xương Khúc, Khôi Việt, Tả Hữu đủ cả ba bộ trong tam phương (Văn chức cách)",
+     "when": {
+      "fact": "palace.rel.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Văn Xương",
+       "Văn Khúc",
+       "Thiên Khôi",
+       "Thiên Việt",
+       "Tả Phụ",
+       "Hữu Bật"
+      ]
+     }
+    }
+   ],
+   "breakers": [
+    {
+     "id": "ky_hoac_kinh_hoi",
+     "label": "Hóa Kỵ hoặc Kình Dương đồng cung hay chiếu vào Mệnh (trong tam phương)",
+     "when": {
+      "any": [
+       {
+        "fact": "palace.rel.tp_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       },
+       {
+        "fact": "palace.rel.tp_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       }
+      ]
+     }
+    }
+   ],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 1,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_THUC_HANH",
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "name_vi": "Khôi Việt giáp Mệnh",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       }
+      ]
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  }
+ ],
+ "evidence": {
+  "CACH_X_TU_PHU_VU_TUONG": {
+   "core": [
+    {
+     "book": "TH",
+     "page": 76,
+     "quote": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân:"
+    },
+    {
+     "book": "TH",
+     "page": 72,
+     "quote": "7. Tử, Phủ, Vũ, Tướng cách."
+    },
+    {
+     "book": "KL",
+     "page": 166,
+     "quote": "a. Tử Phủ Vũ Tướng (Hành động có lý luận)"
+    }
+   ],
+   "effect": [
+    {
+     "book": "TH",
+     "page": 76,
+     "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+     "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+    },
+    {
+     "book": "TH",
+     "page": 77,
+     "quote": "phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền",
+     "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+    },
+    {
+     "book": "KL",
+     "page": 96,
+     "quote": "Các cách Tử Phủ, Tử Phủ Vũ Tướng, Phủ Vũ đều rất tốt về mọi mặt công danh, tài lộc, phúc"
+    }
+   ],
+   "core_alone": "hinh_thuc",
+   "core_alone_reading": "TH pp.76-77: cách chính tinh cần miếu vượng và cát tinh hội mới là thượng cách; thiếu cát tinh mà gặp hung sát là hạ cách. Lõi đơn thuần chỉ là có hình thức.",
+   "items": {
+    "boosters:ta_huu_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      },
+      {
+       "book": "KL",
+       "page": 132,
+       "quote": "Cho nên người xưa vẫn quan niệm rằng cách Tử Phủ Vũ Tướng mà thiếu Tả Hữu thì đi tìm Tham"
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống. KL p.132: cách Tử Phủ Vũ Tướng cần Tả Hữu phụ tá."
+    },
+    "boosters:xuong_khuc_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:khoi_viet_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:long_phuong_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:hong_dao_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:tam_hoa_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "breakers:ha_cach": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ b",
+       "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+      },
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Hung tinh và sát tinh đóng",
+       "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+      },
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Kho",
+       "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+      }
+     ],
+     "reading": "TH p.77: hạ cách khi không có cát tinh hội đủ bộ VÀ có hung tinh, sát tinh đóng; danh sách hung sát lấy từ ví dụ của sách (Kình Đà, Không Kiếp, Song Hao, Hóa Kỵ) cộng Hỏa Linh là sát tinh; 'đóng' đọc là ở chính cung Mệnh; ngưỡng 'nhiều' = từ hai sao là quy ước của hệ thống."
+    },
+    "refutations:chinh_tinh_kem_sang": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "Tất cả những cách này cần được nhập miếu hay v",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76: các cách này 'cần được nhập miếu hay vượng địa, đắc địa' mới lên thượng cách; hệ thống đọc là phản chứng hạ một bậc khi một chính tinh của cách chỉ bình hoặc hãm (độ sáng theo bảng mặc định của hệ thống)."
+    }
+   },
+   "variants": [
+    {
+     "note": "Sách không định nghĩa hình học của nhóm; hệ thống đọc là đủ bốn sao trong tam phương tứ chính của Mệnh, như TT p.24 định nghĩa nhóm song song Cơ Nguyệt Đồng Lương ('các cung tam hợp xung chiếu có đủ bốn sao').",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 24,
+       "quote": "đủ bốn sao trên đây nếu không có những cát tinh khác trợ lực chỉ làm công chức quèn"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_TU_PHU_DONG_CUNG": {
+   "core": [
+    {
+     "book": "TH",
+     "page": 72,
+     "quote": "1. Tử, Phủ đồng cung cáh (đóng ở Mệnh hay Thân)"
+    },
+    {
+     "book": "KL",
+     "page": 49,
+     "quote": "Cung Mệnh ở Dần, Thâm có Tử vi, Thiên phủ đồng cung, cả đời sung sướng."
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 49,
+     "quote": "4 . Tử Phủ đồng cung, chung thân phúc hậu"
+    },
+    {
+     "book": "KL",
+     "page": 55,
+     "quote": "Mệnh có Tử Phủ thì được hưởng phúc lộc tốt rất nhiều, chỉ sợ Triệt Tuần án ngữ thì kém đi thôi."
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "TH p.72 kể Tử Phủ đồng cung là quý cách; KL p.49: cả đời sung sướng.",
+   "items": {
+    "boosters:loc_ton_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 22,
+       "quote": "cùng ở Thân hoặc Dần lập mệnh lại thêm các sao tốt khác nhất là sao Lộc Tồn suốt đời phúc hậu,"
+      }
+     ],
+     "reading": "TT p.22 (Tử Phủ triền viên, lộc phùng): Tử Vi, Thiên Phủ cùng ở Dần/Thân lập Mệnh, thêm sao tốt nhất là Lộc Tồn thì suốt đời phúc hậu, chức đến tam công; 'phùng' đọc là hội trong tam phương."
+    },
+    "breakers:sat_tinh_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 22,
+       "quote": "Tử Phủ đồng cung vô sát tấu, Giáp nhân hưởng phúc chung thân"
+      },
+      {
+       "book": "TT",
+       "page": 22,
+       "quote": "gặp những sát tinh làm hỗn"
+      },
+      {
+       "book": "KL",
+       "page": 49,
+       "quote": "không gặp sát tinh như Kình Đà Không Kiếp thì làm đến chức lớn"
+      }
+     ],
+     "reading": "TT p.22: Tử Phủ đồng cung 'vô sát tấu' mới hưởng phúc, nếu không gặp sát tinh làm hỗn; 'sát tấu' hiểu theo lời giảng cùng chữ ở KL p.49 (sát tinh như Kình Đà Không Kiếp), cộng Hỏa Linh; 'gặp' đọc là hội trong tam phương. Sách nói thêm tuổi Giáp; điều kiện tuổi không đưa vào điều phá."
+    },
+    "refutations:tuan_triet_an_ngu": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 55,
+       "quote": "1 . Tử Phủ đồng cung tối vi phúc hậu, thiết hiềm nội trở Triệt Tuần"
+      },
+      {
+       "book": "TT",
+       "page": 160,
+       "quote": "Tử Vi, Thiên Phủ đồng cung thật là phúc hậu chỉ hiềm Tuần Triệt cản trở"
+      }
+     ],
+     "reading": "Tuần Triệt chỉ làm 'kém đi' (KL p.55), không phá hẳn, nên là phản chứng hạ một bậc."
+    }
+   },
+   "variants": [
+    {
+     "note": "TT p.22 có câu 'Tử Phủ đồng cung lâm Tị Hợi'; Tử Vi và Thiên Phủ chỉ đồng cung ở Dần, Thân nên câu này không dùng.",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 22,
+       "quote": "Tử Phủ đồng cung lâm Tị Hợi nhất triều phú quí song toàn"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_CO_NGUYET_DONG_LUONG": {
+   "core": [
+    {
+     "book": "TH",
+     "page": 76,
+     "quote": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân:"
+    },
+    {
+     "book": "TT",
+     "page": 24,
+     "quote": "Mệnh thân và các cung tam hợp xang chiếu có"
+    },
+    {
+     "book": "TT",
+     "page": 24,
+     "quote": "đủ bốn sao trên đây nếu không có những cát tinh khác trợ lực chỉ làm công chức quèn"
+    },
+    {
+     "book": "KL",
+     "page": 51,
+     "quote": "Mệnh có Cơ Nguyệt Đồng Lương hội chiếu thường là công chức."
+    }
+   ],
+   "effect": [
+    {
+     "book": "TH",
+     "page": 76,
+     "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+     "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+    },
+    {
+     "book": "TH",
+     "page": 77,
+     "quote": "phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền",
+     "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+    },
+    {
+     "book": "KL",
+     "page": 51,
+     "quote": "4 . Cơ Nguyệt Đồng Lương tác lại nhân"
+    },
+    {
+     "book": "TT",
+     "page": 24,
+     "quote": "đủ bốn sao trên đây nếu không có những cát tinh khác trợ lực chỉ làm công chức quèn"
+    }
+   ],
+   "core_alone": "hinh_thuc",
+   "core_alone_reading": "TH pp.76-77: cách chính tinh cần miếu vượng và cát tinh hội mới là thượng cách; thiếu cát tinh mà gặp hung sát là hạ cách. Lõi đơn thuần chỉ là có hình thức.",
+   "items": {
+    "boosters:ta_huu_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:xuong_khuc_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:khoi_viet_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:long_phuong_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:hong_dao_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:tam_hoa_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "breakers:ha_cach": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ b",
+       "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+      },
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Hung tinh và sát tinh đóng",
+       "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+      },
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Kho",
+       "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+      }
+     ],
+     "reading": "TH p.77: hạ cách khi không có cát tinh hội đủ bộ VÀ có hung tinh, sát tinh đóng; danh sách hung sát lấy từ ví dụ của sách (Kình Đà, Không Kiếp, Song Hao, Hóa Kỵ) cộng Hỏa Linh là sát tinh; 'đóng' đọc là ở chính cung Mệnh; ngưỡng 'nhiều' = từ hai sao là quy ước của hệ thống."
+    },
+    "refutations:chinh_tinh_kem_sang": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "Tất cả những cách này cần được nhập miếu hay v",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76: các cách này 'cần được nhập miếu hay vượng địa, đắc địa' mới lên thượng cách; hệ thống đọc là phản chứng hạ một bậc khi một chính tinh của cách chỉ bình hoặc hãm (độ sáng theo bảng mặc định của hệ thống)."
+    },
+    "breakers:khong_kiep_ky_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 24,
+       "quote": "Không Hoá Kị xuống hạ cách"
+      }
+     ],
+     "reading": "TT p.24: Cơ Nguyệt Đồng Lương 'gặp Kiếp Không Hoá Kị xuống hạ cách'; 'gặp' đọc là hội trong tam phương; một nhóm sao kể liền nhau cần từ hai sao (quy ước đã dùng cho 'lũ Riêu Đà Kỵ', engine/tests/test_cung_bay.py)."
+    },
+    "breakers:hoa_linh_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 159,
+       "quote": "Cơ Nguyệt Đồng Lương tối kỵ Hỏa L",
+       "image": "10. Khoa Quyền Lộc Mã tu phòng Không Kiếp ám xung / Cơ Nguyệt Đồng Lương tối kỵ Hỏa Linh xâm phá."
+      }
+     ],
+     "reading": "TH p.159 (Cách cuộc luận): Cơ Nguyệt Đồng Lương tối kỵ Hỏa Linh xâm phá; cặp Hỏa Linh tính khi đủ hai sao."
+    }
+   },
+   "variants": [
+    {
+     "note": "TT p.37: Cơ Nguyệt Đồng Lương thủ Mệnh ở Dần Thân thì suốt đời làm ăn suôi lọt (vị trí tốt nhất của cách).",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 37,
+       "quote": "Cơ Nguyệt đồng Lương thủ mệnh ở Dần Thân thì suốt đời làm ăn suôi lọt"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_SAT_PHA_LIEM_THAM": {
+   "core": [
+    {
+     "book": "TH",
+     "page": 76,
+     "quote": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân:"
+    },
+    {
+     "book": "KL",
+     "page": 167,
+     "quote": "b. Sát Phá Liêm Tham (Hành động mạch mẽ)"
+    }
+   ],
+   "effect": [
+    {
+     "book": "TH",
+     "page": 76,
+     "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+     "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+    },
+    {
+     "book": "TH",
+     "page": 77,
+     "quote": "phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền",
+     "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+    }
+   ],
+   "core_alone": "hinh_thuc",
+   "core_alone_reading": "TH pp.76-77: cách chính tinh cần miếu vượng và cát tinh hội mới là thượng cách; thiếu cát tinh mà gặp hung sát là hạ cách. Lõi đơn thuần chỉ là có hình thức.",
+   "items": {
+    "boosters:ta_huu_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:xuong_khuc_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:khoi_viet_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:long_phuong_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:hong_dao_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "boosters:tam_hoa_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "ắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76 kể các bộ cát tinh; TH p.77 nói hạ cách là 'không gặp được cát tinh hội đủ bộ', nên mỗi bộ chỉ tính khi đủ cả hai sao (Tam Hóa: đủ ba) trong tam phương tứ chính. Ngưỡng thành cách thế mạnh = hai bộ là quy ước của hệ thống."
+    },
+    "breakers:ha_cach": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ b",
+       "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+      },
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Hung tinh và sát tinh đóng",
+       "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+      },
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Kho",
+       "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+      }
+     ],
+     "reading": "TH p.77: hạ cách khi không có cát tinh hội đủ bộ VÀ có hung tinh, sát tinh đóng; danh sách hung sát lấy từ ví dụ của sách (Kình Đà, Không Kiếp, Song Hao, Hóa Kỵ) cộng Hỏa Linh là sát tinh; 'đóng' đọc là ở chính cung Mệnh; ngưỡng 'nhiều' = từ hai sao là quy ước của hệ thống."
+    },
+    "refutations:chinh_tinh_kem_sang": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "Tất cả những cách này cần được nhập miếu hay v",
+       "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+      }
+     ],
+     "reading": "TH p.76: các cách này 'cần được nhập miếu hay vượng địa, đắc địa' mới lên thượng cách; hệ thống đọc là phản chứng hạ một bậc khi một chính tinh của cách chỉ bình hoặc hãm (độ sáng theo bảng mặc định của hệ thống)."
+    }
+   },
+   "variants": [
+    {
+     "note": "Sách gọi nhóm bốn sao; Thất Sát, Phá Quân, Tham Lang luôn đứng thành bộ tam hợp, Liêm Trinh chỉ nhập bộ ở một số vị trí, nên lõi là đủ ba sao Sát Phá Tham trong tam phương (tương đương ngưỡng 'ba trong bốn' của bản nháp).",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "Sát, Phá, Liêm, Tham hội Hồng, Đào, Tấu, Long Phượng làm thợ vẽ hay hoạ sĩ có biệt tài."
+      }
+     ]
+    },
+    {
+     "note": "TH p.76 (phi thường cách): Thân thì Sát Phá Liêm Tham nhập miếu vượng địa hội cát tinh, kể cả Kình, Không, Kiếp, Hình Hổ, phát đến Vương Tể. Nói cho Thân, nên không thành điều kiện ở Mệnh; ghi lại vì trái chiều với việc coi Kình, Không, Kiếp luôn là phá.",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 76,
+       "quote": "Thân thí Sát,  Phá, Liêm, Tham nhập miếu, vượng"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_NHAT_NGUYET_TINH_MINH": {
+   "core": [
+    {
+     "book": "TH",
+     "page": 72,
+     "quote": "21. Nhật, Nguyệt tinh minh cách (Nhật ở Thìn, Tỵ, Nguyệt ở Dậu, Tuất, mà Mệnh đóng ở"
+    },
+    {
+     "book": "TH",
+     "page": 72,
+     "quote": "Nguyệt hay Nhật đều tốt)"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 53,
+     "quote": "hưởng giàu sang."
+    }
+   ],
+   "effect_reading": "KL p.53 (Nhật Nguyệt tịnh tranh quang, Quyền lộc phi tàn): Mệnh ở Thìn có Thái Dương, Nguyệt ở Tuất chiếu, hoặc ngược lại, suốt đời được hưởng giàu sang.",
+   "core_alone": "thanh",
+   "core_alone_reading": "TH p.72 kể là quý cách với chính điều kiện vị trí; không trang nào nêu điều tăng thế hay phá riêng.",
+   "items": {},
+   "variants": [
+    {
+     "note": "KL p.53: Nhật Nguyệt thủ Mệnh không bằng hợp chiếu tịnh minh (Mệnh ở Sửu có Nhật Tỵ, Nguyệt Dậu chiếu; Mệnh ở Mùi có Nhật Mão, Nguyệt Hợi chiếu). Biến thể chiếu, chưa mã hóa.",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 53,
+       "quote": "6. Nhật nguyệt thủ Mệnh bất như hợp chiếu tịnh minh"
+      }
+     ]
+    },
+    {
+     "note": "TT p.142: Nhật Nguyệt tinh minh là Thái Âm, Thái Dương đều ở miếu vượng địa chiếu sáng; khớp với các vị trí của TH p.72.",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 142,
+       "quote": "Thái Aâm, Thái Dương đều đứng ở miếu vượng địa chiếu sáng"
+      }
+     ]
+    },
+    {
+     "note": "KL p.53: Mệnh có Nhật Nguyệt bị sát tinh hãm hại thì gian, dâm. Nói về tính cách, không nói phá cách này; không dùng làm điều phá.",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 53,
+       "quote": "12 . Nhật Nguyệt sát hại, nam đa gian, nữ đa dâm"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_NHAT_LE_TRUNG_THIEN": {
+   "core": [
+    {
+     "book": "TH",
+     "page": 72,
+     "quote": "22. Nhật lệ trung thiên cách ( Nhật cư Ngọ có Mệnh)"
+    },
+    {
+     "book": "KL",
+     "page": 52,
+     "quote": "2 . Thái dương cư Ngọ, Nhật lệ trung thiên, chuyên quyền chi vị, địch quốc chi phú"
+    },
+    {
+     "book": "TT",
+     "page": 158,
+     "quote": "Sao Thái Dương đóng cung Ngọ thủ mệnh là cách Nhật lệ trung thiên"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 52,
+     "quote": "Mệnh có Thái dương ở Ngọ, vi như mặt  trời chiếu sáng giữa trưa, đứng đầu thiên hạ, giàu có nhất"
+    },
+    {
+     "book": "TT",
+     "page": 158,
+     "quote": "nhất phẩm quyền hành nếu không thì cũng là phú gia địch quốc"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "TH p.72 kể là quý cách; KL p.52, TT p.158 nêu hiệu lực ngay với lõi.",
+   "items": {
+    "boosters:tuoi_canh_tan_dinh_ky": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 52,
+       "quote": "3 . Thái dương cư Ngọ, Canh Tân Đinh Kỷ phú quí song toàn"
+      }
+     ],
+     "reading": "KL p.52: Thái Dương ở Ngọ, tuổi Canh Tân Đinh Kỷ được giàu sang phú quý mọi mặt."
+    }
+   },
+   "variants": [
+    {
+     "note": "TT p.142 gọi Thái Dương đơn thủ Mệnh ở Ngọ là 'Kim sán quang huy' (cùng lõi, tên khác).",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 142,
+       "quote": "Kim sán quang huy (Thái Dương đơn thủ mệnh cung ở Ngọ)"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_THACH_TRUNG_AN_NGOC": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 44,
+     "quote": "Mệnh có Cự môn, Di có Thiên cơ  ở Tí Ngọ"
+    },
+    {
+     "book": "TH",
+     "page": 43,
+     "quote": "Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên cần gặp được Tuần, Triệt",
+     "image": "Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được, thì mới đẹp rực rỡ. Nếu không gặp được cách này hay lại gặp Lộc tồn thì là chìm, ấy là hạng đa học đa năng, nhưng không gặp được thời vận hiển hách. Nếu lại gặp hung tinh như Kỵ, Hình, Sát, thì tuy có thọ, song không bao giờ được toại ý vừa lòng."
+    },
+    {
+     "book": "TT",
+     "page": 123,
+     "quote": "Tí Ngọ Cự Môn thạch trung ẩn ngọc."
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 106,
+     "quote": "nằm trong đá, có thợ đẽo đá cắt gọt thành viên ngọc quí, có nghĩa là tài năng gặp thời."
+    },
+    {
+     "book": "TT",
+     "page": 34,
+     "quote": "Ngọ hội với Khoa, Quyền lộc là cách ngọc ẩn trong đá, hưởng phúc lớn"
+    }
+   ],
+   "core_alone": "hinh_thuc",
+   "core_alone_reading": "TH p.43: không gặp Tuần, Triệt hay Hóa Lộc thì ngọc còn chìm, chưa gặp thời.",
+   "items": {
+    "boosters:tuan_triet_an_ngu": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 43,
+       "quote": "Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên cần gặp được Tuần, Triệt",
+       "image": "Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được, thì mới đẹp rực rỡ. Nếu không gặp được cách này hay lại gặp Lộc tồn thì là chìm, ấy là hạng đa học đa năng, nhưng không gặp được thời vận hiển hách. Nếu lại gặp hung tinh như Kỵ, Hình, Sát, thì tuy có thọ, song không bao giờ được toại ý vừa lòng."
+      },
+      {
+       "book": "KL",
+       "page": 106,
+       "quote": "Cự môn ở Tí Ngọ gặp Tuần Triệt là kỳ cách, người xưa gọi là “Thạch trung ẩn ngọc” ví như ngọc"
+      }
+     ],
+     "reading": "Tuần Triệt ở Mệnh là điều cần cho cách này (TH p.43, KL p.106); bản nháp để nó là phản chứng, ngược với sách."
+    },
+    "boosters:hoa_loc_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 43,
+       "quote": "hay Hóa Lộc thì ngọc mới lộ ra được, thì mới đẹp rực rỡ",
+       "image": "Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được, thì mới đẹp rực rỡ. Nếu không gặp được cách này hay lại gặp Lộc tồn thì là chìm, ấy là hạng đa học đa năng, nhưng không gặp được thời vận hiển hách. Nếu lại gặp hung tinh như Kỵ, Hình, Sát, thì tuy có thọ, song không bao giờ được toại ý vừa lòng."
+      }
+     ],
+     "reading": "TH p.43: cần Tuần, Triệt hay Hóa Lộc; 'gặp' đọc là hội trong tam phương."
+    },
+    "boosters:tam_hoa_hoi_du": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 57,
+       "quote": "1. Cự môn Tí Ngọ, Khoa Quyền Lộc, Thạch trung ẩn ngọc, phúc hưng long"
+      },
+      {
+       "book": "TT",
+       "page": 34,
+       "quote": "Cư Môn Tí, Ngọ khoa quyền lộc trạch trung ẩn ngọc phúc hưng long"
+      }
+     ],
+     "reading": "KL p.57 và TT p.34: Cự Môn ở Tý Ngọ hội Khoa, Quyền, Lộc. Câu phú gốc chữ Hán (bản web) chỉ nói Khoa, Lộc; giữ đủ ba theo hai sách in."
+    },
+    "boosters:song_hao": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 203,
+       "quote": "Song Hao cần cho Cự môn ở các cung Tài, Mệnh vì cách Thạch trung ẩn ngọc của Cự môn cần"
+      },
+      {
+       "book": "KL",
+       "page": 106,
+       "quote": "Cự môn cần Song Hao (Mão, Dậu) ví như phải khổ công gánh nước sôn nghĩa là lớn rửa sạch viên"
+      }
+     ],
+     "reading": "KL p.203: cách Thạch trung ẩn ngọc cần Song Hao để rửa ngọc, Song Hao cùng cung với Cự Môn; Đại Hao và Tiểu Hao luôn xung chiếu nhau nên một sao ở Mệnh thì sao kia ở Thiên Di."
+    },
+    "breakers:loc_ton_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 43,
+       "quote": "Nếu không ặp được cách này hay lại gặp",
+       "image": "Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được, thì mới đẹp rực rỡ. Nếu không gặp được cách này hay lại gặp Lộc tồn thì là chìm, ấy là hạng đa học đa năng, nhưng không gặp được thời vận hiển hách. Nếu lại gặp hung tinh như Kỵ, Hình, Sát, thì tuy có thọ, song không bao giờ được toại ý vừa lòng."
+      }
+     ],
+     "reading": "TH p.43: không gặp Tuần Triệt, Hóa Lộc, hay lại gặp Lộc Tồn thì ngọc chìm, không gặp thời vận hiển hách."
+    },
+    "breakers:ky_hinh_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 43,
+       "quote": "lại gặp hung tinh như Kỵ, Hình, S",
+       "image": "Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được, thì mới đẹp rực rỡ. Nếu không gặp được cách này hay lại gặp Lộc tồn thì là chìm, ấy là hạng đa học đa năng, nhưng không gặp được thời vận hiển hách. Nếu lại gặp hung tinh như Kỵ, Hình, Sát, thì tuy có thọ, song không bao giờ được toại ý vừa lòng."
+      },
+      {
+       "book": "TH",
+       "page": 43,
+       "quote": "gặp được sát tinh hội tất phú quí vẹn toa",
+       "image": "Nếu gặp được sát tinh hội tất phú quí vẹn toàn, uy quyền hiển hách, danh tiếng lẫy lừng."
+      }
+     ],
+     "reading": "TH p.43, liền sau câu về cách: gặp hung tinh như Kỵ, Hình, Sát thì không bao giờ toại ý. Chỉ giữ Kỵ và Hình: cùng trang nói Cự đắc địa 'gặp được sát tinh hội tất phú quí vẹn toàn', nên chữ 'Sát' không mã hóa."
+    }
+   },
+   "variants": [
+    {
+     "note": "KL p.44 ghi thêm 'Di có Thiên cơ'; mục 7 (Tam hóa liên châu) ở KL p.44 lặp nguyên văn mục 6, là lỗi in.",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 44,
+       "quote": "6. Thạch trung ẩn ngọc"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_MA_DAU_DOI_KIEM": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 64,
+     "quote": "6 . Mã đầu đới kiếm, trấn ngự biên cương:"
+    },
+    {
+     "book": "KL",
+     "page": 64,
+     "quote": "Mệnh ở Ngọ, có Kình dương đồng cung, nhưng xa lánh được Thất sát, Thiên hình mà lại gặp được"
+    },
+    {
+     "book": "TT",
+     "page": 50,
+     "quote": "Mệnh viên Ngọ toạ Kình Dương"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 64,
+     "quote": "Khoa Quyền Lộc thì tại có sự nghiệp lớn, hiển đạt về võ nghiệp."
+    },
+    {
+     "book": "KL",
+     "page": 64,
+     "quote": "không chết yểu cũng mang tàn tật khổ sở."
+    }
+   ],
+   "core_alone": "hinh_thuc",
+   "core_alone_reading": "KL p.64: phải xa Thất Sát, Thiên Hình và gặp Khoa Quyền Lộc mới trấn ngự biên cương.",
+   "items": {
+    "boosters:khoa_quyen_loc_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 64,
+       "quote": "Mệnh ở Ngọ, có Kình dương đồng cung, nhưng xa lánh được Thất sát, Thiên hình mà lại gặp được"
+      }
+     ],
+     "reading": "KL p.64: gặp được Khoa Quyền Lộc (đọc là đủ ba, hội trong tam phương)."
+    },
+    "breakers:that_sat_thien_hinh_dong_cung": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 64,
+       "quote": "5 . Mã đầu đới kiếm, phi yểu chiết nhi hình thương"
+      },
+      {
+       "book": "KL",
+       "page": 64,
+       "quote": "Mệnh ở Ngọ, có Kình dương, gặp Thất sát, Thiên hình đồng cung là cách kiếm kể cổ ngựa, thì"
+      }
+     ],
+     "reading": "KL p.64: Kình ở Ngọ gặp Thất Sát, Thiên Hình đồng cung thì không chết yểu cũng tàn tật."
+    }
+   },
+   "variants": [
+    {
+     "note": "TT p.142: 'Mã đầu đới nhẫn' là Kình Dương gặp Thiên Mã, phải ở tứ mộ mới hay, ở Ngọ cung xấu. Trái với lõi của KL p.64.",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 142,
+       "quote": "Nhẫn là sao Kình Dương gặp Thiên Mã, nhưng phải ở tứ mộ địa mới hay, ở Ngọ cung xấu"
+      }
+     ]
+    },
+    {
+     "note": "KL p.200: Mệnh ở Ngọ có Kình, ngộ Thiên Mã, Tham Lang là cách Mã đầu đái kiếm, phát võ nhưng không bền (lõi chặt hơn).",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 200,
+       "quote": "Mệnh ở cung Ngọ (Mã), có Kình (thanh kiếm), ngộ Thiên mã, Tham lang là cách Mã đầu đái"
+      }
+     ]
+    },
+    {
+     "note": "KL p.60: Mệnh ở Ngọ có Thất Sát, Kình Dương tọa thủ thêm nhiều sát tinh hội chiếu, tuổi Bính Mậu tất gặp tai nạn binh đao (cùng chiều với điều phá Thất Sát đồng cung).",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 60,
+       "quote": "6. Sát kình tại Ngọ, Mã đầu đới kiếm tương giao sát diệu, Bính Mậu nhân, mệnh nan toàn :"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_TAM_KY_GIA_HOI": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 66,
+     "quote": "Cung mệnh có Khoa, Quyền, Lộc hội họp mà lại bị Hóa kỵ, Kình dương đồng cung hoặc chiếu"
+    },
+    {
+     "book": "TH",
+     "page": 73,
+     "quote": "26. Lộc hội Khoa Quyền cách (Tức Tam Hóa triều)"
+    },
+    {
+     "book": "TT",
+     "page": 142,
+     "quote": "Khoa, Quyền lộc củng (Chiếu thủ có cả ba Khoa, Quyền, Lộc)"
+    }
+   ],
+   "effect": [
+    {
+     "book": "TH",
+     "page": 77,
+     "quote": "và có Tam Hóa triều về, tất nhiên công danh thành đạt."
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "TH p.73 kể Lộc hội Khoa Quyền (Tam Hóa triều) là quý cách.",
+   "items": {
+    "boosters:van_chuc_cach": {
+     "scope": "cach_ghep",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "ăn chức cách: Ba cung Mệnh, Thân Quan cầ",
+       "image": "d. Văn chức cách: Ba cung Mệnh, Thân Quan cần có Xương Khúc, Khôi Việt, Tả Hữu, đóng và có Tam Hóa triều về, tất nhiên công danh thành đạt."
+      },
+      {
+       "book": "TH",
+       "page": 77,
+       "quote": "n có Xương Khúc, Khôi Việt, Tả Hữu, đóng"
+      }
+     ],
+     "reading": "TH p.77 Văn chức cách = Tam Hóa triều cộng Xương Khúc, Khôi Việt, Tả Hữu ở Mệnh, Thân, Quan; hệ thống xét trong tam phương tứ chính của Mệnh (Thân không cố định)."
+    },
+    "breakers:ky_hoac_kinh_hoi": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 66,
+       "quote": "10. Tam kỳ giao hội, mặc ngộ Kỵ, Kình giáng lộ thanh vân :"
+      },
+      {
+       "book": "KL",
+       "page": 66,
+       "quote": "vào thì đường công danh mờ mịt như sương tụ đầy đường đi."
+      }
+     ],
+     "reading": "KL p.66: Hóa Kỵ, Kình Dương đồng cung hoặc chiếu vào Mệnh thì công danh mờ mịt; 'chiếu' đọc là trong tam phương tứ chính (bản nháp chỉ xét đồng cung)."
+    }
+   },
+   "variants": [
+    {
+     "note": "TH p.72 mục 12 'Tam Hoá liên châu' (Khoa, Quyền, Lộc đi liền ba cung đến Mệnh có một hóa) là cách khác, không gộp.",
+     "sources": [
+      {
+       "book": "TH",
+       "page": 72,
+       "quote": "ệnh có 1 hóa)"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_KHOI_VIET_GIAP_MENH": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 44,
+     "quote": "Mệnh ở giữa, Khôi một bên, Việt một bên"
+    },
+    {
+     "book": "KL",
+     "page": 62,
+     "quote": "3 . Khôi tinh lâm Mệnh vị chí tam công, Khôi tinh giáp mệnh vi kỳ cách"
+    },
+    {
+     "book": "TT",
+     "page": 46,
+     "quote": "Khôi Việt hiệp mệnh vi kỳ cách. (Giáp mệnh là cách kỳ lạ)."
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 44,
+     "quote": "Học giỏi, gần người quyền quí"
+    },
+    {
+     "book": "KL",
+     "page": 62,
+     "quote": "nếu được Khôi Việt giáp mệnh thì được mọi người kính"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL p.44 kể là quý cách; KL p.62, TT p.46 gọi là kỳ cách. Không trang nào nêu điều tăng thế hay phá riêng.",
+   "items": {},
+   "variants": [
+    {
+     "note": "KL p.62 mục 4 (Khôi Việt trùng phùng sát thấu) và TT p.46 câu thứ hai nói Khôi Việt Ở Mệnh gặp sát tinh, không phải giáp Mệnh; không dùng làm điều phá.",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 62,
+       "quote": "Cung mệnh có Khôi Việt lại bị sát tinh hội chiếu thì mang bệnh tật khó chữa khỏi."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "dropped": [
+  {
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "kind": "boosters",
+   "id": "loc_hoi",
+   "label": "Lộc Tồn hoặc Hóa Lộc hội trong tam phương",
+   "reason": "KL p.96 nói Thiên Phủ đi với Lộc thì thịnh đạt, về sao Thiên Phủ chứ không về cách; điều tăng thế của cách lấy theo TH p.76.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 96,
+     "quote": "Nếu Thiên phủ đi với Hóa lộc, Lộc tồn thì càng thịnh đạt."
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "kind": "breakers",
+   "id": "sat_dong_cung",
+   "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+   "reason": "Thay bằng điều hạ cách của TH p.77 (thiếu cát tinh đủ bộ VÀ hung sát tinh đóng Mệnh).",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 77,
+     "quote": "Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ b",
+     "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "kind": "breakers",
+   "id": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "reason": "Gộp vào điều hạ cách của TH p.77 (Hóa Kỵ là một hung tinh trong ví dụ của sách).",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 77,
+     "quote": "Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ b",
+     "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "kind": "rescuers",
+   "id": "khoa_dong_cung",
+   "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+   "reason": "KL p.67 chỉ nói Hóa Kỵ gặp Hóa Khoa ở Mệnh Hợi, Tý thì người cẩn thận lời ăn tiếng nói; không nói cứu phá cách.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 67,
+     "quote": "Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ gặp Hoá khoa đồng cung hay xung chiếu là người cẩn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "kind": "rescuers",
+   "id": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "reason": "TH p.74 chỉ nói Tam Hóa hội cứu Mệnh an ở bại địa, tuyệt địa; không trang nào nói Tam Hóa cứu một điều phá của cách này.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 74,
+     "quote": "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "kind": "refutations",
+   "id": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "reason": "TH p.94 nói về sao Thiên Phủ, không về cả cách; phản chứng của cách lấy theo TH p.76.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TU_PHU_VU_TUONG",
+   "kind": "refutations",
+   "id": "Thiên_Tướng_ham",
+   "label": "Thiên Tướng ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+   "reason": "Thay bằng phản chứng 'chính tinh kém sáng' của TH p.76 cho cả bốn sao.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 76,
+     "quote": "Tất cả những cách này cần được nhập miếu hay v",
+     "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "kind": "boosters",
+   "id": "ta_huu_hoi",
+   "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+   "reason": "Không trang nào nói Tả Hữu làm Tử Phủ đồng cung mạnh thêm (KL p.49 mục 3 nói về sao Tử Vi).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "kind": "boosters",
+   "id": "xuong_khuc_hoi",
+   "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+   "reason": "KL p.55 mục 5 nói về sao Thiên Phủ với Xương Khúc Tả Hữu, không về cách; không giữ.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "kind": "boosters",
+   "id": "khoi_viet_hoi",
+   "label": "Thiên Khôi hoặc Thiên Việt hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "kind": "breakers",
+   "id": "sat_dong_cung",
+   "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+   "reason": "Thay bằng sát tinh hội trong tam phương theo TT p.22 ('vô sát tấu').",
+   "sources": [
+    {
+     "book": "TT",
+     "page": 22,
+     "quote": "Tử Phủ đồng cung vô sát tấu, Giáp nhân hưởng phúc chung thân"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "kind": "breakers",
+   "id": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "reason": "Không trang nào nói Hóa Kỵ đồng cung phá cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "kind": "rescuers",
+   "id": "khoa_dong_cung",
+   "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+   "reason": "KL p.67 chỉ nói Hóa Kỵ gặp Hóa Khoa ở Mệnh Hợi, Tý thì người cẩn thận lời ăn tiếng nói; không nói cứu phá cách.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 67,
+     "quote": "Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ gặp Hoá khoa đồng cung hay xung chiếu là người cẩn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_TU_PHU_DONG_CUNG",
+   "kind": "rescuers",
+   "id": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "reason": "TH p.74 chỉ nói Tam Hóa hội cứu Mệnh an ở bại địa, tuyệt địa; không trang nào nói Tam Hóa cứu một điều phá của cách này.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 74,
+     "quote": "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "kind": "boosters",
+   "id": "cat_tinh_hoi",
+   "label": "một cát tinh (Tả, Hữu, Xương, Khúc, Khôi, Việt) hội trong tam phương",
+   "reason": "Thay bằng các bộ cát tinh đủ bộ của TH p.76 (bản nháp tính một sao lẻ).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "kind": "boosters",
+   "id": "khoa_quyen_loc_hoi",
+   "label": "Hóa Khoa, Quyền hoặc Lộc hội trong tam phương",
+   "reason": "Thay bằng bộ Tam Hóa đủ ba của TH p.76 (bản nháp tính một hóa lẻ; KL p.221 chỉ nói về nghề dạy học).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "kind": "breakers",
+   "id": "khong_kiep_dong_cung",
+   "label": "Địa Không hoặc Địa Kiếp đồng cung với Mệnh",
+   "reason": "Thay bằng điều phá Không Kiếp Kỵ trong tam phương của TT p.24.",
+   "sources": [
+    {
+     "book": "TT",
+     "page": 24,
+     "quote": "đủ bốn sao trên đây nếu không có những cát tinh khác trợ lực chỉ làm công chức quèn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "kind": "breakers",
+   "id": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "reason": "Gộp vào điều phá Không Kiếp Kỵ của TT p.24.",
+   "sources": [
+    {
+     "book": "TT",
+     "page": 24,
+     "quote": "đủ bốn sao trên đây nếu không có những cát tinh khác trợ lực chỉ làm công chức quèn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "kind": "rescuers",
+   "id": "khoa_dong_cung",
+   "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+   "reason": "KL p.67 chỉ nói Hóa Kỵ gặp Hóa Khoa ở Mệnh Hợi, Tý thì người cẩn thận lời ăn tiếng nói; không nói cứu phá cách.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 67,
+     "quote": "Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ gặp Hoá khoa đồng cung hay xung chiếu là người cẩn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "kind": "rescuers",
+   "id": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "reason": "TH p.74 chỉ nói Tam Hóa hội cứu Mệnh an ở bại địa, tuyệt địa; không trang nào nói Tam Hóa cứu một điều phá của cách này.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 74,
+     "quote": "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_CO_NGUYET_DONG_LUONG",
+   "kind": "refutations",
+   "id": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "reason": "TH p.75 nói Mệnh Tuần, Thân Triệt thì rất cần Cơ Nguyệt Đồng Lương sáng sủa (ngược hướng); KL p.228 chỉ nói chung về Tuần Triệt.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 75,
+     "quote": "3. Mệnh Tuần, Thân Triệt thì ở Mệnh hay Thân rất cần có Cơ Nguyệt Đồng Lương sáng sủa"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_SAT_PHA_LIEM_THAM",
+   "kind": "boosters",
+   "id": "khoa_quyen_hoi",
+   "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+   "reason": "Không trang nào nói Khoa hoặc Quyền lẻ làm cách này mạnh thêm (TH p.76 tính Tam Hóa đủ bộ).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_SAT_PHA_LIEM_THAM",
+   "kind": "breakers",
+   "id": "ba_sat_va_ky_trong_tam_phuong",
+   "label": "từ ba sát tinh trở lên và Hóa Kỵ cùng trong tam phương",
+   "reason": "Thay bằng điều hạ cách của TH p.77 (thiếu cát tinh đủ bộ VÀ hung sát tinh đóng Mệnh).",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 77,
+     "quote": "Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ b",
+     "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_SAT_PHA_LIEM_THAM",
+   "kind": "breakers",
+   "id": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "reason": "Gộp vào điều hạ cách của TH p.77 (Hóa Kỵ là một hung tinh trong ví dụ của sách).",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 77,
+     "quote": "Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ b",
+     "image": "4. Hạ cách: Có những cách chính tinh như trên, nhưng không gặp được cát tinh hội đủ bộ, mà lại gặp Hung tinh và sát tinh đóng. Ví dụ: Sát Phá Liêm Tham hội Vũ, Kình Đà, Thiên địa Không sát, Song Hao, Hóa Kỵ. Tất cả chính tinh cùng hung tinh sát tinh nhiều ở vào nơi hãm địa. Gặp phải cách ấy thì thật suốt đời lao khổ, chịu tật nguyền, hoặc lang thang lo miếng ăn từng bữa."
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_SAT_PHA_LIEM_THAM",
+   "kind": "rescuers",
+   "id": "khoa_dong_cung",
+   "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+   "reason": "KL p.67 chỉ nói Hóa Kỵ gặp Hóa Khoa ở Mệnh Hợi, Tý thì người cẩn thận lời ăn tiếng nói; không nói cứu phá cách.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 67,
+     "quote": "Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ gặp Hoá khoa đồng cung hay xung chiếu là người cẩn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_SAT_PHA_LIEM_THAM",
+   "kind": "rescuers",
+   "id": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "reason": "TH p.74 chỉ nói Tam Hóa hội cứu Mệnh an ở bại địa, tuyệt địa; không trang nào nói Tam Hóa cứu một điều phá của cách này.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 74,
+     "quote": "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_SAT_PHA_LIEM_THAM",
+   "kind": "refutations",
+   "id": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "reason": "KL p.228 nói chung về Tuần Triệt ở Mệnh, không nói về cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_SAT_PHA_LIEM_THAM",
+   "kind": "refutations",
+   "id": "Thất_Sát_ham",
+   "label": "Thất Sát ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+   "reason": "Thay bằng phản chứng 'chính tinh kém sáng' của TH p.76 cho Sát, Phá, Tham.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 76,
+     "quote": "Tất cả những cách này cần được nhập miếu hay v",
+     "image": "2. Thượng cách: có những cách sau đây đóng Mệnh Thân: Tử, Phủ, Vũ, Tướng, Cơ Nguyệt, Đồng, Lương, Sát, Phá, Liêm, Tham. Cự, Nhật, Nhật, Nguyệt đồng cung. Tất cả những cách này cần được nhập miếu hay vượng địa, đắc địa hội Tả, Hữu, Xương Khúc, Khôi Việt, Long Phượng, Hồng Đào, Tam Hóa, phát đến Tam công."
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "boosters",
+   "id": "nhat_nguyet_deu_sang",
+   "label": "Thái Dương và Thái Âm đều sáng (độ sáng từ đắc trở lên)",
+   "reason": "Lõi theo TH p.72 đã đặt Nhật, Nguyệt ở vị trí sáng.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "boosters",
+   "id": "ta_huu_hoi",
+   "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "boosters",
+   "id": "khoa_quyen_hoi",
+   "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+   "reason": "Không trang nào nói Khoa hoặc Quyền lẻ làm cách này mạnh thêm (TH p.76 tính Tam Hóa đủ bộ).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "breakers",
+   "id": "nhat_nguyet_ham_gap_sat",
+   "label": "Thái Dương hoặc Thái Âm hãm, lại có sát tinh trong tam phương",
+   "reason": "'Nhật Nguyệt tàn hung' (TH p.74) là bần cách riêng khi Nhật Nguyệt hãm; lõi tịnh minh không chứa vị trí hãm.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 74,
+     "quote": "7. Nhật, Nguyệt t"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "breakers",
+   "id": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "reason": "Không trang nào nói Hóa Kỵ đồng cung phá cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "breakers",
+   "id": "khong_kiep_dong_cung",
+   "label": "Địa Không hoặc Địa Kiếp đồng cung với Mệnh",
+   "reason": "Không trang nào nói riêng Không Kiếp đồng cung phá cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "rescuers",
+   "id": "khoa_dong_cung",
+   "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+   "reason": "KL p.67 chỉ nói Hóa Kỵ gặp Hóa Khoa ở Mệnh Hợi, Tý thì người cẩn thận lời ăn tiếng nói; không nói cứu phá cách.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 67,
+     "quote": "Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ gặp Hoá khoa đồng cung hay xung chiếu là người cẩn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "rescuers",
+   "id": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "reason": "TH p.74 chỉ nói Tam Hóa hội cứu Mệnh an ở bại địa, tuyệt địa; không trang nào nói Tam Hóa cứu một điều phá của cách này.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 74,
+     "quote": "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "refutations",
+   "id": "Thái_Dương_ham",
+   "label": "Thái Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+   "reason": "Lõi theo TH p.72 đặt Thái Dương ở Thìn, Tỵ hoặc Ngọ (vị trí sáng); 'Nhật Nguyệt tàn hung' ở TH p.74 là một bần cách riêng.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "refutations",
+   "id": "Thái_Âm_ham",
+   "label": "Thái Âm ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+   "reason": "Lõi theo TH p.72 đặt Thái Âm ở Dậu, Tuất (vị trí sáng); 'Nhật Nguyệt tàn hung' ở TH p.74 là một bần cách riêng.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_NGUYET_TINH_MINH",
+   "kind": "refutations",
+   "id": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "reason": "KL p.228 nói chung về Tuần Triệt ở Mệnh, không nói về cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "kind": "boosters",
+   "id": "ta_huu_hoi",
+   "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "kind": "boosters",
+   "id": "khoa_quyen_hoi",
+   "label": "Hóa Khoa hoặc Hóa Quyền hội trong tam phương",
+   "reason": "Không trang nào nói Khoa hoặc Quyền lẻ làm cách này mạnh thêm (TH p.76 tính Tam Hóa đủ bộ).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "kind": "boosters",
+   "id": "xuong_khuc_hoi",
+   "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "kind": "breakers",
+   "id": "sat_dong_cung",
+   "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+   "reason": "Không trang nào nói một sát tinh đồng cung phá cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "kind": "breakers",
+   "id": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "reason": "Không trang nào nói Hóa Kỵ đồng cung phá cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "kind": "rescuers",
+   "id": "khoa_dong_cung",
+   "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+   "reason": "KL p.67 chỉ nói Hóa Kỵ gặp Hóa Khoa ở Mệnh Hợi, Tý thì người cẩn thận lời ăn tiếng nói; không nói cứu phá cách.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 67,
+     "quote": "Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ gặp Hoá khoa đồng cung hay xung chiếu là người cẩn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "kind": "rescuers",
+   "id": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "reason": "TH p.74 chỉ nói Tam Hóa hội cứu Mệnh an ở bại địa, tuyệt địa; không trang nào nói Tam Hóa cứu một điều phá của cách này.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 74,
+     "quote": "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "kind": "refutations",
+   "id": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "reason": "KL p.228 nói chung về Tuần Triệt ở Mệnh, không nói về cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_NHAT_LE_TRUNG_THIEN",
+   "kind": "refutations",
+   "id": "Thái_Dương_ham",
+   "label": "Thái Dương ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+   "reason": "Lõi theo TH p.72 đặt Thái Dương ở Thìn, Tỵ hoặc Ngọ (vị trí sáng); 'Nhật Nguyệt tàn hung' ở TH p.74 là một bần cách riêng.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "kind": "boosters",
+   "id": "ta_huu_hoi",
+   "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "kind": "breakers",
+   "id": "ky_hoac_kinh_dong_cung",
+   "label": "Hóa Kỵ hoặc Kình Dương đồng cung với Mệnh",
+   "reason": "KL p.66 nói Kỵ, Kình phá Tam kỳ giao hội, không nói về Cự Môn Tý Ngọ; điều phá của cách lấy theo TH p.43.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 66,
+     "quote": "10. Tam kỳ giao hội, mặc ngộ Kỵ, Kình giáng lộ thanh vân :"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "kind": "rescuers",
+   "id": "khoa_dong_cung",
+   "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+   "reason": "KL p.67 chỉ nói Hóa Kỵ gặp Hóa Khoa ở Mệnh Hợi, Tý thì người cẩn thận lời ăn tiếng nói; không nói cứu phá cách.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 67,
+     "quote": "Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ gặp Hoá khoa đồng cung hay xung chiếu là người cẩn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "kind": "refutations",
+   "id": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "reason": "Ngược với sách: TH p.43 và KL p.106 nói Cự Môn Tý Ngọ CẦN Tuần Triệt; chuyển thành điều tăng thế.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 43,
+     "quote": "Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên cần gặp được Tuần, Triệt",
+     "image": "Cự ở cung Tí, Ngọ là ngọc trong đá (Thạch trung ẩn ngọc) nên cần gặp được Tuần, Triệt hay Hóa Lộc thì ngọc mới lộ ra được, thì mới đẹp rực rỡ. Nếu không gặp được cách này hay lại gặp Lộc tồn thì là chìm, ấy là hạng đa học đa năng, nhưng không gặp được thời vận hiển hách. Nếu lại gặp hung tinh như Kỵ, Hình, Sát, thì tuy có thọ, song không bao giờ được toại ý vừa lòng."
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_THACH_TRUNG_AN_NGOC",
+   "kind": "refutations",
+   "id": "Cự_Môn_ham",
+   "label": "Cự Môn ở vị trí hãm (độ sáng thấp nhất trong bảng)",
+   "reason": "Cự Môn ở Tý, Ngọ không bao giờ hãm, nên điều này không bao giờ xảy ra.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "kind": "boosters",
+   "id": "ta_huu_hoi",
+   "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "kind": "breakers",
+   "id": "that_sat_trong_tam_phuong",
+   "label": "Thất Sát hội trong tam phương",
+   "reason": "KL p.64 nói Thất Sát, Thiên Hình ĐỒNG CUNG; thay bằng điều phá đồng cung.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 64,
+     "quote": "Mệnh ở Ngọ, có Kình dương, gặp Thất sát, Thiên hình đồng cung là cách kiếm kể cổ ngựa, thì"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "kind": "breakers",
+   "id": "sat_khac_dong_cung",
+   "label": "Hỏa, Linh, Không hoặc Kiếp đồng cung với Mệnh",
+   "reason": "Không trang nào nói Hỏa, Linh, Không, Kiếp đồng cung phá cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "kind": "breakers",
+   "id": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "reason": "Không trang nào nói Hóa Kỵ đồng cung phá cách này (KL p.200 nói Kình gặp Kỵ thì có tật, về sao Kình).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "kind": "rescuers",
+   "id": "khoa_dong_cung",
+   "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+   "reason": "KL p.67 chỉ nói Hóa Kỵ gặp Hóa Khoa ở Mệnh Hợi, Tý thì người cẩn thận lời ăn tiếng nói; không nói cứu phá cách.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 67,
+     "quote": "Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ gặp Hoá khoa đồng cung hay xung chiếu là người cẩn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "kind": "rescuers",
+   "id": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "reason": "TH p.74 chỉ nói Tam Hóa hội cứu Mệnh an ở bại địa, tuyệt địa; không trang nào nói Tam Hóa cứu một điều phá của cách này.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 74,
+     "quote": "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_MA_DAU_DOI_KIEM",
+   "kind": "refutations",
+   "id": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "reason": "KL p.228 nói chung về Tuần Triệt ở Mệnh, không nói về cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TAM_KY_GIA_HOI",
+   "kind": "boosters",
+   "id": "hoa_o_ban_cung",
+   "label": "có ít nhất một trong ba hóa ngay ở bản cung Mệnh",
+   "reason": "Không trang nào nói một hóa ở chính Mệnh làm Tam kỳ mạnh thêm (TH p.72 'Tam Hoá liên châu' là cách khác).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TAM_KY_GIA_HOI",
+   "kind": "boosters",
+   "id": "ta_huu_hoi",
+   "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TAM_KY_GIA_HOI",
+   "kind": "boosters",
+   "id": "xuong_khuc_hoi",
+   "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TAM_KY_GIA_HOI",
+   "kind": "breakers",
+   "id": "ky_hoac_kinh_dong_cung",
+   "label": "Hóa Kỵ hoặc Kình Dương đồng cung với Mệnh",
+   "reason": "Thay bằng ky_hoac_kinh_hoi: KL p.66 nói Kỵ, Kình 'đồng cung hoặc chiếu vào', nên xét cả tam phương chứ không chỉ đồng cung.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 66,
+     "quote": "Cung mệnh có Khoa, Quyền, Lộc hội họp mà lại bị Hóa kỵ, Kình dương đồng cung hoặc chiếu"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_TAM_KY_GIA_HOI",
+   "kind": "rescuers",
+   "id": "ta_huu_giai_ky",
+   "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương (giải Kỵ)",
+   "reason": "Không trang nào nói Tả Hữu giải Kỵ, Kình cho Tam kỳ.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_TAM_KY_GIA_HOI",
+   "kind": "refutations",
+   "id": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "reason": "KL p.228 nói chung về Tuần Triệt ở Mệnh, không nói về cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "kind": "boosters",
+   "id": "co_chinh_tinh",
+   "label": "cung Mệnh có chính tinh",
+   "reason": "Không trang nào nói Khôi Việt giáp Mệnh mạnh hơn khi Mệnh có chính tinh.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "kind": "boosters",
+   "id": "ta_huu_hoi",
+   "label": "Tả Phụ, Hữu Bật cùng hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "kind": "boosters",
+   "id": "xuong_khuc_hoi",
+   "label": "Văn Xương hoặc Văn Khúc hội trong tam phương",
+   "reason": "Không trang nào nói sao này làm cách này mạnh thêm (bộ cát tinh của TH p.76 chỉ áp cho các cách chính tinh ở đó).",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "kind": "breakers",
+   "id": "sat_dong_cung",
+   "label": "sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) đồng cung với Mệnh",
+   "reason": "Không trang nào nói một sát tinh đồng cung phá cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "kind": "breakers",
+   "id": "ky_dong_cung",
+   "label": "Hóa Kỵ đồng cung với Mệnh",
+   "reason": "Không trang nào nói Hóa Kỵ đồng cung phá cách này.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "kind": "rescuers",
+   "id": "khoa_dong_cung",
+   "label": "Hóa Khoa đồng cung với Mệnh (giải Kỵ)",
+   "reason": "KL p.67 chỉ nói Hóa Kỵ gặp Hóa Khoa ở Mệnh Hợi, Tý thì người cẩn thận lời ăn tiếng nói; không nói cứu phá cách.",
+   "sources": [
+    {
+     "book": "KL",
+     "page": 67,
+     "quote": "Cung mệnh tại Hợi, Tí có Hóa kỵ tọa thủ gặp Hoá khoa đồng cung hay xung chiếu là người cẩn"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "kind": "rescuers",
+   "id": "tam_hoa_hoi_cuu",
+   "label": "Hóa Lộc, Quyền, Khoa cùng hội trong tam phương (Tam Hóa cứu giải)",
+   "reason": "TH p.74 chỉ nói Tam Hóa hội cứu Mệnh an ở bại địa, tuyệt địa; không trang nào nói Tam Hóa cứu một điều phá của cách này.",
+   "sources": [
+    {
+     "book": "TH",
+     "page": 74,
+     "quote": "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c"
+    }
+   ]
+  },
+  {
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "kind": "refutations",
+   "id": "vo_chinh_dieu",
+   "label": "Mệnh vô chính diệu (phải mượn sao đối cung)",
+   "reason": "Không trang nào nói Mệnh vô chính diệu làm yếu Khôi Việt giáp Mệnh.",
+   "sources": []
+  },
+  {
+   "formation": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "kind": "refutations",
+   "id": "tuan_triet_an_ngu",
+   "label": "Tuần hoặc Triệt đóng ở cung Mệnh",
+   "reason": "KL p.228 nói chung về Tuần Triệt ở Mệnh, không nói về cách này.",
+   "sources": []
+  }
+ ],
+ "rejected": []
+}
