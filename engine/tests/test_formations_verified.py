@@ -36,7 +36,8 @@ DEEP3 = {"CACH_X_TU_PHU_TRIEU_VIEN", "CACH_X_PHU_TUONG_TRIEU_VIEN", "CACH_X_THAN
 
 def all_quotes():
     for fid, e in EV.items():
-        for s in e["core"] + e["effect"] + [x for it in e["items"].values() for x in it["sources"]] + [x for v in e["variants"] for x in v["sources"]]:
+        for s in e["core"] + e["effect"] + [x for it in e["items"].values() for x in it["sources"]] + [x for v in e["variants"] for x in v["sources"]] \
+                + list(e.get("meaning", {}).values()):
             yield fid, s
     for d in DATA["dropped"]:
         for s in d["sources"]:
@@ -85,6 +86,26 @@ def test_every_draft_condition_is_kept_or_dropped_with_reason():
 
 
 @pytest.mark.skipif(not all(book_text.available(b) for b in ("KL", "TH", "TT")), reason="Tử Vi Khảo Luận / Thực Hành / Toàn Thư PDF not present")
+def test_meaning_per_state():
+    """Every verified cách says what it brings in at least one state, from a page; only formation_eval's states; plain words."""
+    absolute = ("chắc chắn", "nhất định", "suốt đời", "trọn đời", "không bao giờ", "luôn luôn", "tuyệt đối", "định mệnh")
+    for f in DATA["formations"]:
+        mm = EV[f["id"]].get("meaning", {})
+        if f["reviewStatus"] != "verified":
+            assert not mm, f["id"]
+            continue
+        assert mm and set(mm) <= {"thanh", "thanh_thuong", "hinh_thuc", "bi_pha"}, f["id"]
+        if EV[f["id"]]["core_alone"] == "thanh":
+            assert "thanh" in mm, f["id"]
+        for st, x in mm.items():
+            assert x["text"] and {"book", "page", "quote"} <= set(x), (f["id"], st)
+            assert not any(w in x["text"] for w in absolute), (f["id"], st, x["text"])
+        if "thanh_thuong" in mm:
+            assert f["boosters"], f["id"]
+        if "bi_pha" in mm:
+            assert f["breakers"], f["id"]
+
+
 def test_quotes_are_on_their_page():
     bad = [(fid, s["book"], s["page"], s["quote"]) for fid, s in all_quotes() if not book_text.quote_on_page(s["book"], s["page"], s["quote"])]
     assert not bad, bad

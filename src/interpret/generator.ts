@@ -19,6 +19,9 @@ export type Item = Record<string, Slot>;
 const BOOK: Record<string, string> = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Nghiệm Lý (Thiên Lương)', NL: 'Nghiệm Lý 1974 (Thiên Lương)', ZZ: 'Bát Tự Chân Tông, PDF' };
 // "KL p.51 Cơ #4" (item 4 of the Thiên Cơ list on p.51) -> "Khảo Luận tr.51, mục “Cơ” ý 4" (the label is the book list's own heading)
 export const citeVi = (c: string) => {
+  // 紫微斗數全書 (zh.wikisource snapshot, engine/data/sources_web): cited by quyển and mục, it has no page ("TTH 2 八奴仆")
+  const w = c.match(/^TTH\s+(\d+)\s+(.+)$/);
+  if (w) return `Toàn Thư Hán văn, quyển ${w[1]}, mục ${w[2]}`;
   const m = c.match(/^(TH|KL|TT|TL|NL|ZZ)\s+(?:pp?\.)?\s*([\d]+(?:[-–][\d]+)?)(?:\s+(.+?)\s+#(\d+))?(.*)$/);
   if (!m) return c;
   return `${BOOK[m[1]]} tr.${m[2].replace(/-/g, '–')}${m[3] ? `, mục “${m[3]}” ý ${m[4]}` : ''}${m[5]}`;

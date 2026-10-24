@@ -1343,7 +1343,7 @@
    "concepts": [
     "life.early_hardship"
    ],
-   "skip": null,
+   "skip": "Tuần / Triệt at Mệnh is already read by TV_TH_VERSE_MENH_TRIET_TUAN and the TL rules; a broad second reading only adds a generic line (readable.test Barnum gate)",
    "notes": "",
    "target": "rule"
   },
@@ -1361,7 +1361,7 @@
    "concepts": [
     "career.obstacle"
    ],
-   "skip": null,
+   "skip": "Tuần / Triệt at Mệnh is already read by TV_TH_VERSE_MENH_TRIET_TUAN and the TL rules; a broad second reading only adds a generic line (readable.test Barnum gate)",
    "notes": "",
    "target": "rule"
   },
@@ -1395,6 +1395,38 @@
    "concepts": [],
    "skip": null,
    "notes": "the next clause: 'nhưng chính tinh đắc địa gặp Tuần Triệt thì lại bị phá hư'",
+   "target": "che_hoa"
+  },
+  {
+   "id": "kl204_dac_dia_tt_pha_hu",
+   "book": "KL",
+   "page": 204,
+   "palace": "Mệnh",
+   "heading": "40. Tuần Triệt",
+   "quote": "Triệt thì lại bị phá hư cũng như Tử vi ngộ Không Kiếp thì bị tàn tạ",
+   "quote_checked": true,
+   "condition_text": "chính tinh đắc địa ở Mệnh gặp Tuần, Triệt",
+   "reading_vi": "bị phá hư",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "the clause after kl204_chinh_tinh_ham_can_tt: 'nhưng chính tinh đắc địa gặp Tuần Triệt thì lại bị phá hư'",
+   "target": "che_hoa"
+  },
+  {
+   "id": "kl204_dai_van_tt_thao_go",
+   "book": "KL",
+   "page": 204,
+   "palace": "Mệnh",
+   "heading": "40. Tuần Triệt",
+   "quote": "Mệnh có Tuần Triệt, tới đại vận gặp Tuần Triệt là đương nhiên được tháo gỡ",
+   "quote_checked": true,
+   "condition_text": "Mệnh có Tuần, Triệt; đại vận đến cung có Tuần, Triệt",
+   "reading_vi": "được tháo gỡ, như người ở tù được trả tự do",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
    "target": "che_hoa"
   },
   {
@@ -1551,7 +1583,8 @@
    ],
    "skip": null,
    "notes": "KL p.215 (TV_KL_CUNG_MENH_GIAP_XUONG_KHUC) reads the same giáp as help from superiors; this line names the gift",
-   "target": "rule"
+   "duplicate_of": "TV_TH_CACH_MENH_GIAP_XK",
+   "target": null
   },
   {
    "id": "kl205_giap_thai_toa",
@@ -1586,7 +1619,8 @@
    ],
    "skip": null,
    "notes": "KL p.215 reads the same giáp as being held in esteem; this line names exams. The verified cách Khôi Việt giáp Mệnh also exists",
-   "target": "rule"
+   "duplicate_of": "CACH_X_KHOI_VIET_GIAP_MENH",
+   "target": null
   },
   {
    "id": "kl205_giap_sat_liem",

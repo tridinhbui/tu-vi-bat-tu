@@ -129,7 +129,8 @@ E("tt142_hinh_tu_hiep_an", "TT", 142, M, C, "Thiên Tướng thủ Mệnh Thân,
   "Mệnh có Thiên Tướng, Liêm Trinh và Thiên Hình đồng cung", "cách Hình tù hiệp ấn: quý về võ nghiệp", "support", ["exp.martial", "career.status"], kind="formation",
   notes="紫微斗數全書: 天刑廉貞同臨身命; Liêm Tướng share a palace at Tý/Ngọ")
 E("tt142_khoa_quyen_loc_cung", "TT", 142, M, C, "Khoa, Quyền lộc củng (Chiếu thủ có cả ba Khoa, Quyền, Lộc)",
-  "tam phương Mệnh có đủ Hóa Khoa, Hóa Quyền, Hóa Lộc", "cách Khoa Quyền Lộc củng (quý cách)", "support", ["career.status"], kind="formation")
+  "tam phương Mệnh có đủ Hóa Khoa, Hóa Quyền, Hóa Lộc", "cách Khoa Quyền Lộc củng (quý cách)", "support", ["career.status"], kind="formation",
+  skip="the engine's special structure TAM_HOA_HOI_MENH (reason/structures.ts, TT p.21 / KL) already tells Tam Hóa hội Mệnh, and the verified cách carry Tam Hóa as their booster: not made a second time")
 E("tt142_tham_hoa_mao", "TT", 142, M, C, "Tham Lang cư miếu địa, thủ Mệnh tại cung Mão", "Tham Hỏa tương phùng", "", "support", [],
   skip="the translation adds 'cung Mão', which 紫微斗數全書 (二星守命同居廟旺) does not have; TH p.73 has the cách: schools.json")
 E("tt142_kim_du_pho_gia", "TT", 142, M, C, "Tử Vi thủ Mệnh, có Nhật Nguyệt giáp mệnh", "Kim du phò giá", "", "support", [],
@@ -172,7 +173,8 @@ E("tt145_hop_mui", "TT", 145, M, "Hợp cách: Mệnh tại Mùi", "Bài quyết
 E("tt145_hop_than", "TT", 145, M, "Hợp cách: Mệnh tại Thân", "Khi Mệnh đóng Thân cung có Tử Vi, Liêm Trinh, Thiên Lương, Vũ Khúc, Cự Môn",
   "Mệnh ở Thân có Tử Vi, Liêm Trinh, Thiên Lương, Vũ Khúc hoặc Cự Môn; tuổi Giáp, Canh, Quý", "được phú quý, thỏa chí", "support", ["fin.abundance", "career.success"])
 E("tt145_hop_dau", "TT", 145, M, "Hợp cách: Mệnh tại Dậu", "Khi Mệnh đóng cung Dậu có Thái Aâm tọa thủ cực tốt",
-  "Mệnh ở Dậu có Thái Âm", "cực tốt", "support", ["life.blessed"])
+  "Mệnh ở Dậu có Thái Âm", "cực tốt", "support", ["life.blessed"],
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt145_hop_tuat", "TT", 145, M, "Hợp cách: Mệnh tại Tuất", "Thiên Phủ tọa thủ thì chỉ có hư danh thôi rất giàu mà",
   "Mệnh Tuất ...", "", "limit", [], skip="the translation names Thiên Phủ where the verse (and 紫微斗數全書 戍宮紫微對冲辰) names Tử Vi: schools.json")
 E("tt145_hop_hoi", "TT", 145, M, "Hợp cách: Mệnh tại Hợi", "Khi Mệnh đóng cung Hợi có Thái Aâm tọa thủ tuyệt hảo",

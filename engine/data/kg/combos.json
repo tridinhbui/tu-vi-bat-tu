@@ -1,5 +1,5 @@
 {
- "version": "combos-1",
+ "version": "1.0.0",
  "date": "2026-10-24",
  "generated_by": "tools/build_deep3_kg.py",
  "note": "Nhóm chính tinh và cặp sao theo Khảo Luận (pp.166-167 nhóm, pp.179-186 thế đứng 12 vòng Tử Vi): 'groups' (nhóm, tính chất), 'kinds' (nhóm hành động / lý luận), 'layouts' (thế của lá số theo vị trí Tử Vi: chart.tu_vi_branch), 'pairs' (cặp sao có nghĩa riêng trên trang), 'modifiers' (điều kiện làm đổi nghĩa), 'per_palace' (theo từng cặp chính tinh đồng cung: các rule verified đọc cặp đó ở từng cung, với trang). Ô chữ của 12 sơ đồ vòng (KL pp.167-178) chưa khai thác: text layer xáo thứ tự ô.",
@@ -1461,5 +1461,253 @@
     }
    ]
   }
- }
+ },
+ "combos": [
+  {
+   "id": "TU_PHU_VU_TUONG",
+   "name": "Tử Phủ Vũ Tướng",
+   "stars": [
+    "Tử Vi",
+    "Thiên Phủ",
+    "Vũ Khúc",
+    "Thiên Tướng"
+   ],
+   "scope": "tam_phuong",
+   "palaces": null,
+   "branches": null,
+   "dignity": null,
+   "pol": "±",
+   "reading": "hành động có lý luận; khi gặp nhóm hành động là lúc đang bận rộn, vất vả",
+   "book": "KL",
+   "page": 166,
+   "quote": "Tử Phủ Vũ Tướng (Hành động có lý luận)",
+   "modifiers": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "SAT_PHA_LIEM_THAM",
+   "name": "Sát Phá Liêm Tham",
+   "stars": [
+    "Thất Sát",
+    "Phá Quân",
+    "Liêm Trinh",
+    "Tham Lang"
+   ],
+   "scope": "tam_phuong",
+   "palaces": null,
+   "branches": null,
+   "dignity": null,
+   "pol": "±",
+   "reading": "hành động mạnh mẽ; khi gặp nhóm hành động là lúc đang bận rộn, vất vả",
+   "book": "KL",
+   "page": 167,
+   "quote": "Sát Phá Liêm Tham (Hành động mạch mẽ)",
+   "modifiers": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "CO_NGUYET_DONG_LUONG",
+   "name": "Cơ Nguyệt Đồng Lương",
+   "stars": [
+    "Thiên Cơ",
+    "Thái Âm",
+    "Thiên Đồng",
+    "Thiên Lương"
+   ],
+   "scope": "tam_phuong",
+   "palaces": null,
+   "branches": null,
+   "dignity": null,
+   "pol": "±",
+   "reading": "lý luận thuần túy; khi gặp nhóm lý luận là lúc đang tính toán, suy nghĩ",
+   "book": "KL",
+   "page": 167,
+   "quote": "Cơ Nguyệt Đồng Lương (Lý luận thuần túy)",
+   "modifiers": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "CU_NHAT_NGUYET",
+   "name": "Cự Nhật, Nhật Nguyệt",
+   "stars": [
+    "Cự Môn",
+    "Thái Dương",
+    "Thái Âm"
+   ],
+   "scope": "tam_phuong",
+   "palaces": null,
+   "branches": null,
+   "dignity": null,
+   "pol": "±",
+   "reading": "lý luận thực hành; khi gặp nhóm lý luận là lúc đang tính toán, suy nghĩ",
+   "book": "KL",
+   "page": 167,
+   "quote": "Cự - Nhật, Nhật - Nguyệt (Lý luận thực hành)",
+   "modifiers": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "CO_AM_DAC",
+   "name": "Cơ Âm đắc địa",
+   "stars": [
+    "Thiên Cơ",
+    "Thái Âm"
+   ],
+   "scope": "xung",
+   "palaces": null,
+   "branches": null,
+   "dignity": "bright",
+   "pol": "+",
+   "reading": "giàu",
+   "book": "KL",
+   "page": 180,
+   "quote": "Cơ Âm  đắc địa thì giầu",
+   "modifiers": [],
+   "context": "thế Tử Vi ở Ngọ (Thiên Cơ ở Tỵ, Thái Âm ở Hợi)",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "DUONG_LUONG_DAC",
+   "name": "Dương Lương đắc địa",
+   "stars": [
+    "Thái Dương",
+    "Thiên Lương"
+   ],
+   "scope": "dong_cung",
+   "palaces": null,
+   "branches": null,
+   "dignity": "bright",
+   "pol": "+",
+   "reading": "sang",
+   "book": "KL",
+   "page": 180,
+   "quote": "Dương Lương  đắc địa thì sang",
+   "modifiers": [],
+   "context": "thế Tử Vi ở Ngọ (Thái Dương, Thiên Lương ở Mão)",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "CU_DONG_HAM",
+   "name": "Cự Đồng hãm",
+   "stars": [
+    "Cự Môn",
+    "Thiên Đồng"
+   ],
+   "scope": "dong_cung",
+   "palaces": null,
+   "branches": null,
+   "dignity": "ham",
+   "pol": "-",
+   "reading": "lẻ loi, bất đắc chí",
+   "book": "KL",
+   "page": 180,
+   "quote": "Cự Đồng lẻ loi, hãm địa thành ra bất đắc chí",
+   "modifiers": [
+    {
+     "when": "hoa_khoa",
+     "effect": "có Hóa Khoa chiếu thì mới khá được",
+     "pol": "+",
+     "book": "KL",
+     "page": 180,
+     "quote": "có sao cứu giải như Hóa khoa hoặc khốc Hư chiếu"
+    },
+    {
+     "when": "Thiên Khốc",
+     "effect": "có Khốc Hư chiếu thì mới khá được",
+     "pol": "+",
+     "book": "KL",
+     "page": 180,
+     "quote": "có sao cứu giải như Hóa khoa hoặc khốc Hư chiếu",
+     "with": [
+      "Thiên Hư"
+     ]
+    }
+   ],
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TU_PHA_SUU_MUI",
+   "name": "Tử Phá ở Sửu, Mùi",
+   "stars": [
+    "Tử Vi",
+    "Phá Quân"
+   ],
+   "scope": "dong_cung",
+   "palaces": null,
+   "branches": [
+    "Sửu",
+    "Mùi"
+   ],
+   "dignity": null,
+   "pol": "±",
+   "reading": "hai phe cân bằng: con người bình thường, có cao thượng có thấp hèn",
+   "book": "KL",
+   "page": 179,
+   "quote": "Tử vi Phá quân gặp nhau ở Sửu là thế Tử Phá",
+   "modifiers": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TU_THAM",
+   "name": "Tử Tham đồng cung",
+   "stars": [
+    "Tử Vi",
+    "Tham Lang"
+   ],
+   "scope": "dong_cung",
+   "palaces": null,
+   "branches": null,
+   "dignity": null,
+   "pol": "-",
+   "reading": "Tử Vi coi như hãm, mất sức cứu giải",
+   "book": "KL",
+   "page": 186,
+   "quote": "Tử vi là sao cứu giải trong mọi hoàn cảnh nhưng khi đi với Tham lang thì coi như bị vào hãm địa",
+   "modifiers": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TU_PHU_DAN_THAN",
+   "name": "Tử Phủ ở Dần, Thân",
+   "stars": [
+    "Tử Vi",
+    "Thiên Phủ"
+   ],
+   "scope": "dong_cung",
+   "palaces": null,
+   "branches": [
+    "Dần",
+    "Thân"
+   ],
+   "dignity": null,
+   "pol": "+",
+   "reading": "vua tôi cùng ngồi bàn việc nước",
+   "book": "KL",
+   "page": 186,
+   "quote": "hai Vua tôi Tử vi và Thiên phủ cùng ngồi",
+   "modifiers": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TU_TA_HUU",
+   "name": "Tử Vi với Tả Hữu",
+   "stars": [
+    "Tử Vi",
+    "Tả Phụ",
+    "Hữu Bật"
+   ],
+   "scope": "tam_phuong",
+   "palaces": null,
+   "branches": null,
+   "dignity": null,
+   "pol": "+",
+   "reading": "Tả Hữu là hai tay chân đắc lực nhất của Tử Vi",
+   "book": "KL",
+   "page": 186,
+   "quote": "Tử vi cần nhất  Tả Hữu, hai tay chân đắc lực nhất",
+   "modifiers": [],
+   "context": "trang không nói vị trí; 'tam_phuong' là cách đọc rộng nhất của hệ thống, đồng cung là mạnh nhất (TT p.22: Phụ Bật ở tam hợp hay xung chiếu thì không tốt bằng)",
+   "reviewStatus": "verified"
+  }
+ ]
 }

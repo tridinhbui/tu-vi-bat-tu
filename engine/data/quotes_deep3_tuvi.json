@@ -2,13 +2,6 @@
  "note": "page quotes of pack_toan_thu_ca.json, pack_khao_luan_cach.json and pack_toan_thu_han_van.json (tools/build_deep3_tuvi_pack.py, from engine/data/kg/mined/deep3_*.json), checked by engine/tests/test_deep3_tuvi.py; 'skipped' and 'duplicates' cover every mined entry not made a rule",
  "quotes": [
   {
-   "rule": "TV_D3_TT65_TU_VI_MENH",
-   "book": "TT",
-   "page": 65,
-   "quote": "Cung mệnh có Tử Vi, Phúc Lộc tiền tài hưng vượng",
-   "mined": "tt65_tu_vi_menh"
-  },
-  {
    "rule": "TV_D3_TT65_TU_VI_SAT_TINH_CHUA",
    "book": "TT",
    "page": 65,
@@ -100,13 +93,6 @@
    "mined": "tt66_vu_nhieu_sat"
   },
   {
-   "rule": "TV_D3_TT67_DONG_ON_HOA",
-   "book": "TT",
-   "page": 67,
-   "quote": "Thiên Đồng toạ mệnh cung, tính tình ôn hoà tử tế có phúc lộc",
-   "mined": "tt67_dong_on_hoa"
-  },
-  {
    "rule": "TV_D3_TT67_DONG_MIEU_VUONG",
    "book": "TT",
    "page": 67,
@@ -114,25 +100,11 @@
    "mined": "tt67_dong_mieu_vuong"
   },
   {
-   "rule": "TV_D3_TT67_DONG_CAT",
-   "book": "TT",
-   "page": 67,
-   "quote": "Gặp cát tinh phò trợ, thông minh, lanh lợi",
-   "mined": "tt67_dong_cat"
-  },
-  {
    "rule": "TV_D3_TT67_DONG_HAM_HOA_DA",
    "book": "TT",
    "page": 67,
    "quote": "thêm Hoả Tinh, Đà La xung phá là rất",
    "mined": "tt67_dong_ham_hoa_da"
-  },
-  {
-   "rule": "TV_D3_TT67_LIEM_NGANG",
-   "book": "TT",
-   "page": 67,
-   "quote": "Liêm Trinh thủ Mệnh vốn con người phi thường chí khí ưa ngang ngược",
-   "mined": "tt67_liem_ngang"
   },
   {
    "rule": "TV_D3_TT67_PHU_QUYEN_LOC_CAT",
@@ -219,13 +191,6 @@
    "mined": "tt69_cu_kinh_hoa_linh"
   },
   {
-   "rule": "TV_D3_TT69_TUONG_CA_QUYET",
-   "book": "TT",
-   "page": 69,
-   "quote": "Thiên Tướng làm chủ Mệnh cung là người cả quyết tự chủ",
-   "mined": "tt69_tuong_ca_quyet"
-  },
-  {
    "rule": "TV_D3_TT69_TUONG_VU_PHA_SAT",
    "book": "TT",
    "page": 69,
@@ -296,13 +261,6 @@
    "mined": "tt72_khuc_ky_hoa"
   },
   {
-   "rule": "TV_D3_TT72_TA_PHU_DON_HAU",
-   "book": "TT",
-   "page": 72,
-   "quote": "Sao Tả Phụ có thể giáng phúc là người đôn hậu thông kim cổ",
-   "mined": "tt72_ta_phu_don_hau"
-  },
-  {
    "rule": "TV_D3_TT72_TA_PHU_BON_SAT",
    "book": "TT",
    "page": 72,
@@ -310,25 +268,11 @@
    "mined": "tt72_ta_phu_bon_sat"
   },
   {
-   "rule": "TV_D3_TT73_HUU_BAT_CO_MUU",
-   "book": "TT",
-   "page": 73,
-   "quote": "Hữu Bật là người có cơ mưu, thông minh, bệ vệ",
-   "mined": "tt73_huu_bat_co_muu"
-  },
-  {
    "rule": "TV_D3_TT73_HUU_BAT_CAT_KHONG_SAT",
    "book": "TT",
    "page": 73,
    "quote": "lại được cát tinh phù trợ thì tiền tài, danh vọng dễ tìm",
    "mined": "tt73_huu_bat_cat_khong_sat"
-  },
-  {
-   "rule": "TV_D3_TT73_LOC_TON_QUA_QUYET",
-   "book": "TT",
-   "page": 73,
-   "quote": "tính tình quả quyết làm việc gì cũng thành",
-   "mined": "tt73_loc_ton_qua_quyet"
   },
   {
    "rule": "TV_D3_TT73_LOC_TON_XUONG_KHUC",
@@ -343,13 +287,6 @@
    "page": 73,
    "quote": "Lộc Tồn rất sợ sao Thiên Cơ với Kiếp Không",
    "mined": "tt73_loc_ton_co_kk_ky"
-  },
-  {
-   "rule": "TV_D3_TT74_KINH_CUNG_RAN",
-   "book": "TT",
-   "page": 74,
-   "quote": "Sao Kinh Dương thủ mệnh tính nết cứng rắn",
-   "mined": "tt74_kinh_cung_ran"
   },
   {
    "rule": "TV_D3_TT74_KINH_TU_MO_TU_PHU",
@@ -373,25 +310,11 @@
    "mined": "tt74_da_ham"
   },
   {
-   "rule": "TV_D3_TT75_HOA_LOC_MENH",
-   "book": "TT",
-   "page": 75,
-   "quote": "đàn ông có Hoá Lộc ở Mệnh tự nhiên phúc tới",
-   "mined": "tt75_hoa_loc_menh"
-  },
-  {
    "rule": "TV_D3_TT75_LOC_DONG_NHAT",
    "book": "TT",
    "page": 75,
    "quote": "Thiên Đồng gặp Thái Dương, dân giả cũng trở thành đại phú",
    "mined": "tt75_loc_dong_nhat"
-  },
-  {
-   "rule": "TV_D3_TT75_HOA_QUYEN_CAT",
-   "book": "TT",
-   "page": 75,
-   "quote": "Sao Hoá Quyền cần được các sao tốt phù trợ thì sự nghiệp hiên ngang",
-   "mined": "tt75_hoa_quyen_cat"
   },
   {
    "rule": "TV_D3_TT75_HOA_QUYEN_CU_VU",
@@ -401,32 +324,11 @@
    "mined": "tt75_hoa_quyen_cu_vu"
   },
   {
-   "rule": "TV_D3_TT76_HOA_KHOA_VAN",
-   "book": "TT",
-   "page": 76,
-   "quote": "thủ Mệnh cung là người văn chương cẩm tú",
-   "mined": "tt76_hoa_khoa_van"
-  },
-  {
    "rule": "TV_D3_TT76_HOA_KHOA_XK_KV",
    "book": "TT",
    "page": 76,
    "quote": "hội với Xương Khúc, Khôi Việt công danh sáng lạng",
    "mined": "tt76_hoa_khoa_xk_kv"
-  },
-  {
-   "rule": "TV_D3_TT76_HOA_KY_HUNG",
-   "book": "TT",
-   "page": 76,
-   "quote": "Gặp nó rồi lại bị thêm các hung tinh thì càng hung",
-   "mined": "tt76_hoa_ky_hung"
-  },
-  {
-   "rule": "TV_D3_TT76_HOA_KY_CAT_LO",
-   "book": "TT",
-   "page": 76,
-   "quote": "cái giàu sang đó thường đi kèm với nhiều lo lắng",
-   "mined": "tt76_hoa_ky_cat_lo"
   },
   {
    "rule": "TV_D3_TT76_THAM_PHA_HAM_KY",
@@ -443,27 +345,6 @@
    "mined": "tt76_hong_loan_bat_toa"
   },
   {
-   "rule": "TV_D3_TT76_KINH_DA_MENH",
-   "book": "TT",
-   "page": 76,
-   "quote": "Nói năng loạn thuyết những phường điêu ngoa",
-   "mined": "tt76_kinh_da_menh"
-  },
-  {
-   "rule": "TV_D3_TT113_TUONG_NU_THONG_MINH",
-   "book": "TT",
-   "page": 113,
-   "quote": "Nữ mệnh có sao Thiên Tướng, người thông minh giỏi giang, y lộc tài bạch phong túc",
-   "mined": "tt113_tuong_nu_thong_minh"
-  },
-  {
-   "rule": "TV_D3_TT114_SAT_NU_THONG_MINH",
-   "book": "TT",
-   "page": 114,
-   "quote": "người rất lanh lợi thông minh",
-   "mined": "tt114_sat_nu_thong_minh"
-  },
-  {
    "rule": "TV_D3_TT114_PHA_NU_TY_NGO",
    "book": "TT",
    "page": 114,
@@ -476,20 +357,6 @@
    "page": 115,
    "quote": "nếu có hai sao Tử Vi Thiên Phủ",
    "mined": "tt115_xuong_nu_tu_phu"
-  },
-  {
-   "rule": "TV_D3_TT115_KHUC_NU_THONG_MINH",
-   "book": "TT",
-   "page": 115,
-   "quote": "thông minh lanh lợi",
-   "mined": "tt115_khuc_nu_thong_minh"
-  },
-  {
-   "rule": "TV_D3_TT115_TA_HUU_NU",
-   "book": "TT",
-   "page": 115,
-   "quote": "Nữ mệnh có Tả Hữu là người hiền lương, giỏi giang quán xuyến",
-   "mined": "tt115_ta_huu_nu"
   },
   {
    "rule": "TV_D3_TT115_TA_HUU_NU_TU_PHU",
@@ -520,41 +387,6 @@
    "mined": "tt117_hoa_linh_nu_tham"
   },
   {
-   "rule": "TV_D3_TT117_HOA_QUYEN_NU_CAT",
-   "book": "TT",
-   "page": 117,
-   "quote": "thêm cát tinh khác phù trợ tất phú quí song toàn",
-   "mined": "tt117_hoa_quyen_nu_cat"
-  },
-  {
-   "rule": "TV_D3_TT117_HOA_KHOA_NU",
-   "book": "TT",
-   "page": 117,
-   "quote": "Nữ mệnh có sao Hóa Khoa bao giờ cũng tốt, người đức độ, tính tình thanh cao",
-   "mined": "tt117_hoa_khoa_nu"
-  },
-  {
-   "rule": "TV_D3_TT117_HOA_KY_NU_HUNG",
-   "book": "TT",
-   "page": 117,
-   "quote": "lại thêm hung tinh xung phá thì cuộc",
-   "mined": "tt117_hoa_ky_nu_hung"
-  },
-  {
-   "rule": "TV_D3_TT118_LIEM_NU_THANH_BACH",
-   "book": "TT",
-   "page": 118,
-   "quote": "Sao Liêm Trinh bản chất thanh bạch có thể",
-   "mined": "tt118_liem_nu_thanh_bach"
-  },
-  {
-   "rule": "TV_D3_TT118_TU_NHAT_NU_TRUNG_THUC",
-   "book": "TT",
-   "page": 118,
-   "quote": "tính nết trung thực",
-   "mined": "tt118_tu_nhat_nu_trung_thuc"
-  },
-  {
    "rule": "TV_D3_TT118_NHAT_DAN_NGO_CAT",
    "book": "TT",
    "page": 118,
@@ -569,13 +401,6 @@
    "mined": "tt118_huu_tuong_nu"
   },
   {
-   "rule": "TV_D3_TT118_LOC_TON_NU",
-   "book": "TT",
-   "page": 118,
-   "quote": "Lộc Tồn hậu trọng đa y thực",
-   "mined": "tt118_loc_ton_nu"
-  },
-  {
    "rule": "TV_D3_TT118_CO_CU_NU",
    "book": "TT",
    "page": 118,
@@ -583,32 +408,11 @@
    "mined": "tt118_co_cu_nu"
   },
   {
-   "rule": "TV_D3_TT118_XUONG_KHUC_NU",
-   "book": "TT",
-   "page": 118,
-   "quote": "Văn Xương Văn Khúc phúc bất toàn",
-   "mined": "tt118_xuong_khuc_nu"
-  },
-  {
-   "rule": "TV_D3_TT118_VU_NU_CO_DOC",
-   "book": "TT",
-   "page": 118,
-   "quote": "Sao Vũ Khúc là sao cô độc đối với nữ mệnh",
-   "mined": "tt118_vu_nu_co_doc"
-  },
-  {
    "rule": "TV_D3_TT118_SAT_NU_DON",
    "book": "TT",
    "page": 118,
    "quote": "Nữ mệnh Thất Sát đơn thủ không phải là phúc",
    "mined": "tt118_sat_nu_don"
-  },
-  {
-   "rule": "TV_D3_TT118_SONG_LOC_NU",
-   "book": "TT",
-   "page": 118,
-   "quote": "Số đàn bà song lộc thủ chiếu mệnh giàu sang chức tước",
-   "mined": "tt118_song_loc_nu"
   },
   {
    "rule": "TV_D3_TT91_TAT_TUAN_TRIET",
@@ -737,13 +541,6 @@
    "mined": "tt142_hinh_tu_hiep_an"
   },
   {
-   "rule": "TV_D3_TT142_KHOA_QUYEN_LOC_CUNG",
-   "book": "TT",
-   "page": 142,
-   "quote": "Khoa, Quyền lộc củng (Chiếu thủ có cả ba Khoa, Quyền, Lộc)",
-   "mined": "tt142_khoa_quyen_loc_cung"
-  },
-  {
    "rule": "TV_D3_TT143_QUAN_TU_TAI_DA",
    "book": "TT",
    "page": 143,
@@ -805,13 +602,6 @@
    "page": 145,
    "quote": "Khi Mệnh đóng Thân cung có Tử Vi, Liêm Trinh, Thiên Lương, Vũ Khúc, Cự Môn",
    "mined": "tt145_hop_than"
-  },
-  {
-   "rule": "TV_D3_TT145_HOP_DAU",
-   "book": "TT",
-   "page": 145,
-   "quote": "Khi Mệnh đóng cung Dậu có Thái Aâm tọa thủ cực tốt",
-   "mined": "tt145_hop_dau"
   },
   {
    "rule": "TV_D3_TT147_PHA_CO_TY_NGO_CU_LINH",
@@ -961,20 +751,6 @@
    "mined": "kl203_tuan_triet_mieu"
   },
   {
-   "rule": "TV_D3_KL204_MENH_TRIET",
-   "book": "KL",
-   "page": 204,
-   "quote": "Nếu Mệnh gặp Triệt, đời phải chịu nhiều khó khăn lúc niên thiếu",
-   "mined": "kl204_menh_triet"
-  },
-  {
-   "rule": "TV_D3_KL204_MENH_TUAN",
-   "book": "KL",
-   "page": 204,
-   "quote": "Nếu Mệnh gặp Tuần, thì luôn luôn bị kìm hãm, trục trặc từ lúc bắt tay vào việc",
-   "mined": "kl204_menh_tuan"
-  },
-  {
    "rule": "TV_D3_KL204_VCD_KHONG_KIEP",
    "book": "KL",
    "page": 204,
@@ -1001,20 +777,6 @@
    "page": 205,
    "quote": "Giáp Kiếp, Không tàn tạ cuộc đời",
    "mined": "kl205_giap_kiep_khong"
-  },
-  {
-   "rule": "TV_D3_KL205_GIAP_XUONG_KHUC",
-   "book": "KL",
-   "page": 205,
-   "quote": "Giáp Khúc, Xương giỏi văn chương",
-   "mined": "kl205_giap_xuong_khuc"
-  },
-  {
-   "rule": "TV_D3_KL205_GIAP_KHOI_VIET",
-   "book": "KL",
-   "page": 205,
-   "quote": "Giáp Khôi Việt tên dành bảng hổ",
-   "mined": "kl205_giap_khoi_viet"
   },
   {
    "rule": "TV_D3_KL206_VCD_TA_HUU_NHAT_NGUYET",
@@ -1509,6 +1271,8 @@
   "kl47_tham_kk": "see kl47_tham_linh",
   "kl47_that_sat_ngo_hinh": "KL p.64 reads the same pair as breaking the cách (formations_verified KL64_PHA): the book is at odds with itself; schools.json",
   "kl46_effect_thai_toa": "effect line, read with kl46_thai_toa_giap",
+  "kl204_menh_triet": "Tuần / Triệt at Mệnh is already read by TV_TH_VERSE_MENH_TRIET_TUAN and the TL rules; a broad second reading only adds a generic line (readable.test Barnum gate)",
+  "kl204_menh_tuan": "Tuần / Triệt at Mệnh is already read by TV_TH_VERSE_MENH_TRIET_TUAN and the TL rules; a broad second reading only adds a generic line (readable.test Barnum gate)",
   "kl205_giap_loc_khoa": "'Lộc' (Lộc Tồn or Hóa Lộc) is not settled; KL's own Khoa Lộc giáp rule (TV_KL_STAR_MENH_KHOA_LOC_GIAP) is draft for the same reason",
   "kl206_vcd_han": "readings of the hạn (đại / tiểu vận); van_han_rules.json VH_VCD_SPT already reads VCD meeting Sát Phá Tham in a hạn",
   "kl206_tam_khong": "the author calls it 'một trò chơi trí não'; the three 'không' are not named",
@@ -1522,25 +1286,40 @@
   "th131_liem_hong_dao": "a marriage event",
   "th132_tuong_di_tuan_triet": "the hạn palace's name is not in the vocabulary; and the death clause",
   "th132_sat_liem_tham_phuong": "which of Liêm, Tham must meet Thất Sát is not settled",
+  "tt65_tu_vi_menh": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt65_tu_vi_tuong_ta": "'Tướng Tá' (將佐) does not name stars the chart can be checked for (Thiên Tướng and Tả Phụ? the ministers Tả Hữu?)",
   "tt65_tu_vi_kk": "longevity (health policy)",
   "tt66_nhat_tho": "longevity (health policy); the phúc half alone is not the page's sentence",
+  "tt67_dong_on_hoa": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt67_dong_cat": "its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one",
+  "tt67_liem_ngang": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt67_liem_cach_co_dinh_tan": "the condition is the path the person takes, not a chart fact",
   "tt67_liem_nhan_cung": "nhàn cung of Liêm Trinh: the author says it is not recorded (p.67); no position to test",
   "tt67_liem_ham_tat": "injury and death (health policy)",
   "tt68_tham_kinh_da": "Đà La never stands in the tam phương of a Kình palace (they flank Lộc Tồn): 'Đà Sát' cannot be read as printed",
+  "tt69_tuong_ca_quyet": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt70_luong_nhan_cung": "nhàn cung not defined on the page; illness",
   "tt70_co_luong_thin_tuat": "disputed: the verse 'Thìn Tuất Cơ Lương phi tiểu bổ' (非小補) is a good line in 紫微斗數全書 卷一 十二宮諸星得地富貴論, and TH p.72 lists Phá Quân Mão Dậu as a cách; recorded in schools.json instead of a rule",
   "tt72_xuong_ky": "injury and death",
   "tt72_khuc_ac_tinh": "the translation contradicts itself and the verse ('bất hỉ tam phương ác sát tụ'): not settled",
+  "tt72_ta_phu_don_hau": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt72_ta_phu_tu_phu_tham_vu": "Tử Phủ and Tham Vũ do not stand in one tam phương together on any chart; which of them must meet is not stated",
+  "tt73_huu_bat_co_muu": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt73_loc_ton_qua_quyet": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt73_khoi_viet_han": "a reading of a hạn year (vận hạn), not of the natal Mệnh",
+  "tt74_kinh_cung_ran": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt74_hoa_linh_mieu": "which of Tham Lang, Tử Vi, Thiên Phủ must meet is not settled (all three is rare in one tam phương)",
   "tt74_thien_khong": "天空 of the Chinese verse is the Địa Không of Vietnamese charts, while the engine's Thiên Không is the Thái Tuế-circle star: which star is meant is not settled",
+  "tt75_hoa_loc_menh": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt75_hoa_quyen_cat": "its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one",
+  "tt76_hoa_khoa_van": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt76_hoa_ky_hung": "its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one",
+  "tt76_hoa_ky_cat_lo": "its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one",
   "tt76_thai_tue": "the translation ('có nhật hạn hoặc đóng cung Quan hãm địa') does not give a natal condition",
   "tt76_phu_khong_xu": "'Không' (Tuần, Triệt or Địa Không) is not named",
   "tt76_nhat_nguyet_suu_mui": "contradicts TH p.72 (cách Nhật Nguyệt đồng cung); recorded in schools.json instead of a rule",
   "tt76_long_phuong_mao_dau": "Long Trì and Phượng Các share a palace only at Sửu/Mùi (Mão / Dậu years) and never stand at Mão and Dậu facing each other: the printed position cannot be read as it stands",
+  "tt76_kinh_da_menh": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt76_tham_liem_ty_hoi": "prison",
   "tt91_tat_hinh_duong_cai_da": "a hạn event (đậu hoa) and illness",
   "tt91_tat_hoa_linh_tri_moc": "fire and water accidents (events)",
@@ -1580,6 +1359,7 @@
   "tt93_tu_loc_ton_gia_sat": "'Sát' (Thất Sát or the sát tinh?) not settled; Lộc Tồn never shares a palace with Kình or Đà",
   "tt141_tai_am_hiep_an": "the translation says 'hội hiệp' (meet) where 紫微斗數全書 卷一 定富局 says 夾 (flank): two different conditions; recorded in schools.json",
   "tt142_tai_an_hiep_loc": "'hội hiệp' in the translation vs 夾 in 紫微斗數全書 定貴局 (財印夾祿): two conditions; and 'Lộc' (Tồn or Hóa) not named. schools.json",
+  "tt142_khoa_quyen_loc_cung": "the engine's special structure TAM_HOA_HOI_MENH (reason/structures.ts, TT p.21 / KL) already tells Tam Hóa hội Mệnh, and the verified cách carry Tam Hóa as their booster: not made a second time",
   "tt142_tham_hoa_mao": "the translation adds 'cung Mão', which 紫微斗數全書 (二星守命同居廟旺) does not have; TH p.73 has the cách: schools.json",
   "tt142_kim_du_pho_gia": "the author himself says the gloss cannot occur (Tử Vi is never flanked by Nhật Nguyệt); TH p.73 has its own cách: schools.json",
   "tt143_tai_du_tu_cuu": "Vũ Khúc and Liêm Trinh never share a palace: which of Thân / Mệnh holds which is not stated",
@@ -1587,12 +1367,26 @@
   "tt143_hop_suu": "the tuổi: TT 'Bính Tuất', 紫微斗數全書 '丙戍' (probably 丙戊, Bính / Mậu): not settled; the 'chính tọa = trung cách' half goes to schools.json",
   "tt144_hop_thin": "the author says the second line cannot be read; 'Thìn Tuất Cơ Lương' is disputed between TT p.70 and 紫微斗數全書: schools.json",
   "tt145_hop_mui": "the author disputes the verse (Cự Môn hãm at Mùi; Nhật Nguyệt Sửu Mùi lận đận): schools.json",
+  "tt145_hop_dau": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt145_hop_tuat": "the translation names Thiên Phủ where the verse (and 紫微斗數全書 戍宮紫微對冲辰) names Tử Vi: schools.json",
   "tt148_pha_hoi": "Tham Lang and Thiên Lương never share a palace: which of the three must stand at Hợi is not settled; and longevity",
   "tt112_cu_nu_vuong_ta_huu": "longevity",
   "tt112_bac_tinh_dan_than": "a woman's fidelity (sexual reputation)",
+  "tt113_tuong_nu_thong_minh": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt113_tuong_nu_sat_pha": "the husband's death and children",
+  "tt114_sat_nu_thong_minh": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt115_khuc_nu_thong_minh": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt115_ta_huu_nu": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
   "tt116_loc_ton_nu_tu_phu": "'số phu nhân' (a husband's rank) is the reading; the condition list (Tử Phủ + Đồng Liêm) cannot all meet",
+  "tt117_hoa_quyen_nu_cat": "its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one",
+  "tt117_hoa_khoa_nu": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt117_hoa_ky_nu_hung": "its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one",
+  "tt118_liem_nu_thanh_bach": "its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one",
+  "tt118_tu_nhat_nu_trung_thuc": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt118_loc_ton_nu": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt118_xuong_khuc_nu": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt118_vu_nu_co_doc": "a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)",
+  "tt118_song_loc_nu": "its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one",
   "tt118_pha_nu_don": "sexual reputation",
   "tt118_tham_nu": "sexual reputation",
   "tt118_nu_tam_phuong_sat": "ly khắc (marriage)",
@@ -1621,7 +1415,9 @@
   "kl47_cu_ngo_triet": "CACH_X_THACH_TRUNG_AN_NGOC",
   "kl205_giap_hoa_linh": "TV_KL_STAR_MENH_HOA_LINH_GIAP",
   "kl205_giap_nhat_nguyet": "TV_KL_CUNG_MENH_GIAP_NHAT_NGUYET",
+  "kl205_giap_xuong_khuc": "TV_TH_CACH_MENH_GIAP_XK",
   "kl205_giap_thai_toa": "kl46_thai_toa_giap",
+  "kl205_giap_khoi_viet": "CACH_X_KHOI_VIET_GIAP_MENH",
   "kl205_giap_sat_liem": "TV_KL_PHU2_LIEM_SAT_GIAP",
   "tt68_tham_tu_mo_hoa": "TV_TH_CACH_MENH_THAM_HOA",
   "tt69_cu_ty_ngo": "CACH_X_THACH_TRUNG_AN_NGOC",

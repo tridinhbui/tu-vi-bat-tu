@@ -1,5 +1,5 @@
 {
- "version": "che-hoa-1",
+ "version": "1.0.0",
  "date": "2026-10-24",
  "generated_by": "tools/build_deep3_kg.py",
  "note": "Quan hệ chế hóa giữa các sao theo trang sách (Khảo Luận, Toàn Thư, Thực Hành, Thiên Lương): 'tamer' tác động lên 'tamed' theo 'effect'. Nhóm sao viết dạng '@...' (groups). 'where' là điều kiện sách nêu (palace, branch, dignity của sao bị chế, tamer_dignity, tuoi, both: các sao phải cùng có mặt, same_palace). Chưa có tầng lập luận nào đọc tệp này (reason/ledger.ts weighSides sẽ đọc: plan Workstream C). 'star_nature' trỏ tới mục cùng nội dung trong star_nature.json (cùng trang hoặc trang tóm tắt).",
@@ -97,7 +97,7 @@
     "@chinh_tinh"
    ],
    "effect": "giam_tot",
-   "text": "chính tinh đắc địa gặp Tuần, Triệt thì như hãm địa",
+   "text": "chính tinh đắc địa gặp Tuần, Triệt thì như hãm địa, bị phá hư",
    "where": {
     "dignity": [
      "miếu",
@@ -111,10 +111,95 @@
      "book": "KL",
      "page": 203,
      "quote": "Chính tinh  đắc địa gặp Tuần Triệt thì trở thành chính tinh hãm địa"
+    },
+    {
+     "mined": "kl204_dac_dia_tt_pha_hu",
+     "book": "KL",
+     "page": 204,
+     "quote": "Triệt thì lại bị phá hư cũng như Tử vi ngộ Không Kiếp thì bị tàn tạ"
     }
    ],
    "cites": [
-    "KL p.203"
+    "KL p.203",
+    "KL p.204"
+   ]
+  },
+  {
+   "id": "triet.menh",
+   "tamer": [
+    "Triệt"
+   ],
+   "tamed": [
+    "@moi_sao"
+   ],
+   "effect": "giam_tot",
+   "text": "Mệnh gặp Triệt: thuở nhỏ chịu nhiều khó khăn",
+   "where": {
+    "palace": "Mệnh"
+   },
+   "sources": [
+    {
+     "mined": "kl204_menh_triet",
+     "book": "KL",
+     "page": 204,
+     "quote": "Nếu Mệnh gặp Triệt, đời phải chịu nhiều khó khăn lúc niên thiếu"
+    }
+   ],
+   "cites": [
+    "KL p.204"
+   ]
+  },
+  {
+   "id": "tuan.menh",
+   "tamer": [
+    "Tuần"
+   ],
+   "tamed": [
+    "@moi_sao"
+   ],
+   "effect": "giam_tot",
+   "text": "Mệnh gặp Tuần: bị kìm hãm, trục trặc ngay từ khi bắt tay vào việc",
+   "where": {
+    "palace": "Mệnh"
+   },
+   "sources": [
+    {
+     "mined": "kl204_menh_tuan",
+     "book": "KL",
+     "page": 204,
+     "quote": "Nếu Mệnh gặp Tuần, thì luôn luôn bị kìm hãm, trục trặc từ lúc bắt tay vào việc"
+    }
+   ],
+   "cites": [
+    "KL p.204"
+   ]
+  },
+  {
+   "id": "dai_van_tuan_triet.menh_tuan_triet",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "Tuần",
+    "Triệt"
+   ],
+   "effect": "giam_xau",
+   "text": "Mệnh có Tuần, Triệt, đến đại vận gặp Tuần, Triệt thì được tháo gỡ",
+   "where": {
+    "palace": "Mệnh",
+    "tamer_in": "đại vận"
+   },
+   "sources": [
+    {
+     "mined": "kl204_dai_van_tt_thao_go",
+     "book": "KL",
+     "page": 204,
+     "quote": "Mệnh có Tuần Triệt, tới đại vận gặp Tuần Triệt là đương nhiên được tháo gỡ"
+    }
+   ],
+   "cites": [
+    "KL p.204"
    ]
   },
   {
@@ -1688,5 +1773,1546 @@
     "TL scan p.15"
    ]
   }
- ]
+ ],
+ "relations": [
+  {
+   "id": "TUAN_TRIET__HAI_MAT",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "*"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "ca_hai",
+   "text": "Tuần, Triệt là sao cản phá: giảm cả cái tốt lẫn cái xấu của các sao",
+   "book": "KL",
+   "page": 203,
+   "quote": "Tuần Triệt là hai sao cản phá có tác dụng làm giảm cái tốt cũng như giảm cái xấu của các sao",
+   "also": [],
+   "condition": null,
+   "detail": "hai_mat",
+   "entry": "tuan_triet.hai_mat",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET__DAC_THANH_HAM",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "Tử Vi",
+    "Thiên Cơ",
+    "Thái Dương",
+    "Vũ Khúc",
+    "Thiên Đồng",
+    "Liêm Trinh",
+    "Thiên Phủ",
+    "Thái Âm",
+    "Tham Lang",
+    "Cự Môn",
+    "Thiên Tướng",
+    "Thiên Lương",
+    "Thất Sát",
+    "Phá Quân"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "chính tinh đắc địa gặp Tuần, Triệt thì như hãm địa, bị phá hư",
+   "book": "KL",
+   "page": 203,
+   "quote": "Chính tinh  đắc địa gặp Tuần Triệt thì trở thành chính tinh hãm địa",
+   "also": [
+    {
+     "mined": "kl204_dac_dia_tt_pha_hu",
+     "book": "KL",
+     "page": 204,
+     "quote": "Triệt thì lại bị phá hư cũng như Tử vi ngộ Không Kiếp thì bị tàn tạ"
+    }
+   ],
+   "condition": "sao bị chế miếu, vượng, đắc",
+   "detail": "giam_tot",
+   "entry": "tuan_triet.dac_thanh_ham",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TRIET__MENH",
+   "tamer": [
+    "Triệt"
+   ],
+   "tamed": [
+    "*"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Mệnh gặp Triệt: thuở nhỏ chịu nhiều khó khăn",
+   "book": "KL",
+   "page": 204,
+   "quote": "Nếu Mệnh gặp Triệt, đời phải chịu nhiều khó khăn lúc niên thiếu",
+   "also": [],
+   "condition": "ở cung Mệnh",
+   "detail": "giam_tot",
+   "entry": "triet.menh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN__MENH",
+   "tamer": [
+    "Tuần"
+   ],
+   "tamed": [
+    "*"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Mệnh gặp Tuần: bị kìm hãm, trục trặc ngay từ khi bắt tay vào việc",
+   "book": "KL",
+   "page": 204,
+   "quote": "Nếu Mệnh gặp Tuần, thì luôn luôn bị kìm hãm, trục trặc từ lúc bắt tay vào việc",
+   "also": [],
+   "condition": "ở cung Mệnh",
+   "detail": "giam_tot",
+   "entry": "tuan.menh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "DAI_VAN_TUAN_TRIET__MENH_TUAN_TRIET",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "Tuần",
+    "Triệt"
+   ],
+   "scope": "any",
+   "effect": "hoa_giai",
+   "on": "xau",
+   "text": "Mệnh có Tuần, Triệt, đến đại vận gặp Tuần, Triệt thì được tháo gỡ",
+   "book": "KL",
+   "page": 204,
+   "quote": "Mệnh có Tuần Triệt, tới đại vận gặp Tuần Triệt là đương nhiên được tháo gỡ",
+   "also": [],
+   "condition": "ở cung Mệnh; sao chế ở đại vận",
+   "detail": "giam_xau",
+   "entry": "dai_van_tuan_triet.menh_tuan_triet",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET__PHA_HAM",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "Tử Vi",
+    "Thiên Cơ",
+    "Thái Dương",
+    "Vũ Khúc",
+    "Thiên Đồng",
+    "Liêm Trinh",
+    "Thiên Phủ",
+    "Thái Âm",
+    "Tham Lang",
+    "Cự Môn",
+    "Thiên Tướng",
+    "Thiên Lương",
+    "Thất Sát",
+    "Phá Quân"
+   ],
+   "scope": "dong_cung",
+   "effect": "dao_nguoc",
+   "on": "ham",
+   "text": "chính tinh hãm ở Mệnh cần Tuần, Triệt để phá hãm",
+   "book": "KL",
+   "page": 204,
+   "quote": "Chính tinh thủ Mệnh hãm địa thì cần Tuần Triệt để phá hãm",
+   "also": [],
+   "condition": "ở cung Mệnh; sao bị chế hãm",
+   "detail": "pha_ham",
+   "entry": "tuan_triet.pha_ham",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET__CONG_DON",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "*"
+   ],
+   "scope": "dong_cung",
+   "effect": "tang",
+   "on": "ca_hai",
+   "text": "Tuần và Triệt cùng một cung thì sức cản, sức giúp đều mạnh hơn",
+   "book": "KL",
+   "page": 204,
+   "quote": "Nếu Tuần và Triệt cùng đóng chung một chỗ, ảnh hưởng của hai sao được cộng chung",
+   "also": [],
+   "condition": "các sao cùng có mặt",
+   "detail": "cong_don",
+   "entry": "tuan_triet.cong_don",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN__THIEN_PHU",
+   "tamer": [
+    "Tuần"
+   ],
+   "tamed": [
+    "Thiên Phủ"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Thiên Phủ gặp Tuần thành kho rỗng",
+   "book": "KL",
+   "page": 203,
+   "quote": "Thiên phủ gặp Tuần thành rỗng",
+   "also": [
+    {
+     "mined": "kl96_phu_tuan_khong_triet",
+     "book": "KL",
+     "page": 96,
+     "quote": "Thiên phủ rất sợ Tuần mà lại không sợ Triệt, Tử vi lại rất sợ Triệt"
+    }
+   ],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "tuan.thien_phu",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TRIET__THIEN_MA",
+   "tamer": [
+    "Triệt"
+   ],
+   "tamed": [
+    "Thiên Mã"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Thiên Mã gặp Triệt thành ngựa què",
+   "book": "KL",
+   "page": 203,
+   "quote": "Thiên mã ngộ Triệt thành ngựa què",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "triet.thien_ma",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TRIET__THIEN_TUONG",
+   "tamer": [
+    "Triệt"
+   ],
+   "tamed": [
+    "Thiên Tướng"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Thiên Tướng gặp Triệt thành tướng mất đầu",
+   "book": "KL",
+   "page": 203,
+   "quote": "Thiên tướng ngộ Triệt thành tướng mất đầu",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "triet.thien_tuong",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET__TU_PHU",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "Tử Vi",
+    "Thiên Phủ"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Tử Phủ ở Mệnh gặp Tuần, Triệt thì phúc lộc kém đi",
+   "book": "KL",
+   "page": 55,
+   "quote": "Mệnh có Tử Phủ thì được hưởng phúc lộc tốt rất nhiều, chỉ sợ Triệt Tuần án ngữ thì kém đi thôi",
+   "also": [],
+   "condition": "ở cung Mệnh",
+   "detail": "giam_tot",
+   "entry": "tuan_triet.tu_phu",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "SAT__TU_VI",
+   "tamer": [
+    "Kình Dương",
+    "Đà La",
+    "Địa Không",
+    "Địa Kiếp",
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "Tử Vi"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Kình, Đà, Không, Kiếp, Tuần, Triệt biến Tử Vi thành kẻ côi cút, mất sức cứu giải",
+   "book": "KL",
+   "page": 75,
+   "quote": "Tử vi rất sợ gặp Kình, Đà, Không, Kiếp, Tuần, Triệt vì chúng biến Tử vi thành một kẻ côi cút",
+   "also": [
+    {
+     "mined": "kl186_tu_so",
+     "book": "KL",
+     "page": 186,
+     "quote": "Tử vi sợ Tuần Triệt, Kình Đà, Không Kiếp"
+    }
+   ],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "sat.tu_vi",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TU_VI__KHANG_HOA_LINH",
+   "tamer": [
+    "Tử Vi"
+   ],
+   "tamed": [
+    "Hỏa Tinh",
+    "Linh Tinh"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Tử Vi không sợ Hỏa, Linh",
+   "book": "KL",
+   "page": 75,
+   "quote": "Tử vi không sợ Hỏa, Linh",
+   "also": [],
+   "condition": null,
+   "detail": "khang",
+   "entry": "tu_vi.khang_hoa_linh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "HOA_LINH__THIEN_CO",
+   "tamer": [
+    "Hỏa Tinh",
+    "Linh Tinh"
+   ],
+   "tamed": [
+    "Thiên Cơ"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Thiên Cơ rất sợ Hỏa, Linh",
+   "book": "KL",
+   "page": 81,
+   "quote": "Thiên cơ rất sợ Hỏa linh nhưng rất thích Song Hao",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "hoa_linh.thien_co",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "SONG_HAO__THIEN_CO",
+   "tamer": [
+    "Đại Hao",
+    "Tiểu Hao"
+   ],
+   "tamed": [
+    "Thiên Cơ"
+   ],
+   "scope": "any",
+   "effect": "tang",
+   "on": "tot",
+   "text": "Thiên Cơ rất thích Song Hao; Cự Cơ Mão Dậu gặp Song Hao thì phú quý",
+   "book": "KL",
+   "page": 81,
+   "quote": "Thiên cơ rất sợ Hỏa linh nhưng rất thích Song Hao",
+   "also": [],
+   "condition": null,
+   "detail": "tang",
+   "entry": "song_hao.thien_co",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET__NHAT_SAT",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "Kình Dương",
+    "Đà La",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "xau",
+   "text": "Thái Dương gặp Kình, Đà, Không, Kiếp thì cần Tuần, Triệt cứu giải để giảm bớt đau thương",
+   "book": "KL",
+   "page": 85,
+   "quote": "lúc đó cần Tuần Triệt cứu giải để giảm bớt đau thương",
+   "also": [],
+   "condition": "cùng Thái Dương",
+   "detail": "giam_xau",
+   "entry": "tuan_triet.nhat_sat",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_DONG__KHANG_TUAN_TRIET",
+   "tamer": [
+    "Thiên Đồng"
+   ],
+   "tamed": [
+    "Tuần",
+    "Triệt"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Thiên Đồng không sợ Tuần, Triệt (có ý kiến cho là cần, để bớt thay đổi)",
+   "book": "KL",
+   "page": 91,
+   "quote": "Thiên đồng không sợ Tuần Triệt",
+   "also": [],
+   "condition": null,
+   "detail": "khang",
+   "entry": "thien_dong.khang_tuan_triet",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TRIET__TU_VI",
+   "tamer": [
+    "Triệt"
+   ],
+   "tamed": [
+    "Tử Vi"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Tử Vi rất sợ Triệt",
+   "book": "KL",
+   "page": 96,
+   "quote": "Thiên phủ rất sợ Tuần mà lại không sợ Triệt, Tử vi lại rất sợ Triệt",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "triet.tu_vi",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_PHU__KHANG_TRIET",
+   "tamer": [
+    "Thiên Phủ"
+   ],
+   "tamed": [
+    "Triệt"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Thiên Phủ không sợ Triệt",
+   "book": "KL",
+   "page": 96,
+   "quote": "Thiên phủ rất sợ Tuần mà lại không sợ Triệt, Tử vi lại rất sợ Triệt",
+   "also": [
+    {
+     "mined": "kl188_phu_so_khong",
+     "book": "KL",
+     "page": 188,
+     "quote": "Thiên phủ sợ Tuần không, Thiên không"
+    }
+   ],
+   "condition": null,
+   "detail": "khang",
+   "entry": "thien_phu.khang_triet",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "KY_KK__THIEN_PHU",
+   "tamer": [
+    "Hóa Kỵ",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "tamed": [
+    "Thiên Phủ"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Thiên Phủ sợ Hóa Kỵ và Không Kiếp: Mệnh dễ nghèo",
+   "book": "KL",
+   "page": 96,
+   "quote": "Thiên phủ sợ gặp Hóa kỵ và Không Kiếp",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "ky_kk.thien_phu",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_KHONG__THIEN_PHU",
+   "tamer": [
+    "Tuần",
+    "Thiên Không"
+   ],
+   "tamed": [
+    "Thiên Phủ"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Thiên Phủ sợ Tuần không, Thiên không: kho trở nên rỗng",
+   "book": "KL",
+   "page": 188,
+   "quote": "Thiên phủ sợ Tuần không, Thiên không",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "thien_khong.thien_phu",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_PHU__SAT",
+   "tamer": [
+    "Thiên Phủ"
+   ],
+   "tamed": [
+    "Kình Dương",
+    "Đà La",
+    "Hỏa Tinh",
+    "Linh Tinh",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "xau",
+   "text": "Thiên Phủ giảm bớt tính hung hăng của sát tinh",
+   "book": "KL",
+   "page": 97,
+   "quote": "giảm bớt tính hung hăng của lũ sát tinh",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "thien_phu.sat",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "HOA_KY__THAM_LIEM",
+   "tamer": [
+    "Hóa Kỵ"
+   ],
+   "tamed": [
+    "Tham Lang",
+    "Liêm Trinh"
+   ],
+   "scope": "dong_cung",
+   "effect": "hoa_giai",
+   "on": "xau",
+   "text": "Tham Liêm đồng cung ở Tỵ, Hợi cần có Hóa Kỵ mới hóa giải nổi",
+   "book": "KL",
+   "page": 101,
+   "quote": "Tham Liêm đồng cung ở Tỵ, Hợi : trai đàng điếm, gái giang hồ, cần có Hóa kỵ mới hóa giải",
+   "also": [],
+   "condition": "ở Tỵ, Hợi; các sao cùng có mặt",
+   "detail": "giam_xau",
+   "entry": "hoa_ky.tham_liem",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "HOA_KHOA__CU_HAM",
+   "tamer": [
+    "Hóa Khoa"
+   ],
+   "tamed": [
+    "Cự Môn"
+   ],
+   "scope": "any",
+   "effect": "dao_nguoc",
+   "on": "ham",
+   "text": "Cự Môn hãm cần Hóa Khoa cứu giải",
+   "book": "KL",
+   "page": 106,
+   "quote": "Cự môn hãm địa cần có Hóa khoa cứu giải",
+   "also": [],
+   "condition": "sao bị chế hãm",
+   "detail": "pha_ham",
+   "entry": "hoa_khoa.cu_ham",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_TUONG__SAT",
+   "tamer": [
+    "Thiên Tướng"
+   ],
+   "tamed": [
+    "Kình Dương",
+    "Đà La",
+    "Hỏa Tinh",
+    "Linh Tinh",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Thiên Tướng không sợ sát tinh mà còn chế ngự được chúng",
+   "book": "KL",
+   "page": 108,
+   "quote": "Thiên tướng không sợ Sát tinh mà còn chế ngự được chúng",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "thien_tuong.sat",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET_HINH__THIEN_TUONG",
+   "tamer": [
+    "Tuần",
+    "Triệt",
+    "Thiên Hình"
+   ],
+   "tamed": [
+    "Thiên Tướng"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Thiên Tướng sợ Tuần, Triệt, Thiên Hình: công danh trắc trở",
+   "book": "KL",
+   "page": 108,
+   "quote": "Thiên tướng sợ Tuần Triệt, Thiên hình",
+   "also": [
+    {
+     "mined": "kl189_tuong_khong_so_kk",
+     "book": "KL",
+     "page": 189,
+     "quote": "Thiên tướng không sợ Không Kiếp, nhưng sợ Tuần Triệt"
+    }
+   ],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "tuan_triet_hinh.thien_tuong",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_TUONG__KHANG_KK",
+   "tamer": [
+    "Thiên Tướng"
+   ],
+   "tamed": [
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Thiên Tướng không sợ Không Kiếp",
+   "book": "KL",
+   "page": 189,
+   "quote": "Thiên tướng không sợ Không Kiếp, nhưng sợ Tuần Triệt",
+   "also": [],
+   "condition": null,
+   "detail": "khang",
+   "entry": "thien_tuong.khang_kk",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_TUONG__LIEM",
+   "tamer": [
+    "Thiên Tướng"
+   ],
+   "tamed": [
+    "Liêm Trinh"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Thiên Tướng chế ngự Liêm Trinh, canh chừng Phá Quân",
+   "book": "KL",
+   "page": 189,
+   "quote": "Thiên tướng canh chừng Phá quân, chế ngự Liêm trinh",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "thien_tuong.liem",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET_HOA_LINH__THIEN_LUONG",
+   "tamer": [
+    "Tuần",
+    "Triệt",
+    "Hỏa Tinh",
+    "Linh Tinh"
+   ],
+   "tamed": [
+    "Thiên Lương"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Thiên Lương sợ Tuần, Triệt, Hỏa, Linh",
+   "book": "KL",
+   "page": 111,
+   "quote": "Thiên lương sợ Tuần Triệt, Hỏa Linh",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "tuan_triet_hoa_linh.thien_luong",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_LUONG__KHANG_KINH",
+   "tamer": [
+    "Thiên Lương"
+   ],
+   "tamed": [
+    "Kình Dương"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Thiên Lương không sợ Kình Dương",
+   "book": "KL",
+   "page": 189,
+   "quote": "Thiên lương không sợ Kình dương, nhưng gặp Song Hao, Không Kiếp, Tuần Triệt thì bị tai họa",
+   "also": [],
+   "condition": null,
+   "detail": "khang",
+   "entry": "thien_luong.khang_kinh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THAT_SAT__KHANG",
+   "tamer": [
+    "Thất Sát"
+   ],
+   "tamed": [
+    "Tuần",
+    "Triệt",
+    "Kình Dương",
+    "Đà La"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Thất Sát không sợ Tuần Triệt, không ngán Kình Đà, còn sai khiến được chúng",
+   "book": "KL",
+   "page": 114,
+   "quote": "Thất sát không sợ Tuần Triệt, không ngán Kình Đà",
+   "also": [],
+   "condition": null,
+   "detail": "khang",
+   "entry": "that_sat.khang",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "PHA_QUAN__KINH",
+   "tamer": [
+    "Phá Quân"
+   ],
+   "tamed": [
+    "Kình Dương"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Phá Quân chế ngự được Kình Dương",
+   "book": "KL",
+   "page": 116,
+   "quote": "Phá quân chế ngự",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "pha_quan.kinh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "PHA_QUAN__KHANG_TUAN_TRIET",
+   "tamer": [
+    "Phá Quân"
+   ],
+   "tamed": [
+    "Tuần",
+    "Triệt"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Phá Quân không sợ Tuần Triệt",
+   "book": "KL",
+   "page": 117,
+   "quote": "Phá quân không sợ Tuần Triệt",
+   "also": [],
+   "condition": null,
+   "detail": "khang",
+   "entry": "pha_quan.khang_tuan_triet",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "HOA_KHOA__DE_NHAT_GIAI_THAN",
+   "tamer": [
+    "Hóa Khoa"
+   ],
+   "tamed": [
+    "*"
+   ],
+   "scope": "any",
+   "effect": "hoa_giai",
+   "on": "xau",
+   "text": "Hóa Khoa là sao cứu giải mạnh nhất",
+   "book": "KL",
+   "page": 120,
+   "quote": "Hóa khoa được coi là sao cứu giải mạnh nhất",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "hoa_khoa.de_nhat_giai_than",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_DIA_GIAI",
+   "tamer": [
+    "Thiên Giải",
+    "Địa Giải"
+   ],
+   "tamed": [
+    "*"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "xau",
+   "text": "Thiên Giải, Địa Giải là sao cứu giải nhỏ",
+   "book": "KL",
+   "page": 120,
+   "quote": "Các sao Thiên giải và Địa giải là những sao cứu giải nhỏ",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "thien_dia_giai",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "KK__TU_VI",
+   "tamer": [
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "tamed": [
+    "Tử Vi"
+   ],
+   "scope": "any",
+   "effect": "hoa_giai",
+   "on": "tot",
+   "text": "một trong hai sao Không, Kiếp cũng đủ hóa giải hết hiệu lực của Tử Vi",
+   "book": "KL",
+   "page": 125,
+   "quote": "Một trong hai sao cũng đủ hóa giải hết hiệu lực của Tử vi",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "kk.tu_vi",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "XUONG_KHUC__KHANG_SAT",
+   "tamer": [
+    "Văn Xương",
+    "Văn Khúc"
+   ],
+   "tamed": [
+    "Kình Dương",
+    "Đà La",
+    "Hỏa Tinh",
+    "Linh Tinh",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Xương Khúc không sợ sát tinh",
+   "book": "KL",
+   "page": 128,
+   "quote": "Xương Khúc không sợ Sát Tinh, chỉ sợ Hóa Kỵ",
+   "also": [],
+   "condition": null,
+   "detail": "khang",
+   "entry": "xuong_khuc.khang_sat",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "HOA_KY__XUONG_KHUC",
+   "tamer": [
+    "Hóa Kỵ"
+   ],
+   "tamed": [
+    "Văn Xương",
+    "Văn Khúc"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Xương Khúc chỉ sợ Hóa Kỵ",
+   "book": "KL",
+   "page": 128,
+   "quote": "Xương Khúc không sợ Sát Tinh, chỉ sợ Hóa Kỵ",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "hoa_ky.xuong_khuc",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "LOC_TON__DAO_HONG",
+   "tamer": [
+    "Lộc Tồn"
+   ],
+   "tamed": [
+    "Đào Hoa",
+    "Hồng Loan"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Lộc Tồn chế ngự tính lả lơi của Đào Hồng",
+   "book": "KL",
+   "page": 133,
+   "quote": "Đoan chính, chế ngự được tính lả lơi của Đào Hồng",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "loc_ton.dao_hong",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "KHOI_VIET__BI_PHA",
+   "tamer": [
+    "Tuần",
+    "Triệt",
+    "Thiên Hình",
+    "Hóa Kỵ",
+    "Kình Dương",
+    "Đà La",
+    "Hỏa Tinh",
+    "Linh Tinh",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "tamed": [
+    "Thiên Khôi",
+    "Thiên Việt"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Khôi Việt sợ Tuần Triệt, Hình Kỵ, Kình Đà, Không Kiếp, Hỏa Linh: công danh trắc trở",
+   "book": "KL",
+   "page": 145,
+   "quote": "Khôi Việt sợ Tuần Triệt, Hình Kỵ, Kình Đà, Không Kiếp, Hỏa Linh",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "khoi_viet.bi_pha",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TRIET__CAT_TINH",
+   "tamer": [
+    "Triệt"
+   ],
+   "tamed": [
+    "Tả Phụ",
+    "Hữu Bật",
+    "Văn Xương",
+    "Văn Khúc",
+    "Thiên Khôi",
+    "Thiên Việt"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "cát tinh sợ Triệt vì không có dịp phát triển",
+   "book": "KL",
+   "page": 146,
+   "quote": "Các cát tinh sợ Triệt vì không có dịp phát triển thành công",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "triet.cat_tinh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "KHOA_KHOC_HU__CU_DONG",
+   "tamer": [
+    "Hóa Khoa",
+    "Thiên Khốc",
+    "Thiên Hư"
+   ],
+   "tamed": [
+    "Cự Môn",
+    "Thiên Đồng"
+   ],
+   "scope": "any",
+   "effect": "dao_nguoc",
+   "on": "ham",
+   "text": "Cự Đồng hãm có Hóa Khoa hoặc Khốc Hư chiếu mới khá được",
+   "book": "KL",
+   "page": 180,
+   "quote": "có sao cứu giải như Hóa khoa hoặc khốc Hư chiếu",
+   "also": [],
+   "condition": "sao bị chế hãm",
+   "detail": "pha_ham",
+   "entry": "khoa_khoc_hu.cu_dong",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THAM_LANG__TU_VI",
+   "tamer": [
+    "Tham Lang"
+   ],
+   "tamed": [
+    "Tử Vi"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Tử Vi đi với Tham Lang thì coi như hãm, mất sức cứu giải",
+   "book": "KL",
+   "page": 186,
+   "quote": "Tử vi là sao cứu giải trong mọi hoàn cảnh nhưng khi đi với Tham lang thì coi như bị vào hãm địa",
+   "also": [],
+   "condition": "cùng một cung",
+   "detail": "giam_tot",
+   "entry": "tham_lang.tu_vi",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "VU_KHUC__SAT",
+   "tamer": [
+    "Vũ Khúc"
+   ],
+   "tamed": [
+    "Kình Dương",
+    "Đà La",
+    "Hỏa Tinh",
+    "Linh Tinh",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Vũ Khúc đắc địa là khắc của các sát tinh",
+   "book": "KL",
+   "page": 187,
+   "quote": "chẳng sợ sát tinh nào mà còn là khắc của các sát tinh",
+   "also": [],
+   "condition": "sao chế miếu, vượng, đắc",
+   "detail": "giam_xau",
+   "entry": "vu_khuc.sat",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEN_DONG__KHANG_SAT",
+   "tamer": [
+    "Thiên Đồng"
+   ],
+   "tamed": [
+    "Kình Dương",
+    "Đà La",
+    "Hỏa Tinh",
+    "Linh Tinh",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Thiên Đồng không sợ sát tinh (KL p.91 lại nói không nên gặp: schools.json)",
+   "book": "KL",
+   "page": 188,
+   "quote": "Thiên đồng không sợ sát tinh",
+   "also": [],
+   "condition": null,
+   "detail": "khang",
+   "entry": "thien_dong.khang_sat",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "HOA_KY__LIEM",
+   "tamer": [
+    "Hóa Kỵ"
+   ],
+   "tamed": [
+    "Liêm Trinh"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Liêm Trinh rất sợ Hóa Kỵ",
+   "book": "KL",
+   "page": 188,
+   "quote": "Liêm trinh rất sợ Hóa kỵ",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "hoa_ky.liem",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THAM_LANG__HOA_LINH",
+   "tamer": [
+    "Tham Lang"
+   ],
+   "tamed": [
+    "Hỏa Tinh",
+    "Linh Tinh"
+   ],
+   "scope": "any",
+   "effect": "hoa_giai",
+   "on": "xau",
+   "text": "Tham Lang giải trừ ác tính của Hỏa Linh",
+   "book": "KL",
+   "page": 190,
+   "quote": "và Tham lang",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "tham_lang.hoa_linh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "QUAN_PHUC",
+   "tamer": [
+    "Thiên Quan",
+    "Thiên Phúc"
+   ],
+   "tamed": [
+    "*"
+   ],
+   "scope": "any",
+   "effect": "hoa_giai",
+   "on": "xau",
+   "text": "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt",
+   "book": "KL",
+   "page": 194,
+   "quote": "Quan Phúc không phải sao cản hãm như Tuần Triệt mà là những sao cứu giải thuần túy",
+   "also": [
+    {
+     "mined": "kl194_quan_phuc_nang",
+     "book": "KL",
+     "page": 194,
+     "quote": "Gặp trường hợp nặng, phải đủ cả hai Phúc và Quan mới cứu giải được"
+    }
+   ],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "quan_phuc",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TU_PHU_NHAT__KHANG_HOA_LINH",
+   "tamer": [
+    "Tử Vi",
+    "Thiên Phủ",
+    "Thái Dương"
+   ],
+   "tamed": [
+    "Hỏa Tinh",
+    "Linh Tinh"
+   ],
+   "scope": "any",
+   "effect": "che",
+   "on": "xau",
+   "text": "Hỏa Linh không đánh được Tử Vi, Thiên Phủ, Thái Dương",
+   "book": "KL",
+   "page": 200,
+   "quote": "Hỏa Linh không đánh được các sao Tử vi, Thiên phủ, Thái dương",
+   "also": [],
+   "condition": null,
+   "detail": "khang",
+   "entry": "tu_phu_nhat.khang_hoa_linh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "GIAI_MANH__NGO_CHE",
+   "tamer": [
+    "Hóa Khoa",
+    "Thiên Quan",
+    "Thiên Phúc",
+    "Thiên Khôi",
+    "Thiên Việt"
+   ],
+   "tamed": [
+    "Kình Dương",
+    "Đà La",
+    "Hỏa Tinh",
+    "Linh Tinh",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "scope": "any",
+   "effect": "hoa_giai",
+   "on": "xau",
+   "text": "gặp sao giải mạnh thì hung sát tinh bị hóa giải, thành ra ngộ chế",
+   "book": "KL",
+   "page": 200,
+   "quote": "Khí bị hóa giải, các hung sát tinh thành ra ngộ chế",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "giai_manh.ngo_che",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET__THIEN_HINH",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "Thiên Hình"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Thiên Hình gặp Tuần Triệt thành kiếm gãy: dễ mất việc",
+   "book": "KL",
+   "page": 202,
+   "quote": "Thiên hình ngọ Tuần  Triệt thì thành kiếm gẫy",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "tuan_triet.thien_hinh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "PHA_TOAI__HIEN_TINH",
+   "tamer": [
+    "Phá Toái"
+   ],
+   "tamed": [
+    "Tử Vi",
+    "Thiên Phủ",
+    "Thiên Lương",
+    "Thiên Cơ"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "tot",
+   "text": "Phá Toái làm hao tán các sao hiền",
+   "book": "KL",
+   "page": 202,
+   "quote": "Phá toái không phò trợ mà chỉ làm hao tán chính diệu nhất là các sao Tử vi, Thiên",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "pha_toai.hien_tinh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "PHA_TOAI__SPT",
+   "tamer": [
+    "Phá Toái"
+   ],
+   "tamed": [
+    "Thất Sát",
+    "Phá Quân",
+    "Tham Lang"
+   ],
+   "scope": "any",
+   "effect": "tang",
+   "on": "tot",
+   "text": "Phá Toái làm bộ Sát Phá Tham mạnh thêm",
+   "book": "KL",
+   "page": 202,
+   "quote": "Phá toái làm tăng sức mạnh của bộ hung tinh Sát",
+   "also": [],
+   "condition": null,
+   "detail": "tang",
+   "entry": "pha_toai.spt",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "SONG_HAO__CU_MON",
+   "tamer": [
+    "Đại Hao",
+    "Tiểu Hao"
+   ],
+   "tamed": [
+    "Cự Môn"
+   ],
+   "scope": "any",
+   "effect": "tang",
+   "on": "tot",
+   "text": "Song Hao cần cho Cự Môn ở Tài, Mệnh (rửa đá cho ngọc lộ ra)",
+   "book": "KL",
+   "page": 203,
+   "quote": "Song Hao cần cho Cự môn ở các cung Tài, Mệnh",
+   "also": [],
+   "condition": "ở cung Mệnh, Tài Bạch",
+   "detail": "tang",
+   "entry": "song_hao.cu_mon",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "THIEU_DUONG_HONG__CO_THAN",
+   "tamer": [
+    "Thiếu Dương",
+    "Hồng Loan"
+   ],
+   "tamed": [
+    "Cô Thần"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "xau",
+   "text": "Cô Thần gặp Thiếu Dương và Hồng Loan thì đỡ cô đơn",
+   "book": "KL",
+   "page": 204,
+   "quote": "gặp được hai sao Thiếu dương sáng",
+   "also": [],
+   "condition": "tuổi Thìn, Tuất, Sửu, Mùi; ở Dần, Thân, Tỵ, Hợi",
+   "detail": "giam_xau",
+   "entry": "thieu_duong_hong.co_than",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "HOA_LOC__NHAT_HAM_KY",
+   "tamer": [
+    "Hóa Lộc"
+   ],
+   "tamed": [
+    "Thái Dương",
+    "Hóa Kỵ"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "xau",
+   "text": "Thái Dương hãm hội Hóa Kỵ, Mệnh vững có Hóa Lộc thì đỡ hại",
+   "book": "TT",
+   "page": 66,
+   "quote": "vững vàng lại có Hoà Lộc thì đỡ",
+   "also": [],
+   "condition": "ở cung Mệnh; sao bị chế hãm",
+   "detail": "giam_xau",
+   "entry": "hoa_loc.nhat_ham_ky",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "CU_MIEU__HUNG_TINH",
+   "tamer": [
+    "Cự Môn"
+   ],
+   "tamed": [
+    "Kình Dương",
+    "Đà La",
+    "Hỏa Tinh",
+    "Linh Tinh",
+    "Địa Không",
+    "Địa Kiếp"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "xau",
+   "text": "Cự Môn miếu địa bị hung tinh phá thì đỡ hại hơn",
+   "book": "TT",
+   "page": 69,
+   "quote": "bị hung tinh phá phách mà Cự Môn miếu địa đỡ",
+   "also": [],
+   "condition": "sao chế miếu",
+   "detail": "giam_xau",
+   "entry": "cu_mieu.hung_tinh",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "CAT_TINH__HOA_KY",
+   "tamer": [
+    "Tả Phụ",
+    "Hữu Bật",
+    "Văn Xương",
+    "Văn Khúc",
+    "Thiên Khôi",
+    "Thiên Việt"
+   ],
+   "tamed": [
+    "Hóa Kỵ"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "xau",
+   "text": "Hóa Kỵ có cát tinh trợ cứu thì giàu sang được, nhưng kèm nhiều lo lắng",
+   "book": "TT",
+   "page": 76,
+   "quote": "cái giàu sang đó thường đi kèm với nhiều lo lắng",
+   "also": [
+    {
+     "mined": "tt117_hoa_ky_cat_giam",
+     "book": "TT",
+     "page": 117,
+     "quote": "Nếu có cát tinh phù trợ sẽ giảm nhiều tai nguy"
+    }
+   ],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "cat_tinh.hoa_ky",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "CHINH_TINH_SINH_CUNG__LAC_HAM",
+   "tamer": [
+    "@chinh_tinh_sinh_cung"
+   ],
+   "tamed": [
+    "@lac_ham"
+   ],
+   "scope": "any",
+   "effect": "dao_nguoc",
+   "on": "ham",
+   "text": "sao lạc hãm (hành cung khắc hành sao) mà có chính tinh sinh được hành cung thì hóa tốt",
+   "book": "TH",
+   "page": 79,
+   "quote": "Trái lại nếu ở đó có một chính tinh nữa mà sanh",
+   "also": [],
+   "condition": null,
+   "detail": "pha_ham",
+   "entry": "chinh_tinh_sinh_cung.lac_ham",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET__LAC_HAM",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "@lac_ham"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "tot",
+   "text": "sao lạc hãm gặp Tuần Triệt thì càng thêm xấu",
+   "book": "TH",
+   "page": 79,
+   "quote": "gặp Tuần Triệt nữa thì càng thêm xấu",
+   "also": [],
+   "condition": null,
+   "detail": "giam_tot",
+   "entry": "tuan_triet.lac_ham",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "HOP_HANH_MENH__SAO_HAM",
+   "tamer": [
+    "@hop_hanh_menh"
+   ],
+   "tamed": [
+    "Tử Vi",
+    "Thiên Cơ",
+    "Thái Dương",
+    "Vũ Khúc",
+    "Thiên Đồng",
+    "Liêm Trinh",
+    "Thiên Phủ",
+    "Thái Âm",
+    "Tham Lang",
+    "Cự Môn",
+    "Thiên Tướng",
+    "Thiên Lương",
+    "Thất Sát",
+    "Phá Quân"
+   ],
+   "scope": "any",
+   "effect": "dao_nguoc",
+   "on": "ham",
+   "text": "sao hãm mà hợp hành bản Mệnh thì khá hơn; sao đắc địa không hợp hành Mệnh thì kém đi",
+   "book": "TH",
+   "page": 79,
+   "quote": "Mệnh có sao hãm địa mà hợp được cới hành của Mệnh cũng trở thành khá hơn",
+   "also": [],
+   "condition": "ở cung Mệnh",
+   "detail": "pha_ham",
+   "entry": "hop_hanh_menh.sao_ham",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "HOA_KHOA__SPT",
+   "tamer": [
+    "Hóa Khoa"
+   ],
+   "tamed": [
+    "Thất Sát",
+    "Phá Quân",
+    "Tham Lang"
+   ],
+   "scope": "any",
+   "effect": "giam",
+   "on": "xau",
+   "text": "Sát Phá Tham, nhất là hãm địa, gặp Hóa Khoa thì hung tinh ngộ chế (Thiên Lương)",
+   "book": "SCAN:tvnl_scan",
+   "page": 15,
+   "quote": "Bộ Sát Phá Tham nói chung, hãm địa nói riêng, gặp Hóa Khoa như phe Triệt giáo",
+   "also": [],
+   "condition": null,
+   "detail": "giam_xau",
+   "entry": "hoa_khoa.spt",
+   "reviewStatus": "verified"
+  },
+  {
+   "id": "TUAN_TRIET__SPT",
+   "tamer": [
+    "Tuần",
+    "Triệt"
+   ],
+   "tamed": [
+    "Thất Sát",
+    "Phá Quân",
+    "Tham Lang"
+   ],
+   "scope": "dong_cung",
+   "effect": "giam",
+   "on": "ca_hai",
+   "text": "Sát Phá Tham gặp Tuần Triệt mất tính hung hãn, nhưng mất hết (Triệt) hay giảm hẳn tốc lực (Tuần) (Thiên Lương)",
+   "book": "SCAN:tvnl_scan",
+   "page": 15,
+   "quote": "Sát Phá Tham gặp Tuần Triệt cũng mất tính cách hung hãn",
+   "also": [],
+   "condition": null,
+   "detail": "hai_mat",
+   "entry": "tuan_triet.spt",
+   "reviewStatus": "verified"
+  }
+ ],
+ "relations_left_out": {
+  "cat_tinh.dau_quan": "số con (Đẩu Quân ở Tử Tức hiếm con)",
+  "tu_loc.that_sat": "tai nạn",
+  "hao_kk_tt.thien_luong": "tai họa",
+  "tuan_triet.tat_ach": "bệnh tật, tai nạn (Tật Ách chỉ đọc cân bằng)"
+ }
 }

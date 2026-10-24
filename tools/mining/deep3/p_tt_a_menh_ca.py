@@ -17,7 +17,8 @@ page("TT", 76, "Hóa Khoa 'Nghĩa là', Hóa Kỵ ca, Thái Tuế ca, phú đoá
 
 M = "Mệnh"
 E("tt65_tu_vi_menh", "TT", 65, M, "Nam Mệnh Tử Vi ca", "Cung mệnh có Tử Vi, Phúc Lộc tiền tài hưng vượng",
-  "nam, Mệnh có Tử Vi", "phúc lộc, tiền tài hưng vượng", "support", ["fin.abundance", "life.blessed"])
+  "nam, Mệnh có Tử Vi", "phúc lộc, tiền tài hưng vượng", "support", ["fin.abundance", "life.blessed"],
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt65_tu_vi_tuong_ta", "TT", 65, M, "Nam Mệnh Tử Vi ca", "Nếu thêm Tướng Tá hội tụ tất phú quí song toàn",
   "Tử Vi + 'Tướng Tá' hội", "phú quý song toàn", "support", ["fin.abundance", "career.status"],
   skip="'Tướng Tá' (將佐) does not name stars the chart can be checked for (Thiên Tướng and Tả Phụ? the ministers Tả Hữu?)")
@@ -58,16 +59,19 @@ E("tt66_vu_quyen_cat", "TT", 66, M, "Nam Mệnh Vũ Khúc ca", "khí hơn ngư�
 E("tt66_vu_nhieu_sat", "TT", 66, M, "Nam Mệnh Vũ Khúc ca", "Nếu bị nhiều sát tinh xung phá dù cho giàu có cũng sẽ lụn bại",
   "Mệnh có Vũ Khúc, từ hai sát tinh trong tam phương", "dù giàu có rồi cũng lụn bại", "limit", ["fin.volatile"])
 E("tt67_dong_on_hoa", "TT", 67, M, "Nam Mệnh Thiên Đồng ca", "Thiên Đồng toạ mệnh cung, tính tình ôn hoà tử tế có phúc lộc",
-  "Mệnh có Thiên Đồng", "tính tình ôn hòa, tử tế, có phúc lộc", "support", ["values.kind"], notes="the sentence goes on 'và đa thọ' (left out: longevity)")
+  "Mệnh có Thiên Đồng", "tính tình ôn hòa, tử tế, có phúc lộc", "support", ["values.kind"], notes="the sentence goes on 'và đa thọ' (left out: longevity)",
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt67_dong_mieu_vuong", "TT", 67, M, "Nam Mệnh Thiên Đồng ca", "Nếu đóng tại miếu vượng chẳng những ăn lộc còn danh tiếng nữa",
   "Mệnh có Thiên Đồng miếu, vượng (bảng Toàn Thư)", "không những có lộc mà còn có danh tiếng", "support", ["career.fame"])
 E("tt67_dong_cat", "TT", 67, M, "Nam Mệnh Thiên Đồng ca", "Gặp cát tinh phò trợ, thông minh, lanh lợi",
-  "Mệnh có Thiên Đồng, có cát tinh trong tam phương", "thông minh, lanh lợi, làm việc gì cũng dễ lọt", "support", ["cog.sharp"])
+  "Mệnh có Thiên Đồng, có cát tinh trong tam phương", "thông minh, lanh lợi, làm việc gì cũng dễ lọt", "support", ["cog.sharp"],
+  skip="its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one")
 E("tt67_dong_ham_hoa_da", "TT", 67, M, "Nam Mệnh Thiên Đồng ca", "thêm Hoả Tinh, Đà La xung phá là rất", "Mệnh có Thiên Đồng hãm (bảng Toàn Thư), Hỏa Tinh và Đà La trong tam phương",
   "rất hung, dù có Nguyệt Lương tiếp ứng cũng chỉ nên an phận", "limit", ["life.hardship"],
   notes="the verse says 'nhàn cung'; the author: nhàn cung of Thiên Đồng is not recorded 'cho nên phải lấy hãm địa mà đoán' (same page) — read as hãm")
 E("tt67_liem_ngang", "TT", 67, M, "Nam Mệnh Liêm Trinh ca", "Liêm Trinh thủ Mệnh vốn con người phi thường chí khí ưa ngang ngược",
-  "nam, Mệnh có Liêm Trinh", "con người khác thường, chí khí mạnh, ưa ngang ngược", "limit", ["temper.headstrong"])
+  "nam, Mệnh có Liêm Trinh", "con người khác thường, chí khí mạnh, ưa ngang ngược", "limit", ["temper.headstrong"],
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt67_liem_cach_co_dinh_tan", "TT", 67, M, "Nam Mệnh Liêm Trinh ca", "nếu lên bằng con đường cách cố đỉnh tân",
   "Liêm Trinh, theo đường đấu tranh", "có thể ở bậc đại quý", "support", [], skip="the condition is the path the person takes, not a chart fact")
 E("tt67_liem_nhan_cung", "TT", 67, M, "Nam Mệnh Liêm Trinh ca", "gặp Tham Lang, Phá Quân, Kình Dương dù có giàu sang nhưng rất",
@@ -108,7 +112,8 @@ E("tt69_cu_ham_hung", "TT", 69, M, "Nam Mệnh Cự Môn ca", "nếu ở hãm đ
 E("tt69_cu_kinh_hoa_linh", "TT", 69, M, "Nam Mệnh Cự Môn ca", "Con người tính nóng nẩy điên đảo",
   "Mệnh có Cự Môn, Kình Dương và Hỏa Tinh hoặc Linh Tinh đồng cung", "mọi việc dễ thành bất tường, tính nóng nảy, điên đảo", "limit", ["temper.hot"])
 E("tt69_tuong_ca_quyet", "TT", 69, M, "Nam Mệnh Thiên Tướng ca", "Thiên Tướng làm chủ Mệnh cung là người cả quyết tự chủ",
-  "nam, Mệnh có Thiên Tướng", "là người quả quyết, tự chủ", "support", ["temper.assertive"])
+  "nam, Mệnh có Thiên Tướng", "là người quả quyết, tự chủ", "support", ["temper.assertive"],
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt69_tuong_vu_pha_sat", "TT", 69, M, "Nam Mệnh Thiên Tướng ca", "Thiên Tướng gặp Vũ Khúc, Phá Quân và Dương Đà, Linh Hỏa nếu không làm thợ, làm lái",
   "Mệnh có Thiên Tướng; Vũ Khúc, Phá Quân và hai trong Kình Đà Hỏa Linh trong tam phương", "nếu không làm thợ, làm lái buôn thì đi tu", "limit",
   ["exp.craft", "path.business"])
@@ -143,18 +148,21 @@ E("tt72_khuc_ky_hoa", "TT", 72, M, "Nam Mệnh Văn Khúc ca", "Văn Khúc thủ
 E("tt72_khuc_ac_tinh", "TT", 72, M, "Nam Mệnh Văn Khúc ca", "nên có ác tinh xung phá nữa mới hay",
   "Văn Khúc + ác tinh tam phương", "?", "limit", [], skip="the translation contradicts itself and the verse ('bất hỉ tam phương ác sát tụ'): not settled")
 E("tt72_ta_phu_don_hau", "TT", 72, M, "Nam Mệnh Tả Phụ ca", "Sao Tả Phụ có thể giáng phúc là người đôn hậu thông kim cổ",
-  "nam, Mệnh có Tả Phụ", "là người đôn hậu, hiểu biết rộng", "support", ["values.kind"])
+  "nam, Mệnh có Tả Phụ", "là người đôn hậu, hiểu biết rộng", "support", ["values.kind"],
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt72_ta_phu_bon_sat", "TT", 72, M, "Nam Mệnh Tả Phụ ca", "Tam phương Dương Đà Hỏa Linh chiếu, dù tiền nhiều chức trọng cũng không bền",
   "Mệnh có Tả Phụ, hai trong Kình Đà Hỏa Linh trong tam phương", "dù tiền nhiều, chức trọng cũng không bền", "limit", ["fortune.brief_luck"])
 E("tt72_ta_phu_tu_phu_tham_vu", "TT", 72, M, "Nam Mệnh Tả Phụ ca", "nếu hội cùng Tử Vi, Thiên",
   "Tả Phụ hội Tử, Phủ, Lộc Quyền, Tham Vũ", "văn võ đều hiển quý", "support", [], skip="Tử Phủ and Tham Vũ do not stand in one tam phương together on any chart; which of them must meet is not stated")
 E("tt73_huu_bat_co_muu", "TT", 73, M, "Nam Mệnh Hữu Bật ca", "Hữu Bật là người có cơ mưu, thông minh, bệ vệ",
-  "nam, Mệnh có Hữu Bật", "người có cơ mưu, thông minh", "support", ["cog.sharp"])
+  "nam, Mệnh có Hữu Bật", "người có cơ mưu, thông minh", "support", ["cog.sharp"],
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt73_huu_bat_cat_khong_sat", "TT", 73, M, "Nam Mệnh Hữu Bật ca", "lại được cát tinh phù trợ thì tiền tài, danh vọng dễ tìm",
   "Mệnh có Hữu Bật, tam phương không có Hỏa Tinh, Hóa Kỵ, Kình Dương, Đà La mà có cát tinh", "tiền tài, danh vọng dễ tìm", "support", ["fin.abundance", "career.success"],
   notes="'Nếu không bị Hỏa Kị, Dương Đà xung phá lại được cát tinh phù trợ thì tiền tài, danh vọng dễ tìm'")
 E("tt73_loc_ton_qua_quyet", "TT", 73, M, "Nam Mệnh Lộc Tồn ca", "tính tình quả quyết làm việc gì cũng thành",
-  "nam, Mệnh có Lộc Tồn", "tính quả quyết, làm việc gì cũng thành", "support", ["temper.assertive", "career.success"])
+  "nam, Mệnh có Lộc Tồn", "tính quả quyết, làm việc gì cũng thành", "support", ["temper.assertive", "career.success"],
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt73_loc_ton_xuong_khuc", "TT", 73, M, "Nam Mệnh Lộc Tồn ca", "có thêm Xương Khúc hội tụ thì y lộc, nhà cao cửa rộng mãi mãi",
   "Mệnh có Lộc Tồn; Văn Xương, Văn Khúc trong tam phương", "y lộc đầy đủ, nhà cao cửa rộng", "support", ["prop.rich", "fin.abundance"])
 E("tt73_loc_ton_co_kk_ky", "TT", 73, M, "Nam Mệnh Lộc Tồn ca", "Lộc Tồn rất sợ sao Thiên Cơ với Kiếp Không",
@@ -163,7 +171,8 @@ E("tt73_loc_ton_co_kk_ky", "TT", 73, M, "Nam Mệnh Lộc Tồn ca", "Lộc Tồ
 E("tt73_khoi_viet_han", "TT", 73, M, "Khôi Việt nhập Mệnh ca", "Khôi Việt ở Mệnh Thân đáo hạn gặp Văn Xương",
   "Khôi Việt Mệnh, hạn gặp Văn Xương", "năm ấy lên chức", "support", [], skip="a reading of a hạn year (vận hạn), not of the natal Mệnh")
 E("tt74_kinh_cung_ran", "TT", 74, M, "Nam Mệnh Kình Dương ca", "Sao Kinh Dương thủ mệnh tính nết cứng rắn",
-  "nam, Mệnh có Kình Dương", "tính nết cứng rắn", "limit", ["temper.headstrong"])
+  "nam, Mệnh có Kình Dương", "tính nết cứng rắn", "limit", ["temper.headstrong"],
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt74_kinh_tu_mo_tu_phu", "TT", 74, M, "Nam Mệnh Kình Dương ca", "lại có tử phụ hội hợp tiền tài thóc gạo đầy kho",
   "Mệnh ở Thìn/Tuất/Sửu/Mùi có Kình Dương; Tử Vi, Thiên Phủ trong tam phương", "tiền tài, thóc gạo đầy kho", "support", ["fin.abundance"],
   notes="the clause before ('số mới thọ') is left out (longevity)")
@@ -176,22 +185,27 @@ E("tt74_hoa_linh_mieu", "TT", 74, M, "Nam Mệnh Hỏa Linh ca", "rất cần c�
 E("tt74_thien_khong", "TT", 74, M, "Thiên Không Địa Kiếp nhập Mệnh ca", "Mệnh toạ Thiên Không định xuất gia",
   "Mệnh có 'Thiên Không' (天空)", "số xuất gia", "limit", [], skip="天空 of the Chinese verse is the Địa Không of Vietnamese charts, while the engine's Thiên Không is the Thái Tuế-circle star: which star is meant is not settled")
 E("tt75_hoa_loc_menh", "TT", 75, M, "Hoá Lộc nhập Mệnh ca", "đàn ông có Hoá Lộc ở Mệnh tự nhiên phúc tới",
-  "nam, Mệnh có Hóa Lộc", "tự nhiên có phúc; theo võ nổi danh, theo văn có tiếng", "support", ["life.blessed", "career.fame"])
+  "nam, Mệnh có Hóa Lộc", "tự nhiên có phúc; theo võ nổi danh, theo văn có tiếng", "support", ["life.blessed", "career.fame"],
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt75_loc_dong_nhat", "TT", 75, M, "Hoá Lộc nhập Mệnh ca", "Thiên Đồng gặp Thái Dương, dân giả cũng trở thành đại phú",
   "Mệnh có Thiên Đồng hóa Lộc (tuổi Bính), Thái Dương trong tam phương", "người bình thường cũng thành đại phú, nhà cửa ruộng vườn hưng vượng", "support", ["fin.abundance", "prop.rich"],
   notes="verse 'Lộc chủ Thiên Đồng ngộ Thái Dương': Hóa Lộc is on Thiên Đồng only in Bính years")
 E("tt75_hoa_quyen_cat", "TT", 75, M, "Nam Mệnh Hoá Quyền ca", "Sao Hoá Quyền cần được các sao tốt phù trợ thì sự nghiệp hiên ngang",
-  "Mệnh có Hóa Quyền, cát tinh trong tam phương", "sự nghiệp hiên ngang, đảm lượng hơn người", "support", ["career.success", "temper.assertive"])
+  "Mệnh có Hóa Quyền, cát tinh trong tam phương", "sự nghiệp hiên ngang, đảm lượng hơn người", "support", ["career.success", "temper.assertive"],
+  skip="its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one")
 E("tt75_hoa_quyen_cu_vu", "TT", 75, M, "Nam Mệnh Hoá Quyền ca", "Hội với Cự Môn, Vũ Khúc thì trấn thủ biên cương, nắm quyền vạn binh",
   "Mệnh có Hóa Quyền; Cự Môn, Vũ Khúc trong tam phương", "nắm quyền lớn, có thể theo võ nghiệp", "support", ["career.authority", "exp.martial"])
 E("tt76_hoa_khoa_van", "TT", 76, M, "Nam Mệnh Hoá Khoa ca", "thủ Mệnh cung là người văn chương cẩm tú",
-  "Mệnh có Hóa Khoa", "văn chương giỏi, thi cử hanh thông", "support", ["exp.letters"], notes="'Sao Hoá Khoa là văn tinh, thủ Mệnh cung là người văn chương cẩm tú'")
+  "Mệnh có Hóa Khoa", "văn chương giỏi, thi cử hanh thông", "support", ["exp.letters"], notes="'Sao Hoá Khoa là văn tinh, thủ Mệnh cung là người văn chương cẩm tú'",
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt76_hoa_khoa_xk_kv", "TT", 76, M, "Nam Mệnh Hoá Khoa ca", "hội với Xương Khúc, Khôi Việt công danh sáng lạng",
   "Mệnh có Hóa Khoa; Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt trong tam phương", "công danh sáng lạng", "support", ["career.fame"])
 E("tt76_hoa_ky_hung", "TT", 76, M, "Nam Mệnh Hoá Kị ca", "Gặp nó rồi lại bị thêm các hung tinh thì càng hung",
-  "Mệnh có Hóa Kỵ, sát tinh trong tam phương", "càng thêm hung", "limit", ["life.hardship"])
+  "Mệnh có Hóa Kỵ, sát tinh trong tam phương", "càng thêm hung", "limit", ["life.hardship"],
+  skip="its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one")
 E("tt76_hoa_ky_cat_lo", "TT", 76, M, "Nam Mệnh Hoá Kị ca", "cái giàu sang đó thường đi kèm với nhiều lo lắng",
-  "Mệnh có Hóa Kỵ, cát tinh trong tam phương", "dù có cát tinh trợ cứu mà giàu sang thì giàu sang ấy đi kèm nhiều lo lắng", "limit", ["inner.unrest"])
+  "Mệnh có Hóa Kỵ, cát tinh trong tam phương", "dù có cát tinh trợ cứu mà giàu sang thì giàu sang ấy đi kèm nhiều lo lắng", "limit", ["inner.unrest"],
+  skip="its only condition beyond the star is 'có cát / sát tinh trong tam phương' (one of six stars in four palaces: true on most charts), so it is a one-star trait at Mệnh in practice; kept out as the other one-star traits (readable.test Barnum gate). The che_hoa entry keeps the book's turn where there is one")
 E("tt76_tham_pha_ham_ky", "TT", 76, M, "Nam Mệnh Hoá Kị ca", "Hai sao Tham Lang, Phá Quân cư hãm địa dù có Hoá Kị đắc địa cũng bất lợi",
   "Mệnh có Tham Lang hoặc Phá Quân hãm (bảng Toàn Thư), Hóa Kỵ đồng cung", "bất lợi", "limit", ["life.hardship"], notes="the theft / prostitution clause after it is left out")
 E("tt76_thai_tue", "TT", 76, M, "Thái Tuế nhập Mệnh ca", "người chức vị thường gặp lắm chuyện phù trầm",
@@ -210,6 +224,7 @@ E("tt76_giap_liem_sat", "TT", 76, M, "Phú đoán Thân Mệnh e)", "Giáp Liêm
   "Mệnh giáp Liêm Trinh và Thất Sát (hai cung kề)", "công danh phải đợi tuổi cao", "limit", ["career.late"], dup="TV_KL_PHU2_LIEM_SAT_GIAP",
   notes="'Công danh đợi tuổi tác cao / Giáp Liêm giáp Sát một hào không sai'; KL p.71 reads the same giáp the same way")
 E("tt76_kinh_da_menh", "TT", 76, M, "Phú đoán Thân Mệnh f)", "Nói năng loạn thuyết những phường điêu ngoa",
-  "Mệnh có Kình Dương hoặc Đà La", "nói năng hay loạn thuyết, điêu ngoa", "limit", ["comm.friction"], notes="'Dương Đà xâm chiếm Mệnh viên': the two are never in one palace, so either one")
+  "Mệnh có Kình Dương hoặc Đà La", "nói năng hay loạn thuyết, điêu ngoa", "limit", ["comm.friction"], notes="'Dương Đà xâm chiếm Mệnh viên': the two are never in one palace, so either one",
+  skip="a one-star trait at Mệnh that the KL / TH star rules already give; not added as a third generic line (readable.test Barnum gate: the Mệnh chapter must not drift to what every chart gets)")
 E("tt76_tham_liem_ty_hoi", "TT", 76, M, "Phú đoán Thân Mệnh g)", "Tham Liêm Tị Hợi không bàn",
   "Tham Liêm Tỵ Hợi", "ngục hình", "limit", [], skip="prison")

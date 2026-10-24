@@ -452,6 +452,67 @@ kl_cach("CACH_X_THIEN_LUONG_NGO_KHOI", "Thiên lương ngộ Khôi", {"all": [fa
         [q("KL", 48, "Mệnh có Thiên lương, Thiên khôi đồng cung")], [q("KL", 48, "Được hưởng phước lớn")])
 
 
+# ---------------------------------------------------------------- what the cách brings, per state (evidence[id].meaning)
+# state -> {text, book, page, quote}: text is a short paraphrase no wider than the page (sensitive parts of a line left out, never added); a state
+# with no page stating its effect is left out. States are formation_eval's: thanh_thuong / thanh / hinh_thuc / bi_pha. For a cách whose
+# core_alone is 'thanh' the bare core (state hinh_thuc) is already the cách: read meaning.thanh. Mã đầu đới kiếm (disputed) has none.
+def m(text: str, book: str, page: int, quote: str, image: str | None = None) -> dict:
+    return {"text": text, **q(book, page, quote, image)}
+
+
+TH76_M = m("thượng cách: phát đến Tam công", "TH", 76, TH76_THUONG["quote"], TH76_THUONG["image"])
+TH77_M = m("hạ cách: lao khổ, phải lo miếng ăn từng bữa", "TH", 77, "ang thang lo miếng ăn từng", TH77_HA["image"])
+MEANING = {
+    "CACH_X_TU_PHU_VU_TUONG": {"thanh_thuong": TH76_M, "bi_pha": TH77_M,
+                               "thanh": m("rất tốt về công danh, tài lộc, phúc", "KL", 96, "Các cách Tử Phủ, Tử Phủ Vũ Tướng, Phủ Vũ đều rất tốt về mọi mặt công danh, tài lộc, phúc")},
+    "CACH_X_TU_PHU_DONG_CUNG": {"thanh": m("phúc hậu, được hưởng phúc lộc tốt", "KL", 49, "4 . Tử Phủ đồng cung, chung thân phúc hậu"),
+                                "thanh_thuong": m("thêm Lộc Tồn thì phúc hậu, chức đến tam công", "TT", 22, "chức đến tam công"),
+                                "hinh_thuc": m("phúc lộc kém đi vì Tuần, Triệt án ngữ", "KL", 55,
+                                               "Mệnh có Tử Phủ thì được hưởng phúc lộc tốt rất nhiều, chỉ sợ Triệt Tuần án ngữ thì kém đi thôi.")},
+    "CACH_X_CO_NGUYET_DONG_LUONG": {"thanh_thuong": TH76_M, "bi_pha": TH77_M,
+                                    "thanh": m("thường làm công chức", "KL", 51, "Mệnh có Cơ Nguyệt Đồng Lương hội chiếu thường là công chức."),
+                                    "hinh_thuc": m("không có cát tinh trợ lực thì chỉ làm công chức nhỏ", "TT", 24, TT24["quote"])},
+    "CACH_X_SAT_PHA_LIEM_THAM": {"thanh_thuong": TH76_M, "bi_pha": TH77_M},
+    "CACH_X_NHAT_NGUYET_TINH_MINH": {"thanh": m("được hưởng giàu sang", "KL", 53, "hưởng giàu sang.")},
+    "CACH_X_NHAT_LE_TRUNG_THIEN": {"thanh": m("quyền hành bậc cao, không thì cũng giàu có lớn", "TT", 158, "nhất phẩm quyền hành nếu không thì cũng là phú gia địch quốc"),
+                                   "thanh_thuong": m("tuổi Canh, Tân, Đinh, Kỷ thì giàu sang phú quý mọi mặt", "KL", 52,
+                                                     "3 . Thái dương cư Ngọ, Canh Tân Đinh Kỷ phú quí song toàn")},
+    "CACH_X_THACH_TRUNG_AN_NGOC": {"thanh": m("ngọc lộ ra: tài năng gặp thời", "KL", 106,
+                                              "nằm trong đá, có thợ đẽo đá cắt gọt thành viên ngọc quí, có nghĩa là tài năng gặp thời."),
+                                   "hinh_thuc": m("ngọc còn chìm: học nhiều biết nhiều nhưng chưa gặp thời vận hiển hách", "TH", 43,
+                                                  "hưng không gặp đươc thời vận hiển hách", TH43_IMG),
+                                   "bi_pha": m("gặp Kỵ, Hình thì khó được toại ý vừa lòng", "TH", 43, "song không bao giờ được toại ý vừa", TH43_IMG)},
+    "CACH_X_TAM_KY_GIA_HOI": {"thanh": m("quý cách (TT p.142 xếp Khoa, Quyền, Lộc củng vào quý cách)", "TT", 142, "QUÍ CÁCH"),
+                              "thanh_thuong": m("có thêm Xương Khúc, Khôi Việt, Tả Hữu (Văn chức cách) thì công danh thành đạt", "TH", 77,
+                                                 "và có Tam Hóa triều về, tất nhiên công danh thành đạt."),
+                              "bi_pha": m("gặp Hóa Kỵ, Kình Dương thì đường công danh mờ mịt", "KL", 66, "vào thì đường công danh mờ mịt như sương tụ đầy đường đi.")},
+    "CACH_X_KHOI_VIET_GIAP_MENH": {"thanh": m("học giỏi, gần người quyền quý", "KL", 44, "Học giỏi, gần người quyền quí")},
+    # DEEP-3 KL pp.43-48: the meaning line printed under each cách (the image line when that is all the page gives, with the group heading)
+    "CACH_X_TU_PHU_TRIEU_VIEN": {"thanh": m("quý cách (danh vọng, uy quyền): như vua quan hội họp", "KL", 43, "-Vua quan hội họp")},
+    "CACH_X_PHU_TUONG_TRIEU_VIEN": {"thanh": m("Mệnh vinh hiển", "TT", 118, "Phú Tướng triều viên mệnh tất vinh")},
+    "CACH_X_THAN_DONG": {"thanh": m("thông minh tuyệt vời", "KL", 43, "Thông minh tuyệt vời")},
+    "CACH_X_TOA_QUY_HUONG_QUY": {"thanh": m("là người sang quý", "KL", 44, "-Là người sang quí")},
+    "CACH_X_TAI_LOC_GIAP_MA": {"thanh": m("thương gia giàu có", "KL", 45, "Thương gia giàu có")},
+    "CACH_X_DOI_KIM_TICH_NGOC": {"thanh": m("tiền của đầy nhà", "KL", 45, "Tiền của đầy nhà")},
+    "CACH_X_PHU_HUU_LAU_DAI": {"thanh": m("nhà cao cửa rộng, tiền dư của để", "KL", 45, "Nhà cao cửa rộng, tiền dư của để")},
+    "CACH_X_TIEN_CAI_HAU_MA": {"thanh": m("danh giá, hưởng lộc", "KL", 45, "Danh giá hưởng lộc")},
+    "CACH_X_VAN_LONG_TE_HOI": {"thanh": m("được dịp làm giàu", "KL", 45, "Được dịp làm giàu")},
+    "CACH_X_TIEN_HINH_HAU_AN": {"thanh": m("có chức, có tiền", "KL", 45, "Có chức có tiền")},
+    "CACH_X_TUONG_PHUC_HONG_DAO": {"thanh": m("tuổi trẻ gặp may, sớm làm giàu", "KL", 46, "Tuổi trẻ gặp may sớm làm giàu")},
+    "CACH_X_THAI_TOA_GIAP_MENH": {"thanh": m("tuổi trẻ sớm hiển đạt", "KL", 46, "Tuổi trẻ sớm hiển đạt")},
+    "CACH_X_XUAT_TUONG_NHAP_TUONG": {"thanh": m("giàu có từ trong ra ngoài", "KL", 46, "Giàu có từ trong ra ngoài")},
+    "CACH_X_SONG_LONG": {"thanh": m("gặp thời làm ăn lớn", "KL", 46, "Gặp thời làm ăn lớn")},
+    "CACH_X_LONG_PHUONG_HO_CAI": {"thanh": m("sự nghiệp có sẵn, có quý nhân nâng đỡ", "KL", 46, "Sự nghiệp đã có sẵn sàng"),
+                                  "thanh_thuong": m("Mệnh có Bạch Hổ thì cách hay hơn", "KL", 46, "thường thì Mệnh nên có Bạch Hổ thì hay hơn")},
+    "CACH_X_HOA_KY_SUU_MUI": {"thanh": m("giàu sang phú quý", "KL", 47, "Giàu sang phú quí")},
+    "CACH_X_THIEN_DONG_DINH_MAO": {"thanh": m("phát phúc, phát lộc", "KL", 47, "Phát  phúc, phát lộc")},
+    "CACH_X_THIEN_DONG_NGO_VIET": {"thanh": m("sang quý", "KL", 48, "Sang quí như sao trên trời")},
+    "CACH_X_THIEN_LUONG_NGO_KHOI": {"thanh": m("được hưởng phước lớn", "KL", 48, "Được hưởng phước lớn")},
+}
+for _fid, _mm in MEANING.items():
+    E[_fid]["meaning"] = _mm
+
+
 # ---------------------------------------------------------------- dropped draft conditions
 
 TH74_CUU = q("TH", 74, "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c")
@@ -543,7 +604,7 @@ def main() -> int:
         print("books absent: quotes not re-checked")
         return 0
     quotes = [(fid, s) for fid, e in E.items() for s in e["core"] + e["effect"] + [x for it in e["items"].values() for x in it["sources"]]
-              + [x for v in e["variants"] for x in v["sources"]]] + [(d["formation"], s) for d in data["dropped"] for s in d["sources"]]
+              + [x for v in e["variants"] for x in v["sources"]] + list(e.get("meaning", {}).values())] +[(d["formation"], s) for d in data["dropped"] for s in d["sources"]]
     bad = [(fid, s["book"], s["page"], s["quote"]) for fid, s in quotes if not book_text.quote_on_page(s["book"], s["page"], s["quote"])]
     for b in bad:
         print("NOT ON PAGE:", *b)

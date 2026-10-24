@@ -64,7 +64,7 @@ CH = []
 def ch(id, mid, tamer, tamed, effect, text, where=None, nature=None, also=()):
     assert effect in EFFECTS, effect
     d = {"id": id, "tamer": tamer, "tamed": tamed, "effect": effect, "text": text, **({"where": where} if where else {}),
-         "sources": [src(m) for m in [mid, *also]], "cites": sorted({cite(m) for m in [mid, *also]})}
+         "sources": [src(m, skipped_ok=True) for m in [mid, *also]], "cites": sorted({cite(m) for m in [mid, *also]})}
     if nature:
         d["star_nature"] = nature
     CH.append(d)
@@ -72,8 +72,12 @@ def ch(id, mid, tamer, tamed, effect, text, where=None, nature=None, also=()):
 
 TT_ = ["Tuần", "Triệt"]
 ch("tuan_triet.hai_mat", "kl203_tuan_triet_giam", TT_, ["@moi_sao"], "hai_mat", "Tuần, Triệt là sao cản phá: giảm cả cái tốt lẫn cái xấu của các sao")
-ch("tuan_triet.dac_thanh_ham", "kl203_tuan_triet_dac_thanh_ham", TT_, ["@chinh_tinh"], "giam_tot", "chính tinh đắc địa gặp Tuần, Triệt thì như hãm địa",
-   where={"dignity": ["miếu", "vượng", "đắc"]})
+ch("tuan_triet.dac_thanh_ham", "kl203_tuan_triet_dac_thanh_ham", TT_, ["@chinh_tinh"], "giam_tot", "chính tinh đắc địa gặp Tuần, Triệt thì như hãm địa, bị phá hư",
+   where={"dignity": ["miếu", "vượng", "đắc"]}, also=["kl204_dac_dia_tt_pha_hu"])
+ch("triet.menh", "kl204_menh_triet", ["Triệt"], ["@moi_sao"], "giam_tot", "Mệnh gặp Triệt: thuở nhỏ chịu nhiều khó khăn", where={"palace": "Mệnh"})
+ch("tuan.menh", "kl204_menh_tuan", ["Tuần"], ["@moi_sao"], "giam_tot", "Mệnh gặp Tuần: bị kìm hãm, trục trặc ngay từ khi bắt tay vào việc", where={"palace": "Mệnh"})
+ch("dai_van_tuan_triet.menh_tuan_triet", "kl204_dai_van_tt_thao_go", TT_, TT_, "giam_xau",
+   "Mệnh có Tuần, Triệt, đến đại vận gặp Tuần, Triệt thì được tháo gỡ", where={"palace": "Mệnh", "tamer_in": "đại vận"})
 ch("tuan_triet.pha_ham", "kl204_chinh_tinh_ham_can_tt", TT_, ["@chinh_tinh"], "pha_ham", "chính tinh hãm ở Mệnh cần Tuần, Triệt để phá hãm",
    where={"palace": "Mệnh", "dignity": ["hãm"]})
 ch("tuan_triet.cong_don", "kl204_tuan_triet_cung_cho", TT_, ["@moi_sao"], "cong_don", "Tuần và Triệt cùng một cung thì sức cản, sức giúp đều mạnh hơn",
@@ -388,7 +392,106 @@ SCHOOLS = {"version": "schools-1", "date": "2026-10-24", "generated_by": "tools/
            "topics": TOPICS}
 
 
+# ================================================================ reader shapes (main session's reason/argue.ts, 2026-10-24)
+# The same knowledge in the field names argue.ts reads; the detailed lists above stay as they are (tests, Đọc sâu).
+#   che_hoa.relations[]  {id, tamer, tamed, scope, effect, on, text, book, page, quote, also, condition, reviewStatus}
+#   combos.combos[]      {id, name, stars, scope, palaces, branches, dignity, pol, reading, book, page, quote, modifiers, reviewStatus}
+#   schools.topics[]     + kind in dignity | hoa | cach | reading (the finer kind kept as 'subkind'); school codes ZWDS_HAN, TVNL
+STAR_GROUPS = {"@sat_tinh": SAT, "@cat_tinh": CAT, "@chinh_tinh": MAJORS, "@tuan_triet": ["Tuần", "Triệt"],
+               "@giai_manh": ["Hóa Khoa", "Thiên Quan", "Thiên Phúc", "Thiên Khôi", "Thiên Việt"], "@moi_sao": ["*"]}
+# effect: giam = lessens, hoa_giai = dissolves, dao_nguoc = turns (a hãm star made good), che = covers / restrains (the tamed cannot harm the
+# tamer, or the tamer rules it), tang = strengthens (not in the first list: Song Hao for Cự Môn / Thiên Cơ, Phá Toái for Sát Phá Tham, Tuần +
+# Triệt together). on: which side of the tamed is touched (xau / tot / ca_hai / ham).
+EFF_READER = {"giam_xau": ("giam", "xau"), "giam_tot": ("giam", "tot"), "hai_mat": ("giam", "ca_hai"), "pha_ham": ("dao_nguoc", "ham"),
+              "khang": ("che", "xau"), "tang": ("tang", "tot"), "cong_don": ("tang", "ca_hai")}
+WHERE_VI = {"palace": "ở cung {}", "branch": "ở {}", "dignity": "sao bị chế {}", "tamer_dignity": "sao chế {}", "tuoi": "tuổi {}",
+            "both": "các sao cùng có mặt", "same_palace": "cùng một cung", "with": "cùng {}", "tamer_in": "sao chế ở {}"}
+
+
+def _expand(xs):
+    return [y for x in xs for y in (STAR_GROUPS.get(x, [x]))]
+
+
+def _cond(where):
+    out = []
+    for k, v in (where or {}).items():
+        v = ", ".join(v) if isinstance(v, list) else v
+        out.append(WHERE_VI[k].format(v) if "{}" in WHERE_VI[k] else WHERE_VI[k])
+    return "; ".join(out) or None
+
+
+def relation(x):
+    eff, on = EFF_READER[x["effect"]]
+    t = x["text"]
+    if any(w in t for w in ("hóa giải", "giải trừ", "tháo gỡ", "cứu giải thuần", "cứu giải mạnh")):
+        eff = "hoa_giai"
+    elif any(w in t for w in ("chế ngự", "sai khiến", "là khắc")):
+        eff = "che"
+    w = x.get("where") or {}
+    tt_only = set(x["tamer"]) <= {"Tuần", "Triệt"} and "tamer_in" not in w
+    scope = "dong_cung" if (tt_only or w.get("same_palace") or w.get("both")) else "any"
+    s0 = x["sources"][0]
+    return {"id": x["id"].upper().replace(".", "__"), "tamer": _expand(x["tamer"]), "tamed": _expand(x["tamed"]), "scope": scope, "effect": eff, "on": on,
+            "text": t, "book": s0["book"], "page": s0["page"], "quote": s0["quote"], "also": x["sources"][1:], "condition": _cond(w),
+            "detail": x["effect"], "entry": x["id"], "reviewStatus": "verified"}
+
+
+def combo(id, name, stars, scope, pol, reading, s, palaces=None, branches=None, dignity=None, modifiers=(), context=None):
+    return {"id": id, "name": name, "stars": stars, "scope": scope, "palaces": palaces, "branches": branches, "dignity": dignity, "pol": pol,
+            "reading": reading, "book": s["book"], "page": s["page"], "quote": s["quote"], "modifiers": list(modifiers),
+            **({"context": context} if context else {}), "reviewStatus": "verified"}
+
+
+def mod(when, effect, pol, mid, **k):
+    s = src(mid)
+    return {"when": when, "effect": effect, "pol": pol, "book": s["book"], "page": s["page"], "quote": s["quote"], **k}
+
+
+G = {g["id"]: g for g in groups}
+P = {x["id"]: x for x in pairs}
+KIND_VI = {k["id"]: k["meaning"] for k in kinds}
+READER_COMBOS = [combo(g["id"].upper(), g["name"], g["stars"], "tam_phuong", "±", f"{g['nature']}; {KIND_VI[g['kind']]}", g["sources"][0])
+                 for g in groups] + [
+    combo("CO_AM_DAC", "Cơ Âm đắc địa", P["co_am_dac"]["stars"], "xung", "+", "giàu", P["co_am_dac"]["sources"][0], dignity="bright",
+          context="thế Tử Vi ở Ngọ (Thiên Cơ ở Tỵ, Thái Âm ở Hợi)"),
+    combo("DUONG_LUONG_DAC", "Dương Lương đắc địa", P["duong_luong_dac"]["stars"], "dong_cung", "+", "sang", P["duong_luong_dac"]["sources"][0],
+          dignity="bright", context="thế Tử Vi ở Ngọ (Thái Dương, Thiên Lương ở Mão)"),
+    combo("CU_DONG_HAM", "Cự Đồng hãm", P["cu_dong_ham"]["stars"], "dong_cung", "-", "lẻ loi, bất đắc chí", P["cu_dong_ham"]["sources"][0], dignity="ham",
+          modifiers=[mod("hoa_khoa", "có Hóa Khoa chiếu thì mới khá được", "+", "kl180_cu_dong_khoa_khoc_hu"),
+                     mod("Thiên Khốc", "có Khốc Hư chiếu thì mới khá được", "+", "kl180_cu_dong_khoa_khoc_hu", with_=["Thiên Hư"])]),
+    combo("TU_PHA_SUU_MUI", "Tử Phá ở Sửu, Mùi", P["tu_pha"]["stars"], "dong_cung", "±", P["tu_pha"]["meaning"], P["tu_pha"]["sources"][0],
+          branches=["Sửu", "Mùi"]),
+    combo("TU_THAM", "Tử Tham đồng cung", P["tu_tham"]["stars"], "dong_cung", "-", P["tu_tham"]["meaning"], P["tu_tham"]["sources"][0]),
+    combo("TU_PHU_DAN_THAN", "Tử Phủ ở Dần, Thân", P["tu_phu"]["stars"], "dong_cung", "+", P["tu_phu"]["meaning"], P["tu_phu"]["sources"][0],
+          branches=["Dần", "Thân"]),
+    combo("TU_TA_HUU", "Tử Vi với Tả Hữu", P["tu_ta_huu"]["stars"], "tam_phuong", "+", P["tu_ta_huu"]["meaning"], P["tu_ta_huu"]["sources"][0],
+          context="trang không nói vị trí; 'tam_phuong' là cách đọc rộng nhất của hệ thống, đồng cung là mạnh nhất (TT p.22: Phụ Bật ở tam hợp hay xung chiếu thì không tốt bằng)"),
+]
+for c in READER_COMBOS:
+    for m in c["modifiers"]:
+        if "with_" in m:
+            m["with"] = m.pop("with_")
+SCHOOL_CODE = {"TTH": "ZWDS_HAN", "TL": "TVNL"}
+KIND_READER = {"dinh_nghia_cach": "cach", "ten_cach": "cach", "dac_ham": "dignity", "nguyen_ly": "dignity", "ban_dich": "reading", "trai_nghich": "reading",
+               "y_kien": "reading", "ngu_hanh": "reading", "dung_phu": "reading"}
+HOA_TOPICS = {"tham_hoa_loc_tu_mo", "tai_loc_giap_ma"}
+# entries kept in 'entries' (data) but not given to a reader: the line is about a sensitive matter (policy: no illness, accidents, events,
+# number of children)
+SENSITIVE_REL = {"cat_tinh.dau_quan": "số con (Đẩu Quân ở Tử Tức hiếm con)", "tu_loc.that_sat": "tai nạn", "hao_kk_tt.thien_luong": "tai họa",
+                 "tuan_triet.tat_ach": "bệnh tật, tai nạn (Tật Ách chỉ đọc cân bằng)"}
+
+
 def main():
+    CHE_HOA["version"], COMBOS["version"], SCHOOLS["version"] = "1.0.0", "1.0.0", "1.0.0"
+    CHE_HOA["relations"] = [relation(x) for x in CH if x["id"] not in SENSITIVE_REL]
+    CHE_HOA["relations_left_out"] = SENSITIVE_REL
+    COMBOS["combos"] = READER_COMBOS
+    SCHOOLS["schools"] = {SCHOOL_CODE.get(k, k): v for k, v in SIDES.items()}
+    for t in TOPICS:
+        t["subkind"] = t.get("subkind") or t["kind"]
+        t["kind"] = "hoa" if t["id"] in HOA_TOPICS else KIND_READER[t["subkind"]]
+        for sd in t["sides"]:
+            sd["school"] = SCHOOL_CODE.get(sd["school"], sd["school"])
     for name, data in (("che_hoa.json", CHE_HOA), ("combos.json", COMBOS), ("schools.json", SCHOOLS)):
         (KG / name).write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", "utf-8")
     # star_nature.json: Thực Hành p.80 elements (book TH), replacing this builder's earlier entries

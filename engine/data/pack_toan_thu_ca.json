@@ -2,47 +2,6 @@
  "sources": [],
  "rules": [
   {
-   "id": "TV_D3_TT65_TU_VI_MENH",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Tử Vi ca (paraphrased), cung Mệnh: phúc lộc, tiền tài hưng vượng (nam, Tử Vi thủ Mệnh) [TT p.65]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Tử Vi"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt65_tu_vi_menh",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT65_TU_VI_SAT_TINH_CHUA",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
@@ -855,47 +814,6 @@
    "subject": "palace"
   },
   {
-   "id": "TV_D3_TT67_DONG_ON_HOA",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Thiên Đồng ca (paraphrased), cung Mệnh: tính tình ôn hòa, tử tế, có phúc lộc (nam, Thiên Đồng thủ Mệnh) [TT p.67]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Thiên Đồng"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt67_dong_on_hoa",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT67_DONG_MIEU_VUONG",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
@@ -930,52 +848,6 @@
     {
      "kind": "finding",
      "claim": "d3_tt67_dong_mieu_vuong",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT67_DONG_CAT",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Thiên Đồng ca (paraphrased), cung Mệnh: thông minh, lanh lợi, làm việc gì cũng dễ (nam, Thiên Đồng thủ Mệnh gặp cát tinh) [TT p.67]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Thiên Đồng"
-     },
-     {
-      "fact": "palace.khi.cat_tp",
-      "operator": "gte",
-      "value": 1
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt67_dong_cat",
      "effect": "support",
      "scope": "natal"
     }
@@ -1034,47 +906,6 @@
     {
      "kind": "finding",
      "claim": "d3_tt67_dong_ham_hoa_da",
-     "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT67_LIEM_NGANG",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Liêm Trinh ca (paraphrased), cung Mệnh: con người khác thường, chí khí mạnh, ưa ngang ngược (nam, Liêm Trinh thủ Mệnh) [TT p.67]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Liêm Trinh"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt67_liem_ngang",
      "effect": "limit",
      "scope": "natal"
     }
@@ -1460,7 +1291,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Tham Lang ca (paraphrased), cung Mệnh: nghề nào ra nghề nấy mà suốt đời vất vả (nam, Tham Vũ thủ Mệnh lại ngộ Liêm, Phá, Không Kiếp) [TT p.68]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Tham Lang ca (paraphrased), cung Mệnh: nghề nào ra nghề nấy mà vất vả (nam, Tham Vũ thủ Mệnh lại ngộ Liêm, Phá, Không Kiếp) [TT p.68]",
    "conditions": {
     "all": [
      {
@@ -1762,47 +1593,6 @@
      "kind": "finding",
      "claim": "d3_tt69_cu_kinh_hoa_linh",
      "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT69_TUONG_CA_QUYET",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Thiên Tướng ca (paraphrased), cung Mệnh: là người quả quyết, tự chủ (nam, Thiên Tướng thủ Mệnh) [TT p.69]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Thiên Tướng"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt69_tuong_ca_quyet",
-     "effect": "support",
      "scope": "natal"
     }
    ],
@@ -2494,47 +2284,6 @@
    "subject": "palace"
   },
   {
-   "id": "TV_D3_TT72_TA_PHU_DON_HAU",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Tả Phụ ca (paraphrased), cung Mệnh: là người đôn hậu, hiểu biết rộng (nam, Tả Phụ thủ Mệnh) [TT p.72]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.own_stars",
-      "operator": "contains",
-      "value": "Tả Phụ"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt72_ta_phu_don_hau",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT72_TA_PHU_BON_SAT",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
@@ -2588,47 +2337,6 @@
      "kind": "finding",
      "claim": "d3_tt72_ta_phu_bon_sat",
      "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT73_HUU_BAT_CO_MUU",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Hữu Bật ca (paraphrased), cung Mệnh: người có cơ mưu, thông minh (nam, Hữu Bật thủ Mệnh) [TT p.73]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.own_stars",
-      "operator": "contains",
-      "value": "Hữu Bật"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt73_huu_bat_co_muu",
-     "effect": "support",
      "scope": "natal"
     }
    ],
@@ -2700,47 +2408,6 @@
     {
      "kind": "finding",
      "claim": "d3_tt73_huu_bat_cat_khong_sat",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT73_LOC_TON_QUA_QUYET",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Lộc Tồn ca (paraphrased), cung Mệnh: tính quả quyết, làm việc gì cũng thành (nam, Lộc Tồn thủ Mệnh) [TT p.73]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.own_stars",
-      "operator": "contains",
-      "value": "Lộc Tồn"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt73_loc_ton_qua_quyet",
      "effect": "support",
      "scope": "natal"
     }
@@ -2857,47 +2524,6 @@
     {
      "kind": "finding",
      "claim": "d3_tt73_loc_ton_co_kk_ky",
-     "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT74_KINH_CUNG_RAN",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Kình Dương ca (paraphrased), cung Mệnh: tính nết cứng rắn (nam, Kình Dương thủ Mệnh) [TT p.74]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.own_stars",
-      "operator": "contains",
-      "value": "Kình Dương"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt74_kinh_cung_ran",
      "effect": "limit",
      "scope": "natal"
     }
@@ -3083,47 +2709,6 @@
    "subject": "palace"
   },
   {
-   "id": "TV_D3_TT75_HOA_LOC_MENH",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hoá Lộc nhập Mệnh ca (paraphrased), cung Mệnh: tự nhiên có phúc, theo văn hay võ đều dễ nổi danh (nam, Hóa Lộc ở Mệnh) [TT p.75]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Lộc"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt75_hoa_loc_menh",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT75_LOC_DONG_NHAT",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
@@ -3167,52 +2752,6 @@
     {
      "kind": "finding",
      "claim": "d3_tt75_loc_dong_nhat",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT75_HOA_QUYEN_CAT",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Hoá Quyền ca (paraphrased), cung Mệnh: sự nghiệp hiên ngang, đảm lược hơn người (nam, Hóa Quyền ở Mệnh có sao tốt phù trợ) [TT p.75]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Quyền"
-     },
-     {
-      "fact": "palace.khi.cat_tp",
-      "operator": "gte",
-      "value": 1
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt75_hoa_quyen_cat",
      "effect": "support",
      "scope": "natal"
     }
@@ -3279,47 +2818,6 @@
    "subject": "palace"
   },
   {
-   "id": "TV_D3_TT76_HOA_KHOA_VAN",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Hoá Khoa ca (paraphrased), cung Mệnh: văn chương giỏi, thi cử hanh thông (nam, Hóa Khoa thủ Mệnh) [TT p.76]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Khoa"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt76_hoa_khoa_van",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT76_HOA_KHOA_XK_KV",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
@@ -3367,98 +2865,6 @@
      "kind": "finding",
      "claim": "d3_tt76_hoa_khoa_xk_kv",
      "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT76_HOA_KY_HUNG",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Hoá Kị ca (paraphrased), cung Mệnh: càng thêm hung (nam, Hóa Kỵ ở Mệnh gặp thêm hung tinh) [TT p.76]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Kỵ"
-     },
-     {
-      "fact": "palace.khi.sat_tp",
-      "operator": "gte",
-      "value": 1
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt76_hoa_ky_hung",
-     "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT76_HOA_KY_CAT_LO",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nam Mệnh Hoá Kị ca (paraphrased), cung Mệnh: dù có cát tinh trợ cứu mà giàu sang thì giàu sang ấy kèm nhiều lo lắng (nam, Hóa Kỵ ở Mệnh có cát tinh trợ cứu) [TT p.76]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nam"
-     },
-     {
-      "fact": "palace.tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Kỵ"
-     },
-     {
-      "fact": "palace.khi.cat_tp",
-      "operator": "gte",
-      "value": 1
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt76_hoa_ky_cat_lo",
-     "effect": "limit",
      "scope": "natal"
     }
    ],
@@ -3592,134 +2998,6 @@
    "subject": "palace"
   },
   {
-   "id": "TV_D3_TT76_KINH_DA_MENH",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phú đoán Thân Mệnh f) (paraphrased), cung Mệnh: nói năng hay loạn thuyết, điêu ngoa (Kình Dương hoặc Đà La ở Mệnh) [TT p.76]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "any": [
-       {
-        "fact": "palace.own_stars",
-        "operator": "contains",
-        "value": "Kình Dương"
-       },
-       {
-        "fact": "palace.own_stars",
-        "operator": "contains",
-        "value": "Đà La"
-       }
-      ]
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt76_kinh_da_menh",
-     "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT113_TUONG_NU_THONG_MINH",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Thiên Tướng nữ mệnh ca (paraphrased), cung Mệnh: thông minh, giỏi giang, y lộc tiền bạc đầy đủ (nữ, Thiên Tướng thủ Mệnh) [TT p.113]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Thiên Tướng"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt113_tuong_nu_thong_minh",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT114_SAT_NU_THONG_MINH",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Thất Sát nữ mệnh ca (paraphrased), cung Mệnh: rất lanh lợi, thông minh, dù đời nhiều gian lao (nữ, Thất Sát thủ Mệnh) [TT p.114]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Thất Sát"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt114_sat_nu_thong_minh",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT114_PHA_NU_TY_NGO",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
@@ -3805,97 +3083,6 @@
     {
      "kind": "finding",
      "claim": "d3_tt115_xuong_nu_tu_phu",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT115_KHUC_NU_THONG_MINH",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Văn Khúc nữ mệnh ca (paraphrased), cung Mệnh: thông minh, lanh lợi khác người (nữ, Văn Khúc thủ Mệnh) [TT p.115]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.own_stars",
-      "operator": "contains",
-      "value": "Văn Khúc"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt115_khuc_nu_thong_minh",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT115_TA_HUU_NU",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Tả Hữu nữ mệnh ca (paraphrased), cung Mệnh: hiền lương, giỏi giang, quán xuyến (nữ, Tả Phụ hoặc Hữu Bật ở Mệnh) [TT p.115]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "any": [
-       {
-        "fact": "palace.own_stars",
-        "operator": "contains",
-        "value": "Tả Phụ"
-       },
-       {
-        "fact": "palace.own_stars",
-        "operator": "contains",
-        "value": "Hữu Bật"
-       }
-      ]
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt115_ta_huu_nu",
      "effect": "support",
      "scope": "natal"
     }
@@ -4141,239 +3328,6 @@
    "subject": "palace"
   },
   {
-   "id": "TV_D3_TT117_HOA_QUYEN_NU_CAT",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hóa Quyền nữ mệnh ca (paraphrased), cung Mệnh: phú quý song toàn (nữ, Hóa Quyền ở Mệnh thêm cát tinh) [TT p.117]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Quyền"
-     },
-     {
-      "fact": "palace.khi.cat_tp",
-      "operator": "gte",
-      "value": 1
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt117_hoa_quyen_nu_cat",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT117_HOA_KHOA_NU",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hóa Khoa nữ mệnh ca (paraphrased), cung Mệnh: đức độ, tính tình thanh cao (nữ, Hóa Khoa ở Mệnh) [TT p.117]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Khoa"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt117_hoa_khoa_nu",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT117_HOA_KY_NU_HUNG",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hóa Kỵ nữ mệnh ca (paraphrased), cung Mệnh: cuộc sống cơ cực, túng thiếu (nữ, Hóa Kỵ ở Mệnh lại thêm hung tinh xung phá) [TT p.117]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Kỵ"
-     },
-     {
-      "fact": "palace.khi.sat_tp",
-      "operator": "gte",
-      "value": 1
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt117_hoa_ky_nu_hung",
-     "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT118_LIEM_NU_THANH_BACH",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nữ mệnh cốt tủy phú (paraphrased), cung Mệnh: bản chất thanh bạch (nữ, Liêm Trinh thủ Mệnh không hãm) [TT p.118]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Liêm Trinh"
-     },
-     {
-      "not": {
-       "fact": "palace.dignity@toan_thu.Liêm Trinh",
-       "operator": "in",
-       "value": [
-        "hãm"
-       ]
-      }
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt118_liem_nu_thanh_bach",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT118_TU_NHAT_NU_TRUNG_THUC",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nữ mệnh cốt tủy phú (paraphrased), cung Mệnh: tính nết trung thực (nữ, Tử Vi hoặc Thái Dương thủ Mệnh) [TT p.118]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "any": [
-       {
-        "fact": "palace.own_major_stars",
-        "operator": "contains",
-        "value": "Tử Vi"
-       },
-       {
-        "fact": "palace.own_major_stars",
-        "operator": "contains",
-        "value": "Thái Dương"
-       }
-      ]
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt118_tu_nhat_nu_trung_thuc",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT118_NHAT_DAN_NGO_CAT",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
@@ -4477,47 +3431,6 @@
    "subject": "palace"
   },
   {
-   "id": "TV_D3_TT118_LOC_TON_NU",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nữ mệnh cốt tủy phú (paraphrased), cung Mệnh: đầy đủ cơm áo (nữ, Lộc Tồn ở Mệnh) [TT p.118]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.own_stars",
-      "operator": "contains",
-      "value": "Lộc Tồn"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt118_loc_ton_nu",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT118_CO_CU_NU",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
@@ -4549,97 +3462,6 @@
     {
      "kind": "finding",
      "claim": "d3_tt118_co_cu_nu",
-     "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT118_XUONG_KHUC_NU",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nữ mệnh cốt tủy phú (paraphrased), cung Mệnh: phúc không trọn (nữ, Văn Xương hoặc Văn Khúc ở Mệnh) [TT p.118]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "any": [
-       {
-        "fact": "palace.own_stars",
-        "operator": "contains",
-        "value": "Văn Xương"
-       },
-       {
-        "fact": "palace.own_stars",
-        "operator": "contains",
-        "value": "Văn Khúc"
-       }
-      ]
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt118_xuong_khuc_nu",
-     "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT118_VU_NU_CO_DOC",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nữ mệnh cốt tủy phú (paraphrased), cung Mệnh: Vũ Khúc là sao cô độc (nữ, Vũ Khúc thủ Mệnh) [TT p.118]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Vũ Khúc"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt118_vu_nu_co_doc",
      "effect": "limit",
      "scope": "natal"
     }
@@ -4753,52 +3575,6 @@
      "kind": "finding",
      "claim": "d3_tt118_sat_nu_don",
      "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
-   "id": "TV_D3_TT118_SONG_LOC_NU",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Nữ mệnh cốt tủy phú (paraphrased), cung Mệnh: giàu sang, có chức tước (nữ, song Lộc thủ chiếu Mệnh) [TT p.118]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "chart.gender",
-      "value": "nữ"
-     },
-     {
-      "fact": "palace.tam_phuong_stars",
-      "operator": "contains",
-      "value": "Lộc Tồn"
-     },
-     {
-      "fact": "palace.tam_phuong_tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Lộc"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt118_song_loc_nu",
-     "effect": "support",
      "scope": "natal"
     }
    ],
@@ -5388,7 +4164,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Nhật Nguyệt hiệp tài, một phú cách (Vũ Khúc thủ Mệnh, Nhật Nguyệt giáp Mệnh) [TT p.142]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Nhật Nguyệt hiệp tài (Vũ Khúc thủ Mệnh, Nhật Nguyệt giáp Mệnh: một phú cách) [TT p.142]",
    "conditions": {
     "all": [
      {
@@ -5457,7 +4233,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Điền Trạch: cách Nhật Nguyệt chiếu bích ở Điền Trạch, một phú cách (Nhật Nguyệt ở Điền Trạch) [TT p.142]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Điền Trạch: cách Nhật Nguyệt chiếu bích ở Điền Trạch (Nhật Nguyệt ở Điền Trạch: một phú cách) [TT p.142]",
    "conditions": {
     "all": [
      {
@@ -5499,7 +4275,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Quan Lộc: cách Nhật xuất phù tang ở Quan Lộc, một quý cách (Thái Dương ở Mão thủ Quan Lộc) [TT p.142]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Quan Lộc: cách Nhật xuất phù tang ở Quan Lộc (Thái Dương ở Mão thủ Quan Lộc: một quý cách) [TT p.142]",
    "conditions": {
     "all": [
      {
@@ -5543,7 +4319,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Điền Trạch: cách Nguyệt sinh thương hải ở Điền Trạch, một quý cách (Thái Âm ở Tý thủ Điền Trạch) [TT p.142]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Điền Trạch: cách Nguyệt sinh thương hải ở Điền Trạch (Thái Âm ở Tý thủ Điền Trạch: một quý cách) [TT p.142]",
    "conditions": {
     "all": [
      {
@@ -5587,7 +4363,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Quân thần khánh hội, một quý cách (Tử Vi, Tả Hữu cùng ở Mệnh, Vũ Khúc, Thiên Tướng chiếu) [TT p.142]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Quân thần khánh hội (Tử Vi, Tả Hữu cùng ở Mệnh, Vũ Khúc, Thiên Tướng chiếu: một quý cách) [TT p.142]",
    "conditions": {
     "all": [
      {
@@ -5644,7 +4420,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Hình tù hiệp ấn, quý về võ nghiệp (Thiên Tướng thủ Mệnh có Thiên Hình, Liêm Trinh) [TT p.142]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Hình tù hiệp ấn (Thiên Tướng thủ Mệnh có Thiên Hình, Liêm Trinh: quý về võ nghiệp) [TT p.142]",
    "conditions": {
     "all": [
      {
@@ -5687,58 +4463,11 @@
    "subject": "palace"
   },
   {
-   "id": "TV_D3_TT142_KHOA_QUYEN_LOC_CUNG",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Khoa Quyền Lộc củng, một quý cách (Khoa, Quyền, Lộc đủ ba chiếu thủ Mệnh) [TT p.142]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "palace.tam_phuong_tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Lộc"
-     },
-     {
-      "fact": "palace.tam_phuong_tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Quyền"
-     },
-     {
-      "fact": "palace.tam_phuong_tu_hoa",
-      "operator": "contains",
-      "value": "Hóa Khoa"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt142_khoa_quyen_loc_cung",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT143_QUAN_TU_TAI_DA",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Quân tử tại dã, một bần tiện cách: như người quân tử phải lang thang (Mệnh có Tứ Sát, chính tinh hãm) [TT p.143]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Quân tử tại dã (Mệnh có Tứ Sát, chính tinh hãm: như người quân tử phải lang thang) [TT p.143]",
    "conditions": {
     "all": [
      {
@@ -6024,7 +4753,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Nhất sinh cô bần, một bần tiện cách (Phá Quân hãm thủ Mệnh) [TT p.143]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Nhất sinh cô bần (Phá Quân hãm thủ Mệnh: một bần tiện cách) [TT p.143]",
    "conditions": {
     "all": [
      {
@@ -6068,7 +4797,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Lưỡng trùng Hoa Cái, một bần tiện cách (Lộc Tồn, Hóa Lộc ở Mệnh gặp Không Kiếp) [TT p.143]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Cách cục (paraphrased), cung Mệnh: cách Lưỡng trùng Hoa Cái (Lộc Tồn, Hóa Lộc ở Mệnh gặp Không Kiếp: một bần tiện cách) [TT p.143]",
    "conditions": {
     "all": [
      {
@@ -6124,7 +4853,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Tí (paraphrased), cung Mệnh: suốt đời phú quý, hạnh phúc (Mệnh ở Tý có Tham Lang, Thất Sát hoặc Thái Âm, Cơ Lương củng chiếu, tuổi Canh, Tân, Ất, Quý) [TT p.143]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Tí (paraphrased), cung Mệnh: cách đắc địa của Mệnh ở Tí (Mệnh ở Tý có Tham Lang, Thất Sát hoặc Thái Âm, Cơ Lương củng chiếu, tuổi Canh, Tân, Ất, Quý: phú quý, hạnh phúc) [TT p.143]",
    "conditions": {
     "all": [
      {
@@ -6202,7 +4931,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Dần (paraphrased), cung Mệnh: việc gì cũng thông suốt (Mệnh ở Dần có Cự Nhật, hoặc Thất Sát, Thiên Lương, tuổi Thân, Tỵ hoặc Canh) [TT p.144]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Dần (paraphrased), cung Mệnh: cách đắc địa của Mệnh ở Dần (Mệnh ở Dần có Cự Nhật, hoặc Thất Sát, Thiên Lương, tuổi Thân, Tỵ hoặc Canh: việc gì cũng thông suốt) [TT p.144]",
    "conditions": {
     "all": [
      {
@@ -6288,7 +5017,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Mão (paraphrased), cung Mệnh: nhiều phúc lộc, giàu sang (Mệnh ở Mão có Cự Cơ hoặc Vũ Khúc, tuổi Tân, Ất) [TT p.144]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Mão (paraphrased), cung Mệnh: cách đắc địa của Mệnh ở Mão (Mệnh ở Mão có Cự Cơ hoặc Vũ Khúc, tuổi Tân, Ất: nhiều phúc lộc, giàu sang) [TT p.144]",
    "conditions": {
     "all": [
      {
@@ -6358,7 +5087,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Tị (paraphrased), cung Mệnh: tốt phúc, dễ toại ý, ít tai họa (Mệnh ở Tỵ có Thiên Cơ, Thiên Tướng hoặc Tử Vi, tuổi Mậu, Tân, Nhâm, Bính) [TT p.144]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Tị (paraphrased), cung Mệnh: cách đắc địa của Mệnh ở Tị (Mệnh ở Tỵ có Thiên Cơ, Thiên Tướng hoặc Tử Vi, tuổi Mậu, Tân, Nhâm, Bính: tốt phúc, dễ toại ý, ít tai họa) [TT p.144]",
    "conditions": {
     "all": [
      {
@@ -6426,7 +5155,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Ngọ (paraphrased), cung Mệnh: làm lớn, bổng lộc dồi dào (Mệnh ở Ngọ có Tử Vi, Thái Dương, Thất Sát hoặc Phá Quân, tuổi Giáp, Đinh, Kỷ, Quý) [TT p.144]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Ngọ (paraphrased), cung Mệnh: cách đắc địa của Mệnh ở Ngọ (Mệnh ở Ngọ có Tử Vi, Thái Dương, Thất Sát hoặc Phá Quân, tuổi Giáp, Đinh, Kỷ, Quý: làm lớn, bổng lộc dồi dào) [TT p.144]",
    "conditions": {
     "all": [
      {
@@ -6499,7 +5228,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Thân (paraphrased), cung Mệnh: được phú quý, thỏa chí (Mệnh ở Thân có Tử Vi, Liêm Trinh, Thiên Lương, Vũ Khúc hoặc Cự Môn, tuổi Giáp, Canh, Quý) [TT p.145]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Thân (paraphrased), cung Mệnh: cách đắc địa của Mệnh ở Thân (Mệnh ở Thân có Tử Vi, Liêm Trinh, Thiên Lương, Vũ Khúc hoặc Cự Môn, tuổi Giáp, Canh, Quý: được phú quý, thỏa chí) [TT p.145]",
    "conditions": {
     "all": [
      {
@@ -6572,55 +5301,11 @@
    "subject": "palace"
   },
   {
-   "id": "TV_D3_TT145_HOP_DAU",
-   "system": "tu_vi",
-   "schoolId": "vn_dlhc_draft",
-   "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Hợp cách: Mệnh tại Dậu (paraphrased), cung Mệnh: cực tốt (Mệnh ở Dậu có Thái Âm) [TT p.145]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Mệnh"
-     },
-     {
-      "fact": "palace.branch",
-      "operator": "in",
-      "value": [
-       "Dậu"
-      ]
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Thái Âm"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "d3_tt145_hop_dau",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_D3_TT147_PHA_CO_TY_NGO_CU_LINH",
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Tí Sửu (paraphrased), cung Mệnh: phá cách: dù có cát tinh mà phú quý cũng chẳng bền (Mệnh ở Tý, Ngọ có Thiên Cơ, hoặc ở Sửu có Cự Môn, Linh Tinh) [TT p.147]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Tí Sửu (paraphrased), cung Mệnh: cách thất hãm của Mệnh ở Tí Sửu (Mệnh ở Tý, Ngọ có Thiên Cơ, hoặc ở Sửu có Cự Môn, Linh Tinh: dù có cát tinh mà phú quý cũng chẳng bền) [TT p.147]",
    "conditions": {
     "all": [
      {
@@ -6694,7 +5379,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Mão Thìn (paraphrased), cung Mệnh: phá cách: dù hóa cát cũng không toàn mỹ (Mệnh ở Mão có Thái Âm gặp Kình Dương) [TT p.147]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Mão Thìn (paraphrased), cung Mệnh: cách thất hãm của Mệnh ở Mão Thìn (Mệnh ở Mão có Thái Âm gặp Kình Dương: dù hóa cát cũng không toàn mỹ) [TT p.147]",
    "conditions": {
     "all": [
      {
@@ -6743,7 +5428,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Mão Thìn (paraphrased), cung Mệnh: phá cách: dù hóa cát cũng không toàn mỹ (Mệnh ở Thìn có Cự Môn hoặc Tử Vi) [TT p.147]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Mão Thìn (paraphrased), cung Mệnh: cách thất hãm của Mệnh ở Mão Thìn (Mệnh ở Thìn có Cự Môn hoặc Tử Vi: dù hóa cát cũng không toàn mỹ) [TT p.147]",
    "conditions": {
     "all": [
      {
@@ -6796,7 +5481,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Tị (paraphrased), cung Mệnh: phá cách: dù cát tinh chiếu cũng vô ích, đời vất vả thiếu thốn (Mệnh ở Tỵ có Vũ Khúc, Thái Âm, Thiên Lương, Cự Môn, Tham Lang hoặc Liêm Trinh) [TT p.147]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Tị (paraphrased), cung Mệnh: cách thất hãm của Mệnh ở Tị (Mệnh ở Tỵ có Vũ Khúc, Thái Âm, Thiên Lương, Cự Môn, Tham Lang hoặc Liêm Trinh: dù cát tinh chiếu cũng vô ích, đời vất vả thiếu thốn) [TT p.147]",
    "conditions": {
     "all": [
      {
@@ -6869,7 +5554,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Ngọ (paraphrased), cung Mệnh: phá cách: hoạnh thành hoạnh phá, khó lâu bền (Mệnh ở Ngọ có Tham, Cự, Thái Âm hoặc Văn Xương, Kình Dương xung) [TT p.147]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Ngọ (paraphrased), cung Mệnh: cách thất hãm của Mệnh ở Ngọ (Mệnh ở Ngọ có Tham, Cự, Thái Âm hoặc Văn Xương, Kình Dương xung: hoạnh thành hoạnh phá, khó lâu bền) [TT p.147]",
    "conditions": {
     "all": [
      {
@@ -6937,7 +5622,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Mùi (paraphrased), cung Mệnh: phá cách: vất vả bôn ba, chìm nổi, hay rắc rối quan tụng (Mệnh ở Mùi có Cự Môn hoặc Thái Dương) [TT p.148]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Mùi (paraphrased), cung Mệnh: cách thất hãm của Mệnh ở Mùi (Mệnh ở Mùi có Cự Môn hoặc Thái Dương: vất vả bôn ba, chìm nổi, hay rắc rối quan tụng) [TT p.148]",
    "conditions": {
     "all": [
      {
@@ -6990,7 +5675,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Thân Dậu (paraphrased), cung Mệnh: phá cách: dễ phiêu bạt (nam, Mệnh ở Thân có Cự Môn hoặc Thiên Cơ) [TT p.148]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Thân Dậu (paraphrased), cung Mệnh: cách thất hãm của Mệnh ở Thân Dậu (nam, Mệnh ở Thân có Cự Môn hoặc Thiên Cơ: dễ phiêu bạt) [TT p.148]",
    "conditions": {
     "all": [
      {
@@ -7047,7 +5732,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Thân Dậu (paraphrased), cung Mệnh: phá cách: dễ túng thiếu (nữ, Mệnh ở Thân có Cự Môn hoặc Thiên Cơ) [TT p.148]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Thân Dậu (paraphrased), cung Mệnh: cách thất hãm của Mệnh ở Thân Dậu (nữ, Mệnh ở Thân có Cự Môn hoặc Thiên Cơ: dễ túng thiếu) [TT p.148]",
    "conditions": {
     "all": [
      {
@@ -7104,7 +5789,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Tuất (paraphrased), cung Mệnh: phá cách: chủ hung, vất vả thiếu thốn (Mệnh ở Tuất có Tử Vi, Phá Quân, Thiên Đồng hoặc Thái Dương) [TT p.148]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Phá cách: Mệnh tại Tuất (paraphrased), cung Mệnh: cách thất hãm của Mệnh ở Tuất (Mệnh ở Tuất có Tử Vi, Phá Quân, Thiên Đồng hoặc Thái Dương: chủ hung, vất vả thiếu thốn) [TT p.148]",
    "conditions": {
     "all": [
      {
@@ -7167,7 +5852,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "deep3",
-   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Thất hãm bần tiện luận (paraphrased), cung Mệnh: dù gặp cát tinh cũng chỉ trung bình (Tham Lang hóa Lộc ở Tứ mộ) [TT p.149]",
+   "description": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), Thất hãm bần tiện luận (paraphrased), cung Mệnh: cách thất hãm Tham Lang hóa Lộc ở Tứ mộ (Tham Lang hóa Lộc ở Tứ mộ: dù gặp cát tinh cũng chỉ trung bình) [TT p.149]",
    "conditions": {
     "all": [
      {

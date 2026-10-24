@@ -42,7 +42,7 @@ export function validate(paras: Paragraph[], graphs: ArgumentGraph[], chart: Cha
       if (!s.rules.length && !s.cites.length) errors.push({ check: 'missing_source', detail: s.text });
       const unfired = s.rules.filter(r => !firedVerified.has(r) && !r.startsWith('VH_') && !r.startsWith('VH:') && r !== 'LUU_TU_HOA');
       if (unfired.length) errors.push({ check: 'unsupported_conclusion', detail: `${unfired.join(', ')} :: ${s.text}` });
-      if (!/tr\.\s?\d|pp?\.\s?\d/.test(s.text) && !s.cites.length && s.kind !== 'interaction') warnings.push({ check: 'page_not_in_sentence', detail: s.text });
+      if (!/tr\.\s?\d|pp?\.\s?\d|quyển \d/.test(s.text) && !s.cites.length && s.kind !== 'interaction') warnings.push({ check: 'page_not_in_sentence', detail: s.text });
     }
     if (BANNED.some(b => b.test(stripQuotes(s.text)))) errors.push({ check: 'banned_wording', detail: s.text });
     // the system's own voice must not appear inside a quoted book reading

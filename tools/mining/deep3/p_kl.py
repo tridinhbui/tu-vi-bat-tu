@@ -138,14 +138,21 @@ K("kl203_tuan_triet_mieu", 203, "Mệnh đóng tại Dần, Mão, Thân, Dậu t
   "Mệnh ở Dần/Mão/Thân/Dậu có Tuần hoặc Triệt", "Tuần Triệt ở miếu địa của chúng, Mệnh lại khá", "support", ["life.mitigated"], "rule", heading="40. Tuần Triệt",
   notes="'Dần, Mão, Thân, Dậu là miếu địa của Tuần Triệt nên khi Triệt đáo Kim cung (Thân Dậu), Tuần du Mộc vị (Dần Mão), Mệnh đóng tại Dần, Mão, Thân, Dậu thì lại khá' — read as: Triệt at Thân/Dậu or Tuần at Dần/Mão on Mệnh")
 K("kl204_menh_triet", 204, "Nếu Mệnh gặp Triệt, đời phải chịu nhiều khó khăn lúc niên thiếu", "Mệnh có Triệt", "thuở nhỏ chịu nhiều khó khăn", "limit",
-  ["life.early_hardship"], "rule", heading="40. Tuần Triệt")
+  ["life.early_hardship"], "rule", heading="40. Tuần Triệt",
+  skip="Tuần / Triệt at Mệnh is already read by TV_TH_VERSE_MENH_TRIET_TUAN and the TL rules; a broad second reading only adds a generic line (readable.test Barnum gate)")
 K("kl204_menh_tuan", 204, "Nếu Mệnh gặp Tuần, thì luôn luôn bị kìm hãm, trục trặc từ lúc bắt tay vào việc", "Mệnh có Tuần",
-  "luôn bị kìm hãm, trục trặc ngay từ khi bắt tay vào việc", "limit", ["career.obstacle"], "rule", heading="40. Tuần Triệt")
+  "luôn bị kìm hãm, trục trặc ngay từ khi bắt tay vào việc", "limit", ["career.obstacle"], "rule", heading="40. Tuần Triệt",
+  skip="Tuần / Triệt at Mệnh is already read by TV_TH_VERSE_MENH_TRIET_TUAN and the TL rules; a broad second reading only adds a generic line (readable.test Barnum gate)")
 K("kl204_tuan_triet_cung_cho", 204, "Nếu Tuần và Triệt cùng đóng chung một chỗ, ảnh hưởng của hai sao được cộng chung",
   "Tuần và Triệt cùng một cung", "sức cản mạnh hơn, sức giúp cũng mạnh hơn", "neutral", [], "che_hoa", heading="40. Tuần Triệt")
 K("kl204_chinh_tinh_ham_can_tt", 204, "Chính tinh thủ Mệnh hãm địa thì cần Tuần Triệt để phá hãm",
   "chính tinh hãm ở Mệnh gặp Tuần, Triệt", "Tuần Triệt phá hãm", "support", [], "che_hoa", heading="40. Tuần Triệt",
   notes="the next clause: 'nhưng chính tinh đắc địa gặp Tuần Triệt thì lại bị phá hư'")
+K("kl204_dac_dia_tt_pha_hu", 204, "Triệt thì lại bị phá hư cũng như Tử vi ngộ Không Kiếp thì bị tàn tạ",
+  "chính tinh đắc địa ở Mệnh gặp Tuần, Triệt", "bị phá hư", "limit", [], "che_hoa", heading="40. Tuần Triệt",
+  notes="the clause after kl204_chinh_tinh_ham_can_tt: 'nhưng chính tinh đắc địa gặp Tuần Triệt thì lại bị phá hư'")
+K("kl204_dai_van_tt_thao_go", 204, "Mệnh có Tuần Triệt, tới đại vận gặp Tuần Triệt là đương nhiên được tháo gỡ",
+  "Mệnh có Tuần, Triệt; đại vận đến cung có Tuần, Triệt", "được tháo gỡ, như người ở tù được trả tự do", "support", [], "che_hoa", heading="40. Tuần Triệt")
 K("kl204_co_than_thieu_duong_hong", 204, "gặp được hai sao Thiếu dương sáng",
   "tuổi Thìn/Tuất/Sửu/Mùi, Cô Thần ở Dần/Thân/Tỵ/Hợi gặp Thiếu Dương và Hồng Loan", "đỡ cô đơn", "support", [], "che_hoa", heading="41. Cô thần - Quả tú",
   notes="'Các tuổi Thìn, Tuất, Sửu, Mùi, Cô thần ở Dần, Thân, Tỵ, Hợi gặp được hai sao Thiếu dương sáng suốt, và Hồng loan từ thiện, đạo đức nên cũng đỡ cô đơn'")
@@ -163,12 +170,12 @@ K("kl205_giap_kiep_khong", 205, "Giáp Kiếp, Không tàn tạ cuộc đời", 
 K("kl205_giap_hoa_linh", 205, "Giáp Hỏa, Linh mệt đứt hơi", "Hỏa Linh giáp Mệnh", "vất vả", "limit", [], None, heading="Bài thơ Liên Giáp", dup="TV_KL_STAR_MENH_HOA_LINH_GIAP")
 K("kl205_giap_nhat_nguyet", 205, "Giáp Nhật, giáp Nguyệt gặp thời lên hương", "Nhật Nguyệt giáp Mệnh", "gặp thời", "support", [], None, heading="Bài thơ Liên Giáp",
   dup="TV_KL_CUNG_MENH_GIAP_NHAT_NGUYET")
-K("kl205_giap_xuong_khuc", 205, "Giáp Khúc, Xương giỏi văn chương", "Văn Xương và Văn Khúc ở hai cung kề Mệnh", "giỏi văn chương", "support", ["exp.letters"], "rule",
-  heading="Bài thơ Liên Giáp", notes="KL p.215 (TV_KL_CUNG_MENH_GIAP_XUONG_KHUC) reads the same giáp as help from superiors; this line names the gift")
+K("kl205_giap_xuong_khuc", 205, "Giáp Khúc, Xương giỏi văn chương", "Văn Xương và Văn Khúc ở hai cung kề Mệnh", "giỏi văn chương", "support", ["exp.letters"], None,
+  heading="Bài thơ Liên Giáp", notes="KL p.215 (TV_KL_CUNG_MENH_GIAP_XUONG_KHUC) reads the same giáp as help from superiors; this line names the gift", dup="TV_TH_CACH_MENH_GIAP_XK")
 K("kl205_giap_thai_toa", 205, "Giáp Thai giáp Tọa nhẹ đường công danh", "Thai Tọa giáp Mệnh", "đường công danh nhẹ nhàng", "support", [], None, heading="Bài thơ Liên Giáp",
   dup="kl46_thai_toa_giap", notes="a second effect source of the cách Thai Tọa giáp Mệnh")
-K("kl205_giap_khoi_viet", 205, "Giáp Khôi Việt tên dành bảng hổ", "Thiên Khôi và Thiên Việt ở hai cung kề Mệnh", "thi cử đỗ đạt", "support", ["exp.letters"], "rule",
-  heading="Bài thơ Liên Giáp", notes="KL p.215 reads the same giáp as being held in esteem; this line names exams. The verified cách Khôi Việt giáp Mệnh also exists")
+K("kl205_giap_khoi_viet", 205, "Giáp Khôi Việt tên dành bảng hổ", "Thiên Khôi và Thiên Việt ở hai cung kề Mệnh", "thi cử đỗ đạt", "support", ["exp.letters"], None,
+  heading="Bài thơ Liên Giáp", notes="KL p.215 reads the same giáp as being held in esteem; this line names exams. The verified cách Khôi Việt giáp Mệnh also exists", dup="CACH_X_KHOI_VIET_GIAP_MENH")
 K("kl205_giap_sat_liem", 205, "Giáp Sát, Liêm chậm trễ, lỗi thời", "Sát Liêm giáp Mệnh", "chậm trễ", "limit", [], None, heading="Bài thơ Liên Giáp", dup="TV_KL_PHU2_LIEM_SAT_GIAP")
 K("kl205_giap_loc_khoa", 205, "Giáp Lộc Khoa sướng tuyệt vời", "Lộc Khoa giáp Mệnh", "sướng", "support", [], None, heading="Bài thơ Liên Giáp",
   skip="'Lộc' (Lộc Tồn or Hóa Lộc) is not settled; KL's own Khoa Lộc giáp rule (TV_KL_STAR_MENH_KHOA_LOC_GIAP) is draft for the same reason")

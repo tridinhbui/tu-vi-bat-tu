@@ -63,7 +63,7 @@ def test_mined_quotes_on_their_page():
 
 def test_every_rule_has_its_mined_quote():
     rules = [r for rs in PACKS.values() for r in rs]
-    assert len(rules) == len({r["id"] for r in rules}) >= 200
+    assert len(rules) == len({r["id"] for r in rules}) >= 175
     by_rule = {}
     for x in Q["quotes"]:
         by_rule.setdefault(x["rule"], []).append(x)
@@ -100,10 +100,14 @@ NAM, NU = {"chart.gender": "nam"}, {"chart.gender": "nữ"}
 
 
 def test_toan_thu_conditions():
-    # Nam Mệnh ca are for men (TT p.64), nữ mệnh ca for women
-    assert "TV_D3_TT69_TUONG_CA_QUYET" in fired([S("Thiên Tướng")], chart=NAM)
-    assert "TV_D3_TT69_TUONG_CA_QUYET" not in fired([S("Thiên Tướng")], chart=NU)
-    assert "TV_D3_TT113_TUONG_NU_THONG_MINH" in fired([S("Thiên Tướng")], chart=NU)
+    # Nam Mệnh ca are for men (TT p.64), nữ mệnh ca for women; TT p.148 splits one phá cách by sex
+    assert "TV_D3_TT148_PHA_THAN_NAM" in fired([S("Cự Môn")], menh="Thân", chart=NAM)
+    assert "TV_D3_TT148_PHA_THAN_NAM" not in fired([S("Cự Môn")], menh="Thân", chart=NU)
+    assert "TV_D3_TT148_PHA_THAN_NU" in fired([S("Cự Môn")], menh="Thân", chart=NU)
+    assert "TV_D3_TT118_CO_CU_NU" in fired([S("Thiên Cơ"), S("Cự Môn")], menh="Mão", chart=NU)
+    assert "TV_D3_TT118_CO_CU_NU" not in fired([S("Thiên Cơ"), S("Cự Môn")], menh="Mão", chart=NAM)
+    # one-star traits dropped after review keep their reason
+    assert "Barnum" in Q["skipped"]["tt69_tuong_ca_quyet"]
     # a group of sát ('Hỏa Linh Dương Đà') needs two of them in the tam phương
     assert "TV_D3_TT67_PHU_BON_SAT" not in fired([S("Thiên Phủ"), S("Kình Dương", "Thiên Di")], chart=NAM)
     assert "TV_D3_TT67_PHU_BON_SAT" in fired([S("Thiên Phủ"), S("Kình Dương", "Thiên Di"), S("Hỏa Tinh", "Quan Lộc")], chart=NAM)
@@ -191,10 +195,37 @@ def test_kg_sources_are_mined_entries():
     assert len(sc["topics"]) >= 25
     for t in sc["topics"]:
         assert t["sides"] and t["note"], t["id"]
-        assert len(t["sides"]) >= 2 or t["kind"] == "y_kien", t["id"]
+        assert len(t["sides"]) >= 2 or t["subkind"] == "y_kien", t["id"]
+        assert t["kind"] in ("dignity", "hoa", "cach", "reading"), t["id"]
         for s in t["sides"]:
             assert s["school"] in sc["schools"] and s["statement"], t["id"]
             check([s], t["id"])
+
+
+def test_reader_shapes():
+    """che_hoa.relations / combos.combos / schools in the field names reason/argue.ts reads; each quote is its mined entry's"""
+    ch, cb = KG["che_hoa"], KG["combos"]
+    assert all(KG[n]["version"] == "1.0.0" for n in ("che_hoa", "combos", "schools"))
+    ids = {x["id"] for x in ch["entries"]}
+    assert set(ch["relations_left_out"]) <= ids
+    assert len(ch["relations"]) == len(ch["entries"]) - len(ch["relations_left_out"])
+    by_entry = {x["id"]: x for x in ch["entries"]}
+    for r in ch["relations"]:
+        assert r["scope"] in ("dong_cung", "tam_phuong", "any") and r["effect"] in ("giam", "hoa_giai", "dao_nguoc", "che", "tang"), r["id"]
+        assert r["tamer"] and r["tamed"] and r["text"] and r["reviewStatus"] == "verified", r["id"]
+        assert all(s in STARS or s == "*" or s.startswith("@") for s in r["tamer"] + r["tamed"]), r["id"]
+        src0 = by_entry[r["entry"]]["sources"][0]
+        assert (r["book"], r["page"], r["quote"]) == (src0["book"], src0["page"], src0["quote"]), r["id"]
+    used = {s["mined"] for x in ch["entries"] for s in x["sources"]}  # every Tuần / Triệt line of KL p.204
+    assert {"kl204_menh_triet", "kl204_menh_tuan", "kl204_tuan_triet_cung_cho", "kl204_chinh_tinh_ham_can_tt", "kl204_dac_dia_tt_pha_hu",
+            "kl204_dai_van_tt_thao_go"} <= used
+    for c in cb["combos"]:
+        assert c["scope"] in ("dong_cung", "xung", "tam_phuong") and c["pol"] in ("+", "-", "±") and c["dignity"] in (None, "bright", "ham"), c["id"]
+        assert c["stars"] and all(s in STARS for s in c["stars"]) and c["reading"], c["id"]
+        assert any(c["quote"] == MINED[k]["quote"] and MINED[k]["page"] == c["page"] for k in MINED), c["id"]
+        for m in c["modifiers"]:
+            assert m["pol"] in ("+", "-") and any(m["quote"] == MINED[k]["quote"] for k in MINED), c["id"]
+    assert set(KG["schools"]["schools"]) == {"KL", "TH", "TT", "ZWDS_HAN", "TVNL"}
 
 
 def test_th_additions():

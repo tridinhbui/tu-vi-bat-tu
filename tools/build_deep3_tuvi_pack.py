@@ -259,7 +259,6 @@ tt("tt142_quan_than_khanh_hoi", MENH, [*M("Tử Vi"), S("Tả Phụ"), S("Hữu 
    "Tử Vi, Tả Hữu cùng ở Mệnh, Vũ Khúc, Thiên Tướng chiếu", "support", [("career.status", A), ("social.support", A)], kind="+")
 tt("tt142_hinh_tu_hiep_an", MENH, [*M("Thiên Tướng", "Liêm Trinh"), S("Thiên Hình")], "cách Hình tù hiệp ấn, quý về võ nghiệp", "Thiên Tướng thủ Mệnh có Thiên Hình, Liêm Trinh",
    "support", [("exp.martial", A), ("career.status", A)], kind="+")
-tt("tt142_khoa_quyen_loc_cung", MENH, TH3, "cách Khoa Quyền Lộc củng, một quý cách", "Khoa, Quyền, Lộc đủ ba chiếu thủ Mệnh", "support", [("career.status", A)], kind="+")
 tt("tt143_quan_tu_tai_da", MENH, [atleast(2, *[S(s) for s in SAT4]), anyof(*[allof(has(OWNM, s), TTD(s, ["hãm"])) for s in MAJORS])],
    "cách Quân tử tại dã, một bần tiện cách: như người quân tử phải lang thang", "Mệnh có Tứ Sát, chính tinh hãm", "limit", [("life.hardship", A)], kind="-")
 tt("tt143_nhat_sinh_co_ban", MENH, [*M("Phá Quân"), TTD("Phá Quân", ["hãm"])], "cách Nhất sinh cô bần, một bần tiện cách", "Phá Quân hãm thủ Mệnh", "limit",
@@ -312,30 +311,28 @@ kl("kl47_khong_kiep_ty_hoi", MENH, [br("Tỵ", "Hợi"), S("Địa Không"), S("
 pair_in = lambda f: allof(has(f, "Thiên Không"), has(f, "Đào Hoa"))
 kl("kl47_dao_hoa_thien_khong", MENH, [anyof(pair_in(OWN), pair_in("palace.rel.trine1_stars"), pair_in("palace.rel.trine2_stars"))],
    "cách Đào hoa Thiên không, một kỳ cách: có danh thì nghèo, lên voi xuống chó", "Thiên Không, Đào Hoa ở Mệnh hoặc tam hợp chiếu", "limit", [("fin.volatile", A)], kind="-")
-kl("kl202_khoc_hu_ty_ngo", MENH, [br("Tý", "Ngọ"), S("Thiên Khốc"), S("Thiên Hư")], "trước nghèo sau giàu, trước trở ngại sau mới thành", "Khốc Hư ở Mệnh tại Tý, Ngọ", "support",
-   [("life.late_bloom", A)])
+kl("kl202_khoc_hu_ty_ngo", MENH, [br("Tý", "Ngọ"), S("Thiên Khốc"), S("Thiên Hư")], "cách Khốc Hư Tý Ngọ: thuở đầu chưa thuận, về sau mới thành và khá lên", "Khốc Hư ở Mệnh tại Tý, Ngọ", "support",
+   [("life.late_bloom", A)], kind="+")
 # Đại Hao and Tiểu Hao always face each other (Lộc Tồn ring +9 / +3): 'Song Hao ở X' is the pair on X's axis, one of them in X
 SH = [anyS("Đại Hao", "Tiểu Hao")]
-kl("kl203_song_hao_menh", MENH, [*SH, nt(br("Dần", "Thân", "Mão", "Dậu"))], "hao tán, hay thay đổi công việc", "Song Hao ở Mệnh (một Hao ở Mệnh, một ở Thiên Di), ngoài Dần Thân Mão Dậu", "limit",
-   [("fin.volatile", A)])
-kl("kl203_song_hao_dan_than_mao_dau", MENH, [*SH, br("Dần", "Thân", "Mão", "Dậu")], "hoạnh phá nhưng cũng hoạnh phát", "Song Hao ở Mệnh tại Dần, Thân, Mão, Dậu", "support",
-   [("fin.windfall", A), ("fin.volatile", A)])
+kl("kl203_song_hao_menh", MENH, [*SH, nt(br("Dần", "Thân", "Mão", "Dậu"))], "cách Song Hao ở Mệnh: hao tán, hay thay đổi công việc", "Song Hao ở Mệnh, một Hao ở Mệnh, một ở Thiên Di, ngoài Dần Thân Mão Dậu", "limit",
+   [("fin.volatile", A)], kind="-")
+kl("kl203_song_hao_dan_than_mao_dau", MENH, [*SH, br("Dần", "Thân", "Mão", "Dậu")], "cách Song Hao Dần Thân Mão Dậu: hoạnh phá nhưng cũng hoạnh phát", "Song Hao ở Mệnh tại Dần, Thân, Mão, Dậu", "support",
+   [("fin.windfall", A), ("fin.volatile", A)], kind="+")
 SH_MIEU = anyof(allof(S("Đại Hao"), dig("khao_luan", "Đại Hao", ["miếu"])), allof(S("Tiểu Hao"), dig("khao_luan", "Tiểu Hao", ["miếu"])))
 kl("kl203_song_hao_tai_mieu", "Tài Bạch", [*SH, SH_MIEU], "tiền bạc hoạnh phá, hoạnh phát", "Song Hao miếu địa ở Tài Bạch", "support", [("fin.windfall", A), ("fin.volatile", A)])
 kl("kl203_song_hao_tai_khong_cu", "Tài Bạch", [*SH, nt(has(OWNM, "Cự Môn")), nt(SH_MIEU)], "tiền bạc chỉ có hao tán", "Song Hao ở Tài Bạch không có Cự Môn đồng cung",
    "limit", [("fin.volatile", A)])
-kl("kl203_tuan_triet_mieu", MENH, [anyof(allof(TRIET, br("Thân", "Dậu")), allof(TUAN, br("Dần", "Mão")))], "Tuần Triệt ở miếu địa của chúng, Mệnh lại khá",
-   "Triệt ở Mệnh tại Thân, Dậu hoặc Tuần ở Mệnh tại Dần, Mão", "support", [("life.mitigated", A)])
+kl("kl203_tuan_triet_mieu", MENH, [anyof(allof(TRIET, br("Thân", "Dậu")), allof(TUAN, br("Dần", "Mão")))], "cách Tuần Triệt miếu địa: Mệnh lại khá",
+   "Triệt ở Mệnh tại Thân, Dậu hoặc Tuần ở Mệnh tại Dần, Mão", "support", [("life.mitigated", A)], kind="+")
 kl("kl204_menh_triet", MENH, [TRIET], "thuở nhỏ chịu nhiều khó khăn", "Mệnh gặp Triệt", "limit", [("life.early_hardship", A)])
 kl("kl204_menh_tuan", MENH, [TUAN], "luôn bị kìm hãm, trục trặc ngay khi bắt tay vào việc", "Mệnh gặp Tuần", "limit", [("career.obstacle", A)])
 kl("kl204_vcd_khong_kiep", MENH, [VCD, br("Dần", "Thân", "Tỵ", "Hợi"), anyof(allof(S("Địa Không"), S("Địa Kiếp")), allof(has(OPP, "Địa Không"), has(OPP, "Địa Kiếp")))],
    "làm việc liều mạng, bất chấp hiểm nguy, tìm đường sống trong chỗ chết", "Mệnh vô chính diệu ở Dần Thân Tỵ Hợi có Không Kiếp đồng cung hay xung chiếu", "limit",
    [("temper.reckless", A)])
-kl("kl205_giap_long_phuong", MENH, [giap("Long Trì", "Phượng Các")], "vinh quang", "Long Trì, Phượng Các giáp Mệnh", "support", [("career.fame", A)])
-kl("kl205_giap_kinh_da", MENH, [giap("Kình Dương", "Đà La")], "gian nan vất vả", "Kình Dương, Đà La giáp Mệnh", "limit", [("life.hardship", A)])
-kl("kl205_giap_kiep_khong", MENH, [giap("Địa Không", "Địa Kiếp")], "cuộc đời dễ tàn tạ", "Địa Không, Địa Kiếp giáp Mệnh", "limit", [("life.hardship", A)])
-kl("kl205_giap_xuong_khuc", MENH, [giap("Văn Xương", "Văn Khúc")], "giỏi văn chương", "Văn Xương, Văn Khúc giáp Mệnh", "support", [("exp.letters", A)])
-kl("kl205_giap_khoi_viet", MENH, [giap("Thiên Khôi", "Thiên Việt")], "thi cử đỗ đạt", "Thiên Khôi, Thiên Việt giáp Mệnh", "support", [("exp.letters", A)])
+kl("kl205_giap_long_phuong", MENH, [giap("Long Trì", "Phượng Các")], "cách Long Phượng giáp Mệnh: vinh quang", "Long Trì, Phượng Các giáp Mệnh", "support", [("career.fame", A)], kind="+")
+kl("kl205_giap_kinh_da", MENH, [giap("Kình Dương", "Đà La")], "cách Kình Đà giáp Mệnh: gian nan vất vả", "Kình Dương, Đà La giáp Mệnh", "limit", [("life.hardship", A)], kind="-")
+kl("kl205_giap_kiep_khong", MENH, [giap("Địa Không", "Địa Kiếp")], "cách Không Kiếp giáp Mệnh: cuộc đời dễ tàn tạ", "Địa Không, Địa Kiếp giáp Mệnh", "limit", [("life.hardship", A)], kind="-")
 kl("kl206_vcd_ta_huu_nhat_nguyet", MENH, [VCD, S("Tả Phụ"), S("Hữu Bật"), T("Thái Dương"), T("Thái Âm"), TPR("Thái Dương", "gte", 2), TPR("Thái Âm", "gte", 2)],
    "thông minh tài giỏi, được mọi người kính phục", "Mệnh vô chính diệu có Tả Hữu đồng cung, Nhật Nguyệt đắc địa hợp chiếu", "support", [("cog.sharp", A), ("social.support", A)])
 kl("kl206_vcd_sat_dac_tam_hoa", MENH, [VCD, anyof(*[allof(S(s), RANK(s, "gte", 2)) for s in SAT6]), *TH3], "mở mày mở mặt với đời",
@@ -374,47 +371,47 @@ qs("w2_tu_ta_phu_sat", TU, [S("Tả Phụ"), anyof(anyM("Phá Quân", "Thất S�
 qs("w2_tu_huu_bat_cat", TU, [S("Hữu Bật"), anyS("Tả Phụ", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt")], "có con quý hiển", "Hữu Bật ở Tử Tức thêm cát tinh", "support",
    [("kin.talented", A)])
 qs("w2_tu_khoi_viet", TU, [VCD, anyS("Thiên Khôi", "Thiên Việt")], "có con quý hiển", "Khôi hoặc Việt đơn thủ Tử Tức", "support", [("kin.talented", A)])
-qs("w2_no_tu_vi", NO, M("Tử Vi"), "người dưới đắc lực", "Tử Vi ở Nô Bộc", "support", [("ally.helpful", A)])
-qs("w2_no_tu_vi_sat", NO, [*M("Tử Vi"), anyS("Kình Dương", "Hỏa Tinh", "Linh Tinh", "Đà La")], "người dưới kém đắc lực", "Tử Vi ở Nô Bộc gặp Kình, Đà, Hỏa, Linh", "limit",
+qs("w2_no_tu_vi", NO, M("Tử Vi"), "người dưới giúp được việc", "Tử Vi ở Nô Bộc", "support", [("ally.helpful", A)])
+qs("w2_no_tu_vi_sat", NO, [*M("Tử Vi"), anyS("Kình Dương", "Hỏa Tinh", "Linh Tinh", "Đà La")], "người dưới ít giúp được việc", "Tử Vi ở Nô Bộc gặp Kình, Đà, Hỏa, Linh", "limit",
    [("ally.weak", A)])
 qs("w2_no_tu_tuong_kk", NO, [*M("Tử Vi", "Thiên Tướng"), anyS("Địa Không", "Địa Kiếp")], "người dưới sinh oán rồi bỏ đi", "Tử Tướng ở Nô Bộc gặp Không Kiếp", "limit",
    [("ally.resent", A), ("ally.fickle", A)])
-qs("w2_no_co_mieu", NO, mm("Thiên Cơ", "miếu"), "người dưới đắc lực", "Thiên Cơ miếu ở Nô Bộc", "support", [("ally.helpful", A)])
+qs("w2_no_co_mieu", NO, mm("Thiên Cơ", "miếu"), "người dưới giúp được việc", "Thiên Cơ miếu ở Nô Bộc", "support", [("ally.helpful", A)])
 qs("w2_no_co_ham", NO, mm("Thiên Cơ", "hãm"), "người dưới oán chủ", "Thiên Cơ hãm ở Nô Bộc", "limit", [("ally.resent", A)])
-qs("w2_no_nhat_mieu", NO, mm("Thái Dương", "miếu"), "người dưới giúp chủ phát đạt", "Thái Dương miếu ở Nô Bộc", "support", [("ally.helpful", A)])
+qs("w2_no_nhat_mieu", NO, mm("Thái Dương", "miếu"), "người dưới làm được việc, chủ nhờ đó phát đạt", "Thái Dương miếu ở Nô Bộc", "support", [("ally.helpful", A)])
 qs("w2_no_nhat_ham", NO, mm("Thái Dương", "hãm"), "ít người dưới, có cũng oán chủ và bỏ đi", "Thái Dương hãm ở Nô Bộc", "limit", [("ally.resent", A), ("ally.fickle", A)])
 qs("w2_no_vu_vuong", NO, mm("Vũ Khúc", "miếu", "vượng"), "người dưới đông, một tiếng gọi trăm người dạ", "Vũ Khúc miếu, vượng ở Nô Bộc", "support", [("ally.many", A)])
 qs("w2_no_vu_phu", NO, M("Vũ Khúc", "Thiên Phủ"), "nhiều người giúp việc", "Vũ Khúc, Thiên Phủ ở Nô Bộc", "support", [("ally.many", A)])
 qs("w2_no_vu_pha", NO, M("Vũ Khúc", "Phá Quân"), "người dưới sinh oán, bỏ đi", "Vũ Khúc, Phá Quân ở Nô Bộc", "limit", [("ally.resent", A), ("ally.fickle", A)])
 qs("w2_no_vu_sat", NO, M("Vũ Khúc", "Thất Sát"), "người dưới phản chủ", "Vũ Khúc, Thất Sát ở Nô Bộc", "limit", [("ally.disloyal", A)])
-qs("w2_no_vu_tham", NO, M("Vũ Khúc", "Tham Lang"), "người dưới kém đắc lực", "Vũ Khúc, Tham Lang ở Nô Bộc", "limit", [("ally.weak", A)])
-qs("w2_no_dong", NO, M("Thiên Đồng"), "người dưới đắc lực", "Thiên Đồng ở Nô Bộc", "support", [("ally.helpful", A)])
+qs("w2_no_vu_tham", NO, M("Vũ Khúc", "Tham Lang"), "người dưới ít giúp được việc", "Vũ Khúc, Tham Lang ở Nô Bộc", "limit", [("ally.weak", A)])
+qs("w2_no_dong", NO, M("Thiên Đồng"), "người dưới giúp được việc", "Thiên Đồng ở Nô Bộc", "support", [("ally.helpful", A)])
 qs("w2_no_dong_sat", NO, [*M("Thiên Đồng"), anyS(*SAT4)], "có người dưới phản chủ", "Thiên Đồng ở Nô Bộc gặp Kình, Đà, Hỏa, Linh", "limit", [("ally.disloyal", A)])
 qs("w2_no_liem_ham", NO, mm("Liêm Trinh", "hãm"), "người dưới phản chủ", "Liêm Trinh hãm ở Nô Bộc", "limit", [("ally.disloyal", A)])
 qs("w2_no_liem_mieu", NO, mm("Liêm Trinh", "miếu"), "người dưới đông, một tiếng gọi trăm người dạ", "Liêm Trinh miếu ở Nô Bộc", "support", [("ally.many", A)])
-qs("w2_no_phu", NO, M("Thiên Phủ"), "người dưới đắc lực, đông người theo", "Thiên Phủ ở Nô Bộc", "support", [("ally.helpful", A), ("ally.many", A)])
+qs("w2_no_phu", NO, M("Thiên Phủ"), "người dưới giúp được việc, đông người theo", "Thiên Phủ ở Nô Bộc", "support", [("ally.helpful", A), ("ally.many", A)])
 qs("w2_no_phu_sat", NO, [*M("Thiên Phủ"), any6()], "người dưới hay phản chủ, bỏ đi", "Thiên Phủ ở Nô Bộc gặp sát tinh", "limit", [("ally.disloyal", A)])
-qs("w2_no_am_mieu", NO, mm("Thái Âm", "miếu"), "người dưới đắc lực", "Thái Âm miếu ở Nô Bộc", "support", [("ally.helpful", A)])
+qs("w2_no_am_mieu", NO, mm("Thái Âm", "miếu"), "người dưới giúp được việc", "Thái Âm miếu ở Nô Bộc", "support", [("ally.helpful", A)])
 qs("w2_no_am_ham", NO, mm("Thái Âm", "hãm"), "ít người dưới", "Thái Âm hãm ở Nô Bộc", "limit", [("ally.few", A)])
 qs("w2_no_tham", NO, M("Tham Lang"), "dễ gặp người dưới làm hại chủ", "Tham Lang ở Nô Bộc", "limit", [("ally.drain", A)])
 qs("w2_no_cu_mieu", NO, mm("Cự Môn", "miếu"), "người dưới gây thị phi, không ở lâu", "Cự Môn miếu ở Nô Bộc", "limit", [("ally.dispute", A), ("ally.fickle", A)])
 qs("w2_no_tuong_vu", NO, M("Thiên Tướng", "Vũ Khúc"), "người dưới oán chủ", "Thiên Tướng, Vũ Khúc ở Nô Bộc", "limit", [("ally.resent", A)])
 qs("w2_no_tuong_tu", NO, M("Thiên Tướng", "Tử Vi"), "nhiều người giúp việc", "Thiên Tướng, Tử Vi ở Nô Bộc", "support", [("ally.many", A)])
-qs("w2_no_luong", NO, M("Thiên Lương"), "người dưới đông, giúp chủ thịnh", "Thiên Lương ở Nô Bộc", "support", [("ally.many", A), ("ally.helpful", A)])
+qs("w2_no_luong", NO, M("Thiên Lương"), "người dưới đông, chủ nhờ đó thịnh", "Thiên Lương ở Nô Bộc", "support", [("ally.many", A), ("ally.helpful", A)])
 qs("w2_no_luong_co", NO, M("Thiên Lương", "Thiên Cơ"), "người dưới không một lòng", "Thiên Lương, Thiên Cơ ở Nô Bộc", "limit", [("ally.fickle", A)])
 qs("w2_no_that_sat", NO, M("Thất Sát"), "người dưới cứng đầu, lấn chủ, hay lấy của", "Thất Sát ở Nô Bộc", "limit", [("ally.overstep", A), ("ally.disloyal", A)])
-qs("w2_no_pha_mieu", NO, mm("Phá Quân", "miếu"), "người dưới đắc lực", "Phá Quân miếu ở Nô Bộc", "support", [("ally.helpful", A)])
+qs("w2_no_pha_mieu", NO, mm("Phá Quân", "miếu"), "người dưới giúp được việc", "Phá Quân miếu ở Nô Bộc", "support", [("ally.helpful", A)])
 qs("w2_no_pha_ham", NO, mm("Phá Quân", "hãm"), "người dưới oán và phản chủ", "Phá Quân hãm ở Nô Bộc", "limit", [("ally.resent", A), ("ally.disloyal", A)])
-qs("w2_no_xuong_doc", NO, [VCD, S("Văn Xương"), TTD("Văn Xương", ["miếu"])], "người dưới đắc lực, giúp chủ", "Văn Xương miếu đơn thủ Nô Bộc", "support", [("ally.helpful", A)])
-qs("w2_no_khuc_mieu", NO, [S("Văn Khúc"), TTD("Văn Khúc", ["miếu"])], "người dưới đắc lực", "Văn Khúc miếu ở Nô Bộc", "support", [("ally.helpful", A)])
+qs("w2_no_xuong_doc", NO, [VCD, S("Văn Xương"), TTD("Văn Xương", ["miếu"])], "người dưới giúp được việc, đỡ đần cho chủ", "Văn Xương miếu đơn thủ Nô Bộc", "support", [("ally.helpful", A)])
+qs("w2_no_khuc_mieu", NO, [S("Văn Khúc"), TTD("Văn Khúc", ["miếu"])], "người dưới giúp được việc", "Văn Khúc miếu ở Nô Bộc", "support", [("ally.helpful", A)])
 qs("w2_no_ta_doc", NO, [VCD, S("Tả Phụ")], "người dưới đông, một tiếng gọi trăm người dạ", "Tả Phụ đơn thủ Nô Bộc", "support", [("ally.many", A)])
 qs("w2_no_huu_doc", NO, [VCD, S("Hữu Bật")], "người dưới đông", "Hữu Bật đơn thủ Nô Bộc", "support", [("ally.many", A)])
 qs("w2_no_ta_huu_sat", NO, [anyS("Tả Phụ", "Hữu Bật"), any6()], "người dưới phản chủ, lấy của mà đi", "Tả Phụ hoặc Hữu Bật ở Nô Bộc gặp sát tinh", "limit", [("ally.disloyal", A)])
 qs("w2_no_loc_ton", NO, [S("Lộc Tồn")], "nhiều người giúp việc", "Lộc Tồn ở Nô Bộc", "support", [("ally.many", A)])
-qs("w2_no_kinh", NO, [S("Kình Dương")], "người dưới oán và phản chủ, không đắc lực", "Kình Dương ở Nô Bộc", "limit", [("ally.disloyal", A), ("ally.resent", A)])
-qs("w2_no_da", NO, [S("Đà La")], "người dưới kém đắc lực, oán chủ", "Đà La ở Nô Bộc", "limit", [("ally.weak", A), ("ally.resent", A)])
-qs("w2_no_hoa_doc", NO, [VCD, S("Hỏa Tinh")], "người dưới oán chủ, không đắc lực", "Hỏa Tinh đơn thủ Nô Bộc", "limit", [("ally.resent", A)])
-qs("w2_no_linh_doc", NO, [VCD, S("Linh Tinh")], "người dưới không đắc lực", "Linh Tinh đơn thủ Nô Bộc", "limit", [("ally.weak", A)])
+qs("w2_no_kinh", NO, [S("Kình Dương")], "người dưới oán và phản chủ, ít giúp được việc", "Kình Dương ở Nô Bộc", "limit", [("ally.disloyal", A), ("ally.resent", A)])
+qs("w2_no_da", NO, [S("Đà La")], "người dưới ít giúp được việc, oán chủ", "Đà La ở Nô Bộc", "limit", [("ally.weak", A), ("ally.resent", A)])
+qs("w2_no_hoa_doc", NO, [VCD, S("Hỏa Tinh")], "người dưới oán chủ, ít giúp được việc", "Hỏa Tinh đơn thủ Nô Bộc", "limit", [("ally.resent", A)])
+qs("w2_no_linh_doc", NO, [VCD, S("Linh Tinh")], "người dưới ít giúp được việc", "Linh Tinh đơn thủ Nô Bộc", "limit", [("ally.weak", A)])
 qs("w2_pm_khoi_viet", PM, [anyS("Thiên Khôi", "Thiên Việt")], "cha mẹ vinh hiển", "Thiên Khôi hoặc Thiên Việt ở Phụ Mẫu", "support", [("parents.prosper", A)])
 qs("w2_pm_huu_bat", PM, [VCD, S("Hữu Bật"), anyS("Tả Phụ", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt")], "được cha mẹ che chở",
    "Hữu Bật đơn thủ Phụ Mẫu thêm cát tinh", "support", [("fortune.protected", A)])
@@ -433,7 +430,7 @@ PACK_INFO = {
     "pack_khao_luan_cach.json": ("SRC_KHAO_LUAN", "Tử Vi Khảo Luận", "KL"),
     "pack_toan_thu_han_van.json": ("SRC_TOAN_THU_HAN", "紫微斗數全書 (Toàn Thư Hán văn)", "TTH"),
 }
-HEAD = {"tt": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), {h}", "kl": "Tử Vi Khảo Luận, {h}", "web": "紫微斗數全書 (Toàn Thư Hán văn, quyển 2), {h}"}
+HEAD = {"tt": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), {h}", "kl": "Tử Vi Khảo Luận, {h}", "web": "Toàn Thư Hán văn, {h}"}
 SRC_TTH = {"id": "SRC_TOAN_THU_HAN", "title": "紫微斗數全書 (Tử Vi Đẩu Số Toàn Thư, Hán văn)", "author": "La Hồng Tiên biên / Hi Di Trần Đoàn",
            "edition": "zh.wikisource, bản chép điện tử; ảnh chụp lưu trong engine/data/sources_web (卷一 rev 7913704, 卷二 rev 1963110), lấy ngày 2026-10-24",
            "locator": "theo quyển và mục (không có trang): 'TTH 2 八奴仆'", "verified": True,
@@ -447,7 +444,43 @@ def cite(e):
     return f"{e['book']} p.{e['page']}"
 
 
+# the 12-cung hợp cách / phá cách verses (TT pp.143-149) are cách: formation rules told in the Cách cục chapter, with no concept of their own, so
+# that a Mệnh-branch verse does not speak as a trait of the person in the Mệnh chapter
+CACH_BY_BRANCH = ("tt143_hop_", "tt144_hop_", "tt145_hop_", "tt147_pha_", "tt148_pha_", "tt149_tham_hoa_loc")
+
+
+ABSOLUTE = ("chắc chắn", "nhất định", "suốt đời", "trọn đời", "không bao giờ", "luôn luôn", "tuyệt đối", "định mệnh")   # prose/lint.ts
+
+
+def _plain(t):
+    """the reader's text never states an absolute (prose/lint.ts ABSOLUTE): 'suốt đời' etc. are the book's emphasis, kept in the quote"""
+    for w in ABSOLUTE:
+        t = t.replace(w + " ", "").replace(w, "")
+    return t.strip(" ,")
+
+
+def _as_cach(x):
+    """a formation rule's reading is 'cách <name> (<condition>: <effect>)', as the Thực Hành cách rules: the narrative takes the name before the
+    parenthesis and the condition inside it"""
+    pack, mid, pal, conds, claim, cond_vi, effect, ls, kind, also = x
+    if mid.startswith(CACH_BY_BRANCH):
+        head = MINED[mid]["heading"]                  # 'Hợp cách: Mệnh tại Tí', 'Phá cách: Mệnh tại Tị', 'Thất hãm bần tiện luận'
+        name = ("đắc địa của " if head.startswith("Hợp") else "thất hãm của ") + head.split(": ", 1)[1].replace("tại", "ở") if ": " in head \
+            else "thất hãm Tham Lang hóa Lộc ở Tứ mộ"
+        body = claim.split(": ", 1)[1] if claim.startswith(("phá cách:", "hợp cách:")) else claim
+        kind = "+" if effect == "support" else "-"
+    elif kind:
+        name = claim[len("cách "):].split(":")[0].split(",")[0].strip()
+        body = claim.split(": ", 1)[1] if ": " in claim else claim.split(", ", 1)[-1]
+    else:
+        return pack, mid, pal, conds, _plain(claim), cond_vi, effect, ls, kind, also
+    return pack, mid, pal, conds, f"cách {name}", f"{cond_vi}: {_plain(body)}", effect, [], kind, also
+
+
 def main():
+    global R
+    dropped = [x[1] for x in R if MINED[x[1]].get("skip")]      # reviewed after the pack was first built: kept out with the mined entry's reason
+    R = [_as_cach(x) for x in R if not MINED[x[1]].get("skip")]
     packs = {k: [] for k in PACK_INFO}
     claims, links, quotes, rel = {}, {}, [], []
     used = set()
@@ -471,8 +504,8 @@ def main():
         if effect == "limit":
             claims["limit:" + cl] = f"hạn chế: {claim} ({cond_vi})"
         ent = {"asserts": [{"concept": c, "stance": s} for c, s in ls], "src": "manual", "review": "draft"}
-        if kind:
-            ent = {"kind": "formation", "pol": kind, **ent}
+        if kind:                                  # a cách: told in the Cách cục chapter, no concept of its own (as the Thực Hành cách rules)
+            ent = {"kind": "formation", "pol": kind, "asserts": [], "src": "manual", "review": "draft"}
         links[rid] = ent
         for x in [mid] + also:
             m = MINED[x]
@@ -505,7 +538,7 @@ def main():
     rm = json.loads((D / "kg" / "relations.manual.json").read_text("utf-8"))
     rm["relations"] = [x for x in rm["relations"] if not x["id"].startswith("REL_D3_")] + rel
     (D / "kg" / "relations.manual.json").write_text(json.dumps(rm, ensure_ascii=False, indent=1), "utf-8")
-    print({k: len(v) for k, v in packs.items()}, "relations", len(rel), "not made a rule (reported):", unused)
+    print({k: len(v) for k, v in packs.items()}, "relations", len(rel), "not made a rule (reported):", unused, "| dropped after review:", len(dropped))
 
 
 if __name__ == "__main__":
