@@ -2,7 +2,8 @@
 
 The tuviglobal PDFs carry a VNI-Windows text layer ("TÖÛ VI KHAÛO LUAÄN"); `decode` turns it into Unicode so quotes can be
 checked against the printed page. Pages whose text layer is scanned/garbled must be read as images (see `render`).
-Books are NOT part of the repository: they are looked up in $TVBT_BOOKS_DIR (default ~/Downloads) and every consumer must
+Saved web snapshots of public-domain classical texts (engine/data/sources_web/, owner decision 2026-10-24) are checked with book='WEB:<id>'
+and the chapter title in place of the page. Books are NOT part of the repository: they are looked up in $TVBT_BOOKS_DIR (default ~/Downloads) and every consumer must
 cope with their absence (tests skip).  Printed page number = PDF index + 1 (checked on all three books)."""
 from __future__ import annotations
 
@@ -71,5 +72,25 @@ def norm(s: str) -> str:
     return re.sub(r"[\"“”'’.,;:!?()\-–—]", "", s).replace("  ", " ").strip()
 
 
-def quote_on_page(book: str, page: int, quote: str) -> bool:
+WEB_DIR = Path(__file__).resolve().parent.parent / "engine" / "data" / "sources_web"
+
+
+@lru_cache(maxsize=None)
+def _web(src_id: str) -> dict:
+    """a saved snapshot of a public-domain web text (engine/data/sources_web/<file>.json, listed in index.json): {chapter title: text}"""
+    import json
+    idx = {e["id"]: e for e in json.loads((WEB_DIR / "index.json").read_text("utf-8"))}
+    d = json.loads((WEB_DIR / idx[src_id]["file"]).read_text("utf-8"))
+    return {c["chapter"]: c["text"] for c in d["chapters"]}
+
+
+def web_text(src_id: str, chapter: str) -> str:
+    return _web(src_id)[chapter]
+
+
+def quote_on_page(book: str, page, quote: str) -> bool:
+    """book KL / TH / TT with a printed page number, or 'WEB:<id>' (a saved web snapshot, DEEP-3 2026-10-24) with the chapter title as page:
+    such a quote is labelled with its chapter, not a page"""
+    if book.startswith("WEB:"):
+        return norm(quote) in norm(web_text(book[4:], page))
     return norm(quote) in norm(page_text(book, page))

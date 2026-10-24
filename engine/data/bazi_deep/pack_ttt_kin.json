@@ -8,6 +8,15 @@
    "verified": true,
    "edition": null,
    "note": "Đọc trực tiếp lớp chữ của bản PDF (Claude, 2026-10-23); mỗi luật giữ câu in nguyên văn trong quotes_ttt_kin.json, test đối chiếu với trang đã chép."
+  },
+  {
+   "id": "SRC_TTT_DEEP3",
+   "title": "Trích Thiên Tủy — Bát Cách, Thể Dụng, Nguyệt Lệnh, Trung Hòa, Thanh / Trọc, Chân / Giả thần, Con Cái, Hà Tri, Tài Đức, Nhàn Thần, Phản cục",
+   "author": "Lưu Bá Ôn / Nhậm Thiết Tiều",
+   "locator": "PDF pp.59-78, 101-112, 130-132, 143-148, 161-170, 183-201, 229-233 (text layer in data/bazi_deep/mined/)",
+   "verified": true,
+   "edition": null,
+   "note": "Đọc trực tiếp lớp chữ của bản PDF (Claude, DEEP-3, 2026-10-24); danh sách đầy đủ các câu đã đọc và lý do bỏ trong mined/rules_ttt_deep3.md."
   }
  ],
  "rules": [
@@ -2469,6 +2478,1651 @@
    "priority": 3,
    "sourceIds": [
     "SRC_TTT_P2_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT01",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.63: nhật chủ vượng, ấn thụ nhiều, cần phải lấy tài tinh làm dụng thần — lấy Tài làm dụng thần (nhật chủ vượng, Ấn nhiều)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt01",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT02",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.63: nhật chủ vượng, quan sát khinh, cũng lấy tài tinh làm dụng thần — lấy Tài làm dụng thần (nhật chủ vượng, Quan Sát nhẹ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.present",
+        "operator": "contains",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.nhuoc",
+        "operator": "contains",
+        "value": "QuanSat"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt02",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT03",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.63: Nhật chủ vượng, tỉ kiếp nhiều, gánh được tài tinh, lấy thực thương làm dụng thần — lấy Thực Thương làm dụng thần (nhật chủ vượng, Tỉ Kiếp nhiều, Tài có mặt mà không nhẹ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Ti"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.nhuoc",
+       "operator": "contains",
+       "value": "Tai"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt03",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT04",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.63: nhật chủ vượng, tỉ kiếp nhiều, mà tài tinh khinh, cũng lấy thực thương làm dụng thần — lấy Thực Thương làm dụng thần (nhật chủ vượng, Tỉ Kiếp nhiều, Tài nhẹ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Ti"
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.present",
+        "operator": "contains",
+        "value": "Tai"
+       },
+       {
+        "fact": "bazi.k.nhuoc",
+        "operator": "contains",
+        "value": "Tai"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt04",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT05",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.63: Nhật chủ vượng, quan tinh khinh, ấn thụ trọng điệp, lấy tài tinh làm dụng thần — lấy Tài làm dụng thần (nhật chủ vượng, Quan nhẹ, Ấn trùng điệp)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.present",
+        "operator": "contains",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.nhuoc",
+        "operator": "contains",
+        "value": "QuanSat"
+       }
+      ]
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt05",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT06",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.63: Nhật chủ nhược, thực thương nhiều, lấy ấn thụ làm dụng thần — lấy Ấn làm dụng thần (nhật chủ nhược, Thực Thương nhiều)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt06",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT07",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.63: nhật chủ nhược, tài tinh vượng, tất lấy tỉ kiếp làm dụng thần — lấy Tỉ Kiếp làm dụng thần (nhật chủ nhược, Tài vượng)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt07",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT08",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.109: Nói chung đắc thời đương lệnh, tứ trụ không có khắc chế, dụng thực thần thuận theo khí thế, tiết kỳ tinh anh — lấy Thực Thương làm dụng thần, thuận theo khí thế mà tiết (nhật chủ vượng, đắc lệnh tháng, tứ trụ không có Quan Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.month_group",
+      "value": "Ti"
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "QuanSat"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt08",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT09",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.188: trong cục Ấn thụ tuy vượng, trong trụ Tài tinh có khí, có thể dụng Tài phá Ấn vậy — lấy Tài phá Ấn (Ấn vượng mà Tài có khí)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.nhuoc",
+       "operator": "contains",
+       "value": "Tai"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt09",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DT10",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_yong",
+   "description": "Trích Thiên Tủy p.188: Mẫu từ diệt Tử, dẫu có Tài tinh mà vô khí, không thể lấy Tài tinh phá Ấn vậy — không lấy Tài phá Ấn được, phải thuận theo Ấn mà đi đất Tỉ Kiếp (Ấn vượng mà Tài yếu hoặc không có)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_dt10",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_HK01",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.143: không có hỉ thần mà dụng thần đắc lệnh hùng tráng, đại thế kiên cố, tứ trụ an hòa, dụng thần đứng cạnh, không tranh không đố, tức gặp kỵ thần cũng không hung hiểm — gốc vững: dù gặp chữ kỵ cũng khó thành hung hiểm (dụng thần nắm lệnh tháng và vượng)",
+   "conditions": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "Ti"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "Ti"
+       },
+       {
+        "fact": "bazi.k.vuong",
+        "operator": "contains",
+        "value": "Ti"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "ThucThuong"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "ThucThuong"
+       },
+       {
+        "fact": "bazi.k.vuong",
+        "operator": "contains",
+        "value": "ThucThuong"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "Tai"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "Tai"
+       },
+       {
+        "fact": "bazi.k.vuong",
+        "operator": "contains",
+        "value": "Tai"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.vuong",
+        "operator": "contains",
+        "value": "QuanSat"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "An"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "An"
+       },
+       {
+        "fact": "bazi.k.vuong",
+        "operator": "contains",
+        "value": "An"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_hk01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_HK02",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.143: Như nguyên cục không có hỷ thần, có kỵ thần (hoặc ám phục hoặc xuất hiện), hoặc đứng sát bên dụng thần — dễ gặp trắc trở khi vận, năm dẫn chữ kỵ lên (lá số không có chữ hỉ (ngoài dụng thần), mà chữ kỵ đứng sát dụng thần)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.hi_absent",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.ky_adj_yong",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_hk02",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_HK03",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.144: Tài Quan vô khí, dụng thần vô lực, chẳng qua không thể phát đạt được mà thôi, cũng không có hình hung vậy — khó phát đạt lớn, nhưng cũng không vì thế mà có hung họa (Tài và Quan Sát đều yếu, dụng thần cũng yếu)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.yong_weak",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_hk03",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_HK05",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.67: hỉ thần đắc lệnh thì cát lợi — cát lợi: chữ lá số cần nắm được lệnh tháng (chữ hỉ (hoặc dụng) nắm lệnh tháng)",
+   "conditions": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "bazi.k.hi",
+        "operator": "contains",
+        "value": "Ti"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "Ti"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.hi",
+        "operator": "contains",
+        "value": "ThucThuong"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "ThucThuong"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.hi",
+        "operator": "contains",
+        "value": "Tai"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "Tai"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.hi",
+        "operator": "contains",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "QuanSat"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.hi",
+        "operator": "contains",
+        "value": "An"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "An"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_hk05",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_HK06",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.101: hỉ thần nên đắc địa phùng sanh, cùng nhật chủ kề cận là cát lợi — chữ có lợi ở ngay bên mình, dễ được trợ lực (chữ hỉ (hoặc dụng) đứng kề nhật chủ, chữ kỵ không đứng kề)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.hi_near",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.ky_near",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_hk06",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_HK07",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.101: kỵ thần nên thất thế lâm tuyệt địa, cùng nhật chủ xa cách thì đẹp vậy — chữ bất lợi ở ngay bên mình, sức cản đến gần (chữ kỵ đứng kề nhật chủ, chữ hỉ không đứng kề)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.ky_near",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.hi_near",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_hk07",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_CT01",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.105: Nói nhật chủ có dụng thần, nắm lệnh tại đề cương, lại thấu xuất thiên can gọi là tụ đắc chân thần, cuộc đời phú quý hĩ — được 'chân thần': đời dễ phú quý (dụng thần nắm lệnh tháng lại lộ ra can)",
+   "conditions": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "Ti"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "Ti"
+       },
+       {
+        "fact": "bazi.k.trans",
+        "operator": "contains",
+        "value": "Ti"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "ThucThuong"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "ThucThuong"
+       },
+       {
+        "fact": "bazi.k.trans",
+        "operator": "contains",
+        "value": "ThucThuong"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "Tai"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "Tai"
+       },
+       {
+        "fact": "bazi.k.trans",
+        "operator": "contains",
+        "value": "Tai"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.trans",
+        "operator": "contains",
+        "value": "QuanSat"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.yong",
+        "operator": "contains",
+        "value": "An"
+       },
+       {
+        "fact": "bazi.k.month_group",
+        "value": "An"
+       },
+       {
+        "fact": "bazi.k.trans",
+        "operator": "contains",
+        "value": "An"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_ct01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_CT02",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.105: Nhưng nếu kề sát chân thần, hoặc tương khắc tương xung chân thần, hoặc hợp chân thần, ám hóa kỵ thần, chung thân lục đục — đời nhiều va vấp, lục đục (dụng thần nắm lệnh tháng mà có chữ khắc nó đứng sát chi tháng)",
+   "conditions": {
+    "fact": "bazi.k.yong_month_hit",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_ct02",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_TR01",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.103: Hoặc quan suy hỉ ấn, tài tinh khắc ấn, cách này tài là trọc vậy — thành bại không đều, nhiều trắc trở; gặp vận khử được chữ ấy mới có cơ khởi phát (Quan yếu, lá số cần Ấn mà Tài đứng sát khắc Ấn: Tài là chữ làm đục)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.hi",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.k.adj",
+      "operator": "contains",
+      "value": "An|Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_tr01",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_TR02",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.103: Hoặc quan suy hỉ tài, tỉ kiếp tranh tài, cách này kiếp là trọc vậy — thành bại không đều, nhiều trắc trở; gặp vận khử được chữ ấy mới có cơ khởi phát (Quan yếu, lá số cần Tài mà Tỉ Kiếp đứng sát tranh Tài: Kiếp là chữ làm đục)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.hi",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.adj",
+      "operator": "contains",
+      "value": "Tai|Ti"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_tr02",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_TR03",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.103: Hoặc tài vượng hỉ kiếp, quan tinh chế kiếp, cách này quan là trọc vậy — thành bại không đều, nhiều trắc trở; gặp vận khử được chữ ấy mới có cơ khởi phát (Tài vượng, lá số cần Tỉ Kiếp mà Quan Sát đứng sát chế Kiếp: Quan là chữ làm đục)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.hi",
+      "operator": "contains",
+      "value": "Ti"
+     },
+     {
+      "fact": "bazi.k.adj",
+      "operator": "contains",
+      "value": "QuanSat|Ti"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_tr03",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_TR04",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_fortune",
+   "description": "Trích Thiên Tủy p.103: Hoặc thân cường sát thiển, thực thương chế sát, cách này thực thương là trọc vậy — thành bại không đều, nhiều trắc trở; gặp vận khử được chữ ấy mới có cơ khởi phát (nhật chủ mạnh, Sát nhẹ mà Thực Thương đứng sát chế Sát: Thực Thương là chữ làm đục)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.present",
+        "operator": "contains",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.nhuoc",
+        "operator": "contains",
+        "value": "QuanSat"
+       }
+      ]
+     },
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "bazi.k.adj",
+      "operator": "contains",
+      "value": "QuanSat|ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_tr04",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_TH01",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_rank",
+   "description": "Trích Thiên Tủy p.77: quan suy thương quan vượng thiếu danh vị — thiếu danh vị (Quan yếu mà Thương Quan vượng)",
+   "conditions": {
+    "all": [
+     {
+      "all": [
+       {
+        "fact": "bazi.k.present",
+        "operator": "contains",
+        "value": "QuanSat"
+       },
+       {
+        "fact": "bazi.k.nhuoc",
+        "operator": "contains",
+        "value": "QuanSat"
+       }
+      ]
+     },
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thương Quan"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_th01",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_TH02",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_wealth",
+   "description": "Trích Thiên Tủy p.77: sát cường chế nhược tiền bạc thiếu thốn — tiền bạc dễ thiếu thốn (Thất Sát mạnh mà chữ chế Sát (Thực Thương) yếu)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_th02",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DUC1",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_character",
+   "description": "Trích Thiên Tủy p.161: hỉ Quan mà Tài có thể sinh Quan; hỉ Tài mà Quan có thể khắc chế Kiếp, kỵ Ấn mà Tài có thể phá Ấn; hỉ Ấn mà Quan có thể sinh Ấn — hành xử ngay thẳng, có phong thái người quân tử (chữ lá số cần được chữ đứng sát nó giúp đúng chiều)",
+   "conditions": {
+    "all": [
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "bazi.k.hi",
+          "operator": "contains",
+          "value": "QuanSat"
+         },
+         {
+          "fact": "bazi.k.adj",
+          "operator": "contains",
+          "value": "QuanSat|Tai"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "bazi.k.hi",
+          "operator": "contains",
+          "value": "Tai"
+         },
+         {
+          "fact": "bazi.k.adj",
+          "operator": "contains",
+          "value": "QuanSat|Ti"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "bazi.k.ky",
+          "operator": "contains",
+          "value": "An"
+         },
+         {
+          "fact": "bazi.k.adj",
+          "operator": "contains",
+          "value": "An|Tai"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "bazi.k.hi",
+          "operator": "contains",
+          "value": "An"
+         },
+         {
+          "fact": "bazi.k.adj",
+          "operator": "contains",
+          "value": "An|QuanSat"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "all": [
+          {
+           "fact": "bazi.k.hi",
+           "operator": "contains",
+           "value": "QuanSat"
+          },
+          {
+           "fact": "bazi.k.adj",
+           "operator": "contains",
+           "value": "QuanSat|Ti"
+          }
+         ]
+        },
+        {
+         "all": [
+          {
+           "fact": "bazi.k.hi",
+           "operator": "contains",
+           "value": "Tai"
+          },
+          {
+           "fact": "bazi.k.adj",
+           "operator": "contains",
+           "value": "An|Tai"
+          }
+         ]
+        },
+        {
+         "all": [
+          {
+           "fact": "bazi.k.ky",
+           "operator": "contains",
+           "value": "An"
+          },
+          {
+           "fact": "bazi.k.adj",
+           "operator": "contains",
+           "value": "An|QuanSat"
+          }
+         ]
+        },
+        {
+         "all": [
+          {
+           "fact": "bazi.k.hi",
+           "operator": "contains",
+           "value": "An"
+          },
+          {
+           "fact": "bazi.k.adj",
+           "operator": "contains",
+           "value": "An|Tai"
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_duc1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_DUC2",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_character",
+   "description": "Trích Thiên Tủy p.161: hỉ Quan mà lâm Kiếp địa, hỉ Tài mà cư nơi Ấn, kỵ Ấn mà Quan tinh sinh Ấn, hỉ Ấn mà Tài phá Ấn — dễ chạy theo thế và lợi (chữ lá số cần bị chữ đứng sát nó làm hỏng)",
+   "conditions": {
+    "all": [
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "bazi.k.hi",
+          "operator": "contains",
+          "value": "QuanSat"
+         },
+         {
+          "fact": "bazi.k.adj",
+          "operator": "contains",
+          "value": "QuanSat|Ti"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "bazi.k.hi",
+          "operator": "contains",
+          "value": "Tai"
+         },
+         {
+          "fact": "bazi.k.adj",
+          "operator": "contains",
+          "value": "An|Tai"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "bazi.k.ky",
+          "operator": "contains",
+          "value": "An"
+         },
+         {
+          "fact": "bazi.k.adj",
+          "operator": "contains",
+          "value": "An|QuanSat"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "bazi.k.hi",
+          "operator": "contains",
+          "value": "An"
+         },
+         {
+          "fact": "bazi.k.adj",
+          "operator": "contains",
+          "value": "An|Tai"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "all": [
+          {
+           "fact": "bazi.k.hi",
+           "operator": "contains",
+           "value": "QuanSat"
+          },
+          {
+           "fact": "bazi.k.adj",
+           "operator": "contains",
+           "value": "QuanSat|Tai"
+          }
+         ]
+        },
+        {
+         "all": [
+          {
+           "fact": "bazi.k.hi",
+           "operator": "contains",
+           "value": "Tai"
+          },
+          {
+           "fact": "bazi.k.adj",
+           "operator": "contains",
+           "value": "QuanSat|Ti"
+          }
+         ]
+        },
+        {
+         "all": [
+          {
+           "fact": "bazi.k.ky",
+           "operator": "contains",
+           "value": "An"
+          },
+          {
+           "fact": "bazi.k.adj",
+           "operator": "contains",
+           "value": "An|Tai"
+          }
+         ]
+        },
+        {
+         "all": [
+          {
+           "fact": "bazi.k.hi",
+           "operator": "contains",
+           "value": "An"
+          },
+          {
+           "fact": "bazi.k.adj",
+           "operator": "contains",
+           "value": "An|QuanSat"
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_duc2",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_CC02",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_children",
+   "description": "Trích Thiên Tủy p.130: Nhật chủ vượng, Ấn thụ trọng, Thực Thương khinh, có Tài tinh, dự phòng con nhiều mà hiền — con cái hiền (nhật chủ vượng, Ấn nặng, Thực Thương nhẹ, có Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "all": [
+       {
+        "fact": "bazi.k.present",
+        "operator": "contains",
+        "value": "ThucThuong"
+       },
+       {
+        "fact": "bazi.k.nhuoc",
+        "operator": "contains",
+        "value": "ThucThuong"
+       }
+      ]
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.nhuoc",
+       "operator": "contains",
+       "value": "QuanSat"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_cc02",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TTTK_CC03",
+   "system": "bat_tu",
+   "schoolId": "ttt_nham_thi",
+   "category": "ttt_kin_children",
+   "description": "Trích Thiên Tủy p.130: Nhật chủ vượng, Ấn thụ trọng, Quan Sát khinh, có Ấn thụ, gặp Tài, có con tất nghịch — con cái có đứa ương bướng (nhật chủ vượng, Ấn nặng, Quan Sát nhẹ, có Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "not": {
+       "all": [
+        {
+         "fact": "bazi.k.present",
+         "operator": "contains",
+         "value": "ThucThuong"
+        },
+        {
+         "fact": "bazi.k.nhuoc",
+         "operator": "contains",
+         "value": "ThucThuong"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tttk_cc03",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TTT_DEEP3"
    ],
    "reviewStatus": "verified",
    "version": "0.1.0",

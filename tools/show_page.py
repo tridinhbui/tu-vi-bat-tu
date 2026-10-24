@@ -4,7 +4,9 @@
     python tools/show_page.py TH 114 --image DIR  # DIR/TH_114.png
     python tools/show_page.py KL 218 --check "quote text"  # is the quote on the page (book_text.quote_on_page)?
 
-Books: KL, TH, TT (tools/book_text.py). Printed page number == PDF page number."""
+    python tools/show_page.py WEB:CTBG 三春甲木 --check "丙火为尊"   # a saved web snapshot, by chapter
+
+Books: KL, TH, TT (tools/book_text.py); WEB:<id> for engine/data/sources_web/. Printed page number == PDF page number."""
 from __future__ import annotations
 
 import sys
@@ -18,7 +20,14 @@ def main(argv: list[str]) -> int:
     if len(argv) < 2:
         print(__doc__)
         return 2
-    book, page = argv[0], int(argv[1])
+    book, page = argv[0], (argv[1] if argv[0].startswith("WEB:") else int(argv[1]))
+    if book.startswith("WEB:"):
+        if "--check" in argv:
+            ok = book_text.quote_on_page(book, page, argv[argv.index("--check") + 1])
+            print("ON PAGE" if ok else "NOT ON PAGE")
+            return 0 if ok else 1
+        print(book_text.web_text(book[4:], page))
+        return 0
     if "--image" in argv:
         d = Path(argv[argv.index("--image") + 1])
         d.mkdir(parents=True, exist_ok=True)

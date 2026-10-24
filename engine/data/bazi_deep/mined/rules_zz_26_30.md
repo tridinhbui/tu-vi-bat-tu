@@ -4,18 +4,18 @@ Text layer committed as zz_p26.txt … zz_p30.txt. Columns as rules_ttt_deep3.md
 Extra flag HARSH: a printed verdict on someone's morality or intelligence ("无情无义", "智力不高", "心狠手毒") or a slur on a spouse ("母老虎"):
 the rule is packed with its quote checked but stays `draft` (draft rules never fire), pending the owner's decision.
 
-## 日干五行直断 (p.26): the day stem's nature — packed, condition = the day stem (crisp)
+## 日干五行直断 (p.26): the day stem's nature — DUP: already in data/pack_bazi_zhenzong.json (10 rules, voiced in the portrait); not packed again
 
-26 | 有组织能力，刚强自律严厉，有领导才能，获多数人信赖 | 甲 day | organised, firm, leads | - → R:BT_ZZK_DS01
-26 | 外表懦弱谨慎，但内心固执，拘泥保守，感情脆弱 | 乙 day | cautious outside, stubborn inside | - → R:BT_ZZK_DS02
-26 | 文明有礼，美而敦厚，热情有朝气，活泼开朗，但缺乏恒心亲和力 | 丙 day | courteous, warm; short on perseverance | - → R:BT_ZZK_DS03
-26 | 外柔内进，思想缜密，文明有礼，畏挫折，能胜不能败 | 丁 day | soft outside, careful mind; fears setbacks | - → R:BT_ZZK_DS04
-26 | 诚实厚重，有社交力，喜打扮，没主见，与人处不久，好胜 | 戊 day | honest, sociable; little own view | - → R:BT_ZZK_DS05
-26 | 为人心细，有规律，度量小，猜忌心强，好胜好强 | 己 day | careful, orderly; suspicious | - → R:BT_ZZK_DS06
-26 | 拜金主义者，略具文才，有经济手腕，善于办理，重物质享受 | 庚 day | money-minded, business skill | - → R:BT_ZZK_DS07 ('拜金主义者' voiced as 'coi trọng tiền bạc')
-26 | 缺乏魅力，顽固，能排除万难，聪明 | 辛 day | stubborn, overcomes obstacles, clever | - → R:BT_ZZK_DS08
-26 | 能团结人、说服人，性暴，度量大，依赖性强，个性散乱，漫不经心 | 壬 day | unites and persuades; hot temper | - → R:BT_ZZK_DS09
-26 | 正直廉洁、勤勉，处逆境也会开拓道路，有生命力，能吃苦 | 癸 day | upright, diligent, endures | - → R:BT_ZZK_DS10
+26 | 有组织能力，刚强自律严厉，有领导才能，获多数人信赖 | 甲 day | organised, firm, leads | DUP (pack_bazi_zhenzong.json)
+26 | 外表懦弱谨慎，但内心固执，拘泥保守，感情脆弱 | 乙 day | cautious outside, stubborn inside | DUP (pack_bazi_zhenzong.json)
+26 | 文明有礼，美而敦厚，热情有朝气，活泼开朗，但缺乏恒心亲和力 | 丙 day | courteous, warm; short on perseverance | DUP (pack_bazi_zhenzong.json)
+26 | 外柔内进，思想缜密，文明有礼，畏挫折，能胜不能败 | 丁 day | soft outside, careful mind; fears setbacks | DUP (pack_bazi_zhenzong.json)
+26 | 诚实厚重，有社交力，喜打扮，没主见，与人处不久，好胜 | 戊 day | honest, sociable; little own view | DUP (pack_bazi_zhenzong.json)
+26 | 为人心细，有规律，度量小，猜忌心强，好胜好强 | 己 day | careful, orderly; suspicious | DUP (pack_bazi_zhenzong.json)
+26 | 拜金主义者，略具文才，有经济手腕，善于办理，重物质享受 | 庚 day | money-minded, business skill | DUP (pack_bazi_zhenzong.json)
+26 | 缺乏魅力，顽固，能排除万难，聪明 | 辛 day | stubborn, overcomes obstacles, clever | DUP (pack_bazi_zhenzong.json)
+26 | 能团结人、说服人，性暴，度量大，依赖性强，个性散乱，漫不经心 | 壬 day | unites and persuades; hot temper | DUP (pack_bazi_zhenzong.json)
+26 | 正直廉洁、勤勉，处逆境也会开拓道路，有生命力，能吃苦 | 癸 day | upright, diligent, endures | DUP (pack_bazi_zhenzong.json)
 26 | 戊土为胎印 | birthmarks | - | SENSITIVE (body marks) — kept out
 
 ## 命局四柱五行“强旺弱缺中”直断 (pp.26-27)
@@ -40,9 +40,9 @@ the rule is packed with its quote checked but stays `draft` (draft rules never f
 28 | 看月支又是日干的禄星或刃星，才属此项直断 | month branch = lộc / nhận of the day stem | - | - (condition 3)
 28 | 男命日干为夫干，女命日干为妻干 | man: yang day stem; woman: yin day stem | - | - (condition 5)
 29 | 男命：必得贤妻，妻助得财 | 妻从夫化 (优型), man | a good wife who helps him gain | - → R:BT_ZZK_HH1
-29 | 女命：是母老虎，欺夫骂翁 | 夫从妻化 (劣型), woman | slur | HARSH → R:BT_ZZK_HH2 (draft)
-29 | 女命：柔顺贤慧，贤妻良母 | 优型, woman | — | VAGUE (a woman's 优型 needs a yang 'husband' stem as hers: excluded by condition 5 as the system reads it) — kept out
-29 | 男命：怕妻胆小，妇人当家 | 劣型, man | — | VAGUE (same: a man's 劣型 needs a yin day stem, excluded by condition 5) — kept out
+29 | 男命：怕妻胆小，妇人当家 | 夫从妻化 (劣型), man (yang day stem, the element of the yin month stem) | the wife runs the house | - → R:BT_ZZK_HH2
+29 | 女命：柔顺贤慧，贤妻良母 | 妻从夫化 (优型), woman (yin day stem, the element of the yang month stem) | gentle, good wife | - → R:BT_ZZK_HH3
+29 | 女命：是母老虎，欺夫骂翁 | 夫从妻化 (劣型), woman | slur | HARSH → R:BT_ZZK_HH4 (draft)
 
 ## 四柱干支合化直断 (p.29)
 

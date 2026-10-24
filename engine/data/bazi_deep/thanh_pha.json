@@ -1,0 +1,713 @@
+{
+ "_status": "verified (TVH, TTT) / draft (TBCT)",
+ "_note": "DEEP-3 (2026-10-24). Cách thành / phá / cứu per cách. 'tvh': the Thiệu Vĩ Hoa thành bại sentences (tvh_thanhbai.json, pp.367-369: ids, verdict, the system's encoding) and the cách's row of the dụng thần table (tvh_dungthan.json, pp.378-386); 'ttt': Trích Thiên Tủy's own words where a page speaks of that cách; 'tbct': the 子平真詮 conditions of geju_defs.json, still written from memory: NO public-domain snapshot of 子平真詮 could be saved (zh.wikisource has none; ctext blocks automated access, its terms forbid scraping), so this column stays draft and is not voiced. 'general': the TTT principles that apply to every cách (thanh / trọc, chân / giả thần, phá cách and cứu).",
+ "cach": {
+  "Chính Quan": {
+   "tvh": {
+    "thanh_bai": [
+     {
+      "id": "quan.1",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng có Tài thì Tài có thể sinh Quan Sát: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "quan.2",
+      "verdict": "tot",
+      "text": "Nhật chủ nhược, Chính Quan mạnh, có Ấn sinh thân: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "quan.3",
+      "verdict": "tot",
+      "text": "Tứ trụ có Chính Quan, không có Thất Sát (quan sát không hỗn tạp): tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "quan.4",
+      "verdict": "xau",
+      "text": "Nhật chủ vượng, Tài nhẹ, Kiếp trùng trùng: mệnh xấu",
+      "page": "367-369"
+     },
+     {
+      "id": "quan.5",
+      "verdict": "xau",
+      "text": "Gặp hình xung phá hại: mệnh xấu",
+      "page": "367-369"
+     },
+     {
+      "id": "quan.6",
+      "verdict": "xau",
+      "text": "Tứ trụ có Quan Sát hỗn tạp: mệnh xấu",
+      "page": "367-369"
+     }
+    ],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [
+    {
+     "book": "ttt",
+     "page": "p.101",
+     "quote": "Như chánh quan cách, thân nhược có ấn, kỵ tài, tài tinh không hiện, có thể thấy ngay là thanh hĩ",
+     "vi": "Chính Quan cách, thân nhược có Ấn, Tài không lộ: thanh.",
+     "side": "thanh"
+    },
+    {
+     "book": "ttt",
+     "page": "p.101",
+     "quote": "tất tài sanh quan, quan sanh ấn, ấn sanh nhật chủ",
+     "vi": "Có Tài mà Tài → Quan → Ấn → nhật chủ liền mạch thì vẫn thanh.",
+     "side": "cuu"
+    },
+    {
+     "book": "ttt",
+     "page": "p.101",
+     "quote": "Như chánh quan cách, thân vượng mừng có tài, mà kỵ ấn thụ, tiếp theo kỵ thương quan",
+     "vi": "Chính Quan cách, thân vượng: mừng Tài, kỵ Ấn rồi đến Thương Quan.",
+     "side": "thanh"
+    },
+    {
+     "book": "ttt",
+     "page": "p.101",
+     "quote": "Như thương quan cùng tài tinh cách xa, ngược lại thương quan kế cận quan tinh, tài không đủ lực sanh quan",
+     "vi": "Thương Quan sát Quan mà Tài ở xa: phá.",
+     "side": "pha"
+    }
+   ],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "any:Tai",
+      "any:An"
+     ],
+     "bai": {
+      "thuong_kien_quan": "controls_adjacent:Thuong>Quan",
+      "quan_sat_hon_tap": "both_visible:Quan+Sat",
+      "quan_bi_xung_lenh": "lenh_clashed",
+      "quan_bi_hinh_lenh": "lenh_penalized"
+     },
+     "cuu": {
+      "thuong_kien_quan": [
+       "visible:An",
+       "visible:Tai",
+       "any:An",
+       "any:Tai"
+      ],
+      "quan_sat_hon_tap": [
+       "bound:Sat",
+       "visible:Thuc"
+      ],
+      "quan_bi_xung_lenh": [
+       "lenh_clash_resolved"
+      ],
+      "quan_bi_hinh_lenh": []
+     },
+     "yong": [
+      "Tai",
+      "An"
+     ]
+    }
+   }
+  },
+  "Thất Sát": {
+   "tvh": {
+    "thanh_bai": [
+     {
+      "id": "sat.1",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, cách Thất Sát: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "sat.2",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng mà Thất Sát mạnh quá, có Thực Thần chế ngự: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "sat.3",
+      "verdict": "tot",
+      "text": "Nhật chủ nhược, Sát vượng, có Ấn sinh thân: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "sat.5",
+      "verdict": "xau",
+      "text": "Nhật chủ nhược, cách Thất Sát: mệnh xấu",
+      "page": "367-369"
+     },
+     {
+      "id": "sat.6",
+      "verdict": "xau",
+      "text": "Nhật chủ vượng, cách Thất Sát gặp hình xung: bị phá hại",
+      "page": "367-369"
+     },
+     {
+      "id": "sat.7",
+      "verdict": "xau",
+      "text": "Nhật chủ nhược, gặp Tài sinh cho Thất Sát, không có Thực Thương khắc chế: mệnh xấu",
+      "page": "367-369"
+     }
+    ],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "controls_adjacent:Thuc>Sat",
+      "chain_adjacent:Sat>An",
+      "any:Thuc",
+      "any:An"
+     ],
+     "bai": {
+      "sat_khong_che": "sat_unrestrained",
+      "sat_bi_xung_lenh": "lenh_clashed"
+     },
+     "cuu": {
+      "sat_khong_che": [],
+      "sat_bi_xung_lenh": [
+       "lenh_clash_resolved"
+      ]
+     },
+     "yong": [
+      "Thuc",
+      "An"
+     ]
+    }
+   }
+  },
+  "Chính Ấn": {
+   "tvh": {
+    "thanh_bai": [
+     {
+      "id": "an.1",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, có Ấn gặp Quan hoặc Sát: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "an.2",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, Ấn mạnh, có Thực Thương xì hơi nhật chủ: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "an.3",
+      "verdict": "tot",
+      "text": "Nhật chủ mạnh, Ấn nhiều, có Chính Tài chế ngự (Tài không quá nhiều): tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "an.4",
+      "verdict": "xau",
+      "text": "Nhật chủ nhược, Ấn nhược lại gặp Tài khắc Ấn: mệnh xấu",
+      "page": "367-369"
+     },
+     {
+      "id": "an.6",
+      "verdict": "xau",
+      "text": "Nhật chủ nhược, Ấn gặp hình xung: bị phá hại",
+      "page": "367-369"
+     }
+    ],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "any:QuanSat",
+      "all:level_ge:vượng+any:ThucThuong"
+     ],
+     "bai": {
+      "tai_pha_an": "controls_adjacent:Tai>An",
+      "an_qua_nhieu": "all:level_ge:vượng+count_visible_ge:An=2"
+     },
+     "cuu": {
+      "tai_pha_an": [
+       "any:Ti",
+       "bound:Tai"
+      ],
+      "an_qua_nhieu": [
+       "any:Tai"
+      ]
+     },
+     "yong": [
+      "QuanSat",
+      "ThucThuong"
+     ]
+    }
+   }
+  },
+  "Thiên Ấn": {
+   "tvh": {
+    "thanh_bai": [
+     {
+      "id": "an.1",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, có Ấn gặp Quan hoặc Sát: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "an.2",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, Ấn mạnh, có Thực Thương xì hơi nhật chủ: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "an.3",
+      "verdict": "tot",
+      "text": "Nhật chủ mạnh, Ấn nhiều, có Chính Tài chế ngự (Tài không quá nhiều): tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "an.4",
+      "verdict": "xau",
+      "text": "Nhật chủ nhược, Ấn nhược lại gặp Tài khắc Ấn: mệnh xấu",
+      "page": "367-369"
+     },
+     {
+      "id": "an.6",
+      "verdict": "xau",
+      "text": "Nhật chủ nhược, Ấn gặp hình xung: bị phá hại",
+      "page": "367-369"
+     }
+    ],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "any:QuanSat",
+      "all:level_ge:vượng+any:ThucThuong"
+     ],
+     "bai": {
+      "tai_pha_an": "controls_adjacent:Tai>An",
+      "kieu_doat_thuc": "controls_adjacent:Kieu>Thuc"
+     },
+     "cuu": {
+      "tai_pha_an": [
+       "any:Ti",
+       "bound:Tai"
+      ],
+      "kieu_doat_thuc": [
+       "any:Tai"
+      ]
+     },
+     "yong": [
+      "QuanSat",
+      "Tai"
+     ]
+    }
+   }
+  },
+  "Chính Tài": {
+   "tvh": {
+    "thanh_bai": [
+     {
+      "id": "tai.1",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, Tài cũng vượng, có Quan tinh chế ngự nhật chủ: mệnh tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "tai.2",
+      "verdict": "tot",
+      "text": "Nhật chủ nhược, Tài vượng, có Ấn hoặc Tỉ Kiếp hộ thân: mệnh tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "tai.3",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, Tài nhược, có Thực Thần xì hơi nhật chủ để sinh Tài: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "tai.4",
+      "verdict": "xau",
+      "text": "Nhật chủ vượng, Tài nhược, lại gặp nhiều Tỉ Kiếp giúp nhật chủ khắc Tài: mệnh xấu",
+      "page": "367-369"
+     },
+     {
+      "id": "tai.5",
+      "verdict": "xau",
+      "text": "Tài gặp hình xung phá hại: xấu dù nhật chủ vượng hay nhược",
+      "page": "367-369"
+     }
+    ],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "any:ThucThuong",
+      "any:Quan",
+      "level_ge:thiên vượng"
+     ],
+     "bai": {
+      "ti_kiep_doat_tai": "count_visible_ge:Ti=2",
+      "tai_nhieu_than_nhuoc": "all:level_le:nhược+count_visible_ge:Tai=2"
+     },
+     "cuu": {
+      "ti_kiep_doat_tai": [
+       "any:Quan",
+       "any:Sat"
+      ],
+      "tai_nhieu_than_nhuoc": [
+       "any:An"
+      ]
+     },
+     "yong": [
+      "ThucThuong",
+      "Quan"
+     ]
+    }
+   }
+  },
+  "Thiên Tài": {
+   "tvh": {
+    "thanh_bai": [
+     {
+      "id": "tai.1",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, Tài cũng vượng, có Quan tinh chế ngự nhật chủ: mệnh tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "tai.2",
+      "verdict": "tot",
+      "text": "Nhật chủ nhược, Tài vượng, có Ấn hoặc Tỉ Kiếp hộ thân: mệnh tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "tai.3",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, Tài nhược, có Thực Thần xì hơi nhật chủ để sinh Tài: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "tai.4",
+      "verdict": "xau",
+      "text": "Nhật chủ vượng, Tài nhược, lại gặp nhiều Tỉ Kiếp giúp nhật chủ khắc Tài: mệnh xấu",
+      "page": "367-369"
+     },
+     {
+      "id": "tai.5",
+      "verdict": "xau",
+      "text": "Tài gặp hình xung phá hại: xấu dù nhật chủ vượng hay nhược",
+      "page": "367-369"
+     }
+    ],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "any:ThucThuong",
+      "any:Quan",
+      "level_ge:thiên vượng"
+     ],
+     "bai": {
+      "ti_kiep_doat_tai": "count_visible_ge:Ti=2",
+      "tai_nhieu_than_nhuoc": "all:level_le:nhược+count_visible_ge:Tai=2"
+     },
+     "cuu": {
+      "ti_kiep_doat_tai": [
+       "any:Quan",
+       "any:Sat"
+      ],
+      "tai_nhieu_than_nhuoc": [
+       "any:An"
+      ]
+     },
+     "yong": [
+      "ThucThuong",
+      "Quan"
+     ]
+    }
+   }
+  },
+  "Thực Thần": {
+   "tvh": {
+    "thanh_bai": [
+     {
+      "id": "thuc.1",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, Thực Thần cũng vượng, gặp Tài xì hơi Thực Thần: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "thuc.2",
+      "verdict": "tot",
+      "text": "Nhật chủ vượng, Sát mạnh quá, có Thực Thần chế Sát: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "thuc.3",
+      "verdict": "tot",
+      "text": "Nhật chủ nhược, Thực Thương xì hơi thân mạnh quá, có Ấn hộ thân: tốt",
+      "page": "367-369"
+     },
+     {
+      "id": "thuc.4",
+      "verdict": "xau",
+      "text": "Nhật chủ vượng, Thực Thần yếu lại gặp Ấn sinh thân: mệnh xấu",
+      "page": "367-369"
+     },
+     {
+      "id": "thuc.5",
+      "verdict": "xau",
+      "text": "Nhật chủ nhược, Thực sinh Tài lại có Thất Sát: mệnh xấu",
+      "page": "367-369"
+     },
+     {
+      "id": "thuc.6",
+      "verdict": "xau",
+      "text": "Nhật chủ vượng, Thực Thần gặp hình xung phá hại: mệnh xấu",
+      "page": "367-369"
+     }
+    ],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "any:Tai",
+      "controls_adjacent:Thuc>Sat"
+     ],
+     "bai": {
+      "kieu_doat_thuc": "controls_adjacent:Kieu>Thuc"
+     },
+     "cuu": {
+      "kieu_doat_thuc": [
+       "any:Tai"
+      ]
+     },
+     "yong": [
+      "Tai",
+      "Sat"
+     ]
+    }
+   }
+  },
+  "Thương Quan": {
+   "tvh": {
+    "thanh_bai": [],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "all:any:Tai+level_ge:thiên vượng",
+      "all:any:An+level_le:trung hòa"
+     ],
+     "bai": {
+      "thuong_kien_quan": "controls_adjacent:Thuong>Quan"
+     },
+     "cuu": {
+      "thuong_kien_quan": [
+       "visible:An",
+       "visible:Tai",
+       "any:An",
+       "any:Tai"
+      ]
+     },
+     "yong": [
+      "Tai",
+      "An"
+     ]
+    }
+   }
+  },
+  "Kiến Lộc": {
+   "tvh": {
+    "thanh_bai": [],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "any:QuanSat",
+      "any:Tai",
+      "any:ThucThuong"
+     ],
+     "bai": {
+      "khong_co_dung": "none_of:QuanSat,Tai,ThucThuong"
+     },
+     "cuu": {
+      "khong_co_dung": []
+     },
+     "yong": [
+      "QuanSat",
+      "Tai",
+      "ThucThuong"
+     ]
+    }
+   }
+  },
+  "Dương Nhận": {
+   "tvh": {
+    "thanh_bai": [],
+    "table": "tvh_dungthan.json",
+    "pages": "pp.367-369, 378-386"
+   },
+   "ttt": [],
+   "tbct": {
+    "status": "draft",
+    "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)",
+    "defs": {
+     "thanh_any": [
+      "any:QuanSat"
+     ],
+     "bai": {
+      "nhan_khong_che": "none_of:QuanSat"
+     },
+     "cuu": {
+      "nhan_khong_che": []
+     },
+     "yong": [
+      "QuanSat"
+     ]
+    }
+   }
+  }
+ },
+ "general": {
+  "pha_cach": [
+   {
+    "book": "ttt",
+    "page": "p.61",
+    "quote": "phá cách tổn hại dụng thần, thì có bệnh vậy, ưu sầu nhiều vui mừng ít",
+    "vi": "Cách bị phá, dụng thần bị hại: bệnh, buồn nhiều vui ít."
+   },
+   {
+    "book": "ttt",
+    "page": "p.61",
+    "quote": "Nhưng nếu hành vận thích hợp, khử mất kỵ thần, sanh trợ dụng thần giống như người bệnh lâu ngày được thầy thuốc giỏi cứu chữa, không phú cũng quý",
+    "vi": "Cứu: vận khử kỵ thần, trợ dụng thần thì không phú cũng quý."
+   },
+   {
+    "book": "ttt",
+    "page": "p.61",
+    "quote": "Đại phàm cách cục thuần nhất, trăm mệnh không có được một vậy",
+    "vi": "Cách thuần nhất trăm người không được một."
+   }
+  ],
+  "no_clash_kho": [
+   {
+    "book": "ttt",
+    "page": "p.61",
+    "quote": "Lại cho rằng tạp khí tài quan cần nên xung thật là hàm hồ",
+    "vi": "Không phải tạp khí Tài Quan cần xung mới dùng."
+   },
+   {
+    "book": "ttt",
+    "page": "p.62",
+    "quote": "Cho nên luận mộ khố gặp xung tất phát thật sai lầm vậy",
+    "vi": "Mộ khố gặp xung chưa chắc phát."
+   },
+   {
+    "book": "ttt",
+    "page": "p.70",
+    "quote": "mà không biết hình xung tất thương tổn căn khí",
+    "vi": "Hình xung làm tổn gốc."
+   }
+  ],
+  "thanh": [
+   {
+    "book": "ttt",
+    "page": "p.101",
+    "quote": "Thanh mà hữu khí, tất tinh thần thông suốt mà đầy đủ; thanh mà vô khí, tất tinh thần khô héo tiều tụy",
+    "vi": "Thanh phải có khí mới tốt."
+   }
+  ],
+  "troc": {
+   "quotes": [
+    {
+     "book": "ttt",
+     "page": "p.103",
+     "quote": "Nhâm thị viết: Trọc gọi là tứ trụ hỗn tạp vậy",
+     "vi": "Trọc: tứ trụ hỗn tạp."
+    },
+    {
+     "book": "ttt",
+     "page": "p.103",
+     "quote": "tuy thành bại không đều, có nhiều hiểm trở, nhưng ngộ đắc hành vận, khử đi trọc khí, cũng có cơ hội khởi phát",
+     "vi": "Trọc: thành bại không đều; gặp vận khử trọc thì khởi phát."
+    },
+    {
+     "book": "ttt",
+     "page": "p.103",
+     "quote": "thà rằng dụng trong thanh có trọc, không thể dụng trong thanh có khô",
+     "vi": "Thà thanh lẫn trọc, không thể thanh mà khô."
+    }
+   ],
+   "rules": [
+    "BT_TTTK_TR01",
+    "BT_TTTK_TR02",
+    "BT_TTTK_TR03",
+    "BT_TTTK_TR04"
+   ]
+  },
+  "chan_gia": {
+   "quotes": [
+    {
+     "book": "ttt",
+     "page": "p.105",
+     "quote": "Nói nhật chủ có dụng thần, nắm lệnh tại đề cương, lại thấu xuất thiên can gọi là tụ đắc chân thần, cuộc đời phú quý hĩ",
+     "vi": "Chân thần: dụng thần nắm lệnh và thấu can."
+    },
+    {
+     "book": "ttt",
+     "page": "p.105",
+     "quote": "Nhưng nếu kề sát chân thần, hoặc tương khắc tương xung chân thần, hoặc hợp chân thần, ám hóa kỵ thần, chung thân lục đục",
+     "vi": "Giả thần kề sát, khắc, xung, hợp chân thần: cả đời lục đục."
+    },
+    {
+     "book": "ttt",
+     "page": "p.107",
+     "quote": "Hết thảy đều do an hưởng phúc đức, phần nhiều do chân thần đắc dụng; sang nghiệp hưng gia, khó nhọc mà thiếu an nhàn, phần nhiều do giả thần đắc cục",
+     "vi": "Chân thần đắc dụng: hưởng phúc; giả thần đắc cục: lập nghiệp vất vả."
+    }
+   ],
+   "rules": [
+    "BT_TTTK_CT01",
+    "BT_TTTK_CT02"
+   ]
+  }
+ }
+}

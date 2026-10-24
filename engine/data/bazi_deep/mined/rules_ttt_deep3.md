@@ -85,7 +85,7 @@ a rule already packed). "→ R:<id>" = packed as a rule, "→ H:<key>" = in hyky
 
 ## Con cái (pp.130-132; Phần II ch.2)
 
-130 | Như hỉ thần là Quan tinh, con cái hiền tài | hỉ = Quan (nguyên chú) | children able | - → R:BT_TTTK_CC01
+130 | Như hỉ thần là Quan tinh, con cái hiền tài | hỉ = Quan (nguyên chú) | children able | SUPERSEDED (Nhâm thị on the same page rejects Quan as the children star; would fire on ~45% of charts) → schools.json:children_star
 130 | Nay sửa đổi lấy Thực Thương làm con | Nhâm: Thực Thương = children | - | METHOD → schools.json (children star)
 130 | Như nhật chủ vượng, không có Ấn thụ, có Thực Thương, tất nhiều con trai | | many sons | SENSITIVE (number / sex) — kept out
 130 | Nhật chủ vượng, gặp Ấn thụ, Thực Thương khinh, tất ít con | | few children | SENSITIVE (number)

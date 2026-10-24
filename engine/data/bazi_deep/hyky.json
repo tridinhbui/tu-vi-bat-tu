@@ -1,0 +1,1038 @@
+{
+ "_status": "verified",
+ "_note": "DEEP-3 (2026-10-24). Logic of dụng / hỉ / kỵ / cừu / nhàn thần as Trích Thiên Tủy (ttt), Thiệu Vĩ Hoa (tvh) and 八字真宗 (zz) print it. Every entry: book, page, printed quote (checked against data/bazi_deep/mined/<book>_pN.txt by tests), Vietnamese gist (vi). 'rules' = the ids in pack_{ttt,tvh,zz}_kin.json that carry the entry into a reading (facts.bazi.deep.kin findings, topics yong / fortune / wealth / rank / character / children / study). Numeric measures behind 'vượng / nhược' of a group are the system's (25 % / 12 % of TVH degrees), not a page's. The engine's dụng / hỉ / kỵ come from Thiệu Vĩ Hoa's cách table (pp.378-386; tvh_dungthan.json): the TTT choice (topic 'yong') is told beside it, never in place of it.",
+ "roles": {
+  "dung": [
+   {
+    "book": "ttt",
+    "page": "p.63",
+    "quote": "Dụng là dụng thần, ngoài thể dụng ra là dụng thần vậy",
+    "vi": "Dụng thần: chữ lá số dùng để đưa nhật chủ về thế cân."
+   },
+   {
+    "book": "ttt",
+    "page": "p.64",
+    "quote": "Trong mệnh chỉ có hỉ dụng hai chữ, có dụng thần, nhật chủ đáng mừng, trưóc sau dựa vào dụng thần vậy",
+    "vi": "Cả lá số xoay quanh dụng thần."
+   }
+  ],
+  "hi": [
+   {
+    "book": "ttt",
+    "page": "p.143",
+    "quote": "Hỉ thần, là phụ dụng thần trợ chủ",
+    "vi": "Hỉ thần: chữ phò dụng thần, giúp nhật chủ."
+   },
+   {
+    "book": "ttt",
+    "page": "p.167",
+    "quote": "hỉ thần là thần trợ cách phụ dụng vậy",
+    "vi": "Hỉ thần giúp cách, phò dụng."
+   },
+   {
+    "book": "ttt",
+    "page": "p.143",
+    "quote": "cho nên hỉ thần chính là cát thần vậy",
+    "vi": "Hỉ thần là chữ lành."
+   }
+  ],
+  "ky": [
+   {
+    "book": "ttt",
+    "page": "p.144",
+    "quote": "Kỵ thần, là thần làm tổn hại dụng thần",
+    "vi": "Kỵ thần: chữ làm hại dụng thần."
+   },
+   {
+    "book": "ttt",
+    "page": "p.167",
+    "quote": "kỵ thần, là thần phá cách tổn dụng vậy",
+    "vi": "Kỵ thần phá cách, làm hại dụng."
+   }
+  ],
+  "nhan": [
+   {
+    "book": "ttt",
+    "page": "p.167",
+    "quote": "Trong tứ trụ ngoài dụng thần, hỉ thần, kỵ thần đều là Nhàn thần",
+    "vi": "Nhàn thần: mọi chữ còn lại."
+   },
+   {
+    "book": "ttt",
+    "page": "p.167",
+    "quote": "Nhàn thần không hại thể dụng, không làm trở ngại hỉ thần, cũng không nên động đến nó vậy",
+    "vi": "Nhàn thần không hại thì không nên động đến."
+   },
+   {
+    "book": "ttt",
+    "page": "p.167",
+    "quote": "được nhàn thần chế hóa hung thần kỵ vật của tuế vận, phụ giúp hỉ dụng cách cục",
+    "vi": "Khi vận, năm đem chữ kỵ đến, nhàn thần có thể chế hóa nó, thành 'người nhà'."
+   },
+   {
+    "book": "ttt",
+    "page": "p.64",
+    "quote": "trừ dụng thần, hỉ thần, kỵ thần ra thì còn lại đều là nhàn thần khách thần vậy",
+    "vi": "Nhàn thần, khách thần: phần còn lại."
+   }
+  ],
+  "cuu": [
+   {
+    "book": "ttt",
+    "page": "p.167",
+    "quote": "lấy thủy làm Cừu thần",
+    "vi": "Cừu thần: chữ sinh cho kỵ thần (trong ví dụ dụng Mộc có dư: Thủy sinh Kim kỵ thần)."
+   }
+  ],
+  "many": [
+   {
+    "book": "ttt",
+    "page": "p.167",
+    "quote": "Hỉ thần chẳng nên nhiều vậy, một hỉ mà được 10 hỉ; Kỵ thần cũng chẳng nên nhiều vậy, một kị mà bị 10 hại vậy",
+    "vi": "Một chữ hỉ đắc lực bằng mười, một chữ kỵ đắc lực hại bằng mười."
+   }
+  ]
+ },
+ "role_map": {
+  "source": {
+   "book": "ttt",
+   "page": "p.167",
+   "quote": "Như dụng mộc, mộc có dư, lấy hỏa làm Hỉ thần, lấy kim làm Kỵ thần, lấy thủy làm Cừu thần, lấy thổ làm Nhàn thần; mộc không đủ, lấy thủy làm hỉ thần, thổ làm kỵ thần, lấy kim làm cừu thần, lấy hỏa làm nhàn thần",
+   "vi": "Dụng có dư: hỉ là chữ nó sinh ra, kỵ là chữ khắc nó, cừu là chữ sinh ra nó, nhàn là chữ nó khắc. Dụng không đủ: hỉ là chữ sinh ra nó, kỵ là chữ nó khắc, cừu là chữ khắc nó, nhàn là chữ nó sinh ra."
+  },
+  "du": {
+   "hi": "dung_sinh",
+   "ky": "khac_dung",
+   "cuu": "sinh_dung",
+   "nhan": "dung_khac"
+  },
+  "thieu": {
+   "hi": "sinh_dung",
+   "ky": "dung_khac",
+   "cuu": "khac_dung",
+   "nhan": "dung_sinh"
+  },
+  "example": {
+   "dung": "Mộc",
+   "du": {
+    "hi": "Hỏa",
+    "ky": "Kim",
+    "cuu": "Thủy",
+    "nhan": "Thổ"
+   },
+   "thieu": {
+    "hi": "Thủy",
+    "ky": "Thổ",
+    "cuu": "Kim",
+    "nhan": "Hỏa"
+   }
+  },
+  "note": "'Có dư / không đủ' của dụng thần: sách không cho thước đo; hệ thống chưa dùng bảng này để chọn hỉ / kỵ (vẫn theo bảng cách TVH)."
+ },
+ "order": [
+  {
+   "book": "ttt",
+   "page": "p.59",
+   "quote": "Trước xem có đắc lệnh tháng, sau xem thiên can có thấu lộ, kế tiếp xem sinh vượng để định chân giả, cuối cùng mới đến thủ dụng, phân thanh trọc",
+   "vi": "Thứ tự xem: lệnh tháng → can thấu → sinh vượng (chân / giả) → chọn dụng → phân thanh trọc."
+  },
+  {
+   "book": "ttt",
+   "page": "p.67",
+   "quote": "Khí tượng, cách cục, dụng thần đều lệ thuộc vào đề cương tháng",
+   "vi": "Khí tượng, cách cục, dụng thần đều dựa vào chi tháng."
+  },
+  {
+   "book": "tvh",
+   "page": "p.161",
+   "quote": "Quy luật chung là: căn cứ can ngày mạnh hay yếu, dụng thần có lực hay không để thấy được giàu nghèo, sang hèn",
+   "vi": "Giàu nghèo sang hèn xem ở nhật chủ mạnh yếu và dụng thần có lực hay không."
+  }
+ ],
+ "chanh_bien": [
+  {
+   "book": "ttt",
+   "page": "p.59",
+   "quote": "Chánh cách tức gồm đủ ngũ hành sinh khắc thường tình như quan sanh ấn, sát sanh ấn, tài sanh sát, thực chế sát, thực sanh tài, thương quan bội ấn, thương quan sanh tài",
+   "vi": "Chính cách: sinh khắc thường tình (Quan sinh Ấn, Sát sinh Ấn, Tài sinh Sát, Thực chế Sát, Thực sinh Tài, Thương bội Ấn, Thương sinh Tài)."
+  },
+  {
+   "book": "ttt",
+   "page": "p.59",
+   "quote": "biến cách nhất định phải tòng khí thế của ngũ hành",
+   "vi": "Biến cách: thuận theo khí thế (các cách tòng)."
+  }
+ ],
+ "dung_rules": {
+  "TTT60": {
+   "book": "ttt",
+   "page": "p.60",
+   "quote": "Nhật chủ vượng cần nên chế, suy cần nên tương trợ, ấn vượng tiết quan cần có tài, ấn suy phùng tài nên có kiếp, dụng pháp này không thay đổi",
+   "vi": "Vượng thì chế, suy thì trợ; Ấn vượng làm tiết Quan thì cần Tài; Ấn suy gặp Tài thì cần Kiếp."
+  },
+  "TTT63_core": {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "Vượng tất nên ức, nhược tất nên phù",
+   "vi": "Vượng thì ức, nhược thì phù."
+  },
+  "TTT63_reverse": [
+   {
+    "book": "ttt",
+    "page": "p.63",
+    "quote": "Vượng nên ức nhưng không thể ức, phản lại nên phù; nhược nên phù nhưng không thể phù, phản lại nên ức",
+    "vi": "Cực vượng không ức được thì thuận mà phù; cực nhược không phù được thì thuận mà ức."
+   },
+   {
+    "book": "ttt",
+    "page": "p.63",
+    "quote": "Cực cường vượng bị ức mà có hại, tất nên tòng cường mà phù cường; cực nhược được phù, phù mà uổng công vô dụng, tất nên tòng nhược mà ức nhược",
+    "vi": "Cực cường thì tòng cường; cực nhược thì tòng nhược."
+   },
+   {
+    "book": "ttt",
+    "page": "p.76",
+    "quote": "“vượng cực không thể tổn, suy cực không thể sinh”",
+    "vi": "Vượng cực không thể tổn, suy cực không thể sinh."
+   }
+  ],
+  "TTT111": [
+   {
+    "book": "ttt",
+    "page": "p.111",
+    "quote": "Chỉ có thể thuận theo khí thế mà dẫn thông, cho nên khí lưu hành gặp phú hĩ, nếu miễn cưỡng khắc chế, chọc giận cường thần, chắc chắn gặp phải điều dữ",
+    "vi": "Thế mạnh tập trung thì thuận mà dẫn thông, cưỡng chế sẽ chọc giận nó."
+   },
+   {
+    "book": "ttt",
+    "page": "p.111",
+    "quote": "cho nên chế sát không bằng hóa sát",
+    "vi": "Với Sát: hóa (bằng Ấn) hơn chế."
+   }
+  ],
+  "TVH167": {
+   "book": "tvh",
+   "page": "p.167",
+   "quote": "Thân vượng mới có thể lấy quan tinh làm dụng thần",
+   "vi": "Chỉ khi thân vượng mới lấy Quan làm dụng thần (khác tr.173: schools.json)."
+  }
+ },
+ "dung_table": [
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "Nếu như nhật chủ vượng, đề cương hoặc quan hoặc tài hoặc thực thương, đều có thể làm dụng thần; nhật chủ suy, đặc biệt tìm tứ trụ can chi có trợ nhật chủ làm dụng thần",
+   "vi": "Nhật chủ vượng: Quan, Tài hoặc Thực Thương ở chi tháng đều làm dụng được; nhật chủ suy: tìm chữ trợ nhật chủ.",
+   "id": "T01",
+   "rule": null
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "Nhật chủ làm thể, nhật chủ vượng, ấn thụ nhiều, cần phải lấy tài tinh làm dụng thần",
+   "vi": "Vượng, Ấn nhiều → Tài.",
+   "id": "T02",
+   "rule": "BT_TTTK_DT01",
+   "dung": "Tai"
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "nhật chủ vượng, quan sát khinh, cũng lấy tài tinh làm dụng thần",
+   "vi": "Vượng, Quan Sát nhẹ → Tài.",
+   "id": "T03",
+   "rule": "BT_TTTK_DT02",
+   "dung": "Tai"
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "Nhật chủ vượng, tỉ kiếp nhiều, gánh được tài tinh, lấy thực thương làm dụng thần",
+   "vi": "Vượng, Tỉ Kiếp nhiều, gánh được Tài → Thực Thương.",
+   "id": "T04",
+   "rule": "BT_TTTK_DT03",
+   "dung": "ThucThuong"
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "nhật chủ vượng, tỉ kiếp nhiều, mà tài tinh khinh, cũng lấy thực thương làm dụng thần",
+   "vi": "Vượng, Tỉ Kiếp nhiều, Tài nhẹ → Thực Thương.",
+   "id": "T05",
+   "rule": "BT_TTTK_DT04",
+   "dung": "ThucThuong"
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "Nhật chủ vượng, quan tinh khinh, ấn thụ trọng điệp, lấy tài tinh làm dụng thần",
+   "vi": "Vượng, Quan nhẹ, Ấn trùng điệp → Tài.",
+   "id": "T06",
+   "rule": "BT_TTTK_DT05",
+   "dung": "Tai"
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "Nhật chủ nhược, thực thương nhiều, lấy ấn thụ làm dụng thần",
+   "vi": "Nhược, Thực Thương nhiều → Ấn.",
+   "id": "T07",
+   "rule": "BT_TTTK_DT06",
+   "dung": "An"
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "nhật chủ nhược, tài tinh vượng, tất lấy tỉ kiếp làm dụng thần",
+   "vi": "Nhược, Tài vượng → Tỉ Kiếp.",
+   "id": "T08",
+   "rule": "BT_TTTK_DT07",
+   "dung": "Ti"
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "Nhật chủ cùng quan sát cân bằng, tất lấy thực thương làm dụng thần",
+   "vi": "Nhật chủ ngang Quan Sát → Thực Thương.",
+   "id": "T09",
+   "rule": null,
+   "dung": "ThucThuong",
+   "why_no_rule": "'Cân bằng' không có thước đo trong sách."
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "nhật chủ cùng tài tinh cân bằng, tất lấy ấn thụ làm dụng thần",
+   "vi": "Nhật chủ ngang Tài → Ấn.",
+   "id": "T10",
+   "rule": null,
+   "dung": "An",
+   "why_no_rule": "'Cân bằng' không có thước đo trong sách."
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "Nếu như tứ trụ can chi tài sát thái vượng, nhật chủ vượng biến thành nhược, cần tìm trợ nhật chủ chế hóa tài sát làm dụng thần",
+   "vi": "Tài Sát quá vượng: lấy chữ trợ nhật chủ, chế hóa Tài Sát.",
+   "id": "T11",
+   "rule": null
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "hóa thần thật, tức lấy hóa thần làm thể. Hóa thần có lực, tất lấy hóa thần làm dụng; hóa thần không đủ lực, tất lấy sanh trợ hóa thần làm dụng thần",
+   "vi": "Hóa cách: hóa thần có lực thì dùng nó, thiếu lực thì dùng chữ sinh nó.",
+   "id": "T12",
+   "rule": null
+  },
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "lấy sanh trợ khí tượng làm dụng thần, hoặc lấy thực thương làm dụng thần, hoặc lấy tài tinh làm dụng thần, chỉ không nên dụng quan sát",
+   "vi": "Năm cách khúc trực (một hành): dùng chữ sinh trợ khí tượng, Thực Thương hoặc Tài, không dùng Quan Sát.",
+   "id": "T13",
+   "rule": null
+  },
+  {
+   "book": "ttt",
+   "page": "p.109",
+   "quote": "Nói chung đắc thời đương lệnh, tứ trụ không có khắc chế, dụng thực thần thuận theo khí thế, tiết kỳ tinh anh",
+   "vi": "Đắc lệnh, không có chữ khắc chế → Thực Thần, thuận khí thế.",
+   "id": "T14",
+   "rule": "BT_TTTK_DT08",
+   "dung": "ThucThuong"
+  },
+  {
+   "book": "ttt",
+   "page": "p.188",
+   "quote": "trong cục Ấn thụ tuy vượng, trong trụ Tài tinh có khí, có thể dụng Tài phá Ấn vậy",
+   "vi": "Ấn vượng, Tài có khí → Tài phá Ấn.",
+   "id": "T15",
+   "rule": "BT_TTTK_DT09",
+   "dung": "Tai"
+  },
+  {
+   "book": "ttt",
+   "page": "p.188",
+   "quote": "Mẫu từ diệt Tử, dẫu có Tài tinh mà vô khí, không thể lấy Tài tinh phá Ấn vậy",
+   "vi": "Ấn vượng, Tài vô khí → thuận Ấn, đi đất Tỉ Kiếp.",
+   "id": "T16",
+   "rule": "BT_TTTK_DT10",
+   "dung": "Ti"
+  }
+ ],
+ "hi_by_dung": [
+  {
+   "book": "ttt",
+   "page": "p.143",
+   "quote": "Dụng Quan, nếu thân vượng có thể lấy Tài làm hỉ thần; thân nhược dụng Ấn, rồi sau đó lấy Quan làm hỉ thần",
+   "vi": "Dùng Quan khi thân vượng thì Tài là hỉ; thân nhược dùng Ấn thì Quan là hỉ."
+  }
+ ],
+ "no_dung": [
+  {
+   "book": "ttt",
+   "page": "p.61",
+   "quote": "Không theo cách cục vẫn có thể thủ dụng, không có dụng thần vẫn có thể tìm ở vận trình",
+   "vi": "Không có dụng thần trong trụ thì tìm ở vận."
+  },
+  {
+   "book": "ttt",
+   "page": "p.64",
+   "quote": "Tóm lại, có dụng thần hay không có dụng thần, nhất định vẫn có một chỗ dụng, chắc chắn không đổi vậy",
+   "vi": "Lá số nào cũng có một chỗ để dùng."
+  }
+ ],
+ "dung_disabled": [
+  {
+   "book": "ttt",
+   "page": "p.63",
+   "quote": "hoặc bị nhàn thần hợp mất, hoặc bị xung làm tổn thương, hoặc bị kỵ thần cướp giật chiếm giữ, hoặc khách thần ngăn trở",
+   "vi": "Dụng thần mất tác dụng khi bị hợp mất, bị xung, bị kỵ thần chiếm, bị khách thần ngăn."
+  },
+  {
+   "book": "ttt",
+   "page": "p.64",
+   "quote": "Nếu đắc tuế vận phá đi hợp thần, hợp mất xung thần, chế kỵ thần, thông cách thần, thì tuế vận đó sẽ yên ổn",
+   "vi": "Vận, năm gỡ được các thế ấy thì yên."
+  }
+ ],
+ "dung_position": [
+  {
+   "book": "ttt",
+   "page": "p.64",
+   "quote": "cho nên thiên can dễ xem, địa chi khó suy ra",
+   "vi": "Dụng thần ở can dễ xem; ở chi khó suy."
+  }
+ ],
+ "position": {
+  "quotes": [
+   {
+    "book": "ttt",
+    "page": "p.101",
+    "quote": "hỉ thần nên đắc địa phùng sanh, cùng nhật chủ kề cận là cát lợi; kỵ thần nên thất thế lâm tuyệt địa, cùng nhật chủ xa cách thì đẹp vậy",
+    "vi": "Hỉ gần nhật chủ là tốt, kỵ xa nhật chủ là tốt."
+   },
+   {
+    "book": "ttt",
+    "page": "p.165",
+    "quote": "Về phần thần đáng ghét, may mắn là ở xa; còn thần yêu thích, gần thì càng thân thiết",
+    "vi": "Chữ ghét ở xa, chữ thương ở gần."
+   }
+  ],
+  "rules": [
+   "BT_TTTK_HK06",
+   "BT_TTTK_HK07"
+  ],
+  "near_dm": [
+   "day.branch",
+   "month.stem",
+   "hour.stem"
+  ]
+ },
+ "verdicts": {
+  "ttt": [
+   {
+    "book": "ttt",
+    "page": "p.143",
+    "quote": "không có hỉ thần mà dụng thần đắc lệnh hùng tráng, đại thế kiên cố, tứ trụ an hòa, dụng thần đứng cạnh, không tranh không đố, tức gặp kỵ thần cũng không hung hiểm",
+    "vi": "Dụng thần nắm lệnh và mạnh: gặp kỵ cũng không hung.",
+    "rule": "BT_TTTK_HK01"
+   },
+   {
+    "book": "ttt",
+    "page": "p.143",
+    "quote": "Như nguyên cục không có hỷ thần, có kỵ thần (hoặc ám phục hoặc xuất hiện), hoặc đứng sát bên dụng thần",
+    "vi": "Không có hỉ mà kỵ đứng sát dụng: dễ hung khi vận dẫn kỵ.",
+    "rule": "BT_TTTK_HK02"
+   },
+   {
+    "book": "ttt",
+    "page": "p.144",
+    "quote": "Tài Quan vô khí, dụng thần vô lực, chẳng qua không thể phát đạt được mà thôi, cũng không có hình hung vậy",
+    "vi": "Tài Quan và dụng thần yếu: chỉ không phát đạt, không có hung.",
+    "rule": "BT_TTTK_HK03"
+   },
+   {
+    "book": "ttt",
+    "page": "p.67",
+    "quote": "hỉ thần đắc lệnh thì cát lợi",
+    "vi": "Hỉ thần nắm lệnh tháng: cát.",
+    "rule": "BT_TTTK_HK05"
+   },
+   {
+    "book": "ttt",
+    "page": "p.105",
+    "quote": "Nói nhật chủ có dụng thần, nắm lệnh tại đề cương, lại thấu xuất thiên can gọi là tụ đắc chân thần, cuộc đời phú quý hĩ",
+    "vi": "Dụng thần nắm lệnh lại thấu can: chân thần, phú quý.",
+    "rule": "BT_TTTK_CT01"
+   }
+  ],
+  "tvh_cat_hung": {
+   "cat": [
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Dụng thần có sinh hoặc có bảo vệ, tránh bị khắc tổn thương",
+     "vi": "Cát: dụng thần được sinh, được giữ, không bị khắc.",
+     "rule": null
+    },
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Dụng thần ở thiên can không bị khắc hợp; dụng thần ở địa chi không bị khắc, hợp, hình, xung",
+     "vi": "Cát: dụng ở can không bị khắc hợp; ở chi không bị khắc, hợp, hình, xung.",
+     "rule": null
+    },
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Thân vượng dụng thần là tài, có thực thương sinh tài; hoặc có quan sát bảo vệ tài",
+     "vi": "Vượng, dụng Tài có nguồn / có giữ.",
+     "rule": "BT_TVHK_CH01"
+    },
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Thân vượng dụng thần là quan, hoặc có ấn bảo vệ quan",
+     "vi": "Vượng, dụng Quan có Ấn giữ.",
+     "rule": null
+    },
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Thân vượng, dụng thần là sát, sát nặng có thực thương chế ngự; hoặc sát nhẹ có tài sinh",
+     "vi": "Vượng, dụng Sát có chế / có sinh.",
+     "rule": "BT_TVHK_CH02"
+    },
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Thân vượng, dụng thần là thực thương, có tài lưu thông và bảo vệ thực thương, đều là cát",
+     "vi": "Vượng, dụng Thực Thương có Tài.",
+     "rule": "BT_TVHK_CH03"
+    },
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Thân nhược, dụng thần là tỉ kiếp, quan tinh nặng, có ấn sinh thân xì hơi quan",
+     "vi": "Nhược, dụng Tỉ Kiếp, Quan nặng có Ấn.",
+     "rule": "BT_TVHK_CH04"
+    },
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Thân nhược, dụng thần là tỉ kiếp, tài tinh nặng, có quan xì hơi tài sinh ấn",
+     "vi": "Nhược, dụng Tỉ Kiếp, Tài nặng có Quan.",
+     "rule": null
+    },
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Thân nhược, dụng thần là tỉ kiếp, thực thương nặng, có ấn chế ngự thực thương mà sinh thân",
+     "vi": "Nhược, dụng Tỉ Kiếp, Thực Thương nặng có Ấn.",
+     "rule": "BT_TVHK_CH05"
+    },
+    {
+     "book": "tvh",
+     "page": "p.170",
+     "quote": "Thân nhược, dụng thần là ấn, có quan tinh sinh ấn; hoặc tỉ kiếp bảo vệ ấn",
+     "vi": "Nhược, dụng Ấn có Quan sinh / Tỉ giữ.",
+     "rule": "BT_TVHK_CH06"
+    }
+   ],
+   "hung": [
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Không có dụng thần hoặc bị hóa mất dụng thần hoặc dụng thần không được sinh hoặc dụng thần bị khắc",
+     "vi": "Hung: mất dụng thần hoặc dụng bị khắc.",
+     "rule": null
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Kị thần nhiều quá, hoặc kị thần không bị chế ngự, hoặc kị thần được sinh",
+     "vi": "Hung: kỵ nhiều, không bị chế, được sinh.",
+     "rule": null
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Tài nặng: tài vượng, thân nhược, kiếp và ấn nhẹ",
+     "vi": "Tài nặng.",
+     "rule": "BT_TVHK_CH10"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Tài nhẹ: dụng thần là tài, tài nhẹ còn kiếp nặng, ấn nặng",
+     "vi": "Tài nhẹ.",
+     "rule": "BT_TVHK_CH11"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Quan nặng: quan nhiều, thân nhược lại không có ấn",
+     "vi": "Quan nặng.",
+     "rule": "BT_TVHK_CH12"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Quan nhẹ: dụng thần là quan, ấn nặng",
+     "vi": "Quan nhẹ.",
+     "rule": "BT_TVHK_CH13"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Sát nặng: thân nhẹ lại không có thực thương, ấn thụ",
+     "vi": "Sát nặng.",
+     "rule": "BT_TVHK_CH14"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Sát nhẹ: dụng thần là sát, sát nhẹ không chế ngự được nặng lại còn không có tài",
+     "vi": "Sát nhẹ.",
+     "rule": "BT_TVHK_CH15"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Ấn nặng: ấn kiếp đều nặng mà quan thì nhẹ",
+     "vi": "Ấn nặng.",
+     "rule": "BT_TVHK_CH16"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Ấn nhẹ: dụng thần là ấn mà gặp tài nhiều",
+     "vi": "Ấn nhẹ.",
+     "rule": "BT_TVHK_CH17"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Thực thương nặng: Thực thương nhiều lại không có ấn",
+     "vi": "Thực Thương nặng.",
+     "rule": "BT_TVHK_CH18"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Thực thương nhẹ: dụng thần là thực thương lại gặp nhiều kiêu thần",
+     "vi": "Thực Thương nhẹ.",
+     "rule": "BT_TVHK_CH19"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Tỉ kiếp nặng: Tứ trụ tỉ kiếp nhiều mà không có quan sát",
+     "vi": "Tỉ Kiếp nặng.",
+     "rule": "BT_TVHK_CH20"
+    },
+    {
+     "book": "tvh",
+     "page": "p.171",
+     "quote": "Tỉ kiếp nhẹ: Dụng thần là tỉ kiếp mà quan sát nhiều",
+     "vi": "Tỉ Kiếp nhẹ.",
+     "rule": "BT_TVHK_CH21"
+    }
+   ]
+  },
+  "tvh_p173": [
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Giàu: nhật chủ mạnh, tài tinh là dụng thần, tài tinh càng vượng càng giàu",
+    "vi": "Mạnh, dụng Tài: giàu.",
+    "dm": "vuong",
+    "role": "dung",
+    "groups": [
+     "Tai"
+    ],
+    "verdict": "giau",
+    "rule": "BT_TVHK_W03"
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Nhật chủ yếu, tỉ kiếp là dụng thần. Tỉ kiếp càng vượng càng giàu",
+    "vi": "Yếu, dụng Tỉ Kiếp: giàu.",
+    "dm": "nhuoc",
+    "role": "dung",
+    "groups": [
+     "Ti"
+    ],
+    "verdict": "giau",
+    "rule": "BT_TVHK_F44"
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Sang: nhật chủ nhược, quan sát là dụng thần. Quan sát càng vượng càng sang",
+    "vi": "Nhược, dụng Quan Sát: sang (mâu thuẫn tr.167).",
+    "dm": "nhuoc",
+    "role": "dung",
+    "groups": [
+     "QuanSat"
+    ],
+    "verdict": "sang",
+    "rule": null
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Nhật chủ nhược, ấn tinh là dụng thần. Ấn tinh càng vượng càng sang",
+    "vi": "Nhược, dụng Ấn: sang.",
+    "dm": "nhuoc",
+    "role": "dung",
+    "groups": [
+     "An"
+    ],
+    "verdict": "sang",
+    "rule": "BT_TVHK_F45"
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Cát: nhật chủ mạnh, cái áp chế, làm hao tổn, xì hơi nhật chủ là dụng thần. Dụng thần được sinh vượng thì càng tốt",
+    "vi": "Mạnh, dụng Quan / Tài / Thực Thương: cát.",
+    "dm": "vuong",
+    "role": "dung",
+    "groups": [
+     "QuanSat",
+     "Tai",
+     "ThucThuong"
+    ],
+    "verdict": "cat",
+    "rule": null
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Nhật chủ nhược, cái sinh phù nhật chủ là dụng thần. Dụng thần được sinh vượng thì càng cát",
+    "vi": "Nhược, dụng Ấn / Tỉ: cát.",
+    "dm": "nhuoc",
+    "role": "dung",
+    "groups": [
+     "An",
+     "Ti"
+    ],
+    "verdict": "cat",
+    "rule": null
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Nghèo: Nhật chủ mạnh, tỉ kiếp là kị thần. Kị thần càng vượng càng nghèo",
+    "vi": "Mạnh, kỵ Tỉ Kiếp: nghèo.",
+    "dm": "vuong",
+    "role": "ky",
+    "groups": [
+     "Ti"
+    ],
+    "verdict": "ngheo",
+    "rule": "BT_TVHK_F40"
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Nhật chủ nhược, tài tinh là kị thần. Tài tinh càng vượng càng nghèo",
+    "vi": "Nhược, kỵ Tài: nghèo.",
+    "dm": "nhuoc",
+    "role": "ky",
+    "groups": [
+     "Tai"
+    ],
+    "verdict": "ngheo",
+    "rule": "BT_TVHK_F41"
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Hèn: nhật chủ mạnh, ấn tinh là kị thần. Ấn tinh càng vượng càng hèn",
+    "vi": "Mạnh, kỵ Ấn: hèn.",
+    "dm": "vuong",
+    "role": "ky",
+    "groups": [
+     "An"
+    ],
+    "verdict": "hen",
+    "rule": "BT_TVHK_F42"
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Nhật chủ nhược, quan sát là kị thần. Quan sát càng vượng càng hèn",
+    "vi": "Nhược, kỵ Quan Sát: hèn.",
+    "dm": "nhuoc",
+    "role": "ky",
+    "groups": [
+     "QuanSat"
+    ],
+    "verdict": "hen",
+    "rule": "BT_TVHK_F43"
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Hung: nhật chủ mạnh, cái sinh phù là kị thần. Kị thần càng vượng càng hung",
+    "vi": "Mạnh, kỵ Ấn / Tỉ: hung.",
+    "dm": "vuong",
+    "role": "ky",
+    "groups": [
+     "An",
+     "Ti"
+    ],
+    "verdict": "hung",
+    "rule": null
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "Nhật chủ nhược, cái khắc, xì hơi, hao tổn nhật chủ là kị thần. Kị thần càng vượng càng hung",
+    "vi": "Nhược, kỵ Quan / Thực Thương / Tài: hung.",
+    "dm": "nhuoc",
+    "role": "ky",
+    "groups": [
+     "QuanSat",
+     "ThucThuong",
+     "Tai"
+    ],
+    "verdict": "hung",
+    "rule": null
+   }
+  ],
+  "timing": [
+   {
+    "book": "tvh",
+    "page": "p.162",
+    "quote": "Lúc mà họ cất đầu lên được cũng là lúc dụng thần phát huy tác dụng, còn lúc rủi ro, khốn khó là lúc dụng thần đang bị khắc",
+    "vi": "Lúc lên là lúc dụng thần được trợ; lúc khó là lúc dụng thần bị khắc."
+   },
+   {
+    "book": "tvh",
+    "page": "p.173",
+    "quote": "đại vận tốt mà lưu niên không tốt, đại vận không tốt mà lưu niên tốt là còn có cứu. Ngược lại, đại vận đã xấu, lưu niên cũng xấu là không có cứu",
+    "vi": "Vận và năm một tốt một xấu: còn cứu; cả hai xấu: không cứu."
+   }
+  ]
+ },
+ "benh_duoc": [
+  {
+   "book": "ttt",
+   "page": "p.144",
+   "quote": "Lấy kỵ thần là bệnh, hỉ thần là dược, bệnh có dược chữa là cát, có bệnh mà không có dược là hung",
+   "vi": "Kỵ là bệnh, hỉ là thuốc."
+  },
+  {
+   "book": "ttt",
+   "page": "p.77",
+   "quote": "có bệnh rõ ràng mà dễ dàng chọn, không có bệnh mà khó đoán",
+   "vi": "Có bệnh rõ thì dễ chọn dụng; không bệnh thì khó đoán."
+  }
+ ],
+ "ton_ich": [
+  {
+   "book": "ttt",
+   "page": "p.65",
+   "quote": "Có thừa cần nên bớt đi, không đủ cần nên bồi thêm",
+   "vi": "Thừa thì bớt, thiếu thì bù."
+  },
+  {
+   "book": "ttt",
+   "page": "p.65",
+   "quote": "đại khái có thừa quá mức, nếu tổn phản lại kích động phẫn nộ, tất nên thuận theo mà tiết đi",
+   "vi": "Thừa quá thì tiết, đừng khắc."
+  }
+ ],
+ "strength_notes": [
+  {
+   "book": "ttt",
+   "page": "p.70",
+   "quote": "nhật chủ không luận hưu tù nguyệt lệnh, chỉ cần tứ trụ hữu căn, liền có thể đảm nhận tài quan thực thương thất sát",
+   "vi": "Nhật chủ có gốc thì gánh được Tài Quan, dù thất lệnh."
+  },
+  {
+   "book": "ttt",
+   "page": "p.70",
+   "quote": "nhiều can không bằng thông căn nơi địa chi",
+   "vi": "Nhiều can trợ không bằng một gốc ở chi."
+  }
+ ],
+ "trung_hoa": [
+  {
+   "book": "ttt",
+   "page": "p.77",
+   "quote": "Tức đắc trung hòa chánh khí, danh lợi làm sao mà không toại được",
+   "vi": "Được trung hòa thì danh lợi dễ toại."
+  }
+ ],
+ "mon_dia": [
+  {
+   "book": "ttt",
+   "page": "p.67",
+   "quote": "thiên can không thấu xuất hỏa thổ mà thấu thủy mộc, thì môn (can) suy địa vượng",
+   "vi": "Tháng Dần: can thấu và chi nắm lệnh khác nhau thì cát hung nửa nọ nửa kia."
+  }
+ ],
+ "phan_uc": [
+  {
+   "book": "ttt",
+   "page": "p.163",
+   "quote": "chỗ dụng đều đắc khí, hỉ thần đều đắc lực, kỵ thần đều thất thế",
+   "vi": "Phấn phát khi dụng đắc khí, hỉ có lực, kỵ thất thế."
+  }
+ ],
+ "an_oan": [
+  {
+   "book": "ttt",
+   "page": "p.165",
+   "quote": "Ân oán, là Hỉ Kỵ vậy",
+   "vi": "Ân oán là hỉ kỵ: chữ hỉ xa được hợp kéo gần là ân; bị kỵ ngăn là oán."
+  }
+ ],
+ "hop_xung": [
+  {
+   "book": "ttt",
+   "page": "p.168",
+   "quote": "Hợp mà không hóa, thì giống như bị lưu luyến ràng buộc",
+   "vi": "Tham hợp không hóa: bị ràng buộc."
+  },
+  {
+   "book": "ttt",
+   "page": "p.169",
+   "quote": "Đoạn này chính là đắc dụng phùng xung vậy",
+   "vi": "Dụng thần được xung gỡ ra thì nhật chủ tự do."
+  },
+  {
+   "book": "ttt",
+   "page": "p.194",
+   "quote": "Hợp có nên và không nên, không nên hợp nhiều",
+   "vi": "Hợp có nên có không; không nên hợp nhiều."
+  },
+  {
+   "book": "ttt",
+   "page": "p.192",
+   "quote": "Thiên chiến còn có thể, Địa chiến gấp như hỏa",
+   "vi": "Can chiến còn chịu được, chi chiến thì gấp."
+  },
+  {
+   "book": "ttt",
+   "page": "p.192",
+   "quote": "Cho nên thiên can luận là khắc, địa chi nói xung, xung tức là khắc vậy",
+   "vi": "Can luận khắc, chi luận xung."
+  }
+ ],
+ "phan_cuc": [
+  {
+   "book": "ttt",
+   "page": "p.186",
+   "quote": "Quân dựa vào Thần sinh, ý nói Ấn thụ quá vượng vậy",
+   "vi": "Ấn quá vượng thì dùng Tài (phản cục)."
+  },
+  {
+   "book": "ttt",
+   "page": "p.186",
+   "quote": "Phá Ấn mà tựu Tài, là ý phạm thượng, cho nên gọi là Phản cục vậy",
+   "vi": "Phá Ấn để dùng Tài gọi là phản cục."
+  },
+  {
+   "book": "ttt",
+   "page": "p.190",
+   "quote": "kim khắc mộc, gọi là chồng khỏe mà sợ vợ vậy",
+   "vi": "Phu kiện phạ thê: nhật chủ mạnh mà Tài sinh Quan khắc lại."
+  }
+ ],
+ "tong_luck": [
+  {
+   "book": "ttt",
+   "page": "p.183",
+   "quote": "là lấy Tòng Nhi cách tối kỵ Ấn vận, kế đến là Quan vận",
+   "vi": "Tòng Nhi kỵ nhất vận Ấn, sau là vận Quan."
+  },
+  {
+   "book": "ttt",
+   "page": "p.185",
+   "quote": "Phàm Tòng Nhi cách, hành vận không nghịch, gặp Tài không thể không có phú quý vậy",
+   "vi": "Tòng Nhi gặp Tài, vận thuận: phú quý."
+  }
+ ],
+ "cuong_nhu": [
+  {
+   "book": "ttt",
+   "page": "p.109",
+   "quote": "Khắc, tiết, dẫn, tòng bốn chữ nên nghiên cứu kỹ càng",
+   "vi": "Bốn cách xử: khắc, tiết, dẫn, tòng."
+  }
+ ],
+ "luck_principles": [
+  {
+   "book": "ttt",
+   "page": "p.229",
+   "quote": "Phú quý tuy định ở cách cục, cũng phải gắn liền với vận đồ thuận lợi nữa, chỗ gọi là Mệnh tốt không bằng vận tốt vậy",
+   "vi": "Mệnh tốt không bằng vận tốt."
+  },
+  {
+   "book": "ttt",
+   "page": "p.229",
+   "quote": "Cho nên lấy địa chi làm trọng",
+   "vi": "Đại vận: lấy chi làm trọng."
+  },
+  {
+   "book": "ttt",
+   "page": "p.229",
+   "quote": "thiên can sinh địa chi mà phúc dày, địa chi sinh thiên can mà khí tiết",
+   "vi": "Can vận sinh chi vận thì phúc dày; chi sinh can thì khí tiết."
+  },
+  {
+   "book": "ttt",
+   "page": "p.61",
+   "quote": "nếu chánh cách dụng chân mà gặp vận hành bội phản, trọn đời có chí mà vất vả",
+   "vi": "Cách chính, dụng thật mà vận ngược: có chí mà vất vả."
+  },
+  {
+   "book": "ttt",
+   "page": "p.163",
+   "quote": "Nhưng cục dù âm hối, mà vận đồ phối hợp dương minh, cũng có thể thông suốt",
+   "vi": "Cục u uất mà vận sáng cũng thông được."
+  }
+ ],
+ "luck_year": [
+  {
+   "book": "ttt",
+   "page": "p.231",
+   "quote": "Chiến là khắc vậy. Như vận Bính năm Canh, là vận khắc Tuế",
+   "vi": "Chiến: can vận khắc can năm (hoặc ngược lại); cát hung theo nhật chủ hỉ chữ nào."
+  },
+  {
+   "book": "ttt",
+   "page": "p.232",
+   "quote": "Xung là phá vậy. Như vận Tý năm Ngọ, gọi là vận xung tuế",
+   "vi": "Xung: chi vận xung chi năm."
+  },
+  {
+   "book": "ttt",
+   "page": "p.232",
+   "quote": "Hòa là Hợp vậy",
+   "vi": "Hòa: vận và năm hợp; hợp hóa ra chữ hỉ thì cát."
+  },
+  {
+   "book": "ttt",
+   "page": "p.233",
+   "quote": "Tốt, là loại tương đồng vậy",
+   "vi": "Hảo: vận và năm cùng loại (lộc, cùng hành)."
+  }
+ ],
+ "zz_element_state": [
+  {
+   "book": "zz",
+   "page": "p.27",
+   "quote": "以得令、得位、得生为旺，以失令、失位、无生为弱",
+   "vi": "Một hành vượng khi đắc lệnh, đắc vị, được sinh; yếu khi thất lệnh, thất vị, không được sinh."
+  }
+ ]
+}
