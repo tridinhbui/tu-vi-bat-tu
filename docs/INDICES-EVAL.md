@@ -1,4 +1,37 @@
-# Biểu đồ vận "Tổng quan lá số" — đánh giá (indices-3.0.0, 2026-10-24)
+# Biểu đồ vận "Tổng quan lá số" — đánh giá (indices-3.1.0, 2026-10-24)
+
+## 3.1.0 (2026-10-24): luật đại / tiểu hạn Thực Hành tr.115-117
+
+Bảng đối chiếu đủ từng mục (trang, nguyên văn, trạng thái) ở `docs/INDICES-TH115-117.md`. Mọi mục đã xem ảnh trang. Tóm tắt:
+
+| Trạng thái | Mục |
+|---|---|
+| Đã thêm (6 luật) | IX.6 Giáp / Canh gặp Thiên Thương, Thiên Sứ ở Dần / Thân (bất lợi); IX.9 tuổi Thân gặp Thiên Thương (bất lợi); IX.10 tuổi Thìn Tuất Sửu Mùi gặp Kình Đà cùng Tử, Phủ, Xương, Khúc là "hoạnh phát" (thuận), còn khi không có các sao ấy là "không hề gì" (chỉ nói, không cộng trừ); 6n Sát Phá Tham hội Tang Hổ Khốc Khách, Đà, Thiên Thương (bất lợi) |
+| Đã có từ trước | Đoán cách 1; thất lợi 6c, 6e |
+| Chờ chủ dự án duyệt nội dung (chết, tù, tai nạn, thương tật, bệnh, bỏng, chết đuối, tang) | IX.7, IX.8, IX.11; đoán cách 5; thất lợi 6a, 6b, 6d, 6f-6m, 6o; có tang 7a-7i |
+| Không tính được | IX.5 (Cự Môn không bao giờ ở tam phương của Sát Phá Tham); đoán cách 2-4 (sự kiện cưới, sinh con, tình duyên: không có chiều thuận / bất lợi) |
+
+Fact mới của `vh.*` (`engine/tvbt/van_han.py`): can, chi năm sinh, sao trong tam phương tứ chính của cung vận, Thiên Thương / Thiên Sứ và Kình / Đà trong cung vận. Câu đọc vận trong `corpus1000` được tính lại bằng `tools/interpret/refresh_van_readings.py` (chỉ thay `decades[].readings`; công cụ dừng nếu câu của luật cũ đổi).
+
+Số cung vận khớp trên 1.000 lá (mỗi lá 12 cung vận): IX.6 Giáp 14, IX.6 Canh 19, IX.9 76, IX.10 "hoạnh phát" 180, IX.10 "không hề gì" 444, 6n 17.
+
+### Độ khớp (`node tools/interpret/eval_indices.ts`, tiểu hạn theo KL)
+
+| Chỉ số | 3.0.0 | **3.1.0** |
+|---|---|---|
+| Chặng ở tam hợp Thái Tuế bị vẽ dưới "Trung bình" | 451 / 2.244 (20 %), 100 % có giải thích | 447 / 2.244 (19,9 %), 100 % có giải thích |
+| Chặng có mức khác chiều lời sách | 2.240 / 10.000, 100 % có giải thích | 2.241 / 10.000, 100 % có giải thích |
+| Chặng / năm thiếu căn cứ | 0 | 0 |
+| Năm khác phía "Trung bình" với chặng của nó | 693 / 20.596, 100 % có giải thích | 691 / 20.596, 100 % có giải thích |
+| Năm mức, chặng / năm / tháng | 12 / 21 / 34 / 21 / 12 % | 12 / 21 / 34 / 21 / 12 % |
+| Tháng trùng mức của năm | 7,6 / 12 | 7,6 / 12 (63,5 %) |
+| Tương quan điểm chặng với chất lượng bẩm sinh | 0,166 | 0,165 |
+| Radar so với sổ cái (1.124 cặp) | cùng chiều 46,8 %, ngược 13,2 % | không đổi |
+
+So với 3.0.0: 193 / 10.000 chặng và 451 / 20.596 năm đổi mức, tất cả chỉ một bậc. Không lá nào đổi từ hai bậc trở lên.
+
+Việc còn chờ chủ dự án: (1) duyệt nội dung các mục "chờ duyệt"; (2) lời của IX.9 ("tai họa liên miên") và 6n ("tất gặp lắm tai ương") đang giữ nguyên văn sách, xin xem lại; (3) có cho IX.10 "không hề gì" triệt tiêu Kình / Đà hãm của lớp đắc hãm KL tr.233 ở tuổi Tứ Mộ không. Lớp văn vận hạn (`src/interpret/content/prose/van_han.json`) chưa có câu cho sáu luật mới, nên chương vận hạn bỏ qua chúng; biểu đồ vẫn dùng.
+
 
 ## 3.0.0 (2026-10-24): kế hoạch chủ dự án duyệt
 
@@ -43,7 +76,7 @@ Bỏ khỏi điểm giai đoạn: nền bẩm sinh của cung (radar), độ v�
 | Tương quan điểm chặng với chất lượng bẩm sinh | 0,231 | **0,166** |
 | Radar so với kết luận sổ cái (Quan, Tài, Điền, Phu Thê; 300 lá) | — | cùng chiều 46,8 %, ngược chiều 13,2 % (1.124 cặp): chưa sửa ở đợt này |
 
-Chưa làm ở đợt này: (a) các luật "thất lợi", "tang", "đoán cách" ở TH tr.116-117. Nhiều luật nói chuyện tù tội, tai nạn, chết đuối, cần duyệt nội dung trước khi đưa vào. (b) Luật "cát tinh chiếm 2/3" của TH tr.117: sách không kèm danh sách cát tinh, nên chưa có căn cứ để đếm. (c) Nhật vận (KL tr.41, TH tr.115). (d) 13 % ngược chiều giữa radar và sổ cái. (e) `corpus1000` vẫn được lập bằng bảng độ sáng Thực Hành và tiểu hạn Thực Hành; bộ chuẩn đi lại tiểu hạn theo KL, còn độ sáng giữ như bộ mẫu.
+Chưa làm ở đợt này: (a) các luật "thất lợi", "tang", "đoán cách" ở TH tr.116-117 (đã xử lý ở 3.1.0, xem trên). Nhiều luật nói chuyện tù tội, tai nạn, chết đuối, cần duyệt nội dung trước khi đưa vào. (b) Luật "cát tinh chiếm 2/3" của TH tr.117: sách không kèm danh sách cát tinh, nên chưa có căn cứ để đếm. (c) Nhật vận (KL tr.41, TH tr.115). (d) 13 % ngược chiều giữa radar và sổ cái. (e) `corpus1000` vẫn được lập bằng bảng độ sáng Thực Hành và tiểu hạn Thực Hành; bộ chuẩn đi lại tiểu hạn theo KL, còn độ sáng giữ như bộ mẫu.
 
 Lá 09/01/2002 04:30 nam (theo KL), mười chặng 2.1.0 → 3.0.0: 3–12 Rất thử thách → Nhiều thử thách; 13–22 Rất thử thách → Nhiều thử thách (lời văn: KL coi tam hợp Thái Tuế là may mắn nhất, nhưng các lời sách khác kém hơn những chặng thường gặp); 23–32 Nhiều thử thách → Thuận; 43–52 Trung bình → Nhiều thử thách; 73–82 Trung bình → Nhiều thử thách; 83–92 Rất thử thách; 93–102 Thuận. Năm 2026: tiểu hạn Tài Bạch, lưu đại hạn Quan Lộc, "Trung bình".
 

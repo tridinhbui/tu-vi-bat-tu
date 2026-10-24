@@ -11,7 +11,7 @@ import { gunzipSync } from 'node:zlib';
 import { join } from 'node:path';
 import type { ChartInput, Knowledge } from '../types.ts';
 import { computeIndices, natalRawAll, luuStars, gistOf, tieuHanBranch, tieuHanRule, luuDaiHanBranch, DISCLAIMER, INDICES_VERSION, KL_RELATION, LEVELS, NORM_SMOOTH,
-  TT_SENTENCES, VAN_RULES, TRIAD_RULES, DAU_TINH, TRUNG_TINH, HUNG_TINH, W_DECADE, W_YEAR, W_MONTH, CONVENTION, CONV_K, CONV_FLOOR, LEVEL_DEFAULT, TAT_ACH_NOTE,
+  TT_SENTENCES, VAN_RULES, VAN_NO_SIDE, TRIAD_RULES, DAU_TINH, TRUNG_TINH, HUNG_TINH, W_DECADE, W_YEAR, W_MONTH, CONVENTION, CONV_K, CONV_FLOOR, LEVEL_DEFAULT, TAT_ACH_NOTE,
   type IndexNorms, type Period } from '../indices.ts';
 import { overview, handleOverview } from '../overview.ts';
 import { BundledStore } from '../store.ts';
@@ -339,7 +339,8 @@ test('Bát Tự strip: luck pillars tagged by the điều hậu table, beside th
 
 test('every vận sentence the Python engine can write has a side', () => {
   const rules = JSON.parse(readFileSync(join(ROOT, 'engine', 'data', 'van_han_rules.json'), 'utf8')).rules as Array<{ id: string }>;
-  assert.deepEqual(rules.map(r => r.id).filter(id => !VAN_RULES[id]), [], 'van_han_rules.json ids without a side');
+  assert.deepEqual(rules.map(r => r.id).filter(id => !VAN_RULES[id] && !VAN_NO_SIDE.has(id)), [], 'van_han_rules.json ids without a side');
+  for (const id of VAN_NO_SIDE) assert.ok(!VAN_RULES[id] && rules.some(r => r.id === id), id);
   const py = readFileSync(join(ROOT, 'engine', 'tvbt', 'van_han_tt.py'), 'utf8');
   const sentences = [...py.matchAll(/add\("([^"]+)"/g)].map(m => m[1]);
   assert.ok(sentences.length >= 30);
@@ -377,4 +378,24 @@ test('handleOverview: off unless enabled, POST only, facts errors pass through, 
   const o = await r.json() as ReturnType<typeof overview>;
   assert.equal(o.indices.decades.length, 10);
   assert.equal(o.indices.norms?.charts, 1000);
+});
+
+test('TH p.115 IX / p.117 6n vận sentences (3.1.0): each takes its book side; "không hề gì" is told but never scored', () => {
+  const add = (rule_id: string) => {
+    const f = structuredClone(ref.facts);
+    f.decades[3].readings.push({ text: `câu ${rule_id}`, src: 'Thực Hành pp.115-117', rule_id });
+    return computeIndices(f, K, N).decades.find(d => d.palace === f.decades[3].palace)!;
+  };
+  const base = X.decades.find(d => d.palace === ref.facts.decades[3].palace)!;
+  for (const id of ['TH_IX6_GIAP_THUONG_SU', 'TH_IX6_CANH_THUONG_SU', 'TH_IX9_THAN_THUONG', 'TH_6N_SPT_TANG_HO']) {
+    const d = add(id);
+    assert.equal(d.items.find(i => i.id === id)?.side, 'limit', id);
+    assert.ok(d.score < base.score, id);
+  }
+  const up = add('TH_IX10_TU_MO_KINH_DA_PHAT');
+  assert.equal(up.items.find(i => i.id === 'TH_IX10_TU_MO_KINH_DA_PHAT')?.side, 'support');
+  assert.ok(up.score > base.score);
+  const none = add('TH_IX10_TU_MO_KINH_DA');
+  assert.ok(!none.items.some(i => i.id === 'TH_IX10_TU_MO_KINH_DA'));
+  assert.equal(none.score, base.score);
 });

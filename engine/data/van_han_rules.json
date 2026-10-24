@@ -1,5 +1,5 @@
 {
- "note": "Vận-palace readings as data; carried over verbatim from van_han.py (Khảo Luận pp.233-236, Thực Hành pp.115-117).",
+ "note": "Vận-palace readings as data (Khảo Luận pp.233-236, Thực Hành pp.115-117); built by tools/build_van_han_rules.py.",
  "rules": [
   {
    "id": "VH_TPVT_SAT",
@@ -836,6 +836,185 @@
     ]
    },
    "text": "Cung vận có Nguyệt Đồng Cơ Cự gặp Không hoặc Kiếp cùng Thái Tuế hoặc Kỵ: theo sách dễ vướng kiện cáo hay giáng chức."
+  },
+  {
+   "id": "TH_IX6_GIAP_THUONG_SU",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.year_stem",
+      "operator": "eq",
+      "value": "Giáp"
+     },
+     {
+      "fact": "vh.v_branch",
+      "operator": "eq",
+      "value": "Dần"
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Thương",
+       "Thiên Sứ"
+      ]
+     }
+    ]
+   },
+   "text": "Tuổi Giáp, cung vận ở Dần có {thuong_su}: theo sách rất kỵ."
+  },
+  {
+   "id": "TH_IX6_CANH_THUONG_SU",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.year_stem",
+      "operator": "eq",
+      "value": "Canh"
+     },
+     {
+      "fact": "vh.v_branch",
+      "operator": "eq",
+      "value": "Thân"
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Thương",
+       "Thiên Sứ"
+      ]
+     }
+    ]
+   },
+   "text": "Tuổi Canh, cung vận ở Thân có {thuong_su}: theo sách rất kỵ."
+  },
+  {
+   "id": "TH_IX9_THAN_THUONG",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.year_branch",
+      "operator": "eq",
+      "value": "Thân"
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains",
+      "value": "Thiên Thương"
+     }
+    ]
+   },
+   "text": "Tuổi Thân, cung vận có Thiên Thương: theo sách rất hại, tai họa liên miên."
+  },
+  {
+   "id": "TH_IX10_TU_MO_KINH_DA",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.year_branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La"
+      ]
+     },
+     {
+      "not": {
+       "fact": "vh.v_stars",
+       "operator": "contains_any",
+       "value": [
+        "Tử Vi",
+        "Thiên Phủ",
+        "Văn Xương",
+        "Văn Khúc"
+       ]
+      }
+     }
+    ]
+   },
+   "text": "Tuổi {year_branch}, cung vận có {kinh_da}: theo sách không hề gì."
+  },
+  {
+   "id": "TH_IX10_TU_MO_KINH_DA_PHAT",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.year_branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất",
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tử Vi",
+       "Thiên Phủ",
+       "Văn Xương",
+       "Văn Khúc"
+      ]
+     }
+    ]
+   },
+   "text": "Tuổi {year_branch}, cung vận có {kinh_da} cùng Tử, Phủ, Xương hoặc Khúc: theo sách trái lại là hoạnh phát."
+  },
+  {
+   "id": "TH_6N_SPT_TANG_HO",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thất Sát",
+       "Phá Quân",
+       "Tham Lang"
+      ]
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_all",
+      "value": [
+       "Tang Môn",
+       "Bạch Hổ",
+       "Thiên Khốc",
+       "Điếu Khách",
+       "Đà La",
+       "Thiên Thương"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Sát Phá Tham, tam phương hội Tang Môn, Bạch Hổ, Thiên Khốc, Điếu Khách, Đà La, Thiên Thương: theo sách tất gặp lắm tai ương."
   }
  ]
 }
