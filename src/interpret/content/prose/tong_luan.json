@@ -1,0 +1,63 @@
+{
+ "note": "Tổng luận Tử Vi (review 19 điểm, 2026-10-23, điểm 19): kết luận chung có thứ bậc. Mọi câu là lời tổng hợp của hệ thống (he_thong) trên các kết luận lĩnh vực đã nói ở các chương (reason/ledger.ts) và mức đại hạn của chỉ số (indices.ts, quy ước có nhãn); một câu lời khuyên chung (loi_khuyen). Không câu nào thêm nhận định mới.",
+ "status": "draft",
+ "lead": [
+  "Gom các chương lại, lá số có một thứ tự rõ ràng giữa các mặt của đời người",
+  "Đặt các lĩnh vực cạnh nhau, có thể xếp chúng theo thứ bậc",
+  "Nhìn cả lá số một lượt, các mặt đời người không ngang nhau"
+ ],
+ "best": [
+  "Điểm tựa vững nhất là {domain}: {verdict}, dựa trên {ground}",
+  "Mặt mạnh nhất của lá số nằm ở {domain} ({verdict}), với gốc là {ground}",
+  "Chỗ dựa đứng đầu là {domain} ({verdict}), có nền ở {ground}"
+ ],
+ "worst": [
+  "Phần cần lo nhiều nhất là {domain} ({verdict}), vì {ground}",
+  "Mặt nặng nhất là {domain}: {verdict}, do {ground}",
+  "Đứng cuối thứ bậc là {domain} ({verdict}), gốc ở {ground}"
+ ],
+ "middle": [
+  "Ở giữa là {list}",
+  "Xếp ở giữa có {list}",
+  "Kế sau đó là {list}"
+ ],
+ "same": [
+  "Các mặt chính đều ở cùng một mức: {list}",
+  "Không mặt nào vượt hẳn: {list}"
+ ],
+ "open": [
+  "{domain} còn hai mặt ngang nhau, nên chưa xếp được trên dưới",
+  "Riêng {domain} hai phía ngang sức, chưa đặt được vào thứ bậc"
+ ],
+ "health": [
+  "Sức khỏe không được xếp tốt hay xấu; chương Tật Ách chỉ ghi lại các yếu tố ở cung ấy",
+  "Về sức khỏe không có xếp hạng: Tật Ách chỉ nêu các yếu tố đứng ở cung ấy"
+ ],
+ "dec_best": [
+  "Chặng thuận nhất của đời là đại hạn {a}–{b} tuổi ở cung {pal}, ở mức {level}",
+  "Về thời vận, mười năm {a}–{b} tuổi (cung {pal}) đứng cao nhất, mức {level}",
+  "Quãng {a}–{b} tuổi, khi hạn vào cung {pal}, là chặng sáng sủa nhất (mức {level})"
+ ],
+ "dec_worst": [
+  "chặng phải dè dặt nhất là {a}–{b} tuổi ở cung {pal} (mức {level})",
+  "còn {a}–{b} tuổi ở cung {pal} là quãng thấp nhất, mức {level}",
+  "quãng {a}–{b} tuổi (cung {pal}) xuống thấp nhất, mức {level}"
+ ],
+ "turn_up": [
+  "Bước chuyển lớn nhất là lúc sang đại hạn {a} tuổi ở cung {pal}: từ mức {from} lên {to}",
+  "Chỗ đổi chiều rõ nhất đến ở tuổi {a}, khi hạn sang cung {pal}, đi từ mức {from} lên {to}"
+ ],
+ "turn_down": [
+  "Bước chuyển lớn nhất là lúc sang đại hạn {a} tuổi ở cung {pal}: từ mức {from} xuống {to}",
+  "Chỗ đổi chiều rõ nhất đến ở tuổi {a}, khi hạn sang cung {pal}, từ mức {from} hạ xuống {to}"
+ ],
+ "current": [
+  "Hiện đương số đang ở đại hạn {a}–{b} tuổi, cung {pal}, mức {level}",
+  "Lúc này hạn đang ở cung {pal} ({a}–{b} tuổi), mức {level}"
+ ],
+ "advice": [
+  "Nếu phải xếp việc theo thứ tự, nên lấy {best} làm chỗ dựa và dành sức trước cho {worst}",
+  "Một thứ tự hợp lý là dựa vào {best}, còn {worst} là việc cần lo sớm",
+  "Gợi ý xếp việc: {best} là vốn để dựa, {worst} là chỗ cần chuẩn bị trước"
+ ]
+}

@@ -17,12 +17,14 @@ import { Geo, rarity, seatOf, type SeatRef } from './tiers.ts';
 import { guardHolds } from './positions.ts';
 import { palaceEvidence, TIMING_FACET, type Element, type PalaceEvidence } from './evidence.ts';
 
-export const LEDGER_VERSION = 'ledger-1.0.0';
+export const LEDGER_VERSION = 'ledger-1.1.0';
 /** thuan / tro_ngai: one side, nothing in the way; co_dieu_kien: one side with a concrete, sourced or structural condition, or a book relation
  *  narrowing a strength; giam_nhe: a limit that a book relation makes lighter (never turned into a strength); chua_phan_xu: both sides stand
  *  and no book sentence adjudicates them (named, not merged); khong_ket_luan: a domain the report never judges good or bad (health: only the
  *  book readings are told); chua_du: nothing to conclude. hai_chieu is kept for older payloads only. */
-export type Verdict = 'thuan' | 'co_dieu_kien' | 'hai_chieu' | 'tro_ngai' | 'chua_du' | 'giam_nhe' | 'chua_phan_xu' | 'hai_mat' | 'khong_ket_luan';
+export type Verdict = 'thuan' | 'co_dieu_kien' | 'hai_chieu' | 'tro_ngai' | 'chua_du' | 'giam_nhe' | 'chua_phan_xu' | 'hai_mat' | 'khong_ket_luan' | 'nghieng_ve';
+/** the key a verdict's words are listed under (content/prose/luan.json ledger.verdict): a verdict with a base names its side */
+export const verdictKey = (v: { verdict: Verdict; base: '+' | '-' | null }) => v.verdict === 'co_dieu_kien' || v.verdict === 'nghieng_ve' ? `${v.verdict}${v.base ?? ''}` : v.verdict;
 export type Side = '+' | '-' | 'timing' | 'mixed';
 export interface LedgerItem { ruleId: string; palace: string; concept: string; side: Side; seat: SeatRef; rarity: number; cites: string[];
   /** the stars and Hóa the reading stands on */
@@ -33,7 +35,7 @@ export interface LedgerItem { ruleId: string; palace: string; concept: string; s
   kyCarrier?: string }
 export interface LedgerStep { type: 'fact' | 'reading' | 'link' | 'precedence' | 'verdict'; palace?: string; element?: string; ruleId?: string; cite?: string;
   basis: 'sach' | 'he_thong' | 'tinh_toan'; note: string }
-export interface Link { kind: 'timing' | 'book' | 'specific' | 'tier' | 'structure' | 'single' | 'mitigation' | 'unresolved'; ruleId?: string; elements?: string[];
+export interface Link { kind: 'timing' | 'book' | 'specific' | 'tier' | 'structure' | 'single' | 'mitigation' | 'unresolved' | 'weigh'; ruleId?: string; elements?: string[];
   /** book link: the side the book's own relation reduces ('-': a limit made lighter, '+': a strength narrowed) */
   reduces?: '+' | '-';
   /** book link: the reading the book's relation qualifies (the one it makes lighter or narrower) */
@@ -50,14 +52,22 @@ export interface DomainVerdict {
   home?: string;
   /** the facets in the domain's order of importance (the first is its subject proper) */
   facets: string[];
+  /** nghieng_ve: the weighing of the two sides (domains.json `weigh`, a labelled system convention) and why the heavier side weighs more */
+  weigh?: Weighing;
 }
+/** why one side of a two-sided domain weighs more: its reading rests on a chính tinh against a minor star, on a bright star against a hãm
+ *  one, on more independent stars, or stands in the domain's own palace against a palace of its tam phương */
+export interface WeighReason { kind: 'tier' | 'dignity' | 'count' | 'core' | 'tuan_triet'; star?: string; other?: string; dignity?: string; palace?: string; n?: number }
+export interface Weighing { pos: number; neg: number; heavy: LedgerItem; light: LedgerItem; why: WeighReason[] }
 export interface Ledger { version: string; domains: DomainVerdict[]; byChapter: Record<string, DomainVerdict[]> }
 
+/** domains.json `weigh`: the system's scale for two sides no book sentence adjudicates (owner decision 2026-10-23, labelled tổng hợp) */
+interface WeighDef { tier: Record<string, number>; role: Record<string, number>; bright: number; ham: number; tuan_triet: number; per_extra: number; max_extra: number; margin: number }
 interface DomainDef { label: string; home?: string;
   /** false: the domain gets no good / bad verdict at all (health, audit 2026-10-22); only its book readings are told */
   verdict?: boolean; palaces?: Record<string, string>; facets?: string[]; elements?: string[]; than?: boolean; cite?: string; chapters: string[];
   parts?: Record<string, { label: string; palaces: Record<string, string>; facets: string[]; elements?: string[] }> }
-export interface DomainsFile { version: string; domains: Record<string, DomainDef> }
+export interface DomainsFile { version: string; domains: Record<string, DomainDef>; weigh?: WeighDef }
 
 const LIVE = (r: Resolved) => r.status !== 'voided' && r.status !== 'divergent';
 const facetIn = (facet: string, fs: string[]) => fs.some(f => facet === f || facet.startsWith(f + '.'));
@@ -86,7 +96,7 @@ export function buildLedger(chart: ChartInput, k: Knowledge, resolved: Resolved[
   const thanPal = chart.palaces.find(p => p.is_than)?.name;
   for (const [id, d] of Object.entries(file.domains)) {
     const parts = d.parts ? Object.entries(d.parts).map(([pid, p]) => ({ pid, ...p })) : [{ pid: undefined as string | undefined, label: d.label, palaces: d.palaces!, facets: d.facets!, elements: d.elements }];
-    for (const part of parts) out.push({ ...decide(chart, k, cmap, live, evOf, id, part.pid, part.label, part.palaces, part.facets, part.elements, d.chapters, d.than && thanPal && part.palaces[thanPal] ? thanPal : undefined, d.verdict === false),
+    for (const part of parts) out.push({ ...decide(chart, k, cmap, live, evOf, id, part.pid, part.label, part.palaces, part.facets, part.elements, d.chapters, d.than && thanPal && part.palaces[thanPal] ? thanPal : undefined, d.verdict === false, file.weigh),
       ...(d.home ? { home: d.home } : {}), facets: part.facets });
   }
   const byChapter: Record<string, DomainVerdict[]> = {};
@@ -95,7 +105,7 @@ export function buildLedger(chart: ChartInput, k: Knowledge, resolved: Resolved[
 }
 
 function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, live: Resolved[], evOf: (P: string) => PalaceEvidence, id: string, part: string | undefined,
-  label: string, palaces: Record<string, string>, facets: string[], elements: string[] | undefined, chapters: string[], than?: string, noVerdict = false): DomainVerdict {
+  label: string, palaces: Record<string, string>, facets: string[], elements: string[] | undefined, chapters: string[], than?: string, noVerdict = false, W?: WeighDef): DomainVerdict {
   const chain: LedgerStep[] = [];
   const items: LedgerItem[] = [];
   const core = Object.entries(palaces).filter(([, r]) => r === 'core').map(([p]) => p);
@@ -149,7 +159,7 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
   const best = (xs: LedgerItem[]) => [...xs].sort((a, b) => a.seat.tier - b.seat.tier || b.rarity - a.rarity || (a.ruleId < b.ruleId ? -1 : 1))[0];
   const indep = (xs: LedgerItem[]) => new Set(xs.map(x => `${x.palace}|${x.seat.id}`)).size;
   const strong = (xs: LedgerItem[]) => xs.some(x => x.seat.tier <= 3) || indep(xs) >= 2;
-  let verdict: Verdict, base: '+' | '-' | null = null, link: Link | undefined;
+  let verdict: Verdict, base: '+' | '-' | null = null, link: Link | undefined, weigh: Weighing | undefined;
   const slink = (): Link => ({ kind: 'structure', elements: limits.map(elementName) });
   // timing is its own dimension: it is told as such, never the condition of a quality verdict nor the link between two qualities
   if (noVerdict) {
@@ -181,12 +191,57 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
       const oppose = !cp || !cn || cp.facet === cn.facet || cp.opp === cn.id || cn.opp === cp.id;
       verdict = oppose ? 'chua_phan_xu' : 'hai_mat';
       link = { kind: 'unresolved', ruleId: bp.ruleId, target: bn.ruleId };
+      // two sides head-on: the system's scale (domains.json weigh) may find one clearly heavier; the verdict then says which and why, both
+      // sides still named (owner decision 2026-10-23: a labelled tổng hợp, never a book adjudication). A close call stays chua_phan_xu.
+      const w = oppose && W ? weighSides(chart, W, palaces, evOf, pos, neg) : undefined;
+      if (w) { verdict = 'nghieng_ve'; base = w.pos > w.neg ? '+' : '-'; weigh = w; link = { kind: 'weigh', ruleId: w.heavy.ruleId, target: w.light.ruleId }; }
     }
   }
   if (link) chain.push({ type: link.kind === 'book' || link.kind === 'mitigation' ? 'link' : 'precedence', ruleId: link.ruleId, basis: link.kind === 'book' || link.kind === 'mitigation' ? 'sach' : 'he_thong',
-    note: link.kind === 'structure' ? `yếu tố hạn chế: ${link.elements!.join(', ')}` : link.kind });
+    note: link.kind === 'structure' ? `yếu tố hạn chế: ${link.elements!.join(', ')}` : link.kind === 'weigh' ? `cân hai mặt: thuận ${weigh!.pos.toFixed(2)}, khó ${weigh!.neg.toFixed(2)} (${weigh!.why.map(x => x.kind).join(', ')})` : link.kind });
   chain.push({ type: 'verdict', basis: 'he_thong', note: `${verdict}${base ? ` (${base})` : ''}` });
-  return { id: part ? `${id}.${part}` : id, ...(part ? { part } : {}), label, verdict, base, pos, neg, timing, mixed, mitig, limits, supports, ...(link ? { link } : {}), chain, chapters, facets };
+  return { id: part ? `${id}.${part}` : id, ...(part ? { part } : {}), label, verdict, base, pos, neg, timing, mixed, mitig, limits, supports, ...(link ? { link } : {}), ...(weigh ? { weigh } : {}), chain, chapters, facets };
+}
+
+const BRIGHT = new Set(['miếu', 'vượng', 'đắc']);
+/** The system's scale for two sides (domains.json `weigh`): each reading weighs by its seat's tier, its palace's role in the domain, the
+ *  brightness of the star it rests on (a bright star's strength and a hãm star's limit count more) and Tuần/Triệt over a strength's palace; a
+ *  side weighs as its heaviest reading plus a little for each further independent seat. Returns the weighing only when one side is heavier by
+ *  the margin, with the reasons that make the difference (the first reason is the one the sentence names). */
+function weighSides(chart: ChartInput, W: WeighDef, palaces: Record<string, string>, evOf: (P: string) => PalaceEvidence, pos: LedgerItem[], neg: LedgerItem[]): Weighing | undefined {
+  const geo = new Map<string, Geo>();
+  const dig = (x: LedgerItem) => { const st = x.seat.star, P = x.seat.palace ?? x.palace; if (!st || !P || (x.seat.kind !== 'major' && x.seat.kind !== 'hoa')) return undefined;
+    const g = geo.get(P) ?? geo.set(P, new Geo(chart, P)).get(P)!; return g.dignity(st, P); };
+  const tt = (x: LedgerItem) => evOf(x.palace).limit.some(l => l.kind === 'tuan' || l.kind === 'triet');
+  const one = (x: LedgerItem, side: '+' | '-') => {
+    let w = (W.tier[String(x.seat.tier)] ?? 0.4) * (W.role[palaces[x.palace]] ?? 0.7);
+    const d = dig(x);
+    if (d && BRIGHT.has(d)) w += side === '+' ? W.bright : -W.bright;
+    // a hãm star carrying Hóa Lộc / Quyền / Khoa is helped out of part of its fall (the role evidence.ts gives it is 'mixed'): no hãm weight
+    const helped = !!x.seat.star && Object.entries(chart.tu_hoa).some(([h, v]) => v.star === x.seat.star && h !== 'Hóa Kỵ');
+    if (d === 'hãm' && !helped) w += side === '-' ? W.ham : -W.ham;
+    if (side === '+' && tt(x)) w -= W.tuan_triet;
+    return w;
+  };
+  const side = (xs: LedgerItem[], s: '+' | '-') => {
+    const ws = xs.map(x => ({ x, w: one(x, s) })).sort((a, b) => b.w - a.w || (a.x.ruleId < b.x.ruleId ? -1 : 1));
+    const n = new Set(xs.map(x => `${x.palace}|${x.seat.id}`)).size;
+    return { top: ws[0], n, w: ws[0].w + Math.min(W.max_extra, W.per_extra * (n - 1)) };
+  };
+  const P = side(pos, '+'), N = side(neg, '-');
+  if (Math.abs(P.w - N.w) < W.margin) return undefined;
+  const [H, Lt, hs] = P.w > N.w ? [P, N, '+'] as const : [N, P, '-'] as const;
+  const h = H.top.x, l = Lt.top.x, why: WeighReason[] = [];
+  const dh = dig(h), dl = dig(l);
+  if (h.seat.tier < l.seat.tier && h.seat.kind === 'major' && l.seat.kind !== 'major') why.push({ kind: 'tier', star: h.seat.star, other: l.seat.star ?? l.stars[0] });
+  const helpedH = !!h.seat.star && Object.entries(chart.tu_hoa).some(([k, v]) => v.star === h.seat.star && k !== 'Hóa Kỵ');
+  if (dh && (hs === '+' ? BRIGHT.has(dh) : dh === 'hãm' && !helpedH) && dh !== dl) why.push({ kind: 'dignity', star: h.seat.star, dignity: dh, palace: h.seat.palace ?? h.palace });
+  if (palaces[h.palace] === 'core' && palaces[l.palace] !== 'core') why.push({ kind: 'core', palace: h.palace, other: l.palace });
+  if (hs === '-' && tt(l)) why.push({ kind: 'tuan_triet', palace: l.palace });
+  if (H.n > Lt.n) why.push({ kind: 'count', n: H.n });
+  // a difference with no reason the reader can be told is not told as one
+  if (!why.length) return undefined;
+  return { pos: +P.w.toFixed(3), neg: +N.w.toFixed(3), heavy: h, light: l, why };
 }
 
 /** The ledger as plain JSON for the API and the evidence panel. */

@@ -86,8 +86,11 @@ test('2002 Phu Thê: Cơ–Âm vượng, Văn Xương hóa Kỵ, Đà La and Tu�
   const body = c.paragraphs.slice(1).map(p => p.text).join(' ');
   for (const x of ['Đà La', 'Tuần', 'Hóa Kỵ']) assert.ok(body.includes(x), `${x} faced in the reading`);
   const end = conclusions(c, 'hon_nhan');
-  // no book sentence decides between sự hòa hợp and sự trắc trở, and Tuần's timing reading no longer ties them (owner review 2026-10-22)
-  assert.ok(end.length && end.every(s => s.trace.ledger!.verdict === 'chua_phan_xu'), end.map(s => s.text).join(' | '));
+  // no book sentence decides between sự hòa hợp and sự trắc trở, and Tuần's timing reading no longer ties them (owner review 2026-10-22);
+  // the system's scale weighs them (Thái Âm vượng, a chính tinh, against Đà La) and says so as its own tổng hợp (owner decision 2026-10-23)
+  assert.ok(end.length && end.every(s => s.trace.ledger!.verdict === 'nghieng_ve'), end.map(s => s.text).join(' | '));
+  assert.ok(end.some(s => /sự hòa hợp/.test(s.text) && /sự trắc trở/.test(s.text)), 'both sides named');
+  assert.ok(end.some(s => s.trace.step === 'ledger:hon_nhan:weigh' && /Thái Âm/.test(s.text)), 'the reason the heavier side weighs more');
   assert.ok(end.some(s => /Đà La/.test(s.text) && /Tuần/.test(s.text)), 'the limits of the palace are named with the conclusion');
   assert.ok(end.some(s => s.trace.part === 5));
   // Văn Xương carries Kỵ: every strength resting on it is followed by its caveat

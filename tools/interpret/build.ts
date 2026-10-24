@@ -109,6 +109,10 @@ const knowledge = {
       luan: (({ note: _n, ...v }) => v)(read(join(P, 'luan.json'))),
       // the deep reading of Quan Lộc, Tài Bạch and Phu Thê (plan DEEP-TUVI, prose/luan_deep.ts) and the minh họa lines tied to one reading each
       depth: existsSync(join(P, 'depth.json')) ? (({ note: _n, ...v }) => v)(read(join(P, 'depth.json'))) : undefined,
+      // the Tử Vi cách cục chapter (review 2026-10-23, prose/cach_cuc.ts)
+      cachCuc: existsSync(join(P, 'cach_cuc.json')) ? (({ note: _n, ...v }) => v)(read(join(P, 'cach_cuc.json'))) : undefined,
+      // the closing Tổng luận chapter (review 2026-10-23, prose/tong_luan.ts)
+      tongLuan: existsSync(join(P, 'tong_luan.json')) ? (({ note: _n, ...v }) => v)(read(join(P, 'tong_luan.json'))) : undefined,
       minhHoa: existsSync(join(P, 'minh_hoa.json')) ? (({ note: _n, ...v }) => v)(read(join(P, 'minh_hoa.json'))) : undefined,
       // pho_thong cards: chính tinh × cung (chinh_tinh_*.json) and phụ tinh templates (phu_tinh.json), all draft
       phoThong: (() => {

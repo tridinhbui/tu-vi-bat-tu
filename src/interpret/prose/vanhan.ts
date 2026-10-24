@@ -18,7 +18,7 @@ import { validateProse } from './validate.ts';
 import { readPalace, type StructureLib } from './deep.ts';
 import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json' };
 import { computeIndices, luuStars, type IndexNorms } from '../indices.ts';
-import { buildLedger, type DomainVerdict, type Ledger } from '../reason/ledger.ts';
+import { buildLedger, verdictKey, type DomainVerdict, type Ledger } from '../reason/ledger.ts';
 import { infer } from './chapter.ts';
 import { khaoLuanLines, toanThuLines, trungPhung } from './vanhan_books.ts';
 
@@ -34,7 +34,11 @@ export interface VanHanLibrary {
   tt_lead: string[]; hoa_qk: string[]; kl_stage?: string[]; sum: Record<'good' | 'mixed' | 'hard', string[]>;
   year: { frame: string[]; luu_thai_tue: string[]; luu_hoa: string[] };
   /** the hạn's Hóa Lộc / Hóa Kỵ with KL's meaning of a Hóa in a palace, and the natal link where they land */
-  hoa_loc: string[]; hoa_ky: string[]; natal_link: Record<'same' | 'domain', string[]>;
+  hoa_loc: string[]; hoa_ky: string[]; natal_link: Record<'same' | 'domain', string[]> & Partial<Record<'again' | 'same_decade', string[]>>;
+  /** the hạn against the one before it on the system indices (review 2026-10-23: the decades told as one course), and what it touches most */
+  trend?: Record<'up' | 'down' | 'flat' | 'turn_up' | 'turn_down', string[]>; focus?: string[];
+  /** a Khảo Luận p.233 line or the Quyền/Khoa meanings told again in a later hạn: the same sense named with this hạn's stars, shorter */
+  kl_again?: Record<string, string[]>; hoa_qk_again?: string[];
   /** the hạn palace's domain and its verdict in the natal ledger */
   ledger_palace: string[]; ledger_limits: string[];
   /** the year's lưu stars landing in the current hạn palace */
@@ -82,7 +86,7 @@ export interface VanHanChapter {
 /** the verdict words of a ledger domain, as the luận chapters say them (content/prose/luan.json ledger.verdict) */
 function verdictWords(k: Knowledge, v: DomainVerdict, m: Micro, key: string): string {
   const V = (k.prose?.luan as { ledger?: { verdict?: Record<string, string[]> } } | undefined)?.ledger?.verdict ?? {};
-  const xs = V[v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict];
+  const xs = V[verdictKey(v)];
   return xs?.length ? m.pick(key, xs) : '';
 }
 const NORMS = norms as IndexNorms;
@@ -109,8 +113,13 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     && (!v.part || v.part !== 'kiem' || pal === 'Tài Bạch'));
   const levels = usable && decades.length ? computeIndices(chart, k, NORMS).decades : [];
   const curYear = chart.year?.year, luu = usable && curYear ? luuStars(chart, curYear) : {};
+  // a domain's natal verdict is told in full once in the chapter; a later hạn touching it names the domain only (review 2026-10-23: no
+  // "nơi xem hôn nhân, vốn …" in every decade)
+  const natalTold = new Set<string>(), klTold = new Set<string>();
+  let qkTold = false;
+  let prevLevel: { level: number; vi: string } | null = null;
   for (const d of decades) {
-    const xs: ProseSentence[] = [], key = `vh|${d.index}`;
+    const xs: ProseSentence[] = [], key = `vh|${d.index}`, decTold = new Set<string>();
     const pal = chart.palaces.find(p => p.branch === d.branch)!;
     const stars = pal.major_stars.length ? fill(m.pick(`${key}|stars`, L!.stars_major), { majors: joinNames(pal.major_stars) }) : m.pick(`${key}|none`, L!.stars_none);
     const c0 = L!.rules.VH_CALC_DAI_HAN;
@@ -119,8 +128,27 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     // the hạn palace read as a palace: brightness of its stars and what its tam phương tứ chính bring (deep.ts, no domain line: the frame said it)
     const pr = readPalace(chart, k, d.palace, m, { key: `vh${d.index}`, lead: false });
     xs.push(...pr.structure.filter(x => x.trace.step === 'gist' || x.trace.step === 'tp' || x.trace.step === 'tuan' || x.trace.step === 'triet'));
+    // the hạn against the previous one (the same levels as the period chart): a change of two levels or more is a turning point
+    const lvNow = levels.find(x => x.age_from === d.age_from);
+    if (lvNow && prevLevel && L!.trend) {
+      const j = lvNow.level - prevLevel.level, k2 = j >= 2 ? 'turn_up' : j <= -2 ? 'turn_down' : j > 0 ? 'up' : j < 0 ? 'down' : 'flat';
+      const st = sentence(fill(m.pick(`${key}|trend`, L!.trend[k2]), { from: prevLevel.vi, to: lvNow.level_vi }), [], [], 'he_thong', j > 0 ? 'pos' : j < 0 ? 'neg' : undefined);
+      st.trace.step = `trend:${k2}`;
+      st.trace.note = 'So sánh mức của hai đại hạn liền nhau theo chỉ số tổng hợp của hệ thống (cùng thang với biểu đồ giai đoạn), không phải lời sách.';
+      xs.push(st);
+    }
+    if (lvNow) prevLevel = { level: lvNow.level, vi: lvNow.level_vi };
+    // what the hạn touches most: the hạn palace's matter and where its Hóa Lộc and Hóa Kỵ land (Tứ Hóa by the hạn stem, he_thong)
+    const touched = [...new Set([d.palace, d.hoa['Hóa Lộc']?.palace, d.hoa['Hóa Kỵ']?.palace].filter((x): x is string => !!x))].map(dom);
+    if (L!.focus?.length && touched.length >= 2) {
+      const st = sentence(fill(m.pick(`${key}|focus`, L!.focus), { list: ((xs: string[]) => xs.some(x => x.includes(',')) && xs.length > 1 ? `${xs.slice(0, -1).join('; ')}; và ${xs.at(-1)}` : joinNames(xs))([...new Set(touched)]) }), [], ['KL pp.195-197'], 'he_thong');
+      st.trace.step = 'focus';
+      st.trace.note = 'Gom cung hạn và hai cung nhận Hóa Lộc, Hóa Kỵ theo can hạn (thông lệ); không thêm nhận định.';
+      xs.push(st);
+    }
     // the natal reading of the hạn palace: the domain it is the palace of, and that domain's verdict in the ledger
     for (const v of domainAt(d.palace).slice(0, 1)) {
+      natalTold.add(v.id); decTold.add(v.id);
       const vw = verdictWords(k, v, m, `${key}|lv|${v.id}`);
       if (!vw) continue;
       const lim = v.limits.length ? fill(m.pick(`${key}|llim`, L!.ledger_limits), { limits: joinNames([...new Set(v.limits.map(l => l.kind === 'tuan' ? 'Tuần' : l.kind === 'triet' ? 'Triệt' : l.kind === 'ky_carrier' ? `${l.star} hóa Kỵ` : l.kind === 'hoa_ky' ? 'Hóa Kỵ' : l.star ?? ''))].filter(Boolean)) }) : '';
@@ -150,7 +178,13 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     const mid = xs.length;                                 // paragraph 2 starts here: what happens in the hạn
     // Khảo Luận p.233: the hạn's chính tinh and hung tinh đắc / hãm, Tuần / Triệt that giải, a hung tinh with its quan thầy; pp.235-236: the
     // opening sentence of a Sát / Phá / Tham hạn
-    for (const b of klb.lines) { const st = sentence(b.text, [cite(b.id, b.text, [b.cite])], [b.cite], 'sach', (b.tone || undefined) as 'pos' | 'neg' | undefined); st.trace.step = b.id; xs.push(st); }
+    for (const b0 of klb.lines) {
+      // the same p.233 rule in a later hạn: the sense said with this hạn's stars (the rule and page are the same)
+      const ak = b0.id.slice(7), alt = klTold.has(b0.id) ? L!.kl_again?.[ak] : undefined;
+      const tt = [pal.tuan ? 'Tuần' : '', pal.triet ? 'Triệt' : ''].filter(Boolean);
+      const b = alt?.length ? { ...b0, text: finish(fill(m.pick(`${key}|kla|${ak}`, alt), { majors: joinNames(pal.major_stars), tt: joinNames(tt) })) } : b0;
+      klTold.add(b0.id);
+      const st = sentence(b.text, [cite(b.id, b.text, [b.cite])], [b.cite], 'sach', (b.tone || undefined) as 'pos' | 'neg' | undefined); st.trace.step = b.id; xs.push(st); }
     // Toàn Thư nhập hạn ca (pp.96-106, page-checked): what the stars of the hạn palace bring, read with the hạn's own Tứ Hóa
     for (const b of toanThuLines(chart, d, 2)) {
       const st = sentence(fill(m.pick(`${key}|tt|${b.id}`, L!.tt_lead), { t: b.text, T: b.text.charAt(0).toLocaleUpperCase("vi") + b.text.slice(1) }), [cite(b.id, b.text, [b.cite])], [b.cite], 'sach', (b.tone || undefined) as 'pos' | 'neg' | undefined);
@@ -174,7 +208,11 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       const x = d.hoa[h];
       if (!x?.palace) continue;
       const v = domainAt(x.palace)[0], vw = v ? verdictWords(k, v, m, `${key}|hv|${h}`) : '';
-      const natal = x.palace === d.palace ? m.pick(`${key}|same|${h}`, L!.natal_link.same) : v && vw ? fill(m.pick(`${key}|nl|${h}`, L!.natal_link.domain), { domain: v.label, verdict: vw }) : '';
+      const again = v && decTold.has(v.id) ? L!.natal_link.same_decade : v && natalTold.has(v.id) ? L!.natal_link.again : undefined;
+      const natal = x.palace === d.palace ? m.pick(`${key}|same|${h}`, L!.natal_link.same)
+        : v && vw && again?.length ? fill(m.pick(`${key}|nla|${h}`, again), { domain: v.label })
+        : v && vw ? fill(m.pick(`${key}|nl|${h}`, L!.natal_link.domain), { domain: v.label, verdict: vw }) : '';
+      if (v) { natalTold.add(v.id); decTold.add(v.id); }
       const st = sentence(fill(m.pick(`${key}|${h}`, tpl), { stem: d.stem, star: x.star, pal: x.palace, dom: dom(x.palace) }), [], ['KL pp.195-197'], 'he_thong', h === 'Hóa Kỵ' ? 'neg' : 'pos');
       st.trace.step = `hoa:${h}`;
       st.trace.note = 'Tứ Hóa theo can của cung đại hạn là thông lệ; nghĩa của một Hóa đóng ở một cung theo Khảo Luận tr.195-197.';
@@ -186,7 +224,10 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     const q = d.hoa['Hóa Quyền'], kh = d.hoa['Hóa Khoa'], M = k.reference?.tuHoa?.meaning ?? {};
     if (q?.palace && kh?.palace && L!.hoa_qk?.length && M['Hóa Quyền'] && M['Hóa Khoa']) {
       const short = (x: string) => x.replace(/\s*\(.*\)$/, '');
-      const st = sentence(fill(m.pick(`${key}|qk`, L!.hoa_qk), { qstar: q.star, qpal: q.palace, qmean: short(M['Hóa Quyền']), cstar: kh.star, cpal: kh.palace, cmean: short(M['Hóa Khoa']) }), [], ['KL pp.195-197'], 'he_thong', 'pos');
+      // what Quyền and Khoa stand for is said once in the chapter; later hạn name where they land
+      const qkT = qkTold && L!.hoa_qk_again?.length ? L!.hoa_qk_again : L!.hoa_qk;
+      qkTold = true;
+      const st = sentence(fill(m.pick(`${key}|qk`, qkT), { qstar: q.star, qpal: q.palace, qmean: short(M['Hóa Quyền']), cstar: kh.star, cpal: kh.palace, cmean: short(M['Hóa Khoa']) }), [], ['KL pp.195-197'], 'he_thong', 'pos');
       st.trace.step = 'hoa:qk';
       st.trace.note = 'Tứ Hóa theo can của cung đại hạn là thông lệ; nghĩa của mỗi Hóa theo Khảo Luận tr.195-197.';
       xs.push(st);

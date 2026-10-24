@@ -76,7 +76,7 @@ export function rowsOf(idx: number, f: ChartInput, k: Knowledge, chapters: strin
     const counters = ss.filter(s => !s.trace.ledger && (s.trace.part === 4 || COUNTER.test(s.trace.step ?? ''))).length;
     const interactions = ss.filter(s => !s.trace.ledger && (s.trace.part === 3 || INTER.test(s.trace.step ?? ''))).length
       + ss.filter(s => s.trace.ledger && /:both_|:two_ways/.test(s.trace.step ?? '')).length;
-    const conditions = ss.filter(s => (s.trace.step ?? '').startsWith('cond:') || (s.trace.ledger && ['co_dieu_kien', 'hai_chieu', 'tro_ngai', 'chua_phan_xu', 'hai_mat', 'giam_nhe'].includes(s.trace.ledger.verdict) && !/:again$/.test(s.trace.step ?? ''))).length;
+    const conditions = ss.filter(s => (s.trace.step ?? '').startsWith('cond:') || (s.trace.ledger && ['co_dieu_kien', 'hai_chieu', 'tro_ngai', 'chua_phan_xu', 'hai_mat', 'giam_nhe', 'nghieng_ve'].includes(s.trace.ledger.verdict) && !/:again$/.test(s.trace.step ?? ''))).length;
     const illustrations = ss.filter(s => s.trace.basis === 'minh_hoa' || /^behave:/.test(s.trace.step ?? '')).length;
     // the other palaces the chapter stands on: the palaces of its sentences' readings, and palaces a link sentence names
     const cross = new Set<string>();

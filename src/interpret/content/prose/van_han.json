@@ -322,7 +322,10 @@
  "tt_lead": [
   "{T}",
   "Xét các sao của cung hạn, {t}",
-  "Với các sao của cung hạn này, {t}"
+  "Với các sao của cung hạn này, {t}",
+  "Riêng sao trong cung, {t}",
+  "Theo các sao đóng ở đây, {t}",
+  "Đến lượt các sao của cung, {t}"
  ],
  "hoa_qk": [
   "Hóa Quyền của hạn, chủ {qmean}, đến {qstar} ở cung {qpal}; Hóa Khoa, chủ {cmean}, đến {cstar} ở cung {cpal}.",
@@ -377,6 +380,14 @@
   "domain": [
    "Đó là nơi xem {domain}, vốn {verdict}",
    "Cung ấy là nơi xem {domain}, mà {domain} vốn {verdict}"
+  ],
+  "again": [
+   "Đó là nơi xem {domain}, như đã nói ở trên",
+   "Cung ấy là cung của {domain} đã nhắc ở trên"
+  ],
+  "same_decade": [
+   "Lại cũng là cung của {domain}",
+   "Cũng chính cung {domain} ấy"
   ]
  },
  "ledger_palace": [
@@ -433,5 +444,56 @@
   "Theo chiều hạn của lá số, cung {pal} ứng với {stage} trong đời người.",
   "Trên đường đi của các đại hạn, cung {pal} là chặng {stage}.",
   "Theo chiều đại hạn của lá số này, cung {pal} là quãng {stage}."
- ]
+ ],
+ "trend": {
+  "up": [
+   "So với mười năm trước, chặng này đi lên",
+   "Đặt cạnh chặng trước, mười năm này khá hơn",
+   "Tiếp nối chặng trước, vận đi theo chiều lên"
+  ],
+  "down": [
+   "So với mười năm trước, chặng này đi xuống",
+   "Đặt cạnh chặng trước, mười năm này kém đi",
+   "Tiếp nối chặng trước, vận chuyển sang chiều xuống"
+  ],
+  "flat": [
+   "Về mức chung, chặng này giữ ngang chặng trước",
+   "Mức chung của mười năm này tương đương chặng trước"
+  ],
+  "turn_up": [
+   "Đây là một bước ngoặt: so với mười năm trước, vận nâng lên hẳn, từ mức {from} lên {to}",
+   "Chặng này là chỗ đổi chiều của đời người: từ mức {from} của mười năm trước lên {to}"
+  ],
+  "turn_down": [
+   "Đây là một bước ngoặt: so với mười năm trước, vận hạ xuống hẳn, từ mức {from} xuống {to}",
+   "Chặng này là chỗ đổi chiều của đời người: từ mức {from} của mười năm trước xuống {to}"
+  ]
+ },
+ "focus": [
+  "Những việc mười năm này động đến nhiều nhất là {list}",
+  "Trọng tâm của chặng là {list}",
+  "Chặng này xoay chủ yếu quanh {list}",
+  "Mười năm ấy chạm nhiều nhất đến {list}",
+  "Chuyện nổi lên trong chặng là {list}"
+ ],
+ "hoa_qk_again": [
+  "Hóa Quyền của hạn đến {qstar} ở cung {qpal}, Hóa Khoa đến {cstar} ở cung {cpal}.",
+  "Quyền theo can hạn ở {qstar} (cung {qpal}), Khoa ở {cstar} (cung {cpal}).",
+  "Lần này Hóa Quyền vào {qstar} ở cung {qpal}, còn Hóa Khoa vào {cstar} ở cung {cpal}."
+ ],
+ "kl_again": {
+  "kl233_chinh_tinh_dac": [
+   "{majors} sáng ở cung hạn, nên hạn có được phần tốt ấy",
+   "Ở đây chính tinh cũng sáng ({majors}), nên nền của hạn tốt",
+   "{majors} đứng chỗ sáng, cũng là nền tốt cho mười năm này"
+  ],
+  "kl233_chinh_tinh_ham": [
+   "{majors} hãm ở cung hạn mà không có Tuần, Triệt giải, nên nền của hạn kém",
+   "Lần này chính tinh hãm ({majors}) và không có Tuần, Triệt giải: nền hạn yếu"
+  ],
+  "kl233_chinh_tinh_ham_giai": [
+   "{majors} hãm, nhưng {tt} ở cung giải được, nên lại thành tốt",
+   "Chính tinh hãm ({majors}) song có {tt} giải, nên hạn vẫn được phần tốt"
+  ]
+ }
 }

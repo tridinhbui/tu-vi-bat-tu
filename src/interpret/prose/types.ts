@@ -59,5 +59,9 @@ export interface ProseLibrary {
   /** the luận cung chapters' frames (content/prose/luan.json, prose/luan.ts) */
   luan?: import('./luan.ts').LuanLib;
   /** the deep reading's frames (content/prose/depth.json, prose/luan_deep.ts) and the minh họa lines (content/prose/minh_hoa.json) */
+  /** the closing Tổng luận chapter's frames (content/prose/tong_luan.json, prose/tong_luan.ts) */
+  tongLuan?: import('./tong_luan.ts').TongLuanLib;
+  /** the Tử Vi cách cục chapter's frames (content/prose/cach_cuc.json, prose/cach_cuc.ts) */
+  cachCuc?: import('./cach_cuc.ts').CachCucLib;
   depth?: import('./luan_deep.ts').DepthLib; minhHoa?: import('./luan_deep.ts').MinhHoaLib;
 }

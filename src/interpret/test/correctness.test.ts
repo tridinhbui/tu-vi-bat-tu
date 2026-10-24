@@ -68,7 +68,10 @@ test('5: two sides with no book relation are named and left unresolved; a timing
   const { resolved } = infer(REF, K);
   const L = buildLedger(REF, K, resolved);
   assert.equal(L.domains.find(v => v.id === 'cong_danh')!.verdict, 'chua_phan_xu');
-  assert.ok(['chua_phan_xu', 'hai_mat'].includes(L.domains.find(v => v.id === 'hon_nhan')!.verdict));
+  // hôn nhân: Thái Âm vượng (chính tinh) against Đà La — the system's scale weighs the sides (owner decision 2026-10-23), naming why
+  const hn = L.domains.find(v => v.id === 'hon_nhan')!;
+  assert.ok(['chua_phan_xu', 'hai_mat', 'nghieng_ve'].includes(hn.verdict));
+  if (hn.verdict === 'nghieng_ve') assert.ok(hn.weigh!.why.length && hn.weigh!.heavy && hn.weigh!.light, 'a weighed domain says why');
   for (const f of [REF, ...sample]) {
     const led = buildLedger(f, K, infer(f, K).resolved);
     for (const v of led.domains) assert.ok(v.link?.kind !== 'timing', `${v.id} tied by timing`);

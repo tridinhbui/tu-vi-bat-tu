@@ -6,6 +6,8 @@ import { proseVanHan } from './prose/vanhan.ts';
 import { proseBazi } from './prose/bazi.ts';
 import { proseThemes } from './prose/themes.ts';
 import { luanReport, LUAN_VERSION } from './prose/luan.ts';
+import { proseTongLuan } from './prose/tong_luan.ts';
+import { proseCachCuc } from './prose/cach_cuc.ts';
 import { checkedOnly } from './prose/checked.ts';
 import { reasonedChapter, NARRATIVE_VERSION } from './prose/narrative.ts';
 import { planView } from './reason/plan.ts';
@@ -30,7 +32,9 @@ export interface InterpretDeps {
  *  the route applies checkedOnly). Shared with the readability gate (test/readable.test.ts). */
 export function proseAllChapters(facts: ChartInput, k: Knowledge, o: { allowDraft: boolean; deep: boolean; luan: boolean }) {
   const palaces = o.luan ? luanReport(facts, k, o) : proseReport(facts, k, o);
-  return [...proseThemes(facts, k, PROSE_VERSION, { allowDraft: o.allowDraft, luan: o.luan }), ...palaces, proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, o.allowDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, o.allowDraft)];
+  return [...proseThemes(facts, k, PROSE_VERSION, { allowDraft: o.allowDraft, luan: o.luan }), ...palaces, proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, o.allowDraft), proseBazi(facts, k, seedOf(facts), PROSE_VERSION, o.allowDraft),
+    // the closing ranked conclusion over the chapters' domain verdicts and the đại hạn levels (review 2026-10-23)
+    ...(o.luan ? [proseCachCuc(facts, k, seedOf(facts), PROSE_VERSION, o.allowDraft), proseTongLuan(facts, k, seedOf(facts), PROSE_VERSION, o.allowDraft)] : [])];
 }
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8' } });

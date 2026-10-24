@@ -9,7 +9,31 @@
   "giam_nhe": "a limit a book relation makes lighter: told as a limit with a mitigating factor, never as a strength",
   "chua_phan_xu": "both sides stand and no book sentence adjudicates them: both are named, nothing is concluded",
   "khong_ket_luan": "a domain the report never judges good or bad (health): only its book readings are told",
-  "hai_mat": "both sides stand on different facets of the matter (KG facets, not opposites): both are told, each with what it is about"
+  "hai_mat": "both sides stand on different facets of the matter (KG facets, not opposites): both are told, each with what it is about",
+  "nghieng_ve": "both sides stand head-on, no book sentence adjudicates them, and the system's scale (weigh) finds one clearly heavier: both are named, the heavier side and the reason it weighs more are told as the system's tổng hợp"
+ },
+ "weigh_note": "Thang cân hai mặt (quyết định của chủ dự án 2026-10-23): khi một lĩnh vực có cả mặt thuận lẫn mặt khó mà không câu sách nào phân xử, hệ thống cân hai bên theo thứ tự đọc thông thường của Tử Vi (bậc chỗ đứng của luận điểm — chính tinh hơn phụ tinh; cung chính của lĩnh vực hơn cung tam phương; sao sáng làm mặt thuận nặng thêm, sao hãm làm mặt khó nặng thêm; Tuần/Triệt trên cung của mặt thuận làm nó nhẹ đi; mỗi chỗ đứng độc lập thêm một ít). Đây là quy ước có nhãn 'Lời tổng hợp của hệ thống', không phải lời sách; chênh dưới margin thì giữ 'chưa phân xử'. Cả hai mặt luôn được nêu.",
+ "weigh": {
+  "tier": {
+   "1": 1,
+   "2": 0.95,
+   "3": 0.85,
+   "4": 0.7,
+   "5": 0.55,
+   "6": 0.4
+  },
+  "role": {
+   "core": 1,
+   "tam_hop": 0.8,
+   "xung": 0.8,
+   "support": 0.7
+  },
+  "bright": 0.15,
+  "ham": 0.15,
+  "tuan_triet": 0.15,
+  "per_extra": 0.08,
+  "max_extra": 0.24,
+  "margin": 0.2
  },
  "domains": {
   "cong_danh": {

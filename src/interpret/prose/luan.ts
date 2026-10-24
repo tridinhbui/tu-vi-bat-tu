@@ -17,7 +17,9 @@ import type { run } from '../engine.ts';
 import type { Labelled } from '../kg/lift.ts';
 import type { Resolved } from '../kg/resolve.ts';
 import { reasonPalace, type ReadingPlan, type Thesis } from '../reason/plan.ts';
-import { buildLedger, type DomainVerdict, type Ledger, type LedgerItem } from '../reason/ledger.ts';
+import { courseSentences, COURSE_PALACES } from './course.ts';
+import { SAT } from '../kg/atoms.ts';
+import { buildLedger, verdictKey, type DomainVerdict, type Ledger, type LedgerItem } from '../reason/ledger.ts';
 import type { Element } from '../reason/evidence.ts';
 import type { Reading } from '../reason/adjudicate.ts';
 import { Micro, finish } from './micro.ts';
@@ -30,7 +32,7 @@ import { borrowedReadings, type Borrowed } from '../reason/borrow.ts';
 import { PROSE_ORDER, PROSE_SPECS, PROSE_VERSION, infer, proseReport, seedOf, type Inference, type ProseChapter, type ProseChapterId } from './chapter.ts';
 
 export type Topic = 'tinh_cach' | 'su_nghiep' | 'tai_loc' | 'quy_nhan' | 'quan_he' | 'duong_doi' | 'the_trang' | 'vi_tri' | 'than' | 'than_same' | 'than_style'
-  | 'hau_van' | 'tong_ket' | 'tom_lai' | 'pho_thong' | 'ket_luan' | 'tai_kiem' | 'tai_giu' | 'tai_tich';
+  | 'hau_van' | 'tong_ket' | 'tom_lai' | 'pho_thong' | 'ket_luan' | 'tai_kiem' | 'tai_giu' | 'tai_tich' | 'chan_dung' | 'dien_bien';
 export interface LuanLib {
   status: string;
   lead: Record<Topic, string[]>; lead_palace: Record<string, Partial<Record<Topic, string[]>>>;
@@ -43,6 +45,12 @@ export interface LuanLib {
   late: Record<'list' | 'pos' | 'item' | 'calm' | 'course', string[]>;
   summary: Record<'arc' | 'mature' | 'mature_same' | 'late' | 'late_calm' | 'turn' | 'close' | 'close_pos' | 'close_neg', string[]>;
   health_note: string[];
+  /** Tật Ách: the cứu giải stars against the sát tinh and Hóa Kỵ of the palace (owner decision 2026-10-23: a balance, no diagnosis) */
+  health_balance?: { both: string[]; lean: Record<'shield' | 'press' | 'even', string>; shield_only: string[]; press_only: string[]; tail: string[] };
+  /** the course of a domain across the đại hạn (prose/course.ts) */
+  course?: import('./course.ts').CourseLib;
+  /** the Mệnh portrait (review 2026-10-23, point 1): strengths and weaknesses gathered, the inner conflict, the shared root */
+  portrait?: Record<'both' | 'pos' | 'neg' | 'conflict' | 'conflict_same' | 'root', string[]>;
   /** the domain ledger's conclusion (reason/ledger.ts): verdict words and the sentence frames by case */
   ledger: Record<string, string[]> & { verdict: Record<string, string[]> };
   /** a limiting element of the palace no reading of the chapter faced: the structural conditional sentence, by element kind */
@@ -130,6 +138,8 @@ export interface LuanShared { findings: ReturnType<typeof run>['findings']; reso
   natureSaid: Set<string>; minhSaid: Set<string>;
   /** every sentence the luận chapters told so far (the deep reading recalls, never repeats) */
   saidAll: ProseSentence[];
+  /** how many times each domain's verdict was recalled after its full telling (review 2026-10-23: at most ECHO_MAX in a report) */
+  echo: Map<string, number>;
   /** chapter id → verified readings of its palace the chapter does not tell, with the reason (evidence `untold`) */
   untold: Map<string, Array<{ ruleId: string; reason: string }>>;
   /** readings of the chính tinh each vô chính diệu palace borrows from its opposite palace (reason/borrow.ts): deep reading only */
@@ -143,7 +153,7 @@ export function luanShared(chart: ChartInput, k: Knowledge, allowDraft: boolean,
   // so a change the reasoning ignores does not reword the text (the reasoned chapter seeds by its plan for the same reason)
   const vseed = [chart.year_gz, chart.gender, ...chart.palaces.map(p => p.major_stars.join('+')), ...Object.entries(chart.tu_hoa).map(([h, v]) => `${h}:${v.star}`)].join('|');
   return { findings, resolved, labelled, micro: new Micro(`${vseed}|luan`, k.prose!.connectives, k.prose!.frames), voiced: new Set(), keys: new Set(), told: new Set(), seed, allowDraft,
-    ledger: buildLedger(chart, k, resolved), domainsTold: new Map(), natureSaid: new Set(), minhSaid: new Set(), saidAll: [], untold: new Map(), borrowed: borrowedReadings(chart, k, resolved) };
+    ledger: buildLedger(chart, k, resolved), domainsTold: new Map(), natureSaid: new Set(), minhSaid: new Set(), saidAll: [], echo: new Map(), untold: new Map(), borrowed: borrowedReadings(chart, k, resolved) };
 }
 
 /** The twelve palace chapters: the luận cung chapter where the palace's plan has something to argue, the older chapter otherwise. */
@@ -157,6 +167,17 @@ export function luanReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?:
   return echoLedger(k, chs, sh);
 }
 
+/** A domain's verdict, once told in full, is recalled at most twice in the report (review 2026-10-23: the same "còn hai mặt chưa phân xử
+ *  được" in five chapters is repetition, not synthesis). True when one more recall is allowed, and counts it. */
+const ECHO_MAX = 2;
+const COURSE_LABEL: Record<string, string> = { 'Quan Lộc': 'đường công danh', 'Tài Bạch': 'chuyện tiền bạc', 'Phu Thê': 'đời sống hôn nhân', 'Điền Trạch': 'việc tạo dựng nhà cửa, tài sản' };
+export function echoOk(sh: Pick<LuanShared, 'echo'>, domain: string): boolean {
+  const n = sh.echo.get(domain) ?? 0;
+  if (n >= ECHO_MAX) return false;
+  sh.echo.set(domain, n + 1);
+  return true;
+}
+
 /** Two chapters voicing opposite sides of a domain (one a reading the ledger counted for it, the other one against) both cite the domain's one
  *  conditional verdict: the domain's own chapter tells it in full, the other chapter says in brief that it agrees. Only conditional verdicts
  *  (có điều kiện, hai chiều, trở ngại) — a thuận domain has no contradiction to tie — and only chapters on a side the report also contradicts. */
@@ -165,7 +186,7 @@ function echoLedger(k: Knowledge, chs: ProseChapter[], sh: LuanShared): ProseCha
   const said = new Set(chs.flatMap(c => c.paragraphs.flatMap(p => p.sentences.map(s => s.text))));
   const add = new Map<number, ProseSentence[]>();
   for (const v of sh.ledger.domains) {
-    if (!['co_dieu_kien', 'hai_chieu', 'tro_ngai', 'chua_phan_xu', 'hai_mat', 'giam_nhe'].includes(v.verdict) || !sh.domainsTold.has(v.id)) continue;
+    if (!['co_dieu_kien', 'hai_chieu', 'tro_ngai', 'chua_phan_xu', 'hai_mat', 'giam_nhe', 'nghieng_ve'].includes(v.verdict) || !sh.domainsTold.has(v.id)) continue;
     const pos = new Set(v.pos.map(x => x.ruleId)), neg = new Set(v.neg.map(x => x.ruleId));
     const sideOf = (c: ProseChapter) => {
       const rs = c.paragraphs.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach').flatMap(s => s.trace.rules);
@@ -175,8 +196,8 @@ function echoLedger(k: Knowledge, chs: ProseChapter[], sh: LuanShared): ProseCha
     sides.forEach((sd, i) => {
       if (sd.cites || !(sd.pos || sd.neg)) return;
       const opposed = sides.some((o, j) => j !== i && ((sd.pos && o.neg) || (sd.neg && o.pos)));
-      if (!opposed) return;
-      const vkey = v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict;
+      if (!opposed || !echoOk(sh, v.id)) return;
+      const vkey = verdictKey(v);
       if (!G.verdict[vkey]?.length || !G.again?.length) return;
       const P = PROSE_SPECS[chs[i].chapter as ProseChapterId]?.palace ?? chs[i].chapter;
       let text = '';
@@ -439,6 +460,37 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     const xs = verdicts.filter(v => !v.part || isMenh).flatMap(v => ledgerSentences(W, L, v, P, sh, id, paras.flatMap(p => p.sentences)));
     if (xs.length) { para('course', 'ket_luan', xs, lead('ket_luan')); concluded = true; }
   }
+  // Tật Ách: the stars the books call cứu giải for health (star_nature.json, health.shielded: KL pp.109, 120, 122, 140, 186) against the sát
+  // tinh and Hóa Kỵ standing in the palace; which side has more is the system's count, said as such, and no health verdict follows
+  if (P === 'Tật Ách' && L.health_balance) {
+    const H = L.health_balance, here = new Set([...pal.stars, ...pal.major_stars, ...(pal.tuan ? ['Tuần'] : []), ...(pal.triet ? ['Triệt'] : []),
+      ...Object.entries(chart.tu_hoa).filter(([, v]) => v.branch === pal.branch_index).map(([h]) => h)]);
+    const shieldBy = new Map<string, string[]>();
+    for (const e of k.kg?.starNature?.entries ?? []) if (e.explains?.includes('health.shielded')) for (const st of [e.star, ...(e.also ?? [])]) if (here.has(st)) (shieldBy.get(st) ?? shieldBy.set(st, []).get(st)!).push(`KL p.${e.page}`);
+    const kyHere = Object.entries(chart.tu_hoa).some(([h, v]) => h === 'Hóa Kỵ' && v.branch === pal.branch_index);
+    const shield = [...shieldBy.keys()];
+    // a hãm chính tinh that is not itself a cứu giải star weighs on the palace too (evidence.ts: major_ham is a limit)
+    const hamMajors = pal.major_stars.filter(st => pal.major_dignity?.[st] === 'hãm' && !shieldBy.has(st)).map(st => `${st} hãm`);
+    const press = [...SAT.filter(st => here.has(st)), ...hamMajors, ...(kyHere ? ['Hóa Kỵ'] : [])];
+    const cites = [...new Set([...shieldBy.values()].flat())].sort();
+    const tr = (step: string) => ({ move: 'VALUE' as const, step, basis: 'he_thong' as const, concepts: [], cites, part: 5 as const,
+      note: 'Sao cứu giải theo Khảo Luận (các trang ghi trong căn cứ); việc đếm hai phía là quy ước của hệ thống, không phải chẩn đoán.' });
+    const xs: ProseSentence[] = [];
+    if (shield.length && press.length) {
+      const lean = H.lean[shield.length > press.length ? 'shield' : shield.length < press.length ? 'press' : 'even'];
+      xs.push(S(fill(W.pick('hb|both', H.both), { shield: joinVi(shield), press: joinVi(press), lean }), tr('health:balance')));
+    } else if (shield.length) xs.push(S(fill(W.pick('hb|s', H.shield_only), { shield: joinVi(shield) }), tr('health:balance')));
+    else if (press.length) xs.push(S(fill(W.pick('hb|p', H.press_only), { press: joinVi(press) }), tr('health:balance')));
+    if (xs.length) { xs.push(S(W.pick('hb|t', H.tail), tr('health:balance_tail')));
+      const host = paras.find(p => p.topic === 'ket_luan') ?? [...paras].reverse().find(p => p.role !== 'structure');
+      if (host) host.sentences.push(...xs); else para('course', 'ket_luan', xs, lead('ket_luan')); }
+  }
+  // the domain across the đại hạn: which hạn touch the palace, at what level (review 2026-10-23: career turning points, the course of a
+  // marriage told as phases, how property is built over time)
+  if (COURSE_PALACES[P]) {
+    const xs = courseSentences(W, chart, k, P, COURSE_LABEL[P]);
+    if (xs.length) para('course', 'dien_bien', xs, lead('dien_bien'));
+  }
 
   // ---- closing ----
   const said = paras.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach');
@@ -479,6 +531,15 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     for (const p of lead) { p.deep = false; p.promoted = true; }
   }
   paras.push(...deep);
+  // the Mệnh portrait (review 2026-10-23): every trait the chapter told, main and deep, gathered into strengths, weaknesses, the inner conflict
+  // and the star most of them come from — the system's tổng hợp of what was said, after it was said
+  if (isMenh && L.portrait) {
+    const xs = portrait(W, L, sh, paras.flatMap(p => p.sentences));
+    // with a deep part the portrait closes it (it gathers the deep traits too); without one it closes the main reading under its lead-in
+    if (xs.length) { const ld = lead('chan_dung');
+      if (!deep.length) xs[0] = { ...xs[0], text: withLead(ld, xs[0].text, names) };
+      paras.push({ role: 'balance', sentences: xs, text: xs.map(x => x.text).join(' '), topic: 'chan_dung', part: 5, ...(deep.length ? { deep: true, title: ld } : { lead: ld }) }); }
+  }
   sh.saidAll.push(...paras.flatMap(p => p.sentences));
   const rmap = new Map(k.rules.map(r => [r.id, r]));
   const reading = (rid: string) => { const r = rmap.get(rid)!; return (r.reading ?? k.claims[r.consequences[0]?.claim ?? ''] ?? '').replace(/^(khuynh hướng|hạn chế:)\s*/, ''); };
@@ -737,7 +798,7 @@ const elName = (e: Element) => e.kind === 'tuan' ? 'Tuần' : e.kind === 'triet'
  *  system's; the readings they gather are in the trace (rules, cites) and were told with their grounds in the chapters. */
 function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh: LuanShared, chapter: string, said: ProseSentence[]): ProseSentence[] {
   const G = L.ledger;
-  const vkey = v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict;
+  const vkey = verdictKey(v);
   const verdictWords = G.verdict[vkey] ? W.pick(`lv|${v.id}`, G.verdict[vkey]) : '';
   const rules = [...new Set([...v.pos, ...v.neg, ...v.timing, ...v.mixed].map(x => x.ruleId))].sort();
   const cites = [...new Set([...v.pos, ...v.neg, ...v.timing, ...v.mixed].flatMap(x => x.cites))].sort();
@@ -749,7 +810,7 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   const voicedHere = said.some(s => s.trace.basis === 'sach' && s.trace.rules.some(r => ids.has(r)));
   const first = sh.domainsTold.get(v.id) ?? (voicedHere || v.home === chapter || !v.home ? undefined : 'later');
   if (first && first !== chapter) {
-    if (!verdictWords || sh.domainsTold.get(`${v.id}|again`) === chapter) return [];
+    if (!verdictWords || sh.domainsTold.get(`${v.id}|again`) === chapter || !echoOk(sh, v.id)) return [];
     if (first !== 'later') sh.domainsTold.set(`${v.id}|again`, chapter);
     return [W.sentence(fill(W.pick(`lagain|${v.id}|${P}`, G.again), { domain: v.label, verdict: verdictWords }), tr(5, `ledger:${v.id}:again`))];
   }
@@ -788,6 +849,10 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   if (v.verdict === 'khong_ket_luan') { const bm = bp ?? best(v.mitig ?? []); if (!(bm && bn) || !G.health_both?.length) return []; key = 'health_both'; vals.pos = np(bm); }
   // both sides and no book sentence between them: named, with what each stands on, and left unresolved
   else if (v.verdict === 'chua_phan_xu') { key = 'chua_phan_xu'; vals.gpos = starsGround(bp); vals.gneg = starsGround(bn); }
+  // both sides and the system's scale found one heavier (owner decision 2026-10-23): both named, then the heavier side and why
+  else if (v.verdict === 'nghieng_ve' && v.weigh) { key = 'weighed'; vals.pos = np(v.base === '+' ? v.weigh.heavy : v.weigh.light);
+    vals.neg = np(v.base === '+' ? v.weigh.light : v.weigh.heavy); vals.gpos = starsGround(v.base === '+' ? v.weigh.heavy : v.weigh.light);
+    vals.gneg = starsGround(v.base === '+' ? v.weigh.light : v.weigh.heavy); }
   // two sides on different facets: both hold, each named with what it is about
   else if (v.verdict === 'hai_mat') { const fl = (L as LuanLib & { facet_label?: Record<string, string> }).facet_label ?? {}; key = 'coexist';
     vals.fpos = fl[W.concept(bp!.concept)?.facet ?? ''] ?? ''; vals.fneg = fl[W.concept(bn!.concept)?.facet ?? ''] ?? '';
@@ -822,16 +887,65 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   const mainVals = v.part && G.part_self?.length ? { ...vals, domain: W.pick(`lself|${v.id}`, G.part_self) } : vals;
   const mainText0 = fill(W.pick(`l|${v.id}|${key}`, G[key]), mainVals);
   const mainText = v.part ? mainText0.replace(new RegExp(`^về ${mainVals.domain},\\s*`), '') : mainText0;
-  const main = W.sentence(mainText, tr(key.startsWith('both') || key === 'two_ways' || key === 'chua_phan_xu' || key === 'coexist' || key === 'health_both' ? 4 : 5, `ledger:${v.id}:${key}`));
+  const main = W.sentence(mainText, tr(key.startsWith('both') || key === 'two_ways' || key === 'chua_phan_xu' || key === 'coexist' || key === 'health_both' || key === 'weighed' ? 4 : 5, `ledger:${v.id}:${key}`));
   const out = [main];
+  if (key === 'weighed' && v.weigh && G.weigh_line?.length) {
+    const why = weighWhy(W, G, v);
+    if (why) out.push(W.sentence(fill(W.pick(`lw|${v.id}`, G.weigh_line), { heavy: np(v.weigh.heavy), light: np(v.weigh.light), why }),
+      { ...tr(5, `ledger:${v.id}:weigh`), note: 'Lời tổng hợp: hai mặt đều có căn cứ, không câu sách nào xếp bên nào trên; bên nặng hơn là theo thang cân của hệ thống (chính tinh hơn phụ tinh, cung chính hơn cung tam phương, sao sáng/hãm, Tuần Triệt, số chỗ đứng).' }));
+  }
   // an unresolved domain still names the limits standing in its own palace: they bound whatever the stronger side turns out to be
-  if ((key === 'chua_phan_xu' || key === 'coexist') && limits && (G as Record<string, string[]>).unresolved_limits?.length)
+  if ((key === 'chua_phan_xu' || key === 'coexist' || (key === 'weighed' && v.base === '+')) && limits && (G as Record<string, string[]>).unresolved_limits?.length)
     out.push(W.sentence(fill(W.pick(`lul|${v.id}`, (G as Record<string, string[]>).unresolved_limits), { limits, palace }), tr(5, `ledger:${v.id}:limits`)));
   // the verdict, naming the limits of the core palace when the conclusion is conditional on them
   const withLimits = v.verdict === 'co_dieu_kien' && !!limits && key !== 'pos_struct' && key !== 'neg_struct';
   if ((key.startsWith('both') || key === 'two_ways' || withLimits) && verdictWords)
     out.push(W.sentence(fill(W.pick(`lverdict|${v.id}`, withLimits ? G.verdict_line_limits : G.verdict_line), { domain: v.label, verdict: verdictWords, limits, palace }), tr(5, `ledger:${v.id}`)));
   return out;
+}
+
+/** The Mệnh portrait: the traits the chapter's book sentences told, each with the stars at Mệnh its rule stands on. Strengths and weaknesses
+ *  in the chapter's order; the inner conflict is a strength and a weakness of the same facet (or, failing that, the first of each), with
+ *  where each comes from; the root is a Mệnh star three or more of the traits stand on. Nothing here is new: each concept was said above. */
+function portrait(W: Writer, L: LuanLib, sh: LuanShared, said: ProseSentence[]): ProseSentence[] {
+  const F = L.portrait!, out: ProseSentence[] = [];
+  const book = said.filter(s => s.trace.basis === 'sach');
+  const starsOf = new Map<string, string[]>();
+  for (const s of book) for (const c of s.trace.concepts) {
+    if (!W.card(c) || !/^(identity|inner)\./.test(W.concept(c)?.facet ?? '') || starsOf.has(c)) continue;
+    const r = sh.resolved.find(x => s.trace.rules.includes(x.ruleId) && x.concept === c && x.subject === 'palace:Mệnh');
+    starsOf.set(c, [...new Set((r?.atoms ?? []).filter(a => a.kind === 'star' && a.palace === 'Mệnh').map(a => a.name))]);
+  }
+  const cs = [...starsOf.keys()], pos = cs.filter(c => W.pol(c) === '+'), neg = cs.filter(c => W.pol(c) === '-');
+  if (pos.length + neg.length < 2) return out;
+  const tr = (step: string, concepts: string[]) => ({ move: 'VALUE' as const, step, basis: 'he_thong' as const, concepts, part: 5 as const,
+    note: 'Lời tổng hợp: gom các nét tính cách đã nói ở trên, không thêm nét nào mới.' });
+  const list = (xs: string[]) => joinVi(xs.slice(0, 4).map(c => W.np(c)));
+  const key = pos.length && neg.length ? 'both' : pos.length ? 'pos' : 'neg';
+  out.push(W.sentence(fill(W.pick(`por|${key}`, F[key]), { S: W.S(), pos: list(pos), neg: list(neg) }), tr('portrait:sides', [...pos.slice(0, 4), ...neg.slice(0, 4)])));
+  const ground = (c: string) => starsOf.get(c)?.length ? `${joinVi(starsOf.get(c)!)} ở Mệnh` : '';
+  const facet = (c: string) => W.concept(c)?.facet ?? '';
+  const pair = pos.flatMap(p => neg.map(n => ({ p, n }))).sort((a, b) => Number(facet(b.p) === facet(b.n)) - Number(facet(a.p) === facet(a.n)))
+    .find(x => ground(x.p) && ground(x.n));
+  if (pair) {
+    const same = ground(pair.p) === ground(pair.n);
+    out.push(W.sentence(fill(W.pick(`por|cf`, same ? F.conflict_same : F.conflict), { p: W.np(pair.p), n: W.np(pair.n), gp: ground(pair.p), gn: ground(pair.n) }), tr('portrait:conflict', [pair.p, pair.n])));
+  }
+  const count = new Map<string, string[]>();
+  for (const [c, ss] of starsOf) for (const st of ss) (count.get(st) ?? count.set(st, []).get(st)!).push(c);
+  const root = [...count].filter(([, xs]) => xs.length >= 3).sort((a, b) => b[1].length - a[1].length || (a[0] < b[0] ? -1 : 1))[0];
+  if (root) out.push(W.sentence(fill(W.pick('por|root', F.root), { star: root[0], list: joinVi(root[1].slice(0, 4).map(c => W.np(c))) }), tr('portrait:root', root[1].slice(0, 4))));
+  return out;
+}
+
+/** Why the heavier side of a weighed domain weighs more, in at most two reasons (the scale's own order). */
+function weighWhy(W: Writer, G: LuanLib['ledger'], v: DomainVerdict): string {
+  const F = (G as unknown as { weigh_why?: Record<string, string[]> }).weigh_why ?? {};
+  const xs = v.weigh!.why.slice(0, 2).map((r, i) => {
+    const k = r.kind === 'dignity' ? (r.dignity === 'hãm' ? 'dignity_ham' : 'dignity_bright') : r.kind === 'tier' && !r.other ? 'tier_bare' : r.kind;
+    return F[k]?.length ? fill(W.pick(`lww|${v.id}|${i}`, F[k]), { star: r.star ?? '', other: r.other ?? '', dignity: r.dignity ?? '', palace: r.palace ?? '', n: String(r.n ?? '') }) : '';
+  }).filter(Boolean);
+  return xs.length > 1 ? `${xs[0]}, thêm nữa ${xs[1]}` : xs[0] ?? '';
 }
 
 /** The ground of a reading named plainly: its stars in the palace, with the brightness only when the rule itself turned on it (a reading of

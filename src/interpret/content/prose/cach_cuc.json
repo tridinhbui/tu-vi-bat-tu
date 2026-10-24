@@ -1,0 +1,63 @@
+{
+ "note": "Chương Cách cục Tử Vi (review 2026-10-23, điểm 13). Câu đầu mỗi cách là tên cách theo sách (luật verified, có trang). Trạng thái (trọn / không trọn), mức ảnh hưởng và lĩnh vực là lời tổng hợp của hệ thống (he_thong) theo quy ước có nhãn: yếu tố phá là sát tinh không đắc, Hóa Kỵ, chính tinh hãm, Tuần hay Triệt đứng ngay ở cung có cách (reason/evidence.ts); cách ở Mệnh ảnh hưởng cả đời người, ở cung khác ảnh hưởng chủ yếu lĩnh vực của cung ấy; mỗi yếu tố phá hạ một bậc.",
+ "status": "draft",
+ "none": [
+  "Lá số không thành cách nào có tên trong Thực Hành và Khảo Luận, nên cái hay cái dở được đọc theo từng sao, từng cung ở các chương trên",
+  "Không có cách có tên nào thành trên lá số này; phần luận dựa vào từng cung như các chương trước"
+ ],
+ "intro": [
+  "Lá số có {n} cách mang tên riêng: {list}",
+  "Các cách có tên gọi riêng mà lá số này thành là {list}",
+  "Xét các cách có tên gọi riêng, lá số có {list}"
+ ],
+ "named": [
+  "{Name} ({cite})",
+  "Ở cung {pal} thành {name} ({cite})"
+ ],
+ "good": [
+  "Đây là cách tốt",
+  "Cách này thuộc loại tốt"
+ ],
+ "bad": [
+  "Đây là cách xấu",
+  "Cách này thuộc loại xấu"
+ ],
+ "whole": [
+  "cung {pal} không có sát tinh, Hóa Kỵ, chính tinh hãm hay Tuần Triệt đè lên, nên cách đứng trọn",
+  "ở cung {pal} không có yếu tố nào phá, nên cách giữ được trọn sức"
+ ],
+ "broken": [
+  "có điều ngay ở cung {pal} có {limits}, nên cách thành mà không trọn",
+  "nhưng {limits} đứng ở cung {pal} làm cách giảm sức"
+ ],
+ "bad_eased": [
+  "có điều cung {pal} còn {helps}, nên phần xấu của cách được đỡ một phần",
+  "song {helps} ở cung {pal} kìm được bớt phần xấu"
+ ],
+ "bad_full": [
+  "cung {pal} không có sao nào đỡ, nên phần xấu giữ nguyên sức",
+  "và ở cung {pal} không có chỗ đỡ cho phần xấu ấy"
+ ],
+ "degree": {
+  "3": "ảnh hưởng mạnh",
+  "2": "ảnh hưởng vừa",
+  "1": "ảnh hưởng nhẹ"
+ },
+ "reach": [
+  "Cách ở cung Mệnh nên {degree} lên cả đời người",
+  "Vì đứng ở Mệnh, cách này {degree} lên toàn cục"
+ ],
+ "reach_palace": [
+  "Cách đứng ở cung {pal} nên {degree}, chủ yếu lên {dom}",
+  "Đặt ở cung {pal}, cách này {degree} lên {dom}"
+ ],
+ "rank": [
+  "Xếp theo sức nặng, {first} đứng đầu",
+  "Trong các cách ấy, {first} có sức nặng nhất"
+ ],
+ "balance": [
+  "Cách tốt nhiều hơn cách xấu, nên thế chung của lá số được nâng lên",
+  "Cách xấu nhiều hơn cách tốt, nên thế chung của lá số cần nhiều gắng sức",
+  "Cách tốt và cách xấu ngang nhau, nên hai chiều cùng có mặt"
+ ]
+}

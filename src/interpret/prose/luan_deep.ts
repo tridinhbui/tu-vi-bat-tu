@@ -12,7 +12,8 @@ import type { ChartInput, Knowledge } from '../types.ts';
 import { depthConfig, domainDepth, type DepthReading, type DepthUnit, type UntoldReason } from '../reason/depth.ts';
 import type { Writer } from './narrative.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
-import type { LuanShared } from './luan.ts';
+import { echoOk, type LuanShared } from './luan.ts';
+import { verdictKey } from '../reason/ledger.ts';
 
 export interface DepthLib {
   status: string; titles: Record<string, string>; claim: string[]; reduced: string[]; back: string[]; back_far: string[]; back_mech: string[]; mech_reading: string[]; mech_self: string[]; mech_vcd: string[]; mech_vcd_more: string[];
@@ -277,28 +278,28 @@ function relationFacts(chart: ChartInput, id: string, sh: LuanShared): string | 
   };
   if (id === 'tai.che_tai') {
     const v = sh.ledger.domains.find(d => d.id === 'cong_danh');
-    return `${brief('Phúc Đức')}, ${brief('Quan Lộc')}` + (v && v.verdict !== 'chua_du' ? `; đường công danh đã được xét là ${LV[v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict] ?? v.verdict}` : '');
+    return `${brief('Phúc Đức')}, ${brief('Quan Lộc')}` + (v && v.verdict !== 'chua_du' && echoOk(sh, v.id) ? `; đường công danh đã được xét là ${LV[verdictKey(v)] ?? v.verdict}` : '');
   }
   if (id === 'dien.ben') {
     const v = sh.ledger.domains.find(d => d.id === 'tai_loc.tich_luy');
-    return `${brief('Tài Bạch')}` + (v && !['chua_du', 'khong_ket_luan'].includes(v.verdict) ? `, còn phần tích lũy, nhà cửa đã được xét là ${LV[v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict] ?? v.verdict}` : '');
+    return `${brief('Tài Bạch')}` + (v && !['chua_du', 'khong_ket_luan'].includes(v.verdict) && echoOk(sh, v.id) ? `, còn phần tích lũy, nhà cửa đã được xét là ${LV[verdictKey(v)] ?? v.verdict}` : '');
   }
   // any other relation: the book's statement told with what stands, on this chart, in the palaces it names (its own palace when it names
   // none), and the ledger's verdict of the domain it ties to (Mệnh–Quan Lộc: công danh; Phu Thê–Phúc Đức: hôn nhân; Nô Bộc: kiếm tiền)
   const rel = (REL_OF.get(id));
   if (!rel || rel.when === "than") return null;
   const v = REL_VERDICT[id] ? sh.ledger.domains.find(d => d.id === REL_VERDICT[id]) : undefined;
-  const verdict = v && !['chua_du', 'khong_ket_luan'].includes(v.verdict) ? `; ${v.label} đã được xét là ${LV[v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict] ?? v.verdict}` : '';
+  const verdict = v && !['chua_du', 'khong_ket_luan'].includes(v.verdict) && echoOk(sh, v.id) ? `; ${v.label} đã được xét là ${LV[verdictKey(v)] ?? v.verdict}` : '';
   return joinVi((rel.with ?? [rel.palace]).map(brief)) + verdict;
 }
 /** the relation of each id (set by deepParagraphs from the knowledge) and the ledger domain a relation ties to */
 const REL_OF = new Map<string, { palace: string; with?: string[]; when?: string }>();
 const REL_VERDICT: Record<string, string> = { 'menh.quan_di_tai': 'cong_danh', 'phuc.nu_menh_phu_phuc': 'hon_nhan', 'no.giau_ngheo_vi_ban': 'tai_loc.kiem' };
-const LV: Record<string, string> = { thuan: 'thuận', 'co_dieu_kien+': 'thuận có điều kiện', 'co_dieu_kien-': 'vướng nhưng có lối gỡ', co_dieu_kien: 'tùy lúc', hai_chieu: 'hai chiều', tro_ngai: 'chỗ phải gắng sức', chua_phan_xu: 'còn hai mặt chưa phân xử được', hai_mat: 'có cả hai mặt', giam_nhe: 'vướng, có yếu tố giảm nhẹ' };
+const LV: Record<string, string> = { thuan: 'thuận', 'co_dieu_kien+': 'thuận có điều kiện', 'co_dieu_kien-': 'vướng nhưng có lối gỡ', co_dieu_kien: 'tùy lúc', hai_chieu: 'hai chiều', tro_ngai: 'chỗ phải gắng sức', chua_phan_xu: 'còn hai mặt chưa phân xử được', 'nghieng_ve+': 'nghiêng về phía thuận', 'nghieng_ve-': 'nghiêng về phía khó', hai_mat: 'có cả hai mặt', giam_nhe: 'vướng, có yếu tố giảm nhẹ' };
 
 function conditionSentences(W: Writer, k: Knowledge, D: DepthLib, u: DepthUnit, key: string, P: string): ProseSentence[] {
   const G = k.prose!.luan!.ledger;
-  const words = (v: NonNullable<DepthUnit['verdicts']>[number]) => { const vk = v.verdict === 'co_dieu_kien' ? `co_dieu_kien${v.base ?? ''}` : v.verdict; return G.verdict[vk] ? W.pick(`dv|${v.id}`, G.verdict[vk]) : ''; };
+  const words = (v: NonNullable<DepthUnit['verdicts']>[number]) => { const vk = verdictKey(v); return G.verdict[vk] ? W.pick(`dv|${v.id}`, G.verdict[vk]) : ''; };
   const name = (e: { kind: string; star?: string; hoa?: string; dignity?: string }) => e.kind === 'tuan' ? 'Tuần' : e.kind === 'triet' ? 'Triệt' : e.kind === 'hoa_ky' ? 'Hóa Kỵ'
     : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ${(e as { borrowed?: boolean }).borrowed ? ' (mượn từ cung đối)' : ''}` : e.kind === 'major_ham' ? `${e.star} hãm${(e as { borrowed?: boolean }).borrowed ? ' (mượn từ cung đối)' : ''}` : e.kind === 'hoa_good' ? `${e.hoa}` : e.star ?? '';
   const tr = (v: NonNullable<DepthUnit['verdicts']>[number], step: string): Partial<SentenceTrace> & { move: SentenceTrace['move']; step: string } => {
@@ -318,7 +319,7 @@ function conditionSentences(W: Writer, k: Knowledge, D: DepthLib, u: DepthUnit, 
   const pair = vs.slice(0, 2).filter(v => words(v));
   const w1 = pair[0] ? words(pair[0]) : '';
   let w2 = pair[1] ? words(pair[1]) : '';
-  if (pair[1] && w2 === w1) { const vk = pair[1].verdict === 'co_dieu_kien' ? `co_dieu_kien${pair[1].base ?? ''}` : pair[1].verdict; w2 = (G.verdict[vk] ?? []).find(x => x !== w1) ?? w2; }
+  if (pair[1] && w2 === w1) { const vk = verdictKey(pair[1]); w2 = (G.verdict[vk] ?? []).find(x => x !== w1) ?? w2; }
   if (pair.length === 2) out.push(W.sentence(fill(W.pick(`${key}|cp`, D.condition_pair), { label1: pair[0].label, verdict1: w1, label2: pair[1].label, verdict2: w2 }),
     { ...tr(pair[0], `cond:${pair[0].id}+${pair[1].id}`), rules: [...new Set([...tr(pair[0], '').rules!, ...tr(pair[1], '').rules!])].sort() }));
   return out;

@@ -111,6 +111,14 @@
   "tai_tich": [
    "Về phần tích lũy và nhà cửa",
    "Về của để dành và nhà cửa"
+  ],
+  "chan_dung": [
+   "Chân dung tổng hợp",
+   "Tổng hợp về con người"
+  ],
+  "dien_bien": [
+   "Diễn biến theo đại hạn",
+   "Theo dòng các đại hạn"
   ]
  },
  "lead_pair": {
@@ -646,6 +654,16 @@
    ],
    "hai_mat": [
     "có cả hai mặt, mỗi mặt nói về một chuyện"
+   ],
+   "nghieng_ve+": [
+    "nghiêng về phía thuận",
+    "thuận nhiều hơn khó",
+    "có mặt thuận nặng hơn"
+   ],
+   "nghieng_ve-": [
+    "nghiêng về phía khó",
+    "khó nhiều hơn thuận",
+    "có mặt khó nặng hơn"
    ]
   },
   "both_timing": [
@@ -788,7 +806,49 @@
    "{limits} đóng ngay ở cung {palace}, nên mặt thuận không thể xem là trọn vẹn",
    "Bên trong cung {palace} vẫn có {limits}, nên phần thuận còn kèm giới hạn",
    "{limits} ở ngay cung {palace} khiến mặt thuận chỉ đứng được có điều kiện"
-  ]
+  ],
+  "weighed": [
+   "{domain} có cả {pos} (dựa vào {gpos}) lẫn {neg} (dựa vào {gneg})",
+   "{domain} có hai mặt: {pos}, đứng trên {gpos}, và {neg}, đứng trên {gneg}",
+   "trong {domain}, {pos} đến từ {gpos}, còn {neg} đến từ {gneg}",
+   "{domain} vừa có {pos} nhờ {gpos}, vừa có {neg} vì {gneg}",
+   "về {domain}, {gpos} cho {pos}, {gneg} lại cho {neg}"
+  ],
+  "weigh_line": [
+   "Cân hai bên, {heavy} nặng hơn, vì {why}; {light} vẫn là phần phải tính đến",
+   "Đặt hai mặt lên cân thì {heavy} trội hơn, bởi {why}; còn {light} là điều đi kèm",
+   "Tổng hợp lại, {heavy} có sức nặng hơn, do {why}; {light} không mất đi mà lùi xuống hàng thứ hai",
+   "Gộp hai phía, {heavy} là phía chính, vì {why}; {light} vẫn đứng đó như một giới hạn",
+   "Xét hai bên, {heavy} đứng vững hơn, vì {why}, nên {light} chỉ là mặt phụ"
+  ],
+  "weigh_why": {
+   "tier": [
+    "{star} là chính tinh, còn {other} không phải chính tinh",
+    "điều ấy dựa vào chính tinh {star}, còn phía kia dựa vào {other}"
+   ],
+   "tier_bare": [
+    "điều ấy dựa vào chính tinh {star}"
+   ],
+   "dignity_bright": [
+    "{star} đứng {dignity} ở cung {palace}",
+    "{star} sáng ({dignity}) ở cung {palace}"
+   ],
+   "dignity_ham": [
+    "{star} hãm ở cung {palace}",
+    "{star} ở thế hãm tại cung {palace}"
+   ],
+   "core": [
+    "điều ấy nằm ngay ở cung {palace}, còn phía kia đến từ cung {other}",
+    "nó đứng ở chính cung {palace}, phía kia chỉ chiếu từ cung {other}"
+   ],
+   "tuan_triet": [
+    "cung {palace} của mặt thuận gặp Tuần hoặc Triệt"
+   ],
+   "count": [
+    "có tới {n} chỗ đứng cùng chiều",
+    "{n} chỗ đứng khác nhau cùng nói một chiều"
+   ]
+  }
  },
  "confront": {
   "sat": [
@@ -857,5 +917,77 @@
   "relationships.timing": "nhịp cưới hỏi",
   "wellbeing.health": "sức khỏe",
   "wellbeing.longevity": "tuổi thọ"
+ },
+ "portrait": {
+  "both": [
+   "Gom các nét đã nói, {S} mạnh ở {pos}, còn chỗ yếu là {neg}",
+   "Tổng hợp lại về con người, mặt mạnh là {pos}; mặt yếu là {neg}",
+   "Nhìn chung các nét tính cách, phần trội là {pos}, phần phải coi chừng là {neg}"
+  ],
+  "pos": [
+   "Gom các nét đã nói, mặt mạnh của {S} là {pos}",
+   "Tổng hợp lại về con người, phần trội là {pos}"
+  ],
+  "neg": [
+   "Gom các nét đã nói, chỗ {S} cần coi chừng là {neg}",
+   "Tổng hợp lại về con người, phần phải để ý là {neg}"
+  ],
+  "conflict": [
+   "Chỗ giằng co bên trong là {p} đặt cạnh {n}: nét đầu đến từ {gp}, nét sau từ {gn}, nên hai chiều ấy cùng có trong một con người",
+   "Mâu thuẫn nội tâm nằm ở chỗ {p} đi cùng {n}; {gp} cho nét thứ nhất, {gn} cho nét thứ hai",
+   "Hai nét kéo nhau là {p} và {n}: một bên do {gp}, một bên do {gn}, nên cả hai cùng là con người ấy"
+  ],
+  "conflict_same": [
+   "Chỗ giằng co bên trong là {p} đặt cạnh {n}, mà cả hai cùng đến từ {gp}: cùng một gốc cho ra hai chiều",
+   "Mâu thuẫn nội tâm nằm ngay ở {gp}: nó cho {p} mà cũng cho {n}"
+  ],
+  "root": [
+   "Nhiều nét trong số ấy chung một gốc là {star} ở cung Mệnh: {list}",
+   "Phần lớn các nét ấy cùng xuất phát từ {star} ở Mệnh ({list})"
+  ]
+ },
+ "course": {
+  "open": [
+   "{label} được động đến ở các chặng {list}",
+   "những chặng chạm vào {label} là {list}",
+   "{label} nổi lên ở các chặng {list}"
+  ],
+  "item": {
+   "in": "hạn vào chính cung {pal}",
+   "loc": "Hóa Lộc của hạn vào {star}",
+   "ky": "Hóa Kỵ của hạn vào {star}"
+  },
+  "best": [
+   "Trong các chặng ấy, {a}–{b} tuổi là lúc thuận nhất cho {label}",
+   "Chặng {a}–{b} tuổi đứng cao nhất trong số đó, là thời {label} dễ tiến"
+  ],
+  "hard": [
+   "còn {a}–{b} tuổi là quãng {label} cần giữ gìn nhất",
+   "quãng {a}–{b} tuổi thì {label} nên đi chậm và chắc"
+  ],
+  "none": [
+   "không hạn nào vào thẳng cung này hay đưa Hóa Lộc, Hóa Kỵ tới đây, nên {label} ít có chặng nổi bật riêng",
+   "không đại hạn nào chạm trực tiếp vào cung này, nên {label} đi theo nhịp chung của các hạn"
+  ]
+ },
+ "health_balance": {
+  "both": [
+   "Cân các yếu tố ở cung Tật Ách: phía che chở có {shield}, phía gây sức ép có {press}; {lean}",
+   "Đặt hai phía ở cung Tật Ách cạnh nhau, bên cứu giải là {shield}, bên sức ép là {press}; {lean}"
+  ],
+  "lean": {
+   "shield": "bên cứu giải đông hơn, nên các sao xấu ở đây có chỗ bị kìm",
+   "press": "bên sức ép nặng hơn, nên phần giữ gìn là chính",
+   "even": "hai bên ngang nhau"
+  },
+  "shield_only": [
+   "Ở cung Tật Ách có {shield} là những sao cứu giải, mà không có sát tinh, Hóa Kỵ hay chính tinh hãm nào đè lên"
+  ],
+  "press_only": [
+   "Cung Tật Ách có {press} mà không có sao cứu giải nào đứng cùng, nên phần giữ gìn là chính"
+  ],
+  "tail": [
+   "Đây là thế cân giữa các sao trong cung, không phải lời đoán về bệnh hay về sức khỏe tốt xấu"
+  ]
  }
 }
