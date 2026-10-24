@@ -87,7 +87,8 @@ export const VAN_RULES: Record<string, { side: Side; w: number }> = {
   TH_TPVT_LOC_TA_HUU: { side: 'support', w: 1 }, TH_NDCC_HOA3: { side: 'support', w: 1 }, TH_CU_NHAT_SONG_LOC: { side: 'support', w: 1 },
   TH_CNDL_TAM_HOA: { side: 'support', w: 1 }, TH_SPLT_KINH_DOANH: { side: 'support', w: 1 }, TH_DAO_HONG_KHOA_QUYEN: { side: 'support', w: 1 },
   TH_TPVT_KHONG_KIEP_KY: { side: 'limit', w: 1 }, TH_NDCC_KHONG_KIEP: { side: 'limit', w: 1 },
-  // TH p.115 IX.6 ("rất kỵ"), IX.9 ("rất hại"), IX.10 ("hoạnh phát"), p.117 6n ("tất gặp lắm tai ương"), indices-3.1.0; IX.10's other
+  // TH p.115 IX.6 ("rất kỵ"), IX.9 ("rất hại"), IX.10 ("hoạnh phát"), p.117 6n ("tất gặp lắm tai ương"; IX.9 and 6n are told "rất bất
+  // lợi", owner 2026-10-24), indices-3.1.0; IX.10's other
   // half ("không hề gì") is in VAN_NO_SIDE. The page-checked list of TH pp.115-117 and the rules awaiting review: docs/INDICES-TH115-117.md.
   TH_IX6_GIAP_THUONG_SU: { side: 'limit', w: 1 }, TH_IX6_CANH_THUONG_SU: { side: 'limit', w: 1 }, TH_IX9_THAN_THUONG: { side: 'limit', w: 1 },
   TH_IX10_TU_MO_KINH_DA_PHAT: { side: 'support', w: 1 }, TH_6N_SPT_TANG_HO: { side: 'limit', w: 1 },

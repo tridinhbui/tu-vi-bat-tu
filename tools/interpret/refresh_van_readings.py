@@ -24,7 +24,7 @@ def main(new: set[str]) -> int:
         for d in ch["facts"]["decades"]:
             rd = van_han.read_traced(tv, d["palace"])
             old = [r for r in rd if r["rule_id"] not in new]
-            if old != d["readings"]:
+            if old != [r for r in d["readings"] if r["rule_id"] not in new]:      # re-runnable: the stored new sentences may be reworded
                 print("an existing reading changed:", ch["birth"], d["palace"], d["readings"], old)
                 return 1
             fired.update(r["rule_id"] for r in rd if r["rule_id"] in new)

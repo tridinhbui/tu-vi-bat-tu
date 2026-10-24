@@ -23,7 +23,7 @@ Cách đọc chung (ghi trong `tools/build_van_han_rules.py`):
 | IX.6 | "Lưỡng hạn của người Giáp rất kỵ Thiên thương và Thiên sứ đóng cung zdần [Dần]. Người tuổi Canh kỵ gặp Thương sứ ơ cung Thân." | **đã thêm**: `TH_IX6_GIAP_THUONG_SU`, `TH_IX6_CANH_THUONG_SU` (bất lợi, 1) | Can năm Giáp + cung vận ở Dần có Thiên Thương hoặc Thiên Sứ; can Canh + cung vận ở Thân. Thương (Nô Bộc) và Sứ (Tật Ách) không bao giờ cùng cung, nên "và" đọc là một trong hai. |
 | IX.7 | "Lưỡng hạn trùng phùng ở cung Tí mà gặp Thương, Sứ Kình, Đà, Tuế thì có thẻ nguy đến tánh mạng." | **chờ duyệt** (nguy tính mạng) | Cần đại hạn và tiểu hạn cùng ở Tý. |
 | IX.8 | "Thương ở cung Tí, Thìn, Mão, Ngọ, Mùi; Thiên sứ ở Dần, Thân, Tỵ, Hợi mà gặp phải Thái tuế thì tai họa ghê gớm. Nếu lưỡng hạn trùng phùng mà không cso sao giải cứu thì nguy đến tính mệnh." | **chờ duyệt** (nguy tính mạng) | Câu đầu chỉ nói "tai họa ghê gớm"; nếu chủ dự án cho, có thể tách câu đầu thành một luật riêng. "sao giải cứu" không có danh sách. |
-| IX.9 | "Người tuổi Thân mà đến lưỡng hạn gặp Thiên thương rất hại, tai họa liên miên." | **đã thêm, xin chủ dự án xem lại lời**: `TH_IX9_THAN_THUONG` (bất lợi, 1) | Không nói chết / tù / tai nạn, nhưng có chữ "tai họa". |
+| IX.9 | "Người tuổi Thân mà đến lưỡng hạn gặp Thiên thương rất hại, tai họa liên miên." | **đã thêm**: `TH_IX9_THAN_THUONG` (bất lợi, 1) | Lời đọc: "theo sách rất bất lợi", bỏ chữ "tai họa" (chủ dự án quyết, 2026-10-24). |
 | IX.10 | "Người tuổi Thin [Thìn], Tuất, Sửu, Mùi mà lưỡng hạn gặp Kình, Đà, không hề gì, trái lại nếu có Tử, Phủ, Xương, Khúc thì lại là hoạnh phát." | **đã thêm**: `TH_IX10_TU_MO_KINH_DA_PHAT` (thuận, 1); `TH_IX10_TU_MO_KINH_DA` (không có chiều) | Vế "không hề gì" được nói trong lời đọc vận nhưng không cộng trừ. Nó trái với lớp đắc hãm KL tr.233 (Kình Đà hãm vẫn bị tính bất lợi). **Chủ dự án quyết**: có cho vế này triệt tiêu Kình / Đà hãm ở cung vận của tuổi Tứ Mộ không? |
 | IX.11 | "Hạn gặp Thất sát có gia Hình, Hổ, Quan phủ ở cung hãm thì dễ mắc vòng lao lý." | **chờ duyệt** (lao lý) | |
 
@@ -54,7 +54,7 @@ Cách đọc chung (ghi trong `tools/build_van_han_rules.py`):
 | 6k | "Sát Phá Liêm Tham găp Tang Hổ Kình Đà Điếu khách hay là Tham lang gặp Hổ, Điêu, Ly Tuế ở cung Thìn Tuất thì bị xe cán hay thú cắn." | **chờ duyệt** (tai nạn) |
 | 6l | "Kinh Không Kiếp gặp Quan phù hay Tử Phù, Trực phù mà có Phục binh thì phòng có kẻ chực hãm hại." | **chờ duyệt** (bị hãm hại) |
 | 6m | "Tham Liêm đóng Tỵ, Hựo [Hợi] hoặc Tham vũ đóng ở Dần Thân mà gặp phải Kỵ, Đà, Không Kiếp tất mắc tù tội" | **chờ duyệt** (tù tội) |
-| 6n | "Sát Phá Tham hội Tang Hổ Khốc Khách, Đà, Thiên thương tất gặp lắm tai ương." | **đã thêm, xin chủ dự án xem lại lời**: `TH_6N_SPT_TANG_HO` (bất lợi, 1). Cung vận có Sát / Phá / Tham; đủ sáu sao Tang Môn, Bạch Hổ, Thiên Khốc, Điếu Khách, Đà La, Thiên Thương trong tam phương tứ chính. Có chữ "tai ương". |
+| 6n | "Sát Phá Tham hội Tang Hổ Khốc Khách, Đà, Thiên thương tất gặp lắm tai ương." | **đã thêm**: `TH_6N_SPT_TANG_HO` (bất lợi, 1). Cung vận có Sát / Phá / Tham; đủ sáu sao Tang Môn, Bạch Hổ, Thiên Khốc, Điếu Khách, Đà La, Thiên Thương trong tam phương tứ chính. Lời đọc: "theo sách rất bất lợi", bỏ chữ "tai ương" (chủ dự án quyết, 2026-10-24). |
 | 6o | "Tham Liêm, Kình Đà, Hỏa Linh; Kỵ Kiếp Thiên Không tất bị ốm đau nặng." | **chờ duyệt** (bệnh nặng) |
 
 ## Đại tiểu hạn có tang (tr.117)

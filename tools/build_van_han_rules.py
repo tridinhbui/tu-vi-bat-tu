@@ -102,6 +102,7 @@ RULES += [
 # TH p.115 IX.6, 9, 10 and p.117 6n (image-checked 2026-10-24). 'Lưỡng hạn' is read as the đại hạn and the tiểu hạn alike (IX.7-8 say
 # 'trùng phùng' when both must sit on one palace), so each rule reads one vận palace. 'gặp' with no position = in the vận palace itself;
 # 'hội' = in its tam phương tứ chính (Tang Môn and Bạch Hổ always face each other, so they can never share one palace).
+# IX.9 and 6n are told as 'theo sách rất bất lợi', without the book's 'tai họa' / 'tai ương' (owner's decision 2026-10-24).
 # The rules that name death, prison, injury, illness, burns, drowning or mourning (IX.7, 8, 11; 6a, b, d, f-m, o; 7a-i) wait for the owner's
 # content review; IX.5 cannot be met on one palace (Cự Môn never stands in the tam phương of Sát / Phá / Tham). See docs/INDICES-EVAL.md.
 TU_MO = ["Thìn", "Tuất", "Sửu", "Mùi"]
@@ -113,14 +114,14 @@ RULES += [
     R("TH_IX6_CANH_THUONG_SU", {"all": [f("year_stem", "eq", "Canh"), f("v_branch", "eq", "Thân"), any_("v_stars", ["Thiên Thương", "Thiên Sứ"])]},
       "Tuổi Canh, cung vận ở Thân có {thuong_su}: theo sách rất kỵ.", SRC_TH),
     R("TH_IX9_THAN_THUONG", {"all": [f("year_branch", "eq", "Thân"), has("v_stars", "Thiên Thương")]},
-      "Tuổi Thân, cung vận có Thiên Thương: theo sách rất hại, tai họa liên miên.", SRC_TH),
+      "Tuổi Thân, cung vận có Thiên Thương: theo sách rất bất lợi.", SRC_TH),
     R("TH_IX10_TU_MO_KINH_DA", {"all": [f("year_branch", "in", TU_MO), KD, {"not": PHU_XK}]},
       "Tuổi {year_branch}, cung vận có {kinh_da}: theo sách không hề gì.", SRC_TH),
     R("TH_IX10_TU_MO_KINH_DA_PHAT", {"all": [f("year_branch", "in", TU_MO), KD, PHU_XK]},
       "Tuổi {year_branch}, cung vận có {kinh_da} cùng Tử, Phủ, Xương hoặc Khúc: theo sách trái lại là hoạnh phát.", SRC_TH),
     R("TH_6N_SPT_TANG_HO", {"all": [any_("v_major", SPT),
                                     all_("tp_stars", ["Tang Môn", "Bạch Hổ", "Thiên Khốc", "Điếu Khách", "Đà La", "Thiên Thương"])]},
-      "Cung vận có Sát Phá Tham, tam phương hội Tang Môn, Bạch Hổ, Thiên Khốc, Điếu Khách, Đà La, Thiên Thương: theo sách tất gặp lắm tai ương.",
+      "Cung vận có Sát Phá Tham, tam phương hội Tang Môn, Bạch Hổ, Thiên Khốc, Điếu Khách, Đà La, Thiên Thương: theo sách rất bất lợi.",
       SRC_TH),
 ]
 

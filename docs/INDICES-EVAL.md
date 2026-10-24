@@ -30,7 +30,7 @@ Số cung vận khớp trên 1.000 lá (mỗi lá 12 cung vận): IX.6 Giáp 14,
 
 So với 3.0.0: 193 / 10.000 chặng và 451 / 20.596 năm đổi mức, tất cả chỉ một bậc. Không lá nào đổi từ hai bậc trở lên.
 
-Việc còn chờ chủ dự án: (1) duyệt nội dung các mục "chờ duyệt"; (2) lời của IX.9 ("tai họa liên miên") và 6n ("tất gặp lắm tai ương") đang giữ nguyên văn sách, xin xem lại; (3) có cho IX.10 "không hề gì" triệt tiêu Kình / Đà hãm của lớp đắc hãm KL tr.233 ở tuổi Tứ Mộ không. Lớp văn vận hạn (`src/interpret/content/prose/van_han.json`) chưa có câu cho sáu luật mới, nên chương vận hạn bỏ qua chúng; biểu đồ vẫn dùng.
+Lời đọc của IX.9 và 6n là "theo sách rất bất lợi", không dùng chữ "tai họa" / "tai ương" của sách (chủ dự án quyết, 2026-10-24). Việc còn chờ chủ dự án: (1) duyệt nội dung các mục "chờ duyệt"; (2) có cho IX.10 "không hề gì" triệt tiêu Kình / Đà hãm của lớp đắc hãm KL tr.233 ở tuổi Tứ Mộ không. Lớp văn vận hạn (`src/interpret/content/prose/van_han.json`) chưa có câu cho sáu luật mới, nên chương vận hạn bỏ qua chúng; biểu đồ vẫn dùng.
 
 
 ## 3.0.0 (2026-10-24): kế hoạch chủ dự án duyệt
