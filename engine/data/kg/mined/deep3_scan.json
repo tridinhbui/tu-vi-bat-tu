@@ -1,0 +1,95 @@
+{
+ "source": "Thiên Lương, Tử Vi Nghiệm Lý Toàn Thư, scan pp.13-15 transcribed in engine/data/sources_scan/tvnl_scan.txt",
+ "pages_read": [
+  {
+   "book": "SCAN:tvnl_scan",
+   "page": 13,
+   "image_checked": true,
+   "note": "Những câu phú nên thận trọng áp dụng (Phá Quân Thìn Tuất / Tham Sát Dần Thân)."
+  },
+  {
+   "book": "SCAN:tvnl_scan",
+   "page": 14,
+   "image_checked": true,
+   "note": "Four tuổi with Mệnh at Tuất and Phá Quân: the phú read by tuổi and vòng Thái Tuế."
+  },
+  {
+   "book": "SCAN:tvnl_scan",
+   "page": 15,
+   "image_checked": true,
+   "note": "Hóa Khoa and Tuần Triệt on Sát Phá Tham."
+  },
+  {
+   "book": "SCAN:tvnl_scan",
+   "page": 11,
+   "image_checked": true,
+   "note": "Can chi gốc / ngọn (Canh Thân vs Canh Dần, Giáp Ngọ vs Giáp Tí): the same examples as KL p.209; not transcribed (schools.json cites KL)."
+  }
+ ],
+ "entries": [
+  {
+   "id": "tl13_phu_than_trong",
+   "book": "SCAN:tvnl_scan",
+   "page": 13,
+   "palace": "Mệnh",
+   "heading": "Những câu phú nên thận trọng áp dụng",
+   "quote": "có phải bất cứ mệnh nào nằm ở Thìn Tuất mà có Phá Quân là trai bất nhân",
+   "quote_checked": true,
+   "condition_text": "Phá Quân Thìn Tuất / Tham Sát Dần Thân",
+   "reading_vi": "câu phú không quyết định cho mọi trường hợp",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "tl14_phu_theo_tuoi",
+   "book": "SCAN:tvnl_scan",
+   "page": 14,
+   "palace": "Mệnh",
+   "heading": "Những câu phú nên thận trọng áp dụng",
+   "quote": "Bất nhân không thể là người Thái Tuế",
+   "quote_checked": true,
+   "condition_text": "Mệnh Tuất có Phá Quân, tuổi Giáp Dần (Mệnh trong tam hợp Thái Tuế)",
+   "reading_vi": "không thể coi là bất nhân",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "tl15_khoa_spt",
+   "book": "SCAN:tvnl_scan",
+   "page": 15,
+   "palace": "",
+   "heading": "Hóa Khoa và Sát Phá Tham",
+   "quote": "Bộ Sát Phá Tham nói chung, hãm địa nói riêng, gặp Hóa Khoa như phe Triệt giáo",
+   "quote_checked": true,
+   "condition_text": "Sát Phá Tham (nhất là hãm địa) gặp Hóa Khoa",
+   "reading_vi": "hung tinh ngộ chế, thành người hiền, hiệp khách",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "'... được đắc đạo. Hóa Khoa có một khả năng lột xác phàm phu hoán cải tư cách tức là trường hợp hung tinh ngộ chế'",
+   "target": "che_hoa"
+  },
+  {
+   "id": "tl15_tuan_triet_spt",
+   "book": "SCAN:tvnl_scan",
+   "page": 15,
+   "palace": "",
+   "heading": "Hóa Khoa và Sát Phá Tham",
+   "quote": "Sát Phá Tham gặp Tuần Triệt cũng mất tính cách hung hãn",
+   "quote_checked": true,
+   "condition_text": "Sát Phá Tham gặp Tuần, Triệt",
+   "reading_vi": "mất tính hung hãn, nhưng mất hết (Triệt) hay giảm hẳn tốc lực (Tuần)",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "che_hoa"
+  }
+ ]
+}

@@ -7,6 +7,7 @@ and the chapter title in place of the page. Books are NOT part of the repository
 cope with their absence (tests skip).  Printed page number = PDF index + 1 (checked on all three books)."""
 from __future__ import annotations
 
+import json
 import os
 import re
 from functools import lru_cache
@@ -21,6 +22,8 @@ def books_dir() -> Path:
 
 
 def available(book: str) -> bool:
+    if book.startswith(("WEB:", "SCAN:")):
+        return _snapshot_file(book).exists()
     return (books_dir() / BOOK_FILES[book]).exists()
 
 
@@ -72,22 +75,6 @@ def norm(s: str) -> str:
     return re.sub(r"[\"“”'’.,;:!?()\-–—]", "", s).replace("  ", " ").strip()
 
 
-WEB_DIR = Path(__file__).resolve().parent.parent / "engine" / "data" / "sources_web"
-
-
-@lru_cache(maxsize=None)
-def _web(src_id: str) -> dict:
-    """a saved snapshot of a public-domain web text (engine/data/sources_web/<file>.json, listed in index.json): {chapter title: text}"""
-    import json
-    idx = {e["id"]: e for e in json.loads((WEB_DIR / "index.json").read_text("utf-8"))}
-    d = json.loads((WEB_DIR / idx[src_id]["file"]).read_text("utf-8"))
-    return {c["chapter"]: c["text"] for c in d["chapters"]}
-
-
-def web_text(src_id: str, chapter: str) -> str:
-    return _web(src_id)[chapter]
-
-
 BAZI_MINED = Path(__file__).resolve().parent.parent / "engine" / "data" / "bazi_deep" / "mined"
 BAZI_BOOKS = {"TTT": "ttt", "TVH": "tvh", "ZZ": "zz"}      # Trích Thiên Tủy, Thiệu Vĩ Hoa (scan, transcribed), 八字真宗: committed page text
 
@@ -96,13 +83,50 @@ def bazi_page_text(book: str, page: int) -> str:
     return (BAZI_MINED / f"{BAZI_BOOKS[book]}_p{int(page)}.txt").read_text("utf-8")
 
 
+def web_text(src_id: str, chapter: str) -> str:
+    return snapshot_text(f"WEB:{src_id}", chapter)
+
+
 def quote_on_page(book: str, page, quote: str) -> bool:
     """book KL / TH / TT with a printed page number; TTT / TVH / ZZ (Bát Tự books) against the committed page text in
-    engine/data/bazi_deep/mined/ (whitespace-insensitive: the Chinese text layer breaks lines inside words); or 'WEB:<id>' (a saved web
-    snapshot, DEEP-3 2026-10-24) with the chapter title as page: such a quote is labelled with its chapter, not a page"""
+    engine/data/bazi_deep/mined/ (whitespace-insensitive: the Chinese text layer breaks lines inside words); 'WEB:<id>' / 'SCAN:<id>' (saved
+    snapshots, DEEP-3 2026-10-24) with the chapter title / printed page as page: a WEB quote is labelled with its chapter, not a page"""
     if book in BAZI_BOOKS:
         sq = lambda t: re.sub(r"\s+", "", t)
         return sq(quote) in sq(bazi_page_text(book, page))
-    if book.startswith("WEB:"):
-        return norm(quote) in norm(web_text(book[4:], page))
+    if book.startswith(("WEB:", "SCAN:")):
+        return norm(quote) in norm(snapshot_text(book, page))
     return norm(quote) in norm(page_text(book, page))
+
+
+# Saved snapshots (owner decision 2026-10-24): 'WEB:<id>' is a public-domain classical text saved under engine/data/sources_web (cited by
+# chapter: `page` is a heading of the snapshot, '' for the whole text); 'SCAN:<id>' is a scan with no text layer, transcribed from the page
+# images into engine/data/sources_scan (`page` is the printed page, marked '=== p.N' in the file). Both are in the repository.
+DATA = Path(__file__).resolve().parent.parent / "engine" / "data"
+
+
+def _snapshot_file(book: str) -> Path:
+    kind, sid = book.split(":", 1)
+    if kind == "WEB":
+        idx = json.loads((DATA / "sources_web" / "index.json").read_text("utf-8"))["sources"]
+        return DATA / "sources_web" / idx[sid]["file"]
+    return DATA / "sources_scan" / f"{sid}.txt"
+
+
+@lru_cache(maxsize=None)
+def snapshot_text(book: str, page) -> str:
+    f = _snapshot_file(book)
+    if f.suffix == ".json":                                  # Bát Tự snapshots: {chapters: [{chapter, text}]}, the exact chapter title
+        return {c["chapter"]: c["text"] for c in json.loads(f.read_text("utf-8"))["chapters"]}[page]
+    lines = f.read_text("utf-8").splitlines()
+    if book.startswith("SCAN:"):
+        head = lambda ln: re.match(r"^=== p\.(\d+)", ln)
+        start = next(i for i, ln in enumerate(lines) if head(ln) and int(head(ln).group(1)) == int(page))
+        end = next((i for i in range(start + 1, len(lines)) if head(lines[i])), len(lines))
+        return "\n".join(lines[start + 1:end])
+    if not page:
+        return "\n".join(lines)
+    level = lambda ln: len(ln) - len(ln.lstrip("=")) if ln.startswith("==") else 0
+    start = next(i for i, ln in enumerate(lines) if level(ln) and page in ln)
+    end = next((i for i in range(start + 1, len(lines)) if 0 < level(lines[i]) <= level(lines[start])), len(lines))
+    return "\n".join(lines[start + 1:end])
