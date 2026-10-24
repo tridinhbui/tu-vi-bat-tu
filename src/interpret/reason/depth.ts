@@ -215,6 +215,13 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
       push({ kind: 'mechanism', section: orient, nature: n, star: m.star, palace: m.palace, where: 'trine' });
     }
   }
+  // a VCD palace with Tuần / Triệt: Khảo Luận p.146 has them shield it from the sát tinh outside (star_nature tuan_triet.bao_ve_vcd): the
+  // short reading says only where they stand (prose/luan.ts confrontLine), this is the why (DEEP-3)
+  if ((!majorsHere.length || ev.majors.every(m => m.borrowed)) && (pal.tuan || pal.triet)) {
+    const n = (k.kg?.starNature?.entries ?? []).find(e => e.id === 'tuan_triet.bao_ve_vcd');
+    const star = pal.tuan && pal.triet ? 'Tuần, Triệt' : pal.tuan ? 'Tuần' : 'Triệt';
+    if (n && !said.has(n.id)) { said.add(n.id); push({ kind: 'mechanism', section: orient, nature: n, star, palace: P, where: 'self' }); }
+  }
   // the Hóa standing in the palace (KL pp.195-197 on what each Hóa is)
   for (const h of ev.hoa.filter(x => x.where === 'self')) {
     const n = natureOf(k, h.hoa, use, said, { palace: P, prefix });

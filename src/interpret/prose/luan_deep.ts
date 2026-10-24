@@ -282,7 +282,10 @@ function relationFacts(chart: ChartInput, id: string, sh: LuanShared): string | 
   const brief = (name: string) => {
     const p = chart.palaces.find(x => x.name === name)!;
     const ms = p.major_stars.map(s => p.major_dignity?.[s] ? `${s} (${p.major_dignity[s]})` : s);
-    return ms.length ? `${name} có ${joinVi(ms)}` : `${name} không có chính tinh`;
+    if (ms.length) return `${name} có ${joinVi(ms)}`;
+    // a vô chính diệu palace borrows the opposite palace's chính tinh (TT p.18, reason/borrow.ts): named as borrowed, never as its own
+    const opp = chart.palaces.find(x => x.branch_index === (p.branch_index + 6) % 12)!;
+    return opp.major_stars.length ? `${name} vô chính diệu, mượn ${joinVi(opp.major_stars)}` : `${name} không có chính tinh`;
   };
   if (id === 'tai.che_tai') {
     const v = sh.ledger.domains.find(d => d.id === 'cong_danh');

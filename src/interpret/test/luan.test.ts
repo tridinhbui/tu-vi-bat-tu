@@ -35,7 +35,9 @@ test('luan.json: no frame uses meta-language or an absolute, every slot is one t
     // the Mệnh portrait, the course across the đại hạn, the Tật Ách balance (review 2026-10-23)
     'p', 'gp', 'gn', 'label', 'shield', 'press', 'lean',
     // a Tuần / Triệt hedge names the good reading it bends (DEEP-3)
-    'good']);
+    'good',
+    // Phụ Mẫu: the father's and the mother's side (DEEP-3)
+    'cha', 'me', 'who', 'desc']);
   const walk = (x: unknown, at: string): void => {
     if (typeof x === 'string') {
       const low = ' ' + x.toLowerCase();

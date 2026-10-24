@@ -485,6 +485,29 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
       const host = paras.find(p => p.topic === 'ket_luan') ?? [...paras].reverse().find(p => p.role !== 'structure');
       if (host) host.sentences.push(...xs); else para('course', 'ket_luan', xs, lead('ket_luan')); }
   }
+  // Phụ Mẫu: Thái Dương is the father and Thái Âm the mother (KL pp.85, 100, star_nature thai_duong.cha / thai_am.me); the readings of the
+  // palace are told by star, so the system puts each star's brightness and Hóa on its parent's side and says which side stands better —
+  // a labelled count of facts already in the chapter (bright +1, hãm −1, Lộc / Quyền / Khoa +1, Kỵ −1), not a claim of its own (DEEP-3)
+  const PS = (L as LuanLib & { parents_split?: { both: string[]; one: string[]; lean: Record<'cha' | 'me' | 'even', string> } }).parents_split;
+  if (P === 'Phụ Mẫu' && PS) {
+    const side = (star: string, who: 'cha' | 'me') => {
+      if (!pal.major_stars.includes(star)) return null;
+      const dig = pal.major_dignity?.[star], hoa = Object.entries(chart.tu_hoa).filter(([, v]) => v.star === star && v.branch === pal.branch_index).map(([h]) => h);
+      const score = (dig === 'miếu' || dig === 'vượng' || dig === 'đắc' ? 1 : dig === 'hãm' ? -1 : 0) + hoa.reduce((a, h) => a + (h === 'Hóa Kỵ' ? -1 : 1), 0);
+      return { who, star, score, desc: [dig ? `${star} ${dig}` : star, ...hoa.map(h => `mang ${h}`)].join(', ') };
+    };
+    const d = side('Thái Dương', 'cha'), mo = side('Thái Âm', 'me');
+    const cites = [...(d ? ['KL p.85'] : []), ...(mo ? ['KL p.100'] : [])];
+    const tr = { move: 'VALUE' as const, step: 'parents:split', basis: 'he_thong' as const, concepts: [], cites, part: 5 as const,
+      note: 'Thái Dương là biểu tượng người cha (KL tr.85), Thái Âm là biểu tượng người mẹ (KL tr.100); việc cộng độ sáng và Hóa để so hai phía là quy ước của hệ thống.' };
+    let text = '';
+    if (d && mo) text = fill(W.pick('ps|both', PS.both), { cha: d.desc, me: mo.desc, lean: PS.lean[d.score > mo.score ? 'cha' : d.score < mo.score ? 'me' : 'even'] });
+    else if (d || mo) { const x = (d ?? mo)!; text = fill(W.pick('ps|one', PS.one), { who: x.who === 'cha' ? 'cha' : 'mẹ', star: x.star, desc: x.desc }); }
+    if (text) {
+      const host = paras.find(p => p.topic === 'ket_luan') ?? [...paras].reverse().find(p => p.role !== 'structure');
+      if (host) host.sentences.push(S(text, tr)); else para('course', 'ket_luan', [S(text, tr)], lead('ket_luan'));
+    }
+  }
   // the domain across the đại hạn: which hạn touch the palace, at what level (review 2026-10-23: career turning points, the course of a
   // marriage told as phases, how property is built over time)
   if (COURSE_PALACES[P]) {

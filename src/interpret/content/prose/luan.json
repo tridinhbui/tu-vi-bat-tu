@@ -1017,5 +1017,20 @@
   "tail": [
    "Đây là thế cân giữa các sao trong cung, không phải lời đoán về bệnh hay về sức khỏe tốt xấu"
   ]
+ },
+ "parents_split": {
+  "both": [
+   "Đặt hai sao theo người: phía cha là {cha}, phía mẹ là {me}, nên {lean}",
+   "Thái Dương ứng với cha, Thái Âm ứng với mẹ; ở đây phía cha có {cha}, phía mẹ có {me}, nên {lean}"
+  ],
+  "one": [
+   "{star} ở đây ứng với phía {who}, và phía ấy có {desc}",
+   "Phía {who} ứng với {star}, ở đây là {desc}"
+  ],
+  "lean": {
+   "cha": "phía cha đứng vững hơn phía mẹ",
+   "me": "phía mẹ đứng vững hơn phía cha",
+   "even": "hai phía ngang nhau"
+  }
  }
 }
