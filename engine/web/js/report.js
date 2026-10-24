@@ -5,6 +5,7 @@ import { scopePanelBazi } from './scope.js';
 import { easyReadings, emptyReading, classify, parsePhrase } from './beginner.js';
 import { autoLink, terms } from './glossary.js';
 import { lockHtml } from './paywall.js';
+import { aiSlot } from './ai_card.js';
 import { elementBalanceHtml, godDistributionHtml, menhTamPhuongHtml, currentPhase, currentPhaseHtml } from './insights.js';
 import { HANH, MAJOR_SIGN, hk } from './stars_hanh.js';
 import { orderChapters, focusIds, focusNote } from './focus.js';
@@ -84,7 +85,7 @@ function proseHtml(p) {
   const deepHtml = deep.length ? `<details class="pr-deep"><summary><span class="cb-t">Đọc sâu</span><span class="cb-s">${deep.map(x => esc(x.para.title || '')).filter(Boolean).join(' · ')}</span></summary>${deep.map(x => block(x.para, x.i)).join('')}</details>` : '';
   return `<section class="synth prose${p.luan ? ' pr-luan' : ''}${p.locked ? ' pw-cut' : ''}" data-chapter="${esc(p.chapter)}" data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
     ${short.map(x => block(x.para, x.i)).join('')}${deepHtml}
-    <div class="pr-why small" hidden></div>${lockHtml(p)}${adviceHtml(p.advice)}${prDiverge(p)}${luanBasis(p)}</section>`;
+    <div class="pr-why small" hidden></div>${lockHtml(p)}${adviceHtml(p.advice)}${aiSlot(p.chapter)}${prDiverge(p)}${luanBasis(p)}</section>`;
 }
 // Tử Vi luận cung: the chapter's sources and the domain verdicts it concluded on (frame part 6), folded under the reading, closed. Each verdict
 // is the report-wide ledger's (src/interpret/reason/ledger.ts): every chapter says the same about the same domain.
@@ -388,7 +389,7 @@ function btProseHtml(p) {
   });
   flush();
   return `<section class="synth prose bt-prose${p.locked ? ' pw-cut' : ''}" data-chapter="${esc(p.chapter)}" data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
-    ${html}<div class="pr-why small" hidden></div>${lockHtml(p)}${prDiverge(p)}</section>`;
+    ${html}<div class="pr-why small" hidden></div>${lockHtml(p)}${aiSlot(p.chapter)}${prDiverge(p)}</section>`;
 }
 
 export function renderBaziReport(host, chart, ctx, parts) {

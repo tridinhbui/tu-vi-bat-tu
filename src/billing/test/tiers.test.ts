@@ -1,6 +1,7 @@
-// The three reading tiers (owner decision 2026-10-23) on real readings and a real local D1: a guest gets the first third of each chapter's
-// main reading and nothing else in the JSON; a member every main paragraph but no Đọc sâu; a buyer that chapter's Đọc sâu; Bát Tự cut per tab;
-// /api/overview, /api/synthesis and /api/interpretation cut the same way; a share link reads as a guest; the cache holds one full copy.
+// The reading tiers (owner decisions 2026-10-23, 2026-10-24) on real readings and a real local D1: a guest gets the first half of each
+// chapter's main reading and nothing else in the JSON; a member Tổng quan and Mệnh whole (no Đọc sâu) and the first half of the rest; a
+// package opens its chapters whole; Bát Tự cut per tab (Vận năm opens two tabs); /api/overview, /api/synthesis and /api/interpretation cut
+// the same way; a share link reads as a guest; the cache holds one full copy.
 import { test, before, after, beforeEach } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
@@ -8,7 +9,7 @@ import { gunzipSync } from "node:zlib";
 import { join } from "node:path";
 import { getPlatformProxy } from "wrangler";
 import { GUEST, SHARED, accessFor, buyPlan, gateOutput, gateOverview, gateResponse, gateSynthesis, gated, isDeep, type Access } from "../paywall.ts";
-import { guestShown } from "../config.ts";
+import { MEMBER_FREE, guestShown, planById } from "../config.ts";
 import { grant } from "../wallet.ts";
 import { createSession } from "../../auth/session.ts";
 import { handleShare } from "../../account/shares.ts";
@@ -36,8 +37,9 @@ const mainOf = (ps: any[]) => ps.filter(p => !isDeep(p)), deepOf = (ps: any[]) =
 /** the paragraphs a reader must not receive: in the full chapter, not among those sent */
 const heldBack = (all: any[], sent: any[]) => { const keep = new Set(sent.map(p => p.text)); return all.filter(p => !keep.has(p.text)); };
 /** no sentence of the held-back paragraphs is anywhere in the JSON, unless the same sentence was sent in a kept paragraph */
-const assertAbsent = (json: string, ps: any[], what: string, sent: any[] = []) => {
-  const ok = new Set(sent.flatMap(p => p.sentences.map((s: any) => s.text)));
+const assertAbsent = (json: string, ps: any[], what: string, sent: any[] = [], readings: string[] = []) => {
+  // a sentence that IS the reading of a rule behind a sentence sent was sent anyway, as that rule's evidence
+  const ok = new Set([...sent.flatMap(p => p.sentences.map((s: any) => s.text)), ...readings]);
   for (const p of ps) for (const s of p.sentences) if (!ok.has(s.text)) assert.ok(!json.includes(JSON.stringify(s.text).slice(1, -1)), `${what}: ${s.text.slice(0, 60)}`);
 };
 
@@ -60,10 +62,10 @@ const cookieFor = async (id: string) => (await createSession(db, new Request("ht
 test("the worked example has what the tiers act on: chapters with Đọc sâu paragraphs, and chapters of several main paragraphs", () => {
   assert.ok(FULL.chapters.filter((c: any) => deepOf(c.paragraphs).length).length >= 3);
   assert.ok(FULL.chapters.some((c: any) => mainOf(c.paragraphs).length >= 4));
-  assert.equal(guestShown(0), 0); assert.equal(guestShown(1), 1); assert.equal(guestShown(2), 1); assert.equal(guestShown(3), 1); assert.equal(guestShown(4), 2); assert.equal(guestShown(18), 6);
+  assert.equal(guestShown(0), 0); assert.equal(guestShown(1), 1); assert.equal(guestShown(2), 1); assert.equal(guestShown(3), 2); assert.equal(guestShown(4), 2); assert.equal(guestShown(18), 9);
 });
 
-test("guest: the first third of every chapter's main reading, no Đọc sâu, and no held-back word anywhere in the JSON", () => {
+test("guest: the first half of every chapter's main reading, no Đọc sâu, and no held-back word anywhere in the JSON", () => {
   const out = gateOutput(clone(FULL), GUEST);
   assert.equal(out.chapters.length, FULL.chapters.length);
   for (const g of out.chapters) {
@@ -73,7 +75,7 @@ test("guest: the first third of every chapter's main reading, no Đọc sâu, an
     assert.deepEqual(g.paragraphs, main.slice(0, k), g.chapter);
     assert.ok(!g.paragraphs.some(isDeep), g.chapter);
     const held = heldBack(f.paragraphs, g.paragraphs);
-    assertAbsent(json, held, g.chapter, g.paragraphs);
+    assertAbsent(json, held, g.chapter, g.paragraphs, Object.values(g.evidence?.rules ?? {}).map((r: any) => r.reading));
     if (!held.length) { assert.equal(g.locked, undefined, g.chapter); continue; }
     assert.ok(!json.includes(JSON.stringify(f.text).slice(1, -1)), `${g.chapter}: the full text`);
     for (const k2 of ["advice", "theses", "metrics", "quality", "argument"]) assert.equal(g[k2], undefined, `${g.chapter}.${k2}`);
@@ -88,43 +90,52 @@ test("guest: the first third of every chapter's main reading, no Đọc sâu, an
   assert.ok(vh.starts.every((i: number) => i < vh.paragraphs.length));
 });
 
-test("member: every main paragraph of every chapter, no Đọc sâu paragraph, a lock card offering the plans; chapters without Đọc sâu untouched", () => {
+test("member: Tổng quan and Mệnh main reading whole, every other chapter's first half with the packages that open it; no Đọc sâu", () => {
   const out = gateOutput(clone(FULL), member());
   for (const g of out.chapters) {
     const f = full(g.chapter);
     if (g.chapter === "bat_tu") continue;
-    assert.deepEqual(g.paragraphs, mainOf(f.paragraphs), g.chapter);
-    const deep = deepOf(f.paragraphs);
-    if (!deep.length) { assert.deepEqual(g, f, `${g.chapter}: nothing held back, nothing changed`); continue; }
-    assertAbsent(JSON.stringify(g), deep, g.chapter);
-    assert.ok(g.advice, `${g.chapter}: advice belongs to the main reading`);
-    assert.deepEqual(g.evidence.ledger, f.evidence.ledger);
-    assert.equal(g.locked.tier, "member"); assert.equal(g.locked.deep, deep.length); assert.equal(g.locked.shown, g.locked.total);
-    assert.deepEqual(g.locked.plans.map((p: any) => p.id), ["chuong", "cung12", "tron_bo"]);
-    assert.equal(g.locked.plans[0].chapter, g.chapter);
+    const main = mainOf(f.paragraphs), deep = deepOf(f.paragraphs), free = MEMBER_FREE.includes(g.chapter);
+    assert.deepEqual(g.paragraphs, free ? main : main.slice(0, guestShown(main.length)), g.chapter);
+    if (heldBack(f.paragraphs, g.paragraphs).length === 0) { assert.deepEqual(g, f, `${g.chapter}: nothing held back, nothing changed`); continue; }
+    assertAbsent(JSON.stringify(g), heldBack(f.paragraphs, g.paragraphs), g.chapter, g.paragraphs, Object.values(g.evidence?.rules ?? {}).map((r: any) => r.reading));
+    assert.equal(g.locked.tier, "member"); assert.equal(g.locked.deep, deep.length);
+    if (free) {
+      assert.ok(g.advice || !f.advice, `${g.chapter}: advice goes with the whole main reading`);
+      assert.deepEqual(g.evidence.ledger, f.evidence.ledger);
+      assert.equal(g.locked.shown, g.locked.total);
+    } else {
+      for (const k of ["advice", "theses"]) assert.equal(g[k], undefined, `${g.chapter}.${k}: restates the whole main reading`);
+      assert.equal(g.evidence.ledger, undefined); assert.deepEqual(g.evidence.divergences, []);
+    }
+    assert.deepEqual(g.locked.plans.map((p: any) => p.id), g.chapter === "van_han" ? ["van_nam", "tron_bo", "cao_cap"] : ["tron_bo", "cao_cap"], g.chapter);
+    assert.ok(g.locked.plans.every((p: any) => p.price === p.coins), "nothing spent yet: full price");
   }
+  // xu already spent on the chart lower the price shown
+  const up = gateOutput(clone(FULL), { tier: "member", open: new Set(["van_han", "bat_tu:dai-van", "bat_tu:luu-nien"]), credit: 49 });
+  const cd = up.chapters.find((c: any) => c.chapter === "cong_danh");
+  assert.deepEqual(cd.locked.plans.map((p: any) => p.price), [100, 250]);
 });
 
-test("buyer: the chapter bought comes whole with its Đọc sâu; the others stay at the member tier; the bundle opens all", async () => {
+test("buyer: Vận năm opens the đại hạn chapter whole and nothing else; Trọn bộ (for the difference) opens every chapter", async () => {
   await grant(db, uid, 500, "t", 1);
-  const withDeep = FULL.chapters.filter((c: any) => deepOf(c.paragraphs).length).map((c: any) => c.chapter);
-  const [one, other] = withDeep;
-  assert.ok((await buyPlan(db, uid, FP, "chuong", one)).ok);
+  assert.ok((await buyPlan(db, uid, FP, "van_nam")).ok);
   let a = await accessFor(db, { id: uid }, { ...BIRTH, chapter: "all", mode: "prose", to_year: 2026 });
-  assert.equal(a.tier, "member");
+  assert.equal(a.tier, "member"); assert.equal(a.credit, planById("van_nam")!.coins);
   let out = gateOutput(clone(FULL), a);
   const got = (id: string) => out.chapters.find((c: any) => c.chapter === id);
-  assert.deepEqual(got(one), { ...full(one), unlocked: true });
-  assert.ok(got(other).locked && !got(other).paragraphs.some(isDeep));
+  assert.deepEqual(got("van_han"), { ...full("van_han"), unlocked: true });
+  assert.ok(got("cong_danh").locked && got("cong_danh").paragraphs.length < mainOf(full("cong_danh").paragraphs).length);
   // another chart, another account, a body that is not a birth record: nothing opened
   assert.equal((await accessFor(db, { id: uid }, { ...BIRTH, day: 18 })).open.size, 0);
   assert.equal((await accessFor(db, { id: "nobody" }, BIRTH)).open.size, 0);
   assert.equal((await accessFor(db, { id: uid }, { nonsense: 1 })).open.size, 0);
   assert.equal(await accessFor(db, null, BIRTH), GUEST);
-  assert.ok((await buyPlan(db, uid, FP, "tron_bo")).ok);
+  const t = await buyPlan(db, uid, FP, "tron_bo");
+  assert.ok(t.ok && t.charged === planById("tron_bo")!.coins - planById("van_nam")!.coins);
   a = await accessFor(db, { id: uid }, BIRTH);
   out = gateOutput(clone(FULL), a);
-  for (const id of withDeep) assert.deepEqual(got(id), { ...full(id), unlocked: true });
+  for (const c of FULL.chapters) if (!MEMBER_FREE.includes(c.chapter) && c.chapter !== "bat_tu") assert.deepEqual(got(c.chapter), { ...full(c.chapter), unlocked: true }, c.chapter);
 });
 
 test("Bát Tự: each tab cut on its own (never collapsed into one), Đọc sâu held back per tab, opened with the bat_tu chapter", () => {
@@ -135,7 +146,7 @@ test("Bát Tự: each tab cut on its own (never collapsed into one), Đọc sâu
   const tabs = Object.keys(bt.chapters);
   assert.ok(tabs.length >= 5);
   const g = gateOutput(clone(bt), GUEST);
-  assert.deepEqual(Object.keys(g.chapters), tabs, "every tab is sent, each with its own first third");
+  assert.deepEqual(Object.keys(g.chapters), tabs, "every tab is sent, each with its own first half");
   for (const t of tabs) {
     const main = mainOf(bt.chapters[t]);
     assert.deepEqual(g.chapters[t], main.slice(0, guestShown(main.length)), t);
@@ -147,15 +158,21 @@ test("Bát Tự: each tab cut on its own (never collapsed into one), Đọc sâu
   for (const t of tabs) assertAbsent(json, heldBack(bt.chapters[t], g.chapters[t]), t, g.paragraphs);
   assertAbsent(json, heldBack(bt.paragraphs, g.paragraphs), "flat", g.paragraphs);
   assert.deepEqual(g.paragraphs, tabs.flatMap(t => g.chapters[t]), "the flat reading is what the tabs kept");
-  // member: all main paragraphs of each tab, no 'sau'; buyer of bat_tu: whole
+  // member: the first half of each tab, as a guest, with the packages; Vận năm's two tabs open alone; buyer of bat_tu: whole
   const m = gateOutput(clone(bt), member());
-  for (const t of tabs) assert.deepEqual(m.chapters[t], mainOf(bt.chapters[t]), t);
-  assert.ok(Object.values(m.locks).every((l: any) => l.tier === "member" && l.plans[0].chapter === "bat_tu"));
+  for (const t of tabs) assert.deepEqual(m.chapters[t], mainOf(bt.chapters[t]).slice(0, guestShown(mainOf(bt.chapters[t]).length)), t);
+  for (const [t, l] of Object.entries(m.locks) as [string, any][]) {
+    assert.equal(l.tier, "member");
+    assert.deepEqual(l.plans.map((p: any) => p.id), t === "dai-van" || t === "luu-nien" ? ["van_nam", "tron_bo", "cao_cap"] : ["tron_bo", "cao_cap"], t);
+  }
   assertAbsent(JSON.stringify(m), Object.values(bt.chapters).flat().filter(isDeep), "member");
+  const vn = gateOutput(clone(bt), member("bat_tu:dai-van", "bat_tu:luu-nien"));
+  for (const t of tabs) assert.deepEqual(vn.chapters[t], t === "dai-van" || t === "luu-nien" ? bt.chapters[t] : mainOf(bt.chapters[t]).slice(0, guestShown(mainOf(bt.chapters[t]).length)), t);
+  assert.deepEqual(vn.unlockedTabs, tabs.filter(t => t === "dai-van" || t === "luu-nien"));
   assert.deepEqual(gateOutput(clone(bt), member("bat_tu")), { ...bt, unlocked: true });
 });
 
-test("/api/overview, /api/synthesis, /api/interpretation: a guest gets the first third or nothing; a member the whole", async () => {
+test("/api/overview, /api/synthesis, /api/interpretation: a guest gets the first half or nothing; a member the free chapters; a full buyer the whole", async () => {
   const ov: any = clone(overview(ex, K));
   assert.ok(ov.theses.length >= 2);
   const g = gateOverview(clone(ov), GUEST), k = guestShown(ov.theses.length);
@@ -165,11 +182,16 @@ test("/api/overview, /api/synthesis, /api/interpretation: a guest gets the first
   assert.deepEqual(gateOverview(clone(ov), member()), ov);
   // the engine's synthesis layer: chapters of paragraphs, and the Semantic IR at level 5
   const syn = { engine: "s", note: "n", coverage: {}, semantic_ir: { secret: "whole reading" },
-    chapters: [{ id: "tong_quan", title: "T", paragraphs: [{ text: "S0" }, { text: "S1" }, { text: "S2" }, { text: "S3" }] }, { id: "menh", title: "M", paragraphs: [{ text: "M0" }] }] };
+    chapters: [{ id: "tong_quan", title: "T", paragraphs: [{ text: "S0" }, { text: "S1" }, { text: "S2" }, { text: "S3" }] }, { id: "menh", title: "M", paragraphs: [{ text: "M0" }] },
+      { id: "tai_bach", title: "TB", paragraphs: [{ text: "B0" }, { text: "B1" }, { text: "B2" }] }] };
   const gs = gateSynthesis(clone(syn), GUEST);
   assert.equal(gs.semantic_ir, undefined); assert.deepEqual(gs.chapters[0].paragraphs.map((p: any) => p.text), ["S0", "S1"]);
-  assert.deepEqual(gs.chapters[1], syn.chapters[1]); assert.ok(!/S2|S3|whole reading/.test(JSON.stringify(gs)));
-  assert.deepEqual(gateSynthesis(clone(syn), member()), syn);
+  assert.deepEqual(gs.chapters[1], syn.chapters[1]); assert.ok(!/S2|S3|B2|whole reading/.test(JSON.stringify(gs)));
+  const ms = gateSynthesis(clone(syn), member());
+  assert.deepEqual(ms.chapters.slice(0, 2), syn.chapters.slice(0, 2)); assert.deepEqual(ms.chapters[2].paragraphs.map((p: any) => p.text), ["B0", "B1"]);
+  assert.deepEqual(ms.chapters[2].locked.plans.map((p: any) => p.id), ["tron_bo", "cao_cap"]); assert.equal(ms.semantic_ir, undefined);
+  const all = member("menh", "cong_danh", "tai_bach", "thien_di", "phu_the", "phuc_duc", "dien_trach", "no_boc", "tu_tuc", "huynh_de", "phu_mau", "tat_ach", "van_han", "bat_tu", "tong_luan");
+  assert.deepEqual(gateSynthesis(clone(syn), all), syn);
   // through the route: the evidence engine is for members only; with the paywall off nothing is touched
   const engine = (body: unknown) => async () => new Response(JSON.stringify(body), { headers: { "content-type": "application/json", "cache-control": "public, max-age=60" } });
   const req = (cookie?: string) => new Request("https://tu-vi.test/api/interpretation", { method: "POST", headers: cookie ? { cookie } : {}, body: JSON.stringify(BIRTH) });
@@ -177,7 +199,10 @@ test("/api/overview, /api/synthesis, /api/interpretation: a guest gets the first
   const r1 = await gated(req(), { db, paywall: true, path: "/api/interpretation", shared: false }, engine(ev));
   assert.equal(r1.status, 401); assert.ok(!(await r1.text()).includes("EVIDENCE")); assert.equal(r1.headers.get("cache-control"), "private, no-store");
   const r2 = await gated(req(await cookieFor(uid)), { db, paywall: true, path: "/api/interpretation", shared: false }, engine(ev));
-  assert.equal(r2.status, 200); assert.deepEqual(await r2.json(), ev); assert.equal(r2.headers.get("cache-control"), "private, no-store");
+  assert.equal(r2.status, 402); assert.ok(!(await r2.text()).includes("EVIDENCE"));
+  await grant(db, uid, 500, "t", 1); await buyPlan(db, uid, FP, "tron_bo");
+  const r2b = await gated(req(await cookieFor(uid)), { db, paywall: true, path: "/api/interpretation", shared: false }, engine(ev));
+  assert.equal(r2b.status, 200); assert.deepEqual(await r2b.json(), ev); assert.equal(r2b.headers.get("cache-control"), "private, no-store");
   const r3 = await gated(req(), { db, paywall: false, path: "/api/interpretation", shared: false }, engine(ev));
   assert.equal(r3.headers.get("cache-control"), "public, max-age=60");
   // an engine error passes through untouched
@@ -225,7 +250,7 @@ test("cache: one full copy per chart, never keyed by the reader; every tier is c
   };
   const cookie = await cookieFor(uid);
   const g1 = await ask(), m1 = await ask(cookie), g2 = await ask();
-  await grant(db, uid, 100, "t", 1); await buyPlan(db, uid, FP, "chuong", "cong_danh");
+  await grant(db, uid, 500, "t", 1); await buyPlan(db, uid, FP, "tron_bo");
   const b1 = await ask(cookie);
   assert.deepEqual([g1.hit, m1.hit, g2.hit, b1.hit], ["miss", "hit", "hit", "hit"]);
   assert.equal(store.size, 1, "one entry, whoever asked");
@@ -237,6 +262,6 @@ test("cache: one full copy per chart, never keyed by the reader; every tier is c
   const cd = (x: any) => x.out.chapters.find((c: any) => c.chapter === "cong_danh");
   assert.deepEqual(g1.out, g2.out, "a guest after a member gets the guest cut");
   assert.equal(cd(g1).paragraphs.length, guestShown(mainOf(cdFull.paragraphs).length));
-  assert.deepEqual(cd(m1).paragraphs, mainOf(cdFull.paragraphs));
+  assert.deepEqual(cd(m1).paragraphs, mainOf(cdFull.paragraphs).slice(0, guestShown(mainOf(cdFull.paragraphs).length)));
   assert.deepEqual(cd(b1).paragraphs, cdFull.paragraphs);
 });

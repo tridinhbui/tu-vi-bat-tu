@@ -3,7 +3,7 @@
 //   POST /api/me/checkout          start a purchase {pack, provider?: "stripe" | "vnpay", code?}: makes an order, answers {url, order}
 //   POST /api/me/quote             every pack's price with a discount code {code}
 //   POST /api/me/redeem            redeem a gift code {code}
-//   POST /api/me/unlock            open the Đọc sâu part of report chapters with coins {birth, plan, chapter?}
+//   POST /api/me/unlock            open a package's chapters for one chart with coins {birth, plan}
 //   GET  /api/me/wallet/history    coin movements and orders
 //   GET  /api/me/orders/<id>       one order of the signed-in account (the receipt page)
 //   POST /api/stripe/webhook       Stripe says a Checkout session was paid
@@ -11,7 +11,7 @@
 //   GET  /api/vnpay/return         the visitor's browser comes back from VNPAY; redirected to the receipt page
 import type { User } from "../auth/session.ts";
 import { cleanReq } from "../auth/charts.ts";
-import { CHAPTER_TITLES, COSTS, DEEP_CHAPTERS, FREE_MESSAGES_PER_DAY, PACKS, PLACEHOLDER_LABEL, PLANS, PRICES_ARE_PLACEHOLDERS, RETIRED_PLAN_NAMES, TOPUP_CHAT, discounted, packById } from "./config.ts";
+import { CHAPTER_TITLES, COSTS, DEEP_CHAPTERS, FREE_MESSAGES_PER_DAY, MEMBER_FREE, PACKS, PLACEHOLDER_LABEL, PLANS, PRICES_ARE_PLACEHOLDERS, RETIRED_PLAN_NAMES, TOPUP_CHAT, discounted, packById } from "./config.ts";
 import { CODE_PROBLEM_VI, checkDiscount, redeemGift } from "./codes.ts";
 import { createOrder, getOrder, isOrderId, listOrders, receiptOf, setProviderRef, walletHistory } from "./orders.ts";
 import { buyPlan, unlockedChapters } from "./paywall.ts";
@@ -33,10 +33,11 @@ export const paywallOn = (env: BillingEnv) => env.TVBT_PAYWALL === "1";
 export function plansView(env: BillingEnv) {
   return {
     placeholder: PRICES_ARE_PLACEHOLDERS, placeholderLabel: PLACEHOLDER_LABEL, paywall: paywallOn(env),
-    plans: PLANS.map(p => ({ id: p.id, name: p.name, coins: p.coins, blurb: p.blurb, chapters: p.chapters === "one" ? "one" : [...p.chapters] })),
+    plans: PLANS.map(p => ({ id: p.id, name: p.name, coins: p.coins, blurb: p.blurb, chapters: [...p.chapters], ai: p.ai, pass: p.pass })),
     retiredPlans: RETIRED_PLAN_NAMES, packs: PACKS, costs: COSTS, freeMessagesPerDay: FREE_MESSAGES_PER_DAY, topupChat: TOPUP_CHAT,
-    // guests read the first third of each chapter's main reading, members all of it; the Đọc sâu part of these chapters is opened with xu
-    tiers: { guestShare: "1/3", deepChapters: [...DEEP_CHAPTERS], titles: CHAPTER_TITLES },
+    // guests read the first half of each chapter's main reading, members MEMBER_FREE whole and the first half of the rest; packages open
+    // the chapters whole, Đọc sâu included
+    tiers: { guestShare: "1/3", memberFree: [...MEMBER_FREE], deepChapters: [...DEEP_CHAPTERS], titles: CHAPTER_TITLES },
     providers: { stripe: !!env.STRIPE_SECRET_KEY, vnpay: !!vnpayConfig(env) },
   };
 }
@@ -98,10 +99,10 @@ export async function handleBilling(request: Request, env: BillingEnv, user: Use
 
   if (path === "/api/me/unlock") {
     const birth = cleanReq(body?.birth);
-    if (!birth) return json({ detail: "body must be {birth, plan, chapter?}" }, 400);
+    if (!birth) return json({ detail: "body must be {birth, plan}" }, 400);
     const r = await buyPlan(db, user.id, birth.fp, body?.plan, body?.chapter, now);
     const wallet = await getWallet(db, user.id, now);
-    if (!r.ok) return r.reason === "insufficient" ? json({ detail: "not enough coins", need: r.need, wallet }, 402) : json({ detail: "unknown plan or chapter" }, 400);
+    if (!r.ok) return r.reason === "insufficient" ? json({ detail: "not enough coins", need: r.need, wallet }, 402) : json({ detail: "unknown plan" }, 400);
     return json({ ...r, open: [...await unlockedChapters(db, user.id, birth.fp)], wallet });
   }
 

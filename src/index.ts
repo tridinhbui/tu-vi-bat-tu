@@ -8,7 +8,7 @@ import { handleChat } from "./chat/route.ts";
 import { handleFeedback, isFeedbackPath } from "./feedback/route.ts";
 import { handleAdmin, isAdminPath, type AdminEnv } from "./admin/route.ts";
 import { handleReferral, isReferralPath } from "./referral/route.ts";
-import { handleDeep } from "./chat/deep.ts";
+import { handleDeep, handleDeepStatus } from "./chat/deep.ts";
 import { handleBilling, isBillingPath, paywallOn, type BillingEnv } from "./billing/route.ts";
 import { gated as gatedRoute } from "./billing/paywall.ts";
 import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS } from "./chat/llm.ts";
@@ -90,6 +90,10 @@ export default {
     if (isBillingPath(path)) return handleBilling(request, env, env.DB ? await currentUser(env.DB, request) : null);
     if (path === "/api/me/chat") return chatRoute(request, env, ctx, false);
     if (path === "/api/me/deep") return chatRoute(request, env, ctx, true);
+    if (path === "/api/me/deep/status") {
+      const user = env.DB ? await currentUser(env.DB, request) : null;
+      return env.DB && user ? handleDeepStatus(request, { db: env.DB, user }) : new Response(JSON.stringify({ detail: "sign in required" }), { status: 401, headers: { "content-type": "application/json" } });
+    }
     if (isFeedbackPath(path)) return handleFeedback(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isReferralPath(path)) return handleReferral(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isAdminPath(path)) return handleAdmin(request, env, env.DB ? await currentUser(env.DB, request) : null);

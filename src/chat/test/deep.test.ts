@@ -1,10 +1,11 @@
-// The deep reading: coins only, paid once, kept, refunded when it does not finish, saved even if the browser leaves.
+// The deep reading: coins only (or the chart's Cao cấp package), paid once, kept, refunded when it does not finish, saved even if the browser leaves.
 import { test, before, after, beforeEach } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import { getPlatformProxy } from "wrangler";
 import knowledge from "../../interpret/generated/knowledge.json" with { type: "json" };
-import { handleDeep, DEEP_INSTRUCTIONS, type DeepDeps } from "../deep.ts";
+import { handleDeep, handleDeepStatus, DEEP_INSTRUCTIONS, type DeepDeps } from "../deep.ts";
+import { buyPlan } from "../../billing/paywall.ts";
 import { getWallet, grant } from "../../billing/wallet.ts";
 import { COSTS, FREE_MESSAGES_PER_DAY } from "../../billing/config.ts";
 import type { Llm, LlmEvent } from "../llm.ts";
@@ -116,4 +117,28 @@ test("if the browser leaves mid-way the reading is still finished, saved and cha
   assert.equal((await saved())!.text, TEXT); assert.equal(await coins(), 0);
   const ev = await events(await handleDeep(post(ask()), make(null).deps));
   assert.equal(ev[0].source, "saved");                       // coming back finds it, no second charge
+});
+
+test("Cao cấp: every Luận AI chapter of that chart is written without xu; another chart still costs; status says what is written", async () => {
+  const FP = "1990-5-17-10-30-male";
+  await grant(db, uid, 400, "t");
+  assert.ok((await buyPlan(db, uid, FP, "cao_cap")).ok);
+  const left = await coins(), s = make(llmOf(good));
+  const ev = await events(await handleDeep(post(ask("tai_bach")), s.deps));
+  await Promise.all(s.jobs);
+  assert.deepEqual(ev[0], { type: "meta", source: "plan", cost: 0 });
+  assert.equal(await coins(), left, "no xu taken");
+  assert.equal((await saved("tai_bach"))?.text, TEXT);
+  const st = (b: unknown) => handleDeepStatus(post(b), { db, user: s.deps.user });
+  assert.deepEqual(await (await st({ birth })).json(), { written: ["tai_bach"], plan: true, cost: COSTS.deep });
+  assert.deepEqual(await (await st({ birth: { ...birth, day: 18 } })).json(), { written: [], plan: false, cost: COSTS.deep });
+  assert.equal((await st({ nope: 1 })).status, 400);
+  // a failure on the package refunds nothing because nothing was charged, and says so
+  const f = make(llmOf([{ text: "ngắn" }, { stop: "max_tokens" }]));
+  const fe = await events(await handleDeep(post(ask("phu_the")), f.deps)); await Promise.all(f.jobs);
+  assert.equal(fe.find(e => e.type === "error")?.refunded, true); assert.equal(await coins(), left);
+  // another chart pays
+  const o = make(llmOf(good));
+  await events(await handleDeep(post({ birth: { ...birth, day: 18 }, chapter: "menh" }), o.deps)); await Promise.all(o.jobs);
+  assert.equal(await coins(), left - COSTS.deep);
 });

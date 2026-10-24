@@ -23,16 +23,23 @@ async function boot() {
     !plans.paywall && 'Trong thời gian thử nghiệm, mọi chương luận giải, kể cả phần Đọc sâu, đang mở cho mọi người; chưa phần nào bị khóa.'].filter(Boolean);
   if (notes.length) { const b = $('#cm-placeholder'); b.innerHTML = notes.join(' '); b.hidden = false; }
   $('#cmp-chat-free').textContent = `${plans.freeMessagesPerDay ?? 2} câu mỗi ngày`;
-  $('#cmp-chat-pro').textContent = `sau mỗi lần nạp: ${plans.topupChat?.days ?? 30} ngày chat (tới ${plans.topupChat?.perDay ?? 30} câu/ngày); thêm câu: ${plans.costs.chat} xu`;
+  $('#cmp-chat-pro').textContent = `sau mỗi lần nạp hoặc gói Cao cấp: ${plans.topupChat?.days ?? 30} ngày chat (tới ${plans.topupChat?.perDay ?? 30} câu/ngày); thêm câu: ${plans.costs.chat} xu`;
   $('#cmp-ai').textContent = `${plans.costs.deep} xu một chương`;
   paintPlans(); paintPacks(); paintHistory();
   if (new URLSearchParams(location.search).get('paid') === '0') say($('#cm-pay-msg'), 'Bạn đã dừng thanh toán; chưa có khoản nào bị trừ.');
 }
 
+// what each package holds, beside its blurb (config.ts): the three are nested, so each card names what it adds
+const PLAN_POINTS = {
+  van_nam: ['Đại hạn, tiểu hạn, lưu niên Tử Vi', 'Đại vận, Lưu niên Bát Tự', 'Trọn luận chính và Đọc sâu (theo sách)'],
+  tron_bo: ['Mười hai cung, Tổng luận, mọi mục Bát Tự', 'Gồm cả gói Vận năm', 'Trọn luận chính và Đọc sâu, kèm trang sách'],
+  cao_cap: ['Gồm cả gói Trọn bộ', 'Luận AI cho mọi chương: bài viết riêng cho lá số', '30 ngày chat với Bát Bát (tới 30 câu/ngày)'],
+};
 function paintPlans() {
   const tag = plans.placeholder ? `<small class="muted"> · ${esc(plans.placeholderLabel)}</small>` : '';
-  $('#cm-plans').innerHTML = plans.plans.map(p => `<article class="cm-card cm-plan"><h3>${esc(p.name)}</h3><p class="cm-price">${xu(p.coins)}${tag}</p><p>${esc(p.blurb)}</p></article>`).join('')
-    + `<article class="cm-card cm-plan"><h3>Luận giải bằng AI</h3><p class="cm-price">${xu(plans.costs.deep)}${tag}</p><p>Một bài viết dài cho một chương, do mô hình ngôn ngữ soạn chỉ từ dữ kiện và luận giải đã có của lá số; mở trong khung hỏi đáp. Khác với phần Đọc sâu (theo sách), bài này do AI viết. Viết hỏng thì xu được hoàn lại.</p></article>`;
+  $('#cm-plans').innerHTML = plans.plans.map(p => `<article class="cm-card cm-plan${p.id === 'tron_bo' ? ' cm-pick' : ''}">${p.id === 'tron_bo' ? '<p class="cm-badge">Gợi ý</p>' : ''}<h3>${esc(p.name)}</h3><p class="cm-price">${xu(p.coins)}${tag}</p>`
+    + (PLAN_POINTS[p.id] ? `<ul class="cm-points" title="${esc(p.blurb)}">${PLAN_POINTS[p.id].map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : `<p>${esc(p.blurb)}</p>`) + '</article>').join('')
+    + `<article class="cm-card cm-plan"><h3>Luận AI lẻ</h3><p class="cm-price">${xu(plans.costs.deep)}${tag}</p><p>Một chương do AI viết riêng cho lá số, khoảng 500–800 từ, chỉ từ dữ kiện và luận giải đã có; bấm ở thẻ “Luận AI” dưới chương. Khác với phần Đọc sâu (theo sách). Viết hỏng thì xu được hoàn lại.</p></article>`;
 }
 
 function paintPacks() {
@@ -98,8 +105,8 @@ function label(h) {
   if (h.kind === 'gift') return `Mã quà tặng <code>${esc(ref.slice(5))}</code>`;
   if (h.kind === 'refund_coin') return 'Hoàn xu';
   if (h.usage === 'chat') return 'Hỏi đáp về lá số';
-  if (h.usage === 'deep') return 'Luận giải bằng AI';
-  if (h.usage.startsWith('unlock:')) return `Mở Đọc sâu: ${esc(PLAN_NAME()[h.usage.slice(7)] || h.usage.slice(7))}`;
+  if (h.usage === 'deep') return 'Luận AI';
+  if (h.usage.startsWith('unlock:')) return `Mở gói: ${esc(PLAN_NAME()[h.usage.slice(7)] || h.usage.slice(7))}`;
   return esc(h.kind);
 }
 const STATUS = { pending: ['Đang chờ', 'rc-pending'], paid: ['Đã thanh toán', 'rc-paid'], failed: ['Không thành công', 'rc-failed'] };

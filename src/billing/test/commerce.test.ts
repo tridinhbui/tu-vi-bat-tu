@@ -1,4 +1,4 @@
-// Phase 2 money rules against a real local D1: unlocking the Đọc sâu part spends coins once (the reading tiers themselves: tiers.test.ts), gift and
+// Phase 2 money rules against a real local D1: a package spends coins once (an upgrade the difference) (the reading tiers themselves: tiers.test.ts), gift and
 // discount codes, Stripe orders with a discount, the wallet history, and the admin code routes.
 import { test, before, after, beforeEach } from "node:test";
 import assert from "node:assert/strict";
@@ -10,7 +10,7 @@ import { completeOrder, createOrder, getOrder, walletHistory, receiptEmail } fro
 import { handleEvent } from "../stripe.ts";
 import { handleBilling, plansView } from "../route.ts";
 import { getWallet, grant, passUntil } from "../wallet.ts";
-import { DEEP_CHAPTERS, PACKS, PALACE_CHAPTERS, PLANS, PRICES_ARE_PLACEHOLDERS, TOPUP_CHAT, discounted, planById } from "../config.ts";
+import { DEEP_CHAPTERS, PACKS, PLANS, PRICES_ARE_PLACEHOLDERS, TOPUP_CHAT, discounted, planById, planChapters, plansFor } from "../config.ts";
 import { handleAdmin } from "../../admin/route.ts";
 
 let proxy: Awaited<ReturnType<typeof getPlatformProxy>>, db: D1Database, n = 0, uid = "", user: any;
@@ -35,53 +35,72 @@ const me = (path: string, body?: unknown, u: any = user, method = body === undef
   handleBilling(new Request(`https://tu-vi.test${path}`, { method, headers: { "x-tvbt": "1" }, body: body === undefined ? undefined : JSON.stringify(body) }), { DB: db, STRIPE_SECRET_KEY: "sk_test" } as any, u,
     (async () => new Response(JSON.stringify({ url: "https://checkout.stripe.com/c/pay/cs_x", id: `cs_${Math.random().toString(36).slice(2)}` }))) as any, T);
 
-test("config: one source of prices, all marked as placeholders; plans open only chapters with a Đọc sâu part; discount rounding has a floor", () => {
+test("config: one source of prices, all marked as placeholders; plans open only sold chapters, each bigger than the last; discount rounding has a floor", () => {
   assert.equal(PRICES_ARE_PLACEHOLDERS, true);
   const v = plansView({} as any);
   assert.equal(v.placeholder, true); assert.match(v.placeholderLabel, /GIÁ TẠM/);
   assert.deepEqual(v.providers, { stripe: false, vnpay: false }); assert.equal(v.paywall, false);
   assert.equal(plansView({ TVBT_PAYWALL: "1" } as any).paywall, true);
-  for (const p of PLANS) if (p.chapters !== "one") for (const c of p.chapters) assert.ok((DEEP_CHAPTERS as readonly string[]).includes(c), `${p.id}: ${c}`);
+  assert.deepEqual(v.tiers.memberFree, ["tong_quan", "menh", "cach_cuc"]);
+  assert.deepEqual(PLANS.map(p => p.id), ["van_nam", "tron_bo", "cao_cap"]);
+  for (const p of PLANS) for (const c of p.chapters) assert.ok((DEEP_CHAPTERS as readonly string[]).includes(c.split(":")[0]), `${p.id}: ${c}`);
+  assert.ok(PLANS.every((p, i) => i === 0 || p.coins > PLANS[i - 1].coins));
+  assert.deepEqual(planChapters(planById("cao_cap")!), [...DEEP_CHAPTERS, "ai"]);
+  assert.deepEqual(plansFor("cong_danh").map(p => p.id), ["tron_bo", "cao_cap"]);
+  assert.deepEqual(plansFor("van_han").map(p => p.id), ["van_nam", "tron_bo", "cao_cap"]);
+  assert.deepEqual(plansFor("bat_tu:luu-nien").map(p => p.id), ["van_nam", "tron_bo", "cao_cap"]);
+  assert.deepEqual(plansFor("bat_tu:nhat-chu").map(p => p.id), ["tron_bo", "cao_cap"]);
   assert.ok(!(DEEP_CHAPTERS as readonly string[]).includes("tong_quan"));
   assert.equal(discounted(49000, 0), 49000); assert.equal(discounted(129000, 10), 116000); assert.equal(discounted(49000, 90), 10000); assert.equal(discounted(8000, 50), 8000);
 });
 
 test("buying a plan: refused without coins (nothing charged, nothing opened), charged once, double clicks and repeats are free", async () => {
-  const r0 = await buyPlan(db, uid, FP, "cung12", undefined, T);
-  assert.deepEqual(r0, { ok: false, reason: "insufficient", need: planById("cung12")!.coins });
+  const price = (id: string) => planById(id)!.coins;
+  const r0 = await buyPlan(db, uid, FP, "tron_bo", undefined, T);
+  assert.deepEqual(r0, { ok: false, reason: "insufficient", need: price("tron_bo") });
   assert.equal((await unlockedChapters(db, uid, FP)).size, 0);
   assert.equal((await db.prepare("SELECT COUNT(*) AS n FROM ledger WHERE user_id = ?").bind(uid).first<{ n: number }>())!.n, 0);
-  await grant(db, uid, 200, "t", T);
-  const [a, b] = await Promise.all([buyPlan(db, uid, FP, "cung12", undefined, T), buyPlan(db, uid, FP, "cung12", undefined, T)]);
+  await grant(db, uid, 600, "t", T);
+  const [a, b] = await Promise.all([buyPlan(db, uid, FP, "tron_bo", undefined, T), buyPlan(db, uid, FP, "tron_bo", undefined, T)]);
   assert.equal([a, b].filter(r => r.ok && r.charged > 0).length, 1);                 // two parallel clicks: one charge
-  assert.equal(await coins(), 200 - planById("cung12")!.coins);
-  assert.deepEqual([...await unlockedChapters(db, uid, FP)].sort(), [...PALACE_CHAPTERS].sort());
-  assert.deepEqual(await buyPlan(db, uid, FP, "cung12", undefined, T), { ok: true, charged: 0, chapters: [...PALACE_CHAPTERS], already: true });
-  // one chapter of another chart; a chapter must be named for "chuong", and must be a paid one
-  assert.deepEqual(await buyPlan(db, uid, "other-fp", "chuong", undefined, T), { ok: false, reason: "bad_plan" });
-  assert.deepEqual(await buyPlan(db, uid, "other-fp", "chuong", "tong_quan", T), { ok: false, reason: "bad_plan" });     // no Đọc sâu part to sell
+  assert.equal(await coins(), 600 - price("tron_bo"));
+  assert.deepEqual([...await unlockedChapters(db, uid, FP)].sort(), [...DEEP_CHAPTERS].sort());
+  assert.deepEqual(await buyPlan(db, uid, FP, "tron_bo", undefined, T), { ok: true, charged: 0, chapters: [...DEEP_CHAPTERS], already: true });
+  assert.deepEqual(await buyPlan(db, uid, FP, "van_nam", undefined, T), { ok: true, charged: 0, chapters: ["van_han", "bat_tu:dai-van", "bat_tu:luu-nien"], already: true });
   assert.deepEqual(await buyPlan(db, uid, "other-fp", "nope", undefined, T), { ok: false, reason: "bad_plan" });
-  const one = await buyPlan(db, uid, "other-fp", "chuong", "van_han", T);
-  assert.ok(one.ok && one.charged === planById("chuong")!.coins);
-  assert.deepEqual([...await unlockedChapters(db, uid, "other-fp")], ["van_han"]);
-  assert.equal((await unlockedChapters(db, uid, FP)).has("van_han"), false);        // per chart
+  assert.deepEqual(await buyPlan(db, uid, "other-fp", "chuong", "van_han", T), { ok: false, reason: "bad_plan" });     // retired
+  // the upgrade to Cao cấp pays the difference, opens AI and the chat pass once
+  assert.equal(await passUntil(db, uid), 0);
+  const up = await buyPlan(db, uid, FP, "cao_cap", undefined, T);
+  assert.ok(up.ok && up.charged === price("cao_cap") - price("tron_bo"));
+  assert.equal(await coins(), 600 - price("cao_cap"));
+  assert.ok((await unlockedChapters(db, uid, FP)).has("ai"));
+  assert.equal(await passUntil(db, uid), T + TOPUP_CHAT.days * 86400_000);
+  assert.deepEqual(await buyPlan(db, uid, FP, "cao_cap", undefined, T + 1), { ok: true, charged: 0, chapters: [...DEEP_CHAPTERS, "ai"], already: true });
+  assert.equal(await passUntil(db, uid), T + TOPUP_CHAT.days * 86400_000, "a repeat does not extend the pass");
+  // another chart: Vận năm, then Trọn bộ for the difference; per chart
+  const v = await buyPlan(db, uid, "other-fp", "van_nam", undefined, T);
+  assert.ok(v.ok && v.charged === price("van_nam"));
+  assert.deepEqual([...await unlockedChapters(db, uid, "other-fp")].sort(), ["bat_tu:dai-van", "bat_tu:luu-nien", "van_han"]);
+  const t = await buyPlan(db, uid, "other-fp", "tron_bo", undefined, T);
+  assert.ok(t.ok && t.charged === price("tron_bo") - price("van_nam"));
+  assert.equal((await unlockedChapters(db, uid, "third-fp")).size, 0);               // per chart
   // opened by someone else's purchase? never: unlocks belong to the buyer
   const other = `c${n}x`; await db.prepare("INSERT INTO users (id, google_sub, email, created_at) VALUES (?, ?, ?, 1)").bind(other, `${other}s`, `${other}@x.test`).run();
   assert.equal((await unlockedChapters(db, other, FP)).size, 0);
 });
 
 test("unlock route: the server decides, per signed-in account and chart", async () => {
-  const VH = { plan: "chuong", chapter: "van_han" }, cost = planById("chuong")!.coins;
-  assert.equal((await me("/api/me/unlock", { birth: BIRTH, ...VH }, null)).status, 401);
-  assert.equal((await me("/api/me/unlock", { birth: { year: "x" }, ...VH })).status, 400);
+  const VN = { plan: "van_nam" }, cost = planById("van_nam")!.coins;
+  assert.equal((await me("/api/me/unlock", { birth: BIRTH, ...VN }, null)).status, 401);
+  assert.equal((await me("/api/me/unlock", { birth: { year: "x" }, ...VN })).status, 400);
   assert.equal((await me("/api/me/unlock", { birth: BIRTH, plan: "van_han" })).status, 400);                  // retired plan
-  const poor = await me("/api/me/unlock", { birth: BIRTH, ...VH });
+  const poor = await me("/api/me/unlock", { birth: BIRTH, ...VN });
   assert.equal(poor.status, 402); assert.equal(((await poor.json()) as any).need, cost);
   await grant(db, uid, 100, "t2", T);
-  const ok = await me("/api/me/unlock", { birth: { ...BIRTH, to_year: 2026, chapter: "all" }, ...VH });
+  const ok = await me("/api/me/unlock", { birth: { ...BIRTH, to_year: 2026, chapter: "all" }, ...VN });
   const j = await ok.json() as any;
-  assert.equal(ok.status, 200); assert.equal(j.charged, cost); assert.deepEqual(j.open, ["van_han"]); assert.equal(j.wallet.coins, 100 - cost);
-  assert.deepEqual([...await unlockedChapters(db, uid, FP)], ["van_han"]);
+  assert.equal(ok.status, 200); assert.equal(j.charged, cost); assert.deepEqual(j.open.sort(), ["bat_tu:dai-van", "bat_tu:luu-nien", "van_han"]); assert.equal(j.wallet.coins, 100 - cost);
 });
 
 test("gift codes: credited once per account, capped by max uses, refused when expired or switched off", async () => {
@@ -161,14 +180,14 @@ test("wallet history: top-ups with their VND amount and receipt, gifts, unlocks;
   const order = await createOrder(db, { userId: uid, provider: "vnpay", pack: PACKS[0] }, T);
   assert.equal(await completeOrder(db, order, "TXN1", "vnp 00/00", T), "credited");
   await createCode(db, { kind: "gift", code: "HIST-1", coins: 10 }, "a", T); await redeemGift(db, uid, "HIST-1", T);
-  await buyPlan(db, uid, FP, "chuong", "van_han", T + 1);
+  await buyPlan(db, uid, FP, "van_nam", undefined, T + 1);
   await db.prepare("INSERT INTO ledger (user_id, kind, usage, delta, period, created_at) VALUES (?, 'free_spend', 'chat', 0, '2026-10', ?)").bind(uid, T).run();
   const h = await walletHistory(db, uid);
-  assert.deepEqual(h.map(x => [x.kind, x.delta]), [["coin_spend", -planById("chuong")!.coins], ["gift", 10], ["grant", PACKS[0].coins]]);
+  assert.deepEqual(h.map(x => [x.kind, x.delta]), [["coin_spend", -planById("van_nam")!.coins], ["gift", 10], ["grant", PACKS[0].coins]]);
   assert.equal(h[2].order, order.id); assert.equal(h[2].amount, order.amount); assert.equal(h[2].provider, "vnpay");
-  assert.equal(h[0].usage, "unlock:chuong");
+  assert.equal(h[0].usage, "unlock:van_nam");
   const r = await me("/api/me/wallet/history"), j = await r.json() as any;
-  assert.equal(r.status, 200); assert.equal(j.history.length, 3); assert.equal(j.orders[0].status, "paid"); assert.equal(j.wallet.coins, PACKS[0].coins + 10 - planById("chuong")!.coins);
+  assert.equal(r.status, 200); assert.equal(j.history.length, 3); assert.equal(j.orders[0].status, "paid"); assert.equal(j.wallet.coins, PACKS[0].coins + 10 - planById("van_nam")!.coins);
   // the receipt e-mail says what was paid and leaves the seller lines for the owner
   const mail = receiptEmail((await getOrder(db, order.id))!, "https://tu-vi.test", { email: user.email });
   assert.match(mail.subject, new RegExp(order.id)); assert.match(mail.text, /49\.000đ/); assert.match(mail.text, /chủ site điền/); assert.match(mail.html, /bien-nhan\?order=/);
