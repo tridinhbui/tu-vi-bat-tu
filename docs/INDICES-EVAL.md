@@ -1,4 +1,55 @@
-# Biểu đồ vận "Tổng quan lá số" — đánh giá (indices-2.1.0, 2026-10-21)
+# Biểu đồ vận "Tổng quan lá số" — đánh giá (indices-3.0.0, 2026-10-24)
+
+## 3.0.0 (2026-10-24): kế hoạch chủ dự án duyệt
+
+Bốn quyết định của chủ dự án (2026-10-24), mỗi quyết định ứng với một thay đổi trong mã:
+
+1. **Hướng tiểu hạn theo Khảo Luận tr.39-40 (âm dương)** là mặc định ở engine (`tuvi.DEFAULT_VARIANTS`, `api.BirthReq`). Tiểu hạn, nguyệt hạn (KL tr.40-41, TH tr.115: đếm từ cung tiểu hạn), lưu đại hạn và lưu Kình Đà (KL tr.42) dùng chung một trường phái. Facts ghi lại trường phái đã dùng (`tieu_han_rule`), biểu đồ ghi nó trong phụ đề. Thực Hành tr.27 (nam thuận, nữ nghịch) vẫn chọn được. Với âm nam và âm nữ, hai sách đi ngược nhau. Lá 09/01/2002 (âm nam): tiểu hạn 2026 ở Tài Bạch theo KL, ở Phu Thê theo TH.
+2. **Bỏ lớp "độ vững" trừ hay cộng điểm.** Thực Hành tr.118 chỉ được nói thành lời, không cộng trừ: Mệnh sáng gặp hạn rực rỡ là "thêm gấm thêm hoa"; Mệnh hắc ám gặp hạn rực rỡ là "rồng mây gặp hội"; hạn tốt vừa là "cây khô gặp mùa xuân". Với hạn xấu trên Mệnh tối, lời văn nói rõ sách không nói thêm. Ngưỡng sáng / tối (±0,75 lần cỡ thường gặp) là thông lệ, có ghi.
+3. **Tật Ách trên radar được giữ**, kèm câu: "đánh giá cát hung theo Tử Vi, không phải dự đoán sức khỏe hay chẩn đoán y khoa".
+4. **Không có câu sách thì để mức "Trung bình" kèm nhãn "chưa đủ căn cứ"** (`insufficient`). Lời văn nói rõ đó không phải trung bình thật. Tháng không có gì để xét thì "Chưa xác định" (mức `null`), không tạo điểm giả.
+
+Lớp mới và thay đổi, mỗi mục đều có sao, vị trí cung, quy tắc và trang trong phần "Căn cứ":
+
+| Giai đoạn | Lớp | Trọng số | Nguồn |
+|---|---|---|---|
+| Đại vận | Cung vận: câu sách (KL tr.230-236, TH tr.115-117, TT diễn ý ×0,5); Nam / Bắc đẩu chính tinh của cung vận theo âm dương (TH tr.115 mục IX.1-2); đắc / hãm các chính tinh, trung tinh (Xương Khúc Tả Hữu, KL tr.36), hung tinh (Kình Đà Không Kiếp Hỏa Linh) của cung vận, xung chiếu, tam hợp, và nhị hợp khi nhị hợp sinh cho cung vận (KL tr.233 mục 3-4; độ sáng chỉ lấy loại VERIFIED, mỗi sao ½ câu; hãm có Tuần Triệt giải thì tốt; hung tinh gặp quan thầy ×1,5; khi tam hợp vận khắc xung chiếu thì không tính sao hãm của cung xung chiếu, KL tr.232) | 0,80 | sách |
+| | Tứ Hóa theo can đại vận | 0,20, có trần | thông lệ |
+| Năm | Đại vận đang đi | 0,30 | |
+| | Cung tiểu hạn: câu sách, Nam / Bắc đẩu, đắc hãm (KL tr.40: đọc sao cung tiểu vận cùng phối chiếu) | 0,30 | sách |
+| | Cung lưu đại hạn (TH tr.117-118; kiểm bằng ví dụ của sách: Tử 32 → Điền 33, Quan 34, Điền 35, Phúc 36 … Bào 39) | 0,15 | sách |
+| | Bắc đẩu của cung đại vận ở năm năm đầu, Nam đẩu ở năm năm sau (TH tr.115 mục IX.3-4) | 0,10 | sách |
+| | Lưu Khốc Hư ở tiểu hạn (TH tr.114) | 0,07 | sách |
+| | Sao lưu khác 0,03, lưu Tứ Hóa 0,05 (bỏ khi can năm trùng can đại vận: cùng bốn sao đã tính ở chặng) | có trần | thông lệ |
+| Tháng | Mức của năm + 0,25 × đắc hãm các sao của cung nguyệt hạn và tam phương | | vị trí TH tr.115, KL tr.40-41; tiêu chí KL tr.233 |
+
+Nam / Bắc đẩu của từng sao lấy từ đầu mục mỗi sao trong Thực Hành (đã đối chiếu ảnh trang, 2026-10-24). Nam đẩu: Cơ, Nhật, Đồng, Phủ, Tướng, Lương, Sát, Khôi, Việt, Văn Khúc, Hỏa, Linh. Bắc đẩu: Vũ, Liêm, Nguyệt, Tham, Cự, Phá, Tả, Hữu, Văn Xương, Lộc Tồn, Kình, Đà. Tử Vi là cả hai. Mã, Không, Kiếp không ghi.
+
+Bỏ khỏi điểm giai đoạn: nền bẩm sinh của cung (radar), độ vững, cung lưu Thái Tuế. Nhận định bẩm sinh không bao giờ vào điểm giai đoạn nữa.
+
+**Không trừ trung bình.** Mỗi lớp chia cho cỡ thường gặp (rms) của chính nó, nên lớp không có gì góp 0. Năm mức vẫn là ngưỡng 12 / 33 / 67 / 88 % của các giai đoạn có căn cứ sách. Đã thử neo thang ở 0 (dấu của tổng là chiều của lời sách): 99,6 % chặng thành "Thuận" trở lên. Lý do là chất liệu sách đọc được nghiêng về thuận (bảng độ sáng có 3.879 chỗ đắc / miếu / vượng so với 1.601 chỗ hãm trên 300 lá; phần lớn câu sách về vận là câu tốt). Vì vậy "Thuận" nghĩa là thuận hơn các giai đoạn thường gặp, và khi mức khác chiều lời sách thì lời văn nói rõ. Đường giữa biểu đồ được vẽ ở tâm dải "Trung bình".
+
+### Độ khớp trên 1.000 lá (`node tools/interpret/eval_indices.ts`, tiểu hạn theo KL)
+
+| Chỉ số | 2.1.0 | **3.0.0** |
+|---|---|---|
+| Chặng ở tam hợp Thái Tuế (KL tr.233) bị vẽ dưới "Trung bình" | 336 / 2.244 (15 %), không giải thích | 451 / 2.244 (20 %), **100 % có câu giải thích** trong lời văn |
+| Chặng có mức khác chiều lời sách của chính nó | 1.258 / 10.000, không giải thích | 2.240 / 10.000, **100 % có câu giải thích** ("lời sách vẫn nghiêng về thuận, nhưng ít điều thuận hơn những chặng thường gặp") |
+| Chặng / năm không có lời sách bị chấm "thử thách" | 376 / 672 chặng | 0: không còn chặng nào thiếu căn cứ (lớp đắc hãm luôn có sao để xét); nếu có thì để "Trung bình · chưa đủ căn cứ" |
+| Năm không có Khốc / Hư mà vẫn được cộng điểm | 12.769 / 20.596 | 0 (không trừ trung bình) |
+| Năm khác phía "Trung bình" với chặng của nó | 55 / 1.686 năm cùng cung | 693 / 20.596 (3,4 %), **100 % có câu "khác chiều với chặng đang đi"** cùng lớp gây ra |
+| Năm mức, chặng / năm / tháng | 12 / 21 / 34 / 21 / 12 % | 12 / 21 / 34 / 21 / 12 % (trên các giai đoạn có căn cứ) |
+| Tháng trùng mức của năm | 7,6 / 12 | 7,6 / 12; tháng nhích theo đắc hãm cung tháng, không tạo biến động |
+| Tương quan điểm chặng với chất lượng bẩm sinh | 0,231 | **0,166** |
+| Radar so với kết luận sổ cái (Quan, Tài, Điền, Phu Thê; 300 lá) | — | cùng chiều 46,8 %, ngược chiều 13,2 % (1.124 cặp): chưa sửa ở đợt này |
+
+Chưa làm ở đợt này: (a) các luật "thất lợi", "tang", "đoán cách" ở TH tr.116-117. Nhiều luật nói chuyện tù tội, tai nạn, chết đuối, cần duyệt nội dung trước khi đưa vào. (b) Luật "cát tinh chiếm 2/3" của TH tr.117: sách không kèm danh sách cát tinh, nên chưa có căn cứ để đếm. (c) Nhật vận (KL tr.41, TH tr.115). (d) 13 % ngược chiều giữa radar và sổ cái. (e) `corpus1000` vẫn được lập bằng bảng độ sáng Thực Hành và tiểu hạn Thực Hành; bộ chuẩn đi lại tiểu hạn theo KL, còn độ sáng giữ như bộ mẫu.
+
+Lá 09/01/2002 04:30 nam (theo KL), mười chặng 2.1.0 → 3.0.0: 3–12 Rất thử thách → Nhiều thử thách; 13–22 Rất thử thách → Nhiều thử thách (lời văn: KL coi tam hợp Thái Tuế là may mắn nhất, nhưng các lời sách khác kém hơn những chặng thường gặp); 23–32 Nhiều thử thách → Thuận; 43–52 Trung bình → Nhiều thử thách; 73–82 Trung bình → Nhiều thử thách; 83–92 Rất thử thách; 93–102 Thuận. Năm 2026: tiểu hạn Tài Bạch, lưu đại hạn Quan Lộc, "Trung bình".
+
+---
+
+# indices-2.1.0 (2026-10-21)
 
 Track A của kế hoạch 2026-10-21: biểu đồ đại vận / năm / tháng đo **mức kích hoạt của thời vận trên cả lá số**, không dùng lại luận giải bẩm sinh của cung vận. Số liệu sinh bởi `node tools/interpret/index_norms.ts` trên `corpus1000.json.gz` (1.000 lá, bộ mẫu phân tầng, không phải dân số thật). Tất cả là kiểm tra tự động; chưa có chuyên gia chấm.
 
