@@ -34,7 +34,7 @@ def test_pack_is_valid_and_every_rule_has_its_words():
     for r in rules:
         m = meta[r.id]
         assert norm(m["quote"]) in page_text(m["page"], m.get("book", "zz")), (r.id, m["quote"])
-        assert m["topic"] in {"wealth", "work", "rank", "parents", "marriage", "siblings", "year"}
+        assert m["topic"] in {"wealth", "work", "rank", "parents", "marriage", "siblings", "year", "character"}
         assert r.reviewStatus == "verified"
 
 
@@ -102,7 +102,11 @@ def test_book_internal_conflicts_are_kept_apart():
     """pairs of judgements that would contradict each other never fire together (the conditions in tools/build_bazi_kin_pack.py)"""
     pairs = [("BT_ZZK_R03", "BT_ZZK_R08"), ("BT_ZZK_R03", "BT_ZZK_R06"), ("BT_ZZK_W13", "BT_ZZK_W14"), ("BT_ZZK_W05", "BT_ZZK_W06"), ("BT_ZZK_S27", "BT_ZZK_S28"),
              ("BT_ZZK_W24", "BT_ZZK_W25"), ("BT_ZZK_R01", "BT_ZZK_R08"), ("BT_ZZK_Y22", "BT_ZZK_Y23"),
-             ("BT_TVHK_W08", "BT_TVHK_W11"), ("BT_TVHK_H01", "BT_TVHK_H02"), ("BT_TVHK_S04", "BT_TVHK_S07"), ("BT_TTTK_QUY6", "BT_TTTK_TIEN4"), ("BT_TTTK_QUY1", "BT_TTTK_TIEN8")]
+             ("BT_TVHK_W08", "BT_TVHK_W11"), ("BT_TVHK_H01", "BT_TVHK_H02"), ("BT_TVHK_S04", "BT_TVHK_S07"), ("BT_TTTK_QUY6", "BT_TTTK_TIEN4"), ("BT_TTTK_QUY1", "BT_TTTK_TIEN8"),
+             # REVIEW-19 W6: combinations and the groups
+             ("BT_TVHK_PT_TSS1", "BT_TVHK_PT_TSS2"), ("BT_TVHK_PT_TST3", "BT_TVHK_PT_TKQ"), ("BT_TVHK_G03", "BT_TVHK_W08"), ("BT_TVHK_G18", "BT_TVHK_W08"),
+             ("BT_TVHK_G07", "BT_TVHK_W12"), ("BT_TVHK_G06", "BT_TVHK_W13"), ("BT_TVHK_PT_TKD1", "BT_TVHK_PT_TKD2"), ("BT_TVHK_G10", "BT_TVHK_G11"),
+             ("BT_TVHK_PT_TPA1", "BT_TTTK_QUY6")]
     import itertools
     from tvbt.ganzhi import BRANCHES_VI, STEMS_VI
     pil = [f"{STEMS_VI[i % 10]} {BRANCHES_VI[i % 12]}" for i in range(60)]

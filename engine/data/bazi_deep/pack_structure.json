@@ -107,6 +107,15 @@
    "verified": true,
    "edition": null,
    "note": "Đối chiếu bằng cách đọc ảnh trang (Claude, 2026-10-17); chưa có người thứ hai kiểm."
+  },
+  {
+   "id": "SRC_TVH_TOHOP",
+   "title": "Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa) — lời phán về tổ hợp Thập thần; Trích Thiên Tủy Phần II (Hà Tri)",
+   "author": "Thiệu Vĩ Hoa; Lưu Bá Ôn / Nhậm Thiết Tiều",
+   "locator": "TVH trang in 165-167, 521-541, 547, 551; TTT tr.138-139 (chép lại trong data/bazi_deep/mined/)",
+   "verified": true,
+   "edition": null,
+   "note": "REVIEW-19 W6: trang có lời phán cho tổ hợp. Mục BT_PT_* ở đây vẫn là lớp cấu trúc nháp (vị trí kề theo patterns_defs.json); lời đọc lên văn là các luật BT_TVHK_PT_* (pack_tvh_kin.json) trên tổ hợp do kin._patterns tìm."
   }
  ],
  "rules": [
@@ -710,7 +719,7 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
@@ -744,7 +753,7 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
@@ -812,7 +821,41 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_PT_THUC_SINH_TAI",
+   "system": "bat_tu",
+   "schoolId": "bazi_structure_draft",
+   "category": "pattern",
+   "description": "Cấu trúc Thực Thần sinh Tài đã thành",
+   "conditions": {
+    "fact": "bazi.patterns_formed",
+    "operator": "contains",
+    "value": "thuc_sinh_tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_pt_thuc_sinh_tai",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [
+    {
+     "fact": "bazi.geju_outer_quality",
+     "value": "chân"
+    }
+   ],
+   "conflictsWith": [],
+   "priority": 4,
+   "sourceIds": [
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
@@ -846,7 +889,7 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
@@ -880,7 +923,7 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
@@ -901,7 +944,7 @@
     {
      "kind": "finding",
      "claim": "bt_pt_hop_quan_luu_sat",
-     "effect": "support",
+     "effect": "limit",
      "scope": "natal"
     }
    ],
@@ -914,7 +957,7 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
@@ -948,7 +991,7 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
@@ -982,7 +1025,7 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
@@ -1016,7 +1059,7 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",
@@ -1050,7 +1093,7 @@
    "conflictsWith": [],
    "priority": 4,
    "sourceIds": [
-    "SRC_TBCT"
+    "SRC_TVH_TOHOP"
    ],
    "reviewStatus": "draft",
    "version": "0.1.0",

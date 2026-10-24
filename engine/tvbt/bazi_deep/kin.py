@@ -158,6 +158,62 @@ def _label(c: Chart, n) -> str:
     return f"{'can' if r == 'stem' else 'chi'} {PIL_VI[p]} {STEMS_VI[c.v.stem(p)] if r == 'stem' else BRANCHES_VI[c.v.branch(p)]}"
 
 
+PT_NAME = {"thuc_che_sat": "Thực Thần chế Sát", "sat_an_tuong_sinh": "Sát Ấn tương sinh", "thuong_sinh_tai": "Thương Quan sinh Tài",
+           "thuc_sinh_tai": "Thực Thần sinh Tài", "tai_quan_song_my": "Tài Quan song mỹ", "hop_sat_luu_quan": "Hợp Sát lưu Quan",
+           "tai_pha_an": "Tài phá Ấn", "thuong_kien_quan": "Thương Quan kiến Quan", "kieu_doat_thuc": "Kiêu Thần đoạt Thực",
+           "hop_quan_luu_sat": "Hợp Quan lưu Sát", "ti_kiep_doat_tai": "Tỉ Kiếp đoạt Tài"}
+PT_CAT = {"thuc_che_sat", "sat_an_tuong_sinh", "thuong_sinh_tai", "thuc_sinh_tai", "tai_quan_song_my", "hop_sat_luu_quan"}
+_TAI, _AN = ("Chính Tài", "Thiên Tài"), ("Chính Ấn", "Thiên Ấn")
+
+
+def _patterns(c: Chart, strong, vuong: list, nhuoc: list, stems: dict) -> list[dict]:
+    """each combination found: id, name, kind (cat: a good shape, benh: a fault), state (thanh / pha for a good shape, benh / cuu for a fault),
+    where (its characters), by (what breaks or rescues it). A good shape is broken (pha) by the fault the books name against it: Kiêu next to the
+    Thực Thần (TVH p.535 "Sát có chế ngự mà không gặp kiêu", p.527), Tài next to the Ấn (TTT p.139), Thương Quan next to the Quan (TVH p.541).
+    A fault is rescued (cuu) only where a page says by what: Tài phá Ấn by a Quan Sát next to the Ấn (TTT p.138 "Tài tinh phá Ấn, Quan có thể sinh
+    Ấn"), Tỉ Kiếp đoạt Tài by Quan Sát in the chart (TVH p.167 "quan có thể khắc kiếp")."""
+    pairs = lambda ga, gb: [(a, b) for a in c.nodes if c.god(a) in ga for b in c.nodes if c.god(b) in gb and c.adj(a, b)]
+    lab = lambda n: f"{c.god(n)} ở {_label(c, n)}"
+    out: list[dict] = []
+
+    def add(pid, where, state, by=None):
+        out.append({"id": pid, "name": PT_NAME[pid], "kind": "cat" if pid in PT_CAT else "benh", "state": state, "where": where, "by": lab(by) if by else ""})
+    kieu, tai_an, tkq = pairs(("Thiên Ấn",), ("Thực Thần",)), pairs(_TAI, _AN), pairs(("Thương Quan",), ("Chính Quan",))
+    for a, b in pairs(("Thực Thần",), ("Thất Sát",))[:1]:
+        br = next((k for k, t in kieu if t == a), None)
+        add("thuc_che_sat", f"{lab(a)} đứng sát chế {lab(b)}", "pha" if br else "thanh", br)
+    for a, b in [x for x in pairs(("Thất Sát",), _AN) if x[1] in NEAR_DM][:1]:
+        br = next((t for t, x in tai_an if x == b), None)
+        add("sat_an_tuong_sinh", f"{lab(a)} sinh {lab(b)}, chữ Ấn đứng sát nhật chủ", "pha" if br else "thanh", br)
+    for pid, god in (("thuong_sinh_tai", "Thương Quan"), ("thuc_sinh_tai", "Thực Thần")):
+        for a, b in pairs((god,), _TAI)[:1]:
+            br = next((k for k, t in kieu if t == a), None) if god == "Thực Thần" else None
+            add(pid, f"{lab(a)} đứng sát sinh {lab(b)}", "pha" if br else "thanh", br)
+    for a, b in pairs(_TAI, ("Chính Quan",))[:1]:
+        br = next((t for t, q in tkq if q == b), None)
+        add("tai_quan_song_my", f"{lab(a)} đứng sát sinh {lab(b)}", "pha" if br else "thanh", br)
+    for a, b in tai_an[:1]:
+        rs = next((q for q in c.of("QuanSat") if c.adj(q, b)), None)
+        add("tai_pha_an", f"{lab(a)} đứng sát khắc {lab(b)}", "cuu" if rs else "benh", rs)
+    for a, b in tkq[:1]:
+        add("thuong_kien_quan", f"{lab(a)} đứng sát khắc {lab(b)}", "benh")
+    for a, b in kieu[:1]:
+        add("kieu_doat_thuc", f"{lab(a)} đứng sát khắc {lab(b)}", "benh")
+    # hợp Sát lưu Quan / hợp Quan lưu Sát (TVH p.533): a Thất Sát (Chính Quan) stem in a ngũ hợp with another stem than the day master, the other present
+    gods = {c.god(n) for n in c.nodes}
+    for pid, g, other in (("hop_sat_luu_quan", "Thất Sát", "Chính Quan"), ("hop_quan_luu_sat", "Chính Quan", "Thất Sát")):
+        p = next((p for p, x in stems.items() if x == g and other in gods), None)
+        q = p and next((q for q in stems if q != p and frozenset((c.v.stem(p), c.v.stem(q))) in STEM_COMBINE), None)
+        if q:
+            add(pid, f"{g} ở {_label(c, (p, 'stem'))} hợp với {_label(c, (q, 'stem'))}, còn {other} vẫn ở lại", "thanh" if pid in PT_CAT else "benh")
+    # Tỉ Kiếp đoạt Tài (TVH p.166 d): thân vượng, Tài yếu mà có Tỉ Kiếp chia phần; Quan Sát in the chart rescues (p.167 b)
+    ti, tai = c.of("Ti"), c.of("Tai")
+    if strong and "Tai" in nhuoc and ti and tai:
+        qs = c.of("QuanSat")
+        add("ti_kiep_doat_tai", f"{_join([lab(n) for n in ti])} cùng chia phần {_join([lab(n) for n in tai])}", "cuu" if qs else "benh", qs[0] if qs else None)
+    return out
+
+
 def natal_facts(view: ChartView, tvh: dict | None, yong: dict | None = None) -> tuple[dict, dict]:
     """(facts for the rules, detail for the prose: which characters, which pillar). `yong`: {"hi": [...], "ky": [...], "cach": name} in Vietnamese group
     names, from Thiệu Vĩ Hoa's cách table (pp.378-386: dụng thần + vận tốt = hỉ, vận xấu = kỵ), for the Trích Thiên Tủy judgements that read "nhật chủ
@@ -356,6 +412,13 @@ def natal_facts(view: ChartView, tvh: dict | None, yong: dict | None = None) -> 
     F["bazi.k.front_tai_back_an"] = "Tai" in front and "An" in F["bazi.k.dayhour_groups"] and "An" not in front
     F["bazi.k.ya_mq"] = "Chính Ấn" in (c.god(("year", "stem")), c.god(("year", "branch"))) and "Chính Quan" in (c.god(("month", "stem")), c.god(("month", "branch")))
     F["bazi.k.thuc_che_sat"] = any(c.god(a) == "Thực Thần" and c.god(b) == "Thất Sát" and c.adj(a, b) for a in c.nodes for b in c.nodes)
+    # ---- Ten-God combinations (REVIEW-19 W6): the named shapes Thiệu Vĩ Hoa and Trích Thiên Tủy judge (Thực chế Sát, Sát Ấn tương sinh, Thương /
+    # Thực sinh Tài, Tài Quan tương sinh, Tài phá Ấn, Thương kiến Quan, Kiêu đoạt Thực, hợp Sát / hợp Quan, Tỉ Kiếp đoạt Tài), found with the
+    # same "đứng sát" as every judgement here (same pillar or same row of two neighbouring pillars: a system convention, no page defines it)
+    D["patterns"] = _patterns(c, strong, vuong, nhuoc, stems)
+    F["bazi.k.pt"] = sorted({p["id"] for p in D["patterns"]})
+    F["bazi.k.pt_pha"] = sorted({p["id"] for p in D["patterns"] if p["state"] == "pha"})
+    F["bazi.k.pt_cuu"] = sorted({p["id"] for p in D["patterns"] if p["state"] == "cuu"})
     # the characters each judgement names, for its condition in the text ("Thiên Tài ở can năm Tân bị chi Tỵ ngay dưới khắc")
     lab = lambda ns: _join([_label(c, n) for n in ns])
     tmm_vi = {"thai": "thai nguyên", "menh": "mệnh cung", "than": "thân cung"}
@@ -463,7 +526,8 @@ def fire(facts: dict, V: dict | None = None, year: bool = False) -> list[dict]:
             continue
         said = _fill(m["say"], V or {}) if m.get("say") else None
         out.append({"rule_id": f.rule_id, "topic": m["topic"], "tone": m["tone"], "effect": m["effect"], "cause": said or m["cause"], "page": m["page"],
-                    "book": m.get("book", "zz"), **({"note": m["note"]} if m.get("note") else {}), **({"hi": True} if m.get("hi") else {})})
+                    "book": m.get("book", "zz"), **({"note": m["note"]} if m.get("note") else {}), **({"hi": True} if m.get("hi") else {}),
+                    **({"pt": m["pt"]} if m.get("pt") else {})})
     return out
 
 

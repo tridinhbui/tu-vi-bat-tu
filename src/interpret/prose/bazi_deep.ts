@@ -21,7 +21,7 @@
 import type { ChartInput, Knowledge } from '../types.ts';
 import { Micro, finish, lowerFirst } from './micro.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
-import { kinYear, type BaziKin, type KinFrames, type KinYear } from './bazi_kin.ts';
+import { kinYear, DOM_OF, fracVi, type BaziKin, type KinFrames, type KinYear, type KinWeigh } from './bazi_kin.ts';
 
 type Role = 'yong' | 'xi' | 'ji' | null;
 type Verdict = 'tot' | 'xau' | null;
@@ -99,6 +99,8 @@ export interface DepthFrames {
   tk_turn: string[]; tk_turn_what: Record<string, string>; special_yong?: string[]; special_pick?: string[]; dom_skip?: string[];
   cach_status?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
   tai_layers?: Record<'pos' | 'dm' | 'method' | 'method_no_tb' | 'decide', string[]> & { decide_agree?: string[] };
+  // REVIEW-19 W6: the strength in words (numbers in the Số liệu fold), the closing by priority
+  str_plain?: string[]; str_plain_near?: string[]; tk_now?: string[]; tk_word?: Record<string, string>; tk_money?: Record<'pos' | 'neg' | 'even', string[]>; tk_work?: string[];
 }
 export interface BaziDeepFrames {
   season: string[]; season_state: Record<string, string>; strength_near: string[]; strength_side: string[]; climate: string[]; climate_presence: string[];
@@ -117,6 +119,8 @@ export interface BaziDeepFrames {
   rc_khac: string[]; rc_support: string[]; rc: Record<string, string[]>; rc_years: string; rc_note: string;
   // 2026-10-22 depth
   d?: DepthFrames; mh?: Record<string, string[]>;
+  // REVIEW-19 W6: a luck pillar's / year's head joined to its cách verdict, the numbers of a luck pillar, the đại vận opening, the verdict's domains
+  luck_head2?: string[]; luck_nums?: string[]; year_head2?: string[]; dv_open?: string[]; rc_dom?: Record<'luck' | 'year', string[]>;
 }
 /** the part of the chapter frame a paragraph holds (plan step 4); the sources, part 6, are each sentence's trace */
 export type FramePart = 'cau_truc' | 'ho_tro' | 'tuong_tac' | 'mau_thuan' | 'ket_luan';
@@ -149,8 +153,12 @@ const NOTE = {
   mh: 'Câu minh họa: chỉ làm cụ thể câu ngay trước, không thêm nhận định.',
 };
 
+/** the title of a Số liệu fold: the report labels these "Số liệu", not "Đọc sâu" (report.js btProseHtml) */
+const NUMS = (what: string) => `Số liệu · ${what}`;
+
 export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepFrames | undefined,
-  rules: Record<string, { reading: string; cites: string[]; verified: boolean }>): Partial<Record<BaziDeepChapter, ProseParagraph[]>> {
+  rules: Record<string, { reading: string; cites: string[]; verified: boolean }>,
+  extra: { weigh?: KinWeigh; work?: string } = {}): Partial<Record<BaziDeepChapter, ProseParagraph[]>> {
   void k;
   const b = chart.bazi as (ChartInput['bazi'] & { deep?: BaziDeep | null }) | undefined, D = b?.deep;
   if (!b || !D || !F) return {};
@@ -209,6 +217,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
   const st: ProseSentence[] = [];
   if (D.strength.season_state && !frame.length) say(st, fill(m.pick('bd|season', F.season), { dm, el, mb, state: F.season_state[D.strength.season_state] ?? D.strength.season_state }), 'tinh_toan', ['ZZ (ngũ hành vượng tướng hưu tù tử)']);
   const S = P?.score;
+  const strNums: ProseSentence[] = [];
   if (sh != null && th != null && strong != null) {
     const pct = String(Math.round(sh * 100)), thp = String(Math.round(th * 100));
     const id = strong ? 'BT_TVH_VUONG' : 'BT_TVH_NHUOC', v = fired.get(id);
@@ -216,9 +225,14 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     if (S && Dd) {
       const hua = P?.stems?.hua_day;
       const vars = { el: hua ? `${S.own_elements[0]} mà nhật chủ ${dm} đã hóa thành` : S.own_elements[0], mel: S.own_elements[1], own: num(S.own), total: num(S.total), pct, need: num(S.need), gap: num(Math.abs(S.gap)),
-        cmp: strong ? 'trên' : 'dưới', side: near ? (strong ? 'vượng' : 'nhược') : Dd.side[strong ? 'strong' : 'weak'] };
-      say(st, fill(m.pick('bd|strdeg', near ? Dd.str_deg_near : Dd.str_deg), vars), src.basis, ['TVH pp.331-355'], src.ids, { step: 'strength', mech: true,
-        note: near ? `${NOTE.score} Thiệu Vĩ Hoa (tr.355) gọi một ví dụ 39,6% là "hơi nhược": sát ngưỡng vẫn là một kết luận. Dải ±3% quanh 40% là quy ước hiển thị của hệ thống, không phải của sách.` : NOTE.score });
+        cmp: strong ? 'trên' : 'dưới', side: near ? (strong ? 'vượng' : 'nhược') : Dd.side[strong ? 'strong' : 'weak'], frac: fracVi(sh), cmp2: strong ? 'vượt' : 'chưa tới', dm };
+      const nt = near ? `${NOTE.score} Thiệu Vĩ Hoa (tr.355) gọi một ví dụ 39,6% là "hơi nhược": sát ngưỡng vẫn là một kết luận. Dải ±3% quanh 40% là quy ước hiển thị của hệ thống, không phải của sách.` : NOTE.score;
+      // REVIEW-19 W6: the short reading says the verdict in words; the degrees open the Số liệu fold
+      const plain = near ? Dd.str_plain_near ?? Dd.str_plain : Dd.str_plain;
+      if (plain?.length) {
+        say(st, fill(m.pick('bd|strp', plain), vars), src.basis, ['TVH pp.331-355'], src.ids, { step: 'strength', mech: true, note: nt });
+        say(strNums, fill(m.pick('bd|strdeg', near ? Dd.str_deg_near : Dd.str_deg), vars), 'tinh_toan', ['TVH pp.331-355'], [], { step: 'strength:deg', mech: true, note: nt });
+      } else say(st, fill(m.pick('bd|strdeg', near ? Dd.str_deg_near : Dd.str_deg), vars), src.basis, ['TVH pp.331-355'], src.ids, { step: 'strength', mech: true, note: nt });
     } else if (near) say(st, fill(m.pick('bd|near', F.strength_near), { pct, th: thp, cmp: strong ? 'trên' : 'dưới', side: strong ? 'vượng' : 'nhược' }), 'tinh_toan', ['TVH pp.331-355'], [],
       { step: 'strength', note: 'Thiệu Vĩ Hoa (tr.355) gọi một ví dụ 39,6% là "hơi nhược": sát ngưỡng vẫn là một kết luận. Dải ±3% quanh 40% là quy ước hiển thị của hệ thống, không phải của sách.' });
     else say(st, fill(m.pick('bd|side', F.strength_side), { pct, th: thp, cmp: strong ? 'vượt' : 'dưới', side: strong ? 'thuộc thế vượng' : 'thuộc thế nhược' }), src.basis, ['TVH pp.331-355'], src.ids, { step: 'strength', note: NOTE.score });
@@ -229,7 +243,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
 
   // ---- nhật chủ, Đọc sâu 1: how the degrees add up (TVH pp.331-355) ----
   if (S && Dd) {
-    const xs: ProseSentence[] = [];
+    const xs: ProseSentence[] = strNums;
     const cites = ['TVH pp.331-355'], ex = { note: NOTE.score, mech: true, step: 'strength:deg' };
     const els = [...S.elements].sort((a, c) => c.total - a.total);
     const other = els.filter(e => !S.own_elements.includes(e.el)).slice(0, 2), ownTop = els.filter(e => S.own_elements.includes(e.el));
@@ -247,7 +261,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     }
     if (S.heaven_own + S.earth_own > 0) say(xs, fill(m.pick('bd|where', Dd.where), { where: Dd.where_vi[S.earth_own >= S.heaven_own ? 'earth' : 'heaven'], h: num(S.heaven_own), e: num(S.earth_own) }),
       'tinh_toan', cites, [], ex);
-    para('nhat-chu', xs, 'support', deep('sức vượng nhược'));
+    para('nhat-chu', xs, 'support', deep(NUMS('sức vượng nhược')));
   }
   // ---- nhật chủ, Đọc sâu 2: stems, roots, combinations, growth stages ----
   {
@@ -321,13 +335,14 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const nh: ProseSentence[] = [];
     say(nh, fill(m.pick('bd|totals', F.totals), { top: join(xs.slice(0, 2).map(([e, v]) => `${e} (${num(v)})`)), low: `${xs.at(-1)![0]} (${num(xs.at(-1)![1])})`,
       dom: P?.flow?.groups?.[0]?.group ?? CT?.dominant ?? '' }).replace(/; (so với nhật chủ, )?nhóm  chiếm[^.]*/, '').replace(/; so với nhật chủ thì nhóm  nhiều nhất/, ''), 'tinh_toan', ['TVH pp.331-355'], [], { note: NOTE.score });
-    para('ngu-hanh', nh);
+    para('ngu-hanh', nh, 'support', deep(NUMS('ngũ hành theo độ')));
   }
   if (P?.flow && S && Dd) {
     const xs: ProseSentence[] = [], ex = { note: NOTE.groups, mech: true, step: 'flow' }, cites = ['ZZ p.17', 'TVH pp.331-355'];
     // the terms explained where they matter: the largest group and the useful god's group carry what they are; the note holds all five
     const def = (g: string) => (g === P.flow.groups[0]?.group || g === Y1) && Dd.group_def?.[g] ? `, ${Dd.group_def[g]}` : '';
-    say(xs, fill(m.pick('bd|groups', Dd.groups), { dm: P.stems?.hua_day ? `${dm} (đã hóa ${P.stems.hua_day})` : dm, list: join(P.flow.groups.map(g => `${g.group} (${g.el}${def(g.group)}) ${num(g.deg)} độ`)) }), 'tinh_toan', cites, [], { ...ex,
+    const gNums = out['ngu-hanh']?.find(p => p.depthTitle === NUMS('ngũ hành theo độ'))?.sentences;
+    say(gNums ?? xs, fill(m.pick('bd|groups', Dd.groups), { dm: P.stems?.hua_day ? `${dm} (đã hóa ${P.stems.hua_day})` : dm, list: join(P.flow.groups.map(g => `${g.group} (${g.el}${def(g.group)}) ${num(g.deg)} độ`)) }), 'tinh_toan', cites, [], { ...ex,
       note: `${NOTE.groups} Tỉ Kiếp: cùng hành với nhật chủ; Ấn: hành sinh ra nhật chủ; Thực Thương: hành nhật chủ sinh ra; Tài: hành nhật chủ khắc; Quan Sát: hành khắc nhật chủ.` });
     const hv = [...S.elements].sort((a, c) => c.heaven - a.heaven)[0], ev = [...S.elements].sort((a, c) => c.earth - a.earth)[0];
     if (hv.heaven > 0 && hv.el !== ev.el) say(xs, fill(m.pick('bd|hv', Dd.hv), { h: hv.el, hv: num(hv.heaven), e: ev.el, ev: num(ev.earth) }), 'tinh_toan', ['TVH pp.331-355'], [], ex);
@@ -377,7 +392,8 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const why = Y?.kind === 'cach' && Y.why && !Y.fallback && Dd ? fill(Dd.yong_why, { why: Y.why.text }) : '';
     const vars = { cach: CT!.cach!, dm: dmVi, dom: CT!.dominant ?? '', yong: join(CT!.yong.slice(0, 1)), tot: join(CT!.van_tot), xau: join(CT!.van_xau), why };
     // the cách's one status (owner review 2026-10-22): partial, so the dụng thần and every luck verdict drawn from it are conditional
-    if (cachPartial && Dd?.cach_status?.length) say(c1, fill(m.pick('bd|cst', Dd.cach_status), { cach: CT!.cach! }), 'tinh_toan', ['TVH pp.356-366'], [],
+    // the cách's status is the system's own verification state, not a computation on the chart (REVIEW-19 W6: basis he_thong)
+    if (cachPartial && Dd?.cach_status?.length) say(c1, fill(m.pick('bd|cst', Dd.cach_status), { cach: CT!.cach! }), 'he_thong', ['TVH pp.356-366'], [],
       { step: 'cach:status', conditional: 'cach_partial', note: 'Trạng thái của cách: xác lập một phần (yongshen.METHOD_META cach_cuc_tvh). Bảng dụng thần và vận hỷ kỵ (Thiệu Vĩ Hoa tr.378-386) chép khớp trang in; phép định cách từ chi tháng mới được đối chiếu một phần với tr.356-366. Mọi lời xếp vận tốt xấu suy từ bảng ấy vì vậy có điều kiện là cách được xác lập.' } as Partial<SentenceTrace>);
     say(c1, fill(m.pick('bd|table', CT!.van_tot.length || CT!.van_xau.length ? F.table : F.table_no_van), vars), 'tinh_toan', [tvhPage, ...(Y?.why ? [`TVH pp.${Y.why.page.replace(/\s/g, '')}`] : [])], [],
       { step: 'yong', note: NOTE.yong, mech: !!why });
@@ -486,10 +502,13 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     if (good.length) say(xs, fill(m.pick('bd|ss', F.shensha), { list: good.map(g => `${g[0].vi} ở ${join(g.map(where))}, được ghi là ${g[0].gloss!.replace(/^sách ghi:\s*/, '')}`).join('; ') }), 'tinh_toan', ['ZZ pp.21-22'], [], { tone: 'pos' });
     const list = (gs: typeof good) => { const it = gs.map(g => `${g[0].vi} ở ${join(g.map(where))}`); return it.some(x => x.includes(' và ')) ? it.join('; ') : join(it); };
     const hung = byStar(ss.filter(x => x.kind === 'hung'));
-    if (hung.length && F.shensha_hung) say(xs, fill(m.pick('bd|ssh', F.shensha_hung), { list: list(hung), them: hung.length > 1 || hung[0].length > 1 ? 'những sao' : 'sao' }), 'tinh_toan', ['ZZ pp.21-22']);
+    // (REVIEW-19 W6) the stars told by position only, without a gloss, go to Số liệu; those with their printed gloss stay
+    const xh: ProseSentence[] = [];
+    if (hung.length && F.shensha_hung) say(good.length ? xh : xs, fill(m.pick('bd|ssh', F.shensha_hung), { list: list(hung), them: hung.length > 1 || hung[0].length > 1 ? 'những sao' : 'sao' }), 'tinh_toan', ['ZZ pp.21-22']);
     const plain = byStar(ss.filter(x => !x.gloss && x.kind !== 'hung'));
-    if (plain.length && F.shensha_plain) say(xs, fill(m.pick('bd|ssp', F.shensha_plain), { list: list(plain) }), 'tinh_toan', ['ZZ pp.21-22']);
+    if (plain.length && F.shensha_plain) say(good.length ? xh : xs, fill(m.pick('bd|ssp', F.shensha_plain), { list: list(plain) }), 'tinh_toan', ['ZZ pp.21-22']);
     if (xs.length) (out['cach-cuc'] ??= []).push({ role: 'support', sentences: xs, text: xs.map(s => s.text).join(' '), topic: 'than_sat' });
+    if (xh.length) (out['cach-cuc'] ??= []).push({ role: 'support', sentences: xh, text: xh.map(s => s.text).join(' '), topic: 'than_sat_sau', depth: 'sau', depthTitle: NUMS('thần sát theo vị trí') });
   }
 
   // ---- sự nghiệp: Tài in layers (owner review 2026-10-22; DEEP-BAZI-2 2026-10-23). 八字真宗 p.50 reads Tài by position ("Tài thấu can và có
@@ -519,7 +538,8 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
         note: 'Hai lời gặp nhau mà không cần phân xử: điều kiện cuối bảng tài vận của Bát Tự Chân Tông (tr.50: Tài vượng mà chưa chảy vào nhật chủ thì tài vận bình thường) và sức nhật chủ theo Thiệu Vĩ Hoa (tr.367-369, 378-383) cùng nói Tài nhiều chưa thành lợi cho bản thân.' });
     else say(xs, fill(m.pick('bd|tl4', TL.decide), { zz }), 'he_thong', [], [], { step: 'tai:decide', tone: 'answer',
       note: 'Phân xử của hệ thống: lời có điều kiện cụ thể hơn (nêu cả sức nhật chủ, Thiệu Vĩ Hoa tr.367-369) được lấy làm điều quyết định; lời chung về vị trí của Tài (Bát Tự Chân Tông tr.50) giữ nguyên nhưng chỉ trọn khi điều kiện ấy có. Không trang sách nào trong bộ đang dùng cân hai lời này với nhau: chỗ vênh còn mở.' });
-    para('su-nghiep', xs);
+    // REVIEW-19 W6: the layers are the mechanism; the short reading's money paragraph ends on the weighing (prose/bazi_kin.ts)
+    para('su-nghiep', xs, 'support', extra.weigh ? deep('tiền bạc, hai cách xét') : {});
   }
 
   // ---- đại vận: per luck pillar a short paragraph (what it is, the cách side with its reason, the climate side, the one verdict) and a
@@ -558,9 +578,11 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     return { text: fill(m.pick(`bd|ev|${key}`, subject.year && F.ev_open_year?.length ? F.ev_open_year : F.ev_open), { year: String(subject.year ?? ''), list: parts.length > 1 ? `${parts.slice(0, -1).join('; ')}; còn ${parts.at(-1)}` : parts[0] }).replace(/\.$/, '') + note, cites: ['ZZ pp.19-20', ...(note ? ['ZZ p.57'] : [])] };
   };
   /** the cách side (support / limit): the TVH table's verdict on the stem and the branch, then why (TVH pp.377-382) */
-  const cachSide = (xs: ProseSentence[], t: BaziTemporal, key: string, who: { stem: string; branch: string }, step: string, year?: number) => {
+  const cachSide = (xs: ProseSentence[], t: BaziTemporal, key: string, who: { stem: string; branch: string }, step: string, year?: number,
+    o: { head?: string; cond?: boolean; why?: boolean } = {}) => {
     const v = t.tvh ?? { stem: null, branch: null };
-    if (!tableOk && !CT?.special) return;
+    // REVIEW-19 W6: a head given (the pillar and its gods) is joined to the verdict in one sentence; said alone when no table applies
+    if (!tableOk && !CT?.special) { if (o.head) say(xs, o.head, 'tinh_toan', ['ZZ p.20', 'ZZ p.17'], [], { step }); return; }
     const cach = CT!.special ? CT!.special.replace(/\s*\(TVH\)$/, '') : CT!.cach!;
     const vs = { cach, stem: who.stem, branch: who.branch, sg: t.stem_group ?? '', bg: t.branch_group ?? '', v: F.verdict[v.stem ?? ''] ?? '', v2: F.verdict[v.branch ?? ''] ?? '' };
     let text = '';
@@ -571,13 +593,17 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     // a year says which year it is, so it never repeats the sentence of a luck pillar with the same stem
     const t0 = fill(text, vs);
     // conditional on the cách standing (owner review 2026-10-22), said in the sentence itself
-    const condOn = cachPartial && !CT!.special && Dd?.cach_cond?.length;
-    const head = year ? (condOn ? fill(Dd!.cach_cond_year, { year: String(year), cach, x: lowerFirst(t0) }) : `Xét năm ${year}, ${lowerFirst(t0)}`)
+    // (REVIEW-19 W6) said once per chapter, at its first luck pillar and its first year; every verdict keeps trace.conditional
+    const condOn = cachPartial && !CT!.special && Dd?.cach_cond?.length && (o.cond ?? true);
+    const body = o.head ? (condOn ? fill(m.pick(`bd|cc|${key}`, Dd!.cach_cond ?? []), { cach, x: lowerFirst(t0) }) : t0) : '';
+    const head = o.head ? `${o.head}; ${lowerFirst(body)}`
+      : year ? (condOn ? fill(Dd!.cach_cond_year, { year: String(year), cach, x: lowerFirst(t0) }) : `Xét năm ${year}, ${lowerFirst(t0)}`)
       : condOn ? fill(m.pick(`bd|cc|${key}`, Dd!.cach_cond ?? []), { cach, x: lowerFirst(t0) }) : t0, tone = (v.stem ?? v.branch) === 'xau' ? 'neg' as const : (v.stem ?? v.branch) === 'tot' ? 'pos' as const : undefined;
     const src = CT!.special ? 'TVH pp.385-386' : tvhPage;
     // why: the book's reasons for the groups (TVH pp.377-382), at most two per group
     const W = Dd?.why, ws = t.why;
-    if (!W || !ws) { say(xs, head, 'tinh_toan', [src], [], { tone, step, note: NOTE.yong }); return; }
+    const hc = o.head ? ['ZZ p.20'] : [];
+    if (!W || !ws || o.why === false) { say(xs, head, 'tinh_toan', [...hc, src], [], { tone, step, note: NOTE.yong, ...(cachPartial && !CT!.special ? { conditional: 'cach_partial' } : {}) } as Partial<SentenceTrace>); return; }
     const phrase = (r: BaziWhy) => { const vsW = W[r.key]; return vsW?.length ? fill(m.pick(`bd|why|${r.key}|${key}`, Array.isArray(vsW) ? vsW : [vsW]), { dom: CT?.dominant ?? '' }) : ''; };
     const keys = (rs: BaziWhy[] | null | undefined) => (rs ?? []).map(r => r.key).join(',');
     const ra = v.stem ? ws.stem ?? [] : [], rb = v.branch ? ws.branch ?? [] : [];
@@ -590,8 +616,8 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     else if (a.length || c.length) { const r = a.length ? a : c; why = fill(pk(Dd!.why_one, 'w1'), { G: a.length ? G1 : G2, a: r[0], b: r[1] ? fill(Dd!.why_and, { b: r[1] }) : '' }); }
     // the verdict and its reason in one sentence: it names the stem and the branch, so the same reason never repeats word for word
     const reason = why.replace(/\.$/, '');
-    say(xs, why ? `${head.replace(/\.$/, '')}: ${/^Vì /.test(reason) ? lowerFirst(reason) : reason}` : head, 'tinh_toan', [src, ...(why ? ['TVH pp.377-382'] : [])], [],
-      { tone, step, note: why ? `${NOTE.yong} ${NOTE.van}` : NOTE.yong, ...(why ? { mech: true } : {}) });
+    say(xs, why ? `${head.replace(/\.$/, '')}: ${/^Vì /.test(reason) ? lowerFirst(reason) : reason}` : head, 'tinh_toan', [...hc, src, ...(why ? ['TVH pp.377-382'] : [])], [],
+      { tone, step, note: why ? `${NOTE.yong} ${NOTE.van}` : NOTE.yong, ...(why ? { mech: true } : {}), ...(cachPartial && !CT!.special ? { conditional: 'cach_partial' } : {}) } as Partial<SentenceTrace>);
   };
   /** the climate side: the stem (or the branch's main qi) the điều hậu cell names, or the element the hàn noãn rule asks for; turned with a
    *  contrast when the cách side called the pillar bad */
@@ -606,14 +632,16 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       warmOnly && needRule && fired.get(needRule) ? [cite(needRule, fired.get(needRule)!.text, ['TTT'])] : [], { tone: 'pos', step, note: warmOnly ? 'Trích Thiên Tủy, Hàn Thử (tr.113-114).' : NOTE.dh });
   };
   /** where the tables differ (part 4) and the one verdict with what to do (part 5); the same verdict feeds the closing */
-  const verdictOf = (xs: ProseSentence[], t: BaziTemporal, rc: Reconcile, key: string, who: { stem: string; branch: string }, o: { year: boolean; years?: BaziTemporal['good_years'] }) => {
+  const verdictOf = (xs: ProseSentence[], t: BaziTemporal, rc: Reconcile, key: string, who: { stem: string; branch: string },
+    o: { year: boolean; years?: BaziTemporal['good_years']; ds?: ProseSentence[]; dom?: string[] }) => {
     const kind = o.year ? 'năm' : 'vận', step = `reconcile:${key}`, pk = `${kind} ${who.stem} ${who.branch}`;
     const yongTxt = Y1 ? `nhóm ${Y1}` : '';
     if (rc.agree === 'khac' && F.rc_khac.length && tableOk) {
       const g = t.tvh?.stem ? t.stem_group : t.branch_group, whoC = t.tvh?.stem ? `can ${who.stem}` : `chi ${who.branch}`;
       // the climate side names what brought it: the stem (named, or of the hàn noãn element), else the branch by its main qi
       const h = t.hidden?.[0]?.stem, whoH = dhRoleOf(who.stem, table) || rc.warm ? `can ${who.stem}` : `chi ${who.branch} (tàng ${h})`;
-      say(xs, fill(m.pick(`bd|rk|${key}`, F.rc_khac), { kind, pk, g: g ?? '', dm: levelVi, dom: CT!.dominant ?? '', who: whoC, whoH }), 'tinh_toan', [tvhPage, 'TVH pp.389-396'], [], { step, note: F.rc_note });
+      // REVIEW-19 W6: where the two sides part is the mechanism (Đọc sâu); the verdict below says that they part
+      say(o.ds && F.rc.co_dieu_kien_khac?.length ? o.ds : xs, fill(m.pick(`bd|rk|${key}`, F.rc_khac), { kind, pk, g: g ?? '', dm: levelVi, dom: CT!.dominant ?? '', who: whoC, whoH }), 'tinh_toan', [tvhPage, 'TVH pp.389-396'], [], { step, note: F.rc_note });
     }
     const sup = (rc.support ?? []).map(x => `${x.stem} (${x.ten_god}), ${x.why.includes('cach') ? `thuộc nhóm dụng thần ${x.group}` : x.stem === table[0] ? 'can điều hậu đứng đầu' : 'một can điều hậu'}`);
     // what in the branch still answers the chart's need, said only where the cách table calls the pillar bad (a split pillar already says which half is good)
@@ -625,12 +653,16 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     // a luck pillar with its halves (TVH p.382) says which five years each half governs
     const hv = !o.year ? t.halves : null;
     const split = rc.agree === 'tron' ? `${t.tvh?.stem === 'tot' ? 'tron' : 'tron_rev'}${hv && F.rc.tron_h ? '_h' : ''}` : '';
-    const fr = F.rc[split || (rc.verdict === 'co_dieu_kien' && !yongTxt ? 'co_dieu_kien_no_yong' : rc.verdict === 'nang' && !list ? (o.year ? 'nang_year' : 'nang_no_years') : rc.verdict)];
+    const frKey = split || (rc.verdict === 'co_dieu_kien' && !yongTxt ? 'co_dieu_kien_no_yong' : rc.verdict === 'nang' && !list ? (o.year ? 'nang_year' : 'nang_no_years') : rc.verdict);
+    const fr = frKey === 'co_dieu_kien' && rc.agree === 'khac' && o.ds && F.rc.co_dieu_kien_khac?.length ? F.rc.co_dieu_kien_khac : F.rc[frKey];
     if (!fr?.length) return;
     // the conditional verdict leans on Thiệu Vĩ Hoa's own thành bại sentence when one fired that names the dụng thần group as protection
     const tbYong = tbOrder.find(v => v.verdict !== 'xau' && yongG.some(g => tbParts(v.text)!.cond.includes(g)));
-    say(xs, fill(m.pick(`bd|rv|${key}`, fr), { kind, pk, Pk: cap(pk), yong: yongTxt, years: list, yearsTail: years, stem: who.stem, branch: who.branch,
-      ha: hv ? `${hv.stem[0]}–${hv.stem[1]}` : '', hb: hv ? `${hv.branch[0]}–${hv.branch[1]}` : '' }), 'he_thong',
+    // REVIEW-19 W6: the domains the pillar's groups stand for (told once, in the đại vận opening) join the verdict: a labelled synthesis
+    const domTxt = o.dom?.length && F.rc_dom ? fill(m.pick(`bd|rd|${key}`, F.rc_dom[o.year ? 'year' : 'luck']), { list: join(o.dom) }) : '';
+    const vText = fill(m.pick(`bd|rv|${key}`, fr), { kind, pk, Pk: cap(pk), yong: yongTxt, years: list, yearsTail: years, stem: who.stem, branch: who.branch,
+      ha: hv ? `${hv.stem[0]}–${hv.stem[1]}` : '', hb: hv ? `${hv.branch[0]}–${hv.branch[1]}` : '' });
+    say(xs, domTxt ? `${vText.replace(/\.\s*$/, '')}${domTxt}.` : vText, domTxt ? 'tong_hop' : 'he_thong',
       tbYong && (rc.verdict === 'co_dieu_kien' || rc.verdict === 'nang') ? ['TVH pp.367-369'] : [], tbYong && (rc.verdict === 'co_dieu_kien' || rc.verdict === 'nang') ? [cite(tbYong.rule_id, tbYong.text, ['TVH pp.367-369'])] : [],
       { tone: rc.verdict === 'thuan' || rc.verdict === 'kha_thuan' ? 'pos' : 'answer', step: `verdict:${key}`, verdict: classOf(rc), ...(split.endsWith('_h') ? { note: NOTE.halves } : {}), ...(cachPartial ? { conditional: 'cach_partial' } : {}) } as Partial<SentenceTrace>);
   };
@@ -654,7 +686,18 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     say(xs, fill(m.pick(`bd|touch|${step}`, year && Dd.touch_year?.length ? Dd.touch_year : Dd.touch), { year: String(year ?? ''), yong: hoaC ? `hành ${Y.el}` : `${Y.group} (${Y.el})`, list: it.length > 1 ? `${it.slice(0, -1).join('; ')}; còn ${it.at(-1)}` : it[0] }), 'tinh_toan', ['TVH p.382'], [],
       { step, note: NOTE.hyky, mech: true, ...(bad && !good ? { tone: 'neg' } : good && !bad ? { tone: 'pos' } : {}) });
   };
-  const told: Array<{ name: string; age: number; verdict: VerdictClass; stemGroup?: string }> = [];
+  const told: Array<{ name: string; age: number; verdict: VerdictClass; stemGroup?: string; cur?: boolean }> = [];
+  /** the domains of a pillar's groups (REVIEW-19 W6), for its verdict: "tiền bạc (Tài)" */
+  const domsOf = (gs: Array<string | undefined>) => [...new Set(gs.filter((g): g is string => !!g && !!DOM_OF[g]))].map(g => `${DOM_OF[g]} (${g})`);
+  // the đại vận opening (REVIEW-19 W6): what each group stands for, told once, so each verdict can name what its pillar touches
+  if (F.dv_open?.length && kinF?.domain && D.luck.length) {
+    const Dm = kinF.domain, op: ProseSentence[] = [];
+    const list = [`Tài ứng với ${kinGender === 'nam' ? Dm.tai_nam : Dm.tai}`, `Quan Sát ứng với ${kinGender === 'nữ' ? Dm.quan_nu : Dm.quan}`, `Ấn ứng với ${Dm.an}`, `Tỉ Kiếp ứng với ${Dm.ti}`];
+    say(op, fill(m.pick('bd|dvo', F.dv_open), { list: list.join('; ') }), 'tinh_toan', ['ZZ p.50', 'ZZ pp.51-53', 'ZZ p.56', 'ZZ p.57', 'ZZ p.63'], [],
+      { step: 'dv:open', note: 'Nhóm thập thần ứng với việc gì theo Bát Tự Chân Tông: Tài với tiền bạc (tr.50), Quan với công việc, chức vụ (tr.51-53), Ấn với học hành (tr.56), Tỉ Kiếp với anh chị em (tr.63); sao phu thê nam là Tài, nữ là Quan (tr.57).' });
+    para('dai-van', op, 'structure');
+  }
+  let condSaid = false;
   for (const l of D.luck) {
     const meta = b.luck[l.index - 1] ?? b.luck.find(x => x.name === l.pillar);
     if (!meta || meta.start_year == null || meta.start_age > 80) continue;
@@ -662,10 +705,18 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const [stem, branch] = l.stem && l.branch ? [l.stem, l.branch] : l.pillar.split(' ');
     const cur = meta.start_year <= yr && yr < meta.start_year + 10;
     const step = `luck:${l.index}`, rc = rcOf(l), who = { stem, branch };
-    say(xs, fill(m.pick(`bd|lk${l.index}`, l.branch_god && l.stage ? F.luck_head : F.luck_head_short), { age: String(Math.round(meta.start_age)), from: String(meta.start_year), to: String(meta.start_year + 9), pillar: l.pillar,
-      cur: cur ? fill(F.luck_now, { year: String(yr) }) : '', stem, branch, god: l.ten_god ?? '—', bgod: l.branch_god ?? '—', stage: l.stage ?? '' }),
-    'tinh_toan', ['ZZ p.20', 'ZZ pp.24-25'], [], { step });
-    cachSide(xs, l, `l${l.index}`, who, step);
+    const hv0 = { age: String(Math.round(meta.start_age)), from: String(meta.start_year), to: String(meta.start_year + 9), pillar: l.pillar,
+      cur: cur ? fill(F.luck_now, { year: String(yr) }) : '', stem, branch, god: l.ten_god ?? '—', bgod: l.branch_god ?? '—', stage: l.stage ?? '' };
+    // REVIEW-19 W6: the pillar and its two gods joined to the cách verdict in one sentence (the cách condition at the first pillar only); the
+    // growth stage and the gods spelled out go to the pillar's Đọc sâu
+    if (F.luck_head2?.length && l.branch_god && l.stage && meta.start_year <= yr + 60) {
+      cachSide(xs, l, `l${l.index}`, who, step, undefined, { head: fill(m.pick(`bd|lk${l.index}`, F.luck_head2), hv0).replace(/\.$/, ''), cond: !condSaid });
+      condSaid = true;
+      if (F.luck_nums?.length) say(ds, fill(m.pick(`bd|ln${l.index}`, F.luck_nums), hv0), 'tinh_toan', ['ZZ p.20', 'ZZ pp.24-25'], [], { step });
+    } else {
+      say(xs, fill(m.pick(`bd|lk${l.index}`, l.branch_god && l.stage ? F.luck_head : F.luck_head_short), hv0), 'tinh_toan', ['ZZ p.20', 'ZZ pp.24-25'], [], { step });
+      cachSide(xs, l, `l${l.index}`, who, step);
+    }
     climateSide(xs, l, rc, `l${l.index}`, who, 'vận', step);
     // Đọc sâu: the halves (TVH p.382) when they differ or for the current luck, what it does to the useful god, the relations
     const hv = l.halves, v = l.tvh;
@@ -678,22 +729,32 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const ev = events(l, `l${l.index}`, { stem, branch, who: 'cả trụ vận' });
     if (ev) say(P ? ds : xs, ev.text, 'tinh_toan', ev.cites, [], { step });
     for (const f of l.findings) if (F.verified_text[f.rule_id]) say(xs, fill(F.verified_text[f.rule_id], { stem, branch }), 'sach', ['TTT'], [cite(f.rule_id, f.text, ['TTT'])], { tone: 'neg', step, note: 'Trích Thiên Tủy, Tuế Vận (tr.229-233).' });
-    verdictOf(xs, l, rc, `l${l.index}`, who, { year: false, years: l.good_years ?? goodYearsTs(meta.start_year, dm, table, totG, xauG, needEl, l.pillar) });
+    verdictOf(xs, l, rc, `l${l.index}`, who, { year: false, years: l.good_years ?? goodYearsTs(meta.start_year, dm, table, totG, xauG, needEl, l.pillar), ds,
+      dom: F.rc_dom ? domsOf([l.stem_group, l.branch_group]) : undefined });
     for (const s of [...xs, ...ds]) s.trace.step ??= step;
     if (meta.start_year <= yr + 60) {
       para('dai-van', xs);
       para('dai-van', ds, 'support', deep(`vận ${l.pillar}`));
-      told.push({ name: l.pillar, age: meta.start_age, verdict: classOf(rc), stemGroup: l.stem_group });
+      told.push({ name: l.pillar, age: meta.start_age, verdict: classOf(rc), stemGroup: l.stem_group, cur });
     }
   }
 
   // ---- lưu niên: the requested year and the two after it, judged the same way ----
+  let yCondSaid = false;
+  const yearV: Array<{ year: number; pillar: string; verdict: VerdictClass }> = [];
   for (const y of D.years ?? []) {
     const xs: ProseSentence[] = [], ds: ProseSentence[] = [], key = `y${y.year}`, step = `year:${y.year}`;
     const stem = y.stem ?? y.pillar.split(' ')[0], branch = y.branch ?? y.pillar.split(' ')[1], rc = rcOf(y), who = { stem, branch };
-    say(xs, fill(m.pick(`bd|yh|${key}`, F.year_head), { year: String(y.year), pillar: y.pillar, luck: y.luck ?? '', stem, branch, god: y.ten_god, bgod: y.branch_god ?? '—', stage: y.stage ?? '' })
-      .replace(/, đi trong đại vận ?:/, ':'), 'tinh_toan', ['ZZ p.20'], [], { step });
-    cachSide(xs, y, key, who, step, y.year);
+    const yv = { year: String(y.year), pillar: y.pillar, luck: y.luck ?? '', stem, branch, god: y.ten_god, bgod: y.branch_god ?? '—', stage: y.stage ?? '' };
+    // REVIEW-19 W6: the year and its gods joined to its cách verdict, without the reasons the đại vận chapter already gave for the same groups,
+    // and the cách condition at the first year only
+    if (F.year_head2?.length && y.branch_god) {
+      cachSide(xs, y, key, who, step, y.year, { head: fill(m.pick(`bd|yh|${key}`, F.year_head2), yv).replace(/\.$/, ''), cond: !yCondSaid, why: false });
+      yCondSaid = true;
+    } else {
+      say(xs, fill(m.pick(`bd|yh|${key}`, F.year_head), yv).replace(/, đi trong đại vận ?:/, ':'), 'tinh_toan', ['ZZ p.20'], [], { step });
+      cachSide(xs, y, key, who, step, y.year);
+    }
     climateSide(xs, y, rc, key, who, 'năm', step);
     // Đọc sâu: which half of its luck pillar the year falls in (TVH p.382), what it does to the useful god, the relations
     const lh = y.luck_half;
@@ -714,17 +775,24 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       const [ls, lb] = y.luck.split(' ');
       const ks = (part: string) => [...new Set(vl.filter(e => e.part === part).map(e => Dd.vs_luck_kind?.[e.kind]).filter(Boolean) as string[])];
       const parts = [ks('stem').length ? `can ${stem} ${join(ks('stem'))} can ${ls} của vận` : '', ks('branch').length ? `chi ${branch} ${join(ks('branch'))} chi ${lb} của vận` : ''].filter(Boolean);
-      say(xs, parts.length ? fill(m.pick(`bd|vsl|${key}`, Dd.vs_luck), { luck: y.luck, year: String(y.year), list: join(parts) }) : fill(m.pick(`bd|vsl0|${key}`, Dd.vs_luck_none ?? []), { luck: y.luck, year: String(y.year) }),
+      // (REVIEW-19 W6) positions only (the tables print no meaning): in Đọc sâu
+      say(!F.rc_dom ? xs : ds, parts.length ? fill(m.pick(`bd|vsl|${key}`, Dd.vs_luck), { luck: y.luck, year: String(y.year), list: join(parts) }) : fill(m.pick(`bd|vsl0|${key}`, Dd.vs_luck_none ?? []), { luck: y.luck, year: String(y.year) }),
         'tinh_toan', ['ZZ pp.19-20'], [], { step, note: 'Quan hệ giữa năm và chính đại vận của nó tra theo bảng hợp, xung, hình, hại, phá của Bát Tự Chân Tông (tr.19-20); trang này chỉ in bảng, không in ý nghĩa, nên văn chỉ nêu vị trí.' });
     }
     let neg = false;
     for (const f of y.findings) if (F.verified_text[f.rule_id]) { neg ||= f.rule_id.endsWith('NHUOC'); say(xs, fill(F.verified_text[f.rule_id], { year: String(y.year), stem, branch }), 'sach', ['TTT'], [cite(f.rule_id, f.text, ['TTT'])], { tone: f.rule_id.endsWith('NHUOC') ? 'neg' : 'pos', step, note: 'Trích Thiên Tủy, Tuế Vận (tr.229-233).' }); }
     // việc, tiền, người in the year (八字真宗 pp.50-65, prose/bazi_kin.ts): the year's two gods as the manual reads them, and its 流年 judgements
     const kv = classOf(rc), kn = kinYear(y as BaziTemporal & { year: number; kin?: KinYear }, m, kinF, rules, { gender: kinGender, dm, strong, stem, branch,
-      good: !neg && (kv === 'thuan' || kv === 'kha_thuan'), childStars: kinD?.children.stars ?? [], years: (D.years ?? []) as Array<{ year: number; kin?: KinYear }> });
-    xs.push(...kn.short); ds.push(...kn.deep);
+      good: !neg && (kv === 'thuan' || kv === 'kha_thuan'), childStars: kinD?.children.stars ?? [], years: (D.years ?? []) as Array<{ year: number; kin?: KinYear }>, merge: !!F.rc_dom });
+    xs.push(...kn.short);
+    // REVIEW-19 W6: the year's first 流年 judgement (八字真宗 pp.64-65) comes up into the short reading, the others stay in Đọc sâu
+    const up = F.rc_dom ? kn.deep.findIndex(x => x.trace.basis === 'sach' && !!x.trace.tone) : -1;
+    if (up >= 0) xs.push(...kn.deep.splice(up, 1));
+    ds.push(...kn.deep);
     // a year the thiên khắc địa xung rule calls a great ill is told so, with what to do, whatever the tables say
-    verdictOf(xs, y, neg && rc.verdict !== 'nang' ? { ...rc, verdict: 'nang', support: [] } : rc, key, who, { year: true });
+    const rcY = neg && rc.verdict !== 'nang' ? { ...rc, verdict: 'nang' as const, support: [] } : rc;
+    verdictOf(xs, y, rcY, key, who, { year: true, dom: kn.link, ds });
+    yearV.push({ year: y.year, pillar: y.pillar, verdict: classOf(rcY) });
     para('luu-nien', xs);
     para('luu-nien', ds, 'support', deep(`năm ${y.year}`));
   }
@@ -737,6 +805,24 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       say(xs, fill(m.pick('bd|tkd', Dd.tk_diag), { dm, level: levelVi, dom: CT!.dominant, yong: Y1, heat }), 'he_thong', [], [], { step: 'closing:bat_tu' });
     } else if (Dd && CT?.special && Y?.kind === 'special') say(xs, fill(m.pick('bd|tkds', Dd.tk_diag_special), { dm, name: CT.special.replace(/\s*\(TVH\)$/, ''), yong: `hành ${Y.el} (${Y.group})` }), 'he_thong', [], [], { step: 'closing:bat_tu' });
     else say(xs, fill(m.pick('bd|tk', F.tk_open), { dm, level: levelVi, mb, need: needEl }).replace(/, lá số cần \./, '.').replace(/; hành cần bổ là \./, '.'), 'he_thong', [], [], { step: 'closing:bat_tu' });
+    // REVIEW-19 W6: by priority after the diagnosis: the pillar being walked and the year asked, money (the weighing), work, the turning point,
+    // then the timeline and what to lean on
+    const yongW = Y1 ? `nhóm ${Y1}` : 'chỗ dựa';
+    const now = told.find(x => x.cur), y0 = yearV[0];
+    if (now && Dd?.tk_now?.length && Dd.tk_word) say(xs, fill(m.pick('bd|tkn', Dd.tk_now), { pillar: now.name, age: String(Math.round(now.age)), verdict: fill(Dd.tk_word[now.verdict] ?? '', { yong: yongW }),
+      year: y0 ? String(y0.year) : '', ypillar: y0?.pillar ?? '', yverdict: y0 ? fill(Dd.tk_word[y0.verdict] ?? '', { yong: yongW }) : '' }).replace(/; năm  \(\) \./, '.'), 'he_thong', [], [],
+      { step: 'closing:now', verdicts: [[now.name, now.verdict]], ...(cachPartial ? { conditional: 'cach_partial' } : {}) } as Partial<SentenceTrace>);
+    const wg = extra.weigh;
+    if (wg && Dd?.tk_money) say(xs, fill(m.pick('bd|tkm', Dd.tk_money[wg.side]), { heavy: wg.heavy, light: wg.light, why: wg.why }), 'tong_hop', [], [], { step: 'closing:money', tone: 'answer',
+      note: 'Nhắc lại phép cân ở chương Sự nghiệp & tài lộc (thang cân của hệ thống, nhãn tổng hợp).' });
+    if (extra.work && Dd?.tk_work?.length) say(xs, fill(m.pick('bd|tkw', Dd.tk_work), { work: extra.work }), 'he_thong', [], [], { step: 'closing:work' });
+    if (Dd && told.length > 1 && Dd.tk_turn?.length) {
+      const good = (v: VerdictClass) => v === 'thuan' || v === 'kha_thuan';
+      const yi = Y1 ? told.findIndex(x => x.stemGroup === Y1) : -1;
+      const gi = told.findIndex(x => good(x.verdict));
+      const [i, what] = yi > 0 ? [yi, good(told[yi].verdict) && told[yi].verdict === 'thuan' ? 'both' : 'yong_stem'] : gi > 0 ? [gi, told[gi].verdict === 'thuan' ? 'both' : 'first_good'] : [-1, ''];
+      if (i > 0) say(xs, fill(m.pick('bd|tkt', Dd.tk_turn), { pillar: told[i].name, age: String(Math.round(told[i].age)), what: Dd.tk_turn_what[what] }), 'he_thong', [], [], { step: 'closing:bat_tu' });
+    }
     const cuts = [0, 30, 60, 200], ORDER: VerdictClass[] = ['thuan', 'kha_thuan', 'co_dieu_kien', 'tron', 'nang', 'trung'];
     F.tk_phase_name.forEach((ph, i) => {
       const xsP = told.filter(x => x.age >= cuts[i] - 0.5 && x.age < cuts[i + 1] - 0.5);
@@ -747,14 +833,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       const tone = xsP.every(x => x.verdict === 'nang') ? 'neg' : xsP.every(x => x.verdict === 'thuan' || x.verdict === 'kha_thuan') ? 'pos' : undefined;
       say(xs, fill(m.pick(`bd|tkp${i}`, F.tk_phase), { phase: ph, list }), 'he_thong', [], [], { step: 'closing:bat_tu', tone, verdicts: xsP.map(x => [x.name, x.verdict]) } as Partial<SentenceTrace>);
     });
-    // the turning point: the first luck pillar whose stem brings the useful god after none did, else the first one called good after others
-    if (Dd && told.length > 1) {
-      const good = (v: VerdictClass) => v === 'thuan' || v === 'kha_thuan';
-      const yi = Y1 ? told.findIndex(x => x.stemGroup === Y1) : -1;
-      const gi = told.findIndex(x => good(x.verdict));
-      const [i, what] = yi > 0 ? [yi, good(told[yi].verdict) && told[yi].verdict === 'thuan' ? 'both' : 'yong_stem'] : gi > 0 ? [gi, told[gi].verdict === 'thuan' ? 'both' : 'first_good'] : [-1, ''];
-      if (i > 0) say(xs, fill(m.pick('bd|tkt', Dd.tk_turn), { pillar: told[i].name, age: String(Math.round(told[i].age)), what: Dd.tk_turn_what[what] }), 'he_thong', [], [], { step: 'closing:bat_tu' });
-    }
+    // (the turning point is told above, before the timeline)
     if (cachPartial && Dd?.tk_cond?.length) say(xs, fill(m.pick('bd|tkc', Dd.tk_cond), { cach: CT!.cach! }), 'he_thong', [], [], { step: 'closing:bat_tu', conditional: 'cach_partial' } as Partial<SentenceTrace>);
     const dhOk = table.filter(x => { const g = dh.stems.find(s => s.stem === x)?.ten_god; return !g || !xauG.includes(GROUP_OF[g]); });
     const good = [...totG.map(x => `nhóm ${x}`), ...(dhOk.length ? [`can ${join(dhOk)}`] : [])];
@@ -762,6 +841,8 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       .replace(/, còn  là những nhóm nên giữ sức/, '').replace(/, chỗ nên giữ sức là ;/, ';'), 'he_thong', [], [], { step: 'closing:bat_tu', tone: 'answer' });
     para('tong-ket', xs, 'course');
   }
+  // sentences joined into a paragraph after it was made (the groups' degrees into the Số liệu fold): its text follows its sentences
+  for (const ps of Object.values(out)) for (const p of ps ?? []) p.text = p.sentences.map(x => x.text).join(' ');
   return out;
 }
 

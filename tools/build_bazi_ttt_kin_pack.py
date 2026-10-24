@@ -170,6 +170,8 @@ SAY = {
 SRC = {"id": "SRC_TTT_P2_KIN", "title": "Trích Thiên Tủy — Phần II: Phu Thê, Phụ Mẫu, Huynh Đệ, Hà Tri, Địa Vị", "author": "Lưu Bá Ôn / Nhậm Thiết Tiều",
        "locator": "PDF pp.128-141, 224 (text layer in data/bazi_deep/mined/)", "verified": True, "edition": None,
        "note": "Đọc trực tiếp lớp chữ của bản PDF (Claude, 2026-10-23); mỗi luật giữ câu in nguyên văn trong quotes_ttt_kin.json, test đối chiếu với trang đã chép."}
+# the judgements that name a Ten-God combination (REVIEW-19 W6): told with that combination when kin._patterns finds it
+PT_TAG = {"BAN5": "tai_pha_an", "QUY6": "tai_pha_an", "TIEN4": "tai_pha_an", "QUY5": "ti_kiep_doat_tai", "BAN3": "ti_kiep_doat_tai"}
 rules, meta = [], {}
 for r in R:
     rules.append({"id": r["id"], "system": "bat_tu", "schoolId": "ttt_nham_thi", "category": f"ttt_kin_{r['topic']}",
@@ -177,7 +179,7 @@ for r in R:
                   "consequences": [{"kind": "finding", "claim": r["id"].lower(), "effect": {"pos": "support", "neg": "limit"}.get(r["tone"], "neutral"), "scope": "natal"}],
                   "exceptions": [], "conflictsWith": [], "priority": 3, "sourceIds": [SRC["id"]], "reviewStatus": "verified", "version": "0.1.0", "subject": "chart"})
     short = r["id"].removeprefix("BT_TTTK_")
-    meta[r["id"]] = {k: r[k] for k in ("page", "quote", "topic", "tone", "effect", "cause")} | {"book": "ttt"} | ({"say": SAY[short]} if short in SAY else {}) | ({"note": r["note"]} if r["note"] else {}) | ({"hi": True} if r["hi"] else {})
+    meta[r["id"]] = {k: r[k] for k in ("page", "quote", "topic", "tone", "effect", "cause")} | {"book": "ttt"} | ({"pt": PT_TAG[short]} if short in PT_TAG else {}) | ({"say": SAY[short]} if short in SAY else {}) | ({"note": r["note"]} if r["note"] else {}) | ({"hi": True} if r["hi"] else {})
 assert len({r["id"] for r in rules}) == len(rules)
 (D / "pack_ttt_kin.json").write_text(json.dumps({"sources": [SRC], "rules": rules}, ensure_ascii=False, indent=1) + "\n", "utf-8")
 (D / "quotes_ttt_kin.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1) + "\n", "utf-8")

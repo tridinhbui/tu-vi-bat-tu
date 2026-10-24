@@ -235,7 +235,7 @@ SAY = {
     "W16": "Chính Tài ({ct}) và Thiên Tài ({tt}) đều lộ can và có gốc", "W19": "Tài nằm ở {tmm_tai}", "W21": "chữ Tài ở {tai_void} rơi vào không vong",
     "O03A": "Quan lộ ở {qtrans}, có gốc và chảy vào nhật chủ ({qchain})", "O03B": "Quan lộ ở {qtrans}, có gốc nhưng chưa chảy vào nhật chủ",
     "O04A": "Quan lộ ở {qtrans} không có gốc, nhưng chảy được vào nhật chủ ({qchain})", "O04B": "Quan lộ ở {qtrans} không có gốc, lại không chảy vào nhật chủ",
-    "O05A": "Quan Sát vượng ({qs_pct}% số độ) và chảy vào nhật chủ ({qchain})", "O05B": "Quan Sát vượng ({qs_pct}% số độ) nhưng không chảy vào nhật chủ",
+    "O05A": "Quan Sát vượng và chảy vào nhật chủ ({qchain})", "O05B": "Quan Sát vượng nhưng không chảy vào nhật chủ",
     "R05": "Quan Sát vượng, lộ ở {qtrans} mà không chảy vào nhật chủ", "R06": "Quan lộ ở {qtrans} mà không có gốc, dù chảy được vào nhật chủ",
     "R08": "Quan Sát ở {qnear} đứng sát nhật chủ mà không qua Ấn",
     "R03": "Quan Sát và Ấn nối nhau ({qchain}), Ấn đứng sát nhật chủ, khí thông một mạch", "R04": "Chính Quan và Thất Sát đều lộ can, có gốc và chảy vào nhật chủ ({qchain})", "P03": "{war} mà không có Quan Sát thông khí", "P04": "{war}, có Quan Sát thông khí",

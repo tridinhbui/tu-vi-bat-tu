@@ -595,34 +595,6 @@
    "subject": "chart"
   },
   {
-   "id": "BT_TVHK_Q03",
-   "system": "bat_tu",
-   "schoolId": "tvh_tu_tru",
-   "category": "tvh_kin_rank",
-   "description": "Thiệu Vĩ Hoa p.535: Thực thần chế ngự sát là anh hùng — có bản lĩnh trội hơn người (Thực Thần đứng sát chế Thất Sát)",
-   "conditions": {
-    "fact": "bazi.k.thuc_che_sat",
-    "value": true
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "bt_tvhk_q03",
-     "effect": "support",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TVH_KIN"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "chart"
-  },
-  {
    "id": "BT_TVHK_Q04",
    "system": "bat_tu",
    "schoolId": "tvh_tu_tru",
@@ -2074,6 +2046,1486 @@
      "kind": "finding",
      "claim": "bt_tvhk_c03",
      "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TCS1",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.535: Thực thần chế ngự sát là anh hùng áp đảo hàng vạn người — có bản lĩnh trội hơn người, đứng ra gánh việc được (Thực Thần đứng sát chế Thất Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "thuc_che_sat"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.pt_pha",
+       "operator": "contains",
+       "value": "thuc_che_sat"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tcs1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TCS2",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.533: Thực thần chế ngự sát thì vợ vinh hiển, con hiển đạt — vợ con được nhờ, hiển đạt (Thực Thần đứng sát chế Thất Sát)",
+   "conditions": {
+    "all": [
+     {
+      "all": [
+       {
+        "fact": "bazi.k.pt",
+        "operator": "contains",
+        "value": "thuc_che_sat"
+       },
+       {
+        "not": {
+         "fact": "bazi.k.pt_pha",
+         "operator": "contains",
+         "value": "thuc_che_sat"
+        }
+       }
+      ]
+     },
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tcs2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TCS3",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_work",
+   "description": "Thiệu Vĩ Hoa p.533: trong trụ không có kiêu thần là bậc quan quản việc giáo dục trong triều — hợp việc quản lý, nhất là ngành giáo dục (Thực Thần đứng sát chế Thất Sát, lá số không có Thiên Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "thuc_che_sat"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.gods",
+       "operator": "contains",
+       "value": "Thiên Ấn"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tcs3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TCS4",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_work",
+   "description": "Thiệu Vĩ Hoa p.535: Sát có chế ngự mà không gặp kiêu, nếu không nắm quyền sinh sát thì cũng giữ chức tòa án binh — hợp việc cần quyền quyết và kỷ luật (tư pháp, quân đội) (Thất Sát được Thực Thần đứng sát chế, lá số không có Thiên Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "thuc_che_sat"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.gods",
+       "operator": "contains",
+       "value": "Thiên Ấn"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tcs4",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_SAT1",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.551: Sát ấn tương sinh cho nhau thì có lợi cho công danh — có lợi cho công danh (Thất Sát sinh Ấn, chữ Ấn đứng sát nhật chủ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "sat_an_tuong_sinh"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.pt_pha",
+       "operator": "contains",
+       "value": "sat_an_tuong_sinh"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_sat1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_SAT2",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.547: Sát ấn đều có là văn, võ song toàn — văn võ song toàn: làm được cả việc chữ nghĩa lẫn việc cần quyết đoán (tứ trụ có cả Thất Sát lẫn Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_sat2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TST1",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.521: Thương quan sinh tài thì sẽ tự nhiên giàu có — tự nhiên giàu có (Thương Quan đứng sát sinh Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "thuong_sinh_tai"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.pt_pha",
+       "operator": "contains",
+       "value": "thuong_sinh_tai"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tst1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TST2",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.522: Trong Tứ trụ thương quan sinh ra tài thì nguồn của dồi dào — của cải đến dồi dào (Thương Quan đứng sát sinh Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "thuong_sinh_tai"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.pt_pha",
+       "operator": "contains",
+       "value": "thuong_sinh_tai"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tst2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TST3",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.535: Thương quan gặp tài là chức cao mà của nhiều — chức cao mà của nhiều (lá số có Thương Quan gặp Tài, không có Chính Quan)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thương Quan"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.gods",
+       "operator": "contains",
+       "value": "Chính Quan"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tst3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TSS1",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.525: Thương quan thực thần mừng được sinh tài, thì phú quý do trời sắp sặt — phú quý tự đến (Thực Thần đứng sát sinh Tài)",
+   "conditions": {
+    "all": [
+     {
+      "all": [
+       {
+        "fact": "bazi.k.pt",
+        "operator": "contains",
+        "value": "thuc_sinh_tai"
+       },
+       {
+        "not": {
+         "fact": "bazi.k.pt_pha",
+         "operator": "contains",
+         "value": "thuc_sinh_tai"
+        }
+       }
+      ]
+     },
+     {
+      "not": {
+       "fact": "bazi.k.vuong",
+       "operator": "contains",
+       "value": "Tai"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tss1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TSS2",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.521: Thực thần gặp tài, nhưng tài nhiều thì không sang mà chỉ là trọc phú — giàu mà không sang (Thực Thần đứng sát sinh Tài mà Tài nhiều)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "thuc_sinh_tai"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tss2",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TQ1",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.165: Thân vượng, tài quan tương sinh là phú quý song toàn — phú quý song toàn (nhật chủ vượng, Tài đứng sát sinh Chính Quan)",
+   "conditions": {
+    "all": [
+     {
+      "all": [
+       {
+        "fact": "bazi.k.pt",
+        "operator": "contains",
+        "value": "tai_quan_song_my"
+       },
+       {
+        "not": {
+         "fact": "bazi.k.pt_pha",
+         "operator": "contains",
+         "value": "tai_quan_song_my"
+        }
+       }
+      ]
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tq1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_HSQ",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.533: Quan tinh xen kẽ với thất sát, nếu hợp với thất sát là quý — được quý: đường danh, chức sáng (Chính Quan và Thất Sát cùng có, Thất Sát bị hợp đi)",
+   "conditions": {
+    "fact": "bazi.k.pt",
+    "operator": "contains",
+    "value": "hop_sat_luu_quan"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_hsq",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_HQS",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.533: nếu hợp mất quan tinh thì không tốt — đường chức vụ không tốt (Chính Quan và Thất Sát cùng có, Chính Quan bị hợp đi)",
+   "conditions": {
+    "fact": "bazi.k.pt",
+    "operator": "contains",
+    "value": "hop_quan_luu_sat"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_hqs",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TPA1",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.166: Tài là kị thần vượng, dụng thần là ấn. Tài phá ấn nên nghèo — dễ túng thiếu (Tài nhiều đứng sát phá Ấn, mà Ấn là dụng thần)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "tai_pha_an"
+     },
+     {
+      "fact": "bazi.k.yong",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.pt_cuu",
+       "operator": "contains",
+       "value": "tai_pha_an"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tpa1",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TKQ",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.541: Trong trụ thương quan gặp quan là vừa không có quan vừa không có của — khó giữ chức mà cũng khó giữ của (Thương Quan đứng sát khắc Chính Quan)",
+   "conditions": {
+    "fact": "bazi.k.pt",
+    "operator": "contains",
+    "value": "thuong_kien_quan"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tkq",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TKD1",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.166: Thân vượng, tài yếu lại không có nguồn, huynh đệ tỉ kiếp chia nhau cướp đoạt nên mất tài — dễ hao tiền vì người khác chia phần (nhật chủ vượng, Tài yếu, Thực Thương không lộ can, có Tỉ Kiếp)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "ti_kiep_doat_tai"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.trans",
+       "operator": "contains",
+       "value": "ThucThuong"
+      }
+     },
+     {
+      "not": {
+       "fact": "bazi.k.pt_cuu",
+       "operator": "contains",
+       "value": "ti_kiep_doat_tai"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tkd1",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_PT_TKD2",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.167: Kiếp nặng tài nhẹ, quan có thể khắc kiếp. Thân vượng kiếp tài quan có thể bảo hộ tài, tài nhẹ cho nên sang nhiều hơn giàu — sang nhiều hơn giàu: danh, chức dễ đến hơn tiền (nhật chủ vượng, Tỉ Kiếp nặng, Tài nhẹ mà có Quan Sát giữ Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.pt",
+      "operator": "contains",
+      "value": "ti_kiep_doat_tai"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Ti"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "QuanSat"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_pt_tkd2",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G01",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_character",
+   "description": "Thiệu Vĩ Hoa p.520: Tài lộ rõ là người hào phóng khảng khái — là người hào phóng, khảng khái (Tài lộ trên thiên can)",
+   "conditions": {
+    "fact": "bazi.k.trans",
+    "operator": "contains",
+    "value": "Tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g01",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G02",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.520: Tài nhiều, thân nhược cần có ấn thụ để hỗ trợ thân — cần có Ấn đỡ thân thì mới giữ được Tài (Tài nhiều mà nhật chủ nhược)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g02",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G03",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.521: thân suy không thắng tài là người vất vả — dễ vất vả vì tiền (Tài nhiều mà nhật chủ nhược, không có Tỉ Kiếp đỡ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "not": {
+       "fact": "bazi.k.present",
+       "operator": "contains",
+       "value": "Ti"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g03",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G04",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.522: Chính tài là của ít — của cải đến đều nhưng không lớn (Tài trong lá số chỉ là Chính Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Chính Tài"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.gods",
+       "operator": "contains",
+       "value": "Thiên Tài"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g04",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G05",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.522: thiên tài là của nhiều — của cải có thể lớn (Tài trong lá số chỉ là Thiên Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thiên Tài"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.gods",
+       "operator": "contains",
+       "value": "Chính Tài"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g05",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G06",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.522: Thực thần gặp ấn là tiền của ngày một nhiều — tiền của ngày một nhiều (lá số có Thực Thần gặp Chính Ấn, không có Thiên Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thực Thần"
+     },
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Chính Ấn"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.gods",
+       "operator": "contains",
+       "value": "Thiên Ấn"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g06",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G07",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.522: Quan hưu tù, ấn vượng là được nhiều tiền của — được nhiều tiền của (Quan Sát yếu, Ấn vượng, nhật chủ nhược)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.nhuoc",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "An"
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g07",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G08",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.522: Thân mạnh, tài vượng thì có lợi cho thanh danh — có lợi cho thanh danh (nhật chủ vượng mà Tài cũng vượng)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": true
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g08",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G09",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_work",
+   "description": "Thiệu Vĩ Hoa p.530: Trong mệnh không có tài thì không nên làm gắng — không nên gắng theo đường buôn bán (tứ trụ không có Tài)",
+   "conditions": {
+    "fact": "bazi.k.absent",
+    "operator": "contains",
+    "value": "Tai"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g09",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G10",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.541: Trong trụ không có quan tinh thì khó mà làm quan — khó đi đường chức vụ (tứ trụ không có Quan Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.absent",
+       "operator": "contains",
+       "value": "Tai"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g10",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G11",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.541: Vừa không có quan tinh lại không có tài tinh thì không thể làm quan — đường chức vụ khó thành (tứ trụ không có cả Quan Sát lẫn Tài)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "Tai"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g11",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G12",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.541: Người mà thương quan nhiều thì khó mà làm quan, nếu có thì chức nhỏ — khó theo đường chức vụ, nếu có thì chức nhỏ (Thực Thương nhiều, có Thương Quan)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thương Quan"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "ThucThuong"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g12",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G13",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.541: Có quan mà không có ấn thì chỉ là tạm thời — chức vụ dễ chỉ là tạm thời (có Quan Sát mà không có Ấn)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g13",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G14",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_rank",
+   "description": "Thiệu Vĩ Hoa p.542: Ngày nhược gặp quan tinh thì thành đạt không lâu — thành đạt khó lâu bền (nhật chủ nhược mà có Quan Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "QuanSat"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g14",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G15",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_character",
+   "description": "Thiệu Vĩ Hoa p.548: Ấn thụ nhiều là người thông minh — là người thông minh (Ấn nhiều)",
+   "conditions": {
+    "fact": "bazi.k.vuong",
+    "operator": "contains",
+    "value": "An"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g15",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G16",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_character",
+   "description": "Thiệu Vĩ Hoa p.554: Có thương quan mà không có tài quan thì tuy thông minh khéo léo nhưng vẫn không thành đạt gì — thông minh khéo léo nhưng khó thành đạt (có Thương Quan mà không có Tài và Quan Sát)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thương Quan"
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.absent",
+      "operator": "contains",
+      "value": "QuanSat"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g16",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G17",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_character",
+   "description": "Thiệu Vĩ Hoa p.547: Tài quan thực đều có thì thông minh tuấn tú, văn chương xuất chúng — thông minh, giỏi chữ nghĩa (có đủ Tài, Quan Sát và Thực Thần)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "QuanSat"
+     },
+     {
+      "fact": "bazi.k.gods",
+      "operator": "contains",
+      "value": "Thực Thần"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g17",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G18",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_wealth",
+   "description": "Thiệu Vĩ Hoa p.166: Thân nhược tài nặng lại gặp thực thương nặng, thực thương sẽ xì hơi thân, sinh tài, làm cho thân không gánh được tài nên nghèo — dễ túng thiếu vì thân không gánh nổi Tài (nhật chủ nhược, Tài nặng, Thực Thương cũng nặng, không có Tỉ Kiếp đỡ)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "ThucThuong"
+     },
+     {
+      "not": {
+       "fact": "bazi.k.present",
+       "operator": "contains",
+       "value": "Ti"
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g18",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_TVH_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_TVHK_G19",
+   "system": "bat_tu",
+   "schoolId": "tvh_tu_tru",
+   "category": "tvh_kin_marriage",
+   "description": "Thiệu Vĩ Hoa p.521: Tài nhiều lại dựa vào ấn thụ để hộ thân là người có vợ hiền, con đẹp, cuối đời hạnh phúc — gia đạo êm ấm, cuối đời yên vui (Tài nhiều, nhật chủ nhược mà có Ấn hộ thân)",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.vuong",
+      "operator": "contains",
+      "value": "Tai"
+     },
+     {
+      "fact": "bazi.k.dm_strong",
+      "value": false
+     },
+     {
+      "fact": "bazi.k.present",
+      "operator": "contains",
+      "value": "An"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_tvhk_g19",
+     "effect": "support",
      "scope": "natal"
     }
    ],
