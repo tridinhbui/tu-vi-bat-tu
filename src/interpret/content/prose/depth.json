@@ -182,5 +182,35 @@
  "claim_reduced": [
   "{Ground} vốn cho thấy {claim}, nhưng ở lá số này điều ấy không còn trọn, như đã nói",
   "Riêng {ground} vốn cho thấy {claim}; điều ấy đã bị giới hạn như nói ở trên"
+ ],
+ "chehoa": {
+  "giam": [
+   "{holder} {where} gặp {tamed} ở cung {pal}: {text}",
+   "Ở cung {pal}, {tamed} gặp {holder} {where}, mà {text}"
+  ],
+  "che": [
+   "{holder} {where} che cho {tamed} ở cung {pal}: {text}",
+   "Ở cung {pal}, {tamed} có {holder} {where} che chở, vì {text}"
+  ],
+  "hoa_giai": [
+   "{holder} {where} hóa giải phần nào cho {tamed} ở cung {pal}: {text}",
+   "Ở cung {pal}, {tamed} được {holder} {where} gỡ bớt, vì {text}"
+  ],
+  "dao_nguoc": [
+   "{holder} {where} làm {tamed} ở cung {pal} không đọc như thường: {text}",
+   "Ở cung {pal}, {tamed} gặp {holder} {where} thì đổi chiều: {text}"
+  ],
+  "tang": [
+   "{holder} {where} làm {tamed} ở cung {pal} mạnh thêm: {text}",
+   "Ở cung {pal}, {tamed} gặp {holder} {where} thì thêm sức: {text}"
+  ],
+  "all": [
+   "Ở cung {pal} có {holder} {where}, mà {text}",
+   "Cung {pal} có {holder} {where}; {text}"
+  ]
+ },
+ "layout": [
+  "Xét thế đứng của cả mười bốn chính tinh, Tử Vi ở {branch} ({where}): {text}",
+  "Theo vị trí của Tử Vi ở {branch}, cả bàn chính tinh xếp thành thế này: {text}"
  ]
 }

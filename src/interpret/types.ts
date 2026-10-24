@@ -9,6 +9,9 @@ export type Expr =
   | { fact: string; operator?: string; value: unknown }
   | { ref: { palace: string; fact: string }; operator?: string; value: unknown };
 
+/** One point where the books part ways: each side's statement and cite (DEEP-3 schools.json). */
+export interface SchoolTopic { id: string; topic: string; kind: string; sides: Array<{ school: string; statement: string; cite: string; book?: string }> }
+
 export interface Source { id: string; title: string; author: string | null; locator: string | null; verified: boolean }
 
 export interface Rule {
@@ -110,6 +113,11 @@ export interface Knowledge {
     domains?: import('./reason/ledger.ts').DomainsFile;
     /** Khảo Luận's statements of what each star stands for, and palace relations (engine/data/kg/star_nature.json, reason/depth.ts) */
     starNature?: import('./reason/depth.ts').StarNatureFile;
+    /** chế hóa relations (engine/data/kg/che_hoa.json, KL pp.55-206, DEEP-3) and the thế đứng layouts (kg/combos.json, KL pp.166-186) */
+    cheHoa?: { relations: import('./reason/depth.ts').CheHoa[] };
+    /** where the books part ways (engine/data/kg/schools.json Tử Vi, engine/data/bazi_deep/schools.json Bát Tự; DEEP-3) */
+    schools?: { topics: SchoolTopic[] }; baziSchools?: { topics: SchoolTopic[] };
+    combos?: { layouts: Array<{ id: string; tu_vi_branch: string[]; name: string; reading: string; pol: string; sources: Array<{ book: string; page: number }> }> };
     /** reader words for verified rules whose stored reading the prose cannot voice as is (engine/data/kg/rule_voice.json) */
     ruleVoice?: Record<string, string> };
   prose?: import('./prose/types.ts').ProseLibrary;

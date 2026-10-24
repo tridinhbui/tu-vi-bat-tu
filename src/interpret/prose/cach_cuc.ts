@@ -19,6 +19,8 @@ export interface CachCucLib {
   reach_lowered?: string[]; reach_palace_lowered?: string[];
   /** the page-checked breaker the chart itself holds ({present}) beside the book's condition ({broken}) */
   f_broken_present?: string[];
+  /** a told cách the books define differently (DEEP-3) */
+  school_head?: string[]; school_side?: string[];
   /** the page-checked cách (formations_verified.json): head, state by the evaluator's verdict, a refutation, the degree by state */
   f_head?: string[]; f_state?: Record<string, string[]>; f_refute?: string[]; f_degree?: Record<string, string>;
 }
@@ -119,6 +121,19 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
       say(xs, cap(state), `cach:${x.l.ruleId}:state`, 'he_thong', [x.l.ruleId], [], note);
       say(xs, reach, `cach:${x.l.ruleId}:reach`, 'he_thong', [x.l.ruleId], [], note);
       paragraphs.push({ role: 'support', sentences: xs, text: '', title: cap(x.name) } as ProseParagraph);
+    }
+    // where the books define a told cách differently (kg/schools.json kind 'cach', DEEP-3): each book's definition, in the Đọc sâu fold
+    const norm = (x: string) => x.toLocaleLowerCase('vi').replace(/^cách\s+/, '').replace(/\s+(ở|tại)\s+.*$/, '').trim();
+    const told = [...verified.map(x => ({ id: x.r.id, name: x.r.name })), ...found.map(x => ({ id: x.l.ruleId, name: x.name }))];
+    const SCH: Record<string, string> = { KL: 'Khảo Luận', TH: 'Thực Hành', TT: 'Toàn Thư', ZWDS_HAN: 'bản Hán văn', TVNL: 'Nghiệm Lý' };
+    for (const t of (k.kg?.schools?.topics ?? []).filter(t => t.kind === 'cach')) {
+      const head = norm(t.topic.split(':')[0]), hit = told.find(x => norm(x.name) === head || norm(x.name).startsWith(head));
+      const SH = L!.school_head, SS = L!.school_side;
+      if (!hit || !SH || !SS) continue;
+      const xs: ProseSentence[] = [];
+      say(xs, fill(m.pick(`sch|${t.id}`, SH), { name: t.topic.split(':')[0].trim(), n: String(t.sides.length) }), `cach:school:${t.id}`, 'sach', [hit.id], t.sides.map(s => s.cite));
+      t.sides.forEach((s, i) => say(xs, fill(m.pick(`schs|${t.id}|${i}`, SS), { book: SCH[s.school] ?? s.school, statement: s.statement }), `cach:school:${t.id}:${i}`, 'sach', [hit.id], [s.cite]));
+      paragraphs.push({ role: 'support', sentences: xs, text: '', deep: true, title: 'Các bộ sách định nghĩa khác nhau' } as ProseParagraph);
     }
     // the ranking: page-checked cách by their state, then the named ones by degree
     const all = [...verified.map(x => ({ name: `cách ${x.r.name}`, good: x.state !== 'bi_pha', degree: DEG[x.state] ?? 1 })), ...found.map(x => ({ name: x.name, good: x.good, degree: x.degree }))]

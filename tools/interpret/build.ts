@@ -103,6 +103,11 @@ const knowledge = {
         domains: existsSync(join(DATA, 'kg', 'domains.json')) ? read(join(DATA, 'kg', 'domains.json')) : undefined,
         // what Khảo Luận says each star stands for and how palaces bear on one another, page-checked (plan DEEP-TUVI, reason/depth.ts)
         starNature: existsSync(join(DATA, 'kg', 'star_nature.json')) ? (({ note: _n, ...v }) => v)(read(join(DATA, 'kg', 'star_nature.json'))) : undefined,
+        // DEEP-3: chế hóa relations and the thế đứng layouts, verified only (reason/depth.ts cheHoaUnits, layout)
+        cheHoa: existsSync(join(DATA, 'kg', 'che_hoa.json')) ? { relations: read(join(DATA, 'kg', 'che_hoa.json')).relations.filter((r: { reviewStatus: string }) => r.reviewStatus === 'verified') } : undefined,
+        schools: existsSync(join(DATA, 'kg', 'schools.json')) ? { topics: read(join(DATA, 'kg', 'schools.json')).topics } : undefined,
+        baziSchools: existsSync(join(DATA, 'bazi_deep', 'schools.json')) ? { topics: read(join(DATA, 'bazi_deep', 'schools.json')).topics } : undefined,
+        combos: existsSync(join(DATA, 'kg', 'combos.json')) ? { layouts: read(join(DATA, 'kg', 'combos.json')).layouts ?? [] } : undefined,
         // reader words for verified rules whose stored reading cannot be voiced as is (prose/narrative.ts splitReading)
         ruleVoice: existsSync(join(DATA, 'kg', 'rule_voice.json')) ? read(join(DATA, 'kg', 'rule_voice.json')).voice : {} },
   // prose library (prose plan §3): how concepts, chart facts and resolver decisions are voiced in reader prose

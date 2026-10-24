@@ -97,7 +97,7 @@ export interface DepthFrames {
   why: Record<string, string[]>; why_one: string[]; why_two: string[]; why_both?: string[]; group_def?: Record<string, string>; why_and: string; halves: string[]; halves_tail: Record<'first' | 'second', string>;
   touch: string[]; touch_year?: string[]; touch_kind: Record<string, string>; year_half: string[]; year_half_tail: string; tk_diag: string[]; tk_diag_heat: string; tk_diag_special: string[];
   tk_turn: string[]; tk_turn_what: Record<string, string>; special_yong?: string[]; special_pick?: string[]; dom_skip?: string[];
-  cach_status?: string[]; cach_status_near?: string[]; ttt_yong_same?: string[]; ttt_yong_diff?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
+  cach_status?: string[]; cach_status_near?: string[]; dh_school?: string[]; dh_school_sub?: string[]; ttt_yong_same?: string[]; ttt_yong_diff?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
   tai_layers?: Record<'pos' | 'dm' | 'method' | 'method_no_tb' | 'decide', string[]> & { decide_agree?: string[] };
   // REVIEW-19 W6: the strength in words (numbers in the Số liệu fold), the closing by priority
   str_plain?: string[]; str_plain_near?: string[]; tk_now?: string[]; tk_word?: Record<string, string>; tk_money?: Record<'pos' | 'neg' | 'even', string[]>; tk_work?: string[];
@@ -505,6 +505,21 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
   }
   const part = (xs: ProseSentence[], key: FramePart, d?: boolean) => { if (xs.length) (out['cach-cuc'] ??= []).push({ role: 'support', sentences: xs, text: xs.map(s => s.text).join(' '), part: key, ...(d ? deep() : {}) } as ProseParagraph); };
   part(c1, 'cau_truc'); part(c2, 'ho_tro', !!P); part(c3, 'tuong_tac', !!P); part(c4, 'mau_thuan', !!P); part(c5, 'ket_luan');
+  // DEEP-3: where another điều hậu table (穷通宝鉴, kg baziSchools kind 'dieu_hau') gives this day stem and month other stems than the cell
+  // used above: both named, in the Đọc sâu fold, neither ranked over the other
+  const ZH: Record<string, string> = { 甲: 'Giáp', 乙: 'Ất', 丙: 'Bính', 丁: 'Đinh', 戊: 'Mậu', 己: 'Kỷ', 庚: 'Canh', 辛: 'Tân', 壬: 'Nhâm', 癸: 'Quý',
+    子: 'Tý', 丑: 'Sửu', 寅: 'Dần', 卯: 'Mão', 辰: 'Thìn', 巳: 'Tỵ', 午: 'Ngọ', 未: 'Mùi', 申: 'Thân', 酉: 'Dậu', 戌: 'Tuất', 亥: 'Hợi' };
+  const VI2ZH = Object.fromEntries(Object.entries(ZH).map(([z, v]) => [v, z]));
+  const dhT = dh.verified && Dd?.dh_school ? k.kg?.baziSchools?.topics.find(t => t.id === `dieu_hau_${VI2ZH[dm] ?? ''}${VI2ZH[mb] ?? ''}`) : undefined;
+  const other = dhT?.sides.find(x => x.school === 'CTBG');
+  const otherStems = other ? [...(other.statement.match(/用\s*([甲乙丙丁戊己庚辛壬癸]+)/)?.[1] ?? '')].map(z => ZH[z]).filter(Boolean) : [];
+  if (dhT && other && otherStems.length && table.length && otherStems.join() !== table.join()) {
+    const xs: ProseSentence[] = [];
+    const sub = otherStems.every(x => table.includes(x)) && Dd!.dh_school_sub?.length;
+    say(xs, fill(m.pick('bd|dhs', sub ? Dd!.dh_school_sub! : Dd!.dh_school!), { dm, mb, other: join(otherStems), table: join(table) }), 'sach', [other.cite, 'TVH pp.389-396'], [cite(`SCHOOL_${dhT.id}`, `${dhT.topic}: ${other.statement}`, [other.cite])],
+      { step: 'dieu_hau:school', note: 'Ô điều hậu dùng ở trên theo Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa tr.389-396); bảng kia là Cùng Thông Bảo Giám (穷通宝鉴, bản chụp lưu trong engine/data/sources_web). Hai bảng không bảng nào được xếp trên bảng nào.' });
+    (out['cach-cuc'] ??= []).push({ role: 'support', sentences: xs, text: xs.map(x => x.text).join(' '), ...deep('hai bảng điều hậu') } as ProseParagraph);
+  }
 
   // ---- thần sát (八字真宗 pp.21-22): the stars whose printed gloss the data keeps, then the rest by position ----
   const ss = D.shensha ?? [];

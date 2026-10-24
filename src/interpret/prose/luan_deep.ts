@@ -210,6 +210,14 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
         xs.push(S(fill(W.pick(`${key}|tm`, D.tame), { holder: u.star!, where: where(u.where, u.palace!), text: n.text, tamed: joinVi(u.tamed!.split('|')), pal: P }),
           { move: 'TURN', step: `tame:${n.id}`, basis: 'sach', cites: [`${n.book ?? "KL"} p.${n.page}`], concepts: [] }));
         anchored = true;
+      } else if (u.kind === 'chehoa' || u.kind === 'layout') {
+        // chế hóa (kg/che_hoa.json) and the thế đứng of the chính tinh (kg/combos.json layouts), each with its page (DEEP-3)
+        const b = u.book!, F2 = (D as DepthLib & { chehoa?: Record<string, string[]>; layout?: string[] });
+        const tpl = u.kind === 'layout' ? F2.layout : !u.tamed ? F2.chehoa?.all : F2.chehoa?.[b.effect ?? ''] ?? F2.chehoa?.giam;
+        if (!tpl?.length) continue;
+        xs.push(S(fill(W.pick(`${key}|${u.kind}|${b.id}`, tpl), { holder: u.star!, where: where(u.where, u.palace!), tamed: joinVi(u.tamed?.split('|') ?? []), text: b.text, pal: P, branch: chart.palaces.find(p => p.name === u.palace)?.branch ?? '' }),
+          { move: u.kind === 'layout' ? 'ELABORATE' : 'TURN', step: `${u.kind}:${b.id}`, basis: 'sach', cites: [`${b.book} p.${b.page}`], concepts: [] }));
+        anchored = true;
       } else if (u.kind === 'link') {
         if (u.link === 'than' || u.link === 'relation') {
           const r = u.relation!;

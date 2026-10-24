@@ -111,5 +111,14 @@
  "f_broken_present": [
   "Cách bị phá vì {present} ({broken})",
   "Nhưng {present}, nên cách bị phá: {broken}"
+ ],
+ "school_head": [
+  "Cách {name} không được các bộ định nghĩa như nhau",
+  "Về cách {name}, {n} bộ đặt điều kiện khác nhau"
+ ],
+ "school_side": [
+  "{book} lấy: {statement}",
+  "{book} ghi: {statement}",
+  "Ở {book}: {statement}"
  ]
 }
