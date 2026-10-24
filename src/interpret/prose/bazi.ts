@@ -195,7 +195,10 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   const labels = Object.values((k.prose?.bazi as BaziLibrary).topics).map(t => t.label);
   // (2026-10-23) a paragraph's first sentence never opens on a "more of the same" connective ("Thêm nữa, …") once the order put it first
   const unTopic = (t: string) => { t = t.replace(/^(Thêm nữa|Ngoài ra|Cũng vậy|Bên cạnh đó|Hơn nữa),\s*/u, '');
-    const m2 = t.match(/^([^,:]{0,48})[,:]\s+/); return m2 && labels.some(x => m2[1].toLowerCase().includes(x)) ? t.slice(m2[0].length) : t; };
+    const m2 = t.match(/^([^,:]{0,48})[,:]\s+/);
+    // a sentence opening on its own "về …," topic gets the paragraph lead instead (DEEP-3: "Về phần điều hậu, về khí hậu, …")
+    if (m2 && /^(về|riêng về|xét về)\s/iu.test(m2[1])) return t.slice(m2[0].length);
+    return m2 && labels.some(x => m2[1].toLowerCase().includes(x)) ? t.slice(m2[0].length) : t; };
   const lead = (key: string, p: ProseParagraph): ProseParagraph => {
     const l = LU.lead[key]?.length ? m.pick(`btlead|${key}`, LU.lead[key]) : '';
     if (!l || !p.sentences.length) return p;

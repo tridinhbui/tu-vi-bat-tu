@@ -15,6 +15,10 @@ import { evaluateFormations } from '../reason/structures.ts';
 export interface CachCucLib {
   status: string; none: string[]; intro: string[]; named: string[]; good: string[]; bad: string[]; whole: string[]; broken: string[];
   bad_eased: string[]; bad_full: string[]; degree: Record<string, string>; reach: string[]; reach_palace: string[]; rank: string[]; balance: string[];
+  /** reach when breaking (or, for a bad cách, easing) elements lowered the degree: the reason named, not the palace */
+  reach_lowered?: string[]; reach_palace_lowered?: string[];
+  /** the page-checked breaker the chart itself holds ({present}) beside the book's condition ({broken}) */
+  f_broken_present?: string[];
   /** the page-checked cách (formations_verified.json): head, state by the evaluator's verdict, a refutation, the degree by state */
   f_head?: string[]; f_state?: Record<string, string[]>; f_refute?: string[]; f_degree?: Record<string, string>;
 }
@@ -54,7 +58,8 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
         const helps = [...new Set(e.support.filter(x => x.kind === 'cat' || x.kind === 'loc' || x.kind === 'hoa_good' || x.kind === 'major_bright').map(elName).filter(Boolean))];
         const good = l.pol !== '-';
         const degree = Math.max(1, 3 - (good ? Math.min(2, limits.length) : helps.length ? 1 : 0) - (P === 'Mệnh' ? 0 : 1));
-        return { l, r, P, name: nameOf(r.reading ?? ''), limits, helps, good, degree };
+        const lowered = good ? limits.slice(0, 2) : helps.slice(0, 1);
+        return { l, r, P, name: nameOf(r.reading ?? ''), limits, helps, good, degree, lowered };
       })
       .sort((a, b) => b.degree - a.degree || Number(b.P === 'Mệnh') - Number(a.P === 'Mệnh') || (a.l.ruleId < b.l.ruleId ? -1 : 1));
     // the page-checked cách (formations_verified.json): evaluated on the chart (reason/structures.ts); a cách whose core alone the books
@@ -78,7 +83,13 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
       const lab = (ms: Array<{ label: string }>) => joinVi([...new Set(ms.map(e => e.label))].slice(0, 3));
       const st = x.state, F = L!.f_state!;
       const text = st === 'thanh_thuong' ? fill(m.pick(`fs|${id}`, F.thanh_thuong), { boost: lab(x.r.boosters) })
-        : st === 'bi_pha' ? fill(m.pick(`fs|${id}`, F.bi_pha), { broken: lab([...x.r.breakers, ...x.r.uncovered]) })
+        : st === 'bi_pha' ? (() => {
+          const ms = [...x.r.breakers, ...x.r.uncovered], present = [...new Set(ms.flatMap(e => e.present ?? []))].slice(0, 3);
+          const withLabel = present.length && L!.f_broken_present ? fill(m.pick(`fs|${id}`, L!.f_broken_present), { present: joinVi(present), broken: lab(ms) }) : '';
+          if (withLabel && withLabel.split(/\s+/).length > 35) return fill(m.pick(`fs|${id}`, F.bi_pha), { broken: joinVi(present) });
+          return withLabel ? withLabel
+            : fill(m.pick(`fs|${id}`, F.bi_pha), { broken: lab(ms) });
+        })()
         : st === 'hinh_thuc' ? (x.r.missing.length ? fill(m.pick(`fs|${id}`, F.hinh_thuc), { missing: joinVi(x.r.missing.slice(0, 2)) }) : m.pick(`fs|${id}`, F.hinh_thuc_bare))
         : m.pick(`fs|${id}`, F[st] ?? F.thanh);
       const stCites = st === 'thanh_thuong' ? pages('boosters', x.r.boosters) : st === 'bi_pha' ? pages('breakers', [...x.r.breakers, ...x.r.uncovered]) : ev?.core ?? [];
@@ -96,7 +107,9 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
       const state = x.good ? (x.limits.length ? fill(m.pick(`br|${x.l.ruleId}`, L!.broken), { pal: x.P, limits: joinVi(x.limits.slice(0, 3)) }) : fill(m.pick(`wh|${x.l.ruleId}`, L!.whole), { pal: x.P }))
         : (x.helps.length ? fill(m.pick(`be|${x.l.ruleId}`, L!.bad_eased), { pal: x.P, helps: joinVi(x.helps.slice(0, 3)) }) : fill(m.pick(`bf|${x.l.ruleId}`, L!.bad_full), { pal: x.P }));
       const deg = L!.degree[String(x.degree)];
-      const reach = x.P === 'Mệnh' ? fill(m.pick(`re|${x.l.ruleId}`, L!.reach), { degree: deg }) : fill(m.pick(`rp|${x.l.ruleId}`, L!.reach_palace), { degree: deg, pal: x.P, dom: short[x.P] ?? x.P });
+      const low = x.lowered.length && L!.reach_lowered && L!.reach_palace_lowered, why = joinVi(x.lowered);
+      const reach = x.P === 'Mệnh' ? fill(m.pick(`re|${x.l.ruleId}`, low ? L!.reach_lowered! : L!.reach), { degree: deg, why })
+        : fill(m.pick(`rp|${x.l.ruleId}`, low ? L!.reach_palace_lowered! : L!.reach_palace), { degree: deg, pal: x.P, dom: short[x.P] ?? x.P, why });
       say(xs, cap(state), `cach:${x.l.ruleId}:state`, 'he_thong', [x.l.ruleId], [], note);
       say(xs, reach, `cach:${x.l.ruleId}:reach`, 'he_thong', [x.l.ruleId], [], note);
       paragraphs.push({ role: 'support', sentences: xs, text: '', title: cap(x.name) } as ProseParagraph);
@@ -105,9 +118,13 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
     const all = [...verified.map(x => ({ name: `cách ${x.r.name}`, good: x.state !== 'bi_pha', degree: DEG[x.state] ?? 1 })), ...found.map(x => ({ name: x.name, good: x.good, degree: x.degree }))]
       .sort((a, b) => b.degree - a.degree);
     if (all.length >= 2) {
-      const xs: ProseSentence[] = [], g = all.filter(x => x.good).length, b = all.length - g;
+      // the balance is told only when both sides are present, with the cách of each side named and the sides weighed by degree
+      const xs: ProseSentence[] = [], goods = all.filter(x => x.good), bads = all.filter(x => !x.good);
       say(xs, fill(m.pick('rank', L!.rank), { first: all[0].name }), 'cach:rank', 'he_thong', [], [], note);
-      say(xs, L!.balance[g > b ? 0 : g < b ? 1 : 2], 'cach:balance', 'he_thong', [], [], note);
+      if (goods.length && bads.length) {
+        const wg = goods.reduce((a, x) => a + x.degree, 0), wb = bads.reduce((a, x) => a + x.degree, 0);
+        say(xs, fill(L!.balance[wg > wb ? 0 : wg < wb ? 1 : 2], { goods: joinVi(goods.map(x => x.name)), bads: joinVi(bads.map(x => x.name)) }), 'cach:balance', 'he_thong', [], [], note);
+      }
       paragraphs.push({ role: 'balance', sentences: xs, text: '' });
     }
     for (const p of paragraphs) p.text = p.sentences.map(s => s.text).join(' ');

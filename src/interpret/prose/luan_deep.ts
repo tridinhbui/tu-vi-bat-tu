@@ -217,10 +217,18 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
           // a relation the book states for every chart is told with this chart's side in the same sentence (a bare general line repeats from chart to chart)
           const rel = (D as DepthLib & { relation_with?: Record<string, string[]> }).relation_with?.[r.id];
           if (facts && rel?.length) xs.push(S(fill(W.pick(`${key}|rw`, rel), { facts }), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
-          else {
-            xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
-            if (facts) xs.push(S(fill(W.pick(`${key}|rf`, D.relation_facts), { facts }), { move: 'VIA', step: `link:${r.id}:facts`, basis: 'tinh_toan', concepts: [] }));
-          }
+          // the book's relation is told joined to this chart's side in one sentence (alone it is the same line on every chart, DEEP-3); a
+          // relation with no chart side is told bare only when its chart condition (`when`) holds here, a definitional one not at all
+          else if (!facts && r.when) xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
+          else if (facts) {
+            const side = fill(W.pick(`${key}|rf`, D.relation_facts), { facts }), one = `${cap(r.text)}; ${side.charAt(0).toLocaleLowerCase('vi')}${side.slice(1)}`;
+            // one sentence when it stays readable (≤35 words, readable.test), else the book's line and the chart's side apart
+            if (one.split(/\s+/).length <= 35) xs.push(S(one, { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
+            else {
+              xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
+              xs.push(S(side, { move: 'VIA', step: `link:${r.id}:facts`, basis: 'tinh_toan', concepts: [] }));
+            }
+          } else continue;
           anchored = true;
         } else if (u.link === 'hoa') {
           const list = joinVi(groupHoa(u.elements!.map(e => ({ text: elName(e), palace: e.palace }))));

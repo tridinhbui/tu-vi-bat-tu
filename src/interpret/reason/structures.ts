@@ -6,7 +6,7 @@
 //       limiters, rescuers, school variants, the cited pages and an honest verification level. Vietnamese strings are verbatim.
 //   (c) labelledFindings — the fired rules that name a cách or a grouping (kg/lift.ts `labelled`), for the same evidence panel.
 // Parity with Python over the 1,000-chart corpus: test/structures.test.ts against tools/interpret/make_structure_parity.py.
-import { evaluate, type World } from '../dsl.ts';
+import { evaluate, trueLeaves, type World } from '../dsl.ts';
 import { lift, type Labelled } from '../kg/lift.ts';
 import type { Expr, Facts, Finding, Knowledge, Palace, Tri } from '../types.ts';
 
@@ -28,7 +28,24 @@ export interface FormationVerdict {
   boosters: string[]; breakers: string[]; rescuers: string[]; refutations: string[]; uncovered_breakers: string[]; unknown: string[];
   missing_for_next_level: string[]; downgraded_by_refutation: boolean; caveats: string[];
 }
-export interface MatchedEvidence { id: string; label: string }
+/** `present`: what of the evidence the chart itself holds ("Kình Dương ở Mệnh", "Hóa Kỵ trong tam phương"), so prose names the star that
+ *  boosts or breaks instead of repeating the book's whole condition label. */
+export interface MatchedEvidence { id: string; label: string; present?: string[] }
+const WHERE: Record<string, string> = { 'palace.rel.self_stars': 'self', 'palace.rel.self_hoa': 'self', 'palace.rel.tp_stars': 'tp', 'palace.rel.tp_hoa': 'tp' };
+/** The named stars / Hóa of a satisfied evidence condition that stand on the chart, with where they stand (self = the anchor palace,
+ *  tp = its tam phương); Tuần / Triệt on the anchor palace as themselves. Negated leaves are never "present". */
+export function presentOf(when: Expr, facts: Facts, anchor: string): string[] {
+  const out: string[] = [];
+  for (const l of trueLeaves(when, facts)) {
+    if (l.fact === 'palace.tuan' || l.fact === 'palace.triet') { out.push(`${l.fact === 'palace.tuan' ? 'Tuần' : 'Triệt'} ở ${anchor}`); continue; }
+    const w = WHERE[l.fact], have = facts[l.fact];
+    if (!w || !Array.isArray(have)) continue;
+    const want = Array.isArray(l.value) ? l.value as string[] : [String(l.value)];
+    const hit = want.filter(v => (have as string[]).includes(v));
+    if (hit.length) out.push(`${hit.join(', ')} ${w === 'self' ? `ở ngay ${anchor}` : `trong tam phương ${anchor}`}`);
+  }
+  return [...new Set(out)];
+}
 /** What the reasoner reads: the verdict plus the matched evidence with its labels, the Vietnamese sentence and the review level. */
 export interface FormationResult {
   id: string; name: string; anchor: string; kind: string; state: FormationState; stateVi: string; effect: 'support' | 'limit' | 'neutral';
@@ -123,8 +140,9 @@ export function evaluateFormations(formations: Formation[], base: Record<string,
   for (const f of formations) {
     const subj = `palace:${f.anchor}`;
     if (!(subj in base)) continue;
-    const d = evaluateFormation(f, factsOf(subj), world);
-    const pick = (kind: EvKind, ids: string[]): MatchedEvidence[] => { const m = new Map(ev(f, kind).map(e => [e.id, e.label])); return ids.map(id => ({ id, label: m.get(id)! })); };
+    const facts0 = factsOf(subj), d = evaluateFormation(f, facts0, world);
+    const facts = facts0;
+    const pick = (kind: EvKind, ids: string[]): MatchedEvidence[] => { const m = new Map(ev(f, kind).map(e => [e.id, e])); return ids.map(id => ({ id, label: m.get(id)!.label, present: presentOf(m.get(id)!.when, facts, f.anchor) })); };
     out.push({ id: f.id, name: f.name_vi, anchor: f.anchor, kind: f.kind ?? 'cat', state: d.state, stateVi: STATE_VI[d.state], effect: EFFECT[d.state],
       boosters: pick('boosters', d.boosters), breakers: pick('breakers', d.breakers), rescuers: pick('rescuers', d.rescuers),
       refutations: pick('refutations', d.refutations), uncovered: pick('breakers', d.uncovered_breakers),

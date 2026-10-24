@@ -33,7 +33,9 @@ test('luan.json: no frame uses meta-language or an absolute, every slot is one t
     // the system's weighing of two sides (owner decision 2026-10-23): the heavier and lighter side, why, its brightness, a count
     'heavy', 'light', 'why', 'dignity', 'n',
     // the Mệnh portrait, the course across the đại hạn, the Tật Ách balance (review 2026-10-23)
-    'p', 'gp', 'gn', 'label', 'shield', 'press', 'lean']);
+    'p', 'gp', 'gn', 'label', 'shield', 'press', 'lean',
+    // a Tuần / Triệt hedge names the good reading it bends (DEEP-3)
+    'good']);
   const walk = (x: unknown, at: string): void => {
     if (typeof x === 'string') {
       const low = ' ' + x.toLowerCase();

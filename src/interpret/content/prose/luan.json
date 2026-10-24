@@ -481,6 +481,11 @@
    "Đó là hai lưỡi của cùng một con dao: {a} ở mặt này, {b} ở mặt kia, đều từ {seat} mà ra",
    "{seat} cho cả {a} lẫn {b}; chọn dùng mặt nào là việc của người mang nó",
    "Cùng từ {seat} mà có {a}, cũng từ đó mà có {b}"
+  ],
+  "synth_other": [
+   "Ở {S}, {a} và {b} đi cùng một hướng",
+   "Nói về {S}, {a} cộng với {b} là nét rõ nhất",
+   "Với {S}, {a} và {b} bổ cho nhau"
   ]
  },
  "than": {
@@ -880,11 +885,34 @@
   "major_ham_borrowed": [
    "cung {pal} không có chính tinh, phải mượn {star} từ cung {from}, mà {star} lại ở thế hãm, nên phần tốt của cung phải nhờ các sao khác đỡ",
    "{star} mượn từ cung {from} đang hãm địa, nên cung {pal} khó thuận một chiều"
+  ],
+  "tt_vcd": [
+   "Cung {pal} vô chính diệu, có {star} án ngữ",
+   "{star} đóng ở cung {pal}, một cung không có chính tinh"
+  ],
+  "tuan_good": [
+   "Tuần án ngữ cung {pal}, nên {good} nói trên thường không đến thẳng mà phải qua một khúc quanh",
+   "có Tuần ở cung {pal}, nên {good} vừa nói chỉ đến sau một khúc quanh",
+   "{good} ở cung {pal} bị Tuần án ngữ, nên đến chậm và không thẳng"
+  ],
+  "triet_good": [
+   "Triệt án ngữ cung {pal}, nên {good} nói trên thường bị chặn lại lúc đầu",
+   "có Triệt ở cung {pal}, nên {good} vừa nói dễ bị chặn ở chặng đầu",
+   "{good} ở cung {pal} gặp Triệt, nên lúc đầu bị chặn rồi mới mở"
+  ],
+  "tuan_bare": [
+   "Cung {pal} có Tuần án ngữ",
+   "Tuần đóng ở cung {pal}"
+  ],
+  "triet_bare": [
+   "Cung {pal} có Triệt án ngữ",
+   "Triệt đóng ở cung {pal}"
   ]
  },
  "single": [
-  "Có điều, điều này mới dựa vào {stars}, nên chỉ nên xem là một chiều hướng",
-  "Riêng {stars} thì chưa đủ để kết luận; đây mới là một chiều hướng"
+  "Có điều, ý này mới dựa vào {stars}, chưa có sao thứ hai nói cùng ý, nên chỉ là một chiều hướng",
+  "Riêng {stars} thì chưa đủ để kết luận khi không sao nào khác xác nhận; đây mới là một chiều hướng",
+  "Ý này chỉ đứng trên {stars}, chưa có sao cùng chiều, nên là khuynh hướng chứ chưa phải kết luận"
  ],
  "timing": [
   "Về thời điểm, {ground}, nên {claim}",

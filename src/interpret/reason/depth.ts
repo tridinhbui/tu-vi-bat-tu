@@ -311,7 +311,14 @@ function relationHolds(chart: ChartInput, when: string, P: string): boolean {
   if (when === 'nu' || when === 'than') return true;
   if (when === 'menh_hard_phuc_bright') return (sat('Mệnh') || dig('Mệnh').includes('hãm')) && bright('Phúc Đức');
   if (when === 'sat_here') return sat(P);
-  if (when === 'bright_no_sat') return dig(P).length > 0 && dig(P).every(x => x === 'miếu' || x === 'vượng' || x === 'đắc') && !sat(P);
+  // "quá đẹp" (KL p.220): every chính tinh bright, one at miếu / vượng, no sát tinh or Hóa Kỵ, and more than a lone star (a second chính
+  // tinh or a cát tinh of the six): a single Thiên Tướng đắc is not "quá đẹp"
+  if (when === 'bright_no_sat') {
+    const p = pal(P), ky = chart.palaces.find(q => q.branch_index === chart.tu_hoa['Hóa Kỵ']?.branch)?.name === P;
+    const CAT = ['Tả Phụ', 'Hữu Bật', 'Văn Xương', 'Văn Khúc', 'Thiên Khôi', 'Thiên Việt'];
+    return dig(P).length > 0 && dig(P).every(x => x === 'miếu' || x === 'vượng' || x === 'đắc') && dig(P).some(x => x === 'miếu' || x === 'vượng')
+      && !sat(P) && !ky && (p.major_stars.length >= 2 || p.stars.some(s => CAT.includes(s)));
+  }
   return false;
 }
 function dedupeAtoms(xs: Array<{ name: string; palace: string }>) {

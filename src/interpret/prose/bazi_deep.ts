@@ -97,7 +97,7 @@ export interface DepthFrames {
   why: Record<string, string[]>; why_one: string[]; why_two: string[]; why_both?: string[]; group_def?: Record<string, string>; why_and: string; halves: string[]; halves_tail: Record<'first' | 'second', string>;
   touch: string[]; touch_year?: string[]; touch_kind: Record<string, string>; year_half: string[]; year_half_tail: string; tk_diag: string[]; tk_diag_heat: string; tk_diag_special: string[];
   tk_turn: string[]; tk_turn_what: Record<string, string>; special_yong?: string[]; special_pick?: string[]; dom_skip?: string[];
-  cach_status?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
+  cach_status?: string[]; cach_status_near?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
   tai_layers?: Record<'pos' | 'dm' | 'method' | 'method_no_tb' | 'decide', string[]> & { decide_agree?: string[] };
   // REVIEW-19 W6: the strength in words (numbers in the Số liệu fold), the closing by priority
   str_plain?: string[]; str_plain_near?: string[]; tk_now?: string[]; tk_word?: Record<string, string>; tk_money?: Record<'pos' | 'neg' | 'even', string[]>; tk_work?: string[];
@@ -164,7 +164,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
   if (!b || !D || !F) return {};
   const say = (xs: ProseSentence[], text: string, basis: SentenceTrace['basis'], cites: string[] = [], ids: string[] = [], extra: Partial<SentenceTrace> = {}) => {
     const t = finish(text); m.said(t);
-    xs.push({ text: t, trace: { move: 'ELABORATE', concepts: [], rules: ids, cites, basis, ...extra } });
+    xs.push({ text: t, trace: { move: 'ELABORATE', concepts: [], rules: ids, cites: [...new Set(cites)], basis, ...extra } });
   };
   const MH = F.mh, Dd = F.d, P = D.depth ?? null;
   const kinF = (F as BaziDeepFrames & { kin?: KinFrames }).kin, kinD = (D as BaziDeep & { kin?: BaziKin }).kin?.detail;
@@ -393,14 +393,18 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const vars = { cach: CT!.cach!, dm: dmVi, dom: CT!.dominant ?? '', yong: join(CT!.yong.slice(0, 1)), tot: join(CT!.van_tot), xau: join(CT!.van_xau), why };
     // the cách's one status (owner review 2026-10-22): partial, so the dụng thần and every luck verdict drawn from it are conditional
     // the cách's status is the system's own verification state, not a computation on the chart (REVIEW-19 W6: basis he_thong)
-    if (cachPartial && Dd?.cach_status?.length) say(c1, fill(m.pick('bd|cst', Dd.cach_status), { cach: CT!.cach! }), 'he_thong', ['TVH pp.356-366'], [],
+    // near the 40% line the partial status has a reason on this chart (TVH p.355: a share just under 40% is only 'hơi nhược'); it is said
+    if (cachPartial && Dd?.cach_status?.length) say(c1, fill(m.pick('bd|cst', near && Dd.cach_status_near?.length ? Dd.cach_status_near : Dd.cach_status), { cach: CT!.cach! }), 'he_thong', ['TVH pp.356-366', ...(near && Dd.cach_status_near?.length ? ['TVH p.355'] : [])], [],
       { step: 'cach:status', conditional: 'cach_partial', note: 'Trạng thái của cách: xác lập một phần (yongshen.METHOD_META cach_cuc_tvh). Bảng dụng thần và vận hỷ kỵ (Thiệu Vĩ Hoa tr.378-386) chép khớp trang in; phép định cách từ chi tháng mới được đối chiếu một phần với tr.356-366. Mọi lời xếp vận tốt xấu suy từ bảng ấy vì vậy có điều kiện là cách được xác lập.' } as Partial<SentenceTrace>);
     say(c1, fill(m.pick('bd|table', CT!.van_tot.length || CT!.van_xau.length ? F.table : F.table_no_van), vars), 'tinh_toan', [tvhPage, ...(Y?.why ? [`TVH pp.${Y.why.page.replace(/\s/g, '')}`] : [])], [],
       { step: 'yong', note: NOTE.yong, mech: !!why });
-    mh(c1, 'benh_thuoc', { benh: `nhật chủ ${dmVi} mà nhóm ${CT!.dominant ?? ''} nhiều nhất`, yong: Y1 }, 'yong');
+    const benh = { benh: `nhật chủ ${dmVi} mà nhóm ${CT!.dominant ?? ''} nhiều nhất`, yong: Y1 }, fb = !!(Y?.fallback && Dd);
+    if (!fb) mh(c1, 'benh_thuoc', benh, 'yong');
     const top = P?.flow?.groups?.[0]?.group;
     if (top && CT!.dominant && top !== CT!.dominant && Dd?.dom_skip?.length) say(c1, fill(m.pick('bd|dsk', Dd.dom_skip), { top, dom: CT!.dominant, cach: CT!.cach! }), 'tinh_toan', [tvhPage], [], { note: 'Bảng dụng thần theo cách (Thiệu Vĩ Hoa tr.378-386) chỉ có dòng cho một số nhóm nhiều nhất; khi nhóm lớn nhất không có dòng, bộ máy lấy nhóm lớn kế tiếp có dòng (yongshen.cach_cuc_tvh). Sách không nói cách xử lý trường hợp này.', step: 'yong:dom' });
     if (Y?.fallback && Dd) say(c1, fill(m.pick('bd|fb', Dd.fallback), { first: Y.first, use: Y.group }).replace(/\.\s*$/, Y.why ? fill(Dd.yong_why, { why: Y.why.text }) + '.' : '.'), 'tinh_toan', [tvhPage], [], { note: NOTE.yong, step: 'yong:fallback', mech: !!Y.why });
+    // the illustration names the group finally used (Y1), so it follows the fallback sentence when there is one (DEEP-3: it stood before it)
+    if (fb) mh(c1, 'benh_thuoc', benh, 'yong:fallback');
     // where the useful god stands in the four pillars (the day stem is the day master itself)
     const yg = new Set([Y1]), many = false;
     const vis = (['year', 'month', 'hour'] as const).filter(x => yg.has(GROUP_OF[pil[x].stem_ten_god ?? ''])).map(x => `can ${PIL_VI[x]} ${pil[x].stem}${many ? ` (${pil[x].stem_ten_god})` : ''}`);
@@ -478,7 +482,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
   const clash = differs || luckRcs.some(r => r.agree === 'khac');
   if (clash && tableOk && table.length && F.reliability?.length) {
     const note = 'Mức tin cậy (yongshen.METHOD_META): bảng dụng thần theo cách tr.378-386 chép khớp trang in, quy tắc 40% khớp tr.355; bảng điều hậu tr.389-396 chép khớp trang in, việc gán can chính là Dụng là quy ước của hệ thống, và Thiệu Vĩ Hoa ghi bảng do độc giả gửi, chưa rõ xuất xứ (tr.388). Chưa phép nào được kiểm nghiệm thực tế.';
-    F.reliability.forEach((f, i) => say(c4, fill(f, { dm: levelVi, dom: CT!.dominant ?? '', climate: D.climate.label ?? '', mb }), 'tinh_toan', [tvhPage, 'TVH pp.388-396'], [], { step: `reconcile:cach:${i}`, note: i ? note : F.rc_note }));
+    F.reliability.forEach((f, i) => say(c4, fill(f, { dm: levelVi, dom: CT!.dominant ?? '', climate: D.climate.label ?? '', mb }), 'tinh_toan', [tvhPage, 'TVH pp.388-396'], [], { step: `reconcile:cach:${i}`, note: F.reliability!.length === 1 ? `${F.rc_note} ${note}` : i ? note : F.rc_note }));
   }
   // part 5: what to do, conditional where the tables differ
   if ((c1.length || c3.length) && F.advice && (tableOk || table.length)) {
