@@ -1,7 +1,7 @@
 {
  "_status": "draft",
  "_source": "SRC_TBCT",
- "_note": "Cấu trúc thập thần có tên (BZ-58–67). Viết theo hiểu biết chung về Tử Bình Chân Thuyên, CHƯA đối chiếu văn bản gốc nên mọi mục là draft. polarity: cat = cấu trúc được xem là thuận, benh = cấu trúc được xem là bệnh. formed: mọi vị ngữ phải đúng; weak: có đủ chữ nhưng không kề sát nên chỉ 'có tên, chưa có lực'. Vị ngữ xem geju.pred. Cứu bằng 'visible:' là mạnh, 'any:' (chỉ tàng) là yếu.",
+ "_note": "Cấu trúc thập thần có tên (BZ-58–67). Viết theo hiểu biết chung về Tử Bình Chân Thuyên, CHƯA đối chiếu văn bản gốc nên mọi mục là draft. polarity: cat = cấu trúc được xem là thuận, benh = cấu trúc được xem là bệnh. formed: mọi vị ngữ phải đúng; weak: có đủ chữ nhưng không kề sát nên chỉ 'có tên, chưa có lực'. Vị ngữ xem geju.pred. Cứu bằng 'visible:' là mạnh, 'any:' (chỉ tàng) là yếu. REVIEW-19 W6 (2026-10-23): 'page' ghi trang Thiệu Vĩ Hoa / Trích Thiên Tủy có lời phán cho tổ hợp; Thương Quan phối Ấn, Quan Sát hỗn tạp (lời ở Trích Thiên Tủy tr.84-91, đọc ở chương cách cục), Chế Sát quá mức chưa có trang trong bộ đã chép. Văn đọc tổ hợp ở tvbt.bazi_deep.kin._patterns.",
  "defs": {
   "sat_an_tuong_sinh": {
    "vi": "Sát Ấn tương sinh",
@@ -22,7 +22,8 @@
      "visible:Ti",
      "any:Ti"
     ]
-   }
+   },
+   "page": "TVH p.551, p.547"
   },
   "thuc_che_sat": {
    "vi": "Thực Thần chế Sát",
@@ -41,7 +42,8 @@
      "visible:Tai",
      "any:Tai"
     ]
-   }
+   },
+   "page": "TVH p.533, p.535"
   },
   "thuong_phoi_an": {
    "vi": "Thương Quan phối Ấn",
@@ -68,7 +70,26 @@
     "both_visible:Thuong+Tai"
    ],
    "bai": {},
-   "cuu": {}
+   "cuu": {},
+   "page": "TVH p.521, p.522"
+  },
+  "thuc_sinh_tai": {
+   "vi": "Thực Thần sinh Tài",
+   "polarity": "cat",
+   "formed": [
+    "chain_adjacent:Thuc>Tai"
+   ],
+   "weak": [
+    "both_visible:Thuc+Tai"
+   ],
+   "bai": {
+    "kieu_doat_thuc": "controls_adjacent:Kieu>Thuc"
+   },
+   "cuu": {
+    "kieu_doat_thuc": []
+   },
+   "page": "TVH p.525 (dẫn câu), p.521",
+   "note": "REVIEW-19 W6: thêm theo Thiệu Vĩ Hoa tr.525 'Thương quan thực thần mừng được sinh tài' và tr.521 'Thực thần gặp tài'. Lớp văn đọc tổ hợp ở tvbt.bazi_deep.kin._patterns (cùng quy ước 'đứng sát' với các luật kin), không đọc mục này."
   },
   "tai_quan_song_my": {
    "vi": "Tài Quan song mỹ",
@@ -93,7 +114,8 @@
      "visible:An",
      "any:An"
     ]
-   }
+   },
+   "page": "TVH p.165"
   },
   "hop_sat_luu_quan": {
    "vi": "Hợp Sát lưu Quan",
@@ -104,7 +126,8 @@
    ],
    "weak": [],
    "bai": {},
-   "cuu": {}
+   "cuu": {},
+   "page": "TVH p.533"
   },
   "hop_quan_luu_sat": {
    "vi": "Hợp Quan lưu Sát",
@@ -115,7 +138,8 @@
    ],
    "weak": [],
    "bai": {},
-   "cuu": {}
+   "cuu": {},
+   "page": "TVH p.533 ('nếu hợp mất quan tinh thì không tốt')"
   },
   "tai_pha_an": {
    "vi": "Tài phá Ấn",
@@ -133,7 +157,8 @@
      "visible:Ti",
      "any:Ti"
     ]
-   }
+   },
+   "page": "TVH p.166; TTT p.138-139"
   },
   "thuong_kien_quan": {
    "vi": "Thương Quan kiến Quan",
@@ -152,7 +177,8 @@
      "any:An",
      "any:Tai"
     ]
-   }
+   },
+   "page": "TVH p.541"
   },
   "kieu_doat_thuc": {
    "vi": "Kiêu Thần đoạt Thực",
@@ -169,7 +195,8 @@
      "visible:Tai",
      "any:Tai"
     ]
-   }
+   },
+   "page": "TVH p.527"
   },
   "ti_kiep_doat_tai": {
    "vi": "Tỉ Kiếp đoạt Tài",
@@ -187,7 +214,8 @@
      "any:Quan",
      "any:Sat"
     ]
-   }
+   },
+   "page": "TVH p.166-167; TTT p.138-139"
   },
   "quan_sat_hon_tap": {
    "vi": "Quan Sát hỗn tạp",

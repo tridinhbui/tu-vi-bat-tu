@@ -24,7 +24,7 @@ export function checkedParagraphs(ps: ProseParagraph[]): ProseParagraph[] {
   return ps.flatMap(p => {
     const kept0 = p.sentences.filter(s => !UNCHECKED.has(s.trace.basis));
     const kept = kept0.filter(s => tiedOk(s, kept0));
-    if (!kept.length || (kept.length < p.sentences.length && kept.every(s => (s.trace.basis === 'he_thong' || s.trace.basis === 'minh_hoa' || s.trace.basis === 'loi_khuyen') && !OWN(s)))) return [];
+    if (!kept.length || (kept.length < p.sentences.length && kept.every(s => (s.trace.basis === 'he_thong' || s.trace.basis === 'tong_hop' || s.trace.basis === 'minh_hoa' || s.trace.basis === 'loi_khuyen') && !OWN(s)))) return [];
     if (kept.length === p.sentences.length) return [p];
     let sentences = kept;
     if (p.lead && !kept[0].text.startsWith(p.lead)) sentences = [{ ...kept[0], text: withLead(p.lead, kept[0].text) }, ...kept.slice(1)];

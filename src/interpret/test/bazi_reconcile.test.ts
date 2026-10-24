@@ -168,13 +168,21 @@ test('owner review 2026-10-22: one cách status, Tài in three layers, year × �
   // 1. the cách is "xác lập một phần" everywhere: said once in the cách chapter, and every luck / year verdict drawn from it is conditional
   assert.equal((D.cach_tvh as { verification?: string }).verification, 'partial');
   assert.ok((ch['cach-cuc'] ?? []).flatMap(p => p.sentences).some(s => s.trace.step === 'cach:status' && /xác lập (được )?một phần/.test(s.text)));
+  // REVIEW-19 W6: the condition is said once per chapter, at the first luck pillar and the first year; every cách-side sentence and every
+  // verdict still carries it in its trace
   const luckShort = (ch['dai-van'] ?? []).filter(p => p.depth !== 'sau' && p.sentences.some(s => (s.trace.step ?? '').startsWith('luck:')));
+  const side = (p: ProseParagraph) => p.sentences.find(s => /vận (tốt|xấu)/.test(s.text) && s.trace.basis === 'tinh_toan');
+  assert.match(side(luckShort[0])!.text, /cách Thiên Tài[^.]*đứng được|đứng được[^.]*cách Thiên Tài/, side(luckShort[0])!.text);
   for (const p of luckShort) {
-    const cachSide = p.sentences.find(s => /vận (tốt|xấu)/.test(s.text) && s.trace.basis === 'tinh_toan');
-    if (cachSide) assert.match(cachSide.text, /cách Thiên Tài[^.]*đứng được|đứng được[^.]*cách Thiên Tài/, cachSide.text);
+    const cs = side(p);
+    if (cs) assert.equal(cs.trace.conditional, 'cach_partial', cs.text);
+    if (cs && p !== luckShort[0]) assert.ok(!/đứng được/.test(cs.text), `said again: ${cs.text}`);
     const v = p.sentences.find(s => (s.trace.step ?? '').startsWith('verdict:'));
     if (v) assert.equal(v.trace.conditional, 'cach_partial', v.text);
   }
+  const yearShort = (ch['luu-nien'] ?? []).filter(p => p.depth !== 'sau');
+  assert.match(side(yearShort[0])!.text, /cách Thiên Tài[^.]*đứng được|đứng được[^.]*cách Thiên Tài/);
+  for (const p of yearShort.slice(1)) assert.ok(!/đứng được/.test(side(p)?.text ?? ''), side(p)?.text);
   assert.ok((ch['tong-ket'] ?? []).flatMap(p => p.sentences).some(s => s.trace.conditional === 'cach_partial'));
   // 2. Tài (DEEP-BAZI-2): the manual's own condition decides first (八字真宗 p.50 断语条件 2: Tài strong but not flowing into the day master ->
   // tài vận bình thường), with why (the three places next to the day master hold no Ấn); then the day master's strength and the cách; and
@@ -194,11 +202,12 @@ test('owner review 2026-10-22: one cách status, Tài in three layers, year × �
   const mt = D.luck.find(l => l.pillar === 'Mậu Tuất')!;
   assert.ok(!(mt.good_years ?? []).some(g => g.year === 2027));
   for (const l of D.luck) for (const g of l.good_years ?? []) assert.ok(['thuan', 'kha_thuan'].includes(g.verdict ?? ''), `${l.pillar} ${g.year}`);
-  const y27 = (ch['luu-nien'] ?? []).find(p => /Năm 2027|năm 2027/.test(p.sentences[0].text) && p.depth !== 'sau')!;
-  assert.ok(y27.sentences.some(s => /đại vận Mậu Tuất, năm 2027 có[^.]*chi Mùi hình và phá chi Tuất của vận/.test(s.text)), y27.text);
+  // the year × its luck pillar positions are in the year's Đọc sâu (REVIEW-19 W6: positions only, the tables print no meaning)
+  const y27 = (ch['luu-nien'] ?? []).filter(p => p.sentences.some(s => s.trace.step === 'year:2027'));
+  assert.ok(y27.flatMap(p => p.sentences).some(s => /đại vận Mậu Tuất, năm 2027 có[^.]*chi Mùi hình và phá chi Tuất của vận/.test(s.text)), y27.map(p => p.text).join(' '));
   assert.ok(!/những năm nên tiến[^.]*2027/.test((ch['dai-van'] ?? []).map(p => p.text).join(' ')));
   // 4. every sentence carries its basis (the report's "Phạm vi kiểm chứng" lists them all, report.js btLedgerHtml)
-  for (const s of all) assert.ok(['sach', 'tinh_toan', 'he_thong', 'minh_hoa'].includes(s.trace.basis), s.text);
+  for (const s of all) assert.ok(['sach', 'tinh_toan', 'he_thong', 'tong_hop', 'minh_hoa'].includes(s.trace.basis), s.text);
   for (const s of all.filter(x => x.trace.basis === 'minh_hoa')) assert.ok(all.some(t => t.trace.step === s.trace.attach && t !== s), s.text);
   // 5. one age convention on the Bát Tự surface, named at every age: tuổi thực
   for (const s of all) assert.ok(!/\d+ tuổi(?! thực)/.test(s.text), s.text);

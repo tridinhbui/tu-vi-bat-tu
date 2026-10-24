@@ -345,7 +345,7 @@ function btSources(paras, rules) {
 /** Verified scope of the whole Bát Tự reading (owner review 2026-10-22): every sentence of every chapter with its basis — book, calculation,
  *  the system's conclusion, illustration — and the condition a verdict stands on, so the panel covers career, wealth, dụng thần, thần sát
  *  and vận as well as the personality readings. */
-const BT_BASIS = { sach: ['an-sach', 'Theo sách'], tinh_toan: ['an-tinh_toan', 'Tính từ lá số'], he_thong: ['an-he_thong', 'Kết luận của hệ thống'], minh_hoa: ['an-minh_hoa', 'Minh họa'], pho_thong: ['an-pho_thong', 'Thông lệ'] };
+const BT_BASIS = { sach: ['an-sach', 'Theo sách'], tinh_toan: ['an-tinh_toan', 'Tính từ lá số'], he_thong: ['an-he_thong', 'Kết luận của hệ thống'], tong_hop: ['an-he_thong', 'Tổng hợp của hệ thống'], minh_hoa: ['an-minh_hoa', 'Minh họa'], pho_thong: ['an-pho_thong', 'Thông lệ'] };
 const BT_CH = { 'nhat-chu': 'Nhật chủ', 'ngu-hanh': 'Ngũ hành', 'su-nghiep': 'Sự nghiệp & tài lộc', 'quan-he': 'Quan hệ', 'cach-cuc': 'Cách cục & dụng thần', 'dai-van': 'Đại vận', 'luu-nien': 'Lưu niên', 'tong-ket': 'Tổng kết' };
 const BT_COND = { cach_partial: 'đúng nếu cách được xác lập (cách mới xác lập một phần)', tai_position_only: 'chỉ xét vị trí của Tài; kết luận cuối ở đoạn về Tài' };
 /** one line under the overview's highlights: the reading's sentences by basis, pointing to the full scope panel */
@@ -353,7 +353,7 @@ function btScopeLine(bp) {
   const all = Object.values(bp?.chapters || {}).flat().flatMap(p => p?.sentences || []);
   if (!all.length) return '';
   const n = b => all.filter(s => s.trace.basis === b).length;
-  return `<p class="small muted">Phần luận Bát Tự gồm ${all.length} câu: ${n('sach')} câu theo sách, ${n('tinh_toan')} câu tính từ lá số, ${n('he_thong')} câu kết luận của hệ thống, ${n('minh_hoa')} câu minh họa. Từng câu và căn cứ của nó ở mục “Phạm vi kiểm chứng của phần Bát Tự”.</p>`;
+  return `<p class="small muted">Phần luận Bát Tự gồm ${all.length} câu: ${n('sach')} câu theo sách, ${n('tinh_toan')} câu tính từ lá số, ${n('he_thong')} câu kết luận của hệ thống, ${n('tong_hop')} câu tổng hợp, ${n('minh_hoa')} câu minh họa. Từng câu và căn cứ của nó ở mục “Phạm vi kiểm chứng của phần Bát Tự”.</p>`;
 }
 function btLedgerHtml(bp) {
   const chs = Object.entries(bp?.chapters || {}).filter(([, ps]) => ps?.length);
@@ -377,8 +377,9 @@ function btProseHtml(p) {
   let html = '', run = [];
   const flush = () => {
     if (!run.length) return;
-    const t = run[0].para.depthTitle;
-    html += `<details class="bt-sau"><summary><span class="bt-sau-t">Đọc sâu</span>${t ? `<span class="bt-sau-s">${esc(t)}</span>` : ''}</summary>${run.map(x => block(x.para, x.i)).join('')}</details>`;
+    // REVIEW-19 W6: a fold titled "Số liệu · …" holds the numbers (degrees, positions) taken out of the short reading
+    const t0 = run[0].para.depthTitle, nums = /^Số liệu · /.test(t0 || ''), t = nums ? t0.replace(/^Số liệu · /, '') : t0;
+    html += `<details class="bt-sau${nums ? ' bt-num' : ''}"><summary><span class="bt-sau-t">${nums ? 'Số liệu' : 'Đọc sâu'}</span>${t ? `<span class="bt-sau-s">${esc(t)}</span>` : ''}</summary>${run.map(x => block(x.para, x.i)).join('')}</details>`;
     run = [];
   };
   p.paragraphs.forEach((para, i) => {

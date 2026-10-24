@@ -150,12 +150,14 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
     chapters['cach-cuc'] = para('core', topics('cach-cuc'));
     // the structure analysis (facts.bazi.deep): appended to the chapters it belongs to, and to the whole reading in chapter order
     // 八字真宗 pp.50-65 by position and flow (prose/bazi_kin.ts), told before the structure analysis so the Tài layers know what was said
-    const Dk = (b as typeof b & { deep?: { strength?: { dm_strong: boolean | null }; cach_tvh?: { status: string | null; van_xau: string[]; dominant: string | null; cach: string | null; verification?: string } } }).deep;
+    const Dk = (b as typeof b & { deep?: { strength?: { dm_strong: boolean | null }; cach_tvh?: { status: string | null; van_xau: string[]; van_tot: string[]; yong: string[]; dominant: string | null; cach: string | null; verification?: string } } }).deep;
+    const CTk = Dk?.cach_tvh?.status === 'ap_dung' ? Dk.cach_tvh : null;
     const kin = kinBazi(chart, m, L!.kin, rules, { gender: String(bf['chart.gender'] ?? '') || null, dm: b!.day_master, strong: Dk?.strength?.dm_strong ?? null,
-      taiDm: Dk?.strength?.dm_strong === false && Dk?.cach_tvh?.status === 'ap_dung' && (Dk.cach_tvh.van_xau.includes('Tài') || Dk.cach_tvh.dominant === 'Tài'),
-      cach: Dk?.cach_tvh?.status === 'ap_dung' ? Dk.cach_tvh.cach : null, cachPartial: Dk?.cach_tvh?.status === 'ap_dung' && Dk.cach_tvh.verification !== 'verified' });
+      taiDm: Dk?.strength?.dm_strong === false && !!CTk && (CTk.van_xau.includes('Tài') || CTk.dominant === 'Tài'),
+      cach: CTk ? CTk.cach : null, cachPartial: !!CTk && CTk.verification !== 'verified',
+      taiRole: !CTk ? null : CTk.yong?.includes('Tài') ? 'yong' : CTk.van_tot?.includes('Tài') ? 'tot' : CTk.van_xau.includes('Tài') ? 'xau' : null });
     const deep0 = { ...kin };
-    const deep = deepBazi(chart, k, m, L!.deep ? { ...L!.deep, kin: L!.kin } as NonNullable<BaziLibrary['deep']> : undefined, rules);
+    const deep = deepBazi(chart, k, m, L!.deep ? { ...L!.deep, kin: L!.kin } as NonNullable<BaziLibrary['deep']> : undefined, rules, { weigh: kin.weigh, work: kin.work });
     for (const [id, ps] of Object.entries(deep) as Array<[BaziChapterId, ProseParagraph[]]>) chapters[id] = [...(chapters[id] ?? []), ...ps];
     for (const id of ['nhat-chu', 'cach-cuc', 'ngu-hanh', 'su-nghiep', 'quan-he', 'dai-van', 'luu-nien', 'tong-ket'] as const) paragraphs.push(...(id === 'su-nghiep' || id === 'quan-he' ? deep0[id] : []), ...(deep[id] ?? []));
     for (const id of ['su-nghiep', 'quan-he'] as const) chapters[id] = [...(chapters[id] ?? []), ...deep0[id]];
@@ -220,11 +222,20 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   const frame = say(fill(m.pick('btframe', LU.frame), { dm: b.day_master, el: b.day_master_element, mb: pil.month.branch, pillars: joinVi(pillars) }), 'tinh_toan', 'ANCHOR', 'frame:bat_tu');
   frame.trace.cites = ['ZZ pp.20-21'];                   // the nạp âm table, whether the names come from the analysis or the older facts
   const nc = parts.deep['nhat-chu'] ?? [], frame2 = nc.filter(p => p.role === 'structure').flatMap(p => p.sentences), ncRest = nc.filter(p => p.role !== 'structure');
-  const cc = parts.deep['cach-cuc'] ?? [], ss = cc.filter(p => p.topic === 'than_sat'), ccRest = cc.filter(p => p.topic !== 'than_sat');
+  const cc = parts.deep['cach-cuc'] ?? [], ss = cc.filter(p => p.topic === 'than_sat'), ssNums = cc.filter(p => p.topic === 'than_sat_sau'), ccRest = cc.filter(p => p.topic !== 'than_sat' && p.topic !== 'than_sat_sau');
   const leadAll = (key: string, ps: ProseParagraph[]) => ps.map((p, i) => i === 0 ? lead(key, p) : p);
-  chapters['nhat-chu'] = [...P('structure', [frame, ...frame2]), ...P('core', parts.p1).map(p => lead('nhat_chu', p)), ...P('support', turned(parts.topicsOf('nhat-chu'), 'nc')).map(p => lead('study', p)), ...leadAll('strength', ncRest)];
-  const nh = parts.deep['ngu-hanh'] ?? [];
-  chapters['ngu-hanh'] = [...P('core', [...parts.ngu, ...nh.filter(p => p.depth !== 'sau').flatMap(p => p.sentences)]).map(p => lead('ngu_hanh', p)), ...nh.filter(p => p.depth === 'sau')];
+  // REVIEW-19 W6: with the structure analysis, the four pillars and their nạp âm go to the Số liệu fold; the chapter opens on the season and điều hậu
+  const nums = (title: string, xs: ProseSentence[]): ProseParagraph[] => xs.length ? [{ role: 'support', sentences: xs, text: xs.map(x => x.text).join(' '), depth: 'sau', depthTitle: `Số liệu · ${title}` }] : [];
+  const pillarsNums = frame2.length ? nums('tứ trụ', [frame]) : [];
+  chapters['nhat-chu'] = [...P('structure', frame2.length ? frame2 : [frame]), ...P('core', parts.p1).map(p => lead('nhat_chu', p)), ...P('support', turned(parts.topicsOf('nhat-chu'), 'nc')).map(p => lead('study', p)),
+    ...leadAll('strength', ncRest), ...pillarsNums];
+  const nh = parts.deep['ngu-hanh'] ?? [], kn = parts.kin['ngu-hanh'];
+  // REVIEW-19 W6: the strong and weak groups in words and what the books say of the person by them; the counts and degrees in Số liệu
+  if (kn.length) {
+    const nNums = nh.find(p => p.depthTitle?.startsWith('Số liệu'));
+    const numsP = nums('ngũ hành theo độ', [...parts.ngu, ...(nNums?.sentences ?? [])]);
+    chapters['ngu-hanh'] = [...kn.map((p, i) => i === 0 ? lead('ngu_hanh', p) : p), ...numsP, ...nh.filter(p => p.depth === 'sau' && p !== nNums)];
+  } else chapters['ngu-hanh'] = [...P('core', [...parts.ngu, ...nh.filter(p => p.depth !== 'sau').flatMap(p => p.sentences)]).map(p => lead('ngu_hanh', p)), ...nh.filter(p => p.depth === 'sau')];
   // sự nghiệp & quan hệ (DEEP-BAZI-2): the short reading (bazi_kin main paragraphs, the manual's other judgements, the computed positions),
   // the Tài layers, then the Đọc sâu paragraphs
   const kMain = (id: 'su-nghiep' | 'quan-he') => parts.kin[id].filter(p => p.depth !== 'sau'), kDeep = (id: 'su-nghiep' | 'quan-he') => parts.kin[id].filter(p => p.depth === 'sau');
@@ -237,13 +248,18 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   // siblings have their own paragraph (bazi_kin) when the chart has a sibling star: the lead-in then names marriage only
   let qhTop = P('core', turned(parts.topicsOf('quan-he'), 'qh')).map(p => lead(kq.some(x => x.topic === 'kin_family') && LU.lead.marriage ? 'marriage' : 'kin', p));
   if (qhTop.length && km) { const xs = [...qhTop[0].sentences, ...unlead(km)]; qhTop = [{ ...qhTop[0], sentences: xs, text: xs.map(x => x.text).join(' ') }, ...qhTop.slice(1)]; }
-  chapters['quan-he'] = [...qhTop, ...kq.filter(p => !(qhTop.length && p === km)), ...P('support', parts.qh), ...deepOf('quan-he', 'pillar_kin'), ...kDeep('quan-he')];
+  // REVIEW-19 W6: the spouse palace's hidden stems and the relations between the pillars are positions: in Số liệu when the kin reading tells the chapter
+  chapters['quan-he'] = [...qhTop, ...kq.filter(p => !(qhTop.length && p === km)), ...(kq.length ? nums('cung phối ngẫu và quan hệ giữa các trụ', parts.qh) : P('support', parts.qh)),
+    ...deepOf('quan-he', 'pillar_kin'), ...kDeep('quan-he')];
   // the cách chapter in the frame of plan step 4: the first paragraph under the chapter's lead-in, each later part under its own
   // (điểm tựa và giới hạn, điều hậu, chỗ hai cách xét khác nhau, kết luận); the sources are each sentence's trace
   const leadParts = (ps: ProseParagraph[]) => ps.map((p, i) => { const pt = (p as ProseParagraph & { part?: string }).part;
     return i === 0 ? lead('cach', p) : pt && LU.lead[`part_${pt}`] ? lead(`part_${pt}`, p) : p; });
-  chapters['cach-cuc'] = [...leadParts(ccRest), ...P('support', [...turned(parts.topicsOf('cach-cuc'), 'cc'), ...ss.flatMap(p => p.sentences)]).map(p => lead('blade', p))];
-  chapters['dai-van'] = [...P('core', parts.dv).map(p => lead('dai_van', p)), ...deepOf('dai-van', null)];
+  chapters['cach-cuc'] = [...leadParts(ccRest), ...P('support', [...turned(parts.topicsOf('cach-cuc'), 'cc'), ...ss.flatMap(p => p.sentences)]).map(p => lead('blade', p)), ...ssNums];
+  // REVIEW-19 W6: with the structure analysis, the chapter opens on what each group stands for (its first paragraph) instead of the current pillar,
+  // which the pillar's own paragraph names
+  const dvOpen = (parts.deep['dai-van'] ?? [])[0]?.role === 'structure';
+  chapters['dai-van'] = dvOpen ? deepOf('dai-van', 'dai_van') : [...P('core', parts.dv).map(p => lead('dai_van', p)), ...deepOf('dai-van', null)];
   chapters['luu-nien'] = leadAll('luu_nien', parts.deep['luu-nien'] ?? []);
   chapters['tong-ket'] = leadAll('tong_ket', parts.deep['tong-ket'] ?? []);
 }

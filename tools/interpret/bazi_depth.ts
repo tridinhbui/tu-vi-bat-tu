@@ -24,8 +24,14 @@ export function stats(c: ChartInput, k: Knowledge = K) {
   const o = baziReader(c, k);
   const per: Record<string, number> = {};
   for (const [id, ps] of Object.entries(o.chapters ?? {})) per[id] = (ps as ProseParagraph[]).reduce((a, p) => a + p.sentences.length, 0);
-  const luck = Object.values(o.chapters ?? {}).flat().filter(isLuck) as ProseParagraph[];
-  const luckSourced = luck.filter(p => p.sentences.filter(s => s.trace.basis === 'sach' || s.trace.basis === 'tinh_toan').length >= 2).length;
+  // per luck pillar (REVIEW-19 W6): its short paragraph and its Đọc sâu together, keyed by the trace step "luck:<n>" (the short paragraph joins
+  // the pillar's head to its verdict, and the gods and growth stage moved to Đọc sâu)
+  const lp = Object.values(o.chapters ?? {}).flat().filter(isLuck) as ProseParagraph[];
+  const key = (p: ProseParagraph) => p.sentences.map(s => s.trace.step ?? '').find(x => x.startsWith('luck:')) ?? p.sentences[0]?.text ?? '';
+  const byLuck = new Map<string, ProseParagraph[]>();
+  for (const p of lp) (byLuck.get(key(p)) ?? byLuck.set(key(p), []).get(key(p))!).push(p);
+  const luck = [...byLuck.values()];
+  const luckSourced = luck.filter(ps => ps.flatMap(p => p.sentences).filter(s => s.trace.basis === 'sach' || s.trace.basis === 'tinh_toan').length >= 2).length;
   const all = Object.values(o.chapters ?? {}).flat().flatMap(p => (p as ProseParagraph).sentences);
   return { per, total: all.length, luck: luck.length, luckSourced, phoThong: all.filter(s => s.trace.basis === 'pho_thong').length };
 }

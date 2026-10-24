@@ -12,7 +12,8 @@ export interface SentenceTrace {
   move: Move | 'DEGREE' | 'EXTRA' | 'VIA' | import('./deep.ts').DeepMove; concepts: string[]; rules: string[]; cites: string[];
   /** sach: a verified book rule; he_thong: the system's closing words over what was said; tinh_toan: a computed fact or a page-cited
    *  table (deep.ts); pho_thong: a draft card of common meanings (deep.ts), labelled as such to the reader */
-  basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong' | 'minh_hoa' | 'loi_khuyen';
+  /** tong_hop (owner decision 2026-10-23): a labelled synthesis the system composes only from claims already told for this chart */
+  basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong' | 'minh_hoa' | 'loi_khuyen' | 'tong_hop';
   /** narrative.ts: the claim was told in its card's soft form (a weakened reading): it is never set side by side with another as a plain strength */
   soft?: boolean;
   /** minh_hoa (owner policy 2026-10-22): the step of the ONE sourced sentence this illustration makes concrete — `tied` (Tử Vi,
