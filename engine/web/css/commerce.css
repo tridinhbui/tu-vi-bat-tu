@@ -72,3 +72,14 @@
 .pw-deep-fold[open]>summary::before{transform:rotate(90deg)}
 .pw-deep-fold>summary .cb-t{font-weight:600}.pw-deep-fold>summary .cb-s{color:var(--text2);font-size:.85rem}
 .pw-deep-fold>.pw-lock{margin:0 10px 10px}
+.cm-pick{border-color:var(--brass);box-shadow:0 0 0 1px var(--brass)}
+.cm-badge{align-self:flex-start;margin:0;padding:2px 8px;border-radius:999px;background:color-mix(in srgb,var(--brass) 18%,var(--raise));color:var(--text);font-size:.78rem;font-weight:600}
+.cm-points{margin:0;padding-left:1.1em;font-size:.92rem}.cm-points li{margin:2px 0}
+/* Luận AI under a chapter (js/ai_card.js) */
+.ai-card{margin:var(--s4) 0 var(--s3);padding:var(--s3) var(--s4);border:1px dashed var(--brass);border-radius:var(--r-sm);background:var(--raise)}
+.ai-card .eyebrow{margin-bottom:var(--s2)}.ai-card p{margin:0 0 var(--s2)}.ai-card p:last-child{margin-bottom:0}
+.ai-card .btn{gap:6px}.ai-card .coin{width:1.05em;height:1.05em;vertical-align:-.15em}
+.ai-text p,.ai-text ul{margin:0 0 var(--s3);line-height:1.75}.ai-text h5{margin:var(--s3) 0 var(--s2);font-size:1rem}
+.ai-msg.err{color:var(--neg)}.ai-card a:not(.btn){color:var(--accent)}
+@media print{.ai-card:not(:has(.ai-text p)){display:none}.ai-card .btn,.ai-msg{display:none}}
+.pw-plans s{color:inherit;opacity:.65;font-weight:400}

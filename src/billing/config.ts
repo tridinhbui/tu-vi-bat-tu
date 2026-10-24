@@ -41,28 +41,36 @@ export const PACKS = [
 export type Pack = (typeof PACKS)[number];
 export const packById = (id: unknown): Pack | undefined => PACKS.find(p => p.id === id);
 
-// ---------- the report: three tiers (owner decision 2026-10-23) ----------
+// ---------- the report: tiers and packages (owner decisions 2026-10-23, 2026-10-24) ----------
 // Chapter ids are those of the reader prose served by /api/interpret mode "prose" (src/interpret/prose): the overview (tong_quan), the twelve
 // palaces, the đại hạn and lưu niên chapter (van_han) and the Bát Tự reading (bat_tu, filtered per tab). Every chapter's reading has a main
 // part and, for some chapters, a "Đọc sâu (theo sách)" part: Tử Vi paragraphs marked `deep` (prose/luan_deep.ts), Bát Tự paragraphs with
 // depth 'sau' (prose/bazi_deep.ts).
-//   guest  (not signed in, and everyone who opens a share link): the first third of each chapter's main part, never the Đọc sâu part;
-//   member (signed in, free): the whole main part of every chapter; the Đọc sâu part of a chapter once it is opened with xu (`unlocks`).
+//   guest  (not signed in, and everyone who opens a share link): the first half of each chapter's main part, never the Đọc sâu part;
+//   member (signed in, free): the whole main part of MEMBER_FREE (Tổng quan, Mệnh), the first half of every other chapter;
+//   opened (a package bought for the chart, `unlocks`): the chapter whole, main part and Đọc sâu.
 // The chart board, the fortune charts, the book findings list and the year explorer are not chapters and stay open to everyone.
 export type Tier = "guest" | "member";
-/** How many main paragraphs a guest reads out of n: the first third, rounded up, at least one (none of none). */
-export const guestShown = (n: number) => n > 0 ? Math.max(1, Math.ceil(n / 3)) : 0;
+/** How many main paragraphs a guest reads out of n: the first half, rounded up, at least one (none of none). */
+export const guestShown = (n: number) => n > 0 ? Math.max(1, Math.ceil(n / 2)) : 0;
 
 export const PALACE_CHAPTERS = ["menh", "cong_danh", "tai_bach", "thien_di", "phu_the", "phuc_duc", "dien_trach", "no_boc", "tu_tuc", "huynh_de", "phu_mau", "tat_ach"] as const;
-/** The chapters whose Đọc sâu part is sold. A chapter without Đọc sâu paragraphs for a chart shows no lock for it. */
-export const DEEP_CHAPTERS = [...PALACE_CHAPTERS, "van_han", "bat_tu"] as const;
+/** The chapters a signed-in member reads whole (main part) without paying: the overview, Mệnh and the chart's cách cục. Owner decision
+ *  2026-10-24, replacing "every chapter". */
+export const MEMBER_FREE: readonly string[] = ["tong_quan", "menh", "cach_cuc"];
+/** The chapters packages open (main part and Đọc sâu); Mệnh is here for its Đọc sâu part, Tổng luận (the closing over every domain) as
+ *  the summary of the paid chapters. */
+export const DEEP_CHAPTERS = [...PALACE_CHAPTERS, "van_han", "bat_tu", "tong_luan"] as const;
 export type DeepChapter = (typeof DEEP_CHAPTERS)[number];
 export const isDeepChapter = (c: unknown): c is DeepChapter => typeof c === "string" && (DEEP_CHAPTERS as readonly string[]).includes(c);
+/** What an `unlocks` row can hold: a chapter, a Bát Tự tab ("bat_tu:<tab>"), or AI (every "Luận AI" chapter of the chart at no extra xu). */
+export const AI_UNLOCK = "ai";
 
 export const CHAPTER_TITLES: Record<string, string> = {
   tong_quan: "Tổng quan Tử Vi", menh: "Cung Mệnh", cong_danh: "Cung Quan Lộc", tai_bach: "Cung Tài Bạch", thien_di: "Cung Thiên Di", phu_the: "Cung Phu Thê",
   phuc_duc: "Cung Phúc Đức", dien_trach: "Cung Điền Trạch", no_boc: "Cung Nô Bộc", tu_tuc: "Cung Tử Tức", huynh_de: "Cung Huynh Đệ",
   phu_mau: "Cung Phụ Mẫu", tat_ach: "Cung Tật Ách", van_han: "Đại hạn, tiểu hạn và lưu niên", bat_tu: "Luận giải Bát Tự",
+  cach_cuc: "Cách cục", tong_luan: "Tổng luận",
 };
 /** The Bát Tự tabs (prose/bazi.ts `chapters`), for the lock card of each. */
 export const BAZI_TAB_TITLES: Record<string, string> = {
@@ -70,24 +78,26 @@ export const BAZI_TAB_TITLES: Record<string, string> = {
   "dai-van": "Đại vận", "cach-cuc": "Cách cục & Dụng thần", "luu-nien": "Lưu niên", "tong-ket": "Tổng kết theo trục thời gian",
 };
 
-/** Packages bought with coins, for ONE chart; each opens the Đọc sâu part of its chapters. `chapters: "one"` opens the chapter the reader
- *  picked. GIÁ TẠM. */
+/** Packages bought with coins, for ONE chart. Each opens its chapters whole; Cao cấp also writes every "Luận AI" chapter at no extra xu and
+ *  opens a chat pass. A bigger package after a smaller one costs the difference (`buyPlan`). GIÁ TẠM. */
 export const PLANS = [
-  { id: "chuong", name: "Đọc sâu một chương", coins: 15, chapters: "one", blurb: "Mở phần Đọc sâu (theo sách) của một chương bất kỳ cho lá số đang xem." },
-  { id: "cung12", name: "Đọc sâu mười hai cung", coins: 60, chapters: PALACE_CHAPTERS, blurb: "Phần Đọc sâu (theo sách) của cả mười hai cung Tử Vi, những cung có phần này với lá số của bạn." },
-  { id: "tron_bo", name: "Đọc sâu trọn bộ", coins: 90, chapters: DEEP_CHAPTERS, blurb: "Phần Đọc sâu (theo sách) của mọi chương: mười hai cung, đại hạn và Bát Tự." },
+  { id: "van_nam", name: "Vận năm", coins: 49, chapters: ["van_han", "bat_tu:dai-van", "bat_tu:luu-nien"], ai: false, pass: false,
+    blurb: "Đại hạn, tiểu hạn và lưu niên của Tử Vi cùng Đại vận và Lưu niên của Bát Tự: trọn phần luận chính và Đọc sâu (theo sách)." },
+  { id: "tron_bo", name: "Trọn bộ", coins: 149, chapters: DEEP_CHAPTERS, ai: false, pass: false,
+    blurb: "Mọi chương của lá số: mười hai cung, đại hạn và lưu niên, Bát Tự, Tổng luận; trọn phần luận chính và Đọc sâu (theo sách) kèm trang sách." },
+  { id: "cao_cap", name: "Cao cấp", coins: 299, chapters: DEEP_CHAPTERS, ai: true, pass: true,
+    blurb: "Trọn bộ, cộng Luận AI cho mọi chương (bài viết riêng cho lá số, khoảng 500–800 từ mỗi chương) và 30 ngày chat với Bát Bát." },
 ] as const;
 export type Plan = (typeof PLANS)[number];
-/** Plans sold before 2026-10-23: no longer offered, named in the wallet history. */
-export const RETIRED_PLAN_NAMES: Record<string, string> = { van_han: "Vận hạn (gói cũ)" };
+/** Plans sold before: no longer offered, named in the wallet history. Their `unlocks` rows still open what they name. */
+export const RETIRED_PLAN_NAMES: Record<string, string> = { van_han: "Vận hạn (gói cũ)", chuong: "Đọc sâu một chương (gói cũ)", cung12: "Đọc sâu mười hai cung (gói cũ)" };
 export const planById = (id: unknown): Plan | undefined => PLANS.find(p => p.id === id);
-/** The chapters a plan opens; for "chuong" the one asked for (null when it has no Đọc sâu part to sell). */
-export function planChapters(plan: Plan, chapter?: unknown): DeepChapter[] | null {
-  if (plan.chapters === "one") return isDeepChapter(chapter) ? [chapter] : null;
-  return [...plan.chapters];
-}
-/** Plans that would open this chapter, cheapest first: what the lock card offers. */
-export const plansFor = (chapter: DeepChapter) => PLANS.filter(p => p.chapters === "one" || (p.chapters as readonly string[]).includes(chapter)).sort((a, b) => a.coins - b.coins);
+/** The `unlocks` rows a plan writes. */
+export const planChapters = (plan: Plan): string[] => [...plan.chapters, ...(plan.ai ? [AI_UNLOCK] : [])];
+/** Does a plan open this chapter or tab ("bat_tu:dai-van" is opened by a plan naming it or the whole bat_tu)? */
+export const planOpens = (plan: Plan, chapter: string) => (plan.chapters as readonly string[]).some(c => c === chapter || c === chapter.split(":")[0]);
+/** Plans that would open this chapter or tab, cheapest first: what the lock card offers. */
+export const plansFor = (chapter: string) => PLANS.filter(p => planOpens(p, chapter)).sort((a, b) => a.coins - b.coins);
 
 // ---------- discount codes ----------
 export const MAX_DISCOUNT_PCT = 90;

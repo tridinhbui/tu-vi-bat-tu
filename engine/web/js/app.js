@@ -19,6 +19,7 @@ import { openShareDialog, loadShare, shareBanner, SHARE_HASH } from './share.js'
 import { exportBoardPng } from './png.js';
 import { initAsk } from './ask.js';
 import { initPaywall, takeResume } from './paywall.js';
+import { initAiCards } from './ai_card.js';
 import { initLive } from './live.js';
 import { initGrowth } from './growth.js';
 import { renderOverview } from './overview.js';
@@ -224,6 +225,7 @@ const acctPage = initAccountPage($('#account-view'), {
 initAccount($('#acct'), () => { renderSaved(savedList, openSaved); acctPage.paint(); }, saver);
 initAsk(() => shareMode.id ? null : state?.req);                // "Hỏi Bát Bát": the chart on screen, never a shared one
 initPaywall(() => shareMode.id ? null : state?.req);
+initAiCards(() => shareMode.id ? null : state?.req);   // "Luận AI" under each chapter, never on a shared chart
 initLive($('#live-stats'));
 async function loadSample() {
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });

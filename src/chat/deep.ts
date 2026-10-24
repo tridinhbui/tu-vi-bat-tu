@@ -1,8 +1,9 @@
-// POST /api/me/deep — the long, model-written reading of one chapter. Coins only (never the free chats), and paid once: the finished
-// text is saved per chart and chapter, so opening it again is free. The model keeps writing and the text is saved even if the browser
+// POST /api/me/deep — the long, model-written reading of one chapter ("Luận AI"). Coins only (never the free chats), or free on a chart
+// opened with Cao cấp (an "ai" unlock), and paid once: the finished text is saved per chart and chapter, so opening it again is free.
+// POST /api/me/deep/status — which chapters of a chart are written already, and whether its package covers the rest. The model keeps writing and the text is saved even if the browser
 // disconnects, so a closed tab never costs the user a reading they paid for.
 import { cleanReq } from "../auth/charts.ts";
-import { COSTS } from "../billing/config.ts";
+import { AI_UNLOCK, COSTS } from "../billing/config.ts";
 import { getWallet, refund, spend } from "../billing/wallet.ts";
 import { CHAPTER_IDS, SPECS, type ChapterId } from "../interpret/chapters.ts";
 import { buildContext } from "./context.ts";
@@ -43,7 +44,8 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
   }
 
   if (!d.llm) return json({ detail: "deep reading is not configured" }, 503);
-  const cost = COSTS.deep, before = await getWallet(d.db, d.user.id, d.now?.());
+  const plan = await hasAiPlan(d.db, d.user.id, birth.fp);
+  const cost = plan ? 0 : COSTS.deep, before = await getWallet(d.db, d.user.id, d.now?.());
   if (before.coins < cost) return json({ detail: "locked", need: cost, wallet: before }, 402);
 
   const nowYear = new Date((d.now?.() ?? Date.now()) + 7 * 3600e3).getUTCFullYear();
@@ -51,8 +53,8 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
   if (!factsRes.ok) return json({ detail: "could not compute the chart" }, 502);
   const context = buildContext(await factsRes.json(), d.knowledge);
 
-  const paid = await spend(d.db, d.user.id, "deep", d.now?.());
-  if (!paid.ok) return json({ detail: "locked", need: cost, wallet: await getWallet(d.db, d.user.id, d.now?.()) }, 402);
+  const paid = plan ? null : await spend(d.db, d.user.id, "deep", d.now?.());
+  if (paid && !paid.ok) return json({ detail: "locked", need: cost, wallet: await getWallet(d.db, d.user.id, d.now?.()) }, 402);
 
   const spec = SPECS[chapter], llm = d.llm;
   const ask = `Hãy viết luận giải sâu cho chương "${spec.title}" (${spec.scope}).`;
@@ -63,7 +65,7 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
 
   // The job runs to the end even when the reader has gone away (open = false), so the reading is saved either way.
   const job = (async () => {
-    emit({ type: "meta", source: "coin", cost });
+    emit({ type: "meta", source: plan ? "plan" : "coin", cost });
     let text = "", stop = "";
     try {
       for await (const ev of llm({ instructions: DEEP_INSTRUCTIONS, context, messages: [{ role: "user", content: ask }] })) {
@@ -76,12 +78,28 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
         .bind(d.user.id, birth.fp, chapter, text, DEEP_MODEL, d.now?.() ?? Date.now()).run();
       emit({ type: "done" });
     } else {
-      let refunded = false;
-      try { refunded = await refund(d.db, d.user.id, paid.ref, d.now?.()); } catch { /* reported below as not refunded */ }
+      let refunded = !paid;                                                       // on a package nothing was charged
+      if (paid) try { refunded = await refund(d.db, d.user.id, paid.ref, d.now?.()); } catch { /* reported below as not refunded */ }
       emit({ type: "error", message: stop === "refusal" ? "Trợ lý không viết được chương này. Số xu đã được hoàn lại." : "Bản luận giải chưa viết xong nên chưa được tính. Bạn thử lại nhé.", refunded });
     }
     try { emit({ type: "wallet", wallet: await getWallet(d.db, d.user.id, d.now?.()) }); ctl.close(); } catch { /* already closed */ }
   })();
   d.defer(job);
   return new Response(stream, { headers: HEAD });
+}
+
+/** The chart was opened with a package that writes every Luận AI chapter (Cao cấp). */
+const hasAiPlan = async (db: D1Database, userId: string, fp: string) =>
+  !!(await db.prepare("SELECT 1 AS x FROM unlocks WHERE user_id = ? AND fp = ? AND chapter = ?").bind(userId, fp, AI_UNLOCK).first().catch(() => null));
+
+/** {written: chapters already written for this chart, plan: its package covers the rest, cost: xu per chapter otherwise}. No text: the
+ *  card asks /api/me/deep for a chapter, which replays a written one for free. */
+export async function handleDeepStatus(request: Request, d: { db: D1Database; user: User }): Promise<Response> {
+  if (request.method !== "POST") return json({ detail: "POST only" }, 405);
+  if (request.headers.get("x-tvbt") !== "1") return json({ detail: "missing x-tvbt header" }, 403);
+  const body = await request.json().catch(() => null) as { birth?: unknown } | null;
+  const birth = cleanReq(body?.birth);
+  if (!birth) return json({ detail: "body must be {birth}" }, 400);
+  const { results } = await d.db.prepare("SELECT chapter FROM deep_readings WHERE user_id = ? AND fp = ?").bind(d.user.id, birth.fp).all<{ chapter: string }>();
+  return json({ written: results.map(r => r.chapter), plan: await hasAiPlan(d.db, d.user.id, birth.fp), cost: COSTS.deep });
 }
