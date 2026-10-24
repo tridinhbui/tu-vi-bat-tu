@@ -88,6 +88,16 @@ const knowledge = {
         positionGuards: existsSync(join(DATA, 'kg', 'position_guards.json')) ? read(join(DATA, 'kg', 'position_guards.json')).guards : [],
         // the ten draft cách cục with thành / phá / cứu (engine/data/experimental, reason/structures.ts); voiced only with draft prose allowed
         formations: read(join(DATA, 'experimental', 'formations_experimental.json')).formations,
+        // the cách cục re-defined from KL/TH/TT pages (engine/data/formations_verified.json, docs/audit/CACH-CUC-SOURCES.md): only the
+        // verified ones, each with the pages of its core, its effect and every condition kept (prose/cach_cuc.ts tells them)
+        formationsVerified: existsSync(join(DATA, 'formations_verified.json')) ? (f => ({
+          formations: f.formations.filter((x: { reviewStatus: string }) => x.reviewStatus === 'verified'),
+          evidence: Object.fromEntries(Object.entries(f.evidence as Record<string, { core: Array<{ book: string; page: number }>; effect: Array<{ book: string; page: number }>; core_alone?: string;
+            items?: Record<string, { sources: Array<{ book: string; page: number }> }> }>).map(([id, e]) => {
+            const cite = (xs: Array<{ book: string; page: number }>) => [...new Set(xs.map(x => `${x.book} p.${x.page}`))];
+            return [id, { core: cite(e.core), effect: cite(e.effect), core_alone: e.core_alone ?? null,
+              items: Object.fromEntries(Object.entries(e.items ?? {}).map(([k, v]) => [k, cite(v.sources)])) }];
+          })) }))(read(join(DATA, 'formations_verified.json'))) : undefined,
         // which palaces and concepts each life domain gathers, for the report-wide ledger (reason/ledger.ts); a labelled system convention
         domains: existsSync(join(DATA, 'kg', 'domains.json')) ? read(join(DATA, 'kg', 'domains.json')) : undefined,
         // what Khảo Luận says each star stands for and how palaces bear on one another, page-checked (plan DEEP-TUVI, reason/depth.ts)

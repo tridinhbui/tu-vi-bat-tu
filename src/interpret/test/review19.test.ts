@@ -59,7 +59,13 @@ test('13: Cách cục tells only formations a verified rule names, each with its
     const o = proseCachCuc(f, K, seedOf(f), 'x', true);
     assert.ok(o.pass, JSON.stringify(o.issues));
     const ss = o.paragraphs.flatMap(p => p.sentences);
-    for (const s of ss.filter(x => x.trace.basis === 'sach')) for (const r of s.trace.rules) assert.equal(rmap.get(r)?.reviewStatus, 'verified', r);
+    // a book sentence stands on a verified rule or on a page-checked cách (formations_verified.json, verified only)
+    const fv = new Set((K.kg?.formationsVerified?.formations ?? []).map(x => x.id));
+    for (const s of ss.filter(x => x.trace.basis === 'sach')) {
+      assert.ok(s.trace.cites.length, s.text);
+      for (const r of s.trace.rules) assert.ok(rmap.get(r)?.reviewStatus === 'verified' || fv.has(r), r);
+    }
+    assert.ok(!ss.some(s => s.text.includes('Mã đầu đới kiếm')), 'a disputed cách is never told');
     for (const id of Object.keys(o.evidence.rules)) {
       assert.ok(ss.some(s => s.trace.step === `cach:${id}:state`), `${id}: state`);
       assert.ok(ss.some(s => s.trace.step === `cach:${id}:reach`), `${id}: reach`);

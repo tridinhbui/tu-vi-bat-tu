@@ -456,7 +456,9 @@ Theo can năm, Hóa Lộc đến Thiên Đồng (cung Thiên Di). Hóa Quyền l
 
 **Sau**
 
-Không có cách có tên nào thành trên lá số này; phần luận dựa vào từng cung như các chương trước.
+Xét các cách có tên gọi riêng, lá số có cách Tam kỳ gia hội.
+
+Mệnh thành cách Tam kỳ gia hội. Nhưng cách bị phá: Hóa Kỵ hoặc Kình Dương đồng cung hay chiếu vào Mệnh (trong tam phương). Vì đứng ở Mệnh, cách này ảnh hưởng nhẹ, nghiêng về mặt hạn chế lên toàn cục.
 
 ### tong_luan
 
@@ -1316,9 +1318,7 @@ Lá số không thành cách nào có tên trong Thực Hành và Khảo Luận,
 
 **Sau**
 
-Nhìn cả lá số một lượt, các mặt đời người không ngang nhau. Mặt mạnh nhất của lá số nằm ở đường công danh (có cả hai mặt, mỗi mặt nói về một chuyện), với gốc là Tả Phụ ở cung Tài Bạch và Hữu Bật ở cung Quan Lộc. Mặt nặng nhất là hôn nhân: đòi hỏi nhiều công sức, do Liêm Trinh và Tham Lang ở cung Phu Thê. Riêng khả năng kiếm tiền hai phía ngang sức, chưa đặt được vào thứ bậc. Sức khỏe không được xếp tốt hay xấu; chương Tật Ách chỉ ghi lại các yếu tố ở cung ấy.
+Nhìn cả lá số một lượt, các mặt đời người không ngang nhau. Kế sau đó là đường công danh có cả hai mặt, mỗi mặt nói về một chuyện. Mặt nặng nhất là hôn nhân: đòi hỏi nhiều công sức, do Liêm Trinh và Tham Lang ở cung Phu Thê. Riêng khả năng kiếm tiền hai phía ngang sức, chưa đặt được vào thứ bậc. Sức khỏe không được xếp tốt hay xấu; chương Tật Ách chỉ ghi lại các yếu tố ở cung ấy.
 
 Quãng 23–32 tuổi, khi hạn vào cung Phúc Đức, là chặng sáng sủa nhất (mức Rất thuận); chặng phải dè dặt nhất là 53–62 tuổi ở cung Nô Bộc (mức Rất thử thách). Chỗ đổi chiều rõ nhất đến ở tuổi 23, khi hạn sang cung Phúc Đức, đi từ mức Nhiều thử thách lên Rất thuận.
-
-Một thứ tự hợp lý là dựa vào đường công danh, còn hôn nhân là việc cần lo sớm.
 

@@ -10,10 +10,13 @@ import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts'
 import { validateProse, type ProseIssue, type ProseMetrics } from './validate.ts';
 import { infer, type Inference } from './chapter.ts';
 import { palaceEvidence, type Element } from '../reason/evidence.ts';
+import { evaluateFormations } from '../reason/structures.ts';
 
 export interface CachCucLib {
   status: string; none: string[]; intro: string[]; named: string[]; good: string[]; bad: string[]; whole: string[]; broken: string[];
   bad_eased: string[]; bad_full: string[]; degree: Record<string, string>; reach: string[]; reach_palace: string[]; rank: string[]; balance: string[];
+  /** the page-checked cách (formations_verified.json): head, state by the evaluator's verdict, a refutation, the degree by state */
+  f_head?: string[]; f_state?: Record<string, string[]>; f_refute?: string[]; f_degree?: Record<string, string>;
 }
 export interface ProseCachCuc {
   engine: string; kbVersion: string; chapter: 'cach_cuc'; palace: 'Cách cục'; title: string; draft: boolean;
@@ -54,11 +57,37 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
         return { l, r, P, name: nameOf(r.reading ?? ''), limits, helps, good, degree };
       })
       .sort((a, b) => b.degree - a.degree || Number(b.P === 'Mệnh') - Number(a.P === 'Mệnh') || (a.l.ruleId < b.l.ruleId ? -1 : 1));
+    // the page-checked cách (formations_verified.json): evaluated on the chart (reason/structures.ts); a cách whose core alone the books
+    // already call a fine cách (core_alone 'thanh') is thành when nothing breaks it, not 'hình thức' (docs/audit/CACH-CUC-SOURCES.md)
+    const FV = k.kg?.formationsVerified;
+    const verified = (FV && L!.f_state ? evaluateFormations(FV.formations, chart.base) : []).filter(r => r.state !== 'khong_hien' && r.state !== 'chua_du_du_kien')
+      .map(r => ({ r, ev: FV!.evidence[r.id], state: r.state === 'hinh_thuc' && FV!.evidence[r.id]?.core_alone === 'thanh' ? 'thanh_core' : r.state }));
     const p0: ProseSentence[] = [];
-    if (!found.length) say(p0, m.pick('none', L!.none), 'cach:none', 'he_thong');
-    else say(p0, fill(m.pick('intro', L!.intro), { n: String(found.length), list: joinVi(found.map(x => x.name)) }), 'cach:intro', 'sach', found.map(x => x.l.ruleId), [...new Set(found.flatMap(x => x.l.cites))].sort());
+    const names = [...verified.map(x => `cách ${x.r.name}`), ...found.map(x => x.name)];
+    if (!names.length) say(p0, m.pick('none', L!.none), 'cach:none', 'he_thong');
+    else say(p0, fill(m.pick('intro', L!.intro), { n: String(names.length), list: joinVi(names) }), 'cach:intro', 'sach', [...verified.map(x => x.r.id), ...found.map(x => x.l.ruleId)],
+      [...new Set([...verified.flatMap(x => x.ev?.core ?? []), ...found.flatMap(x => x.l.cites)])].sort());
     paragraphs.push({ role: 'structure', sentences: p0, text: '' });
     const note = 'Lời tổng hợp: yếu tố phá là sát tinh không đắc, Hóa Kỵ, chính tinh hãm, Tuần hay Triệt ở ngay cung có cách; mức ảnh hưởng theo quy ước của hệ thống (cách ở Mệnh nặng hơn, mỗi yếu tố phá hạ một bậc), không phải lời sách.';
+    const DEG: Record<string, number> = { thanh_thuong: 3, thanh: 2, thanh_core: 2, hinh_thuc: 1, bi_pha: 1 };
+    for (const x of verified) {
+      const xs: ProseSentence[] = [], id = x.r.id, ev = x.ev, items = ev?.items ?? {};
+      const pages = (kind: string, ms: Array<{ id: string }>) => [...new Set(ms.flatMap(e => items[`${kind}:${e.id}`] ?? []))];
+      rules[id] = { reading: `cách ${x.r.name}`, cites: [...(ev?.core ?? []), ...(ev?.effect ?? [])], verified: true };
+      say(xs, fill(m.pick(`fh|${id}`, L!.f_head!), { name: x.r.name }), `cach:${id}`, 'sach', [id], [...new Set([...(ev?.core ?? []), ...(ev?.effect ?? [])])].sort());
+      const lab = (ms: Array<{ label: string }>) => joinVi([...new Set(ms.map(e => e.label))].slice(0, 3));
+      const st = x.state, F = L!.f_state!;
+      const text = st === 'thanh_thuong' ? fill(m.pick(`fs|${id}`, F.thanh_thuong), { boost: lab(x.r.boosters) })
+        : st === 'bi_pha' ? fill(m.pick(`fs|${id}`, F.bi_pha), { broken: lab([...x.r.breakers, ...x.r.uncovered]) })
+        : st === 'hinh_thuc' ? (x.r.missing.length ? fill(m.pick(`fs|${id}`, F.hinh_thuc), { missing: joinVi(x.r.missing.slice(0, 2)) }) : m.pick(`fs|${id}`, F.hinh_thuc_bare))
+        : m.pick(`fs|${id}`, F[st] ?? F.thanh);
+      const stCites = st === 'thanh_thuong' ? pages('boosters', x.r.boosters) : st === 'bi_pha' ? pages('breakers', [...x.r.breakers, ...x.r.uncovered]) : ev?.core ?? [];
+      say(xs, text, `cach:${id}:state`, 'sach', [id], stCites.sort());
+      if (x.r.refutations.length && L!.f_refute) say(xs, fill(m.pick(`fr|${id}`, L!.f_refute), { refute: lab(x.r.refutations) }), `cach:${id}:refute`, 'sach', [id], pages('refutations', x.r.refutations).sort());
+      const deg = L!.f_degree?.[st === 'thanh_core' ? 'thanh' : st] ?? L!.degree['2'];
+      say(xs, fill(m.pick(`re|${id}`, L!.reach), { degree: deg }), `cach:${id}:reach`, 'he_thong', [], [], note);
+      paragraphs.push({ role: 'support', sentences: xs, text: '', title: `Cách ${x.r.name}` } as ProseParagraph);
+    }
     for (const x of found) {
       const xs: ProseSentence[] = [];
       rules[x.l.ruleId] = { reading: x.r.reading ?? '', cites: x.l.cites, verified: true };
@@ -72,9 +101,12 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
       say(xs, reach, `cach:${x.l.ruleId}:reach`, 'he_thong', [x.l.ruleId], [], note);
       paragraphs.push({ role: 'support', sentences: xs, text: '', title: cap(x.name) } as ProseParagraph);
     }
-    if (found.length >= 2) {
-      const xs: ProseSentence[] = [], g = found.filter(x => x.good).length, b = found.length - g;
-      say(xs, fill(m.pick('rank', L!.rank), { first: found[0].name }), 'cach:rank', 'he_thong', [], [], note);
+    // the ranking: page-checked cách by their state, then the named ones by degree
+    const all = [...verified.map(x => ({ name: `cách ${x.r.name}`, good: x.state !== 'bi_pha', degree: DEG[x.state] ?? 1 })), ...found.map(x => ({ name: x.name, good: x.good, degree: x.degree }))]
+      .sort((a, b) => b.degree - a.degree);
+    if (all.length >= 2) {
+      const xs: ProseSentence[] = [], g = all.filter(x => x.good).length, b = all.length - g;
+      say(xs, fill(m.pick('rank', L!.rank), { first: all[0].name }), 'cach:rank', 'he_thong', [], [], note);
       say(xs, L!.balance[g > b ? 0 : g < b ? 1 : 2], 'cach:balance', 'he_thong', [], [], note);
       paragraphs.push({ role: 'balance', sentences: xs, text: '' });
     }

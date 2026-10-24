@@ -59,5 +59,45 @@
   "Cách tốt nhiều hơn cách xấu, nên thế chung của lá số được nâng lên",
   "Cách xấu nhiều hơn cách tốt, nên thế chung của lá số cần nhiều gắng sức",
   "Cách tốt và cách xấu ngang nhau, nên hai chiều cùng có mặt"
- ]
+ ],
+ "f_head": [
+  "Mệnh thành cách {name}",
+  "Ở cung Mệnh hiện cách {name}"
+ ],
+ "f_state": {
+  "thanh_thuong": [
+   "Cách thành và có thế mạnh, vì {boost}",
+   "Cách đứng vững lại thêm thế, nhờ {boost}"
+  ],
+  "thanh": [
+   "Cách thành",
+   "Cách đứng được"
+  ],
+  "thanh_core": [
+   "Riêng phần lõi đã là một quý cách",
+   "Chỉ cần phần lõi, cách đã được kể là cách đẹp"
+  ],
+  "hinh_thuc": [
+   "Cách mới có hình thức: đủ bộ sao nhưng thiếu điều giúp cách đứng lên, như {missing}",
+   "Đủ sao mà chưa thành thế, vì thiếu {missing}"
+  ],
+  "hinh_thuc_bare": [
+   "Cách mới có hình thức, chưa gặp điều nào giúp nó đứng lên",
+   "Đủ bộ sao nhưng chưa thành thế"
+  ],
+  "bi_pha": [
+   "Cách bị phá, vì {broken}",
+   "Nhưng cách bị phá: {broken}"
+  ]
+ },
+ "f_refute": [
+  "Thêm nữa, {refute}, nên cách kém đi một phần",
+  "Lại có {refute}, khiến cách giảm sức"
+ ],
+ "f_degree": {
+  "thanh_thuong": "ảnh hưởng mạnh",
+  "thanh": "ảnh hưởng vừa",
+  "hinh_thuc": "ảnh hưởng nhẹ",
+  "bi_pha": "ảnh hưởng nhẹ, nghiêng về mặt hạn chế"
+ }
 }
