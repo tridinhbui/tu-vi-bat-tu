@@ -26,7 +26,7 @@ norm = lambda t: re.sub(r"\s+", "", unicodedata.normalize("NFC", t))
 
 def _quotes(o, path=""):
     if isinstance(o, dict):
-        if {"book", "page", "quote"} <= set(o) and isinstance(o["quote"], str):
+        if {"book", "quote"} <= set(o) and ("page" in o or "chapter" in o) and isinstance(o["quote"], str):
             yield path, o
         for k, v in o.items():
             yield from _quotes(v, f"{path}.{k}")
@@ -35,11 +35,8 @@ def _quotes(o, path=""):
             yield from _quotes(v, f"{path}[{i}]")
 
 
-def _on_page(book: str, page: str, quote: str) -> bool:
-    if book.startswith("WEB:"):
-        return book_text.quote_on_page(book, page, quote)
-    n = int(page.removeprefix("p."))
-    return norm(quote) in norm((DATA / "mined" / f"{book}_p{n}.txt").read_text("utf-8"))
+def _on_page(o: dict) -> bool:
+    return book_text.quote_on_page(o["book"], o.get("page", o.get("chapter")), o["quote"])
 
 
 @pytest.mark.parametrize("name", ["hyky.json", "thanh_pha.json", "schools.json"])
@@ -47,8 +44,36 @@ def test_every_quote_is_on_its_page(name):
     d = json.loads((DATA / name).read_text("utf-8"))
     qs = list(_quotes(d))
     assert len(qs) > 10
-    bad = [(p, o["book"], o["page"], o["quote"][:50]) for p, o in qs if not _on_page(o["book"], o["page"], o["quote"])]
+    bad = [(p, o["book"], o.get("page", o.get("chapter")), o["quote"][:50]) for p, o in qs if not _on_page(o)]
     assert bad == []
+
+
+def test_published_shapes():
+    """the shapes prose/bazi_deep.ts reads (agreed with the main session, 2026-10-24)"""
+    h = json.loads((DATA / "hyky.json").read_text("utf-8"))
+    assert h["version"] and len(h["principles"]) > 100
+    for p in h["principles"]:
+        assert p["topic"] in {"dung", "hy", "ky", "nhan", "cuu", "tuong"} and set(p["when"]) == {"dm", "group", "role", "relation"}
+        assert p["when"]["dm"] in {"vuong", "nhuoc", None} and p["when"]["role"] in {"yong", "hy", "ky", None}
+        assert p["when"]["group"] in {"Tài", "Quan Sát", "Ấn", "Tỉ Kiếp", "Thực Thương", None}
+        assert p["book"] in {"TTT", "TVH", "ZZ"} and isinstance(p["page"], int) and p["reviewStatus"] == "verified" and p["text"]
+    t = json.loads((DATA / "thanh_pha.json").read_text("utf-8"))
+    names = set(json.loads((DATA / "tvh_dungthan.json").read_text("utf-8"))["cach_key"])
+    assert {c["cach"] for c in t["cach"]} == names
+    for c in t["cach"]:
+        assert c["thanh"] and c["pha"] and c["reviewStatus"] == "verified"
+        for side in ("thanh", "pha", "cuu"):
+            for it in c[side]:
+                assert {"id", "when", "text", "book", "quote"} <= set(it) and ("page" in it or "chapter" in it)
+    # every TVH thành bại sentence the engine encodes (tvh_thanhbai.json) is quoted, with the same verdict
+    tb = {r["id"]: r["verdict"] for v in json.loads((DATA / "tvh_thanhbai.json").read_text("utf-8"))["rules"].values() for r in v}
+    seen = {it["engine_id"]: side for c in t["cach"] for side in ("thanh", "pha") for it in c[side] if it.get("engine_id")}
+    assert set(tb) == set(seen) and all((tb[i] == "tot") == (seen[i] == "thanh") for i in tb)
+    s = json.loads((DATA / "schools.json").read_text("utf-8"))
+    for tp in s["topics"]:
+        assert tp["kind"] in {"dieu_hau", "dung_than", "cach", "luc_than", "bang"} and len(tp["sides"]) >= 2
+        for sd in tp["sides"]:
+            assert {"school", "statement", "cite", "quote"} <= set(sd)
 
 
 def test_rule_ids_named_in_the_knowledge_files_exist():

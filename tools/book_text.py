@@ -88,9 +88,21 @@ def web_text(src_id: str, chapter: str) -> str:
     return _web(src_id)[chapter]
 
 
+BAZI_MINED = Path(__file__).resolve().parent.parent / "engine" / "data" / "bazi_deep" / "mined"
+BAZI_BOOKS = {"TTT": "ttt", "TVH": "tvh", "ZZ": "zz"}      # Trích Thiên Tủy, Thiệu Vĩ Hoa (scan, transcribed), 八字真宗: committed page text
+
+
+def bazi_page_text(book: str, page: int) -> str:
+    return (BAZI_MINED / f"{BAZI_BOOKS[book]}_p{int(page)}.txt").read_text("utf-8")
+
+
 def quote_on_page(book: str, page, quote: str) -> bool:
-    """book KL / TH / TT with a printed page number, or 'WEB:<id>' (a saved web snapshot, DEEP-3 2026-10-24) with the chapter title as page:
-    such a quote is labelled with its chapter, not a page"""
+    """book KL / TH / TT with a printed page number; TTT / TVH / ZZ (Bát Tự books) against the committed page text in
+    engine/data/bazi_deep/mined/ (whitespace-insensitive: the Chinese text layer breaks lines inside words); or 'WEB:<id>' (a saved web
+    snapshot, DEEP-3 2026-10-24) with the chapter title as page: such a quote is labelled with its chapter, not a page"""
+    if book in BAZI_BOOKS:
+        sq = lambda t: re.sub(r"\s+", "", t)
+        return sq(quote) in sq(bazi_page_text(book, page))
     if book.startswith("WEB:"):
         return norm(quote) in norm(web_text(book[4:], page))
     return norm(quote) in norm(page_text(book, page))

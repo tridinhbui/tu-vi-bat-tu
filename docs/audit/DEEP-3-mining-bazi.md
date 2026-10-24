@@ -48,9 +48,16 @@ rare), BT_TVHK_F21, BT_TVHK_CH14 (rare shapes), BT_TVHK_F25 (needs Quan Sát as 
 
 ## 3. New files
 
+Shapes of the three knowledge files follow the main session's request (2026-10-24) so `prose/bazi_deep.ts` reads them as-is:
+`hyky.json` `{version, principles[{id, topic: dung|hy|ky|nhan|cuu, when{dm, group, role, relation}, text, book TTT|TVH|ZZ, page, quote,
+reviewStatus}], role_map}`; `thanh_pha.json` `{version, cach[{cach (the 12 names of D.cach_tvh), thanh[], pha[], cuu[], reviewStatus}], general[],
+tbct_draft}`; `schools.json` `{version, summary, topics[{id, topic, kind, sides[{school, statement, cite, quote, book, page|chapter}], engine}]}`.
+Extra keys: result, rules, conditions, state, section (hyky); engine_id / engine_when (thanh_pha TVH items, linking tvh_thanhbai.json).
+`tools/book_text.quote_on_page` checks TTT / TVH / ZZ quotes against `mined/` and `WEB:<id>` against `sources_web/`.
+
 - `engine/data/bazi_deep/hyky.json` — dụng / hỉ / kỵ / cừu / nhàn thần logic with pages (§2).
-- `engine/data/bazi_deep/thanh_pha.json` — cách thành / phá / cứu: per cách the TVH thành bại sentences (pp.367-369) and dụng thần table
-  reference, TTT's own lines (Chính Quan cách, p.101), the general TTT principles (phá cách & cứu p.61, mộ khố xung pp.61-62, 70, thanh / trọc
+- `engine/data/bazi_deep/thanh_pha.json` — cách thành / phá / cứu: per cách every TVH thành bại sentence of pp.367-369 (transcribed from the
+  scan into `mined/tvh_p367-369.txt`, quoted, linked to the tvh_thanhbai.json encoding where one exists), TTT's own lines (Chính Quan cách, p.101), the general TTT principles (phá cách & cứu p.61, mộ khố xung pp.61-62, 70, thanh / trọc
   pp.101-103 with BT_TTTK_TR01-04, chân / giả thần pp.105-107 with BT_TTTK_CT01-02). The TBCT column keeps the `geju_defs.json` conditions as
   `draft` (no snapshot: §1) — **`geju_defs.json` is not replaced**.
 - `engine/data/bazi_deep/schools.json` — 8 points of disagreement, each side with page / chapter: children star (TTT nguyên chú vs Nhâm thị

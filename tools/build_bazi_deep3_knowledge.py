@@ -217,11 +217,7 @@ HYKY = {
     "zz_element_state": [q("zz", "p.27", "以得令、得位、得生为旺，以失令、失位、无生为弱", "Một hành vượng khi đắc lệnh, đắc vị, được sinh; yếu khi thất lệnh, thất vị, không được sinh.")],
 }
 
-# ======================================================================= thanh_pha.json
-tb = json.loads((D / "tvh_thanhbai.json").read_text("utf-8"))["rules"]
-geju = json.loads((D / "geju_defs.json").read_text("utf-8"))["defs"]
-CACH = [("Chính Quan", "quan"), ("Thất Sát", "sat"), ("Chính Ấn", "an"), ("Thiên Ấn", "an"), ("Chính Tài", "tai"), ("Thiên Tài", "tai"),
-        ("Thực Thần", "thuc"), ("Thương Quan", "thuong"), ("Kiến Lộc", "loc"), ("Dương Nhận", "nhan")]
+# ======================================================================= thanh_pha.json (sources)
 TTT_BY_CACH = {
     "Chính Quan": [dict(q("ttt", "p.101", "Như chánh quan cách, thân nhược có ấn, kỵ tài, tài tinh không hiện, có thể thấy ngay là thanh hĩ",
                           "Chính Quan cách, thân nhược có Ấn, Tài không lộ: thanh."), side="thanh"),
@@ -262,15 +258,7 @@ THANH_PHA = {
                      "rules": ["BT_TTTK_CT01", "BT_TTTK_CT02"]},
     },
 }
-for name, key in CACH:
-    THANH_PHA["cach"][name] = {
-        "tvh": {"thanh_bai": [{"id": r["id"], "verdict": r["verdict"], "text": r["text"], "page": r["page"]} for r in tb.get(key, [])],
-                "table": "tvh_dungthan.json", "pages": "pp.367-369, 378-386"},
-        "ttt": TTT_BY_CACH.get(name, []),
-        "tbct": {"status": "draft", "why": "子平真詮: không có bản chụp công cộng để đối chiếu (DEEP-3)", "defs": geju.get(name)},
-    }
-
-# ======================================================================= schools.json
+# ======================================================================= schools.json (sources)
 SCHOOLS = {
     "_status": "verified",
     "_note": ("DEEP-3 (2026-10-24). Points where the Bát Tự sources disagree, each side with book and page (or web chapter). Books: ttt = Trích Thiên Tủy "
@@ -314,14 +302,224 @@ SCHOOLS = {
     ],
 }
 
-_ct = json.loads(CTBG.read_text("utf-8"))
-SCHOOLS["points"][-1]["cells"] = [{k: r[k] for k in ("stem", "branch", "kinds", "ctbg", "tvh_table", "tvh_notes", "draft", "confidence")}
-                                  | {"book": "WEB:CTBG", "page": r["chapter"], "quote": r["ctbg_quote"], "vi": "Ô 穷通宝鉴 (bản chụp) khác bảng TVH tr.389-390 / chú thích tr.391-396 hoặc ô nhớ."}
-                                  for r in _ct.get("disagreements", []) if r.get("ctbg_quote") and {"tap_can_khac_bang_TVH", "can_chu_khac_chu_thich_TVH"} & set(r["kinds"])]
-SCHOOLS["points"][-1]["summary"] = {"checked_cells_draft_equals_text": len(_ct.get("checked_cells", [])),
-                                   "set_differs_from_tvh_table": sum("tap_can_khac_bang_TVH" in r["kinds"] for r in _ct.get("disagreements", [])),
-                                   "first_stem_differs_from_tvh_notes": sum("can_chu_khac_chu_thich_TVH" in r["kinds"] for r in _ct.get("disagreements", []))}
 
-for name, obj in (("hyky.json", HYKY), ("thanh_pha.json", THANH_PHA), ("schools.json", SCHOOLS)):
+# ======================================================================= published shapes (asked by the main session for prose/bazi_deep.ts, 2026-10-24)
+# hyky.json      {"version", "principles": [{id, topic, when: {dm, group, role, relation}, text, book, page | chapter, quote, reviewStatus, ...}], "role_map"}
+# thanh_pha.json {"version", "cach": [{cach, thanh: [...], pha: [...], cuu: [...], reviewStatus}], "general": [...], "tbct_draft": {...}}
+# schools.json   {"version", "topics": [{id, topic, kind, sides: [{school, statement, cite, quote, book, page | chapter}], engine}]}
+# Extra keys beside the asked ones: result (what the statement concludes), rules (kin rule ids that voice it), section, conditions (rule DSL),
+# engine_id (tvh_thanhbai.json id), engine_when (its machine condition).
+VERSION = "1.0.0"
+BOOK = {"ttt": "TTT", "tvh": "TVH", "zz": "ZZ"}
+GVI = {"Tai": "Tài", "QuanSat": "Quan Sát", "An": "Ấn", "Ti": "Tỉ Kiếp", "ThucThuong": "Thực Thương"}
+
+
+def pub(o: dict) -> dict:
+    b = o["book"]
+    out = {"book": BOOK.get(b, b)}
+    if b.startswith("WEB:"):
+        out["chapter"] = o["page"]
+    else:
+        out["page"] = int(str(o["page"]).removeprefix("p."))
+    out["quote"] = o["quote"]
+    return out
+
+
+def cite(o: dict) -> str:
+    return f"{o['book']} {o['chapter']}" if "chapter" in o else f"{o['book']} tr.{o['page']}"
+
+
+def W(dm=None, group=None, role=None, relation=None) -> dict:
+    return {"dm": dm, "group": group, "role": role, "relation": relation}
+
+
+PRINC: list[dict] = []
+_n: dict = {}
+
+
+def P(section: str, topic: str, o: dict, when: dict | None = None, **extra) -> None:
+    src = pub(o)
+    key = f"{src['book']}_{section.upper()}"
+    _n[key] = _n.get(key, 0) + 1
+    PRINC.append({"id": f"{key}_{_n[key]:02d}", "topic": topic, "when": when or W(), "text": o["vi"], **src, "reviewStatus": "verified",
+                  "section": section, **{k: v for k, v in extra.items() if v is not None}})
+
+
+H = HYKY
+for o in H["roles"]["dung"]:
+    P("roles", "dung", o)
+for o in H["roles"]["hi"] + H["roles"]["many"]:
+    P("roles", "hy", o)
+for o in H["roles"]["ky"]:
+    P("roles", "ky", o)
+for o in H["roles"]["nhan"]:
+    P("roles", "nhan", o)
+for o in H["roles"]["cuu"]:
+    P("roles", "cuu", o)
+P("role_map", "cuu", H["role_map"]["source"], result={"role_map": "see top-level role_map"})
+for sec in ("order", "chanh_bien", "no_dung", "dung_disabled", "dung_position", "strength_notes", "trung_hoa", "mon_dia", "ton_ich", "cuong_nhu",
+            "phan_cuc", "tong_luck", "luck_principles", "luck_year", "zz_element_state", "hop_xung"):
+    for o in H[sec]:
+        P(sec, "dung", o)
+for k, v in H["dung_rules"].items():
+    for o in (v if isinstance(v, list) else [v]):
+        P("dung_rules", "dung", o, W(dm="vuong") if k == "TVH167" else None, result={"dung": "Quan Sát"} if k == "TVH167" else None)
+for o in H["benh_duoc"]:
+    P("benh_duoc", "ky", o)
+for o in H["phan_uc"] + H["an_oan"]:
+    P("phan_uc_an_oan", "hy", o)
+hb = H["hi_by_dung"][0]
+P("hi_by_dung", "hy", hb, W("vuong", "Quan Sát", "yong"), result={"hy": "Tài"})
+P("hi_by_dung", "hy", hb, W("nhuoc", "Ấn", "yong"), result={"hy": "Quan Sát"})
+# the TTT dụng table: 'when.group' is the group whose weight sets the row (with 'state'); result.dung is the group this book takes
+DT_WHEN = {"T01": (None, None, None), "T02": ("vuong", "Ấn", "nhieu"), "T03": ("vuong", "Quan Sát", "nhe"), "T04": ("vuong", "Tỉ Kiếp", "nhieu"),
+           "T05": ("vuong", "Tỉ Kiếp", "nhieu"), "T06": ("vuong", "Ấn", "nhieu"), "T07": ("nhuoc", "Thực Thương", "nhieu"), "T08": ("nhuoc", "Tài", "vuong"),
+           "T09": (None, "Quan Sát", "can_bang"), "T10": (None, "Tài", "can_bang"), "T11": (None, None, None), "T12": (None, None, None),
+           "T13": (None, None, None), "T14": ("vuong", None, None), "T15": (None, "Ấn", "vuong"), "T16": (None, "Ấn", "vuong")}
+_, _, KMETA = None, None, {}
+for b in ("ttt", "tvh", "zz"):
+    KMETA |= json.loads((D / f"quotes_{b}_kin.json").read_text("utf-8"))
+KPACK = {}
+for b in ("ttt", "tvh", "zz"):
+    KPACK |= {r["id"]: r for r in json.loads((D / f"pack_{b}_kin.json").read_text("utf-8"))["rules"]}
+for row in H["dung_table"]:
+    dm, g, st = DT_WHEN[row["id"]]
+    P("dung_table", "dung", row, W(dm, g), state=st, result={"dung": GVI[row["dung"]]} if row.get("dung") else None,
+      rules=[row["rule"]] if row.get("rule") else None, conditions=KPACK[row["rule"]]["conditions"] if row.get("rule") else None,
+      why_no_rule=row.get("why_no_rule"))
+TOPIC_OF = {"BT_TTTK_HK01": ("dung", W(role="yong")), "BT_TTTK_HK02": ("ky", W(role="ky", relation="khac")), "BT_TTTK_HK03": ("dung", W(role="yong")),
+            "BT_TTTK_HK05": ("hy", W(role="hy")), "BT_TTTK_CT01": ("dung", W(role="yong"))}
+for v in H["verdicts"]["ttt"]:
+    t, w = TOPIC_OF[v["rule"]]
+    P("verdicts", t, v, w, rules=[v["rule"]], conditions=KPACK[v["rule"]]["conditions"])
+CAT_WHEN = {"BT_TVHK_CH01": ("vuong", "Tài"), "BT_TVHK_CH02": ("vuong", "Quan Sát"), "BT_TVHK_CH03": ("vuong", "Thực Thương"),
+            "BT_TVHK_CH04": ("nhuoc", "Tỉ Kiếp"), "BT_TVHK_CH05": ("nhuoc", "Tỉ Kiếp"), "BT_TVHK_CH06": ("nhuoc", "Ấn")}
+CAT_TEXT_WHEN = {"Thân vượng dụng thần là quan": ("vuong", "Quan Sát"), "Thân nhược, dụng thần là tỉ kiếp, tài tinh nặng": ("nhuoc", "Tỉ Kiếp")}
+for v in H["verdicts"]["tvh_cat_hung"]["cat"]:
+    dm, g = CAT_WHEN.get(v.get("rule"), next((x for k, x in CAT_TEXT_WHEN.items() if v["quote"].startswith(k)), (None, None)))
+    P("cat_hung", "dung", v, W(dm, g, "yong"), result={"verdict": "cat"}, rules=[v["rule"]] if v.get("rule") else None,
+      conditions=KPACK[v["rule"]]["conditions"] if v.get("rule") else None)
+HUNG_WHEN = {"CH10": ("nhuoc", "Tài", None), "CH11": (None, "Tài", "yong"), "CH12": ("nhuoc", "Quan Sát", None), "CH13": (None, "Quan Sát", "yong"),
+             "CH14": ("nhuoc", "Quan Sát", None), "CH15": (None, "Quan Sát", "yong"), "CH16": (None, "Ấn", None), "CH17": (None, "Ấn", "yong"),
+             "CH18": (None, "Thực Thương", None), "CH19": (None, "Thực Thương", "yong"), "CH20": (None, "Tỉ Kiếp", None), "CH21": (None, "Tỉ Kiếp", "yong")}
+for v in H["verdicts"]["tvh_cat_hung"]["hung"]:
+    dm, g, role = HUNG_WHEN.get((v.get("rule") or "").removeprefix("BT_TVHK_"), (None, None, "ky"))
+    P("cat_hung", "ky", v, W(dm, g, role), result={"verdict": "hung"}, rules=[v["rule"]] if v.get("rule") else None,
+      conditions=KPACK[v["rule"]]["conditions"] if v.get("rule") else None)
+for v in H["verdicts"]["tvh_p173"]:
+    for g in v["groups"]:
+        P("phu_quy_p173", "dung" if v["role"] == "dung" else "ky", v, W(v["dm"], GVI[g], "yong" if v["role"] == "dung" else "ky"),
+          result={"verdict": v["verdict"]}, rules=[v["rule"]] if v.get("rule") else None)
+for o in H["verdicts"]["timing"]:
+    P("timing", "dung", o)
+for o in H["position"]["quotes"]:
+    P("position", "hy", o, W(relation="ke_nhat_chu"), rules=H["position"]["rules"], near_dm=H["position"]["near_dm"])
+assert len({p["id"] for p in PRINC}) == len(PRINC)
+HYKY_OUT = {"version": VERSION, "_note": HYKY["_note"] + (" Shape agreed with the main session (2026-10-24): principles[] with when "
+            "{dm: vuong|nhuoc|null, group: Vietnamese group|null, role: yong|hy|ky|null, relation}; extra keys result / rules / conditions / state / "
+            "section. 'role_map' = TTT p.167 element map, computable."),
+            "principles": PRINC, "role_map": {k: v for k, v in HYKY["role_map"].items() if k != "source"}}
+
+# ---------------------------------------------------------------- thanh_pha.json: TVH pp.367-369 sentence by sentence (mined/tvh_p367-369.txt)
+import re as _re
+tb = json.loads((D / "tvh_thanhbai.json").read_text("utf-8"))
+CACH_KEY = json.loads((D / "tvh_dungthan.json").read_text("utf-8"))["cach_key"]
+SEC = {"1": "quan", "2": "sat", "3": "an", "4": "tai", "5": "thuc", "6": "thuong_quan", "7": "kien_loc"}
+IDP = {"quan": "quan", "sat": "sat", "an": "an", "tai": "tai", "thuc": "thuc", "thuong_quan": "thuong", "kien_loc": "loc", "kinh_duong": "loc"}
+items: dict[str, list] = {}
+cur, on = None, False
+for pg in (367, 368, 369):
+    for line in (D / "mined" / f"tvh_p{pg}.txt").read_text("utf-8").splitlines():
+        if line.startswith("2. Đánh giá"):
+            on = True
+            continue
+        if line.startswith("3. Cách cục đặc biệt"):
+            on = False
+        if not on:
+            continue
+        m = _re.match(r"^(\d)\. Cách ", line)
+        if m:
+            cur = SEC[m.group(1)]
+            continue
+        m = _re.match(r"^(\d)\) (.*)$", line)
+        if m and cur:
+            items.setdefault(cur, []).append((int(m.group(1)), m.group(2), pg))
+TBR = {r["id"]: r for v in tb["rules"].values() for r in v}
+
+
+def tvh_item(key, k, text, pg):
+    bad = "xấu" in text or "phá hại" in text
+    dm = "vuong" if _re.match(r"^(Khi )?[Nn]hật chủ (vượng|mạnh)", text) else "nhuoc" if _re.match(r"^(Khi )?[Nn]hật chủ nhược", text) else None
+    eid = f"{IDP[key]}.{k}"
+    it = {"id": f"TVH_{key.upper()}_{k}", "when": W(dm), "text": text, "book": "TVH", "page": pg, "quote": text}
+    if eid in TBR:
+        it |= {"engine_id": eid, "engine_when": TBR[eid]["all"]}
+    else:
+        it["engine_id"] = None
+    return ("pha" if bad else "thanh"), it
+
+
+TTT_CACH_OUT = {"Chính Quan": {"thanh": [TTT_BY_CACH["Chính Quan"][0], TTT_BY_CACH["Chính Quan"][2]], "cuu": [TTT_BY_CACH["Chính Quan"][1]],
+                               "pha": [TTT_BY_CACH["Chính Quan"][3]]}}
+WHEN_TTT = {0: W("nhuoc", "Ấn", "yong"), 1: W("nhuoc", "Tài", None, "sinh"), 2: W("vuong", "Tài", "hy"), 3: W(None, "Thực Thương", None, "khac")}
+cach_out = []
+for name, key in CACH_KEY.items():
+    e = {"cach": name, "thanh": [], "pha": [], "cuu": [], "reviewStatus": "verified"}
+    for k, text, pg in items.get("kien_loc" if key == "kinh_duong" else key, []):
+        side, it = tvh_item("kien_loc" if key == "kinh_duong" else key, k, text, pg)
+        e[side].append(it)
+    for side, lst in TTT_CACH_OUT.get(name, {}).items():
+        for o in lst:
+            i = TTT_BY_CACH[name].index(o)
+            e[side].append({"id": f"TTT_{key.upper()}_{i + 1}", "when": WHEN_TTT[i], "text": o["vi"], **pub(o)})
+    cach_out.append(e)
+general = []
+for sec, lst in (("pha_cach", THANH_PHA["general"]["pha_cach"]), ("no_clash_kho", THANH_PHA["general"]["no_clash_kho"]),
+                 ("thanh", THANH_PHA["general"]["thanh"]), ("troc", THANH_PHA["general"]["troc"]["quotes"]),
+                 ("chan_gia", THANH_PHA["general"]["chan_gia"]["quotes"])):
+    for i, o in enumerate(lst, 1):
+        side = "cuu" if "cứu" in o["vi"].lower() or "khử" in o["vi"] else "pha" if sec in ("pha_cach", "troc") or "lục đục" in o["vi"] else "thanh"
+        general.append({"id": f"TTT_{sec.upper()}_{i}", "side": side, "when": W(), "text": o["vi"], **pub(o),
+                        **({"rules": THANH_PHA["general"][sec]["rules"]} if isinstance(THANH_PHA["general"][sec], dict) else {})})
+THANH_PHA_OUT = {"version": VERSION, "_note": THANH_PHA["_note"] + (" Shape agreed with the main session: cach[] (names as D.cach_tvh.cach, the "
+                 "twelve of tvh_dungthan.json cach_key) with thanh / pha / cuu items {id, when, text, book, page | chapter, quote}; TVH items carry "
+                 "engine_id (tvh_thanhbai.json) and engine_when (its machine condition) when the engine encodes the sentence, null otherwise "
+                 "(the sentences it left out as vague). 'general' = TTT principles for every cách (item.side = thanh / pha / cuu). 'tbct_draft' = "
+                 "the 子平真詮 conditions of geju_defs.json, memory-written, never to be voiced."),
+                 "cach": cach_out, "general": general, "tbct_draft": {"status": "draft", "why": "no public-domain snapshot of 子平真詮 (DEEP-3)",
+                                                                      "defs": json.loads((D / "geju_defs.json").read_text("utf-8"))["defs"]}}
+
+# ---------------------------------------------------------------- schools.json
+KIND = {"children_star": "luc_than", "an_vuong_than_vuong": "dung_than", "quan_dung_strength": "dung_than", "ren_table": "bang",
+        "tai_many_dm_weak": "dung_than", "kieu_doat_thuc": "cach", "dung_choice": "dung_than"}
+topics = []
+for pt in SCHOOLS["points"]:
+    if pt["id"] == "dieu_hau_ctbg_vs_tvh":
+        continue
+    sides = []
+    for s_ in pt["sides"]:
+        src = pub(s_)
+        sides.append({"school": src["book"], "statement": s_["vi"], "cite": cite(src), **src, **({"who": s_["who"]} if s_.get("who") else {})})
+    topics.append({"id": pt["id"], "topic": pt["topic"], "kind": KIND[pt["id"]], "sides": sides, "engine": pt["engine"]})
+_ct = json.loads(CTBG.read_text("utf-8"))
+for r in _ct.get("disagreements", []):
+    if not r.get("ctbg_quote") or not ({"tap_can_khac_bang_TVH", "can_chu_khac_chu_thich_TVH"} & set(r["kinds"])):
+        continue
+    src = {"book": "WEB:CTBG", "chapter": r["chapter"], "quote": r["ctbg_quote"]}
+    topics.append({"id": f"dieu_hau_{r['stem']}{r['branch']}", "topic": f"điều hậu {r['stem']} sinh tháng {r['branch']}", "kind": "dieu_hau",
+                   "kinds": r["kinds"], "sides": [
+                       {"school": "TVH", "statement": f"bảng: {r['tvh_table']}; chú thích (thứ tự): {r['tvh_notes']}", "cite": "TVH tr.389-390, 391-396",
+                        "quote": None, "book": "TVH", "page": 389, "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"},
+                       {"school": "CTBG", "statement": f"用 {r['ctbg']}" + (f" (độ tin {r['confidence']})" if r['confidence'] != "high" else ""),
+                        "cite": cite(src), **src}],
+                   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."})
+SCHOOLS_OUT = {"version": VERSION, "_note": SCHOOLS["_note"] + (" Shape agreed with the main session: topics[] {id, topic, kind, sides[{school, "
+               "statement, cite, quote, book, page | chapter}], engine}. kind: dieu_hau | dung_than | cach | luc_than | bang. A TVH điều hậu side has "
+               "quote null (a table cell, no sentence to quote)."), "summary": {"ctbg_checked_cells": len(_ct.get("checked_cells", [])),
+               "ctbg_set_differs_from_tvh": sum("tap_can_khac_bang_TVH" in r["kinds"] for r in _ct.get("disagreements", [])),
+               "ctbg_first_differs_from_tvh_notes": sum("can_chu_khac_chu_thich_TVH" in r["kinds"] for r in _ct.get("disagreements", []))},
+               "topics": topics}
+
+for name, obj in (("hyky.json", HYKY_OUT), ("thanh_pha.json", THANH_PHA_OUT), ("schools.json", SCHOOLS_OUT)):
     (D / name).write_text(json.dumps(obj, ensure_ascii=False, indent=1) + "\n", "utf-8")
     print(name)
