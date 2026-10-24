@@ -159,8 +159,8 @@ export function proseBazi(chart: ChartInput, k: Knowledge, seed: string, engine:
     const deep0 = { ...kin };
     const deep = deepBazi(chart, k, m, L!.deep ? { ...L!.deep, kin: L!.kin } as NonNullable<BaziLibrary['deep']> : undefined, rules, { weigh: kin.weigh, work: kin.work });
     for (const [id, ps] of Object.entries(deep) as Array<[BaziChapterId, ProseParagraph[]]>) chapters[id] = [...(chapters[id] ?? []), ...ps];
-    for (const id of ['nhat-chu', 'cach-cuc', 'ngu-hanh', 'su-nghiep', 'quan-he', 'dai-van', 'luu-nien', 'tong-ket'] as const) paragraphs.push(...(id === 'su-nghiep' || id === 'quan-he' ? deep0[id] : []), ...(deep[id] ?? []));
-    for (const id of ['su-nghiep', 'quan-he'] as const) chapters[id] = [...(chapters[id] ?? []), ...deep0[id]];
+    for (const id of ['nhat-chu', 'cach-cuc', 'ngu-hanh', 'su-nghiep', 'quan-he', 'dai-van', 'luu-nien', 'tong-ket'] as const) paragraphs.push(...(id === 'su-nghiep' || id === 'quan-he' || id === 'cach-cuc' ? deep0[id] : []), ...(deep[id] ?? []));
+    for (const id of ['su-nghiep', 'quan-he', 'cach-cuc'] as const) chapters[id] = [...(chapters[id] ?? []), ...deep0[id]];
     if (L!.luan) luanBazi(chart, k, m, L!.luan, chapters, { p1, deep, topicsOf: topics, dv, ngu, sn, qh, kin });
     for (const id of Object.keys(chapters) as BaziChapterId[]) if (!chapters[id]!.length) delete chapters[id];
   }
@@ -258,7 +258,11 @@ function luanBazi(chart: ChartInput, k: Knowledge, m: Micro, LU: NonNullable<Baz
   // (điểm tựa và giới hạn, điều hậu, chỗ hai cách xét khác nhau, kết luận); the sources are each sentence's trace
   const leadParts = (ps: ProseParagraph[]) => ps.map((p, i) => { const pt = (p as ProseParagraph & { part?: string }).part;
     return i === 0 ? lead('cach', p) : pt && LU.lead[`part_${pt}`] ? lead(`part_${pt}`, p) : p; });
-  chapters['cach-cuc'] = [...leadParts(ccRest), ...P('support', [...turned(parts.topicsOf('cach-cuc'), 'cc'), ...ss.flatMap(p => p.sentences)]).map(p => lead('blade', p)), ...ssNums];
+  // DEEP-3: the whole chart's cát hung, thanh / trọc, chân / giả thần (bazi_kin 'cach-cuc') before the cách chapter's conclusion part
+  const kc = parts.kin['cach-cuc'] ?? [], kcMain = kc.filter(p => p.depth !== 'sau'), kcDeep = kc.filter(p => p.depth === 'sau');
+  const ccLed = leadParts(ccRest), end = ccLed.findIndex(p => (p as ProseParagraph & { part?: string }).part === 'ket_luan');
+  const ccBody = end < 0 ? [...ccLed, ...kcMain] : [...ccLed.slice(0, end), ...kcMain, ...ccLed.slice(end)];
+  chapters['cach-cuc'] = [...ccBody, ...P('support', [...turned(parts.topicsOf('cach-cuc'), 'cc'), ...ss.flatMap(p => p.sentences)]).map(p => lead('blade', p)), ...kcDeep, ...ssNums];
   // REVIEW-19 W6: with the structure analysis, the chapter opens on what each group stands for (its first paragraph) instead of the current pillar,
   // which the pillar's own paragraph names
   const dvOpen = (parts.deep['dai-van'] ?? [])[0]?.role === 'structure';

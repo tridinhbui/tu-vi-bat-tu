@@ -97,7 +97,7 @@ export interface DepthFrames {
   why: Record<string, string[]>; why_one: string[]; why_two: string[]; why_both?: string[]; group_def?: Record<string, string>; why_and: string; halves: string[]; halves_tail: Record<'first' | 'second', string>;
   touch: string[]; touch_year?: string[]; touch_kind: Record<string, string>; year_half: string[]; year_half_tail: string; tk_diag: string[]; tk_diag_heat: string; tk_diag_special: string[];
   tk_turn: string[]; tk_turn_what: Record<string, string>; special_yong?: string[]; special_pick?: string[]; dom_skip?: string[];
-  cach_status?: string[]; cach_status_near?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
+  cach_status?: string[]; cach_status_near?: string[]; ttt_yong_same?: string[]; ttt_yong_diff?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
   tai_layers?: Record<'pos' | 'dm' | 'method' | 'method_no_tb' | 'decide', string[]> & { decide_agree?: string[] };
   // REVIEW-19 W6: the strength in words (numbers in the Số liệu fold), the closing by priority
   str_plain?: string[]; str_plain_near?: string[]; tk_now?: string[]; tk_word?: Record<string, string>; tk_money?: Record<'pos' | 'neg' | 'even', string[]>; tk_work?: string[];
@@ -400,6 +400,16 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       { step: 'yong', note: NOTE.yong, mech: !!why });
     const benh = { benh: `nhật chủ ${dmVi} mà nhóm ${CT!.dominant ?? ''} nhiều nhất`, yong: Y1 }, fb = !!(Y?.fallback && Dd);
     if (!fb) mh(c1, 'benh_thuoc', benh, 'yong');
+    // a second school on the same question (DEEP-3): Trích Thiên Tủy's dụng thần by strength (p.63, kin rules BT_TTTK_DT*) beside the TVH
+    // table's group — the same group is a corroboration, a different one is said as the two books parting, never adjudicated
+    const tttY = ((D as BaziDeep & { kin?: { findings?: Array<{ rule_id: string; topic: string; effect: string; cause: string; page: string }> } }).kin?.findings ?? [])
+      .find(f => /^BT_TTTK_DT/.test(f.rule_id) && f.topic === 'yong');
+    const tttG = tttY ? ['Tỉ Kiếp', 'Thực Thương', 'Tài', 'Quan Sát', 'Ấn'].find(g => tttY.effect.includes(`lấy ${g} làm`)) : undefined;
+    if (tttY && tttG && Dd?.ttt_yong_same && Dd.ttt_yong_diff) {
+      const same = CT!.yong.includes(tttG);
+      say(c1, fill(m.pick('bd|tty', same ? Dd.ttt_yong_same : Dd.ttt_yong_diff), { cause: tttY.cause, effect: tttY.effect, g: tttG, yong: join(CT!.yong.slice(0, 1)) }), 'sach',
+        [`TTT ${tttY.page}`, tvhPage], [cite(tttY.rule_id, `${tttY.cause}: ${tttY.effect}`, [`TTT ${tttY.page}`])], { step: same ? 'yong:ttt_same' : 'yong:ttt_diff', mech: true, ...(same ? {} : { tone: 'neg' as const }) });
+    }
     const top = P?.flow?.groups?.[0]?.group;
     if (top && CT!.dominant && top !== CT!.dominant && Dd?.dom_skip?.length) say(c1, fill(m.pick('bd|dsk', Dd.dom_skip), { top, dom: CT!.dominant, cach: CT!.cach! }), 'tinh_toan', [tvhPage], [], { note: 'Bảng dụng thần theo cách (Thiệu Vĩ Hoa tr.378-386) chỉ có dòng cho một số nhóm nhiều nhất; khi nhóm lớn nhất không có dòng, bộ máy lấy nhóm lớn kế tiếp có dòng (yongshen.cach_cuc_tvh). Sách không nói cách xử lý trường hợp này.', step: 'yong:dom' });
     if (Y?.fallback && Dd) say(c1, fill(m.pick('bd|fb', Dd.fallback), { first: Y.first, use: Y.group }).replace(/\.\s*$/, Y.why ? fill(Dd.yong_why, { why: Y.why.text }) + '.' : '.'), 'tinh_toan', [tvhPage], [], { note: NOTE.yong, step: 'yong:fallback', mech: !!Y.why });

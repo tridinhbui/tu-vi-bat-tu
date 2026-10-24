@@ -113,7 +113,7 @@ add("ttt", "HK02", "p.143", "Như nguyên cục không có hỷ thần, có kỵ
 add("ttt", "HK03", "p.144", "Tài Quan vô khí, dụng thần vô lực, chẳng qua không thể phát đạt được mà thôi, cũng không có hình hung vậy", "fortune",
     "neutral", "khó phát đạt lớn, nhưng cũng không vì thế mà có hung họa", "Tài và Quan Sát đều yếu, dụng thần cũng yếu",
     ALL(N("Tai"), N("QuanSat"), eq("bazi.k.yong_weak", True)), hi=True)
-add("ttt", "HK05", "p.67", "hỉ thần đắc lệnh thì cát lợi", "fortune", "pos", "cát lợi: chữ lá số cần nắm được lệnh tháng", "chữ hỉ (hoặc dụng) nắm lệnh tháng",
+add("ttt", "HK05", "p.67", "hỉ thần đắc lệnh thì cát lợi", "fortune", "pos", "cát lợi, vì chữ lá số cần nắm được lệnh tháng", "chữ hỉ (hoặc dụng) nắm lệnh tháng",
     any_group(lambda g: ALL(HI(g), MONTH(g))), hi=True)
 add("ttt", "HK06", "p.101", "hỉ thần nên đắc địa phùng sanh, cùng nhật chủ kề cận là cát lợi", "fortune", "pos", "chữ có lợi ở ngay bên mình, dễ được trợ lực",
     "chữ hỉ (hoặc dụng) đứng kề nhật chủ, chữ kỵ không đứng kề", ALL(eq("bazi.k.hi_near", True), eq("bazi.k.ky_near", False)), hi=True,
@@ -277,7 +277,7 @@ add("tvh", "F44", "p.173", "Nhật chủ yếu, tỉ kiếp là dụng thần. T
 add("tvh", "F45", "p.173", "Nhật chủ nhược, ấn tinh là dụng thần. Ấn tinh càng vượng càng sang", "rank", "pos", "có thể sang", "nhật chủ nhược, Ấn là dụng thần và vượng",
     ALL(WEAK, YONG("An"), V("An")), hi=True)
 # p.170-171 cát / hung by dụng thần (topic 'fortune')
-add("tvh", "CH01", "p.170", "Thân vượng dụng thần là tài, có thực thương sinh tài; hoặc có quan sát bảo vệ tài", "fortune", "pos", "cát: dụng thần có nguồn, có chỗ giữ",
+add("tvh", "CH01", "p.170", "Thân vượng dụng thần là tài, có thực thương sinh tài; hoặc có quan sát bảo vệ tài", "fortune", "pos", "cát, vì dụng thần được sinh và được giữ",
     "nhật chủ vượng, Tài là dụng thần, có Thực Thương sinh hoặc Quan Sát giữ", ALL(STRONG, YONG("Tai"), ANY(ADJ("ThucThuong", "Tai"), P("QuanSat"))), hi=True)
 add("tvh", "CH02", "p.170", "Thân vượng, dụng thần là sát, sát nặng có thực thương chế ngự; hoặc sát nhẹ có tài sinh", "fortune", "pos", "cát",
     "nhật chủ vượng, Sát là dụng thần: Sát nặng có Thực Thương chế, hoặc Sát nhẹ có Tài sinh",
@@ -290,29 +290,29 @@ add("tvh", "CH05", "p.170", "Thân nhược, dụng thần là tỉ kiếp, th�
     "nhật chủ nhược, Tỉ Kiếp là dụng thần, Thực Thương nặng, có Ấn", ALL(WEAK, YONG("Ti"), V("ThucThuong"), P("An")), hi=True)
 add("tvh", "CH06", "p.170", "Thân nhược, dụng thần là ấn, có quan tinh sinh ấn; hoặc tỉ kiếp bảo vệ ấn", "fortune", "pos", "cát",
     "nhật chủ nhược, Ấn là dụng thần, có Quan Sát sinh Ấn hoặc Tỉ Kiếp", ALL(WEAK, YONG("An"), ANY(ADJ("QuanSat", "An"), P("Ti"))), hi=True)
-add("tvh", "CH10", "p.171", "Tài nặng: tài vượng, thân nhược, kiếp và ấn nhẹ", "fortune", "neg", "hung: Tài quá nặng so với thân", "Tài vượng, nhật chủ nhược, Tỉ Kiếp và Ấn nhẹ",
+add("tvh", "CH10", "p.171", "Tài nặng: tài vượng, thân nhược, kiếp và ấn nhẹ", "fortune", "neg", "hung, vì Tài quá nặng so với thân", "Tài vượng, nhật chủ nhược, Tỉ Kiếp và Ấn nhẹ",
     ALL(V("Tai"), WEAK, N("Ti"), N("An")))
-add("tvh", "CH11", "p.171", "Tài nhẹ: dụng thần là tài, tài nhẹ còn kiếp nặng, ấn nặng", "fortune", "neg", "hung: dụng thần Tài quá nhẹ", "Tài là dụng thần mà nhẹ, Tỉ Kiếp và Ấn nặng",
+add("tvh", "CH11", "p.171", "Tài nhẹ: dụng thần là tài, tài nhẹ còn kiếp nặng, ấn nặng", "fortune", "neg", "hung, vì dụng thần Tài quá nhẹ", "Tài là dụng thần mà nhẹ, Tỉ Kiếp và Ấn nặng",
     ALL(YONG("Tai"), N("Tai"), V("Ti"), V("An")), hi=True)
-add("tvh", "CH12", "p.171", "Quan nặng: quan nhiều, thân nhược lại không có ấn", "fortune", "neg", "hung: Quan quá nặng", "Quan Sát nhiều, nhật chủ nhược, không có Ấn",
+add("tvh", "CH12", "p.171", "Quan nặng: quan nhiều, thân nhược lại không có ấn", "fortune", "neg", "hung, vì Quan quá nặng", "Quan Sát nhiều, nhật chủ nhược, không có Ấn",
     ALL(V("QuanSat"), WEAK, A("An")))
-add("tvh", "CH13", "p.171", "Quan nhẹ: dụng thần là quan, ấn nặng", "fortune", "neg", "hung: dụng thần Quan quá nhẹ", "Quan Sát là dụng thần, Ấn nặng",
+add("tvh", "CH13", "p.171", "Quan nhẹ: dụng thần là quan, ấn nặng", "fortune", "neg", "hung, vì dụng thần Quan quá nhẹ", "Quan Sát là dụng thần, Ấn nặng",
     ALL(YONG("QuanSat"), V("An")), hi=True)
-add("tvh", "CH14", "p.171", "Sát nặng: thân nhẹ lại không có thực thương, ấn thụ", "fortune", "neg", "hung: Sát nặng không có chữ chế, chữ hóa",
+add("tvh", "CH14", "p.171", "Sát nặng: thân nhẹ lại không có thực thương, ấn thụ", "fortune", "neg", "hung, vì Sát nặng không có chữ chế, chữ hóa",
     "nhật chủ nhẹ, có Thất Sát, không có Thực Thương và Ấn", ALL(WEAK, GOD("Thất Sát"), A("ThucThuong"), A("An")))
-add("tvh", "CH15", "p.171", "Sát nhẹ: dụng thần là sát, sát nhẹ không chế ngự được nặng lại còn không có tài", "fortune", "neg", "hung: dụng thần Sát quá nhẹ",
+add("tvh", "CH15", "p.171", "Sát nhẹ: dụng thần là sát, sát nhẹ không chế ngự được nặng lại còn không có tài", "fortune", "neg", "hung, vì dụng thần Sát quá nhẹ",
     "Sát là dụng thần mà nhẹ, không có Tài", ALL(YONG("QuanSat"), GOD("Thất Sát"), N("QuanSat"), A("Tai")), hi=True)
-add("tvh", "CH16", "p.171", "Ấn nặng: ấn kiếp đều nặng mà quan thì nhẹ", "fortune", "neg", "hung: Ấn Kiếp quá nặng", "Ấn và Tỉ Kiếp đều nặng, Quan nhẹ",
+add("tvh", "CH16", "p.171", "Ấn nặng: ấn kiếp đều nặng mà quan thì nhẹ", "fortune", "neg", "hung, vì Ấn Kiếp quá nặng", "Ấn và Tỉ Kiếp đều nặng, Quan nhẹ",
     ALL(V("An"), V("Ti"), L("QuanSat")), note="Tr.171 viết cùng điều kiện hai lần (dưới 'Ấn nặng' và 'Tỉ kiếp nặng').")
-add("tvh", "CH17", "p.171", "Ấn nhẹ: dụng thần là ấn mà gặp tài nhiều", "fortune", "neg", "hung: dụng thần Ấn bị Tài nhiều đè", "Ấn là dụng thần, Tài nhiều",
+add("tvh", "CH17", "p.171", "Ấn nhẹ: dụng thần là ấn mà gặp tài nhiều", "fortune", "neg", "hung, vì dụng thần Ấn bị Tài nhiều đè", "Ấn là dụng thần, Tài nhiều",
     ALL(YONG("An"), V("Tai")), hi=True)
-add("tvh", "CH18", "p.171", "Thực thương nặng: Thực thương nhiều lại không có ấn", "fortune", "neg", "hung: Thực Thương quá nặng", "Thực Thương nhiều, không có Ấn",
+add("tvh", "CH18", "p.171", "Thực thương nặng: Thực thương nhiều lại không có ấn", "fortune", "neg", "hung, vì Thực Thương quá nặng", "Thực Thương nhiều, không có Ấn",
     ALL(V("ThucThuong"), A("An")))
-add("tvh", "CH19", "p.171", "Thực thương nhẹ: dụng thần là thực thương lại gặp nhiều kiêu thần", "fortune", "neg", "hung: dụng thần Thực Thương bị Thiên Ấn đoạt",
+add("tvh", "CH19", "p.171", "Thực thương nhẹ: dụng thần là thực thương lại gặp nhiều kiêu thần", "fortune", "neg", "hung, vì dụng thần Thực Thương bị Thiên Ấn đoạt",
     "Thực Thương là dụng thần, Thiên Ấn nhiều", ALL(YONG("ThucThuong"), GOD("Thiên Ấn"), V("An")), hi=True)
-add("tvh", "CH20", "p.171", "Tỉ kiếp nặng: Tứ trụ tỉ kiếp nhiều mà không có quan sát", "fortune", "neg", "hung: Tỉ Kiếp quá nặng", "Tỉ Kiếp nhiều, không có Quan Sát",
+add("tvh", "CH20", "p.171", "Tỉ kiếp nặng: Tứ trụ tỉ kiếp nhiều mà không có quan sát", "fortune", "neg", "hung, vì Tỉ Kiếp quá nặng", "Tỉ Kiếp nhiều, không có Quan Sát",
     ALL(V("Ti"), A("QuanSat")))
-add("tvh", "CH21", "p.171", "Tỉ kiếp nhẹ: Dụng thần là tỉ kiếp mà quan sát nhiều", "fortune", "neg", "hung: dụng thần Tỉ Kiếp bị Quan Sát đè", "Tỉ Kiếp là dụng thần, Quan Sát nhiều",
+add("tvh", "CH21", "p.171", "Tỉ kiếp nhẹ: Dụng thần là tỉ kiếp mà quan sát nhiều", "fortune", "neg", "hung, vì dụng thần Tỉ Kiếp bị Quan Sát đè", "Tỉ Kiếp là dụng thần, Quan Sát nhiều",
     ALL(YONG("Ti"), V("QuanSat")), hi=True)
 # ---- quan / danh pp.532, 546, 552-553 (court titles left out; see rules_519_556.md)
 add("tvh", "D01", "p.532", "Quan sát rất nặng, thân lại mạnh, nếu gặp chế phục là bậc trung thần", "character", "pos", "là người trung thành, tận tụy",
