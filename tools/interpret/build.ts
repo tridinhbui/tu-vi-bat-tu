@@ -93,10 +93,11 @@ const knowledge = {
         formationsVerified: existsSync(join(DATA, 'formations_verified.json')) ? (f => ({
           formations: f.formations.filter((x: { reviewStatus: string }) => x.reviewStatus === 'verified'),
           evidence: Object.fromEntries(Object.entries(f.evidence as Record<string, { core: Array<{ book: string; page: number }>; effect: Array<{ book: string; page: number }>; core_alone?: string;
-            items?: Record<string, { sources: Array<{ book: string; page: number }> }> }>).map(([id, e]) => {
+            items?: Record<string, { sources: Array<{ book: string; page: number }> }>; meaning?: Record<string, { text: string; book: string; page: number }> }>).map(([id, e]) => {
             const cite = (xs: Array<{ book: string; page: number }>) => [...new Set(xs.map(x => `${x.book} p.${x.page}`))];
             return [id, { core: cite(e.core), effect: cite(e.effect), core_alone: e.core_alone ?? null,
-              items: Object.fromEntries(Object.entries(e.items ?? {}).map(([k, v]) => [k, cite(v.sources)])) }];
+              items: Object.fromEntries(Object.entries(e.items ?? {}).map(([k, v]) => [k, cite(v.sources)])),
+              ...(e.meaning ? { meaning: Object.fromEntries(Object.entries(e.meaning).map(([st, v]) => [st, { text: v.text, cite: `${v.book} p.${v.page}` }])) } : {}) }];
           })) }))(read(join(DATA, 'formations_verified.json'))) : undefined,
         // which palaces and concepts each life domain gathers, for the report-wide ledger (reason/ledger.ts); a labelled system convention
         domains: existsSync(join(DATA, 'kg', 'domains.json')) ? read(join(DATA, 'kg', 'domains.json')) : undefined,

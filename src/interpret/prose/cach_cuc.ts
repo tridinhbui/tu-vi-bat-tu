@@ -95,8 +95,14 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
       const stCites = st === 'thanh_thuong' ? pages('boosters', x.r.boosters) : st === 'bi_pha' ? pages('breakers', [...x.r.breakers, ...x.r.uncovered]) : ev?.core ?? [];
       say(xs, text, `cach:${id}:state`, 'sach', [id], stCites.sort());
       if (x.r.refutations.length && L!.f_refute) say(xs, fill(m.pick(`fr|${id}`, L!.f_refute), { refute: lab(x.r.refutations) }), `cach:${id}:refute`, 'sach', [id], pages('refutations', x.r.refutations).sort());
-      const deg = L!.f_degree?.[st === 'thanh_core' ? 'thanh' : st] ?? L!.degree['2'];
-      say(xs, fill(m.pick(`re|${id}`, L!.reach), { degree: deg }), `cach:${id}:reach`, 'he_thong', [], [], note);
+      // what the cách brings in this state, as the page says (formations_verified meaning, DEEP-3); with it the system's degree line is not
+      // needed, without it the degree line stands
+      const mean = ev?.meaning?.[st === 'thanh_core' ? 'thanh' : st];
+      if (mean) say(xs, cap(mean.text), `cach:${id}:meaning`, 'sach', [id], [mean.cite]);
+      else {
+        const deg = L!.f_degree?.[st === 'thanh_core' ? 'thanh' : st] ?? L!.degree['2'];
+        say(xs, fill(m.pick(`re|${id}`, L!.reach), { degree: deg }), `cach:${id}:reach`, 'he_thong', [], [], note);
+      }
       paragraphs.push({ role: 'support', sentences: xs, text: '', title: `Cách ${x.r.name}` } as ProseParagraph);
     }
     for (const x of found) {

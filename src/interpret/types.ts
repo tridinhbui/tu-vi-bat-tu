@@ -103,7 +103,9 @@ export interface Knowledge {
     formations?: import('./reason/structures.ts').Formation[];
     /** the page-checked cách cục (tools/interpret/build.ts from engine/data/formations_verified.json): definitions and pages by id */
     formationsVerified?: { formations: import('./reason/structures.ts').Formation[];
-      evidence: Record<string, { core: string[]; effect: string[]; core_alone: string | null; items: Record<string, string[]> }> };
+      evidence: Record<string, { core: string[]; effect: string[]; core_alone: string | null; items: Record<string, string[]>;
+        /** what the cách brings in each state, as the page says (DEEP-3): a reader clause and its cite */
+        meaning?: Record<string, { text: string; cite: string }> }> };
     /** life domains for the report-wide ledger (engine/data/kg/domains.json, reason/ledger.ts) */
     domains?: import('./reason/ledger.ts').DomainsFile;
     /** Khảo Luận's statements of what each star stands for, and palace relations (engine/data/kg/star_nature.json, reason/depth.ts) */
