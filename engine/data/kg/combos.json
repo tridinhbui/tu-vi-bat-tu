@@ -1,0 +1,1465 @@
+{
+ "version": "combos-1",
+ "date": "2026-10-24",
+ "generated_by": "tools/build_deep3_kg.py",
+ "note": "Nhóm chính tinh và cặp sao theo Khảo Luận (pp.166-167 nhóm, pp.179-186 thế đứng 12 vòng Tử Vi): 'groups' (nhóm, tính chất), 'kinds' (nhóm hành động / lý luận), 'layouts' (thế của lá số theo vị trí Tử Vi: chart.tu_vi_branch), 'pairs' (cặp sao có nghĩa riêng trên trang), 'modifiers' (điều kiện làm đổi nghĩa), 'per_palace' (theo từng cặp chính tinh đồng cung: các rule verified đọc cặp đó ở từng cung, với trang). Ô chữ của 12 sơ đồ vòng (KL pp.167-178) chưa khai thác: text layer xáo thứ tự ô.",
+ "groups": [
+  {
+   "id": "tu_phu_vu_tuong",
+   "name": "Tử Phủ Vũ Tướng",
+   "stars": [
+    "Tử Vi",
+    "Thiên Phủ",
+    "Vũ Khúc",
+    "Thiên Tướng"
+   ],
+   "kind": "hanh_dong",
+   "nature": "hành động có lý luận",
+   "sources": [
+    {
+     "mined": "kl166_tpvt",
+     "book": "KL",
+     "page": 166,
+     "quote": "Tử Phủ Vũ Tướng (Hành động có lý luận)"
+    }
+   ]
+  },
+  {
+   "id": "sat_pha_liem_tham",
+   "name": "Sát Phá Liêm Tham",
+   "stars": [
+    "Thất Sát",
+    "Phá Quân",
+    "Liêm Trinh",
+    "Tham Lang"
+   ],
+   "kind": "hanh_dong",
+   "nature": "hành động mạnh mẽ",
+   "sources": [
+    {
+     "mined": "kl167_splt",
+     "book": "KL",
+     "page": 167,
+     "quote": "Sát Phá Liêm Tham (Hành động mạch mẽ)"
+    }
+   ]
+  },
+  {
+   "id": "co_nguyet_dong_luong",
+   "name": "Cơ Nguyệt Đồng Lương",
+   "stars": [
+    "Thiên Cơ",
+    "Thái Âm",
+    "Thiên Đồng",
+    "Thiên Lương"
+   ],
+   "kind": "ly_luan",
+   "nature": "lý luận thuần túy",
+   "sources": [
+    {
+     "mined": "kl167_cndl",
+     "book": "KL",
+     "page": 167,
+     "quote": "Cơ Nguyệt Đồng Lương (Lý luận thuần túy)"
+    }
+   ]
+  },
+  {
+   "id": "cu_nhat_nguyet",
+   "name": "Cự Nhật, Nhật Nguyệt",
+   "stars": [
+    "Cự Môn",
+    "Thái Dương",
+    "Thái Âm"
+   ],
+   "kind": "ly_luan",
+   "nature": "lý luận thực hành",
+   "sources": [
+    {
+     "mined": "kl167_cu_nhat",
+     "book": "KL",
+     "page": 167,
+     "quote": "Cự - Nhật, Nhật - Nguyệt (Lý luận thực hành)"
+    }
+   ]
+  }
+ ],
+ "kinds": [
+  {
+   "id": "hanh_dong",
+   "name": "nhóm hành động",
+   "meaning": "khi gặp nhóm hành động là lúc đang bận rộn, vất vả",
+   "sources": [
+    {
+     "mined": "kl167_hanh_dong",
+     "book": "KL",
+     "page": 167,
+     "quote": "Khi gặp nhóm hành động là lúc ta đang bận rộn, vất vả"
+    }
+   ]
+  },
+  {
+   "id": "ly_luan",
+   "name": "nhóm lý luận",
+   "meaning": "khi gặp nhóm lý luận là lúc đang tính toán, suy nghĩ",
+   "sources": [
+    {
+     "mined": "kl167_ly_luan",
+     "book": "KL",
+     "page": 167,
+     "quote": "Khi gặp nhóm lý luận là lúc ta đang tính toán suy"
+    }
+   ]
+  }
+ ],
+ "layouts": [
+  {
+   "id": "tu_ngo",
+   "tu_vi_branch": [
+    "Ngọ"
+   ],
+   "name": "Tử Vi cư Ngọ",
+   "reading": "nhóm Tử Vũ Liêm ở thế thượng phong, giàu sang phú quý; Sát Phá Tham bị dồn vào thế hãm",
+   "pol": "+",
+   "sources": [
+    {
+     "mined": "kl180_tu_ngo",
+     "book": "KL",
+     "page": 180,
+     "quote": "Khi Tử vi  đắc địa ở Ngọ thì kéo Vũ Tướng, Liêm Phủ  đắc địa theo, nhóm Tử Vũ Liêm ở thế"
+    }
+   ]
+  },
+  {
+   "id": "tu_ty",
+   "tu_vi_branch": [
+    "Tý"
+   ],
+   "name": "Tử Vi cư Tý",
+   "reading": "thua thiệt hơn thế Tử Vi ở Ngọ: Tử Vi, Cơ Âm, Dương Lương hãm",
+   "pol": "-",
+   "sources": [
+    {
+     "mined": "kl180_tu_ty",
+     "book": "KL",
+     "page": 180,
+     "quote": "Người có cách Tử vi ở Tí thua thiệt hơn cách Tử vi ở Ngọ rõ ràng"
+    }
+   ]
+  },
+  {
+   "id": "tu_sat_ty",
+   "tu_vi_branch": [
+    "Tỵ"
+   ],
+   "name": "Tử Sát ở Tỵ",
+   "reading": "Cơ Âm, Dương Cự, Vũ Tham, Đồng Âm đều đắc địa; Thiên Tướng cô đơn; Liêm Phá bị coi là hãm",
+   "pol": "+",
+   "sources": [
+    {
+     "mined": "kl181_tu_sat_ty",
+     "book": "KL",
+     "page": 181,
+     "quote": "Cơ Âm, Dương Cự, Vũ Tham, Đồng Âm đều  đắc địa"
+    }
+   ]
+  },
+  {
+   "id": "tu_sat_hoi",
+   "tu_vi_branch": [
+    "Hợi"
+   ],
+   "name": "Tử Sát ở Hợi",
+   "reading": "thiệt thòi hơn thế Tử Sát ở Tỵ (Đồng Âm Ngọ, Thái Dương Thân hãm)",
+   "pol": "-",
+   "sources": [
+    {
+     "mined": "kl181_tu_sat_hoi",
+     "book": "KL",
+     "page": 181,
+     "quote": "Vậy thì người có cách Tử Sát ở Hợi có phần thiệt thòi hơn cách Tử Sát ở Tỵ"
+    }
+   ]
+  },
+  {
+   "id": "tu_tuong_thin_tuat",
+   "tu_vi_branch": [
+    "Thìn",
+    "Tuất"
+   ],
+   "name": "Tử Tướng ở Thìn, Tuất",
+   "reading": "Tử Tướng, Phủ Vũ, Liêm Trinh đắc địa; Sát Phá Tham cũng đắc địa; Đồng Lương chia cách, Thiên Lương hãm",
+   "pol": "+",
+   "sources": [
+    {
+     "mined": "kl182_tu_tuong_thin",
+     "book": "KL",
+     "page": 182,
+     "quote": "Lần này thì phe Sát Phá Tham vùng lên ngang ngửa,  đắc địa như ai"
+    }
+   ]
+  },
+  {
+   "id": "tu_tham_mao",
+   "tu_vi_branch": [
+    "Mão"
+   ],
+   "name": "Tử Tham ở Mão",
+   "reading": "Tham Lang, Cơ Âm, Thái Dương, Cự Môn, Vũ Phá hãm; chỉ Liêm Sát đắc địa",
+   "pol": "-",
+   "sources": [
+    {
+     "mined": "kl182_tu_tham_mao",
+     "book": "KL",
+     "page": 182,
+     "quote": "Tham lang hãm địa, Cơ Âm hãm địa"
+    }
+   ]
+  },
+  {
+   "id": "tu_tham_dau",
+   "tu_vi_branch": [
+    "Dậu"
+   ],
+   "name": "Tử Tham ở Dậu",
+   "reading": "khá hơn Tử Tham ở Mão nhiều (Cơ Âm, Thái Dương đắc địa)",
+   "pol": "+",
+   "sources": [
+    {
+     "mined": "kl183_tu_tham_dau",
+     "book": "KL",
+     "page": 183,
+     "quote": "So sách 2 thế Tử Tham ở Mão và Tử Tham ở Dậu, thì Tử Tham ở Dậu khá hơn Tử Tham ở"
+    }
+   ]
+  },
+  {
+   "id": "tu_phu_dan",
+   "tu_vi_branch": [
+    "Dần"
+   ],
+   "name": "Tử Phủ ở Dần",
+   "reading": "hình ảnh sung túc thịnh vượng; chỉ Thái Âm, Thái Dương hãm",
+   "pol": "+",
+   "sources": [
+    {
+     "mined": "kl183_tu_phu_dan",
+     "book": "KL",
+     "page": 183,
+     "quote": "Hai phe Tử vị - Phá quân chia đều thế đắc địa của mình"
+    }
+   ]
+  },
+  {
+   "id": "tu_phu_than",
+   "tu_vi_branch": [
+    "Thân"
+   ],
+   "name": "Tử Phủ ở Thân",
+   "reading": "trường hợp toàn mỹ nhất trong 12 vòng: dù Mệnh ở cung nào cũng được hưởng phú quý",
+   "pol": "+",
+   "sources": [
+    {
+     "mined": "kl184_tu_phu_than",
+     "book": "KL",
+     "page": 184,
+     "quote": "Người có thế Tử vi ở Thân, thì dù Mệnh đóng ở cung nào cũng được hưởng phú quí cả"
+    }
+   ]
+  },
+  {
+   "id": "tu_pha_suu",
+   "tu_vi_branch": [
+    "Sửu"
+   ],
+   "name": "Tử Phá ở Sửu",
+   "reading": "chỉ Tử Phá tung hoành, giàu sang một thời rồi cũng chẳng bền",
+   "pol": "-",
+   "sources": [
+    {
+     "mined": "kl184_tu_pha_suu_ben",
+     "book": "KL",
+     "page": 184,
+     "quote": "có giầu sang một thời rồi cũng chẳng bền"
+    }
+   ]
+  },
+  {
+   "id": "tu_pha_mui",
+   "tu_vi_branch": [
+    "Mùi"
+   ],
+   "name": "Tử Phá ở Mùi",
+   "reading": "khá hơn ở Sửu rất nhiều; Liêm Tham, Thất Sát hãm",
+   "pol": "+",
+   "sources": [
+    {
+     "mined": "kl185_tu_pha_mui",
+     "book": "KL",
+     "page": 185,
+     "quote": "Người có cách Tử Phá ở Mùi khá hơn ở Sửu rất nhiều"
+    }
+   ]
+  }
+ ],
+ "pairs": [
+  {
+   "id": "co_am_dac",
+   "stars": [
+    "Thiên Cơ",
+    "Thái Âm"
+   ],
+   "when": {
+    "dignity": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "meaning": "giàu",
+   "context": "thế Tử Vi ở Ngọ",
+   "sources": [
+    {
+     "mined": "kl180_co_am_giau",
+     "book": "KL",
+     "page": 180,
+     "quote": "Cơ Âm  đắc địa thì giầu"
+    }
+   ]
+  },
+  {
+   "id": "duong_luong_dac",
+   "stars": [
+    "Thái Dương",
+    "Thiên Lương"
+   ],
+   "when": {
+    "dignity": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "meaning": "sang",
+   "context": "thế Tử Vi ở Ngọ",
+   "sources": [
+    {
+     "mined": "kl180_duong_luong_sang",
+     "book": "KL",
+     "page": 180,
+     "quote": "Dương Lương  đắc địa thì sang"
+    }
+   ]
+  },
+  {
+   "id": "cu_dong_ham",
+   "stars": [
+    "Cự Môn",
+    "Thiên Đồng"
+   ],
+   "when": {
+    "dignity": [
+     "hãm"
+    ]
+   },
+   "meaning": "lẻ loi, bất đắc chí",
+   "rescue": "che_hoa: khoa_khoc_hu.cu_dong",
+   "sources": [
+    {
+     "mined": "kl180_cu_dong_le_loi",
+     "book": "KL",
+     "page": 180,
+     "quote": "Cự Đồng lẻ loi, hãm địa thành ra bất đắc chí"
+    },
+    {
+     "mined": "kl180_cu_dong_khoa_khoc_hu",
+     "book": "KL",
+     "page": 180,
+     "quote": "có sao cứu giải như Hóa khoa hoặc khốc Hư chiếu"
+    }
+   ]
+  },
+  {
+   "id": "tu_pha",
+   "stars": [
+    "Tử Vi",
+    "Phá Quân"
+   ],
+   "when": {
+    "branch": [
+     "Sửu",
+     "Mùi"
+    ]
+   },
+   "meaning": "hai phe cân bằng: con người bình thường, có cao thượng có thấp hèn",
+   "sources": [
+    {
+     "mined": "kl179_tu_pha_suu",
+     "book": "KL",
+     "page": 179,
+     "quote": "Tử vi Phá quân gặp nhau ở Sửu là thế Tử Phá"
+    }
+   ]
+  },
+  {
+   "id": "tu_tham",
+   "stars": [
+    "Tử Vi",
+    "Tham Lang"
+   ],
+   "when": {
+    "same_palace": true
+   },
+   "meaning": "Tử Vi coi như hãm, mất sức cứu giải",
+   "sources": [
+    {
+     "mined": "kl186_tu_tham_ham",
+     "book": "KL",
+     "page": 186,
+     "quote": "Tử vi là sao cứu giải trong mọi hoàn cảnh nhưng khi đi với Tham lang thì coi như bị vào hãm địa"
+    }
+   ]
+  },
+  {
+   "id": "tu_phu",
+   "stars": [
+    "Tử Vi",
+    "Thiên Phủ"
+   ],
+   "when": {
+    "branch": [
+     "Dần",
+     "Thân"
+    ]
+   },
+   "meaning": "vua tôi cùng ngồi bàn việc nước",
+   "sources": [
+    {
+     "mined": "kl186_tu_phu_dan_than",
+     "book": "KL",
+     "page": 186,
+     "quote": "hai Vua tôi Tử vi và Thiên phủ cùng ngồi"
+    }
+   ]
+  },
+  {
+   "id": "tu_ta_huu",
+   "stars": [
+    "Tử Vi",
+    "Tả Phụ",
+    "Hữu Bật"
+   ],
+   "meaning": "Tả Hữu là hai tay chân đắc lực nhất của Tử Vi",
+   "sources": [
+    {
+     "mined": "kl186_tu_ta_huu",
+     "book": "KL",
+     "page": 186,
+     "quote": "Tử vi cần nhất  Tả Hữu, hai tay chân đắc lực nhất"
+    }
+   ]
+  }
+ ],
+ "modifiers": [
+  {
+   "id": "nhi_hop_vcd",
+   "applies_to": [
+    "Thiên Tướng",
+    "Thất Sát"
+   ],
+   "when": "cung nhị hợp của sao là vô chính diệu",
+   "effect": "cô đơn, không có hậu thuẫn",
+   "sources": [
+    {
+     "mined": "kl181_tuong_nhi_hop_vcd",
+     "book": "KL",
+     "page": 181,
+     "quote": "Thiên tướng lâm vào thế hãm, cô đơn không có hậu thuẫn (nhị hợp vô chính diệu)"
+    },
+    {
+     "mined": "kl180_sat_co_don",
+     "book": "KL",
+     "page": 180,
+     "quote": "Thất Sát cô đơn không có hậu thuẫn"
+    }
+   ]
+  },
+  {
+   "id": "giap_goc",
+   "applies_to": [
+    "giáp"
+   ],
+   "when": "cung bị giáp ở Dần, Thân, Tỵ, Hợi (giáp góc)",
+   "effect": "giáp góc kém hiệu lực hơn giáp cung",
+   "sources": [
+    {
+     "mined": "kl205_giap_goc",
+     "book": "KL",
+     "page": 205,
+     "quote": "Giáp góc ít hiệu quả hơn giáp cung"
+    }
+   ]
+  },
+  {
+   "id": "tu_vi_huong",
+   "applies_to": [
+    "Tử Vi"
+   ],
+   "when": "vị trí Tử Vi trên địa bàn",
+   "effect": "Tử Vi từ Ngọ đến Dần đang đi xuống, Phá Quân từ Thân đến Mùi đang đi lên",
+   "sources": [
+    {
+     "mined": "kl179_tu_ngo_dan_di_xuong",
+     "book": "KL",
+     "page": 179,
+     "quote": "Tử vi từ Ngọ đến Dần là đang đi xuống, Phá quân đi"
+    }
+   ]
+  }
+ ],
+ "per_palace": {
+  "Tử Vi|Thiên Phủ": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_PHU_TU_PHU_DAN_THAN",
+     "cites": [
+      "KL p.49"
+     ]
+    },
+    {
+     "rule": "TV_KL_PHU_TU_PHU_PHUC_LOC",
+     "cites": [
+      "KL p.55"
+     ]
+    },
+    {
+     "rule": "TV_KL_PHU_TU_PHU_TUAN_TRIET",
+     "cites": [
+      "KL p.55"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_TV_PHU_DAN_THAN",
+     "cites": [
+      "KL p.221"
+     ]
+    },
+    {
+     "rule": "TV_TT_MENH_TU_PHU_LOC_TON",
+     "cites": [
+      "TT p.22"
+     ]
+    },
+    {
+     "rule": "TV_KL_STAR_MENH_TV_PHU",
+     "cites": [
+      "KL p.75"
+     ]
+    },
+    {
+     "rule": "TV_D3_KL47_DE_NGO_HUNG_DO",
+     "cites": [
+      "KL p.47"
+     ]
+    }
+   ],
+   "Tử Tức": [
+    {
+     "rule": "TV_D3_W2_TU_TU_PHU_CAT",
+     "cites": [
+      "TTH 2 四子女"
+     ]
+    }
+   ]
+  },
+  "Tử Vi|Thiên Tướng": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_PHU_TU_TUONG_THIN_TUAT",
+     "cites": [
+      "KL p.59"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_TV_TUONG_THIN_TUAT",
+     "cites": [
+      "KL p.220-221"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_TUONG_TU_VI",
+     "cites": [
+      "KL p.223"
+     ]
+    },
+    {
+     "rule": "TV_KL_STAR_MENH_TV_TUONG",
+     "cites": [
+      "KL p.75"
+     ]
+    }
+   ],
+   "Nô Bộc": [
+    {
+     "rule": "TV_D3_W2_NO_TU_TUONG_KK",
+     "cites": [
+      "TTH 2 八奴仆"
+     ]
+    },
+    {
+     "rule": "TV_D3_W2_NO_TUONG_TU",
+     "cites": [
+      "TTH 2 八奴仆"
+     ]
+    }
+   ]
+  },
+  "Tử Vi|Thất Sát": {
+   "Mệnh": [
+    {
+     "rule": "TV_TH_COMBO_TU_VI_THAT_SAT",
+     "cites": [
+      "TH p.30"
+     ]
+    },
+    {
+     "rule": "TV_KL_PHU_TU_SAT_TY_HOI",
+     "cites": [
+      "KL p.50"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_TV_SAT_TY_HOI",
+     "cites": [
+      "KL p.220"
+     ]
+    },
+    {
+     "rule": "TV_TT_MENH_TU_SAT_QUYEN",
+     "cites": [
+      "TT p.22"
+     ]
+    },
+    {
+     "rule": "TV_KL_STAR_MENH_TV_SAT_DE_HUE",
+     "cites": [
+      "KL p.75"
+     ]
+    },
+    {
+     "rule": "TV_D3_TT65_TU_SAT_BON_SAT",
+     "cites": [
+      "TT p.65"
+     ]
+    }
+   ],
+   "Quan Lộc": [
+    {
+     "rule": "TV_KL_STAR_QUAN_LOC_TV_SAT",
+     "cites": [
+      "KL p.76"
+     ]
+    }
+   ],
+   "Phụ Mẫu": [
+    {
+     "rule": "TV_KL_STAR_PHU_MAU_TV_THAT_SAT",
+     "cites": [
+      "KL p.75-76"
+     ]
+    },
+    {
+     "rule": "TV_KL_CASE_PHU_MAU_TU_SAT",
+     "cites": [
+      "KL p.244"
+     ]
+    }
+   ],
+   "Phúc Đức": [
+    {
+     "rule": "TV_KL_STAR_PHUC_DUC_TV_THAT_SAT",
+     "cites": [
+      "KL p.75-76"
+     ]
+    },
+    {
+     "rule": "TV_KL7_PHUC_DUC_SAT_TU",
+     "cites": [
+      "KL p.114"
+     ]
+    }
+   ],
+   "Tài Bạch": [
+    {
+     "rule": "TV_KL_SAO_CUNG_TAI_BACH_SAT_TU_TY",
+     "cites": [
+      "KL p.113"
+     ]
+    }
+   ]
+  },
+  "Tử Vi|Phá Quân": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_TV_PHA_SUU_MUI",
+     "cites": [
+      "KL p.221"
+     ]
+    }
+   ],
+   "Thiên Di": [
+    {
+     "rule": "TV_KL7_THIEN_DI_PHA_TU",
+     "cites": [
+      "KL p.117"
+     ]
+    }
+   ],
+   "Tử Tức": [
+    {
+     "rule": "TV_KL_CASE_TU_TUC_TU_PHA_TRIET",
+     "cites": [
+      "KL p.246"
+     ]
+    }
+   ]
+  },
+  "Tử Vi|Tham Lang": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_PHU_TU_THAM_MAO_DAU_KHONG_KIEP",
+     "cites": [
+      "KL p.50"
+     ]
+    },
+    {
+     "rule": "TV_KL_PHU2_TU_THAM_DAU",
+     "cites": [
+      "KL p.70"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_TV_THAM_MAO_DAU",
+     "cites": [
+      "KL p.221"
+     ]
+    },
+    {
+     "rule": "TV_D3_TT65_TU_THAM_MAO_DAU",
+     "cites": [
+      "TT p.65"
+     ]
+    }
+   ]
+  },
+  "Vũ Khúc|Thiên Phủ": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_PHU_VU_TY_NGO",
+     "cites": [
+      "KL p.222"
+     ]
+    },
+    {
+     "rule": "TV_TT_NU_VU_PHU",
+     "cites": [
+      "TT p.109"
+     ]
+    },
+    {
+     "rule": "TV_TT_NU_VU_PHU_TA_HUU_LOC",
+     "cites": [
+      "TT p.109"
+     ]
+    }
+   ],
+   "Tài Bạch": [
+    {
+     "rule": "TV_TT_TAI_BACH_PHU_VU_QUYEN_LOC",
+     "cites": [
+      "TT p.31"
+     ]
+    }
+   ],
+   "Điền Trạch": [
+    {
+     "rule": "TV_TT_DIEN_TRACH_PHU_VU_QUYEN_LOC",
+     "cites": [
+      "TT p.31"
+     ]
+    }
+   ],
+   "Quan Lộc": [
+    {
+     "rule": "TV_KL_SAO_CUNG_QUAN_LOC_VU_PHU",
+     "cites": [
+      "KL p.88"
+     ]
+    }
+   ],
+   "Nô Bộc": [
+    {
+     "rule": "TV_D3_W2_NO_VU_PHU",
+     "cites": [
+      "TTH 2 八奴仆"
+     ]
+    }
+   ]
+  },
+  "Vũ Khúc|Thiên Tướng": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_VU_TUONG_DAN_THAN",
+     "cites": [
+      "KL p.222"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_VU_TUONG_KHONG_TT",
+     "cites": [
+      "KL p.222"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_TUONG_VU",
+     "cites": [
+      "KL p.223"
+     ]
+    }
+   ],
+   "Nô Bộc": [
+    {
+     "rule": "TV_D3_W2_NO_TUONG_VU",
+     "cites": [
+      "TTH 2 八奴仆"
+     ]
+    }
+   ]
+  },
+  "Vũ Khúc|Thất Sát": {
+   "Nô Bộc": [
+    {
+     "rule": "TV_KL_CUNG_NO_BOC_SAT_VU",
+     "cites": [
+      "KL p.219"
+     ]
+    },
+    {
+     "rule": "TV_D3_W2_NO_VU_SAT",
+     "cites": [
+      "TTH 2 八奴仆"
+     ]
+    }
+   ],
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_VU_SAT_MAO_DAU",
+     "cites": [
+      "KL p.222"
+     ]
+    }
+   ],
+   "Quan Lộc": [
+    {
+     "rule": "TV_KL_SAO_CUNG_QUAN_LOC_VU_SAT",
+     "cites": [
+      "KL p.88"
+     ]
+    }
+   ],
+   "Tài Bạch": [
+    {
+     "rule": "TV_KL_SAO_CUNG_TAI_BACH_SAT_VU",
+     "cites": [
+      "KL p.113"
+     ]
+    }
+   ]
+  },
+  "Vũ Khúc|Phá Quân": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_PHU_VU_PHA_XUONG_KHUC",
+     "cites": [
+      "KL p.54"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_VU_PHA_TY_HOI",
+     "cites": [
+      "KL p.222"
+     ]
+    },
+    {
+     "rule": "TV_TT_MENH_VU_PHA",
+     "cites": [
+      "TT p.27"
+     ]
+    }
+   ],
+   "Nô Bộc": [
+    {
+     "rule": "TV_KL_CUNG_NO_BOC_PHA_VU",
+     "cites": [
+      "KL p.219"
+     ]
+    },
+    {
+     "rule": "TV_D3_W2_NO_VU_PHA",
+     "cites": [
+      "TTH 2 八奴仆"
+     ]
+    }
+   ]
+  },
+  "Vũ Khúc|Tham Lang": {
+   "Tài Bạch": [
+    {
+     "rule": "TV_TH_VERSE_TAI_VU_THAM",
+     "cites": [
+      "TH p.105"
+     ]
+    },
+    {
+     "rule": "TV_TT_TAI_BACH_VU_THAM",
+     "cites": [
+      "TT p.27"
+     ]
+    },
+    {
+     "rule": "TV_TT_PHU_TAI_BACH_VU_THAM_KHONG_SAT",
+     "cites": [
+      "TT p.163"
+     ]
+    }
+   ],
+   "Mệnh": [
+    {
+     "rule": "TV_KL_PHU_THAM_VU_SUU_MUI",
+     "cites": [
+      "KL p.54"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_VU_THAM_SUU_MUI",
+     "cites": [
+      "KL p.222"
+     ]
+    },
+    {
+     "rule": "TV_TT_MENH_THAM_VU_MUON",
+     "cites": [
+      "TT p.33"
+     ]
+    },
+    {
+     "rule": "TV_TT_PHU_MENH_VU_TAM_MENH",
+     "cites": [
+      "TT p.152"
+     ]
+    },
+    {
+     "rule": "TV_D3_TT68_VU_THAM_LIEM_PHA_KK",
+     "cites": [
+      "TT p.68"
+     ]
+    }
+   ],
+   "Điền Trạch": [
+    {
+     "rule": "TV_TT_DIEN_TRACH_VU_THAM",
+     "cites": [
+      "TT p.27"
+     ]
+    }
+   ],
+   "Quan Lộc": [
+    {
+     "rule": "TV_KL_SAO_CUNG_QUAN_LOC_VU_THAM",
+     "cites": [
+      "KL p.88"
+     ]
+    }
+   ],
+   "Nô Bộc": [
+    {
+     "rule": "TV_D3_W2_NO_VU_THAM",
+     "cites": [
+      "TTH 2 八奴仆"
+     ]
+    }
+   ]
+  },
+  "Liêm Trinh|Thiên Phủ": {
+   "Nô Bộc": [
+    {
+     "rule": "TV_KL_CUNG_NO_BOC_LIEM_PHU",
+     "cites": [
+      "KL p.219"
+     ]
+    }
+   ],
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_PHU_LIEM_THIN_TUAT",
+     "cites": [
+      "KL p.222"
+     ]
+    }
+   ],
+   "Quan Lộc": [
+    {
+     "rule": "TV_KL_CASE_QUAN_LOC_LIEM_PHU_QUAN_PHU",
+     "cites": [
+      "KL p.237"
+     ]
+    }
+   ],
+   "Tử Tức": [
+    {
+     "rule": "TV_D3_W2_TU_LIEM_PHU",
+     "cites": [
+      "TTH 2 四子女"
+     ]
+    }
+   ]
+  },
+  "Liêm Trinh|Thiên Tướng": {
+   "Nô Bộc": [
+    {
+     "rule": "TV_KL_CUNG_NO_BOC_LIEM_TUONG",
+     "cites": [
+      "KL p.219"
+     ]
+    }
+   ],
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_LIEM_TUONG_NGO",
+     "cites": [
+      "KL p.222"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_TUONG_LIEM",
+     "cites": [
+      "KL p.223"
+     ]
+    },
+    {
+     "rule": "TV_D3_TT142_HINH_TU_HIEP_AN",
+     "cites": [
+      "TT p.142"
+     ]
+    }
+   ],
+   "Phu Thê": [
+    {
+     "rule": "TV_KL_SAO_CUNG_PHU_THE_TUONG_LIEM",
+     "cites": [
+      "KL p.108"
+     ]
+    }
+   ]
+  },
+  "Liêm Trinh|Thất Sát": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_LIEM_SAT_SUU_MUI",
+     "cites": [
+      "KL p.222"
+     ]
+    }
+   ],
+   "Quan Lộc": [
+    {
+     "rule": "TV_KL_SAO_CUNG_QUAN_LOC_LIEM_SAT",
+     "cites": [
+      "KL p.94"
+     ]
+    }
+   ],
+   "Tài Bạch": [
+    {
+     "rule": "TV_KL_SAO_CUNG_TAI_BACH_LIEM_SAT",
+     "cites": [
+      "KL p.93"
+     ]
+    }
+   ],
+   "Nô Bộc": [
+    {
+     "rule": "TV_KL7_NO_BOC_LIEM_SAT",
+     "cites": [
+      "KL p.219"
+     ]
+    }
+   ]
+  },
+  "Liêm Trinh|Phá Quân": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_LIEM_PHA_MAO_DAU",
+     "cites": [
+      "KL p.222"
+     ]
+    }
+   ],
+   "Quan Lộc": [
+    {
+     "rule": "TV_KL_SAO_CUNG_QUAN_LOC_LIEM_PHA",
+     "cites": [
+      "KL p.94"
+     ]
+    }
+   ],
+   "Tài Bạch": [
+    {
+     "rule": "TV_KL_SAO_CUNG_TAI_BACH_LIEM_PHA",
+     "cites": [
+      "KL p.93"
+     ]
+    }
+   ],
+   "Phu Thê": [
+    {
+     "rule": "TV_KL_SAO_CUNG_PHU_THE_PHA_LIEM",
+     "cites": [
+      "KL p.116"
+     ]
+    }
+   ],
+   "Nô Bộc": [
+    {
+     "rule": "TV_KL7_NO_BOC_PHA_LIEM",
+     "cites": [
+      "KL p.219"
+     ]
+    }
+   ],
+   "Thiên Di": [
+    {
+     "rule": "TV_KL7_THIEN_DI_LIEM_PHA",
+     "cites": [
+      "KL p.93"
+     ]
+    }
+   ]
+  },
+  "Liêm Trinh|Tham Lang": {
+   "Điền Trạch": [
+    {
+     "rule": "TV_KL_SAO_CUNG_DIEN_TRACH_LIEM_THAM",
+     "cites": [
+      "KL p.94"
+     ]
+    }
+   ],
+   "Nô Bộc": [
+    {
+     "rule": "TV_KL7_NO_BOC_LIEM_THAM",
+     "cites": [
+      "KL p.219"
+     ]
+    }
+   ],
+   "Huynh Đệ": [
+    {
+     "rule": "TV_D3_W2_BAO_LIEM_THAM",
+     "cites": [
+      "TTH 2 二兄弟"
+     ]
+    }
+   ]
+  },
+  "Thiên Cơ|Thái Âm": {
+   "Mệnh": [
+    {
+     "rule": "TV_D3_TT68_CO_AM_DAN_XUONG_KHUC",
+     "cites": [
+      "TT p.68",
+      "TT p.147"
+     ]
+    }
+   ]
+  },
+  "Thiên Cơ|Cự Môn": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_PHU_CU_CO_MAO_DAU",
+     "cites": [
+      "KL p.58"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_CU_CO_MAO_DAU",
+     "cites": [
+      "KL p.223"
+     ]
+    },
+    {
+     "rule": "TV_TT_MENH_CU_CO_MAO_TUOI",
+     "cites": [
+      "TT p.34"
+     ]
+    },
+    {
+     "rule": "TV_D3_TT118_CO_CU_NU",
+     "cites": [
+      "TT p.118"
+     ]
+    }
+   ],
+   "Tài Bạch": [
+    {
+     "rule": "TV_KL_SAO_CUNG_TAI_BACH_CU_CO",
+     "cites": [
+      "KL p.105"
+     ]
+    }
+   ],
+   "Huynh Đệ": [
+    {
+     "rule": "TV_D3_W2_BAO_CU_CO",
+     "cites": [
+      "TTH 2 二兄弟"
+     ]
+    }
+   ]
+  },
+  "Thiên Cơ|Thiên Lương": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CO_LUONG_THIN_TUAT_NHAN_TU",
+     "cites": [
+      "KL p.51 Cơ #8"
+     ]
+    },
+    {
+     "rule": "TV_KL_CO_LUONG_TUAT_BAN_LUAN",
+     "cites": [
+      "KL p.51 Cơ #6"
+     ]
+    },
+    {
+     "rule": "TV_KL_PHU2_LOC_TON_CO_LUONG",
+     "cites": [
+      "KL p.66"
+     ]
+    },
+    {
+     "rule": "TV_TT_PHU_MENH_CO_LUONG_THIN",
+     "cites": [
+      "TT p.158"
+     ]
+    },
+    {
+     "rule": "TV_TT_PHU_MENH_CO_LUONG",
+     "cites": [
+      "TT p.160"
+     ]
+    },
+    {
+     "rule": "TV_TT_PHU_MENH_CO_LUONG_XK",
+     "cites": [
+      "TT p.160"
+     ]
+    }
+   ],
+   "Phu Thê": [
+    {
+     "rule": "TV_KL_SAO_CUNG_PHU_THE_LUONG_CO",
+     "cites": [
+      "KL p.110"
+     ]
+    }
+   ],
+   "Nô Bộc": [
+    {
+     "rule": "TV_KL7_NO_BOC_CO_LUONG_TA_HUU",
+     "cites": [
+      "KL p.80"
+     ]
+    },
+    {
+     "rule": "TV_D3_W2_NO_LUONG_CO",
+     "cites": [
+      "TTH 2 八奴仆"
+     ]
+    }
+   ]
+  },
+  "Thiên Đồng|Thái Âm": {
+   "Tài Bạch": [
+    {
+     "rule": "TV_KL_SAO_CUNG_TAI_BACH_DONG_AM_TY",
+     "cites": [
+      "KL p.90"
+     ]
+    }
+   ]
+  },
+  "Thiên Đồng|Cự Môn": {
+   "Quan Lộc": [
+    {
+     "rule": "TV_KL_SAO_CUNG_QUAN_LOC_DONG_CU",
+     "cites": [
+      "KL p.90"
+     ]
+    }
+   ],
+   "Tài Bạch": [
+    {
+     "rule": "TV_KL_SAO_CUNG_TAI_BACH_DONG_CU",
+     "cites": [
+      "KL p.90"
+     ]
+    }
+   ],
+   "Phụ Mẫu": [
+    {
+     "rule": "TV_D3_W2_PM_DONG_CU",
+     "cites": [
+      "TTH 2 十二父母"
+     ]
+    }
+   ]
+  },
+  "Thiên Đồng|Thiên Lương": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_PHU_DONG_LUONG_DAN_THAN",
+     "cites": [
+      "KL p.55"
+     ]
+    },
+    {
+     "rule": "TV_TT_PHU_MENH_DONG_LUONG_DAN_THAN",
+     "cites": [
+      "TT p.156"
+     ]
+    }
+   ],
+   "Tài Bạch": [
+    {
+     "rule": "TV_KL_CASE_TAI_BACH_DONG_LUONG_TRIET_KIEP",
+     "cites": [
+      "KL p.238"
+     ]
+    }
+   ]
+  },
+  "Thái Dương|Thái Âm": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_NHAT_NGUYET_DONG_CUNG",
+     "cites": [
+      "KL p.224"
+     ]
+    },
+    {
+     "rule": "TV_TT_PHU_MENH_NHAT_NGUYET_SUU_MUI_GIAP",
+     "cites": [
+      "TT p.155"
+     ]
+    },
+    {
+     "rule": "TV_TT_NU_NGUYET_NHAT_CAT",
+     "cites": [
+      "TT p.111"
+     ]
+    }
+   ],
+   "Quan Lộc": [
+    {
+     "rule": "TV_KL_SAO_CUNG_QUAN_LOC_NHAT_NGUYET_SUU_MUI",
+     "cites": [
+      "KL p.99"
+     ]
+    }
+   ],
+   "Điền Trạch": [
+    {
+     "rule": "TV_D3_TT142_NN_CHIEU_BICH",
+     "cites": [
+      "TT p.142"
+     ]
+    }
+   ]
+  },
+  "Thái Dương|Cự Môn": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_PHU_CU_NHAT_DAN_THAN",
+     "cites": [
+      "KL p.58"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_CU_NHAT",
+     "cites": [
+      "KL p.221"
+     ]
+    },
+    {
+     "rule": "TV_KL_CT_CU_NHAT_DAN_THAN",
+     "cites": [
+      "KL p.223"
+     ]
+    },
+    {
+     "rule": "TV_TT_MENH_CU_NHAT_DAN",
+     "cites": [
+      "TT p.34"
+     ]
+    }
+   ],
+   "Phụ Mẫu": [
+    {
+     "rule": "TV_D3_W2_PM_CU_NHAT",
+     "cites": [
+      "TTH 2 十二父母"
+     ]
+    }
+   ]
+  },
+  "Thái Dương|Thiên Lương": {
+   "Mệnh": [
+    {
+     "rule": "TV_KL_CT_LUONG_DUONG",
+     "cites": [
+      "KL p.223"
+     ]
+    },
+    {
+     "rule": "TV_KL_CASE_MENH_NHAT_LUONG_MAO",
+     "cites": [
+      "KL p.240"
+     ]
+    }
+   ],
+   "Phu Thê": [
+    {
+     "rule": "TV_KL_SAO_CUNG_PHU_THE_LUONG_NHAT_MAO",
+     "cites": [
+      "KL p.110"
+     ]
+    }
+   ],
+   "Tài Bạch": [
+    {
+     "rule": "TV_KL_SAO_CUNG_TAI_BACH_LUONG_NHAT_DAU",
+     "cites": [
+      "KL p.110"
+     ]
+    },
+    {
+     "rule": "TV_KL_CASE_TAI_BACH_NHAT_LUONG_MAO",
+     "cites": [
+      "KL p.240"
+     ]
+    }
+   ]
+  }
+ }
+}

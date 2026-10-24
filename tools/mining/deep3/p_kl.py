@@ -48,13 +48,14 @@ K("kl45_tai_loc_giap_ma", 45, "Mệnh có Thiên mã, Tài (tên gọi của Vũ
 K("kl45_tham_hoa", 45, "Mệnh ở tứ mộ, có Tham lang đồng cung với Hỏa Linh", "Tham Hỏa tương phùng", "", "support", [], None, dup="TV_TH_CACH_MENH_THAM_HOA")
 K("kl45_doi_kim_tich_ngoc", 45, "Mệnh có Thiên phủ – Vũ khúc đồng cung với Lộc tồn ở Tí Ngọ", "Mệnh ở Tý/Ngọ có Thiên Phủ, Vũ Khúc và Lộc Tồn",
   "cách Đôi kim tích ngọc: tiền của đầy nhà", "support", ["fin.abundance"], "formation")
-K("kl45_phu_huu_lau_dai", 45, "Mệnh có Cự – Cơ, Song Hao ở Mão Dậu", "Mệnh ở Mão/Dậu có Cự Môn, Thiên Cơ, Đại Hao và Tiểu Hao",
+K("kl45_phu_huu_lau_dai", 45, "Mệnh có Cự – Cơ, Song Hao ở Mão Dậu", "Mệnh ở Mão/Dậu có Cự Môn, Thiên Cơ, Song Hao (Đại Hao, Tiểu Hao luôn xung chiếu nhau: một sao ở cung này)",
   "cách Phú hữu lâu đài: nhà cao cửa rộng, tiền dư của để", "support", ["prop.rich", "fin.abundance"], "formation")
 K("kl45_tien_cai_hau_ma", 45, "Mệnh ở giữa, Hoa cái ở  cung đằng trước, Thiên Mã ở cung đằng sau",
   "Hoa Cái và Thiên Mã ở hai cung kề Mệnh", "cách Tiền Cái hậu Mã: danh giá, hưởng lộc", "support", ["career.fame"], "formation",
   notes="Hoa Cái (mộ of the year's tam hợp) and Thiên Mã always flank a palace in this order, so 'trước / sau' adds no condition")
 K("kl45_long_ho_giap", 45, "Mệnh ở cung giữa, Long trì, Bạch Hổ chầu hai bên", "Long Trì và Bạch Hổ ở hai cung kề Mệnh",
-  "cách Long Hổ giáp Mệnh: giàu có, địa vị", "support", ["fin.abundance", "career.status"], "formation")
+  "cách Long Hổ giáp Mệnh: giàu có, địa vị", "support", ["fin.abundance", "career.status"], "formation",
+  skip="Long Trì (Thìn + năm) and Bạch Hổ (Thái Tuế + 8) always stand four palaces apart: they never flank one palace, the cách cannot occur")
 K("kl45_van_long_te_hoi", 45, "Mệnh có Thanh long gặp Hóa kỵ, Lưu hà đồng cung", "Mệnh có Thanh Long, Hóa Kỵ và Lưu Hà đồng cung",
   "cách Vân long tế hội: được dịp làm giàu", "support", ["fin.windfall"], "formation")
 K("kl45_tien_hinh_hau_an", 45, "Mệnh ở giữa Thiên hình đóng ở cung ở cung đằng trước, Quốc ấn theo sau",
@@ -111,16 +112,16 @@ page("KL", 205, "Giáp cung / giáp góc, Bài thơ Liên Giáp, Bàn về Mện
 page("KL", 206, "Vô chính diệu (cont.): đắc / ngộ / kiến tam không, the five particular cases.")
 K("kl202_khoc_hu_ty_ngo", 202, "Khốc Hư Tí Ngọ tiền bần nhi hậu phú, tiên trở hậu thành", "Mệnh ở Tý/Ngọ có Thiên Khốc và Thiên Hư",
   "trước nghèo sau giàu, trước trở ngại sau mới thành", "support", ["life.late_bloom"], "rule", heading="35. Khốc Hư")
-K("kl203_song_hao_menh", 203, "Gặp Song Hao ở Mệnh thì hao tán, thay đổi công việc", "Mệnh có Đại Hao và Tiểu Hao, ngoài Dần Thân Mão Dậu",
+K("kl203_song_hao_menh", 203, "Gặp Song Hao ở Mệnh thì hao tán, thay đổi công việc", "Mệnh có Song Hao (Đại Hao, Tiểu Hao luôn xung chiếu nhau: một sao ở cung này), ngoài Dần Thân Mão Dậu",
   "hao tán, hay thay đổi công việc", "limit", ["fin.volatile"], "rule", heading="37. Song Hao",
   notes="the next sentence makes Dần Thân Mão Dậu the exception (kl203_song_hao_dan_than_mao_dau)")
-K("kl203_song_hao_dan_than_mao_dau", 203, "Nhưng Mệnh có Song Hao ở các cung Dần", "Mệnh ở Dần/Thân/Mão/Dậu có Đại Hao và Tiểu Hao",
+K("kl203_song_hao_dan_than_mao_dau", 203, "Nhưng Mệnh có Song Hao ở các cung Dần", "Mệnh ở Dần/Thân/Mão/Dậu có Song Hao (Đại Hao, Tiểu Hao luôn xung chiếu nhau: một sao ở cung này)",
   "hoạnh phá nhưng cũng hoạnh phát", "support", ["fin.volatile", "fin.windfall"], "rule", heading="37. Song Hao",
   notes="'Nhưng Mệnh có Song Hao ở các cung Dần Thân Mão Dậu lại tốt vì thay đổi hoạnh phá nhưng cũng hoạnh phát' (line break after 'Dần')")
-K("kl203_song_hao_tai_mieu", 203, "Ở cung Tài miếu địa Song Hao cũng hoạnh phá, hoạnh phát", "Tài Bạch có Đại Hao và Tiểu Hao miếu địa",
+K("kl203_song_hao_tai_mieu", 203, "Ở cung Tài miếu địa Song Hao cũng hoạnh phá, hoạnh phát", "Tài Bạch có Song Hao (Đại Hao, Tiểu Hao luôn xung chiếu nhau: một sao ở cung này) miếu địa",
   "tiền bạc hoạnh phá, hoạnh phát", "support", ["fin.volatile", "fin.windfall"], "rule", heading="37. Song Hao", palace="Tài Bạch")
 K("kl203_song_hao_tai_khong_cu", 203, "Nếu không có Cự môn đồng cung thì Song Hao ở Tài chỉ có hao tán",
-  "Tài Bạch có Đại Hao và Tiểu Hao, không có Cự Môn đồng cung", "tiền bạc chỉ có hao tán", "limit", ["fin.volatile"], "rule", heading="37. Song Hao", palace="Tài Bạch",
+  "Tài Bạch có Song Hao (Đại Hao, Tiểu Hao luôn xung chiếu nhau: một sao ở cung này), không có Cự Môn đồng cung", "tiền bạc chỉ có hao tán", "limit", ["fin.volatile"], "rule", heading="37. Song Hao", palace="Tài Bạch",
   notes="'... vì \"Song Hao bất nghi Tài bạch\"'")
 K("kl203_song_hao_cu", 203, "Song Hao cần cho Cự môn ở các cung Tài, Mệnh", "Song Hao với Cự Môn ở Tài, Mệnh", "Song Hao rửa đất đá cho ngọc (Cự Môn) lộ ra", "support", [],
   "che_hoa", heading="37. Song Hao")

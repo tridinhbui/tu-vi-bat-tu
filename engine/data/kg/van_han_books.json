@@ -813,6 +813,514 @@
    "book": "TT",
    "page": 106,
    "quote": "Hoá Kị nhập miếu lại thành hay"
+  },
+  {
+   "id": "th130_tu_vi_ty_hoi_mao_dau",
+   "kind": "th",
+   "cond": {
+    "major": "Tử Vi",
+    "branch": [
+     "Tỵ",
+     "Hợi",
+     "Mão",
+     "Dậu"
+    ]
+   },
+   "text": "hạn có Tử Vi ở Tỵ, Hợi, Mão, Dậu thì cái tốt giảm, có tai họa cũng khó giải",
+   "tone": "neg",
+   "book": "TH",
+   "page": 130,
+   "quote": "Nhập hạn tai Tỵ Hợi Mão Dậu suy"
+  },
+  {
+   "id": "th130_tu_vi_khoi_viet",
+   "kind": "th",
+   "cond": {
+    "major": "Tử Vi",
+    "with_any": [
+     "Thiên Khôi",
+     "Thiên Việt"
+    ]
+   },
+   "text": "hạn có Tử Vi gặp Khôi Việt thì thêm danh giá, tranh chấp với ai cũng thắng",
+   "tone": "pos",
+   "book": "TH",
+   "page": 130,
+   "quote": "Có Khôi Việt thêm danh giá, tranh chấp với ai cũng thắng lợi"
+  },
+  {
+   "id": "th130_tu_vi_phu_tuong_ta_huu_tam_hoa",
+   "kind": "th",
+   "cond": {
+    "major": "Tử Vi",
+    "tp_any": [
+     "Thiên Phủ",
+     "Thiên Tướng"
+    ],
+    "tp_all": [
+     "Tả Phụ",
+     "Hữu Bật"
+    ],
+    "hoa3": true
+   },
+   "text": "hạn có Tử Vi gặp Phủ Tướng, Tả Hữu và Tam Hóa thì hoạnh phát về danh và tiền",
+   "tone": "pos",
+   "book": "TH",
+   "page": 130,
+   "quote": "6. Phủ Tướng Tả Hữu Tam Hóa: hoạnh phát danh tài"
+  },
+  {
+   "id": "th130_co_sang",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Cơ",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "text": "hạn có Thiên Cơ sáng sủa thì hoạnh phát",
+   "tone": "pos",
+   "book": "TH",
+   "page": 130,
+   "quote": "1. Sáng sảu hoạch phát"
+  },
+  {
+   "id": "th130_co_loc",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Cơ",
+    "with_any": [
+     "Lộc Tồn"
+    ]
+   },
+   "text": "hạn có Thiên Cơ gặp Lộc thì cùng phát",
+   "tone": "pos",
+   "book": "TH",
+   "page": 130,
+   "quote": "Gặp lộc cùng phát"
+  },
+  {
+   "id": "th130_co_mo",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Cơ",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "text": "hạn có Thiên Cơ mờ ám thì bị phiền toái, thị phi",
+   "tone": "neg",
+   "book": "TH",
+   "page": 130,
+   "quote": "Mờ ám bị phiền toái thị ph"
+  },
+  {
+   "id": "th130_co_qua_tu",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Cơ",
+    "with_any": [
+     "Quả Tú"
+    ]
+   },
+   "text": "hạn có Thiên Cơ gặp Quả Tú thì túng thiếu",
+   "tone": "neg",
+   "book": "TH",
+   "page": 130,
+   "quote": "Quả Tú: túng thiếu"
+  },
+  {
+   "id": "th130_co_kinh_da",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Cơ",
+    "with_any": [
+     "Kình Dương",
+     "Đà La"
+    ]
+   },
+   "text": "hạn có Thiên Cơ gặp Kình hoặc Đà thì hay gặp rủi ro, lo lắng",
+   "tone": "neg",
+   "book": "TH",
+   "page": 130,
+   "quote": "ặp rủi ro, đầy lo lắng"
+  },
+  {
+   "id": "th130_am_sang",
+   "kind": "th",
+   "cond": {
+    "major": "Thái Âm",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "text": "hạn có Thái Âm sáng sủa thì tài lộc dồi dào, thường tậu được nhà, nhà có nhiều việc vui",
+   "tone": "pos",
+   "book": "TH",
+   "page": 130,
+   "quote": "tài lộc phong túc, thường tậu được nhà, có nhiều hỷ sự trong gia đình"
+  },
+  {
+   "id": "th130_am_mo",
+   "kind": "th",
+   "cond": {
+    "major": "Thái Âm",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "text": "hạn có Thái Âm mờ ám thì hao tán",
+   "tone": "neg",
+   "book": "TH",
+   "page": 130,
+   "quote": "Mờ ám: hao tán"
+  },
+  {
+   "id": "th131_tham_sang",
+   "kind": "th",
+   "cond": {
+    "major": "Tham Lang",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "text": "hạn có Tham Lang sáng sủa thì tốt đẹp hanh thông (ở Tứ mộ hợp tuổi Tứ mộ càng hiển hách)",
+   "tone": "pos",
+   "book": "TH",
+   "page": 131,
+   "quote": "1. Sáng sủa tốt đẹp hanh thông. Nếu ở Tứ Mộ hợp với tuổi Tứ Mộ càng hiển hách phát đạt"
+  },
+  {
+   "id": "th131_nhat_sang",
+   "kind": "th",
+   "cond": {
+    "major": "Thái Dương",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "text": "hạn có Thái Dương sáng sủa thì phát danh tài",
+   "tone": "pos",
+   "book": "TH",
+   "page": 131,
+   "quote": "Sáng sủa: phát danh tài"
+  },
+  {
+   "id": "th131_vu_sang",
+   "kind": "th",
+   "cond": {
+    "major": "Vũ Khúc",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "text": "hạn có Vũ Khúc sáng sủa thì tài lộc hưng vượng",
+   "tone": "pos",
+   "book": "TH",
+   "page": 131,
+   "quote": "Sáng sủa tốt đẹp, tài lộc hư"
+  },
+  {
+   "id": "th131_vu_xuong_khuc_ta_huu",
+   "kind": "th",
+   "cond": {
+    "major": "Vũ Khúc",
+    "tp_all": [
+     "Tả Phụ",
+     "Hữu Bật",
+     "Văn Xương",
+     "Văn Khúc"
+    ]
+   },
+   "text": "hạn có Vũ Khúc gặp Tả Hữu Xương Khúc thì tiền và chức đều tốt",
+   "tone": "pos",
+   "book": "TH",
+   "page": 131,
+   "quote": "2. Gặp Tả Hữu Xương Khúc: tài quan song mỹ"
+  },
+  {
+   "id": "th131_vu_mo",
+   "kind": "th",
+   "cond": {
+    "major": "Vũ Khúc",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "text": "hạn có Vũ Khúc mờ ám thì hao tán tiền tài, dễ bị giáng chức",
+   "tone": "neg",
+   "book": "TH",
+   "page": 131,
+   "quote": "4. Mờ ám thì hao tán tiền tài, giáng quan chức"
+  },
+  {
+   "id": "th131_dong_thay_doi",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Đồng"
+   },
+   "text": "hạn có Thiên Đồng thì thay đổi chỗ ở hoặc công việc",
+   "tone": "",
+   "book": "TH",
+   "page": 131,
+   "quote": "Sáng sủa hay mờ ám đều thay đổi chổ ở hoặc công việc làm"
+  },
+  {
+   "id": "th131_dong_sang",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Đồng",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "text": "hạn có Thiên Đồng sáng sủa thì hưng vượng, nhà có việc vui",
+   "tone": "pos",
+   "book": "TH",
+   "page": 131,
+   "quote": "Sáng sủa: Hưng vượng, trong nhà có việc vui"
+  },
+  {
+   "id": "th131_dong_mo",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Đồng",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "text": "hạn có Thiên Đồng mờ ám thì việc trước thông sau tắc, hao tán, dễ mất chức",
+   "tone": "neg",
+   "book": "TH",
+   "page": 131,
+   "quote": "Mờ am: mọi việc trước hanh thông, xau bế tắc, hao tán bị bãi quan chức"
+  },
+  {
+   "id": "th131_liem_sang_cat",
+   "kind": "th",
+   "cond": {
+    "major": "Liêm Trinh",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ],
+    "tp_cat": true
+   },
+   "text": "hạn có Liêm Trinh sáng sủa gặp sao tốt thì danh và tiền toại ý",
+   "tone": "pos",
+   "book": "TH",
+   "page": 131,
+   "quote": "1. Sáng sủa gặp được sao tốt, danh tại toại mỹ"
+  },
+  {
+   "id": "th131_liem_ty_hoi",
+   "kind": "th",
+   "cond": {
+    "major": "Liêm Trinh",
+    "branch": [
+     "Tỵ",
+     "Hợi"
+    ]
+   },
+   "text": "hạn có Liêm Trinh ở Tỵ, Hợi thì giao dịch với người lạ bất lợi, dễ sinh hiềm thù",
+   "tone": "neg",
+   "book": "TH",
+   "page": 131,
+   "quote": "2. Ơû Tỵ Hợi giao dịch với người lạ bất lợi"
+  },
+  {
+   "id": "th131_liem_mo",
+   "kind": "th",
+   "cond": {
+    "major": "Liêm Trinh",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "text": "hạn có Liêm Trinh mờ ám thì chơi bời mang họa, có chức dễ bị giáng",
+   "tone": "neg",
+   "book": "TH",
+   "page": 131,
+   "quote": "3. Mờ ám: chơi bời đến mang họa. Nếu có công danh dễ bị trất giáng"
+  },
+  {
+   "id": "th131_liem_vu_loc_ma",
+   "kind": "th",
+   "cond": {
+    "major": "Liêm Trinh",
+    "tp_all": [
+     "Vũ Khúc",
+     "Lộc Tồn",
+     "Thiên Mã"
+    ]
+   },
+   "text": "hạn có Liêm Trinh gặp Vũ Khúc, Lộc, Mã thì có danh tài",
+   "tone": "pos",
+   "book": "TH",
+   "page": 131,
+   "quote": "4. Gặp Vũ Lộc Mã có danh tài"
+  },
+  {
+   "id": "th131_liem_khong_kiep",
+   "kind": "th",
+   "cond": {
+    "major": "Liêm Trinh",
+    "with_any": [
+     "Địa Không",
+     "Địa Kiếp"
+    ]
+   },
+   "text": "hạn có Liêm Trinh gặp Không, Kiếp thì mọi sự bế tắc, hao tài",
+   "tone": "neg",
+   "book": "TH",
+   "page": 131,
+   "quote": "8. Gặp Không Kiếp mọi sự bế t"
+  },
+  {
+   "id": "th132_tuong_sang",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Tướng",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "text": "hạn có Thiên Tướng sáng sủa thì mưu sự dễ thành, hoạnh phát bất ngờ",
+   "tone": "pos",
+   "book": "TH",
+   "page": 132,
+   "quote": "hoạnh phát bất ng"
+  },
+  {
+   "id": "th132_tuong_kk",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Tướng",
+    "with_any": [
+     "Địa Không",
+     "Địa Kiếp"
+    ]
+   },
+   "text": "hạn có Thiên Tướng gặp Không, Kiếp thì bị tiểu nhân lừa lọc nhưng không đáng ngại",
+   "tone": "neg",
+   "book": "TH",
+   "page": 132,
+   "quote": "iếp: bị tiểu nhân lừa lọc nhưng không đáng ng"
+  },
+  {
+   "id": "th132_luong_mo",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Lương",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "text": "hạn có Thiên Lương mờ ám thì hao tán tiền tài",
+   "tone": "neg",
+   "book": "TH",
+   "page": 132,
+   "quote": "2. Mờ ám: hao tán sức khoẻ và tiền tài"
+  },
+  {
+   "id": "th132_luong_ty_hoi",
+   "kind": "th",
+   "cond": {
+    "major": "Thiên Lương",
+    "branch": [
+     "Tý",
+     "Hợi"
+    ]
+   },
+   "text": "hạn có Thiên Lương ở Tý, Hợi thì chắc chắn đi xa hoặc thay đổi công việc",
+   "tone": "",
+   "book": "TH",
+   "page": 132,
+   "quote": "nếu gặp Lương nhập hạn ở Tí Hợi chắc c"
+  },
+  {
+   "id": "th132_sat_dan_than",
+   "kind": "th",
+   "cond": {
+    "major": "Thất Sát",
+    "branch": [
+     "Dần",
+     "Thân"
+    ]
+   },
+   "text": "hạn có Thất Sát ở Dần, Thân thì tiền và chức đều tốt, mưu sự thành nhanh",
+   "tone": "pos",
+   "book": "TH",
+   "page": 132,
+   "quote": "Nếu Sát nhập hạn ở Dần"
+  },
+  {
+   "id": "th132_sat_mo",
+   "kind": "th",
+   "cond": {
+    "major": "Thất Sát",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "text": "hạn có Thất Sát mờ ám thì gặp nhiều chuyện buồn",
+   "tone": "neg",
+   "book": "TH",
+   "page": 132,
+   "quote": "Gặp nhiều chuyện buồn"
+  },
+  {
+   "id": "th132_pha_sang_xk_kv",
+   "kind": "th",
+   "cond": {
+    "major": "Phá Quân",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ],
+    "tp_all": [
+     "Văn Xương",
+     "Văn Khúc",
+     "Thiên Khôi",
+     "Thiên Việt"
+    ]
+   },
+   "text": "hạn có Phá Quân sáng sủa gặp Xương Khúc Khôi Việt thì tiền và chức đều tốt, rất phú quý",
+   "tone": "pos",
+   "book": "TH",
+   "page": 132,
+   "quote": "1. Sáng sủa mà gặp được thêm Xương Khúc K ôi Việt tài quan song mỹ, phú quí cực độ"
+  },
+  {
+   "id": "th133_pha_phuong",
+   "kind": "th",
+   "cond": {
+    "major": "Phá Quân",
+    "with_any": [
+     "Phượng Các"
+    ]
+   },
+   "text": "hạn có Phá Quân gặp Phượng Các thì bị trách oán",
+   "tone": "neg",
+   "book": "TH",
+   "page": 133,
+   "quote": "7. Gặp Phượng Các bị trách oán"
   }
  ],
  "kl": {
@@ -1055,6 +1563,16 @@
   "tt104_thien_su": "a death story",
   "tt105_thien_ma_ham_kiep_khong": "the book's own brightness note for Thiên Mã differs from the chart table",
   "tt106_hoa_ky_thien_khong": "punishment and office loss on a 'Không' the verse does not settle",
-  "tt99_thai_am_nen_gap": "said by tt99_thai_am"
+  "tt99_thai_am_nen_gap": "said by tt99_thai_am",
+  "th130_tu_vi_tuan_triet": "death",
+  "th130_tu_vi_kinh_da_kiep_ky": "illness (the 'bị lừa' half joined to it)",
+  "th130_co_nguyet_dong_luong": "'gặp thời làm quyền gian' could be read for or against: not settled",
+  "th130_co_khoc_hoa_kinh": "three stars in one palace, a condition the van_han_books vocabulary cannot state yet (with_all)",
+  "th130_phu_tam_khong": "'Tam Không' (which three Không) is not named",
+  "th131_nhat_sat": "'Hỏa Linh Kình Đà' as a group in one palace: the vocabulary has no 'two of these in the palace'",
+  "th131_vu_quyen": "TT p.98 (tt98_vu_khuc_quyen) already reads Vũ Khúc hóa Quyền in the hạn",
+  "th131_liem_hong_dao": "a marriage event",
+  "th132_tuong_di_tuan_triet": "the hạn palace's name is not in the vocabulary; and the death clause",
+  "th132_sat_liem_tham_phuong": "which of Liêm, Tham must meet Thất Sát is not settled"
  }
 }

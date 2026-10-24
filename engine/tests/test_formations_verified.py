@@ -28,6 +28,10 @@ BY_ID = {f.id: f for f in FORMS}
 EV = DATA["evidence"]
 KINDS = ("boosters", "breakers", "rescuers", "refutations")
 KNOWN = {"palace.*", "chart.*"}
+DEEP3 = {"CACH_X_TU_PHU_TRIEU_VIEN", "CACH_X_PHU_TUONG_TRIEU_VIEN", "CACH_X_THAN_DONG", "CACH_X_TOA_QUY_HUONG_QUY", "CACH_X_TAI_LOC_GIAP_MA",
+         "CACH_X_DOI_KIM_TICH_NGOC", "CACH_X_PHU_HUU_LAU_DAI", "CACH_X_TIEN_CAI_HAU_MA", "CACH_X_VAN_LONG_TE_HOI", "CACH_X_TIEN_HINH_HAU_AN",
+         "CACH_X_TUONG_PHUC_HONG_DAO", "CACH_X_THAI_TOA_GIAP_MENH", "CACH_X_XUAT_TUONG_NHAP_TUONG", "CACH_X_SONG_LONG", "CACH_X_LONG_PHUONG_HO_CAI",
+         "CACH_X_HOA_KY_SUU_MUI", "CACH_X_THIEN_DONG_DINH_MAO", "CACH_X_THIEN_DONG_NGO_VIET", "CACH_X_THIEN_LUONG_NGO_KHOI"}
 
 
 def all_quotes():
@@ -40,7 +44,8 @@ def all_quotes():
 
 
 def test_schema_and_statuses():
-    assert sorted(BY_ID) == sorted(f["id"] for f in DRAFT) and DATA["rejected"] == []
+    # the ten re-defined drafts, plus the cát / kỳ cách of KL pp.43-48 added by DEEP-3 (2026-10-24)
+    assert set(BY_ID) == {f["id"] for f in DRAFT} | DEEP3 and DATA["rejected"] == []
     errs = validate_formations(FORMS, KNOWN, set(PALACES))
     allowed = {f"{f.id}: formations cannot be 'verified' without a verified source with locator (none supported yet)" for f in FORMS}
     allowed |= {f"{f.id}: needs at least one booster (else thành is undefined)" for f in FORMS if EV[f.id]["core_alone"] == "thanh"}
@@ -52,7 +57,9 @@ def test_schema_and_statuses():
         if not f.boosters:
             assert EV[f.id]["core_alone"] == "thanh", f.id
     assert BY_ID["CACH_X_MA_DAU_DOI_KIEM"].reviewStatus == "disputed"
-    assert sum(f.reviewStatus == "verified" for f in FORMS) == 9
+    assert sum(f.reviewStatus == "verified" for f in FORMS) == 9 + len(DEEP3)
+    for fid in DEEP3:                                                # KL gives the cách, one condition and one effect line
+        assert EV[fid]["core_alone"] == "thanh" and all(s["book"] in ("KL", "TT") for s in EV[fid]["core"] + EV[fid]["effect"]), fid
 
 
 def test_every_kept_condition_has_a_source():
@@ -141,4 +148,31 @@ def test_cores_occur_on_real_charts():
         bf = rfacts.tuvi_facts(tuvi.compute(normalize(b)))
         fx = {**bf["chart"], **bf["palace:Mệnh"]}
         seen |= {f.id for f in FORMS if evaluate_formation(f, fx)["state"] not in ("khong_hien", "chua_du_du_kien")}
-    assert seen == set(BY_ID), set(BY_ID) - seen
+    # every draft core occurs; of the DEEP-3 cách, the common ones (the rare ones are checked on synthetic charts below)
+    rare = {"CACH_X_DOI_KIM_TICH_NGOC", "CACH_X_PHU_HUU_LAU_DAI", "CACH_X_TUONG_PHUC_HONG_DAO", "CACH_X_HOA_KY_SUU_MUI", "CACH_X_TAI_LOC_GIAP_MA",
+            "CACH_X_TIEN_HINH_HAU_AN", "CACH_X_VAN_LONG_TE_HOI", "CACH_X_THIEN_DONG_DINH_MAO", "CACH_X_THIEN_DONG_NGO_VIET", "CACH_X_THIEN_LUONG_NGO_KHOI",
+            "CACH_X_THAN_DONG"}
+    assert seen >= set(BY_ID) - rare, set(BY_ID) - rare - seen
+
+
+def test_deep3_cores_on_synthetic_charts():
+    """each KL cách holds on a chart built to its page condition, and not when one piece is missing"""
+    cases = {
+        "CACH_X_THAN_DONG": ([S("Tử Vi"), S("Tấu Thư")], [S("Tử Vi")], "Tý"),
+        "CACH_X_TOA_QUY_HUONG_QUY": ([S("Thiên Khôi"), S("Thiên Việt", "Thiên Di")], [S("Thiên Khôi"), S("Thiên Việt", "Quan Lộc")], "Tý"),
+        "CACH_X_TAI_LOC_GIAP_MA": ([S("Thiên Mã"), S("Vũ Khúc", "Huynh Đệ"), H("Hóa Lộc", "Phụ Mẫu")], [S("Thiên Mã"), S("Vũ Khúc", "Huynh Đệ")], "Dần"),
+        "CACH_X_DOI_KIM_TICH_NGOC": ([S("Thiên Phủ"), S("Vũ Khúc"), S("Lộc Tồn")], [S("Thiên Phủ"), S("Vũ Khúc")], "Tý"),
+        "CACH_X_PHU_HUU_LAU_DAI": ([S("Cự Môn"), S("Thiên Cơ"), S("Đại Hao"), S("Tiểu Hao", "Thiên Di")], [S("Cự Môn"), S("Thiên Cơ")], "Mão"),
+        "CACH_X_TIEN_CAI_HAU_MA": ([S("Hoa Cái", "Phụ Mẫu"), S("Thiên Mã", "Huynh Đệ")], [S("Hoa Cái", "Phụ Mẫu")], "Mão"),
+        "CACH_X_TIEN_HINH_HAU_AN": ([S("Thiên Hình", "Phụ Mẫu"), S("Quốc Ấn", "Huynh Đệ")], [S("Thiên Hình", "Huynh Đệ"), S("Quốc Ấn", "Phụ Mẫu")], "Mão"),
+        "CACH_X_VAN_LONG_TE_HOI": ([S("Thanh Long"), S("Lưu Hà"), H("Hóa Kỵ")], [S("Thanh Long"), S("Lưu Hà")], "Tý"),
+        "CACH_X_HOA_KY_SUU_MUI": ([S("Cự Môn"), H("Hóa Kỵ")], [S("Cự Môn")], "Sửu"),
+        "CACH_X_THIEN_LUONG_NGO_KHOI": ([S("Thiên Lương"), S("Thiên Khôi")], [S("Thiên Lương"), S("Thiên Khôi", "Thiên Di")], "Tý"),
+    }
+    for fid, (yes, no, menh) in cases.items():
+        assert state(fid, yes, menh)[0] != "khong_hien", fid
+        assert state(fid, no, menh)[0] == "khong_hien", fid
+    lphc = [S("Bạch Hổ"), S("Long Trì", "Quan Lộc"), S("Phượng Các", "Tài Bạch"), S("Hoa Cái", "Quan Lộc")]
+    assert state("CACH_X_LONG_PHUONG_HO_CAI", lphc)[0] == "thanh_thuong"           # KL p.46: Bạch Hổ ở Mệnh thì hay hơn
+    assert state("CACH_X_LONG_PHUONG_HO_CAI", [S("Long Trì")] + lphc[1:] + [S("Bạch Hổ", "Tài Bạch")])[0] == "hinh_thuc"
+    assert state("CACH_X_LONG_PHUONG_HO_CAI", [S("Long Trì", "Thiên Di")] + lphc[1:3] + [S("Bạch Hổ", "Tài Bạch")])[0] == "khong_hien"

@@ -1,0 +1,1064 @@
+{
+ "version": "schools-1",
+ "date": "2026-10-24",
+ "generated_by": "tools/build_deep3_kg.py",
+ "schools": {
+  "KL": "Tử Vi Khảo Luận",
+  "TH": "Tử Vi Thực Hành",
+  "TT": "Toàn Thư (bản dịch Vũ Tài Lục)",
+  "TTH": "紫微斗數全書 (Hán văn)",
+  "TL": "Thiên Lương (Nghiệm Lý)"
+ },
+ "note": "Chỗ các sách / trường phái nói khác nhau về cùng một điều (định nghĩa cách, tên cách, bản dịch, đắc hãm, ngũ hành, cách dùng phú). Mỗi 'side' là lời của một sách với trích dẫn và trang (hoặc quyển · mục cho 紫微斗數全書, trang scan cho Thiên Lương). 'engine' ghi hệ thống đang dùng bên nào. Tầng Đọc sâu ('Khác biệt trường phái', plan Workstream E) sẽ đọc tệp này.",
+ "topics": [
+  {
+   "id": "kim_du_phu_gia",
+   "topic": "Kim dư phù giá: ai giáp Tử Vi",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Tử Vi đắc địa, Tả Hữu tam hợp chiếu, Thiếu Dương, Thiếu Âm giáp Mệnh",
+     "mined": "kl43_kim_du_phu_gia",
+     "book": "KL",
+     "page": 43,
+     "quote": "Mệnh có Tử vi đắc địa, Tả Hữu tam hợp chiếu, Thiếu dương, Thiếu âm giáp",
+     "cite": "KL p.43"
+    },
+    {
+     "school": "TH",
+     "statement": "Tử Vi ở Mệnh hay Quan Lộc, giáp Tả Hữu hoặc Thiếu Dương, Thiếu Âm",
+     "mined": "th73_kim_du",
+     "book": "TH",
+     "page": 73,
+     "quote": "30. Kim dư phù giá cách (Tử vi tại mệnh hay Quan lộc mà giáp Tả Hữu, Thiếu dương, Thiếu",
+     "cite": "TH p.73"
+    },
+    {
+     "school": "TT",
+     "statement": "Tử Vi thủ Mệnh, Nhật Nguyệt giáp; người dịch nói lời giảng sai vì Tử Vi không thể giáp Nhật Nguyệt",
+     "mined": "tt142_kim_du_pho_gia",
+     "book": "TT",
+     "page": 142,
+     "quote": "Tử Vi thủ Mệnh, có Nhật Nguyệt giáp mệnh",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TTH",
+     "statement": "Tử Vi thủ Mệnh, trước sau có Nhật Nguyệt giáp",
+     "mined": "w1_kim_du_phu_gia",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定贵局",
+     "quote": "金舆扶驾 紫微守命前后有日月来夹是也",
+     "cite": "TTH 1 定贵局"
+    }
+   ],
+   "note": "紫微斗數全書 nói 日月來夾 (Nhật Nguyệt giáp); KL và TH đọc thành Thiếu Dương, Thiếu Âm (cặp sao luôn kẹp cung Thái Tuế), TH thêm Tả Hữu.",
+   "engine": "TV_TH_CACH_MENH_KIM_DU dùng định nghĩa TH"
+  },
+  {
+   "id": "that_sat_trieu_dau",
+   "topic": "Thất Sát triều đẩu: vị trí",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Mệnh có Phá Quân ở Tý Ngọ, Thất Sát ở Dần Thân",
+     "mined": "kl43_that_sat_trieu_dau",
+     "book": "KL",
+     "page": 43,
+     "quote": "Thất sát ở Dần Thân ngưỡng phục Phá quân",
+     "cite": "KL p.43"
+    },
+    {
+     "school": "TH",
+     "statement": "Thất Sát ở Dần, Thân có Mệnh (ở Ngọ là 'ngưỡng đẩu')",
+     "mined": "th73_that_sat_trieu_dau",
+     "book": "TH",
+     "page": 73,
+     "quote": "34. Thất sát triều đầu cách ( ở Dần, Thân có M",
+     "cite": "TH p.73"
+    },
+    {
+     "school": "TT",
+     "statement": "Thất Sát thủ Mệnh ở Dần, Thân, Tý, Ngọ",
+     "mined": "tt142_that_sat_trieu_dau",
+     "book": "TT",
+     "page": 142,
+     "quote": "Thất Sát triều đẩu (Thất Sát thủ mệnh ở Dần Thân Tí Ngọ)",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TTH",
+     "statement": "Thất Sát triều đẩu thì tước lộc vinh xương (không ghi vị trí)",
+     "mined": "w1_that_sat_trieu_dau",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "斗数骨髓赋",
+     "quote": "七杀朝斗爵禄荣昌",
+     "cite": "TTH 1 斗数骨髓赋"
+    }
+   ],
+   "note": "TH chỉ Dần Thân (Ngọ là 'ngưỡng đẩu'); TT thêm Tý Ngọ; KL định nghĩa qua Phá Quân; 紫微斗數全書 không ghi vị trí ở câu phú.",
+   "engine": "TV_TH_CACH_MENH_SAT_TRIEU_DAU (Dần, Thân)"
+  },
+  {
+   "id": "nhat_o_mao",
+   "topic": "Thái Dương ở Mão: tên cách và cung",
+   "kind": "ten_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Nhật xuất phù tang: Mệnh ở Mão có Thái Dương, Thiên Lương",
+     "mined": "kl44_nhat_xuat_phu_tang",
+     "book": "KL",
+     "page": 44,
+     "quote": "Mệnh ở Mão có Thái dương, Thiên lương đồng cung",
+     "cite": "KL p.44"
+    },
+    {
+     "school": "TH",
+     "statement": "Nhật chiếu lôi môn: Thái Dương ở Mão có Mệnh",
+     "mined": "th72_nhat_chieu_loi_mon",
+     "book": "TH",
+     "page": 72,
+     "quote": "23. Nhật chiếu lôi môn cách (Nhật ở Mão có Mệnh)",
+     "cite": "TH p.72"
+    },
+    {
+     "school": "TT",
+     "statement": "Nhật xuất phù tang: Thái Dương ở Mão thủ Mệnh hoặc Quan Lộc",
+     "mined": "tt142_nhat_xuat_phu_tang_quan",
+     "book": "TT",
+     "page": 142,
+     "quote": "Thái Dương tại cung Mão thủ mệnh hoặc quan lộc cung",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TTH",
+     "statement": "Thái Dương ở Mão thủ Mệnh; thủ Quan Lộc cũng vậy",
+     "mined": "w1_nhat_xuat_phu_tang",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定贵局",
+     "quote": "日出扶桑 日在卯守命是也，守官禄宫亦然",
+     "cite": "TTH 1 定贵局"
+    }
+   ],
+   "note": "Cùng một lõi, hai tên; TT và 紫微斗數全書 nhận cả cung Quan Lộc.",
+   "engine": "TV_TH_CACH_MENH_NHAT_MAO (Mệnh) và TV_D3_TT142_NHAT_XUAT_PHU_TANG_QUAN (Quan Lộc)"
+  },
+  {
+   "id": "nguyet_o_ty",
+   "topic": "Thái Âm ở Tý: Mệnh hay Điền Trạch, tên cách",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Minh châu xuất hải: Mệnh ở Tý có Thái Âm đồng cung Thiên Đồng",
+     "mined": "kl44_minh_chau_xuat_hai",
+     "book": "KL",
+     "page": 44,
+     "quote": "Mệnh đóng ở Tí có Thái âm đồng cung với Thiên đồng",
+     "cite": "KL p.44"
+    },
+    {
+     "school": "TH",
+     "statement": "Nguyệt sinh thương hải (Thái Âm tại Tý), cũng gọi Minh châu xuất hải",
+     "mined": "th73_nguyet_sinh_thuong_hai",
+     "book": "TH",
+     "page": 73,
+     "quote": "ong hải cách (Tức Nguyệt tại Tí) cách này ucngx gọi Mẹnh châu xuất hải",
+     "cite": "TH p.73"
+    },
+    {
+     "school": "TT",
+     "statement": "Nguyệt sinh thương hải: Thái Âm ở Tý thủ Điền Trạch",
+     "mined": "tt142_nguyet_sinh_suong_hai",
+     "book": "TT",
+     "page": 142,
+     "quote": "Nguyệt sinh sương hải (Thái âm ở cung Tí, thủ điền trạch)",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TTH",
+     "statement": "Thái Âm ở Tý thủ Điền Trạch",
+     "mined": "w1_nguyet_sinh_thuong_hai",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定贵局",
+     "quote": "月生沧海 月在子宫守田宅是也",
+     "cite": "TTH 1 定贵局"
+    }
+   ],
+   "note": "紫微斗數全書 và TT đặt cách ở Điền Trạch; TH và KL đọc ở Mệnh. 紫微斗數全書 còn có 明珠出海 là một cách riêng ('見前批注').",
+   "engine": "TV_TH_CACH_MENH_NGUYET_TY (Mệnh) và TV_D3_TT142_NGUYET_SINH_SUONG_HAI (Điền Trạch)"
+  },
+  {
+   "id": "nhat_nguyet_chieu_bich",
+   "topic": "Nhật Nguyệt chiếu bích: Mệnh hay Điền Trạch",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Nhật Nguyệt chiếu biến: Mệnh vô chính diệu ở Mùi có Nhật Nguyệt ở Sửu chiếu, hoặc ngược lại",
+     "mined": "kl44_nn_chieu_bien",
+     "book": "KL",
+     "page": 44,
+     "quote": "Mệnh vô chính diệu ở Mùi có Nhật Nguyệt đồng cung ở Sửu chiếu lên",
+     "cite": "KL p.44"
+    },
+    {
+     "school": "TH",
+     "statement": "Nhật Nguyệt ở Sửu chiếu Mệnh ở Mùi, hoặc ngược lại",
+     "mined": "th73_nn_chieu_bich",
+     "book": "TH",
+     "page": 73,
+     "quote": "28. Nhật, Nguyệt chiếu bích cách (Tức ở Sửu chiếu lên Mùi có Mệnh, hoặc ở Mùi chiếu",
+     "cite": "TH p.73"
+    },
+    {
+     "school": "TT",
+     "statement": "Nhật Nguyệt ở Điền Trạch, ở Tứ mộ mới thật tốt",
+     "mined": "tt142_nn_chieu_bich",
+     "book": "TT",
+     "page": 142,
+     "quote": "Nhật Nguyệt ở điền trạch cung, tại Thìn tuất Sửu Mùi mới thật tốt",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TTH",
+     "statement": "Nhật Nguyệt ở Điền Trạch, ưa ở Tứ mộ",
+     "mined": "w1_nn_chieu_bich",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定富局",
+     "quote": "日月照璧 日月临田宅宫是也，喜居墓库",
+     "cite": "TTH 1 定富局"
+    }
+   ],
+   "note": "KL, TH đọc ở Mệnh (đối chiếu); TT, 紫微斗數全書 đọc ở Điền Trạch.",
+   "engine": "TV_TH_CACH_MENH_NN_CHIEU_BICH (Mệnh) và TV_D3_TT142_NN_CHIEU_BICH (Điền Trạch)"
+  },
+  {
+   "id": "toa_quy_huong_quy",
+   "topic": "Tọa quý hướng quý: Khôi Việt ở đâu",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Mệnh có Khôi, Thiên Di có Việt, hoặc ngược lại",
+     "mined": "kl44_toa_quy_huong_quy",
+     "book": "KL",
+     "page": 44,
+     "quote": "Mệnh có Khôi, Di có Việt hoặc ngược lại",
+     "cite": "KL p.44"
+    },
+    {
+     "school": "TH",
+     "statement": "Mệnh có Khôi gặp Việt chiếu, hoặc ngược lại",
+     "mined": "th73_toa_quy",
+     "book": "TH",
+     "page": 73,
+     "quote": "ïa quí, hướng quí (Mệnh có Khôi đóng, gặp Việt chiếu, hoặc có Việt gặp Khôi chiếu)",
+     "cite": "TH p.73"
+    },
+    {
+     "school": "TT",
+     "statement": "Khôi Việt chiếu Mệnh, hoặc Khôi ở Mệnh, Việt hướng vào",
+     "mined": "tt142_toa_quy",
+     "book": "TT",
+     "page": 142,
+     "quote": "(Khôi Việt chiếu mệnh, hoặc Khôi ở mệnh Việt hướng vào và ngược lại)",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TTH",
+     "statement": "Khôi Việt ở Mệnh, thay nhau tọa và củng",
+     "mined": "w1_toa_quy_huong_quy",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定贵局",
+     "quote": "坐贵向贵 谓魁钺在命迭相坐拱是也",
+     "cite": "TTH 1 定贵局"
+    }
+   ],
+   "note": "KL hẹp nhất (Mệnh và Thiên Di); TH, TT nhận cả Khôi Việt chiếu Mệnh.",
+   "engine": "CACH_X_TOA_QUY_HUONG_QUY dùng định nghĩa KL"
+  },
+  {
+   "id": "tai_loc_giap_ma",
+   "topic": "Tài Lộc giáp Mã: Lộc Tồn hay Hóa Lộc",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Thiên Mã ở Mệnh, Vũ Khúc và Lộc Tồn giáp",
+     "mined": "kl45_tai_loc_giap_ma",
+     "book": "KL",
+     "page": 45,
+     "quote": "Mệnh có Thiên mã, Tài (tên gọi của Vũ khúc), Lộc tồn đứng ở cung hai bên",
+     "cite": "KL p.45"
+    },
+    {
+     "school": "TH",
+     "statement": "Mệnh có Mã, giáp Vũ Khúc và Hóa Lộc hay Lộc Tồn",
+     "mined": "th73_vu_loc_giap_ma",
+     "book": "TH",
+     "page": 73,
+     "quote": "29. Vũ, Lộc giáp Mã cách (Cung Mệnh có Mã giúp lại có Vũ khúc và Hóa lộc hay",
+     "cite": "TH p.73"
+    },
+    {
+     "school": "TT",
+     "statement": "Thiên Mã thủ Mệnh, giáp Vũ Khúc và Hóa Lộc",
+     "mined": "tt142_tai_loc_hiep_ma",
+     "book": "TT",
+     "page": 142,
+     "quote": "Thiên Mã thủ Mệnh, giáp Vũ Khúc, Hóa Lộc",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TTH",
+     "statement": "Thiên Mã thủ Mệnh, Vũ Khúc và Lộc giáp; ở đất sinh vượng càng tốt",
+     "mined": "w1_tai_loc_giap_ma",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定富局",
+     "quote": "财禄夹马 马守命武禄来夹是也，逢生旺尤妙",
+     "cite": "TTH 1 定富局"
+    }
+   ],
+   "note": "KL nói Lộc Tồn, TT nói Hóa Lộc, TH nhận cả hai; 紫微斗數全書 chỉ nói 祿.",
+   "engine": "CACH_X_TAI_LOC_GIAP_MA nhận cả hai"
+  },
+  {
+   "id": "tham_hoa",
+   "topic": "Tham Hỏa tương phùng: vị trí và sao",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Mệnh ở Tứ mộ có Tham Lang đồng cung Hỏa hoặc Linh",
+     "mined": "kl45_tham_hoa",
+     "book": "KL",
+     "page": 45,
+     "quote": "Mệnh ở tứ mộ, có Tham lang đồng cung với Hỏa Linh",
+     "cite": "KL p.45"
+    },
+    {
+     "school": "TH",
+     "statement": "Mệnh hay Quan ở Tứ mộ có Tham Lang, Hỏa Tinh hội",
+     "mined": "th73_tham_hoa",
+     "book": "TH",
+     "page": 73,
+     "quote": "36. Tham, Hỏa tương hội Tứ mộ cách ( Mệnh hay Quan đóng ở Tứ mộ có Tham, Hỏa hội phát",
+     "cite": "TH p.73"
+    },
+    {
+     "school": "TT",
+     "statement": "Tham Lang miếu địa thủ Mệnh tại cung Mão (bản dịch)",
+     "mined": "tt142_tham_hoa_mao",
+     "book": "TT",
+     "page": 142,
+     "quote": "Tham Lang cư miếu địa, thủ Mệnh tại cung Mão",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TTH",
+     "statement": "Tham Lang, Hỏa Tinh cùng thủ Mệnh, đều miếu vượng",
+     "mined": "w1_tham_hoa",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定贵局",
+     "quote": "贪火相逢 谓二星守命同居庙旺是也",
+     "cite": "TTH 1 定贵局"
+    }
+   ],
+   "note": "Bản dịch TT thêm 'cung Mão', 紫微斗數全書 không có (chỉ nói hai sao cùng thủ Mệnh, miếu vượng); KL nhận cả Linh Tinh.",
+   "engine": "TV_TH_CACH_MENH_THAM_HOA (TH)"
+  },
+  {
+   "id": "loc_phung_luong_sat",
+   "topic": "Lộc phùng lưỡng sát: có cần Không Vong",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Lộc Tồn, Hóa Lộc gặp Không Kiếp đồng cung",
+     "mined": "kl46_loc_phung_luong_sat",
+     "book": "KL",
+     "page": 46,
+     "quote": "Mệnh có Lộc tồn, Hóa lộc gặp Không Kiếp đồng cung",
+     "cite": "KL p.46"
+    },
+    {
+     "school": "TH",
+     "statement": "Lộc Tồn hay Hóa Lộc ở Mệnh gặp Không Kiếp đồng cung",
+     "mined": "th73_loc_phung_luong_sat",
+     "book": "TH",
+     "page": 73,
+     "quote": "ùt (Lộc tồn hay Hóa lộc ở Mệnh gặp Không Kiếp đồng",
+     "cite": "TH p.73"
+    },
+    {
+     "school": "TT",
+     "statement": "Lộc tọa Không Vong (Tuần Triệt) gặp thêm Không Kiếp",
+     "mined": "tt143_loc_phung_luong_sat",
+     "book": "TT",
+     "page": 143,
+     "quote": "Lộc tọa Không Vong, Tuần Triệt gặp thêm Không Kiếp",
+     "cite": "TT p.143"
+    },
+    {
+     "school": "TTH",
+     "statement": "Lộc ngồi Không Vong lại gặp Không Kiếp sát tinh",
+     "mined": "w1_loc_phung_luong_sat",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定贫贱局",
+     "quote": "禄逢两杀 禄坐空亡又逢空劫杀星是也",
+     "cite": "TTH 1 定贫贱局"
+    }
+   ],
+   "note": "TT và 紫微斗數全書 cần Lộc ở Không Vong; KL, TH chỉ cần Không Kiếp đồng cung.",
+   "engine": "TV_TH_CACH_MENH_BT_LOC_LUONG_SAT (TH)"
+  },
+  {
+   "id": "nhat_nguyet_tang",
+   "topic": "Nhật Nguyệt tàng huy / tàng hung: có cần Cự Môn",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "cách Nhật Nguyệt tàng hung (hạ cách): trời đất tối tăm",
+     "mined": "kl46_nn_tang_hung",
+     "book": "KL",
+     "page": 46,
+     "quote": "Mệnh có Thái dương Thái âm hãm địa, thủ mệnh hoặc chiếu mệnh",
+     "cite": "KL p.46"
+    },
+    {
+     "school": "TH",
+     "statement": "Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh, hoặc hãm mà gặp sát tinh",
+     "mined": "th74_nn_tan_hung",
+     "book": "TH",
+     "page": 74,
+     "quote": "àn hung (Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh,",
+     "cite": "TH p.74"
+    },
+    {
+     "school": "TT",
+     "statement": "Thái Âm, Thái Dương hãm gặp Cự Môn",
+     "mined": "tt143_nn_tang_huy",
+     "book": "TT",
+     "page": 143,
+     "quote": "Thái Aâm, Thái Dương hãm địa gặp Cự Môn",
+     "cite": "TT p.143"
+    },
+    {
+     "school": "TTH",
+     "statement": "Nhật Nguyệt phản bối (cả hai hãm) lại gặp Cự Môn",
+     "mined": "w1_nn_tang_huy",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定贫贱局",
+     "quote": "日月藏辉 日月反背又逢巨暗是也",
+     "cite": "TTH 1 定贫贱局"
+    }
+   ],
+   "note": "TT, 紫微斗數全書 cần thêm Cự Môn (日月反背又逢巨暗); KL chỉ cần Nhật Nguyệt hãm thủ hoặc chiếu; TH: hãm mà không có cứu tinh hoặc gặp sát.",
+   "engine": "TV_D3_KL46_NN_TANG_HUNG (KL)"
+  },
+  {
+   "id": "giap_hay_hoi",
+   "topic": "Tài ấm giáp ấn, Tài ấn giáp lộc: 'giáp' hay 'hội'",
+   "kind": "ban_dich",
+   "sides": [
+    {
+     "school": "TT",
+     "statement": "Thiên Tướng thủ Mệnh, Vũ Khúc Thiên Lương hội hiệp",
+     "mined": "tt141_tai_am_hiep_an",
+     "book": "TT",
+     "page": 141,
+     "quote": "Thiên Tướng thủ Mệnh, Vũ Khúc Thiên Lương hội hiệp, ở điền trạch cung cũng vậy",
+     "cite": "TT p.141"
+    },
+    {
+     "school": "TTH",
+     "statement": "Thiên Tướng thủ Mệnh, Vũ Khúc và Thiên Lương GIÁP (夾); Điền Trạch cũng vậy",
+     "mined": "w1_tai_am_giap_an",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定富局",
+     "quote": "财荫夹印 相守命武梁来夹是也，田宅宫亦然",
+     "cite": "TTH 1 定富局"
+    },
+    {
+     "school": "TT",
+     "statement": "Lộc thủ Mệnh, Thiên Lương Thiên Tướng hội hiệp",
+     "mined": "tt142_tai_an_hiep_loc",
+     "book": "TT",
+     "page": 142,
+     "quote": "Lộc thủ Mệnh Thiên Lương Thiên Tướng hội hiệp",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TTH",
+     "statement": "Lộc thủ Mệnh, Thiên Lương và Thiên Tướng GIÁP; ở Tài Bạch cũng vậy",
+     "mined": "w1_tai_an_giap_loc",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "定贵局",
+     "quote": "财印夹禄 禄守命梁相来夹是也，入财亦然",
+     "cite": "TTH 1 定贵局"
+    },
+    {
+     "school": "TH",
+     "statement": "Mệnh có Lộc, giáp Vũ Khúc và Thiên Tướng",
+     "mined": "th73_tai_an_giap_loc",
+     "book": "TH",
+     "page": 73,
+     "quote": "Tài Aán giáp lộc (Cung Mệnh có Lộc, lại giáp cung có Vũ, Tướng)",
+     "cite": "TH p.73"
+    }
+   ],
+   "note": "Bản dịch TT viết 'hội hiệp' cho chữ 夾 (giáp) của 紫微斗數全書; TH nói Tài ấn giáp lộc là Vũ Khúc, Thiên Tướng giáp (không phải Lương Tướng). Chưa thành rule."
+  },
+  {
+   "id": "quan_than_khanh_hoi",
+   "topic": "Quân thần khánh hội",
+   "kind": "dinh_nghia_cach",
+   "sides": [
+    {
+     "school": "TT",
+     "statement": "cách Quân thần khánh hội (quý cách)",
+     "mined": "tt142_quan_than_khanh_hoi",
+     "book": "TT",
+     "page": 142,
+     "quote": "Tử Vi, Tả Hữu cùng ở cung mệnh, lại gặp Vũ Khúc, Thiên Tướng chiếu",
+     "cite": "TT p.142"
+    },
+    {
+     "school": "TH",
+     "statement": "Tử Vi gặp toàn cát tinh hội",
+     "mined": "th73_quan_than",
+     "book": "TH",
+     "page": 73,
+     "quote": "32. Quần Thần khách hội cách (Tử vi gặp toàn cát tinh hội)",
+     "cite": "TH p.73"
+    }
+   ],
+   "note": "TT: Tử Vi, Tả Hữu cùng ở Mệnh, Vũ Tướng chiếu; TH: Tử Vi gặp toàn cát tinh hội.",
+   "engine": "TV_D3_TT142_QUAN_THAN_KHANH_HOI (TT)"
+  },
+  {
+   "id": "co_luong_thin_tuat",
+   "topic": "Cơ Lương ở Thìn Tuất: tốt hay xấu",
+   "kind": "trai_nghich",
+   "sides": [
+    {
+     "school": "TT",
+     "statement": "Cơ Lương đóng tại Thìn, Tuất và Phá Quân ở Mão Dậu đều xấu",
+     "mined": "tt70_co_luong_thin_tuat",
+     "book": "TT",
+     "page": 70,
+     "quote": "Hai sao Cơ Lương, đóng tại Thìn, Tuất và sao Phá Quân ở Mão Dậu đều xấu",
+     "cite": "TT p.70"
+    },
+    {
+     "school": "TH",
+     "statement": "Cơ Lương Thìn Tuất là một quý cách",
+     "mined": "th73_co_luong",
+     "book": "TH",
+     "page": 73,
+     "quote": "51. Cơ Lương Thìn, Tuất.",
+     "cite": "TH p.73"
+    },
+    {
+     "school": "TH",
+     "statement": "trong 'Cung các sao đắc địa'",
+     "mined": "th80_co_luong_dac_dia",
+     "book": "TH",
+     "page": 80,
+     "quote": "Thìn Tuất : Cơ, Lương phi tiểu bồ",
+     "cite": "TH p.80"
+    },
+    {
+     "school": "TTH",
+     "statement": "辰戍機梁非小補: nằm trong bài 'đắc địa phú quý'",
+     "mined": "w1_co_luong_thin_tuat",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "十二宫诸星得地富贵论",
+     "quote": "辰戍机梁非小补",
+     "cite": "TTH 1 十二宫诸星得地富贵论"
+    }
+   ],
+   "note": "Câu 'phi tiểu bổ' (非小補 = không phải lợi nhỏ) nằm trong bài đắc địa phú quý của 紫微斗數全書 và TH xếp Cơ Lương Thìn Tuất là quý cách; bản dịch TT (pp.70, 113) đọc là xấu. Không làm rule."
+  },
+  {
+   "id": "pha_quan_mao_dau",
+   "topic": "Phá Quân ở Mão Dậu",
+   "kind": "trai_nghich",
+   "sides": [
+    {
+     "school": "TH",
+     "statement": "Phá Quân đóng Mệnh ở Mão, Dậu mới hợp cách tốt",
+     "mined": "th72_pha_liem_mao_dau",
+     "book": "TH",
+     "page": 72,
+     "quote": "9 Phá, Liêm, Mão, Dậu cách (Phá, đóng Mệnh ở Mão, Dậu mới hợp cách tốt, ở các cung",
+     "cite": "TH p.72"
+    },
+    {
+     "school": "TT",
+     "statement": "Phá Quân ở Mão Dậu xấu",
+     "mined": "tt70_co_luong_thin_tuat",
+     "book": "TT",
+     "page": 70,
+     "quote": "Hai sao Cơ Lương, đóng tại Thìn, Tuất và sao Phá Quân ở Mão Dậu đều xấu",
+     "cite": "TT p.70"
+    },
+    {
+     "school": "TH",
+     "statement": "Phá Quân Mão Dậu không thanh (bài lục hãm, cùng sách)",
+     "mined": "th81_pha_mao_dau_ham",
+     "book": "TH",
+     "page": 81,
+     "quote": "Phá Quân : Mão, Dậu bất vi th",
+     "cite": "TH p.81"
+    },
+    {
+     "school": "TTH",
+     "statement": "Phá Quân ở Mão Dậu không thanh (trong bài thất hãm bần tiện)",
+     "mined": "w1_pha_mao_dau",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "十二宫诸星失陷贫贱论",
+     "quote": "破军卯酉不为清",
+     "cite": "TTH 1 十二宫诸星失陷贫贱论"
+    }
+   ],
+   "note": "TH p.72 coi là cách tốt, nhưng TH p.81, TT p.70 và 紫微斗數全書 (失陷貧賤論) coi là không thanh.",
+   "engine": "TV_TH_CACH_MENH_PHA_MAO_DAU (TH p.72); không thêm rule ngược"
+  },
+  {
+   "id": "nhat_nguyet_suu_mui",
+   "topic": "Nhật Nguyệt đồng cung Sửu Mùi",
+   "kind": "trai_nghich",
+   "sides": [
+    {
+     "school": "TH",
+     "statement": "Nhật Nguyệt đồng cung là một quý cách",
+     "mined": "th72_nn_dong_cung",
+     "book": "TH",
+     "page": 72,
+     "quote": "ật, Nguyệt đo g cung cách",
+     "cite": "TH p.72"
+    },
+    {
+     "school": "TT",
+     "statement": "phú nôm: bất hiển công danh",
+     "mined": "tt76_nhat_nguyet_suu_mui",
+     "book": "TT",
+     "page": 76,
+     "quote": "Chỉ vì Nhật Nguyệt đồng cung Sửu Mùi",
+     "cite": "TT p.76"
+    },
+    {
+     "school": "TT",
+     "statement": "lời bình: Nhật Nguyệt đồng cung Sửu Mùi công danh thường lận đận",
+     "mined": "tt145_nn_suu_mui_lan_dan",
+     "book": "TT",
+     "page": 145,
+     "quote": "Nhật Nguyệt đồng cung Sửu Mùi công danh",
+     "cite": "TT p.145"
+    },
+    {
+     "school": "TTH",
+     "statement": "chính tọa chỉ là trung cục; Nhật Nguyệt chiếu (triều) mới tốt",
+     "mined": "w1_hop_suu",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "十二宫诸星得地合格诀",
+     "quote": "丙戍生人福禄饶，正坐平常中局论",
+     "cite": "TTH 1 十二宫诸星得地合格诀"
+    }
+   ],
+   "note": "TH xếp là quý cách; phú nôm và lời bình TT nói công danh lận đận; 紫微斗數全書 nói chính tọa chỉ trung cục.",
+   "engine": "TV_TH_CACH_MENH_NHAT_NGUYET (TH); không thêm rule ngược"
+  },
+  {
+   "id": "liem_pha_mao_dau",
+   "topic": "Liêm Phá Mão Dậu: hãm hay đắc",
+   "kind": "dac_ham",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "coi Liêm Phá Mão Dậu là hãm thì quá khắt khe, nên coi là đắc địa",
+     "mined": "kl181_liem_pha_khien_cuong",
+     "book": "KL",
+     "page": 181,
+     "quote": "Duy chỉ có Liêm Phá lại bị hãm địa, theo quan niệm xưa, e là khiên cưỡng",
+     "cite": "KL p.181"
+    },
+    {
+     "school": "TH",
+     "statement": "lục hãm: Liêm, Phá ở Mão Dậu (giữ Dương nhận)",
+     "mined": "th81_liem_pha_mao_dau",
+     "book": "TH",
+     "page": 81,
+     "quote": "Mão Dậu : Liêm, Phá giữ Dư",
+     "cite": "TH p.81"
+    }
+   ],
+   "note": "Tác giả KL (pp.181, 185) không đồng ý với bảng truyền thống."
+  },
+  {
+   "id": "dac_ham_can_cu",
+   "topic": "Đắc hãm căn cứ vào đâu",
+   "kind": "nguyen_ly",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "đắc hãm căn cứ vào thế đứng của hai nhóm Tử Vi và Phá Quân, không do ngũ hành sao với cung",
+     "mined": "kl180_dac_ham_the_dung",
+     "book": "KL",
+     "page": 180,
+     "quote": "khái niệm về  đắc địa, hãm địa của các chính tinh người xưa đặt ra là để căn cứ vào thế đứng",
+     "cite": "KL p.180"
+    },
+    {
+     "school": "KL",
+     "statement": "đắc hãm theo thế đứng hợp lý hơn theo ngũ hành sao với cung",
+     "mined": "kl185_khong_cong_thuc",
+     "book": "KL",
+     "page": 185,
+     "quote": "Tựu trung thì căn cứ vào thế đứng của hai nhóm Tử vi, Phá quân trong 12 vòng, có vẻ hợp lý hơn",
+     "cite": "KL p.185"
+    },
+    {
+     "school": "TH",
+     "statement": "lạc hãm khi hành của cung khắc hành của sao",
+     "mined": "th79_lac_ham_ngu_hanh",
+     "book": "TH",
+     "page": 79,
+     "quote": "hành của sung khắc hành của Sao là lạc hãm",
+     "cite": "TH p.79"
+    }
+   ],
+   "note": "KL: theo thế đứng của hai nhóm Tử Vi, Phá Quân, không do ngũ hành sao với cung; TH p.79 định nghĩa lạc hãm bằng ngũ hành."
+  },
+  {
+   "id": "that_sat_thien_hinh",
+   "topic": "Thất Sát gặp Thiên Hình",
+   "kind": "trai_nghich",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Thất Sát, Thiên Hình đồng cung: kỳ cách, thành công lạ lùng",
+     "mined": "kl47_that_sat_ngo_hinh",
+     "book": "KL",
+     "page": 47,
+     "quote": "Mệnh có Thất sát – Thiên hình đồng cung",
+     "cite": "KL p.47"
+    },
+    {
+     "school": "KL",
+     "statement": "Kình ở Ngọ gặp Thất Sát, Thiên Hình đồng cung là cách kiếm kề cổ ngựa (xấu)",
+     "mined": "kl64_kiem_ke_co_ngua",
+     "book": "KL",
+     "page": 64,
+     "quote": "Mệnh ở Ngọ, có Kình dương, gặp Thất sát, Thiên hình đồng cung là cách kiếm kể cổ ngựa",
+     "cite": "KL p.64"
+    }
+   ],
+   "note": "Cùng sách: p.47 kể là kỳ cách tốt; p.64 (Mệnh Ngọ có Kình) gọi Thất Sát, Thiên Hình đồng cung là 'kiếm kề cổ ngựa'. Không làm rule."
+  },
+  {
+   "id": "thien_dong_sat_tinh",
+   "topic": "Thiên Đồng gặp sát tinh",
+   "kind": "trai_nghich",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Thiên Đồng không nên gặp sát tinh",
+     "mined": "kl91_dong_khong_nen_sat",
+     "book": "KL",
+     "page": 91,
+     "quote": "Thiên đồng là sao hiền lành, không nên gặp sát tinh",
+     "cite": "KL p.91"
+    },
+    {
+     "school": "KL",
+     "statement": "Thiên Đồng không bị sát tinh hại",
+     "mined": "kl188_dong_khong_so_sat",
+     "book": "KL",
+     "page": 188,
+     "quote": "Thiên đồng không sợ sát tinh",
+     "cite": "KL p.188"
+    }
+   ],
+   "note": "Cùng sách: p.91 nói không nên gặp sát tinh, p.188 (tóm tắt) nói không sợ sát tinh."
+  },
+  {
+   "id": "thien_dong_tuan_triet",
+   "topic": "Thiên Đồng với Tuần Triệt",
+   "kind": "y_kien",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Thiên Đồng không bị Tuần Triệt hại (có ý kiến cho là cần, để bớt thay đổi)",
+     "mined": "kl91_dong_khong_so_tuan_triet",
+     "book": "KL",
+     "page": 91,
+     "quote": "Thiên đồng không sợ Tuần Triệt",
+     "cite": "KL p.91"
+    }
+   ],
+   "note": "KL ghi hai ý kiến trên cùng một dòng: không sợ Tuần Triệt; có người cho là cần Tuần Triệt để bớt thay đổi."
+  },
+  {
+   "id": "hanh_thien_luong",
+   "topic": "Hành của Thiên Lương",
+   "kind": "ngu_hanh",
+   "sides": [
+    {
+     "school": "TH",
+     "statement": "Thiên Phủ, Thiên Lương thuộc Thổ",
+     "mined": "th80_hanh_tho_2",
+     "book": "TH",
+     "page": 80,
+     "quote": "Thiên phủ, Thiên Lương: Thổ hữu t",
+     "cite": "TH p.80"
+    },
+    {
+     "school": "TT",
+     "statement": "phú nôm: Thiên Lương thuộc Mộc",
+     "mined": "tt113_luong_moc",
+     "book": "TT",
+     "page": 113,
+     "quote": "Thiên Lương Mộc chủ thọ tinh",
+     "cite": "TT p.113"
+    }
+   ],
+   "note": "TH p.80 xếp Thiên Lương vào Thổ, phú nôm TT p.113 gọi là Mộc."
+  },
+  {
+   "id": "hanh_that_sat",
+   "topic": "Hành của Thất Sát",
+   "kind": "ngu_hanh",
+   "sides": [
+    {
+     "school": "TH",
+     "statement": "Văn Xương, Thất Sát thuộc Kim",
+     "mined": "th80_hanh_kim_2",
+     "book": "TH",
+     "page": 80,
+     "quote": "Xương, Sát thuộc Kim, Thiên Cơ: M",
+     "cite": "TH p.80"
+    },
+    {
+     "school": "TH",
+     "statement": "bài 'Ngũ hành sở thuộc': Thất Sát thuộc Hỏa",
+     "mined": "th80_hanh_hoa_thai_duong",
+     "book": "TH",
+     "page": 80,
+     "quote": "Thái Dương cung lò Thất Sa",
+     "cite": "TH p.80"
+    }
+   ],
+   "note": "Cùng một trang TH: bảng Nam Bắc tinh nói Kim, bài thơ ngũ hành sở thuộc nói Hỏa."
+  },
+  {
+   "id": "phu_pha_quan_thin_tuat",
+   "topic": "Câu phú 'Trai bất nhân Phá Quân Thìn Tuất'",
+   "kind": "dung_phu",
+   "sides": [
+    {
+     "school": "TT",
+     "statement": "câu 'Trai bất nhân Phá Quân Thìn Tuất / Gái bạc tình Tham Sát nhàn cung' hầu như chẳng bao giờ sai",
+     "mined": "tt123_phu_khong_sai",
+     "book": "TT",
+     "page": 123,
+     "quote": "hầu như chẳng bao giờ sai",
+     "cite": "TT p.123"
+    },
+    {
+     "school": "KL",
+     "statement": "cứ thấy Phá Quân Thìn Tuất là phán xấu thì oan cho người có lá số; câu phú có nhiều bản khác nhau",
+     "mined": "kl49_phu_so_toet",
+     "book": "KL",
+     "page": 49,
+     "quote": "Còn giải đoán cứ thấy Phá quân Thìn Tuất là sổ toẹt thì cũng tội cho đương số quá",
+     "cite": "KL p.49"
+    },
+    {
+     "school": "KL",
+     "statement": "các sách chép câu phú khác nhau (Dần Thân / nhàn cung / Dần cung)",
+     "mined": "kl49_phu_ban_khac",
+     "book": "KL",
+     "page": 49,
+     "quote": "Giái bạc tình Tham Sát Dần cung",
+     "cite": "KL p.49"
+    },
+    {
+     "school": "TL",
+     "statement": "câu phú không quyết định cho mọi trường hợp",
+     "mined": "tl13_phu_than_trong",
+     "book": "SCAN:tvnl_scan",
+     "page": 13,
+     "quote": "có phải bất cứ mệnh nào nằm ở Thìn Tuất mà có Phá Quân là trai bất nhân",
+     "cite": "TL scan p.13"
+    },
+    {
+     "school": "TL",
+     "statement": "không thể coi là bất nhân",
+     "mined": "tl14_phu_theo_tuoi",
+     "book": "SCAN:tvnl_scan",
+     "page": 14,
+     "quote": "Bất nhân không thể là người Thái Tuế",
+     "cite": "TL scan p.14"
+    }
+   ],
+   "note": "TT tin câu phú 'hầu như chẳng bao giờ sai'; KL cho là khiên cưỡng và chép nhiều bản khác nhau; Thiên Lương đọc theo tuổi và vị trí trong vòng Thái Tuế (Giáp Dần ở tam hợp Thái Tuế thì không thể bất nhân)."
+  },
+  {
+   "id": "dich_phá_cach_ty_suu",
+   "topic": "Phá cách Thiên Cơ: Tý Ngọ hay Tỵ",
+   "kind": "ban_dich",
+   "sides": [
+    {
+     "school": "TT",
+     "statement": "bản dịch ghi 'Tị cung'",
+     "mined": "tt147_dich_ty_cung",
+     "book": "TT",
+     "page": 147,
+     "quote": "Khi Mệnh đóng Tị cung có sao Thiên Cơ tọa thủ",
+     "cite": "TT p.147"
+    },
+    {
+     "school": "TT",
+     "statement": "câu thơ: Tí Ngọ Thiên Cơ",
+     "mined": "tt147_pha_co_ty_ngo_cu_linh",
+     "book": "TT",
+     "page": 147,
+     "quote": "Tí Ngọ Thiên Cơ, Sửu Cự Linh",
+     "cite": "TT p.147"
+    },
+    {
+     "school": "TTH",
+     "statement": "Thiên Cơ ở Tý Ngọ, Cự Môn Linh Tinh ở Sửu",
+     "mined": "w1_pha_cach_ty_suu",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "十二宫诸星失陷破格诀",
+     "quote": "子丑安命 子午天机丑巨铃",
+     "cite": "TTH 1 十二宫诸星失陷破格诀"
+    }
+   ],
+   "note": "Bản dịch ghi 'Tị cung', câu thơ và 紫微斗數全書 ghi 子午: hệ thống theo câu thơ.",
+   "engine": "TV_D3_TT147_PHA_CO_TY_NGO_CU_LINH"
+  },
+  {
+   "id": "dich_tuat_cung",
+   "topic": "Hợp cách Mệnh Tuất: Tử Vi hay Thiên Phủ",
+   "kind": "ban_dich",
+   "sides": [
+    {
+     "school": "TT",
+     "statement": "Mệnh Tuất ...",
+     "mined": "tt145_hop_tuat",
+     "book": "TT",
+     "page": 145,
+     "quote": "Thiên Phủ tọa thủ thì chỉ có hư danh thôi rất giàu mà",
+     "cite": "TT p.145"
+    },
+    {
+     "school": "TTH",
+     "statement": "Tử Vi ở Tuất xung Thìn: giàu mà không sang, có hư danh",
+     "mined": "w1_hop_tuat",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "十二宫诸星得地合格诀",
+     "quote": "戍宫紫微对冲辰，富而不贵有虚名",
+     "cite": "TTH 1 十二宫诸星得地合格诀"
+    }
+   ],
+   "note": "Bản dịch ghi Thiên Phủ, câu gốc 戍宮紫微對冲辰 ghi Tử Vi. Không làm rule."
+  },
+  {
+   "id": "dich_tuoi_suu",
+   "topic": "Hợp cách Mệnh Sửu: tuổi nào",
+   "kind": "ban_dich",
+   "sides": [
+    {
+     "school": "TT",
+     "statement": "Mệnh Sửu, Nhật Nguyệt chiếu",
+     "mined": "tt143_hop_suu",
+     "book": "TT",
+     "page": 143,
+     "quote": "người tuổi Bính Tuất cực hay",
+     "cite": "TT p.143"
+    },
+    {
+     "school": "TTH",
+     "statement": "tuổi '丙戍' phúc lộc nhiều; Nhật Nguyệt chính tọa chỉ là trung cục",
+     "mined": "w1_hop_suu",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "十二宫诸星得地合格诀",
+     "quote": "丙戍生人福禄饶，正坐平常中局论",
+     "cite": "TTH 1 十二宫诸星得地合格诀"
+    }
+   ],
+   "note": "TT 'Bính Tuất', bản Hán văn '丙戍' (có lẽ 丙戊: Bính, Mậu). Không làm rule."
+  },
+  {
+   "id": "tham_hoa_loc_tu_mo",
+   "topic": "Tham Lang hóa Lộc ở Tứ mộ",
+   "kind": "ban_dich",
+   "sides": [
+    {
+     "school": "TT",
+     "statement": "bản in: 'Tham Lang, Hỏa Lộc cư tứ mộ'",
+     "mined": "tt149_tham_hoa_loc_tu_mo",
+     "book": "TT",
+     "page": 149,
+     "quote": "Tham Lang, Hỏa Lộc cư tứ mộ",
+     "cite": "TT p.149"
+    },
+    {
+     "school": "TH",
+     "statement": "lục hãm: dù gặp cát cũng chỉ trung bình",
+     "mined": "th81_tham_hoa_loc",
+     "book": "TH",
+     "page": 81,
+     "quote": "Tham lang, Hoá lộc cư từ mộ",
+     "cite": "TH p.81"
+    },
+    {
+     "school": "TTH",
+     "statement": "dù gặp cát tinh cũng chỉ trung bình",
+     "mined": "w1_tham_hoa_loc_tu_mo",
+     "book": "WEB:zwds_quanshu_1",
+     "page": "十二宫诸星失陷贫贱论",
+     "quote": "贪狼化禄居四墓，纵然遇吉亦中平",
+     "cite": "TTH 1 十二宫诸星失陷贫贱论"
+    }
+   ],
+   "note": "Bản in TT 'Hỏa Lộc', TH và 紫微斗數全書 'Hóa Lộc' (化祿): hệ thống đọc Hóa Lộc.",
+   "engine": "TV_D3_TT149_THAM_HOA_LOC_TU_MO"
+  },
+  {
+   "id": "thien_la_dia_vong",
+   "topic": "Thiên La Địa Võng",
+   "kind": "y_kien",
+   "sides": [
+    {
+     "school": "KL",
+     "statement": "Mệnh ở Thìn, Tuất như bị lưới bó chặt",
+     "mined": "kl203_la_vong_menh",
+     "book": "KL",
+     "page": 203,
+     "quote": "Mệnh tới đây như bị lưới bó chặt lại",
+     "cite": "KL p.203"
+    },
+    {
+     "school": "KL",
+     "statement": "Thiên La Địa Võng",
+     "mined": "kl203_la_vong",
+     "book": "KL",
+     "page": 203,
+     "quote": "có sách nói chỉ khi nào có Đà la ở hai cung Thìn Tuất",
+     "cite": "KL p.203"
+    }
+   ],
+   "note": "KL nêu hai ý: Mệnh ở Thìn Tuất là bị lưới bó; có sách nói chỉ khi Đà La cũng ở đó."
+  }
+ ]
+}

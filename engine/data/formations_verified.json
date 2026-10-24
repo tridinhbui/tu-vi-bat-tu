@@ -1,8 +1,8 @@
 {
  "version": 1,
  "generated_by": "tools/build_formations_verified.py",
- "date": "2026-10-23",
- "note": "Mười cách cục định nghĩa lại theo trang sách (KL, TH, TT). Chỉ formations có reviewStatus 'verified' được đưa ra người đọc; 'disputed' là các sách không thống nhất lõi. Báo cáo: docs/audit/CACH-CUC-SOURCES.md.",
+ "date": "2026-10-24",
+ "note": "Mười cách cục định nghĩa lại theo trang sách (KL, TH, TT), thêm 19 cách cát / kỳ cách của KL pp.43-48 (DEEP-3, 2026-10-24). Chỉ formations có reviewStatus 'verified' được đưa ra người đọc; 'disputed' là các sách không thống nhất lõi. Báo cáo: docs/audit/CACH-CUC-SOURCES.md, docs/audit/DEEP-3-mining-tuvi.md.",
  "formations": [
   {
    "id": "CACH_X_TU_PHU_VU_TUONG",
@@ -1279,6 +1279,875 @@
    "definition_version": 3,
    "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
    "note": ""
+  },
+  {
+   "id": "CACH_X_TU_PHU_TRIEU_VIEN",
+   "name_vi": "Tử Phủ triều viên",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.dignity_rank.Tử Vi",
+      "operator": "gte",
+      "value": 2
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.opp_majors",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.rel.trine_majors",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       }
+      ]
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_PHU_TUONG_TRIEU_VIEN",
+   "name_vi": "Phủ Tướng triều viên",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.rel.trine_majors",
+      "operator": "contains",
+      "value": "Thiên Tướng"
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_THAN_DONG",
+   "name_vi": "Thần đồng",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "fact": "palace.rel.self_stars",
+    "operator": "contains_all",
+    "value": [
+     "Tử Vi",
+     "Tấu Thư"
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_TOA_QUY_HUONG_QUY",
+   "name_vi": "Tọa quý hướng quý",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       },
+       {
+        "fact": "palace.rel.opp_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Thiên Việt"
+       },
+       {
+        "fact": "palace.rel.opp_stars",
+        "operator": "contains",
+        "value": "Thiên Khôi"
+       }
+      ]
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_TAI_LOC_GIAP_MA",
+   "name_vi": "Tài Lộc giáp Mã",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains",
+      "value": "Thiên Mã"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Vũ Khúc"
+         },
+         {
+          "any": [
+           {
+            "fact": "palace.rel.flank_next_stars",
+            "operator": "contains",
+            "value": "Lộc Tồn"
+           },
+           {
+            "fact": "palace.rel.flank_next_hoa",
+            "operator": "contains",
+            "value": "Hóa Lộc"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Vũ Khúc"
+         },
+         {
+          "any": [
+           {
+            "fact": "palace.rel.flank_prev_stars",
+            "operator": "contains",
+            "value": "Lộc Tồn"
+           },
+           {
+            "fact": "palace.rel.flank_prev_hoa",
+            "operator": "contains",
+            "value": "Hóa Lộc"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN",
+    "SRC_TOAN_THU"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_DOI_KIM_TICH_NGOC",
+   "name_vi": "Đôi kim tích ngọc",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains_all",
+      "value": [
+       "Thiên Phủ",
+       "Vũ Khúc"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains",
+      "value": "Lộc Tồn"
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_PHU_HUU_LAU_DAI",
+   "name_vi": "Phú hữu lâu đài",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Mão",
+       "Dậu"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains_all",
+      "value": [
+       "Cự Môn",
+       "Thiên Cơ"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Đại Hao",
+       "Tiểu Hao"
+      ]
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_TIEN_CAI_HAU_MA",
+   "name_vi": "Tiền Cái hậu Mã",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Hoa Cái"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Thiên Mã"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Thiên Mã"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Hoa Cái"
+       }
+      ]
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_VAN_LONG_TE_HOI",
+   "name_vi": "Vân long tế hội",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_all",
+      "value": [
+       "Thanh Long",
+       "Lưu Hà"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_TIEN_HINH_HAU_AN",
+   "name_vi": "Tiền Hình hậu Ấn",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.rel.flank_next_stars",
+      "operator": "contains",
+      "value": "Thiên Hình"
+     },
+     {
+      "fact": "palace.rel.flank_prev_stars",
+      "operator": "contains",
+      "value": "Quốc Ấn"
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_TUONG_PHUC_HONG_DAO",
+   "name_vi": "Tướng Phục Hồng Đào",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "fact": "palace.rel.self_stars",
+    "operator": "contains_all",
+    "value": [
+     "Thiên Tướng",
+     "Phục Binh",
+     "Hồng Loan",
+     "Đào Hoa"
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_THAI_TOA_GIAP_MENH",
+   "name_vi": "Thai Tọa giáp Mệnh",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Tam Thai"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Bát Tọa"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.rel.flank_prev_stars",
+        "operator": "contains",
+        "value": "Bát Tọa"
+       },
+       {
+        "fact": "palace.rel.flank_next_stars",
+        "operator": "contains",
+        "value": "Tam Thai"
+       }
+      ]
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_XUAT_TUONG_NHAP_TUONG",
+   "name_vi": "Xuất Tướng nhập Tướng",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "palace.rel.self_majors",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       },
+       {
+        "fact": "palace.rel.opp_stars",
+        "operator": "contains",
+        "value": "Tướng Quân"
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Tướng Quân"
+       },
+       {
+        "fact": "palace.rel.opp_majors",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       }
+      ]
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_SONG_LONG",
+   "name_vi": "Song Long vượt uyên",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "fact": "palace.rel.self_stars",
+    "operator": "contains_all",
+    "value": [
+     "Thanh Long",
+     "Long Đức"
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_LONG_PHUONG_HO_CAI",
+   "name_vi": "Long Phượng Hổ Cái",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "any": [
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Long Trì"
+       },
+       {
+        "fact": "palace.rel.trine_stars",
+        "operator": "contains",
+        "value": "Long Trì"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Phượng Các"
+       },
+       {
+        "fact": "palace.rel.trine_stars",
+        "operator": "contains",
+        "value": "Phượng Các"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Bạch Hổ"
+       },
+       {
+        "fact": "palace.rel.trine_stars",
+        "operator": "contains",
+        "value": "Bạch Hổ"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.rel.self_stars",
+        "operator": "contains",
+        "value": "Hoa Cái"
+       },
+       {
+        "fact": "palace.rel.trine_stars",
+        "operator": "contains",
+        "value": "Hoa Cái"
+       }
+      ]
+     },
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains_any",
+      "value": [
+       "Long Trì",
+       "Phượng Các",
+       "Bạch Hổ",
+       "Hoa Cái"
+      ]
+     }
+    ]
+   },
+   "boosters": [
+    {
+     "id": "bach_ho_o_menh",
+     "label": "Bạch Hổ ở ngay Mệnh",
+     "when": {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains",
+      "value": "Bạch Hổ"
+     }
+    }
+   ],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 1,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_HOA_KY_SUU_MUI",
+   "name_vi": "Hóa kỵ Sửu Mùi",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Sửu",
+       "Mùi"
+      ]
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Cự Môn"
+     },
+     {
+      "fact": "palace.rel.self_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_THIEN_DONG_DINH_MAO",
+   "name_vi": "Thiên đồng Đinh Mão",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "chart.year_stem",
+      "operator": "eq",
+      "value": "Đinh"
+     },
+     {
+      "fact": "chart.year_branch",
+      "operator": "eq",
+      "value": "Mão"
+     },
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_THIEN_DONG_NGO_VIET",
+   "name_vi": "Thiên đồng ngộ Việt",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains",
+      "value": "Thiên Việt"
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
+  },
+  {
+   "id": "CACH_X_THIEN_LUONG_NGO_KHOI",
+   "name_vi": "Thiên lương ngộ Khôi",
+   "anchor": "Mệnh",
+   "kind": "cat",
+   "core": {
+    "all": [
+     {
+      "fact": "palace.rel.self_majors",
+      "operator": "contains",
+      "value": "Thiên Lương"
+     },
+     {
+      "fact": "palace.rel.self_stars",
+      "operator": "contains",
+      "value": "Thiên Khôi"
+     }
+    ]
+   },
+   "boosters": [],
+   "breakers": [],
+   "rescuers": [],
+   "refutations": [],
+   "thuong_at": 2,
+   "school": "sach_doi_chieu",
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "experimental": false,
+   "definition_version": 3,
+   "provenance": "Đối chiếu trang sách (KL/TH/TT) ngày 2026-10-23; trích dẫn và lý do giữ/bỏ ở evidence, dropped.",
+   "note": ""
   }
  ],
  "evidence": {
@@ -2364,6 +3233,456 @@
      ]
     }
    ]
+  },
+  "CACH_X_TU_PHU_TRIEU_VIEN": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 43,
+     "quote": "Mệnh có Tử vi đắc địa, có Thiên phủ chính chiếu"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 43,
+     "quote": "-Vua quan hội họp"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": [
+    {
+     "note": "KL kể các thế có cách: Thiên Phủ xung chiếu (Tử Sát Tỵ Hợi) hoặc tam hợp chiếu (Tử Vi Tý Ngọ, Tử Tướng Thìn Tuất); Tử Phủ đồng cung là một cách khác (CACH_X_TU_PHU_DONG_CUNG). 'Đắc địa' đọc trên bảng mặc định (Khảo Luận).",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 43,
+       "quote": "tam hợp chiếu (trong cách Tử vi cư Tí Ngọ,hoặc Tử Tướng Thìn Tuất)"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_PHU_TUONG_TRIEU_VIEN": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 43,
+     "quote": "Mệnh Thiên phủ, có Thiên tướng đứng hầu"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 43,
+     "quote": "-Nữ hoàng dự yến tiệc."
+    },
+    {
+     "book": "TT",
+     "page": 118,
+     "quote": "Phú Tướng triều viên mệnh tất vinh"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL p.43: khi Mệnh có Thiên Phủ thì Thiên Tướng đương nhiên ở tam hợp, nên lõi đã là cách; TT p.118 (nữ mệnh cốt tủy phú) cũng nói Phủ Tướng triều viên thì Mệnh vinh.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_THAN_DONG": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 43,
+     "quote": "Mệnh có Tử vi đồng cung Tấu thư"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 43,
+     "quote": "Thông minh tuyệt vời"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_TOA_QUY_HUONG_QUY": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 44,
+     "quote": "Mệnh có Khôi, Di có Việt hoặc ngược lại"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 44,
+     "quote": "-Là người sang quí"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": [
+    {
+     "note": "TT p.142 đọc rộng hơn (Khôi Việt chiếu Mệnh, hoặc Khôi ở Mệnh, Việt hướng vào); hệ thống giữ cách đọc hẹp của KL (schools.json).",
+     "sources": [
+      {
+       "book": "TT",
+       "page": 142,
+       "quote": "(Khôi Việt chiếu mệnh, hoặc Khôi ở mệnh Việt hướng vào và ngược lại)"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_TAI_LOC_GIAP_MA": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Mệnh có Thiên mã, Tài (tên gọi của Vũ khúc), Lộc tồn đứng ở cung hai bên"
+    },
+    {
+     "book": "TT",
+     "page": 142,
+     "quote": "Thiên Mã thủ Mệnh, giáp Vũ Khúc, Hóa Lộc"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Thương gia giàu có"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL p.45 (Lộc Tồn) và TT p.142 (Hóa Lộc) đều kể là phú cách; lõi nhận cả hai cách đọc 'Lộc' của hai sách (schools.json).",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_DOI_KIM_TICH_NGOC": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Mệnh có Thiên phủ – Vũ khúc đồng cung với Lộc tồn ở Tí Ngọ"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Tiền của đầy nhà"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_PHU_HUU_LAU_DAI": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Mệnh có Cự – Cơ, Song Hao ở Mão Dậu"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Nhà cao cửa rộng, tiền dư của để"
+    },
+    {
+     "book": "KL",
+     "page": 81,
+     "quote": "Cự Cơ ở Mão Dậu gặp Song Hao thì được"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL p.45 kể là phú cách, KL p.81 nói Cự Cơ Mão Dậu gặp Song Hao thì hưởng phú quý. Đại Hao và Tiểu Hao luôn xung chiếu nhau: 'Song Hao ở Mão Dậu' là một Hao ở Mệnh, một ở Thiên Di.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_TIEN_CAI_HAU_MA": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Mệnh ở giữa, Hoa cái ở  cung đằng trước, Thiên Mã ở cung đằng sau"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Danh giá hưởng lộc"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này. Hoa Cái và Thiên Mã giáp một cung thì luôn đúng thứ tự trước / sau này, nên lõi chỉ cần hai sao giáp Mệnh.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_VAN_LONG_TE_HOI": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Mệnh có Thanh long gặp Hóa kỵ, Lưu hà đồng cung"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Được dịp làm giàu"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_TIEN_HINH_HAU_AN": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Mệnh ở giữa Thiên hình đóng ở cung ở cung đằng trước, Quốc ấn theo sau"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 45,
+     "quote": "Có chức có tiền"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này. 'Đằng trước' là cung kề theo chiều thuận, như KL p.42 đặt Lưu Kình 'trước' Lưu Lộc Tồn (Lộc Tồn ở Tỵ, Kình ở Ngọ).",
+   "items": {},
+   "variants": [
+    {
+     "note": "KL p.42: chiều 'trước' (Lưu Lộc Tồn ở Tỵ, Lưu Kình dương ở Ngọ).",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 42,
+       "quote": "Nếu Lưu Lộc tồn ở cung Tỵ, Lưu Kình dương ở Ngọ"
+      }
+     ]
+    }
+   ]
+  },
+  "CACH_X_TUONG_PHUC_HONG_DAO": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Mệnh có Thiên tướng Phục binh Hồng loan, Đào hoa"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Tuổi trẻ gặp may sớm làm giàu"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_THAI_TOA_GIAP_MENH": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Mệnh ở giữa, hai bên có Thai Tọa đứng chầu"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Tuổi trẻ sớm hiển đạt"
+    },
+    {
+     "book": "KL",
+     "page": 205,
+     "quote": "Giáp Thai giáp Tọa nhẹ đường công danh"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_XUAT_TUONG_NHAP_TUONG": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Mệnh có Thiên tướng, Di có Tướng quân hoặc người ngược lại"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Giàu có từ trong ra ngoài"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_SONG_LONG": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Mệnh có Thanh long, Long đức đồng cung"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Gặp thời làm ăn lớn"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_LONG_PHUONG_HO_CAI": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Mệnh có một hoặc 2 sao trong 4 sao kể trên, còn lại làm tam hợp chiếu"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Sự nghiệp đã có sẵn sàng"
+    },
+    {
+     "book": "KL",
+     "page": 46,
+     "quote": "Có quí nhân nâng đỡ"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL p.46: một hoặc hai sao ở Mệnh, các sao còn lại tam hợp chiếu, là cách; có Bạch Hổ ở Mệnh thì hay hơn (điều tăng thế).",
+   "items": {
+    "boosters:bach_ho_o_menh": {
+     "scope": "cach",
+     "sources": [
+      {
+       "book": "KL",
+       "page": 46,
+       "quote": "thường thì Mệnh nên có Bạch Hổ thì hay hơn"
+      }
+     ],
+     "reading": "KL p.46 nói ngay trong định nghĩa của cách: Mệnh nên có Bạch Hổ thì hay hơn."
+    }
+   },
+   "variants": []
+  },
+  "CACH_X_HOA_KY_SUU_MUI": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 47,
+     "quote": "Mệnh có Cự môn gặp Hóa kỵ đồng cung ở Sửu Mùi"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 47,
+     "quote": "Giàu sang phú quí"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_THIEN_DONG_DINH_MAO": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 47,
+     "quote": "Mệnh người Đinh Mão có Thiên đồng thủ mệnh"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 47,
+     "quote": "Phát  phúc, phát lộc"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_THIEN_DONG_NGO_VIET": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 48,
+     "quote": "Mệnh có Thiên đồng – Thiên việt đồng cung"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 48,
+     "quote": "Sang quí như sao trên trời"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
+  },
+  "CACH_X_THIEN_LUONG_NGO_KHOI": {
+   "core": [
+    {
+     "book": "KL",
+     "page": 48,
+     "quote": "Mệnh có Thiên lương, Thiên khôi đồng cung"
+    }
+   ],
+   "effect": [
+    {
+     "book": "KL",
+     "page": 48,
+     "quote": "Được hưởng phước lớn"
+    }
+   ],
+   "core_alone": "thanh",
+   "core_alone_reading": "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này.",
+   "items": {},
+   "variants": []
   }
  },
  "dropped": [

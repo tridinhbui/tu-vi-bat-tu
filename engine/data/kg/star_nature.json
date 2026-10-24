@@ -1772,6 +1772,342 @@
     "health.shielded",
     "life.mitigated"
    ]
+  },
+  {
+   "id": "tu_vi.hanh_th",
+   "star": "Tử Vi",
+   "book": "TH",
+   "page": 80,
+   "quote": "Tử vi, Tả phụ, Lộc Tồn : Thổ",
+   "text": "thuộc hành Thổ (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_tho_1"
+  },
+  {
+   "id": "ta_phu.hanh_th",
+   "star": "Tả Phụ",
+   "book": "TH",
+   "page": 80,
+   "quote": "Tử vi, Tả phụ, Lộc Tồn : Thổ",
+   "text": "thuộc hành Thổ (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_tho_1"
+  },
+  {
+   "id": "loc_ton.hanh_th",
+   "star": "Lộc Tồn",
+   "book": "TH",
+   "page": 80,
+   "quote": "Tử vi, Tả phụ, Lộc Tồn : Thổ",
+   "text": "thuộc hành Thổ (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_tho_1"
+  },
+  {
+   "id": "vu_khuc.hanh_th",
+   "star": "Vũ Khúc",
+   "book": "TH",
+   "page": 80,
+   "quote": "ũ Khúc, Đà La, Dương nhận : Kim",
+   "text": "thuộc hành Kim (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_kim_1"
+  },
+  {
+   "id": "da_la.hanh_th",
+   "star": "Đà La",
+   "book": "TH",
+   "page": 80,
+   "quote": "ũ Khúc, Đà La, Dương nhận : Kim",
+   "text": "thuộc hành Kim (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_kim_1"
+  },
+  {
+   "id": "kinh_duong.hanh_th",
+   "star": "Kình Dương",
+   "book": "TH",
+   "page": 80,
+   "quote": "ũ Khúc, Đà La, Dương nhận : Kim",
+   "text": "thuộc hành Kim (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_kim_1"
+  },
+  {
+   "id": "pha_quan.hanh_th",
+   "star": "Phá Quân",
+   "book": "TH",
+   "page": 80,
+   "quote": "Phá, Bật, Cự, Tham, Văn Khúc: T",
+   "text": "thuộc hành Thủy (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_thuy_1"
+  },
+  {
+   "id": "huu_bat.hanh_th",
+   "star": "Hữu Bật",
+   "book": "TH",
+   "page": 80,
+   "quote": "Phá, Bật, Cự, Tham, Văn Khúc: T",
+   "text": "thuộc hành Thủy (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_thuy_1"
+  },
+  {
+   "id": "cu_mon.hanh_th",
+   "star": "Cự Môn",
+   "book": "TH",
+   "page": 80,
+   "quote": "Phá, Bật, Cự, Tham, Văn Khúc: T",
+   "text": "thuộc hành Thủy (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_thuy_1"
+  },
+  {
+   "id": "tham_lang.hanh_th",
+   "star": "Tham Lang",
+   "book": "TH",
+   "page": 80,
+   "quote": "Phá, Bật, Cự, Tham, Văn Khúc: T",
+   "text": "thuộc hành Thủy (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_thuy_1"
+  },
+  {
+   "id": "van_khuc.hanh_th",
+   "star": "Văn Khúc",
+   "book": "TH",
+   "page": 80,
+   "quote": "Phá, Bật, Cự, Tham, Văn Khúc: T",
+   "text": "thuộc hành Thủy (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_thuy_1"
+  },
+  {
+   "id": "liem_trinh.hanh_th",
+   "star": "Liêm Trinh",
+   "book": "TH",
+   "page": 80,
+   "quote": "Hỏa thuộc Liêm Trinh, Bắc đẩu tinh",
+   "text": "thuộc hành Hỏa (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_hoa_liem"
+  },
+  {
+   "id": "thien_phu.hanh_th",
+   "star": "Thiên Phủ",
+   "book": "TH",
+   "page": 80,
+   "quote": "Thiên phủ, Thiên Lương: Thổ hữu t",
+   "text": "thuộc hành Thổ (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_tho_2"
+  },
+  {
+   "id": "thien_luong.hanh_th",
+   "star": "Thiên Lương",
+   "book": "TH",
+   "page": 80,
+   "quote": "Thiên phủ, Thiên Lương: Thổ hữu t",
+   "text": "thuộc hành Thổ (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_tho_2"
+  },
+  {
+   "id": "thien_dong.hanh_th",
+   "star": "Thiên Đồng",
+   "book": "TH",
+   "page": 80,
+   "quote": "Thiên Đồng, Thiên Tướng: Thủy tuy",
+   "text": "thuộc hành Thủy (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_thuy_2"
+  },
+  {
+   "id": "thien_tuong.hanh_th",
+   "star": "Thiên Tướng",
+   "book": "TH",
+   "page": 80,
+   "quote": "Thiên Đồng, Thiên Tướng: Thủy tuy",
+   "text": "thuộc hành Thủy (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_thuy_2"
+  },
+  {
+   "id": "van_xuong.hanh_th",
+   "star": "Văn Xương",
+   "book": "TH",
+   "page": 80,
+   "quote": "Xương, Sát thuộc Kim, Thiên Cơ: M",
+   "text": "thuộc hành Kim (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_kim_2"
+  },
+  {
+   "id": "that_sat.hanh_th",
+   "star": "Thất Sát",
+   "book": "TH",
+   "page": 80,
+   "quote": "Xương, Sát thuộc Kim, Thiên Cơ: M",
+   "text": "thuộc hành Kim (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_kim_2"
+  },
+  {
+   "id": "thien_co.hanh_th",
+   "star": "Thiên Cơ",
+   "book": "TH",
+   "page": 80,
+   "quote": "Xương, Sát thuộc Kim, Thiên Cơ: M",
+   "text": "thuộc hành Mộc (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_moc_co"
+  },
+  {
+   "id": "hoa_tinh.hanh_th",
+   "star": "Hỏa Tinh",
+   "book": "TH",
+   "page": 80,
+   "quote": "Hỏa Linh, Khôi Việt: Hỏa nam tính",
+   "text": "thuộc hành Hỏa (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_hoa_2"
+  },
+  {
+   "id": "linh_tinh.hanh_th",
+   "star": "Linh Tinh",
+   "book": "TH",
+   "page": 80,
+   "quote": "Hỏa Linh, Khôi Việt: Hỏa nam tính",
+   "text": "thuộc hành Hỏa (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_hoa_2"
+  },
+  {
+   "id": "thien_khoi.hanh_th",
+   "star": "Thiên Khôi",
+   "book": "TH",
+   "page": 80,
+   "quote": "Hỏa Linh, Khôi Việt: Hỏa nam tính",
+   "text": "thuộc hành Hỏa (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_hoa_2"
+  },
+  {
+   "id": "thien_viet.hanh_th",
+   "star": "Thiên Việt",
+   "book": "TH",
+   "page": 80,
+   "quote": "Hỏa Linh, Khôi Việt: Hỏa nam tính",
+   "text": "thuộc hành Hỏa (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_hoa_2"
+  },
+  {
+   "id": "thai_duong.hanh_th",
+   "star": "Thái Dương",
+   "book": "TH",
+   "page": 80,
+   "quote": "Thái Dương cung lò Thất Sa",
+   "text": "thuộc hành Hỏa (Thực Hành)",
+   "use": [
+    "self"
+   ],
+   "explains": [],
+   "kind": "hanh",
+   "deep3": "th80_hanh_hoa_thai_duong"
   }
  ],
  "relations": [

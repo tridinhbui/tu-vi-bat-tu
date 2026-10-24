@@ -205,9 +205,10 @@ E("tt76_nhat_nguyet_suu_mui", "TT", 76, M, "Phú đoán Thân Mệnh c)", "Chỉ
   skip="contradicts TH p.72 (cách Nhật Nguyệt đồng cung); recorded in schools.json instead of a rule")
 E("tt76_long_phuong_mao_dau", "TT", 76, M, "Phú đoán Thân Mệnh d)", "Phượng Long Mão Dậu đôi miền",
   "Mệnh ở Mão/Dậu có Long Trì, Phượng Các", "thi cử đỗ cao, danh đứng đầu", "support", ["exp.letters", "career.fame"],
-  notes="next line 'Vượng thì kim bảng ghi tên hàng đầu'; Long Trì and Phượng Các stand together only at Mão/Dậu")
+  skip="Long Trì and Phượng Các share a palace only at Sửu/Mùi (Mão / Dậu years) and never stand at Mão and Dậu facing each other: the printed position cannot be read as it stands")
 E("tt76_giap_liem_sat", "TT", 76, M, "Phú đoán Thân Mệnh e)", "Giáp Liêm giáp Sát một hào không sai",
-  "Mệnh giáp Liêm Trinh và Thất Sát (hai cung kề)", "công danh phải đợi tuổi cao", "limit", ["career.late"], notes="'Công danh đợi tuổi tác cao / Giáp Liêm giáp Sát một hào không sai'")
+  "Mệnh giáp Liêm Trinh và Thất Sát (hai cung kề)", "công danh phải đợi tuổi cao", "limit", ["career.late"], dup="TV_KL_PHU2_LIEM_SAT_GIAP",
+  notes="'Công danh đợi tuổi tác cao / Giáp Liêm giáp Sát một hào không sai'; KL p.71 reads the same giáp the same way")
 E("tt76_kinh_da_menh", "TT", 76, M, "Phú đoán Thân Mệnh f)", "Nói năng loạn thuyết những phường điêu ngoa",
   "Mệnh có Kình Dương hoặc Đà La", "nói năng hay loạn thuyết, điêu ngoa", "limit", ["comm.friction"], notes="'Dương Đà xâm chiếm Mệnh viên': the two are never in one palace, so either one")
 E("tt76_tham_liem_ty_hoi", "TT", 76, M, "Phú đoán Thân Mệnh g)", "Tham Liêm Tị Hợi không bàn",
