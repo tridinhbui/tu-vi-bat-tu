@@ -56,7 +56,7 @@ def positions(jd_ut: float, bodies=TRAD + OUTER) -> dict[str, Pos]:
             # Skyfield's own rate leaves out the slow change of aberration (~1e-4 deg/day), enough to move a slow planet's station
             # by an hour; stations, retrogradation and application are all judged on the apparent longitude itself.
             l0, l1 = W.longitude(b, tt)
-            out[b] = Pos(p.lon, p.lat, ((l1 - l0 + 180.0) % 360.0 - 180.0) / (2 * h), p.ra, p.dec, p.dist_au)
+            out[b] = Pos(p.lon, p.lat, float(((l1 - l0 + 180.0) % 360.0 - 180.0) / (2 * h)), p.ra, p.dec, p.dist_au)
         return out
     return {b: _ephem_pos(b, jd_ut) for b in bodies}
 
