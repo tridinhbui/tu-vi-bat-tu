@@ -118,7 +118,7 @@ KEYWORDS: list[tuple[str, str, str]] = [
     ("love", "marriage", r"\b(ket hon|cuoi (anh|em|co|chi|nhau|vo|chong)|dam cuoi|lay (anh|em|co|chi|nhau|chong|vo)|hon nhan|cau hon)\b"),
     ("love", "reconcile", r"\b(lam lanh|quay lai|tai hop|hoa giai|nong lai|lien lac lai)\b"),
     ("study", "exam", r"\b(ky thi|do (ky thi|dai hoc|tot nghiep|bang|chung chi)|thi (dau|do|truot|dat)|dau (dai hoc|ky thi)|truot|diem thi|bao ve luan an|ielts|toefl)\b"),
-    ("study", "admission", r"\b(nhap hoc|trung tuyen (truong|dai hoc)|duoc nhan vao truong|du hoc|vao truong|ho so (truong|du hoc))\b"),
+    ("study", "admission", r"\b(do vao|vao duoc (truong|hoc vien|dai hoc|lop)|vao hoc vien|nhap hoc|trung tuyen (truong|dai hoc)|duoc nhan vao truong|du hoc|vao truong|ho so (truong|du hoc))\b"),
     ("study", "scholarship", r"\b(hoc bong)\b"),
     ("property", "buy", r"\b(mua (duoc )?(nha|dat|can ho|chung cu|manh dat|lo dat)|dat coc (nha|dat|can ho))\b"),
     ("property", "sell", r"\b(ban (duoc )?(nha|dat|can ho|chung cu|manh dat|lo dat))\b"),

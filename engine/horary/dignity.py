@@ -198,6 +198,23 @@ class Accidental:
         return asdict(self)
 
 
+LABEL_VI = {   # Vietnamese labels of the p.115 rows (the English label_en stays the transcription of the page)
+    "angular_10_1": "Ở Thiên Đỉnh hoặc nhà 1", "angular_7_4_succedent_11": "Ở nhà 7, 4 hoặc 11", "succedent_2_5": "Ở nhà 2 hoặc 5",
+    "cadent_9": "Ở nhà 9", "cadent_3": "Ở nhà 3", "direct": "Thuận hành", "swift": "Đi nhanh hơn trung bình",
+    "superiors_oriental": "Thổ, Mộc, Hỏa ở phương đông (mọc trước Mặt Trời)", "inferiors_occidental": "Thủy, Kim ở phương tây (lặn sau Mặt Trời)",
+    "moon_increasing_or_occidental": "Trăng đang tròn dần", "free_from_combustion_and_beams": "Không bị đốt, không dưới tia nắng",
+    "cazimi": "Ở tim Mặt Trời (cazimi)", "partile_conj_jupiter_venus": "Hội hợp đúng độ với Mộc hoặc Kim",
+    "partile_conj_north_node": "Hội hợp đúng độ với La Hầu", "partile_trine_jupiter_venus": "Tam hợp đúng độ với Mộc hoặc Kim",
+    "partile_sextile_jupiter_venus": "Lục hợp đúng độ với Mộc hoặc Kim", "conj_cor_leonis": "Hội hợp sao Regulus (Cor Leonis)",
+    "conj_spica": "Hội hợp sao Spica", "cadent_12": "Ở nhà 12", "cadent_6_succedent_8": "Ở nhà 6 hoặc 8", "retrograde": "Nghịch hành",
+    "slow": "Đi chậm hơn trung bình", "superiors_occidental": "Thổ, Mộc, Hỏa ở phương tây", "inferiors_oriental": "Thủy, Kim ở phương đông",
+    "moon_decreasing": "Trăng đang khuyết dần", "combust": "Bị Mặt Trời đốt", "under_beams": "Dưới tia nắng Mặt Trời",
+    "partile_conj_saturn_mars": "Hội hợp đúng độ với Thổ hoặc Hỏa", "partile_conj_south_node": "Hội hợp đúng độ với Kế Đô",
+    "besieged": "Bị Thổ và Hỏa vây", "partile_opposition_saturn_mars": "Xung chiếu đúng độ với Thổ hoặc Hỏa",
+    "partile_square_saturn_mars": "Vuông góc đúng độ với Thổ hoặc Hỏa", "conj_caput_algol": "Hội hợp sao Algol (trong 5°)",
+}
+
+
 def _row(key: str) -> dict:
     return next(r for r in kb.tables()["fortitudes"]["rows"] if r["key"] == key)
 
@@ -222,7 +239,8 @@ def accidental(chart, p: str, stars: dict[str, float] | None = None, star_orb: f
 
     def add(key, detail=None):
         r = _row(key)
-        acc.items.append({"key": key, "label_en": r["label_en"], "points": r["points"], "detail": detail})
+        acc.items.append({"key": key, "label_en": r["label_en"], "label_vi": LABEL_VI.get(key, r["label_en"]), "points": r["points"],
+                          "detail": detail})
 
     add(HOUSE_KEYS[b.house], f"nhà {b.house}")
     if p not in ("sun", "moon"):

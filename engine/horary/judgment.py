@@ -281,7 +281,7 @@ def judge(chart, frame_d: dict, school: str = "lilly") -> dict:
             "verdict": verdict, "timing": timing_out, "moon_course": mc,
             "configurations": {"main": [c.as_dict() for c in main], "moon": [c.as_dict() for c in moon_cfg]},
             "pairs": {f"{a}-{b}": v.as_dict() for (a, b), v in pairs.items()},
-            "strength": strength, "receptions": recs,
+            "strength": strength, "receptions": recs, "orbs": orbs,
             "timeline": _timeline(chart, ev, {L1, LQ, "moon"}),
             "events_residual_arcsec": ev["max_residual_arcsec"]}
 
