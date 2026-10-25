@@ -101,13 +101,13 @@ function mount() {
   const drop = p => (p.closest('.ask-row') || p).remove();
   const setNote = (...parts) => { note.replaceChildren(...parts); note.hidden = !parts.length; };
 
-  const locked = () => wallet && wallet.free.remaining <= 0 && wallet.coins < wallet.costs.chat;
+  const locked = () => !me?.admin && wallet && wallet.free.remaining <= 0 && wallet.coins < wallet.costs.chat;   // an admin chats free (server: ChatDeps.unlimited)
   function paint() {
     const guest = loaded && !me?.user;
     ta.disabled = send.disabled = busy || !me?.user;
     deepBtn.disabled = deepSel.disabled = busy || !me?.user;
     leftEl.textContent = me?.user && wallet ? chip(wallet) : '';
-    if (wallet) deepBtn.textContent = `Luận riêng · ${wallet.costs.deep} xu`;
+    if (wallet) deepBtn.textContent = me?.admin ? `Luận riêng · admin, ${wallet.costs.deep} xu khi bán` : `Luận riêng · ${wallet.costs.deep} xu`;
     buy.hidden = !me?.user;
     if (guest) {
       const a = el('a', 'btn btn-sm ask-google'); a.href = '/api/auth/google'; a.innerHTML = G_ICON; a.append('Đăng nhập với Google');

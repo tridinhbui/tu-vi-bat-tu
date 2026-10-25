@@ -21,7 +21,7 @@ const SY_BASIS = { sach: ['Theo sách', 'nội dung là nhận định của sá
   he_thong: ['Khung của hệ thống', 'cách hệ thống nối hoặc tóm tắt các nhận định; không phải lời sách'], tinh_toan: ['Dữ kiện', 'vị trí sao tính từ lá số, chưa diễn giải'] };
 function synthHtml(ch) {
   if (!ch || !ch.paragraphs?.length) return '';
-  const para = p => `<p class="sy-p sy-${p.role}">${p.sentences.map(s => `<span class="sy-s sy-b-${s.basis}${s.kind === 'reflection' ? ' sy-refl' : ''}"${s.provenance?.length ? ` data-rules="${esc(s.provenance.join(', '))}" data-basis="${s.basis}" tabindex="0" role="button"` : ''}>${esc(s.text)}</span>`).join(' ')}</p>`;
+  const para = p => `<p class="sy-p sy-${p.role}${p.paid ? ' pw-paid' : ''}">${p.sentences.map(s => `<span class="sy-s sy-b-${s.basis}${s.kind === 'reflection' ? ' sy-refl' : ''}"${s.provenance?.length ? ` data-rules="${esc(s.provenance.join(', '))}" data-basis="${s.basis}" tabindex="0" role="button"` : ''}>${esc(s.text)}</span>`).join(' ')}</p>`;
   const themes = ch.themes || [];
   const P = x => `<b>${esc(x.concept)}</b> <span class="muted">@${esc(x.palace)} · ${esc(x.rules.join(', '))}</span>`;
   const graph = themes.length ? `<ol class="sy-graph">${themes.map(t => `<li><span class="k">${esc(t.name)}</span> · ưu tiên ${t.salience} <span class="muted">(thứ tự trình bày, không phải xác suất)</span><ul>
@@ -79,7 +79,7 @@ const prFeedback = i => `<div class="pr-fb" data-p="${i}" role="group" aria-labe
 function proseHtml(p, { skip = null, only = null, title: title0 = null } = {}) {
   if (!p?.paragraphs?.length) return '';
   const title = title0 ? esc(title0) : p.title ? esc(p.title) : p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
-  const block = (para, i) => `<div class="pr-block"${para.part ? ` data-part="${para.part}"` : ''}>${para.deep && para.title ? `<h5 class="pr-deep-t">${esc(para.title)}</h5>` : ''}<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`;
+  const block = (para, i) => `<div class="pr-block${para.paid ? ' pw-paid' : ''}"${para.part ? ` data-part="${para.part}"` : ''}>${para.deep && para.title ? `<h5 class="pr-deep-t">${esc(para.title)}</h5>` : ''}<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`;
   // Tử Vi luận cung: the short reading first; the deep reading (prose/luan_deep.ts, paragraphs marked deep) folds under "Đọc sâu", closed
   const items = p.paragraphs.map((para, i) => ({ para, i })).filter(x => !(skip && skip(x.para)) && (!only || only(x.para)));
   if (!items.length) return '';
@@ -413,7 +413,7 @@ function btProseHtml(p) {
   if (!p?.paragraphs?.length) return '';
   const title = p.title ? esc(p.title) : 'Luận giải Bát Tự';
   const sent = (s, i, j, lead) => `<span class="sy-s pr-s${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, lead)}</span>`;
-  const block = (para, i) => `<div class="pr-block"${para.part ? ` data-part="${para.part}"` : ''}><p class="sy-p pr-p${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => sent(s, i, j, j === 0 ? para.lead : null)).join(' ')}</p>${prFeedback(i)}</div>`;
+  const block = (para, i) => `<div class="pr-block${para.paid ? ' pw-paid' : ''}"${para.part ? ` data-part="${para.part}"` : ''}><p class="sy-p pr-p${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => sent(s, i, j, j === 0 ? para.lead : null)).join(' ')}</p>${prFeedback(i)}</div>`;
   let html = '', run = [];
   const flush = () => {
     if (!run.length) return;

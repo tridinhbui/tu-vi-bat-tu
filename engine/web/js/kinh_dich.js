@@ -90,7 +90,7 @@ function sectionHtml(sec) {
   const depth = sec.paragraphs.some(p => p.depth === 'sau') ? 'sau' : 'nhanh';
   const paras = sec.paragraphs.map(p => {
     const text = p.sentences.map(s => `<span class="${s.basis === 'kinh' ? 'k-kinh' : ''}">${esc(s.text)}</span>`).join(' ');
-    return `<p>${text}</p><details class="kd-basis"><summary>Mỗi câu dựa vào đâu</summary><ol>${p.sentences.map(sentenceBasis).join('')}</ol></details>`;
+    return `<p${p.paid ? ' class="pw-paid"' : ''}>${text}</p><details class="kd-basis"><summary>Mỗi câu dựa vào đâu</summary><ol>${p.sentences.map(sentenceBasis).join('')}</ol></details>`;
   }).join('');
   return `<section class="kd-sec${sec.id === 'loi_khuyen' ? ' advice' : ''}" data-depth="${depth}"><h3>${esc(sec.title)}</h3>${paras}</section>`;
 }

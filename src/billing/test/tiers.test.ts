@@ -8,7 +8,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
 import { join } from "node:path";
 import { getPlatformProxy } from "wrangler";
-import { GUEST, SHARED, accessFor, buyPlan, gateOutput, gateOverview, gateResponse, gateSynthesis, gated, isDeep, type Access } from "../paywall.ts";
+import { GUEST, SHARED, accessFor, adminMark, buyPlan, gateCast, gateOutput, gateOverview, gateResponse, gateSynthesis, gated, isDeep, type Access } from "../paywall.ts";
 import { MEMBER_FREE, guestShown, planById } from "../config.ts";
 import { grant } from "../wallet.ts";
 import { createSession } from "../../auth/session.ts";
@@ -264,4 +264,34 @@ test("cache: one full copy per chart, never keyed by the reader; every tier is c
   assert.equal(cd(g1).paragraphs.length, guestShown(mainOf(cdFull.paragraphs).length));
   assert.deepEqual(cd(m1).paragraphs, mainOf(cdFull.paragraphs).slice(0, guestShown(mainOf(cdFull.paragraphs).length)));
   assert.deepEqual(cd(b1).paragraphs, cdFull.paragraphs);
+});
+
+test("admin: every reading whole, as if every package were bought, with what a free member would not get marked paid", async () => {
+  // the report: nothing missing, and the marks are exactly what a free member's cut holds back
+  const out = adminMark(clone(FULL), gateOutput), free = gateOutput(clone(FULL), member());
+  assert.equal(out.chapters.length, FULL.chapters.length);
+  let marked = 0;
+  for (const [i, ch] of out.chapters.entries()) {
+    const whole = FULL.chapters[i], sent = free.chapters[i];
+    assert.deepEqual(ch.paragraphs.map((p: any) => p.text), whole.paragraphs.map((p: any) => p.text), whole.chapter);
+    assert.equal(ch.locked, undefined, whole.chapter);
+    const back = new Set(heldBack(whole.paragraphs, sent.paragraphs).map((p: any) => p.text));
+    assert.deepEqual(ch.paragraphs.filter((p: any) => p.paid).map((p: any) => p.text), whole.paragraphs.filter((p: any) => back.has(p.text)).map((p: any) => p.text), whole.chapter);
+    marked += back.size;
+    if (MEMBER_FREE.includes(whole.chapter)) assert.ok(!ch.paragraphs.some((p: any) => p.paid && !isDeep(p)), whole.chapter);
+  }
+  assert.ok(marked > 0);
+  // a cast: Đọc sâu marked, not removed
+  const cast = { reading: { sections: [{ id: "a", paragraphs: [{ text: "main", sentences: [] }, { text: "deep", depth: "sau", sentences: [] }] }] } };
+  assert.deepEqual(adminMark(clone(cast), gateCast).reading.sections[0].paragraphs.map((p: any) => [p.text, !!p.paid]), [["main", false], ["deep", true]]);
+  // through the route: isAdmin opens the evidence engine (marked sold by a header) and needs no purchase
+  const engine = (body: unknown) => async () => new Response(JSON.stringify(body), { headers: { "content-type": "application/json" } });
+  const ev = { report: { chapters: [{ id: "menh" }] } };
+  const r = await gated(new Request("https://tu-vi.test/api/interpretation", { method: "POST", headers: { cookie: await cookieFor(uid) }, body: JSON.stringify(BIRTH) }),
+    { db, paywall: true, path: "/api/interpretation", shared: false, isAdmin: u => u.id === uid }, engine(ev));
+  assert.equal(r.status, 200); assert.deepEqual(await r.json(), ev); assert.equal(r.headers.get("x-tvbt-paid"), "1");
+  // a share link stays a guest's read, admin or not
+  const sh = await gated(new Request("https://tu-vi.test/api/interpretation", { method: "POST", headers: { cookie: await cookieFor(uid) }, body: JSON.stringify(BIRTH) }),
+    { db, paywall: true, path: "/api/interpretation", shared: true, isAdmin: () => true }, engine(ev));
+  assert.equal(sh.status, 401);
 });

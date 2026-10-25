@@ -39,7 +39,7 @@ const para = (p, deep, chart) => {
     if (p.steps?.length) more += `<p class="wt-dsub">Các bước suy luận</p><ol class="wt-steps">${p.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`;
     if (p.quote?.text) more += `<blockquote class="wt-quote"><p>${esc(p.quote.text)}</p>${p.quote.source_label ? `<cite>${esc(p.quote.source_label)}</cite>` : ''}</blockquote>`;
   }
-  return `<article class="wt-para tier-${esc(p.tier || '')}${p.level === 'deep' ? ' deep' : ''}" id="wt-p-${esc(p.id)}">`
+  return `<article class="wt-para tier-${esc(p.tier || '')}${p.level === 'deep' ? ' deep' : ''}${p.paid ? ' pw-paid' : ''}" id="wt-p-${esc(p.id)}">`
     + (p.heading ? `<h4>${esc(p.heading)}</h4>` : '') + `<div class="wt-pmeta">${tier}${school}</div><p>${esc(p.text)}</p>`
     + (chips ? `<div class="wt-evs" aria-label="Dữ kiện làm căn cứ">${chips}</div>` : '')
     + (p.sources?.length ? `<div class="wt-srcs" aria-label="Nguồn">${p.sources.map(x => `<span class="wt-src" title="${esc([x.id, x.loc].filter(Boolean).join(' · '))}"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1.5h6.5a1 1 0 011 1v8H3a1 1 0 01-1-1z" fill="none" stroke="currentColor" stroke-width="1"/></svg>${esc(x.label || x.id)}${x.loc && !x.label ? ` <em>${esc(x.loc)}</em>` : ''}</span>`).join('')}</div>` : '')

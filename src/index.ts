@@ -7,7 +7,7 @@ import { currentUser } from "./auth/session.ts";
 import { bump, handleStats } from "./stats/stats.ts";
 import { handleChat } from "./chat/route.ts";
 import { handleFeedback, isFeedbackPath } from "./feedback/route.ts";
-import { handleAdmin, isAdminPath, type AdminEnv } from "./admin/route.ts";
+import { handleAdmin, isAdmin, isAdminPath, type AdminEnv } from "./admin/route.ts";
 import { handleReferral, isReferralPath } from "./referral/route.ts";
 import { handleTarot, isTarotPath } from "./tarot/route.ts";
 import { handleDeep, handleDeepStatus } from "./chat/deep.ts";
@@ -41,7 +41,7 @@ interface Env extends AuthEnv, BillingEnv, AdminEnv {
 /** TVBT_PAYWALL=1: every reading leaves the Worker cut to the reader's tier (src/billing/paywall.ts): guest, member, Đọc sâu opened. The cut
  *  runs on the finished response, after the cache, so the cache never holds a per-reader copy. A share link's viewer reads at the guest tier. */
 const gated = (request: Request, env: Env, path: string, shared: boolean, run: (r: Request) => Promise<Response>) =>
-  gatedRoute(request, { db: env.DB, paywall: paywallOn(env), path, shared }, run);
+  gatedRoute(request, { db: env.DB, paywall: paywallOn(env), path, shared, isAdmin: u => isAdmin(env, u) }, run);
 
 async function interpretRoute(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
   return handleInterpret(request, {
@@ -70,7 +70,7 @@ async function chatRoute(request: Request, env: Env, ctx: ExecutionContext, deep
   const user = env.DB ? await currentUser(env.DB, request) : null;
   if (!env.DB || (!user && deep)) return new Response(JSON.stringify({ detail: "sign in required" }), { status: 401, headers: { "content-type": "application/json" } });
   const deps = {
-    db: env.DB, knowledge: knowledge as unknown as Knowledge,
+    db: env.DB, knowledge: knowledge as unknown as Knowledge, unlimited: isAdmin(env, user),
     llm: env.ANTHROPIC_API_KEY ? anthropicLlm(env.ANTHROPIC_API_KEY, deep ? DEEP_OPTIONS : CHAT_OPTIONS) : null,
     facts: (birth: Record<string, unknown>) => getContainer(env.TVBT, "main").fetch(new Request(new URL("/api/facts", request.url), {
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(birth) })),
@@ -100,7 +100,7 @@ export default {
     if (path === "/api/me/deep") return chatRoute(request, env, ctx, true);
     if (path === "/api/me/deep/status") {
       const user = env.DB ? await currentUser(env.DB, request) : null;
-      return env.DB && user ? handleDeepStatus(request, { db: env.DB, user }) : new Response(JSON.stringify({ detail: "sign in required" }), { status: 401, headers: { "content-type": "application/json" } });
+      return env.DB && user ? handleDeepStatus(request, { db: env.DB, user, admin: isAdmin(env, user) }) : new Response(JSON.stringify({ detail: "sign in required" }), { status: 401, headers: { "content-type": "application/json" } });
     }
     if (isFeedbackPath(path)) return handleFeedback(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isReferralPath(path)) return handleReferral(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);

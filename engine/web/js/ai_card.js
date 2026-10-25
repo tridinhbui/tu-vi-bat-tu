@@ -62,7 +62,7 @@ export function initAiCards(getReq) {
     const st = await statusFor(req);
     if (!st) { card.hidden = true; return; }                                       // not available on this server
     const written = st.written.includes(id);
-    const label = written ? 'Đọc Luận riêng đã viết' : st.plan ? 'Viết Luận riêng (đã gồm trong gói Cao cấp)' : `Viết Luận riêng · ${COIN_SVG}<b>${Number(st.cost)}</b> xu`;
+    const label = written ? 'Đọc Luận riêng đã viết' : st.admin ? `Viết Luận riêng · admin (khách trả ${Number(st.cost)} xu hoặc gói Cao cấp)` : st.plan ? 'Viết Luận riêng (đã gồm trong gói Cao cấp)' : `Viết Luận riêng · ${COIN_SVG}<b>${Number(st.cost)}</b> xu`;
     body.innerHTML = `${written ? '' : `<p class="small">Luận riêng dùng suy luận sâu: đọc cả lá số của bạn cùng lúc, nối chương này với các cung liên quan và đi sâu hơn phần đối chiếu sách ở trên. Khoảng 500–800 từ, chỉ dùng dữ kiện và luận giải đã có, không thêm sao hay nhận định mới. Viết một lần, đọc lại không tốn thêm; viết hỏng thì không bị tính.${st.plan ? '' : ' <a href="/bang-gia">Gói Cao cấp</a> gồm Luận riêng mọi chương.'}</p>`}
       <p><button type="button" class="btn btn-sm${written ? ' btn-ghost' : ''}" data-ai-go>${label}</button></p><div class="ai-text"></div><p class="ai-msg small" role="status" aria-live="polite"></p>`;
   }

@@ -17,6 +17,8 @@ export interface ChatDeps {
   db: D1Database; user: User | null; llm: Llm | null; knowledge: Knowledge;
   facts: (birth: Record<string, unknown>) => Promise<Response>;
   now?: () => number;
+  /** an admin (ADMIN_EMAILS): chats and deep readings cost nothing */
+  unlimited?: boolean;
 }
 
 const MAX_MESSAGES = 20, MAX_CHARS = 1500, MAX_TOTAL = 12000;
@@ -63,7 +65,7 @@ export async function handleChat(request: Request, d: ChatDeps): Promise<Respons
 
   // Fail before charging when the lock is the only problem: a locked user sees the lock, not a facts error.
   const before = await getWallet(d.db, user.id, d.now?.());
-  if (before.free.remaining <= 0 && before.coins < COSTS.chat) return json({ detail: "locked", wallet: before }, 402);
+  if (!d.unlimited && before.free.remaining <= 0 && before.coins < COSTS.chat) return json({ detail: "locked", wallet: before }, 402);
 
   let instructions = GENERAL_INSTRUCTIONS, context = GENERAL_CONTEXT;
   if (birth) {
@@ -74,7 +76,8 @@ export async function handleChat(request: Request, d: ChatDeps): Promise<Respons
     instructions = INSTRUCTIONS; context = buildContext(chart, d.knowledge);
   }
 
-  const paid = await spend(d.db, user.id, "chat", d.now?.());
+  // an admin chats free: nothing is spent, so nothing is given back
+  const paid = d.unlimited ? { ok: true as const, source: "free" as const, ref: 0 } : await spend(d.db, user.id, "chat", d.now?.());
   if (!paid.ok) return json({ detail: "locked", wallet: await getWallet(d.db, user.id, d.now?.()) }, 402);
 
   const llm = d.llm;
@@ -82,7 +85,7 @@ export async function handleChat(request: Request, d: ChatDeps): Promise<Respons
   const stream = new ReadableStream<Uint8Array>({
     async start(ctl) {
       let delivered = false;
-      const giveBack = async () => { try { return await refund(d.db, user.id, paid.ref, d.now?.()); } catch { return false; } };
+      const giveBack = async () => { if (d.unlimited) return false; try { return await refund(d.db, user.id, paid.ref, d.now?.()); } catch { return false; } };
       ctl.enqueue(sse({ type: "meta", source: paid.source, mode: birth ? "chart" : "general" }));
       try {
         let stop = "";

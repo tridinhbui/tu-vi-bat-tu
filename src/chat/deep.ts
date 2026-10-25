@@ -45,7 +45,7 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
   }
 
   if (!d.llm) return json({ detail: "deep reading is not configured" }, 503);
-  const plan = await hasAiPlan(d.db, d.user.id, birth.fp);
+  const plan = d.unlimited || await hasAiPlan(d.db, d.user.id, birth.fp);   // an admin reads as if Cao cấp were bought
   const cost = plan ? 0 : COSTS.deep, before = await getWallet(d.db, d.user.id, d.now?.());
   if (before.coins < cost) return json({ detail: "locked", need: cost, wallet: before }, 402);
 
@@ -96,12 +96,12 @@ const hasAiPlan = async (db: D1Database, userId: string, fp: string) =>
 
 /** {written: chapters already written for this chart, plan: its package covers the rest, cost: xu per chapter otherwise}. No text: the
  *  card asks /api/me/deep for a chapter, which replays a written one for free. */
-export async function handleDeepStatus(request: Request, d: { db: D1Database; user: User }): Promise<Response> {
+export async function handleDeepStatus(request: Request, d: { db: D1Database; user: User; admin?: boolean }): Promise<Response> {
   if (request.method !== "POST") return json({ detail: "POST only" }, 405);
   if (request.headers.get("x-tvbt") !== "1") return json({ detail: "missing x-tvbt header" }, 403);
   const body = await request.json().catch(() => null) as { birth?: unknown } | null;
   const birth = cleanReq(body?.birth);
   if (!birth) return json({ detail: "body must be {birth}" }, 400);
   const { results } = await d.db.prepare("SELECT chapter FROM deep_readings WHERE user_id = ? AND fp = ?").bind(d.user.id, birth.fp).all<{ chapter: string }>();
-  return json({ written: results.map(r => r.chapter), plan: await hasAiPlan(d.db, d.user.id, birth.fp), cost: COSTS.deep });
+  return json({ written: results.map(r => r.chapter), plan: !!d.admin || await hasAiPlan(d.db, d.user.id, birth.fp), cost: COSTS.deep, ...(d.admin ? { admin: true } : {}) });
 }

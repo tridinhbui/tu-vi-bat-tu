@@ -4,7 +4,7 @@
 // after the cache, BEFORE it leaves the server. The browser is told what was held back and how to get it; it is never trusted to hide
 // anything itself. Every filtered response is `private, no-store`.
 import { cleanReq } from "../auth/charts.ts";
-import { currentUser } from "../auth/session.ts";
+import { currentUser, type User } from "../auth/session.ts";
 import { BAZI_TAB_TITLES, CHAPTER_TITLES, DEEP_CHAPTERS, MEMBER_FREE, PLANS, guestShown, periodOf, planById, planChapters, plansFor, type Tier } from "./config.ts";
 import { grantPass } from "./wallet.ts";
 import { gateWest, westBody, westFp } from "./west.ts";
@@ -60,10 +60,16 @@ export async function buyPlan(db: D1Database, userId: string, fp: string, planId
 // ---------- who is reading ----------
 /** `open`: what this member opened for the chart in the request (chapters, Bát Tự tabs, "ai"). `credit`: xu already spent on packages for
  *  it (the lock card prices an upgrade with it). `shared`: the reader came through a share link. */
-export interface Access { tier: Tier; open: Set<string>; credit?: number; shared?: boolean; paid?: boolean }
+export interface Access { tier: Tier; open: Set<string>; credit?: number; shared?: boolean; paid?: boolean; admin?: boolean }
 export const GUEST: Access = Object.freeze({ tier: "guest", open: new Set<string>() }) as Access;
 /** A share link's viewer reads at the guest tier, whoever they are: the link opens someone else's chart. */
 export const SHARED: Access = Object.freeze({ tier: "guest", open: new Set<string>(), shared: true }) as Access;
+
+/** An admin (ADMIN_EMAILS) reads everything, as if every package were bought (owner, 2026-10-25); what a free member would not get comes
+ *  marked `paid: true` (adminMark) so the admin still sees which part is sold. */
+export const ADMIN: Access = Object.freeze({ tier: "member", open: new Set<string>(), credit: 0, paid: true, admin: true }) as Access;
+/** What adminMark compares against: a signed-in member who bought nothing. */
+const FREE_MEMBER: Access = Object.freeze({ tier: "member", open: new Set<string>(), credit: 0 }) as Access;
 
 /** The tier for one request. Signed out: guest. Signed in: member, with what was opened for the chart in the body (a body that is not a
  *  birth record, or a failing lookup, opens nothing: fail closed). */
@@ -217,6 +223,32 @@ export function gateCast(out: Json, a: Access): Json {
 }
 
 export type Filter = (out: Json, a: Access) => Json;
+
+/** The whole answer for an admin, with every item a free member's cut would drop marked `paid: true`. The filters keep the objects they
+ *  keep (they filter and slice, never copy a paragraph), so whatever object of the whole answer is not in the free member's answer was cut;
+ *  a paragraph repeated under another key (Bát Tự's flat list beside its tabs) is matched by its text too. Only array items that carry a
+ *  `text` or `sentences` are marked: paragraphs, theses, ledger lines, not the chart facts. */
+export function adminMark(out: Json, filter: Filter): Json {
+  const cut = filter(out, FREE_MEMBER);
+  if (cut === out) return out;
+  const seen = new Set<object>(), texts = new Set<string>();
+  const collect = (x: unknown) => {
+    if (!x || typeof x !== "object" || seen.has(x)) return;
+    seen.add(x);
+    if (typeof (x as Json).text === "string") texts.add((x as Json).text);
+    for (const v of Object.values(x)) collect(v);
+  };
+  collect(cut);
+  // a chapter or section (it holds paragraphs, and often their joined text) is walked into, never marked whole
+  const isItem = (x: unknown): x is Json => !!x && typeof x === "object" && !Array.isArray(x) && !("paragraphs" in x) && (typeof (x as Json).text === "string" || Array.isArray((x as Json).sentences));
+  const textOf = (x: Json) => typeof x.text === "string" ? x.text : (x.sentences as Json[]).map(t => t?.text ?? "").join(" ");
+  const mark = (x: unknown): unknown => {
+    if (Array.isArray(x)) return x.map(v => isItem(v) && !seen.has(v) && !texts.has(textOf(v)) ? { ...v, paid: true } : mark(v));
+    if (!x || typeof x !== "object" || seen.has(x)) return x;
+    return Object.fromEntries(Object.entries(x).map(([k, v]) => [k, mark(v)]));
+  };
+  return mark(out) as Json;
+}
 /** The filter for each gated path. /api/interpretation (the evidence engine: every conclusion of every palace, with its sources) has no
  *  3/5 form: it goes to a reader with every chapter of the chart open, a guest is asked to sign in, a member to open the chart
  *  (the report works without it). */
@@ -236,6 +268,10 @@ export async function gateResponse(res: Response, a: Access, filter: Filter | "f
   headers.set("cache-control", PRIVATE);
   headers.delete("content-length");
   headers.set("content-type", "application/json; charset=utf-8");
+  if (a.admin) {
+    if (filter === "full") { headers.set("x-tvbt-paid", "1"); return new Response(res.body, { status: res.status, headers }); }   // the whole layer is sold
+    return new Response(JSON.stringify(adminMark(await res.json() as Json, filter)), { status: res.status, headers });
+  }
   if (filter === "full") {
     if (a.tier === "guest") return new Response(JSON.stringify({ detail: "Đăng nhập để xem phần này.", locked: { tier: "guest", ...(a.shared ? { shared: true } : {}) } }), { status: 401, headers });
     if (!fullAccess(a)) return new Response(JSON.stringify({ detail: "Phần này đi cùng gói Trọn bộ hoặc Cao cấp của lá số.", locked: { tier: "member" } }), { status: 402, headers });
@@ -248,15 +284,16 @@ export async function gateResponse(res: Response, a: Access, filter: Filter | "f
 /** One gated route (src/index.ts): with the paywall on, a POST to a path in FILTERS runs, then leaves cut to the reader's tier. The cut runs on
  *  the finished response, after the cache, so the cache never holds a per-reader copy. `shared`: the request was built by a share link's
  *  forward, so the reader is a guest whoever is signed in. The chart in the body picks what the member opened for it. */
-export async function gated(request: Request, o: { db?: D1Database; paywall: boolean; path: string; shared: boolean }, run: (r: Request) => Promise<Response>): Promise<Response> {
+export async function gated(request: Request, o: { db?: D1Database; paywall: boolean; path: string; shared: boolean; isAdmin?: (u: User) => boolean }, run: (r: Request) => Promise<Response>): Promise<Response> {
   const filter = FILTERS[o.path];
   if (!o.paywall || request.method !== "POST" || !filter) return run(request);
   const body = !o.shared ? await request.clone().json().catch(() => null) : null;
   const db = o.db;
   const who = o.shared ? Promise.resolve(SHARED)
     : !db ? Promise.resolve(GUEST)
-    : CAST_PATHS.has(o.path) ? currentUser(db, request).then(async u => u ? { tier: "member" as Tier, open: new Set<string>(), paid: await holdsPackage(db, u.id) } : GUEST).catch(() => GUEST)
-    : currentUser(db, request).then(u => accessFor(db, u, body, fpFor(o.path))).catch(() => GUEST);
+    : currentUser(db, request).then(async u => u && o.isAdmin?.(u) ? ADMIN
+      : CAST_PATHS.has(o.path) ? (u ? { tier: "member" as Tier, open: new Set<string>(), paid: await holdsPackage(db, u.id) } : GUEST)
+      : accessFor(db, u, body, fpFor(o.path))).catch(() => GUEST);
   const [res, access] = await Promise.all([run(request), who]);
   return gateResponse(res, access, filter);
 }
