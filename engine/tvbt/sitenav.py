@@ -81,6 +81,7 @@ GROUPS = [
     ("chiem-tinh", "Chiêm tinh", "star", "", [
         ("chiem-tinh", "/chiem-tinh/", "Bản đồ sao", "star", "", "", "Chiêm tinh"),
         ("van-su", "/chiem-tinh-van-su/", "Vấn sự", "help", "nv-side", ""),
+        ("cung-hoang-dao", "/cung-hoang-dao/", "Cung hoàng đạo", "compass", "", ""),
     ]),
     ("tarot", "Tarot", "cards", "", [
         ("tarot", "/tarot/la-bai/", "78 lá bài", "cards", "", "", "Tarot"),

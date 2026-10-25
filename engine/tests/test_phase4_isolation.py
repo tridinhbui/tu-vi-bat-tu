@@ -122,7 +122,7 @@ def test_leak_detector_has_teeth():
 
 DEFAULT_ROUTES = {"/api/chart", "/api/analysis", "/api/bazi-structure", "/api/bazi-timeline", "/api/year", "/api/twelve-gods", "/api/reasoning",
                   "/api/compare-charts", "/api/lunar-to-solar", "/api/hour-sweep", "/api/compare-hours", "/api/rules", "/api/claims",
-                  "/api/dignity/compare", "/api/dignity"}
+                  "/api/dignity/compare", "/api/dignity", "/api/hoang-dao"}
 OPT_IN_ROUTES = {"/api/formations", "/api/phi-hoa"}                   # draft material; never called by default UI flows (Phi Hóa: not at all)
 USER_SUPPLIED = {"/api/rules/test"}                                   # evaluates a rule the CALLER sends; not a source of readings
 # Routes that reached main after this guard was written (merged 2026-10-21) and are covered by their own tests;
@@ -143,9 +143,11 @@ def test_lunar_to_solar_and_remaining_default_routes_are_clean():
     c = TestClient(app)
     r = c.post("/api/lunar-to-solar", json=dict(year=1990, month=4, day=23))
     assert r.status_code == 200 and leaks(r.json()) == []
+    r = c.get("/api/hoang-dao", params=dict(y=1990, m=5, d=17, h=10, mi=30))     # cung hoàng đạo: computed facts only
+    assert r.status_code == 200 and leaks(r.json()) == []
 
 
 def test_opt_in_routes_are_not_part_of_the_default_flow_of_the_tested_endpoints():
     exercised = {"/api/chart", "/api/analysis", "/api/bazi-structure", "/api/bazi-timeline", "/api/year", "/api/twelve-gods", "/api/reasoning", "/api/compare-charts",
-                 "/api/hour-sweep", "/api/compare-hours", "/api/rules", "/api/claims", "/api/dignity", "/api/dignity/compare", "/api/lunar-to-solar"}
+                 "/api/hour-sweep", "/api/compare-hours", "/api/rules", "/api/claims", "/api/dignity", "/api/dignity/compare", "/api/lunar-to-solar", "/api/hoang-dao"}
     assert exercised == DEFAULT_ROUTES and not exercised & OPT_IN_ROUTES
