@@ -1,4 +1,4 @@
-// The account page (#tai-khoan): Thông tin cá nhân, Lá số của tôi, Quyền riêng tư. Signed out it only offers the Google sign-in.
+// The account page (#tai-khoan): Lá số của tôi, Thông tin cá nhân, Quyền riêng tư. Signed out it only offers the Google sign-in.
 import { $, $$ } from './util.js';
 import { api, session } from './account.js';
 import { initProfile } from './profile.js';
@@ -16,11 +16,11 @@ function clearDevice() {
 /** deps: { placeOptions, onPrefill(profile), onRun(profile), onOpen(req), compare, onChange() } */
 export function initAccountPage(root, deps) {
   root.innerHTML = `<section class="acc-mast"><div class="wrap"><p class="eyebrow">Tài khoản</p><h1>Tài khoản của bạn</h1><p class="acc-who muted"></p>
-      <nav class="acc-nav" aria-label="Các phần của trang tài khoản"><a href="#acc-profile">Thông tin cá nhân</a><a href="#acc-charts">Lá số của tôi</a><a href="#acc-privacy">Quyền riêng tư</a></nav></div></section>
+      <nav class="acc-nav" aria-label="Các phần của trang tài khoản"><a href="#acc-charts">Lá số của tôi</a><a href="#acc-profile">Thông tin cá nhân</a><a href="#acc-privacy">Quyền riêng tư</a></nav></div></section>
     <div class="acc-out wrap" hidden><p>Đăng nhập để lưu lá số, hỏi Bát Bát về lá số (2 câu miễn phí mỗi ngày), lưu thông tin cá nhân và tạo liên kết chia sẻ. <a href="#quyen-loi" data-go="quyen-loi">Xem đầy đủ quyền lợi</a></p><a class="btn" href="/api/auth/google">Đăng nhập với Google</a></div>
     <div class="acc-in" hidden>
+      <section class="wrap acc-sec" id="acc-charts" aria-labelledby="acc-charts-h"><h2 id="acc-charts-h">Lá số của tôi</h2><p class="sec-sub">Mọi lá số bạn đã lập được giữ ở đây, không cần nhập lại. Mở lại, đặt tên và cho biết là của ai, chia sẻ, xóa, hoặc chọn hai lá số để so sánh.</p><div data-charts></div></section>
       <section class="wrap acc-sec" id="acc-profile" aria-labelledby="acc-profile-h"><h2 id="acc-profile-h">Thông tin cá nhân</h2><p class="sec-sub">Dùng để điền sẵn ô lập lá số và sắp xếp các chương bạn quan tâm lên trước khi xem lá số của chính bạn.</p><div data-profile></div></section>
-      <section class="wrap acc-sec" id="acc-charts" aria-labelledby="acc-charts-h"><h2 id="acc-charts-h">Lá số của tôi</h2><p class="sec-sub">Lá số của bạn, người thân và bạn bè. Mở lại, đổi tên, chia sẻ, xóa, hoặc chọn hai lá số để so sánh.</p><div data-charts></div></section>
       <section class="wrap acc-sec" id="acc-privacy" aria-labelledby="acc-privacy-h"><h2 id="acc-privacy-h">Quyền riêng tư</h2>
         <p class="sec-sub">Đọc <a class="link" href="/privacy">Chính sách dữ liệu</a> để biết hệ thống giữ gì và vì sao.</p>
         <div class="acc-danger">

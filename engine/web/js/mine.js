@@ -7,7 +7,8 @@ const KEY = 'tvbt-saved-v1';
 export const cloud = { on: false, push: null, remove: null, needLogin: false };   // needLogin: sign-in is available and nobody is signed in
 const max = () => cloud.on ? 200 : 12;
 const FIELDS = ['year', 'month', 'day', 'hour', 'minute', 'gender', 'tz', 'calendar', 'zi_rule', 'level', 'use_true_solar_time', 'longitude'];
-export const RELS = ['Tôi', 'Người thân', 'Bạn bè'];
+/** 'Đã lập': a chart a member generated, kept automatically (autoSave) until they name it and say whose it is */
+export const RELS = ['Tôi', 'Người thân', 'Bạn bè', 'Đã lập'];
 
 export const readSaved = () => { try { const a = JSON.parse(localStorage.getItem(KEY)); return Array.isArray(a) ? a : []; } catch { return []; } };
 export const writeSaved = a => { try { localStorage.setItem(KEY, JSON.stringify(a)); return true; } catch { return false; } };
@@ -27,11 +28,22 @@ export function saveChart(req, label, rel) {
 export const isSaved = req => readSaved().find(x => same(x.req, pick(req)));
 export function removeSaved(id) { writeSaved(readSaved().filter(x => x.id !== id)); cloud.remove?.(id); }
 export const fmtBirth = fmt;
+/** A signed-in member never has to enter a birth twice: every chart they generate is kept in the account (the newest first). A chart
+ *  already saved keeps its name; own (the profile's birth) is filed under 'Tôi', anything else under 'Đã lập'. */
+export function autoSave(req, own) {
+  if (!cloud.on || isSaved(req)) return null;
+  return saveChart(req, own ? 'Tôi' : fmt(pick(req)).split(' · ')[0], own ? 'Tôi' : 'Đã lập');
+}
 
 /** Home list of saved charts; onOpen(req) generates the chart again from the stored birth data. Comparing two charts lives in compare.js. */
 export function renderSaved(host, onOpen) {
   const list = readSaved(), sec = host.closest('section') || host;
   sec.hidden = !list.length;
+  const head = sec.querySelector('.eyebrow'), h2 = sec.querySelector('h2'), sub = sec.querySelector('.sec-sub');
+  if (head && h2 && sub) {
+    head.textContent = cloud.on ? 'Tài khoản của bạn' : 'Trên máy này'; h2.textContent = cloud.on ? 'Lá số của tôi' : 'Lá số bạn đã lưu';
+    sub.textContent = cloud.on ? 'Mọi lá số bạn đã lập đều được giữ ở đây; bấm để mở lại, không cần nhập lại ngày giờ sinh.' : 'Của bạn và người thân. Chỉ nằm trong trình duyệt này; bấm để mở lại.';
+  }
   host.innerHTML = list.map(x => `<li><button type="button" class="sv-open" data-id="${esc(x.id)}"><span class="sv-rel">${esc(x.rel)}</span><b>${esc(x.label)}</b><small>${esc(fmt(x.req))}</small></button><button type="button" class="sv-del" data-id="${esc(x.id)}" aria-label="Xóa lá số ${esc(x.label)}">Xóa</button></li>`).join('');
   $$('.sv-open', host).forEach(b => b.onclick = () => onOpen(list.find(x => x.id === b.dataset.id).req));
   $$('.sv-del', host).forEach(b => b.onclick = () => { removeSaved(b.dataset.id); renderSaved(host, onOpen); });

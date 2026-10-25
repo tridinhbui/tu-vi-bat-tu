@@ -11,10 +11,10 @@ import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
 import { initPrint, printNow } from './print.js';
 import { initChat, initChapterBubbles, dialogueBazi, dialogueTuvi } from './mascots.js';
-import { renderSaved, initSave, isSaved } from './mine.js';
+import { renderSaved, initSave, isSaved, autoSave } from './mine.js';
 import { initAccount, session } from './account.js';
 import { initAccountPage } from './acctpage.js';
-import { focusFor } from './profile.js';
+import { focusFor, isOwnChart } from './profile.js';
 import { openShareDialog, loadShare, shareBanner, SHARE_HASH } from './share.js';
 import { exportBoardPng } from './png.js';
 import { initAsk } from './ask.js';
@@ -34,6 +34,7 @@ const expBadge = document.getElementById('exp-badge');
 if (expOn()) { expBadge.hidden = false; expBadge.onclick = () => { try { sessionStorage.setItem(EXP_KEY, ''); } catch { /* ignore */ } location.reload(); }; }
 initGlossary();
 let state = null; // { req, chart, reason, tv }
+let sampling = false;  // the sample chart is being opened: it is never kept in Lá số của tôi
 
 // ---------- brand + hero art ----------
 $$('[data-brand]').forEach(e => e.innerHTML = brandMark(e.dataset.brand === 'lg' ? 44 : 32));
@@ -190,6 +191,8 @@ async function generate(ev, saved = null) {
       return;
     }
     await compute(req, lunarIn);
+    // a member's chart from the form goes straight into Lá số của tôi (not the sample, not one reopened from the list)
+    if (!saved && !sampling && autoSave(req, isOwnChart(req))) { renderSaved(savedList, openSaved); saver.paint(); }
   } catch (x) {
     // the reader pressed Hủy: back to the form as it was, no error shown
     if (isCancel(x)) { view('home'); $('#lap-la-so')?.scrollIntoView({ block: 'center' }); return; }
@@ -229,9 +232,10 @@ initPaywall(() => shareMode.id ? null : state?.req);
 initAiCards(() => shareMode.id ? null : state?.req);   // "Luận AI" under each chapter, never on a shared chart
 initLive($('#live-stats'));
 async function loadSample() {
+  sampling = true;
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });
   form.year.value = 1990; form.month.value = 5; form.day.value = 17; form.time.value = '10:30'; form.gender.value = 'male'; form.place.value = 'TP. Hồ Chí Minh'; syncPlace(); hint();
-  await generate();
+  try { await generate(); } finally { sampling = false; }
 }
 $('#sample-btn').onclick = loadSample;
 $$('[data-sample]').forEach(b => b.onclick = () => loadSample());

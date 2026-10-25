@@ -736,6 +736,11 @@ html.nav-open body::after{content:"";position:fixed;inset:0;z-index:61;backgroun
 .nv-gh[aria-expanded=false]+.nv-gb{display:none}
 html:not(.signed-in) .nv-member{display:none!important}
 html:not(.is-admin) .nv-admin{display:none!important}
+html.signed-in .nv-guest{display:none!important}
+.nv-bl{display:none}
+/* signed in, the home page is the app: no welcome hero, sales sections or sample chart; it opens on Lá số của tôi and the form */
+html.signed-in :is(#hero,#ban-nhan-duoc,#home > .final,.form-sample-note,#sample-btn,[data-sample]){display:none!important}
+html.signed-in #saved-sec{padding-top:clamp(28px,4vw,48px)}
 .side-foot{position:fixed;left:0;bottom:0;z-index:63;width:min(300px,86vw);height:var(--foot-h);display:flex;align-items:center;gap:8px;padding:0 12px;border-top:1px solid var(--line);border-right:1px solid var(--line);background:var(--raise);transform:translateX(-102%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
 .side-in{width:100%}
 html:not(.auth-on) .hdr-in,html:not(.auth-on) .side-in{visibility:hidden}
@@ -769,6 +774,8 @@ html.signed-in .hdr-in,html.signed-in .side-in,html:not(.signed-in) .ucard{displ
   html:not(.signed-in) .nav{flex-direction:row;align-items:center;flex:none;gap:2px;margin:0;padding:0;overflow:visible}
   html:not(.signed-in) .nv{padding:10px 12px;border-radius:99px}
   html:not(.signed-in) .hdr-in{display:inline-flex}
+  html:not(.signed-in) .nv-sl{display:none}
+  html:not(.signed-in) .nv-bl{display:inline}
 }
 /* wide screens, signed in: the header becomes the left sidebar */
 @media (min-width:1024px){
