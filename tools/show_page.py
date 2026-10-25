@@ -6,7 +6,10 @@
 
     python tools/show_page.py WEB:CTBG 三春甲木 --check "丙火为尊"   # a saved web snapshot, by chapter
 
-Books: KL, TH, TT (tools/book_text.py); WEB:<id> for engine/data/sources_web/. Printed page number == PDF page number."""
+    python tools/show_page.py KD 160 --image DIR  # Kinh Dịch (Ngô Tất Tố) scan: DIR/KD_160.png; text = committed transcription
+
+Books: KL, TH, TT, KD (tools/book_text.py); WEB:<id> for engine/data/sources_web/. Printed page number == PDF page number, except KD
+(book_text.KD_OFFSETS)."""
 from __future__ import annotations
 
 import sys
