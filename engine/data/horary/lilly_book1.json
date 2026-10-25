@@ -4,7 +4,11 @@
     "work": "LILLY",
     "scope": "William Lilly, Christian Astrology (1647), Book I: houses, planets, signs, essential dignities, Chapter XIX 'words of art' and the table of fortitudes (pp.25-122).",
     "citation": "William Lilly, Christian Astrology (London, 1647), Wellcome Library copy, archive.org b30338724, Public Domain Mark. Page = printed page number.",
-    "status": "draft, in progress"
+    "status": "complete (Book I pp.25-126 terms; Considerations before judgment and perfection rules pp.121-128 are in lilly_book2.json)",
+    "notes": [
+      "Every sentence whose meaning depends on a planet or sign glyph was read on the page image; quotes avoid glyph positions because the OCR turns glyphs into noise.",
+      "Records the engine cites by id: lilly.voc.definition, lilly.refranation, lilly.prohibition, lilly.frustration, lilly.translation, lilly.collection, lilly.reception, lilly.peregrine, lilly.besieged, lilly.sun.*, lilly.aspect.application, lilly.dignity.*, lilly.orbs.moiety_rule, lilly.motion.*, lilly.oriental_occidental, lilly.planet.<name>.nature, lilly.house.<n>.meaning."
+    ]
   },
   "rules": [
     {
@@ -596,8 +600,7 @@
       "exceptions": [],
       "effect": "testimony_for",
       "school": "lilly",
-      "status": "operationalised",
-      "engine_choice": "Lilly does not say how recent the separation must be ('presently joynes'). Engine: C must still be within the moiety orbs of A when it applies within orbs to B, and C must not perfect any other aspect in between.",
+      "status": "disputed",
       "sources": [
         {
           "work": "LILLY",
@@ -608,9 +611,15 @@
           "work": "LILLY",
           "page": 111,
           "quote": "Its done also as well by any Aspect"
+        },
+        {
+          "work": "LILLY",
+          "page": 126,
+          "quote": "of whom he is received either by House, Triplicity or Terme, and then this Planet doth apply to the other Significator"
         }
       ],
-      "example": "Lilly's own (p.111, image checked): Saturn 20 Aries, Mars 15 Aries, Mercury 16 Aries: Mercury separates from Mars and translates his virtue to Saturn."
+      "example": "Lilly's own (p.111, image checked): Saturn 20 Aries, Mars 15 Aries, Mercury 16 Aries: Mercury separates from Mars and translates his virtue to Saturn.",
+      "dispute": "Lilly's two Book I statements differ. p.111 (definition): a light planet separates from a weightier one and presently joins another, by conjunction or any aspect; no reception is required. p.126 (perfection rules): the significators are separated from each other's aspects, and the translating planet separates from one significator 'of whom he is received either by House, Triplicity or Terme' and applies to the other before meeting any other planet's aspect. Engine: translation per p.111 is recognised; whether the p.126 reception condition holds is recorded in the trace, and only translation with that reception is called 'perfection by translation' (lilly_book2.json lilly.perfection.translation). Open (both pages): how recent the separation must be; engine requires the translator still within moiety orbs of the first significator."
     },
     {
       "id": "lilly.collection",
@@ -1120,6 +1129,1035 @@
           "work": "LILLY",
           "page": 57,
           "quote": "his middle motion is two minutes and one second"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.planet.saturn.nature",
+      "category": "significator",
+      "title_en": "Saturn: nature",
+      "title_vi": "Thổ tinh (Saturn): bản chất",
+      "statement_en": "Saturn is a diurnal planet, cold and dry, melancholic, earthly, masculine, the greater infortune, author of solitariness, malevolent.",
+      "statement_vi": "Thổ tinh là sao phe ngày (diurnal), lạnh và khô, tính u sầu (melancholic), thuộc Thổ, dương tính, là đại hung tinh (greater infortune), chủ sự cô độc, có hại.",
+      "conditions": "qualities: cold,dry; temperament: melancholic; element: earth; benefic: false (greater infortune); masculine: true; diurnal: true",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 58,
+          "quote": "He is a Diurnall Planet, Cold and Dry (being farre removed from the heat of the Sun)"
+        },
+        {
+          "work": "LILLY",
+          "page": 58,
+          "quote": "Melancholick, Earthly, Masculine, the greater Infortune, author of Solitarinesse, Malevolent"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.planet.jupiter.nature",
+      "category": "significator",
+      "title_en": "Jupiter: nature",
+      "title_vi": "Mộc tinh (Jupiter): bản chất",
+      "statement_en": "Jupiter is a diurnal, masculine planet, temperately hot and moist, airy, sanguine, the greater fortune, author of temperance, modesty, sobriety, justice.",
+      "statement_vi": "Mộc tinh là sao phe ngày, dương tính, nóng và ẩm một cách ôn hòa, thuộc Khí, tính huyết (sanguine), là đại cát tinh (greater fortune), chủ sự điều độ, khiêm tốn, tiết chế, công bằng.",
+      "conditions": "qualities: hot,moist (temperate); temperament: sanguine; element: air; benefic: true (greater fortune); masculine: true; diurnal: true",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 62,
+          "quote": "He is a Diurnall, Masculine Planet, Temperately Hot and Moyst, Aiery, Sanguine, the greater Fortune"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.planet.mars.nature",
+      "category": "significator",
+      "title_en": "Mars: nature",
+      "title_vi": "Hỏa tinh (Mars): bản chất",
+      "statement_en": "Mars is a masculine, nocturnal planet, in nature hot and dry, choleric and fiery, the lesser infortune, author of quarrels, strifes, contentions.",
+      "statement_vi": "Hỏa tinh là sao dương tính, phe đêm (nocturnal), bản chất nóng và khô, tính nóng nảy (choleric), thuộc Hỏa, là tiểu hung tinh (lesser infortune), chủ cãi vã, tranh chấp.",
+      "conditions": "qualities: hot,dry; temperament: choleric; element: fire; benefic: false (lesser infortune); masculine: true; diurnal: false (nocturnal)",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 66,
+          "quote": "in nature hot and dry, cholerick and fiery, the lesser Infortune, author of Quarrels, Strifes, Contentions"
+        }
+      ],
+      "example": "Note: Lilly calls Mars 'a Masculine, Nocturnall Planet' (p.66, image of the line: 'He is a Masculine,Nocturnall Planet'); masculine and nocturnal together mean Mars never meets Lilly's hayz definition.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.planet.sun.nature",
+      "category": "significator",
+      "title_en": "Sun: nature",
+      "title_vi": "Mặt Trời (Sun): bản chất",
+      "statement_en": "The Sun is naturally hot and dry, but more temperate than Mars; a masculine, diurnal planet, equivalent, if well dignified, to a fortune.",
+      "statement_vi": "Mặt Trời bản chất nóng và khô, nhưng ôn hòa hơn Hỏa tinh; là sao dương tính, phe ngày, nếu có phẩm chất tốt thì tương đương một cát tinh.",
+      "conditions": "qualities: hot,dry (more temperate than Mars); benefic: conditional (equivalent to a fortune if well dignified); masculine: true; diurnal: true",
+      "effect": "definition",
+      "status": "operationalised",
+      "engine_choice": "Lilly makes the Sun's benefic status conditional ('if well dignified'). Engine: benefic only when the Sun has essential dignity (house, exaltation, triplicity, term or face); otherwise neutral. The Sun as the combusting body is always harmful to planets in combustion (lilly.sun.combust).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 70,
+          "quote": "He is naturally Hot, Dry, but more temperate then"
+        },
+        {
+          "work": "LILLY",
+          "page": 70,
+          "quote": "Masculine, Diurnall Planet, Equivalent, if well dignified to a Fortune"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.planet.venus.nature",
+      "category": "significator",
+      "title_en": "Venus: nature",
+      "title_vi": "Kim tinh (Venus): bản chất",
+      "statement_en": "Venus is a feminine planet, temperately cold and moist, nocturnal, the lesser fortune, author of mirth and jollity; of the humours, phlegm with blood.",
+      "statement_vi": "Kim tinh là sao âm tính, lạnh và ẩm một cách ôn hòa, phe đêm, là tiểu cát tinh (lesser fortune), chủ niềm vui và sự vui vẻ; về thể dịch là đàm (phlegm) pha huyết.",
+      "conditions": "qualities: cold,moist (temperate); temperament: phlegm with blood; benefic: true (lesser fortune); masculine: false (feminine); diurnal: false (nocturnal)",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 73,
+          "quote": "Shee is a Feminine Planet, temperately Cold and Moyst"
+        },
+        {
+          "work": "LILLY",
+          "page": 73,
+          "quote": "the lesser Fortune, author of Mirth and Jolity"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.planet.mercury.nature",
+      "category": "significator",
+      "title_en": "Mercury: nature (convertible)",
+      "title_vi": "Thủy tinh (Mercury): bản chất (biến đổi theo sao khác)",
+      "statement_en": "Mercury may be called neither masculine nor feminine: he is the one or the other as joined to any planet (masculine in conjunction with a masculine planet, feminine with a feminine). Of his own nature he is cold and dry, and therefore melancholic; with the good he is good, with the evil planets ill. Having any aspect to a planet he more usually partakes of that planet's influence than any other planet does.",
+      "statement_vi": "Thủy tinh không thể gọi là dương hay âm: nó thành dương hay âm tùy sao mà nó giao hội (giao hội với sao dương thì thành dương, với sao âm thì thành âm). Bản chất riêng của Thủy tinh là lạnh và khô, nên u sầu; đi với sao tốt thì tốt, đi với sao xấu thì xấu. Khi có góc chiếu với một sao nào, Thủy tinh thường nhiễm ảnh hưởng của sao đó nhiều hơn bất kỳ sao nào khác.",
+      "conditions": "qualities (own): cold,dry; temperament: melancholic; benefic: convertible (takes the nature of the planet it is joined to / aspects most closely); masculine: convertible; diurnal: not stated in Book I",
+      "effect": "definition",
+      "status": "operationalised",
+      "engine_choice": "Lilly does not give Mercury a sect in his chapter. For 'same nature' tests the engine uses Mercury's own qualities (cold, dry) unless Mercury is in conjunction with another planet, in which case it also reports the partner's nature; benefic/malefic follows the planet he is joined to, else neutral.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 77,
+          "quote": "We may not call him either Masculine or Feminine, for he is either the one or other as joyned to any Planet"
+        },
+        {
+          "work": "LILLY",
+          "page": 77,
+          "quote": "but of his owne nature he is cold and dry, and therefore Melancholly"
+        },
+        {
+          "work": "LILLY",
+          "page": 78,
+          "quote": "he doth more usually partake of the influence of that Planet then any other doth"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.planet.moon.nature",
+      "category": "significator",
+      "title_en": "Moon: nature",
+      "title_vi": "Mặt Trăng (Moon): bản chất",
+      "statement_en": "The Moon is a feminine, nocturnal planet, cold, moist and phlegmatic.",
+      "statement_vi": "Mặt Trăng là sao âm tính, phe đêm, lạnh, ẩm và tính đàm (phlegmatic).",
+      "conditions": "qualities: cold,moist; temperament: phlegmatic; benefic: not stated as fortune or infortune in her chapter; masculine: false (feminine); diurnal: false (nocturnal)",
+      "effect": "definition",
+      "status": "operationalised",
+      "engine_choice": "Lilly's Moon chapter does not call her a fortune or an infortune. Engine: neutral; her testimony depends on aspects and dignity.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 81,
+          "quote": "She is a Feminine, Nocturnall Planet, Cold, Moyst and Flegmatique"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.planet.friends_enemies",
+      "category": "significator",
+      "title_en": "Friendship and enmity of the planets",
+      "title_vi": "Bạn và thù giữa các sao",
+      "statement_en": "Lilly gives in the planet chapters: Saturn's friends are Jupiter, the Sun and Mercury, his enemies Mars and Venus; all the planets except Mars are friends to Jupiter; Mars' friend is only Venus, all the others his enemies; the Sun's friends are all the planets except Saturn, his enemy; the Moon's enemies are Saturn and Mars. For Venus and Mercury no such list is printed.",
+      "statement_vi": "Theo các chương về từng sao: bạn của Thổ tinh là Mộc tinh, Mặt Trời và Thủy tinh, thù là Hỏa tinh và Kim tinh; mọi sao trừ Hỏa tinh đều là bạn của Mộc tinh; bạn của Hỏa tinh chỉ có Kim tinh, còn lại đều là thù; bạn của Mặt Trời là mọi sao trừ Thổ tinh là kẻ thù; thù của Mặt Trăng là Thổ tinh và Hỏa tinh. Với Kim tinh và Thủy tinh, Lilly không in danh sách như vậy.",
+      "conditions": "friends: Saturn{Jupiter,Sun,Mercury}, Jupiter{all but Mars}, Mars{Venus}, Sun{all but Saturn}; enemies: Saturn{Mars,Venus}, Jupiter{Mars}, Mars{all but Venus}, Sun{Saturn}, Moon{Saturn,Mars}. Used for 'conjunctions are good or bad as the planets are friends or enemies' (p.106).",
+      "effect": "definition",
+      "status": "operationalised",
+      "engine_choice": "The lists are not symmetric (Saturn calls the Sun a friend, the Sun calls Saturn an enemy) and Venus/Mercury have none. Engine: a pair is friendly only if neither lists the other as enemy and at least one lists it as friend; otherwise unfriendly if either lists the other as enemy; otherwise neutral.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 65,
+          "quote": "are friends to"
+        },
+        {
+          "work": "LILLY",
+          "page": 68,
+          "quote": "His Friends are onely"
+        },
+        {
+          "work": "LILLY",
+          "page": 72,
+          "quote": "His Friends are all the Planets except"
+        },
+        {
+          "work": "LILLY",
+          "page": 83,
+          "quote": "Her Enemy is"
+        }
+      ],
+      "example": "Image-checked lines: p.61 'His Friends are [Jupiter] [Sun] and [Mercury], his enemies [Mars] and [Venus]'; p.65 'All the Planets except [Mars] are friends to [Jupiter]'; p.68 'His Friends are onely [Venus]; Enemies all the other Planets'; p.72 'His Friends are all the Planets except [Saturn], who is his Enemy'; p.83 'Her Enemy is [Saturn], and also [Mars]'.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.nodes.nature",
+      "category": "significator",
+      "title_en": "Dragon's Head and Tail",
+      "title_vi": "Đầu Rồng và Đuôi Rồng (La Hầu, Kế Đô)",
+      "statement_en": "The Dragon's Head and Tail are not planets but nodes. The Head is masculine, of the nature of Jupiter and Venus, of itself a fortune; the Tail feminine and clean contrary. The Ancients say the Head is good with the good and evil with the evil planets, and the Tail evil with the good and good with the malign. Lilly found in practice the Head equivalent to a fortune, lessening the malefics' evil and increasing the good of the fortunes; the Tail joined to evil planets doubled or trebled their malice, and joined to fortunes brought rubs, wrangling and controversy, the matter often coming to nothing unless the significators were angular and strong.",
+      "statement_vi": "Đầu Rồng (Dragon's Head) và Đuôi Rồng (Dragon's Tail) không phải là sao mà là giao điểm (node). Đầu Rồng dương tính, mang bản chất của Mộc tinh và Kim tinh, tự nó là cát; Đuôi Rồng âm tính và hoàn toàn ngược lại. Người xưa nói Đầu Rồng đi với sao tốt thì tốt, với sao xấu thì xấu, còn Đuôi Rồng đi với sao tốt thì xấu, với sao hung thì tốt. Theo kinh nghiệm của Lilly, Đầu Rồng tương đương một cát tinh, làm giảm cái xấu của sao hung và tăng cái tốt của sao cát; Đuôi Rồng đi cùng sao hung thì nhân đôi, nhân ba ác tính của chúng, đi cùng sao cát thì gây trắc trở, cãi cọ, tranh chấp, việc thường không thành trừ khi các sao chỉ thị ở cung góc và mạnh.",
+      "conditions": "Head conjunct a significator = favourable (Lilly's practice); Tail conjunct = unfavourable; partile conjunction scores +4 (Head) / -4 (Tail) in the p.115 table. Nodes are not scored for dignity.",
+      "effect": "modifies",
+      "status": "disputed",
+      "dispute": "Lilly reports 'the constant opinion of all the Ancients' (Head good with good planets, evil with evil; Tail the reverse) and rejects it from his own practice on the same page (p.83). Engine follows Lilly's practice, which matches his p.115 table (+4 / -4).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 25,
+          "quote": "are not Planets but Nodes"
+        },
+        {
+          "work": "LILLY",
+          "page": 83,
+          "quote": "The Head of the Dragon is Masculine, of the nature of"
+        },
+        {
+          "work": "LILLY",
+          "page": 83,
+          "quote": "This is the constant opinion of all the Ancients, but upon what reason grounded I know not"
+        },
+        {
+          "work": "LILLY",
+          "page": 83,
+          "quote": "their malice or the evill intended thereby was doubled and trebled, or extreamly augmented"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.dignity.essential_table",
+      "category": "dignity_essential",
+      "title_en": "Essential dignities and their points",
+      "title_vi": "Phẩm chất bản thể (essential dignities) và điểm số",
+      "statement_en": "A planet is really strong when it has many essential dignities: house (5), exaltation (4, anywhere in the sign), triplicity (3, the day ruler by day and the night ruler by night, Mars ruling the watery triplicity both), term (2), face (1). Lilly prints Ptolemy's table of house, exaltation, triplicity, terms, faces, detriment and fall (p.104). A planet in the sign opposite its house is in detriment; in the sign opposite its exaltation, in its fall.",
+      "statement_vi": "Một sao thật sự mạnh khi có nhiều phẩm chất bản thể: nhà (house, 5 điểm), vượng (exaltation, 4 điểm, ở bất kỳ độ nào của cung), tam hợp (triplicity, 3 điểm; chủ ngày tính khi lá số ban ngày, chủ đêm khi ban đêm; Hỏa tinh chủ tam hợp Thủy cả ngày lẫn đêm), giới (term, 2 điểm), diện (face, 1 điểm). Lilly in bảng của Ptolemy gồm nhà, vượng, tam hợp, giới, diện, hãm (detriment) và tử (fall) ở trang 104. Sao ở cung đối diện nhà mình là hãm (detriment); ở cung đối diện cung vượng là tử (fall).",
+      "conditions": "Score each planet from tables_lilly.json essential (exact degree for term and face; sect of the figure for triplicity): +5 house, +4 exaltation, +3 triplicity, +2 term, +1 face; -5 detriment, -4 fall; -5 peregrine when none of the five apply.",
+      "effect": "table",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 101,
+          "quote": "A Planet is then said to be really strong when he hath many Essentiall dignities"
+        },
+        {
+          "work": "LILLY",
+          "page": 102,
+          "quote": "but he shall not be allowed any dignity, as being in his triplicity"
+        },
+        {
+          "work": "LILLY",
+          "page": 105,
+          "quote": "being in Aries, is in a Signe opposite to one of her owne Houses, and so is said to be in her Detriment"
+        },
+        {
+          "work": "LILLY",
+          "page": 103,
+          "quote": "however I present thee with a Table according to Ptolomey"
+        }
+      ],
+      "exceptions": [
+        "The Sun and Moon have no terms (p.69: the Sun has 'no degrees of the twelve Signs admitted him for his Termes'; p.80: 'The Sun and she hath no Termes assigned them'). Lilly rejects the view that the Sun has terms in the six northern signs as 'idle' (p.69)."
+      ],
+      "example": "Lilly's own (p.102): the Sun in Aries by night has 4 for exaltation but no triplicity dignity, for by night Jupiter rules the fiery triplicity.",
+      "school": "lilly"
+    },
+    {
+      "id": "lilly.dignity.accidental",
+      "category": "dignity_accidental",
+      "title_en": "Accidental strength",
+      "title_vi": "Sức mạnh ngẫu nhiên (accidental dignity)",
+      "statement_en": "Planets may be strong another way, accidentally: as when direct, swift in motion, angular, in trine or sextile with Jupiter or Venus, or in conjunction with certain notable fixed stars.",
+      "statement_vi": "Các sao còn có thể mạnh theo cách khác, tức ngẫu nhiên (accidental): như khi thuận hành, đi nhanh, ở cung góc, tam hợp hay lục hợp với Mộc tinh hoặc Kim tinh, hoặc giao hội với một số định tinh (fixed star) nổi tiếng.",
+      "conditions": "Accidental points from tables_lilly.json fortitudes (kind = accidental).",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 103,
+          "quote": "The Planets may be strong another manner of way, viz. Accidentally; as when Direct, swift in Motion, Angular"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.dignity.fortitude_table",
+      "category": "dignity_accidental",
+      "title_en": "Table of fortitudes and debilities",
+      "title_vi": "Bảng sức mạnh và suy yếu (fortitudes and debilities)",
+      "statement_en": "Lilly's 'ready Table' (p.115) assigns points to every essential and accidental fortitude and debility: e.g. own house or mutual reception by house 5, exaltation or reception by exaltation 4, triplicity 3, term 2, face 1; detriment 5, fall 4, peregrine 5 against; in the midheaven or ascendant 5, 7th/4th/11th 4, 2nd/5th 3, 9th 2, 3rd 1; 12th 5 against, 8th/6th 2 against; direct 4, retrograde 5 against; swift 2, slow 2 against; free from combustion and beams 5, cazimi 5, combust 5 against, under the beams 4 against; partile conjunction with Jupiter and Venus 5, with the Dragon's Head 4, partile trine to them 4, sextile 3; partile conjunction with Saturn or Mars 5 against, with the Tail 4 against, besieged 5 against, partile opposition 4 and square 3 against; Regulus 6, Spica 5, Algol 5 against. He promises to explain its use in his examples.",
+      "statement_vi": "Bảng 'tra nhanh' của Lilly (trang 115) cho điểm mọi sức mạnh và suy yếu, bản thể lẫn ngẫu nhiên: ví dụ ở nhà mình hoặc tiếp nhận lẫn nhau bằng nhà 5, vượng hoặc tiếp nhận bằng vượng 4, tam hợp 3, giới 2, diện 1; hãm trừ 5, tử trừ 4, lạc lõng trừ 5; ở Thiên Đỉnh (MC) hoặc cung Mệnh 5, cung 7/4/11 được 4, cung 2/5 được 3, cung 9 được 2, cung 3 được 1; cung 12 trừ 5, cung 8/6 trừ 2; thuận hành 4, nghịch hành trừ 5; đi nhanh 2, đi chậm trừ 2; thoát đốt cháy và tia Mặt Trời 5, cazimi 5, bị đốt cháy trừ 5, dưới tia trừ 4; giao hội chính xác với Mộc và Kim 5, với Đầu Rồng 4, tam hợp chính xác với chúng 4, lục hợp 3; giao hội chính xác với Thổ hoặc Hỏa trừ 5, với Đuôi Rồng trừ 4, bị vây trừ 5, xung chính xác trừ 4 và vuông chính xác trừ 3; giao hội Regulus 6, Spica 5, Algol trừ 5. Ông hứa sẽ giải thích cách dùng qua các ví dụ.",
+      "conditions": "Sum all applicable rows of tables_lilly.json fortitudes for each planet; report essential and accidental subtotals separately.",
+      "effect": "table",
+      "status": "operationalised",
+      "engine_choice": "Lilly does not explain the table on p.115-116 ('I forbear here to explaine the Table'). Open points the engine decides: (1) sum essential and accidental points into one total (engine: report both subtotals and the total); (2) 'with Jupiter and Venus' read as 'with either, each contact scored'; (3) mutual reception by house scores 5 even when the planet is not in its own house, as printed; (4) the Sun and Moon never get the 'Direct' 4 points ('as to them this is voyd'); (5) house points use the house after the five-degree cusp rule; (6) star conjunction orb: 5 degrees for Algol as printed, engine applies the same 5 degrees to Regulus and Spica (flagged).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 115,
+          "quote": "A ready Table whereby to examine the Fortitudes and Debilities of the Planets"
+        },
+        {
+          "work": "LILLY",
+          "page": 116,
+          "quote": "I forbear here to explaine the Table, because I shall doe it better hereafter upon some Example"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.dignity.fixed_stars",
+      "category": "dignity_accidental",
+      "title_en": "Conjunction with notable fixed stars",
+      "title_vi": "Giao hội với các định tinh nổi tiếng",
+      "statement_en": "In the table of fortitudes: in conjunction with Cor Leonis (Regulus) in 24 degrees of Leo, 6 points; or with Spica Virginis in 18 Libra, 5 points; in conjunction with Caput Algol in 20 Taurus, or within five degrees, 5 points against.",
+      "statement_vi": "Trong bảng sức mạnh: giao hội với Cor Leonis (Regulus) ở 24 độ Sư Tử được 6 điểm; với Spica (Spica Virginis) ở 18 độ Thiên Bình được 5 điểm; giao hội với Caput Algol ở 20 độ Kim Ngưu, hoặc trong vòng năm độ, bị trừ 5 điểm.",
+      "conditions": "Regulus +6, Spica +5, Algol -5 when a planet is in conjunction (Algol: within 5 degrees as printed).",
+      "effect": "modifies",
+      "status": "operationalised",
+      "engine_choice": "Open points: (1) the star longitudes are Lilly's for 1647 (Regulus 24 Leo, Spica 18 Libra, Algol 20 Taurus); the engine uses the stars' precessed longitudes for the date of the question (about 5 degrees later today) and records Lilly's printed degrees; (2) Lilly gives an orb ('within five degrees') only for Algol; engine uses 5 degrees for all three and flags it; (3) the printed name is 'Caput Algot' (misprint for Algol).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 115,
+          "quote": "A ready Table whereby to examine the Fortitudes and Debilities of the Planets"
+        },
+        {
+          "work": "LILLY",
+          "page": 103,
+          "quote": "certaine notable fixed Stars, as shall hereafter be related"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.joys",
+      "category": "house",
+      "title_en": "Joys of the planets in the houses",
+      "title_vi": "Nhà vui (joy) của các sao",
+      "statement_en": "Lilly names the house in which each planet rejoices: Mercury the 1st, the Moon the 3rd, Venus the 5th, Mars the 6th, the Sun the 9th, Jupiter the 11th, Saturn the 12th.",
+      "statement_vi": "Lilly nêu nhà mà mỗi sao 'vui' (joy): Thủy tinh ở nhà 1, Mặt Trăng ở nhà 3, Kim tinh ở nhà 5, Hỏa tinh ở nhà 6, Mặt Trời ở nhà 9, Mộc tinh ở nhà 11, Thổ tinh ở nhà 12.",
+      "conditions": "joy: Mercury 1, Moon 3, Venus 5, Mars 6, Sun 9, Jupiter 11, Saturn 12. Lilly gives no points for joys (not in the p.115 table): descriptive only.",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 51,
+          "quote": "doth also joy in this house, because it represents the Head, and he the Tongue, Fancy and Memory"
+        },
+        {
+          "work": "LILLY",
+          "page": 52,
+          "quote": "it is a Cadent house, and is the joy of the"
+        },
+        {
+          "work": "LILLY",
+          "page": 53,
+          "quote": "joy in this house, in regard its the house of Pleasure, Delight and Meriment"
+        },
+        {
+          "work": "LILLY",
+          "page": 54,
+          "quote": "rejoyceth in this house"
+        },
+        {
+          "work": "LILLY",
+          "page": 55,
+          "quote": "rejoyceth to be in this House, which is Masculine,and Cadent"
+        },
+        {
+          "work": "LILLY",
+          "page": 56,
+          "quote": "doth especially rejoyce in this House"
+        },
+        {
+          "work": "LILLY",
+          "page": 56,
+          "quote": "Saturne doth much joy in that House"
+        }
+      ],
+      "example": "Planet glyphs in each sentence checked on the page images (pp.51-56).",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.good_evil",
+      "category": "house",
+      "title_en": "Unfortunate houses",
+      "title_vi": "Các nhà xấu",
+      "statement_en": "Lilly does not print a list of 'good' and 'evil' houses in Book I. What he does say: the 6th is unfortunate as having no aspect to the ascendant (p.54); the 12th signifies private enemies, sorrow, tribulation, imprisonment and all affliction (p.56); the 8th signifies death and fear and anguish of mind (p.54); cadents are poor and of little efficacy (p.48); in the p.115 table only the 12th (-5) and the 8th and 6th (-2) carry negative points.",
+      "statement_vi": "Ở Quyển I, Lilly không in danh sách nhà 'tốt' và nhà 'xấu'. Điều ông nói: nhà 6 là nhà xấu vì không có góc chiếu với cung Mệnh (tr.54); nhà 12 chủ kẻ thù ngầm, sầu khổ, hoạn nạn, tù đày và mọi tai ương (tr.56); nhà 8 chủ cái chết, sợ hãi và lo âu (tr.54); các nhà rơi (cadent) yếu và ít hiệu lực (tr.48); trong bảng điểm tr.115 chỉ nhà 12 (-5), nhà 8 và nhà 6 (-2) bị điểm âm.",
+      "conditions": "evil_houses (by points) = {12: -5, 8: -2, 6: -2}; all others positive.",
+      "effect": "definition",
+      "status": "operationalised",
+      "engine_choice": "Lilly uses 'good Houses' / 'friendly Houses' in his perfection rules (p.125) without defining them in Book I. Engine: 'good houses' = houses with positive points in the p.115 table; 6, 8, 12 are the unfortunate ones.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 54,
+          "quote": "unfortunate, as having no aspect to the Ascendant"
+        },
+        {
+          "work": "LILLY",
+          "page": 125,
+          "quote": "apply by"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.aspect.antiscia",
+      "category": "aspect",
+      "title_en": "Antiscia and contra-antiscia",
+      "title_vi": "Điểm phản chiếu (antiscion) và phản-phản chiếu",
+      "statement_en": "Antiscion signs are of the same virtue, equally distant from the first degree of the two tropical signs Cancer and Capricorn; while the Sun is in such degrees the days and nights are of equal length. A planet gives virtue to any star or planet in its antiscion by conjunction or aspect. The antiscia of the good planets are thought equal to a sextile or trine; the contra-antiscion (the opposite degree) is of the nature of a square or opposition.",
+      "statement_vi": "Các cung phản chiếu (antiscion) có cùng sức tác dụng, cách đều độ đầu của hai cung chí tuyến Cự Giải và Ma Kết; khi Mặt Trời ở những độ ấy thì ngày và đêm dài bằng nhau. Một sao truyền sức cho sao hoặc định tinh nằm ở điểm phản chiếu của nó, bằng giao hội hay góc chiếu. Điểm phản chiếu của các sao tốt được coi như lục hợp hay tam hợp; điểm phản-phản chiếu (contra-antiscion, độ đối diện) mang tính chất của góc vuông hay góc xung.",
+      "conditions": "antiscion(lon) = (180 - lon) mod 360 (mirror across 0 Cancer / 0 Capricorn); sign pairs Gemini-Cancer, Taurus-Leo, Aries-Virgo, Pisces-Libra, Aquarius-Scorpio, Capricorn-Sagittarius; degree = 30 - degree-in-sign. contra_antiscion = antiscion + 180.",
+      "effect": "modifies",
+      "status": "operationalised",
+      "engine_choice": "Lilly gives no orb for antiscia and does not use them in the p.115 table. Engine: compute and display; a planet within 1 degree of another's antiscion is recorded as a trace note only (flagged engine choice).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 90,
+          "quote": "The Antiscion Signes are those, which are of the same vertue and are equally distant from the first degree of the two Tropick Signes"
+        },
+        {
+          "work": "LILLY",
+          "page": 92,
+          "quote": "so are there Contrantiscions, which we find to be of the"
+        }
+      ],
+      "example": "Lilly's own (pp.90-92, image checked): the Sun in 10 Taurus has his antiscion in 20 Leo; Saturn in 20°35' Leo has his antiscion in 9°25' Taurus and his contra-antiscion in 9°25' Scorpio.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.signs.quality",
+      "category": "house",
+      "title_en": "Moveable, fixed and common signs",
+      "title_vi": "Cung động, cung cố định và cung song thể",
+      "statement_en": "Aries, Cancer, Libra and Capricorn are moveable and cardinal; Taurus, Leo, Scorpio and Aquarius fixed; Gemini, Virgo, Sagittarius and Pisces common (bicorporeal). If the lord of the ascendant and the ascendant are both in moveable signs the person is unstable; both fixed, of firm resolution; both common, between both. Significators in moveable signs hasten the time, common signs lengthen it, fixed signs lengthen it more (p.110).",
+      "statement_vi": "Bạch Dương, Cự Giải, Thiên Bình và Ma Kết là cung động (moveable, cardinal); Kim Ngưu, Sư Tử, Thiên Yết và Bảo Bình là cung cố định (fixed); Song Tử, Xử Nữ, Nhân Mã và Song Ngư là cung song thể (common, hai thân). Nếu cung Mệnh và chủ cung Mệnh đều ở cung động thì người đó không kiên định; đều ở cung cố định thì quyết tâm vững; đều ở cung song thể thì ở giữa. Sao chỉ thị ở cung động làm việc đến nhanh, cung song thể chậm hơn, cung cố định chậm nữa (tr.110).",
+      "conditions": "moveable {Aries, Cancer, Libra, Capricorn}; fixed {Taurus, Leo, Scorpio, Aquarius}; common {Gemini, Virgo, Sagittarius, Pisces}.",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 88,
+          "quote": "The Signes againe are divided into Moveable, Fixed and Common"
+        },
+        {
+          "work": "LILLY",
+          "page": 88,
+          "quote": "Signes are constituted between moveable and fixed, and retaine a property or nature, pertaking both with the preceding and consequent Signe"
+        },
+        {
+          "work": "LILLY",
+          "page": 89,
+          "quote": "it denotes the person to be unstable,and of no resolution"
+        }
+      ],
+      "example": "Sign lists read from the p.88 image.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.signs.masculine_feminine",
+      "category": "house",
+      "title_en": "Masculine and feminine signs",
+      "title_vi": "Cung dương và cung âm",
+      "statement_en": "Aries, Gemini, Leo, Libra, Sagittarius and Aquarius are masculine, diurnal and therefore hot; Taurus, Cancer, Virgo, Scorpio, Capricorn and Pisces feminine, nocturnal and therefore cold. A masculine planet in a masculine sign imports the person more manly; in a feminine sign, less courageous.",
+      "statement_vi": "Bạch Dương, Song Tử, Sư Tử, Thiên Bình, Nhân Mã và Bảo Bình là cung dương, phe ngày, nên nóng; Kim Ngưu, Cự Giải, Xử Nữ, Thiên Yết, Ma Kết và Song Ngư là cung âm, phe đêm, nên lạnh. Sao dương ở cung dương cho thấy người đó mạnh mẽ hơn; ở cung âm thì kém can đảm hơn.",
+      "conditions": "masculine signs = {Aries, Gemini, Leo, Libra, Sagittarius, Aquarius}; feminine = the other six. Used by lilly.hayz.",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 88,
+          "quote": "Againe, some Signes are Masculine, Diurnal, and therefore Hot"
+        },
+        {
+          "work": "LILLY",
+          "page": 88,
+          "quote": "That if you have a Masculine Planet in a Masculine Signe,it imports him or her more manly"
+        }
+      ],
+      "example": "Sign lists read from the p.88 image.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.method.planetary_hours",
+      "category": "method",
+      "title_en": "Planetary hours",
+      "title_vi": "Giờ hành tinh (planetary hours)",
+      "statement_en": "Each weekday has its planet (Sunday Sun, Monday Moon, Tuesday Mars, Wednesday Mercury, Thursday Jupiter, Friday Venus, Saturday Saturn). The first hour after sunrise belongs to the day's planet, the following hours to the planets in the order Saturn, Jupiter, Mars, Sun, Venus, Mercury, Moon, continuing through the night. The time from sunrise to sunset is divided into twelve equal parts and from sunset to the next sunrise into twelve: unequal hours, sixty minutes only at the Sun's entry into Aries or Libra.",
+      "statement_vi": "Mỗi ngày trong tuần có sao chủ (Chủ nhật Mặt Trời, thứ Hai Mặt Trăng, thứ Ba Hỏa tinh, thứ Tư Thủy tinh, thứ Năm Mộc tinh, thứ Sáu Kim tinh, thứ Bảy Thổ tinh). Giờ đầu tiên sau khi mặt trời mọc thuộc sao chủ ngày, các giờ sau lần lượt theo thứ tự Thổ, Mộc, Hỏa, Mặt Trời, Kim, Thủy, Mặt Trăng, tiếp tục qua đêm. Khoảng từ mặt trời mọc tới lặn chia đều mười hai phần, từ lặn tới lúc mọc hôm sau chia mười hai phần: đó là giờ không đều, chỉ đúng sáu mươi phút vào lúc Mặt Trời vào Bạch Dương hoặc Thiên Bình.",
+      "conditions": "See tables_lilly.json planetary_hours. hour_index = floor((t - sunrise)/((sunset - sunrise)/12)) for day; night similarly from sunset to next sunrise; ruler = chaldean[(start_index(day_ruler) + n) mod 7].",
+      "effect": "definition",
+      "status": "operationalised",
+      "engine_choice": "Lilly reads sunrise from his own table (latitude of England); the engine computes sunrise and sunset for the place of the question (upper limb vs centre of the Sun and refraction are engine choices Lilly does not address). A question before sunrise belongs to the previous weekday's planetary day.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 482,
+          "quote": "and the first hour of every day we assigne to that Planet assigned for the day, beginning at Sun-rise ever"
+        },
+        {
+          "work": "LILLY",
+          "page": 482,
+          "quote": "for all that space of time which is contained from Sun rise to Sun-set, they divide into twelve equall pars"
+        },
+        {
+          "work": "LILLY",
+          "page": 483,
+          "quote": "so that your Astrologicall hours are called unequall hours"
+        }
+      ],
+      "example": "Lilly's own (p.482, image checked): on Sunday the Sun rules the first hour, Venus the second, Mercury the third, the Moon the fourth, Saturn the fifth, Jupiter the sixth; continuing, the Moon rules the first hour of Monday.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.1.meaning",
+      "category": "house",
+      "title_en": "First house (Ascendant): significations",
+      "title_vi": "Nhà 1 (cung Mệnh, Ascendant): ý nghĩa",
+      "statement_en": "The first house signifies the life of man, the stature, colour, complexion, form and shape of him that propounds the question or is born; in mundane figures the common people. It represents the head and face. Colour white; masculine; consignificators Aries and Saturn; Mercury joys in it.",
+      "statement_vi": "Nhà 1 chủ đời sống con người, vóc dáng, màu da, nước da, hình dạng của người đặt câu hỏi hoặc người được sinh ra; trong lá số thế sự (mundane) là dân chúng. Nhà này ứng với đầu và mặt. Màu trắng; nhà dương; đồng chỉ thị là Bạch Dương và Thổ tinh; Thủy tinh vui ở nhà này.",
+      "persons_vi": [
+        "người hỏi",
+        "dân chúng (lá số thế sự)"
+      ],
+      "matters_vi": [
+        "đời sống",
+        "vóc dáng, diện mạo",
+        "đầu và mặt"
+      ],
+      "conditions": "house 1 = querent (see lilly.significator.lord_of_house).",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 50,
+          "quote": "It hath signification of the life of man,of the stature, colour, complexion, forme and shape of him that propounds the Question"
+        },
+        {
+          "work": "LILLY",
+          "page": 50,
+          "quote": "it signifieth the Common people, or generall State of that Kingdome where the Figure is erected"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.2.meaning",
+      "category": "house",
+      "title_en": "Second house: significations",
+      "title_vi": "Nhà 2: ý nghĩa",
+      "statement_en": "From the second house judgment is required of the estate or fortune of the querent, his wealth or poverty, all moveable goods, money lent, profit or gain, loss or damage; in suits of law a man's friends or assistants; in private duels the querent's second. It rules the neck; colour green; feminine and succedent.",
+      "statement_vi": "Nhà 2 dùng để xét tài sản hay vận may của người hỏi, sự giàu nghèo, mọi động sản, tiền cho vay, lợi lộc hay thua lỗ, thiệt hại; trong kiện tụng là bạn bè hay người trợ giúp của đương sự; trong cuộc đấu tay đôi là người phụ tá (second) của người hỏi. Ứng với cổ; màu xanh lục; nhà âm, nhà nối (succedent).",
+      "persons_vi": [
+        "người trợ giúp trong vụ kiện",
+        "người phụ tá trong cuộc đấu"
+      ],
+      "matters_vi": [
+        "tài sản, tiền bạc",
+        "động sản",
+        "tiền cho vay",
+        "lời lãi, thua lỗ"
+      ],
+      "conditions": "house 2 = querent's moveable goods and money; helpers in lawsuits.",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 51,
+          "quote": "From this house is required judgment concerning the estate or fortune of him that asks the Question, of his Wealth or Poverty, of all moveable Goods, Money lent"
+        },
+        {
+          "work": "LILLY",
+          "page": 51,
+          "quote": "in suits of Law, it signifies a mans Friends or Assistants; in private Duels, the Querents second"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.3.meaning",
+      "category": "house",
+      "title_en": "Third house: significations",
+      "title_vi": "Nhà 3: ý nghĩa",
+      "statement_en": "The third house signifies brethren, sisters, cousins or kindred, neighbours, small or inland journeys, often removing from place to place, epistles, letters, rumours, messengers. It rules the shoulders, arms, hands and fingers; cadent; the joy of the Moon; masculine.",
+      "statement_vi": "Nhà 3 chủ anh chị em, anh em họ hay họ hàng, hàng xóm, những chuyến đi ngắn hay đi lại trong nước, sự hay di chuyển chỗ ở, thư từ, tin đồn, người đưa tin. Ứng với vai, cánh tay, bàn tay và ngón tay; nhà rơi (cadent); là nhà vui của Mặt Trăng; nhà dương.",
+      "persons_vi": [
+        "anh chị em",
+        "anh em họ, họ hàng",
+        "hàng xóm",
+        "người đưa tin"
+      ],
+      "matters_vi": [
+        "chuyến đi ngắn",
+        "thư từ",
+        "tin đồn",
+        "đi lại thường xuyên"
+      ],
+      "conditions": "house 3 = siblings, kin, neighbours, short journeys, letters.",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 52,
+          "quote": "Hath signification of Brethren, Sisters, Cozens or Kindred, Neighbours, small Journeys, or inland-journeys"
+        },
+        {
+          "work": "LILLY",
+          "page": 52,
+          "quote": "Epistles, Letters, Rumours, Messengers"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.4.meaning",
+      "category": "house",
+      "title_en": "Fourth house: significations",
+      "title_vi": "Nhà 4: ý nghĩa",
+      "statement_en": "The fourth house gives judgment of fathers in general and of the querent's father; of lands, houses, tenements, inheritances, tillage of the earth, treasures hidden, the determination or end of any thing; towns, cities or castles besieged; ancient dwellings, gardens, fields, pastures, orchards; the quality of grounds purchased. The sign of the fourth denotes the town, its lord or governor. It rules the breast and lungs; called the angle of the earth (Imum Coeli); feminine; the north angle.",
+      "statement_vi": "Nhà 4 dùng để xét cha nói chung và cha của người hỏi; ruộng đất, nhà cửa, bất động sản cho thuê, di sản thừa kế, việc cày cấy, kho báu chôn giấu, kết cục hay chung cuộc của mọi việc; thành trì bị vây; nhà cũ, vườn, ruộng, đồng cỏ, vườn cây; chất lượng đất mua. Cung trên đỉnh nhà 4 chỉ thị thị trấn, người đứng đầu hay quan cai trị nơi đó. Ứng với ngực và phổi; gọi là góc Đất (Imum Coeli); nhà âm; góc phương bắc.",
+      "persons_vi": [
+        "cha",
+        "người cai quản thị trấn (theo cung nhà 4)"
+      ],
+      "matters_vi": [
+        "ruộng đất, nhà cửa",
+        "di sản thừa kế",
+        "kho báu chôn giấu",
+        "kết cục của sự việc"
+      ],
+      "conditions": "house 4 = father, land and houses, end of the matter.",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 52,
+          "quote": "Giveth Judgment of Fathers in general"
+        },
+        {
+          "work": "LILLY",
+          "page": 52,
+          "quote": "Inheritances, Tillage of the earth, Treasures hidden"
+        },
+        {
+          "work": "LILLY",
+          "page": 53,
+          "quote": "The Signe of the fourth denoteth the Town,the Lord thereof, the Governour"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.5.meaning",
+      "category": "house",
+      "title_en": "Fifth house: significations",
+      "title_vi": "Nhà 5: ý nghĩa",
+      "statement_en": "By the fifth house we judge of children, ambassadors, the state of a woman with child, banquets, ale-houses, taverns, plays, messengers or agents for republics; the wealth of the father; the ammunition of a town besieged. It rules the stomach, liver, heart, sides and back; masculine; succedent; Venus joys in it as the house of pleasure, delight and merriment.",
+      "statement_vi": "Nhà 5 dùng để xét con cái, sứ giả, tình trạng người phụ nữ mang thai, tiệc tùng, quán rượu, quán trọ, hội diễn, người đưa tin hay đại diện cho nhà nước; tài sản của cha; quân nhu của thành bị vây. Ứng với dạ dày, gan, tim, hai bên sườn và lưng; nhà dương; nhà nối; Kim tinh vui ở nhà này vì đây là nhà của khoái lạc, niềm vui và sự vui vẻ.",
+      "persons_vi": [
+        "con cái",
+        "sứ giả",
+        "người đại diện, người đưa tin của nhà nước"
+      ],
+      "matters_vi": [
+        "con cái",
+        "tiệc tùng",
+        "quán rượu, quán trọ",
+        "hội diễn, vui chơi",
+        "tài sản của cha"
+      ],
+      "conditions": "house 5 = children, pleasures, ambassadors.",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 53,
+          "quote": "By this house we judge of Children, of Embassadours, of the state of a Woman with child, of Banquets, of Ale-houses, Tavernes, Playes"
+        }
+      ],
+      "exceptions": [
+        "Pregnancy and health of children are recorded as house significations only; the product does not judge them."
+      ],
+      "example": "",
+      "school": "lilly"
+    },
+    {
+      "id": "lilly.house.6.meaning",
+      "category": "house",
+      "title_en": "Sixth house: significations",
+      "title_vi": "Nhà 6: ý nghĩa",
+      "statement_en": "The sixth house concerns men and maid servants, galley-slaves, hogs, sheep, goats, hares, conies, all manner of lesser cattle and profit or loss by them; sickness, its quality and cause; day-labourers, tenants, farmers, shepherds, hog-herds, neat-herds, warreners; and uncles, the father's brothers and sisters. It rules the inferior part of the belly and intestines; feminine and cadent, unfortunate as having no aspect to the ascendant; Mars rejoices in it.",
+      "statement_vi": "Nhà 6 liên quan đến đầy tớ trai gái, nô lệ chèo thuyền, lợn, cừu, dê, thỏ rừng, thỏ nhà, mọi loại gia súc nhỏ và lời lỗ từ chúng; bệnh tật, tính chất và nguyên nhân; người làm công nhật, người thuê đất, tá điền, người chăn cừu, chăn lợn, chăn bò, người giữ bãi thỏ; và chú bác, cô (anh chị em của cha). Ứng với phần bụng dưới và ruột; nhà âm, nhà rơi, nhà xấu vì không có góc chiếu với cung Mệnh; Hỏa tinh vui ở nhà này.",
+      "persons_vi": [
+        "đầy tớ, người làm",
+        "người làm công nhật",
+        "người thuê đất, tá điền",
+        "chú bác, cô (bên nội)"
+      ],
+      "matters_vi": [
+        "gia súc nhỏ",
+        "bệnh tật (chỉ là ý nghĩa của nhà; sản phẩm không luận)"
+      ],
+      "conditions": "house 6 = servants, small animals, tenants, paternal uncles and aunts; illness (boundary: not judged).",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 53,
+          "quote": "It concerneth Men and Maid-servants"
+        },
+        {
+          "work": "LILLY",
+          "page": 53,
+          "quote": "Day-Labourers,Tenants,Farmers, Shepherds"
+        },
+        {
+          "work": "LILLY",
+          "page": 53,
+          "quote": "it signifieth Unkles, or the Fathers Brothers and Sisters"
+        },
+        {
+          "work": "LILLY",
+          "page": 54,
+          "quote": "unfortunate, as having no aspect to the Ascendant"
+        }
+      ],
+      "exceptions": [
+        "Sickness is recorded only as a house signification; the product does not judge health."
+      ],
+      "example": "",
+      "school": "lilly"
+    },
+    {
+      "id": "lilly.house.7.meaning",
+      "category": "house",
+      "title_en": "Seventh house: significations",
+      "title_vi": "Nhà 7: ý nghĩa",
+      "statement_en": "The seventh house gives judgment of marriage and describes the person inquired after, man or woman; all love questions; public enemies; the defendant in a lawsuit; in war the opposing party; all quarrels, duels, lawsuits; in astrology the artist himself; in physic the physician; thieves and thefts; wives, sweethearts; fugitives or runaways; banished and outlawed men. It is the angle of the west; masculine.",
+      "statement_vi": "Nhà 7 dùng để xét hôn nhân và mô tả người được hỏi đến, dù nam hay nữ; mọi câu hỏi về tình yêu; kẻ thù công khai; bị đơn trong vụ kiện; bên đối địch trong chiến tranh; mọi cãi vã, đấu tay đôi, kiện tụng; trong chiêm tinh là chính nhà chiêm tinh; trong y học là thầy thuốc; kẻ trộm và vụ trộm; vợ, người yêu; kẻ bỏ trốn; người bị lưu đày và kẻ ngoài vòng pháp luật. Là góc phương tây; nhà dương.",
+      "persons_vi": [
+        "vợ, chồng",
+        "người yêu",
+        "người được hỏi đến",
+        "kẻ thù công khai",
+        "bị đơn",
+        "đối phương",
+        "nhà chiêm tinh",
+        "thầy thuốc",
+        "kẻ trộm",
+        "kẻ bỏ trốn"
+      ],
+      "matters_vi": [
+        "hôn nhân",
+        "chuyện tình cảm",
+        "kiện tụng, tranh chấp",
+        "trộm cắp"
+      ],
+      "conditions": "house 7 = spouse/partner, the other party, open enemies, thief, the astrologer.",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 54,
+          "quote": "It giveth judgement of Marriage, and describes the person inquired after, whether it be Man or Woman"
+        },
+        {
+          "work": "LILLY",
+          "page": 54,
+          "quote": "our publique enemies; the Defendant in a Lawsuit, in Warre the opposing party"
+        },
+        {
+          "work": "LILLY",
+          "page": 54,
+          "quote": "in Astrology the Artist himselfe; in Physicke the Physitian; Theeves and Thefts"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.8.meaning",
+      "category": "house",
+      "title_en": "Eighth house: significations",
+      "title_vi": "Nhà 8: ý nghĩa",
+      "statement_en": "The eighth house signifies the estate of men deceased, death, its quality and nature; the wills, legacies and testaments of men deceased; the dowry of the wife, the portion of the maid, whether much or little, easy or hard to obtain; in duels the adversary's second; in lawsuits the defendant's friends; who shall be heir to the deceased; fear and anguish of mind. It rules the privy parts; succedent; feminine.",
+      "statement_vi": "Nhà 8 chủ tài sản của người đã chết, cái chết và tính chất của nó; di chúc, di sản của người chết; của hồi môn của vợ, phần của người con gái, nhiều hay ít, dễ hay khó lấy; trong cuộc đấu là người phụ tá của đối phương; trong kiện tụng là bạn bè của bị đơn; ai sẽ thừa kế người chết; nỗi sợ hãi và lo âu trong lòng. Ứng với bộ phận sinh dục; nhà nối; nhà âm.",
+      "persons_vi": [
+        "người phụ tá của đối phương",
+        "bạn bè của bị đơn",
+        "người thừa kế của người đã mất"
+      ],
+      "matters_vi": [
+        "tài sản người đã mất",
+        "di chúc, di sản",
+        "của hồi môn",
+        "nỗi sợ hãi, lo âu",
+        "cái chết (chỉ là ý nghĩa của nhà; sản phẩm không luận)"
+      ],
+      "conditions": "house 8 = the dead's goods, legacies, dowry, the other party's money and helpers; death (boundary: not judged).",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 54,
+          "quote": "the Wils, Legacies and Testaments of Men deceased; Dowry of the Wife, Portion of the Maid"
+        },
+        {
+          "work": "LILLY",
+          "page": 54,
+          "quote": "In Duels it represents the Adversaries Second; in Lawsuits the Defendants friends"
+        }
+      ],
+      "exceptions": [
+        "Death is recorded only as a house signification; the product does not judge it."
+      ],
+      "example": "",
+      "school": "lilly"
+    },
+    {
+      "id": "lilly.house.9.meaning",
+      "category": "house",
+      "title_en": "Ninth house: significations",
+      "title_vi": "Nhà 9: ý nghĩa",
+      "statement_en": "By the ninth house we judge of voyages or long journeys beyond seas, of religious men or clergy of any kind, bishops or inferior ministers; dreams, visions, foreign countries, books, learning, church livings or benefices, advowsons; of the kindred of one's wife (and of the husband's kin). It rules the fundament, hips and thighs; masculine and cadent; the Sun rejoices in it.",
+      "statement_vi": "Nhà 9 dùng để xét những chuyến đi xa hay vượt biển, giới tu hành, giáo sĩ mọi bậc từ giám mục tới mục sư thường; giấc mơ, thị kiến, nước ngoài, sách vở, học vấn, chức vụ và bổng lộc trong nhà thờ; họ hàng bên vợ (và bên chồng). Ứng với hậu môn, hông và đùi; nhà dương, nhà rơi; Mặt Trời vui ở nhà này.",
+      "persons_vi": [
+        "giáo sĩ, người tu hành",
+        "họ hàng bên vợ/chồng",
+        "người học thức"
+      ],
+      "matters_vi": [
+        "chuyến đi xa, vượt biển",
+        "nước ngoài",
+        "tôn giáo",
+        "giấc mơ",
+        "sách vở, học vấn"
+      ],
+      "conditions": "house 9 = long journeys, clergy, learning, in-laws.",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 55,
+          "quote": "By this House we give judgement of Voyages or long journies beyond Seas"
+        },
+        {
+          "work": "LILLY",
+          "page": 55,
+          "quote": "Dreames, Visions,forraigne Countries, of Books, Learning, Church Livings, or Benefices"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.10.meaning",
+      "category": "house",
+      "title_en": "Tenth house (Midheaven): significations",
+      "title_vi": "Nhà 10 (Thiên Đỉnh, Midheaven): ý nghĩa",
+      "statement_en": "The tenth house personates kings, princes, dukes, earls, judges, prime officers, commanders in chief in armies or towns, all sorts of magistracy and officers in authority; mothers; honour, preferment, dignity, office; lawyers; the profession or trade any one uses; kingdoms, empires, dukedoms, counties. It rules the knees and hams; called Medium Coeli; feminine.",
+      "statement_vi": "Nhà 10 đại diện cho vua chúa, hoàng thân, công tước, bá tước, thẩm phán, quan chức cao cấp, người chỉ huy tối cao trong quân đội hay thành thị, mọi bậc quan lại và người có quyền; mẹ; danh dự, thăng tiến, chức tước, chức vụ; luật sư; nghề nghiệp hay công việc của một người; vương quốc, đế quốc, lãnh địa. Ứng với đầu gối và khoeo chân; gọi là Medium Coeli; nhà âm.",
+      "persons_vi": [
+        "vua chúa, người cầm quyền",
+        "thẩm phán, quan chức",
+        "cấp trên, người chỉ huy",
+        "mẹ",
+        "luật sư"
+      ],
+      "matters_vi": [
+        "danh dự, địa vị",
+        "thăng tiến, chức vụ",
+        "nghề nghiệp"
+      ],
+      "conditions": "house 10 = authorities, mother, honour, profession.",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 55,
+          "quote": "Commonly it personateth Kings, Princes, Dukes, Earles, Judges, prime Officers,Commanders in chiefe"
+        },
+        {
+          "work": "LILLY",
+          "page": 55,
+          "quote": "Mothers, Honour, Preferment, Dignity, Office, Lawyers"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.11.meaning",
+      "category": "house",
+      "title_en": "Eleventh house: significations",
+      "title_vi": "Nhà 11: ý nghĩa",
+      "statement_en": "The eleventh house represents friends and friendship, hope, trust, confidence, the praise or dispraise of any one, the fidelity or falseness of friends; to kings their favourites, counsellors, servants, associates or allies, their money, exchequer or treasure; in war their ammunition and soldiery; courtiers. It rules the legs to the ankles; succedent, masculine; Jupiter rejoices in it; in virtue equivalent to the seventh or fourth.",
+      "statement_vi": "Nhà 11 đại diện cho bạn bè và tình bạn, hy vọng, sự tin cậy, lời khen hay chê của người khác, sự trung thành hay phản trắc của bạn bè; đối với vua chúa là người được sủng ái, cố vấn, người hầu cận, đồng minh, tiền bạc và ngân khố của họ; trong chiến tranh là quân nhu và binh lính; triều thần. Ứng với cẳng chân tới mắt cá; nhà nối, nhà dương; Mộc tinh vui ở nhà này; về sức mạnh tương đương nhà 7 hoặc nhà 4.",
+      "persons_vi": [
+        "bạn bè",
+        "người được sủng ái, cố vấn của người quyền thế",
+        "đồng minh",
+        "triều thần"
+      ],
+      "matters_vi": [
+        "hy vọng",
+        "sự tin cậy",
+        "lời khen chê",
+        "ngân khố của nhà vua"
+      ],
+      "conditions": "house 11 = friends, hopes, allies; the king's treasury.",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 56,
+          "quote": "It doth naturally represent Friends and Friendship, Hope, Trust, Confidence"
+        },
+        {
+          "work": "LILLY",
+          "page": 56,
+          "quote": "as to Kings it personates their Favourites, Councellours, Servants,their Associates or Allyes"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.house.12.meaning",
+      "category": "house",
+      "title_en": "Twelfth house: significations",
+      "title_vi": "Nhà 12: ý nghĩa",
+      "statement_en": "The twelfth house signifies private enemies, witches, great cattle as horses, oxen, elephants; sorrow, tribulation, imprisonment, all manner of affliction, self-undoing; and such men as maliciously undermine their neighbours or inform secretly against them. It rules the feet; cadent, feminine, sometimes called Cataphora; Saturn joys in it, being naturally author of mischief.",
+      "statement_vi": "Nhà 12 chủ kẻ thù ngầm, phù thủy, gia súc lớn như ngựa, bò, voi; sầu khổ, hoạn nạn, tù đày, mọi loại tai ương, sự tự hủy hoại; và những kẻ ác ý ngấm ngầm hại hàng xóm hoặc lén tố giác họ. Ứng với bàn chân; nhà rơi, nhà âm, đôi khi gọi là Cataphora; Thổ tinh vui ở nhà này vì bản chất là kẻ gây tai họa.",
+      "persons_vi": [
+        "kẻ thù ngầm",
+        "kẻ ngấm ngầm hãm hại, tố giác",
+        "phù thủy"
+      ],
+      "matters_vi": [
+        "gia súc lớn (ngựa, bò)",
+        "sầu khổ, hoạn nạn",
+        "tù đày",
+        "sự tự hủy hoại"
+      ],
+      "conditions": "house 12 = secret enemies, large animals, imprisonment, affliction.",
+      "effect": "significator_assignment",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 56,
+          "quote": "It hath signification of private Enemies, of Witches, great Cattle, as Horses, Oxen, Elephants"
+        },
+        {
+          "work": "LILLY",
+          "page": 56,
+          "quote": "Imprisonments, all manner of affliction,self-undoing"
         }
       ],
       "example": "",
