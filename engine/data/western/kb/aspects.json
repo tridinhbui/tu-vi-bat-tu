@@ -1,0 +1,246 @@
+{
+  "_doc": "Aspect definitions and orb schemes. 'source' ids are in sources.json. An orb scheme marked convention has no single authority: astrologers and programs differ, so the scheme is named as Thiên Bàn's own and can be switched.",
+  "aspects": [
+    {
+      "id": "conjunction",
+      "angle": 0,
+      "family": "major",
+      "glyph": "☌",
+      "vi": "Trùng tụ",
+      "en": "Conjunction",
+      "signs_apart": 0,
+      "source": [
+        "PTOL_TETRA:I.13"
+      ],
+      "note": "Ptolemy lists the configurations (opposition, trine, square, sextile); the conjunction (bodily joining) is treated with them by every school."
+    },
+    {
+      "id": "opposition",
+      "angle": 180,
+      "family": "major",
+      "glyph": "☍",
+      "vi": "Đối đỉnh",
+      "en": "Opposition",
+      "signs_apart": 6,
+      "source": [
+        "PTOL_TETRA:I.13"
+      ]
+    },
+    {
+      "id": "trine",
+      "angle": 120,
+      "family": "major",
+      "glyph": "△",
+      "vi": "Tam hợp",
+      "en": "Trine",
+      "signs_apart": 4,
+      "source": [
+        "PTOL_TETRA:I.13"
+      ]
+    },
+    {
+      "id": "square",
+      "angle": 90,
+      "family": "major",
+      "glyph": "□",
+      "vi": "Vuông góc",
+      "en": "Square",
+      "signs_apart": 3,
+      "source": [
+        "PTOL_TETRA:I.13"
+      ]
+    },
+    {
+      "id": "sextile",
+      "angle": 60,
+      "family": "major",
+      "glyph": "⚹",
+      "vi": "Lục hợp",
+      "en": "Sextile",
+      "signs_apart": 2,
+      "source": [
+        "PTOL_TETRA:I.13"
+      ]
+    },
+    {
+      "id": "quincunx",
+      "angle": 150,
+      "family": "minor",
+      "glyph": "⚻",
+      "vi": "Lệch 150° (quincunx)",
+      "en": "Quincunx",
+      "signs_apart": 5,
+      "source": [
+        "CONV_MINOR"
+      ]
+    },
+    {
+      "id": "semisextile",
+      "angle": 30,
+      "family": "minor",
+      "glyph": "⚺",
+      "vi": "Bán lục hợp",
+      "en": "Semi-sextile",
+      "signs_apart": 1,
+      "source": [
+        "CONV_MINOR"
+      ]
+    },
+    {
+      "id": "semisquare",
+      "angle": 45,
+      "family": "minor",
+      "glyph": "∠",
+      "vi": "Bán vuông",
+      "en": "Semi-square",
+      "source": [
+        "CONV_MINOR"
+      ]
+    },
+    {
+      "id": "sesquiquadrate",
+      "angle": 135,
+      "family": "minor",
+      "glyph": "⚼",
+      "vi": "Vuông rưỡi",
+      "en": "Sesquiquadrate",
+      "source": [
+        "CONV_MINOR"
+      ]
+    },
+    {
+      "id": "quintile",
+      "angle": 72,
+      "family": "minor",
+      "glyph": "Q",
+      "vi": "Ngũ phân",
+      "en": "Quintile",
+      "source": [
+        "CONV_MINOR"
+      ]
+    },
+    {
+      "id": "biquintile",
+      "angle": 144,
+      "family": "minor",
+      "glyph": "bQ",
+      "vi": "Song ngũ phân",
+      "en": "Bi-quintile",
+      "source": [
+        "CONV_MINOR"
+      ]
+    }
+  ],
+  "orb_schemes": {
+    "thienban": {
+      "vi": "Mặc định Thiên Bàn (quy ước hiện đại)",
+      "status": "convention",
+      "source": [
+        "CONV_ORBS"
+      ],
+      "note": "Orb per aspect, widened when the Sun or Moon takes part. Chosen to sit inside the range modern programs use; it is a convention, not a rule from a book.",
+      "major": {
+        "conjunction": 8,
+        "opposition": 8,
+        "trine": 7,
+        "square": 7,
+        "sextile": 5
+      },
+      "luminary_bonus": {
+        "conjunction": 2,
+        "opposition": 2,
+        "trine": 1,
+        "square": 1,
+        "sextile": 1
+      },
+      "minor": {
+        "quincunx": 3,
+        "semisextile": 2,
+        "semisquare": 2,
+        "sesquiquadrate": 2,
+        "quintile": 1.5,
+        "biquintile": 1.5
+      },
+      "angle_orb_factor": 1.0,
+      "point_orbs": {
+        "north_node": 3,
+        "south_node": 3,
+        "chiron": 4,
+        "fortune": 2
+      }
+    },
+    "lilly": {
+      "vi": "Truyền thống: nửa tổng orb (moiety) của hai hành tinh, theo Lilly",
+      "status": "verified",
+      "source": [
+        "LILLY_CA:p.107"
+      ],
+      "note": "Lilly's own column of the p.107 orb table; aspect orb = half the sum of the two planets' orbs (moieties), platick aspect (p.107). Only the Ptolemaic aspects.",
+      "planet_orbs": {
+        "saturn": 10.0,
+        "jupiter": 12.0,
+        "mars": 7.5,
+        "sun": 17.0,
+        "venus": 8.0,
+        "mercury": 7.0,
+        "moon": 12.5
+      }
+    }
+  },
+  "patterns": {
+    "_doc": "Configurations built only from the aspects found with the selected orb scheme, among the ten planets (Chiron, nodes and angles excluded unless named).",
+    "grand_trine": {
+      "vi": "Đại tam hợp",
+      "need": "three bodies each trine the other two"
+    },
+    "t_square": {
+      "vi": "Chữ T (T-square)",
+      "need": "two bodies in opposition, a third square to both"
+    },
+    "grand_cross": {
+      "vi": "Đại thập tự",
+      "need": "four bodies forming two oppositions and four squares"
+    },
+    "yod": {
+      "vi": "Yod (ngón tay định mệnh)",
+      "need": "two bodies in sextile, each quincunx a third"
+    },
+    "kite": {
+      "vi": "Con diều",
+      "need": "a grand trine plus a fourth body opposite one corner and sextile the other two"
+    },
+    "mystic_rectangle": {
+      "vi": "Chữ nhật huyền bí",
+      "need": "two oppositions whose ends are joined by two trines and two sextiles"
+    },
+    "stellium": {
+      "vi": "Tụ hội (stellium)",
+      "need": "three or more of the ten planets in one sign (or one house); some authors ask for four"
+    },
+    "source": [
+      "CONV_PATTERNS"
+    ]
+  },
+  "transit_orbs": {
+    "thienban_transit": {
+      "vi": "Orb transit mặc định Thiên Bàn (quy ước)",
+      "status": "convention",
+      "source": [
+        "CONV_ORBS"
+      ],
+      "note": "Transit orbs are narrower than natal orbs in every school; the exact figure is a convention. Widen it to see a contact build earlier.",
+      "default": 1.0,
+      "moon": 1.0,
+      "sun": 1.0,
+      "mercury": 1.0,
+      "venus": 1.0,
+      "mars": 1.0,
+      "jupiter": 1.5,
+      "saturn": 1.5,
+      "uranus": 1.5,
+      "neptune": 1.5,
+      "pluto": 1.5,
+      "chiron": 1.5
+    }
+  }
+}

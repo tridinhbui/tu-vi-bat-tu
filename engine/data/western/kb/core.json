@@ -1,0 +1,395 @@
+{
+  "_doc": "Structural facts: names, glyphs, element/modality, rulerships, sect. Each table names its source (sources.json). 'traditional' rulers are the seven visible planets (Ptolemy, Valens, Lilly); 'modern' adds Uranus, Neptune, Pluto as co-rulers (20th-century convention). Nothing here is a reading.",
+  "planets": {
+    "sun": {
+      "vi": "Mặt Trời",
+      "en": "Sun",
+      "glyph": "☉",
+      "kind": "luminary",
+      "sect": "diurnal",
+      "gender": "masculine",
+      "nature": "benefic_neutral",
+      "classical": true
+    },
+    "moon": {
+      "vi": "Mặt Trăng",
+      "en": "Moon",
+      "glyph": "☽",
+      "kind": "luminary",
+      "sect": "nocturnal",
+      "gender": "feminine",
+      "nature": "benefic_neutral",
+      "classical": true
+    },
+    "mercury": {
+      "vi": "Sao Thủy",
+      "en": "Mercury",
+      "glyph": "☿",
+      "kind": "planet",
+      "sect": "variable",
+      "gender": "variable",
+      "nature": "common",
+      "classical": true
+    },
+    "venus": {
+      "vi": "Sao Kim",
+      "en": "Venus",
+      "glyph": "♀",
+      "kind": "planet",
+      "sect": "nocturnal",
+      "gender": "feminine",
+      "nature": "benefic",
+      "classical": true
+    },
+    "mars": {
+      "vi": "Sao Hỏa",
+      "en": "Mars",
+      "glyph": "♂",
+      "kind": "planet",
+      "sect": "nocturnal",
+      "gender": "masculine",
+      "nature": "malefic",
+      "classical": true
+    },
+    "jupiter": {
+      "vi": "Sao Mộc",
+      "en": "Jupiter",
+      "glyph": "♃",
+      "kind": "planet",
+      "sect": "diurnal",
+      "gender": "masculine",
+      "nature": "benefic",
+      "classical": true
+    },
+    "saturn": {
+      "vi": "Sao Thổ",
+      "en": "Saturn",
+      "glyph": "♄",
+      "kind": "planet",
+      "sect": "diurnal",
+      "gender": "masculine",
+      "nature": "malefic",
+      "classical": true
+    },
+    "uranus": {
+      "vi": "Sao Thiên Vương",
+      "en": "Uranus",
+      "glyph": "♅",
+      "kind": "outer",
+      "classical": false
+    },
+    "neptune": {
+      "vi": "Sao Hải Vương",
+      "en": "Neptune",
+      "glyph": "♆",
+      "kind": "outer",
+      "classical": false
+    },
+    "pluto": {
+      "vi": "Sao Diêm Vương",
+      "en": "Pluto",
+      "glyph": "♇",
+      "kind": "outer",
+      "classical": false
+    },
+    "chiron": {
+      "vi": "Chiron",
+      "en": "Chiron",
+      "glyph": "⚷",
+      "kind": "minor",
+      "classical": false
+    },
+    "north_node": {
+      "vi": "La Hầu (Nút Bắc)",
+      "en": "North Node",
+      "glyph": "☊",
+      "kind": "point",
+      "classical": true
+    },
+    "south_node": {
+      "vi": "Kế Đô (Nút Nam)",
+      "en": "South Node",
+      "glyph": "☋",
+      "kind": "point",
+      "classical": true
+    },
+    "fortune": {
+      "vi": "Điểm May Mắn (Lot of Fortune)",
+      "en": "Part of Fortune",
+      "glyph": "⊗",
+      "kind": "lot",
+      "classical": true
+    },
+    "spirit": {
+      "vi": "Điểm Tinh Thần (Lot of Spirit)",
+      "en": "Lot of Spirit",
+      "glyph": "◇",
+      "kind": "lot",
+      "classical": true
+    },
+    "asc": {
+      "vi": "Điểm Mọc (Ascendant)",
+      "en": "Ascendant",
+      "glyph": "ASC",
+      "kind": "angle"
+    },
+    "mc": {
+      "vi": "Thiên Đỉnh (Midheaven)",
+      "en": "Midheaven",
+      "glyph": "MC",
+      "kind": "angle"
+    },
+    "dsc": {
+      "vi": "Điểm Lặn (Descendant)",
+      "en": "Descendant",
+      "glyph": "DSC",
+      "kind": "angle"
+    },
+    "ic": {
+      "vi": "Thiên Để (Imum Coeli)",
+      "en": "Imum Coeli",
+      "glyph": "IC",
+      "kind": "angle"
+    }
+  },
+  "planet_sources": {
+    "sect": "PTOL_TETRA:I.7",
+    "gender": "PTOL_TETRA:I.6",
+    "nature": "PTOL_TETRA:I.5"
+  },
+  "signs": [
+    {
+      "id": "aries",
+      "vi": "Bạch Dương",
+      "en": "Aries",
+      "glyph": "♈",
+      "element": "fire",
+      "modality": "cardinal",
+      "polarity": "masculine",
+      "ruler": "mars",
+      "modern_ruler": "mars"
+    },
+    {
+      "id": "taurus",
+      "vi": "Kim Ngưu",
+      "en": "Taurus",
+      "glyph": "♉",
+      "element": "earth",
+      "modality": "fixed",
+      "polarity": "feminine",
+      "ruler": "venus",
+      "modern_ruler": "venus"
+    },
+    {
+      "id": "gemini",
+      "vi": "Song Tử",
+      "en": "Gemini",
+      "glyph": "♊",
+      "element": "air",
+      "modality": "mutable",
+      "polarity": "masculine",
+      "ruler": "mercury",
+      "modern_ruler": "mercury"
+    },
+    {
+      "id": "cancer",
+      "vi": "Cự Giải",
+      "en": "Cancer",
+      "glyph": "♋",
+      "element": "water",
+      "modality": "cardinal",
+      "polarity": "feminine",
+      "ruler": "moon",
+      "modern_ruler": "moon"
+    },
+    {
+      "id": "leo",
+      "vi": "Sư Tử",
+      "en": "Leo",
+      "glyph": "♌",
+      "element": "fire",
+      "modality": "fixed",
+      "polarity": "masculine",
+      "ruler": "sun",
+      "modern_ruler": "sun"
+    },
+    {
+      "id": "virgo",
+      "vi": "Xử Nữ",
+      "en": "Virgo",
+      "glyph": "♍",
+      "element": "earth",
+      "modality": "mutable",
+      "polarity": "feminine",
+      "ruler": "mercury",
+      "modern_ruler": "mercury"
+    },
+    {
+      "id": "libra",
+      "vi": "Thiên Bình",
+      "en": "Libra",
+      "glyph": "♎",
+      "element": "air",
+      "modality": "cardinal",
+      "polarity": "masculine",
+      "ruler": "venus",
+      "modern_ruler": "venus"
+    },
+    {
+      "id": "scorpio",
+      "vi": "Bọ Cạp",
+      "en": "Scorpio",
+      "glyph": "♏",
+      "element": "water",
+      "modality": "fixed",
+      "polarity": "feminine",
+      "ruler": "mars",
+      "modern_ruler": "pluto"
+    },
+    {
+      "id": "sagittarius",
+      "vi": "Nhân Mã",
+      "en": "Sagittarius",
+      "glyph": "♐",
+      "element": "fire",
+      "modality": "mutable",
+      "polarity": "masculine",
+      "ruler": "jupiter",
+      "modern_ruler": "jupiter"
+    },
+    {
+      "id": "capricorn",
+      "vi": "Ma Kết",
+      "en": "Capricorn",
+      "glyph": "♑",
+      "element": "earth",
+      "modality": "cardinal",
+      "polarity": "feminine",
+      "ruler": "saturn",
+      "modern_ruler": "saturn"
+    },
+    {
+      "id": "aquarius",
+      "vi": "Bảo Bình",
+      "en": "Aquarius",
+      "glyph": "♒",
+      "element": "air",
+      "modality": "fixed",
+      "polarity": "masculine",
+      "ruler": "saturn",
+      "modern_ruler": "uranus"
+    },
+    {
+      "id": "pisces",
+      "vi": "Song Ngư",
+      "en": "Pisces",
+      "glyph": "♓",
+      "element": "water",
+      "modality": "mutable",
+      "polarity": "feminine",
+      "ruler": "jupiter",
+      "modern_ruler": "neptune"
+    }
+  ],
+  "sign_sources": {
+    "ruler": "PTOL_TETRA:I.17",
+    "polarity": "PTOL_TETRA:I.12",
+    "modality": "PTOL_TETRA:I.11",
+    "modern_ruler": "CONV_MODERN_RULERS"
+  },
+  "elements": {
+    "fire": "Lửa",
+    "earth": "Đất",
+    "air": "Khí",
+    "water": "Nước"
+  },
+  "modalities": {
+    "cardinal": "Khởi đầu (cardinal)",
+    "fixed": "Kiên định (fixed)",
+    "mutable": "Biến đổi (mutable)"
+  },
+  "houses": [
+    {
+      "n": 1,
+      "vi": "Nhà 1",
+      "angular": "angular"
+    },
+    {
+      "n": 2,
+      "vi": "Nhà 2",
+      "angular": "succedent"
+    },
+    {
+      "n": 3,
+      "vi": "Nhà 3",
+      "angular": "cadent"
+    },
+    {
+      "n": 4,
+      "vi": "Nhà 4",
+      "angular": "angular"
+    },
+    {
+      "n": 5,
+      "vi": "Nhà 5",
+      "angular": "succedent"
+    },
+    {
+      "n": 6,
+      "vi": "Nhà 6",
+      "angular": "cadent"
+    },
+    {
+      "n": 7,
+      "vi": "Nhà 7",
+      "angular": "angular"
+    },
+    {
+      "n": 8,
+      "vi": "Nhà 8",
+      "angular": "succedent"
+    },
+    {
+      "n": 9,
+      "vi": "Nhà 9",
+      "angular": "cadent"
+    },
+    {
+      "n": 10,
+      "vi": "Nhà 10",
+      "angular": "angular"
+    },
+    {
+      "n": 11,
+      "vi": "Nhà 11",
+      "angular": "succedent"
+    },
+    {
+      "n": 12,
+      "vi": "Nhà 12",
+      "angular": "cadent"
+    }
+  ],
+  "house_systems": {
+    "placidus": {
+      "vi": "Placidus",
+      "note": "Chia cung bán nhật/bán dạ của từng đỉnh nhà thành ba phần; phổ biến nhất ở phần mềm hiện đại (mặc định của Astro.com)."
+    },
+    "whole_sign": {
+      "vi": "Whole Sign (trọn cung)",
+      "note": "Cả cung Mọc là Nhà 1, cung kế tiếp là Nhà 2…; cách của chiêm tinh Hy Lạp cổ đại, dùng cho profection."
+    },
+    "equal": {
+      "vi": "Equal House (nhà đều)",
+      "note": "Mỗi nhà đúng 30°, bắt đầu từ độ Mọc."
+    },
+    "porphyry": {
+      "vi": "Porphyry",
+      "note": "Chia đều mỗi góc phần tư giữa các trục; chỉ dùng thay Placidus ở vĩ độ trong vòng cực."
+    },
+    "regiomontanus": {
+      "vi": "Regiomontanus",
+      "note": "Chia xích đạo trời thành các cung 30° tính từ kinh tuyến rồi chiếu lên hoàng đạo qua hai điểm bắc, nam của chân trời; hệ nhà mà Lilly dùng trong Christian Astrology."
+    }
+  }
+}
