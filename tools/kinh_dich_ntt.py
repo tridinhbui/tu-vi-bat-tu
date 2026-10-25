@@ -118,6 +118,10 @@ def parse_pages(pages: dict[int, str]) -> tuple[list[dict], list[dict]]:
             elif tag in ("han", "am", "nghia", "trinh_di", "chu_hy", "tien_nho", "other"):
                 if seg is None:
                     raise ValueError(f"p.{page}: layer before @seg")
+                if tag == "han" and seg.get("han") and len(seg.get("order", [])) > 1:
+                    # a second LỜI KINH under one @seg (a transcriber kept several Thoán truyện blocks together): one block, one segment
+                    seg = _new_seg(seg["kind"], None, page) | {k: seg[k] for k in ("hao", "dung") if k in seg}
+                    blocks.append(seg)
                 label = None
                 m = re.match(r"<<(.*?)>>\s*", rest)
                 if m:
@@ -135,8 +139,13 @@ def parse_pages(pages: dict[int, str]) -> tuple[list[dict], list[dict]]:
                 raise ValueError(f"p.{page}: unknown tag @{tag}")
         # a footnote belongs to the segment whose text carries its mark
         for n, text in fns.items():
-            mark = f"[^{page}.{n}]"
-            owner = next((b for b in reversed(blocks) if "kind" in b and mark in json.dumps(b, ensure_ascii=False)), None)
+            if n == "cont":                       # the bottom of this page goes on with the previous page's last footnote
+                last = next(b for b in reversed(blocks) if b.get("footnotes"))["footnotes"][-1]
+                last["text"] = last["text"].rstrip() + " " + text
+                last["page_end"] = page
+                continue
+            marks = [f"[^{page}.{m}]" for m in n.split(",")]
+            owner = next((b for b in reversed(blocks) if "kind" in b and any(m in json.dumps(b, ensure_ascii=False) for m in marks)), None)
             if owner is None:
                 owner = next((b for b in reversed(blocks) if "kind" in b), None)
                 notes.append({"page": page, "note": f"footnote {n} has no mark in the text"})
@@ -187,9 +196,12 @@ def split_by_que(blocks: list[dict]) -> dict[int, dict]:
 
 
 def _match_name(title: str, names: list[str]) -> int:
-    key = lambda s: unicodedata.normalize("NFC", s).upper().replace("Ỵ", "Y").replace("Ý", "Y")
+    key = lambda s: unicodedata.normalize("NFC", s).upper()
     for i, n in enumerate(names):
         if key(n) == key(title):
+            return i + 1
+    for i, n in enumerate(names):                 # the heading of quẻ 8 is printed "QUẺ TỴ" (the Mục lục has "Ty")
+        if key(n) == key(title).replace("Ỵ", "Y"):
             return i + 1
     raise ValueError(f"heading 'QUẺ {title}' matches no quẻ of the Mục lục")
 
@@ -215,16 +227,16 @@ def finish_segment(seg: dict) -> dict:
     return out
 
 
-def assemble(pages_dir: Path) -> None:
+def assemble(pages_dir: Path, out: Path = OUT) -> None:
     pages = read_pages(pages_dir)
     blocks, notes = parse_pages(pages)
     ques = split_by_que(blocks)
-    OUT.mkdir(parents=True, exist_ok=True)
-    with open(OUT / "pages.txt", "w", encoding="utf-8") as f:
+    out.mkdir(parents=True, exist_ok=True)
+    with open(out / "pages.txt", "w", encoding="utf-8") as f:
         for p in sorted(pages):
             f.write(pages[p].rstrip("\n") + "\n\n")
     for n, q in sorted(ques.items()):
-        old = OUT / f"{n}.json"
+        old = out / f"{n}.json"
         status = {}
         if old.exists():                       # keep the check results of an earlier run (recomputed by `check`)
             prev = json.loads(old.read_text("utf-8"))
@@ -234,7 +246,7 @@ def assemble(pages_dir: Path) -> None:
         for i, s in enumerate(doc["segments"]):
             if i in status:
                 s["status"] = status[i]
-        (OUT / f"{n}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", "utf-8")
+        (out / f"{n}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", "utf-8")
     print(f"{len(pages)} pages, {len(ques)} quẻ: {sorted(ques)}")
     for n in notes:
         print(f"  note p.{n['page']}: {n['note']}")
@@ -253,6 +265,7 @@ def wiki_clean(s: str) -> str:
     s = re.sub(r"\[\[[^\]|]*\|([^\]]*)\]\]", r"\1", s)
     s = re.sub(r"\[\[([^\]]*)\]\]", r"\1", s)
     s = re.sub(r"<[^>]+>", "", s)
+    s = re.sub(r"\{\{[^{}]*\}\}", "", s)
     s = s.replace("'''", "").replace("''", "")
     return html.unescape(s).strip()
 
@@ -302,6 +315,7 @@ def parse_wiki(raw: str) -> list[dict]:
             else:
                 cur.setdefault("other_commentary", []).append({"label": label, "paragraphs": []})
                 key = ("other", len(cur["other_commentary"]) - 1)
+                cur["order"].append(f"other:{key[1]}")
             cur["refs"] += wiki_refs(text)
             _wiki_add(cur, key, wiki_clean(text))
             continue
@@ -314,6 +328,7 @@ def parse_wiki(raw: str) -> list[dict]:
         if s.get("other_commentary"):
             o["other_commentary"] = [{"label": c["label"], "text": "\n".join(c["paragraphs"])} for c in s["other_commentary"]]
         o["footnotes"] = [{"text": r} for r in s["refs"]]
+        o["order"] = s["order"]
         out.append(o)
     return out
 
@@ -384,10 +399,23 @@ def edit_distance(a: str, b: str) -> tuple[int, list[tuple[str, str]]]:
     return d, diffs
 
 
+def segment_text(s: dict) -> str:
+    """the Vietnamese text of a segment in book order, whatever layer each paragraph was filed under (Hán and footnotes left out)"""
+    parts = []
+    for key in s.get("order", []):
+        if key.startswith("other:"):
+            parts.append(s["other_commentary"][int(key[6:])]["text"])
+        elif key != "han" and s.get(key):
+            parts.append(s[key])
+    return "\n".join(parts)
+
+
 def layer_text(doc: dict, layer: str) -> str:
     parts = []
     for s in doc["segments"]:
-        if layer == "other":
+        if layer == "all":
+            parts.append(segment_text(s))
+        elif layer == "other":
             parts += [c["text"] for c in s.get("other_commentary", [])]
         elif layer == "footnotes":
             parts += [f["text"] for f in s.get("footnotes", [])]
@@ -396,7 +424,7 @@ def layer_text(doc: dict, layer: str) -> str:
     return "\n".join(parts)
 
 
-def cer(a_dir: Path, b_dir: Path, numbers: list[int], layers=("am", "nghia", "trinh_di", "chu_hy", "other", "footnotes"),
+def cer(a_dir: Path, b_dir: Path, numbers: list[int], layers=("all", "am", "nghia", "trinh_di", "chu_hy", "other", "footnotes"),
         show: int = 0) -> dict:
     """a = reference (Wikisource / first pass), b = transcription; CER = edit distance / reference length"""
     res = {}
@@ -414,19 +442,71 @@ def cer(a_dir: Path, b_dir: Path, numbers: list[int], layers=("am", "nghia", "tr
     return res
 
 
+def seg_diffs(a_dir: Path, b_dir: Path, numbers: list[int], layers=("am", "nghia", "trinh_di", "chu_hy", "other", "footnotes")):
+    """segment-by-segment differences (segments paired in book order; the counts must agree) with the page of b's segment"""
+    out = []
+    for n in numbers:
+        A = json.loads((a_dir / f"{n}.json").read_text("utf-8"))["segments"]
+        B = json.loads((b_dir / f"{n}.json").read_text("utf-8"))["segments"]
+        if len(A) != len(B):
+            out.append({"n": n, "error": f"segment count {len(A)} vs {len(B)}"})
+            continue
+        for i, (sa, sb) in enumerate(zip(A, B)):
+            for layer in layers:
+                a = norm_vi(layer_text({"segments": [sa]}, layer))
+                b = norm_vi(layer_text({"segments": [sb]}, layer))
+                sm = difflib.SequenceMatcher(None, a, b, autojunk=False)
+                for op, i1, i2, j1, j2 in sm.get_opcodes():
+                    if op != "equal":
+                        out.append({"n": n, "seg": i, "kind": list(seg_key(sb)), "layer": layer, "pages": [sb["page"], sb.get("page_end", sb["page"])],
+                                    "ref": a[i1:i2], "ours": b[j1:j2], "ref_ctx": a[max(0, i1 - 30):i2 + 30], "ours_ctx": b[max(0, j1 - 30):j2 + 30]})
+    return out
+
+
+def gate(numbers: list[int], work: Path) -> dict:
+    """transcription error rate on the Wikisource quẻ after looking at the print: of the places where our text differs from Wikisource,
+    those where the print agrees with Wikisource ('ref') or with neither are our errors; '[?]' marks are counted apart"""
+    out = {"chars": 0, "errors": 0, "uncertain_marks": 0, "unclear": 0, "edition_differences": 0}
+    for n in numbers:
+        docs = [json.loads((work / "wikijson" / f"{n}.json").read_text("utf-8"))]
+        out["chars"] += len(norm_vi(layer_text(docs[0], "all")))
+        diffs, verdicts = [], []
+        for part in ("", "a", "b"):
+            f = work / f"diffs{n}{part}.json"
+            if f.exists() and (work / "adjud" / f"{n}{part}.json").exists() and (part or not (work / f"diffs{n}a.json").exists()):
+                diffs += [json.loads(f.read_text("utf-8"))]
+                verdicts += [json.loads((work / "adjud" / f"{n}{part}.json").read_text("utf-8"))]
+        for d, v in zip(diffs, verdicts):
+            for x in v:
+                item = d[x["i"]]
+                if "[?]" in item["ours"]:
+                    out["uncertain_marks"] += item["ours"].count("[?]")
+                elif x["verdict"] in ("ref", "neither"):
+                    out["errors"] += levenshtein(item["ref"], item["ours"]) if item["layer"] != "other" or item["ref"] and item["ours"] else 0
+                elif x["verdict"] == "unclear":
+                    out["unclear"] += 1
+                else:
+                    out["edition_differences"] += 1
+    out["cer"] = round(out["errors"] / out["chars"], 5)
+    return out
+
+
 # ---------------------------------------------------------------- Hán check against zh.wikisource 周易
 
-VARIANTS = str.maketrans({"无": "無", "爲": "為", "衆": "眾", "羣": "群", "脩": "修", "恒": "恆", "旣": "既", "卽": "即", "敎": "教",
-                          "説": "說", "兊": "兌", "吿": "告", "竝": "並", "潜": "潛", "啓": "啟", "麤": "粗", "猶": "猶", "於": "於",
-                          "眞": "真", "內": "内", "嶮": "險", "隂": "陰", "陽": "陽", "徳": "德", "飮": "飲", "淸": "清", "禮": "禮",
-                          "跡": "迹", "蹟": "迹", "寧": "寧", "甯": "寧", "强": "強", "嘗": "嘗", "鄕": "鄉", "冝": "宜", "叙": "敘",
-                          "敍": "敘", "况": "況", "凖": "準", "从": "從", "歎": "嘆", "鈎": "鉤", "穉": "稚", "敺": "驅", "毘": "毗",
-                          "牀": "床", "噐": "器", "惪": "德", "温": "溫", "䘮": "喪", "尙": "尚", "黃": "黃", "吳": "吳", "戶": "戶"})
+# glyph variants of one character (異體字), mapped to the form zh.wikisource uses; for comparison only, the stored text keeps the print.
+# Different characters (車/轝, 祐/佑, 弗/不 …) are NOT here: where the book prints one, it is recorded in ntt/misprints.json.
+VARIANTS = str.maketrans({"无": "無", "爲": "為", "衆": "眾", "羣": "群", "恒": "恆", "旣": "既", "卽": "即", "敎": "教", "説": "說",
+                          "兊": "兌", "吿": "告", "竝": "並", "潜": "潛", "啓": "啟", "眞": "真", "內": "内", "隂": "陰", "徳": "德",
+                          "飮": "飲", "淸": "清", "强": "強", "鄕": "鄉", "冝": "宜", "敍": "敘", "况": "況", "凖": "準", "温": "溫",
+                          "䘮": "喪", "尙": "尚", "黄": "黃", "静": "靜", "弑": "弒", "劳": "勞", "户": "戶", "戸": "戶", "晋": "晉",
+                          "盗": "盜", "衞": "衛", "既": "既", "顛": "顚", "床": "牀", "麤": "麁", "畧": "略", "汙": "污", "峯": "峰",
+                          "脩": "修", "疇": "疇", "畴": "疇", "彊": "強", "沈": "沉", "於": "於", "効": "效", "虚": "虛", "冰": "冰",
+                          "絶": "絕", "麽": "麼", "鉤": "鈎", "旡": "無", "亯": "享", "鷄": "雞", "雚": "雚", "牆": "墻", "墙": "墻"})
 HAN_PUNCT = re.compile(r"[\s,.:;!?，。：；！？、「」『』“”\"'()（）\[\]…·\-]")
 
 
 def norm_han(s: str) -> str:
-    s = re.sub(r"\[\?\]", "?", s)
+    s = s.replace("[?]", "〓")                            # an unreadable character stays one character
     return HAN_PUNCT.sub("", unicodedata.normalize("NFKC", s)).translate(VARIANTS)
 
 
@@ -465,8 +545,7 @@ def han_check(doc: dict, ref: list[dict]) -> dict:
         if k[0] == "thoan":
             w_cmp = w_cmp[len(norm_han(doc["name_han"]).translate(VARIANTS)):] if w_cmp.startswith(norm_han(doc["name_han"])) else w_cmp
             b_cmp = b_cmp[len(norm_han(doc["name_han"])):] if b_cmp.startswith(norm_han(doc["name_han"])) else b_cmp
-        ok = b_cmp == w_cmp or ("?" in b_cmp and len(b_cmp) == len(w_cmp)
-                                and all(x == y or x == "?" for x, y in zip(b_cmp, w_cmp)))
+        ok = b_cmp == w_cmp
         out[k] = (ok, b_cmp, w_cmp)
     return out
 
@@ -477,6 +556,35 @@ def _strip_labels(s: str, k) -> str:
     if k[0] in ("hao", "dung"):
         s = re.sub(r"^((?:初|上)[六九]|[六九][二三四五]|用[六九])", "", s)
     return s
+
+
+def han_diffs(doc: dict, ref: list[dict]) -> list[dict]:
+    """character-level differences of every mismatching (kind, hao) group, each placed on the segment (and page) where it falls"""
+    out = []
+    for key, (ok, _b, _w) in han_check(doc, ref).items():
+        if ok:
+            continue
+        segs = [s for s in doc["segments"] if s["kind"] != "intro" and seg_key(s) == key]
+        chars, owner = [], []
+        for s in segs:
+            t = _strip_labels(norm_han(s.get("han", "")), key)
+            chars.append(t)
+            owner += [s] * len(t)
+        book = "".join(chars)
+        want = _strip_labels(norm_han("".join((r["text"].replace("\n:\n", "\n") for r in ref if seg_key(r) == key))), key)
+        if key[0] == "thoan":
+            nm = norm_han(doc["name_han"])
+            book, owner = (book[len(nm):], owner[len(nm):]) if book.startswith(nm) else (book, owner)
+            want = want[len(nm):] if want.startswith(nm) else want
+        sm = difflib.SequenceMatcher(None, book, want, autojunk=False)
+        for op, i1, i2, j1, j2 in sm.get_opcodes():
+            if op == "equal":
+                continue
+            s = owner[min(i1, len(owner) - 1)] if owner else None
+            out.append({"n": doc["number"], "kind": key[0], "hao": key[1], "page": s["page"] if s else None,
+                        "page_end": s.get("page_end", s["page"]) if s else None, "han_printed_line": s.get("han", "") if s else "",
+                        "ours": book[i1:i2], "ref": want[j1:j2], "ours_ctx": book[max(0, i1 - 6):i2 + 6], "ref_ctx": want[max(0, j1 - 6):j2 + 6]})
+    return out
 
 
 def han(numbers=None) -> int:
@@ -497,12 +605,28 @@ def han(numbers=None) -> int:
 if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     if cmd == "assemble":
-        assemble(Path(args[0]))
+        assemble(Path(args[0]), Path(args[1]) if len(args) > 1 else OUT)
     elif cmd == "wiki":
         wiki(Path(args[0]), Path(args[1]))
     elif cmd == "cer":
         r = cer(Path(args[0]), Path(args[1]), [int(x) for x in args[2:] if x.isdigit()], show=int(next(
             (a.split("=")[1] for a in args if a.startswith("--show=")), 0)))
         print(json.dumps(r, indent=1))
+    elif cmd == "diffs":
+        d = seg_diffs(Path(args[0]), Path(args[1]), [int(x) for x in args[3:]])
+        Path(args[2]).write_text(json.dumps(d, ensure_ascii=False, indent=1), "utf-8")
+        print(len(d), "differences")
+    elif cmd == "gate":
+        print(json.dumps(gate([int(x) for x in args[1:]], Path(args[0])), indent=1))
+    elif cmd == "handiffs":
+        ref, out = han_reference(), []
+        src = Path(args[0])
+        for f in sorted(src.glob("[0-9]*.json"), key=lambda p: int(p.stem)):
+            doc = json.loads(f.read_text("utf-8"))
+            if args[2:] and str(doc["number"]) not in args[2:]:
+                continue
+            out += han_diffs(doc, ref[doc["number"]])
+        Path(args[1]).write_text(json.dumps(out, ensure_ascii=False, indent=1), "utf-8")
+        print(len(out), "Hán differences")
     elif cmd == "han":
         han([int(x) for x in args] or None)
