@@ -31,10 +31,12 @@ def has(n, v):
     return f(n, "contains", v)
 
 
-def R(id, when, text, src=SRC, tails=None):
+def R(id, when, text, src=SRC, tails=None, han=None):
     d = {"id": id, "src": src, "when": when, "text": text}
     if tails:
         d["tails"] = tails
+    if han:
+        d["han"] = han          # "tieu": the page names the tiểu hạn only; "trung_phung": đại and tiểu hạn on this one palace
     return d
 
 
@@ -103,8 +105,7 @@ RULES += [
 # 'trùng phùng' when both must sit on one palace), so each rule reads one vận palace. 'gặp' with no position = in the vận palace itself;
 # 'hội' = in its tam phương tứ chính (Tang Môn and Bạch Hổ always face each other, so they can never share one palace).
 # IX.9 and 6n are told as 'theo sách rất bất lợi', without the book's 'tai họa' / 'tai ương' (owner's decision 2026-10-24).
-# The rules that name death, prison, injury, illness, burns, drowning or mourning (IX.7, 8, 11; 6a, b, d, f-m, o; 7a-i) wait for the owner's
-# content review; IX.5 cannot be met on one palace (Cự Môn never stands in the tam phương of Sát / Phá / Tham). See docs/INDICES-EVAL.md.
+# IX.5 cannot be met on one palace (Cự Môn never stands in the tam phương of Sát / Phá / Tham). See docs/INDICES-TH115-117.md.
 TU_MO = ["Thìn", "Tuất", "Sửu", "Mùi"]
 KD = any_("v_stars", ["Kình Dương", "Đà La"])
 PHU_XK = any_("v_stars", ["Tử Vi", "Thiên Phủ", "Văn Xương", "Văn Khúc"])
@@ -124,6 +125,102 @@ RULES += [
       "Cung vận có Sát Phá Tham, tam phương hội Tang Môn, Bạch Hổ, Thiên Khốc, Điếu Khách, Đà La, Thiên Thương: theo sách rất bất lợi.",
       SRC_TH),
 ]
+
+# ---- the grave rules of TH pp.115-117 (death, prison, injury, illness, burns, drowning, mourning), added on the owner's decision of
+# 2026-10-24: every one is told only as "theo sách rất bất lợi", never with the book's event. The star a sentence is about (its chính tinh,
+# or the star it opens with) stands in the vận palace; the stars it "gặp / ngộ / gia" stand there too, unless two of the groups the book
+# joins can never share one palace (Tang Môn / Bạch Hổ with Điếu Khách or Thái Tuế, the Hao with Phục Binh): then they are read in the
+# tam phương tứ chính. Within a pair the book names together (Kình Đà, Không Kiếp, Cô Quả, Tang Hổ, song Hao, Khốc Hư, Hỏa Linh, Thương
+# Sứ) one star is enough, as in TH_TPVT_KHONG_KIEP_KY. "Kỵ" = Hóa Kỵ; "Tuế" = Thái Tuế; "Diêu" = Thiên Riêu; "Hình" = Thiên Hình;
+# "Sát" beside Phục Binh = Kiếp Sát; "Nhị tam Không" = two or more of Địa Không, Thiên Không, Tuần, Triệt.
+BAD = ": theo sách rất bất lợi."
+KY, KY_T = has("v_hoa", "Hóa Kỵ"), has("tp_hoa", "Hóa Kỵ")
+P = lambda *xs: any_("v_stars", list(xs))       # noqa: E731
+T = lambda *xs: any_("tp_stars", list(xs))      # noqa: E731
+NN = all_("v_major", ["Thái Dương", "Thái Âm"])
+PHU_TUONG = any_("v_major", ["Thiên Phủ", "Thiên Tướng"])
+SPLT = any_("v_major", SPT + ["Liêm Trinh"])
+KHONG_KIEP = P("Địa Không", "Địa Kiếp")
+HAO = P("Đại Hao", "Tiểu Hao")
+TANG_HO = P("Tang Môn", "Bạch Hổ")
+KHOC_HU = P("Thiên Khốc", "Thiên Hư")
+CO_QUA = P("Cô Thần", "Quả Tú")
+RULES += [
+    R("TH_IX7_TRUNG_PHUNG_TY", {"all": [f("v_branch", "eq", "Tý"), T("Thiên Thương", "Thiên Sứ"), T("Kình Dương", "Đà La"), T("Thái Tuế")]},
+      "Đại hạn và tiểu hạn cùng ở cung Tý, tam phương có Thiên Thương hoặc Thiên Sứ, Kình hoặc Đà, Thái Tuế" + BAD, SRC_TH, han="trung_phung"),
+    R("TH_IX8_THUONG_SU_TUE", {"all": [{"any": [{"all": [P("Thiên Thương"), f("v_branch", "in", ["Tý", "Thìn", "Mão", "Ngọ", "Mùi"])]},
+                                                 {"all": [P("Thiên Sứ"), f("v_branch", "in", ["Dần", "Thân", "Tỵ", "Hợi"])]}]}, T("Thái Tuế")]},
+      "Cung vận ở {v_branch} có {thuong_su}, tam phương có Thái Tuế" + BAD, SRC_TH),
+    R("TH_IX11_SAT_HAM_HINH_HO", {"all": [has("v_ham", "Thất Sát"), T("Thiên Hình"), T("Bạch Hổ"), T("Quan Phủ")]},
+      "Cung vận có Thất Sát hãm, tam phương có Thiên Hình, Bạch Hổ, Quan Phủ" + BAD, SRC_TH),
+    R("TH_DC5_PHOI", {"all": [f("v_name", "eq", "Phu Thê"), {"any": [
+        {"all": [CO_QUA, KHONG_KIEP]},
+        {"all": [P("Kình Dương", "Đà La", "Địa Không", "Địa Kiếp"), {"any": [f("v_tuan"), f("v_triet")]}]},
+        {"all": [TANG_HO, HAO]},
+        {"all": [P("Thiên Hình", "Thiên Riêu", "Thiên Không"), KY]},
+        {"all": [P("Thất Sát", "Phá Toái"), KHOC_HU]},
+        {"all": [P("Linh Tinh", "Hỏa Tinh"), P("Kình Dương", "Đà La"), KHONG_KIEP]},
+        {"all": [has("v_major", "Cự Môn"), P("Linh Tinh", "Hỏa Tinh")]}]}]},
+      "Cung vận là Phu Thê, có một cách cung Phối dang dở của sách" + BAD, SRC_TH),
+    R("TH_6A_CNDL_SAT", {"all": [{"any": [any_("v_major", CNDL), all_("v_major", ["Cự Môn", "Thái Dương"])]},
+                                 P("Kình Dương", "Đà La", "Địa Không", "Địa Kiếp", "Phá Toái", "Kiếp Sát")]},
+      "Cung vận có Cơ Nguyệt Đồng Lương hoặc Cự Nhật, gặp Kình, Đà, Không, Kiếp, Phá Toái hoặc Kiếp Sát" + BAD, SRC_TH),
+    R("TH_6B_SPLT_KHONG", {"all": [SPLT, {"any": [
+        f("khong_n", "gte", 2),
+        {"all": [P("Linh Tinh", "Hỏa Tinh"), P("Kình Dương"), KY]},
+        {"all": [T("Đại Hao", "Tiểu Hao"), T("Thiên Hình"), T("Kiếp Sát"), T("Phục Binh"), T("Tang Môn", "Bạch Hổ")]}]}]},
+      "Cung vận có Sát Phá Liêm Tham gặp Nhị tam Không, hoặc Linh Hỏa Kình Kỵ, hoặc Hao, Hình, Kiếp Sát, Phục Binh, Tang Hổ" + BAD, SRC_TH),
+    R("TH_6D_CU_CO_DONG_LUONG", {"all": [{"any": [all_("v_major", ["Cự Môn", "Thiên Cơ"]), all_("v_major", ["Thiên Đồng", "Thiên Lương"])]},
+                                         {"any": [P("Kình Dương", "Đà La", "Địa Không", "Địa Kiếp", "Đại Hao", "Tiểu Hao", "Phá Toái"), KY]}]},
+      "Cung vận có Cự Cơ hoặc Đồng Lương, gặp Kình, Đà, Không, Kiếp, Hao, Phá Toái hoặc Kỵ" + BAD, SRC_TH),
+    R("TH_6F_NHAT_NGUYET", {"all": [NN, {"any": [{"all": [KHONG_KIEP, P("Thiên Riêu")]}, {"all": [P("Linh Tinh", "Hỏa Tinh"), CO_QUA]}]}]},
+      "Cung vận có Nhật Nguyệt gặp Không Kiếp và Thiên Riêu, hoặc Linh Hỏa và Cô Quả" + BAD, SRC_TH),
+    R("TH_6G_PHA_LIEM_THAM", {"all": [any_("v_major", ["Phá Quân", "Liêm Trinh", "Tham Lang"]), P("Thiên Riêu"), KY, P("Mộc Dục")]},
+      "Cung vận có Phá Liêm Tham gặp Thiên Riêu, Hóa Kỵ, Mộc Dục" + BAD, SRC_TH),
+    R("TH_6H_THIEN_DONG", {"all": [has("v_major", "Thiên Đồng"), {"any": [
+        {"all": [P("Kình Dương"), KY]},
+        {"all": [P("Mộc Dục"), P("Hỏa Tinh"), KHONG_KIEP]},
+        {"all": [has("v_major", "Cự Môn"), KY, P("Thái Tuế"), P("Đà La"), KHONG_KIEP]}]}]},
+      "Cung vận có Thiên Đồng gặp Kình Kỵ, hoặc Mộc Dục Hỏa Không Kiếp, hoặc Cự Kỵ Tuế Đà Không Kiếp" + BAD, SRC_TH),
+    R("TH_6I_TANG_HOA_LINH", {"all": [P("Tang Môn"), P("Hỏa Tinh"), P("Linh Tinh")]},
+      "Tiểu hạn có Tang Môn, Hỏa Tinh, Linh Tinh" + BAD, SRC_TH, han="tieu"),
+    R("TH_6J_CO_LUONG_THIN_TUAT", {"all": [all_("v_major", ["Thiên Cơ", "Thiên Lương"]), f("v_branch", "in", ["Thìn", "Tuất"]),
+                                           P("Tang Môn", "Điếu Khách", "Thái Tuế"), KHOC_HU]},
+      "Tiểu hạn ở Cơ Lương tại {v_branch} gặp Tang, Điếu hoặc Tuế cùng Khốc hoặc Hư" + BAD, SRC_TH, han="tieu"),
+    R("TH_6K_SPLT_TANG_HO", {"any": [
+        {"all": [SPLT, T("Tang Môn", "Bạch Hổ"), T("Kình Dương", "Đà La"), T("Điếu Khách")]},
+        {"all": [has("v_major", "Tham Lang"), f("v_branch", "in", ["Thìn", "Tuất"]), T("Bạch Hổ"), T("Thiên Riêu"), T("Thái Tuế")]}]},
+      "Cung vận có Sát Phá Liêm Tham, tam phương hội Tang Hổ, Kình Đà, Điếu Khách; hoặc Tham Lang ở Thìn Tuất hội Hổ, Riêu, Tuế" + BAD, SRC_TH),
+    R("TH_6L_KINH_KHONG_PHUC_BINH", {"all": [P("Kình Dương", "Địa Không", "Địa Kiếp"), P("Quan Phù", "Tử Phù", "Trực Phù"), P("Phục Binh")]},
+      "Cung vận có Kình, Không hoặc Kiếp cùng Quan Phù, Tử Phù hoặc Trực Phù và Phục Binh" + BAD, SRC_TH),
+    R("TH_6M_THAM_LIEM_VU", {"all": [{"any": [{"all": [all_("v_major", ["Tham Lang", "Liêm Trinh"]), f("v_branch", "in", ["Tỵ", "Hợi"])]},
+                                               {"all": [all_("v_major", ["Tham Lang", "Vũ Khúc"]), f("v_branch", "in", ["Dần", "Thân"])]}]},
+                                     KY, P("Đà La"), KHONG_KIEP]},
+      "Cung vận có Tham Liêm ở Tỵ Hợi hoặc Tham Vũ ở Dần Thân, gặp Kỵ, Đà, Không hoặc Kiếp" + BAD, SRC_TH),
+    R("TH_6O_THAM_LIEM_KY_KIEP", {"any": [
+        {"all": [all_("v_major", ["Tham Lang", "Liêm Trinh"]), P("Kình Dương", "Đà La"), P("Hỏa Tinh", "Linh Tinh")]},
+        {"all": [KY, P("Địa Kiếp"), P("Thiên Không")]}]},
+      "Cung vận có Tham Liêm gặp Kình Đà và Hỏa Linh, hoặc có Kỵ, Địa Kiếp, Thiên Không" + BAD, SRC_TH),
+    R("TH_7A_NHAT_NGUYET_DA", {"all": [NN, P("Đà La"), P("Thiên Không"), KY]},
+      "Cung vận có Nhật Nguyệt ngộ Đà La, Thiên Không, Hóa Kỵ" + BAD, SRC_TH),
+    R("TH_7B_PHU_TUONG_CO_QUA", {"all": [PHU_TUONG, CO_QUA, P("Thiên Không"), P("Kiếp Sát")]},
+      "Cung vận có Phủ hoặc Tướng ngộ Cô Quả, Thiên Không, Kiếp Sát" + BAD, SRC_TH),
+    R("TH_7C_PHU_TUONG_TANG_HO", {"all": [PHU_TUONG, TANG_HO, KHOC_HU, HAO]},
+      "Cung vận có Phủ hoặc Tướng ngộ Tang Hổ, Khốc Hư, Hao" + BAD, SRC_TH),
+    R("TH_7D_SPLT_HAO_TANG", {"all": [SPLT, {"any": [{"all": [HAO, TANG_HO]}, {"all": [P("Kình Dương", "Đà La"), KHONG_KIEP, KHOC_HU]}]}]},
+      "Cung vận có Sát Phá Liêm Tham ngộ Hao và Tang Hổ, hoặc Kình Đà, Không Kiếp, Khốc Hư" + BAD, SRC_TH),
+    R("TH_7E_CO_QUA_DAO_HONG", {"all": [CO_QUA, P("Đào Hoa", "Hồng Loan"), P("Thiên Không"), KY]},
+      "Cung vận có Cô Quả, Đào Hồng, Thiên Không, Hóa Kỵ" + BAD, SRC_TH),
+    R("TH_7F_TPVT_CO_QUA_HAO", {"all": [any_("v_major", TPVT), CO_QUA, HAO]},
+      "Cung vận có Tử Phủ Vũ Tướng ngộ Cô Quả và Hao" + BAD, SRC_TH),
+    R("TH_7G_KHONG_TANG_HO", {"all": [f("khong_n", "gte", 2), T("Tang Môn", "Bạch Hổ"), T("Điếu Khách", "Thái Tuế")]},
+      "Cung vận có Nhị tam Không, tam phương ngộ Tang Hổ, Điếu Tuế" + BAD, SRC_TH),
+    R("TH_7H_HINH_KINH_TANG", {"all": [P("Thiên Hình", "Thiên Riêu"), P("Kình Dương", "Đà La"), KHONG_KIEP, TANG_HO]},
+      "Cung vận có Hình hoặc Riêu, Kình hoặc Đà, Không hoặc Kiếp, Tang hoặc Hổ" + BAD, SRC_TH),
+    R("TH_7I_CNDL_TANG_HO", {"all": [any_("v_major", CNDL), TANG_HO]},
+      "Cung vận có Cơ Nguyệt Đồng Lương ngộ Tang Hổ" + BAD, SRC_TH),
+]
+
 
 if __name__ == "__main__":
     OUT.write_text(json.dumps({"note": "Vận-palace readings as data (Khảo Luận pp.233-236, Thực Hành pp.115-117); built by tools/build_van_han_rules.py.",

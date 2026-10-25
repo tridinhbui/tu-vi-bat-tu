@@ -6,6 +6,8 @@ Writes into engine/web (served as static assets by the Worker):
   bai-viet/cung/<slug>/          one article per palace: every VERIFIED rule seated in that palace, grouped by star
   bai-viet/cach-cuc/<slug>/      one article per named cách cục of Tử Vi Thực Hành (pp.72-74) plus verified rules naming it
   gioi-thieu/  hoi-dap/  xem-ngay/   about, FAQ and the month calendar shell (its data comes from /api/calendar)
+  tarot/  tarot/la-bai/<slug>/   the Tarot draw page (its data comes from /api/tarot/*) and one page per card of engine/data/tarot/deck.json:
+                                 names, number, suit, picture source; a meaning only from pack_tarot_pkt.json, with its page (docs/TAROT.md)
   sitemap.xml  robots.txt
 
 Every statement is the project's Vietnamese paraphrase of a rule (claims_vi.json) with the book and page the rule cites; draft
@@ -20,6 +22,7 @@ import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from . import sitenav
 from .knowledge.loader import DATA, PACKS
 
 WEB = Path(__file__).resolve().parent.parent / "web"
@@ -306,7 +309,6 @@ def dignity_rows(kb: dict, star: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------- html
-NAV = [("/bai-viet/", "Bài viết"), ("/xem-ngay/", "Xem ngày"), ("/chiem-tinh/", "Chiêm tinh"), ("/hoi-dap/", "Hỏi đáp"), ("/gioi-thieu/", "Giới thiệu")]
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' "
            "stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E")
 
@@ -316,11 +318,9 @@ def _ld(obj) -> str:
 
 
 def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str, str]] = (), ld: list = (), og_type: str = "website",
-          scripts: list[str] = ()) -> str:
+          scripts: list[str] = (), styles: list[str] = (), ask: bool = True) -> str:
     url = ORIGIN + path
     full = f"{title} | {SITE}" if SITE not in title else title
-    cur = ' aria-current="page"'
-    nav = "".join(f'<a href="{h}"{cur if path.startswith(h) else ""}>{esc(t)}</a>' for h, t in NAV)
     crumb_html = ""
     lds = list(ld)
     if crumbs:
@@ -330,7 +330,10 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
             for i, (h, t) in enumerate(trail)) + "</ol></nav>"
         lds.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "name": t, "item": ORIGIN + h} for i, (h, t) in enumerate(trail)]})
-    script_tags = "".join(f'<script type="module" src="{s}"></script>' for s in ["/js/pwa.js", "/js/ref.js", "/js/feedback.js", "/js/ask.js", *scripts])
+    # the Tarot pages leave out the chat button (its labels describe a language-model chat, which Tarot does not use)
+    base = ["/js/pwa.js", "/js/ref.js", "/js/feedback.js"] + (["/js/ask.js"] if ask else [])
+    script_tags = "".join(f'<script type="module" src="{s}"></script>' for s in [*base, *scripts])
+    style_tags = "".join(f'\n<link rel="stylesheet" href="{s}">' for s in styles)
     return f"""<!doctype html>
 <html lang="vi">
 <head>
@@ -354,16 +357,12 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/app.css">
-<link rel="stylesheet" href="/css/content.css">
+<link rel="stylesheet" href="/css/content.css">{style_tags}
 {"".join(_ld(x) for x in lds)}
 </head>
 <body class="cpage">
 <a class="skip" href="#main">Bỏ qua điều hướng</a>
-<header class="site-header stuck"><div class="wrap hdr">
-<a class="brand" href="/" aria-label="{SITE}, trang chủ"><span class="brand-t"><b>{SITE}</b><small>Tử Vi · Bát Tự</small></span></a>
-<nav class="nav cnav" aria-label="Điều hướng chính">{nav}</nav>
-<a class="btn btn-sm hdr-cta" href="/#lap-la-so">Lập lá số</a>
-</div></header>
+{sitenav.header(path)}
 <main id="main" class="wrap cmain">
 {crumb_html}
 {body}
@@ -371,7 +370,7 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
 <footer class="site-footer"><div class="wrap foot cfoot">
 <div><b>{SITE}</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div>
 <p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Tử Vi và Bát Tự chưa được khoa học kiểm chứng là phương pháp dự báo.
-<a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/library">Quy tắc và nguồn</a></p>
+<a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/tarot/">Tarot</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/library">Quy tắc và nguồn</a></p>
 </div></footer>
 {script_tags}
 </body>
@@ -689,21 +688,221 @@ def calendar_page() -> tuple[str, str]:
     return path, shell(path, title, desc, body, crumbs=[(path, "Xem ngày")], ld=[ld], scripts=["/js/xem_ngay.js"])
 
 
+# ---------------------------------------------------------------- tarot
+TAROT_DIR = DATA / "tarot"
+TAROT_HEADER = "Tarot là công cụ để suy ngẫm, không phải lời dự báo."     # same line as src/tarot/guard.ts TAROT_HEADER
+# the readings' book: Waite's Pictorial Key text in the 1916 de Laurence issue (sources.json SRC_PKT); pages cited "PKT (1916) tr. N"
+TAROT_BOOK = "A. E. Waite, The Pictorial Key to the Tarot"
+TAROT_EDITION = ("văn bản của A. E. Waite (The Pictorial Key to the Tarot), in lại trong The Illustrated Key to the Tarot, "
+                 "L. W. de Laurence, Chicago, 1916; bản quét của Thư viện Quốc hội Hoa Kỳ. Số trang là trang in của bản 1916, không phải bản London 1911")
+TAROT_PENDING = ("Ý nghĩa của lá này đang được chuẩn bị từ sách nguồn: A. E. Waite, The Pictorial Key to the Tarot. "
+                 "Thiên Bàn chỉ đăng ý nghĩa có ghi trang sách.")          # same text as src/tarot/reading.ts PENDING_TEXT
+TAROT_NO_REVERSED = ("Waite không ghi nghĩa riêng cho lá này khi ngược; Thiên Bàn không tự thêm.")   # cf. reading.ts NO_REVERSED_TEXT
+ROMAN = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"]
+
+
+def tarot_data() -> dict:
+    deck = json.loads((TAROT_DIR / "deck.json").read_text("utf-8"))
+    images = json.loads((TAROT_DIR / "images.json").read_text("utf-8"))
+    pack = json.loads((TAROT_DIR / "pack_tarot_pkt.json").read_text("utf-8"))
+    return {"deck": deck, "images": {i["card"]: i for i in images.get("images", [])}, "pack": pack}
+
+
+def tarot_numeral(c: dict) -> str:
+    if c["arcana"] == "major":
+        return ROMAN[c["number"]]
+    return "Át" if c["number"] == 1 else str(c["number"]) if c["number"] <= 10 else ""
+
+
+def tarot_group(c: dict, deck: dict) -> str:
+    return "Bộ Ẩn Chính (Major Arcana)" if c["arcana"] == "major" else f"Chất {deck['suits'][c['suit']]['vi']} ({deck['suits'][c['suit']]['en']})"
+
+
+def tarot_face(c: dict, deck: dict) -> str:
+    """The typographic card face (also drawn by /js/tarot.js): number, Vietnamese name, English name, group."""
+    suit = c["suit"] or "major"
+    sub = "Ẩn Chính" if c["arcana"] == "major" else deck["suits"][c["suit"]]["vi"]
+    return (f'<div class="tcard tface t-{suit}" role="img" aria-label="{esc(c["name_vi"])} ({esc(c["name_en"])})">'
+            f'<span class="tc-num">{esc(tarot_numeral(c))}</span><span class="tc-name">{esc(c["name_vi"])}</span>'
+            f'<span class="tc-en">{esc(c["name_en"])}</span><span class="tc-suit">{esc(sub)}</span></div>')
+
+
+def tarot_picture(c: dict, deck: dict, img: dict | None, *, lazy: bool = True, size: str = "600") -> str:
+    if not img:
+        return tarot_face(c, deck)
+    small, large = img["files"]["300"], img["files"]["600"]
+    f = img["files"][size]
+    return (f'<img class="tcard timg" src="{esc(f["path"])}" srcset="{esc(small["path"])} 300w, {esc(large["path"])} 600w" '
+            f'sizes="{"110px" if size == "300" else "(max-width: 520px) 70vw, 300px"}" width="{f["width"]}" height="{f["height"]}"{" loading=\"lazy\"" if lazy else ""} decoding="async" '
+            f'alt="Lá {esc(c["name_en"])} ({esc(c["name_vi"])}), tranh của Pamela Colman Smith">')
+
+
+def tarot_credit(img: dict | None) -> str:
+    if not img:
+        return '<p class="note">Lá này chưa có ảnh được duyệt; trang hiện mặt bài bằng chữ.</p>'
+    return (f'<p class="note tcredit">Tranh: Pamela Colman Smith, bộ Waite–Smith (1909), bản in “Pam-A”. Ảnh quét từ '
+            f'<a class="link" href="{esc(img["commons_url"])}" rel="noopener">Wikimedia Commons</a>, phạm vi công cộng '
+            f'(trang tệp ghi <code>{esc(img["licence"])}</code>).</p>')
+
+
+TAROT_CAT_ORDER = {"divinatory": 0, "another_reading": 1, "description": 2}
+
+
+def tarot_reading_html(c: dict, pack: dict) -> str:
+    """Both orientations, each a list of paraphrases with Waite's words and the page (PKT (1916) tr. N), as the draw page shows them."""
+    rows = [e for e in pack.get("entries", []) if e["card"] == c["id"]]
+    if not rows:
+        return f'<p class="treading pending">{esc(TAROT_PENDING)}</p>'
+    cite = pack["source"]["cite"]
+    out = []
+    for orient, label in (("upright", "Lá xuôi"), ("reversed", "Lá ngược")):
+        es = sorted((e for e in rows if e["orientation"] == orient), key=lambda e: TAROT_CAT_ORDER[e["category"]])
+        out.append(f'<h3 class="tread-h">{label}</h3>')
+        if not es:
+            out.append(f'<p class="treading pending">{esc(TAROT_NO_REVERSED if orient == "reversed" else TAROT_PENDING)}</p>')
+            continue
+        out.append('<ul class="treading">' + "".join(
+            f'<li><p>{esc(e["text_vi"])}</p><blockquote lang="en">“{esc(e["quote_en"])}”</blockquote><cite>{esc(cite)} tr. {esc(e["page"])}</cite></li>'
+            for e in es) + "</ul>")
+    return "".join(out)
+
+
+def tarot_card_page(i: int, t: dict) -> tuple[str, str]:
+    deck, cards = t["deck"], t["deck"]["cards"]
+    c = cards[i]
+    img = t["images"].get(c["id"])
+    path = f"/tarot/la-bai/{c['slug']}/"
+    num = tarot_numeral(c)
+    title = f"{c['name_vi']} ({c['name_en']}), lá Tarot Waite–Smith"
+    desc = (f"Lá {c['name_en']} ({c['name_vi']}) trong bộ Tarot Waite–Smith (1909): "
+            f"{'số ' + num + ', ' if num else ''}{tarot_group(c, deck).split(' (')[0].lower()}. Ý nghĩa theo Waite, lá xuôi và lá ngược, kèm nguyên văn và trang sách.")
+    prev_c, next_c = cards[i - 1], cards[(i + 1) % len(cards)]
+    facts_rows = [("Tên tiếng Anh", c["name_en"]), ("Tên tiếng Việt", c["name_vi"]), ("Số", num or "lá hình"), ("Nhóm", tarot_group(c, deck))]
+    body = f"""<article class="carticle tarot-page tcard-page">
+<p class="eyebrow">Tarot · Lá bài</p><h1>{esc(c['name_vi'])} <small class="t-en">{esc(c['name_en'])}</small></h1>
+<p class="tarot-head" role="note">{esc(TAROT_HEADER)}</p>
+<div class="tcard-detail">
+<figure class="tfig">{tarot_picture(c, deck, img, lazy=False)}</figure>
+<div>
+<table class="stable tfacts"><tbody>{"".join(f"<tr><th scope='row'>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in facts_rows)}</tbody></table>
+<h2>Ý nghĩa theo sách</h2>
+{tarot_reading_html(c, t["pack"])}
+<p class="note">Nguồn: {esc(TAROT_EDITION)}. Thiên Bàn diễn lại bằng lời thường từng cụm từ Waite ghi, kèm nguyên văn và trang; những nghĩa về sinh tử, bệnh tật, thai sản, tai nạn, giam giữ, tội phạm, tình dục, pháp lý, đầu tư hay lời đoán trước một sự việc sẽ xảy ra thì không đưa vào.</p>
+{tarot_credit(img)}
+</div>
+</div>
+<nav class="tpager" aria-label="Lá trước và lá sau"><a class="link" href="/tarot/la-bai/{prev_c['slug']}/">‹ {esc(prev_c['name_vi'])}</a>
+<a class="link" href="/tarot/la-bai/">Cả 78 lá</a><a class="link" href="/tarot/la-bai/{next_c['slug']}/">{esc(next_c['name_vi'])} ›</a></nav>
+<p class="ccta"><a class="btn" href="/tarot/">Rút bài</a></p>
+</article>"""
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": title, "description": desc, "url": ORIGIN + path, "inLanguage": "vi"}
+    if img:
+        ld["primaryImageOfPage"] = {"@type": "ImageObject", "contentUrl": ORIGIN + img["files"]["600"]["path"], "creator": {"@type": "Person", "name": "Pamela Colman Smith"},
+                                    "license": img["commons_url"]}
+    return path, shell(path, title, desc, body, crumbs=[("/tarot/", "Tarot"), ("/tarot/la-bai/", "78 lá bài"), (path, c["name_vi"])], ld=[ld],
+                       styles=["/css/tarot.css"], ask=False)
+
+
+def tarot_grid(t: dict) -> str:
+    deck = t["deck"]
+    groups = [("Bộ Ẩn Chính (Major Arcana)", [c for c in deck["cards"] if c["arcana"] == "major"])]
+    groups += [(f"Chất {v['vi']} ({v['en']})", [c for c in deck["cards"] if c["suit"] == k]) for k, v in deck["suits"].items()]
+    out = []
+    for name, cs in groups:
+        items = "".join(f'<li><a href="/tarot/la-bai/{c["slug"]}/">{tarot_picture(c, deck, t["images"].get(c["id"]), size="300")}'
+                        f'<span class="tg-name">{esc(c["name_vi"])}</span><span class="tg-en">{esc(c["name_en"])}</span></a></li>' for c in cs)
+        out.append(f'<h3>{esc(name)}</h3><ul class="tgrid">{items}</ul>')
+    return "".join(out)
+
+
+def tarot_index_page(t: dict) -> tuple[str, str]:
+    path = "/tarot/la-bai/"
+    title = "78 lá bài Tarot Waite–Smith"
+    desc = "Danh sách 78 lá của bộ Tarot Waite–Smith (1909): 22 lá Ẩn Chính và 56 lá Ẩn Phụ theo bốn chất Gậy, Cốc, Kiếm, Tiền, kèm tên tiếng Việt."
+    body = f"""<article class="carticle tarot-page">
+<p class="eyebrow">Tarot</p><h1>78 lá bài</h1>
+<p class="tarot-head" role="note">{esc(TAROT_HEADER)}</p>
+<p class="lead">Bộ Waite–Smith (1909), tranh của Pamela Colman Smith: 22 lá Ẩn Chính và 56 lá Ẩn Phụ. Mỗi trang lá bài ghi tên, số, nhóm, nguồn ảnh và ý nghĩa theo Waite, mỗi ý kèm nguyên văn và trang sách.</p>
+{tarot_grid(t)}
+<p class="ccta"><a class="btn" href="/tarot/">Rút bài</a></p>
+</article>"""
+    ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": title, "description": desc, "url": ORIGIN + path, "inLanguage": "vi"}
+    return path, shell(path, title, desc, body, crumbs=[("/tarot/", "Tarot"), (path, "78 lá bài")], ld=[ld], styles=["/css/tarot.css"], ask=False)
+
+
+def tarot_page(t: dict) -> tuple[str, str]:
+    path = "/tarot/"
+    title = "Rút bài Tarot"
+    desc = "Rút một hoặc ba lá từ bộ Tarot Waite–Smith (1909): xáo bài, tự chọn lá trong dãy úp, xem tên lá và nguồn sách. Miễn phí ba lượt mỗi ngày."
+    n_img = len(t["images"])
+    body = f"""<article class="carticle tarot-page">
+<p class="eyebrow">Tarot</p><h1>Rút bài Tarot</h1>
+<p class="tarot-head" role="note">{esc(TAROT_HEADER)}</p>
+<p class="lead">Bộ 78 lá Waite–Smith (1909). Bạn xáo bài, rồi tự chọn lá trong dãy bài úp; máy chủ giữ thứ tự đã xáo và chỉ nhận vị trí bạn chọn.</p>
+<section id="t-shared" class="t-shared" hidden aria-live="polite"></section>
+<form id="t-form" class="t-form" onsubmit="return false">
+<fieldset class="t-spread"><legend>Cách bày</legend>
+<label><input type="radio" name="t-spread" value="1" checked> Một lá</label>
+<label><input type="radio" name="t-spread" value="3"> Ba lá</label>
+</fieldset>
+<label class="t-check"><input type="checkbox" id="t-rev" checked> Có lá ngược (lá lật đầu xuống)</label>
+<label class="fld t-q"><span>Điều bạn muốn suy ngẫm (không bắt buộc)</span><textarea id="t-q" maxlength="300" rows="2" placeholder="Ví dụ: Tôi nên nhìn công việc hiện tại thế nào?"></textarea></label>
+<p class="note">Câu hỏi được gửi cùng lượt rút chỉ để nhận ra chủ đề nên hỏi người có chuyên môn; Thiên Bàn không lưu câu hỏi, trừ khi bạn đăng nhập và chọn lưu cả câu hỏi.</p>
+<p class="t-actions"><button type="button" class="btn" id="t-shuffle">Xáo bài</button> <span id="t-remaining" class="note" aria-live="polite"></span></p>
+</form>
+<p id="t-status" class="t-status" role="status" aria-live="polite"></p>
+<section id="t-fan-wrap" class="t-fan-wrap" hidden>
+<h2>Chọn <span id="t-need">1</span> lá</h2>
+<p class="note">Chạm vào lá úp để chọn, chạm lần nữa để bỏ. Thứ tự bạn chọn là thứ tự bày bài.</p>
+<div id="t-fan" class="t-fan" role="group" aria-label="Dãy 78 lá úp"></div>
+<p class="t-actions"><button type="button" class="btn" id="t-reveal" disabled>Lật bài</button></p>
+</section>
+<section id="t-result" class="t-result" hidden aria-live="polite"></section>
+<section id="t-save" class="t-save" hidden></section>
+<section id="t-mine" class="t-history" hidden><h2>Lượt đã lưu trong tài khoản</h2><ul id="t-mine-list" class="t-hlist"></ul></section>
+<section id="t-history" class="t-history" hidden><h2>Lượt rút trên máy này</h2>
+<p class="note">Khi chưa đăng nhập, kết quả chỉ nằm trong trình duyệt này.</p>
+<ul id="t-history-list" class="t-hlist"></ul>
+<p><button type="button" class="link" id="t-history-clear">Xóa lịch sử trên máy này</button></p></section>
+<section><h2>Nguồn và giới hạn</h2><ul class="plain">
+<li><b>Ý nghĩa lá bài</b> chỉ lấy từ {esc(TAROT_EDITION)}. Mỗi ý là lời diễn lại một cụm từ của Waite, kèm nguyên văn tiếng Anh và trang, ghi “PKT (1916) tr. N”. Những nghĩa về sinh tử, bệnh tật, thai sản, tai nạn, giam giữ, tội phạm, tình dục, pháp lý, đầu tư hay lời đoán trước một sự việc sẽ xảy ra thì không đưa vào.</li>
+<li><b>Ba lá</b> chỉ là cách bày; sách nguồn không gán quá khứ, hiện tại, tương lai cho ba vị trí, nên Thiên Bàn cũng không gán.</li>
+<li><b>Hình lá bài</b>: tranh của Pamela Colman Smith cho bộ Waite–Smith (1909), ảnh quét từ Wikimedia Commons, phạm vi công cộng ({n_img} trên 78 lá có ảnh đã duyệt; lá còn lại hiện mặt bài bằng chữ). Nguồn từng ảnh ghi ở trang của lá.</li>
+<li><b>Miễn phí</b> ba lượt xáo bài mỗi ngày.</li>
+<li>Với sức khỏe, thai sản, pháp lý, tiền bạc và mọi quyết định lớn, hãy hỏi người có chuyên môn.</li>
+</ul></section>
+<section><h2>78 lá bài</h2>{tarot_grid(t)}</section>
+</article>"""
+    ld = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Rút bài Tarot " + SITE, "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web", "url": ORIGIN + path, "inLanguage": "vi", "description": desc, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}
+    return path, shell(path, title, desc, body, crumbs=[(path, "Tarot")], ld=[ld], scripts=["/js/tarot.js"], styles=["/css/tarot.css"], ask=False)
+
+
+def tarot_pages() -> list[tuple[str, str]]:
+    t = tarot_data()
+    return [tarot_page(t), tarot_index_page(t)] + [tarot_card_page(i, t) for i in range(len(t["deck"]["cards"]))]
+
+
 # ---------------------------------------------------------------- whole site
 def render(m: dict | None = None) -> dict[str, str]:
     """{file path relative to engine/web: content}."""
     m = m or build_model()
     pages = [index_page(m), about_page(m), faq_page(), calendar_page()]
+    pages += tarot_pages()
     pages += [star_page(s, m) for s in m["stars"]] + [palace_page(p, m) for p in m["palaces"]] + [cach_page(c, m) for c in m["cach"]]
     out = {path.strip("/") + "/index.html": doc for path, doc in pages}
-    urls = ["/", "/library"] + [p for p, _ in pages]
+    urls = ["/", "/library", "/chiem-tinh/", "/chiem-tinh-van-su/"] + [p for p, _ in pages]
     out["sitemap.xml"] = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                           + "".join(f"<url><loc>{esc(ORIGIN + u)}</loc><lastmod>{CONTENT_DATE}</lastmod></url>\n" for u in urls) + "</urlset>\n")
+    for rel, page_path in sitenav.HAND_PAGES.items():      # hand-written pages: only their header block is rewritten
+        f = WEB / rel
+        if f.exists():
+            out[rel] = sitenav.sync(f.read_text("utf-8"), page_path)
     out["robots.txt"] = f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin\n\nSitemap: {ORIGIN}/sitemap.xml\n"
     return out
 
 
-GENERATED_DIRS = ["bai-viet", "gioi-thieu", "hoi-dap", "xem-ngay"]
+GENERATED_DIRS = ["bai-viet", "gioi-thieu", "hoi-dap", "xem-ngay", "tarot/la-bai"]   # tarot/index.html is written too; tarot/img is not generated
 
 
 def write(out: dict[str, str], web: Path = WEB) -> int:

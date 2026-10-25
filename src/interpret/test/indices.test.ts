@@ -401,3 +401,36 @@ test('TH p.115 IX / p.117 6n vận sentences (3.1.0): each takes its book side; 
   assert.ok(!none.items.some(i => i.id === 'TH_IX10_TU_MO_KINH_DA'));
   assert.equal(none.score, base.score);
 });
+
+test('TH pp.116-117 hạn tags: a tiểu hạn-only sentence never weighs on a decade, a trùng phùng one only on a year on its decade palace', () => {
+  const f = structuredClone(ref.facts);
+  const d = f.decades[3];
+  d.readings.push({ text: 'câu tiểu hạn', src: 'Thực Hành pp.115-117', rule_id: 'TH_6I_TANG_HOA_LINH', han: 'tieu' },
+    { text: 'câu trùng phùng', src: 'Thực Hành pp.115-117', rule_id: 'TH_IX7_TRUNG_PHUNG_TY', han: 'trung_phung' });
+  const I = computeIndices(f, K, N);
+  const dec = I.decades.find(x => x.palace === d.palace)!;
+  assert.ok(!dec.items.some(i => i.id === 'TH_6I_TANG_HOA_LINH' || i.id === 'TH_IX7_TRUNG_PHUNG_TY'));
+  const ys = I.years.filter(y => y.palace === d.palace);
+  assert.ok(ys.length && ys.every(y => y.items.some(i => i.id === 'TH_6I_TANG_HOA_LINH' && i.layer === 'tieu_han')));
+  for (const y of ys) {
+    const inDecade = y.decade !== null && I.decades[y.decade].palace === d.palace;
+    assert.equal(y.items.some(i => i.id === 'TH_IX7_TRUNG_PHUNG_TY'), inDecade, `${y.year}`);
+  }
+});
+
+test('TH p.115 IX.10: tuổi Thìn Tuất Sửu Mùi, Kình / Đà hãm in the hạn palace is taken back; other ages keep the KL p.233 hãm alone', () => {
+  assert.ok(TU_MO_REF.has(ref.facts.year_gz.split(' ')[1]));
+  const da = X.decades.find(d => d.items.some(i => i.id === 'KL233_HAM_TH115_IX10'))!;
+  assert.ok(da, 'the reference chart has a decade with Kình or Đà hãm');
+  const back = da.items.find(i => i.id === 'KL233_HAM_TH115_IX10')!, ham = da.items.find(i => i.id === 'KL233_HAM' && i.star === back.star && i.scope === 'self')!;
+  assert.ok(ham && back.side === 'support' && ham.side === 'limit' && back.w === ham.w && /IX\.10/.test(back.cite));
+  for (const y of X.years) for (const i of y.items.filter(i => i.layer === 'dau_tinh' && i.id === 'KL233_HAM' && KINH_DA_REF.has(i.star!)))
+    assert.ok(y.items.some(j => j.layer === 'dau_tinh' && j.id === 'KL233_HAM_TH115_IX10' && j.star === i.star), `${y.year}: the đẩu tinh layer takes it back too`);
+  const f = structuredClone(ref.facts);
+  f.year_gz = `${f.year_gz.split(' ')[0]} Ngọ`;
+  const other = computeIndices(f, K, N).decades[X.decades.indexOf(da)];
+  assert.ok(other.items.some(i => i.id === 'KL233_HAM' && i.star === back.star && i.scope === 'self'));
+  assert.ok(!other.items.some(i => i.id === 'KL233_HAM_TH115_IX10'));
+  assert.ok(other.score < da.score);
+});
+const TU_MO_REF = new Set(['Thìn', 'Tuất', 'Sửu', 'Mùi']), KINH_DA_REF = new Set(['Kình Dương', 'Đà La']);

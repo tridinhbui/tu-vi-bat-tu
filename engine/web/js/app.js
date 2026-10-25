@@ -11,10 +11,10 @@ import { summaryBazi, summaryTuvi, yearCard } from './beginner.js';
 import { initCompare } from './compare.js';
 import { initPrint, printNow } from './print.js';
 import { initChat, initChapterBubbles, dialogueBazi, dialogueTuvi } from './mascots.js';
-import { renderSaved, initSave, isSaved } from './mine.js';
+import { renderSaved, initSave, isSaved, autoSave } from './mine.js';
 import { initAccount, session } from './account.js';
 import { initAccountPage } from './acctpage.js';
-import { focusFor } from './profile.js';
+import { focusFor, isOwnChart } from './profile.js';
 import { openShareDialog, loadShare, shareBanner, SHARE_HASH } from './share.js';
 import { exportBoardPng } from './png.js';
 import { initAsk } from './ask.js';
@@ -34,6 +34,7 @@ const expBadge = document.getElementById('exp-badge');
 if (expOn()) { expBadge.hidden = false; expBadge.onclick = () => { try { sessionStorage.setItem(EXP_KEY, ''); } catch { /* ignore */ } location.reload(); }; }
 initGlossary();
 let state = null; // { req, chart, reason, tv }
+let sampling = false;  // the sample chart is being opened: it is never kept in Lá số của tôi
 
 // ---------- brand + hero art ----------
 $$('[data-brand]').forEach(e => e.innerHTML = brandMark(e.dataset.brand === 'lg' ? 44 : 32));
@@ -72,6 +73,7 @@ document.addEventListener('click', e => {
   const act = a.dataset.act;
   if (act === 'sample') { e.preventDefault(); loadSample().then(() => setTab(a.dataset.tab || 'tuvi')); }
   else if (act === 'print') { e.preventDefault(); printNow(); }
+  else if (act === 'print-full') { e.preventDefault(); printNow(true); }
   else if (act === 'again') { e.preventDefault(); again(); }
   else if (act === 'save') { e.preventDefault(); $('#save-host button')?.click(); $('.atl-mast').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
   else if (act === 'scroll') { e.preventDefault(); $(a.dataset.target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
@@ -82,8 +84,6 @@ if (/^#(hoc|kham-pha|tu-vi|bat-tu|gioi-thieu)/.test(location.hash)) history.repl
 // The data-depth attribute stays so the existing .pro-only / .easy-only markup keeps working.
 document.body.dataset.depth = 'pro';
 try { localStorage.removeItem('tvbt-depth'); } catch { /* storage unavailable */ }
-let lastY = 0;
-addEventListener('scroll', () => { const y = scrollY; $('#site-header').classList.toggle('stuck', y > 8); lastY = y; }, { passive: true });
 
 // ---------- home: Five Elements, library, form ----------
 
@@ -163,7 +163,7 @@ addEventListener('tvbt:unlocked', async e => {
   await generate(null, { ...state.req });
   if (sys) setTab(sys, false);
   if (id) requestAnimationFrame(() => {
-    const sec = document.querySelector(`.prose[data-chapter="${CSS.escape(id)}"]`);
+    const sec = document.querySelector(`.prose[data-chapter="${CSS.escape(id)}"]:not([data-lifted])`);
     // the bought Đọc sâu stays folded; the reader opens it from its dropdown
     sec?.scrollIntoView({ block: 'start' });
   });
@@ -191,6 +191,8 @@ async function generate(ev, saved = null) {
       return;
     }
     await compute(req, lunarIn);
+    // a member's chart from the form goes straight into Lá số của tôi (not the sample, not one reopened from the list)
+    if (!saved && !sampling && autoSave(req, isOwnChart(req))) { renderSaved(savedList, openSaved); saver.paint(); }
   } catch (x) {
     // the reader pressed Hủy: back to the form as it was, no error shown
     if (isCancel(x)) { view('home'); $('#lap-la-so')?.scrollIntoView({ block: 'center' }); return; }
@@ -218,21 +220,22 @@ form.onsubmit = generate;
 const savedList = $('#saved-list'), openSaved = r => generate(null, r);
 renderSaved(savedList, openSaved);
 const compare = initCompare($('#cmp-host'));
-initPrint($('#print-btn'));
+initPrint($('#print-btn'), $('#print-full-btn'));
 const saver = initSave($('#save-host'), () => state?.req, () => { renderSaved(savedList, openSaved); paintShareBtn(); });
 const acctPage = initAccountPage($('#account-view'), {
   placeOptions: form.place.innerHTML, onPrefill: p => prefill(p), compare,
   onRun: p => { prefill(p, true); generate(); }, onOpen: req => generate(null, req), onChange: () => renderSaved(savedList, openSaved),
 });
-initAccount($('#acct'), () => { renderSaved(savedList, openSaved); acctPage.paint(); }, saver);
+initAccount(() => { renderSaved(savedList, openSaved); acctPage.paint(); }, saver);
 initAsk(() => shareMode.id ? null : state?.req);                // "Hỏi Bát Bát": the chart on screen, never a shared one
 initPaywall(() => shareMode.id ? null : state?.req);
 initAiCards(() => shareMode.id ? null : state?.req);   // "Luận AI" under each chapter, never on a shared chart
 initLive($('#live-stats'));
 async function loadSample() {
+  sampling = true;
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });
   form.year.value = 1990; form.month.value = 5; form.day.value = 17; form.time.value = '10:30'; form.gender.value = 'male'; form.place.value = 'TP. Hồ Chí Minh'; syncPlace(); hint();
-  await generate();
+  try { await generate(); } finally { sampling = false; }
 }
 $('#sample-btn').onclick = loadSample;
 $$('[data-sample]').forEach(b => b.onclick = () => loadSample());
@@ -332,7 +335,7 @@ async function openShare(id) {
   } finally { endLoad(); $('#loading').hidden = true; }
 }
 // a pasted share link or the account page, on load and when only the hash changes (same document)
-const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); };
+const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); else if (location.hash === '#la-so-mau') { history.replaceState(null, '', location.pathname); loadSample().then(() => setTab('tuvi')); } };
 route(); addEventListener('hashchange', route);
 // back from "Đăng nhập để đọc tiếp" on a guest lock card (js/paywall.js): the chart that was on screen, now read at the member tier
 { const resume = takeResume(); if (resume && !SHARE_HASH.test(location.hash)) generate(null, resume); }

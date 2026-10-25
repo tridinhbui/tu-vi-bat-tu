@@ -13,7 +13,7 @@ import { gunzipSync } from 'node:zlib';
 import { proseBazi } from '../prose/bazi.ts';
 import { checkedOnly } from '../prose/checked.ts';
 import { seedOf } from '../prose/chapter.ts';
-import { classOf, dhRoleOf, reconcileTs, goodYearsTs, type BaziDeep, type Reconcile } from '../prose/bazi_deep.ts';
+import { classOf, dhRoleOf, reconcileTs, goodYearsTs, type BaziDeep, type BaziTemporal, type Reconcile } from '../prose/bazi_deep.ts';
 import type { ProseParagraph } from '../prose/realize.ts';
 import type { ChartInput, Knowledge } from '../types.ts';
 
@@ -110,11 +110,15 @@ test('owner chart (09/01/2002): the findings of the audit are gone', () => {
   const luck = (name: string) => dv.find(t => t.toLowerCase().includes(`đại vận ${name.toLowerCase()}`) && /tuổi thực \(\d{4}–/.test(t)) ?? '';
   // Canh Tý: no longer "vận xấu" then "khá thuận" with nothing between: the two tables are said to differ, the verdict is conditional, and
   // the closing says the same
-  assert.ok(/vênh nhau|không trùng nhau/.test(luck('Canh Tý')) && /thuận hay nặng tùy lúc có nhóm Tỉ Kiếp/.test(luck('Canh Tý')), luck('Canh Tý'));
+  // (W3 2026-10-25: the co_dieu_kien_khac frames have six variants that say the two sides differ in their own words; the condition stays)
+  const ctV = (ch['dai-van'] ?? []).flatMap(p => p.sentences).find(s => s.trace.step === 'verdict:l1')!;
+  assert.equal((ctV.trace as V).verdict, 'co_dieu_kien');
+  assert.ok(/vênh|không trùng|khen|chê|hai hướng|không ưa/.test(ctV.text) && /(tùy lúc|khi) có nhóm Tỉ Kiếp đi kèm/.test(ctV.text), ctV.text);
   assert.ok(!/khá thuận/.test(luck('Canh Tý')));
   assert.match(tk, /Canh Tý \(từ 1 tuổi thực\) thuận hay nặng tùy lúc có nhóm Tỉ Kiếp/);
   // Mậu Tuất and Kỷ Hợi: the turn (what the branch still holds) and the years to lean on
-  assert.match(luck('Mậu Tuất'), /chi Tuất còn tàng Đinh \(Tỉ Kiên\)[^.]*\. [^.]*những năm nên tiến là 2025 \(Ất Tỵ\) và 2026 \(Bính Ngọ\)/);
+  // (W3: the hình with the month and day pillars is told before the verdict, which names the years in one of six nặng frames)
+  assert.match(luck('Mậu Tuất'), /chi Tuất còn tàng Đinh \(Tỉ Kiên\)[^]*chi Tuất hình chi tháng Sửu và chi ngày Sửu[^]*2025 \(Ất Tỵ\) và 2026 \(Bính Ngọ\)/);
   assert.match(luck('Kỷ Hợi'), /chi Hợi còn tàng Giáp \(Chính Ấn\), can điều hậu đứng đầu/);
   assert.match(tk, /Kỷ Hợi \(từ 11 tuổi thực\) và Mậu Tuất \(từ 21 tuổi thực\) là những vận nặng/);
   // "theo bảng điều hậu lá số cần Hỏa": the frame names the table's stems; Hỏa is the Trích Thiên Tủy rule's
@@ -133,7 +137,9 @@ test('owner chart (09/01/2002): the findings of the audit are gone', () => {
   assert.ok((ch['cach-cuc'] ?? []).flatMap(p => p.sentences).some(s => /chưa rõ xuất xứ/.test(s.trace.note ?? '')));
   assert.ok(!/Thiệu Vĩ Hoa|Trích Thiên Tủy|Bát Tự Chân Tông/.test(cc));
   // 2026 (Bính Ngọ) is one of the years the đại vận names to lean on, and the lưu niên agrees
-  assert.match((ch['luu-nien'] ?? [])[0]?.text ?? '', /Bính Ngọ[^]*cùng thuận|Bính Ngọ[^]*đều thuận/);
+  // (W3: the thuận frames no longer all say "cùng thuận"; the verdict's class is checked instead)
+  const y26 = (ch['luu-nien'] ?? []).flatMap(p => p.sentences).find(s => s.trace.step === 'verdict:y2026');
+  assert.equal((y26?.trace as V | undefined)?.verdict, 'thuan', y26?.text);
 });
 
 test('the TS fallback gives the Python verdict wherever the facts carry both', () => {
@@ -148,7 +154,7 @@ test('the TS fallback gives the Python verdict wherever the facts carry both', (
     const [yong, tot, xau] = ok ? [D.cach_tvh!.yong, D.cach_tvh!.van_tot, D.cach_tvh!.van_xau] : [[], [], []];
     for (const t of [...D.luck, ...(D.years ?? [])]) {
       if (!t.reconcile) continue;
-      const ts = reconcileTs({ ...t, reconcile: undefined }, f.bazi!.day_master, table, needEl, yong, xau);
+      const ts = reconcileTs({ ...t, reconcile: undefined }, f.bazi!.day_master, table, needEl, yong, xau, (D.luck as BaziTemporal[]).includes(t) ? t.events : undefined);
       const py: Reconcile = t.reconcile;
       assert.deepEqual({ ...ts, support: ts.support ?? [] }, { ...py, support: py.support ?? [] }, `${l} ${'pillar' in t ? t.pillar : ''}`);
       assert.equal(classOf(ts), classOf(py));
@@ -211,4 +217,59 @@ test('owner review 2026-10-22: one cách status, Tài in three layers, year × �
   for (const s of all.filter(x => x.trace.basis === 'minh_hoa')) assert.ok(all.some(t => t.trace.step === s.trace.attach && t !== s), s.text);
   // 5. one age convention on the Bát Tự surface, named at every age: tuổi thực
   for (const s of all) assert.ok(!/\d+ tuổi(?! thực)/.test(s.text), s.text);
+});
+
+// W3 (plan magical-magpie, 2026-10-25): every đại vận used to close on "Nhìn chung … khá thuận, … từng bước chắc". The closings now carry the
+// pillar's own groups, climate side, certainty word and, where it decided, its relation with the natal chart (bazi_luck_relations.json).
+const tokens = (s: string) => new Set(s.toLowerCase().replace(/[.,;:()]/g, ' ').split(/\s+/).filter(Boolean));
+const jaccard = (a: Set<string>, b: Set<string>) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n / (a.size + b.size - n); };
+test('W3: within one chart no luck closing is more than 80% token-similar to another pillar\'s', () => {
+  const bad: string[] = [];
+  let n = 0;
+  for (const [l, f] of charts) {
+    const vs = ((reader(f).chapters as Ch)['dai-van'] ?? []).flatMap(p => p.sentences).filter(s => /^verdict:l/.test(s.trace.step ?? '')).map(s => s.text);
+    for (let i = 0; i < vs.length; i++) for (let j = i + 1; j < vs.length; j++) {
+      n++;
+      const sim = jaccard(tokens(vs[i]), tokens(vs[j]));
+      if (sim > 0.8) bad.push(`${l}: ${sim.toFixed(2)}\n  ${vs[i]}\n  ${vs[j]}`);
+    }
+  }
+  assert.ok(n > 300, `${n} pairs`);
+  assert.deepEqual(bad, []);
+  // and the old frames are gone from the whole reading
+  // ("nhìn chung" elsewhere in the reading is W5's phrase-frequency check)
+  for (const [l, f] of charts) for (const s of sentences(reader(f).chapters as Ch))
+    assert.ok(!/từng bước chắc|chắc từng bước/i.test(s.text) && !(/^verdict:/.test(s.trace.step ?? '') && /nhìn chung/i.test(s.text)), `${l}: ${s.text}`);
+});
+
+test('W3: a xung with the month pillar caps a thuận luck pillar (owner chart, Giáp Ngọ given a counterfactual clash)', () => {
+  // on the owner chart itself no luck verdict is moved: the one thuận pillar, Giáp Ngọ, makes no xung / hình / phản ngâm with the month or
+  // day pillar. Its relations are said where they confirm the verdict (Mậu Tuất's hình, Ất Mùi's phản ngâm, Giáp Ngọ's bán hợp Hỏa).
+  const D = (owner.bazi as { deep?: BaziDeep | null }).deep!;
+  const real = new Map(D.luck.map(l => [l.pillar, l.reconcile!]));
+  assert.equal(real.get('Giáp Ngọ')!.verdict, 'thuan');
+  assert.equal(real.get('Giáp Ngọ')!.rel?.rule, 'BT_HT_LUCK_REL_HOP_DUNG');
+  assert.deepEqual([real.get('Ất Mùi')!.rel?.rule, real.get('Ất Mùi')!.rel?.effect, real.get('Ất Mùi')!.verdict], ['BT_HT_LUCK_REL_CAP', 'confirm', 'nang']);
+  const am = ((reader(owner).chapters as Ch)['dai-van'] ?? []).flatMap(p => p.sentences).find(s => s.trace.step === 'rel:l6');
+  assert.ok(am && /phản ngâm với trụ tháng Tân Sửu/.test(am.text) && (am.trace as { convention?: string }).convention === 'BT_HT_LUCK_REL_CAP', am?.text);
+  // the counterfactual: Giáp Ngọ also clashing the month branch; the facts' verdict is dropped so the TS fallback decides
+  const cf = structuredClone(owner);
+  const gn = (cf.bazi as { deep: BaziDeep }).deep.luck.find(l => l.pillar === 'Giáp Ngọ')!;
+  gn.events = [...gn.events!, { kind: 'branch_clash', targets: ['month'], part: 'branch', opens_kho: true }];
+  delete gn.reconcile;
+  const v = ((reader(cf).chapters as Ch)['dai-van'] ?? []).flatMap(p => p.sentences).find(s => s.trace.step === 'verdict:l7')!;
+  assert.equal((v.trace as V).verdict, 'bien_dong');
+  assert.equal((v.trace as { convention?: string }).convention, 'BT_HT_LUCK_REL_CAP');
+  assert.match(v.text, /chi Ngọ[^.;]*xung[^.;]*chi tháng Sửu/);
+  assert.match(v.trace.note ?? '', /quy ước của hệ thống/);
+  // the closing timeline follows the same class
+  const tk = ((reader(cf).chapters as Ch)['tong-ket'] ?? []).flatMap(p => p.sentences);
+  assert.ok(tk.some(s => ((s.trace as V).verdicts ?? []).some(([n, c]) => n === 'Giáp Ngọ' && c === 'bien_dong')));
+});
+
+test('W3: điều hậu "thiếu" says which sense, never of the day master (1990 chart: Nhâm nhật chủ, cell Nhâm / Tân / Canh / Quý)', () => {
+  const s = sentences(reader(user1990).chapters as Ch).find(x => /chưa thấy can/.test(x.text))!;
+  assert.match(s.text, /ngoài nhật chủ, chưa thấy can Nhâm hay Quý lộ/);
+  assert.match(s.text, /hành Thủy chỉ có ở chính nhật chủ Nhâm/);
+  assert.ok(!/thiếu Nhâm/.test(s.text));
 });

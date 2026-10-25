@@ -15,9 +15,9 @@ MAJORS = list(tuvi.MAJOR_NAMES)
 AUX = ["Kình Dương", "Đà La", "Địa Không", "Địa Kiếp", "Hỏa Tinh", "Linh Tinh", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt", "Tả Phụ",
        "Hữu Bật", "Lộc Tồn", "Đào Hoa", "Hồng Loan", "Thiên Hỷ", "Thái Tuế", "Quan Phù", "Bạch Hổ", "Tấu Thư", "Phi Liêm"]
 HOAS = ["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"]
-# rules added after the move to data (TH p.115 IX.6, 9, 10; p.117 6n): the frozen version has no counterpart, so the differential leaves them out
-NEW = {"TH_IX6_GIAP_THUONG_SU", "TH_IX6_CANH_THUONG_SU", "TH_IX9_THAN_THUONG", "TH_IX10_TU_MO_KINH_DA", "TH_IX10_TU_MO_KINH_DA_PHAT",
-       "TH_6N_SPT_TANG_HO"}
+# rules added after the move to data (TH pp.115-117, 2026-10-24) follow the 28 carried-over ones: the frozen version has no counterpart,
+# so the differential leaves them out
+NEW = {r["id"] for r in van_han.rules()[28:]}
 
 
 def old_rules_read(tv, palace):
@@ -151,3 +151,27 @@ def test_th_6n_needs_all_six_stars_in_the_tam_phuong():
     assert not _fires("TH_6N_SPT_TANG_HO", synth(ops[:-1]), "Quan Lộc")
     assert not _fires("TH_6N_SPT_TANG_HO", synth(ops[1:]), "Quan Lộc")
     assert not _fires("TH_6N_SPT_TANG_HO", synth(ops[:5] + [S("Thiên Thương", "Huynh Đệ")]), "Quan Lộc")
+
+
+def test_th_hạn_tags_keep_tieu_han_and_trung_phung_rules_off_the_wrong_reading():
+    """TH p.117 6i names the tiểu hạn only; IX.7 needs đại and tiểu hạn on one palace, which read() cannot know."""
+    tv = synth([S("Tang Môn", "Quan Lộc"), S("Hỏa Tinh", "Quan Lộc"), S("Linh Tinh", "Quan Lộc")])
+    traced = [o for o in van_han.read_traced(tv, "Quan Lộc") if o["rule_id"] == "TH_6I_TANG_HOA_LINH"]
+    assert traced and traced[0]["han"] == "tieu"
+    assert any("Tang Môn" in o["text"] for o in van_han.read(tv, "Quan Lộc", han="tieu"))
+    assert not any("Tang Môn" in o["text"] for o in van_han.read(tv, "Quan Lộc", han="dai"))
+    assert not any("Tang Môn" in o["text"] for o in van_han.read(tv, "Quan Lộc"))
+    ty = _at(synth(menh="Ngọ"), "Tý")            # read() says nothing for the Mệnh palace itself
+    tv = synth([S("Thiên Thương", ty), S("Kình Dương", ty), S("Thái Tuế", ty)], menh="Ngọ")
+    assert [o["han"] for o in van_han.read_traced(tv, ty) if o["rule_id"] == "TH_IX7_TRUNG_PHUNG_TY"] == ["trung_phung"]
+    assert van_han.read(tv, ty, han="tieu") == van_han.read(tv, ty, han="dai") == van_han.read(tv, ty)
+
+
+def test_grave_rules_are_told_without_the_event():
+    """Owner 2026-10-24: the rules naming death, prison, injury, illness, burns, drowning or mourning say only 'theo sách rất bất lợi'."""
+    grave = [r for r in van_han.rules() if r["text"].endswith("theo sách rất bất lợi.")]
+    assert len(grave) >= 27
+    words = ("chết", " tù", "đại tang", "tang sự", "tai nạn", "bỏng", "cháy", "đuối", " mù", "ốm", "thương tật", "tàn tật", "lao lý", "tai họa",
+             "tai ương", "hãm hại", "sinh ly", "tử biệt")
+    for r in grave:
+        assert not any(w in r["text"].lower() for w in words), r["id"]

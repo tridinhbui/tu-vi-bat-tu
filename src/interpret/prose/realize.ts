@@ -24,6 +24,8 @@ export interface SentenceTrace {
   mech?: boolean;
   /** Bát Tự (bazi_deep.ts): the condition a verdict stands on, e.g. 'cach_partial' = true only if the cách is established (owner review 2026-10-22) */
   conditional?: string;
+  /** Bát Tự (bazi_deep.ts): the id of the system convention (he_thong, e.g. BT_HT_LUCK_REL_*) that decided or confirms the verdict; its text is in `note` */
+  convention?: string;
   /** deep.ts: a difficulty ('neg'), something good ('pos'), or what answers a difficulty ('answer') */
   tone?: 'neg' | 'pos' | 'answer';
   resolution?: { relation: string; byRule: string; cite?: string }; schema?: string; woven?: Array<SentenceTrace['move']>;

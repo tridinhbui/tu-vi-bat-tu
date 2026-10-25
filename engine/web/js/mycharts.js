@@ -14,7 +14,7 @@ export function initMyCharts(host, { onOpen, compare, onChange }) {
     if (session.user) { try { shares = await listShares(); } catch { shares = []; } }
     const count = id => shares.filter(s => s.chart_id === id).length;
     const groups = RELS.map(r => [r, list.filter(x => x.rel === r)]).filter(([, xs]) => xs.length);
-    host.innerHTML = !list.length ? `<p class="muted">Chưa có lá số nào được lưu. Lập một lá số rồi bấm “Lưu lá số này”; bạn lưu được lá số của mình, người thân và bạn bè.</p><a class="btn btn-sm" href="#lap-la-so" data-go="lap-la-so">Lập lá số</a>`
+    host.innerHTML = !list.length ? `<p class="muted">${session.user ? 'Chưa có lá số nào. Mỗi lá số bạn lập sẽ tự được giữ ở đây; sau đó bạn đặt tên và cho biết là của mình, người thân hay bạn bè.' : 'Chưa có lá số nào được lưu. Lập một lá số rồi bấm “Lưu lá số này”; bạn lưu được lá số của mình, người thân và bạn bè.'}</p><a class="btn btn-sm" href="#lap-la-so" data-go="lap-la-so">Lập lá số</a>`
       : `<div class="mc-bar"><button type="button" class="btn btn-sm" data-cmp disabled>So sánh hai lá số đã chọn</button><span class="muted small" data-cmp-n>Chọn hai lá số để so sánh.</span></div>
       ${groups.map(([r, xs]) => `<h4 class="mc-g">${esc(r)} <small>(${xs.length})</small></h4><ul class="mc-list">${xs.map(x => `<li data-id="${esc(x.id)}">
         <label class="mc-pick"><input type="checkbox" data-pick${picked.includes(x.id) ? ' checked' : ''} aria-label="Chọn ${esc(x.label)} để so sánh"></label>

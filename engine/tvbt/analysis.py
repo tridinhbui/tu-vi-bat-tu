@@ -311,7 +311,7 @@ def analyse(tv: TuViChart, bz: BaziChart) -> dict:
     from . import van_han
     for d, line in zip(tv.dai_han[:10], dai_van_reading(v, tv, year_branch_idx)):
         stage = van_han.life_stage(tv.dai_han_direction, d["palace"])
-        extra = van_han.read(tv, d["palace"])
+        extra = van_han.read(tv, d["palace"], han="dai")
         txt = line + (f" Theo Khảo Luận, hạn này ứng với giai đoạn “{stage}”." if stage else "")
         if extra:
             txt += " Mệnh gặp vận: " + " ".join(e["text"] for e in extra)

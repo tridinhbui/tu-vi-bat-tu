@@ -17,12 +17,14 @@
   ],
   "exclude": [
     "src/interpret/test",
+    "src/horary/test",
     "src/auth/test",
     "src/billing/test",
     "src/chat/test",
     "src/stats/test",
     "src/feedback/test",
     "src/referral/test",
-    "src/account/test"
+    "src/account/test",
+    "src/tarot/test"
   ]
 }
