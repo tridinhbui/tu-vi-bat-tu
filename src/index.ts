@@ -8,6 +8,7 @@ import { handleChat } from "./chat/route.ts";
 import { handleFeedback, isFeedbackPath } from "./feedback/route.ts";
 import { handleAdmin, isAdminPath, type AdminEnv } from "./admin/route.ts";
 import { handleReferral, isReferralPath } from "./referral/route.ts";
+import { handleTarot, isTarotPath } from "./tarot/route.ts";
 import { handleDeep, handleDeepStatus } from "./chat/deep.ts";
 import { handleBilling, isBillingPath, paywallOn, type BillingEnv } from "./billing/route.ts";
 import { gated as gatedRoute } from "./billing/paywall.ts";
@@ -30,6 +31,7 @@ interface Env extends AuthEnv, BillingEnv, AdminEnv {
   CF_VERSION_METADATA?: { id: string };   // deploy version id (wrangler version_metadata); keys the interpretation cache
   TVBT_INTERPRET?: string;          // "1" enables /api/interpret (default off: the route answers 404)
   TVBT_PROSE_DRAFT?: string;        // "1" lets mode "prose" use prose cards that are still drafts (default: approved cards only)
+  TVBT_TAROT?: string;              // "1" turns on the Tarot API (src/tarot/route.ts); off (default), its paths answer 404
   TVBT_LUAN?: string;               // "0" turns off the luận cung chapters (prose/luan.ts) in the whole-report prose; on unless set to "0"
   INTERPRET_DB?: D1Like;            // optional D1 knowledge base + output cache (migrations/interpret)
   INTERPRET_CACHE?: R2Like;         // optional R2 bucket for cached outputs
@@ -88,6 +90,11 @@ export default {
     const path = new URL(request.url).pathname;
     if (path === "/api/stats") return handleStats(env.DB);
     if (isBillingPath(path)) return handleBilling(request, env, env.DB ? await currentUser(env.DB, request) : null);
+    // Tarot (/api/tarot/*, /api/me/tarot): before the /api/me/* account routes and the container forward
+    if (isTarotPath(path)) {
+      const on = env.TVBT_TAROT === "1";
+      return handleTarot(request, { db: env.DB, enabled: on, user: on && env.DB ? await currentUser(env.DB, request) : null });
+    }
     if (path === "/api/me/chat") return chatRoute(request, env, ctx, false);
     if (path === "/api/me/deep") return chatRoute(request, env, ctx, true);
     if (path === "/api/me/deep/status") {

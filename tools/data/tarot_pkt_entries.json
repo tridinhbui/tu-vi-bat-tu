@@ -1,0 +1,5 @@
+{
+ "note": "Hand-checked readings from A. E. Waite, The Pictorial Key to the Tarot (London: William Rider & Son, 1911), Part III 'Divinatory Meanings'. One entry per card and orientation: {card (id in engine/data/tarot/deck.json), orientation ('upright' | 'reversed'), page (printed page), quote_en (verbatim from that page), text_vi (Vietnamese rendering of that line only, nothing added)}. EMPTY until the book is on this machine and each line is read off its page. Build: .venv/bin/python tools/build_tarot_pack.py",
+ "pdf_offset": null,
+ "entries": []
+}

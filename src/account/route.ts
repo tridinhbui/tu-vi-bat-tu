@@ -38,6 +38,8 @@ async function deleteData(db: D1Database, userId: string): Promise<void> {
   ]);
   // feedback threads carry the name and e-mail of a signed-in writer; the table appears on first use (src/feedback/route.ts)
   try { await db.prepare("DELETE FROM feedback_threads WHERE user_id = ?").bind(userId).run(); } catch { /* no feedback table yet */ }
+  // saved Tarot draws (and their questions); the table appears with migrations/app/0011_tarot.sql or the first draw
+  try { await db.prepare("DELETE FROM tarot_draws WHERE user_id = ?").bind(userId).run(); } catch { /* no tarot table yet */ }
 }
 
 export async function handleAccount(request: Request, db: D1Database | undefined, forward: Forward): Promise<Response> {

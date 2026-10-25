@@ -10,6 +10,7 @@
 import { opposedPair, relIndexOf, type ArgumentGraph, type Claim } from './planner.ts';
 import type { Paragraph } from './generator.ts';
 import type { ChartInput, Knowledge } from './types.ts';
+import { BANNED } from './wording.ts';
 
 export interface QualityReport {
   pass: boolean; errors: Array<{ check: string; detail: string }>; warnings: Array<{ check: string; detail: string }>;
@@ -18,8 +19,6 @@ export interface QualityReport {
   editorial: { modules: Array<{ id: string; version: number; status: string }>; allApproved: boolean; notice: string };
 }
 
-const BANNED = [/\bchắc chắn\b/i, /\bnhất định sẽ\b/i, /\bđịnh mệnh\b/i, /\bkhông thể tránh\b/i, /\btai họa\b/i, /\bsẽ bị\b/i, /\btuyệt đối\b/i, /\bluôn luôn\b/i,
-  /\bchết\b/i, /\byểu\b/i, /\btù tội\b/i, /\bly hôn\b/i, /\bung thư\b/i, /\bphá sản\b/i];
 const words = (t: string) => t.split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w));
 const stripQuotes = (t: string) => t.replace(/“[^”]*”/g, ' ').replace(/\([^)]*\)/g, ' ');
 const opener = (t: string) => words(t).slice(0, 2).join(' ').toLowerCase();
