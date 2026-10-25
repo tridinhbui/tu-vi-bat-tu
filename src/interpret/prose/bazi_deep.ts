@@ -745,7 +745,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const tbYong = tbOrder.find(v => v.verdict !== 'xau' && yongG.some(g => tbParts(v.text)!.cond.includes(g)));
     // REVIEW-19 W6: the domains the pillar's groups stand for (told once, in the đại vận opening) join the verdict: a labelled synthesis
     const domTxt = o.dom?.length && F.rc_dom ? fill(m.pick(`bd|rd|${key}`, F.rc_dom[o.year ? 'year' : 'luck']), { list: join(o.dom) }) : '';
-    const vText = fill(m.pick(`bd|rv|${key}`, fr), { kind, pk, Pk: cap(pk), yong: yongTxt, years: list, yearsTail: years, stem: who.stem, branch: who.branch,
+    const vText = fill(m.pick(`bd|rv|${key}`, fr), { kind, yong: yongTxt, years: list, yearsTail: years, stem: who.stem, branch: who.branch,
       ha: hv ? `${hv.stem[0]}–${hv.stem[1]}` : '', hb: hv ? `${hv.branch[0]}–${hv.branch[1]}` : '', ...rcVars }).replace(/ \(\)/g, '').replace(/\(, /g, '(').replace(/, ,/g, ',');
     const body = domTxt ? `${vText.replace(/\.\s*$/, '')}${domTxt}.` : vText;
     // the need element named by a hợp is the fired hàn noãn rule's (TTT pp.113-114): cited

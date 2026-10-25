@@ -1,0 +1,215 @@
+{
+ "number": 9,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Tiểu súc là cái nhỏ kìm giữ cái lớn: một sức mềm chặn được đà tiến của nhiều sức mạnh, nhưng chỉ buộc được chứ không giữ bền, nên việc đã gần thành mà chưa thành.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Tiểu (nhỏ) tức là Âm, Súc (chứa) nghĩa là ngăn lại; trên Tốn dưới Kiền, lấy Âm chứa Dương."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "lấy Âm chứa Dương, buộc được mà không thể bền"},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "sự chứa chưa được tột bậc, mà cái thi thố chưa được hiển hiện"}
+   ]
+  },
+  "image": {
+   "text": "Gió đi trên trời, có khí mà không có chất, giữ được một lúc chứ không lâu; thời này hợp với việc trau dồi cái đẹp bên trong hơn là làm việc lớn, vươn xa.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Gió đi trên trời là quẻ Tiểu súc, đấng quân tử coi đó mà làm cho tốt đức văn."},
+    {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Gió có khí mà không có chất, có thể chứa mà không thể lâu, cho nên là Tượng chứa nhỏ."},
+    {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Làm tốt đức văn, ý nói chưa thể chứa chất được hậu, thi hành được xa."}
+   ]
+  },
+  "structure": {
+   "text": "Chỉ một hào âm ở ngôi Tư mà năm hào dương trên dưới đều bị nó giữ lại; hào ấy là chủ quẻ, và nó giữ được bằng sự mềm thuận chứ không bằng sức.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "quẻ này chỉ hào Sáu Tư là một hào Âm, trên dưới năm hào Dương đều bị nó chứa"},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Chứa khí Dương tức là hào Tư, nó là chủ của quẻ Súc."},
+    {"seg": "intro", "layer": "trinh_di", "quote": "chỉ biết dùng sự nhún thuận để làm cho mềm sự cứng mạnh, không phải sức nó có thể ngăn được."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Trong mạnh ngoài nhún, hào Hai hào Năm đều là Dương và đều ở giữa một quẻ làm việc, có tượng \"cứng mà lại giữa, chí được thực hành\", cho nên lời chiêm của nó nên được hanh thông."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Như mây đã dày mà chưa thành mưa, công việc đã tích được sức nhưng còn bị một lực nhỏ níu lại, kết quả chưa hiện ra; lúc này chưa nên mong một bước tiến lớn.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Chứa nhỏ không thể thành lớn, cũng như mây của cõi tây không thể thành mưa."},
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "sự thi thố chưa được thực hành vậy."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Của tích được lúc này là của nhỏ, đến từ góp nhặt dần chứ không một sớm một chiều; lấy cái nhỏ làm đủ, chưa nên trông vào một khoản lớn.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Âm mềm chứa Dương, không phải một sớm một tối mà có thể thành, phải do tích lũy mà tới"},
+     {"seg": "intro", "layer": "trinh_di", "quote": "Tiểu súc là lấy cái nhỏ mà chứa cái lớn, thì cái chứa họp cũng nhỏ."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Những đối tác cùng bị kìm như nhau nên dắt nhau cùng tiến, người mạnh kéo người yếu, người dưới góp sức cho người trên, thì một lực cản nhỏ không chặn nổi.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hai hào Dương cùng tiến, thì hào Âm không thể thắng được, mà sự trở lại được toại"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Không phải chỉ là đem sức mình giúp đỡ cho người mà thôi, cũng phải nhờ về sức kẻ ở dưới giúp đỡ để làm cho thành cái sức của mình nữa."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Thời này hợp với việc trau chuốt cái học, cái nghề, những điều nhỏ mà tinh, hơn là toan tính những công trình lớn.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "cái uẩn xúc của đấng quân tử, lớn thì đạo đức kinh luân, nhỏ thì văn chương tài nghệ"},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đấng quân tử coi tượng Tiểu súc để làm tốt đẹp đức văn; việc đó, so với đạo nghĩa, thì là còn nhỏ."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Người mềm mỏng muốn giữ chân một người mạnh hơn mình thì giữ bằng lòng thành, không bằng sức ép; ép bằng sức thì cả hai cùng tổn thương.",
+    "from": [
+     {"seg": "hao4", "layer": "tien_nho", "quote": "hào Ba tuy bị \"trụt bánh xe\", hào Tư cũng không thể không bị thương"},
+     {"seg": "hao4", "layer": "tien_nho", "quote": "Ắt phải có sự tin, thì máu có thể đi, sợ có thể khỏi, mới không có lỗi."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Lúc cả nhà cùng bị kìm trong cảnh khó, người lớn kéo người nhỏ, người nhỏ đỡ người lớn, ai cũng góp phần thì mới cùng qua được.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "kẻ dưới ắt phải vin kéo người trên, hẹn để cùng tiến; kẻ ở trên ắt phải cứu dẫn người dưới, để cùng gắng sức."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Đang bị níu chân mà quay về giữ con đường vốn của mình thì không lỗi; còn khi lực níu đã lớn gần đầy như trăng sắp rằm, cố lao đi lúc ấy dễ hỏng.",
+    "from": [
+     {"seg": "hao1", "layer": "nghia", "quote": "Trở lại từ đường, còn lỗi gì? Tốt!"},
+     {"seg": "hao6", "layer": "nghia", "quote": "Mặt trăng hầu đến tuần vọng, đấng quân tử đi thì hung."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Lấy lòng thành và sự mềm mỏng mà làm việc với những người mạnh hơn mình; lấy sức một người đối chọi với nhiều người thì dễ bị tổn, còn thành thật thì cảm được họ.",
+   "from": [
+    {"seg": "hao4", "layer": "trinh_di", "quote": "hào Tư nếu muốn lấy sức mà chứa, thì một kẻ mềm đối địch với nhiều kẻ cứng, ắt bị đau hại"},
+    {"seg": "hao4", "layer": "trinh_di", "quote": "duy có hết lòng thành tín để ứng với nó, thì có thể cảm được nó, cho nên mới xa được sự đau hại mà thoát khỏi sự sợ hãi."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Sự kìm giữ mà kéo dài không thôi thì cái yếu dần lấn cái mạnh và thành điều xấu; giữ đến đúng mức thì nên dừng.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "nếu chứa mãi không thôi, thì nó sẽ thịnh hơn Dương mà thành ra hung."}
+    ]
+   },
+   {
+    "text": "Thấy trước dấu hiệu bất lợi mà dè chừng, tìm cách gỡ từ sớm thì không đến nỗi gặp xấu.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Nếu biết nghi ngờ từ trước mà răn sợ sẵn, tìm cách để cho nó đi, thì không đến nỗi phải hung."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Muốn tiến mà bị ngăn, người này giữ đúng đường của mình mà quay về, không để bị lôi kéo; đi đúng đường thì chẳng có lỗi gì, lại tốt.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Trở lại đã từ đường, còn trái lỗi gì, không lỗi mà lại tốt nữa."},
+     {"seg": "tieu_tuong1", "layer": "nghia", "quote": "Trở lại từ đường, thửa nghĩa tốt vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở dưới cùng, đúng ngôi, lại cách xa hào âm: đứng đúng chỗ và đủ xa để không bị níu giữ.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "hào Chín Đầu là thể Kiền, ở dưới, được chỗ chính, đằng trước xa với hào Âm"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "tuy là chính ứng với hào Tư, mà nó có thể tự giữ đường chính, không bị hào kia ngăn chứa, cho nên có tượng \"tiến lên, trở lại từ đường\". Kẻ xem như thế thì không có lỗi mà tốt."}
+  },
+  "2": {
+   "gist": {
+    "text": "Những người cùng cảnh lo cho nhau, nắm tay dắt nhau cùng quay về; nhờ giữ mức vừa phải, tiến mạnh mà không quá cứng, nên không đánh mất mình.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Cùng hoạn nạn thì lo cho nhau, hào Hai với hào Năm đồng chí, cho nên mới có dắt nhau trở lại."},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "hào Hai vì được ở giữa, cho nên dẫu tiến lên mạnh, cũng không đến nỗi quá cứng, quá cứng thì là tự mất."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ dưới, dần đến gần chỗ hiểm, nhưng nhờ cứng mà giữa nên vẫn giữ được mình.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "hào Chín Hai dần dần gần với chỗ hiểm, vì nó cứng giữa"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Ba hào Dương chí giống nhau, mà hào Chín Hai dần dần gần với chỗ hiểm, vì nó cứng giữa, cho nên có thể có dắt với hào Chín Đầu mà đi trở lại, cũng là đạo tốt. Kẻ xem như thế thì tốt."}
+  },
+  "3": {
+   "gist": {
+    "text": "Ham gần cái đang níu mình nên bị giữ chặt như xe tuột trục, rồi lại không chịu mà quay ra tranh cãi; cảnh bế tắc này phần lớn do cách mình tự xử.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "chỉ vì Âm Dương đẹp lòng nhau mà bị ràng buộc ngăn chứa không thể tự mình tiến lên"},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Hào Ba không biết theo đạo mà tự xử, cho nên hào Tư mới đè nén được, không cho tiến lên."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương không ở giữa, lại kề sát hào âm ở ngôi Tư mà không phải chính ứng: gần quá mà không đúng chỗ nên bị giữ.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba là hào ở Dương, ở không được giữa, mà lại liền sát với hào Tư"}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Song vì chí nó cứng mạnh, không thể dẹp đi mà còn tranh nhau với hào kia, cho nên lại là cái Tượng \"chồng vợ trở mắt\". Kẻ xem như thế, thì không thể tiến được mà lại có sự tranh giành."},
+   "topics": {
+    "tinh_cam": {
+     "text": "Một mối quan hệ đến từ sức hút gần gũi mà không đúng lẽ dễ thành giằng co, hai bên trừng mắt nhìn nhau; trước khi trách người, nên xem mình đã tự xử thế nào.",
+     "from": [
+      {"seg": "hao3", "layer": "nghia", "quote": "Xe trụt bánh, chồng vợ trở mắt."},
+      {"seg": "hao3", "layer": "trinh_di", "quote": "những sự \"trụt bánh\" \"trở mắt\", đều là do hào Ba tự mình làm ra."}
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Một người mềm đứng giữa nhiều người mạnh mà muốn giữ họ lại: có lòng thành thì được người trên tin và cùng chí, nỗi lo và sự tổn hại qua đi, không lỗi.",
+    "from": [
+     {"seg": "hao4", "layer": "nghia", "quote": "Có tin, máu đi, sợ ra, không lỗi."},
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Hào Tư đã có tín, thì hào Năm tín dùng mà hợp chí với nó, vì vậy mới được \"sợ ra\" mà không lỗi."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm đúng ngôi, ở sát ngôi tôn, trong rỗng mà thuận, lại có hào dương cùng quẻ trên đỡ cho.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Tư trong thời chứa đựng, ở ngôi gần vua, ấy là kẻ ngăn chứa ông vua."},
+     {"seg": "hao4", "layer": "chu_hy", "quote": "vì nó muốn mềm thuận được chỗ đính chính, trống rỗng bên trong, lại có hào Dương của thế Tốn giúp cho họ"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "ấy là Tượng \"có sự tin mà máu đi, sợ khỏi\", không lỗi là phải. Cho mới răn kẻ xem có đức ấy thì không có lỗi."}
+  },
+  "5": {
+   "gist": {
+    "text": "Người ở ngôi cao, thành thật và gắn chặt với những người cùng cảnh, đem sức mình ra cùng chung với láng giềng; nhờ lòng thành mà được người giúp lại.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "tức là hào Năm phải đem hết sức của mình để cùng xóm giềng cùng chung"},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Đấng quân tử gặp khi nạn ách, chỉ có lòng chí thành, cho nên được sức mọi người giúp đỡ mà lại có thể giúp cho mọi người."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ trên, đứng ngôi tôn, đủ thế để gom cả người trên lẫn người dưới về một mối.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "hào Chín Năm ở giữa, đứng ngôi tôn, thế nó có thể làm việc để gồm cả trên lẫn dưới"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "nghia", "quote": "Hào Chín Năm: Có tin, dường co quẹo vậy, giàu vì láng giềng."},
+   "topics": {
+    "tai_chinh": {
+     "text": "Của cải và sức lực lúc này nên đem ra chung với những người gần gũi, cùng cảnh, không giữ cái giàu cho riêng mình.",
+     "from": [
+      {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "cùng mọi người chung sự ham thích, không riêng có cái giàu của mình"},
+      {"seg": "tieu_tuong5", "layer": "nghia", "quote": "Có tin dường co quẹo vậy, là không giàu một mình vậy."}
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Sự kìm giữ đã tích đầy đến lúc thành, như mưa đã rơi rồi dừng; nhưng khi cái mềm đã lớn gần lấn cái cứng thì dù đúng cũng nguy, và hành động lúc này dễ gặp xấu.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Sự chứa đã cùng tột mà hoàn thành tức là Âm Dương đã hòa, cho nên là tượng \"đã mưa đã ở\"."},
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Bởi tại Âm đặt lên Dương, cho nên tuy chính cũng nguy."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Âm hầu thịnh cực, đấng quân tử hành động thì có sự hung."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Khi Âm đã thịnh mà chống lại khí Dương, thì đấng quân tử không thể làm việc. Lời chiêm như thế, tức là răn bảo sâu lắm."}
+  }
+ }
+}

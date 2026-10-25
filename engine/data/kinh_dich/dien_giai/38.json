@@ -1,0 +1,238 @@
+{
+ "number": 38,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Khuê là lúc những người cùng một gốc lại mỗi người một hướng, như lửa bốc lên còn nước chằm thấm xuống: việc lớn khó thành, nhưng việc nhỏ vẫn có thể tốt.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Khuê là trái khác."},
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Nói \"lìa\" là gốc chung nhau, nếu gốc không chung nhau thì không phải là lìa."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "lời Chiêm của nó không thể làm việc lớn, mà việc nhỏ còn có cách tốt."}
+   ]
+  },
+  "image": {
+   "text": "Lửa ở trên, chằm ở dưới, hai thứ chung một quẻ mà tính trái nhau: người tỉnh táo hòa cùng mọi người ở chỗ lớn, nhưng vẫn giữ chỗ khác riêng khi số đông lầm lạc.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Trên lửa, dưới chằm, là quẻ Khuê. Đấng quân tử coi đó để cùng mà khác."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Cốt ở đồng nhau mà biết khác nhau thôi."}
+   ]
+  },
+  "structure": {
+   "text": "Sáu hào đi thành ba cặp, cặp nào cũng phải vượt sự ngăn cách mới gặp được nhau: hào Đầu với hào Tư nhờ cùng chí, hào Hai với hào Năm nhờ khéo tìm, hào Ba với hào Trên sau khi ngờ vực tan.",
+   "from": [
+    {"seg": "hao1", "layer": "trinh_di", "quote": "Chỉ có hào Đầu và hào Tư tuy không phải là ứng nhau mà cùng đức cùng nhau, cho nên gặp nhau."},
+    {"seg": "hao2", "layer": "trinh_di", "quote": "hào Hai nên ủy khúc cần cho gặp nhau, mong cho được hợp"},
+    {"seg": "hao6", "layer": "trinh_di", "quote": "hào Trên với hào Ba, lúc đầu thì ngờ, mà sau thì hợp"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "lấy thể quẻ mà nói, thì, hào Sáu Năm được chỗ giữa mà phía dưới ứng với hào Chín Hai là hào cứng, cho nên lời Chiêm của nó không thể làm việc lớn, mà việc nhỏ còn có cách tốt."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Khi những người cùng làm đang mỗi người một hướng, chưa phải lúc đẩy một kế hoạch lớn; những phần việc nhỏ, vừa tầm thì vẫn làm nên nhờ mềm mỏng và sáng suốt.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "tuy không thể làm hợp sự lìa của thiên hạ, làm nên việc lớn trong thiên hạ, nhưng cũng có thể làm được việc nhỏ."},
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Đẹp lòng mà bám vào sáng, mềm tiến mà đi lên, được giữa mà ứng với cứng, vì vậy việc nhỏ tốt."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Lúc người cùng góp vốn hay người trong nhà mỗi người một ý, khoản lớn dễ vướng mắc; giữ các quyết định tiền nong ở tầm nhỏ, vừa sức thì còn có thể tốt.",
+    "from": [
+     {"seg": "thoan", "layer": "nghia", "quote": "Quẻ Khuê, việc nhỏ tốt."},
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "hai gái cùng ở, mà chí họ không cùng đi."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Đối thủ hay khách hàng khó tính vẫn nên gặp và đối đãi đàng hoàng; đóng cửa với người trái ý chỉ làm số người oán mình đông thêm, còn gặp nhau thì giữ được đường hòa.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "nghia", "quote": "Thấy người ác, để tránh lỗi vậy."},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Nếu lấy cớ là người ác mà cự tuyệt đi, thì sẽ làm cho nhiều người thù hằn đấng quân tử mà vạ lỗi đến vậy."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Những quan điểm, trường phái trái nhau là chỗ để tìm cái lý chung bên dưới: vật tuy khác mà lẽ vốn giống, nắm được điều ấy thì hiểu sâu hơn là chỉ chọn một phe.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Vật tuy khác mà lý vốn giống nhau."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Thấy đồng nhau là đồng nhau, đó là trí thức của bọn thế tục"}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hai người khác nhau về tính và cách nghĩ vẫn có thể thông nhau ở chỗ sâu hơn; lúc đang lệch nhau nên tìm điều cả hai cùng muốn, thay vì chỉ nhìn chỗ khác.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "trai gái lìa nhau mà thửa chi thông nhau vậy"},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "thánh nhân thì biết rõ chỗ vốn đồng nhau của vật lý, vì vậy mới có thể thông đồng thiên hạ, hòa hợp muôn loài."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Như anh chị em lớn lên chung một nhà rồi mỗi người một ngả, người cùng gốc mà chí hướng khác nhau là lẽ tự nhiên; chính vì chung một gốc nên mới gọi là lìa, và gốc ấy là chỗ để tìm lại nhau.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Con gái, lúc nhỏ còn ở chung, lúc lớn, ai về nhà chồng nấy, thế là chí họ khác nhau."},
+     {"seg": "intro", "layer": "trinh_di", "quote": "Khuê nghĩa là trái, đạo nhà cùng thì sai trái lìa tan, lý ắt phải thế"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Đang lúc trái ý với nhiều người, chưa nên dồn sức cho một quyết định lớn; chọn những bước nhỏ, giữ thái độ mềm mỏng mà sáng suốt thì vẫn còn lối đi.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Vì tài quẻ này, tuy ở thì \"lìa\" mà việc nhỏ thì tốt."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Đừng cắt đứt với người trái ý mình; gặp họ, tìm cách khéo léo đưa đến chỗ hiểu nhau, và chậm phán xét, vì nhiều điều đáng ghét lúc này chỉ do mình ngờ vực mà ra.",
+   "from": [
+    {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Hễ không có sự oán trách, thì là có cách hợp được."},
+    {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Sở dĩ được là vì sự ngờ vực đã mất hết rồi."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Hợp nhau bằng cách bất chính thì sớm muộn lại lìa; gắn với nhau bằng lẽ phải mới khỏi tan về sau.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Dùng kiểm bất chính mà hợp nhau, chưa có chỗ nào lâu mà không lìa, hợp nhau bằng chính đạo, tự nhiên không có lẽ nào mà sau lìa nhau"}
+    ]
+   },
+   {
+    "text": "Nếu cứ nhìn đâu cũng thấy điều xấu, người ta tự biến mình thành kẻ côi cút dù họ hàng, bạn bè vẫn ở bên cạnh.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "cũng như người ta tuy có họ hàng bè đảng, mà phần nhiều hay tự mình ngờ vực, sinh ra trái lìa, tuy là ở chỗ cốt nhục thân đảng, mà thường vẫn cô độc."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Mới chớm xa cách: cái đã mất như con ngựa lạc, không cần đuổi mà tự về nhờ có người cùng chí; gặp cả người trái ý mình cũng không sao, miễn đừng khước từ họ.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "ở thì lìa, cùng đức ứng nhau, sự ăn năn ấy mất đi, cho nên có Tượng \"mất ngựa chớ đuổi mà tự trở lại\"."},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Người ác là kẻ trái với mình, thấy là gặp nhau."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "nghia", "quote": "Hào Chín Đầu: Ăn năn mất, mất ngựa, chớ đuổi theo tự nhiên trở lại, thấy người ác, không lỗi."}
+  },
+  "2": {
+   "gist": {
+    "text": "Người dưới và người trên vốn hợp nhau nhưng đang lệch: phải chủ động tìm gặp bằng lối khéo léo, uyển chuyển, miễn không bẻ cong mình hay lẽ phải, thì không có lỗi.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Gọi là ủy khúc, nghĩa là dùng cách khéo léo, uyển chuyển đưa tới, khiến cho hợp nhau mà thôi, không phải uấn minh hay uấn đạo đâu."},
+     {"seg": "tieu_tuong2", "layer": "nghia", "quote": "Gặp chúa ở ngõ, chưa mất đạo vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ dưới, chính ứng với hào Sáu Năm ở ngôi trên: cứng mà vừa phải, đủ sức giúp người trên vượt qua lúc chia lìa.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Hai lấy đức cứng giữa ở dưới, phía trên ứng nhau với ông vua Sáu Năm, đạo hợp nhau thì chí thực hiện, có thể làm nên công việc vượt qua cuộc lìa."}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Hào Hai hào Năm, Âm Dương chính ứng với nhau, nhưng ở thì lìa, sai trái không hợp nhau, ắt phải ủy khúc tìm cho được hội ngộ, mới là không lỗi, cho nên Tượng và Chiêm của nó như thế."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Muốn cấp trên hiểu mình lúc giữa hai bên đang có khoảng cách, hãy dùng thành ý và lời giải thích rõ ràng, tìm dịp gặp riêng thay vì chỉ chờ lối chính thức.",
+     "from": [
+      {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "mình thì chí thành để cảm động họ, tận lực để giúp họ, tỏ rõ nghĩa lý để mở mang sự biết của họ"}
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Muốn đến với người mình hướng về mà bị kéo phía sau, chặn phía trước, lại bị tổn thương: khởi đầu trắc trở, nhưng sau cùng vẫn gặp được nhau.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "phía sau bị hào Hai kéo, phía trước bị hào Tư chắn"},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Không đầu có chót, nghĩa là sau ắt gặp hào Chín Trên mà hợp với nhau, ấy là gặp cứng."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương, kẹp giữa hai hào cứng: chỗ đứng không đúng nên không yên, dễ bị lấn ép.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Là Hào Sáu, ở ngôi Ba, không phải chỗ chính."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba ở vào khoảng giữa hai hào cứng, đó là ở không được chỗ yên ổn, sự bị lấn áp có thể biết chắc."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Nhưng, tà không thắng chính, sau rồi ắt được hợp nhau, cho nên Tượng, Chiêm của nó như thế."},
+   "topics": {
+    "tinh_cam": {
+     "text": "Một mối quan hệ bị người xung quanh ngăn trở và có lúc làm mình đau, nhưng nếu nó ngay thẳng thì đoạn sau dễ thuận hơn đoạn đầu.",
+     "from": [
+      {"seg": "hao3", "layer": "trinh_di", "quote": "Nó với kẻ chính ứng, thì lìa đến cùng tột, có lẽ lại hợp"}
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Đứng một mình giữa lúc chia lìa, không ai hậu thuẫn, rồi gặp được một người tốt cùng chí: hai bên thật lòng tin nhau thì tình thế dù nguy vẫn không lỗi.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Lìa côi là không có kẻ ứng với, gặp chàng lành là được hào Chín Đầu, tin lẫn là cùng đức tin."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hai hào Dương ở trên và dưới lấy lòng chí thành hợp nhau, thì nào mà không đi được?"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa hai hào âm, không đáng ngôi và không có ứng: ở lạc chỗ nên côi cút, phải tìm người cùng loại.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Đương thời lìa, ở trơ trọi giữa hai hào Âm tức là ở không đáng ngôi"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Hào Chín Tư: Lìa côi, gặp chàng lành, tin lẫn, nguy, không lỗi."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Lúc bị cô lập ở chỗ làm, hãy tìm một người cùng chí hướng và hợp sức thật lòng; khi chí đã chung, điều mình muốn làm có thể thành chứ không chỉ khỏi lỗi.",
+     "from": [
+      {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "hiệp chí chung sức với nhau, thì chí của nó có thể được thực hành, chẳng những không lỗi mà thôi."}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người ở vị trí đứng đầu mà sức mềm, vốn đáng lo, nhưng có người cùng phe cứng cỏi giúp và gắn bó sâu như răng cắn vào da: tiến tới thì có phúc, lỗi gì.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Cắn da nghĩa là cắn gặm da thịt nó mà vào sâu vậy, trong thì lìa, nếu không vào sâu thì há có thể hợp nhau?"},
+     {"seg": "tieu_tuong5", "layer": "nghia", "quote": "Thửa họ cắn da, đi có phúc vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương nhưng ở giữa quẻ trên và có hào Chín Hai ứng: chỗ đứng chưa xứng sức, nhờ được người giúp nên khỏi hối.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Bởi ở giữa mà được kẻ ứng, cho nên mới mất ăn năn."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "nghia", "quote": "Ăn năn mất, thửa họ cắn da, đi, lỗi gì?"},
+   "topics": {
+    "kinh_doanh": {
+     "text": "Người đứng đầu thấy mình chưa đủ sức thì tin dùng một cộng sự giỏi và để họ góp sâu vào cách làm; như thế việc đi tới mới có kết quả.",
+     "from": [
+      {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Kẻ làm vua tuy là tài mình không đủ, nếu biết tin dùng bậc hiền phụ, để họ đem đạo của họ vào sâu với mình, thì có thể làm việc, ấy là đi mà có phúc khánh."}
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Đa nghi đến cùng cực: nhìn người thân mà thấy lợn lấm bùn, xe chở đầy ma, giương cung toan bắn; rồi nghi tan, hạ cung, nhận ra đó là người thân chứ không phải giặc.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Thấy lợn đội bùn thì thấy nó bẩn"},
+     {"seg": "hao6", "layer": "chu_hy", "quote": "giương cung là muốn bắn nó, tháo cung là sự ngờ vực đã hơi tan"},
+     {"seg": "tieu_tuong6", "layer": "nghia", "quote": "Gặp mưa mà tốt, các điều ngờ mất vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở chót quẻ, trên cùng quẻ Ly: cứng quá và sáng quá, nên xét nét mà sinh ngờ, dù thật ra vẫn có hào Sáu Ba ứng với mình.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "cứng đến cùng cực thì táo bạo mà không tường, sáng đến cùng cực thì quá xét nét mà hay ngờ vực"},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "hào Chín Trên có hào Sáu Ba chính ứng, thật không trơ trọi"}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Hào Chín Trên với hào Sáu Ba trước lìa nhau, sau hợp nhau, cho nên Tượng, Chiêm của nó như thế."},
+   "topics": {
+    "tinh_cam": {
+     "text": "Nghi kỵ làm mình thấy người thương thành kẻ xấu, thêm thắt cả những điều không có; khi ngờ vực tan đi, hai người có thể hòa hợp lại.",
+     "from": [
+      {"seg": "hao6", "layer": "chu_hy", "quote": "chở ma một xe là lấy không làm có"},
+      {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Mưa là Âm Dương hòa nhau; trước lìa nhau mà sau hòa được với nhau, cho nên mới tốt."}
+     ]
+    }
+   }
+  }
+ }
+}

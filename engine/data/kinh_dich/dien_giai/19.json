@@ -1,0 +1,223 @@
+{
+ "number": 19,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Lâm là lúc sức mới đang lớn dần và tiến sát tới người, tới việc: thời thuận, mọi sự dễ hanh thông nếu đi đường chính, nhưng ngay khi đang thịnh đã phải lo đến lúc đà ấy tiêu đi.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Lâm là tiến lên mà lấn sát đến một vật gì."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "kẻ xem cả hanh mà lợi về đường chính đính. Nhưng đến tám tháng thì nên có sự hung."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Nếu để đã suy mới răn, thì không kịp nữa."}
+   ]
+  },
+  "image": {
+   "text": "Đất ôm lấy bờ chằm, đất và nước sát nhau, chứa lấy nhau: người ở trên đến gần người dưới thì dạy dẫn không biết chán, bao dung che chở không chừa bờ ngăn.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Các vật tới cùng ngậm chứa với nhau không gì bằng nước có đất, cho nên trên chằm có đất là quẻ Lâm."},
+    {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Đất tới với chằm là trên tới dưới."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Nghĩa là thân tới với dân, thì có ý tứ dạy dẫn cho họ. Không cùng tức là không hề chán nản"}
+   ]
+  },
+  "structure": {
+   "text": "Hai hào dương ở dưới đang lớn dần, lấn lên bốn hào âm; hào Chín Hai cứng ở giữa lại ứng với hào Sáu Năm: sức mới có chỗ dựa ở bên trên.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Hai khí Dương đương lớn, dần dần lấn bức khí Âm, cho nên là Lâm"},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "hào Chín Hai lấy đức cứng ở ngôi giữa, trên thì ứng với hào Sáu Năm"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "hào Chín Hai lấy đức cứng ở ngôi giữa, trên thì ứng với hào Sáu Năm, cho nên kẻ xem cả hanh mà lợi về đường chính đính. Nhưng đến tám tháng thì nên có sự hung."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Đây là đà đi lên của người đang mạnh dần: được người trên tin dùng thì làm được chí mình, nhưng chính lúc thuận nên giữ mức, đừng để mọi thứ đầy tràn.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "giao nhau thân mật, cho nên được nó tin dùng, được thực hành chí mình"},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "thường thường không đến đầy quá, thì không đến nỗi bị hung."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Thu nhập hay tài sản đang tăng dần là lúc nên dè chừng sự quá đầy: đà tăng nào cũng có lúc tiêu đi, tính đường lâu dài từ khi còn thịnh thì mới kịp.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Đến chưng tám tháng có hung, sự tiêu đi không lâu vậy."},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "ngăn ngừa sự quá đầy mà mưu tính cuộc lâu dài"}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Mở rộng, đến gần khách hàng là việc hợp thời; nhưng lấy lời ngọt và sự chiều chuộng để lôi kéo thì không được lợi gì, phải lấy thực tâm mà đối đãi.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "đó là kẻ lấy sự ngọt ngon vui đẹp mà tới người"},
+     {"seg": "hao3", "layer": "chu_hy", "quote": "lời Chiêm của nó vẫn là không cái gì lợi"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "tự xử bằng cách chí thành, thì không có lỗi"}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người dạy hay người kèm cặp được quẻ này nên dạy dẫn không biết chán; người học thì tìm đến gần người giỏi, vì cách tiếp cận ở đây chuộng sự gần gũi.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Không cùng tức là không hề chán nản"},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Đạo tới chuộng sự gần"}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hai người đến gần nhau bằng sự cảm ứng thật thì thuận; lấy lời ngọt, sự chiều chuộng để lấy lòng thì không được gì, nhưng biết lo mà tự sửa thì lỗi không kéo dài.",
+    "from": [
+     {"seg": "hao1", "layer": "tien_nho", "quote": "Hàm nghĩa là cảm, tức là khí của Âm Dương cảm nhau mà ứng với nhau."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "đó là kẻ lấy sự ngọt ngon vui đẹp mà tới người"},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Đã biết sợ mà lo, thì ắt miễn cưỡng tự đổi, cho nên sự lỗi không dài."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Người lớn đến gần con cháu như đất ôm bờ nước: dạy bảo nhẫn nại không chán, bao dung che chở mà không dựng ngăn cách.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "nghia", "quote": "đấng quân tử coi đó mà tứ dậy không cùng, dong giữ dân không bờ"},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "coi Tượng ngậm chứa thì có lòng dong giữ cho dân; không bờ tức là không có bờ ngăn."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Đang được đà thì dễ tiến; điều cần tự hỏi là mình tiến bằng đường chính hay bằng cách lấy lòng, và đã tính tới lúc thời thế đổi chiều chưa.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "chu_hy", "quote": "Câu thứ tư ý nói vận trời như thế, nhưng đấng quân tử nên biết răn sợ."},
+     {"seg": "hao3", "layer": "chu_hy", "quote": "nhưng nếu biết lo mà đổi, thì không có lỗi"}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Tận dụng đà đang lên để đến gần người, gần việc bằng sự cứng chính mà hòa thuận; giao việc cho người giỏi thay vì ôm hết vào mình, và giữ mức trước khi mọi thứ đầy quá.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Dùng cách đó mà tới người tới việc, tới thiên hạ, thì không cái gì không cả hanh mà được chính đính."},
+    {"seg": "hao5", "layer": "trinh_di", "quote": "kẻ nào tự dùng sự biết của mình, thì chỉ đủ để làm kẻ không biết"},
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "thường thường không đến đầy quá, thì không đến nỗi bị hung."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Thời thuận đem lại hanh thông khi người đến với việc bằng sự cứng chính mà hòa thuận; thiếu cái chính ấy thì thuận lợi khó thành điều lành.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Cứng chính, mà hòa thuận, đó là đạo trời."},
+     {"seg": "thoan", "layer": "chu_hy", "quote": "kẻ xem cả hanh mà lợi về đường chính đính"}
+    ]
+   },
+   {
+    "text": "Sức mới tuy đang lên nhưng thế cũ vẫn còn mạnh; những người cùng chí không hiệp sức với nhau thì chưa thể thắng.",
+    "from": [
+     {"seg": "hao1", "layer": "tien_nho", "quote": "Lấy hai hào Dương mà tới với bốn hào Âm, Dương tuy đang lớn mà Âm còn thịnh, nếu không hiệp sức thì không thể thắng"}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Sức mới vừa nhóm lên, cảm được người có địa vị và được tin dùng: giữ chí làm điều chính đính thì tốt.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "ấy là kẻ vì chính đạo bị người đương vị tin dùng được thực hành chí mình"},
+     {"seg": "tieu_tuong1", "layer": "nghia", "quote": "Đều tới chính tốt, chí ở làm sự chính đính vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, đúng chỗ, ứng với hào Sáu Tư cũng chính và ở sát người đứng đầu.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Là hào Chín ở ngôi Dương, lại ứng với hào Tư là hào chính đính, đó là chí nó chính đính."},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Tư ở ngôi gần vua, hào Đầu được ngôi chính, cảm ứng với hào Tư"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "nghia", "quote": "Hào Chín Đầu: Đều tới, chính tốt."}
+  },
+  "2": {
+   "gist": {
+    "text": "Sức đang lớn mạnh dần, gặp người trên tin cậy: đi đâu cũng thuận, vì hai bên cảm nhau bằng lòng thành chứ không vì một bên chỉ biết vâng theo bên kia.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Hai là hào Dương đương lớn mà thịnh dần dần, cảm động với hào Sáu Năm là một ông vua giữa thuận, giao nhau thân mật"},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "hết lòng thành cảm nhau, không phải thuận theo mệnh của người trên"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương cứng ở giữa quẻ dưới, ứng với hào Sáu Năm mềm ở ngôi tôn: có thực lực và có người trên đáp lại.",
+    "from": [
+     {"seg": "thoan", "layer": "chu_hy", "quote": "hào Chín Hai lấy đức cứng ở ngôi giữa, trên thì ứng với hào Sáu Năm"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "nghia", "quote": "Hào Chín Hai: Đều tới, tốt, không gì không lợi."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Được người phụ trách tin và giao việc, đây là lúc đem hết sức ra thi thố: những việc sắp tới đều dễ thuận.",
+     "from": [
+      {"seg": "hao2", "layer": "trinh_di", "quote": "Không gì không lợi là sự sắp tới, trong việc thi thố, không việc gì không lợi."}
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Đến với người bằng lời ngọt và sự chiều lòng từ một chỗ đứng không xứng thì không được lợi gì; biết lo mà đổi, giữ mình ngay thẳng, thành thật thì khỏi lỗi.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "đó là Tượng “lấy sự ngọt ngon vui đẹp tới người”, lời Chiêm của nó vẫn là không cái gì lợi"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "nếu có thể giữ nếp nhún, gìn đường chính, tự xử bằng cách chí thành, thì không có lỗi"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở trên quẻ dưới, không giữa không chính, lại cưỡi trên hai hào dương: đứng ở chỗ không hợp với sức mình.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Người Âm nhu, ở chỗ không trung chính, nhằm trên thể dưới, lại cưỡi trên hai hào Dương, đó là ở không đáng ngôi."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "lời Chiêm của nó vẫn là không cái gì lợi, nhưng nếu biết lo mà đổi, thì không có lỗi. Khuyên người rời sang đường thiện, thế là dạy đời sâu lắm!"}
+  },
+  "4": {
+   "gist": {
+    "text": "Đến sát tận nơi, gần gũi người dưới và nhờ người giỏi mà thân với họ: ở đúng chỗ của mình nên không có lỗi.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "ấy là sát tới với dưới, tức là tới đến cùng tột"},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "giữ nết chính, dùng người hiền để thân tới kẻ dưới, cho nên không lỗi, vì nó ở được đáng ngôi"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm là đúng chỗ, sát ngay quẻ dưới, ứng với hào Chín Đầu và biết nhún trước người có tài.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "lấy hào Âm ở ngôi tư là được chỗ chính, ứng nhau với hào Đầu là biết nhún với người hiền"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Ở được đáng ngôi, phía dưới ứng nhau với hào Chín Đầu, tới nhau rất mực, nên được không lỗi."}
+  },
+  "5": {
+   "gist": {
+    "text": "Người cầm trịch không ôm hết mọi việc mà biết dùng người giỏi: không cậy vào cái biết của riêng mình nên cái biết càng lớn.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "ấy là không tự dùng sự biết của mình mà cái biết của mình càng lớn"},
+     {"seg": "hao5", "layer": "chu_hy", "quote": "không tự dùng mình mà dùng người đó là việc của bậc trí"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm mềm ở giữa quẻ trên, ngôi tôn, ứng với hào Chín Hai cứng giữa bên dưới.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Lấy đức mềm ở chỗ giữa, bên dưới ứng nhau với hào Chín Hai"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "nghia", "quote": "Hào Sáu Năm: Khôn tới, sự nên của vua cả, tốt!"},
+   "topics": {
+    "su_nghiep": {
+     "text": "Ở vai quản lý, giao việc cho người có năng lực và tin họ thì công việc chạy mà mình không phải nhọc sức.",
+     "from": [
+      {"seg": "hao5", "layer": "trinh_di", "quote": "đó là nó biết tin dùng hào Hai, không mệt nhọc mà được thịnh trị"}
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Ở cuối thời Lâm, đến với người bằng sự đôn hậu: dù không có mối ràng buộc trực tiếp, vẫn một lòng hướng về những người đang lên, nên tốt mà không lỗi.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Ở trên quẻ, đứng chót cuộc tới, dày dốc về sự tới, đó là cái đạo tốt mà không lỗi"},
+     {"seg": "tieu_tuong6", "layer": "tien_nho", "quote": "Hào Sáu Trên không phải ứng nhau với hai hào Dương ở quẻ trong mà chí nó thì ở hai hào Dương, đó là hậu đến tột bậc."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở trên cùng của quẻ thuận, không chính ứng với hào dương nào: người ở chỗ cao mà chịu hướng về người ở dưới.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Hào Sáu trên ở cùng cực quẻ Khôn là thuận rất mực"},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "kẻ tôn mà ứng kẻ ty, bậc cao mà theo bậc thấp"}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Ở trên quẻ, đứng chót cuộc tới, dày dốc về sự tới, đó là cái đạo tốt mà không lỗi, cho nên Tượng và Chiêm của nó như thế."}
+  }
+ }
+}

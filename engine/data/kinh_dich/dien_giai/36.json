@@ -1,0 +1,415 @@
+{
+ "number": 36,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Minh Di là lúc ánh sáng bị tổn thương, như mặt trời lặn vào lòng đất: hoàn cảnh tối tăm, người sáng suốt dễ bị hại, nên điều lợi là chịu khó nhọc mà vẫn giữ mình ngay thẳng.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "mặt trời vào trong đất, tức là cái Tượng sáng mà bị đau, cho nên gọi là Minh di."
+    },
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Ở thời tối tăm khó khăn mà có thể không mất sự trinh chính của mình, vì vậy mới là quân tử sáng láng."
+    }
+   ]
+  },
+  "image": {
+   "text": "Ánh sáng vào trong đất mà không mất đi: người lo việc chung không soi xét mọi chuyện đến tận cùng, biết khép bớt cái sáng của mình để giữ lòng bao dung, và nhờ vậy mới thật sáng.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Đấng quân tử coi đó để trị dân chúng, dùng tối mà sáng."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "nhưng quá dùng sự sáng, thì hại về đường xét nét, xét nét quá thì hết việc mà không có độ lượng bao dung"
+    }
+   ]
+  },
+  "structure": {
+   "text": "Hào Sáu Trên ở đỉnh quẻ là chủ của cái tối, làm hại sự sáng; năm hào dưới đều là người sáng, mỗi người xử một cách tùy mình đứng gần hay xa nó.",
+   "from": [
+    {
+     "seg": "hao5",
+     "layer": "trinh_di",
+     "quote": "hào Sáu Trên âm tối làm hại sự sáng đến tột bậc, cho nên mới dùng làm chủ quẻ Minh di."
+    },
+    {
+     "seg": "hao4",
+     "layer": "chu_hy",
+     "quote": "nên phải theo sự xa gần cao thấp mà xử khác nhau."
+    },
+    {
+     "seg": "hao4",
+     "layer": "chu_hy",
+     "quote": "nghĩa là năm hào dưới đều là đấng quân tử, một hào trên là hạng hôn quân."
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "Lại, hào Sáu Trên quẻ này là chủ sự tối mà hào Sáu Năm gần nó, cho nên kẻ xem lợi về khó nhọc để giữ sự chính mà tự che sự sáng của mình."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Dưới một người đứng đầu tối tăm hay giữa một môi trường ngột ngạt, lối đi được là trong giữ năng lực và nguyên tắc, ngoài mềm mỏng nhún thuận, để qua cơn nạn mà không đánh mất mình.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "nghia",
+      "quote": "Trong văn vẻ sáng láng mà ngoài mềm thuận để đội nạn lớn, vua Văn dùng cách đó."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "đội phạm nạn lớn mà bên trong không mất cái đức thành sáng của mình, bên ngoài đủ để tránh xa tai vạ"
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Như con chim rủ cánh bay đi, có lúc phải chấp nhận bỏ một nguồn thu, chịu thiếu thốn một thời gian, để rời khỏi chỗ đã thấy mầm nguy.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "“Đấng quân tử chưng đi” nghĩa là bỏ lộc vị của mình mà lui về ẩn nấp vậy."
+     },
+     {
+      "seg": "tieu_tuong1",
+      "layer": "tien_nho",
+      "quote": "“Ba ngày không ăn” nghĩa là không đáng ăn lộc vậy."
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Khi cần dẹp một mối hại lớn trong việc làm ăn, nhắm đúng vào đầu mối là được, còn nếp cũ thói xấu chung quanh thì sửa dần, gấp quá dễ làm mọi người hoảng mà rối thêm.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "săn bên Nam nghĩa là tiến lên mà trừ hại, nên bắt được đầu lớn của nó"
+     },
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "trừ tục cũ thói dơ chưa thể thay đổi ngay được, ắt phải thay đổi dần dần, vội quá thì nó sợ hãi mà không yên"
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Gặp lúc việc học bị dồn ép hay hoàn cảnh không thuận, cái cần giữ là điều mình đã hiểu và tin là đúng; giữ được thì ánh sáng ấy không tắt, dù tạm phải giấu đi.",
+    "from": [
+     {
+      "seg": "tieu_tuong5",
+      "layer": "nghia",
+      "quote": "Lời Tượng nói rằng: Ông Cơ Tử chưng chính, sự sáng không thể tắt vậy."
+     },
+     {
+      "seg": "tieu_tuong5",
+      "layer": "trinh_di",
+      "quote": "Nếu gặp vạ lo mà để cho mất cái điều mình vẫn cầm giữ, thì là mất sự sáng, ấy là dứt tắt."
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Có ai tìm cách vào sâu lòng mình bằng lối kín đáo, quanh co, chiếm được lòng tin rồi mới lộ việc ra ngoài, thì nên tỉnh táo; được lòng bằng cách ấy, người trong cuộc khó mà tỉnh ngộ.",
+    "from": [
+     {
+      "seg": "tieu_tuong4",
+      "layer": "trinh_di",
+      "quote": "Vào chưng bụng bên tả, nghĩa là lấy đạo cong lệch, vào với vua, mà được lòng ý của hắn. Được lòng hắn cho nên cùng chót vẫn không tỉnh ngộ."
+     },
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "“Chưng ra cửa sân” nghĩa là đã tin ở lòng, rồi sau mới làm ra ngoài"
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Khi chính người thân gần gũi là nguồn của bế tắc, như Cơ Tử là người cùng họ với kẻ gây hại, cách giữ mình là khép bớt sự sáng ra ngoài mà trong lòng vẫn giữ ngay thẳng.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Ông Cơ Tử là bầy tôi cũ nhà Thương và là người họ đồng tông, có thể bảo là gần sát với vua Trụ"
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "nghia",
+      "quote": "trong nạn mà hay chính thửa chí, ông Cơ tử dùng cách đó."
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Thấy mầm hại từ khi còn nhỏ thì nên đi sớm, dù người chung quanh lấy làm lạ và lên tiếng; chần chừ vì sợ dị nghị thì đến khi ai cũng thấy đã không đi được nữa.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Nhưng đấng quân tử không vì thế tục lấy làm lạ mà chậm chạp nghi ngờ sự đi của mình."
+     },
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Nếu đợi mọi người cùng biết thì sự đau đã tới mà không thể đi được."
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Lúc này nên giữ kín năng lực và ý định, mềm mỏng bên ngoài mà vững vàng bên trong; chịu khó nhọc, đừng phô cái sáng của mình ra chỗ dễ bị hại.",
+   "from": [
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "Trong thì sáng đau, lợi về xử cách khó khăn mà không mất sự trinh chính của mình, nghĩa là biết che giấu sự sáng của mình."
+    },
+    {
+     "seg": "hao5",
+     "layer": "trinh_di",
+     "quote": "nếu để sự sáng của mình tỏ rõ thì ắt bị đau hại"
+    }
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Bị tổn thương mà cứu chậm, cứu yếu thì vết đau kéo dài; cách gỡ càng dứt khoát thì càng sớm thoát.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Nếu cách dùng cứu không mạnh thì đau lâu"
+     }
+    ]
+   },
+   {
+    "text": "Việc dẹp cái hại chỉ đứng được khi mục đích là trừ hại, không phải nhân dịp giành lợi cho mình; mang ý khác thì thành ra làm loạn.",
+    "from": [
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "chí nó cốt trừ hại mà thôi"
+     },
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "Chí nếu không thế, thì tức là việc trái loạn."
+     }
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Cái hại mới chớm, như chim đang bay mà cánh bị đau phải rủ xuống: người tinh ý thấy mầm nguy thì rời đi ngay, chịu cả thiếu thốn lẫn lời dị nghị.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Cánh bị đau nên phải rũ xuống."
+     },
+     {
+      "seg": "hao1",
+      "layer": "tien_nho",
+      "quote": "Đấng quân tử biết cơ, nghĩa là nên đi cho mau, có thể không ăn, mà không thể không đi, bởi vì đi trọng hơn ăn."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở dưới cùng quẻ sáng, cách xa hào Sáu Trên nhất nên thấy hại sớm và còn kịp tránh; người lên tiếng là hào Sáu Tư ứng với nó.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "tien_nho",
+      "quote": "hào Đầu là thể Ly sáng, cách hào Trên rất xa, thấy hại liền tránh"
+     },
+     {
+      "seg": "hao1",
+      "layer": "tien_nho",
+      "quote": "chỉ về hào Đầu ứng với hào Tư"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Kẻ xem đi mà chẳng ăn, chỗ đi không hợp, thì nghĩa nên thế, không thể tránh được."
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Bị tổn thương nhưng chưa sâu, như đau ở đùi bên trái, việc đi lại chưa hỏng hẳn: cứu nhanh bằng sức mạnh như ngựa khỏe thì khỏi sớm. Cái tốt ở đây là thoát hại, chưa phải lúc làm việc lớn.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "“Đau ở đùi bên tả” nghĩa là đau hại sự đi mà không thiết lắm"
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "gọi là tốt nghĩa là chỉ khỏi đau hại mà thôi"
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, vừa trung chính vừa thuận, nên tự xử khéo và bị hại không nặng.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Hào Sáu Hai lấy tài rất sáng được chỗ trung chính mà thể thuận"
+     },
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Phép là đạo trung chính; biết thuận mà được trung chính, cho nên ở thì sáng đau mà có thể giữ được sự tốt."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "Đau mà chưa thiết, cứu được mau chóng thì khỏi, cho nên Tượng, Chiêm của nó như thế."
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Người sáng nhất đứng đối diện cái tối nhất và tiến lên trừ hại: cuộc săn phía nam bắt được đầu sỏ, nhưng những gì lệch lạc chung quanh không thể nắn thẳng một sớm một chiều.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "hai đẳng ứng địch với nhau, là kẻ sẽ dùng sự sáng để trừ sự tối"
+     },
+     {
+      "seg": "hao3",
+      "layer": "nghia",
+      "quote": "Hào Chín Ba: Sáng đau chưng cuộc săn bên nam được thửa đầu lớn, chẳng khá kíp chính."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, trên cùng quẻ sáng, ứng với hào Sáu Trên là chủ của cái tối.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Lấy chất cứng ở chỗ cứng, lại ở trên thể sáng"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "chính là ứng nhau với hào Sáu Trên, chủ của sự tối, cho nên có tượng ngảnh sáng, trừ hại bắt được kẻ đầu ác; nhưng mà không thể kíp ngặt, cho nên mới có lời răn không thể kíp chính."
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Ở gần cái tối mà còn ở chỗ nông, đủ để thấu hiểu ý đồ của nó: biết không thể giúp được thì ra khỏi cửa mà đi xa, đó là cách tự xử hợp lẽ.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "Hào Sáu Tư là bậc mềm chính, ở chỗ tối mà còn nông, nên còn có thể đắc ý về sự đi xa"
+     },
+     {
+      "seg": "hao4",
+      "layer": "tien_nho",
+      "quote": "biết rằng ám chúa ở trên, không thể giúp dập; bỏ nó mà đi, để tới với hào Chín Ba là kẻ sáng, cho nên có Tượng “ra cửa sân”."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, mềm mà chính, đứng dưới cùng quẻ trên tối, nơi được ví như bụng bên trái.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "tien_nho",
+      "quote": "hào Sáu Tư tiến lên ở dưới thể Khôn, cho nên nói rằng “Vào chưng bụng bên tả”."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "bụng bên tả là chỗ tối ẩn, được lòng sáng đau chưng ra cửa sân, tức là đắc ý về sự đi xa; ý nói kẻ bói mà được hào này thì cách tự xử phải nên thế."
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Ở sát bên cái tối nhất: phô sáng ra thì bị hại, nên giấu mình như Cơ Tử từng giả điên làm kẻ ở, bên ngoài chịu thấp kém mà bên trong vẫn giữ trọn ngay thẳng.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "ông ấy giả cách rồ đi làm đứa ở, để khỏi bị hại."
+     },
+     {
+      "seg": "tieu_tuong5",
+      "layer": "trinh_di",
+      "quote": "Ông Cơ Tử ẩn náu, không mất sự chính bền, tuy gặp hoạn nạn, sự sáng vẫn còn, không thể dứt tắt vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi tôn, nhưng ở quẻ này không bàn về ngôi đứng đầu: nó là người kề sát hào Sáu Trên, chủ của cái tối.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "nhân hào Năm gần sát người rất tối để tỏ cái nghĩa khu xử chỗ đó, cho nên không chuyên nói về ngôi vua"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "Ở chỗ rất tối, gần vua rất tối, mà giữ được tâm chí chính đính, đó là Tượng ông Cơ Tử, chính bền tột bậc vậy. “Lợi về chính bền” là câu để răn kẻ xem."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Kẻ ở chỗ cao nhất lẽ ra phải soi sáng khắp nơi, nhưng không làm sáng mình mà thành tối: lúc đầu lên tới trời, lúc sau vào trong đất, tự đánh mất phép tắc của mình.",
+    "from": [
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "Đầu lên chưng trời, là ở chỗ cao mà sáng thì nên soi tới bốn phương; thế mà bị hại mà tối tăm, thì là “sau vào chưng đất” mất cách sáng vậy."
+     },
+     {
+      "seg": "tieu_tuong6",
+      "layer": "nghia",
+      "quote": "Lời Tượng nói rằng: Đầu lên chưng trời, soi bốn nước vậy; sau vào chưng đất, mất phép vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở chót quẻ, trên cùng quẻ Khôn: chủ của cái tối, đứng ở chỗ cao nhất.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Hào Trên ở chót quẻ Minh di, lại ở chót thể Khôn Âm, ấy là sáng đau đến tột bậc."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "chu_hy",
+    "quote": "lúc đầu thì ở ngôi cao, để làm hại sự sáng của người, lúc chót ắt đến tự mình hại mình, mà hỏng tính mệnh, cho nên Tượng nó như thế, mà Chiêm cũng ở trong đó."
+   }
+  }
+ }
+}

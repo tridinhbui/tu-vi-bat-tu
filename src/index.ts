@@ -112,6 +112,8 @@ export default {
     if (path === "/api/overview") return gated(request, env, path, false, r => overviewRoute(r, env, ctx));
     // the engine's own reading layers (behind TVBT_DEEP_INTERPRETATION in the container): cut like the rest
     if (path === "/api/synthesis" || path === "/api/interpretation") return gated(request, env, path, false, r => getContainer(env.TVBT, "main").fetch(r));
+    // Kinh Dịch / Mai Hoa readings: the main reading for everyone, Đọc sâu for a member who holds a paid package (paywall.ts gateCast)
+    if (path === "/api/kinh-dich/reading" || path === "/api/mai-hoa/reading") return gated(request, env, path, false, r => getContainer(env.TVBT, "main").fetch(r));
     // the Western reading: part of it is paid (src/billing/west.ts); the chart and forecast data are not cut
     if (path === "/api/west/reading") return gated(request, env, path, false, r => getContainer(env.TVBT, "main").fetch(r));
     // The container API is stateless and stores nothing (accounts live in the Worker, above), so one shared instance is enough.

@@ -1,0 +1,194 @@
+{
+ "number": 62,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Tiểu quá là lúc nên vượt mức thường một chút ở những việc nhỏ để về được chỗ đúng; làm được việc nhỏ, chưa làm được việc lớn.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Qua là để cầu tới mực giữa."},
+    {"seg": "thoan", "layer": "nghia", "quote": "Khá việc nhỏ, chẳng khá việc lớn"}
+   ]
+  },
+  "image": {
+   "text": "Sấm nổ trên đỉnh núi, tiếng vang hơn thường một chút: cái quá đáng làm là quá về cung kính, về thương tiếc khi có tang, về tiết kiệm, đều là những việc nhỏ.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Trên núi có sấm là quẻ Tiểu quá. Đấng quân tử coi đó mà nết quá chưng kính, tang quá chưng thương, dùng quá chưng kiệm."},
+    {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Sự quá của ba điều đó, đều là sự quá của những việc nhỏ."}
+   ]
+  },
+  "structure": {
+   "text": "Bốn hào âm bọc ngoài, hai hào dương ở trong, như thân chim với đôi cánh; hào mềm được chỗ giữa nên làm được việc nhỏ, hào cứng mất ngôi nên chưa gánh nổi việc lớn.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Trong cứng ngoài mềm là Tượng chim bay"},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Hào Hai hào Năm trong quẻ đều lấy chất mềm được chỗ giữa, cho nên có thể làm việc nhỏ; hào Ba hào Tư đều là chất cứng mà mất ngôi không được giữa, cho nên không thể làm việc lớn."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Thể quẻ trong thực ngoài hư, như con chim bay, tiếng nó xuống mà không lên, cho nên, hễ đem đến được sự ứng nghiệm của con chim bay để tiếng thì nên trở xuống mà cả tốt."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Như con chim chỉ để lại tiếng mà thân không bay xa, việc lúc này nên làm kỹ hơn mức thường một chút, chứ chưa phải lúc nhận phần việc lớn hay vươn lên chỗ cao.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Thân không thể xa hơn tiếng nhiều, việc không thể qua mực thường xa, cốt ở đúng mực vừa phải mà thôi."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Thời nhỏ quá vẫn là không thể làm việc lớn, mà tài quẻ này lại không kham nổi việc lớn, tức là hợp với thời vậy."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Cái quá đáng làm ở quẻ này là quá về tần tiện: chi tiêu dè sẻn hơn thường một chút là phải, còn quá tay ở việc lớn thì không nên.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Như quá cung kính, quá thương xót, quá tần tiện v.v..., quá lớn thì không nên."},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đáng quá mà quá tức là nên phải; chẳng đáng quá mà quá thì quá rồi."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Như con chim vội bay cao, người làm ăn hăng hái lại có kẻ bên trên đẩy thêm thì dễ lao quá đà, nhanh và xa đến mức không ai cản kịp.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "kẻ tiểu nhân nóng nảy khinh dị mà bên trên có kẻ ứng giúp, với việc nên quá, tất nhiên nó sẽ quá lắm"},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Nóng kíp như thế, cho nên nó quá đã nhanh lại xa, cứu ngăn không kịp."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Khắt khe với mình hơn thường ở những điều nhỏ như lễ độ, cần kiệm là cái quá nên có khi đang học; còn mục tiêu vượt quá xa sức mình thì chưa hợp lúc.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đấng quân tử coi tượng nhỏ quá đó mà việc gì nên quá thì cố gắng"},
+     {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Có thể quá về việc nhỏ mà không thể quá về việc lớn, có thể quá nhỏ mà không thể quá lớn."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Như hào Sáu Hai vượt lên một bậc mà vẫn giữ phận, giữa hai người có thể chiều nhau hơn thường một chút, miễn không lấn lướt người kia hay vượt khỏi chừng mực của mình.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Điều đó cái ý quá mà chẳng quá, giữ chính được giữa, tức là cách không có lỗi đó"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Khi nhà có tang hay việc hiếu, thương xót và lễ độ hơn mức thường là phải; phần chi dùng thì nên nghiêng về giản dị, vì cái quá ở đây chỉ hợp với việc nhỏ.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "nghia", "quote": "tang quá chưng thương, dùng quá chưng kiệm"},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Việc trong thiên hạ có khi nên quá mà không thể quá lắm"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Trước hai hướng, con chim nên xuống chứ không nên lên: chọn phương án khiêm tốn, gần với sức mình thì tốt, còn hướng cao xa lúc này dễ thành đi ngược.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Chẳng nên lên, nên xuống, nghĩa là nên thuận vậy, thuận thì cả tốt"},
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "lên nghịch mà xuống thuận vậy."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Chọn những việc nhỏ có thể làm kỹ hơn thường và giữ mình ở thế thấp, thuận; khi biết có người nhắm hại mình thì phòng cho đến nơi, đừng cậy mình cứng.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Sở dĩ phải quá là để cho thuận với lẽ nên phải."},
+    {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Ngừa nó không đến cùng tột, thì bị nó hại"}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Cái quá nhỏ mà đúng lúc thì thành chính đáng; quá ở chỗ không gặp lẽ phải, đến mức cùng cực, thì cái hung là điều dễ hiểu.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Thì nên quá mà quá, không phải là quá, thì nên thế vậy, thế mới là chính."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Ở chót cuộc quá, chẳng gặp với lẽ mà quá đó, quá đã quá cực, hung là đáng vậy."}
+    ]
+   },
+   {
+    "text": "Người có sức mạnh mà không gặp thời nên lùi lại tự giữ, tùy lúc mà đổi cách chứ không cố chấp một mực.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Đương thời Âm quá, Dương phải lui, nhụt tự giữ lấy mình, cũng là đủ rồi"},
+     {"seg": "hao4", "layer": "chu_hy", "quote": "ý nên theo với lẽ nên phải của từng thời, không nên cố giữ một mực."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Lúc đáng hạ mình mà lại vụt lên như con chim chỉ biết bay cao: đã lao đi thì khó ai kéo lại được, cái hại đến từ chính sự vội.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "lại ở thời quá, tức là kẻ lên mà chẳng xuống."},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Chẳng khá dường sao, nghĩa là không thể dùng sức được nữa."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở dưới cùng, ứng với hào Chín Tư thuộc thể động: có người phía trên hưởng ứng nên càng dễ hăng quá.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "phía trên nó ứng với hào Tư, hào Tư lại là thể động"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Hào Sáu Đầu là chất Âm mềm, phía trên ứng nhau với hào Chín Tư, lại ở thời quá, tức là kẻ lên mà chẳng xuống. Chim bay để tiếng, không nên lên nên xuống, cho nên Tượng, Chiêm của nó như thế."}
+  },
+  "2": {
+   "gist": {
+    "text": "Vượt qua một bậc mà gặp đúng người nên gặp, tiến lên mà không lấn tới người đứng đầu: quá một chút mà vẫn giữ phận thì không lỗi.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "tiến lên mà không lấn tới vua, vừa đúng với đạo bề tôi, thì không có lỗi"},
+     {"seg": "tieu_tuong2", "layer": "chu_hy", "quote": "Sở dĩ chẳng kịp vua lại gặp bề tôi, là vì làm tôi không thể quá."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, mềm thuận lại chính: đứng đúng chỗ nên tiến mà không quá.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Hào Sáu Hai mềm thuận giữa chính"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Điều đó cái ý quá mà chẳng quá, giữ chính được giữa, tức là cách không có lỗi đó, cho nên Tượng, Chiêm của nó như thế."}
+  },
+  "3": {
+   "gist": {
+    "text": "Người ngay thẳng giữa vòng những kẻ muốn hại mình: lúc này phải đề phòng hơn thường, cậy mình cứng mà không ngừa trước thì dễ bị hại.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "là kẻ bị các hào Âm muốn hại, mà nó tự cậy mình cứng, chẳng chịu ngừa trước"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Nếu không quá ngừa chúng nó, thì hoặc có khi chúng nó sẽ theo mà làm hại mình, như thế thì hung."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, đúng chỗ nhưng ở quẻ dưới, giữa thời các hào âm lấn: có chính mà không có thế.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "hào Ba riêng ở chỗ chính, nhưng ở dưới, không thể làm gì"}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Hào Chín Ba lấy chất cứng ở chỗ chính, là kẻ bị các hào Âm muốn hại, mà nó tự cậy mình cứng, chẳng chịu ngừa trước, cho nên Chiêm của nó như thế. Kẻ xem nếu biết quá ngừa thì có thể khỏi."}
+  },
+  "4": {
+   "gist": {
+    "text": "Cứng mà biết đứng ở chỗ mềm, không quá tay nên vừa đúng mức; nhưng nếu bỏ chỗ ấy mà tiến tới thì gặp nguy, phải tự răn mình.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Tư đương thời nhỏ quá, lấy chất cứng ở chỗ mềm, tức là sự cứng không quá, cho nên không lỗi."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Nếu đi thì có sự nguy, ắt nên răn sợ, vì đi là bỏ chỗ mềm dùng tính cứng mà tiến lên."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, không đúng ngôi, nhưng chính chỗ mềm ấy giúp nó gặp được mức vừa phải.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Lấy hào Chín ở ngôi Tư là ngôi không đáng; ở chỗ mềm là gặp chỗ vừa phải."}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Hào Chín Tư: không lỗi chẳng quá gặp đấy, đi nguy, ắt răn, chớ dùng dài lâu chính bền."}
+  },
+  "5": {
+   "gist": {
+    "text": "Mây dày mà không thành mưa: người ở chỗ cao nhưng sức mềm, muốn làm việc lớn mà chỉ kéo được người cùng loại với mình, nên việc khó thành.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Lấy chất Âm ở ngôi tôn, lại nhằm vào thời Âm quá, không thể làm việc, mà lấn lấy hào Sáu Hai để làm giúp kẻ cho mình"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Cùng loại lấy nhau, tuy rằng được đó, nhưng hai khí Âm không thể làm nên được việc lớn, cũng như mây dầy không thể thành mưa."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi Năm, chỗ cao mà sức mềm, lại không có ứng với hào Hai nên phải bắn mà lấy.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "hào Năm với hào Hai vốn không ứng nhau, chỉ là bắn mà lấy nó"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "nghia", "quote": "Hào Sáu Năm: Mây dầy chẳng mưa, ở cõi tây ta, ông bắn lấy nó ở hang."}
+  },
+  "6": {
+   "gist": {
+    "text": "Quá đến chỗ cùng tột, như chim bay vút đi xa, làm gì cũng trái lẽ: lúc ấy tai họa từ ngoài lẫn lỗi do mình gây đều có thể dồn tới.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "làm gì cũng quá, sự trái lẽ quá mực thường của nó như thể con chim bay nhanh, vì vậy mới hung."},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "vạ là hại của trời làm ra, tội là việc của người làm ra."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Sáu Trên: Chẳng gặp, quá đấy, chim bay lìa đấy, hung, ấy rằng vạ tội."}
+  }
+ }
+}

@@ -1,0 +1,472 @@
+{
+ "number": 4,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Mông là cái mờ tối của thuở non nớt, khi điều cần biết còn chưa sáng ra; nó mở được khi người chưa hiểu tự tìm đến người hiểu, và cả hai giữ cho đường dạy học ngay chính.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Mông nghĩa là tối, các vật mới sinh, mờ tối chưa sáng."
+    },
+    {
+     "seg": "thoan",
+     "layer": "nghia",
+     "quote": "chẳng phải ta tìm trẻ thơ, trẻ thơ tìm ta."
+    },
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Bậc sáng láng nuôi kẻ tối tăm và kẻ tối tăm tự nuôi lấy mình lại đều lợi về sự chính đính."
+    }
+   ]
+  },
+  "image": {
+   "text": "Dòng suối vừa ra khỏi chân núi, gặp chỗ trũng hiểm nên chưa biết chảy về đâu; nhưng suối thì phải chảy, chỉ là chảy từng chút, nên người học cứ quả quyết bước và bồi dần cái mình có.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Dưới núi ra suối, là quẻ Mông, đấng quân tử coi đó mà quyết việc làm, nuôi lấy đức."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "chu_hy",
+     "quote": "Suối là nước mới chảy ra, tất nhiên phải đi, mà đi dần dần."
+    }
+   ]
+  },
+  "structure": {
+   "text": "Hai hào dương giữ vai người mở mang, bốn hào âm là người còn tối; hào Sáu Năm tuy ở ngôi cao vẫn nhún mình theo hào Chín Hai ở dưới để được dạy.",
+   "from": [
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "Trong sáu hào quẻ Mông, hai hào Dương là người trị sự mờ tối, bốn hào Âm là người ở cảnh mờ tối."
+    },
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "hào Năm đã nhún thuận vào hào Hai, hào Hai bèn mở mang sự mờ tối cho nó."
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "Kẻ bói là bậc sáng thì người ta nên đến tìm mình mà sự hanh thông ở người ta, kẻ bói là hạng tối, thì mình nên đi tìm người, mà sự hanh thông ở mình."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Ở chỗ làm, người trẻ có năng lực làm nên chuyện khi người trên tin giao trọn phần việc; còn người trên thấy mình chưa rành thì nên để người am hiểu dẫn đường.",
+    "from": [
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Hào Hai chủ trương được công việc mở mang kẻ tối tăm, là nhờ về sự tin dùng của hào Năm chuyên nhất."
+     },
+     {
+      "seg": "tieu_tuong5",
+      "layer": "trinh_di",
+      "quote": "Bỏ mình theo người đó là thuận hạ chí mình mà tìm xuống dưới là nhún."
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Khi còn mù mờ về chuyện tiền, người ta dễ bị cái lóa mắt của của cải kéo đi mà mất tự chủ; trước món lợi trông hấp dẫn, nên hỏi lại mình có hiểu nó thật không.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "ấy là cái tượng con gái trông thấy vàng mà không tự chủ được mình."
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Đào tạo người mới trong việc làm ăn cần nội quy rõ từ ngày đầu, coi chế tài là cách dạy chứ không phải để trừng trị; mỗi người tiếp thu một kiểu, nên không áp một khuôn cho tất cả.",
+    "from": [
+     {
+      "seg": "tieu_tuong1",
+      "layer": "trinh_di",
+      "quote": "trong việc lập ra pháp chế, hình phạt là để dạy bảo."
+     },
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "tính loài người lại không nhất luật như nhau, không thể nhất khái quyết định"
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Đây là quẻ của việc học: người học phải tự đi tìm thầy, hỏi với tấm lòng chuyên nhất, và lúc ấy người dạy mới đem hết điều mình biết ra mà trao. Hỏi đi hỏi lại một điều khi chưa chịu tự ngẫm thì cả người hỏi lẫn người dạy đều mỏi, còn nếp học đúng gây từ sớm là vốn quý nhất.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "tien_nho",
+      "quote": "Đương lúc kẻ học mới lại hỏi, lòng họ thành thật chuyên nhất, cho nên đem luôn toàn thể mà bảo."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "chu_hy",
+      "quote": "Nhàm, nghĩa là bói đến hai ba lần thì kẻ hỏi vẫn nhàm mà kẻ bảo cũng nhàm."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Nuôi sự đính chính từ thuở trẻ thơ là cách rất khéo trong việc học."
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Chuyện lứa đôi ở quẻ này dè chừng mối quan hệ mà một bên vì người giàu có hơn mà bỏ người vốn hợp với mình; người biết lắng nghe bạn đời, kể cả khi mình giỏi hơn, thì giữ được hòa khí.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Con gái theo người phải có chính lễ, vậy mà người này thấy kẻ nhiều tiền mà theo, không thể giữ được thân mình"
+     },
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "Vả lại, nó là Dương mà tiếp nhận các hào Âm, cho nên lại là cái tượng “nghe vợ”."
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Trong nhà, Mông nói về cha mẹ và con cái: đứa con gánh vác được việc nhà khi cha mẹ tin mà giao hẳn, không vừa giao vừa giành lại.",
+    "from": [
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Con mà trị nổi nhà là nhờ về sự tin dùng của cha chuyên chất."
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Nói về gia đình, thì Năm là cha, Hai là con, hào Hai chủ trương được công việc của nhà, ấy là con người trị được gia đình vậy."
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Đứng trước điều chưa rõ, hãy hỏi một lần cho thật lòng rồi tin mà làm; hỏi mãi để mong nghe câu khác chỉ thêm rối, còn dòng nước dù chưa thông vẫn cần quả quyết tìm lối đi.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "tien_nho",
+      "quote": "sau một lời nói, thì phải nhận hiểu tức thì"
+     },
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "coi nó chảy ra mà chưa thể thông đi, để mình quả quyết việc của mình làm"
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Nếu mình là người chưa hiểu, hãy chủ động tìm người giỏi và hỏi cho chuyên tâm; nếu mình là người dạy, hãy rộng lượng với cái chậm hiểu của người khác.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Mình tìm người ta thì nên hết lòng trung thành chuyên nhất mà hỏi."
+    },
+    {
+     "seg": "hao2",
+     "layer": "trinh_di",
+     "quote": "ắt phải rộng lượng bao dung, thương kẻ ngu tối"
+    }
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Lời chỉ bảo đến với người hỏi bằng lòng thành; hỏi lặp lại vì không tin, hay hỏi cho có, thì không nên mong được trả lời.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "cái ý đến bói đã là phiền nhiễu mà không thành chuyên tâm nhất; thì là nhảm nhí khinh nhờn, không nên bảo nữa."
+     }
+    ]
+   },
+   {
+    "text": "Người có hiểu biết mà tự chạy đi tìm người để dạy thì khó được tin dùng; đợi người ta thật lòng tìm đến thì lời mình mới có trọng lượng.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Nếu mà tự tìm, ắt không có lẽ mà được tin dùng."
+     }
+    ]
+   },
+   {
+    "text": "Sự nghiêm khắc chỉ đúng khi người trên không quá tay và người dưới thật sự bỏ được cái tối của mình.",
+    "from": [
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "người trên không làm dữ quá, kẻ dưới đánh đuổi được sự tối tăm của nó"
+     }
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Buổi đầu mở mang cho người còn non: phải răn đe rõ ràng để gỡ thói cũ, nhưng nếu chỉ biết dùng phạt mãi thì người ta sợ mà không hiểu ra.",
+    "from": [
+     {
+      "seg": "tieu_tuong1",
+      "layer": "chu_hy",
+      "quote": "Lúc mới mở mang cho kẻ mờ tối, phải trừng giới ngay, là để làm cho pháp luật được đúng."
+     },
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Nếu chỉ chuyên dùng hình phạt để làm việc, thì kẻ tối tăm tuy là có sợ, nhưng rút lại vẫn không thể mở mang"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Là Âm ở dưới, đó là tối tăm quá đỗi. Kẻ xem gặp hào đó thì nên mở mang sự tối tăm của mình."
+   },
+   "topics": {
+    "hoc_tap": {
+     "text": "Kỷ luật lúc đầu là để tháo bỏ thói quen xấu, sau đó nên nới ra cho người học thong thả tiến, đừng cùm mãi.",
+     "from": [
+      {
+       "seg": "hao1",
+       "layer": "tien_nho",
+       "quote": "Đây chỉ nói về cách trị kẻ tối tăm, cần nên rộng rãi chầy chậm, phép phải như thế."
+      }
+     ]
+    }
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Người gánh việc dạy dỗ, bao dung với kẻ chưa biết và chịu nghe cả người yếu hơn mình; ở chỗ dưới mà kham được việc lớn, như đứa con đứng ra lo việc nhà.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "tức là người gánh cái nhiệm vụ mở mang kẻ tối tăm"
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Nếu cậy sáng suốt mà chuyên tự nhiệm, thì đức không rộng"
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương cứng mà giữa, ứng với hào Năm: có thực tài và được người trên tìm đến.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "chỉ hào Chín Hai có đức cứng và trung chính, lại ứng với hào Năm"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "Cho nên kẻ xem, hễ có đức ấy mà gánh việc ấy thì nên như thế là tốt."
+   },
+   "topics": {
+    "gia_dinh": {
+     "text": "Lời hào nói thẳng đến việc lấy vợ và con lo được việc nhà: gia đình yên khi người gánh vác biết bao dung và lắng nghe.",
+     "from": [
+      {
+       "seg": "hao2",
+       "layer": "nghia",
+       "quote": "Bao dung trẻ thơ, tốt! Nộp vợ, tốt! Con trị nhà!"
+      }
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Thấy người đang có tiền có thế thì bỏ chỗ vốn hợp với mình mà chạy theo, không giữ được mình: đi đâu cũng không được lợi.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "gần thấy hào Chín Hai được các kẻ tối tăm theo về, và lại cực kỳ được thời, cho nên nó mới bỏ nơi chính ứng mà theo hào đó"
+     },
+     {
+      "seg": "tieu_tuong3",
+      "layer": "nghia",
+      "quote": "Chớ dùng lấy gái, nết không thuận vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương, không giữa không chính, nên dễ động theo cái trước mắt.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Hào Sáu Ba là hào Âm nhu, chẳng trung chẳng chính"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Kẻ xem gặp hào đó, thì hẳn lấy vợ, ắt được cái người như thế, không còn lợi gì."
+   },
+   "topics": {
+    "tinh_cam": {
+     "text": "Hỏi về cưới hỏi mà gặp hào này thì nên dè dặt với người dễ xiêu lòng trước tiền bạc, quà cáp.",
+     "from": [
+      {
+       "seg": "hao3",
+       "layer": "chu_hy",
+       "quote": "Chồng vàng, tức là đàn ông lấy vàng đút mình mà chòng ghẹo mình"
+      }
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Đứng xa những người hiểu biết, không ai kéo mình ra, nên bị kẹt trong cái tối của chính mình; muốn khá lên thì phải tự lại gần người sáng.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "không có bậc cương minh giúp đỡ, chẳng có lối nào mở mang sự tối tăm của mình"
+     },
+     {
+      "seg": "tieu_tuong4",
+      "layer": "trinh_di",
+      "quote": "Đáng thẹn tiếc, là vì riêng nó phải xa người hiền minh."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm cách xa cả hai hào dương và không có hào ứng.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "Đã xa hào Dương, lại không có hào chính ứng"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "Kẻ xem như thế là đáng hổ thẹn hối tiếc. Biết tìm những kẻ cương minh mà gần gũi với họ, thì có thể khôn."
+   },
+   "topics": {
+    "hoc_tap": {
+     "text": "Tự học một mình, không thầy, không bạn để sửa, dễ giậm chân tại chỗ; tìm một người giỏi để gần là lối ra.",
+     "from": [
+      {
+       "seg": "tieu_tuong4",
+       "layer": "trinh_di",
+       "quote": "tức là một hạng ngu tối mà không được gần người hiền, không bởi đâu mà được sáng"
+      }
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Ở ngôi cao mà vẫn giữ lòng như người mới học, chịu bỏ ý riêng để nghe người giỏi dưới mình: đó là cái non nớt đem lại điều tốt.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "giữ đức thuần nhất chưa mở mang để nghe người ta"
+     },
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "“Trẻ thơ” là lấy cái nghĩa “chưa được mở mang, còn phải nhờ người”."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ trên, ngôi tôn, ứng với hào Chín Hai ở dưới.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "Cứng mềm ở giữa, nhằm ngôi tôn, phía dưới ứng nhau với hào Chín Hai"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "cho nên tượng nó là hạng trẻ thơ, mà lời chiêm như thế thì tốt."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Ai ở vị trí lãnh đạo mà dám học hỏi từ cấp dưới có chuyên môn thì vượt lên được người khác.",
+     "from": [
+      {
+       "seg": "tieu_tuong5",
+       "layer": "trinh_di",
+       "quote": "Có thể như thế, tức là hơn cả thiên hạ."
+      }
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Cái tối đã đến cực nên phải trị mạnh tay; nhưng mạnh quá thì chính người trị thành kẻ gây hại, chỉ nên chặn những điều làm hư người từ bên ngoài.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Trị sự tối tăm của người ta, tức là chống giặc; tự do làm sự tham bạo, thì là làm giặc."
+     },
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "Nhưng, cả thuyết thái quá, đánh trị ngặt quá, thì ắt trở lại làm hại."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở trên cùng, cứng quá mà không ở giữa.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Nhưng hào Chín ở trên, cứng quá mà không được giữa"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "chu_hy",
+    "quote": "Chỉ có ngăn sự cám dỗ bên ngoài, để làm cho cái tính chất chân thật thuần túy của nó được nguyên vẹn, thì dù có quá nghiêm mật, cũng là hợp lẽ nên chăng, cho nên mới răn kẻ xem như thế."
+   },
+   "topics": {
+    "gia_dinh": {
+     "text": "Dạy con nghiêm là để giữ con khỏi những cám dỗ bên ngoài; khi cha mẹ và con đều làm đúng phần mình thì cái nghiêm ấy mới có ích.",
+     "from": [
+      {
+       "seg": "tieu_tuong6",
+       "layer": "chu_hy",
+       "quote": "Chống giặc bằng sự cương minh, kẻ trên dưới đều đúng với đạo của mình."
+      }
+     ]
+    }
+   }
+  }
+ }
+}

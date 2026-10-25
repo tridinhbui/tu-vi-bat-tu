@@ -1,0 +1,360 @@
+{
+ "number": 7,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Sư là lúc phải đưa nhiều người vào một việc chung, và việc ấy chỉ đứng vững khi đúng đắn ngay từ gốc và được một người già dặn, đủ uy tín cầm lái.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Sư là quần chúng."
+    },
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Cái đạo quân gia, lấy sự đính chính làm gốc."
+    },
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "mà phải dùng người lão thành, mới được tốt mà không có lỗi"
+    }
+   ]
+  },
+  "image": {
+   "text": "Nước nằm trong lòng đất: sức mạnh tụ lại nhưng được giữ kín, như quân lính sống lẫn trong dân; ai nuôi được người thì mới có người để dùng.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Trong đất có nước, là quẻ sư, đấng quân tử coi đó là dung dân, nuôi quân."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "chu_hy",
+     "quote": "Nước không thể ngoài đất, quân không thể ngoài dân, cho nên hễ nuôi được dân, thì có thể nuôi được quân."
+    }
+   ]
+  },
+  "structure": {
+   "text": "Cả quẻ chỉ có một hào dương ở giữa quẻ dưới, năm hào âm còn lại đều theo nó: một người giữ trọng trách, người đứng trên giao việc mà không làm thay.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "trong quẻ chỉ hào Chín Hai là một hào Dương ở giữa quẻ dưới, là Tượng làm tướng; trên dưới năm hào Âm đều phải thuận mà theo, là Tượng làm quân"
+    },
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "tức là cái Tượng ông vua sai tướng ra quân"
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "cái đạo dùng quân lợi về được chính đính, mà phải dùng người lão thành, mới được tốt mà không có lỗi. Đó là răn kẻ xem cũng phải như thế."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Trong công việc, đây là lúc dẫn dắt hay tham gia một đội nhóm: kết quả phụ thuộc vào mục tiêu có chính đáng không và người cầm trịch có đủ kinh nghiệm để mọi người phục không, hơn là vào chức danh.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Gọi là trượng nhân, bất tất phải người vốn vẫn ở ngôi cao quí, hễ mà tài mưu đức nghiệp đủ khiến mọi người sợ phục thì nhằm."
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Về tiền bạc, quẻ nói đến kỷ luật hơn là may mắn: một kế hoạch có nguyên tắc rõ ràng và một người quyết định duy nhất, thay vì nhiều người cùng cầm hầu bao.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "nghia",
+      "quote": "Quân ra bằng luật, không khéo thì hung."
+     },
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "nếu để nhiều người chủ trương, thì là đạo hung"
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Với việc làm ăn, Sư là thời ra quân: cần luật lệ, phân quyền rõ và giao trọn việc cho người có năng lực; giao cho nhiều người cùng chủ trương thì dễ đổ vỡ.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Việc quân lữ, dùng không chuyên nhất, đổ hại là sự tất nhiên."
+     },
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "nhiệm ai phải chuyên dốc về người ấy"
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Trong học tập, quẻ đề cao nề nếp và người thầy, người hướng dẫn có kinh nghiệm: học theo một phương pháp nhất quán thay vì nghe theo nhiều hướng cùng lúc.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "chu_hy",
+      "quote": "mà phải dùng người lão thành"
+     },
+     {
+      "seg": "tieu_tuong1",
+      "layer": "nghia",
+      "quote": "Quân ra bằng luật, mất luật hung vậy."
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Trong tình cảm, Sư không phải quẻ của sự lãng mạn mà của trách nhiệm: hai người cần cùng một hướng đi và một cách xử sự đúng mực; để người ngoài can dự quá nhiều dễ sinh rối.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "lấy sự đính chính làm gốc"
+     },
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "nếu sai quân tử làm việc, mà để tiểu nhân xen vào"
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Trong gia đình, quẻ nói về việc ai là người đứng ra gánh vác: một người có uy tín, được mọi người thuận theo, và cách đối xử vừa nghiêm vừa ôn hòa.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Phàm cách trị quân, vừa uy nghiêm vừa ôn hòa thì tốt."
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Trước một lựa chọn, câu hỏi của quẻ là: việc này có chính đáng không, và mình có đủ người, đủ sức để theo đến cùng không; nếu chưa, lùi lại giữ sức cũng không phải là sai.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "nghia",
+      "quote": "khiến được nhiều người chính đính, thì có thể làm nên nghiệp vương"
+     },
+     {
+      "seg": "tieu_tuong4",
+      "layer": "chu_hy",
+      "quote": "Biết khó mà lui, đó là sự thường trong việc quân."
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Đặt nguyên tắc trước khi bắt đầu, chọn một người chịu trách nhiệm chính và giao trọn quyền cho người ấy; khi thấy sức chưa đủ thì rút về giữ lực thay vì cố tiến.",
+   "from": [
+    {
+     "seg": "hao1",
+     "layer": "chu_hy",
+     "quote": "Cái đạo ra quân, nên cẩn thận lúc đầu"
+    },
+    {
+     "seg": "hao4",
+     "layer": "chu_hy",
+     "quote": "Giữ lấy toàn quân mà lui, hơn hào Sáu Ba xa lắm"
+    }
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Kết quả tốt đi kèm điều kiện việc làm phải chính đáng; mục đích sai thì dù thắng cũng không thành điều lành.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Nếu hành động mà không theo nghĩa, tuy khéo cũng hung."
+     }
+    ]
+   },
+   {
+    "text": "Khi thành công, cái được nên chia đúng người: ban thưởng kẻ có công nhưng không trao quyền cho người không xứng.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Kẻ tiểu nhân cho dù có công cũng không thể dùng"
+     }
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Lúc mới khởi sự: phải có phép tắc ngay từ đầu; làm không theo phép thì dù khéo cũng hỏng.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "chu_hy",
+      "quote": "Hào này ở đầu quẻ, là lúc khởi đầu việc quân."
+     },
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Nếu không có luật tuy khéo cũng hung"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "đó là lời răn kẻ xem nên cẩn thận lúc đầu mà phải giữ phép."
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Người được giao trọng trách, được tin dùng và được mọi người theo: chủ động quyết việc mà giữ chừng mực thì tốt và được ghi nhận nhiều lần.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "Hào Chín Hai ở dưới, được các hào Âm theo về, mà có đức cương trung, trên thì ứng với hào Năm"
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Ở trong quân, chuyên chế mà được vừa phải, cho nên mới tốt mà không có lỗi."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ dưới, ứng với hào Năm: có thực lực và có người trên tin.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "hào Năm ở ngôi vua, tức là chính ứng của nó"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "nghia",
+    "quote": "Ở trong quân, vừa phải thì tốt, không lỗi, nhà vua ba lần cho mệnh."
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Nhiều người cùng chủ trương, người tài yếu mà muốn gánh việc lớn: hình ảnh khiêng thây về là thất bại không công.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "tài yếu, chí cương, không trung không chính, mà phạm vào việc không phải phận mình"
+     },
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Dư thi nghĩa là nhiều người làm chủ"
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương, không giữa không chính: sức không xứng với chỗ đứng.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Vì là hào Âm, ở ngôi Dương"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "nghia",
+    "quote": "Quân hoặc khiêng thây, hung."
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Biết mình chưa đủ sức thì lùi về đóng giữ; rút lui đúng lúc không phải lỗi mà là lẽ thường của việc lớn.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "tien_nho",
+      "quote": "Biết không thể tiến mà lui, cho nên lùi đóng."
+     },
+     {
+      "seg": "tieu_tuong4",
+      "layer": "chu_hy",
+      "quote": "Biết khó mà lui, đó là sự thường trong việc quân."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, không giữa nhưng đúng chỗ.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "Âm nhu không giữa, mà ở ngôi Âm, được chỗ chính"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "Giữ lấy toàn quân mà lui, hơn hào Sáu Ba xa lắm, cho nên lời Chiêm của nó là thế."
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người đứng đầu không gây chuyện nhưng phải đáp trả khi bị lấn: được lý thì nên nói rõ mà làm, và đã giao việc cho ai thì giao trọn, đừng để kẻ khác xen vào.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "tức là kẻ không gây ra mối binh đao, quân giặc tràn lấn đến mình"
+     },
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "nhiệm ai phải chuyên dốc về người ấy"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "nếu sai quân tử làm việc, mà để tiểu nhân xen vào, thì là sai chúng khiêng thây mà về, cho nên, tuy là chính đáng vẫn không khỏi hung."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Việc đã xong, đến lúc luận công: thưởng đúng người có công, nhưng chỉ trao quyền cho người xứng đáng.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "Đây là việc quân đã xong rồi xuôi thuận đã tột bậc, tức là lúc bàn công ban thưởng."
+     },
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "chỉ ưu đãi chúng bằng những vàng lụa thì được"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "nghia",
+    "quote": "Đấng đại quân có mệnh, mở nước vâng nhà, kẻ tiểu nhân chớ dùng."
+   }
+  }
+ }
+}

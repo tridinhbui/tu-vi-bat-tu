@@ -1,0 +1,375 @@
+{
+ "number": 34,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Đại Tráng là lúc sức đã lớn và đà đang lên, việc dễ hanh thông; điều phải giữ là cái mạnh ấy đi đúng lẽ, vì mạnh mà lệch đường thì chỉ còn là hung hăng.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Cái đạo lớn mạnh lợi về trinh chính."
+    },
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Lớn mạnh mà không đúng với chính đạo, tức là sự hành vi của kẻ hung tợn"
+    }
+   ]
+  },
+  "image": {
+   "text": "Sấm vang trên trời là hình ảnh của sức mạnh lớn, nhưng cái mạnh quẻ đề cao là tự thắng được mình: việc không phải lẽ thì không bước vào, dù thừa sức bước.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Sấm ở trên trời, là quẻ Đại tráng. Đấng quân tử coi đó mà không phải lễ chớ xéo vào."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "Cái lớn mạnh của đấng quân tử, không gì bằng nén lòng riêng mình, trở lại điều lễ."
+    }
+   ]
+  },
+  "structure": {
+   "text": "Bốn hào dương từ dưới lên đã vượt quá giữa quẻ, bên trong cứng mà bên ngoài động: sức đang thịnh, và hào nào giữ được mực giữa như hào Chín Hai thì tốt hơn hào cứng đến cùng tột.",
+   "from": [
+    {
+     "seg": "thoan_truyen",
+     "layer": "chu_hy",
+     "quote": "Nói về thể quẻ thì khí Dương lớn lên, đã quá bậc giữa, tức là cái lớn thì mạnh. Nói về đức quẻ, thì Kiền cứng, Chấn động, cho nên là mạnh."
+    },
+    {
+     "seg": "tieu_tuong2",
+     "layer": "nghia",
+     "quote": "Lời Tượng nói rằng: Hào Chín Hai chính tốt, về giữa vậy."
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "Dương mạnh thì kẻ xem tốt lành hanh thông, không cần phải nói, có điều lợi ở chính bền mà thôi."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Người đang có thế mạnh nơi làm việc dễ gặp đâu húc đấy như con dê đực trước hàng giậu; lối ấy làm mắc sừng, còn cái mạnh biết dừng ở chỗ phải lẽ mới giữ được đà.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "cũng như người ta chuộng sự cứng mạnh, đụng đâu ắt dùng vào đấy, tất nhiên phải đến gẫy quị."
+     },
+     {
+      "seg": "dai_tuong",
+      "layer": "nghia",
+      "quote": "Đấng quân tử coi đó mà không phải lễ chớ xéo vào."
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Đà thuận dễ khiến người ta dồn sức vào ngay từ bước đầu; như cái mạnh dồn cả xuống ngón chân, xông lên khi mình còn ở chỗ thấp nhất thì dễ rơi vào cảnh cùng khốn.",
+    "from": [
+     {
+      "seg": "tieu_tuong1",
+      "layer": "trinh_di",
+      "quote": "Ở chỗ dưới nhất mà dùng sự mạnh để đi, có thể tin hẳn là sẽ cùng khốn mà hung."
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Như chiếc xe lớn có trục khỏe, một mối làm ăn đang lên đi được xa; nhưng chính lúc đà mạnh, một sai sót nhỏ ở chỗ cốt yếu cũng đủ làm hỏng thế tiến.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Bởi vì nhằm khi Đạo đương lớn lên, hơi có sai lỗi thì hại đến thế hanh tiến, thế là có ăn năn."
+     },
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Xe hỏng thường vì gãy cái vành trục, vành trục mạnh thì xe mạnh."
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Sức thật của người đang học nằm ở chỗ chế ngự được mình, bỏ thói quen xấu mà trở về nề nếp, rồi lặng lẽ thấm điều chính đáng, hơn là ở vẻ hăng hái bên ngoài.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "chu_hy",
+      "quote": "Mình thắng được mình là mạnh."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Cái lẽ \"chính lớn\" kẻ học phải im lặng ghi lấy và hiểu ở trong lòng, mới được."
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Khi bên kia đang hăng như đàn dê thích húc, đem sức ra ép chỉ khiến cả hai cùng cứng thêm; đối đãi mềm mỏng, hòa nhã thì cái gắt gao không còn chỗ dùng và mình khỏi phải hối.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Chỉ nên đối đãi bằng cách hòa dễ, thì các hào Dương không thể dùng sự cứng của nó"
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Người có tiếng nói mạnh nhất trong nhà dễ quen dùng uy để quyết mọi việc; cứng quá thì mất hòa khí, người thân lảng xa, còn cứng mềm vừa phải thì việc gì cũng êm.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Cứng mềm vừa phải, thì không gẫy không cong, đem mà dùng với thiên hạ, không có chỗ nào không nên; nếu cứng quá thì không có đức hòa thuận, hay mếch lòng mà không ai vào hùa với mình."
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Trước khi lao vào, nên xét kỹ đường lui: húc vào giậu rồi mới thấy tiến không được, lùi không xong là vì lúc đầu xử không cẩn thận. Đã vướng thì chịu khó nhọc mà đổi cách, lỗi sẽ không kéo dài.",
+    "from": [
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "Ở không phải chỗ, cho nên không thể tiến lui, ấy là tự xử không được tinh tường cẩn thận."
+     },
+     {
+      "seg": "tieu_tuong6",
+      "layer": "nghia",
+      "quote": "khó thì tốt, là lỗi chẳng dài vậy."
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Dùng thế mạnh đang có trước hết để giữ mình cho ngay, không làm điều không phải lẽ; khi hành động thì giữ mực giữa, cứng mà không quá, như hào Chín Hai được tốt nhờ ở giữa.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "Đến như nén lòng riêng mình, trở lại điều lễ, phi đấng quân tử cả mạnh thì không làm nổi"
+    },
+    {
+     "seg": "tieu_tuong2",
+     "layer": "trinh_di",
+     "quote": "Sở dĩ chính và tốt, vì nó được đạo “giữa” vậy."
+    }
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Cậy sức mà làm thì hỏng, còn coi thường mọi trở ngại cũng tự chuốc lấy cảnh khốn; cả hai lối đều là cái mạnh đặt sai chỗ.",
+    "from": [
+     {
+      "seg": "tieu_tuong3",
+      "layer": "chu_hy",
+      "quote": "Kẻ tiểu nhân vì mạnh mà hỏng, đấng quân tử vì “chẳng” mà khốn."
+     }
+    ]
+   },
+   {
+    "text": "Khi trở ngại phía trước tự mở ra, tiến lên là thuận, với điều kiện mình giữ được ngay thẳng; lệch đi một chút lúc ấy thì điều đáng hối quay lại.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "Mạnh ở vành trục xe lớn cũng là Tượng có thể tiến được."
+     },
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "vì vậy, răn rằng: hễ chính thì tốt, mà sự ăn năn sẽ mất."
+     }
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Mới ở chỗ thấp nhất mà đã muốn dùng sức để xông lên, như cái mạnh dồn hết xuống ngón chân: cứ thế mà đi thì cái hung đã thấy trước.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Ở dưới mà dùng sự mạnh; tức là mạnh ở ngón chân."
+     },
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Ôi lấy chất cứng, ở chỗ mạnh, dù là ngôi trên cũng không thể đi, huống chi ở dưới."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Sự hung của nó có thể chắc hẳn, cho nên lời Chiêm như thế."
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Có sức giữa thời thịnh mà biết đứng ở chỗ mềm, giữ mực giữa: cứng mềm vừa phải nên không quá đà, giữ được sự ngay thẳng mà tốt.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "ấy là cứng mềm vừa phải, không đến quá mạnh, nên được trinh chính mà tốt."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm vốn chưa chính, nhưng được ngôi giữa quẻ dưới nên còn nương vào đó mà giữ được sự chính.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "Là hào Dương ở ngôi Âm, đã là không được chính rồi."
+     },
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "“Giữa” thì không lỗi sự chính"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "Nhưng vì nó được chỗ giữa, cũng còn có thể nhân đó mà không bị mất sự chính, cho nên mới răn kẻ xem phải nhân đạo “giữa” mà tìm sự chính, rồi sau sẽ được tốt lành."
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Sức đã lên đến cực, dễ coi mọi việc như không mà xông thẳng; như dê đực húc giậu bị mắc sừng, dù mình có lý cũng đang đứng ở thế nguy.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Vì nó rất cứng, không coi các việc vào đâu, mà không kiêng sợ gì cả."
+     },
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Như thế, tuy chính cũng nguy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, lại ở chót quẻ dưới: cứng chồng lên cứng, không ở giữa nên dễ quá đà.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Hào Chín Ba là chất cứng, đóng ngôi Dương mà ở thì mạnh, lại nhằm vào chót thể Kiền, tức là mạnh đến cùng tột."
+     },
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Quá cứng không giữa, đương vào thì mạnh"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "nghia",
+    "quote": "Hào Chín Ba: Kẻ tiểu nhân dùng mạnh, đấng quân tử dùng chẳng, chính nguy! Dê đực húc giậu, mắc thửa sừng."
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Hàng giậu trước mặt đã mở, không còn gì làm vướng: sức như trục chiếc xe lớn, tiến được; chỉ cần giữ ngay thẳng thì điều đáng hối sẽ mất.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Giậu là cái để ngăn cách, giậu phên bựt mở, thì không làm mắc sự mạnh của nó."
+     },
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Nói rằng “mạnh ở vành trục” nghĩa là mạnh về sự tiến vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, không chính nhưng nhờ đó không cứng quá; phía trước chỉ còn hai hào âm nên đường đã mở.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "Là chất Dương, ở ngôi Âm, không đến cứng quá"
+     },
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "trước hào Tư đến hai hào Âm, thì là giậu bựt."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "trinh_di",
+    "quote": "Nhưng nó ở ngôi Tư, tức là bất chính, nhằm khi đạo đấng quân tử đương lớn lên, không thể có sự bất chính, vì vậy, răn rằng: hễ chính thì tốt, mà sự ăn năn sẽ mất."
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Đứng trên những người đang hăng như đàn dê thích húc mà sức mình lại mềm: đọ sức thì khó thắng và phải hối, đối đãi hòa dễ thì cái cứng của họ tự hết chỗ dùng.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "nếu lấy sức mà nén những hào kia, thì khó thắng được mà có sự ăn năn"
+     },
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "thế là làm mất cái mạnh của nó bằng sự hòa dễ."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi tôn, ngôi không xứng với sức, nên phải dùng cách mềm mại thay cho cứng rắn.",
+    "from": [
+     {
+      "seg": "tieu_tuong5",
+      "layer": "trinh_di",
+      "quote": "Sở dĩ phải dùng cách mềm mại hòa thuận, là vì hào này lấy chất Âm mềm ở ngôi tôn."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "nghia",
+    "quote": "Hào Sáu Năm: Mất dê ở sự dễ không ăn năm."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Cái mạnh đã đến cuối mà sức thật lại mềm: húc vào giậu rồi, tiến thì vướng, lùi thì hại sừng; chịu nhận khó nhọc mà đổi cách thì lỗi không kéo dài.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "giống như dê đực húc giậu phên, tiến lên thì vướng mình, lùi lại thì hại sừng, tiến lui đều không được."
+     },
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "biến đổi thì hợp với phận, tội lỗi không thể lâu dài mới được tốt lành."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "chu_hy",
+    "quote": "Tượng nó như thế, đủ biết lời Chiêm ra sao. May mà nó không cứng, cho nên biết xử bằng cách khó nhọc, thì còn có thể được tốt."
+   }
+  }
+ }
+}

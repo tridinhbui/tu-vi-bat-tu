@@ -1,0 +1,277 @@
+{
+ "number": 55,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Phong là lúc mọi việc lên tới đỉnh, sự sáng suốt đi cùng hành động; cái khó lúc này không phải là có thêm mà là giữ được, vì thịnh đến cực thì sắp suy.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Phong là lớn, lấy sức sáng mà động, tức là cái thế thịnh lớn"},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Nhưng đấng Vương giả tới bậc đó, thịnh cực sẽ suy, có cách đáng lo"}
+   ]
+  },
+  "image": {
+   "text": "Sấm và chớp cùng đến một lúc: chớp soi cho thấy đến tình thật, sấm ra oai quyết đoán; xét cho rõ rồi mới ra tay, cái sáng và cái động phải đi đôi.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Sấm chớp đều đến là quẻ Phong. Đấng quân tử coi mà bẻ ngục đến hình."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Ly là sáng, tức là Tượng soi xét; Chấn là động, tức là Tượng oai đoán."}
+   ]
+  },
+  "structure": {
+   "text": "Các hào quẻ dưới thuộc phần sáng, quẻ trên thuộc phần động; chỗ nào hai phần không đỡ được nhau thì giữa trưa mà hóa tối, như thấy sao Đẩu, sao Mạt.",
+   "from": [
+    {"seg": "hao2", "layer": "trinh_di", "quote": "Sự sáng và sự động nhờ nhau mới thành cuộc thịnh."},
+    {"seg": "hao2", "layer": "trinh_di", "quote": "Tài của kẻ ứng với nó đã không đủ nhờ, thì một sức \"sáng\" không thể làm nên cuộc thịnh."}
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "Nhưng đấng Vương giả tới bậc đó, thịnh cực sẽ suy, có cách đáng lo, thánh nhơn cho rằng lo suông vô ích, hễ biết giữ thường, chẳng đến quá thịnh thì được, cho nên răn rằng: “Chớ lo, nên mặt trời giữa”."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Đang ở lúc thuận nhất, việc càng lớn thì người cầm việc càng phải nhìn khắp, như mặt trời giữa trưa soi tới mọi chỗ, kẻo có góc khuất mà không hay.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "phải nên như mặt trời giữa trưa, sáng rõ soi rộng, không đâu không tới, rồi mới không lo."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Cái của họ có đã rộng, cái của họ trị đã nhiều, thì nên lo rằng không thể tới khắp"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Của cải đang đầy như trăng rằm, mà trăng tròn rồi sẽ khuyết: lúc dư dả là lúc giữ mức thường, đừng cố đẩy lên quá đỉnh.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "mặt trăng đầy tròn thì phải vơi thiếu"},
+     {"seg": "thoan", "layer": "chu_hy", "quote": "hễ biết giữ thường, chẳng đến quá thịnh thì được"}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Một bên có tầm nhìn, một bên có sức làm, dù ngang hàng vẫn hợp tác được vì cần đến nhau; thiếu một trong hai thì việc không đi tới đâu.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "không \"sáng\" thì \"động\" không thể đi đâu, không \"động\" thì \"sáng\" không thể dùng gì, nhờ nhau mà nên công dụng"}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người học ở thời này cần cả hai thứ của sấm chớp: hiểu cho thấu như ánh chớp soi đến tình thật, rồi dám quyết khi đem ra làm.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Bẻ ngục phải soi cho đến tình thật, chỉ có sáng suốt mới có thể tin."},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đến hình là ra oai với kẻ gian tà, phải quyết đoán mới được."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hai người cùng mạnh, cùng cá tính vẫn đi được với nhau nếu mỗi bên chịu hạ mình tìm đến người kia; tranh hơn thua thì sự ngang nhau thành mối hại.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Chung cùng với người ta mà sức đều nhau thì cốt hạ mình để tìm nhau, họp sức để theo đuổi công việc"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "nếu có lòng riêng muốn mình hơn người và có ý riêng muốn lấn thêm lên thì vạ lo sẽ đến"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Nhà đang lúc sung túc thì đừng như người dựng mái thật cao rồi khép kín cửa: tự tách khỏi người thân, lâu dần nhìn vào chỉ thấy quạnh hiu.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "tự mình tuyệt với người ta, thì người ta ai cùng với nó?"},
+     {"seg": "hao6", "layer": "chu_hy", "quote": "tức là kẻ sáng cực mà lại hóa tối"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi mọi thứ đang ở đỉnh, lựa chọn khôn là không đòi thêm quá mức giữa; lo suông thì vô ích, biết dừng ở mức vừa mới giữ được lâu.",
+    "from": [
+     {"seg": "thoan", "layer": "chu_hy", "quote": "thánh nhơn cho rằng lo suông vô ích"},
+     {"seg": "thoan_truyen", "layer": "chu_hy", "quote": "Đây lại phát minh cái ý ở ngoài lời quẻ nói là không thể quá mực giữa vậy."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Dùng lúc thuận để soi những chỗ mình chưa với tới, tìm một người cùng chí bù phần mình thiếu, và gặp người trên chưa sáng thì lấy thành ý lay động họ trước.",
+   "from": [
+    {"seg": "hao4", "layer": "chu_hy", "quote": "đi xuống với kẻ cùng đức thì tốt"},
+    {"seg": "hao2", "layer": "chu_hy", "quote": "chỉ nên chứa chất lòng thành để cảm phát họ thì tốt"}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Cái tốt của thời thịnh chỉ còn khi không vượt quá mức giữa; mặt trời đứng bóng rồi cũng phải xế, nên đừng coi lúc này là mãi mãi.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Mặt trời giữa là thịnh cực rồi thì phải dé tối"}
+    ]
+   },
+   {
+    "text": "Vội đến cầu một người trên còn mờ tối thì dễ bị nghi; nếu thành ý lay động được người ấy, việc lại thông.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "nếu mình đi mà tìm nó thì lại bị nó ngờ vực ghét bỏ"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Nếu cái ý thành thực của mình lay động được họ, thì dù họ tối tăm, cũng mở mang được"}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Gặp được người ngang sức mà bù cho mình, một bên sáng một bên động, thì hợp sức tiến lên có điều đáng khen; chỉ cần đừng muốn hơn người ấy.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Trong thì thịnh, sự sáng và sự động nhờ nhau, cho nên hào Chín Đầu gặp hào Chín Tư tuy đều là Dương cứng, mà lời chiêm của nó như thế."},
+     {"seg": "tieu_tuong1", "layer": "nghia", "quote": "Lời Tượng nói rằng: Dẫu đều không lỗi, quá đều hại vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào đầu của phần sáng ứng với hào đầu của phần động; hai hào cùng dương vốn khó chịu nhau, nhưng thời này phải chờ nhau mới nên việc.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Chín Đầu là đầu thể sáng, hào Chín Tư là đầu thể động, hai hào đó phải chờ nhau mà làm nên công dụng"}
+    ]
+   },
+   "traditional": {
+    "seg": "tieu_tuong1",
+    "layer": "chu_hy",
+    "quote": "Đây răn kẻ xem không nên cầu thắng kẻ sánh với mình, cũng là ý ngoài lời hào."
+   },
+   "topics": {
+    "kinh_doanh": {
+     "text": "Hợp tác với một đối tác ngang tầm thuận khi hai bên cùng cần nhau; như người chung thuyền, khác biệt tạm gác để cùng làm nên việc.",
+     "from": [
+      {"seg": "hao1", "layer": "trinh_di", "quote": "chung thuyền thì Hồ, Việt một lòng, chung nạn thì thù oán hợp sức, sự thế khiến phải thế."}
+     ]
+    }
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Có tài sáng mà người mình nương lại mờ tối, như giữa trưa bị trướng che mà thấy sao Đẩu: vội đến cầu thì bị ngờ, nên chứa thành ý để lay động họ.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Hào Sáu Hai ở thì thịnh, làm chủ thể Ly, là kẻ rất sáng, mà phía trên ứng nhau với hào Sáu Năm mềm tối"},
+     {"seg": "tieu_tuong2", "layer": "nghia", "quote": "Lời Tượng nói rằng: Có tin dường mở ra vậy, là dùng sự tin để mở chí vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, được giữa được chính, nhưng chính ứng là hào Sáu Năm mềm yếu, không đủ sức động cùng mình.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Hai là chủ thể sáng, lại được giữa chính, có thể bảo là kẻ sáng, mà hào Năm ở chỗ chính ứng với nó, lại Âm mềm bất chính, không phải kẻ có thể động."}
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "Đi mà theo họ, thì ông vua hôn ám ắt ngờ, chỉ nên chứa chất lòng thành để cảm phát họ thì tốt. Răn kẻ xem nên như thế đó."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Cấp trên chưa nhìn ra năng lực của mình thì đừng chạy đến tự phân trần; làm việc bằng sự thành thật bền bỉ để chính họ đổi cách nhìn.",
+     "from": [
+      {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "\"Có tin dường mở ra vậy\" nghĩa là dùng phu tín cảm phát tâm chí của người trên vậy."}
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Màn che dày hơn trướng, giữa trưa thấy cả sao Mạt nhỏ: chỗ dựa phía trên không giúp được, như gãy cánh tay phải, nên chưa làm được việc lớn, mà lỗi không ở mình.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Cánh tay phải là cái người ta hay dùng, nó bị gãy rồi, đủ biết là không làm gì được nữa."},
+     {"seg": "tieu_tuong3", "layer": "nghia", "quote": "Lời Tượng nói rằng: Thịnh thửa màn, chẳng khá làm việc lớn vậy; gãy thửa cánh tay phải, trọn chẳng khá dùng vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, đúng chỗ, trên cùng phần sáng, nhưng ứng với hào Sáu Trên mềm yếu, không ngôi, ở cuối phần động nên không động được.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba ở trên thể sáng, chất Dương cứng được chỗ chính, vốn là kẻ sáng"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "hào Trên là hạng Âm mềm lại không có ngôi mà ở chót thể Chấn"}
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Hào Ba ở chỗ sáng cực mà ứng với hào Sáu Trên, tuy không thể dùng, mà không phải lỗi tại nó, cho nên Tượng, Chiêm của nó như thế."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Không có người trên đỡ thì việc lớn lúc này khó thành; dừng lại không phải vì mình kém, cũng chẳng có ai để đổ lỗi.",
+     "from": [
+      {"seg": "hao3", "layer": "trinh_di", "quote": "nếu ở trên không có ông vua có thể nhờ cậy, thì không thể làm được việc gì, cũng như người gãy cánh tay phải."},
+      {"seg": "hao3", "layer": "trinh_di", "quote": "Vì không đổ lỗi cho ai được."}
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Cũng bị che tối như hào Sáu Hai: có sức mà gặp người trên mờ tối; tìm xuống người cùng chí ở dưới để hợp sức thì tốt.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Tượng của hào này giống hào Sáu Hai."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Ở ngôi đại thần mà được người hiền ở dưới cùng đức giúp nhau, thì sự đỡ đần đó há phải là nhỏ?"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi cao sát người đứng đầu nhưng không giữa, không chính, nên chưa đem được cuộc thịnh đến; chỗ dựa là hào Chín Đầu ở dưới.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "hào này lấy đức không giữa không chính mà ở ngôi cao, vì tối tăm không đem được cuộc thịnh đến."}
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "Lời Chiêm của nó thì đương thời thịnh, gặp phải ám chúa, đi xuống với kẻ cùng đức thì tốt."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Người ở tầng giữa, khi người dẫn đầu chưa sáng, nên tìm xuống một người giỏi cùng hướng ở dưới để cùng gánh việc.",
+     "from": [
+      {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Dương cứng gặp nhau là sự đi tốt lành. Tới xuống với hào Đầu, cho nên nói là \"đi\", nghĩa là trở xuống mà tìm thì tốt."}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người đứng đầu tự biết sức mình mềm yếu, nếu mời được người tài sáng đến và giao việc cho họ thì có phúc và có tiếng tốt.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Nếu có thể làm cho người hiền đẹp tốt tới đến mà dùng, thì có phúc khánh, lại được tiếng hay, thế gọi là tốt."},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Kẻ làm vua tuy là mềm tối, nếu biết dùng người hiền tài, thì có thể làm phúc cho thiên hạ, chỉ lo không thể như thế mà thôi."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi tôn, không phải chính ứng với hào Sáu Hai, nhưng ở thời này sáng và động dùng lẫn cho nhau nên vẫn mời được người ấy.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Năm với hào Hai tuy không phải là chính ứng, nhưng mà ở thì \"sự sáng và sự động giúp nhau\" thì nó có nghĩa là làm lẫn sự dùng cho nhau"}
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "Chất tuy mềm tốt, nếu nó đưa được kẻ sáng thiên hạ tới nơi thì có phúc khen mà tốt. Vì nó mềm tốt mới đặt lời đó để mở mang cho nó. Kẻ xem như thế, thì cũng được tốt như thế."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Người quản lý không mạnh chuyên môn vẫn làm nên việc nếu đưa được người giỏi vào đúng chỗ và thật sự trao việc cho họ.",
+     "from": [
+      {"seg": "hao5", "layer": "trinh_di", "quote": "kẻ làm hào Năm nếu thực đem được nó tới ở ngôi mà giao công việc cho nó, thì có thể đưa lại cái phúc thịnh lớn, cái đẹp danh dự, cho nên là tốt."}
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Ở trên cùng lúc thịnh đã cực: dựng nhà thật cao mà tự che kín, nhòm cửa không thấy ai; tự tôn, khép mình mà lâu không đổi thì người khác tránh xa.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "cho nên là Tượng \"làm lớn mái nhà mà lại tự che mình\""},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "người ta vì nó tối tăm lại tự tôn đại, đều dứt bỏ nó mà tự nấp tránh, không gần với nó."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở trên cùng, chỗ cao mà không có ngôi: lúc cần khiêm nhún lại đóng chỗ quá cao, lúc cần cứng mạnh lại mềm yếu.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Ở thì thịnh lớn nên khiêm nhún mà lại đóng chỗ rất cao, đem đến cái công thịnh lớn cốt ở cứng mạnh mà lại là thể Âm mềm"}
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "nghia",
+    "quote": "Hào Sáu Trên: Thịnh thửa mái, che thửa nhà, nhòm thửa cửa, hiu quạnh thửa không người, ba năm chẳng thấy, hung."
+   },
+   "topics": {
+    "gia_dinh": {
+     "text": "Nhà to cửa kín mà chẳng ai lui tới: sống tách biệt, tự cao với người thân lâu ngày mà không đổi thì cảnh nhà quạnh quẽ.",
+     "from": [
+      {"seg": "hao6", "layer": "trinh_di", "quote": "Lâu đến ba năm mà không biết đổi, hung là đáng lắm."}
+     ]
+    }
+   }
+  }
+ }
+}

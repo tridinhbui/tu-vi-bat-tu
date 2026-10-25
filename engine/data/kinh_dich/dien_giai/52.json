@@ -1,0 +1,463 @@
+{
+ "number": 52,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Cấn là lúc dừng lại, nhưng dừng đúng chỗ và đúng thời: nên dừng thì dừng, nên đi thì đi; dừng để lòng khỏi bị những điều ham muốn trước mắt kéo đi.",
+   "from": [
+    {
+     "seg": "thoan_truyen",
+     "layer": "nghia",
+     "quote": "Lúc đáng đậu thì đậu, lúc đáng đi thì đi."
+    },
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Người ta sở dĩ không yên đậu được là vì bị động về sự ham muốn."
+    }
+   ]
+  },
+  "image": {
+   "text": "Hai lớp núi chồng lên nhau, đứng yên vững chãi: mỗi người nghĩ và làm trong đúng phần của mình, làm quá hay làm thiếu đều là bước ra khỏi chỗ đứng.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "Trên dưới đều là núi, cho nên nói là gồm núi."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "Muôn việc đều có nơi chốn, hễ đúng nơi chốn thì là đậu yên. Hoặc thái quá, hoặc bất cập, đều là vượt ra ngoài ngôi."
+    }
+   ]
+  },
+  "structure": {
+   "text": "Một hào dương đứng trên hai hào âm, sức đi từ dưới lên đến đỉnh thì dừng; hai quẻ trên dưới đối chọi mà không ứng nhau, nên mỗi bên tự giữ chỗ của mình.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Một Dương đậu trên hai Âm, Dương tự dưới lên, đến chỗ nhất thì đậu."
+    },
+    {
+     "seg": "thoan_truyen",
+     "layer": "nghia",
+     "quote": "Trên dưới chọi ứng, chẳng cùng nhau vậy."
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "Lời Chiêm của nó thì là “ắt phải đậu ở đằng lưng mà không có mình, đi ở sân mà không thấy người, mới là không lỗi”."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Người giữ đúng phần việc của mình, không lấn sang việc người khác mà cũng không bỏ thiếu phần mình, là người đứng vững lúc này; biết dừng một việc đúng lúc cũng là làm đúng.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "nghĩ chỗ đậu không vượt ra ngoài ngôi mình"
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "chu_hy",
+      "quote": "lúc đáng đậu mà đậu là đậu, lúc đáng đi mà đi cũng là đậu"
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Như tấm lưng quay về phía những thứ bày trước mắt, đây là lúc đứng ngoài sức hút của các món lợi nhìn thấy; lòng ham muốn không dẫn đi thì tiền khỏi hao vì quyết định bốc đồng.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Những cái trông thấy đều ở đằng trước, mà lưng thì trái ngược lại, ấy là nó không trông thấy."
+     },
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Đậu vào chỗ không trông thấy, thì không có sự ham muốn làm loạn lòng mình, sự đậu mới yên."
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Hai bên cùng cứng như hai ngọn núi đối mặt thì khó bắt tay: một cuộc hợp tác lúc này dễ không thành, nên lo giữ vững chỗ đã có hơn là tìm đường mở rộng.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Âm Dương ứng nhau thì tình thông nhau mà cùng với nhau, đằng này vì sự chọi nhau, cho nên không cùng với nhau."
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người đi học cần giữ lòng yên trước những thứ bên ngoài kéo đi; cái khó không nằm ở lúc bắt đầu mà ở chỗ giữ được nề nếp ấy đến cuối.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Vật ngoài không tiếp xúc, sự ham muốn bên trong không sinh ra"
+     },
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "Việc trong thiên hạ; chỉ có giữ được đến trót là khó"
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hai người như hai ngọn núi đứng cạnh nhau mà không hướng về nhau, mỗi người giữ một chỗ. Lúc này nên dừng lại nhìn kỹ hơn là thúc đẩy, và cẩn thận lời nói.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "nghia",
+      "quote": "Trên dưới chọi ứng, chẳng cùng nhau vậy."
+     },
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Nói ra bằng cách khinh xuất thì có ăn năn"
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Một người cứng nhắc giữ ý mình, chẳng chịu xuống nghe ai, thì người bên cạnh dù đúng cũng phải theo trong bứt rứt; lỗi không ở người theo, nhưng nhà không yên.",
+    "from": [
+     {
+      "seg": "tieu_tuong2",
+      "layer": "chu_hy",
+      "quote": "Hào Ba đậu ở trên, cũng chẳng chịu xuống mà theo hào Hai."
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Chẳng cứu được mà phải dạ theo, tuy lỗi không phải tại mình, nhưng mà lòng nó há muốn như thế?"
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Câu hỏi của quẻ là đã đến lúc dừng hay đến lúc đi: dừng hay đi đều đúng nếu hợp thời, còn động khi nên yên, yên khi nên động mới là lệch.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "nghia",
+      "quote": "Động tĩnh không lỗi thửa thì, thửa đạo sáng tỏ."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Chẳng lỗi thời thì là thuận lẽ mà hợp nghĩa."
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Dừng ngay khi điều chưa nên làm vừa chớm động thì dễ, để lâu mới dừng thì khó; giữ lời cho có thứ tự, và đã chọn chỗ đứng thì giữ cho bền đến cuối.",
+   "from": [
+    {
+     "seg": "tieu_tuong1",
+     "layer": "trinh_di",
+     "quote": "Đậu từ lúc đầu thì dễ mà chưa đến lỗi vậy."
+    },
+    {
+     "seg": "hao5",
+     "layer": "trinh_di",
+     "quote": "đậu ở mép thì nó sẽ không ra càn mà có thứ tự"
+    },
+    {
+     "seg": "hao6",
+     "layer": "trinh_di",
+     "quote": "Hào Chín Trên có thể dầy dốc tới lúc sau chót, tức là cách đậu rất hay, cho nên mới tốt."
+    }
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Dừng mà cứng nhắc, cố bám một chỗ không chịu tiến lui, thì không còn là yên nữa mà thành bứt rứt, nóng ruột từ bên trong.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Người ta cố đậu một xó, cả đời không ai ưng vừa với mình, thì sự khó khăn tức sợ đốt rối trong lòng, lẽ nào mà yên nhàn được?"
+     }
+    ]
+   },
+   {
+    "text": "Sự giữ mình dễ lơi ra về sau: giữ được đến cuối thì tốt, còn nhiều việc hỏng chỉ vì càng về lâu càng buông tay.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Sự đậu của người ta có thể chỉ khó giữ lâu tới chót, cho nên tiết tháo khi về già thì đổi, sự thao thủ có khi đến chót thì mất, công việc có khi đến lâu thì hỏng, đó là cái lo chung của mọi người."
+     }
+    ]
+   },
+   {
+    "text": "Dừng đúng chỗ mới yên; dừng sai chỗ thì dù cố đến đâu cũng không đứng vững được.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Đậu mà không đúng nơi chốn thì không có lẽ đậu được."
+     }
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Dừng lại ngay ở ngón chân, lúc vừa nhấc bước: việc chưa kịp hỏng nên không lỗi, chỉ cần giữ được sự ngay thẳng cho bền lâu.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "“Đậu thửa, ngón chân” tức là đậu ngay từ khi mới động. Các việc đậu từ lúc đầu, chưa đến bị hỏng, cho nên không lỗi."
+     },
+     {
+      "seg": "hao1",
+      "layer": "nghia",
+      "quote": "Hào Sáu Đầu: Đậu thửa ngón chân, không lỗi, lợi về dài lâu chính bền."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở chỗ thấp nhất, sức mềm: đứng yên thì giữ được chính, cất bước đi thì dễ lạc.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Lấy chất mềm, ở chỗ thấp, đứng vào thì đậu, nếu đi thì mất sự chính, cho nên đậu lại mới không lỗi."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Kẻ xem như thế thì không có lỗi. Lại vì nó là Âm mềm, cho nên phải răn thêm rằng: “Lợi về dài lâu chính bền”."
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Như bắp chân phải theo cái đùi: mình đứng đúng mà người dẫn đầu cứng nhắc, nói không được nghe nên đành theo, lòng không vui vì ý mình không được thực hiện.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Đùi động thì bụng chân phải theo, động hay đậu là ở cái đùi không ở bụng chân"
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Nói không nghe, đạo không thực hành, cho nên lòng nó không sướng, vì nó không được thi hành ý chí của nó."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi, nhưng chất mềm, đứng dưới hào Chín Ba quá cứng nên không kéo được người ấy lại.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "hào Hai tuy là giữa chính mà thể chất mềm yếu, không thể đi mà cứu nó, cho nên trong lòng không sướng."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "nghia",
+    "quote": "Hào Sáu Hai: Đậu thửa bụng chân, chẳng cứu thửa theo, thửa lòng chẳng sướng."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Làm dưới một người cấp trên cố chấp, góp ý không được nghe mà vẫn phải làm theo: lỗi không ở mình, nhưng nên biết sự bứt rứt ấy đến từ đâu.",
+     "from": [
+      {
+       "seg": "tieu_tuong2",
+       "layer": "trinh_di",
+       "quote": "Sở dĩ chẳng cứu nó mà lại dạ theo, là vì kẻ ở trên chưa xuống mà theo."
+      }
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Dừng cứng ở chỗ ngang lưng, như xé đứt phần nối trên với dưới: cố bám một chỗ, không tiến không lùi, nên lòng nóng như bị hun đốt.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Hào Chín Ba lấy chất quá cứng không giữa, nằm ở chỗ giới hạn mà đậu thửa hạn thì không có duỗi được nữa mà trên dưới chia cách như xé thịt thăn vậy."
+     },
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "Ý nói nó cứ cố đậu không thể tiến lui, cái lo về sự hiểm nghèo thường thường hun đốt trong lòng."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương mà không ở giữa, lại làm chủ quẻ dưới: cứng chồng lên cứng, nên dừng quá mức.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Hào Ba lấy chất cứng ở chỗ cứng mà không giữa, làm chủ việc làm nên quẻ Cấn, quyết đậu đến tột bậc vậy."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "nghia",
+    "quote": "Hào Chín Ba: Đậu thửa hạn, xé thửa thăn, nguy hun lòng."
+   },
+   "topics": {
+    "tinh_cam": {
+     "text": "Giữ lập trường đến mức cắt đứt mọi qua lại với người kia thì chính mình lại là người khó yên nhất.",
+     "from": [
+      {
+       "seg": "hao3",
+       "layer": "trinh_di",
+       "quote": "xé đứt thịt thăn thì trên dưới không theo thuộc với nhau"
+      },
+      {
+       "seg": "hao3",
+       "layer": "chu_hy",
+       "quote": "Nguy hun lòng nghĩa là chẳng yên một cách thái thậm vậy."
+      }
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Dừng được chính mình, giữ thân đúng chỗ: chưa đủ sức làm người khác dừng theo, nhưng tự giữ được mình thì không lỗi, dù với người gánh trách nhiệm lớn như thế vẫn chưa đủ.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "cho nên không thể làm đậu người khác mà chỉ tự đậu thân mình, thì được không lỗi."
+     },
+     {
+      "seg": "tieu_tuong4",
+      "layer": "trinh_di",
+      "quote": "Không thể làm cho thiên hạ cùng đậu, mà chỉ đậu được thân mình, há đủ xứng ngôi đại thần?"
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, ngôi của người đại thần, nhưng không gặp người trên cứng mạnh để cùng làm việc lớn.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Hào Tư là ngôi đại thần, đậu chỗ đáng đậu trong thiên hạ. Vì nó Âm mềm mà không gặp vua Dương cứng"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "Lấy chất Âm ngôi Âm, lúc đáng đậu mà đậu, cho nên là Tượng “đậu thửa mình” mà Chiêm thì là không lỗi."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Ở vị trí có trách nhiệm mà chỉ giữ được phần mình cho đúng, chưa làm cả nhóm yên được: không sai, nhưng chưa xứng với chỗ ngồi.",
+     "from": [
+      {
+       "seg": "tieu_tuong4",
+       "layer": "nghia",
+       "quote": "Đậu thửa mình, là đậu chưng mình vậy."
+      }
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Dừng ở nơi mép miệng: giữ lời, nói có thứ tự, không nói càn, thì những điều phải hối vì lỡ lời sẽ mất đi.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Mép là chỗ tiếng nói bởi đó mà ra, đậu ở mép thì nó sẽ không ra càn mà có thứ tự."
+     },
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Nói ra bằng cách khinh xuất thì có ăn năn, ngăn nó ngay tự cái mép thì sự ăn năn sẽ mất."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương nên có chỗ đáng hối, nhưng ở giữa quẻ trên, lấy đức giữa mà giữ lời.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "Ăn ăn chỉ về nó lấy chất Âm mà ở ngôi Dương."
+     },
+     {
+      "seg": "tieu_tuong5",
+      "layer": "trinh_di",
+      "quote": "Cái hay của hào Năm là đức giữa."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "nghia",
+    "quote": "Hào Sáu Năm: Đậu thửa mép, nói có thứ tự, ăn năn mất."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Lúc phải lên tiếng, hứa hẹn hay trả lời người khác, cân lời trước khi nói là điều giữ mình khỏi phải rút lại về sau.",
+     "from": [
+      {
+       "seg": "hao5",
+       "layer": "trinh_di",
+       "quote": "Cái mà người ta cần phải cẩn thận là nói và làm"
+      }
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Dừng một cách dày dặn, bền bỉ ở chặng cuối cùng: điều nhiều người khó giữ được đến trót thì ở đây giữ được, nên tốt.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "tức là kẻ đậu rất bền dốc"
+     },
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "Hào Trên mà tốt, vì giầy dốc được đến trót vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở trên cùng, là hào làm thành quẻ Cấn: người khép lại cả cuộc dừng.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Hào Chín lấy chất cứng ở ngôi trên, lại là chủ làm thành quẻ Cấn, đóng chốt cuộc đậu"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "nghia",
+    "quote": "Hào Chín Trên - Dầy đậu, tốt."
+   }
+  }
+ }
+}
