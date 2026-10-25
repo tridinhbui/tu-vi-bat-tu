@@ -25,7 +25,7 @@ class BirthIn(BaseModel):
 
 
 class OptionsIn(BaseModel):
-    house_system: str = Field("placidus", pattern="^(placidus|whole_sign|equal|porphyry)$")
+    house_system: str = Field("placidus", pattern="^(placidus|whole_sign|equal|porphyry|regiomontanus)$")
     node: str = Field("true", pattern="^(true|mean)$")
     orbs: str = Field("thienban", pattern="^(thienban|lilly)$")
     minor_aspects: bool = True

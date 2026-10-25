@@ -23,7 +23,7 @@ OUT = pathlib.Path(__file__).resolve().parents[2] / "engine" / "tests" / "fixtur
 BODIES = {"sun": swe.SUN, "moon": swe.MOON, "mercury": swe.MERCURY, "venus": swe.VENUS, "mars": swe.MARS, "jupiter": swe.JUPITER,
           "saturn": swe.SATURN, "uranus": swe.URANUS, "neptune": swe.NEPTUNE, "pluto": swe.PLUTO, "chiron": swe.CHIRON,
           "mean_node": swe.MEAN_NODE, "true_node": swe.TRUE_NODE}
-HSYS = {"placidus": b"P", "equal": b"A", "whole_sign": b"W", "porphyry": b"O", "koch": b"K"}
+HSYS = {"placidus": b"P", "equal": b"A", "whole_sign": b"W", "porphyry": b"O", "koch": b"K", "regiomontanus": b"R"}
 
 
 def case(jd_ut: float, lat: float, lon: float) -> dict:

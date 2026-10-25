@@ -44,7 +44,7 @@ def test_lunar_nodes_match_swiss():
         assert abs(d(E.moon_mean_node(t), c["bodies"]["mean_node"]["lon"])) < 0.5 * ARCSEC
 
 
-@pytest.mark.parametrize("system", ["placidus", "equal", "whole_sign", "porphyry"])
+@pytest.mark.parametrize("system", ["placidus", "equal", "whole_sign", "porphyry", "regiomontanus"])
 def test_house_cusps_and_angles_match_swiss(system):
     checked = 0
     for c in REF:
@@ -56,8 +56,8 @@ def test_house_cusps_and_angles_match_swiss(system):
             with pytest.raises(H.PolarHouses):
                 H.cusps(system, armc, eps, c["lat"])
             continue
-        # sidereal time agrees to 0.002" up to 2050; later the UT1 extrapolations of the two libraries drift (< 2")
-        tol = (0.01 if c["jd_ut"] < 2469807.5 else 6.0) * ARCSEC
+        # sidereal time agrees to 0.002" up to 2050; later the UT1 extrapolations drift (< 2" in ARMC, a few more in high-latitude cusps)
+        tol = (0.01 if c["jd_ut"] < 2469807.5 else 10.0) * ARCSEC
         cs = H.cusps(system, armc, eps, c["lat"])
         assert max(abs(d(a, b)) for a, b in zip(cs, r["cusps"])) < tol
         assert abs(d(H.ascendant(armc, eps, c["lat"]), r["asc"])) < tol
