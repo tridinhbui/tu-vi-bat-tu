@@ -65,17 +65,32 @@ function init() {
 
   // ----- folding groups
   let folded = {}; try { folded = JSON.parse(store.get('groups') || '{}') || {}; } catch { /* bad value: all open */ }
+  // signed out on a wide screen the nv-dd groups are top-bar dropdowns: there the button opens and closes the dropdown instead
+  const topBar = () => wide.matches && !root.classList.contains('signed-in');
+  const dds = $$('.nv-dd', header);
+  const closeDd = except => dds.forEach(g => { if (g !== except) { g.classList.remove('dd-open'); if (topBar()) $('.nv-gh', g).setAttribute('aria-expanded', 'false'); } });
+  const paintDd = () => dds.forEach(g => {
+    g.classList.remove('dd-open');
+    $('.nv-gh', g).setAttribute('aria-expanded', topBar() ? 'false' : String(!folded[g.dataset.g] || !!$('[aria-current=page]', g)));
+  });
   $$('.nv-gh', header).forEach(b => {
     const g = b.closest('.nv-g').dataset.g;
     const hasCurrent = !!$('[aria-current=page]', b.nextElementSibling);
     if (folded[g] && !hasCurrent) b.setAttribute('aria-expanded', 'false');
     b.addEventListener('click', () => {
+      const dd = b.closest('.nv-dd');
+      if (dd && topBar()) { const open = !dd.classList.contains('dd-open'); closeDd(dd); dd.classList.toggle('dd-open', open); b.setAttribute('aria-expanded', open); return; }
       const open = b.getAttribute('aria-expanded') !== 'true';
       b.setAttribute('aria-expanded', open);
       if (open) delete folded[g]; else folded[g] = 1;
       store.set('groups', Object.keys(folded).length ? JSON.stringify(folded) : null);
     });
   });
+  paintDd();
+  wide.addEventListener('change', paintDd);
+  new MutationObserver(paintDd).observe(root, { attributes: true, attributeFilter: ['class'] });
+  document.addEventListener('click', e => { if (!e.target.closest('.nv-dd')) closeDd(); });
+  dds.forEach(g => g.addEventListener('focusout', e => { if (!g.contains(e.relatedTarget)) closeDd(); }));
 
   // ----- popovers in the account card (notifications, account menu)
   const pops = $$('.ubell,.ucard-btn', header);
@@ -88,6 +103,8 @@ function init() {
   document.addEventListener('click', e => { if (!e.target.closest('.ucard')) closePops(); });
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
+    const dd = dds.find(g => g.classList.contains('dd-open') || g.contains(document.activeElement));
+    if (dd && topBar()) { closeDd(); $('.nv-gh', dd).focus(); return; }
     const openPop = pops.find(b => b.getAttribute('aria-expanded') === 'true');
     if (openPop) { closePops(); openPop.focus(); return; }
     if (drawerOpen()) { setOpen(false); burger.focus(); }

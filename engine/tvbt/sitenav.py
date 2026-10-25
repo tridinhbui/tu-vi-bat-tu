@@ -66,7 +66,7 @@ def _brand_mark(size: int = 30) -> str:
 
 # (key, href, label, icon, classes, extra attributes[, top-bar label]). One group per discipline, so each art has its own place in the
 # sidebar. Classes: nv-side = sidebar and drawer only (the top bar has the brand and the "Lập lá số" button for these), nv-member =
-# signed-in only, nv-guest = signed-out only. The top bar (signed out, wide screens) shows the discipline's name where the sidebar shows
+# signed-in only, nv-guest = signed-out only. Group class nv-dd = a dropdown in the top bar (its sidebar-only items show there too). The top bar (signed out, wide screens) shows the discipline's name where the sidebar shows
 # the page's own (Chiêm tinh / Bản đồ sao). data-go / data-act are handled by js/app.js on the home page (same-page moves); elsewhere the
 # href is followed.
 GROUPS = [
@@ -75,7 +75,7 @@ GROUPS = [
         ("new", "/#lap-la-so", "Lập lá số", "plus", "nv-side", 'data-go="lap-la-so"'),
         ("sample", "/#la-so-mau", "Lá số mẫu", "eye", "nv-guest", 'data-act="sample"'),
     ]),
-    ("chiem-tinh", "Chiêm tinh", "star", "", [
+    ("chiem-tinh", "Chiêm tinh", "star", "nv-dd", [
         ("chiem-tinh", "/chiem-tinh/", "Bản đồ sao", "star", "", "", "Chiêm tinh"),
         ("van-su", "/chiem-tinh-van-su/", "Vấn sự", "help", "nv-side", ""),
         ("cung-hoang-dao", "/cung-hoang-dao/", "Cung hoàng đạo", "compass", "", ""),
@@ -89,7 +89,7 @@ GROUPS = [
     ("lich", "Lịch", "calendar", "", [
         ("xem-ngay", "/xem-ngay/", "Xem ngày", "calendar", "", ""),
     ]),
-    ("kien-thuc", "Kiến thức", "book", "", [
+    ("kien-thuc", "Kiến thức", "book", "nv-dd", [
         ("bai-viet", "/bai-viet/", "Bài viết", "file", "", ""),
         ("hoi-dap", "/hoi-dap/", "Hỏi đáp", "help", "", ""),
         ("gioi-thieu", "/gioi-thieu/", "Giới thiệu", "info", "", ""),
