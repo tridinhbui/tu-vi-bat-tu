@@ -94,6 +94,16 @@ function sectionHtml(sec) {
   return `<section class="kd-sec${sec.id === 'loi_khuyen' ? ' advice' : ''}" data-depth="${depth}"><h3>${esc(sec.title)}</h3>${paras}</section>`;
 }
 
+// what the paywall held back (src/billing/paywall.ts gateCast): Đọc sâu goes to a member holding a paid package for any chart
+function lockNote(r) {
+  const l = r?.locked;
+  if (!l) return '';
+  const what = `${l.deep} đoạn Đọc sâu (cấu trúc quẻ, vị trí từng hào động, quẻ hỗ, nguyên văn và lời bàn)`;
+  return l.need === 'sign_in'
+    ? `<p class="notice"><span><b>Còn ${esc(what)}.</b> Đăng nhập và có một gói luận giải cho bất kỳ lá số nào để đọc phần này. <a class="link" href="/#tai-khoan">Đăng nhập</a></span></p>`
+    : `<p class="notice"><span><b>Còn ${esc(what)}.</b> Phần Đọc sâu mở cho thành viên đã có một gói luận giải của bất kỳ lá số nào. <a class="link" href="/bang-gia.html">Xem các gói</a></span></p>`;
+}
+
 function figureBlock(h, title, opts) {
   return `<figure class="kd-fig">${figure(h.lines, opts)}<figcaption>${esc(title)}<b>${esc(h.full_name)} <span lang="zh">${esc(h.han)}</span></b></figcaption></figure>`;
 }
@@ -117,6 +127,7 @@ function renderKinhDich(data) {
       <button type="button" class="btn btn-ghost btn-sm" data-act="share">Chép liên kết</button><button type="button" class="btn btn-ghost btn-sm" data-act="print">In / lưu PDF</button></div>
     ${missing}
     ${reading.sections.map(sectionHtml).join('')}
+    ${lockNote(reading)}
     <p class="note small">Bản nháp: phần diễn giải hiện đại và lời khuyên chưa qua người duyệt.</p></div>`;
   wireResult(res);
   if (cast.bien) morph(res.querySelector('.hx.bien'), cast.moving);
@@ -226,7 +237,7 @@ async function readMaiHoa(body) {
       <dt>Biến</dt><dd>${esc(c.bien_dung.trigram)} (${esc(c.bien_dung.element)}): ${esc(REL_VI[c.relations.bien])}${strength('bien')}</dd></dl>
       ${c.season_vi ? `<p class="note small">Vượng, suy tính theo ${esc(c.season_vi)} (tháng ${c.month} âm lịch).</p>` : ''}</section>
     ${reading ? `<div class="kd-tools"><div class="seg kd-depth" role="group" aria-label="Mức đọc"><button type="button" data-depth="nhanh" aria-pressed="true">Đọc nhanh</button><button type="button" data-depth="sau" aria-pressed="false">Đọc sâu</button></div></div>
-      ${reading.sections.filter(s => s.id !== 'lap_que').map(sectionHtml).join('')}<p class="note small">${esc(reading.translation)}; nguyên văn chữ Hán trong phần “Mỗi câu dựa vào đâu”.</p>`
+      ${reading.sections.filter(s => s.id !== 'lap_que').map(sectionHtml).join('')}${lockNote(reading)}<p class="note small">${esc(reading.translation)}; nguyên văn chữ Hán trong phần “Mỗi câu dựa vào đâu”.</p>`
       : '<p class="notice"><span><b>Chưa có phần luận.</b> Quẻ, thể, dụng, hỗ, biến và vượng suy ở trên đã tính theo Mai Hoa Dịch Số.</span></p>'}
     ${c.notes.length ? `<details class="kd-basis"><summary>Chỗ sách không nói và cách Thiên Bàn chọn</summary><ol>${c.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ol></details>` : ''}
     <div class="kd-tools"><button type="button" class="btn btn-ghost btn-sm" data-act="share">Chép liên kết</button></div></div>`;
