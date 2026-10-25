@@ -207,6 +207,7 @@ const forecast = initForecast($('#forecast'), { getCtx: () => S.inp && { inp: S.
 const syn = initSynastry($('#syn'), { getA: () => S.inp && { inp: S.inp, gender: S.gender, natal: S.natal } });
 
 // ----- compute -----
+let forecastIO = null;
 async function compute(inp0, { keepMode = false, scroll = true } = {}) {
   // gender goes to /reading only; every other call gets {birth, options}
   const gender = inp0.gender === undefined ? S.gender : inp0.gender, inp = { birth: inp0.birth, options: inp0.options };
@@ -219,8 +220,17 @@ async function compute(inp0, { keepMode = false, scroll = true } = {}) {
   $('#share-box').hidden = true;
   if (!keepMode) { S.mode = 'natal'; S.whenMs = Date.now(); S.srYear = new Date().getFullYear(); S.srPlace = null; }
   await setMode(S.mode);
-  loadReading($('#reading'), inp, natal, { deep: S.deep, gender: S.gender });
-  forecast.load();
+  const reading = loadReading($('#reading'), inp, natal, { deep: S.deep, gender: S.gender });
+  // the three forecast panels load once the reading is done and only when the "Vận hạn" section comes near the screen
+  // (a plain scroll check: it also works where IntersectionObserver is throttled)
+  const fc = $('#forecast'), near = () => fc.getBoundingClientRect().top < innerHeight + 800;
+  if (forecastIO) removeEventListener('scroll', forecastIO);
+  forecastIO = null;
+  reading.finally(() => {
+    if (near()) { forecast.load(); return; }
+    forecastIO = () => { if (near()) { removeEventListener('scroll', forecastIO); forecastIO = null; forecast.load(); } };
+    addEventListener('scroll', forecastIO, { passive: true });
+  });
   if (scroll) res.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   $('#res-title').focus({ preventScroll: true });
 }

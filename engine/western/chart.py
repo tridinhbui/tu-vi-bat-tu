@@ -72,30 +72,23 @@ def _point(lon: float, speed: float | None = None, **extra) -> dict:
     return out
 
 
-def _station_days(name: str, jd_tt: float) -> float | None:
-    """Signed days to the nearest station (speed = 0) within +-30 days, or None. Sampled every day, refined by bisection."""
+def _station_days(name: str, jd_ut: float) -> float | None:
+    """Signed days to the nearest station (speed = 0) within +-30 days, or None. One vectorised ephemeris call on a half-day
+    grid, roots found on the interpolated track (western.transits.Track)."""
     if name in ("sun", "moon"):
         return None
-    ts = E.timescale()
-    days = np.arange(-30, 31, 1.0)
+    from .transits import Track, _root
     try:
-        sp = np.array([p.speed for p in E.positions(name, ts.tt_jd(jd_tt + days))])
+        tr = Track(name, jd_ut - 30.0, jd_ut + 30.0, 0.5)
     except E.OutOfRange:
         return None
+    d = np.diff(tr.un)
     best = None
-    for i in range(len(days) - 1):
-        if sp[i] == 0 or sp[i] * sp[i + 1] < 0:
-            a, b, fa = days[i], days[i + 1], sp[i]
-            for _ in range(30):
-                m = (a + b) / 2
-                fm = E.positions(name, ts.tt_jd(jd_tt + m)).speed
-                if fa * fm <= 0:
-                    b = m
-                else:
-                    a, fa = m, fm
-            root = (a + b) / 2
-            if best is None or abs(root) < abs(best):
-                best = root
+    for k in np.nonzero(np.sign(d[:-1]) != np.sign(d[1:]))[0]:
+        a, b = float(tr.grid[k]), float(tr.grid[k + 2])
+        root = _root(tr.speed, a, b, tr.speed(a)) - jd_ut
+        if abs(root) <= 30.0 and (best is None or abs(root) < abs(best)):
+            best = root
     return None if best is None else round(float(best), 3)
 
 
@@ -159,7 +152,7 @@ def compute(birth: BirthData, opts: ChartOptions | None = None) -> dict:
         out["lots"] = _lots(asc, bodies, is_day, opts.lot_rule, _altitude(bodies["moon"], birth, t), cusp_sets[used], cusp_sets["whole_sign"])
         out["house_rulers"] = _house_rulers(cusp_sets[used], cusp_sets["whole_sign"], allpts, opts)
 
-    out["conditions"] = {n: _conditions(n, bodies, is_day, opts, jd_tt) for n in E.BODIES}
+    out["conditions"] = {n: _conditions(n, bodies, is_day, opts, jd_ut) for n in E.BODIES}
     asp_points = {n: {"lon": bodies[n]["lon"], "speed": bodies[n]["speed"]} for n in E.BODIES}
     asp_points["north_node"] = {"lon": points["north_node"]["lon"], "speed": node_speed}
     if time_known:
@@ -230,9 +223,9 @@ def _house_rulers(cusps_used: list, cusps_ws: list, pts: dict, opts: ChartOption
     return out
 
 
-def _conditions(name: str, bodies: dict, is_day: bool | None, opts: ChartOptions, jd_tt: float) -> dict:
+def _conditions(name: str, bodies: dict, is_day: bool | None, opts: ChartOptions, jd_ut: float) -> dict:
     b = bodies[name]
-    c: dict = {"retrograde": b["retrograde"], "station_days": _station_days(name, jd_tt)}
+    c: dict = {"retrograde": b["retrograde"], "station_days": _station_days(name, jd_ut)}
     if MEAN_MOTION.get(name):
         c["speed_ratio"] = round(abs(b["speed"]) / MEAN_MOTION[name], 3)
     if name in CLASSICAL:

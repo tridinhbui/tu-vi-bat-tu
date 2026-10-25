@@ -1,7 +1,11 @@
 """HTTP routes of the Western module, mounted by tvbt.api under /api/west. Stateless: nothing is stored."""
 from __future__ import annotations
 
+import copy
 import datetime as _dt
+import json
+import threading
+from collections import OrderedDict
 
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
@@ -11,6 +15,12 @@ from .timeutil import TimeError
 
 router = APIRouter(prefix="/api/west", tags=["western"])
 _UTC = _dt.timezone.utc
+# The container is small (one process shared with Tử Vi and Bát Tự): Western computations run one at a time, so a burst of
+# chart pages queues instead of starving everything else, and the natal chart is cached because one page asks for it in
+# several requests (chart, reading, transits, progressions, profections).
+_HEAVY = threading.BoundedSemaphore(1)
+_CACHE: "OrderedDict[str, dict]" = OrderedDict()
+_CACHE_LOCK = threading.Lock()
 
 
 class BirthIn(BaseModel):
@@ -42,10 +52,21 @@ class ChartReq(BaseModel):
 
 
 def chart_or_422(birth: BirthIn, options: OptionsIn) -> dict:
+    key = json.dumps([birth.model_dump(), options.model_dump()], sort_keys=True)
+    with _CACHE_LOCK:
+        hit = _CACHE.get(key)
+        if hit is not None:
+            _CACHE.move_to_end(key)
+            return copy.deepcopy(hit)
     try:
-        return C.compute(birth.birth(), C.ChartOptions.from_dict(options.model_dump()))
+        out = C.compute(birth.birth(), C.ChartOptions.from_dict(options.model_dump()))
     except (TimeError, E.OutOfRange, ValueError) as e:
         raise HTTPException(422, str(e))
+    with _CACHE_LOCK:
+        _CACHE[key] = out
+        while len(_CACHE) > 64:
+            _CACHE.popitem(last=False)
+    return copy.deepcopy(out)
 
 
 @router.get("/places")
@@ -55,6 +76,11 @@ def places_search(q: str = Query(min_length=2, max_length=80), limit: int = Quer
 
 @router.post("/chart")
 def natal(req: ChartReq):
+    with _HEAVY:
+        return _natal(req)
+
+
+def _natal(req):
     return chart_or_422(req.birth, req.options)
 
 
@@ -78,6 +104,11 @@ class TransitReq(ChartReq):
 
 @router.post("/transits")
 def transits(req: TransitReq):
+    with _HEAVY:
+        return _transits(req)
+
+
+def _transits(req):
     a, b = _date(req.start), _date(req.end)
     bodies = tuple(req.transiting or [x for x in _T.TRANSITING if x != "moon"])
     if not set(bodies) <= set(_T.TRANSITING) or not set(req.aspects) <= {"conjunction", "opposition", "trine", "square", "sextile",
@@ -103,6 +134,11 @@ class ProgressionReq(ChartReq):
 
 @router.post("/progressions")
 def progressions(req: ProgressionReq):
+    with _HEAVY:
+        return _progressions(req)
+
+
+def _progressions(req):
     natal = chart_or_422(req.birth, req.options)
     when = _date(req.when)
     try:
@@ -122,6 +158,11 @@ class ProfectionReq(ChartReq):
 
 @router.post("/profections")
 def profections(req: ProfectionReq):
+    with _HEAVY:
+        return _profections(req)
+
+
+def _profections(req):
     natal = chart_or_422(req.birth, req.options)
     if "angles" not in natal:
         raise HTTPException(422, "Annual profection cần giờ sinh: cung Mọc là điểm xuất phát")
@@ -143,6 +184,11 @@ class ReturnReq(ChartReq):
 
 @router.post("/solar-return")
 def solar_return(req: ReturnReq):
+    with _HEAVY:
+        return _solar_return(req)
+
+
+def _solar_return(req):
     natal = chart_or_422(req.birth, req.options)
     if (req.lat is None) != (req.tz is None):
         raise HTTPException(422, "cần đủ vĩ độ, kinh độ và múi giờ của nơi xem Solar Return")
@@ -161,6 +207,11 @@ class ReadingReq(ChartReq):
 
 @router.post("/reading")
 def reading(req: ReadingReq):
+    with _HEAVY:
+        return _reading(req)
+
+
+def _reading(req):
     from .reading import build
     natal = chart_or_422(req.birth, req.options)
     when = _date(req.when) if req.when else _dt.datetime.now(_UTC)
@@ -181,6 +232,11 @@ class SynastryReq(BaseModel):
 
 @router.post("/synastry")
 def synastry(req: SynastryReq):
+    with _HEAVY:
+        return _synastry(req)
+
+
+def _synastry(req):
     from . import synastry as S
     from .reading import synastry as RS
     ca, cb = chart_or_422(req.a, req.options), chart_or_422(req.b, req.options)

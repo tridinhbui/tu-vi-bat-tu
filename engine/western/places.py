@@ -19,13 +19,16 @@ def fold(s: str) -> str:
 
 @lru_cache(maxsize=1)
 def _table():
+    """Rows kept compact (one '|key|key|' string and a tuple each): the container has 256 MiB for the whole site."""
     raw = json.loads(gzip.decompress((DATA / "places.json.gz").read_bytes()))
     rows = []
     for name, ascii_, alts, country, admin1, lat, lon, tz, pop in raw["rows"]:
-        keys = {fold(name), fold(ascii_), *(fold(a) for a in alts)}
-        rows.append((tuple(keys), {"name": _display(name, alts, country), "geonames_name": name, "admin1": admin1, "country": country, "lat": lat, "lon": lon, "tz": tz,
-                                   "population": pop}))
+        keys = "|" + "|".join(sorted({fold(name), fold(ascii_), *(fold(a) for a in alts)})) + "|"
+        rows.append((keys, (_display(name, alts, country), name, admin1, country, lat, lon, tz, pop)))
     return raw["source"], rows
+
+
+_FIELDS = ("name", "geonames_name", "admin1", "country", "lat", "lon", "tz", "population")
 
 
 # letters only Vietnamese uses among Latin scripts (so "Hanoí" in Spanish spelling is not taken for "Hà Nội")
@@ -52,25 +55,19 @@ def search(q: str, limit: int = 10) -> list[dict]:
     head, rest = words[0], words[1:]
     scored = []
     for keys, row in _table()[1]:
-        best = None
-        for k in keys:
-            if k == q:
-                s = 0
-            elif k.startswith(q):
-                s = 1
-            elif (" " + q) in (" " + k):
-                s = 2
-            else:
-                continue
-            best = s if best is None else min(best, s)
-        if best is None and rest:             # "hue viet nam", "paris france": first word is the place, the rest its region
-            region = fold(row["admin1"] + " " + row["country"])
-            if any(k == head or k.startswith(head) for k in keys) and all(w in region.split() for w in rest):
-                best = 1
-        if best is not None:
-            scored.append((best, -row["population"], row))
+        if f"|{q}|" in keys:
+            best = 0
+        elif f"|{q}" in keys:
+            best = 1
+        elif f" {q}" in keys:
+            best = 2
+        elif rest and f"|{head}" in keys and all(w in fold(row[2] + " " + row[3]).split() for w in rest):
+            best = 1                      # "hue viet nam", "paris france": first word is the place, the rest its region
+        else:
+            continue
+        scored.append((best, -row[7], row))
     scored.sort(key=lambda x: (x[0], x[1]))
-    return [r for _, _, r in scored[:limit]]
+    return [dict(zip(_FIELDS, r)) for _, _, r in scored[:limit]]
 
 
 def attribution() -> str:

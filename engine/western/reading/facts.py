@@ -420,31 +420,24 @@ class Facts:
     # ---------------------------------------------------------------- the Moon's separation and application
     def moon_contacts(self) -> dict:
         """The last Ptolemaic aspect the Moon perfected and the next one it will perfect (with the moving planets),
-        searched over the Moon's travel through about 30 degrees either way (2.4 days)."""
+        searched over the Moon's travel through about 30 degrees either way (2.4 days), on interpolated tracks."""
         import numpy as np
-        jd = self.c["time"]["jd_tt"]
-        ts = E.timescale()
-        grid = jd + np.linspace(-2.4, 2.4, 97)
-        tg = ts.tt_jd(grid)
-        moon = np.asarray(E.longitude("moon", tg))
-        out = {"applies_to": None, "separated_from": None}
+        from ..transits import Track, _root
+        jd = self.c["time"]["jd_ut"]
+        moon = Track("moon", jd - 2.5, jd + 2.5, 1 / 24)
         cands = []
         for p in ("sun", "mercury", "venus", "mars", "jupiter", "saturn"):
-            lp = np.asarray(E.longitude(p, tg))
+            tp = Track(p, jd - 2.5, jd + 2.5, 0.25)
+            grid = moon.grid[(moon.grid >= jd - 2.4) & (moon.grid <= jd + 2.4)]
+            lp = np.array([tp.at(x) for x in grid])
+            lm = np.array([moon.at(x) for x in grid])
             for ang in (0, 60, -60, 90, -90, 120, -120, 180):
-                g = (moon - lp - ang + 180.0) % 360.0 - 180.0
+                g = (lm - lp - ang + 180.0) % 360.0 - 180.0
                 for k in np.nonzero((np.sign(g[:-1]) != np.sign(g[1:])) & (np.abs(g[:-1]) < 20))[0]:
-                    lo, hi = grid[k], grid[k + 1]
-                    f = lambda x: (float(E.longitude("moon", ts.tt_jd(x))) - float(E.longitude(p, ts.tt_jd(x))) - ang + 180.0) % 360.0 - 180.0
-                    flo = f(lo)
-                    for _ in range(20):
-                        m = (lo + hi) / 2
-                        fm = f(m)
-                        if (fm <= 0) == (flo <= 0):
-                            lo, flo = m, fm
-                        else:
-                            hi = m
-                    cands.append(((lo + hi) / 2 - jd, p, PTOLEMAIC_ASPECTS[{0: 0, 60: 2, 90: 3, 120: 4, 180: 6}[abs(ang)]]))
+                    f = lambda x: (moon.at(x) - tp.at(x) - ang + 180.0) % 360.0 - 180.0
+                    x = _root(f, float(grid[k]), float(grid[k + 1]), float(g[k]))
+                    cands.append((x - jd, p, PTOLEMAIC_ASPECTS[{0: 0, 60: 2, 90: 3, 120: 4, 180: 6}[abs(ang)]]))
+        out = {"applies_to": None, "separated_from": None}
         fut = [c for c in cands if c[0] > 0]
         past = [c for c in cands if c[0] <= 0]
         if fut:

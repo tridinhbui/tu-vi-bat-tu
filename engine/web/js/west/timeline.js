@@ -199,7 +199,8 @@ export function initForecast(root, { getCtx }) {
     } catch (e) { host.innerHTML = `<p class="note">${esc(e.message)}</p>`; }
   }
 
-  function loadAll() { loadTransits(); loadProf(); loadProg(); }
+  // one after another: the server computes Western requests one at a time anyway, and the small container is shared
+  async function loadAll() { await loadProf(); await loadTransits(); await loadProg(); }
   return {
     /** New natal chart: reset the reference date to today and reload all three panels. */
     load() { $('#fc-tz', root).textContent = tzOf(); setRef(Date.now()); T.open.clear(); loadAll(); },
