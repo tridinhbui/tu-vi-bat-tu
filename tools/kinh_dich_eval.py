@@ -25,6 +25,8 @@ from tvbt.kinh_dich.texts import quẻ_texts  # noqa: E402
 
 NAMES = sorted({h[0] for h in HEXAGRAMS.values()} | {"Kiền", "Khôn", "Chấn", "Tốn", "Khảm", "Ly", "Cấn", "Đoài", "Càn", "Đoái"}, key=len, reverse=True)
 POS = r"(Chín|Sáu) (Đầu|Hai|Ba|Tư|Năm|Trên)"
+# segments the printed book gives no dịch nghĩa for (transcription: 'absent', checked on the page image)
+PRINTED_WITHOUT = {(28, "tieu_tuong5")}
 J_MAX, OPEN_MAX, GENERIC_SHARE, QUICK_MIN, SENT_MAX = 0.45, 6, 0.25, 180, 60
 
 
@@ -59,7 +61,7 @@ def main(out_path: Path | None) -> int:
     for n in range(1, 65):
         t = quẻ_texts(n)
         d = dien_giai.load(n)
-        segs_missing = [k for k, s in t["segments"].items() if not s["layers"].get("nghia")]
+        segs_missing = [k for k, s in t["segments"].items() if not s["layers"].get("nghia") and k != "intro" and (n, k) not in PRINTED_WITHOUT]
         bad = dien_giai.lint(n) if d and t["has_ntt"] else (["no interpretation"] if not d else ["no translation"])
         rows.append((n, HEXAGRAMS[n][0], t["has_ntt"], len(segs_missing), bool(d), len(bad)))
         if segs_missing or bad:
@@ -67,6 +69,8 @@ def main(out_path: Path | None) -> int:
         if d:
             for k, texts in fields(d).items():
                 by_field[k][n] = texts
+                if k == "hao.position":            # 'Hào dương ở ngôi…' is the same frame by nature: not an opening to vary
+                    continue
                 for x in texts:
                     openings[" ".join(mask(x).split()[:4])].add(n)
     worst, generic = [], []

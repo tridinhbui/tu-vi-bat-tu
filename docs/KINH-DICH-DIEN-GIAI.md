@@ -20,6 +20,15 @@ Bộ đọc (`engine/tvbt/kinh_dich/reading.py`) ghép các câu ở đây với
    "lời Chiêm", "kẻ xem…"). Nếu đoạn không có câu như thế, dùng dịch nghĩa (`layer: "nghia"`). Trích đủ để câu đứng được một mình, không quá 60 chữ.
 6. **Tiếng Việt tự nhiên**, câu 15–35 chữ, không lặp mở đầu câu, không dịch máy từng chữ. Dùng tên hào như sách: "hào Chín Hai", "hào Sáu Năm".
 
+7. **Không mở câu chủ đề bằng tên lĩnh vực.** Với 64 quẻ, các mở đầu "Trong công việc,", "Về tiền bạc,", "Với việc làm ăn,", "Trong học tập,",
+   "Trong tình cảm,", "Trong gia đình,", "Trước một lựa chọn," sẽ lặp khắp nơi (kiểm tra `tools/kinh_dich_eval.py` chặn một mở đầu dùng ở hơn
+   6 quẻ). Mở câu bằng hình ảnh, tình thế hay người trong quẻ ("Như mây chưa thành mưa, khoản đầu tư…", "Người đứng giữa hai bên…").
+8. **Trích dẫn đứng được một mình.** Không bắt đầu trích bằng "cho nên…", "vì thế…", không cắt giữa mệnh đề làm đổi nghĩa.
+9. **Lời bàn mang khung cũ** (vợ chồng, vua tôi, quân tử tiểu nhân, đàn ông đàn bà): giữ nguyên trong trích dẫn, còn câu diễn giải nói ý cốt lõi
+   bằng lời trung tính hôm nay; không biến khung giới hay đẳng cấp thành lời khuyên.
+10. Bản dịch là **bản in** Ngô Tất Tố (chép từ ảnh quét, `engine/data/kinh_dich/ntt/`): trích đúng chữ in, kể cả khi khác bản Wikisource.
+    Đoạn `intro` là lời mở quẻ của Trình Di (vì sao quẻ này đến sau quẻ trước); lời bàn tiên nho và các nhà chú khác nằm trong lớp `tien_nho`.
+
 ## Cấu trúc
 
 ```json
