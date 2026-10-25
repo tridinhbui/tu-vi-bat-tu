@@ -16,10 +16,10 @@ export interface Paragraph { module: string; role: string; title: string; senten
 export type Slot = { text: string; rules: string[] };
 export type Item = Record<string, Slot>;
 
-const BOOK: Record<string, string> = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Nghiệm Lý (Thiên Lương)', NL: 'Nghiệm Lý 1974 (Thiên Lương)', ZZ: 'Bát Tự Chân Tông, PDF' };
+const BOOK: Record<string, string> = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Nghiệm Lý (Thiên Lương)', NL: 'Nghiệm Lý 1974 (Thiên Lương)', HS: 'Hàm Số', ZZ: 'Bát Tự Chân Tông, PDF' };
 // "KL p.51 Cơ #4" (item 4 of the Thiên Cơ list on p.51) -> "Khảo Luận tr.51, mục “Cơ” ý 4" (the label is the book list's own heading)
 export const citeVi = (c: string) => {
-  const m = c.match(/^(TH|KL|TT|TL|NL|ZZ)\s+(?:pp?\.)?\s*([\d]+(?:[-–][\d]+)?)(?:\s+(.+?)\s+#(\d+))?(.*)$/);
+  const m = c.match(/^(TH|KL|TT|TL|NL|HS|ZZ)\s+(?:pp?\.)?\s*([\d]+(?:[-–][\d]+)?)(?:\s+(.+?)\s+#(\d+))?(.*)$/);
   if (!m) return c;
   return `${BOOK[m[1]]} tr.${m[2].replace(/-/g, '–')}${m[3] ? `, mục “${m[3]}” ý ${m[4]}` : ''}${m[5]}`;
 };
@@ -243,7 +243,8 @@ export class Realizer extends Renderer {
       // a supporting reading whose words are the lead's own quote (two books or two palaces, same sentence) is not told again
       't.more': { text: [...t.support].sort((x, y) => Number(x.palace !== lead.palace) - Number(y.palace !== lead.palace))
         .map(s => `${s.palace !== lead.palace ? (s.palace === 'chart' ? 'theo tuổi sinh, ' : `ở cung ${s.palace}, `) : ''}${fragment(s, 'cũng ghi', this.sc)}`)
-        .filter(x => !lead.quotes.some(q => q && x.includes(q))).join('; '), rules: t.support.flatMap(s => s.rules) },
+        // at most three: with five books a theme can gather a long tail of agreeing readings, which says no more than its first ones
+        .filter(x => !lead.quotes.some(q => q && x.includes(q))).slice(0, 3).join('; '), rules: t.support.flatMap(s => s.rules) },
       't.more_n': { text: t.support.length ? NUM[t.support.length] ?? String(t.support.length) : '', rules: [] },
     };
     // a cross-palace dependency already explained for an earlier theme is only recalled, not explained again

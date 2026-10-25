@@ -79,7 +79,8 @@ test('5: two sides with no book relation are named and left unresolved; a timing
       assert.ok(!/điều nối hai mặt|nối với nhau ở chỗ|hai mặt ấy gặp nhau ở chỗ/.test(s.text), s.text);
   }
   const menh = text(REF).find(c => c.chapter === 'menh')!.paragraphs.flatMap(p => p.sentences).find(s => s.trace.ledger?.domain === 'cong_danh' && s.trace.step?.endsWith(':chua_phan_xu'))!;
-  assert.ok(/thuận lợi trong công việc/.test(menh.text) && /trở ngại trong công việc/.test(menh.text) && /chưa (có lời sách nào )?phân xử|chưa có phân xử|chưa phân xử được/.test(menh.text), menh.text);
+  // the positive side is named by its leading reading: since Tử Vi Hàm Số (Thiên Việt and Tả Phụ ở Quan Lộc, HS pp.178, 210) that is danh tiếng
+  assert.ok(/thuận lợi trong công việc|danh tiếng/.test(menh.text) && /trở ngại trong công việc/.test(menh.text) && /chưa (có lời sách nào )?phân xử|chưa có phân xử|chưa phân xử được/.test(menh.text), menh.text);
 });
 
 test('9: advice is "lời khuyên chung"; every behaviour / illustration line is minh họa tied to one claim of its paragraph', () => {

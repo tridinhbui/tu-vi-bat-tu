@@ -89,7 +89,9 @@ export function validate(paras: Paragraph[], graphs: ArgumentGraph[], chart: Cha
     if (!opposedPair(c1, c2, rel, person)) continue;
     // explained when the two sides meet in one paragraph that says how they relate: the limiting reading sits next to a reading of the
     // same facet and opposite direction (the same claim, or another one of its side) and the paragraph carries an interaction sentence
-    const [pos, neg] = c1.polarity === '-' ? [c2, c1] : [c1, c2];
+    // the limiting side is the lower one (- < ~ < +): a mixed reading set against a favourable one limits it
+    const rank = (c: Claim) => c.polarity === '-' ? 0 : c.polarity === '~' ? 1 : 2;
+    const [pos, neg] = rank(c1) < rank(c2) ? [c2, c1] : [c1, c2];
     const side = claims.filter(c => c.facet === pos.facet && c.polarity !== '-' && c.palace === pos.palace);
     const explained = paras.some(p => p.sentences.some(s => s.kind === 'interaction') && neg.quotes.some(q => p.text.includes(`“${q}”`)) &&
       side.some(c => c.quotes.some(q => p.text.includes(`“${q}”`)))) ||

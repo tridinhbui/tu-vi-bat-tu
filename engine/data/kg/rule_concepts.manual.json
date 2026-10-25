@@ -6259,6 +6259,6472 @@
    ],
    "src": "manual",
    "review": "draft"
+  },
+  "TV_HS_CU_MON_THIEN_DI_DI_KHAU_THIET": {
+   "asserts": [
+    {
+     "concept": "travel.dispute",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_THIEN_DI_DI_DAC": {
+   "asserts": [
+    {
+     "concept": "travel.gain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_NO_BOC_NO_SLANDER": {
+   "asserts": [
+    {
+     "concept": "ally.slander",
+     "stance": "affirms"
+    },
+    {
+     "concept": "ally.resent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_NO_BOC_NO_HAM_BETRAY": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_DIEN_TRACH_DIEN_CU_CO": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_PHUC_DUC_PHUC_CU_CO": {
+   "asserts": [
+    {
+     "concept": "life.blessed",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_PHUC_DUC_PHUC_HAM": {
+   "asserts": [
+    {
+     "concept": "life.hardship",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_PHU_MAU_PHU_STRAIN": {
+   "asserts": [
+    {
+     "concept": "parents.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_PHU_MAU_PHU_HOI_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "parents.clash",
+     "stance": "affirms"
+    },
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_PHU_MAU_PHU_TY": {
+   "asserts": [
+    {
+     "concept": "parents.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_PHU_MAU_PHU_DAN": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_PHU_THE_PHU_THE_TY_NGO_HOI_MATCH": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_PHU_THE_PHU_THE_TY_NGO_HOI_DISCORD": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_TAI_BACH_TAI_HOI_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.self_made",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_TAI_BACH_TAI_DAN": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_TAI_BACH_TAI_THAN": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_TAI_BACH_TAI_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_TAI_BACH_TAI_CU_DONG": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_TAI_BACH_TAI_CU_CO": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_QUAN_LOC_QUAN_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "exp.versatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "comm.persuasive",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_QUAN_LOC_QUAN_HOI": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_QUAN_LOC_QUAN_TY": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_QUAN_LOC_QUAN_THIN_TUAT_LATE": {
+   "asserts": [
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_QUAN_LOC_QUAN_THIN_TUAT_ANALYTIC": {
+   "asserts": [
+    {
+     "concept": "cog.analytic",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_CU_MON_QUAN_LOC_QUAN_THIN_TUAT_FRICTION": {
+   "asserts": [
+    {
+     "concept": "comm.friction",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_PHU_THE_PHU_THE_STRAIN": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_PHU_THE_PHU_THE_PHU": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_PHU_THE_PHU_THE_POOR": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_PHU_THE_PHU_THE_SAT_PHA_THAM_TUONG": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_TU_TUC_TU_CON_KHONG_HIEN": {
+   "asserts": [
+    {
+     "concept": "kin.talented",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_TAI_BACH_TAI_PHU_TUONG": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.stable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_TAI_BACH_TAI_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.stable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_TAI_BACH_TAI_SAT": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_TAI_BACH_TAI_PHA": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_TAI_BACH_TAI_THAM": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_THIEN_DI_DI_GOOD": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.gain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_THIEN_DI_DI_TUONG": {
+   "asserts": [
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_THIEN_DI_DI_OTHER": {
+   "asserts": [
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_THIEN_DI_DI_PHA": {
+   "asserts": [
+    {
+     "concept": "travel.mixed",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_NO_BOC_NO_SLANDER": {
+   "asserts": [
+    {
+     "concept": "ally.slander",
+     "stance": "affirms"
+    },
+    {
+     "concept": "ally.resent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_QUAN_LOC_QUAN_GOOD": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_QUAN_LOC_QUAN_SAT": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_QUAN_LOC_QUAN_SAT_BUSINESS": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_QUAN_LOC_QUAN_PHA": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_QUAN_LOC_QUAN_THAM": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_DIEN_TRACH_DIEN_BAD": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "weakens"
+    },
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_DIEN_TRACH_DIEN_PHU": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "affirms"
+    },
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_DIEN_TRACH_DIEN_SAT_PHA": {
+   "asserts": [
+    {
+     "concept": "prop.self_built",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_DIEN_TRACH_DIEN_TUONG": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_PHU_MAU_PHU_PHU_TUONG": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LIEM_TRINH_PHU_MAU_PHU_POOR": {
+   "asserts": [
+    {
+     "concept": "parents.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_HUYNH_DE_BAO_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_HUYNH_DE_BAO_OTHER": {
+   "asserts": [
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHU_THE_PHU_THE_GENERAL": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.jealous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHU_THE_PHU_THE_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHU_THE_PHU_THE_TU_VI": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHU_THE_PHU_THE_LIEM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_TU_TUC_TU_XUNG_KHAC": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_TAI_BACH_TAI_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_TAI_BACH_TAI_THIN_TUAT_LIEM": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_TAI_BACH_TAI_TU_VU": {
+   "asserts": [
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_TAI_BACH_TAI_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_THIEN_DI_DI_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.gain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_THIEN_DI_DI_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "travel.mixed",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_THIEN_DI_DI_TU_VI": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_THIEN_DI_DI_LIEM_VU": {
+   "asserts": [
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_QUAN_LOC_QUAN_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "exp.versatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_QUAN_LOC_QUAN_TY_NGO_TU_VI": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_QUAN_LOC_QUAN_DAN_THAN_VU_LIEM": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_QUAN_LOC_QUAN_DAN_THAN_VU_LIEM_BUSINESS": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_DIEN_TRACH_DIEN_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_DIEN_TRACH_DIEN_THIN_TUAT_TU_LIEM_VU": {
+   "asserts": [
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_DIEN_TRACH_DIEN_TY_NGO_BUY": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_DIEN_TRACH_DIEN_TY_NGO_DECLINE": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHUC_DUC_PHUC_GENERAL": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHUC_DUC_PHUC_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "life.blessed",
+     "stance": "affirms"
+    },
+    {
+     "concept": "well.longevity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHUC_DUC_PHUC_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHUC_DUC_PHUC_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_decline",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.blessed",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHUC_DUC_PHUC_TU_LIEM_VU": {
+   "asserts": [
+    {
+     "concept": "life.hardship",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHU_MAU_PHU_APART": {
+   "asserts": [
+    {
+     "concept": "parents.apart",
+     "stance": "affirms"
+    },
+    {
+     "concept": "parents.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_QUAN_PHU_MAU_PHU_TY_NGO_TU_VI": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_PHU_THE_PHU_THE_JEALOUS_WIFE": {
+   "asserts": [
+    {
+     "concept": "rel.jealous",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_PHU_THE_PHU_THE_THIN_TUAT_ABLE": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_PHU_THE_PHU_THE_THIN_TUAT_FLAW": {
+   "asserts": [
+    {
+     "concept": "rel.jealous",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_PHU_THE_PHU_THE_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "rel.jealous",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_PHU_THE_PHU_THE_LIEM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_PHU_THE_PHU_THE_VU": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_TAI_BACH_TAI_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_TAI_BACH_TAI_VU": {
+   "asserts": [
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_TAI_BACH_TAI_TU_VI": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_TAI_BACH_TAI_LIEM_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_TAI_BACH_TAI_LIEM_WORRY": {
+   "asserts": [
+    {
+     "concept": "inner.unrest",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_THIEN_DI_DI_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.gain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_THIEN_DI_DI_TU_LIEM": {
+   "asserts": [
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_THIEN_DI_DI_TY_NGO_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_THIEN_DI_DI_VU": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.gain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_QUAN_LOC_QUAN_TY_NGO_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_QUAN_LOC_QUAN_TY_NGO_DAN_THAN_TRADE": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_QUAN_LOC_QUAN_LIEM": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_QUAN_LOC_QUAN_VU": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_QUAN_LOC_QUAN_VU_SERVICE": {
+   "asserts": [
+    {
+     "concept": "path.service",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_PHUC_DUC_PHUC_THIN_TUAT_VU": {
+   "asserts": [
+    {
+     "concept": "life.blessed",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_PHUC_DUC_PHUC_DAN_THAN_TY_NGO_TU": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_decline",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_PHUC_DUC_PHUC_LIEM": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_decline",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_TU_TUC_TU_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAM_LANG_TU_TUC_TU_OTHER": {
+   "asserts": [
+    {
+     "concept": "kin.wayward",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_PHU_THE_THE_XUONG_KHUC": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_PHU_THE_THE_QUYEN_THAN": {
+   "asserts": [
+    {
+     "concept": "rel.dominant",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_TAI_BACH_TAI_TOT_NHAT": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_TAI_BACH_TAI_SINH_VUONG": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_TAI_BACH_TAI_NGUYET_TUAT_NHAT_THIN": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_THIEN_DI_DI_TAM_HOA": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    },
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_NO_BOC_NO_SANG_LAM_QUYEN": {
+   "asserts": [
+    {
+     "concept": "ally.overstep",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_NO_BOC_NO_SANG_PHO_TA": {
+   "asserts": [
+    {
+     "concept": "ally.helpful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_NO_BOC_NO_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.fickle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_QUAN_LOC_QUAN_SUU_MUI_KHONG_TUAN_TRIET": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_QUAN_LOC_QUAN_HAM_TA_HUU": {
+   "asserts": [
+    {
+     "concept": "path.medical",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_DIEN_TRACH_DIEN_SANG": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_DIEN_TRACH_DIEN_HAM": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_PHUC_DUC_PHUC_SANG": {
+   "asserts": [
+    {
+     "concept": "well.longevity",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_DUONG_QUAN_LOC_QUAN_TOT_NHAT": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_DUONG_PHU_THE_THE_XUONG_KHUC_NHAT": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_DUONG_PHU_THE_THE_XUONG_KHUC_NGUYET": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_DUONG_TU_TUC_TU_TY": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_DUONG_TAI_BACH_TAI_SANG_CHIEU": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_DUONG_THIEN_DI_DI_TAM_HOA": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    },
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_DUONG_NO_BOC_NO_HAM": {
+   "asserts": [
+    {
+     "concept": "ally.fickle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_TAT_ACH_TAT_BAT_LOI": {
+   "asserts": [
+    {
+     "concept": "health.exposed",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_THE_THE_CON_TRUONG": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_THE_THE_DAN_THAN_TAI": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_THE_THE_DAN_THAN_GHEN": {
+   "asserts": [
+    {
+     "concept": "rel.jealous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_THE_THE_CUNG_KHAC": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_THE_THE_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_THE_THE_LIEM_VU": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_THE_THE_QUYEN": {
+   "asserts": [
+    {
+     "concept": "rel.dominant",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_TU_TUC_TU_BAT_LOI": {
+   "asserts": [
+    {
+     "concept": "kin.adverse",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_TU_TUC_TU_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "kin.prosper",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_TAI_BACH_TAI_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_TAI_BACH_TAI_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.windfall",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_TAI_BACH_TAI_TU_VI": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_TAI_BACH_TAI_LIEM": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_TAI_BACH_TAI_VU": {
+   "asserts": [
+    {
+     "concept": "fin.self_made",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_TAI_BACH_TAI_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_THIEN_DI_DI_DAN_THAN_TU": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    },
+    {
+     "concept": "ally.powerful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_THIEN_DI_DI_TY_NGO_GIUP": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_THIEN_DI_DI_TY_NGO_MAY_RUI": {
+   "asserts": [
+    {
+     "concept": "travel.mixed",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_THIEN_DI_DI_VU": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_THIEN_DI_DI_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_QUAN_LOC_QUAN_QUAN_NHAN": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_QUAN_LOC_QUAN_DEP": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.versatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_QUAN_LOC_QUAN_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "career.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_QUAN_LOC_QUAN_LIEM": {
+   "asserts": [
+    {
+     "concept": "career.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_QUAN_LOC_QUAN_LIEM_KINH_DOANH": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_QUAN_LOC_QUAN_VU_HIEN": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_QUAN_LOC_QUAN_VU_THANG_TRAM": {
+   "asserts": [
+    {
+     "concept": "career.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.mobility",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_QUAN_LOC_QUAN_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_DIEN_TRACH_DIEN_BAT_LOI": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    },
+    {
+     "concept": "prop.self_built",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_DIEN_TRACH_DIEN_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "weakens"
+    },
+    {
+     "concept": "prop.self_built",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_DIEN_TRACH_DIEN_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    },
+    {
+     "concept": "prop.self_built",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_DIEN_TRACH_DIEN_TU": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "affirms"
+    },
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_DIEN_TRACH_DIEN_LIEM": {
+   "asserts": [
+    {
+     "concept": "prop.self_built",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_DIEN_TRACH_DIEN_VU_THIN_TUAT": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHUC_DUC_PHUC_TRIEU_DAU": {
+   "asserts": [
+    {
+     "concept": "life.blessed",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHUC_DUC_PHUC_HO_VO": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_military",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHUC_DUC_PHUC_TY_NGO_LY_TAN": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHUC_DUC_PHUC_TU": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_military",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHUC_DUC_PHUC_XAU_BAC_PHUC": {
+   "asserts": [
+    {
+     "concept": "inner.unrest",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHUC_DUC_PHUC_XAU_HO_HANG": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_decline",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_MAU_PHU_XUNG_KHAC": {
+   "asserts": [
+    {
+     "concept": "parents.clash",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_MAU_PHU_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_MAU_PHU_THIN_TUAT_LIEM_VU": {
+   "asserts": [
+    {
+     "concept": "parents.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_MAU_PHU_TU_PHU_QUI": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAT_SAT_PHU_MAU_PHU_TU_BAT_HOA": {
+   "asserts": [
+    {
+     "concept": "parents.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fam.negative",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_HUYNH_DE_BAO_DON_THU": {
+   "asserts": [
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_THE_THE_HOI_TY_SUU": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_THE_THE_LUONG": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_THE_THE_CU_TAI": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_THE_THE_CU_BAT_HOA": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_THE_THE_NGUYET_DAN_THAN": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_THE_THE_NGUYET_THAN_SO_VO": {
+   "asserts": [
+    {
+     "concept": "rel.dominant",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_THE_THE_LUONG_TA_HUU": {
+   "asserts": [
+    {
+     "concept": "rel.jealous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_TAI_BACH_TAI_PHAT": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_TAI_BACH_TAI_CU_CANH_TRANH": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_TAI_BACH_TAI_CUNG_KHAC": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_TAI_BACH_TAI_NGUYET_THAN": {
+   "asserts": [
+    {
+     "concept": "fin.self_made",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_TAI_BACH_TAI_LOC_MA": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_THIEN_DI_DI_MAY_MAN": {
+   "asserts": [
+    {
+     "concept": "travel.gain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_THIEN_DI_DI_CU": {
+   "asserts": [
+    {
+     "concept": "travel.dispute",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.gain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_THIEN_DI_DI_HOI_TY_SUU": {
+   "asserts": [
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_THIEN_DI_DI_TA_HUU": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_NO_BOC_NO_LUONG_TA_HUU": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    },
+    {
+     "concept": "ally.helpful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_QUAN_LOC_QUAN_CO_LOI": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_QUAN_LOC_QUAN_DA_NGHE": {
+   "asserts": [
+    {
+     "concept": "exp.versatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_QUAN_LOC_QUAN_NGUYET_Y": {
+   "asserts": [
+    {
+     "concept": "path.medical",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.talent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_DIEN_TRACH_DIEN_NHIEU": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_DIEN_TRACH_DIEN_TY_NGO_MUI": {
+   "asserts": [
+    {
+     "concept": "prop.self_built",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_DIEN_TRACH_DIEN_CU_DAU": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHUC_DUC_PHUC_HOI_TY_SUU": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.blessed",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHUC_DUC_PHUC_TY_NGO_MUI": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.blessed",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHUC_DUC_PHUC_LUONG_NGUYET": {
+   "asserts": [
+    {
+     "concept": "well.longevity",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHUC_DUC_PHUC_DAN": {
+   "asserts": [
+    {
+     "concept": "life.blessed",
+     "stance": "weakens"
+    },
+    {
+     "concept": "inner.unrest",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_MAU_PHU_TY_NGO_MUI_THAN": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_MAU_PHU_DAN_GIAU": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_MAU_PHU_DAN_XA_ME": {
+   "asserts": [
+    {
+     "concept": "parents.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_MAU_PHU_LUONG": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_CO_PHU_MAU_PHU_CU": {
+   "asserts": [
+    {
+     "concept": "parents.apart",
+     "stance": "affirms"
+    },
+    {
+     "concept": "parents.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_THIEN_DI_DI_THAYDOI": {
+   "asserts": [
+    {
+     "concept": "adapt.unsteady",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.mobility",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_THIEN_DI_DI_THAYDOI_MA_HAO_KY": {
+   "asserts": [
+    {
+     "concept": "life.mobility",
+     "stance": "affirms"
+    },
+    {
+     "concept": "adapt.unsteady",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_LUONG": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_NGUYET_TY": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_NGUYET_VOGIAU": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_MAO_KEM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_NGUYET_NGO_KEM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_MAO_VOHIEN": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_NGO_VOHIEN": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_DAU": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_THINTUAT": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_PHU_THE_PT_CU": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TU_TUC_TU_MAO": {
+   "asserts": [
+    {
+     "concept": "kin.good",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TU_TUC_TU_LUONG_QUIHIEN": {
+   "asserts": [
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TU_TUC_TU_NGUYET_TY_QUIHIEN": {
+   "asserts": [
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TU_TUC_TU_DAU": {
+   "asserts": [
+    {
+     "concept": "kin.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TU_TUC_TU_TYHOI": {
+   "asserts": [
+    {
+     "concept": "kin.wayward",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TU_TUC_TU_THINTUAT": {
+   "asserts": [
+    {
+     "concept": "kin.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TU_TUC_TU_CU": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TAI_BACH_TAI_MAO": {
+   "asserts": [
+    {
+     "concept": "fin.self_made",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TAI_BACH_TAI_NGUYET_TY": {
+   "asserts": [
+    {
+     "concept": "fin.self_made",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TAI_BACH_TAI_LUONG": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TAI_BACH_TAI_DAU": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TAI_BACH_TAI_NGO": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TAI_BACH_TAI_TYHOI": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TAI_BACH_TAI_THINTUAT": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_TAI_BACH_TAI_CU": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_QUAN_LOC_QUAN_HIENDAT": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.versatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_QUAN_LOC_QUAN_THAMMUU": {
+   "asserts": [
+    {
+     "concept": "exp.talent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_QUAN_LOC_QUAN_PHUQUY": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_QUAN_LOC_QUAN_XUONG": {
+   "asserts": [
+    {
+     "concept": "exp.talent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_QUAN_LOC_QUAN_HOI": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.mobility",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_QUAN_LOC_QUAN_DAU": {
+   "asserts": [
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.status",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DONG_QUAN_LOC_QUAN_CU": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "comm.friction",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_PHU_THE_PT_DONG": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_PHU_THE_PT_NHAT_MAO": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_PHU_THE_PT_CO": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_PHU_THE_PT_TYNGO": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_TU_TUC_TU_TOT": {
+   "asserts": [
+    {
+     "concept": "kin.filial",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_TU_TUC_TU_NHAT_MAO": {
+   "asserts": [
+    {
+     "concept": "kin.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_TU_TUC_TU_CO": {
+   "asserts": [
+    {
+     "concept": "kin.prosper",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_TU_TUC_TU_TYHOI": {
+   "asserts": [
+    {
+     "concept": "kin.wayward",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_TAI_BACH_TAI_TYNGO_DONG": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_TAI_BACH_TAI_NHAT_MAO": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_TAI_BACH_TAI_TYHOI": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.mobility",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_TAI_BACH_TAI_NHAT_DAU": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_THIEN_DI_DI_TOT": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    },
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_THIEN_DI_DI_NHAT_MAO": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    },
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_THIEN_DI_DI_TYHOI": {
+   "asserts": [
+    {
+     "concept": "travel.toil",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_QUAN_LOC_QUAN_VAN": {
+   "asserts": [
+    {
+     "concept": "exp.letters",
+     "stance": "affirms"
+    },
+    {
+     "concept": "path.service",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_QUAN_LOC_QUAN_TOT": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.talent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_QUAN_LOC_QUAN_NHAT_MAO": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.talent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_QUAN_LOC_QUAN_TYHOI": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "adapt.unsteady",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_DIEN_TRACH_DIEN_TOT": {
+   "asserts": [
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_DIEN_TRACH_DIEN_NHAT_MAO": {
+   "asserts": [
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_DIEN_TRACH_DIEN_TYHOI": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_PHU_MAU_PHU_TOT": {
+   "asserts": [
+    {
+     "concept": "parents.kind",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_PHU_MAU_PHU_NHAT_MAO": {
+   "asserts": [
+    {
+     "concept": "parents.kind",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_PHU_MAU_PHU_TYHOI": {
+   "asserts": [
+    {
+     "concept": "parents.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "parents.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_LUONG_TAT_ACH_TAT_GIAI": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_PHU_THE_PT_TOT": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_PHU_THE_PT_SMMD": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_TAI_BACH_TAI_TOT": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_DIEN_TRACH_DIEN_TOT": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_TAT_ACH_TAT_GIAI": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_QUAN_LOC_QUAN_TVL": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_QUAN_LOC_QUAN_VU": {
+   "asserts": [
+    {
+     "concept": "path.service",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_QUAN_LOC_QUAN_SMMD_NGAN": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_QUAN_LOC_QUAN_SMMD_BUON": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_PHUC_DUC_PHUC_TOT": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_PHUC_DUC_PHUC_SMMD": {
+   "asserts": [
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_QUAN_LOC_QUAN_QUYENTINH": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_PHU_MAU_PHU_THO": {
+   "asserts": [
+    {
+     "concept": "parents.long_lived",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_PHU_MAU_PHU_KHAGIA": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_PHUC_DUC_PHUC_TOT": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.blessed",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_PHUC_DUC_PHUC_MAODAU": {
+   "asserts": [
+    {
+     "concept": "life.early_hardship",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_QUAN_LOC_QUAN_TOT": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.versatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_QUAN_LOC_QUAN_TU": {
+   "asserts": [
+    {
+     "concept": "exp.talent",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_QUAN_LOC_QUAN_MAODAU": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_TAI_BACH_TAI_TOT": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_PHU_THE_PT_LANAT": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_PHU_THE_PT_TU_VU": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_PHU_THE_PT_LIEM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_PHU_THE_PT_TYHOISUUMUI": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_TUONG_PHU_THE_PT_MAODAU": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHU_MAU_PHU_TOT": {
+   "asserts": [
+    {
+     "concept": "parents.prosper",
+     "stance": "affirms"
+    },
+    {
+     "concept": "prop.inherit",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHU_MAU_PHU_SAT": {
+   "asserts": [
+    {
+     "concept": "parents.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHU_MAU_PHU_PHA": {
+   "asserts": [
+    {
+     "concept": "parents.apart",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fam.negative",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHU_MAU_PHU_THAM": {
+   "asserts": [
+    {
+     "concept": "parents.apart",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fam.negative",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHUC_DUC_PHUC_TOT": {
+   "asserts": [
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHUC_DUC_PHUC_SAT": {
+   "asserts": [
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHUC_DUC_PHUC_PHA_THAM": {
+   "asserts": [
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHUC_DUC_PHUC_SATTINH": {
+   "asserts": [
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_DIEN_TRACH_DIEN_TOT": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_DIEN_TRACH_DIEN_SAT_PHA_THAM": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_QUAN_LOC_QUAN_NGO": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_QUAN_LOC_QUAN_SAT": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_QUAN_LOC_QUAN_PHA_THAM": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_THIEN_DI_DI_TOT": {
+   "asserts": [
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_THIEN_DI_DI_XAU": {
+   "asserts": [
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.dispute",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_TAT_ACH_TAT_GIAI": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_TAI_BACH_TAI_DAC": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_TAI_BACH_TAI_PHU": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_TAI_BACH_TAI_SAT": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_TAI_BACH_TAI_TY": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_TAI_BACH_TAI_PHA": {
+   "asserts": [
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_TAI_BACH_TAI_THAM": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_TU_TUC_TU_KHAGIA": {
+   "asserts": [
+    {
+     "concept": "kin.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_TU_TUC_TU_PHA_THAM": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHU_THE_PT_NGO_PHU": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHU_THE_PT_TUONG_BANLANH": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHU_THE_PT_TUONG_XICHMICH": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHU_THE_PT_SAT_PHA_THAM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_PHU_THE_PT_THAM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.jealous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_HUYNH_DE_BAO_TOT": {
+   "asserts": [
+    {
+     "concept": "kin.prosper",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_HUYNH_DE_BAO_TUONG": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_HUYNH_DE_BAO_PHA": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_VI_HUYNH_DE_BAO_THAM": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.prosper",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_TAI_BACH_TAI_GEN": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_TAI_BACH_TAI_HOP_CHINH": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_TAI_BACH_TAI_HOP_TRO": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_TAI_BACH_TAI_PHA": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_TAI_BACH_TAI_KHAC_TRO": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_DIEN_TRACH_DIEN_GEN": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_TAT_ACH_TAT_KIM_THUY": {
+   "asserts": [
+    {
+     "concept": "well.health",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_TAT_ACH_TAT_HOP_DAC": {
+   "asserts": [
+    {
+     "concept": "well.health",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_TAT_ACH_TAT_MOC_HOA": {
+   "asserts": [
+    {
+     "concept": "well.health",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_THIEN_DI_DI_DAC": {
+   "asserts": [
+    {
+     "concept": "travel.gain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_THIEN_DI_DI_HAM": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_THIEN_DI_DI_XA": {
+   "asserts": [
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.mobility",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_QUAN_LOC_QUAN_DAC": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_QUAN_LOC_QUAN_PHU": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.versatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_QUAN_LOC_QUAN_TUONG": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_QUAN_LOC_QUAN_SAT_VO": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_QUAN_LOC_QUAN_SAT_THANGGIANG": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_QUAN_LOC_QUAN_PHA_VO": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_QUAN_LOC_QUAN_PHA_BUON": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_QUAN_LOC_QUAN_THAM": {
+   "asserts": [
+    {
+     "concept": "path.business",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_PHU_THE_PHU_THE_HOA_THUAN": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_TU_TUC_TU_HIEU": {
+   "asserts": [
+    {
+     "concept": "kin.filial",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_HUYNH_DE_BAO_HOA_THUAN": {
+   "asserts": [
+    {
+     "concept": "kin.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_TAI_BACH_TAI_DUOC_GIUP": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "social.support",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_TAI_BACH_TAI_MAY_MAN": {
+   "asserts": [
+    {
+     "concept": "fin.windfall",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_DIEN_TRACH_DIEN_DI_SAN": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_DIEN_TRACH_DIEN_DUOC_HIEN": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    },
+    {
+     "concept": "social.support",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_PHU_MAU_PHU_THUONG": {
+   "asserts": [
+    {
+     "concept": "fam.positive",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_THIEN_DI_DI_PHUNG_THOI": {
+   "asserts": [
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_THIEN_DI_DI_QUY_NHAN": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_NO_BOC_NO_TRUNG_TIN": {
+   "asserts": [
+    {
+     "concept": "ally.loyal",
+     "stance": "affirms"
+    },
+    {
+     "concept": "ally.helpful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_NO_BOC_NO_BAN_TOT": {
+   "asserts": [
+    {
+     "concept": "ally.helpful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_NO_BOC_NO_PHO_TA": {
+   "asserts": [
+    {
+     "concept": "ally.many",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_TAT_ACH_TAT_IT_BENH": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_TAT_ACH_TAT_GAP_THUOC": {
+   "asserts": [
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_QUAN_LOC_QUAN_GIUP_DONG_NGHIEP": {
+   "asserts": [
+    {
+     "concept": "values.kind",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_QUAN_LOC_QUAN_NANG_DO": {
+   "asserts": [
+    {
+     "concept": "social.support",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_QUAN_LOC_QUAN_MAY_MAN": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_PHUC_DUC_PHUC_CHE_CHO": {
+   "asserts": [
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_AN_QUANG_PHUC_DUC_PHUC_THO_HO": {
+   "asserts": [
+    {
+     "concept": "well.longevity",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.clan_scattered",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TANG_MON_HUYNH_DE_BAO_TANG_MA": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TANG_MON_DIEN_TRACH_DIEN_DAO_HONG": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_BACH_HO_TAT_ACH_TAT_BENH_NHIEU": {
+   "asserts": [
+    {
+     "concept": "well.health",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_BACH_HO_PHUC_DUC_PHUC_GIA_DINH": {
+   "asserts": [
+    {
+     "concept": "fam.negative",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_BAT_TOA_TAI_BACH_TAI_CO_TIEN": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    },
+    {
+     "concept": "inner.peace",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_BAT_TOA_DIEN_TRACH_DIEN_CO_DIEN_SAN": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_BAT_TOA_QUAN_LOC_MO_TRUNG_THAI_TOA_QUAN": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_BAT_TOA_QUAN_LOC_QUAN_DAO": {
+   "asserts": [
+    {
+     "concept": "career.early",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_BENH_TAT_ACH_TAT_HAY_BENH": {
+   "asserts": [
+    {
+     "concept": "well.health",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DE_VUONG_TAI_BACH_TAI_LOC": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DE_VUONG_TAI_BACH_TAI_TRIEU_PHU": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DE_VUONG_DIEN_TRACH_DIEN_LOC": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DE_VUONG_DIEN_TRACH_DIEN_TRIEU_PHU": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DE_VUONG_QUAN_LOC_QUAN_QUYEN": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DE_VUONG_QUAN_LOC_QUAN_KHOA": {
+   "asserts": [
+    {
+     "concept": "exp.letters",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DE_VUONG_HUYNH_DE_BAO_DONG": {
+   "asserts": [
+    {
+     "concept": "kin.many",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DE_VUONG_PHUC_DUC_PHUC_THO": {
+   "asserts": [
+    {
+     "concept": "well.longevity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_GIAI_PHUC_DUC_PHUC_TOT": {
+   "asserts": [
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_GIAI_THIEN_DI_DI_TOT": {
+   "asserts": [
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_GIAI_TAT_ACH_TAT_TOT": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_GIAI_TAI_BACH_TAI_HAO": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_GIAI_DIEN_TRACH_DIEN_HAO": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_HUYNH_DE_BAO_LY_TAN": {
+   "asserts": [
+    {
+     "concept": "kin.apart",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_HUYNH_DE_BAO_LIEN_LUY": {
+   "asserts": [
+    {
+     "concept": "kin.burden",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_PHU_MAU_PHU_MAU_GANH_NO": {
+   "asserts": [
+    {
+     "concept": "parents.burden",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_TU_TUC_TU_PHA_SAN": {
+   "asserts": [
+    {
+     "concept": "kin.burden",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_TAI_BACH_TAI_DAC": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.windfall",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_TAI_BACH_TAI_HAM": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_NO_BOC_NO_PHAN": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_NO_BOC_NO_BAN_XAU": {
+   "asserts": [
+    {
+     "concept": "ally.greedy",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_QUAN_LOC_QUAN_THAP_KEM": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_QUAN_LOC_QUAN_DEM_PHA": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "comm.friction",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_QUAN_LOC_QUAN_DAC": {
+   "asserts": [
+    {
+     "concept": "life.transient",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_DIEN_TRACH_DIEN_DAC": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_DIEN_TRACH_DIEN_HAM": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_PHUC_DUC_PHUC_DAC": {
+   "asserts": [
+    {
+     "concept": "fortune.brief_luck",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIA_KHONG_PHUC_DUC_PHUC_HAM": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_decline",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIEU_KHACH_QUAN_LOC_QUAN_PHA_TOAI_TUE_PHA": {
+   "asserts": [
+    {
+     "concept": "life.indulgent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIEU_KHACH_QUAN_LOC_QUAN_QUAN_PHU": {
+   "asserts": [
+    {
+     "concept": "life.indulgent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_DIEU_KHACH_QUAN_LOC_QUAN_KHOC_MA": {
+   "asserts": [
+    {
+     "concept": "life.blessed",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KHOA_QUAN_LOC_QUAN_TOT": {
+   "asserts": [
+    {
+     "concept": "exp.letters",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KHOA_PHUC_DUC_PHUC_TOT": {
+   "asserts": [
+    {
+     "concept": "exp.letters",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KHOA_TAT_ACH_TAT_BENH_NHE": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    },
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_HUYNH_DE_BAO_XUNG_KHAC": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_PHU_THE_PHU_THE_CAI_VA": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_PHU_THE_PHU_THE_PHUC": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_TU_TUC_TU_XUNG_KHAC": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_TAI_BACH_TAI_HAO_TAN": {
+   "asserts": [
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_NO_BOC_NO_NOI_XAU": {
+   "asserts": [
+    {
+     "concept": "ally.slander",
+     "stance": "affirms"
+    },
+    {
+     "concept": "ally.resent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_QUAN_LOC_QUAN_CHAM_THANG": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_QUAN_LOC_QUAN_DEM_PHA": {
+   "asserts": [
+    {
+     "concept": "comm.friction",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_QUAN_LOC_QUAN_TIEU_XAO": {
+   "asserts": [
+    {
+     "concept": "temper.cunning",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_PHU_MAU_PHU_MAU_BAT_HOA": {
+   "asserts": [
+    {
+     "concept": "parents.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_KY_DIEN_TRACH_DIEN_BAN_NHA": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_LOC_QUAN_LOC_QUAN_TAI_CHINH": {
+   "asserts": [
+    {
+     "concept": "path.finance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_LOC_TAT_ACH_TAT_MAU_KHOI": {
+   "asserts": [
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_QUYEN_QUAN_LOC_QUAN_HOP_VI": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_QUYEN_THIEN_DI_DI_QUYEN_QUY": {
+   "asserts": [
+    {
+     "concept": "ally.powerful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_QUYEN_THIEN_DI_DI_THE_LUC": {
+   "asserts": [
+    {
+     "concept": "outside.favorable",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.gain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_QUYEN_NO_BOC_NO_BAN_QUYEN": {
+   "asserts": [
+    {
+     "concept": "ally.powerful",
+     "stance": "affirms"
+    },
+    {
+     "concept": "social.support",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_QUYEN_PHU_THE_PHU_THE_VO_LAN": {
+   "asserts": [
+    {
+     "concept": "rel.dominant",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_QUYEN_PHU_THE_PHU_THE_CHONG_QUYEN": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_TINH_HUYNH_DE_BAO_NGHEO": {
+   "asserts": [
+    {
+     "concept": "kin.prosper",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_TINH_PHU_THE_PHU_XUNG_KHAC": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_TINH_TU_TUC_TU_MUON_CON": {
+   "asserts": [
+    {
+     "concept": "kin.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TA_PHU_QUAN_LOC_QUAN_PHO_TA": {
+   "asserts": [
+    {
+     "concept": "social.support",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TA_PHU_THIEN_DI_DI_XA_QUE": {
+   "asserts": [
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TA_PHU_HUYNH_DE_BAO_DONG": {
+   "asserts": [
+    {
+     "concept": "kin.many",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TA_PHU_NO_BOC_NO_NHIEU_BAN": {
+   "asserts": [
+    {
+     "concept": "ally.many",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TA_PHU_NO_BOC_NO_GIUP_DO": {
+   "asserts": [
+    {
+     "concept": "ally.helpful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TA_PHU_TAT_ACH_TAT_MAU_MANH": {
+   "asserts": [
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HY_THAN_PHU_THE_PHU_XUNG_DOI": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HY_THAN_HUYNH_DE_BAO_RIEU": {
+   "asserts": [
+    {
+     "concept": "kin.wayward",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_KINH_DUONG_QUAN_LOC_QUAN_DAC_MA": {
+   "asserts": [
+    {
+     "concept": "exp.martial",
+     "stance": "affirms"
+    },
+    {
+     "concept": "life.mobility",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_KINH_DUONG_QUAN_LOC_QUAN_LUC_SI": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_KINH_DUONG_TAI_BACH_TAI_DAC": {
+   "asserts": [
+    {
+     "concept": "fin.windfall",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_KINH_DUONG_TAI_BACH_TAI_HAM": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_KINH_DUONG_PHU_THE_PHU_DAC": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_KINH_DUONG_PHU_THE_PHU_HAM": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.jealous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DUC_PHU_THE_THE_DAO": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_NGUYET_DUC_TU_TUC_TU_CON_SOM": {
+   "asserts": [
+    {
+     "concept": "kin.late",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_DUC_PHUC_DUC_PHUC_THIEN_NGUYET": {
+   "asserts": [
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LONG_TRI_PHU_THE_PHU_DEP_DOI": {
+   "asserts": [
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LONG_TRI_TU_TUC_TU_DE_NUOI": {
+   "asserts": [
+    {
+     "concept": "kin.good",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LONG_TRI_TU_TUC_TU_QUY_TU": {
+   "asserts": [
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LONG_TRI_DIEN_TRACH_DIEN_MO": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    },
+    {
+     "concept": "prop.inherit",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LONG_TRI_DIEN_TRACH_DIEN_THAI_TOA": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LONG_TRI_PHUC_DUC_PHUC_KHA_GIA": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LOC_TON_PHUC_DUC_PHUC_TO_NGHIEP": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LOC_TON_TU_TUC_TU_CHAM_CON": {
+   "asserts": [
+    {
+     "concept": "kin.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_LOC_TON_TAI_BACH_TAI_CHAM": {
+   "asserts": [
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_MO_PHUC_DUC_PHUC_THAI_TOA": {
+   "asserts": [
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_MO_TAI_BACH_TAI_LONG_PHUONG": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_MO_TAI_BACH_TAI_HOA_LOC": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_MOC_DUC_PHU_THE_PHU_CHUNG_DIEN": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHA_TOAI_TAT_ACH_TAT_IT_BENH": {
+   "asserts": [
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHONG_CAO_QUAN_LOC_QUAN_QUY_HIEN": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHONG_CAO_DIEN_TRACH_DIEN_AN": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHUC_BINH_TAI_BACH_TAI_GHEN_GHET": {
+   "asserts": [
+    {
+     "concept": "comm.friction",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHUC_BINH_NO_BOC_NO_PHAN_CHU": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHUC_BINH_THIEN_DI_DI_DO_KY": {
+   "asserts": [
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    },
+    {
+     "concept": "travel.dispute",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_PHUC_BINH_PHU_THE_PHU_KY": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_QUAN_PHU_PHUC_DUC_PHUC_BAO_OAN": {
+   "asserts": [
+    {
+     "concept": "fortune.feud",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_QUAN_PHU_TAI_BACH_TAI_NGHE_KIEN": {
+   "asserts": [
+    {
+     "concept": "path.public",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_QUAN_PHU_NO_BOC_NO_BAN_XAU": {
+   "asserts": [
+    {
+     "concept": "ally.disloyal",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_QUAN_PHU_QUAN_LOC_QUAN_LUAT": {
+   "asserts": [
+    {
+     "concept": "path.public",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_QUAN_PHU_QUAN_LOC_QUAN_CANH_TRANH": {
+   "asserts": [
+    {
+     "concept": "comm.friction",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_QUOC_AN_QUAN_LOC_QUAN_PHAT_QUAN": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_QUOC_AN_PHUC_DUC_PHUC_KHOA_DANH": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_SUY_QUAN_LOC_QUAN_THAP": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_SUY_THIEN_DI_DI_TOI_TO": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "weakens"
+    },
+    {
+     "concept": "outside.adverse",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_TUE_QUAN_LOC_QUAN_NGHE_LUAT": {
+   "asserts": [
+    {
+     "concept": "path.public",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_TUE_QUAN_LOC_QUAN_CHI_TRICH": {
+   "asserts": [
+    {
+     "concept": "comm.friction",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_TUE_THIEN_DI_DI_KHAU_THIET": {
+   "asserts": [
+    {
+     "concept": "travel.dispute",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_TUE_PHU_THE_PHU_BAT_HOA": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THANH_LONG_QUAN_LOC_GIAP_LONG_MA_QUAN": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOC_PHU_THE_PHU_NUOC_MAT": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOC_PHU_THE_PHU_KINH_DA": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOC_TAI_BACH_TAI_KHO": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOC_TAI_BACH_TAI_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOC_PHUC_DUC_PHUC_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_HU_PHU_THE_PHU_NUOC_MAT": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_HU_PHU_THE_PHU_KINH_DA": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_HU_TAI_BACH_TAI_KHO": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_HU_TAI_BACH_TAI_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "life.late_bloom",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_HU_PHUC_DUC_PHUC_TY_NGO": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_HY_PHU_THE_PHU_DAO_HONG": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_HY_QUAN_LOC_QUAN_DAO_HONG": {
+   "asserts": [
+    {
+     "concept": "career.early",
+     "stance": "affirms"
+    },
+    {
+     "concept": "social.support",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_HY_QUAN_LOC_QUAN_CA_XUONG": {
+   "asserts": [
+    {
+     "concept": "exp.arts",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_HY_PHUC_DUC_PHUC_SONG_HY": {
+   "asserts": [
+    {
+     "concept": "fortune.clan_prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOI_HUYNH_DE_BAO_TAI_BA": {
+   "asserts": [
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOI_PHU_THE_PHU_TAI_BA": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOI_TU_TUC_TU_TAI_BA": {
+   "asserts": [
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOI_QUAN_LOC_QUAN_LUNG_LAY": {
+   "asserts": [
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOI_TAT_ACH_TAT_CUU_GIAI": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOI_NO_BOC_NO_DAC_LUC": {
+   "asserts": [
+    {
+     "concept": "ally.helpful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHOI_PHUC_DUC_PHUC_THAN_LINH": {
+   "asserts": [
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_VIET_HUYNH_DE_BAO_TAI_BA": {
+   "asserts": [
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_VIET_PHU_THE_PHU_TAI_BA": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_VIET_TU_TUC_TU_TAI_BA": {
+   "asserts": [
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_VIET_QUAN_LOC_QUAN_LUNG_LAY": {
+   "asserts": [
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_VIET_TAT_ACH_TAT_CUU_GIAI": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_VIET_NO_BOC_NO_DAC_LUC": {
+   "asserts": [
+    {
+     "concept": "ally.helpful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_VIET_PHUC_DUC_PHUC_THAN_LINH": {
+   "asserts": [
+    {
+     "concept": "fortune.protected",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHONG_TAT_ACH_TAT_IT_BENH": {
+   "asserts": [
+    {
+     "concept": "health.mild",
+     "stance": "affirms"
+    },
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHONG_TAI_BACH_TAI_KHO": {
+   "asserts": [
+    {
+     "concept": "fin.scarcity",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHONG_TAI_BACH_TAI_DAC": {
+   "asserts": [
+    {
+     "concept": "fin.windfall",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHONG_DIEN_TRACH_DIEN_KHO": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHONG_DIEN_TRACH_DIEN_DAC": {
+   "asserts": [
+    {
+     "concept": "fin.windfall",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.volatile",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_KHONG_QUAN_LOC_QUAN_CHAM": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_MA_QUAN_LOC_QUAN_DAC": {
+   "asserts": [
+    {
+     "concept": "career.success",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_MA_THIEN_DI_DI_XUAT_NGOAI": {
+   "asserts": [
+    {
+     "concept": "life.mobility",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fortune.away",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_MA_QUAN_LOC_QUAN_LUU_DONG": {
+   "asserts": [
+    {
+     "concept": "life.mobility",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_MA_PHU_THE_PHU_XA_QUE": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_QUAN_QUAN_LOC_QUAN_GIUP_DO": {
+   "asserts": [
+    {
+     "concept": "social.support",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_QUAN_THIEN_DI_DI_GIUP_DO": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_QUAN_TAI_BACH_TAI_BO_THI": {
+   "asserts": [
+    {
+     "concept": "fin.generous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_QUAN_DIEN_TRACH_DIEN_HIEN": {
+   "asserts": [
+    {
+     "concept": "fin.generous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHUC_QUAN_LOC_QUAN_GIUP_DO": {
+   "asserts": [
+    {
+     "concept": "social.support",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHUC_THIEN_DI_DI_GIUP_DO": {
+   "asserts": [
+    {
+     "concept": "travel.helped",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHUC_TAI_BACH_TAI_BO_THI": {
+   "asserts": [
+    {
+     "concept": "fin.generous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHUC_DIEN_TRACH_DIEN_HIEN": {
+   "asserts": [
+    {
+     "concept": "fin.generous",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_THO_PHUC_DUC_PHUC_THO": {
+   "asserts": [
+    {
+     "concept": "well.longevity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_Y_QUAN_LOC_QUAN_BO_Y": {
+   "asserts": [
+    {
+     "concept": "path.medical",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_Y_QUAN_LOC_QUAN_MAO_DAU": {
+   "asserts": [
+    {
+     "concept": "career.fame",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRUONG_SINH_HUYNH_DE_BAO_DONG": {
+   "asserts": [
+    {
+     "concept": "kin.many",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.prosper",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRUONG_SINH_TAI_BACH_TAI_DOI_DAO": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRUONG_SINH_PHUC_DUC_PHUC_THO": {
+   "asserts": [
+    {
+     "concept": "well.longevity",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUAN_TAT_ACH_TAT_GIAI": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUAN_NO_BOC_NO_THAY_DOI": {
+   "asserts": [
+    {
+     "concept": "ally.fickle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUAN_TAI_BACH_TAI_CHAT_VAT": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUAN_DIEN_TRACH_DIEN_KHONG_TAI_SAN": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUAN_DIEN_TRACH_DIEN_DI_SAN": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUAN_HUYNH_DE_BAO_XUNG_KHAC": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUAN_PHU_THE_PHU_TRAC_TRO": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUAN_QUAN_LOC_QUAN_LAN_DAN": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRIET_TAT_ACH_TAT_GIAI": {
+   "asserts": [
+    {
+     "concept": "health.shielded",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRIET_NO_BOC_NO_THAY_DOI": {
+   "asserts": [
+    {
+     "concept": "ally.fickle",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRIET_TAI_BACH_TAI_CHAT_VAT": {
+   "asserts": [
+    {
+     "concept": "fin.effortful",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRIET_DIEN_TRACH_DIEN_KHONG_TAI_SAN": {
+   "asserts": [
+    {
+     "concept": "prop.poor",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRIET_DIEN_TRACH_DIEN_DI_SAN": {
+   "asserts": [
+    {
+     "concept": "prop.inherit",
+     "stance": "weakens"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRIET_HUYNH_DE_BAO_XUNG_KHAC": {
+   "asserts": [
+    {
+     "concept": "kin.strain",
+     "stance": "affirms"
+    },
+    {
+     "concept": "kin.few",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRIET_PHU_THE_PHU_TRAC_TRO": {
+   "asserts": [
+    {
+     "concept": "rel.strain",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TRIET_QUAN_LOC_QUAN_LAN_DAN": {
+   "asserts": [
+    {
+     "concept": "career.obstacle",
+     "stance": "affirms"
+    },
+    {
+     "concept": "career.late",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUE_PHA_TU_TUC_TU_NGO_NGHICH": {
+   "asserts": [
+    {
+     "concept": "kin.wayward",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUE_PHA_THIEN_DI_DI_KHICH_BAC": {
+   "asserts": [
+    {
+     "concept": "travel.dispute",
+     "stance": "affirms"
+    },
+    {
+     "concept": "comm.friction",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_TAI_BACH_TAI_GIU_CUA": {
+   "asserts": [
+    {
+     "concept": "fin.frugal",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.stable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_TAI_BACH_TAI_BI_MAT": {
+   "asserts": [
+    {
+     "concept": "fin.hidden",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_DIEN_TRACH_DIEN_GIU_CUA": {
+   "asserts": [
+    {
+     "concept": "fin.frugal",
+     "stance": "affirms"
+    },
+    {
+     "concept": "fin.stable",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TU_DIEN_TRACH_DIEN_BI_MAT": {
+   "asserts": [
+    {
+     "concept": "fin.hidden",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_TUONG_QUAN_HUYNH_DE_BAO_MA_LOC": {
+   "asserts": [
+    {
+     "concept": "kin.talented",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VAN_XUONG_QUAN_LOC_QUAN_DA_KY": {
+   "asserts": [
+    {
+     "concept": "spirit.unworldly",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VAN_XUONG_TAI_BACH_TAI_CO_BAC": {
+   "asserts": [
+    {
+     "concept": "life.indulgent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VAN_XUONG_PHU_THE_PHU_NAM": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VAN_XUONG_PHU_THE_PHU_NU": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VAN_KHUC_QUAN_LOC_QUAN_DA_KY": {
+   "asserts": [
+    {
+     "concept": "spirit.unworldly",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VAN_KHUC_TAI_BACH_TAI_CO_BAC": {
+   "asserts": [
+    {
+     "concept": "life.indulgent",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VAN_KHUC_PHU_THE_PHU_NAM": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VAN_KHUC_PHU_THE_PHU_NU": {
+   "asserts": [
+    {
+     "concept": "rel.partner",
+     "stance": "affirms"
+    },
+    {
+     "concept": "rel.harmony",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_LOC_TAI_BACH_HL_TAI_HOP_VI": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_HOA_QUYEN_QUAN_LOC_HQ_QUAN_HOP_VI": {
+   "asserts": [
+    {
+     "concept": "career.authority",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_AM_DIEN_TRACH_DIEN_HOP_VI": {
+   "asserts": [
+    {
+     "concept": "prop.rich",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_VU_KHUC_TAI_BACH_TAI_HOP_VI": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THIEN_PHU_TAI_BACH_TAI_HOP_VI": {
+   "asserts": [
+    {
+     "concept": "fin.abundance",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
+  },
+  "TV_HS_THAI_DUONG_QUAN_LOC_QUAN_HOP_VI": {
+   "asserts": [
+    {
+     "concept": "career.status",
+     "stance": "affirms"
+    }
+   ],
+   "src": "manual",
+   "review": "draft"
   }
  }
 }

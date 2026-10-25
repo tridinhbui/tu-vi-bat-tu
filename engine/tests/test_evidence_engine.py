@@ -126,7 +126,9 @@ def test_khoi_with_triet_is_qualified_kl_p140(ref):
 
 def test_tu_vi_without_ta_huu_is_flagged_tt_p20(ref):
     _, _, out = ref
-    c = next(x for x in out["conclusions"] if x["palace"] == "Quan Lộc" and x["polarity"] == "support")
+    # the Tử Vi reading of Quan Lộc (other books' supports, e.g. Tử Vi Hàm Số's, may come first)
+    c = next(x for x in out["conclusions"] if x["palace"] == "Quan Lộc" and x["polarity"] == "support"
+             and any(q["id"] == "Q_TT20_TU_VI_CO_QUAN" for q in x["invalidating_conditions"]))
     assert qual(c, "Q_TT20_TU_VI_CO_QUAN")["status"] == "met"                   # Tả Hữu at Mùi, outside Thìn's tam phương
 
 
