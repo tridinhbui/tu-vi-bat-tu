@@ -145,6 +145,14 @@ RESTRICTED_KEYWORDS: list[tuple[str, str]] = [
 
 # Kinship words are matched WITH diacritics when the question has them: folded, "bỏ tôi" (left me) reads as "bo toi" (my
 # father) and "mà tôi" as "ma toi". Unaccented questions use the folded list, which keeps only unambiguous phrases.
+# words that only mean something with their diacritics ("mổ" = surgery, "mở" = open): matched on the accented text
+RESTRICTED_ACCENTED: list[tuple[str, str]] = [
+    ("health", r"(\bmổ\b|phẫu thuật|\bốm\b|bệnh|đi khám|khám bệnh|chữa bệnh|chữa trị|chữa khỏi|uống thuốc|nằm viện|nhập viện|bệnh viện|sức khỏe|sức khoẻ)"),
+    ("death", r"(chết|qua đời|mất sớm|tử vong|sống được|thọ)"),
+    ("pregnancy", r"(có thai|mang thai|có bầu|sinh con|sảy thai)"),
+    ("legal", r"(kiện|tòa|toà án|bị bắt|ngồi tù|án phạt|xử án)"),
+]
+
 PARTY_KEYWORDS: list[tuple[str, str]] = [
     ("sibling", r"(anh trai|chị gái|em trai|em gái|anh chị em|chị ruột|anh ruột|em ruột)"),
     ("father", r"(bố tôi|cha tôi|bố em|ba tôi|bố mình|cha mình|ba mình)"),
@@ -207,6 +215,10 @@ def classify(text: str) -> Classification:
     if len(t) < 8:
         return Classification(text, [], [], [], True, ["Câu hỏi quá ngắn để hiểu; hãy viết rõ việc gì, của ai."])
     restricted = [{"kind": k, **RESTRICTED[k], "matched": m.group(0)} for k, rx in RESTRICTED_KEYWORDS if (m := re.search(rx, t))]
+    low = text.lower()
+    for k, rx in RESTRICTED_ACCENTED:
+        if k not in {r["kind"] for r in restricted} and (m := re.search(rx, low)):
+            restricted.append({"kind": k, **RESTRICTED[k], "matched": m.group(0)})
     hits: dict[tuple[str, str], list[str]] = {}
     for topic, sub, rx in KEYWORDS:
         for m in re.finditer(rx, t):

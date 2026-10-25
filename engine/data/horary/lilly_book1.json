@@ -1,0 +1,1130 @@
+{
+  "meta": {
+    "school": "lilly",
+    "work": "LILLY",
+    "scope": "William Lilly, Christian Astrology (1647), Book I: houses, planets, signs, essential dignities, Chapter XIX 'words of art' and the table of fortitudes (pp.25-122).",
+    "citation": "William Lilly, Christian Astrology (London, 1647), Wellcome Library copy, archive.org b30338724, Public Domain Mark. Page = printed page number.",
+    "status": "draft, in progress"
+  },
+  "rules": [
+    {
+      "id": "lilly.house.angular_succedent_cadent",
+      "category": "house",
+      "title_en": "Angles, succedent and cadent houses",
+      "title_vi": "Cung góc, cung nối và cung rơi (angular, succedent, cadent)",
+      "statement_en": "Houses 1, 10, 7 and 4 are angles; 11, 2, 8 and 5 are succedent; 3, 12, 9 and 6 are cadent. Angles are most powerful, succedents next in virtue, cadents poor and of little efficacy.",
+      "statement_vi": "Các cung 1, 10, 7 và 4 là cung góc (angular); 11, 2, 8 và 5 là cung nối (succedent); 3, 12, 9 và 6 là cung rơi (cadent). Cung góc mạnh nhất, cung nối đứng sau về sức, cung rơi yếu và ít hiệu lực.",
+      "conditions": "Classify a planet's house (after the five-degree cusp rule, see lilly.house.cusp_five_degrees) as angular {1,10,7,4}, succedent {11,2,8,5} or cadent {3,12,9,6}.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 48,
+          "quote": "the eleventh, second, eight and fift are called Succedants, the third, twelfth, ninth and sixth, are tearmed Cadents"
+        },
+        {
+          "work": "LILLY",
+          "page": 48,
+          "quote": "the Angles are most powerfull, the Succedants are next in vertue, the Cadents poore, and of little efficacy"
+        }
+      ],
+      "example": "Constructed: a significator in the 9th is cadent; in the 5th, succedent."
+    },
+    {
+      "id": "lilly.house.strength_order",
+      "category": "house",
+      "title_en": "Order of house strength",
+      "title_vi": "Thứ tự sức mạnh của các cung (house strength)",
+      "statement_en": "Lilly ranks the houses in force and virtue: 1, 10, 7, 4, 11, 5, 9, 3, 2, 8, 6, 12. Of two planets equally dignified, one in the ascendant and one in the tenth, the one in the ascendant is somewhat more powerful to effect what it signifies; and so through the order. Planets in angles show their effects more forcibly.",
+      "statement_vi": "Lilly xếp sức mạnh các cung theo thứ tự: 1, 10, 7, 4, 11, 5, 9, 3, 2, 8, 6, 12. Hai sao có phẩm chất (dignity) ngang nhau, một ở cung Mệnh (ascendant), một ở cung 10, thì sao ở cung Mệnh có phần mạnh hơn trong việc thực hiện điều nó chủ; các cung khác cũng xét theo thứ tự này. Sao ở cung góc biểu hiện tác dụng mạnh hơn.",
+      "conditions": "When two significators are otherwise equal in dignity, prefer the one whose house comes earlier in the order [1,10,7,4,11,5,9,3,2,8,6,12].",
+      "exceptions": [
+        "Lilly (p.56) says the eleventh house 'in vertue is equivalent either to the seventh or fourth Houses'; this is compatible with the order (11 directly follows 4) but the point score in the p.115 table gives 11 the same 4 points as 7 and 4."
+      ],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 48,
+          "quote": "the Succedant houses follow the Angles,the Cadents come next the Succedants; in force and vertue they stand so in order"
+        },
+        {
+          "work": "LILLY",
+          "page": 48,
+          "quote": "you shall judge the Planet in the Ascendant somewhat of more power to effect what he is Significator of, then he that is in the tenth"
+        },
+        {
+          "work": "LILLY",
+          "page": 56,
+          "quote": "in vertue is equivalent either to the seventh or fourth Houses"
+        }
+      ],
+      "example": "Lilly's own: two equally dignified planets, one in the 1st and one in the 10th; the one in the 1st is judged somewhat stronger."
+    },
+    {
+      "id": "lilly.house.cusp_five_degrees",
+      "category": "house",
+      "title_en": "Planet within five degrees of a cusp",
+      "title_vi": "Sao cách đỉnh cung (cusp) dưới năm độ",
+      "statement_en": "A planet within five degrees of the cusp of a house has its virtue assigned to the house whose cusp it is nearest.",
+      "statement_vi": "Sao nằm trong phạm vi năm độ trước đỉnh (cusp) của một cung thì sức tác dụng của nó được tính cho cung có đỉnh gần nó nhất.",
+      "conditions": "If a planet lies in house N but within 5 degrees (ecliptic longitude) before the cusp of house N+1, count it in house N+1 for strength and signification.",
+      "exceptions": [],
+      "effect": "modifies",
+      "school": "lilly",
+      "status": "operationalised",
+      "engine_choice": "Lilly gives only 'within five degrees' and 'nearest' (p.33, 'but of this hereafter'). Open points the engine must decide: (1) whether the 5 degrees are measured in zodiacal longitude (engine: yes); (2) whether the rule applies when the cusp lies in a different sign from the planet (Lilly is silent; engine: applies regardless of sign); (3) whether it also pulls a planet just past a cusp backwards (no: a planet past a cusp is already in that house).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 33,
+          "quote": "if he be within five degrees of the Cusp of any house,his vertue shall be assigned to that house to whose Cusp he is neerest"
+        }
+      ],
+      "example": "Constructed: cusp of the 10th at 12 degrees, planet at 8 degrees of the same sign in the 9th: treated as in the 10th (angular)."
+    },
+    {
+      "id": "lilly.significator.lord_of_house",
+      "category": "significator",
+      "title_en": "Lord of the ascendant and significator of the thing asked",
+      "title_vi": "Chủ cung Mệnh và sao chỉ thị việc được hỏi (significator)",
+      "statement_en": "The Lord of the Ascendant, or significator of the querent, is the planet ruling the sign ascending; the significator of the thing asked is the lord of the sign on the cusp of the house to which the matter belongs (e.g. the lord of the sign on the seventh cusp for a seventh-house matter).",
+      "statement_vi": "Chủ cung Mệnh (Lord of the Ascendant), tức sao chỉ thị người hỏi (querent), là sao làm chủ cung hoàng đạo đang mọc; sao chỉ thị việc được hỏi là chủ của cung hoàng đạo nằm trên đỉnh nhà (house) thuộc về việc đó, ví dụ việc thuộc nhà 7 thì lấy chủ cung trên đỉnh nhà 7.",
+      "conditions": "querent_significator = domicile ruler of the sign on the 1st cusp; quesited_significator = domicile ruler of the sign on the cusp of the house that governs the matter.",
+      "exceptions": [],
+      "effect": "significator_assignment",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 49,
+          "quote": "then that Planet who is Lord of that Signe which ascends, or Lord of that Signe from which house the thing demanded is required"
+        }
+      ],
+      "example": "Lilly's own: for a seventh-house matter, the lord of the sign descending on the seventh cusp is significator."
+    },
+    {
+      "id": "lilly.significator.consignificator",
+      "category": "significator",
+      "title_en": "Consignificator",
+      "title_vi": "Sao đồng chỉ thị (consignificator)",
+      "statement_en": "A consignificator is another planet in aspect or conjunction with the principal significator; it has more or less signification and either assists or not in effecting the matter. A friendly planet notes good; an infortune the contrary, destruction of or disturbance in the thing.",
+      "statement_vi": "Sao đồng chỉ thị (consignificator) là một sao khác đang hợp (conjunction) hoặc chiếu (aspect) với sao chỉ thị chính; nó có phần ý nghĩa nhiều hay ít và có thể giúp hoặc không giúp việc thành. Nếu là sao thân thiện thì báo điều tốt; nếu là sao hung (infortune) thì ngược lại: việc hỏng hoặc bị quấy nhiễu.",
+      "conditions": "Any planet in conjunction or Ptolemaic aspect (within orb) with a principal significator is listed as consignificator; its benefic/malefic nature colours the testimony.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 49,
+          "quote": "is when you find another Planet in aspect or conjunction with that Planet who is the principall Significator"
+        },
+        {
+          "work": "LILLY",
+          "page": 49,
+          "quote": "if a friendly Planet, he notes good; if an infortune the contrary, viz. either the destruction of the thing, or disturbance in it"
+        }
+      ],
+      "example": "Constructed: Jupiter trine the lord of the 7th is a friendly consignificator."
+    },
+    {
+      "id": "lilly.significator.almuten",
+      "category": "significator",
+      "title_en": "Almuten of a house and of the figure",
+      "title_vi": "Almuten của một nhà và của cả lá số",
+      "statement_en": "The almuten of a house is the planet with most (essential) dignities in the sign on its cusp. The almuten of a figure is the planet most powerful in the whole chart by essential and accidental dignities.",
+      "statement_vi": "Almuten của một nhà là sao có nhiều phẩm chất (dignity) nhất tại cung hoàng đạo trên đỉnh nhà đó. Almuten của lá số là sao mạnh nhất trong toàn lá số khi cộng cả phẩm chất bản thể (essential) và phẩm chất ngẫu nhiên (accidental).",
+      "conditions": "almuten_house = argmax over planets of essential-dignity points (tables.essential) at the cusp; almuten_figure = argmax of total score (essential + accidental, tables.fortitudes).",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "operationalised",
+      "engine_choice": "Lilly says 'most dignities in the Signe ascending or descending upon the Cusp'. Open: whether to score the cusp degree (term and face depend on the degree) or the whole sign. Engine: score the exact cusp degree with the p.104 table; ties are reported, not broken.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 49,
+          "quote": "of any house is that Planet who hath most dignities in the Signe ascending or descending upon the Cusp of any house"
+        },
+        {
+          "work": "LILLY",
+          "page": 49,
+          "quote": "Almuten of a Figure is that Planet who in Essentiall and Accidentall dignities, is most powerfull in the whole Scheame of Heaven"
+        }
+      ],
+      "example": ""
+    },
+    {
+      "id": "lilly.aspect.ptolemaic",
+      "category": "aspect",
+      "title_en": "The aspects: sextile, square, trine, opposition, conjunction",
+      "title_vi": "Các góc chiếu: lục hợp, vuông, tam hợp, xung, và giao hội",
+      "statement_en": "Two planets 60 degrees apart are in sextile, 90 in square (quartile), 120 in trine, 180 in opposition; in the same degree and minute, in conjunction. Only these are the strongest rays; calling the conjunction an aspect is improper. Aspects are counted from the planet's degree in the zodiac (longitude).",
+      "statement_vi": "Hai sao cách nhau 60 độ là lục hợp (sextile), 90 độ là vuông (square), 120 độ là tam hợp (trine), 180 độ là xung (opposition); cùng độ cùng phút là giao hội (conjunction). Chỉ những góc này là các tia mạnh nhất; gọi giao hội là một góc chiếu là không đúng lắm. Góc chiếu tính từ độ của sao trên hoàng đạo (kinh độ).",
+      "conditions": "Aspect angles 0, 60, 90, 120, 180 measured in ecliptic longitude.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 26,
+          "quote": "When two Planets are equally distant one from each other, sixty degrees,we say they are in a Sextill Aspect"
+        },
+        {
+          "work": "LILLY",
+          "page": 26,
+          "quote": "yet you must ever account the Aspects from that degree of the Zodiack wherein the Planet is"
+        },
+        {
+          "work": "LILLY",
+          "page": 105,
+          "quote": "we use to call the Conjunction an Aspect, but very improperly"
+        }
+      ],
+      "example": "Lilly's own (p.26): Saturn in 10 Gemini (70 degrees of the zodiac) casts his sinister sextile to 130 degrees, i.e. 10 Leo."
+    },
+    {
+      "id": "lilly.aspect.nature",
+      "category": "aspect",
+      "title_en": "Good and evil aspects",
+      "title_vi": "Góc chiếu tốt và xấu",
+      "statement_en": "The square is a sign of imperfect enmity (hope of reconciliation remains, the other significators helping); the opposition of perfect hatred. Sextile and trine are arguments of love, unity and friendship, the trine more forcibly. Conjunctions are good or bad as the planets in conjunction are friends or enemies to one another.",
+      "statement_vi": "Góc vuông là dấu hiệu thù địch chưa trọn vẹn (vẫn còn hy vọng hòa giải nếu các sao chỉ thị khác giúp); góc xung là thù ghét trọn vẹn. Lục hợp và tam hợp là chứng cứ của tình thương, đoàn kết và tình bạn, tam hợp mạnh hơn. Giao hội tốt hay xấu tùy các sao giao hội là bạn hay thù của nhau.",
+      "conditions": "square = adverse (reconcilable); opposition = adverse (not reconcilable); sextile, trine = favourable (trine stronger); conjunction = depends on friendship of the two planets (see lilly.planet.friends_enemies).",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 106,
+          "quote": "the Quadrate Aspect is a signe of imperfect enmity; and that the Opposition is an aspect or argument of perfect hatred"
+        },
+        {
+          "work": "LILLY",
+          "page": 106,
+          "quote": "The Sextill and trine aspects are arguments of Love, Unity and Friendship"
+        },
+        {
+          "work": "LILLY",
+          "page": 106,
+          "quote": "Conjunctions are good or bad,as the Planets in conjunction are friends or enemies to one another"
+        }
+      ],
+      "example": "Lilly's own: adversaries' significators in square, peace still hoped; in opposition, no peace until the suit is ended or they have fought."
+    },
+    {
+      "id": "lilly.aspect.kepler_new_aspects",
+      "category": "aspect",
+      "title_en": "Kepler's new aspects (not used in judgment)",
+      "title_vi": "Các góc chiếu mới của Kepler (không dùng để luận)",
+      "statement_en": "Lilly lists Kepler's semisextile (30), quintile (72), tredecile (108), biquintile (144) and quincunx (150) only so the reader can recognise them; 'we seldome use more aspects' than conjunction, sextile, square, trine and opposition.",
+      "statement_vi": "Lilly chỉ liệt kê các góc mới của Kepler là bán lục hợp (semisextile, 30 độ), ngũ phân (quintile, 72), tredecile (108), song ngũ phân (biquintile, 144) và quincunx (150) để người đọc nhận ra; ông nói hiếm khi dùng góc nào ngoài giao hội, lục hợp, vuông, tam hợp và xung.",
+      "conditions": "Engine does not use 30/72/108/144/150 as testimonies in Lilly mode; it may display them as information only.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 32,
+          "quote": "I only acquaint you with these,that finding them any where you may apprehend their meaning"
+        },
+        {
+          "work": "LILLY",
+          "page": 32,
+          "quote": "of late one Kepler, a learned man,hath added some new ones"
+        }
+      ],
+      "example": ""
+    },
+    {
+      "id": "lilly.aspect.partile",
+      "category": "aspect",
+      "title_en": "Partile aspect",
+      "title_vi": "Góc chiếu chính xác (partile)",
+      "statement_en": "A partile aspect is when two planets are exactly so many degrees from each other as make a perfect aspect (same degree number in the aspecting signs). It is a strong argument of performance when the aspect signifies good, and as much a sign of present evil when mischief is threatened.",
+      "statement_vi": "Góc chiếu chính xác (partile) là khi hai sao cách nhau đúng số độ tạo thành góc chiếu hoàn hảo (cùng số độ ở hai cung có góc chiếu với nhau). Đây là chứng cứ mạnh cho việc thành nếu góc báo điều tốt, và cũng là dấu hiệu tai họa trước mắt nếu góc báo điều dữ.",
+      "conditions": "partile = both planets in the same whole degree (floor of degree-in-sign equal) in signs forming the aspect.",
+      "exceptions": [],
+      "effect": "modifies",
+      "school": "lilly",
+      "status": "operationalised",
+      "engine_choice": "Lilly's examples (9 Aries / 9 Leo; 1 degree / 1 degree) use whole degrees. Engine: partile when the integer degree-in-sign is equal and the signs are in the aspect; the p.115 table's 'partile' bonuses use the same test.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 106,
+          "quote": "when two Planets are exactly so many degrees from each other as make a perfect aspect"
+        },
+        {
+          "work": "LILLY",
+          "page": 107,
+          "quote": "and is as much a signe of present evill when mischiefe is threatned"
+        }
+      ],
+      "example": "Lilly's own: a planet in 9 Aries and another in 9 Leo make a partile trine."
+    },
+    {
+      "id": "lilly.aspect.platic",
+      "category": "aspect",
+      "title_en": "Platic aspect",
+      "title_vi": "Góc chiếu trong phạm vi (platic)",
+      "statement_en": "A platic aspect is one within the orbs of the two planets: the planets are within the moiety (half) of both their orbs added together. Lilly's example: Venus in 10 degrees of one sign and Saturn in 18 degrees of the trine sign are 8 degrees from the perfect aspect; Saturn's moiety is 5 and Venus' 4, so the trine is platic.",
+      "statement_vi": "Góc chiếu trong phạm vi (platic) là góc chiếu nằm trong vòng ảnh hưởng (orb) của hai sao: khoảng lệch so với góc chính xác nhỏ hơn tổng nửa orb (moiety) của cả hai sao. Ví dụ của Lilly: Kim tinh ở 10 độ, Thổ tinh ở 18 độ của cung tam hợp, lệch 8 độ; nửa orb của Thổ là 5, của Kim là 4, nên đây là tam hợp platic.",
+      "conditions": "aspect is platic when |separation - exact angle| <= (orb_A + orb_B) / 2, using tables.orbs.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "disputed",
+      "dispute": "Lilly's orb values disagree across his own pages: the p.107 example gives Saturn a moiety of 5 and Venus 4 (orbs 10 and 8), while p.110 says Saturn 'hath 9 degr. allowed him for his rayes' (moiety 4.30), and the planet chapters give Saturn 9 (p.60), Venus 7 (p.76). See tables_lilly.json orbs and lilly.orbs.moiety_rule.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 107,
+          "quote": "A Platick Aspect is that which admits of the Orbs or Rayes of two Planets that signifie any matter"
+        },
+        {
+          "work": "LILLY",
+          "page": 107,
+          "quote": "because she is within the moiety of both their Orbs"
+        }
+      ],
+      "example": "Lilly's own (p.107, image checked): Venus in 10 Taurus, Saturn in 18 Virgo: platic trine, 8 degrees from exact, within moieties 5 + 4."
+    },
+    {
+      "id": "lilly.orbs.moiety_rule",
+      "category": "aspect",
+      "title_en": "Orbs and the moiety rule",
+      "title_vi": "Vòng ảnh hưởng (orb) và quy tắc nửa orb (moiety)",
+      "statement_en": "Every planet has an orb (rays). Two planets are within aspect, and a separating planet is not wholly clear, until the distance from the exact aspect exceeds half the orb of the one plus half the orb of the other. Lilly prints two sets of orb values and says he uses either.",
+      "statement_vi": "Mỗi sao có một vòng ảnh hưởng (orb, 'tia'). Hai sao còn được xem là trong góc chiếu, và sao đang tách ra chưa thoát hẳn, cho đến khi khoảng lệch so với góc chính xác vượt quá nửa orb của sao này cộng nửa orb của sao kia. Lilly in hai bộ giá trị orb và nói ông dùng bộ nào cũng được.",
+      "conditions": "in_orb(A,B,aspect) = |delta - exact| <= (orb[A] + orb[B]) / 2; orb values from tables_lilly.json orbs.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "disputed",
+      "dispute": "Lilly's pages give different orbs: p.107 first column Saturn 10, Jupiter 12, Mars 7.30, Sun 17, Venus 8, Mercury 7, Moon 12.30 (used in the p.107 platic example and in the p.113 combustion limit 8.30 = half of 17); the planet chapters pp.60-83 and the p.110 separation examples use Saturn 9, Jupiter 9, Mars 7, Sun 15, Venus 7, Mercury 7, Moon 12. He says (p.107, image) he sometimes uses the one, sometimes the other. Engine must pick one set per run and record which.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 110,
+          "quote": "for every Planet that applies is allowed halfe his owne orbs and halfe the orbs of that Planet from whom he separates"
+        },
+        {
+          "work": "LILLY",
+          "page": 107,
+          "quote": "here I will againe insert the Table of the quantity of their Orbs"
+        },
+        {
+          "work": "LILLY",
+          "page": 60,
+          "quote": "and continueth in force untill he is separate nine degrees from that aspect"
+        }
+      ],
+      "example": "Lilly's own (p.110, image checked): Sun and Moon in aspect: the Moon is separated when 13°30' beyond exact = 7°30' (half the Sun's 15) + 6° (half her own 12)."
+    },
+    {
+      "id": "lilly.aspect.dexter_sinister",
+      "category": "aspect",
+      "title_en": "Dexter and sinister aspects",
+      "title_vi": "Góc chiếu thuận chiều phải (dexter) và trái (sinister)",
+      "statement_en": "An aspect cast forward in the order of the signs (e.g. from Aries to Gemini, Cancer, Leo) is sinister; one cast against the order of signs (from Aries to Aquarius, Capricorn, Sagittarius) is dexter. The dexter aspect is more forcible than the sinister.",
+      "statement_vi": "Góc chiếu phóng theo thứ tự các cung (ví dụ từ Bạch Dương tới Song Tử, Cự Giải, Sư Tử) là góc trái (sinister); góc chiếu ngược thứ tự các cung (từ Bạch Dương tới Bảo Bình, Ma Kết, Nhân Mã) là góc phải (dexter). Góc phải mạnh hơn góc trái.",
+      "conditions": "For planet A aspecting B: sinister if B's longitude lies ahead of A's in zodiacal order by the aspect angle; dexter if behind. Weight dexter > sinister (no numeric weight given by Lilly).",
+      "exceptions": [],
+      "effect": "modifies",
+      "school": "lilly",
+      "status": "operationalised",
+      "engine_choice": "Lilly gives no numeric weight for 'more forcible'. Engine records dexter/sinister as a trace note and does not change the score.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 108,
+          "quote": "this Aspect is called a Sinister"
+        },
+        {
+          "work": "LILLY",
+          "page": 109,
+          "quote": "Observe the dexter aspect is more forcible then the Sinister"
+        },
+        {
+          "work": "LILLY",
+          "page": 109,
+          "quote": "that Dexter Aspects are contrary to the succession of Signes, Sinister in order as they follow one another"
+        }
+      ],
+      "example": "Lilly's own (p.109, image checked): a planet in Aries beholds one in Aquarius with a dexter sextile, one in Gemini with a sinister sextile."
+    },
+    {
+      "id": "lilly.aspect.inconjunct_signs",
+      "category": "aspect",
+      "title_en": "Signs inconjunct (not beholding one another)",
+      "title_vi": "Các cung không nhìn nhau (inconjunct)",
+      "statement_en": "Some signs do not behold one another: a planet in one of them can have no aspect to a planet in the other, e.g. one in Aries none to Taurus or Scorpio; one in Taurus none to Aries, Gemini, Libra or Sagittarius.",
+      "statement_vi": "Có những cung không nhìn nhau (inconjunct): sao ở cung này không thể có góc chiếu với sao ở cung kia; ví dụ sao ở Bạch Dương không chiếu được tới Kim Ngưu hay Thiên Yết; sao ở Kim Ngưu không chiếu tới Bạch Dương, Song Tử, Thiên Bình hay Nhân Mã.",
+      "conditions": "Signs 30 or 150 degrees apart (adjacent signs, and signs five apart) form no aspect; a platic aspect whose orb crosses into such a sign pair is still a question for the engine.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "operationalised",
+      "engine_choice": "The printed table p.109 (image checked) is incomplete: e.g. Aries lists only Taurus and Scorpio (not Pisces and Virgo), Taurus lists four signs, Cancer only Leo and Aquarius. Engine uses the geometric rule (30 and 150 degree sign distances) of which every printed entry is an instance. Open: whether an aspect in orb but 'out of sign' (e.g. 29 Aries to 1 Virgo, 122 degrees) counts; Lilly's definitions count degrees of longitude (p.26), so engine counts it but flags it.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 109,
+          "quote": "These are called Signes inconjunct, or such as if a Planet be in one of them, he cannot have any aspect to another in the signe underneath"
+        }
+      ],
+      "example": "Lilly's own: one in Aries can have no aspect to another in Taurus or Scorpio."
+    },
+    {
+      "id": "lilly.aspect.application",
+      "category": "perfection",
+      "title_en": "Application",
+      "title_vi": "Tiến lại gần (application)",
+      "statement_en": "Application is when two planets draw near together by conjunction or aspect. The superior planets do not apply to the inferior (unless retrograde); the lighter always applies to the more ponderous. The true aspect is when the applying planet reaches the same degree and minute (of the aspect).",
+      "statement_vi": "Tiến lại gần (application) là khi hai sao đang tiến tới nhau bằng giao hội hoặc góc chiếu. Sao thượng (superior) không tiến về sao hạ (inferior) trừ khi đang nghịch hành; sao nhẹ (nhanh) luôn tiến về sao nặng (chậm) hơn. Góc chiếu thật sự xảy ra khi sao tiến tới đạt đúng độ và phút của góc.",
+      "conditions": "A applies to B when, by current daily motions, the angular distance between them is decreasing toward an exact aspect angle within orb; normally A is the faster planet; a slower planet applies only if retrograde (see lilly.application.three_ways).",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 108,
+          "quote": "the superiour Planets doe not apply to the inferiour (unlesse they be Retrograde, but ever the lighter to the more ponderous"
+        },
+        {
+          "work": "LILLY",
+          "page": 108,
+          "quote": "the true Aspect would have been when he had come to the same degree and minute wherein Saturn was"
+        }
+      ],
+      "example": "Lilly's own (p.108): Saturn in 10 Aries, Mars in 7 Aries: Mars, lighter and in fewer degrees, applies to Saturn's conjunction; were Mars in 7 Gemini, Cancer, Leo or Libra he would apply to Saturn's sextile, square, trine or opposition."
+    },
+    {
+      "id": "lilly.application.three_ways",
+      "category": "perfection",
+      "title_en": "Three ways of application",
+      "title_vi": "Ba cách tiến lại gần",
+      "statement_en": "First, a swifter planet applies to a slower one, both direct. Second, both planets retrograde: an ill application, arguing either sudden perfection or breaking off of the business. Third, a direct planet in fewer degrees and a retrograde planet in more degrees of the sign move toward each other: an ill application, showing sudden alteration in a question.",
+      "statement_vi": "Thứ nhất, sao nhanh tiến về sao chậm, cả hai đều thuận hành. Thứ hai, cả hai sao đều nghịch hành: là cách tiến xấu, báo việc hoặc thành bất ngờ hoặc đổ vỡ. Thứ ba, một sao thuận hành ở độ thấp hơn và một sao nghịch hành ở độ cao hơn trong cung tiến về nhau: cũng là cách tiến xấu, trong câu hỏi báo sự thay đổi đột ngột.",
+      "conditions": "Classify each application: (1) both direct, faster to slower = normal; (2) both retrograde = ill (sudden perfection or breaking off); (3) direct planet behind, retrograde planet ahead moving toward it = ill (sudden alteration).",
+      "exceptions": [],
+      "effect": "modifies",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 107,
+          "quote": "when a Planet of more swift motion applies to one more slow and ponderous, they being both direct"
+        },
+        {
+          "work": "LILLY",
+          "page": 107,
+          "quote": "this is an ill Application and an argument either suddenly perfecting, or breaking off the businesse"
+        },
+        {
+          "work": "LILLY",
+          "page": 107,
+          "quote": "this is an ill application, and in the Ayre shewes great change; in a Question sudden alteration"
+        }
+      ],
+      "example": "Lilly's own (p.107, image checked): (1) Mars 10 Aries, Mercury 5 Aries, Mercury applies; (2) Mercury 10 Aries and Mars 9 Aries both retrograde; (3) Mars direct 15 Aries, Mercury retrograde 17 Aries."
+    },
+    {
+      "id": "lilly.separation.definition",
+      "category": "perfection",
+      "title_en": "Separation",
+      "title_vi": "Tách rời (separation)",
+      "statement_en": "Separation begins as soon as two planets are departed six minutes past the exact aspect; but the separating planet is not wholly clear of the other's rays until it is distant the sum of the two moieties of their orbs.",
+      "statement_vi": "Tách rời (separation) bắt đầu ngay khi hai sao đã vượt qua góc chính xác sáu phút; nhưng sao đang tách chưa thoát hẳn khỏi tia của sao kia cho tới khi cách xa bằng tổng nửa orb của hai sao.",
+      "conditions": "separating = past exact by >= 0°06' and distance decreasing no more; fully_separated = |delta - exact| > (orb[A]+orb[B])/2.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 110,
+          "quote": "when two Planets are departed but six minutes distance from each other"
+        },
+        {
+          "work": "LILLY",
+          "page": 110,
+          "quote": "cannot be said to be totally seperated or cleere from the rayes of Saturn, untill he hath got 9.whole degrees further"
+        }
+      ],
+      "example": "Lilly's own (p.110, image checked): Saturn and Jupiter both in 10°25' Aries are in perfect conjunction; when Jupiter reaches 10°31' or 32' he is separating; wholly separated only 9 degrees on (4°30' + 4°30')."
+    },
+    {
+      "id": "lilly.separation.meaning_and_timing",
+      "category": "timing",
+      "title_en": "Meaning of recent separation; timing by degrees",
+      "title_vi": "Ý nghĩa của vừa tách rời; định thời theo số độ",
+      "statement_en": "Significators lately separated by a few minutes show the matter was very likely a few days before but now hangs in suspense with some dislike or rupture; as they separate further the matter and affection alienate. The number of degrees the swifter planet wants before it is wholly separated gives so many weeks, days, months or years before the matter is quite broken off. Significators in moveable signs, angular and swift, hasten the time; in common signs it is longer; in fixed signs longer still.",
+      "statement_vi": "Hai sao chỉ thị vừa tách nhau vài phút cho thấy vài ngày trước việc còn rất có khả năng thành, nay lơ lửng, có điều không ưa hoặc rạn nứt; càng tách xa thì việc và tình cảm càng xa cách. Số độ sao nhanh còn thiếu trước khi tách hẳn cho biết bấy nhiêu tuần, ngày, tháng hoặc năm trước khi việc đổ vỡ hẳn. Sao chỉ thị ở cung động (moveable), ở cung góc và đi nhanh thì thời gian đến sớm; ở cung song thể (common) thì lâu hơn; ở cung cố định (fixed) thì lâu hơn nữa.",
+      "conditions": "Report remaining degrees to full separation as the timing number; unit chosen by sign quality and house: moveable + angular + swift = shortest unit, common = longer, fixed = longest.",
+      "exceptions": [],
+      "effect": "timing_method",
+      "school": "lilly",
+      "status": "operationalised",
+      "engine_choice": "Lilly names the units (weeks, days, months, years) and the direction (moveable/angular/swift faster, common longer, fixed longest) but gives no table mapping sign quality and house to a unit. Engine reports the number of degrees and the qualitative speed only, not a unit, unless a later rule (Book II timing) supplies one.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 110,
+          "quote": "so will it be so many weekes, dayes,moneths,or yeers ere the two Lovers will wholly desist or see the matter quite broke off"
+        },
+        {
+          "work": "LILLY",
+          "page": 110,
+          "quote": "in common signes, the time will be more long; in fixed, a longer space of time will be required"
+        }
+      ],
+      "example": "Lilly's own: marriage significators lately separated a few minutes: the match hung in suspense."
+    },
+    {
+      "id": "lilly.prohibition",
+      "category": "denial",
+      "title_en": "Prohibition (by body, and by aspect)",
+      "title_vi": "Ngăn trở (prohibition): bằng thân và bằng góc chiếu",
+      "statement_en": "Prohibition is when two significators are applying to an aspect and, before they perfect, another planet interposes its body or aspect, so the matter is hindered and retarded. Lilly names three manners: (1) conjunctional or bodily: a swifter planet overtakes the applying significator and conjoins first it and then the other before they can meet; (2) by aspect: see lilly.prohibition.by_aspect; (3) refranation, 'by some more properly called' so: see lilly.refranation. In his bodily example the interposing planet is the Sun, and he adds that combustion of any planet is the greatest misfortune that can be.",
+      "statement_vi": "Ngăn trở (prohibition) là khi hai sao chỉ thị đang tiến tới một góc chiếu nhưng trước khi thành góc, một sao khác chen vào bằng thân hoặc bằng góc chiếu của nó, khiến việc bị cản trở và chậm lại. Lilly kể ba dạng: (1) ngăn trở bằng giao hội hay bằng thân: một sao nhanh hơn đuổi kịp sao chỉ thị đang tiến tới, giao hội với nó rồi với sao kia trước khi hai sao chỉ thị gặp nhau; (2) ngăn trở bằng góc chiếu (xem lilly.prohibition.by_aspect); (3) thoái lui trước khi thành góc (refranation, xem lilly.refranation). Trong ví dụ ngăn trở bằng thân, sao chen vào là Mặt Trời, và ông nói thêm rằng bị đốt cháy (combustion) là điều bất hạnh lớn nhất của một sao.",
+      "conditions": "Significators A (applying) and B; prohibition when a third planet C perfects a conjunction (bodily) or an aspect (by aspect) with the significators before A perfects with B. Bodily form in Lilly's example: C faster than A conjoins A and then B. Lilly's definition (p.110) says only that C interposes 'his body or aspect' before the true aspect; he does not name abscission in Book I.",
+      "exceptions": [],
+      "effect": "testimony_against",
+      "school": "lilly",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 110,
+          "quote": "and before they can come to a true Aspect,another Planet interposeth either his body or aspect, so that thereby the matter propounded is hindered and retarded"
+        },
+        {
+          "work": "LILLY",
+          "page": 111,
+          "quote": "This manner of prohibition is called a Conjunctionall or Bodily prohibition"
+        },
+        {
+          "work": "LILLY",
+          "page": 111,
+          "quote": "you must know that the combustion of any Planet is the greatest misfortune that can be"
+        }
+      ],
+      "example": "Lilly's own (p.111, image checked): Mars in 7 Aries, Saturn in 12 Aries, Sun in 6 Aries; the Sun, swifter, conjoins Mars then Saturn before Mars reaches Saturn: the matter is prohibited."
+    },
+    {
+      "id": "lilly.prohibition.by_aspect",
+      "category": "denial",
+      "title_en": "Prohibition by aspect",
+      "title_vi": "Ngăn trở bằng góc chiếu",
+      "statement_en": "The second kind: while two planets are going to conjunction, a swifter third planet passes by aspect (sextile, square, trine or opposition) over the first and reaches the same aspect to the second before the two can conjoin.",
+      "statement_vi": "Kiểu thứ hai: khi hai sao đang tiến tới giao hội, một sao thứ ba nhanh hơn đi qua góc chiếu (lục hợp, vuông, tam hợp hoặc xung) tới sao thứ nhất rồi đạt cùng góc đó tới sao thứ hai trước khi hai sao kia giao hội.",
+      "conditions": "A applying to conjunction (or aspect) with B; a faster C perfects an aspect with B before A perfects with B (Lilly's example has C pass A's aspect first).",
+      "exceptions": [],
+      "effect": "testimony_against",
+      "school": "lilly",
+      "status": "operationalised",
+      "engine_choice": "Lilly's example has the interposing planet first pass the applying planet's aspect, then reach the other's. Open: whether C must also aspect A first, or whether C perfecting any aspect with B (the quesited) before A does is enough. Engine: C perfecting with B before A does counts; whether C touched A first is recorded in the trace.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 111,
+          "quote": "The second manner of Prohibition is by Aspect"
+        },
+        {
+          "work": "LILLY",
+          "page": 111,
+          "quote": "This is called a Prohibition by Aspect,in the same nature judge if the Aspect be"
+        }
+      ],
+      "example": "Lilly's own (p.111, image checked): Mars 7 Aries, Saturn 15 Aries, Sun 5 Gemini: the Sun passes the dexter sextile of Mars and reaches the dexter sextile of Saturn before Mars can conjoin Saturn."
+    },
+    {
+      "id": "lilly.refranation",
+      "category": "denial",
+      "title_en": "Refranation",
+      "title_vi": "Thoái lui trước khi thành góc (refranation)",
+      "statement_en": "Refranation (another manner of prohibition): a planet hastening to the conjunction of another turns retrograde before it arrives, and so refrains from the conjunction while the other still moves forward; nothing signified by the intended conjunction will be effected.",
+      "statement_vi": "Thoái lui trước khi thành góc (refranation, một dạng ngăn trở): sao đang vội tiến tới giao hội với sao khác thì chuyển sang nghịch hành trước khi tới nơi, nên rút lui khỏi giao hội trong khi sao kia vẫn đi tiếp; điều mà giao hội đó báo hiệu sẽ không bao giờ thành.",
+      "conditions": "A applying to B; A's station (speed sign change to retrograde) occurs before the aspect perfects, so the aspect never perfects.",
+      "exceptions": [],
+      "effect": "testimony_against",
+      "school": "lilly",
+      "status": "operationalised",
+      "engine_choice": "Lilly's example uses a conjunction; the engine applies the same test to any applying aspect (Lilly calls it a kind of prohibition, and his perfection rules on p.125 name refranation generally). Applies whether or not the other planet moves on.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 111,
+          "quote": "There's another manner of Prohibition; by some more properly called Refrenation"
+        },
+        {
+          "work": "LILLY",
+          "page": 111,
+          "quote": "he becomes Retrograde, and by that meanes refraines to come to a"
+        }
+      ],
+      "example": "Lilly's own (p.111, image checked): Saturn 12 Aries, Mars 7 Aries hastening to him; before Mars reaches the 10th or 11th degree he turns retrograde."
+    },
+    {
+      "id": "lilly.translation",
+      "category": "perfection",
+      "title_en": "Translation of light and nature",
+      "title_vi": "Chuyển ánh sáng (translation of light)",
+      "statement_en": "Translation of light and nature is when a light planet separates from a more weighty one and presently joins to another more heavy, carrying the virtue of the first to the second. It is done by any aspect as well as by conjunction. In judgment, a person signified by the translating planet procures the matter between the two parties; of great use in marriages, lawsuits and all common questions.",
+      "statement_vi": "Chuyển ánh sáng (translation of light and nature) là khi một sao nhẹ tách khỏi một sao nặng hơn rồi lập tức tiến tới một sao nặng khác, mang sức của sao thứ nhất sang sao thứ hai. Có thể bằng bất kỳ góc chiếu nào cũng như bằng giao hội. Khi luận, người do sao chuyển ánh sáng chỉ thị sẽ đứng ra giúp việc giữa hai bên; rất hữu dụng trong việc hôn nhân, kiện tụng và mọi câu hỏi thông thường.",
+      "conditions": "Planet C (faster than both A and B) is separating from A (within orb) and applying to B (within orb), with no intervening contact; A and B are the two significators (who need not aspect each other).",
+      "exceptions": [],
+      "effect": "testimony_for",
+      "school": "lilly",
+      "status": "operationalised",
+      "engine_choice": "Lilly does not say how recent the separation must be ('presently joynes'). Engine: C must still be within the moiety orbs of A when it applies within orbs to B, and C must not perfect any other aspect in between.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 111,
+          "quote": "when a light Planet seperates from a more weighty one, and presently joynes to another more heavy"
+        },
+        {
+          "work": "LILLY",
+          "page": 111,
+          "quote": "Its done also as well by any Aspect"
+        }
+      ],
+      "example": "Lilly's own (p.111, image checked): Saturn 20 Aries, Mars 15 Aries, Mercury 16 Aries: Mercury separates from Mars and translates his virtue to Saturn."
+    },
+    {
+      "id": "lilly.collection",
+      "category": "perfection",
+      "title_en": "Collection of light",
+      "title_vi": "Thu gom ánh sáng (collection of light)",
+      "statement_en": "When the two principal significators do not behold one another, but both cast their aspects to a more weighty planet than themselves, and both receive him in some of their essential dignities, that planet which thus collects both their lights brings the matter to perfection: a person interested in both parties, described by that planet, concludes what otherwise could not be perfected.",
+      "statement_vi": "Khi hai sao chỉ thị chính không nhìn nhau (không có góc chiếu), nhưng cả hai đều chiếu tới một sao nặng (chậm) hơn chúng, và cả hai đều tiếp nhận (receive) sao đó trong một phẩm chất bản thể nào đó của mình, thì sao thu gom ánh sáng của cả hai sẽ làm việc thành: một người có liên quan đến cả hai bên, được sao đó mô tả, sẽ kết thúc việc mà nếu không có người ấy thì không thành.",
+      "conditions": "Significators A and B have no aspect within orb to each other; both A and B apply to (aspect) a slower planet C; C is in an essential dignity of A AND in an essential dignity of B (house, exaltation, triplicity, term or face of each).",
+      "effect": "testimony_for",
+      "status": "operationalised",
+      "engine_choice": "Lilly says both significators 'cast their severall Aspects' to the heavier planet; he does not say whether both must be applying or whether the aspects must perfect before C leaves the sign. Engine: both A and B must be applying to C within orbs. The reception requirement is explicit ('they both receive him').",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 126,
+          "quote": "when as the two principall Significators doe not behold one another, but both cast their severall Aspects to a more weighty Planet then themselves"
+        },
+        {
+          "work": "LILLY",
+          "page": 126,
+          "quote": "and they both receive him in some of their essentiall dignities; then shall that Planet who thus collects both their Lights, bring the thing demanded to perfection"
+        }
+      ],
+      "example": "Lilly's own analogy: two parties at variance are reconciled by a neighbour or friend. (Also recorded in lilly_book2.json as lilly.perfection.collection; this is the Book I definition id the engine cites.)",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.reception",
+      "category": "reception",
+      "title_en": "Reception",
+      "title_vi": "Tiếp nhận (reception)",
+      "statement_en": "Reception is when two planets that are significators are in each other's dignity. Reception by house is the strongest and best of all; it may also be by triplicity, term, face or any essential dignity. When the aspects deny the matter, or the significators have no aspect, or what a square or opposition promises is doubtful, yet if mutual reception happens between the principal significators the thing is brought to pass without great trouble, suddenly, to the content of both parties.",
+      "statement_vi": "Tiếp nhận (reception) là khi hai sao chỉ thị nằm trong phẩm chất (dignity) của nhau. Tiếp nhận bằng nhà (house) là mạnh và tốt nhất; cũng có thể bằng tam hợp (triplicity), giới (term), diện (face) hay bất kỳ phẩm chất bản thể nào. Khi góc chiếu phủ nhận việc, hoặc hai sao chỉ thị không có góc chiếu, hoặc điều góc vuông hay góc xung hứa hẹn còn đáng ngờ, nếu có tiếp nhận lẫn nhau (mutual reception) giữa hai sao chỉ thị chính thì việc vẫn thành, không mấy khó khăn, nhanh chóng và làm vừa lòng cả hai bên.",
+      "conditions": "A is received by B when A stands in a dignity ruled by B. Mutual reception: A in a dignity of B and B in a dignity of A (any essential dignity; strength order house > exaltation > triplicity > term > face). Triplicity reception uses the day/night ruler of the figure. Mutual reception between the principal significators is a testimony that the matter is brought to pass even without, or against, aspect testimony.",
+      "exceptions": [
+        "p.115 table: mutual reception by house scores like own house (5), reception by exaltation like exaltation (4); no points are printed for reception by triplicity, term or face."
+      ],
+      "effect": "testimony_for",
+      "status": "operationalised",
+      "engine_choice": "Lilly's examples are all mutual. He does not say whether one-way reception (only A in B's dignity) has any effect in Book I, nor whether mixed receptions (house for term) count. Engine: mutual reception at any level counts as Lilly's 'mutuall Reception'; one-way reception is recorded in the trace without a testimony.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 112,
+          "quote": "Reception is when two Planets that are significators in any Question or matter, are in each others dignity"
+        },
+        {
+          "work": "LILLY",
+          "page": 112,
+          "quote": "and certainly this is the strongest and best of all receptions. It may be by triplicity terme or face,or any essentiall dignity"
+        },
+        {
+          "work": "LILLY",
+          "page": 112,
+          "quote": "yet if mutuall Reception happen betwixt the principall significators, the thing is brought to passe, and that without any great trouble, and suddenly to the content of both parties"
+        }
+      ],
+      "example": "Lilly's own (p.112, image checked): Sun in Aries and Mars in Leo (by house); Venus in Aries and Sun in Taurus in a day figure (by triplicity); Venus in 24 Aries and Mars in 16 Gemini (by term: Venus in Mars' term, Mars in Venus' term). In the term example a damaged glyph is struck through before 'the 16. of Gemini' in this copy.",
+      "school": "lilly"
+    },
+    {
+      "id": "lilly.peregrine",
+      "category": "dignity_essential",
+      "title_en": "Peregrine",
+      "title_vi": "Lạc lõng (peregrine)",
+      "statement_en": "A planet is peregrine when it is in degrees of a sign where it has no essential dignity: not its house, exaltation or triplicity, and neither term nor face in that degree. A planet in its own term or face cannot be called peregrine. Knowing the peregrine planet is very material, especially in questions of theft: the thief's significator is almost always the peregrine planet in an angle or the second house.",
+      "statement_vi": "Một sao bị lạc lõng (peregrine) khi nằm ở những độ của cung mà nó không có phẩm chất bản thể nào: không phải nhà (house), vượng (exaltation), tam hợp (triplicity), cũng không có giới (term) hay diện (face) tại độ đó. Sao ở giới hay diện của chính mình thì không gọi là lạc lõng. Biết sao lạc lõng rất quan trọng, nhất là trong câu hỏi về trộm cắp: sao chỉ thị kẻ trộm hầu như luôn là sao lạc lõng nằm ở cung góc hoặc nhà 2.",
+      "conditions": "peregrine = no house, exaltation, triplicity (day/night ruler of the figure), term or face at the planet's exact degree (tables_lilly.json essential). Scored -5 (p.115).",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 112,
+          "quote": "A Planet is then said to be Peregrine, when he is in the degrees of any Signe wherein he hath no essentiall dignity"
+        },
+        {
+          "work": "LILLY",
+          "page": 112,
+          "quote": "for euer almost the significator of the Theefe is known by the Peregrine Planet posited in an Angle, or the second House"
+        },
+        {
+          "work": "LILLY",
+          "page": 58,
+          "quote": "he cannot be said to be peregrine, or void of essentiall dignities"
+        }
+      ],
+      "exceptions": [
+        "Triplicity: whether a planet ruling the triplicity by the other sect (e.g. Jupiter in Aries in a day figure) escapes peregrination is not stated; p.102 denies the triplicity points in the wrong sect, so engine treats it as no dignity."
+      ],
+      "example": "Lilly's own (p.112, image checked): Saturn in the tenth degree of Aries is peregrine; in 27, 28 of Aries he is in his own term and not peregrine. The Sun in any part of Cancer is peregrine.",
+      "school": "lilly"
+    },
+    {
+      "id": "lilly.voc.definition",
+      "category": "moon",
+      "title_en": "Void of course",
+      "title_vi": "Vô hành (void of course)",
+      "statement_en": "A planet is void of course when it is separated from a planet and does not forthwith, during its being in that sign, apply to any other. This is most usual in the Moon; a business seldom goes handsomely forward when she is so.",
+      "statement_vi": "Một sao vô hành (void of course) khi nó đã tách khỏi một sao và trong thời gian còn ở cung đó không tiến tới (apply) sao nào khác. Điều này thường gặp nhất ở Mặt Trăng; khi Mặt Trăng vô hành thì việc hiếm khi tiến triển suôn sẻ.",
+      "conditions": "VOC(planet) = no applying aspect (Ptolemaic, to any of the other six planets) that perfects before the planet leaves its present sign.",
+      "exceptions": [
+        "Lilly p.122 (image checked): matters go hardly on when the Moon is void of course, except the principal significators be very strong; yet she performs somewhat if void of course in Taurus, Cancer, Sagittarius or Pisces (recorded in lilly_book2.json, lilly.consider.moon_void_of_course)."
+      ],
+      "effect": "caution_radicality",
+      "status": "operationalised",
+      "engine_choice": "Lilly's words 'during his being in that Signe' make the sign boundary the limit. Open points: (1) whether an aspect that perfects only by orb (platic) but not exactly within the sign ends the VOC state (engine: only an aspect perfecting exactly before the sign change counts; the platic-only case is flagged); (2) which bodies count (engine: the seven planets only, not nodes or fixed stars); (3) whether an aspect to a planet in the next sign that perfects within the present sign counts (engine: yes, it is a perfection before the Moon leaves).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 112,
+          "quote": "A Planet is voyd of course,when he is seperated from a Planet, nor doth forthwith, during his being in that Signe, apply to any other"
+        },
+        {
+          "work": "LILLY",
+          "page": 112,
+          "quote": "you shall seldome see a businesse goe handsomely forward when she is so"
+        },
+        {
+          "work": "LILLY",
+          "page": 122,
+          "quote": "yet somewhat she performes if voyd of course"
+        }
+      ],
+      "example": "Constructed: Moon at 27 Gemini, last aspect a trine to Saturn now separating, no other aspect perfecting before 30 Gemini: void of course.",
+      "school": "lilly"
+    },
+    {
+      "id": "lilly.frustration",
+      "category": "denial",
+      "title_en": "Frustration",
+      "title_vi": "Bị phỗng tay trên (frustration)",
+      "statement_en": "Frustration is when a swift planet would corporally join with a more ponderous one, but before they can come to conjunction the more weighty planet is joined to another, and so the conjunction of the first is frustrated. In questions it signifies as the proverb: two dogs quarrel, a third gets the bone.",
+      "statement_vi": "Bị phỗng tay trên (frustration) là khi một sao nhanh muốn giao hội với một sao nặng hơn, nhưng trước khi chúng giao hội thì sao nặng đã giao hội với một sao khác, nên giao hội của sao thứ nhất bị hỏng. Trong câu hỏi, nó giống câu tục ngữ: hai con chó tranh nhau, con thứ ba được khúc xương.",
+      "conditions": "A (faster) applying to conjunction with B (slower); B perfects a conjunction with a third planet C before A reaches B. Note: it is the applied-to (heavier) planet B that meets C first.",
+      "effect": "testimony_against",
+      "status": "operationalised",
+      "engine_choice": "Lilly defines frustration only for bodily conjunction ('corporally joyne'). Open: whether the same denial applies when A applies to B by aspect and B first perfects with C. Engine: classical case (conjunction) is frustration; the aspect case is flagged as 'frustration by aspect (engine extension)'. Lilly's own example has C (Jupiter) heavier than B (Mars), and B applying to C; engine requires that B perfects with C before A perfects with B, regardless of which of B and C is heavier.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 112,
+          "quote": "Frustration is, when a swift Planet would corporally joyne with a more ponderous, but before they can come to conjunction, the more weighty Planet is joyned to another"
+        },
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "in Questions it signifies as much as our common Proverb, Two Dogges quarrell, a third gets the Bone"
+        }
+      ],
+      "example": "Lilly's own (p.113, image checked): Mercury in 10 Aries, Mars in 12, Jupiter in 13 Aries: Mercury strives to come to Mars, but Mars first gets to conjunction with Jupiter, whereby Mercury is frustrated.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.hayz",
+      "category": "dignity_accidental",
+      "title_en": "Hayz",
+      "title_vi": "Hayz (sao hợp phe ngày/đêm)",
+      "statement_en": "Hayz is when a masculine, diurnal planet is in the daytime above the earth and in a masculine sign; or a feminine, nocturnal planet by night under the earth in a feminine sign. In questions it usually shows the content of the querent at the time of the question, when his significator is so found.",
+      "statement_vi": "Hayz là khi một sao dương tính, thuộc phe ngày, vào ban ngày nằm trên đường chân trời và ở cung dương; hoặc một sao âm tính, thuộc phe đêm, vào ban đêm nằm dưới đường chân trời ở cung âm. Trong câu hỏi, khi sao chỉ thị của người hỏi ở trạng thái này thì thường cho thấy người hỏi đang hài lòng vào lúc hỏi.",
+      "conditions": "Day chart AND planet above horizon (houses 7-12) AND masculine sign AND planet masculine+diurnal; OR night chart AND planet below horizon (houses 1-6) AND feminine sign AND planet feminine+nocturnal.",
+      "effect": "testimony_for",
+      "status": "operationalised",
+      "engine_choice": "By Lilly's planet chapters the masculine diurnal planets are Saturn (p.58), Jupiter (p.62) and the Sun (p.70); the feminine nocturnal planets are Venus (p.73) and the Moon (p.81). Mars is 'Masculine, Nocturnall' (p.66) and Mercury is neither masculine nor feminine of himself (p.77), so neither fits Lilly's definition; engine never gives them hayz. Lilly gives no points for hayz in the p.115 table: it is a description of the querent's contentment, not a score. 'Above the earth' = above the horizon (engine uses houses 7-12, i.e. above the ascendant-descendant axis).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "Hayz is, when a Masculine and Diurnal Planet is in the day time above the earth, and in a Masculine Signe"
+        },
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "in Questions it usually shewes the content of the Querent at time of the Question, when his significator is so found"
+        }
+      ],
+      "example": "Constructed: day figure, Jupiter in Sagittarius in the 10th house: in hayz.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.planets.superior_inferior",
+      "category": "motion",
+      "title_en": "Superior and inferior planets",
+      "title_vi": "Sao thượng và sao hạ (superior, inferior)",
+      "statement_en": "Saturn, Jupiter and Mars, placed above the orb of the Sun, are called the superior, ponderous and more weighty planets; Venus, Mercury and the Moon, under the orb of the Sun, are called the inferior planets.",
+      "statement_vi": "Thổ tinh, Mộc tinh và Hỏa tinh, nằm trên quỹ đạo Mặt Trời, gọi là các sao thượng (superior), nặng và chậm; Kim tinh, Thủy tinh và Mặt Trăng, nằm dưới quỹ đạo Mặt Trời, gọi là các sao hạ (inferior).",
+      "conditions": "superior = {Saturn, Jupiter, Mars}; inferior = {Venus, Mercury, Moon}. 'Weight' for application = slower mean motion (tables_lilly.json mean_motion): Saturn, Jupiter, Mars, Sun, Venus, Mercury, Moon from heaviest to lightest; actual daily speed decides which is applying.",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "Saturne, Jupiter and Mars being placed above the Orbe of the Sunne, are called the superiour, ponderous and more weighty Planets"
+        },
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "Venus, Mercury and Luna are called the inferiour Planets, being under the Orbe of the Sunne"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.sun.combust",
+      "category": "sun",
+      "title_en": "Combustion",
+      "title_vi": "Bị đốt cháy (combust)",
+      "statement_en": "A planet is combust of the Sun when, in the same sign where the Sun is, it is not distant from him 8 degrees 30 minutes, before or after. It is more afflicted when the Sun hastens to its conjunction than when the Sun recedes, since it is the Sun's body that afflicts. Lilly takes the moiety of the Sun's own orb for the limit, not the other planet's. Combustion is only by bodily conjunction in one sign, never by aspect; the Sun's square or opposition afflicts but does not combure. Combustion is the greatest misfortune that can be; the querent's significator combust shows him in great fear and overpowered by some great person.",
+      "statement_vi": "Một sao bị Mặt Trời đốt cháy (combust) khi nó ở cùng cung với Mặt Trời và cách Mặt Trời chưa tới 8 độ 30 phút, dù đứng trước hay sau. Sao bị hại nặng hơn khi Mặt Trời đang tiến tới giao hội với nó so với khi Mặt Trời đã rời đi, vì chính thân Mặt Trời gây hại. Lilly lấy nửa orb của chính Mặt Trời làm giới hạn, không lấy orb của sao kia. Bị đốt cháy chỉ xảy ra khi giao hội bằng thân trong cùng một cung, không bao giờ bằng góc chiếu; góc vuông hay góc xung của Mặt Trời gây hại nhưng không đốt cháy. Bị đốt cháy là điều bất hạnh lớn nhất; sao chỉ thị người hỏi bị đốt cháy cho thấy người đó đang rất sợ hãi và bị một người quyền thế áp đảo.",
+      "conditions": "combust = same sign as Sun AND |lon - lon_Sun| < 8°30' AND not cazimi (< 0°17'). Severity higher when the Sun is applying to the planet. Score -5 (p.115). The Sun itself is never combust.",
+      "exceptions": [
+        "Lilly p.113: 'I know many are against this opinion' (i.e. against using the Sun's moiety rather than the planet's).",
+        "Cazimi (within 17 minutes) is a fortitude, not combustion: lilly.sun.cazimi."
+      ],
+      "effect": "testimony_against",
+      "status": "disputed",
+      "dispute": "Lilly's own second example contradicts his limit: 'let the Sun be in eighteen of Aries, and Jupiter in twenty eight degrees of Aries, here Jupiter is combust' (p.113, image checked) puts them 10 degrees apart, beyond the stated 8°30'. Either a misprint (e.g. for 26) or a loose example; the engine follows the stated limit 8°30'. Also the 8°30' is half of the Sun's 17-degree orb (p.107 first column) while p.110 uses 15 for the Sun.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "when in the same Signe where the Sun is in, he is not distant from the Sun eight degrees and thirty minutes, either before or after the Sun"
+        },
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "and you must observe a Planet is more afflicted when the"
+        },
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "I know many are against this opinion"
+        },
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "and that Combustion can onely be by personall"
+        },
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "the significator of the Querent combust, shewes him or her in great feare, and overpowred by some great person"
+        }
+      ],
+      "example": "Lilly's own (p.113, image checked): Jupiter in 10 Aries and Sun in 18 Aries: Jupiter combust; by Jupiter's own moiety (4°30') he would not be combust until within four and a half degrees.",
+      "school": "lilly"
+    },
+    {
+      "id": "lilly.sun.under_beams",
+      "category": "sun",
+      "title_en": "Under the Sun's beams",
+      "title_vi": "Dưới tia Mặt Trời (under the sunbeams)",
+      "statement_en": "A planet is still under the Sun-beams until it is fully elongated or distant from his body 17 degrees, either before or after him.",
+      "statement_vi": "Một sao vẫn còn ở dưới tia Mặt Trời (under the sunbeams) cho tới khi nó cách xa thân Mặt Trời đủ 17 độ, dù đứng trước hay sau.",
+      "conditions": "under_beams = 8°30' <= |lon - lon_Sun| < 17° (and not combust). Score -4 (p.115).",
+      "effect": "testimony_against",
+      "status": "operationalised",
+      "engine_choice": "Lilly gives only the 17-degree outer limit. Open points: (1) whether the same sign is required (stated for combustion, not for the sunbeams; engine: not required, distance in longitude only); (2) whether the combust zone counts as 'under the beams' as well (the p.115 table scores 'Combust' -5 and 'Under the Sun Beames' -4 as separate lines; engine: the two are exclusive bands, combust takes precedence; a planet within 8°30' but in another sign is under the beams, not combust); (3) 17 degrees equals the Sun's full orb in the p.107 first column.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "A Planet is said to be still under the Sun-beames,untill he is fully elongated or distant from his body 17,degr. either before or after him"
+        }
+      ],
+      "example": "Constructed: Sun 10 Leo, Venus 22 Leo (12 degrees): under the beams, not combust.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.sun.cazimi",
+      "category": "sun",
+      "title_en": "Cazimi (in the heart of the Sun)",
+      "title_vi": "Trong tim Mặt Trời (cazimi)",
+      "statement_en": "A planet is in the heart of the Sun, or cazimi, when it is not removed from him 17 minutes, forward or backward; all authors hold a planet in cazimi to be fortified thereby.",
+      "statement_vi": "Một sao ở trong tim Mặt Trời (cazimi) khi nó cách Mặt Trời không quá 17 phút cung, dù phía trước hay phía sau; mọi tác giả đều cho rằng sao ở cazimi được tăng sức.",
+      "conditions": "cazimi = |lon - lon_Sun| <= 0°17'. Score +5 (p.115); not combust.",
+      "effect": "testimony_for",
+      "status": "operationalised",
+      "engine_choice": "Lilly measures in longitude only and his example is in one sign; open: latitude is not mentioned (engine ignores latitude), and whether a cazimi planet also gets 'Free from Combustion' (+5) is not said (engine: no, cazimi replaces it).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "A Planet is in the heart of the Sunne,or in Cazimi,when he is not removed from him 17.min.or is within 17.min.forward or backward"
+        },
+        {
+          "work": "LILLY",
+          "page": 113,
+          "quote": "and all Authors doe hold a Planet in Cazimi to be fortified thereby"
+        }
+      ],
+      "example": "Lilly's own (p.113, image checked): Sun in 15°30' Taurus, Mercury in 15°25' Taurus: Mercury in cazimi.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.sun.free",
+      "category": "sun",
+      "title_en": "Free from combustion and the Sun's beams",
+      "title_vi": "Thoát khỏi đốt cháy và tia Mặt Trời",
+      "statement_en": "In the table of fortitudes a planet 'Free from Combustion and Sun Beams' gains 5 points.",
+      "statement_vi": "Trong bảng sức mạnh (p.115), sao 'thoát khỏi đốt cháy và tia Mặt Trời' được cộng 5 điểm.",
+      "conditions": "free = |lon - lon_Sun| >= 17° (outside the beams); +5. Not applied to the Sun himself.",
+      "effect": "testimony_for",
+      "status": "operationalised",
+      "engine_choice": "Lilly does not define 'free' beyond the table line; engine: free when not combust, not under the beams and not cazimi. The Moon is included (Lilly makes no exception).",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 115,
+          "quote": "Free from Combustion and Beams"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.oriental_occidental",
+      "category": "sun",
+      "title_en": "Oriental and occidental",
+      "title_vi": "Đông phương và tây phương (oriental, occidental)",
+      "statement_en": "Saturn, Jupiter and Mars are oriental of the Sun from their conjunction with him until they come to his opposition; from then until conjunction again they are occidental. To be oriental is to rise before the Sun; occidental, to be seen above the horizon after the Sun is set. Mercury and Venus can make no aspect to the Sun: they are oriental when in fewer degrees of the Sun's sign or in the sign preceding, occidental when in more degrees of his sign or in the next sign. Mercury cannot be more than 28 degrees from the Sun, nor Venus more than 48, though some allow a few more. The Moon is oriental from her opposition to her conjunction, occidental from conjunction to opposition.",
+      "statement_vi": "Thổ, Mộc và Hỏa tinh ở phương đông (oriental) của Mặt Trời từ lúc giao hội với Mặt Trời cho tới khi xung với nó; từ đó tới lần giao hội sau là phương tây (occidental). Đông phương nghĩa là mọc trước Mặt Trời; tây phương là còn thấy trên chân trời sau khi Mặt Trời lặn. Thủy và Kim tinh không thể tạo góc chiếu với Mặt Trời: chúng ở đông phương khi ở số độ thấp hơn trong cung của Mặt Trời hoặc ở cung trước đó, ở tây phương khi ở số độ cao hơn trong cung của Mặt Trời hoặc ở cung kế sau. Thủy tinh không thể cách Mặt Trời quá 28 độ, Kim tinh không quá 48 độ (có người cho thêm vài độ). Mặt Trăng ở đông phương từ lúc xung tới lúc giao hội, tây phương từ giao hội tới xung.",
+      "conditions": "Superiors: oriental if (lon_planet - lon_Sun) mod 360 in (180, 360) i.e. the Sun has passed the planet and the planet rises before the Sun; occidental if in (0, 180). Inferiors (Venus, Mercury): oriental if lon_planet < lon_Sun (behind in zodiacal order), occidental if ahead. Moon: occidental from new moon to full (waxing), oriental from full to new (waning). Points (p.115): superiors oriental +2, occidental -2; Venus/Mercury occidental +2, oriental -2; Moon increasing or occidental +2, decreasing -2. The Sun himself is only 'oriental in the figure' (oriental quarter), p.70.",
+      "effect": "definition",
+      "status": "operationalised",
+      "engine_choice": "Lilly's wording for Venus and Mercury is by sign and degree ('fewer degrees of the Signe the Sun is, or in the Signe preceding'); engine uses the equivalent longitude comparison (planet behind the Sun = oriental). His 'rise before the Sun' (heliacal visibility) is not computed; the geometric definition is used.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "they are said to be Occidentall; to be Orientall is no other thing then to rise before the"
+        },
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "to be Orientall is no other thing then to rise before the Sun: to be Occidentall is to be seen above the Horizon, or to set after the Sun is downe"
+        },
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "their Occidentality, when they are in more degrees of the Signe the Sun is in, or in the next subsequent"
+        },
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "though some allow a few more"
+        },
+        {
+          "work": "LILLY",
+          "page": 70,
+          "quote": "we can onely say he is Orientall in the Figure, or in the Orientall quarter of the Figure"
+        }
+      ],
+      "example": "Lilly's own (p.114, image checked): Mercury cannot be more than 28 degrees from the Sun, nor Venus more than 48.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.besieged",
+      "category": "dignity_accidental",
+      "title_en": "Besieging",
+      "title_vi": "Bị vây hãm (besieged)",
+      "statement_en": "Besieging is when any planet is placed betwixt the bodies of the two malevolent planets Saturn and Mars. In questions it represents a man going out of God's blessing into the warm sun, if the besieged planet is a significator.",
+      "statement_vi": "Bị vây hãm (besieged) là khi một sao nằm giữa thân của hai sao hung là Thổ tinh và Hỏa tinh. Trong câu hỏi, nếu sao bị vây là sao chỉ thị, nó biểu thị người 'bỏ phúc lành của Chúa ra nắng' (từ chỗ tốt rơi vào chỗ tệ).",
+      "conditions": "Planet P lies between the longitudes of Saturn and Mars (on the shorter arc), with Saturn on one side and Mars on the other. Score -5 (p.115).",
+      "effect": "testimony_against",
+      "status": "operationalised",
+      "engine_choice": "Lilly says 'betwixt the bodies' only; his example has all three in Aries within 5 degrees. Open: maximum span, same-sign requirement, whether besieging by aspect (rays) counts, and whether the besieged planet must be separating from one malefic and applying to the other. Engine: by bodies only (no aspects), same sign required, and P must be the only planet between them; the span limit is flagged as an engine choice.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "Besieging is, when any Planet is placed betwixt the bodies of the two Malevolent Planets"
+        },
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "a Man going out of Gods blessing into the warme Sunne"
+        }
+      ],
+      "example": "Lilly's own (p.114, image checked): Saturn in 15 Aries, Mars in 10 Aries, Venus in 13 Aries: Venus is besieged by the two infortunes.",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.motion.direct",
+      "category": "motion",
+      "title_en": "Direct motion",
+      "title_vi": "Thuận hành (direct)",
+      "statement_en": "Direction is when a planet moves forward in the sign, as out of 13 degrees into 14 and so along. Direct is an accidental fortitude of 4 points; the Sun and Moon are always direct, so to them this is void.",
+      "statement_vi": "Thuận hành (direct) là khi sao đi tới trong cung, ví dụ từ độ 13 sang độ 14 và cứ thế. Thuận hành là một sức mạnh ngẫu nhiên được 4 điểm; Mặt Trời và Mặt Trăng luôn thuận hành nên điều này không áp dụng cho chúng.",
+      "conditions": "direct = daily longitude speed > 0 (and not stationary). +4 for Saturn, Jupiter, Mars, Venus, Mercury; not scored for Sun and Moon.",
+      "effect": "definition",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "When a Planet moveth forward in the Signe, as going out of 13.degr. into 14. and so along"
+        },
+        {
+          "work": "LILLY",
+          "page": 115,
+          "quote": "are alwayes so; as to them this is voyd"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.motion.retrograde",
+      "category": "motion",
+      "title_en": "Retrograde",
+      "title_vi": "Nghịch hành (retrograde)",
+      "statement_en": "Retrogradation is when a planet goes backward, as out of 10 degrees into 9, 8, 7. Retrograde is a debility of 5 points. A significator in its own house shows a man in a happy state unless it be retrograde, combust or afflicted. The Sun is always direct and never retrograde; the Moon is never retrograde, but when slow (less than 13°10' in 24 hours) she is equivalent to a retrograde planet.",
+      "statement_vi": "Nghịch hành (retrograde) là khi sao đi lùi, ví dụ từ độ 10 về 9, 8, 7. Nghịch hành là một suy yếu bị trừ 5 điểm. Sao chỉ thị ở nhà mình cho thấy người đó đang sung túc, trừ khi nó nghịch hành, bị đốt cháy hay bị sao hung làm hại. Mặt Trời luôn thuận hành, không bao giờ nghịch hành; Mặt Trăng cũng không bao giờ nghịch hành, nhưng khi đi chậm (dưới 13°10' trong 24 giờ) thì tương đương một sao nghịch hành.",
+      "conditions": "retrograde = daily longitude speed < 0; -5 (p.115). Moon with daily motion < 13°10' treated as equivalent to retrograde (engine: applies the 'slow' -2 and records the equivalence; see lilly.motion.swift_slow).",
+      "effect": "testimony_against",
+      "status": "classical",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "When a Planet goeth backward, as out of 10. degr. into 9, 8,7"
+        },
+        {
+          "work": "LILLY",
+          "page": 102,
+          "quote": "signisicator be retrograde, or combust, or afflicted by any other malevolent Planet or aspect"
+        },
+        {
+          "work": "LILLY",
+          "page": 80,
+          "quote": "when she is slow in motion, and goeth lesse in 24 hours then 13 degr. and 10 min. she is then equivalent to a Retrograde Planet"
+        },
+        {
+          "work": "LILLY",
+          "page": 69,
+          "quote": "is alwayes direct, and never can be said to be Retrograde"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.motion.stationary",
+      "category": "motion",
+      "title_en": "Stationary",
+      "title_vi": "Đứng yên (stationary)",
+      "statement_en": "A planet is stationary when it moves not at all, as the superiors do not for 2, 3 or 4 days before retrogradation. Lilly gives each planet's station length in its chapter (tables_lilly.json stations).",
+      "statement_vi": "Một sao đứng yên (stationary) khi nó hầu như không di chuyển, như các sao thượng đứng yên 2, 3 hoặc 4 ngày trước khi nghịch hành. Lilly cho độ dài thời kỳ đứng yên của từng sao trong chương về sao đó (bảng stations).",
+      "conditions": "stationary when |daily speed| is below a threshold around a station (sign change of speed).",
+      "effect": "definition",
+      "status": "operationalised",
+      "engine_choice": "Lilly gives days, not a speed threshold, and the p.115 table has no line for stationary. Engine: stationary when the ephemeris station (speed = 0) falls within the planet's printed station window (e.g. Saturn ±5 days, Mars 2-3 days before retrogradation); no points, trace note only. Whether a planet in its first station (turning retrograde) is to be judged as retrograde already is not said in Book I.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 114,
+          "quote": "When he moves not at all, as the superiours doe not 2,3, or 4, dayes before Retrogradation"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    },
+    {
+      "id": "lilly.motion.swift_slow",
+      "category": "motion",
+      "title_en": "Swift and slow in motion",
+      "title_vi": "Đi nhanh và đi chậm (swift, slow)",
+      "statement_en": "Swift in motion is an accidental fortitude (+2), slow in motion a debility (-2). Lilly gives each planet's mean ('middle') motion and its range of daily motion in the planet chapters; of the Moon he says that going less than 13°10' in 24 hours she is slow and equivalent to a retrograde planet.",
+      "statement_vi": "Đi nhanh (swift in motion) là sức mạnh ngẫu nhiên (+2), đi chậm (slow) là suy yếu (-2). Lilly cho tốc độ trung bình (mean motion) và khoảng tốc độ mỗi ngày của từng sao trong chương về sao đó; về Mặt Trăng, ông nói khi đi dưới 13°10' trong 24 giờ thì bà đi chậm và tương đương một sao nghịch hành.",
+      "conditions": "swift = daily speed > mean motion (tables_lilly.json mean_motion); slow = daily speed < mean motion (for direct planets). Moon threshold 13°10' is Lilly's own (p.80).",
+      "effect": "modifies",
+      "status": "operationalised",
+      "engine_choice": "Only for the Moon does Lilly state the threshold (her mean motion 13°10'). For the other planets the engine applies the same rule (faster than the printed mean motion = swift). Open: Mars' printed mean motion is misprinted ('31 degr. 27 min.', read as 31'27\"); the Sun, Venus and Mercury share 59'08\". Whether retrograde planets can also be 'swift' is not said; engine scores swift/slow only for direct planets.",
+      "sources": [
+        {
+          "work": "LILLY",
+          "page": 115,
+          "quote": "Swift in motion"
+        },
+        {
+          "work": "LILLY",
+          "page": 80,
+          "quote": "her meane motion is 13 degr. 10 min, and 36 seconds"
+        },
+        {
+          "work": "LILLY",
+          "page": 80,
+          "quote": "when she is slow in motion, and goeth lesse in 24 hours then 13 degr. and 10 min."
+        },
+        {
+          "work": "LILLY",
+          "page": 57,
+          "quote": "his middle motion is two minutes and one second"
+        }
+      ],
+      "example": "",
+      "school": "lilly",
+      "exceptions": []
+    }
+  ]
+}

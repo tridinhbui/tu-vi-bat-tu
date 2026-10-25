@@ -1,0 +1,634 @@
+{
+ "meta": {
+  "school": "lilly",
+  "work": "LILLY",
+  "cite": "William Lilly, Christian Astrology (London, 1647), Book II worked examples, Wellcome Library copy, archive.org b30338724, Public Domain Mark",
+  "calendar": "Dates are as printed by Lilly: Julian (Old Style) calendar; times are local time as he prints them. The engine must convert (Julian -> Gregorian is +10 days in the 1640s) itself.",
+  "figure_data": "Read from the page images of the square chart figures: cusps and planet positions exactly as printed (degree and minute); 'R' = a retrograde mark is printed. Illegible values are null with a note."
+ },
+ "examples": [
+  {
+   "id": "lilly.ex.rich_or_poor_1634",
+   "pages": [
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    186
+   ],
+   "topic": "money",
+   "house": 2,
+   "question": "A Tradesman of this City ... 1. If he should be rich, or subsist of himselfe without Marriage? 2. By what meanes he should attaine wealth? 3. The time when? 4. If it would continue?",
+   "date_as_printed": {
+    "printed": "16. Iuly 1634 / 11 H 6' A M",
+    "day": 16,
+    "month": 7,
+    "year": 1634,
+    "hour": 11,
+    "minute": 6,
+    "ampm": "A.M.",
+    "calendar": "Julian (Old Style)",
+    "place": "London ('A Tradesman of this City', p.177)",
+    "also_printed": "Dns: diei Mercury; Hor: astr: Sun; 'Moon a conjunction Mercury ad conjunction Venus' (Moon from the conjunction of Mercury to the conjunction of Venus)"
+   },
+   "figure": {
+    "format": "round figure, east (1st) on the left",
+    "cusps": {
+     "1": "Libra 14:13",
+     "2": "Scorpio 6:35",
+     "3": "Sagittarius 7:12",
+     "4": "Capricorn 19:00",
+     "5": "Aquarius 26:52",
+     "6": "Pisces 23:09",
+     "7": "Aries 14:13",
+     "8": "Taurus 6:35",
+     "9": "Gemini 7:12",
+     "10": "Cancer 19:00",
+     "11": "Leo 26:52",
+     "12": "Virgo 23:09"
+    },
+    "planets": {
+     "Sun": {
+      "sign": "Leo",
+      "deg": 3,
+      "min": 10,
+      "retro": false,
+      "printed_in_house": 10
+     },
+     "Moon": {
+      "sign": "Leo",
+      "deg": 19,
+      "min": 7,
+      "retro": false,
+      "printed_in_house": 10
+     },
+     "Mercury": {
+      "sign": "Leo",
+      "deg": 17,
+      "min": 45,
+      "retro": false,
+      "printed_in_house": 10
+     },
+     "Venus": {
+      "sign": "Leo",
+      "deg": 25,
+      "min": 34,
+      "retro": false,
+      "printed_in_house": 10
+     },
+     "Mars": {
+      "sign": "Libra",
+      "deg": 16,
+      "min": 12,
+      "retro": false,
+      "printed_in_house": 1
+     },
+     "Jupiter": {
+      "sign": "Cancer",
+      "deg": 17,
+      "min": 31,
+      "retro": false,
+      "printed_in_house": 9
+     },
+     "Saturn": {
+      "sign": "Sagittarius",
+      "deg": 15,
+      "min": 19,
+      "retro": true,
+      "printed_in_house": 3
+     }
+    },
+    "other": {
+     "part_of_fortune": "Scorpio 0:10 (printed in the 1st compartment, by the 2nd cusp)",
+     "north_node": "Pisces 22:12",
+     "south_node": "Virgo 22:12"
+    },
+    "lilly_house_placements": "Lilly's dignity tables (pp.178-180) count Jupiter 'In the tenth house' (1°29' before the MC), Venus 'In the eleventh house' (1°18' before the 11th cusp), and the Part of Fortune in the second (p.180), i.e. he moves a body within a few degrees of the next cusp into that house.",
+    "legibility": "fully legible; the Moon's minutes print as an old-style 7"
+   },
+   "significators": [
+    {
+     "role": "querent",
+     "planet": "Venus",
+     "why": "lady of the ascendant (Libra)"
+    },
+    {
+     "role": "querent (co-significator)",
+     "planet": "Moon",
+     "why": "general significator in every question"
+    },
+    {
+     "role": "quesited: substance",
+     "planet": "Mars",
+     "why": "lord of the 2nd (Scorpio) and dispositor of the Part of Fortune"
+    },
+    {
+     "role": "natural significator of wealth",
+     "planet": "Jupiter",
+     "why": "'a generall significator of Wealth'"
+    },
+    {
+     "role": "trade",
+     "planet": "Moon",
+     "why": "lady of the 10th (Cancer)"
+    }
+   ],
+   "configurations": [
+    {
+     "type": "translation",
+     "planets": [
+      "Moon",
+      "Mars",
+      "Mercury",
+      "Venus"
+     ],
+     "aspects": [
+      "Moon separating from sextile Mars",
+      "Moon separating from conjunction Mercury",
+      "Moon applying to conjunction Venus"
+     ],
+     "words": "the Moon separated newly from a sextile of Mars Lord of the second ... then instantly applying to the conjunction of Venus significator of the Querent, transferring thereby both the vertue and influence",
+     "page": 182
+    },
+    {
+     "type": "aspect_to_cusp",
+     "planets": [
+      "Jupiter"
+     ],
+     "aspects": [
+      "Jupiter in Cancer (exaltation), angular, sinister square to the ascending degree"
+     ],
+     "words": "which square in signes of long ascensions, we usually repute a trine",
+     "page": 181
+    },
+    {
+     "type": "house_position",
+     "planets": [
+      "Mars"
+     ],
+     "aspects": [
+      "lord of the 2nd in the ascendant, near Spica"
+     ],
+     "words": "as he is Lord of the second and placed in the ascendant, he intimates an estate to be got by the Querents owne industry",
+     "page": 182
+    },
+    {
+     "type": "timing",
+     "planets": [
+      "Mars",
+      "ascendant"
+     ],
+     "aspects": [
+      "Mars about 2 degrees from the ascendant cusp"
+     ],
+     "words": "The distance of the Ascendant from Mars being about two degrees, did in this way of judgement signifie two yeers or thereabouts",
+     "page": 183
+    },
+    {
+     "type": "timing",
+     "planets": [
+      "Moon",
+      "Venus"
+     ],
+     "aspects": [
+      "Moon 6°27' short of conjunction Venus"
+     ],
+     "words": "six degrees, 27 minutes ... about 1640, which was six yeers after the Question",
+     "page": 183
+    }
+   ],
+   "judgment": {
+    "paraphrase_en": "He would acquire an estate and a competent fortune, but with labour and care because the significator of substance (Mars) is an infortune; since Mars also rules the 7th he advised marriage: a wife would bring a good, fixed fortune; trade would also prosper (Jupiter in the 10th). Time: about two years for a portion with a wife; great trading about 1640. Riches would continue (fixed 2nd cusp, Jupiter exalted and angular, Moon in a fixed sign).",
+    "paraphrase_vi": "Người hỏi sẽ có của cải và cơ nghiệp vừa đủ nhưng phải vất vả, vì sao chủ tài sản (Hỏa Tinh) là hung tinh; do Hỏa Tinh còn làm chủ cung 7 nên Lilly khuyên lấy vợ: vợ sẽ đem lại tài sản tốt và bền; nghề buôn cũng phát (Mộc Tinh ở cung 10). Thời gian: khoảng hai năm thì được của hồi môn; khoảng năm 1640 buôn bán rất thịnh. Của cải sẽ bền (đỉnh cung 2 là cung cố định, Mộc Tinh vượng ở cung góc, Trăng ở cung cố định).",
+    "quote": "I judged that the Demandant would acquire an Estate, and have a competent fortune in this world, but attaine it with labour and care, because it is signified by an Infortune"
+   },
+   "outcome": "Lilly reports: he had a good fortune with his wife, both money and land, and his trading was very good (p.183).",
+   "notes": "Lilly scores every planet's fortitudes and debilities on pp.178-180 (a worked use of his dignity tables) and lists antiscia (p.181). His text says the Part of Fortune is 'some minutes more then five degrees' from the 2nd cusp; the printed figures give 6°25' (Scorpio 0:10 vs 6:35).",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 177,
+     "quote": "A Tradesman of this City in the yeer 1634. propounded these severall Demands unto me"
+    },
+    {
+     "work": "LILLY",
+     "page": 182,
+     "quote": "I judged that the Demandant would acquire an Estate, and have a competent fortune in this world, but attaine it with labour and care, because it is signified by an Infortune"
+    },
+    {
+     "work": "LILLY",
+     "page": 182,
+     "quote": "transferring thereby both the vertue and influence of"
+    },
+    {
+     "work": "LILLY",
+     "page": 183,
+     "quote": "had a good fortune with his Wife, both Money and Land; and for his Trading it hath been very good"
+    },
+    {
+     "work": "LILLY",
+     "page": 183,
+     "quote": "did in this way of judgement signifie two yeers or thereabouts"
+    }
+   ]
+  },
+  {
+   "id": "lilly.ex.absent_brother_1645",
+   "pages": [
+    196,
+    197,
+    198,
+    199
+   ],
+   "topic": "journey / absent person (news, return)",
+   "house": 3,
+   "question": "a Citizen of London being gone into the West of England, and no newes for many weeks had where he was, his owne Brother ... 1. If living or dead? ... 2. If living, when he should heare of him? and where he was? 3. When he would come home?",
+   "date_as_printed": {
+    "printed": "Friday. 7 Nouem. 1645 / hora: meridiana / Question",
+    "day": 7,
+    "month": 11,
+    "year": 1645,
+    "hour": 12,
+    "minute": 0,
+    "ampm": "noon ('hora meridiana')",
+    "calendar": "Julian (Old Style)",
+    "place": "London (Lilly reduces the ephemeris time 'to our London Meridian', p.198)"
+   },
+   "figure": {
+    "format": "round figure, east (1st) on the left",
+    "cusps": {
+     "1": "Capricorn 20:27",
+     "2": "Pisces 14:52",
+     "3": "Taurus 2:52",
+     "4": "Taurus 25:28",
+     "5": "Gemini 9:36",
+     "6": "Gemini 24:54",
+     "7": "Cancer 20:27",
+     "8": "Virgo 14:52",
+     "9": "Scorpio 2:52",
+     "10": "Scorpio 25:28",
+     "11": "Sagittarius 9:36",
+     "12": "Sagittarius 24:54"
+    },
+    "planets": {
+     "Sun": {
+      "sign": "Scorpio",
+      "deg": 25,
+      "min": 28,
+      "retro": false,
+      "printed_in_house": 10,
+      "note": "drawn at the apex on the MC; no separate degrees printed for the Sun: the MC cusp 'Scorpio 25:28' is printed beside it and Lilly says the Sun is 'upon the Cuspe of Medium Coeli'; the printed Part of Fortune (Capricorn 10:28) back-computes to Sun 25:28"
+     },
+     "Moon": {
+      "sign": "Scorpio",
+      "deg": 15,
+      "min": 29,
+      "retro": false,
+      "printed_in_house": 9
+     },
+     "Mercury": {
+      "sign": "Scorpio",
+      "deg": 8,
+      "min": 28,
+      "retro": false,
+      "printed_in_house": 9
+     },
+     "Venus": {
+      "sign": "Sagittarius",
+      "deg": 28,
+      "min": 53,
+      "retro": false,
+      "printed_in_house": 12
+     },
+     "Mars": {
+      "sign": "Scorpio",
+      "deg": 29,
+      "min": 10,
+      "retro": false,
+      "printed_in_house": 10
+     },
+     "Jupiter": {
+      "sign": "Cancer",
+      "deg": 4,
+      "min": 55,
+      "retro": false,
+      "printed_in_house": 6,
+      "note": "no retrograde mark is printed (a modern ephemeris has Jupiter retrograde)"
+     },
+     "Saturn": {
+      "sign": "Aries",
+      "deg": 29,
+      "min": 13,
+      "retro": true,
+      "printed_in_house": 2
+     }
+    },
+    "other": {
+     "part_of_fortune": "Capricorn 10:28 (12th compartment)",
+     "south_node": "Aquarius 14 (1st)",
+     "north_node": "Leo 14 (7th)"
+    },
+    "legibility": "legible except the minutes of the 3rd/9th cusps: the 3rd reads Taurus 2:52, the 9th 'Scorpio 2:5?' (last digit smudged; taken as 2:52, the opposite cusp)."
+   },
+   "significators": [
+    {
+     "role": "querent",
+     "planet": "Saturn",
+     "why": "lord of the ascendant (Capricorn)"
+    },
+    {
+     "role": "quesited (absent brother)",
+     "planet": "Venus",
+     "why": "Taurus is the ascendant of the 3rd house; Venus lady of the sign"
+    },
+    {
+     "role": "Moon",
+     "planet": "Moon",
+     "why": "applies to neither significator, so 'had not much to doe in this Question'"
+    }
+   ],
+   "configurations": [
+    {
+     "type": "aspect",
+     "planets": [
+      "Saturn",
+      "Venus"
+     ],
+     "aspects": [
+      "trine, mutually applying: Saturn retrograde at 29:13 Aries goes back to meet Venus at 28:53 Sagittarius"
+     ],
+     "words": "Saturn though a ponderous Planet, yet being Retrograde and in more degrees of the Signe then Venus, doth by Retrogradation apply to meet her",
+     "page": 198
+    },
+    {
+     "type": "moon",
+     "planets": [
+      "Moon",
+      "Jupiter",
+      "Sun"
+     ],
+     "aspects": [
+      "Moon separating from dexter trine of Jupiter",
+      "Moon applying to conjunction of the Sun on the MC"
+     ],
+     "words": "the separation of the Moon was good, viz. from a trine dexter of Jupiter, and her next application to a conjunction of the Sun, upon the Cuspe of Medium Coeli",
+     "page": 197
+    },
+    {
+     "type": "sign_change",
+     "planets": [
+      "Venus"
+     ],
+     "aspects": [
+      "Venus wants about 1 degree to leave Sagittarius (common) and enter Capricorn, where she has triplicity and term"
+     ],
+     "words": "in regard that Venus wanted one degree of getting out of Sagittarius, I judged he would be at home in lesse then one week",
+     "page": 199
+    }
+   ],
+   "judgment": {
+    "paraphrase_en": "Alive and well (Venus unafflicted by the lords of the 8th, the Moon's good separation and application) - recorded here only as Lilly's reasoning; the product does not judge life or death. News very suddenly, the same day, because the two significators perfect a trine (the ephemeris gave the exact trine a little after four in the afternoon, London); he was in the south-east of that county, not above one or two days' journey from London, leaving it for home; home in less than a week (one degree to the sign's end in a common sign).",
+    "paraphrase_vi": "Người anh còn sống và khỏe (Kim Tinh không bị chủ cung 8 làm hại; Trăng rời và tiến tới những góc tốt) – ghi lại chỉ như lập luận của Lilly; sản phẩm không luận sống chết. Tin tức đến rất nhanh, ngay trong ngày, vì hai sao chủ thành tam hợp (theo lịch thiên văn, đúng tam hợp lúc hơn bốn giờ chiều giờ London); người ấy ở phía đông nam của hạt đã đến, cách London không quá một hai ngày đường, đang rời đó để về; về nhà trong vòng chưa đầy một tuần (còn một độ là hết cung, cung biến động).",
+    "quote": "it was probable he should heare of him that very day; upon the reason onely because the Significators of both parties met by a friendly trine"
+   },
+   "outcome": "About four o'clock that day a carrier told the querent his brother was living and in health (p.198); the brother came home the Tuesday following, when the Moon came to the body of Venus (p.199).",
+   "notes": "Shows a retrograde superior planet applying to a faster planet; timing by distance to the sign's end (1 degree in a common sign = a week 'in the nature of this question'); outcome timed by the Moon's transit to Venus. The 'living or dead' sub-question is a boundary topic for the product.",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 197,
+     "quote": "a Citizen of London being gone into the West of England, and no newes for many weeks had where he was"
+    },
+    {
+     "work": "LILLY",
+     "page": 198,
+     "quote": "doth by Retrogradation apply to meet her: a very good argument that the Querent should heare newes of his Brother very suddenly"
+    },
+    {
+     "work": "LILLY",
+     "page": 198,
+     "quote": "about the very moment of time, viz. about four, a Carrier came casually where he was, and informed him his Brother was in health and living"
+    },
+    {
+     "work": "LILLY",
+     "page": 199,
+     "quote": "for Sagittarius is a Bi-corporeall, Common Signe, and one degree in that Signe, and in the nature of this question, might well denote a week."
+    },
+    {
+     "work": "LILLY",
+     "page": 199,
+     "quote": "came home the Tuesday following, when the Moon came to the body of"
+    }
+   ]
+  },
+  {
+   "id": "lilly.ex.cambridge_report_1643",
+   "pages": [
+    199,
+    200,
+    201
+   ],
+   "topic": "report / rumour true or false (translation of light)",
+   "house": 3,
+   "question": "If a Report or common Rumour were True or False ... Reports were given out, that his Majesty had taken Cambridge ... a wel-affected person enquires of me, if the Newes were true or false?",
+   "date_as_printed": {
+    "printed": "11. Apr: 1643 / 4 H 31' P.M.",
+    "day": 11,
+    "month": 4,
+    "year": 1643,
+    "hour": 4,
+    "minute": 31,
+    "ampm": "P.M.",
+    "calendar": "Julian (Old Style)",
+    "place": "London (Lilly's practice; not stated on the page)",
+    "also_printed": "Dns {diei Mars, hor. Venus}; 'Moon a sextile Jupiter ad square Venus' (Moon from the sextile of Jupiter to the square of Venus)"
+   },
+   "figure": {
+    "format": "square figure, east (1st) on the left",
+    "cusps": {
+     "1": "Libra 4:37",
+     "2": "Libra 26:57",
+     "3": "Scorpio 26:07",
+     "4": "Capricorn 6:10",
+     "5": "Aquarius 14:48",
+     "6": "Pisces 12:41",
+     "7": "Aries 4:37",
+     "8": "Aries 26:57",
+     "9": "Taurus 26:07",
+     "10": "Cancer 6:10",
+     "11": "Leo 14:48",
+     "12": "Virgo 12:41"
+    },
+    "planets": {
+     "Sun": {
+      "sign": "Taurus",
+      "deg": 1,
+      "min": 23,
+      "retro": false,
+      "printed_in_house": 8
+     },
+     "Moon": {
+      "sign": "Gemini",
+      "deg": 12,
+      "min": 43,
+      "retro": false,
+      "printed_in_house": 9
+     },
+     "Mercury": {
+      "sign": "Aries",
+      "deg": 5,
+      "min": 40,
+      "retro": false,
+      "printed_in_house": 7
+     },
+     "Venus": {
+      "sign": "Pisces",
+      "deg": 15,
+      "min": null,
+      "retro": false,
+      "printed_in_house": 6,
+      "note": "printed '15' only; no minutes visible"
+     },
+     "Mars": {
+      "sign": "Cancer",
+      "deg": 1,
+      "min": 50,
+      "retro": false,
+      "printed_in_house": 9
+     },
+     "Jupiter": {
+      "sign": "Aries",
+      "deg": 8,
+      "min": 28,
+      "retro": false,
+      "printed_in_house": 7
+     },
+     "Saturn": {
+      "sign": "Aries",
+      "deg": 2,
+      "min": 7,
+      "retro": false,
+      "printed_in_house": 7
+     }
+    },
+    "other": {
+     "part_of_fortune": "Scorpio 15:57 (3rd)",
+     "north_node": "Libra 2:04 (printed by the ascendant)",
+     "south_node": "Aries 2:04 (7th)"
+    },
+    "legibility": "fully legible except Venus's minutes (not printed or lost)."
+   },
+   "significators": [
+    {
+     "role": "querent's side (Parliament, 'that honourable Society')",
+     "planet": "Venus",
+     "why": "lady of the ascendant (Libra), in her exaltation"
+    },
+    {
+     "role": "enemies (the King's forces)",
+     "planet": "Mars",
+     "why": "lord of the 7th (Aries)"
+    },
+    {
+     "role": "Moon",
+     "planet": "Moon",
+     "why": "cadent in Gemini, translating Jupiter's light to Venus"
+    }
+   ],
+   "configurations": [
+    {
+     "type": "angles",
+     "planets": [],
+     "aspects": [
+      "all angles in moveable signs"
+     ],
+     "words": "I considered that the Angles were all moveable",
+     "page": 200
+    },
+    {
+     "type": "cusp_affliction",
+     "planets": [
+      "Mars",
+      "Saturn"
+     ],
+     "aspects": [
+      "Mars near the 10th cusp",
+      "Saturn near the 7th cusp"
+     ],
+     "words": "Mars did vitiate the cusp of the tenth, and Saturn the cusp of the seventh, one argument the Report was false",
+     "page": 200
+    },
+    {
+     "type": "moon",
+     "planets": [
+      "Moon"
+     ],
+     "aspects": [
+      "Moon cadent in Gemini"
+     ],
+     "words": "I found the Moon cadent, and in Gemini, a Signe wherein she nothing delights",
+     "page": 200
+    },
+    {
+     "type": "translation",
+     "planets": [
+      "Moon",
+      "Jupiter",
+      "Venus"
+     ],
+     "aspects": [
+      "Moon separating from sextile of Jupiter (in the 7th)",
+      "Moon applying to square of Venus"
+     ],
+     "words": "I saw the Moon separating from Jupiter, placed in the seventh and transferring his light and vertue to Venus",
+     "page": 200
+    },
+    {
+     "type": "aspect",
+     "planets": [
+      "Mars",
+      "Saturn"
+     ],
+     "aspects": [
+      "Mars entering his fall (Cancer), square Saturn"
+     ],
+     "words": "Lord of our Enemies Ascendant, viz. the seventh, entring his Fall, viz. Cancer, and afflicted by square of Saturn",
+     "page": 200
+    }
+   ],
+   "judgment": {
+    "paraphrase_en": "The report was false: Cambridge was not taken and would not be; good would come to the querent's side from the rumour, none to the enemies (moveable angles, malefics on the 10th and 7th cusps, Moon cadent in Gemini, Moon translating Jupiter to Venus, Mars in fall squared by Saturn).",
+    "paraphrase_vi": "Tin đồn là sai: Cambridge không bị chiếm và sẽ không bị chiếm; phe người hỏi được lợi từ tin đồn, phe địch thì không (các cung góc đều là cung động, hung tinh nằm trên đỉnh cung 10 và 7, Trăng ở cung suy trong Song Tử, Trăng chuyển ánh sáng của Mộc Tinh sang Kim Tinh, Hỏa Tinh ở vị trí suy bị Thổ Tinh chiếu vuông).",
+    "quote": "All that we heard was untruth, and that the Towne neither was, or should be taken by Him or his Forces."
+   },
+   "outcome": "Not reported beyond the judgment.",
+   "notes": "Lilly adds (p.201) how the same figure would be read for 'whether the querent has brothers or sisters' (fruitful signs on the 3rd).",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 199,
+     "quote": "All that we heard was untruth, and that the Towne neither was, or should be taken by Him or his Forces."
+    },
+    {
+     "work": "LILLY",
+     "page": 200,
+     "quote": "I considered that the Angles were all moveable"
+    },
+    {
+     "work": "LILLY",
+     "page": 200,
+     "quote": "placed in the seventh and transferring his light and vertue to"
+    },
+    {
+     "work": "LILLY",
+     "page": 201,
+     "quote": "and so in short, I judged Cambridge was not taken"
+    }
+   ]
+  }
+ ]
+}
