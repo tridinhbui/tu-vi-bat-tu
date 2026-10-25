@@ -98,18 +98,29 @@ export const shareMode = { id: null };
 const SHARED = /^\/api\/(chart|reasoning|analysis|synthesis|interpretation|interpret|year|formations)$/;
 const VIEWER = ['to_year', 'chapter', 'mode', 'experimental', 'dignity_school', 'tu_hoa_table', 'tieu_han_rule', 'luu_ha_table'];
 
+/** The chart being built: the Hủy button of the loading screen aborts every engine call made for it (app.js generate / openShare). */
+let loadCtl = null;
+export function beginLoad() { loadCtl = new AbortController(); return loadCtl.signal; }
+export function endLoad() { loadCtl = null; }
+export function cancelLoad() { loadCtl?.abort(); }
+/** an error thrown because the reader cancelled, not because something failed: nothing to report */
+export const isCancel = e => !!e?.cancelled;
+const cancelled = () => Object.assign(new Error('Đã hủy lập lá số.'), { cancelled: true, final: true });
+
 export async function post(u, b, { retries = 3 } = {}) {
+  const signal = loadCtl?.signal;
   if (shareMode.id && SHARED.test(u)) { b = Object.fromEntries(VIEWER.filter(k => b?.[k] !== undefined).map(k => [k, b[k]])); u = `/api/share/${shareMode.id}/${u.slice(5)}`; }
   let last;
   for (let i = 0; i <= retries; i++) {
     try {
-      const r = await fetch(u, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(b) });
+      if (signal?.aborted) throw cancelled();
+      const r = await fetch(u, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(b), signal });
       let j = {};
       try { j = await r.json(); } catch { /* non-JSON error body */ }
       if (r.ok) return j;
       if (r.status < 500) throw Object.assign(new Error(typeof j.detail === 'string' ? j.detail : (r.status === 422 ? 'Dữ liệu ngày giờ sinh chưa hợp lệ.' : 'Yêu cầu chưa hợp lệ.')), { final: true });
       last = new Error('Máy chủ chưa phản hồi. Vui lòng thử lại.');
-    } catch (e) { if (e.final) throw e; last = new Error('Máy chủ chưa phản hồi. Vui lòng thử lại.'); }
+    } catch (e) { if (e.final) throw e; if (e.name === 'AbortError' || signal?.aborted) throw cancelled(); last = new Error('Máy chủ chưa phản hồi. Vui lòng thử lại.'); }
     if (i < retries) await sleepMs(500 * (i + 1));
   }
   throw last;

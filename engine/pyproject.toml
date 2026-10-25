@@ -3,7 +3,7 @@ name = "tvbt"
 version = "0.1.0"
 description = "Deterministic Tu Vi & Bat Tu calculation core (Phase 1). No LLM."
 requires-python = ">=3.11"
-dependencies = ["sxtwl", "ephem", "tzdata"]
+dependencies = ["sxtwl", "ephem", "tzdata", "skyfield", "numpy"]
 
 [project.optional-dependencies]
 dev = ["pytest", "httpx"]

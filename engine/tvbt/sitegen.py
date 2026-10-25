@@ -306,7 +306,7 @@ def dignity_rows(kb: dict, star: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------- html
-NAV = [("/bai-viet/", "Bài viết"), ("/xem-ngay/", "Xem ngày"), ("/hoi-dap/", "Hỏi đáp"), ("/gioi-thieu/", "Giới thiệu")]
+NAV = [("/bai-viet/", "Bài viết"), ("/xem-ngay/", "Xem ngày"), ("/chiem-tinh/", "Chiêm tinh"), ("/hoi-dap/", "Hỏi đáp"), ("/gioi-thieu/", "Giới thiệu")]
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' "
            "stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E")
 
