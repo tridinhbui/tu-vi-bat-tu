@@ -1,0 +1,2782 @@
+{
+ "note": "Ảnh lá bài Waite–Smith (bản in 'Pam-A' của tranh gốc Pamela Colman Smith) từ Wikimedia Commons, chủ nhà duyệt 2026-10-25. Mỗi tệp: trang tệp trên Commons, giấy phép đúng như trang ghi (mẫu PD trong mục giấy phép), SHA-256 của tệp gốc đã tải, kích thước gốc, và hai bản WebP (~300 px, ~600 px). Tệp nào trang không ghi phạm vi công cộng thì nằm ở 'skipped' và trang dùng mặt bài chữ. Tạo lại: python3 -I tools/fetch_tarot_images.py --dir <thư mục mới, trống>.",
+ "category": "https://commons.wikimedia.org/wiki/Category:Rider-Waite-Smith_tarot_deck_(TaionWC)",
+ "fields": {
+  "commons_url": "trang tệp trên Commons",
+  "licence": "mẫu giấy phép in trong mục Licensing của trang",
+  "licence_short_name": "giấy phép Commons báo (extmetadata)",
+  "sha256": "SHA-256 của tệp gốc đã tải",
+  "commons_sha1": "SHA-1 Commons công bố, đã so khớp",
+  "width": "chiều rộng tệp gốc (px)",
+  "height": "chiều cao tệp gốc (px)",
+  "files": "các bản WebP phục vụ trên trang"
+ },
+ "images": [
+  {
+   "card": "M00",
+   "slug": "the-fool",
+   "commons_file": "File:RWS Tarot 00 Fool.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_00_Fool.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "557c6592b73107508eac65ef140d090d2ccd657ac5a2d5d4fe31c6c2ceacbcb5",
+   "commons_sha1": "a707c0123b59fd2420b05645e9d3d16b74235b42",
+   "width": 1144,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-fool-300.webp",
+     "width": 300,
+     "height": 503,
+     "sha256": "9b5b8a6326c84a548792bf8ea99c9073eda9a42b08a1f0bf98d5f3cf782a31a7"
+    },
+    "600": {
+     "path": "/tarot/img/the-fool-600.webp",
+     "width": 600,
+     "height": 1006,
+     "sha256": "7170e5d26e65d1596357df9508ca32c416e519b5b1cad5d3060ff291c4bf424c"
+    }
+   }
+  },
+  {
+   "card": "M01",
+   "slug": "the-magician",
+   "commons_file": "File:RWS Tarot 01 Magician.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_01_Magician.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "e0569e468545abfd2987ec0af5d3c51da3a9d478e37077aeaa1d715ddfc9941b",
+   "commons_sha1": "d24df085c3c22da8cd7f88c0f2a4256c6ae50fda",
+   "width": 1108,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-magician-300.webp",
+     "width": 300,
+     "height": 520,
+     "sha256": "81e915b6a20d35e2e1856ca6fa6d038c07bdf4b319c3c7c0313bfee724aa2d86"
+    },
+    "600": {
+     "path": "/tarot/img/the-magician-600.webp",
+     "width": 600,
+     "height": 1040,
+     "sha256": "9987a1ae2811db035a400d28cce982d622795cce48299dd0269ff8883ecb5ad6"
+    }
+   }
+  },
+  {
+   "card": "M02",
+   "slug": "the-high-priestess",
+   "commons_file": "File:RWS Tarot 02 High Priestess.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_02_High_Priestess.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "0e87b5a22187a299334188c2e8fd178125151f9015c122f6946367489cfd252a",
+   "commons_sha1": "bb96b30d13035c34a06006ea4aca8ab9a5a98506",
+   "width": 1117,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-high-priestess-300.webp",
+     "width": 300,
+     "height": 515,
+     "sha256": "585233b2fe9b4caa3245b751c8e25a8b51fdc4619b217dc623309b07209f5bb3"
+    },
+    "600": {
+     "path": "/tarot/img/the-high-priestess-600.webp",
+     "width": 600,
+     "height": 1031,
+     "sha256": "236c7ef1a702ad09a60a9711f62267ceb50d0fc184eae7ff91002da488f8a312"
+    }
+   }
+  },
+  {
+   "card": "M03",
+   "slug": "the-empress",
+   "commons_file": "File:RWS Tarot 03 Empress.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_03_Empress.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "2f0a9885c4f4e68bbca4cb40d3d5f42d4c7559f914bb5b3765ee429c74c142df",
+   "commons_sha1": "0c04891e42d51937390049994de8ac8867b201a1",
+   "width": 1123,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-empress-300.webp",
+     "width": 300,
+     "height": 513,
+     "sha256": "f26141966f2232d9711076506c39d3aa21c9c4758ebe45cdd8cacac6776e72ba"
+    },
+    "600": {
+     "path": "/tarot/img/the-empress-600.webp",
+     "width": 600,
+     "height": 1026,
+     "sha256": "0bead5d5b38771d0d4c28a6574c172a64bbf9e5c82d4e795009f9032b29b98c8"
+    }
+   }
+  },
+  {
+   "card": "M04",
+   "slug": "the-emperor",
+   "commons_file": "File:RWS Tarot 04 Emperor.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_04_Emperor.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "7a800b57c5b7da7b493e6968da31325327134e98083e95ee75b3db6eaef7e868",
+   "commons_sha1": "3fc0742d9a9199a226641a86b099df9540cfc3a3",
+   "width": 1117,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-emperor-300.webp",
+     "width": 300,
+     "height": 515,
+     "sha256": "0aeeb1197f16150f7b3b257f984253c7f88e4832e84e94a072d944d2d0aea7c0"
+    },
+    "600": {
+     "path": "/tarot/img/the-emperor-600.webp",
+     "width": 600,
+     "height": 1031,
+     "sha256": "ca7e8e7f9fc34fbba631e99286a0fec7f44f7faed8e8e9338d308917bad2f234"
+    }
+   }
+  },
+  {
+   "card": "M05",
+   "slug": "the-hierophant",
+   "commons_file": "File:RWS Tarot 05 Hierophant.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_05_Hierophant.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "68faba7f016b2d76b2fc2200f834279a0b08b7228767ae744fcdc70f9402699d",
+   "commons_sha1": "1e7b864bcaf4c672d8fdf17e2abf7379326949c4",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-hierophant-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "f4e8927ec2bb85a2fd78b1c393220fe83170cc9c8472664f03493a3e1e7c181c"
+    },
+    "600": {
+     "path": "/tarot/img/the-hierophant-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "0b1a10549596c470915ec2797862aaacb6605a9d4247faaca15fee4adaf6460b"
+    }
+   }
+  },
+  {
+   "card": "M06",
+   "slug": "the-lovers",
+   "commons_file": "File:RWS Tarot 06 Lovers.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_06_Lovers.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_06_Lovers.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "5a24e337a146568ebbbfa9783fa451d22c02bccd3cb7fe518afdb3ff396487fe",
+   "commons_sha1": "1c18b372fc4658948f2d1e9770b2aa87a2e4ac02",
+   "width": 1122,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-lovers-300.webp",
+     "width": 300,
+     "height": 513,
+     "sha256": "480cef91be37ee7c7de4f23e13fc21791a592212e52af3abfad27714a0c3d223"
+    },
+    "600": {
+     "path": "/tarot/img/the-lovers-600.webp",
+     "width": 600,
+     "height": 1027,
+     "sha256": "bdf96ce696706fb5653fa1300afcda02b2b24777e0464360e155fbb6eff3c3e3"
+    }
+   }
+  },
+  {
+   "card": "M07",
+   "slug": "the-chariot",
+   "commons_file": "File:RWS Tarot 07 Chariot.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_07_Chariot.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "3906e01a159d3b7f1696e9094080e0a4ae95b2f4d4ca8b084131aba6ad133dd8",
+   "commons_sha1": "8a93a2130017d32a7e8f9612d0874b5b1b41f83d",
+   "width": 1111,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-chariot-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "8511fdc3c987befbc3b003831f7e6624c3ea6158f94dc76f337ecb3994143059"
+    },
+    "600": {
+     "path": "/tarot/img/the-chariot-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "7f9f0b19fe0fde986c3fbdc34e0fdd563afac924170ff2d2590b523b31578742"
+    }
+   }
+  },
+  {
+   "card": "M08",
+   "slug": "strength",
+   "commons_file": "File:RWS Tarot 08 Strength.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_08_Strength.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "b222f1799b8dc46944d28f6079b1551011691dc439740371126e874fcf0c768f",
+   "commons_sha1": "16baefeee43cee6b285838d27af690a0cf7e9db6",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/strength-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "706f392ab094ed02d2a2fb175e739be8ee57b68ef0a5027269a6d91e8be008c6"
+    },
+    "600": {
+     "path": "/tarot/img/strength-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "631579841ac5a3911a7f86ee7831a577d83d4f9d9c90946696cd2f60304688f3"
+    }
+   }
+  },
+  {
+   "card": "M09",
+   "slug": "the-hermit",
+   "commons_file": "File:RWS Tarot 09 Hermit.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_09_Hermit.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "0f86ac4560e598ced039665e21023d329e7a7e58872c46b3e9a9d85bb6cb2a50",
+   "commons_sha1": "106bf91c47522063c78d60ab412c53064541f617",
+   "width": 1123,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-hermit-300.webp",
+     "width": 300,
+     "height": 513,
+     "sha256": "f6bdd096acd532116fa3ba33f1ffb6d21c11a1e1a32f1cd1628b8a102689dc36"
+    },
+    "600": {
+     "path": "/tarot/img/the-hermit-600.webp",
+     "width": 600,
+     "height": 1026,
+     "sha256": "c7fc3d84f39741351ae3a557c023848e6d0428dc996843ec137c5c2958c2388d"
+    }
+   }
+  },
+  {
+   "card": "M10",
+   "slug": "wheel-of-fortune",
+   "commons_file": "File:RWS Tarot 10 Wheel of Fortune.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_10_Wheel_of_Fortune.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "2979bea7530572f408739757c87200772f6171a5249684cc9ee2a379108b3657",
+   "commons_sha1": "0758555fa3b5960fb631cba01879f3be0260a278",
+   "width": 1104,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/wheel-of-fortune-300.webp",
+     "width": 300,
+     "height": 522,
+     "sha256": "b6266fa02244b75ebe166f32c5c857376ec75722f6a2b11c71808bd023385331"
+    },
+    "600": {
+     "path": "/tarot/img/wheel-of-fortune-600.webp",
+     "width": 600,
+     "height": 1043,
+     "sha256": "e025b6b7c533c524aea4a4d57761290e038fe4496086ce960569c62d57fba40a"
+    }
+   }
+  },
+  {
+   "card": "M11",
+   "slug": "justice",
+   "commons_file": "File:RWS Tarot 11 Justice.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_11_Justice.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/RWS_Tarot_11_Justice.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "028645f4ed40a82035c410f4b7b5b00adbdcdf1c21ffd706cddeaf9227e0151d",
+   "commons_sha1": "16404e646dac8b8f5de4841b9259065059a04f71",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/justice-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "703baa2d45c6c55492e060f471ec92353aaf4ae5ce64c997c5d9ee41d308dd57"
+    },
+    "600": {
+     "path": "/tarot/img/justice-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "20179b081aace740bffe0cf2c945b7df279ace3bcfbfdae994aaab8ae2ad1290"
+    }
+   }
+  },
+  {
+   "card": "M12",
+   "slug": "the-hanged-man",
+   "commons_file": "File:RWS Tarot 12 Hanged Man.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_12_Hanged_Man.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "0eacf7afe48e4b51c5405a8354ecb867a4d8868151137434ef84621e4d56359c",
+   "commons_sha1": "41d2398a09087cc2936fcc70fcde7d92552331fd",
+   "width": 1092,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-hanged-man-300.webp",
+     "width": 300,
+     "height": 527,
+     "sha256": "731b314cc6fe411b5ede6ec37915bcaf1ed1ef96232455a5b6dae5c11fc5114e"
+    },
+    "600": {
+     "path": "/tarot/img/the-hanged-man-600.webp",
+     "width": 600,
+     "height": 1055,
+     "sha256": "16d3e844514f9bce6016cf4f0eb8b4dc432c59a3fb13792f6bc2912c2069f6cf"
+    }
+   }
+  },
+  {
+   "card": "M13",
+   "slug": "death",
+   "commons_file": "File:RWS Tarot 13 Death.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_13_Death.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "9e9cdd41a4d975691e79acc2358b45f4f2c58661431c3113a5ccf27477356a66",
+   "commons_sha1": "a49bfe7b626af084f33a67dbb22c001718f80a80",
+   "width": 1111,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/death-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "43210d6bbb65fab41b90cfc8ee0241f42caf5ee3e65a9fdba1dbc092579f3ed4"
+    },
+    "600": {
+     "path": "/tarot/img/death-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "4101946e97c2e734f3a3e61cdd00eda4bb54c7ed9a0cc0bcf1b2434d21272633"
+    }
+   }
+  },
+  {
+   "card": "M14",
+   "slug": "temperance",
+   "commons_file": "File:RWS Tarot 14 Temperance.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_14_Temperance.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "a306b373f8ff18270a2daabe3d89967eadd428e460c39ed717bda7bd38a1f009",
+   "commons_sha1": "2d9eb7320f00cbf6d9e7ae334853ff7185a6b769",
+   "width": 1106,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/temperance-300.webp",
+     "width": 300,
+     "height": 521,
+     "sha256": "d542b3ac0d4e614be03579e4759861d01f897faf50ed951ac647afe7f1fc8fda"
+    },
+    "600": {
+     "path": "/tarot/img/temperance-600.webp",
+     "width": 600,
+     "height": 1042,
+     "sha256": "c7b51dcc674830b2ba38b65ba3d0e603e3f01775d78ebaacab5d71ab3f712c8b"
+    }
+   }
+  },
+  {
+   "card": "M15",
+   "slug": "the-devil",
+   "commons_file": "File:RWS Tarot 15 Devil.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_15_Devil.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "f8e37102cbf2120270c0ed8c3e193b260d2f79dd5908bc9acbd48e8335083cf8",
+   "commons_sha1": "fc1d9242a524d82317fc45b27ef9e93af550b082",
+   "width": 1090,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-devil-300.webp",
+     "width": 300,
+     "height": 528,
+     "sha256": "179b4213399b8aed1660d6521e98b8b03ef27b9cb21b0d8599806a736ef7580a"
+    },
+    "600": {
+     "path": "/tarot/img/the-devil-600.webp",
+     "width": 600,
+     "height": 1057,
+     "sha256": "3cebadb03738a930eb079c4dc09ca004f93fd6e042760d701f82a85e0f81c036"
+    }
+   }
+  },
+  {
+   "card": "M16",
+   "slug": "the-tower",
+   "commons_file": "File:RWS Tarot 16 Tower.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_16_Tower.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "ab5ce9bf29f32b9cf61720b375fe35f23ce7e116ee1c648a9bf6832e17241163",
+   "commons_sha1": "c9da59cdde2b85b49c9e0ce67a6a08c7893ca926",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-tower-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "b865753810ec850a0db82eec7264075f341fd2bd1a154c1127e7a69bf82d9615"
+    },
+    "600": {
+     "path": "/tarot/img/the-tower-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "e13a8e602821f02715e9caf541c70853e1973f60c986f09339b98ef8cf2e39ed"
+    }
+   }
+  },
+  {
+   "card": "M17",
+   "slug": "the-star",
+   "commons_file": "File:RWS Tarot 17 Star.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_17_Star.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_17_Star.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "20bb3e04c1655cc318031d94a024d84199cfeae2ca55e80d2d341c2d30435ac7",
+   "commons_sha1": "e220037a9310a12abd5733711810b4497a23ef77",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-star-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "4d2dcc922944b4fb981aba876a8e571652b4e4d0d14572507acbd0b56064b676"
+    },
+    "600": {
+     "path": "/tarot/img/the-star-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "31fa8f5ef4100622515663c5f491a0dc3546c80f262faa9cc0b68af223859e82"
+    }
+   }
+  },
+  {
+   "card": "M18",
+   "slug": "the-moon",
+   "commons_file": "File:RWS Tarot 18 Moon.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_18_Moon.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "866474dc3de02bf3817495fd75d254dac2b9f36470f2f29ecb54de572f9dc70e",
+   "commons_sha1": "e85cd51cdb95ef3b46284c0c317f72414b4ef30e",
+   "width": 1111,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-moon-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "e3b3c43601848d7752139a4a6c27c9b17e62eb5668cf724fd77c53b9fe918c0f"
+    },
+    "600": {
+     "path": "/tarot/img/the-moon-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "8da203b60e1272e076ed4ef5bf5fabd70a96d95abcfc299096af483cb14b943f"
+    }
+   }
+  },
+  {
+   "card": "M19",
+   "slug": "the-sun",
+   "commons_file": "File:RWS Tarot 19 Sun.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_19_Sun.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "6c21ef99fef3807bafb26cd467464c8efc59e7312a688ae66285968e364c6450",
+   "commons_sha1": "c12879caebe972e194e81743e5925c5b8c5607d8",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-sun-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "4ef33765e54c0e61fe0e50fcadfa29e256a9b3348904fd46bac12db21b14bf2b"
+    },
+    "600": {
+     "path": "/tarot/img/the-sun-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "d151de8914716e03a3abe48c448002474b0800eb3fec469570d67248e0b4876b"
+    }
+   }
+  },
+  {
+   "card": "M20",
+   "slug": "judgement",
+   "commons_file": "File:RWS Tarot 20 Judgement.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_20_Judgement.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "1d670d30e651554051f1a04708a11c57583a92a2cc370b8c0fc54fb82f2ffbd3",
+   "commons_sha1": "19f6e9aae7c8169c75946e3eeb2b517cb295eb53",
+   "width": 1115,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/judgement-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "bea98983ee93dcf248e9691f6924a97c39fda8a083ac94385ebf9bbda50d9cca"
+    },
+    "600": {
+     "path": "/tarot/img/judgement-600.webp",
+     "width": 600,
+     "height": 1033,
+     "sha256": "7caf1db8f210c2f978fc9b2d2990eb42f2cce3bad4196041fe02d0d40219d7ee"
+    }
+   }
+  },
+  {
+   "card": "M21",
+   "slug": "the-world",
+   "commons_file": "File:RWS Tarot 21 World.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:RWS_Tarot_21_World.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/RWS_Tarot_21_World.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "f866b87a3c4422f96074080024860f46b5b3f456fcad74ca7aefdb5263bf0e69",
+   "commons_sha1": "5b41b2ebeffac2fea5348b2607479a4ee0fd99b8",
+   "width": 1112,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/the-world-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "a75e76697260924369877c7c4ad7f83fdc080cee68f8c3926974fa956caed621"
+    },
+    "600": {
+     "path": "/tarot/img/the-world-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "ad89b6f486680364a4ec938d009a5a5a8a53345b90154880c5d04e344eb26f39"
+    }
+   }
+  },
+  {
+   "card": "W01",
+   "slug": "ace-of-wands",
+   "commons_file": "File:Wands01.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands01.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Wands01.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "c29a4231878072d66be3aa344b348ea77cf12617571db4836a270730ae5a04e0",
+   "commons_sha1": "87dcc6561605687ecd2bcd672f3157ad6b1eaaae",
+   "width": 1106,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/ace-of-wands-300.webp",
+     "width": 300,
+     "height": 521,
+     "sha256": "3de99222d692938de2274ea9ee901f129763b7ce8aae84fe504506ecca1faad0"
+    },
+    "600": {
+     "path": "/tarot/img/ace-of-wands-600.webp",
+     "width": 600,
+     "height": 1042,
+     "sha256": "18cb8c2cb5964c47f3a82c9f612e10e52f9086a69756b9e2ae71355600235f87"
+    }
+   }
+  },
+  {
+   "card": "W02",
+   "slug": "two-of-wands",
+   "commons_file": "File:Wands02.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands02.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wands02.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "b715689f6097b32884678d52f946df0fafdd225ed8ead3979307f455a88e8e80",
+   "commons_sha1": "224cd7b4b1512574f77dfbeca6f64ec30eb779e1",
+   "width": 1115,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/two-of-wands-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "fcd7ebf35d7d0ebeb9fd3e8f9cae38ccb13833022f45d88c9c2a6c9da34b5ab4"
+    },
+    "600": {
+     "path": "/tarot/img/two-of-wands-600.webp",
+     "width": 600,
+     "height": 1033,
+     "sha256": "244460dfdfbc391ae2ad0551b12d6e308cbdf0ec46902d18669dce2757d5e866"
+    }
+   }
+  },
+  {
+   "card": "W03",
+   "slug": "three-of-wands",
+   "commons_file": "File:Wands03.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands03.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Wands03.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "1177316634bf3990c95ccb908b7e5a6759ec0356039d896e6ee0bbb8796e958a",
+   "commons_sha1": "8b18d992a00b65f783f1ce95930ea7a6d7771eab",
+   "width": 1103,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/three-of-wands-300.webp",
+     "width": 300,
+     "height": 522,
+     "sha256": "d5dea5ee6155a044c4393daff51b2661f9678958119242e7a3dcfbf3c781ecf8"
+    },
+    "600": {
+     "path": "/tarot/img/three-of-wands-600.webp",
+     "width": 600,
+     "height": 1044,
+     "sha256": "2788a0c0eb69f1b0848044e18ffee8b279def2e28315186833bee3f867844a74"
+    }
+   }
+  },
+  {
+   "card": "W04",
+   "slug": "four-of-wands",
+   "commons_file": "File:Wands04.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands04.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Wands04.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "9850a241100dd084bacab39a8e87baaa13d1de1a590dc0dde013b92aa783af7e",
+   "commons_sha1": "d938100eabd3e515789eac05dcebb2d7749d57df",
+   "width": 1108,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/four-of-wands-300.webp",
+     "width": 300,
+     "height": 520,
+     "sha256": "55b5b3ea5bade7d390b0f4f5217f8b85c9cf73938f96d987425c9142eac180af"
+    },
+    "600": {
+     "path": "/tarot/img/four-of-wands-600.webp",
+     "width": 600,
+     "height": 1040,
+     "sha256": "4c35aa94cc2a03beac3abc136b9245d450b8d62b584710ac0ade8744f31e3c16"
+    }
+   }
+  },
+  {
+   "card": "W05",
+   "slug": "five-of-wands",
+   "commons_file": "File:Wands05.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands05.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Wands05.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "6298f82e6ce5e7524041bb608852471b03e29d528f6a5b52b2b44a8ff1f06bba",
+   "commons_sha1": "480db3a9788df55659a554252e6f305e55f35720",
+   "width": 1108,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/five-of-wands-300.webp",
+     "width": 300,
+     "height": 520,
+     "sha256": "df046b1915f3745564eebbc3ff30bc4e7152d9ead45f1dbfc3e1dcb8d086be7e"
+    },
+    "600": {
+     "path": "/tarot/img/five-of-wands-600.webp",
+     "width": 600,
+     "height": 1040,
+     "sha256": "806b9d5abc1de8ddace9ee44a163f643b1cc29e615cc33b8900affcb3f9b5817"
+    }
+   }
+  },
+  {
+   "card": "W06",
+   "slug": "six-of-wands",
+   "commons_file": "File:Wands06.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands06.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Wands06.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "249a1eaa2de24dc9c1095e953b9577ca613fcda4b4b884dab2a1964c686dad72",
+   "commons_sha1": "a06a540821876a1693ac1856cbf017bc8b011dbf",
+   "width": 1118,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/six-of-wands-300.webp",
+     "width": 300,
+     "height": 515,
+     "sha256": "1f3dae07ab74a96b719e84c4422c5e3953807a35b6b0d215cb82ec76ad31d496"
+    },
+    "600": {
+     "path": "/tarot/img/six-of-wands-600.webp",
+     "width": 600,
+     "height": 1030,
+     "sha256": "85aef9a121c91d260edc7d3120279fde849c9a0c0faed4bbfd838e9db0f0b954"
+    }
+   }
+  },
+  {
+   "card": "W07",
+   "slug": "seven-of-wands",
+   "commons_file": "File:Wands07.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands07.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Wands07.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "0117736a1c9d543960bb94c73d20a587e9ec877dfc2120b7d5ee0255c40dd731",
+   "commons_sha1": "d63a45b166eda1dc993268f78a760a86f7c52209",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/seven-of-wands-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "4ecbc90058ab98f0febb4f0049eb73cb7fc4f5cd5abcd6c33f0099d7c24a49f8"
+    },
+    "600": {
+     "path": "/tarot/img/seven-of-wands-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "683f1a3f8428cf9bc05d5d102763d9c038269ea9cf51a366b88341d4a15104a5"
+    }
+   }
+  },
+  {
+   "card": "W08",
+   "slug": "eight-of-wands",
+   "commons_file": "File:Wands08.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands08.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Wands08.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "fbf01153074154c6b0e130e0690e00320e9293daaf9c84fe4a37804f02145cd6",
+   "commons_sha1": "ee83d049b8fa4f4fd378f0f69b58fc4c25b4ab8b",
+   "width": 1115,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/eight-of-wands-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "995c53684784c2f69fd37a4502ca305d8f9f2ca9afc44947919e89ae60465391"
+    },
+    "600": {
+     "path": "/tarot/img/eight-of-wands-600.webp",
+     "width": 600,
+     "height": 1033,
+     "sha256": "94b95cf36b56edbf985719faacee8e941d17f848b501b559640e696796964154"
+    }
+   }
+  },
+  {
+   "card": "W09",
+   "slug": "nine-of-wands",
+   "commons_file": "File:Wands09.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands09.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Wands09.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "f0edfe460b1ba3fdd2cb0d0e82786a84bcdcaf97bb2e1a2ffaf4c82ed235b469",
+   "commons_sha1": "3715a212b70ecc95737b6b1ea5ee360332624218",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/nine-of-wands-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "a8e5d524575609142089b31aff154024d2433b90ba8dfcf464894966b3a7b7e9"
+    },
+    "600": {
+     "path": "/tarot/img/nine-of-wands-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "50b73b44ead6252dfa26fbb0e1e68e49aed28c942655c0c3a9b6c45f1871b145"
+    }
+   }
+  },
+  {
+   "card": "W10",
+   "slug": "ten-of-wands",
+   "commons_file": "File:Wands10.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands10.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Wands10.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "64c10fe7ba527498547bb3bf85a4a5c5fc687ba2209b8d38ffe5722d25810685",
+   "commons_sha1": "7931b8e703b4fe520ffd4bda5da49d8087c1e3ca",
+   "width": 1101,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/ten-of-wands-300.webp",
+     "width": 300,
+     "height": 523,
+     "sha256": "99c88fbd9ad5ae7e917a6984678439bd41558ab2a7379e163cb20a33d158ef63"
+    },
+    "600": {
+     "path": "/tarot/img/ten-of-wands-600.webp",
+     "width": 600,
+     "height": 1046,
+     "sha256": "95be8da9172111e4f245a1da2338d1de2adfccfd8f6529c691e9a6bcf043518d"
+    }
+   }
+  },
+  {
+   "card": "W11",
+   "slug": "page-of-wands",
+   "commons_file": "File:Wands11.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands11.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wands11.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "ecb79ab9035c43d322cbef211e8028fc175e220a764db7fcb566c4e44d1842bb",
+   "commons_sha1": "0b898179e4d32aed7a57f583083fe9c699c9481e",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/page-of-wands-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "e8d8a60f538f3e0c9dc0bfb7644873051cbf883a12f8982d37def23346739277"
+    },
+    "600": {
+     "path": "/tarot/img/page-of-wands-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "92b1b4e7eef60fe13341d70a538a2f1a5e6b1a79bdc485c149d47b7bcf13c9a9"
+    }
+   }
+  },
+  {
+   "card": "W12",
+   "slug": "knight-of-wands",
+   "commons_file": "File:Wands12.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands12.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Wands12.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "00dd859cf067753c5ed009ac0ab8a0673cb8e5bdf5677fb3c7d4b04c93c0e025",
+   "commons_sha1": "0260e923a92c43ed4943ce475a05eb03f0086cf4",
+   "width": 1115,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/knight-of-wands-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "5fbbab214112d578b330611928138b0ed44afee06cc8cb0d1395ccc29dba2bb7"
+    },
+    "600": {
+     "path": "/tarot/img/knight-of-wands-600.webp",
+     "width": 600,
+     "height": 1033,
+     "sha256": "b43efd52c01842ec556089c52d5a9e69e43c103b0f48fc11c9c4b07e652138e3"
+    }
+   }
+  },
+  {
+   "card": "W13",
+   "slug": "queen-of-wands",
+   "commons_file": "File:Wands13.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands13.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Wands13.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "f1646c86efe388dfff3d4a1fc8e5a5c7bb60a5605d3e4b67c1157216c773202d",
+   "commons_sha1": "011c387bbdebeca12b308bda5555a7c024705e75",
+   "width": 1118,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/queen-of-wands-300.webp",
+     "width": 300,
+     "height": 515,
+     "sha256": "aafc1c78fdc5c257fd674262415a176417ace0123d340c40f349d98566247281"
+    },
+    "600": {
+     "path": "/tarot/img/queen-of-wands-600.webp",
+     "width": 600,
+     "height": 1030,
+     "sha256": "9d3c8b76c656a86705873a91eb404f203a5d02adc51e95cd6852f27fc007e04b"
+    }
+   }
+  },
+  {
+   "card": "W14",
+   "slug": "king-of-wands",
+   "commons_file": "File:Wands14.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Wands14.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Wands14.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "671c7c53329fa99e309f101a2ee093503a5d3bad137cb626a588dc74f4f0506f",
+   "commons_sha1": "d181026328ff20bd53162d74806a97a138925822",
+   "width": 1104,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/king-of-wands-300.webp",
+     "width": 300,
+     "height": 522,
+     "sha256": "7361cadf6567a4f25e51ed7f5435f58d9e0d49be1d83ef048541e542d28882ec"
+    },
+    "600": {
+     "path": "/tarot/img/king-of-wands-600.webp",
+     "width": 600,
+     "height": 1043,
+     "sha256": "bbe90581a085b2721dfc4b4e4c279e963813a2c0ff02bd150ae01d2c5622dfcf"
+    }
+   }
+  },
+  {
+   "card": "C01",
+   "slug": "ace-of-cups",
+   "commons_file": "File:Cups01.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups01.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Cups01.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "fd157290a61bd075e837879275b811c86c32d3ea2beadb2b24327d133c5fb5f9",
+   "commons_sha1": "d9aaeedc3e15d2983cabcf1a63135039070864e7",
+   "width": 1112,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/ace-of-cups-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "57db4afa3f26fc7fc9a0a24b4069b09f3e1e15798ff71d2ac530dc3251e8a9ae"
+    },
+    "600": {
+     "path": "/tarot/img/ace-of-cups-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "5fe0eabc243e90c0e89e9cf2317b8b529bd6db47380733f33cbc429f190b7674"
+    }
+   }
+  },
+  {
+   "card": "C02",
+   "slug": "two-of-cups",
+   "commons_file": "File:Cups02.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups02.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Cups02.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "5d1f09a9b69784e6006a9b662496f0664b26b15740062ac2285e77eadf3b36e4",
+   "commons_sha1": "31ff6179cff02fcdb6a292ec4d15e66e4727bd55",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/two-of-cups-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "988c67bd6635cd5cc94536c504579229f4926a49485a86a7d3065e12c5c02378"
+    },
+    "600": {
+     "path": "/tarot/img/two-of-cups-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "158847508d7199b48e241ce72257e2c42d1c11d24cf25a4446fd30d1742cde25"
+    }
+   }
+  },
+  {
+   "card": "C03",
+   "slug": "three-of-cups",
+   "commons_file": "File:Cups03.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups03.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cups03.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "25bfd4dbc2917a5a33b34c56579facffca464df0f4b4a0b4f00d9c9e96d9be0e",
+   "commons_sha1": "8644f8f839d1e7c785ce4cd28c0a7553b40f29ca",
+   "width": 1117,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/three-of-cups-300.webp",
+     "width": 300,
+     "height": 515,
+     "sha256": "63871e7baad987e35ff7f16382268c553b3d4d7e21833d65a3b726a8236760d0"
+    },
+    "600": {
+     "path": "/tarot/img/three-of-cups-600.webp",
+     "width": 600,
+     "height": 1031,
+     "sha256": "d8193cf53dedf10744b49bd963b6bd047caca45741e52363630d5c5203f7d75f"
+    }
+   }
+  },
+  {
+   "card": "C04",
+   "slug": "four-of-cups",
+   "commons_file": "File:Cups04.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups04.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Cups04.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "92097fe69d21dd0a0c9d5ece68ed465fa4a53d5107509cde3689840b67ed3f13",
+   "commons_sha1": "aced20aeeb9b69215ea5df106bb3ccc9710b2f8a",
+   "width": 1118,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/four-of-cups-300.webp",
+     "width": 300,
+     "height": 515,
+     "sha256": "1004a8420ad60864b3a8b9e16ba620054b9235d6049fde2010d87e292860cd1d"
+    },
+    "600": {
+     "path": "/tarot/img/four-of-cups-600.webp",
+     "width": 600,
+     "height": 1030,
+     "sha256": "adf254796fec4c40f9a66ffe61da6bbded72b19627fa57c2e304c4f627c88962"
+    }
+   }
+  },
+  {
+   "card": "C05",
+   "slug": "five-of-cups",
+   "commons_file": "File:Cups05.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups05.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Cups05.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "07d2354d331f8a9397c407cea0b2bcc1544b134eab526b9262ececb3d0a57166",
+   "commons_sha1": "28d89b259fcfccce0336557e2f691244304475ae",
+   "width": 1121,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/five-of-cups-300.webp",
+     "width": 300,
+     "height": 514,
+     "sha256": "bac91eb25895a863ff32b1e1e18f8fd8ebe76dbfbd222c428286dc5096afeed3"
+    },
+    "600": {
+     "path": "/tarot/img/five-of-cups-600.webp",
+     "width": 600,
+     "height": 1028,
+     "sha256": "c7ee5285451a71c2e7e5d350b6d32bd3eea3de57bdca14d286b0a398e5cee9ef"
+    }
+   }
+  },
+  {
+   "card": "C06",
+   "slug": "six-of-cups",
+   "commons_file": "File:Cups06.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups06.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cups06.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "bb6fb5b6de8c22811e0c9057a05e46cd0014984e3d43160844bd5c395e8973bf",
+   "commons_sha1": "0c98185dbc9c36f1383b576e20b154e254e02a83",
+   "width": 1115,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/six-of-cups-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "b61c07917bb1b806041df8f21c9373dbb0d006895ebf86e48c71c0fdae6d192a"
+    },
+    "600": {
+     "path": "/tarot/img/six-of-cups-600.webp",
+     "width": 600,
+     "height": 1033,
+     "sha256": "ad336c8f33f987a7fe6c0a96353af0cabf1f6b86f786e13ef5c69f38fe108117"
+    }
+   }
+  },
+  {
+   "card": "C07",
+   "slug": "seven-of-cups",
+   "commons_file": "File:Cups07.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups07.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Cups07.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "3c9d1d310ca3f4303a2e4beb872d998f7b45fbd26ee361ee48fadb366cf3b3a7",
+   "commons_sha1": "46cddf039c6cdbb73062ec02d9b46305a1c68c7e",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/seven-of-cups-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "06f2df42ccc97db49e506b3cb2fe82e8523521c8dd064618566aa0900067a77b"
+    },
+    "600": {
+     "path": "/tarot/img/seven-of-cups-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "f3aec16303241a2110ae57562443ba502082b2e1acf69b7ce23cf64be91ea186"
+    }
+   }
+  },
+  {
+   "card": "C08",
+   "slug": "eight-of-cups",
+   "commons_file": "File:Cups08.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups08.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Cups08.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "727c07c60753aa7925c9421ca3a93e80eaadd0053018e68c819b2ac5e6562312",
+   "commons_sha1": "89419f820aa82cb855cd705c97741f439a2ef757",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/eight-of-cups-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "5a14c857dc46f123d510b4fc2c3cb4374012f2d5748bba4f37cc00fc22d7ebbb"
+    },
+    "600": {
+     "path": "/tarot/img/eight-of-cups-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "1f71007d26c057c9a3d0ee06baa72b57264a3b9f29ee5f34513dc93d10295d48"
+    }
+   }
+  },
+  {
+   "card": "C09",
+   "slug": "nine-of-cups",
+   "commons_file": "File:Cups09.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups09.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Cups09.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "5d0704e0dc1de8ab59da38230b609a5aeeceaf61473ca5271f48049976f3cb6f",
+   "commons_sha1": "d06b79c496232ae7a12e8c1bd034b37b5580202e",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/nine-of-cups-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "9a95cb2d1ce8dbf44d8562cc7e9b904a0773240d2d0d7005547d4c03c213637b"
+    },
+    "600": {
+     "path": "/tarot/img/nine-of-cups-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "caecd4536bbd19912d945484bd1729c4eb69603561d3c95e94537b7dcdd3392f"
+    }
+   }
+  },
+  {
+   "card": "C10",
+   "slug": "ten-of-cups",
+   "commons_file": "File:Cups10.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups10.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Cups10.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "ac33d5a07ac63e10301cd632cedc020aca25a0d8a3e64f58fbd9e221b39fa261",
+   "commons_sha1": "29c49649940bac0a8c0dff6e1cb651f60e1b47af",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/ten-of-cups-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "59887b6894e4b61955c72fe3ff4d1baecd2a3dd1ae02918b8b4937a7be460759"
+    },
+    "600": {
+     "path": "/tarot/img/ten-of-cups-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "a45792eec6bcffc3498b666b61affc09a640c80362fea83a3f1fe662762e580c"
+    }
+   }
+  },
+  {
+   "card": "C11",
+   "slug": "page-of-cups",
+   "commons_file": "File:Cups11.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups11.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Cups11.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "c6000e0ec6cf784ec75ac3a9fa8971e9ba56c8072c899cc0d44dece6acafc526",
+   "commons_sha1": "ef5138a1d6bea70661665547298e79364754ee90",
+   "width": 1115,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/page-of-cups-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "cca95ac81a72fd17a8abef1ec6dbba220a9a71b041a22a8b8e8e0c50c21cc9a3"
+    },
+    "600": {
+     "path": "/tarot/img/page-of-cups-600.webp",
+     "width": 600,
+     "height": 1033,
+     "sha256": "46011214b90f2a54dfd0affee6f077386c0a114ba1dbc382e86b9c68e3219009"
+    }
+   }
+  },
+  {
+   "card": "C12",
+   "slug": "knight-of-cups",
+   "commons_file": "File:Cups12.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups12.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Cups12.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "99a7b7c91da744cb03a3741c4bac674ef91adbb5b22aca53404f3467d1ea8e65",
+   "commons_sha1": "bfcbc0b7014f2041b38eb76cb7b7e253d21ad3aa",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/knight-of-cups-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "9aecc749d59b9ffb5a1c0e558cd41cd69cd2a4e9e49cea1e60ed36bf0fafb176"
+    },
+    "600": {
+     "path": "/tarot/img/knight-of-cups-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "5ebdec4d512474696af0b8eae87ab59f110fc414111d7cdfbba148a9075c6236"
+    }
+   }
+  },
+  {
+   "card": "C13",
+   "slug": "queen-of-cups",
+   "commons_file": "File:Cups13.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups13.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Cups13.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "a1732a137bfc441a68703e3c8c14653f22452a287e790b9d5047035afc374b2a",
+   "commons_sha1": "69b68cee5e7e09e624a53169aed26035ab04143e",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/queen-of-cups-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "33712938e91c6db14625a526c8c30ee79c8c845bf61a0bf4a718150d0df28ed1"
+    },
+    "600": {
+     "path": "/tarot/img/queen-of-cups-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "4819e642ee45fa1b34366d021f4c3f93856ee74bfa5235af475480263d244ead"
+    }
+   }
+  },
+  {
+   "card": "C14",
+   "slug": "king-of-cups",
+   "commons_file": "File:Cups14.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Cups14.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Cups14.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "79ae249016aaafb01279007e2da5ad00dffd6dc7d3017526853cfa6efc989372",
+   "commons_sha1": "a78389417bbcbc09e8fdeddec49332938cf48a86",
+   "width": 1121,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/king-of-cups-300.webp",
+     "width": 300,
+     "height": 514,
+     "sha256": "5c572db24702139d4aa1fa9836aa2039250c5f8c35dd1c16ce036401c3644baa"
+    },
+    "600": {
+     "path": "/tarot/img/king-of-cups-600.webp",
+     "width": 600,
+     "height": 1028,
+     "sha256": "ab82df180dc30f9408681fca2b9140e362f814f395a7a8c388813bb58dd83b57"
+    }
+   }
+  },
+  {
+   "card": "S01",
+   "slug": "ace-of-swords",
+   "commons_file": "File:Swords01.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords01.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Swords01.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "32f0f932346a25b6ec3753ff95d3e4a7481cb5c3582205ba76c53356a496f15a",
+   "commons_sha1": "8ec8b145cc670007aeb8020ce7940d9ba0ab40fe",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/ace-of-swords-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "eea3cac906310e7e8942fb466684c3408ae9ee531e0ac892afa475a9525667a7"
+    },
+    "600": {
+     "path": "/tarot/img/ace-of-swords-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "4656cddfd62639857a860c6aa3358fd6c3d92796138c97436d35144a994cc44b"
+    }
+   }
+  },
+  {
+   "card": "S02",
+   "slug": "two-of-swords",
+   "commons_file": "File:Swords02.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords02.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Swords02.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "a44b7e2b454db3dc1ff42f70107fb15750babf659f5750892de4b5be721ec380",
+   "commons_sha1": "303a13183017cca280fe5a79ddc513b00277a8b5",
+   "width": 1121,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/two-of-swords-300.webp",
+     "width": 300,
+     "height": 514,
+     "sha256": "dbd347199653839c1d14ab5d7a04d3fb70df79f1e59c6086879062ec3ff4a589"
+    },
+    "600": {
+     "path": "/tarot/img/two-of-swords-600.webp",
+     "width": 600,
+     "height": 1028,
+     "sha256": "d98cf52d6b12e56e2aa31b21e52a0f302fca8141f1996ef02eed8927f984a535"
+    }
+   }
+  },
+  {
+   "card": "S03",
+   "slug": "three-of-swords",
+   "commons_file": "File:Swords03.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords03.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Swords03.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "4fdf7db3e7611561831af32b5c886f9862c7d90a851965cddf71298047da1dee",
+   "commons_sha1": "a4490aa4f6e1751adc47a40b2860a41c1fb4c810",
+   "width": 1103,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/three-of-swords-300.webp",
+     "width": 300,
+     "height": 522,
+     "sha256": "d9d4827ea1c3c11a6813fbb376a5a2c68aec041538a0529d6358e2887f0444dc"
+    },
+    "600": {
+     "path": "/tarot/img/three-of-swords-600.webp",
+     "width": 600,
+     "height": 1044,
+     "sha256": "fe7188d6649f4fcf42414988fea1315a93601bc7afcc9ef1b7b87b245a40072a"
+    }
+   }
+  },
+  {
+   "card": "S04",
+   "slug": "four-of-swords",
+   "commons_file": "File:Swords04.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords04.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Swords04.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "d4f9dad59b25daf3c9e98e50107dd692e9682f058cdc8424ce61fd448e941a78",
+   "commons_sha1": "0f50aad1a018ab09ea2d3223c5175ff988688128",
+   "width": 1117,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/four-of-swords-300.webp",
+     "width": 300,
+     "height": 515,
+     "sha256": "d541ee4489aff7488f648f1a745d187cdc660140503cf0c75cf09ad3aa1a95e3"
+    },
+    "600": {
+     "path": "/tarot/img/four-of-swords-600.webp",
+     "width": 600,
+     "height": 1031,
+     "sha256": "6787f4aa45cc20cc34a4c1276df9a50001faf67a90a8301a737e9d14519dba05"
+    }
+   }
+  },
+  {
+   "card": "S05",
+   "slug": "five-of-swords",
+   "commons_file": "File:Swords05.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords05.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Swords05.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "e4fc379d7ce3f7675f474ec9b3c2c8e4be7bdc0af2f2186eb2e2de4643b0a0bf",
+   "commons_sha1": "b92b4bdb92b8b8262979440366c4d7c37b9ed152",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/five-of-swords-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "b146e2999f348e900f70710c3c9eff994b8aedc0b045bd30cdcd85fe6e3df756"
+    },
+    "600": {
+     "path": "/tarot/img/five-of-swords-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "538299c4672fee0581023fd255afd7434a21bb20fc037ca75458efd5649419dc"
+    }
+   }
+  },
+  {
+   "card": "S06",
+   "slug": "six-of-swords",
+   "commons_file": "File:Swords06.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords06.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Swords06.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "25279d7133301f59748f9ec0c6517a56fc4b8f76477ecfb4495f039adbc9aed5",
+   "commons_sha1": "295ec146bc425729ec5c7be675fd6ce3bd94c628",
+   "width": 1111,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/six-of-swords-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "b394ce2c834d361cb779b3a4180bad657ccbb56caf84ed7999772161b6554c9c"
+    },
+    "600": {
+     "path": "/tarot/img/six-of-swords-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "1bbcc832dd1cc7d1fb08dba64d9a26903be3ddef2224443ae6bc8de04cfcacdd"
+    }
+   }
+  },
+  {
+   "card": "S07",
+   "slug": "seven-of-swords",
+   "commons_file": "File:Swords07.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords07.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Swords07.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "6204a31b5949937c95ea47ed47bae0cdd86ba112cb0c933935efbfc294033ea6",
+   "commons_sha1": "4bb5e8567295b28c2d4956b33a0d26a83d52a2f8",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/seven-of-swords-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "9b433739c4e932fe236af156500edbb27f319df035c0a3aa43314f61015ae171"
+    },
+    "600": {
+     "path": "/tarot/img/seven-of-swords-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "4734f17a22ef1563dd01f3d401795f9bcd004e8775969f02ef3ed550e640beb9"
+    }
+   }
+  },
+  {
+   "card": "S08",
+   "slug": "eight-of-swords",
+   "commons_file": "File:Swords08.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords08.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Swords08.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "019acbe3faff292c48c2744c42df052d7c7440a896f1cac42930e8c727d983b6",
+   "commons_sha1": "668676cf4f43fb66c4d13641dc1cbd9bcf692bf0",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/eight-of-swords-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "24c06b9dd1ba5caecf05111139dbb02e71cee558e2d096ae0f493cc60f1ae5fe"
+    },
+    "600": {
+     "path": "/tarot/img/eight-of-swords-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "9bc8a5d7341e1192f9b1c457f2c145ea90c211c0c1332078ab8d9ba50042ed36"
+    }
+   }
+  },
+  {
+   "card": "S09",
+   "slug": "nine-of-swords",
+   "commons_file": "File:Swords09.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords09.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Swords09.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "b592a2ebe7fca2b648c12d42ec1d5edd4da60d60b0ec7e548e7115c977c485fb",
+   "commons_sha1": "eb3289e1366812310982a0d865910599d94154b1",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/nine-of-swords-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "f9b129b7bd428f97da184c74b0315ff8d3d84e073aa1cfb24ef2a48c5db8ba9a"
+    },
+    "600": {
+     "path": "/tarot/img/nine-of-swords-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "00b79144da0cec88de397d9389cb2d5d143891c10515c2cc623650ba8ff6652c"
+    }
+   }
+  },
+  {
+   "card": "S10",
+   "slug": "ten-of-swords",
+   "commons_file": "File:Swords10.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords10.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords10.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "10d0b161d115dc340c6c54a274a9f0a21547584b9bd20dbd61fb12e78885043f",
+   "commons_sha1": "589beb4b5e987e11b3e298b7a02a27de9bc424b6",
+   "width": 1107,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/ten-of-swords-300.webp",
+     "width": 300,
+     "height": 520,
+     "sha256": "668fb8e9073202ed0b65020435e27440edeffa4f97df65a4bbcef02a0b086a20"
+    },
+    "600": {
+     "path": "/tarot/img/ten-of-swords-600.webp",
+     "width": 600,
+     "height": 1041,
+     "sha256": "b5f8d0adf036c0723f8c42f29ffc0d9ddf0b23f9e08625819684158107653608"
+    }
+   }
+  },
+  {
+   "card": "S11",
+   "slug": "page-of-swords",
+   "commons_file": "File:Swords11.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords11.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Swords11.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "ac69cec7c4b763fe229b3bc43214d5c81e573abe0584a13691970ab65be351ad",
+   "commons_sha1": "a4aabf1894b6fc513a0e115b63e0b762be391b73",
+   "width": 1108,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/page-of-swords-300.webp",
+     "width": 300,
+     "height": 520,
+     "sha256": "4ed29463ef53a8d03b218827fd16b6fbb787b9fb636cd63e25dd60fbd402a843"
+    },
+    "600": {
+     "path": "/tarot/img/page-of-swords-600.webp",
+     "width": 600,
+     "height": 1040,
+     "sha256": "13d15c2563addf0d5e6c90ae22c38007b54cffb6d313992df6de6b0fab59e675"
+    }
+   }
+  },
+  {
+   "card": "S12",
+   "slug": "knight-of-swords",
+   "commons_file": "File:Swords12.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords12.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Swords12.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "b38c1618eb6b5eca33d5bfebfddf8739773fb4ec8918a8946b4df2790d95db4e",
+   "commons_sha1": "4c0d208cc07285f28587db0d3f89a6a1af62ac5b",
+   "width": 1112,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/knight-of-swords-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "50ff50887072414bd5f96375d6e246bf41ed1bb304a77d05c71d58bdb3ce766d"
+    },
+    "600": {
+     "path": "/tarot/img/knight-of-swords-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "020816735647300eb1f3294dfb4620a56df7b84a97c464f5df3f8bad71c28c0f"
+    }
+   }
+  },
+  {
+   "card": "S13",
+   "slug": "queen-of-swords",
+   "commons_file": "File:Swords13.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords13.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords13.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "55854543540d12f9c201197537f4521b22379b84d0955149621755601ce6da90",
+   "commons_sha1": "e4b59f06e66bc3643d5b1a2876638af8b046e4f0",
+   "width": 1104,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/queen-of-swords-300.webp",
+     "width": 300,
+     "height": 522,
+     "sha256": "53f025e848f8d5e7fbe19d9c4f569e29dda366a04a56606dc7b26d64f46860e1"
+    },
+    "600": {
+     "path": "/tarot/img/queen-of-swords-600.webp",
+     "width": 600,
+     "height": 1043,
+     "sha256": "1c56907877eff58f7a8e784957794300ce6431d93faf167f08f932ab93e9327c"
+    }
+   }
+  },
+  {
+   "card": "S14",
+   "slug": "king-of-swords",
+   "commons_file": "File:Swords14.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Swords14.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Swords14.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "5307da08322c8ccf2bc748aec5fe919e16849568fda3986225a921bf2cac9cee",
+   "commons_sha1": "69a4d993f44ecef40a8b4c4bfb5452770290130d",
+   "width": 1117,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/king-of-swords-300.webp",
+     "width": 300,
+     "height": 515,
+     "sha256": "c19611858498d9dd876204a1ad92675ab5f0419e657c9ee2055beb5c5d406ae2"
+    },
+    "600": {
+     "path": "/tarot/img/king-of-swords-600.webp",
+     "width": 600,
+     "height": 1031,
+     "sha256": "e778592ca6abd941118d39f1f5f56b4ff9145b041d485e0d6622cbcf6c969efc"
+    }
+   }
+  },
+  {
+   "card": "P01",
+   "slug": "ace-of-pentacles",
+   "commons_file": "File:Pents01.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents01.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Pents01.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "fd6ddf90ead3062dd3696856e9771356dd9a2527048dab19417ee7ad79e28464",
+   "commons_sha1": "3d4f8dc21e8892cd5fadbd3c748358c8984856c6",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/ace-of-pentacles-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "76a61839f5387ba96a0ad88ac8090969ff004817e7cb0f8f689a0876dd8c94b8"
+    },
+    "600": {
+     "path": "/tarot/img/ace-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "ef11735b7f4302383e518f6983a23d7abbd9e4ba99aaca70224f033aea3dbd15"
+    }
+   }
+  },
+  {
+   "card": "P02",
+   "slug": "two-of-pentacles",
+   "commons_file": "File:Pents02.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents02.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Pents02.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "1ee94470d0a0d53f867b5f6616bfe9e672b5693ba7c1d0a0c29303b2a1c08a88",
+   "commons_sha1": "4924c94b5553a2aff65a932f066391b47e7db517",
+   "width": 1112,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/two-of-pentacles-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "bf4d8618f53ef3303cb02ca3a0947a4a0100eb2d7cbadd23067b35519277923c"
+    },
+    "600": {
+     "path": "/tarot/img/two-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "22806615d422d12ded3a9247aa5d75c57053bfeb5c3e4f8abea83ce6ac22b9b0"
+    }
+   }
+  },
+  {
+   "card": "P03",
+   "slug": "three-of-pentacles",
+   "commons_file": "File:Pents03.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents03.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents03.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "a8d826b099c0920329be52de5b96c0b2e5ddcfb45b8d109490e9ab74ae6f9eaa",
+   "commons_sha1": "ca857869e950b28e912b0a585f597d7f68112fae",
+   "width": 1117,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/three-of-pentacles-300.webp",
+     "width": 300,
+     "height": 515,
+     "sha256": "0dc1219487371cc4178cfca8041cd181d396e01f516668f062684eb150e54fca"
+    },
+    "600": {
+     "path": "/tarot/img/three-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1031,
+     "sha256": "3e04daa75a8cc795f367f78c48aa912f33367f1c92c2ae2836625f57798d6dfb"
+    }
+   }
+  },
+  {
+   "card": "P04",
+   "slug": "four-of-pentacles",
+   "commons_file": "File:Pents04.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents04.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Pents04.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "37e44050b8ac86dc7db3c1bb00e80154e97986b028a1499504ab89c5612e5989",
+   "commons_sha1": "4d9da9f40f497226ae0777923c9a38796adbe0c1",
+   "width": 1110,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/four-of-pentacles-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "de4d3b2332114587f22a56fcb6c095ccd7c08a1b27c8aa42790dbb2eafd72400"
+    },
+    "600": {
+     "path": "/tarot/img/four-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1038,
+     "sha256": "462ab9d7adfce34f34c0e89160674090d9ba9756dfb28dd135834913a560314d"
+    }
+   }
+  },
+  {
+   "card": "P05",
+   "slug": "five-of-pentacles",
+   "commons_file": "File:Pents05.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents05.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Pents05.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "5a6705ba00c102c9e66a716b182e195f17c1bcf94a8d1b5163e2ce7195166938",
+   "commons_sha1": "cbe62be71c1a110125dd55887843ce04c3827976",
+   "width": 1112,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/five-of-pentacles-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "8349a5a17fe33adfadaf1b103959e834f34c44805a9f8ff179da46d23234691a"
+    },
+    "600": {
+     "path": "/tarot/img/five-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "360f9a032b0f4e8f24749447fab77e06afda7520518e91ad48b0b3c2401c4d8c"
+    }
+   }
+  },
+  {
+   "card": "P06",
+   "slug": "six-of-pentacles",
+   "commons_file": "File:Pents06.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents06.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Pents06.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "d9d67638f7f4075b42b03ee80ca9bf3817d2406cda647618504140b85ab3ca6b",
+   "commons_sha1": "cdbc8cabea9dbe863673891f6c19cd9a8310b258",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/six-of-pentacles-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "b2c97f9eb630cb71e0e8aaac442a53e387695d3d698a11665b8f4e51f7de073a"
+    },
+    "600": {
+     "path": "/tarot/img/six-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "bebc4075925aecadb7348ff7aa1a89aec1189047c9cb08a68fc083d201c4322c"
+    }
+   }
+  },
+  {
+   "card": "P07",
+   "slug": "seven-of-pentacles",
+   "commons_file": "File:Pents07.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents07.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Pents07.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "78a9d4965ce497192e5186737a44d73b4e94aa8a4092b49b374879ed22b138ab",
+   "commons_sha1": "c9caaba37d822b79b329f31e7db4f13d8fd2fd9b",
+   "width": 1114,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/seven-of-pentacles-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "dd1495af3dc5dda709fc80483ca95f3dd37168bcb1555c4022a8d63ec538f854"
+    },
+    "600": {
+     "path": "/tarot/img/seven-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1034,
+     "sha256": "7f269d04f938babd8db11382450ed71456ad0a9cc12cb459945b59219488a1fe"
+    }
+   }
+  },
+  {
+   "card": "P08",
+   "slug": "eight-of-pentacles",
+   "commons_file": "File:Pents08.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents08.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Pents08.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "13c82cbdec9ce101f157ee502663eb38bbd8117cec5e019b8400474056caebd9",
+   "commons_sha1": "7ee1f241af3bb05d2bd81c07f2a4cd2291cc60ba",
+   "width": 1117,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/eight-of-pentacles-300.webp",
+     "width": 300,
+     "height": 516,
+     "sha256": "018271295720055c5c8aff0d34d59a79458256eef4e4577137c727489931d4dc"
+    },
+    "600": {
+     "path": "/tarot/img/eight-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1031,
+     "sha256": "a87e04f50d044a38b96d3506f44816a8c7cdebf16d01058307328d60c474b76d"
+    }
+   }
+  },
+  {
+   "card": "P09",
+   "slug": "nine-of-pentacles",
+   "commons_file": "File:Pents09.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents09.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Pents09.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "e491630d7291a34266f2d227f4085602cb9a000e31346402773a653e07b48f32",
+   "commons_sha1": "2fd48ca167699b1e51985338711e191e23613827",
+   "width": 1108,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/nine-of-pentacles-300.webp",
+     "width": 300,
+     "height": 520,
+     "sha256": "982fe7111d23ba5edab3ea7f2ef5b21065d96c3dbfd30020fbe7cb724a457ea2"
+    },
+    "600": {
+     "path": "/tarot/img/nine-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1040,
+     "sha256": "13e28a6c378bf92fa166b7da6a3cef8d0b93b86e87421445e8331aeb42e2667f"
+    }
+   }
+  },
+  {
+   "card": "P10",
+   "slug": "ten-of-pentacles",
+   "commons_file": "File:Pents10.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents10.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents10.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "e14d5029ff2151a5ef53218c853382828dd0940bfd3a608d72ec59a967f97809",
+   "commons_sha1": "af975248f5a406aef38a97bc58348468b3292de6",
+   "width": 1115,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/ten-of-pentacles-300.webp",
+     "width": 300,
+     "height": 517,
+     "sha256": "f84a368499da45c2892f3473fc7acc9f259db39850787529bbbfb808d34704b6"
+    },
+    "600": {
+     "path": "/tarot/img/ten-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1033,
+     "sha256": "67460386945bff065b50c7d6720ef2f90270192185a305d83036c7a610c2b6f6"
+    }
+   }
+  },
+  {
+   "card": "P11",
+   "slug": "page-of-pentacles",
+   "commons_file": "File:Pents11.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents11.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Pents11.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "d2c3cb2f6a602e62748f873eca72acfab06b64a6de50cf3499e6197d650b6fe9",
+   "commons_sha1": "1f8c81e2972b400c31558dfccfb13c88a0a54dc4",
+   "width": 1112,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/page-of-pentacles-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "5ae21985dabb804d736d980598d63ba0b7c214461b63677ac8d12e8feba43e57"
+    },
+    "600": {
+     "path": "/tarot/img/page-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "28d377033d70a1e0be1bdcb93fb4dbdb57c93d87597ef9ef0de18ce92ecd2f62"
+    }
+   }
+  },
+  {
+   "card": "P12",
+   "slug": "knight-of-pentacles",
+   "commons_file": "File:Pents12.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents12.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pents12.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "6a652fbf447b7d0c78145627749c87806d1c356e96e73ca365d2618d9b255e9f",
+   "commons_sha1": "4b71c7b41acda1e05bb507de542e58da16c5b41c",
+   "width": 1111,
+   "height": 1919,
+   "files": {
+    "300": {
+     "path": "/tarot/img/knight-of-pentacles-300.webp",
+     "width": 300,
+     "height": 518,
+     "sha256": "f5e84914b4f293ddf0626119a2e2cb96b1a692587813cc3ecad3e55dfa9c4d65"
+    },
+    "600": {
+     "path": "/tarot/img/knight-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1036,
+     "sha256": "203f0b463a928c2b8d21e8a25dc83a36720a3f93c93de1ae0e3d6ec4fd6638cb"
+    }
+   }
+  },
+  {
+   "card": "P13",
+   "slug": "queen-of-pentacles",
+   "commons_file": "File:Pents13.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents13.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Pents13.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "051a9a46a806910754969d806b3cf1e1621d30f51225b0a3db9b5474e222a877",
+   "commons_sha1": "0788c5de3edff7cfb9c94795e7ef96368a636f48",
+   "width": 1109,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/queen-of-pentacles-300.webp",
+     "width": 300,
+     "height": 519,
+     "sha256": "e4d77a1e0bff17f8af6790623ce58d572b619f463e7ce68b81c3dc588a736c28"
+    },
+    "600": {
+     "path": "/tarot/img/queen-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1039,
+     "sha256": "47bf3dd03e266a0610c1eacf4baca97c7fabb38f2c2d3c1aa91133c0d1296bf1"
+    }
+   }
+  },
+  {
+   "card": "P14",
+   "slug": "king-of-pentacles",
+   "commons_file": "File:Pents14.jpg",
+   "commons_url": "https://commons.wikimedia.org/wiki/File:Pents14.jpg",
+   "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Pents14.jpg",
+   "licence": "{{PD-old-auto-expired|deathyear=1942}}",
+   "licence_short_name": "Public domain",
+   "licence_categories": [
+    "PD-old-80-expired",
+    "CC-PD-Mark",
+    "PD-old missing SDC copyright status"
+   ],
+   "author": "Pamela Colman Smith",
+   "date": "1910",
+   "printing": "Pam-A",
+   "source": "http://muzendo.jp/blog/",
+   "sha256": "887b31bb3a9213e9f97dd6fd9c0f8b421c24735f3a0efd1d087fadfb600b0020",
+   "commons_sha1": "084fe9710bbd671f793ace7f11fb4c9ec5661900",
+   "width": 1107,
+   "height": 1920,
+   "files": {
+    "300": {
+     "path": "/tarot/img/king-of-pentacles-300.webp",
+     "width": 300,
+     "height": 520,
+     "sha256": "a02545616c48913cd5c99686d163e4cc88b41e1d5b83580f83db76ff8749fce8"
+    },
+    "600": {
+     "path": "/tarot/img/king-of-pentacles-600.webp",
+     "width": 600,
+     "height": 1041,
+     "sha256": "c0f5e2b64d21910a21f7e54b3542f164c48f3d5184ad0b59aa85dd196fa5d3ce"
+    }
+   }
+  }
+ ],
+ "skipped": []
+}
