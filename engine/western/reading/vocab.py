@@ -19,12 +19,23 @@ SCHOOL_VI = {"hellenistic": "chiêm tinh Hy Lạp cổ đại", "traditional": "
              "compare": "đối chiếu các trường phái", "calc": "dữ kiện tính toán"}
 SOURCE_SHORT = {"PTOL_TETRA": "Ptolemy, Tetrabiblos", "LILLY_CA": "Lilly, Christian Astrology", "VALENS_ANTH": "Valens, Anthologies",
                 "LEO": "Alan Leo", "CONV_ORBS": "quy ước Thiên Bàn", "CONV_PATTERNS": "quy ước hiện đại", "SYSTEM": "định nghĩa của Thiên Bàn"}
+ASPECT_NOUN = {"conjunction": "trùng tụ", "opposition": "góc đối", "trine": "góc tam hợp", "square": "góc vuông", "sextile": "góc lục hợp",
+               "quincunx": "góc lệch 150°", "semisextile": "góc bán lục hợp", "semisquare": "góc bán vuông", "sesquiquadrate": "góc vuông rưỡi"}
+ASPECT_WITH = {"conjunction": "trùng tụ với", "opposition": "đối đỉnh với", "trine": "tam hợp với", "square": "vuông góc với", "sextile": "lục hợp với",
+               "quincunx": "lệch 150° với", "semisextile": "bán lục hợp với", "semisquare": "bán vuông với", "sesquiquadrate": "vuông rưỡi với"}
+POINT_VI = {"asc": "cung Mọc", "mc": "Thiên Đỉnh", "dsc": "điểm Lặn", "ic": "Thiên Để", "fortune": "Lot of Fortune", "spirit": "Lot of Spirit",
+            "north_node": "La Hầu", "south_node": "Kế Đô"}
 ANGULARITY = {1: "angular", 4: "angular", 7: "angular", 10: "angular", 2: "succedent", 5: "succedent", 8: "succedent", 11: "succedent",
               3: "cadent", 6: "cadent", 9: "cadent", 12: "cadent"}
 
 
 def P(name: str) -> str:
-    return PLANET_VI.get(name, name)
+    return POINT_VI.get(name) if name in POINT_VI else PLANET_VI.get(name, name)
+
+
+def num(x: float, d: int = 1) -> str:
+    """Vietnamese decimal comma: 36.4 -> '36,4'."""
+    return f"{x:.{d}f}".replace(".", ",")
 
 
 def S(sign: str) -> str:

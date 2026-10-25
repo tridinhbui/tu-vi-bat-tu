@@ -150,3 +150,21 @@ def solar_return(req: ReturnReq):
         return _R.solar_return(natal, req.year, req.lat, req.lon, req.tz, req.place, C.ChartOptions.from_dict(req.options.model_dump()))
     except (TimeError, E.OutOfRange, ValueError) as e:
         raise HTTPException(422, str(e))
+
+
+# ---- reading ----------------------------------------------------------------------------------------------------------
+class ReadingReq(ChartReq):
+    mode: str = Field("deep", pattern="^(overview|deep)$")
+    gender: str | None = Field(None, pattern="^(male|female)$")
+    when: str | None = None
+
+
+@router.post("/reading")
+def reading(req: ReadingReq):
+    from .reading import build
+    natal = chart_or_422(req.birth, req.options)
+    when = _date(req.when) if req.when else _dt.datetime.now(_UTC)
+    try:
+        return build(natal, req.mode, req.gender, when)
+    except E.OutOfRange as e:
+        raise HTTPException(422, str(e))
