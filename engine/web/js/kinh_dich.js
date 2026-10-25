@@ -79,7 +79,7 @@ async function readKinhDich(input, share) {
 
 function sentenceBasis(s) {
   const from = (s.from || []).flatMap(f => f.cites ? f.cites : [f]).filter(f => f.quote).map(f => {
-    const where = f.layer ? `${LAYER[f.layer] || f.layer}${f.hexagram ? `, quẻ ${f.hexagram}` : ''}` : (f.chapter || f.book || '');
+    const where = f.layer ? `${LAYER[f.layer] || f.layer}${f.hexagram ? `, quẻ ${f.hexagram}` : ''}` : f.path ? `Mai Hoa Dịch Số, ${f.path}` : (f.chapter || f.book || '');
     return `<q>${esc(f.quote)}</q> <span class="src">(${esc(where)})</span>`;
   });
   return `<li><span class="b-tag b-${s.basis}">${esc(BASIS[s.basis] || s.basis)}</span>${esc(s.text)}${from.length ? `<br>${from.join('<br>')}` : ''}${s.note ? `<br><span class="src">${esc(s.note)}</span>` : ''}</li>`;
@@ -208,8 +208,8 @@ async function readMaiHoa(body) {
   const res = $('#kd-result');
   res.hidden = false;
   res.innerHTML = '<p class="note">Đang lập quẻ…</p>';
-  let c;
-  try { c = await post('/api/mai-hoa/cast', body); }
+  let c, reading;
+  try { ({ cast: c, reading } = await post('/api/mai-hoa/reading', { ...body, topic: topic() || null })); }
   catch (e) { res.innerHTML = `<p class="notice warn">Không lập được quẻ (${esc(e.message || e)}).</p>`; return; }
   current = { kind: 'mh', data: c, share: { mh: JSON.stringify(body), t: topic() } };
   const roles = { [c.the.position]: 'thể', [c.dung.position]: 'dụng' };
@@ -225,7 +225,9 @@ async function readMaiHoa(body) {
       <dt>Hỗ</dt><dd>${esc(c.ho.upper)}: ${esc(REL_VI[c.relations.ho_upper])}; ${esc(c.ho.lower)}: ${esc(REL_VI[c.relations.ho_lower])}${c.ho_from === 'bien' ? ' (Kiền, Khôn không có hỗ: lấy hỗ của quẻ biến)' : ''}</dd>
       <dt>Biến</dt><dd>${esc(c.bien_dung.trigram)} (${esc(c.bien_dung.element)}): ${esc(REL_VI[c.relations.bien])}${strength('bien')}</dd></dl>
       ${c.season_vi ? `<p class="note small">Vượng, suy tính theo ${esc(c.season_vi)} (tháng ${c.month} âm lịch).</p>` : ''}</section>
-    <p class="notice"><span><b>Phần luận Mai Hoa đang được dựng.</b> Quẻ, thể, dụng, hỗ, biến và vượng suy ở trên đã tính theo Mai Hoa Dịch Số; lời luận theo các thiên “Thể dụng” của sách sẽ hiện ở đây khi bản dịch xong.</span></p>
+    ${reading ? `<div class="kd-tools"><div class="seg kd-depth" role="group" aria-label="Mức đọc"><button type="button" data-depth="nhanh" aria-pressed="true">Đọc nhanh</button><button type="button" data-depth="sau" aria-pressed="false">Đọc sâu</button></div></div>
+      ${reading.sections.filter(s => s.id !== 'lap_que').map(sectionHtml).join('')}<p class="note small">${esc(reading.translation)}; nguyên văn chữ Hán trong phần “Mỗi câu dựa vào đâu”.</p>`
+      : '<p class="notice"><span><b>Chưa có phần luận.</b> Quẻ, thể, dụng, hỗ, biến và vượng suy ở trên đã tính theo Mai Hoa Dịch Số.</span></p>'}
     ${c.notes.length ? `<details class="kd-basis"><summary>Chỗ sách không nói và cách Thiên Bàn chọn</summary><ol>${c.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ol></details>` : ''}
     <div class="kd-tools"><button type="button" class="btn btn-ghost btn-sm" data-act="share">Chép liên kết</button></div></div>`;
   wireResult(res);

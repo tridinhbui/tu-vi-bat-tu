@@ -100,6 +100,10 @@ def mai_hoa_cast(req: MaiHoaReq) -> dict:
     return r
 
 
+class MaiHoaReadingReq(MaiHoaReq):
+    topic: str | None = None
+
+
 class KinhDichReadingReq(KinhDichReq):
     topic: str | None = None
 
@@ -130,6 +134,19 @@ def register(app):
         t = texts.quẻ_texts(n)
         return {"number": n, "han": t["han"], "has_translation": t["has_ntt"], "segments": t["segments"],
                 "dien_giai": dien_giai.load(n)}
+
+    @app.post("/api/mai-hoa/reading")
+    def mai_hoa_reading(req: MaiHoaReadingReq):
+        from .kinh_dich import mai_hoa_reading as mr
+        try:
+            c = mai_hoa_cast(req)
+        except ValueError as e:
+            raise HTTPException(422, str(e))
+        try:
+            r = mr.read(c, req.topic)
+        except FileNotFoundError:          # the Mai Hoa rules are not installed: the cast alone
+            r = None
+        return {"cast": c, "reading": r}
 
     @app.post("/api/mai-hoa/cast")
     def mai_hoa_route(req: MaiHoaReq):

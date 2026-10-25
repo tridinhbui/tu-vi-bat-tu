@@ -165,7 +165,9 @@ class Reader:
             seg = seg_key_of(t)
             text = self.nghia(tx, seg)
             if not text:
-                self.missing.append(f"bản dịch {seg} quẻ {tx['han']}")
+                part = "lời quẻ" if seg == "thoan" else "lời 'dùng'" if seg == "dung" else f"lời hào {('Đầu', 'Hai', 'Ba', 'Tư', 'Năm', 'Trên')[int(seg[3:]) - 1]}"
+                name = self.ban["name"] if t["hexagram"] == self.n else self.bien["name"]
+                self.missing.append(f"bản dịch {part} quẻ {name}")
                 continue
             who = ("lời quẻ " + (self.ban["name"] if t["hexagram"] == self.n else self.bien["name"]) if t["kind"] == "thoan"
                    else ("lời 'dùng Chín'" if self.n == 1 else "lời 'dùng Sáu'") if t["kind"] == "dung"
