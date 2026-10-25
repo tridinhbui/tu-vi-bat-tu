@@ -128,7 +128,9 @@ USER_SUPPLIED = {"/api/rules/test"}                                   # evaluate
 # Routes that reached main after this guard was written (merged 2026-10-21) and are covered by their own tests;
 # listed so that any route added from here on still has to be classified above.
 LATER_ROUTES = {"/api/calendar", "/api/deep-reading", "/api/dignity/classify", "/api/facts", "/api/growth/compass", "/api/growth/dialogue",
-                "/api/growth/journal-review", "/api/growth/navigate", "/api/growth/profile", "/api/interpretation", "/api/synthesis"}
+                "/api/growth/journal-review", "/api/growth/navigate", "/api/growth/profile", "/api/interpretation", "/api/synthesis",
+                # Kinh Dịch / Mai Hoa (2026-10-25): their own system, no Tử Vi material; covered by tests/test_kinh_dich_*.py and test_mai_hoa_text.py
+                "/api/kinh-dich/cast", "/api/kinh-dich/reading", "/api/kinh-dich/text/{n}", "/api/mai-hoa/cast", "/api/mai-hoa/reading"}
 
 
 def test_route_inventory_forces_review_of_every_new_endpoint():
