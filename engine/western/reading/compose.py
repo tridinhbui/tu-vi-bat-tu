@@ -30,8 +30,12 @@ class Para:
     topic: str = ""
     keys: list[str] = field(default_factory=list)     # chart facts this paragraph asserts (audit: contradictions)
     method: str = ""                      # how the source works, the same for every chart: shown in Đọc sâu, not in the text
+    layer: str = ""                       # 'summary' (Đọc nhanh: the chapter's plain-language thesis), 'analysis' (the school paragraphs
+                                          # of the main part), 'deep' (Đọc sâu); `level` stays what the paywall cuts by
 
     def __post_init__(self):
+        if not self.layer:
+            self.layer = "analysis" if self.level == "overview" else "deep"
         seen = set()
         self.evidence = [e for e in self.evidence if (e["kind"], e["id"]) not in seen and not seen.add((e["kind"], e["id"]))]
         """Sentences wrapped in ⟦…⟧ by the chapters are method talk: they move to `method`, the text keeps what is about this chart."""

@@ -90,8 +90,8 @@ def _sect_paragraph(f: Facts) -> Para | None:
               ("moderate", "base"): "chặng đầu ở mức vừa, chặng sau cần dè dặt hơn",
               ("base", "fortunate"): "Valens đọc đây là những năm đầu nhiều lên xuống, về sau mới có sức bật",
               ("base", "moderate"): "những năm đầu nhiều lên xuống, chặng sau khá dần nhưng không bùng nổ",
-              ("base", "base"): "cả hai chủ tam hợp đều ở nơi yếu, nên Valens dặn phải xét tiếp Lot of Fortune và chủ của nó"}[(g1, g2)]
-    t2 = (f"{light} đang ở {S(f.b[vl['light']]['sign'])}, thuộc tam hợp {ELEMENT_VI[vl['element']]}; "
+              ("base", "base"): "cả hai chủ của nhóm nguyên tố đều ở nơi yếu, nên Valens dặn phải xét tiếp Lot of Fortune và chủ của nó"}[(g1, g2)]
+    t2 = (f"{light} đang ở {S(f.b[vl['light']]['sign'])}, thuộc nhóm {ELEMENT_VI[vl['element']]}; "
           f"chủ thứ nhất của nhóm này với lá số {'ngày' if day else 'đêm'} là {P(first)}, đứng ở Nhà {vl['places'][first]} (tính trọn cung{f.house_note('hellenistic', first, inner=True)}), {GRADE_VI[g1]}; "
           f"chủ thứ hai là {P(second)}, ở Nhà {vl['places'][second]}{f.house_note('hellenistic', second)}, {GRADE_VI[g2]}. Theo Valens (II.2), chủ thứ nhất nói về chặng đầu đời và chủ thứ hai về chặng sau: "
           f"{course}. ⟦Valens không chốt tuổi chuyển giao; ông chỉ nói nó đến theo vòng của các chủ thời gian.⟧")
@@ -277,7 +277,7 @@ def _lilly_manners(f: Facts) -> list[Para]:
             pol = 0
         disp = dignity.domicile_lord(f.b[portrait_planet]["sign"])
         tail = ""
-        if disp != portrait_planet:
+        if disp != portrait_planet and _once_disp(f, disp):
             ds = f.lilly_state(disp)
             tail = (f" Lilly bảo xét luôn chủ tinh (dispositor) của sao này (tr.535): {P(disp)} {'đắc thế, nâng sao chủ tính cách lên' if ds == 'well' else 'thất thế, kéo sao chủ tính cách xuống thêm' if ds == 'ill' else 'ở mức lưng chừng, không thêm bớt nhiều'}.")
         mix = ""
@@ -296,6 +296,14 @@ def _lilly_manners(f: Facts) -> list[Para]:
     return out
 
 
+def _once_disp(f: Facts, disp: str) -> bool:
+    seen = f.__dict__.setdefault("_manners_disp", set())
+    if disp in seen:
+        return False
+    seen.add(disp)
+    return True
+
+
 def _ptolemy_soul(f: Facts) -> Para:
     c = f.c
     sr = f.soul_ruler()
@@ -312,7 +320,7 @@ def _ptolemy_soul(f: Facts) -> Para:
         pol = +1
     else:
         why_not = ("đang nằm dưới tia Mặt Trời" if f.c["conditions"][r].get("solar", {}).get("phase") else
-                   f"đang ở {S(f.b[r]['sign'])}, không phải nhà, cung tôn vinh hay tam hợp của nó")
+                   f"đang ở {S(f.b[r]['sign'])}, không phải nhà, cung tôn vinh hay nhóm nguyên tố của nó")
         t += (f"Nhưng {P(r)} {why_not}, nên Ptolemy nghiêng về vế ngược lại: "
               f"{listing(soul['opposite'], 4)}; đó là những nét dễ trượt vào khi sao cai quản yếu, chứ không phải bản án.")
         pol = -1
@@ -332,7 +340,7 @@ def _ptolemy_soul(f: Facts) -> Para:
     steps = [f"Năm cách nắm quyền (III.2) trên Sao Thủy: " + "; ".join(f"{P(k)}: {', '.join(v)}" for k, v in sr["claims_mercury"].items()) + ".",
              f"Trên Mặt Trăng: " + "; ".join(f"{P(k)}: {', '.join(v)}" for k, v in sr["claims_moon"].items()) + ".",
              "Mặt Trời và Mặt Trăng không bao giờ là sao cai quản tâm hồn ở III.13, chỉ là yếu tố điều chỉnh.",
-             "'Đáng trọng' (honourable) được Thiên Bàn hiểu là ở nhà, cung tôn vinh hay tam hợp của chính sao đó và không bị Mặt Trời che; Ptolemy không định nghĩa từ này."]
+             "'Đáng trọng' (honourable) được Thiên Bàn hiểu là ở nhà, cung tôn vinh hay nhóm nguyên tố của chính sao đó và không bị Mặt Trời che; Ptolemy không định nghĩa từ này."]
     return Para("tc.ptolemy", "Tâm hồn theo Ptolemy", t, "hellenistic", srcs("PTOL_TETRA:III.13 pp.333-361", "PTOL_TETRA:III.2 p.233"),
                 [ev_planet(c, "mercury"), ev_planet(c, "moon"), ev_planet(c, r)], "overview", steps=steps, polarity=pol,
                 topic="tinh_cach", keys=[f"soul_ruler:{r}:{'hon' if hon else 'opp'}"])

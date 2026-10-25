@@ -148,6 +148,8 @@ def compute(birth: BirthData, opts: ChartOptions | None = None) -> dict:
         for pt in allpts.values():
             pt["house"] = H.house_of(pt["lon"], cusp_sets[used])
             pt["house_ws"] = H.house_of(pt["lon"], cusp_sets["whole_sign"])
+            if cusp_sets.get("regiomontanus"):          # Lilly's reading: Regiomontanus with his five-degree rule (p.33)
+                pt["house_lilly"] = H.house_of_lilly(pt["lon"], cusp_sets["regiomontanus"])
         for k in ("asc", "mc", "dsc", "ic"):
             out["angles"][k]["house_ws"] = H.house_of(out["angles"][k]["lon"], cusp_sets["whole_sign"])
         out["sect"] = _sect(bodies, birth, t)

@@ -26,7 +26,7 @@ def readings():
 
 def test_audit_finds_no_traceability_school_or_forbidden_issue(readings):
     for r in readings:
-        bad = [i for i in r["audit"]["issues"] if i["kind"] in ("untraceable", "school_mix", "forbidden", "duplicate")]
+        bad = [i for i in r["audit"]["issues"] if i["kind"] in ("untraceable", "school_mix", "forbidden", "duplicate", "template", "house_system", "summary", "opener")]
         assert not bad, bad
 
 
@@ -64,3 +64,16 @@ def test_synastry_reading():
     assert set(syn["ptolemy"]["places"]) == {"sun", "moon", "asc", "lot"}
     paras = RS.build(syn, gender_a="male", gender_b="female")
     assert paras[0]["sources"] and "IV.7" in paras[0]["sources"][0]["label"]
+
+
+def test_each_life_chapter_opens_with_a_plain_summary_that_rests_on_evidence(readings):
+    from western.reading.argue import SUMMARIES
+    for b, r in zip(CHARTS, readings):
+        for ch in r["chapters"]:
+            if ch["id"] not in SUMMARIES or (b.hour is None and ch["id"] in ("su_nghiep", "tai_chinh", "quan_he", "gia_dinh", "dinh_huong")):
+                continue
+            first = ch["paragraphs"][0]
+            assert first["layer"] == "summary" and first["level"] == "overview" and first["evidence"], (ch["id"], first["id"])
+            assert any(k.startswith("verdict:") for k in first["keys"]) and first["steps"][0].startswith("Cách gom")
+            # the summary speaks to the reader first: it does not open with a book or an author
+            assert not first["text"].startswith(("Theo ", "Với Lilly", "Lilly", "Ptolemy", "Valens", "Alan Leo")), first["text"][:60]

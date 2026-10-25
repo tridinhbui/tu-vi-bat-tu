@@ -7,7 +7,8 @@ import { detailHtml, detailEmpty } from './detail.js';
 import { positionsTable, outerTable, cuspsTable, aspectsList, aspectsGrid, dignityTable, structureHtml, srRelation } from './tables.js';
 import { initBirthForm, placeBox, latLonTxt } from './form.js';
 import { initForecast } from './timeline.js';
-import { loadReading } from './reading.js';
+import { loadReading, redrawReading } from './reading.js';
+import { initGlossary } from '../glossary.js';
 import { initPaywall } from '../paywall.js';
 import { initSynastry } from './synastry.js';
 import * as store from './store.js';
@@ -171,7 +172,7 @@ async function loadMode() {
 }
 
 // ----- tables -----
-const TABS = { pos: 'Vị trí', houses: 'Nhà', aspects: 'Góc hợp', dign: 'Tước vị', struct: 'Cấu trúc' };
+const TABS = { pos: 'Vị trí', houses: 'Nhà', aspects: 'Góc hợp', dign: 'Phẩm vị', struct: 'Cấu trúc' };
 $$('#tbl-tabs [role=tab]').forEach(b => b.addEventListener('click', () => { S.tab = b.dataset.tab; renderTables(); }));
 $('#tbl-tabs').addEventListener('keydown', e => {
   const tabs = $$('#tbl-tabs [role=tab]'), i = tabs.indexOf(document.activeElement);
@@ -195,14 +196,21 @@ function renderTables() {
 }
 
 // ----- reading -----
-$$('#read-mode button').forEach(b => b.onclick = () => {
-  S.deep = b.dataset.deep === '1';
-  $$('#read-mode button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-  loadReading($('#reading'), S.inp, S.natal, { deep: S.deep, gender: S.gender });
+const setDeep = deep => {
+  S.deep = deep;
+  $$('#read-mode button').forEach(x => x.setAttribute('aria-pressed', String((x.dataset.deep === '1') === deep)));
+  if (!redrawReading(deep)) loadReading($('#reading'), S.inp, S.natal, { deep, gender: S.gender });
+};
+$$('#read-mode button').forEach(b => b.onclick = () => setDeep(b.dataset.deep === '1'));
+// "Xem phân tích chi tiết" under a chapter's summary: Đọc sâu, back at that chapter
+$('#reading').addEventListener('click', e => {
+  const b = e.target.closest('[data-deepen]'); if (!b) return;
+  setDeep(true); document.getElementById('wt-c-' + b.dataset.deepen)?.scrollIntoView({ block: 'start' });
 });
 
 // ----- the paid part of the reading (src/billing/west.ts): lock cards open a package for this birth, then the reading is drawn again -----
 initPaywall(() => S.inp?.birth || null);
+initGlossary();
 addEventListener('tvbt:unlocked', () => { if (S.inp) loadReading($('#reading'), S.inp, S.natal, { deep: S.deep, gender: S.gender }); });
 // signing in from a lock card comes back to this page (?next=); the chart on screen is opened again once
 const RESUME = 'tvbt.west.resume';

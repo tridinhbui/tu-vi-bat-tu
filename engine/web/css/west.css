@@ -337,3 +337,11 @@ button.wt-tl-lab:hover{background:var(--surface)}button.wt-tl-lab:focus-visible{
 .wt-p.ax .wt-pg{font-family:var(--sans);font-weight:600;letter-spacing:.02em}
 @media (max-width:1000px){.wt-syn-in{grid-template-columns:minmax(0,1fr)}.wt-syn-form{max-width:none}}
 @media print{.wt-syn-in{display:none!important}#syn:has(#syn-out[hidden]){display:none}}
+/* reading: the plain-language summary first, the school paragraphs after, Đọc sâu folded (layers from western/reading/argue.py) */
+.wt-para.wt-sum{border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 4%,transparent);padding-right:var(--s3);border-radius:0 6px 6px 0}
+.wt-para.wt-sum .wt-txt{font-size:1.04rem;line-height:1.65}
+.wt-school.s-sum{background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}
+.wt-more{display:inline-block;margin:2px 0 var(--s3) var(--s4);font-size:.92rem}
+.wt-why{margin:6px 0 0}.wt-why>summary{cursor:pointer;font-size:.85rem;color:var(--muted)}.wt-why[open]>summary{margin-bottom:4px}
+.wt-deep{max-width:820px}.wt-deep>.wt-para{margin-left:var(--s3);margin-right:var(--s3)}
+.wt-span path{fill:color-mix(in srgb,var(--cinnabar) 16%,transparent);stroke:var(--cinnabar);stroke-width:1.2;stroke-dasharray:5 3;pointer-events:none}

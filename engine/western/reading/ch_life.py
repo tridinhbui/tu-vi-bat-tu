@@ -67,7 +67,7 @@ def career(f: Facts) -> list[Para]:
     if pl in (1, 10, 7, 4):
         t += f" Sao này đứng ở góc, nên theo Ptolemy người ta có xu hướng {acts['amplitude']['angular']}."
     elif pl in (3, 6, 9, 12):
-        t += f" Sao này ở chỗ suy, nên theo Ptolemy người ta dễ {acts['amplitude']['cadent']}."
+        t += f" Sao này ở chỗ yếu (đứng trước một góc), nên theo Ptolemy người ta dễ {acts['amplitude']['cadent']}."
     steps = [f"Sao mọc buổi sáng (đi trước Mặt Trời ≥ 15°, gần nhất): {P(la['morning']) if la['morning'] else 'không có'}.",
              f"Sao ở chỗ thứ 10 theo Ptolemy: {planet_list(la['at_mc']) or 'không có'}.", OPERATIONAL["morning_appearance"], OPERATIONAL["ptolemy_place"]]
     out.append(Para("sn.ptolemy", "Chủ hành nghiệp theo Ptolemy", t, "hellenistic", srcs("PTOL_TETRA:IV.4 pp.381-391"),
@@ -78,14 +78,8 @@ def career(f: Facts) -> list[Para]:
     lord_mc = dignity.domicile_lord(mc_sign)
     in10 = [p for p in CLASSICAL if f.house_lilly(p) == 10]
     sigs = ["sun", lord_mc] + in10
-    def grade(p):
-        e = f.lilly_essential(p)
-        h = f.house_lilly(p)
-        g = "high" if set(e["has"]) & {"domicile", "exaltation"} else "mid" if e["has"] else "low"
-        a = "angular" if h in (1, 4, 7, 10) else "succedent" if h in (2, 5, 11) else "cadent"
-        return g, a
-    g_sun, a_sun = grade("sun")
-    g_l, a_l = grade(lord_mc)
+    g_sun, a_sun = f.lilly_honour_grade("sun")
+    g_l, a_l = f.lilly_honour_grade(lord_mc)
     word = {"high": "đủ phẩm vị để hứa danh vọng và chức việc", "mid": "có phẩm vị vừa phải, tức mức trung bình", "low": "không có phẩm vị, nên lời hứa danh vọng mỏng"}
     t2 = (f"⟦Lilly xét danh vọng và chức vị từ Mặt Trời, chủ của Thiên Đỉnh và các sao đứng ở Nhà 10 (tr.615-617).⟧ Theo Lilly, "
           f"Mặt Trời {word[g_sun]} và đứng ở {'nhà góc' if a_sun == 'angular' else 'nhà kế góc' if a_sun == 'succedent' else 'nhà suy'}; "
@@ -150,7 +144,7 @@ def career(f: Facts) -> list[Para]:
     rr = dignity.domicile_lord(rank_sign)
     g = GRADE_PLACE(f.place_ws(rr))
     t3 += (f"Valens còn coi Lot of Fortune như một cung Mọc thứ hai và gọi chỗ thứ 10 tính từ nó là 'Địa vị' (II.17): ở lá số này đó là {S(rank_sign)}, "
-           f"chủ là {P(rr)} đang {'ở góc, dấu hiệu Valens đọc là địa vị vững' if g == 'angular' else 'ở chỗ kế góc, mức vừa' if g == 'succedent' else 'ở chỗ suy, địa vị phải tự gây dựng nhiều hơn'}.")
+           f"chủ là {P(rr)} đang {'ở góc, dấu hiệu Valens đọc là địa vị vững' if g == 'angular' else 'ở chỗ kế góc, mức vừa' if g == 'succedent' else 'ở chỗ yếu, địa vị phải tự gây dựng nhiều hơn'}.")
     out.append(Para("sn.valens", "Nghề nghiệp và địa vị theo Valens", t3, "hellenistic", srcs("VALENS_ANTH:IV.12", "VALENS_ANTH:II.17"),
                     [ev_house(10, "Nhà 10 (trọn cung)", "whole_sign")] + [ev_in(f, p, "hellenistic") for p in p10] + [ev_in(f, rr, "hellenistic")], "deep", topic="su_nghiep",
                     steps=[f"Lot of Fortune lấy theo quy tắc đang chọn ({c['lots']['rule']}): {c['lots']['fortune']['fmt']} {S(c['lots']['fortune']['sign'])}."]))
@@ -173,7 +167,7 @@ def money(f: Facts) -> list[Para]:
     fr = f.fortune_ruler_ptolemy()
     lot = fr["lot"]
     r = fr["rulers"][0]
-    power = f.honourable(r) or f.place_ptolemy(r) in (1, 10, 7, 4, 11)
+    power = f.ptolemy_strong(r)
     t = (f"⟦Ptolemy xét của cải từ Lot of Fortune, tính theo một công thức cho cả ngày lẫn đêm: lấy khoảng cách từ Mặt Trời đến Mặt Trăng đặt từ cung Mọc (III.10, IV.2).⟧ "
          f"Lot of Fortune theo Ptolemy rơi vào {S(SIGNS[sign_index(lot)])}; hành tinh nắm nhiều quyền nhất trên điểm ấy là {P(r)}. ")
     src_w = M["ptolemy_wealth"].get(r)
@@ -230,7 +224,7 @@ def money(f: Facts) -> list[Para]:
     t3 = (f"Valens gọi chỗ thứ 11 tính từ Lot of Fortune là 'nơi thành tựu', nơi ban của cải và tài sản (II.20). Ở lá số này đó là {S(acc_sign)}, chủ là {P(ar)}"
           + (f"; trong đó có {planet_list(occ)}" if occ else "") + ". "
           + ("Chủ này ở góc hoặc chỗ thuận, nên Valens đọc là của cải có nơi bồi đắp." if GRADE_PLACE(f.place_ws(ar)) != "cadent"
-             else "Chủ này ở chỗ suy, nên Valens dặn phải xét thêm Lot of Fortune và chủ của nó để thấy chỗ dựa."))
+             else "Chủ này ở chỗ yếu, nên Valens dặn phải xét thêm Lot of Fortune và chủ của nó để thấy chỗ dựa."))
     out.append(Para("tc.valens", "Nơi thành tựu theo Valens", t3, "hellenistic", srcs("VALENS_ANTH:II.20", "VALENS_ANTH:II.2"),
                     [ev_point(c, "fortune"), ev_in(f, ar, "hellenistic")], "deep", topic="tai_chinh"))
     merc = f.lilly_state("mercury")
@@ -284,7 +278,7 @@ def relations(f: Facts) -> list[Para]:
     lr = dignity.domicile_lord(ls)
     pl = sign_distance(f.lon["asc"], lot) + 1
     t2 = (f"Valens tính một điểm hôn nhân (Lot of Marriage): {'ban ngày' if day else 'ban đêm'} lấy khoảng cách từ {'Sao Mộc đến Sao Kim' if day else 'Sao Kim đến Sao Mộc'} rồi đặt từ cung Mọc (II.37). "
-          f"Ở lá số này điểm ấy ở {S(ls)}, Nhà {pl} tính trọn cung, chủ là {P(lr)} ({'ở góc' if GRADE_PLACE(f.place_ws(lr)) == 'angular' else 'ở chỗ kế góc' if GRADE_PLACE(f.place_ws(lr)) == 'succedent' else 'ở chỗ suy'}). "
+          f"Ở lá số này điểm ấy ở {S(ls)}, Nhà {pl} tính trọn cung, chủ là {P(lr)} ({'ở góc' if GRADE_PLACE(f.place_ws(lr)) == 'angular' else 'ở chỗ kế góc' if GRADE_PLACE(f.place_ws(lr)) == 'succedent' else 'ở chỗ yếu'}). "
           f"Điểm đối diện là Lot of Adultery theo chính Valens; Thiên Bàn không luận điểm đó.")
     out.append(Para("qh.valens", "Điểm hôn nhân theo Valens", t2, "hellenistic", srcs("VALENS_ANTH:II.37"), [ev_in(f, lr, "hellenistic")], "deep",
                     topic="quan_he", steps=[f"Lot of Marriage = ASC + {'Kim − Mộc' if day else 'Mộc − Kim'} = {lot:.2f}°."]))
@@ -308,6 +302,12 @@ def family(f: Facts) -> list[Para]:
     t = (f"⟦Ptolemy dùng Mặt Trời và Sao Thổ để nói về người cha, Mặt Trăng và Sao Kim để nói về người mẹ (III.4).⟧ Với các sao Ptolemy dùng cho cha mẹ, "
          f"ở lá số này Mặt Trời {strength('sun')}, Sao Thổ {strength('saturn')}; Mặt Trăng {strength('moon')}, Sao Kim {strength('venus')}. "
          f"Ptolemy dùng các sao này chủ yếu để xét vận của cha mẹ và tuổi thọ của họ; Thiên Bàn không luận các phần ấy, chỉ ghi lại tình trạng sao để bạn đối chiếu.")
+    clash = [p for p in fa + mo if f.honourable(p) != (f.lilly_state(p) != "ill") and f.lilly_state(p) in ("ill", "well")]
+    if clash:
+        p = clash[0]
+        t += (f" Nếu ở chương khác {P(p)} được gọi là {'thất thế' if f.lilly_state(p) == 'ill' else 'đắc thế'}, đó không phải mâu thuẫn: "
+              f"'đáng trọng' của Ptolemy chỉ xét sao có ở nhà, cung tôn vinh hay nhóm nguyên tố của mình không, còn bảng điểm của Lilly cộng thêm "
+              f"giới hạn, diện và trừ điểm khi sao lạc chỗ, nên hai thước đo có thể cho hai kết quả.")
     out.append(Para("gd.ptolemy", "Cha mẹ theo Ptolemy", t, "hellenistic", srcs("PTOL_TETRA:III.4 p.241"), [ev_planet(c, p) for p in fa + mo], "deep", topic="gia_dinh"))
     if f.time_known:
         LF = M["lilly_family"]

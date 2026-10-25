@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parent.parent / "engine"
 SRC = ROOT / "data" / "glossary_vi.json"
 PROFILES = ROOT / "data" / "star_profiles.json"
 TUHOA = ROOT / "data" / "tu_hoa_vi.json"
+WEST = ROOT / "data" / "western" / "glossary_west.json"
 OUT = ROOT / "web" / "js" / "glossary.json"
 
 STEM_HAN = dict(zip(["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"], "甲乙丙丁戊己庚辛壬癸"))
@@ -72,7 +73,15 @@ def build() -> dict:
                                "table": [[n, [x["star"] for x in by[str(i)]]] for i, n in enumerate(src["stems"])]}
     for alias, key in ALIASES.items():
         assert key in terms, (alias, key)
-    return {"terms": terms, "stars": sorted(set(stars + minors), key=lambda s: (-len(s), s)), "gods": gods, "aliases": ALIASES}
+    west_aliases = {}            # Western astrology terms (sys 'west'), matched only on the /chiem-tinh/ reading
+    for k, e in json.loads(WEST.read_text("utf-8"))["terms"].items():
+        terms[f"w:{k}"] = {"kind": "Chiêm tinh", "title": e["title"], "plain": e["plain"], "lesson": "",
+                           **({"ex": e["ex"]} if "ex" in e else {}), **({"src": e["src"]} if "src" in e else {})}
+        for a in e["aliases"]:
+            assert a not in west_aliases, a
+            west_aliases[a] = f"w:{k}"
+    return {"terms": terms, "stars": sorted(set(stars + minors), key=lambda s: (-len(s), s)), "gods": gods, "aliases": ALIASES,
+            "west_aliases": west_aliases}
 
 
 if __name__ == "__main__":

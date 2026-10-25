@@ -8,7 +8,7 @@ PLANET_VI = {k: v["vi"] for k, v in kb.core()["planets"].items()}
 ASPECT_VI = {a["id"]: a["vi"] for a in kb.aspects()["aspects"]}
 ELEMENT_VI = {"fire": "Lửa", "earth": "Đất", "air": "Khí", "water": "Nước"}
 MODALITY_VI = {"cardinal": "khởi đầu", "fixed": "kiên định", "mutable": "biến đổi"}
-DIGNITY_VI = {"domicile": "ở nhà của mình (domicile)", "exaltation": "ở cung tôn vinh (exaltation)", "triplicity": "làm chủ tam hợp",
+DIGNITY_VI = {"domicile": "ở nhà của mình (domicile)", "exaltation": "ở cung tôn vinh (exaltation)", "triplicity": "làm chủ nhóm nguyên tố (triplicity)",
               "term": "ở giới hạn (term) của mình", "face": "ở diện (face) của mình", "detriment": "ở cung tổn hại (detriment)",
               "fall": "ở cung suy hãm (fall)", "peregrine": "lạc chỗ (peregrine), không có phẩm vị nào ở độ đang đứng"}
 SOLAR_VI = {"cazimi": "nằm ngay tim Mặt Trời (cazimi)", "combust": "bị Mặt Trời đốt (combust)", "under_beams": "nằm dưới tia Mặt Trời"}

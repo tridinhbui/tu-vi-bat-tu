@@ -49,15 +49,15 @@ function planet(ch, id) {
   return `<h3 class="wt-dh"><span class="wt-g big" aria-hidden="true">${bodyGlyph(id)}</span>${esc(bodyName(id))}</h3>`
     + dl([
       row('Vị trí', posFull(p)),
-      row('Nhà', p.house ? `Nhà ${p.house} <small>(${esc(HOUSE_SYS[sys] || sys)})</small>${p.house_ws && p.house_ws !== p.house ? ` · Nhà ${p.house_ws} theo Whole Sign` : ''}` : ''),
+      row('Nhà', p.house ? `Nhà ${p.house} <small>(${esc(HOUSE_SYS[sys] || sys)}, trên bánh xe)</small>${p.house_ws && p.house_ws !== p.house ? ` · Nhà ${p.house_ws} tính trọn cung (Valens)` : ''}${p.house_lilly && p.house_lilly !== p.house ? ` · Nhà ${p.house_lilly} theo cách chia của Lilly` : ''}` : ''),
       row('Chuyển động', [speedText(p, c), c?.retrograde || p.retrograde ? '<b>Nghịch hành (R)</b>' : '', stationText(c?.station_days)].filter(Boolean).join('<br>')),
       row('Pha với Mặt Trời', solarText(c?.solar)),
-      row('Tước vị', e ? `${has.length ? esc(has.join(', ')) : 'Không có tước vị riêng ở độ này'} ${c?.lilly ? ` · điểm Lilly ${num(c.lilly.score, 0)} <small>(tính trên bảng của Lilly)</small>` : ''}` : ''),
+      row('Phẩm vị', e ? `${has.length ? esc(has.join(', ')) : 'Không có phẩm vị riêng ở độ này'} ${c?.lilly ? ` · điểm Lilly ${num(c.lilly.score, 0)} <small>(tính trên bảng của Lilly)</small>` : ''}` : ''),
       row('Cai quản', rules.length ? rules.map(n => `<button type="button" class="link" data-pick="house:${n}">Nhà ${n}</button>`).join(', ') : ''),
       row('Hoàng vĩ · xích vĩ', p.lat != null ? `${num(p.lat, 2)}° · ${num(p.dec, 2)}°` : ''),
       row('Công thức', p.formula ? esc(p.formula) : ''),
     ])
-    + (e?.lords ? `<h4 class="wt-dsub">Chủ các tước vị ở độ này</h4>${lordsText(e)}` : '')
+    + (e?.lords ? `<h4 class="wt-dsub">Chủ các phẩm vị ở độ này</h4>${lordsText(e)}` : '')
     + `<h4 class="wt-dsub">Góc hợp (${asp.length})</h4>`
     + (asp.length ? `<div class="wt-abs">${asp.sort((x, y) => x[0].orb - y[0].orb).map(([a, i]) => aspBtn(ch, a, i, id)).join('')}</div>` : '<p class="hint">Không có góc hợp nào trong orb đang dùng.</p>');
 }

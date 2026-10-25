@@ -64,8 +64,8 @@ export const HOUSE_SYS = {
   placidus: 'Placidus', whole_sign: 'Whole Sign (trọn cung)', equal: 'Equal House (nhà đều)', porphyry: 'Porphyry', regiomontanus: 'Regiomontanus',
 };
 export const DIGNITY = {
-  domicile: 'Chủ quản (domicile)', exaltation: 'Vượng (exaltation)', triplicity: 'Chủ tam phương (triplicity)',
-  term: 'Giới (term)', face: 'Diện (face)', detriment: 'Bất lợi (detriment)', fall: 'Suy (fall)', peregrine: 'Lưu lạc (peregrine)',
+  domicile: 'Chủ quản (domicile)', exaltation: 'Tôn vinh (exaltation)', triplicity: 'Chủ nhóm nguyên tố (triplicity)',
+  term: 'Giới hạn (term)', face: 'Diện (face)', detriment: 'Tổn hại (detriment)', fall: 'Suy hãm (fall)', peregrine: 'Lạc chỗ (peregrine)',
 };
 export const SOLAR = { cazimi: 'Cazimi (giữa lòng Mặt Trời)', combust: 'Bị đốt (combust)', under_beams: 'Dưới tia Mặt Trời (under the beams)' };
 export const MOON_PHASE = {

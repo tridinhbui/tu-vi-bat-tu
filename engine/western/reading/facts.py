@@ -118,6 +118,41 @@ class Facts:
             return None
         return int(((self.lon[name] - (self.lon["asc"] - 5.0)) % 360.0) // 30.0) + 1
 
+    def cusp_margin(self, school: str, name: str) -> float | None:
+        """Degrees between the point and the nearest edge of the house it is read in by `school` (Lilly: cusp ± his 5 degrees,
+        whole sign: the sign edge, Ptolemy: the 30-degree places). A birth time off by about 4 minutes moves the angles by about
+        one degree, so this says how much the house reading leans on the exact time."""
+        if not self.time_known or name not in self.lon:
+            return None
+        lon = self.lon[name]
+        if school == "hellenistic":
+            edges = [math.floor(self.lon["asc"] / 30.0) * 30.0 + 30.0 * i for i in range(12)]
+            asc_m = min(deg_in_sign(self.lon["asc"]), 30 - deg_in_sign(self.lon["asc"]))
+            return round(min(asc_m, min(abs(angdiff(lon, e)) for e in edges)), 2)
+        if school == "ptolemy":
+            edges = [self.lon["asc"] - 5.0 + 30.0 * i for i in range(12)]
+        elif school == "traditional" and self.regio:
+            edges = [c - 5.0 for c in self.regio]
+        else:
+            edges = [x["lon"] for x in self.c["houses"]["cusps"][self.c["houses"]["system"]]]
+        return round(min(abs(angdiff(lon, e)) for e in edges), 2)
+
+    def valens_grade(self, p: str) -> str | None:
+        """II.2 grading of a place counted by whole sign: at an angle, following one, or preceding one."""
+        pl = self.place_ws(p)
+        return None if pl is None else "angular" if pl in (1, 4, 7, 10) else "succedent" if pl in (2, 5, 8, 11) else "cadent"
+
+    def lilly_honour_grade(self, p: str) -> tuple[str, str]:
+        """pp.615-617 as read for Sự nghiệp: ('high' domicile/exaltation, 'mid' some dignity, 'low' none) and angularity in Lilly's houses."""
+        e = self.lilly_essential(p)
+        h = self.house_lilly(p)
+        g = "high" if set(e["has"]) & {"domicile", "exaltation"} else "mid" if e["has"] else "low"
+        return g, "angular" if h in (1, 4, 7, 10) else "succedent" if h in (2, 5, 11) else "cadent"      # p.615 counts the 8th with the cadents
+
+    def ptolemy_strong(self, p: str) -> bool:
+        """IV.2 'in power': in its own (familiar) place, or angular / in the 11th by Ptolemy's places."""
+        return self.honourable(p) or self.place_ptolemy(p) in (1, 10, 7, 4, 11)
+
     # ---------------------------------------------------------------- Lilly's dignities and points
     def lilly_essential(self, p: str, lon: float | None = None) -> dict:
         return dignity.lilly_essential(p, self.lon[p] if lon is None else lon, self.is_day)

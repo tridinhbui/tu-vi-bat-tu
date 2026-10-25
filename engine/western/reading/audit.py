@@ -6,6 +6,10 @@
   generic      a sentence that names nothing from the chart and no method or book (Barnum risk)
   forbidden    certainty words, death, illness names, crime words
   unreconciled a chapter with a supporting and a hindering paragraph and no comparison paragraph
+  template     a '{' or '}' left from a frame, or a capital letter right after a comma (a joined frame)
+  opener       three paragraphs in a row of one chapter opening with the same words ('Theo Lilly, ...')
+  house_system planet evidence carrying a house number without naming the house system
+  summary      a life chapter without its plain-language summary, or a summary resting on no evidence
 """
 from __future__ import annotations
 
@@ -38,15 +42,30 @@ def _chart_tokens() -> list[str]:
     return list(PLANET_VI.values()) + list(SIGN_VI.values()) + ["°", "Nhà", "cung Mọc", "Thiên Đỉnh", "Fortune", "Daimon"]
 
 
-def check(chapters: list[dict]) -> dict:
+SUMMARY_CHAPTERS = ("tinh_cach", "tu_duy", "cam_xuc", "su_nghiep", "tai_chinh", "quan_he", "gia_dinh", "dinh_huong")
+NEEDS_TIME = ("su_nghiep", "tai_chinh", "quan_he", "gia_dinh", "dinh_huong")
+
+
+def check(chapters: list[dict], time_known: bool = True) -> dict:
     src_reg = kb.sources()
     issues: list[dict] = []
     tokens = _chart_tokens()
-    seen: list[tuple[str, set]] = []
+    seen: list[tuple[str, set, bool]] = []
     total_sent = 0
     for ch in chapters:
         pols = []
         has_compare = False
+        if ch["id"] in SUMMARY_CHAPTERS and (time_known or ch["id"] not in NEEDS_TIME):
+            sm = [p for p in ch["paragraphs"] if p.get("layer") == "summary"]
+            if not sm:
+                issues.append({"kind": "summary", "chapter": ch["id"], "why": "missing"})
+            elif not sm[0]["evidence"]:
+                issues.append({"kind": "summary", "chapter": ch["id"], "why": "no evidence"})
+        openers = [" ".join(p["text"].split()[:2]) for p in ch["paragraphs"]]
+        for i in range(len(openers) - 2):
+            if openers[i] == openers[i + 1] == openers[i + 2] and openers[i].startswith(("Theo", "Với")):
+                issues.append({"kind": "opener", "chapter": ch["id"], "words": openers[i]})
+                break
         for p in ch["paragraphs"]:
             pid = p["id"]
             if p["school"] == "compare":
@@ -61,6 +80,11 @@ def check(chapters: list[dict]) -> dict:
                     issues.append({"kind": "school_mix", "para": pid, "source": s["id"], "school": p["school"]})
             if p.get("polarity"):
                 pols.append(p["polarity"])
+            if re.search(r"[{}]", p["text"]) or re.search(r", (Ở|Với|Theo|Trong|Khi) ", p["text"]):
+                issues.append({"kind": "template", "para": pid, "sentence": p["text"][:120]})
+            for e in p.get("evidence", []):
+                if e.get("kind") == "planet" and e.get("house") and not e.get("system"):
+                    issues.append({"kind": "house_system", "para": pid, "evidence": e["id"]})
             for sent in sentences(p["text"]):
                 total_sent += 1
                 low = sent.lower()
@@ -75,13 +99,16 @@ def check(chapters: list[dict]) -> dict:
                     issues.append({"kind": "generic", "para": pid, "sentence": sent})
                 words = _fold(sent).split()
                 tri = {" ".join(words[i:i + 3]) for i in range(len(words) - 2)}
+                summ = p.get("layer") == "summary"           # a summary restates its chapter on purpose: compared with summaries only
                 if len(tri) >= 8 and p["tier"] != "calc":      # short sentences may share a shape
-                    for other_pid, ot in seen:
+                    for other_pid, ot, os_ in seen:
+                        if os_ != summ:
+                            continue
                         j = len(tri & ot) / len(tri | ot)
                         if j > 0.6:
                             issues.append({"kind": "duplicate", "para": pid, "with": other_pid, "jaccard": round(j, 2), "sentence": sent})
                             break
-                    seen.append((pid, tri))
+                    seen.append((pid, tri, summ))
         if 1 in pols and -1 in pols and not has_compare:
             issues.append({"kind": "unreconciled", "chapter": ch["id"]})
     kinds = {}

@@ -57,7 +57,7 @@ export function createWheel(host, { onSelect, label = 'Bánh xe bản đồ sao'
   host.innerHTML = `<div class="wt-wheel-box"><svg class="wt-wheel" xmlns="${NS}" role="group" aria-label="${esc(label)}"></svg></div>`;
   const box = host.firstElementChild, svg = box.firstElementChild;
   const base = { x: -PAD, y: -PAD, w: 600 + 2 * PAD };
-  let view = { s: 1, x: base.x, y: base.y }, data = null, sel = null, compact = null, dragged = false;
+  let view = { s: 1, x: base.x, y: base.y }, data = null, sel = null, compact = null, dragged = false, geo = null;
 
   const applyView = () => {
     const w = base.w / view.s;
@@ -88,6 +88,7 @@ export function createWheel(host, { onSelect, label = 'Bánh xe bản đồ sao'
       return `M${pt(r2, a)}A${r2},${r2} 0 ${large} 0 ${pt(r2, b)}L${pt(r1, b)}A${r1},${r1} 0 ${large} 1 ${pt(r1, a)}Z`;
     };
     const o = [];
+    geo = { arc, Ra: M.Ra, Ro: bi ? M.Rb : M.Rz };
     // zodiac ring
     o.push(`<circle class="wt-ring" cx="${C}" cy="${C}" r="${M.R0}"/><circle class="wt-ring-in" cx="${C}" cy="${C}" r="${M.Rz}"/>`);
     for (const s of SIGNS) {
@@ -188,7 +189,16 @@ export function createWheel(host, { onSelect, label = 'Bánh xe bản đồ sao'
   function paint() {
     svg.classList.toggle('has-sel', !!sel);
     svg.querySelectorAll('.on').forEach(e => e.classList.remove('on'));
+    svg.querySelector('.wt-span')?.remove();
     if (!sel) return;
+    // a house of another system than the wheel's (Lilly's, whole sign, Ptolemy's places): drawn as its own band
+    const span = sel.kind === 'span' ? sel : sel.span;
+    if (span && geo) {
+      const g = document.createElementNS(NS, 'g');
+      g.setAttribute('class', 'wt-span on');
+      g.innerHTML = `<path d="${geo.arc(geo.Ra, geo.Ro, span.from, span.to)}"/><title>${esc(span.label || '')}</title>`;
+      svg.insertBefore(g, svg.querySelector('.wt-asp, .wt-p'));
+    }
     const on = q => svg.querySelectorAll(q).forEach(e => e.classList.add('on'));
     if (sel.kind === 'planet' || sel.kind === 'outer') {
       on(`[data-sel="${sel.kind}:${sel.id}"]`);

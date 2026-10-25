@@ -17,6 +17,9 @@ LILLY_ASPECT_FULL = {   # Lilly pp.106-107, Ptolemy I.13
     "square": "Lilly đọc góc vuông là sự bất hòa chưa trọn, vẫn còn đường hòa giải (tr.106); Ptolemy xếp nó vào nhóm bất hòa (I.13).",
     "opposition": "Với Lilly, góc đối là sự đối nghịch trọn vẹn (tr.107); Ptolemy cũng xếp nó vào nhóm bất hòa (I.13)."}
 LILLY_ASPECT = {"conjunction": "tốt hay xấu tùy hai hành tinh hợp nhau hay không"}
+THEME = {"sun": "chuyện uy quyền và danh dự (Mặt Trời)", "moon": "đời sống cảm xúc và thân thể (Mặt Trăng)", "mercury": "trí óc và lời nói (Sao Thủy)",
+         "venus": "niềm vui và tình cảm (Sao Kim)", "mars": "sức mạnh và sự tranh đua (Sao Hỏa)", "jupiter": "sự rộng lượng và lòng tin (Sao Mộc)",
+         "saturn": "sự nghiêm khắc và những giới hạn (Sao Thổ)", "asc": "thân thể và cách bạn hiện ra (cung Mọc)", "mc": "nghề nghiệp và địa vị (Thiên Đỉnh)"}
 FRIENDS = {"jupiter": {"venus", "sun", "moon", "mercury"}, "venus": {"jupiter", "moon", "mercury", "sun"}, "saturn": set(), "mars": {"venus"}}
 
 
@@ -91,7 +94,7 @@ def planets(f: Facts) -> list[Para]:
                 houses_told.add(h)
         t += f"{P(p)} {lilly_condition(f, p, with_house=False)}. "
         if disp == p:
-            t += pick(f"{p}.own", [f"{P(p)} ở chính nhà của mình nên tự làm chủ việc của mình.", f"Đứng trong nhà của mình, {P(p)} không phải dựa vào chủ tinh nào khác.",
+            t += pick(f"{p}.own.{b['sign']}.{h}", [f"{P(p)} ở chính nhà của mình nên tự làm chủ việc của mình.", f"Đứng trong nhà của mình, {P(p)} không phải dựa vào chủ tinh nào khác.",
                                    f"{P(p)} làm chủ cung nó đứng, nên việc của nó do chính nó quyết."])
         elif disp in disp_told:
             t += f"{P(p)} cũng dựa vào {P(disp)}."
@@ -181,20 +184,15 @@ def aspects(f: Facts) -> list[Para]:
             told.add(k)
         if k == "conjunction" and "hai sao" in kind:
             t += cap(kind.split("; ")[-1]) + ". "
-        nx = M["valens_planet"].get(x, "").split(";")[0] if x in M["valens_planet"] else ("thân thể, sự sống" if x == "asc" else "nghề nghiệp, địa vị")
-        ny = M["valens_planet"].get(y, "").split(";")[0] if y in M["valens_planet"] else ("thân thể, sự sống" if y == "asc" else "nghề nghiệp, địa vị")
-        named = f.__dict__.setdefault("_sig_told", set())
-        ax = f"{P(x)} ({nx})" if x not in named else P(x)
-        ay = f"{P(y)} ({ny})" if y not in named else P(y)
-        named.update((x, y))
         verdict = ("dễ nâng đỡ nhau" if k in ("trine", "sextile") else "dễ va vào nhau và cần được điều hòa" if k in ("square", "opposition")
                    else _conj_verdict(f, x, y))
-        if ax != P(x) or ay != P(y):
-            t += f"Góc này nối những việc của {ax} với những việc của {ay}, nên {verdict}." if k == "conjunction" else \
-                 f"Góc này nối những việc của {ax} với những việc của {ay}, nên chúng {verdict}."
+        # what each side stands for, in a few words (Valens I.1; the angles: Lilly pp.50, 55)
+        tx, ty = THEME.get(x, P(x)), THEME.get(y, P(y))
+        if k == "conjunction":
+            t += f"Ở đây {tx} và {ty} trộn vào nhau: {verdict}."
         else:
-            t += (cap(verdict) + ".") if k == "conjunction" else pick(f"{x}{y}{k}", [f"Ở đây việc của {P(x)} và việc của {P(y)} {verdict}.",
-                                                                                   f"{P(x)} và {P(y)} {verdict}."])
+            t += pick(f"{x}{y}{k}", [f"Góc này nối {tx} với {ty}, nên hai mảng ấy {verdict}.", f"Nói cách khác, {tx} và {ty} {verdict}.",
+                                     f"Trong đời sống, đó là chỗ {tx} gặp {ty}: chúng {verdict}."])
         if app is not None and not told_app:
             t += " ⟦Theo Ptolemy (I.24), sao đi nhanh hơn 'tiến tới' sao đi chậm khi khoảng cách còn nhỏ, và 'tách ra' khi đã vượt qua.⟧"
             told_app = True

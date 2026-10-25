@@ -19,7 +19,8 @@ function buildRegex() {
   const concept = alt(Object.keys(G.aliases));
   re.tv = new RegExp(`${L}(${alt(G.stars)}|${concept})${R}`, 'gu');
   re.bt = new RegExp(`${L}(${alt(G.gods)}|${concept})${R}`, 'gu');
-  re.key = (sys, text) => (sys === 'bt' && G.gods.includes(text) ? `god:${text}` : G.aliases[text] || `star:${text}`);
+  if (G.west_aliases) re.west = new RegExp(`${L}(${alt(Object.keys(G.west_aliases))})${R}`, 'gu');
+  re.key = (sys, text) => (sys === 'west' ? G.west_aliases[text] : sys === 'bt' && G.gods.includes(text) ? `god:${text}` : G.aliases[text] || `star:${text}`);
 }
 
 export const gl = (key, html, cls = '') => `<span class="gl ${cls}" role="button" tabindex="0" data-gl="${esc(key)}">${html}</span>`;
@@ -27,9 +28,11 @@ export const gl = (key, html, cls = '') => `<span class="gl ${cls}" role="button
 // "Tử Vi" is both a star and the name of the whole system: only treat it as the star inside a list of stars.
 const starContext = (t, i, n) => /(?:[,:;–·(]|chính tinh|cát tinh|sao)\s*$/i.test(t.slice(Math.max(0, i - 12), i)) || /^\s*[,;–·()]/.test(t.slice(i + n, i + n + 3));
 const SKIP = 'button,a,summary,code,pre,textarea,select,option,script,style,.gl,.pal,.ref,[data-nogl],dialog,svg,.tv-links,h1,h2,h3,h4,.eyebrow,.ln-crumb,.tags,.dr-x';
-/** Wraps known terms found in text nodes under `root` (sys: 'tv' | 'bt' decides star vs ten-god for shared names like Thất Sát). */
+/** Wraps known terms found in text nodes under `root` (sys: 'tv' | 'bt' decides star vs ten-god for shared names like Thất Sát;
+ *  'west' uses the Western astrology terms only, linking each term once per `root`). */
 export function autoLink(root, sys) {
   if (!root || !re[sys]) return;
+  const once = sys === 'west' ? new Set() : null;
   const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: n => !n.nodeValue.trim() || n.parentElement.closest(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
   const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
   nodes.forEach(n => {
@@ -39,7 +42,8 @@ export function autoLink(root, sys) {
     const frag = document.createDocumentFragment(); let last = 0, m;
     while ((m = re[sys].exec(t))) {
       const key = re.key(sys, m[1]);
-      if (!G.terms[key] || (m[1] === 'Tử Vi' && !starContext(t, m.index, m[1].length))) continue;
+      if (!G.terms[key] || (m[1] === 'Tử Vi' && !starContext(t, m.index, m[1].length)) || (once && once.has(key))) continue;
+      once?.add(key);
       frag.append(t.slice(last, m.index));
       const s = document.createElement('span'); s.className = 'gl'; s.setAttribute('role', 'button'); s.tabIndex = 0; s.dataset.gl = key; s.textContent = m[1];
       frag.append(s); last = m.index + m[1].length;

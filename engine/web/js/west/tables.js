@@ -83,12 +83,12 @@ export function dignityTable(ch) {
       + `<td${mark('domicile')}>${n(L.domicile)}</td><td${mark('exaltation')}>${n(L.exaltation)}</td>`
       + `<td${mark('triplicity')}>${(L.triplicity || []).map(n).join(' ')}</td><td${mark('term')}>${n(L.term)}</td><td${mark('face')}>${n(L.face)}</td>`
       + `<td>${[...(e.has || []).map(k => DIGNITY[k]?.split(' (')[0] || k)].join(', ') || '—'}</td>`
-      + `<td>${[...(e.debilities || []).map(k => DIGNITY[k]?.split(' (')[0] || k), e.peregrine ? 'Lưu lạc' : ''].filter(Boolean).join(', ') || '—'}</td>`
+      + `<td>${[...(e.debilities || []).map(k => DIGNITY[k]?.split(' (')[0] || k), e.peregrine ? 'Lạc chỗ' : ''].filter(Boolean).join(', ') || '—'}</td>`
       + `<td class="num" title="${esc(li ? 'Theo bảng của Lilly: ' + ([...li.has, ...li.debilities].map(k => DIGNITY[k]?.split(' (')[0] || k).join(', ') || 'không có phẩm vị') + (li.peregrine ? ', lạc chỗ' : '') : '')}">${li ? num(li.score, 0) : '—'}</td><td>${s?.phase ? esc(SOLAR[s.phase].split(' (')[0]) : ''}</td></tr>`;
   });
   const o = ch.options || {};
-  return tbl(['Hành tinh', 'Cung', 'Chủ quản', 'Vượng', 'Tam phương', 'Giới', 'Diện', 'Có', 'Bất lợi', 'Điểm Lilly', 'Pha Mặt Trời'], rows, 'wt-dig')
-    + `<p class="hint">Ký hiệu trong ô là chủ tước vị của độ mà hành tinh đứng; ô tô đậm là tước vị chính hành tinh đó đang có. Tam phương theo ${o.triplicity === 'ptolemaic' ? 'Ptolemy' : 'Dorotheus'}, giới theo bảng ${o.terms === 'ptolemaic' ? 'Ptolemy' : 'Ai Cập'}. Cột Điểm luôn tính bằng chính bảng của Lilly (Christian Astrology tr.104: tam phương ngày/đêm, Sao Hỏa giữ nhóm Nước cả ngày lẫn đêm, giới theo Lilly), không theo bảng đang chọn ở trên, để không cộng điểm của trường phái này trên bảng của trường phái khác.</p>`;
+  return tbl(['Hành tinh', 'Cung', 'Chủ quản', 'Tôn vinh', 'Nhóm nguyên tố', 'Giới hạn', 'Diện', 'Có', 'Bất lợi', 'Điểm Lilly', 'Pha Mặt Trời'], rows, 'wt-dig')
+    + `<p class="hint">Ký hiệu trong ô là chủ phẩm vị của độ mà hành tinh đứng; ô tô đậm là phẩm vị chính hành tinh đó đang có. Nhóm nguyên tố theo ${o.triplicity === 'ptolemaic' ? 'Ptolemy' : 'Dorotheus'}, giới theo bảng ${o.terms === 'ptolemaic' ? 'Ptolemy' : 'Ai Cập'}. Cột Điểm luôn tính bằng chính bảng của Lilly (Christian Astrology tr.104: tam phương ngày/đêm, Sao Hỏa giữ nhóm Nước cả ngày lẫn đêm, giới theo Lilly), không theo bảng đang chọn ở trên, để không cộng điểm của trường phái này trên bảng của trường phái khác.</p>`;
 }
 
 const LOT_RULE = { ptolemy: 'Một công thức cho cả ngày lẫn đêm (Ptolemy, Tetrabiblos III.10).', sect: 'Công thức đảo cho bản đồ ban đêm (theo phe).', valens: 'Theo Valens: đảo khi sinh ban đêm và Mặt Trăng ở trên đường chân trời.' };
