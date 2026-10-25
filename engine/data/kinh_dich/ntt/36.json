@@ -1,0 +1,401 @@
+{
+ "number": 36,
+ "name_vi": "Minh Di",
+ "name_han": "明夷",
+ "source": "KD",
+ "translator": "Ngô Tất Tố",
+ "heading": [
+  "QUẺ MINH DI",
+  "[hình: quẻ Khôn] Khôn trên",
+  "[hình: quẻ Ly] Ly dưới"
+ ],
+ "pages": [
+  410,
+  419
+ ],
+ "segments": [
+  {
+   "kind": "intro",
+   "trinh_di": "Quẻ Minh di, Tự quái nói rằng: Tấn nghĩa là tiến, tiến ắt bị đau, cho nên tiếp đến quẻ Minh di. Di nghĩa là đau, cả tiến không thôi, ắt có bị đau là lẽ tự nhiên, vì vậy quẻ Minh di mới nối quẻ Tấn. Nó là quẻ Khôn trên Ly dưới tức là sự sáng vào trong đất. Phản lại quẻ Tấn thành quẻ Minh di, cho nên nghĩa nó với quẻ Tấn đều trái lại nhau. Tấn là quẻ sáng thịnh, ông vua sáng sủa ở trên là lúc mọi người hiền cùng tiến; Minh di là quẻ tối tăm, ông vua tối tăm ở trên là lúc kẻ sáng bị đau. Mặt trời vào trong đất, tức là sự sáng bị thương mà tối tăm, cho nên gọi là Minh di.",
+   "order": [
+    "trinh_di"
+   ],
+   "page": 410,
+   "status": "verified"
+  },
+  {
+   "kind": "thoan",
+   "han": "明夷利艱貞.",
+   "am": "Minh di lợi gian trinh.",
+   "nghia": "Quẻ Minh di lợi về khó nhọc trinh chính.",
+   "trinh_di": "Đấng quân tử gặp thời Minh di, lợi ở biết khó nhọc mà không lỗi đạo trinh chính. Ở thời tối tăm khó khăn mà có thể không mất sự trinh chính của mình, vì vậy mới là quân tử sáng láng.",
+   "chu_hy": "Di nghĩa là đau. Là quẻ dưới Ly trên Khôn, mặt trời vào trong đất, tức là cái Tượng sáng mà bị đau, cho nên gọi là Minh di. Lại, hào Sáu Trên quẻ này là chủ sự tối mà hào Sáu Năm gần nó, cho nên kẻ xem lợi về khó nhọc để giữ sự chính mà tự che sự sáng của mình.",
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy"
+   ],
+   "page": 410,
+   "status": "verified"
+  },
+  {
+   "kind": "thoan_truyen",
+   "han": "彖曰:明入地中,明夷.",
+   "am": "Thoán viết: Minh nhập địa trung, Minh di.",
+   "nghia": "Lời Thoán nói rằng: Sáng vào trong đất, là quẻ Minh di.",
+   "trinh_di": "Đây dùng tượng quẻ để thích tên quẻ.",
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di"
+   ],
+   "page": 410,
+   "status": "verified"
+  },
+  {
+   "kind": "thoan_truyen",
+   "han": "內文明而外柔順,以蒙大難,文王以之.",
+   "am": "Nội văn minh nhi ngoại nhu thuận, dĩ mông đại nạn, Văn vương dĩ chi.",
+   "nghia": "Trong văn vẻ sáng láng mà ngoài mềm thuận để đội nạn lớn, vua Văn dùng cách đó.",
+   "trinh_di": "Sáng vào trong đất tức là tự sáng bị diệt, cho nên là sáng đau. Quẻ trong nhà Ly, Ly là Tượng văn vẻ sáng láng; quẻ ngoài là Khôn, Khôn là Tượng mềm thuận; đó là bên trong có đức văn vẻ sáng láng, bên ngoài lại biết mềm thuận xưa kia vua Văn như thế, cho nên nói rằng vua Văn dùng cách đó. Đương lúc vua Trụ tối tăm, tức là thì sáng đau, mà vua Văn trong có đức văn vẻ sáng láng, ngoài mềm thuận để thờ vua Trụ, đội phạm nạn lớn[^411.1] mà bên trong không mất cái đức thành sáng của mình, bên ngoài đủ để tránh xa tai vạ, đó là đạo Văn Vương đã dùng, cho nên nói rằng vua Văn dùng cách đó.",
+   "chu_hy": "Đây dùng đức quẻ để thích nghĩa quẻ. “Đội nạn lớn” chỉ về gặp loạn vua Trụ mà bị giam.",
+   "footnotes": [
+    {
+     "mark": "411.1",
+     "page": 411,
+     "text": "Văn Vương bị vua Trụ giam ở ngục Dũ lý."
+    }
+   ],
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy"
+   ],
+   "page": 411,
+   "status": "verified"
+  },
+  {
+   "kind": "thoan_truyen",
+   "han": "利艱貞,晦其明也,內難而能正其志,箕子以之.",
+   "am": "Lợi gian trinh, hối kỳ minh dã; nội nạn nhi năng chính kỳ chí, Cả tử dĩ chi.",
+   "nghia": "Lợi về khó nhọc trinh chính, là làm cho tối thửa sự sáng vậy; trong nạn mà hay chính thửa chí, ông Cơ tử dùng cách đó.",
+   "trinh_di": "Trong thì sáng đau, lợi về xử cách khó khăn mà không mất sự trinh chính của mình, nghĩa là biết che giấu sự sáng của mình. Không làm cho tối sự sáng của mình, thì bị vạ lo, không giữ được sự chính đính của mình thì không phải là người hiền minh, ông Cơ Tử[^411.2] đương thời vua Trụ, thân với nước ấy, bên trong sát gần nạn của vua ấy, cho nên nói rằng “Trong nạn”. Nhưng ông Cơ Tử biết giấu kín sự sáng của mình và tự giữ lấy chí chính đáng, đó là cái đạo ông Cơ Tử vẫn dùng, cho nên nói rằng “Ông Cơ Tử dùng cách đó”.",
+   "chu_hy": "Đây lấy nghĩa một hào Sáu Năm để thích lời quẻ. “Trong nạn”, nghĩa là họ gần vua Trụ về ở trong nước vua ấy như hào Sáu Năm gần hào Sáu Trên.",
+   "footnotes": [
+    {
+     "mark": "411.2",
+     "page": 411,
+     "text": "Ông Cơ Tử là anh ruột vua Trụ; thấy vua Trụ càn dỡ, không thể can được, ông ấy giả rồ đi làm đứa ở, sau về với nhà Chu."
+    }
+   ],
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy"
+   ],
+   "page": 411,
+   "page_end": 412,
+   "status": "unverified",
+   "status_reason": [
+    "p.412 is in the second-transcription sample and its differences are not settled"
+   ]
+  },
+  {
+   "kind": "dai_tuong",
+   "han": "象曰:明入地中,明夷,君子以蒞衆,用晦而明.",
+   "am": "Tượng viết: Minh nhập địa trung, Minh di, quân tử dĩ ly chúng, dụng hối nhi minh.",
+   "nghia": "Lời Tượng nói rằng: Sáng vào trong đất là quẻ Minh di. Đấng quân tử coi đó để trị dân chúng, dùng tối mà sáng.",
+   "trinh_di": "Sự sáng là để mà soi, đấng quân tử không đâu không soi, nhưng quá dùng sự sáng, thì hại về đường xét nét, xét nét quá thì hết việc mà không có độ lượng bao dung cho nên đấng quân tử coi Tượng “Sáng vào trong đất”, mà về cách trị người không soi, xét cùng cực mà dùng sự tối, rồi mới có thể dọng người hào chúng. Người ta thân với mình mà đâu yên đó, thế là dùng sự tối cốt để cho sáng. Nếu tự dùng sự sáng của mình, không gì không xét, thì tự mình không thắng được sự giận ghét mà không có đức khoan hậu bao dung, lòng người xa lìa ngờ vực không yên, thế là lỗi đạo trị người, chỉ để thành ra không sáng mà thôi.",
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di"
+   ],
+   "page": 412,
+   "status": "unverified",
+   "status_reason": [
+    "p.412 is in the second-transcription sample and its differences are not settled"
+   ]
+  },
+  {
+   "kind": "hao",
+   "hao": 1,
+   "han": "初九:明夷于飛,垂其翼;君子于行,三日不食,有攸往,主人有言.",
+   "am": "Sơ Cửu: Minh di vu phi, thùy kỳ dực; quân tử vu hành, tam nhật bất thực; hữu du vãng; chủ nhân hữu ngôn.",
+   "nghia": "Hào Chín Đầu: Sáng đau chưng bay; đủ thửa cánh; đấng quân tử chưng đi, ba ngày chẳng ăn; có thửa đi; người chủ có nói.",
+   "trinh_di": "Hào Chín Đầu ở thể sáng mà đầu cuộc sáng đau, đó là mới bị hại, Chín là hào Dương sáng đi lên, cho nên mới dùng Tượng “bay”, sự tối ở trên, làm hại sự sáng của khí Dương, khiến nó không tiến lên được, thế là bay mà bị đau cái cánh. Cánh bị đau nên phải rũ xuống. Phàm kẻ tiểu nhân hại người quân tử, chỉ hại cái để mà đi, đấng quân tử chưng đi, ba ngày không ăn, nghĩa là đấng quân tử sáng soi, thấy việc từ khi nhỏ nhặt, dù mới có mối bị hại mà chưa rõ rệt, đấng quân tử có thể thấy được, cho nên mới đi để tránh. “Đấng quân tử chưng đi” nghĩa là bỏ lộc vị của mình mà lui về ẩn nấp vậy. “Ba ngày chẳng ăn” ý nói khốn cùng đến tột bậc. Việc chưa rõ rệt mà xử rất khó, không phải là người thấy cơ sáng suốt thì không thể xử. Ôi biết cơ là sự thật riêng của đấng quân tử, người thường không thể biết, cho nên lúc mới sáng đau, sự bị đau chưa rõ mà đi thì thế tục ai không ngờ vực mà lấy làm lạ? Cho nên có thửa đi thì người chủ có nói. Nhưng đấng quân tử không vì thế tục lấy làm lạ mà chậm chạp nghi ngờ sự đi của mình. Nếu đợi mọi người cùng biết thì sự đau đã tới mà không thể đi được.",
+   "chu_hy": "Bay là rủ cánh là Tượng bị đau. Kẻ xem đi mà chẳng ăn, chỗ đi không hợp, thì nghĩa nên thế, không thể tránh được.",
+   "other_commentary": [
+    {
+     "label": "Lời bàn của Tiên Nho",
+     "text": "Khâu Kiến An nói rằng: “Quẻ Minh di, chứa tối ở trên: hào Đầu là thể Ly sáng, cách hào Trên rất xa, thấy hại liền tránh, có Tượng \"Bay mà rủ cánh\". Rủ cánh nghĩa là không dám tiến lên, thu mình để tránh vạ vậy. Đấng quân tử biết cơ, nghĩa là nên đi cho mau, có thể không ăn, mà không thể không đi, bởi vì đi trọng hơn ăn. Người chủ tức là người làm chủ mình, chỉ về hào Đầu ứng với hào Tư; có nói nghĩa là lấy lạ về sự đi sớm."
+    }
+   ],
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy",
+    "other:0"
+   ],
+   "page": 412,
+   "page_end": 413,
+   "status": "unverified",
+   "status_reason": [
+    "p.412 is in the second-transcription sample and its differences are not settled"
+   ]
+  },
+  {
+   "kind": "tieu_tuong",
+   "hao": 1,
+   "han": "象曰:君子于行,義不食也.",
+   "am": "Tượng viết: Quân tử vu hành, nghĩa bất thực dã.",
+   "nghia": "Lời Tượng nói rằng: Đấng quân tử chưng đi nghĩa là chẳng ăn vậy.",
+   "trinh_di": "Đấng quân tử lánh nấp mà khốn cùng, nghĩa nên thế vậy. Chỉ theo nghĩa nên thế nào thì làm thế ấy, cho nên ở yên mà không buồn, dầu rằng chẳng ăn cũng được.",
+   "chu_hy": "Nghĩa là ở đâu thì theo ở đấy chẳng ăn cũng được.",
+   "other_commentary": [
+    {
+     "label": "Lời bàn của Tiên Nho",
+     "text": "Vương Đồng Khuê nói rằng: “Đấng quân tử chưng đi” nghĩa là bỏ lộc và ngồi vậy. “Ba ngày không ăn” nghĩa là không đáng ăn lộc vậy."
+    }
+   ],
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy",
+    "other:0"
+   ],
+   "page": 413,
+   "status": "verified"
+  },
+  {
+   "kind": "hao",
+   "hao": 2,
+   "han": "六二:明夷,夷于左股,用拯,馬狀吉.",
+   "am": "Lục Nhị: Minh di, di vu tả cổ, dụng chửng, mã tráng cát.",
+   "nghia": "Hào Sáu Hai: Sáng đau, đau ở đùi bên tả, dùng cứu, ngựa mạnh tốt.",
+   "trinh_di": "Hào Sáu Hai lấy tài rất sáng được chỗ trung chính mà thể thuận, thuận thì tự xử, đó là cách cư xử rất khéo. Dẫu đấng quân tử tự xử vẫn khéo, nhưng gặp lúc những kẻ tiểu nhân âm tối làm hại sự sáng, cũng không khỏi bị nó hại mình. Có điều đấng quân tử tự xử có cách, cho nên không thể làm hại nhau cho lắm, và rút lại vẫn có thể tránh được. Chân là cái để đi, đùi ở trên ống chân, với việc đi cũng không thiết lắm; bên tả lại không phải chỗ tiện dùng, với sự dùng của cái chân, phải cho bên hữu là tiện, chỉ có người què mới dùng bên tả, bởi vì đứng về bên hữu là gốc. “Đau ở đùi bên tả” nghĩa là đau hại sự đi mà không thiết lắm; tuy vậy ắt có cách tự khỏi, cứu dùng con người khỏe mạnh thì mau được khỏi mà tốt. Đấng quân tử kẻ bị âm tối làm hại nhưng mà có cách tự xử: cho nên đau không tệ; có cách tự cứu, cho nên được khỏi mau chóng. Nếu cách dùng cứu không mạnh thì đau lâu, cho nên nói rằng “ Ngựa mạnh thì tốt”. Hào Hai lấy chất sáng ở vào dưới chỗ âm tối, gọi là tốt nghĩa là chỉ khỏi đau hại mà thôi, không phải bảo rằng có thể làm việc thì đó.",
+   "chu_hy": "Đau mà chưa thiết, cứu được mau chóng thì khỏi, cho nên Tượng, Chiêm của nó như thế.",
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy"
+   ],
+   "page": 413,
+   "page_end": 414,
+   "status": "unverified",
+   "status_reason": [
+    "Hán differs from 周易 and the difference is not settled on the print"
+   ]
+  },
+  {
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "han": "象曰:六二之吉,順以則也.",
+   "am": "Tượng viết: Lục Nhị chi cát, thuận dĩ tắc dã.",
+   "nghia": "Lời Tượng nói rằng: Cái tốt của hào Sáu Hai, vì thuận bằng phép vậy.",
+   "trinh_di": "Hào Sáu Hai mà được tốt, vì nó xử thuận mà có phép tắc. Phép là đạo trung chính; biết thuận mà được trung chính, cho nên ở thì sáng đau mà có thể giữ được sự tốt.",
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di"
+   ],
+   "page": 414,
+   "status": "verified"
+  },
+  {
+   "kind": "hao",
+   "hao": 3,
+   "han": "九三:明夷于南狩,得其大首,不可疾貞.",
+   "am": "Cửu Tam: Minh di vu nam thù, đắc kỳ đại thủ, bất khả tật trinh.",
+   "nghia": "Hào Chín Ba: Sáng đau chưng cuộc săn bên nam được thửa đầu lớn, chẳng khá kíp chính.",
+   "trinh_di": "Hào Chín Ba ở trên quẻ Ly là sáng đến tột bậc, lại chỗ cứng mà tiến lên; hào Sáu Trên ở trên quẻ Khôn, là tối đến tột bậc; rứt sáng ở dưới mà làm bậc trên thể dưới, rứt tối ở trên, mà ở chỗ cùng cực, hai đẳng ứng địch với nhau, là kẻ sẽ dùng sự sáng để trừ sự tối, ấy là việc của vua Thang vua Vũ[^415.1] đó chăng? Bên Nam ở về phía trước mà là phương sáng, săn bắn là việc trừ hại, săn bên Nam nghĩa là tiến lên mà trừ hại, nên bắt được đầu lớn của nó; đầu lớn chỉ về chùm đầu của đám tối, tức là hào Sáu Trên. Hào Ba với hào Trên cùng ứng với nhau, là tượng kẻ rứt sáng được kẻ rứt tối. Không thể kíp chính, nghĩa là giết kẻ đầu ác, và trừ tục cũ thói dơ chưa thể thay đổi ngay được, ắt phải thay đổi dần dần, vội quá thì nó sợ hãi mà không yên... Cho nên nói rằng không thể kíp chính, nghĩa là không thể kíp làm cho nó ngay thẳng. Hào Sáu Trên tuy không phải ngôi vua, vì nó ở trên mà là tối đến cùng cực, cho nên là chủ sự tối, mới gọi là đầu lớn.",
+   "chu_hy": "Lấy chất cứng ở chỗ cứng, lại ở trên thể sáng, mà bị khuất dưới rất tối, chính là ứng nhau với hào Sáu Trên, chủ của sự tối, cho nên có tượng ngảnh sáng, trừ hại bắt được kẻ đầu ác; nhưng mà không thể kíp ngặt, cho nên mới có lời răn không thể kíp chính. Vua Thành Thang nổi lên ở trên ngục Hạ đài[^415.2], vua Văn Vương dấy lên ở ngục Dũ Lý, chính là hợp nghĩa của hào này, mà việc nhỏ cũng có như thế.",
+   "footnotes": [
+    {
+     "mark": "415.1",
+     "page": 415,
+     "text": "Vua Thang nhà Thương đánh vua Kiệt nhà Hạ, vua Vũ nhà Chu đánh vua Trụ nhà Ân, đều là bầy tôi đánh vua."
+    },
+    {
+     "mark": "415.2",
+     "page": 415,
+     "text": "Vua Thang bị vua Kiệt giam ở ngục Hạ Đài, khi được tha ra liền dựng lên cơ nghiệp nhà Thương, vua Văn bị vua Trụ giam ở ngục Dũ Lý, khi được tha ra liền gây nên cơ nghiệp nhà Chu."
+    }
+   ],
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy"
+   ],
+   "page": 414,
+   "page_end": 415,
+   "status": "verified"
+  },
+  {
+   "kind": "tieu_tuong",
+   "hao": 3,
+   "han": "象曰:南狩志之,乃大得也.",
+   "am": "Tượng viết: Nam thú chi chí, nãi đại bất đắc dã.",
+   "nghia": "Lời Tượng nói rằng: Chí săn bên Nam, bền cả được vậy.",
+   "trinh_di": "Ôi lấy sự sáng của kẻ dưới trừ sự tối của kẻ trên, chí nó cốt trừ hại mà thôi, như vua Thang, vua Vũ của nhà Thương, nhà Chu, há có ý muốn lấy thiên hạ làm lợi? Bắt được đầu lớn của nó ấy là bỏ được sự hại mà cả được chí minh. Chí nếu không thế, thì tức là việc trái loạn.",
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di"
+   ],
+   "page": 415,
+   "status": "unverified",
+   "status_reason": [
+    "Hán differs from 周易 and the difference is not settled on the print"
+   ]
+  },
+  {
+   "kind": "hao",
+   "hao": 4,
+   "han": "六四:入于左腹,獲明夷之心,于出門庭.",
+   "am": "Lục Tứ: Nhập vu tả phúc, hoạch minh di chi tâm, vu xuất môn định.",
+   "nghia": "Hào Sáu Tư: Vào chưng bụng bên tả được cái lòng sáng đau: chưng ra cửa sân.",
+   "trinh_di": "Hào Sáu Tư lấy chất Âm đóng ngôi Âm mà ở vào thể Âm mềm, nhằm chỗ gần vua, đó là kẻ Âm tà tiểu nhân ở ngôi cao dùng sự mềm nhũn cong queo để thuận với với vua; hào Sáu Năm là ngôi vua. Sáng đau tức là ông vua bị đau sự sáng, hào Tư lấy sự mềm nhũn cong queo, thuận theo với nó, để cho giao kết được bền. Ôi kẻ tiểu nhân thờ vua chưa có khi nào theo sự rõ rệt lấy đạo hợp nhau, họ ắt lấy cách ẩn lệch tự mình kết với người trên. Bên hữu nhằm vào sự dùng, cho nên là nơi sáng rõ; bên tả không nhằm sự dùng, cho nên là nơi ẩn lệch; tay chân người ta hay dùng bên hữu; người đời thường bảo bên tả là trái, đó là bên tả là chỗ ẩn lệch. Hào Tư dùng cách ẩn lệch kết sâu với vua, cho nên nói rằng “vào chưng bụng bên tả”. “Vào bụng” nghĩa là giao kết sâu lắm; bởi giao kết sâu cho nên mới được lòng nó. Nhưng kẻ gian tà được tin với vua đều do cướp được lòng họ. Nếu không cướp được lòng họ, hồ dễ họ không tỉnh ngộ? “Chưng ra cửa sân” nghĩa là đã tin ở lòng, rồi sau mới làm ra ngoài; tôi gian thờ vua tối, ắt phải trước làm mê hoặc lòng họ, rồi mới có thể thi hành ra ngoài.",
+   "chu_hy": "Nghĩa của hào này chưa rõ ra sao, trộm ngờ như vầy; bụng bên tả là chỗ tối ẩn, được lòng sáng đau chưng ra cửa sân, tức là đắc ý về sự đi xa; ý nói kẻ bói mà được hào này thì cách tự xử phải nên thế. Bởi vì thể Ly là đức rất sáng, mà ở dưới ba hào thể Khôn, là chỗ rất tối, sáng ở ngoài tối, nên phải theo sự xa gần cao thấp mà xử khác nhau. Hào Sáu Tư là bậc mềm chính, ở chỗ tối mà còn nông, nên còn có thể đắc ý về sự đi xa: Hào Năm là hạng mềm giữa, ở chỗ tối mà đã ngặt, cho nên mới là cái Tượng bên trong có nạn, phải chính chí mình, để cho bớt sự sáng đi; hào Trên thì là tối đã cùng tột, cho nên là kẻ tự hại sự sáng của mình, đến nỗi phải tối, mà lại có thể hại người ta; nghĩa là năm hào dưới đều là đấng quân tử, một hào trên là hạng hôn quân.",
+   "other_commentary": [
+    {
+     "label": "Lời bàn của Tiên Nho",
+     "text": "Khâu Kiến An nói rằng: Khôn là bụng, bên tả là chốn ẩn lệch, hào Sáu Tư tiến lên ở dưới thể Khôn, cho nên nói rằng “Vào chưng bụng bên tả”. Làm hại sự sáng của người ta ấy là người trên, hào Sáu Tư sâu vào bụng nó mà biểu được cái lòng “làm đau sự sáng” của nó, cho nên nói rằng “được lòng sáng đau”. May mà hào Tư với hào Trên, lúc đó hiểu được ý kín của nó, biết rằng ám chúa ở trên, không thể giúp dập; bỏ nó mà đi, để tới với hào Chín Ba là kẻ sáng, cho nên có Tượng “ra cửa sân”."
+    }
+   ],
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy",
+    "other:0"
+   ],
+   "page": 416,
+   "page_end": 417,
+   "status": "verified"
+  },
+  {
+   "kind": "tieu_tuong",
+   "hao": 4,
+   "han": "象曰:入于左腹,獲心意也.",
+   "am": "Tượng viết: Nhập vu tả phúc, hoạch tâm ý dã.",
+   "nghia": "Lời Tượng nói rằng: Vào chưng bụng bên tả, được lòng ý vậy.",
+   "trinh_di": "Vào chưng bụng bên tả, nghĩa là lấy đạo cong lệch, vào với vua, mà được lòng ý của hắn. Được lòng hắn cho nên cùng chót vẫn không tỉnh ngộ.",
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di"
+   ],
+   "page": 417,
+   "status": "verified"
+  },
+  {
+   "kind": "hao",
+   "hao": 5,
+   "han": "六五:箕子之明夷,利貞.",
+   "am": "Lục Ngũ: Cơ Tử chi minh di, lợi trinh.",
+   "nghia": "Hào Sáu Năm, ông Cơ Tử chưng sáng đau, lợi về chính bền.",
+   "trinh_di": "Hào Năm là ngôi vua, ấy là sự thường. Nhưng sự lấy nghĩa[^417.1] của Kinh Dịch, biến động theo thời, hào Sáu Trên ở trên thể Khôn, mà là sáng đau đến tột bậc, tức là kẻ âm tối làm hại sự sáng đến tột bậc, hào Năm gần sát với nó, đấng thánh nhân, nhân hào Năm gần sát người rất tối để tỏ cái nghĩa khu xử chỗ đó, cho nên không chuyên nói về ngôi vua, hào Sáu Trên âm tối làm hại sự sáng đến tột bậc, cho nên mới dùng làm chủ quẻ Minh di. Hào Năm gần sát ông vua làm hại sự sáng, nếu để sự sáng của mình tỏ rõ thì ắt bị đau hại, cho nên, nên như ông Cơ Tử tự mình nấp náu, thì có thể khỏi nạn. Ông Cơ Tử là bầy tôi cũ nhà Thương và là người họ đồng tông, có thể bảo là gần sát với vua Trụ, nếu không sự sáng của mình, thì chắc bị vạ, cho nên ông ấy giả cách rồ đi làm đứa ở, để khỏi bị hại. Tuy là che lấp sự sáng, nhưng bên trong vẫn giữ chính đạo, đó là “trong có nạn mà chính được chí mình”, vì vậy mới gọi là nhân và sáng. Như ông Cơ Tử có thể bảo là trinh vậy. Bởi hào Năm là hạng Âm mềm, cho nên răn rằng “lợi về chính bền”, nghĩa là nên chính bền như ông Cơ Tử vậy. Nếu lấy đạo vua mà nói, nghĩa cũng như thế. Kẻ làm vua có khi nên tự ngậm tối, thì cũng bên ngoài che tối sự sáng bên trong giữ cho chí ý chính đính.",
+   "chu_hy": "Ở chỗ rất tối, gần vua rất tối, mà giữ được tâm chí chính đính, đó là Tượng ông Cơ Tử, chính bền tột bậc vậy. “Lợi về chính bền” là câu để răn kẻ xem.",
+   "footnotes": [
+    {
+     "mark": "417.1",
+     "page": 417,
+     "text": "Tức là theo lời văn mà chọn lấy nghĩa ý."
+    }
+   ],
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy"
+   ],
+   "page": 417,
+   "page_end": 418,
+   "status": "verified"
+  },
+  {
+   "kind": "tieu_tuong",
+   "hao": 5,
+   "han": "象曰:箕子之貞,明不可息也.",
+   "am": "Tượng viết: Cơ Tử chi trinh, minh bất khả tức dã.",
+   "nghia": "Lời Tượng nói rằng: Ông Cơ Tử chưng chính, sự sáng không thể tắt vậy.",
+   "trinh_di": "Ông Cơ Tử ẩn náu, không mất sự chính bền, tuy gặp hoạn nạn, sự sáng vẫn còn, không thể dứt tắt vậy. Nếu gặp vạ lo mà để cho mất cái điều mình vẫn cầm giữ, thì là mất sự sáng, ấy là dứt tắt. Người xưa, như Dương Hùng[^418.1] là hạng đó.",
+   "footnotes": [
+    {
+     "mark": "418.1",
+     "page": 418,
+     "text": "Dương Hùng trước làm tôi nhà Hán, sau Vương Măng cướp ngôi nhà Hán, lại làm tôi Vương Măng."
+    }
+   ],
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di"
+   ],
+   "page": 418,
+   "status": "verified"
+  },
+  {
+   "kind": "hao",
+   "hao": 6,
+   "han": "上六:不明,晦,初登于天,後入于地.",
+   "am": "Thượng Lục: Bất minh hối; sơ đăng vu thiên, hậu nhập vu địa.",
+   "nghia": "Hào Sáu Trên: Chẳng sáng, tối đầu lên chưng trời, sau vào chưng đất.",
+   "trinh_di": "Hào Trên ở về chót quẻ, là chủ sự “sáng đau”, lại là trên nhất cuộc “sáng đau”, một chỗ rất cao. Ở chỗ rất cao, vốn nên soi xa, sự sáng đã bị đau hại, cho nên không sáng mà lại tối tăm. Vốn ở chỗ cao, sự sáng nên tới nơi xa, ấy là “đầu lên chưng trời”. Bị đau hại sự sáng mà tối tăm, ấy là “sau vào chưng đất”. Hào Trên ở chót quẻ Minh di, lại ở chót thể Khôn Âm, ấy là sáng đau đến tột bậc.",
+   "chu_hy": "Lấy chất Âm ở chỗ cùng cực thể khôn, chẳng làm cho đức mình sáng ra, để đến chỗ phải tối, lúc đầu thì ở ngôi cao, để làm hại sự sáng của người, lúc chót ắt đến tự mình hại mình, mà hỏng tính mệnh, cho nên Tượng nó như thế, mà Chiêm cũng ở trong đó.",
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy"
+   ],
+   "page": 418,
+   "status": "verified"
+  },
+  {
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "han": "象曰:除登于天,照四國也,後入于地,失則也.",
+   "am": "Tượng viết: Sơ Đăng vu thiên, chiếu tứ quốc dã; hậu nhập vu địa, thất đắc dã.",
+   "nghia": "Lời Tượng nói rằng: Đầu lên chưng trời, soi bốn nước vậy; sau vào chưng đất, mất phép vậy.",
+   "trinh_di": "Đầu lên chưng trời, là ở chỗ cao mà sáng thì nên soi tới bốn phương; thế mà bị hại mà tối tăm, thì là “sau vào chưng đất” mất cách sáng vậy. “Mất phép” nghĩa là mất phương pháp vậy.",
+   "chu_hy": "“Soi bốn nước” là theo về ngôi mà nói.",
+   "order": [
+    "han",
+    "am",
+    "nghia",
+    "trinh_di",
+    "chu_hy"
+   ],
+   "page": 419,
+   "status": "unverified",
+   "status_reason": [
+    "Hán differs from 周易 and the difference is not settled on the print"
+   ]
+  }
+ ]
+}

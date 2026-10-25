@@ -200,8 +200,9 @@ def _match_name(title: str, names: list[str]) -> int:
     for i, n in enumerate(names):
         if key(n) == key(title):
             return i + 1
-    for i, n in enumerate(names):                 # the heading of quẻ 8 is printed "QUẺ TỴ" (the Mục lục has "Ty")
-        if key(n) == key(title).replace("Ỵ", "Y"):
+    alt = key(title).replace("Ỵ", "Y").replace("QUI ", "QUY ")   # headings print "QUẺ TỴ", "QUẺ QUI MUỘI" (Mục lục: Ty, Quy Muội)
+    for i, n in enumerate(names):
+        if key(n) == alt:
             return i + 1
     raise ValueError(f"heading 'QUẺ {title}' matches no quẻ of the Mục lục")
 
