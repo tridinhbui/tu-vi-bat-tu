@@ -1,7 +1,8 @@
 """Builds engine/data/van_han_rules.json: the vận-palace readings of tvbt/van_han.py (Khảo Luận pp.233-236, Thực Hành pp.115-117)
 expressed as DATA (DSL conditions over `vh.*` facts + text templates) instead of if/else code.
-Sentences and conditions are carried over VERBATIM from the code they replace; tests/test_van_han_rules.py proves the output is
-identical to the frozen old implementation on random and real charts. No new doctrine is added here."""
+The first 28 rules are carried over VERBATIM from the code they replace; tests/test_van_han_rules.py proves their output is identical to
+the frozen old implementation on random and real charts. The TH p.115 IX / p.117 6n rules below them were added from the page images
+(2026-10-24)."""
 import json
 from pathlib import Path
 
@@ -98,8 +99,33 @@ RULES += [
                                      {"any": [has("v_stars", "Thái Tuế"), has("v_hoa", "Hóa Kỵ")]}]},
       "Cung vận có Nguyệt Đồng Cơ Cự gặp Không hoặc Kiếp cùng Thái Tuế hoặc Kỵ: theo sách dễ vướng kiện cáo hay giáng chức.", SRC_TH),
 ]
+# TH p.115 IX.6, 9, 10 and p.117 6n (image-checked 2026-10-24). 'Lưỡng hạn' is read as the đại hạn and the tiểu hạn alike (IX.7-8 say
+# 'trùng phùng' when both must sit on one palace), so each rule reads one vận palace. 'gặp' with no position = in the vận palace itself;
+# 'hội' = in its tam phương tứ chính (Tang Môn and Bạch Hổ always face each other, so they can never share one palace).
+# IX.9 and 6n are told as 'theo sách rất bất lợi', without the book's 'tai họa' / 'tai ương' (owner's decision 2026-10-24).
+# The rules that name death, prison, injury, illness, burns, drowning or mourning (IX.7, 8, 11; 6a, b, d, f-m, o; 7a-i) wait for the owner's
+# content review; IX.5 cannot be met on one palace (Cự Môn never stands in the tam phương of Sát / Phá / Tham). See docs/INDICES-EVAL.md.
+TU_MO = ["Thìn", "Tuất", "Sửu", "Mùi"]
+KD = any_("v_stars", ["Kình Dương", "Đà La"])
+PHU_XK = any_("v_stars", ["Tử Vi", "Thiên Phủ", "Văn Xương", "Văn Khúc"])
+RULES += [
+    R("TH_IX6_GIAP_THUONG_SU", {"all": [f("year_stem", "eq", "Giáp"), f("v_branch", "eq", "Dần"), any_("v_stars", ["Thiên Thương", "Thiên Sứ"])]},
+      "Tuổi Giáp, cung vận ở Dần có {thuong_su}: theo sách rất kỵ.", SRC_TH),
+    R("TH_IX6_CANH_THUONG_SU", {"all": [f("year_stem", "eq", "Canh"), f("v_branch", "eq", "Thân"), any_("v_stars", ["Thiên Thương", "Thiên Sứ"])]},
+      "Tuổi Canh, cung vận ở Thân có {thuong_su}: theo sách rất kỵ.", SRC_TH),
+    R("TH_IX9_THAN_THUONG", {"all": [f("year_branch", "eq", "Thân"), has("v_stars", "Thiên Thương")]},
+      "Tuổi Thân, cung vận có Thiên Thương: theo sách rất bất lợi.", SRC_TH),
+    R("TH_IX10_TU_MO_KINH_DA", {"all": [f("year_branch", "in", TU_MO), KD, {"not": PHU_XK}]},
+      "Tuổi {year_branch}, cung vận có {kinh_da}: theo sách không hề gì.", SRC_TH),
+    R("TH_IX10_TU_MO_KINH_DA_PHAT", {"all": [f("year_branch", "in", TU_MO), KD, PHU_XK]},
+      "Tuổi {year_branch}, cung vận có {kinh_da} cùng Tử, Phủ, Xương hoặc Khúc: theo sách trái lại là hoạnh phát.", SRC_TH),
+    R("TH_6N_SPT_TANG_HO", {"all": [any_("v_major", SPT),
+                                    all_("tp_stars", ["Tang Môn", "Bạch Hổ", "Thiên Khốc", "Điếu Khách", "Đà La", "Thiên Thương"])]},
+      "Cung vận có Sát Phá Tham, tam phương hội Tang Môn, Bạch Hổ, Thiên Khốc, Điếu Khách, Đà La, Thiên Thương: theo sách rất bất lợi.",
+      SRC_TH),
+]
 
 if __name__ == "__main__":
-    OUT.write_text(json.dumps({"note": "Vận-palace readings as data; carried over verbatim from van_han.py (Khảo Luận pp.233-236, Thực Hành pp.115-117).",
+    OUT.write_text(json.dumps({"note": "Vận-palace readings as data (Khảo Luận pp.233-236, Thực Hành pp.115-117); built by tools/build_van_han_rules.py.",
                                "rules": RULES}, ensure_ascii=False, indent=1) + "\n", "utf-8")
     print(len(RULES), "rules")

@@ -12,18 +12,20 @@ def chart(y, m, d, h, mi, g="male", **kw):
 
 def test_defaults_are_reported_with_their_source():
     c = chart(2002, 1, 9, 4, 30)
-    assert c.school["variants"] == {"tu_hoa_table": "KL", "tieu_han_rule": "TH", "luu_ha_table": "board"}
+    assert c.school["variants"] == {"tu_hoa_table": "KL", "tieu_han_rule": "KL", "luu_ha_table": "board"}
     assert "Khảo Luận tr.36" in c.school["variant_labels"]["tu_hoa_table"]
-    assert "Thực Hành tr.27" in c.school["variant_labels"]["tieu_han_rule"]
+    # tiểu hạn: Khảo Luận pp.39-40 (âm dương) by default since 2026-10-24 (owner's decision)
+    assert "Khảo Luận tr.39-40" in c.school["variant_labels"]["tieu_han_rule"]
     assert "Canh không khớp sách nào" in c.school["variant_labels"]["luu_ha_table"]
 
 
 def test_tieu_han_th_p27_vs_kl_p39_40():
     # audit TV-6: 1991 Tân Mùi (âm nam), year 2026 -> TH p.27 nam thuận = Tý; KL pp.39-40 âm nam nghịch = Dần
-    assert temporal.tuvi_year(chart(1991, 6, 1, 10, 0), 2026)["tieu_han_branch"] == "Tý"
+    assert temporal.tuvi_year(chart(1991, 6, 1, 10, 0, tieu_han_rule="TH"), 2026)["tieu_han_branch"] == "Tý"
     assert temporal.tuvi_year(chart(1991, 6, 1, 10, 0, tieu_han_rule="KL"), 2026)["tieu_han_branch"] == "Dần"
+    assert temporal.tuvi_year(chart(1991, 6, 1, 10, 0), 2026)["tieu_han_branch"] == "Dần"          # the default
     # dương nam: both books agree
-    a, b = chart(1990, 5, 17, 10, 30), chart(1990, 5, 17, 10, 30, tieu_han_rule="KL")
+    a, b = chart(1990, 5, 17, 10, 30, tieu_han_rule="TH"), chart(1990, 5, 17, 10, 30, tieu_han_rule="KL")
     assert tieu_han_branch(a, 37) == tieu_han_branch(b, 37)
 
 

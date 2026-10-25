@@ -38,7 +38,8 @@ class BirthReq(BaseModel):
     dignity_school: str = Field("khao_luan", pattern="^(thuc_hanh|toan_thu|khao_luan)$")
     # where the books disagree (tuvi.VARIANTS): defaults = popular-board convention, each choice is reported back in chart.school
     tu_hoa_table: str = Field("KL", pattern="^(KL|TH|TT_WS)$")
-    tieu_han_rule: str = Field("TH", pattern="^(TH|KL)$")
+    # tiểu hạn: Khảo Luận pp.39-40 (âm dương) by default since 2026-10-24, owner's decision; Thực Hành p.27 (nam / nữ) selectable
+    tieu_han_rule: str = Field("KL", pattern="^(TH|KL)$")
     luu_ha_table: str = Field("board", pattern="^(board|KL|TH)$")
     experimental: bool = False      # opt-in: also evaluate the DRAFT cách cục + engine-demo rules (never part of production readings)
 
@@ -133,6 +134,8 @@ def chart_facts(req: BirthReq):
     return {"engine": "tvbt-facts-1", "dignity_school": req.dignity_school, "birth_year": req.year, "lunar_year": tv.lunar["year"],
             "gender": req.gender, "year_gz": tv.year_gz, "cuc": tv.cuc, "menh_nap_am": tv.menh_nap_am, "menh_cuc_relation": tv.menh_cuc_relation,
             "yin_yang_gender": tv.yin_yang_gender, "dai_han_direction": tv.dai_han_direction,
+            # the school of the tiểu hạn direction (tuvi.VARIANTS): the TS period charts walk the tiểu hạn, nguyệt hạn and lưu đại hạn with it
+            "tieu_han_rule": tuvi.chart_variants(tv)["tieu_han_rule"],
             "palaces": tv.palaces, "tu_hoa": tv.tu_hoa, "base": base, "decades": decades, "year": _year_facts(tv, year, ybr), "bazi": bazi_out}
 
 

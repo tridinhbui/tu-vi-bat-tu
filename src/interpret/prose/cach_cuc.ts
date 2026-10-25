@@ -23,6 +23,8 @@ export interface CachCucLib {
   school_head?: string[]; school_side?: string[];
   /** the page-checked cách (formations_verified.json): head, state by the evaluator's verdict, a refutation, the degree by state */
   f_head?: string[]; f_state?: Record<string, string[]>; f_refute?: string[]; f_degree?: Record<string, string>;
+  /** the same cách at the palace holding Thân (TH p.76 "đóng Mệnh Thân") */
+  f_head_than?: string[]; reach_than?: string[];
 }
 export interface ProseCachCuc {
   engine: string; kbVersion: string; chapter: 'cach_cuc'; palace: 'Cách cục'; title: string; draft: boolean;
@@ -69,10 +71,18 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
     // the page-checked cách (formations_verified.json): evaluated on the chart (reason/structures.ts); a cách whose core alone the books
     // already call a fine cách (core_alone 'thanh') is thành when nothing breaks it, not 'hình thức' (docs/audit/CACH-CUC-SOURCES.md)
     const FV = k.kg?.formationsVerified;
-    const verified = (FV && L!.f_state ? evaluateFormations(FV.formations, chart.base) : []).filter(r => r.state !== 'khong_hien' && r.state !== 'chua_du_du_kien')
-      .map(r => ({ r, ev: FV!.evidence[r.id], state: r.state === 'hinh_thuc' && FV!.evidence[r.id]?.core_alone === 'thanh' ? 'thanh_core' : r.state }));
+    // TH p.76 counts its thượng cách "đóng Mệnh Thân": a cách whose core cites that page is also read at the palace holding Thân, when Thân
+    // is not in Mệnh (the other cách are defined for Mệnh only)
+    const than = chart.palaces.find(p => p.is_than && p.name !== 'Mệnh');
+    const at76 = (FV?.formations ?? []).filter(f => FV!.evidence[f.id]?.core.includes('TH p.76')).map(f => ({ ...f, anchor: than?.name ?? f.anchor }));
+    const shown = (rs: ReturnType<typeof evaluateFormations>, thanAt?: string) => rs.filter(r => r.state !== 'khong_hien' && r.state !== 'chua_du_du_kien')
+      .map(r => ({ r, thanAt, key: thanAt ? `${r.id}@than` : r.id, ev: FV!.evidence[r.id], state: r.state === 'hinh_thuc' && FV!.evidence[r.id]?.core_alone === 'thanh' ? 'thanh_core' : r.state }));
+    // Thân in Mệnh's tam phương reads the same stars: a cách already told at Mệnh is not told again at Thân
+    const atMenh = FV && L!.f_state ? shown(evaluateFormations(FV.formations, chart.base)) : [];
+    const atThan = FV && L!.f_state && than ? shown(evaluateFormations(at76, chart.base), than.name).filter(x => !atMenh.some(y => y.r.id === x.r.id)) : [];
+    const verified = [...atMenh, ...atThan];
     const p0: ProseSentence[] = [];
-    const names = [...verified.map(x => `cách ${x.r.name}`), ...found.map(x => x.name)];
+    const names = [...verified.map(x => `cách ${x.r.name}${x.thanAt ? ` ở cung an Thân (${x.thanAt})` : ''}`), ...found.map(x => x.name)];
     if (!names.length) say(p0, m.pick('none', L!.none), 'cach:none', 'he_thong');
     else say(p0, fill(m.pick('intro', L!.intro), { n: String(names.length), list: joinVi(names) }), 'cach:intro', 'sach', [...verified.map(x => x.r.id), ...found.map(x => x.l.ruleId)],
       [...new Set([...verified.flatMap(x => x.ev?.core ?? []), ...found.flatMap(x => x.l.cites)])].sort());
@@ -80,10 +90,10 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
     const note = 'Lời tổng hợp: yếu tố phá là sát tinh không đắc, Hóa Kỵ, chính tinh hãm, Tuần hay Triệt ở ngay cung có cách; mức ảnh hưởng theo quy ước của hệ thống (cách ở Mệnh nặng hơn, mỗi yếu tố phá hạ một bậc), không phải lời sách.';
     const DEG: Record<string, number> = { thanh_thuong: 3, thanh: 2, thanh_core: 2, hinh_thuc: 1, bi_pha: 1 };
     for (const x of verified) {
-      const xs: ProseSentence[] = [], id = x.r.id, ev = x.ev, items = ev?.items ?? {};
+      const xs: ProseSentence[] = [], id = x.key, rid = x.r.id, ev = x.ev, items = ev?.items ?? {};
       const pages = (kind: string, ms: Array<{ id: string }>) => [...new Set(ms.flatMap(e => items[`${kind}:${e.id}`] ?? []))];
-      rules[id] = { reading: `cách ${x.r.name}`, cites: [...(ev?.core ?? []), ...(ev?.effect ?? [])], verified: true };
-      say(xs, fill(m.pick(`fh|${id}`, L!.f_head!), { name: x.r.name }), `cach:${id}`, 'sach', [id], [...new Set([...(ev?.core ?? []), ...(ev?.effect ?? [])])].sort());
+      rules[id] = { reading: `cách ${x.r.name}${x.thanAt ? ' ở cung an Thân' : ''}`, cites: [...(ev?.core ?? []), ...(ev?.effect ?? [])], verified: true };
+      say(xs, fill(m.pick(`fh|${id}`, x.thanAt ? L!.f_head_than! : L!.f_head!), { name: x.r.name, pal: x.thanAt ?? '' }), `cach:${id}`, 'sach', [rid], [...new Set([...(ev?.core ?? []), ...(ev?.effect ?? [])])].sort());
       const lab = (ms: Array<{ label: string }>) => joinVi([...new Set(ms.map(e => e.label))].slice(0, 3));
       const st = x.state, F = L!.f_state!;
       const text = st === 'thanh_thuong' ? fill(m.pick(`fs|${id}`, F.thanh_thuong), { boost: lab(x.r.boosters) })
@@ -100,17 +110,17 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
       // a plain thành (or a core the books already call fine) with the page's meaning for that state: the meaning says it (DEEP-3: the bare
       // "Cách thành" / "Riêng phần lõi đã là một quý cách" line read the same on half the charts)
       const plain = (st === 'thanh' || st === 'thanh_core') && !!ev?.meaning?.thanh;
-      if (!plain) say(xs, text, `cach:${id}:state`, 'sach', [id], stCites.sort());
-      if (x.r.refutations.length && L!.f_refute) say(xs, fill(m.pick(`fr|${id}`, L!.f_refute), { refute: lab(x.r.refutations) }), `cach:${id}:refute`, 'sach', [id], pages('refutations', x.r.refutations).sort());
+      if (!plain) say(xs, text, `cach:${id}:state`, 'sach', [rid], stCites.sort());
+      if (x.r.refutations.length && L!.f_refute) say(xs, fill(m.pick(`fr|${id}`, L!.f_refute), { refute: lab(x.r.refutations) }), `cach:${id}:refute`, 'sach', [rid], pages('refutations', x.r.refutations).sort());
       // what the cách brings in this state, as the page says (formations_verified meaning, DEEP-3); with it the system's degree line is not
       // needed, without it the degree line stands
       const mean = ev?.meaning?.[st === 'thanh_core' ? 'thanh' : st];
-      if (mean) say(xs, cap(mean.text), `cach:${id}:meaning`, 'sach', [id], [mean.cite]);
+      if (mean) say(xs, cap(mean.text), `cach:${id}:meaning`, 'sach', [rid], [mean.cite]);
       else {
         const deg = L!.f_degree?.[st === 'thanh_core' ? 'thanh' : st] ?? L!.degree['2'];
-        say(xs, fill(m.pick(`re|${id}`, L!.reach), { degree: deg }), `cach:${id}:reach`, 'he_thong', [], [], note);
+        say(xs, fill(m.pick(`re|${id}`, x.thanAt ? L!.reach_than! : L!.reach), { degree: deg }), `cach:${id}:reach`, 'he_thong', [], [], note);
       }
-      paragraphs.push({ role: 'support', sentences: xs, text: '', title: `Cách ${x.r.name}` } as ProseParagraph);
+      paragraphs.push({ role: 'support', sentences: xs, text: '', title: `Cách ${x.r.name}${x.thanAt ? ' (cung an Thân)' : ''}` } as ProseParagraph);
     }
     for (const x of found) {
       const xs: ProseSentence[] = [];
@@ -143,7 +153,7 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
       paragraphs.push({ role: 'support', sentences: xs, text: '', deep: true, title: 'Các bộ sách định nghĩa khác nhau' } as ProseParagraph);
     }
     // the ranking: page-checked cách by their state, then the named ones by degree
-    const all = [...verified.map(x => ({ name: `cách ${x.r.name}`, good: x.state !== 'bi_pha', degree: DEG[x.state] ?? 1 })), ...found.map(x => ({ name: x.name, good: x.good, degree: x.degree }))]
+    const all = [...verified.map(x => ({ name: `cách ${x.r.name}${x.thanAt ? ' ở cung an Thân' : ''}`, good: x.state !== 'bi_pha', degree: DEG[x.state] ?? 1 })), ...found.map(x => ({ name: x.name, good: x.good, degree: x.degree }))]
       .sort((a, b) => b.degree - a.degree);
     if (all.length >= 2) {
       // the balance is told only when both sides are present, with the cách of each side named and the sides weighed by degree
