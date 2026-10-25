@@ -455,6 +455,11 @@
    "book": "TT",
    "page": 167,
    "note": "skipped [impossible]: phú nôm 82 Vợ về sẵn của: Đồng Ân Lộc Mã Khúc Thái Âm (Thiên Mã never sits with Đồng Âm at Tý/Ngọ) | skipped [event]: phú nôm 83 Đồng Lương hội nhập phối cung — hai vợ | skipped [appearance]: phú nôm 84 (Tử tức) Vũ Xương hoặc Khúc sinh con xinh đẹp | skipped [unsettled]: phú nôm 84 (Tử tức) Không ngộ Linh Hỏa — sinh con tà ác ('Không' not named) | skipped [event]: phú nôm 84 (Tử tức) Khốc Hư ngộ Dương, Tướng Binh xung phá hoang thai | skipped [health]: phú nôm 84 (Tử tức) Kình Đà Không Kiếp Khốc Hư — con điếc lác ngẩn ngơ"
+  },
+  {
+   "book": "TT",
+   "page": 20,
+   "note": "TT_NO_BOC_TU_VI_SAI_CHO dropped at review (2026-10-25): no concept fits, it contradicts TT's own Nô Bộc line (TV_TT_PAL_NO_BOC_TU_VI_BASE_P 'đắc lực sinh tài'), and on a VCD Nô Bộc it fired on a borrowed Tử Vi"
   }
  ],
  "entries": [
@@ -2678,24 +2683,6 @@
     ]
    ],
    "note": "chư tinh vấn đáp, Phá Quân (no dignity named); the p.88 line splits it by miếu / hãm (TV_TT_PAL_NO_BOC_PHA_QUAN_*)"
-  },
-  {
-   "id": "TT_NO_BOC_TU_VI_SAI_CHO",
-   "book": "TT",
-   "palace": "Nô Bộc",
-   "conds": [
-    {
-     "fact": "palace.own_major_stars",
-     "operator": "contains",
-     "value": "Tử Vi"
-    }
-   ],
-   "reading": "Tử Vi ở Nô Bộc là ngồi sai chỗ, giảm uy quyền, dù có trợ giúp cũng khó thành phúc lớn (Tử Vi ở Nô Bộc)",
-   "effect": "limit",
-   "page": 20,
-   "quote": "Nô Bộc là sái, giảm mất uy quyền",
-   "concepts": [],
-   "note": "chư tinh vấn đáp, Tử Vi: about the star's own force, not about the people under one; no concept fits (nearest would be ally.helpful weakens), so concepts left empty; the p.87 line says 'đắc lực sinh tài' for the same star (TV_TT_PAL_NO_BOC_TU_VI_BASE_P)"
   },
   {
    "id": "TT_DIEN_TRACH_CO_CU_MAO",

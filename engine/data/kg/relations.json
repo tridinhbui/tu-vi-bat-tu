@@ -86056,19 +86056,6 @@
    "note": "ally.disloyal; nesting {\"overlap\":1}"
   },
   {
-   "id": "AUTO_TV_PB_TT_NO_BOC_TT_NO_BOC_TU_VI_SAI_CHO__TV_TH_P2_NO_BOC_VU_TUONG_TA_HUU",
-   "type": "both_hold",
-   "from": "TV_PB_TT_NO_BOC_TT_NO_BOC_TU_VI_SAI_CHO",
-   "to": [
-    "TV_TH_P2_NO_BOC_VU_TUONG_TA_HUU"
-   ],
-   "effect": "none",
-   "basis": "he_thong",
-   "review": "draft",
-   "charts": 1,
-   "note": "career.authority; nesting {\"disjoint\":1}"
-  },
-  {
    "id": "AUTO_TV_PB_TT_NO_BOC_TT_NO_BOC_XUONG_SAT__TV_TL_NO_A_SANG_BN_SANG",
    "type": "both_hold",
    "from": "TV_PB_TT_NO_BOC_TT_NO_BOC_XUONG_SAT",

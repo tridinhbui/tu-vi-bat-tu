@@ -8543,43 +8543,6 @@
    "subject": "palace"
   },
   {
-   "id": "TV_PB_TT_NO_BOC_TT_NO_BOC_TU_VI_SAI_CHO",
-   "system": "tu_vi",
-   "schoolId": "toan_thu",
-   "category": "planb_cung",
-   "description": "Tử Vi Đẩu Số Toàn Thư (paraphrased), cung Nô Bộc: Tử Vi ở Nô Bộc là ngồi sai chỗ, giảm uy quyền, dù có trợ giúp cũng khó thành phúc lớn (Tử Vi ở Nô Bộc) [TT p.20]",
-   "conditions": {
-    "all": [
-     {
-      "fact": "palace.name",
-      "value": "Nô Bộc"
-     },
-     {
-      "fact": "palace.own_major_stars",
-      "operator": "contains",
-      "value": "Tử Vi"
-     }
-    ]
-   },
-   "consequences": [
-    {
-     "kind": "finding",
-     "claim": "pb_tt_no_boc_tt_no_boc_tu_vi_sai_cho",
-     "effect": "limit",
-     "scope": "natal"
-    }
-   ],
-   "exceptions": [],
-   "conflictsWith": [],
-   "priority": 3,
-   "sourceIds": [
-    "SRC_TOAN_THU"
-   ],
-   "reviewStatus": "verified",
-   "version": "0.1.0",
-   "subject": "palace"
-  },
-  {
    "id": "TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_CO_CU_MAO",
    "system": "tu_vi",
    "schoolId": "toan_thu",
