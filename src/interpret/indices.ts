@@ -859,8 +859,8 @@ export function computeIndices(chart: ChartInput, k: Knowledge, norms: IndexNorm
       dai_van: `cung vận ${vn(W_DECADE.van)}: câu sách (Khảo Luận tr.230-236, Thực Hành tr.115-117; Toàn Thư tr.96-106 nhập hạn ca, đã đối chiếu trang, × ${vn(TT_WEIGHT)}), Nam/Bắc đẩu tinh của cung vận (TH tr.115 mục IX.1-2), đắc hãm các chính tinh, trung tinh (KL tr.36), hung tinh của cung vận, xung chiếu, tam hợp và nhị hợp khi nhị hợp sinh cho cung vận (KL tr.233 mục 3-4); Tứ Hóa theo can đại vận ${vn(W_DECADE.hoa_van)} (thông lệ). Mệnh, Thân sáng hay tối chỉ được nói theo các cách của TH tr.118, không cộng trừ điểm`,
       nam: `đại vận đang đi ${vn(W_YEAR.dai_van)}, cung tiểu hạn ${vn(W_YEAR.tieu_han)} (${RULE_VI[inp.rule]}; đọc như cung vận, KL tr.40), cung lưu đại hạn ${vn(W_YEAR.luu_dai_han)} (TH tr.117-118), sao Bắc đẩu của cung đại vận ở năm năm đầu, Nam đẩu ở năm năm sau ${vn(W_YEAR.dau_tinh)} (TH tr.115 mục IX.3-4), lưu Khốc Hư ở tiểu hạn ${vn(W_YEAR.luu_sao)} (TH tr.114); thông lệ: các sao lưu khác ${vn(W_YEAR.luu_sao_tl)} (vị trí KL tr.41-42), lưu Tứ Hóa ${vn(W_YEAR.luu_tu_hoa)} (bỏ khi can năm trùng can đại vận)`,
       thang_am: `mức của năm cộng ${vn(W_MONTH)} × đắc hãm các sao của cung nguyệt hạn và tam phương (vị trí TH tr.115, KL tr.40-41; tiêu chí KL tr.233 mục 4)`,
-      ban_menh: `mười hai cung: nhận định đã đối chiếu sách bắn vào cung, cung xung chiếu và hai cung tam hợp; trọng số = tầng × (0,5 + độ hiếm của quy tắc trên chính cung đó) × vị trí (1 / 0,85 / 0,7); so với trung bình của chính cung đó: (tổng + 1) / (trung bình + 1). ${TAT_ACH_NOTE}`,
-      bat_tu: 'dải Bát Tự: vận nào mang can hoặc chi thuộc thần điều hậu của bảng Thiệu Vĩ Hoa (tr.389-396); không cộng vào mức Tử Vi',
+      ban_menh: `nhận định đã đối chiếu sách bắn vào cung, cung xung chiếu và hai cung tam hợp; trọng số = tầng × (0,5 + độ hiếm của quy tắc trên chính cung đó) × vị trí (1 / 0,85 / 0,7); so với trung bình của chính cung đó: (tổng + 1) / (trung bình + 1). ${TAT_ACH_NOTE}`,
+      bat_tu: 'vận nào mang can hoặc chi thuộc thần điều hậu của bảng Thiệu Vĩ Hoa (tr.389-396); không cộng vào mức Tử Vi',
     },
   };
 }
