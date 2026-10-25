@@ -1,5 +1,5 @@
-// The reading tiers (config.ts): guests read the first half of each chapter's main reading; members read Tổng quan and Mệnh whole and the
-// first half of every other chapter; a package bought for the chart opens its chapters whole, main reading and "Đọc sâu (theo sách)". The
+// The reading tiers (config.ts): guests read the first 3/5 of each chapter's main reading; members read Tổng quan and Mệnh whole and the
+// first 3/5 of every other chapter; a package bought for the chart opens its chapters whole, main reading and "Đọc sâu (theo sách)". The
 // Worker computes (or reads from cache) the WHOLE reading — the viewer is never part of a cache key — and this file cuts it per request,
 // after the cache, BEFORE it leaves the server. The browser is told what was held back and how to get it; it is never trusted to hide
 // anything itself. Every filtered response is `private, no-store`.
@@ -87,7 +87,7 @@ type Json = Record<string, any>;
 export const isDeep = (p: Json) => p?.deep === true || p?.depth === "sau";
 
 interface Cut { kept: Json[]; main: number; mainShown: number; deep: number; deepShown: number }
-/** The paragraphs this reader gets of one run, in their order: the first half of the main ones unless `whole`; the Đọc sâu ones only
+/** The paragraphs this reader gets of one run, in their order: the first 3/5 of the main ones unless `whole`; the Đọc sâu ones only
  *  when `deep`. */
 function cutParagraphs(ps: Json[], whole: boolean, deep: boolean): Cut {
   const main = ps.filter(p => !isDeep(p)), sau = ps.filter(isDeep);
@@ -130,7 +130,7 @@ export function gateChapter(ch: Json, a: Access): Json {
   const out: Json = {};
   for (const k of TOP_KEEP) if (k in ch) out[k] = ch[k];
   if (footing) for (const k of MEMBER_KEEP) if (k in ch) out[k] = ch[k];
-  // Bát Tự: each tab cut on its own (a guest reads the first half of every tab); the flat reading becomes what the tabs kept
+  // Bát Tự: each tab cut on its own (a guest reads the first 3/5 of every tab); the flat reading becomes what the tabs kept
   if (tabs.length) {
     out.chapters = Object.fromEntries(tabCuts.filter(([, c]) => c.kept.length).map(([t, c]) => [t, c.kept]));
     out.locks = Object.fromEntries(tabCuts.filter(([, c]) => hidden(c)).map(([t, c]) => [t, lockInfo(`${id}:${t}`, BAZI_TAB_TITLES[t] ?? t, a, c)]));
@@ -171,7 +171,7 @@ export function gateOutput(out: Json, a: Access): Json {
   return gateChapter(out, a);
 }
 
-/** POST /api/overview ("Tổng quan lá số"): the Mệnh theses are the Mệnh reading told as data, so a guest gets the first half of them; the
+/** POST /api/overview ("Tổng quan lá số"): the Mệnh theses are the Mệnh reading told as data, so a guest gets the first 3/5 of them; the
  *  frame (the palace's stars) and the charts are chart facts and stay. */
 export function gateOverview(out: Json, a: Access): Json {
   if (a.tier !== "guest" || !Array.isArray(out?.theses)) return out;
@@ -181,7 +181,7 @@ export function gateOverview(out: Json, a: Access): Json {
 }
 
 /** POST /api/synthesis (engine flag TVBT_DEEP_INTERPRETATION): a chapter list of paragraphs, each cut like a report chapter: whole for a
- *  member on a free or opened chapter (or with every chapter open), else the first half. The Semantic IR (level 5) is the whole reading as
+ *  member on a free or opened chapter (or with every chapter open), else the first 3/5. The Semantic IR (level 5) is the whole reading as
  *  data and goes only to a reader with every chapter open. */
 export function gateSynthesis(out: Json, a: Access): Json {
   if (!out || typeof out !== "object" || fullAccess(a)) return out;
@@ -197,7 +197,7 @@ export function gateSynthesis(out: Json, a: Access): Json {
 
 export type Filter = (out: Json, a: Access) => Json;
 /** The filter for each gated path. /api/interpretation (the evidence engine: every conclusion of every palace, with its sources) has no
- *  first-half form: it goes to a reader with every chapter of the chart open, a guest is asked to sign in, a member to open the chart
+ *  3/5 form: it goes to a reader with every chapter of the chart open, a guest is asked to sign in, a member to open the chart
  *  (the report works without it). */
 export const FILTERS: Record<string, Filter | "full"> = {
   "/api/interpret": gateOutput, "/api/overview": gateOverview, "/api/synthesis": gateSynthesis, "/api/interpretation": "full",

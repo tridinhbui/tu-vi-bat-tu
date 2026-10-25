@@ -35,7 +35,7 @@ export function plansView(env: BillingEnv) {
     placeholder: PRICES_ARE_PLACEHOLDERS, placeholderLabel: PLACEHOLDER_LABEL, paywall: paywallOn(env),
     plans: PLANS.map(p => ({ id: p.id, name: p.name, coins: p.coins, blurb: p.blurb, chapters: [...p.chapters], ai: p.ai, pass: p.pass })),
     retiredPlans: RETIRED_PLAN_NAMES, packs: PACKS, costs: COSTS, freeMessagesPerDay: FREE_MESSAGES_PER_DAY, topupChat: TOPUP_CHAT,
-    // guests read the first half of each chapter's main reading, members MEMBER_FREE whole and the first half of the rest; packages open
+    // guests read the first 3/5 of each chapter's main reading, members MEMBER_FREE whole and the first 3/5 of the rest; packages open
     // the chapters whole, Đọc sâu included
     tiers: { guestShare: "1/3", memberFree: [...MEMBER_FREE], deepChapters: [...DEEP_CHAPTERS], titles: CHAPTER_TITLES },
     providers: { stripe: !!env.STRIPE_SECRET_KEY, vnpay: !!vnpayConfig(env) },

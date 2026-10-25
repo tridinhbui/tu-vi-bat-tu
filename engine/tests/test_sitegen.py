@@ -118,7 +118,8 @@ def test_faq_and_about_and_calendar_pages(out):
     for t in ("không biết", "miễn phí", "tin", "giờ sinh", "sửa", "dữ liệu"):
         assert t in topics, t
     about = out["gioi-thieu/index.html"]
-    assert "không do AI viết" in about and "mô hình ngôn ngữ AI" in about       # honest about where AI is and is not used
+    assert "không do mô hình ngôn ngữ viết" in about and "do một mô hình ngôn ngữ viết" in about   # honest about where a model is and is not used
+    assert "suy luận sâu" in about and "đối chiếu sách" in about and not re.search(r"\bAI\b", about + faq)   # owner 2026-10-25: never "AI"
     assert "chưa được khoa học kiểm chứng" in about
     cal = out["xem-ngay/index.html"]
     assert "Ngọc Hạp Thông Thư" in cal and "/js/xem_ngay.js" in cal

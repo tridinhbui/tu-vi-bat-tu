@@ -9,7 +9,7 @@ import { getWallet, refund, spend } from "../billing/wallet.ts";
 import type { User } from "../auth/session.ts";
 import { buildContext } from "./context.ts";
 import { GENERAL_CONTEXT, GENERAL_INSTRUCTIONS, INSTRUCTIONS } from "./prompt.ts";
-import type { ChatMessage, Llm } from "./llm.ts";
+import { llmErrorLine, type ChatMessage, type Llm } from "./llm.ts";
 import type { ChartInput, Knowledge } from "../interpret/types.ts";
 
 export interface ChatDeps {
@@ -96,7 +96,8 @@ export async function handleChat(request: Request, d: ChatDeps): Promise<Respons
           const refunded = await giveBack();
           ctl.enqueue(sse({ type: "error", message: stop === "refusal" ? "Trợ lý không trả lời được câu này. Bạn thử hỏi theo cách khác nhé." : "Chưa nhận được câu trả lời. Bạn thử lại nhé.", refunded }));
         } else ctl.enqueue(sse({ type: "done", truncated: stop === "max_tokens" }));
-      } catch {
+      } catch (e) {
+        console.error(llmErrorLine("chat", e));
         const refunded = delivered ? false : await giveBack();
         try { ctl.enqueue(sse({ type: "error", message: "Trợ lý đang gặp sự cố. Bạn thử lại sau nhé.", refunded })); } catch { /* the client is gone */ }
       }

@@ -30,8 +30,8 @@ function guestCard(L) {
   const left = Math.max(0, (L.total || 0) - (L.shown || 0));
   const what = left ? `còn ${left} đoạn luận chính` : 'còn phần tiếp theo';
   const head = L.shared
-    ? `<p>Đây là lá số được chia sẻ: người xem qua liên kết đọc phần đầu mỗi chương. <b>${esc(L.title)}</b> ${what}.</p>`
-    : `<p>Bạn đang đọc phần đầu của <b>${esc(L.title)}</b>; ${what}.</p>`;
+    ? `<p>Đây là lá số được chia sẻ: người xem qua liên kết đọc 3/5 đầu mỗi chương. <b>${esc(L.title)}</b> ${what}.</p>`
+    : `<p>Bạn đang đọc phần miễn phí (3/5 đầu) của <b>${esc(L.title)}</b>; ${what}.</p>`;
   const cta = L.shared
     ? `<a class="btn btn-sm" href="/api/auth/google">Đăng nhập để lập và đọc trọn lá số của bạn</a>`
     : `<a class="btn btn-sm" href="/api/auth/google" data-pw-signin>Đăng nhập để đọc tiếp</a>`;
@@ -56,7 +56,7 @@ function memberCutCard(L) {
   const what = `còn ${left} đoạn luận chính${deep ? ` và ${deep} đoạn Đọc sâu (theo sách)` : ''}`;
   const buttons = planButtons(L);
   return `<div class="pw-lock pw-guest pw-member" data-tier="member" data-locked="${esc(L.chapter)}">${blur(left || 1)}
-    <div class="pw-over"><p class="eyebrow">Mở trọn chương</p><p>Bạn đang đọc phần đầu của <b>${esc(L.title)}</b>; ${what}.</p>
+    <div class="pw-over"><p class="eyebrow">Mở trọn chương</p><p>Bạn đang đọc phần miễn phí (3/5 đầu) của <b>${esc(L.title)}</b>; ${what}.</p>
     ${buttons ? `<div class="pw-plans">${buttons}</div>` : ''}
     <p class="small muted">Mở một lần cho lá số này, đọc lại không tốn thêm; nâng lên gói lớn hơn chỉ trả phần chênh.${placeholderTag()} <a href="/bang-gia">So sánh các gói</a></p>
     <p class="pw-msg small" role="status" aria-live="polite"></p></div></div>`;

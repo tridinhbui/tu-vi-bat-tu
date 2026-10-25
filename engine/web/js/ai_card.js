@@ -1,4 +1,4 @@
-// "Luận AI" under a report chapter: the long reading of that chapter written by the model (POST /api/me/deep, src/chat/deep.ts), not to be
+// "Luận riêng" (told to readers as "suy luận sâu") under a report chapter: the long reading of that chapter written by the model (POST /api/me/deep, src/chat/deep.ts), not to be
 // confused with the book-based "Đọc sâu (theo sách)". The AI chapters are fewer than the report's (src/interpret/chapters.ts groups Phụ
 // Mẫu, Huynh Đệ, Tử Tức and Thiên Di, Nô Bộc, Tật Ách), so a grouped card sits under the last palace of its group. A written chapter is
 // replayed free; the chart's Cao cấp package writes every chapter without xu (POST /api/me/deep/status says which).
@@ -55,7 +55,7 @@ export function initAiCards(getReq) {
     if (!req) { card.hidden = true; return; }
     await meReady;
     if (!me?.user) {
-      body.innerHTML = `<p class="small">Bài viết riêng cho lá số của bạn, khoảng 500–800 từ, soạn từ dữ kiện và luận giải đã có của chương này.</p>
+      body.innerHTML = `<p class="small">Luận riêng dùng suy luận sâu: đọc cả lá số của bạn cùng lúc và đi sâu hơn phần đối chiếu sách ở trên. Khoảng 500–800 từ.</p>
         <p><a class="btn btn-sm btn-ghost" href="/api/auth/google" data-pw-signin>Đăng nhập để dùng Luận riêng</a></p>`;
       return;
     }
@@ -63,14 +63,14 @@ export function initAiCards(getReq) {
     if (!st) { card.hidden = true; return; }                                       // not available on this server
     const written = st.written.includes(id);
     const label = written ? 'Đọc Luận riêng đã viết' : st.plan ? 'Viết Luận riêng (đã gồm trong gói Cao cấp)' : `Viết Luận riêng · ${COIN_SVG}<b>${Number(st.cost)}</b> xu`;
-    body.innerHTML = `${written ? '' : `<p class="small">Bài viết riêng cho lá số của bạn, khoảng 500–800 từ: nối chương này với các cung liên quan, chỉ dùng dữ kiện và luận giải đã có, không thêm sao hay nhận định mới. Viết một lần, đọc lại không tốn thêm; viết hỏng thì không bị tính.${st.plan ? '' : ' <a href="/bang-gia">Gói Cao cấp</a> gồm Luận riêng mọi chương.'}</p>`}
+    body.innerHTML = `${written ? '' : `<p class="small">Luận riêng dùng suy luận sâu: đọc cả lá số của bạn cùng lúc, nối chương này với các cung liên quan và đi sâu hơn phần đối chiếu sách ở trên. Khoảng 500–800 từ, chỉ dùng dữ kiện và luận giải đã có, không thêm sao hay nhận định mới. Viết một lần, đọc lại không tốn thêm; viết hỏng thì không bị tính.${st.plan ? '' : ' <a href="/bang-gia">Gói Cao cấp</a> gồm Luận riêng mọi chương.'}</p>`}
       <p><button type="button" class="btn btn-sm${written ? ' btn-ghost' : ''}" data-ai-go>${label}</button></p><div class="ai-text"></div><p class="ai-msg small" role="status" aria-live="polite"></p>`;
   }
 
   async function write(card) {
     const req = getReq(); if (!req || busy) return;
     const id = card.dataset.ai, btn = card.querySelector('[data-ai-go]'), out = card.querySelector('.ai-text'), msg = card.querySelector('.ai-msg');
-    busy = true; btn.disabled = true; msg.className = 'ai-msg small'; msg.textContent = 'Đang viết, khoảng nửa phút…';
+    busy = true; btn.disabled = true; msg.className = 'ai-msg small'; msg.textContent = 'Đang suy luận trên cả lá số rồi viết, có thể mất một đến hai phút…';
     let got = '', failed = false;
     try {
       const res = await post('/api/me/deep', { birth: pick(req), chapter: id });
