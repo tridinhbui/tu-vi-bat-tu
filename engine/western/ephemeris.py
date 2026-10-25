@@ -72,6 +72,10 @@ def _chiron():
     return _eph()["sun"] + _ChironHelio()
 
 
+def chiron_meta() -> dict:
+    return _chiron().vector_functions[-1].meta
+
+
 def body(name: str):
     return _chiron() if name == "chiron" else _eph()[_SEGMENT[name]]
 
@@ -81,8 +85,17 @@ def earth():
 
 
 def time_utc(dt_utc) -> object:
-    """Skyfield Time for an aware UTC datetime; raises OutOfRange outside the ephemeris."""
-    t = timescale().from_datetime(dt_utc)
+    """Skyfield Time for an aware UTC datetime; raises OutOfRange outside the ephemeris.
+
+    Before 1972 there were no leap seconds: civil clocks followed GMT / the old 'rubber' UTC, both within ~0.1 s of UT1,
+    and Skyfield's pre-1972 UTC is off by a few seconds (2.7 s in 1969; the Moon moves 1.3" in that time). So an
+    instant before 1972 is read as UT1, as Swiss Ephemeris' swe_utc_to_jd does."""
+    import datetime as _dt
+    u = dt_utc.astimezone(_dt.timezone.utc)
+    if u.year < 1972:
+        t = timescale().ut1(u.year, u.month, u.day, u.hour, u.minute, u.second + u.microsecond / 1e6)
+    else:
+        t = timescale().from_datetime(u)
     check_range(t)
     return t
 
