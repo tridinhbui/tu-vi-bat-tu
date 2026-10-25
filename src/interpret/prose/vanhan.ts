@@ -44,7 +44,7 @@ export interface VanHanLibrary {
   /** the year's lưu stars landing in the current hạn palace */
   luu: string[];
   /** the closing by the hạn's level on the system indices (0 … 4); when the level runs against the hạn's book sentences, the frame that says so */
-  level: Record<string, string[]>; level_against: Record<'low' | 'high', string[]>; level_word: Record<string, string>;
+  level: Record<string, string[]>; level_against: Record<'low' | 'high', string[]>; level_thin?: string[]; level_word: Record<string, string>;
 }
 interface KlFacts { src: string; relation: string; verdict: string; xung_controlled: boolean; opp_majors: string[];
   nhi_hop: { branch: string; palace: string; counts: boolean; majors: string[] }; thai_tue_triad: boolean; event: string | null }
@@ -129,7 +129,8 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     const pr = readPalace(chart, k, d.palace, m, { key: `vh${d.index}`, lead: false });
     xs.push(...pr.structure.filter(x => x.trace.step === 'gist' || x.trace.step === 'tp' || x.trace.step === 'tuan' || x.trace.step === 'triet'));
     // the hạn against the previous one (the same levels as the period chart): a change of two levels or more is a turning point
-    const lvNow = levels.find(x => x.age_from === d.age_from);
+    // a decade without book evidence ("chưa đủ căn cứ") is not compared, nor is the one after it compared with it
+    const lvNow = levels.find(x => x.age_from === d.age_from && !x.insufficient);
     if (lvNow && prevLevel && L!.trend) {
       const j = lvNow.level - prevLevel.level, k2 = j >= 2 ? 'turn_up' : j <= -2 ? 'turn_down' : j > 0 ? 'up' : j < 0 ? 'down' : 'flat';
       const st = sentence(fill(m.pick(`${key}|trend`, L!.trend[k2]), { from: prevLevel.vi, to: lvNow.level_vi }), [], [], 'he_thong', j > 0 ? 'pos' : j < 0 ? 'neg' : undefined);
@@ -137,7 +138,7 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       st.trace.note = 'So sánh mức của hai đại hạn liền nhau theo chỉ số tổng hợp của hệ thống (cùng thang với biểu đồ giai đoạn), không phải lời sách.';
       xs.push(st);
     }
-    if (lvNow) prevLevel = { level: lvNow.level, vi: lvNow.level_vi };
+    prevLevel = lvNow ? { level: lvNow.level, vi: lvNow.level_vi } : null;
     // what the hạn touches most: the hạn palace's matter and where its Hóa Lộc and Hóa Kỵ land (Tứ Hóa by the hạn stem, he_thong)
     const touched = [...new Set([d.palace, d.hoa['Hóa Lộc']?.palace, d.hoa['Hóa Kỵ']?.palace].filter((x): x is string => !!x))].map(dom);
     if (L!.focus?.length && touched.length >= 2) {
@@ -238,11 +239,20 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       if (here.length) { const st = sentence(fill(m.pick(`${key}|luu`, L!.luu), { year: String(curYear), stars: joinNames(here) }), [], ['KL pp.41-42'], 'tinh_toan'); st.trace.step = 'luu'; xs.push(st); }
     }
     // closing: the hạn's level on the system indices (the same level the period chart shows), then the hạn palace's advice line
-    const lv = levels.find(x => x.age_from === d.age_from)?.level;
-    if (lv !== undefined && L!.level?.[String(lv)]?.length) {
+    const lvx = levels.find(x => x.age_from === d.age_from), lv = lvx?.level;
+    if (lvx?.insufficient && L!.level_thin?.length) {
+      // no book evidence: the default middle is said as such, never as a real middle (owner's decision 2026-10-24)
+      const st = sentence(m.pick(`${key}|thin`, L!.level_thin), [], [], 'he_thong', 'answer');
+      st.trace.step = `level:${lv}`;
+      st.trace.note = 'Chặng không có câu sách hay sao nào đã đối chiếu độ sáng để xét: biểu đồ để mức “Trung bình” mặc định, ghi “chưa đủ căn cứ”.';
+      xs.push(st);
+    } else if (lv !== undefined && L!.level?.[String(lv)]?.length) {
       // a level that runs against the book sentences of the hạn says so, and why (the other layers of the index weigh more)
       const book = xs.filter(x => x.trace.basis === 'sach' || x.trace.basis === 'tinh_toan'), up = book.filter(x => x.trace.tone === 'pos').length, down = book.filter(x => x.trace.tone === 'neg').length;
-      const against = lv <= 1 && up > down ? 'low' : lv >= 3 && down > up ? 'high' : null;
+      // the indices' own book side counts too (KL p.233: a hạn in the Thái Tuế triad is "gặp thời" whatever its level; owner's plan 2026-10-24:
+      // a level against the books is explained, never left bare)
+      const S = (lvx?.items ?? []).filter(i => i.basis === 'sach' || i.basis === 'sach_dien_giai').reduce((a, i) => a + (i.side === 'support' ? i.w : -i.w), 0);
+      const against = lv <= 1 && (up > down || S > 0) ? 'low' : lv >= 3 && (down > up || S < 0) ? 'high' : null;
       const text = against && L!.level_against?.[against]?.length ? fill(m.pick(`${key}|lva`, L!.level_against[against]), { w: L!.level_word[String(lv)] }) : m.pick(`${key}|level`, L!.level[String(lv)]);
       const st = sentence(text, [], [], 'he_thong', 'answer');
       st.trace.step = `level:${lv}`;

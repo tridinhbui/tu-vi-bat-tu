@@ -48,7 +48,7 @@ SCHOOL_PACK = {
         "tu_hoa": ["verified_with_variants", "Selectable (VARIANTS.tu_hoa_table, default KL). SRC_THUC_HANH p.21 + SRC_KHAO_LUAN pp.196-197 agree on nine of the ten stems (Khảo Luận p.36 table misprints Tân-Lộc as Thiên Cơ; its own prose p.196 says Cự Môn). They DISAGREE on Nhâm-Khoa: Khảo Luận pp.36,197 = Tả Phụ (production follows it), Thực Hành pp.20-21 = Thiên Phủ in both verse and prose; a digitized 紫微斗數全書 verse also reads 府, so this is a source/school difference, not a misprint (Phase 7 dossier; tables kept in data/experimental/tu_hoa_tables.json)"],
         "dignity_table": ["verified", "Three selectable tables (dignity_school; default khao_luan since 2026-10-21, as popular boards). SRC_THUC_HANH pp.29-48 (14 chính tinh; unlisted branches stay unspecified; Tham Lang Tý/Ngọ disputed with Khảo Luận)"],
         "dai_han": ["verified", "SRC_THUC_HANH p.27 (first decade starts at Mệnh at age = cục number; thuận for dương nam/âm nữ, nghịch otherwise)"],
-        "tieu_han": ["verified_with_variants", "SRC_THUC_HANH p.27 (age 1 at Thìn/Tuất/Mùi/Sửu by year-branch triad; nam thuận, nữ nghịch) = default; SRC_KHAO_LUAN pp.39-40 (dương nam / âm nữ thuận) selectable (VARIANTS.tieu_han_rule)"],
+        "tieu_han": ["verified_with_variants", "age 1 at Thìn/Tuất/Mùi/Sửu by year-branch triad (both books). Direction: SRC_KHAO_LUAN pp.39-40 (dương nam / âm nữ thuận, âm nam / dương nữ nghịch) = default since 2026-10-24 (owner's decision: one school for tiểu hạn, nguyệt hạn, lưu đại hạn and the lưu Kình/Đà of KL p.42); SRC_THUC_HANH p.27 (nam thuận, nữ nghịch) selectable (VARIANTS.tieu_han_rule)"],
         "aux_stars": ["partially_verified", "Most formulas carry a TH/KL page in aux_stars.py (SOURCED); Lưu Hà: books disagree on Đinh/Canh/Tân, default = popular board (Canh matches neither book), KL p.29 / TH p.26 selectable (VARIANTS.luu_ha_table); the rest stay marked unverified"],
         "menh_chu_than_chu": ["unverified", "Bảng Mệnh chủ (theo chi cung Mệnh) và Thân chủ (theo chi năm) phổ biến; chưa đối chiếu trang sách"],
         "cach_cuc_names": ["unverified", "Chỉ nhận diện tên cách theo vị trí sao; ý nghĩa cát/hung chưa được đối chiếu"],
@@ -99,8 +99,8 @@ VARIANTS = {
         "TT_WS": "紫微斗數全書 bản số hóa — nguồn ngoài (Canh: Khoa Thái Âm, Kỵ Thiên Đồng; Nhâm: Khoa Thiên Phủ); bảng tuvi.vn dùng cho Canh",
     },
     "tieu_han_rule": {
-        "TH": "Thực Hành tr.27: nam thuận, nữ nghịch (mặc định; khớp bảng phổ biến)",
-        "KL": "Khảo Luận tr.39-40: dương nam / âm nữ thuận, âm nam / dương nữ nghịch",
+        "TH": "Thực Hành tr.27: nam thuận, nữ nghịch (bảng phổ biến dùng cách này)",
+        "KL": "Khảo Luận tr.39-40: dương nam / âm nữ thuận, âm nam / dương nữ nghịch (mặc định; cùng trường phái với nguyệt hạn KL tr.40-41 và lưu Kình Đà KL tr.42)",
     },
     "luu_ha_table": {
         "board": "bảng phổ biến (tuvi.vn): Đinh Thân, Canh Thìn, Tân Mão — Canh không khớp sách nào (mặc định)",
@@ -108,7 +108,7 @@ VARIANTS = {
         "TH": "Thực Hành tr.26: Đinh Thìn, Canh Thân, Tân Mão",
     },
 }
-DEFAULT_VARIANTS = {"tu_hoa_table": "KL", "tieu_han_rule": "TH", "luu_ha_table": "board"}
+DEFAULT_VARIANTS = {"tu_hoa_table": "KL", "tieu_han_rule": "KL", "luu_ha_table": "board"}
 
 
 def chart_variants(chart) -> dict[str, str]:
@@ -221,7 +221,7 @@ def tuvi_position(day: int, cuc: int) -> tuple[int, dict]:
 
 
 def compute(nb: cc.NormalizedBirth, leap_rule: LeapRule = "same_month", n_dai_han: int = 12,
-            dignity_school: str = "thuc_hanh", tu_hoa_table: str = "KL", tieu_han_rule: str = "TH",
+            dignity_school: str = "thuc_hanh", tu_hoa_table: str = "KL", tieu_han_rule: str = "KL",
             luu_ha_table: str = "board") -> TuViChart:
     tr = Trace()
     b = nb.input

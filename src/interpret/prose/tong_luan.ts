@@ -83,7 +83,8 @@ export function proseTongLuan(chart: ChartInput, k: Knowledge, seed: string, eng
       for (const v of open.slice(0, 2)) say(p1, fill(m.pick(`open|${v.id}`, L!.open), { domain: v.label }), `tong_luan:open:${v.id}`, tr(v));
     }
     // the đại hạn on the system indices (the period chart's levels): highest, lowest, the largest change, the current one
-    const ds = computeIndices(chart, k, NORMS).decades.filter(d => d.age_from <= 75);
+    // a decade with no book evidence ("chưa đủ căn cứ", indices-3.0.0) is never named best, worst or a turning point
+    const ds = computeIndices(chart, k, NORMS).decades.filter(d => d.age_from <= 75 && !d.insufficient);
     if (ds.length >= 3) {
       const ix = { note: 'Mức của đại hạn theo chỉ số tổng hợp của hệ thống (cùng thang với biểu đồ giai đoạn), không phải lời sách.' };
       const hi = [...ds].sort((a, b) => b.score - a.score)[0], lo = [...ds].sort((a, b) => a.score - b.score)[0];
@@ -92,7 +93,7 @@ export function proseTongLuan(chart: ChartInput, k: Knowledge, seed: string, eng
       const jumps = ds.slice(1).map((d, i) => ({ d, prev: ds[i], j: d.level - ds[i].level })).filter(x => x.j !== 0).sort((a, b) => Math.abs(b.j) - Math.abs(a.j) || a.d.age_from - b.d.age_from);
       const t = jumps[0];
       if (t && Math.abs(t.j) >= 2) say(p2, fill(m.pick(t.j > 0 ? 'turn_up' : 'turn_down', t.j > 0 ? L!.turn_up : L!.turn_down), { a: String(t.d.age_from), pal: t.d.palace, from: t.prev.level_vi, to: t.d.level_vi }), 'tong_luan:turn', ix, 'he_thong');
-      const cur = ds.find(d => d.current);
+      const cur = ds.find(d => d.current);  // (an insufficient current decade is left out above: nothing to say of its level)
       if (cur && cur !== hi && cur !== lo) say(p2, fill(m.pick('current', L!.current), dv(cur)), 'tong_luan:current', ix, 'he_thong');
     }
   }
