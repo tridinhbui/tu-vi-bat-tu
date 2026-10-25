@@ -75,7 +75,7 @@ export async function initGrowth(host, tab, req) {
     <section id="gr-cmp" class="gr-sec"><h3>La bàn cuộc đời</h3><p class="sec-sub">Xu hướng (theo hình tượng lá số) có thể ảnh hưởng quyết định của bạn ở từng lĩnh vực, và một công cụ đặt các lựa chọn cạnh giá trị của bạn. Hệ thống không chọn thay bạn.</p><div id="gr-cmp-host"></div></section>
     <section id="gr-prac" class="gr-sec"><h3>Bài tập thực hành</h3><p class="sec-sub">Chọn “Bắt đầu” ở bất kỳ nhận định nào. Mỗi ngày đánh dấu đã làm; tiến độ được ghi vào nhật ký của bạn.</p><div id="gr-prac-host"></div></section>
     <section id="gr-jr" class="gr-sec"><h3>Nhật ký trưởng thành</h3><p class="sec-sub">Ghi lại trải nghiệm, đối chiếu với luận giải, và nhìn lại sự thay đổi của bạn theo thời gian. Chỉ lưu trong trình duyệt này.</p><div id="gr-jr-host"></div></section>
-    <section id="gr-chat" class="gr-sec"><h3>Đối thoại với lá số</h3><p class="sec-sub">Hỏi về điều bạn đang gặp. Câu trả lời được ghép từ hồ sơ lá số của bạn và điều bạn chia sẻ, bằng quy tắc cố định (không dùng AI tạo sinh).</p><div id="gr-chat-host"></div></section>`;
+    <section id="gr-chat" class="gr-sec"><h3>Đối thoại với lá số</h3><p class="sec-sub">Hỏi về điều bạn đang gặp. Câu trả lời được ghép từ hồ sơ lá số của bạn và điều bạn chia sẻ, bằng quy tắc cố định.</p><div id="gr-chat-host"></div></section>`;
 
   $$('.gr-showmore', host).forEach(b => b.onclick = () => { $$('.gr-more', b.parentElement).forEach(c => c.hidden = false); b.remove(); });
   $$('[data-gr]', host).forEach(a => a.onclick = e => { e.preventDefault(); $('#' + a.dataset.gr, host)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
