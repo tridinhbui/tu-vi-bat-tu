@@ -375,7 +375,8 @@
  "natal_link": {
   "same": [
    "Đó cũng chính là cung hạn đang đi qua",
-   "Cung ấy lại chính là cung hạn"
+   "Cung ấy lại chính là cung hạn",
+   "Hóa ấy rơi ngay vào cung hạn"
   ],
   "domain": [
    "Đó là nơi xem {domain}, vốn {verdict}",
@@ -383,7 +384,9 @@
   ],
   "again": [
    "Đó là nơi xem {domain}, như đã nói ở trên",
-   "Cung ấy là cung của {domain} đã nhắc ở trên"
+   "Cung ấy là cung của {domain} đã nhắc ở trên",
+   "Đó lại là cung của {domain}, đã xét ở phần trên",
+   "Cung ấy quay về chuyện {domain} đã bàn"
   ],
   "same_decade": [
    "Lại cũng là cung của {domain}",
@@ -405,23 +408,28 @@
  "level": {
   "0": [
    "Tính chung, đây là một chặng rất thử thách so với các chặng thường gặp, nên giữ nhiều hơn mở",
-   "Gộp các lớp lại, đây là một trong những chặng khó nhất của lá số, nên giữ hơn là mở"
+   "Gộp các lớp lại, đây là một trong những chặng khó nhất của lá số, nên giữ hơn là mở",
+   "Xét chung, mười năm này là chặng phải gắng sức nhiều nhất"
   ],
   "1": [
    "Tính chung, đây là chặng nhiều thử thách; đi chắc thì vẫn qua được",
-   "Gộp các lớp lại, đây là chặng có nhiều thử thách hơn thường lệ"
+   "Gộp các lớp lại, đây là chặng có nhiều thử thách hơn thường lệ",
+   "Nhìn tổng thể, chặng này còn nhiều việc phải vượt"
   ],
   "2": [
    "Tính chung, mười năm này ở mức trung bình, được mất tùy cách {S} xoay xở",
-   "Gộp các lớp lại, mười năm này ở mức giữa, phần lớn tùy cách {S} xoay xở"
+   "Gộp các lớp lại, mười năm này ở mức giữa, phần lớn tùy cách {S} xoay xở",
+   "Xét chung, mười năm này ở mức giữa, kết quả tùy cách xoay xở"
   ],
   "3": [
    "Tính chung, đây là một chặng thuận so với các chặng thường gặp",
-   "Gộp các lớp lại, đây là một chặng khá thuận"
+   "Gộp các lớp lại, đây là một chặng khá thuận",
+   "Nhìn tổng thể, đây là một chặng thuận"
   ],
   "4": [
    "Tính chung, đây là một chặng rất thuận của lá số",
-   "Gộp các lớp lại, đây là một trong những chặng thuận nhất của lá số"
+   "Gộp các lớp lại, đây là một trong những chặng thuận nhất của lá số",
+   "Xét chung, đây là một trong những chặng đẹp nhất của lá số"
   ]
  },
  "level_against": {
@@ -458,7 +466,8 @@
   ],
   "flat": [
    "Về mức chung, chặng này giữ ngang chặng trước",
-   "Mức chung của mười năm này tương đương chặng trước"
+   "Mức chung của mười năm này tương đương chặng trước",
+   "Sang chặng này, mức chung không đổi so với mười năm trước"
   ],
   "turn_up": [
    "Đây là một bước ngoặt: so với mười năm trước, vận nâng lên hẳn, từ mức {from} lên {to}",
@@ -495,5 +504,13 @@
    "{majors} hãm, nhưng {tt} ở cung giải được, nên lại thành tốt",
    "Chính tinh hãm ({majors}) song có {tt} giải, nên hạn vẫn được phần tốt"
   ]
- }
+ },
+ "reading_again": [
+  "Điều đã nói ở chặng {span} về các sao ấy cũng áp vào chặng này",
+  "Như ở chặng {span}, thế sao này lại cho cùng một lời đoán"
+ ],
+ "level_again": [
+  "Mức chung của chặng này ngang với chặng {span}",
+  "Xét chung, mười năm này cùng mức với chặng {span}"
+ ]
 }
