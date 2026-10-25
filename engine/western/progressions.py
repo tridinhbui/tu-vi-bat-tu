@@ -114,14 +114,15 @@ def timeline(natal: dict, from_age: float, to_age: float, orb: float = 1.0,
                         x = root(body, target, grid[k], grid[k + 1])
                         spd = abs(tracks[body].speed(x))                             # degrees per progressed day = per year of life
                         events.append({"type": "aspect", "progressed": body, "natal": tname, "aspect": asp, "date": _real_date(natal, x),
-                                       "age": round(float(x - jd_b), 3), "years_in_orb": round(2 * orb / spd, 2) if spd > 1e-4 else None})
+                                       "age": round(float(x - jd_b), 3), "years_in_orb": round(float(2 * orb / spd), 2) if spd > 1e-4 else None,
+                                       "retrograde": bool(tracks[body].speed(x) < 0)})
         sign = (lon // 30).astype(int)
         for k in np.nonzero(sign[:-1] != sign[1:])[0]:
             fwd = ((lon[k + 1] - lon[k] + 180) % 360 - 180) > 0
             edge = float((sign[k + 1] if fwd else sign[k]) * 30 % 360)
             x = root(body, edge, grid[k], grid[k + 1])
             events.append({"type": "ingress", "progressed": body, "sign": SIGNS[int(sign[k + 1])], "date": _real_date(natal, x),
-                           "age": round(float(x - jd_b), 3)})
+                           "age": round(float(x - jd_b), 3), "retrograde": not fwd})
         if cusps:
             hs = np.array([H.house_of(float(v), cusps) for v in lon])
             for k in np.nonzero(hs[:-1] != hs[1:])[0]:
@@ -129,6 +130,15 @@ def timeline(natal: dict, from_age: float, to_age: float, orb: float = 1.0,
                 edge = cusps[(int(hs[k + 1]) - 1) if fwd else (int(hs[k]) - 1)]
                 x = root(body, edge, grid[k], grid[k + 1])
                 events.append({"type": "house", "progressed": body, "house": int(hs[k + 1]), "date": _real_date(natal, x),
+                               "age": round(float(x - jd_b), 3), "retrograde": not fwd, "system": natal["houses"]["system"]})
+        if body not in ("sun", "moon"):            # stations: the progressed planet turns retrograde or direct
+            un = tracks[body].un[sel]
+            d = np.diff(un)
+            for k in np.nonzero(np.sign(d[:-1]) != np.sign(d[1:]))[0]:
+                fa = tracks[body].speed(grid[k])
+                x = _root(tracks[body].speed, grid[k], grid[k + 2], fa)
+                events.append({"type": "station", "progressed": body, "turns": "retrograde" if fa > 0 else "direct",
+                               "lon": round(float(tracks[body].at(x)) % 360.0, 4), "date": _real_date(natal, x),
                                "age": round(float(x - jd_b), 3)})
     events.sort(key=lambda e: e["age"])
     return {"orb": orb, "from_age": from_age, "to_age": to_age, "events": events,

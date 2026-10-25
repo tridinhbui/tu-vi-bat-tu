@@ -4,7 +4,7 @@ from __future__ import annotations
 from .. import dignity
 from ..zodiac import ELEMENT, MODALITY, SIGNS, sign_index
 from .ch_core import M, described, lilly_condition
-from .compose import Para, cap, ev_aspect, ev_planet, listing, pick, planet_list, srcs
+from .compose import Para, ev_in, cap, ev_aspect, ev_planet, listing, pick, planet_list, srcs
 from .facts import CLASSICAL, Facts
 from .vocab import ASPECT_NOUN, ASPECT_WITH, ELEMENT_VI, MODALITY_VI, P, S, num
 
@@ -87,7 +87,7 @@ def planets(f: Facts) -> list[Para]:
             if h in houses_told:
                 t += f"Nó cũng ở Nhà {h}. "
             else:
-                t += f"Ở Nhà {h}, sao này góp vào {_house_topic(f, p)}. "
+                t += f"Ở Nhà {h}{f.house_note('traditional', p)}, sao này góp vào {_house_topic(f, p)}. "
                 houses_told.add(h)
         t += f"{P(p)} {lilly_condition(f, p, with_house=False)}. "
         if disp == p:
@@ -110,23 +110,25 @@ def planets(f: Facts) -> list[Para]:
             disp_told[disp] = P(p)
         out.append(Para(f"hd.{p}", f"{P(p)} ở {S(b['sign'])}" + (f", Nhà {h}" if h else ""), t, "traditional",
                         srcs("LILLY_CA:p.87", "LILLY_CA:pp.50-56", "LILLY_CA:p.104"),
-                        [ev_planet(c, p, h)], "deep", topic="hanh_tinh", keys=[f"planet:{p}:{b['sign']}"]))
+                        [ev_in(f, p, "traditional")], "deep", topic="hanh_tinh", keys=[f"planet:{p}:{b['sign']}"]))
     for gi, ((sg, h, mate), items) in enumerate(groups.items()):
         out.append(Para(f"hd.group.{sg}.{h}", f"Cùng ở {S(sg)}" + (f", Nhà {h}" if h else ""),
                         f"Cùng ở {S(sg)}" + (f", Nhà {h}" if h else "") + f" với {mate} còn có: " + "; ".join(items) + "." +
                         (" Các sao tụ một chỗ nhuộm lẫn nhau, nên mảng đời của nhà ấy được nói tới nhiều lần trong lá số." if gi == 0 else ""),
-                        "traditional", srcs("LILLY_CA:p.87", "LILLY_CA:p.104"), [ev_planet(c, x, h) for x in grouped if f.b[x]["sign"] == sg and f.house_lilly(x) == h],
+                        "traditional", srcs("LILLY_CA:p.87", "LILLY_CA:p.104"), [ev_in(f, x, "traditional") for x in grouped if f.b[x]["sign"] == sg and f.house_lilly(x) == h],
                         "deep", topic="hanh_tinh"))
     vp = M["valens_planet"]
-    lines = [f"{P(p)} ({vp[p].split(';')[0]}) ở Nhà {f.place_ws(p)}" if f.time_known else f"{P(p)}: {vp[p].split(';')[0]}" for p in CLASSICAL]
-    out.append(Para("hd.valens", "Các hành tinh theo Valens", "⟦Valens ghi những việc mỗi hành tinh chủ về (I.1) và đọc chúng theo chỗ trọn cung; mỗi chỗ đem những việc ấy vào mảng đời của nó (IV.12).⟧ "
-                    "Theo Valens, " + "; ".join(lines) + ".", "hellenistic", srcs("VALENS_ANTH:I.1", "VALENS_ANTH:IV.12"),
+    lines = [f"{P(p)} ({vp[p].split(';')[0]}) ở Nhà {f.place_ws(p)}{f.house_note('hellenistic', p)}" if f.time_known else f"{P(p)}: {vp[p].split(';')[0]}" for p in CLASSICAL]
+    out.append(Para("hd.valens", "Các hành tinh theo Valens", "⟦Valens ghi những việc mỗi hành tinh chủ về (I.1) và đọc chúng theo chỗ trọn cung; mỗi chỗ đem những việc ấy vào mảng đời của nó (IV.12).⟧ " +
+                    ("Theo Valens, tính nhà trọn cung: " if f.time_known else "Theo Valens: ") + "; ".join(lines) + ".", "hellenistic", srcs("VALENS_ANTH:I.1", "VALENS_ANTH:IV.12"),
                     [], "deep", topic="hanh_tinh"))
     for i, p in enumerate(("uranus", "neptune")):
         b = f.b[p]
+        hm = f.house_modern(p)
+        hs = f" Nhà {hm} {f.system_vi('modern')}" if hm else ""
         tail = " ⟦Sao này đi chậm, nên người cùng thế hệ có cùng cung; điểm riêng của từng người là nhà nó đứng và các góc nó tạo với hành tinh cá nhân.⟧"
-        out.append(Para(f"hd.{p}", f"{P(p)} ở {S(b['sign'])}" + (f", Nhà {b.get('house')}" if b.get("house") else ""),
-                        f"{P(p)} ở {b['fmt']} {S(b['sign'])}" + (f", Nhà {b['house']}" if b.get("house") else "") + f". Alan Leo coi sao này {M['planets'][p]['leo']['vi']}." + tail,
+        out.append(Para(f"hd.{p}", f"{P(p)} ở {S(b['sign'])}" + (f", Nhà {hm}" if hm else ""),
+                        f"{P(p)} ở {b['fmt']} {S(b['sign'])}" + ("," + hs if hs else "") + f". Alan Leo coi sao này {M['planets'][p]['leo']['vi']}." + tail,
                         "modern", srcs("LEO:How to Judge a Nativity", "LEO:The Art of Synthesis"), [ev_planet(c, p)], "deep", topic="hanh_tinh"))
     pl = f.b["pluto"]
     ch = f.b["chiron"]
@@ -194,7 +196,7 @@ def aspects(f: Facts) -> list[Para]:
             t += (cap(verdict) + ".") if k == "conjunction" else pick(f"{x}{y}{k}", [f"Ở đây việc của {P(x)} và việc của {P(y)} {verdict}.",
                                                                                    f"{P(x)} và {P(y)} {verdict}."])
         if app is not None and not told_app:
-            t += " Theo Ptolemy (I.24), góc đang tiến tới là việc còn đang thành hình, mạnh hơn góc đã tách ra, là việc đã qua đỉnh của nó."
+            t += " ⟦Theo Ptolemy (I.24), sao đi nhanh hơn 'tiến tới' sao đi chậm khi khoảng cách còn nhỏ, và 'tách ra' khi đã vượt qua.⟧"
             told_app = True
         out.append(Para(f"gh.{x}.{y}", f"{P(x)} {ASPECT_WITH[k]} {P(y)}", t, "compare", srcs("LILLY_CA:pp.106-107", "PTOL_TETRA:I.13 p.75", "PTOL_TETRA:I.24 p.113", "VALENS_ANTH:I.1"),
                         [ev_aspect(x, y, k, f"{P(x)} {ASPECT_WITH[k]} {P(y)} ({num(a['orb'], 2)}°)")], "overview" if len(out) < 2 else "deep",

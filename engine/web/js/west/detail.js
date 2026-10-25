@@ -52,7 +52,7 @@ function planet(ch, id) {
       row('Nhà', p.house ? `Nhà ${p.house} <small>(${esc(HOUSE_SYS[sys] || sys)})</small>${p.house_ws && p.house_ws !== p.house ? ` · Nhà ${p.house_ws} theo Whole Sign` : ''}` : ''),
       row('Chuyển động', [speedText(p, c), c?.retrograde || p.retrograde ? '<b>Nghịch hành (R)</b>' : '', stationText(c?.station_days)].filter(Boolean).join('<br>')),
       row('Pha với Mặt Trời', solarText(c?.solar)),
-      row('Tước vị', e ? `${has.length ? esc(has.join(', ')) : 'Không có tước vị riêng ở độ này'} · điểm ${num(e.score, 0)} <small>(thang Lilly)</small>` : ''),
+      row('Tước vị', e ? `${has.length ? esc(has.join(', ')) : 'Không có tước vị riêng ở độ này'} ${c?.lilly ? ` · điểm Lilly ${num(c.lilly.score, 0)} <small>(tính trên bảng của Lilly)</small>` : ''}` : ''),
       row('Cai quản', rules.length ? rules.map(n => `<button type="button" class="link" data-pick="house:${n}">Nhà ${n}</button>`).join(', ') : ''),
       row('Hoàng vĩ · xích vĩ', p.lat != null ? `${num(p.lat, 2)}° · ${num(p.dec, 2)}°` : ''),
       row('Công thức', p.formula ? esc(p.formula) : ''),

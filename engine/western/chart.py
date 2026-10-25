@@ -233,6 +233,7 @@ def _conditions(name: str, bodies: dict, is_day: bool | None, opts: ChartOptions
         c["speed_ratio"] = round(abs(b["speed"]) / MEAN_MOTION[name], 3)
     if name in CLASSICAL:
         c["essential"] = dignity.essential(name, b["lon"], is_day, opts.triplicity, opts.terms)
+        c["lilly"] = dignity.lilly_essential(name, b["lon"], is_day)
     if name != "sun":
         el = angdiff(b["lon"], bodies["sun"]["lon"])               # + = ahead of the Sun in the zodiac (sets after it)
         d = abs(el)

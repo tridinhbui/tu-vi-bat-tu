@@ -27,6 +27,8 @@ PLANET_QUALITY = {"saturn": (("cold", "moist"), ("dry",)), "jupiter": (("hot", "
 LILLY_MEAN = {"saturn": 2 / 60 + 1 / 3600, "jupiter": 4 / 60 + 59 / 3600, "mars": 31 / 60 + 27 / 3600, "sun": 59 / 60 + 8 / 3600,
               "venus": 59 / 60 + 8 / 3600, "mercury": 59 / 60 + 8 / 3600, "moon": 13 + 10 / 60 + 36 / 3600}       # pp.57-80
 PTOLEMAIC_ASPECTS = {0: "conjunction", 2: "sextile", 3: "square", 4: "trine", 6: "opposition"}
+SYSTEM_VI = {"lilly": "theo cách chia của Lilly", "ws": "tính trọn cung", "ptolemy": "theo chỗ 30° của Ptolemy",
+             "modern": "theo hệ nhà đang chọn"}
 OPERATIONAL = {
     "well_dignified": "Thiên Bàn coi một hành tinh là 'đắc thế' khi tổng điểm bản chất theo bảng Lilly (tr.104, điểm tr.101-103) từ +4 trở lên, "
                       "'thất thế' khi từ -4 trở xuống; Lilly không đặt ngưỡng số.",
@@ -34,7 +36,9 @@ OPERATIONAL = {
     "besieged": "'bị vây' = Sao Thổ và Sao Hỏa ở hai bên trong cùng một cung; Lilly không định nghĩa thêm ở tr.115.",
     "morning_appearance": "'mới mọc buổi sáng' (Ptolemy IV.4) được hiểu là hành tinh đi trước Mặt Trời và đã cách xa ít nhất 15°; "
                           "Ptolemy không cho con số, 15° là mức Thiên Bàn chọn.",
-    "ptolemy_place": "'chỗ' theo Ptolemy III.10: mỗi chỗ 30°, chỗ thứ nhất bắt đầu 5° phía trên điểm Mọc.",
+    "lilly_houses": "Nhà theo Lilly = cách chia Regiomontanus, và theo lời Lilly (tr.33) một hành tinh cách đỉnh nhà không quá 5° "
+                    "được tính vào nhà của đỉnh gần nó nhất; vì thế số nhà theo Lilly có thể khác số nhà trên bánh xe (Placidus).",
+    "ptolemy_place":"'chỗ' theo Ptolemy III.10: mỗi chỗ 30°, chỗ thứ nhất bắt đầu 5° phía trên điểm Mọc.",
     "fixed_stars": "'đồng độ với định tinh' = cách định tinh không quá 5° theo kinh độ hoàng đạo, con số Lilly cho ở tr.616 (và tr.115 với Caput Algol); "
                    "tr.115 không ghi khoảng cách cho Cor Leonis và Spica, Thiên Bàn dùng cùng 5°. Lilly in vị trí định tinh của năm 1647; "
                    "do tuế sai, định tinh nay đã dịch thêm khoảng 5°, nên Thiên Bàn tính vị trí của chính ngày sinh (dữ liệu Hipparcos).",
@@ -69,7 +73,39 @@ class Facts:
             return None
 
     def house_lilly(self, name: str) -> int | None:
-        return H.house_of(self.lon[name], self.regio) if self.regio else None
+        """Regiomontanus with Lilly's five-degree rule (p.33): the house Lilly himself would read the planet in."""
+        return H.house_of_lilly(self.lon[name], self.regio) if self.regio else None
+
+    def house_modern(self, name: str) -> int | None:
+        """The house system chosen for the chart (Placidus by default, the tables Alan Leo worked with)."""
+        if not self.time_known:
+            return None
+        return H.house_of(self.lon[name], [x["lon"] for x in self.c["houses"]["cusps"][self.c["houses"]["system"]]])
+
+    def house(self, school: str, name: str) -> int | None:
+        return {"traditional": self.house_lilly, "hellenistic": self.place_ws, "ptolemy": self.place_ptolemy}.get(school, self.house_modern)(name)
+
+    def house_note(self, school: str, name: str, inner: bool = False) -> str:
+        """' (Nhà 1 nếu chia theo Placidus, Nhà 2 tính trọn cung)' the first time a planet whose house differs between the
+        reading's house systems is placed by a school; '' otherwise. Keeps one planet from carrying two numbers unexplained."""
+        if not self.time_known or name not in self.lon:
+            return ""
+        told = self.__dict__.setdefault("_house_note", set())
+        mine = self.house(school, name)
+        others = {"traditional": ("lilly", self.house_lilly(name)), "hellenistic": ("ws", self.place_ws(name)),
+                  "modern": ("modern", self.house_modern(name))}
+        own_key = {"traditional": "lilly", "hellenistic": "ws", "ptolemy": None}.get(school, "modern")
+        diff = [(k, n) for k, n in others.values() if k != own_key and n is not None and n != mine]
+        if not diff or name in told:
+            return ""
+        told.add(name)
+        label = lambda k: self.system_vi("modern") if k == "modern" else SYSTEM_VI[k]
+        body = ", ".join(f"Nhà {n} {label(k)}" for k, n in diff)
+        return f"; {body}" if inner else f" ({body})"
+
+    def system_vi(self, school: str) -> str:
+        return {"traditional": SYSTEM_VI["lilly"], "hellenistic": SYSTEM_VI["ws"], "ptolemy": SYSTEM_VI["ptolemy"]}.get(
+            school, f"theo {self.c['houses']['system'].replace('_', ' ').title()}" if self.time_known else "")
 
     def place_ws(self, name_or_lon) -> int | None:
         if not self.time_known:
@@ -84,27 +120,7 @@ class Facts:
 
     # ---------------------------------------------------------------- Lilly's dignities and points
     def lilly_essential(self, p: str, lon: float | None = None) -> dict:
-        lon = self.lon[p] if lon is None else lon
-        sign = SIGNS[sign_index(lon)]
-        dg = kb.dignities()
-        trip = dg["triplicity"]["ptolemaic"]["table"][ELEMENT[sign_index(lon)]]
-        sc = dg["scores"]["essential"]
-        has = []
-        if p in dg["domicile"]["table"][sign]:
-            has.append("domicile")
-        if dignity.exaltation_lord(sign) == p:
-            has.append("exaltation")
-        if self.is_day is not None and trip[0 if self.is_day else 1] == p:
-            has.append("triplicity")
-        if dignity.term_lord(lon, "lilly") == p:
-            has.append("term")
-        if dignity.face_lord(lon) == p:
-            has.append("face")
-        opp = SIGNS[(sign_index(lon) + 6) % 12]
-        deb = (["detriment"] if p in dg["domicile"]["table"][opp] else []) + (["fall"] if dignity.exaltation_lord(opp) == p else [])
-        peregrine = not has
-        score = sum(sc[h] for h in has) + sum(sc[d] for d in deb) + (sc["peregrine"] if peregrine else 0)
-        return {"has": has, "debilities": deb, "peregrine": peregrine, "score": score}
+        return dignity.lilly_essential(p, self.lon[p] if lon is None else lon, self.is_day)
 
     def partile(self, a: str, b: str) -> str | None:
         """Lilly's partile aspect between two points: same degree number, Ptolemaic sign distance."""

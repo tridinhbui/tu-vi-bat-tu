@@ -38,6 +38,8 @@ class TransitEvent:
     retro_at_exact: list[bool] = field(default_factory=list)
     min_orb: float = 0.0
     passes: int = 0
+    side: str | None = None     # sextile/square/trine: 'ahead' when the moving planet is the angle ahead of the natal point
+    cycle: str = ""             # spans of one retrograde loop over the same point share this id (one contact, several passes)
 
     def as_dict(self):
         return self.__dict__
@@ -151,13 +153,17 @@ def find(natal: dict, start: dt.datetime, end: dt.datetime, transiting=TRANSITIN
             L = pts[tname]["lon"]
             for asp in aspects:
                 ang = defs[asp]
-                for target in sorted({round((L + ang) % 360.0, 9) % 360.0, round((L - ang) % 360.0, 9) % 360.0}):
+                ahead = round((L + ang) % 360.0, 9) % 360.0
+                for target in sorted({ahead, round((L - ang) % 360.0, 9) % 360.0}):
                     g = (lon - target + 180.0) % 360.0 - 180.0
                     inside = np.abs(g) <= orb
                     cross = (np.sign(g[:-1]) != np.sign(g[1:])) & (np.abs(g[:-1]) < 30) & (np.abs(g[1:]) < 30)
                     if not inside.any() and not cross.any():
                         continue
-                    events += _events(tr, tname, asp, ang, target, orb, grid, g, inside, cross)
+                    side = None if ang in (0, 180) else ("ahead" if target == ahead else "behind")
+                    evs = _events(tr, tname, asp, ang, target, orb, grid, g, inside, cross)
+                    _cycles(tr, evs, target, side)
+                    events += evs
     out = [e.as_dict() for e in events]
     out.sort(key=lambda e: (e["exact"][0] if e["exact"] else (e["start"] or e["end"] or "")))
     return out
@@ -197,6 +203,37 @@ def _events(tr, tname, asp, ang, target, orb, grid, g, inside, cross) -> list[Tr
                                 0.0 if exacts else round(float(np.min(np.abs(g[i:j + 1]))), 4), len(exacts)))
         i = j + 1
     return out
+
+
+def _cycles(tr: "Track", evs: list[TransitEvent], target: float, side: str | None) -> None:
+    """Give one id to the spans of a single retrograde loop: two spans belong together when the planet turns (a station) between
+    them and never strays more than LOOP_DEG from the point meanwhile. Each new loop or a later return starts a new id."""
+    k, prev_end = 0, None
+    for i, e in enumerate(evs):
+        start = _iso_to_jd(e.start) if e.start else None
+        if not (i and prev_end is not None and start is not None and _same_loop(tr, target, prev_end, start)):
+            k += 1
+        e.cycle, e.side = f"{e.transiting}-{e.aspect}-{e.natal}-{side or 'x'}#{k}", side
+        prev_end = _iso_to_jd(e.end) if e.end else None
+
+
+LOOP_DEG = 20.0
+
+
+def _same_loop(tr: "Track", target: float, a: float, b: float) -> bool:
+    sel = (tr.grid >= a) & (tr.grid <= b)
+    if sel.sum() < 3:
+        return True
+    un = tr.un[sel]
+    d = np.diff(un)
+    turned = bool(np.any(np.sign(d[:-1]) != np.sign(d[1:])))
+    far = float(np.max(np.abs((tr.lon[sel] - target + 180.0) % 360.0 - 180.0)))
+    return turned and far <= LOOP_DEG
+
+
+def _iso_to_jd(iso: str) -> float:
+    d = dt.datetime.fromisoformat(iso)
+    return 2451545.0 + (d - dt.datetime(2000, 1, 1, 12, tzinfo=UTC)).total_seconds() / 86400.0
 
 
 def ingresses_and_stations(start: dt.datetime, end: dt.datetime, bodies=TRANSITING) -> list[dict]:

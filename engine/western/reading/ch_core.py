@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from .. import dignity, kb
 from ..zodiac import ELEMENT, MODALITY, SIGNS, sign_index
-from .compose import Para, cap, ev_aspect, ev_house, ev_planet, ev_point, listing, pick, planet_list, srcs
+from .compose import Para, ev_in, cap, ev_aspect, ev_house, ev_planet, ev_point, listing, pick, planet_list, srcs
 from .facts import CLASSICAL, FIVE, OPERATIONAL, Facts
 from .vocab import ASPECT_NOUN, ASPECT_VI, DIGNITY_VI, ELEMENT_VI, MODALITY_VI, P, S, SOLAR_VI, TEMPERAMENT_VI, at, num
 
@@ -39,10 +39,11 @@ def lilly_condition(f: Facts, p: str, with_house: bool = True) -> str:
     if with_house and f.house_lilly(p):
         h = f.house_lilly(p)
         kind = "nhà góc" if h in (1, 4, 7, 10) else "nhà kế góc" if h in (2, 5, 8, 11) else "nhà suy"
+        note = f.house_note("traditional", p, inner=True)
         if "regio" in told:
-            bits.append(f"ở Nhà {h} ({kind})")
+            bits.append(f"ở Nhà {h} ({kind}{note})")
         else:
-            bits.append(f"ở Nhà {h} theo cách chia nhà Regiomontanus của Lilly ({kind})")
+            bits.append(f"ở Nhà {h} theo cách chia nhà của Lilly ({kind}{note})")
             told.add("regio")
     sol = f.c["conditions"][p].get("solar", {}).get("phase")
     if sol:
@@ -72,12 +73,12 @@ def _sect_paragraph(f: Facts) -> Para | None:
     light = P(vl["light"])
     day = s["is_day"]
     first, second, co = vl["first"], vl["second"], vl["co"]
-    above = {p: (f.b[p].get("house") or 0) >= 7 for p in ("sun", "moon", "mars", "venus", "jupiter", "saturn")}   # houses 7-12 = above the horizon
+    above = {p: (f.lon[p] - f.lon["asc"]) % 360.0 > 180.0 for p in ("sun", "moon", "mars", "venus", "jupiter", "saturn")}   # between DSC and ASC through the MC
     glad = [p for p in above if (above[p] if ((p in VALENS_REJOICE_DAY_ABOVE) == day) else not above[p])]
     t1 = (f"Bạn sinh {'ban ngày' if day else 'ban đêm'}: lúc ấy Mặt Trời {'ở trên' if day else 'ở dưới'} đường chân trời "
           f"(cách chân trời {num(abs(s['sun_altitude']))}°). Trong chiêm tinh Hy Lạp, điều này định ra 'phe' (sect) của lá số: "
           f"{light} là sao sáng của phe, {P(s['benefic_of_sect'])} là cát tinh cùng phe, còn {P(s['malefic_contrary'])} là hung tinh khác phe, "
-          f"thứ mà Valens coi là khó chịu nhất.")
+          f"loại hung tinh mà Valens nói gây hại khi chiếu vuông hay đối (II.2).")
     if s["borderline"]:
         t1 += " Mặt Trời nằm sát đường chân trời (dưới 1°), nên nếu giờ sinh lệch vài phút thì phe của lá số có thể đổi; hãy coi phần này là tạm."
     g1, g2 = vl["grades"][first], vl["grades"][second]
@@ -91,8 +92,8 @@ def _sect_paragraph(f: Facts) -> Para | None:
               ("base", "moderate"): "những năm đầu nhiều lên xuống, chặng sau khá dần nhưng không bùng nổ",
               ("base", "base"): "cả hai chủ tam hợp đều ở nơi yếu, nên Valens dặn phải xét tiếp Lot of Fortune và chủ của nó"}[(g1, g2)]
     t2 = (f"{light} đang ở {S(f.b[vl['light']]['sign'])}, thuộc tam hợp {ELEMENT_VI[vl['element']]}; "
-          f"chủ thứ nhất của tam hợp này với lá số {'ngày' if day else 'đêm'} là {P(first)}, đứng ở Nhà {vl['places'][first]} (tính trọn cung), {GRADE_VI[g1]}; "
-          f"chủ thứ hai là {P(second)}, ở Nhà {vl['places'][second]}, {GRADE_VI[g2]}. Theo Valens (II.2), chủ thứ nhất nói về chặng đầu đời và chủ thứ hai về chặng sau: "
+          f"chủ thứ nhất của nhóm này với lá số {'ngày' if day else 'đêm'} là {P(first)}, đứng ở Nhà {vl['places'][first]} (tính trọn cung{f.house_note('hellenistic', first, inner=True)}), {GRADE_VI[g1]}; "
+          f"chủ thứ hai là {P(second)}, ở Nhà {vl['places'][second]}{f.house_note('hellenistic', second)}, {GRADE_VI[g2]}. Theo Valens (II.2), chủ thứ nhất nói về chặng đầu đời và chủ thứ hai về chặng sau: "
           f"{course}. ⟦Valens không chốt tuổi chuyển giao; ông chỉ nói nó đến theo vòng của các chủ thời gian.⟧")
     t3 = ""
     if glad:
@@ -100,7 +101,7 @@ def _sect_paragraph(f: Facts) -> Para | None:
               f"nên chúng 'vui' và làm việc của mình trọn vẹn hơn.")
     return Para("tq.sect", "Lá số ngày hay đêm, và hai chặng đời theo Valens", t1 + " " + t2 + t3, "hellenistic",
                 srcs("PTOL_TETRA:I.7 p.43", "VALENS_ANTH:II.1", "VALENS_ANTH:II.2", "VALENS_ANTH:III.5"),
-                [ev_planet(c, vl["light"]), ev_planet(c, first, vl["places"][first]), ev_planet(c, second, vl["places"][second])],
+                [ev_planet(c, vl["light"]), ev_in(f, first, "hellenistic"), ev_in(f, second, "hellenistic")],
                 "overview", steps=[f"Độ cao Mặt Trời lúc sinh: {s['sun_altitude']:.2f}° → lá số {'ngày' if day else 'đêm'}.",
                                    f"Tam hợp của {light}: {ELEMENT_VI[vl['element']]}; chủ ngày/đêm/đồng chủ theo Valens II.1: {P(vl['first'] if day else vl['second'])} / {P(vl['second'] if day else vl['first'])} / {P(co)}.",
                                    f"Xếp hạng nơi chốn theo Valens II.2: Nhà 1, 4, 7, 10, 11, 5 thuận; Nhà 2, 8 trung bình; Nhà 3, 6, 9, 12 yếu (tính trọn cung)."],
@@ -132,7 +133,7 @@ def _geniture_paragraph(f: Facts) -> Para | None:
              f"Chi tiết điểm ngẫu nhiên của {P(p)}: " + ", ".join(f"{k} {v:+d}" for k, v in acc) + ".",
              OPERATIONAL["fixed_stars"]]
     return Para("tq.geniture", "Hành tinh chủ lá số theo Lilly", t, "traditional", srcs("LILLY_CA:p.531", "LILLY_CA:p.104", "LILLY_CA:p.115"),
-                [ev_planet(c, x, f.house_lilly(x)) for x in lords], "overview", steps=steps, topic="tong_quan", keys=[f"geniture:{p}"])
+                [ev_in(f, x, "traditional") for x in lords], "overview", steps=steps, topic="tong_quan", keys=[f"geniture:{p}"])
 
 
 def _leo_centres(f: Facts) -> Para:
@@ -263,7 +264,7 @@ def _lilly_manners(f: Facts) -> list[Para]:
                     f"{listing(mm['well'], 5)} ({mm['loc'].replace('p.', 'tr.')}).")
             pol = +1
         elif state == "ill":
-            core = (f"{P(portrait_planet)} " + (f"{cond}, như đã thấy ở trên" if repeat else f"đang {cond}, tức thất thế theo phẩm vị của Lilly") + ". Với một {P(portrait_planet)} yếu, ông ghi những nét cần để ý là "
+            core = (f"{P(portrait_planet)} " + (f"{cond}, như đã thấy ở trên" if repeat else f"đang {cond}, tức thất thế theo phẩm vị của Lilly") + f". Với một {P(portrait_planet)} yếu, ông ghi những nét cần để ý là "
                     f"{listing(mm['ill'], 4)} ({mm['loc'].replace('p.', 'tr.')}); bản chất gốc của sao vẫn còn, chỉ là khó phát huy trọn.")
             pol = -1
             if tot["accidental_score"] >= 8:
@@ -288,7 +289,7 @@ def _lilly_manners(f: Facts) -> list[Para]:
         text = opening + note_lum + " " + core + tail + mix
         out.append(Para(f"tc.lilly.{p}", "Tính cách theo phép của Lilly", text, "traditional",
                         srcs("LILLY_CA:pp.535-536", f"LILLY_CA:{mm['loc']}", "LILLY_CA:p.104"),
-                        [ev_planet(c, p, f.house_lilly(p))] + ([ev_planet(c, portrait_planet, f.house_lilly(portrait_planet))] if portrait_planet != p else []),
+                        [ev_in(f, p, "traditional")] + ([ev_in(f, portrait_planet, "traditional")] if portrait_planet != p else []),
                         "overview" if not out else "deep", steps=[OPERATIONAL["well_dignified"],
                         f"Điểm bản chất của {P(portrait_planet)}: {tot['essential']['score']:+d} ({', '.join(tot['essential']['has'] + tot['essential']['debilities']) or 'lạc chỗ'}); điểm ngẫu nhiên {tot['accidental_score']:+d}."],
                         polarity=pol, topic="tinh_cach", keys=[f"manners:{portrait_planet}:{state}"]))
@@ -389,7 +390,7 @@ def mind(f: Facts) -> list[Para]:
               "nên sức học dựa nhiều hơn vào riêng Sao Thủy và vào các sao chiếu nó.")
         pol = 0
     out.append(Para("td.lilly", "Trí tuệ theo Lilly", t, "traditional", srcs("LILLY_CA:p.543", "LILLY_CA:p.107"),
-                    [ev_planet(c, "mercury", f.house_lilly("mercury")), ev_planet(c, "moon", f.house_lilly("moon"))], "overview",
+                    [ev_in(f, "mercury", "traditional"), ev_in(f, "moon", "traditional")], "overview",
                     steps=[f"Góc chiếu Sao Thủy–Mặt Trăng trong nửa tổng orb của Lilly (tr.107): {ASPECT_VI.get(lm, 'không có') if lm else 'không có'}.", OPERATIONAL["well_dignified"]],
                     polarity=pol, topic="tu_duy", keys=[f"mind:{'good' if good else 'hard' if hard else 'none'}"]))
     mk = MODALITY[sign_index(f.lon["mercury"])]
@@ -402,18 +403,23 @@ def mind(f: Facts) -> list[Para]:
     out.append(Para("td.ptolemy", "Kiểu tâm trí theo Ptolemy", t2, "hellenistic", srcs("PTOL_TETRA:III.13 p.335"),
                     [ev_planet(c, "mercury"), ev_planet(c, "moon")], "deep", topic="tu_duy", keys=[f"mind_signs:{mk}:{lk}"]))
     if f.time_known:
-        h3 = [p for p in CLASSICAL if f.place_ws(p) == 3]
-        h9 = [p for p in CLASSICAL if f.place_ws(p) == 9]
-        if h3 or h9:
+        l3 = [p for p in CLASSICAL if f.house_lilly(p) == 3]
+        l9 = [p for p in CLASSICAL if f.house_lilly(p) == 9]
+        v9 = [p for p in CLASSICAL if f.place_ws(p) == 9]
+        v3 = [p for p in CLASSICAL if f.place_ws(p) == 3]
+        if l3 or l9 or v9 or v3:
             bits = []
-            if h9:
-                bits.append(f"{planet_list(h9)} ở Nhà 9, nơi Lilly gắn với {M['houses']['9']['lilly']['vi']} và Valens gắn với {M['houses']['9']['valens']['vi']}")
-            if h3:
-                bits.append(f"{planet_list(h3)} ở Nhà 3, nơi Lilly gắn với {M['houses']['3']['lilly']['vi']}")
-            t3 = ("Về chuyện học hành và những gì mở mang đầu óc, " + listing(bits) +
-                  f". Sao ở {'Nhà 3 và Nhà 9' if h3 and h9 else 'Nhà 9' if h9 else 'Nhà 3'} không quyết định trí thông minh, nhưng cho biết đầu óc thường được dùng vào đâu.")
+            if l9:
+                bits.append(f"theo cách chia nhà của Lilly, {planet_list(l9)} ở Nhà 9, nơi ông gắn với {M['houses']['9']['lilly']['vi']}")
+            if l3:
+                bits.append(f"{'cũng theo Lilly, ' if l9 else 'theo cách chia nhà của Lilly, '}{planet_list(l3)} ở Nhà 3, nơi ông gắn với {M['houses']['3']['lilly']['vi']}")
+            for n, ps in ((9, v9), (3, v3)):
+                if ps:
+                    bits.append(f"tính trọn cung như Valens, {planet_list(ps)} ở chỗ thứ {n}, nơi ông gắn với {M['houses'][str(n)]['valens']['vi']}")
+            t3 = ("Về chuyện học hành và những gì mở mang đầu óc: " + "; ".join(bits) +
+                  ". Sao ở Nhà 3 và Nhà 9 không quyết định trí thông minh, nhưng cho biết đầu óc thường được dùng vào đâu.")
             out.append(Para("td.houses", "Học vấn và đi xa", t3, "compare", srcs("LILLY_CA:p.52", "LILLY_CA:p.55", "VALENS_ANTH:IV.12"),
-                            [ev_planet(c, p, f.place_ws(p), "Nhà") for p in h3 + h9], "deep", topic="tu_duy"))
+                            [ev_in(f, p, "traditional") for p in l3 + l9] + [ev_in(f, p, "hellenistic") for p in v9 + v3 if p not in l3 + l9], "deep", topic="tu_duy"))
     return out
 
 
@@ -435,8 +441,10 @@ def emotions(f: Facts) -> list[Para]:
         kind = "hài hòa" if app["aspect"] in ("trine", "sextile") else "căng" if app["aspect"] in ("square", "opposition") else "hợp"
         t += (f"Sao mà Mặt Trăng hướng tới tô màu lên cách cảm xúc vận hành: {P(pa)} là {nature(pa)}, mối liên hệ {kind}, "
               + ("nên phản ứng cảm xúc có xu hướng tìm đến sự dễ chịu và hòa giải." if pa in ("jupiter", "venus") and kind != "căng"
+                 else "nên điều dễ chịu vẫn tìm tới, nhưng thường qua một chút giằng co." if pa in ("jupiter", "venus")
                  else "nên cảm xúc dễ gặp sức cản, cần thời gian để lắng." if pa in ("mars", "saturn")
-                 else "nên cảm xúc gắn với lý trí hay với cái tôi nhiều hơn với người khác."))
+                 else "nên cảm xúc gắn với lý trí hay với cái tôi nhiều hơn với người khác." if pa in ("mercury", "sun")
+                 else "."))
     out.append(Para("cx.ptolemy", "Mặt Trăng và phần cảm theo Ptolemy", t, "hellenistic", srcs("PTOL_TETRA:III.13 p.333"),
                     [ev_planet(c, "moon")] + ([ev_planet(c, app["planet"])] if app else []), "overview", topic="cam_xuc",
                     steps=["Tìm lần chính xác gần nhất của các góc Ptolemy (0°, 60°, 90°, 120°, 180°) giữa Mặt Trăng và các hành tinh cổ điển, trong khoảng 2,4 ngày trước và sau giờ sinh."],

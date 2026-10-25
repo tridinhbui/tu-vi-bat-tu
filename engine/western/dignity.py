@@ -72,9 +72,35 @@ def essential(planet: str, lon: float, is_day: bool | None, triplicity: str = "d
     if exaltation_lord(_opposite(sign)) == planet:
         debilities.append("fall")
     peregrine = not (set(has) & {"domicile", "exaltation", "triplicity", "term", "face"})
-    scores = kb.dignities()["scores"]["essential"]
-    score = sum(scores[h] for h in has) + sum(scores[d] for d in debilities) + (scores["peregrine"] if peregrine else 0)
-    return {"lords": lords, "has": has, "debilities": debilities, "peregrine": peregrine, "score": score, "classical": True}
+    # no score here: Lilly's points belong to Lilly's own tables (lilly_essential), not to whichever tables the options chose
+    return {"lords": lords, "has": has, "debilities": debilities, "peregrine": peregrine, "classical": True,
+            "tables": {"triplicity": triplicity, "terms": terms}}
+
+
+def lilly_essential(planet: str, lon: float, is_day: bool | None) -> dict:
+    """Lilly's own reckoning (Christian Astrology p.104 table, points pp.101-103, 115): his triplicities (Mars rules water by day
+    and night, only the ruler of the chart's sect counts), his terms, faces. Independent of the chart options, so a Lilly score
+    is never added up on another school's tables."""
+    sign = SIGNS[sign_index(lon)]
+    dg = kb.dignities()
+    trip = dg["triplicity"]["ptolemaic"]["table"][ELEMENT[sign_index(lon)]]
+    sc = dg["scores"]["essential"]
+    has = []
+    if planet in dg["domicile"]["table"][sign]:
+        has.append("domicile")
+    if exaltation_lord(sign) == planet:
+        has.append("exaltation")
+    if is_day is not None and trip[0 if is_day else 1] == planet:
+        has.append("triplicity")
+    if term_lord(lon, "lilly") == planet:
+        has.append("term")
+    if face_lord(lon) == planet:
+        has.append("face")
+    opp = _opposite(sign)
+    deb = (["detriment"] if planet in dg["domicile"]["table"][opp] else []) + (["fall"] if exaltation_lord(opp) == planet else [])
+    peregrine = not has
+    score = sum(sc[h] for h in has) + sum(sc[d] for d in deb) + (sc["peregrine"] if peregrine else 0)
+    return {"has": has, "debilities": deb, "peregrine": peregrine, "score": score, "tables": "lilly"}
 
 
 def almuten(lon: float, is_day: bool, triplicity: str = "ptolemaic", terms: str = "ptolemaic") -> list[str]:

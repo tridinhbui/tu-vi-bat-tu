@@ -56,8 +56,21 @@ def ev_planet(chart: dict, p: str, house: int | None = None, house_label: str = 
     return {"kind": "planet", "id": p, "label": lab}
 
 
-def ev_house(n: int, label: str) -> dict:
-    return {"kind": "house", "id": str(n), "label": label}
+EV_SYSTEM = {"traditional": ("lilly", "Lilly"), "hellenistic": ("whole_sign", "trọn cung"), "ptolemy": ("ptolemy", "Ptolemy")}
+
+
+def ev_in(f, p: str, school: str) -> dict:
+    """A planet as evidence of a `school` paragraph, with the house that school reads it in and the house system named, so the
+    chip and the wheel never show a number from another system."""
+    n = f.house(school, p) if f.time_known else None
+    key, short = EV_SYSTEM.get(school, (f.c["houses"]["system"] if f.time_known else None, None))
+    short = short or (key or "").replace("_", " ").title()
+    lab = at(f.c, p) + (f", {'chỗ' if school == 'ptolemy' else 'Nhà'} {n} ({short})" if n else "")
+    return {"kind": "planet", "id": p, "label": lab, **({"house": n, "system": key} if n else {})}
+
+
+def ev_house(n: int, label: str, system: str | None = None) -> dict:
+    return {"kind": "house", "id": str(n), "label": label, **({"system": system} if system else {})}
 
 
 def ev_point(chart: dict, k: str) -> dict:

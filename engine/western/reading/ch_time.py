@@ -6,7 +6,7 @@ import datetime as dt
 from .. import dignity, progressions as PR, returns as R, transits as T
 from ..zodiac import SIGNS, sign_index
 from .ch_core import M, lilly_condition
-from .compose import Para, ev_planet, ev_point, listing, planet_list, srcs
+from .compose import Para, ev_in, ev_planet, ev_point, listing, planet_list, srcs
 from .facts import CLASSICAL, Facts
 from .vocab import ASPECT_NOUN, ASPECT_VI, ASPECT_WITH, P, S, num
 
@@ -38,7 +38,7 @@ def cycles(f: Facts, when: dt.datetime) -> list[Para]:
         if pr["natal_planets_in_sign"]:
             t += f" Trong lá số gốc, {planet_list(pr['natal_planets_in_sign'])} đứng ở {S(pr['sign'])}, nên năm nay những sao này cũng được 'đánh thức'."
         out.append(Para("tv.profection", f"Năm {age} tuổi: Annual Profection", t, "compare", srcs("VALENS_ANTH:IV.11", "LILLY_CA:pp.715-716", "LILLY_CA:pp.726-727"),
-                        [ev_planet(c, lord, f.place_ws(lord))], "overview", topic="thoi_van", keys=[f"profection:{pr['sign']}:{lord}"],
+                        [ev_in(f, lord, "hellenistic")], "overview", topic="thoi_van", keys=[f"profection:{pr['sign']}:{lord}"],
                         steps=[f"Tuổi {age} → {age} cung tính từ cung Mọc {S(c['angles']['asc']['sign'])} → {S(pr['sign'])} (Nhà {h} trọn cung).",
                                "Chu kỳ lặp lại sau mỗi 12 năm; Valens nói những lần chuyển giao giống nhau trở lại nhưng với sức mạnh khác (IV.11)."]))
         topics = {"sun": "địa vị", "moon": "người mẹ", "mc": "nghề nghiệp", "fortune": "thành công"}
@@ -72,16 +72,17 @@ def cycles(f: Facts, when: dt.datetime) -> list[Para]:
                   f"Trong năm chuyển giao này, xét các hành tinh chậm tới chủ năm {P(lord)}, hai sao sáng và hai góc chính: " + "; ".join(lines) +
                   ". ⟦Với Leo, transit chỉ châm ngòi cho điều đã có trong lá số gốc và trong các progression đang hoạt động, không tự nó tạo ra biến cố.⟧")
             out.append(Para("tv.transits", "Transit đáng chú ý trong năm", t2, "compare", srcs("VALENS_ANTH:IV.11", "LEO:The Progressed Horoscope"),
-                            [{"kind": "aspect", "id": f"{k[0]}-{k[2]}-{k[1]}", "label": f"{P(k[0])} {ASPECT_WITH[k[2]]} {P(k[1])}"} for k, _ in items[:3]], "overview", topic="thoi_van",
+                            [{"kind": "transit", "id": f"{k[0]}-{k[2]}-{k[1]}", "transiting": k[0], "natal": k[1], "aspect": k[2],
+                              "label": f"{P(k[0])} đang đi {ASPECT_WITH[k[2]]} {P(k[1])} gốc"} for k, _ in items[:3]], "overview", topic="thoi_van",
                             steps=[f"Orb transit {num(T.orb_table()['jupiter'])}° cho hành tinh chậm (quy ước Thiên Bàn); khoảng xét: năm chuyển giao {_d(pr['start_utc'])} – {_d(pr['end_utc'])}."]))
         sr = R.solar_return(c, start.year)            # the profection year begins at this return
         rel = sr["relation"]
         hits = rel.get("sr_angles_on_natal_planets", [])
         t3 = (f"Lilly lập lá số 'hồi quy' (revolution) cho đúng lúc Mặt Trời trở về độ và phút lúc sinh (tr.734): năm nay là {_d(sr['exact_utc'])} "
               f"lúc {dt.datetime.fromisoformat(sr['exact_utc']).astimezone(UTC):%H:%M} UTC, tính cho nơi sinh. Cung Mọc của lá hồi quy là {S(sr['chart']['angles']['asc']['sign'])}, "
-              f"rơi vào Nhà {rel.get('sr_asc_in_natal_house')} của lá số gốc. ")
+              f"rơi vào Nhà {rel.get('sr_asc_in_natal_house')} của lá số gốc ({f.system_vi('modern')}). ")
         lp = sr["chart"]["bodies"][lord]
-        t3 += f"Chủ năm {P(lord)} đứng ở {S(lp['sign'])}, Nhà {lp['house']} của lá hồi quy. "
+        t3 += f"Chủ năm {P(lord)} đứng ở {S(lp['sign'])}, Nhà {lp['house']} của lá hồi quy ({f.system_vi('modern')}). "
         if hits:
             t3 += "Các góc của lá hồi quy trùng với hành tinh gốc: " + listing([f"{ {'asc': 'cung Mọc', 'mc': 'Thiên Đỉnh', 'dsc': 'điểm Lặn', 'ic': 'Thiên Để'}[h['sr_angle']]} trên {P(h['natal'])} (cách {num(h['orb'])}°)" for h in hits[:3]]) + ". "
         t3 += "Lilly đọc lá hồi quy cùng với lá gốc và lá chuyển giao của năm (tr.726); Valens thì dựng lại lá năm theo cách khác (lấy cung Mọc khi Mặt Trăng trở về độ lúc sinh, V.5) mà Thiên Bàn chưa tính."
@@ -94,7 +95,7 @@ def cycles(f: Facts, when: dt.datetime) -> list[Para]:
     moon_ev = [e for e in tl["events"] if e["progressed"] == "moon"]
     ps, pm = pc["bodies"]["sun"], pc["bodies"]["moon"]
     t4 = (f"⟦Theo Alan Leo, mỗi ngày sau khi sinh ứng với một năm cuộc đời (The Progressed Horoscope, tr.27).⟧ Ở tuổi {num(pc['age_years'])}, Mặt Trời tiến triển ở {ps['fmt']} {S(ps['sign'])}"
-          + (f", Mặt Trăng tiến triển ở {pm['fmt']} {S(pm['sign'])}" + (f" (Nhà {pm['natal_house']} của lá gốc)" if pm.get("natal_house") else "") if f.time_known else "") + ". ")
+          + (f", Mặt Trăng tiến triển ở {pm['fmt']} {S(pm['sign'])}" + (f" (Nhà {pm['natal_house']} của lá gốc, {f.system_vi('modern')})" if pm.get("natal_house") else "") if f.time_known else "") + ". ")
     if sun_ing:
         e = sun_ing[0]
         t4 += (f"Mặt Trời tiến triển {'đã sang' if e['age'] < pc['age_years'] else 'sẽ sang'} {S(e['sign'])} vào {_d(e['date'])}; với Leo, khi Mặt Trời tiến triển đổi cung, "

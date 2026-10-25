@@ -107,6 +107,16 @@ def cusps(system: str, armc: float, eps: float, lat: float) -> list[float]:
     raise ValueError(f"unknown house system {system!r}")
 
 
+def house_of_lilly(lon: float, cusp_list: list[float], margin: float = 5.0) -> int:
+    """Lilly's rule (Christian Astrology p.33): a planet within five degrees of a cusp has its virtue assigned to the house of
+    the cusp it is nearest to, so a planet up to 5 degrees before a cusp counts in the house that cusp opens."""
+    h = house_of(lon, cusp_list)
+    nxt = h % 12
+    before = (cusp_list[nxt] - lon) % 360.0
+    after = (lon - cusp_list[h - 1]) % 360.0
+    return nxt + 1 if before <= margin and before < after else h
+
+
 def house_of(lon: float, cusp_list: list[float]) -> int:
     """House number 1-12 holding ecliptic longitude `lon` (a cusp belongs to the house it opens)."""
     for i in range(12):

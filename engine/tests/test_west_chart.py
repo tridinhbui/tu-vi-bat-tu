@@ -107,3 +107,19 @@ def test_lilly_scores_star_conjunctions_within_five_degrees():
         for star, key in (("regulus", "conj_cor_leonis"), ("spica", "conj_spica"), ("algol", "conj_caput_algol")):
             d = abs((c["bodies"][p]["lon"] - c["fixed_stars"][star]["lon"] + 180) % 360 - 180)
             assert (key in lines) == (d <= 5.0), (p, star, d)
+
+
+def test_lilly_five_degree_rule_on_cusps():
+    from western.houses import house_of, house_of_lilly
+    cusps = [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330]
+    assert (house_of(25.1, cusps), house_of_lilly(25.1, cusps)) == (1, 2)      # 4.9 degrees before the 2nd cusp
+    assert house_of_lilly(24.9, cusps) == 1                                     # 5.1 degrees before: stays
+    assert house_of_lilly(356.0, cusps) == 1 and house_of_lilly(1.0, cusps) == 1   # across 0 Aries, onto the Ascendant
+    small = [0, 3, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330]              # a 3-degree house (high latitude)
+    assert house_of_lilly(1.0, small) == 1 and house_of_lilly(2.5, small) == 2  # the nearest cusp wins
+
+
+def test_lilly_points_are_independent_of_the_chart_tables():
+    a = C.compute(C.BirthData(1990, 5, 17, 10, 30, **HCM), C.ChartOptions(triplicity="dorothean", terms="egyptian"))
+    b = C.compute(C.BirthData(1990, 5, 17, 10, 30, **HCM), C.ChartOptions(triplicity="ptolemaic", terms="ptolemaic"))
+    assert all(a["conditions"][p]["lilly"] == b["conditions"][p]["lilly"] for p in ("sun", "moon", "mercury", "venus", "mars", "jupiter", "saturn"))

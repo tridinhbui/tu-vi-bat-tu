@@ -5,7 +5,7 @@
 //   3. Secondary progressions: progressed positions (the progressed Moon first) and the events around the reference date.
 import { $, $$, esc } from '../util.js';
 import { westPost } from './api.js';
-import { bodyName, bodyGlyph, bodyLabel, aspName, aspGlyph, signLabel, signName, posFull, num, dm, fmtDate, zonedMs, zonedParts, isoDay, ASPECT, PLANETS10, SIGN, DIGNITY, SOLAR } from './vocab.js';
+import { bodyName, bodyGlyph, bodyLabel, aspName, aspGlyph, signLabel, signName, posFull, num, dm, fmtDate, zonedMs, zonedParts, isoDay, ASPECT, PLANETS10, SIGN, SIGNS, DIGNITY, SOLAR, HOUSE_SYS } from './vocab.js';
 
 const TRANSITING = ['moon', 'sun', 'mercury', 'venus', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto', 'chiron'];
 const DEFAULT_FILTER = { day: TRANSITING, month: TRANSITING.filter(x => x !== 'moon'), year: ['mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto', 'chiron'] };
@@ -105,10 +105,27 @@ export function initForecast(root, { getCtx }) {
     return out.map(([t, l, major = true]) => ({ x: (t - a) / (b - a) * 100, l, major }));
   }
 
+  /** The engine gives one event per in-orb span; the spans of one retrograde loop share a `cycle` id and make one row. When a
+   *  planet makes the same aspect to both sides of a natal point (a waxing and a waning square), the rows say which side. */
+  function mergeCycles(events) {
+    const by = new Map();
+    for (const e of events) {
+      const k = e.cycle || `${e.transiting}-${e.aspect}-${e.natal}-${e.start}-${e.end}`;
+      const m = by.get(k);
+      if (!m) { by.set(k, { ...e, spans: [{ start: e.start, end: e.end }], exact: [...e.exact], retro_at_exact: [...e.retro_at_exact] }); continue; }
+      m.spans.push({ start: e.start, end: e.end }); m.exact.push(...e.exact); m.retro_at_exact.push(...e.retro_at_exact);
+      m.passes += e.passes; m.min_orb = Math.min(m.min_orb, e.min_orb); m.end = e.end;
+    }
+    const out = [...by.values()], sides = new Map();
+    for (const e of out) { const k = `${e.transiting}-${e.aspect}-${e.natal}`; sides.set(k, (sides.get(k) || new Set()).add(e.side)); }
+    for (const e of out) e.twoSides = e.side && sides.get(`${e.transiting}-${e.aspect}-${e.natal}`).size > 1;
+    return out;
+  }
+
   function drawTimeline() {
     const body = $('#tl-body', root), d = T.data; if (!d) return;
     const [a, b] = T.win, tz = tzOf(), X = iso => Math.min(100, Math.max(0, (Date.parse(iso) - a) / (b - a) * 100));
-    const ev = d.events.filter(e => T.filter.has(e.transiting));
+    const ev = mergeCycles(d.events.filter(e => T.filter.has(e.transiting)));
     const sky = (d.sky || []).filter(s => T.filter.has(s.body));
     const now = Date.now(), nowX = now >= a && now < b ? (now - a) / (b - a) * 100 : null;
     const grid = ticks(a, b);
@@ -121,16 +138,17 @@ export function initForecast(root, { getCtx }) {
     }).join('')}</div></div>` : '';
     const groups = TRANSITING.filter(id => T.filter.has(id)).map(id => [id, ev.filter(e => e.transiting === id).sort((x, y) => (x.start || '').localeCompare(y.start || '') || (x.exact[0] || '').localeCompare(y.exact[0] || ''))]).filter(([, xs]) => xs.length);
     const rowHtml = e => {
-      const id = `${e.transiting}-${e.aspect}-${e.natal}-${e.exact[0] || e.start}`, open = T.open.has(id);
-      const l = e.start ? X(e.start) : 0, r = e.end ? X(e.end) : 100;
-      const name = `${bodyName(e.transiting)} ${aspName(e.aspect)} ${bodyName(e.natal)} gốc`;
+      const id = e.cycle || `${e.transiting}-${e.aspect}-${e.natal}-${e.exact[0] || e.start || e.end || 'all'}`, open = T.open.has(id);
+      const sideTxt = e.twoSides ? (e.side === 'ahead' ? ' (phía trước)' : ' (phía sau)') : '';
+      const name = `${bodyName(e.transiting)} ${aspName(e.aspect)} ${bodyName(e.natal)} gốc${sideTxt}`;
       const exact = e.exact.map((t, i) => `<i class="wt-tl-ex${e.retro_at_exact[i] ? ' rx' : ''}" style="left:${X(t).toFixed(3)}%" title="Chính xác ${esc(fmtDate(t, tz, { time: true }))}${e.retro_at_exact[i] ? ' (nghịch hành)' : ''}"></i>`).join('');
       return `<li class="wt-tl-row tone-${ASPECT[e.aspect]?.tone || 'soft'}"><button type="button" class="wt-tl-lab" aria-expanded="${open}" data-row="${esc(id)}" aria-label="${esc(name)}, ${esc(e.start ? 'từ ' + fmtDate(e.start, tz) : 'đã trong orb từ trước')} ${esc(e.end ? 'đến ' + fmtDate(e.end, tz) : 'còn tiếp sau khung')}${e.passes > 1 ? `, ${e.passes} lần chính xác` : ''}">`
-        + `<span class="wt-g" aria-hidden="true">${bodyGlyph(e.transiting)} ${aspGlyph(e.aspect)} ${bodyGlyph(e.natal)}</span><span class="wt-tl-nm">${esc(aspName(e.aspect))} ${esc(bodyName(e.natal))}</span>${e.passes > 1 ? `<small>${e.passes} lần</small>` : ''}</button>`
-        + `<div class="wt-tl-track"><span class="wt-tl-bar${e.start ? '' : ' cl'}${e.end ? '' : ' cr'}" style="left:${l.toFixed(3)}%;width:${Math.max(.6, r - l).toFixed(3)}%"></span>${exact}</div>`
-        + (open ? `<dl class="wt-tl-more wt-dl"><div class="wt-kv"><dt>Vào orb</dt><dd>${e.start ? esc(fmtDate(e.start, tz, { time: true })) : 'trước khung xem'}</dd></div>`
+        + `<span class="wt-g" aria-hidden="true">${bodyGlyph(e.transiting)} ${aspGlyph(e.aspect)} ${bodyGlyph(e.natal)}</span><span class="wt-tl-nm">${esc(aspName(e.aspect))} ${esc(bodyName(e.natal))}${esc(sideTxt)}</span>${e.passes > 1 ? `<small>${e.passes} lần</small>` : ''}</button>`
+        + `<div class="wt-tl-track">${e.spans.map(sp => { const l = sp.start ? X(sp.start) : 0, r = sp.end ? X(sp.end) : 100; return `<span class="wt-tl-bar${sp.start ? '' : ' cl'}${sp.end ? '' : ' cr'}" style="left:${l.toFixed(3)}%;width:${Math.max(.6, r - l).toFixed(3)}%"></span>`; }).join('')}${exact}</div>`
+        + (open ? `<dl class="wt-tl-more wt-dl">${e.spans.length > 1 ? `<div class="wt-kv"><dt>Một vòng nghịch hành</dt><dd>${e.spans.length} lần vào orb của cùng một điểm, tính là một mốc</dd></div>` : ''}`
+          + e.spans.map((sp, k) => `<div class="wt-kv"><dt>${e.spans.length > 1 ? `Lần ${k + 1}: vào → ra orb` : 'Vào → ra orb'}</dt><dd>${sp.start ? esc(fmtDate(sp.start, tz, { time: true })) : 'trước khung xem'} → ${sp.end ? esc(fmtDate(sp.end, tz, { time: true })) : 'sau khung xem'}</dd></div>`).join('')
           + `<div class="wt-kv"><dt>Chính xác</dt><dd>${e.exact.map((t, i) => esc(fmtDate(t, tz, { time: true })) + (e.retro_at_exact[i] ? ' <small>(nghịch hành)</small>' : '')).join('<br>') || 'không chính xác trong khung này'}</dd></div>`
-          + `<div class="wt-kv"><dt>Ra khỏi orb</dt><dd>${e.end ? esc(fmtDate(e.end, tz, { time: true })) : 'sau khung xem'}</dd></div><div class="wt-kv"><dt>Orb</dt><dd>${dm(e.orb)} · gần nhất ${dm(e.min_orb)}</dd></div></dl>` : '')
+          + `<div class="wt-kv"><dt>Orb</dt><dd>${dm(e.orb)} · gần nhất ${dm(e.min_orb)}</dd></div></dl>` : '')
         + '</li>';
     };
     body.innerHTML = `<div class="wt-tl">${`<div class="wt-tl-row wt-tl-head"><div class="wt-tl-lab"></div><div class="wt-tl-track">${axis}</div></div>`}${skyHtml}`
@@ -156,12 +174,12 @@ export function initForecast(root, { getCtx }) {
       const cur = d.current, ln = cur.lord_natal || {}, tz = tzOf();
       const byHouse = Array.from({ length: 12 }, (_, i) => d.cycle.filter(x => x.house === i + 1));
       host.innerHTML = `<div class="wt-pf-cur"><p class="eyebrow">Năm tuổi ${cur.age} · ${esc(fmtDate(cur.start_utc, tz))} – ${esc(fmtDate(cur.end_utc, tz))}</p>`
-        + `<p class="wt-pf-big">${signLabel(cur.sign)} · Nhà ${cur.house}</p>`
+        + `<p class="wt-pf-big">${signLabel(cur.sign)} · Nhà ${cur.house} <small>(đếm trọn cung từ cung Mọc)</small></p>`
         + `<dl class="wt-dl"><div class="wt-kv"><dt>Chủ năm</dt><dd><button type="button" class="link" data-pick="planet:${cur.lord}">${bodyLabel(cur.lord)}</button></dd></div>`
-        + `<div class="wt-kv"><dt>Chủ năm ở bản đồ gốc</dt><dd>${signLabel(ln.sign)}, Nhà ${ln.house ?? '—'}${ln.retrograde ? ', nghịch hành' : ''}${ln.essential?.length ? ` · có ${esc(ln.essential.map(k => DIGNITY[k] || k).join(', '))}` : ''}${ln.debilities?.length ? ` · ${esc(ln.debilities.map(k => DIGNITY[k] || k).join(', '))}` : ''}${ln.solar ? ` · ${esc(SOLAR[ln.solar] || ln.solar)}` : ''}</dd></div>`
+        + `<div class="wt-kv"><dt>Chủ năm ở bản đồ gốc</dt><dd>${signLabel(ln.sign)}, Nhà ${ln.house_ws ?? '—'} trọn cung${ln.house != null && ln.house !== ln.house_ws ? ` (Nhà ${ln.house} ${esc(HOUSE_SYS[c.natal.houses?.system] ? 'theo ' + HOUSE_SYS[c.natal.houses.system] : 'theo hệ nhà đang chọn')})` : ''}${ln.retrograde ? ', nghịch hành' : ''}${ln.essential?.length ? ` · có ${esc(ln.essential.map(k => DIGNITY[k] || k).join(', '))}` : ''}${ln.debilities?.length ? ` · ${esc(ln.debilities.map(k => DIGNITY[k] || k).join(', '))}` : ''}${ln.solar ? ` · ${esc(SOLAR[ln.solar] || ln.solar)}` : ''}</dd></div>`
         + (cur.method === 'degree' ? `<div class="wt-kv"><dt>Điểm profection</dt><dd>${esc(cur.fmt)} ${signLabel(cur.sign)}</dd></div>` : '')
         + `<div class="wt-kv"><dt>Hành tinh gốc trong cung này</dt><dd>${cur.natal_planets_in_sign?.length ? cur.natal_planets_in_sign.map(bodyLabel).join(', ') : 'Không có'}</dd></div></dl></div>`
-        + `<h4 class="wt-dsub">Chu kỳ 12 năm</h4><div class="tbl-wrap"><table class="tbl wt-tbl wt-pf-tbl"><thead><tr><th scope="col">Nhà</th><th scope="col">Cung</th><th scope="col">Chủ năm</th><th scope="col">Các tuổi</th></tr></thead><tbody>`
+        + `<h4 class="wt-dsub">Chu kỳ 12 năm</h4><div class="tbl-wrap"><table class="tbl wt-tbl wt-pf-tbl"><thead><tr><th scope="col">Nhà <small>(trọn cung)</small></th><th scope="col">Cung</th><th scope="col">Chủ năm</th><th scope="col">Các tuổi</th></tr></thead><tbody>`
         + byHouse.map((xs, i) => {
           const f = xs[0] || {}, here = xs.some(x => x.age === cur.age);
           return `<tr${here ? ' class="wt-cur" aria-current="true"' : ''}><th scope="row">Nhà ${i + 1}</th><td>${f.sign ? signLabel(f.sign) : ''}</td><td>${f.lord ? bodyLabel(f.lord) : ''}</td><td class="wt-ages">${xs.map(x => x.age === cur.age ? `<b>${x.age}</b>` : x.age).join(' · ')}</td></tr>`;
@@ -185,8 +203,11 @@ export function initForecast(root, { getCtx }) {
       const rows = Object.entries(p.bodies).map(([id, b]) => `<tr${id === 'moon' ? ' class="wt-cur"' : ''}><th scope="row">${bodyLabel(id)}</th><td>${posFull(b)}</td><td>${b.natal_house ?? '—'}</td><td>${b.retrograde ? '<b class="wt-rx">R</b>' : ''}</td></tr>`).join('')
         + (p.angles ? ['asc', 'mc'].filter(k => p.angles[k]).map(k => `<tr class="wt-pt"><th scope="row">${bodyLabel(k)}</th><td>${posFull(p.angles[k])}</td><td></td><td></td></tr>`).join('') : '');
       const evs = (d.timeline?.events || []);
-      const evTxt = e => e.type === 'aspect' ? `${bodyName(e.progressed)} tiến trình ${aspName(e.aspect)} ${bodyName(e.natal)} gốc`
-        : e.type === 'ingress' ? `${bodyName(e.progressed)} tiến trình vào ${signName(e.sign)}` : `${bodyName(e.progressed)} tiến trình vào Nhà ${e.house} gốc`;
+      const back = e => e.retrograde ? ' (đi lùi)' : '';
+      const evTxt = e => e.type === 'aspect' ? `${bodyName(e.progressed)} tiến trình ${aspName(e.aspect)} ${bodyName(e.natal)} gốc${back(e)}`
+        : e.type === 'ingress' ? `${bodyName(e.progressed)} tiến trình ${e.retrograde ? 'đang đi lùi, trở lại' : 'vào'} ${signName(e.sign)}`
+        : e.type === 'station' ? `${bodyName(e.progressed)} tiến trình đứng lại rồi ${e.turns === 'retrograde' ? 'bắt đầu đi lùi' : 'đi thuận trở lại'} ở ${signName(SIGNS[Math.floor(e.lon / 30)].id)}`
+        : `${bodyName(e.progressed)} tiến trình ${e.retrograde ? 'đang đi lùi, trở lại' : 'vào'} Nhà ${e.house} gốc`;
       const now = T.refMs;
       host.innerHTML = `<div class="wt-pg-moon"><p class="eyebrow">Mặt Trăng tiến trình · tuổi ${num(p.age_years, 2)}</p><p class="wt-pf-big">${posFull(m)}${m.natal_house ? ` · Nhà ${m.natal_house} gốc` : ''}</p>`
         + `<p class="hint">Ngày tiến trình tương ứng: ${esc(fmtDate(p.progressed_date_utc, c.inp.birth.tz, { time: true }))}${p.moon_phase != null ? ` · góc Mặt Trăng–Mặt Trời tiến trình ${num(p.moon_phase, 1)}°` : ''}. Mặt Trăng tiến trình đi khoảng một cung trong hai năm rưỡi, nên được theo dõi riêng.</p></div>`
