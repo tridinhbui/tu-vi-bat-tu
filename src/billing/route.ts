@@ -11,10 +11,11 @@
 //   GET  /api/vnpay/return         the visitor's browser comes back from VNPAY; redirected to the receipt page
 import type { User } from "../auth/session.ts";
 import { cleanReq } from "../auth/charts.ts";
-import { CHAPTER_TITLES, COSTS, DEEP_CHAPTERS, FREE_MESSAGES_PER_DAY, MEMBER_FREE, PACKS, PLACEHOLDER_LABEL, PLANS, PRICES_ARE_PLACEHOLDERS, RETIRED_PLAN_NAMES, TOPUP_CHAT, discounted, packById } from "./config.ts";
+import { CHAPTER_TITLES, COSTS, DEEP_CHAPTERS, FREE_MESSAGES_PER_DAY, MEMBER_FREE, PACKS, PLACEHOLDER_LABEL, PLANS, PRICES_ARE_PLACEHOLDERS, RETIRED_PLAN_NAMES, TOPUP_CHAT, discounted, isWestPlan, packById, planById } from "./config.ts";
 import { CODE_PROBLEM_VI, checkDiscount, redeemGift } from "./codes.ts";
 import { createOrder, getOrder, isOrderId, listOrders, receiptOf, setProviderRef, walletHistory } from "./orders.ts";
 import { buyPlan, unlockedChapters } from "./paywall.ts";
+import { westFp } from "./west.ts";
 import { createCheckoutSession, handleEvent, verifyWebhook, type Fetch } from "./stripe.ts";
 import { createPaymentUrl, handleIpn, verifyVnpay, vnpayConfig, IPN, type VnpayEnv } from "./vnpay.ts";
 import { getWallet } from "./wallet.ts";
@@ -98,12 +99,14 @@ export async function handleBilling(request: Request, env: BillingEnv, user: Use
   }
 
   if (path === "/api/me/unlock") {
-    const birth = cleanReq(body?.birth);
-    if (!birth) return json({ detail: "body must be {birth, plan}" }, 400);
-    const r = await buyPlan(db, user.id, birth.fp, body?.plan, body?.chapter, now);
+    // a Tử Vi birth (date, time, gender) or a Western one (date, time, place); each takes only its own packages
+    const tv = cleanReq(body?.birth)?.fp ?? null, fp = tv ?? westFp(body?.birth), plan = planById(body?.plan);
+    if (!fp) return json({ detail: "body must be {birth, plan}" }, 400);
+    if (plan && isWestPlan(plan) === !!tv) return json({ detail: "unknown plan" }, 400);
+    const r = await buyPlan(db, user.id, fp, body?.plan, body?.chapter, now);
     const wallet = await getWallet(db, user.id, now);
     if (!r.ok) return r.reason === "insufficient" ? json({ detail: "not enough coins", need: r.need, wallet }, 402) : json({ detail: "unknown plan" }, 400);
-    return json({ ...r, open: [...await unlockedChapters(db, user.id, birth.fp)], wallet });
+    return json({ ...r, open: [...await unlockedChapters(db, user.id, fp)], wallet });
   }
 
   let discount: { code: string; percent: number } | null = null;

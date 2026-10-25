@@ -1,0 +1,142 @@
+{
+ "duplicates": [
+  "TV_PB_KL_PHU_THE_KL_PHU_THE_THAM_VU",
+  "TV_PB_KL_PHU_THE_KL_PHU_THE_LUONG_TY_NGO",
+  "TV_PB_KL_PHU_THE_KL_PHU_THE_KK_XA_CACH",
+  "TV_PB_KL_PHU_THE_KL_PHU_THE_LOC_TON",
+  "TV_PB_KL_PHU_THE_KL_PHU_THE_THAI_TUE",
+  "TV_PB_KL_PHU_THE_KL_PHU_THE_HOA_QUYEN",
+  "TV_PB_KL_PHU_THE_KL_PHU_THE_HOA_KY_PHUC",
+  "TV_PB_KL_DIEN_TRACH_KL_DIEN_TRACH_THIEN_KHONG",
+  "TV_PB_KL_DIEN_TRACH_KL_DIEN_TRACH_SAO_TU",
+  "TV_PB_KL_DIEN_TRACH_KL_DIEN_TRACH_LOC_TON",
+  "TV_PB_KL_TAT_ACH_KL_TAT_ACH_QUANG_QUY",
+  "TV_PB_KL_NO_BOC_KL_NO_BOC_PHUC_BINH_RINH",
+  "TV_PB_TH_HUYNH_DE_TH_HUYNH_DE_HOA_KY",
+  "TV_PB_TH_PHU_THE_TH_PHU_THE_LIEM_VIEN_PHOI",
+  "TV_PB_TH_PHU_THE_TH_PHU_THE_TUONG_DUNG_DAN",
+  "TV_PB_TH_PHU_THE_TH_PHU_THE_PHA_IT_TOAN",
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_LONG_PHUONG",
+  "TV_PB_TH_TAT_ACH_TH_TAT_ACH_TUAN_TRIET",
+  "TV_PB_TH_DIEN_TRACH_TH_DIEN_TRACH_SAO_TU_TAN_TIEN",
+  "TV_PB_TT_PHU_THE_TT_PHU_THE_CU_BAT_MAN",
+  "TV_PB_TT_PHU_THE_TT_PHU_THE_CU_CHIA_CACH",
+  "TV_PB_TT_PHU_THE_TT_PHU_THE_PHUC_BINH_KY",
+  "TV_PB_TT_PHU_THE_TT_PHU_THE_THIEN_TUONG_DUNG_DAN",
+  "TV_PB_TT_NO_BOC_TT_NO_BOC_XUONG_MIEU_DON",
+  "TV_PB_TT_NO_BOC_TT_NO_BOC_CU_MON",
+  "TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_CO_CU_DAU",
+  "TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_LIEM_THAM",
+  "TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_PHA_BAN_HET",
+  "TV_PB_TT_TAT_ACH_TT_TAT_ACH_PHU_DE_CUU",
+  "TV_PB_TT_HUYNH_DE_TT_HUYNH_DE_TANG_MA",
+  "TV_PB_TT_HUYNH_DE_TT_HUYNH_DE_HOA_KY",
+  "TV_PB_TT_HUYNH_DE_TT_HUYNH_DE_THIEN_HINH",
+  "TV_PB_TT_HUYNH_DE_TT_HUYNH_DE_PHA_QUAN"
+ ],
+ "contradictions": [
+  {
+   "rule": "TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_HOA_KY",
+   "existing": "TV_HS_HOA_KY_DIEN_TRACH_DIEN_BAN_NHA",
+   "concepts": [
+    "prop.rich",
+    "prop.poor"
+   ],
+   "page": "TT p.49",
+   "reading": "Hóa Kỵ ở Điền Trạch lại đắc dụng, như thần giữ cửa (Hóa Kỵ ở Điền Trạch)"
+  },
+  {
+   "rule": "TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_CU_PHA_TO",
+   "existing": "TV_KL_SAO_CUNG_DIEN_TRACH_CU",
+   "concepts": [
+    "prop.inherit",
+    "prop.rich"
+   ],
+   "page": "TT p.34",
+   "reading": "dễ phá tổ nghiệp (Cự Môn ở Điền Trạch)"
+  }
+ ],
+ "same_conditions": [
+  {
+   "rule": "TV_PB_KL_DIEN_TRACH_KL_DIEN_TRACH_LUONG_TY_HOI",
+   "existing": [
+    "TV_HS_THIEN_LUONG_DIEN_TRACH_DIEN_TYHOI"
+   ]
+  },
+  {
+   "rule": "TV_PB_KL_DIEN_TRACH_KL_DIEN_TRACH_HOA_KY",
+   "existing": [
+    "TV_HS_HOA_KY_DIEN_TRACH_DIEN_BAN_NHA"
+   ]
+  },
+  {
+   "rule": "TV_PB_KL_NO_BOC_KL_NO_BOC_HOA_QUYEN_NE_BAN",
+   "existing": [
+    "TV_KL7_NO_BOC_HOA_QUYEN",
+    "TV_HS_HOA_QUYEN_NO_BOC_NO_BAN_QUYEN"
+   ]
+  },
+  {
+   "rule": "TV_PB_TH_PHU_THE_TH_PHU_THE_PHA_TIEU_PHA",
+   "existing": [
+    "TV_KL_SAO_CUNG_PHU_THE_PHA",
+    "TV_TT_PAL_PHU_THE_PHA_QUAN_BASE_M",
+    "TV_HS_PHA_QUAN_PHU_THE_PHU_THE_GENERAL"
+   ]
+  },
+  {
+   "rule": "TV_PB_TH_TU_TUC_TH_TU_TUC_DA_KY",
+   "existing": [
+    "TV_D3_TT93_TU_DA_KY"
+   ]
+  },
+  {
+   "rule": "TV_PB_TH_DIEN_TRACH_TH_DIEN_TRACH_LOC_TON_CUA_NGAM",
+   "existing": [
+    "TV_TT_DIEN_TRACH_LOC_TON",
+    "TV_TT_PAL_DIEN_TRACH_LOC_TON_BASE_P",
+    "TV_TT_PHU_DIEN_TRACH_LOC_TON"
+   ]
+  },
+  {
+   "rule": "TV_PB_TH_DIEN_TRACH_TH_DIEN_TRACH_HOA_KY_GIU_CUA",
+   "existing": [
+    "TV_HS_HOA_KY_DIEN_TRACH_DIEN_BAN_NHA"
+   ]
+  },
+  {
+   "rule": "TV_PB_TT_PHU_THE_TT_PHU_THE_THIEN_MA",
+   "existing": [
+    "TV_HS_THIEN_MA_PHU_THE_PHU_XA_QUE"
+   ]
+  },
+  {
+   "rule": "TV_PB_TT_PHU_MAU_TT_PHU_MAU_CU_KHONG_HOP",
+   "existing": [
+    "TV_KL7_PHU_MAU_CU",
+    "TV_HS_CU_MON_PHU_MAU_PHU_STRAIN"
+   ]
+  },
+  {
+   "rule": "TV_PB_TT_NO_BOC_TT_NO_BOC_SAT_LIEM",
+   "existing": [
+    "TV_KL7_NO_BOC_LIEM_SAT",
+    "TV_TT_PAL_NO_BOC_LIEM_TRINH_WITH_THAT_SAT_M"
+   ]
+  },
+  {
+   "rule": "TV_PB_TT_NO_BOC_TT_NO_BOC_PHA_VU",
+   "existing": [
+    "TV_KL_CUNG_NO_BOC_PHA_VU",
+    "TV_D3_W2_NO_VU_PHA"
+   ]
+  },
+  {
+   "rule": "TV_PB_TT_NO_BOC_TT_NO_BOC_TU_VI_SAI_CHO",
+   "existing": [
+    "TV_TT_PAL_NO_BOC_TU_VI_BASE_P",
+    "TV_D3_W2_NO_TU_VI"
+   ]
+  }
+ ]
+}

@@ -5,6 +5,9 @@ Writes into engine/web (served as static assets by the Worker):
   bai-viet/sao/<slug>/           one article per star: glossary intro + dignity table + every VERIFIED rule that names the star
   bai-viet/cung/<slug>/          one article per palace: every VERIFIED rule seated in that palace, grouped by star
   bai-viet/cach-cuc/<slug>/      one article per named cách cục of Tử Vi Thực Hành (pp.72-74) plus verified rules naming it
+  bai-viet/hoang-dao/[<slug>/]   cung hoàng đạo (Western sun sign): index + one page per sign, computed facts only (ingress times);
+                                 readings only from engine/data/hoang_dao/pack.json, which cites a book page for each (empty for now)
+  cung-hoang-dao/                cung hoàng đạo lookup (its data comes from /api/hoang-dao)
   gioi-thieu/  hoi-dap/  xem-ngay/   about, FAQ and the month calendar shell (its data comes from /api/calendar)
   tarot/  tarot/la-bai/<slug>/   the Tarot draw page (its data comes from /api/tarot/*) and one page per card of engine/data/tarot/deck.json:
                                  names, number, suit, picture source; a meaning only from pack_tarot_pkt.json, with its page (docs/TAROT.md)
@@ -23,6 +26,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from . import sitenav
+from . import hoang_dao
 from .knowledge.loader import DATA, PACKS
 
 WEB = Path(__file__).resolve().parent.parent / "web"
@@ -370,7 +374,7 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
 <footer class="site-footer"><div class="wrap foot cfoot">
 <div><b>{SITE}</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div>
 <p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Tử Vi và Bát Tự chưa được khoa học kiểm chứng là phương pháp dự báo.
-<a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/tarot/">Tarot</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/library">Quy tắc và nguồn</a></p>
+<a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/kinh-dich/">Kinh Dịch</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/tarot/">Tarot</a> · <a class="link" href="/cung-hoang-dao/">Cung hoàng đạo</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/library">Quy tắc và nguồn</a></p>
 </div></footer>
 {script_tags}
 </body>
@@ -535,13 +539,16 @@ def index_page(m: dict) -> tuple[str, str]:
     minor = "".join(card(f"/bai-viet/sao/{s['slug']}/", s["name"], f"{len(s['items'])} nhận định") for s in m["stars"] if s["name"] not in MAJOR + TU_HOA)
     pal = "".join(card(f"/bai-viet/cung/{p['slug']}/", "Cung " + p["name"], f"{len(p['items'])} nhận định") for p in m["palaces"])
     cc = "".join(card(f"/bai-viet/cach-cuc/{c['slug']}/", c["name"], f"{len(c['items'])} nhận định") for c in m["cach"])
+    hd = "".join(card(f"/bai-viet/hoang-dao/{x[0]}/", x[1], f"khoảng {x[4]}") for x in hoang_dao.SIGNS)
     body = (f'<p class="eyebrow">Bài viết</p><h1>Sao, cung và cách cục theo sách</h1>'
             f'<p class="lead">Mỗi bài gom những gì sách Tử Vi nói về một sao, một cung hoặc một cách cục, từ các quy tắc Thiên Bàn đã đối chiếu từng trang. '
             f'Không có câu nào do mô hình ngôn ngữ viết; mỗi câu ghi tên sách và trang.</p>{READ_NOTE}'
             f'<section id="sao"><h2>Chính tinh</h2><ul class="cards">{major}</ul><h2>Tứ Hóa</h2><ul class="cards">{hoa}</ul>'
             f'<h2>Phụ tinh</h2><ul class="cards cards-sm">{minor}</ul></section>'
             f'<section id="cung"><h2>Mười hai cung</h2><ul class="cards">{pal}</ul></section>'
-            f'<section id="cach-cuc"><h2>Cách cục</h2><p class="note">Các cách có tên trong Tử Vi Thực Hành (tr. 72-74), cùng những câu ở sách khác nêu đúng tên cách đó.</p><ul class="cards cards-sm">{cc}</ul></section>')
+            f'<section id="cach-cuc"><h2>Cách cục</h2><p class="note">Các cách có tên trong Tử Vi Thực Hành (tr. 72-74), cùng những câu ở sách khác nêu đúng tên cách đó.</p><ul class="cards cards-sm">{cc}</ul></section>'
+            f'<section id="hoang-dao"><h2>Cung hoàng đạo</h2><p class="note">Mười hai cung hoàng đạo của chiêm tinh phương Tây, tính theo vị trí Mặt Trời lúc sinh; '
+            f'khác với mười hai cung của lá số Tử Vi.</p><ul class="cards cards-sm">{hd}</ul></section>')
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": title, "description": desc, "url": ORIGIN + path, "inLanguage": "vi"}
     return path, shell(path, title, desc, body, crumbs=[(path, "Bài viết")], ld=[ld])
 
@@ -688,6 +695,75 @@ def calendar_page() -> tuple[str, str]:
     ld = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Xem ngày " + SITE, "applicationCategory": "LifestyleApplication",
           "operatingSystem": "Web", "url": ORIGIN + path, "inLanguage": "vi", "description": desc, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}
     return path, shell(path, title, desc, body, crumbs=[(path, "Xem ngày")], ld=[ld], scripts=["/js/xem_ngay.js"])
+
+
+def kinh_dich_page() -> tuple[str, str]:
+    """Gieo quẻ Kinh Dịch and Mai Hoa Dịch Số: a static shell, js/kinh_dich.js draws everything from /api/kinh-dich/* and /api/mai-hoa/*."""
+    path = "/kinh-dich/"
+    title = "Kinh Dịch: gieo quẻ và lập quẻ Mai Hoa"
+    desc = ("Gieo ba đồng tiền sáu lần hoặc lập quẻ Mai Hoa theo giờ, theo số; xem quẻ chủ, quẻ biến, quẻ hỗ, lời kinh, lời bàn của Trình Di, "
+            "Chu Hy và phần diễn giải, mỗi câu dẫn về chỗ nó dựa vào.")
+    topics = [("", "Chung"), ("su_nghiep", "Sự nghiệp"), ("tai_chinh", "Tài chính"), ("kinh_doanh", "Kinh doanh"), ("hoc_tap", "Học tập"),
+              ("tinh_cam", "Tình cảm"), ("gia_dinh", "Gia đình"), ("lua_chon", "Lựa chọn")]
+    chips = "".join(f'<label><input type="radio" name="kd-topic" value="{v}"{" checked" if not v else ""}><span>{esc(t)}</span></label>' for v, t in topics)
+    body = f"""<article class="carticle kd-page" id="kd">
+<p class="eyebrow">Kinh Dịch</p><h1>Gieo quẻ, lập quẻ</h1>
+<p class="lead">Hỏi một việc cụ thể, gieo ba đồng tiền sáu lần, hoặc lập quẻ Mai Hoa theo giờ và theo số. Lời đọc đi từ kinh văn và lời bàn của
+Trình Di, Chu Hy, qua bản dịch Ngô Tất Tố, đến phần diễn giải cho hoàn cảnh hôm nay, tách bạch từng lớp.</p>
+<div class="seg seg-wide kd-mode" role="tablist" aria-label="Cách lập quẻ">
+<button type="button" role="tab" data-mode="gieo" aria-pressed="true">Gieo quẻ Kinh Dịch</button>
+<button type="button" role="tab" data-mode="mai-hoa" aria-pressed="false">Lập quẻ Mai Hoa</button>
+</div>
+
+<section class="kd-ask" id="kd-ask">
+<label class="fld"><span>Điều bạn muốn hỏi</span><textarea id="kd-q" rows="2" maxlength="300" placeholder="vd. Có nên nhận lời mời làm việc ở công ty mới không?"></textarea></label>
+<fieldset class="fld"><legend>Chủ đề</legend><div class="kd-chips" role="radiogroup">{chips}</div></fieldset>
+<p class="note small">Câu hỏi chỉ lưu trên máy của bạn, không gửi đi.</p>
+</section>
+
+<section class="kd-stage" id="kd-gieo" data-stage="gieo">
+<div class="kd-cast">
+<div class="kd-coins" id="kd-coins" aria-hidden="true"><span class="coin"></span><span class="coin"></span><span class="coin"></span></div>
+<div class="kd-build" id="kd-build" aria-live="polite"></div>
+</div>
+<div class="kd-actions">
+<button type="button" class="btn" id="kd-toss">Gieo lần 1 / 6</button>
+<button type="button" class="btn btn-ghost btn-sm" id="kd-reset" hidden>Gieo lại</button>
+</div>
+<details class="kd-manual"><summary>Đã có quẻ? Nhập từng hào</summary>
+<p class="note small">Chọn từ hào Đầu (dưới cùng) lên hào Trên. 7 và 8 là hào tĩnh, 9 và 6 là hào động.</p>
+<div class="kd-manual-lines" id="kd-manual-lines"></div>
+<button type="button" class="btn btn-sm" id="kd-manual-go">Xem quẻ này</button>
+</details>
+</section>
+
+<section class="kd-stage" id="kd-maihoa" data-stage="mai-hoa" hidden>
+<div class="kd-mh-form">
+<label class="fld"><span>Cách lập</span><span class="sel"><select id="mh-method">
+<option value="thoi_gian">Theo năm, tháng, ngày, giờ</option>
+<option value="vat_so">Theo số vật đếm được</option>
+<option value="thanh_am">Theo số tiếng nghe được</option>
+<option value="chu">Theo số chữ (từ 11 chữ)</option>
+<option value="truong_xich">Theo trượng, thước</option>
+<option value="xich_thon">Theo thước, tấc</option>
+<option value="vat_phuong">Theo vật và hướng (Hậu thiên)</option>
+</select></span></label>
+<label class="fld"><span>Thời điểm lập quẻ</span><input id="mh-moment" type="datetime-local"></label>
+<div id="mh-fields"></div>
+<button type="button" class="btn" id="mh-go">Lập quẻ</button>
+</div>
+</section>
+
+<section class="kd-result" id="kd-result" hidden aria-live="polite"></section>
+
+<aside class="cnote"><b>Đọc lời quẻ thế nào cho đúng.</b> Lời quẻ là hệ biểu tượng cổ để suy ngẫm, không phải lời báo trước điều chắc chắn xảy ra.
+Phần kinh văn và lời bàn của Trình Di, Chu Hy được giữ nguyên theo bản dịch Ngô Tất Tố; phần diễn giải hiện đại và lời khuyên là của Thiên Bàn,
+đang ở dạng bản nháp, luôn ghi rõ dựa vào câu nào của sách.</aside>
+</article>
+<div class="kd-sheet" id="kd-sheet" role="dialog" aria-modal="true" aria-labelledby="kd-sheet-h" hidden><div class="kd-sheet-in" tabindex="-1"></div></div>"""
+    ld = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Kinh Dịch " + SITE, "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web", "url": ORIGIN + path, "inLanguage": "vi", "description": desc, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}
+    return path, shell(path, title, desc, body, crumbs=[(path, "Kinh Dịch")], ld=[ld], scripts=["/js/kinh_dich.js"], styles=["/css/iching.css"])
 
 
 # ---------------------------------------------------------------- tarot
@@ -885,12 +961,184 @@ def tarot_pages() -> list[tuple[str, str]]:
     return [tarot_page(t), tarot_index_page(t)] + [tarot_card_page(i, t) for i in range(len(t["deck"]["cards"]))]
 
 
+# ---------------------------------------------------------------- cung hoàng đạo (Western sun sign)
+# Computed facts only: the Sun's ingress into each sign is a trung khí instant (tvbt/hoang_dao.py). No sentence about what a sign
+# "means" is written here: a reading needs a cited book page (engine/data/hoang_dao/pack.json, empty until the books are in).
+HD_DATE = "2026-10-25"
+HD_YEARS = range(2024, 2031)
+HD_HOW = ('<section aria-labelledby="hd-how"><h2 id="hd-how">Cách tính</h2><ul class="plain">'
+          "<li>Hoàng đạo là đường Mặt Trời đi qua trên nền trời trong một năm, chia làm mười hai phần bằng nhau, mỗi phần 30°. Cung hoàng đạo "
+          "của một người là phần Mặt Trời đang ở lúc người đó sinh ra.</li>"
+          "<li>Thời điểm Mặt Trời vào mỗi cung hoàng đạo trùng với một trung khí của lịch âm dương: Xuân Phân (0°, Bạch Dương), Cốc Vũ (30°, Kim Ngưu), "
+          "Tiểu Mãn (60°, Song Tử), Hạ Chí (90°, Cự Giải), Đại Thử (120°, Sư Tử), Xử Thử (150°, Xử Nữ), Thu Phân (180°, Thiên Bình), "
+          "Sương Giáng (210°, Bọ Cạp), Tiểu Tuyết (240°, Nhân Mã), Đông Chí (270°, Ma Kết), Đại Hàn (300°, Bảo Bình), Vũ Thủy (330°, Song Ngư). "
+          "Thiên Bàn dùng đúng các thời điểm trung khí mà lá số Tử Vi và Bát Tự đã tính, và kiểm lại bằng một phép tính độc lập (PyEphem), lệch nhau dưới hai phút.</li>"
+          "<li>Giờ sinh được đổi sang giờ quốc tế theo múi giờ lịch sử của nơi sinh (ví dụ miền Nam dùng UTC+8 từ 1960 đến 1975) rồi mới so với các thời điểm đó, "
+          "nên không cần bảng ngày cố định. Khoảng ngày như “21/3–20/4” chỉ là ước lượng: mốc thật xê dịch khoảng một ngày tùy năm.</li>"
+          "<li>Người sinh trong vòng 24 giờ quanh một mốc được ghi “sinh sát ranh giới”, kèm giờ phút chính xác của mốc, để tự đối chiếu với giờ sinh.</li>"
+          "</ul></section>")
+HD_NOTE = ('<aside class="cnote"><b>Cung hoàng đạo khác với cung của lá số Tử Vi.</b> Cung hoàng đạo thuộc chiêm tinh phương Tây và chỉ dựa vào vị trí '
+           "Mặt Trời; mười hai cung của lá số Tử Vi (Mệnh, Phụ Mẫu, Phúc Đức…) là một hệ khác, an theo giờ, ngày, tháng, năm âm lịch. "
+           "Chiêm tinh chưa được khoa học kiểm chứng là phương pháp dự báo.</aside>")
+HD_CTA = '<p class="ccta"><a class="btn" href="/cung-hoang-dao/">Tra cung hoàng đạo theo ngày giờ sinh</a> <a class="btn btn-ghost" href="/#lap-la-so">Lập lá số</a></p>'
+
+
+def _hd_glyph(slug_: str, size: int = 28) -> str:
+    return (f'<svg class="hd-glyph" width="{size}" height="{size}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+            f'<path d="{hoang_dao.GLYPHS[slug_]}"/></svg>')
+
+
+def _hd_label(i: int) -> str:
+    s = hoang_dao.SIGNS[i]
+    return f"{s[1]} ({s[2]})" if s[2] else s[1]
+
+
+def _hd_cite(c: dict) -> str:
+    return f'[{c["short"]}, tr. {c["page"]}]'
+
+
+def _hd_sources() -> list[dict]:
+    return hoang_dao._pack().get("sources", [])
+
+
+def _hd_facts_html(f: dict) -> str:
+    keys = [k for k in ("element", "modality", "ruler") if k in f]
+    if not keys:
+        return ""
+    return ('<dl class="hd-facts">' + "".join(
+        f'<div><dt>{esc(f[k]["name"])}</dt><dd>{esc(f[k]["label"])} <cite>{esc(" ".join(_hd_cite(c) for c in f[k]["cites"]))}</cite></dd></div>'
+        for k in keys) + "</dl>")
+
+
+def _hd_list(rs: list[dict]) -> str:
+    return '<ul class="claims">' + "".join(f'<li><span>{esc(r["reading"])}</span> <cite>{esc(_hd_cite(r))}</cite></li>' for r in rs) + "</ul>"
+
+
+HD_READ_NOTE = ('<aside class="cnote"><b>Cách đọc phần này.</b> Mỗi dòng là lời diễn lại ngắn của Thiên Bàn từ một trang sách, ghi tên tác giả và '
+                "trang in. Tính cách lấy từ Alan Leo (Astrology for All, 1910); nguyên tố, tính chất và chủ tinh lấy từ Lilly (Christian Astrology, 1647) "
+                "và Ptolemy (Tetrabiblos, bản dịch Ashmand 1822) cùng Alan Leo. Đó là khuynh hướng theo sách, không phải lời đoán cho riêng ai; "
+                "các phần về sức khỏe, hôn nhân, sự kiện và những nhận xét kiểu đầu thế kỷ 20 về phụ nữ hay chủng tộc được bỏ qua.</aside>")
+
+
+def _hd_sources_html(reads: list[dict]) -> str:
+    pages: dict[str, set] = defaultdict(set)
+    for r in reads:
+        pages[r["book"]].add(r["page"])
+    li = []
+    for s in _hd_sources():
+        if s["code"] in pages:
+            pp = ", ".join(str(p) for p in sorted(pages[s["code"]]))
+            li.append(f'<li><b>{esc(s["title"])}</b> ({esc(s["author"])}), {esc(s["edition"].split(";")[0])}: trang {esc(pp)}.</li>')
+    return ('<section class="csources" aria-labelledby="src-h"><h2 id="src-h">Nguồn của bài này</h2><ul>' + "".join(li) + "</ul>"
+            '<p class="note">Số trang là trang in của sách (không phải số trang tệp PDF). Các câu ở trên là lời diễn lại ngắn của Thiên Bàn, '
+            "không phải bản dịch nguyên văn; câu gốc tiếng Anh của từng dòng nằm trong dữ liệu của dự án và được kiểm lại trên đúng trang.</p></section>")
+
+
+def hoang_dao_index() -> tuple[str, str]:
+    path = "/bai-viet/hoang-dao/"
+    title = "Mười hai cung hoàng đạo: tính cách theo sách và cách tính"
+    desc = ("Mười hai cung hoàng đạo (Bạch Dương, Kim Ngưu, Song Tử… Song Ngư): nguyên tố, tính chất, chủ tinh và tính cách theo Alan Leo, "
+            "Lilly, Ptolemy, mỗi ý ghi trang sách; tra cung hoàng đạo theo ngày giờ sinh.")
+
+    def sub(i: int, s) -> str:
+        f = hoang_dao.facts(s[0])
+        el = f.get("element", {}).get("label")
+        return " · ".join(x for x in (s[3], el, f"khoảng {s[4]}") if x)
+    cards = "".join(f'<li><a href="/bai-viet/hoang-dao/{s[0]}/"><b>{_hd_glyph(s[0], 22)} {esc(_hd_label(i))}</b><small>{esc(sub(i, s))}</small></a></li>'
+                    for i, s in enumerate(hoang_dao.SIGNS))
+    reads = [r for x in hoang_dao.SIGNS for r in hoang_dao.readings(x[0])]
+    body = (f'<article class="carticle"><p class="eyebrow">Cung hoàng đạo</p><h1>Mười hai cung hoàng đạo</h1>'
+            f'<p class="lead">Cung hoàng đạo của bạn là phần hoàng đạo Mặt Trời đang đi qua lúc bạn sinh ra. Thiên Bàn tính nó từ giờ phút sinh, '
+            f'không tra bảng ngày, nên người sinh sát ranh giới giữa hai cung hoàng đạo cũng có câu trả lời rõ ràng. Mỗi trang dưới đây gom những gì '
+            f'sách nói về một cung hoàng đạo, mỗi ý ghi tên sách và trang.</p>{HD_NOTE}'
+            f'<ul class="cards cards-sm">{cards}</ul>{HD_HOW}'
+            + (_hd_sources_html(reads) if reads else f'<p class="note">{esc(hoang_dao.NOT_READ)}</p>') + f'{HD_CTA}</article>')
+    ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": title, "description": desc, "url": ORIGIN + path, "inLanguage": "vi",
+          "dateModified": HD_DATE}
+    return path, shell(path, title, desc, body, crumbs=[("/bai-viet/", "Bài viết"), (path, "Cung hoàng đạo")], ld=[ld])
+
+
+def hoang_dao_sign_page(i: int) -> tuple[str, str]:
+    sl, name, alt, latin, span = hoang_dao.SIGNS[i]
+    path = f"/bai-viet/hoang-dao/{sl}/"
+    label = _hd_label(i)
+    reads, facts_ = hoang_dao.readings(sl), hoang_dao.facts(sl)
+    traits = [r for r in reads if r["topic"] == "trait"]
+    work = [r for r in reads if r["topic"] == "work"]
+    klass = [r for r in reads if r["topic"] == "classification"]
+    title = f"Cung hoàng đạo {label}: tính cách theo sách, ngày giờ Mặt Trời vào"
+    rows = hoang_dao.sign_periods(sl, HD_YEARS)
+    term = rows[0]["from"]["term"]
+    el = facts_.get("element", {}).get("label")
+    lead_traits = "; ".join(r["reading"].rstrip(".").lower() for r in traits[:2])
+    desc = _clip(f"Cung hoàng đạo {label} ({latin})" + (f", nhóm {el}" if el else "") + (f": {lead_traits}." if lead_traits else ".")
+                 + f" Mỗi ý ghi trang sách (Alan Leo, Lilly, Ptolemy); giờ Mặt Trời vào cung hoàng đạo {name} {HD_YEARS[0]}–{HD_YEARS[-1]}.")
+    trs = "".join(f'<tr><th scope="row">{r["year"]}</th><td>{esc(r["from"]["text"])}</td><td>{esc(r["to"]["text"])}</td></tr>' for r in rows)
+    if reads:
+        read_html = (HD_READ_NOTE
+                     + (f'<section aria-labelledby="hd-k"><h2 id="hd-k">Phân loại</h2>{_hd_facts_html(facts_)}{_hd_list(klass)}</section>' if klass else "")
+                     + (f'<section aria-labelledby="hd-r"><h2 id="hd-r">Tính cách và khuynh hướng</h2>{_hd_list(traits)}</section>' if traits else "")
+                     + (f'<section aria-labelledby="hd-w"><h2 id="hd-w">Công việc tác giả cho là hợp</h2>{_hd_list(work)}</section>' if work else ""))
+    else:
+        read_html = f'<section aria-labelledby="hd-r"><h2 id="hd-r">Luận về cung hoàng đạo {esc(name)}</h2><p class="note">{esc(hoang_dao.NOT_READ)}</p></section>'
+    prev_i, next_i = (i - 1) % 12, (i + 1) % 12
+    nav = (f'<nav class="crelated" aria-label="Cung hoàng đạo kề bên"><h2>Cung hoàng đạo kề bên</h2><p>'
+           f'<a href="/bai-viet/hoang-dao/{hoang_dao.SIGNS[prev_i][0]}/">‹ {esc(_hd_label(prev_i))}</a> '
+           f'<a href="/bai-viet/hoang-dao/{hoang_dao.SIGNS[next_i][0]}/">{esc(_hd_label(next_i))} ›</a> '
+           f'<a href="/bai-viet/hoang-dao/">Cả mười hai cung hoàng đạo</a></p></nav>')
+    body = (f'<article class="carticle"><p class="eyebrow">Cung hoàng đạo · {esc(latin)}</p>'
+            f'<h1>{_hd_glyph(sl, 40)} Cung hoàng đạo {esc(label)}</h1>'
+            f'<p class="lead">Người sinh khi Mặt Trời ở khoảng {30 * i}° đến {30 * i + 30}° hoàng kinh thuộc cung hoàng đạo {esc(name)}. '
+            f'Mặt Trời vào cung hoàng đạo này ở trung khí {esc(term)}, thường vào khoảng {esc(span)} (ước lượng; mốc thật xê dịch theo năm).</p>{HD_NOTE}'
+            f'{read_html}'
+            f'<section aria-labelledby="hd-t"><h2 id="hd-t">Mặt Trời vào và rời cung hoàng đạo {esc(name)}</h2>'
+            f'<p>Giờ Việt Nam (UTC+7). Người sinh trước mốc vào thuộc cung hoàng đạo trước đó, sinh từ mốc rời trở đi thuộc cung hoàng đạo kế tiếp.</p>'
+            f'<div class="tscroll"><table class="stable"><thead><tr><th scope="col">Năm</th><th scope="col">Mặt Trời vào</th><th scope="col">Mặt Trời rời</th></tr></thead>'
+            f'<tbody>{trs}</tbody></table></div></section>'
+            f'{HD_HOW}{HD_CTA}' + (_hd_sources_html(reads) if reads else "") + f'{nav}</article>')
+    org = {"@type": "Organization", "name": SITE, "url": ORIGIN + "/"}
+    ld = {"@context": "https://schema.org", "@type": "Article", "headline": title, "description": desc, "inLanguage": "vi", "url": ORIGIN + path,
+          "mainEntityOfPage": ORIGIN + path, "dateModified": HD_DATE, "author": org, "publisher": org, "image": ORIGIN + "/icons/og.png"}
+    used = {r["book"] for r in reads}
+    cites = [{"@type": "Book", "name": s["title"], "author": {"@type": "Person", "name": s["author"]}} for s in _hd_sources() if s["code"] in used]
+    if cites:
+        ld["citation"] = cites
+    return path, shell(path, title, desc, body, crumbs=[("/bai-viet/", "Bài viết"), ("/bai-viet/hoang-dao/", "Cung hoàng đạo"), (path, name)],
+                       ld=[ld], og_type="article")
+
+
+def hoang_dao_lookup_page() -> tuple[str, str]:
+    path = "/cung-hoang-dao/"
+    title = "Tra cung hoàng đạo theo ngày giờ sinh"
+    desc = ("Nhập ngày, giờ và nơi sinh để biết cung hoàng đạo của bạn, giờ phút Mặt Trời vào và rời cung hoàng đạo đó, "
+            "và bạn có sinh sát ranh giới hay không.")
+    body = f"""<article class="carticle hd-page">
+<p class="eyebrow">Cung hoàng đạo</p><h1>Tra cung hoàng đạo</h1>
+<p class="lead">Cung hoàng đạo tính theo giờ phút sinh, không theo bảng ngày cố định. Nhập giờ sinh nếu bạn biết; người sinh gần ngày chuyển cung hoàng đạo cần giờ để biết chắc.</p>
+<form class="hd-form" id="hd-form">
+<label class="fld"><span>Ngày</span><select name="d" required></select></label>
+<label class="fld"><span>Tháng</span><select name="m" required></select></label>
+<label class="fld"><span>Năm (dương lịch)</span><input name="y" type="number" inputmode="numeric" min="1900" max="2049" placeholder="vd. 1990" required></label>
+<label class="fld"><span>Giờ sinh (nếu biết)</span><input name="t" type="time"></label>
+<label class="fld"><span>Nơi sinh</span><select name="tz"><option value="Asia/Ho_Chi_Minh">Miền Nam, miền Trung (Sài Gòn, Huế…)</option><option value="Asia/Hanoi">Miền Bắc (Hà Nội, Hải Phòng…)</option><option value="Europe/Paris">Pháp</option><option value="America/Los_Angeles">Mỹ, bờ Tây</option><option value="America/New_York">Mỹ, bờ Đông</option><option value="Australia/Sydney">Úc (Sydney)</option></select></label>
+<button class="btn" type="submit">Tra cung hoàng đạo</button>
+</form>
+<div id="hd-out" aria-live="polite"></div>
+{HD_NOTE}{HD_HOW}
+<p class="ccta"><a class="btn btn-ghost" href="/bai-viet/hoang-dao/">Mười hai cung hoàng đạo</a> <a class="btn btn-ghost" href="/#lap-la-so">Lập lá số Tử Vi, Bát Tự</a></p>
+</article>"""
+    ld = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Tra cung hoàng đạo " + SITE, "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web", "url": ORIGIN + path, "inLanguage": "vi", "description": desc, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}
+    return path, shell(path, title, desc, body, crumbs=[(path, "Cung hoàng đạo")], ld=[ld], scripts=["/js/hoangdao_page.js"])
+
+
 # ---------------------------------------------------------------- whole site
 def render(m: dict | None = None) -> dict[str, str]:
     """{file path relative to engine/web: content}."""
     m = m or build_model()
-    pages = [index_page(m), about_page(m), faq_page(), calendar_page()]
+    pages = [index_page(m), about_page(m), faq_page(), calendar_page(), kinh_dich_page(), hoang_dao_index(), hoang_dao_lookup_page()]
     pages += tarot_pages()
+    pages += [hoang_dao_sign_page(i) for i in range(12)]
     pages += [star_page(s, m) for s in m["stars"]] + [palace_page(p, m) for p in m["palaces"]] + [cach_page(c, m) for c in m["cach"]]
     out = {path.strip("/") + "/index.html": doc for path, doc in pages}
     urls = ["/", "/library", "/chiem-tinh/", "/chiem-tinh-van-su/"] + [p for p, _ in pages]
@@ -904,7 +1152,7 @@ def render(m: dict | None = None) -> dict[str, str]:
     return out
 
 
-GENERATED_DIRS = ["bai-viet", "gioi-thieu", "hoi-dap", "xem-ngay", "tarot/la-bai"]   # tarot/index.html is written too; tarot/img is not generated
+GENERATED_DIRS = ["bai-viet", "gioi-thieu", "hoi-dap", "xem-ngay", "kinh-dich", "tarot/la-bai", "cung-hoang-dao"]   # tarot/index.html is written too; tarot/img is not generated
 
 
 def write(out: dict[str, str], web: Path = WEB) -> int:

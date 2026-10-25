@@ -1,0 +1,2329 @@
+{
+ "note": "Readings of the twelve cung hoàng đạo (Western sun signs), hand-entered from the books, one entry per book line or tight group of lines (owner, 2026-10-25). Alan Leo (AL) for character, temperament and the callings he names; Lilly (CA) and Ptolemy (TB) only for a sign's classification as the page states it. Left out: illness / body / health, death, accidents, crime, sexual conduct, pregnancy, marriage and children, predictions, lines the author marks as doubtful, 1910-era sweeping claims about women or races, any line about a planet in a sign, an aspect or a house. tools/build_hoang_dao_pack.py turns the entries into engine/data/hoang_dao/pack.json; engine/tests/test_hoang_dao.py finds each quote on its printed page.",
+ "fields": {
+  "id": "short id unique within the sign and book: book letters + printed page + a letter, e.g. 'al13a'",
+  "sign": "sign slug, one of: bach-duong kim-nguu song-tu cu-giai su-tu xu-nu thien-binh bo-cap nhan-ma ma-ket bao-binh song-ngu",
+  "book": "AL = Alan Leo, Astrology for All (1910) | CA = William Lilly, Christian Astrology (1647) | TB = Ptolemy, Tetrabiblos (J. M. Ashmand's translation, 1822)",
+  "page": "printed page number (int) the quote is on; tools/book_text.py EN_PAGE_RANGES maps it to the PDF page",
+  "topic": "'trait' (character, temperament, tendency) | 'work' (callings the author names) | 'classification' (element / modality / ruler, Lilly and Ptolemy only for this)",
+  "facts": "classification only: {element: fire|earth|air|water, modality: cardinal|fixed|mutable, ruler: Sun|Moon|Mercury|Venus|Mars|Jupiter|Saturn}, only what the quote states",
+  "quote": "verbatim English text from that page, 6 words or more, in the book's spelling (the long s of 1647 written as s); OCR misreads are tolerated by the checker, never copied",
+  "reading": "the project's short Vietnamese paraphrase shown to readers: plain modern words, a tendency, the author's strength kept; never 'cung' alone (always 'cung hoàng đạo')",
+  "use": "'reading' (shown on the card and the sign page) or 'reference' (kept in the data, not shown)",
+  "review": "optional free text: a doubt about the page, a disagreement between books"
+ },
+ "entries": [
+  {
+   "id": "al13a",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 13,
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "modality": "cardinal"
+   },
+   "quote": "this sign is the first of the fiery triplicity and of the cardinal cross",
+   "reading": "Là cung hoàng đạo đầu tiên của nhóm Lửa và thuộc nhóm tiên phong (cardinal).",
+   "use": "reading"
+  },
+  {
+   "id": "al13b",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 13,
+   "topic": "trait",
+   "quote": "they are leaders in ideals and pioneers of advanced thought",
+   "reading": "Thường đi đầu về lý tưởng, là người mở đường cho những ý tưởng mới.",
+   "use": "reading"
+  },
+  {
+   "id": "al13c",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 13,
+   "topic": "trait",
+   "quote": "They have great mental energy, but are inclined to be very headstrong and impulsive.",
+   "reading": "Có nghị lực trí óc lớn nhưng dễ rất bướng và bốc đồng.",
+   "use": "reading"
+  },
+  {
+   "id": "al13d",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 13,
+   "topic": "trait",
+   "quote": "This sign gives extreme ideality, and those under its influence are more idealistic than practical.",
+   "reading": "Thiên về lý tưởng rất mạnh, nặng lý tưởng hơn thực tế.",
+   "use": "reading"
+  },
+  {
+   "id": "al13e",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 13,
+   "topic": "trait",
+   "quote": "They are always full of new schemes and plans, ever exploring and originating.",
+   "reading": "Lúc nào cũng đầy dự định và kế hoạch mới, thích khám phá và khởi xướng.",
+   "use": "reading"
+  },
+  {
+   "id": "al14a",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 14,
+   "topic": "trait",
+   "quote": "always inclined to act upon impulse without waiting to mature their plans",
+   "reading": "Hay hành động theo hứng, không đợi kế hoạch chín muồi.",
+   "use": "reading"
+  },
+  {
+   "id": "al14b",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 14,
+   "topic": "trait",
+   "quote": "Decidedly lacking in caution, being far too venturesome, they often run to great extremes",
+   "reading": "Thiếu thận trọng rõ rệt, quá liều lĩnh, nên dễ đi tới cực đoan.",
+   "use": "reading"
+  },
+  {
+   "id": "al14c",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 14,
+   "topic": "trait",
+   "quote": "When not living up to the highest strength of their character, they have a tendency to jealousy",
+   "reading": "Khi không sống đúng với mặt mạnh nhất của mình thì dễ ghen tị, và đòi hỏi người khác phải rất trung thành.",
+   "use": "reading"
+  },
+  {
+   "id": "al14d",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 14,
+   "topic": "trait",
+   "quote": "especially in all pioneer work, their enthusiasm rarely being daunted by obstacles",
+   "reading": "Đặc biệt hợp với việc mở đường; nhiệt huyết hiếm khi chùn bước trước trở ngại.",
+   "use": "reading"
+  },
+  {
+   "id": "al14e",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 14,
+   "topic": "trait",
+   "quote": "Always intellectual, they make splendid companions, being affable, genial and witty",
+   "reading": "Thiên về trí tuệ, là bạn đồng hành tuyệt vời: dễ gần, vui vẻ và dí dỏm.",
+   "use": "reading"
+  },
+  {
+   "id": "al14f",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 14,
+   "topic": "work",
+   "quote": "they are excellent at all work that does not require sustained effort",
+   "reading": "Giỏi những việc cần làm nhanh, gọn, không đòi hỏi bền sức lâu dài.",
+   "use": "reading"
+  },
+  {
+   "id": "al15a",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 15,
+   "topic": "work",
+   "quote": "People of this type do best in life as organisers, leaders, architects, designers",
+   "reading": "Hợp nhất với vai trò tổ chức, lãnh đạo, kiến trúc, thiết kế.",
+   "use": "reading"
+  },
+  {
+   "id": "al15b",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 15,
+   "topic": "trait",
+   "quote": "with clear and decided ideas, and a spirit that is dauntless, fearless and aspiring",
+   "reading": "Rất độc lập, ý tưởng rõ ràng dứt khoát, tinh thần gan dạ, không sợ hãi và nhiều khát vọng.",
+   "use": "reading"
+  },
+  {
+   "id": "al15c",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 15,
+   "topic": "trait",
+   "quote": "When perverting their gifts their greatest fault is deception",
+   "reading": "Khi dùng sai năng khiếu của mình, lỗi lớn nhất là sự dối trá.",
+   "use": "reading"
+  },
+  {
+   "id": "al15d",
+   "sign": "bach-duong",
+   "book": "AL",
+   "page": 15,
+   "topic": "trait",
+   "quote": "for the inner quality or destiny of this sign is Truth",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Chân lý (Truth).",
+   "use": "reading"
+  },
+  {
+   "id": "ca93a",
+   "sign": "bach-duong",
+   "book": "CA",
+   "page": 93,
+   "topic": "classification",
+   "facts": {
+    "element": "fire"
+   },
+   "quote": "in nature fiery, hot and dry, cholericke",
+   "reading": "Bản chất thuộc Lửa: nóng và khô.",
+   "use": "reading"
+  },
+  {
+   "id": "ca93b",
+   "sign": "bach-duong",
+   "book": "CA",
+   "page": 93,
+   "topic": "classification",
+   "facts": {
+    "element": "fire"
+   },
+   "quote": "of the Fiery Triplicity, and of the East",
+   "reading": "Thuộc tam hợp Lửa (Fiery Triplicity), ứng với phương Đông.",
+   "use": "reading"
+  },
+  {
+   "id": "tb43a",
+   "sign": "bach-duong",
+   "book": "TB",
+   "page": 43,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Mars"
+   },
+   "quote": "Mars is dry in nature, and beneath the sphere of Jupiter: he takes the next two signs, of a nature similar to his own, viz. Aries and Scorpio",
+   "reading": "Là nhà (house) của Sao Hỏa.",
+   "use": "reading"
+  },
+  {
+   "id": "tb34a",
+   "sign": "bach-duong",
+   "book": "TB",
+   "page": 34,
+   "topic": "classification",
+   "quote": "There are also two equinoctial signs: Aries, the first",
+   "reading": "Là cung hoàng đạo phân điểm (equinoctial): Mặt Trời vào đây lúc xuân phân, ngày và đêm dài bằng nhau.",
+   "use": "reading"
+  },
+  {
+   "id": "tb44a",
+   "sign": "bach-duong",
+   "book": "TB",
+   "page": 44,
+   "topic": "classification",
+   "quote": "The first triangle, or triplicity, is formed by three masculine signs, Aries, Leo, and Sagittarius",
+   "reading": "Cùng Sư Tử và Nhân Mã tạo thành tam hợp thứ nhất, gồm ba cung hoàng đạo dương.",
+   "use": "reading"
+  },
+  {
+   "id": "al16a",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 16,
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "fixed"
+   },
+   "quote": "This sign is the first of the earthy triplicity and the first of the fixed signs",
+   "reading": "Là cung hoàng đạo đầu tiên của nhóm Đất và đầu tiên của nhóm kiên định (fixed).",
+   "use": "reading"
+  },
+  {
+   "id": "al16b",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 16,
+   "topic": "trait",
+   "quote": "it makes those born in it exceedingly solid, practical and substantial",
+   "reading": "Rất vững vàng, thực tế và chắc chắn.",
+   "use": "reading"
+  },
+  {
+   "id": "al16c",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 16,
+   "topic": "trait",
+   "quote": "The Taureans are slow, plodding, patient, enduring, persistent, executive and matter-of-fact persons.",
+   "reading": "Chậm mà chắc, cần mẫn, kiên nhẫn, bền bỉ, giỏi thực thi và rất thực tế.",
+   "use": "reading"
+  },
+  {
+   "id": "al16d",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 16,
+   "topic": "trait",
+   "quote": "when living exclusively for themselves, they become exceedingly obstinate",
+   "reading": "Khi chỉ sống cho riêng mình thì trở nên cực kỳ bướng bỉnh.",
+   "use": "reading"
+  },
+  {
+   "id": "al16e",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 16,
+   "topic": "trait",
+   "quote": "the Taureans become very furious and violent when severely angered, though as they are usually slow and cautious it takes a very great deal to rouse them",
+   "reading": "Rất khó bị khích động vì thường chậm rãi, thận trọng; nhưng khi bị chọc giận nặng thì có thể nổi giận dữ dội.",
+   "use": "reading"
+  },
+  {
+   "id": "al16f",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 16,
+   "topic": "trait",
+   "quote": "Secretive and very reserved, they yet make faithful friends.",
+   "reading": "Kín đáo, rất dè dặt, nhưng là người bạn trung thành.",
+   "use": "reading"
+  },
+  {
+   "id": "al17a",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 17,
+   "topic": "trait",
+   "quote": "They are fearless and generous, and when fully individualised they set no store on wealth except to do good with it.",
+   "reading": "Gan dạ và rộng rãi; khi trưởng thành về nội tâm thì không coi trọng của cải, trừ khi dùng để làm điều tốt.",
+   "use": "reading"
+  },
+  {
+   "id": "al17b",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 17,
+   "topic": "trait",
+   "quote": "they become very worldly and incline to take pleasure in the good things of this life, being fond of feasting and comfort",
+   "reading": "Khi ham muốn lấn át ý chí thì dễ thiên về hưởng thụ: thích ăn ngon và sự tiện nghi.",
+   "use": "reading"
+  },
+  {
+   "id": "al17c",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 17,
+   "topic": "trait",
+   "quote": "they are more inclined to live in their feelings than in their minds",
+   "reading": "Sống bằng cảm nhận nhiều hơn bằng lý trí.",
+   "use": "reading"
+  },
+  {
+   "id": "al17d",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 17,
+   "topic": "work",
+   "quote": "Being trustworthy, they make excellent public servants and officials",
+   "reading": "Đáng tin cậy nên hợp với công việc công vụ, làm viên chức.",
+   "use": "reading"
+  },
+  {
+   "id": "al17e",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 17,
+   "topic": "trait",
+   "quote": "when giving way to what is often their greatest fault, laziness",
+   "reading": "Lỗi lớn nhất thường gặp là sự lười biếng.",
+   "use": "reading"
+  },
+  {
+   "id": "al18a",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 18,
+   "topic": "work",
+   "quote": "they are best suited for all callings in which the handling of money is concerned",
+   "reading": "Hợp nhất với những nghề phải cầm nắm tiền bạc.",
+   "use": "reading"
+  },
+  {
+   "id": "al18b",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 18,
+   "topic": "trait",
+   "quote": "their leading characteristic is acquisitiveness, and it is quite natural for them to be conservative, reserved, and secretive",
+   "reading": "Nét nổi bật là thích tích lũy; tự nhiên thiên về bảo thủ, dè dặt và kín đáo.",
+   "use": "reading"
+  },
+  {
+   "id": "al56a",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 56,
+   "topic": "trait",
+   "quote": "Duty and obedience are the high keynotes of the Taurus nature",
+   "reading": "Bổn phận và sự tuân phục là những nét cao đẹp chủ đạo của cung hoàng đạo này.",
+   "use": "reading"
+  },
+  {
+   "id": "al56b",
+   "sign": "kim-nguu",
+   "book": "AL",
+   "page": 56,
+   "topic": "trait",
+   "quote": "but when undeveloped, obstinacy and a surly, slothful indifference may be expected",
+   "reading": "Khi chưa phát triển thì dễ bướng bỉnh, cau có, lười nhác và thờ ơ.",
+   "use": "reading"
+  },
+  {
+   "id": "ca94a",
+   "sign": "kim-nguu",
+   "book": "CA",
+   "page": 94,
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "fixed",
+    "ruler": "Venus"
+   },
+   "quote": "Fixed, Domestical or Bestial Signe, of the Earthly Triplicity, and South, the Night-house of Venus",
+   "reading": "Là cung hoàng đạo cố định (fixed), thuộc tam hợp Đất, phương Nam; là nhà ban đêm của Sao Kim.",
+   "use": "reading"
+  },
+  {
+   "id": "tb43b",
+   "sign": "kim-nguu",
+   "book": "TB",
+   "page": 43,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Venus"
+   },
+   "quote": "Venus, possessing a favourable temperament, and placed beneath the sphere of Mars, takes the next two signs, Taurus and Libra.",
+   "reading": "Là nhà (house) của Sao Kim.",
+   "use": "reading"
+  },
+  {
+   "id": "tb44b",
+   "sign": "kim-nguu",
+   "book": "TB",
+   "page": 44,
+   "topic": "classification",
+   "quote": "The second triplicity, formed by Taurus, Virgo, and Capricorn",
+   "reading": "Cùng Xử Nữ và Ma Kết tạo thành tam hợp thứ hai.",
+   "use": "reading"
+  },
+  {
+   "id": "al19a",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 19,
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "mutable"
+   },
+   "quote": "This is the first of the airy triplicity, and the first of the mutable signs.",
+   "reading": "Là cung hoàng đạo đầu tiên của nhóm Khí và đầu tiên của nhóm linh hoạt (mutable).",
+   "use": "reading"
+  },
+  {
+   "id": "al19b",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 19,
+   "topic": "trait",
+   "quote": "Gemini persons are rarely content with a single occupation or pursuit, seeming to delight in having two things in hand at the same time",
+   "reading": "Hiếm khi bằng lòng với một việc duy nhất; thích cùng lúc có hai việc trong tay.",
+   "use": "reading"
+  },
+  {
+   "id": "al19c",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 19,
+   "topic": "trait",
+   "quote": "They can very quickly adapt themselves to their surroundings and are hence remarkable for their versatility",
+   "reading": "Thích nghi rất nhanh với hoàn cảnh, nổi bật về sự đa năng.",
+   "use": "reading"
+  },
+  {
+   "id": "al19d",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 19,
+   "topic": "trait",
+   "quote": "They love change and diversity, and are always the best persons to rely upon in an emergency",
+   "reading": "Thích thay đổi và sự đa dạng; là người đáng nhờ cậy nhất khi có việc gấp.",
+   "use": "reading"
+  },
+  {
+   "id": "al19e",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 19,
+   "topic": "trait",
+   "quote": "They will take up one thing, partly finish it and then go on to another",
+   "reading": "Hay bắt đầu việc này, làm dở dang rồi chuyển sang việc khác.",
+   "use": "reading"
+  },
+  {
+   "id": "al19f",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 19,
+   "topic": "trait",
+   "quote": "therefore their best work is done when co-operating with others",
+   "reading": "Làm tốt nhất khi hợp tác với người khác.",
+   "use": "reading"
+  },
+  {
+   "id": "al19g",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 19,
+   "topic": "trait",
+   "quote": "They can be generous and also niggardly: can present a bold front and assertive attitude, and yet be highly timid and nervous",
+   "reading": "Có thể vừa hào phóng vừa keo kiệt; vừa tỏ ra mạnh dạn, quả quyết, vừa rất rụt rè, lo lắng.",
+   "use": "reading"
+  },
+  {
+   "id": "al20a",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 20,
+   "topic": "trait",
+   "quote": "They appear to be unable to stand any worry or anxiety, which quite unnerves them",
+   "reading": "Khó chịu đựng lo âu; lo lắng dễ làm họ mất bình tĩnh.",
+   "use": "reading"
+  },
+  {
+   "id": "al20b",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 20,
+   "topic": "trait",
+   "quote": "This may make them appear to their friends, fickle and indecisive, but it is their particular way of working",
+   "reading": "Bạn bè có thể thấy họ hay đổi ý, thiếu quyết đoán, nhưng đó là cách làm việc riêng của họ.",
+   "use": "reading"
+  },
+  {
+   "id": "al20c",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 20,
+   "topic": "work",
+   "quote": "Their best outlet is in the literary world, and as editors, reporters and newspaper men they succeed well",
+   "reading": "Đất dụng võ tốt nhất là văn chương, báo chí: biên tập, phóng viên.",
+   "use": "reading"
+  },
+  {
+   "id": "al21a",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 21,
+   "topic": "trait",
+   "quote": "dualistic and restless, intellectual and sensational, nervous and irritable",
+   "reading": "Hai mặt và bồn chồn, thiên về trí óc và cảm giác, dễ căng thẳng và cáu kỉnh.",
+   "use": "reading"
+  },
+  {
+   "id": "al21b",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 21,
+   "topic": "trait",
+   "quote": "the ability to become very clever: quick-witted and mentally impulsive",
+   "reading": "Có khả năng trở nên rất thông minh: nhanh trí và bốc đồng trong suy nghĩ.",
+   "use": "reading"
+  },
+  {
+   "id": "al21c",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 21,
+   "topic": "trait",
+   "quote": "when they live the unbalanced personal life they become diffusive and unreliable",
+   "reading": "Khi sống mất cân bằng, chỉ theo cái tôi, thì dễ tản mạn và thiếu tin cậy.",
+   "use": "reading"
+  },
+  {
+   "id": "al21d",
+   "sign": "song-tu",
+   "book": "AL",
+   "page": 21,
+   "topic": "trait",
+   "quote": "The inner nature or destiny of this sign is Motive.",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Động cơ (Motive).",
+   "use": "reading"
+  },
+  {
+   "id": "ca94b",
+   "sign": "song-tu",
+   "book": "CA",
+   "page": 94,
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "mutable"
+   },
+   "quote": "It's an aerial, hot, moyst, sanguine, Diurnal, common or double-bodied humain Signe",
+   "reading": "Thuộc Khí (nóng, ẩm); là cung hoàng đạo 'chung' (common), hai thân (double-bodied).",
+   "use": "reading"
+  },
+  {
+   "id": "tb43c",
+   "sign": "song-tu",
+   "book": "TB",
+   "page": 43,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Mercury"
+   },
+   "quote": "Mercury never has greater distance from the Sun than the space of one sign, and is beneath all the other planets: hence he is nearest to both luminaries, and the remaining two signs, Gemini and Virgo, are allotted to him",
+   "reading": "Là nhà (house) của Sao Thủy.",
+   "use": "reading"
+  },
+  {
+   "id": "tb44c",
+   "sign": "song-tu",
+   "book": "TB",
+   "page": 44,
+   "topic": "classification",
+   "quote": "The third triplicity is composed of Gemini, Libra, and Aquarius, masculine signs.",
+   "reading": "Cùng Thiên Bình và Bảo Bình tạo thành tam hợp thứ ba, gồm các cung hoàng đạo dương.",
+   "use": "reading"
+  },
+  {
+   "id": "al22a",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 22,
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "modality": "cardinal"
+   },
+   "quote": "It is the first of the watery and the second of the cardinal signs",
+   "reading": "Là cung hoàng đạo đầu tiên của nhóm Nước và thứ hai của nhóm tiên phong (cardinal).",
+   "use": "reading"
+  },
+  {
+   "id": "al22b",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 22,
+   "topic": "trait",
+   "quote": "Persons born in this sign are characterised as slow but sure",
+   "reading": "Chậm mà chắc.",
+   "use": "reading"
+  },
+  {
+   "id": "al22c",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 22,
+   "topic": "trait",
+   "quote": "Cancer persons have the most remarkable memory of any given by the twelve signs",
+   "reading": "Trí nhớ đáng nể nhất trong mười hai cung hoàng đạo; nhớ lại dễ dàng cả chi tiết nhỏ của quá khứ.",
+   "use": "reading"
+  },
+  {
+   "id": "al22d",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 22,
+   "topic": "trait",
+   "quote": "This makes them somewhat antiquated, as they love to dwell on past events",
+   "reading": "Thích sống với chuyện cũ nên có phần hoài cổ.",
+   "use": "reading"
+  },
+  {
+   "id": "al22e",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 22,
+   "topic": "trait",
+   "quote": "They are highly approbative, and always yearn for the sympathy of others",
+   "reading": "Rất cần được công nhận, luôn khao khát sự cảm thông của người khác.",
+   "use": "reading"
+  },
+  {
+   "id": "al22f",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 22,
+   "topic": "trait",
+   "quote": "are timid, reserved and shy, fearing ridicule or disapproval very much",
+   "reading": "Rụt rè, kín đáo, nhút nhát; rất sợ bị chê cười hay bị phản đối.",
+   "use": "reading"
+  },
+  {
+   "id": "al23a",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 23,
+   "topic": "trait",
+   "quote": "Being exceedingly sensitive, their feelings are very easily wounded.",
+   "reading": "Cực kỳ nhạy cảm; tình cảm rất dễ bị tổn thương.",
+   "use": "reading"
+  },
+  {
+   "id": "al23b",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 23,
+   "topic": "trait",
+   "quote": "They are economical and very fond of saving, which trait runs into almost all the details of their life",
+   "reading": "Tiết kiệm, rất thích để dành, và nét này thấm vào hầu hết mọi chuyện nhỏ trong đời.",
+   "use": "reading"
+  },
+  {
+   "id": "al23c",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 23,
+   "topic": "trait",
+   "quote": "They greatly respect age and custom, and tend to become very conservative.",
+   "reading": "Rất tôn trọng tuổi tác và phong tục, dễ trở nên rất bảo thủ.",
+   "use": "reading"
+  },
+  {
+   "id": "al23d",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 23,
+   "topic": "trait",
+   "quote": "They are not ambitious, in fact, but rather lovers of fame and public recognition",
+   "reading": "Không hẳn tham vọng, mà thích tiếng tăm và được công chúng ghi nhận.",
+   "use": "reading"
+  },
+  {
+   "id": "al23e",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 23,
+   "topic": "trait",
+   "quote": "When acting along personal lines only, they are inactive and inclined to be somewhat grasping.",
+   "reading": "Khi chỉ sống theo cái tôi thì dễ thụ động và có phần bám giữ, hám lợi.",
+   "use": "reading"
+  },
+  {
+   "id": "al23f",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 23,
+   "topic": "work",
+   "quote": "Cancer persons are best adapted for those pursuits which embrace catering for the masses",
+   "reading": "Hợp nhất với nghề phục vụ số đông, việc có nhiều công chúng tham gia.",
+   "use": "reading"
+  },
+  {
+   "id": "al24a",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 24,
+   "topic": "trait",
+   "quote": "They are very reserved and sensitive, sympathetic, persistent and impatient, impressionable and emotional.",
+   "reading": "Rất dè dặt và nhạy cảm, giàu cảm thông, bền bỉ nhưng thiếu kiên nhẫn, dễ xúc động.",
+   "use": "reading"
+  },
+  {
+   "id": "al24b",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 24,
+   "topic": "trait",
+   "quote": "The inner nature or destiny of this sign is Power.",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Quyền năng (Power).",
+   "use": "reading"
+  },
+  {
+   "id": "al58a",
+   "sign": "cu-giai",
+   "book": "AL",
+   "page": 58,
+   "topic": "trait",
+   "quote": "If sensitive and easily wounded, they are also conservative and loyal in regard to their ties and duties.",
+   "reading": "Dễ tổn thương nhưng cũng bảo thủ và trung thành với các mối ràng buộc, bổn phận của mình.",
+   "use": "reading"
+  },
+  {
+   "id": "ca95a",
+   "sign": "cu-giai",
+   "book": "CA",
+   "page": 95,
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "ruler": "Moon"
+   },
+   "quote": "Is the onely house of the Moon, and is the first Signe of the Watry or Northerne Triplicity",
+   "reading": "Là nhà duy nhất của Mặt Trăng; là cung hoàng đạo đầu tiên của tam hợp Nước.",
+   "use": "reading"
+  },
+  {
+   "id": "ca95b",
+   "sign": "cu-giai",
+   "book": "CA",
+   "page": 95,
+   "topic": "classification",
+   "facts": {
+    "modality": "cardinal"
+   },
+   "quote": "Flegmatick, Feminine, Nocturnal, Moveable, a Solstice Signe",
+   "reading": "Là cung hoàng đạo chuyển động (moveable, tức tiên phong), ứng với điểm chí.",
+   "use": "reading"
+  },
+  {
+   "id": "tb42a",
+   "sign": "cu-giai",
+   "book": "TB",
+   "page": 42,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Moon"
+   },
+   "quote": "and Cancer for the Moon, as being feminine",
+   "reading": "Là nhà (house) của Mặt Trăng.",
+   "use": "reading"
+  },
+  {
+   "id": "tb34b",
+   "sign": "cu-giai",
+   "book": "TB",
+   "page": 34,
+   "topic": "classification",
+   "quote": "the first thirty degrees after the summer solstice, which compose the sign of Cancer",
+   "reading": "Là cung hoàng đạo chí (tropical): ba mươi độ đầu tiên sau hạ chí.",
+   "use": "reading"
+  },
+  {
+   "id": "tb45a",
+   "sign": "cu-giai",
+   "book": "TB",
+   "page": 45,
+   "topic": "classification",
+   "quote": "The fourth triplicity, formed by Cancer, Scorpio, and Pisces",
+   "reading": "Cùng Bọ Cạp và Song Ngư tạo thành tam hợp thứ tư.",
+   "use": "reading"
+  },
+  {
+   "id": "al25a",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 25,
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "modality": "fixed"
+   },
+   "quote": "the second of the fiery triplicity, and the second of the fixed signs",
+   "reading": "Là cung hoàng đạo thứ hai của nhóm Lửa và thứ hai của nhóm kiên định (fixed).",
+   "use": "reading"
+  },
+  {
+   "id": "al25b",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 25,
+   "topic": "trait",
+   "quote": "They are forceful and highly magnetic, and, possessing an abundance of vitality",
+   "reading": "Mạnh mẽ, có sức hút rất lớn và tràn đầy sinh lực.",
+   "use": "reading"
+  },
+  {
+   "id": "al25c",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 25,
+   "topic": "trait",
+   "quote": "They are genuinely kind, warm-hearted and loving, but usually like to express their love in action",
+   "reading": "Thật lòng tử tế, ấm áp, giàu tình thương, và thường thể hiện tình cảm bằng hành động.",
+   "use": "reading"
+  },
+  {
+   "id": "al25d",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 25,
+   "topic": "trait",
+   "quote": "They can be impulsive and diffusive, but it is usually the impulse of a generous nature.",
+   "reading": "Có thể bốc đồng, tản mạn, nhưng thường là cái bốc đồng của một tấm lòng rộng rãi.",
+   "use": "reading"
+  },
+  {
+   "id": "al25e",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 25,
+   "topic": "trait",
+   "quote": "They are usually very practical with regard to their ideals, as they prefer to live them rather than talk of them.",
+   "reading": "Rất thực tế với lý tưởng: thích sống theo lý tưởng hơn là nói về nó.",
+   "use": "reading"
+  },
+  {
+   "id": "al26a",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 26,
+   "topic": "trait",
+   "quote": "The Leos love to rule, but it is a rule rather of the heart, than of the head.",
+   "reading": "Thích dẫn dắt, nhưng là dẫn dắt bằng trái tim hơn là bằng cái đầu.",
+   "use": "reading"
+  },
+  {
+   "id": "al26b",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 26,
+   "topic": "trait",
+   "quote": "They are philanthropic, and always obey the impulses of the heart where sympathy is concerned.",
+   "reading": "Giàu lòng nhân ái, luôn nghe theo tiếng gọi của trái tim khi cần cảm thông.",
+   "use": "reading"
+  },
+  {
+   "id": "al26c",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 26,
+   "topic": "trait",
+   "quote": "It is found that the weakest and the strongest individuals come out of this sign. The weakest are those who are too easily led through their feelings",
+   "reading": "Cung hoàng đạo này có cả những người yếu nhất lẫn mạnh nhất; người yếu là người quá dễ bị cảm xúc dẫn dắt.",
+   "use": "reading"
+  },
+  {
+   "id": "al27a",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 27,
+   "topic": "work",
+   "quote": "they are not fond of laborious work, and they can only be really happy in positions of trust and management",
+   "reading": "Không thích việc lao lực; chỉ thật sự vui khi ở vị trí được tin cậy và được điều hành.",
+   "use": "reading"
+  },
+  {
+   "id": "al27b",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 27,
+   "topic": "trait",
+   "quote": "We may sum up the Leo persons as firm and self-controlling individuals, ever aiming at high and noble things.",
+   "reading": "Vững vàng, tự chủ, luôn hướng tới điều cao đẹp.",
+   "use": "reading"
+  },
+  {
+   "id": "al27c",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 27,
+   "topic": "trait",
+   "quote": "They are generous to a fault, faithful, sincere, earnest and persevering",
+   "reading": "Rộng rãi đến mức thành lỗi; trung thành, chân thành, nghiêm túc và bền chí.",
+   "use": "reading"
+  },
+  {
+   "id": "al27d",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 27,
+   "topic": "trait",
+   "quote": "it holds and binds all the others by the power of love; its inner nature or destiny is Harmony",
+   "reading": "Gắn kết người khác bằng sức mạnh của tình thương; phẩm chất bên trong, theo tác giả, là Hài hòa (Harmony).",
+   "use": "reading"
+  },
+  {
+   "id": "al58b",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 58,
+   "topic": "trait",
+   "quote": "Love of power and command are the prevailing characteristics of Leo people",
+   "reading": "Nét nổi trội là thích quyền lực và thích chỉ huy.",
+   "use": "reading"
+  },
+  {
+   "id": "al58c",
+   "sign": "su-tu",
+   "book": "AL",
+   "page": 58,
+   "topic": "trait",
+   "quote": "Power and austerity are the marked characteristics of the Leo nature",
+   "reading": "Mạnh mẽ và nghiêm khắc với chính mình là nét rõ nhất.",
+   "use": "reading"
+  },
+  {
+   "id": "ca95c",
+   "sign": "su-tu",
+   "book": "CA",
+   "page": 95,
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "ruler": "Sun"
+   },
+   "quote": "onely house of the Sun, by nature, Fiery, Hot, Dry",
+   "reading": "Là nhà duy nhất của Mặt Trời; bản chất thuộc Lửa, nóng và khô.",
+   "use": "reading"
+  },
+  {
+   "id": "tb42b",
+   "sign": "su-tu",
+   "book": "TB",
+   "page": 42,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Sun"
+   },
+   "quote": "Leo for the Sun, as being masculine",
+   "reading": "Là nhà (house) của Mặt Trời.",
+   "use": "reading"
+  },
+  {
+   "id": "tb44d",
+   "sign": "su-tu",
+   "book": "TB",
+   "page": 44,
+   "topic": "classification",
+   "quote": "The first triangle, or triplicity, is formed by three masculine signs, Aries, Leo, and Sagittarius",
+   "reading": "Cùng Bạch Dương và Nhân Mã tạo thành tam hợp thứ nhất, gồm ba cung hoàng đạo dương.",
+   "use": "reading"
+  },
+  {
+   "id": "al28a",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 28,
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "mutable"
+   },
+   "quote": "The sign Virgo is the second of the earthy and the second of the mutable signs",
+   "reading": "Là cung hoàng đạo thứ hai của nhóm Đất và thứ hai của nhóm linh hoạt (mutable).",
+   "use": "reading"
+  },
+  {
+   "id": "al28b",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 28,
+   "topic": "trait",
+   "quote": "The individuals born in this sign are constructive and able to make the most of their conditions",
+   "reading": "Có óc xây dựng, biết tận dụng tốt nhất hoàn cảnh của mình.",
+   "use": "reading"
+  },
+  {
+   "id": "al28c",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 28,
+   "topic": "trait",
+   "quote": "This makes them very discriminative, giving them large reasoning powers and very ingenious methods of working.",
+   "reading": "Rất biết phân định, lý luận giỏi, cách làm việc khéo léo.",
+   "use": "reading"
+  },
+  {
+   "id": "al28d",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 28,
+   "topic": "trait",
+   "quote": "They are the most critical of all individuals, but they usually turn this criticism upon themselves as well as others",
+   "reading": "Hay phê phán nhất, nhưng thường phê phán cả chính mình chứ không chỉ người khác.",
+   "use": "reading"
+  },
+  {
+   "id": "al28e",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 28,
+   "topic": "trait",
+   "quote": "They are careful and cautious, and usually act methodically, with much apparent forethought.",
+   "reading": "Cẩn thận, thận trọng, thường làm việc có phương pháp và tính trước.",
+   "use": "reading"
+  },
+  {
+   "id": "al28f",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 28,
+   "topic": "trait",
+   "quote": "They are precise in details, and can readily put right any errors and defects in their own character",
+   "reading": "Chính xác trong chi tiết, dễ dàng sửa những lỗi và khuyết điểm của bản thân.",
+   "use": "reading"
+  },
+  {
+   "id": "al28g",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 28,
+   "topic": "trait",
+   "quote": "they are very introspective, and may be said to know themselves better than those born under other signs",
+   "reading": "Rất hay tự xét mình, hiểu bản thân hơn người thuộc các cung hoàng đạo khác.",
+   "use": "reading"
+  },
+  {
+   "id": "al29a",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 29,
+   "topic": "trait",
+   "quote": "They then become rather materialistic, and tend to carry the practical too far into scepticism and doubt",
+   "reading": "Khi sống theo cái tôi thì dễ thực dụng, đẩy óc thực tế quá xa thành hoài nghi.",
+   "use": "reading"
+  },
+  {
+   "id": "al29b",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 29,
+   "topic": "trait",
+   "quote": "they become very domineering, using their good intellectual abilities to the detriment of others",
+   "reading": "Có thể trở nên rất độc đoán, dùng trí tuệ của mình gây thiệt cho người khác.",
+   "use": "reading"
+  },
+  {
+   "id": "al29c",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 29,
+   "topic": "trait",
+   "quote": "The Virgo type may be summed up as retiring, ingenious, discriminative, active and mercurial.",
+   "reading": "Kín đáo, khéo léo, biết phân định, năng động và lanh lợi.",
+   "use": "reading"
+  },
+  {
+   "id": "al30a",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 30,
+   "topic": "trait",
+   "quote": "they can so readily adapt themselves to the requirements of those around them that they make excellent entertainers and splendid social companions",
+   "reading": "Dễ thích ứng với mong muốn của người xung quanh nên là người tiếp đãi khéo, bạn giao tiếp tuyệt vời.",
+   "use": "reading"
+  },
+  {
+   "id": "al30b",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 30,
+   "topic": "work",
+   "quote": "but their greatest success is to be found rather in the business than the professional world",
+   "reading": "Thành công lớn nhất thường nằm ở kinh doanh hơn là ở nghề chuyên môn.",
+   "use": "reading"
+  },
+  {
+   "id": "al30c",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 30,
+   "topic": "trait",
+   "quote": "The inner nature or destiny of this sign is Discrimination.",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Sự phân định (Discrimination).",
+   "use": "reading"
+  },
+  {
+   "id": "al59a",
+   "sign": "xu-nu",
+   "book": "AL",
+   "page": 59,
+   "topic": "work",
+   "quote": "It is a sign conferring upon its subjects industry, and the ability to follow many different pursuits",
+   "reading": "Cần cù và có thể theo đuổi nhiều nghề khác nhau.",
+   "use": "reading"
+  },
+  {
+   "id": "ca96a",
+   "sign": "xu-nu",
+   "book": "CA",
+   "page": 96,
+   "topic": "classification",
+   "facts": {
+    "element": "earth"
+   },
+   "quote": "It's an earthly, cold, melancholly, barren, feminine, nocturnall, Southerne Signe",
+   "reading": "Thuộc Đất (lạnh, khô), là cung hoàng đạo âm, phương Nam.",
+   "use": "reading"
+  },
+  {
+   "id": "tb43d",
+   "sign": "xu-nu",
+   "book": "TB",
+   "page": 43,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Mercury"
+   },
+   "quote": "Mercury never has greater distance from the Sun than the space of one sign, and is beneath all the other planets: hence he is nearest to both luminaries, and the remaining two signs, Gemini and Virgo, are allotted to him",
+   "reading": "Là nhà (house) của Sao Thủy.",
+   "use": "reading"
+  },
+  {
+   "id": "tb44e",
+   "sign": "xu-nu",
+   "book": "TB",
+   "page": 44,
+   "topic": "classification",
+   "quote": "The second triplicity, formed by Taurus, Virgo, and Capricorn",
+   "reading": "Cùng Kim Ngưu và Ma Kết tạo thành tam hợp thứ hai.",
+   "use": "reading"
+  },
+  {
+   "id": "al31a",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 31,
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "cardinal"
+   },
+   "quote": "is the second of the airy triplicity, and the third of the cardinal signs",
+   "reading": "Là cung hoàng đạo thứ hai của nhóm Khí và thứ ba của nhóm tiên phong (cardinal).",
+   "use": "reading"
+  },
+  {
+   "id": "al31b",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 31,
+   "topic": "trait",
+   "quote": "The individuality of this sign is expressed in justice, equilibrium, balance, order, and dispassionate judgment.",
+   "reading": "Bản sắc thể hiện qua lẽ công bằng, sự cân bằng, trật tự và óc phán xét không thiên vị.",
+   "use": "reading"
+  },
+  {
+   "id": "al31c",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 31,
+   "topic": "trait",
+   "quote": "Those born in this sign are remarkable for their powers of comparison",
+   "reading": "Nổi bật về khả năng so sánh, cân nhắc mọi điều.",
+   "use": "reading"
+  },
+  {
+   "id": "al31d",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 31,
+   "topic": "trait",
+   "quote": "this causes Libra persons to love harmony so much",
+   "reading": "Rất yêu sự hài hòa.",
+   "use": "reading"
+  },
+  {
+   "id": "al31e",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 31,
+   "topic": "trait",
+   "quote": "They have always a kind and amiable disposition, expressing the Venus side of their nature more than any other, and this makes them courteous, agreeable and very pleasant persons",
+   "reading": "Tính tình tử tế, hòa nhã: lịch sự, dễ chịu, rất dễ mến.",
+   "use": "reading"
+  },
+  {
+   "id": "al31f",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 31,
+   "topic": "trait",
+   "quote": "They are remarkable for their perceptive faculties",
+   "reading": "Khả năng nhận biết, quan sát rất nhạy.",
+   "use": "reading"
+  },
+  {
+   "id": "al32a",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 32,
+   "topic": "trait",
+   "quote": "They seem to accept fate in a way that others are not capable of, and to realise the justice of all things.",
+   "reading": "Chấp nhận số phận theo cách người khác khó làm được, và thấy được lẽ công bằng trong mọi việc.",
+   "use": "reading"
+  },
+  {
+   "id": "al32b",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 32,
+   "topic": "trait",
+   "quote": "they then become exceedingly approbative and very sensitive, are rather impatient, and inclined to be somewhat careless",
+   "reading": "Khi sống thiên về cái tôi thì rất cần được khen, rất nhạy cảm, khá thiếu kiên nhẫn và có phần cẩu thả.",
+   "use": "reading"
+  },
+  {
+   "id": "al32c",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 32,
+   "topic": "trait",
+   "quote": "for they are usually very even-tempered and amenable to all the good influences that surround them",
+   "reading": "Thường rất điềm tĩnh và dễ tiếp nhận những ảnh hưởng tốt xung quanh.",
+   "use": "reading"
+  },
+  {
+   "id": "al32d",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 32,
+   "topic": "work",
+   "quote": "successful in any profession where they could preserve harmony or bring it about in others",
+   "reading": "Thành công trong nghề nào cần giữ hoặc tạo ra sự hài hòa cho người khác.",
+   "use": "reading"
+  },
+  {
+   "id": "al32e",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 32,
+   "topic": "trait",
+   "quote": "when not fully self-conscious, but they are always just and generous",
+   "reading": "Dù chưa hoàn toàn tự chủ, họ luôn công bằng và rộng lượng.",
+   "use": "reading"
+  },
+  {
+   "id": "al32f",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 32,
+   "topic": "trait",
+   "quote": "The inner nature or destiny of this sign is Balance.",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Cân bằng (Balance).",
+   "use": "reading"
+  },
+  {
+   "id": "al59b",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 59,
+   "topic": "trait",
+   "quote": "It is an ambitious and aspiring sign, refined, harmonious, and expansive in nature.",
+   "reading": "Có hoài bão và khát vọng; tinh tế, hài hòa và cởi mở.",
+   "use": "reading"
+  },
+  {
+   "id": "al59c",
+   "sign": "thien-binh",
+   "book": "AL",
+   "page": 59,
+   "topic": "trait",
+   "quote": "when developed those who are under its influence are compassionate, and lovers of unity and equality",
+   "reading": "Khi phát triển thì giàu lòng trắc ẩn, yêu sự đoàn kết và bình đẳng.",
+   "use": "reading"
+  },
+  {
+   "id": "ca96b",
+   "sign": "thien-binh",
+   "book": "CA",
+   "page": 96,
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "cardinal"
+   },
+   "quote": "Is a Signe aeriall, hot and moyst, Sanguine, Masculine, Moveable, Equinoctiall, Cardinall",
+   "reading": "Thuộc Khí (nóng, ẩm); là cung hoàng đạo chuyển động, phân điểm, tiên phong (cardinal).",
+   "use": "reading"
+  },
+  {
+   "id": "tb43e",
+   "sign": "thien-binh",
+   "book": "TB",
+   "page": 43,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Venus"
+   },
+   "quote": "Venus, possessing a favourable temperament, and placed beneath the sphere of Mars, takes the next two signs, Taurus and Libra.",
+   "reading": "Là nhà (house) của Sao Kim.",
+   "use": "reading"
+  },
+  {
+   "id": "tb35a",
+   "sign": "thien-binh",
+   "book": "TB",
+   "page": 35,
+   "topic": "classification",
+   "quote": "and Libra, the first after the autumnal equinox",
+   "reading": "Là cung hoàng đạo phân điểm (equinoctial): Mặt Trời vào đây lúc thu phân.",
+   "use": "reading"
+  },
+  {
+   "id": "tb44f",
+   "sign": "thien-binh",
+   "book": "TB",
+   "page": 44,
+   "topic": "classification",
+   "quote": "The third triplicity is composed of Gemini, Libra, and Aquarius, masculine signs.",
+   "reading": "Cùng Song Tử và Bảo Bình tạo thành tam hợp thứ ba, gồm các cung hoàng đạo dương.",
+   "use": "reading"
+  },
+  {
+   "id": "al33a",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 33,
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "modality": "fixed"
+   },
+   "quote": "Scorpio is the third of the fixed signs and the second or middle of the watery triplicity",
+   "reading": "Là cung hoàng đạo thứ ba của nhóm kiên định (fixed) và ở giữa nhóm Nước.",
+   "use": "reading"
+  },
+  {
+   "id": "al33b",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 33,
+   "topic": "trait",
+   "quote": "there appears to be more scope for extremes of character in this sign than in any other",
+   "reading": "Tính cách dễ đi về hai cực hơn bất kỳ cung hoàng đạo nào khác.",
+   "use": "reading"
+  },
+  {
+   "id": "al33c",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 33,
+   "topic": "trait",
+   "quote": "The Scorpio character is decided and unmistakable, being rarely, if ever, vacillating or feeble.",
+   "reading": "Tính cách dứt khoát, rõ ràng, hầu như không bao giờ do dự hay yếu ớt.",
+   "use": "reading"
+  },
+  {
+   "id": "al33d",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 33,
+   "topic": "trait",
+   "quote": "the Scorpio types of humanity are very uncompromising and exacting beings, and their vindictiveness and fault-finding tendencies may be carried to an abnormal degree",
+   "reading": "Khi chỉ sống cho bản thân thì rất cứng rắn, khắt khe; tính thù dai và hay bắt lỗi có thể lên tới mức quá đáng.",
+   "use": "reading"
+  },
+  {
+   "id": "al34a",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 34,
+   "topic": "trait",
+   "quote": "Those individualised in Scorpio are remarkable for their keen judgment",
+   "reading": "Nổi bật về óc phán đoán sắc bén.",
+   "use": "reading"
+  },
+  {
+   "id": "al34b",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 34,
+   "topic": "trait",
+   "quote": "they can criticise perfectly and impartially, and they are able to give their judgment in a decisive and clear manner",
+   "reading": "Phê bình chuẩn xác, không thiên vị, nêu nhận định một cách dứt khoát và rõ ràng.",
+   "use": "reading"
+  },
+  {
+   "id": "al34c",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 34,
+   "topic": "trait",
+   "quote": "Scorpio people have a very remarkable power of attachment",
+   "reading": "Khả năng gắn bó rất đáng nể.",
+   "use": "reading"
+  },
+  {
+   "id": "al34d",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 34,
+   "topic": "trait",
+   "quote": "They are generally marked by their very dignified manner, and though often affable and courteous, they are ready at any moment to stand upon their dignity",
+   "reading": "Thường có phong thái rất đường hoàng, sẵn sàng giữ thể diện bất cứ lúc nào.",
+   "use": "reading"
+  },
+  {
+   "id": "al34e",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 34,
+   "topic": "trait",
+   "quote": "They can be very abrupt and brusque when they wish, but they are always amenable to approval.",
+   "reading": "Có thể rất cộc lốc, thẳng thừng khi muốn, nhưng luôn dễ mềm lại trước lời ghi nhận.",
+   "use": "reading"
+  },
+  {
+   "id": "al34f",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 34,
+   "topic": "trait",
+   "quote": "They have the power of self-control to a very great extent",
+   "reading": "Khả năng tự chủ rất lớn.",
+   "use": "reading"
+  },
+  {
+   "id": "al35a",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 35,
+   "topic": "trait",
+   "quote": "We might sum up those persons born in the sign Scorpio as very determined, reserved, tenacious and secretive.",
+   "reading": "Rất quyết tâm, dè dặt, bền bỉ và kín đáo.",
+   "use": "reading"
+  },
+  {
+   "id": "al35b",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 35,
+   "topic": "trait",
+   "quote": "capable of unmistakable traits of character that cause them to be either very much liked or very much disliked",
+   "reading": "Cá tính rõ nét đến mức người khác hoặc rất quý, hoặc rất ghét.",
+   "use": "reading"
+  },
+  {
+   "id": "al35c",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 35,
+   "topic": "trait",
+   "quote": "Their somewhat suspicious nature causes them to be distrustful",
+   "reading": "Tính hơi đa nghi khiến họ khó tin người.",
+   "use": "reading"
+  },
+  {
+   "id": "al35d",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 35,
+   "topic": "work",
+   "quote": "They make good surgeons and dentists, also detectives, being well fitted for employment where nerve and pluck are required",
+   "reading": "Hợp với việc cần thần kinh vững và lòng gan dạ, như phẫu thuật, nha khoa, điều tra.",
+   "use": "reading"
+  },
+  {
+   "id": "al35e",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 35,
+   "topic": "trait",
+   "quote": "The inner nature or destiny of this sign is Regeneration.",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Tái sinh (Regeneration).",
+   "use": "reading"
+  },
+  {
+   "id": "al59d",
+   "sign": "bo-cap",
+   "book": "AL",
+   "page": 59,
+   "topic": "trait",
+   "quote": "It is the sign of reserved force and power",
+   "reading": "Mang sức mạnh và năng lực được giữ kín bên trong.",
+   "use": "reading"
+  },
+  {
+   "id": "ca97a",
+   "sign": "bo-cap",
+   "book": "CA",
+   "page": 97,
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "modality": "fixed",
+    "ruler": "Mars"
+   },
+   "quote": "Is a cold, watry, nocturnal, flegmatick, feminine Signe, of the watry Triplicity, fixed and North, the house and joy of Mars",
+   "reading": "Thuộc tam hợp Nước, là cung hoàng đạo cố định (fixed), phương Bắc; là nhà của Sao Hỏa.",
+   "use": "reading"
+  },
+  {
+   "id": "tb43f",
+   "sign": "bo-cap",
+   "book": "TB",
+   "page": 43,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Mars"
+   },
+   "quote": "Mars is dry in nature, and beneath the sphere of Jupiter: he takes the next two signs, of a nature similar to his own, viz. Aries and Scorpio",
+   "reading": "Là nhà (house) của Sao Hỏa.",
+   "use": "reading"
+  },
+  {
+   "id": "tb45b",
+   "sign": "bo-cap",
+   "book": "TB",
+   "page": 45,
+   "topic": "classification",
+   "quote": "The fourth triplicity, formed by Cancer, Scorpio, and Pisces",
+   "reading": "Cùng Cự Giải và Song Ngư tạo thành tam hợp thứ tư.",
+   "use": "reading"
+  },
+  {
+   "id": "al36a",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 36,
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "modality": "mutable"
+   },
+   "quote": "Sagittarius is the last of the fiery triplicity and of the reproductive trinity, and the third of the mutable signs",
+   "reading": "Là cung hoàng đạo cuối của nhóm Lửa và thứ ba của nhóm linh hoạt (mutable).",
+   "use": "reading"
+  },
+  {
+   "id": "al36b",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 36,
+   "topic": "trait",
+   "quote": "of Sagittarius individuals it may be said that they always aim for the highest",
+   "reading": "Luôn nhắm tới điều cao nhất.",
+   "use": "reading"
+  },
+  {
+   "id": "al36c",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 36,
+   "topic": "trait",
+   "quote": "When fully individualised, those born in this sign are great lovers of law and order",
+   "reading": "Khi trưởng thành về nội tâm thì rất yêu luật lệ và trật tự.",
+   "use": "reading"
+  },
+  {
+   "id": "al36d",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 36,
+   "topic": "trait",
+   "quote": "to be the most self-confident and self-reliant of any of the signs",
+   "reading": "Tự tin và tự lực nhất trong các cung hoàng đạo.",
+   "use": "reading"
+  },
+  {
+   "id": "al36e",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 36,
+   "topic": "trait",
+   "quote": "They are always looking forward with a bright and happy disposition, full of joy and hope for the future.",
+   "reading": "Luôn nhìn về phía trước với tính tình tươi sáng, vui vẻ, đầy hy vọng vào tương lai.",
+   "use": "reading"
+  },
+  {
+   "id": "al36f",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 36,
+   "topic": "trait",
+   "quote": "They seem to possess only one thought at a time and this thought carries them on to the goal they wish to reach",
+   "reading": "Mỗi lúc chỉ theo một ý nghĩ, và ý nghĩ ấy đưa họ thẳng tới đích.",
+   "use": "reading"
+  },
+  {
+   "id": "al36g",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 36,
+   "topic": "trait",
+   "quote": "for they are then restless and inclined to over-activity, are nervous and highly strung",
+   "reading": "Khi sống theo cái tôi thì bồn chồn, dễ hoạt động quá sức, căng thẳng thần kinh.",
+   "use": "reading"
+  },
+  {
+   "id": "al37a",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 37,
+   "topic": "trait",
+   "quote": "The personal Sagittarian is a bluff and outspoken character, somewhat exacting, and very apt to domineer.",
+   "reading": "Khi sống theo cái tôi thì bộc trực, nói thẳng, khá khắt khe và rất dễ áp đặt.",
+   "use": "reading"
+  },
+  {
+   "id": "al37b",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 37,
+   "topic": "trait",
+   "quote": "the nature is exceedingly rebellious, unwilling to submit to the least restraint",
+   "reading": "Khi lệch lạc thì cực kỳ nổi loạn, không chịu bất kỳ ràng buộc nào.",
+   "use": "reading"
+  },
+  {
+   "id": "al37c",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 37,
+   "topic": "trait",
+   "quote": "Nevertheless, the philosophic spirit is always strong within them",
+   "reading": "Tinh thần triết lý luôn mạnh mẽ bên trong.",
+   "use": "reading"
+  },
+  {
+   "id": "al38a",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 38,
+   "topic": "trait",
+   "quote": "Sagittarians may be described as impressionable, active and enterprising individuals, somewhat introspective, but always frank, honest, generous and sincere",
+   "reading": "Dễ cảm, năng động, dám làm, hơi hướng nội, nhưng luôn thẳng thắn, trung thực, rộng rãi và chân thành.",
+   "use": "reading"
+  },
+  {
+   "id": "al38b",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 38,
+   "topic": "trait",
+   "quote": "they make splendid characters when allowed perfect freedom but when bound or placed under any restraint they become fretful, irritable and rebellious",
+   "reading": "Rất tuyệt khi được hoàn toàn tự do; khi bị trói buộc thì bực bội, cáu kỉnh và chống đối.",
+   "use": "reading"
+  },
+  {
+   "id": "al38c",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 38,
+   "topic": "trait",
+   "quote": "They never willingly hurt, but when pushed to extremes they are apt to say more than they mean",
+   "reading": "Không bao giờ cố ý làm tổn thương, nhưng khi bị dồn ép dễ nói quá lời.",
+   "use": "reading"
+  },
+  {
+   "id": "al38d",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 38,
+   "topic": "work",
+   "quote": "Other vocations favoured by those born in this sign comprise teaching, the ministry, law, astronomy",
+   "reading": "Những nghề hợp gồm dạy học, tu hành, luật, thiên văn.",
+   "use": "reading"
+  },
+  {
+   "id": "al38e",
+   "sign": "nhan-ma",
+   "book": "AL",
+   "page": 38,
+   "topic": "trait",
+   "quote": "The inner nature or destiny of this sign is Law.",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Luật (Law).",
+   "use": "reading"
+  },
+  {
+   "id": "ca97b",
+   "sign": "nhan-ma",
+   "book": "CA",
+   "page": 97,
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "modality": "mutable"
+   },
+   "quote": "Is of the fiery triplicity, East, in nature fiery, hot, dry, Masculine, Cholericke, Diurnall, Common, bycorporall or double bodied",
+   "reading": "Thuộc tam hợp Lửa, phương Đông; là cung hoàng đạo 'chung' (common), hai thân.",
+   "use": "reading"
+  },
+  {
+   "id": "tb42c",
+   "sign": "nhan-ma",
+   "book": "TB",
+   "page": 42,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Jupiter"
+   },
+   "quote": "Jupiter has a favourable temperament, and is situated beneath the sphere of Saturn; he therefore occupies the next two signs, Sagittarius and Pisces.",
+   "reading": "Là nhà (house) của Sao Mộc.",
+   "use": "reading"
+  },
+  {
+   "id": "tb44g",
+   "sign": "nhan-ma",
+   "book": "TB",
+   "page": 44,
+   "topic": "classification",
+   "quote": "The first triangle, or triplicity, is formed by three masculine signs, Aries, Leo, and Sagittarius",
+   "reading": "Cùng Bạch Dương và Sư Tử tạo thành tam hợp thứ nhất, gồm ba cung hoàng đạo dương.",
+   "use": "reading"
+  },
+  {
+   "id": "al39a",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 39,
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "cardinal"
+   },
+   "quote": "Capricorn is the last of the cardinal signs, and also the last of the earthy triplicity",
+   "reading": "Là cung hoàng đạo cuối của nhóm tiên phong (cardinal) và cuối của nhóm Đất.",
+   "use": "reading"
+  },
+  {
+   "id": "al39b",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 39,
+   "topic": "trait",
+   "quote": "The Capricornians, when individualised, are impartial, just and accurate, aiming to be precise, exact and constant",
+   "reading": "Khi trưởng thành thì vô tư, công bằng, chính xác; muốn chu đáo, đúng mực và kiên định.",
+   "use": "reading"
+  },
+  {
+   "id": "al39c",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 39,
+   "topic": "trait",
+   "quote": "fulfilling all things through persistent, industrious and persevering endeavour",
+   "reading": "Làm nên mọi việc nhờ nỗ lực bền bỉ, cần cù và nhẫn nại.",
+   "use": "reading"
+  },
+  {
+   "id": "al39d",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 39,
+   "topic": "trait",
+   "quote": "ever enduring with a calm, earnest patience and grave reflective demeanour",
+   "reading": "Chịu đựng với sự kiên nhẫn điềm tĩnh, nghiêm túc và vẻ trầm ngâm.",
+   "use": "reading"
+  },
+  {
+   "id": "al39e",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 39,
+   "topic": "trait",
+   "quote": "they know how to be frugal and thrifty without being mean",
+   "reading": "Biết tằn tiện, tiết kiệm mà không keo kiệt.",
+   "use": "reading"
+  },
+  {
+   "id": "al39f",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 39,
+   "topic": "trait",
+   "quote": "They are always independent characters, possessing quiet self-reliance and steady determination",
+   "reading": "Luôn độc lập, tự lực một cách lặng lẽ, quyết tâm bền vững.",
+   "use": "reading"
+  },
+  {
+   "id": "al40a",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 40,
+   "topic": "trait",
+   "quote": "personal they are melancholic, doubtful and sceptical, and inclined to be very indifferent and perverse",
+   "reading": "Khi sống theo cái tôi thì u sầu, ngờ vực, hoài nghi, dễ rất thờ ơ và ngang ngạnh.",
+   "use": "reading"
+  },
+  {
+   "id": "al40b",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 40,
+   "topic": "trait",
+   "quote": "and with their punctual attention to details, and their thrifty and acquisitive methods, they can build while others are dreaming of the work",
+   "reading": "Chú ý chi tiết, cần kiệm và biết tích lũy, nên xây dựng được trong khi người khác còn đang mơ.",
+   "use": "reading"
+  },
+  {
+   "id": "al40c",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 40,
+   "topic": "trait",
+   "quote": "They make the most of all their opportunities, and being self-reliant they accomplish their ends.",
+   "reading": "Tận dụng mọi cơ hội; tự lực nên đạt được mục đích.",
+   "use": "reading"
+  },
+  {
+   "id": "al40d",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 40,
+   "topic": "work",
+   "quote": "in any avocation where steady application and industry are required, they are the persons to succeed",
+   "reading": "Thành công trong mọi công việc cần sự chuyên tâm đều đặn và cần cù.",
+   "use": "reading"
+  },
+  {
+   "id": "al41a",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 41,
+   "topic": "trait",
+   "quote": "they are always more or less ambitious, ever seeking in some way or other to display their independence",
+   "reading": "Ít nhiều luôn có tham vọng, tìm cách này hay cách khác để thể hiện sự độc lập.",
+   "use": "reading"
+  },
+  {
+   "id": "al41b",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 41,
+   "topic": "trait",
+   "quote": "those born in Capricorn can be extremely selfish; but their virtue lies in patience, contemplation, and reflection",
+   "reading": "Có thể cực kỳ ích kỷ, nhưng đức tính nằm ở sự kiên nhẫn, chiêm nghiệm và suy xét.",
+   "use": "reading"
+  },
+  {
+   "id": "al41c",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 41,
+   "topic": "trait",
+   "quote": "The inner nature or destiny of this sign is Service.",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Phụng sự (Service).",
+   "use": "reading"
+  },
+  {
+   "id": "al60a",
+   "sign": "ma-ket",
+   "book": "AL",
+   "page": 60,
+   "topic": "trait",
+   "quote": "it gives perseverance, industry, prudence, patience and thoughtfulness, but renders the undeveloped capricious, crafty, suspicious and exacting",
+   "reading": "Cho sự bền chí, cần cù, thận trọng, kiên nhẫn, chu đáo; người chưa phát triển thì thất thường, xảo quyệt, đa nghi và khắt khe.",
+   "use": "reading"
+  },
+  {
+   "id": "ca98a",
+   "sign": "ma-ket",
+   "book": "CA",
+   "page": 98,
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "cardinal",
+    "ruler": "Saturn"
+   },
+   "quote": "It's the House of Saturn, and is Nocturnal, Cold, Dry, Melancholly, Earthly, Feminine, Solsticiall, Cardinall, Moveable",
+   "reading": "Là nhà của Sao Thổ; thuộc Đất, là cung hoàng đạo điểm chí, tiên phong (cardinal), chuyển động.",
+   "use": "reading"
+  },
+  {
+   "id": "tb42d",
+   "sign": "ma-ket",
+   "book": "TB",
+   "page": 42,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Saturn"
+   },
+   "quote": "occupies the signs opposite to Cancer and Leo: these are Aquarius and Capricorn",
+   "reading": "Là nhà (house) của Sao Thổ (Sao Thổ chiếm hai cung hoàng đạo đối diện Cự Giải và Sư Tử).",
+   "use": "reading"
+  },
+  {
+   "id": "tb34c",
+   "sign": "ma-ket",
+   "book": "TB",
+   "page": 34,
+   "topic": "classification",
+   "quote": "and the first thirty degrees after the winter solstice, composing the sign of Capricorn",
+   "reading": "Là cung hoàng đạo chí (tropical): ba mươi độ đầu tiên sau đông chí.",
+   "use": "reading"
+  },
+  {
+   "id": "tb44h",
+   "sign": "ma-ket",
+   "book": "TB",
+   "page": 44,
+   "topic": "classification",
+   "quote": "The second triplicity, formed by Taurus, Virgo, and Capricorn",
+   "reading": "Cùng Kim Ngưu và Xử Nữ tạo thành tam hợp thứ hai.",
+   "use": "reading"
+  },
+  {
+   "id": "al60b",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 60,
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "fixed"
+   },
+   "quote": "AQUARIUS, the eleventh sign of the zodiac, is a fixed, airy, positive sign, of the nature of fixed air",
+   "reading": "Là cung hoàng đạo kiên định (fixed), thuộc nhóm Khí, dương; tác giả gọi là 'khí cố định'.",
+   "use": "reading"
+  },
+  {
+   "id": "al42a",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 42,
+   "topic": "trait",
+   "quote": "Aquarian individuals are determined, patient, quiet, unobtrusive and faithful.",
+   "reading": "Quyết tâm, kiên nhẫn, trầm lặng, khiêm tốn và chung thủy.",
+   "use": "reading"
+  },
+  {
+   "id": "al42b",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 42,
+   "topic": "trait",
+   "quote": "They incline toward the unconventional, and thus make excellent reformers",
+   "reading": "Nghiêng về sự không theo lối mòn nên là người cải cách giỏi.",
+   "use": "reading"
+  },
+  {
+   "id": "al42c",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 42,
+   "topic": "trait",
+   "quote": "They are persons one feels one can depend upon, and they inspire trust by their equable dispositions.",
+   "reading": "Là người khiến người khác thấy có thể dựa vào; tính tình ôn hòa tạo lòng tin.",
+   "use": "reading"
+  },
+  {
+   "id": "al42d",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 42,
+   "topic": "trait",
+   "quote": "They are always kind, humane, and retiring in disposition.",
+   "reading": "Luôn tử tế, nhân hậu và kín đáo.",
+   "use": "reading"
+  },
+  {
+   "id": "al42e",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 42,
+   "topic": "trait",
+   "quote": "they have a great love for all humanitarian undertakings and concerns that produce harmony for the many",
+   "reading": "Rất yêu những việc nhân đạo và những gì mang lại hòa hợp cho số đông.",
+   "use": "reading"
+  },
+  {
+   "id": "al43a",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 43,
+   "topic": "trait",
+   "quote": "When living along the purely personal lines, they are chaotic, diffusive, deceptive, tricky and clever for their own ends",
+   "reading": "Khi chỉ sống theo cái tôi thì lộn xộn, tản mạn, có thể dối trá, mánh khóe, khôn khéo vì lợi riêng.",
+   "use": "reading"
+  },
+  {
+   "id": "al43b",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 43,
+   "topic": "trait",
+   "quote": "or inclined to be vacillating and capricious, often boasting of things they cannot perform",
+   "reading": "Hoặc dễ dao động, thất thường, hay khoe những điều mình không làm được.",
+   "use": "reading"
+  },
+  {
+   "id": "al43c",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 43,
+   "topic": "work",
+   "quote": "They have inventive genius, and are responsible for more inventions for the benefit of humanity than any of the other signs.",
+   "reading": "Có tài sáng chế; theo tác giả, đóng góp nhiều phát minh có ích cho nhân loại hơn mọi cung hoàng đạo khác.",
+   "use": "reading"
+  },
+  {
+   "id": "al43d",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 43,
+   "topic": "trait",
+   "quote": "The Aquarians may be summed up as honest, steady, discriminative, truly intelligent individuals.",
+   "reading": "Trung thực, vững vàng, biết phân định, thông minh thật sự.",
+   "use": "reading"
+  },
+  {
+   "id": "al43e",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 43,
+   "topic": "trait",
+   "quote": "They are acquisitive without being miserly, and are inclined to leave their possessions for the benefit of humanity",
+   "reading": "Biết tích lũy mà không hà tiện, thường muốn để lại tài sản cho lợi ích chung.",
+   "use": "reading"
+  },
+  {
+   "id": "al43f",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 43,
+   "topic": "trait",
+   "quote": "They seem to readily take to strangers, and rarely consider",
+   "reading": "Dễ gần gũi với người lạ.",
+   "use": "reading"
+  },
+  {
+   "id": "al44a",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 44,
+   "topic": "trait",
+   "quote": "through their excellent ability to read and judge human character they rarely make mistakes in their estimates",
+   "reading": "Đọc và đánh giá người rất giỏi, hiếm khi nhận định sai.",
+   "use": "reading"
+  },
+  {
+   "id": "al44b",
+   "sign": "bao-binh",
+   "book": "AL",
+   "page": 44,
+   "topic": "trait",
+   "quote": "The inner nature and destiny of this sign is expressed in the one word Humanity.",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Nhân loại (Humanity).",
+   "use": "reading"
+  },
+  {
+   "id": "ca98b",
+   "sign": "bao-binh",
+   "book": "CA",
+   "page": 98,
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "fixed"
+   },
+   "quote": "Is an aierial, hot and moyst Signe, of the aiery Triplicity, diurnal, sanguine, fixed, rational, humane, masculine",
+   "reading": "Thuộc tam hợp Khí (nóng, ẩm); là cung hoàng đạo cố định (fixed).",
+   "use": "reading"
+  },
+  {
+   "id": "tb42e",
+   "sign": "bao-binh",
+   "book": "TB",
+   "page": 42,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Saturn"
+   },
+   "quote": "occupies the signs opposite to Cancer and Leo: these are Aquarius and Capricorn",
+   "reading": "Là nhà (house) của Sao Thổ (Sao Thổ chiếm hai cung hoàng đạo đối diện Cự Giải và Sư Tử).",
+   "use": "reading"
+  },
+  {
+   "id": "tb44i",
+   "sign": "bao-binh",
+   "book": "TB",
+   "page": 44,
+   "topic": "classification",
+   "quote": "The third triplicity is composed of Gemini, Libra, and Aquarius, masculine signs.",
+   "reading": "Cùng Song Tử và Thiên Bình tạo thành tam hợp thứ ba, gồm các cung hoàng đạo dương.",
+   "use": "reading"
+  },
+  {
+   "id": "al45a",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 45,
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "modality": "mutable"
+   },
+   "quote": "It is the last of the watery and mutable signs, and of the serving trinity.",
+   "reading": "Là cung hoàng đạo cuối của nhóm Nước và của nhóm linh hoạt (mutable).",
+   "use": "reading"
+  },
+  {
+   "id": "al45b",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 45,
+   "topic": "trait",
+   "quote": "They are then over-restless and over-anxious, lacking life and energy, apparently undecided how to act, and always waiting for an opportunity.",
+   "reading": "Khi sống hoàn toàn theo cái tôi thì quá bồn chồn, quá lo âu, thiếu sinh khí, lưỡng lự và cứ chờ thời cơ.",
+   "use": "reading"
+  },
+  {
+   "id": "al45c",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 45,
+   "topic": "trait",
+   "quote": "They nearly always pretend to be something different from what they really are",
+   "reading": "Hầu như luôn tỏ ra khác với con người thật của mình.",
+   "use": "reading"
+  },
+  {
+   "id": "al45d",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 45,
+   "topic": "trait",
+   "quote": "A considerable amount of the Pisces personal character appears to arise from a lack of decision",
+   "reading": "Phần lớn tính cách bắt nguồn từ sự thiếu quyết đoán.",
+   "use": "reading"
+  },
+  {
+   "id": "al46a",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 46,
+   "topic": "trait",
+   "quote": "Possessing very strong emotions they become much attached to their friends, quietly accepting their advice and opinion",
+   "reading": "Cảm xúc rất mạnh, rất gắn bó với bạn bè và hay nghe theo lời khuyên của họ.",
+   "use": "reading"
+  },
+  {
+   "id": "al46b",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 46,
+   "topic": "trait",
+   "quote": "They are very changeable and imaginative, or, more correctly, fanciful.",
+   "reading": "Rất hay thay đổi và giàu tưởng tượng, đúng hơn là hay mơ mộng.",
+   "use": "reading"
+  },
+  {
+   "id": "al46c",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 46,
+   "topic": "trait",
+   "quote": "They love to live in a world of romance, and are fond of sensational novels",
+   "reading": "Thích sống trong thế giới lãng mạn, mê truyện ly kỳ.",
+   "use": "reading"
+  },
+  {
+   "id": "al46d",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 46,
+   "topic": "trait",
+   "quote": "they are very patient, gentle and submissive persons, possessing a quiet yet deep understanding",
+   "reading": "Khi tự chủ hơn thì rất kiên nhẫn, hiền hòa, nhường nhịn, hiểu biết lặng lẽ mà sâu sắc.",
+   "use": "reading"
+  },
+  {
+   "id": "al46e",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 46,
+   "topic": "trait",
+   "quote": "they are capable of being very honest, amiable, loving and kind, having an abundance of sympathy, especially with all dumb animals",
+   "reading": "Có thể rất trung thực, dễ mến, giàu tình thương và tử tế, đặc biệt thương loài vật.",
+   "use": "reading"
+  },
+  {
+   "id": "al46f",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 46,
+   "topic": "trait",
+   "quote": "They are ever apt to be too timid rather than over bold",
+   "reading": "Thường quá nhút nhát hơn là quá bạo dạn.",
+   "use": "reading"
+  },
+  {
+   "id": "al46g",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 46,
+   "topic": "trait",
+   "quote": "they are, however, very hospitable, and seek to do all in their power to make those dependent on them comfortable and happy",
+   "reading": "Rất hiếu khách, làm hết sức để người nương tựa mình được thoải mái, vui vẻ.",
+   "use": "reading"
+  },
+  {
+   "id": "al46h",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 46,
+   "topic": "work",
+   "quote": "As caterers, hotel proprietors, nurses, and those who minister to the welfare of others generally, they find their forte in life.",
+   "reading": "Sở trường là những việc chăm lo cho người khác: phục vụ ăn uống, khách sạn, điều dưỡng.",
+   "use": "reading"
+  },
+  {
+   "id": "al47a",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 47,
+   "topic": "trait",
+   "quote": "They are emotional and secretive, patient and meditative, kind and generous, imitative, receptive and peaceful",
+   "reading": "Đa cảm, kín đáo, kiên nhẫn, trầm tư, tử tế, rộng rãi, dễ bắt chước, dễ tiếp nhận và ôn hòa.",
+   "use": "reading"
+  },
+  {
+   "id": "al47b",
+   "sign": "song-ngu",
+   "book": "AL",
+   "page": 47,
+   "topic": "trait",
+   "quote": "The inner nature and final destiny of this sign is Spirituality.",
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Tâm linh (Spirituality).",
+   "use": "reading"
+  },
+  {
+   "id": "ca99a",
+   "sign": "song-ngu",
+   "book": "CA",
+   "page": 99,
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "ruler": "Jupiter"
+   },
+   "quote": "Is of the Watry Triplicity, Northern, cold Signe, moyst, Flegmatick, feminine, nocturnal, the house of Jupiter",
+   "reading": "Thuộc tam hợp Nước, phương Bắc; là nhà của Sao Mộc.",
+   "use": "reading"
+  },
+  {
+   "id": "ca99b",
+   "sign": "song-ngu",
+   "book": "CA",
+   "page": 99,
+   "topic": "classification",
+   "facts": {
+    "modality": "mutable"
+   },
+   "quote": "and exaltation of Venus, a Bycorporeal, common or double-bodied Signe",
+   "reading": "Là cung hoàng đạo 'chung' (common), hai thân (double-bodied).",
+   "use": "reading"
+  },
+  {
+   "id": "tb42f",
+   "sign": "song-ngu",
+   "book": "TB",
+   "page": 42,
+   "topic": "classification",
+   "facts": {
+    "ruler": "Jupiter"
+   },
+   "quote": "Jupiter has a favourable temperament, and is situated beneath the sphere of Saturn; he therefore occupies the next two signs, Sagittarius and Pisces.",
+   "reading": "Là nhà (house) của Sao Mộc.",
+   "use": "reading"
+  },
+  {
+   "id": "tb45c",
+   "sign": "song-ngu",
+   "book": "TB",
+   "page": 45,
+   "topic": "classification",
+   "quote": "The fourth triplicity, formed by Cancer, Scorpio, and Pisces",
+   "reading": "Cùng Cự Giải và Bọ Cạp tạo thành tam hợp thứ tư.",
+   "use": "reading"
+  }
+ ]
+}

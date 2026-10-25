@@ -1,0 +1,219 @@
+{
+ "number": 17,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Tùy là thời của sự theo nhau: mình theo người, người theo mình, nên mọi việc dễ hanh thông; nhưng chỉ khi điều mình theo là đúng đắn thì cái thông ấy mới không kèm lỗi.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Tùy tức là theo."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Mình hay theo người, người đến theo mình, đằng nọ đằng kia theo nhau thì sự hanh thông rất dễ"},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Đạo của sự theo lợi ở trinh chính, hễ theo được chính đính, rồi mới cả hanh mà không lỗi."}
+   ]
+  },
+  "image": {
+   "text": "Sấm nằm trong lòng chằm, nước chằm động theo sấm, rồi sấm cũng đến lúc lặn vào nghỉ: theo đúng nhịp của thời, ban ngày gắng sức, chiều tối biết dừng lại cho yên thân.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Sấm nổi trong chằm, chằm theo sấm mà động, là Tượng của sự theo."},
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Trong chằm có sấm, là quẻ Tùy, đấng quân tử coi đó mà sắp tối vào nghỉ ngơi."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đấng quân tử ban ngày thì tự cường không nghỉ, tới khi sắp sửa đêm tối, thì vào ở bên trong nghỉ ngơi, cho yên cái thân."}
+   ]
+  },
+  "structure": {
+   "text": "Hào dương cứng ở dưới cùng làm chủ quẻ, chịu đứng dưới các hào mềm; quẻ dưới động mà quẻ trên vui: người có sức mà chịu đứng thấp thì người khác vui lòng đi theo.",
+   "from": [
+    {"seg": "hao1", "layer": "chu_hy", "quote": "Hào Chín Đầu là hào Dương, ở ngôi dưới làm chủ quẻ Chấn, có nó quẻ này mới là quẻ Tùy."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "tất cả đều là nghĩa cứng đến theo mềm."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Lấy hai thể mà nói, thì thể này động mà thể kia đẹp lòng, cũng là nghĩa của sự theo"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "lời Chiêm của nó mới là cả hanh, nhưng phải lời về sự trinh thì mới không lỗi. Nếu mà việc theo không chính, thì không cả hanh mà sẽ không khỏi có lỗi."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Lúc này sức mạnh nằm ở chỗ biết theo: theo một hướng đi mới, một người dẫn dắt hay một thay đổi của nơi làm; theo vì lẽ phải thì tốt, theo bằng cách cong mình chiều cấp trên thì hỏng.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "nghĩa là theo được chính đính thì tốt, có thay đổi mà không được chính đính thì là quá động"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "vẫn không thể dùng cách trái lý, cong đạo để theo người trên"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Thấy người khác động mà động theo là cái dễ sa vào của thời Tùy: khoản chi hay khoản đầu tư nên được chọn vì nó đúng, không vì người thân rủ hay vì đang hứng khởi.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Nếu vì thân yêu mà theo, thì là do ở tư tình, không hợp chính lý"},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Bởi vì lòng mình vui đẹp mà theo, thì không biết là quá đáng."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Bước ra khỏi vòng người quen mà tìm đối tác thì dễ có công hơn chỉ làm ăn trong chỗ thân tình; muốn khách theo mình thì bên mạnh phải chịu hạ mình mà làm vừa lòng họ.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Ra cửa tức là không phải chỗ riêng tây gần gũi."},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Kết bạn, không vì tình riêng, cho nên sự theo xứng đáng mà có công."},
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Quẻ Tùy, cứng đến mà ở dưới mềm, động mà đẹp lòng, là quẻ Tùy."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người học được quẻ này nên chọn đúng người đáng theo mà theo hẳn: rời bỏ lối cũ để sang điều đúng, như người còn mờ đi theo người đã thấy sáng.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "kẻ học rời sang điều nghĩa"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Theo trở lên là thiện, như kẻ tối theo người sáng"}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hai mối cùng níu kéo thì khó giữ cả hai: quấn lấy người ở gần, dễ dãi trước mắt thì dễ mất người hợp với mình hơn; đã chọn thì nên một lòng.",
+    "from": [
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "không lẽ theo cả hai đằng"},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Nói vậy để răn người ta theo đằng ngay thì nên chuyên nhất."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Người mình thương nói sai vẫn dễ nghe theo, người mình không ưa nói đúng cũng gạt đi: chuyện nhà nên được phân xử theo lẽ phải hơn là theo thương ghét.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Thường tình con người, hễ yêu thì thấy là phải, mà ghét thì thấy là trái"},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Nếu vì thân yêu mà theo, thì là do ở tư tình, không hợp chính lý"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Câu hỏi của quẻ không phải có theo hay không, mà theo ai, theo điều gì và vào lúc nào; không có khuôn sẵn, cùng một bước đi, theo đúng thì hanh, theo sai thì thành lỗi.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Đạo đấng quân tử tùy thời mà động, theo với điều nên, vừa với sự biến, không thể làm ra điển yếu nhất định"},
+     {"seg": "thoan", "layer": "chu_hy", "quote": "Nếu mà việc theo không chính, thì không cả hanh mà sẽ không khỏi có lỗi."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Xét kỹ điều mình định theo có chính đáng không, chọn theo điều lành chứ không theo tình riêng, và giữ chừng mực: theo đến quá đà vì đang vui lòng là chỗ dễ trượt nhất.",
+   "from": [
+    {"seg": "hao5", "layer": "trinh_di", "quote": "đạo theo mà tốt, chỉ là theo điều lành mà thôi"},
+    {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Cái mà sự theo phải ngăn ngừa là sự quá đáng."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Được nhiều người theo về khi mình chưa phải người đứng đầu là thế dễ bị nghi, nhưng cái xấu ấy có thể tránh: xử đúng cách thì không thành lỗi.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Ở ngôi gần vua mà có được, nghĩa nó chỉn hung."},
+     {"seg": "tieu_tuong4", "layer": "tien_nho", "quote": "“Nghĩa nó hung” là có lẽ hung, mà chưa ắt hung, xử được phải đạo như mấy câu dưới, thì không có lỗi."}
+    ]
+   },
+   {
+    "text": "Mối giao kết không bị tình riêng ràng buộc thì đứng được và có công; theo nhau chỉ vì thân quen thì dễ lệch khỏi lẽ phải.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Ra cửa kết bạn, thì không bị vướng về tình riêng, sự kết bạn đó ắt là chính đính."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Chỗ dựa quen thuộc vừa đổi thay nên mình cũng phải đổi theo: đổi vì điều đúng thì tốt, và bước ra ngoài vòng thân quen mà kết giao thì dễ thành việc.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Đã có chỗ theo, thì sự chủ giữ phải có thay đổi"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Chính đính thì không lỗi mà có công."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dưới, làm chủ quẻ dưới là quẻ động: người khởi phát sự thay đổi, cũng là người phải chọn hướng theo cho đúng.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Hào Chín Đầu là hào Dương, ở ngôi dưới làm chủ quẻ Chấn, có nó quẻ này mới là quẻ Tùy."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "nghia", "quote": "Hào Chín Đầu: Quan có thay đổi, chính thì tốt, ra cửa kết bạn thì có công."}
+  },
+  "2": {
+   "gist": {
+    "text": "Bám lấy cái gần và dễ trước mắt mà đánh mất mối xứng đáng ở xa: không theo được cả hai, nắm cái nhỏ thì buông mất cái lớn.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Hào Đầu là Dương ở dưới mà gần, hào Năm là chính ứng mà xa, hào Hai là hào Âm nhu không thể tự giữ để chờ kẻ chính ứng"},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Hào Hai nếu quấn quít với hào Đầu thì mất hào Năm, thế là không thể gồm cùng."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm mềm yếu, có chính ứng là hào Năm ở xa nhưng lại liền sát hào Đầu: sự gần gũi kéo đi trước khi kịp chờ mối đúng.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Hai ứng với hào Năm mà liền với hào Đầu, ấy là theo kẻ gần trước."},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Vì nó mềm yếu, không thể giữ bền"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "nghia", "quote": "Hào Sáu Hai: Quấn quít kẻ tiểu tử, mất đấng trượng phu."}
+  },
+  "3": {
+   "gist": {
+    "text": "Ngược với hào Hai: bỏ mối thấp để theo người hiểu biết hơn, nên cầu gì được nấy; nhưng phải theo bằng lẽ ngay, không bằng cách xu nịnh cho được việc riêng.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Bỏ hào Đầu mà theo hào Tư, đó là hợp lẽ thích nghi của sự theo."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "nếu như cốt được trên yêu thích để làm cho toại sự tìm của mình, đó là việc làm của bọn tiểu nhân tà nịnh, xu họa"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm cùng thể với hào Đầu nhưng nằm sát hào Chín Tư, mà hào Tư cũng không có ứng: hai bên ở gần và cần đến nhau.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba tuy cùng thể với hào Đầu mà gần sát với hào Tư, cho nên quấn quít với hào Tư."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Tư cũng không có ứng, tức là kẻ không có chỗ theo."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "nghia", "quote": "Hào Sáu Ba: Quấn quít đấng trượng phu, mất kẻ tiểu tử, theo mà có tìm, lợi về ở trinh."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Đi theo một người đang gánh việc lớn thì dễ được điều mình cầu, miễn đừng vì muốn được lòng mà làm điều trái lẽ.",
+     "from": [
+      {"seg": "hao3", "layer": "chu_hy", "quote": "Hào Tư là hào Dương, đương gánh công việc mà mình theo nó, ấy là có tìm ắt được"},
+      {"seg": "hao3", "layer": "trinh_di", "quote": "vẫn không thể dùng cách trái lý, cong đạo để theo người trên"}
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Được nhiều người theo về mình khi mình chưa phải người đứng đầu: làm đúng vẫn dễ bị nghi là lấn trên; giữ lòng thành, làm hợp đạo và xử sáng suốt thì khỏi lỗi.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Nếu mà lòng người theo mình ấy là đạo nguy nghi, cho nên mới hung."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Chỉ có thành tín chứa ở trong, hành động hợp với đạo, lấy cách sáng khôn mà xử, thì có lỗi gì?"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở dưới quẻ trên, cùng đức cứng với hào Năm và sát ngay bên dưới: thế mạnh đến mức lấn lên người đứng đầu.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Hào Chín Tư lấy đức cứng ở dưới quẻ trên, cùng đức với hào Năm"},
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Nhưng thế nó lấn lên hào Năm, cho nên tuy chính mà hung"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "chỉ duy có tin, ở đạo, mà sáng, thì người trên yên lòng mà theo trở xuống, có thể không lỗi. Kẻ xem nếu có đảm đương trách nhiệm của đời, cũng nên xem xét lời răn đó."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Người ở vị trí thứ hai mà được cấp dưới quý hơn cả cấp trên nên để ơn huệ và quyết định đi ra từ người đứng đầu, minh bạch việc mình làm.",
+     "from": [
+      {"seg": "hao4", "layer": "trinh_di", "quote": "Đạo làm tôi, nên để ân uy hết thẩy do ở người trên mà ra, khiến cho lòng người đều theo về vua."}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người ở chỗ cao thật lòng theo điều lành và tin người tốt, nên được tốt; chỉ cần coi chừng vì vui lòng mà theo đến quá đà.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "ấy là thực bụng về sự theo điều lành, đủ biết là tốt"},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Bởi vì lòng mình vui đẹp mà theo, thì không biết là quá đáng."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi tôn, vừa giữa vừa chính, ứng xuống hào Sáu Hai cũng trung chính: hai bên đều ngay nên tin nhau được.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Chín Năm ở ngôi tôn, được chỗ chính"},
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Hào này Dương cương trung chính, bên dưới lại ứng với kẻ trung chính, ấy là tin về kẻ lành."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Hào này Dương cương trung chính, bên dưới lại ứng với kẻ trung chính, ấy là tin về kẻ lành. Kẻ xem như thế được tốt là đáng."}
+  },
+  "6": {
+   "gist": {
+    "text": "Sự theo đã lên đến cùng, gắn bó chặt như bị buộc lại, không thể cởi: lòng thành đến mức ấy thông được cả thần minh, nhưng đem sự bám chặt ấy vào việc khác thì thành quá đà.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Ở chỗ tột cùng quẻ Tùy, tức là sự theo cố kết mà không thể cởi. Lòng thành tột bậc, có thể thông với đấng thần minh"},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "dùng về việc khác thì là quá đáng"}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "phàm việc bói tế núi sông, mà được hào này, hễ mà lòng thành như thế thì tốt."}
+  }
+ }
+}

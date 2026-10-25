@@ -4,6 +4,7 @@ build(chart) -> {version, chapters: [{id, title, paragraphs: [Para]}], audit, di
 """
 from __future__ import annotations
 
+import copy
 import datetime as dt
 
 from . import audit, ch_core, ch_layers, ch_life, ch_time
@@ -42,8 +43,15 @@ def build(chart: dict, mode: str = "deep", gender: str | None = None, when: dt.d
                "evidence": [], "level": "overview", "tier": "calc", "steps": [], "polarity": 0, "topic": "thoi_van", "keys": []}]
     chapters.append({"id": "thoi_van", "title": f"Thời vận ({when:%d/%m/%Y})", "paragraphs": tv})
     report = audit.check(chapters)
-    if mode == "overview":
-        for ch in chapters:
-            ch["paragraphs"] = [p for p in ch["paragraphs"] if p["level"] == "overview"]
-    return {"version": VERSION, "mode": mode, "chapters": chapters, "audit": report, "disclaimer": DISCLAIMER,
-            "operational": OPERATIONAL, "gender": gender}
+    out = {"version": VERSION, "mode": "deep", "chapters": chapters, "audit": report, "disclaimer": DISCLAIMER,
+           "operational": OPERATIONAL, "gender": gender}
+    return overview_of(out) if mode == "overview" else out
+
+
+def overview_of(full: dict) -> dict:
+    """The Tổng quan reading of a whole one: the overview-level paragraphs of each chapter (the audit ran on the whole reading)."""
+    out = copy.deepcopy(full)
+    out["mode"] = "overview"
+    for ch in out["chapters"]:
+        ch["paragraphs"] = [p for p in ch["paragraphs"] if p["level"] == "overview"]
+    return out

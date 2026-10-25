@@ -9,6 +9,8 @@ Also: sign ingresses and stations of the transiting planets in the same window. 
 from __future__ import annotations
 
 import datetime as dt
+import threading
+from collections import OrderedDict
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -53,15 +55,45 @@ def _lon(body: str, jd_ut):
     return E.longitude(body, E.time_jd_ut(jd_ut))
 
 
+# Samples shared by every request: the grid of a step is the multiples of that step (jd = k * step), cut into chunks of CHUNK
+# points, and a chunk once computed serves every later track of the same body and step: the sky around today is the same for every
+# chart, so Thời vận, the transit list and the forecast panels of all visitors reuse it. Bounded LRU (~2 MB at most).
+CHUNK = 64
+_SAMPLES: "OrderedDict[tuple[str, float, int], np.ndarray]" = OrderedDict()
+_SAMPLES_MAX = 1024
+_SAMPLES_LOCK = threading.Lock()
+
+
+def _samples(body: str, step: float, k0: int, k1: int) -> np.ndarray:
+    """Apparent longitudes at jd = k * step for k0 <= k < k1, from the shared chunks (missing chunks in one ephemeris call)."""
+    c0, c1 = k0 // CHUNK, (k1 - 1) // CHUNK
+    with _SAMPLES_LOCK:
+        have = {c: _SAMPLES[(body, step, c)] for c in range(c0, c1 + 1) if (body, step, c) in _SAMPLES}
+        for c in have:
+            _SAMPLES.move_to_end((body, step, c))
+    missing = [c for c in range(c0, c1 + 1) if c not in have]
+    if missing:
+        ks = np.concatenate([np.arange(c * CHUNK, (c + 1) * CHUNK) for c in missing])
+        vals = np.asarray(_lon(body, ks * step), dtype=float)
+        with _SAMPLES_LOCK:
+            for i, c in enumerate(missing):
+                have[c] = _SAMPLES[(body, step, c)] = vals[i * CHUNK:(i + 1) * CHUNK]
+            while len(_SAMPLES) > _SAMPLES_MAX:
+                _SAMPLES.popitem(last=False)
+    allv = np.concatenate([have[c] for c in range(c0, c1 + 1)])
+    return allv[k0 - c0 * CHUNK:k1 - c0 * CHUNK]
+
+
 class Track:
-    """One body's apparent longitude sampled once on a uniform grid (a single vectorised ephemeris call), then read anywhere
-    by 4-point Lagrange (cubic) interpolation of the unwrapped longitude. On these steps the interpolation error is far below
-    an arcsecond, so every root below is found on the polynomial instead of calling the ephemeris again."""
+    """One body's apparent longitude sampled on a uniform grid (shared chunks, see _samples), then read anywhere by 4-point
+    Lagrange (cubic) interpolation of the unwrapped longitude. On these steps the interpolation error is far below an arcsecond,
+    so every root below is found on the polynomial instead of calling the ephemeris again."""
 
     def __init__(self, body: str, jd0: float, jd1: float, step: float):
         self.body, self.step = body, step
-        self.grid = np.arange(jd0 - 2 * step, jd1 + 3 * step, step)
-        self.un = np.degrees(np.unwrap(np.radians(np.asarray(_lon(body, self.grid)))))
+        k0, k1 = int(np.floor(jd0 / step)) - 2, int(np.ceil(jd1 / step)) + 3
+        self.grid = np.arange(k0, k1) * step
+        self.un = np.degrees(np.unwrap(np.radians(_samples(body, step, k0, k1))))
         self.lon = self.un % 360.0
 
     def _k(self, x: float) -> tuple[int, float]:

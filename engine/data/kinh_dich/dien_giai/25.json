@@ -1,0 +1,385 @@
+{
+ "number": 25,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Vô Vọng là sống và làm theo lẽ thật, không gượng ép, không mưu cầu càn: đi đúng lẽ chính thì rất hanh thông, còn lệch khỏi lẽ chính mà cố đi thì gặp lỗi.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Vô Vọng nghĩa là thực lý tự nhiên"
+    },
+    {
+     "seg": "thoan",
+     "layer": "nghia",
+     "quote": "Quẻ Vô Vọng cả hanh, lợi về sự chính bền; thửa chẳng chính có tội, không lợi có thửa đi."
+    }
+   ]
+  },
+  "image": {
+   "text": "Sấm chạy khắp dưới trời, muôn vật theo đó mà nảy sinh, vật nào đúng với bản tính vật ấy; người khéo làm việc thuận theo thời và để mỗi người, mỗi việc lớn lên theo cái vốn có của nó.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "chu_hy",
+     "quote": "Dưới trời sấm đi, chấn động phát sinh muôn vật, vật nào nhằm đúng tính mệnh của vật ấy"
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "chu_hy",
+     "quote": "nhân theo bản tính của nó mà không tư túi với vật nào."
+    }
+   ]
+  },
+  "structure": {
+   "text": "Quẻ dưới là Chấn, chủ về động, quẻ trên là Kiền, mạnh: ba hào dưới được khuyến khích hành động, ba hào trên được răn giữ yên, vì đã đúng lẽ mà còn động thì thành càn.",
+   "from": [
+    {
+     "seg": "tieu_tuong6",
+     "layer": "tien_nho",
+     "quote": "Quẻ này ba hào dưới là thể Chấn, hào Đầu đi tốt, hào Hai lợi về sự đi, hào Ba người đi mà được, đều lợi về sự động"
+    },
+    {
+     "seg": "tieu_tuong6",
+     "layer": "tien_nho",
+     "quote": "nên động mà không động, với không nên động mà động đều là càn cả."
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan_truyen",
+   "layer": "chu_hy",
+   "quote": "Đây là sự biến đổi của quẻ và đức quẻ thể quẻ, để nói điều hay của quẻ như thế, cho nên lời chiêm của nó là cả hanh mà lợi về sự chính, tức là mệnh trời nên thế."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Người làm việc bằng sự thật lòng, không gian dối hay tô vẽ, dễ được việc và được người theo; lúc này nên tiến theo hướng ngay thẳng ấy.",
+    "from": [
+     {
+      "seg": "tieu_tuong1",
+      "layer": "trinh_di",
+      "quote": "dùng nó làm việc thì việc được hợp lẽ, dùng nó trị người, thì người ta cảm mà hóa theo"
+     },
+     {
+      "seg": "hao1",
+      "layer": "nghia",
+      "quote": "Hào Chín Đầu: Không càn, đi tốt."
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Cái lợi đến từ chỗ không đáng được thường kéo theo cái mất ngang với nó, như kẻ qua đường dắt được trâu thì người trong ấp mất trâu; tiền kiếm bằng đường tắt khó giữ.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Cái phúc được càn, vạ cũng theo liền; cái được bằng sự được càn, cái mất cũng ngang với nó, chỉn không đủ kể làm được."
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Như bậc xưa thuận theo thì trời mà nuôi muôn vật, việc làm ăn lớn lên khi sản phẩm hợp lúc, hợp người dùng; gượng đi trước thời mà mở đầu thì dễ thành bày đặt.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "nuôi nấng muôn vật khiến cho vật nào được sự thích nghi của vật ấy"
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Đấng thánh nhân tùy thời mà chế tác các việc"
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Học vì muốn hiểu chứ không vì phần thưởng tính sẵn, như cày ruộng mà không để bụng đếm phần gặt: cái được đến tự nhiên và lòng không bị lệch đi.",
+    "from": [
+     {
+      "seg": "tieu_tuong2",
+      "layer": "chu_hy",
+      "quote": "ý nói “không phải là vì tính lợi mà làm”."
+     },
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "nhân thời theo lý mà không có lòng riêng tây mong hẹn"
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Một mối tình thật lòng, không tính toán, đang yên ổn thì đừng cố can thiệp sửa chữa; như người không bệnh mà uống thuốc, chính sự can thiệp lại sinh ra tật.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Nếu như khí thể bình hòa, vốn không có tật mà lại công phạt, thì phải hại đến cái chính, cho nên đừng thuốc thì có mừng."
+     },
+     {
+      "seg": "tieu_tuong5",
+      "layer": "chu_hy",
+      "quote": "Đã là không càn mà lại thuốc men thì lại là càn mà sinh ra tật."
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Mỗi người trong nhà được nuôi theo bản tính của mình như muôn vật dưới tiếng sấm, không bị gò vào khuôn của người khác, thì nhà yên; ép theo ý muốn riêng là cái càn.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "khiến cho giống nào được sự thích nghi của giống ấy"
+     },
+     {
+      "seg": "intro",
+      "layer": "trinh_di",
+      "quote": "động theo lẽ trời là không càn, động theo lòng dục của người là càn."
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Trước khi bước tiếp, nên hỏi việc ấy có ngay thẳng không: đúng lẽ thì đi được, lệch lẽ mà vẫn cố đi thì chẳng có gì đỡ cho mình.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Gọi là không càn, chỉ có sự chính mà thôi."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "nghia",
+      "quote": "Mệnh trời không giúp, đi được chăng?"
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Làm điều đúng lẽ bằng lòng thật, không bày đặt hay mưu cầu ngoài phần mình; khi mọi việc đã đúng hướng thì giữ vững, đừng thêm động tác chỉ để làm cho có.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Không càn tức là rất thành, rất thành thì là đạo trời."
+    },
+    {
+     "seg": "hao4",
+     "layer": "trinh_di",
+     "quote": "“Khả trinh” nghĩa là cái chỗ nó ở có thể chính bền giữ lấy"
+    }
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Lòng không gian tà vẫn chưa đủ: việc làm mà không hợp lẽ chính thì vẫn thành sai, nên cái tốt của quẻ đi kèm điều kiện làm cho đúng.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "không trinh chính là càn, tuy không tà tâm, mà nếu không hợp chính lý thì là càn"
+     }
+    ]
+   },
+   {
+    "text": "Khi việc đã đến chỗ trọn mà còn cố đẩy thêm thì quá lẽ: chính cái đúng đi quá đà lại thành lỗi và sinh hại.",
+    "from": [
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "Không càn đã đến cùng cực, mà lại tiến thêm, thì tức là càn, ấy là cùng mà thành tai hại."
+     }
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Bước đầu xuất phát từ lòng thật, không toan tính: cứ thế mà đi thì đi đâu cũng tốt và được thỏa chí.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Dùng đức không càn mà đi, đi đâu không tốt?"
+     },
+     {
+      "seg": "tieu_tuong1",
+      "layer": "nghia",
+      "quote": "Lời Tượng nói rằng: Sự đi của đức không càn, là đắc chí vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi đầu, đúng chỗ, làm chủ quẻ Chấn bên trong và là chủ của cả quẻ.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Chấn lấy hào Đầu làm chủ, quẻ này bởi đó mà ra, cho nên nó là chủ quẻ Vô Vọng."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Hào Chín ở ngôi Đầu, như thế là chính."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Lấy đức cứng ở bên trong, là chủ của sự thành thật. Như thế mà đi, đủ biết là tốt, cho nên Tượng, Chiêm của nó như thế."
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Không cày mà có gặt, không vỡ đất mà có ruộng ngấu: làm theo lẽ đáng làm, không bày việc từ trước, không mong phần về sau, thì đi đâu cũng lợi.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "Mềm thuận trung chính, nhân thời theo lý mà không có lòng riêng tây mong hẹn"
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "nghĩa là không đầu têu gây việc, nhân theo sự lý nên thế mà thôi."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, được chỗ chính, ứng với hào Chín Năm cũng trung chính.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Hào Sáu Hai ở ngôi giữa được chỗ chính, lại ứng với hào Năm là hào trung chính"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "nghĩa là không làm việc gì từ trước, không mong sự gì về sau. Kẻ xem như thế, thì lợi có thửa đi."
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Vạ có thể đến không do lỗi mình, như con trâu buộc ở đó bị kẻ qua đường dắt đi mà người trong ấp phải chịu; có kẻ được thì có kẻ mất.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "nghia",
+      "quote": "Cái hại của sự không càn, hoặc buộc con trâu, kẻ đi đường mà được, người ấp bị hại."
+     },
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "Người đi đường được trâu, tức là cái vạ của người trong ấp, có kẻ được thì có kẻ mất"
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương, không trung không chính, lại ứng với hào Chín Trên nên dễ sinh lòng muốn.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Hào Ba Âm mềm mà không trung chính, là kẻ càn, lại ứng với hào Trên, tức là có sự muốn"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Sáu hào trong quẻ đều là không càn, hào Sáu Ba ở không được chính, cho nên lời Chiêm của nó là vô cố mà bị tai vạ, ví như có kẻ qua đường dắt mất trâu đi, mà kẻ ở đó lại phải lôi thôi về sự tra hỏi bắt bớ."
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Cứng mà không vướng lòng riêng: điều nên làm là giữ vững chỗ đứng đang có thì không lỗi, chưa phải lúc làm thêm việc gì.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Cứng mà không có riêng tây, há có càn ư?"
+     },
+     {
+      "seg": "tieu_tuong4",
+      "layer": "nghia",
+      "quote": "Lời Tượng nói rằng: Khá trinh không lỗi, cố giữ đó vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm trong quẻ Kiền, không có hào ứng: nhờ ở ngôi âm nên không quá cứng.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Là Hào Dương, ở thể Kiền, nếu lại ở vào ngôi Dương thì là quá đáng, quá đáng là càn, ở ngôi Âm ấy là không có chí ham chuộng sự cứng."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "đó là lời Chiêm “giữ vững được thì không lỗi, chứ không có thể làm gì”."
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Mọi thứ vốn đúng lẽ mà gặp chút trục trặc thì đừng vội chữa: để yên, chuyện ấy tự qua và có mừng; chữa bừa mới là sinh bệnh.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Có mừng nghĩa là tật tự mất đi."
+     },
+     {
+      "seg": "tieu_tuong5",
+      "layer": "trinh_di",
+      "quote": "Đã không càn rồi, lại còn lấy thuốc để chữa, thế là càn có thể dùng chăng?"
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ trên, ngôi tôn, ứng với hào Sáu Hai bên dưới cũng trung chính.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "Lấy đức Kiền cương trung chính để ở ngôi tôn, kẻ ứng ở dưới lại cũng trung chính, ấy là không càn đến cùng tột."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "Như thế mà có tật bệnh thì chớ dùng thuốc tự nhiên sẽ khỏi, cho nên Tượng, Chiêm như thế."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Đã ở chỗ tận cùng của sự đúng lẽ: không có gì sai, chỉ là không thể đi thêm; cố bước tiếp thì quá lẽ và gặp lỗi.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "Hào Chín Trên không phải là có sự càn, chỉ vì nó cùng cực, không thể đi nữa mà thôi."
+     },
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Cùng cực mà lại còn đi, tức là quá lẽ. Quá lẽ thì càn."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "nghia",
+    "quote": "Hào Chín Trên: Không càn mà đi, có tội, không thửa lợi."
+   }
+  }
+ }
+}

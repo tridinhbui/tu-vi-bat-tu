@@ -5,12 +5,12 @@ import dataclasses
 from functools import lru_cache
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from . import bazi, cross, temporal, tuvi
+from . import bazi, cross, hoang_dao, temporal, tuvi
 from .calendar_core import BirthInput, normalize
 from .ganzhi import BRANCHES_VI
 from .knowledge.loader import load_all, load_claims
@@ -63,7 +63,22 @@ def _compute(req: BirthReq):
 def chart(req: BirthReq):
     nb, bz, tv = _compute(req)
     return {"bazi": dataclasses.asdict(bz), "tuvi": dataclasses.asdict(tv),
-            "normalization_trace": dataclasses.asdict(nb.trace)}
+            "normalization_trace": dataclasses.asdict(nb.trace),
+            # cung hoàng đạo (Western sun sign) from the same normalised instant; computation only, readings wait for cited books
+            "western": hoang_dao.sun_sign(nb)}
+
+
+@app.get("/api/hoang-dao")
+def hoang_dao_lookup(y: int = Query(ge=1900, le=2049), m: int = Query(ge=1, le=12), d: int = Query(ge=1, le=31),
+                     h: int = Query(12, ge=0, le=23), mi: int = Query(0, ge=0, le=59), tz: str = "Asia/Ho_Chi_Minh"):
+    """Cung hoàng đạo for one birth moment (the /cung-hoang-dao/ page): sign, the Sun's ingress into it and into the next one (local
+    time), hours to the nearer boundary. Nothing is stored; the answer depends only on the query, so the edge may keep it."""
+    from fastapi.responses import JSONResponse
+    try:
+        body = hoang_dao.lookup(y, m, d, h, mi, tz)
+    except Exception as e:   # day not in month, DST gap, unknown zone
+        raise HTTPException(422, str(e))
+    return JSONResponse(body, headers={"cache-control": "public, max-age=86400"})
 
 
 @app.post("/api/analysis")
@@ -505,6 +520,8 @@ from . import phi_hoa_api  # noqa: E402  (opt-in draft Phi Hóa school)
 phi_hoa_api.register(app, BirthReq, _compute)
 from . import growth_api  # noqa: E402  (Personal Growth layer, behind TVBT_GROWTH)
 growth_api.register(app, BirthReq, _compute)
+from . import iching_api  # noqa: E402  (Kinh Dịch and Mai Hoa casts: facts only)
+iching_api.register(app)
 
 # Western astrology (engine/western/, kept apart from tvbt): /api/west/*
 from western.api import router as west_router  # noqa: E402

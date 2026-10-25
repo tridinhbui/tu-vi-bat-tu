@@ -127,7 +127,7 @@ test("deleting a saved chart ends its share links", async () => {
 });
 
 test("scrub keeps the chart and drops what prints the birth", () => {
-  assert.deepEqual(scrub({ a: [{ trace: { steps: [1] }, lunar: { year: 2000, day: 1, month: 2 } }], birth: { day: 1 }, keep: 1 }),
+  assert.deepEqual(scrub({ a: [{ trace: { steps: [1] }, lunar: { year: 2000, day: 1, month: 2 } }], birth: { day: 1 }, western: { cusp_hours: 3 }, keep: 1 }),
     { a: [{ trace: { steps: [] }, lunar: { year: 2000, month: null, day: null, leap: false, hidden: true } }], keep: 1 });
 });
 

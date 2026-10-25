@@ -1,0 +1,355 @@
+{
+ "number": 23,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Bác là thời bị bào mòn: cái xấu lớn dần từ dưới lên, cái tốt chỉ còn một chút ở trên cùng và đang rụng; lúc này không lợi để tiến tới hay khởi việc mới.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Năm hào Âm ở dưới mà đương sinh, một hào Dương ở trên mà sắp hết, Âm thịnh lớn mà Dương tiêu rụng"
+    },
+    {
+     "seg": "thoan",
+     "layer": "nghia",
+     "quote": "Quẻ bác không lợi có thửa đi."
+    }
+   ]
+  },
+  "image": {
+   "text": "Núi cao mà lại bám vào đất: cái ở trên chỉ đứng được nhờ cái ở dưới, sụt lở bắt đầu từ chân; người ở trên muốn yên thì phải vun đắp cho người ở dưới.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Lời Tượng nói rằng: Núi phụ ở đất, là quẻ Bác, người trên coi đó mà hậu cho kẻ dưới, làm yên chỗ ở."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "sụt phải từ dưới trước, dưới sụt thì trên nguy"
+    }
+   ]
+  },
+  "structure": {
+   "text": "Năm hào âm nối nhau tiến lên như vết đẽo chiếc giường từ chân, đến thành, đến da người nằm; chỉ còn hào Chín Trên là dương, như trái lớn chưa bị ăn, giữ mầm cho lúc hồi lại.",
+   "from": [
+    {
+     "seg": "hao1",
+     "layer": "trinh_di",
+     "quote": "Âm đẽo Dương, từ dưới lên trên."
+    },
+    {
+     "seg": "hao6",
+     "layer": "trinh_di",
+     "quote": "giống cái trái to lớn không bị ăn, sẽ thấy lại sinh."
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "Âm thịnh Dương suy, tiểu nhân mạnh mà quân tử mệt; lại trong Khôn ngoài Cấn, có tượng thuận mà đậu, cho nên kẻ xem mà gặp quẻ này thì không thể có sự đi đâu."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Như chiếc giường bị đẽo từ chân lên dần tới người nằm, chỗ đứng của mình có thể đang bị bào mòn từ những việc nhỏ bên dưới; lúc này nên ít lời, kín việc, quan sát hơn là tranh hơn thua.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "dưới đẽo lên, dần dần đến mình"
+     },
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "chỉ nên nhún lời nói, giấu tung tích, tùy thời nghe ngóng"
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Của cải giống quả núi tựa trên đất: nền gốc dày thì không sụt; lúc này nên củng cố khoản dự phòng và nguồn thu gốc, chưa phải thời mở rộng hay dấn thêm vốn.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "Dưới là gốc của trên, chưa có khi nào nền gốc dầy bền mà sụt lở được."
+     },
+     {
+      "seg": "thoan",
+      "layer": "nghia",
+      "quote": "Quẻ bác không lợi có thửa đi."
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Người đứng đầu muốn giữ được cơ nghiệp thì phải hậu đãi những người bên dưới mình, nhân viên hay đối tác nhỏ; ép họ thêm lúc này là tự đẽo vào chân đế của chính mình.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "Kẻ làm bề trên người ta biết lý như thế, thì nên yên nuôi nhân dân, để cho dầy cái gốc"
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Nề nếp học hành thường hỏng từ những chỗ nhỏ trước, như chân giường bị đẽo trước thân giường; giữa một nhóm đang buông lơi, tách ra theo người nghiêm túc thì không có lỗi.",
+    "from": [
+     {
+      "seg": "tieu_tuong1",
+      "layer": "trinh_di",
+      "quote": "tức là lấn ngập chính đạo, từ dưới trở lên."
+     },
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Có bụng theo về đường chính, ở lúc đẽo gọt, là không có lỗi."
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hao mòn giữa hai người đi từng nấc, như vết đẽo từ chân giường lên dần tới da; mỗi nấc bỏ qua thì hàn gắn khó thêm, và khi đã sát thân thì thành tai vạ.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Bắt đầu đẽo chân giường, dần dần đến da."
+     },
+     {
+      "seg": "tieu_tuong4",
+      "layer": "nghia",
+      "quote": "Đẽo giường bằng da, sát gần vạ vậy."
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Mái nhà chỉ yên khi cái nền bên dưới dày: người gánh vác trong nhà lúc này nên lo cho những người yếu hơn được ổn, vì chỗ ở của chính mình cũng nhờ thế mà vững.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "đó là để yên cái chỗ ở của mình vậy."
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi thế đang xuống mà sức mình mỏng, quẻ không khuyên bước tới: thuận theo thời mà dừng lại, chờ lúc vơi chuyển sang đầy, là cách xử hợp với tình thế.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Đấng quân tử gặp phải thời bác, biết là không thể có thửa đi, thuận thời mà dừng, mới là biết xem Tượng của quẻ Bác."
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Tạm dừng những bước tiến lớn, thuận theo lúc vơi mà giữ sức; dồn tâm vun lấy cái nền bên dưới và giữ phần cốt lõi còn lại, như trái lớn để dành cho mùa sau.",
+   "from": [
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "Lẽ có khi tiêu suy, có khi sinh lớn, có khi đầy thịnh, có khi hư hao, thuận nó thì tốt, nghịch nó thì hung"
+    },
+    {
+     "seg": "hao6",
+     "layer": "chu_hy",
+     "quote": "Một hào Dương ở trên, bị đẽo chưa hết, mà lại sinh được"
+    }
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Khi sự bào mòn mới chớm mà mình có người cùng chí đứng bên, vẫn còn giữ lại được; đơn độc thì vết đẽo lan nhanh, đến lúc chạm da thì thân đã nguy.",
+    "from": [
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Sự đẽo chưa thịnh, có kẻ cùng với, còn có thể thắng"
+     },
+     {
+      "seg": "tieu_tuong4",
+      "layer": "trinh_di",
+      "quote": "Đẽo đến da, thân sắp sửa mất, thế là sát gần tai vạ."
+     }
+    ]
+   },
+   {
+    "text": "Đến lúc sự đẽo gọt lên tới cùng, người giữ được nết tốt lại được mọi người nâng đỡ, còn kẻ chỉ biết đẽo gọt thì tự phá mất chỗ dung thân của mình.",
+    "from": [
+     {
+      "seg": "tieu_tuong6",
+      "layer": "nghia",
+      "quote": "Đấng quân tử được xe, dân thửa chở vậy; kẻ tiểu nhân đẽo nhà, trọn không thể dùng vậy."
+     },
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "kẻ tiểu nhân gặp lúc sự đẽo đã cực, thì sẽ đẽo đến cả nhà, không có chỗ nào dung thân."
+     }
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Sự hao mòn mới chạm đến chân giường: chưa tới thân, nhưng đã bắt đầu làm mất cái nền ngay thẳng, và nếu để yên nó sẽ lan dần lên.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "“Đẽo giường bằng chân” tức là đẽo cái chân giường."
+     },
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Khí Âm tự dưới tiến lên, dần dần tiêu mất sự trinh chính, tức là đạo hung."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Sự đẽo gọt tự dưới nổi lên, làm đứt sự chính thì hung, cho nên lời Chiêm như thế."
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Vết đẽo đã lên đến thành giường, chỗ ngăn trên với dưới: cái xấu tiến thêm một nấc, và người không có ai cùng chí bên cạnh thì càng khó giữ.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Khí Âm dần dần tiến lên, đẽo đến cái bễ càng mất sự chính, hung càng tệ lắm!"
+     },
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Âm lấn đẽo Dương, được càng thịnh và đến đẽo bễ, là vì Dương không có kẻ ứng cùng."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "nghia",
+    "quote": "Hào Sáu Hai: Đẽo giường bằng bễ, chẳng trinh, hung!"
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Giữa đám đang đẽo gọt, có một người tách khỏi phe mình mà theo người ngay: mất chỗ dựa nơi những người quanh mình nhưng không mắc lỗi.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Sự hành vi của hào Ba, có thể bảo là thiện vậy."
+     },
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "vì chỗ nó ở không giống như các hào Âm trên dưới, ấy là mất kẻ đồng loại."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào Sáu Ba ở chỗ cứng và ứng với hào Chín Trên, nên đứng khác hẳn các hào âm trên dưới nó.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "mà hào Ba riêng mình ở chỗ cứng, ứng kẻ cứng, khác với các hào Âm trên, dưới rồi."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Các hào Âm đương đẽo hào Dương mà một mình minh ứng với hào Dương, bỏ bè đảng mà theo kẻ ngay, là cách không lỗi. Kẻ xem như thế, thì được không lỗi."
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Vết đẽo đã chạm tới da người nằm: tai họa sát thân, không còn là chuyện lệch khỏi lẽ ngay mà đã thẳng là điều hung.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Da là bề ngoài thân thể, tức là sắp diệt thân thể rồi, đủ biết là hung."
+     },
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "Âm họa thiết đến thân, cho nên không nói “miệt trinh” mà nói thẳng là hung."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "nghia",
+    "quote": "Hào Sáu Tư: Đẽo giường bằng da, hung!"
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người đứng đầu nhóm dẫn mọi người vào nề nếp như xâu cá, và chịu theo sự tiết chế của người ngay ở trên: giữa thời suy mà chuyển sang hướng tốt, nên không việc gì không lợi.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Hào Năm có thể khiến các hào Âm thuận theo thứ tự như xâu cá vậy, lại được hào Dương ở trên yêu đương, như kẻ cung nhân, thì không sự gì không lợi."
+     },
+     {
+      "seg": "tieu_tuong5",
+      "layer": "trinh_di",
+      "quote": "cái ý khuyên người dời sang đường thiện của thánh nhân thâm thiết đến tột bậc vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào Sáu Năm ở ngôi cao nhất, nơi sự đẽo gọt lên tới cùng, nhưng lại là chủ của các hào âm nên có thể đổi hướng cả nhóm.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Đẽo đến ngôi vua, tức là đẽo đã cùng cực"
+     },
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Hào Năm là chủ các hào Âm"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "hào Năm là chủ các hào Âm, nên đem loại mình chịu sự tiết chế của hào Dương, cho nên mới có Tượng ấy, mà kẻ xem như thế, thì không sự gì không lợi."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Trái lớn còn sót trên cành không bị ăn: cái tốt chưa mất hẳn và sẽ nảy lại; sau thời rối ren, lòng người lại tìm về và nâng đỡ người ngay thẳng.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "Một hào Dương ở trên, bị đẽo chưa hết, mà lại sinh được, đấng quân tử ở trên, thì được mọi hào Âm cùng chở."
+     },
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "Chính đạo tiêu đẽo đã cực, người ta lại nhớ đến sự trị"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "chu_hy",
+    "quote": "Lấy Tượng đã rõ, mà sự xem của đấng quân tử và kẻ tiểu nhân cũng không giống nhau, lòng đấng thánh nhân càng có thể thấy."
+   }
+  }
+ }
+}

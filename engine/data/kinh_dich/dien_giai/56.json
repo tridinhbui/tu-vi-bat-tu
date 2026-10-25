@@ -1,0 +1,247 @@
+{
+ "number": 56,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Lữ là cảnh người xa nhà, ở nơi chưa phải chỗ của mình: chỉ hanh thông nho nhỏ, và cảnh tạm bợ không phải cớ để sống cẩu thả, giữ được nết ngay mới tốt.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Hành lữ không phải chỗ ở thường, hình như có thể cẩu thả, song “đạo” không chỗ nào không ở, cho nên việc hành lữ cũng có chỗ chính của nó"},
+    {"seg": "thoan_truyen", "layer": "chu_hy", "quote": "Thời cuộc của ky lữ là thời khó xử."}
+   ]
+  },
+  "image": {
+   "text": "Lửa cháy trên núi: núi đứng yên còn lửa đi mãi không dừng, như khách qua đường; xử việc nên cẩn trọng như núi mà không để việc đọng lại, như lửa không ở yên.",
+   "from": [
+    {"seg": "intro", "layer": "trinh_di", "quote": "núi thì đậu mà không dời, lửa thì đi không ở"},
+    {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Cẩn thận việc hình như núi, chẳng để đọng trễ việc ngục như lửa."}
+   ]
+  },
+  "structure": {
+   "text": "Hào Sáu Năm mềm mà được giữa ở quẻ ngoài, thuận theo các hào cứng trên dưới; còn hai hào quá cứng, tự cao ở trên cùng quẻ dưới và trên cùng quẻ trên đều mất chỗ ở.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Mềm thuận mà được chỗ giữa trong sự ở ngoài, chỗ đậu lại mắc vào thể sáng, cho nên nho nhỏ hanh thông được sự trinh chính của việc đi đường mà tốt."},
+    {"seg": "hao6", "layer": "trinh_di", "quote": "Trong thời hành lữ, nhún mềm ôn hòa, mới giữ được mình, mà quá cứng tự cao, thì phải mất chỗ yên ổn."}
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "nghia",
+   "quote": "Quẻ Lữ nhỏ hanh thông sự đi đường chính bền tốt."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Như người mới đến chỗ lạ, làm ở nơi chưa phải của mình thì nên mềm mỏng, nhún nhường; cậy tài mà tự cao dễ tự đưa mình vào cảnh khốn.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Cách cư xử trong thời ky lữ, lấy sự mềm thuận nhún nhường làm đầu"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "ở thời kỳ lữ mà quá cứng tự cao, là cách đưa sự khốn hại đến vậy."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Kẻ đi đường cần một chỗ trọ, ít tiền mang theo và người tin cậy bên cạnh: giữ yên được những thứ thiết yếu ấy, khỏi vạ nguy, đã là khá.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Nhà trọ là nơi mà kẻ hành lữ yên ở; tiền của là vật mà kẻ hành lữ trông cậy"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Chẳng nói là tốt, vì rằng trong lúc trọ đậu, được khỏi vạ nguy, đã là hay rồi."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Làm ăn ở nơi xa hay thị trường mới thì chỉ mong cái lợi vừa phải; giữa chốn lạ mà sinh lòng nhỏ nhen, việc hèn mọn gì cũng làm thì là tự rước vạ.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Lời Thoán nói rằng: Quẻ Lữ nhỏ hanh thông, mềm được giữa ở ngoài mà thuận với cứng"},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "những sự bỉ ổi nhỏ nhặt, không việc gì mà không làm, đó là cái để đưa sự hối nhục đến mà tự rước lấy vạ lỗi vậy."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người đi học xa hay mới vào một môi trường lạ thuận khi bám vào chỗ sáng, tức người và điều đáng học, và giữ nền nếp riêng, không để cảnh tạm bợ làm mình buông lơi.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Đậu vào chỗ sáng, thì không lỗi mất thì nghi rồi mới đúng với cách xử cuộc hành lữ."},
+     {"seg": "thoan", "layer": "chu_hy", "quote": "không thể phút chốc mà lìa cái lẽ chính đó."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Khi mình còn là người ngoài trong một mối quan hệ, mềm mỏng thì được đón nhận; lấy sự cứng cỏi, tự cao làm đắc ý thì cái cười lúc đầu không giữ được lâu.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "mềm thuận thì mọi người cùng với"},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Đương lấy sự cực cứng tự cao làm đắc chí mà cười"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Đi xa mà người kề cận vẫn một lòng là chỗ dựa lớn; đối xử nặng tay, tự cao với chính những người ấy thì mất lòng họ, như cháy mất chỗ trọ.",
+    "from": [
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Cái người ky lữ, nhờ vào thằng nhỏ đầy tớ, đã được thằng nhỏ, đầy tớ trung trinh, thì không oán hối gì nữa."},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Trong thời hành lữ mà mất lòng thằng nhỏ đầy tớ, là đáng lo lắm."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Trước chuyện đi xa hay đổi chỗ, nên biết đây là thời khó xử cho đúng; bước nhỏ, giữ được nơi ở yên và người tin cậy thì hợp hơn một bước lớn.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "mà riêng việc ky lữ là khó xử hơn, cho nên khen cái thời nghĩa của nó lớn lao."},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Như tài quẻ này có thể hanh thông nho nhỏ được lẽ trinh chính của sự đi đường mà tốt."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Ở nơi chưa phải của mình, hãy dùng sự mềm và biết nhún mình, giữ cái nết thuận, đừng vì vài lúc đắc ý mà nóng nảy, khinh suất làm mất nó.",
+   "from": [
+    {"seg": "hao4", "layer": "chu_hy", "quote": "là kẻ dùng sự mềm, biết nhún mình"},
+    {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "không biết bị mất đức thuận bằng cách nóng nẩy dễ dàng"}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Biết thuận với người trên, hòa với người dưới thì dù ở đất khách, tiếng tốt vẫn đến được tai người có quyền.",
+    "from": [
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Ở thời hành lữ mà được trên dưới cùng với, vì vậy mới đem được khen mệnh đến."},
+     {"seg": "tieu_tuong5", "layer": "chu_hy", "quote": "“Kịp” là tiếng khen mệnh tốt của nó đến tai người trên."}
+    ]
+   },
+   {
+    "text": "Đắc chí mà tự cao thì cái cười lúc đầu thành tiếng kêu về sau; nếu sớm tự biết mình thì không đến nỗi ấy.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Nếu nó tự biết thì chẳng đến nỗi quá cực mà phải kêu gào."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Vừa đặt chân tới chỗ lạ đã nhỏ nhen, vụn vặt, việc hèn mọn gì cũng làm: tự chuốc lấy vạ, có người giúp cũng khó cứu được.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Cái người bụng dạ hèn kém, đã ở vào cảnh lữ khốn, thì những sự bỉ ổi nhỏ nhặt, không việc gì mà không làm"},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Đương thời lữ khốn, tài chất như thế, dẫu có ứng viện, cũng không có thể làm gì."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở dưới cùng: chất mềm yếu lại đứng chỗ thấp nhất của cảnh xa nhà.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Sáu Đầu lấy tài âm mềm ở thì ky lữ, lại ở vào chỗ dưới thấp"}
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Đương thời ky lữ, lấy chất Âm mềm ở ngôi dưới, cho nên Tượng, Chiêm của nó như thế."
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Kẻ đi đường tới được nhà trọ, mang đủ tiền, có người giúp ngay thật: nhờ mềm thuận và cư xử có chừng mực mà được yên, giữ được của và được người hết lòng.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Kẻ hành lữ tới nhà trọ thì yên, có mang của thì dư dụ, được thằng nhỏ đầy tớ trinh tín thì không bị lừa dối mà còn có chỗ nương chờ."},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "giữa chính thì cư xử không mất lẽ xứng đáng"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, được giữa được chính, nên được lòng cả người trong lẫn người ngoài.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "hào Hai mềm thuận ở giữa chính, cho nên được lòng kẻ trong người ngoài."}
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "Đó là sự rất tốt trong cuộc hành lữ. Hào Hai có đức mềm thuận giữa chính, cho nên Tượng, Chiêm của nó như thế."
+   },
+   "topics": {
+    "tai_chinh": {
+     "text": "Tiền mang theo đủ dùng, lại có người giúp ngay thật bên cạnh: của không hao vì bị lừa, về sau cũng không có gì phải oán hối.",
+     "from": [
+      {"seg": "hao2", "layer": "chu_hy", "quote": "có mang của thì dư dụ"},
+      {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "đã được thằng nhỏ, đầy tớ trung trinh, thì không oán hối gì nữa."}
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Ở đất khách mà quá cứng, tự cao: người trên không ưa nên mất chỗ ở, người dưới bị đối xử tàn nhẫn nên bỏ đi; giữ mãi thế ấy thì nguy.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Tự cao thì không thuận với người trên, người trên không cùng với, mà đốt cháy nhà trọ của nó, tức là mất chỗ ở yên"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "quá cứng thì tàn bạo với kẻ dưới, cho nên kẻ dưới lìa bỏ mà mất sự trinh tín của thằng nhỏ đầy tớ"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, không giữa, đứng trên cùng quẻ dưới nên có dáng tự cao.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "hào Ba cứng mà không giữa, lại ở trên thể dưới, đóng trên quẻ Cấn, có Tượng tự cao"}
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Quá cứng không giữa, ở trên thể dưới cho nên Tượng, Chiêm của nó như thế."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Mới đến nhận việc mà cư xử nặng nề với người làm dưới mình thì nhanh chóng mất cả chỗ đứng lẫn những người cùng làm.",
+     "from": [
+      {"seg": "tieu_tuong3", "layer": "nghia", "quote": "Lời Tượng nói rằng: Hành lữ cháy thửa nơi trọ cũng đã hại vậy; lấy thì hành lữ cùng với kẻ dưới, thửa nghĩa mất vậy."}
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Có chỗ dừng chân và đủ phương tiện làm việc, biết nhún mình nên ổn; nhưng chưa có chỗ để thi thố tài nên lòng chưa vui.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Có tài cứng sáng lại được trên dưới cùng với mà được nhờ về của cải, lợi về đồ dùng"},
+     {"seg": "tieu_tuong4", "layer": "nghia", "quote": "Lời Tượng nói rằng: Hành lữ chưng ở, chưa được ngôi vậy, được thửa của búa, lòng chưa sướng vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, dưới quẻ trên, không phải ngôi chính: trên không có hào dương cùng chí, dưới chỉ có hào âm ứng.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "phía trên không có kẻ Dương cứng cùng với, phía dưới chỉ có kẻ Âm mềm ứng với, cho nên không thể trổ hết tài mình, thi hành chí mình, lòng nó không sướng."}
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "Lấy chất Dương cứng ở ngôi Âm, đứng dưới thể trên, là kẻ dùng sự mềm, biết nhún mình, cho nên Tượng Chiêm của nó như thế."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Việc ở nơi mới có thu nhập, có đủ đồ nghề nhưng chưa được giao đúng tầm thì dễ bứt rứt; đó là tâm trạng thường của người đang ở thế khách.",
+     "from": [
+      {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Hào Chín là tài cứng sáng, muốn được thời mà thực hành chí mình, cho nên dù được của búa, với cuộc hành lữ là hay mà tâm chí nó chưa sướng."}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Bắn chim trĩ, mất một mũi tên mà trúng: chịu tốn chút ít, nhờ thuận được người trên và hòa được người dưới mà về sau có tiếng khen và lộc.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "“Khen” là tiếng tốt, “mệnh” là phúc lộc."},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Ở thời hành lữ mà được trên dưới cùng với, vì vậy mới đem được khen mệnh đến."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi Năm, nhưng ở quẻ này ngôi ấy không mang nghĩa người đứng đầu, vì kẻ đi xa là kẻ đã rời chỗ của mình.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Năm là ngôi vua, ông vua không có sự hành lữ có sự hành lữ là mất ngôi, cho nên không dùng nghĩa vua."}
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "kẻ được hào này là Tượng bắn chim trĩ, dù có hao tổn về sự mất tên, mà cái mất không bao nhiêu, sau chót ắt có khen mệnh."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Chim cháy tổ: ở đất khách mà đứng quá cao, lúc đầu đắc ý cười, sau không ai cùng nên phải kêu gào; cái nết thuận mất đi vì coi thường, khinh suất.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Kẻ Dương cứng tự ở vào nơi rất cao, lúc đầu sướng ý, cho nên trước cười, sau rồi không ai cùng với, cho nên kêu gào"},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Trâu là giống vật hay thuận, (mất trâu chưng dễ dàng) nghĩa là làm mất nết thuận bằng cách khinh rẻ coi thường vậy."}
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "chu_hy",
+    "quote": "Hào Chín Trên quá cứng ở trên quẻ Lữ và chót thể Ly, kiêu mà không thuận, là đạo hung đó. Cho nên Tượng, Chiêm của nó như thế."
+   }
+  }
+ }
+}

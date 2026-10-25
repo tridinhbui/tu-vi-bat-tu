@@ -79,6 +79,20 @@ export const BAZI_TAB_TITLES: Record<string, string> = {
   "dai-van": "Đại vận", "cach-cuc": "Cách cục & Dụng thần", "luu-nien": "Lưu niên", "tong-ket": "Tổng kết theo trục thời gian",
 };
 
+// ---------- the Western astrology reading (src/billing/west.ts; owner decision 2026-10-25: only part of it is paid) ----------
+/** Chapters whose main part (level overview) a member reads whole; a guest reads the first 3/5 of every chapter. */
+export const WEST_MAIN_FREE: readonly string[] = ["tong_quan", "hanh_tinh", "goc_hop", "tinh_cach", "tu_duy", "cam_xuc", "su_nghiep", "tai_chinh",
+  "quan_he", "gia_dinh", "dinh_huong"];
+/** Chapters whose Đọc sâu part a member reads without paying: the ones that describe the chart itself. */
+export const WEST_DEEP_FREE: readonly string[] = ["tong_quan", "hanh_tinh", "goc_hop", "tinh_cach"];
+/** What the Chiêm tinh package opens (as "west:<id>" unlocks rows): Đọc sâu of the life chapters, Tổng hợp and Thời vận whole. */
+export const WEST_PAID: readonly string[] = ["tu_duy", "cam_xuc", "su_nghiep", "tai_chinh", "quan_he", "gia_dinh", "dinh_huong", "tong_hop", "thoi_van"];
+export const WEST_TITLES: Record<string, string> = {
+  tong_quan: "Tổng quan bản đồ sao", hanh_tinh: "Các hành tinh", goc_hop: "Góc hợp", tinh_cach: "Tính cách", tu_duy: "Tư duy", cam_xuc: "Cảm xúc",
+  su_nghiep: "Sự nghiệp", tai_chinh: "Tài chính", quan_he: "Quan hệ", gia_dinh: "Gia đình", dinh_huong: "Định hướng", tong_hop: "Tổng hợp",
+  thoi_van: "Thời vận",
+};
+
 /** Packages bought with coins, for ONE chart. Each opens its chapters whole; Cao cấp also writes every "Luận AI" chapter at no extra xu and
  *  opens a chat pass. A bigger package after a smaller one costs the difference (`buyPlan`). GIÁ TẠM. */
 export const PLANS = [
@@ -88,10 +102,14 @@ export const PLANS = [
     blurb: "Mọi chương của lá số: mười hai cung, đại hạn và lưu niên, Bát Tự, Tổng luận; trọn phần luận chính và Đọc sâu (theo sách) kèm trang sách." },
   { id: "cao_cap", name: "Cao cấp", coins: 299, chapters: DEEP_CHAPTERS, ai: true, pass: true,
     blurb: "Trọn bộ, cộng Luận riêng cho mọi chương (suy luận sâu trên cả lá số, khoảng 500–800 từ mỗi chương) và 30 ngày chat với Bát Bát." },
+  { id: "chiem_tinh", name: "Chiêm tinh", coins: 99, chapters: WEST_PAID.map(c => `west:${c}`), ai: false, pass: false,
+    blurb: "Bản đồ sao phương Tây của một ngày giờ và nơi sinh: Đọc sâu (theo sách) các chương tư duy, cảm xúc, sự nghiệp, tài chính, quan hệ, gia đình, định hướng, cùng trọn Tổng hợp và Thời vận." },
 ] as const;
 export type Plan = (typeof PLANS)[number];
 /** Plans sold before: no longer offered, named in the wallet history. Their `unlocks` rows still open what they name. */
 export const RETIRED_PLAN_NAMES: Record<string, string> = { van_han: "Vận hạn (gói cũ)", chuong: "Đọc sâu một chương (gói cũ)", cung12: "Đọc sâu mười hai cung (gói cũ)" };
+/** A package for the Western reading: bought for a Western birth (westFp), never for a Tử Vi one, and the other way round. */
+export const isWestPlan = (plan: Plan) => (plan.chapters as readonly string[]).every(c => c.startsWith("west:"));
 export const planById = (id: unknown): Plan | undefined => PLANS.find(p => p.id === id);
 /** The `unlocks` rows a plan writes. */
 export const planChapters = (plan: Plan): string[] => [...plan.chapters, ...(plan.ai ? [AI_UNLOCK] : [])];

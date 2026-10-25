@@ -10,7 +10,7 @@ import { completeOrder, createOrder, getOrder, walletHistory, receiptEmail } fro
 import { handleEvent } from "../stripe.ts";
 import { handleBilling, plansView } from "../route.ts";
 import { getWallet, grant, passUntil } from "../wallet.ts";
-import { DEEP_CHAPTERS, PACKS, PLANS, PRICES_ARE_PLACEHOLDERS, TOPUP_CHAT, discounted, planById, planChapters, plansFor } from "../config.ts";
+import { DEEP_CHAPTERS, WEST_PAID, isWestPlan, PACKS, PLANS, PRICES_ARE_PLACEHOLDERS, TOPUP_CHAT, discounted, planById, planChapters, plansFor } from "../config.ts";
 import { handleAdmin } from "../../admin/route.ts";
 
 let proxy: Awaited<ReturnType<typeof getPlatformProxy>>, db: D1Database, n = 0, uid = "", user: any;
@@ -42,9 +42,10 @@ test("config: one source of prices, all marked as placeholders; plans open only 
   assert.deepEqual(v.providers, { stripe: false, vnpay: false }); assert.equal(v.paywall, false);
   assert.equal(plansView({ TVBT_PAYWALL: "1" } as any).paywall, true);
   assert.deepEqual(v.tiers.memberFree, ["tong_quan", "menh", "cach_cuc"]);
-  assert.deepEqual(PLANS.map(p => p.id), ["van_nam", "tron_bo", "cao_cap"]);
-  for (const p of PLANS) for (const c of p.chapters) assert.ok((DEEP_CHAPTERS as readonly string[]).includes(c.split(":")[0]), `${p.id}: ${c}`);
-  assert.ok(PLANS.every((p, i) => i === 0 || p.coins > PLANS[i - 1].coins));
+  assert.deepEqual(PLANS.map(p => p.id), ["van_nam", "tron_bo", "cao_cap", "chiem_tinh"]);
+  for (const p of PLANS) for (const c of p.chapters) assert.ok((DEEP_CHAPTERS as readonly string[]).includes(c.split(":")[0]) || (c.startsWith("west:") && WEST_PAID.includes(c.slice(5))), `${p.id}: ${c}`);
+  const tv = PLANS.filter(p => !isWestPlan(p));     // the Tử Vi / Bát Tự packages are nested; Chiêm tinh stands apart
+  assert.ok(tv.every((p, i) => i === 0 || p.coins > tv[i - 1].coins));
   assert.deepEqual(planChapters(planById("cao_cap")!), [...DEEP_CHAPTERS, "ai"]);
   assert.deepEqual(plansFor("cong_danh").map(p => p.id), ["tron_bo", "cao_cap"]);
   assert.deepEqual(plansFor("van_han").map(p => p.id), ["van_nam", "tron_bo", "cao_cap"]);

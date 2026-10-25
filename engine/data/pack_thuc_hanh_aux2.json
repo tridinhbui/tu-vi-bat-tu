@@ -2299,7 +2299,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "th_aux2",
-   "description": "Tử Vi Thực Hành, sao phụ/vòng sao (paraphrased), cung Điền Trạch: tần tiện, chịu dành dụm giữ của (sao Mộ ở Điền/Tài) [TH p.59]",
+   "description": "Tử Vi Thực Hành, sao phụ/vòng sao (paraphrased), cung Điền Trạch: tần tiện, chịu dành dụm giữ của (sao Tử ở Điền/Tài; sửa 2026-10-25: trên ảnh trang TH p.59 câu này nằm dưới mục \"8>TỬ\", trước đây gán nhầm cho sao Mộ) [TH p.59]",
    "conditions": {
     "all": [
      {
@@ -2309,7 +2309,7 @@
      {
       "fact": "palace.own_stars",
       "operator": "contains",
-      "value": "Mộ"
+      "value": "Tử"
      }
     ]
    },
@@ -2336,7 +2336,7 @@
    "system": "tu_vi",
    "schoolId": "vn_dlhc_draft",
    "category": "th_aux2",
-   "description": "Tử Vi Thực Hành, sao phụ/vòng sao (paraphrased), cung Tài Bạch: tần tiện, chịu dành dụm giữ của (sao Mộ ở Điền/Tài) [TH p.59]",
+   "description": "Tử Vi Thực Hành, sao phụ/vòng sao (paraphrased), cung Tài Bạch: tần tiện, chịu dành dụm giữ của (sao Tử ở Điền/Tài; sửa 2026-10-25: trên ảnh trang TH p.59 câu này nằm dưới mục \"8>TỬ\", trước đây gán nhầm cho sao Mộ) [TH p.59]",
    "conditions": {
     "all": [
      {
@@ -2346,7 +2346,7 @@
      {
       "fact": "palace.own_stars",
       "operator": "contains",
-      "value": "Mộ"
+      "value": "Tử"
      }
     ]
    },

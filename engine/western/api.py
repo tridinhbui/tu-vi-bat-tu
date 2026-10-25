@@ -211,14 +211,30 @@ def reading(req: ReadingReq):
         return _reading(req)
 
 
+# Whole readings (mode "deep") of the last charts read: switching Tổng quan / Đọc sâu, reloading or opening a package after reading
+# serves from here. A reading for "now" is kept for the day (Thời vận names the date only).
+_READINGS: "OrderedDict[str, dict]" = OrderedDict()
+
+
 def _reading(req):
-    from .reading import build
+    from .reading import build, overview_of
     natal = chart_or_422(req.birth, req.options)
     when = _date(req.when) if req.when else _dt.datetime.now(_UTC)
-    try:
-        return build(natal, req.mode, req.gender, when)
-    except E.OutOfRange as e:
-        raise HTTPException(422, str(e))
+    key = json.dumps([req.birth.model_dump(), req.options.model_dump(), req.gender, req.when or when.date().isoformat()], sort_keys=True)
+    with _CACHE_LOCK:
+        full = _READINGS.get(key)
+        if full is not None:
+            _READINGS.move_to_end(key)
+    if full is None:
+        try:
+            full = build(natal, "deep", req.gender, when)
+        except E.OutOfRange as e:
+            raise HTTPException(422, str(e))
+        with _CACHE_LOCK:
+            _READINGS[key] = full
+            while len(_READINGS) > 32:
+                _READINGS.popitem(last=False)
+    return overview_of(full) if req.mode == "overview" else copy.deepcopy(full)
 
 
 # ---- synastry ---------------------------------------------------------------------------------------------------------

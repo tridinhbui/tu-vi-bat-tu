@@ -739,8 +739,8 @@ html:not(.is-admin) .nv-admin{display:none!important}
 html.signed-in .nv-guest{display:none!important}
 .nv-bl{display:none}
 /* signed in, the home page is the app: no welcome hero, sales sections or sample chart; it opens on Lá số của tôi and the form */
-html.signed-in :is(#hero,#ban-nhan-duoc,#home > .final,.form-sample-note,#sample-btn,[data-sample]){display:none!important}
-html.signed-in #saved-sec{padding-top:clamp(28px,4vw,48px)}
+html.signed-in body:not(.landing) :is(#hero,#ban-nhan-duoc,#home > .final,.form-sample-note,#sample-btn,[data-sample]){display:none!important}
+html.signed-in body:not(.landing) #saved-sec{padding-top:clamp(28px,4vw,48px)}
 .side-foot{position:fixed;left:0;bottom:0;z-index:63;width:min(300px,86vw);height:var(--foot-h);display:flex;align-items:center;gap:8px;padding:0 12px;border-top:1px solid var(--line);border-right:1px solid var(--line);background:var(--raise);transform:translateX(-102%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
 .side-in{width:100%}
 html:not(.auth-on) .hdr-in,html:not(.auth-on) .side-in{visibility:hidden}
@@ -751,6 +751,8 @@ html.signed-in .hdr-in,html.signed-in .side-in,html:not(.signed-in) .ucard{displ
 .ucard-btn{flex:1;min-width:0;display:flex;align-items:center;gap:10px;padding:6px 8px;border:0;border-radius:10px;background:none;cursor:pointer;text-align:left;color:var(--ink);font:inherit}
 .ubell:hover,.ucard-btn:hover,.ubell[aria-expanded=true],.ucard-btn[aria-expanded=true]{background:var(--parchment);color:var(--ink)}
 .uav{flex:none;width:34px;height:34px;border-radius:50%;background:var(--parchment);border:1px solid var(--line);display:grid;place-items:center;font:600 .95rem/1 var(--serif);color:var(--cinnabar)}
+.uav.has-img{background:none;overflow:hidden}.uav img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.umenu-who{display:flex;align-items:center;gap:10px;padding:4px 2px}.umenu-who .ucard-t{display:grid;min-width:0}.umenu-who small{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ucard-t{display:grid;min-width:0;line-height:1.25}
 .ucard-t b,.ucard-t small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ucard-t b{font:600 .86rem var(--sans)}.ucard-t small{font-size:.74rem;color:var(--muted)}
@@ -808,3 +810,36 @@ html.signed-in .hdr-in,html.signed-in .side-in,html:not(.signed-in) .ucard{displ
 }
 @media (prefers-reduced-motion:reduce){.nav-panel,.side-foot,.nv,.nv .ico,.nv-gh .chev{transition:none!important}}
 @media print{.site-header{display:none!important}html.signed-in body{padding-left:0!important}}
+
+/* ===== Cung hoàng đạo (Western sun sign): chip in the result highlights, card at the top of the Tử Vi pane and on /cung-hoang-dao/ ===== */
+.hd-glyph{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hd-glyph-sm{width:18px;height:18px;vertical-align:-3px;margin-right:6px;color:var(--cinnabar)}
+.hd-wrap{padding-top:var(--s4);padding-bottom:var(--s2)}
+.hd-card{display:flex;gap:var(--s4);align-items:flex-start;background:var(--raise);border:1px solid var(--line);border-left:3px solid var(--cinnabar);border-radius:var(--r-sm);padding:var(--s4);color:var(--ink);margin:0 0 var(--s4)}
+.hd-mark{flex:none;width:56px;height:56px;border-radius:50%;border:1px solid color-mix(in srgb,var(--cinnabar) 40%,var(--line));display:grid;place-items:center;color:var(--cinnabar);background:var(--ivory)}
+.hd-mark .hd-glyph{width:32px;height:32px}
+.hd-body{min-width:0;flex:1}
+.hd-k{font:600 .7rem/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cinnabar);margin:0 0 6px}
+.hd-card .hd-name{font:500 1.5rem/1.15 var(--serif);margin:0 0 var(--s2)}
+.hd-name small{font:500 .78rem var(--sans);color:var(--muted);letter-spacing:.04em;margin-left:6px}
+.hd-span,.hd-wait,.hd-foot{font-size:.92rem;color:var(--text2);margin:0 0 var(--s2)}
+.hd-cusp{font-size:.92rem;margin:0 0 var(--s2);padding:8px 12px;border-radius:8px;background:color-mix(in srgb,var(--cinnabar) 7%,var(--ivory));border:1px solid color-mix(in srgb,var(--cinnabar) 30%,transparent)}
+.hd-wait{font-style:italic}
+.hd-foot{font-size:.84rem;color:var(--muted);margin:0}
+.hd-reads{list-style:none;padding:0;margin:0 0 var(--s2)}.hd-reads li{padding:6px 0;border-top:1px solid var(--line)}.hd-reads li:first-child{border-top:0}
+.hd-reads cite,.hd-facts cite{font:normal .78rem var(--sans);color:var(--muted);white-space:nowrap}
+.hd-facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 var(--s3);font-size:.9rem}
+.hd-facts div{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.hd-facts dt{font:600 .7rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--cinnabar)}
+.hd-facts dd{margin:0;color:var(--ink)}
+.hd-sub{font:600 .7rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+@media(max-width:520px){.hd-card{flex-direction:column;gap:var(--s3)}.hd-mark{width:48px;height:48px}.hd-card .hd-name{font-size:1.3rem}}
+body.hide-birth #hoangdao-host,body.hide-birth .hl-hd{display:none!important}
+@media print{.hd-wrap{padding:0 0 8px!important}.hd-card{break-inside:avoid;background:#fff;border-color:#ccc;border-left-color:var(--cinnabar)}.hd-foot .link{display:none}}
+/* the lookup page's form */
+.hd-form{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:var(--s5) 0 var(--s4)}
+.hd-form .fld{display:flex;flex-direction:column;gap:4px;font-size:.76rem;color:var(--muted)}
+.hd-form select,.hd-form input{height:44px;border:1px solid var(--line);border-radius:10px;background:var(--raise);font:500 .95rem var(--sans);color:var(--ink);padding:0 10px}
+.hd-form input[type=number]{width:6.5em}
+.hd-form .btn{min-height:44px}
+.hd-err{color:var(--cinnabar);font-size:.92rem}

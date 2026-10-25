@@ -1,0 +1,208 @@
+{
+ "number": 22,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Bí là vẻ đẹp khoác lên cái thực chất: có thực chất rồi thêm văn vẻ thì việc thông, nhưng vẻ ngoài chỉ giúp được phần nhỏ, không thay được cái gốc.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "có sự thực mà thêm văn sức, thì có thể hanh."},
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Cái đạo bí sức không phải thêm được sự thực, chỉ thêm văn vẻ cho nó mà thôi."},
+    {"seg": "thoan", "layer": "nghia", "quote": "Quẻ Bí hanh, hơi lợi có thửa đi."}
+   ]
+  },
+  "image": {
+   "text": "Lửa cháy dưới chân núi soi sáng cây cỏ quanh đó nhưng không rọi được xa: đủ để sửa sang những việc thường, chưa đủ để đem ra phán quyết việc hệ trọng.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Dưới núi có lửa, ánh sáng không tới chỗ xa. “Tỏ mọi chính” là việc còn nhỏ, “Đoán ngục” là việc đã lớn."},
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Dưới núi có lửa là quẻ Bí, đấng quân tử coi đó mà tỏ mọi chính, không quả cảm về việc đoán ngục."}
+   ]
+  },
+  "structure": {
+   "text": "Cứng và mềm đổi chỗ để tô điểm cho nhau, trong sáng mà ngoài dừng; hào Sáu Hai là chủ của việc tô điểm, nhưng chỉ tô thêm trên cái chất sẵn có.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Âm Dương cứng mềm giao nhau, tức là văn vẻ của trời"},
+    {"seg": "hao2", "layer": "trinh_di", "quote": "Hào hai là chủ quẻ Bí, cho nên chủ nói về cách trang sức."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Kẻ xem vì nó mềm đến văn sức cho cứng, Dương được Âm giúp, ma có quẻ Ly sáng tỏ ở trong, cho nên là hanh; vì nó cứng lên văn sức cho mềm, mà có quẻ Cấn dừng đỗ ở ngoài, cho nên hơi lợi về có sự đi."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Ánh lửa dưới núi đủ để sửa sang những việc thường ngày cho gọn và đẹp; còn quyết định nặng nề, khó rút lại thì chớ vội đưa ra chỉ vì tin vào sự sáng suốt của mình.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "để sửa rõ mọi chính, gây nên cuộc trị văn vẻ sáng sủa"},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đoán ngục là việc cần phải cẩn thận của kẻ làm vua, há khá cậy về sự sáng của mình mà tự dụng một cách khinh suất?"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Bó lụa mỏng là hình ảnh của sự chi tiêu dè dặt: lúc đầu có chỗ đáng ngượng vì trông hẹp hòi, nhưng giữ được thì về sau lại tốt.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Nhưng vì tính Âm bủn xẻn, cho nên có tượng bó lụa nông nhỏ."},
+     {"seg": "hao5", "layer": "nghia", "quote": "bó lụa mỏng hẹp, đáng tiếc, sau chót tốt."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Bao bì, lời giới thiệu đẹp giúp món hàng đi xa hơn một chút, nhưng chỉ khi bên trong có thật; tô vẽ quá tay để che chỗ thiếu thì lấp mất cái thật của mình.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Không gốc không đứng, không có văn vẻ thì không làm được"},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Gọi là chuộng vẻ mộc mạc, không phải là không trang sức, đừng để văn hoa lấp mất sự thật mà thôi."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Lời văn hay, cách trình bày đẹp chỉ làm rõ thêm cái mình đã hiểu, như râu theo mép mà động; hay dở của bài làm vẫn nằm ở cái hiểu thật bên dưới.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Trang sức cho các vật, không thể đổi hết bản chất của nó, chỉ nhân bản chất của nó mà tô điểm thêm"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Râu là một vật theo mép mà động."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Sự chăm chút làm tình cảm thêm đẹp, nhưng cái đẹp ấy khó giữ cho đều; mối quan hệ bền là nhờ hai người giữ được sự ngay thẳng lâu dài.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Bí là trang sức cái việc bí sức, khó được thường thường, cho nên dài lâu chính bền là tốt."},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Trang sức mà không thường thường và không đính chính, người ta sẽ lấn nhờn"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Một gia đình đã sum họp thì cần có nề nếp, thứ tự và lễ độ giữa các thành viên; những điều ấy làm sự gắn bó có hình có nét chứ không thay cho tình thật.",
+    "from": [
+     {"seg": "intro", "layer": "trinh_di", "quote": "Ví như người ta tụ họp thì có dáng dấp lên xuống, các vật tụ họp thì có thứ tự hàng dãy, đó là họp nhau ắt có văn vẻ."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Văn vẻ của người tức là thứ bậc của đạo người."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Như người bỏ xe mà đi bộ vì ngồi xe không đúng nghĩa, lựa chọn lúc này nên đặt điều phải lên trên sự tiện; cái người đời cho là thiệt có khi lại là vẻ đẹp của mình.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "chu_hy", "quote": "Sự lấy sự bỏ của đấng quân tử, quyết định bằng nghĩa mà thôi."},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Sự đó người thường lấy làm thẹn, mà đấng quân tử thì cho là sự văn sức."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Chăm cho cái thật trước, rồi mới tô điểm vừa đủ để nó hiện ra; khi vẻ đẹp đã đến mức cầu kỳ thì nên quay về sự giản dị, mộc mạc.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Ôi, đi mà lợi được là vì có gốc."},
+    {"seg": "hao6", "layer": "trinh_di", "quote": "trang sức cùng cực thì lỗi về đường văn hoa giả dối, chỉ duy có thể trang sức bằng cách mộc mạc thì không có lỗi."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Sự tô điểm đem lại cái lợi có giới hạn: dùng để tiến thêm một ít thì được, mong nó đưa việc đi thật xa thì vượt quá sức của vẻ ngoài.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "là vì quẻ ly sáng sủa có thể đem lại sự hanh, mà nó văn sức cho hào mềm, thì lại có thể tiến lên một ít."}
+    ]
+   },
+   {
+    "text": "Khi đã thành công và được trọng, sự tô điểm dễ vượt mức thành giả dối; giữ được vẻ mộc mạc thì mới không lỗi.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Đã ở trên mà đắc chí lại ở vào chỗ trang sức cùng cực thì sẽ có lỗi về đường văn hoa giả dối mất cả sự thật, nên phải răn rằng chất phác mộc mạc thì không có lỗi"}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Có thực lực mà còn ở chỗ thấp, chưa có gì để phô ra, chỉ lo giữ cho việc mình làm ngay ngắn: cái tiện mà không đúng thì bỏ, thà đi bộ.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Đấng quân tử ở chỗ không ngôi, không thể thi thố với thiên hạ"},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "nếu nghĩa không đáng, thì bỏ xe cộ mà đi không."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở dưới cùng, ứng với hào Sáu Tư là đúng, liền với hào Sáu Hai là không đúng: bỏ chỗ gần mà dễ để theo chỗ xa mà phải.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Đầu liền hào hai mà ứng hào tư, ứng hào Tư là chính đáng, liền hào Hai không phải chính đáng."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Đức cứng thể sáng, tự mình trang sức ở dưới, tức là tượng “bỏ cái xe trái đạo mà yên lòng về sự đi bộ”. Kẻ xem tự xử nên như thế đó."}
+  },
+  "2": {
+   "gist": {
+    "text": "Như bộ râu theo mép mà động, vẻ đẹp đi theo cái nó bám vào: chỗ dựa tốt thì đẹp theo, còn tốt xấu thật nằm ở thực chất chứ không ở phần tô điểm.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Động đậy hay dừng đậu quan hệ ở cái mà nó bám vào, cũng như thiện ác không bởi trang sức mà ra."},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Theo người trên mà động, động đậy hay dừng đậu, quan hệ ở cái nó bám vào"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi nhưng không có ứng, nên dựa vào hào Chín Ba ngay trên mà động.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Hào Hai lấy chất Âm nhu ở chỗ trung chính, hào Ba lấy chất Dương cương mà được chỗ chính, đều không có kẻ ứng cùng, cho nên hào Hai phụ vào hào Ba mà động"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Kẻ xem nên theo người trên Dương cương mà động."}
+  },
+  "3": {
+   "gist": {
+    "text": "Đang lúc mọi thứ đẹp đẽ, thấm đẫm, được hai bên vun đắp: cái dễ mất là sự bền bỉ, nên đừng đắm vào cảnh êm ả mà phải giữ ngay thẳng lâu dài.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Trang sức thịnh vượng, ánh vẻ nhuần mượt"},
+     {"seg": "tieu_tuong3", "layer": "nghia", "quote": "Lâu dài chính bền mà tốt, là vì không gì lấn nó."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương kẹp giữa hai hào âm không phải chính ứng: gắn với nhau vì ở liền nhau, nên càng cần răn giữ chính lâu dài.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "hào Ba với hào Hai hào Tư không phải chính ứng, vì liền nhau mà thành trang sức cho nhau, cho nên phải răn nhau bằng sự thường thường trinh chính mãi mãi."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Một hào Dương ở giữa hào Âm, được sự trang sức của nó mà nhuần mượt vậy. Nhưng mà không thể đắm đuối ở nơi vẫn yên, cho nên răn phải lâu dài chính bền."}
+  },
+  "4": {
+   "gist": {
+    "text": "Vẻ đẹp chưa thành vì người mình hướng tới còn bị ngăn cách, nên mọi thứ còn trắng trơn mà lòng thì nóng như ngựa muốn bay; lúc đầu bị cản, sau cùng vẫn đến được với nhau.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Vì bị hào Ba ngăn cách cho nên không được trang sức cho nhau mà thành vẻ phơ phơ."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Đầu với hào Tư là chính ứng, sau chót ắt được thân nhau, có điều lúc đầu bị nó ngăn cách mà thôi."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, ứng với hào Chín Đầu nhưng hào Chín Ba xen ở giữa, nên chỗ đứng dễ sinh nghi ngại.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Hào Tư và hào Đầu xa nhau mà hào Ba xen ở khoảng giữa, đó là cái ngôi nó ở đáng nghi ngờ."}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Hào Sáu Tư: Rỡ ràng vậy, phơ phơ vậy, ngựa trắng có cánh vậy. Chẳng phải giặc, dâu gia."},
+   "topics": {
+    "tinh_cam": {
+     "text": "Có người hợp với mình nhưng còn trở ngại chen giữa: cứ giữ sự đứng đắn, không ngả theo bên chen vào, thì sau cùng vẫn thành đôi mà không phải oán.",
+     "from": [
+      {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "nhưng mà chính ứng của nó lý ngay, nghĩa thẳng, sau chót ắt được hợp nhau"},
+      {"seg": "tieu_tuong4", "layer": "chu_hy", "quote": "ý nói nếu giữ chính đính mà không cùng với, thì cũng không có sự lo khác."}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Chuộng cái thật hơn phô trương, như vẻ đẹp tìm ở vườn đồi và bó lụa mỏng: lúc đầu có chỗ ngượng, nhưng chịu để người giỏi bên cạnh sửa sang thì sau cùng tốt và có điều mừng.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "dầy gốc, chuộng thật, được đạo trang sức, có tượng gò vườn"},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Biết theo người để làm cho thành công cuộc trang sức mà hưởng sự tốt đẹp của nó, thế là có sự mừng."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi vua nhưng sức mềm, liền sát hào Chín Trên cứng rắn nên nhận sự tô điểm từ đó.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Sáu Năm tuy ở ngôi vua, mà tài Âm nhu không đủ tự giữ, nó cùng hào Trên là bậc Dương cương liền nhau mà chí cố theo"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Bó lụa là vật mỏng mảnh, “tiên tiên” là ý nông nhỏ, người mà như thế, tuy dáng thẹn tiếc, nhưng theo lễ, xa xỉ thà tằn tiện còn hơn, vì vậy sau chót được tốt."}
+  },
+  "6": {
+   "gist": {
+    "text": "Đến chỗ cùng của sự tô điểm thì quay về màu trắng: bỏ bớt hoa mỹ, giữ vẻ mộc mạc để cái thật không bị che lấp, nhờ vậy mà không lỗi.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Trắng tức là mộc mạc. Chuộng vẻ chất phác mộc mạc, thì không bị mất cái vốn chân thật của mình."}
+    ]
+   },
+   "position": {
+    "text": "Ở trên cùng, không giữ ngôi nhưng lại là người thật sự làm chủ việc tô điểm, đến cả hào Sáu Năm cũng nhận sự tô điểm ấy.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Ông vua Sáu Năm lại phải chịu sự trang sức của nó, cho nên tuy nó ở chỗ không ngôi mà thực làm chủ công cuộc trang sức, thế là đắc chí"}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Trang sức cùng cực quay về chỗ gốc, trở lại cái không màu vẻ, ấy là kẻ khéo chữa lỗi, cho nên tượng, chiêm của nó như thế."}
+  }
+ }
+}

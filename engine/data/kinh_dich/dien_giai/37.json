@@ -1,0 +1,222 @@
+{
+ "number": 37,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Gia Nhân là đạo của một mái nhà: mỗi người giữ đúng phần mình thì nếp nhà đứng vững, và sự ngay ngắn phải bắt đầu từ bên trong rồi mới lan ra bên ngoài.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Gia nhân là người một nhà."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "“Lợi con gái chính” là muốn chính bên trong trước, bên trong chính thì bên ngoài không gì không chính."},
+    {"seg": "thoan_truyen", "layer": "nghia", "quote": "Cha ra cha, con ra con, anh ra anh, em ra em, vợ ra vợ, chồng ra chồng, mà đạo nhà chính."}
+   ]
+  },
+  "image": {
+   "text": "Gió sinh ra từ lửa: cái tỏa ra bên ngoài bắt nguồn từ ngọn lửa cháy bên trong, nên lời nói cần có thực chất và việc làm cần có nề nếp trước khi mong nhà yên.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Gió từ lửa ra, là quẻ Gia nhân, đấng quân tử coi đó mà nói có vật, nết có thường."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Vật là sự thực, thường là thường độ, tức là phép tắc vậy."}
+   ]
+  },
+  "structure": {
+   "text": "Hào Chín Năm ở giữa quẻ ngoài và hào Sáu Hai ở giữa quẻ trong đều đúng ngôi, còn sáu hào được ví với các vai trong nhà: mỗi vị trí có phần việc riêng và đều ngay ngắn.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Dương ở ngôi Năm là ở ngoài, Âm ở ngôi Hai là ở trong, thế là trai gái đều được ngôi chính của mình."},
+    {"seg": "thoan_truyen", "layer": "chu_hy", "quote": "hào Trên là cha, hào Đầu là con, hào Năm hào Ba là chồng, hào Tư hào Hai là vợ, hào Năm là anh, hào Ba là em"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "nghia", "quote": "Quẻ gia nhân lợi về gái chính."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Một tập thể vận hành như một mái nhà: nề nếp được đặt từ đầu và người đứng đầu tự nghiêm với mình trước thì người khác tự phục, chẳng cần ra oai.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "trị từ lúc mới có nhà, biết lấy phép tắc ngăn ngừa, thì không đến nỗi phải ăn năn."},
+     {"seg": "tieu_tuong6", "layer": "chu_hy", "quote": "Ý nói không phải làm oai, trở lại mình tự trị mình, thì người khác sẽ sợ phục mình."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Của cải trong nhà bền khi được giữ bằng sự thuận hòa và cách làm ngay thẳng; điều quẻ đề cao là giữ được cái đã có hơn là làm giàu nhanh.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "nhún thuận về công việc mà lại noi theo chính đạo, ấy là kẻ giữ được sự giàu có của mình."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Như gió đi ra từ lửa, uy tín của một cơ sở làm ăn tỏa ra từ cách vận hành bên trong: nội bộ có phép tắc, lời hứa có thực thì việc bên ngoài mới thuận.",
+    "from": [
+     {"seg": "intro", "layer": "trinh_di", "quote": "Tự trong mà ra là Tượng từ nhà tới ngoài."},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đức nghiệp tỏ rệt ra ngoài là bởi nói và nết cẩn thận ở trong."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người đang học nên giữ cho lời mình nói có nội dung thật và giờ giấc học có nếp đều đặn; sửa từ những thói quen nhỏ của bản thân thì các việc khác theo đó mà vào khuôn.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Nói gìn, nết sửa, thì mình chính mà nhà trị."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hai người gắn bó bền khi cả hai thật lòng quý nhau và trân trọng phần việc người kia gánh cho mái nhà chung, chứ không chỉ một bên chiều theo bên kia.",
+    "from": [
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "không phải chỉ khiến người ta thuận theo mà thôi, phải làm cho họ thật lòng hóa theo, thực ý hợp với"},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "chồng yêu người nội trợ của mình, vợ yêu người trị nhà của mình, thế là \"yêu lẫn nhau\"."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Một nhà cần người lớn đủ uy để giữ nếp, và mỗi người, dù ở vai nào, làm tròn phần của mình thì đạo nhà tự ngay ngắn.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Người nhà có vua nghiêm, là cha mẹ vậy."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Cha con, anh em, vợ chồng, ai giữ được đạo của nấy, thì đạo nhà chính."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi phân vân nên bắt đầu sửa từ đâu, chỗ quẻ chỉ ra là chính mình: giữ lời và nết của mình cho ngay trước, rồi mới mong người trong nhà, người xung quanh theo.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Cái đạo trị nhà, lấy sự chính mình làm gốc"},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Oai không thi hành nghiêm ngặt ở mình trước, thì người ta không phục"}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Đặt nếp sinh hoạt rõ ràng ngay từ đầu, khi mọi người chưa quen thói buông lỏng; giữ lòng thành thật và tự nghiêm với mình thì lời mình nói ra mới có sức nặng.",
+   "from": [
+    {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Ngăn ngừa từ lúc đầu, tức là trước khi ý chí người nhà chưa biến động."},
+    {"seg": "hao6", "layer": "trinh_di", "quote": "Cái đạo trị nhà không chí thành thì không thể được."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Để đến khi nếp nhà đã lỏng rồi mới sửa thì tổn thương nhiều; ngăn từ sớm thì giữ được cả tình lẫn nghĩa.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Chính chí chưa trôi tan biến động mà ngăn ngừa họ, thì không hại ân, không mất nghĩa"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Nếu để chí ý biến động mới trị, thì phải hại nhiều, ấy là có sự ăn năn?"}
+    ]
+   },
+   {
+    "text": "Thương mà thiếu chừng mực thì dễ thành coi nhẹ nhau; khi người lớn mất sự tôn nghiêm và người nhỏ quên sự kính trọng, trong nhà dễ rối.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "từ quá thì không nghiêm, ân nhiều thì lấp mất nghĩa"},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Người lớn mất vẻ tôn nghiêm kẻ nhỏ quên sự kính thuận, thế mà trong nhà không loạn, thật chưa từng có."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Lúc mới lập nhà hay mới bắt đầu một nếp sống chung: đặt phép tắc ngay từ đầu, trước khi ý mỗi người đổi khác, thì những điều đáng hối về sau không đến.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Nhàn là ngăn ngừa phép tắc vậy"},
+     {"seg": "tieu_tuong1", "layer": "chu_hy", "quote": "Chí chưa biến mà ngừa sẵn."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Hào Chín Đầu lấy chất Dương cứng ở vào lúc đầu có nhà, biết ngăn ngừa, thì sự ăn năn sẽ mất. Răn kẻ xem nên như thế vậy."},
+   "topics": {
+    "gia_dinh": {
+     "text": "Một gia đình mới hình thành nên nói rõ những thỏa thuận về nếp sống từ sớm, lúc mọi người còn cùng một ý, hơn là đợi va chạm rồi mới bàn.",
+     "from": [
+      {"seg": "hao1", "layer": "trinh_di", "quote": "Biết lấy phép tắc ngăn ngừa từ đầu, thì không có những sự ấy, cho nên là “ăn năn mất”."}
+     ]
+    }
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Vai người chăm lo bên trong: không tự mình quyết những việc lớn mà giữ bữa ăn, nếp sống chung cho cả nhà; mềm mỏng, đúng mực ở chỗ ấy thì tốt.",
+    "from": [
+     {"seg": "hao2", "layer": "nghia", "quote": "Không thửa thỏa, ở trong, chủ việc ăn uống, chính tốt."},
+     {"seg": "tieu_tuong2", "layer": "nghia", "quote": "Cái tốt của Hào Sáu Hai, thuận và nhún vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, giữa quẻ trong: mềm thuận mà trung chính, hợp với vai giữ gìn hơn là vai cầm trịch việc nhà.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Sáu Hai lấy tài Âm mềm mà ở ngôi mềm, là kẻ không biết trị nhà"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Hào Sáu Hai mềm, thuận trung chính, tức là con gái chính ngôi ở trong, cho nên Tượng, Chiêm của nó như thế."}
+  },
+  "3": {
+   "gist": {
+    "text": "Người giữ nếp nhà quá nghiêm, cả nhà phải dè dặt: có điều đáng áy náy, nhưng còn hơn để mọi người cười đùa buông thả không chừng mực, lâu dần đến hỏng nhà.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Tuy phải ăn năn về sự nghiêm dữ, chưa được mực giữa của sự khoan hồng và sự nghiêm mãnh, nhưng mà đạo nhà tề chỉnh, lòng người kinh sợ, còn là sự tốt lành của gia đình."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hơn hớn: nghĩa là vui cười không có tiết độ, tự mình rông dỡ, không có tiết độ, thì sau chót đến phải hỏng nhà, đáng thẹn tiếc vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương nhưng không ở giữa: đúng chỗ mà quá cứng, chưa được mức vừa phải giữa khoan và nghiêm.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Lấy chất Dương, ở chỗ cứng mà không giữa, là kẻ tuy được chỗ chính mà quá về cứng vậy."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "“Hơn hớn” là tiếng trái lại với “nem nép”, tức là cách thẹn tiếc đó. Kẻ xem đều lấy đức của mình làm sự ứng nghiệm, cho nên phải nói cả đôi đường."},
+   "topics": {
+    "gia_dinh": {
+     "text": "Luật trong nhà hơi chặt khiến không khí căng, nhưng nới tới mức không ai giữ chừng mực thì cái hại lớn hơn; lúc này nên tìm lại chỗ vừa phải giữa thương và nghiêm.",
+     "from": [
+      {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Tuy nem nép về đạo trị nhà, chưa là lỗi lắm."},
+      {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Bằng như vợ con hơn hớn, thì là không có lễ phép, mất tiết độ của nhà, nhà ắt phải loạn."}
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Người biết giữ của cho nhà bằng sự thuận hòa và làm đúng phần việc của mình: giàu mà giữ được, nên rất tốt.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Cách ở nhà giữ được sự giàu, thì là cả tốt."},
+     {"seg": "tieu_tuong4", "layer": "nghia", "quote": "Giàu nhà cả tốt, thuận ở ngôi vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, lại ở ngôi cao: đúng chỗ, mềm thuận, có sức làm cho nhà sung túc.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "lấy chất Âm ở ngôi Âm, lại là ngôi cao, ấy là kẻ có thể làm giàu cho nhà mình."}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Hào Sáu Tư: Giàu nhà, cả tốt."},
+   "topics": {
+    "tai_chinh": {
+     "text": "Ai đang lo quỹ chung của gia đình gặp hào này thì thuận: chi tiêu mềm mỏng, đúng phận và theo lẽ phải là cách giữ cho nhà dư dả.",
+     "from": [
+      {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Lấy đức nhún thuận mà ở ngôi chính, chính mà nhún thuận, ấy là kẻ giữ được giàu của mình."}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người đứng đầu đã làm tròn đạo giữ nhà, trong ngoài cùng một lòng và mọi người thương nhau thật: không cần lo lắng, tốt.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Năm kinh mình ở ngoài, hào Hai trị nhà ở trong, trong ngoài cùng đức với nhau"},
+     {"seg": "tieu_tuong5", "layer": "nghia", "quote": "Vua đến có nhà, yêu lẫn nhau vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, giữa quẻ ngoài, ứng với hào Sáu Hai cũng trung chính: người đứng đầu ngay thẳng gặp người bên trong thuận hòa.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Hào Chín Năm cứng mạnh trung chính phía dưới ứng với hào Sáu Hai là hào mềm thuận, trung chính"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Đó là lời Chiêm tốt về việc lấy hoàng hậu, cung phi, mà những kẻ có đức, gặp được hào này đều tốt."},
+   "topics": {
+    "tinh_cam": {
+     "text": "Chuyện cưới hỏi gặp hào này là thuận, nhất là khi cả hai đều ngay thẳng, biết sửa mình và cùng một lòng vun vén cho nhà chung.",
+     "from": [
+      {"seg": "hao5", "layer": "chu_hy", "quote": "Đó là lời Chiêm tốt về việc lấy hoàng hậu, cung phi"},
+      {"seg": "hao5", "layer": "trinh_di", "quote": "chưa có người nào chẳng lấy sự kính mình chính là làm gốc"}
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Giữ nhà được lâu dài nhờ hai điều: lòng thành thật và sự nghiêm mà mình tự giữ trước, chứ không phải ra oai với người khác.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Chót việc giữ nhà, cốt ở hai điều \"có tin\" \"dường oai nghiêm\" mà thôi"},
+     {"seg": "tieu_tuong6", "layer": "nghia", "quote": "Dường oai nghiêm vậy mà tốt, chỉ về trở lại trong mình vậy."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Hào Chín Trên lấy chất cứng, ở ngôi trên đứng chỗ chót quẻ, cho nên nói về cách trị nhà lâu dài. Kẻ xem ắt có thành tín uy nghiêm, thì sau chót được tốt."}
+  }
+ }
+}

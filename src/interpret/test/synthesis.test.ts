@@ -144,7 +144,10 @@ test('metamorphic: adding or removing Hóa Kỵ, Đà La or Tuần in Phu Thê c
     assert.notEqual(got.text, ref.text, `${v.name}: the conclusion must change`);
     assert.equal(got.limits.includes(ID[v.element!]), v.change === 'add', `${v.name}: ${got.limits}`);
   }
-  assert.ok(by.clean.limits.length === 0 && by.base.L.neg.length > 0 && by.clean.L.neg.length === 0, 'with no limit, no strain reading');
+  // with the three limits removed no strain reading rests on them; a strain reading on another star of the palace may stand (since plan (b):
+  // Cô Thần / Quả Tú ở Phu Thê, KL p.153)
+  const onLimit = (x: { stars: string[]; at: Array<{ name: string }> }) => [...x.stars, ...x.at.map(a => a.name)].some(n => ['Hóa Kỵ', 'Đà La', 'Tuần'].includes(n));
+  assert.ok(by.clean.limits.length === 0 && by.base.L.neg.length > 0 && !by.clean.L.neg.some(onLimit), 'with no limit, no strain reading on a limit');
 });
 
 /** The report-wide contradiction check: a domain concluded twice with different verdicts, or opposite book readings of a domain voiced in two

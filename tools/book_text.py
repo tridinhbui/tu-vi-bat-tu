@@ -113,6 +113,8 @@ def quote_on_page(book: str, page, quote: str) -> bool:
     """book KL / TH / TT with a printed page number; TTT / TVH / ZZ (Bát Tự books) against the committed page text in
     engine/data/bazi_deep/mined/ (whitespace-insensitive: the Chinese text layer breaks lines inside words); 'WEB:<id>' / 'SCAN:<id>' (saved
     snapshots, DEEP-3 2026-10-24) with the chapter title / printed page as page: a WEB quote is labelled with its chapter, not a page"""
+    if book in ENGLISH:
+        return en_match(book, page, quote)["ok"]
     if book in BAZI_BOOKS:
         sq = lambda t: re.sub(r"\s+", "", t)
         return sq(quote) in sq(bazi_page_text(book, page))
@@ -154,3 +156,107 @@ def snapshot_text(book: str, page) -> str:
     start = next(i for i, ln in enumerate(lines) if level(ln) and page in ln)
     end = next((i for i in range(start + 1, len(lines)) if 0 < level(lines[i]) <= level(lines[start])), len(lines))
     return "\n".join(lines[start + 1:end])
+
+
+# ---------------------------------------------------------------- English astrology books (cung hoàng đạo, owner 2026-10-25)
+# AL = Alan Leo, "Astrology for All", 4th ed. 1910 (archive.org dli.ernet.19807; Digital Library of India scan, OCR text layer);
+# CA = William Lilly, "Christian Astrology", 1st ed. 1647 (Wellcome Collection b30338724; the OCR reads the long s as 'f');
+# TB = Ptolemy, "Tetrabiblos", J. M. Ashmand's translation, 1822 (Wellcome Collection b29293066). Not Robbins.
+# Same rule as the Vietnamese books: not in the repository, looked up in $TVBT_BOOKS_DIR, consumers skip when absent. Their text layer
+# is OCR, never VNI, so they are read without `decode`.
+# EN_PAGE_RANGES: printed page -> PDF page, measured on the page images (render the header strip) and only for the ranges checked;
+# a page outside them is refused. AL drifts (the scan skips leaves: printed 49-50 and 63-64 are missing), so it has one range per run.
+ENGLISH = {"AL", "CA", "TB"}
+BOOK_FILES.update({"AL": "AstrologyForAll.pdf", "CA": "ChristianAstrology.pdf", "TB": "Tetrabiblos.pdf"})
+BOOK_NAMES.update({"AL": "Astrology for All", "CA": "Christian Astrology", "TB": "Tetrabiblos"})
+EN_PAGE_RANGES: dict[str, list[tuple[int, int, int]]] = {
+    # (first printed page, last printed page, PDF page - printed page)
+    "AL": [(5, 48, 15),        # images: printed 13 = PDF 28, 16 = PDF 31, 31 = PDF 46, 48 = PDF 63
+           (51, 62, 13)],      # images: printed 51 = PDF 64, 62 = PDF 75 (printed 49-50 are not in the scan)
+    "CA": [(61, 103, 34)],     # images: printed 93 = PDF 127, 99 = PDF 133 (the "+35" reported earlier is one too many)
+    "TB": [(4, 54, 36)],       # images: printed 34 = PDF 70, 42 = PDF 78, 45 = PDF 81 (the "+37" reported earlier is one too many)
+}
+LONG_S = {"CA"}               # matching folds f and s together for these books ("Seafon" = "Season")
+FUZZY_MIN = 0.9               # a quote the OCR garbled slightly still counts when 90 % of its letters line up with the page
+
+_LIGATURES = {"ﬀ": "ff", "ﬁ": "fi", "ﬂ": "fl", "ﬃ": "ffi", "ﬄ": "ffl", "ﬅ": "st", "ﬆ": "st"}
+_QUOTES = {"‘": "'", "’": "'", "‚": "'", "‛": "'", "′": "'", "`": "'", "´": "'",
+           "“": '"', "”": '"', "„": '"', "‟": '"', "″": '"', "«": '"', "»": '"'}
+
+
+def en_clean(s: str) -> str:
+    """English page text as it reads: ligatures and curly quotes made plain, soft hyphens dropped, a word hyphenated across a line
+    break joined ("astro-" or "astro¬" + line break + "logy" -> "astrology"), OCR spacing collapsed (runs of spaces, a space
+    before , ; : . ! ? or inside brackets), line breaks made spaces. A real hyphen inside a line ("well-known") is kept."""
+    import unicodedata
+    s = unicodedata.normalize("NFKC", s)
+    for a, b in {**_LIGATURES, **_QUOTES}.items():
+        s = s.replace(a, b)
+    s = s.replace("­", "").replace("‐", "-").replace("‑", "-").replace("\r\n", "\n").replace("\r", "\n")
+    s = re.sub(r"(\w)[-¬][ \t]*\n[ \t]*(\w)", r"\1\2", s)          # hyphenated line break
+    s = re.sub(r"\s+", " ", s)
+    s = re.sub(r" ([,;:.!?)\]])", r"\1", s)
+    s = re.sub(r"([(\[]) ", r"\1", s)
+    return s.strip()
+
+
+def en_norm(s: str) -> str:
+    """For reading: en_clean, lower case, punctuation and quote marks dropped, dashes made spaces."""
+    s = en_clean(s).lower()
+    s = re.sub(r"[‒–—―-]", " ", s)
+    s = re.sub(r"[\"'.,;:!?()\[\]]", "", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def en_key(s: str, book: str = "") -> str:
+    """For matching: letters and digits only (OCR spacing and punctuation never matter), lower case; f and s folded for LONG_S books."""
+    k = re.sub(r"[^a-z0-9]", "", en_clean(s).lower())
+    return k.replace("f", "s") if book in LONG_S else k
+
+
+def en_pdf_page(book: str, page: int) -> int:
+    """PDF page (1-based) of printed page `page`; ValueError outside the measured ranges."""
+    if book not in ENGLISH:
+        raise ValueError(f"{book} is not an English book")
+    for a, b, off in EN_PAGE_RANGES.get(book, []):
+        if a <= page <= b:
+            return page + off
+    raise ValueError(f"{book} p.{page}: printed page outside the measured ranges {EN_PAGE_RANGES.get(book)}; measure it on the image first")
+
+
+def en_page_text(book: str, page: int) -> str:
+    """Printed page `page` of an English book, cleaned (en_clean)."""
+    return en_clean(_doc(book)[en_pdf_page(book, page) - 1].get_text())
+
+
+def _best_window(hay: str, needle: str) -> float:
+    """Best similarity (difflib ratio) of `needle` with a same-length window of `hay`, tried around every place where a 6-letter
+    piece of the needle occurs exactly."""
+    import difflib
+    n = len(needle)
+    if n < 12:
+        return 0.0
+    cands = set()
+    for k in range(0, n - 6, 3):
+        chunk, start = needle[k:k + 6], 0
+        while (i := hay.find(chunk, start)) >= 0:
+            cands.add(i - k)
+            start = i + 1
+    sm, best = difflib.SequenceMatcher(None, autojunk=False), 0.0
+    sm.set_seq2(needle)
+    for c in cands:
+        for d in (-4, -2, 0, 2, 4):
+            a = max(0, c + d)
+            sm.set_seq1(hay[a:a + n])
+            best = max(best, sm.ratio())
+    return best
+
+
+def en_match(book: str, page: int, quote: str) -> dict:
+    """Is `quote` on printed page `page`? {'ok', 'exact', 'score'}: exact on the letters-only key, else the best fuzzy window
+    (FUZZY_MIN or more counts: the OCR misreads a letter here and there, e.g. 'Asteology')."""
+    hay, needle = en_key(en_page_text(book, page), book), en_key(quote, book)
+    if needle and needle in hay:
+        return {"ok": True, "exact": True, "score": 1.0}
+    sc = _best_window(hay, needle)
+    return {"ok": sc >= FUZZY_MIN, "exact": False, "score": round(sc, 3)}

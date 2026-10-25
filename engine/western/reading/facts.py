@@ -14,6 +14,7 @@ import math
 from functools import cached_property
 
 from .. import dignity, ephemeris as E, houses as H, kb
+from .. import stars as STARS
 from ..zodiac import ELEMENT, MODALITY, SIGNS, angdiff, deg_in_sign, sign_distance, sign_index
 
 CLASSICAL = ("sun", "moon", "mercury", "venus", "mars", "jupiter", "saturn")
@@ -34,6 +35,9 @@ OPERATIONAL = {
     "morning_appearance": "'mới mọc buổi sáng' (Ptolemy IV.4) được hiểu là hành tinh đi trước Mặt Trời và đã cách xa ít nhất 15°; "
                           "Ptolemy không cho con số, 15° là mức Thiên Bàn chọn.",
     "ptolemy_place": "'chỗ' theo Ptolemy III.10: mỗi chỗ 30°, chỗ thứ nhất bắt đầu 5° phía trên điểm Mọc.",
+    "fixed_stars": "'đồng độ với định tinh' = cách định tinh không quá 5° theo kinh độ hoàng đạo, con số Lilly cho ở tr.616 (và tr.115 với Caput Algol); "
+                   "tr.115 không ghi khoảng cách cho Cor Leonis và Spica, Thiên Bàn dùng cùng 5°. Lilly in vị trí định tinh của năm 1647; "
+                   "do tuế sai, định tinh nay đã dịch thêm khoảng 5°, nên Thiên Bàn tính vị trí của chính ngày sinh (dữ liệu Hipparcos).",
 }
 
 
@@ -123,7 +127,7 @@ class Facts:
         return None
 
     def lilly_accidental(self, p: str) -> list[tuple[str, int]]:
-        """Lines of Lilly's p.115 table that apply to planet p (fixed stars not scored: see OPERATIONAL)."""
+        """Lines of Lilly's p.115 table that apply to planet p (fixed stars within OPERATIONAL['fixed_stars'])."""
         if not self.time_known:
             return []
         rows = {r["key"]: r["points"] for r in kb.dignities()["accidental"]["rows"]}
@@ -174,7 +178,15 @@ class Facts:
             lo, hi = sorted((self.lon["saturn"], self.lon["mars"]))
             if lo < self.lon[p] < hi and hi - lo < 30:
                 out.append(("besieged", rows["besieged"]))
+        for star in self.stars_near(p, STARS.LILLY_115):
+            out.append((STARS.LILLY_115[star], rows[STARS.LILLY_115[star]]))
         return out
+
+    def stars_near(self, p: str, stars) -> list[str]:
+        """The stars (keys of chart['fixed_stars']) within Lilly's 5° of point p, nearest first."""
+        fs = self.c.get("fixed_stars") or {}
+        near = [(abs(angdiff(self.lon[p], fs[k]["lon"])), k) for k in stars if k in fs and p in self.lon]
+        return [k for d, k in sorted(near) if d <= STARS.ORB]
 
     def lilly_total(self, p: str) -> dict:
         ess = self.lilly_essential(p)

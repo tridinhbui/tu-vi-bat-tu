@@ -13,6 +13,7 @@ import numpy as np
 
 from . import aspects as asp
 from . import dignity, ephemeris as E, houses as H, kb
+from . import stars as STARS
 from .timeutil import resolve
 from .zodiac import ELEMENT, MODALITY, SIGNS, angdiff, deg_in_sign, fmt_in_sign, sign_index
 
@@ -119,6 +120,8 @@ def compute(birth: BirthData, opts: ChartOptions | None = None) -> dict:
            "astronomy": {"gast_deg": gast, "true_obliquity": eps, "nutation_lon": dpsi,
                          "ephemeris": "JPL DE440s (Skyfield); Chiron: JPL Horizons " + str(E.chiron_meta().get("solution"))},
            "bodies": bodies, "points": points, "trace": [s.__dict__ for s in rt.trace.steps], "warnings": []}
+    # the three stars of Lilly's p.115 table, at the chart's date (western/stars.py)
+    out["fixed_stars"] = {k: _point(v, name=STARS.CATALOG[k][0]) for k, v in STARS.longitudes(t).items()}
 
     is_day = None
     if not time_known:

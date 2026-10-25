@@ -1,0 +1,426 @@
+{
+ "number": 30,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Ly là nương vào mà tỏa sáng: ai cũng dựa vào một người, một con đường hay một việc nào đó; chỗ dựa đúng đắn và lòng mềm thuận được nuôi dần thì mình mới sáng lên.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Ly là bám, muôn vật chẳng vật nào không có chỗ bám."
+    },
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "Ở người ta nên xét chỗ bám của mình, hễ được chỗ chính thì hanh."
+    },
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Nuôi trâu cái tức là nuôi cái đức thuận."
+    }
+   ]
+  },
+  "image": {
+   "text": "Ngọn lửa tự nó không cháy được mà phải bám vào vật khác mới sáng; hai lần sáng nối nhau như ngày nối ngày, ánh sáng có lớp sau tiếp lớp trước thì mới soi được khắp bốn phương.",
+   "from": [
+    {
+     "seg": "intro",
+     "layer": "trinh_di",
+     "quote": "Ly là lửa, thể lửa bám hờ ở vật khác mà sáng"
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Sự sáng hai lần dấy, là quẻ Ly, bậc người lớn coi đó mà kế tiếp sáng soi ở bốn phương."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "Sáng mà trùng điệp, tức là nối nhau."
+    }
+   ]
+  },
+  "structure": {
+   "text": "Mỗi quái có một hào âm mắc giữa hai hào dương, ruột rỗng mà sáng; hai hào âm ấy ở đúng chỗ giữa của quái trên và quái dưới, nên cái mềm có chỗ bám ngay thẳng.",
+   "from": [
+    {
+     "seg": "intro",
+     "layer": "trinh_di",
+     "quote": "lấy về hào Âm bị mắc giữa hai hào Dương thì nghĩa nó là dính bám, lấy về giữa trống, thì nghĩa là sáng"
+    },
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "Hào Năm hào Hai lấy đức mềm thuận bám vào chỗ trung chính, vì vậy mới hanh."
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "Sự dính bám của các vật quý được chính đạo. Trâu cái là giống mềm thuận, cho nên kẻ xem chính được thì hanh, mà nuôi trâu cái thì tốt."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Người mình đi theo, con đường mình chọn, việc mình đứng ra lo đều là chỗ mình nương vào; quẻ hỏi chỗ nương ấy có chính đáng không, vì sự nghiệp sáng hay tối là từ đó.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "ở người ta, thì là: những kẻ thân phụ những đường noi theo, những việc chủ trương, đều là bám cả"
+     },
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Cái mà người ta vẫn bám, lợi về trinh chính, được chính thì có thể hanh thông"
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Lúc thu nhập đang rực như nắng trưa, hình ảnh mặt trời xế nhắc rằng thịnh rồi suy là lẽ thường; tính trước cho quãng ánh sáng nhạt đi thì bình thản hơn khi nó đến.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "lấy lý mà nói, thịnh ắt có suy, đầu ắt có chót, đó là đạo thường"
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Một cơ nghiệp sáng được lâu khi có người sau nối người trước; ai đã thấy thời của mình xế bóng thì nên sớm tìm người tiếp việc rồi lui về nghỉ, thay vì níu lấy.",
+    "from": [
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "Kẻ sáng biết nó thế, cho nên tìm người để nối việc mình, lui về mà ở để nghỉ thân mình"
+     },
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "Hết thảy sự sáng nối nhau đều là nối sáng."
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Hiểu biết ở quẻ này là ánh sáng được truyền từ người trước sang người sau: người học bám vào một nguồn ngay thẳng, vừa phải, rồi đem cái đã hiểu soi sang chỗ còn tối.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "Bậc người lớn xem tượng quẻ Ly sáng sủa kế tiếp, để đời đời nối nhau dùng đức soi dọi bốn phương."
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Hào Hai ở ngôi giữa, được chỗ chính là kẻ bám vào nơi trung chính."
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Gắn bó với ai là đem mình nương vào người ấy; tình sáng khi chỗ nương ngay thẳng và hai bên mềm thuận, còn một bên lấn lướt hừng hực như lửa thì dễ cháy rụi.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Người ta hễ nuôi được đức rất thuận để bám vào chỗ trung chính thì tốt"
+     },
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "cái thế lấn lướt của nó đùng đùng như cháy, cho nên nói cháy vậy"
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Sự êm thuận giữa những người thân không tự có mà được nuôi dần, như nuôi một con trâu cái hiền: tập cho mình biết thuận theo lẽ phải thì cả nhà có chỗ dựa vững.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Đức thuận của người ta do ở sự nuôi mà nên, đã bám vào sự chính thì nên nuôi tập cho thành đức thuận của mình."
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Lòng đã nóng muốn lao tới như bước chân bừa của hào Chín Đầu thì nên dừng một nhịp để cẩn trọng xét lại; dừng như thế là để tránh lỗi, chưa phải bỏ ý định.",
+    "from": [
+     {
+      "seg": "tieu_tuong1",
+      "layer": "trinh_di",
+      "quote": "Xéo bừa muốn động, mà biết kính cẩn không dám tiến lên, là để cầu tránh cho khỏi lầm lỗi vậy."
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Xét kỹ người và việc mình đang nương vào, nuôi dần sự mềm thuận để gắn bó được lâu, và ở bước đầu nào cũng đi chậm, kính cẩn, nhất là khi trong lòng đang nóng vội.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Sự dính bám của các vật quý được chính đạo."
+    },
+    {
+     "seg": "hao1",
+     "layer": "trinh_di",
+     "quote": "nếu biết nghĩa mà kính cẩn đi, thì không đến lỗi"
+    }
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Khi thời rực rỡ của mình đã qua, ai bình thản sống với cái thường thì không có gì đáng ngại; còn lo sợ, than thở vì tuổi tác và cái đã xế thì tự chuốc điều xấu.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Chẳng chịu yên thường mà tự vui, thì là không biết tự xử mà hung"
+     }
+    ]
+   },
+   {
+    "text": "Sự sáng suốt đi cùng quyết đoán làm được việc lớn, nhưng nếu không biết dừng ở mức vừa phải thì thành soi xét quá nghiêm, gây tổn thương cả cho mình.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "nếu không thắt lại bằng đạo vừa phải, thì sẽ hại về soi xét quá nghiêm"
+     },
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Sự đau thương của mình cũng quá lắm vậy"
+     }
+    ]
+   },
+   {
+    "text": "Người ở thế yếu giữa những kẻ mạnh mà biết lo, biết sợ để giữ mình cẩn thận thì lại được tốt.",
+    "from": [
+     {
+      "seg": "tieu_tuong5",
+      "layer": "trinh_di",
+      "quote": "sợ hãi lo lắng để giữ gìn, cho nên được tốt."
+     }
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Mới khởi đầu mà lòng đã nóng muốn bốc lên, chân chưa đi mà dáng đã động, bước còn bừa bãi; biết kính cẩn dừng lại thì tránh được lỗi.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Thác nhiên nghĩa là bừa bãi, tuy còn chưa tiến mà hình đã động rồi."
+     },
+     {
+      "seg": "tieu_tuong1",
+      "layer": "nghia",
+      "quote": "Sự kính của kẻ xéo bừa, để tránh lỗi vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở dưới cùng quẻ Ly: tài cứng và sáng, nhưng chỗ đứng còn thấp, động sớm thì mất phận của mình.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Động thì mất cái phận ở dưới mà có lỗi. Nhưng nó là tài cứng sáng"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "nghia",
+    "quote": "Hào Chín Đầu: Xéo bừa vậy, kính đó không lỗi."
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Ánh sáng màu vàng, sắc của sự vừa phải: bám đúng chỗ giữa và ngay thẳng thì cái sáng của mình đẹp mà điều hòa, rất tốt.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Vàng là sắc trung bình, thứ đẹp trong các văn vẻ."
+     },
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Sở dĩ cả tốt, là vì nó được đạo giữa."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi âm: cái mềm bám vào chỗ giữa mà được chỗ chính.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "chất mềm bám ở chỗ giữa mà được nơi chính"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "nghia",
+    "quote": "Hào Sáu Hai: Vàng sáng, cả tốt."
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Mặt trời đã xế, một lớp sáng sắp tàn để lớp sau nối tiếp: người hiểu lẽ thì vui với cái thường như gõ chậu sành mà hát, người không hiểu thì than thở về tuổi già và gặp xấu.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Khoảng giữa hai thể Ly, sự sáng trước sắp hết, cho nên có Tượng mặt trời dé."
+     },
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "kẻ không đạt thì lo sợ thương xót về đời mình sắp hết mới than thở về sự cả già, như thế là hung."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Chẳng chịu yên thường mà tự vui, thì là không biết tự xử mà hung, răn kẻ xem nên như thế vậy."
+   },
+   "topics": {
+    "gia_dinh": {
+     "text": "Người lớn tuổi trong nhà sống vui với nếp thường ngày, những đồ quen, việc quen, thì tuổi xế chiều thành quãng an nhiên hơn là nỗi lo.",
+     "from": [
+      {
+       "seg": "hao3",
+       "layer": "trinh_di",
+       "quote": "Chậu sành là đồ thường dùng, chậu sành mà hát, ấy là vui theo lẽ thường."
+      }
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Người vừa lên tiếp nối lại xông tới đột ngột, cứng nóng, lấn cả người mình phải phối hợp: thế ấy bùng lên như lửa rồi cháy, tàn, và bị mọi người gạt bỏ.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Hào Chín Tư lìa thể dưới mà lên thể trên, là lúc bắt đầu nối tiếp sự sáng, cho nên nói về nghĩa kế thừa."
+     },
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "cái thế cương thịnh đột nhiên mà lại, không phải kẻ khéo kế thừa vậy"
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm thứ tư, không giữa không chính, lại ngay dưới hào Sáu Năm mềm yếu: sức cứng dễ thành lấn lướt.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Lấy chất Dương ở thể Ly mà đóng ngôi Tư, cứng nóng mà không trung chính"
+     },
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Nó lại vâng thờ ông vua Sáu Năm là kẻ Âm mềm"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "Trong lúc sự sáng sắp sửa tiếp theo, mà hào Chín Tư lấy đức cứng bức bách, cho nên Tượng, Chiêm của nó như thế."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Nhận vị trí mới mà muốn tỏ ra mạnh bằng cách lấn át người đang dẫn dắt hay người cũ thì dễ bị cả tập thể quay lưng, không còn chỗ đứng.",
+     "from": [
+      {
+       "seg": "tieu_tuong4",
+       "layer": "trinh_di",
+       "quote": "Trên thì lấn vua, không chịu thuận với kẻ mà mình phải vâng theo, ấy là mọi người ghét bỏ, thiên hạ không dung."
+      }
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Ở chỗ cao mà mềm yếu, một mình kẹp giữa những thế cứng mạnh, không ai giúp; nhờ sáng suốt mà biết sợ đến rơi nước mắt, chính sự lo lắng ấy giữ được điều tốt.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "một mình bám phụ giữa bọn cương cường, đó là cái thế phải lo sợ"
+     },
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Lo lắng quá đến ngậm ngùi than, vì thế mà giữ được tốt."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi tôn, giữ được chỗ giữa nhưng không được chỗ chính, trên dưới đều là hào dương ép tới.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "mềm bám vào giữa, nhưng không được chỗ chính, mà lại bị bách về những hào Dương trên dưới"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "Lấy chất Âm ở ngôi tôn, mềm bám vào giữa, nhưng không được chỗ chính, mà lại bị bách về những hào Dương trên dưới, cho nên lo sợ như thế, rồi sau mới tốt, răn kẻ xem nên như thế vậy."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Sáng đến tột bậc nên soi ra được cái sai, cứng nên dám quyết: đem ra chấn chỉnh thì có công, miễn là chỉ trừ kẻ cầm đầu, không truy đến những người chỉ bị cuốn theo.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Sáng thì có thể soi rọi, cứng thì có thể quyết đoán"
+     },
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "chỉ nên tỉa lấy những kẻ đầu sỏ, đứa bị bắt được không phải là bọn bè bạn loại chúng, thì không bị lỗi về sự tàn bạo."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "nghia",
+    "quote": "Hào Chín Trên: Vua dùng ra đánh, có sự tốt, bẻ đầu, bắt chẳng phải loài, không lỗi."
+   },
+   "topics": {
+    "kinh_doanh": {
+     "text": "Khi phải xử lý sai phạm trong một tập thể, nhắm vào người gây ra chuyện, đừng quy trách nhiệm tràn lan cho mọi người từng dính dáng hay lỡ bước.",
+     "from": [
+      {
+       "seg": "hao6",
+       "layer": "trinh_di",
+       "quote": "Trừ bỏ kẻ ác trong thiên hạ, nếu trủy cứu hết những kẻ tiêm nhiễm, lầm lỡ, thì giết sao cho xuể?"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

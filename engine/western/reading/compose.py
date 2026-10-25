@@ -64,6 +64,11 @@ def ev_point(chart: dict, k: str) -> dict:
     return {"kind": "point", "id": k, "label": at(chart, k)}
 
 
+def ev_star(chart: dict, k: str) -> dict:
+    st = chart["fixed_stars"][k]
+    return {"kind": "star", "id": k, "label": f"{st['name'].split(' (')[0]} {st['fmt']}"}
+
+
 def ev_aspect(a: str, b: str, kind: str, label: str) -> dict:
     return {"kind": "aspect", "id": f"{a}-{kind}-{b}", "label": label}
 
