@@ -1,5 +1,5 @@
 // App shell: navigation, home interactions, BirthChartForm, results orchestration.
-import { $, $$, esc, bd, DM, post, hourBranch, placeTz, STEMS, BRANCHES, loadMeta, shareMode } from './util.js';
+import { $, $$, esc, bd, DM, post, hourBranch, placeTz, STEMS, BRANCHES, loadMeta, shareMode, beginLoad, endLoad, cancelLoad, isCancel } from './util.js';
 import { compass, brandMark } from './compass.js';
 import { renderBazi } from './bazi.js';
 import { renderTuvi } from './tuvi.js';
@@ -176,7 +176,7 @@ async function generate(ev, saved = null) {
   if ((!lunarMode && d.getMonth() !== req.month - 1) || !req.year || req.year < 1900 || req.year > 2049 || Number.isNaN(req.hour)) {
     err.innerHTML = notice('Ngày giờ sinh chưa hợp lệ', req.year < 1900 || req.year > 2049 ? 'Hệ thống hiện hỗ trợ các năm từ 1900 đến 2049.' : 'Ngày này không tồn tại trong tháng đã chọn. Vui lòng kiểm tra lại.', 'warn'); err.hidden = false; return;
   }
-  btn.disabled = true; btn.classList.add('busy'); $('#loading').hidden = false;
+  btn.disabled = true; btn.classList.add('busy'); $('#loading').hidden = false; beginLoad();
   try {
     let lunarIn = null;
     if (lunarMode) {
@@ -192,9 +192,11 @@ async function generate(ev, saved = null) {
     }
     await compute(req, lunarIn);
   } catch (x) {
+    // the reader pressed Hủy: back to the form as it was, no error shown
+    if (isCancel(x)) { view('home'); $('#lap-la-so')?.scrollIntoView({ block: 'center' }); return; }
     err.innerHTML = notice('Chưa lập được lá số', esc(x.message), 'warn'); err.hidden = false;
     $('#lap-la-so').scrollIntoView({ block: 'center' });
-  } finally { btn.disabled = false; btn.classList.remove('busy'); $('#loading').hidden = true; }
+  } finally { endLoad(); btn.disabled = false; btn.classList.remove('busy'); $('#loading').hidden = true; }
 }
 /** Every engine call for one chart, then the result page. A shared view passes its masked request; util.js post() reroutes the calls. */
 async function compute(req, lunarIn = null) {
@@ -313,7 +315,7 @@ $('#png-btn').onclick = async e => {
 function leaveShare(hash) { location.replace('/' + hash); location.reload(); }
 document.addEventListener('click', e => { if (shareMode.id && e.target.closest('[data-leave-share]')) { e.preventDefault(); leaveShare('#lap-la-so'); } });
 async function openShare(id) {
-  $('#loading').hidden = false;
+  $('#loading').hidden = false; beginLoad();
   try {
     const s = await loadShare(id);
     if (!s) { $('#form-err').innerHTML = notice('Không mở được lá số được chia sẻ', 'Liên kết không tồn tại hoặc đã bị chủ lá số thu hồi.', 'warn'); $('#form-err').hidden = false; history.replaceState(null, '', '#lap-la-so'); go('lap-la-so'); return; }
@@ -325,8 +327,9 @@ async function openShare(id) {
     let dg = null; try { dg = localStorage.getItem('tvbt.dignity'); } catch { /* storage unavailable */ }
     await compute(dg === 'khao_luan' || dg === 'toan_thu' ? { ...s.req, dignity_school: dg } : s.req);
   } catch (x) {
-    $('#form-err').innerHTML = notice('Chưa mở được lá số được chia sẻ', esc(x.message), 'warn'); $('#form-err').hidden = false; view('home');
-  } finally { $('#loading').hidden = true; }
+    if (!isCancel(x)) { $('#form-err').innerHTML = notice('Chưa mở được lá số được chia sẻ', esc(x.message), 'warn'); $('#form-err').hidden = false; }
+    view('home');
+  } finally { endLoad(); $('#loading').hidden = true; }
 }
 // a pasted share link or the account page, on load and when only the hash changes (same document)
 const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); };
@@ -343,3 +346,6 @@ if (!reduce && 'IntersectionObserver' in window) {
   const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } }), { threshold: .12 });
   $$('.reveal').forEach(el => rv.observe(el));
 } else $$('.reveal').forEach(el => el.classList.add('in'));
+// Hủy on the loading screen: abort the chart being built (util.js cancelLoad); Esc does the same while the screen is up
+$('#load-cancel')?.addEventListener('click', cancelLoad);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#loading').hidden) cancelLoad(); });

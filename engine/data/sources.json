@@ -43,6 +43,15 @@
    "locator": "PDF pp.19, 20, 23, 24, 25, 35 (tables only)",
    "verified": true,
    "note": "Popular practice manual. Used only for tables (stem/branch relations, ngũ hổ/ngũ thử độn, 12 stages, luck start rule, khong vong). Its fortune-telling statements (injury, death, children) are deliberately NOT implemented."
+  },
+  {
+   "id": "SRC_HAM_SO",
+   "title": "Tử Vi Hàm Số",
+   "author": "Nguyễn Phát Lộc (Sài Gòn, 1972)",
+   "edition": "PDF of a Word transcription (trantuliem.blogspot.com), 238 PDF pages; printed page = PDF page − 1",
+   "locator": "Quyển Nhì pp.83-233 (ý nghĩa 14 chính tinh và các phụ tinh)",
+   "verified": true,
+   "note": "Cited 'HS p.N' with the printed page. Readings paraphrased; each rule's verbatim quote is checked against the PDF text layer (engine/tests/test_ham_so.py). The author compiles Thái Thứ Lang and others and says so; his own objections are kept as his."
   }
  ]
 }

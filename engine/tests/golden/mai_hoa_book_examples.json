@@ -1,0 +1,1234 @@
+{
+ "source": "WEB:zh_meihua (engine/data/mai_hoa/source_zh.json, zh.wikisource 梅花易數 卷一–三)",
+ "made": "2026-10-25",
+ "independence": "Transcribed by hand from the book text only. No casting code (engine/tvbt, branch claude/kinh-dich-engine) was written or read to make this file. `book` holds only what the book itself states; `hand_check` holds a by-hand recomputation (Tiên Thiên numbers 乾1 兌2 離3 震4 巽5 坎6 艮7 坤8, remainder 0 → 8 for a trigram and 6 for a line, lines counted 1–6 from the bottom, hỗ lower = lines 2–4, hỗ upper = lines 3–5, dụng = the trigram holding the moving line, thể = the other). Where book and hand_check differ, `discrepancies` says so; an engine test should assert against `book` only where `arithmetic_ok` is true and the field is present.",
+ "conventions": {
+  "trigrams": "Hán characters 乾 兌 離 震 巽 坎 艮 坤",
+  "moving_line": "1 = bottom (初爻) … 6 = top (上爻)",
+  "hu": "the book's own listing order (e.g. 互見乾巽 → [\"乾\",\"巽\"]); it does not say which is the upper and which the lower hỗ",
+  "bian": "the changed hexagram as the book names it; `bian_trigram` is the changed trigram when the book names only that"
+ },
+ "examples": [
+  {
+   "id": "guan_mei",
+   "name": "觀梅占",
+   "section": "k1.2.4",
+   "kind": "tien_thien",
+   "method": "nam_thang_ngay_gio",
+   "han_quote": "辰年五數，十二月十二數，十七日十七數，共三十四數，除四八三十二，餘二，屬兌，為上卦，加申時九數，總得四十三數，五八除四十，餘得三數，為離，作下卦。又上下總四十三數，以六除，六七四十二，餘一為動爻，是為澤火革。初爻變咸，互見乾巽。",
+   "inputs": {
+    "year_branch": "辰",
+    "year_number": 5,
+    "lunar_month": 12,
+    "lunar_day": 17,
+    "hour_branch": "申",
+    "hour_number": 9
+   },
+   "book": {
+    "upper_sum": 34,
+    "upper_remainder": 2,
+    "upper": "兌",
+    "lower_sum": 43,
+    "lower_remainder": 3,
+    "lower": "離",
+    "line_sum": 43,
+    "moving_line": 1,
+    "hexagram": "澤火革",
+    "bian": "澤山咸",
+    "hu": [
+     "乾",
+     "巽"
+    ],
+    "the": "兌",
+    "yong": "離",
+    "judgement": "明晚當有女子折花，園丁不知而逐之，女子失驚墜地，逐傷其股……幸變為艮土，兌金得生，知女子但被傷，而不至凶危也。",
+    "timing": "明晚 (stated, not derived from a number)"
+   },
+   "hand_check": {
+    "hu_lower": "巽",
+    "hu_upper": "乾",
+    "bian_trigram": "艮",
+    "the": "兌",
+    "yong": "離"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "卷三 體用互變之訣 refers back to this case as 「觀梅恒卦，互兌、乾」: the cast here is 革 with 互 乾/巽, so 恒 and 互兌 there do not match this example."
+   ]
+  },
+  {
+   "id": "mu_dan",
+   "name": "牡丹占",
+   "section": "k1.2.5",
+   "kind": "tien_thien",
+   "method": "nam_thang_ngay_gio",
+   "han_quote": "以巳年六數，三月三數，十六日十六數，總得二十五數，除三八二十四數，餘一數為乾，為上卦。卯時四數，共得二十九數，又除三八二十四數，餘五為巽卦，作下卦，得天風姤。又以總計二十九數，以六除之，四六除二十四，得五爻動，變鼎卦，互見重乾。",
+   "inputs": {
+    "year_branch": "巳",
+    "year_number": 6,
+    "lunar_month": 3,
+    "lunar_day": 16,
+    "hour_branch": "卯",
+    "hour_number": 4
+   },
+   "book": {
+    "upper_sum": 25,
+    "upper_remainder": 1,
+    "upper": "乾",
+    "lower_sum": 29,
+    "lower_remainder": 5,
+    "lower": "巽",
+    "line_sum": 29,
+    "moving_line": 5,
+    "hexagram": "天風姤",
+    "bian": "火風鼎",
+    "hu": [
+     "乾",
+     "乾"
+    ],
+    "the": "巽",
+    "yong": "乾",
+    "judgement": "此花明日午時，當為馬所踐毀。……巽木為體，乾金克之，互卦又見重乾，克體之卦多矣，卦中無生意，固知牡丹必為踐毀。",
+    "timing": "明日午時 (午 from 離明之象, the day stated, not derived from a number)"
+   },
+   "hand_check": {
+    "hu_lower": "乾",
+    "hu_upper": "乾",
+    "bian_trigram": "離",
+    "the": "巽",
+    "yong": "乾"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "The book says the 午 hour comes from 「離明之象」, but 離 does not appear in 姤, its 互 or anywhere except the changed upper trigram of 鼎; the book does not say it is taken from the 變."
+   ]
+  },
+  {
+   "id": "lin_ye_kou_men",
+   "name": "鄰夜扣門借物占",
+   "section": "k1.2.6",
+   "kind": "tien_thien",
+   "method": "thanh_am",
+   "han_quote": "以一聲屬乾為上卦，以五聲屬巽為下卦，又以一乾五巽共六數，加酉時數共得十六數，以六除之，二六一十二，得天風姤。第四爻變巽卦，互見重乾。",
+   "inputs": {
+    "season": "冬夕",
+    "first_knocks": 1,
+    "second_knocks": 5,
+    "hour_branch": "酉",
+    "hour_number": 10,
+    "year_month_day": "not given"
+   },
+   "book": {
+    "upper": "乾",
+    "lower": "巽",
+    "line_sum": 16,
+    "moving_line": 4,
+    "hexagram": "天風姤",
+    "hu": [
+     "乾",
+     "乾"
+    ],
+    "the": null,
+    "yong": null,
+    "judgement": "卦中三乾金，二巽木，為金木之物也，又以乾金短，而巽木長，是借斧也。……以理推之，夕晚安用鋤？必借斧。",
+    "timing": null,
+    "bian_trigram": "巽"
+   },
+   "hand_check": {
+    "line_remainder": 4,
+    "hu_lower": "乾",
+    "hu_upper": "乾",
+    "bian_trigram": "巽",
+    "the": "巽",
+    "yong": "乾",
+    "bian": "巽為風"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "The book does not name 體/用 here; hand_check applies 動者為用 (卷三 變卦式八則).",
+    "聲音占例 (k1.1.16) says the count makes the upper trigram and 「加時數配作下卦」(count + hour makes the lower). This example instead takes the second run of knocks as the lower trigram and adds the hour only for the moving line."
+   ]
+  },
+  {
+   "id": "jin_ri_dong_jing",
+   "name": "今日動靜如何",
+   "section": "k1.2.7",
+   "kind": "tien_thien",
+   "method": "chu_thanh_dieu",
+   "han_quote": "「今」平聲，一數；「日」入聲，四數；「動」去聲，三數，共八數，得坤為上卦。以「靜如何」為下卦，「靜」去聲，三數；「如」平聲，一數；「何」平聲，一數，共五數，得巽，為下卦。又以八五總為十三數，除二六一十二，餘得一數，為地風升。初爻動，變泰卦，互見震、兌。",
+   "inputs": {
+    "words": "今日動靜如何",
+    "upper_words": "今日動",
+    "lower_words": "靜如何",
+    "tones": {
+     "今": "平 1",
+     "日": "入 4",
+     "動": "去 3",
+     "靜": "去 3",
+     "如": "平 1",
+     "何": "平 1"
+    },
+    "hour": "not used"
+   },
+   "book": {
+    "upper_sum": 8,
+    "upper": "坤",
+    "lower_sum": 5,
+    "lower": "巽",
+    "line_sum": 13,
+    "moving_line": 1,
+    "hexagram": "地風升",
+    "bian": "地天泰",
+    "hu": [
+     "震",
+     "兌"
+    ],
+    "the": "坤",
+    "yong": "巽",
+    "judgement": "今日有人相請，客不多，酒不醉，味至黍雞而已。",
+    "timing": "今日 (the question itself)"
+   },
+   "hand_check": {
+    "hu_lower": "兌",
+    "hu_upper": "震",
+    "bian_trigram": "乾",
+    "the": "坤",
+    "yong": "巽"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "體/用 are not named in this section; 卷二 卦斷遺論 says of this case 「用克體」 (巽木克坤土), which fixes 坤 as 體.",
+    "The moving line is taken from 8+5=13 without adding the hour, although 爻以六除 says 「取爻當以時加之」 and 先天後天論 says hours must be added (for 後天). The book does not say whether word casts add the hour.",
+    "The text reads 「以乎分」; 乎 is taken as a corruption of 平 (平分)."
+   ]
+  },
+  {
+   "id": "xi_lin_si",
+   "name": "西林寺牌額占",
+   "section": "k1.2.8",
+   "kind": "tien_thien",
+   "method": "chu_net",
+   "han_quote": "以西字七畫為艮，作上卦；以林八畫為坤，作下卦。以上七畫下八畫總十五畫，除二六一十二，餘數得三，是山地剝卦。第三爻動，變艮，互見重坤。",
+   "inputs": {
+    "characters": "西林",
+    "strokes": {
+     "西": 7,
+     "林": 8
+    },
+    "note": "林 as written on the board, 「無兩勾」",
+    "hour": "not used"
+   },
+   "book": {
+    "upper_sum": 7,
+    "upper": "艮",
+    "lower_sum": 8,
+    "lower": "坤",
+    "line_sum": 15,
+    "moving_line": 3,
+    "hexagram": "山地剝",
+    "hu": [
+     "坤",
+     "坤"
+    ],
+    "the": null,
+    "yong": null,
+    "judgement": "寺中當有陰人之禍。",
+    "timing": null,
+    "bian_trigram": "艮"
+   },
+   "hand_check": {
+    "hu_lower": "坤",
+    "hu_upper": "坤",
+    "bian_trigram": "艮",
+    "the": "艮",
+    "yong": "坤",
+    "bian": "艮為山"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "Two characters are cast by stroke count (one character per trigram); 一字占至十一字占 only says 「二字為兩儀平分。以一字為上卦，一字為下卦」 without saying strokes. The hour is not added for the moving line.",
+    "卷二 卦斷遺論 says of this case 「體用互變，俱比和」 (all 土) but the reading is still unlucky because of 群陰剝陽: a case the book itself says is decided by 理, not by 體用.",
+    "The book counts 西 as 七畫 (usual count 6); the book's figure is used and gives its 艮."
+   ]
+  },
+  {
+   "id": "xi_lin_si_added_hooks",
+   "name": "西林寺牌額占 (添林字兩勾)",
+   "section": "k1.2.8",
+   "kind": "tien_thien",
+   "method": "chu_net",
+   "han_quote": "若添「林」字兩勾，則十畫，除八得二為兌卦，合上艮，是為山澤損。第五爻變，動為中孚卦，互卦見坤、震，損者益之，用互俱生體，為吉卦。",
+   "inputs": {
+    "characters": "西林",
+    "strokes": {
+     "西": 7,
+     "林": 10
+    },
+    "hour": "not used"
+   },
+   "book": {
+    "upper": "艮",
+    "lower_sum": 10,
+    "lower_remainder": 2,
+    "lower": "兌",
+    "moving_line": 5,
+    "hexagram": "山澤損",
+    "bian": "風澤中孚",
+    "hu": [
+     "坤",
+     "震"
+    ],
+    "the": "兌",
+    "yong": "艮",
+    "judgement": "損者益之，用互俱生體，為吉卦。可以得安矣。",
+    "timing": null
+   },
+   "hand_check": {
+    "line_sum": 17,
+    "line_remainder": 5,
+    "hu_lower": "震",
+    "hu_upper": "坤",
+    "bian_trigram": "巽",
+    "the": "兌",
+    "yong": "艮"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "The book does not show the line sum; 7+10=17 → remainder 5 agrees with 第五爻變.",
+    "「用互俱生體」: 艮土 and 坤土 do produce 兌金, but the other 互 is 震木, which 兌金 controls; it does not produce the 體.",
+    "體/用 are inferred from 用互俱生體 (艮 is 用, so 兌 is 體), consistent with the moving line in the upper trigram."
+   ]
+  },
+  {
+   "id": "lao_ren_you_se",
+   "name": "老人有憂色占",
+   "section": "k1.2.9",
+   "kind": "hau_thien",
+   "method": "vat_phuong",
+   "han_quote": "以老人屬乾為上卦，巽方為下卦，是天風姤；又以乾一巽五之數，加卯時四數，總十數，除六得四為動爻，是為天風姤之九四。",
+   "inputs": {
+    "day": "己丑日",
+    "hour_branch": "卯",
+    "hour_number": 4,
+    "object": "老人",
+    "object_trigram": "乾",
+    "direction": "巽方",
+    "direction_trigram": "巽",
+    "observer": "行 (偶在途行)"
+   },
+   "book": {
+    "upper": "乾",
+    "lower": "巽",
+    "line_sum": 10,
+    "moving_line": 4,
+    "hexagram": "天風姤",
+    "bian": null,
+    "hu": [
+     "乾",
+     "乾"
+    ],
+    "the": "巽",
+    "yong": "乾",
+    "line_text": "包無魚，起凶。",
+    "judgement": "汝於五日內謹慎出入，恐有重禍。果五日，此老赴吉席，因魚骨鯁而終。",
+    "timing": "成卦之數 10, halved because the observer was walking → 5 days"
+   },
+   "hand_check": {
+    "bian": "巽為風",
+    "bian_trigram": "巽",
+    "hu_lower": "乾",
+    "hu_upper": "乾",
+    "the": "巽",
+    "yong": "乾",
+    "timing_days": 5
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "The text reads 「謂老人蟲」; 蟲 is taken as a corruption of 曰.",
+    "The changed hexagram is not named by the book."
+   ]
+  },
+  {
+   "id": "shao_nian_xi_se",
+   "name": "少年有喜色占",
+   "section": "k1.2.10",
+   "kind": "hau_thien",
+   "method": "vat_phuong",
+   "han_quote": "以少年屬艮為上卦，離為下卦，得山火賁。以艮七離三加午時七，總十七數，除十二，餘五為動爻",
+   "inputs": {
+    "day": "壬申日",
+    "hour_branch": "午",
+    "hour_number": 7,
+    "object": "少年",
+    "object_trigram": "艮",
+    "direction": "離方",
+    "direction_trigram": "離"
+   },
+   "book": {
+    "upper": "艮",
+    "lower": "離",
+    "line_sum": 17,
+    "moving_line": 5,
+    "hexagram": "山火賁",
+    "bian": "風火家人",
+    "hu": [
+     "震",
+     "坎"
+    ],
+    "the": "離",
+    "yong": "艮",
+    "line_text": "賁於丘園，束帛戔戔，吝，終吉。",
+    "judgement": "子於十七日內必有聘幣之喜。至期，果然定親。",
+    "timing": "17 days (= 成卦之數 17, not halved or doubled)"
+   },
+   "hand_check": {
+    "hu_lower": "坎",
+    "hu_upper": "震",
+    "bian_trigram": "巽",
+    "the": "離",
+    "yong": "艮"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "「離為體，互變俱生之」: 震木 and 巽木 (the changed trigram) produce 離火, but the other 互 is 坎水, which controls 離火.",
+    "體 is stated as 離; 用 艮 is inferred (卦斷遺論 calls this case 「用不生體」).",
+    "The book does not say whether the observer was walking, sitting or standing, so the 17-day period cannot be checked against the 行/坐/立 rule of 老人有憂色占."
+   ]
+  },
+  {
+   "id": "niu_ai_ming",
+   "name": "牛哀鳴占",
+   "section": "k1.2.11",
+   "kind": "hau_thien",
+   "method": "vat_phuong",
+   "han_quote": "牛屬坤，為上卦，坎方為下卦。坎六坤八，加午時七，共二十一數，除三六一十八，三爻動得地水師之三爻。",
+   "inputs": {
+    "day": "癸卯日",
+    "hour_branch": "午",
+    "hour_number": 7,
+    "object": "牛",
+    "object_trigram": "坤",
+    "direction": "坎方",
+    "direction_trigram": "坎"
+   },
+   "book": {
+    "upper": "坤",
+    "lower": "坎",
+    "line_sum": 21,
+    "moving_line": 3,
+    "hexagram": "地水師",
+    "bian": "地風升",
+    "hu": [
+     "坤",
+     "震"
+    ],
+    "the": "坤",
+    "yong": "坎",
+    "line_text": "師或輿屍，凶。",
+    "judgement": "此牛二十一日內必遭屠殺。後二十日，人果買此牛，殺以犒眾。",
+    "timing": "within 21 days (= 成卦之數); the event came after 20 days"
+   },
+   "hand_check": {
+    "hu_lower": "震",
+    "hu_upper": "坤",
+    "bian_trigram": "巽",
+    "the": "坤",
+    "yong": "坎"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "「坤為體，互變俱克之」: 震木 and 巽木 control 坤土, but the other 互 is 坤 itself (比和), not a controller.",
+    "用 坎 is inferred; 卦斷遺論 says of this case 「用不生體」 and 「雖用爻不克」 (坤土 controls 坎水)."
+   ]
+  },
+  {
+   "id": "ji_bei_ming",
+   "name": "雞悲鳴占",
+   "section": "k1.2.12",
+   "kind": "hau_thien",
+   "method": "vat_phuong",
+   "han_quote": "雞屬巽，為上卦，乾方為下卦，得風天小畜。以巽五乾一共六數，加卯時四數，總十數，除六得四，爻動變乾，是為小畜之六四。",
+   "inputs": {
+    "day": "甲申日",
+    "hour_branch": "卯",
+    "hour_number": 4,
+    "object": "雞",
+    "object_trigram": "巽",
+    "direction": "乾方",
+    "direction_trigram": "乾"
+   },
+   "book": {
+    "upper": "巽",
+    "lower": "乾",
+    "line_sum": 10,
+    "moving_line": 4,
+    "hexagram": "風天小畜",
+    "bian": "乾為天",
+    "hu": [
+     "離",
+     "兌"
+    ],
+    "the": "乾",
+    "yong": "巽",
+    "line_text": "有孚，血去惕出，無咎。",
+    "judgement": "此雞十日當烹。果十日客至，有烹雞之驗。",
+    "timing": "10 days (= 成卦之數)"
+   },
+   "hand_check": {
+    "hu_lower": "兌",
+    "hu_upper": "離",
+    "bian_trigram": "乾",
+    "the": "乾",
+    "yong": "巽"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": []
+  },
+  {
+   "id": "ku_zhi_zhui_di",
+   "name": "枯枝墜地占",
+   "section": "k1.2.13",
+   "kind": "hau_thien",
+   "method": "vat_phuong",
+   "han_quote": "槁木為離，作上卦，兌方為下卦，得火澤睽。以兌二離三，加辰時五數，總十數，去六餘四，變山澤損，是睽之九四。",
+   "inputs": {
+    "day": "戊子日",
+    "hour_branch": "辰",
+    "hour_number": 5,
+    "object": "枯枝 (槁木)",
+    "object_trigram": "離",
+    "direction": "兌方",
+    "direction_trigram": "兌",
+    "observer": "行 (偶行至中途)"
+   },
+   "book": {
+    "upper": "離",
+    "lower": "兌",
+    "line_sum": 10,
+    "moving_line": 4,
+    "hexagram": "火澤睽",
+    "bian": "山澤損",
+    "hu": [
+     "坎",
+     "離"
+    ],
+    "the": "兌",
+    "yong": "離",
+    "line_text": "睽孤，遇元夫。",
+    "judgement": "此樹十日當伐。果十日，伐樹起公榭，而匠者適字「元夫」也。",
+    "timing": "10 days (= 成卦之數)"
+   },
+   "hand_check": {
+    "hu_lower": "離",
+    "hu_upper": "坎",
+    "bian_trigram": "艮",
+    "the": "兌",
+    "yong": "離"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "The observer was walking (偶行至中途), yet the period is the full 成卦之數 10, not half of it as the walking rule in 老人有憂色占 would give."
+   ]
+  },
+  {
+   "id": "feng_jue_south",
+   "name": "風覺占 (風從南方來)",
+   "section": "k1.2.15",
+   "kind": "hau_thien",
+   "method": "phong_giac",
+   "han_quote": "風從南方來者，為家人，南方屬離火，得風火家人卦（南方屬離火，合得風火家人卦）。東來者，為益卦之類。",
+   "inputs": {
+    "object": "風",
+    "object_trigram": "巽",
+    "direction": "南",
+    "direction_trigram": "離"
+   },
+   "book": {
+    "upper": "巽",
+    "lower": "離",
+    "hexagram": "風火家人",
+    "moving_line": null,
+    "bian": null,
+    "hu": null,
+    "the": null,
+    "yong": null,
+    "judgement": null,
+    "timing": null
+   },
+   "hand_check": {},
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "Only the hexagram is given (wind 巽 above, direction below); the second case 東來 → 益 (風雷益) likewise."
+   ]
+  },
+  {
+   "id": "jia_shu_wang",
+   "name": "起卦加數例 · 王姓",
+   "section": "k2.5.2",
+   "kind": "tien_thien",
+   "method": "nam_thang_ngay_gio_ho",
+   "han_quote": "若寅年三數、十二與一，共十六，加王姓四畫，得二十數，去八一十六，得四，震為上卦；又加午時，七數，總二十七數，去三八二十四，得三，離為下卦。二十七中去四六二十四，余三為初爻，得豐變震，互見兌、巽。",
+   "inputs": {
+    "year_branch": "寅",
+    "year_number": 3,
+    "lunar_month": 12,
+    "lunar_day": 1,
+    "hour_branch": "午",
+    "hour_number": 7,
+    "surname": "王",
+    "surname_strokes": 4
+   },
+   "book": {
+    "upper_sum": 20,
+    "upper_remainder": 4,
+    "upper": "震",
+    "lower_sum": 27,
+    "lower_remainder": 3,
+    "lower": "離",
+    "line_sum": 27,
+    "line_remainder": 3,
+    "moving_line_as_written": "初爻",
+    "hexagram": "雷火豐",
+    "bian": "震為雷",
+    "hu": [
+     "兌",
+     "巽"
+    ],
+    "the": "震",
+    "yong": "離",
+    "judgement": "用火泄體之氣，破耗資財。……亥子寅卯之年月，卻主進益田財。……二十二年複為火所焚。",
+    "timing": "二十二年 (house burns after 22 years)"
+   },
+   "hand_check": {
+    "moving_line": 3,
+    "hu_lower": "巽",
+    "hu_upper": "兌",
+    "bian_trigram": "震",
+    "the": "震",
+    "yong": "離"
+   },
+   "arithmetic_ok": false,
+   "discrepancies": [
+    "The book says 「余三為初爻」: remainder 3 is the third line, and the stated result 豐變震 (離 → 震 in the lower trigram) is what the third line gives; 「初爻」 contradicts both. Use moving_line 3.",
+    "The house period 二十二年 does not equal the 成卦之數 27; for the 田 house the book does use the full number (二十九年 = 29). The 22 is unexplained.",
+    "體/用 come from 屋宅之占訣 (k2.5.3): 「震木為體，離為用卦」."
+   ]
+  },
+  {
+   "id": "jia_shu_tian",
+   "name": "起卦加數例 · 田姓",
+   "section": "k2.5.2",
+   "kind": "tien_thien",
+   "method": "nam_thang_ngay_gio_ho",
+   "han_quote": "其田姓加以田字六畫，得水風井，變升，互見離、兌",
+   "inputs": {
+    "year_branch": "寅",
+    "year_number": 3,
+    "lunar_month": 12,
+    "lunar_day": 1,
+    "hour_branch": "午",
+    "hour_number": 7,
+    "surname": "田",
+    "surname_strokes": 6
+   },
+   "book": {
+    "upper": "坎",
+    "lower": "巽",
+    "hexagram": "水風井",
+    "bian": "地風升",
+    "hu": [
+     "離",
+     "兌"
+    ],
+    "the": "巽",
+    "yong": "坎",
+    "judgement": "巽木為體，用卦坎水生也，雖兌金克木，得有離火……此居必能發旺。二十九年後，此屋當毀。蓋二十九年者，全卦之成數也。",
+    "timing": "二十九年 = 全卦之成數"
+   },
+   "hand_check": {
+    "upper_sum": 22,
+    "upper_remainder": 6,
+    "lower_sum": 29,
+    "lower_remainder": 5,
+    "line_sum": 29,
+    "moving_line": 5,
+    "hu_lower": "兌",
+    "hu_upper": "離",
+    "bian_trigram": "坤",
+    "the": "巽",
+    "yong": "坎"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "The book counts 田 as 六畫; the usual count is 5. The book's own figure is used.",
+    "Sums are not shown for this house; the hand check with 6 strokes reproduces 井 → 升 and 29."
+   ]
+  },
+  {
+   "id": "jia_shu_han",
+   "name": "起卦加數例 · 韓姓",
+   "section": "k2.5.2",
+   "kind": "tien_thien",
+   "method": "nam_thang_ngay_gio_ho",
+   "han_quote": "其韓姓加入二十一畫之數，得益變中孚，互見艮、坤。",
+   "inputs": {
+    "year_branch": "寅",
+    "year_number": 3,
+    "lunar_month": 12,
+    "lunar_day": 1,
+    "hour_branch": "午",
+    "hour_number": 7,
+    "surname": "韓",
+    "surname_strokes": 21
+   },
+   "book": {
+    "upper": "巽",
+    "lower": "震",
+    "hexagram": "風雷益",
+    "bian": "風澤中孚",
+    "hu": [
+     "艮",
+     "坤"
+    ],
+    "the": "巽",
+    "yong": "震",
+    "judgement": "此居必有官訟，見於酉年月日。申酉年連見病患……三十一年之後，遇申酉年，此居當毀。",
+    "timing": "三十一年"
+   },
+   "hand_check": {
+    "upper_sum": 37,
+    "upper_remainder": 5,
+    "lower_sum": 44,
+    "lower_remainder": 4,
+    "line_sum": 44,
+    "moving_line": 2,
+    "hu_lower": "坤",
+    "hu_upper": "艮",
+    "bian_trigram": "兌",
+    "the": "巽",
+    "yong": "震"
+   },
+   "arithmetic_ok": false,
+   "discrepancies": [
+    "The book counts 韓 as 二十一畫 (usual count 17). With 21 the hexagram, change and 互 agree.",
+    "The house period 三十一年 does not equal the 成卦之數 44 (with 21 strokes); it is unexplained.",
+    "屋宅之占訣 says 「變兌克本」 and 「用卦其震與巽體比和」 (震 用, 巽 體)."
+   ]
+  },
+  {
+   "id": "bing_pi_line1",
+   "name": "疾病占 · 乾上坤下第一爻動",
+   "section": "k2.2.16",
+   "kind": "hypothetical",
+   "method": "given_hexagram",
+   "han_quote": "乾上坤下第一爻動，便是生體之義。變為震木，互見巽艮，俱是生成之義，是謂不災，逢生之日即愈。",
+   "inputs": {
+    "topic": "疾病",
+    "upper": "乾",
+    "lower": "坤",
+    "moving_line": 1
+   },
+   "book": {
+    "hexagram": "天地否",
+    "bian_trigram": "震",
+    "hu": [
+     "巽",
+     "艮"
+    ],
+    "the": "乾",
+    "yong": "坤",
+    "judgement": "不災，逢生之日即愈。"
+   },
+   "hand_check": {
+    "bian": "天雷無妄",
+    "hu_lower": "艮",
+    "hu_upper": "巽",
+    "the": "乾",
+    "yong": "坤"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "體 乾 / 用 坤 inferred from 「生體之義」 (坤土生乾金) and 動者為用."
+   ]
+  },
+  {
+   "id": "bing_pi_line2",
+   "name": "疾病占 · 乾上坤下第二爻動",
+   "section": "k2.2.16",
+   "kind": "hypothetical",
+   "method": "given_hexagram",
+   "han_quote": "是變為坎水，乃泄體敗金之義。金入水鄉，互見巽、離，乃為風火扇爐，俱為克體之義。",
+   "inputs": {
+    "topic": "疾病",
+    "upper": "乾",
+    "lower": "坤",
+    "moving_line": 2
+   },
+   "book": {
+    "hexagram": "天地否",
+    "bian_trigram": "坎",
+    "hu": [
+     "巽",
+     "離"
+    ],
+    "the": "乾",
+    "judgement": "即為焚屍之象，斷之死無疑矣。"
+   },
+   "hand_check": {
+    "bian": "天水訟",
+    "hu_lower": "艮",
+    "hu_upper": "巽",
+    "hu_of_bian": [
+     "離",
+     "巽"
+    ]
+   },
+   "arithmetic_ok": false,
+   "discrepancies": [
+    "The 互 of 否 is 巽/艮 (as the book itself says for lines 1 and 6). 巽/離 is the 互 of the changed hexagram 天水訟. Every other example takes 互 from the original hexagram, so either this line is an error or the book here reads the 互 of the 變卦. The rule is left undecided; see rules_extract undefined point U-hu-source.",
+    "「俱為克體」: 離火 controls 乾金, but 巽木 does not."
+   ]
+  },
+  {
+   "id": "bing_pi_line3",
+   "name": "疾病占 · 乾上坤下第三爻動",
+   "section": "k2.2.16",
+   "kind": "hypothetical",
+   "method": "given_hexagram",
+   "han_quote": "第三爻動，坤變艮土，俱在生體之義，不問互卦，亦斷其吉無疑。",
+   "inputs": {
+    "topic": "疾病",
+    "upper": "乾",
+    "lower": "坤",
+    "moving_line": 3
+   },
+   "book": {
+    "hexagram": "天地否",
+    "bian_trigram": "艮",
+    "hu": null,
+    "the": "乾",
+    "judgement": "吉無疑。"
+   },
+   "hand_check": {
+    "bian": "天山遯",
+    "hu_lower": "艮",
+    "hu_upper": "巽"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": []
+  },
+  {
+   "id": "bing_pi_line4",
+   "name": "疾病占 · 乾上坤下第四爻動",
+   "section": "k2.2.16",
+   "kind": "hypothetical",
+   "method": "given_hexagram",
+   "han_quote": "第四爻動，乾變巽木，金木俱有克體之義，互吉亦凶。",
+   "inputs": {
+    "topic": "疾病",
+    "upper": "乾",
+    "lower": "坤",
+    "moving_line": 4
+   },
+   "book": {
+    "hexagram": "天地否",
+    "bian_trigram": "巽",
+    "hu": null,
+    "the": "坤",
+    "yong": "乾",
+    "judgement": "互吉亦凶。木有扛屍之義，金為磚槨之推。"
+   },
+   "hand_check": {
+    "bian": "風地觀",
+    "hu_lower": "艮",
+    "hu_upper": "巽",
+    "the": "坤",
+    "yong": "乾"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "「金木俱有克體之義」: 巽木 controls 坤土, but 乾金 does not (土生金, so 體 坤 is drained by 乾, not controlled)."
+   ]
+  },
+  {
+   "id": "bing_pi_line5",
+   "name": "疾病占 · 乾上坤下第五爻動",
+   "section": "k2.2.16",
+   "kind": "hypothetical",
+   "method": "given_hexagram",
+   "han_quote": "第五爻動，乾變離，反能生體，互變俱生體，是其吉無疑。",
+   "inputs": {
+    "topic": "疾病",
+    "upper": "乾",
+    "lower": "坤",
+    "moving_line": 5
+   },
+   "book": {
+    "hexagram": "天地否",
+    "bian_trigram": "離",
+    "hu": null,
+    "the": "坤",
+    "yong": "乾",
+    "judgement": "吉無疑。更有吉兆則愈吉。"
+   },
+   "hand_check": {
+    "bian": "火地晉",
+    "hu_lower": "艮",
+    "hu_upper": "巽",
+    "hu_of_bian": [
+     "艮",
+     "坎"
+    ],
+    "the": "坤",
+    "yong": "乾"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "「互變俱生體」: 離火 (變) produces 坤土, but neither the 互 of 否 (巽/艮) nor the 互 of 晉 (艮/坎) produces 土."
+   ]
+  },
+  {
+   "id": "bing_pi_line6",
+   "name": "疾病占 · 乾上坤下第六爻動",
+   "section": "k2.2.16",
+   "kind": "hypothetical",
+   "method": "given_hexagram",
+   "han_quote": "第六爻動，乾變兌，則能泄體，互見巽、艮，一凶一吉，其病非死必危。",
+   "inputs": {
+    "topic": "疾病",
+    "upper": "乾",
+    "lower": "坤",
+    "moving_line": 6
+   },
+   "book": {
+    "hexagram": "天地否",
+    "bian_trigram": "兌",
+    "hu": [
+     "巽",
+     "艮"
+    ],
+    "the": "坤",
+    "yong": "乾",
+    "judgement": "其病非死必危。"
+   },
+   "hand_check": {
+    "bian": "澤地萃",
+    "hu_lower": "艮",
+    "hu_upper": "巽",
+    "the": "坤",
+    "yong": "乾"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": []
+  },
+  {
+   "id": "bian_shi_1_ge",
+   "name": "變卦式八則 · 一 (澤火革)",
+   "section": "k3.1.4",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "澤火革體金，互巽木變澤山鹹\n離卦初爻，陽動變陰，變艮卦兌金，為少女，離火克之。",
+   "inputs": {
+    "hexagram": "澤火革",
+    "moving_line_stated": "離卦初爻"
+   },
+   "book": {
+    "moving_line": 1,
+    "bian": "澤山咸",
+    "the_element": "金",
+    "hu_elements": [
+     "巽木"
+    ],
+    "the": "兌",
+    "yong": "離",
+    "judgement": "傷股……不至於死。"
+   },
+   "hand_check": {
+    "hu_lower": "巽",
+    "hu_upper": "乾"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "鹹 in the text is read as 咸."
+   ]
+  },
+  {
+   "id": "bian_shi_2_fu",
+   "name": "變卦式八則 · 二 (地雷復)",
+   "section": "k3.1.4",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "地雷複體土、用金，變地澤臨\n木是用爻，斷出軟物，文章之體也。",
+   "inputs": {
+    "hexagram": "地雷復"
+   },
+   "book": {
+    "bian": "地澤臨",
+    "the_element": "土",
+    "yong_element_as_written": "金",
+    "judgement": "軟物，文章之體也。"
+   },
+   "hand_check": {
+    "moving_line": 2,
+    "bian_trigram": "兌",
+    "the": "坤",
+    "yong": "震",
+    "hu_lower": "坤",
+    "hu_upper": "坤"
+   },
+   "arithmetic_ok": false,
+   "discrepancies": [
+    "The heading says 用金, but the moving trigram of 復 → 臨 is 震 (木), and the next line says 「木是用爻」. 金 fits only the changed trigram 兌.",
+    "複 in the text is read as 復."
+   ]
+  },
+  {
+   "id": "bian_shi_3_lu",
+   "name": "變卦式八則 · 三 (天澤履)",
+   "section": "k3.1.4",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "天澤履體金、用金，互卦木火變乾卦\n此卦斷出是鐵器之物",
+   "inputs": {
+    "hexagram": "天澤履"
+   },
+   "book": {
+    "bian": "乾為天",
+    "the_element": "金",
+    "yong_element": "金",
+    "hu_elements": [
+     "木",
+     "火"
+    ],
+    "judgement": "鐵器之物"
+   },
+   "hand_check": {
+    "moving_line": 3,
+    "bian_trigram": "乾",
+    "the": "乾",
+    "yong": "兌",
+    "hu_lower": "離",
+    "hu_upper": "巽"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": []
+  },
+  {
+   "id": "bian_shi_4_ge_shihe",
+   "name": "變卦式八則 · 四 (澤火革變火雷噬嗑)",
+   "section": "k3.1.4",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "澤火革用金、體火，互卦金木變火雷噬嗑\n此卦乃用金體火，夏火得旺，能出土，必是土物也。",
+   "inputs": {
+    "hexagram": "澤火革",
+    "season": "夏"
+   },
+   "book": {
+    "bian": "火雷噬嗑",
+    "the_element": "火",
+    "yong_element": "金",
+    "hu_elements": [
+     "金",
+     "木"
+    ],
+    "judgement": "土物"
+   },
+   "hand_check": {
+    "lines_that_differ": [
+     3,
+     5,
+     6
+    ],
+    "the": "離",
+    "yong": "兌",
+    "hu_lower": "巽",
+    "hu_upper": "乾"
+   },
+   "arithmetic_ok": false,
+   "discrepancies": [
+    "革 → 噬嗑 changes three lines (3, 5 and 6), both trigrams; no single moving line gives it. With 用 兌 (upper) moving, one line can only give 既濟, 豐 or 同人."
+   ]
+  },
+  {
+   "id": "bian_shi_5_guimei",
+   "name": "變卦式八則 · 五 (雷澤歸妹)",
+   "section": "k3.1.4",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "雷澤歸妹用木、體金，互卦水火變火澤睽\n用爻屬木變火，體卦屬金。四爻變卦成艮，土能生金，斷出是鐵。",
+   "inputs": {
+    "hexagram": "雷澤歸妹"
+   },
+   "book": {
+    "bian": "火澤睽",
+    "the_element": "金",
+    "yong_element": "木",
+    "hu_elements": [
+     "水",
+     "火"
+    ],
+    "moving_line_as_written": "四爻 (變卦成艮)",
+    "judgement": "鐵"
+   },
+   "hand_check": {
+    "moving_line": 6,
+    "bian_trigram": "離",
+    "the": "兌",
+    "yong": "震",
+    "hu_lower": "離",
+    "hu_upper": "坎"
+   },
+   "arithmetic_ok": false,
+   "discrepancies": [
+    "歸妹 → 睽 is the sixth line (震 → 離). The book's 「四爻變卦成艮」 fits neither: the fourth line would turn 震 into 坤 (地澤臨), and no line of 歸妹 gives 艮."
+   ]
+  },
+  {
+   "id": "bian_shi_6_guai",
+   "name": "變卦式八則 · 六 (澤天夬)",
+   "section": "k3.1.4",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "澤天夬體金、用金，互卦金變兌卦\n此卦非金是石，斷是破磁碟也。",
+   "inputs": {
+    "hexagram": "澤天夬"
+   },
+   "book": {
+    "bian": "兌為澤",
+    "the_element": "金",
+    "yong_element": "金",
+    "hu_elements": [
+     "金"
+    ],
+    "judgement": "破磁碟 (非金是石)"
+   },
+   "hand_check": {
+    "moving_line": 3,
+    "bian_trigram": "兌",
+    "the": "兌",
+    "yong": "乾",
+    "hu_lower": "乾",
+    "hu_upper": "乾"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": []
+  },
+  {
+   "id": "bian_shi_7_ge",
+   "name": "變卦式八則 · 七 (澤火革變艮)",
+   "section": "k3.1.4",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "初爻變艮卦為土，土能生金，則扶起兌金之妹。次除去初爻，移上四爻，又成巽木，斷得傷股之災。",
+   "inputs": {
+    "hexagram": "澤火革"
+   },
+   "book": {
+    "moving_line": 1,
+    "bian_trigram": "艮",
+    "hu_elements": [
+     "金",
+     "木"
+    ],
+    "the": "兌",
+    "judgement": "傷股之災……有救而不至於死也。"
+   },
+   "hand_check": {
+    "hu_lower": "巽",
+    "hu_upper": "乾"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": []
+  },
+  {
+   "id": "bian_shi_8_song",
+   "name": "變卦式八則 · 八 (天水訟變兌)",
+   "section": "k3.1.4",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "天水訟卦變兌，欲要求財。蓋卦是體生，而乃泄已之氣，其財空望。次得離卦屬火，能克金。",
+   "inputs": {
+    "hexagram": "天水訟",
+    "topic": "求財"
+   },
+   "book": {
+    "bian_trigram": "兌",
+    "relation": "體生用",
+    "judgement": "其財空望……其日午時，客來食去酒，返自消耗也。"
+   },
+   "hand_check": {
+    "moving_line": 1,
+    "bian": "天澤履",
+    "the": "乾",
+    "yong": "坎",
+    "hu_lower": "離",
+    "hu_upper": "巽"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "The moving line is not stated. 變兌 can come from line 1 (坎 → 兌, 天澤履) or line 6 (乾 → 兌, 澤水困); only line 1 keeps 乾 as 體 so that 「體生」(乾金生坎水) holds."
+   ]
+  },
+  {
+   "id": "yong_yi_tai",
+   "name": "觀物用易例 · 以籠盛物",
+   "section": "k3.3.7",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "有人以籠盛物者，算得地天泰之初變升，互見震、兌",
+   "inputs": {
+    "hexagram": "地天泰"
+   },
+   "book": {
+    "moving_line": 1,
+    "bian": "地風升",
+    "hu": [
+     "震",
+     "兌"
+    ],
+    "line_text": "拔茅茹，以其彙。",
+    "judgement": "草木連根，新采於土中也。"
+   },
+   "hand_check": {
+    "hu_lower": "兌",
+    "hu_upper": "震",
+    "bian_trigram": "巽"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "The text writes 「互震為清色，兌為黃根」 after saying 「色青根黃」; 清 is read as 青."
+   ]
+  },
+  {
+   "id": "yong_yi_ding",
+   "name": "觀物用易例 · 以鍾覆物",
+   "section": "k3.3.7",
+   "kind": "object_example",
+   "method": "given_hexagram",
+   "han_quote": "得火風鼎之雷風恒。乃曰：此有聲價氣勢之物，雖圓而今毀缺矣。",
+   "inputs": {
+    "hexagram": "火風鼎"
+   },
+   "book": {
+    "bian": "雷風恒",
+    "hu": [
+     "乾",
+     "兌"
+    ],
+    "line_text": "鼎玉鉉，大吉。",
+    "judgement": "玉絛環，果破矣。"
+   },
+   "hand_check": {
+    "moving_line": 6,
+    "bian_trigram": "震",
+    "hu_lower": "乾",
+    "hu_upper": "兌"
+   },
+   "arithmetic_ok": true,
+   "discrepancies": [
+    "The moving line is not stated; 鼎 → 恒 is the sixth line, and 「鼎玉鉉，大吉」 is the text of 鼎 上九, which agrees."
+   ]
+  }
+ ]
+}

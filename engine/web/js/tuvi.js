@@ -21,13 +21,13 @@ const DG_BOOK = { thuc_hanh: 'Thực Hành', toan_thu: 'Toàn Thư', khao_luan: 
 // Where the books disagree on a calculation, the chart says which source each item follows (engine/tvbt/tuvi.py VARIANTS) and lets the viewer switch.
 const VARIANT_UI = [
   ['tu_hoa_table', 'Tứ Hóa', [['KL', 'Khảo Luận'], ['TH', 'Thực Hành'], ['TT_WS', 'Toàn Thư (bản chữ Hán)']]],
-  ['tieu_han_rule', 'Tiểu hạn', [['TH', 'Thực Hành'], ['KL', 'Khảo Luận']]],
+  ['tieu_han_rule', 'Tiểu hạn', [['KL', 'Khảo Luận'], ['TH', 'Thực Hành']]],
   ['luu_ha_table', 'Lưu Hà', [['board', 'Bảng phổ biến'], ['KL', 'Khảo Luận'], ['TH', 'Thực Hành']]],
 ];
 function variantPanel(t) {
   const v = t.school?.variants, lab = t.school?.variant_labels; if (!v || !lab) return '';
   const row = ([k, name, opts]) => `<li><b>${name}</b> <select data-var="${k}" aria-label="${name}: chọn sách">${opts.map(([o, n]) => `<option value="${o}"${v[k] === o ? ' selected' : ''}>${n}</option>`).join('')}</select><span>${esc(lab[k] || '')}</span></li>`;
-  return `<details class="tv-var"><summary>Tính theo sách nào</summary><p>Ở vài mục các sách tính khác nhau. Mặc định theo cách các bảng lá số phổ biến dùng; chọn sách khác để lập lại lá số.</p><ul><li><b>Độ sáng</b> <span>chọn ở ô "Bảng độ sáng" phía trên</span></li>${VARIANT_UI.map(row).join('')}</ul></details>`;
+  return `<details class="tv-var"><summary>Tính theo sách nào</summary><p>Ở vài mục các sách tính khác nhau. Mặc định theo cách các bảng lá số phổ biến dùng, riêng tiểu hạn theo Khảo Luận (âm dương); chọn sách khác để lập lại lá số.</p><ul><li><b>Độ sáng</b> <span>chọn ở ô "Bảng độ sáng" phía trên</span></li>${VARIANT_UI.map(row).join('')}</ul></details>`;
 }
 
 export function renderTuvi(host, t, ctx) {

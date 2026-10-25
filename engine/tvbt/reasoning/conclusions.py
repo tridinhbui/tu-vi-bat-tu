@@ -32,9 +32,9 @@ from .positions import CAT_STARS as CAT, SAT_STARS as SAT
 DATA = Path(__file__).resolve().parent.parent.parent / "data"
 
 BOOK = {"SRC_KHAO_LUAN": "Tử Vi Khảo Luận", "SRC_THUC_HANH": "Tử Vi Thực Hành", "SRC_TOAN_THU": "Tử Vi Đẩu Số Toàn Thư",
-        "SRC_TVDS_TAN_BIEN": "Tử Vi Đẩu Số Tân Biên (nháp)", "SRC_BAZI_ZHENZONG": "八字真宗 (Bát Tự Chân Tông)"}
-BOOK_SHORT = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư"}
-_CITE = re.compile(r"\[((?:TH|KL|TT)\s*(?:pp?\.)?\s*[^\]]*?)\]")
+        "SRC_TVDS_TAN_BIEN": "Tử Vi Đẩu Số Tân Biên (nháp)", "SRC_HAM_SO": "Tử Vi Hàm Số", "SRC_BAZI_ZHENZONG": "八字真宗 (Bát Tự Chân Tông)"}
+BOOK_SHORT = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư", "HS": "Tử Vi Hàm Số"}
+_CITE = re.compile(r"\[((?:TH|KL|TT|HS)\s*(?:pp?\.)?\s*[^\]]*?)\]")
 _PAREN = re.compile(r"\s*\(([^()]*(?:\([^()]*\)[^()]*)*)\)\s*$")
 
 # Star facts and the palaces (roles) they range over. Values are role names of positions.ROLES / dsl.ROLES.
@@ -291,7 +291,7 @@ def _cites(desc: str) -> list[str]:
 
 def cite_vi(c: str) -> str:
     """'KL p.216' -> 'Tử Vi Khảo Luận, tr.216'."""
-    m = re.match(r"(KL|TH|TT)\s*(pp?\.)?\s*(.*)", c)
+    m = re.match(r"(KL|TH|TT|HS)\s*(pp?\.)?\s*(.*)", c)
     if not m:
         return c
     return f"{BOOK_SHORT[m.group(1)]}, tr.{m.group(3).strip()}"

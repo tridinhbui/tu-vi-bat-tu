@@ -401,7 +401,7 @@ def _conditions(edges: list[Edge], d: Discourse, props) -> list[Sentence]:
 
 def _book_of_cites(cites) -> str:
     c = " ".join(cites)
-    return "Khảo Luận" if "KL" in c else "Thực Hành" if "TH" in c else "Toàn Thư" if "TT" in c else "Nghiệm Lý (Thiên Lương)" if "TL" in c else "Nghiệm Lý 1974 (Thiên Lương)" if "NL" in c else "một sách trong bộ quy tắc"
+    return "Khảo Luận" if "KL" in c else "Thực Hành" if "TH" in c else "Toàn Thư" if "TT" in c else "Nghiệm Lý (Thiên Lương)" if "TL" in c else "Nghiệm Lý 1974 (Thiên Lương)" if "NL" in c else "Hàm Số" if "HS" in c else "một sách trong bộ quy tắc"
 
 
 def _short_reading(r: str) -> str:

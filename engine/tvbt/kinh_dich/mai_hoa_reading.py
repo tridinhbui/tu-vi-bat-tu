@@ -71,7 +71,7 @@ class MaiHoaReader:
                  frm("t.assign") + frm("t.roles"))]
         verdict = rel_vi("t.five_relations", REL_KEY[r])
         if verdict:
-            out.append(S(f"Dụng {REL_VI[r]}: {verdict}", "kinh", frm("t.five_relations", REL_KEY[r])))
+            out.append(S(verdict, "kinh", frm("t.five_relations", REL_KEY[r])))     # the book's clause already names the relation
         else:
             out.append(S(f"Dụng {REL_VI[r]}. {rules()['t.five_relations']['vi']}", "kinh", frm("t.five_relations")))
         if r == "the_sinh":

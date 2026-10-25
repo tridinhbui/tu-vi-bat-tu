@@ -7,8 +7,8 @@ from dataclasses import dataclass, field
 
 from . import taxonomy as tx
 
-SCHOOL = {"SRC_THUC_HANH": "Thực Hành", "SRC_KHAO_LUAN": "Khảo Luận", "SRC_TOAN_THU": "Toàn Thư", "SRC_TVDS_TAN_BIEN": "Tân Biên (nháp)", "SRC_TVNL_TOAN_THU": "Nghiệm Lý (Thiên Lương)", "SRC_TVNL_1974": "Nghiệm Lý 1974 (Thiên Lương)"}
-_CITE = re.compile(r"\[((?:TH|KL|TT|TL|NL)[^\]]*?)\]")
+SCHOOL = {"SRC_THUC_HANH": "Thực Hành", "SRC_KHAO_LUAN": "Khảo Luận", "SRC_TOAN_THU": "Toàn Thư", "SRC_TVDS_TAN_BIEN": "Tân Biên (nháp)", "SRC_TVNL_TOAN_THU": "Nghiệm Lý (Thiên Lương)", "SRC_TVNL_1974": "Nghiệm Lý 1974 (Thiên Lương)", "SRC_HAM_SO": "Hàm Số"}
+_CITE = re.compile(r"\[((?:TH|KL|TT|TL|NL|HS)[^\]]*?)\]")
 
 
 @dataclass

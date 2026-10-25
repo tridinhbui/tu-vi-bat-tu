@@ -98,34 +98,41 @@
  ],
  "corroborated": [
   "Nhìn sang {palace}, {ground} cũng cùng chiều ấy: {claim}.",
-  "{palace} xác nhận thêm điều đó, vì {ground}: {claim}."
+  "{palace} xác nhận thêm điều đó, vì {ground}: {claim}.",
+  "Cung {palace} cũng nói như vậy: {ground}, nên {claim}.",
+  "Ở {palace}, {ground} cho cùng một chiều: {claim}.",
+  "Điều này còn có chỗ dựa ở {palace}, nơi {ground}: {claim}.",
+  "Thêm một chứng nữa từ {palace}: {ground}, cho thấy {claim}."
  ],
  "countered": [
   "{conn} ở {palace}, {ground} lại kéo theo chiều khác: {claim}.",
-  "{conn} cung {palace} không hoàn toàn thuận: {ground}, nên {claim}."
+  "{conn} cung {palace} không hoàn toàn thuận: {ground}, nên {claim}.",
+  "{conn} {palace} lại cho chiều ngược: {ground}, nên {claim}.",
+  "{conn} xét sang {palace}, {ground} khiến {claim}.",
+  "{conn} từ phía {palace}, {ground} kéo lại: {claim}."
  ],
-  "countered_up": [
-    "{conn} ở {palace}, {ground}, nên {claim}.",
-    "{conn} cung {palace} mở ra chiều thuận hơn: {ground}, nên {claim}."
-  ],
-  "claim_same": [
-    "Cũng từ thế ấy, {claim}.",
-    "Cùng thế ấy, {claim}.",
-    "Cũng vì vậy, {claim}."
-  ],
-  "claim_same_card": [
-    "Cũng từ thế ấy, {S} {pred}.",
-    "Cùng thế ấy, {S} {pred}."
-  ],
-  "claim_also": [
-    "Có thêm {ground}, nên {claim}.",
-    "Thêm vào đó là {ground}, nên {claim}.",
-    "Lại có {ground}, nên {claim}."
-  ],
-  "claim_also_card": [
-    "Có thêm {ground}, nên {S} {pred}.",
-    "Lại có {ground}, nên {S} {pred}."
-  ],
+ "countered_up": [
+  "{conn} ở {palace}, {ground}, nên {claim}.",
+  "{conn} cung {palace} mở ra chiều thuận hơn: {ground}, nên {claim}."
+ ],
+ "claim_same": [
+  "Cũng từ thế ấy, {claim}.",
+  "Cùng thế ấy, {claim}.",
+  "Cũng vì vậy, {claim}."
+ ],
+ "claim_same_card": [
+  "Cũng từ thế ấy, {S} {pred}.",
+  "Cùng thế ấy, {S} {pred}."
+ ],
+ "claim_also": [
+  "Có thêm {ground}, nên {claim}.",
+  "Thêm vào đó là {ground}, nên {claim}.",
+  "Lại có {ground}, nên {claim}."
+ ],
+ "claim_also_card": [
+  "Có thêm {ground}, nên {S} {pred}.",
+  "Lại có {ground}, nên {S} {pred}."
+ ],
  "behave": [
   "{behave}"
  ],
