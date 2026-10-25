@@ -97,3 +97,24 @@ def test_reconcile_one_verdict_per_luck_pillar(owner):
 def test_shensha_stem_named_in_vietnamese():
     d = api.chart_facts(BirthReq(year=1990, month=5, day=17, hour=10, minute=0, gender="male", to_year=2026))["bazi"]["deep"]
     assert all(not any("一" <= ch <= "鿿" for ch in x["at"]) for x in d["shensha"])
+
+
+def test_luck_relation_rule(owner):
+    """W3 (2026-10-25, engine/data/kg/bazi_luck_relations.json, he_thong): a luck pillar's relations with the natal chart move or confirm
+    its verdict; a year is judged by the tables alone. Owner chart: Mậu Tuất hình the month and day Sửu, Ất Mùi phản ngâm the month pillar
+    (both already nặng: confirmed), Bính Thân's stem hợp the two Tân (Thủy = Quan Sát, vận xấu), Giáp Ngọ bán hợp Hỏa with the hour Dần."""
+    from tvbt.bazi_deep.pipeline import reconcile
+    v = {x["pillar"]: x["reconcile"] for x in owner["luck"]}
+    assert (v["Mậu Tuất"]["rel"]["rule"], v["Mậu Tuất"]["rel"]["effect"], v["Mậu Tuất"]["verdict"]) == ("BT_HT_LUCK_REL_CAP", "confirm", "nang")
+    assert any(e["kind"] == "phan_ngam" and e["targets"] == ["month"] for e in v["Ất Mùi"]["rel"]["events"])
+    assert v["Bính Thân"]["rel"]["rule"] == "BT_HT_LUCK_REL_HOP_KY" and v["Bính Thân"]["agree"] == "tron"
+    assert v["Giáp Ngọ"]["rel"]["rule"] == "BT_HT_LUCK_REL_HOP_DUNG" and v["Giáp Ngọ"]["verdict"] == "thuan"
+    assert all("rel" not in y["reconcile"] for y in owner["years"])
+    clash = [{"kind": "branch_clash", "targets": ["month"], "part": "branch"}]
+    good = {"stem": "tot", "branch": "tot"}
+    assert reconcile(good, {"stem": "yong"}, False, clash)["verdict"] == "co_dieu_kien"
+    assert reconcile(good, {"stem": "yong"}, False, [{"kind": "branch_clash", "targets": ["hour"], "part": "branch"}])["verdict"] == "thuan"
+    hop = [{"kind": "stem_combine", "targets": ["year"], "part": "stem", "element": "Thủy"}]
+    assert reconcile({"stem": None, "branch": None}, {}, False, hop, {"Thủy"}, set())["verdict"] == "kha_thuan"
+    assert reconcile(good, {"stem": "yong"}, False, hop, set(), {"Thủy"})["verdict"] == "kha_thuan"
+    assert reconcile({"stem": None, "branch": None}, {}, False, hop, {"Thủy"}, {"Thủy"})["verdict"] == "trung"   # both sides: neither

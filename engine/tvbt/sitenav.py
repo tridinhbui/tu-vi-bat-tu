@@ -31,6 +31,7 @@ ICONS = {
     "star": '<path d="M12 3.5l2.3 5.3 5.7.6-4.3 3.8 1.2 5.6L12 15.9l-4.9 2.9 1.2-5.6L4 9.4l5.7-.6z"/>',
     "calendar": '<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
     "book": '<path d="M3 5.5h5.5A3.5 3.5 0 0 1 12 9v11.5a2.8 2.8 0 0 0-2.8-2.8H3z"/><path d="M21 5.5h-5.5A3.5 3.5 0 0 0 12 9v11.5a2.8 2.8 0 0 1 2.8-2.8H21z"/>',
+    "cards": '<rect x="4" y="5" width="10" height="15" rx="1.5" transform="rotate(-8 9 12.5)"/><rect x="10" y="4" width="10" height="15" rx="1.5"/>',
     "file": '<path d="M14 3.5H6.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V9z"/><path d="M14 3.5V9h5.5M8.5 13h7M8.5 16.5h5"/>',
     "help": '<circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6M12 16.8v.1"/>',
     "info": '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.8v.1"/>',
@@ -63,19 +64,29 @@ def _brand_mark(size: int = 30) -> str:
             '<path d="M300 150L336 300L300 450L264 300Z" fill="var(--cinnabar)"/><circle cx="300" cy="300" r="16" fill="var(--ivory)"/></svg>')
 
 
-# (key, href, label, icon, classes, extra attributes). Classes: nv-side = sidebar and drawer only (the top bar has the brand and the
-# "Lập lá số" button for these), nv-member = signed-in only. data-go / data-act are handled by js/app.js on the home page (same-page
-# moves); elsewhere the href is followed.
+# (key, href, label, icon, classes, extra attributes[, top-bar label]). One group per discipline, so each art has its own place in the
+# sidebar. Classes: nv-side = sidebar and drawer only (the top bar has the brand and the "Lập lá số" button for these), nv-member =
+# signed-in only, nv-guest = signed-out only. The top bar (signed out, wide screens) shows the discipline's name where the sidebar shows
+# the page's own (Chiêm tinh / Bản đồ sao). data-go / data-act are handled by js/app.js on the home page (same-page moves); elsewhere the
+# href is followed.
 HOME = ("home", "/", "Trang chủ", "home", "nv-side", 'data-go="hero"')
 GROUPS = [
-    ("la-so", "Lá số", "grid", "", [
+    ("la-so", "Tử Vi · Bát Tự", "grid", "", [
         ("mine", "/#tai-khoan", "Lá số của tôi", "bookmark", "nv-side nv-member", 'data-go="tai-khoan"'),
         ("new", "/#lap-la-so", "Lập lá số", "plus", "nv-side", 'data-go="lap-la-so"'),
-        ("sample", "/#la-so-mau", "Lá số mẫu", "eye", "", 'data-act="sample"'),
+        ("sample", "/#la-so-mau", "Lá số mẫu", "eye", "nv-guest", 'data-act="sample"'),
     ]),
-    ("luan-giai", "Luận giải", "compass", "", [
-        ("kinh-dich", "/kinh-dich/", "Kinh Dịch", "hexagram", "", ""),
-        ("chiem-tinh", "/chiem-tinh/", "Chiêm tinh", "star", "", ""),
+    ("chiem-tinh", "Chiêm tinh", "star", "", [
+        ("chiem-tinh", "/chiem-tinh/", "Bản đồ sao", "star", "", "", "Chiêm tinh"),
+        ("van-su", "/chiem-tinh-van-su/", "Vấn sự", "help", "nv-side", ""),
+    ]),
+    ("tarot", "Tarot", "cards", "", [
+        ("tarot", "/tarot/la-bai/", "78 lá bài", "cards", "", "", "Tarot"),
+    ]),
+    ("kinh-dich", "Kinh Dịch", "hexagram", "", [
+        ("kinh-dich", "/kinh-dich/", "Gieo quẻ, Mai Hoa", "hexagram", "", "", "Kinh Dịch"),
+    ]),
+    ("lich", "Lịch", "calendar", "", [
         ("xem-ngay", "/xem-ngay/", "Xem ngày", "calendar", "", ""),
     ]),
     ("kien-thuc", "Kiến thức", "book", "", [
@@ -98,17 +109,19 @@ BOOT = ("<script>/*nav-boot*/try{var d=document.documentElement.classList,s=loca
 def current_key(path: str) -> str | None:
     if path in ("/", "/index.html"):
         return "home"
-    for key, href, *_ in ITEMS:
+    for key, href, *_ in sorted(ITEMS, key=lambda it: -len(it[1])):     # /chiem-tinh-van-su/ before /chiem-tinh/
         if href.startswith("/") and "#" not in href and href != "/" and path.startswith(href.rstrip("/")):
             return key
     return None
 
 
 def _item(it, cur: str | None) -> str:
-    key, href, label, icon, cls, extra = it
+    key, href, label, icon, cls, extra, *bar = it
     attrs = f'class="nv{(" " + cls) if cls else ""}" href="{href}" data-k="{key}"' + (f" {extra}" if extra else "")
     if key == cur:
         attrs += ' aria-current="page"'
+    if bar:
+        return f'<a {attrs}>{_ico(ICONS[icon])}<span class="nv-t"><span class="nv-sl">{esc(label)}</span><span class="nv-bl">{esc(bar[0])}</span></span></a>'
     return f'<a {attrs}>{_ico(ICONS[icon])}<span class="nv-t">{esc(label)}</span></a>'
 
 
@@ -153,6 +166,7 @@ def header(path: str) -> str:
 HAND_PAGES = {
     "index.html": "/",
     "chiem-tinh/index.html": "/chiem-tinh/",
+    "chiem-tinh-van-su/index.html": "/chiem-tinh-van-su/",
     "bang-gia.html": "/bang-gia",
     "bien-nhan.html": "/bien-nhan",
     "chinh-sach-hoan-tien.html": "/chinh-sach-hoan-tien",
@@ -176,4 +190,4 @@ def nav_list(doc: str) -> list[tuple[str, str]]:
     m = re.search(r'<nav class="nav" id="nav"[^>]*>(.*?)</nav>', doc, re.S)
     if not m:
         return []
-    return [(h, re.sub(r"<[^>]+>", "", t).strip()) for h, t in re.findall(r'<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', m.group(1), re.S)]
+    return [(h, re.sub(r"<[^>]+>", "", re.sub(r'<span class="nv-bl">.*?</span>', "", t)).strip()) for h, t in re.findall(r'<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', m.group(1), re.S)]

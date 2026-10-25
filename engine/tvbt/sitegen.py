@@ -960,7 +960,7 @@ def render(m: dict | None = None) -> dict[str, str]:
     pages += tarot_pages()
     pages += [star_page(s, m) for s in m["stars"]] + [palace_page(p, m) for p in m["palaces"]] + [cach_page(c, m) for c in m["cach"]]
     out = {path.strip("/") + "/index.html": doc for path, doc in pages}
-    urls = ["/", "/library", "/chiem-tinh/"] + [p for p, _ in pages]
+    urls = ["/", "/library", "/chiem-tinh/", "/chiem-tinh-van-su/"] + [p for p, _ in pages]
     out["sitemap.xml"] = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                           + "".join(f"<url><loc>{esc(ORIGIN + u)}</loc><lastmod>{CONTENT_DATE}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     for rel, page_path in sitenav.HAND_PAGES.items():      # hand-written pages: only their header block is rewritten

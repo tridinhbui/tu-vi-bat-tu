@@ -238,7 +238,35 @@ def _dh_role(stem: int | None, table: list[str]) -> str | None:
     return "yong" if n == table[0] else "xi" if n in table else None
 
 
-def reconcile(tvh: dict, dh: dict, warm: bool) -> dict:
+_LUCK_REL = json.loads((DATA.parent / "kg" / "bazi_luck_relations.json").read_text("utf-8"))
+_EL_CYCLE = ("Mộc", "Hỏa", "Thổ", "Kim", "Thủy")
+_GROUP_STEP = {"Tỉ Kiếp": 0, "Thực Thương": 1, "Tài": 2, "Quan Sát": 3, "Ấn": 4}
+
+
+def group_element(dm_element: str, group: str) -> str:
+    """the element of a ten-god group for a day master of `dm_element` (八字真宗 p.17: same, generated, controlled, controlling, generating)"""
+    return _EL_CYCLE[(_EL_CYCLE.index(dm_element) + _GROUP_STEP[group]) % 5]
+
+
+def _relation(verdict: str, events: list[dict], useful: set, harmful: set) -> dict | None:
+    """The relation rule of engine/data/kg/bazi_luck_relations.json (he_thong, owner 2026-10-22) that a luck pillar's relations with the natal
+    chart match, tried in order: the first whose events match and whose `change` or `confirm` lists the verdict decides. Returns the rule,
+    its link, whether it changed the verdict or only confirms it, the verdict before and the events it read; None when no rule matches."""
+    side = lambda e: (("useful" if e.get("element") in useful else "harmful" if e.get("element") in harmful else None)
+                      if not (e.get("element") in useful and e.get("element") in harmful) else None)
+    for r in _LUCK_REL["rules"]:
+        hit = [e for e in events if e["kind"] in r["kinds"] and (("targets" not in r) or any(t in r["targets"] for t in e["targets"]))
+               and ("element" not in r or side(e) == r["element"])]
+        if "element" in r and any(e["kind"] in r["kinds"] and side(e) not in (None, r["element"]) for e in events):
+            continue                                       # hợp of both sides: left as the tables have it (`hop_both`)
+        if not hit or (verdict not in r["change"] and verdict not in r["confirm"]):
+            continue
+        return {"rule": r["id"], "basis": "he_thong", "link": r["link"], "effect": "change" if verdict in r["change"] else "confirm", "from": verdict,
+                "events": hit}
+    return None
+
+
+def reconcile(tvh: dict, dh: dict, warm: bool, events: list[dict] | None = None, useful: set | None = None, harmful: set | None = None) -> dict:
     """One verdict for a luck pillar or a year from the two tables of the same book that judge it (plan quirky-tinkering-rabin step 3):
     Thiệu Vĩ Hoa's dụng thần table by cách (pp.378-386: the balance of the day master against the largest group) and his điều hậu table
     (pp.389-396: the cold or heat of the birth season), plus the element a fired hàn noãn rule asks for (`warm`).
@@ -247,7 +275,11 @@ def reconcile(tvh: dict, dh: dict, warm: bool) -> dict:
       agree:   'cung' (both say good), 'khac' (cách bad, climate good), 'tron' (stem and branch split), 'mot_phia' (only one table speaks),
                'khong' (neither);
       verdict: 'thuan' | 'kha_thuan' | 'co_dieu_kien' | 'nang' | 'trung'. No table outranks the other: when they differ the verdict is
-               conditional and the prose says where they differ. The điều hậu table gives no 'bad' stems, so climate never makes a luck bad."""
+               conditional and the prose says where they differ. The điều hậu table gives no 'bad' stems, so climate never makes a luck bad.
+    For a luck pillar, `events` (_events: its relations with the natal pillars) then move the verdict by the system's convention
+    engine/data/kg/bazi_luck_relations.json (he_thong, owner 2026-10-22): xung / hình / phản ngâm with the month or day pillar caps it at
+    co_dieu_kien, a hợp of the harmful element lowers it, a hợp of the useful element raises a silent pillar; `rel` records the rule.
+    `certainty` ('ro' / 'vua' / 'yeu', a display convention of the same file) is how sure the closing sounds."""
     cs, cb = tvh.get("stem"), tvh.get("branch")
     cach = cs if cs and cb in (None, cs) else cb if not cs else "tron"
     climate = "thuan" if dh.get("stem") or dh.get("branch") or warm else None
@@ -259,7 +291,16 @@ def reconcile(tvh: dict, dh: dict, warm: bool) -> dict:
         agree, verdict = "tron", "co_dieu_kien"
     else:
         agree, verdict = ("mot_phia", "kha_thuan") if climate else ("khong", "trung")
-    return {"cach": cach, "climate": climate, "warm": bool(warm), "agree": agree, "verdict": verdict}
+    rel = _relation(verdict, events, useful or set(), harmful or set()) if events is not None else None
+    out = {"cach": cach, "climate": climate, "warm": bool(warm), "agree": agree, "verdict": verdict}
+    if rel:
+        rule = next(r for r in _LUCK_REL["rules"] if r["id"] == rel["rule"])
+        out["verdict"] = rule["change"].get(verdict, verdict)
+        out["rel"] = rel
+    sig = (cs is not None) + (cb is not None) + (climate is not None) + (rel is not None)
+    split = agree in ("khac", "tron") or bool(rel and rel["effect"] == "change")
+    out["certainty"] = ("vua" if sig >= 3 else "yeu") if split else "ro" if sig >= 3 else "vua" if sig == 2 else "yeu"
+    return out
 
 
 def _support(view: ChartView, branch: int, yong_groups: list[str], table: list[str], bad_groups: list[str] = ()) -> list[dict]:
@@ -325,9 +366,15 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
     from ..ganzhi import STEM_ELEMENT
     from .temporal_deep import _group
 
-    def judged(stem: int, branch: int, pf: dict) -> dict:
+    # the elements a luck pillar's hợp are weighed by (engine/data/kg/bazi_luck_relations.json `useful` / `harmful`)
+    dm_el = STEM_ELEMENT[view.dm]
+    useful = {group_element(dm_el, g) for g in yong_g} | ({need_el} if need_el else set())
+    harmful = {group_element(dm_el, g) for g in xau_g}
+
+    def judged(stem: int, branch: int, pf: dict, events: list[dict] | None = None) -> dict:
+        """the one verdict; `events` given for a luck pillar only (bazi_luck_relations.json: a year is judged by the tables alone)"""
         dhr = {"stem": _dh_role(stem, table), "branch": _dh_role(HIDDEN_STEMS[branch][0], table)}
-        rc = reconcile(pf["tvh"], dhr, bool(need_el) and STEM_ELEMENT[stem] == need_el)
+        rc = reconcile(pf["tvh"], dhr, bool(need_el) and STEM_ELEMENT[stem] == need_el, events, useful, harmful)
         if rc["cach"] in ("xau", "tron"):
             rc["support"] = _support(view, branch, yong_g, table, xau_g)
         return {"dieu_hau": dhr, "reconcile": rc}
@@ -369,7 +416,7 @@ def prose_summary(view: ChartView, luck: list[dict], years: list[int] | None = N
                    "effect": e.get("effect"), "can_chi": [c["relation"] for c in e.get("can_chi", [])],
                    "can_chi_detail": cc and {"relation": cc["relation"], "mitigated": cc["mitigated"], "aggravated": cc["aggravated"]},
                    **{k: v for k, v in _pillar_facts(view, YS, L["stem"], L["branch"]).items() if k != "dieu_hau"},
-                   **judged(L["stem"], L["branch"], _pillar_facts(view, YS, L["stem"], L["branch"])),
+                   **judged(L["stem"], L["branch"], _pillar_facts(view, YS, L["stem"], L["branch"]), _events(view, L["stem"], L["branch"])),
                    **({"first_year": luck_first_year(L["start_year_exact"]), "good_years": good_years(luck_first_year(L["start_year_exact"]), L["stem"], L["branch"]),
                        "halves": dp.halves(luck_first_year(L["start_year_exact"]))} if L.get("start_year_exact") else {}),
                    **why_of(L["stem"], L["branch"], _pillar_facts(view, YS, L["stem"], L["branch"])),
