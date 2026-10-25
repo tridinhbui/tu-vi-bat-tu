@@ -27,22 +27,22 @@ quan hệ, vì hai khái niệm khác mặt (vd. "thăng trầm" và "có chức
 Thất Sát ở Tử Tức **trừ** Dần Thân, HS tr.115 nói **ở** Dần Thân; phép so điều kiện bỏ qua chữ "trừ"). Không cặp nào bị xóa hay sửa chữ
 sách.
 
-## 2. Độ sâu trên 150 lá (trung vị mỗi chương)
+## 2. Độ sâu trên 150 lá (trung vị mỗi chương), main hôm nay (đã có DEEP-3) → sau khi gộp
 
-| Chương | Câu sách trước → sau | Phần chính | Luật khác nhau được nói | Chữ |
+| Chương | Câu sách | Phần chính | Luật khác nhau được nói | Chữ |
 |---|---|---|---|---|
-| Quan Lộc | 7 → **10** | 2 → 4 | 4 → 8 | 383 → 499 |
-| Phúc Đức | 4 → **7** | 2 → 3 | 3 → 6 | 188 → 228 |
-| Tài Bạch | 7 → 8 | 2 → 3 | 4 → 7 | 440 → 512 |
-| Thiên Di | 7 → 8 | 3 → 4 | 5 → 7 | 274 → 307 |
-| Phu Thê | 5 → 6 | 2 → 3 | 3 → 5 | 326 → 356 |
-| Điền Trạch | 5 → 6 | 2 → 3 | 3 → 5 | 278 → 333 |
-| Nô Bộc | 6 → 7 | 3 → 3 | 4 → 6 | 227 → 244 |
-| Tử Tức | 4 → 5 | 2 → 2 | 3 → 4 | 164 → 184 |
-| Huynh Đệ | 3 → 4 | 1 → 2 | 2 → 3 | 135 → 160 |
-| Tật Ách | 3 → 4 | 2 → 2 | 2 → 3 | 235 → 232 |
-| Phụ Mẫu | 6 → 6 | 3 → 3 | 5 → 6 | 197 → 210 |
-| Mệnh | 20 → 21 | 9 → 10 | 22 → 23 | 939 → 980 |
+| Quan Lộc | 8 → **11** | 2 → 4 | 4 → 8 | 422 → 531 |
+| Phúc Đức | 5 → **8** | 2 → 3 | 3 → 6 | 207 → 259 |
+| Điền Trạch | 6 → **8** | 2 → 3 | 3 → 5 | 320 → 387 |
+| Thiên Di | 8 → **10** | 3 → 4 | 5 → 7 | 301 → 329 |
+| Tài Bạch | 8 → 9 | 2 → 3 | 4 → 7 | 474 → 561 |
+| Phu Thê | 6 → 7 | 2 → 3 | 3 → 5 | 344 → 375 |
+| Nô Bộc | 8 → 9 | 3 → 3 | 6 → 7 | 283 → 282 |
+| Tử Tức | 6 → 7 | 2 → 2 | 3 → 4 | 221 → 242 |
+| Huynh Đệ | 4 → 5 | 2 → 2 | 3 → 4 | 174 → 190 |
+| Phụ Mẫu | 7 → 7 | 3 → 3 | 5 → 6 | 233 → 241 |
+| Tật Ách | 5 → 5 | 2 → 2 | 2 → 3 | 270 → 251 |
+| Mệnh | 24 → 24 | 10 → 10 | 23 → 24 | 1038 → 1081 |
 
 Số luật khác nhau được nói tăng nhiều hơn số câu: các luật trùng ý đi vào làm đồng chứng chứ không thành câu mới. Ví dụ nội dung mới có trên
 lá mẫu: Điền Trạch "chậm có nhà đất, vất vả lúc đầu, về già mới có nhà cửa"; Phu Thê "lấy nhau vì tình" (Ân Quang); Quan Lộc "công danh
@@ -50,13 +50,13 @@ lừng lẫy, thịnh và bền" (Thiên Việt, HS tr.210).
 
 ## 3. Cổng chất lượng (eval_synthesis 300 lá, eval_repeat 100 lá), main → sau khi gộp
 
-| Đo | main | sau |
+| Đo | main hôm nay | sau |
 |---|---|---|
 | giới hạn chưa đối diện / kết luận một sao / verdict vênh | 0 / 0 / 0 | 0 / 0 / 0 |
-| mâu thuẫn giữa chương chưa giải thích | 0 | 3 → **0** (xem dưới) |
-| câu trùng nguyên văn / báo cáo | 5,51 | 5,5 |
-| cụm 6 chữ lặp / 100 câu | 145,7 | 143,2 |
-| câu "chưa phân xử" / báo cáo | 4,65 | 5,71 |
+| mâu thuẫn giữa chương chưa giải thích | 0 | 0 (trước khi sửa: 3, xem dưới) |
+| câu trùng nguyên văn / báo cáo | 3,57 | 3,57 |
+| cụm 6 chữ lặp / 100 câu | 136,9 | 136,0 |
+| câu "chưa phân xử" / báo cáo | 4,50 | 4,99 |
 | độ giống khung câu chương Mệnh (strip, cổng ≤ 0,065) | — | 0,067 → **0,063** |
 
 Đã sửa trong lúc gộp (không nới cổng nào):
@@ -68,7 +68,7 @@ lừng lẫy, thịnh và bền" (Thiên Việt, HS tr.210).
   phản chứng giữa các cung và câu "hai mặt chưa phân xử" → 0,063 (Barnum 40,1 %, tốt hơn mốc 40,5 %).
 - **"Bù lại," đứng trước một câu hạn chế** (lộ ra khi thứ tự chọn từ nối dịch đi): câu bổ sung mang ý hạn chế nay luôn dùng từ nối hạn chế.
 
-Câu "chưa phân xử" tăng (4,65 → 5,71 mỗi báo cáo) vì HS thêm bằng chứng ở **cả hai phía** của nhiều lĩnh vực. Không ép phân xử: thang cân có
+Câu "chưa phân xử" tăng (4,50 → 4,99 mỗi báo cáo) vì HS thêm bằng chứng ở **cả hai phía** của nhiều lĩnh vực. Không ép phân xử: thang cân có
 nhãn vẫn quyết khi chênh rõ.
 
 ## 4. Test thay đổi và lý do (không sửa golden cho xanh)
@@ -82,3 +82,12 @@ nhãn vẫn quyết khi chênh rõ.
 
 **Thay đổi kết luận trên lá 2002 của chủ dự án:** hôn nhân từ "nghiêng về thuận" thành "chưa phân xử" (lý do ở trên); các lĩnh vực khác giữ
 nguyên.
+
+## 5. Còn lại
+
+- Hai câu "gốc" về cùng một sao đứng liền nhau ở Đọc sâu Quan Lộc của lá mẫu ("Gốc của danh tiếng là Thiên Việt…" rồi "Sự thuận lợi …
+  đứng trên Thiên Việt…"): HS đổi tên mặt thuận, lớp Đọc sâu vẫn gọi lại tên cũ.
+- Từ nối hạn chế ("Chỉ có điều") đôi khi đứng giữa hai câu cùng xấu; nên chọn từ nối theo câu đứng trước, không chỉ theo câu đang viết.
+- Gói Mệnh của HS (766 luật) vẫn để riêng.
+- Gộp lần hai trên main có DEEP-3: xung đột mã (loader, generator, semantic, book_text, show_page) gộp cả hai phía; dữ liệu tay
+  (`claims_vi.json`, `rule_concepts.manual.json`) lấy hợp hai bên; tệp sinh, trang tĩnh, fixture sinh lại.
