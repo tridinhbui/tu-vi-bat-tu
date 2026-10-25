@@ -84,7 +84,6 @@ def timeline(natal: dict, from_age: float, to_age: float, orb: float = 1.0,
     Times are real-life dates (the progressed instant mapped back through the day-for-a-year key)."""
     jd_b = natal["time"]["jd_ut"]
     j0, j1 = jd_b + from_age, jd_b + to_age
-    grid = np.arange(j0, j1 + 0.05, 0.05)                       # 0.05 day = 18 days of life
     defs = {d["id"]: d["angle"] for d in kb.aspects()["aspects"]}
     targets = {**{k: v["lon"] for k, v in natal["bodies"].items()}, "north_node": natal["points"]["north_node"]["lon"]}
     if "angles" in natal:
@@ -92,22 +91,19 @@ def timeline(natal: dict, from_age: float, to_age: float, orb: float = 1.0,
     events = []
     cusps = [c["lon"] for c in natal["houses"]["cusps"][natal["houses"]["system"]]] if "houses" in natal else None
 
+    from .transits import Track, _root
+    tracks = {}
+
     def root(body, target, a, b):
-        g = lambda x: angdiff(float(E.longitude(body, E.time_jd_ut(x))), target)
-        fa = g(a)
-        for _ in range(40):
-            if b - a < 1e-5:
-                break
-            m = (a + b) / 2
-            fm = g(m)
-            if (fa <= 0) == (fm <= 0):
-                a, fa = m, fm
-            else:
-                b = m
-        return (a + b) / 2
+        tr = tracks[body]
+        g = lambda x: angdiff(tr.at(x) % 360.0, target)
+        return _root(g, a, b, g(a))
 
     for body in bodies:
-        lon = np.asarray(E.longitude(body, E.time_jd_ut(grid)))
+        tracks[body] = Track(body, j0, j1, 0.05)
+        sel = (tracks[body].grid >= j0) & (tracks[body].grid <= j1 + 0.05)
+        grid = tracks[body].grid[sel]
+        lon = tracks[body].lon[sel]
         for tname, L in targets.items():
             if tname == body:
                 continue
@@ -116,7 +112,7 @@ def timeline(natal: dict, from_age: float, to_age: float, orb: float = 1.0,
                     g = (lon - target + 180) % 360 - 180
                     for k in np.nonzero((np.sign(g[:-1]) != np.sign(g[1:])) & (np.abs(g[:-1]) < 20))[0]:
                         x = root(body, target, grid[k], grid[k + 1])
-                        spd = abs(E.positions(body, E.time_jd_ut(x)).speed)          # degrees per progressed day = per year of life
+                        spd = abs(tracks[body].speed(x))                             # degrees per progressed day = per year of life
                         events.append({"type": "aspect", "progressed": body, "natal": tname, "aspect": asp, "date": _real_date(natal, x),
                                        "age": round(float(x - jd_b), 3), "years_in_orb": round(2 * orb / spd, 2) if spd > 1e-4 else None})
         sign = (lon // 30).astype(int)
