@@ -16,7 +16,8 @@ from pathlib import Path
 
 BOOK_FILES = {"KL": "TuViKhaoLuan.pdf", "TH": "TuViThucHanh.pdf", "TT": "Tử Vi Đẩu Số Toàn Thư.pdf", "HS": "tu-vi-ham-so.pdf",
               "KD": "KINH DỊCH TRỌN BỘ.PDF"}
-BOOK_NAMES = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư", "HS": "Tử Vi Hàm Số", "KD": "Kinh Dịch (Ngô Tất Tố dịch)"}
+BOOK_NAMES = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư", "HS": "Tử Vi Hàm Số",
+              "KD": "Kinh Dịch (Ngô Tất Tố dịch)"}
 PDF_OFFSET = {"HS": 1}
 
 # KD (Kinh Dịch, Ngô Tất Tố) is an image scan with no text layer (only a download watermark) whose printed numbers are not PDF + 1:
