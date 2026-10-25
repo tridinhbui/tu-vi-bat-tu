@@ -1,0 +1,4674 @@
+{
+ "source": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục), book code TT; printed page = PDF page. Plan (b) mining of seven thin palaces: Thập nhị cung chapter pp.82-93, chư tinh vấn đáp pp.20-62, cách cục / phú pp.141-167. Every quote is checked with tools/book_text.quote_on_page. Conditions: 'gặp' with no position = in the palace itself; a named group of sát tinh ('Dương Đà, Linh Hỏa, Không Kiếp', 'Tứ Sát') = at least two of them in the palace; a named pair (Tả Hữu, Không Kiếp, Khốc Hư, Đào Hồng) = either one; dignity on the book's own table (palace.dignity@toan_thu.*, 'đắc địa' = miếu/vượng/đắc, 'miếu vượng' = miếu/vượng, 'nhập miếu' = miếu).",
+ "pages_read": [
+  {
+   "book": "TT",
+   "page": 20,
+   "note": "kept: TT_NO_BOC_TU_VI_SAI_CHO, TT_DIEN_TRACH_TU_PHU_TUONG_LOC_TA_HUU, TT_TU_TUC_TU_TA_HUU | skipped [low_info]: Tử Vi ngồi tại Tật Ách là sái, giảm uy quyền — not a cứu giải / tối kỵ statement (the Nô Bộc half is kept) | skipped [event]: Tử Vi ở Tử Tức đứng một mình thì cô độc (number of children)"
+  },
+  {
+   "book": "TT",
+   "page": 21,
+   "note": "Tử Vi (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 22,
+   "note": "Tử Vi phú (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 23,
+   "note": "Tử Vi / Thiên Cơ (Mệnh; 'Thiên Cơ huynh đệ chủ' gives no reading)"
+  },
+  {
+   "book": "TT",
+   "page": 24,
+   "note": "Thiên Cơ (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 25,
+   "note": "kept: TT_TU_TUC_THAI_DUONG"
+  },
+  {
+   "book": "TT",
+   "page": 26,
+   "note": "Thái Dương / Vũ Khúc (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 27,
+   "note": "Vũ Khúc phú; 'Vũ Tham tài trạch' already TV_TT_DIEN_TRACH_VU_THAM"
+  },
+  {
+   "book": "TT",
+   "page": 28,
+   "note": "Thiên Đồng (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 29,
+   "note": "Liêm Trinh (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 30,
+   "note": "Thiên Phủ ('giải tai ách chi tính', used as corroboration note for TT_TAT_ACH_PHU_DE_CUU)"
+  },
+  {
+   "book": "TT",
+   "page": 31,
+   "note": "kept: TT_PHU_THE_AM_XUONG | skipped [health]: Thái Âm ở Tật Ách hãm gặp Kình Đà mục tật, gặp Hỏa Linh tai nạn, gặp Tham Sát hại mắt | skipped [unsettled]: Thái Âm hãm địa Thê cung hội Tang Môn, Bạch Hổ — 'hãy thận trọng đối với vợ' (implied death; no reading) | skipped [duplicate]: Thái Âm đồng Văn Khúc ư Thê cung (TV_TT_PHU_THE_AM_VAN_KHUC; the Văn Xương parenthesis is kept)"
+  },
+  {
+   "book": "TT",
+   "page": 32,
+   "note": "skipped [unsettled]: Nguyệt Lương nữ mệnh; nếu ở cung Phu gặp Tham Lang, Xương, Khúc lấy chồng hiền — cross-palace condition on Mệnh not settled"
+  },
+  {
+   "book": "TT",
+   "page": 33,
+   "note": "Tham Lang phú (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 34,
+   "note": "kept: TT_PHU_THE_CU_CHIA_CACH, TT_PHU_MAU_CU_KHONG_HOP, TT_NO_BOC_CU_MON, TT_DIEN_TRACH_CU_PHA_TO, TT_HUYNH_DE_CU_MON, TT_TU_TUC_CU_MON | skipped [sexual]: Cự Môn ở Phu Thê: nếu sống chung thì ô danh thất tiết | skipped [event]: Cự Môn ở Tử Tức: hiếm muộn (count; the 'ít thành đạt' half is kept) | skipped [health]: Cự Môn ở Tật Ách gặp Hình Kị đau mắt, sát xung phá tàn tật"
+  },
+  {
+   "book": "TT",
+   "page": 35,
+   "note": "Thiên Tướng (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 36,
+   "note": "Thiên Tướng / Thiên Lương (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 37,
+   "note": "kept: TT_DIEN_TRACH_LUONG_TOT, TT_HUYNH_DE_LUONG_TOT"
+  },
+  {
+   "book": "TT",
+   "page": 38,
+   "note": "kept: TT_DIEN_TRACH_SAT_HINH | skipped [event]: Thất Sát tọa Tử Tức con cái cô đơn; cư Phu Thê chăn đơn gối chiếc | skipped [khắc]: Thất Sát gặp Hình Tú tại Phụ Mẫu khắc cha khắc mẹ (the Điền Trạch half is kept) | skipped [health]: Thất Sát hội Thiên Hình, Hóa Kị ở Tật Ách tai ương tàn tật"
+  },
+  {
+   "book": "TT",
+   "page": 39,
+   "note": "Thất Sát (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 40,
+   "note": "kept: TT_NO_BOC_PHA_OAN, TT_HUYNH_DE_PHA_QUAN | skipped [duplicate]: Phá Quân ở Phu Thê vợ chồng xa cách (TV_TT_PAL_PHU_THE_PHA_QUAN_BASE_M); ở Điền Trạch phá hoại tổ nghiệp (same as kept p.89 phú) | skipped [event]: Phá Quân vào Tử Tức hiếm hoi (count) | skipped [khắc]: Phá Quân ở Phụ Mẫu khắc cha mẹ"
+  },
+  {
+   "book": "TT",
+   "page": 41,
+   "note": "Văn Xương (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 42,
+   "note": "Văn Khúc (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 43,
+   "note": "Văn Khúc phú (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 44,
+   "note": "Tả Phụ, Hữu Bật (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 45,
+   "note": "skipped [event]: Tả Phụ / Hữu Bật tại Phu Thê vị chủ nhân định nhị hôn; vào cung Thê Thiếp số hai vợ"
+  },
+  {
+   "book": "TT",
+   "page": 46,
+   "note": "Khôi Việt; Lộc Tồn (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 47,
+   "note": "kept: TT_PHU_THE_THIEN_MA | skipped [duplicate]: Lộc Tồn thủ ư tài trạch tích ngọc đôi kim (TV_TT_DIEN_TRACH_LOC_TON)"
+  },
+  {
+   "book": "TT",
+   "page": 48,
+   "note": "Hóa Quyền, Hóa Lộc (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 49,
+   "note": "kept: TT_DIEN_TRACH_HOA_KY | skipped [duplicate]: Quyền Lộc cát tinh nô bộc vị, túng nhiên quan quí dã bôn trì (TV_TT_PHU_NO_BOC_LOC_NO)"
+  },
+  {
+   "book": "TT",
+   "page": 50,
+   "note": "Kình Dương (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 51,
+   "note": "Đà La (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 52,
+   "note": "Hỏa Tinh (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 53,
+   "note": "Linh Tinh (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 54,
+   "note": "Thiên Hao / Thiên Thương (hạn)"
+  },
+  {
+   "book": "TT",
+   "page": 55,
+   "note": "skipped [event]: Cung tử tức có Hình Sát Hổ hiếm con (count)"
+  },
+  {
+   "book": "TT",
+   "page": 56,
+   "note": "Thiên Riêu (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 57,
+   "note": "kept: TT_PHU_MAU_KHOC_HU"
+  },
+  {
+   "book": "TT",
+   "page": 58,
+   "note": "vòng Lộc Tồn (general)"
+  },
+  {
+   "book": "TT",
+   "page": 59,
+   "note": "Thái Tuế stars (general)"
+  },
+  {
+   "book": "TT",
+   "page": 60,
+   "note": "Tứ Phi tinh; Long Phượng (general)"
+  },
+  {
+   "book": "TT",
+   "page": 61,
+   "note": "Thai Tọa; Hồng Loan Thiên Hỉ (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 62,
+   "note": "skipped [sexual]: Hồng Loan ngộ Kị cung Phu — gái ngồi quạt mồ | skipped [duplicate]: Thiên Nguyệt Đức ngộ Đào Hồng (same couplet as the p.83 phú, kept there)"
+  },
+  {
+   "book": "TT",
+   "page": 63,
+   "note": "nhàn cung; thập nhị cung luận intro"
+  },
+  {
+   "book": "TT",
+   "page": 64,
+   "note": "kept: TT_PHU_THE_THAN_NAM, TT_PHU_THE_THAN_NU"
+  },
+  {
+   "book": "TT",
+   "page": 77,
+   "note": "Thiên Di chapter (not one of the seven palaces)"
+  },
+  {
+   "book": "TT",
+   "page": 78,
+   "note": "Thiên Di / Quan Lộc"
+  },
+  {
+   "book": "TT",
+   "page": 79,
+   "note": "Quan Lộc"
+  },
+  {
+   "book": "TT",
+   "page": 80,
+   "note": "Quan Lộc / Tài Bạch"
+  },
+  {
+   "book": "TT",
+   "page": 81,
+   "note": "Tài Bạch"
+  },
+  {
+   "book": "TT",
+   "page": 82,
+   "note": "kept: TT_PHU_THE_TU_THAM_CAT, TT_PHU_THE_NHAT_MV_NHO, TT_PHU_THE_NHAT_LUONG_TA_HUU, TT_PHU_THE_CU_NHAT_GIAI_LAO, TT_PHU_THE_THIEN_TUONG_NU, TT_PHU_THE_LUONG_SAT | skipped [duplicate]: Tử Vi base / cùng Thiên Phủ / Thiên Đồng / Phá Quân (TV_TT_PAL_PHU_THE_TU_VI_*) | skipped [khắc]: Tử Vi cùng Phá Quân hình khắc; cùng Dương Đà, Linh Hỏa hình khắc | skipped [duplicate]: Thiên Cơ base / cùng Thiên Lương / cùng Thái Âm (TV_TT_PAL_PHU_THE_THIEN_CO_*) | skipped [event]: Thiên Cơ bị Dương Đà, Hỏa Linh vợ chồng dễ bỏ nhau (divorce) | skipped [duplicate]: Thái Dương miếu vượng lấy vợ muộn tốt; cùng Thái Âm (TV_TT_PAL_PHU_THE_THAI_DUONG_*) | skipped [khắc]: Thái Dương lấy sớm khắc; cùng Cự Môn thêm Dương Đà, Hỏa Linh, Không Kiếp khắc | skipped [unsettled]: Thái Dương gặp Hao thường lấy vợ theo phí lễ thành hôn (meaning unclear) | skipped [duplicate]: Vũ Khúc base (TV_TT_PAL_PHU_THE_VU_KHUC_BASE_M) | skipped [khắc]: Vũ Khúc cùng Thất Sát khắc tới hai ba vợ (+ sát càng nặng) | skipped [duplicate]: Thiên Đồng base / cùng Thái Âm / cùng Thiên Lương (TV_TT_PAL_PHU_THE_THIEN_DONG_*) | skipped [khắc]: Thiên Đồng bị Tứ Sát khắc hoặc sinh ly; cùng Cự Môn thêm sát tinh khắc | skipped [duplicate]: Liêm Trinh ba lần lấy vợ / cùng Thiên Phủ (TV_TT_PAL_PHU_THE_LIEM_TRINH_*) | skipped [khắc]: Liêm Trinh cùng Tham Lang càng khắc thê; cùng Thất Sát hình thê | skipped [event]: Liêm Trinh gặp Dương Đà, Linh Hỏa dễ bỏ nhau (divorce) | skipped [unsettled]: second 'Có sao Thái Dương vợ yêu thương chồng; gặp Dương Đà, Linh Hỏa lấy muộn' — sits where the Thiên Phủ entry should be (likely misprint); star cannot be settled from the page | skipped [appearance]: Thái Âm nhập miếu vợ chồng đều đẹp, thêm Xương Khúc càng đẹp, không sợ sát | skipped [duplicate]: Thái Âm cùng Thiên Cơ nội trợ giỏi (TV_TT_PAL_PHU_THE_THAI_AM_WITH_THIEN_CO_P) | skipped [duplicate]: Tham Lang base / cùng Tử Vi (TV_TT_PAL_PHU_THE_THAM_LANG_*) | skipped [khắc]: Tham Lang cùng Liêm Trinh hình khắc | skipped [event]: Tham Lang cùng Dương Đà, Linh Hỏa chủ chia lìa | skipped [duplicate]: Cự Môn base / cùng Thiên Cơ / cùng Thiên Đồng (TV_TT_PAL_PHU_THE_CU_MON_*) | skipped [event]: Cự Môn cùng Dương Đà, Linh Hỏa, Không Kiếp phải qua nhiều đời vợ | skipped [duplicate]: Thiên Tướng vợ đẹp hiền thục / cùng Tử Vi / cùng Vũ Khúc (TV_TT_PAL_PHU_THE_THIEN_TUONG_*) | skipped [khắc]: Thiên Tướng gặp Dương Đà, Linh Hỏa, Không Kiếp hình khắc | skipped [appearance]: Thiên Lương 'thê nghi đại (?) nhan sắc' (also unclear in print) | skipped [duplicate]: Thiên Lương cùng Thiên Đồng / cùng Thiên Cơ (TV_TT_PAL_PHU_THE_THIEN_LUONG_*)"
+  },
+  {
+   "book": "TT",
+   "page": 83,
+   "note": "kept: TT_PHU_THE_LOC_TON_TUAN_TRIET, TT_PHU_THE_TA_HUU_DU, TT_PHU_THE_HOA_TINH_MIEU_CAT, TT_PHU_THE_PHUC_BINH_KY, TT_PHU_THE_DUC_DAO_HONG_NU | skipped [duplicate]: Thất Sát base (TV_TT_PAL_PHU_THE_THAT_SAT_BASE_M) | skipped [khắc]: Thất Sát khắc sớm; cùng Vũ Khúc khắc; cùng Liêm Trinh chia lìa, thêm sát khắc ba đời vợ | skipped [duplicate]: Phá Quân base / cùng Tử Vi (TV_TT_PAL_PHU_THE_PHA_QUAN_*) | skipped [khắc]: Phá Quân nam khắc thê nữ khắc phu, lấy nữa cũng ly dị; cùng Vũ Khúc càng khắc | skipped [duplicate]: Văn Xương base / cùng Thiên Cơ, Thái Âm (TV_TT_PAL_PHU_THE_VAN_XUONG_*) | skipped [sexual]: Văn Xương hãm địa gặp Dương Đà, Linh Hỏa: vợ lăng loàn | skipped [sexual]: Văn Khúc thêm Văn Xương đa thê còn lắm thiếp | skipped [khắc]: Văn Khúc gặp Dương Đà, Linh Hỏa hình khắc | skipped [duplicate]: Văn Khúc hội Thái Âm miếu địa rất hay (same as TV_TT_PHU_THE_AM_VAN_KHUC, p.31; also p.159 phú 102) | skipped [duplicate]: Lộc Tồn base (TV_TT_PAL_PHU_THE_LOC_TON_BASE_P); Tả Phụ, Hữu Bật giai lão (TV_TT_PAL_PHU_THE_TA_PHU_WITH_HUU_BAT_P) | skipped [event]: author's aside: tiền nhân say Tả Hữu at Thê = lắm vợ | skipped [khắc]: Hỏa Tinh ở hãm địa hình khắc | skipped [duplicate]: Thiên Khôi, Thiên Việt vợ chồng đều đẹp (TV_TT_PAL_PHU_THE_THIEN_KHOI/VIET_BASE_P) | skipped [sexual]: phú b) Thai ngộ Đào Hoa: tiền dâm hậu thú | skipped [unsettled]: phú c) Đào Hồng đối chiếu Thiên Di: vợ chồng viễn phối (Thiên Di is not opposite Phu Thê; geometry unclear) | skipped [sexual]: phú d) Phu cung Hóa Kỵ một mình: tơ tình chưa dứt | skipped [sexual]: phú e) Thiên Riêu bất chính / Liêm Trinh viễn phối | skipped [event]: phú f) Triệt Tuần ngộ Mã: vợ bỏ chồng | skipped [impossible]: phú h) Ân Quang, Nguyệt Đức, Thái Dương, Mã, Đồng: vợ về có của (Thái Dương and Thiên Đồng never share a palace; condition cannot be settled) | skipped [unsettled]: phú i) Thiên Tướng Đào Hồng / Thiên Mã Lộc Thanh Long — couplet has no verdict on the page"
+  },
+  {
+   "book": "TT",
+   "page": 84,
+   "note": "Phúc Đức"
+  },
+  {
+   "book": "TT",
+   "page": 85,
+   "note": "Phúc Đức phú (mồ mả)"
+  },
+  {
+   "book": "TT",
+   "page": 86,
+   "note": "kept: TT_PHU_MAU_NHAT_NGUYET, TT_PHU_MAU_DONG_DOC_MV, TT_PHU_MAU_LIEM_KE_NGHIEP, TT_PHU_MAU_LIEM_SAT_XA, TT_PHU_MAU_PHU_VU_LIEM_MV, TT_PHU_MAU_THAM_LIEM_HAM | skipped [death]: intro: Thái Dương / Thái Âm hãm cha / mẹ mất sớm; giờ sinh decides which parent lives | skipped [duplicate]: Tử Vi base / cùng Thiên Phủ / cùng Thiên Đồng (TV_TT_PAL_PHU_MAU_TU_VI_*) | skipped [khắc]: Tử Vi bị Dương Đà, Linh Hỏa, Không Kiếp hình khắc; cùng Phá Quân khắc sớm | skipped [duplicate]: Tử Vi cùng Tham Lang vô ác sát không sao (TV_TT_PAL_PHU_MAU_THAM_LANG_WITH_TU_VI_P) | skipped [duplicate]: Thiên Cơ miếu / cùng Cự Môn (TV_TT_PAL_PHU_MAU_THIEN_CO_*) | skipped [event]: Thiên Cơ hãm ngộ Không Kiếp, Dương Đà là con nuôi (adoption) | skipped [unsettled]: Thiên Cơ '… cùng Thiên Lương, Thiên Đồng tốt' — garbled in the print (checked on the page image); Cơ–Đồng never share a palace | skipped [khắc]: Thái Dương hãm khắc cha, thêm sát tảo khắc cả cha lẫn mẹ | skipped [duplicate]: Thái Dương cùng Cự Môn (TV_TT_PAL_PHU_MAU_THAI_DUONG_WITH_CU_MON_M) | skipped [khắc]: Vũ Khúc sớm khắc cha mẹ (whole entry is about khắc) | skipped [event]: Thiên Đồng thêm Tứ Sát có cha mẹ nuôi (adoption) | skipped [duplicate]: Thiên Đồng cùng Cự Môn / cùng Thái Âm (TV_TT_PAL_PHU_MAU_THIEN_DONG_*) | skipped [death]: Thiên Đồng Thái Âm bị sát phụ mẫu bất toàn | skipped [event]: Liêm Trinh có cha mẹ nuôi (adoption) | skipped [khắc]: Liêm Trinh cùng Tham Lang sớm khắc; cùng Phá Quân hình khắc | skipped [death]: Liêm Trinh bị Dương Đà, Linh Hỏa phụ mẫu bất chu toàn | skipped [duplicate]: Thiên Phủ base / cùng Tử Vi; Thái Âm miếu vượng (TV_TT_PAL_PHU_MAU_*) | skipped [khắc]: Thiên Phủ / Thái Âm bị Dương Đà, Linh Hỏa, Không Kiếp khắc cha mẹ | skipped [event]: Tham Lang hãm làm con nuôi hoặc ở với dượng ghẻ | skipped [duplicate]: Tham Lang cùng Tử Vi tốt; Cự Môn cùng Thái Dương bất hòa | skipped [khắc]: Cự Môn hãm địa khắc | skipped [death]: Cự Môn bị Dương Đà, Linh Hỏa, Không Kiếp phụ mẫu bất chu toàn"
+  },
+  {
+   "book": "TT",
+   "page": 87,
+   "note": "kept: TT_PHU_MAU_LOC_TON_SAT, TT_PHU_MAU_THIEN_LUONG_THO, TT_NO_BOC_TU_KK, TT_NO_BOC_CO_SAT, TT_NO_BOC_NHAT_SAT, TT_NO_BOC_DONG_SAT, TT_NO_BOC_LIEM_SAT, TT_NO_BOC_SAT_LIEM, TT_NO_BOC_SAT_SAT | skipped [duplicate]: Thiên Tướng miếu / cùng Tử Vi; Thất Sát cô độc; Phá Quân; Văn Xương, Văn Khúc miếu; Tả Phụ, Hữu Bật độc thủ; Lộc Tồn tốt (TV_TT_PAL_PHU_MAU_*) | skipped [khắc]: Thiên Tướng cùng Liêm Trinh hình khắc; Thất Sát cùng Vũ Khúc khắc, cùng Liêm Trinh hình; Tả Phụ bị Tứ Sát ly khắc; Kình Dương, Đà La, Linh Tinh, Hỏa Tinh có khắc | skipped [unsettled]: Thiên Tướng bị Tứ Sát xấu — no reading beyond 'xấu' in a khắc chapter | skipped [event]: Thiên Lương hãm bị Tứ Sát vào viện mồ côi / làm con nuôi; Văn Xương gặp Tứ Sát làm con hai họ | skipped [death]: Văn Khúc bị Dương Đà, Linh Hỏa phụ mẫu bất chu toàn; phú 'Âm Dương Tuần Triệt tại tiền' | skipped [duplicate]: base and đồng cung lines of every chính tinh (TV_TT_PAL_NO_BOC_*); Tử Vi gặp Kình Đà Linh Hỏa (TV_TT_PAL_NO_BOC_TU_VI_SAT_M) | skipped [duplicate]: Thất Sát cùng Vũ Khúc phản chủ (TV_TT_PAL_NO_BOC_VU_KHUC_WITH_THAT_SAT_M) | skipped [theft]: Thất Sát có gia nhân rình rập để trộm cướp của chủ"
+  },
+  {
+   "book": "TT",
+   "page": 88,
+   "note": "kept: TT_NO_BOC_PHA_VU, TT_NO_BOC_PHA_SAT, TT_NO_BOC_XUONG_MIEU_DON, TT_NO_BOC_XUONG_SAT, TT_NO_BOC_KHUC_HAM_SAT, TT_NO_BOC_HUU_SAT, TT_NO_BOC_LOC_SAT_HAO, TT_NO_BOC_LINH_HAM, TT_NO_BOC_NHAT_NGUYET_HAM, TT_NO_BOC_PHA_HAM_KY_KINH_DA, TT_DIEN_TRACH_CO_CU_MAO, TT_DIEN_TRACH_CO_CU_DAU, TT_DIEN_TRACH_NHAT_NGUYET_CAT, TT_DIEN_TRACH_NHAT_CU_DAN, TT_DIEN_TRACH_NHAT_CU_THAN, TT_DIEN_TRACH_NHAT_HAM_SAT | skipped [duplicate]: Phá Quân miếu / hãm / cùng Tử Vi; Văn Khúc miếu; Tả Phụ, Hữu Bật độc thủ; Lộc Tồn; Kình Dương; Đà La; Hỏa Tinh; Linh Tinh miếu (TV_TT_PAL_NO_BOC_*) | skipped [unsettled]: Tả Phụ 'kèm với Tử Sát tối kị' — page image prints 'Tử Sát' (Tứ Sát or Tử Vi + Thất Sát cannot be settled) | skipped [sexual]: phú: Nô cung Hoa Cái, Hồng, Đào, Phụ Bật — chính thê thứ thiếp | skipped [sexual]: phú: Đào Hoa Nô — dối chồng mang tiếng bất trung | skipped [event]: phú: Cung Nô có Hóa Quyền — vợ lẽ cướp quyền chính thê | skipped [duplicate]: base and đồng cung lines already in TV_TT_PAL_DIEN_TRACH_* (Tử Vi, Thiên Cơ, Thái Dương miếu, Vũ Khúc, Thiên Đồng, Liêm Trinh, Thiên Phủ, Thái Âm, Tham Lang, Cự Môn, Thiên Tướng, Thiên Lương, Phá Quân, Xương, Khúc, Tả Phụ, Lộc Tồn, Kình miếu, Hỏa miếu) | skipped [impossible]: Tử Vi cùng Thiên Đồng xây dựng gia nghiệp nếu hội Tả Hữu, Xương Khúc (Tử–Đồng never share a palace)"
+  },
+  {
+   "book": "TT",
+   "page": 89,
+   "note": "kept: TT_DIEN_TRACH_VU_HOA_LINH, TT_DIEN_TRACH_VU_KK, TT_DIEN_TRACH_DONG_SAT, TT_DIEN_TRACH_LIEM_THAM, TT_DIEN_TRACH_AM_HAM_SAT, TT_DIEN_TRACH_AM_TA_HUU_LOC, TT_DIEN_TRACH_THAM_HOA_LINH, TT_DIEN_TRACH_CU_TU_SAT, TT_DIEN_TRACH_TUONG_TU, TT_DIEN_TRACH_LIEM_TUONG_SAT, TT_DIEN_TRACH_TA_PHU_SAT, TT_DIEN_TRACH_LOC_SAT, TT_DIEN_TRACH_KINH_HAM, TT_DIEN_TRACH_DA_LA, TT_DIEN_TRACH_LINH_DOC, TT_DIEN_TRACH_HOA_SAT, TT_DIEN_TRACH_TUAN_TRIET, TT_DIEN_TRACH_PHA_BAN_HET, TT_DIEN_TRACH_QUANG_DAO_HONG | skipped [unsettled]: Thiên Đồng cùng Thái Âm nhập miếu gia cư đồ sộ — Đồng Âm only meet at Tý/Ngọ; TT's own table has Thái Âm hãm at Ngọ and no level at Tý, so the condition can never be met on the book's school | skipped [low_info]: Thiên Đồng cùng Thiên Lương bình thường; Tham Lang cùng Liêm Trinh tầm thường | skipped [event]: Tham Lang gặp Hỏa hoặc Linh: cẩn thận sẽ bị cháy nhà (the 'cực tốt' half is kept) | skipped [unsettled]: Cự Môn cùng Thái Dương hãm địa đỡ hại — Cự–Nhật only meet at Dần/Thân where TT's table has Cự Môn miếu; which star is hãm cannot be settled | skipped [event]: phú: Tang Môn ngộ Hỏa — hỏa tai | skipped [unsettled]: phú: Long Trì Địa Kiếp — giếng bồi ao lấp (description of the house, no reading)"
+  },
+  {
+   "book": "TT",
+   "page": 90,
+   "note": "kept: TT_DIEN_TRACH_CO_LUONG_THIN_TUAT, TT_TAT_ACH_PHU_DE_CUU, TT_TAT_ACH_TU_PHA_DO_HAI, TT_TAT_ACH_LOC_CAT, TT_TAT_ACH_KHUC_CAT, TT_TAT_ACH_KHUC_HAM_SAT, TT_TAT_ACH_XUONG_SAT, TT_TAT_ACH_TA_HUU_SAT | skipped [death]: phú: Khốc Hư Tang hội — tổn người hại của | skipped [health]: illness lines of every star: Tử Vi âm tật, bệnh tim; Thiên Cơ; Thái Dương đau đầu; Vũ Khúc; Thiên Đồng tâm khí; Liêm Trinh nhọt; Thiên Phủ phong thấp, tàn tật; Thái Âm lao phổi; Cự Môn; Thiên Tướng; Thất Sát trĩ; Phá Quân; Lộc Tồn tàn tật; Kình Dương; Đà La | skipped [health]: health verdicts with no cứu giải / tối kỵ wording: Tử Vi ít tai họa hiểm nghèo; Thiên Đồng ít tật bệnh; Liêm Trinh cùng Sát, Phá, Phủ ít bệnh; Thiên Tướng ít tai nạn; Văn Xương đơn thủ sức khỏe tốt; Tả Phụ độc thủ bình thường; Thất Sát gặp Kình Đà Linh Hỏa càng xấu"
+  },
+  {
+   "book": "TT",
+   "page": 91,
+   "note": "skipped [health]: Hỏa Tinh đi cặp Kình Dương người khỏe mạnh phi thường | skipped [duplicate]: phú: Triệt Tuần đóng tại Ách cung (TV_D3_TT91_TAT_TUAN_TRIET) | skipped [han]: phú: Hình Dương Hoa Cái ngộ Đà — hạn hành năm ấy | skipped [health]: phú: Bệnh phùng Kiếp Cơ đau mắt; Bạch Hổ huyết hư; Khốc Cự Hư phong đàm; Dương Đà Hình mục tật; Âm Dương Riêu Kị mắt lòa; Hóa Kị âm hư; Lộc Tồn ám tật; Tả Hữu Xương Khúc tai ương nên phòng | skipped [theft]: phú: Khôi Hình pháp đình; Thiên Hình Kình Dương Ngọ gặp Thất Sát ngục trung (prison) | skipped [event]: phú: Hỏa Linh Trì Mộc lửa nước; Cự Kị đò sông; Phục Binh Hình Việt đao gươm; Hỏa Linh Hình Việt sét đánh | skipped [author_rejects]: TT's own Huynh Đệ / Tử Tức text (counts of siblings and children) — the author says it cannot be right and does not print it | skipped [unsettled]: phú: Huynh Đệ Triệt Tuần làm thủ — chim đầu đàn vỗ cánh bay cao (meaning not settled) | skipped [duplicate]: phú: Kiếp Không lâm vào Huynh Đệ đơn sơ một mình (TV_D3_TT91_BAO_KK_DON_SO)"
+  },
+  {
+   "book": "TT",
+   "page": 92,
+   "note": "kept: TT_HUYNH_DE_TANG_MA, TT_HUYNH_DE_HOA_KY, TT_HUYNH_DE_THIEN_HINH | skipped [duplicate]: phú: Phá phùng Hình kị (TV_D3_TT92_BAO_PHA_HINH_KY); Tướng Quân Lộc Mã (TV_D3_TT92_BAO_TUONG_QUAN_LOC_MA) | skipped [event]: phú: Tử Tang Tả Hữu — chị em gái duyên chẳng lành | skipped [sexual]: phú: Đào Hoa Thai Hỉ / Phá Tướng Phục — chị em theo trai; Tướng Phủ Phục Binh, Hoa Cái Đào Hồng — tư thông; Tử Vi Tả Hữu — say màu phấn son | skipped [impossible]: phú: Bào cung Tử Phủ ở Thìn — Tử Phủ never sit at Thìn (also sexual) | skipped [death]: phú Tử Tức: Kiếp Không nuôi con chẳng mát; Khốc Hư ngộ Dưỡng sinh nhiều nuôi ít | skipped [duplicate]: phú Tử Tức: Hình Hao hiếm hoi (TV_D3_TT92_TU_HINH_HAO); Tràng sinh Đế vượng đa nhân (TV_D3_TT92_TU_TRUONG_SINH_DE_VUONG) | skipped [event]: phú Tử Tức: quí tinh một hào đông con; Thiên Hình Sát Hổ không có con; quí tinh Thân Dậu cầu tự; giáp Nhật Nguyệt sinh đôi; Đế vượng Thai Khôi Tướng dị bào (counts / twins / half-siblings) | skipped [health]: phú Tử Tức: Sát Đà Kiếp Không xung chiếu — sinh con ngẩn ngơ; Không Kiếp trùng giao — băng huyết"
+  },
+  {
+   "book": "TT",
+   "page": 93,
+   "note": "kept: TT_TU_TUC_XUONG_KHUC_GIAP | skipped [duplicate]: phú Tử Tức: Đà Kị; Quyền Lộc; Khôi Việt Văn tinh; Long Phượng; Khúc Xương ăn chơi; Thất Sát hãm Thiên Hình (TV_D3_TT93_TU_*) | skipped [death]: phú Tử Tức: Hổ Lang Không Kiếp Tang Giao; Kình Dương gặp Thiên Hư hữu sinh vô dưỡng | skipped [unsettled]: phú Tử Tức: Hỉ Thần hội với Phúc Tinh — 'Phúc Tinh' is not a star of this system | skipped [sexual]: phú Tử Tức: Thai, Tướng, Phục Binh — vợ chồng tư tình | skipped [event]: phú Tử Tức: Cô Thần Quả Tú gian truân về hài nhi sinh; Thai cùng Tả Hữu con vợ lẽ; Khốc Hư Dưỡng Tướng Binh hoang thai; Đẩu Quân hiếm con; Phá Quân ba trẻ bất tài (a count); Lộc Tồn gia Sát hiếm hoi | skipped [appearance]: phú Tử Tức: Vũ Xương hoặc Khúc — sinh con xinh đẹp | skipped [unsettled]: phú Tử Tức: Dương Đà ngộ Tuyệt Mão Dậu Tị Ngọ — uổng công sinh thành (death or ingratitude cannot be settled) | skipped [health]: phú Tử Tức: Hỏa Linh, Dương Nhẫn — con tật thương"
+  },
+  {
+   "book": "TT",
+   "page": 94,
+   "note": "vận hạn essay"
+  },
+  {
+   "book": "TT",
+   "page": 95,
+   "note": "vận hạn essay"
+  },
+  {
+   "book": "TT",
+   "page": 141,
+   "note": "Mệnh appearance phú; cách cục (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 142,
+   "note": "cách cục: Nhật Nguyệt chiếu bích / Nguyệt sinh thương hải (Điền Trạch) already TV_D3_TT142_*"
+  },
+  {
+   "book": "TT",
+   "page": 143,
+   "note": "hợp cách by Mệnh branch"
+  },
+  {
+   "book": "TT",
+   "page": 144,
+   "note": "hợp cách by Mệnh branch"
+  },
+  {
+   "book": "TT",
+   "page": 145,
+   "note": "hợp cách by Mệnh branch"
+  },
+  {
+   "book": "TT",
+   "page": 146,
+   "note": "đắc địa phú quí luận (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 147,
+   "note": "phá cách by Mệnh branch"
+  },
+  {
+   "book": "TT",
+   "page": 148,
+   "note": "phá cách by Mệnh branch"
+  },
+  {
+   "book": "TT",
+   "page": 149,
+   "note": "thất hãm bần tiện luận; thập đẳng luận"
+  },
+  {
+   "book": "TT",
+   "page": 150,
+   "note": "kept: TT_TAT_ACH_TOI_KY_LIST"
+  },
+  {
+   "book": "TT",
+   "page": 151,
+   "note": "thương nhân; Mệnh vô chính diệu; cốt tủy phú 1-2 (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 152,
+   "note": "cốt tủy phú 3-14 (Mệnh / Tài / Phúc)"
+  },
+  {
+   "book": "TT",
+   "page": 153,
+   "note": "kept: TT_DIEN_TRACH_THIEN_MA | skipped [duplicate]: phú 16 Cự Cơ điền trạch phú hữu lâu đài (same as kept p.88 line); phú 27 Thiên Tướng hi cư thê vị (same direction as TV_TT_PAL_PHU_THE_THIEN_TUONG_BASE_P and the kept p.166 line)"
+  },
+  {
+   "book": "TT",
+   "page": 154,
+   "note": "cốt tủy phú 30-44 (Mệnh / Quan)"
+  },
+  {
+   "book": "TT",
+   "page": 155,
+   "note": "skipped [duplicate]: phú 52 Thiên Phủ lâm giải ách nhi vô bệnh (same as kept p.90 line)"
+  },
+  {
+   "book": "TT",
+   "page": 156,
+   "note": "cốt tủy phú 59-72 (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 157,
+   "note": "skipped [unsettled]: phú 79 Tam Không hội Văn Xương ư Thê cung — which three Không is not named | skipped [duplicate]: phú 79 Tử Vi hội Vũ Khúc ư tử tức (TV_TT_PHU_TU_TUC_TU_VU) | skipped [other_palace]: phú 81 Tuần Triệt ngộ Lộc Tồn tư cơ phá hoại — no palace named"
+  },
+  {
+   "book": "TT",
+   "page": 158,
+   "note": "cốt tủy phú 84-95 (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 159,
+   "note": "skipped [duplicate]: phú 99 Lộc cư nô bộc (TV_TT_PHU_NO_BOC_LOC_NO); phú 102 Thái Âm đồng Văn Khúc ư Thê cung (TV_TT_PHU_THE_AM_VAN_KHUC); phú 103 Lộc Tồn thủ ư điền tài (TV_TT_PHU_DIEN_TRACH_LOC_TON)"
+  },
+  {
+   "book": "TT",
+   "page": 160,
+   "note": "kept: TT_PHU_THE_HONG_LOAN_KIEP_NU | skipped [duplicate]: phú 117 Văn Xương ích phu lợi tử ở Thê cung (TV_TT_PHU_PHU_THE_XUONG) | skipped [event]: phú 121 Tham, Tang ngộ Phu Quân — chính phối hay thiếp hầu"
+  },
+  {
+   "book": "TT",
+   "page": 161,
+   "note": "kept: TT_PHU_THE_CU_BAT_MAN, TT_PHU_THE_DA_LA_NU, TT_PHU_THE_HONG_LOAN_NAM | skipped [death]: phú 132 Hồng Loan tứ mộ Phu cung — táng phu | skipped [other_palace]: phú 131 Đào Hoa phùng Thiên Mã (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 162,
+   "note": "cốt tủy phú 137-139; phú nôm cốt tủy 1-12 (Mệnh / Mã)"
+  },
+  {
+   "book": "TT",
+   "page": 163,
+   "note": "skipped [death]: phú nôm 32 Phúc cung Thiên Phủ gặp Địa Kiếp — con trưởng không may (Phúc Đức)"
+  },
+  {
+   "book": "TT",
+   "page": 164,
+   "note": "phú nôm cốt tủy 33-48 (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 165,
+   "note": "skipped [duplicate]: phú nôm 61 Lộc cư nô bộc (TV_TT_PHU_NO_BOC_LOC_NO) | skipped [other_palace]: phú nôm 65 Hãm cung Tang Tuế Cơ Lương — kém phúc vợ con biếng chiều (Mệnh)"
+  },
+  {
+   "book": "TT",
+   "page": 166,
+   "note": "kept: TT_PHU_THE_THIEN_TUONG_DUNG_DAN, TT_PHU_THE_LIEM_DAC_DOAN | skipped [death]: phú nôm 71 Thái Dương hãm ngộ hung tinh tóc tang cha; 73 Nguyệt hãm Đà Hổ Tuế mẹ; 76 Cô Quả Tang Hổ Khốc tóc tang | skipped [event]: phú nôm 74 (cung phối) Phá Quân Tuần Triệt ba tao; Vũ Sát bao lần hôn phối; Cự Linh Hỏa bảy lần mối lái; Không Kiếp hai ba độ | skipped [event]: phú nôm 76 (cung phối) Tang Môn Thiên Khốc làm lẽ / ly tình; Triệt Tuần ngộ Mã bỏ chồng | skipped [duplicate]: phú nôm 76 Phá Quân duyên nợ ít toàn (TV_TT_PAL_PHU_THE_PHA_QUAN_BASE_M) | skipped [unsettled]: phú nôm 76 'Bính Hình gặp Hỏa, Kị xung (cung phối)' — 'Bính' unclear, xung geometry not settled | skipped [duplicate]: phú nôm 80 Tuần Triệt thước tấc cũng không (cung Điền) — same as kept p.89 phú | skipped [unsettled]: phú nôm 80 Tư Cơ nan bảo Phủ Không xứ phùng — which Không not named"
+  },
+  {
+   "book": "TT",
+   "page": 167,
+   "note": "skipped [impossible]: phú nôm 82 Vợ về sẵn của: Đồng Ân Lộc Mã Khúc Thái Âm (Thiên Mã never sits with Đồng Âm at Tý/Ngọ) | skipped [event]: phú nôm 83 Đồng Lương hội nhập phối cung — hai vợ | skipped [appearance]: phú nôm 84 (Tử tức) Vũ Xương hoặc Khúc sinh con xinh đẹp | skipped [unsettled]: phú nôm 84 (Tử tức) Không ngộ Linh Hỏa — sinh con tà ác ('Không' not named) | skipped [event]: phú nôm 84 (Tử tức) Khốc Hư ngộ Dương, Tướng Binh xung phá hoang thai | skipped [health]: phú nôm 84 (Tử tức) Kình Đà Không Kiếp Khốc Hư — con điếc lác ngẩn ngơ"
+  }
+ ],
+ "entries": [
+  {
+   "id": "TT_PHU_THE_TU_THAM_CAT",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tử Vi"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tham Lang"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Văn Xương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Văn Khúc"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Khôi"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Việt"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Lộc Tồn"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Lộc"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Quyền"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Khoa"
+      }
+     ]
+    }
+   ],
+   "reading": "vợ chồng hòa thuận (Tử Vi cùng Tham Lang ở Phu Thê, có cát tinh phù trợ)",
+   "effect": "support",
+   "page": 82,
+   "quote": "cùng Tham Lang có cát tinh phù trợ hoà thuận",
+   "concepts": [
+    [
+     "rel.harmony",
+     "affirms"
+    ]
+   ],
+   "note": "'cát tinh / sao tốt phù trợ' read as one of Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, Khôi, Việt, Lộc Tồn or a birth Hóa Lộc/Quyền/Khoa in the palace itself"
+  },
+  {
+   "id": "TT_PHU_THE_NHAT_MV_NHO",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Thái Dương",
+     "operator": "in",
+     "value": [
+      "miếu",
+      "vượng"
+     ]
+    }
+   ],
+   "reading": "nhờ người phối ngẫu mà được sang (Thái Dương miếu vượng ở Phu Thê)",
+   "effect": "support",
+   "page": 82,
+   "quote": "nhờ vợ mà sang",
+   "concepts": [
+    [
+     "rel.uplift",
+     "affirms"
+    ]
+   ],
+   "note": "same 'có sao Thái Dương miếu vượng' line as TV_TT_PAL_PHU_THE_THAI_DUONG_MIEU_P, which keeps only 'lấy vợ muộn tốt'; this is the 'nhờ vợ mà sang' clause; 'lấy sớm khắc' left out (khắc); book says miếu vượng, so đắc is not included"
+  },
+  {
+   "id": "TT_PHU_THE_NHAT_LUONG_TA_HUU",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Lương"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      }
+     ]
+    }
+   ],
+   "reading": "người phối ngẫu hiền, thông minh, giỏi giang (Thái Dương cùng Thiên Lương ở Phu Thê, thêm Tả Phụ hoặc Hữu Bật)",
+   "effect": "support",
+   "page": 82,
+   "quote": "thêm Tả Hữu thì vợ hiền và thông minh, giỏi giang",
+   "concepts": [
+    [
+     "rel.partner",
+     "affirms"
+    ]
+   ],
+   "note": "Tả and Hữu cannot both sit with Nhật Lương (Mão/Dậu), so the pair is read as either one"
+  },
+  {
+   "id": "TT_PHU_THE_CU_NHAT_GIAI_LAO",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    },
+    {
+     "not": {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       },
+       {
+        "fact": "palace.rel.opp_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.rel.opp_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.rel.opp_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.rel.opp_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    }
+   ],
+   "reading": "vợ chồng sống với nhau đến già (Cự Môn cùng Thái Dương ở Phu Thê, không bị Tứ Sát xung phá)",
+   "effect": "support",
+   "page": 82,
+   "quote": "cùng Thái Dương mà không bị Tứ Sát xung phá giai",
+   "concepts": [
+    [
+     "rel.harmony",
+     "affirms"
+    ]
+   ],
+   "note": "'không bị Tứ Sát xung phá' read strictly: none of Kình, Đà, Hỏa, Linh in the palace or in the opposite palace"
+  },
+  {
+   "id": "TT_PHU_THE_CU_BAT_MAN",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    }
+   ],
+   "reading": "trong hôn nhân thường không vừa lòng, khó toại ý (Cự Môn ở Phu Thê)",
+   "effect": "limit",
+   "page": 161,
+   "quote": "Cự Môn cư thê thiếp đa bất mãn hoài",
+   "concepts": [
+    [
+     "rel.strain",
+     "affirms"
+    ]
+   ],
+   "note": "the same phú is quoted on p.82 at the end of the Cự Môn entry; the author's own gloss ('bao nhiêu vợ…') is about many wives and is left out"
+  },
+  {
+   "id": "TT_PHU_THE_CU_CHIA_CACH",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    }
+   ],
+   "reading": "vợ chồng dễ xa cách (Cự Môn ở Phu Thê)",
+   "effect": "limit",
+   "page": 34,
+   "quote": "ở Phu Thê vợ chồng chia cách",
+   "concepts": [
+    [
+     "rel.strain",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Cự Môn; the rest of the clause ('ô danh thất tiết') is sexual conduct and left out"
+  },
+  {
+   "id": "TT_PHU_THE_THIEN_TUONG_NU",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Tướng"
+    },
+    {
+     "fact": "chart.gender",
+     "value": "nữ"
+    }
+   ],
+   "reading": "nữ mệnh nên lấy chồng nhiều tuổi hơn (Thiên Tướng ở Phu Thê)",
+   "effect": "neutral",
+   "page": 82,
+   "quote": "đàn bà nên lấy chồng nhiều tuổi",
+   "concepts": [
+    [
+     "rel.partner",
+     "affirms"
+    ]
+   ],
+   "note": "the female half of the Thiên Tướng line; the 'vợ đẹp và hiền thục' half is TV_TT_PAL_PHU_THE_THIEN_TUONG_BASE_P"
+  },
+  {
+   "id": "TT_PHU_THE_LUONG_SAT",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Lương"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "vợ chồng lục đục (Thiên Lương ở Phu Thê gặp Kình Đà, Hỏa Linh, Không Kiếp)",
+   "effect": "limit",
+   "page": 82,
+   "quote": "Linh Hỏa, Không Kiếp lục đục",
+   "concepts": [
+    [
+     "rel.strain",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_PHU_THE_LOC_TON_TUAN_TRIET",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Lộc Tồn"
+    },
+    {
+     "any": [
+      {
+       "any": [
+        {
+         "fact": "palace.tuan",
+         "value": true
+        },
+        {
+         "fact": "palace.triet",
+         "value": true
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "fact": "palace.own_stars",
+         "operator": "contains",
+         "value": "Hỏa Tinh"
+        },
+        {
+         "fact": "palace.own_stars",
+         "operator": "contains",
+         "value": "Linh Tinh"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "reading": "đường vợ chồng dễ cô đơn (Lộc Tồn ở Phu Thê gặp Tuần, Triệt hoặc Hỏa Linh)",
+   "effect": "limit",
+   "page": 83,
+   "quote": "hay Triệt Lộ, Không Vong cô độc",
+   "concepts": [
+    [
+     "rel.strain",
+     "affirms"
+    ]
+   ],
+   "note": "Kình/Đà never share a palace with Lộc Tồn, so of 'Dương Đà, Linh Hỏa' only Hỏa + Linh can occur; Triệt Lộ, Không Vong = Triệt, Tuần"
+  },
+  {
+   "id": "TT_PHU_THE_TA_HUU_DU",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      }
+     ]
+    },
+    {
+     "any": [
+      {
+       "all": [
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Tham Lang"
+        },
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Liêm Trinh"
+        }
+       ]
+      },
+      {
+       "count": [
+        {
+         "fact": "palace.own_stars",
+         "operator": "contains",
+         "value": "Kình Dương"
+        },
+        {
+         "fact": "palace.own_stars",
+         "operator": "contains",
+         "value": "Đà La"
+        },
+        {
+         "fact": "palace.own_stars",
+         "operator": "contains",
+         "value": "Hỏa Tinh"
+        },
+        {
+         "fact": "palace.own_stars",
+         "operator": "contains",
+         "value": "Linh Tinh"
+        }
+       ],
+       "operator": "gte",
+       "value": 2
+      }
+     ]
+    }
+   ],
+   "reading": "người phối ngẫu tính dữ (Tả Phụ, Hữu Bật ở Phu Thê cùng Liêm Trinh, Tham Lang hoặc gặp Kình Đà, Hỏa Linh)",
+   "effect": "limit",
+   "page": 83,
+   "quote": "thường lấy vợ dữ",
+   "concepts": [
+    [
+     "rel.dominant",
+     "affirms"
+    ]
+   ],
+   "note": "'cùng Tham Lang, Liêm Trinh hay Dương Đà, Linh Hỏa': the Liêm–Tham pair, or at least two of Tứ Sát; the 'vợ chồng giai lão' half is TV_TT_PAL_PHU_THE_TA_PHU_WITH_HUU_BAT_P"
+  },
+  {
+   "id": "TT_PHU_THE_HOA_TINH_MIEU_CAT",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Hỏa Tinh"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Hỏa Tinh",
+     "operator": "in",
+     "value": [
+      "miếu"
+     ]
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Văn Xương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Văn Khúc"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Khôi"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Việt"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Lộc Tồn"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Lộc"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Quyền"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Khoa"
+      }
+     ]
+    }
+   ],
+   "reading": "vợ chồng hòa thuận (Hỏa Tinh nhập miếu ở Phu Thê, thêm sao tốt phù trợ)",
+   "effect": "support",
+   "page": 83,
+   "quote": "thêm sao tốt phù trợ thì vợ chồng hòa thuận",
+   "concepts": [
+    [
+     "rel.harmony",
+     "affirms"
+    ]
+   ],
+   "note": "'cát tinh / sao tốt phù trợ' read as one of Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, Khôi, Việt, Lộc Tồn or a birth Hóa Lộc/Quyền/Khoa in the palace itself; 'ở hãm địa hình khắc' left out (khắc)"
+  },
+  {
+   "id": "TT_PHU_THE_PHUC_BINH_KY",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Phục Binh"
+    },
+    {
+     "fact": "palace.tu_hoa",
+     "operator": "contains",
+     "value": "Hóa Kỵ"
+    }
+   ],
+   "reading": "vợ chồng nay giận mai hờn (Phục Binh, Hóa Kỵ ở Phu Thê)",
+   "effect": "limit",
+   "page": 83,
+   "quote": "Phục Binh Hóa Kị nơi toà phu thê",
+   "concepts": [
+    [
+     "rel.strain",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm g)"
+  },
+  {
+   "id": "TT_PHU_THE_DUC_DAO_HONG_NU",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "chart.gender",
+     "value": "nữ"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Đức"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Nguyệt Đức"
+      }
+     ]
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đào Hoa"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hồng Loan"
+      }
+     ]
+    }
+   ],
+   "reading": "nữ mệnh lấy được chồng giàu sang (Thiên Đức hoặc Nguyệt Đức gặp Đào Hoa, Hồng Loan ở Phu Thê)",
+   "effect": "support",
+   "page": 83,
+   "quote": "Trai lấy vợ đẹp gái chồng giàu sang",
+   "concepts": [
+    [
+     "rel.partner",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm a); the male half (vợ đẹp) is appearance and left out; Thiên Đức and Nguyệt Đức never share a palace, so the pair is either one"
+  },
+  {
+   "id": "TT_PHU_THE_AM_XUONG",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Âm"
+    },
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Văn Xương"
+    }
+   ],
+   "reading": "bạn đời có địa vị, sang quý (Thái Âm đồng cung Văn Xương ở Phu Thê)",
+   "effect": "support",
+   "page": 31,
+   "quote": "lên trăng hái cành quế. Văn Xương cũng vậy",
+   "concepts": [
+    [
+     "rel.partner",
+     "affirms"
+    ]
+   ],
+   "note": "the Văn Khúc form of this phú is TV_TT_PHU_THE_AM_VAN_KHUC; the parenthesis extends it to Văn Xương"
+  },
+  {
+   "id": "TT_PHU_THE_THIEN_MA",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Thiên Mã"
+    }
+   ],
+   "reading": "người phối ngẫu con nhà phú quý, số nhờ vợ (Thiên Mã ở Phu Thê)",
+   "effect": "support",
+   "page": 47,
+   "quote": "vợ con nhà phú quí còn được tặng phong",
+   "concepts": [
+    [
+     "rel.uplift",
+     "affirms"
+    ]
+   ],
+   "note": "'Thiên Mã ở bốn cung tràng sinh gặp cung Thê ở đó': Thiên Mã only ever sits in Dần Thân Tỵ Hợi, so the condition is Thiên Mã in Phu Thê"
+  },
+  {
+   "id": "TT_PHU_THE_THIEN_TUONG_DUNG_DAN",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Tướng"
+    }
+   ],
+   "reading": "người phối ngẫu đứng đắn (Thiên Tướng ở Phu Thê)",
+   "effect": "support",
+   "page": 166,
+   "quote": "Thiên Tướng đứng đắn lạ thường (phối cung)",
+   "concepts": [
+    [
+     "rel.partner",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm cốt tủy 75; p.153 'Thiên Tướng hi cư thê vị' says the same star is welcome in Phu Thê"
+  },
+  {
+   "id": "TT_PHU_THE_LIEM_DAC_DOAN",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Liêm Trinh"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Liêm Trinh",
+     "operator": "in",
+     "value": [
+      "miếu",
+      "vượng",
+      "đắc"
+     ]
+    }
+   ],
+   "reading": "người vợ đoan chính, nết na (Liêm Trinh đắc địa ở Phu Thê)",
+   "effect": "support",
+   "page": 166,
+   "quote": "Liêm Trinh đắc địa vợ thường đoan trinh",
+   "concepts": [
+    [
+     "rel.partner",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm cốt tủy 75"
+  },
+  {
+   "id": "TT_PHU_THE_HONG_LOAN_KIEP_NU",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "chart.gender",
+     "value": "nữ"
+    },
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Hồng Loan"
+    },
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Địa Kiếp"
+    }
+   ],
+   "reading": "đường chồng kém, dù Mệnh tốt cũng giảm đi một nửa (nữ mệnh, Hồng Loan gặp Địa Kiếp ở Phu Thê)",
+   "effect": "limit",
+   "page": 160,
+   "quote": "Hồng Loan phùng Địa Kiếp ư Phu cung bất hảo chi thập",
+   "concepts": [
+    [
+     "rel.strain",
+     "affirms"
+    ]
+   ],
+   "note": "phú 122, written for nữ mệnh (cung Phu Quân)"
+  },
+  {
+   "id": "TT_PHU_THE_DA_LA_NU",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "chart.gender",
+     "value": "nữ"
+    },
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Đà La"
+    }
+   ],
+   "reading": "đường chồng nhiều buồn khổ (nữ mệnh, Đà La ở Phu Thê)",
+   "effect": "limit",
+   "page": 161,
+   "quote": "Sao Đà La lâm vào cung Phu, nếu không cô độc thì cũng buồn khổ",
+   "concepts": [
+    [
+     "rel.strain",
+     "affirms"
+    ]
+   ],
+   "note": "phú 129 'Đà … lâm phu vị' (cung Phu = nữ mệnh); 'cô quả' (widowhood) not carried into the reading"
+  },
+  {
+   "id": "TT_PHU_THE_HONG_LOAN_NAM",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "chart.gender",
+     "value": "nam"
+    },
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Hồng Loan"
+    }
+   ],
+   "reading": "vợ chồng lục đục (nam mệnh, Hồng Loan ở Phu Thê)",
+   "effect": "limit",
+   "page": 161,
+   "quote": "Sao Hồng Loan đóng Thê cung, vợ chồng lục đục",
+   "concepts": [
+    [
+     "rel.strain",
+     "affirms"
+    ]
+   ],
+   "note": "phú 130 'Hồng Loan cư Thê tiểu khắc' (Thê cung = nam mệnh); the gloss reads tiểu khắc as lục đục"
+  },
+  {
+   "id": "TT_PHU_THE_THAN_NAM",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.is_than",
+     "value": true
+    },
+    {
+     "fact": "chart.gender",
+     "value": "nam"
+    }
+   ],
+   "reading": "nam mệnh có vợ hiền, giỏi giang nhưng thường nể sợ vợ (Thân cư Phu Thê)",
+   "effect": "neutral",
+   "page": 64,
+   "quote": "ở Phu Thê con trai chủ có vợ hiền năng nhưng thường sợ vợ",
+   "concepts": [
+    [
+     "rel.partner",
+     "affirms"
+    ],
+    [
+     "rel.dominant",
+     "affirms"
+    ]
+   ],
+   "note": "Thập nhị cung luận, cung Thân: Thân cung đóng ở Phu Thê"
+  },
+  {
+   "id": "TT_PHU_THE_THAN_NU",
+   "book": "TT",
+   "palace": "Phu Thê",
+   "conds": [
+    {
+     "fact": "palace.is_than",
+     "value": true
+    },
+    {
+     "fact": "chart.gender",
+     "value": "nữ"
+    }
+   ],
+   "reading": "nữ mệnh có chồng cương cường, rất phục chồng (Thân cư Phu Thê)",
+   "effect": "neutral",
+   "page": 64,
+   "quote": "con gái chủ có chồng cương cường và phục chồng tuyệt đối",
+   "concepts": [
+    [
+     "rel.partner",
+     "affirms"
+    ],
+    [
+     "rel.dominant",
+     "affirms"
+    ]
+   ],
+   "note": "Thập nhị cung luận, cung Thân: Thân cung đóng ở Phu Thê"
+  },
+  {
+   "id": "TT_PHU_MAU_NHAT_NGUYET",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Âm"
+    },
+    {
+     "not": {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Kình Dương"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đà La"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Hỏa Tinh"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Linh Tinh"
+       }
+      ]
+     }
+    }
+   ],
+   "reading": "cha mẹ được song toàn (Thái Dương, Thái Âm ở Phụ Mẫu, không gặp Tứ Sát)",
+   "effect": "support",
+   "page": 86,
+   "quote": "cùng Thái Dương không bị Tứ Sát phụ mẫu song toàn",
+   "concepts": [
+    [
+     "parents.long_lived",
+     "affirms"
+    ]
+   ],
+   "note": "the Thái Âm line; the Thái Dương line says the same with 'không bị Dương Đà' — the narrower (no Tứ Sát) is kept"
+  },
+  {
+   "id": "TT_PHU_MAU_DONG_DOC_MV",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Đồng"
+    },
+    {
+     "not": {
+      "any": [
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Tử Vi"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Cơ"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thái Dương"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Vũ Khúc"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Liêm Trinh"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Phủ"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thái Âm"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Tham Lang"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Cự Môn"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Tướng"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thiên Lương"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Thất Sát"
+       },
+       {
+        "fact": "palace.own_major_stars",
+        "operator": "contains",
+        "value": "Phá Quân"
+       }
+      ]
+     }
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Thiên Đồng",
+     "operator": "in",
+     "value": [
+      "miếu",
+      "vượng"
+     ]
+    }
+   ],
+   "reading": "tốt cho đường cha mẹ (Thiên Đồng độc thủ miếu vượng ở Phụ Mẫu)",
+   "effect": "support",
+   "page": 86,
+   "quote": "Thiên Đồng độc thủ miếu vượng tốt",
+   "concepts": [
+    [
+     "fam.positive",
+     "affirms"
+    ]
+   ],
+   "note": "'thêm Tứ Sát có cha mẹ nuôi' left out (adoption)"
+  },
+  {
+   "id": "TT_PHU_MAU_LIEM_KE_NGHIEP",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Liêm Trinh"
+    }
+   ],
+   "reading": "khó lòng kế nghiệp cha (Liêm Trinh ở Phụ Mẫu)",
+   "effect": "limit",
+   "page": 86,
+   "quote": "khó lòng kế nghiệp cha",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ]
+   ],
+   "note": "'có cha mẹ nuôi' left out (adoption)"
+  },
+  {
+   "id": "TT_PHU_MAU_LIEM_SAT_XA",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Liêm Trinh"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thất Sát"
+    }
+   ],
+   "reading": "sống xa cha mẹ (Liêm Trinh cùng Thất Sát ở Phụ Mẫu)",
+   "effect": "limit",
+   "page": 86,
+   "quote": "Thất Sát xa cha mẹ",
+   "concepts": [
+    [
+     "parents.apart",
+     "affirms"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": "TT_PHU_MAU_PHU_VU_LIEM_MV",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Phủ"
+    },
+    {
+     "any": [
+      {
+       "all": [
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Vũ Khúc"
+        },
+        {
+         "fact": "palace.dignity@toan_thu.Vũ Khúc",
+         "operator": "in",
+         "value": [
+          "miếu",
+          "vượng"
+         ]
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Liêm Trinh"
+        },
+        {
+         "fact": "palace.dignity@toan_thu.Liêm Trinh",
+         "operator": "in",
+         "value": [
+          "miếu",
+          "vượng"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Thiên Phủ",
+     "operator": "in",
+     "value": [
+      "miếu",
+      "vượng"
+     ]
+    }
+   ],
+   "reading": "tốt cho đường cha mẹ (Thiên Phủ cùng Vũ Khúc hoặc Liêm Trinh miếu vượng ở Phụ Mẫu)",
+   "effect": "support",
+   "page": 86,
+   "quote": "Liêm Trinh miếu vượng tốt",
+   "concepts": [
+    [
+     "fam.positive",
+     "affirms"
+    ]
+   ],
+   "note": "the text layer reads 'cùng Vũ Khắc Liêm Trinh miếu vượng tốt' (Vũ Khúc misprinted); 'miếu vượng' read strictly on both stars"
+  },
+  {
+   "id": "TT_PHU_MAU_THAM_LIEM_HAM",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tham Lang"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Liêm Trinh"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Liêm Trinh",
+     "operator": "in",
+     "value": [
+      "hãm"
+     ]
+    }
+   ],
+   "reading": "xa rời cha mẹ (Tham Lang cùng Liêm Trinh hãm ở Phụ Mẫu)",
+   "effect": "limit",
+   "page": 86,
+   "quote": "cùng Liêm Trinh hãm xa rời cha mẹ",
+   "concepts": [
+    [
+     "parents.apart",
+     "affirms"
+    ]
+   ],
+   "note": "'Tham Lang hãm làm con nuôi' left out (adoption)"
+  },
+  {
+   "id": "TT_PHU_MAU_LOC_TON_SAT",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Lộc Tồn"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "cha mẹ làm ăn lụn bại lúc mình còn nhỏ (Lộc Tồn ở Phụ Mẫu gặp Tứ Sát)",
+   "effect": "limit",
+   "page": 87,
+   "quote": "cha mẹ làm ăn lụn bại lúc mình còn nhỏ",
+   "concepts": [
+    [
+     "parents.poor",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself (with Lộc Tồn only Hỏa + Linh can occur)"
+  },
+  {
+   "id": "TT_PHU_MAU_THIEN_LUONG_THO",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Lương"
+    }
+   ],
+   "reading": "cha mẹ cùng hưởng thọ, an vui (Thiên Lương ở Phụ Mẫu)",
+   "effect": "support",
+   "page": 87,
+   "quote": "Mẹ cha đồng hưởng thọ trương an vui",
+   "concepts": [
+    [
+     "parents.long_lived",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm 'Phụ Mẫu cung hội Thiên Lương'"
+  },
+  {
+   "id": "TT_PHU_MAU_CU_KHONG_HOP",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    }
+   ],
+   "reading": "không hợp với cha mẹ (Cự Môn ở Phụ Mẫu)",
+   "effect": "limit",
+   "page": 34,
+   "quote": "ở Phụ Mẫu không hợp với cha mẹ",
+   "concepts": [
+    [
+     "parents.clash",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Cự Môn"
+  },
+  {
+   "id": "TT_PHU_MAU_KHOC_HU",
+   "book": "TT",
+   "palace": "Phụ Mẫu",
+   "conds": [
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Khốc"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Hư"
+      }
+     ]
+    }
+   ],
+   "reading": "dễ phá của cha mẹ để lại (Thiên Khốc, Thiên Hư ở Phụ Mẫu)",
+   "effect": "limit",
+   "page": 57,
+   "quote": "vào cung Phụ Mẫu phá của cha mẹ để lại",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Khốc Hư (named pair read as either one)"
+  },
+  {
+   "id": "TT_NO_BOC_TU_KK",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tử Vi"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ]
+    }
+   ],
+   "reading": "dễ chiêu oán thù, bị người dưới phản bội (Tử Vi ở Nô Bộc gặp Không Kiếp)",
+   "effect": "limit",
+   "page": 87,
+   "quote": "Không Kiếp dễ chiêu oán thù phản bội",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ],
+    [
+     "ally.resent",
+     "affirms"
+    ]
+   ],
+   "note": "the Kình Đà Linh Hỏa clause of this line is TV_TT_PAL_NO_BOC_TU_VI_SAT_M; this is the Không Kiếp clause"
+  },
+  {
+   "id": "TT_NO_BOC_CO_SAT",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Cơ"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "gặp toàn loại người dưới phản phúc, khó chơi (Thiên Cơ ở Nô Bộc gặp Kình Đà, Linh Hỏa, Không Kiếp)",
+   "effect": "limit",
+   "page": 87,
+   "quote": "gặp toàn loại phản phúc khó chơi",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_NO_BOC_NHAT_SAT",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "luôn bị người dưới phản (Thái Dương ở Nô Bộc gặp Kình Đà, Linh Hỏa, Không Kiếp)",
+   "effect": "limit",
+   "page": 87,
+   "quote": "Không luôn luôn bị phản",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_NO_BOC_DONG_SAT",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Đồng"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "người dưới phản chủ (Thiên Đồng ở Nô Bộc gặp Kình Đà, Không Kiếp)",
+   "effect": "limit",
+   "page": 87,
+   "quote": "bị Dương Đà, Không Kiếp phản chủ",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_NO_BOC_LIEM_SAT",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Liêm Trinh"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "bị người dưới lường gạt (Liêm Trinh ở Nô Bộc gặp Kình Đà, Linh Hỏa)",
+   "effect": "limit",
+   "page": 87,
+   "quote": "bị Dương Đà, Linh Hỏa lường gạt",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_NO_BOC_SAT_LIEM",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thất Sát"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Liêm Trinh"
+    }
+   ],
+   "reading": "người dưới không đắc lực (Thất Sát cùng Liêm Trinh ở Nô Bộc)",
+   "effect": "limit",
+   "page": 87,
+   "quote": "cùng Liêm Trinh bất đắc lực",
+   "concepts": [
+    [
+     "ally.weak",
+     "affirms"
+    ]
+   ],
+   "note": "the Thất Sát line; the Liêm Trinh line's 'cùng Thất Sát bội chủ' is TV_TT_PAL_NO_BOC_LIEM_TRINH_WITH_THAT_SAT_M"
+  },
+  {
+   "id": "TT_NO_BOC_SAT_SAT",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thất Sát"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "phải hết sức cẩn thận với người dưới (Thất Sát ở Nô Bộc gặp Kình Đà, Linh Hỏa, Không Kiếp)",
+   "effect": "limit",
+   "page": 87,
+   "quote": "phải hết sức cẩn thận về kẻ ăn người làm",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_NO_BOC_PHA_VU",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Phá Quân"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Vũ Khúc"
+    }
+   ],
+   "reading": "người dưới hay phản (Phá Quân cùng Vũ Khúc ở Nô Bộc)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "cùng Vũ Khúc hay phản",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": "TT_NO_BOC_PHA_SAT",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Phá Quân"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "người dưới nguy hiểm (Phá Quân ở Nô Bộc gặp Kình Đà, Hỏa Linh, Không Kiếp)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "Hỏa Linh Không Kiếp nguy hiểm",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_NO_BOC_XUONG_MIEU_DON",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Văn Xương"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Văn Xương",
+     "operator": "in",
+     "value": [
+      "miếu"
+     ]
+    },
+    {
+     "fact": "palace.has_no_major",
+     "value": true
+    }
+   ],
+   "reading": "người dưới đắc lực, giúp chủ (Văn Xương nhập miếu đơn thủ ở Nô Bộc)",
+   "effect": "support",
+   "page": 88,
+   "quote": "Văn Xương nhập miếu đơn thủ đắc lực trợ chủ",
+   "concepts": [
+    [
+     "ally.helpful",
+     "affirms"
+    ]
+   ],
+   "note": "'đơn thủ' read as Văn Xương in a palace with no chính tinh"
+  },
+  {
+   "id": "TT_NO_BOC_XUONG_SAT",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Văn Xương"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "người dưới phản chủ (Văn Xương ở Nô Bộc gặp Kình Đà, Linh Hỏa)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "thêm Dương Đà, Linh Hỏa phản chủ",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_NO_BOC_KHUC_HAM_SAT",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Văn Khúc"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Văn Khúc",
+     "operator": "in",
+     "value": [
+      "hãm"
+     ]
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "người dưới oán chủ rồi bỏ đi (Văn Khúc hãm ở Nô Bộc gặp Kình Đà, Linh Hỏa)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "hãm cung thêm Dương Đà, Linh Hỏa oán chủ đào tẩu",
+   "concepts": [
+    [
+     "ally.resent",
+     "affirms"
+    ],
+    [
+     "ally.fickle",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_NO_BOC_HUU_SAT",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Hữu Bật"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "người dưới phản bội rồi bỏ đi (Hữu Bật ở Nô Bộc gặp Kình Đà, Linh Hỏa, Không Kiếp)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "gặp Dương Đà, Linh Hỏa, Không Kiếp phản bội",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself; 'ăn trộm' left out (theft)"
+  },
+  {
+   "id": "TT_NO_BOC_LOC_SAT_HAO",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Lộc Tồn"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đại Hao"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tiểu Hao"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "người dưới toàn lũ ăn hại (Lộc Tồn ở Nô Bộc gặp Tứ Sát, Hao)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "thấy Tứ Sát Hao toàn lũ ăn hại",
+   "concepts": [
+    [
+     "ally.drain",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself (Tứ Sát and the two Hao)"
+  },
+  {
+   "id": "TT_NO_BOC_LINH_HAM",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Linh Tinh"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Linh Tinh",
+     "operator": "in",
+     "value": [
+      "hãm"
+     ]
+    }
+   ],
+   "reading": "người dưới hỏng việc (Linh Tinh hãm ở Nô Bộc)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "Linh Tinh nhập miếu tốt, hãm địa hỏng",
+   "concepts": [
+    [
+     "ally.weak",
+     "affirms"
+    ]
+   ],
+   "note": "the 'nhập miếu tốt' half is TV_TT_PAL_NO_BOC_LINH_TINH_MIEU_P"
+  },
+  {
+   "id": "TT_NO_BOC_NHAT_NGUYET_HAM",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "any": [
+      {
+       "all": [
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Thái Dương"
+        },
+        {
+         "fact": "palace.dignity@toan_thu.Thái Dương",
+         "operator": "in",
+         "value": [
+          "hãm"
+         ]
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "fact": "palace.own_major_stars",
+         "operator": "contains",
+         "value": "Thái Âm"
+        },
+        {
+         "fact": "palace.dignity@toan_thu.Thái Âm",
+         "operator": "in",
+         "value": [
+          "hãm"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "reading": "người dưới lúc ở lúc đi (Thái Dương hoặc Thái Âm hãm ở Nô Bộc)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "Con em lúc ở lúc đi",
+   "concepts": [
+    [
+     "ally.fickle",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm 'Bởi sao Nhật Nguyệt hãm vì Nô cung'"
+  },
+  {
+   "id": "TT_NO_BOC_PHA_HAM_KY_KINH_DA",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Phá Quân"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Phá Quân",
+     "operator": "in",
+     "value": [
+      "hãm"
+     ]
+    },
+    {
+     "fact": "palace.tu_hoa",
+     "operator": "contains",
+     "value": "Hóa Kỵ"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      }
+     ]
+    }
+   ],
+   "reading": "bạn bè, người dưới đảo điên khó lường (Phá Quân hãm ở Nô Bộc gặp Kình Đà, Hóa Kỵ)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "Bạn bè tôi tớ đảo điên khó lường",
+   "concepts": [
+    [
+     "ally.disloyal",
+     "affirms"
+    ],
+    [
+     "ally.fickle",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm 'Dương Đà kị Phá hãm bên': Phá Quân hãm with Hóa Kỵ and Kình or Đà in the palace"
+  },
+  {
+   "id": "TT_NO_BOC_CU_MON",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    }
+   ],
+   "reading": "người dưới nhiều oán, hay phản bội (Cự Môn ở Nô Bộc)",
+   "effect": "limit",
+   "page": 34,
+   "quote": "ở Nô Bộc đa oán, phản bội",
+   "concepts": [
+    [
+     "ally.resent",
+     "affirms"
+    ],
+    [
+     "ally.disloyal",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Cự Môn"
+  },
+  {
+   "id": "TT_NO_BOC_PHA_OAN",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Phá Quân"
+    }
+   ],
+   "reading": "dễ chiêu oán hận nơi người dưới (Phá Quân ở Nô Bộc)",
+   "effect": "limit",
+   "page": 40,
+   "quote": "ở Nô Bộc chiêu oán hận",
+   "concepts": [
+    [
+     "ally.resent",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Phá Quân (no dignity named); the p.88 line splits it by miếu / hãm (TV_TT_PAL_NO_BOC_PHA_QUAN_*)"
+  },
+  {
+   "id": "TT_NO_BOC_TU_VI_SAI_CHO",
+   "book": "TT",
+   "palace": "Nô Bộc",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tử Vi"
+    }
+   ],
+   "reading": "Tử Vi ở Nô Bộc là ngồi sai chỗ, giảm uy quyền, dù có trợ giúp cũng khó thành phúc lớn (Tử Vi ở Nô Bộc)",
+   "effect": "limit",
+   "page": 20,
+   "quote": "Nô Bộc là sái, giảm mất uy quyền",
+   "concepts": [],
+   "note": "chư tinh vấn đáp, Tử Vi: about the star's own force, not about the people under one; no concept fits (nearest would be ally.helpful weakens), so concepts left empty; the p.87 line says 'đắc lực sinh tài' for the same star (TV_TT_PAL_NO_BOC_TU_VI_BASE_P)"
+  },
+  {
+   "id": "TT_DIEN_TRACH_CO_CU_MAO",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Cơ"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    },
+    {
+     "fact": "palace.branch",
+     "operator": "in",
+     "value": [
+      "Mão"
+     ]
+    }
+   ],
+   "reading": "nhiều ruộng vườn nhà cửa (Thiên Cơ cùng Cự Môn ở Điền Trạch tại Mão)",
+   "effect": "support",
+   "page": 88,
+   "quote": "cùng Cự Môn tại Mão cung nhiều ruộng vườn nhà cửa",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": "p.153 phú 16 'Cự Cơ điền trạch phú hữu lâu đài' (Cự Cơ đắc địa) says the same"
+  },
+  {
+   "id": "TT_DIEN_TRACH_CO_CU_DAU",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Cơ"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    },
+    {
+     "fact": "palace.branch",
+     "operator": "in",
+     "value": [
+      "Dậu"
+     ]
+    }
+   ],
+   "reading": "khó giữ nổi nghiệp ông cha, trước lớn sau nhỏ (Thiên Cơ cùng Cự Môn ở Điền Trạch tại Dậu)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "ở Dậu cung thường không giữ nổi nghiệp ông cha",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ],
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": "TT_DIEN_TRACH_NHAT_NGUYET_CAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Âm"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Văn Xương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Văn Khúc"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Khôi"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Việt"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Lộc Tồn"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Lộc"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Quyền"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Khoa"
+      }
+     ]
+    }
+   ],
+   "reading": "ruộng vườn nhà cửa nhiều (Thái Dương cùng Thái Âm ở Điền Trạch, thêm sao tốt)",
+   "effect": "support",
+   "page": 88,
+   "quote": "thêm sao tốt ruộng vườn nhà cửa nhiều",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": "'cát tinh / sao tốt phù trợ' read as one of Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, Khôi, Việt, Lộc Tồn or a birth Hóa Lộc/Quyền/Khoa in the palace itself"
+  },
+  {
+   "id": "TT_DIEN_TRACH_NHAT_CU_DAN",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    },
+    {
+     "fact": "palace.branch",
+     "operator": "in",
+     "value": [
+      "Dần"
+     ]
+    }
+   ],
+   "reading": "nhà đất rất vượng (Thái Dương cùng Cự Môn ở Điền Trạch tại Dần)",
+   "effect": "support",
+   "page": 88,
+   "quote": "cùng Cự Môn ở Dần cung rất vượng",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": "TT_DIEN_TRACH_NHAT_CU_THAN",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    },
+    {
+     "fact": "palace.branch",
+     "operator": "in",
+     "value": [
+      "Thân"
+     ]
+    }
+   ],
+   "reading": "dễ làm hư tổ nghiệp (Thái Dương cùng Cự Môn ở Điền Trạch tại Thân)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "ở Thân Cung làm hư tổ nghiệp",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": "TT_DIEN_TRACH_NHAT_HAM_SAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Thái Dương",
+     "operator": "in",
+     "value": [
+      "hãm"
+     ]
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "chẳng có tấc đất cắm dùi (Thái Dương hãm ở Điền Trạch gặp Kình Đà, Linh Hỏa, Không Kiếp)",
+   "effect": "limit",
+   "page": 88,
+   "quote": "chẳng có tấc đất cắm dùi",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_DIEN_TRACH_VU_HOA_LINH",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Vũ Khúc"
+    },
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Hỏa Tinh"
+    },
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Linh Tinh"
+    }
+   ],
+   "reading": "ruộng vườn vượng thịnh (Vũ Khúc gặp cả Hỏa Tinh, Linh Tinh ở Điền Trạch)",
+   "effect": "support",
+   "page": 89,
+   "quote": "cực tốt, ruộng vườn vượng thịnh",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": "the page says 'gặp hai sao Hỏa, Linh', so both are required"
+  },
+  {
+   "id": "TT_DIEN_TRACH_VU_KK",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Vũ Khúc"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ]
+    }
+   ],
+   "reading": "nhà đất vô thường, lúc còn lúc hết sạch (Vũ Khúc ở Điền Trạch gặp Không Kiếp)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "gặp Không Kiếp vô thường lúc còn lúc hết sạch",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": "TT_DIEN_TRACH_DONG_SAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Đồng"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "khó có nhà cửa (Thiên Đồng ở Điền Trạch gặp Kình Đà, Linh Hỏa, Không Kiếp)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "chẳng bao giờ có nhà cửa",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_DIEN_TRACH_LIEM_THAM",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Liêm Trinh"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tham Lang"
+    }
+   ],
+   "reading": "nhà đất gìn giữ không được bao lâu (Liêm Trinh cùng Tham Lang ở Điền Trạch)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "cùng Tham Lang gìn giữ không được bao lâu",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": "TT_DIEN_TRACH_AM_HAM_SAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Âm"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Thái Âm",
+     "operator": "in",
+     "value": [
+      "hãm"
+     ]
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "suốt đời lêu bêu, khó yên chỗ ở (Thái Âm hãm ở Điền Trạch gặp Kình Đà, Linh Hỏa)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "hãm địa thêm Dương Đà, Linh Hỏa suốt đời lêu",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_DIEN_TRACH_AM_TA_HUU_LOC",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Âm"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      }
+     ]
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Quyền"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Lộc"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Lộc Tồn"
+      }
+     ]
+    }
+   ],
+   "reading": "nhiều ruộng vườn (Thái Âm ở Điền Trạch cùng Tả Hữu và Quyền, Lộc hoặc Lộc Tồn)",
+   "effect": "support",
+   "page": 89,
+   "quote": "Quyền Lộc hay Lộc Tồn nhiều ruộng",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": "read narrowly: Tả or Hữu together with Hóa Quyền, Hóa Lộc or Lộc Tồn"
+  },
+  {
+   "id": "TT_DIEN_TRACH_THAM_HOA_LINH",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tham Lang"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ]
+    }
+   ],
+   "reading": "nhà đất cực tốt (Tham Lang gặp Hỏa Tinh hoặc Linh Tinh ở Điền Trạch)",
+   "effect": "support",
+   "page": 89,
+   "quote": "Tham Lang gặp Hỏa hoặc Linh Tinh cực tốt",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": "'hãy cẩn thận sẽ bị cháy nhà' left out (event)"
+  },
+  {
+   "id": "TT_DIEN_TRACH_CU_TU_SAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "không có đất cắm dùi (Cự Môn ở Điền Trạch gặp Tứ Sát)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "gặp Tứ Sát không đất cắm dùi",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_DIEN_TRACH_TUONG_TU",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Tướng"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tử Vi"
+    }
+   ],
+   "reading": "nhà đất càng tốt (Thiên Tướng cùng Tử Vi ở Điền Trạch)",
+   "effect": "support",
+   "page": 89,
+   "quote": "cùng Tử Vi càng thêm hay",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": "TT_DIEN_TRACH_LIEM_TUONG_SAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Tướng"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Liêm Trinh"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "tổ nghiệp phiêu linh (Thiên Tướng cùng Liêm Trinh ở Điền Trạch gặp Kình Đà, Linh Hỏa, Không Kiếp)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "Kiếp Không phiêu linh tổ nghiệp",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_DIEN_TRACH_TA_PHU_SAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Tả Phụ"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "tổ nghiệp hư hoại (Tả Phụ ở Điền Trạch gặp Tứ Sát)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "thừa hưởng tổ nghiệp, gặp Tứ Sát hư họai",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself; the 'thừa hưởng tổ nghiệp' half is TV_TT_PAL_DIEN_TRACH_TA_PHU_BASE_P"
+  },
+  {
+   "id": "TT_DIEN_TRACH_LOC_SAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Lộc Tồn"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "tổ nghiệp hư hoại (Lộc Tồn ở Điền Trạch gặp Tứ Sát)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "tổ nghiệp vinh xương, hội Tứ Sát hư hoại",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself (with Lộc Tồn only Hỏa + Linh can occur)"
+  },
+  {
+   "id": "TT_DIEN_TRACH_KINH_HAM",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Kình Dương"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Kình Dương",
+     "operator": "in",
+     "value": [
+      "hãm"
+     ]
+    }
+   ],
+   "reading": "nhà đất phiêu linh (Kình Dương hãm ở Điền Trạch)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "trước phá sau thành, hãm địa phiêu linh",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": "the 'nhập miếu trước phá sau thành' half is TV_TT_PAL_DIEN_TRACH_KINH_DUONG_MIEU_P"
+  },
+  {
+   "id": "TT_DIEN_TRACH_DA_LA",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Đà La"
+    }
+   ],
+   "reading": "rất xấu cho nhà đất (Đà La ở Điền Trạch)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "Có sao Đà La rất xấu",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": "TT_DIEN_TRACH_LINH_DOC",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Linh Tinh"
+    },
+    {
+     "fact": "palace.has_no_major",
+     "value": true
+    }
+   ],
+   "reading": "nhà đất điêu linh (Linh Tinh độc thủ ở Điền Trạch)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "Có sao Linh Tinh độc thủ điêu linh",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": "'độc thủ' read as Linh Tinh in a palace with no chính tinh"
+  },
+  {
+   "id": "TT_DIEN_TRACH_HOA_SAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Hỏa Tinh"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "nhà đất chẳng ra gì (Hỏa Tinh ở Điền Trạch gặp Tứ Sát, Không Kiếp)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "Gặp Tứ Sát, Kiếp Không chẳng ra gì",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself; the 'nhập miếu tốt' half is TV_TT_PAL_DIEN_TRACH_HOA_TINH_MIEU_P"
+  },
+  {
+   "id": "TT_DIEN_TRACH_TUAN_TRIET",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "any": [
+      {
+       "fact": "palace.tuan",
+       "value": true
+      },
+      {
+       "fact": "palace.triet",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "reading": "khó được cha mẹ truyền lại cơ nghiệp (Tuần hoặc Triệt ở Điền Trạch)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "Tư Cơ cha mẹ không truyền đến cho",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ]
+   ],
+   "note": "phú nôm 'Triệt Tuần đóng ở cung Điền'; p.166 phú 80 'Tuần Triệt thước tấc cũng không (cung Điền)' says the same more harshly"
+  },
+  {
+   "id": "TT_DIEN_TRACH_PHA_BAN_HET",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Phá Quân"
+    }
+   ],
+   "reading": "dễ bán hết ruộng nương tổ để lại (Phá Quân ở Điền Trạch)",
+   "effect": "limit",
+   "page": 89,
+   "quote": "Lâm trạch bán hết lưu lai tổ điền",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ]
+   ],
+   "note": "phú nôm 'Phá Quân sao ấy tán tài'; p.40 (chư tinh vấn đáp) 'ở Điền Trạch phá hoại tổ nghiệp' says the same; the chapter line 'ở Tí Ngọ tổ nghiệp vinh xương' (TV_TT_PAL_DIEN_TRACH_PHA_QUAN_BASE_P) is the book's exception by position"
+  },
+  {
+   "id": "TT_DIEN_TRACH_QUANG_DAO_HONG",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Ân Quang"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đào Hoa"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hồng Loan"
+      }
+     ]
+    }
+   ],
+   "reading": "được hưởng ruộng nương do cô dì để lại (Ân Quang gặp Đào Hoa, Hồng Loan ở Điền Trạch)",
+   "effect": "support",
+   "page": 89,
+   "quote": "cô dì lưu lại ruộng nương",
+   "concepts": [
+    [
+     "prop.inherit",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm 'Ân quang gặp Đào Hồng điền Trạch'"
+  },
+  {
+   "id": "TT_DIEN_TRACH_CO_LUONG_THIN_TUAT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Cơ"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Lương"
+    },
+    {
+     "fact": "palace.branch",
+     "operator": "in",
+     "value": [
+      "Thìn",
+      "Tuất"
+     ]
+    }
+   ],
+   "reading": "tổ nghiệp có hồi hưng lại (Thiên Cơ cùng Thiên Lương ở Điền Trạch tại Thìn, Tuất)",
+   "effect": "support",
+   "page": 90,
+   "quote": "Mộc làm tổ nghiệp đến hồi lai sinh",
+   "concepts": [
+    [
+     "prop.inherit",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm 'Cơ Lương tương hội Tuất Thìn' (Cơ Lương only meet at Thìn/Tuất)"
+  },
+  {
+   "id": "TT_DIEN_TRACH_THIEN_MA",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Thiên Mã"
+    }
+   ],
+   "reading": "Thiên Mã đóng Điền Trạch là đúng chỗ, tốt cho nhà đất (Thiên Mã ở Điền Trạch)",
+   "effect": "support",
+   "page": 153,
+   "quote": "Sao Thiên Mã cần đóng cung Điền Trạch và Tài Bạch",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": "phú 27 'Thiên Mã yêu thủ điền tài'"
+  },
+  {
+   "id": "TT_DIEN_TRACH_HOA_KY",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.tu_hoa",
+     "operator": "contains",
+     "value": "Hóa Kỵ"
+    }
+   ],
+   "reading": "Hóa Kỵ ở Điền Trạch lại đắc dụng, như thần giữ cửa (Hóa Kỵ ở Điền Trạch)",
+   "effect": "support",
+   "page": 49,
+   "quote": "ở vào hai cung Tài Bạch và Điền Trạch lại rất đắc dụng",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": "the author gives this as the Vietnamese reading against TT's 'Hóa Kỵ xấu đụng đâu hại đó'; p.161 phú 123 'Hóa Kị điền tài phản vi giai luận' says the same"
+  },
+  {
+   "id": "TT_DIEN_TRACH_TU_PHU_TUONG_LOC_TA_HUU",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tử Vi"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_major_stars",
+       "operator": "contains",
+       "value": "Thiên Tướng"
+      },
+      {
+       "fact": "palace.own_major_stars",
+       "operator": "contains",
+       "value": "Thiên Phủ"
+      }
+     ]
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Lộc Tồn"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Lộc"
+      }
+     ]
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      }
+     ]
+    }
+   ],
+   "reading": "giàu có, tài phú (Tử Vi cùng Thiên Phủ hoặc Thiên Tướng ở Điền Trạch, thêm Lộc và Tả Hữu)",
+   "effect": "support",
+   "page": 20,
+   "quote": "đồng cư cùng Thiên Tướng, Thiên Phủ lại thêm lộc",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ],
+    [
+     "fin.abundance",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Tử Vi: 'ở cung Tài Bạch hay Điền trạch … tất làm tài phú chi quan'; Tử never sits with both Phủ and Tướng, so either; 'tả hữu hộ vệ' read narrowly as Tả or Hữu in the palace"
+  },
+  {
+   "id": "TT_DIEN_TRACH_CU_PHA_TO",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    }
+   ],
+   "reading": "dễ phá tổ nghiệp (Cự Môn ở Điền Trạch)",
+   "effect": "limit",
+   "page": 34,
+   "quote": "ở Điền Trạch phá tổ nghiệp",
+   "concepts": [
+    [
+     "prop.inherit",
+     "weakens"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Cự Môn (no dignity named); the p.89 line splits it by miếu / hãm (TV_TT_PAL_DIEN_TRACH_CU_MON_*)"
+  },
+  {
+   "id": "TT_DIEN_TRACH_LUONG_TOT",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Lương"
+    }
+   ],
+   "reading": "Thiên Lương vào Điền Trạch đem lại tốt lành (Thiên Lương ở Điền Trạch)",
+   "effect": "support",
+   "page": 37,
+   "quote": "Vào điền trạch, huynh đệ đem lại tốt lành",
+   "concepts": [
+    [
+     "prop.rich",
+     "affirms"
+    ]
+   ],
+   "note": "gloss of Ngọc Thiềm's Thiên Lương ca ('Điền trạch huynh đệ nội, đắc chí phúc tự sinh')"
+  },
+  {
+   "id": "TT_DIEN_TRACH_SAT_HINH",
+   "book": "TT",
+   "palace": "Điền Trạch",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thất Sát"
+    },
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Thiên Hình"
+    }
+   ],
+   "reading": "gia nghiệp đổ vỡ (Thất Sát gặp Thiên Hình ở Điền Trạch)",
+   "effect": "limit",
+   "page": 38,
+   "quote": "tại Điền Trạch và Phụ Mẫu, gia nghiệp đổ vỡ",
+   "concepts": [
+    [
+     "prop.poor",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Thất Sát 'Gặp Hình Tú tại Điền Trạch và Phụ Mẫu'; the Phụ Mẫu half ('khắc cha khắc mẹ') is khắc and left out"
+  },
+  {
+   "id": "TT_TAT_ACH_PHU_DE_CUU",
+   "book": "TT",
+   "palace": "Tật Ách",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Phủ"
+    }
+   ],
+   "reading": "gặp tai nạn dễ được cứu (Thiên Phủ ở Tật Ách)",
+   "effect": "support",
+   "page": 90,
+   "quote": "gặp tai nạn dễ cứu",
+   "concepts": [
+    [
+     "health.shielded",
+     "affirms"
+    ]
+   ],
+   "note": "p.155 phú 52 'Thiên Phủ lâm giải ách nhi vô bệnh' and p.30 'Thiên Phủ là giải tai ách chi tính' say the same; 'mạnh khỏe' (a health verdict) not carried"
+  },
+  {
+   "id": "TT_TAT_ACH_TU_PHA_DO_HAI",
+   "book": "TT",
+   "palace": "Tật Ách",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Phá Quân"
+    },
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tử Vi"
+    }
+   ],
+   "reading": "có Tử Vi đỡ hại cho Phá Quân (Phá Quân cùng Tử Vi ở Tật Ách)",
+   "effect": "support",
+   "page": 90,
+   "quote": "cùng Tử Vi đỡ hại",
+   "concepts": [
+    [
+     "health.shielded",
+     "affirms"
+    ]
+   ],
+   "note": "the illness clauses of the Phá Quân line are left out"
+  },
+  {
+   "id": "TT_TAT_ACH_LOC_CAT",
+   "book": "TT",
+   "palace": "Tật Ách",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Lộc Tồn"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Văn Xương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Văn Khúc"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Khôi"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Việt"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Lộc"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Quyền"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Khoa"
+      }
+     ]
+    }
+   ],
+   "reading": "được cát tinh phù trợ thì đỡ hại (Lộc Tồn ở Tật Ách có cát tinh)",
+   "effect": "support",
+   "page": 90,
+   "quote": "nếu được cát tinh phù trợ đỡ hại",
+   "concepts": [
+    [
+     "health.shielded",
+     "affirms"
+    ]
+   ],
+   "note": "'cát tinh / sao tốt phù trợ' read as one of Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, Khôi, Việt, Lộc Tồn or a birth Hóa Lộc/Quyền/Khoa in the palace itself; 'đa tai nạn' / 'tàn tật' clauses left out"
+  },
+  {
+   "id": "TT_TAT_ACH_KHUC_CAT",
+   "book": "TT",
+   "palace": "Tật Ách",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Văn Khúc"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Văn Xương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Khôi"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Thiên Việt"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Lộc Tồn"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Lộc"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Quyền"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Khoa"
+      }
+     ]
+    }
+   ],
+   "reading": "có cát tinh trợ thì suốt đời ít tai nạn (Văn Khúc ở Tật Ách thêm cát tinh)",
+   "effect": "support",
+   "page": 90,
+   "quote": "thêm cát tinh trợ suốt đời vô tai vô nạn",
+   "concepts": [
+    [
+     "health.shielded",
+     "affirms"
+    ]
+   ],
+   "note": "'cát tinh / sao tốt phù trợ' read as one of Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, Khôi, Việt, Lộc Tồn or a birth Hóa Lộc/Quyền/Khoa in the palace itself"
+  },
+  {
+   "id": "TT_TAT_ACH_KHUC_HAM_SAT",
+   "book": "TT",
+   "palace": "Tật Ách",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Văn Khúc"
+    },
+    {
+     "fact": "palace.dignity@toan_thu.Văn Khúc",
+     "operator": "in",
+     "value": [
+      "hãm"
+     ]
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "gặp thế kỵ, ngược lại dễ có tai nạn (Văn Khúc hãm ở Tật Ách gặp Tứ Sát, Không Kiếp)",
+   "effect": "limit",
+   "page": 90,
+   "quote": "gặp Tứ Sát và Kiếp Không hãm địa ngược lại",
+   "concepts": [
+    [
+     "health.exposed",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_TAT_ACH_XUONG_SAT",
+   "book": "TT",
+   "palace": "Tật Ách",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Văn Xương"
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "gặp thế kỵ, nhiều tai truân (Văn Xương ở Tật Ách gặp Tứ Sát xung phá)",
+   "effect": "limit",
+   "page": 90,
+   "quote": "gặp Tứ Sát xung phá đa tai chuân",
+   "concepts": [
+    [
+     "health.exposed",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself"
+  },
+  {
+   "id": "TT_TAT_ACH_TA_HUU_SAT",
+   "book": "TT",
+   "palace": "Tật Ách",
+   "conds": [
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      }
+     ]
+    },
+    {
+     "count": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "gặp thế kỵ, dễ gặp tai nạn (Tả Phụ hoặc Hữu Bật ở Tật Ách gặp Tứ Sát)",
+   "effect": "limit",
+   "page": 90,
+   "quote": "gặp Tứ Sát dễ gặp tai nạn",
+   "concepts": [
+    [
+     "health.exposed",
+     "affirms"
+    ]
+   ],
+   "note": "a named group of sát tinh is read as at least two of them in the palace itself; the next line says 'Hữu Bật độc thủ cũng như trên'"
+  },
+  {
+   "id": "TT_TAT_ACH_TOI_KY_LIST",
+   "book": "TT",
+   "palace": "Tật Ách",
+   "conds": [
+    {
+     "count": [
+      {
+       "fact": "palace.own_major_stars",
+       "operator": "contains",
+       "value": "Tham Lang"
+      },
+      {
+       "fact": "palace.own_major_stars",
+       "operator": "contains",
+       "value": "Liêm Trinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Kình Dương"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Đà La"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Không"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Địa Kiếp"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hỏa Tinh"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Linh Tinh"
+      },
+      {
+       "fact": "palace.tu_hoa",
+       "operator": "contains",
+       "value": "Hóa Kỵ"
+      }
+     ],
+     "operator": "gte",
+     "value": 2
+    }
+   ],
+   "reading": "gặp lũ sao tối kỵ của cung này (Tham Lang, Liêm Trinh, Kình Đà, Không Kiếp, Hỏa Linh, Hóa Kỵ ở Tật Ách)",
+   "effect": "limit",
+   "page": 150,
+   "quote": "Có Tham Lang, Liêm Trinh, Dương Đà, Không Kiếp, Hỏa Linh, Hóa Kị chủ",
+   "concepts": [
+    [
+     "health.exposed",
+     "affirms"
+    ]
+   ],
+   "note": "thập đẳng luận 'tật yểu': the list 'chủ bệnh tật, yểu chiết. Những sao trên ở cung Tật Ách cũng vậy'; read as at least two of them in Tật Ách; the yểu chiết part is not carried into the reading"
+  },
+  {
+   "id": "TT_HUYNH_DE_TANG_MA",
+   "book": "TT",
+   "palace": "Huynh Đệ",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Tang Môn"
+    },
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Thiên Mã"
+    }
+   ],
+   "reading": "anh em mỗi người một xứ (Tang Môn gặp Thiên Mã ở Huynh Đệ)",
+   "effect": "limit",
+   "page": 92,
+   "quote": "Mỗi người mỗi xứ gia đình quạnh hiu",
+   "concepts": [
+    [
+     "kin.apart",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm 'Tang Môn ngộ Mã đinh ninh'"
+  },
+  {
+   "id": "TT_HUYNH_DE_HOA_KY",
+   "book": "TT",
+   "palace": "Huynh Đệ",
+   "conds": [
+    {
+     "fact": "palace.tu_hoa",
+     "operator": "contains",
+     "value": "Hóa Kỵ"
+    }
+   ],
+   "reading": "anh em kém hòa thuận (Hóa Kỵ ở Huynh Đệ)",
+   "effect": "limit",
+   "page": 92,
+   "quote": "Gặp sao Hoá Kị khiếm hoà",
+   "concepts": [
+    [
+     "kin.strain",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm"
+  },
+  {
+   "id": "TT_HUYNH_DE_THIEN_HINH",
+   "book": "TT",
+   "palace": "Huynh Đệ",
+   "conds": [
+    {
+     "fact": "palace.own_stars",
+     "operator": "contains",
+     "value": "Thiên Hình"
+    }
+   ],
+   "reading": "anh em xung khắc, trong nhà ghét nhau (Thiên Hình ở Huynh Đệ)",
+   "effect": "limit",
+   "page": 92,
+   "quote": "Thiên Hình xung khắc trong nhà ghét nhau",
+   "concepts": [
+    [
+     "kin.strain",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm; 'xung khắc' here is discord, not hình khắc"
+  },
+  {
+   "id": "TT_HUYNH_DE_CU_MON",
+   "book": "TT",
+   "palace": "Huynh Đệ",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    }
+   ],
+   "reading": "anh em cốt nhục bất hòa (Cự Môn ở Huynh Đệ)",
+   "effect": "limit",
+   "page": 34,
+   "quote": "Huynh Đệ cốt nhục bất hoà, ở Phu Thê",
+   "concepts": [
+    [
+     "kin.strain",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Cự Môn"
+  },
+  {
+   "id": "TT_HUYNH_DE_PHA_QUAN",
+   "book": "TT",
+   "palace": "Huynh Đệ",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Phá Quân"
+    }
+   ],
+   "reading": "anh em cốt nhục bất hòa (Phá Quân ở Huynh Đệ)",
+   "effect": "limit",
+   "page": 40,
+   "quote": "vào Huynh Đệ cốt nhục bất hoà",
+   "concepts": [
+    [
+     "kin.strain",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Phá Quân"
+  },
+  {
+   "id": "TT_HUYNH_DE_LUONG_TOT",
+   "book": "TT",
+   "palace": "Huynh Đệ",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thiên Lương"
+    }
+   ],
+   "reading": "Thiên Lương vào Huynh Đệ đem lại tốt lành (Thiên Lương ở Huynh Đệ)",
+   "effect": "support",
+   "page": 37,
+   "quote": "Vào điền trạch, huynh đệ đem lại tốt lành",
+   "concepts": [
+    [
+     "kin.harmony",
+     "affirms"
+    ]
+   ],
+   "note": "gloss of Ngọc Thiềm's Thiên Lương ca"
+  },
+  {
+   "id": "TT_TU_TUC_XUONG_KHUC_GIAP",
+   "book": "TT",
+   "palace": "Tử Tức",
+   "conds": [
+    {
+     "giap": [
+      "Văn Xương",
+      "Văn Khúc"
+     ]
+    }
+   ],
+   "reading": "con cái hiển đạt, được phong tặng (Văn Xương, Văn Khúc giáp Tử Tức)",
+   "effect": "support",
+   "page": 93,
+   "quote": "Khúc Xương chiếu giáp thập hầu tặng phong",
+   "concepts": [
+    [
+     "kin.talented",
+     "affirms"
+    ]
+   ],
+   "note": "phú nôm 'Sinh con Long Phượng sang giàu / Khúc Xương chiếu giáp …'; 'chiếu giáp' read narrowly as giáp (one on each side)"
+  },
+  {
+   "id": "TT_TU_TUC_TU_TA_HUU",
+   "book": "TT",
+   "palace": "Tử Tức",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Tử Vi"
+    },
+    {
+     "any": [
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Tả Phụ"
+      },
+      {
+       "fact": "palace.own_stars",
+       "operator": "contains",
+       "value": "Hữu Bật"
+      }
+     ]
+    }
+   ],
+   "reading": "sinh con quý (Tử Vi ở Tử Tức có Tả Phụ, Hữu Bật)",
+   "effect": "support",
+   "page": 20,
+   "quote": "cung Tử Tức có Tả Hữu thì sinh quí tử",
+   "concepts": [
+    [
+     "kin.talented",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Tử Vi; 'đứng một mình thì cô độc' (number of children) left out"
+  },
+  {
+   "id": "TT_TU_TUC_THAI_DUONG",
+   "book": "TT",
+   "palace": "Tử Tức",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Thái Dương"
+    }
+   ],
+   "reading": "sinh con quý (Thái Dương ở Tử Tức)",
+   "effect": "support",
+   "page": 25,
+   "quote": "Nếu nó vào cung Tử Tức sẽ sinh quí tử",
+   "concepts": [
+    [
+     "kin.talented",
+     "affirms"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Thái Dương"
+  },
+  {
+   "id": "TT_TU_TUC_CU_MON",
+   "book": "TT",
+   "palace": "Tử Tức",
+   "conds": [
+    {
+     "fact": "palace.own_major_stars",
+     "operator": "contains",
+     "value": "Cự Môn"
+    }
+   ],
+   "reading": "con cái ít thành đạt (Cự Môn ở Tử Tức)",
+   "effect": "limit",
+   "page": 34,
+   "quote": "con cái hoặc hiếm muộn hoặc ít",
+   "concepts": [
+    [
+     "kin.talented",
+     "weakens"
+    ]
+   ],
+   "note": "chư tinh vấn đáp, Cự Môn: 'con cái hoặc hiếm muộn hoặc ít thành đạt'; the hiếm muộn half (number of children) left out"
+  }
+ ]
+}
