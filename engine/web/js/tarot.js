@@ -31,9 +31,10 @@ export function faceHtml(card, reversed = false) {
   return `<div class="tc-wrap${reversed ? ' is-rev' : ''}">${inner}</div>`;
 }
 
+/** The card's sourced readings: each paraphrase with Waite's words and the page they are on; otherwise the neutral line. */
 export function readingHtml(r) {
-  if (!r || r.status !== 'sourced') return `<p class="treading pending">${esc(r?.text || '')}</p>`;
-  return `<div class="treading"><p>${esc(r.text_vi)}</p><blockquote lang="en">“${esc(r.quote_en)}”</blockquote><cite>${esc(r.cite)}</cite></div>`;
+  if (!r || r.status !== 'sourced' || !r.items?.length) return `<p class="treading pending">${esc(r?.text || '')}</p>`;
+  return `<ul class="treading">${r.items.map(i => `<li><p>${esc(i.text_vi)}</p><blockquote lang="en">“${esc(i.quote_en)}”</blockquote><cite>${esc(i.cite)}</cite></li>`).join('')}</ul>`;
 }
 
 /** The drawn cards, the header line, any notice and the layout note. */

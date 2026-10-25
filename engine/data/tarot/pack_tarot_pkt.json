@@ -1,12 +1,2445 @@
 {
- "note": "Built by tools/build_tarot_pack.py from tools/data/tarot_pkt_entries.json. Each entry: the book's line (quote_en) on its printed page, and a Vietnamese rendering of that line only. A card with no entry shows its name and a neutral line (src/tarot/reading.ts).",
+ "note": "Built by tools/build_tarot_pack.py from tools/data/tarot_pkt_entries.json. Each entry: Waite's words (quote_en) on the printed page of the 1916 issue, and a Vietnamese paraphrase of those words only. Notes on what was left out stay in the entries file.",
  "source": {
-  "id": "SRC_WAITE_PKT_1911",
+  "id": "SRC_PKT",
   "title": "The Pictorial Key to the Tarot",
   "author": "A. E. Waite",
-  "year": 1911,
-  "publisher": "William Rider & Son, London",
-  "cite": "A. E. Waite, The Pictorial Key to the Tarot (1911)"
+  "year": 1916,
+  "edition": "Waite's text as reissued in L. W. de Laurence, The Illustrated Key to the Tarot: The Veil of Divination (Chicago, 1916); Library of Congress scan, archive.org illustratedkeyto01dela. Pages are this issue's printed pages, not the 1911 Rider pages.",
+  "cite": "PKT (1916)"
  },
- "entries": []
+ "entries": [
+  {
+   "card": "C01",
+   "orientation": "upright",
+   "page": 117,
+   "quote_en": "House of the true heart, joy, content",
+   "text_vi": "Theo Waite, lá này gợi đến ngôi nhà của trái tim chân thật, niềm vui và sự mãn nguyện.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C01",
+   "orientation": "upright",
+   "page": 117,
+   "quote_en": "content, abode, nourishment, abundance",
+   "text_vi": "Theo Waite, lá này gợi đến chốn ở, sự nuôi dưỡng và dồi dào.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C01",
+   "orientation": "reversed",
+   "page": 117,
+   "quote_en": "House of the false heart, mutation, instability, revolution",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến ngôi nhà của trái tim giả dối, sự đổi thay, bất ổn và đảo lộn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C02",
+   "orientation": "upright",
+   "page": 116,
+   "quote_en": "Love, passion, friendship, affinity, union, concord, sympathy",
+   "text_vi": "Theo Waite, lá này gợi đến tình yêu, đam mê, tình bạn, sự hòa hợp, gắn kết và đồng cảm.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C02",
+   "orientation": "upright",
+   "page": 116,
+   "quote_en": "that desire which is not in Nature, but by which Nature is sanctified",
+   "text_vi": "Theo Waite, lá này gợi đến một khát vọng vượt lên tự nhiên, làm cho tự nhiên thêm thiêng liêng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C03",
+   "orientation": "upright",
+   "page": 115,
+   "quote_en": "The conclusion of any matter in plenty, perfection and merriment",
+   "text_vi": "Theo Waite, lá này gợi đến một việc khép lại trong đầy đủ, trọn vẹn và vui vẻ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C03",
+   "orientation": "upright",
+   "page": 115,
+   "quote_en": "happy issue, victory, fulfilment, solace, healing",
+   "text_vi": "Theo Waite, lá này gợi đến kết cục tốt đẹp, chiến thắng, sự hoàn thành, an ủi và hàn gắn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C03",
+   "orientation": "reversed",
+   "page": 115,
+   "quote_en": "Expedition, dispatch, achievement, end",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự mau lẹ, hoàn tất, thành tựu và kết thúc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C04",
+   "orientation": "upright",
+   "page": 114,
+   "quote_en": "Weariness, disgust, aversion, imaginary vexations",
+   "text_vi": "Theo Waite, lá này gợi đến sự mệt mỏi, chán ngán, ác cảm và phiền muộn tưởng tượng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C04",
+   "orientation": "upright",
+   "page": 114,
+   "quote_en": "as if the wine of this world had caused satiety only",
+   "text_vi": "Theo Waite, lá này gợi đến cảm giác đã chán chê những thú vui đời thường.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C04",
+   "orientation": "upright",
+   "page": 114,
+   "quote_en": "This is also a card of blended pleasure",
+   "text_vi": "Theo Waite, lá này gợi đến niềm vui lẫn lộn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C04",
+   "orientation": "reversed",
+   "page": 114,
+   "quote_en": "Novelty, presage, new instruction, new relations",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến điều mới mẻ, điềm báo, bài học mới, mối quan hệ mới.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C05",
+   "orientation": "upright",
+   "page": 113,
+   "quote_en": "It is a card of loss, but something remains over",
+   "text_vi": "Theo Waite, lá này gợi đến mất mát, nhưng vẫn còn lại điều gì đó.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C05",
+   "orientation": "upright",
+   "page": 113,
+   "quote_en": "a card of inheritance, patrimony, transmission, but not corresponding to expectations",
+   "text_vi": "Theo Waite, lá này gợi đến sự kế thừa, trao truyền nhưng không như mong đợi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C05",
+   "orientation": "upright",
+   "page": 113,
+   "quote_en": "marriage, but not without bitterness or frustration",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến một sự gắn bó không thiếu cay đắng hay hụt hẫng.",
+   "category": "another_reading"
+  },
+  {
+   "card": "C05",
+   "orientation": "reversed",
+   "page": 113,
+   "quote_en": "alliances, affinity, consanguinity, ancestry",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự liên minh, gần gũi và quan hệ họ hàng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C05",
+   "orientation": "reversed",
+   "page": 113,
+   "quote_en": "ancestry, return, false projects",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến gốc gác, sự trở về và những dự định viển vông.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C06",
+   "orientation": "upright",
+   "page": 112,
+   "quote_en": "A card of the past and of memories, looking back",
+   "text_vi": "Theo Waite, lá này gợi đến quá khứ, kỷ niệm và việc nhìn lại.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C06",
+   "orientation": "upright",
+   "page": 112,
+   "quote_en": "happiness, enjoyment, but coming rather from the past; things that have vanished",
+   "text_vi": "Theo Waite, lá này gợi đến niềm vui đến từ quá khứ; những điều đã qua.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C06",
+   "orientation": "upright",
+   "page": 112,
+   "quote_en": "new relations, new knowledge, new environment",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến những mối quan hệ mới, hiểu biết mới, môi trường mới.",
+   "category": "another_reading"
+  },
+  {
+   "card": "C06",
+   "orientation": "reversed",
+   "page": 112,
+   "quote_en": "The future, renewal, that which will come to pass presently",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến tương lai, sự đổi mới, những gì đang đến gần.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C07",
+   "orientation": "upright",
+   "page": 111,
+   "quote_en": "Fairy favors, images of reflection, sentiment, imagination",
+   "text_vi": "Theo Waite, lá này gợi đến ân huệ thần tiên, hình ảnh suy tưởng, cảm xúc và trí tưởng tượng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C07",
+   "orientation": "upright",
+   "page": 111,
+   "quote_en": "some attainment in these degrees, but nothing permanent or substantial",
+   "text_vi": "Theo Waite, lá này gợi đến có thể đạt được đôi điều trong cõi ấy, nhưng không có gì bền vững.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C07",
+   "orientation": "reversed",
+   "page": 111,
+   "quote_en": "Reversed: Desire, will, determination, project",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến ước muốn, ý chí, quyết tâm và dự định.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C08",
+   "orientation": "upright",
+   "page": 110,
+   "quote_en": "the card shows the decline of a matter",
+   "text_vi": "Theo Waite, lá này gợi đến một việc đang đi xuống.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C08",
+   "orientation": "upright",
+   "page": 110,
+   "quote_en": "a matter which has been thought to be important is really of slight consequence",
+   "text_vi": "Theo Waite, lá này gợi đến điều tưởng quan trọng hóa ra không mấy hệ trọng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C08",
+   "orientation": "upright",
+   "page": 110,
+   "quote_en": "giving joy, mildness, timidity, honor, modesty",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến niềm vui, sự ôn hòa, rụt rè, danh dự và khiêm nhường.",
+   "category": "another_reading"
+  },
+  {
+   "card": "C08",
+   "orientation": "upright",
+   "page": 110,
+   "quote_en": "deserting the cups of his felicity, enterprise, undertaking or previous concern",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến việc rời bỏ những gì từng làm mình vui hay từng theo đuổi.",
+   "category": "description"
+  },
+  {
+   "card": "C08",
+   "orientation": "reversed",
+   "page": 110,
+   "quote_en": "Reversed: Great joy, happiness, feasting",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến niềm vui lớn, hạnh phúc và tiệc tùng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C09",
+   "orientation": "upright",
+   "page": 109,
+   "quote_en": "Meanings: Concord, contentment, physical",
+   "text_vi": "Theo Waite, lá này gợi đến sự hòa hợp, mãn nguyện, dễ chịu về thân thể.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C09",
+   "orientation": "upright",
+   "page": 109,
+   "quote_en": "also victory, success, advantage",
+   "text_vi": "Theo Waite, lá này gợi đến chiến thắng, thành công và lợi thế.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C09",
+   "orientation": "reversed",
+   "page": 109,
+   "quote_en": "Reversed: Truth, loyalty, liberty",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự thật, lòng trung thành và tự do.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C09",
+   "orientation": "reversed",
+   "page": 109,
+   "quote_en": "the readings vary and include mistakes",
+   "text_vi": "Khi lá ngược, Waite ghi thêm một cách đọc khác: lá này gợi đến các cách đọc khác nhau, có cả sai sót và điều chưa trọn vẹn.",
+   "category": "another_reading"
+  },
+  {
+   "card": "C10",
+   "orientation": "upright",
+   "page": 108,
+   "quote_en": "Contentment, repose of the entire heart ; the perfection of that state",
+   "text_vi": "Theo Waite, lá này gợi đến sự mãn nguyện, trái tim trọn vẹn bình yên.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C10",
+   "orientation": "upright",
+   "page": 108,
+   "quote_en": "also perfection of human love and friendship",
+   "text_vi": "Theo Waite, lá này gợi đến tình yêu và tình bạn trọn vẹn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C10",
+   "orientation": "reversed",
+   "page": 108,
+   "quote_en": "Repose of the false heart, indignation, violence",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự yên ổn giả tạo, phẫn nộ và bạo lực.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C11",
+   "orientation": "upright",
+   "page": 107,
+   "quote_en": "a studious youth ; news, message",
+   "text_vi": "Theo Waite, lá này gợi đến một người trẻ chăm học; tin tức, thông điệp.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C11",
+   "orientation": "upright",
+   "page": 107,
+   "quote_en": "application, reflection, meditation ; also these things directed to business",
+   "text_vi": "Theo Waite, lá này gợi đến sự chuyên tâm, suy ngẫm, chiêm nghiệm, kể cả trong công việc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C11",
+   "orientation": "upright",
+   "page": 107,
+   "quote_en": "It is the pictures of the mind taking form",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến những hình ảnh trong tâm trí đang thành hình.",
+   "category": "description"
+  },
+  {
+   "card": "C11",
+   "orientation": "reversed",
+   "page": 107,
+   "quote_en": "Taste, inclination, attachment, … deception, artifice",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sở thích, khuynh hướng, sự gắn bó; cả lừa dối và xảo thuật.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C12",
+   "orientation": "upright",
+   "page": 106,
+   "quote_en": "Arrival, approach—sometimes that of a messenger",
+   "text_vi": "Theo Waite, lá này gợi đến sự đến gần, có khi là một người mang tin tới.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C12",
+   "orientation": "upright",
+   "page": 106,
+   "quote_en": "advances, proposition, demeanor, invitation, incitement",
+   "text_vi": "Theo Waite, lá này gợi đến lời ngỏ, đề nghị, cử chỉ, lời mời và sự khích lệ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C12",
+   "orientation": "upright",
+   "page": 106,
+   "quote_en": "referring to those higher graces of the imagination",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến những nét đẹp cao hơn của trí tưởng tượng.",
+   "category": "description"
+  },
+  {
+   "card": "C12",
+   "orientation": "reversed",
+   "page": 106,
+   "quote_en": "Trickery, artifice, subtlety, swindling, duplicity, fraud",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến mánh khóe, xảo thuật, gian lận và hai mặt.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C13",
+   "orientation": "upright",
+   "page": 105,
+   "quote_en": "Good, fair woman ; honest, devoted woman",
+   "text_vi": "Theo Waite, lá này gợi đến một người phụ nữ tốt, trung thực và tận tụy.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C13",
+   "orientation": "upright",
+   "page": 105,
+   "quote_en": "loving intelligence, and hence the gift of vision",
+   "text_vi": "Theo Waite, lá này gợi đến trí tuệ giàu yêu thương và khả năng nhìn thấu.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C13",
+   "orientation": "upright",
+   "page": 105,
+   "quote_en": "success, happiness, pleasure ; also wisdom, virtue",
+   "text_vi": "Theo Waite, lá này gợi đến thành công, hạnh phúc, niềm vui; cả minh triết và đức hạnh.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C13",
+   "orientation": "upright",
+   "page": 105,
+   "quote_en": "she sees, but she also acts, and her activity feeds her dream",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến người vừa mơ mộng vừa hành động, việc làm nuôi giấc mơ.",
+   "category": "description"
+  },
+  {
+   "card": "C13",
+   "orientation": "reversed",
+   "page": 105,
+   "quote_en": "The accounts vary; good woman",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến các cách đọc khác nhau: có thể là một người phụ nữ tốt.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C13",
+   "orientation": "reversed",
+   "page": 105,
+   "quote_en": "distinguished woman but one not to be trusted",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến một người nổi bật nhưng khó tin cậy.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C13",
+   "orientation": "reversed",
+   "page": 105,
+   "quote_en": "perverse woman ; vice, dishonor, depravity",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự ngang trái, thói xấu, mất danh dự, sa đọa.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C14",
+   "orientation": "upright",
+   "page": 104,
+   "quote_en": "man of business, law, or divinity ; responsible, disposed to oblige",
+   "text_vi": "Theo Waite, lá này gợi đến một người làm kinh doanh, luật hay thần học; có trách nhiệm, sẵn lòng giúp đỡ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C14",
+   "orientation": "upright",
+   "page": 104,
+   "quote_en": "also equity, art and science",
+   "text_vi": "Theo Waite, lá này gợi đến sự công tâm, nghệ thuật và khoa học.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C14",
+   "orientation": "upright",
+   "page": 104,
+   "quote_en": "law and art; creative intelligence",
+   "text_vi": "Theo Waite, lá này gợi đến trí tuệ sáng tạo.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C14",
+   "orientation": "reversed",
+   "page": 104,
+   "quote_en": "Dishonest, double-dealing man ; roguery, exaction, injustice",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến một người bất chính, hai mặt; sự gian xảo, bóc lột, bất công.",
+   "category": "divinatory"
+  },
+  {
+   "card": "C14",
+   "orientation": "reversed",
+   "page": 104,
+   "quote_en": "vice, scandal, … considerable loss",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến thói xấu, tai tiếng và mất mát lớn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M00",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "Folly, mania, extravagance, intoxication",
+   "text_vi": "Theo Waite, lá này gợi đến sự dại dột, cuồng nhiệt, phung phí và say sưa.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M00",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "intoxication, delirium, frenzy, bewrayment",
+   "text_vi": "Theo Waite, lá này gợi đến sự mê loạn, cuồng loạn và để lộ điều kín.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M00",
+   "orientation": "upright",
+   "page": 80,
+   "quote_en": "He is the spirit in search of experience",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến tinh thần đi tìm trải nghiệm.",
+   "category": "description"
+  },
+  {
+   "card": "M00",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Negligence, absence, distribution, carelessness",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự lơ là, vắng mặt, phân tán và cẩu thả.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M00",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "carelessness, apathy, nullity, vanity",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự thờ ơ, vô nghĩa và phù phiếm.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M01",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Skill, diplomacy, address, subtlety",
+   "text_vi": "Theo Waite, lá này gợi đến sự khéo léo, tài ngoại giao, cách ứng xử tinh tế.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M01",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "disaster, snares of enemies; self-confidence, will",
+   "text_vi": "Theo Waite, lá này gợi đến lòng tự tin và ý chí, dù vẫn phải dè chừng những cạm bẫy từ người không thiện ý.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M01",
+   "orientation": "upright",
+   "page": 40,
+   "quote_en": "This card signifies the divine motive in man",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến động lực cao quý bên trong con người, ý chí hướng về điều cao hơn.",
+   "category": "description"
+  },
+  {
+   "card": "M01",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Physician, Magus, … disgrace, disquiet",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến hình ảnh người thầy thuốc hay bậc pháp sư, cùng cảm giác hổ thẹn và bất an.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M02",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Secrets, mystery, the future as yet unrevealed",
+   "text_vi": "Theo Waite, lá này gợi đến những bí mật, điều huyền nhiệm, những gì còn chưa được hé lộ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M02",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "silence, tenacity ; mystery, wisdom, science",
+   "text_vi": "Theo Waite, lá này gợi đến sự lặng im, lòng bền bỉ, sự minh triết và hiểu biết.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M02",
+   "orientation": "upright",
+   "page": 42,
+   "quote_en": "to show that some things are implied and some spoken",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến có những điều được nói ra và có những điều chỉ được ngầm hiểu.",
+   "category": "description"
+  },
+  {
+   "card": "M02",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Passion, moral or physical ardor, conceit, surface knowledge",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến đam mê, nhiệt huyết, sự tự phụ và hiểu biết hời hợt.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M03",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Fruitfulness, action, initiative, length of days",
+   "text_vi": "Theo Waite, lá này gợi đến sự sung túc, hành động, óc chủ động và sự bền lâu.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M03",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "the unknown, clandestine ; also difficulty, doubt, ignorance",
+   "text_vi": "Theo Waite, lá này gợi đến điều chưa biết, điều kín đáo; cũng có thể là khó khăn, hoài nghi, thiếu hiểu biết.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M03",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Light, truth, the unravelling of involved matters, public rejoicings",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến ánh sáng, sự thật, việc gỡ rối những chuyện chằng chịt, niềm vui chung.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M03",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "according to another reading, vacillation",
+   "text_vi": "Khi lá ngược, Waite ghi thêm một cách đọc khác: lá này gợi đến sự dao động, thiếu quyết đoán.",
+   "category": "another_reading"
+  },
+  {
+   "card": "M04",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Stability, power, protection, realization",
+   "text_vi": "Theo Waite, lá này gợi đến sự vững vàng, quyền lực, sự che chở và việc biến dự định thành hiện thực.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M04",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "aid, reason, conviction ; also authority and will",
+   "text_vi": "Theo Waite, lá này gợi đến sự giúp đỡ, lý trí, niềm tin vững; cả uy quyền và ý chí.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M04",
+   "orientation": "upright",
+   "page": 46,
+   "quote_en": "He is executive and realization, the power of this world",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến năng lực thực thi và hiện thực hóa, quyền lực của đời sống thường ngày.",
+   "category": "description"
+  },
+  {
+   "card": "M04",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Benevolence, compassion, credit; also confusion to enemies",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến lòng nhân hậu, sự trắc ẩn, uy tín, và sự lúng túng phía đối thủ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M04",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "confusion to enemies, obstruction, immaturity",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự cản trở và non nớt.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M05",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Marriage, alliance, captivity, servitude",
+   "text_vi": "Theo Waite, lá này gợi đến sự kết ước, liên minh; cũng có thể là sự ràng buộc, lệ thuộc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M05",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "by another account, mercy and goodness ; inspiration",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến lòng khoan dung, điều thiện và cảm hứng.",
+   "category": "another_reading"
+  },
+  {
+   "card": "M05",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "the man to whom the Querent has recourse",
+   "text_vi": "Theo Waite, lá này gợi đến người mà ta tìm đến để nhờ cậy.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M05",
+   "orientation": "upright",
+   "page": 48,
+   "quote_en": "He is the ruling power of external religion",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến quyền uy của tôn giáo hữu hình, của khuôn phép được thừa nhận.",
+   "category": "description"
+  },
+  {
+   "card": "M05",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Society, good understanding, concord, over-kindness, weakness",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến đời sống xã hội, sự hiểu nhau, hòa thuận; cả sự tốt bụng quá mức và yếu đuối.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M06",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Attraction, love, beauty, trials overcome",
+   "text_vi": "Theo Waite, lá này gợi đến sự hấp dẫn, tình yêu, cái đẹp và những thử thách đã vượt qua.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M06",
+   "orientation": "upright",
+   "page": 50,
+   "quote_en": "This is in all simplicity the card of human love",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến tình yêu giữa con người với nhau, giản dị và trọn vẹn.",
+   "category": "description"
+  },
+  {
+   "card": "M06",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Reversed: Failure, foolish designs",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến thất bại và những dự tính dại dột.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M06",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Another account speaks of marriage frustrated and contrarieties of all kinds",
+   "text_vi": "Khi lá ngược, Waite ghi thêm một cách đọc khác: lá này gợi đến chuyện gắn bó bị trắc trở và đủ mọi điều trái ý.",
+   "category": "another_reading"
+  },
+  {
+   "card": "M07",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Succor, providence ; also war, triumph",
+   "text_vi": "Theo Waite, lá này gợi đến sự cứu giúp, được che chở; cũng là cuộc tranh đấu và chiến thắng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M07",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "triumph, presumption, vengeance, trouble",
+   "text_vi": "Theo Waite, lá này gợi đến sự tự phụ, lòng muốn trả đũa và rắc rối.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M07",
+   "orientation": "upright",
+   "page": 52,
+   "quote_en": "He is above all things triumph in the mind",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến chiến thắng trước hết ở trong tâm trí.",
+   "category": "description"
+  },
+  {
+   "card": "M07",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Riot, quarrel, dispute, … defeat",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự náo loạn, cãi vã, tranh chấp và thất bại.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M08",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Power, energy, action, courage, magnanimity",
+   "text_vi": "Theo Waite, lá này gợi đến sức mạnh, năng lượng, hành động, lòng can đảm và sự độ lượng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M08",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "also complete success and honors",
+   "text_vi": "Theo Waite, lá này gợi đến thành công trọn vẹn và vinh dự.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M08",
+   "orientation": "upright",
+   "page": 54,
+   "quote_en": "she who is called Strength is the higher nature in its liberation",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến phần cao đẹp trong con người khi được giải phóng, chế ngự được đam mê.",
+   "category": "description"
+  },
+  {
+   "card": "M08",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Despotism, abuse of power, weakness, discord",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự độc đoán, lạm quyền, yếu đuối và bất hòa.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M08",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "discord, sometimes even disgrace",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến đôi khi cả sự ô nhục.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M09",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "The Hermit.—Prudence, circumspection",
+   "text_vi": "Theo Waite, lá này gợi đến sự thận trọng và cân nhắc kỹ lưỡng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M09",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "treason, dissimulation, roguery, corruption",
+   "text_vi": "Theo Waite, lá này gợi đến sự phản bội, giả dối, gian xảo và tha hóa.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M09",
+   "orientation": "upright",
+   "page": 56,
+   "quote_en": "I have said that this is a card of attainment",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự đạt tới, thành tựu của đời sống nội tâm.",
+   "category": "description"
+  },
+  {
+   "card": "M09",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Concealment, disguise, policy, fear, unreasoned caution",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự che giấu, ngụy trang, tính toán; nỗi sợ và sự dè dặt thiếu lý lẽ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M10",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Destiny, fortune, success, elevation, luck, felicity",
+   "text_vi": "Theo Waite, lá này gợi đến vận số, may mắn, thành công, sự thăng tiến và hạnh phúc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M10",
+   "orientation": "upright",
+   "page": 58,
+   "quote_en": "the perpetual motion of a fluidic universe and for the flux of human life",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến vòng chuyển động không ngừng của vũ trụ và dòng chảy của đời người.",
+   "category": "description"
+  },
+  {
+   "card": "M10",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "Reversed: Increase, abundance, superfluity",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự gia tăng, dồi dào, thậm chí thừa thãi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M11",
+   "orientation": "upright",
+   "page": 146,
+   "quote_en": "Equity, rightness, probity, executive",
+   "text_vi": "Theo Waite, lá này gợi đến sự công bằng, ngay thẳng, liêm chính và năng lực thực thi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M11",
+   "orientation": "reversed",
+   "page": 146,
+   "quote_en": "bigotry, bias, excessive severity",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự cố chấp, thiên lệch và nghiêm khắc quá mức.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M12",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "Wisdom, circumspection, discernment, trials, sacrifice",
+   "text_vi": "Theo Waite, lá này gợi đến sự minh triết, thận trọng, sáng suốt; thử thách và hy sinh.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M12",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "sacrifice, intuition, divination, prophecy",
+   "text_vi": "Theo Waite, lá này gợi đến trực giác và khả năng linh cảm, nhìn thấu.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M12",
+   "orientation": "upright",
+   "page": 62,
+   "quote_en": "the figure, as a whole, suggests life in suspension",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến đời sống như đang treo lơ lửng, một quãng tạm dừng.",
+   "category": "description"
+  },
+  {
+   "card": "M12",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Selfishness, the crowd, body politic",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự ích kỷ, đám đông và đời sống cộng đồng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M13",
+   "orientation": "upright",
+   "page": 64,
+   "quote_en": "perpetuated in change, transformation and passage from lower to higher",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự đổi thay, chuyển hóa, bước đi từ thấp lên cao.",
+   "category": "description"
+  },
+  {
+   "card": "M13",
+   "orientation": "upright",
+   "page": 64,
+   "quote_en": "rebirth, creation, destination, renewal",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự tái sinh, tạo dựng, đổi mới.",
+   "category": "description"
+  },
+  {
+   "card": "M13",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "for a woman, many contrarieties",
+   "text_vi": "Theo Waite, lá này gợi đến nhiều điều trái ý (Waite ghi nghĩa này cho người hỏi là nữ).",
+   "category": "divinatory"
+  },
+  {
+   "card": "M13",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Inertia, sleep, lethargy, petrifaction",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự trì trệ, ngủ yên, uể oải, như bị đông cứng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M13",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "petrifaction, somnambulism ; hope destroyed",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến trạng thái mộng du và hy vọng tan vỡ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M14",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "Economy, moderation, frugality, management, accommodation",
+   "text_vi": "Theo Waite, lá này gợi đến sự tiết kiệm, điều độ, chừng mực, khéo quản lý và dung hòa.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M14",
+   "orientation": "upright",
+   "page": 66,
+   "quote_en": "it tempers, combines and harmonizes the psychic and material natures",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự điều hòa, kết hợp đời sống tinh thần với đời sống vật chất.",
+   "category": "description"
+  },
+  {
+   "card": "M14",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Things connected with churches, religions, sects, the priesthood",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến những điều liên quan đến tôn giáo, giáo phái và giới tu sĩ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M14",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "also disunion, unfortunate combinations, competing interests",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự chia rẽ, những kết hợp không may và quyền lợi giằng co.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M15",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "Ravage, violence, vehemence, extraordinary efforts, force",
+   "text_vi": "Theo Waite, lá này gợi đến sự tàn phá, bạo lực, sự mãnh liệt, những nỗ lực phi thường và sức ép.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M15",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "that which is predestined but is not for this reason evil",
+   "text_vi": "Theo Waite, lá này gợi đến sức nặng của hoàn cảnh khó cưỡng, điều tưởng như đã an bài nhưng không vì thế mà xấu.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M15",
+   "orientation": "upright",
+   "page": 68,
+   "quote_en": "Hereof is the chain and fatality of the material life",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sợi xích ràng buộc của đời sống vật chất.",
+   "category": "description"
+  },
+  {
+   "card": "M15",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Evil fatality, weakness, pettiness, blindness",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến vòng ràng buộc xấu, sự yếu đuối, nhỏ nhen và mù quáng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M16",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "Misery, distress, indigence, adversity",
+   "text_vi": "Theo Waite, lá này gợi đến sự khốn khó, phiền muộn, túng thiếu và nghịch cảnh.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M16",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "calamity, disgrace, deception, ruin",
+   "text_vi": "Theo Waite, lá này gợi đến sự đổ vỡ, ô nhục và lừa dối.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M16",
+   "orientation": "upright",
+   "page": 70,
+   "quote_en": "I understand that the reference is, however, to a House of Falsehood",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự sụp đổ của một tòa nhà dựng trên điều giả dối.",
+   "category": "description"
+  },
+  {
+   "card": "M16",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "According to one account, the same in a lesser degree",
+   "text_vi": "Khi lá ngược, Waite ghi thêm một cách đọc khác: lá này gợi đến những điều trên ở mức nhẹ hơn.",
+   "category": "another_reading"
+  },
+  {
+   "card": "M16",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "in a lesser degree ; also oppression, … tyranny",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự áp bức và chuyên chế.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M17",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "another reading says—hope and bright prospects",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến hy vọng và những triển vọng sáng sủa.",
+   "category": "another_reading"
+  },
+  {
+   "card": "M17",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "The Star.—Loss, … privation, abandonment",
+   "text_vi": "Theo Waite, lá này gợi đến sự mất mát, thiếu thốn và bị bỏ rơi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M17",
+   "orientation": "upright",
+   "page": 72,
+   "quote_en": "The figure expresses eternal youth and beauty",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến tuổi trẻ và vẻ đẹp không phai.",
+   "category": "description"
+  },
+  {
+   "card": "M17",
+   "orientation": "upright",
+   "page": 72,
+   "quote_en": "the figure will appear as the type of Truth unveiled",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự thật được vén màn.",
+   "category": "description"
+  },
+  {
+   "card": "M17",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Reversed: Arrogance, haughtiness, impotence",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự kiêu căng, ngạo mạn và cảm giác bất lực.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M18",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "Hidden enemies, danger, calumny, darkness, terror",
+   "text_vi": "Theo Waite, lá này gợi đến những kẻ đối địch giấu mặt, hiểm nguy, lời vu khống, bóng tối và nỗi sợ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M18",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "terror, deception, occult forces, error",
+   "text_vi": "Theo Waite, lá này gợi đến sự lừa dối, những sức mạnh huyền bí và sai lầm.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M18",
+   "orientation": "upright",
+   "page": 74,
+   "quote_en": "The card represents life of the imagination apart from life of the spirit",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến đời sống của trí tưởng tượng, tách khỏi đời sống tinh thần.",
+   "category": "description"
+  },
+  {
+   "card": "M18",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Instability, inconstancy, silence, lesser degrees of deception and error",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự bất ổn, hay thay đổi, im lặng; lừa dối và sai lầm ở mức nhẹ hơn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M19",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "Material happiness, fortunate marriage, contentment",
+   "text_vi": "Theo Waite, lá này gợi đến hạnh phúc vật chất, sự gắn bó tốt đẹp và lòng mãn nguyện.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M19",
+   "orientation": "upright",
+   "page": 76,
+   "quote_en": "a child in the sense of simplicity and innocence in the sense of wisdom",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự giản dị và hồn nhiên của trẻ thơ, hiểu theo nghĩa minh triết.",
+   "category": "description"
+  },
+  {
+   "card": "M19",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Reversed: The same in a lesser sense",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến những điều trên ở mức nhẹ hơn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M20",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "Change of position, renewal, outcome",
+   "text_vi": "Theo Waite, lá này gợi đến sự đổi thay vị thế, đổi mới và kết cục của sự việc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M20",
+   "orientation": "upright",
+   "page": 78,
+   "quote_en": "registers the accomplishment of the great work of transformation",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự hoàn tất của một cuộc chuyển hóa lớn, đáp lại tiếng gọi từ bên trong.",
+   "category": "description"
+  },
+  {
+   "card": "M20",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Weakness, pusillanimity, simplicity; also deliberation, decision",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự yếu đuối, nhút nhát, đơn giản; cũng là sự cân nhắc và quyết định.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M21",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "Assured success, recompense, voyage, route",
+   "text_vi": "Theo Waite, lá này gợi đến thành công vững vàng, sự đền đáp; chuyến đi và con đường.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M21",
+   "orientation": "upright",
+   "page": 147,
+   "quote_en": "emigration, flight, change of place",
+   "text_vi": "Theo Waite, lá này gợi đến sự rời xa, ra đi, đổi chỗ ở.",
+   "category": "divinatory"
+  },
+  {
+   "card": "M21",
+   "orientation": "upright",
+   "page": 82,
+   "quote_en": "It represents also the perfection and end of the Cosmos",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự viên mãn, trọn vẹn của một chu trình.",
+   "category": "description"
+  },
+  {
+   "card": "M21",
+   "orientation": "reversed",
+   "page": 147,
+   "quote_en": "Inertia, fixity, stagnation, permanence",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự trì trệ, cố định, đình đốn và bất biến.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P01",
+   "orientation": "upright",
+   "page": 145,
+   "quote_en": "Perfect contentment, felicity, ecstasy",
+   "text_vi": "Theo Waite, lá này gợi đến sự mãn nguyện trọn vẹn, hạnh phúc và ngây ngất.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P01",
+   "orientation": "upright",
+   "page": 145,
+   "quote_en": "also speedy intelligence ; gold",
+   "text_vi": "Theo Waite, lá này gợi đến tin tức đến nhanh; vàng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P01",
+   "orientation": "reversed",
+   "page": 145,
+   "quote_en": "The evil side of wealth, bad intelligence",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến mặt xấu của giàu sang, tin không hay.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P01",
+   "orientation": "reversed",
+   "page": 145,
+   "quote_en": "bad intelligence; also great riches",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến cũng có thể là giàu có lớn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P02",
+   "orientation": "upright",
+   "page": 144,
+   "quote_en": "a card of gaiety, recreation and its connections",
+   "text_vi": "Theo Waite, lá này gợi đến niềm vui và sự giải trí.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P02",
+   "orientation": "upright",
+   "page": 144,
+   "quote_en": "news and messages in writing, as obstacles, agitation, trouble, embroilment",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến tin tức, thư từ; cũng là trở ngại, xáo động và rắc rối.",
+   "category": "another_reading"
+  },
+  {
+   "card": "P02",
+   "orientation": "reversed",
+   "page": 144,
+   "quote_en": "Enforced gaiety, simulated enjoyment",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến niềm vui gượng ép, sự vui vẻ giả vờ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P02",
+   "orientation": "reversed",
+   "page": 144,
+   "quote_en": "literal sense, handwriting, composition, letters of exchange",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến chữ viết, sáng tác và thư từ trao đổi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P03",
+   "orientation": "upright",
+   "page": 143,
+   "quote_en": "Metier, trade, skilled labor",
+   "text_vi": "Theo Waite, lá này gợi đến nghề nghiệp và tay nghề.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P03",
+   "orientation": "upright",
+   "page": 143,
+   "quote_en": "regarded as a card of nobility, aristocracy, renown, glory",
+   "text_vi": "Theo Waite, lá này gợi đến sự cao quý, danh tiếng và vinh quang.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P03",
+   "orientation": "upright",
+   "page": 143,
+   "quote_en": "has received his reward and is now at work in earnest",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến người đã được đền đáp và nay làm việc nghiêm túc.",
+   "category": "description"
+  },
+  {
+   "card": "P03",
+   "orientation": "reversed",
+   "page": 143,
+   "quote_en": "Mediocrity, in work and otherwise, puerility, pettiness, weakness",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự tầm thường, trẻ con, nhỏ nhen và yếu kém.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P04",
+   "orientation": "upright",
+   "page": 142,
+   "quote_en": "The surety of possessions, cleaving to that which one has",
+   "text_vi": "Theo Waite, lá này gợi đến sự yên tâm về những gì mình có và việc bám giữ chúng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P04",
+   "orientation": "upright",
+   "page": 142,
+   "quote_en": "He holds to that which he has",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến việc giữ chặt những gì mình đang có.",
+   "category": "description"
+  },
+  {
+   "card": "P04",
+   "orientation": "upright",
+   "page": 142,
+   "quote_en": "has, gift, legacy, inheritance",
+   "text_vi": "Theo Waite, lá này gợi đến quà tặng và của để lại.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P04",
+   "orientation": "reversed",
+   "page": 142,
+   "quote_en": "Reversed: Suspense, delay, opposition",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự chờ đợi lơ lửng, trì hoãn và cản trở.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P05",
+   "orientation": "upright",
+   "page": 141,
+   "quote_en": "The card foretells material trouble above all",
+   "text_vi": "Theo Waite, lá này gợi đến trước hết là những khó khăn về vật chất.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P05",
+   "orientation": "upright",
+   "page": 141,
+   "quote_en": "For some cartomancists, it is a card of love and lovers",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến tình yêu và những người yêu nhau.",
+   "category": "another_reading"
+  },
+  {
+   "card": "P05",
+   "orientation": "upright",
+   "page": 141,
+   "quote_en": "lovers— wife, husband, friend, mistress ; also concordance, affinities",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến những mối gắn bó, sự hòa hợp và gần gũi.",
+   "category": "another_reading"
+  },
+  {
+   "card": "P05",
+   "orientation": "reversed",
+   "page": 141,
+   "quote_en": "Disorder, chaos, ruin, discord, profligacy",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự rối loạn, hỗn độn, đổ nát, bất hòa và hoang phí.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P06",
+   "orientation": "upright",
+   "page": 140,
+   "quote_en": "Meanings: Presents, gifts, gratification",
+   "text_vi": "Theo Waite, lá này gợi đến quà tặng và sự hài lòng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P06",
+   "orientation": "upright",
+   "page": 140,
+   "quote_en": "another account says attention, vigilance",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến sự chú tâm và cảnh giác.",
+   "category": "another_reading"
+  },
+  {
+   "card": "P06",
+   "orientation": "upright",
+   "page": 140,
+   "quote_en": "now is the accepted time, present prosperity",
+   "text_vi": "Theo Waite, lá này gợi đến thời điểm thuận lợi và sự thịnh vượng hiện tại.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P06",
+   "orientation": "upright",
+   "page": 140,
+   "quote_en": "a testimony to his own success in life, as well as his goodness of heart",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến thành công của bản thân đi cùng lòng tốt.",
+   "category": "description"
+  },
+  {
+   "card": "P06",
+   "orientation": "reversed",
+   "page": 140,
+   "quote_en": "Desire, cupidity, envy, jealousy, illusion",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự ham muốn, tham lam, đố kỵ, ghen tuông và ảo tưởng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P07",
+   "orientation": "upright",
+   "page": 139,
+   "quote_en": "in the main, it is a card of money, business, barter",
+   "text_vi": "Theo Waite, lá này gợi đến chủ yếu là chuyện tiền bạc, làm ăn, trao đổi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P07",
+   "orientation": "upright",
+   "page": 139,
+   "quote_en": "one reading gives altercation, quarrel—and another innocence, ingenuity, purgation",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến tranh cãi; hoặc, theo cách đọc khác, sự ngây thơ, khéo léo và gột rửa.",
+   "category": "another_reading"
+  },
+  {
+   "card": "P07",
+   "orientation": "upright",
+   "page": 139,
+   "quote_en": "one would say that these were his treasures and that his heart was there",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến nơi mà trái tim mình đặt vào.",
+   "category": "description"
+  },
+  {
+   "card": "P07",
+   "orientation": "reversed",
+   "page": 139,
+   "quote_en": "Reversed: Cause for anxiety regarding money",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến nỗi lo về tiền bạc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P08",
+   "orientation": "upright",
+   "page": 138,
+   "quote_en": "Work, employment, commission, craftsmanship",
+   "text_vi": "Theo Waite, lá này gợi đến công việc, việc làm, đơn đặt hàng, tay nghề.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P08",
+   "orientation": "upright",
+   "page": 138,
+   "quote_en": "skill in craft and business, perhaps in the preparatory stage",
+   "text_vi": "Theo Waite, lá này gợi đến sự khéo léo trong nghề và làm ăn, có lẽ còn ở giai đoạn chuẩn bị.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P08",
+   "orientation": "reversed",
+   "page": 138,
+   "quote_en": "Voided ambition, vanity, cupidity, exaction",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến tham vọng không thành, phù phiếm, tham lam và bóc lột.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P08",
+   "orientation": "reversed",
+   "page": 138,
+   "quote_en": "the ingenious mind turned to cunning and intrigue",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến đầu óc khéo léo bị dùng vào mưu mẹo.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P09",
+   "orientation": "upright",
+   "page": 137,
+   "quote_en": "Prudence, safety, success, accomplishment, certitude, discernment",
+   "text_vi": "Theo Waite, lá này gợi đến sự thận trọng, an toàn, thành công, hoàn thành, vững tin và sáng suốt.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P09",
+   "orientation": "upright",
+   "page": 137,
+   "quote_en": "Possibly it is her own possession and testifies to material well-being",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự sung túc về vật chất.",
+   "category": "description"
+  },
+  {
+   "card": "P09",
+   "orientation": "reversed",
+   "page": 137,
+   "quote_en": "Roguery, deception, voided project, bad faith",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự gian xảo, lừa dối, dự định đổ bể và bất tín.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P10",
+   "orientation": "upright",
+   "page": 136,
+   "quote_en": "Gain, riches; family matters, archives, extraction, the abode of a family",
+   "text_vi": "Theo Waite, lá này gợi đến lợi lộc, giàu có; chuyện gia đình, gia phả, dòng dõi, mái nhà của một gia tộc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P10",
+   "orientation": "reversed",
+   "page": 136,
+   "quote_en": "Reversed: Chance, fatality, loss",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự may rủi, vận rủi và mất mát.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P10",
+   "orientation": "reversed",
+   "page": 136,
+   "quote_en": "sometimes gift, dowry, pension",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến đôi khi là quà tặng, của hồi môn, khoản trợ cấp.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P11",
+   "orientation": "upright",
+   "page": 135,
+   "quote_en": "Application, study, scholarship, reflection",
+   "text_vi": "Theo Waite, lá này gợi đến sự chuyên cần, học hành, học vấn và suy ngẫm.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P11",
+   "orientation": "upright",
+   "page": 135,
+   "quote_en": "news, messages and the bringer thereof; also rule, management",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến tin tức, thư từ và người mang tin; cả khuôn phép và việc quản lý.",
+   "category": "another_reading"
+  },
+  {
+   "card": "P11",
+   "orientation": "upright",
+   "page": 135,
+   "quote_en": "He moves slowly, insensible of that which is about him",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự chìm đắm vào điều mình chăm chú, chậm rãi.",
+   "category": "description"
+  },
+  {
+   "card": "P11",
+   "orientation": "reversed",
+   "page": 135,
+   "quote_en": "Prodigality, dissipation, liberality, luxury, unfavorable news",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự hoang phí, phóng túng, rộng tay, xa hoa, tin không thuận.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P12",
+   "orientation": "upright",
+   "page": 134,
+   "quote_en": "Utility, serviceableness, interest, responsibility, rectitude",
+   "text_vi": "Theo Waite, lá này gợi đến sự hữu ích, tận tụy, quan tâm, trách nhiệm và ngay thẳng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P12",
+   "orientation": "upright",
+   "page": 134,
+   "quote_en": "He rides a slow, enduring, heavy horse, to which his own aspect corresponds",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự chậm rãi, bền bỉ, vững chãi.",
+   "category": "description"
+  },
+  {
+   "card": "P12",
+   "orientation": "reversed",
+   "page": 134,
+   "quote_en": "Inertia, idleness, repose of that kind, stagnation",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự trì trệ, lười biếng, đình đốn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P12",
+   "orientation": "reversed",
+   "page": 134,
+   "quote_en": "also placidity, discouragement, carelessness",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự thờ ơ, nản lòng và cẩu thả.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P13",
+   "orientation": "upright",
+   "page": 133,
+   "quote_en": "Opulence, generosity, magnificence, security, liberty",
+   "text_vi": "Theo Waite, lá này gợi đến sự giàu có, hào phóng, huy hoàng, an toàn và tự do.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P13",
+   "orientation": "upright",
+   "page": 133,
+   "quote_en": "summed up in the idea of greatness of soul",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến một tâm hồn rộng lớn.",
+   "category": "description"
+  },
+  {
+   "card": "P13",
+   "orientation": "reversed",
+   "page": 133,
+   "quote_en": "Evil, suspicion, suspense, fear, mistrust",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến điều xấu, sự nghi kỵ, chờ đợi lơ lửng, sợ hãi và mất lòng tin.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P14",
+   "orientation": "upright",
+   "page": 132,
+   "quote_en": "Valor, intelligence, business, mathematical gifts, and success in these paths",
+   "text_vi": "Theo Waite, lá này gợi đến lòng can đảm, trí thông minh, tài làm ăn, năng khiếu tính toán và thành công trên những con đường ấy.",
+   "category": "divinatory"
+  },
+  {
+   "card": "P14",
+   "orientation": "upright",
+   "page": 132,
+   "quote_en": "The face of this figure is dark, suggesting courage",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến lòng can đảm.",
+   "category": "description"
+  },
+  {
+   "card": "P14",
+   "orientation": "reversed",
+   "page": 132,
+   "quote_en": "Reversed: Vice, weakness, perversity, peril",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến thói xấu, sự yếu đuối, ngang ngược và hiểm nguy.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S01",
+   "orientation": "upright",
+   "page": 131,
+   "quote_en": "Triumph, the excessive degree in everything, conquest, triumph of force",
+   "text_vi": "Theo Waite, lá này gợi đến chiến thắng, mọi thứ ở mức thái quá, sự chinh phục, sức mạnh thắng thế.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S01",
+   "orientation": "upright",
+   "page": 131,
+   "quote_en": "It is a card of great force, in love as well as in hatred",
+   "text_vi": "Theo Waite, lá này gợi đến một sức mạnh lớn, trong yêu cũng như trong ghét.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S01",
+   "orientation": "reversed",
+   "page": 131,
+   "quote_en": "The same, but the results are disastrous",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến những điều trên, nhưng với kết quả tệ hại.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S02",
+   "orientation": "upright",
+   "page": 130,
+   "quote_en": "Conformity and the equipoise which it suggests, courage, friendship, concord in a state of arms",
+   "text_vi": "Theo Waite, lá này gợi đến sự thuận theo và thế cân bằng, lòng can đảm, tình bạn, hòa hợp trong thế giằng co.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S02",
+   "orientation": "upright",
+   "page": 130,
+   "quote_en": "another reading gives tenderness, affection, intimacy",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến sự dịu dàng, trìu mến, thân mật.",
+   "category": "another_reading"
+  },
+  {
+   "card": "S02",
+   "orientation": "reversed",
+   "page": 130,
+   "quote_en": "Imposture, falsehood, duplicity, disloyalty",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự giả mạo, dối trá, hai mặt và bất trung.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S03",
+   "orientation": "upright",
+   "page": 129,
+   "quote_en": "Removal, absence, delay, division, rupture, dispersion",
+   "text_vi": "Theo Waite, lá này gợi đến sự xa cách, vắng mặt, trì hoãn, chia lìa, rạn vỡ và ly tán.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S03",
+   "orientation": "upright",
+   "page": 129,
+   "quote_en": "all that the design signifies naturally",
+   "text_vi": "Theo Waite, lá này gợi đến mọi điều hình vẽ trái tim bị ba lưỡi kiếm xuyên qua tự nói lên.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S03",
+   "orientation": "reversed",
+   "page": 129,
+   "quote_en": "error, loss, distraction, disorder, confusion",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sai lầm, mất mát, xao lãng, rối loạn và hoang mang.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S04",
+   "orientation": "upright",
+   "page": 128,
+   "quote_en": "Vigilance, retreat, solitude, hermit's repose",
+   "text_vi": "Theo Waite, lá này gợi đến sự cảnh giác, lui về, cô tịch, sự nghỉ ngơi của ẩn sĩ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S04",
+   "orientation": "reversed",
+   "page": 128,
+   "quote_en": "Wise administration, circumspection, economy",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự quản lý khôn ngoan, thận trọng và tiết kiệm.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S04",
+   "orientation": "reversed",
+   "page": 128,
+   "quote_en": "circumspection, economy, avarice, precaution",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến tính keo kiệt và sự đề phòng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S05",
+   "orientation": "upright",
+   "page": 127,
+   "quote_en": "Degradation, destruction, revocation, infamy, dishonor, loss",
+   "text_vi": "Theo Waite, lá này gợi đến sự sa sút, đổ vỡ, bị thu hồi, ô danh và mất mát.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S05",
+   "orientation": "upright",
+   "page": 127,
+   "quote_en": "He is the master in possession of the field",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến người làm chủ chiến trường, kẻ thắng lạnh lùng.",
+   "category": "description"
+  },
+  {
+   "card": "S05",
+   "orientation": "reversed",
+   "page": 127,
+   "quote_en": "the variants and analogues of these. Reversed: The same",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến ý nghĩa vẫn như khi lá xuôi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S06",
+   "orientation": "upright",
+   "page": 126,
+   "quote_en": "Journey by water, route, way, envoy, commissionary, expedient",
+   "text_vi": "Theo Waite, lá này gợi đến chuyến đi đường thủy, lộ trình, con đường, sứ giả và phương kế.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S06",
+   "orientation": "upright",
+   "page": 126,
+   "quote_en": "the work is not beyond his strength",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến việc không vượt quá sức mình.",
+   "category": "description"
+  },
+  {
+   "card": "S06",
+   "orientation": "reversed",
+   "page": 126,
+   "quote_en": "Reversed: Declaration, confession, publicity",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến lời tuyên bố, sự thú nhận và việc công khai.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S06",
+   "orientation": "reversed",
+   "page": 126,
+   "quote_en": "one account says that it is a proposal of love",
+   "text_vi": "Khi lá ngược, Waite ghi thêm một cách đọc khác: lá này gợi đến một lời ngỏ tình.",
+   "category": "another_reading"
+  },
+  {
+   "card": "S07",
+   "orientation": "upright",
+   "page": 125,
+   "quote_en": "Design, attempt, wish, hope, confidence",
+   "text_vi": "Theo Waite, lá này gợi đến dự tính, cố gắng, mong ước, hy vọng và tự tin.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S07",
+   "orientation": "upright",
+   "page": 125,
+   "quote_en": "also quarrelling, a plan that may fail, annoyance",
+   "text_vi": "Theo Waite, lá này gợi đến sự cãi cọ, một kế hoạch có thể hỏng, nỗi bực bội.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S07",
+   "orientation": "reversed",
+   "page": 125,
+   "quote_en": "Good advice, counsel, instruction, slander, babbling",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến lời khuyên tốt, sự chỉ dẫn; cả lời gièm pha và chuyện tầm phào.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S08",
+   "orientation": "upright",
+   "page": 124,
+   "quote_en": "rather a card of temporary durance than of irretrievable bondage",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự trói buộc tạm thời hơn là không lối thoát.",
+   "category": "description"
+  },
+  {
+   "card": "S08",
+   "orientation": "upright",
+   "page": 124,
+   "quote_en": "Bad news, violent chagrin, crisis, censure",
+   "text_vi": "Theo Waite, lá này gợi đến tin xấu, phiền muộn dữ dội, khủng hoảng và lời chỉ trích.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S08",
+   "orientation": "upright",
+   "page": 124,
+   "quote_en": "power in trammels, conflict, calumny",
+   "text_vi": "Theo Waite, lá này gợi đến sức mạnh bị trói buộc, xung đột và lời vu khống.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S08",
+   "orientation": "reversed",
+   "page": 124,
+   "quote_en": "Disquiet, difficulty, opposition, … treachery",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự bất an, khó khăn, chống đối và phản trắc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S09",
+   "orientation": "upright",
+   "page": 123,
+   "quote_en": "It is a card of utter desolation",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến nỗi hoang vắng tận cùng.",
+   "category": "description"
+  },
+  {
+   "card": "S09",
+   "orientation": "upright",
+   "page": 123,
+   "quote_en": "failure, … delay, deception, disappointment, despair",
+   "text_vi": "Theo Waite, lá này gợi đến sự thất bại, trì hoãn, lừa dối, thất vọng và tuyệt vọng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S09",
+   "orientation": "reversed",
+   "page": 123,
+   "quote_en": "suspicion, doubt, reasonable fear, shame",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự nghi ngờ, hoài nghi, nỗi sợ có lý do và hổ thẹn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S10",
+   "orientation": "upright",
+   "page": 122,
+   "quote_en": "also pain, affliction, tears, sadness, desolation",
+   "text_vi": "Theo Waite, lá này gợi đến nỗi đau, khổ sở, nước mắt, buồn bã và hoang vắng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S10",
+   "orientation": "reversed",
+   "page": 122,
+   "quote_en": "Advantage, profit, success, favor, but none of these are permanent",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến lợi thế, lợi lộc, thành công, sự ưu ái, nhưng không bền.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S10",
+   "orientation": "reversed",
+   "page": 122,
+   "quote_en": "permanent ; also power and authority",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến quyền lực và uy thế.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S11",
+   "orientation": "upright",
+   "page": 121,
+   "quote_en": "Authority, overseeing, secret service, vigilance, spying, examination",
+   "text_vi": "Theo Waite, lá này gợi đến uy quyền, sự giám sát, cảnh giác, dò xét và kiểm tra.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S11",
+   "orientation": "upright",
+   "page": 121,
+   "quote_en": "He is alert and lithe, looking this way and that",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến sự lanh lợi, luôn để mắt mọi phía.",
+   "category": "description"
+  },
+  {
+   "card": "S11",
+   "orientation": "reversed",
+   "page": 121,
+   "quote_en": "More evil side of these qualities ; what is unforeseen, unprepared state",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến mặt xấu của những phẩm chất ấy; điều bất ngờ, tình trạng thiếu chuẩn bị.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S12",
+   "orientation": "upright",
+   "page": 120,
+   "quote_en": "Skill, bravery, capacity, defense, address",
+   "text_vi": "Theo Waite, lá này gợi đến sự tài khéo, dũng cảm, năng lực và khả năng tự vệ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S12",
+   "orientation": "upright",
+   "page": 120,
+   "quote_en": "enmity, wrath, war, destruction, opposition, resistance, ruin",
+   "text_vi": "Theo Waite, lá này gợi đến sự thù địch, giận dữ, xung đột, chống đối và đổ vỡ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S12",
+   "orientation": "upright",
+   "page": 120,
+   "quote_en": "whose sword is swift and sure because he is clean of heart",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến lưỡi kiếm nhanh và chuẩn của người có lòng trong sạch.",
+   "category": "description"
+  },
+  {
+   "card": "S12",
+   "orientation": "reversed",
+   "page": 120,
+   "quote_en": "Reversed: Imprudence, incapacity, extravagance",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự thiếu thận trọng, bất lực và phung phí.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S13",
+   "orientation": "upright",
+   "page": 119,
+   "quote_en": "female sadness and embarrassment, absence, … privation, separation",
+   "text_vi": "Theo Waite, lá này gợi đến nỗi buồn và bối rối, sự vắng mặt, thiếu thốn và chia xa.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S13",
+   "orientation": "upright",
+   "page": 119,
+   "quote_en": "her countenance is severe but chastened",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến vẻ nghiêm nghị nhưng đã được tôi luyện qua nỗi buồn.",
+   "category": "description"
+  },
+  {
+   "card": "S13",
+   "orientation": "reversed",
+   "page": 119,
+   "quote_en": "Malice, bigotry, artifice, prudery, bale, deceit",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến ác ý, cố chấp, xảo trá, đạo đức giả và lừa dối.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S14",
+   "orientation": "upright",
+   "page": 118,
+   "quote_en": "Whatsoever arises out of the idea of judgment and all its connections",
+   "text_vi": "Theo Waite, lá này gợi đến mọi điều nảy sinh từ ý niệm phán xét.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S14",
+   "orientation": "upright",
+   "page": 118,
+   "quote_en": "power, command, authority, militant intelligence",
+   "text_vi": "Theo Waite, lá này gợi đến quyền lực, mệnh lệnh, uy quyền và trí tuệ sắc bén.",
+   "category": "divinatory"
+  },
+  {
+   "card": "S14",
+   "orientation": "reversed",
+   "page": 118,
+   "quote_en": "Cruelty, perversity, barbarity, perfidy, evil intention",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự tàn nhẫn, ngang ngược, dã man, bội tín và ác ý.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W01",
+   "orientation": "upright",
+   "page": 103,
+   "quote_en": "Creation, invention, enterprise, the powers which result in these",
+   "text_vi": "Theo Waite, lá này gợi đến sự sáng tạo, phát minh, khởi sự và những sức mạnh làm nên chúng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W01",
+   "orientation": "upright",
+   "page": 103,
+   "quote_en": "the starting point of enterprises",
+   "text_vi": "Theo Waite, lá này gợi đến điểm khởi đầu của mọi việc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W01",
+   "orientation": "upright",
+   "page": 103,
+   "quote_en": "according to another account, money, fortune, inheritance",
+   "text_vi": "Waite ghi thêm một cách đọc khác: lá này gợi đến tiền bạc, vận may, của thừa kế.",
+   "category": "another_reading"
+  },
+  {
+   "card": "W01",
+   "orientation": "reversed",
+   "page": 103,
+   "quote_en": "Fall, decadence, ruin, perdition",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự sa sút, suy đồi, đổ nát, lạc lối.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W01",
+   "orientation": "reversed",
+   "page": 103,
+   "quote_en": "also a certain clouded joy",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến một niềm vui bị che mờ.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W02",
+   "orientation": "upright",
+   "page": 102,
+   "quote_en": "on the one hand, riches, fortune, magnificence",
+   "text_vi": "Theo Waite, lá này gợi đến của cải, may mắn và vẻ huy hoàng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W02",
+   "orientation": "upright",
+   "page": 102,
+   "quote_en": "the sadness of Alexander amidst the grandeur of this world's wealth",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến nỗi buồn của người đứng giữa giàu sang mà lòng vẫn trống trải.",
+   "category": "description"
+  },
+  {
+   "card": "W02",
+   "orientation": "reversed",
+   "page": 102,
+   "quote_en": "Surprise, wonder, enchantment, emotion, trouble, fear",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự bất ngờ, kinh ngạc, say mê, xúc động; cả rối bời và sợ hãi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W03",
+   "orientation": "upright",
+   "page": 101,
+   "quote_en": "He symbolizes established strength, enterprise, effort, trade, commerce, discovery",
+   "text_vi": "Theo Waite, lá này gợi đến sức mạnh đã vững, óc kinh doanh, nỗ lực, giao thương và khám phá.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W03",
+   "orientation": "upright",
+   "page": 101,
+   "quote_en": "The card also signifies able co-operation in business",
+   "text_vi": "Theo Waite, lá này gợi đến sự hợp tác đắc lực trong công việc.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W03",
+   "orientation": "reversed",
+   "page": 101,
+   "quote_en": "The end of troubles, suspension or cessation of adversity, toil and disappointment",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến khó khăn khép lại; nghịch cảnh, vất vả và thất vọng tạm ngưng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W04",
+   "orientation": "upright",
+   "page": 100,
+   "quote_en": "country life, haven of refuge, a species of domestic harvest-home, repose",
+   "text_vi": "Theo Waite, lá này gợi đến đời sống thôn dã, chốn nương náu, niềm vui mùa gặt trong nhà, sự nghỉ ngơi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W04",
+   "orientation": "upright",
+   "page": 100,
+   "quote_en": "concord, harmony, prosperity, peace, and the perfected work of these",
+   "text_vi": "Theo Waite, lá này gợi đến sự hòa thuận, hài hòa, thịnh vượng, bình yên và thành quả trọn vẹn của chúng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W04",
+   "orientation": "reversed",
+   "page": 100,
+   "quote_en": "The meaning remains unaltered",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến ý nghĩa giữ nguyên như khi lá xuôi.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W04",
+   "orientation": "reversed",
+   "page": 100,
+   "quote_en": "prosperity, increase, felicity, beauty, embellishment",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự thịnh vượng, tăng tiến, hạnh phúc, vẻ đẹp.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W05",
+   "orientation": "upright",
+   "page": 99,
+   "quote_en": "Imitation, as, for example, sham fight",
+   "text_vi": "Theo Waite, lá này gợi đến sự bắt chước, một cuộc đấu giả.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W05",
+   "orientation": "upright",
+   "page": 99,
+   "quote_en": "the strenuous competition and struggle of the search after riches and fortune",
+   "text_vi": "Theo Waite, lá này gợi đến sự cạnh tranh và vật lộn quyết liệt để mưu cầu của cải.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W05",
+   "orientation": "upright",
+   "page": 99,
+   "quote_en": "In this sense it connects with the battle of life",
+   "text_vi": "Theo Waite, lá này gợi đến cuộc chiến của đời sống.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W05",
+   "orientation": "reversed",
+   "page": 99,
+   "quote_en": "Reversed: … disputes, trickery, contradiction",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến tranh chấp, mánh khóe và mâu thuẫn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W06",
+   "orientation": "upright",
+   "page": 98,
+   "quote_en": "on the surface, it is a victor triumphing",
+   "text_vi": "Theo Waite, lá này gợi đến người chiến thắng trong vinh quang.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W06",
+   "orientation": "upright",
+   "page": 98,
+   "quote_en": "it is expectation crowned with its own desire, the crown of hope",
+   "text_vi": "Theo Waite, lá này gợi đến niềm mong đợi được đền đáp, vương miện của hy vọng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W06",
+   "orientation": "upright",
+   "page": 98,
+   "quote_en": "but it is also great news",
+   "text_vi": "Theo Waite, lá này gợi đến tin vui lớn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W06",
+   "orientation": "reversed",
+   "page": 98,
+   "quote_en": "Apprehension, fear, as of a victorious enemy at the gate",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến nỗi e sợ, như khi đối thủ đã tới trước cổng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W06",
+   "orientation": "reversed",
+   "page": 98,
+   "quote_en": "treachery, disloyalty, as of gates being opened to the enemy",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự phản trắc và bất trung.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W06",
+   "orientation": "reversed",
+   "page": 98,
+   "quote_en": "the enemy ; also indefinite delay",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự trì hoãn không hẹn ngày.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W07",
+   "orientation": "upright",
+   "page": 97,
+   "quote_en": "It is a card of valor",
+   "text_vi": "Theo Waite, lá này gợi đến lòng dũng cảm.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W07",
+   "orientation": "upright",
+   "page": 97,
+   "quote_en": "discussion, wordy strife; in business negotiations, war of trade, barter, competition",
+   "text_vi": "Theo Waite, lá này gợi đến tranh luận, đấu khẩu; trong làm ăn là cạnh tranh và mặc cả.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W07",
+   "orientation": "upright",
+   "page": 97,
+   "quote_en": "It is further a card of success",
+   "text_vi": "Theo Waite, lá này gợi đến thành công, vì người ấy đang ở thế cao.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W07",
+   "orientation": "reversed",
+   "page": 97,
+   "quote_en": "Perplexity, embarrassments, anxiety. It is also",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự bối rối, lúng túng và lo âu.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W07",
+   "orientation": "reversed",
+   "page": 97,
+   "quote_en": "It is also a caution against indecision",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến lời nhắc tránh do dự.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W08",
+   "orientation": "upright",
+   "page": 96,
+   "quote_en": "Activity in undertakings, the path of such activity, swiftness",
+   "text_vi": "Theo Waite, lá này gợi đến sự năng động trong công việc, sự nhanh chóng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W08",
+   "orientation": "upright",
+   "page": 96,
+   "quote_en": "great haste, great hope, speed towards an end",
+   "text_vi": "Theo Waite, lá này gợi đến sự vội vã, nhiều hy vọng, đi nhanh tới đích.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W08",
+   "orientation": "upright",
+   "page": 96,
+   "quote_en": "generally, that which is on the move ; also the arrows of love",
+   "text_vi": "Theo Waite, lá này gợi đến những gì đang chuyển động; cả những mũi tên của tình yêu.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W08",
+   "orientation": "reversed",
+   "page": 96,
+   "quote_en": "Arrows of jealousy, internal dispute, stingings of conscience, quarrels",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến những mũi tên ghen tuông, tranh chấp nội bộ, cắn rứt lương tâm, cãi vã.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W08",
+   "orientation": "reversed",
+   "page": 96,
+   "quote_en": "domestic disputes for persons who are married",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến bất hòa trong nhà với người đã có gia đình.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W09",
+   "orientation": "upright",
+   "page": 95,
+   "quote_en": "The card signifies strength in opposition",
+   "text_vi": "Theo Waite, lá này gợi đến sức mạnh khi phải đối đầu.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W09",
+   "orientation": "upright",
+   "page": 95,
+   "quote_en": "If attacked, the person will meet an onslaught boldly",
+   "text_vi": "Theo Waite, lá này gợi đến sự can đảm đứng vững trước sức ép.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W09",
+   "orientation": "upright",
+   "page": 95,
+   "quote_en": "its possible adjuncts—delay, suspension, adjournment",
+   "text_vi": "Theo Waite, lá này gợi đến sự trì hoãn, tạm ngưng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W09",
+   "orientation": "reversed",
+   "page": 95,
+   "quote_en": "Reversed: Obstacles, adversity, calamity",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến trở ngại, nghịch cảnh và rủi ro lớn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W10",
+   "orientation": "upright",
+   "page": 94,
+   "quote_en": "The chief meaning is oppression simply",
+   "text_vi": "Theo Waite, lá này gợi đến gánh nặng đè nén.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W10",
+   "orientation": "upright",
+   "page": 94,
+   "quote_en": "fortune, gain, any kind of success, and then it is the oppression of these things",
+   "text_vi": "Theo Waite, lá này gợi đến may mắn, lợi lộc, thành công, rồi chính những điều ấy thành gánh nặng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W10",
+   "orientation": "upright",
+   "page": 94,
+   "quote_en": "It is also a card of false-seeming, disguise, perfidy",
+   "text_vi": "Theo Waite, lá này gợi đến vẻ ngoài giả tạo, sự che đậy và bội tín.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W10",
+   "orientation": "reversed",
+   "page": 94,
+   "quote_en": "Contrarieties, difficulties, intrigues, and their analogies",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến những điều trái ý, khó khăn, mưu mô.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W11",
+   "orientation": "upright",
+   "page": 93,
+   "quote_en": "faithful, a lover, an envoy, a postman",
+   "text_vi": "Theo Waite, lá này gợi đến một người trung thành, người tình, sứ giả, người đưa tin.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W11",
+   "orientation": "upright",
+   "page": 93,
+   "quote_en": "He may signify family intelligence",
+   "text_vi": "Theo Waite, lá này gợi đến tin tức trong gia đình.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W11",
+   "orientation": "upright",
+   "page": 93,
+   "quote_en": "He is unknown but faithful, and his tidings are strange",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến người lạ nhưng đáng tin, mang tin lạ.",
+   "category": "description"
+  },
+  {
+   "card": "W11",
+   "orientation": "reversed",
+   "page": 93,
+   "quote_en": "Anecdotes, announcements, evil news",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến chuyện kể, lời thông báo, tin không vui.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W11",
+   "orientation": "reversed",
+   "page": 93,
+   "quote_en": "Also indecision and the instability which accompanies it",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự thiếu quyết đoán và bất ổn đi kèm.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W12",
+   "orientation": "upright",
+   "page": 92,
+   "quote_en": "Departure, absence, flight, emigration",
+   "text_vi": "Theo Waite, lá này gợi đến sự ra đi, vắng mặt, rời bỏ, đi xa.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W12",
+   "orientation": "upright",
+   "page": 92,
+   "quote_en": "friendly. Change of residence",
+   "text_vi": "Theo Waite, lá này gợi đến việc đổi chỗ ở; một người trẻ thân thiện.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W12",
+   "orientation": "upright",
+   "page": 92,
+   "quote_en": "suggests the precipitate mood, or things connected therewith",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến tâm thế vội vã, hấp tấp.",
+   "category": "description"
+  },
+  {
+   "card": "W12",
+   "orientation": "reversed",
+   "page": 92,
+   "quote_en": "Rupture, division, interruption, discord",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự rạn vỡ, chia rẽ, gián đoạn và bất hòa.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W13",
+   "orientation": "upright",
+   "page": 91,
+   "quote_en": "friendly, chaste, loving, honorable",
+   "text_vi": "Theo Waite, lá này gợi đến một người phụ nữ thân thiện, đoan chính, giàu yêu thương, đáng trọng.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W13",
+   "orientation": "upright",
+   "page": 91,
+   "quote_en": "Also, love of money, or a certain success in business",
+   "text_vi": "Theo Waite, lá này gợi đến lòng ham tiền, hoặc ít nhiều thành công trong việc làm ăn.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W13",
+   "orientation": "reversed",
+   "page": 91,
+   "quote_en": "Good, economical, obliging, serviceable",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến người tốt bụng, tằn tiện, sẵn lòng giúp đỡ, hữu ích.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W13",
+   "orientation": "reversed",
+   "page": 91,
+   "quote_en": "opposition, jealousy, even deceit",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến sự chống đối, ghen tuông, thậm chí lừa dối.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W14",
+   "orientation": "upright",
+   "page": 90,
+   "quote_en": "friendly, countryman, generally married, honest and conscientious",
+   "text_vi": "Theo Waite, lá này gợi đến một người thân thiện, chân chất, trung thực và tận tâm.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W14",
+   "orientation": "upright",
+   "page": 90,
+   "quote_en": "The card always signifies honesty",
+   "text_vi": "Theo Waite, lá này gợi đến sự trung thực.",
+   "category": "divinatory"
+  },
+  {
+   "card": "W14",
+   "orientation": "upright",
+   "page": 90,
+   "quote_en": "ardent, lithe, animated, impassioned, noble",
+   "text_vi": "Trong phần tả lá bài, Waite cho rằng lá này gợi đến một bản tính nồng nhiệt, linh hoạt, sôi nổi, đam mê và cao thượng.",
+   "category": "description"
+  },
+  {
+   "card": "W14",
+   "orientation": "reversed",
+   "page": 90,
+   "quote_en": "Good, but severe ; austere, yet tolerant",
+   "text_vi": "Khi lá ngược, theo Waite, lá này gợi đến người tốt nhưng nghiêm khắc; khắt khe mà vẫn bao dung.",
+   "category": "divinatory"
+  }
+ ]
 }

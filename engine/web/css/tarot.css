@@ -55,9 +55,14 @@
 .t-slot .t-meta{font-size:.8rem;color:var(--muted);margin:0 0 6px}
 .t-flag{display:inline-block;font:600 .7rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--cinnabar);border:1px solid currentColor;border-radius:99px;padding:3px 8px;margin-left:6px;vertical-align:middle}
 .treading{font-size:.95rem;color:var(--text2)}
+ul.treading{list-style:none;padding:0;margin:0}
+ul.treading li{padding:8px 0;border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+ul.treading li:first-child{border-top:0;padding-top:0}
+.treading p{margin:0 0 4px;color:var(--ink)}
 .treading.pending{color:var(--muted);font-style:italic}
-.treading blockquote{margin:6px 0;padding-left:12px;border-left:2px solid var(--brass);font-family:var(--serif);color:var(--ink)}
-.treading cite{font:normal .78rem var(--sans);color:var(--muted)}
+.treading blockquote{margin:4px 0;padding-left:10px;border-left:2px solid var(--brass);font:italic .86rem/1.45 var(--serif);color:var(--text2)}
+.treading cite{font:normal .76rem var(--sans);color:var(--cinnabar)}
+.tread-h{font-size:1.05rem;margin:var(--s4) 0 var(--s2)}
 .t-layout{font-size:.85rem;color:var(--muted)}
 
 /* save / share / history */

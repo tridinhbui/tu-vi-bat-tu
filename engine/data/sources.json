@@ -43,6 +43,15 @@
    "locator": "PDF pp.19, 20, 23, 24, 25, 35 (tables only)",
    "verified": true,
    "note": "Popular practice manual. Used only for tables (stem/branch relations, ngũ hổ/ngũ thử độn, 12 stages, luck start rule, khong vong). Its fortune-telling statements (injury, death, children) are deliberately NOT implemented."
+  },
+  {
+   "id": "SRC_PKT",
+   "title": "The Pictorial Key to the Tarot (A. E. Waite's text), as reissued in The Illustrated Key to the Tarot: The Veil of Divination",
+   "author": "A. E. Waite (text); reissued by L. W. de Laurence",
+   "edition": "Chicago, 1916 (Library of Congress copyright deposit 5 Dec 1916); LoC scan, archive.org illustratedkeyto01dela, 188 PDF pages, OCR text layer. Pagination is this issue's, NOT the 1911 Rider edition's: printed page = PDF page - 8 (checked on page images: PDF 101 = p. 93, PDF 155 = p. 147). Cited 'PKT (1916) tr. N'.",
+   "locator": "Part II pp. 40-82 (Trumps Major descriptions); Part III pp. 90-145 (Lesser Arcana, Divinatory Meanings), pp. 146-147 (Section 3, Greater Arcana divinatory meanings)",
+   "verified": true,
+   "note": "Public domain: published in the United States in 1916 (before 1930); Waite's text first published 1910/1911 and Waite died in 1942. The reissue adds '(Nature)' after 'God' in places; those spans are not quoted. Used only for the Tarot readings (engine/data/tarot/pack_tarot_pkt.json, tools/build_tarot_pack.py); every quote is checked on its printed page. Left out on purpose: death, illness, pregnancy or childbirth, accidents, prison or crime, sexual conduct, legal or financial instructions, lines framed as a certain future event, and the whole of Section 4 'Some additional meanings' (pp. 148-151)."
   }
  ]
 }

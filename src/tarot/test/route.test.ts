@@ -65,7 +65,11 @@ test("a draw: the shuffle answers with an id and the fan size only; the reveal g
   assert.equal(r.status, 200);
   assert.deepEqual(r.body.cards.map((c: any) => c.pick), [10, 3, 77]);
   assert.deepEqual(r.body.cards.map((c: any) => c.slot), [1, 2, 3]);
-  assert.ok(r.body.cards.every((c: any) => c.card.name_vi && c.card.name_en && c.reading.status === "pending" && c.reading.text === PENDING_TEXT));
+  // every card carries Waite's readings with their page (Two of Cups reversed: Waite gives none, said so)
+  assert.ok(r.body.cards.every((c: any) => c.card.name_vi && c.card.name_en && (c.reading.status === "sourced"
+    ? c.reading.items.length > 0 && c.reading.items.every((i: any) => /^PKT \(1916\) tr\. \d+$/.test(i.cite) && i.quote_en && i.text_vi)
+    : c.reading.status === "no_reversed" && c.card.id === "C02" && c.reversed)), JSON.stringify(r.body.cards.map((c: any) => c.reading.status)));
+  assert.ok(!JSON.stringify(r.body).includes(PENDING_TEXT));
   assert.equal(r.body.notices.length, 0);
   assert.match(r.body.layout_note, /không mang nghĩa riêng/);
   assert.ok(!JSON.stringify(r.body).includes(seed));

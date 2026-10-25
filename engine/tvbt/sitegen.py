@@ -697,9 +697,13 @@ def calendar_page() -> tuple[str, str]:
 # ---------------------------------------------------------------- tarot
 TAROT_DIR = DATA / "tarot"
 TAROT_HEADER = "Tarot là công cụ để suy ngẫm, không phải lời dự báo."     # same line as src/tarot/guard.ts TAROT_HEADER
-TAROT_BOOK = "A. E. Waite, The Pictorial Key to the Tarot (1911)"
-TAROT_PENDING = ("Ý nghĩa của lá này đang được chuẩn bị từ sách nguồn: A. E. Waite, The Pictorial Key to the Tarot (1911). "
+# the readings' book: Waite's Pictorial Key text in the 1916 de Laurence issue (sources.json SRC_PKT); pages cited "PKT (1916) tr. N"
+TAROT_BOOK = "A. E. Waite, The Pictorial Key to the Tarot"
+TAROT_EDITION = ("văn bản của A. E. Waite (The Pictorial Key to the Tarot), in lại trong The Illustrated Key to the Tarot, "
+                 "L. W. de Laurence, Chicago, 1916; bản quét của Thư viện Quốc hội Hoa Kỳ. Số trang là trang in của bản 1916, không phải bản London 1911")
+TAROT_PENDING = ("Ý nghĩa của lá này đang được chuẩn bị từ sách nguồn: A. E. Waite, The Pictorial Key to the Tarot. "
                  "Thiên Bàn chỉ đăng ý nghĩa có ghi trang sách.")          # same text as src/tarot/reading.ts PENDING_TEXT
+TAROT_NO_REVERSED = ("Waite không ghi nghĩa riêng cho lá này khi ngược; Thiên Bàn không tự thêm.")   # cf. reading.ts NO_REVERSED_TEXT
 ROMAN = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"]
 
 
@@ -747,15 +751,25 @@ def tarot_credit(img: dict | None) -> str:
             f'(trang tệp ghi <code>{esc(img["licence"])}</code>).</p>')
 
 
+TAROT_CAT_ORDER = {"divinatory": 0, "another_reading": 1, "description": 2}
+
+
 def tarot_reading_html(c: dict, pack: dict) -> str:
+    """Both orientations, each a list of paraphrases with Waite's words and the page (PKT (1916) tr. N), as the draw page shows them."""
     rows = [e for e in pack.get("entries", []) if e["card"] == c["id"]]
     if not rows:
         return f'<p class="treading pending">{esc(TAROT_PENDING)}</p>'
+    cite = pack["source"]["cite"]
     out = []
-    for e in sorted(rows, key=lambda e: e["orientation"] != "upright"):
-        label = "Lá xuôi" if e["orientation"] == "upright" else "Lá ngược"
-        out.append(f'<div class="treading"><h3>{label}</h3><p>{esc(e["text_vi"])}</p><blockquote lang="en">“{esc(e["quote_en"])}”</blockquote>'
-                   f'<cite>{esc(TAROT_BOOK)}, tr. {esc(e["page"])}</cite></div>')
+    for orient, label in (("upright", "Lá xuôi"), ("reversed", "Lá ngược")):
+        es = sorted((e for e in rows if e["orientation"] == orient), key=lambda e: TAROT_CAT_ORDER[e["category"]])
+        out.append(f'<h3 class="tread-h">{label}</h3>')
+        if not es:
+            out.append(f'<p class="treading pending">{esc(TAROT_NO_REVERSED if orient == "reversed" else TAROT_PENDING)}</p>')
+            continue
+        out.append('<ul class="treading">' + "".join(
+            f'<li><p>{esc(e["text_vi"])}</p><blockquote lang="en">“{esc(e["quote_en"])}”</blockquote><cite>{esc(cite)} tr. {esc(e["page"])}</cite></li>'
+            for e in es) + "</ul>")
     return "".join(out)
 
 
@@ -767,7 +781,7 @@ def tarot_card_page(i: int, t: dict) -> tuple[str, str]:
     num = tarot_numeral(c)
     title = f"{c['name_vi']} ({c['name_en']}), lá Tarot Waite–Smith"
     desc = (f"Lá {c['name_en']} ({c['name_vi']}) trong bộ Tarot Waite–Smith (1909): "
-            f"{'số ' + num + ', ' if num else ''}{tarot_group(c, deck).split(' (')[0].lower()}. Tên, số, chất và nguồn ảnh của lá bài.")
+            f"{'số ' + num + ', ' if num else ''}{tarot_group(c, deck).split(' (')[0].lower()}. Ý nghĩa theo Waite, lá xuôi và lá ngược, kèm nguyên văn và trang sách.")
     prev_c, next_c = cards[i - 1], cards[(i + 1) % len(cards)]
     facts_rows = [("Tên tiếng Anh", c["name_en"]), ("Tên tiếng Việt", c["name_vi"]), ("Số", num or "lá hình"), ("Nhóm", tarot_group(c, deck))]
     body = f"""<article class="carticle tarot-page tcard-page">
@@ -779,6 +793,7 @@ def tarot_card_page(i: int, t: dict) -> tuple[str, str]:
 <table class="stable tfacts"><tbody>{"".join(f"<tr><th scope='row'>{esc(k)}</th><td>{esc(v)}</td></tr>" for k, v in facts_rows)}</tbody></table>
 <h2>Ý nghĩa theo sách</h2>
 {tarot_reading_html(c, t["pack"])}
+<p class="note">Nguồn: {esc(TAROT_EDITION)}. Thiên Bàn diễn lại bằng lời thường từng cụm từ Waite ghi, kèm nguyên văn và trang; những nghĩa về sinh tử, bệnh tật, thai sản, tai nạn, giam giữ, tội phạm, tình dục, pháp lý, đầu tư hay lời đoán trước một sự việc sẽ xảy ra thì không đưa vào.</p>
 {tarot_credit(img)}
 </div>
 </div>
@@ -813,7 +828,7 @@ def tarot_index_page(t: dict) -> tuple[str, str]:
     body = f"""<article class="carticle tarot-page">
 <p class="eyebrow">Tarot</p><h1>78 lá bài</h1>
 <p class="tarot-head" role="note">{esc(TAROT_HEADER)}</p>
-<p class="lead">Bộ Waite–Smith (1909), tranh của Pamela Colman Smith: 22 lá Ẩn Chính và 56 lá Ẩn Phụ. Mỗi trang lá bài ghi tên, số, nhóm và nguồn ảnh; ý nghĩa chỉ được đăng khi có trang sách để dẫn.</p>
+<p class="lead">Bộ Waite–Smith (1909), tranh của Pamela Colman Smith: 22 lá Ẩn Chính và 56 lá Ẩn Phụ. Mỗi trang lá bài ghi tên, số, nhóm, nguồn ảnh và ý nghĩa theo Waite, mỗi ý kèm nguyên văn và trang sách.</p>
 {tarot_grid(t)}
 <p class="ccta"><a class="btn" href="/tarot/">Rút bài</a></p>
 </article>"""
@@ -856,7 +871,7 @@ def tarot_page(t: dict) -> tuple[str, str]:
 <ul id="t-history-list" class="t-hlist"></ul>
 <p><button type="button" class="link" id="t-history-clear">Xóa lịch sử trên máy này</button></p></section>
 <section><h2>Nguồn và giới hạn</h2><ul class="plain">
-<li><b>Ý nghĩa lá bài</b> chỉ lấy từ {esc(TAROT_BOOK)}, mỗi câu kèm trang sách. Khi một lá chưa có câu nào được đối chiếu với trang sách, trang chỉ hiện tên lá và ghi rằng ý nghĩa đang được chuẩn bị.</li>
+<li><b>Ý nghĩa lá bài</b> chỉ lấy từ {esc(TAROT_EDITION)}. Mỗi ý là lời diễn lại một cụm từ của Waite, kèm nguyên văn tiếng Anh và trang, ghi “PKT (1916) tr. N”. Những nghĩa về sinh tử, bệnh tật, thai sản, tai nạn, giam giữ, tội phạm, tình dục, pháp lý, đầu tư hay lời đoán trước một sự việc sẽ xảy ra thì không đưa vào.</li>
 <li><b>Ba lá</b> chỉ là cách bày; sách nguồn không gán quá khứ, hiện tại, tương lai cho ba vị trí, nên Thiên Bàn cũng không gán.</li>
 <li><b>Hình lá bài</b>: tranh của Pamela Colman Smith cho bộ Waite–Smith (1909), ảnh quét từ Wikimedia Commons, phạm vi công cộng ({n_img} trên 78 lá có ảnh đã duyệt; lá còn lại hiện mặt bài bằng chữ). Nguồn từng ảnh ghi ở trang của lá.</li>
 <li><b>Miễn phí</b> ba lượt xáo bài mỗi ngày.</li>
