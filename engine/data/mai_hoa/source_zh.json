@@ -4,7 +4,27 @@
  "attributed_author": "邵雍 (traditional attribution)",
  "license": "public domain (classical text); Wikisource transcription, {{PD-old}}",
  "note": "Snapshot of the zh.wikisource 梅花易數 pages. `text` is the section with wiki markup removed (templates, links, ''' and <poem>), one paragraph per line; `wikitext` is the raw section. The page `sha256` is over the exact bytes returned by action=raw. Rebuild with tools/mai_hoa_snapshot.py.",
- "edition": {},
+ "edition": {
+  "volumes_on_wikisource": [
+   "卷一 象數易理篇 (之一–之三)",
+   "卷二 體用生克篇 (之一–之五)",
+   "卷三 斷占總訣篇 (之一–之四)"
+  ],
+  "pages_checked_absent": [
+   "梅花易數/卷四",
+   "梅花易數/卷五"
+  ],
+  "completeness_vs_5_juan": "NOT VERIFIED. Wikisource has 卷一–三 only (卷四/卷五 pages do not exist, checked 2026-10-25). The comparison with the common 5-卷 editions via ctext (ctp:wb724043) could not be made: api.ctext.org gettext answers ERR_REQUIRES_AUTHENTICATION (registered IP or API key needed), and the ctext.org web page returns an anti-scraping challenge whose terms forbid automated access, so it was not bypassed. zh.wikipedia has no 梅花易數 article. Which sections of the 5-卷 editions are missing here is therefore unknown and not guessed.",
+  "internal_observations": [
+   "The page's own 目錄 matches its headings one-for-one; the only differences are spelling: 目錄 年月日時起卦 / heading 年月日時起例, 一字至十一字占 / 一字占至十一字占, 鄰夜叩門借物占 / 鄰夜扣門借物占, 占卜總訣 / 占卜總決.",
+   "卷三/斷占總訣篇之一/八卦方位圖 is an empty heading: the diagram is not transcribed.",
+   "卷三/斷占總訣篇之四/卦應: only 乾 has the category sub-lists (天文, 天氣, 凶盜 … 附藥, partly in simplified characters); 坤–兌 have only the 說卦傳 list. The section looks truncated after 乾.",
+   "卷一/象數易理篇之三/八卦萬物屬類: 坎 has no 動物 line and 艮 has no 姓字 line.",
+   "The 附錄 on the main page (季本's remarks after the 宋史 biography) refers to 「蓍法別傳內篇」, which is not on Wikisource.",
+   "Many characters are simplified→traditional conversion errors (雲/云, 複/復, 鹹/咸, 幹/乾, 末/未, 佔/占, 逐/遂 …); they are kept as-is in `text` and recorded in text.json notes."
+  ],
+  "checked": "2026-10-25"
+ },
  "pages": [
   {
    "key": "k0",
