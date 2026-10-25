@@ -1,0 +1,1577 @@
+{
+ "source": "Tử Vi Thực Hành pp.79-81, 130-133 (page images read; quotes are contiguous fragments of the text layer)",
+ "pages_read": [
+  {
+   "book": "TH",
+   "page": 72,
+   "image_checked": true,
+   "note": "II. Cách cuộc lập thành ở 12 cung, A. Quý cách 1-25 (two columns cut into fragments)."
+  },
+  {
+   "book": "TH",
+   "page": 73,
+   "image_checked": true,
+   "note": "Quý cách 26-51, B. Bần tiện cách 1-4."
+  },
+  {
+   "book": "TH",
+   "page": 74,
+   "image_checked": true,
+   "note": "Bần tiện cách 5-9; III. Sinh, vượng, bại, tuyệt địa."
+  },
+  {
+   "book": "TH",
+   "page": 81,
+   "image_checked": true,
+   "note": "Đắc địa (end), 12 cung các sao lục hãm."
+  },
+  {
+   "book": "TH",
+   "page": 79,
+   "image_checked": true,
+   "note": "VI. Luận về sao cung Mệnh (7 rules of ngũ hành sinh khắc between palace, star and Mệnh); Ngũ hành sở thuộc tính tinh (verse: Kim, Mộc, Thủy, Thổ)."
+  },
+  {
+   "book": "TH",
+   "page": 80,
+   "image_checked": true,
+   "note": "Ngũ hành sở thuộc (Thổ end, Hỏa); HÀNH CỦA NAM BẮC TINH (8 lines); Cung các sao đắc địa (= 紫微斗數全書 得地富貴論)."
+  },
+  {
+   "book": "TH",
+   "page": 81,
+   "image_checked": true,
+   "note": "Đắc địa (end); 12 cung các sao lục hãm (= 失陷貧賤論); Hạn hành đắc số lệ (heading)."
+  },
+  {
+   "book": "TH",
+   "page": 130,
+   "image_checked": true,
+   "note": "XIII. Ảnh hưởng sao nhập hạn: Tử Vi 1-6, Thiên Cơ 1-16, Thiên Phủ 1-2, Thái Âm 1-7."
+  },
+  {
+   "book": "TH",
+   "page": 131,
+   "image_checked": true,
+   "note": "Tham Lang, Thái Dương 1-6, Vũ Khúc 1-4, Thiên Đồng, Liêm Trinh 1-9, Cự Môn 1-2."
+  },
+  {
+   "book": "TH",
+   "page": 132,
+   "image_checked": true,
+   "note": "Cự Môn 3-7, Thiên Tướng 1-6, Thiên Lương 1-2, Thất Sát 1-8, Phá Quân 1-4."
+  },
+  {
+   "book": "TH",
+   "page": 133,
+   "image_checked": true,
+   "note": "Phá Quân 5-10; XIV. Luận đoán về hạn chết (not used: death)."
+  },
+  {
+   "book": "TH",
+   "page": 126,
+   "image_checked": true,
+   "note": "XI. Liên hệ giữa Mệnh Thân và hạn (table): not mined in this batch, the cells are scrambled in the text layer."
+  }
+ ],
+ "entries": [
+  {
+   "id": "th72_pha_liem_mao_dau",
+   "book": "TH",
+   "page": 72,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "9 Phá, Liêm, Mão, Dậu cách (Phá, đóng Mệnh ở Mão, Dậu mới hợp cách tốt, ở các cung",
+   "quote_checked": true,
+   "condition_text": "Phá Quân Mão Dậu",
+   "reading_vi": "Phá Quân đóng Mệnh ở Mão, Dậu mới hợp cách tốt",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th72_nn_dong_cung",
+   "book": "TH",
+   "page": 72,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "ật, Nguyệt đo g cung cách",
+   "quote_checked": true,
+   "condition_text": "Nhật Nguyệt đồng cung",
+   "reading_vi": "image: '8. Nhật, Nguyệt đồng cung cách' — một quý cách",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th72_nhat_chieu_loi_mon",
+   "book": "TH",
+   "page": 72,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "23. Nhật chiếu lôi môn cách (Nhật ở Mão có Mệnh)",
+   "quote_checked": true,
+   "condition_text": "Nhật ở Mão",
+   "reading_vi": "tên cách: Nhật chiếu lôi môn",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_kim_du",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "30. Kim dư phù giá cách (Tử vi tại mệnh hay Quan lộc mà giáp Tả Hữu, Thiếu dương, Thiếu",
+   "quote_checked": true,
+   "condition_text": "Kim dư phù giá",
+   "reading_vi": "Tử Vi ở Mệnh hay Quan Lộc, giáp Tả Hữu hoặc Thiếu Dương, Thiếu Âm",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_that_sat_trieu_dau",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "34. Thất sát triều đầu cách ( ở Dần, Thân có M",
+   "quote_checked": true,
+   "condition_text": "Thất Sát triều đẩu",
+   "reading_vi": "Thất Sát ở Dần, Thân có Mệnh (ở Ngọ là 'ngưỡng đẩu')",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_nguyet_sinh_thuong_hai",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "ong hải cách (Tức Nguyệt tại Tí) cách này ucngx gọi Mẹnh châu xuất hải",
+   "quote_checked": true,
+   "condition_text": "Nguyệt ở Tý",
+   "reading_vi": "Nguyệt sinh thương hải (Thái Âm tại Tý), cũng gọi Minh châu xuất hải",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_nn_chieu_bich",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "28. Nhật, Nguyệt chiếu bích cách (Tức ở Sửu chiếu lên Mùi có Mệnh, hoặc ở Mùi chiếu",
+   "quote_checked": true,
+   "condition_text": "Nhật Nguyệt chiếu bích",
+   "reading_vi": "Nhật Nguyệt ở Sửu chiếu Mệnh ở Mùi, hoặc ngược lại",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_toa_quy",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "ïa quí, hướng quí (Mệnh có Khôi đóng, gặp Việt chiếu, hoặc có Việt gặp Khôi chiếu)",
+   "quote_checked": true,
+   "condition_text": "Tọa quý hướng quý",
+   "reading_vi": "Mệnh có Khôi gặp Việt chiếu, hoặc ngược lại",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_vu_loc_giap_ma",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "29. Vũ, Lộc giáp Mã cách (Cung Mệnh có Mã giúp lại có Vũ khúc và Hóa lộc hay",
+   "quote_checked": true,
+   "condition_text": "Tài Lộc giáp Mã",
+   "reading_vi": "Mệnh có Mã, giáp Vũ Khúc và Hóa Lộc hay Lộc Tồn",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_tham_hoa",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "36. Tham, Hỏa tương hội Tứ mộ cách ( Mệnh hay Quan đóng ở Tứ mộ có Tham, Hỏa hội phát",
+   "quote_checked": true,
+   "condition_text": "Tham Hỏa",
+   "reading_vi": "Mệnh hay Quan ở Tứ mộ có Tham Lang, Hỏa Tinh hội",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_loc_phung_luong_sat",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "ùt (Lộc tồn hay Hóa lộc ở Mệnh gặp Không Kiếp đồng",
+   "quote_checked": true,
+   "condition_text": "Lộc phùng lưỡng sát",
+   "reading_vi": "Lộc Tồn hay Hóa Lộc ở Mệnh gặp Không Kiếp đồng cung",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_tai_an_giap_loc",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "Tài Aán giáp lộc (Cung Mệnh có Lộc, lại giáp cung có Vũ, Tướng)",
+   "quote_checked": true,
+   "condition_text": "Tài ấn giáp lộc",
+   "reading_vi": "Mệnh có Lộc, giáp Vũ Khúc và Thiên Tướng",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_quan_than",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "32. Quần Thần khách hội cách (Tử vi gặp toàn cát tinh hội)",
+   "quote_checked": true,
+   "condition_text": "Quân thần khánh hội",
+   "reading_vi": "Tử Vi gặp toàn cát tinh hội",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th73_co_luong",
+   "book": "TH",
+   "page": 73,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "51. Cơ Lương Thìn, Tuất.",
+   "quote_checked": true,
+   "condition_text": "Cơ Lương Thìn Tuất",
+   "reading_vi": "một quý cách",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th74_nn_tan_hung",
+   "book": "TH",
+   "page": 74,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "àn hung (Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh,",
+   "quote_checked": true,
+   "condition_text": "Nhật Nguyệt tàn hung",
+   "reading_vi": "Nhật Nguyệt hãm tại Mệnh mà không có cứu tinh, hoặc hãm mà gặp sát tinh",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th80_co_luong_dac_dia",
+   "book": "TH",
+   "page": 80,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "Thìn Tuất : Cơ, Lương phi tiểu bồ",
+   "quote_checked": true,
+   "condition_text": "Cơ Lương Thìn Tuất",
+   "reading_vi": "trong 'Cung các sao đắc địa'",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th81_pha_mao_dau_ham",
+   "book": "TH",
+   "page": 81,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "Phá Quân : Mão, Dậu bất vi th",
+   "quote_checked": true,
+   "condition_text": "Phá Quân Mão Dậu",
+   "reading_vi": "trong '12 cung các sao lục hãm': Phá Quân ở Mão, Dậu không thanh",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th81_liem_pha_mao_dau",
+   "book": "TH",
+   "page": 81,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "Mão Dậu : Liêm, Phá giữ Dư",
+   "quote_checked": true,
+   "condition_text": "Liêm Phá Mão Dậu",
+   "reading_vi": "lục hãm: Liêm, Phá ở Mão Dậu (giữ Dương nhận)",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th81_tham_hoa_loc",
+   "book": "TH",
+   "page": 81,
+   "palace": "Mệnh",
+   "heading": "Cách cuộc (TH pp.72-74, 80-81)",
+   "quote": "Tham lang, Hoá lộc cư từ mộ",
+   "quote_checked": true,
+   "condition_text": "Tham Lang hóa Lộc ở Tứ mộ",
+   "reading_vi": "lục hãm: dù gặp cát cũng chỉ trung bình",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "th80_hanh_tho_1",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Hành của Nam Bắc tinh",
+   "quote": "Tử vi, Tả phụ, Lộc Tồn : Thổ",
+   "quote_checked": true,
+   "condition_text": "Tử Vi, Tả Phụ, Lộc Tồn",
+   "reading_vi": "thuộc hành Thổ",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "stars": [
+    "Tử Vi",
+    "Tả Phụ",
+    "Lộc Tồn"
+   ],
+   "hanh": "Thổ",
+   "target": "star_nature"
+  },
+  {
+   "id": "th80_hanh_kim_1",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Hành của Nam Bắc tinh",
+   "quote": "ũ Khúc, Đà La, Dương nhận : Kim",
+   "quote_checked": true,
+   "condition_text": "Vũ Khúc, Đà La, Kình Dương",
+   "reading_vi": "thuộc hành Kim",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "the text layer drops the 'V' of 'Vũ' onto its own line",
+   "stars": [
+    "Vũ Khúc",
+    "Đà La",
+    "Kình Dương"
+   ],
+   "hanh": "Kim",
+   "target": "star_nature"
+  },
+  {
+   "id": "th80_hanh_thuy_1",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Hành của Nam Bắc tinh",
+   "quote": "Phá, Bật, Cự, Tham, Văn Khúc: T",
+   "quote_checked": true,
+   "condition_text": "Phá Quân, Hữu Bật, Cự Môn, Tham Lang, Văn Khúc",
+   "reading_vi": "thuộc hành Thủy",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "image: '... Văn Khúc: Thủy'",
+   "stars": [
+    "Phá Quân",
+    "Hữu Bật",
+    "Cự Môn",
+    "Tham Lang",
+    "Văn Khúc"
+   ],
+   "hanh": "Thủy",
+   "target": "star_nature"
+  },
+  {
+   "id": "th80_hanh_hoa_liem",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Hành của Nam Bắc tinh",
+   "quote": "Hỏa thuộc Liêm Trinh, Bắc đẩu tinh",
+   "quote_checked": true,
+   "condition_text": "Liêm Trinh",
+   "reading_vi": "thuộc hành Hỏa",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "stars": [
+    "Liêm Trinh"
+   ],
+   "hanh": "Hỏa",
+   "target": "star_nature"
+  },
+  {
+   "id": "th80_hanh_tho_2",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Hành của Nam Bắc tinh",
+   "quote": "Thiên phủ, Thiên Lương: Thổ hữu t",
+   "quote_checked": true,
+   "condition_text": "Thiên Phủ, Thiên Lương",
+   "reading_vi": "thuộc hành Thổ",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "image: 'Thổ hữu tình'; TT p.119 phú nôm calls Thiên Lương 'Mộc chủ thọ tinh': schools.json",
+   "stars": [
+    "Thiên Phủ",
+    "Thiên Lương"
+   ],
+   "hanh": "Thổ",
+   "target": "star_nature"
+  },
+  {
+   "id": "th80_hanh_thuy_2",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Hành của Nam Bắc tinh",
+   "quote": "Thiên Đồng, Thiên Tướng: Thủy tuy",
+   "quote_checked": true,
+   "condition_text": "Thiên Đồng, Thiên Tướng",
+   "reading_vi": "thuộc hành Thủy",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "stars": [
+    "Thiên Đồng",
+    "Thiên Tướng"
+   ],
+   "hanh": "Thủy",
+   "target": "star_nature"
+  },
+  {
+   "id": "th80_hanh_kim_2",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Hành của Nam Bắc tinh",
+   "quote": "Xương, Sát thuộc Kim, Thiên Cơ: M",
+   "quote_checked": true,
+   "condition_text": "Văn Xương, Thất Sát",
+   "reading_vi": "thuộc hành Kim",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "the verse on p.80 (Ngũ hành sở thuộc) puts Thất Sát under HỎA ('Thái Dương cung lò Thất Sát'): TH is at odds with itself; schools.json",
+   "stars": [
+    "Văn Xương",
+    "Thất Sát"
+   ],
+   "hanh": "Kim",
+   "target": "star_nature"
+  },
+  {
+   "id": "th80_hanh_moc_co",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Hành của Nam Bắc tinh",
+   "quote": "Xương, Sát thuộc Kim, Thiên Cơ: M",
+   "quote_checked": true,
+   "condition_text": "Thiên Cơ",
+   "reading_vi": "thuộc hành Mộc",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "image: 'Thiên Cơ: Mộc'",
+   "stars": [
+    "Thiên Cơ"
+   ],
+   "hanh": "Mộc",
+   "target": "star_nature"
+  },
+  {
+   "id": "th80_hanh_hoa_2",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Hành của Nam Bắc tinh",
+   "quote": "Hỏa Linh, Khôi Việt: Hỏa nam tính",
+   "quote_checked": true,
+   "condition_text": "Hỏa Tinh, Linh Tinh, Thiên Khôi, Thiên Việt",
+   "reading_vi": "thuộc hành Hỏa",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "stars": [
+    "Hỏa Tinh",
+    "Linh Tinh",
+    "Thiên Khôi",
+    "Thiên Việt"
+   ],
+   "hanh": "Hỏa",
+   "target": "star_nature"
+  },
+  {
+   "id": "th80_hanh_hoa_thai_duong",
+   "book": "TH",
+   "page": 80,
+   "palace": "",
+   "heading": "Ngũ hành sở thuộc tính tinh",
+   "quote": "Thái Dương cung lò Thất Sa",
+   "quote_checked": true,
+   "condition_text": "Thái Dương",
+   "reading_vi": "thuộc hành Hỏa",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "image: 'HỎA: Thái Dương cung lò Thất Sát'",
+   "stars": [
+    "Thái Dương"
+   ],
+   "hanh": "Hỏa",
+   "target": "star_nature"
+  },
+  {
+   "id": "th79_lac_ham_ngu_hanh",
+   "book": "TH",
+   "page": 79,
+   "palace": "",
+   "heading": "VI. Luận về sao cung Mệnh",
+   "quote": "hành của sung khắc hành của Sao là lạc hãm",
+   "quote_checked": true,
+   "condition_text": "hành của cung khắc hành của sao",
+   "reading_vi": "là lạc hãm",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "'2. Lạc hãm: Khi nào xem hành của sung (cung) khắc hành của Sao là lạc hãm' — TH defines lạc hãm by ngũ hành; KL pp.180, 185 reject that basis",
+   "target": "schools"
+  },
+  {
+   "id": "th79_lac_ham_tuan_triet",
+   "book": "TH",
+   "page": 79,
+   "palace": "",
+   "heading": "VI. Luận về sao cung Mệnh",
+   "quote": "gặp Tuần Triệt nữa thì càng thêm xấu",
+   "quote_checked": true,
+   "condition_text": "sao lạc hãm gặp Tuần, Triệt",
+   "reading_vi": "càng thêm xấu",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "che_hoa"
+  },
+  {
+   "id": "th79_lac_ham_chinh_tinh_sinh_cung",
+   "book": "TH",
+   "page": 79,
+   "palace": "",
+   "heading": "VI. Luận về sao cung Mệnh",
+   "quote": "Trái lại nếu ở đó có một chính tinh nữa mà sanh",
+   "quote_checked": true,
+   "condition_text": "sao lạc hãm, có chính tinh sinh được hành của cung",
+   "reading_vi": "trở thành đẹp",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "'... mà sanh được cung thì trở thành đẹp. Ví dụ sao Văn xương là Kim mà đóng ở cung Ngọ và Hỏa là lạc hãm, song nếu gặp chính tinh là Thiên cơ thuộc mộc đóng ở đó thì hóa tốt'",
+   "target": "che_hoa"
+  },
+  {
+   "id": "th79_ham_hop_hanh_menh",
+   "book": "TH",
+   "page": 79,
+   "palace": "",
+   "heading": "VI. Luận về sao cung Mệnh",
+   "quote": "Mệnh có sao hãm địa mà hợp được cới hành của Mệnh cũng trở thành khá hơn",
+   "quote_checked": true,
+   "condition_text": "Mệnh có sao hãm mà hợp hành bản mệnh",
+   "reading_vi": "khá hơn; sao đắc địa mà không hợp hành Mệnh thì kém đi",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "che_hoa"
+  },
+  {
+   "id": "th130_tu_vi_ty_hoi_mao_dau",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Nhập hạn tai Tỵ Hợi Mão Dậu suy",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Tử Vi\", \"branch\": [\"Tỵ\", \"Hợi\", \"Mão\", \"Dậu\"]}",
+   "reading_vi": "hạn có Tử Vi ở Tỵ, Hợi, Mão, Dậu thì cái tốt giảm, có tai họa cũng khó giải",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Tử Vi",
+    "branch": [
+     "Tỵ",
+     "Hợi",
+     "Mão",
+     "Dậu"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_tu_vi_khoi_viet",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Có Khôi Việt thêm danh giá, tranh chấp với ai cũng thắng lợi",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Tử Vi\", \"with_any\": [\"Thiên Khôi\", \"Thiên Việt\"]}",
+   "reading_vi": "hạn có Tử Vi gặp Khôi Việt thì thêm danh giá, tranh chấp với ai cũng thắng",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Tử Vi",
+    "with_any": [
+     "Thiên Khôi",
+     "Thiên Việt"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_tu_vi_phu_tuong_ta_huu_tam_hoa",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "6. Phủ Tướng Tả Hữu Tam Hóa: hoạnh phát danh tài",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Tử Vi\", \"tp_any\": [\"Thiên Phủ\", \"Thiên Tướng\"], \"tp_all\": [\"Tả Phụ\", \"Hữu Bật\"], \"hoa3\": true}",
+   "reading_vi": "hạn có Tử Vi gặp Phủ Tướng, Tả Hữu và Tam Hóa thì hoạnh phát về danh và tiền",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "read in the tam phương: Tả Hữu and the three Hóa cannot all stand in one palace with Tử Vi; Hóa read on the hạn's own stem (as TT p.105)",
+   "cond": {
+    "major": "Tử Vi",
+    "tp_any": [
+     "Thiên Phủ",
+     "Thiên Tướng"
+    ],
+    "tp_all": [
+     "Tả Phụ",
+     "Hữu Bật"
+    ],
+    "hoa3": true
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_co_sang",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "1. Sáng sảu hoạch phát",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Cơ\", \"dig\": [\"miếu\", \"vượng\", \"đắc\"]}",
+   "reading_vi": "hạn có Thiên Cơ sáng sủa thì hoạnh phát",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Thiên Cơ",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_co_loc",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Gặp lộc cùng phát",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Cơ\", \"with_any\": [\"Lộc Tồn\"]}",
+   "reading_vi": "hạn có Thiên Cơ gặp Lộc thì cùng phát",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "'Lộc' read as Lộc Tồn (the narrower reading; Hóa Lộc of the hạn stem is a second reading left out)",
+   "cond": {
+    "major": "Thiên Cơ",
+    "with_any": [
+     "Lộc Tồn"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_co_mo",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Mờ ám bị phiền toái thị ph",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Cơ\", \"dig\": [\"hãm\"]}",
+   "reading_vi": "hạn có Thiên Cơ mờ ám thì bị phiền toái, thị phi",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "the death clause of the same item is left out",
+   "cond": {
+    "major": "Thiên Cơ",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_co_qua_tu",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Quả Tú: túng thiếu",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Cơ\", \"with_any\": [\"Quả Tú\"]}",
+   "reading_vi": "hạn có Thiên Cơ gặp Quả Tú thì túng thiếu",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "the starvation clause is left out",
+   "cond": {
+    "major": "Thiên Cơ",
+    "with_any": [
+     "Quả Tú"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_co_kinh_da",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "ặp rủi ro, đầy lo lắng",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Cơ\", \"with_any\": [\"Kình Dương\", \"Đà La\"]}",
+   "reading_vi": "hạn có Thiên Cơ gặp Kình hoặc Đà thì hay gặp rủi ro, lo lắng",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "image: '15. Gặp Kình Đà hay gặp rủi ro, đầy lo lắng'",
+   "cond": {
+    "major": "Thiên Cơ",
+    "with_any": [
+     "Kình Dương",
+     "Đà La"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_am_sang",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "tài lộc phong túc, thường tậu được nhà, có nhiều hỷ sự trong gia đình",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thái Âm\", \"dig\": [\"miếu\", \"vượng\", \"đắc\"]}",
+   "reading_vi": "hạn có Thái Âm sáng sủa thì tài lộc dồi dào, thường tậu được nhà, nhà có nhiều việc vui",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Thái Âm",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_am_mo",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Mờ ám: hao tán",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thái Âm\", \"dig\": [\"hãm\"]}",
+   "reading_vi": "hạn có Thái Âm mờ ám thì hao tán",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "the health clauses are left out",
+   "cond": {
+    "major": "Thái Âm",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_tham_sang",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "1. Sáng sủa tốt đẹp hanh thông. Nếu ở Tứ Mộ hợp với tuổi Tứ Mộ càng hiển hách phát đạt",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Tham Lang\", \"dig\": [\"miếu\", \"vượng\", \"đắc\"]}",
+   "reading_vi": "hạn có Tham Lang sáng sủa thì tốt đẹp hanh thông (ở Tứ mộ hợp tuổi Tứ mộ càng hiển hách)",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Tham Lang",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_nhat_sang",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Sáng sủa: phát danh tài",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thái Dương\", \"dig\": [\"miếu\", \"vượng\", \"đắc\"]}",
+   "reading_vi": "hạn có Thái Dương sáng sủa thì phát danh tài",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Thái Dương",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_vu_sang",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Sáng sủa tốt đẹp, tài lộc hư",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Vũ Khúc\", \"dig\": [\"miếu\", \"vượng\", \"đắc\"]}",
+   "reading_vi": "hạn có Vũ Khúc sáng sủa thì tài lộc hưng vượng",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Vũ Khúc",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_vu_xuong_khuc_ta_huu",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "2. Gặp Tả Hữu Xương Khúc: tài quan song mỹ",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Vũ Khúc\", \"tp_all\": [\"Tả Phụ\", \"Hữu Bật\", \"Văn Xương\", \"Văn Khúc\"]}",
+   "reading_vi": "hạn có Vũ Khúc gặp Tả Hữu Xương Khúc thì tiền và chức đều tốt",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "four stars: read in the tam phương",
+   "cond": {
+    "major": "Vũ Khúc",
+    "tp_all": [
+     "Tả Phụ",
+     "Hữu Bật",
+     "Văn Xương",
+     "Văn Khúc"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_vu_mo",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "4. Mờ ám thì hao tán tiền tài, giáng quan chức",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Vũ Khúc\", \"dig\": [\"hãm\"]}",
+   "reading_vi": "hạn có Vũ Khúc mờ ám thì hao tán tiền tài, dễ bị giáng chức",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Vũ Khúc",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_dong_thay_doi",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Sáng sủa hay mờ ám đều thay đổi chổ ở hoặc công việc làm",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Đồng\"}",
+   "reading_vi": "hạn có Thiên Đồng thì thay đổi chỗ ở hoặc công việc",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Thiên Đồng"
+   },
+   "tone": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_dong_sang",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Sáng sủa: Hưng vượng, trong nhà có việc vui",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Đồng\", \"dig\": [\"miếu\", \"vượng\", \"đắc\"]}",
+   "reading_vi": "hạn có Thiên Đồng sáng sủa thì hưng vượng, nhà có việc vui",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Thiên Đồng",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_dong_mo",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Mờ am: mọi việc trước hanh thông, xau bế tắc, hao tán bị bãi quan chức",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Đồng\", \"dig\": [\"hãm\"]}",
+   "reading_vi": "hạn có Thiên Đồng mờ ám thì việc trước thông sau tắc, hao tán, dễ mất chức",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Thiên Đồng",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_liem_sang_cat",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "1. Sáng sủa gặp được sao tốt, danh tại toại mỹ",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Liêm Trinh\", \"dig\": [\"miếu\", \"vượng\", \"đắc\"], \"tp_cat\": true}",
+   "reading_vi": "hạn có Liêm Trinh sáng sủa gặp sao tốt thì danh và tiền toại ý",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Liêm Trinh",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ],
+    "tp_cat": true
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_liem_ty_hoi",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "2. Ơû Tỵ Hợi giao dịch với người lạ bất lợi",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Liêm Trinh\", \"branch\": [\"Tỵ\", \"Hợi\"]}",
+   "reading_vi": "hạn có Liêm Trinh ở Tỵ, Hợi thì giao dịch với người lạ bất lợi, dễ sinh hiềm thù",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "the prison clause is left out",
+   "cond": {
+    "major": "Liêm Trinh",
+    "branch": [
+     "Tỵ",
+     "Hợi"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_liem_mo",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "3. Mờ ám: chơi bời đến mang họa. Nếu có công danh dễ bị trất giáng",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Liêm Trinh\", \"dig\": [\"hãm\"]}",
+   "reading_vi": "hạn có Liêm Trinh mờ ám thì chơi bời mang họa, có chức dễ bị giáng",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Liêm Trinh",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_liem_vu_loc_ma",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "4. Gặp Vũ Lộc Mã có danh tài",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Liêm Trinh\", \"tp_all\": [\"Vũ Khúc\", \"Lộc Tồn\", \"Thiên Mã\"]}",
+   "reading_vi": "hạn có Liêm Trinh gặp Vũ Khúc, Lộc, Mã thì có danh tài",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "Vũ Khúc never shares a palace with Liêm Trinh: read in the tam phương; 'Lộc' as Lộc Tồn",
+   "cond": {
+    "major": "Liêm Trinh",
+    "tp_all": [
+     "Vũ Khúc",
+     "Lộc Tồn",
+     "Thiên Mã"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_liem_khong_kiep",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "8. Gặp Không Kiếp mọi sự bế t",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Liêm Trinh\", \"with_any\": [\"Địa Không\", \"Địa Kiếp\"]}",
+   "reading_vi": "hạn có Liêm Trinh gặp Không, Kiếp thì mọi sự bế tắc, hao tài",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "image: Liêm Trinh item 8 (the fragment sits among the Thiên Đồng lines in the text layer)",
+   "cond": {
+    "major": "Liêm Trinh",
+    "with_any": [
+     "Địa Không",
+     "Địa Kiếp"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th132_tuong_sang",
+   "book": "TH",
+   "page": 132,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "hoạnh phát bất ng",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Tướng\", \"dig\": [\"miếu\", \"vượng\", \"đắc\"]}",
+   "reading_vi": "hạn có Thiên Tướng sáng sủa thì mưu sự dễ thành, hoạnh phát bất ngờ",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "image: '1. Sáng sủa: mưu sự dễ thành, hoạnh phát bất ngờ'",
+   "cond": {
+    "major": "Thiên Tướng",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th132_tuong_kk",
+   "book": "TH",
+   "page": 132,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "iếp: bị tiểu nhân lừa lọc nhưng không đáng ng",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Tướng\", \"with_any\": [\"Địa Không\", \"Địa Kiếp\"]}",
+   "reading_vi": "hạn có Thiên Tướng gặp Không, Kiếp thì bị tiểu nhân lừa lọc nhưng không đáng ngại",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Thiên Tướng",
+    "with_any": [
+     "Địa Không",
+     "Địa Kiếp"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th132_luong_mo",
+   "book": "TH",
+   "page": 132,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "2. Mờ ám: hao tán sức khoẻ và tiền tài",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Lương\", \"dig\": [\"hãm\"]}",
+   "reading_vi": "hạn có Thiên Lương mờ ám thì hao tán tiền tài",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "the health half is left out",
+   "cond": {
+    "major": "Thiên Lương",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th132_luong_ty_hoi",
+   "book": "TH",
+   "page": 132,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "nếu gặp Lương nhập hạn ở Tí Hợi chắc c",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thiên Lương\", \"branch\": [\"Tý\", \"Hợi\"]}",
+   "reading_vi": "hạn có Thiên Lương ở Tý, Hợi thì chắc chắn đi xa hoặc thay đổi công việc",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "image: '... chắc chắn đi xa hay thay đổi công việc'",
+   "cond": {
+    "major": "Thiên Lương",
+    "branch": [
+     "Tý",
+     "Hợi"
+    ]
+   },
+   "tone": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th132_sat_dan_than",
+   "book": "TH",
+   "page": 132,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Nếu Sát nhập hạn ở Dần",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thất Sát\", \"branch\": [\"Dần\", \"Thân\"]}",
+   "reading_vi": "hạn có Thất Sát ở Dần, Thân thì tiền và chức đều tốt, mưu sự thành nhanh",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "image: 'Nếu Sát nhập hạn ở Dần Thân thật là tài quan song mỹ, mưu sự thành nhanh chóng'",
+   "cond": {
+    "major": "Thất Sát",
+    "branch": [
+     "Dần",
+     "Thân"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th132_sat_mo",
+   "book": "TH",
+   "page": 132,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "Gặp nhiều chuyện buồn",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Thất Sát\", \"dig\": [\"hãm\"]}",
+   "reading_vi": "hạn có Thất Sát mờ ám thì gặp nhiều chuyện buồn",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "the accident clause is left out",
+   "cond": {
+    "major": "Thất Sát",
+    "dig": [
+     "hãm"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th132_pha_sang_xk_kv",
+   "book": "TH",
+   "page": 132,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "1. Sáng sủa mà gặp được thêm Xương Khúc K ôi Việt tài quan song mỹ, phú quí cực độ",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Phá Quân\", \"dig\": [\"miếu\", \"vượng\", \"đắc\"], \"tp_all\": [\"Văn Xương\", \"Văn Khúc\", \"Thiên Khôi\", \"Thiên Việt\"]}",
+   "reading_vi": "hạn có Phá Quân sáng sủa gặp Xương Khúc Khôi Việt thì tiền và chức đều tốt, rất phú quý",
+   "polarity": "support",
+   "concepts": [],
+   "skip": null,
+   "notes": "four stars: read in the tam phương",
+   "cond": {
+    "major": "Phá Quân",
+    "dig": [
+     "miếu",
+     "vượng",
+     "đắc"
+    ],
+    "tp_all": [
+     "Văn Xương",
+     "Văn Khúc",
+     "Thiên Khôi",
+     "Thiên Việt"
+    ]
+   },
+   "tone": "pos",
+   "target": "van_han"
+  },
+  {
+   "id": "th133_pha_phuong",
+   "book": "TH",
+   "page": 133,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "7. Gặp Phượng Các bị trách oán",
+   "quote_checked": true,
+   "condition_text": "{\"major\": \"Phá Quân\", \"with_any\": [\"Phượng Các\"]}",
+   "reading_vi": "hạn có Phá Quân gặp Phượng Các thì bị trách oán",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "cond": {
+    "major": "Phá Quân",
+    "with_any": [
+     "Phượng Các"
+    ]
+   },
+   "tone": "neg",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_tu_vi_tuan_triet",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "2. Đại Tiểu Hạn trùng phùng gặp Tuần Triệt tính mạng đáng lo ngại",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "death",
+   "notes": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_tu_vi_kinh_da_kiep_ky",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "5. Kình Đà Kiếp Kỵ : đau ốm, bị lừa",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "illness (the 'bị lừa' half joined to it)",
+   "notes": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_co_nguyet_dong_luong",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "3. Hội Nguyệt Đồng Lương Tả Hữu, sát tinh gặp thời làm quyền gian",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "'gặp thời làm quyền gian' could be read for or against: not settled",
+   "notes": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_co_khoc_hoa_kinh",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "8. Khốc Hỏa Kình : trong nhà có sự tranh chấp",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "three stars in one palace, a condition the van_han_books vocabulary cannot state yet (with_all)",
+   "notes": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th130_phu_tam_khong",
+   "book": "TH",
+   "page": 130,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "1. Gặp Tam Không: phá sản",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "'Tam Không' (which three Không) is not named",
+   "notes": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_nhat_sat",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "mọi việc trắc trở",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "'Hỏa Linh Kình Đà' as a group in one palace: the vocabulary has no 'two of these in the palace'",
+   "notes": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_vu_quyen",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "3. Gặp thêm Quyền sẽ trọng trấn biên thuỳ",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "TT p.98 (tt98_vu_khuc_quyen) already reads Vũ Khúc hóa Quyền in the hạn",
+   "notes": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th131_liem_hong_dao",
+   "book": "TH",
+   "page": 131,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "5. Gặp Hồng Đào thanh gia thất",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "a marriage event",
+   "notes": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th132_tuong_di_tuan_triet",
+   "book": "TH",
+   "page": 132,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "6. Nếu nhập ha ở cung Thiên Di mà gặp Tuần Triệt dễ bị gi",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "the hạn palace's name is not in the vocabulary; and the death clause",
+   "notes": "",
+   "target": "van_han"
+  },
+  {
+   "id": "th132_sat_liem_tham_phuong",
+   "book": "TH",
+   "page": 132,
+   "palace": "Đại hạn",
+   "heading": "XIII. Ảnh hưởng sao nhập hạn",
+   "quote": "4. Gặp Liêm Tham Phượng: dễ bị oán ách",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "which of Liêm, Tham must meet Thất Sát is not settled",
+   "notes": "",
+   "target": "van_han"
+  }
+ ]
+}

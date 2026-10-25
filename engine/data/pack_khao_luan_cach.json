@@ -1,0 +1,1162 @@
+{
+ "sources": [],
+ "rules": [
+  {
+   "id": "TV_D3_KL46_NN_TANG_HUNG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Cách (KL pp.43-48) (paraphrased), cung Mệnh: cách Nhật Nguyệt tàng hung (Thái Dương, Thái Âm hãm địa thủ hoặc chiếu Mệnh: trời đất tối tăm) [KL p.46]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.tp_rank.Thái Dương",
+      "operator": "lte",
+      "value": 0
+     },
+     {
+      "fact": "palace.tp_rank.Thái Âm",
+      "operator": "lte",
+      "value": 0
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl46_nn_tang_hung",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL46_PHU_NGO_TUAN",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Cách (KL pp.43-48) (paraphrased), cung Mệnh: cách Thiên phủ ngộ Tuần (Thiên Phủ thủ Mệnh gặp Tuần: kho tàng trống rỗng) [KL p.46]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "fact": "palace.tuan",
+      "value": true
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl46_phu_ngo_tuan",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL47_DE_NGO_HUNG_DO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Cách (KL pp.43-48) (paraphrased), cung Mệnh: cách Đế ngộ hung đồ (Tử Phủ thủ Mệnh gặp Không Kiếp đồng cung: dễ táng gia bại sản) [KL p.47]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Tử Vi"
+     },
+     {
+      "fact": "palace.own_major_stars",
+      "operator": "contains",
+      "value": "Thiên Phủ"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Không"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Địa Kiếp"
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl47_de_ngo_hung_do",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL47_KHONG_KIEP_TY_HOI",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Cách (KL pp.43-48) (paraphrased), cung Mệnh: cách Không Kiếp Tỵ Hợi (Mệnh ở Tỵ, Hợi có Không Kiếp thủ: bạo phát bạo tàn) [KL p.47]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tỵ",
+       "Hợi"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Địa Không"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Địa Kiếp"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl47_khong_kiep_ty_hoi",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL47_DAO_HOA_THIEN_KHONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Cách (KL pp.43-48) (paraphrased), cung Mệnh: cách Đào hoa Thiên không (Thiên Không, Đào Hoa ở Mệnh hoặc tam hợp chiếu: có danh thì nghèo, lên voi xuống chó) [KL p.47]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Thiên Không"
+         },
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Đào Hoa"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.trine1_stars",
+          "operator": "contains",
+          "value": "Thiên Không"
+         },
+         {
+          "fact": "palace.rel.trine1_stars",
+          "operator": "contains",
+          "value": "Đào Hoa"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.trine2_stars",
+          "operator": "contains",
+          "value": "Thiên Không"
+         },
+         {
+          "fact": "palace.rel.trine2_stars",
+          "operator": "contains",
+          "value": "Đào Hoa"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl47_dao_hoa_thien_khong",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL202_KHOC_HU_TY_NGO",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, 35. Khốc Hư (paraphrased), cung Mệnh: cách Khốc Hư Tý Ngọ (Khốc Hư ở Mệnh tại Tý, Ngọ: thuở đầu chưa thuận, về sau mới thành và khá lên) [KL p.202]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Tý",
+       "Ngọ"
+      ]
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Khốc"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Thiên Hư"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl202_khoc_hu_ty_ngo",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL203_SONG_HAO_MENH",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, 37. Song Hao (paraphrased), cung Mệnh: cách Song Hao ở Mệnh (Song Hao ở Mệnh, một Hao ở Mệnh, một ở Thiên Di, ngoài Dần Thân Mão Dậu: hao tán, hay thay đổi công việc) [KL p.203]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đại Hao"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tiểu Hao"
+       }
+      ]
+     },
+     {
+      "not": {
+       "fact": "palace.branch",
+       "operator": "in",
+       "value": [
+        "Dần",
+        "Thân",
+        "Mão",
+        "Dậu"
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl203_song_hao_menh",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL203_SONG_HAO_DAN_THAN_MAO_DAU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, 37. Song Hao (paraphrased), cung Mệnh: cách Song Hao Dần Thân Mão Dậu (Song Hao ở Mệnh tại Dần, Thân, Mão, Dậu: hoạnh phá nhưng cũng hoạnh phát) [KL p.203]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đại Hao"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tiểu Hao"
+       }
+      ]
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân",
+       "Mão",
+       "Dậu"
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl203_song_hao_dan_than_mao_dau",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL203_SONG_HAO_TAI_MIEU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, 37. Song Hao (paraphrased), cung Tài Bạch: tiền bạc hoạnh phá, hoạnh phát (Song Hao miếu địa ở Tài Bạch) [KL p.203]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đại Hao"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tiểu Hao"
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Đại Hao"
+         },
+         {
+          "fact": "palace.dignity@khao_luan.Đại Hao",
+          "operator": "in",
+          "value": [
+           "miếu"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Tiểu Hao"
+         },
+         {
+          "fact": "palace.dignity@khao_luan.Tiểu Hao",
+          "operator": "in",
+          "value": [
+           "miếu"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl203_song_hao_tai_mieu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL203_SONG_HAO_TAI_KHONG_CU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, 37. Song Hao (paraphrased), cung Tài Bạch: tiền bạc chỉ có hao tán (Song Hao ở Tài Bạch không có Cự Môn đồng cung) [KL p.203]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Tài Bạch"
+     },
+     {
+      "any": [
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Đại Hao"
+       },
+       {
+        "fact": "palace.own_stars",
+        "operator": "contains",
+        "value": "Tiểu Hao"
+       }
+      ]
+     },
+     {
+      "not": {
+       "fact": "palace.own_major_stars",
+       "operator": "contains",
+       "value": "Cự Môn"
+      }
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "all": [
+          {
+           "fact": "palace.own_stars",
+           "operator": "contains",
+           "value": "Đại Hao"
+          },
+          {
+           "fact": "palace.dignity@khao_luan.Đại Hao",
+           "operator": "in",
+           "value": [
+            "miếu"
+           ]
+          }
+         ]
+        },
+        {
+         "all": [
+          {
+           "fact": "palace.own_stars",
+           "operator": "contains",
+           "value": "Tiểu Hao"
+          },
+          {
+           "fact": "palace.dignity@khao_luan.Tiểu Hao",
+           "operator": "in",
+           "value": [
+            "miếu"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl203_song_hao_tai_khong_cu",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL203_TUAN_TRIET_MIEU",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, 40. Tuần Triệt (paraphrased), cung Mệnh: cách Tuần Triệt miếu địa (Triệt ở Mệnh tại Thân, Dậu hoặc Tuần ở Mệnh tại Dần, Mão: Mệnh lại khá) [KL p.203]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.triet",
+          "value": true
+         },
+         {
+          "fact": "palace.branch",
+          "operator": "in",
+          "value": [
+           "Thân",
+           "Dậu"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.tuan",
+          "value": true
+         },
+         {
+          "fact": "palace.branch",
+          "operator": "in",
+          "value": [
+           "Dần",
+           "Mão"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl203_tuan_triet_mieu",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL204_VCD_KHONG_KIEP",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, 42. Mệnh vô chính diệu (paraphrased), cung Mệnh: làm việc liều mạng, bất chấp hiểm nguy, tìm đường sống trong chỗ chết (Mệnh vô chính diệu ở Dần Thân Tỵ Hợi có Không Kiếp đồng cung hay xung chiếu) [KL p.204]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "fact": "palace.branch",
+      "operator": "in",
+      "value": [
+       "Dần",
+       "Thân",
+       "Tỵ",
+       "Hợi"
+      ]
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.rel.opp_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl204_vcd_khong_kiep",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL205_GIAP_LONG_PHUONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Bài thơ Liên Giáp (paraphrased), cung Mệnh: cách Long Phượng giáp Mệnh (Long Trì, Phượng Các giáp Mệnh: vinh quang) [KL p.205]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Long Trì"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Phượng Các"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Phượng Các"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Long Trì"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl205_giap_long_phuong",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL205_GIAP_KINH_DA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Bài thơ Liên Giáp (paraphrased), cung Mệnh: cách Kình Đà giáp Mệnh (Kình Dương, Đà La giáp Mệnh: gian nan vất vả) [KL p.205]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Kình Dương"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Đà La"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Đà La"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Kình Dương"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl205_giap_kinh_da",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL205_GIAP_KIEP_KHONG",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Bài thơ Liên Giáp (paraphrased), cung Mệnh: cách Không Kiếp giáp Mệnh (Địa Không, Địa Kiếp giáp Mệnh: cuộc đời dễ tàn tạ) [KL p.205]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.rel.flank_prev_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         },
+         {
+          "fact": "palace.rel.flank_next_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl205_giap_kiep_khong",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL206_VCD_TA_HUU_NHAT_NGUYET",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Bàn về Mệnh vô chính diệu (paraphrased), cung Mệnh: thông minh tài giỏi, được mọi người kính phục (Mệnh vô chính diệu có Tả Hữu đồng cung, Nhật Nguyệt đắc địa hợp chiếu) [KL p.206]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Tả Phụ"
+     },
+     {
+      "fact": "palace.own_stars",
+      "operator": "contains",
+      "value": "Hữu Bật"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Thái Dương"
+     },
+     {
+      "fact": "palace.tam_phuong_stars",
+      "operator": "contains",
+      "value": "Thái Âm"
+     },
+     {
+      "fact": "palace.tp_rank.Thái Dương",
+      "operator": "gte",
+      "value": 2
+     },
+     {
+      "fact": "palace.tp_rank.Thái Âm",
+      "operator": "gte",
+      "value": 2
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl206_vcd_ta_huu_nhat_nguyet",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  },
+  {
+   "id": "TV_D3_KL206_VCD_SAT_DAC_TAM_HOA",
+   "system": "tu_vi",
+   "schoolId": "vn_dlhc_draft",
+   "category": "deep3",
+   "description": "Tử Vi Khảo Luận, Bàn về Mệnh vô chính diệu (paraphrased), cung Mệnh: mở mày mở mặt với đời (Mệnh vô chính diệu có sát tinh đắc địa, Khoa Quyền Lộc tam hợp chiếu) [KL p.206]",
+   "conditions": {
+    "all": [
+     {
+      "fact": "palace.name",
+      "value": "Mệnh"
+     },
+     {
+      "fact": "palace.has_no_major",
+      "value": true
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Kình Dương"
+         },
+         {
+          "fact": "palace.dignity_rank.Kình Dương",
+          "operator": "gte",
+          "value": 2
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Đà La"
+         },
+         {
+          "fact": "palace.dignity_rank.Đà La",
+          "operator": "gte",
+          "value": 2
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Hỏa Tinh"
+         },
+         {
+          "fact": "palace.dignity_rank.Hỏa Tinh",
+          "operator": "gte",
+          "value": 2
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Linh Tinh"
+         },
+         {
+          "fact": "palace.dignity_rank.Linh Tinh",
+          "operator": "gte",
+          "value": 2
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Địa Không"
+         },
+         {
+          "fact": "palace.dignity_rank.Địa Không",
+          "operator": "gte",
+          "value": 2
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "palace.own_stars",
+          "operator": "contains",
+          "value": "Địa Kiếp"
+         },
+         {
+          "fact": "palace.dignity_rank.Địa Kiếp",
+          "operator": "gte",
+          "value": 2
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Lộc"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Quyền"
+     },
+     {
+      "fact": "palace.tam_phuong_tu_hoa",
+      "operator": "contains",
+      "value": "Hóa Khoa"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "d3_kl206_vcd_sat_dac_tam_hoa",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_KHAO_LUAN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "palace"
+  }
+ ]
+}

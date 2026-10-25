@@ -349,10 +349,10 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
         { move: 'TURN', step: `confront:${c.element.id}`, concepts: [x.r.concept], rules: [x.r.ruleId], cites: x.r.cites, keys: [`${x.r.concept}@${P}|${x.r.ruleId}`], confront: [c.element.id], part: 4 })] });
       continue;
     }
-    const tpl = confrontTpl(L, c.element);
-    if (!tpl?.length) continue;
-    units.push({ topic: mainTopic, own: new Set(), xs: [S(fill(W.pick(`cf|${P}|${c.element.id}`, tpl), { star: c.element.star ?? '', pal: P, from: oppName(chart, P) }),
-      { move: 'TURN', step: `confront:${c.element.id}`, basis: 'he_thong', confront: [c.element.id, ...(c.element.kind === 'ky_carrier' ? ['hoa:Hóa Kỵ'] : [])], part: 4 })] });
+    const line = confrontLine(W, L, c.element, P, chart, units.flatMap(u => [...u.own]), 'cf');
+    if (!line) continue;
+    units.push({ topic: mainTopic, own: new Set(), xs: [S(line.text,
+      { move: 'TURN', step: `confront:${c.element.id}`, basis: line.basis, ...(line.cites ? { cites: line.cites } : {}), confront: [c.element.id, ...(c.element.kind === 'ky_carrier' ? ['hoa:Hóa Kỵ'] : [])], part: 4 })] });
   }
 
   // ---- special structures, on the units of the theses that carry them (written last, so the text before them does not move) ----
@@ -437,13 +437,13 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   for (const c of plan.confront) {
     const ids = new Set(c.readings.map(x => x.r.ruleId)), all = paras.flatMap(p => p.sentences);
     if (all.some(s => s.trace.rules.some(r => ids.has(r)) || (s.trace.confront ?? []).includes(c.element.id))) continue;
-    const tpl = confrontTpl(L, c.element);
-    if (!tpl?.length) continue;
+    const line = confrontLine(W, L, c.element, P, chart, all.flatMap(s => s.trace.concepts), 'cf2');
+    if (!line) continue;
     // with no reading paragraph left, the limits get a paragraph of their own (it then stands before the conclusion)
     let host = [...paras].reverse().find(p => p.role !== 'structure');
     if (!host) { host = { role: 'support', sentences: [], text: '', topic: mainTopic }; paras.push(host); }
-    host.sentences.push(S(fill(W.pick(`cf2|${P}|${c.element.id}`, tpl), { star: c.element.star ?? '', pal: P, from: oppName(chart, P) }),
-      { move: 'TURN', step: `confront:${c.element.id}`, basis: 'he_thong', confront: [c.element.id, ...(c.element.kind === 'ky_carrier' ? ['hoa:Hóa Kỵ'] : [])], part: 4 }));
+    host.sentences.push(S(line.text,
+      { move: 'TURN', step: `confront:${c.element.id}`, basis: line.basis, ...(line.cites ? { cites: line.cites } : {}), confront: [c.element.id, ...(c.element.kind === 'ky_carrier' ? ['hoa:Hóa Kỵ'] : [])], part: 4 }));
   }
 
   // ---- the conditional conclusion: the domain ledger's verdict for the domains this chapter reads (Tài Bạch in three parts) ----
@@ -484,6 +484,29 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     if (xs.length) { xs.push(S(W.pick('hb|t', H.tail), tr('health:balance_tail')));
       const host = paras.find(p => p.topic === 'ket_luan') ?? [...paras].reverse().find(p => p.role !== 'structure');
       if (host) host.sentences.push(...xs); else para('course', 'ket_luan', xs, lead('ket_luan')); }
+  }
+  // Phụ Mẫu: Thái Dương is the father and Thái Âm the mother (KL pp.85, 100, star_nature thai_duong.cha / thai_am.me); the readings of the
+  // palace are told by star, so the system puts each star's brightness and Hóa on its parent's side and says which side stands better —
+  // a labelled count of facts already in the chapter (bright +1, hãm −1, Lộc / Quyền / Khoa +1, Kỵ −1), not a claim of its own (DEEP-3)
+  const PS = (L as LuanLib & { parents_split?: { both: string[]; one: string[]; lean: Record<'cha' | 'me' | 'even', string> } }).parents_split;
+  if (P === 'Phụ Mẫu' && PS) {
+    const side = (star: string, who: 'cha' | 'me') => {
+      if (!pal.major_stars.includes(star)) return null;
+      const dig = pal.major_dignity?.[star], hoa = Object.entries(chart.tu_hoa).filter(([, v]) => v.star === star && v.branch === pal.branch_index).map(([h]) => h);
+      const score = (dig === 'miếu' || dig === 'vượng' || dig === 'đắc' ? 1 : dig === 'hãm' ? -1 : 0) + hoa.reduce((a, h) => a + (h === 'Hóa Kỵ' ? -1 : 1), 0);
+      return { who, star, score, desc: [dig ? `${star} ${dig}` : star, ...hoa.map(h => `mang ${h}`)].join(', ') };
+    };
+    const d = side('Thái Dương', 'cha'), mo = side('Thái Âm', 'me');
+    const cites = [...(d ? ['KL p.85'] : []), ...(mo ? ['KL p.100'] : [])];
+    const tr = { move: 'VALUE' as const, step: 'parents:split', basis: 'he_thong' as const, concepts: [], cites, part: 5 as const,
+      note: 'Thái Dương là biểu tượng người cha (KL tr.85), Thái Âm là biểu tượng người mẹ (KL tr.100); việc cộng độ sáng và Hóa để so hai phía là quy ước của hệ thống.' };
+    let text = '';
+    if (d && mo) text = fill(W.pick('ps|both', PS.both), { cha: d.desc, me: mo.desc, lean: PS.lean[d.score > mo.score ? 'cha' : d.score < mo.score ? 'me' : 'even'] });
+    else if (d || mo) { const x = (d ?? mo)!; text = fill(W.pick('ps|one', PS.one), { who: x.who === 'cha' ? 'cha' : 'mẹ', star: x.star, desc: x.desc }); }
+    if (text) {
+      const host = paras.find(p => p.topic === 'ket_luan') ?? [...paras].reverse().find(p => p.role !== 'structure');
+      if (host) host.sentences.push(S(text, tr)); else para('course', 'ket_luan', [S(text, tr)], lead('ket_luan'));
+    }
   }
   // the domain across the đại hạn: which hạn touch the palace, at what level (review 2026-10-23: career turning points, the course of a
   // marriage told as phases, how property is built over time)
@@ -647,7 +670,9 @@ function tail(W: Writer, L: LuanLib, xs: ProseSentence[], units: Array<{ seat?: 
   const reduced = book.filter(s => s.trace.move === 'TURN').flatMap(s => s.trace.concepts).filter(c => W.pol(c) !== '-' && W.card(c)?.mature?.length);
   const softened = new Set(book.filter(s => s.trace.soft || s.trace.move === 'TURN').flatMap(s => s.trace.concepts));
   const strong = pos.filter(c => !softened.has(c));
-  const answer = [...neg, ...reduced].find(c => W.card(c)?.mature?.length);
+  // a palace of other people (Tử Tức, Phụ Mẫu, Nô Bộc …): a trait of theirs gets no advice to the person, and two traits are set side by side
+  // only when both are theirs, said of them ("Ở người con, …"); a trait of theirs is never paired with one of the person (DEEP-3)
+  const answer = [...neg, ...reduced].find(c => W.card(c)?.mature?.length && !W.theirs(c));
   if (answer) {
     const m = W.pick(`tail|mature|${answer}`, W.card(answer)!.mature!);
     // a suggestion, labelled as one ('lời khuyên chung'), naming the reading it answers: the system's advice, not something the chart says
@@ -655,12 +680,16 @@ function tail(W: Writer, L: LuanLib, xs: ProseSentence[], units: Array<{ seat?: 
       note: 'Gợi ý của hệ thống rút từ nhận định vừa nêu, không phải lời phán đoán của lá số.' }));
   }
   // the two-edged image only for a strength and a limit the same star asserts (its own seat), named by that star
-  const edge = units.map(u => ({ u, p: pos.find(c => u.own.has(c)), n: neg.find(c => u.own.has(c)) })).find(x => x.p && x.n && x.u.seat?.star && x.u.seat.kind !== 'hoa');
+  const edge = units.map(u => ({ u, p: pos.find(c => u.own.has(c)), n: neg.find(c => u.own.has(c)) })).find(x => x.p && x.n && x.u.seat?.star && x.u.seat.kind !== 'hoa' && !W.theirs(x.p) && !W.theirs(x.n));
   if (edge)
     out.push(W.sentence(fill(W.pick(`tail|edge|${key}`, L.tail.edge), { a: W.np(edge.p!), b: W.np(edge.n!), seat: edge.u.seat!.star! }), { move: 'VALUE', step: `edge:${edge.p}|${edge.n}`, basis: 'he_thong', concepts: [edge.p!, edge.n!] }));
   // two strengths set side by side only when both were told plainly: a softened claim means the two do not simply 'go one way'
-  else if (!neg.length && !answer && strong.length >= 2)
-    out.push(W.sentence(fill(W.pick(`tail|synth|${key}`, L.tail.synth), { a: W.np(strong[0]), b: W.np(strong[1]) }), { move: 'VALUE', step: `synth:${strong[0]}|${strong[1]}`, basis: 'he_thong', concepts: [strong[0], strong[1]] }));
+  else if (!neg.length && !answer && strong.length >= 2) {
+    // a palace of other people: two of their traits are not set side by side (DEEP-3: the pairing read the same on most charts)
+    const [a, b] = strong, th = W.theirs(a) || W.theirs(b);
+    if (!th)
+      out.push(W.sentence(fill(W.pick(`tail|synth|${key}`, L.tail.synth), { a: W.np(a), b: W.np(b) }), { move: 'VALUE', step: `synth:${a}|${b}`, basis: 'he_thong', concepts: [a, b] }));
+  }
   return out;
 }
 
@@ -788,6 +817,24 @@ function caveats(W: Writer, L: LuanLib, t: Thesis, xs: ProseSentence[], P: strin
 
 /** the palace a borrowed chính tinh stands in (the opposite palace) */
 const oppName = (chart: ChartInput, P: string) => { const p = chart.palaces.find(x => x.name === P)!; return chart.palaces.find(x => x.branch_index === (p.branch_index + 6) % 12)!.name; };
+/** The facing sentence of a limiting element (DEEP-3: a hedge says what it hedges). Tuần / Triệt on a vô chính diệu palace: its position
+ *  only, no "điều tốt kèm điều kiện" (Khảo Luận p.146 has them shield such a palace: star_nature tuan_triet.bao_ve_vcd, told in Đọc sâu);
+ *  on another palace: which good reading told in the palace they bend (the first positive concept), or the bare position when none was
+ *  told; other elements: their frames. */
+function confrontLine(W: Writer, L: LuanLib, e: Element, P: string, chart: ChartInput, concepts: string[], key: string): { text: string; basis: SentenceTrace['basis']; cites?: string[] } | null {
+  const vals: Record<string, string> = { star: e.star ?? '', pal: P, from: oppName(chart, P) };
+  if (e.kind === 'tuan' || e.kind === 'triet') {
+    const C = L.confront as Record<string, string[] | undefined>, star = e.kind === 'tuan' ? 'Tuần' : 'Triệt';
+    const pal = chart.palaces.find(x => x.name === P)!;
+    if (!pal.major_stars.length && C.tt_vcd?.length) return { text: fill(W.pick(`${key}|${P}|${e.id}`, C.tt_vcd), { ...vals, star }), basis: 'he_thong' };
+    const good = [...new Set(concepts)].find(c => W.pol(c) === '+');
+    const tpl = good ? C[`${e.kind}_good`] : C[`${e.kind}_bare`];
+    if (tpl?.length) return { text: fill(W.pick(`${key}|${P}|${e.id}`, tpl), { ...vals, star, good: good ? W.np(good) : '' }), basis: 'he_thong' };
+  }
+  const tpl = confrontTpl(L, e);
+  return tpl?.length ? { text: fill(W.pick(`${key}|${P}|${e.id}`, tpl), vals), basis: 'he_thong' } : null;
+}
+
 /** the confront frames of an element: a hãm chính tinh the palace only borrows has its own frames, which say where it stands */
 const confrontTpl = (L: LuanLib, e: Element) => e.borrowed && e.kind === 'major_ham' && L.confront.major_ham_borrowed?.length ? L.confront.major_ham_borrowed : L.confront[e.kind];
 const elName = (e: Element) => e.kind === 'tuan' ? 'Tuần' : e.kind === 'triet' ? 'Triệt' : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ${e.borrowed ? ' (mượn từ cung đối)' : ''}`

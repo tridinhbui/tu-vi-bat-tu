@@ -586,7 +586,7 @@
    "cond": null,
    "verdicts": [],
    "relations": [
-    "di.giao_thiep"
+    "no.giau_ngheo_vi_ban"
    ]
   },
   "tu_tuc": {
@@ -631,7 +631,9 @@
    "link": "tu_lien",
    "cond": null,
    "verdicts": [],
-   "relations": []
+   "relations": [
+    "tu.ve_gia"
+   ]
   },
   "huynh_de": {
    "palace": "Huynh Đệ",

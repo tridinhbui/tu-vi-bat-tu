@@ -96,6 +96,8 @@ export class Writer {
     if (this.firstS) { this.firstS = false; return lowerSafe(this.pick('S|first', this.k.prose!.frames.subject.first)); } return lowerSafe(this.m.subject());
   }
   concept(id: string) { return this.cmap.get(id); }
+  /** a palace of other people: does this trait describe them (outside the bond) rather than the person? */
+  theirs(concept: string) { return !!(this.o.other && this.o.bond && !this.o.bond(this.cmap.get(concept))); }
   conn(rel: Parameters<Micro['conn']>[0], key: string) { return this.m.conn(rel, key) || ''; }
   /** a turn toward a limit: never a word of compensation ("Bù lại") */
   limitConn(key: string) { return this.m.conn('contrast', key, 'initial', ['Bù lại,', 'Đổi lại,']) || ''; }

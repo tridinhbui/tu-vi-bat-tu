@@ -15,6 +15,12 @@ import { evaluateFormations } from '../reason/structures.ts';
 export interface CachCucLib {
   status: string; none: string[]; intro: string[]; named: string[]; good: string[]; bad: string[]; whole: string[]; broken: string[];
   bad_eased: string[]; bad_full: string[]; degree: Record<string, string>; reach: string[]; reach_palace: string[]; rank: string[]; balance: string[];
+  /** reach when breaking (or, for a bad cách, easing) elements lowered the degree: the reason named, not the palace */
+  reach_lowered?: string[]; reach_palace_lowered?: string[]; reach_bad?: string[];
+  /** the page-checked breaker the chart itself holds ({present}) beside the book's condition ({broken}) */
+  f_broken_present?: string[];
+  /** a told cách the books define differently (DEEP-3) */
+  school_head?: string[]; school_side?: string[];
   /** the page-checked cách (formations_verified.json): head, state by the evaluator's verdict, a refutation, the degree by state */
   f_head?: string[]; f_state?: Record<string, string[]>; f_refute?: string[]; f_degree?: Record<string, string>;
   /** the same cách at the palace holding Thân (TH p.76 "đóng Mệnh Thân") */
@@ -31,7 +37,9 @@ const cap = (s: string) => s.charAt(0).toLocaleUpperCase('vi') + s.slice(1);
 const elName = (e: Element) => e.kind === 'tuan' ? 'Tuần' : e.kind === 'triet' ? 'Triệt' : e.kind === 'hoa_ky' ? 'Hóa Kỵ' : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ`
   : e.kind === 'major_ham' ? `${e.star} hãm` : e.kind === 'hoa_good' ? (e.hoa ?? '') : e.star ?? '';
 /** the formation's name: its rule's reading ("cách Tử Phủ đồng cung ở Mệnh"), the stored hedge dropped */
-const nameOf = (reading: string) => reading.replace(/^(khuynh hướng|hạn chế:)\s*/, '').trim();
+const nameOf = (reading: string) => reading.replace(/^(khuynh hướng|hạn chế:)\s*/, '').replace(/\s*\(.*\)\s*$/, '').trim();
+/** the rule's gloss of the cách in brackets ("Thiên Không, Đào Hoa ở Mệnh …: có danh thì nghèo"), told once, in the cách's head */
+const glossOf = (reading: string) => reading.match(/\(([^()]*)\)\s*$/)?.[1]?.trim() ?? '';
 
 export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engine: string, allowDraft: boolean, pre?: Inference): ProseCachCuc {
   const L = k.prose?.cachCuc;
@@ -56,7 +64,8 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
         const helps = [...new Set(e.support.filter(x => x.kind === 'cat' || x.kind === 'loc' || x.kind === 'hoa_good' || x.kind === 'major_bright').map(elName).filter(Boolean))];
         const good = l.pol !== '-';
         const degree = Math.max(1, 3 - (good ? Math.min(2, limits.length) : helps.length ? 1 : 0) - (P === 'Mệnh' ? 0 : 1));
-        return { l, r, P, name: nameOf(r.reading ?? ''), limits, helps, good, degree };
+        const lowered = good ? limits.slice(0, 2) : helps.slice(0, 1);
+        return { l, r, P, name: nameOf(r.reading ?? ''), gloss: glossOf(r.reading ?? ''), limits, helps, good, degree, lowered };
       })
       .sort((a, b) => b.degree - a.degree || Number(b.P === 'Mệnh') - Number(a.P === 'Mệnh') || (a.l.ruleId < b.l.ruleId ? -1 : 1));
     // the page-checked cách (formations_verified.json): evaluated on the chart (reason/structures.ts); a cách whose core alone the books
@@ -88,36 +97,72 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
       const lab = (ms: Array<{ label: string }>) => joinVi([...new Set(ms.map(e => e.label))].slice(0, 3));
       const st = x.state, F = L!.f_state!;
       const text = st === 'thanh_thuong' ? fill(m.pick(`fs|${id}`, F.thanh_thuong), { boost: lab(x.r.boosters) })
-        : st === 'bi_pha' ? fill(m.pick(`fs|${id}`, F.bi_pha), { broken: lab([...x.r.breakers, ...x.r.uncovered]) })
+        : st === 'bi_pha' ? (() => {
+          const ms = [...x.r.breakers, ...x.r.uncovered], present = [...new Set(ms.flatMap(e => e.present ?? []))].slice(0, 3);
+          const withLabel = present.length && L!.f_broken_present ? fill(m.pick(`fs|${id}`, L!.f_broken_present), { present: joinVi(present), broken: lab(ms) }) : '';
+          if (withLabel && withLabel.split(/\s+/).length > 35) return fill(m.pick(`fs|${id}`, F.bi_pha), { broken: joinVi(present) });
+          return withLabel ? withLabel
+            : fill(m.pick(`fs|${id}`, F.bi_pha), { broken: lab(ms) });
+        })()
         : st === 'hinh_thuc' ? (x.r.missing.length ? fill(m.pick(`fs|${id}`, F.hinh_thuc), { missing: joinVi(x.r.missing.slice(0, 2)) }) : m.pick(`fs|${id}`, F.hinh_thuc_bare))
         : m.pick(`fs|${id}`, F[st] ?? F.thanh);
       const stCites = st === 'thanh_thuong' ? pages('boosters', x.r.boosters) : st === 'bi_pha' ? pages('breakers', [...x.r.breakers, ...x.r.uncovered]) : ev?.core ?? [];
-      say(xs, text, `cach:${id}:state`, 'sach', [rid], stCites.sort());
+      // a plain thành (or a core the books already call fine) with the page's meaning for that state: the meaning says it (DEEP-3: the bare
+      // "Cách thành" / "Riêng phần lõi đã là một quý cách" line read the same on half the charts)
+      const plain = (st === 'thanh' || st === 'thanh_core') && !!ev?.meaning?.thanh;
+      if (!plain) say(xs, text, `cach:${id}:state`, 'sach', [rid], stCites.sort());
       if (x.r.refutations.length && L!.f_refute) say(xs, fill(m.pick(`fr|${id}`, L!.f_refute), { refute: lab(x.r.refutations) }), `cach:${id}:refute`, 'sach', [rid], pages('refutations', x.r.refutations).sort());
-      const deg = L!.f_degree?.[st === 'thanh_core' ? 'thanh' : st] ?? L!.degree['2'];
-      say(xs, fill(m.pick(`re|${id}`, x.thanAt ? L!.reach_than! : L!.reach), { degree: deg }), `cach:${id}:reach`, 'he_thong', [], [], note);
+      // what the cách brings in this state, as the page says (formations_verified meaning, DEEP-3); with it the system's degree line is not
+      // needed, without it the degree line stands
+      const mean = ev?.meaning?.[st === 'thanh_core' ? 'thanh' : st];
+      if (mean) say(xs, cap(mean.text), `cach:${id}:meaning`, 'sach', [rid], [mean.cite]);
+      else {
+        const deg = L!.f_degree?.[st === 'thanh_core' ? 'thanh' : st] ?? L!.degree['2'];
+        say(xs, fill(m.pick(`re|${id}`, x.thanAt ? L!.reach_than! : L!.reach), { degree: deg }), `cach:${id}:reach`, 'he_thong', [], [], note);
+      }
       paragraphs.push({ role: 'support', sentences: xs, text: '', title: `Cách ${x.r.name}${x.thanAt ? ' (cung an Thân)' : ''}` } as ProseParagraph);
     }
     for (const x of found) {
       const xs: ProseSentence[] = [];
       rules[x.l.ruleId] = { reading: x.r.reading ?? '', cites: x.l.cites, verified: true };
-      const head = fill(m.pick(`named|${x.l.ruleId}`, L!.named), { Name: cap(x.name), name: x.name, pal: x.P, cite: x.l.cites.join(', ') });
+      const head = fill(m.pick(`named|${x.l.ruleId}`, L!.named), { Name: cap(x.name), name: x.name, pal: x.P, cite: x.l.cites.join(', ') }) + (x.gloss ? `: ${x.gloss}` : '');
       say(xs, `${head}. ${m.pick(`gb|${x.l.ruleId}`, x.good ? L!.good : L!.bad)}`, `cach:${x.l.ruleId}`, 'sach', [x.l.ruleId], x.l.cites);
       const state = x.good ? (x.limits.length ? fill(m.pick(`br|${x.l.ruleId}`, L!.broken), { pal: x.P, limits: joinVi(x.limits.slice(0, 3)) }) : fill(m.pick(`wh|${x.l.ruleId}`, L!.whole), { pal: x.P }))
         : (x.helps.length ? fill(m.pick(`be|${x.l.ruleId}`, L!.bad_eased), { pal: x.P, helps: joinVi(x.helps.slice(0, 3)) }) : fill(m.pick(`bf|${x.l.ruleId}`, L!.bad_full), { pal: x.P }));
       const deg = L!.degree[String(x.degree)];
-      const reach = x.P === 'Mệnh' ? fill(m.pick(`re|${x.l.ruleId}`, L!.reach), { degree: deg }) : fill(m.pick(`rp|${x.l.ruleId}`, L!.reach_palace), { degree: deg, pal: x.P, dom: short[x.P] ?? x.P });
+      const low = x.lowered.length && L!.reach_lowered && L!.reach_palace_lowered, why = joinVi(x.lowered);
+      // a bad cách: its reach is the reach of its harm (DEEP-3: "không bị yếu tố nào hạ bậc" read as praise)
+      const reach = !x.good && !low && L!.reach_bad?.length ? fill(m.pick(`rb|${x.l.ruleId}`, L!.reach_bad), { degree: deg, pal: x.P, dom: x.P === 'Mệnh' ? 'cả đời người' : short[x.P] ?? x.P })
+        : x.P === 'Mệnh' ? fill(m.pick(`re|${x.l.ruleId}`, low ? L!.reach_lowered! : L!.reach), { degree: deg, why })
+        : fill(m.pick(`rp|${x.l.ruleId}`, low ? L!.reach_palace_lowered! : L!.reach_palace), { degree: deg, pal: x.P, dom: short[x.P] ?? x.P, why });
       say(xs, cap(state), `cach:${x.l.ruleId}:state`, 'he_thong', [x.l.ruleId], [], note);
       say(xs, reach, `cach:${x.l.ruleId}:reach`, 'he_thong', [x.l.ruleId], [], note);
       paragraphs.push({ role: 'support', sentences: xs, text: '', title: cap(x.name) } as ProseParagraph);
+    }
+    // where the books define a told cách differently (kg/schools.json kind 'cach', DEEP-3): each book's definition, in the Đọc sâu fold
+    const norm = (x: string) => x.toLocaleLowerCase('vi').replace(/^cách\s+/, '').replace(/\s+(ở|tại)\s+.*$/, '').trim();
+    const told = [...verified.map(x => ({ id: x.r.id, name: x.r.name })), ...found.map(x => ({ id: x.l.ruleId, name: x.name }))];
+    const SCH: Record<string, string> = { KL: 'Khảo Luận', TH: 'Thực Hành', TT: 'Toàn Thư', ZWDS_HAN: 'bản Hán văn', TVNL: 'Nghiệm Lý' };
+    for (const t of (k.kg?.schools?.topics ?? []).filter(t => t.kind === 'cach')) {
+      const head = norm(t.topic.split(':')[0]), hit = told.find(x => norm(x.name) === head || norm(x.name).startsWith(head));
+      const SH = L!.school_head, SS = L!.school_side;
+      if (!hit || !SH || !SS) continue;
+      const xs: ProseSentence[] = [];
+      say(xs, fill(m.pick(`sch|${t.id}`, SH), { name: t.topic.split(':')[0].trim(), n: String(t.sides.length) }), `cach:school:${t.id}`, 'sach', [hit.id], t.sides.map(s => s.cite));
+      t.sides.forEach((s, i) => say(xs, fill(m.pick(`schs|${t.id}|${i}`, SS), { book: SCH[s.school] ?? s.school, statement: s.statement }), `cach:school:${t.id}:${i}`, 'sach', [hit.id], [s.cite]));
+      paragraphs.push({ role: 'support', sentences: xs, text: '', deep: true, title: 'Các bộ sách định nghĩa khác nhau' } as ProseParagraph);
     }
     // the ranking: page-checked cách by their state, then the named ones by degree
     const all = [...verified.map(x => ({ name: `cách ${x.r.name}${x.thanAt ? ' ở cung an Thân' : ''}`, good: x.state !== 'bi_pha', degree: DEG[x.state] ?? 1 })), ...found.map(x => ({ name: x.name, good: x.good, degree: x.degree }))]
       .sort((a, b) => b.degree - a.degree);
     if (all.length >= 2) {
-      const xs: ProseSentence[] = [], g = all.filter(x => x.good).length, b = all.length - g;
+      // the balance is told only when both sides are present, with the cách of each side named and the sides weighed by degree
+      const xs: ProseSentence[] = [], goods = all.filter(x => x.good), bads = all.filter(x => !x.good);
       say(xs, fill(m.pick('rank', L!.rank), { first: all[0].name }), 'cach:rank', 'he_thong', [], [], note);
-      say(xs, L!.balance[g > b ? 0 : g < b ? 1 : 2], 'cach:balance', 'he_thong', [], [], note);
+      if (goods.length && bads.length) {
+        const wg = goods.reduce((a, x) => a + x.degree, 0), wb = bads.reduce((a, x) => a + x.degree, 0);
+        say(xs, fill(L!.balance[wg > wb ? 0 : wg < wb ? 1 : 2], { goods: joinVi(goods.map(x => x.name)), bads: joinVi(bads.map(x => x.name)) }), 'cach:balance', 'he_thong', [], [], note);
+      }
       paragraphs.push({ role: 'balance', sentences: xs, text: '' });
     }
     for (const p of paragraphs) p.text = p.sentences.map(s => s.text).join(' ');

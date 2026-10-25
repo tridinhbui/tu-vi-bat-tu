@@ -355,6 +355,164 @@ add({"id": "CACH_X_KHOI_VIET_GIAP_MENH", "name_vi": "Khôi Việt giáp Mệnh",
                    "sources": [q("KL", 62, "Cung mệnh có Khôi Việt lại bị sát tinh hội chiếu thì mang bệnh tật khó chữa khỏi.")]}]})
 
 
+# ---------------------------------------------------------------- DEEP-3 (2026-10-24): the cát / kỳ cách of KL pp.43-48 not already a cách of
+# the engine (the raw entries: engine/data/kg/mined/deep3_kl.json). KL gives a name, an image, the condition and one effect line; no page names a
+# booster or breaker for them, so the core alone is the cách ('thanh'). The hạ cách of p.46-47 are formation rules (pack_khao_luan_cach.json):
+# the Cách cục chapter tells every formation here as a cát cách. Cách that duplicate a TH / KL cách already in the engine, misprinted ones and
+# impossible ones are listed in the raw entries with the reason (dup / skip) and in docs/audit/DEEP-3-mining-tuvi.md.
+self_has = lambda s: fact("palace.rel.self_stars", "contains", s)
+self_all = lambda *ss: fact("palace.rel.self_stars", "contains_all", list(ss))
+giap = lambda a, b: {"any": [{"all": [fact("palace.rel.flank_prev_stars", "contains", a), fact("palace.rel.flank_next_stars", "contains", b)]},
+                             {"all": [fact("palace.rel.flank_prev_stars", "contains", b), fact("palace.rel.flank_next_stars", "contains", a)]}]}
+KL_ALONE = "KL pp.43-48 kể cách cùng điều kiện và một câu ý nghĩa; không trang nào nêu điều tăng thế hay điều phá riêng cho cách này."
+
+
+def kl_cach(fid, name, core, core_src, effect, reading=KL_ALONE, boosters=(), items=None, variants=(), thuong_at=2):
+    add({"id": fid, "name_vi": name, "anchor": "Mệnh", "kind": "cat", "core": core, "boosters": [ev(*b) for b in boosters], "breakers": [], "rescuers": [],
+         "refutations": [], "thuong_at": thuong_at},
+        {"core": core_src, "effect": effect, "core_alone": "thanh", "core_alone_reading": reading, "items": items or {}, "variants": list(variants)})
+
+
+kl_cach("CACH_X_TU_PHU_TRIEU_VIEN", "Tử Phủ triều viên",
+        {"all": [fact("palace.rel.self_majors", "contains", "Tử Vi"), fact("palace.dignity_rank.Tử Vi", "gte", 2),
+                 {"any": [fact("palace.rel.opp_majors", "contains", "Thiên Phủ"), fact("palace.rel.trine_majors", "contains", "Thiên Phủ")]}]},
+        [q("KL", 43, "Mệnh có Tử vi đắc địa, có Thiên phủ chính chiếu")], [q("KL", 43, "-Vua quan hội họp")],
+        variants=[{"note": "KL kể các thế có cách: Thiên Phủ xung chiếu (Tử Sát Tỵ Hợi) hoặc tam hợp chiếu (Tử Vi Tý Ngọ, Tử Tướng Thìn Tuất); "
+                           "Tử Phủ đồng cung là một cách khác (CACH_X_TU_PHU_DONG_CUNG). 'Đắc địa' đọc trên bảng mặc định (Khảo Luận).",
+                   "sources": [q("KL", 43, "tam hợp chiếu (trong cách Tử vi cư Tí Ngọ,hoặc Tử Tướng Thìn Tuất)")]}])
+kl_cach("CACH_X_PHU_TUONG_TRIEU_VIEN", "Phủ Tướng triều viên",
+        {"all": [fact("palace.rel.self_majors", "contains", "Thiên Phủ"), fact("palace.rel.trine_majors", "contains", "Thiên Tướng")]},
+        [q("KL", 43, "Mệnh Thiên phủ, có Thiên tướng đứng hầu")],
+        [q("KL", 43, "-Nữ hoàng dự yến tiệc."), q("TT", 118, "Phú Tướng triều viên mệnh tất vinh")],
+        reading="KL p.43: khi Mệnh có Thiên Phủ thì Thiên Tướng đương nhiên ở tam hợp, nên lõi đã là cách; TT p.118 (nữ mệnh cốt tủy phú) cũng nói Phủ Tướng triều viên thì Mệnh vinh.")
+kl_cach("CACH_X_THAN_DONG", "Thần đồng", self_all("Tử Vi", "Tấu Thư"), [q("KL", 43, "Mệnh có Tử vi đồng cung Tấu thư")], [q("KL", 43, "Thông minh tuyệt vời")])
+kl_cach("CACH_X_TOA_QUY_HUONG_QUY", "Tọa quý hướng quý",
+        {"any": [{"all": [self_has("Thiên Khôi"), fact("palace.rel.opp_stars", "contains", "Thiên Việt")]},
+                 {"all": [self_has("Thiên Việt"), fact("palace.rel.opp_stars", "contains", "Thiên Khôi")]}]},
+        [q("KL", 44, "Mệnh có Khôi, Di có Việt hoặc ngược lại")], [q("KL", 44, "-Là người sang quí")],
+        variants=[{"note": "TT p.142 đọc rộng hơn (Khôi Việt chiếu Mệnh, hoặc Khôi ở Mệnh, Việt hướng vào); hệ thống giữ cách đọc hẹp của KL (schools.json).",
+                   "sources": [q("TT", 142, "(Khôi Việt chiếu mệnh, hoặc Khôi ở mệnh Việt hướng vào và ngược lại)")]}])
+kl_cach("CACH_X_TAI_LOC_GIAP_MA", "Tài Lộc giáp Mã",
+        {"all": [self_has("Thiên Mã"), {"any": [
+            {"all": [fact("palace.rel.flank_prev_stars", "contains", "Vũ Khúc"),
+                     {"any": [fact("palace.rel.flank_next_stars", "contains", "Lộc Tồn"), fact("palace.rel.flank_next_hoa", "contains", "Hóa Lộc")]}]},
+            {"all": [fact("palace.rel.flank_next_stars", "contains", "Vũ Khúc"),
+                     {"any": [fact("palace.rel.flank_prev_stars", "contains", "Lộc Tồn"), fact("palace.rel.flank_prev_hoa", "contains", "Hóa Lộc")]}]}]}]},
+        [q("KL", 45, "Mệnh có Thiên mã, Tài (tên gọi của Vũ khúc), Lộc tồn đứng ở cung hai bên"), q("TT", 142, "Thiên Mã thủ Mệnh, giáp Vũ Khúc, Hóa Lộc")],
+        [q("KL", 45, "Thương gia giàu có")],
+        reading="KL p.45 (Lộc Tồn) và TT p.142 (Hóa Lộc) đều kể là phú cách; lõi nhận cả hai cách đọc 'Lộc' của hai sách (schools.json).")
+kl_cach("CACH_X_DOI_KIM_TICH_NGOC", "Đôi kim tích ngọc",
+        {"all": [fact("palace.branch", "in", ["Tý", "Ngọ"]), fact("palace.rel.self_majors", "contains_all", ["Thiên Phủ", "Vũ Khúc"]), self_has("Lộc Tồn")]},
+        [q("KL", 45, "Mệnh có Thiên phủ – Vũ khúc đồng cung với Lộc tồn ở Tí Ngọ")], [q("KL", 45, "Tiền của đầy nhà")])
+kl_cach("CACH_X_PHU_HUU_LAU_DAI", "Phú hữu lâu đài",
+        {"all": [fact("palace.branch", "in", ["Mão", "Dậu"]), fact("palace.rel.self_majors", "contains_all", ["Cự Môn", "Thiên Cơ"]),
+                 fact("palace.rel.self_stars", "contains_any", ["Đại Hao", "Tiểu Hao"])]},
+        [q("KL", 45, "Mệnh có Cự – Cơ, Song Hao ở Mão Dậu")], [q("KL", 45, "Nhà cao cửa rộng, tiền dư của để"), q("KL", 81, "Cự Cơ ở Mão Dậu gặp Song Hao thì được")],
+        reading="KL p.45 kể là phú cách, KL p.81 nói Cự Cơ Mão Dậu gặp Song Hao thì hưởng phú quý. Đại Hao và Tiểu Hao luôn xung chiếu nhau: 'Song Hao ở Mão Dậu' là một Hao ở Mệnh, một ở Thiên Di.")
+kl_cach("CACH_X_TIEN_CAI_HAU_MA", "Tiền Cái hậu Mã", giap("Hoa Cái", "Thiên Mã"),
+        [q("KL", 45, "Mệnh ở giữa, Hoa cái ở  cung đằng trước, Thiên Mã ở cung đằng sau")], [q("KL", 45, "Danh giá hưởng lộc")],
+        reading=KL_ALONE + " Hoa Cái và Thiên Mã giáp một cung thì luôn đúng thứ tự trước / sau này, nên lõi chỉ cần hai sao giáp Mệnh.")
+kl_cach("CACH_X_VAN_LONG_TE_HOI", "Vân long tế hội",
+        {"all": [self_all("Thanh Long", "Lưu Hà"), fact("palace.rel.self_hoa", "contains", "Hóa Kỵ")]},
+        [q("KL", 45, "Mệnh có Thanh long gặp Hóa kỵ, Lưu hà đồng cung")], [q("KL", 45, "Được dịp làm giàu")])
+kl_cach("CACH_X_TIEN_HINH_HAU_AN", "Tiền Hình hậu Ấn",
+        {"all": [fact("palace.rel.flank_next_stars", "contains", "Thiên Hình"), fact("palace.rel.flank_prev_stars", "contains", "Quốc Ấn")]},
+        [q("KL", 45, "Mệnh ở giữa Thiên hình đóng ở cung ở cung đằng trước, Quốc ấn theo sau")], [q("KL", 45, "Có chức có tiền")],
+        reading=KL_ALONE + " 'Đằng trước' là cung kề theo chiều thuận, như KL p.42 đặt Lưu Kình 'trước' Lưu Lộc Tồn (Lộc Tồn ở Tỵ, Kình ở Ngọ).",
+        variants=[{"note": "KL p.42: chiều 'trước' (Lưu Lộc Tồn ở Tỵ, Lưu Kình dương ở Ngọ).",
+                   "sources": [q("KL", 42, "Nếu Lưu Lộc tồn ở cung Tỵ, Lưu Kình dương ở Ngọ")]}])
+kl_cach("CACH_X_TUONG_PHUC_HONG_DAO", "Tướng Phục Hồng Đào", self_all("Thiên Tướng", "Phục Binh", "Hồng Loan", "Đào Hoa"),
+        [q("KL", 46, "Mệnh có Thiên tướng Phục binh Hồng loan, Đào hoa")], [q("KL", 46, "Tuổi trẻ gặp may sớm làm giàu")])
+kl_cach("CACH_X_THAI_TOA_GIAP_MENH", "Thai Tọa giáp Mệnh", giap("Tam Thai", "Bát Tọa"), [q("KL", 46, "Mệnh ở giữa, hai bên có Thai Tọa đứng chầu")],
+        [q("KL", 46, "Tuổi trẻ sớm hiển đạt"), q("KL", 205, "Giáp Thai giáp Tọa nhẹ đường công danh")])
+kl_cach("CACH_X_XUAT_TUONG_NHAP_TUONG", "Xuất Tướng nhập Tướng",
+        {"any": [{"all": [fact("palace.rel.self_majors", "contains", "Thiên Tướng"), fact("palace.rel.opp_stars", "contains", "Tướng Quân")]},
+                 {"all": [self_has("Tướng Quân"), fact("palace.rel.opp_majors", "contains", "Thiên Tướng")]}]},
+        [q("KL", 46, "Mệnh có Thiên tướng, Di có Tướng quân hoặc người ngược lại")], [q("KL", 46, "Giàu có từ trong ra ngoài")])
+kl_cach("CACH_X_SONG_LONG", "Song Long vượt uyên", self_all("Thanh Long", "Long Đức"), [q("KL", 46, "Mệnh có Thanh long, Long đức đồng cung")],
+        [q("KL", 46, "Gặp thời làm ăn lớn")])
+LPHC = ["Long Trì", "Phượng Các", "Bạch Hổ", "Hoa Cái"]
+kl_cach("CACH_X_LONG_PHUONG_HO_CAI", "Long Phượng Hổ Cái",
+        {"all": [*[{"any": [self_has(s), fact("palace.rel.trine_stars", "contains", s)]} for s in LPHC], fact("palace.rel.self_stars", "contains_any", LPHC)]},
+        [q("KL", 46, "Mệnh có một hoặc 2 sao trong 4 sao kể trên, còn lại làm tam hợp chiếu")],
+        [q("KL", 46, "Sự nghiệp đã có sẵn sàng"), q("KL", 46, "Có quí nhân nâng đỡ")],
+        reading="KL p.46: một hoặc hai sao ở Mệnh, các sao còn lại tam hợp chiếu, là cách; có Bạch Hổ ở Mệnh thì hay hơn (điều tăng thế).",
+        boosters=[("bach_ho_o_menh", "Bạch Hổ ở ngay Mệnh", self_has("Bạch Hổ"))], thuong_at=1,
+        items={"boosters:bach_ho_o_menh": {"scope": "cach", "sources": [q("KL", 46, "thường thì Mệnh nên có Bạch Hổ thì hay hơn")],
+                                           "reading": "KL p.46 nói ngay trong định nghĩa của cách: Mệnh nên có Bạch Hổ thì hay hơn."}})
+kl_cach("CACH_X_HOA_KY_SUU_MUI", "Hóa kỵ Sửu Mùi",
+        {"all": [fact("palace.branch", "in", ["Sửu", "Mùi"]), fact("palace.rel.self_majors", "contains", "Cự Môn"), fact("palace.rel.self_hoa", "contains", "Hóa Kỵ")]},
+        [q("KL", 47, "Mệnh có Cự môn gặp Hóa kỵ đồng cung ở Sửu Mùi")], [q("KL", 47, "Giàu sang phú quí")])
+kl_cach("CACH_X_THIEN_DONG_DINH_MAO", "Thiên đồng Đinh Mão",
+        {"all": [fact("chart.year_stem", "eq", "Đinh"), fact("chart.year_branch", "eq", "Mão"), fact("palace.rel.self_majors", "contains", "Thiên Đồng")]},
+        [q("KL", 47, "Mệnh người Đinh Mão có Thiên đồng thủ mệnh")], [q("KL", 47, "Phát  phúc, phát lộc")])
+kl_cach("CACH_X_THIEN_DONG_NGO_VIET", "Thiên đồng ngộ Việt", {"all": [fact("palace.rel.self_majors", "contains", "Thiên Đồng"), self_has("Thiên Việt")]},
+        [q("KL", 48, "Mệnh có Thiên đồng – Thiên việt đồng cung")], [q("KL", 48, "Sang quí như sao trên trời")])
+kl_cach("CACH_X_THIEN_LUONG_NGO_KHOI", "Thiên lương ngộ Khôi", {"all": [fact("palace.rel.self_majors", "contains", "Thiên Lương"), self_has("Thiên Khôi")]},
+        [q("KL", 48, "Mệnh có Thiên lương, Thiên khôi đồng cung")], [q("KL", 48, "Được hưởng phước lớn")])
+
+
+# ---------------------------------------------------------------- what the cách brings, per state (evidence[id].meaning)
+# state -> {text, book, page, quote}: text is a short paraphrase no wider than the page (sensitive parts of a line left out, never added); a state
+# with no page stating its effect is left out. States are formation_eval's: thanh_thuong / thanh / hinh_thuc / bi_pha. For a cách whose
+# core_alone is 'thanh' the bare core (state hinh_thuc) is already the cách: read meaning.thanh. Mã đầu đới kiếm (disputed) has none.
+def m(text: str, book: str, page: int, quote: str, image: str | None = None) -> dict:
+    return {"text": text, **q(book, page, quote, image)}
+
+
+TH76_M = m("thượng cách: phát đến Tam công", "TH", 76, TH76_THUONG["quote"], TH76_THUONG["image"])
+TH77_M = m("hạ cách: lao khổ, phải lo miếng ăn từng bữa", "TH", 77, "ang thang lo miếng ăn từng", TH77_HA["image"])
+MEANING = {
+    "CACH_X_TU_PHU_VU_TUONG": {"thanh_thuong": TH76_M, "bi_pha": TH77_M,
+                               "thanh": m("rất tốt về công danh, tài lộc, phúc", "KL", 96, "Các cách Tử Phủ, Tử Phủ Vũ Tướng, Phủ Vũ đều rất tốt về mọi mặt công danh, tài lộc, phúc")},
+    "CACH_X_TU_PHU_DONG_CUNG": {"thanh": m("phúc hậu, được hưởng phúc lộc tốt", "KL", 49, "4 . Tử Phủ đồng cung, chung thân phúc hậu"),
+                                "thanh_thuong": m("thêm Lộc Tồn thì phúc hậu, chức đến tam công", "TT", 22, "chức đến tam công"),
+                                "hinh_thuc": m("phúc lộc kém đi vì Tuần, Triệt án ngữ", "KL", 55,
+                                               "Mệnh có Tử Phủ thì được hưởng phúc lộc tốt rất nhiều, chỉ sợ Triệt Tuần án ngữ thì kém đi thôi.")},
+    "CACH_X_CO_NGUYET_DONG_LUONG": {"thanh_thuong": TH76_M, "bi_pha": TH77_M,
+                                    "thanh": m("thường làm công chức", "KL", 51, "Mệnh có Cơ Nguyệt Đồng Lương hội chiếu thường là công chức."),
+                                    "hinh_thuc": m("không có cát tinh trợ lực thì chỉ làm công chức nhỏ", "TT", 24, TT24["quote"])},
+    "CACH_X_SAT_PHA_LIEM_THAM": {"thanh_thuong": TH76_M, "bi_pha": TH77_M},
+    "CACH_X_NHAT_NGUYET_TINH_MINH": {"thanh": m("được hưởng giàu sang", "KL", 53, "hưởng giàu sang.")},
+    "CACH_X_NHAT_LE_TRUNG_THIEN": {"thanh": m("quyền hành bậc cao, không thì cũng giàu có lớn", "TT", 158, "nhất phẩm quyền hành nếu không thì cũng là phú gia địch quốc"),
+                                   "thanh_thuong": m("tuổi Canh, Tân, Đinh, Kỷ thì giàu sang phú quý mọi mặt", "KL", 52,
+                                                     "3 . Thái dương cư Ngọ, Canh Tân Đinh Kỷ phú quí song toàn")},
+    "CACH_X_THACH_TRUNG_AN_NGOC": {"thanh": m("ngọc lộ ra: tài năng gặp thời", "KL", 106,
+                                              "nằm trong đá, có thợ đẽo đá cắt gọt thành viên ngọc quí, có nghĩa là tài năng gặp thời."),
+                                   "hinh_thuc": m("ngọc còn chìm: học nhiều biết nhiều nhưng chưa gặp thời vận hiển hách", "TH", 43,
+                                                  "hưng không gặp đươc thời vận hiển hách", TH43_IMG),
+                                   "bi_pha": m("gặp Kỵ, Hình thì khó được toại ý vừa lòng", "TH", 43, "song không bao giờ được toại ý vừa", TH43_IMG)},
+    "CACH_X_TAM_KY_GIA_HOI": {"thanh": m("quý cách (TT p.142 xếp Khoa, Quyền, Lộc củng vào quý cách)", "TT", 142, "QUÍ CÁCH"),
+                              "thanh_thuong": m("có thêm Xương Khúc, Khôi Việt, Tả Hữu (Văn chức cách) thì công danh thành đạt", "TH", 77,
+                                                 "và có Tam Hóa triều về, tất nhiên công danh thành đạt."),
+                              "bi_pha": m("gặp Hóa Kỵ, Kình Dương thì đường công danh mờ mịt", "KL", 66, "vào thì đường công danh mờ mịt như sương tụ đầy đường đi.")},
+    "CACH_X_KHOI_VIET_GIAP_MENH": {"thanh": m("học giỏi, gần người quyền quý", "KL", 44, "Học giỏi, gần người quyền quí")},
+    # DEEP-3 KL pp.43-48: the meaning line printed under each cách (the image line when that is all the page gives, with the group heading)
+    "CACH_X_TU_PHU_TRIEU_VIEN": {"thanh": m("quý cách (danh vọng, uy quyền): như vua quan hội họp", "KL", 43, "-Vua quan hội họp")},
+    "CACH_X_PHU_TUONG_TRIEU_VIEN": {"thanh": m("Mệnh vinh hiển", "TT", 118, "Phú Tướng triều viên mệnh tất vinh")},
+    "CACH_X_THAN_DONG": {"thanh": m("thông minh tuyệt vời", "KL", 43, "Thông minh tuyệt vời")},
+    "CACH_X_TOA_QUY_HUONG_QUY": {"thanh": m("là người sang quý", "KL", 44, "-Là người sang quí")},
+    "CACH_X_TAI_LOC_GIAP_MA": {"thanh": m("thương gia giàu có", "KL", 45, "Thương gia giàu có")},
+    "CACH_X_DOI_KIM_TICH_NGOC": {"thanh": m("tiền của đầy nhà", "KL", 45, "Tiền của đầy nhà")},
+    "CACH_X_PHU_HUU_LAU_DAI": {"thanh": m("nhà cao cửa rộng, tiền dư của để", "KL", 45, "Nhà cao cửa rộng, tiền dư của để")},
+    "CACH_X_TIEN_CAI_HAU_MA": {"thanh": m("danh giá, hưởng lộc", "KL", 45, "Danh giá hưởng lộc")},
+    "CACH_X_VAN_LONG_TE_HOI": {"thanh": m("được dịp làm giàu", "KL", 45, "Được dịp làm giàu")},
+    "CACH_X_TIEN_HINH_HAU_AN": {"thanh": m("có chức, có tiền", "KL", 45, "Có chức có tiền")},
+    "CACH_X_TUONG_PHUC_HONG_DAO": {"thanh": m("tuổi trẻ gặp may, sớm làm giàu", "KL", 46, "Tuổi trẻ gặp may sớm làm giàu")},
+    "CACH_X_THAI_TOA_GIAP_MENH": {"thanh": m("tuổi trẻ sớm hiển đạt", "KL", 46, "Tuổi trẻ sớm hiển đạt")},
+    "CACH_X_XUAT_TUONG_NHAP_TUONG": {"thanh": m("giàu có từ trong ra ngoài", "KL", 46, "Giàu có từ trong ra ngoài")},
+    "CACH_X_SONG_LONG": {"thanh": m("gặp thời làm ăn lớn", "KL", 46, "Gặp thời làm ăn lớn")},
+    "CACH_X_LONG_PHUONG_HO_CAI": {"thanh": m("sự nghiệp có sẵn, có quý nhân nâng đỡ", "KL", 46, "Sự nghiệp đã có sẵn sàng"),
+                                  "thanh_thuong": m("Mệnh có Bạch Hổ thì cách hay hơn", "KL", 46, "thường thì Mệnh nên có Bạch Hổ thì hay hơn")},
+    "CACH_X_HOA_KY_SUU_MUI": {"thanh": m("giàu sang phú quý", "KL", 47, "Giàu sang phú quí")},
+    "CACH_X_THIEN_DONG_DINH_MAO": {"thanh": m("phát phúc, phát lộc", "KL", 47, "Phát  phúc, phát lộc")},
+    "CACH_X_THIEN_DONG_NGO_VIET": {"thanh": m("sang quý", "KL", 48, "Sang quí như sao trên trời")},
+    "CACH_X_THIEN_LUONG_NGO_KHOI": {"thanh": m("được hưởng phước lớn", "KL", 48, "Được hưởng phước lớn")},
+}
+for _fid, _mm in MEANING.items():
+    E[_fid]["meaning"] = _mm
+
+
 # ---------------------------------------------------------------- dropped draft conditions
 
 TH74_CUU = q("TH", 74, "Gặp Bại địa và Tuyệt địa cần được cứu giải băng Tam hóa hội hay c")
@@ -435,9 +593,10 @@ def dropped() -> list[dict]:
 
 
 def main() -> int:
-    data = {"version": 1, "generated_by": "tools/build_formations_verified.py", "date": "2026-10-23",
-            "note": "Mười cách cục định nghĩa lại theo trang sách (KL, TH, TT). Chỉ formations có reviewStatus 'verified' được đưa ra người đọc; "
-                    "'disputed' là các sách không thống nhất lõi. Báo cáo: docs/audit/CACH-CUC-SOURCES.md.",
+    data = {"version": 1, "generated_by": "tools/build_formations_verified.py", "date": "2026-10-24",
+            "note": "Mười cách cục định nghĩa lại theo trang sách (KL, TH, TT), thêm 19 cách cát / kỳ cách của KL pp.43-48 (DEEP-3, 2026-10-24). Chỉ formations có "
+                    "reviewStatus 'verified' được đưa ra người đọc; 'disputed' là các sách không thống nhất lõi. Báo cáo: docs/audit/CACH-CUC-SOURCES.md, "
+                    "docs/audit/DEEP-3-mining-tuvi.md.",
             "formations": F, "evidence": E, "dropped": dropped(), "rejected": []}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", "utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}: {len(F)} formations, {len(data['dropped'])} dropped conditions")
@@ -445,7 +604,7 @@ def main() -> int:
         print("books absent: quotes not re-checked")
         return 0
     quotes = [(fid, s) for fid, e in E.items() for s in e["core"] + e["effect"] + [x for it in e["items"].values() for x in it["sources"]]
-              + [x for v in e["variants"] for x in v["sources"]]] + [(d["formation"], s) for d in data["dropped"] for s in d["sources"]]
+              + [x for v in e["variants"] for x in v["sources"]] + list(e.get("meaning", {}).values())] +[(d["formation"], s) for d in data["dropped"] for s in d["sources"]]
     bad = [(fid, s["book"], s["page"], s["quote"]) for fid, s in quotes if not book_text.quote_on_page(s["book"], s["page"], s["quote"])]
     for b in bad:
         print("NOT ON PAGE:", *b)

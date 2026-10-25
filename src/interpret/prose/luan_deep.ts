@@ -210,6 +210,21 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
         xs.push(S(fill(W.pick(`${key}|tm`, D.tame), { holder: u.star!, where: where(u.where, u.palace!), text: n.text, tamed: joinVi(u.tamed!.split('|')), pal: P }),
           { move: 'TURN', step: `tame:${n.id}`, basis: 'sach', cites: [`${n.book ?? "KL"} p.${n.page}`], concepts: [] }));
         anchored = true;
+      } else if (u.kind === 'chehoa' || u.kind === 'layout') {
+        // chế hóa (kg/che_hoa.json) and the thế đứng of the chính tinh (kg/combos.json layouts), each with its page (DEEP-3)
+        const b0 = u.book!;
+        // a page line written for Mệnh carries its consequence for Mệnh ("…: Mệnh dễ nghèo", "…: công danh trắc trở"): in another palace only
+        // the chế hóa itself is told (DEEP-3)
+        const b = P === 'Mệnh' || u.kind === 'layout' ? b0 : { ...b0, text: b0.text.split(/:\s+/)[0] }, F2 = (D as DepthLib & { chehoa?: Record<string, string[]>; layout?: string[] });
+        const tpl = u.kind === 'layout' ? F2.layout : !u.tamed ? F2.chehoa?.all : F2.chehoa?.[b.effect ?? ''] ?? F2.chehoa?.giam;
+        if (!tpl?.length) continue;
+        const text = fill(W.pick(`${key}|${u.kind}|${b.id}`, tpl), { holder: u.star!, where: where(u.where, u.palace!), tamed: joinVi(u.tamed?.split('|') ?? []), text: b.text, pal: P, branch: chart.palaces.find(p => p.name === u.palace)?.branch ?? '' });
+        // a line that would run past 35 words (readable.test) is told as the book's statement alone, with where it holds
+        const short = text.split(/\s+/).length <= 35 ? text : `Ở cung ${P}: ${b.text}`;
+        if (short.split(/\s+/).length > 35) continue;
+        xs.push(S(short,
+          { move: u.kind === 'layout' ? 'ELABORATE' : 'TURN', step: `${u.kind}:${b.id}`, basis: 'sach', cites: [`${b.book} p.${b.page}`], concepts: [] }));
+        anchored = true;
       } else if (u.kind === 'link') {
         if (u.link === 'than' || u.link === 'relation') {
           const r = u.relation!;
@@ -217,10 +232,22 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
           // a relation the book states for every chart is told with this chart's side in the same sentence (a bare general line repeats from chart to chart)
           const rel = (D as DepthLib & { relation_with?: Record<string, string[]> }).relation_with?.[r.id];
           if (facts && rel?.length) xs.push(S(fill(W.pick(`${key}|rw`, rel), { facts }), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
-          else {
-            xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
-            if (facts) xs.push(S(fill(W.pick(`${key}|rf`, D.relation_facts), { facts }), { move: 'VIA', step: `link:${r.id}:facts`, basis: 'tinh_toan', concepts: [] }));
-          }
+          // the book's relation is told joined to this chart's side in one sentence (alone it is the same line on every chart, DEEP-3); a
+          // relation with no chart side is told bare only when its chart condition (`when`) holds here, a definitional one not at all
+          else if (!facts && r.when) xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
+          else if (facts) {
+            const join1 = (f: string) => { const side = fill(W.pick(`${key}|rf`, D.relation_facts), { facts: f }); return `${cap(r.text)}; ${side.charAt(0).toLocaleLowerCase('vi')}${side.slice(1)}`; };
+            const side = fill(W.pick(`${key}|rf`, D.relation_facts), { facts });
+            // one sentence when it stays readable (≤35 words, readable.test) — without the domain verdict's echo if that makes it fit —, else
+            // the book's line and the chart's side apart
+            const words = (t: string) => t.split(/\s+/).length, full = join1(facts), bare = join1(facts.split('; ')[0]);
+            const one = words(full) <= 35 ? full : bare;
+            if (words(one) <= 35) xs.push(S(one, { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
+            else {
+              xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
+              xs.push(S(side, { move: 'VIA', step: `link:${r.id}:facts`, basis: 'tinh_toan', concepts: [] }));
+            }
+          } else continue;
           anchored = true;
         } else if (u.link === 'hoa') {
           const list = joinVi(groupHoa(u.elements!.map(e => ({ text: elName(e), palace: e.palace }))));
@@ -274,7 +301,10 @@ function relationFacts(chart: ChartInput, id: string, sh: LuanShared): string | 
   const brief = (name: string) => {
     const p = chart.palaces.find(x => x.name === name)!;
     const ms = p.major_stars.map(s => p.major_dignity?.[s] ? `${s} (${p.major_dignity[s]})` : s);
-    return ms.length ? `${name} có ${joinVi(ms)}` : `${name} không có chính tinh`;
+    if (ms.length) return `${name} có ${joinVi(ms)}`;
+    // a vô chính diệu palace borrows the opposite palace's chính tinh (TT p.18, reason/borrow.ts): named as borrowed, never as its own
+    const opp = chart.palaces.find(x => x.branch_index === (p.branch_index + 6) % 12)!;
+    return opp.major_stars.length ? `${name} vô chính diệu, mượn ${joinVi(opp.major_stars)}` : `${name} không có chính tinh`;
   };
   if (id === 'tai.che_tai') {
     const v = sh.ledger.domains.find(d => d.id === 'cong_danh');
