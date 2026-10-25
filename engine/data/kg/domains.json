@@ -137,7 +137,8 @@
    "label": "sức khỏe",
    "palaces": {
     "Tật Ách": "core",
-    "Mệnh": "support"
+    "Mệnh": "support",
+    "Phúc Đức": "support"
    },
    "facets": [
     "wellbeing.health",
@@ -147,7 +148,8 @@
     "tat_ach"
    ],
    "home": "tat_ach",
-   "verdict": false
+   "verdict": false,
+   "note_phuc": "Phúc Đức thêm vào lĩnh vực sức khỏe (2026-10-25): sách đọc phúc thọ ở cung Phúc Đức (vd. Hàm Số tr.87, 'được hưởng phúc thọ'); lĩnh vực này không bao giờ kết luận tốt xấu, chỉ nêu cả hai mặt khi có"
   }
  },
  "depth_note": "Đọc sâu (reason/depth.ts) per chapter: the palace it reads, the star-nature `use` it tells, its sections in reading order, which section a reading of a concept goes to (`map`, first match wins; `fallback` takes any other reading of the palace so that no verified reading is left untold), the sections of the palace's own structure (`orient`), its limits (`obst`), Hóa Quyền (`quyen`), links (`link`) and the ledger conclusion (`cond`, `verdicts`). `noTiming`: a timing reading of the palace is left to the main reading (Phu Thê, owner's rule 2026-10-22); `noEvents`: a reading whose words tell an event is not told. A system convention (he_thong), not a page.",

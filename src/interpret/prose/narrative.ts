@@ -266,7 +266,7 @@ export function reasonedChapter(chart: ChartInput, k: Knowledge, opts: { allowDr
     const x = md.reading;
     if (voiced.has(x.r.ruleId)) continue;
     const r = W.read(x.r.ruleId), ground = W.ground(x);
-    const conn = W.pol(x.r.concept) === '-' ? W.conn('contrast', `mod|${x.r.ruleId}`) : W.conn('addition', `mod|${x.r.ruleId}`);
+    const conn = W.pol(x.r.concept) === '-' ? W.limitConn(`mod|${x.r.ruleId}`) : W.conn('addition', `mod|${x.r.ruleId}`);
     const p = r.claim ? null : W.pred(x.r.concept, x.r.status !== 'holds', `mod|${x.r.ruleId}`);
     const text = r.claim ? fill(W.pick(`mod|${x.r.ruleId}`, F.modifier), { conn, ground, claim: r.claim })
       : p ? fill(W.pick(`modc|${x.r.ruleId}`, F.modifier_card), { conn, ground, S: W.S(), pred: p }) : '';

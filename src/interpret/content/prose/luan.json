@@ -791,7 +791,9 @@
   ],
   "coexist": [
    "{domain} có cả {pos} lẫn {neg}; hai điều không loại nhau, vì {pos} thuộc về {fpos}, còn {neg} thuộc về {fneg}",
-   "{domain} có {pos} và có {neg}; một bên là chuyện {fpos}, một bên là chuyện {fneg}, nên cả hai cùng đứng được"
+   "{domain} có {pos} và có {neg}; một bên là chuyện {fpos}, một bên là chuyện {fneg}, nên cả hai cùng đứng được",
+   "{domain} mang cả {pos} và {neg}, nhưng mỗi điều nói về một chuyện: {pos} là chuyện {fpos}, {neg} là chuyện {fneg}",
+   "{pos} và {neg} cùng có trong {domain} mà không loại nhau, vì một bên thuộc {fpos}, một bên thuộc {fneg}"
   ],
   "chua_phan_xu": [
    "{domain} có cả {pos} (dựa vào {gpos}) lẫn {neg} (dựa vào {gneg}); chưa phân xử được mặt nào trội",
@@ -799,7 +801,10 @@
    "{pos} (từ {gpos}) và {neg} (từ {gneg}) cùng có mặt trong {domain}, và không bên nào được xếp trên bên nào",
    "trong {domain}, {pos} đến từ {gpos}, còn {neg} đến từ {gneg}; cả hai được nêu, chưa có phân xử",
    "{domain} vừa có {pos} nhờ {gpos}, vừa có {neg} vì {gneg}; mặt nào nặng hơn thì chưa phân xử được",
-   "về {domain}, {gpos} cho {pos}, {gneg} lại cho {neg}; đây là hai mặt chưa phân xử được"
+   "về {domain}, {gpos} cho {pos}, {gneg} lại cho {neg}; đây là hai mặt chưa phân xử được",
+   "{pos} có gốc ở {gpos}, {neg} có gốc ở {gneg}; trong {domain}, hai chiều này ngang nhau",
+   "{gpos} kéo {domain} về phía {pos}, còn {gneg} kéo về phía {neg}, và hai lực ấy chưa bên nào lấn được bên nào",
+   "với {domain}, một phía là {pos} ({gpos}), phía kia là {neg} ({gneg}); cân lên thì hai phía ngang nhau"
   ],
   "unresolved_limits": [
    "Ngay trong cung {palace} còn có {limits}, nên mặt thuận không thể xem là trọn",
