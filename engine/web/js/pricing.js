@@ -29,11 +29,13 @@ async function boot() {
   if (new URLSearchParams(location.search).get('paid') === '0') say($('#cm-pay-msg'), 'Bạn đã dừng thanh toán; chưa có khoản nào bị trừ.');
 }
 
-// what each package holds, beside its blurb (config.ts): the three are nested, so each card names what it adds
+// what each package holds, beside its blurb (config.ts): the three Tử Vi / Bát Tự ones are nested, so each card names what it adds;
+// Chiêm tinh stands apart (a Western birth has a place, so it is bought for that chart)
 const PLAN_POINTS = {
   van_nam: ['Đại hạn, tiểu hạn, lưu niên Tử Vi', 'Đại vận, Lưu niên Bát Tự', 'Trọn luận chính và Đọc sâu (theo sách)'],
   tron_bo: ['Mười hai cung, Tổng luận, mọi mục Bát Tự', 'Gồm cả gói Vận năm', 'Trọn luận chính và Đọc sâu, kèm trang sách'],
   cao_cap: ['Gồm cả gói Trọn bộ', 'Luận riêng cho mọi chương: bài viết riêng cho lá số', '30 ngày chat với Bát Bát (tới 30 câu/ngày)'],
+  chiem_tinh: ['Bản đồ sao phương Tây (trang Chiêm tinh), riêng cho một ngày giờ và nơi sinh', 'Đọc sâu bảy chương đời sống', 'Trọn Tổng hợp và Thời vận'],
 };
 function paintPlans() {
   const tag = plans.placeholder ? `<small class="muted"> · ${esc(plans.placeholderLabel)}</small>` : '';

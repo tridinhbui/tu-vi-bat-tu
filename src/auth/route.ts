@@ -17,6 +17,10 @@ const redirect = (to: string, cookies: string[] = []) => {
   return new Response(null, { status: 302, headers: h });
 };
 const OAUTH_COOKIE = "tvbt_oauth";
+/** Where the browser goes back to after signing in: "?next=" of the start link when it is one of the site's own pages (a path of
+ *  lowercase words, nothing else: never another host), else the home page. */
+const NEXT_COOKIE = "tvbt_next";
+export const safeNext = (v: string | null | undefined) => v && /^\/[a-z0-9-]+\/?$/.test(v) ? v : "/";
 
 // Compares through SHA-256 so the comparison does not leak where two secrets first differ.
 async function sameSecret(a: string, b: string): Promise<boolean> {
@@ -41,13 +45,14 @@ export async function handleAuth(request: Request, env: AuthEnv): Promise<Respon
 
   if (path === "/api/auth/google") {
     const state = newState();
-    return redirect(authUrl(cfg, request, state), [setCookie(request, OAUTH_COOKIE, state, 600)]);
+    const next = safeNext(url.searchParams.get("next"));
+    return redirect(authUrl(cfg, request, state), [setCookie(request, OAUTH_COOKIE, state, 600), setCookie(request, NEXT_COOKIE, next === "/" ? "" : next, next === "/" ? 0 : 600)]);
   }
 
   if (path === "/api/auth/google/callback") {
     const state = url.searchParams.get("state"), code = url.searchParams.get("code");
     const expected = readCookie(request, OAUTH_COOKIE);
-    const clear = setCookie(request, OAUTH_COOKIE, "", 0);
+    const clear = setCookie(request, OAUTH_COOKIE, "", 0), next = safeNext(readCookie(request, NEXT_COOKIE)), clearNext = setCookie(request, NEXT_COOKIE, "", 0);
     if (!code || !state || !expected || state !== expected) return redirect("/?login=failed", [clear]);
     try {
       const p = await exchangeCode(cfg, request, code);
@@ -59,7 +64,7 @@ export async function handleAuth(request: Request, env: AuthEnv): Promise<Respon
           .bind(user.id, p.sub, p.email, p.name, p.picture, Math.floor(Date.now() / 1000)).run();
       }
       await bump(db, "signins");                                 // every successful sign-in, new account or returning
-      return redirect("/", [clear, await createSession(db, request, user.id)]);
+      return redirect(next, [clear, clearNext, await createSession(db, request, user.id)]);
     } catch {
       return redirect("/?login=failed", [clear]);
     }
