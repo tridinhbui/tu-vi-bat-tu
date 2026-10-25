@@ -1,6 +1,48 @@
-# Biểu đồ vận "Tổng quan lá số" — đánh giá (indices-3.1.0, 2026-10-24)
+# Biểu đồ vận "Tổng quan lá số" — đánh giá (indices-3.2.0, 2026-10-24)
 
-## 3.1.0 (2026-10-24): luật đại / tiểu hạn Thực Hành tr.115-117
+## 3.2.0 (2026-10-24): các luật nặng của Thực Hành tr.115-117, lời trung tính; IX.10 bù Kình Đà hãm
+
+Chủ dự án quyết (2026-10-24):
+
+1. Thêm các mục trước đây "chờ duyệt", tức những mục nói chuyện chết, tù, tai nạn, thương tật, bệnh, bỏng, chết đuối, tang. Người đọc chỉ thấy "theo sách rất bất lợi"; sự việc của sách chỉ nằm trong `docs/INDICES-TH115-117.md`. Có test chặn chữ sự việc lọt vào lời đọc.
+2. Vế "không hề gì" của IX.10 bù phần hãm của Kình / Đà ở chính cung đại hạn, lưu đại hạn và tiểu hạn của người tuổi Thìn Tuất Sửu Mùi. Mục hãm KL tr.233 vẫn ở trong "Căn cứ", kèm mục bù `KL233_HAM_TH115_IX10` cùng trọng số.
+
+25 luật mới (bên bất lợi, trọng số 1): IX.7, câu đầu IX.8, IX.11, đoán cách 5, thất lợi 6a, 6b, 6d, 6f-6m, 6o, có tang 7a-7i. Câu sau của IX.8 không tính được, vì sách không nói "sao giải cứu" là sao nào. Hai nhãn mới trong `van_han_rules.json`:
+
+- `han: "tieu"` (6i, 6j): chỉ tính ở lớp tiểu hạn;
+- `han: "trung_phung"` (IX.7): chỉ tính ở năm có tiểu hạn đứng đúng cung đại hạn đang đi. `van_han.read(..., han=)` dùng cùng nhãn ấy cho lời đọc đại hạn và tiểu hạn.
+
+Cách đọc vị trí sao và số cung khớp của từng luật: xem `docs/INDICES-TH115-117.md`. Luật rộng nhất là 6a (1.356 cung vận trên 1.000 lá: Cơ Nguyệt Đồng Lương hoặc Cự Nhật gặp một sao trong Kình, Đà, Không, Kiếp, Phá Toái, Kiếp Sát). 7c không khớp lá nào.
+
+Kèm theo: merge `main` ở máy (DEEP-3 Tử Vi, Bát Tự). `knowledge.json` và seed D1 được sinh lại; `corpus1000` lấy bản của main rồi tính lại câu đọc vận; golden `menh_cu_tuat.*` được sinh lại.
+
+### Độ khớp (`node tools/interpret/eval_indices.ts`, tiểu hạn theo KL)
+
+| Chỉ số | 3.1.0 (trước merge) | **3.2.0** |
+|---|---|---|
+| Chặng ở tam hợp Thái Tuế bị vẽ dưới "Trung bình" | 447 / 2.244 (19,9 %), 100 % có giải thích | 499 / 2.244 (22,2 %), 100 % có giải thích |
+| Chặng có mức khác chiều lời sách | 2.241 / 10.000, 100 % có giải thích | 1.851 / 10.000, 100 % có giải thích |
+| Năm có mức khác chiều lời sách của chính cung | 5.155 / 20.596 | 4.427 / 20.596 |
+| Năm khác phía "Trung bình" với chặng của nó | 691 / 20.596, 100 % có giải thích | 726 / 20.596, 100 % có giải thích |
+| Chặng / năm thiếu căn cứ | 0 | 0 |
+| Năm mức, chặng / năm / tháng | 12 / 21 / 34 / 21 / 12 % | 12 / 21 / 34 / 21 / 12 % |
+| Tháng trùng mức của năm | 63,5 % | 64,1 % |
+| Tương quan điểm chặng với chất lượng bẩm sinh | 0,165 | 0,182 |
+| Radar so với sổ cái (1.124 cặp) | cùng chiều 46,8 %, ngược 13,2 % | cùng chiều 45,6 %, ngược 13,2 % (đổi do merge DEEP-3, radar không đọc luật vận) |
+
+**Số giai đoạn đổi mức** so với 3.1.0 trên cùng corpus đã merge:
+
+- chặng: 2.503 / 10.000 (25 %), trong đó 99 chặng đổi từ hai bậc trở lên;
+- năm: 4.811 / 20.596 (23 %), trong đó 72 năm đổi từ hai bậc trở lên.
+
+Lý do: 25 luật đều ở bên bất lợi. Thang vẫn chia theo phân vị, nên năm mức giữ 12 / 21 / 34 / 21 / 12 %; chỉ thứ tự giữa các giai đoạn thay đổi.
+
+Số lá có luật mới vào biểu đồ (đại vận hoặc năm): 6a 832, 7i 395, IX.10 bù hãm 339, 6k 299, 7g 286, 6b 240, DC5 188, IX.8 185, 6d 147, 7d 107, 7b 59, 7f 55, 6l 44, 6h 26, 7e 15, IX.11 15, 6i 14, 6j 15, IX.7 13, 6f 8, 7h 7, 6o 6, 6g 3, 7a 2, 6m 1.
+
+Việc còn mở: (1) Bị chú tr.117 nói muốn đoán tang thì cách phải có sẵn ở cung Phụ Mẫu. Hệ thống không đoán tang nên chưa áp điều kiện này, chờ chủ dự án xem. (2) Lớp văn vận hạn (`van_han.json`) chưa có câu cho các luật mới, nên chương vận hạn bỏ qua chúng; biểu đồ vẫn dùng. (3) Ba luật "phát" cũ đọc rộng hơn trang sách (xem cuối `docs/INDICES-TH115-117.md`).
+
+
+## 3.1.0 (2026-10-24): luật đại / tiểu hạn Thực Hành tr.115-117 (các mục "chờ duyệt" dưới đây đã thêm ở 3.2.0)
 
 Bảng đối chiếu đủ từng mục (trang, nguyên văn, trạng thái) ở `docs/INDICES-TH115-117.md`. Mọi mục đã xem ảnh trang. Tóm tắt:
 

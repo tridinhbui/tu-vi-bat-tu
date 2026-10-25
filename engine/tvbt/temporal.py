@@ -140,7 +140,7 @@ def tuvi_year(chart: TuViChart, year: int) -> dict:
         nguyet = {by_branch[BRANCHES_VI[(m1 + k) % 12]]["name"]: k + 1 for k in range(12)}
     return {
         "luu_tu_hoa_reading": hoa_read,
-        "tieu_han_reading": van_han.read(chart, th_palace),
+        "tieu_han_reading": van_han.read(chart, th_palace, han="tieu"),
         "tieu_han_topic": van_han.DOMAIN.get(th_palace),
         "year": year, "age_tuoi_mu": age, "tieu_han_branch": BRANCHES_VI[th], "tieu_han_palace": by_branch[BRANCHES_VI[th]]["name"], "annual_pillar": gz_name(s, b),
         "dai_han": dh, "luu_thai_tue_palace": tt["name"], "luu_thai_tue_branch": tt["branch"],

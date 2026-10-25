@@ -1,7 +1,7 @@
 /* Account page (#tai-khoan), share links, "Ẩn thông tin sinh" and the personal chapter order. Uses the tokens of app.css. */
 body:not([data-view=account]) #account-view{display:none}
 body[data-view=account] #home,body[data-view=account] #chart-view{display:none}
-body[data-view=account] .nav,body[data-view=account] .hdr-pdf{display:none}
+
 
 /* birth data: hidden on exports when the owner asks, and printed as "ẩn" when a share link never sent it */
 .bd-x{display:none;font-style:italic;color:inherit;opacity:.75}

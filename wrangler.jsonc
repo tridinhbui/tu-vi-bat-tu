@@ -7,7 +7,8 @@
   // /api/interpret on, and mode "prose" may use the draft prose cards (none is expert-reviewed yet); the report marks the text as draft
   // TVBT_PAYWALL: the reading tiers (src/billing/paywall.ts): guests read the first third of each chapter, members the whole main reading,
   // the Đọc sâu part is opened with xu. "0" (or unset) sends every reading whole to everyone.
-  "vars": { "TVBT_INTERPRET": "1", "TVBT_PROSE_DRAFT": "1", "TVBT_PAYWALL": "1",
+  // TVBT_TAROT: "1" opens the Tarot API (src/tarot/route.ts); apply migrations/app/0011_tarot.sql first (docs/TAROT.md). Off by default.
+  "vars": { "TVBT_INTERPRET": "1", "TVBT_PROSE_DRAFT": "1", "TVBT_PAYWALL": "1", "TVBT_TAROT": "0",
     // Public OAuth client id (not a secret). The client secret is set with `wrangler secret put GOOGLE_CLIENT_SECRET`.
     "GOOGLE_CLIENT_ID": "373246803608-1ivuob3khnch8hko5h42o4fnj5o46kql.apps.googleusercontent.com" },
   // the deploy's version id: part of the interpretation cache key, so a code change never serves a reading cached by the previous deploy

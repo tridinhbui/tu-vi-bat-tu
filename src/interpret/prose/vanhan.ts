@@ -66,7 +66,8 @@ export function pullOf(items: Item[], side: 'support' | 'limit', stem: string): 
   const xs = items.filter(i => i.side === side).sort((a, b) => b.w - a.w || (a.id < b.id ? -1 : 1)).filter(i => i.w >= 0.5).slice(0, 1);
   const name = (i: Item) => /^DV_HOA_|^LUU_HOA/.test(i.id) ? `${i.id.includes('KY') ? 'Hóa Kỵ' : i.id.includes('LOC') ? 'Hóa Lộc' : i.id.includes('QUYEN') ? 'Hóa Quyền' : 'Hóa Khoa'} theo can ${stem} rơi vào cung ${i.palace}`
     : i.star && i.dignity ? `${i.star} ${i.dignity} ở cung ${i.palace}` : (i.gist ?? i.text).replace(/^vận có /, '').replace(/,?\s*sách đọc là .*$/, '').replace(/:\s.*$/, '').replace(/[.;]\s*$/, '');
-  return [...new Set(xs.map(name))].join(', lại thêm ');
+  // a rule's own "của sách" / "theo sách" is method talk, not part of the reason named here (META word in reader text)
+  return [...new Set(xs.map(i => name(i).replace(/\s*(của|theo) sách\b/g, '')))].join(', lại thêm ');
 }
 
 /** đại hạn shown: those starting by this age */

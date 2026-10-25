@@ -1,6 +1,7 @@
 /* Admin page (admin.html, js/admin.js). Thiên Bàn tokens from app.css; message bubbles reuse feedback.css. */
 .adm{background:var(--bg)}
-.adm-tabs{display:flex;gap:4px;margin-left:auto}
+.adm-bar{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s4)}.adm-bar:has(.adm-tabs[hidden]){display:none}
+.adm-tabs{display:flex;gap:4px;flex-wrap:wrap}.adm-who{margin-left:auto}
 .adm-tabs button{display:inline-flex;align-items:center;gap:6px;font:500 .9rem var(--sans);color:var(--text2);background:none;border:0;padding:10px 14px;border-radius:99px;cursor:pointer}
 .adm-tabs button:hover{background:var(--parchment);color:var(--ink)}
 .adm-tabs button[aria-selected=true]{background:var(--parchment);color:var(--ink);font-weight:600}
@@ -55,7 +56,7 @@
 .ib-back{display:none}
 .ib-log{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:200px}
 @media (max-width:760px){
-  .hdr{gap:var(--s3)}.adm-who{display:none}
+  .adm-who{display:none}
   .inbox{grid-template-columns:1fr;min-height:0}
   .ib-list{border-right:0;max-height:none}
   .ib-thread{display:none;max-height:none;min-height:70vh}

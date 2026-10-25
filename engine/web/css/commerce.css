@@ -30,7 +30,7 @@
 .cm-banner{margin:var(--s4) 0;padding:var(--s3) var(--s4);border:1px dashed var(--cinnabar);border-radius:var(--r-sm);background:color-mix(in srgb,var(--cinnabar) 7%,var(--raise));color:var(--text);font-size:.92rem}
 .cm-banner b{color:var(--cinnabar)}
 .cm-card{border:1px solid var(--bd);border-radius:var(--r);background:var(--raise);padding:var(--s4) var(--s5)}
-.cm-hdr{display:flex;align-items:center;gap:var(--s3)}.cm-hdr .cm-who{margin-left:auto;font-size:.88rem;color:var(--text2)}
+
 /* comparison table */
 .cmp-wrap{overflow-x:auto;border:1px solid var(--bd);border-radius:var(--r);background:var(--raise)}
 .cmp{width:100%;border-collapse:collapse;min-width:560px;font-size:.94rem}
@@ -62,7 +62,7 @@
 .rc-paid{background:color-mix(in srgb,var(--pos) 15%,var(--raise));color:var(--pos)}.rc-pending{background:var(--surface);color:var(--text2)}.rc-failed{background:color-mix(in srgb,var(--neg) 12%,var(--raise));color:var(--neg)}
 .policy{max-width:760px}.policy h2{font-size:1.35rem;margin:var(--s6) 0 var(--s2)}.policy li{margin:6px 0}
 @media print{.site-header,.no-print{display:none!important}.cm-page{padding:0}}
-@media (max-width:560px){.cm-hdr .cm-who{display:none}}
+
 
 /* "Đọc sâu (theo sách)" offer for members: a closed dropdown under the chapter; the plans and prices show only when opened */
 .pw-deep-fold{margin:var(--s3) 0;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--raise)}
