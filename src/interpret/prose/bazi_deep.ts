@@ -19,6 +19,7 @@
 // pp.378-386) and the điều hậu table (pp.389-396), by stem name (`reconcile`, mirrored from bazi_deep.pipeline.reconcile for older facts).
 // Phù ức is a draft method and nothing here reasons by it.
 import type { ChartInput, Knowledge } from '../types.ts';
+import LUCK_REL from '../../../engine/data/kg/bazi_luck_relations.json' with { type: 'json' };
 import { Micro, finish, lowerFirst } from './micro.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 import { kinYear, DOM_OF, fracVi, type BaziKin, type KinFrames, type KinYear, type KinWeigh } from './bazi_kin.ts';
@@ -46,6 +47,10 @@ export interface Reconcile {
   cach: 'tot' | 'xau' | 'tron' | null; climate: 'thuan' | null; warm: boolean; agree: 'cung' | 'khac' | 'tron' | 'mot_phia' | 'khong';
   verdict: 'thuan' | 'kha_thuan' | 'co_dieu_kien' | 'nang' | 'trung';
   support?: Array<{ stem: string; ten_god: string; group: string; why: string[] }>;
+  /** the relation rule that moved or confirms a luck pillar's verdict (engine/data/kg/bazi_luck_relations.json, he_thong); absent for years */
+  rel?: { rule: string; basis: 'he_thong'; link: 'bien_dong' | 'hop_ky' | 'hop_dung'; effect: 'change' | 'confirm'; from: Reconcile['verdict']; events: BaziEvent[] };
+  /** how sure the closing sounds (the same file's display convention); absent in older facts */
+  certainty?: 'ro' | 'vua' | 'yeu';
 }
 /** bazi_deep.depth: the why behind the verdicts (absent in facts older than 2026-10-22) */
 export interface BaziDepth {
@@ -196,7 +201,8 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
   const needRule = fired.has('BT_TTT_HANNOAN_CAN_NOAN') ? 'BT_TTT_HANNOAN_CAN_NOAN' : fired.has('BT_TTT_HANNOAN_CAN_HAN') ? 'BT_TTT_HANNOAN_CAN_HAN' : '';
   const needEl = needRule === 'BT_TTT_HANNOAN_CAN_NOAN' ? 'Hỏa' : needRule ? 'Thủy' : '';
   const yongG = tableOk ? CT!.yong : [], totG = tableOk ? CT!.van_tot : [], xauG = tableOk ? CT!.van_xau : [];
-  const rcOf = (t: BaziTemporal) => t.reconcile ?? reconcileTs(t, dm, table, needEl, yongG, xauG);
+  // a luck pillar is judged with its relations to the natal chart (bazi_luck_relations.json), a year by the tables alone
+  const rcOf = (t: BaziTemporal, luck = false) => t.reconcile ?? reconcileTs(t, dm, table, needEl, yongG, xauG, luck ? t.events : undefined);
   const tvhPage = CT?.page ? `TVH pp.${CT.page.replace(/\s/g, '')}` : 'TVH pp.378-386';
   const Y = P?.yong ?? null;
   // the useful god the reading leans on: the first of the book's order that the chart holds ("không có X thì lấy Y", TVH pp.378-381)
@@ -488,7 +494,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     say(c3, fill(m.pick('bd|spk', Dd.special_pick), { list: join(tongs.map(id => F.verified_text[id]?.match(/cách ([^:(,]+?)(?::| \(|,|$)/)?.[1]?.trim() ?? id).filter(Boolean)), name: CT.special.replace(/\s*\(TVH\)$/, '') }), 'he_thong', [], [],
       { note: 'Khi lá số khớp nhiều cách đặc biệt, bộ máy lấy cách đầu tiên theo thứ tự xét của engine/tvbt/bazi_deep/tvh_cach.py (chuyên vượng, tòng tài, tòng sát, tòng nhi, hóa khí); sách không nói nên chọn cách nào.' });
   // part 4: where the two tables part ways and how far each goes (yongshen.METHOD_META), so where they differ the verdict is conditional
-  const luckRcs = D.luck.map(l => rcOf(l));
+  const luckRcs = D.luck.map(l => rcOf(l, true));
   const clash = differs || luckRcs.some(r => r.agree === 'khac');
   if (clash && tableOk && table.length && F.reliability?.length) {
     const note = 'Mức tin cậy (yongshen.METHOD_META): bảng dụng thần theo cách tr.378-386 chép khớp trang in, quy tắc 40% khớp tr.355; bảng điều hậu tr.389-396 chép khớp trang in, việc gán can chính là Dụng là quy ước của hệ thống, và Thiệu Vĩ Hoa ghi bảng do độc giả gửi, chưa rõ xuất xứ (tr.388). Chưa phép nào được kiểm nghiệm thực tế.';
@@ -733,7 +739,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const xs: ProseSentence[] = [], ds: ProseSentence[] = [];
     const [stem, branch] = l.stem && l.branch ? [l.stem, l.branch] : l.pillar.split(' ');
     const cur = meta.start_year <= yr && yr < meta.start_year + 10;
-    const step = `luck:${l.index}`, rc = rcOf(l), who = { stem, branch };
+    const step = `luck:${l.index}`, rc = rcOf(l, true), who = { stem, branch };
     const hv0 = { age: String(Math.round(meta.start_age)), from: String(meta.start_year), to: String(meta.start_year + 9), pillar: l.pillar,
       cur: cur ? fill(F.luck_now, { year: String(yr) }) : '', stem, branch, god: l.ten_god ?? '—', bgod: l.branch_god ?? '—', stage: l.stage ?? '' };
     // REVIEW-19 W6: the pillar and its two gods joined to the cách verdict in one sentence (the cách condition at the first pillar only); the
@@ -895,8 +901,24 @@ export function dhRoleOf(stem: string | undefined, table: string[]): 'yong' | 'x
  *  tables disagreeing is "tùy lúc có dụng thần đi kèm"; the đại vận paragraphs, the lưu niên and the closing all use this one class */
 export type VerdictClass = Reconcile['verdict'] | 'tron';
 export const classOf = (rc: Reconcile): VerdictClass => rc.verdict === 'co_dieu_kien' && rc.agree === 'tron' ? 'tron' : rc.verdict;
-/** bazi_deep.pipeline.reconcile, for facts from before it (same inputs, same table) */
-export function reconcileTs(t: BaziTemporal, dm: string, table: string[], needEl: string, yongG: string[], xauG: string[]): Reconcile {
+type RelRule = { id: string; kinds: string[]; targets?: string[]; element?: 'useful' | 'harmful'; link: NonNullable<Reconcile['rel']>['link'];
+  change: Partial<Record<Reconcile['verdict'], Reconcile['verdict']>>; confirm: string[] };
+const REL_RULES = (LUCK_REL as unknown as { rules: RelRule[] }).rules;
+/** the element of a ten-god group for a day master (bazi_deep.pipeline.group_element) */
+export const groupElement = (dm: string, g: string) => EL_ORDER[(EL_ORDER.indexOf(stemEl(dm)) + ['Tỉ Kiếp', 'Thực Thương', 'Tài', 'Quan Sát', 'Ấn'].indexOf(g)) % 5];
+/** bazi_deep.pipeline._relation: the first rule of bazi_luck_relations.json whose events match and whose change / confirm lists the verdict */
+function relationTs(verdict: Reconcile['verdict'], events: BaziEvent[], useful: Set<string>, harmful: Set<string>): Reconcile['rel'] | null {
+  const side = (e: BaziEvent) => { const el = e.element ?? ''; return useful.has(el) && harmful.has(el) ? null : useful.has(el) ? 'useful' : harmful.has(el) ? 'harmful' : null; };
+  for (const r of REL_RULES) {
+    const hit = events.filter(e => r.kinds.includes(e.kind) && (!r.targets || e.targets.some(t => r.targets!.includes(t))) && (!r.element || side(e) === r.element));
+    if (r.element && events.some(e => r.kinds.includes(e.kind) && side(e) !== null && side(e) !== r.element)) continue;
+    if (!hit.length || (!(verdict in r.change) && !r.confirm.includes(verdict))) continue;
+    return { rule: r.id, basis: 'he_thong', link: r.link, effect: verdict in r.change ? 'change' : 'confirm', from: verdict, events: hit };
+  }
+  return null;
+}
+/** bazi_deep.pipeline.reconcile, for facts from before it (same inputs, same table; `events` for a luck pillar only) */
+export function reconcileTs(t: BaziTemporal, dm: string, table: string[], needEl: string, yongG: string[], xauG: string[], events?: BaziEvent[]): Reconcile {
   const stem = t.stem ?? '', cs = t.tvh?.stem ?? null, cb = t.tvh?.branch ?? null;
   const cach: Reconcile['cach'] = cs && (cb == null || cb === cs) ? cs : !cs ? cb : 'tron';
   const warm = !!needEl && !!stem && stemEl(stem) === needEl;
@@ -905,6 +927,12 @@ export function reconcileTs(t: BaziTemporal, dm: string, table: string[], needEl
     : cach === 'xau' ? (climate ? ['khac', 'co_dieu_kien'] : ['mot_phia', 'nang']) : cach === 'tron' ? ['tron', 'co_dieu_kien']
     : climate ? ['mot_phia', 'kha_thuan'] : ['khong', 'trung'];
   const rc: Reconcile = { cach, climate, warm, agree, verdict };
+  const useful = new Set([...yongG.map(g => groupElement(dm, g)), ...(needEl ? [needEl] : [])]), harmful = new Set(xauG.map(g => groupElement(dm, g)));
+  const rel = events ? relationTs(verdict, events, useful, harmful) : null;
+  if (rel) { rc.verdict = REL_RULES.find(r => r.id === rel.rule)!.change[verdict] ?? verdict; rc.rel = rel; }
+  const sig = +(cs != null) + +(cb != null) + +(climate != null) + +!!rel;
+  const split = agree === 'khac' || agree === 'tron' || rel?.effect === 'change';
+  rc.certainty = split ? (sig >= 3 ? 'vua' : 'yeu') : sig >= 3 ? 'ro' : sig === 2 ? 'vua' : 'yeu';
   if (cach === 'xau' || cach === 'tron') rc.support = (t.hidden ?? []).map(h => ({ stem: h.stem, ten_god: h.ten_god, group: groupOf(dm, h.stem),
     why: [...(yongG.includes(groupOf(dm, h.stem)) ? ['cach'] : []), ...(table.includes(h.stem) ? ['dieu_hau'] : [])] })).filter(x => x.why.length && !xauG.includes(x.group));
   return rc;
