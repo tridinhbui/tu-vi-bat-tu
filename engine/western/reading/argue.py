@@ -45,6 +45,7 @@ class Claim:
     ev: list[dict] = field(default_factory=list)
     timed: list[tuple[str, str]] = field(default_factory=list)   # (school, point) or ("cusp", n) whose house the claim rests on
     pick: bool = False               # the method itself chose this planet (only picks count as schools agreeing)
+    warn: list[str] = field(default_factory=list)       # the book's traits of the weak planet, said as 'cần coi chừng', never as a portrait
 
 
 # --------------------------------------------------------------------------------------------- plain-language glosses
@@ -123,15 +124,16 @@ def _time_note(f: Facts, cid: str, used: list[Claim]) -> str:
         return ""
     minutes = max(1, round(m * 4))
     who = "cung Mọc" if p == "asc_sign" else f"đỉnh Nhà {p}" if s == "cusp" else P(p)
+    if not _once(f, "time:explained"):
+        # explained in full in the first summary; later ones name a point only once
+        return f" Độ nhạy với giờ sinh: {who}, khoảng {minutes} phút." if _once(f, f"time:{who}:{minutes}") else ""
+    _once(f, f"time:{who}:{minutes}")
     if minutes <= 20:
-        if _once(f, "time:explain"):
-            _once(f, f"time:{who}:{minutes}")
-            return (f" Cần biết: phần dựa vào nhà sẽ đổi nếu giờ sinh lệch khoảng {minutes} phút (chỗ nhạy nhất là {who}; trục nhà quay chừng 1° mỗi 4 phút), "
-                    f"nên nếu giờ sinh chưa chắc, hãy coi phần đó là tạm.")
-        return f" Ở đây {who} cũng nhạy với giờ sinh (khoảng {minutes} phút)." if _once(f, f"time:{who}:{minutes}") else ""
-    if _once(f, "time:ok"):
-        return f" Phần dựa vào nhà vẫn đứng nếu giờ sinh lệch dưới khoảng {minutes} phút (nhạy nhất là {who})."
-    return ""
+        return (f" Cần biết: nếu giờ sinh sai quá khoảng {minutes} phút, vị trí nhà của {who} có thể đổi (các nhà xoay chừng 1° mỗi 4 phút) "
+                f"và phần dựa vào nhà cần đọc lại." + (" Như vậy phần này chỉ đúng khi giờ sinh thật chính xác." if minutes <= 3 else "")
+                + " Các chương sau chỉ ghi gọn độ nhạy này.")
+    return (f" Phần dựa vào nhà đứng vững nếu giờ sinh sai dưới khoảng {minutes} phút (chỗ nhạy nhất là {who}; các nhà xoay chừng 1° mỗi 4 phút). "
+            f"Các chương sau chỉ ghi gọn độ nhạy này.")
 
 
 def _reasons(f: Facts, cid: str, whys: list[str]) -> str:
@@ -144,23 +146,23 @@ def _reasons(f: Facts, cid: str, whys: list[str]) -> str:
     return " " + lead + "; ".join(f"({i}) {w}" for i, w in enumerate(whys, 1)) + "."
 
 
-CONCL = {   # chapter -> verdict -> conclusion; each chapter words it its own way
-    "tinh_cach": {"thuận": "Những nét ấy có chỗ dựa, nên thường hiện ra tự nhiên mà không cần gắng", "nghịch": "Những nét ấy có thật nhưng khó hiện ra trọn vẹn; chúng cần được rèn",
-                  "hai mặt": "Mặt sáng và mặt cần để ý cùng có mặt; mặt nào trội lên tùy hoàn cảnh", "nhẹ": "Đây là nét nền hơn là điểm nhấn"},
-    "tu_duy": {"thuận": "Năng lực học hỏi có nền vững để đi xa", "nghịch": "Trí óc có năng lực, nhưng muốn đi xa thì cần phương pháp và nhẫn nại",
-               "hai mặt": "Có chỗ sắc, có chỗ vướng; biết chỗ nào là chỗ nào giúp chọn cách học", "nhẹ": "Tư duy ở mức nền, không có chứng mạnh theo chiều nào"},
-    "cam_xuc": {"thuận": "Cảm xúc có nơi neo đậu, ít khi bị cuốn đi", "nghịch": "Cảm xúc nhạy và dễ chao, nên nề nếp và chỗ dựa quen thuộc giúp nhiều",
-                "hai mặt": "Có chỗ dựa nhưng cũng có lúc chao; nhận ra lúc nào là lúc nào là bước đầu", "nhẹ": "Đời sống cảm xúc khá êm, ít biến động lớn"},
-    "su_nghiep": {"thuận": "Đường nghề được nhiều chứng nâng đỡ", "nghịch": "Đường nghề cần tự tạo chỗ đứng nhiều hơn là chờ được nâng",
-                  "hai mặt": "Đường nghề có điểm tựa thật nhưng cũng có chỗ vướng cần tính trước", "nhẹ": "Danh vọng không phải điểm nhấn của lá số này; điều nó nói rõ nhất là loại việc hợp với bạn"},
-    "tai_chinh": {"thuận": "Tiền đến và ở lại khá thuận", "nghịch": "Giữ được tiền đòi hỏi kỷ luật hơn là trông vào vận",
-                  "hai mặt": "Có điểm tựa thật để kiếm tiền, nhưng cũng có chỗ hở khi giữ tiền", "nhẹ": "Lá số không nghiêng hẳn về phía nào trong chuyện tiền bạc"},
-    "quan_he": {"thuận": "Các dấu hiệu gắn bó nghiêng rõ về phía thuận", "nghịch": "Quan hệ lâu dài cần vun đắp nhiều hơn mức trung bình",
-                "hai mặt": "Có điểm tựa cho gắn bó, nhưng cũng có chỗ dễ vấp cần nói ra sớm", "nhẹ": "Không có dấu hiệu mạnh theo chiều nào"},
-    "gia_dinh": {"thuận": "Gia đình gốc là chỗ dựa thật", "nghịch": "Bạn thường phải tự đứng vững nhiều hơn là được gia đình đỡ",
-                 "hai mặt": "Gia đình vừa nâng đỡ vừa có phần nặng", "nhẹ": "Gia đình gốc không phải điểm nhấn của lá số"},
-    "dinh_huong": {"thuận": "Điều bạn muốn và điều đời mang tới đi cùng một hướng", "nghịch": "Hướng đi cần được chọn có ý thức, vì điều mình muốn và điều đời mang tới dễ tách nhau",
-                   "hai mặt": "Hướng đi có sức dẫn, nhưng điều mình muốn và điều đời mang tới chưa chắc trùng nhau", "nhẹ": "Hướng đi không bị kéo mạnh về phía nào"},
+CONCL = {   # chapter -> verdict -> what the balance means in practice (the thesis already said what it is)
+    "tinh_cach": {"thuận": "Nói cách khác, những nét ấy thường tự hiện ra mà không cần gắng", "nghịch": "Nói cách khác, những nét tốt có thật nhưng cần được rèn mới hiện ra trọn",
+                  "hai mặt": "Nói cách khác, mặt sáng và mặt cần để ý cùng có mặt; mặt nào trội lên tùy hoàn cảnh", "nhẹ": "Đây là nét nền hơn là điểm nhấn"},
+    "tu_duy": {"thuận": "Trong thực tế, việc học có nền vững để đi xa", "nghịch": "Trong thực tế, muốn học sâu thì phương pháp và nhẫn nại quan trọng hơn sự nhanh nhạy",
+               "hai mặt": "Trong thực tế, biết chỗ nào sắc, chỗ nào vướng giúp chọn cách học", "nhẹ": "Lá số không có dấu hiệu mạnh về cách học, theo chiều nào"},
+    "cam_xuc": {"thuận": "Trong thực tế, cảm xúc có nơi neo đậu, ít khi bị cuốn đi", "nghịch": "Trong thực tế, nề nếp và những chỗ dựa quen thuộc giúp nhiều hơn là cố gồng",
+                "hai mặt": "Trong thực tế, có chỗ dựa nhưng cũng có lúc chao; nhận ra lúc nào là lúc nào là bước đầu", "nhẹ": "Đời sống cảm xúc khá êm, ít biến động lớn"},
+    "su_nghiep": {"thuận": "Trong thực tế, đường nghề có nhiều chỗ được nâng đỡ", "nghịch": "Trong thực tế, chỗ đứng trong nghề thường phải tự tạo hơn là chờ được nâng",
+                  "hai mặt": "Trong thực tế, có điểm tựa thật nhưng cũng có chỗ vướng nên tính trước", "nhẹ": "Danh vọng (đọc qua Mặt Trời và chủ Thiên Đỉnh) không phải điểm nhấn của lá số này; điều nó nói rõ nhất là loại việc hợp với bạn"},
+    "tai_chinh": {"thuận": "Trong thực tế, tiền đến và ở lại khá thuận", "nghịch": "Trong thực tế, giữ được tiền nhờ kỷ luật và kế hoạch hơn là nhờ vận",
+                  "hai mặt": "Trong thực tế, có điểm tựa để kiếm tiền nhưng cũng có chỗ hở khi giữ tiền", "nhẹ": "Chuyện tiền bạc không nghiêng hẳn về phía nào"},
+    "quan_he": {"thuận": "Trong thực tế, đây là nền tốt để vun đắp", "nghịch": "Trong thực tế, quan hệ lâu dài cần nói ra và vun đắp nhiều hơn mức trung bình",
+                "hai mặt": "Trong thực tế, có điểm tựa nhưng cũng có chỗ dễ vấp, nên nói ra sớm", "nhẹ": "Chuyện gắn bó lâu dài không có dấu hiệu mạnh theo chiều nào"},
+    "gia_dinh": {"thuận": "Đây là nguồn lực bạn có thể dựa vào khi cần", "nghịch": "Vì vậy chỗ dựa của bạn phần nhiều là do tự gây dựng",
+                 "hai mặt": "Gia đình vừa là nguồn lực vừa có phần nặng", "nhẹ": "Gia đình gốc không phải điểm nhấn của lá số"},
+    "dinh_huong": {"thuận": "Trong thực tế, điều bạn muốn và điều đời mang tới dễ đi cùng một hướng", "nghịch": "Trong thực tế, hướng đi nên được chọn có ý thức, vì điều mình muốn và điều đời mang tới dễ tách nhau",
+                   "hai mặt": "Trong thực tế, hướng đi có sức dẫn, nhưng điều mình muốn và điều đời mang tới chưa chắc trùng nhau", "nhẹ": "Hướng đi không bị kéo mạnh về phía nào"},
 }
 
 
@@ -169,6 +171,8 @@ def _lord_years(f: Facts, p: str, n: int = 2) -> list[int]:
     if not f.time_known or "age_now" not in f.__dict__:
         return []
     a0 = f.__dict__["age_now"]
+    if a0 > 90:
+        return []
     asc_i = sign_index(f.lon["asc"])
     return [a for a in range(a0, a0 + 13) if dignity.domicile_lord(SIGNS[(asc_i + a) % 12]) == p][:n]
 
@@ -190,8 +194,8 @@ def summarize(f: Facts, cid: str, heading: str, claims: list[Claim], thesis, til
     text = thesis(top_key, top, claims, verdict).strip()
     ranked = sorted(claims, key=lambda c: (-c.w, claims.index(c)))
     support = [c for c in top if c.pol == side] + [c for c in ranked if c not in top and c.pol == side]
-    if len(support) < 2:
-        support += [c for c in top if c.pol == 0][:2 - len(support)]
+    if not support:            # a descriptive claim is given as a reason only when nothing argues either way
+        support += [c for c in top if c.pol == 0 and c.show][:2]
     contra = [c for c in ranked if c.pol == -side]
     text += _reasons(f, cid, [c.why for c in support[:3]])
     by_planet: dict[str, set] = {}
@@ -203,12 +207,12 @@ def summarize(f: Facts, cid: str, heading: str, claims: list[Claim], thesis, til
     if agree:
         pl, who = agree
         text += (f" {listing(who)} đi theo những phép khác nhau mà cùng chọn {P(pl)}, nên điều này đáng tin hơn một chứng lẻ." if _once(f, "agree")
-                 else f" Ở đây {listing(who)} lại cùng chọn {P(pl)}.")
+                 else f" Cả {listing(who)}, mỗi người theo phép riêng, đều chọn {P(pl)}.")
     if contra:
         text += " " + pick(f"{cid}.contra", ["Kéo về phía ngược lại: ", "Chiều ngược lại: ", "Điều làm cán cân bớt nghiêng: "]) + "; ".join(c.why for c in contra[:2]) + "."
     concl = CONCL[cid][verdict]
     if pos or neg:
-        concl += f" (chứng thuận {pos}, chứng nghịch {neg})"
+        concl += f" (dấu hiệu ủng hộ nặng {pos}, dấu hiệu ngược lại nặng {neg})"
     text += " " + concl + "."
     if verdict == "hai mặt" and tilt:
         yrs = _lord_years(f, tilt)
@@ -216,6 +220,10 @@ def summarize(f: Facts, cid: str, heading: str, claims: list[Claim], thesis, til
             ages = listing([str(y) for y in yrs])
             text += (f" Bên nào trội lên thường lộ rõ hơn vào những năm {P(tilt)} làm chủ năm theo phép đếm năm (profection), gần nhất là năm {ages} tuổi."
                      if _once(f, f"tilt:{tilt}") else f" Năm {ages} tuổi ({P(tilt)} làm chủ năm) cũng là lúc nên để ý mảng này.")
+    for c in top:
+        if c.warn and c.pol < 0 and _once(f, f"warn:{c.ev[0]['id'] if c.ev else c.key}"):
+            text += f" Khi {P(c.ev[0]['id']) if c.ev and c.ev[0]['kind'] == 'planet' else 'sao này'} yếu, sách tả những nét cần coi chừng: {listing(c.warn)}."
+            break
     shows = [s for c in top if c.pol in (side, 0) for s in c.show if s and s not in text][:3]
     if shows:
         holder = next((e["id"] for c in top for e in c.ev if e["kind"] == "planet"), None)
@@ -258,20 +266,21 @@ def personality(f: Facts) -> Para | None:
         mm = M["lilly_manners"][p]
         via = {"in_ascending_sign": "đứng ngay trong cung Mọc", "joined_moon_or_mercury": "đi sát Mặt Trăng hoặc Sao Thủy",
                "lord_of_ascendant": "làm chủ cung Mọc"}[how]
-        traits = mm["well"][:3] if st == "well" else mm["well"][:1] + mm["ill"][:2] if st == "ill" else mm["well"][:2] + mm["ill"][:1]
+        traits = mm["well"][:3] if st != "ill" else mm["well"][:2]
         cl.append(Claim(f"planet:{p}", f"nét của {P(p)}", {"well": 1, "ill": -1}.get(st, 0), 2,
                         f"{P(p)} {via}, nên Lilly lấy nó làm sao chủ tính cách, và nó {_state_words(f, p)}", "Lilly",
                         f"LILLY_CA:{mm['loc']}", _short(traits, 3), [ev_in(f, p, "traditional")],
-                        [("asc_sign", "asc_sign")] if how != "joined_moon_or_mercury" else [], pick=True))
+                        [("asc_sign", "asc_sign")] if how != "joined_moon_or_mercury" else [], pick=True,
+                        warn=_short(mm["ill"], 2) if st == "ill" else []))
     sr = f.soul_ruler()
     r = sr["rulers"][0]
     hon = f.honourable(r)
     soul = M["ptolemy_soul"][r]
     cl.append(Claim(f"planet:{r}", f"nét của {P(r)}", 1 if hon else -1, 2,
-                    (f"Sao Thủy nắm quyền trên chính vị trí của nó (lý trí) và trên Mặt Trăng (cảm xúc)" if r == "mercury" else
-                     f"{P(r)} nắm quyền trên cả Sao Thủy (lý trí) lẫn Mặt Trăng (cảm xúc)") + ", nên Ptolemy coi nó điều khiển cách nghĩ và cách cảm"
+                    f"theo Ptolemy, {P(r)} chi phối cả cách nghĩ (đọc từ Sao Thủy) lẫn cách cảm (đọc từ Mặt Trăng) của bạn"
                     + (", và nó đang đứng ở chỗ quen thuộc của mình" if hon else ", nhưng nó đang ở chỗ lạ"), "Ptolemy",
-                    "PTOL_TETRA:III.13 pp.333-361", _short(soul["honourable"][:3] if hon else soul["honourable"][:1] + soul["opposite"][:2], 3), [ev_planet(f.c, r)], pick=True))
+                    "PTOL_TETRA:III.13 pp.333-361", _short(soul["honourable"][:3] if hon else soul["honourable"][:2], 3), [ev_planet(f.c, r)], pick=True,
+                    warn=[] if hon else _short(soul["opposite"], 2)))
     lg = f.lord_of_geniture
     if lg and len(lg["lords"]) == 1:
         g = lg["lords"][0]
@@ -317,7 +326,7 @@ def mind(f: Facts) -> Para | None:
     wm = f.lilly_state("mercury")
     mm = M["lilly_manners"]["mercury"]
     cl.append(Claim("planet:mercury", "Sao Thủy", {"well": 1, "ill": -1}.get(wm, 0), 2, f"Sao Thủy, sao của trí óc, {_state_words(f, 'mercury')}", "Lilly",
-                    "LILLY_CA:p.543", _short(mm["well"][:3] if wm != "ill" else mm["ill"][:2], 3), [ev_in(f, "mercury", "traditional")]))
+                    "LILLY_CA:p.543", _short(mm["well"][:3], 3), [ev_in(f, "mercury", "traditional")], warn=_short(mm["ill"], 2) if wm == "ill" else []))
     if lm in ("sextile", "trine"):
         cl.append(Claim("planet:mercury", "Sao Thủy", 1, 1, f"Sao Thủy và Mặt Trăng nối nhau bằng {gloss(f, 'góc hài hòa')}, điều Lilly coi là dấu hiệu tiếp thu tốt",
                         "Lilly", "LILLY_CA:p.543", [], [ev_planet(f.c, "moon")]))
@@ -357,7 +366,7 @@ def emotions(f: Facts) -> Para | None:
     st = f.lilly_state("moon")
     mm = M["planets"]["moon"]
     cl.append(Claim("planet:moon", "Mặt Trăng", {"well": 1, "ill": -1}.get(st, 0), 2, f"Mặt Trăng, sao của đời sống cảm xúc, {_state_words(f, 'moon')}", "Lilly",
-                    "LILLY_CA:p.81", _short(mm["lilly_well"]["vi"][:3] if st != "ill" else ["những lúc thiếu điểm tựa cảm xúc, cần nề nếp để giữ mình"], 3),
+                    "LILLY_CA:p.81", _short(mm["lilly_well"]["vi"][:3] if st != "ill" else ["khi thiếu chỗ dựa tinh thần, nề nếp đều đặn giúp giữ thăng bằng"], 3),
                     [ev_in(f, "moon", "traditional")]))
     app = f.moon_contacts()["applies_to"]
     if app:
@@ -387,7 +396,7 @@ def emotions(f: Facts) -> Para | None:
             leo = next((c for c in top if c.author == "Alan Leo"), None)
             out = f"Ở bạn, đời sống cảm xúc {word} (đọc qua Mặt Trăng ở {S(f.b['moon']['sign'])})" + (f": {listing(li.show[:2])}." if li and li.show else ".")
             if leo and leo.show:
-                out += f" Alan Leo đọc Mặt Trăng ở {S(f.b['moon']['sign'])} thêm một nét: {leo.show[0]}."
+                out += f" Alan Leo thêm một nét khác, có thể cùng tồn tại, cho Mặt Trăng ở {S(f.b['moon']['sign'])}: {leo.show[0]}."
             return out
         return f"Cảm xúc của bạn vận hành theo kiểu: {listing([t for c in top for t in c.show][:2])}."
     return summarize(f, "cam_xuc", "Tóm tắt: cảm xúc", cl, thesis, tilt="moon")
@@ -446,7 +455,7 @@ def career(f: Facts) -> Para | None:
     rr = dignity.domicile_lord(SIGNS[(sign_index(f.c["lots"]["fortune"]["lon"]) + 9) % 12])
     if g in ("angular", "cadent"):
         cl.append(Claim("honour", "sự ghi nhận", 1 if g == "angular" else -1, 1,
-                        f"chủ của chỗ 'Địa vị' tính từ Lot of Fortune là {P(rr)}, đang {'ở góc' if g == 'angular' else 'ở chỗ yếu'} theo Valens", "Valens", "VALENS_ANTH:II.17",
+                        f"theo Valens, sao trông coi địa vị của bạn ({P(rr)}) " + ("đứng ở một góc, chỗ mạnh" if g == "angular" else "đứng ở chỗ khó phát huy (ngay trước một góc)"), "Valens", "VALENS_ANTH:II.17",
                         [], [ev_in(f, rr, "hellenistic")], [("hellenistic", rr)]))
 
     def thesis(key, top, all_, verdict):
@@ -485,7 +494,7 @@ def money(f: Facts) -> Para | None:
         l2 = dignity.domicile_lord(sign2)
         lf = dignity.domicile_lord(f.c["lots"]["fortune"]["sign"])
         roles: dict[str, list[str]] = {}
-        for role, p in (("chủ Nhà 2 (nhà tiền bạc)", l2), ("chủ của Part of Fortune", lf), ("sao chủ của cải nói chung", "jupiter")):
+        for role, p in (("chủ Nhà 2 (nhà tiền bạc)", l2), ("chủ của cung chứa Part of Fortune", lf), ("sao chủ của cải nói chung", "jupiter")):
             roles.setdefault(p, []).append(role)
         for p, rs in roles.items():
             st = f.lilly_state(p)
@@ -503,7 +512,7 @@ def money(f: Facts) -> Para | None:
     g = f.valens_grade(acc)
     if g in ("angular", "cadent"):
         cl.append(Claim("keep", "việc kiếm và giữ tiền", 1 if g == "angular" else -1, 1,
-                        f"chủ của 'nơi thành tựu' (chỗ thứ 11 tính từ Fortune) là {P(acc)}, đang {'ở góc' if g == 'angular' else 'ở chỗ yếu'} theo Valens",
+                        f"theo Valens, sao trông coi 'nơi thành tựu' về của cải ({P(acc)}) " + ("đứng ở một góc, chỗ mạnh" if g == "angular" else "đứng ở chỗ khó phát huy (ngay trước một góc)"),
                         "Valens", "VALENS_ANTH:II.20", [], [ev_in(f, acc, "hellenistic")], [("hellenistic", acc)]))
     merc = f.lilly_state("mercury")
     if merc != "mixed":
@@ -551,7 +560,7 @@ def relations(f: Facts) -> Para | None:
     lr = dignity.domicile_lord(SIGNS[sign_index(lot)])
     g = f.valens_grade(lr)
     if g in ("angular", "cadent"):
-        cl.append(Claim("lot", "điểm hôn nhân", 1 if g == "angular" else -1, 1, f"chủ của điểm hôn nhân theo Valens là {P(lr)}, đang {'ở góc' if g == 'angular' else 'ở chỗ yếu'}",
+        cl.append(Claim("lot", "điểm hôn nhân", 1 if g == "angular" else -1, 1, f"theo Valens, sao trông coi điểm hôn nhân ({P(lr)}) " + ("đứng ở một góc, chỗ mạnh" if g == "angular" else "đứng ở chỗ khó phát huy (ngay trước một góc), dù bản thân nó mạnh hay yếu"),
                         "Valens", "VALENS_ANTH:II.37", [], [ev_in(f, lr, "hellenistic")], [("hellenistic", lr)]))
 
     def thesis(key, top, all_, verdict):
@@ -590,6 +599,12 @@ def family(f: Facts) -> Para | None:
         cl.append(Claim("siblings", "anh chị em", 1 if s3 == "well" else -1, 1, f"{P(l3)}, chủ Nhà 3 (anh chị em), {_state_words(f, l3)}", "Lilly", "LILLY_CA:pp.564-565",
                         [], [ev_in(f, l3, "traditional")]))
 
+    if not cl:                 # every significator at middling strength: say so, on the lords themselves
+        for n, who in ((4, "người cha"), (10, "người mẹ")):
+            l = dignity.domicile_lord(SIGNS[sign_index(f.regio[n - 1])])
+            cl.append(Claim(f"parent{n}", f"chỗ dựa từ {who}", 0, 1, f"với {who}, chủ Nhà {n} là {P(l)}, có sức ở mức vừa", "Lilly", "LILLY_CA:pp.569-570",
+                            [], [ev_in(f, l, "traditional")], [("cusp", str(n))]))
+
     def thesis(key, top, all_, verdict):
         tone = {"thuận": "là một chỗ dựa thật", "nghịch": "là nơi bạn thường phải tự đứng vững nhiều hơn là được đỡ", "hai mặt": "vừa nâng đỡ vừa có phần nặng nề", "nhẹ": "không phải điểm nhấn của lá số"}[verdict]
         return f"Gia đình gốc {tone}, theo cách Lilly đọc các sao của cha (Nhà 4), mẹ (Nhà 10) và anh chị em (Nhà 3)."
@@ -620,7 +635,7 @@ def direction(f: Facts) -> Para | None:
     concord = f.b[sr]["sign"] in (fort["sign"], SIGNS[(sign_index(fort["lon"]) + 9) % 12])
     cl.append(Claim("concord", "điều mình muốn và điều đời mang tới", 1 if concord else -1, 2,
                     (f"chủ của điểm Daimon (tâm trí, dự định) là {P(sr)}, đứng ngay ở chỗ của Fortune hay chỗ thứ 10 của nó, trường hợp Valens gọi là rạng rỡ" if concord
-                     else f"điểm Daimon (tâm trí, dự định) và điểm Fortune (việc của đôi tay) không nối với nhau theo cách Valens khen, nên điều mình muốn và điều đời mang tới có thể đi hai đường"),
+                     else f"theo Valens, điểm chỉ ý muốn của bạn (Daimon) và điểm chỉ những gì đời mang tới (Fortune) không có liên hệ thuận với nhau, nên hai thứ ấy có thể đi hai đường"),
                     "Valens", "VALENS_ANTH:II.19", [], [ev_point(f.c, "fortune"), ev_point(f.c, "spirit")], [("hellenistic", "spirit")]))
 
     def thesis(key, top, all_, verdict):

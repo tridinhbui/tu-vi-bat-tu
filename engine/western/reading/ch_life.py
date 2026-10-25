@@ -20,7 +20,7 @@ NEEDS = {"su_nghiep": "Ptolemy tìm chủ hành nghiệp từ Thiên Đỉnh và
 
 
 def _need_time(chapter: str, title: str) -> Para:
-    return Para(f"{chapter}.no_time", title, NEEDS[chapter] + ". Khi chưa có giờ sinh, Thiên Bàn để trống thay vì đoán.",
+    return Para(f"{chapter}.no_time", title, cap(NEEDS[chapter]) + ". Khi chưa có giờ sinh, Thiên Bàn để trống thay vì đoán.",
                 "calc", [], [], "overview", tier="calc", topic=chapter)
 
 

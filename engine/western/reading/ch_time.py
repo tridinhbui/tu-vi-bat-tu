@@ -25,6 +25,8 @@ SLOW = ("mars", "jupiter", "saturn", "uranus", "neptune", "pluto")
 POINT_AREA = {"asc": "thân thể và cách bạn hiện ra", "mc": "nghề nghiệp và địa vị"}
 TOP = 6
 MIN_SCORE = MS.NOTABLE
+KIND = {"conjunction": "trùng tụ: hai việc trộn vào nhau", "opposition": "góc đối: hai phía kéo nhau, cần cân bằng",
+        "square": "góc vuông: va chạm, thúc ép, vẫn còn đường hòa giải", "trine": "tam hợp: nâng đỡ", "sextile": "lục hợp: thuận, cần chút chủ động"}
 ANGLE_VI = {"asc": "cung Mọc", "mc": "Thiên Đỉnh", "dsc": "điểm Lặn", "ic": "Thiên Để"}
 
 
@@ -121,14 +123,14 @@ def _cycles(f: Facts, when: dt.datetime) -> list[Para]:
     # ---------------------------------------------------------------- the year in plain words
     if pr:
         th = M["houses"][str(pr["house"])]
-        theme = ", ".join(w.strip() for w in th["lilly"]["vi"].split(";")[0].split(",")[:3])
+        theme = ", ".join(w.strip() for w in th["lilly"]["vi"].split(";")[0].split(",")[:2])
         t = (f"Năm tuổi {age} của bạn ({_d(pr['start_utc'])} – {_d(pr['end_utc'])}) là năm của {S(pr['sign'])}, Nhà {pr['house']} tính từ cung Mọc: "
              f"mảng đời được nhắc tới nhiều là {theme}, và {P(lord)} làm chủ năm. ")
     else:
         t = "Không có giờ sinh nên không có phép đếm năm và lá Solar Return; phần dưới chỉ còn transit và tiến trình. "
     if top:
-        t += ("Trong mười hai tháng tới, những mốc transit nổi bật nhất theo tiêu chí của Thiên Bàn là "
-              + listing([f"{_label(e)} ({_period(e)})" for e in top[:3]]) + ". ")
+        t += ("Trong mười hai tháng tới, những lúc chủ đề của lá gốc được nhắc tới rõ nhất (chọn theo điểm ghi ở phần Transit) là "
+              + listing([f"{_label(e)} ({_period(e)}; {KIND[e['aspect']]})" for e in top[:3]]) + ". ")
     else:
         t += "Mười hai tháng tới không có transit nào của các hành tinh chậm đạt mức nổi bật theo tiêu chí của Thiên Bàn. "
     key_prog = (next((e for e in soon if e["progressed"] == "sun" and e["type"] == "aspect"), None)

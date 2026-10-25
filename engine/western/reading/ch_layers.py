@@ -94,8 +94,9 @@ def planets(f: Facts) -> list[Para]:
                 houses_told.add(h)
         t += f"{P(p)} {lilly_condition(f, p, with_house=False)}. "
         if disp == p:
-            t += pick(f"{p}.own.{b['sign']}.{h}", [f"{P(p)} ở chính nhà của mình nên tự làm chủ việc của mình.", f"Đứng trong nhà của mình, {P(p)} không phải dựa vào chủ tinh nào khác.",
-                                   f"{P(p)} làm chủ cung nó đứng, nên việc của nó do chính nó quyết."])
+            t += pick(f"{p}.own.{b['sign']}.{h}", [f"{S(b['sign'])} là nhà của chính {P(p)}, nên nó tự làm chủ việc của mình.",
+                                                   f"Đứng trong {S(b['sign'])}, nhà của mình, {P(p)} không phải dựa vào chủ tinh nào khác.",
+                                                   f"{P(p)} làm chủ {S(b['sign'])}, cung nó đứng, nên việc của nó do chính nó quyết."])
         elif disp in disp_told:
             t += f"{P(p)} cũng dựa vào {P(disp)}."
         else:

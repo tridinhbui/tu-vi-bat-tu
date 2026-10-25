@@ -102,7 +102,7 @@ def check(chapters: list[dict], time_known: bool = True) -> dict:
                 summ = p.get("layer") == "summary"           # a summary restates its chapter on purpose: compared with summaries only
                 if len(tri) >= 8 and p["tier"] != "calc":      # short sentences may share a shape
                     for other_pid, ot, os_ in seen:
-                        if os_ != summ:
+                        if os_ != summ or other_pid == pid:      # a list inside one paragraph may repeat its own shape
                             continue
                         j = len(tri & ot) / len(tri | ot)
                         if j > 0.6:
