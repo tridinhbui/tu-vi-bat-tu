@@ -24,6 +24,7 @@ import { initLive } from './live.js';
 import { initGrowth } from './growth.js';
 import { renderOverview } from './overview.js';
 import { renderHoangDao, hoangdaoChip } from './hoangdao.js';
+import { cacheKey, cachedChart, cacheChart, rememberCurrent, forgetCurrent, currentChart } from './chartcache.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const metaReady = Promise.all([loadMeta(), loadGlossary()]);
@@ -165,7 +166,7 @@ addEventListener('tvbt:dignity', e => { if (state?.req) (shareMode.id ? compute 
 addEventListener('tvbt:unlocked', async e => {
   if (!state?.req) return;
   const id = e.detail?.chapter, sys = $('.res-tabs button[aria-selected=true]')?.id?.replace('tab-', '');
-  await generate(null, { ...state.req });
+  await generate(null, { ...state.req }, { fresh: true });   // the server now sends the bought part: never the copy kept on this device
   if (sys) setTab(sys, false);
   if (id) requestAnimationFrame(() => {
     const sec = document.querySelector(`.prose[data-chapter="${CSS.escape(id)}"]:not([data-lifted])`);
@@ -173,7 +174,7 @@ addEventListener('tvbt:unlocked', async e => {
     sec?.scrollIntoView({ block: 'start' });
   });
 });
-async function generate(ev, saved = null) {
+async function generate(ev, saved = null, { fresh = false, lunarIn: keptLunar = null } = {}) {
   ev?.preventDefault();
   const err = $('#form-err'), btn = $('#submit-btn'); err.hidden = true;
   const req = saved ? { ...saved } : readForm(), unknownHour = saved ? false : $('#no-hour').checked, lunarMode = saved ? false : lunarModeOn;
@@ -183,7 +184,7 @@ async function generate(ev, saved = null) {
   }
   btn.disabled = true; btn.classList.add('busy'); $('#loading').hidden = false; beginLoad();
   try {
-    let lunarIn = null;
+    let lunarIn = keptLunar;
     if (lunarMode) {
       lunarIn = { day: req.day, month: req.month, year: req.year, leap: $('#leap').checked };
       const conv = await post('/api/lunar-to-solar', { ...lunarIn, calendar: req.calendar });
@@ -195,7 +196,7 @@ async function generate(ev, saved = null) {
       showHourSweep();
       return;
     }
-    await compute(req, lunarIn);
+    await compute(req, lunarIn, fresh);
     // a member's chart from the form goes straight into Lá số của tôi (not the sample, not one reopened from the list)
     if (!saved && !sampling && autoSave(req, isOwnChart(req))) { renderSaved(savedList, openSaved); saver.paint(); }
   } catch (x) {
@@ -206,7 +207,11 @@ async function generate(ev, saved = null) {
   } finally { endLoad(); btn.disabled = false; btn.classList.remove('busy'); $('#loading').hidden = true; }
 }
 /** Every engine call for one chart, then the result page. A shared view passes its masked request; util.js post() reroutes the calls. */
-async function compute(req, lunarIn = null) {
+async function compute(req, lunarIn = null, fresh = false) {
+  // the same chart built earlier on this device (chartcache.js): drawn at once, no engine calls; a shared view is always live
+  const key = shareMode.id ? null : cacheKey(req, `${session.user?.email || ''}|${expOn() ? 'x' : ''}`);
+  const kept = key && !fresh && await cachedChart(key);
+  if (kept) { state = { ...kept, req, lunarIn }; showResults(); return; }
   // /api/synthesis is an optional layer (server flag): a 404 or failure just leaves the chapters without the composed section
   const synthReq = post('/api/synthesis', { ...req, to_year: Math.max(new Date().getFullYear(), req.year) }, { retries: 0 }).catch(() => null);
   // /api/interpret mode "prose" (TS engine on the Worker, or tools/interpret/dev_server.ts locally) is optional too: 404 leaves Bản Mệnh as it was
@@ -219,6 +224,7 @@ async function compute(req, lunarIn = null) {
   // Only readings checked against the books are shown; draft rules stay in the engine and on the rule-library page.
   Object.values(reason.systems).forEach(sys => { sys.findings = sys.findings.filter(f => f.basis === 'verified'); sys.pending = []; });
   state = { req, chart, reason, analysis, lunarIn, formations, synth, interp, prose, overview };
+  if (key) cacheChart(key, { chart, reason, analysis, formations, synth, interp, prose, overview });
   showResults();
 }
 form.onsubmit = generate;
@@ -299,6 +305,7 @@ function showResults() {
   // cung hoàng đạo card at the top of the Tử Vi pane; a share link with the birth day hidden never shows it (the Worker also drops the block)
   renderHoangDao($('#hoangdao-host'), has ? chart.western : null);
   saver.paint(); paintShareBtn();
+  if (!shareMode.id) rememberCurrent(req, state.lunarIn);     // a reload of #la-so/... comes back to this chart
   // the overview tab opens first when the server sent it; its chapter buttons open the matching Tử Vi chapter
   const ov = !!state.overview?.indices;
   $('#tab-overview').hidden = !ov;
@@ -345,8 +352,17 @@ async function openShare(id) {
 const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); else if (location.hash === '#trang-chu') go('trang-chu'); else if (location.hash === '#la-so-mau') { history.replaceState(null, '', location.pathname); loadSample().then(() => setTab('tuvi')); } };
 route(); addEventListener('hashchange', route);
 // back from "Đăng nhập để đọc tiếp" on a guest lock card (js/paywall.js): the chart that was on screen, now read at the member tier
-{ const resume = takeResume(); if (resume && !SHARE_HASH.test(location.hash)) generate(null, resume); }
-function again() { view('home'); history.replaceState(null, '', '#lap-la-so'); requestAnimationFrame(() => $('#lap-la-so').scrollIntoView({ behavior: 'smooth', block: 'start' })); }
+{ const resume = takeResume(); if (resume && !SHARE_HASH.test(location.hash)) generate(null, resume); else restoreCurrent(); }
+// a reload on #la-so/<tab>: the chart that was on screen in this tab, on the same tab (from the device copy when there is one)
+async function restoreCurrent() {
+  const m = location.hash.match(/^#la-so\/(tong-quan|tu-vi|bat-tu|truong-thanh)$/), cur = m && currentChart();
+  if (!cur?.req) return;
+  // the account decides what the server sends, so wait (briefly) for it before looking up the kept copy
+  if (!session.ready) await new Promise(r => { addEventListener('tvbt:account', r, { once: true }); setTimeout(r, 3000); });
+  await generate(null, cur.req, { lunarIn: cur.lunarIn });
+  if (state?.chart) go(m[1]);
+}
+function again() { forgetCurrent(); view('home'); history.replaceState(null, '', '#lap-la-so'); requestAnimationFrame(() => $('#lap-la-so').scrollIntoView({ behavior: 'smooth', block: 'start' })); }
 $('#again').onclick = again;
 // the header's "Tải PDF" appears once the result masthead (with its own buttons) has scrolled away
 if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => document.body.classList.toggle('mast-off', !e.isIntersecting)).observe($('.res-act'));

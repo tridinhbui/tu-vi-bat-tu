@@ -10,7 +10,7 @@
   --el-moc:#3A6A5F;--el-hoa:#A7432C;--el-tho:#86642F;--el-kim:#545A64;--el-thuy:#43667F;background:var(--ivory)}
 
 /* ---------- masthead + system switch ---------- */
-.atl-mast{background:linear-gradient(180deg,var(--parchment),var(--ivory));padding:clamp(14px,2vw,26px) 0 clamp(8px,1.2vw,14px)}
+.atl-mast{container:atl-mast/inline-size;background:linear-gradient(180deg,var(--parchment),var(--ivory));padding:clamp(14px,2vw,26px) 0 clamp(8px,1.2vw,14px)}
 .atl-mast-in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:12px 32px}   /* two columns, never a half-wrap: the side is right-aligned beside the title or left-aligned under it */
 .atl-mast .eyebrow{margin-bottom:6px}
 .atl-mast h1{font:500 clamp(1.45rem,2.6vw,2.15rem)/1.1 var(--serif);letter-spacing:-.01em}
@@ -308,7 +308,9 @@
 .sc{border-radius:2px;background:transparent;border-color:var(--hair)}
 
 /* ---------- mobile: field notebook ---------- */
-@media(max-width:1100px){.atl-mast-in{grid-template-columns:minmax(0,1fr)}.atl-side{justify-items:start}}
+/* measured on the masthead itself, not the window: the signed-in sidebar takes ~250px, and beside it the side column (chips + buttons at
+   their full width) squeezed the title to one word per line */
+@container atl-mast (max-width:1100px){.atl-mast-in{grid-template-columns:minmax(0,1fr)}.atl-side{justify-items:start}}
 @media(max-width:700px){
   .atl-mast-in{display:block}.atl-mast .eyebrow{display:none}.atl-side{justify-items:start;margin-top:10px;gap:8px}
   .atl-mast h1{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

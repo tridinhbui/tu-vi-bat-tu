@@ -69,9 +69,6 @@ def _brand_mark(size: int = 30) -> str:
 # signed-in only, nv-guest = signed-out only. The top bar (signed out, wide screens) shows the discipline's name where the sidebar shows
 # the page's own (Chiêm tinh / Bản đồ sao). data-go / data-act are handled by js/app.js on the home page (same-page moves); elsewhere the
 # href is followed.
-# Trang chủ opens the whole landing page (hero, Bạn nhận được gì, sample chart) even for a signed-in member, whose plain "/" visit opens
-# on Lá số của tôi: '#trang-chu' on another page, data-go="hero" on the home page itself (js/app.js sets body.landing)
-HOME = ("home", "/#trang-chu", "Trang chủ", "home", "nv-side", 'data-go="hero"')
 GROUPS = [
     ("la-so", "Tử Vi · Bát Tự", "grid", "", [
         ("mine", "/#tai-khoan", "Lá số của tôi", "bookmark", "nv-side nv-member", 'data-go="tai-khoan"'),
@@ -101,7 +98,7 @@ GROUPS = [
         ("admin", "/admin", "Quản trị", "shield", "nv-side", ""),
     ]),
 ]
-ITEMS = [HOME] + [it for g in GROUPS for it in g[4]]
+ITEMS = [it for g in GROUPS for it in g[4]]     # no "Trang chủ" item (owner, 2026-10-25): the brand mark opens the landing page
 
 # Inline, before the header: the last known sign-in state, admin flag and collapsed sidebar, so the first paint is already right.
 BOOT = ("<script>/*nav-boot*/try{var d=document.documentElement.classList,s=localStorage;"
@@ -143,7 +140,7 @@ def header(path: str) -> str:
 <div class="nav-panel" id="nav-panel">
 <div class="side-head"><b>{SITE}</b><button type="button" class="nav-close" aria-label="Đóng menu">{_ico(ICONS["close"])}</button></div>
 <div class="side-search" role="search"><label class="sr-only" for="nav-q">Tìm nhanh trang và bài viết</label>{_ico(ICONS["search"])}<input id="nav-q" type="search" placeholder="Tìm nhanh" autocomplete="off" aria-controls="nav-hits"><kbd aria-hidden="true">⌘K</kbd><ul class="nav-hits" id="nav-hits" hidden aria-label="Kết quả tìm"></ul></div>
-<nav class="nav" id="nav" aria-label="Điều hướng chính">{_item(HOME, cur)}{groups}</nav>
+<nav class="nav" id="nav" aria-label="Điều hướng chính">{groups}</nav>
 </div>
 <div class="hdr-end">
 <button type="button" class="btn btn-sm btn-ghost hdr-pdf" data-act="print" title="Mở hộp thoại in; chọn “Lưu thành PDF” để tải về">Tải PDF</button>

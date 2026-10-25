@@ -160,6 +160,6 @@ def test_every_page_has_the_same_header(out):
         assert doc.count('class="site-header') == 1, rel
         assert current.sub("", block.search(doc).group(0)) == canonical, rel
     assert 'data-k="bai-viet" aria-current="page"' in out["bai-viet/sao/tu-vi/index.html"]
-    assert 'data-k="home" data-go="hero" aria-current="page"' in out["index.html"]
+    assert "Trang chủ" not in canonical and "aria-current" not in block.search(out["index.html"]).group(0)   # no home item (owner, 2026-10-25)
     assert "aria-current" not in block.search(out["privacy.html"]).group(0)
     assert not re.search(r"\bAI\b", canonical)
