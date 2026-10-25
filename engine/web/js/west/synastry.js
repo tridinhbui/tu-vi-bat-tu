@@ -23,7 +23,7 @@ export function initSynastry(root, { getA }) {
 
   function refresh() {
     const A = getA(); if (!A) return;
-    $('#syn-a-txt', root).innerHTML = `<b>${esc(who(A.inp.birth))}</b> · ${esc(when(A.inp.birth))} · ${esc(A.inp.birth.place || latLonTxt(A.inp.birth.lat, A.inp.birth.lon))} <small>(bản đồ đang mở ở trên)</small>`;
+    $('#syn-a-txt', root).innerHTML = (A.inp.birth.name ? `<b>${esc(A.inp.birth.name)}</b> · ` : '') + `${esc(when(A.inp.birth))} · ${esc(A.inp.birth.place || latLonTxt(A.inp.birth.lat, A.inp.birth.lon))} <small>(bản đồ đang mở ở trên)</small>`;
     const g = $(`[name=syn-ga][value="${A.gender || ''}"]`, root); if (g) g.checked = true;
     const pr = store.profiles(), rc = store.recent();
     sel.innerHTML = '<option value="">Chọn một hồ sơ…</option>'
