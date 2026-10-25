@@ -6,96 +6,204 @@
   "core": {
    "text": "Giải là lúc cái khó vừa được tháo gỡ: phải dám động mới ra khỏi chỗ hiểm, và khi đã ra rồi thì điều cần là sự yên ổn, giản dị, đừng bày thêm việc làm rối.",
    "from": [
-    {"seg": "thoan", "layer": "chu_hy", "quote": "Giải là nạn đã tan rồi."},
-    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Không hiểm thì không phải là nạn; không động thì không ra khỏi nạn, động mà ra thoát chỗ hiểm, ấy là khỏi được hiểm nạn, cho nên là giải."},
-    {"seg": "thoan", "layer": "chu_hy", "quote": "Nạn đã giải thì lợi về bình dị yên tĩnh, không muốn làm phiền nhiễu lâu"}
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Giải là nạn đã tan rồi."
+    },
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "Không hiểm thì không phải là nạn; không động thì không ra khỏi nạn, động mà ra thoát chỗ hiểm, ấy là khỏi được hiểm nạn, cho nên là giải."
+    },
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Nạn đã giải thì lợi về bình dị yên tĩnh, không muốn làm phiền nhiễu lâu"
+    }
    ]
   },
   "image": {
    "text": "Sấm động, mưa đổ, trăm thứ hạt cây nứt vỏ: bầu không khí dồn nén được giải tỏa thì mọi thứ bắt đầu nảy mầm, và lòng người cũng nên rộng ra để tha những lỗi đã qua.",
    "from": [
-    {"seg": "thoan_truyen", "layer": "nghia", "quote": "Trời đất giải mà sấm mưa nổi lên, sấm mưa nổi lên mà trăm quả cỏ cây đều vỏ nứt"},
-    {"seg": "dai_tuong", "layer": "nghia", "quote": "Sấm mưa nổi lên, là quẻ Giải, đấng quân tử coi đó mà xá lỗi, tha tội."}
+    {
+     "seg": "thoan_truyen",
+     "layer": "nghia",
+     "quote": "Trời đất giải mà sấm mưa nổi lên, sấm mưa nổi lên mà trăm quả cỏ cây đều vỏ nứt"
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Sấm mưa nổi lên, là quẻ Giải, đấng quân tử coi đó mà xá lỗi, tha tội."
+    }
    ]
   },
   "structure": {
    "text": "Cả quẻ có thể đọc như một cuộc gỡ bỏ hào Sáu Ba, kẻ đội đồ mà ngồi xe: các hào khác đều nhắm vào nó, chỉ hào Sáu Đầu yếu và ở thấp nên không phải gánh việc ấy.",
    "from": [
-    {"seg": "tieu_tuong6", "layer": "tien_nho", "quote": "Trong quẻ lấy một hào Âm Sáu Ba làm chủ."},
-    {"seg": "tieu_tuong6", "layer": "tien_nho", "quote": "Coi các hào trên dưới, hào nào cũng một mực muốn trừ hào Ba, thì biết kẻ tiểu nhân không đi, gốc nạn không trừ được"},
-    {"seg": "tieu_tuong6", "layer": "tien_nho", "quote": "Chỉ có hào Sáu Đầu tài mềm ngôi thấp, không phải gánh cái trách nhiệm giải nạn"}
+    {
+     "seg": "tieu_tuong6",
+     "layer": "tien_nho",
+     "quote": "Trong quẻ lấy một hào Âm Sáu Ba làm chủ."
+    },
+    {
+     "seg": "tieu_tuong6",
+     "layer": "tien_nho",
+     "quote": "Coi các hào trên dưới, hào nào cũng một mực muốn trừ hào Ba, thì biết kẻ tiểu nhân không đi, gốc nạn không trừ được"
+    },
+    {
+     "seg": "tieu_tuong6",
+     "layer": "tien_nho",
+     "quote": "Chỉ có hào Sáu Đầu tài mềm ngôi thấp, không phải gánh cái trách nhiệm giải nạn"
+    }
    ]
   },
-  "traditional": {"seg": "thoan", "layer": "nghia", "quote": "Quẻ Giải lợi về phương Tây Nam, không thửa đi, thì lại lại, có thửa đi, sớm thì tốt."},
+  "traditional": {
+   "seg": "thoan",
+   "layer": "nghia",
+   "quote": "Quẻ Giải lợi về phương Tây Nam, không thửa đi, thì lại lại, có thửa đi, sớm thì tốt."
+  },
   "topics": {
    "su_nghiep": {
     "text": "Một tập thể vừa qua cơn rối cần được thở: người dẫn dắt lúc này nên nới tay, làm việc rộng rãi và gọn nhẹ thay vì siết thêm thủ tục, nhờ đó mới giữ được lòng người.",
     "from": [
-     {"seg": "thoan", "layer": "trinh_di", "quote": "không thể lại dùng chính sách phiền hà nghiêm ngặt mà trị họ, phải giúp thêm bằng cách khoan hồng giản dị"},
-     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "lấy cách khoan dị mà đi giúp cuộc giải thì được lòng người theo về."}
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "không thể lại dùng chính sách phiền hà nghiêm ngặt mà trị họ, phải giúp thêm bằng cách khoan hồng giản dị"
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "lấy cách khoan dị mà đi giúp cuộc giải thì được lòng người theo về."
+     }
     ]
    },
    "tai_chinh": {
     "text": "Khoản tiền vừa thoát cảnh kẹt nên được để yên ở những chỗ đơn giản, dễ hiểu; còn món nợ hay khoản lỗ nào chưa gỡ xong thì xử lý sớm, để lâu nó lại phình ra.",
     "from": [
-     {"seg": "thoan", "layer": "trinh_di", "quote": "Việc nên giải còn chưa giải hết, nếu không trừ sớm thì nó lại thịnh"},
-     {"seg": "thoan", "layer": "chu_hy", "quote": "Nếu không đi đâu thì nên lại lại nơi chốn của mình mà cứ yên tĩnh"}
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Việc nên giải còn chưa giải hết, nếu không trừ sớm thì nó lại thịnh"
+     },
+     {
+      "seg": "thoan",
+      "layer": "chu_hy",
+      "quote": "Nếu không đi đâu thì nên lại lại nơi chốn của mình mà cứ yên tĩnh"
+     }
     ]
    },
    "kinh_doanh": {
     "text": "Rắc rối qua rồi, người làm chủ nên lần lại xem điều gì đã sinh ra nó, thường là một chỗ lỏng lẻo trong cách làm hay một người đặt sai chỗ; gốc ấy còn thì nạn dễ trở lại.",
     "from": [
-     {"seg": "thoan", "layer": "trinh_di", "quote": "ắt là pháp độ hỏng loạn mà sau họa hoạn mới sinh ra"},
-     {"seg": "tieu_tuong6", "layer": "tien_nho", "quote": "kẻ tiểu nhân là gốc sinh nạn, cho nên sau khi giải nạn, còn nên nghĩ việc trừ kẻ tiểu nhân."}
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "ắt là pháp độ hỏng loạn mà sau họa hoạn mới sinh ra"
+     },
+     {
+      "seg": "tieu_tuong6",
+      "layer": "tien_nho",
+      "quote": "kẻ tiểu nhân là gốc sinh nạn, cho nên sau khi giải nạn, còn nên nghĩ việc trừ kẻ tiểu nhân."
+     }
     ]
    },
    "hoc_tap": {
     "text": "Qua một quãng gián đoạn hay một kỳ thi vất vả, đây là lúc trở lại nề nếp: sắp xếp lại giờ học, nối lại những thói quen tốt đã bỏ dở trước khi nhắm tới mục tiêu mới.",
     "from": [
-     {"seg": "thoan", "layer": "trinh_di", "quote": "thì nên sửa sang trị đạo, chỉnh đốn kỷ cương, tỏ rõ pháp độ"},
-     {"seg": "thoan", "layer": "trinh_di", "quote": "Thế là \"lại lại\" nghĩa là trở lại chính lý"}
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "thì nên sửa sang trị đạo, chỉnh đốn kỷ cương, tỏ rõ pháp độ"
+     },
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Thế là \"lại lại\" nghĩa là trở lại chính lý"
+     }
     ]
    },
    "tinh_cam": {
     "text": "Sau một trận giận hờn hay một quãng căng thẳng, quẻ thuận cho việc bỏ qua những lỗi nhỏ; nhưng một mối dây không đàng hoàng còn vướng thì phải dứt mới lấy lại được lòng tin.",
     "from": [
-     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "lầm lỗi thì tha cũng được"},
-     {"seg": "hao4", "layer": "trinh_di", "quote": "Không cởi bỏ kẻ tiểu nhân, thì lòng thành thật của mình chưa tới nơi, đâu được người ta tin mình?"}
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "lầm lỗi thì tha cũng được"
+     },
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Không cởi bỏ kẻ tiểu nhân, thì lòng thành thật của mình chưa tới nơi, đâu được người ta tin mình?"
+     }
     ]
    },
    "gia_dinh": {
     "text": "Nhà vừa qua chuyện lớn thì cần nghỉ ngơi và yên tĩnh trước đã, cư xử vừa cứng vừa mềm cho phải chăng, chưa vội bày thêm việc mới.",
     "from": [
-     {"seg": "hao1", "layer": "trinh_di", "quote": "Đương lúc đầu cuộc giải nên yên tĩnh để nghỉ ngơi"},
-     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Nạn đã giải rồi, mà xử được cứng mềm vừa phải, nghĩa không lỗi vậy."}
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Đương lúc đầu cuộc giải nên yên tĩnh để nghỉ ngơi"
+     },
+     {
+      "seg": "tieu_tuong1",
+      "layer": "trinh_di",
+      "quote": "Nạn đã giải rồi, mà xử được cứng mềm vừa phải, nghĩa không lỗi vậy."
+     }
     ]
    },
    "lua_chon": {
     "text": "Còn việc gì phải gỡ hay không là điều quyết định: nếu không, trở về chỗ cũ mà sống yên; nếu còn, nên làm sớm, xong sớm, đừng để kéo dài.",
     "from": [
-     {"seg": "thoan", "layer": "chu_hy", "quote": "Nếu không đi đâu thì nên lại lại nơi chốn của mình mà cứ yên tĩnh; nếu có phải đi, thì nên đi sớm, về sớm, không thể phiền nhiễu lâu."}
+     {
+      "seg": "thoan",
+      "layer": "chu_hy",
+      "quote": "Nếu không đi đâu thì nên lại lại nơi chốn của mình mà cứ yên tĩnh; nếu có phải đi, thì nên đi sớm, về sớm, không thể phiền nhiễu lâu."
+     }
     ]
    }
   },
   "advice": {
    "text": "Gỡ nốt những gì còn vướng khi chúng còn nhỏ, rồi trở về nếp sống giản dị; với người khác thì rộng lượng, tha những gì có thể tha thay vì truy xét chuyện đã qua.",
    "from": [
-    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Có việc phải làm thì sớm là tốt, sớm thì đi mà có công, chậm thì ác sinh thêm mà hại càng sâu."},
-    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "thể theo sự giải tán của nó thì làm việc khoan thứ vậy."}
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "Có việc phải làm thì sớm là tốt, sớm thì đi mà có công, chậm thì ác sinh thêm mà hại càng sâu."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "thể theo sự giải tán của nó thì làm việc khoan thứ vậy."
+    }
    ]
   },
   "conditions": [
    {
     "text": "Sự rộng lượng của thời này có giới hạn: lỗi lầm vô ý thì tha được, còn điều cố tình gây hại thì chỉ nên nương nhẹ chứ không xóa đi như chưa từng có.",
     "from": [
-     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "lầm lỗi thì tha cũng được, tội ác mà tha thì không phải nghĩa, cho nên chỉ khoan dong mà thôi."}
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "lầm lỗi thì tha cũng được, tội ác mà tha thì không phải nghĩa, cho nên chỉ khoan dong mà thôi."
+     }
     ]
    },
    {
     "text": "Ra tay khi chưa đủ phương tiện và chưa tới lúc thì việc nhỏ vướng víu, việc lớn đổ vỡ; sửa soạn sẵn rồi chờ đúng thời thì làm ít trở ngại.",
     "from": [
-     {"seg": "hao6", "layer": "trinh_di", "quote": "nếu không có đồ và không chờ thời mà động, thời nhỏ thì vướng mắc, lớn thì hỏng thua"},
-     {"seg": "hao6", "layer": "trinh_di", "quote": "Thánh nhân ở đây lại phát minh cái nghĩa giấu đồ đợi chờ."}
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "nếu không có đồ và không chờ thời mà động, thời nhỏ thì vướng mắc, lớn thì hỏng thua"
+     },
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Thánh nhân ở đây lại phát minh cái nghĩa giấu đồ đợi chờ."
+     }
     ]
    }
   ]
@@ -105,57 +213,121 @@
    "gist": {
     "text": "Nạn vừa tan, người mềm yếu ở dưới lại có người trên đáp ứng: chưa cần làm gì thêm, cứ yên lặng nghỉ ngơi thì không có lỗi.",
     "from": [
-     {"seg": "hao1", "layer": "chu_hy", "quote": "Nạn đã giải rồi, lấy chất mềm ở dưới, trên có chính ứng, thì còn lỗi gì?"},
-     {"seg": "hao1", "layer": "trinh_di", "quote": "Đương lúc đầu cuộc giải nên yên tĩnh để nghỉ ngơi, lời hào ít, là để tỏ rõ ý đó."}
+     {
+      "seg": "hao1",
+      "layer": "chu_hy",
+      "quote": "Nạn đã giải rồi, lấy chất mềm ở dưới, trên có chính ứng, thì còn lỗi gì?"
+     },
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Đương lúc đầu cuộc giải nên yên tĩnh để nghỉ ngơi, lời hào ít, là để tỏ rõ ý đó."
+     }
     ]
    },
    "position": {
     "text": "Hào âm ở ngôi dương, ứng với hào Chín Tư: mềm mà có thể cứng, hai bên cứng mềm gặp nhau đúng chỗ.",
     "from": [
-     {"seg": "hao1", "layer": "trinh_di", "quote": "Lấy chất mềm ở ngôi cứng, lấy hào Âm ứng hào Dương, là nghĩa mềm mà lại có thể cứng."},
-     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Hào Đầu hào Tư ứng nhau, ấy là cứng mềm giao tiếp với nhau."}
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Lấy chất mềm ở ngôi cứng, lấy hào Âm ứng hào Dương, là nghĩa mềm mà lại có thể cứng."
+     },
+     {
+      "seg": "tieu_tuong1",
+      "layer": "trinh_di",
+      "quote": "Hào Đầu hào Tư ứng nhau, ấy là cứng mềm giao tiếp với nhau."
+     }
     ]
    },
-   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Nạn đã giải rồi, lấy chất mềm ở dưới, trên có chính ứng, thì còn lỗi gì? Cho nên lời Chiêm của nó như thế."}
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Nạn đã giải rồi, lấy chất mềm ở dưới, trên có chính ứng, thì còn lỗi gì? Cho nên lời Chiêm của nó như thế."
+   }
   },
   "2": {
    "gist": {
     "text": "Như đi săn bắt được ba con cáo mà giữ được mũi tên vàng: người gánh việc dẹp bỏ những thứ quanh co, mờ ám, và nhờ giữ mực ngay thẳng mà được tốt.",
     "from": [
-     {"seg": "hao2", "layer": "trinh_di", "quote": "Vàng là sắc trung chính, tên là vật thẳng, tên vàng nghĩa là trung chính ngay thẳng"},
-     {"seg": "hao2", "layer": "chu_hy", "quote": "Hễ giữ được chính thì không việc gì không tốt."}
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Vàng là sắc trung chính, tên là vật thẳng, tên vàng nghĩa là trung chính ngay thẳng"
+     },
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "Hễ giữ được chính thì không việc gì không tốt."
+     }
     ]
    },
    "position": {
     "text": "Hào dương ở giữa quẻ dưới, ứng với hào Sáu Năm mềm yếu: người có thực lực phải giữ cho người đứng đầu khỏi bị kẻ xấu che mắt.",
     "from": [
-     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Chín Hai lấy tài Dương cứng được chỗ giữa, phía trên ứng với ông vua."},
-     {"seg": "hao2", "layer": "trinh_di", "quote": "hào Hai gánh trách nhiệm, ắt phải trừ kẻ tiểu nhân thì mới chính được lòng vua mà thực hành cái đạo cứng giữa."}
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Hào Chín Hai lấy tài Dương cứng được chỗ giữa, phía trên ứng với ông vua."
+     },
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "hào Hai gánh trách nhiệm, ắt phải trừ kẻ tiểu nhân thì mới chính được lòng vua mà thực hành cái đạo cứng giữa."
+     }
     ]
    },
-   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Đại để hào này là lời Chiêm tốt của quẻ bói việc đi săn, và cũng là tượng trừ kẻ tà my mà được trung chính ngay thẳng. Hễ giữ được chính thì không việc gì không tốt."}
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "Đại để hào này là lời Chiêm tốt của quẻ bói việc đi săn, và cũng là tượng trừ kẻ tà my mà được trung chính ngay thẳng. Hễ giữ được chính thì không việc gì không tốt."
+   }
   },
   "3": {
    "gist": {
     "text": "Kẻ đáng cõng đồ lại ngồi lên xe: ở chỗ không xứng thì tự rước kẻ cướp đến, dù làm đúng cũng đáng thẹn, và muốn thoát thì phải rời chỗ ấy.",
     "from": [
-     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "ở không phải chỗ đáng giữ, đức lại không xứng với đồ dùng, thì giặc cướp đến là do mình vời nó tới, còn hòng trách ai?"},
-     {"seg": "hao3", "layer": "chu_hy", "quote": "Chỉ có lánh mà đi đi mới khỏi mà thôi."}
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "ở không phải chỗ đáng giữ, đức lại không xứng với đồ dùng, thì giặc cướp đến là do mình vời nó tới, còn hòng trách ai?"
+     },
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Chỉ có lánh mà đi đi mới khỏi mà thôi."
+     }
     ]
    },
    "position": {
     "text": "Hào âm ở ngôi dương, trên cùng quẻ dưới: sức mềm yếu mà chiếm chỗ cao không phải của mình.",
     "from": [
-     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Sáu Ba là chất Âm mềm, ở trên quẻ dưới, tức là ở chỗ không phải ngôi"}
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Hào Sáu Ba là chất Âm mềm, ở trên quẻ dưới, tức là ở chỗ không phải ngôi"
+     }
     ]
    },
-   "traditional": {"seg": "hao3", "layer": "nghia", "quote": "Hào Sáu Ba: Đội và cưỡi, dắt giặc đến, chính bền cũng đáng tiếc."},
+   "traditional": {
+    "seg": "hao3",
+    "layer": "nghia",
+    "quote": "Hào Sáu Ba: Đội và cưỡi, dắt giặc đến, chính bền cũng đáng tiếc."
+   },
    "topics": {
     "tai_chinh": {
      "text": "Của cải phô ra hớ hênh hay một món mình không đủ sức giữ đều là lời mời kẻ dòm ngó; mất mát khi ấy phần lớn do mình gây ra.",
      "from": [
-      {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Của cải mà cất giấu một cách khinh rẻ, là bảo kẻ trộm lấy đi"},
-      {"seg": "tieu_tuong3", "layer": "nghia", "quote": "tự ta đem giặc đến, lại trách ai vậy?"}
+      {
+       "seg": "tieu_tuong3",
+       "layer": "trinh_di",
+       "quote": "Của cải mà cất giấu một cách khinh rẻ, là bảo kẻ trộm lấy đi"
+      },
+      {
+       "seg": "tieu_tuong3",
+       "layer": "nghia",
+       "quote": "tự ta đem giặc đến, lại trách ai vậy?"
+      }
      ]
     }
    }
@@ -164,43 +336,87 @@
    "gist": {
     "text": "Muốn người tốt đến với mình thì phải gỡ cái ngón chân cái ra, tức là dứt khỏi một mối thân gần nhưng không chính đáng; còn níu giữ thì khó được ai tin.",
     "from": [
-     {"seg": "hao4", "layer": "chu_hy", "quote": "Hào Đầu với hào Tư đều không được ngôi mà cùng ứng nhau, ấy là ứng nhau không dùng cách chính đáng."},
-     {"seg": "hao4", "layer": "chu_hy", "quote": "Nếu cởi mà bỏ đi được, thì bạn quân tử sẽ đến mà cùng tin nhau."}
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "Hào Đầu với hào Tư đều không được ngôi mà cùng ứng nhau, ấy là ứng nhau không dùng cách chính đáng."
+     },
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "Nếu cởi mà bỏ đi được, thì bạn quân tử sẽ đến mà cùng tin nhau."
+     }
     ]
    },
    "position": {
     "text": "Hào dương ở ngôi âm, chưa đúng chỗ, lại ứng với hào Sáu Đầu ở dưới: dễ bị mối thân gần kéo lệch khỏi đường ngay.",
     "from": [
-     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Hào Tư tuy là Dương cứng, nhưng ở ngôi Âm, về sự chính ngờ rằng chưa đủ, nếu lại gần gũi với kẻ tiểu nhân, thì ắt lỗi mất chính đạo"}
+     {
+      "seg": "tieu_tuong4",
+      "layer": "trinh_di",
+      "quote": "Hào Tư tuy là Dương cứng, nhưng ở ngôi Âm, về sự chính ngờ rằng chưa đủ, nếu lại gần gũi với kẻ tiểu nhân, thì ắt lỗi mất chính đạo"
+     }
     ]
    },
-   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Hào Chín Tư: Giải ngón chân cái mày, bằng đến ấy tin."}
+   "traditional": {
+    "seg": "hao4",
+    "layer": "nghia",
+    "quote": "Hào Chín Tư: Giải ngốn chân cái mày, bằng đến ấy tin."
+   }
   },
   "5": {
    "gist": {
     "text": "Người đứng đầu vốn cùng một tính với những kẻ gây rối quanh mình nên phải tự gỡ mình khỏi họ; thấy họ lui đi là biết việc tháo gỡ đã thành.",
     "from": [
-     {"seg": "hao5", "layer": "chu_hy", "quote": "Trong quẻ cả thảy bốn hào Âm, mà hào Sáu Năm đương vào ngôi vua, với ba hào Âm cùng loài, ắt phải giải mà bỏ đi, thì tốt"},
-     {"seg": "hao5", "layer": "chu_hy", "quote": "Đấng quân tử mà có việc giải, lấy sự tiểu nhân lui đi làm hiệu nghiệm."}
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "Trong quẻ cả thảy bốn hào Âm, mà hào Sáu Năm đương vào ngôi vua, với ba hào Âm cùng loài, ắt phải giải mà bỏ đi, thì tốt"
+     },
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "Đấng quân tử mà có việc giải, lấy sự tiểu nhân lui đi làm hiệu nghiệm."
+     }
     ]
    },
    "position": {
     "text": "Hào âm ở ngôi tôn, làm chủ quẻ: người có quyền quyết định cũng là người phải ra tay tháo gỡ.",
     "from": [
-     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Sáu Năm ở ngôi tôn, làm chủ quẻ giải, tức là ông vua làm việc giải vậy."}
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Hào Sáu Năm ở ngôi tôn, làm chủ quẻ giải, tức là ông vua làm việc giải vậy."
+     }
     ]
    },
-   "traditional": {"seg": "hao5", "layer": "nghia", "quote": "Hào Sáu Năm: Đấng quân tử chỉ có giải, tốt, có tin chưng kẻ tiểu nhân."}
+   "traditional": {
+    "seg": "hao5",
+    "layer": "nghia",
+    "quote": "Hào Sáu Năm: Đấng quân tử chỉ có giải, tốt, có tin chưng kẻ tiểu nhân."
+   }
   },
   "6": {
    "gist": {
     "text": "Mối hại cuối cùng như chim cắt đậu trên tường cao, đến chót cuộc mà vẫn chưa đi: lúc này đủ thời, đủ sức thì bắn được nó, và mọi lo lắng mới hết hẳn.",
     "from": [
-     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Đến chót cuộc giải mà còn chưa giải, tức là kẻ trái loạn hạng lớn."},
-     {"seg": "hao6", "layer": "trinh_di", "quote": "Đã bắn được, thì là sự lo của thiên hạ đã giải hết rồi."}
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "Đến chót cuộc giải mà còn chưa giải, tức là kẻ trái loạn hạng lớn."
+     },
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Đã bắn được, thì là sự lo của thiên hạ đã giải hết rồi."
+     }
     ]
    },
-   "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Sáu Trên: Ông dùng bắn chim cắt ở trên, tường cao, được nó, không gì không lợi."}
+   "traditional": {
+    "seg": "hao6",
+    "layer": "nghia",
+    "quote": "Hào Sáu Trên: Ông dùng bắn chim cắt ở trên, tường cao, được nó, không gì không lợi."
+   }
   }
  }
 }
