@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import datetime as dt
 
-from . import audit, ch_core, ch_life, ch_time
+from . import audit, ch_core, ch_layers, ch_life, ch_time
 from .facts import OPERATIONAL, Facts
 
 VERSION = "west-reading-0.1.0"
@@ -15,6 +15,8 @@ DISCLAIMER = ("Chiêm tinh là một truyền thống diễn giải biểu tư�
               "không phải lời tiên đoán hay lời khuyên y tế, tài chính, pháp lý.")
 CHAPTERS = [
     ("tong_quan", "Tổng quan bản đồ sao", ch_core.overview),
+    ("hanh_tinh", "Từng hành tinh theo cung và nhà", ch_layers.planets),
+    ("goc_hop", "Các góc hợp chính", ch_layers.aspects),
     ("tinh_cach", "Tính cách", ch_core.personality),
     ("tu_duy", "Tư duy và học tập", ch_core.mind),
     ("cam_xuc", "Cảm xúc", ch_core.emotions),
@@ -31,6 +33,7 @@ def build(chart: dict, mode: str = "deep", gender: str | None = None, when: dt.d
     chapters = []
     for cid, title, fn in CHAPTERS:
         chapters.append({"id": cid, "title": title, "paragraphs": [p.as_dict() for p in fn(f)]})
+    chapters.append({"id": "tong_hop", "title": "Tổng hợp", "paragraphs": [p.as_dict() for p in ch_layers.synthesis(f, chapters)]})
     when = when or dt.datetime.now(dt.timezone.utc)
     try:
         tv = [p.as_dict() for p in ch_time.cycles(f, when)]

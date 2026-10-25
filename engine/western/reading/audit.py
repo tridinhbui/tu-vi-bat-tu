@@ -19,7 +19,7 @@ FORBIDDEN = [r"\bchắc chắn sẽ\b", r"\bchắc chắn\b", r"\bnhất định
              r"\btiểu đường\b", r"\bhuyết áp\b", r"\bsát nhân\b", r"\bgiết\b", r"\btrộm\b", r"\bngoại tình\b", r"\bly hôn\b", r"\bphá sản\b"]
 ALLOWED_NEGATED = [r"không luận (việc|chuyện|phần|bệnh|sinh tử)", r"không (đủ|được) để đoán chắc", r"không thay cho", r"Thiên Bàn không luận"]
 BARNUM = ["bạn là người", "đôi khi bạn", "bạn có xu hướng che giấu", "bạn có tiềm năng", "nhạy cảm và sâu sắc", "thông minh và nhạy cảm"]
-METHOD_WORDS = ("Lilly", "Ptolemy", "Valens", "Leo", "Thiên Bàn", "Regiomontanus", "Lot", "tr.", "chỗ", "Nhà ", "cung Mọc", "Thiên Đỉnh")
+METHOD_WORDS = ("chương", "Lilly", "Ptolemy", "Valens", "Leo", "Thiên Bàn", "Regiomontanus", "Lot", "tr.", "chỗ", "Nhà ", "cung Mọc", "Thiên Đỉnh")
 SCHOOL_OK = {"hellenistic": {"hellenistic", "astronomy", "convention", "data"}, "traditional": {"traditional", "astronomy", "convention", "data"},
              "modern": {"modern", "astronomy", "convention", "data"}, "calc": {"astronomy", "convention", "data", "modern", "hellenistic", "traditional"},
              "compare": {"hellenistic", "traditional", "modern", "astronomy", "convention", "data"}}
@@ -75,7 +75,7 @@ def check(chapters: list[dict]) -> dict:
                     issues.append({"kind": "generic", "para": pid, "sentence": sent})
                 words = _fold(sent).split()
                 tri = {" ".join(words[i:i + 3]) for i in range(len(words) - 2)}
-                if len(tri) >= 6 and p["tier"] != "calc":
+                if len(tri) >= 8 and p["tier"] != "calc":      # short sentences may share a shape
                     for other_pid, ot in seen:
                         j = len(tri & ot) / len(tri | ot)
                         if j > 0.6:

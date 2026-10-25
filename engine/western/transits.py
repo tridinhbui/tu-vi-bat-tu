@@ -70,7 +70,7 @@ class Track:
 
     def at(self, x: float) -> float:
         k, u = self._k(x)
-        y0, y1, y2, y3 = self.un[k - 1:k + 3]
+        y0, y1, y2, y3 = (float(v) for v in self.un[k - 1:k + 3])
         return (-u * (u - 1) * (u - 2) / 6 * y0 + (u + 1) * (u - 1) * (u - 2) / 2 * y1
                 - (u + 1) * u * (u - 2) / 2 * y2 + (u + 1) * u * (u - 1) / 6 * y3)
 
@@ -159,7 +159,7 @@ def _events(tr, tname, asp, ang, target, orb, grid, g, inside, cross) -> list[Tr
             end = _bisect(tr, target, grid[j], grid[j + 1], orb, abs(g[j]) - orb) if j < n - 1 else None
         else:
             end = _bisect(tr, target, exacts[-1], grid[j], orb, -orb)
-        retro = [tr.speed(x) < 0 for x in exacts]
+        retro = [bool(tr.speed(x) < 0) for x in exacts]
         out.append(TransitEvent(body, tname, asp, ang, orb, _jd_to_iso(start) if start else None, _jd_to_iso(end) if end else None,
                                 [_jd_to_iso(x) for x in exacts], retro,
                                 0.0 if exacts else round(float(np.min(np.abs(g[i:j + 1]))), 4), len(exacts)))
@@ -189,6 +189,6 @@ def ingresses_and_stations(start: dt.datetime, end: dt.datetime, bodies=TRANSITI
             fa = tr.speed(a)
             x = _root(tr.speed, a, b, fa)
             out.append({"type": "station", "body": body, "time": _jd_to_iso(x), "turns": "retrograde" if fa > 0 else "direct",
-                        "lon": round(tr.at(x) % 360.0, 4)})
+                        "lon": round(float(tr.at(x)) % 360.0, 4)})
     out.sort(key=lambda e: e["time"])
     return out

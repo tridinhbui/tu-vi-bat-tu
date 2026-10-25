@@ -35,12 +35,12 @@ def career(f: Facts) -> list[Para]:
         why.append(f"{P(la['morning'])} là sao vừa mọc buổi sáng gần Mặt Trời nhất")
     if la["at_mc"]:
         why.append(f"{planet_list(la['at_mc'])} đứng ở chỗ Thiên Đỉnh")
-    t = "Ptolemy tìm 'chủ hành nghiệp' (lord of action) từ hai phía: Mặt Trời và Thiên Đỉnh (IV.4). "
+    t = "⟦Ptolemy tìm 'chủ hành nghiệp' (lord of action) từ hai phía: Mặt Trời và Thiên Đỉnh (IV.4).⟧ "
     if la["fallback"]:
         t += (f"Ở lá số này không có sao nào vừa mọc buổi sáng hay đứng ở Thiên Đỉnh, nên ông lấy chủ của cung Thiên Đỉnh, {P(lords[0])}, "
               f"và nói thêm rằng những người như vậy 'phần nhiều ít hoạt động', tức không bị một nghề duy nhất cuốn đi.")
     else:
-        t += cap(listing(why)) + f", nên {planet_list(lords)} giữ vai này. "
+        t += cap(listing(why)) + f", nên {planet_list(lords)} là chủ hành nghiệp theo Ptolemy. "
     keyset = "+".join(sorted(q, key=["mercury", "venus", "mars"].index))
     acts = M["ptolemy_action"]
     shown = []
@@ -86,7 +86,7 @@ def career(f: Facts) -> list[Para]:
     g_sun, a_sun = grade("sun")
     g_l, a_l = grade(lord_mc)
     word = {"high": "đủ phẩm vị để Lilly hứa danh vọng và chức việc", "mid": "phẩm vị vừa phải, Lilly đọc là mức trung bình", "low": "không có phẩm vị, Lilly đọc là ít danh vọng"}
-    t2 = (f"Lilly xét danh vọng và chức vị từ Mặt Trời, chủ của Thiên Đỉnh và các sao đứng ở Nhà 10 (tr.615-617). "
+    t2 = (f"⟦Lilly xét danh vọng và chức vị từ Mặt Trời, chủ của Thiên Đỉnh và các sao đứng ở Nhà 10 (tr.615-617).⟧ Theo Lilly, "
           f"Mặt Trời {word[g_sun]} và đứng ở {'nhà góc' if a_sun == 'angular' else 'nhà kế góc' if a_sun == 'succedent' else 'nhà suy'}; "
           f"Thiên Đỉnh ở {S(mc_sign)}, chủ là {P(lord_mc)}: {word[g_l]}, {'ở nhà góc' if a_l == 'angular' else 'ở nhà kế góc' if a_l == 'succedent' else 'ở nhà suy'}.")
     ben10 = [p for p in in10 if p in BENEFICS]
@@ -100,7 +100,7 @@ def career(f: Facts) -> list[Para]:
         t2 += f" Chủ cung Mọc là {P(asc_lord)} lại đứng ở Nhà 10: Lilly nói đó là dấu hiệu có tiếng tốt."
     elif f.house_lilly(lord_mc) == 1:
         t2 += f" Chủ Thiên Đỉnh là {P(lord_mc)} đứng ở Nhà 1: Lilly nói đó là dấu hiệu có tiếng tốt."
-    t2 += " Lilly tự dặn không được kết luận từ một câu cách ngôn riêng lẻ, và cùng một lời hứa thì mỗi người nhận theo hoàn cảnh của mình (tr.617)."
+    t2 += " ⟦Lilly tự dặn không được kết luận từ một câu cách ngôn riêng lẻ, và cùng một lời hứa thì mỗi người nhận theo hoàn cảnh của mình (tr.617).⟧"
     out.append(Para("sn.lilly", "Danh vọng và chức vị theo Lilly", t2, "traditional", srcs("LILLY_CA:pp.615-617", "LILLY_CA:p.104"),
                     [ev_planet(c, "sun", f.house_lilly("sun")), ev_planet(c, lord_mc, f.house_lilly(lord_mc)), ev_point(c, "mc")], "overview",
                     polarity=+1 if "high" in (g_sun, g_l) and not mal10 else -1 if (g_sun, g_l) == ("low", "low") else 0, topic="su_nghiep",
@@ -111,7 +111,7 @@ def career(f: Facts) -> list[Para]:
         LP = M["lilly_profession"]
         test_vi = {1: "đứng ở Nhà 10, 1 hoặc 7 với phẩm vị của chính nó và không bị Mặt Trời đốt", 2: "làm chủ cung Thiên Đỉnh và có phẩm vị",
                    3: "chiếu Mặt Trăng đúng độ (partile)", 4: "chiếu Mặt Trăng trong phạm vi orb", 5: "mọc trước Mặt Trời"}[lp["test"]]
-        t5 = (f"Lilly chọn sao chủ nghề trong ba sao Sao Hỏa, Sao Kim và Sao Thủy, theo năm phép thử lần lượt (tr.624-625). Ở lá số này {P(sg)} là sao đầu tiên đạt yêu cầu, "
+        t5 = (f"⟦Lilly chọn sao chủ nghề trong ba sao Sao Hỏa, Sao Kim và Sao Thủy, theo năm phép thử lần lượt (tr.624-625).⟧ Ở lá số này {P(sg)} là sao chủ nghề theo Lilly, "
               f"vì nó {test_vi}. ")
         key = "+".join(sorted([sg, lp["partner"]], key=["mercury", "venus", "mars"].index)) if lp["partner"] else sg
         info = LP.get(key) or LP.get(sg)
@@ -165,8 +165,8 @@ def money(f: Facts) -> list[Para]:
     lot = fr["lot"]
     r = fr["rulers"][0]
     power = f.honourable(r) or f.place_ptolemy(r) in (1, 10, 7, 4, 11)
-    t = (f"Ptolemy xét của cải từ Lot of Fortune, tính theo một công thức cho cả ngày lẫn đêm: lấy khoảng cách từ Mặt Trời đến Mặt Trăng đặt từ cung Mọc (III.10, IV.2). "
-         f"Ở lá số này Lot rơi vào {S(SIGNS[sign_index(lot)])}; hành tinh nắm nhiều quyền nhất trên điểm ấy là {P(r)}. ")
+    t = (f"⟦Ptolemy xét của cải từ Lot of Fortune, tính theo một công thức cho cả ngày lẫn đêm: lấy khoảng cách từ Mặt Trời đến Mặt Trăng đặt từ cung Mọc (III.10, IV.2).⟧ "
+         f"Lot of Fortune theo Ptolemy rơi vào {S(SIGNS[sign_index(lot)])}; hành tinh nắm nhiều quyền nhất trên điểm ấy là {P(r)}. ")
     src_w = M["ptolemy_wealth"].get(r)
     if src_w and power:
         t += f"{P(r)} đang có sức (ở chỗ của mình hoặc ở góc), nên theo Ptolemy của cải dễ đến qua {src_w}."
@@ -194,8 +194,8 @@ def money(f: Facts) -> list[Para]:
     stf = f.lilly_state(lf)
     good = [x for x, s in ((f"chủ Nhà 2 là {P(l2)}", st2), (f"chủ của Part of Fortune là {P(lf)}", stf), ("Sao Mộc", stj)) if s == "well"]
     weak = [x for x, s in ((f"chủ Nhà 2 là {P(l2)}", st2), (f"chủ của Part of Fortune là {P(lf)}", stf), ("Sao Mộc", stj)) if s == "ill"]
-    t2 = (f"Lilly xét tiền bạc qua đỉnh Nhà 2 và chủ của nó, Part of Fortune và chủ của nó, Sao Mộc như sao chủ của cải nói chung, cùng các sao ở Nhà 2 (tr.552). "
-          f"Đỉnh Nhà 2 (Regiomontanus) ở {S(sign2)}. ")
+    t2 = (f"⟦Lilly xét tiền bạc qua đỉnh Nhà 2 và chủ của nó, Part of Fortune và chủ của nó, Sao Mộc như sao chủ của cải nói chung, cùng các sao ở Nhà 2 (tr.552).⟧ "
+          f"Với Lilly, đỉnh Nhà 2 (Regiomontanus) ở {S(sign2)}. ")
     if good:
         t2 += f"{cap(listing(good))} đắc thế: đó là những chứng thuận cho việc kiếm và giữ tiền. "
     if weak:
@@ -242,7 +242,7 @@ def relations(f: Facts) -> list[Para]:
     s7 = SIGNS[sign_index(cs[6])]
     l7 = dignity.domicile_lord(s7)
     in7 = [p for p in CLASSICAL if f.house_lilly(p) == 7]
-    t = (f"Lilly xét hôn nhân và người phối ngẫu qua Nhà 7 và chủ của nó, rồi các sao trong Nhà 7 (tr.587, tr.600). Nhà 7 ở {S(s7)}, chủ là {P(l7)}, "
+    t = (f"⟦Lilly xét hôn nhân và người phối ngẫu qua Nhà 7 và chủ của nó, rồi các sao trong Nhà 7 (tr.587, tr.600).⟧ Theo Lilly, Nhà 7 ở {S(s7)}, chủ là {P(l7)}, "
          f"đang {lilly_condition(f, l7)}. ")
     t += (f"Lilly lấy dấu hiệu cung Nhà 7 để tả dáng người kia và chủ của nó để tả tính nết (tr.600-602): {P(l7)} {'đắc thế' if f.lilly_state(l7) == 'well' else 'thất thế' if f.lilly_state(l7) == 'ill' else 'ở mức lưng chừng'}. ")
     if in7:
@@ -296,7 +296,7 @@ def family(f: Facts) -> list[Para]:
     mo = [p for p in ("moon", "venus")]
     def strength(p):
         return "đáng trọng" if f.honourable(p) else "ở chỗ lạ"
-    t = (f"Ptolemy dùng Mặt Trời và Sao Thổ để nói về người cha, Mặt Trăng và Sao Kim để nói về người mẹ (III.4). "
+    t = (f"⟦Ptolemy dùng Mặt Trời và Sao Thổ để nói về người cha, Mặt Trăng và Sao Kim để nói về người mẹ (III.4).⟧ Với các sao Ptolemy dùng cho cha mẹ, "
          f"Ở lá số này Mặt Trời {strength('sun')}, Sao Thổ {strength('saturn')}; Mặt Trăng {strength('moon')}, Sao Kim {strength('venus')}. "
          f"Ptolemy dùng các sao này chủ yếu để xét vận của cha mẹ và tuổi thọ của họ; Thiên Bàn không luận các phần ấy, chỉ ghi lại tình trạng sao để bạn đối chiếu.")
     out.append(Para("gd.ptolemy", "Cha mẹ theo Ptolemy", t, "hellenistic", srcs("PTOL_TETRA:III.4 p.241"), [ev_planet(c, p) for p in fa + mo], "deep", topic="gia_dinh"))
@@ -316,8 +316,8 @@ def family(f: Facts) -> list[Para]:
             rows.append(f"với {who}, ông xét Nhà {n} ở {S(sg)}, {who_sig}" + (f"; trong Nhà {n} có {planet_list(inn)}" if inn else "")
                         + (f" ({state})" if state else ""))
         pat = [x for x in (["sun"] if day else ["saturn", "moon"]) if any(f.platick(x, b) in ("conjunction", "sextile", "trine") for b in BENEFICS)]
-        t2 = ("Lilly đọc cha mẹ qua những sao cụ thể (tr.569-570): " + "; ".join(rows) + ". Ông nói khi phần lớn các sao này mạnh và được cát tinh chiếu thì hoàn cảnh của cha mẹ thuận; "
-              "Thiên Bàn chỉ dùng điều đó như bức tranh về chỗ dựa gia đình, không luận số phận của cha mẹ.")
+        t2 = ("⟦Lilly đọc cha mẹ qua những sao cụ thể (tr.569-570); ông nói khi phần lớn các sao này mạnh và được cát tinh chiếu thì hoàn cảnh của cha mẹ thuận. "
+              "Thiên Bàn chỉ dùng điều đó như bức tranh về chỗ dựa gia đình, không luận số phận của cha mẹ.⟧ Theo Lilly, " + "; ".join(rows) + ".")
         if pat:
             t2 += f" {planet_list(pat)} được Sao Mộc hay Sao Kim chiếu tốt: theo Lilly (tr.572-573) gia sản có nền và người sinh làm nó tăng thêm."
         s3 = SIGNS[sign_index(f.regio[2])]
@@ -339,7 +339,7 @@ def direction(f: Facts) -> list[Para]:
         lg = f.lord_of_geniture
         strongest = lg["lords"][0] if lg else lord
         if ruler_ok:
-            t = (f"Alan Leo phân biệt chủ cung Mọc với 'hành tinh cai quản' lá số: chủ cung Mọc là hành tinh cai quản khi nó có phẩm vị, đứng ở góc, ở Nhà 9, 11 hay ở trên cao (The Art of Synthesis). "
+            t = (f"⟦Alan Leo phân biệt chủ cung Mọc với 'hành tinh cai quản' lá số: chủ cung Mọc là hành tinh cai quản khi nó có phẩm vị, đứng ở góc, ở Nhà 9, 11 hay ở trên cao (The Art of Synthesis).⟧ "
                  f"Chủ của {S(asc)} là {P(lord)}, đang ở Nhà {h}" + (" và đắc thế" if f.lilly_state(lord) == "well" else "") +
                  f", nên với Leo nó giữ vai trò dẫn dắt cả đời người.")
             ruler = lord
@@ -352,8 +352,8 @@ def direction(f: Facts) -> list[Para]:
                         [ev_planet(c, ruler), ev_planet(c, "sun")], "overview", topic="dinh_huong", keys=[f"ruler:{ruler}"]))
         fort, spirit = c["lots"]["fortune"], c["lots"]["spirit"]
         fr, sr = dignity.domicile_lord(fort["sign"]), dignity.domicile_lord(spirit["sign"])
-        t2 = (f"Valens đặt hai điểm cạnh nhau: Lot of Fortune nói về thân thể và việc của đôi tay, Lot of Daimon (Spirit) nói về tâm trí, dự định và việc cho nhận (II.19). "
-              f"Fortune ở {S(fort['sign'])} (Nhà {fort['house_ws']} tính trọn cung, chủ {P(fr)}); Daimon ở {S(spirit['sign'])} (Nhà {spirit['house_ws']}, chủ {P(sr)}). ")
+        t2 = (f"⟦Valens đặt hai điểm cạnh nhau: Lot of Fortune nói về thân thể và việc của đôi tay, Lot of Daimon (Spirit) nói về tâm trí, dự định và việc cho nhận (II.19).⟧ "
+              f"Theo Valens, Fortune ở {S(fort['sign'])} (Nhà {fort['house_ws']} tính trọn cung, chủ {P(fr)}); Daimon ở {S(spirit['sign'])} (Nhà {spirit['house_ws']}, chủ {P(sr)}). ")
         if dignity.domicile_lord(spirit["sign"]) and f.b[sr]["sign"] in (fort["sign"], SIGNS[(sign_index(fort["lon"]) + 9) % 12]):
             where = "ngay ở cung của Fortune" if f.b[sr]["sign"] == fort["sign"] else f"ở chỗ thứ 10 tính từ Fortune ({S(f.b[sr]['sign'])})"
             t2 += f"Chủ của Daimon là {P(sr)} đứng {where}: Valens coi đây là trường hợp tốt nhất, khi điều mình định làm và cái mình gặt được đi cùng một hướng."

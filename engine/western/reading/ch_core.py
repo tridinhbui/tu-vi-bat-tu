@@ -20,29 +20,43 @@ def lilly_condition(f: Facts, p: str, with_house: bool = True) -> str:
     seen = f.__dict__.setdefault("_described", set())
     if p in seen:
         st = f.lilly_state(p)
-        word = {"well": "đắc thế", "ill": "thất thế", "mixed": "phẩm vị lưng chừng"}[st]
+        word = {"well": "đắc thế", "ill": "thất thế", "mixed": "có phẩm vị lưng chừng"}[st]
         key = (e["has"][:1] or e["debilities"][:1] or (["peregrine"] if e["peregrine"] else []))
         return f"{word} ({DIGNITY_VI[key[0]].split(' (')[0]})" if key else word
     seen.add(p)
+    told = f.__dict__.setdefault("_concepts", set())
     bits = []
     if e["has"]:
         bits.append(listing([DIGNITY_VI[h] for h in e["has"]]))
     if e["debilities"]:
         bits.append(listing([DIGNITY_VI[d] for d in e["debilities"]]))
-    if e["peregrine"] and not e["debilities"]:
-        bits.append("không có phẩm vị nào ở độ đang đứng (lạc chỗ)")
-    elif e["peregrine"]:
-        bits.append("lại không có phẩm vị nào bù vào")
+    if e["peregrine"]:
+        if "peregrine" in told:
+            bits.append("cũng lạc chỗ" if not e["debilities"] else "không có phẩm vị bù vào")
+        else:
+            bits.append("không có phẩm vị nào ở độ đang đứng (Lilly gọi là lạc chỗ, peregrine)" if not e["debilities"] else "lại không có phẩm vị nào bù vào")
+            told.add("peregrine")
     if with_house and f.house_lilly(p):
         h = f.house_lilly(p)
         kind = "nhà góc" if h in (1, 4, 7, 10) else "nhà kế góc" if h in (2, 5, 8, 11) else "nhà suy"
-        bits.append(f"ở Nhà {h} theo cách chia nhà Regiomontanus của Lilly ({kind})")
+        if "regio" in told:
+            bits.append(f"ở Nhà {h} ({kind})")
+        else:
+            bits.append(f"ở Nhà {h} theo cách chia nhà Regiomontanus của Lilly ({kind})")
+            told.add("regio")
     sol = f.c["conditions"][p].get("solar", {}).get("phase")
     if sol:
         bits.append(SOLAR_VI[sol])
     if f.b[p].get("retrograde"):
         bits.append("đang đi nghịch")
     return listing(bits)
+
+
+def dang(f: Facts, p: str, with_house: bool = True) -> str:
+    """'đang ở nhà của mình, ở Nhà 10…' the first time, 'đắc thế (ở nhà của mình)' afterwards."""
+    first = not described(f, p)
+    cond = lilly_condition(f, p, with_house)
+    return ("đang " + cond) if first else cond
 
 
 def described(f: Facts, p: str) -> bool:
@@ -79,7 +93,7 @@ def _sect_paragraph(f: Facts) -> Para | None:
     t2 = (f"{light} đang ở {S(f.b[vl['light']]['sign'])}, thuộc tam hợp {ELEMENT_VI[vl['element']]}; "
           f"chủ thứ nhất của tam hợp này với lá số {'ngày' if day else 'đêm'} là {P(first)}, đứng ở Nhà {vl['places'][first]} (tính trọn cung), {GRADE_VI[g1]}; "
           f"chủ thứ hai là {P(second)}, ở Nhà {vl['places'][second]}, {GRADE_VI[g2]}. Theo Valens (II.2), chủ thứ nhất nói về chặng đầu đời và chủ thứ hai về chặng sau: "
-          f"{course}. Valens không chốt tuổi chuyển giao; ông chỉ nói nó đến theo vòng của các chủ thời gian.")
+          f"{course}. ⟦Valens không chốt tuổi chuyển giao; ông chỉ nói nó đến theo vòng của các chủ thời gian.⟧")
     t3 = ""
     if glad:
         t3 = (f" Thêm một chi tiết của Valens (III.5): {planet_list(glad)} đang ở đúng nửa trời mà phe {'ngày' if day else 'đêm'} ưa, "
@@ -105,11 +119,11 @@ def _geniture_paragraph(f: Facts) -> Para | None:
     ranked = sorted(tot.items(), key=lambda x: -x[1])
     nature = M["planets"][p]["lilly_nature"]["vi"]
     second = ranked[1]
-    t = (f"Lilly chọn 'hành tinh chủ lá số' (Lord of the Geniture) là sao gom được nhiều điểm phẩm vị nhất, cả bản chất lẫn ngẫu nhiên, "
-         f"đứng tốt và cao nhất trên bầu trời (tr.531). Cộng theo bảng điểm của ông (tr.104 và tr.115), {P(p)} dẫn đầu với {tot[p]:+d} điểm"
+    t = (f"⟦Lilly chọn 'hành tinh chủ lá số' (Lord of the Geniture) là sao gom được nhiều điểm phẩm vị nhất, cả bản chất lẫn ngẫu nhiên, "
+         f"đứng tốt và cao nhất trên bầu trời (tr.531).⟧ Cộng theo bảng điểm của Lilly (tr.104 và tr.115), {P(p)} dẫn đầu với {tot[p]:+d} điểm"
          + (f", ngang với {planet_list(lords[1:])}, nên Lilly cho các sao này cùng chia vai" if len(lords) > 1 else
             f", trên {P(second[0])} ({second[1]:+d})") + ". "
-         f"{P(p)} đang {lilly_condition(f, p)}. Với Lilly, {P(p)} mang bản chất {nature}; "
+         f"{P(p)} {dang(f, p)}. Với Lilly, {P(p)} mang bản chất {nature}; "
          f"là sao chủ lá số, nó nhuộm màu lên khí chất và cách hành xử của cả đời người.")
     if tot[p] < 5:
         t += " Có điều, điểm cao nhất ở lá số này vẫn khá khiêm tốn, nghĩa là không sao nào thật sự áp đảo; ảnh hưởng chia đều hơn cho nhiều hành tinh."
@@ -124,13 +138,13 @@ def _geniture_paragraph(f: Facts) -> Para | None:
 def _leo_centres(f: Facts) -> Para:
     c = f.c
     sun, moon = f.b["sun"]["sign"], f.b["moon"]["sign"]
-    t = (f"Alan Leo đọc một lá số từ ba trung tâm, Mặt Trời trước hết (Astrology for All; How to Judge a Nativity). "
-         f"Mặt Trời ở {S(sun)} cho phần 'cá tính' (individuality), cái lõi bền của con người: theo Leo, {M['leo_sun'][sun]}. "
+    t = (f"⟦Alan Leo đọc một lá số từ ba trung tâm, Mặt Trời trước hết (Astrology for All; How to Judge a Nativity).⟧ "
+         f"Với Leo, Mặt Trời ở {S(sun)} cho phần 'cá tính' (individuality), cái lõi bền của con người: theo Leo, {M['leo_sun'][sun]}. "
          f"Mặt Trăng ở {S(moon)} cho phần 'nhân cách' (personality), tức cảm xúc và giác quan: {M['leo_moon'][moon]}.")
     if f.time_known:
         asc = c["angles"]["asc"]["sign"]
-        t += (f" Cung Mọc {S(asc)} là trung tâm thứ ba, nói về thân thể và khuynh hướng bẩm sinh; Leo cho rằng khi con người trưởng thành, "
-              f"cung Mọc dần hòa vào Mặt Trăng rồi vào Mặt Trời.")
+        t += (f" Cung Mọc {S(asc)} là trung tâm thứ ba, nói về thân thể và khuynh hướng bẩm sinh. ⟦Leo cho rằng khi con người trưởng thành, "
+              f"cung Mọc dần hòa vào Mặt Trăng rồi vào Mặt Trời.⟧")
         q = f.leo_centres()
         vals = list(q.values())
         if len(set(vals)) == 1:
@@ -155,8 +169,8 @@ def _complexion(f: Facts) -> Para | None:
     kind = cx["temperament"]
     lines = cx["lines"]
     if kind:
-        head = (f"Gộp các 'chứng' nóng, lạnh, ẩm, khô từ năm nguồn Lilly chỉ định (cung Mọc và chủ của nó, sao ở Nhà 1, Mặt Trăng và các sao chiếu nó, "
-                f"mùa Mặt Trời đang ở, và sao chủ lá số; tr.533), lá số này có {t['hot']} chứng nóng, {t['cold']} lạnh, {t['moist']} ẩm, {t['dry']} khô. "
+        head = (f"⟦Lilly gộp các 'chứng' nóng, lạnh, ẩm, khô từ năm nguồn (cung Mọc và chủ của nó, sao ở Nhà 1, Mặt Trăng và các sao chiếu nó, "
+                f"mùa Mặt Trời đang ở, và sao chủ lá số; tr.533).⟧ Theo cách đếm ấy, lá số này có {t['hot']} chứng nóng, {t['cold']} lạnh, {t['moist']} ẩm, {t['dry']} khô. "
                 f"Nóng {'thắng' if cx['hot_minus_cold'] > 0 else 'thua'} lạnh, ẩm {'thắng' if cx['moist_minus_dry'] > 0 else 'thua'} khô, nên khí chất là {TEMPERAMENT_VI[kind]}. "
                 f"Lilly mô tả người thuộc khí chất này là {M['lilly_temperament_manners'][kind]} (tr.539).")
         close = [a for a, v in (("nóng và lạnh", cx["hot_minus_cold"]), ("ẩm và khô", cx["moist_minus_dry"])) if abs(v) <= 1]
@@ -241,14 +255,15 @@ def _lilly_manners(f: Facts) -> list[Para]:
                 continue
         state = f.lilly_state(portrait_planet)
         mm = M["lilly_manners"][portrait_planet]
+        repeat = described(f, portrait_planet)
         cond = lilly_condition(f, portrait_planet)
         tot = f.lilly_total(portrait_planet)
         if state == "well":
-            core = (f"{P(portrait_planet)} đang {cond}, tức đắc thế theo phẩm vị của Lilly. Khi sao này mạnh, ông mô tả người mang nó là "
+            core = (f"{P(portrait_planet)} " + (cond if repeat else f"đang {cond}, tức đắc thế theo phẩm vị của Lilly") + ". Khi sao này mạnh, ông mô tả người mang nó là "
                     f"{listing(mm['well'], 5)} ({mm['loc'].replace('p.', 'tr.')}).")
             pol = +1
         elif state == "ill":
-            core = (f"{P(portrait_planet)} đang {cond}, tức thất thế theo phẩm vị của Lilly. Với một {P(portrait_planet)} yếu, ông ghi những nét cần để ý là "
+            core = (f"{P(portrait_planet)} " + (cond if repeat else f"đang {cond}, tức thất thế theo phẩm vị của Lilly") + ". Với một {P(portrait_planet)} yếu, ông ghi những nét cần để ý là "
                     f"{listing(mm['ill'], 4)} ({mm['loc'].replace('p.', 'tr.')}); bản chất gốc của sao vẫn còn, chỉ là khó phát huy trọn.")
             pol = -1
             if tot["accidental_score"] >= 8:
@@ -256,7 +271,7 @@ def _lilly_manners(f: Facts) -> list[Para]:
                          f"nên những nét tốt của nó ({listing(mm['well'], 3)}) vẫn có chỗ để lộ ra.")
                 pol = 0
         else:
-            core = (f"{P(portrait_planet)} đang {cond}: phẩm vị ở mức lưng chừng. Vì vậy cả hai bức chân dung của Lilly đều có phần đúng: "
+            core = (f"{P(portrait_planet)} " + (cond if repeat else f"đang {cond}: phẩm vị ở mức lưng chừng") + ". Vì vậy cả hai bức chân dung của Lilly đều có phần đúng: "
                     f"lúc thuận thì {listing(mm['well'], 3)}, lúc nghịch thì {listing(mm['ill'], 2)}.")
             pol = 0
         disp = dignity.domicile_lord(f.b[portrait_planet]["sign"])
@@ -287,8 +302,8 @@ def _ptolemy_soul(f: Facts) -> Para:
     hon = f.honourable(r)
     soul = M["ptolemy_soul"][r]
     claims = ", ".join(sorted(set(sr["claims_mercury"].get(r, []) + sr["claims_moon"].get(r, []))))
-    t = (f"Ptolemy tách phần lý trí của tâm hồn (đọc từ Sao Thủy) với phần cảm và bản năng (đọc từ Mặt Trăng), rồi tìm hành tinh 'cai quản' cả hai (III.13). "
-         f"Sao Thủy ở {S(f.b['mercury']['sign'])}, Mặt Trăng ở {S(f.b['moon']['sign'])}; hành tinh nắm nhiều quyền nhất trên hai vị trí này là {P(r)}"
+    t = (f"⟦Ptolemy tách phần lý trí của tâm hồn (đọc từ Sao Thủy) với phần cảm và bản năng (đọc từ Mặt Trăng), rồi tìm hành tinh 'cai quản' cả hai (III.13).⟧ "
+         f"Sao Thủy ở {S(f.b['mercury']['sign'])}, Mặt Trăng ở {S(f.b['moon']['sign'])}; hành tinh nắm nhiều quyền nhất trên hai vị trí này, tức sao cai quản tâm hồn theo Ptolemy, là {P(r)}"
          + (f" (cùng {planet_list(sr['rulers'][1:])})" if len(sr["rulers"]) > 1 else "") + ". ")
     if hon:
         t += (f"{P(r)} lại đứng ở chỗ quen thuộc của mình và không bị Mặt Trời che, nên Ptolemy đọc theo vế 'đáng trọng': "
@@ -358,8 +373,8 @@ def mind(f: Facts) -> list[Para]:
     wm, wl = f.lilly_state("mercury"), f.lilly_state("moon")
     good = lm in ("sextile", "trine")
     hard = lm in ("square", "opposition")
-    t = "Lilly đọc trí tuệ chủ yếu từ Sao Thủy và mối liên hệ của nó với Mặt Trăng (tr.543). "
-    t += f"Sao Thủy đang {lilly_condition(f, 'mercury')}; Mặt Trăng {lilly_condition(f, 'moon')}. "
+    t = "⟦Lilly đọc trí tuệ chủ yếu từ Sao Thủy và mối liên hệ của nó với Mặt Trăng (tr.543).⟧ "
+    t += f"Sao Thủy {dang(f, 'mercury')}; Mặt Trăng {dang(f, 'moon')}. "
     if good:
         t += (f"Hai sao chiếu nhau bằng {ASPECT_NOUN[lm]}, góc mà Lilly coi là thuận; " +
               ("cùng với việc cả hai đều đủ mạnh, đó là dấu hiệu Lilly gọi là trí óc rất tốt." if wm != "ill" and wl != "ill"
@@ -381,7 +396,7 @@ def mind(f: Facts) -> list[Para]:
     lk = MODALITY[sign_index(f.lon["moon"])]
     cls = lambda m: "solid" if m == "fixed" else "bicorporeal" if m == "mutable" else "solstitial_equinoctial"
     ss = M["sign_soul"]
-    t2 = (f"Ptolemy cho rằng loại cung chứa Sao Thủy và Mặt Trăng góp phần lớn vào tâm hồn (III.13, tr.335). Sao Thủy ở {S(f.b['mercury']['sign'])} "
+    t2 = (f"⟦Ptolemy cho rằng loại cung chứa Sao Thủy và Mặt Trăng góp phần lớn vào tâm hồn (III.13, tr.335).⟧ Sao Thủy ở {S(f.b['mercury']['sign'])} "
           f"(cung {MODALITY_VI[mk]}): {ss[cls(mk)]}. Mặt Trăng ở {S(f.b['moon']['sign'])} (cung {MODALITY_VI[lk]})"
           + (": cùng loại, nên nét này được nhân đôi." if mk == lk else f": {ss[cls(lk)]}; hai nét này cùng tồn tại, một bên thiên về lý trí, một bên thiên về cảm giác."))
     out.append(Para("td.ptolemy", "Kiểu tâm trí theo Ptolemy", t2, "hellenistic", srcs("PTOL_TETRA:III.13 p.335"),
@@ -408,7 +423,7 @@ def emotions(f: Facts) -> list[Para]:
     out = []
     mc = f.moon_contacts()
     sep, app = mc["separated_from"], mc["applies_to"]
-    t = ("Ptolemy đọc phần cảm và bản năng của tâm hồn từ Mặt Trăng và từ những sao mà Mặt Trăng vừa rời khỏi và sắp gặp (III.13, tr.333). ")
+    t = ("⟦Ptolemy đọc phần cảm và bản năng của tâm hồn từ Mặt Trăng và từ những sao mà Mặt Trăng vừa rời khỏi và sắp gặp (III.13, tr.333).⟧ ")
     if sep:
         t += f"Lúc bạn sinh, Mặt Trăng vừa rời {ASPECT_NOUN[sep['aspect']]} với {P(sep['planet'])} ({num(sep['days'])} ngày trước)"
     if app:

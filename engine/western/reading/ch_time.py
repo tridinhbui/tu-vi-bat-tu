@@ -30,7 +30,7 @@ def cycles(f: Facts, when: dt.datetime) -> list[Para]:
         lord = pr["lord"]
         h = pr["house"]
         th = M["houses"][str(h)]
-        t = (f"Valens đếm năm theo cách 'chuyển giao': mỗi năm tuổi, cung Mọc tiến thêm một cung (IV.11); Lilly dùng cùng nguyên tắc và bắt đầu mỗi năm đúng lúc Mặt Trời trở về vị trí lúc sinh (tr.715-716). "
+        t = (f"⟦Valens đếm năm theo cách 'chuyển giao': mỗi năm tuổi, cung Mọc tiến thêm một cung (IV.11); Lilly dùng cùng nguyên tắc và bắt đầu mỗi năm đúng lúc Mặt Trời trở về vị trí lúc sinh (tr.715-716).⟧ "
              f"Năm nay ({_d(pr['start_utc'])} đến {_d(pr['end_utc'])}) bạn tròn {age} tuổi, nên cung của năm là {S(pr['sign'])}, Nhà {h} của lá số: "
              f"nơi Valens gắn với {th['valens']['vi']}, Lilly gắn với {th['lilly']['vi']}. ")
         t += (f"Chủ của năm là {P(lord)}, chủ của {S(pr['sign'])}. Lilly bảo xét trước hết vị trí và tình trạng của chủ năm trong lá số gốc (tr.726-727): "
@@ -68,9 +68,9 @@ def cycles(f: Facts, when: dt.datetime) -> list[Para]:
                 else:
                     e = es[0]
                     lines.append(f"{P(tp)} trong orb {ASPECT_NOUN[asp]} với {P(na)} lúc sinh ({_d(e['start']) if e['start'] else '…'} – {_d(e['end']) if e['end'] else '…'}), chưa chính xác trong năm này")
-            t2 = ("Valens dặn xác nhận năm chuyển giao bằng các hành tinh đang đi qua (transit) lặp lại cấu hình lúc sinh (IV.11); Alan Leo xếp Sao Mộc, Sao Thổ, Sao Hỏa và Sao Thiên Vương là những transit đáng kể nhất (The Progressed Horoscope). "
+            t2 = ("⟦Valens dặn xác nhận năm chuyển giao bằng các hành tinh đang đi qua (transit) lặp lại cấu hình lúc sinh (IV.11); Alan Leo xếp Sao Mộc, Sao Thổ, Sao Hỏa và Sao Thiên Vương là những transit đáng kể nhất (The Progressed Horoscope).⟧ "
                   f"Trong năm chuyển giao này, xét các hành tinh chậm tới chủ năm {P(lord)}, hai sao sáng và hai góc chính: " + "; ".join(lines) +
-                  ". Với Leo, transit chỉ châm ngòi cho điều đã có trong lá số gốc và trong các progression đang hoạt động, không tự nó tạo ra biến cố.")
+                  ". ⟦Với Leo, transit chỉ châm ngòi cho điều đã có trong lá số gốc và trong các progression đang hoạt động, không tự nó tạo ra biến cố.⟧")
             out.append(Para("tv.transits", "Transit đáng chú ý trong năm", t2, "compare", srcs("VALENS_ANTH:IV.11", "LEO:The Progressed Horoscope"),
                             [{"kind": "aspect", "id": f"{k[0]}-{k[2]}-{k[1]}", "label": f"{P(k[0])} {ASPECT_WITH[k[2]]} {P(k[1])}"} for k, _ in items[:3]], "overview", topic="thoi_van",
                             steps=[f"Orb transit {num(T.orb_table()['jupiter'])}° cho hành tinh chậm (quy ước Thiên Bàn); khoảng xét: năm chuyển giao {_d(pr['start_utc'])} – {_d(pr['end_utc'])}."]))
@@ -93,7 +93,7 @@ def cycles(f: Facts, when: dt.datetime) -> list[Para]:
     sun_ing = [e for e in tl["events"] if e["type"] == "ingress" and e["progressed"] == "sun"]
     moon_ev = [e for e in tl["events"] if e["progressed"] == "moon"]
     ps, pm = pc["bodies"]["sun"], pc["bodies"]["moon"]
-    t4 = (f"Theo Alan Leo, mỗi ngày sau khi sinh ứng với một năm cuộc đời (The Progressed Horoscope, tr.27). Ở tuổi {num(pc['age_years'])}, Mặt Trời tiến triển ở {ps['fmt']} {S(ps['sign'])}"
+    t4 = (f"⟦Theo Alan Leo, mỗi ngày sau khi sinh ứng với một năm cuộc đời (The Progressed Horoscope, tr.27).⟧ Ở tuổi {num(pc['age_years'])}, Mặt Trời tiến triển ở {ps['fmt']} {S(ps['sign'])}"
           + (f", Mặt Trăng tiến triển ở {pm['fmt']} {S(pm['sign'])}" + (f" (Nhà {pm['natal_house']} của lá gốc)" if pm.get("natal_house") else "") if f.time_known else "") + ". ")
     if sun_ing:
         e = sun_ing[0]

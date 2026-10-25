@@ -7,6 +7,7 @@ source pages; `steps` is the reasoning shown in Đọc sâu.
 from __future__ import annotations
 
 import hashlib
+import re
 from dataclasses import asdict, dataclass, field
 
 from .vocab import P, S, at, src
@@ -28,6 +29,15 @@ class Para:
     polarity: int = 0                     # +1 supports, -1 hinders, 0 neutral (used by the audit)
     topic: str = ""
     keys: list[str] = field(default_factory=list)     # chart facts this paragraph asserts (audit: contradictions)
+    method: str = ""                      # how the source works, the same for every chart: shown in Đọc sâu, not in the text
+
+    def __post_init__(self):
+        """Sentences wrapped in ⟦…⟧ by the chapters are method talk: they move to `method`, the text keeps what is about this chart."""
+        found = re.findall(r"⟦(.*?)⟧\s*", self.text, flags=re.S)
+        if found:
+            self.method = " ".join(x.strip() for x in found if x.strip())
+            self.text = re.sub(r"⟦.*?⟧\s*", "", self.text, flags=re.S).strip()
+            self.text = self.text[:1].upper() + self.text[1:]
 
     def as_dict(self) -> dict:
         return asdict(self)
