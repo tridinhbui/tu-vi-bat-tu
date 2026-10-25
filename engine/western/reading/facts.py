@@ -36,9 +36,11 @@ OPERATIONAL = {
     "besieged": "'bị vây' = Sao Thổ và Sao Hỏa ở hai bên trong cùng một cung; Lilly không định nghĩa thêm ở tr.115.",
     "morning_appearance": "'mới mọc buổi sáng' (Ptolemy IV.4) được hiểu là hành tinh đi trước Mặt Trời và đã cách xa ít nhất 15°; "
                           "Ptolemy không cho con số, 15° là mức Thiên Bàn chọn.",
+    "polar_houses": "Trong vòng cực, Placidus và Regiomontanus có lúc không cho mười hai nhà theo đúng thứ tự; khi đó Thiên Bàn chia nhà theo "
+                    "Porphyry (chia đều mỗi góc phần tư) cho cả bánh xe lẫn phần của Lilly.",
     "lilly_houses": "Nhà theo Lilly = cách chia Regiomontanus, và theo lời Lilly (tr.33) một hành tinh cách đỉnh nhà không quá 5° "
                     "được tính vào nhà của đỉnh gần nó nhất; vì thế số nhà theo Lilly có thể khác số nhà trên bánh xe (Placidus).",
-    "ptolemy_place":"'chỗ' theo Ptolemy III.10: mỗi chỗ 30°, chỗ thứ nhất bắt đầu 5° phía trên điểm Mọc.",
+    "ptolemy_place": "'chỗ' theo Ptolemy III.10: mỗi chỗ 30°, chỗ thứ nhất bắt đầu 5° phía trên điểm Mọc.",
     "fixed_stars": "'đồng độ với định tinh' = cách định tinh không quá 5° theo kinh độ hoàng đạo, con số Lilly cho ở tr.616 (và tr.115 với Caput Algol); "
                    "tr.115 không ghi khoảng cách cho Cor Leonis và Spica, Thiên Bàn dùng cùng 5°. Lilly in vị trí định tinh của năm 1647; "
                    "do tuế sai, định tinh nay đã dịch thêm khoảng 5°, nên Thiên Bàn tính vị trí của chính ngày sinh (dữ liệu Hipparcos).",
@@ -69,8 +71,9 @@ class Facts:
         _, eps, _ = E.sidereal_and_obliquity(t)
         try:
             return H.cusps("regiomontanus", self.c["angles"]["armc"], eps, self.c["input"]["lat"])
-        except H.PolarHouses:
-            return None
+        except H.PolarHouses:          # beyond the polar circles: Porphyry, as the chart does for Placidus (named in OPERATIONAL)
+            self.regio_fallback = True
+            return H.cusps("porphyry", self.c["angles"]["armc"], eps, self.c["input"]["lat"])
 
     def house_lilly(self, name: str) -> int | None:
         """Regiomontanus with Lilly's five-degree rule (p.33): the house Lilly himself would read the planet in."""

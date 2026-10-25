@@ -123,3 +123,11 @@ def test_lilly_points_are_independent_of_the_chart_tables():
     a = C.compute(C.BirthData(1990, 5, 17, 10, 30, **HCM), C.ChartOptions(triplicity="dorothean", terms="egyptian"))
     b = C.compute(C.BirthData(1990, 5, 17, 10, 30, **HCM), C.ChartOptions(triplicity="ptolemaic", terms="ptolemaic"))
     assert all(a["conditions"][p]["lilly"] == b["conditions"][p]["lilly"] for p in ("sun", "moon", "mercury", "venus", "mars", "jupiter", "saturn"))
+
+
+def test_polar_ascendant_is_the_rising_point():
+    # Swiss Ephemeris 2.10 for 3 July 1942 23:26 CEST at 69.65 N 18.96 E: ASC 41.128 (Placidus undefined; Porphyry used)
+    c = C.compute(C.BirthData(1942, 7, 3, 23, 26, 69.65, 18.96, "Europe/Oslo"))
+    assert abs(c["angles"]["asc"]["lon"] - 41.128) < 0.01 and c["houses"]["system"] == "porphyry"
+    swe_porphyry = [41.128, 54.886, 68.644, 82.402, 128.644, 174.886, 221.128, 234.886, 248.644, 262.402, 308.644, 354.886]
+    assert all(abs(((x["lon"] - y) + 180) % 360 - 180) < 0.01 for x, y in zip(c["houses"]["cusps"]["porphyry"], swe_porphyry))

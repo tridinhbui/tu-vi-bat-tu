@@ -25,8 +25,17 @@ class PolarHouses(ValueError):
 
 
 def ascendant(armc: float, eps: float, lat: float) -> float:
+    """The ecliptic point on the eastern horizon. Inside the polar circles the formula can return the setting point instead
+    (the ecliptic crosses the horizon the 'wrong' way round); the point actually rising is then the opposite one, as Swiss
+    Ephemeris also takes it (checked: 3 July 1942 23:26 at 69.65 N, 18.96 E gives 41.13, not 221.13)."""
     a, e, f = _r(armc), _r(eps), _r(lat)
-    return _norm(_d(math.atan2(math.cos(a), -(math.sin(a) * math.cos(e) + math.tan(f) * math.sin(e)))))
+    asc = _norm(_d(math.atan2(math.cos(a), -(math.sin(a) * math.cos(e) + math.tan(f) * math.sin(e)))))
+    if abs(lat) > 90.0 - eps:
+        l = _r(asc)
+        ra = _d(math.atan2(math.sin(l) * math.cos(e), math.cos(l)))
+        if math.sin(_r(armc - ra)) > 0:          # hour angle west of the meridian: this point is setting
+            asc = _norm(asc + 180.0)
+    return asc
 
 
 def midheaven(armc: float, eps: float) -> float:
@@ -90,6 +99,10 @@ def cusps(system: str, armc: float, eps: float, lat: float) -> list[float]:
         c[3], c[6] = _norm(mc + 180), _norm(asc + 180)
         for i in (4, 5, 7, 8):
             c[i] = _norm(c[i - 6] + 180)
+        if abs(lat) > 90.0 - eps and abs(sum((c[(k + 1) % 12] - c[k]) % 360.0 for k in range(12)) - 360.0) > 1e-6:
+            # inside the polar circles the house circles can cross the ecliptic out of order (Swiss Ephemeris then returns
+            # cusps running backwards): no usable division
+            raise PolarHouses("Regiomontanus: cusps out of order beyond the polar circle")
         return c
     if system == "placidus":
         if abs(lat) >= 90.0 - eps:

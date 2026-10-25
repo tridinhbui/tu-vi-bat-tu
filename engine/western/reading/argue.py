@@ -51,6 +51,7 @@ class Claim:
 GLOSS = {
     "đắc thế": "đắc thế, tức được cung đang đứng nâng sức",
     "thất thế": "thất thế, tức cung đang đứng làm nó yếu đi",
+    "lạc chỗ": "lạc chỗ, tức không có phẩm vị nào ở độ đang đứng; bảng điểm của Lilly trừ cho trường hợp này ngang với một cung tổn hại",
     "nhà góc": "nhà góc (Nhà 1, 4, 7, 10, nơi một hành tinh tác động mạnh nhất)",
     "nhà suy": "nhà suy (Nhà 3, 6, 9, 12, nơi hành tinh khó phát huy)",
     "bị Mặt Trời đốt": "bị Mặt Trời đốt, tức đứng quá gần Mặt Trời nên khó tự thể hiện",
@@ -85,6 +86,9 @@ def _nature(p: str) -> str:
 
 def _state_words(f: Facts, p: str) -> str:
     st = f.lilly_state(p)
+    if st == "ill" and not f.lilly_essential(p)["debilities"]:
+        # Lilly's table gives a planet with no dignity at its degree -5, as much as a detriment: weak, but for another reason
+        return f"đang {gloss(f, 'lạc chỗ')}"
     return f"đang {gloss(f, 'đắc thế')}" if st == "well" else f"đang {gloss(f, 'thất thế')}" if st == "ill" else "có sức ở mức vừa"
 
 

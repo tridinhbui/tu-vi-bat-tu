@@ -1,45 +1,388 @@
 {
  "_doc": "Plain-language Western astrology terms for the interactive glossary (tools/build_glossary.py → web/js/glossary.json, keys w:*). 'aliases' are the forms the reading uses; 'src' points to where the definition comes from (the meaning itself is never added here).",
  "terms": {
-  "pham-vi": {"title": "Phẩm vị", "aliases": ["phẩm vị", "Phẩm vị"], "plain": "Sức mạnh 'bẩm sinh' của một hành tinh do cung nó đứng mang lại. Có năm loại phẩm vị (ở nhà của mình, cung tôn vinh, nhóm nguyên tố, giới hạn, diện) và hai loại bất lợi (tổn hại, suy hãm). Lilly cộng chúng thành điểm.", "ex": "Sao Thổ ở Ma Kết là 'ở nhà của mình': +5 điểm theo Lilly.", "src": "Lilly, Christian Astrology tr.101-104"},
-  "dac-the": {"title": "Đắc thế / thất thế", "aliases": ["đắc thế", "thất thế", "Đắc thế"], "plain": "Cách nói gọn của Thiên Bàn: đắc thế là tổng điểm phẩm vị theo Lilly từ +4 trở lên (cung đang đứng nâng sức hành tinh), thất thế là từ −4 trở xuống (cung làm nó yếu đi). Lilly không đặt ngưỡng số; con số là quy ước của Thiên Bàn.", "ex": "Sao Kim ở Song Ngư (cung tôn vinh) thường đắc thế; ở Xử Nữ (suy hãm) thường thất thế.", "src": "Thiên Bàn, theo bảng điểm Lilly tr.104"},
-  "domicile": {"title": "Ở nhà của mình (domicile)", "aliases": ["ở nhà của mình", "domicile"], "plain": "Hành tinh đứng trong cung mà nó làm chủ, như người ở trong nhà mình: tự chủ, dùng được hết sức.", "ex": "Sao Hỏa ở Bạch Dương hoặc Bọ Cạp.", "src": "Lilly tr.104"},
-  "exaltation": {"title": "Cung tôn vinh (exaltation)", "aliases": ["cung tôn vinh", "exaltation"], "plain": "Cung mà hành tinh được 'đón như khách quý': không phải nhà của nó nhưng nó được nâng lên.", "ex": "Mặt Trời ở Bạch Dương, Sao Mộc ở Cự Giải.", "src": "Lilly tr.104"},
-  "detriment": {"title": "Cung tổn hại (detriment)", "aliases": ["cung tổn hại", "detriment"], "plain": "Cung đối diện với nhà của hành tinh: nó làm việc trong hoàn cảnh ngược với bản chất của mình.", "ex": "Sao Kim ở Bạch Dương.", "src": "Lilly tr.104"},
-  "fall": {"title": "Cung suy hãm (fall)", "aliases": ["cung suy hãm", "suy hãm"], "plain": "Cung đối diện với cung tôn vinh: hành tinh bị hạ thấp, khó được nhìn nhận đúng.", "ex": "Mặt Trăng ở Bọ Cạp.", "src": "Lilly tr.104"},
-  "peregrine": {"title": "Lạc chỗ (peregrine)", "aliases": ["lạc chỗ", "peregrine"], "plain": "Hành tinh không có phẩm vị nào ở độ đang đứng, như người đi lạc vào nơi không ai quen: nó trông nhiều vào các sao khác. Lilly trừ 5 điểm.", "src": "Lilly tr.115 (bảng điểm)"},
-  "triplicity": {"title": "Nhóm nguyên tố (triplicity)", "aliases": ["nhóm nguyên tố", "triplicity"], "plain": "Mười hai cung chia thành bốn nhóm Lửa, Đất, Khí, Nước. Mỗi nhóm có hành tinh làm chủ ban ngày và ban đêm. Lưu ý: khác với 'góc tam hợp' (hai sao cách nhau 120°).", "ex": "Nhóm Lửa (Bạch Dương, Sư Tử, Nhân Mã): ban ngày Mặt Trời làm chủ, ban đêm Sao Mộc.", "src": "Lilly tr.104; Valens II.1"},
-  "term": {"title": "Giới hạn (term)", "aliases": ["giới hạn (term)", "term"], "plain": "Mỗi cung được chia thành năm đoạn không đều, mỗi đoạn thuộc một hành tinh. Hành tinh đứng trong đoạn của chính nó có một phẩm vị nhỏ. Các trường phái dùng bảng chia khác nhau (Ai Cập, Ptolemy, Lilly).", "src": "Lilly tr.104; Ptolemy I.21"},
-  "face": {"title": "Diện (face)", "aliases": ["diện (face)", "face"], "plain": "Mỗi cung chia ba đoạn 10°, mỗi đoạn thuộc một hành tinh. Đây là phẩm vị nhỏ nhất (+1 theo Lilly).", "src": "Lilly tr.104"},
-  "chu-tinh": {"title": "Chủ tinh (dispositor)", "aliases": ["chủ tinh", "dispositor"], "plain": "Hành tinh làm chủ cung mà một sao khác đang đứng. Việc của sao kia phải 'đi qua' chủ tinh này, nên chủ tinh mạnh thì sao kia có chỗ dựa.", "ex": "Sao Kim ở Ma Kết thì chủ tinh của nó là Sao Thổ (chủ của Ma Kết).", "src": "Lilly tr.535"},
-  "nha-goc": {"title": "Nhà góc, kế góc, suy", "aliases": ["nhà góc", "nhà kế góc", "nhà suy", "ở góc", "chỗ yếu"], "plain": "Mười hai nhà chia ba loại theo sức tác động: nhà góc (1, 4, 7, 10) mạnh nhất; nhà kế góc (2, 5, 8, 11) vừa; nhà suy (3, 6, 9, 12) yếu nhất. 'Suy' ở đây nói về vị trí, không phải 'suy hãm' của phẩm vị.", "src": "Lilly tr.50-56; Valens II.2"},
-  "sect": {"title": "Phe ngày / đêm (sect)", "aliases": ["sect", "phe ngày", "phe đêm"], "plain": "Lá số ban ngày (Mặt Trời trên chân trời) hay ban đêm. Mỗi phe có sao sáng, cát tinh và hung tinh 'của mình'; sao cùng phe thường làm việc thuận hơn, hung tinh khác phe thì gây khó nhiều hơn.", "src": "Ptolemy I.7; Valens II.2"},
-  "retro": {"title": "Nghịch hành", "aliases": ["nghịch hành", "đi nghịch", "đi lùi"], "plain": "Nhìn từ Trái Đất, một hành tinh có lúc như đang lùi lại trên bầu trời (do Trái Đất vượt qua nó trên quỹ đạo). Đây là hiện tượng thiên văn thật; trong chiêm tinh truyền thống, sao nghịch hành bị trừ điểm.", "src": "Lilly tr.115"},
-  "combust": {"title": "Bị Mặt Trời đốt (combust)", "aliases": ["bị Mặt Trời đốt", "combust", "dưới tia Mặt Trời", "cazimi"], "plain": "Hành tinh đứng quá gần Mặt Trời (trong khoảng 8,5° theo Lilly) nên bị ánh sáng của Mặt Trời che khuất, khó tự thể hiện. Nếu nằm ngay tim Mặt Trời (dưới 17′) thì ngược lại, được tăng sức (cazimi). Từ 8,5° đến 17° là 'dưới tia Mặt Trời', nhẹ hơn.", "src": "Lilly tr.113-114"},
-  "goc-hop": {"title": "Góc hợp (aspect)", "aliases": ["góc hợp", "góc chiếu"], "plain": "Khoảng cách góc đặc biệt giữa hai điểm trên vòng hoàng đạo (0°, 60°, 90°, 120°, 180°...). Nó cho biết hai hành tinh 'nói chuyện' với nhau thế nào: nâng đỡ, thúc ép hay hòa trộn.", "src": "Lilly tr.106-107; Ptolemy I.13"},
-  "trung-tu": {"title": "Trùng tụ (conjunction, 0°)", "aliases": ["trùng tụ"], "plain": "Hai hành tinh đứng gần như cùng một chỗ: việc của chúng trộn vào nhau. Tốt hay xấu tùy hai sao có hợp nhau không.", "src": "Lilly tr.106"},
-  "tam-hop": {"title": "Góc tam hợp (trine, 120°)", "aliases": ["góc tam hợp", "tam hợp với"], "plain": "Hai hành tinh cách nhau 120°, thường ở hai cung cùng nguyên tố: kiểu liên hệ dễ dàng, nâng đỡ nhau. Lilly gọi đây là dấu hiệu mạnh nhất của sự hòa thuận.", "src": "Lilly tr.106-107"},
-  "luc-hop": {"title": "Góc lục hợp (sextile, 60°)", "aliases": ["góc lục hợp", "lục hợp với", "lục hợp"], "plain": "Hai hành tinh cách nhau 60°: liên hệ thân thiện, nhẹ hơn tam hợp, thường cần một chút chủ động mới phát huy.", "src": "Lilly tr.106"},
-  "vuong": {"title": "Góc vuông (square, 90°)", "aliases": ["góc vuông", "vuông góc với"], "plain": "Hai hành tinh cách nhau 90°: va chạm, thúc ép, nhưng vẫn còn đường hòa giải. Thường là nơi tạo áp lực để hành động.", "src": "Lilly tr.106"},
-  "doi": {"title": "Góc đối (opposition, 180°)", "aliases": ["góc đối", "đối đỉnh với"], "plain": "Hai hành tinh ở hai đầu vòng hoàng đạo: đối nghịch trọn vẹn, như hai lực kéo về hai phía cần được cân bằng.", "src": "Lilly tr.107"},
-  "orb": {"title": "Orb (độ lệch cho phép)", "aliases": ["orb"], "plain": "Hai hành tinh không cần cách nhau đúng 120° mới tính là tam hợp; được phép lệch vài độ. Khoảng lệch cho phép đó là orb. Càng gần đúng góc, liên hệ càng rõ.", "src": "Lilly tr.107"},
-  "tien-tach": {"title": "Đang tiến tới / đang tách ra", "aliases": ["đang tiến tới", "đang tách ra"], "plain": "Góc hợp đang hình thành (sao nhanh còn đuổi tới) hay đã qua điểm chính xác (sao nhanh đã vượt qua).", "src": "Ptolemy I.24"},
-  "cung-moc": {"title": "Cung Mọc (Ascendant)", "aliases": ["cung Mọc", "Cung Mọc", "điểm Mọc"], "plain": "Điểm của vòng hoàng đạo đang mọc ở chân trời phía đông lúc bạn sinh. Nó mở Nhà 1 và đổi khoảng mỗi hai giờ, nên cần giờ sinh chính xác.", "src": "Lilly tr.50"},
-  "thien-dinh": {"title": "Thiên Đỉnh (MC)", "aliases": ["Thiên Đỉnh"], "plain": "Điểm cao nhất của vòng hoàng đạo trên bầu trời lúc sinh (giữa trời). Gắn với nghề nghiệp, địa vị, danh tiếng.", "src": "Lilly tr.55"},
-  "fortune": {"title": "Lot of Fortune (Part of Fortune)", "aliases": ["Lot of Fortune", "Part of Fortune", "Fortune"], "plain": "Một điểm tính ra, không phải hành tinh: lấy khoảng cách Mặt Trời–Mặt Trăng đặt từ cung Mọc. Các tác giả cổ dùng nó để xét của cải, thân thể và việc của đôi tay.", "src": "Ptolemy III.10; Valens II.19"},
-  "daimon": {"title": "Lot of Daimon (Spirit)", "aliases": ["Daimon", "Lot of Spirit"], "plain": "Điểm 'đối xứng' với Fortune: nói về tâm trí, dự định, việc mình chọn làm. Valens đọc Fortune và Daimon cạnh nhau.", "src": "Valens II.19"},
-  "cat-hung": {"title": "Cát tinh / hung tinh", "aliases": ["cát tinh", "hung tinh"], "plain": "Theo chiêm tinh cổ: Sao Mộc và Sao Kim là cát tinh (mang điều thuận), Sao Thổ và Sao Hỏa là hung tinh (mang sức cản). Mặt Trời, Mặt Trăng, Sao Thủy trung tính, nghiêng theo sao đi cùng.", "src": "Ptolemy I.5; Lilly tr.57-81"},
-  "chu-la-so": {"title": "Hành tinh chủ lá số", "aliases": ["chủ lá số", "Lord of the Geniture"], "plain": "Theo Lilly, hành tinh gom được nhiều điểm sức mạnh nhất (phẩm vị và vị trí). Nó nhuộm màu lên khí chất và cách hành xử.", "src": "Lilly tr.531"},
-  "profection": {"title": "Phép đếm năm (profection)", "aliases": ["profection", "Profection", "chủ năm", "phép đếm năm"], "plain": "Mỗi năm tuổi, cung Mọc 'tiến' thêm một cung. Cung của năm và hành tinh làm chủ nó (chủ năm) cho biết mảng đời nổi lên trong năm. Chu kỳ lặp lại sau 12 năm.", "ex": "Cung Mọc Nhân Mã: năm 0, 12, 24 tuổi là năm Nhân Mã, chủ năm là Sao Mộc.", "src": "Valens IV.11; Lilly tr.715"},
-  "transit": {"title": "Transit (hành tinh đang đi qua)", "aliases": ["transit", "Transit"], "plain": "Vị trí thật của các hành tinh trên bầu trời hôm nay, đặt lên lá số gốc. Khi một hành tinh đang đi tạo góc với một điểm trong lá số gốc, chủ đề của điểm ấy được 'châm ngòi'.", "src": "Alan Leo, The Progressed Horoscope tr.193"},
-  "progression": {"title": "Tiến trình thứ cấp (secondary progression)", "aliases": ["tiến trình", "Secondary Progressions", "progression", "tiến triển"], "plain": "Lấy bầu trời của ngày thứ N sau khi sinh làm biểu tượng cho năm tuổi thứ N. Các thay đổi rất chậm, nên cho bức tranh của nhiều năm.", "ex": "Tuổi 25 ứng với bầu trời 25 ngày sau ngày sinh.", "src": "Alan Leo, The Progressed Horoscope tr.27"},
-  "solar-return": {"title": "Solar Return (lá hồi quy)", "aliases": ["Solar Return", "lá hồi quy"], "plain": "Lá số của khoảnh khắc Mặt Trời trở về đúng độ lúc sinh, mỗi năm một lần quanh sinh nhật. Lilly đọc nó cùng lá gốc để xét năm ấy.", "src": "Lilly tr.734"},
-  "khi-chat": {"title": "Khí chất", "aliases": ["khí chất"], "plain": "Theo y học và chiêm tinh cổ, con người nghiêng về một trong bốn khí chất (huyết, mật vàng, u sầu, đàm) do pha trộn nóng, lạnh, ẩm, khô. Lilly đếm 'chứng' từ năm nguồn trong lá số để tìm khí chất.", "src": "Lilly tr.532-539"},
-  "dinh-tinh": {"title": "Định tinh", "aliases": ["định tinh"], "plain": "Các ngôi sao 'đứng yên' (khác hành tinh). Một số sao sáng gần hoàng đạo được sách cổ coi là quan trọng khi một hành tinh đứng sát chúng.", "src": "Lilly tr.115, tr.616"},
-  "he-nha": {"title": "Hệ nhà (Placidus, Regiomontanus, trọn cung)", "aliases": ["Regiomontanus", "Placidus", "tính trọn cung", "trọn cung", "Whole Sign"], "plain": "Có nhiều cách chia bầu trời thành 12 nhà. Bánh xe dùng Placidus (phổ biến hiện nay); Lilly dùng Regiomontanus; Valens tính trọn cung (mỗi cung là một nhà, bắt đầu từ cung Mọc). Vì vậy cùng một hành tinh có thể mang số nhà khác nhau tùy trường phái, và bài luận luôn ghi rõ đang dùng cách nào.", "src": "Thiên Bàn"},
-  "lilly-5": {"title": "Quy tắc 5° của Lilly", "aliases": ["cách chia của Lilly", "cách chia nhà của Lilly"], "plain": "Lilly chia nhà theo Regiomontanus và dặn: hành tinh cách đỉnh một nhà không quá 5° thì tính vào nhà của đỉnh gần nó nhất. Vì thế 'Nhà theo Lilly' có thể khác số nhà trên bánh xe.", "src": "Lilly tr.33"},
-  "nut": {"title": "La Hầu / Kế Đô (nút Mặt Trăng)", "aliases": ["La Hầu", "Kế Đô"], "plain": "Hai điểm nơi quỹ đạo Mặt Trăng cắt hoàng đạo. Không phải hành tinh; khi đếm khí chất, Lilly tính La Hầu như Sao Mộc, Kế Đô như Sao Thổ và Sao Hỏa.", "src": "Lilly tr.533"},
-  "partile": {"title": "Partile", "aliases": ["partile"], "plain": "Góc hợp gần như chính xác: theo ví dụ của Lilly, hai sao cùng số độ trong cung của mình.", "src": "Lilly tr.107"},
-  "chu-hanh-nghiep": {"title": "Chủ hành nghiệp (lord of action)", "aliases": ["chủ hành nghiệp"], "plain": "Hành tinh Ptolemy dùng để định loại công việc: sao vừa mọc buổi sáng gần Mặt Trời nhất, hoặc sao đứng ở đỉnh trời.", "src": "Ptolemy IV.4"}
+  "pham-vi": {
+   "title": "Phẩm vị",
+   "aliases": [
+    "phẩm vị",
+    "Phẩm vị"
+   ],
+   "plain": "Sức mạnh 'bẩm sinh' của một hành tinh do cung nó đứng mang lại. Có năm loại phẩm vị (ở nhà của mình, cung tôn vinh, nhóm nguyên tố, giới hạn, diện) và hai loại bất lợi (tổn hại, suy hãm). Lilly cộng chúng thành điểm.",
+   "ex": "Sao Thổ ở Ma Kết là 'ở nhà của mình': +5 điểm theo Lilly.",
+   "src": "Lilly, Christian Astrology tr.101-104"
+  },
+  "dac-the": {
+   "title": "Đắc thế / thất thế",
+   "aliases": [
+    "đắc thế",
+    "thất thế",
+    "Đắc thế"
+   ],
+   "plain": "Cách nói gọn của Thiên Bàn: đắc thế là tổng điểm phẩm vị theo Lilly từ +4 trở lên (cung đang đứng nâng sức hành tinh), thất thế là từ −4 trở xuống (cung làm nó yếu đi). Lilly không đặt ngưỡng số; con số là quy ước của Thiên Bàn.",
+   "ex": "Sao Kim ở Song Ngư (cung tôn vinh) thường đắc thế; ở Xử Nữ (suy hãm) thường thất thế.",
+   "src": "Thiên Bàn, theo bảng điểm Lilly tr.104"
+  },
+  "domicile": {
+   "title": "Ở nhà của mình (domicile)",
+   "aliases": [
+    "ở nhà của mình",
+    "domicile"
+   ],
+   "plain": "Hành tinh đứng trong cung mà nó làm chủ, như người ở trong nhà mình: tự chủ, dùng được hết sức.",
+   "ex": "Sao Hỏa ở Bạch Dương hoặc Bọ Cạp.",
+   "src": "Lilly tr.104"
+  },
+  "exaltation": {
+   "title": "Cung tôn vinh (exaltation)",
+   "aliases": [
+    "cung tôn vinh",
+    "exaltation"
+   ],
+   "plain": "Cung mà hành tinh được 'đón như khách quý': không phải nhà của nó nhưng nó được nâng lên.",
+   "ex": "Mặt Trời ở Bạch Dương, Sao Mộc ở Cự Giải.",
+   "src": "Lilly tr.104"
+  },
+  "detriment": {
+   "title": "Cung tổn hại (detriment)",
+   "aliases": [
+    "cung tổn hại",
+    "detriment"
+   ],
+   "plain": "Cung đối diện với nhà của hành tinh: nó làm việc trong hoàn cảnh ngược với bản chất của mình.",
+   "ex": "Sao Kim ở Bạch Dương.",
+   "src": "Lilly tr.104"
+  },
+  "fall": {
+   "title": "Cung suy hãm (fall)",
+   "aliases": [
+    "cung suy hãm",
+    "suy hãm"
+   ],
+   "plain": "Cung đối diện với cung tôn vinh: hành tinh bị hạ thấp, khó được nhìn nhận đúng.",
+   "ex": "Mặt Trăng ở Bọ Cạp.",
+   "src": "Lilly tr.104"
+  },
+  "peregrine": {
+   "title": "Lạc chỗ (peregrine)",
+   "aliases": [
+    "lạc chỗ",
+    "peregrine"
+   ],
+   "plain": "Hành tinh không có phẩm vị nào ở độ đang đứng, như người đi lạc vào nơi không ai quen: nó trông nhiều vào các sao khác. Lilly trừ 5 điểm.",
+   "src": "Lilly tr.115 (bảng điểm)"
+  },
+  "triplicity": {
+   "title": "Nhóm nguyên tố (triplicity)",
+   "aliases": [
+    "nhóm nguyên tố",
+    "triplicity"
+   ],
+   "plain": "Mười hai cung chia thành bốn nhóm Lửa, Đất, Khí, Nước. Mỗi nhóm có hành tinh làm chủ ban ngày và ban đêm. Lưu ý: khác với 'góc tam hợp' (hai sao cách nhau 120°).",
+   "ex": "Nhóm Lửa (Bạch Dương, Sư Tử, Nhân Mã): ban ngày Mặt Trời làm chủ, ban đêm Sao Mộc.",
+   "src": "Lilly tr.104; Valens II.1"
+  },
+  "term": {
+   "title": "Giới hạn (term)",
+   "aliases": [
+    "giới hạn (term)",
+    "term"
+   ],
+   "plain": "Mỗi cung được chia thành năm đoạn không đều, mỗi đoạn thuộc một hành tinh. Hành tinh đứng trong đoạn của chính nó có một phẩm vị nhỏ. Các trường phái dùng bảng chia khác nhau (Ai Cập, Ptolemy, Lilly).",
+   "src": "Lilly tr.104; Ptolemy I.21"
+  },
+  "face": {
+   "title": "Diện (face)",
+   "aliases": [
+    "diện (face)",
+    "face"
+   ],
+   "plain": "Mỗi cung chia ba đoạn 10°, mỗi đoạn thuộc một hành tinh. Đây là phẩm vị nhỏ nhất (+1 theo Lilly).",
+   "src": "Lilly tr.104"
+  },
+  "chu-tinh": {
+   "title": "Chủ tinh (dispositor)",
+   "aliases": [
+    "chủ tinh",
+    "dispositor"
+   ],
+   "plain": "Hành tinh làm chủ cung mà một sao khác đang đứng. Việc của sao kia phải 'đi qua' chủ tinh này, nên chủ tinh mạnh thì sao kia có chỗ dựa.",
+   "ex": "Sao Kim ở Ma Kết thì chủ tinh của nó là Sao Thổ (chủ của Ma Kết).",
+   "src": "Lilly tr.535"
+  },
+  "nha-goc": {
+   "title": "Nhà góc, kế góc, suy",
+   "aliases": [
+    "nhà góc",
+    "nhà kế góc",
+    "nhà suy",
+    "ở góc",
+    "chỗ yếu"
+   ],
+   "plain": "Mười hai nhà chia ba loại theo sức tác động: nhà góc (1, 4, 7, 10) mạnh nhất; nhà kế góc (2, 5, 8, 11) vừa; nhà suy (3, 6, 9, 12) yếu nhất. 'Suy' ở đây nói về vị trí, không phải 'suy hãm' của phẩm vị.",
+   "src": "Lilly tr.50-56; Valens II.2"
+  },
+  "sect": {
+   "title": "Phe ngày / đêm (sect)",
+   "aliases": [
+    "sect",
+    "phe ngày",
+    "phe đêm"
+   ],
+   "plain": "Lá số ban ngày (Mặt Trời trên chân trời) hay ban đêm. Mỗi phe có sao sáng, cát tinh và hung tinh 'của mình'; sao cùng phe thường làm việc thuận hơn, hung tinh khác phe thì gây khó nhiều hơn.",
+   "src": "Ptolemy I.7; Valens II.2"
+  },
+  "retro": {
+   "title": "Nghịch hành",
+   "aliases": [
+    "nghịch hành",
+    "đi nghịch",
+    "đi lùi"
+   ],
+   "plain": "Nhìn từ Trái Đất, một hành tinh có lúc như đang lùi lại trên bầu trời (do Trái Đất vượt qua nó trên quỹ đạo). Đây là hiện tượng thiên văn thật; trong chiêm tinh truyền thống, sao nghịch hành bị trừ điểm.",
+   "src": "Lilly tr.115"
+  },
+  "combust": {
+   "title": "Bị Mặt Trời đốt (combust)",
+   "aliases": [
+    "bị Mặt Trời đốt",
+    "combust",
+    "dưới tia Mặt Trời",
+    "cazimi"
+   ],
+   "plain": "Hành tinh đứng quá gần Mặt Trời (trong khoảng 8,5° theo Lilly) nên bị ánh sáng của Mặt Trời che khuất, khó tự thể hiện. Nếu nằm ngay tim Mặt Trời (dưới 17′) thì ngược lại, được tăng sức (cazimi). Từ 8,5° đến 17° là 'dưới tia Mặt Trời', nhẹ hơn.",
+   "src": "Lilly tr.113-114"
+  },
+  "goc-hop": {
+   "title": "Góc hợp (aspect)",
+   "aliases": [
+    "góc hợp",
+    "góc chiếu",
+    "góc hài hòa",
+    "góc căng"
+   ],
+   "plain": "Khoảng cách góc đặc biệt giữa hai điểm trên vòng hoàng đạo (0°, 60°, 90°, 120°, 180°...). Nó cho biết hai hành tinh 'nói chuyện' với nhau thế nào: nâng đỡ, thúc ép hay hòa trộn.",
+   "src": "Lilly tr.106-107; Ptolemy I.13"
+  },
+  "trung-tu": {
+   "title": "Trùng tụ (conjunction, 0°)",
+   "aliases": [
+    "trùng tụ"
+   ],
+   "plain": "Hai hành tinh đứng gần như cùng một chỗ: việc của chúng trộn vào nhau. Tốt hay xấu tùy hai sao có hợp nhau không.",
+   "src": "Lilly tr.106"
+  },
+  "tam-hop": {
+   "title": "Góc tam hợp (trine, 120°)",
+   "aliases": [
+    "góc tam hợp",
+    "tam hợp với"
+   ],
+   "plain": "Hai hành tinh cách nhau 120°, thường ở hai cung cùng nguyên tố: kiểu liên hệ dễ dàng, nâng đỡ nhau. Lilly gọi đây là dấu hiệu mạnh nhất của sự hòa thuận.",
+   "src": "Lilly tr.106-107"
+  },
+  "luc-hop": {
+   "title": "Góc lục hợp (sextile, 60°)",
+   "aliases": [
+    "góc lục hợp",
+    "lục hợp với",
+    "lục hợp"
+   ],
+   "plain": "Hai hành tinh cách nhau 60°: liên hệ thân thiện, nhẹ hơn tam hợp, thường cần một chút chủ động mới phát huy.",
+   "src": "Lilly tr.106"
+  },
+  "vuong": {
+   "title": "Góc vuông (square, 90°)",
+   "aliases": [
+    "góc vuông",
+    "vuông góc với"
+   ],
+   "plain": "Hai hành tinh cách nhau 90°: va chạm, thúc ép, nhưng vẫn còn đường hòa giải. Thường là nơi tạo áp lực để hành động.",
+   "src": "Lilly tr.106"
+  },
+  "doi": {
+   "title": "Góc đối (opposition, 180°)",
+   "aliases": [
+    "góc đối",
+    "đối đỉnh với"
+   ],
+   "plain": "Hai hành tinh ở hai đầu vòng hoàng đạo: đối nghịch trọn vẹn, như hai lực kéo về hai phía cần được cân bằng.",
+   "src": "Lilly tr.107"
+  },
+  "orb": {
+   "title": "Orb (độ lệch cho phép)",
+   "aliases": [
+    "orb"
+   ],
+   "plain": "Hai hành tinh không cần cách nhau đúng 120° mới tính là tam hợp; được phép lệch vài độ. Khoảng lệch cho phép đó là orb. Càng gần đúng góc, liên hệ càng rõ.",
+   "src": "Lilly tr.107"
+  },
+  "tien-tach": {
+   "title": "Đang tiến tới / đang tách ra",
+   "aliases": [
+    "đang tiến tới",
+    "đang tách ra"
+   ],
+   "plain": "Góc hợp đang hình thành (sao nhanh còn đuổi tới) hay đã qua điểm chính xác (sao nhanh đã vượt qua).",
+   "src": "Ptolemy I.24"
+  },
+  "cung-moc": {
+   "title": "Cung Mọc (Ascendant)",
+   "aliases": [
+    "cung Mọc",
+    "Cung Mọc",
+    "điểm Mọc"
+   ],
+   "plain": "Điểm của vòng hoàng đạo đang mọc ở chân trời phía đông lúc bạn sinh. Nó mở Nhà 1 và đổi khoảng mỗi hai giờ, nên cần giờ sinh chính xác.",
+   "src": "Lilly tr.50"
+  },
+  "thien-dinh": {
+   "title": "Thiên Đỉnh (MC)",
+   "aliases": [
+    "Thiên Đỉnh"
+   ],
+   "plain": "Điểm cao nhất của vòng hoàng đạo trên bầu trời lúc sinh (giữa trời). Gắn với nghề nghiệp, địa vị, danh tiếng.",
+   "src": "Lilly tr.55"
+  },
+  "fortune": {
+   "title": "Lot of Fortune (Part of Fortune)",
+   "aliases": [
+    "Lot of Fortune",
+    "Part of Fortune",
+    "Fortune"
+   ],
+   "plain": "Một điểm tính ra, không phải hành tinh: lấy khoảng cách Mặt Trời–Mặt Trăng đặt từ cung Mọc. Các tác giả cổ dùng nó để xét của cải, thân thể và việc của đôi tay.",
+   "src": "Ptolemy III.10; Valens II.19"
+  },
+  "daimon": {
+   "title": "Lot of Daimon (Spirit)",
+   "aliases": [
+    "Daimon",
+    "Lot of Spirit"
+   ],
+   "plain": "Điểm 'đối xứng' với Fortune: nói về tâm trí, dự định, việc mình chọn làm. Valens đọc Fortune và Daimon cạnh nhau.",
+   "src": "Valens II.19"
+  },
+  "cat-hung": {
+   "title": "Cát tinh / hung tinh",
+   "aliases": [
+    "cát tinh",
+    "hung tinh"
+   ],
+   "plain": "Theo chiêm tinh cổ: Sao Mộc và Sao Kim là cát tinh (mang điều thuận), Sao Thổ và Sao Hỏa là hung tinh (mang sức cản). Mặt Trời, Mặt Trăng, Sao Thủy trung tính, nghiêng theo sao đi cùng.",
+   "src": "Ptolemy I.5; Lilly tr.57-81"
+  },
+  "chu-la-so": {
+   "title": "Hành tinh chủ lá số",
+   "aliases": [
+    "chủ lá số",
+    "Lord of the Geniture"
+   ],
+   "plain": "Theo Lilly, hành tinh gom được nhiều điểm sức mạnh nhất (phẩm vị và vị trí). Nó nhuộm màu lên khí chất và cách hành xử.",
+   "src": "Lilly tr.531"
+  },
+  "profection": {
+   "title": "Phép đếm năm (profection)",
+   "aliases": [
+    "profection",
+    "Profection",
+    "chủ năm",
+    "phép đếm năm"
+   ],
+   "plain": "Mỗi năm tuổi, cung Mọc 'tiến' thêm một cung. Cung của năm và hành tinh làm chủ nó (chủ năm) cho biết mảng đời nổi lên trong năm. Chu kỳ lặp lại sau 12 năm.",
+   "ex": "Cung Mọc Nhân Mã: năm 0, 12, 24 tuổi là năm Nhân Mã, chủ năm là Sao Mộc.",
+   "src": "Valens IV.11; Lilly tr.715"
+  },
+  "transit": {
+   "title": "Transit (hành tinh đang đi qua)",
+   "aliases": [
+    "transit",
+    "Transit"
+   ],
+   "plain": "Vị trí thật của các hành tinh trên bầu trời hôm nay, đặt lên lá số gốc. Khi một hành tinh đang đi tạo góc với một điểm trong lá số gốc, chủ đề của điểm ấy được 'châm ngòi'.",
+   "src": "Alan Leo, The Progressed Horoscope tr.193"
+  },
+  "progression": {
+   "title": "Tiến trình thứ cấp (secondary progression)",
+   "aliases": [
+    "tiến trình",
+    "Secondary Progressions",
+    "progression",
+    "tiến triển"
+   ],
+   "plain": "Lấy bầu trời của ngày thứ N sau khi sinh làm biểu tượng cho năm tuổi thứ N. Các thay đổi rất chậm, nên cho bức tranh của nhiều năm.",
+   "ex": "Tuổi 25 ứng với bầu trời 25 ngày sau ngày sinh.",
+   "src": "Alan Leo, The Progressed Horoscope tr.27"
+  },
+  "solar-return": {
+   "title": "Solar Return (lá hồi quy)",
+   "aliases": [
+    "Solar Return",
+    "lá hồi quy"
+   ],
+   "plain": "Lá số của khoảnh khắc Mặt Trời trở về đúng độ lúc sinh, mỗi năm một lần quanh sinh nhật. Lilly đọc nó cùng lá gốc để xét năm ấy.",
+   "src": "Lilly tr.734"
+  },
+  "khi-chat": {
+   "title": "Khí chất",
+   "aliases": [
+    "khí chất"
+   ],
+   "plain": "Theo y học và chiêm tinh cổ, con người nghiêng về một trong bốn khí chất (huyết, mật vàng, u sầu, đàm) do pha trộn nóng, lạnh, ẩm, khô. Lilly đếm 'chứng' từ năm nguồn trong lá số để tìm khí chất.",
+   "src": "Lilly tr.532-539"
+  },
+  "dinh-tinh": {
+   "title": "Định tinh",
+   "aliases": [
+    "định tinh"
+   ],
+   "plain": "Các ngôi sao 'đứng yên' (khác hành tinh). Một số sao sáng gần hoàng đạo được sách cổ coi là quan trọng khi một hành tinh đứng sát chúng.",
+   "src": "Lilly tr.115, tr.616"
+  },
+  "he-nha": {
+   "title": "Hệ nhà (Placidus, Regiomontanus, trọn cung)",
+   "aliases": [
+    "Regiomontanus",
+    "Placidus",
+    "tính trọn cung",
+    "trọn cung",
+    "Whole Sign"
+   ],
+   "plain": "Có nhiều cách chia bầu trời thành 12 nhà. Bánh xe dùng Placidus (phổ biến hiện nay); Lilly dùng Regiomontanus; Valens tính trọn cung (mỗi cung là một nhà, bắt đầu từ cung Mọc). Vì vậy cùng một hành tinh có thể mang số nhà khác nhau tùy trường phái, và bài luận luôn ghi rõ đang dùng cách nào.",
+   "src": "Thiên Bàn"
+  },
+  "lilly-5": {
+   "title": "Quy tắc 5° của Lilly",
+   "aliases": [
+    "cách chia của Lilly",
+    "cách chia nhà của Lilly"
+   ],
+   "plain": "Lilly chia nhà theo Regiomontanus và dặn: hành tinh cách đỉnh một nhà không quá 5° thì tính vào nhà của đỉnh gần nó nhất. Vì thế 'Nhà theo Lilly' có thể khác số nhà trên bánh xe.",
+   "src": "Lilly tr.33"
+  },
+  "nut": {
+   "title": "La Hầu / Kế Đô (nút Mặt Trăng)",
+   "aliases": [
+    "La Hầu",
+    "Kế Đô"
+   ],
+   "plain": "Hai điểm nơi quỹ đạo Mặt Trăng cắt hoàng đạo. Không phải hành tinh; khi đếm khí chất, Lilly tính La Hầu như Sao Mộc, Kế Đô như Sao Thổ và Sao Hỏa.",
+   "src": "Lilly tr.533"
+  },
+  "partile": {
+   "title": "Partile",
+   "aliases": [
+    "partile"
+   ],
+   "plain": "Góc hợp gần như chính xác: theo ví dụ của Lilly, hai sao cùng số độ trong cung của mình.",
+   "src": "Lilly tr.107"
+  },
+  "chu-hanh-nghiep": {
+   "title": "Chủ hành nghiệp (lord of action)",
+   "aliases": [
+    "chủ hành nghiệp"
+   ],
+   "plain": "Hành tinh Ptolemy dùng để định loại công việc: sao vừa mọc buổi sáng gần Mặt Trời nhất, hoặc sao đứng ở đỉnh trời.",
+   "src": "Ptolemy IV.4"
+  }
  }
 }
