@@ -1,0 +1,26 @@
+{
+ "version": "bazi-luck-relations-1.0.0",
+ "basis": "he_thong",
+ "decided": "owner, 2026-10-22: the relations a luck pillar makes with the natal pillars (hợp, xung, hình, phản ngâm) change its verdict through a labelled rule of the system, not a book rule",
+ "note": "How the relations of a luck pillar with the natal chart (bazi_deep.pipeline._events: positions by the tables of 八字真宗 pp.19-20, which print no meaning) move the one verdict of the two TVH tables (bazi_deep.pipeline.reconcile, mirrored by src/interpret/prose/bazi_deep.ts reconcileTs). A system convention (he_thong): no page of the books in use weighs a relation against the cách table or the điều hậu table. Applied to luck pillars only; a year is judged by the tables alone (its list of years to press on and its lưu niên verdict stay one reading). Rules are tried in order and the first that matches decides; the verdict ladder is thuan > kha_thuan > trung > co_dieu_kien > nang.",
+ "useful": "the element of the cách table's dụng thần group(s) (TVH pp.378-386) and the element a fired Trích Thiên Tủy hàn noãn rule asks for (TTT pp.113-114)",
+ "harmful": "the element of a group the cách table calls vận xấu (TVH pp.378-386); an element on both sides counts as neither",
+ "rules": [
+  {"id": "BT_HT_LUCK_REL_CAP", "kinds": ["branch_clash", "phan_ngam", "branch_penalty"], "targets": ["month", "day"], "link": "bien_dong",
+   "change": {"thuan": "co_dieu_kien", "kha_thuan": "co_dieu_kien", "trung": "co_dieu_kien"}, "confirm": ["co_dieu_kien", "nang"],
+   "note": "Xung, hình hoặc phản ngâm với trụ tháng hay trụ ngày: theo quy ước của hệ thống (không phải lời sách), vận như vậy không được xếp cao hơn 'có điều kiện', vì nó động vào trụ của mùa sinh hay trụ của nhật chủ. Bảng hợp xung hình của Bát Tự Chân Tông (tr.19-20) chỉ cho vị trí, không cho mức độ."},
+  {"id": "BT_HT_LUCK_REL_HOP_KY", "kinds": ["stem_combine", "branch_triad", "branch_semi_triad"], "element": "harmful", "link": "hop_ky",
+   "change": {"thuan": "kha_thuan", "kha_thuan": "co_dieu_kien", "trung": "co_dieu_kien"}, "confirm": ["co_dieu_kien", "nang"],
+   "note": "Hợp, tam hợp hoặc bán hợp với nguyên cục thuộc hành của nhóm mà bảng cách gọi là vận xấu: theo quy ước của hệ thống, lời kết hạ một bậc. Việc hợp có hóa thật hay không không được xét ở đây; chỉ xét cặp hợp thuộc hành nào (Bát Tự Chân Tông tr.19-20)."},
+  {"id": "BT_HT_LUCK_REL_HOP_DUNG", "kinds": ["stem_combine", "branch_triad", "branch_semi_triad"], "element": "useful", "link": "hop_dung",
+   "change": {"trung": "kha_thuan"}, "confirm": ["thuan", "kha_thuan"],
+   "note": "Hợp, tam hợp hoặc bán hợp với nguyên cục thuộc hành dụng thần của cách hoặc hành mà luật hàn noãn của Trích Thiên Tủy đòi: theo quy ước của hệ thống, một vận mà hai bảng không nói gì được nâng lên 'khá thuận'. Vận đã thuận thì giữ nguyên, lời kết chỉ nêu thêm quan hệ ấy."}
+ ],
+ "hop_both": "a pillar whose hợp give both a useful and a harmful element is left as the tables have it (no hợp rule matches)",
+ "certainty": {
+  "note": "How sure the closing sounds (rõ / vừa / yếu), a display convention of the system: signals are the cách table's word on the stem, on the branch, the climate side, and a matching relation rule. The tables disagreeing (agree khac / tron) or a relation overriding them makes it at most 'vua'.",
+  "ro": "no disagreement and at least three signals",
+  "vua": "no disagreement and two signals, or a disagreement with at least three",
+  "yeu": "anything else"
+ }
+}

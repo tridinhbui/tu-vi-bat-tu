@@ -1,0 +1,192 @@
+{
+ "number": 11,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Thái là lúc hai bên vốn cách biệt nay thông được với nhau, như trời đất giao hòa: trên dưới cùng một chí hướng nên việc tốt đẹp và trôi chảy.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Thái là hanh thông, nó là quẻ trời đất giao nhau mà hai khí thông nhau"},
+    {"seg": "thoan_truyen", "layer": "nghia", "quote": "trên dưới giao nhau mà trí giống nhau vậy"}
+   ]
+  },
+  "image": {
+   "text": "Đất ở trên, trời ở dưới: khí đất hạ xuống, khí trời bốc lên nên hai bên gặp nhau mà muôn vật sinh sôi; người đứng đầu theo cái thông ấy mà đặt phép tắc giúp người khác.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "khí Âm hạ xuống, khí Dương bốc lên, tức là giao nhau"},
+    {"seg": "intro", "layer": "trinh_di", "quote": "khí của trời đất Âm Dương giao nhau mà dung hòa, thì muôn vật sinh thành"},
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Trời đất giao nhau là quẻ Thái, ông vua coi mà sửa nên đạo của trời đất, giúp tập sự nên phải của trời đất, để đỡ đần dân."}
+   ]
+  },
+  "structure": {
+   "text": "Hào Chín Hai cứng mà ở giữa quẻ dưới, được hào Sáu Năm mềm mỏng ở ngôi tôn dốc lòng tin dùng: người có năng lực và người đứng đầu ăn ý là trục giữ thời thông.",
+   "from": [
+    {"seg": "hao2", "layer": "trinh_di", "quote": "vì vậy mà cái tài cương trung được người bề trên chuyên dùng"},
+    {"seg": "hao4", "layer": "trinh_di", "quote": "Đến hào Năm là chủ quẻ Thái, thì lại nói về cách xử ở cuộc thái."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Kẻ xem có đức cương Dương thì tốt mà hanh thông."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Người có tài được dùng thường kéo theo người cùng chí hướng, như nhổ một cây cỏ tranh thì cả cụm rễ lên theo: lúc này tiến cùng một nhóm đồng lòng thuận hơn đi một mình.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Đấng quân tử tiến lên ắt cùng bè loại dắt díu nhau, như rễ cỏ tranh vậy, hễ nhổ một cây thì nó kéo nhau mà lên."},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "chưa có người nào có thể riêng đứng một mình, không nhờ bè bạn giúp đỡ"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Tiền đang vào thuận thì dễ tiêu thoải mái, buông lỏng nếp cũ; đây là lúc siết lại những khoản quá tay hơn là thả theo đà dễ dãi.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Ôi, đời đã thái bình người ta đã quen với cảnh yên ổn, phóng túng tính tình, mất cả tiết độ"},
+     {"seg": "dai_tuong", "layer": "chu_hy", "quote": "là để nén bớt chỗ thái quá"}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Một cơ sở đang thịnh dễ sinh trì trệ: cần rộng lượng với chỗ còn dở, dám sửa cái đã cũ, để mắt cả đến việc nhỏ ở xa và không nể nang phe cánh thân quen.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Thường tình người ta, hễ yên rồi thì chính sự thư hoãn, pháp độ bê trễ"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Kẻ trị cuộc thái, nếu không thể khiến cho bè cánh phải mất, thì sự làm việc khó lắm."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Như người làm ruộng gieo vào mùa xuân, gặt vào mùa thu, việc học thuận khi biết lúc nào mở rộng, lúc nào thu gọn, và bù vào chỗ mình còn hụt.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "ví như khí mùa xuân phát sinh muôn vật, thì làm ra phép gieo trồng khí mùa thu kết chắc muôn vật, thì làm ra phép thu liễm"},
+     {"seg": "dai_tuong", "layer": "chu_hy", "quote": "là để bù đắp chỗ bất cập."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Như trời đất giao nhau, hai người hợp khi mỗi bên chịu bước về phía người kia, nói thật lòng và cùng nhìn một hướng; có qua có lại thì tình yên ổn.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "ở người ta thì tình trên dưới giao nhau mà chí ý giống nhau"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Nhà yên khi người lớn thật lòng với người nhỏ và người nhỏ hết lòng đáp lại; người lo việc chung nên đặt nề nếp rõ ràng để ai cũng có chỗ dựa.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "ông vua suy lòng thành thật để dùng kẻ dưới, bề tôi hết lòng thành thật để thờ vua, chí của kẻ trên người dưới thông nhau"},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Dân sống, ắt nhờ đấng quân thượng làm ra phép tắc, để dạy bảo dắt dìu giúp đỡ cho họ, mới được thỏa sự sinh dưỡng."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Đang ở thế thuận mà phải chọn thì nên tính cả lúc gió đổi chiều: đất bằng nào rồi cũng có chỗ dốc, nên chọn đường còn giữ được khi khó khăn quay lại.",
+    "from": [
+     {"seg": "hao3", "layer": "nghia", "quote": "Không chỗ bằng phẳng nào không lồi lõm, không sự đi nào không trở lại."},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Nhân đạo giao tế của trời đất mà tỏ cái lẽ không thể hanh thái mãi mãi; là để mà răn người ta."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Nhân lúc thuận, rủ người cùng chí hướng làm việc lớn, rộng lượng mà quả quyết; ngay khi đang thịnh đã chịu khó lo giữ, đừng yên trí rằng cái tốt cứ thế mà còn.",
+   "from": [
+    {"seg": "hao2", "layer": "trinh_di", "quote": "đem lượng làm dong, làm việc cương quyết, đó là cách làm việc của thánh hiền"},
+    {"seg": "hao3", "layer": "trinh_di", "quote": "Cái đạo ở lúc thái, hễ đã biết khó nhọc và giữ được chính bền, thì có thể giữ được thái mãi"}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Nếu những người được đưa lên cùng nhau lại là người không tốt, cái thông hóa thành bế tắc: thời thuận lành hay dữ còn tùy ai đứng ở chỗ then chốt.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "tiểu nhân ở ngôi, thì kẻ chẳng hiền cùng tiến lên, rồi đảng họ thắng, mà thiên hạ bĩ."}
+    ]
+   },
+   {
+    "text": "Khi thời thông đã qua đỉnh và người quanh mình không còn đồng lòng, cố huy động mọi người làm việc lớn chỉ thêm rối.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Nay cuộc thái sắp hết, sai mất đạo thái, tình của kẻ trên người dưới không thông nhau, lòng dân lìa trái, không theo người trên há có thể dùng? Dùng họ thì loạn."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Thời vừa mở, người có tài ở dưới muốn tiến lên và kéo theo bạn đồng chí, như nhổ cỏ tranh cả cụm: lên đường lúc này thì tốt.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Ba hào Dương ở dưới, liền nhau mà tiến, đó là cái Tượng nhổ cỏ tranh cả cụm."},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Đời sắp hanh thái thì các người hiền đều muốn tiến lên."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Kẻ xem là hạng Dương cương, thì sự đi của họ tốt lành."}
+  },
+  "2": {
+   "gist": {
+    "text": "Người gánh việc chính giữa lúc thịnh cần đủ bốn điều: bao dung chỗ dở, dám quyết như lội qua sông, không bỏ sót việc xa và không bênh phe cánh.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Bao dung sự hoang rậm, dùng để tay không lội sông, chẳng sót việc xa, bè cánh mất, bốn điều đó là cách để ở cuộc thái"},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "ý nói như thế thì có thể phối hợp với đức trung hàng mà đạo của mình sáng láng tỏ lớn được."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ dưới, ứng với hào Sáu Năm mềm mỏng cũng ở giữa: có thực lực và được người trên tin cậy.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Hai là Dương cương được chỗ giữa, trên thì ứng nhau với hào Năm, hào Năm là hạng mềm thuận, được chỗ giữa, dưới ứng nhau với hào Hai"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Kẻ xem có thể bao dung sự hoang rậm, mà quả đoán cương quyết, không bỏ sót điều xa xôi và không thiên tư về bè đảng, thì hợp với đạo trung hàng của hào này."}
+  },
+  "3": {
+   "gist": {
+    "text": "Cái thịnh đang ở đỉnh, đất bằng sắp gặp dốc: giữ được lòng chịu khó và ngay thẳng thì khỏi lo vận đổi, phần phúc của lúc thuận vẫn hưởng được lâu.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba ở giữa quẻ Thái, trên các hào Dương, tức là lúc cuộc thái đương thịnh."},
+     {"seg": "hao3", "layer": "tien_nho", "quote": "Hễ mà có thể giữ được tấm lòng khó nhọc, chính bền, thì không cần lo vận trời ắt đến, mà cái phúc của sự hanh thái, có thể được hưởng lâu dài."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Răn kẻ xem cứ chịu khó nhọc giữ lấy chính bền, thì không lỗi mà có phúc."},
+   "topics": {
+    "tai_chinh": {
+     "text": "Đang có lộc, đừng sốt ruột lo cái được của mình giữ nổi hay không; cứ làm ăn chăm chỉ, ngay thẳng thì phần hưởng vẫn tới.",
+     "from": [
+      {"seg": "hao3", "layer": "nghia", "quote": "Khó nhọc, chính bền, chớ lo thừa sự tín, chưng việc ăn hưởng có phúc."},
+      {"seg": "hao3", "layer": "trinh_di", "quote": "Như thế thì về việc lộc ăn, sẽ có phúc khánh ích lợi."}
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Quá nửa thời thông, những gì đang ở sai chỗ rủ nhau quay về, chẳng cần lợi lộc hay hứa hẹn mà vẫn theo nhau vì cùng một ý muốn: thế cũ bắt đầu đổi.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Đã quá chỗ giữa là thái đã cực, ba hào Âm phơi phới trở lại phía dưới, chẳng đợi giàu mà đồng loại cứ theo, chẳng đợi răn bảo mà chúng đều tin."},
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Âm vốn là vật ở dưới, nay lại ở trên, tức là mất cái thật."}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Lời Chiêm ấy là có bọn tiểu nhân hợp nhau để làm hại chính đạo, đấng quân tử phải nên răn lo."}
+  },
+  "5": {
+   "gist": {
+    "text": "Người đứng đầu mềm mỏng, biết hạ mình dựa vào người giỏi ở dưới và nghe theo họ, như vua Đế Ất gả em gái mà bớt sự tôn quý: được phúc và rất tốt.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Năm biết nương tựa tin dùng người bề tôi hiền mà thuận theo hắn"},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Vì có trung đức, cho nên mới dùng được người hiền “cứng giữa”"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi tôn, giữa quẻ trên, ứng với hào Chín Hai: người có quyền mà lòng để trống, sẵn sàng nhận ý của người dưới.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Là thế Âm, ở ngôi tôn làm chủ quẻ Thái, trong lòng mềm mỏng, hư không, phía dưới ứng nhau với Hào Chín Hai"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "ấy là cách tốt, mà khi Đế Ất gả chồng em gái cũng từng xem được hào này. Kẻ xem như thế thì có phúc mà cả tốt."},
+   "topics": {
+    "tinh_cam": {
+     "text": "Chuyện cưới hỏi thuận khi bên có thế hơn không cậy thế mà chịu nhún, thuận theo người kia; được vậy thì cả hai cùng có phúc.",
+     "from": [
+      {"seg": "hao5", "layer": "trinh_di", "quote": "như vua Đế Ất gả chồng em gái phải giáng bớt sự tôn quý mà thuận theo Hào Dương, thì vì đó mà được chịu phúc và cả tốt nữa."}
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Đến cuối quẻ, như tường thành đắp bằng đất rãnh nay sụt trở về rãnh: lòng người đã rời, sức ép không giữ được, dù vẫn đúng lẽ cũng có điều phải tiếc.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Khi mà cuộc thái đến chót, sắp sửa trở lại cuộc bĩ, cũng như đất thành sụt đổ lại trở xuống rãnh."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Thành trở về rãnh tuy là mệnh đã loạn, cũng không thể ngăn."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Răn kẻ xem không thể cố sức tranh giành, chỉ nên tự thủ; tuy là vẫn được chính đính, nhưng cũng không khỏi thẹn tiếc."}
+  }
+ }
+}

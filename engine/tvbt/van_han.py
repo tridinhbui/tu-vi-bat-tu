@@ -68,7 +68,11 @@ def vh_facts(tv: TuViChart, v: dict) -> dict:
     hoa_here = [k for k, x in tv.tu_hoa.items() if x.get("branch") == v["branch_index"]]
     ky = [x for k, x in tv.tu_hoa.items() if k == "Hóa Kỵ"]
     by_idx = {p["branch_index"]: p for p in tv.palaces}
-    tp = sorted({s for k in (0, 4, 8, 6) for s in by_idx.get((v["branch_index"] + k) % 12, {"stars": []})["stars"]})   # palace, tam hợp, xung chiếu
+    seats = [by_idx[(v["branch_index"] + k) % 12] for k in (0, 4, 8, 6) if (v["branch_index"] + k) % 12 in by_idx]   # palace, tam hợp, xung chiếu
+    tp = sorted({s for q in seats for s in q["stars"]})
+    tp_hoa = sorted({k for k, x in tv.tu_hoa.items() if x.get("branch") in {q["branch_index"] for q in seats}})
+    # "Nhị tam Không" (TH pp.116-117): how many of Địa Không, Thiên Không, Tuần, Triệt stand on the palace
+    khong_n = len({"Địa Không", "Thiên Không"} & vs) + bool(v.get("tuan")) + bool(v.get("triet"))
     year_stem, _, year_branch = getattr(tv, "year_gz", "").partition(" ")     # the test doubles of tests/test_van_han.py carry no year
     return {
         "vh.m_major": list(m["major_stars"]), "vh.m_no_major": not m["major_stars"], "vh.m_tuan": bool(m["tuan"]), "vh.m_triet": bool(m["triet"]),
@@ -80,7 +84,9 @@ def vh_facts(tv: TuViChart, v: dict) -> dict:
         "vh.loc": "Lộc Tồn" in vs or "Hóa Lộc" in hoa_here, "vh.ta_huu": bool({"Tả Phụ", "Hữu Bật"} & vs),
         "vh.khoi_viet": bool({"Thiên Khôi", "Thiên Việt"} & vs), "vh.xk": bool({"Văn Xương", "Văn Khúc"} & vs),
         "vh.dao_hong": bool({"Hồng Loan", "Đào Hoa"} & vs),
-        "vh.year_stem": year_stem, "vh.year_branch": year_branch, "vh.tp_stars": tp,
+        "vh.year_stem": year_stem, "vh.year_branch": year_branch, "vh.tp_stars": tp, "vh.tp_hoa": tp_hoa,
+        "vh.v_name": v["name"], "vh.v_ham": [s for s, d in v.get("major_dignity", {}).items() if d == "hãm"],
+        "vh.khong_n": khong_n,
         "vh.thuong_su": [s for s in ("Thiên Thương", "Thiên Sứ") if s in vs], "vh.kinh_da": [s for s in ("Kình Dương", "Đà La") if s in vs],
     }
 
@@ -93,10 +99,13 @@ def _fill(text: str, facts: dict) -> str:
     return text
 
 
-def read(tv: TuViChart, van_palace: str) -> list[dict]:
+def read(tv: TuViChart, van_palace: str, han: str | None = None) -> list[dict]:
     """Sentences about how the Mệnh palace meets the given vận palace. Rule-driven: every sentence comes from a rule in
-    data/van_han_rules.json whose condition is true (same output as the former if/else implementation, proven by a differential test)."""
-    return [{"text": o["text"], "src": o["src"]} for o in read_traced(tv, van_palace)]
+    data/van_han_rules.json whose condition is true (same output as the former if/else implementation, proven by a differential test).
+    `han` = "dai" or "tieu" leaves out the rules the book gives for the other kind of hạn (a rule's "han": "tieu" = tiểu hạn only;
+    "trung_phung" = đại and tiểu hạn on this one palace, which only a caller that knows both can tell, so it is always left out here)."""
+    return [{"text": o["text"], "src": o["src"]} for o in read_traced(tv, van_palace)
+            if not o.get("han") or (han == "tieu" and o["han"] == "tieu")]
 
 
 def read_traced(tv: TuViChart, van_palace: str) -> list[dict]:
@@ -114,7 +123,7 @@ def read_traced(tv: TuViChart, van_palace: str) -> list[dict]:
             text = r["text"] + (": " + "; ".join(tails) if tails else "") + "."
         else:
             text = _fill(r["text"], facts)
-        out.append({"text": text, "src": _SRC[r["src"]], "rule_id": r["id"]})
+        out.append({"text": text, "src": _SRC[r["src"]], "rule_id": r["id"], **({"han": r["han"]} if "han" in r else {})})
     joined = " ".join(o["text"] for o in out)
     if "đi lên" in joined and "đi xuống" in joined:
         out.append({"text": "Hai điều kiện trái chiều của sách (đi lên và đi xuống) cùng khớp, nên hệ thống không kết luận hạn này đi lên hay đi xuống.", "src": SRC, "rule_id": None})

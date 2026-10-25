@@ -1,0 +1,196 @@
+{
+ "number": 63,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Ký tế là lúc việc đã thành, mọi thứ đã vào đúng chỗ; cái khó bây giờ là giữ, vì thành công đi đến chỗ cùng thì dễ quay ra rối.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Đã sang là việc đã nên."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Đầu tốt là lúc đương sang, chót loạn là tại sang đã cùng cực thì phải trái lại."}
+   ]
+  },
+  "image": {
+   "text": "Nước ở trên lửa, hai thứ giao nhau nên mỗi bên phát huy được chỗ dùng của mình; chính lúc yên ổn ấy là lúc nghĩ trước điều có thể hỏng mà phòng sẵn.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Nước lửa đã giao nhau, thứ nào được sự dùng của thứ ấy, tức là đã sang."},
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Nước ở trên lửa là quẻ Ký tế, đấng quân tử coi đó để nghĩ sự lo mà ngừa sẵn đấy."}
+   ]
+  },
+  "structure": {
+   "text": "Sáu hào đều đúng ngôi, cứng ở chỗ cứng, mềm ở chỗ mềm: một trật tự trọn vẹn, nhưng đã trọn thì không còn chỗ tiến, mà dừng lại ở đó thì suy loạn bắt đầu.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Ngôi của sáu hào đều được chính đính, cho nên là đã sang."},
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Đến chót cuộc sang, chẳng tiến mà đậu, tức là sự đậu bất thường, suy loạn đến rồi, vì là đạo nó đã cùng cực rồi."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Đại để quẻ này và lời Chiêm của sáu hào đều có ý răn dỗ, thì nên thế vậy."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Dự án đã về đích, vị trí đã vững: phần lớn coi như xong, còn vài phần nhỏ chưa trôi chảy; lúc này đáng giữ nề nếp đã có hơn là mở thêm mặt trận.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Trong thì đã sang, cái lớn đã hanh thông rồi, cái nhỏ còn chưa hanh thông."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Thì đã hanh thông, chỉn nên chính bền mà giữ."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Như thuyền đã có giẻ nhét sẵn mà người trên thuyền vẫn dè chừng suốt ngày, của cải đã ổn lúc này cần một khoản dự phòng và thói quen soát lại những chỗ có thể hao hụt.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Có áo giẻ để phòng bị sự dò mà lại trọn ngày răn sợ"},
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Trọn ngày răn sợ, là thường ngờ rằng vạ lo sắp tới."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Giống lễ giết trâu linh đình không bằng lễ đơn sơ đúng lúc, việc làm ăn đang ở đỉnh nên dè chừng những khoản chi phô trương; điều quyết định là thời, không phải quy mô.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Thịnh soạn không bằng đơn sơ, là tại thời không giống nhau."},
+     {"seg": "tieu_tuong5", "layer": "nghia", "quote": "Láng giềng bên Đông giết trâu, chẳng bằng láng giềng bên Tây phải thời vậy"}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Học xong một chặng, qua một kỳ thi: cái đà muốn lao tiếp là thứ nên ghìm lại như kéo bánh xe, để củng cố cái đã có trước khi bước sang phần mới.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Đầu thì đã sang, biết ngăn sự tiến mới được không lỗi."},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Đầu lúc đã sang, biết ngăn sự tiến thì không đến lỗi cùng cực"}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Mối quan hệ đã thành, như nước và lửa đã giao: đẹp nhất là lúc đầu, còn về sau, nếu hai người dừng lại không vun giữ thì chính sự yên ổn dễ thành rối.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Đầu tốt, mềm được giữa vậy; chót đậu thì loạn, thửa đạo cùng vậy."},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Chỉ sợ vạ hại sinh ra, cho nên nghĩ cách mà ngừa sẵn đi, khiến cho không đến phải lo."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Khi một người trong nhà thấy mình bị gác sang bên, như người mất tấm khăn trùm không ra được cửa, cách tốt là giữ mình chứ không chạy theo đòi; khi thời đổi, chỗ của mình sẽ trở lại.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Chạy theo vật khác thì mất cái sở thủ của mình, cho nên răn rằng chớ đuổi."},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Tự giữ không mất, thì bẩy ngày lại được."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi việc đã xong mà còn muốn làm thêm cho lớn, nên nhớ trận đánh ba năm mới thắng: được thì được nhưng rất nhọc, và không nên quyết một cách khinh suất.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Nói mệt cho thấy việc đó rất khó"},
+     {"seg": "hao3", "layer": "chu_hy", "quote": "đó là ý răn kẻ xem không nên hành động, bằng cách khinh suất."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Lúc mọi việc đang suôn mới là lúc ngồi nghĩ trước những chỗ có thể hỏng và chuẩn bị cách đỡ, đồng thời giữ cách làm ngay thẳng đã đưa mình tới đây.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Từ xưa thiên hạ yên rồi mà lại đến phải vạ loạn, đều tại không biết lo nghĩ mà ngừa sẵn cả."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Lợi về chính bền là vì ở thì đã sang, lợi ở gìn giữ bằng cách chính bền."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Đến lúc thịnh đã cùng cực, cái hỏng không hẳn do tài kém mà do thời đã tới đỉnh; người giỏi cũng chỉ giữ được để khỏi đổ, khó làm cho thịnh thêm.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Tài hào Chín Năm, không phải không hay, chỉ vì thời cực, đạo cùng, lẽ ắt phải biến."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "nếu giữ bằng cách chí thành giữa chính, chỉ không đến nỗi trái lại mà thôi"}
+    ]
+   },
+   {
+    "text": "Ra sức làm việc lớn sau khi đã yên chỉ đáng khi lấy việc giúp người làm lòng; nếu động cơ là tham hay hờn giận riêng thì nỗ lực ấy thành hại người.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Oai vũ tới được, mà lấy sự cứu dân làm lòng, đó là việc của đấng vương giả"},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "nếu không có bụng như vua Cao Tông, thì là tham lam tức tối, để làm hại dân."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Vừa thành việc mà đà còn mạnh: tự kéo bánh xe lại, chịu ướt đuôi chứ không cố lội tiếp; biết ngừng đúng lúc thì không lỗi.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "cái chí tiến lên của nó đương mạnh, nhưng thì đã sang rồi, tiến lên không thôi, thì đến hối cữu"},
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Kéo bánh xe lại thì xe không đi lên được, ướt đuôi thì con cáo không sang sông được"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở dưới cùng, ứng với hào Tư, lại thuộc thể lửa: chí tiến lên đang hăng.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Đầu lấy chất Dương ở chỗ dưới, phía trên ứng nhau với hào Tư, lại là thể lửa"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "đầu thì sang, cẩn thận răn dỗ như vậy là cách không lỗi đó. Kẻ xem như thế thì không có lỗi."}
+  },
+  "2": {
+   "gist": {
+    "text": "Có tài có đức mà người trên đã mãn nguyện, không chịu dùng; đừng chạy theo đòi, cứ giữ lẽ giữa của mình thì lúc khác sẽ được thi hành.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "mà hào Chín Năm ở thì đã sang, không chịu trọng đãi người hiền để thi hành cái đạo của mình"},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "nghĩa là tự giữ đạo giữa, lúc khác ắt được thi hành."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, giữa và chính, ứng với hào Chín Năm: xứng đáng được dùng nhưng gặp người trên đã đủ đầy.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "phía trên ứng nhau với hào Chín Năm là ông vua Dương cứng giữa chính, đáng được thực hành chí mình"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Nhưng đạo giữa chính không thể bị bỏ mãi mãi, thì qua sẽ được thực hành, cho nên lại có lời răn “chớ đuổi tự nhiên sẽ được”."}
+  },
+  "3": {
+   "gist": {
+    "text": "Việc đã yên mà còn dùng sức mạnh đi chinh phục xa: phải lâu mới xong, nhọc mệt rất nhiều, và không nên giao việc ấy cho người làm vì lòng tham.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "“Ba năm được đấy” tức là phải lâu mới được"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "cho nên răn rằng: chớ dùng kẻ tiểu nhân."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, trên cùng quẻ dưới: dùng cái cứng đến tột bậc giữa lúc mọi việc đã xong.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "lấy chất cứng ở ngôi cứng, là kẻ dùng đạo cứng đến tột bậc vậy."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "“Ba năm được đấy” tức là phải lâu mới được, đó là ý răn kẻ xem không nên hành động, bằng cách khinh suất."}
+  },
+  "4": {
+   "gist": {
+    "text": "Thuyền đã có giẻ phòng chỗ rò mà người trên thuyền vẫn dè chừng suốt ngày: người gánh trách nhiệm lúc yên ổn lấy việc ngừa biến làm việc gấp.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Đương thì đã sang, lấy sự ngừa vạ lo biến làm gấp"},
+     {"seg": "hao4", "layer": "chu_hy", "quote": "là kẻ biết dự bị lo sợ, cho nên Tượng nó như thế."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, gần ngôi Năm: mềm mà đúng chỗ, là người gánh vác trách nhiệm.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Đương thì đã sang, lấy chất mềm ở ngôi mềm"},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Tư ở ngôi gần vua là kẻ gánh vác trách nhiệm."}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Hào Sáu Tư: Ướt có áo giẻ, trọn ngày răn."}
+  },
+  "5": {
+   "gist": {
+    "text": "Người ở đỉnh cao làm lễ lớn mà không bằng người mới lên làm lễ nhỏ đúng thời: đã đến chỗ cùng cực thì dù khéo xử cũng khó hơn người đang có đà đi lên.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "ý nói hào Năm ở ngôi tôn mà thời quá rồi, chẳng bằng hào Hai ở dưới mà mới được thời."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "đã đến cùng cực, tuy rằng khéo xử, cũng không làm thế nào được"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "nghia", "quote": "Hào Chín Năm: Láng giềng bên Đông giết trâu, chẳng bằng láng giềng bên Tây tế Thược, thật chịu thửa phúc."}
+  },
+  "6": {
+   "gist": {
+    "text": "Cuối thời đã thành, người yếu sức lại đứng trên chỗ hiểm, như con cáo lội đến ướt cả đầu: không biết sợ mà dừng thì nguy, và tình thế ấy khó kéo dài.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "là Tượng con cáo lội nước mà ướt đầu"},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Đã sang mà cùng đến nỗi ướt đầu, có thể dài lâu được chăng?"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở trên cùng, đứng trên thể Khảm là chỗ hiểm: sức mềm mà ở chỗ cuối của cuộc đã thành.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Chót cuộc đã sang, trên thể hiểm, mà lấy tài Âm mềm ở vào chỗ đó"}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Kẻ xem không biết răn sợ, tức là đạo nguy."}
+  }
+ }
+}

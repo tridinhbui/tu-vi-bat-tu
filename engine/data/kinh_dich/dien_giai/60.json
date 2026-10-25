@@ -1,0 +1,195 @@
+{
+ "number": 60,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Tiết là biết đặt giới hạn rồi dừng lại: có chừng mực thì mọi việc thông, nhưng kìm hãm quá tay đến mức khổ sở thì không giữ lâu được.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Tiết là có hạn mà ngừng lại."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Tiết chế quí ở vừa phải, thái quá thì khổ: tiết chế đã đến khổ, há giữ thường thường được sao?"}
+   ]
+  },
+  "image": {
+   "text": "Hồ chứa nước có sức chứa hạn định, quá mức thì tràn: mỗi thứ trong đời cần một mức đo, và nết ăn ở của mình cũng cần được cân nhắc cho vừa.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Chằm nó chứa nước có hạn, quá hạn thì đầy tràn."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "bàn là cân nhắc so đo, cầu trúng tiết độ vậy."}
+   ]
+  },
+  "structure": {
+   "text": "Ba hào cứng, ba hào mềm ngang nhau, hai hào giữa đều là dương; hào Chín Năm ở ngôi tôn, giữa và chính, là chủ của sự chừng mực.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "nghia", "quote": "Quẻ Tiết hanh, cứng mềm bằng nhau mà cứng được giữa."},
+    {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Chín Năm cứng mà giữa chính, ở ngôi tôn, làm chủ cuộc dè dặt"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Lai thể quẻ Âm Dương đều một nửa, mà hào Hai hào Năm đều là Dương, cho nên lời Chiêm được hanh nhưng đến thái thậm thì khổ, cho nên lại răn rằng: Không thể giữ làm chính bền ."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Người giữ vai trò dẫn dắt là người đặt ra mức chung và tự giữ trước; giữ được mức ấy một cách vừa phải thì việc đi tới có công, được người khen.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Đáng ngôi mà dùng tiết độ, tức là chủ về tiết độ."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Dùng cách đó mà đi, thì có công lớn, cho nên đi thì có sự đáng khen chuộng."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Lòng ham muốn không tự có điểm dừng, nên chi tiêu cần một mức đặt sẵn; có mức thì không hao của, không có thì dễ sa vào xa xỉ.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Lòng ham muốn của người ta không biết thế nào là cùng, nếu không lập ra phép tắc, thì sẽ xa xỉ không dở, rồi đến hại của hại dân."},
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Chừng mực bằng phép tắc, chẳng hại của, chẳng hại dân."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Lúc thời cơ đã mở mà vẫn đóng cửa giữ mình, bủn xỉn trong chi dùng, rụt rè trong hành động, là kiểu dè dặt lỡ thời, dễ hỏng việc.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Chẳng hợp với hào Năm, là sự dè dặt bất chính, như keo cú về sự dùng; nhút nhát về việc làm v. v..."},
+     {"seg": "hao2", "layer": "chu_hy", "quote": "chỉ biết dè dặt mà không biết thông biến"}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Kế hoạch học tập thuận khi có mức đo rõ ràng, học bao nhiêu, đến đâu, theo khuôn phép nào, và thường tự xét xem nết học của mình đã vừa chưa.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "phàm trong các vật lớn nhỏ, nhẹ nặng, cao thấp, văn hoa, mộc mạc đều có số độ để làm chừng mực"},
+     {"seg": "dai_tuong", "layer": "nghia", "quote": "Đấng quân tử coi đó mà chế độ, bàn đức nết."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Chiều theo cảm xúc với người mình thương mà không biết dừng thì dễ đến lúc than thở; biết tự giữ chừng mực cho hợp lẽ thì khỏi lỗi.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "nếu biết tự dè dặt mà thuận với nghĩa thì có thể không lỗi."},
+     {"seg": "tieu_tuong3", "layer": "nghia", "quote": "Lời Tượng nói rằng: Lời than của kẻ chẳng tự dè dặt, lại đổ lỗi cho ai?"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Nếp sống chừng mực trong nhà bền khi người làm gương tự thấy thoải mái với nó, để cả nhà vui lòng theo, như vị ngọt chứ không phải vị đắng.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Ở mình thì yên lòng mà làm thiên hạ mà đẹp lòng mà theo, đó là cuộc dè dặt ngọt ngon, đủ biết là tốt."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Đã thấy mình kìm quá tay đến khổ sở thì nên bớt đi để về mức vừa; cố giữ lối khắt khe ấy thì xấu.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "cố giữ kiểu đó thì hung, ăn năn đi thì sự hung sẽ mất."},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Ăn năn nghĩa là bớt sự thái quá để theo mực giữa."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Đặt cho mình mức vừa phải rồi giữ nó một cách nhẹ nhàng, tự nhiên, không gượng ép; điều quý ở sự chừng mực là được mức giữa, chứ không phải càng kìm càng tốt.",
+   "from": [
+    {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "sự dè dặt lấy vừa phải làm quý, được mực giữa là chính đáng rồi."},
+    {"seg": "hao4", "layer": "trinh_di", "quote": "không phải gượng mà dè dặt, tức là yên lòng với sự dè dặt, cho nên có thể đem đến sự hanh thông."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Khi đang vui với một việc mà phía trước có hiểm, biết dừng đúng lúc là chừng mực; giữ được giữa và chính thì thông, quá tay thì khổ.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Người ta với điều mình đẹp lòng thì không biết thôi, gặp gian hiểm thì muốn ngừng lại"},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Giữa chính thì thông, quá thì khổ."}
+    ]
+   },
+   {
+    "text": "Lời răn giữ mình không có nghĩa ngồi yên mãi: đường đã thông thì nên đi, chỉ khi đường tắc mới dừng.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Thông thì đi, tắc thì đậu, hễ nghĩa nên ra thì ra."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Lúc mới vào cuộc, chưa có chỗ để đi, nên giữ mình kín đáo trong cửa; biết dừng khi đường chưa mở thì không lỗi.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "ở đầu thì dè dặt, chưa thể đi đâu, biết dè dặt mà đậu"},
+     {"seg": "tieu_tuong1", "layer": "nghia", "quote": "Lời Tượng nói rằng: Chẳng ra sân cửa, biết thông tắc vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, được chính, lại có hào ứng ở trên: có sức và có chỗ muốn đến, nên càng cần tự giữ.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Đầu lấy chất Dương ở ngôi dưới, phía trên lại có ứng viện, không phải kẻ biết dè dặt"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Chất Dương cứng được chỗ chính, ở đầu thì dè dặt, chưa thể đi đâu, biết dè dặt mà đậu, cho nên Tượng, Chiêm như thế."}
+  },
+  "2": {
+   "gist": {
+    "text": "Cửa đã mở, đến lúc bước ra mà vẫn ở trong cổng: dè dặt sai lúc, không chịu đi theo người ngay thẳng ở trên, nên xấu.",
+    "from": [
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Không thể đi lên mà theo đạo cứng và chính giữa của hào Chín Năm, để làm nên công dè dặt, mà lại vướng với kẻ Âm mềm riêng tây, ấy là lỗi thời đến tột bậc, vì vậy mới hung."},
+     {"seg": "tieu_tuong2", "layer": "nghia", "quote": "Lời Tượng nói rằng: Chẳng ra sân cổng, hung, lỗi thời đến tột bậc vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, không chính, phía trên không có hào ứng: thiếu đức cứng giữa nên không hợp được với hào Chín Năm.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "hào Hai với hào Năm chẳng phải Âm Dương chính ứng với nhau, cho nên nó không theo nhau."},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Cái đạo dè dặt, nên phải cứng mà giữa chính, hào Hai mất đức cứng giữa, khác với hào Năm là hào cứng giữa."}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Hào Hai gặp thì làm được, mà nó mất cứng, chẳng chính, phía trên không kẻ ứng với, chỉ biết dè dặt mà không biết thông biến, cho nên Tượng Chiêm của nó như thế."}
+  },
+  "3": {
+   "gist": {
+    "text": "Không biết tự giữ chừng mực thì rồi phải than thở, và lỗi ấy do chính mình gây ra, chẳng đổ cho ai được.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Dè dặt thì có thể khỏi lỗi, mà chẳng tự dè dặt để đến đáng than thì còn trách ai?"},
+     {"seg": "tieu_tuong3", "layer": "chu_hy", "quote": "ý nói không thể đổ lỗi cho ai vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương, không giữa không chính, cưỡi lên hào cứng và sát chỗ hiểm: vị trí vốn dễ mắc lỗi.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Sáu Ba chẳng giữa chẳng chính, cưỡi cứng mà tới chỗ hiểm vẫn nên có lỗi."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "nghia", "quote": "Hào Sáu Ba: Chẳng dè dặt vậy, thì than thở vậy, không lỗi."}
+  },
+  "4": {
+   "gist": {
+    "text": "Giữ chừng mực một cách yên ổn, tự nhiên, như nước chảy xuôi xuống chỗ thấp chứ không dâng tràn; nhờ vậy mà thông.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "nước tràn lên là không tiết độ, chảy xuống là có tiết độ"},
+     {"seg": "hao4", "layer": "chu_hy", "quote": "là kẻ tự nhiên có tiết độ"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, đúng chỗ, vâng theo hào Chín Năm ở trên và ứng với hào Chín Đầu ở dưới.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Lấy chất Âm ở ngôi Âm, là yên lòng về đường chính đính, đáng ngôi là Tượng có tiết độ, phía dưới ứng với hào Đầu"},
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Mềm thuận được chỗ chính, phía trên vâng theo hào Chín Năm"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Mềm thuận được chỗ chính, phía trên vâng theo hào Chín Năm, là kẻ tự nhiên có tiết độ, cho nên Tượng, Chiêm của nó như thế."}
+  },
+  "5": {
+   "gist": {
+    "text": "Chừng mực mà ngọt: người ở chỗ cao tự thấy yên với mức mình giữ, người chung quanh vui lòng làm theo; cứ thế mà đi thì có công, được trọng.",
+    "from": [
+     {"seg": "hao5", "layer": "nghia", "quote": "Hào Chín Năm: Sự dè dặt ngọt, tốt, đi có chuộng."},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Đã ở ngôi tôn, lại được đạo giữa, vì vậy tốt mà có công"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ trên, đúng ngôi tôn, giữa và chính: đứng đúng chỗ để đặt chừng mực cho mọi người.",
+    "from": [
+     {"seg": "tieu_tuong5", "layer": "nghia", "quote": "Lời Tượng nói rằng: Cái tốt của sự dè dặt ngọt ở ngôi giữa vậy."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Đây tức là kẻ mà ở lời Thoán nói là “Đáng ngôi để dè dặt, giữa chính để suốt” cho nên Tượng, Chiêm như thế."}
+  },
+  "6": {
+   "gist": {
+    "text": "Đến cùng cực của sự kìm hãm, dè dặt đã hóa khổ sở; cứ khăng khăng giữ lối ấy thì xấu, vì con đường đã đi đến chỗ cùng.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Hào Sáu Trên ở chỗ cùng cực cuộc dè dặt, là sự dè dặt khổ sở vậy."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Sự dè dặt đã khổ mà cứ cố giữ thì hung."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Sáu Trên: Sự dè dặt khổ, chính bền hung, ăn năn mất."}
+  }
+ }
+}

@@ -167,8 +167,8 @@
    "Khí lá số {climate}; với nhật chủ {dm} sinh tháng {mb}, can cần trước hết là {main}, sau đó {others}."
   ],
   "climate_presence": [
-   "Trong tứ trụ, {present} có lộ ra, còn {absent} thì vắng.",
-   "Lá số có {present}, nhưng thiếu {absent}."
+   "Trong tứ trụ, {present}; còn {lead}chưa thấy can {absent} lộ trên can hay tàng trong chi{via}.",
+   "Lá số có {present}, nhưng {lead}chưa thấy can {absent} lộ hay tàng ở trụ nào{via}."
   ],
   "verified_text": {
    "BT_TTT_HANNOAN_THUAN_NOAN": "Khí nóng của lá số đã quá mà Thủy lại không có gốc, nên không lấy cái lạnh làm cách điều hòa chính.",
@@ -344,7 +344,7 @@
   },
   "year_advice": [
    "Vì thế, năm này nên đi chậm và giữ chắc những gì đã có.",
-   "Năm như vậy hợp với việc giữ sức, làm chắc từng bước hơn là mở rộng."
+   "Năm như vậy hợp với việc giữ sức hơn là mở rộng."
   ],
   "tk_open": [
    "nhật chủ {dm} {level}, sinh tháng {mb}, lá số cần {need}.",
@@ -424,54 +424,132 @@
   "rc_years": "; những năm nên tiến trong chặng là {list}",
   "rc": {
    "thuan": [
-    "Cả hai phía cùng thuận, nên {pk} là lúc nên chủ động tiến.",
-    "Hai phía đều thuận, nên {pk} là lúc nên chủ động tiến."
+    "Hai phía cùng thuận ở {pk} ({grp}), độ nghiêng {cw}: đây là lúc nên chủ động tiến.",
+    "{Pk} được cả thế cân bằng lẫn khí hậu ủng hộ, với {grp}; mức nghiêng {cw}, nên {ten} là lúc mở việc mới.",
+    "Với {grp} và phía khí hậu cũng đỡ, {pk} thuận cả hai đầu, nghiêng {cw}; {ten} nên dùng để tiến.",
+    "Cả cách lẫn khí hậu đều đứng về phía {pk}, nơi {grp}; độ nghiêng {cw}, nên chủ động hơn thường lệ.",
+    "{Pk} là lúc hai phía cùng gật đầu ({grp}), nghiêng {cw}: việc lớn nên đặt vào {ten}.",
+    "Ở {pk}, {grp}, lại thêm khí hậu thuận, nên lời kết nghiêng {cw} về phía tiến: {ten} hợp để chủ động."
    ],
    "kha_thuan": [
-    "Nhìn chung {pk} khá thuận, hợp với việc tiến từng bước chắc.",
-    "Nhìn chung {pk} khá thuận, nên tiến từng bước chắc."
+    "{Pk} thuận một phía ({grp}; {clim}), độ nghiêng {cw}: {ten} tiến được, nhưng nên giữ đường lui.",
+    "Chỉ một phía lên tiếng cho {pk}, với {grp} và {clim}; mức nghiêng {cw}, nên tiến vừa sức, chưa dồn hết vốn.",
+    "Với {grp}, {pk} nghiêng {cw} về phía thuận; {clim}, nên {ten} hợp mở rộng có chừng mực.",
+    "{Pk} khá thuận, nghiêng {cw}: {grp}, còn {clim}; tiến được, miễn đừng ôm việc vượt sức.",
+    "Một phía đỡ, phía kia không nói gì: {pk} ({grp}) vì thế khá thuận, độ nghiêng {cw}, đủ để làm thêm việc nhưng chưa nên đặt cược lớn.",
+    "Ở {pk}, {grp} và {clim}, nên lời kết là khá thuận với mức nghiêng {cw}: {ten} hợp tiến đều, có phương án dự phòng."
    ],
    "co_dieu_kien": [
-    "Vì vậy {pk} thuận hay nặng tùy lúc có {yong} đi kèm{yearsTail}.",
-    "Do đó, {pk} tốt hay nặng tùy lúc có {yong} đi kèm{yearsTail}."
+    "Vì vậy {pk} ({grp}) thuận hay nặng tùy lúc có {yong} đi kèm, độ nghiêng {cw}{yearsTail}.",
+    "Do đó, với {grp}, {pk} tốt hay nặng tùy lúc có {yong} đi kèm; mức nghiêng {cw}{yearsTail}.",
+    "{Pk} không tự nghiêng hẳn về đâu ({grp}, {clim}): được hay mất tùy lúc có {yong} đi kèm, nghiêng {cw}{yearsTail}.",
+    "Lời kết cho {pk} là có điều kiện, nghiêng {cw}: {grp}, nên mọi việc tùy lúc có {yong} đi kèm{yearsTail}.",
+    "Ở {pk}, {grp} và {clim}; điều quyết định là có {yong} đi kèm hay không, độ nghiêng {cw}{yearsTail}.",
+    "Với {pk}, thuận hay nặng nằm ở chỗ {yong} có đi kèm hay không ({grp}), mức nghiêng {cw}{yearsTail}."
    ],
    "co_dieu_kien_no_yong": [
-    "Vì vậy {pk} tốt xấu đan xen, nên tiến ở phần thuận và giữ sức ở phần nặng."
+    "Vì vậy {pk} tốt xấu đan xen ({grp}), độ nghiêng {cw}: nên tiến ở phần thuận và giữ sức ở phần nặng.",
+    "{Pk} có cả phần được lẫn phần mất, với {grp}; mức nghiêng {cw}, nên chọn việc theo phần thuận.",
+    "Với {grp} và {clim}, {pk} không nghiêng hẳn bên nào, nghiêng {cw}; việc nào hợp phần thuận thì làm trước.",
+    "Lời kết cho {pk} là có điều kiện, độ nghiêng {cw}: {grp}, nên tách việc thuận ra làm trước, việc nặng để sau.",
+    "Ở {pk}, {grp}, nên phần thuận và phần nặng đi cùng nhau; mức nghiêng {cw}, đừng dồn sức một chiều.",
+    "{Pk} ({grp}, {clim}) cần đi có chọn lọc: tiến ở chỗ thuận, giữ ở chỗ nặng, độ nghiêng {cw}."
    ],
    "tron": [
-    "Vì vậy {pk} tốt xấu đan xen: can {stem} thuận, chi {branch} nặng{yearsTail}.",
-    "Do đó {pk} tốt xấu đan xen, can {stem} thuận mà chi {branch} nặng{yearsTail}."
+    "Vì vậy {pk} tốt xấu đan xen: can {stem} thuận, chi {branch} nặng, độ nghiêng {cw}{yearsTail}.",
+    "Do đó {pk} tốt xấu đan xen, can {stem} thuận mà chi {branch} nặng; {clim}, mức nghiêng {cw}{yearsTail}.",
+    "{Pk} chia đôi: phần can {stem} ({sg}) thuận, phần chi {branch} ({bg}) nặng, nghiêng {cw}{yearsTail}.",
+    "Ở {pk}, phần thuận do can {stem} giữ, phần nặng do chi {branch} mang, nên lời kết là đan xen với độ nghiêng {cw}{yearsTail}.",
+    "Can {stem} của {pk} thuận, chi {branch} thì nặng; {clim}, nên đây là tốt xấu đan xen, nghiêng {cw}{yearsTail}.",
+    "Với {pk}, phần thuận nằm ở can {stem} ({sg}), phần nặng ở chi {branch} ({bg}); mức nghiêng {cw}{yearsTail}."
    ],
    "tron_rev": [
-    "Vì vậy {pk} tốt xấu đan xen: can {stem} nặng, chi {branch} thuận{yearsTail}.",
-    "Do đó {pk} tốt xấu đan xen, can {stem} nặng mà chi {branch} thuận{yearsTail}."
-   ],
-   "nang": [
-    "Trong {pk}, những năm nên tiến là {years}; các năm còn lại nên giữ nhịp, làm chắc từng bước.",
-    "Vì thế, trong {pk} nên dồn sức vào các năm {years}, còn những năm khác thì giữ nhịp, làm chắc từng bước."
-   ],
-   "nang_no_years": [
-    "Vì thế {pk} nên đi chậm, làm chắc từng bước và dựa vào {yong}."
-   ],
-   "nang_year": [
-    "Vì thế, {pk} nên đi chậm và giữ chắc những gì đã có.",
-    "Một năm như {pk} hợp với việc giữ sức, làm chắc từng bước hơn là mở rộng."
-   ],
-   "trung": [
-    "{Pk} không chạm đến điều lá số cần nhất, nên đi theo nhịp riêng của nó, không cần vội.",
-    "{Pk} không nghiêng về phía nào của lá số, nên cứ đi đều tay."
+    "Vì vậy {pk} tốt xấu đan xen: can {stem} nặng, chi {branch} thuận, độ nghiêng {cw}{yearsTail}.",
+    "Do đó {pk} tốt xấu đan xen, can {stem} nặng mà chi {branch} thuận; {clim}, mức nghiêng {cw}{yearsTail}.",
+    "{Pk} chia đôi: phần can {stem} ({sg}) nặng, phần chi {branch} ({bg}) thuận, nghiêng {cw}{yearsTail}.",
+    "Ở {pk}, phần nặng do can {stem} giữ, phần thuận do chi {branch} mang, nên lời kết là đan xen với độ nghiêng {cw}{yearsTail}.",
+    "Can {stem} của {pk} nặng, chi {branch} thì thuận; {clim}, nên đây là tốt xấu đan xen, nghiêng {cw}{yearsTail}.",
+    "Với {pk}, phần nặng nằm ở can {stem} ({sg}), phần thuận ở chi {branch} ({bg}); mức nghiêng {cw}{yearsTail}."
    ],
    "tron_h": [
-    "Vì vậy {pk} tốt xấu đan xen: can {stem} ({ha}) thuận, chi {branch} ({hb}) nặng{yearsTail}.",
-    "Do đó {pk} tốt xấu đan xen, nửa đầu theo can {stem} ({ha}) thuận, nửa sau theo chi {branch} ({hb}) nặng{yearsTail}."
+    "Vì vậy {pk} tốt xấu đan xen: can {stem} ({ha}) thuận, chi {branch} ({hb}) nặng, độ nghiêng {cw}{yearsTail}.",
+    "Do đó {pk} tốt xấu đan xen, nửa đầu theo can {stem} ({ha}) thuận, nửa sau theo chi {branch} ({hb}) nặng; mức nghiêng {cw}{yearsTail}.",
+    "{Pk} chia hai nửa: {ha} theo can {stem} ({sg}) là phần thuận, {hb} theo chi {branch} ({bg}) là phần nặng, nghiêng {cw}{yearsTail}.",
+    "Những năm {ha} của {pk} đi theo can {stem} nên thuận, những năm {hb} theo chi {branch} nên nặng; {clim}, độ nghiêng {cw}{yearsTail}.",
+    "Ở {pk}, nửa đầu ({ha}) theo can {stem} là phần thuận, nửa sau ({hb}) theo chi {branch} là phần nặng, nên lời kết đan xen, nghiêng {cw}{yearsTail}.",
+    "Với {pk}, nửa {ha} do can {stem} ({sg}) cầm vận là phần thuận, nửa {hb} do chi {branch} ({bg}) cầm vận là phần nặng; mức nghiêng {cw}{yearsTail}."
    ],
    "tron_rev_h": [
-    "Vì vậy {pk} tốt xấu đan xen: can {stem} ({ha}) nặng, chi {branch} ({hb}) thuận{yearsTail}.",
-    "Do đó {pk} tốt xấu đan xen, nửa đầu theo can {stem} ({ha}) nặng, nửa sau theo chi {branch} ({hb}) thuận{yearsTail}."
+    "Vì vậy {pk} tốt xấu đan xen: can {stem} ({ha}) nặng, chi {branch} ({hb}) thuận, độ nghiêng {cw}{yearsTail}.",
+    "Do đó {pk} tốt xấu đan xen, nửa đầu theo can {stem} ({ha}) nặng, nửa sau theo chi {branch} ({hb}) thuận; mức nghiêng {cw}{yearsTail}.",
+    "{Pk} chia hai nửa: {ha} theo can {stem} ({sg}) là phần nặng, {hb} theo chi {branch} ({bg}) là phần thuận, nghiêng {cw}{yearsTail}.",
+    "Những năm {ha} của {pk} đi theo can {stem} nên nặng, những năm {hb} theo chi {branch} nên thuận; {clim}, độ nghiêng {cw}{yearsTail}.",
+    "Ở {pk}, nửa đầu ({ha}) theo can {stem} là phần nặng, nửa sau ({hb}) theo chi {branch} là phần thuận, nên lời kết đan xen, nghiêng {cw}{yearsTail}.",
+    "Với {pk}, nửa {ha} do can {stem} ({sg}) cầm vận là phần nặng, nửa {hb} do chi {branch} ({bg}) cầm vận là phần thuận; mức nghiêng {cw}{yearsTail}."
+   ],
+   "nang": [
+    "Trong {pk} ({grp}), lúc nên tiến là {years}; các năm còn lại nên giữ nhịp, độ nghiêng {cw}.",
+    "Vì thế, trong {pk} nên dồn sức vào {years}, còn những năm khác thì giữ nhịp; mức nghiêng {cw}.",
+    "{Pk} nặng, nghiêng {cw}, vì {grp}; chỗ sáng trong mười năm là {years}.",
+    "Với {grp}, {pk} là vận nặng ở độ nghiêng {cw}: việc lớn nên dời vào {years}, năm khác chỉ giữ.",
+    "Ở {pk}, {clim}, còn {grp}, nên vận nặng, nghiêng {cw}; {years} là lúc có thể đẩy việc.",
+    "Mười năm {pk} nặng hơn nhẹ ({grp}), độ nghiêng {cw}; dù vậy {years} vẫn đáng tiến."
+   ],
+   "nang_no_years": [
+    "Vì thế {pk} ({grp}) nên đi chậm và dựa vào {yong}, độ nghiêng {cw}.",
+    "{Pk} nặng, nghiêng {cw}: với {grp}, nên giữ việc đang có và tìm {yong} làm chỗ dựa.",
+    "Với {grp} và {clim}, {pk} là vận nặng ở mức nghiêng {cw}; nên giữ sức, dựa vào {yong}.",
+    "Ở {pk}, {grp}, nên đi chậm hơn thường lệ, độ nghiêng {cw}; chỗ dựa là {yong}.",
+    "Mười năm {pk} không có năm nào nổi lên để dồn sức ({grp}), nghiêng {cw}; nên bám vào {yong}.",
+    "{Pk} nặng, mức nghiêng {cw}, vì {grp}; giữ nhịp chậm và dựa vào {yong} là lối đi an toàn hơn."
+   ],
+   "nang_year": [
+    "Vì thế, {pk} ({grp}) nên đi chậm và giữ chắc những gì đã có, độ nghiêng {cw}.",
+    "Một năm như {pk} hợp với việc giữ sức hơn là mở rộng; mức nghiêng {cw}.",
+    "{Pk} nặng, nghiêng {cw}, vì {grp}: nên giữ việc đang có, chưa mở việc mới.",
+    "Với {grp} và {clim}, {pk} là năm nặng ở độ nghiêng {cw}; việc lớn nên để sang năm khác.",
+    "Ở {pk}, {grp}, nên năm này hợp củng cố hơn là tiến, nghiêng {cw}.",
+    "{Pk} không phải năm để đặt cược ({grp}), mức nghiêng {cw}; giữ nhịp là đủ."
+   ],
+   "trung": [
+    "{Pk} không chạm đến điều lá số cần nhất ({grp}), nên đi theo nhịp riêng của nó, độ nghiêng {cw}.",
+    "{Pk} không nghiêng về phía nào của lá số, với {grp}; mức nghiêng {cw}, cứ đi đều tay.",
+    "Cả hai phía đều không nói gì về {pk} ({grp}), nên {ten} không có gì đặc biệt để dồn hay để tránh, nghiêng {cw}.",
+    "Với {grp} và {clim}, {pk} trung tính, độ nghiêng {cw}: việc thường ngày cứ làm, không cần vội.",
+    "Ở {pk}, {grp}, không có dấu hiệu nghiêng hẳn; mức nghiêng {cw}, nên giữ nhịp quen.",
+    "{Pk} đứng ngoài chỗ lá số cần ({grp}), nghiêng {cw}, nên không cần đổi nhịp."
    ],
    "co_dieu_kien_khac": [
-    "Hai phía vênh nhau, nên {pk} thuận hay nặng tùy lúc có {yong} đi kèm{yearsTail}.",
-    "Vì hai phía không trùng nhau, {pk} thuận hay nặng tùy lúc có {yong} đi kèm{yearsTail}."
+    "Hai phía vênh nhau, nên {pk} ({grp}) thuận hay nặng tùy lúc có {yong} đi kèm, độ nghiêng {cw}{yearsTail}.",
+    "Vì hai phía không trùng nhau, {pk} thuận hay nặng tùy lúc có {yong} đi kèm; mức nghiêng {cw}{yearsTail}.",
+    "Thế cân bằng chê mà khí hậu khen: {pk}, với {grp}, vì thế được hay mất tùy lúc có {yong} đi kèm, nghiêng {cw}{yearsTail}.",
+    "{Pk} bị hai phía kéo hai hướng ({grp}), nên tùy lúc có {yong} đi kèm mà thuận hay nặng; độ nghiêng {cw}{yearsTail}.",
+    "Khí hậu đỡ nhưng thế cân bằng không ưa {grp}, nên {pk} chỉ thuận khi có {yong} đi kèm, nghiêng {cw}{yearsTail}.",
+    "Ở {pk}, một phía khen một phía chê ({grp}); kết quả tùy lúc có {yong} đi kèm, mức nghiêng {cw}{yearsTail}."
+   ],
+   "bien_dong": [
+    "{Rel}, nên dù hai phía {fromw}, {ten} nhiều xáo trộn hơn là đi đều; độ nghiêng {cw}{yearsTail}.",
+    "Hai phía {fromw} ở {pk} ({grp}), nhưng {rel}, nên mười năm này có biến động, chỉ thuận khi có {yong} đi kèm; mức nghiêng {cw}{yearsTail}.",
+    "Hai phía {fromw}, song ở {pk} {rel}; vì thế lời kết hạ xuống có điều kiện, nghiêng {cw}{yearsTail}.",
+    "Điều quyết định ở {pk} là quan hệ với nguyên cục: {rel}, nên mười năm này động nhiều dù hai phía {fromw}; độ nghiêng {cw}{yearsTail}.",
+    "Với {grp}, hai phía {fromw}, nhưng vì {rel} nên {pk} phải tính đến xáo trộn; mức nghiêng {cw}{yearsTail}.",
+    "Ở {pk}, {rel}; chừng ấy đủ để mười năm này có biến động dù hai phía {fromw}, nghiêng {cw}{yearsTail}."
+   ],
+   "hop_ky": [
+    "{Rel}, cặp hợp thuộc hành {el} của nhóm {g}, nhóm vận xấu của cách, nên {pk} chỉ còn {to}, độ nghiêng {cw}{yearsTail}.",
+    "Hai phía {fromw} ở {pk}, nhưng {rel}, thuộc hành {el} (nhóm {g}, vận xấu); lời kết vì thế hạ còn {to}, mức nghiêng {cw}{yearsTail}.",
+    "Ở {pk}, {rel}; hành {el} ấy là của nhóm {g}, nên {ten} {to} chứ không trọn, nghiêng {cw}{yearsTail}.",
+    "Điều kéo {pk} xuống là hợp với nguyên cục: {rel}, cặp hợp thuộc hành {el} của nhóm {g}; vì thế {to}, độ nghiêng {cw}{yearsTail}.",
+    "Với {grp}, {pk} lẽ ra tốt hơn, nhưng {rel}, thuộc hành {el} (nhóm {g}); còn lại {to}, mức nghiêng {cw}{yearsTail}.",
+    "{Pk} bị hạ một bậc vì {rel}, hành {el} thuộc nhóm {g} mà cách kỵ; lời kết là {to}, nghiêng {cw}{yearsTail}."
+   ],
+   "hop_dung": [
+    "Hai phía chưa nói gì về {pk}, nhưng {rel}, thuộc hành {el} là {elRole}, nên {ten} khá thuận, độ nghiêng {cw}.",
+    "Điều nâng {pk} lên là hợp với nguyên cục: {rel}, đúng hành {el} ({elRole}); lời kết là khá thuận, mức nghiêng {cw}.",
+    "Ở {pk}, {grp}, hai phía không nói gì; riêng {rel} thuộc hành {el}, {elRole}, nên khá thuận, nghiêng {cw}.",
+    "{Pk} nhờ {rel} mà nghiêng về thuận: hành {el} là {elRole}; độ nghiêng {cw}, tiến được nhưng chưa nên dồn hết.",
+    "Với {grp}, {pk} vốn trung tính, song {rel} thuộc hành {el} ({elRole}), nên lời kết nhích lên khá thuận, mức nghiêng {cw}.",
+    "Nhờ {rel}, cặp hợp thuộc hành {el} ({elRole}), {pk} khá thuận, nghiêng {cw}."
    ]
   },
   "tk_class": {
@@ -480,7 +558,8 @@
    "co_dieu_kien": "{list} thuận hay nặng tùy lúc có {yong} đi kèm",
    "nang": "{list} là vận nặng",
    "trung": "{list} đi theo nhịp riêng",
-   "tron": "{list} tốt xấu đan xen"
+   "tron": "{list} tốt xấu đan xen",
+   "bien_dong": "{list} nhiều biến động vì quan hệ với nguyên cục"
   },
   "tk_class_many": {
    "thuan": "{list} là những vận thuận",
@@ -488,7 +567,8 @@
    "co_dieu_kien": "{list} thuận hay nặng tùy lúc có {yong} đi kèm",
    "nang": "{list} là những vận nặng",
    "trung": "{list} đi theo nhịp riêng",
-   "tron": "{list} tốt xấu đan xen"
+   "tron": "{list} tốt xấu đan xen",
+   "bien_dong": "{list} nhiều biến động vì quan hệ với nguyên cục"
   },
   "note_s2": "S2 (2026-10-22): luck_role (by ten-god group) became dh_role (by the stem the điều hậu cell names); 'need' (the system's cold/heat index voiced as the table's) is gone, the element is told only through the fired hàn noãn rule; strength_border (two readings) became strength_near ('hơi vượng / hơi nhược', TVH p.355); the closing reads the per-luck verdicts (rc). No frame names a page, a method word or a phù ức reason.",
   "ev_open_year": [
@@ -893,11 +973,12 @@
    ],
    "tk_word": {
     "thuan": "thuận, là lúc nên chủ động tiến",
-    "kha_thuan": "khá thuận, hợp tiến từng bước chắc",
+    "kha_thuan": "khá thuận, tiến được nhưng nên giữ đường lui",
     "co_dieu_kien": "thuận hay nặng tùy lúc có {yong} đi kèm",
     "tron": "tốt xấu đan xen",
-    "nang": "nặng, nên giữ sức và làm chắc từng bước",
-    "trung": "không nghiêng về phía nào"
+    "nang": "nặng, nên giữ sức và đi chậm",
+    "trung": "không nghiêng về phía nào",
+    "bien_dong": "nhiều xáo trộn vì quan hệ với nguyên cục"
    },
    "tk_money": {
     "neg": [
@@ -1010,6 +1091,46 @@
     "; năm này chạm nhiều nhất tới {list}",
     "; việc năm này chạm tới nhiều nhất là {list}"
    ]
+  },
+  "rc_rel_tail": {
+   "bien_dong": [
+    "Thêm vào đó, {rel}, nên {ten} còn nhiều xáo trộn.",
+    "Với nguyên cục, {rel}, làm {ten} động hơn.",
+    "{Rel}; điều này càng làm {ten} khó đi đều.",
+    "Cũng cần tính đến biến động ở {pk}: {rel}.",
+    "Về quan hệ với nguyên cục, {rel}, nên đừng mong {ten} êm.",
+    "Vì {rel}, {ten} khó yên."
+   ],
+   "hop_ky": [
+    "Thêm vào đó, {rel}, cặp hợp thuộc hành {el} của nhóm {g}.",
+    "Với nguyên cục, {rel}, thuộc hành {el} mà cách kỵ.",
+    "{Rel}, cũng thuộc hành {el} của nhóm vận xấu {g}.",
+    "Cặp hợp của {pk} lại nghiêng về phía kỵ: {rel}, thuộc hành {el} (nhóm {g}).",
+    "Về quan hệ với nguyên cục, {rel}, hành {el} của nhóm {g}.",
+    "Hợp ở {pk} rơi vào hành {el} của nhóm {g}: {rel}."
+   ],
+   "hop_dung": [
+    "Thêm vào đó, {rel}, đúng hành {el} ({elRole}).",
+    "Với nguyên cục, {rel}, thuộc hành {el} ({elRole}).",
+    "{Rel}, cũng thuộc hành {el}, {elRole}.",
+    "Cặp hợp của {pk} đứng về phía lá số cần: {rel}, thuộc hành {el} ({elRole}).",
+    "Về quan hệ với nguyên cục, {rel}, cùng hành {el}, {elRole}.",
+    "Hợp ở {pk} rơi vào hành {el}, {elRole}: {rel}."
+   ]
+  },
+  "rc_cw": {
+   "ro": "rõ",
+   "vua": "vừa",
+   "yeu": "yếu"
+  },
+  "rc_from": {
+   "thuan": "cùng thuận",
+   "kha_thuan": "nghiêng về thuận",
+   "trung": "chưa nói gì"
+  },
+  "rc_clim": {
+   "thuan": "phía khí hậu đỡ thêm",
+   "none": "phía khí hậu không thêm gì"
   }
  },
  "luan": {

@@ -1015,6 +1015,1373 @@
     ]
    },
    "text": "Cung vận có Sát Phá Tham, tam phương hội Tang Môn, Bạch Hổ, Thiên Khốc, Điếu Khách, Đà La, Thiên Thương: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_IX7_TRUNG_PHUNG_TY",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_branch",
+      "operator": "eq",
+      "value": "Tý"
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Thương",
+       "Thiên Sứ"
+      ]
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La"
+      ]
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thái Tuế"
+      ]
+     }
+    ]
+   },
+   "text": "Đại hạn và tiểu hạn cùng ở cung Tý, tam phương có Thiên Thương hoặc Thiên Sứ, Kình hoặc Đà, Thái Tuế: theo sách rất bất lợi.",
+   "han": "trung_phung"
+  },
+  {
+   "id": "TH_IX8_THUONG_SU_TUE",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Thiên Thương"
+          ]
+         },
+         {
+          "fact": "vh.v_branch",
+          "operator": "in",
+          "value": [
+           "Tý",
+           "Thìn",
+           "Mão",
+           "Ngọ",
+           "Mùi"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Thiên Sứ"
+          ]
+         },
+         {
+          "fact": "vh.v_branch",
+          "operator": "in",
+          "value": [
+           "Dần",
+           "Thân",
+           "Tỵ",
+           "Hợi"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thái Tuế"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận ở {v_branch} có {thuong_su}, tam phương có Thái Tuế: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_IX11_SAT_HAM_HINH_HO",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_ham",
+      "operator": "contains",
+      "value": "Thất Sát"
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Hình"
+      ]
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Bạch Hổ"
+      ]
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Quan Phủ"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Thất Sát hãm, tam phương có Thiên Hình, Bạch Hổ, Quan Phủ: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_DC5_PHOI",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_name",
+      "operator": "eq",
+      "value": "Phu Thê"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Cô Thần",
+           "Quả Tú"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Địa Không",
+           "Địa Kiếp"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Kình Dương",
+           "Đà La",
+           "Địa Không",
+           "Địa Kiếp"
+          ]
+         },
+         {
+          "any": [
+           {
+            "fact": "vh.v_tuan",
+            "operator": "eq",
+            "value": true
+           },
+           {
+            "fact": "vh.v_triet",
+            "operator": "eq",
+            "value": true
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Tang Môn",
+           "Bạch Hổ"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Đại Hao",
+           "Tiểu Hao"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Thiên Hình",
+           "Thiên Riêu",
+           "Thiên Không"
+          ]
+         },
+         {
+          "fact": "vh.v_hoa",
+          "operator": "contains",
+          "value": "Hóa Kỵ"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Thất Sát",
+           "Phá Toái"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Thiên Khốc",
+           "Thiên Hư"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Linh Tinh",
+           "Hỏa Tinh"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Kình Dương",
+           "Đà La"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Địa Không",
+           "Địa Kiếp"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_major",
+          "operator": "contains",
+          "value": "Cự Môn"
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Linh Tinh",
+           "Hỏa Tinh"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận là Phu Thê, có một cách cung Phối dang dở của sách: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6A_CNDL_SAT",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "fact": "vh.v_major",
+        "operator": "contains_any",
+        "value": [
+         "Thiên Cơ",
+         "Thái Âm",
+         "Thiên Đồng",
+         "Thiên Lương"
+        ]
+       },
+       {
+        "fact": "vh.v_major",
+        "operator": "contains_all",
+        "value": [
+         "Cự Môn",
+         "Thái Dương"
+        ]
+       }
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La",
+       "Địa Không",
+       "Địa Kiếp",
+       "Phá Toái",
+       "Kiếp Sát"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Cơ Nguyệt Đồng Lương hoặc Cự Nhật, gặp Kình, Đà, Không, Kiếp, Phá Toái hoặc Kiếp Sát: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6B_SPLT_KHONG",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thất Sát",
+       "Phá Quân",
+       "Tham Lang",
+       "Liêm Trinh"
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "vh.khong_n",
+        "operator": "gte",
+        "value": 2
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Linh Tinh",
+           "Hỏa Tinh"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Kình Dương"
+          ]
+         },
+         {
+          "fact": "vh.v_hoa",
+          "operator": "contains",
+          "value": "Hóa Kỵ"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.tp_stars",
+          "operator": "contains_any",
+          "value": [
+           "Đại Hao",
+           "Tiểu Hao"
+          ]
+         },
+         {
+          "fact": "vh.tp_stars",
+          "operator": "contains_any",
+          "value": [
+           "Thiên Hình"
+          ]
+         },
+         {
+          "fact": "vh.tp_stars",
+          "operator": "contains_any",
+          "value": [
+           "Kiếp Sát"
+          ]
+         },
+         {
+          "fact": "vh.tp_stars",
+          "operator": "contains_any",
+          "value": [
+           "Phục Binh"
+          ]
+         },
+         {
+          "fact": "vh.tp_stars",
+          "operator": "contains_any",
+          "value": [
+           "Tang Môn",
+           "Bạch Hổ"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Sát Phá Liêm Tham gặp Nhị tam Không, hoặc Linh Hỏa Kình Kỵ, hoặc Hao, Hình, Kiếp Sát, Phục Binh, Tang Hổ: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6D_CU_CO_DONG_LUONG",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "fact": "vh.v_major",
+        "operator": "contains_all",
+        "value": [
+         "Cự Môn",
+         "Thiên Cơ"
+        ]
+       },
+       {
+        "fact": "vh.v_major",
+        "operator": "contains_all",
+        "value": [
+         "Thiên Đồng",
+         "Thiên Lương"
+        ]
+       }
+      ]
+     },
+     {
+      "any": [
+       {
+        "fact": "vh.v_stars",
+        "operator": "contains_any",
+        "value": [
+         "Kình Dương",
+         "Đà La",
+         "Địa Không",
+         "Địa Kiếp",
+         "Đại Hao",
+         "Tiểu Hao",
+         "Phá Toái"
+        ]
+       },
+       {
+        "fact": "vh.v_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Cự Cơ hoặc Đồng Lương, gặp Kình, Đà, Không, Kiếp, Hao, Phá Toái hoặc Kỵ: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6F_NHAT_NGUYET",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_all",
+      "value": [
+       "Thái Dương",
+       "Thái Âm"
+      ]
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Địa Không",
+           "Địa Kiếp"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Thiên Riêu"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Linh Tinh",
+           "Hỏa Tinh"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Cô Thần",
+           "Quả Tú"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Nhật Nguyệt gặp Không Kiếp và Thiên Riêu, hoặc Linh Hỏa và Cô Quả: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6G_PHA_LIEM_THAM",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Phá Quân",
+       "Liêm Trinh",
+       "Tham Lang"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Riêu"
+      ]
+     },
+     {
+      "fact": "vh.v_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Mộc Dục"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Phá Liêm Tham gặp Thiên Riêu, Hóa Kỵ, Mộc Dục: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6H_THIEN_DONG",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains",
+      "value": "Thiên Đồng"
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Kình Dương"
+          ]
+         },
+         {
+          "fact": "vh.v_hoa",
+          "operator": "contains",
+          "value": "Hóa Kỵ"
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Mộc Dục"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Hỏa Tinh"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Địa Không",
+           "Địa Kiếp"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_major",
+          "operator": "contains",
+          "value": "Cự Môn"
+         },
+         {
+          "fact": "vh.v_hoa",
+          "operator": "contains",
+          "value": "Hóa Kỵ"
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Thái Tuế"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Đà La"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Địa Không",
+           "Địa Kiếp"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Thiên Đồng gặp Kình Kỵ, hoặc Mộc Dục Hỏa Không Kiếp, hoặc Cự Kỵ Tuế Đà Không Kiếp: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6I_TANG_HOA_LINH",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tang Môn"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Hỏa Tinh"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Linh Tinh"
+      ]
+     }
+    ]
+   },
+   "text": "Tiểu hạn có Tang Môn, Hỏa Tinh, Linh Tinh: theo sách rất bất lợi.",
+   "han": "tieu"
+  },
+  {
+   "id": "TH_6J_CO_LUONG_THIN_TUAT",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_all",
+      "value": [
+       "Thiên Cơ",
+       "Thiên Lương"
+      ]
+     },
+     {
+      "fact": "vh.v_branch",
+      "operator": "in",
+      "value": [
+       "Thìn",
+       "Tuất"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tang Môn",
+       "Điếu Khách",
+       "Thái Tuế"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Khốc",
+       "Thiên Hư"
+      ]
+     }
+    ]
+   },
+   "text": "Tiểu hạn ở Cơ Lương tại {v_branch} gặp Tang, Điếu hoặc Tuế cùng Khốc hoặc Hư: theo sách rất bất lợi.",
+   "han": "tieu"
+  },
+  {
+   "id": "TH_6K_SPLT_TANG_HO",
+   "src": "SRC_TH",
+   "when": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "vh.v_major",
+        "operator": "contains_any",
+        "value": [
+         "Thất Sát",
+         "Phá Quân",
+         "Tham Lang",
+         "Liêm Trinh"
+        ]
+       },
+       {
+        "fact": "vh.tp_stars",
+        "operator": "contains_any",
+        "value": [
+         "Tang Môn",
+         "Bạch Hổ"
+        ]
+       },
+       {
+        "fact": "vh.tp_stars",
+        "operator": "contains_any",
+        "value": [
+         "Kình Dương",
+         "Đà La"
+        ]
+       },
+       {
+        "fact": "vh.tp_stars",
+        "operator": "contains_any",
+        "value": [
+         "Điếu Khách"
+        ]
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "vh.v_major",
+        "operator": "contains",
+        "value": "Tham Lang"
+       },
+       {
+        "fact": "vh.v_branch",
+        "operator": "in",
+        "value": [
+         "Thìn",
+         "Tuất"
+        ]
+       },
+       {
+        "fact": "vh.tp_stars",
+        "operator": "contains_any",
+        "value": [
+         "Bạch Hổ"
+        ]
+       },
+       {
+        "fact": "vh.tp_stars",
+        "operator": "contains_any",
+        "value": [
+         "Thiên Riêu"
+        ]
+       },
+       {
+        "fact": "vh.tp_stars",
+        "operator": "contains_any",
+        "value": [
+         "Thái Tuế"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Sát Phá Liêm Tham, tam phương hội Tang Hổ, Kình Đà, Điếu Khách; hoặc Tham Lang ở Thìn Tuất hội Hổ, Riêu, Tuế: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6L_KINH_KHONG_PHUC_BINH",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Quan Phù",
+       "Tử Phù",
+       "Trực Phù"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Phục Binh"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Kình, Không hoặc Kiếp cùng Quan Phù, Tử Phù hoặc Trực Phù và Phục Binh: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6M_THAM_LIEM_VU",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "vh.v_major",
+          "operator": "contains_all",
+          "value": [
+           "Tham Lang",
+           "Liêm Trinh"
+          ]
+         },
+         {
+          "fact": "vh.v_branch",
+          "operator": "in",
+          "value": [
+           "Tỵ",
+           "Hợi"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_major",
+          "operator": "contains_all",
+          "value": [
+           "Tham Lang",
+           "Vũ Khúc"
+          ]
+         },
+         {
+          "fact": "vh.v_branch",
+          "operator": "in",
+          "value": [
+           "Dần",
+           "Thân"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "fact": "vh.v_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Đà La"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Tham Liêm ở Tỵ Hợi hoặc Tham Vũ ở Dần Thân, gặp Kỵ, Đà, Không hoặc Kiếp: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_6O_THAM_LIEM_KY_KIEP",
+   "src": "SRC_TH",
+   "when": {
+    "any": [
+     {
+      "all": [
+       {
+        "fact": "vh.v_major",
+        "operator": "contains_all",
+        "value": [
+         "Tham Lang",
+         "Liêm Trinh"
+        ]
+       },
+       {
+        "fact": "vh.v_stars",
+        "operator": "contains_any",
+        "value": [
+         "Kình Dương",
+         "Đà La"
+        ]
+       },
+       {
+        "fact": "vh.v_stars",
+        "operator": "contains_any",
+        "value": [
+         "Hỏa Tinh",
+         "Linh Tinh"
+        ]
+       }
+      ]
+     },
+     {
+      "all": [
+       {
+        "fact": "vh.v_hoa",
+        "operator": "contains",
+        "value": "Hóa Kỵ"
+       },
+       {
+        "fact": "vh.v_stars",
+        "operator": "contains_any",
+        "value": [
+         "Địa Kiếp"
+        ]
+       },
+       {
+        "fact": "vh.v_stars",
+        "operator": "contains_any",
+        "value": [
+         "Thiên Không"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Tham Liêm gặp Kình Đà và Hỏa Linh, hoặc có Kỵ, Địa Kiếp, Thiên Không: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_7A_NHAT_NGUYET_DA",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_all",
+      "value": [
+       "Thái Dương",
+       "Thái Âm"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Đà La"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Không"
+      ]
+     },
+     {
+      "fact": "vh.v_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "text": "Cung vận có Nhật Nguyệt ngộ Đà La, Thiên Không, Hóa Kỵ: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_7B_PHU_TUONG_CO_QUA",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Phủ",
+       "Thiên Tướng"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Cô Thần",
+       "Quả Tú"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Không"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kiếp Sát"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Phủ hoặc Tướng ngộ Cô Quả, Thiên Không, Kiếp Sát: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_7C_PHU_TUONG_TANG_HO",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Phủ",
+       "Thiên Tướng"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tang Môn",
+       "Bạch Hổ"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Khốc",
+       "Thiên Hư"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Đại Hao",
+       "Tiểu Hao"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Phủ hoặc Tướng ngộ Tang Hổ, Khốc Hư, Hao: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_7D_SPLT_HAO_TANG",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thất Sát",
+       "Phá Quân",
+       "Tham Lang",
+       "Liêm Trinh"
+      ]
+     },
+     {
+      "any": [
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Đại Hao",
+           "Tiểu Hao"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Tang Môn",
+           "Bạch Hổ"
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Kình Dương",
+           "Đà La"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Địa Không",
+           "Địa Kiếp"
+          ]
+         },
+         {
+          "fact": "vh.v_stars",
+          "operator": "contains_any",
+          "value": [
+           "Thiên Khốc",
+           "Thiên Hư"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Sát Phá Liêm Tham ngộ Hao và Tang Hổ, hoặc Kình Đà, Không Kiếp, Khốc Hư: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_7E_CO_QUA_DAO_HONG",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Cô Thần",
+       "Quả Tú"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Đào Hoa",
+       "Hồng Loan"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Không"
+      ]
+     },
+     {
+      "fact": "vh.v_hoa",
+      "operator": "contains",
+      "value": "Hóa Kỵ"
+     }
+    ]
+   },
+   "text": "Cung vận có Cô Quả, Đào Hồng, Thiên Không, Hóa Kỵ: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_7F_TPVT_CO_QUA_HAO",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Tử Vi",
+       "Thiên Phủ",
+       "Vũ Khúc",
+       "Thiên Tướng"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Cô Thần",
+       "Quả Tú"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Đại Hao",
+       "Tiểu Hao"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Tử Phủ Vũ Tướng ngộ Cô Quả và Hao: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_7G_KHONG_TANG_HO",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.khong_n",
+      "operator": "gte",
+      "value": 2
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tang Môn",
+       "Bạch Hổ"
+      ]
+     },
+     {
+      "fact": "vh.tp_stars",
+      "operator": "contains_any",
+      "value": [
+       "Điếu Khách",
+       "Thái Tuế"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Nhị tam Không, tam phương ngộ Tang Hổ, Điếu Tuế: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_7H_HINH_KINH_TANG",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Hình",
+       "Thiên Riêu"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Kình Dương",
+       "Đà La"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Địa Không",
+       "Địa Kiếp"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tang Môn",
+       "Bạch Hổ"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Hình hoặc Riêu, Kình hoặc Đà, Không hoặc Kiếp, Tang hoặc Hổ: theo sách rất bất lợi."
+  },
+  {
+   "id": "TH_7I_CNDL_TANG_HO",
+   "src": "SRC_TH",
+   "when": {
+    "all": [
+     {
+      "fact": "vh.v_major",
+      "operator": "contains_any",
+      "value": [
+       "Thiên Cơ",
+       "Thái Âm",
+       "Thiên Đồng",
+       "Thiên Lương"
+      ]
+     },
+     {
+      "fact": "vh.v_stars",
+      "operator": "contains_any",
+      "value": [
+       "Tang Môn",
+       "Bạch Hổ"
+      ]
+     }
+    ]
+   },
+   "text": "Cung vận có Cơ Nguyệt Đồng Lương ngộ Tang Hổ: theo sách rất bất lợi."
   }
  ]
 }

@@ -1,0 +1,210 @@
+{
+ "number": 58,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Đoái là niềm vui, sự đẹp lòng giữa người với người: làm người khác vui một cách ngay thẳng thì mọi việc thông, còn trái lẽ để cầu được lòng thì thành xu nịnh và để lại hối tiếc.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Đoái là đẹp lòng, đẹp lòng tức là cách đem đến sự hanh thông."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "nếu trái đạo mà cầu đẹp lòng thì là tà xiểm, mà có hối lỗi"}
+   ]
+  },
+  "image": {
+   "text": "Hai hồ nước nằm liền nhau, nước thấm qua lại và bồi cho nhau: niềm vui bền nhất là của những người cùng trao đổi, giảng giải và làm ích cho nhau.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Lời Tượng nói rằng: Bám chằm là quẻ Đoái, đấng quân tử coi đó mà bè bạn giảng tập."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Hai chằm bám nhau là Tượng thấm nhuần lẫn nhau, đắp đổi giúp ích cho nhau."}
+   ]
+  },
+  "structure": {
+   "text": "Một hào âm nằm trên hai hào dương, cứng ở trong mà mềm ở ngoài: vẻ vui hiện ra bên ngoài, còn gốc của nó là lòng thành vững chãi ở bên trong.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Một Âm tiến lên trên hai Dương, tức là sự mừng hiện ra bên ngoài."},
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Dương cứng ở trong, là Tượng trong lòng thành thực; hòa mềm ở ngoài, là Tượng tiếp người bằng cách hòa mềm, cho nên là đẹp lòng mà chính bền."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Bởi vì sự đẹp lòng vẫn có cách hanh thông, nhưng cái đẹp lòng càn bậy, thì không thể không răn, cho nên lời Chiêm của nó như thế."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Khi người đi trước làm cho cả nhóm vui lòng một cách chân thật, mọi người tin và gắng sức theo, quên cả nhọc nhằn của việc khó.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Dùng sự đẹp lòng mà đi trước dân, dân quên sự nhọc của nó."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Khuyến khích nghĩa là tin mà cố sức thuận theo."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Thứ làm hao mòn dần ở quẻ này đến dưới dạng dễ chịu, như lời mời chào ngọt hay khoản chi để chiều lòng; tin ngay vào cái vừa ý trước mắt thì có nguy.",
+    "from": [
+     {"seg": "hao5", "layer": "nghia", "quote": "Hào Chín Năm: Tin chung đẽo, có nguy."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Sự đẹp lòng mê hoặc người ta, dễ vào mà đáng sợ như thế đó."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Lấy lòng khách hàng, đối tác bằng sự hòa nhã đồng đều với mọi người thì thuận; tự hạ mình chạy theo chiều ý một bên để được lòng, như hào Sáu Ba, thì dễ hỏng.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Lấy hòa thuận làm đẹp lòng mà không thiên tư với ai, tức là cách chính đáng trong đạo đẹp lòng."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Liền với hào Dương ở dưới uốn mình, trái đạo để cầu đẹp lòng, vì vậy mới hung."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Học chung với bạn là niềm vui lớn mà quẻ này nêu ra: cùng giảng giải, hỏi han nhau thì vui, miễn là thật sự giúp nhau tiến lên chứ không chỉ để vui.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Tiên Nho bảo việc đẹp lòng ở gầm trời, không gì bằng bè bạn giảng tập."},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Bè bạn giảng tập vẫn là điều lớn trong sự đáng đẹp lòng, nhưng nên hiểu rõ cái Tượng làm ích cho nhau."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Niềm vui giữa hai người bền khi lấy chữ tín làm gốc; sự dịu dàng bên ngoài là cách đón nhau, nhưng thiếu lòng thật ở trong thì chỉ còn là lời ngọt.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "kẻ xem lấy sự tin làm đẹp lòng thì tốt mà sự ăn năn mất đi."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "hòa mềm ở ngoài, là Tượng tiếp người bằng cách hòa mềm"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Không khí trong nhà vui khi mỗi người vừa giữ được mình, vừa biết nhún để hòa với nhau, và không ai được thiên vị riêng.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Dương cứng thì không hèn, ở dưới thì biết nhún, đẹp lòng thì có thể hòa, không có ứng thì không thiên tư."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Một niềm vui đang mời gọi cần được hỏi lại: nó đến từ lòng thành hay từ người khéo chiều mình; đã đặt chí vào điều thật thì khó bị kéo đi mất mình.",
+    "from": [
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Chí nó đã để về đường thành tín, há lại đến nỗi đẹp lòng với kẻ tiểu nhân mà tự mình làm mất bản tính của mình?"}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Để niềm vui mình trao và nhận đi ra từ lòng thật, vui nhất là với bạn bè cùng học hỏi; trước lời ngọt và những cuộc vui quá đà thì giữ tỉnh táo.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Thể quẻ cứng trong mà mềm ngoài, cứng trong cho nên đẹp lòng mà hanh, mềm ngoài cho nên lợi về chính bền."},
+    {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Hai chằm bám vào nhau, đắp đổi thêm ích cho nhau."},
+    {"seg": "hao5", "layer": "trinh_di", "quote": "Thánh như vua Thuấn, còn sợ xảo ngôn lệnh sắc, không răn sao được?"}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Nếu tự mình liều đi cầu được lòng người khác khi không ai thật sự đáp lại mình, niềm vui ấy dễ chuyển thành chuyện xấu.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Hào Âm ở chỗ không trung chính, không kẻ cùng với, mà cố liều cầu lấy đẹp lòng, vì vậy mới hung."}
+    ]
+   },
+   {
+    "text": "Nếu cuộc vui đã tới độ mà còn gượng kéo dài, nó mất dần ý vị và chẳng còn gì sáng sủa hay thật sự đáng vui.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Đẹp lòng đã cùng cực, lại dẫn cho dài ra, tuy là bụng “đẹp lòng” đó không thôi mà sự lý đã quá, thật không có gì đẹp lòng."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "mà miễn cưỡng dẫn cho dài ra, thì vô ý vị tệ lắm, há có sáng sủa?"}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Vui hòa với mọi người từ chỗ thấp, không bám riêng vào ai: niềm vui ngay thẳng ấy chưa có gì đáng ngờ, nên tốt.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "ấy là kẻ biết nhún thấp hòa thuận để làm cách đẹp lòng mà không thiên tư."},
+     {"seg": "tieu_tuong1", "layer": "chu_hy", "quote": "Ở về đầu quẻ, sự đẹp lòng của nó, chưa có điều ngờ."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở chỗ thấp nhất, không có hào ứng: vì không ràng buộc với ai nên niềm vui không thiên lệch về phía nào.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Đầu tuy là Hào Dương mà ở thể đẹp lòng, ở chỗ rất thấp, không có hệ ứng"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "nghia", "quote": "Hào Chín Đầu: Hòa đẹp lòng, tốt!"}
+  },
+  "2": {
+   "gist": {
+    "text": "Ở sát bên một người dễ dãi, chuộng chiều lòng mà vẫn giữ lòng thành vững ở bên trong: lấy chữ tín làm niềm vui thì tốt, điều đáng hối tan đi.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Hai có đức cứng giữa, sự phu tín đầy ở bên trong, tuy liền với kẻ tiểu nhân, mà nó tự mình giữ gìn, chẳng để mất đức cứng giữa, cho nên mới tốt mà sự ăn năn mới mất."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ dưới nhưng nằm ở ngôi âm: chỗ giữa là lòng tin, ngôi không hợp là mầm của hối tiếc.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Cứng giữa là đức tin, ở ngôi Âm là ăn năn"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Cứng giữa là đức tin, ở ngôi Âm là ăn năn, kẻ xem lấy sự tin làm đẹp lòng thì tốt mà sự ăn năn mất đi."}
+  },
+  "3": {
+   "gist": {
+    "text": "Tự tìm đến, uốn mình chiều người để được lòng trong khi không ai thật sự đáp lại mình: cách cầu vui trái lẽ ấy dẫn đến xấu.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "Hào này Âm mềm chẳng giữa, chẳng chính, làm chủ sự đẹp lòng, trên không có ứng mà trở lại với hai hào Dương để cầu đẹp lòng đó là đạo hung."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương, không giữa không chính, phía trên không có hào ứng: chỗ đứng không xứng nên càng gắng cầu được lòng người.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "nghia", "quote": "Lời Tượng nói rằng: Lại đẹp lòng mà hung, ngôi chẳng đáng vậy."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Sáu là người Âm mềm không trung chính, tức là kẻ đẹp lòng không theo đạo, tự lại để cầu đẹp lòng."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "nghia", "quote": "Hào Sáu Ba: Lại đẹp lòng hung!"}
+  },
+  "4": {
+   "gist": {
+    "text": "Đứng giữa một người ngay thẳng ở trên và một sức hút dễ chịu mà không ngay ở dưới, lòng cân nhắc chưa yên; cương quyết theo đường chính, tránh xa điều tà thì có mừng.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Hào Tư phía trên vâng theo hào Chín Năm là hào trung chính, mà phía dưới liền sát với hào Sáu Ba là hào nhu tà"},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Nếu nó cương quyết giữa đường chính đính, mà xa ghét kẻ tà ác, thì có sự mừng."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, không chính, lại đứng sát ngôi người đứng đầu: giữ được đường ngay thì được tin dùng và đem phúc đến cho người khác.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "nó tuy Dương cứng mà ở chỗ bất chính"},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Tư ở ngôi gần vua, nếu có cương quyết giữa đường chính, ghét xa kẻ tà ác, thì sẽ được vua để hành đạo, phúc khánh tới người, thế là có mừng."}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "chất nó vốn là Dương cứng, cho nên có thể kiên quyết giữa đường chính đính mà ghét bỏ kẻ nhu tà, như thế thì có mừng. Tượng Chiêm như thế, cái ý răn người sâu lắm."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Người làm việc gần cấp trên, bị kéo giữa lối làm đúng và những mối quan hệ dễ dãi, nên chọn dứt khoát lối đúng; được tin dùng thì cái tốt lan ra nhiều người.",
+     "from": [
+      {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Gọi là cứng, nghĩa là nếu có giữ đường chính đính mà vua đẹp lòng, thì được thi hành cái đạo Dương cứng của nó mà phúc khánh tới người."}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người ở chỗ cao, vốn vững vàng ngay thẳng, nhưng đứng sát một kẻ khéo chiều lòng; tin vào sự chiều chuộng ấy là để nó bào mòn mình, nên có nguy.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Hào Chín Năm Dương cứng giữa chính, nhưng đương thời đẹp lòng, mà ở ngôi Tôn, liền sát với hào Sáu Trên"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Khí Âm là thứ làm tiêu khí Dương, đó là chỉ về hào Sáu Trên"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ trên, đúng ngôi tôn: chính vì ngôi cao mà lời răn đừng tin kẻ bào mòn mình được đặt ở đây.",
+    "from": [
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Răn đừng tin chưng đẽo là ngôi của hào Năm chính nên răn vậy."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "hào Sáu Trên Âm mềm là chủ sự đẹp lòng, ở về cùng cực thể đẹp lòng, là kẻ có thể càn quấy đẹp lòng để làm tiêu Khí Dương, cho nên lời Chiêm chỉ răn: Hễ tin hào Sáu Trên thì có nguy."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Người có quyền quyết định dễ bị vây quanh bởi lời khen và vẻ chiều chuộng; nghe mà chưa tin ngay, xét việc thật hơn lời ngọt.",
+     "from": [
+      {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Liền sát với kẻ Âm mềm, có cách sẽ đẹp lòng nhau, cho nên răn đừng tin nó."},
+      {"seg": "hao5", "layer": "trinh_di", "quote": "Thánh như vua Thuấn, còn sợ xảo ngôn lệnh sắc, không răn sao được?"}
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Niềm vui đã lên đến cùng cực mà vẫn muốn kéo dài, lại rủ rê người khác vào cuộc; lời hào không nói lành dữ, vì còn tùy cái vui ấy tốt hay xấu.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "dẫn ba hào Dương cùng làm đẹp lòng mà không hẳn là theo hào nào."},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Đương khi nói nó đẹp lòng không biết thôi, chưa thấy cái nó đẹp lòng là thiện hay ác."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Sáu Trên: Dẫn đẹp lòng."}
+  }
+ }
+}

@@ -1,0 +1,213 @@
+{
+ "number": 48,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Tỉnh là cái giếng: nằm yên một chỗ, múc không cạn, để không tràn, ai đến cũng dùng được; nhưng giá trị của nó chỉ thành khi nước thật sự được kéo lên tới người dùng.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Giếng, múc nó chẳng hết, để nó chẳng đầy, tức là không mất được."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Người nào đến đó cũng được dùng nó, tức là đi lại giếng giếng."},
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "giếng phải lấy sự nên dùng làm công, nước ra mới là có dùng, chưa ra thì còn công gì?"}
+   ]
+  },
+  "image": {
+   "text": "Đồ gỗ thả xuống nước rồi đưa nước lên, hay như nhựa thấm từ gốc lên tận ngọn cây: người coi hình ảnh ấy mà chăm lo cho người quanh mình và khuyến khích họ giúp đỡ nhau.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Trên cây có nước là quẻ Tỉnh, đấng quân tử coi đó mà yên ủi dân, khuyến khích sự giúp đỡ."},
+    {"seg": "intro", "layer": "trinh_di", "quote": "Cái Tượng đồ gỗ vào dưới nước mà lên khỏi nước, ấy là tượng múc nước giếng."},
+    {"seg": "dai_tuong", "layer": "tien_nho", "quote": "E đó chỉ nói tính nước nhuần thấm đi lên, đến tận ngọn cây, ấy là Tượng nước giếng đi lên"}
+   ]
+  },
+  "structure": {
+   "text": "Sáu hào dựng thành hình một cái giếng từ đáy lên: mạch suối ở dưới, đá ở giữa, nước sắp ra ở hào Năm; khác nhiều quẻ, hào trên cùng ở đây là lúc việc thành chứ không phải lúc cùng cực.",
+   "from": [
+    {"seg": "intro", "layer": "tien_nho", "quote": "hào Đầu mềm là mạch suối, hào Hai, hào Ba cứng là đá suối, hào Tư mềm là chỗ rỗng trong giếng, hào Năm cứng là nước suối đã kín sắp ra khỏi giếng"},
+    {"seg": "hao6", "layer": "trinh_di", "quote": "Cùng chót quẻ khác là cực, là biến, chỉ có quẻ Tỉnh quẻ Đỉnh, cùng chót là thành, vì vậy mới tốt."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Lời Chiêm của nó, là, các việc cứ để như cũ thì không được gì, mất gì, lại nên kính cẩn cố gắng, chớ để hầu thành mà hỏng."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Tài năng giống nước trong giếng: có mà chưa đem ra giúp được ai thì cũng như không; việc cần làm là đưa cái mình có tới tay người cần, cho thành kết quả thật.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Có công dụng giúp cho các vật chưa tới các vật, cũng như không có vậy."},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Đạo đấng quân tử quý ở có nên"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Nguồn tiền đáng giá ở quẻ này là thứ chảy ra có gốc và không cạn như mạch giếng; có nguồn tốt mà đồ chứa bị nứt, để hao hụt rỉ ra, thì cũng chẳng giữ lại được gì.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "“Có tin” là nó chảy ra có nguồn mà không cùng kiệt."},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "cũng như nước ở trong vò, vốn có thể dùng, chỉ vì vỡ nát mà dò, không dùng được nữa."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Cơ sở làm ăn đứng lâu nhờ một cái lõi không đổi, như cái giếng ở yên một chỗ mà làng quanh nó có thể dời: giữ chất lượng đều, ai tìm đến cũng được phục vụ như nhau.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Giếng là một vật mà không thể đổi, làng có thể đổi đi chỗ khác, mà giếng thì không thể dời"},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Giếng nuôi các vật không hề cùng thôi, lấy mãi mà không hết ấy là đức nó có thường độ"}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người học như đang xây lại thành giếng: lúc chưa đủ sức giúp ai thì lo bồi đắp chính mình, đừng để hiểu biết đọng thành bùn như cái giếng cũ bị bỏ không dùng.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "nếu sửa trị việc mình, không để hư bỏ, thì được."},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Không có nước thì phải bỏ đó không dùng."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Một tình cảm giống nước giếng là thứ đều đặn, có chừng mực và không đổi thay, không bùng lên rồi cạn; người kia cần đến lúc nào cũng tìm thấy.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Có tin là có thường độ mà không thay đổi, ra ơn rộng mà có thường độ, tức là sự tốt trong điều cả hay."},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Không mất không được là đức của giếng"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Theo hình ảnh cái giếng nuôi cả làng, người lo cho gia đình vừa chăm sóc từng người vừa khuyến khích các thành viên đỡ đần nhau, để cả nhà cùng nuôi nhau.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Yên ủi dân mình là bắt chước sự dùng của cái giếng, khuyên dân khiến họ giúp nhau là bắt chước sự ra ơn của cái giếng vậy."},
+     {"seg": "dai_tuong", "layer": "chu_hy", "quote": "khuyến khích sự giúp đỡ là để dân nuôi nhau"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Trước khi chuyển chỗ ở hay đổi hướng đi, nên xem nơi mới có nguồn nuôi mình lâu dài không, như người xưa dựng làng trước hết tìm chỗ có mạch nước rồi mới ở.",
+    "from": [
+     {"seg": "intro", "layer": "tien_nho", "quote": "Đời xưa dựng nên ấp nước, ắt phải tìm chỗ có suối"},
+     {"seg": "thoan", "layer": "nghia", "quote": "đổi làng chẳng đổi giếng"}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Giữ cái lõi của mình trong và đều như nước giếng, chăm sửa sang chỗ hư hỏng, và đi trọn bước cuối để điều mình có thật sự tới được tay người cần.",
+   "from": [
+    {"seg": "hao4", "layer": "trinh_di", "quote": "Bằng cách không sửa trị, bỏ mất cái công nuôi người, ấy là mất đạo cái giếng, lỗi đó lớn lắm."},
+    {"seg": "thoan_truyen", "layer": "chu_hy", "quote": "chưa có công mà hỏng mất lọ, cho nên là hung."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Nước đã gần tới miệng giếng mà dây chưa kéo hết, lọ vỡ thì công cốc: việc gần thành mà buông lơi ở bước cuối thì kết quả xấu.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "hầu tới, cũng chưa dong chạc đến giếng, chưa có công vậy, hỏng thửa lọ, cho nên hung vậy."}
+    ]
+   },
+   {
+    "text": "Người có tài gặp người trên sáng suốt biết dùng thì cả mình, người dùng mình và những người chung quanh đều được hưởng.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "kẻ hiền tài đắc dụng, thì mình được thi hành đạo của mình, vua được hưởng công của mình, người dưới cũng được chịu ơn của mình."}
+    ]
+   },
+   {
+    "text": "Có thực lực mà không ai ở trên tiếp sức kéo lên thì sức ấy chảy về chỗ thấp; có người cùng chí ở trên thì công dụng mới thành.",
+    "from": [
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Nếu như phía trên có kẻ cùng với, thì sẽ kéo cho nó lên, mà làm nên công dụng của cái giếng vậy."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Giếng chỉ còn bùn, người không múc, chim chẳng ghé: thứ bỏ lâu không được làm mới thì bị gạt sang bên, sức yếu lại không ai đỡ nên chẳng giúp được ai.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Bởi nó không có nước mạch mà chỉ có bùn, thì người ta không ăn mà chim chóc cũng không đoái tới."},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "cũng như người ta đương lúc giúp cho mọi người, mà mình tài hèn, không kẻ cứu giúp, không thể giúp ai, bị đời ruồng bỏ vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở dưới cùng, trên không có hào ứng: nằm ở đáy giếng nên chỉ là bùn, không đưa được nước lên.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Sáu lấy chất Âm mềm ở dưới, phía trên không có ứng viện, là Tượng không đưa nước lên"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "nghia", "quote": "Hào Sáu Đầu: Giếng bùn chẳng ăn, giếng cũ không chim."}
+  },
+  "2": {
+   "gist": {
+    "text": "Nước có nhưng rỉ sang ngang mà chảy xuống, chỉ đủ cho ếch nhái, như cái vò thủng: có tài mà không ai ở trên tiếp sức, sức lực tràn về những việc nhỏ dưới thấp.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Giếng đi lên thì nuôi được loài người mà giúp được loài vật, này nó đi xuống, chỉ là bùn bẩn, rót vào loài ếch nhái mà thôi."},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "vì nó ở dưới, mà phía trên không kẻ ứng viện, cho nên phải liền xuống dưới mà bắn vào ếch nhái."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ dưới, trên không có ứng, dưới lại liền với hào Sáu Đầu nên sức đi xuống chứ không đi lên.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "trên không ứng, dưới thì liền với hào Sáu Đầu, công dụng không đi lên, cho nên Tượng nó như thế."}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "nghia", "quote": "Hào Chín Hai: Giếng hang, bắn loài ếch nhái, vò nát dò."}
+  },
+  "3": {
+   "gist": {
+    "text": "Giếng đã trong mà chưa ai múc, đến người qua đường cũng thấy xót: người có tài đang chờ được dùng; gặp người trên sáng suốt thì tài ấy mới phát huy.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Khi chưa được dùng, cũng như cái giếng trong trẻo sạch sẽ mà không được người ta ăn đến, làm cho lòng phải bùi ngùi."},
+     {"seg": "tieu_tuong3", "layer": "chu_hy", "quote": "“Hành trắc” nghĩa là kẻ đi đường lấy làm bùi ngùi."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Nếu ở trên có ông vua sáng thì nên dùng họ mà được hiệu quả của họ"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, đúng chỗ, trên cùng quẻ dưới, ứng với hào Sáu Trên; cứng mà quá giữa nên nóng lòng được thi thố.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba lấy chất Dương cứng ở được chỗ chính"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "lại ứng với hào Sáu Trên, ở chỗ cứng mà quá bậc giữa, săng sắc về sự tiến lên"}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "nghia", "quote": "Hào chín Ba: Giếng trong chẳng ăn, làm sự bùi ngùi cho lòng ta, khá dùng múc nước; vua sáng, cùng chịu thửa phúc."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Có năng lực mà chưa được trọng dụng thì sốt ruột là lẽ thường; chủ động tìm đến nơi có người biết nhìn người là cách để cái tài ấy được dùng.",
+     "from": [
+      {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Giếng trong sạch mà không được người ta ăn đến, tức là người có tài trí mà không được dùng"},
+      {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "nó tìm vua sáng mà chịu phúc, là tại trí nó thiết tha về sự hành đạo vậy."}
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Đang xây lại thành giếng, chưa có nước cho ai: sức chưa đủ lo cho người thì tu sửa phần của mình cho tử tế, không để hư bỏ, vậy là không lỗi.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "“Thịu” là xây cách chồng chất, tức là sửa trị vậy."},
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Xây bờ tức là sửa trị cho giếng, tuy là không thể làm lớn cái công giúp người, nhưng biết sửa trị, thì không phải bỏ, cho nên không lỗi."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, đúng chỗ, ngay dưới hào Chín Năm ở ngôi tôn.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Tư tuy là Âm mềm mà nó ở được chỗ chính, trên thờ ông vua Chín Năm"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Kẻ xem nếu biết tự mình sửa trị thì tuy là không có công tới người, mà cũng có thể không lỗi."}
+  },
+  "5": {
+   "gist": {
+    "text": "Nước giếng trong, mát như suối lạnh, múc lên ăn được: tài và đức đều tốt, ở chỗ cao; lời hào chưa nói tốt vì nước còn phải lên tới miệng giếng mới trọn công.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Năm lấy chất Dương cương trung chính ở ngôi tôn, tài nó đức nó rất hay rất đẹp."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Mát là ngọt sạch, nước giếng lấy lạnh làm ngon, suối lạnh ngọt sạch, có thể để người ta ăn"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "là vì giếng phải vọt lên mới là thành công, chưa đến bậc trên thì chưa tới sự dùng"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, giữa quẻ trên, vừa giữa vừa chính: chỗ tốt nhất của đạo giếng.",
+    "from": [
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Hào Chín Năm có đức giữa chính, tức là cái nghĩa chí thiện vậy."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Dương cứng giữa chính, công tới các loài, cho nên thành ra Tượng ấy. Kẻ xem có đức kia thì hợp Tượng này."}
+  },
+  "6": {
+   "gist": {
+    "text": "Nước đã lên tới miệng giếng, miệng giếng để ngỏ, ai cũng múc được: đây là lúc công việc trọn vẹn, cho rộng rãi mà đều đặn.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Giếng lấy sự vọt lên làm công, mà cửa Khảm không lấp"},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Lấy cái tốt về sự cả hay mà ở trên quẻ, tức là đạo giếng cả nên."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "kẻ xem ứng được hào này, cũng ắt phải có đức tin mới là cả tốt."}
+  }
+ }
+}

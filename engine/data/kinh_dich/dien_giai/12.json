@@ -1,0 +1,196 @@
+{
+ "number": 12,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Bĩ là lúc trên dưới cách tuyệt, mỗi bên một ngả không gặp nhau: đường thông bị tắc, người ngay khó làm theo lẽ phải, còn lối cong queo lại lấn lướt.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Bĩ là bế tắc, tức là quẻ tháng bảy, trái nhau với quẻ thái"},
+    {"seg": "intro", "layer": "trinh_di", "quote": "trời ở trên, đất ở dưới, thì là trời đất cách tuyệt, không giao thông với nhau, cho nên là bĩ."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Trinh tức là chính đạo của đấng quân tử, bị bĩ tắc mà không thực hành được"}
+   ]
+  },
+  "image": {
+   "text": "Trời đứng trên, đất nằm dưới, hai bên không chạm tới nhau: lúc ấy nên thu mình, giấu bớt tài, tránh chỗ dễ vạ lây và đừng coi chức vị, bổng lộc là vinh.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Trời đất không giao nhau là quẻ Bĩ, đấng quân tử coi đó để dè đức, lánh nạn, không thể vẻ vang bằng lộc."},
+    {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Thu liễm đức mình, không cho hình hiện để tránh cái nạn tiểu nhân, không được cho lộc vị là vẻ vang."}
+   ]
+  },
+  "structure": {
+   "text": "Ba hào âm ở trong, ba hào dương ở ngoài: nửa dưới là lúc cái tắc lấn lên, từ hào Chín Tư bắt đầu vượt qua, đến hào trên cùng thì cái tắc nghiêng đổ.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "nghia", "quote": "trong Âm mà ngoài Dương, trong mềm mà ngoài cứng"},
+    {"seg": "hao4", "layer": "chu_hy", "quote": "Cuộc đời bĩ đã quá giữa rồi, tức là lúc sắp sửa vượt qua"},
+    {"seg": "tieu_tuong6", "layer": "nghia", "quote": "Bĩ chót thì nghiêng, sao khá dài vậy."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Lời Chiêm của nó không lợi về chính đạo của quân tử."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Khi cấp trên cấp dưới không còn nói được với nhau, nơi làm việc khó thành việc gì; lúc này giữ nghề, giữ tiếng hơn là chen lên chỗ hiển hách dễ vạ lây.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "nghĩa của kẻ trên người dưới không giao nhau thì thiên hạ không có đạo bang quốc"},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Bĩ là lúc tiểu nhân đắc chí, đấng quân tử ở hiển vinh, vạ lo ắt tới thân mình"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Thời tắc hợp với sự dè sẻn: thu gọn chi tiêu, cất giữ hơn là đem ra phô, vì để lộ của lúc này dễ chuốc vạ.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "nên coi tượng bĩ tắc đó mà dè dặt về đức, lánh tránh vạ nạn"}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Hàng không đi, mối không tới: lúc này lo giữ cho chắc gốc rễ của cơ sở hơn là mở thêm, và cả khi tình hình vừa khá lên cũng chưa nên coi là đã yên.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Khí của trời đất không giao nhau, thì muôn vật không có lẽ sinh thành"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Cuộc bĩ đã tắt nghỉ, dần dần trở lại cuộc thái, không thể coi ngay làm đã yên rồi, phải nên lo sâu răn xa"}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Chưa có dịp thi thố thì lặng lẽ trau mình và giữ chí hướng; ở yên chỗ thấp không phải vì không muốn tiến mà vì đường còn tắc.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Đấng quân tử giữ vững tiết tháo để ở ngôi dưới, không phải là vui về sự không chịu tiến lên"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "chỉ vì đạo còn đương bĩ, không tiến lên được"}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hai người như trời với đất mỗi bên một ngả, nói mà không tới được nhau: chưa phải lúc ép một lời hứa, giữ lòng mình ngay thẳng và chờ cái tắc qua đi.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Trời đất không giao nhau, thì không sinh ra muôn vật"},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Cuộc bĩ đến chót thì phải nghiêng đổ, đâu lại có lẽ bĩ mãi?"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Nhà mà người lớn người nhỏ không chịu nghe nhau thì như nước không thành nước; mỗi người nên giữ mình đứng đắn, không hùa theo cái dở cho êm chuyện.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "trên dưới không giao nhau mà thiên hạ không có nước vậy"},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Đấng đại nhân trong thì bĩ, giữ vững chính tiết, không lẫn lộn với bầy loài tiểu nhân"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Đứng giữa một lối dễ dãi có lợi ngay và một lối giữ lẽ phải mà thiệt thân, quẻ nghiêng về lối giữ lẽ: thân có chịu tắc mà đạo vẫn thông.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Thân họ tuy bĩ, nhưng đạo của họ thì hanh thông."},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Nếu trái đạo mà thân được hanh thì là đạo bĩ."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Thu mình lại, sống giản dị, tránh chỗ thị phi; giữ thẳng việc mình làm và đợi thời, vì cái tắc đi đến cùng thì phải đổi.",
+   "from": [
+    {"seg": "hao1", "layer": "trinh_di", "quote": "Gặp bĩ mà tiến lên là bọn tiểu nhân, đấng quân tử thì giữ cho thẳng đạo, tránh cho khỏi vạ mà thôi."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Thái cực thì trở lại, bĩ hết thì nghiêng đi"}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Muốn xoay chuyển thế tắc phải có người đủ cứng cỏi và đủ tài đứng ra; người yếu sức ở chỗ ấy thì khó đổi được gì.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Nhưng mà cái việc quay nguy làm yên, đổi loạn làm trị, phải có tài Dương cương thì mới làm nổi"}
+    ]
+   },
+   {
+    "text": "Ngay cả người đang đứng về phía cái sai, nếu quay về giữ lẽ ngay từ lúc ý xấu chưa thành hình thì vẫn được tốt.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "nghĩa là có thể như thế thì họ biến thành đấng quân tử."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Như cỏ tranh nhổ lên cả cụm, những người ở dưới dính chùm với nhau; giữa thời tắc mà cùng nhau giữ lẽ ngay thì vẫn tốt và việc vẫn thông.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Thời Thái thì lấy sự cùng đi làm tốt, thời Bĩ thì lấy sự cùng chính bền làm hanh thông"},
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Ba hào Âm ở dưới là Tượng “lúc bĩ tiểu nhân kéo bè tiến lên”"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "nghia", "quote": "Hào Sáu Đầu: Nhổ cụm cỏ tranh, lấy vầng nó, chính bền tốt lành hanh thông."}
+  },
+  "2": {
+   "gist": {
+    "text": "Người tầm thường chiều theo bề trên để qua cơn tắc thì được lợi trước mắt; người có tầm thà chịu thiệt chứ không uốn mình, cong lẽ phải.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "chí họ chỉ bọc chứa những sự vâng thuận người trên để cầu cho qua cuộc bĩ, làm lợi cho mình"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Đấng đại nhân gặp lúc bĩ chỉ nên lấy đạo tự xử, há chịu uốn mình, cong đạo, vâng thuận người trên?"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi: tính mềm, giỏi chiều người, nên dễ chọn đường vâng thuận cho êm.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Sáu Hai chất thì Âm nhu, ngôi thì trung chính"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "kẻ xem hễ là tiểu nhân, như thế thì tốt, nếu là đại nhân thì nên giữ yên cảnh bĩ, mà rồi đạo mới hanh thông"}
+  },
+  "3": {
+   "gist": {
+    "text": "Đứng sai chỗ lại sát bên người trên, trong lòng ôm toàn mưu tính quanh co: ý xấu chưa thành việc nhưng đã là điều đáng hổ thẹn.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "tức là kẻ tiểu nhân có chí muốn làm hại bậc thiện nhân mà chưa làm được, cho nên là tượng bọc chứa sự hổ thẹn"},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Ở không đáng ngôi tức là làm không theo đạo."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương, không giữa không chính: chỗ đứng không xứng với mình.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "Là thể Âm ở ngôi Dương mà không trung chính"}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "nghia", "quote": "Hào Sáu Ba: Bọc chứa sự hổ thẹn."}
+  },
+  "4": {
+   "gist": {
+    "text": "Thế tắc đã qua nửa, người có sức đứng gần chỗ quyết định: làm gì cũng theo sự giao phó, không tự ý thì không lỗi, chí mình thực hiện được và người cùng chí được nhờ.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Nếu như làm một việc gì cũng do mệnh lệnh của vua, uy quyền hết thảy thuộc về người trên, thì không có lỗi mà chí của mình có thể thực hiện."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "các đồng loại đều được phụ bám vào phúc của mình"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, cứng mà không cứng đến cùng: có sức nhưng biết tiết chế, hợp với lúc sắp gỡ được thế tắc.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "hào Chín Tư lấy thể Dương, ở ngôi Âm, không làm cùng cực sự cứng"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Hào Chín Tư: Có mệnh không lỗi, bè loại dính phúc."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Được giao việc quan trọng lúc tổ chức đang khó: làm theo phân công và để công lao thuộc về chung thì tránh được ghen ghét.",
+     "from": [
+      {"seg": "hao4", "layer": "trinh_di", "quote": "cái đáng ghét là cậy có công, rước lấy sự ghen mà thôi"}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người có tầm ở đúng chỗ chặn được cái tắc, nhưng vẫn tự nhắc mình có thể mất, có thể mất, và gia cố mọi thứ cho chắc như buộc vào gốc dâu rễ sâu.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Lấy đức Dương cương trung chính mà ở ngôi tôn, có thể làm tắt nghỉ cuộc bĩ trong đời, ấy là việc của đấng đại nhân."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Dâu là thứ cây rễ sâu và chắc, rậm là nói mọc thành bụi, lại càng chắc nữa."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi tôn, vừa giữa vừa chính: có cả đức lẫn chỗ đứng nên mới đủ sức chặn thế tắc.",
+    "from": [
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Không có ngôi ấy thì dù có đức ấy nữa, hầu làm nên gì?"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "lời hào này, đấng đại nhân gặp được thì tốt, lại nên răn sợ như lời Hệ đã nói."}
+  },
+  "6": {
+   "gist": {
+    "text": "Bế tắc lên đến cùng thì đổ, và có người đủ cứng cỏi xô ngã nó: trước còn khốn đốn, sau thì có mừng vì đường đã thông.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Trước cực là bĩ, sau nghiêng là mừng."},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Bĩ nghiêng thì là thái rồi, ấy là “sau mừng”."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Lấy thế Dương cương ở lúc cùng cực cuộc bĩ, là kẻ có thể làm nghiêng sự bĩ của đời, cho nên lời chiêm của nó là “trước bĩ sau mừng”."}
+  }
+ }
+}

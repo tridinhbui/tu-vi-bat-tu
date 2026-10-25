@@ -1,0 +1,224 @@
+{
+ "number": 15,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Khiêm là có mà không tự nhận là có: người đủ đầy bên trong mà tự đặt mình thấp, nên đi đâu cũng thông; lúc đầu có thể bị co lại, về sau mới được duỗi ra.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Có đức mà không tự nhận, gọi là Khiêm."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Có sau chót nghĩa là trước bị co lại, sau được duỗi ra."}
+   ]
+  },
+  "image": {
+   "text": "Núi cao nằm trong lòng đất thấp: cái lớn được chứa dưới vẻ ngoài khiêm hạ; nhìn hình ấy mà bớt chỗ dư, bù chỗ thiếu, cân nhắc cho mọi thứ được công bằng.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Trong đất có núi, là quẻ Khiêm, đấng quân tử coi đó mà rút chỗ nhiều, thêm chỗ ít, cân lường các vật, làm cho sự thi thố được thăng bằng."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "đó là tượng bên ngoài thấp lùn, mà bên trong chứa cái cao lớn, cho nên là Khiêm."}
+   ]
+  },
+  "structure": {
+   "text": "Cả quẻ chỉ một hào dương ở hào Chín Ba, được các hào âm tôn theo: người có công lao lớn mà vẫn nhún, trên dưới cùng theo về, và đó là điều người ta thấy khó làm nhất.",
+   "from": [
+    {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba lấy đức Dương cương mà ở thể dưới, được các hào Âm tôn theo"},
+    {"seg": "hao3", "layer": "chu_hy", "quote": "kẻ trên người dưới theo về, có công lao mà biết nhún, lại càng là cái người ta vẫn lấy làm khó"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Núi là vật rất cao, đất là vật rất thấp, thế mà núi lại chịu khuất mà đỗ ở dưới đất, đó tức là Tượng khiêm tốn. Kẻ xem như thế thì được hanh thông mà có sau chót."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Người làm nhiều mà không kể công, có thành tích mà vẫn nhún thì được cả trên lẫn dưới tin phục; cái được ấy đến chậm, lúc đầu có khi thấy mình chịu thiệt.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "nghia", "quote": "Đấng quân tử nhọc mà nhún, thì muôn dân phục vậy."},
+     {"seg": "thoan", "layer": "chu_hy", "quote": "Có sau chót nghĩa là trước bị co lại, sau được duỗi ra."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Của cải như nước trên mặt đất: chỗ đầy tràn dễ nghiêng đổ, chỗ trũng lại được dồn vào; lúc này giữ mức vừa phải, đừng để cái có phình quá hay đem ra khoe thì bền hơn.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Lấy thế đất mà nói, thì cái gì đầy tràn ắt phải nghiêng đổ biến đổi, mà lại trũng xuống; cái gì thấp trũng thì chảy vào mà càng thêm lên."},
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "đạo trời làm vơi chỗ đầy mà thêm chỗ khiêm"}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Nhún nhường không phải là yếu thế: người làm ăn không phô trương mà vẫn được nhiều người gần gũi, tìm đến; nhưng gặp kẻ lấn lướt thì cũng cần đủ cứng rắn để người ta phục.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "nghĩa là không giàu mà được người ta gần gũi với mình."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "phải có oai vũ giúp vào, thì mới có thể khiến cho thiên hạ phục"}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Như chăn trâu dê cho quen lành, người học lấy sự khiêm hạ để tự rèn mình đều đặn; cái gì muốn nuôi lớn cũng phải gây nền từ chỗ thấp.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "tien_nho", "quote": "Nhún nhún, đấng quân tử dùng sự thấp kém để tự chăn như chăn trâu dê, phải làm cho được quen lành, thì mới có thể nói đến việc khiêm."},
+     {"seg": "tieu_tuong1", "layer": "tien_nho", "quote": "Mục tức là nuôi, cái đất nuôi đức, chưa có bao giờ không gây nền tự chỗ thấp."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Lòng người vốn ghét kẻ tự mãn mà mến người khiêm nhường; giữa hai người, ai biết lùi một bước mà vẫn giữ phẩm giá thì càng được trân trọng.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Tình người ghen ghét kẻ đầy tràn mà yêu thích kẻ khiêm tốn."},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "mình tự hạ mình mà người ta càng tôn lên, mình tự che cho tối đi, mà đức càng sáng tỏ"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Nhà có người dư dả, người thiếu thốn, có người gánh nặng, người gánh nhẹ: ý của Khiêm là san sẻ cho đều, để không ai thấy mình phải chịu phần quá đáng.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "chu_hy", "quote": "san đều việc thí cho, bớt chỗ cao thêm vào chỗ thấp, cho tới mực thăng bằng, cũng là ý khiêm tốn."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi phải chọn giữa tiến lên phô bày và lùi lại giữ mình, Khiêm nghiêng về sự nhún; nhưng nhún cũng có mức, vượt quá chỗ thích đáng thì lại phải biết cứng lên.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Người ta lấy sự khiêm tốn tự xử thì đi đâu mà không hanh thông?"},
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Sự nhún của người ta, cũng phải có chỗ dùng, không thể làm quá sự thích nghi"}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Làm hết phần việc của mình mà không đòi ghi công, đối xử công bằng với người được nhiều người được ít; nhún nhường cho đúng mức, và khi cần thì nghiêm khắc sửa cái riêng tư của chính mình.",
+   "from": [
+    {"seg": "hao3", "layer": "trinh_di", "quote": "có công lao mà giữ đức nhún"},
+    {"seg": "hao6", "layer": "trinh_di", "quote": "\"đánh làng nước\" là trị lòng riêng của mình."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Cái tốt về sau chỉ đến khi sự khiêm xuất phát từ trong lòng; nhún miễn cưỡng cho được việc thì khó giữ bền đến cuối.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "tuy có miễn cưỡng mến sự khiêm tốn, cũng không thể yên lòng mà làm, bền chí mà giữ, ấy là không có sau chót."},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "đó là trong lòng tự được, không phải miễn cưỡng mà làm."}
+    ]
+   },
+   {
+    "text": "Có lúc sự nhún nhường không đủ khiến người khác nể; khi ấy mà vẫn không chịu cứng rắn thì cái nhún trở thành chỗ yếu.",
+    "from": [
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Cái đó không phải trung đạo của kẻ làm vua mà là lỗi của sự nhún."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Bởi vì hào Năm là hào mềm nhún, nên phòng sự thái quá, nên mới phát minh ra nghĩa đó."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Ở chỗ thấp nhất mà còn nhún thêm: người như thế được mọi người cùng giúp, nên dù phải vượt qua việc khó lớn cũng qua được.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Tự xử rất khiêm, mọi người đều cùng với, dẫu dùng để vượt qua chỗ hiểm nạn, cũng không có sự lo hại"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở dưới cùng quẻ: chỗ thấp nhất lại mềm thuận, là khiêm thêm một bậc nữa.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Là hào mềm ở ngôi dưới, nhún đến tột bậc, đó là nết của đấng quân tử."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Dùng nết đó mà vượt các chỗ hiểm nạn thì đâu mà không qua được? Cho nên, kẻ xem như thế, thì lợi về sự sang sông lớn."},
+   "topics": {
+    "lua_chon": {
+     "text": "Định bắt đầu một việc lớn, nhiều rủi ro: bước vào với thái độ thấp mình, chịu học hỏi, thì dễ được người góp sức để vượt qua.",
+     "from": [
+      {"seg": "hao1", "layer": "nghia", "quote": "Hào Sáu Đầu: Đấng quân tử nhún nhún, dùng sang sông lớn, tốt."},
+      {"seg": "hao1", "layer": "trinh_di", "quote": "Tự xử rất khiêm, mọi người đều cùng với"}
+     ]
+    }
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Sự khiêm đã đầy bên trong nên lộ ra thành tiếng tốt, ở giọng nói và dáng vẻ, không phải gượng làm; giữ sự ngay thẳng ấy thì tốt.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "ấy là đức nhún chứa đầy ở trong, cho nên phát ra bên ngoài, hiện ở thanh âm, nhan sắc"},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Đức nhún của hào Hai do lòng chí thành chứa ở bên trong, cho nên phát ra thanh âm"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi: mềm thuận mà vẫn trung chính.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Ở ngôi giữa được chỗ chính, tức là đức trung chính"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Mềm thuận trung chính, vì sự nhún mà có tiếng tăm, ấy là kẻ chính mà tốt, cho nên lời Chiêm của nó như thế."}
+  },
+  "3": {
+   "gist": {
+    "text": "Người làm nhiều, có công lớn mà vẫn nhún: được người trên tin, người dưới theo; giữ được như thế đến cuối thì tốt.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "ấy là một người trên thì được vua tin dùng, dưới thì được theo về, có công lao mà giữ đức nhún"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Đã có thể nhọc mà nhún, lại phải là đấng quân tử làm những sự ấy đến chót thì tốt."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương duy nhất, xéo ngôi chính ở trên cùng quẻ dưới: chỗ dựa của các hào âm.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "xéo được ngôi chính, là trên thể dưới"}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "có công lao mà biết nhún, lại càng là cái người ta vẫn lấy làm khó, cho nên, hễ có sau chót thì tốt. Kẻ xem như thế, thì cũng ứng vào như thế."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Đang gánh phần việc nặng nhất trong nhóm: để công việc tự nói thay mình, đừng đòi được ghi nhận, thì dễ được cả người trên lẫn người dưới tin phục.",
+     "from": [
+      {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Đấng quân tử có thể nhọc mà vẫn nhún, ấy là người mà muôn dân phải phục vậy."}
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Đứng giữa người trên khiêm nhường và người dưới có công lớn, mình càng phải nhún trong mọi việc làm, để tỏ rằng không tự cho mình đã yên chỗ.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Nhưng vì nó ở trên hào Chín Ba, cho nên lại răn rằng phải phát huy sự nhún của mình, để tỏ cái ý không dám tự cho là yên."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Động hay nghỉ, tiến hay lùi, ắt phải thi hành nết nhún, vì ở vào chỗ nhiều điều đáng sợ, mà lại đứng trên một người hiền thần, nên phải như thế."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở thể trên, sát gần ngôi hào Năm và ngay trên hào Chín Ba: chỗ đứng nhiều điều phải dè chừng.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Tư ở thể trên, sát gần ngôi vua"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Đức mềm mà ở được chỗ chính, ở trên mà biết tự hạ, lời Chiêm của nó là không gì không lợi."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Ở vị trí trung gian, giữa cấp trên mềm mỏng và cấp dưới giỏi giang, giữ sự nhún đúng phép trong từng việc là cách đứng vững.",
+     "from": [
+      {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "như thế rồi mới đúng với phép tắc"}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người đứng đầu không cậy giàu mà nhờ khiêm nhường được người gần xa theo; với kẻ vẫn không chịu phục thì phải dùng đến sức mạnh, mềm và cứng cùng có.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Bởi vì người ta theo về đã nhiều, còn có kẻ nào chưa phục, thì nên đánh đi, mà về việc khác cũng không việc gì không lợi."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Uy đức cùng tỏ, rồi mới hết sự nên chăng của đạo vua mà không cái gì không lợi."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi tôn, giữa quẻ trên: ở chỗ cao nhất mà vẫn giữ đức mềm nhún.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Lấy đức mềm ở ngôi tôn, ấy là kẻ ở trên mà biết nhún"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "nghia", "quote": "Hào Sáu Năm: Không giàu, sai khiến được láng giềng, lợi dụng lấn đánh, không gì không lợi."}
+  },
+  "6": {
+   "gist": {
+    "text": "Khiêm đã đến cùng cực mà ở chỗ không có quyền, chí chưa thỏa nên bật ra thành tiếng; lúc này hợp với việc nghiêm khắc sửa chính mình hơn là sửa người.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "chu_hy", "quote": "Âm nhu không ngôi, tài lực không đủ, cho nên chí nó chưa toại, mà đến phải trẩy quân, nhưng cũng vừa đủ đánh làng riêng của mình thôi."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "nên dùng oai vũ tự trị cái riêng của mình"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở chỗ mềm, trên cùng quẻ, không có ngôi: nhún đến cực mà không có chỗ để làm việc lớn.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Hào Sáu lấy nết mềm ở chỗ mềm, tức là cực thuận, lại ở cùng tột quẻ Khiêm, tức là kẻ cực nhún."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Sáu Trên: Kêu sự nhún, lợi dụng trẩy quân đánh làng nước."}
+  }
+ }
+}

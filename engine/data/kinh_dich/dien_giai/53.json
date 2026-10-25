@@ -1,0 +1,455 @@
+{
+ "number": 53,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Tiệm là tiến lên từng bước, có thứ tự, giống một cuộc về chung một nhà đi đủ các bước đàng hoàng: đúng trình tự và ngay thẳng thì tốt.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Nó là quẻ đậu ở dưới mà nhún ở trên, tức là nghĩa không tiến gấp vội, có Tượng con gái về nhà chồng."
+    },
+    {
+     "seg": "intro",
+     "layer": "trinh_di",
+     "quote": "Tiến bằng thứ tự là dần dần"
+    }
+   ]
+  },
+  "image": {
+   "text": "Cây mọc trên núi, cao dần nhờ có núi làm chỗ dựa: cái tốt ở một người và nếp sống quanh người ấy đều được bồi lên từng lớp.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Trên núi có cây là quẻ Tiệm, đấng quân tử coi đó mà chứa đức hiền, làm hay thói tục."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "Trên núi có cây, sự cao của nó có chỗ nhân theo, đó là nghĩa dần dần."
+    }
+   ]
+  },
+  "structure": {
+   "text": "Các hào lấy con sếu làm hình ảnh, đi từ bến nước lên tảng đá, đất liền, ngọn cây, gò cao rồi đường mây; từ hào Hai đến hào Năm đều đúng ngôi, nên tiến mà có công.",
+   "from": [
+    {
+     "seg": "hao1",
+     "layer": "trinh_di",
+     "quote": "Các hào quẻ Tiệm đều lấy Tượng con Sếu."
+    },
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Lại, tức hào Hai đến hào Năm, ngôi đều được chính"
+    },
+    {
+     "seg": "thoan_truyen",
+     "layer": "nghia",
+     "quote": "Tiến được ngôi, đi có công vậy."
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "Nó là quẻ đậu ở dưới mà nhún ở trên, tức là nghĩa không tiến gấp vội, có Tượng con gái về nhà chồng. Lại, tức hào Hai đến hào Năm, ngôi đều được chính, cho nên lời Chiêm của nó là con gái về nhà chồng thì tốt, và lại răn rằng: lợi về chính bền."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Đường thăng tiến lúc này đi qua từng nấc: được chỗ đứng vững rồi mới tiến tiếp thì có công, còn nhảy cóc theo lòng nôn nóng dễ rơi vào thế bí.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Trong thì dần tiến mà Âm Dương đều được ngôi, tức là tiến mà có công."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Người ta tiến lên, nếu theo sự động của lòng dục, thì sẽ nóng nảy mà không thể dần dần, cho nên có sự khốn cùng."
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Của cải ở quẻ này được tích theo lối cây lớn trên núi, mỗi mùa cao thêm một ít; con đường đều đặn, không vượt chừng mực đáng tin hơn một cú tăng vọt.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "Người ta tiến về hiền đức ắt, phải tập dần mới được, không thể vượt qua chừng độ mà tới ngay."
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Mở rộng làm ăn nên đi từng chặng như con sếu từ bến lên tảng đá: chặng nào yên rồi mới sang chặng sau, trong giữ vững, ngoài mềm mỏng thì sự tiến không bị kẹt.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Tự bến nước tiến lên tảng đá, lại là tiến dần vậy."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Ở nghĩa quẻ Tiệm, trong đậu im mà ngoài nhún thuận, cho nên sự tiến động của nó không bị khốn cùng."
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người học tiến theo thứ tự, không vượt qua chừng độ; muốn dạy người khác cũng phải dắt từng bước như chính mình đã đi.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "Ở mình còn thế, thì dạy bảo người, nếu không dùng cách dần dần sao được?"
+     },
+     {
+      "seg": "intro",
+      "layer": "trinh_di",
+      "quote": "vì không vượt qua thứ tự mới thong thả"
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hai người đến với nhau theo đúng trình tự, từng bước và đàng hoàng, là cảnh quẻ này coi là tốt; tình cảm lớn dần, không đốt cháy giai đoạn, thì bền.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Theo nghĩa quẻ Tiệm mà tiến, tức là sự tốt của con gái về nhà chồng, nghĩa là chính đáng mà đi dần dần vậy."
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Đổi một thói quen của cả nhà là việc phải làm dần, không xong trong một sớm một chiều; người trong nhà cùng giữ đường ngay và hòa thuận thì che chở được cho nhau.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "Dời thói đổi lễ, không thể là việc một sớm một tối có thể làm xong, cho nên làm hay phong tục cũng phải dần dần."
+     },
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "Chỉ lợi về sự chống giặc, tức là lấy sự hòa thuận giữ lẫn cho nhau."
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Bước sắp tới có nằm đúng thứ tự không, hay cái nôn nóng đang muốn vượt cấp? Trong giữ yên, ngoài hòa thuận thì đi tiếp mà không cùng đường.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Trong ngừng đậu ngoài nhún thuận, đậu là Tượng yên tĩnh, nhún là nghĩa hòa thuận."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "nghia",
+      "quote": "Đậu mà nhún, động chẳng cũng vậy."
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Chia việc lớn thành từng chặng, chặng trước vững rồi mới sang chặng sau; giữ đường chính đáng ở mọi bước, dù là tiến về việc, về đức hay về địa vị.",
+   "from": [
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "Phàm tiến về việc, tiến về đức, tiến về ngôi, cái gì cũng nên dùng cách chính đáng."
+    },
+    {
+     "seg": "intro",
+     "layer": "trinh_di",
+     "quote": "Sự cao của nó có nhân theo, tức là sự tiến của nó có thứ tự."
+    }
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Hợp nhau bằng đường không ngay thì việc bắt đầu cũng không nuôi được thành quả; để ham muốn kéo đi mà quên đường về là chỗ hỏng.",
+    "from": [
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "Chồng đi chẳng lại, thì lỗi chính đạo của sự tiến, theo lòng ham muốn mà mất chính đạo, lìa phản đàn loài, là đáng xấu vậy."
+     },
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Vợ chỉ hào Tư, nếu dùng cách bất chính mà hợp nhau, thì tuy có chửa mà không thể nuôi, vì nó trái đạo, như thế thì hung."
+     }
+    ]
+   },
+   {
+    "text": "Mới bắt đầu mà dùng sức cứng để tiến gấp thì mất cái lợi của sự dần dần, và dễ vấp lỗi ngay từ đầu.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Nếu đầu cuộc tiến mà dùng cách cứng gấp tiến, thì mất cái nghĩa dần dần, không thể tiến mà ắt có lỗi."
+     }
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Con sếu mới đến bến nước, chỗ thấp nhất, chưa có ai đỡ: người non tay thấy nguy và lời ra tiếng vào, nhưng đi chậm từ chỗ thấp thì xét lẽ không có lỗi.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "chu_hy",
+      "quote": "Chim sếu đi có thứ tự mà tiến dần dần, đó là tiến chưng bến nước vậy."
+     },
+     {
+      "seg": "tieu_tuong1",
+      "layer": "trinh_di",
+      "quote": "Tuy là trẻ nhỏ lấy làm nguy nghèo, mà với nghĩa lý thực không có lỗi."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi đầu, rất thấp, sức mềm, trên lại không có hào ứng: thế đứng khiến người ngoài lo, mà chính thế ấy giúp đi được dần dần.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Hào Sáu ở ngôi Đầu là rất thấp, tài mềm là rất yếu, mà phía trên lại không có ứng viện"
+     },
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "ở dưới là để mà tiến, dùng sự mềm là để khỏi nóng, không kẻ viện là để có thể dần dần"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Mới tiến ở dưới, chưa được yên ổn mà phái trên không có ứng viện, cho nên Tượng nó như thế, mà Chiêm thì là: trẻ nhỏ nguy, tuy có tiếng nói mà với nghĩa thì không có lỗi."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Người mới vào nghề, chưa có ai nâng đỡ, dễ bị bàn ra tán vào; lời người ngoài lúc này không phải là dấu hiệu mình đi sai.",
+     "from": [
+      {
+       "seg": "hao1",
+       "layer": "nghia",
+       "quote": "Hào Sáu Đầu: Con sếu tiến chưng bến, trẻ nhỏ nguy, có nói, không lỗi."
+      }
+     ]
+    }
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Con sếu lên được tảng đá lớn, yên vững, ăn uống hớn hở: bước tiến thong thả có chỗ dựa, và niềm vui ấy đến từ chỗ đắc chí chứ không phải ăn không ngồi rồi.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "Tảng đá là hòn đá lớn, dần xa với bến nước. Tiến lên tảng đá mà càng yên thêm."
+     },
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Gọi là uống ăn hơn hớn, nghĩa là đắc chí hòa vui, không thể bảo là chỉ ăn no không mà thôi."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi, ứng với hào Chín Năm: được người trên tin và hợp đạo với mình.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Hào Hai giữa, được chỗ chính, phía trên ứng nhau với hào Năm, là kẻ tiến được yên ổn khoan thai."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "Hào Sáu Hai mềm thuận trung chính, nó tiến bằng cách dần dần mà phía trên có hào Chín Năm ứng với, cho nên Tượng nó như thế mà Chiêm thì tốt."
+   },
+   "topics": {
+    "tai_chinh": {
+     "text": "Có một nguồn sống yên ổn và được hưởng xứng với phần việc của mình: cái no đủ có đạo, không phải cái no của người chỉ ngồi hưởng.",
+     "from": [
+      {
+       "seg": "tieu_tuong2",
+       "layer": "chu_hy",
+       "quote": "nghĩa là được sự “no” ấy có đạo, không phải chỉ ăn cho no mà ở cho yên."
+      }
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Con sếu là chim nước mà lên đất liền, lạc khỏi chỗ của mình: đi theo ham muốn mà quên đường về thì hung; sức mạnh lúc này chỉ nên dùng để giữ mình trước điều sai.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Sếu là chim nước, đất liền không phải chỗ yên ổn của nó."
+     },
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Kéo đến bằng cách phi lý là giặc; giữ đường chính để ngăn điều tà, thế là chống giặc."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương quá cứng ở trên quẻ dưới, không ở giữa, không có hào ứng: mạnh mà không có ai kéo lại.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Hào Chín Ba quá cứng không giữ, không có ứng viện"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Hào Chín Ba quá cứng không giữ, không có ứng viện, cho nên Tượng nó như thế, mà Chiêm thì là “chồng đi chẳng lại, vợ đẻ chẳng nuôi” không gì hung hơn."
+   },
+   "topics": {
+    "tinh_cam": {
+     "text": "Đến với nhau bằng đường không ngay, phải rời cả những người thân quen để chạy theo, thì dễ không giữ được điều gì lâu dài.",
+     "from": [
+      {
+       "seg": "tieu_tuong3",
+       "layer": "nghia",
+       "quote": "Chồng đi chẳng lại, lìa đàn loài vậy; vợ chửa chẳng nuôi, lỗi thửa đạo vậy"
+      }
+     ]
+    }
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Con sếu đậu lên cây, nơi chân nó không bám được, nhưng tìm được cành ngang bằng phẳng thì vẫn yên: ở chỗ chênh vênh, mềm mỏng và thuận lẽ thì tìm ra chỗ đứng.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Con sếu ngón chân liền, không thể quặp lấy cành cây, cho nên không đỗ ở cây."
+     },
+     {
+      "seg": "tieu_tuong4",
+      "layer": "trinh_di",
+      "quote": "Cành ngang là chỗ bình yên, cái đạo cầu yên, chỉ thuận và nhún."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở trên hào dương cứng, như ngồi trên chỗ không yên; nhưng đúng ngôi và biết nhún thuận.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Đương thì dần dần, hào Tư lấy chất Âm mềm ở trên Dương cứng, há ở yên được?"
+     },
+     {
+      "seg": "tieu_tuong4",
+      "layer": "trinh_di",
+      "quote": "Thuận chính mà nhún như hào Tư, tức là được cành ngang vậy."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "Hào Sáu Tư cưỡi cứng, mà nhún thuận, cho nên Tượng nó như thế. Kẻ xem như nó thì không có lỗi."
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Con sếu lên gò cao: hai bên vốn hợp nhau bị người đứng giữa ngăn trở nên lâu chưa thành, nhưng rút cục không gì cướp được đường ngay, nên cuối cùng tốt.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Có điều sự hợp của nó cũng phải dần dần, vì vậy, sau chót được tốt."
+     },
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "nhưng rút lại vẫn không cướp được chính đạo của nó"
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi tôn, ứng với hào Sáu Hai cùng trung chính, nhưng bị hào Ba, hào Tư chen giữa.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Hào Năm với Hào Hai là chính ứng, cái đức trung chính giống nhau, thế mà bị cách hào Ba hào Tư"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "Hào Chín Năm ở ngôi tôn, hào Sáu Hai là chính ứng với hào Năm, mà bị hào Ba vào Tư ngăn cách; nhưng rút lại vẫn không cướp được chính đạo của nó, cho nên Tượng nó như thế, mà kẻ xem như thế thì tốt."
+   },
+   "topics": {
+    "tinh_cam": {
+     "text": "Hai người hợp nhau mà bị người ngoài chen vào, chuyện gắn bó đến chậm; kiên trì đường ngay thì lâu dần vẫn được điều mong muốn.",
+     "from": [
+      {
+       "seg": "tieu_tuong5",
+       "layer": "trinh_di",
+       "quote": "Lâu rồi ắt được cái sở nguyện của nó, thế là việc tốt trong đạo dần dần."
+      }
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Con sếu bay lên đường mây, ra ngoài mọi chỗ đậu thường: người đã vượt khỏi vòng địa vị mà vẫn giữ thứ tự thì thành khuôn phép cho người khác noi theo.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Tiến đến như vậy mà không lỗi đạo dần dần, đó là thái độ cao thượng của kẻ hiền đạt, cho nên có thể dùng làm khuôn phép."
+     },
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "Có thể dùng làm khuôn phép, vì nó có thứ tự mà không thể loạn."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "chu_hy",
+    "quote": "Hào Chín Trên rất cao, ra ngoài ngôi người, mà lông cánh của nó có thể dùng làm đồ nghi sức, đó là cái Tượng “ngôi tuy cực cao mà không đến nỗi vô dụng”, cho nên lời Chiêm của nó là được như thế thì tốt."
+   },
+   "topics": {
+    "su_nghiep": {
+     "text": "Người đã lui khỏi vị trí điều hành hay đứng ngoài việc thường vẫn có ích, như lông sếu được dùng làm vật nghi lễ: không ở trong cuộc mà vẫn là tấm gương.",
+     "from": [
+      {
+       "seg": "tieu_tuong6",
+       "layer": "chu_hy",
+       "quote": "Dần tiến càng cao, mà chẳng đến nỗi vô dụng, chí nó vững vàng, há làm rối được?"
+      }
+     ]
+    }
+   }
+  }
+ }
+}

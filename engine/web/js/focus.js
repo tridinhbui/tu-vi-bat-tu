@@ -28,7 +28,8 @@ export const focusIds = (prefix, focus) => CHAPTERS[prefix] ? (focus || []).flat
 export function orderChapters(chapters, prefix, focus) {
   const ids = focusIds(prefix, focus);
   if (!ids.length) return chapters;
-  const head = chapters.filter(c => c.id === 'tong-quan');
+  // Chân dung lá số (the conclusions) stays first, then the overview
+  const head = chapters.filter(c => c.id === 'chan-dung' || c.id === 'tong-quan');
   const picked = ids.map(id => chapters.find(c => c.id === id)).filter(Boolean);
   return [...head, ...picked, ...chapters.filter(c => !head.includes(c) && !picked.includes(c))];
 }

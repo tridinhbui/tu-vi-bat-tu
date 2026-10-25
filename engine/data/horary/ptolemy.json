@@ -1,0 +1,399 @@
+{
+  "meta": {
+    "school": "ptolemy",
+    "version": "0.1.0",
+    "title": "Ptolemy, Tetrabiblos, Book I (tr. J. M. Ashmand, London 1822): dignity scheme, configurations, orientality",
+    "works": {
+      "PTOLEMY": "Ptolemy, Tetrabiblos, tr. J. M. Ashmand (London, 1822), archive.org b29293066, Public Domain Mark. Page = printed page."
+    },
+    "notes": [
+      "Ashmand's edition carries many footnotes by Ashmand and quoted from Whalley, Placidus, Moxon, Salmon, Heydon. They are NOT Ptolemy. Where a footnote gives something the engine might want (planetary orbs, day/night houses, aspect lists), it is recorded only in `translator_notes` and marked as such.",
+      "Tables were transcribed cell by cell from zoomed page images (pp.49 and 53), not from the OCR. The Ptolemaic terms table (p.53) prints alternative readings stacked in some cells; both readings are kept (`alternatives`).",
+      "Ptolemy wrote a general astrology (nativities, mundane). He gives no horary rules; this file is a dignity/aspect cross-check for the engine, not a horary school."
+    ],
+    "scope_skipped": "Book I chapters I-IV (defence of astrology, natures of planets in general), IX-XII (fixed stars, seasons), XIII (angles and winds), and Books II-IV (mundane, nativities) - outside the requested scope."
+  },
+  "tables": {
+    "houses": {
+      "sources": [
+        {"work": "PTOLEMY", "page": 42, "quote": "they are consequently appropriated as houses for the two principal and greater luminaries; Leo for the Sun, as being masculine ; and Cancer for the Moon, as being feminine."},
+        {"work": "PTOLEMY", "page": 42, "quote": "occupies the signs opposite to Cancer and Leo : these are Aquarius and Capricorn"},
+        {"work": "PTOLEMY", "page": 43, "quote": "he takes the next two signs, of a nature similar to his own, viz. Aries and Scorpio"}
+      ],
+      "rows": {"Aries": "Mars", "Taurus": "Venus", "Gemini": "Mercury", "Cancer": "Moon", "Leo": "Sun", "Virgo": "Mercury", "Libra": "Venus", "Scorpio": "Mars", "Sagittarius": "Jupiter", "Capricorn": "Saturn", "Aquarius": "Saturn", "Pisces": "Jupiter"},
+      "translator_notes": ["p.43 footnote (from Whalley, not Ptolemy): day houses Aquarius, Sagittarius, Aries, Taurus, Gemini; night houses Capricorn, Pisces, Scorpio, Libra, Virgo. Ptolemy's text gives no day/night division of the houses."]
+    },
+    "triplicity": {
+      "sources": [
+        {"work": "PTOLEMY", "page": 44, "quote": "this tri¬ plicity receives, as its lords, only Jupiter and the Sun. By day, therefore, the Sun claims the principal co-regency of it, and Jupiter by night."},
+        {"work": "PTOLEMY", "page": 44, "quote": "is allotted to the dominion of the Moon and Venus, since it consists of feminine signs. The Moon rules it by night, and Venus by day."},
+        {"work": "PTOLEMY", "page": 45, "quote": "Saturn rules it by day, owing to his condition*, and Mercury by night."},
+        {"work": "PTOLEMY", "page": 45, "quote": "the Moon by night and Venus by day, through their feminine condition, govern it, together with Mars."}
+      ],
+      "rows": {
+        "fire (Aries, Leo, Sagittarius)": {"day": "Sun", "night": "Jupiter", "excluded": "Mars ('contrary in condition to the solar influence')"},
+        "earth (Taurus, Virgo, Capricorn)": {"day": "Venus", "night": "Moon"},
+        "air (Gemini, Libra, Aquarius)": {"day": "Saturn", "night": "Mercury"},
+        "water (Cancer, Scorpio, Pisces)": {"day": "Venus", "night": "Moon", "co_ruler": "Mars ('together with Mars', by his house Scorpio)"}
+      },
+      "note": "No third 'participating' ruler is given for fire, earth or air. Water has Mars as co-governor without a day/night slot."
+    },
+    "exaltation": {
+      "sources": [
+        {"work": "PTOLEMY", "page": 45, "quote": "his exaltation, therefore, is determined to be in Aries"},
+        {"work": "PTOLEMY", "page": 46, "quote": "obtains his exaltation in Libra, and his , fall in Aries"},
+        {"work": "PTOLEMY", "page": 46, "quote": "begins to augment her light in Taurus, the first sign of her own triplicity, which is consequently ascribed to be her exaltation; while Scorpio, the opposite sign, is her fall."},
+        {"work": "PTOLEMY", "page": 46, "quote": "accordingly obtains his exaltation in that sign, and his fall in Capricorn."},
+        {"work": "PTOLEMY", "page": 46, "quote": "her exaltation is consequently placed therein, and her fall in Virgo."},
+        {"work": "PTOLEMY", "page": 46, "quote": "he takes his ex¬ altation in Virgo, in which sign the autumnal dryness makes its first appearance; and he receives his fall in Pisces."}
+      ],
+      "rows": {
+        "Sun": {"exaltation": "Aries", "fall": "Libra"},
+        "Moon": {"exaltation": "Taurus", "fall": "Scorpio"},
+        "Saturn": {"exaltation": "Libra", "fall": "Aries"},
+        "Jupiter": {"exaltation": "Cancer", "fall": "Capricorn"},
+        "Mars": {"exaltation": "Capricorn", "fall": "Cancer"},
+        "Venus": {"exaltation": "Pisces", "fall": "Virgo"},
+        "Mercury": {"exaltation": "Virgo", "fall": "Pisces"}
+      },
+      "note": "Ptolemy (Ashmand) gives exaltation by sign only: no exaltation degree, and no exaltation of the Moon's Nodes."
+    },
+    "terms_egyptian": {
+      "sources": [
+        {"work": "PTOLEMY", "page": 49, "quote": "The old terms, admitted by many persons on the authority of former tradition, are as follow : The Terms according to the ^Egyptians."},
+        {"work": "PTOLEMY", "page": 49, "quote": "make 3G0:—viz. for Saturn 57, Jupiter 79, Mars GG, Venus 82, and Mercury 76."}
+      ],
+      "transcription": "Cell by cell from the p.49 page image (zoomed). Number = END degree of the term. Checked: the spans add to 57 (Saturn), 79 (Jupiter), 66 (Mars), 82 (Venus), 76 (Mercury) as the text states.",
+      "rows": {
+        "Aries": [["Jupiter", 6], ["Venus", 12], ["Mercury", 20], ["Mars", 25], ["Saturn", 30]],
+        "Taurus": [["Venus", 8], ["Mercury", 14], ["Jupiter", 22], ["Saturn", 27], ["Mars", 30]],
+        "Gemini": [["Mercury", 6], ["Jupiter", 12], ["Venus", 17], ["Mars", 24], ["Saturn", 30]],
+        "Cancer": [["Mars", 7], ["Venus", 13], ["Mercury", 19], ["Jupiter", 26], ["Saturn", 30]],
+        "Leo": [["Jupiter", 6], ["Venus", 11], ["Saturn", 18], ["Mercury", 24], ["Mars", 30]],
+        "Virgo": [["Mercury", 7], ["Venus", 17], ["Jupiter", 21], ["Mars", 28], ["Saturn", 30]],
+        "Libra": [["Saturn", 6], ["Mercury", 14], ["Jupiter", 21], ["Venus", 28], ["Mars", 30]],
+        "Scorpio": [["Mars", 7], ["Venus", 11], ["Mercury", 19], ["Jupiter", 24], ["Saturn", 30]],
+        "Sagittarius": [["Jupiter", 12], ["Venus", 17], ["Mercury", 21], ["Saturn", 26], ["Mars", 30]],
+        "Capricorn": [["Mercury", 7], ["Jupiter", 14], ["Venus", 22], ["Saturn", 26], ["Mars", 30]],
+        "Aquarius": [["Mercury", 7], ["Venus", 13], ["Jupiter", 20], ["Mars", 25], ["Saturn", 30]],
+        "Pisces": [["Venus", 12], ["Jupiter", 16], ["Mercury", 19], ["Mars", 28], ["Saturn", 30]]
+      }
+    },
+    "terms_ptolemaic": {
+      "sources": [
+        {"work": "PTOLEMY", "page": 51, "quote": "There is, however, an antient writing which has fallen into the author’s possession, and which gives a rational and consistent account of the nature of the terms"},
+        {"work": "PTOLEMY", "page": 52, "quote": "These terms are detailed in the following table"},
+        {"work": "PTOLEMY", "page": 53, "note": "table printed on p.53 (no running text to quote); transcribed from the page image"}
+      ],
+      "transcription": "Cell by cell from the p.53 page image (zoomed). Number = END degree. In Taurus, Cancer, Leo, Libra, Scorpio, Capricorn and Pisces the table prints two readings stacked in the same cell. `rows` uses the upper (first-printed) reading, except Leo, where the chapter text decides for the lower reading (p.52: Saturn receives the first degrees in Leo); the other reading is in `alternatives`.",
+      "rows": {
+        "Aries": [["Jupiter", 6], ["Venus", 14], ["Mercury", 21], ["Mars", 26], ["Saturn", 30]],
+        "Taurus": [["Venus", 8], ["Mercury", 15], ["Jupiter", 22], ["Saturn", 24], ["Mars", 30]],
+        "Gemini": [["Mercury", 7], ["Jupiter", 13], ["Venus", 20], ["Mars", 26], ["Saturn", 30]],
+        "Cancer": [["Mars", 6], ["Mercury", 13], ["Jupiter", 20], ["Venus", 27], ["Saturn", 30]],
+        "Leo": [["Saturn", 6], ["Mercury", 13], ["Venus", 19], ["Jupiter", 25], ["Mars", 30]],
+        "Virgo": [["Mercury", 7], ["Venus", 13], ["Jupiter", 18], ["Saturn", 24], ["Mars", 30]],
+        "Libra": [["Saturn", 6], ["Venus", 11], ["Mercury", 19], ["Jupiter", 24], ["Mars", 30]],
+        "Scorpio": [["Mars", 6], ["Venus", 14], ["Jupiter", 21], ["Mercury", 27], ["Saturn", 30]],
+        "Sagittarius": [["Jupiter", 8], ["Venus", 14], ["Mercury", 19], ["Saturn", 25], ["Mars", 30]],
+        "Capricorn": [["Venus", 6], ["Mercury", 12], ["Jupiter", 19], ["Saturn", 25], ["Mars", 30]],
+        "Aquarius": [["Saturn", 6], ["Mercury", 12], ["Venus", 20], ["Jupiter", 25], ["Mars", 30]],
+        "Pisces": [["Venus", 8], ["Jupiter", 14], ["Mercury", 20], ["Mars", 26], ["Saturn", 30]]
+      },
+      "alternatives": {
+        "Taurus": {"rows": [["Venus", 8], ["Mercury", 15], ["Jupiter", 22], ["Saturn", 26], ["Mars", 30]], "printed": "Saturn spans '2 / 4' with ends '24 / 26'; Mars spans '6 / 4', end 30"},
+        "Cancer": {"rows": [["Mars", 6], ["Jupiter", 13], ["Mercury", 20], ["Venus", 27], ["Saturn", 30]], "printed": "2nd cell 'Mer. / Jup.', 3rd cell 'Jup. / Mer.' (ends 13, 20)"},
+        "Leo": {"rows": [["Jupiter", 6], ["Mercury", 13], ["Saturn", 19], ["Jupiter", 25], ["Mars", 30]], "printed": "1st cell 'Jup / Sat.', 3rd cell 'Sat. / Ven.'; the upper reading gives Jupiter twice and contradicts p.52, so it is not used as primary"},
+        "Libra": {"rows": [["Saturn", 6], ["Venus", 11], ["Jupiter", 16], ["Mercury", 24], ["Mars", 30]], "printed": "3rd cell 'Mercury / Jupiter' spans '8 / 5' ends '19 / 16'; 4th cell 'Jupiter / Mercury' spans '5 / 8' end 24"},
+        "Scorpio": {"rows": [["Mars", 6], ["Jupiter", 13], ["Venus", 21], ["Mercury", 27], ["Saturn", 30]], "printed": "2nd cell 'Ven. / Jup.' spans '8 / 7' ends '14 / 13'; 3rd cell 'Jup. / Ven.' spans '7 / 8' end 21"},
+        "Capricorn": {"rows": [["Venus", 6], ["Mercury", 12], ["Jupiter", 19], ["Mars", 25], ["Saturn", 30]], "printed": "4th cell 'Sat. / Mars' end 25; 5th cell 'Mars / Sat.' end 30"},
+        "Pisces": {"rows": [["Venus", 8], ["Jupiter", 14], ["Mercury", 20], ["Mars", 25], ["Saturn", 30]], "printed": "Mars spans '6 / 5' ends '26 / 25'; Saturn spans printed '4 / 3' end 30 - the lower figure reads 3 on the scan although 25 to 30 needs 5 (damaged type or misprint)"}
+      }
+    }
+  },
+  "rules": [
+    {
+      "id": "ptolemy.planets.benefic_malefic",
+      "category": "dignity_essential",
+      "title_en": "Benefics and malefics (Book I ch. V)",
+      "title_vi": "Cát tinh và hung tinh (Quyển I, chương V)",
+      "statement_en": "Heat and moisture nourish, dryness and cold destroy. Jupiter and Venus are benefic, and the Moon also for the same reasons; Saturn (excess of cold) and Mars (excess of dryness) are malefic; the Sun and Mercury are of common influence, good or evil according to the planets they are connected with.",
+      "statement_vi": "Nóng và ẩm nuôi dưỡng, khô và lạnh hủy hoại. Mộc Tinh và Kim Tinh là cát tinh, Mặt Trăng cũng vậy vì cùng lý do; Thổ Tinh (quá lạnh) và Hỏa Tinh (quá khô) là hung tinh; Mặt Trời và Thủy Tinh có ảnh hưởng chung (common), tốt hay xấu tùy các hành tinh mà chúng liên kết.",
+      "conditions": "Polarity table for school 'ptolemy': benefic = Jupiter, Venus, Moon; malefic = Saturn, Mars; common = Sun, Mercury. Note Bonatti calls Mars hot (c011), Ptolemy dry.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [{"work": "PTOLEMY", "page": 21, "quote": "The Sun and Mercury are deemed of common influence, and productive either of good or evil in unison with whate¬ ver planets they may be connected with."}],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.planets.sex_and_orientality",
+      "category": "dignity_accidental",
+      "title_en": "Masculine and feminine; matutine/vespertine and the oriental quadrants (ch. VI, XV)",
+      "title_vi": "Dương và âm; mọc sáng/mọc chiều và các góc tư phương đông (chương VI, XV)",
+      "statement_en": "The Moon and Venus are feminine; the Sun, Saturn, Jupiter and Mars masculine; Mercury common. Planets are also masculine when matutine and preceding the Sun, feminine when vespertine and following him; and by the horizon, from the Ascendant to the Midheaven and from the West angle to the lower heaven they are masculine, being oriental, in the other two quadrants feminine, being occidental. Ch. XV reports others who call those same two quadrants oriental and masculine.",
+      "statement_vi": "Mặt Trăng và Kim Tinh thuộc âm; Mặt Trời, Thổ, Mộc, Hỏa thuộc dương; Thủy Tinh chung cả hai. Hành tinh còn thành dương khi mọc sáng (matutine), đi trước Mặt Trời; thành âm khi mọc chiều (vespertine), đi sau Mặt Trời; và theo đường chân trời: từ cung Mọc đến Thiên Đỉnh, và từ góc Tây đến Thiên Để, chúng là dương vì ở phương đông (oriental); ở hai góc tư còn lại là âm vì ở phương tây (occidental). Chương XV kể có người gọi chính hai góc tư ấy là phương đông và dương.",
+      "conditions": "Two orientality tests: (a) relative to the Sun (matutine = rises before the Sun); (b) by quadrant (Asc->MC and Desc->IC oriental). Ptolemy counts the quadrants in the direction of the daily motion (Ascendant rising towards the Midheaven), so 'from the ascendant to the mid-heaven' is the region of houses 12, 11, 10 and 'from the west to the lower heaven' houses 6, 5, 4 - the same regions as Bonatti's masculine quarters in c008 (counted from the 10th cusp to the Ascendant cusp, and from the 4th to the 7th). This reading of the direction is the engine's.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 22, "quote": "While they are matutine and preceding the Sun, they are mascu¬ line ; when vespertine and following the Sun, they become feminine"},
+        {"work": "PTOLEMY", "page": 22, "quote": "From the ascendant to the mid-heaven, or from the angle of the west to the lower heaven, they are considered to be masculine, being then oriental"},
+        {"work": "PTOLEMY", "page": 36, "quote": "divide the whole zodiac into quadrants, and denominate those between the ascendant and the mid-heaven, and between the western angle and the lower heaven, oriental and masculine"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.planets.sect",
+      "category": "dignity_accidental",
+      "title_en": "Diurnal and nocturnal planets (ch. VII)",
+      "title_vi": "Hành tinh ngày và hành tinh đêm (chương VII)",
+      "statement_en": "The Moon and Venus are nocturnal; the Sun and Jupiter diurnal; Mercury common - diurnal when matutine, nocturnal when vespertine. Of the malefics, Saturn is allotted to the day and Mars to the night, each to the division contrary to its nature, so that its evil is mitigated.",
+      "statement_vi": "Mặt Trăng và Kim Tinh là hành tinh đêm; Mặt Trời và Mộc Tinh là hành tinh ngày; Thủy Tinh chung — là hành tinh ngày khi mọc sáng, hành tinh đêm khi mọc chiều. Trong hai hung tinh, Thổ Tinh được giao cho ban ngày và Hỏa Tinh cho ban đêm, mỗi sao về phần thời gian trái với bản chất của nó để cái xấu được giảm bớt.",
+      "conditions": "Sect membership for school 'ptolemy'; Mercury's sect by matutine/vespertine. (Ashmand's footnote from Whalley on 'a planet is diurnal when above the earth in a day chart' is not Ptolemy.)",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 22, "quote": "Hence, again, the Moon and Venus are esteemed to be nocturnal; the Sun and Jupiter, diurnal; and Mercury, common; since in his matutine position he is diurnal, but nocturnal when vespertine."},
+        {"work": "PTOLEMY", "page": 23, "quote": "Hence the coldness of Saturn is allotted to the day, to counterbalance its heat; and the dryness of Mars to the night"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.sun.position",
+      "category": "sun",
+      "title_en": "Influence of position with regard to the Sun (ch. VIII)",
+      "title_vi": "Ảnh hưởng của vị trí so với Mặt Trời (chương VIII)",
+      "statement_en": "The powers of the Moon and of the three superior planets are augmented or diminished by their positions to the Sun. The Moon from emerging to first quarter produces chiefly moisture, to full heat, to third quarter dryness, to occultation cold. The planets when matutine, from first emerging to first station, chiefly moisture; to their rising at night, heat; to the second station, dryness; to occultation, cold.",
+      "statement_vi": "Sức mạnh của Mặt Trăng và ba hành tinh trên tăng hay giảm theo vị trí của chúng so với Mặt Trời. Mặt Trăng từ lúc ló ra đến tuần trăng đầu chủ yếu sinh ẩm, đến trăng tròn sinh nóng, đến tuần trăng cuối sinh khô, đến khi khuất sinh lạnh. Các hành tinh khi mọc sáng, từ lúc ló ra đến trạm thứ nhất chủ yếu sinh ẩm; đến lúc mọc ban đêm sinh nóng; đến trạm thứ hai sinh khô; đến khi khuất sinh lạnh.",
+      "conditions": "Phase/quality table; not a strength score. Useful only for temperament descriptions.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [{"work": "PTOLEMY", "page": 23, "quote": "The respective powers of the Moon and of the three supe¬ rior planets are either augmented or diminished by their several positions with regard to the Sun."}],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.signs.modality_sex",
+      "category": "dignity_essential",
+      "title_en": "Tropical, equinoctial, fixed, bicorporeal; masculine and feminine signs (ch. XIV-XV)",
+      "title_vi": "Cung chí, cung phân, cung cố định, cung song thể; cung dương và cung âm (chương XIV-XV)",
+      "statement_en": "Cancer and Capricorn are tropical, Aries and Libra equinoctial (together the moveable signs); the signs following them are fixed; those following the fixed are bicorporeal, sharing both natures. Six signs are masculine and diurnal, six feminine and nocturnal, alternately from Aries.",
+      "statement_vi": "Cự Giải và Ma Kết là cung chí (tropical), Bạch Dương và Thiên Bình là cung phân (equinoctial); các cung theo sau chúng là cung cố định (fixed); các cung theo sau cung cố định là cung song thể (bicorporeal), mang tính chất của cả hai. Sáu cung là dương và ngày, sáu cung là âm và đêm, xen kẽ bắt đầu từ Bạch Dương.",
+      "conditions": "Sign classification table.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 35, "quote": "The bicorporeal signs severally follow the fixed signs; and, being thus intermediately placed between the fixed and the tropical signs, they participate in the constitutional pro¬ perties of both"},
+        {"work": "PTOLEMY", "page": 35, "quote": "six are called masculine and diurnal, and six feminine and nocturnal. They are arranged in alternate order"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.aspect.configurations",
+      "category": "aspect",
+      "title_en": "The four configurations and their angles (ch. XVI)",
+      "title_vi": "Bốn góc chiếu và số đo của chúng (chương XVI)",
+      "statement_en": "Parts of the zodiac are configurated when diametrically distant (six signs, 180 degrees), trinal (four signs, 120), quartile (three signs, 90) or hexagonal (two signs, 60). Trine and sextile are harmonious, being between signs of the same kind; opposition and quartile are discordant, between signs of different natures and sexes. The conjunction is not listed among the configurations (it is used elsewhere, e.g. ch. XXVII).",
+      "statement_vi": "Các phần của hoàng đạo được coi là chiếu nhau khi cách nhau theo đường kính (sáu cung, 180 độ), tam hợp (bốn cung, 120 độ), vuông (ba cung, 90 độ) hay lục hợp (hai cung, 60 độ). Tam hợp và lục hợp là hài hòa, vì nối các cung cùng loại; đối xung và vuông là bất hòa, vì nối các cung khác bản chất và khác giới. Hợp (conjunction) không được kể trong các góc chiếu (nhưng được dùng ở chỗ khác, vd. chương XXVII).",
+      "conditions": "Aspect set {0 (conjunction, ch. XXVII), 60, 90, 120, 180}; sign-based (counted by signs). Harmonious: 60, 120; discordant: 90, 180.",
+      "exceptions": ["Ashmand's footnotes (Placidus, Kepler's semiquadrate/quintile etc.) are not Ptolemy and are not used."],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 37, "quote": "also, in all parts at the quadrate distance from each other, containing between them exactly one right angle, or three signs, or ninety degrees"},
+        {"work": "PTOLEMY", "page": 38, "quote": "Of these configurations, the trine and the sextile are each called harmonious, because they are constituted between signs of the same kind"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.aspect.other_familiarities",
+      "category": "aspect",
+      "title_en": "Commanding and obeying, beholding (equal power), inconjunct signs (ch. XVII-XIX)",
+      "title_vi": "Cung ra lệnh và vâng lệnh, cung nhìn nhau (đồng lực), cung không liên kết (chương XVII-XIX)",
+      "statement_en": "Signs equally distant from the same equinoctial point are commanding (summer semicircle) and obeying (winter semicircle). Signs equally distant from a tropical sign are of equal power and 'behold' each other. Signs one sign or five signs apart, sharing none of these familiarities nor the four configurations, are inconjunct.",
+      "statement_vi": "Các cung cách đều cùng một điểm phân là cung ra lệnh (nửa vòng mùa hè) và cung vâng lệnh (nửa vòng mùa đông). Các cung cách đều một cung chí thì đồng lực và 'nhìn nhau'. Các cung cách nhau một cung hay năm cung, không có mối liên kết nào ở trên và không có bốn góc chiếu, là không liên kết (inconjunct).",
+      "conditions": "Optional sign relations; inconjunct = 30° or 150° by sign (no aspect). Lilly prints a comparable 'Signes inconjunct' list (p.109).",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 39, "quote": "The signs in the summer semicircle are commanding; those in the winter semicircle, obeying"},
+        {"work": "PTOLEMY", "page": 40, "quote": "as well as all signs which contain be¬ tween them the space of one sign only, or the space of fitfe signs, and which do not at all share in any of the four pre¬ scribed configurations"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.dignity.houses",
+      "category": "dignity_essential",
+      "title_en": "Houses of the planets (ch. XX)",
+      "title_vi": "Nhà (miếu) của các hành tinh (chương XX)",
+      "statement_en": "Leo is the Sun's house, Cancer the Moon's; the semicircle Leo-Capricorn is solar, Aquarius-Cancer lunar, and each planet takes one sign in each: Saturn Capricorn and Aquarius, Jupiter Sagittarius and Pisces, Mars Aries and Scorpio, Venus Taurus and Libra, Mercury Gemini and Virgo. See tables.houses.",
+      "statement_vi": "Sư Tử là nhà của Mặt Trời, Cự Giải là nhà của Mặt Trăng; nửa vòng từ Sư Tử đến Ma Kết thuộc Mặt Trời, từ Bảo Bình đến Cự Giải thuộc Mặt Trăng, và mỗi hành tinh nhận một cung ở mỗi nửa: Thổ Tinh Ma Kết và Bảo Bình, Mộc Tinh Nhân Mã và Song Ngư, Hỏa Tinh Bạch Dương và Hổ Cáp, Kim Tinh Kim Ngưu và Thiên Bình, Thủy Tinh Song Tử và Xử Nữ. Xem tables.houses.",
+      "conditions": "Domicile table; identical to Lilly p.104. Day/night houses are a translator's footnote, not Ptolemy.",
+      "exceptions": [],
+      "effect": "table",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [{"work": "PTOLEMY", "page": 42, "quote": "It has hence resulted, that the semicircle from Leo to Capricorn has been ordained solar, and the semicircle from Aquarius to Cancer, lunar"}],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.dignity.triplicity",
+      "category": "dignity_essential",
+      "title_en": "Triplicity rulers (ch. XXI)",
+      "title_vi": "Chủ tam hợp (chương XXI)",
+      "statement_en": "Fire: Sun by day, Jupiter by night (Mars excluded). Earth: Venus by day, Moon by night. Air: Saturn by day, Mercury by night. Water: Venus by day, Moon by night, together with Mars, who has right in it by Scorpio. See tables.triplicity.",
+      "statement_vi": "Lửa: Mặt Trời ban ngày, Mộc Tinh ban đêm (không có Hỏa Tinh). Đất: Kim Tinh ban ngày, Mặt Trăng ban đêm. Khí: Thổ Tinh ban ngày, Thủy Tinh ban đêm. Nước: Kim Tinh ban ngày, Mặt Trăng ban đêm, cùng với Hỏa Tinh, vốn có quyền ở đây nhờ nhà Hổ Cáp. Xem tables.triplicity.",
+      "conditions": "Triplicity for school 'ptolemy'. Differs from Lilly p.104-105 for water, where Lilly gives Mars alone by day and night and attributes that to 'Ptolomy and Naibod'.",
+      "exceptions": [],
+      "effect": "table",
+      "school": "ptolemy",
+      "status": "disputed",
+      "dispute": "Water triplicity: Ashmand's Ptolemy (p.45) Venus day / Moon night 'together with Mars'; Lilly (p.105) Mars only, day and night, 'according to Ptolomy and Naibod'. Both read from their page images. See docs/HORARY-SCHOOLS.md.",
+      "sources": [
+        {"work": "PTOLEMY", "page": 45, "quote": "the Moon by night and Venus by day, through their feminine condition, govern it, together with Mars."},
+        {"work": "LILLY", "page": 105, "quote": "who, according to Ptolomy and Naibod, ruleth onely that Triplicity both day and night"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.dignity.exaltation",
+      "category": "dignity_essential",
+      "title_en": "Exaltations and falls (ch. XXII)",
+      "title_vi": "Vượng và tù (chương XXII)",
+      "statement_en": "Sun exalted in Aries (fall Libra); Saturn in Libra (fall Aries); Moon in Taurus (fall Scorpio); Jupiter in Cancer (fall Capricorn); Mars in Capricorn (fall Cancer); Venus in Pisces (fall Virgo); Mercury in Virgo (fall Pisces). Ptolemy gives signs only, with reasons from the seasons and the planets' natures.",
+      "statement_vi": "Mặt Trời vượng ở Bạch Dương (tù ở Thiên Bình); Thổ Tinh vượng ở Thiên Bình (tù ở Bạch Dương); Mặt Trăng ở Kim Ngưu (tù ở Hổ Cáp); Mộc Tinh ở Cự Giải (tù ở Ma Kết); Hỏa Tinh ở Ma Kết (tù ở Cự Giải); Kim Tinh ở Song Ngư (tù ở Xử Nữ); Thủy Tinh ở Xử Nữ (tù ở Song Ngư). Ptolemy chỉ cho cung, không cho độ, kèm lý do từ mùa và bản chất hành tinh.",
+      "conditions": "Exaltation by whole sign for school 'ptolemy'; no exaltation degrees, no Nodes (Lilly p.104 adds degrees and the Nodes).",
+      "exceptions": [],
+      "effect": "table",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [{"work": "PTOLEMY", "page": 46, "quote": "his exaltation is therefore placed in Capri¬ corn, in opposition to that of Jupiter, and his fall in Can¬ cer."}],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.dignity.terms_egyptian_chaldean",
+      "category": "dignity_essential",
+      "title_en": "Egyptian and Chaldean terms, and Ptolemy's verdict (ch. XXIII)",
+      "title_vi": "Giới (terms) kiểu Ai Cập và kiểu Chaldea, và nhận định của Ptolemy (chương XXIII)",
+      "statement_en": "There are two methods of terms. The Egyptian keeps no regular order or quantity (examples: why Saturn first in Libra, Jupiter first in Aries, Mercury first in Capricorn, Mars first in Cancer?), though its totals per planet sum to 360 (Saturn 57, Jupiter 79, Mars 66, Venus 82, Mercury 76); its table is printed (tables.terms_egyptian). The Chaldean is simpler: within each triplicity the lords follow in triplicity order with 8, 7, 6, 5, 4 degrees; no table is printed. Of the two, the Egyptian 'seems more to be relied on', being handed down by Egyptian authors and agreeing with their rectified nativities.",
+      "statement_vi": "Có hai cách chia giới. Kiểu Ai Cập không giữ trật tự hay số lượng đều đặn (vd. vì sao Thổ Tinh đứng đầu ở Thiên Bình, Mộc Tinh đầu ở Bạch Dương, Thủy Tinh đầu ở Ma Kết, Hỏa Tinh đầu ở Cự Giải?), dù tổng mỗi hành tinh cộng lại đủ 360 (Thổ 57, Mộc 79, Hỏa 66, Kim 82, Thủy 76); bảng của nó được in (tables.terms_egyptian). Kiểu Chaldea đơn giản hơn: trong mỗi tam hợp, các chủ nối nhau theo thứ tự tam hợp với 8, 7, 6, 5, 4 độ; không in bảng. Giữa hai cách, kiểu Ai Cập 'có vẻ đáng tin hơn', vì được các tác giả Ai Cập truyền lại và khớp với các lá số đã hiệu chỉnh của họ.",
+      "conditions": "Egyptian table available for an Egyptian-terms option. Chaldean terms are not tabulated by Ashmand and are not implemented.",
+      "exceptions": [],
+      "effect": "table",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 47, "quote": "There are two methods of disposing the terms of the pla¬ nets, in reference to the dominion of the triplicities; one is ^Egyptian, the other Chaldaic."},
+        {"work": "PTOLEMY", "page": 50, "quote": "Thus the first planet takes eight degrees, the second seven, the third six, the fourth five, and the fifth four."},
+        {"work": "PTOLEMY", "page": 50, "quote": "that of the -/Egyptians seems more to be relied on than the other; since it has been handed down and recommended in the writings of the ^Egyptian authors"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.dignity.terms_ptolemaic",
+      "category": "dignity_essential",
+      "title_en": "The terms according to Ptolemy (ch. XXIV)",
+      "title_vi": "Giới theo Ptolemy (chương XXIV)",
+      "statement_en": "From an 'antient writing': order of terms in each sign - a planet with two rights of dominion (exaltation, triplicity, house) goes first; otherwise lord of exaltation, then of triplicity, then of house; a malefic without two rights is placed last; in Cancer and Leo (houses of the luminaries, which take no terms) the malefics take the first degrees - Mars in Cancer, Saturn in Leo. Quantities: Jupiter and Venus 7, Saturn and Mars 5, Mercury 6; a planet with a double right (in the sign or the following signs of the quadrant) gets one degree more, taken mostly from Saturn and Jupiter. Table: tables.terms_ptolemaic (with the printed alternative readings).",
+      "statement_vi": "Theo một 'văn bản cổ': thứ tự các giới trong mỗi cung — hành tinh có hai quyền cai quản (vượng, tam hợp, nhà) đứng đầu; nếu không thì chủ vượng, rồi chủ tam hợp, rồi chủ nhà; hung tinh không có hai quyền thì đứng cuối; ở Cự Giải và Sư Tử (nhà của hai ngôi sáng, vốn không nhận giới) hung tinh nhận các độ đầu — Hỏa Tinh ở Cự Giải, Thổ Tinh ở Sư Tử. Số độ: Mộc và Kim 7, Thổ và Hỏa 5, Thủy 6; hành tinh có quyền kép (trong cung hay các cung kế tiếp trong cùng góc tư) được thêm một độ, chủ yếu lấy bớt của Thổ và Mộc. Bảng: tables.terms_ptolemaic (kèm các cách đọc thay thế được in).",
+      "conditions": "Ptolemaic terms option. The printed table has seven signs with alternative readings; the engine must pick one reading per sign and say which. Lilly's 'according to Ptolomy' terms (p.104) agree with Ashmand in Aries, Virgo, Sagittarius, Aquarius, Leo (text reading), Pisces (upper), Taurus, Cancer, Capricorn (lower readings), and differ from both readings in Gemini, Libra and Scorpio.",
+      "exceptions": [],
+      "effect": "table",
+      "school": "ptolemy",
+      "status": "disputed",
+      "dispute": "Ashmand p.53 prints alternative readings in 7 signs; Lilly p.104 ('Termes ... according to Ptolomy') matches neither reading in Gemini (Lilly Mer 7, Jup 14, Ven 21, Sat 25, Mars 30 vs Ashmand Mer 7, Jup 13, Ven 20, Mars 26, Sat 30), Libra (Lilly Jup 19, Mer 24 vs Ashmand Mer 19, Jup 24 or Jup 16, Mer 24) and Scorpio (Lilly Jup 14, Ven 21 vs Ashmand Ven 14, Jup 21 or Jup 13, Ven 21). See docs/HORARY-SCHOOLS.md.",
+      "sources": [
+        {"work": "PTOLEMY", "page": 51, "quote": "The lord of the exaltation is placed first; then the lord of the triplicity ; and then the lord of the house"},
+        {"work": "PTOLEMY", "page": 52, "quote": "Mars, consequently, receives the first degrees in Cancer, and Saturn in Leo, by which arrangement a proper order is preserved"},
+        {"work": "PTOLEMY", "page": 52, "quote": "each of the benefics, Jupiter and Venus, takes seven degrees j the malefics, Saturn and Mars, take five degrees each ; and Mercury, being of common in¬ fluence, takes six degrees"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.dignity.places_rejected_tropical",
+      "category": "dignity_essential",
+      "title_en": "Places and degrees rejected; signs and terms begin at the equinoxes and tropics (ch. XXV)",
+      "title_vi": "Bác bỏ 'vị trí và độ'; cung và giới bắt đầu từ điểm phân và điểm chí (chương XXV)",
+      "statement_en": "Subdivisions into 'places' (twelfths of a sign, 2½ degrees) and degrees aboriginally connected with a planet receive no confirmation from nature and are 'the offspring of scientific vanity'. The beginnings of the signs and of the terms are to be taken from the equinoctial and tropical points.",
+      "statement_vi": "Việc chia nhỏ thành 'vị trí' (một phần mười hai của cung, tức 2½ độ) hay các độ vốn gắn với một hành tinh không được tự nhiên xác nhận và là 'sản phẩm của thói phù phiếm khoa học'. Điểm đầu của các cung và các giới phải tính từ điểm phân và điểm chí.",
+      "conditions": "Tropical zodiac for all dignity calculations; no dodecatemoria / monomoiria.",
+      "exceptions": [],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 53, "quote": "Thus the twelfth part of a sign, or two de¬ grees and a half, has been called a place"},
+        {"work": "PTOLEMY", "page": 54, "quote": "The beginnings of the signs, and likewise those of the terms, are to be taken from the equinoctial and tropical points."}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.dignity.face_chariot_rejoicing",
+      "category": "dignity_essential",
+      "title_en": "Face, chariot (throne), rejoicing (ch. XXVI) - no decanates",
+      "title_vi": "Diện (face), xe/ngai (chariot, throne), niềm vui (chương XXVI) — không có thập độ (decan)",
+      "statement_en": "A planet is in its proper face when its aspect to the Sun or Moon is like that which its own house bears to their houses (e.g. Venus sextile a luminary, occidental of the Sun but oriental of the Moon). It is in its chariot or throne when it has familiarity with its place by two or more modes. It rejoices when connected with stars of the same condition; in a place adverse to its condition much of its influence is lost. Ptolemy gives no 10-degree 'faces' (decanates).",
+      "statement_vi": "Hành tinh ở 'diện' (face) của mình khi góc chiếu của nó với Mặt Trời hay Mặt Trăng giống quan hệ giữa nhà của nó với nhà của hai ngôi sáng (vd. Kim Tinh lục hợp với một ngôi sáng, ở phương tây so với Mặt Trời nhưng phương đông so với Mặt Trăng). Nó ở 'xe' hay 'ngai' (chariot, throne) khi có liên hệ với chỗ đứng bằng hai cách trở lên. Nó 'vui' khi liên kết với các sao cùng tình trạng; ở chỗ trái với tình trạng của mình thì mất nhiều ảnh hưởng. Ptolemy không cho 'diện' 10 độ (decan).",
+      "conditions": "For school 'ptolemy' the face dignity is the aspect-based 'proper face', not the Chaldean decanate of Lilly p.104. The engine does not score Ptolemaic face by default (see HORARY-SCHOOLS.md).",
+      "exceptions": ["Ashmand's footnote (p.54) works out Saturn quintile, Jupiter trine, Mars quartile, Venus sextile, Mercury one sign - translator's derivation, not Ptolemy's words."],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 54, "quote": "Each is said to be in its proper face, when the aspect it holds to the Sun, or Moon, is similar to that which its own house bears to their houses"},
+        {"work": "PTOLEMY", "page": 55, "quote": "familiarity with the place which it actually occupies by two, or more, of the prescribed modes of connection"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.aspect.application_separation",
+      "category": "aspect",
+      "title_en": "Application and separation; latitude in bodily conjunction (ch. XXVII)",
+      "title_vi": "Tiến tới và tách rời; vĩ độ trong hợp thân (chương XXVII)",
+      "statement_en": "When the distances between planets are 'but trifling', the planet which precedes applies to that which follows, and the follower separates from the one preceding; the same holds for bodily conjunction and the aspects, except that for bodily conjunction the actual latitudes must be observed, while for aspects this is not requisite, all rays converging on the earth. Ptolemy gives no orb values.",
+      "statement_vi": "Khi khoảng cách giữa các hành tinh 'chỉ còn rất nhỏ', hành tinh đi trước được gọi là tiến tới hành tinh theo sau, và hành tinh theo sau thì tách khỏi hành tinh đi trước; quy tắc này áp dụng cho cả hợp thân lẫn các góc chiếu, trừ việc với hợp thân phải xét vĩ độ thực, còn với góc chiếu thì không cần, vì mọi tia sáng đều hội tụ về trái đất. Ptolemy không cho số đo quầng (orb).",
+      "conditions": "No orbs in Ptolemy's text. Latitude matters only for conjunctions. Ashmand's footnote orbs (Saturn 10, Jupiter 12, Mars 7°30', Sun 17, Venus 8, Mercury 7°30', Moon 12°30') are the translator's and are recorded under translator_notes only.",
+      "exceptions": [],
+      "translator_notes": ["p.55 footnote (Ashmand): 'when the planets or luminaries are within each other's orbs; Saturn's orb being 10 degrees, Jupiter's 12, Mars's 7 degrees 30 minutes, the Sun's 17 degrees, Venus's 8, Mercury's 7 degrees 30 minutes, and the Moon's 12 degrees 30 minutes'. Not Ptolemy.", "p.55 footnote: 'the planet which precedes' is read by Ashmand as the more occidental (the faster one behind in longitude)."],
+      "effect": "definition",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 55, "quote": "In all cases when the distances between planets or lumina¬ ries are but trifling*, the planet which precedes is said to apply to that which follows"},
+        {"work": "PTOLEMY", "page": 56, "quote": "it is also essential to observe the actual latitudes of the bodies, in order to receive and consider only such a transit as may be made in the same parts of the zodiac"}
+      ],
+      "example": ""
+    },
+    {
+      "id": "ptolemy.strength.oriental_swift_angular",
+      "category": "dignity_accidental",
+      "title_en": "Strength: oriental, swift, direct; position to the horizon (ch. XXVII)",
+      "title_vi": "Sức mạnh: phương đông, nhanh, thuận hành; vị trí so với chân trời (chương XXVII)",
+      "statement_en": "A planet's influence is strongest when oriental, swift and direct; weaker when occidental, slow or retrograde. It is especially strong in the Midheaven or succedent to it, also powerful on the horizon or succedent to it, particularly in the eastern quarter; below the earth but configurated with the Ascendant it is more languid; below the earth with no such configuration, it is entirely deprived of efficacy.",
+      "statement_vi": "Ảnh hưởng của hành tinh mạnh nhất khi ở phương đông (oriental), đi nhanh và thuận hành; yếu khi ở phương tây, đi chậm hay nghịch hành. Nó đặc biệt mạnh ở Thiên Đỉnh hoặc nhà nối sau Thiên Đỉnh, cũng mạnh khi ở ngay đường chân trời hoặc nhà nối sau đó, nhất là ở phía đông; ở dưới mặt đất nhưng có chiếu cung Mọc thì yếu ớt hơn; ở dưới mặt đất mà không chiếu cung Mọc thì mất hẳn hiệu lực.",
+      "conditions": "Accidental strength for school 'ptolemy': oriental (relative to the Sun, as in ch. VI) + swift + direct; MC/11th strongest, Asc/2nd (and horizon) strong, below horizon aspecting the Ascendant weak, below without aspect void. Note this 'oriental' is not split by superior/inferior planet as in Bonatti c052-056 and Lilly p.114.",
+      "exceptions": ["Ashmand's footnotes quoting Placidus and Moxon (superiors strong matutine, inferiors vespertine) and Whalley's 'oriental orientality' are not Ptolemy; Ashmand himself rejects Whalley's version."],
+      "effect": "modifies",
+      "school": "ptolemy",
+      "status": "classical",
+      "sources": [
+        {"work": "PTOLEMY", "page": 56, "quote": "The influence of each planet, however, is strengthened chiefly when it may be oriental, swift and direct in its proper course and motion"},
+        {"work": "PTOLEMY", "page": 57, "quote": "as, if it be situated in the mid-hea¬ ven, or succedent to the mid-heaven, it is especially strong; likewise, if it be on the actual horizon, or succedent to the horizon, it is also powerful"},
+        {"work": "PTOLEMY", "page": 57, "quote": "but if, when below the earth, it holds no such configuration, it is entirely deprived of effi¬ cacy"}
+      ],
+      "example": ""
+    }
+  ]
+}

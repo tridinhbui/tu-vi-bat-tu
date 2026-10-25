@@ -1,0 +1,797 @@
+{
+ "note": "78 lá của bộ Waite–Smith (1909): mã lá, tên, số, chất. Chỉ có tên; ý nghĩa nằm ở pack_tarot_pkt.json và chỉ khi có trang sách. Thứ tự: Major 0-21 (Strength VIII, Justice XI như bộ 1909), rồi Wands, Cups, Swords, Pentacles như trong The Pictorial Key to the Tarot (1911). Tên tiếng Việt là tên gọi thông dụng, không phải bản dịch của sách.",
+ "suits": {
+  "wands": {
+   "en": "Wands",
+   "vi": "Gậy"
+  },
+  "cups": {
+   "en": "Cups",
+   "vi": "Cốc"
+  },
+  "swords": {
+   "en": "Swords",
+   "vi": "Kiếm"
+  },
+  "pentacles": {
+   "en": "Pentacles",
+   "vi": "Tiền"
+  }
+ },
+ "ranks": [
+  {
+   "number": 1,
+   "en": "Ace",
+   "vi": "Át"
+  },
+  {
+   "number": 2,
+   "en": "Two",
+   "vi": "Hai"
+  },
+  {
+   "number": 3,
+   "en": "Three",
+   "vi": "Ba"
+  },
+  {
+   "number": 4,
+   "en": "Four",
+   "vi": "Bốn"
+  },
+  {
+   "number": 5,
+   "en": "Five",
+   "vi": "Năm"
+  },
+  {
+   "number": 6,
+   "en": "Six",
+   "vi": "Sáu"
+  },
+  {
+   "number": 7,
+   "en": "Seven",
+   "vi": "Bảy"
+  },
+  {
+   "number": 8,
+   "en": "Eight",
+   "vi": "Tám"
+  },
+  {
+   "number": 9,
+   "en": "Nine",
+   "vi": "Chín"
+  },
+  {
+   "number": 10,
+   "en": "Ten",
+   "vi": "Mười"
+  },
+  {
+   "number": 11,
+   "en": "Page",
+   "vi": "Tiểu Đồng"
+  },
+  {
+   "number": 12,
+   "en": "Knight",
+   "vi": "Hiệp Sĩ"
+  },
+  {
+   "number": 13,
+   "en": "Queen",
+   "vi": "Hoàng Hậu"
+  },
+  {
+   "number": 14,
+   "en": "King",
+   "vi": "Vua"
+  }
+ ],
+ "cards": [
+  {
+   "id": "M00",
+   "slug": "the-fool",
+   "arcana": "major",
+   "number": 0,
+   "suit": null,
+   "name_en": "The Fool",
+   "name_vi": "Kẻ Khờ"
+  },
+  {
+   "id": "M01",
+   "slug": "the-magician",
+   "arcana": "major",
+   "number": 1,
+   "suit": null,
+   "name_en": "The Magician",
+   "name_vi": "Nhà Ảo Thuật"
+  },
+  {
+   "id": "M02",
+   "slug": "the-high-priestess",
+   "arcana": "major",
+   "number": 2,
+   "suit": null,
+   "name_en": "The High Priestess",
+   "name_vi": "Nữ Tư Tế"
+  },
+  {
+   "id": "M03",
+   "slug": "the-empress",
+   "arcana": "major",
+   "number": 3,
+   "suit": null,
+   "name_en": "The Empress",
+   "name_vi": "Hoàng Hậu"
+  },
+  {
+   "id": "M04",
+   "slug": "the-emperor",
+   "arcana": "major",
+   "number": 4,
+   "suit": null,
+   "name_en": "The Emperor",
+   "name_vi": "Hoàng Đế"
+  },
+  {
+   "id": "M05",
+   "slug": "the-hierophant",
+   "arcana": "major",
+   "number": 5,
+   "suit": null,
+   "name_en": "The Hierophant",
+   "name_vi": "Giáo Hoàng"
+  },
+  {
+   "id": "M06",
+   "slug": "the-lovers",
+   "arcana": "major",
+   "number": 6,
+   "suit": null,
+   "name_en": "The Lovers",
+   "name_vi": "Tình Nhân"
+  },
+  {
+   "id": "M07",
+   "slug": "the-chariot",
+   "arcana": "major",
+   "number": 7,
+   "suit": null,
+   "name_en": "The Chariot",
+   "name_vi": "Cỗ Xe"
+  },
+  {
+   "id": "M08",
+   "slug": "strength",
+   "arcana": "major",
+   "number": 8,
+   "suit": null,
+   "name_en": "Strength",
+   "name_vi": "Sức Mạnh"
+  },
+  {
+   "id": "M09",
+   "slug": "the-hermit",
+   "arcana": "major",
+   "number": 9,
+   "suit": null,
+   "name_en": "The Hermit",
+   "name_vi": "Ẩn Sĩ"
+  },
+  {
+   "id": "M10",
+   "slug": "wheel-of-fortune",
+   "arcana": "major",
+   "number": 10,
+   "suit": null,
+   "name_en": "Wheel of Fortune",
+   "name_vi": "Bánh Xe Vận Mệnh"
+  },
+  {
+   "id": "M11",
+   "slug": "justice",
+   "arcana": "major",
+   "number": 11,
+   "suit": null,
+   "name_en": "Justice",
+   "name_vi": "Công Lý"
+  },
+  {
+   "id": "M12",
+   "slug": "the-hanged-man",
+   "arcana": "major",
+   "number": 12,
+   "suit": null,
+   "name_en": "The Hanged Man",
+   "name_vi": "Người Treo Ngược"
+  },
+  {
+   "id": "M13",
+   "slug": "death",
+   "arcana": "major",
+   "number": 13,
+   "suit": null,
+   "name_en": "Death",
+   "name_vi": "Tử Thần"
+  },
+  {
+   "id": "M14",
+   "slug": "temperance",
+   "arcana": "major",
+   "number": 14,
+   "suit": null,
+   "name_en": "Temperance",
+   "name_vi": "Tiết Độ"
+  },
+  {
+   "id": "M15",
+   "slug": "the-devil",
+   "arcana": "major",
+   "number": 15,
+   "suit": null,
+   "name_en": "The Devil",
+   "name_vi": "Ác Quỷ"
+  },
+  {
+   "id": "M16",
+   "slug": "the-tower",
+   "arcana": "major",
+   "number": 16,
+   "suit": null,
+   "name_en": "The Tower",
+   "name_vi": "Tòa Tháp"
+  },
+  {
+   "id": "M17",
+   "slug": "the-star",
+   "arcana": "major",
+   "number": 17,
+   "suit": null,
+   "name_en": "The Star",
+   "name_vi": "Ngôi Sao"
+  },
+  {
+   "id": "M18",
+   "slug": "the-moon",
+   "arcana": "major",
+   "number": 18,
+   "suit": null,
+   "name_en": "The Moon",
+   "name_vi": "Mặt Trăng"
+  },
+  {
+   "id": "M19",
+   "slug": "the-sun",
+   "arcana": "major",
+   "number": 19,
+   "suit": null,
+   "name_en": "The Sun",
+   "name_vi": "Mặt Trời"
+  },
+  {
+   "id": "M20",
+   "slug": "judgement",
+   "arcana": "major",
+   "number": 20,
+   "suit": null,
+   "name_en": "Judgement",
+   "name_vi": "Phán Xét"
+  },
+  {
+   "id": "M21",
+   "slug": "the-world",
+   "arcana": "major",
+   "number": 21,
+   "suit": null,
+   "name_en": "The World",
+   "name_vi": "Thế Giới"
+  },
+  {
+   "id": "W01",
+   "slug": "ace-of-wands",
+   "arcana": "minor",
+   "number": 1,
+   "suit": "wands",
+   "name_en": "Ace of Wands",
+   "name_vi": "Át Gậy"
+  },
+  {
+   "id": "W02",
+   "slug": "two-of-wands",
+   "arcana": "minor",
+   "number": 2,
+   "suit": "wands",
+   "name_en": "Two of Wands",
+   "name_vi": "Hai Gậy"
+  },
+  {
+   "id": "W03",
+   "slug": "three-of-wands",
+   "arcana": "minor",
+   "number": 3,
+   "suit": "wands",
+   "name_en": "Three of Wands",
+   "name_vi": "Ba Gậy"
+  },
+  {
+   "id": "W04",
+   "slug": "four-of-wands",
+   "arcana": "minor",
+   "number": 4,
+   "suit": "wands",
+   "name_en": "Four of Wands",
+   "name_vi": "Bốn Gậy"
+  },
+  {
+   "id": "W05",
+   "slug": "five-of-wands",
+   "arcana": "minor",
+   "number": 5,
+   "suit": "wands",
+   "name_en": "Five of Wands",
+   "name_vi": "Năm Gậy"
+  },
+  {
+   "id": "W06",
+   "slug": "six-of-wands",
+   "arcana": "minor",
+   "number": 6,
+   "suit": "wands",
+   "name_en": "Six of Wands",
+   "name_vi": "Sáu Gậy"
+  },
+  {
+   "id": "W07",
+   "slug": "seven-of-wands",
+   "arcana": "minor",
+   "number": 7,
+   "suit": "wands",
+   "name_en": "Seven of Wands",
+   "name_vi": "Bảy Gậy"
+  },
+  {
+   "id": "W08",
+   "slug": "eight-of-wands",
+   "arcana": "minor",
+   "number": 8,
+   "suit": "wands",
+   "name_en": "Eight of Wands",
+   "name_vi": "Tám Gậy"
+  },
+  {
+   "id": "W09",
+   "slug": "nine-of-wands",
+   "arcana": "minor",
+   "number": 9,
+   "suit": "wands",
+   "name_en": "Nine of Wands",
+   "name_vi": "Chín Gậy"
+  },
+  {
+   "id": "W10",
+   "slug": "ten-of-wands",
+   "arcana": "minor",
+   "number": 10,
+   "suit": "wands",
+   "name_en": "Ten of Wands",
+   "name_vi": "Mười Gậy"
+  },
+  {
+   "id": "W11",
+   "slug": "page-of-wands",
+   "arcana": "minor",
+   "number": 11,
+   "suit": "wands",
+   "name_en": "Page of Wands",
+   "name_vi": "Tiểu Đồng Gậy"
+  },
+  {
+   "id": "W12",
+   "slug": "knight-of-wands",
+   "arcana": "minor",
+   "number": 12,
+   "suit": "wands",
+   "name_en": "Knight of Wands",
+   "name_vi": "Hiệp Sĩ Gậy"
+  },
+  {
+   "id": "W13",
+   "slug": "queen-of-wands",
+   "arcana": "minor",
+   "number": 13,
+   "suit": "wands",
+   "name_en": "Queen of Wands",
+   "name_vi": "Hoàng Hậu Gậy"
+  },
+  {
+   "id": "W14",
+   "slug": "king-of-wands",
+   "arcana": "minor",
+   "number": 14,
+   "suit": "wands",
+   "name_en": "King of Wands",
+   "name_vi": "Vua Gậy"
+  },
+  {
+   "id": "C01",
+   "slug": "ace-of-cups",
+   "arcana": "minor",
+   "number": 1,
+   "suit": "cups",
+   "name_en": "Ace of Cups",
+   "name_vi": "Át Cốc"
+  },
+  {
+   "id": "C02",
+   "slug": "two-of-cups",
+   "arcana": "minor",
+   "number": 2,
+   "suit": "cups",
+   "name_en": "Two of Cups",
+   "name_vi": "Hai Cốc"
+  },
+  {
+   "id": "C03",
+   "slug": "three-of-cups",
+   "arcana": "minor",
+   "number": 3,
+   "suit": "cups",
+   "name_en": "Three of Cups",
+   "name_vi": "Ba Cốc"
+  },
+  {
+   "id": "C04",
+   "slug": "four-of-cups",
+   "arcana": "minor",
+   "number": 4,
+   "suit": "cups",
+   "name_en": "Four of Cups",
+   "name_vi": "Bốn Cốc"
+  },
+  {
+   "id": "C05",
+   "slug": "five-of-cups",
+   "arcana": "minor",
+   "number": 5,
+   "suit": "cups",
+   "name_en": "Five of Cups",
+   "name_vi": "Năm Cốc"
+  },
+  {
+   "id": "C06",
+   "slug": "six-of-cups",
+   "arcana": "minor",
+   "number": 6,
+   "suit": "cups",
+   "name_en": "Six of Cups",
+   "name_vi": "Sáu Cốc"
+  },
+  {
+   "id": "C07",
+   "slug": "seven-of-cups",
+   "arcana": "minor",
+   "number": 7,
+   "suit": "cups",
+   "name_en": "Seven of Cups",
+   "name_vi": "Bảy Cốc"
+  },
+  {
+   "id": "C08",
+   "slug": "eight-of-cups",
+   "arcana": "minor",
+   "number": 8,
+   "suit": "cups",
+   "name_en": "Eight of Cups",
+   "name_vi": "Tám Cốc"
+  },
+  {
+   "id": "C09",
+   "slug": "nine-of-cups",
+   "arcana": "minor",
+   "number": 9,
+   "suit": "cups",
+   "name_en": "Nine of Cups",
+   "name_vi": "Chín Cốc"
+  },
+  {
+   "id": "C10",
+   "slug": "ten-of-cups",
+   "arcana": "minor",
+   "number": 10,
+   "suit": "cups",
+   "name_en": "Ten of Cups",
+   "name_vi": "Mười Cốc"
+  },
+  {
+   "id": "C11",
+   "slug": "page-of-cups",
+   "arcana": "minor",
+   "number": 11,
+   "suit": "cups",
+   "name_en": "Page of Cups",
+   "name_vi": "Tiểu Đồng Cốc"
+  },
+  {
+   "id": "C12",
+   "slug": "knight-of-cups",
+   "arcana": "minor",
+   "number": 12,
+   "suit": "cups",
+   "name_en": "Knight of Cups",
+   "name_vi": "Hiệp Sĩ Cốc"
+  },
+  {
+   "id": "C13",
+   "slug": "queen-of-cups",
+   "arcana": "minor",
+   "number": 13,
+   "suit": "cups",
+   "name_en": "Queen of Cups",
+   "name_vi": "Hoàng Hậu Cốc"
+  },
+  {
+   "id": "C14",
+   "slug": "king-of-cups",
+   "arcana": "minor",
+   "number": 14,
+   "suit": "cups",
+   "name_en": "King of Cups",
+   "name_vi": "Vua Cốc"
+  },
+  {
+   "id": "S01",
+   "slug": "ace-of-swords",
+   "arcana": "minor",
+   "number": 1,
+   "suit": "swords",
+   "name_en": "Ace of Swords",
+   "name_vi": "Át Kiếm"
+  },
+  {
+   "id": "S02",
+   "slug": "two-of-swords",
+   "arcana": "minor",
+   "number": 2,
+   "suit": "swords",
+   "name_en": "Two of Swords",
+   "name_vi": "Hai Kiếm"
+  },
+  {
+   "id": "S03",
+   "slug": "three-of-swords",
+   "arcana": "minor",
+   "number": 3,
+   "suit": "swords",
+   "name_en": "Three of Swords",
+   "name_vi": "Ba Kiếm"
+  },
+  {
+   "id": "S04",
+   "slug": "four-of-swords",
+   "arcana": "minor",
+   "number": 4,
+   "suit": "swords",
+   "name_en": "Four of Swords",
+   "name_vi": "Bốn Kiếm"
+  },
+  {
+   "id": "S05",
+   "slug": "five-of-swords",
+   "arcana": "minor",
+   "number": 5,
+   "suit": "swords",
+   "name_en": "Five of Swords",
+   "name_vi": "Năm Kiếm"
+  },
+  {
+   "id": "S06",
+   "slug": "six-of-swords",
+   "arcana": "minor",
+   "number": 6,
+   "suit": "swords",
+   "name_en": "Six of Swords",
+   "name_vi": "Sáu Kiếm"
+  },
+  {
+   "id": "S07",
+   "slug": "seven-of-swords",
+   "arcana": "minor",
+   "number": 7,
+   "suit": "swords",
+   "name_en": "Seven of Swords",
+   "name_vi": "Bảy Kiếm"
+  },
+  {
+   "id": "S08",
+   "slug": "eight-of-swords",
+   "arcana": "minor",
+   "number": 8,
+   "suit": "swords",
+   "name_en": "Eight of Swords",
+   "name_vi": "Tám Kiếm"
+  },
+  {
+   "id": "S09",
+   "slug": "nine-of-swords",
+   "arcana": "minor",
+   "number": 9,
+   "suit": "swords",
+   "name_en": "Nine of Swords",
+   "name_vi": "Chín Kiếm"
+  },
+  {
+   "id": "S10",
+   "slug": "ten-of-swords",
+   "arcana": "minor",
+   "number": 10,
+   "suit": "swords",
+   "name_en": "Ten of Swords",
+   "name_vi": "Mười Kiếm"
+  },
+  {
+   "id": "S11",
+   "slug": "page-of-swords",
+   "arcana": "minor",
+   "number": 11,
+   "suit": "swords",
+   "name_en": "Page of Swords",
+   "name_vi": "Tiểu Đồng Kiếm"
+  },
+  {
+   "id": "S12",
+   "slug": "knight-of-swords",
+   "arcana": "minor",
+   "number": 12,
+   "suit": "swords",
+   "name_en": "Knight of Swords",
+   "name_vi": "Hiệp Sĩ Kiếm"
+  },
+  {
+   "id": "S13",
+   "slug": "queen-of-swords",
+   "arcana": "minor",
+   "number": 13,
+   "suit": "swords",
+   "name_en": "Queen of Swords",
+   "name_vi": "Hoàng Hậu Kiếm"
+  },
+  {
+   "id": "S14",
+   "slug": "king-of-swords",
+   "arcana": "minor",
+   "number": 14,
+   "suit": "swords",
+   "name_en": "King of Swords",
+   "name_vi": "Vua Kiếm"
+  },
+  {
+   "id": "P01",
+   "slug": "ace-of-pentacles",
+   "arcana": "minor",
+   "number": 1,
+   "suit": "pentacles",
+   "name_en": "Ace of Pentacles",
+   "name_vi": "Át Tiền"
+  },
+  {
+   "id": "P02",
+   "slug": "two-of-pentacles",
+   "arcana": "minor",
+   "number": 2,
+   "suit": "pentacles",
+   "name_en": "Two of Pentacles",
+   "name_vi": "Hai Tiền"
+  },
+  {
+   "id": "P03",
+   "slug": "three-of-pentacles",
+   "arcana": "minor",
+   "number": 3,
+   "suit": "pentacles",
+   "name_en": "Three of Pentacles",
+   "name_vi": "Ba Tiền"
+  },
+  {
+   "id": "P04",
+   "slug": "four-of-pentacles",
+   "arcana": "minor",
+   "number": 4,
+   "suit": "pentacles",
+   "name_en": "Four of Pentacles",
+   "name_vi": "Bốn Tiền"
+  },
+  {
+   "id": "P05",
+   "slug": "five-of-pentacles",
+   "arcana": "minor",
+   "number": 5,
+   "suit": "pentacles",
+   "name_en": "Five of Pentacles",
+   "name_vi": "Năm Tiền"
+  },
+  {
+   "id": "P06",
+   "slug": "six-of-pentacles",
+   "arcana": "minor",
+   "number": 6,
+   "suit": "pentacles",
+   "name_en": "Six of Pentacles",
+   "name_vi": "Sáu Tiền"
+  },
+  {
+   "id": "P07",
+   "slug": "seven-of-pentacles",
+   "arcana": "minor",
+   "number": 7,
+   "suit": "pentacles",
+   "name_en": "Seven of Pentacles",
+   "name_vi": "Bảy Tiền"
+  },
+  {
+   "id": "P08",
+   "slug": "eight-of-pentacles",
+   "arcana": "minor",
+   "number": 8,
+   "suit": "pentacles",
+   "name_en": "Eight of Pentacles",
+   "name_vi": "Tám Tiền"
+  },
+  {
+   "id": "P09",
+   "slug": "nine-of-pentacles",
+   "arcana": "minor",
+   "number": 9,
+   "suit": "pentacles",
+   "name_en": "Nine of Pentacles",
+   "name_vi": "Chín Tiền"
+  },
+  {
+   "id": "P10",
+   "slug": "ten-of-pentacles",
+   "arcana": "minor",
+   "number": 10,
+   "suit": "pentacles",
+   "name_en": "Ten of Pentacles",
+   "name_vi": "Mười Tiền"
+  },
+  {
+   "id": "P11",
+   "slug": "page-of-pentacles",
+   "arcana": "minor",
+   "number": 11,
+   "suit": "pentacles",
+   "name_en": "Page of Pentacles",
+   "name_vi": "Tiểu Đồng Tiền"
+  },
+  {
+   "id": "P12",
+   "slug": "knight-of-pentacles",
+   "arcana": "minor",
+   "number": 12,
+   "suit": "pentacles",
+   "name_en": "Knight of Pentacles",
+   "name_vi": "Hiệp Sĩ Tiền"
+  },
+  {
+   "id": "P13",
+   "slug": "queen-of-pentacles",
+   "arcana": "minor",
+   "number": 13,
+   "suit": "pentacles",
+   "name_en": "Queen of Pentacles",
+   "name_vi": "Hoàng Hậu Tiền"
+  },
+  {
+   "id": "P14",
+   "slug": "king-of-pentacles",
+   "arcana": "minor",
+   "number": 14,
+   "suit": "pentacles",
+   "name_en": "King of Pentacles",
+   "name_vi": "Vua Tiền"
+  }
+ ]
+}

@@ -1,10 +1,6 @@
 /* Static content pages (bài viết, giới thiệu, hỏi đáp, xem ngày). Tokens come from app.css. */
 .cpage{background:var(--ivory)}
 .cmain{max-width:920px;padding-top:28px;padding-bottom:96px}
-.cnav{margin-left:auto}.cnav a[aria-current=page]{color:var(--ink);background:var(--parchment)}
-.cpage .hdr{gap:var(--s4)}
-.cpage .hdr-cta{flex:none}
-@media (max-width:760px){.cnav{display:none}.cpage .hdr-cta{margin-left:auto}}
 .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px 0;font-size:.82rem;color:var(--muted);margin:0 0 var(--s5)}
 .crumbs li+li::before{content:"›";margin:0 8px;color:var(--line)}
 .crumbs a{color:var(--text2);text-decoration:none}.crumbs a:hover{text-decoration:underline}

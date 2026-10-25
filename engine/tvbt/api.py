@@ -20,6 +20,8 @@ from .reasoning import engine, facts
 
 ROOT = Path(__file__).resolve().parent.parent
 app = FastAPI(title="tvbt", version="0.1.0")
+from horary.api import router as horary_router  # noqa: E402  (chiêm tinh vấn sự, engine/horary)
+app.include_router(horary_router)
 # Same paths the Worker serves as static assets, so local/uvicorn runs match production.
 app.mount("/css", StaticFiles(directory=ROOT / "web" / "css"), name="css")
 app.mount("/js", StaticFiles(directory=ROOT / "web" / "js"), name="js")
@@ -503,6 +505,8 @@ from . import phi_hoa_api  # noqa: E402  (opt-in draft Phi Hóa school)
 phi_hoa_api.register(app, BirthReq, _compute)
 from . import growth_api  # noqa: E402  (Personal Growth layer, behind TVBT_GROWTH)
 growth_api.register(app, BirthReq, _compute)
+from . import iching_api  # noqa: E402  (Kinh Dịch and Mai Hoa casts: facts only)
+iching_api.register(app)
 
 # Western astrology (engine/western/, kept apart from tvbt): /api/west/*
 from western.api import router as west_router  # noqa: E402

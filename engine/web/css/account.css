@@ -1,7 +1,7 @@
 /* Account page (#tai-khoan), share links, "Ẩn thông tin sinh" and the personal chapter order. Uses the tokens of app.css. */
 body:not([data-view=account]) #account-view{display:none}
 body[data-view=account] #home,body[data-view=account] #chart-view{display:none}
-body[data-view=account] .nav,body[data-view=account] .hdr-pdf{display:none}
+
 
 /* birth data: hidden on exports when the owner asks, and printed as "ẩn" when a share link never sent it */
 .bd-x{display:none;font-style:italic;color:inherit;opacity:.75}
@@ -28,7 +28,7 @@ body.shared #save-host,body.shared #share-btn,body.shared #again,body.shared #hi
 .sh-new{display:grid;gap:10px;justify-items:start;margin-top:var(--s3)}.sh-err:empty{display:none}
 
 /* account page */
-.acc-mast{padding:var(--s7) 0 var(--s5);border-bottom:1px solid var(--line);background:var(--parchment)}.acc-mast h1{margin:0 0 6px}
+.acc-mast{padding:var(--s7) 0 var(--s5);border-bottom:1px solid var(--line);background:var(--parchment)}.acc-who{display:flex;align-items:center;gap:10px}.acc-who .uav{width:40px;height:40px}.acc-mast h1{margin:0 0 6px}
 .acc-nav{display:flex;gap:6px 20px;flex-wrap:wrap;margin-top:var(--s4)}.acc-nav a{color:var(--accent);font-weight:600;font-size:.92rem;text-decoration:none}
 .acc-out{padding:var(--s7) 0}.acc-sec{padding:var(--s7) clamp(16px,4vw,40px);border-bottom:1px solid var(--line);scroll-margin-top:80px}
 .acc-sec>h2{margin:0 0 6px}.pf-form{max-width:760px;margin-top:var(--s4)}

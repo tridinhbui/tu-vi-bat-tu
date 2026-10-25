@@ -1,0 +1,213 @@
+{
+ "number": 39,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Kiển là cái khó khiến chân không bước được, chỗ hiểm ở ngay trước mặt: thấy hiểm mà biết dừng là khôn, và dù chưa gỡ được vẫn giữ mình ngay thẳng.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Kiển nghĩa là nạn, cái nạn chân không đi được."},
+    {"seg": "thoan_truyen", "layer": "nghia", "quote": "Thấy hiểm mà biết đậu, khôn vậy thay!"},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Đại phàm xử trí lúc nạn, cốt ở được trinh chính, dù cho không giải được nạn, cũng không bị mất chính đức, vì vậy mới tốt."}
+   ]
+  },
+  "image": {
+   "text": "Nước đọng trên núi cao, trên dưới đều hiểm trở: gặp chỗ khó thì quay lại tìm nguyên do ở chính mình, sửa mình và chờ thời, hơn là trách hoàn cảnh.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Trên núi có nước, là quẻ Kiển, đấng quân tử coi đó mà trở lại mình, sửa đức."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đấng quân tử gặp sự hiểm trở, ắt phải trở lại tìm trong mình mình mà càng tự mình sửa mình."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đấng quân tử sửa đức, để chờ thời mà thôi."}
+   ]
+  },
+  "structure": {
+   "text": "Phần lớn các hào thấy đi tới là gặp khó và quay lại là hay, chỉ hào Sáu Hai và hào Chín Năm phải gánh lấy cái khó; hào Năm cứng mạnh trung chính là người lớn mà cả quẻ trông vào.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Đương lúc kiển khó, chỉ có biết đậu là hay, cho nên, các hào, trừ hào Năm và hào Hai, đều cho sự đi là hỏng."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Mà hào Chín Năm trong quẻ, cứng mạnh, trung chính, có Tượng người lớn"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Đương thì Kiển phải thấy người lớn, rồi mới có thể qua nạn, lại phải giữ cho chính đính, thì mới được tốt."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Dự án đang kẹt trước một trở ngại lớn thì nên dừng lại, tìm đến người có tầm nhìn và năng lực để cùng gỡ, hơn là một mình lao vào chỗ khó.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Trong thì kiển khó, ắt có người thánh hiền, có thể làm cho thiên hạ qua nạn, cho nên lợi về sự thấy người lớn."},
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Lợi thấy người lớn, đi có công vậy"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Lúc tiền bạc bế tắc, cách gỡ nhanh mà khuất tất thì không đáng; giữ cách làm ngay thẳng và bền bỉ, dù chậm, mới là đường qua chỗ khó.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "tuy được cẩu thả khỏi nạn, cũng là ác đức"},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Người làm qua nạn, ắt phải dùng đạo cả chính mà giữ cho bền"}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Những người chung cảnh khó dễ đồng lòng mà không cần bàn trước: liên kết với họ bằng sự thật thà là cách một cơ sở làm ăn đi qua chỗ hiểm.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Đương thời kiển, những kẻ chung cảnh kiển khó, chí họ không phải mưu tính mà tự giống nhau."},
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Ở thì kiển khó, nếu không thành thật, thì lấy gì mà vượt cho qua?"}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Gặp bài khó hay một lần thi không đạt, trước hết tìm nguyên nhân ở chính cách học của mình, rồi đợi đến khi đủ vững mới bước tiếp.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Thầy Mạnh nói rằng: “Làm có điều gì không được, đều trở lại tìm trong mình mình”"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "hãy nên thấy cơ mà đậu, để đợi thời, lúc nào đi được sẽ đi."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Mối quan hệ đang vướng trở ngại thì chưa nên ép bước tới; mỗi người tự xét phần lầm lỗi của mình trước, chờ lúc thuận hơn rồi hãy tính tiếp.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "nghia", "quote": "Đi kiển, lại khen, nên đợi vậy."},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "ắt tự xét mình xem có điều gì lầm lỗi mà đến thế chăng, đó là trở lại mình."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Như người đi gặp hiểm thì quay về nhà cũ, lúc khó khăn chỗ dựa gần nhất là mái nhà và những người đang trông vào mình; trở về với họ là được chỗ yên.",
+    "from": [
+     {"seg": "hao3", "layer": "tien_nho", "quote": "“Trở lại” cũng như trở về làng cũ, trở về nhà cũ, tức là đi mà được chỗ yên ổn."},
+     {"seg": "tieu_tuong3", "layer": "nghia", "quote": "Đi thì kiển, lại thì trở lại, trong thích đó vậy."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Giữa lối hiểm và lối bằng phẳng, lúc này nên chọn lối bằng phẳng; dừng lại khi chưa đến thời không phải là thua, vì hết lúc khó thì thế sẽ đổi.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Thuận thời mà xử, cân nhắc chỗ hiểm mà đi theo lối bình dị"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Ở vận kiển mà đi thì kiển, vận kiển hết thì sẽ thay đổi."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Dừng trước chỗ hiểm để sửa mình và kết nối những người cùng cảnh, nhưng đừng dừng mãi; khi tiến thì tìm đến người có tầm và đừng bỏ lẽ phải để thoát cho nhanh.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Bởi vì thấy chỗ hiểm, quí ở biết đậu, mà lại không thể đậu đến cùng chót, ở chỗ hiểm thì lợi về tiến lên, nhưng không thể bỏ mất chính đạo."},
+    {"seg": "hao4", "layer": "trinh_di", "quote": "Biết liên hợp với mọi người, đó là đạo xử lúc kiển."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Đi theo lối thuận dễ thì cái khó có thể nới ra; cứ ở lì nơi hiểm trở thì cái khó càng nặng thêm.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "ở chỗ thuận dễ thì nạn có thể thư, đậu chỗ nguy hiểm thì nạn càng tệ."}
+    ]
+   },
+   {
+    "text": "Người đến giúp mà sức chưa bằng người đang gánh việc thì chỉ đỡ đần được phần nào; muốn gỡ cái khó lớn cần người có năng lực ngang tầm.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "bề tôi không bằng vua thì chỉ đỡ đần mà thôi, cho nên không thể làm nên công to."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Mới bước vào lúc khó, sức yếu lại không ai hậu thuẫn: tiến thì càng sa sâu, còn dừng lại vì biết thời thế thì được tiếng khen.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Đương thì kiển, lấy tài Âm mềm không có ứng viện, mà cứ tiến lên, đủ biết là kiển."},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Đậu lại mà không tiến, thì có cái tốt về sự thấy cơ, biết thời, thế là “lại thì có tiếng khen”."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Đi thì gặp chỗ hiểm, lại thì được tiếng khen."}
+  },
+  "2": {
+   "gist": {
+    "text": "Người được tin cậy dốc sức gánh cái khó chung, khó chồng lên khó, không phải vì việc riêng mình: dù chưa thành, tấm lòng ấy không có gì đáng trách.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Chí nó muốn giúp cho vua qua chỗ kiển nạn, sự khó nhọc về việc kiển của nó không phải là vì thân nó."},
+     {"seg": "tieu_tuong2", "layer": "chu_hy", "quote": "Việc tuy không xong, cũng chẳng có gì đáng trách."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi, ứng với hào Chín Năm: trung chính và được người trên tin, nhưng sức mềm nên phải vất vả.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Với hào Năm là chính ứng ấy là người trung chính được vua trung chính tin dùng"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Hai tuy trung chính, nhưng là tài Âm mềm há dễ gánh nổi nhiệm vụ?"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Không nói tốt xấu, là tại kẻ xem chỉ nên còng lưng hết sức mà thôi, còn sự nên, hư, sắc, nhụt, thì không phải là điều đáng bàn."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Được giao gánh phần việc khó cho cả tập thể thì cứ làm hết sức; thành hay chưa thành lúc này không phải điều để tính toán.",
+     "from": [
+      {"seg": "hao2", "layer": "chu_hy", "quote": "Hào này mềm thuận trung chính, lại có chính ứng ở trên, nhưng vì ở vào chỗ hiểm, cho nên khó khăn lại khó khăn để cầu vượt qua mà không phải là vì cớ riêng của thân mình."}
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Tiến lên thì gặp khó vì người phía trên không đủ sức hỗ trợ; quay về chỗ cũ, nơi những người dựa vào mình đang mong, thì được yên.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "hào Trên là hạng Âm mềm mà không có ngôi, chẳng đủ ứng viện cho nó"},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Ở thì kiển, mà được lòng kẻ dưới, thì có thể cầu được yên ổn"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, trên cùng quẻ dưới: cứng và đúng chỗ, là chỗ dựa của những hào mềm bên dưới.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Chín Ba lấy chất cứng ở ngôi chính, đứng trên thể dưới, nhằm vào thì kiển, kẻ ở dưới đều mềm ắt phải tựa vào hào Ba"}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Lại tới với hai hào Âm, ấy là được nơi yên ổn."}
+  },
+  "4": {
+   "gist": {
+    "text": "Đi tới thì càng vào sâu chỗ hiểm; ở lại mà kết nối với những người cùng cảnh, đối đãi bằng sự thật lòng, thì hợp được sức để vượt qua.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Đi thì càng sâu vào chỗ Khảm hiểm, đó là đi kiển."},
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Lấy sự thành thật cùng với kẻ dưới, cho nên mới liên hợp được"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, ở ngôi trên của quẻ: đúng chỗ và thật, gần hào Ba, cùng loại với các hào dưới nên dễ được lòng người.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "lại lấy chất Âm ở ngôi Âm, ấy là được cái thật."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "nó lại gần gũi hào Ba, ấy là thân nhau"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Hào Sáu Tư: Đi kiển, lại thì liền."}
+  },
+  "5": {
+   "gist": {
+    "text": "Người đứng giữa cái khó lớn nhất, có đức cứng mạnh và ngay thẳng, thì có bạn tìm đến giúp; nhưng người giúp còn yếu nên mới đỡ đần được, chưa đủ để gỡ hẳn.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Trong lúc cả kiển, mà hào Hai ở dưới lấy đức trung chính ứng nhau với nó, ấy là bạn giúp lại với."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Được bạn lại mà vẫn không tốt là sao? Đáp rằng: chưa đủ để vượt thì kiển."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, giữa quẻ trên nhưng nằm trong quẻ Khảm hiểm: ở chỗ tôn mà cũng ở ngay giữa chỗ khó.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Đương lúc kiển, mà lại ở trong chỗ hiểm, cũng là cả kiển."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Cả kiển là kiển lạ thường. Hào Chín Năm ở ngôi tôn mà có đức cứng mạnh trung chính, ắt có bạn lại mà giúp. Kẻ xem có đức ấy thì cũng có người giúp ấy."}
+  },
+  "6": {
+   "gist": {
+    "text": "Ở tận cùng chỗ khó mà cứ đi thì không còn lối; quay về nương theo người mạnh, đủ tầm ở gần mình, cùng nhau vượt qua thì cái khó nới ra và có công lớn.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Không đi mà lại, theo hào Năm, tìm hào Ba, được kẻ Dương cứng giúp đỡ, cho nên mới lớn."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Kiển đã cực mà có người giúp, cho nên được lớn mà tốt"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở cuối quẻ, lúc khó đã đến cực, lại ở sát hào Chín Năm cứng mạnh trung chính: tự mình không ra được nhưng có người lớn ngay bên cạnh.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Hào Sáu lấy tài Âm mềm, đương hồi kiển cực, gần sát với ông vua Dương cứng trung chính"}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Sáu trên: Đi kiển lại lớn, tốt, lợi về sự thấy người lớn."},
+   "topics": {
+    "lua_chon": {
+     "text": "Đến bước đường cùng, lựa chọn hợp lẽ là quay về nương theo người có đức lớn ở gần mình, thay vì cố một mình xông tiếp.",
+     "from": [
+      {"seg": "tieu_tuong6", "layer": "nghia", "quote": "lợi về sự thấy người lớn, vì theo kẻ sang vậy."}
+     ]
+    }
+   }
+  }
+ }
+}

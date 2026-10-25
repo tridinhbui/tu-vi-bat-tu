@@ -1,0 +1,200 @@
+{
+ "number": 20,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Quán là lúc vừa đứng ở chỗ người khác nhìn vào, vừa phải nhìn kỹ và xét lại: được tin theo nhờ sự trung chính và thành ý giữ trọn từ đầu, không nhờ phô bày.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "là lấy sự trung chính bảo người, bị người ngửa lên mà trông."},
+    {"seg": "intro", "layer": "trinh_di", "quote": "Trông xem các vật là quan, làm cái xem cho kẻ dưới là quán."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "chớ để thành ý hơi tan, như lúc tế đã cúng rồi"}
+   ]
+  },
+  "image": {
+   "text": "Gió đi khắp mặt đất, chạm tới mọi vật: người có trách nhiệm đi tận nơi xem nếp sống của người khác, rồi mới đặt cách dạy, cách nắn cho hợp từng chỗ.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Gió đi trên đất là quẻ Quán, đấng tiên vương coi đó mà xét các phương, xem tục dân, đặt sự dạy."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Gió đi trên đất, khắp tới mọi vật, là Tượng qua trải khắp xem"}
+   ]
+  },
+  "structure": {
+   "text": "Hai hào dương ở trên, bốn hào âm ở dưới ngửa lên nhìn hào Chín Năm; mỗi hào âm thấy rõ hay mờ tùy ở chỗ đứng gần hay xa nó.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Hào Chín Năm ở trên, bốn hào Âm ngửa lên trông nó"},
+    {"seg": "hao4", "layer": "trinh_di", "quote": "Sự xem không gì rõ bằng ở gần hào Năm"},
+    {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Sáu lấy chất Âm nhu ở xa hào Dương, cho nên những cái xem thấy nông gần như trẻ nít vậy."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "ý nói hết lòng tinh khiết mà không khinh thường tự dụng, thì sự phu tín ở trong, ra vẻ trang kính đáng xem. Răn kẻ xem phải nên như thế."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Ai đang ở chỗ được người dưới nhìn lên thì được tin phục nhờ sự nghiêm cẩn, ngay thẳng của chính mình hơn là nhờ mệnh lệnh; người dưới thấy thành ý thì tự chuyển theo.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Cách làm cái xem cho thiên hạ, phải nghiêm kính như khi cuộc tế mới rửa tay, thì kẻ hạ dân thành thật ngửa xem, theo mình mà hóa."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Xem xét lại cách tiêu tiền theo lối quẻ này là nhìn tận nơi rồi nắn chỗ lệch: khoản nào phô trương thì thắt lại, khoản nào chắt bóp quá thì nới ra cho phải lẽ.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "ví như chỗ nào xa xỉ thì thắt lại bằng sự tần tiện, chỗ nào tần tiện thì bảo họ lấy đường lễ nghĩa."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Như người đi tuần khắp các phương để xem tục dân, muốn làm ăn với ai thì nên đến tận nơi xem thói quen, nhu cầu của họ rồi mới đặt cách làm cho hợp.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đấng thiên tử đi tuần bốn phương, coi xem tục dân, đặt làm chính giáo"},
+     {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Xét các phương để xem dân, đặt sự dạy để làm cái xem."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Hào Sáu Đầu đứng xa nên nhìn như trẻ nhỏ, hào Sáu Tư đứng sát nên thấy rõ: học được bao nhiêu tùy ở việc có đến gần người giỏi, điều hay để thấy tận mắt hay không.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Hào Sáu Đầu nhu ở dưới, không thể thấy xa, là tượng “trẻ em”"},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Tư sát gần với nó, xem thấy cái đạo của nó"}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Như lúc mới rửa tay vào lễ, tấm lòng thành của buổi đầu là điều người kia nhìn thấy và tin; để sự chú tâm ấy nhạt dần theo thói quen thì niềm tin cũng tản mát.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Rửa tay là khi việc mới bắt đầu, người ta đương hết lòng tinh thành, nghiêm trang tột bậc."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Người lớn trong nhà là tấm gương con cháu nhìn vào mà bắt chước, nên chính họ phải tự giữ; nếp nhà chưa tốt thì trước hết xét lại cách mình sống.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Tuy không ở ngôi, nhưng vì người ta xem đức của mình, dùng làm phép tắc, cho nên phải tự cẩn thận"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "tục tốt hay xấu, quan hệ ở mình mà thôi"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Đứng ở giữa chừng như hào Sáu Ba, có thể tiến có thể lui: nên nhìn vào kết quả thật của những gì mình đã làm rồi theo thời mà bước, thay vì ngước theo người khác.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "là kẻ biết thuận thời để tiến lui"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Xem cái của mình thửa sinh, tùy sự nên chăng mà tiến lui"}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Giữ sự nghiêm cẩn và thành ý của buổi đầu cho đến cuối việc, rồi đo việc mình làm qua chính những người chịu ảnh hưởng của nó để tự sửa.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Không cúng nghĩa là không để thành ý hơi tan."},
+    {"seg": "tieu_tuong5", "layer": "chu_hy", "quote": "lại nên xem cả đức dân phải chăng thế nào, để tự tỉnh xét."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Nếu nếp chung quanh mình còn lệch thì đó là dấu hiệu việc mình làm chưa phải, chưa thể coi là không lỗi.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Nếu tục thiên hạ chưa hợp với đạo quân tử thì là chính trị của mình vẫn làm chưa phải, không thể khỏi lỗi."}
+    ]
+   },
+   {
+    "text": "Lòng tin của người khác còn khi sự chú tâm của buổi đầu còn; khi nghi thức, thủ tục chồng chất làm thành ý loãng đi thì người ta cũng thôi ngửa trông.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Sau khi đã cúng, lễ số phiền phức rắc rối, thì lòng người tản mác mà sự tinh nhất không bằng lúc mới rửa tay."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Nhìn như trẻ nhỏ, đứng xa nên chỉ thấy bề ngoài: với người chưa phải gánh vác thì chẳng sao, nhưng với người cần hiểu sâu thì đó là điều đáng ngượng.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Tiểu nhân là kẻ hạ dân, cái thấy của họ nông tối, không thể biết đạo quân tử, chính là sự thường, không đáng gọi là lầm lỗi, nếu đấng quân tử mà thế, thì đáng bỉ tiếc."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Hào Sáu Đầu nhu ở dưới, không thể thấy xa, là tượng “trẻ em”, ấy là đạo kẻ tiểu nhân, mới là sự hổ thẹn của người quân tử, cho nên lời Chiêm ở kẻ tiểu nhân thì không lỗi, mà đấng quân tử gặp phải thì đáng thẹn."}
+  },
+  "2": {
+   "gist": {
+    "text": "Nhìn qua khe cửa thì thấy ít và không rõ; biết thuận theo điều đúng thì vẫn giữ được mình, nhưng người phải gánh việc lớn mà chỉ thấy đến thế thì còn thiếu.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Sự xem bằng cách dòm ngó thấy ít mà không rõ"},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Đấng quân tử không thể xem thấy đạo lớn Dương cương trung chính mà chỉ dòm ngó được cái phảng phất của nó"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, ứng với hào Chín Năm nhưng sức mềm nên chỉ nhìn lén được; biết thuận theo thì vẫn không mất sự trung chính.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "ứng với hào Năm là xem hào Năm"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "mà biết thuận theo như thể con gái thì vẫn không mất trung chính, thế mới là lợi."}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Âm nhu ở trong mà xem ra ngoài, là Tượng dòm ngó, tức là sự chính của con gái, cho nên lời Chiêm của nó như thế. Đàn ông mà được hào này không phải là lợi."}
+  },
+  "3": {
+   "gist": {
+    "text": "Ở chỗ có thể tiến có thể lui: không trông vào người trên mà xem lại việc mình làm thông hay tắc để quyết bước tiếp, nhờ vậy chưa lạc đường.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "Hào Sáu Ba ở trên quẻ dưới, có thể tiến, có thể lui"},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Xem cái của mình sinh ra mà tiến lui, cho thuận với sự nên phải, cho nên chưa đến mất đạo."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm không ở đúng ngôi, nằm ở chỗ cùng của quẻ dưới thuận: chính vì chỗ đứng chưa yên mới có chuyện tiến hay lui.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba ở không phải ngôi, tại chỗ thuận cực, là kẻ biết thuận thời để tiến lui. Nếu ở được đáng ngôi, thì không có nghĩa tiến lui."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Hào Sáu Ba ở trên quẻ dưới, có thể tiến, có thể lui, cho nên không xua hào Chín Năm mà chỉ xem cái của mình thửa làm là thông hay tắc để làm căn cứ cho sự tiến lui. Kẻ xem nên tự biết."}
+  },
+  "4": {
+   "gist": {
+    "text": "Đứng sát bên người sáng suốt nên thấy rõ cái hay của cả nơi ấy: được đón như khách quý, đây là lúc nên đem sức mình ra góp vào việc chung.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Đã xem thấy sự thịnh đức sáng đẹp của nước, cổ nhân cho là một cuộc gặp gỡ phi thường"},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Đời xưa người có hiền đức, ông vua đãi bằng lễ khách, cho nên nói là “làm khách”."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, đúng chỗ và sát hào Chín Năm: vừa thấy được, vừa biết thuận theo.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Tư tuy Âm nhu, nhưng là thể Tốn, ở chỗ chính, sát gần hào Năm tức là kẻ xem thấy mà biết thuận theo."}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Hào Sáu Tư rất gần hào Năm, cho nên mới có Tượng ấy. Lời Chiêm của nó thì là lợi về chầu vua, làm quan."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Gặp được nơi làm việc có người đứng đầu sáng suốt, nề nếp tốt thì nên nhận lời mời, dấn thân góp sức.",
+     "from": [
+      {"seg": "hao4", "layer": "nghia", "quote": "Hào Sáu Tư: Xem sự sáng láng của nước, lợi dụng làm khách chưng vua."}
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Ở chỗ cao nhất, nếp chung tốt hay xấu soi ngược lại chính mình: muốn biết việc mình làm có phải không thì xem nơi những người chịu ảnh hưởng.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Chín Năm ở ngôi ông vua, đời trị hay loạn, tục tốt hay xấu, quan hệ ở mình mà thôi."},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "ông vua muốn xem sự thi vi của mình có phải hay không, nên xem ở dân"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi tôn, có đức cương trung chính, bốn hào âm bên dưới cùng ngửa trông.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Hào Chín Năm Dương cương trung chính ở ngôi tôn, bên dưới bốn hào Âm ngửa lên mà xem"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Hào Chín Năm Dương cương trung chính ở ngôi tôn, bên dưới bốn hào Âm ngửa lên mà xem, đó là tượng đấng quân tử, cho nên mới răn kẻ ở ngôi ấy được lời chiêm ấy, thì nên xem cái của mình đã làm, ắt cũng Dương minh trung chính như thế thì được không lỗi."}
+  },
+  "6": {
+   "gist": {
+    "text": "Không giữ chức vụ mà vẫn được người khác nhìn vào làm mẫu: chưa thể buông lỏng, phải tự xét đức hạnh, việc làm của mình thì mới khỏi lỗi.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "đó là những đấng hiền nhân quân tử không ở ngôi mà đạo đức bị người thiên hạ xem ngửa."},
+     {"seg": "tieu_tuong6", "layer": "chu_hy", "quote": "“Chí chưa bình” ý nói tuy không được ngôi, chưa thể quên sự răn sợ."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở trên ngôi tôn, không đương việc nhưng vẫn ở chỗ người dưới nhìn lên.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Hào Chín Trên là hào Dương cương ở bậc trên ngôi tôn, tuy chẳng đương vào công việc, mà cũng bị kẻ dưới thửa xem"}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Chín Trên: Xem thửa sinh, quân tử không lỗi."}
+  }
+ }
+}

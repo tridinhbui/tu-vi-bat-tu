@@ -1,0 +1,240 @@
+{
+ "number": 57,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Tốn là nhún mình để đi vào, như gió len được vào mọi chỗ; sự hanh thông chỉ ở mức nhỏ, và sự nhún chỉ có lợi khi theo về người đáng theo.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "tính nó biết nhún để vào; Tượng nó là gió, cũng là lấy về nghĩa “vào”."},
+    {"seg": "thoan", "layer": "nghia", "quote": "Quẻ Tốn nhỏ hanh thông, lợi có thửa đi, lợi thấy người lớn."}
+   ]
+  },
+  "image": {
+   "text": "Gió nối tiếp gió, lớp trước lớp sau: lời dặn cần được nhắc lại cho thấm, và khi người trên nói thuận lẽ thì người dưới thuận theo mà làm.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Lời Tượng nói rằng: Theo gió là quẻ Tốn. Đấng quân tử coi đó mà nhắc lại mệnh lệnh, làm việc."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Người trên thuận với kẻ dưới mà ban ra, kẻ dưới thuận với người trên mà làm theo"}
+   ]
+  },
+  "structure": {
+   "text": "Một hào âm nấp dưới hai hào dương, lặp lại hai lần; hào Chín Năm cứng mà giữa chính là chỗ nhún đúng đạo, còn hào trên cùng nhún đến cùng cực thì mất cái cứng của mình.",
+   "from": [
+    {"seg": "intro", "layer": "trinh_di", "quote": "Nó là quẻ một Âm ở dưới hai Dương, nhún thuận với Dương, vì vậy mới là Tốn."},
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Dương cứng ở thể Tốn mà được giữa chính, tức là nhún thuận về đạo giữa chính."},
+    {"seg": "hao6", "layer": "chu_hy", "quote": "Ở vào cùng cực thể Tốn, mất đức Dương cứng"}
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "Quẻ này hào Âm là chủ, cho nên lời Chiêm của nó là sự hanh nhỏ; lấy Âm theo Dương, cho nên lại “lợi có thửa đi”. Nhưng ắt biết chỗ đáng theo mới được chính đính, vì vậy lại nói “lợi thấy người lớn”."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Người giao việc lúc này nên nói rõ rồi nhắc lại, để chỉ dẫn thấm xuống như gió nối gió; điều mình yêu cầu hợp lẽ thì người làm cùng tự thuận theo.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "chu_hy", "quote": "Hai lần Tốn cho nên là nhắc lại mệnh."},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Mệnh lệnh chính sự thuận lẽ thì hợp lòng dân mà dân thuận theo."}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Như mẻ săn được chia làm ba phần, để dành, đãi khách, dùng trong bếp, cái kiếm được lúc này nên chia cho đủ chỗ thay vì dồn vào một chỗ.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Ba phẩm là: một phần để ướp mắm, một phần để cung khách khứa, một phần để cung vào bếp nước."},
+     {"seg": "tieu_tuong4", "layer": "tien_nho", "quote": "Săn bắn mà được ba phẩm, là được mồi nhiều, cho nên nói là có công."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Muốn đổi cách làm đã ban ra, nên tính kỹ trước khi đổi và xét lại sau khi đổi; lúc đầu chưa ổn mà về sau sửa cho phải thì vẫn tốt.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Mệnh lệnh ban ra, có chỗ phải thay đổi, \"không đầu\" là lúc đầu chưa phải \"có chót\" là đổi đi cho phải."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Việc đã cải canh, thì nên suy nguyên lúc đầu, rốt lại lúc chót, như nghĩa \"trước giáp sau giáp\", như thế thì tốt."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người học hợp với cách thấm dần như gió, nhưng cần chọn một người thầy ngay thẳng, vững vàng mà theo; nhún thuận đúng chỗ thì mới có lợi.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Nhún thuận tuy là đạo hay, nhưng ắt phải biết chỗ đáng theo, nhún thuận với bậc người lớn trung chính, thì là lợi"},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Dương cứng giữa chính như hào Năm hào Hai tức là người lớn đó."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Chiều theo người kia là cái đẹp của quẻ, nhưng chiều đến mức nép dưới giường, bỏ cả cái cứng cỏi vốn có của mình, thì mối quan hệ nghiêng về phía hỏng.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Ở trên mà quá nhún,, tự mình làm mất bản tính của mình, với đạo \"thẳng\" là hung."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Sự nhún vốn là nết hay"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Giữa người thân, lễ phép và nhún nhường dù có hơi quá vẫn giúp tránh được tủi nhục và oán trách, miễn là xuất phát từ lòng thật.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Kính nhún quá độ, tuy chẳng phải là lễ chính, nhưng cũng có thể xa sự sỉ nhục, tuyệt sự oán trách."},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Bên trong đã thành thật thì người ta tự nhiên tin mình bằng ý thật, mà không phải là nịnh hót, sợ sệt nữa."}
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi cứ do dự tiến lui, cái cần là quyết lấy một hướng và giữ cho vững; nhún nhường đến mức bỏ luôn sự quyết đoán thì như người mất của, mất búa.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Tiến lui không biết chỗ nào ở yên, là tại chí nó ngờ sợ."},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "vì nó quá nhún mà mất cái tính cương đoán, mất cái sẵn có, tức là mất của, búa đó."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Nhún mà có chủ kiến: theo người ngay thẳng, nói rõ lòng mình bằng sự thành thật, và khi phải ra lời hay đổi lời thì giữ ở mức trung chính.",
+   "from": [
+    {"seg": "hao2", "layer": "trinh_di", "quote": "Nết rất thành thực mà yên về đường khiêm nhún, có thể khiến cho thành ý thông đạt được nhiều thì tốt mà không lỗi"},
+    {"seg": "hao5", "layer": "trinh_di", "quote": "Ở thì nhún, ra mệnh lệnh đều lấy trung chính làm tốt"}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Nhún thuận mà thiếu lòng ngay bền thì vẫn có điều phải ăn năn; giữ được chính bền thì ăn năn mất đi và việc gì cũng thuận.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "nhún thuận mà không trinh, thì có ăn năn"},
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Vì nó có đức chính bền, mà tốt, cho nên được sự ăn năn mất đi mà không gì không lợi."}
+    ]
+   },
+   {
+    "text": "Người vốn cứng mà gượng nhún, nhún rồi lại lỗi, lỗi rồi lại nhún, thì chỉ thêm đáng tiếc; sự nhún phải từ trong ra mới đứng được.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "Cố gượng mà làm, luôn luôn lỗi mất, là cách đáng tiếc vậy"}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Nhún quá mức thành sợ sệt, tiến lui không quyết: lúc này cần mượn nết cứng cỏi, kiên định của người lính để dựng chí mình lên.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Cái người Âm mềm nhún thấp thái quá thì chí ý sợ hãi không yên, hoặc tiến hoặc lui, không biết đi theo đường nào."},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Lợi dụng nết cương trinh của người dùng võ để dựng chí mình, thì chí mình trị"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở dưới cùng, làm chủ quẻ Tốn dưới mà không được giữa: chỗ thấp nhất lại nhún quá mức.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Hào Đầu lấy chất Âm ở dưới, làm chủ thể Tốn, là kẻ nhún thấp thái quá"}
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "nếu lấy nết trinh của bọn võ nhân xử vào cảnh đó, thì có thể giúp thêm vào chỗ sức nó không tới, mà được thích nghi."
+   },
+   "topics": {
+    "hoc_tap": {
+     "text": "Người học đang lưỡng lự giữa nhiều hướng nên tự đặt cho mình một kỷ luật cứng như nhà binh; có nề nếp thì chí không còn chao đảo.",
+     "from": [
+      {"seg": "tieu_tuong1", "layer": "nghia", "quote": "Lời Tượng nói rằng: Tiến lui chí ngờ vậy; lợi về nết chính bền của người võ; chí trị vậy."}
+     ]
+    }
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Nhún đến mức nép dưới giường, nhưng vì lòng thật nên nói cho hết, bày tỏ nhiều lần như người cúng tế tỏ lòng thành, thì tốt và không lỗi.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Hai thực là cứng giữa, tuy thể Tốn mà ở chỗ mềm, là kẻ quá nhún, không phải là có tà tâm."},
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Cũng là lời Chiêm tốt lành về việc hết lòng thành để cúng tế vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ dưới mà đóng ngôi âm, chỗ thấp: có đức giữa nên tuy nhún mà không đến quá lắm.",
+    "from": [
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Hào Hai vì đóng ngôi mềm, ở chỗ thấp là tượng quá nhún"},
+     {"seg": "hao2", "layer": "chu_hy", "quote": "mà hào Hai lại có đức giữa, không đến quá lắm"}
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "lời Chiêm của nó, là: Có thể quá nhún mà lại đinh ninh phiền phức nói cho hết lời, để tự thông đạt, thì có thể tốt mà không lỗi."
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Vốn cứng cỏi mà bị dồn vào thế phải nhún, gượng nhún rồi lại lỗi, lỗi rồi lại nhún: chí không thi hành được, đáng tiếc.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Vì vậy liền lỗi mà liền phải nhún, đó là đáng tiếc vậy."},
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "thế nó không thể thi hành chí mình, cho nên liền lỗi mà liền nhún, ấy là chí nó cùng quẫn, đáng tiếc lắm vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, quá cứng không giữa, ở trên quẻ dưới, phía trên lại có hai lần cứng đè xuống.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba là chất Dương đóng ngôi cứng, không được giữa, lại ở bên trên thể dưới"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "ở trên lại có hai lần cứng nữa, dẫu muốn không nhún được chăng?"}
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Quá cứng chẳng giữa, ở trên thể dưới, không phải kẻ có thể nhún. Cố gượng mà làm, luôn luôn lỗi mất, là cách đáng tiếc vậy, cho nên Tượng, Chiêm của nó như thế."
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Không có người ứng giúp, lại đứng giữa những người cứng, lẽ ra dễ hối; nhưng giữ đúng chỗ và khéo nhún nên hối tan, có công như cuộc săn được ba phẩm.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Âm mềm không có ứng viện, mà kẻ nó vâng theo và kẻ nó cưỡi lên đều cứng, đáng có ăn năn"},
+     {"seg": "tieu_tuong4", "layer": "nghia", "quote": "Lời Tượng nói rằng: Săn được ba phẩm, có công vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, được chính, đứng dưới quẻ trên: ở trên mà vẫn biết nhún.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "hào Tư lấy chất Âm đóng ở ngôi Âm, được lẽ chính của sự nhún, ở dưới thể trên, là kẻ ở trên mà biết nhún."}
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "Âm mềm không có ứng viện, kẻ nó vâng theo và kẻ nó cưỡi lên, đều là chất cứng, đáng có ăn năn, nhưng nó lấy chất Âm đóng ngôi Âm, ở dưới quẻ trên cho nên được sự ăn năn mất đi mà lại là lời Chiêm tốt về việc bói đi săn vậy."
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Người ở chỗ ra lời ngay thẳng, giữa chính thì hối tan và việc gì cũng lợi; lúc đầu chưa đúng mà về sau sửa cho đúng, có thay đổi thì dặn trước, xét sau.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Có ăn năn là \"không đầu\" sự ăn năn mất đi là có chót."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Không gì không lợi, vì nó trinh và trung chính vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi tôn, được giữa được chính, làm chủ cả thời nhún, là nơi mệnh lệnh phát ra.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Năm ở ngôi tôn làm chủ thì nhún, mệnh lệnh do đó mà ra."},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Cái tốt của hào Chín Năm, vì nó ở chỗ giữa chính."}
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "Trước canh ba ngày là đinh, sau canh ba ngày là quý, định là để mà đinh ninh về trước khi chưa thay đổi, quý là để quỹ đạc về sau khi thay đổi. Có sự thay đổi mà được hào này, kẻ xem như thế thì tốt."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Nhún đến cùng cực, nép dưới giường, đánh mất tính quyết đoán vốn có như mất của, mất búa: cứ giữ thế ấy thì xấu.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Dương cứng vốn có tính quyết đoán"},
+     {"seg": "tieu_tuong6", "layer": "chu_hy", "quote": "\"Chính chưng hung\", ý nói ắt hung."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở trên cùng quẻ, chỗ cùng cực của thời nhún, nên mất đức cứng của mình.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "ở chỗ trên quẻ là nhún đến cùng cực"}
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "chu_hy",
+    "quote": "Nhún ở dưới giường là quá nhún, mất thửa của, búa, là mất cái để chặt, như thế thì tuy chính cũng hung. Ở vào cùng cực thể Tốn, mất đức Dương cứng, cho nên Tượng, Chiêm như thế."
+   }
+  }
+ }
+}

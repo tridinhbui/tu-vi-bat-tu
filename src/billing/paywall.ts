@@ -59,7 +59,7 @@ export async function buyPlan(db: D1Database, userId: string, fp: string, planId
 // ---------- who is reading ----------
 /** `open`: what this member opened for the chart in the request (chapters, Bát Tự tabs, "ai"). `credit`: xu already spent on packages for
  *  it (the lock card prices an upgrade with it). `shared`: the reader came through a share link. */
-export interface Access { tier: Tier; open: Set<string>; credit?: number; shared?: boolean }
+export interface Access { tier: Tier; open: Set<string>; credit?: number; shared?: boolean; paid?: boolean }
 export const GUEST: Access = Object.freeze({ tier: "guest", open: new Set<string>() }) as Access;
 /** A share link's viewer reads at the guest tier, whoever they are: the link opens someone else's chart. */
 export const SHARED: Access = Object.freeze({ tier: "guest", open: new Set<string>(), shared: true }) as Access;
@@ -195,12 +195,33 @@ export function gateSynthesis(out: Json, a: Access): Json {
   }) };
 }
 
+/** A Kinh Dịch / Mai Hoa cast has no chart to buy a package for: its Đọc sâu goes to any member who holds a paid package for some chart
+ *  (owner decision 2026-10-25). Everyone else gets the main reading whole and is told what the Đọc sâu holds. */
+export async function holdsPackage(db: D1Database, userId: string): Promise<boolean> {
+  return !!(await db.prepare("SELECT 1 AS x FROM unlocks WHERE user_id = ? LIMIT 1").bind(userId).first().catch(() => null));
+}
+export const CAST_PATHS = new Set(["/api/kinh-dich/reading", "/api/mai-hoa/reading"]);
+export function gateCast(out: Json, a: Access): Json {
+  const r = out?.reading;
+  if (!r || !Array.isArray(r.sections) || a.paid) return out;
+  let hidden = 0;
+  const sections = r.sections.map((sec: Json) => {
+    const ps: Json[] = Array.isArray(sec?.paragraphs) ? sec.paragraphs : [];
+    const kept = ps.filter(p => !isDeep(p));
+    hidden += ps.length - kept.length;
+    return { ...sec, paragraphs: kept };
+  }).filter((sec: Json) => sec.paragraphs.length);
+  if (!hidden) return out;
+  return { ...out, reading: { ...r, sections, locked: { tier: a.tier, deep: hidden, need: a.tier === "guest" ? "sign_in" : "package" } } };
+}
+
 export type Filter = (out: Json, a: Access) => Json;
 /** The filter for each gated path. /api/interpretation (the evidence engine: every conclusion of every palace, with its sources) has no
  *  first-half form: it goes to a reader with every chapter of the chart open, a guest is asked to sign in, a member to open the chart
  *  (the report works without it). */
 export const FILTERS: Record<string, Filter | "full"> = {
   "/api/interpret": gateOutput, "/api/overview": gateOverview, "/api/synthesis": gateSynthesis, "/api/interpretation": "full",
+  "/api/kinh-dich/reading": gateCast, "/api/mai-hoa/reading": gateCast,
 };
 
 const PRIVATE = "private, no-store";
@@ -227,7 +248,11 @@ export async function gated(request: Request, o: { db?: D1Database; paywall: boo
   const filter = FILTERS[o.path];
   if (!o.paywall || request.method !== "POST" || !filter) return run(request);
   const body = !o.shared ? await request.clone().json().catch(() => null) : null;
-  const who = o.shared ? Promise.resolve(SHARED) : o.db ? currentUser(o.db, request).then(u => accessFor(o.db, u, body)).catch(() => GUEST) : Promise.resolve(GUEST);
+  const db = o.db;
+  const who = o.shared ? Promise.resolve(SHARED)
+    : !db ? Promise.resolve(GUEST)
+    : CAST_PATHS.has(o.path) ? currentUser(db, request).then(async u => u ? { tier: "member" as Tier, open: new Set<string>(), paid: await holdsPackage(db, u.id) } : GUEST).catch(() => GUEST)
+    : currentUser(db, request).then(u => accessFor(db, u, body)).catch(() => GUEST);
   const [res, access] = await Promise.all([run(request), who]);
   return gateResponse(res, access, filter);
 }

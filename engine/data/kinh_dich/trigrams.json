@@ -1,0 +1,33 @@
+{
+ "note": "Eight quái: image and quality in Vietnamese as Ngô Tất Tố's preface words them (WEB:vi_kinhdich_ntt, 'Kinh Dịch/Những điều nên biết'); quality, animal, body, family and direction in Hán from 說卦 (WEB:zh_zhouyi, '周易/說卦'). 'vi' next to a 說卦 word is a plain gloss of that word, labelled gloss: it is not a quotation. Tested by engine/tests/test_kinh_dich_kb.py.",
+ "sources": {
+  "ntt": {"book": "WEB:vi_kinhdich_ntt", "chapter": "Kinh Dịch/Những điều nên biết"},
+  "shuogua": {"book": "WEB:zh_zhouyi", "chapter": "周易/說卦"}
+ },
+ "trigrams": {
+  "Kiền": {"han": "乾", "image": {"vi": "trời", "ntt": "Kiền là tượng trời"}, "quality": {"vi": "mạnh", "ntt": "tính Kiền thì mạnh", "han": "乾，健也"},
+           "animal": {"han": "乾為馬", "gloss": "ngựa"}, "body": {"han": "乾為首", "gloss": "đầu"}, "family": {"han": "乾，天也，故稱乎父", "gloss": "cha"},
+           "direction": {"han": "乾，西北之卦也", "gloss": "tây bắc"}},
+  "Khôn": {"han": "坤", "image": {"vi": "đất", "ntt": "Khôn là tượng đất"}, "quality": {"vi": "thuận", "ntt": "tính Khôn thì thuận", "han": "坤，順也"},
+           "animal": {"han": "坤為牛", "gloss": "trâu"}, "body": {"han": "坤為腹", "gloss": "bụng"}, "family": {"han": "坤，地也，故稱乎母", "gloss": "mẹ"},
+           "direction": null},
+  "Chấn": {"han": "震", "image": {"vi": "sấm", "ntt": "Chấn là tượng tiếng sấm"}, "quality": {"vi": "động", "ntt": "tính Chấn thì động", "han": "震，動也"},
+           "animal": {"han": "震為龍", "gloss": "rồng"}, "body": {"han": "震為足", "gloss": "chân"}, "family": {"han": "故謂之長男", "gloss": "con trai cả"},
+           "direction": {"han": "震，東方也", "gloss": "đông"}},
+  "Tốn": {"han": "巽", "image": {"vi": "gió", "ntt": "Tốn là tượng gió"}, "quality": {"vi": "nhún", "ntt": "tính Tốn là nhún", "han": "巽，入也"},
+          "animal": {"han": "巽為雞", "gloss": "gà"}, "body": {"han": "巽為股", "gloss": "đùi"}, "family": {"han": "故謂之長女", "gloss": "con gái cả"},
+          "direction": {"han": "巽，東南也", "gloss": "đông nam"}},
+  "Khảm": {"han": "坎", "image": {"vi": "nước", "ntt": "Khảm là tượng nước"}, "quality": {"vi": "hiểm", "ntt": "tính Khảm có khi là hiểm", "han": "坎，陷也"},
+           "animal": {"han": "坎為豕", "gloss": "lợn"}, "body": {"han": "坎為耳", "gloss": "tai"}, "family": {"han": "故謂之中男", "gloss": "con trai giữa"},
+           "direction": {"han": "正北方之卦也", "gloss": "bắc"}},
+  "Ly": {"han": "離", "image": {"vi": "lửa", "ntt": "Ly là tượng lửa"}, "quality": {"vi": "sáng", "ntt": "tính Ly có khi thì sáng", "han": "離，麗也"},
+         "animal": {"han": "離為雉", "gloss": "chim trĩ"}, "body": {"han": "離為目", "gloss": "mắt"}, "family": {"han": "故謂之中女", "gloss": "con gái giữa"},
+         "direction": {"han": "南方之卦也", "gloss": "nam"}},
+  "Cấn": {"han": "艮", "image": {"vi": "núi", "ntt": "Cấn là tượng núi"}, "quality": {"vi": "đậu", "ntt": "tính Cấn hay đậu", "han": "艮，止也"},
+          "animal": {"han": "艮為狗", "gloss": "chó"}, "body": {"han": "艮為手", "gloss": "tay"}, "family": {"han": "故謂之少男", "gloss": "con trai út"},
+          "direction": {"han": "艮，東北之卦也", "gloss": "đông bắc"}},
+  "Đoài": {"han": "兌", "image": {"vi": "chằm", "ntt": "Đoài là tượng chằm"}, "quality": {"vi": "đẹp lòng", "ntt": "tính Đoái hay đẹp lòng", "han": "兌，說也"},
+           "animal": {"han": "兌為羊", "gloss": "dê"}, "body": {"han": "兌為口", "gloss": "miệng"}, "family": {"han": "故謂之少女", "gloss": "con gái út"},
+           "direction": null}
+ }
+}

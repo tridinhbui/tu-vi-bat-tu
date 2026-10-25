@@ -2,12 +2,14 @@ import { Container, getContainer } from "@cloudflare/containers";
 import knowledge from "./interpret/generated/knowledge.json" with { type: "json" };
 import { handleAuth, isAuthPath, type AuthEnv } from "./auth/route.ts";
 import { handleAccount, isAccountPath } from "./account/route.ts";
+import { handleHorary, isHoraryPath } from "./horary/route.ts";
 import { currentUser } from "./auth/session.ts";
 import { bump, handleStats } from "./stats/stats.ts";
 import { handleChat } from "./chat/route.ts";
 import { handleFeedback, isFeedbackPath } from "./feedback/route.ts";
 import { handleAdmin, isAdminPath, type AdminEnv } from "./admin/route.ts";
 import { handleReferral, isReferralPath } from "./referral/route.ts";
+import { handleTarot, isTarotPath } from "./tarot/route.ts";
 import { handleDeep, handleDeepStatus } from "./chat/deep.ts";
 import { handleBilling, isBillingPath, paywallOn, type BillingEnv } from "./billing/route.ts";
 import { gated as gatedRoute } from "./billing/paywall.ts";
@@ -30,6 +32,7 @@ interface Env extends AuthEnv, BillingEnv, AdminEnv {
   CF_VERSION_METADATA?: { id: string };   // deploy version id (wrangler version_metadata); keys the interpretation cache
   TVBT_INTERPRET?: string;          // "1" enables /api/interpret (default off: the route answers 404)
   TVBT_PROSE_DRAFT?: string;        // "1" lets mode "prose" use prose cards that are still drafts (default: approved cards only)
+  TVBT_TAROT?: string;              // "1" turns on the Tarot API (src/tarot/route.ts); off (default), its paths answer 404
   TVBT_LUAN?: string;               // "0" turns off the luận cung chapters (prose/luan.ts) in the whole-report prose; on unless set to "0"
   INTERPRET_DB?: D1Like;            // optional D1 knowledge base + output cache (migrations/interpret)
   INTERPRET_CACHE?: R2Like;         // optional R2 bucket for cached outputs
@@ -88,6 +91,11 @@ export default {
     const path = new URL(request.url).pathname;
     if (path === "/api/stats") return handleStats(env.DB);
     if (isBillingPath(path)) return handleBilling(request, env, env.DB ? await currentUser(env.DB, request) : null);
+    // Tarot (/api/tarot/*, /api/me/tarot): before the /api/me/* account routes and the container forward
+    if (isTarotPath(path)) {
+      const on = env.TVBT_TAROT === "1";
+      return handleTarot(request, { db: env.DB, enabled: on, user: on && env.DB ? await currentUser(env.DB, request) : null });
+    }
     if (path === "/api/me/chat") return chatRoute(request, env, ctx, false);
     if (path === "/api/me/deep") return chatRoute(request, env, ctx, true);
     if (path === "/api/me/deep/status") {
@@ -97,12 +105,15 @@ export default {
     if (isFeedbackPath(path)) return handleFeedback(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isReferralPath(path)) return handleReferral(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isAdminPath(path)) return handleAdmin(request, env, env.DB ? await currentUser(env.DB, request) : null);
+    if (isHoraryPath(path)) return handleHorary(request, env.DB);
     if (isAccountPath(path)) return handleAccount(request, env.DB, shareForward(request, env, ctx));
     if (isAuthPath(path)) return handleAuth(request, env);
     if (path === "/api/interpret") return gated(request, env, path, false, r => interpretRoute(r, env, ctx));
     if (path === "/api/overview") return gated(request, env, path, false, r => overviewRoute(r, env, ctx));
     // the engine's own reading layers (behind TVBT_DEEP_INTERPRETATION in the container): cut like the rest
     if (path === "/api/synthesis" || path === "/api/interpretation") return gated(request, env, path, false, r => getContainer(env.TVBT, "main").fetch(r));
+    // Kinh Dịch / Mai Hoa readings: the main reading for everyone, Đọc sâu for a member who holds a paid package (paywall.ts gateCast)
+    if (path === "/api/kinh-dich/reading" || path === "/api/mai-hoa/reading") return gated(request, env, path, false, r => getContainer(env.TVBT, "main").fetch(r));
     // The container API is stateless and stores nothing (accounts live in the Worker, above), so one shared instance is enough.
     const res = await getContainer(env.TVBT, "main").fetch(request);
     // one more chart scan, counted only when the engine really produced the chart
