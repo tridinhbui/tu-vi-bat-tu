@@ -127,6 +127,13 @@ def test_book_example_mu_dan():
     assert r["the"]["trigram"] == "Tốn" and r["relations"]["dung"] == "khac_the"    # 巽木為體，乾金克之
 
 
+def test_book_example_knocks():
+    """卷一 鄰夜扣門借物占: 以一聲屬乾為上卦，以五聲屬巽為下卦 … 加酉時數共得十六數 … 得天風姤。第四爻變巽卦，互見重乾。"""
+    r = mai_hoa.by_sound(1, 10, second=5)
+    assert (r["ban"]["han"], r["moving"], r["ho"]["han"]) == ("姤", 4, "乾")
+    assert r["bien"]["upper"] == "Tốn"                                            # 第四爻變巽卦
+
+
 def test_remainders():
     assert mai_hoa.trigram_of_number(8) == "Khôn" and mai_hoa.trigram_of_number(16) == "Khôn" and mai_hoa.trigram_of_number(9) == "Kiền"
     assert mai_hoa.moving_of_number(12) == (6, True) and mai_hoa.moving_of_number(43) == (1, False)

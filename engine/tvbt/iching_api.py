@@ -30,6 +30,7 @@ class MaiHoaReq(BaseModel):
     method: Literal["thoi_gian", "vat_so", "thanh_am", "chu", "truong_xich", "xich_thon", "vat_phuong"]
     moment: str = Field(pattern=r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}")   # local time in Việt Nam when the cast is made
     count: int | None = Field(None, ge=1, le=100000)
+    second: int | None = Field(None, ge=1, le=100000)          # thanh_am: a second series of sounds (鄰夜扣門借物占)
     words: int | None = Field(None, ge=11, le=1000)
     zhang: int | None = Field(None, ge=1, le=1000)
     chi: int | None = Field(None, ge=1, le=1000)
@@ -75,7 +76,8 @@ def mai_hoa_cast(req: MaiHoaReq) -> dict:
     elif m in ("vat_so", "thanh_am"):
         if req.count is None:
             raise ValueError("count is required")
-        r = (mai_hoa.by_count if m == "vat_so" else mai_hoa.by_sound)(req.count, hour, month=month)
+        r = (mai_hoa.by_count(req.count, hour, month=month) if m == "vat_so"
+             else mai_hoa.by_sound(req.count, hour, second=req.second, month=month))
     elif m == "chu":
         if req.words is None:
             raise ValueError("words is required")

@@ -174,7 +174,7 @@ async function openHao(cast, p, opener) {
 const MH_FIELDS = {
   thoi_gian: () => `<p class="note small">Dùng năm, tháng, ngày âm lịch và giờ của thời điểm lập quẻ ở trên.</p>`,
   vat_so: () => num('mh-count', 'Số vật đếm được', 1),
-  thanh_am: () => num('mh-count', 'Số tiếng nghe được', 1),
+  thanh_am: () => `<div class="kd-mh-row">${num('mh-count', 'Số tiếng (lần đầu)', 1)}<label class="fld"><span>Lần sau (nếu có)</span><input id="mh-second" type="number" inputmode="numeric" min="1" placeholder="bỏ trống nếu chỉ một lần"></label></div>`,
   chu: () => num('mh-words', 'Số chữ (âm tiết), từ 11', 11),
   truong_xich: () => `<div class="kd-mh-row">${num('mh-zhang', 'Trượng', 1)}${num('mh-chi', 'Thước', 1)}</div>`,
   xich_thon: () => `<div class="kd-mh-row">${num('mh-chi', 'Thước', 1)}${num('mh-cun', 'Tấc', 1)}</div>`,
@@ -193,6 +193,7 @@ function mhInput() {
   const m = $('#mh-method').value, v = id => $(id) ? +$(id).value : undefined;
   const body = { method: m, moment: $('#mh-moment').value };
   if (m === 'vat_so' || m === 'thanh_am') body.count = v('#mh-count');
+  if (m === 'thanh_am' && $('#mh-second').value) body.second = v('#mh-second');
   if (m === 'chu') body.words = v('#mh-words');
   if (m === 'truong_xich') { body.zhang = v('#mh-zhang'); body.chi = v('#mh-chi'); }
   if (m === 'xich_thon') { body.chi = v('#mh-chi'); body.cun = v('#mh-cun'); }

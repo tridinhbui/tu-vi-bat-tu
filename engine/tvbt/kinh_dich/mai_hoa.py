@@ -34,6 +34,7 @@ C_TIME = cite(MEIHUA, MH1, "年月日為上卦。年月日加時總數為下卦�
 C_TIME_NUM = cite(MEIHUA, MH1, "如子年一數，丑年二數，直至亥年十二數。", "年月日時起例")
 C_VAT = cite(MEIHUA, MH1, "凡見有可數之物，即以此數起作上卦，以時數配作下卦。即以卦數並時數總除六取動爻。", "物數占例")
 C_AM = cite(MEIHUA, MH1, "凡聞聲音，數得幾數，起作上卦，加時數配作下卦。", "聲音占例")
+C_AM_TWO = cite(MEIHUA, MH1, "以一聲屬乾為上卦，以五聲屬巽為下卦，又以一乾五巽共六數，加酉時數共得十六數", "鄰夜扣門借物占")
 C_CHU = cite(MEIHUA, MH1, "十一字以上至於百字，皆可起卦。但十一字以上，又不用平仄聲音調之，止用字數。", "一字占至十一字占")
 C_CHU_SPLIT = cite(MEIHUA, MH1, "如字數不勻，即少一字為上卦，取天輕清之義，以多一字為下卦，取地重濁之義。", "字占")
 C_CHU_HAO = cite(MEIHUA, MH1, "又合二卦總數取爻。", "一字占至十一字占")
@@ -199,9 +200,20 @@ def by_count(count: int, hour_branch: int, *, month: int | None = None) -> dict:
                  inputs={"count": count, "hour_branch": hour_branch}, cites=[C_VAT, TIEN_THIEN_CITE, C_BAT, C_LUC])
 
 
-def by_sound(count: int, hour_branch: int, *, month: int | None = None) -> dict:
-    """聲音占例: the number of sounds -> upper; sounds + hour -> lower; hào động by 爻以六除 (重卦總數, 以時加之): sounds + hour."""
-    notes: list[str] = []
+def by_sound(count: int, hour_branch: int, *, second: int | None = None, month: int | None = None) -> dict:
+    """聲音占例: the number of sounds -> upper; sounds + hour -> lower; hào động by 爻以六除 (重卦總數, 以時加之): sounds + hour.
+    Two series of sounds (鄰夜扣門借物占: 初扣一聲 … 繼而又扣五聲): the first -> upper, the second -> lower, both + hour -> hào động."""
+    if second is not None:
+        notes: list[str] = []
+        total = count + second + hour_branch
+        upper, lower = trigram_of_number(count), trigram_of_number(second)
+        moving = _moving(total, notes)
+        steps = [_step("Thượng quái", f"lần đầu {count} tiếng; {r8(count)}", count, upper),
+                 _step("Hạ quái", f"lần sau {second} tiếng; {r8(second)}", second, lower),
+                 _step("Hào động", f"{count} + {second} + giờ {hour_branch} = {total}; {r6(total)}", total, moving)]
+        return build(upper, lower, moving, method="thanh_am", kind="tien_thien", steps=steps, month=month, notes=notes,
+                     inputs={"count": count, "second": second, "hour_branch": hour_branch}, cites=[C_AM_TWO, TIEN_THIEN_CITE, C_BAT, C_LUC])
+    notes = []
     total = count + hour_branch
     upper, lower = trigram_of_number(count), trigram_of_number(total)
     moving = _moving(total, notes)
