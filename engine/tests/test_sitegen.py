@@ -87,7 +87,8 @@ def _head(doc: str) -> str:
 
 
 def test_pages_have_seo_metadata_and_sources(out):
-    pages = {k: v for k, v in out.items() if k.endswith(".html")}
+    from tvbt.sitenav import HAND_PAGES        # hand-written pages: only their header comes from the generator
+    pages = {k: v for k, v in out.items() if k.endswith(".html") and k not in HAND_PAGES}
     assert len(pages) >= 70
     for rel, doc in pages.items():
         h = _head(doc)
@@ -141,3 +142,23 @@ def test_manifest_is_installable():
         assert (WEB / i["src"].lstrip("/")).exists()
     sw = (WEB / "sw.js").read_text("utf-8")
     assert "addEventListener('fetch'" in sw and "/api/" in sw
+
+
+def test_every_page_has_the_same_header(out):
+    """One header everywhere (tvbt/sitenav.py): the same nav items in the same order, so the bar does not jump between pages; only
+    aria-current differs, and it marks the page itself."""
+    from tvbt import sitenav
+    pages = {rel: doc for rel, doc in out.items() if rel.endswith(".html")}
+    assert set(sitenav.HAND_PAGES) <= set(pages) and len(pages) > 100
+    want = [(h, t) for _k, h, t, *_ in sitenav.ITEMS]
+    current = re.compile(r' aria-current="page"')
+    block = re.compile(r'<script>/\*nav-boot\*/.*?<script type="module" src="/js/nav\.js"></script>', re.S)
+    canonical = current.sub("", block.search(out["bai-viet/index.html"]).group(0))
+    for rel, doc in pages.items():
+        assert sitenav.nav_list(doc) == want, rel
+        assert doc.count('class="site-header') == 1, rel
+        assert current.sub("", block.search(doc).group(0)) == canonical, rel
+    assert 'data-k="bai-viet" aria-current="page"' in out["bai-viet/sao/tu-vi/index.html"]
+    assert 'data-k="home" data-go="hero" aria-current="page"' in out["index.html"]
+    assert "aria-current" not in block.search(out["privacy.html"]).group(0)
+    assert not re.search(r"\bAI\b", canonical)
