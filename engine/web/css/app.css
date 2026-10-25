@@ -145,7 +145,7 @@ input:hover,select:hover{border-color:var(--brass)}input:focus,select:focus{outl
 .site-footer{background:var(--parchment);border-top:1px solid var(--line);color:var(--text2);margin-top:var(--s8);padding:var(--s6) 0;font-size:.85rem}.foot{display:flex;justify-content:space-between;gap:var(--s5);align-items:center;flex-wrap:wrap}
 .foot-brand{display:flex;gap:12px;align-items:center;color:var(--ink)}.foot-brand .brand-mark{color:var(--ink)}.foot-brand b{font:600 1.2rem var(--serif)}.foot-brand p{margin:0;font-size:.8rem;color:var(--muted)}.foot-note{margin:0;max-width:44em}body[data-view=home] .site-footer{margin-top:0}
 .loading{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:rgba(250,246,239,.88);backdrop-filter:blur(6px)}.loading[hidden]{display:none}
-.loading-in{text-align:center;width:150px;color:var(--ink)}.loading-in p{font:italic 1.1rem var(--serif);margin-top:12px;color:var(--text2)}
+.loading-in{text-align:center;width:150px;color:var(--ink)}.loading-in p{font:italic 1.1rem var(--serif);margin-top:12px;color:var(--text2)}.loading-cancel{margin-top:14px;min-width:96px;min-height:40px}
 /* ---------- results ---------- */
 
 .res-sub{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:var(--s4);color:var(--text2);font-size:.95rem}.res-sub b{color:var(--ink)}

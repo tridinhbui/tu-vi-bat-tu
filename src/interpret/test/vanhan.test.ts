@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
-import { proseVanHan, tamHop, VAN_HAN_LAST_START } from '../prose/vanhan.ts';
+import { proseVanHan, tamHop, shownDecades } from '../prose/vanhan.ts';
 import { seedOf } from '../prose/chapter.ts';
 import type { ChartInput, Knowledge } from '../types.ts';
 
@@ -28,14 +28,14 @@ test('worked example: golden text, ages straight from chart.decades, every sente
   if (process.env.UPDATE_GOLDEN === '1' || !existsSync(goldenUrl)) writeFileSync(goldenUrl, o.text + '\n');
   assert.equal(o.text + '\n', readFileSync(goldenUrl, 'utf8'));
   assert.ok(o.pass, JSON.stringify(o.issues));
-  const want = (ex.facts as ChartInput).decades.filter(d => d.age_from <= VAN_HAN_LAST_START);
+  const want = shownDecades(ex.facts as ChartInput);
   assert.deepEqual(o.decades.map(d => [d.age_from, d.age_to, d.palace]), want.map(d => [d.age_from, d.age_to, d.palace]));
   // a book sentence names its rules and pages; a computed or common-meaning sentence (deep layers) says which it is
   for (const s of o.paragraphs.flatMap(p => p.sentences)) {
     if (s.trace.basis === 'sach') assert.ok(s.trace.rules.length && s.trace.cites.length, s.text);
     // the system's own sentences (S1): a hạn's Hóa under the convention of the hạn stem, its natal link, its level on the indices, its trend
     // against the previous hạn and what it touches most (review 2026-10-23); each says why
-    else if (s.trace.basis === 'he_thong') assert.ok(/^(hoa|natal|level|trend):|^focus$/.test(s.trace.step ?? ''), s.text);
+    else if (s.trace.basis === 'he_thong') assert.ok(/^(hoa|natal|level|trend|year):|^focus$/.test(s.trace.step ?? ''), s.text);
     else assert.ok(['tinh_toan', 'pho_thong'].includes(s.trace.basis), s.text);
     for (const id of s.trace.rules) assert.ok(o.evidence.rules[id]?.cites.length, id);
   }
@@ -50,7 +50,7 @@ test('1,000 charts: no blocking error, ages always the chart\'s, Thiên Lương 
   for (const c of corpus) {
     const f = c.facts as ChartInput, o = run(f);
     assert.ok(o.pass, `${c.label}: ${JSON.stringify(o.issues)}`);
-    const want = f.decades.filter(d => d.age_from <= VAN_HAN_LAST_START);
+    const want = shownDecades(f);
     assert.equal(o.starts.length, want.length);
     o.starts.forEach((pi, i) => {
       // a decade's sentences: its first paragraph and, when present, the one after it up to the next decade

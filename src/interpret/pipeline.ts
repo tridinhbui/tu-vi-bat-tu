@@ -110,7 +110,8 @@ export function interpret(chart: ChartInput, chapter: Chapter, k: Knowledge): Ch
     // word budget: a major chapter aims at 800–1,500 words when evidence allows; over budget, the lists are shortened (salience order),
     // never the reasoning paragraphs, and what was left out stays in the detailed evidence list. Text is never padded.
     paras = render(1);
-    for (const scale of [0.75, 0.5]) {
+    // (0.35: with five books a palace can gather enough readings that half the lists still run over)
+    for (const scale of [0.75, 0.5, 0.35]) {
       if (paras.map(p => p.text).join(' ').split(/\s+/).length <= 1500) break;
       paras = render(scale);
     }

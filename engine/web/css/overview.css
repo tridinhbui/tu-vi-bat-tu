@@ -55,6 +55,9 @@
 .ov-bandl{font-size:10px;fill:var(--muted);opacity:.85}
 .ov-bar{stroke:var(--raise,#FFFDF8);stroke-width:1}
 .ov-lv-0{fill:var(--lv0)}.ov-lv-1{fill:var(--lv1)}.ov-lv-2{fill:var(--lv2)}.ov-lv-3{fill:var(--lv3)}.ov-lv-4{fill:var(--lv4)}
+/* no book evidence (indices-3.0.0): a faint dashed column at the middle; a month with no level of its own: a hollow mark on the line */
+.ov-bar.is-thin{fill-opacity:.35;stroke:var(--ov-axis);stroke-dasharray:3 2}.ov-na{fill:none;stroke:var(--ov-axis);stroke-width:1.5;stroke-dasharray:2 2}
+.ov-lvchip.is-thin{opacity:.75;outline:1px dashed var(--ov-axis);outline-offset:1px}.ov-lv-bg-na{background:transparent;color:var(--muted)!important;border:1px dashed var(--ov-axis)}
 .ov-lv-bg-0{background:var(--lv0)}.ov-lv-bg-1{background:var(--lv1)}.ov-lv-bg-2{background:var(--lv2)}.ov-lv-bg-3{background:var(--lv3)}.ov-lv-bg-4{background:var(--lv4)}
 .ov-lvchip{display:inline-block;padding:2px 12px;border-radius:99px;color:#fff;font:600 .82rem var(--sans);letter-spacing:.02em}
 .ov-lvchip.ov-lv-bg-2{color:var(--ink,#2B2118)}
@@ -63,7 +66,7 @@
 .ov-basis{margin-top:6px;font-size:.84rem}.ov-basis summary{cursor:pointer;color:var(--accent);font-weight:500}
 .ov-basis .ov-table td small{color:var(--muted)}
 .ov-items{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px;max-height:320px;overflow:auto;overscroll-behavior:contain}.ov-items li p{margin:0}
-.ov-bzseg rect{stroke-width:1.2}.ov-bzseg text{font-size:10.5px;fill:var(--text)}
+.ov-bzseg rect{stroke-width:1.2}.ov-bzseg text{font-size:10.5px;fill:var(--text)}.ov-bzseg text.ov-bzs{font-size:9px}
 .ov-bz-dung rect,i.ov-bz-dung{fill:#B08A53;background:#B08A53;stroke:#8C6A38}.ov-bz-dung text{fill:#fff}
 .ov-bz-hy rect,i.ov-bz-hy{fill:rgba(176,138,83,.32);background:rgba(176,138,83,.32);stroke:#B08A53}
 .ov-bz-khong rect,i.ov-bz-khong{fill:transparent;background:transparent;stroke:var(--ov-axis);stroke-dasharray:3 3}

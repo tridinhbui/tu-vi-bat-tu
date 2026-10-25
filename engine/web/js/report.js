@@ -53,8 +53,8 @@ function evHtml(chs) {
 // ---------- reader prose for Mệnh (src/interpret/prose via /api/interpret mode "prose"): clean text, evidence per sentence on click ----------
 const PR_MOVE = { STRUCT: 'Cấu trúc cung', PHO_THONG: 'Nghĩa phổ thông', BALANCE: 'Cân bằng và hướng đi', ANCHOR: 'Nét lõi', BORROW: 'Nét lõi, mượn cung đối diện', ELABORATE: 'Biểu hiện', TURN: 'Mặt trái', RESCUE: 'Cứu giải', TENSION: 'Yếu tố làm sắc',
   TIMING: 'Nhịp thời gian', SATELLITE: 'Nét bổ trợ', VALUE: 'Giá trị', TRANSFORM: 'Hướng chuyển hóa', DEGREE: 'Nền độ số', EXTRA: 'Đường đời' };
-const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Nghiệm Lý (Thiên Lương, bản gõ)', NL: 'Nghiệm Lý 1974 (Thiên Lương, bản scan HELEN)', ZZ: 'Bát Tự Chân Tông' };
-const prCite = c => String(c).replace(/^(TH|KL|TT|TL|NL|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
+const PR_BOOK = { TH: 'Thực Hành', KL: 'Khảo Luận', TT: 'Toàn Thư', TL: 'Nghiệm Lý (Thiên Lương, bản gõ)', NL: 'Nghiệm Lý 1974 (Thiên Lương, bản scan HELEN)', HS: 'Tử Vi Hàm Số (Nguyễn Phát Lộc)', ZZ: 'Bát Tự Chân Tông' };
+const prCite = c => String(c).replace(/^(TH|KL|TT|TL|NL|HS|ZZ)\s*(?:PDF\s*)?pp?\.\s*/, (_, b) => `${PR_BOOK[b] || b} tr.`);
 // star names in reader prose take the board's ngũ hành colour (stars_hanh.js, a display convention) and the chính tinh are bold, as on the
 // board; "Phúc Đức" is left alone (it is also the palace's name)
 const PR_STARS = Object.keys(HANH).filter(n => n !== 'Phúc Đức').sort((a, b) => b.length - a.length);
@@ -114,7 +114,7 @@ function reportFoot(prefix, prose) {
   const draft = ps.some(p => p.draft !== false), limits = [...new Set(ps.flatMap(p => p.evidence?.limits || []))];
   const advice = ps.some(p => p.advice?.strengths?.length || p.advice?.actions?.length);
   const li = [
-    'Văn bản do bộ máy ghép, không dùng mô hình AI: chỉ gồm nhận định đã đối chiếu sách, dữ kiện tính từ lá số và lời nối của hệ thống. Nhấn vào một câu để xem câu sách, trang sách và ghi chú phía sau nó.',
+    'Văn bản do bộ máy ghép, chỉ gồm nhận định đã đối chiếu sách, dữ kiện tính từ lá số và lời nối của hệ thống. Nhấn vào một câu để xem câu sách, trang sách và ghi chú phía sau nó.',
     prefix === 'tv' ? `Độ sáng các sao theo bảng ${DG_NAME[prSchool] || prSchool}${prSchool !== 'thuc_hanh' ? '; nhận định của sách Thực Hành, Toàn Thư được xét trên bảng này' : ''}.` : '',
     advice ? 'Các gợi ý hướng hành động là lời của hệ thống, rút từ chính các nét đã nêu; không phải lời sách.' : '',
     draft ? 'Thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt.' : '',

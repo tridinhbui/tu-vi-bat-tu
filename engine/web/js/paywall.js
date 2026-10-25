@@ -66,7 +66,7 @@ function memberCard(L) {
   const tag = placeholderTag(), buttons = planButtons(L);
   // collapsed: the offer opens only when the reader clicks the "Đọc sâu" line (owner 2026-10-23: no xu cards spread open across the page)
   return `<details class="pw-deep-fold"><summary><span class="cb-t">Đọc sâu (theo sách)</span><span class="cb-s">${Number(L.deep) || ''} đoạn</span></summary><div class="pw-lock pw-deep" data-tier="member" data-locked="${esc(L.chapter)}">
-    <p><b>${esc(L.title)}</b> còn ${Number(L.deep) || ''} đoạn Đọc sâu: vì sao có kết luận, tổ hợp sao hỗ trợ, yếu tố làm mạnh hay yếu, kèm trang sách. Phần này viết theo luật từ sách, không phải AI.</p>
+    <p><b>${esc(L.title)}</b> còn ${Number(L.deep) || ''} đoạn Đọc sâu: vì sao có kết luận, tổ hợp sao hỗ trợ, yếu tố làm mạnh hay yếu, kèm trang sách. Phần này viết theo luật từ sách.</p>
     ${buttons ? `<div class="pw-plans">${buttons}</div>` : ''}<p class="small muted">Mở một lần cho lá số này, đọc lại không tốn thêm.${tag} <a href="/bang-gia">Xem bảng giá và nạp xu</a></p><p class="pw-msg small" role="status" aria-live="polite"></p></div></details>`;
 }
 

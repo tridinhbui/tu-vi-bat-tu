@@ -33,13 +33,13 @@ async function boot() {
 const PLAN_POINTS = {
   van_nam: ['Đại hạn, tiểu hạn, lưu niên Tử Vi', 'Đại vận, Lưu niên Bát Tự', 'Trọn luận chính và Đọc sâu (theo sách)'],
   tron_bo: ['Mười hai cung, Tổng luận, mọi mục Bát Tự', 'Gồm cả gói Vận năm', 'Trọn luận chính và Đọc sâu, kèm trang sách'],
-  cao_cap: ['Gồm cả gói Trọn bộ', 'Luận AI cho mọi chương: bài viết riêng cho lá số', '30 ngày chat với Bát Bát (tới 30 câu/ngày)'],
+  cao_cap: ['Gồm cả gói Trọn bộ', 'Luận riêng cho mọi chương: bài viết riêng cho lá số', '30 ngày chat với Bát Bát (tới 30 câu/ngày)'],
 };
 function paintPlans() {
   const tag = plans.placeholder ? `<small class="muted"> · ${esc(plans.placeholderLabel)}</small>` : '';
   $('#cm-plans').innerHTML = plans.plans.map(p => `<article class="cm-card cm-plan${p.id === 'tron_bo' ? ' cm-pick' : ''}">${p.id === 'tron_bo' ? '<p class="cm-badge">Gợi ý</p>' : ''}<h3>${esc(p.name)}</h3><p class="cm-price">${xu(p.coins)}${tag}</p>`
     + (PLAN_POINTS[p.id] ? `<ul class="cm-points" title="${esc(p.blurb)}">${PLAN_POINTS[p.id].map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : `<p>${esc(p.blurb)}</p>`) + '</article>').join('')
-    + `<article class="cm-card cm-plan"><h3>Luận AI lẻ</h3><p class="cm-price">${xu(plans.costs.deep)}${tag}</p><p>Một chương do AI viết riêng cho lá số, khoảng 500–800 từ, chỉ từ dữ kiện và luận giải đã có; bấm ở thẻ “Luận AI” dưới chương. Khác với phần Đọc sâu (theo sách). Viết hỏng thì xu được hoàn lại.</p></article>`;
+    + `<article class="cm-card cm-plan"><h3>Luận riêng lẻ</h3><p class="cm-price">${xu(plans.costs.deep)}${tag}</p><p>Một chương viết riêng cho lá số, khoảng 500–800 từ, chỉ từ dữ kiện và luận giải đã có; bấm ở thẻ “Luận riêng” dưới chương. Khác với phần Đọc sâu (theo sách). Viết hỏng thì xu được hoàn lại.</p></article>`;
 }
 
 function paintPacks() {
@@ -105,7 +105,7 @@ function label(h) {
   if (h.kind === 'gift') return `Mã quà tặng <code>${esc(ref.slice(5))}</code>`;
   if (h.kind === 'refund_coin') return 'Hoàn xu';
   if (h.usage === 'chat') return 'Hỏi đáp về lá số';
-  if (h.usage === 'deep') return 'Luận AI';
+  if (h.usage === 'deep') return 'Luận riêng';
   if (h.usage.startsWith('unlock:')) return `Mở gói: ${esc(PLAN_NAME()[h.usage.slice(7)] || h.usage.slice(7))}`;
   return esc(h.kind);
 }
