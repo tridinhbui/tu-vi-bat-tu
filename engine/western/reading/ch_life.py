@@ -123,7 +123,8 @@ def career(f: Facts) -> list[Para]:
         if lp["modifiers"]:
             t5 += f"Lilly còn nói các sao khác chiếu sao chủ nghề sẽ điều chỉnh nó: ở đây {listing([mod_vi[m] for m in lp['modifiers']])} (tr.626). "
         if not lp["skilled"]:
-            t5 += cap(LP["no_profession"]["vi"]) + " (tr.625); với đời sống hiện nay, điều đó có thể hiểu là con đường nghề nghiệp ít theo khuôn và hay đổi hướng. "
+            t5 += ("Không sao nào trong ba sao đạt hai phép thử đầu (đứng ở góc với phẩm vị của mình, hoặc làm chủ Thiên Đỉnh mà có phẩm vị), nên Lilly cho rằng người ấy khó theo một nghề "
+                   "có tay nghề rõ rệt (tr.625); với đời sống hiện nay, điều đó có thể hiểu là con đường nghề nghiệp ít theo khuôn và hay đổi hướng. ")
         t5 += {"strong": f"{P(sg)} có phẩm vị, ở góc và mọc trước Mặt Trời: Lilly đọc là người dễ nổi tiếng trong nghề (tr.631).",
                "weak": f"{P(sg)} yếu hoặc ở nhà suy: Lilly đọc là tay nghề khó được ghi nhận, nên cần chủ động tạo chỗ đứng (tr.631-632).",
                "middle": f"Sức của {P(sg)} ở mức vừa, nên Lilly không hứa danh tiếng lớn mà cũng không coi là trở ngại (tr.631-632)."}[lp["fame"]]
@@ -245,7 +246,7 @@ def relations(f: Facts) -> list[Para]:
          f"đang {lilly_condition(f, l7)}. ")
     t += (f"Lilly lấy dấu hiệu cung Nhà 7 để tả dáng người kia và chủ của nó để tả tính nết (tr.600-602): {P(l7)} {'đắc thế' if f.lilly_state(l7) == 'well' else 'thất thế' if f.lilly_state(l7) == 'ill' else 'ở mức lưng chừng'}. ")
     if in7:
-        t += f"Trong Nhà 7 có {planet_list(in7)}, cũng là những sao Lilly bảo phải tính tới."
+        t += f"Trong Nhà 7 có {planet_list(in7)}, {'cũng là sao' if len(in7) == 1 else 'cũng là những sao'} Lilly bảo phải tính tới."
     gendered = []
     if f.gender in ("male", "female"):
         a, b = (("venus", "moon") if f.gender == "male" else ("sun", "mars"))
@@ -354,7 +355,8 @@ def direction(f: Facts) -> list[Para]:
         t2 = (f"Valens đặt hai điểm cạnh nhau: Lot of Fortune nói về thân thể và việc của đôi tay, Lot of Daimon (Spirit) nói về tâm trí, dự định và việc cho nhận (II.19). "
               f"Fortune ở {S(fort['sign'])} (Nhà {fort['house_ws']} tính trọn cung, chủ {P(fr)}); Daimon ở {S(spirit['sign'])} (Nhà {spirit['house_ws']}, chủ {P(sr)}). ")
         if dignity.domicile_lord(spirit["sign"]) and f.b[sr]["sign"] in (fort["sign"], SIGNS[(sign_index(fort["lon"]) + 9) % 12]):
-            t2 += "Chủ của Daimon đứng ngay ở Fortune hoặc ở chỗ thứ 10 tính từ Fortune: Valens coi đây là trường hợp tốt nhất, khi điều mình định làm và cái mình gặt được đi cùng một hướng."
+            where = "ngay ở cung của Fortune" if f.b[sr]["sign"] == fort["sign"] else f"ở chỗ thứ 10 tính từ Fortune ({S(f.b[sr]['sign'])})"
+            t2 += f"Chủ của Daimon là {P(sr)} đứng {where}: Valens coi đây là trường hợp tốt nhất, khi điều mình định làm và cái mình gặt được đi cùng một hướng."
         else:
             t2 += "Hai điểm này không nối với nhau theo kiểu Valens khen nhất, nên điều mình muốn và điều đời mang tới có thể đi hai đường; biết điều đó giúp chọn việc cho đúng sức."
         out.append(Para("dh.valens", "Fortune và Daimon theo Valens", t2, "hellenistic", srcs("VALENS_ANTH:II.19"),

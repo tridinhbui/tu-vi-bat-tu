@@ -45,6 +45,10 @@ def lilly_condition(f: Facts, p: str, with_house: bool = True) -> str:
     return listing(bits)
 
 
+def described(f: Facts, p: str) -> bool:
+    return p in f.__dict__.get("_described", set())
+
+
 def _sect_paragraph(f: Facts) -> Para | None:
     if not f.time_known:
         return None
@@ -291,7 +295,9 @@ def _ptolemy_soul(f: Facts) -> Para:
               f"{listing(soul['honourable'], 5)} ({soul['loc'].replace('pp.', 'tr.').replace('p.', 'tr.')}).")
         pol = +1
     else:
-        t += (f"Nhưng {P(r)} đang ở chỗ không phải của nó (hoặc dưới tia Mặt Trời), nên Ptolemy nghiêng về vế ngược lại: "
+        why_not = ("đang nằm dưới tia Mặt Trời" if f.c["conditions"][r].get("solar", {}).get("phase") else
+                   f"đang ở {S(f.b[r]['sign'])}, không phải nhà, cung tôn vinh hay tam hợp của nó")
+        t += (f"Nhưng {P(r)} {why_not}, nên Ptolemy nghiêng về vế ngược lại: "
               f"{listing(soul['opposite'], 4)}; đó là những nét dễ trượt vào khi sao cai quản yếu, chứ không phải bản án.")
         pol = -1
     mods = []
@@ -423,7 +429,8 @@ def emotions(f: Facts) -> list[Para]:
     moon_sign = f.b["moon"]["sign"]
     st = f.lilly_state("moon")
     mm = M["planets"]["moon"]
-    t2 = (f"Với Lilly, Mặt Trăng {'đắc thế' if st == 'well' else 'thất thế' if st == 'ill' else 'ở mức lưng chừng'} ({lilly_condition(f, 'moon', f.time_known)}). "
+    word = 'đắc thế' if st == 'well' else 'thất thế' if st == 'ill' else 'ở mức lưng chừng'
+    t2 = (f"Với Lilly, Mặt Trăng {word}" + ("" if described(f, "moon") else f": {lilly_condition(f, 'moon', f.time_known)}") + ". "
           + (f"Mặt Trăng mạnh cho người {listing(mm['lilly_well']['vi'], 4)} (tr.81)." if st != "ill"
              else f"Mặt Trăng yếu, theo ông, dễ khiến người ta {listing(mm['lilly_ill']['vi'], 2)}; ngày nay có thể hiểu đó là những lúc thiếu điểm tựa cảm xúc, cần nề nếp để giữ mình (tr.81)."))
     out.append(Para("cx.lilly", "Mặt Trăng theo Lilly", t2, "traditional", srcs("LILLY_CA:p.81", "LILLY_CA:p.104"), [ev_planet(c, "moon")], "deep",

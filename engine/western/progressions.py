@@ -112,7 +112,7 @@ def timeline(natal: dict, from_age: float, to_age: float, orb: float = 1.0,
             if tname == body:
                 continue
             for asp in aspects:
-                for target in sorted({(L + defs[asp]) % 360, (L - defs[asp]) % 360}):
+                for target in sorted({round((L + defs[asp]) % 360, 9) % 360, round((L - defs[asp]) % 360, 9) % 360}):
                     g = (lon - target + 180) % 360 - 180
                     for k in np.nonzero((np.sign(g[:-1]) != np.sign(g[1:])) & (np.abs(g[:-1]) < 20))[0]:
                         x = root(body, target, grid[k], grid[k + 1])

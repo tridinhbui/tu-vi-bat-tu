@@ -119,7 +119,7 @@ def find(natal: dict, start: dt.datetime, end: dt.datetime, transiting=TRANSITIN
             L = pts[tname]["lon"]
             for asp in aspects:
                 ang = defs[asp]
-                for target in sorted({(L + ang) % 360.0, (L - ang) % 360.0}):
+                for target in sorted({round((L + ang) % 360.0, 9) % 360.0, round((L - ang) % 360.0, 9) % 360.0}):
                     g = (lon - target + 180.0) % 360.0 - 180.0
                     inside = np.abs(g) <= orb
                     cross = (np.sign(g[:-1]) != np.sign(g[1:])) & (np.abs(g[:-1]) < 30) & (np.abs(g[1:]) < 30)
