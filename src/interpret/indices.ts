@@ -43,7 +43,7 @@ import { SAT } from './reason/structures.ts';
 import { toanThuLines } from './prose/vanhan_books.ts';
 
 
-export const INDICES_VERSION = 'indices-3.1.1';
+export const INDICES_VERSION = 'indices-3.2.0';
 export const DISCLAIMER = 'Mức tổng hợp từ câu sách và thông lệ có ghi nhãn, so với 1.000 lá số mẫu; không phải xác suất hay dự báo.';
 
 export type Side = 'support' | 'limit';
@@ -90,10 +90,26 @@ export const VAN_RULES: Record<string, { side: Side; w: number }> = {
   TH_TPVT_KHONG_KIEP_KY: { side: 'limit', w: 1 }, TH_NDCC_KHONG_KIEP: { side: 'limit', w: 1 },
   // TH p.115 IX.6 ("rất kỵ"), IX.9 ("rất hại"), IX.10 ("hoạnh phát"), p.117 6n ("tất gặp lắm tai ương"; IX.9 and 6n are told "rất bất
   // lợi", owner 2026-10-24), indices-3.1.0; IX.10's other
-  // half ("không hề gì") is in VAN_NO_SIDE. The page-checked list of TH pp.115-117 and the rules awaiting review: docs/INDICES-TH115-117.md.
+  // half ("không hề gì") is in VAN_NO_SIDE and takes back the Kình / Đà hãm in dhItems (KL233_HAM_TH115_IX10). The page-checked list of
+  // TH pp.115-117, each rule's reading and its corpus count: docs/INDICES-TH115-117.md.
   TH_IX6_GIAP_THUONG_SU: { side: 'limit', w: 1 }, TH_IX6_CANH_THUONG_SU: { side: 'limit', w: 1 }, TH_IX9_THAN_THUONG: { side: 'limit', w: 1 },
   TH_IX10_TU_MO_KINH_DA_PHAT: { side: 'support', w: 1 }, TH_6N_SPT_TANG_HO: { side: 'limit', w: 1 },
+  // the rules of TH pp.115-117 that name death, prison, injury, illness, burns, drowning or mourning (owner's decision 2026-10-24: added,
+  // told only as "theo sách rất bất lợi"). TH_6I / TH_6J are the tiểu hạn's only, TH_IX7 needs đại and tiểu hạn on one palace (VAN_HAN).
+  TH_IX7_TRUNG_PHUNG_TY: { side: 'limit', w: 1 }, TH_IX8_THUONG_SU_TUE: { side: 'limit', w: 1 }, TH_IX11_SAT_HAM_HINH_HO: { side: 'limit', w: 1 },
+  TH_DC5_PHOI: { side: 'limit', w: 1 }, TH_6A_CNDL_SAT: { side: 'limit', w: 1 }, TH_6B_SPLT_KHONG: { side: 'limit', w: 1 },
+  TH_6D_CU_CO_DONG_LUONG: { side: 'limit', w: 1 }, TH_6F_NHAT_NGUYET: { side: 'limit', w: 1 }, TH_6G_PHA_LIEM_THAM: { side: 'limit', w: 1 },
+  TH_6H_THIEN_DONG: { side: 'limit', w: 1 }, TH_6I_TANG_HOA_LINH: { side: 'limit', w: 1 }, TH_6J_CO_LUONG_THIN_TUAT: { side: 'limit', w: 1 },
+  TH_6K_SPLT_TANG_HO: { side: 'limit', w: 1 }, TH_6L_KINH_KHONG_PHUC_BINH: { side: 'limit', w: 1 }, TH_6M_THAM_LIEM_VU: { side: 'limit', w: 1 },
+  TH_6O_THAM_LIEM_KY_KIEP: { side: 'limit', w: 1 }, TH_7A_NHAT_NGUYET_DA: { side: 'limit', w: 1 }, TH_7B_PHU_TUONG_CO_QUA: { side: 'limit', w: 1 },
+  TH_7C_PHU_TUONG_TANG_HO: { side: 'limit', w: 1 }, TH_7D_SPLT_HAO_TANG: { side: 'limit', w: 1 }, TH_7E_CO_QUA_DAO_HONG: { side: 'limit', w: 1 },
+  TH_7F_TPVT_CO_QUA_HAO: { side: 'limit', w: 1 }, TH_7G_KHONG_TANG_HO: { side: 'limit', w: 1 }, TH_7H_HINH_KINH_TANG: { side: 'limit', w: 1 },
+  TH_7I_CNDL_TANG_HO: { side: 'limit', w: 1 },
 };
+/** The kind of hạn a vận sentence is for (the reading's `han`, from van_han_rules.json): 'tieu' = the tiểu hạn only; 'trung_phung' = the
+ *  year whose tiểu hạn stands on its đại hạn palace. A sentence without one reads on every hạn palace. */
+type Han = 'dai' | 'tieu' | 'trung_phung';
+const hanFits = (rule: string | undefined, han: Han) => !rule || (rule === 'tieu' ? han !== 'dai' : han === 'trung_phung');
 /** Vận sentences whose page names no side: told in the reading, never scored. */
 export const VAN_NO_SIDE: ReadonlySet<string> = new Set(['TH_IX10_TU_MO_KINH_DA']);
 export const TRIAD_RULES: ReadonlySet<string> = new Set(['VH_THAI_TUE', 'VH_QUAN_PHU', 'VH_BACH_HO']);
@@ -302,11 +318,11 @@ type DecadeFacts = ChartInput['decades'][number] & { tt?: Array<{ text: string; 
 
 /** The book sentences of a vận palace (đại hạn, tiểu hạn, lưu đại hạn): rule-id readings, Toàn Thư paraphrases, Khảo Luận pp.230-233 facts.
  *  `where` is added to each cite when the palace is placed by another page (the lưu đại hạn of TH pp.117-118). */
-function vanItems(palace: string, layer: Layer, readings: DecadeFacts['readings'], tt: ReturnType<typeof toanThuLines>, kl: DecadeFacts['kl'], where = ''): Item[] {
+function vanItems(palace: string, layer: Layer, readings: DecadeFacts['readings'], tt: ReturnType<typeof toanThuLines>, kl: DecadeFacts['kl'], where = '', han: Han = 'dai'): Item[] {
   const list: Item[] = [];
   const add = (it: Omit<Item, 'layer' | 'palace' | 'scope' | 'book'>) => list.push({ ...it, cite: it.cite + where, w: r3(it.w), layer, palace, scope: 'self', book: bookOf(it.cite) });
-  for (const r of readings as Array<{ text: string; src: string; rule_id?: string | null }>) {
-    const t = r.rule_id ? VAN_RULES[r.rule_id] : undefined;
+  for (const r of readings as Array<{ text: string; src: string; rule_id?: string | null; han?: string }>) {
+    const t = r.rule_id && hanFits(r.han, han) ? VAN_RULES[r.rule_id] : undefined;
     if (t) add({ id: r.rule_id!, side: t.side, w: t.w, cite: TRIAD_RULES.has(r.rule_id!) ? `${r.src}; KL tr.233 (tam hợp Thái Tuế, Quan Phù, Bạch Hổ: “bất kể Mệnh đóng ở vị trí nào”)` : r.src,
       text: r.text, basis: 'sach', gist: gistOf(r.text) });
   }
@@ -337,6 +353,9 @@ function brightness(p: Palace, star: string): { value: string; locator: string }
 /** KL p.233 mục 3-4 on a vận palace: the chính, trung and hung tinh of the palace, its xung chiếu and tam hợp, and its nhị hợp when the
  *  nhị hợp generates the vận (mục 3; đại hạn only: `kl.nhi_hop.counts`). With `kl.xung_controlled` (KL p.232) the vận "từ chối sao xấu của
  *  cung xung chiếu": the hãm stars of the opposite palace are not counted. `what` names the palace's role in the words. */
+const KINH_DA = new Set(['Kình Dương', 'Đà La']), TU_MO = new Set(['Thìn', 'Tuất', 'Sửu', 'Mùi']);
+/** "lưỡng hạn" of TH p.115 IX.10: the đại hạn (and its lưu đại hạn) and the tiểu hạn, not the nguyệt hạn. */
+const IX10_LAYERS: ReadonlySet<Layer> = new Set<Layer>(['van', 'tieu_han', 'luu_dai_han']);
 function dhItems(c: Ctx, at: string, layer: Layer, kl: DecadeFacts['kl'] | null, what: string, where = ''): Item[] {
   const seats: Array<{ p: Palace; rel: Rel }> = tamPhuong(c, at);
   const nh = kl?.nhi_hop?.counts ? c.byName.get(kl.nhi_hop.palace) : undefined;
@@ -356,6 +375,12 @@ function dhItems(c: Ctx, at: string, layer: Layer, kl: DecadeFacts['kl'] | null,
     out.push({ id, side: giai || good ? 'support' : 'limit', w: r3(w), layer, palace: p.name, scope: rel, basis: 'sach', book: 'Khảo Luận', star, dignity: b.value,
       cite: `${KL233}${rel === 'nhi_hop' ? ' và mục 3 (cung nhị hợp sinh xuất cho cung vận)' : ''}; độ sáng: ${b.locator}${where}`,
       text: `${star} ${b.value} ở ${p.branch} (cung ${p.name}${rel === 'self' ? `, chính cung ${what}` : `, ${REL_VI[rel]} của cung ${what}`}): ${reading}.` });
+    if (bad && rel === 'self' && KINH_DA.has(star) && IX10_LAYERS.has(layer) && TU_MO.has(c.chart.year_gz?.split(' ')[1] ?? ''))
+      // TH p.115 IX.10 "Người tuổi Thìn, Tuất, Sửu, Mùi mà lưỡng hạn gặp Kình, Đà, không hề gì" (owner 2026-10-24: it cancels the KL p.233 hãm):
+      // the hãm stays in the list and this item takes it back, so both books are told. KL233_ prefix: it follows the hãm into the đẩu tinh layer.
+      out.push({ id: 'KL233_HAM_TH115_IX10', side: 'support', w: r3(w), layer, palace: p.name, scope: rel, basis: 'sach', book: 'Thực Hành', star, dignity: b.value,
+        cite: `TH tr.115 mục IX.10 (người tuổi Thìn, Tuất, Sửu, Mùi mà lưỡng hạn gặp Kình, Đà, không hề gì), bù phần hãm của ${KL233}; độ sáng: ${b.locator}${where}`,
+        text: `${star} ${b.value} ở ${p.branch} (chính cung ${what}): tuổi ${c.chart.year_gz.split(' ')[1]} gặp Kình, Đà thì Thực Hành nói không hề gì, nên phần hãm địa được bù lại.` });
   }
   return out.sort((a, b) => b.w - a.w || (a.star! < b.star! ? -1 : 1));
 }
@@ -507,7 +532,8 @@ export function periodInputs(chart: ChartInput, k: Knowledge, norms: IndexNorms 
     const vd = vanOf.get(p.name);
     // the viewed year carries its own Toàn Thư / Khảo Luận facts for the tiểu hạn palace (facts.year); they equal the decade entry of that palace
     const own = y === Y0 && rule === factsRule && yf.tieu_han_palace === p.name;
-    const th = [...vanItems(p.name, 'tieu_han', vd?.readings ?? [], vd ? toanThuLines(chart, vd, 99) : [], own && yf.tieu_han_kl ? yf.tieu_han_kl : vd?.kl),
+    const th = [...vanItems(p.name, 'tieu_han', vd?.readings ?? [], vd ? toanThuLines(chart, vd, 99) : [], own && yf.tieu_han_kl ? yf.tieu_han_kl : vd?.kl,
+      '', d?.palace === p.name ? 'trung_phung' : 'tieu'),
       ...dauItems(chart, p, 'tieu_han', 'tiểu hạn'), ...dhItems(c, p.name, 'tieu_han', null, 'tiểu hạn')];
     const ld = d ? c.byIndex.get(luuDaiHanBranch(c.byName.get(d.palace)!.branch_index, dhDir, age - d.age_from))! : null, ldv = ld ? vanOf.get(ld.name) : undefined;
     const lh = ld ? [...vanItems(ld.name, 'luu_dai_han', ldv?.readings ?? [], ldv ? toanThuLines(chart, ldv, 99) : [], ldv?.kl, LDH_CITE), ...dauItems(chart, ld, 'luu_dai_han', 'lưu đại hạn', LDH_CITE),
