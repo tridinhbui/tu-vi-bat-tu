@@ -73,6 +73,7 @@ async function readKinhDich(input, share) {
   try { data = await post('/api/kinh-dich/reading', { ...input, topic: topic() || null }); }
   catch (e) { res.innerHTML = `<p class="notice warn">Không đọc được quẻ lúc này (${esc(e.message || e)}). Thử lại sau giây lát.</p>`; return; }
   current = { kind: 'kd', data, share: { ...share, t: topic() } };
+  if (tosses.length === 6) $('#kd-toss').textContent = 'Đã gieo đủ 6 hào';
   renderKinhDich(data);
   remember();
 }

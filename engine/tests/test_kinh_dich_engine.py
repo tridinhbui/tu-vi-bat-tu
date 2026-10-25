@@ -189,7 +189,13 @@ def _cites():
            coins.COIN_CITE, coins.FACES_CITE]
     out += [c for cs in doc_hao.CITES.values() for c in cs]
     out += [v for k, v in vars(mai_hoa).items() if k.startswith("C_")]
+    out += [o["cite"] for n in range(7) for o in doc_hao.other_schools(n)]
     return out
+
+
+def test_other_schools_by_count():
+    assert [o["school"] for o in doc_hao.other_schools(2)] == ["trinh_hoi", "han_bang_ky"]
+    assert [o["school"] for o in doc_hao.other_schools(1)] == ["trinh_hoi"]
 
 
 @pytest.mark.parametrize("c", _cites(), ids=lambda c: c["quote"][:16])

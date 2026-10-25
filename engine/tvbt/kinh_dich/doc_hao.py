@@ -82,3 +82,34 @@ def resolve(cast: dict) -> dict:
             main, also = text_ref(bien, "thoan"), []
             note = "lời quẻ biến"
     return {"school": SCHOOL, "school_vi": SCHOOL_VI, "moving_count": n, "main": main, "also": also, "note": note, "cites": CITES[n]}
+
+
+# Other schools for the same number of moving lines, shown in Đọc sâu only (never used to choose the text): 程迥 (Trình Hồi, 沙隨) 考古占例
+# as 周易函書 quotes it, and 韓邦奇's rules marked 新定 in 啓蒙意見 (he keeps Chu Hy's clauses for 0, 1 and 6 lines). The Vietnamese is the
+# system's gloss of the quoted clause.
+OTHER_SCHOOLS = {
+    "trinh_hoi": {"name": "Trình Hồi (程迥), Khảo cổ chiêm lệ", "chapter": HANSHU, "rules": {
+        0: ("六爻不變以卦彖占内卦為貞外卦為悔", "không hào nào động: xem lời quẻ, nội quái là trinh, ngoại quái là hối"),
+        1: ("一爻變以變爻占", "một hào động: xem lời hào động"),
+        2: ("二爻三爻四爻變以本卦為貞之卦為悔", "hai đến bốn hào động: quẻ chủ là trinh, quẻ biến là hối, không chọn riêng một lời"),
+        3: ("二爻三爻四爻變以本卦為貞之卦為悔", "hai đến bốn hào động: quẻ chủ là trinh, quẻ biến là hối, không chọn riêng một lời"),
+        4: ("二爻三爻四爻變以本卦為貞之卦為悔", "hai đến bốn hào động: quẻ chủ là trinh, quẻ biến là hối, không chọn riêng một lời"),
+        5: ("五爻變以不變爻占", "năm hào động: xem hào không động"),
+        6: ("六爻變以乾坤二用為例", "sáu hào động: theo lệ dùng Chín, dùng Sáu của Kiền, Khôn"),
+    }},
+    "han_bang_ky": {"name": "Hàn Bang Kỳ (韓邦奇), Khải mông ý kiến", "chapter": YIJIAN, "rules": {
+        2: ("二爻變則以本卦二變爻辭占仍以下爻為主", "hai hào động: xem hai lời hào của quẻ chủ, hào dưới làm chủ (Chu Hy lấy hào trên)"),
+        3: ("三爻變前十卦占本卦變爻辭後十卦占之卦變爻辭", "ba hào động: xem lời các hào động, ở quẻ chủ hay quẻ biến tùy vị trí (Chu Hy xem lời quẻ)"),
+        4: ("四爻變占之卦變爻辭主上二爻", "bốn hào động: xem lời các hào đã biến của quẻ biến, hai hào trên làm chủ (Chu Hy xem hai hào không động)"),
+        5: ("五爻變則以之卦變爻辭占", "năm hào động: xem lời các hào đã biến của quẻ biến (Chu Hy xem hào không động)"),
+    }},
+}
+
+
+def other_schools(moving_count: int) -> list[dict]:
+    out = []
+    for key, sc in OTHER_SCHOOLS.items():
+        r = sc["rules"].get(moving_count)
+        if r:
+            out.append({"school": key, "name": sc["name"], "han": r[0], "vi": r[1], "cite": cite(METHODS, sc["chapter"], r[0])})
+    return out

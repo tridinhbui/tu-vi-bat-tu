@@ -53,7 +53,7 @@ button.hx-line:hover .hx-bar i{background:var(--text2)}
 
 /* result */
 .kd-result{margin:var(--s6) 0}
-.kd-head{display:grid;gap:var(--s2);margin:0 0 var(--s5)}
+.kd-head{display:grid;gap:var(--s2);margin:0 0 var(--s5)}.kd-head .eyebrow{margin:0}
 .kd-head h2{font-size:clamp(1.5rem,5vw,2rem)}
 .kd-head .han{font-family:var(--han);font-weight:400;color:var(--text2);margin-left:6px}
 .kd-q{font:italic 400 1.05rem/1.5 var(--serif);color:var(--text2);margin:0}

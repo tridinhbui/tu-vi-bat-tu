@@ -60,7 +60,7 @@ def P(sentences: list[dict], depth: str = "nhanh", lead: str | None = None) -> d
 def strip_label(t: str) -> str:
     """'Hào Chín Hai: Ở trong quân…' / 'Lời Tượng nói rằng: Trong đất…' -> the text itself."""
     t = re.sub(r"^\s*Hào [^:：.]{2,20}[:：.]\s*", "", t)
-    t = re.sub(r"^\s*Lời (Tượng|Thoán) nói rằng[:：]\s*", "", t)
+    t = re.sub(r"^\s*Lời (tượng|thoán) nói rằng\s*[:：]?\s*-?\s*", "", t, flags=re.I)
     return t.strip()
 
 
@@ -316,9 +316,19 @@ class Reader:
                 out.append(S(f"Trình Di: {quote(excerpt)}", "chu_giai", [ref(t["hexagram"], seg, "trinh_di", excerpt)]))
         return {"id": "nguyen_van", "title": "Nguyên văn và lời bàn", "paragraphs": [P(out, depth="sau")]}
 
+    def truong_phai(self) -> dict | None:
+        from .doc_hao import other_schools
+        others = other_schools(self.rule["moving_count"])
+        if not others:
+            return None
+        out = [S("Lời chính ở trên theo phép của Chu Hy; với cùng số hào động, các nhà khác đọc như sau", "he_thong",
+                 note="Chỉ để đối chiếu: lời chính vẫn theo một phép, không trộn hai phép.")]
+        out += [S(f"{o['name']}: {o['vi']}", "chu_giai", [{**o["cite"]}]) for o in others]
+        return {"id": "truong_phai", "title": "Các phép đọc hào động khác", "paragraphs": [P(out, depth="sau")]}
+
     def read(self) -> dict:
         sections = [self.tinh_the(), self.loi_chinh(), self.hao_dong(), self.huong_chuyen(), self.chu_de(), self.dieu_kien(),
-                    self.loi_khuyen(), self.cau_truc(), self.que_ho(), self.nguyen_van()]
+                    self.loi_khuyen(), self.cau_truc(), self.que_ho(), self.nguyen_van(), self.truong_phai()]
         sections = [s for s in sections if s and any(p["sentences"] for p in s["paragraphs"])]
         return {"system": "kinh_dich", "topic": self.topic, "hexagram": self.ban, "bien": self.bien, "ho": self.c["ho"],
                 "moving": self.c["moving"], "rule": self.rule, "sections": sections, "missing": sorted(set(self.missing)),
