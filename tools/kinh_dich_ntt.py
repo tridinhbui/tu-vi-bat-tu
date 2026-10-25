@@ -544,8 +544,12 @@ def han_check(doc: dict, ref: list[dict]) -> dict:
         b_cmp = _strip_labels(b, k)
         w_cmp = _strip_labels(w, k)
         if k[0] == "thoan":
-            w_cmp = w_cmp[len(norm_han(doc["name_han"]).translate(VARIANTS)):] if w_cmp.startswith(norm_han(doc["name_han"])) else w_cmp
-            b_cmp = b_cmp[len(norm_han(doc["name_han"])):] if b_cmp.startswith(norm_han(doc["name_han"])) else b_cmp
+            # zh.wikisource writes the lời quẻ as "NAME：text" (乾：元亨, 艮：艮其背); the book prints the text, usually led by the name
+            # (乾元亨利貞, 師貞), once without a second copy of it (艮其背)
+            nm = norm_han(doc["name_han"])
+            bare = w_cmp[len(nm):] if w_cmp.startswith(nm) else w_cmp
+            if b_cmp == bare or not (b_cmp.startswith(nm) and not bare.startswith(nm)):
+                w_cmp = bare
         ok = b_cmp == w_cmp
         out[k] = (ok, b_cmp, w_cmp)
     return out
@@ -574,15 +578,14 @@ def han_diffs(doc: dict, ref: list[dict]) -> list[dict]:
         book = "".join(chars)
         want = _strip_labels(norm_han("".join((r["text"].replace("\n:\n", "\n") for r in ref if seg_key(r) == key))), key)
         if key[0] == "thoan":
-            nm = norm_han(doc["name_han"])
-            book, owner = (book[len(nm):], owner[len(nm):]) if book.startswith(nm) else (book, owner)
-            want = want[len(nm):] if want.startswith(nm) else want
+            want = han_check(doc, ref)[key][2]
         sm = difflib.SequenceMatcher(None, book, want, autojunk=False)
         for op, i1, i2, j1, j2 in sm.get_opcodes():
             if op == "equal":
                 continue
             s = owner[min(i1, len(owner) - 1)] if owner else (segs[0] if segs else None)
             out.append({"n": doc["number"], "kind": key[0], "hao": key[1], "page": s["page"] if s else None,
+                        "seg_index": next((i for i, x in enumerate(doc["segments"]) if x is s), None),
                         "page_end": s.get("page_end", s["page"]) if s else None, "han_printed_line": s.get("han", "") if s else "",
                         "ours": book[i1:i2], "ref": want[j1:j2], "ours_ctx": book[max(0, i1 - 6):i2 + 6], "ref_ctx": want[max(0, j1 - 6):j2 + 6]})
     return out
@@ -591,6 +594,7 @@ def han_diffs(doc: dict, ref: list[dict]) -> list[dict]:
 def page_compare_text(txt: str) -> str:
     """a page transcription for comparing two transcribers: notes dropped, tags kept (they carry the structure), text normalised"""
     lines = [ln for ln in txt.split("\n")[1:] if ln.strip() and not ln.startswith("@note")]
+    lines = [ln.replace(" ", "").replace("，", ",").replace("：", ":") if ln.startswith("@han") else ln for ln in lines]
     return "\n".join(norm_vi(ln) for ln in lines)
 
 
@@ -661,18 +665,24 @@ def finalize(work: Path, out: Path = OUT) -> None:
         doc = {"number": n, "name_vi": q["name_vi"], "name_han": q["name_han"], "source": "KD", "translator": "Ngô Tất Tố",
                "heading": q["heading"], "pages": q["pages"], "segments": [finish_segment(s) for s in q["segments"]]}
         struct = structure_problems(doc)
-        han_open = {}
+        open_segs = set()                                         # segments holding a Hán difference not seen on the print
         for key, (ok, b, w) in han_check(doc, ref[n]).items():
             if ok:
                 continue
             diffs = [d for d in han_diffs(doc, ref[n]) if (d["kind"], d["hao"]) == key]
             verdicts = [seen.get((n, d["kind"], str(d["hao"]), d["ours"], d["ref"])) for d in diffs]
-            if diffs and all(v and v["verdict"] == "ours" for v in verdicts):
-                misprints.append({"number": n, "kind": key[0], "hao": key[1], "book": b, "reference": w,
-                                  "differences": [{"page": d["page"], "book": d["ours"], "zhouyi": d["ref"], "print": v["print"]}
-                                                  for d, v in zip(diffs, verdicts)], "checked": "seen on the page image"})
-            else:
-                han_open[key] = [v["verdict"] if v else "not yet checked" for v in verdicts]
+            entry = {"number": n, "kind": key[0], "hao": key[1], "book": b, "reference": w, "differences": [], "open": []}
+            for d, v in zip(diffs, verdicts):
+                if v and v["verdict"] == "ours":
+                    entry["differences"].append({"page": d["page"], "book": d["ours"], "zhouyi": d["ref"], "print": v["print"]})
+                else:
+                    entry["open"].append({"page": d["page"], "segment": d["seg_index"], "book": d["ours"], "zhouyi": d["ref"],
+                                          "why": f"print: {v['verdict']}, {v['print']}" if v else "not checked on the print"})
+                    open_segs.add(d["seg_index"])
+            if not entry["open"]:
+                del entry["open"]
+            entry["checked"] = "each difference looked up on the page image"
+            misprints.append(entry)
         for s in doc["segments"]:
             for a in absent:
                 if (a["number"], a["kind"], a.get("hao"), a["page"]) == (n, s["kind"], s.get("hao"), s["page"]) \
@@ -681,7 +691,7 @@ def finalize(work: Path, out: Path = OUT) -> None:
             why = []
             if struct:
                 why.append("structure: " + "; ".join(struct))
-            if seg_key(s) in han_open:
+            if doc["segments"].index(s) in open_segs:
                 why.append("Hán differs from 周易 and the difference is not settled on the print")
             if "[?]" in json.dumps(s, ensure_ascii=False):
                 why.append("has unreadable characters [?]")
@@ -693,8 +703,18 @@ def finalize(work: Path, out: Path = OUT) -> None:
                 s["status_reason"] = why
         (out / f"{n}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", "utf-8")
         written.append(n)
-    (out / "misprints.json").write_text(json.dumps({"note": "Hán of LỜI KINH lines where this printing differs from zh.wikisource 周易, "
-        "each difference seen on the page image; the transcription keeps the print", "han": misprints}, ensure_ascii=False, indent=1) + "\n", "utf-8")
+    vi = []                                       # Vietnamese oddities flagged by readers and confirmed on the image as printed
+    if (work / "writers" / "sample30_verdicts.json").exists():
+        items = json.loads((work / "writers" / "sample30.json").read_text("utf-8"))
+        for v in json.loads((work / "writers" / "sample30_verdicts.json").read_text("utf-8")):
+            it = items[v["i"]]
+            if v["verdict"] == "print":
+                vi.append({"number": it["n"], "where": it["where"], "page": v["page"], "text": it["quote"], "print": v["print_text"],
+                           "checked": "seen on the page image"})
+    (out / "misprints.json").write_text(json.dumps({"note": "han: Hán of LỜI KINH lines where this printing differs from zh.wikisource 周易, "
+        "each difference seen on the page image; vietnamese: oddities in the Vietnamese layers that readers flagged and that the page image "
+        "shows as printed (a random 30 of 152 flags, all 30 printed so). The transcription keeps the print in both.", "han": misprints,
+        "vietnamese": vi}, ensure_ascii=False, indent=1) + "\n", "utf-8")
     print("written:", written)
 
 
