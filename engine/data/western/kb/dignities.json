@@ -1,0 +1,41 @@
+{
+  "_doc": "Essential dignity tables. Each table names its source and school; where schools differ (triplicity lords, terms) both are kept and a chart option chooses. 'status' says whether every cell was checked against the cited text.",
+  "domicile": {"source": ["PTOL_TETRA:I.17", "LILLY_CA:p.104"], "status": "pending_check",
+    "table": {"aries": ["mars"], "taurus": ["venus"], "gemini": ["mercury"], "cancer": ["moon"], "leo": ["sun"], "virgo": ["mercury"],
+              "libra": ["venus"], "scorpio": ["mars"], "sagittarius": ["jupiter"], "capricorn": ["saturn"], "aquarius": ["saturn"], "pisces": ["jupiter"]}},
+  "exaltation": {"source": ["PTOL_TETRA:I.19", "LILLY_CA:p.104"], "status": "pending_check",
+    "table": {"aries": ["sun", 19], "taurus": ["moon", 3], "cancer": ["jupiter", 15], "virgo": ["mercury", 15], "libra": ["saturn", 21],
+              "capricorn": ["mars", 28], "pisces": ["venus", 27]}},
+  "triplicity": {
+    "dorothean": {"vi": "Dorotheus / Valens (ba chủ: ngày, đêm, đồng chủ)", "school": "hellenistic", "source": ["VALENS_ANTH"], "status": "pending_check",
+      "table": {"fire": ["sun", "jupiter", "saturn"], "earth": ["venus", "moon", "mars"], "air": ["saturn", "mercury", "jupiter"], "water": ["venus", "mars", "moon"]}},
+    "ptolemaic": {"vi": "Ptolemy / Lilly (chủ ngày, chủ đêm)", "school": "traditional", "source": ["PTOL_TETRA:I.18", "LILLY_CA:p.104"], "status": "pending_check",
+      "table": {"fire": ["sun", "jupiter"], "earth": ["venus", "moon"], "air": ["saturn", "mercury"], "water": ["mars", "mars"]}}
+  },
+  "terms": {
+    "egyptian": {"vi": "Giới hạn kiểu Ai Cập", "school": "hellenistic", "source": ["PTOL_TETRA:I.21"], "status": "pending_check",
+      "table": {
+        "aries": [["jupiter", 6], ["venus", 12], ["mercury", 20], ["mars", 25], ["saturn", 30]],
+        "taurus": [["venus", 8], ["mercury", 14], ["jupiter", 22], ["saturn", 27], ["mars", 30]],
+        "gemini": [["mercury", 6], ["jupiter", 12], ["venus", 17], ["mars", 24], ["saturn", 30]],
+        "cancer": [["mars", 7], ["venus", 13], ["mercury", 19], ["jupiter", 26], ["saturn", 30]],
+        "leo": [["jupiter", 6], ["venus", 11], ["saturn", 18], ["mercury", 24], ["mars", 30]],
+        "virgo": [["mercury", 7], ["venus", 17], ["jupiter", 21], ["mars", 28], ["saturn", 30]],
+        "libra": [["saturn", 6], ["mercury", 14], ["jupiter", 21], ["venus", 28], ["mars", 30]],
+        "scorpio": [["mars", 7], ["venus", 11], ["mercury", 19], ["jupiter", 24], ["saturn", 30]],
+        "sagittarius": [["jupiter", 12], ["venus", 17], ["mercury", 21], ["saturn", 26], ["mars", 30]],
+        "capricorn": [["mercury", 7], ["jupiter", 14], ["venus", 22], ["saturn", 26], ["mars", 30]],
+        "aquarius": [["mercury", 7], ["venus", 13], ["jupiter", 20], ["mars", 25], ["saturn", 30]],
+        "pisces": [["venus", 12], ["jupiter", 16], ["mercury", 19], ["mars", 28], ["saturn", 30]]}},
+    "ptolemaic": {"vi": "Giới hạn theo Ptolemy (Lilly dùng)", "school": "traditional", "source": ["PTOL_TETRA:I.21", "LILLY_CA:p.104"], "status": "pending_source", "table": {}}
+  },
+  "faces": {"vi": "Diện (decan) theo thứ tự Chaldea", "source": ["LILLY_CA:p.104"], "status": "pending_check",
+    "rule": "Each 10-degree third of a sign, in the Chaldean order Saturn, Jupiter, Mars, Sun, Venus, Mercury, Moon, starting with Mars at 0 Aries.",
+    "order": ["saturn", "jupiter", "mars", "sun", "venus", "mercury", "moon"], "start": "mars"},
+  "scores": {"source": ["LILLY_CA"], "status": "pending_source",
+    "essential": {"domicile": 5, "exaltation": 4, "triplicity": 3, "term": 2, "face": 1, "detriment": -5, "fall": -4, "peregrine": -5}},
+  "solar_phase": {
+    "traditional": {"cazimi_deg": 0.2833, "combust_deg": 8.5, "beams_deg": 17.0, "source": ["LILLY_CA"], "status": "pending_source"},
+    "hellenistic": {"beams_deg": 15.0, "source": ["VALENS_ANTH"], "status": "pending_source"}
+  }
+}
