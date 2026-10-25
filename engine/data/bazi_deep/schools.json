@@ -1,0 +1,1815 @@
+{
+ "version": "1.0.0",
+ "_note": "DEEP-3 (2026-10-24). Points where the Bát Tự sources disagree, each side with book and page (or web chapter). Books: ttt = Trích Thiên Tủy (bản dịch Việt), tvh = Thiệu Vĩ Hoa, Dự Đoán Theo Tứ Trụ, zz = 八字真宗, WEB:CTBG = 穷通宝鉴 (zh.wikisource snapshot, sources_web/). 'engine' says which side the engine follows today. Shape agreed with the main session: topics[] {id, topic, kind, sides[{school, statement, cite, quote, book, page | chapter}], engine}. kind: dieu_hau | dung_than | cach | luc_than | bang. A TVH điều hậu side has quote null (a table cell, no sentence to quote).",
+ "summary": {
+  "ctbg_checked_cells": 63,
+  "ctbg_set_differs_from_tvh": 53,
+  "ctbg_first_differs_from_tvh_notes": 13
+ },
+ "topics": [
+  {
+   "id": "children_star",
+   "topic": "sao con cái",
+   "kind": "luc_than",
+   "sides": [
+    {
+     "school": "TTT",
+     "statement": "Nguyên chú: xem con cái theo Quan.",
+     "cite": "TTT tr.130",
+     "book": "TTT",
+     "page": 130,
+     "quote": "Như hỉ thần là Quan tinh, con cái hiền tài",
+     "who": "TTT nguyên chú"
+    },
+    {
+     "school": "TTT",
+     "statement": "Nhâm thị: lấy Thực Thương làm con.",
+     "cite": "TTT tr.130",
+     "book": "TTT",
+     "page": 130,
+     "quote": "Nay sửa đổi lấy Thực Thương làm con",
+     "who": "TTT Nhâm thị"
+    },
+    {
+     "school": "TTT",
+     "statement": "Nhâm thị (thêm): thân vượng lấy Tài, thân suy lấy Ấn làm con.",
+     "cite": "TTT tr.131",
+     "book": "TTT",
+     "page": 131,
+     "quote": "Nói chung, thân vượng lấy Tài là con, thân suy lấy Ấn là con",
+     "who": "TTT Nhâm thị"
+    },
+    {
+     "school": "TTT",
+     "statement": "Nhâm thị (kết): dụng thần là sao con.",
+     "cite": "TTT tr.132",
+     "book": "TTT",
+     "page": 132,
+     "quote": "phàm dụng thần bát tự là Tử tức tinh",
+     "who": "TTT Nhâm thị"
+    }
+   ],
+   "engine": "Bát Tự Chân Tông tr.60 (sao con theo giới tính) cho chỗ đứng; luật con cái DEEP-3 theo chi giờ (TVH tr.158) và TTT tr.130 (hai câu không nói số, giới)."
+  },
+  {
+   "id": "an_vuong_than_vuong",
+   "topic": "thân vượng, Ấn vượng",
+   "kind": "dung_than",
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "Về tiền: hao tán.",
+     "cite": "TVH tr.527",
+     "book": "TVH",
+     "page": 527,
+     "quote": "Thân vượng, ấn vượng là tiền hao tán không tụ"
+    },
+    {
+     "school": "TVH",
+     "statement": "Về danh: hiển đạt.",
+     "cite": "TVH tr.553",
+     "book": "TVH",
+     "page": 553,
+     "quote": "Thân vượng ấn vượng là hiển đạt cao quý"
+    },
+    {
+     "school": "TVH",
+     "statement": "Theo dụng thần: Ấn là kỵ thì càng vượng càng hèn.",
+     "cite": "TVH tr.173",
+     "book": "TVH",
+     "page": 173,
+     "quote": "Hèn: nhật chủ mạnh, ấn tinh là kị thần. Ấn tinh càng vượng càng hèn"
+    }
+   ],
+   "engine": "BT_TVHK_W12 (tiền) và BT_TVHK_F42 (Ấn kỵ) đứng; BT_TVHK_D09 (hiển đạt) chỉ khi Ấn không phải chữ kỵ."
+  },
+  {
+   "id": "quan_dung_strength",
+   "topic": "lấy Quan Sát làm dụng thần khi nào",
+   "kind": "dung_than",
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "Chỉ khi thân vượng.",
+     "cite": "TVH tr.167",
+     "book": "TVH",
+     "page": 167,
+     "quote": "Thân vượng mới có thể lấy quan tinh làm dụng thần"
+    },
+    {
+     "school": "TVH",
+     "statement": "Bảng tr.173 in 'nhược' (có lẽ in nhầm).",
+     "cite": "TVH tr.173",
+     "book": "TVH",
+     "page": 173,
+     "quote": "Sang: nhật chủ nhược, quan sát là dụng thần. Quan sát càng vượng càng sang"
+    },
+    {
+     "school": "TTT",
+     "statement": "TTT: dùng Quan khi thân vượng.",
+     "cite": "TTT tr.143",
+     "book": "TTT",
+     "page": 143,
+     "quote": "Dụng Quan, nếu thân vượng có thể lấy Tài làm hỉ thần"
+    }
+   ],
+   "engine": "Dòng 'Sang' của tr.173 không đóng gói (mâu thuẫn tr.167 và TTT tr.143)."
+  },
+  {
+   "id": "ren_table",
+   "topic": "bảng dương nhận (刃) của can âm",
+   "kind": "bang",
+   "sides": [
+    {
+     "school": "ZZ",
+     "statement": "Bảng tr.28: 乙刃辰, 丁刃未, 己刃未, 辛刃戌, 癸刃丑 (thuận sau lộc).",
+     "cite": "ZZ tr.28",
+     "book": "ZZ",
+     "page": 28,
+     "quote": "看月支又是日干的禄星或刃星，才属此项直断"
+    },
+    {
+     "school": "ZZ",
+     "statement": "Bảng tr.72 (đang dùng cho mọi luật khác): 乙刃寅, 丁己刃巳, 辛刃申, 癸刃亥 (nghịch trước lộc).",
+     "cite": "ZZ tr.72",
+     "book": "ZZ",
+     "page": 72,
+     "quote": "羊刃煞（临七柱）直断"
+    }
+   ],
+   "engine": "Luật 日月合化 (BT_ZZK_HH*) theo bảng tr.28 của chính mục ấy; các luật khác theo tr.72."
+  },
+  {
+   "id": "tai_many_dm_weak",
+   "topic": "Tài nhiều, thân nhược",
+   "kind": "dung_than",
+   "sides": [
+    {
+     "school": "TTT",
+     "statement": "TTT: khốn khổ.",
+     "cite": "TTT tr.191",
+     "book": "TTT",
+     "page": 191,
+     "quote": "Nếu như nhật chủ không kiện, gọi là Tài đa thân nhược, cuối cùng là thân khốn khổ vậy"
+    },
+    {
+     "school": "TVH",
+     "statement": "TVH: có Tỉ Kiếp đỡ thì lại giàu.",
+     "cite": "TVH tr.522",
+     "book": "TVH",
+     "page": 522,
+     "quote": "Tài nhiều gặp tỉ kiếp trợ giúp là nhà giàu thịnh vượng"
+    }
+   ],
+   "engine": "BT_TVHK_G03 / W11 khi không có Tỉ Kiếp, BT_TVHK_W08 khi có."
+  },
+  {
+   "id": "kieu_doat_thuc",
+   "topic": "Thiên Ấn gặp Thực Thần",
+   "kind": "cach",
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "TVH: hao tán.",
+     "cite": "TVH tr.527",
+     "book": "TVH",
+     "page": 527,
+     "quote": "Thực thần gặp kiêu là tài vật hao tán"
+    },
+    {
+     "school": "TTT",
+     "statement": "TTT cùng câu: thân nhược Thực Thương nhiều thì Ấn là dụng, không cứ luận 'kiêu đoạt thực'.",
+     "cite": "TTT tr.63",
+     "book": "TTT",
+     "page": 63,
+     "quote": "Nhật chủ nhược, thực thương nhiều, lấy ấn thụ làm dụng thần"
+    }
+   ],
+   "engine": "BT_TVHK_W13 theo tổ hợp; BT_TTTK_DT06 nói dụng thần TTT bên cạnh."
+  },
+  {
+   "id": "dung_choice",
+   "topic": "chọn dụng thần: bảng cách TVH và Thể Dụng TTT",
+   "kind": "dung_than",
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "TVH: bảng dụng thần theo cách (tr.378-386).",
+     "cite": "TVH tr.161",
+     "book": "TVH",
+     "page": 161,
+     "quote": "Quy luật chung là: căn cứ can ngày mạnh hay yếu, dụng thần có lực hay không để thấy được giàu nghèo, sang hèn"
+    },
+    {
+     "school": "TTT",
+     "statement": "TTT: phù ức theo Thể Dụng, có đảo ngược khi cực vượng / cực nhược.",
+     "cite": "TTT tr.63",
+     "book": "TTT",
+     "page": 63,
+     "quote": "Vượng tất nên ức, nhược tất nên phù"
+    }
+   ],
+   "engine": "Bảng cách TVH quyết định hỉ / kỵ; TTT (topic 'yong') nói bên cạnh; tỉ lệ trùng đo trong docs/audit/DEEP-3-mining-bazi.md."
+  },
+  {
+   "id": "dieu_hau_甲丑",
+   "topic": "điều hậu 甲 sinh tháng 丑",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚丁丙; chú thích (thứ tự): 丁庚丙",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 庚丁",
+     "cite": "WEB:CTBG 三冬甲木",
+     "book": "WEB:CTBG",
+     "chapter": "三冬甲木",
+     "quote": "先用庚噼甲，方引丁火始得木火有通明之象，故丁次之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_甲卯",
+   "topic": "điều hậu 甲 sinh tháng 卯",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丙丁庚戊己; chú thích (thứ tự): 庚丙丁戊己",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 庚 (độ tin low)",
+     "cite": "WEB:CTBG 三春甲木",
+     "book": "WEB:CTBG",
+     "chapter": "三春甲木",
+     "quote": "二月甲木，庚金得所，名阳刃驾杀，可云小贵"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_甲辰",
+   "topic": "điều hậu 甲 sinh tháng 辰",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丁庚壬; chú thích (thứ tự): 庚丁壬",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 庚壬",
+     "cite": "WEB:CTBG 三春甲木",
+     "book": "WEB:CTBG",
+     "chapter": "三春甲木",
+     "quote": "先取庚金，次用壬水"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_甲巳",
+   "topic": "điều hậu 甲 sinh tháng 巳",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丁癸庚; chú thích (thứ tự): 癸丁庚",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 癸丁",
+     "cite": "WEB:CTBG 三夏甲木",
+     "book": "WEB:CTBG",
+     "chapter": "三夏甲木",
+     "quote": "丙火司权，先癸后丁"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_甲未",
+   "topic": "điều hậu 甲 sinh tháng 未",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丁癸庚; chú thích (thứ tự): 癸庚丁",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丁庚",
+     "cite": "WEB:CTBG 三夏甲木",
+     "book": "WEB:CTBG",
+     "chapter": "三夏甲木",
+     "quote": "六月三伏生寒，丁火退气。先丁后庚，无癸亦可"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_甲申",
+   "topic": "điều hậu 甲 sinh tháng 申",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丁庚壬; chú thích (thứ tự): 庚丁壬",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丁庚",
+     "cite": "WEB:CTBG 三秋甲木",
+     "book": "WEB:CTBG",
+     "chapter": "三秋甲木",
+     "quote": "七月甲木，丁火为尊，庚金次之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_甲酉",
+   "topic": "điều hậu 甲 sinh tháng 酉",
+   "kind": "dieu_hau",
+   "kinds": [
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丁庚丙; chú thích (thứ tự): 庚丁丙",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丁丙庚",
+     "cite": "WEB:CTBG 三秋甲木",
+     "book": "WEB:CTBG",
+     "chapter": "三秋甲木",
+     "quote": "丁火为先，次用丙火，庚金再次"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_甲戌",
+   "topic": "điều hậu 甲 sinh tháng 戌",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲丁庚壬癸; chú thích (thứ tự): 庚甲丁壬癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丁壬癸 (độ tin medium)",
+     "cite": "WEB:CTBG 三秋甲木",
+     "book": "WEB:CTBG",
+     "chapter": "三秋甲木",
+     "quote": "九月甲木，木星凋零，独爱丁火，壬癸滋扶"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_甲亥",
+   "topic": "điều hậu 甲 sinh tháng 亥",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丁丙庚戊; chú thích (thứ tự): 庚丁丙戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 庚丁丙",
+     "cite": "WEB:CTBG 三冬甲木",
+     "book": "WEB:CTBG",
+     "chapter": "三冬甲木",
+     "quote": "十月甲木，庚丁为要，丙火次之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_乙辰",
+   "topic": "điều hậu 乙 sinh tháng 辰",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丙癸戊; chú thích (thứ tự): 癸丙戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 癸丙",
+     "cite": "WEB:CTBG 三春乙木",
+     "book": "WEB:CTBG",
+     "chapter": "三春乙木",
+     "quote": "三月乙木，阳气愈炽，先癸后丙"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_乙巳",
+   "topic": "điều hậu 乙 sinh tháng 巳",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 癸; chú thích (thứ tự): 癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 癸丙庚辛",
+     "cite": "WEB:CTBG 三夏乙木",
+     "book": "WEB:CTBG",
+     "chapter": "三夏乙木",
+     "quote": "四月乙木专用癸水，丙火酌用，虽以庚辛佐癸，须辛透为清"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_乙未",
+   "topic": "điều hậu 乙 sinh tháng 未",
+   "kind": "dieu_hau",
+   "kinds": [
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丙癸; chú thích (thứ tự): 癸丙",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丙癸 (độ tin medium)",
+     "cite": "WEB:CTBG 三夏乙木",
+     "book": "WEB:CTBG",
+     "chapter": "三夏乙木",
+     "quote": "六月乙木，木性且寒，柱多金水，丙火为尊"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_乙酉",
+   "topic": "điều hậu 乙 sinh tháng 酉",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丙癸丁; chú thích (thứ tự): 癸丙丁",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丙癸 (độ tin medium)",
+     "cite": "WEB:CTBG 三秋乙木",
+     "book": "WEB:CTBG",
+     "chapter": "三秋乙木",
+     "quote": "若秋分后，桂花已开，却喜向阳，又宜用丙，癸水次之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丙子",
+   "topic": "điều hậu 丙 sinh tháng 子",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 戊壬己; chú thích (thứ tự): 壬戊己",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬戊",
+     "cite": "WEB:CTBG 三冬丙火",
+     "book": "WEB:CTBG",
+     "chapter": "三冬丙火",
+     "quote": "壬水为最，戊土佐之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丙卯",
+   "topic": "điều hậu 丙 sinh tháng 卯",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 己壬; chú thích (thứ tự): 壬己",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬",
+     "cite": "WEB:CTBG 三春丙火",
+     "book": "WEB:CTBG",
+     "chapter": "三春丙火",
+     "quote": "二月丙火，阳气舒升，耑用壬水"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丙巳",
+   "topic": "điều hậu 丙 sinh tháng 巳",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚壬癸; chú thích (thứ tự): 壬庚癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬庚",
+     "cite": "WEB:CTBG 三夏丙火",
+     "book": "WEB:CTBG",
+     "chapter": "三夏丙火",
+     "quote": "宜专用壬水，解炎威之力，成既济之功"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丙午",
+   "topic": "điều hậu 丙 sinh tháng 午",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 癸壬; chú thích (thứ tự): 壬庚",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬庚 (độ tin medium)",
+     "cite": "WEB:CTBG 三夏丙火",
+     "book": "WEB:CTBG",
+     "chapter": "三夏丙火",
+     "quote": "五月丙火，得壬高透，方为上命。或一壬无庚，亦主贡监"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丙申",
+   "topic": "điều hậu 丙 sinh tháng 申",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 癸壬; chú thích (thứ tự): 壬戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬",
+     "cite": "WEB:CTBG 三秋丙火",
+     "book": "WEB:CTBG",
+     "chapter": "三秋丙火",
+     "quote": "故仍用壬水，辅映光辉"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丙酉",
+   "topic": "điều hậu 丙 sinh tháng 酉",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 癸壬; chú thích (thứ tự): 壬癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬",
+     "cite": "WEB:CTBG 三秋丙火",
+     "book": "WEB:CTBG",
+     "chapter": "三秋丙火",
+     "quote": "丙火之余光，存于光湖，仍用壬水辅映"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丙亥",
+   "topic": "điều hậu 丙 sinh tháng 亥",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 戊甲庚壬; chú thích (thứ tự): 甲戊庚壬",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 甲戊庚 (độ tin low)",
+     "cite": "WEB:CTBG 三冬丙火",
+     "book": "WEB:CTBG",
+     "chapter": "三冬丙火",
+     "quote": "得见甲戊庚出干，可云科甲"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丁寅",
+   "topic": "điều hậu 丁 sinh tháng 寅",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚甲; chú thích (thứ tự): 甲庚",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 庚 (độ tin medium)",
+     "cite": "WEB:CTBG 三春丁火",
+     "book": "WEB:CTBG",
+     "chapter": "三春丁火",
+     "quote": "非庚不能噼甲，何以引丁，姑用庚金"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丁午",
+   "topic": "điều hậu 丁 sinh tháng 午",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚壬癸; chú thích (thứ tự): 壬庚癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬庚 (độ tin low)",
+     "cite": "WEB:CTBG 三夏丁火",
+     "book": "WEB:CTBG",
+     "chapter": "三夏丁火",
+     "quote": "得庚壬两透者，科甲定然"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丁未",
+   "topic": "điều hậu 丁 sinh tháng 未",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 壬甲庚; chú thích (thứ tự): 甲壬庚",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 甲壬",
+     "cite": "WEB:CTBG 三夏丁火",
+     "book": "WEB:CTBG",
+     "chapter": "三夏丁火",
+     "quote": "专取甲木，壬水次之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丁申",
+   "topic": "điều hậu 丁 sinh tháng 申",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚甲丙戊; chú thích (thứ tự): 甲庚丙戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 甲庚丙 (độ tin medium)",
+     "cite": "WEB:CTBG 三秋丁火",
+     "book": "WEB:CTBG",
+     "chapter": "三秋丁火",
+     "quote": "七月丁火，退气柔弱，端用甲木"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丁酉",
+   "topic": "điều hậu 丁 sinh tháng 酉",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚甲丙戊; chú thích (thứ tự): 甲庚丙戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 甲丙庚 (độ tin medium)",
+     "cite": "WEB:CTBG 三秋丁火",
+     "book": "WEB:CTBG",
+     "chapter": "三秋丁火",
+     "quote": "七月甲丙，申中有庚，八月甲丙庚皆用"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_丁戌",
+   "topic": "điều hậu 丁 sinh tháng 戌",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚甲戊; chú thích (thứ tự): 甲庚戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 甲庚 (độ tin medium)",
+     "cite": "WEB:CTBG 三秋丁火",
+     "book": "WEB:CTBG",
+     "chapter": "三秋丁火",
+     "quote": "九月耑用甲庚。大扺甲不离庚"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_戊午",
+   "topic": "điều hậu 戊 sinh tháng 午",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚壬丙; chú thích (thứ tự): 壬甲丙",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬甲丙",
+     "cite": "WEB:CTBG 三夏戊土",
+     "book": "WEB:CTBG",
+     "chapter": "三夏戊土",
+     "quote": "先看壬水，次取甲木，丙火酌用，用癸力微"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_戊戌",
+   "topic": "điều hậu 戊 sinh tháng 戌",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丙甲癸; chú thích (thứ tự): 甲丙癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 甲癸",
+     "cite": "WEB:CTBG 三秋戊土",
+     "book": "WEB:CTBG",
+     "chapter": "三秋戊土",
+     "quote": "不可专用丙，先看甲木，次取癸水"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_己子",
+   "topic": "điều hậu 己 sinh tháng 子",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲丙戊; chú thích (thứ tự): 丙甲戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丙甲 (độ tin low)",
+     "cite": "WEB:CTBG 三冬己土",
+     "book": "WEB:CTBG",
+     "chapter": "三冬己土",
+     "quote": "非丙暖不生，取丙为尊，甲木参酌"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_己丑",
+   "topic": "điều hậu 己 sinh tháng 丑",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲丙戊; chú thích (thứ tự): 丙甲戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丙甲 (độ tin low)",
+     "cite": "WEB:CTBG 三冬己土",
+     "book": "WEB:CTBG",
+     "chapter": "三冬己土",
+     "quote": "非丙暖不生，取丙为尊，甲木参酌"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_己寅",
+   "topic": "điều hậu 己 sinh tháng 寅",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚丙甲; chú thích (thứ tự): 丙庚甲",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丙",
+     "cite": "WEB:CTBG 三春己土",
+     "book": "WEB:CTBG",
+     "chapter": "三春己土",
+     "quote": "余寒未退，故丙为尊"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_己卯",
+   "topic": "điều hậu 己 sinh tháng 卯",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 癸甲丙; chú thích (thứ tự): 甲癸丙",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 甲癸",
+     "cite": "WEB:CTBG 三春己土",
+     "book": "WEB:CTBG",
+     "chapter": "三春己土",
+     "quote": "先取甲木疏之，忌合。次取癸水润之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_己申",
+   "topic": "điều hậu 己 sinh tháng 申",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 癸丙; chú thích (thứ tự): 丙癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 癸丙辛 (độ tin low)",
+     "cite": "WEB:CTBG 三秋己土",
+     "book": "WEB:CTBG",
+     "chapter": "三秋己土",
+     "quote": "总之，三秋己土，先癸后丙，取辛辅癸"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_己酉",
+   "topic": "điều hậu 己 sinh tháng 酉",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 癸丙; chú thích (thứ tự): 丙癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 癸丙辛 (độ tin low)",
+     "cite": "WEB:CTBG 三秋己土",
+     "book": "WEB:CTBG",
+     "chapter": "三秋己土",
+     "quote": "总之，三秋己土，先癸后丙，取辛辅癸"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_己戌",
+   "topic": "điều hậu 己 sinh tháng 戌",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丙甲癸; chú thích (thứ tự): 甲丙癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 癸丙辛甲 (độ tin low)",
+     "cite": "WEB:CTBG 三秋己土",
+     "book": "WEB:CTBG",
+     "chapter": "三秋己土",
+     "quote": "总之，三秋己土，先癸后丙，取辛辅癸。九月土盛，宜甲木疏之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_己亥",
+   "topic": "điều hậu 己 sinh tháng 亥",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲丙戊; chú thích (thứ tự): 丙甲戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丙甲 (độ tin low)",
+     "cite": "WEB:CTBG 三冬己土",
+     "book": "WEB:CTBG",
+     "chapter": "三冬己土",
+     "quote": "非丙暖不生，取丙为尊，甲木参酌"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_庚寅",
+   "topic": "điều hậu 庚 sinh tháng 寅",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲壬戊丙丁; chú thích (thứ tự): 戊甲丙壬丁",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丙甲丁",
+     "cite": "WEB:CTBG 三春庚金",
+     "book": "WEB:CTBG",
+     "chapter": "三春庚金",
+     "quote": "正月庚金，丙甲为上，丁火次之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_庚卯",
+   "topic": "điều hậu 庚 sinh tháng 卯",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲庚丁丙; chú thích (thứ tự): 丁甲丙庚",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丁甲庚",
+     "cite": "WEB:CTBG 三春庚金",
+     "book": "WEB:CTBG",
+     "chapter": "三春庚金",
+     "quote": "专用丁火，借甲引丁，借庚噼甲"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_庚辰",
+   "topic": "điều hậu 庚 sinh tháng 辰",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丁甲壬癸; chú thích (thứ tự): 甲丁壬癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 甲丁",
+     "cite": "WEB:CTBG 三春庚金",
+     "book": "WEB:CTBG",
+     "chapter": "三春庚金",
+     "quote": "有埋金之忧，故先甲后丁"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_庚巳",
+   "topic": "điều hậu 庚 sinh tháng 巳",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 戊壬丙丁; chú thích (thứ tự): 壬丙丁戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬戊丙",
+     "cite": "WEB:CTBG 三夏庚金",
+     "book": "WEB:CTBG",
+     "chapter": "三夏庚金",
+     "quote": "但先壬水，方得中和，故曰群金生夏，喜用勾陈。次取戊土，丙火佐之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_庚亥",
+   "topic": "điều hậu 庚 sinh tháng 亥",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丙丁; chú thích (thứ tự): 丁丙",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丁丙甲 (độ tin medium)",
+     "cite": "WEB:CTBG 三冬庚金",
+     "book": "WEB:CTBG",
+     "chapter": "三冬庚金",
+     "quote": "水冷性寒，非丁莫造，非丙不暖。丁甲两透"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_辛子",
+   "topic": "điều hậu 辛 sinh tháng 子",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 戊丙壬甲; chú thích (thứ tự): 丙戊壬甲",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬丙 (độ tin medium)",
+     "cite": "WEB:CTBG 三冬辛金",
+     "book": "WEB:CTBG",
+     "chapter": "三冬辛金",
+     "quote": "壬丙两透，不见戊癸，衣锦腰金"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_辛未",
+   "topic": "điều hậu 辛 sinh tháng 未",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚壬甲; chú thích (thứ tự): 壬庚甲",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬庚",
+     "cite": "WEB:CTBG 三夏辛金",
+     "book": "WEB:CTBG",
+     "chapter": "三夏辛金",
+     "quote": "先用壬水，取庚佐之"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_辛申",
+   "topic": "điều hậu 辛 sinh tháng 申",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲壬庚; chú thích (thứ tự): 壬甲戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬甲戊",
+     "cite": "WEB:CTBG 三秋辛金",
+     "book": "WEB:CTBG",
+     "chapter": "三秋辛金",
+     "quote": "壬水为尊，甲戊酌用可也，癸水不可为用"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_辛酉",
+   "topic": "điều hậu 辛 sinh tháng 酉",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲壬; chú thích (thứ tự): 壬甲丁",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬",
+     "cite": "WEB:CTBG 三秋辛金",
+     "book": "WEB:CTBG",
+     "chapter": "三秋辛金",
+     "quote": "八月辛金，当权得令，旺之极矣，专用壬水淘洗"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_壬寅",
+   "topic": "điều hậu 壬 sinh tháng 寅",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丙庚戊; chú thích (thứ tự): 庚丙戊",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 庚丙",
+     "cite": "WEB:CTBG 三春壬水",
+     "book": "WEB:CTBG",
+     "chapter": "三春壬水",
+     "quote": "不必用戊，专用庚金，以丙为佐"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_壬巳",
+   "topic": "điều hậu 壬 sinh tháng 巳",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 辛壬庚癸; chú thích (thứ tự): 壬辛庚癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 壬辛庚",
+     "cite": "WEB:CTBG 三夏壬水",
+     "book": "WEB:CTBG",
+     "chapter": "三夏壬水",
+     "quote": "专取壬水比肩为助，次取辛金发源，且暗合丙火，庚金为佐"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_壬午",
+   "topic": "điều hậu 壬 sinh tháng 午",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 庚癸辛; chú thích (thứ tự): 癸庚辛",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 癸庚",
+     "cite": "WEB:CTBG 三夏壬水",
+     "book": "WEB:CTBG",
+     "chapter": "三夏壬水",
+     "quote": "取癸为用，取庚为佐"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_壬未",
+   "topic": "điều hậu 壬 sinh tháng 未",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲辛; chú thích (thứ tự): 辛甲",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 辛甲癸",
+     "cite": "WEB:CTBG 三夏壬水",
+     "book": "WEB:CTBG",
+     "chapter": "三夏壬水",
+     "quote": "六月壬水，先辛后甲，次取癸水"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_癸丑",
+   "topic": "điều hậu 癸 sinh tháng 丑",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 丁丙; chú thích (thứ tự): 丙丁",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 丙",
+     "cite": "WEB:CTBG 三冬癸水",
+     "book": "WEB:CTBG",
+     "chapter": "三冬癸水",
+     "quote": "十二月癸水，寒极成冰，万物不能舒泰，宜丙火解冻"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_癸巳",
+   "topic": "điều hậu 癸 sinh tháng 巳",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 辛; chú thích (thứ tự): 辛",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 辛庚",
+     "cite": "WEB:CTBG 三夏癸水",
+     "book": "WEB:CTBG",
+     "chapter": "三夏癸水",
+     "quote": "四月癸水，喜辛金为用，无辛用庚"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_癸午",
+   "topic": "điều hậu 癸 sinh tháng 午",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 壬庚癸; chú thích (thứ tự): 庚辛癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 庚辛壬 (độ tin medium)",
+     "cite": "WEB:CTBG 三夏癸水",
+     "book": "WEB:CTBG",
+     "chapter": "三夏癸水",
+     "quote": "五月癸水，庚辛壬参酌并用可也"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_癸未",
+   "topic": "điều hậu 癸 sinh tháng 未",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 辛庚壬癸; chú thích (thứ tự): 庚辛癸",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 庚辛",
+     "cite": "WEB:CTBG 三夏癸水",
+     "book": "WEB:CTBG",
+     "chapter": "三夏癸水",
+     "quote": "故癸水不能从杀，所以专用庚辛"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_癸戌",
+   "topic": "điều hậu 癸 sinh tháng 戌",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 甲辛壬癸; chú thích (thứ tự): 辛甲癸壬",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 辛甲",
+     "cite": "WEB:CTBG 三秋癸水",
+     "book": "WEB:CTBG",
+     "chapter": "三秋癸水",
+     "quote": "专用辛金发水之源，要比肩滋甲制戊方妙"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  },
+  {
+   "id": "dieu_hau_癸亥",
+   "topic": "điều hậu 癸 sinh tháng 亥",
+   "kind": "dieu_hau",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ],
+   "sides": [
+    {
+     "school": "TVH",
+     "statement": "bảng: 辛庚戊丁; chú thích (thứ tự): 庚辛戊丁",
+     "cite": "TVH tr.389-390, 391-396",
+     "quote": null,
+     "book": "TVH",
+     "page": 389,
+     "note": "ô bảng, không có câu để trích; tvh_dieuhau.json"
+    },
+    {
+     "school": "CTBG",
+     "statement": "用 庚辛",
+     "cite": "WEB:CTBG 三冬癸水",
+     "book": "WEB:CTBG",
+     "chapter": "三冬癸水",
+     "quote": "因亥摇木，洩散元神，宜用庚辛为妙"
+    }
+   ],
+   "engine": "Tập can theo bảng TVH, thứ tự theo chú thích TVH; ô 穷通宝鉴 chỉ để so."
+  }
+ ]
+}

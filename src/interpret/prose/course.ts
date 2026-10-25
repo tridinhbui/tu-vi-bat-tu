@@ -9,7 +9,7 @@ import type { ProseSentence } from './realize.ts';
 import type { Writer } from './narrative.ts';
 import { computeIndices, type IndexNorms, type DecadeIndex } from '../indices.ts';
 import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json' };
-import { VAN_HAN_LAST_START } from './vanhan.ts';
+import { shownDecades } from './vanhan.ts';
 
 export interface CourseLib { lead: Record<string, string[]>; open: string[]; item: Record<'in' | 'loc' | 'ky', string>; best: string[]; hard: string[]; none: string[] }
 const fill = (t: string, v: Record<string, string>) => t.replace(/\{([A-Za-z_]+)\}/g, (m, k) => v[k] ?? m);
@@ -21,7 +21,7 @@ export function courseSentences(W: Writer, chart: ChartInput, k: Knowledge, P: s
   const C = k.prose?.luan?.course as CourseLib | undefined, pals = COURSE_PALACES[P];
   if (!C || !pals) return [];
   const levels = new Map<number, DecadeIndex>(computeIndices(chart, k, NORMS).decades.map(d => [d.age_from, d]));
-  const hits = chart.decades.filter(d => d.age_from <= VAN_HAN_LAST_START).map(d => {
+  const hits = shownDecades(chart).map(d => {
     const how: Array<'in' | 'loc' | 'ky'> = [];
     if (pals.includes(d.palace)) how.push('in');
     if (d.hoa['Hóa Lộc']?.palace && pals.includes(d.hoa['Hóa Lộc'].palace)) how.push('loc');

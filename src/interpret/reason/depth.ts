@@ -72,7 +72,9 @@ export interface DepthReading { ruleId: string; concept: string; palace: string;
   /** a reading of the chính tinh this vô chính diệu palace borrows from the opposite palace (reason/borrow.ts, TT p.18) */
   borrowed?: { from: string; stars: string[] } }
 export interface DepthUnit {
-  kind: 'reading' | 'mechanism' | 'trigger' | 'link' | 'tame' | 'condition';
+  kind: 'reading' | 'mechanism' | 'trigger' | 'link' | 'tame' | 'condition' | 'chehoa' | 'layout';
+  /** chehoa (kg/che_hoa.json) / layout (kg/combos.json layouts): the book's statement, its page and the effect kind (DEEP-3) */
+  book?: { id: string; text: string; book: string; page: number | string; effect?: string; on?: string };
   section: string;
   reading?: DepthReading;
   nature?: StarNature; relation?: PalaceRelation;
@@ -215,6 +217,13 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
       push({ kind: 'mechanism', section: orient, nature: n, star: m.star, palace: m.palace, where: 'trine' });
     }
   }
+  // a VCD palace with Tuần / Triệt: Khảo Luận p.146 has them shield it from the sát tinh outside (star_nature tuan_triet.bao_ve_vcd): the
+  // short reading says only where they stand (prose/luan.ts confrontLine), this is the why (DEEP-3)
+  if ((!majorsHere.length || ev.majors.every(m => m.borrowed)) && (pal.tuan || pal.triet)) {
+    const n = (k.kg?.starNature?.entries ?? []).find(e => e.id === 'tuan_triet.bao_ve_vcd');
+    const star = pal.tuan && pal.triet ? 'Tuần, Triệt' : pal.tuan ? 'Tuần' : 'Triệt';
+    if (n && !said.has(n.id)) { said.add(n.id); push({ kind: 'mechanism', section: orient, nature: n, star, palace: P, where: 'self' }); }
+  }
   // the Hóa standing in the palace (KL pp.195-197 on what each Hóa is)
   for (const h of ev.hoa.filter(x => x.where === 'self')) {
     const n = natureOf(k, h.hoa, use, said, { palace: P, prefix });
@@ -238,6 +247,7 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
   // ---- interactions the chart has: a star of the palace or its tam phương holding a limiting star of the palace in check ----
   const satHere = ev.stars.filter(s => s.where === 'self' && SATS.includes(s.star)).map(s => s.star);
   const tamers = (k.kg?.starNature?.entries ?? []).filter(e => e.tames?.length);
+  const tameHolders = new Set<string>();
   for (const t of tamers) {
     const holders = [t.star, ...(t.also ?? [])];
     const at = [...ev.majors, ...ev.tamPhuong, ...ev.stars].find(s => holders.includes(s.star)) ?? ev.hoa.find(h => holders.includes(h.hoa)) as unknown as { star: string; palace: string; where: Where } | undefined;
@@ -245,7 +255,20 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     if (!at || !tamed.length || said.has(t.id)) continue;
     said.add(t.id);
     const holder = holders.find(h => [...ev.majors, ...ev.tamPhuong, ...ev.stars].some(s => s.star === h) || ev.hoa.some(x => x.hoa === h))!;
+    tameHolders.add(holder);
     push({ kind: 'tame', section: obst, nature: t, star: holder, palace: (at as { palace: string }).palace, where: whereOf((at as { palace: string }).palace), tamed: tamed.join('|') });
+  }
+  // ---- chế hóa (kg/che_hoa.json, KL pp.55-206; DEEP-3): a star / Hóa / Tuần / Triệt that lessens, covers, dissolves, turns or raises
+  // another, told only where both stand as the page has them (same palace, or the tamer anywhere in the tam phương) and the page's own
+  // condition holds on the chart; at most two per palace ----
+  // a tamer the star-nature line above already told in this palace is not told again
+  for (const u of cheHoaUnits(chart, P, k, said).filter(u => !u.star!.split(', ').some(h => tameHolders.has(h))).slice(0, 2)) push({ ...u, section: obst });
+  // ---- the thế đứng of the fourteen chính tinh by where Tử Vi stands (KL pp.180-186, kg/combos.json layouts): the Mệnh chapter only ----
+  if (P === 'Mệnh') {
+    const tv = chart.palaces.find(p => p.major_stars.includes('Tử Vi'));
+    const lay = tv && (k.kg?.combos?.layouts ?? []).find(l => l.tu_vi_branch.includes(tv.branch));
+    if (lay && !said.has(lay.id)) { said.add(lay.id); const s0 = lay.sources[0];
+      push({ kind: 'layout', section: orient, star: 'Tử Vi', palace: tv!.name, where: whereOf(tv!.name), book: { id: lay.id, text: lay.reading, book: s0.book, page: s0.page } }); }
   }
 
   // ---- links to the other palaces of the domain ----
@@ -302,6 +325,55 @@ function groundAtoms(atoms: Resolved['atoms'], chart: ChartInput): Array<{ name:
   return atoms.filter(a => a.palace && (a.kind === 'star' || a.kind === 'hoa' || a.kind === 'tuan_triet' || a.kind === 'vcd' || (a.kind === 'dignity' && (atoms.some(b => b.kind === 'star' && b.name === a.name && b.palace === a.palace) || present(a.name, a.palace!)))))
     .map(a => ({ name: a.kind === 'vcd' ? 'vô chính diệu' : a.name, palace: a.palace! }));
 }
+const CHINH_TINH = ['Tử Vi', 'Thiên Cơ', 'Thái Dương', 'Vũ Khúc', 'Thiên Đồng', 'Liêm Trinh', 'Thiên Phủ', 'Thái Âm', 'Tham Lang', 'Cự Môn', 'Thiên Tướng', 'Thiên Lương', 'Thất Sát', 'Phá Quân'];
+export interface CheHoa { id: string; tamer: string[]; tamed: string[]; scope: 'dong_cung' | 'any' | 'tam_phuong'; effect: string; on?: string; text: string;
+  book: string; page: number | string; condition?: string | null; reviewStatus: string }
+/** The chế hóa relations that hold in palace P (DEEP-3). A name stands in a palace as a star, a Hóa on its branch, or Tuần / Triệt on it;
+ *  `*` as the tamed means any star of the palace. A page condition is read only when it is one the chart can decide ("ở cung X, Y", the
+ *  brightness of the tamed or the tamer, "các sao cùng có mặt" / "cùng một cung"); any other condition leaves the relation untold. */
+export function cheHoaUnits(chart: ChartInput, P: string, k: Knowledge, said: Set<string>): DepthUnit[] {
+  const byIdx = new Map(chart.palaces.map(p => [p.branch_index, p])), pal = chart.palaces.find(p => p.name === P)!;
+  const tp = [pal, ...[4, 8, 6].map(d => byIdx.get((pal.branch_index + d) % 12)!)];
+  const has = (p: Palace, n: string) => n === 'Tuần' ? !!p.tuan : n === 'Triệt' ? !!p.triet : n.startsWith('Hóa ') ? chart.tu_hoa[n]?.branch === p.branch_index
+    : p.stars.includes(n) || p.major_stars.includes(n);
+  const dig = (p: Palace, n: string) => (p.major_dignity as Record<string, string> | undefined)?.[n];
+  const BRIGHT = ['miếu', 'vượng', 'đắc'];
+  const out: DepthUnit[] = [];
+  for (const r of (k.kg?.cheHoa?.relations ?? []) as CheHoa[]) {
+    if (r.reviewStatus !== 'verified' || said.has(r.id)) continue;
+    const at = r.scope === 'dong_cung' ? [pal] : tp;
+    // the tamers named are those of one palace: the palace itself first, else the first tam phương palace that holds one
+    const hp = at.find(p => r.tamer.some(n => has(p, n)));
+    if (!hp) continue;
+    const holders = r.tamer.filter(n => has(hp, n));
+    const all = r.tamed.includes('*');
+    const tamed = all ? [] : r.tamed.filter(n => has(pal, n) && !r.tamer.includes(n));
+    if (!all && !tamed.length) continue;
+    // two chính tinh named as one pair ("Cự Đồng hãm …"): both must stand in the palace
+    if (r.tamed.length === 2 && r.tamed.every(n => CHINH_TINH.includes(n)) && tamed.length < 2) continue;
+    if (all && !pal.major_stars.length && !pal.stars.length) continue;
+    const c = (r.condition ?? '').trim();
+    let ok = true;
+    for (const part of c ? c.split(/;\s*/) : []) {
+      const m = part.match(/^ở cung (.+)$/);
+      if (m) ok &&= m[1].split(/,\s*/).includes(P);
+      else if (part === 'sao bị chế hãm') ok &&= tamed.some(n => dig(pal, n) === 'hãm');
+      else if (part === 'sao bị chế miếu, vượng, đắc') ok &&= tamed.some(n => BRIGHT.includes(dig(pal, n) ?? ''));
+      else if (part === 'sao chế miếu, vượng, đắc') ok &&= holders.some(n => at.some(p => BRIGHT.includes(dig(p, n) ?? '')));
+      else if (part === 'các sao cùng có mặt' || part === 'cùng một cung') ok &&= r.tamer.every(n => has(pal, n));
+      else ok = false;
+    }
+    // "chính tinh đắc địa gặp Tuần Triệt": the tamed is a bright chính tinh, as the page says (on 'tot' over a list of chính tinh)
+    if (r.on === 'tot' && !r.tamed.includes('*') && tamed.every(n => pal.major_stars.includes(n))) ok &&= tamed.some(n => BRIGHT.includes(dig(pal, n) ?? ''));
+    if (r.on === 'ham') ok &&= tamed.some(n => dig(pal, n) === 'hãm');
+    if (!ok) continue;
+    said.add(r.id);
+    out.push({ kind: 'chehoa', section: '', star: holders.join(', '), palace: hp.name, where: hp === pal ? 'self' : (hp.branch_index - pal.branch_index + 12) % 12 === 6 ? 'opp' : 'trine',
+      tamed: tamed.join('|'), book: { id: r.id, text: r.text, book: r.book, page: r.page, effect: r.effect, on: r.on } });
+  }
+  return out;
+}
+
 /** The chart side a conditional palace relation needs (star_nature.json relations[].when). */
 function relationHolds(chart: ChartInput, when: string, P: string): boolean {
   const pal = (n: string) => chart.palaces.find(p => p.name === n)!;
@@ -311,7 +383,14 @@ function relationHolds(chart: ChartInput, when: string, P: string): boolean {
   if (when === 'nu' || when === 'than') return true;
   if (when === 'menh_hard_phuc_bright') return (sat('Mệnh') || dig('Mệnh').includes('hãm')) && bright('Phúc Đức');
   if (when === 'sat_here') return sat(P);
-  if (when === 'bright_no_sat') return dig(P).length > 0 && dig(P).every(x => x === 'miếu' || x === 'vượng' || x === 'đắc') && !sat(P);
+  // "quá đẹp" (KL p.220): every chính tinh bright, one at miếu / vượng, no sát tinh or Hóa Kỵ, and more than a lone star (a second chính
+  // tinh or a cát tinh of the six): a single Thiên Tướng đắc is not "quá đẹp"
+  if (when === 'bright_no_sat') {
+    const p = pal(P), ky = chart.palaces.find(q => q.branch_index === chart.tu_hoa['Hóa Kỵ']?.branch)?.name === P;
+    const CAT = ['Tả Phụ', 'Hữu Bật', 'Văn Xương', 'Văn Khúc', 'Thiên Khôi', 'Thiên Việt'];
+    return dig(P).length > 0 && dig(P).every(x => x === 'miếu' || x === 'vượng' || x === 'đắc') && dig(P).some(x => x === 'miếu' || x === 'vượng')
+      && !sat(P) && !ky && (p.major_stars.length >= 2 || p.stars.some(s => CAT.includes(s)));
+  }
   return false;
 }
 function dedupeAtoms(xs: Array<{ name: string; palace: string }>) {

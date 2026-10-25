@@ -121,8 +121,8 @@ test('KG coverage over the corpus: every verified Mệnh/chart finding is linked
   assert.ok(statuses.softened > 0 && statuses.weakened > 0 && statuses.holds > 0, JSON.stringify(statuses));
   // every Mệnh book relation names rules that fire at Mệnh somewhere on the corpus, except one rare configuration (Thái Dương hãm ở Hợi
   // with all three Hóa, male) that the 1,000 charts do not contain; most relations also co-fire. Relations between rules of another
-  // palace (Thiên Lương's Tật Ách, TL p.128) are held to the same test in the prose chapter tests.
-  const atMenh = (id: string) => !id.startsWith('TV_TL_TAT_ACH_');
+  // palace (Thiên Lương's Tật Ách, TL p.128; the 紫微斗數全書 Nô Bộc and Tử Tức lines, test_deep3_tuvi.py) are held to the same test elsewhere.
+  const atMenh = (id: string) => !id.startsWith('TV_TL_TAT_ACH_') && !id.startsWith('TV_D3_W2_');      // DEEP-3: 紫微斗數全書 Nô Bộc / Tử Tức lines
   const sach = K.kg!.relations!.filter(r => r.basis === 'sach' && [r.from, ...r.to].every(atMenh));
   assert.deepEqual(sach.flatMap(r => [r.from, ...r.to].filter(id => !ruleFired.has(id)).map(id => `${r.id}:${id}`)),
     ['REL_TH93_NHAT_HAM_HOI_TAM_HOA:TV_TH_STAR_THAI_DUONG_NAM_HAM_HOI_TAM_HOA']);

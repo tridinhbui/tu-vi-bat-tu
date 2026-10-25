@@ -40,9 +40,10 @@ import type { World } from './dsl.ts';
 import { Geo, SCOPE_WEIGHT, TIER_WEIGHT, atomSeat, rarity, type Tier } from './reason/tiers.ts';
 import { guardHolds } from './reason/positions.ts';
 import { SAT } from './reason/structures.ts';
+import { toanThuLines } from './prose/vanhan_books.ts';
 
 
-export const INDICES_VERSION = 'indices-3.1.0';
+export const INDICES_VERSION = 'indices-3.1.1';
 export const DISCLAIMER = 'Mức tổng hợp từ câu sách và thông lệ có ghi nhãn, so với 1.000 lá số mẫu; không phải xác suất hay dự báo.';
 
 export type Side = 'support' | 'limit';
@@ -282,7 +283,7 @@ export function natalRawAll(chart: ChartInput, k: Knowledge): Record<string, { s
 
 // ================================================================ period items ================================================================
 
-const bookOf = (cite: string) => /Khảo Luận|KL /.test(cite) ? 'Khảo Luận' : /Thực Hành|TH /.test(cite) ? 'Thực Hành' : /Toàn Thư|TT /.test(cite) ? 'Toàn Thư' : undefined;
+const bookOf = (cite: string) => /Khảo Luận|KL /.test(cite) ? 'Khảo Luận' : /Thực Hành|TH /.test(cite) ? 'Thực Hành' : /Toàn Thư|TT /.test(cite) ? 'Toàn Thư' : /Hàm Số|HS /.test(cite) ? 'Hàm Số' : undefined;
 const LOWER_LEAD = /^(Cung|Vận|Hạn|Tam|Lưu)\b/;
 const lowerLead = (s: string) => LOWER_LEAD.test(s) ? s[0].toLowerCase() + s.slice(1) : s;
 /** "Vận có Tham Lang ở Dậu: theo sách hao tài, phóng túng." → "vận có Tham Lang ở Dậu thì hao tài, phóng túng". */
@@ -301,7 +302,7 @@ type DecadeFacts = ChartInput['decades'][number] & { tt?: Array<{ text: string; 
 
 /** The book sentences of a vận palace (đại hạn, tiểu hạn, lưu đại hạn): rule-id readings, Toàn Thư paraphrases, Khảo Luận pp.230-233 facts.
  *  `where` is added to each cite when the palace is placed by another page (the lưu đại hạn of TH pp.117-118). */
-function vanItems(palace: string, layer: Layer, readings: DecadeFacts['readings'], tt: DecadeFacts['tt'], kl: DecadeFacts['kl'], where = ''): Item[] {
+function vanItems(palace: string, layer: Layer, readings: DecadeFacts['readings'], tt: ReturnType<typeof toanThuLines>, kl: DecadeFacts['kl'], where = ''): Item[] {
   const list: Item[] = [];
   const add = (it: Omit<Item, 'layer' | 'palace' | 'scope' | 'book'>) => list.push({ ...it, cite: it.cite + where, w: r3(it.w), layer, palace, scope: 'self', book: bookOf(it.cite) });
   for (const r of readings as Array<{ text: string; src: string; rule_id?: string | null }>) {
@@ -309,10 +310,10 @@ function vanItems(palace: string, layer: Layer, readings: DecadeFacts['readings'
     if (t) add({ id: r.rule_id!, side: t.side, w: t.w, cite: TRIAD_RULES.has(r.rule_id!) ? `${r.src}; KL tr.233 (tam hợp Thái Tuế, Quan Phù, Bạch Hổ: “bất kể Mệnh đóng ở vị trí nào”)` : r.src,
       text: r.text, basis: 'sach', gist: gistOf(r.text) });
   }
-  for (const s of tt ?? []) {
-    const t = TT_SENTENCES.find(x => s.text.startsWith(x.prefix));
-    if (t) add({ id: t.id, side: t.side, w: t.w * TT_WEIGHT, cite: `${s.src} (diễn ý, chưa đối chiếu từng trang)`, text: s.text, basis: 'sach_dien_giai', gist: gistOf(s.text) });
-  }
+  // Toàn Thư's nhập hạn verses, page-checked (prose/vanhan_books.ts, the lines the đại hạn chapter voices; review of the live charts
+  // 2026-10-25: the older paraphrases cited "chưa đối chiếu" while the prose cited the page). Weight TT_WEIGHT each, as before.
+  for (const b of tt) if (b.tone) add({ id: `TT_HAN:${b.id.replace(/^TT_HAN:/, '')}`, side: b.tone === 'pos' ? 'support' : 'limit', w: TT_WEIGHT, cite: `Toàn Thư ${b.cite.replace(/^TT /, '')}`,
+    text: b.text, basis: 'sach', gist: gistOf(b.text) });
   if (kl) {
     const t = KL_RELATION[kl.relation];
     if (t) add({ id: t.id, side: t.side, w: t.w, cite: kl.src, basis: 'sach',
@@ -480,7 +481,7 @@ export function periodInputs(chart: ChartInput, k: Knowledge, norms: IndexNorms 
   const vanOf = new Map<string, DecadeFacts>((chart.decades as DecadeFacts[]).map(d => [d.palace, d]));
   const decades: DecadeRaw[] = (chart.decades as DecadeFacts[]).slice(0, 10).map(d => {
     const hv = hoaItems(c, d.hoa, d.palace, 'hoa_van', d.stem);
-    const vv = [...vanItems(d.palace, 'van', d.readings, d.tt, d.kl), ...dauItems(chart, c.byName.get(d.palace)!, 'van', 'vận'), ...dhItems(c, d.palace, 'van', d.kl, 'vận')];
+    const vv = [...vanItems(d.palace, 'van', d.readings, toanThuLines(chart, d, 99), d.kl), ...dauItems(chart, c.byName.get(d.palace)!, 'van', 'vận'), ...dhItems(c, d.palace, 'van', d.kl, 'vận')];
     const n = countOf(vv);
     return { d, layers: [
       { layer: 'hoa_van', raw: net(hv), items: hv, basis: 'thong_le', note: `Tứ Hóa theo can ${d.stem}: ${hv.length} hóa trong tam phương cung vận hoặc Mệnh` },
@@ -506,10 +507,10 @@ export function periodInputs(chart: ChartInput, k: Knowledge, norms: IndexNorms 
     const vd = vanOf.get(p.name);
     // the viewed year carries its own Toàn Thư / Khảo Luận facts for the tiểu hạn palace (facts.year); they equal the decade entry of that palace
     const own = y === Y0 && rule === factsRule && yf.tieu_han_palace === p.name;
-    const th = [...vanItems(p.name, 'tieu_han', vd?.readings ?? [], own && yf.tieu_han_tt ? yf.tieu_han_tt : vd?.tt, own && yf.tieu_han_kl ? yf.tieu_han_kl : vd?.kl),
+    const th = [...vanItems(p.name, 'tieu_han', vd?.readings ?? [], vd ? toanThuLines(chart, vd, 99) : [], own && yf.tieu_han_kl ? yf.tieu_han_kl : vd?.kl),
       ...dauItems(chart, p, 'tieu_han', 'tiểu hạn'), ...dhItems(c, p.name, 'tieu_han', null, 'tiểu hạn')];
     const ld = d ? c.byIndex.get(luuDaiHanBranch(c.byName.get(d.palace)!.branch_index, dhDir, age - d.age_from))! : null, ldv = ld ? vanOf.get(ld.name) : undefined;
-    const lh = ld ? [...vanItems(ld.name, 'luu_dai_han', ldv?.readings ?? [], ldv?.tt, ldv?.kl, LDH_CITE), ...dauItems(chart, ld, 'luu_dai_han', 'lưu đại hạn', LDH_CITE),
+    const lh = ld ? [...vanItems(ld.name, 'luu_dai_han', ldv?.readings ?? [], ldv ? toanThuLines(chart, ldv, 99) : [], ldv?.kl, LDH_CITE), ...dauItems(chart, ld, 'luu_dai_han', 'lưu đại hạn', LDH_CITE),
       ...dhItems(c, ld.name, 'luu_dai_han', ldv?.kl ?? null, 'lưu đại hạn', LDH_CITE)] : [];
     // TH p.115 IX.3-4: the Bắc đẩu stars of the đại hạn palace weigh in its first five years, its Nam đẩu stars in the last five
     const half = d && age - d.age_from < 5 ? 'bac' : 'nam';
@@ -568,7 +569,7 @@ export interface Indices {
   /** the tiểu hạn school the years and months follow, in words */
   tieu_han_rule: { rule: 'KL' | 'TH'; label: string };
   palaces: PalaceIndex[]; decades: DecadeIndex[]; years: YearIndex[];
-  months: { year: number; basis: string; months: MonthIndex[] } | null;
+  months: { year: number; basis: string; months: MonthIndex[]; note?: string } | null;
   bazi: BaziStrip | null;
   /** the level cut points the charts draw as bands (norms.cuts) */
   cuts: { decade: number[]; year: number[]; month: number[] } | null;
@@ -841,6 +842,10 @@ export function computeIndices(chart: ChartInput, k: Knowledge, norms: IndexNorm
         notes: level === null ? [{ text: 'Cung tháng và tam phương không có sao nào đã đối chiếu độ sáng: tháng không có mức riêng.', cite: 'quy ước hệ thống (chủ dự án quyết định 2026-10-24)', basis: 'tinh_toan' as const }] : [],
         text: monthText(m, Y0, yv, level, parts[1].z) };
     }) } : null;
+  // twelve months on one level: the chart is flat on purpose (no invented variation, owner 2026-10-24); the card says why
+  if (months) { const lv = [...new Set(months.months.filter(x => x.level !== null).map(x => x.level_vi))];
+    if (lv.length === 1 && months.months.filter(x => x.level !== null).length >= 6) (months as typeof months & { note?: string }).note =
+      `Các tháng cùng ở mức “${lv[0]}”: đắc hãm các sao ở cung nguyệt hạn từng tháng chỉ nhích quanh mức của năm, chưa tháng nào đủ đổi bậc.`; }
 
   return {
     version: INDICES_VERSION, disclaimer: DISCLAIMER, year: Y0, levels: LEVELS, tieu_han_rule: { rule: inp.rule, label: RULE_VI[inp.rule] },
@@ -850,8 +855,8 @@ export function computeIndices(chart: ChartInput, k: Knowledge, norms: IndexNorm
     method: {
       thang: `mỗi lớp là một giá trị thô (bên thuận trừ bên bất lợi), chia cho cỡ thường gặp của chính lớp ấy trên ${norms?.charts ?? 1000} lá số mẫu (không trừ trung bình: lớp không có gì thì góp 0) rồi cộng theo trọng số; năm mức là so với chính loại giai đoạn ấy trên bộ mẫu (các ngưỡng 12 / 33 / 67 / 88 % của những giai đoạn có căn cứ sách; quy ước hệ thống). Lời sách đọc được nghiêng về thuận nhiều hơn (bảng độ sáng có nhiều chỗ đắc hơn hãm), nên “Thuận” nghĩa là thuận hơn các giai đoạn thường gặp; khi mức và chiều lời sách khác nhau, lời văn nói rõ`,
       can_cu: `giai đoạn không có câu sách hay sao nào đã đối chiếu độ sáng để xét thì để mức “${LEVELS[LEVEL_DEFAULT]}” kèm ghi chú “${INSUFFICIENT_VI}”, không phải trung bình thật; tháng không có gì để xét thì “${UNDETERMINED_VI}”`,
-      sach_truoc: `lớp có sách quyết định chiều; các lớp thông lệ cộng lại chỉ được thêm tối đa ${vn(CONV_K)} × phần có sách (+ ${vn(CONV_FLOOR)} khi cùng chiều hoặc sách không nói), nên không lật được lời sách. Khi lời sách trái chiều nhau: câu sách về cung vận (một câu = 1; câu có điều kiện hay nhẹ = ½), rồi đắc hãm từng sao (½ câu mỗi sao), Toàn Thư diễn ý ½; lời văn nói rõ bên nào nặng hơn`,
-      dai_van: `cung vận ${vn(W_DECADE.van)}: câu sách (Khảo Luận tr.230-236, Thực Hành tr.115-117; Toàn Thư tr.97-105 diễn ý × ${vn(TT_WEIGHT)}), Nam/Bắc đẩu tinh của cung vận (TH tr.115 mục IX.1-2), đắc hãm các chính tinh, trung tinh (KL tr.36), hung tinh của cung vận, xung chiếu, tam hợp và nhị hợp khi nhị hợp sinh cho cung vận (KL tr.233 mục 3-4); Tứ Hóa theo can đại vận ${vn(W_DECADE.hoa_van)} (thông lệ). Mệnh, Thân sáng hay tối chỉ được nói theo các cách của TH tr.118, không cộng trừ điểm`,
+      sach_truoc: `lớp có sách quyết định chiều; các lớp thông lệ cộng lại chỉ được thêm tối đa ${vn(CONV_K)} × phần có sách (+ ${vn(CONV_FLOOR)} khi cùng chiều hoặc sách không nói), nên không lật được lời sách. Khi lời sách trái chiều nhau: câu sách về cung vận (một câu = 1; câu có điều kiện hay nhẹ = ½), rồi đắc hãm từng sao (½ câu mỗi sao), Toàn Thư nhập hạn ca ½; lời văn nói rõ bên nào nặng hơn`,
+      dai_van: `cung vận ${vn(W_DECADE.van)}: câu sách (Khảo Luận tr.230-236, Thực Hành tr.115-117; Toàn Thư tr.96-106 nhập hạn ca, đã đối chiếu trang, × ${vn(TT_WEIGHT)}), Nam/Bắc đẩu tinh của cung vận (TH tr.115 mục IX.1-2), đắc hãm các chính tinh, trung tinh (KL tr.36), hung tinh của cung vận, xung chiếu, tam hợp và nhị hợp khi nhị hợp sinh cho cung vận (KL tr.233 mục 3-4); Tứ Hóa theo can đại vận ${vn(W_DECADE.hoa_van)} (thông lệ). Mệnh, Thân sáng hay tối chỉ được nói theo các cách của TH tr.118, không cộng trừ điểm`,
       nam: `đại vận đang đi ${vn(W_YEAR.dai_van)}, cung tiểu hạn ${vn(W_YEAR.tieu_han)} (${RULE_VI[inp.rule]}; đọc như cung vận, KL tr.40), cung lưu đại hạn ${vn(W_YEAR.luu_dai_han)} (TH tr.117-118), sao Bắc đẩu của cung đại vận ở năm năm đầu, Nam đẩu ở năm năm sau ${vn(W_YEAR.dau_tinh)} (TH tr.115 mục IX.3-4), lưu Khốc Hư ở tiểu hạn ${vn(W_YEAR.luu_sao)} (TH tr.114); thông lệ: các sao lưu khác ${vn(W_YEAR.luu_sao_tl)} (vị trí KL tr.41-42), lưu Tứ Hóa ${vn(W_YEAR.luu_tu_hoa)} (bỏ khi can năm trùng can đại vận)`,
       thang_am: `mức của năm cộng ${vn(W_MONTH)} × đắc hãm các sao của cung nguyệt hạn và tam phương (vị trí TH tr.115, KL tr.40-41; tiêu chí KL tr.233 mục 4)`,
       ban_menh: `mười hai cung: nhận định đã đối chiếu sách bắn vào cung, cung xung chiếu và hai cung tam hợp; trọng số = tầng × (0,5 + độ hiếm của quy tắc trên chính cung đó) × vị trí (1 / 0,85 / 0,7); so với trung bình của chính cung đó: (tổng + 1) / (trung bình + 1). ${TAT_ACH_NOTE}`,

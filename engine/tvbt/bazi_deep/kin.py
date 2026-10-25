@@ -30,7 +30,7 @@ from functools import lru_cache
 
 from ..bazi import (HARM, HIDDEN_STEMS, PENALTY_PAIR, PENALTY_PAIRS, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_COMBINE, growth_stage,
                     kong_wang, ming_gong_branch, shen_gong_branch, ten_god, thai_yuan)
-from ..ganzhi import BRANCHES_VI, STEM_ELEMENT, STEMS_VI, branch_stem_from_year, controls, generates
+from ..ganzhi import BRANCH_ELEMENT, BRANCHES_VI, STEM_ELEMENT, STEMS_VI, branch_stem_from_year, controls, generates
 from ..knowledge.schema import KnowledgeRule, Source
 from ..reasoning import engine
 from .model import PILLARS, ChartView
@@ -211,6 +211,74 @@ def _patterns(c: Chart, strong, vuong: list, nhuoc: list, stems: dict) -> list[d
     if strong and "Tai" in nhuoc and ti and tai:
         qs = c.of("QuanSat")
         add("ti_kiep_doat_tai", f"{_join([lab(n) for n in ti])} cùng chia phần {_join([lab(n) for n in tai])}", "cuu" if qs else "benh", qs[0] if qs else None)
+    return out
+
+
+ZZ28_LU = [2, 3, 5, 6, 5, 6, 8, 9, 11, 0]        # 禄 by day stem, the p.28 table
+ZZ28_REN = [3, 4, 6, 7, 6, 7, 9, 10, 0, 1]       # 刃 by day stem, the p.28 table (p.72 gives 寅巳申亥 for the yin stems: schools.json)
+BRANCH_COMBINE_EL = {frozenset((0, 1)): {"Thổ"}, frozenset((2, 11)): {"Mộc"}, frozenset((3, 10)): {"Hỏa"}, frozenset((4, 9)): {"Kim"},
+                     frozenset((5, 8)): {"Thủy"}, frozenset((6, 7)): {"Hỏa", "Thổ"}}   # 六合化: 午未 read either way (no page settles it)
+CTRL = {"Ti": "Tai", "Tai": "An", "An": "ThucThuong", "ThucThuong": "QuanSat", "QuanSat": "Ti"}   # group X controls CTRL[X]
+DUHE = [frozenset(s) for s in ((0, 5, 1), (6, 1, 7), (2, 7, 3), (8, 3, 9), (4, 9, 5))]          # 妒合 sets, p.29: 甲己乙 庚乙辛 丙辛丁 壬丁癸 戊癸己
+
+
+def _deep3_facts(c: "Chart", F: dict, yong: dict | None) -> dict:
+    """positions only, as everything here: the hour pillar's gods, the stems that stand out, the absent elements, the places next to the day
+    master, where the dụng / hỉ / kỵ groups of the TVH cách table stand (only when that table applies), and 八字真宗's stem combinations"""
+    v, dm = c.v, c.dm
+    near = sorted({c.group(n) for n in NEAR_DM})
+    yg, hg, kg = set(F["bazi.k.yong"]), set(F["bazi.k.hi"]) - set(F["bazi.k.yong"]), set(F["bazi.k.ky"])
+    present = set(F["bazi.k.present"])
+    els_present = {c.el(n) for n in c.nodes} | {STEM_ELEMENT[dm]} | {STEM_ELEMENT[h] for p in PILLARS for h in HIDDEN_STEMS[v.branch(p)]}
+    out = {
+        "bazi.k.dm_stem": STEMS_VI[dm],
+        "bazi.k.hour_stem_god": ten_god(dm, v.stem("hour")),
+        "bazi.k.hour_branch_god": c.god(("hour", "branch")),
+        "bazi.k.hour_ren": v.branch("hour") == ZZ_REN[dm],
+        "bazi.k.trans_gods": sorted({ten_god(dm, v.stem(p)) for p in PILLARS if p != "day"}),
+        "bazi.k.absent_el": [e for e in ("Mộc", "Hỏa", "Thổ", "Kim", "Thủy") if e not in els_present],
+        "bazi.k.near_groups": near,
+        # where the cách table's groups stand (TTT pp.101, 143, 165: hỉ near the day master is good, kỵ far from it is good)
+        "bazi.k.hi_near": bool(yong) and bool((yg | hg) & set(near)),
+        "bazi.k.ky_near": bool(yong) and bool(kg & set(near)),
+        "bazi.k.hi_absent": bool(yong) and bool(hg) and not (hg & present),
+        "bazi.k.ky_adj_yong": bool(yong) and any(c.group(a) in kg and c.group(b) in yg and c.adj(a, b) for a in c.nodes for b in c.nodes),
+        "bazi.k.yong_weak": bool(yong) and bool(yg) and all(g in F["bazi.k.nhuoc"] for g in yg),
+        "bazi.k.yong_month_hit": bool(yong) and any(c.group(("month", "branch")) == g and c.adj(n, ("month", "branch")) and c.group(n) == x
+                                                     for g in yg for x, t in CTRL.items() if t == g for n in c.nodes),
+    }
+    # 八字真宗 p.29: 正化 (two neighbouring stems combine, the month branch and both stems' own branches are of the transformed element)
+    zh = []
+    for p, q in zip(PILLARS, PILLARS[1:]):
+        el = STEM_COMBINE.get(frozenset((v.stem(p), v.stem(q))))
+        if el and BRANCH_ELEMENT[v.branch("month")] == el and BRANCH_ELEMENT[v.branch(p)] == el and BRANCH_ELEMENT[v.branch(q)] == el:
+            zh.append(el)
+    out["bazi.k.zz_zhenghua"] = sorted(set(zh))
+    # p.29 妒合: three stems of consecutive pillars are one of the five sets
+    st = [v.stem(p) for p in PILLARS]
+    out["bazi.k.zz_duhe"] = any(len(set(st[i:i + 3])) == 3 and frozenset(st[i:i + 3]) in DUHE for i in (0, 1))
+    # p.29 干支鸳鸯合: two neighbouring pillars whose stems combine and whose branches combine, the two transformed elements the same or one
+    # generating the other ("合化之物互相引化", read so by the system)
+    yy = []
+    for p, q in zip(PILLARS, PILLARS[1:]):
+        se = STEM_COMBINE.get(frozenset((v.stem(p), v.stem(q))))
+        be = BRANCH_COMBINE_EL.get(frozenset((v.branch(p), v.branch(q))))
+        if se and be and any(e == se or generates(e, se) or generates(se, e) for e in be):
+            yy.append(f"{p}_{q}")
+    out["bazi.k.zz_yuanyang"] = yy
+    # pp.28-29 日月合化直断夫妻: the day and month stems combine; the element E is the yang stem's (妻从夫化, 优) or the yin stem's (夫从妻化, 劣);
+    # the month branch is 禄 or 刃 (p.28 table) of the stem of E; both sitting branches are E or produce E (the p.29 example 2 counts 酉 under
+    # 癸 as 比: system reading); a man's day stem must be yang (夫干), a woman's yin (妻干)
+    hh = ""
+    ms = v.stem("month")
+    if frozenset((dm, ms)) in STEM_COMBINE and F["bazi.k.gender"] in ("nam", "nữ") and (dm % 2 == 0) == (F["bazi.k.gender"] == "nam"):
+        for s in (dm, ms):
+            e = STEM_ELEMENT[s]
+            ok_b = all(BRANCH_ELEMENT[v.branch(p)] == e or generates(BRANCH_ELEMENT[v.branch(p)], e) for p in ("month", "day"))
+            if v.branch("month") in (ZZ28_LU[s], ZZ28_REN[s]) and ok_b:
+                hh = "uu" if s % 2 == 0 else "liet"
+                break
+    out["bazi.k.zz_hh"] = hh
     return out
 
 
@@ -412,6 +480,8 @@ def natal_facts(view: ChartView, tvh: dict | None, yong: dict | None = None) -> 
     F["bazi.k.front_tai_back_an"] = "Tai" in front and "An" in F["bazi.k.dayhour_groups"] and "An" not in front
     F["bazi.k.ya_mq"] = "Chính Ấn" in (c.god(("year", "stem")), c.god(("year", "branch"))) and "Chính Quan" in (c.god(("month", "stem")), c.god(("month", "branch")))
     F["bazi.k.thuc_che_sat"] = any(c.god(a) == "Thực Thần" and c.god(b) == "Thất Sát" and c.adj(a, b) for a in c.nodes for b in c.nodes)
+    # ---- DEEP-3 (2026-10-24): the positions the newly mined judgements name (TVH pp.158-159, 546-553; TTT pp.67, 101-105, 143-144; ZZ pp.26-29)
+    F.update(_deep3_facts(c, F, yong))
     # ---- Ten-God combinations (REVIEW-19 W6): the named shapes Thiệu Vĩ Hoa and Trích Thiên Tủy judge (Thực chế Sát, Sát Ấn tương sinh, Thương /
     # Thực sinh Tài, Tài Quan tương sinh, Tài phá Ấn, Thương kiến Quan, Kiêu đoạt Thực, hợp Sát / hợp Quan, Tỉ Kiếp đoạt Tài), found with the
     # same "đứng sát" as every judgement here (same pillar or same row of two neighbouring pillars: a system convention, no page defines it)

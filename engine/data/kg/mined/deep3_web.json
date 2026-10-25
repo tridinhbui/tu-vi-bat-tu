@@ -1,0 +1,1658 @@
+{
+ "source": "紫微斗數全書 卷一 / 卷二, zh.wikisource snapshot of 2026-10-24 (engine/data/sources_web/index.json)",
+ "pages_read": [
+  {
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "image_checked": false,
+   "note": "兄弟 (siblings): per star, counts + 和 / 不和; the counts are not used."
+  },
+  {
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "image_checked": false,
+   "note": "子女 (children): mostly counts, sex and 刑克; used: 貴子 / 不成器 / 強橫敗家."
+  },
+  {
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "image_checked": false,
+   "note": "奴仆 (servants, subordinates, friends of lower rank): 得力 / 欠力 / 背主 / 怨主 / 一呼百諾."
+  },
+  {
+   "book": "WEB:zwds_quanshu_2",
+   "page": "十二父母",
+   "image_checked": false,
+   "note": "父母: mostly 刑克 (death of a parent) and adoption; used: 榮貴, 庇蔭, 破父財, 欠和."
+  },
+  {
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定富局",
+   "image_checked": false,
+   "note": "6 phú cục"
+  },
+  {
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贵局",
+   "image_checked": false,
+   "note": "quý cục"
+  },
+  {
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贫贱局",
+   "image_checked": false,
+   "note": "bần tiện cục"
+  },
+  {
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星得地合格诀",
+   "image_checked": false,
+   "note": "hợp cách by Mệnh branch"
+  },
+  {
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星失陷破格诀",
+   "image_checked": false,
+   "note": "phá cách by Mệnh branch"
+  },
+  {
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星得地富贵论",
+   "image_checked": false,
+   "note": "đắc địa phú quý luận"
+  },
+  {
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星失陷贫贱论",
+   "image_checked": false,
+   "note": "thất hãm bần tiện luận"
+  },
+  {
+   "book": "WEB:zwds_quanshu_1",
+   "page": "斗数骨髓赋",
+   "image_checked": false,
+   "note": "cốt tủy phú"
+  }
+ ],
+ "entries": [
+  {
+   "id": "w2_bao_tu_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "加羊陀火铃空劫克害有则欠和",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Tử Vi, thêm Kình, Đà, Hỏa, Linh, Không hoặc Kiếp",
+   "reading_vi": "anh em kém hòa thuận",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": "紫微有倚靠年长之兄 ... 加羊陀火铃空劫克害有则欠和 (the counts are left out)"
+  },
+  {
+   "id": "w2_bao_co_ham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "陷地，相背不一心",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Thiên Cơ hãm",
+   "reading_vi": "anh em không cùng một lòng",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": "天机庙旺有二人，与巨门同二人，陷地，相背不一心"
+  },
+  {
+   "id": "w2_bao_nhat_ham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "陷地，不和欠力",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Thái Dương hãm",
+   "reading_vi": "anh em không hòa, ít giúp được nhau",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": "太阳 ... 陷地，不和欠力"
+  },
+  {
+   "id": "w2_bao_vu_khong_hop",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "武曲庙旺有二人，不合",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Vũ Khúc miếu, vượng",
+   "reading_vi": "anh em không hợp nhau",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_bao_vu_pha_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "破军七杀同有一人，不和睦",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Vũ Khúc đồng cung Phá Quân hoặc Thất Sát",
+   "reading_vi": "anh em không hòa thuận",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_bao_dong_sat_ky",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "见羊陀火铃空劫忌，少宜分居不和",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Thiên Đồng, thêm Kình, Đà, Hỏa, Linh, Không, Kiếp hoặc Hóa Kỵ",
+   "reading_vi": "anh em nên ở riêng, không hòa",
+   "polarity": "limit",
+   "concepts": [
+    "kin.apart",
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_bao_liem_tham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "贪狼同招怨",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Liêm Trinh đồng cung Tham Lang",
+   "reading_vi": "anh em sinh oán",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_bao_liem_note",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "兄弟感情融洽，但兄弟不多",
+   "quote_checked": true,
+   "condition_text": "Liêm Trinh",
+   "reading_vi": "",
+   "polarity": "support",
+   "concepts": [],
+   "skip": "a modern note added to the transcription (vernacular, not classical); not used",
+   "notes": ""
+  },
+  {
+   "id": "w2_bao_cu_ham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "巨门庙旺二人，陷地，各胞有，宜分居",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Cự Môn hãm",
+   "reading_vi": "anh em nên ở riêng",
+   "polarity": "limit",
+   "concepts": [
+    "kin.apart"
+   ],
+   "skip": null,
+   "notes": "各胞 (half-siblings) left out"
+  },
+  {
+   "id": "w2_bao_cu_co",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "天机同有二人，更乖违不一心",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Cự Môn đồng cung Thiên Cơ",
+   "reading_vi": "anh em càng trái ý, không cùng lòng",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_bao_luong_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "天梁庙旺二人和顺",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Thiên Lương miếu, vượng",
+   "reading_vi": "anh em hòa thuận",
+   "polarity": "support",
+   "concepts": [
+    "kin.harmony"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_bao_that_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "七杀主孤克，在子午寅申宫方有三人，也不和宜各人",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Thất Sát",
+   "reading_vi": "anh em không hòa, nên mỗi người một nơi",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain",
+    "kin.apart"
+   ],
+   "skip": null,
+   "notes": "孤克 (death / loneliness) and the counts left out"
+  },
+  {
+   "id": "w2_bao_pha_xuong_khuc",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "加昌曲左右有三人和睦",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Phá Quân, thêm Văn Xương, Văn Khúc, Tả Phụ hoặc Hữu Bật",
+   "reading_vi": "anh em hòa thuận",
+   "polarity": "support",
+   "concepts": [
+    "kin.harmony"
+   ],
+   "skip": null,
+   "notes": "破军入庙三人 ... 加昌曲左右有三人和睦"
+  },
+  {
+   "id": "w2_bao_ta_huu_kk",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "有空劫欠力不和",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Tả Phụ hoặc Hữu Bật, thêm Địa Không hoặc Địa Kiếp",
+   "reading_vi": "anh em ít giúp được nhau, không hòa",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": "the same clause closes both the 左辅 and 右弼 lines"
+  },
+  {
+   "id": "w2_bao_loc_ton_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "二兄弟",
+   "palace": "Huynh Đệ",
+   "heading": "紫微斗數全書 卷二 · 二兄弟",
+   "quote": "禄存相生有兄弟见杀克害招怨",
+   "quote_checked": true,
+   "condition_text": "Huynh Đệ có Lộc Tồn, thêm sát tinh",
+   "reading_vi": "anh em sinh oán",
+   "polarity": "limit",
+   "concepts": [
+    "kin.strain"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_tu_count_sex",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "凡看子女先看本宫星宿主有几子",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "counts and sex of children, 刑克 and 絕祀 (the bulk of the section)",
+   "notes": ""
+  },
+  {
+   "id": "w2_tu_thien_dong_count",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "天同庙旺五子有贵",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "support",
+   "concepts": [],
+   "skip": "a count of children",
+   "notes": ""
+  },
+  {
+   "id": "w2_tu_tu_phu_cat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "加昌曲左右有贵子",
+   "quote_checked": true,
+   "condition_text": "Tử Tức có Tử Vi và Thiên Phủ, thêm Văn Xương, Văn Khúc, Tả Phụ hoặc Hữu Bật",
+   "reading_vi": "có con quý hiển",
+   "polarity": "support",
+   "concepts": [
+    "kin.talented"
+   ],
+   "skip": null,
+   "notes": "紫微 ... 天府同加吉星四五人，加昌曲左右有贵子"
+  },
+  {
+   "id": "w2_tu_liem_phu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "天府同主贵子三人",
+   "quote_checked": true,
+   "condition_text": "Tử Tức có Liêm Trinh và Thiên Phủ",
+   "reading_vi": "có con quý hiển",
+   "polarity": "support",
+   "concepts": [
+    "kin.talented"
+   ],
+   "skip": null,
+   "notes": "廉贞一人，天府同主贵子三人 (the count left out)"
+  },
+  {
+   "id": "w2_tu_am_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "庙旺有贵子",
+   "quote_checked": true,
+   "condition_text": "Tử Tức có Thái Âm miếu, vượng",
+   "reading_vi": "có con quý hiển",
+   "polarity": "support",
+   "concepts": [
+    "kin.talented"
+   ],
+   "skip": null,
+   "notes": "太阴女三男二先女后男，庙旺有贵子 (sex and count left out)"
+  },
+  {
+   "id": "w2_tu_am_ham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "招软弱之子，或虚花不成器",
+   "quote_checked": true,
+   "condition_text": "Tử Tức có Thái Âm hãm",
+   "reading_vi": "con cái dễ yếu đuối, khó thành người",
+   "polarity": "limit",
+   "concepts": [
+    "kin.adverse"
+   ],
+   "skip": null,
+   "notes": "陷地减半，招软弱之子，或虚花不成器"
+  },
+  {
+   "id": "w2_tu_sat_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "纵有不成器，必强横败家之子",
+   "quote_checked": true,
+   "condition_text": "Tử Tức có Thất Sát, thêm Kình, Đà, Hỏa, Linh, Không hoặc Kiếp",
+   "reading_vi": "con cái dễ ngang tàng, phá gia",
+   "polarity": "limit",
+   "concepts": [
+    "kin.wayward"
+   ],
+   "skip": null,
+   "notes": "七杀 ... 见羊陀火铃空劫全无，纵有不成器，必强横败家之子 (全无 = a count: left out)"
+  },
+  {
+   "id": "w2_tu_pha_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "破军入庙三人，刚强之子",
+   "quote_checked": true,
+   "condition_text": "Tử Tức có Phá Quân miếu",
+   "reading_vi": "con cái cương cường",
+   "polarity": "support",
+   "concepts": [],
+   "skip": "'cương cường' (刚强) has no concept in the KG and is neither good nor bad on the page",
+   "notes": ""
+  },
+  {
+   "id": "w2_tu_ta_phu_tu_phu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "见紫微天府诸吉星主贵子",
+   "quote_checked": true,
+   "condition_text": "Tử Tức có Tả Phụ, thêm Tử Vi hoặc Thiên Phủ",
+   "reading_vi": "có con quý hiển",
+   "polarity": "support",
+   "concepts": [
+    "kin.talented"
+   ],
+   "skip": null,
+   "notes": "左辅单居男三女一，见紫微天府诸吉星主贵子"
+  },
+  {
+   "id": "w2_tu_ta_phu_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "有也不成器",
+   "quote_checked": true,
+   "condition_text": "Tử Tức có Tả Phụ, thêm Phá Quân, Thất Sát, Kình, Đà, Hỏa, Linh, Không hoặc Kiếp",
+   "reading_vi": "con cái khó thành người",
+   "polarity": "limit",
+   "concepts": [
+    "kin.adverse"
+   ],
+   "skip": null,
+   "notes": "见破杀羊陀火铃空劫止二人，有也不成器 (the count left out)"
+  },
+  {
+   "id": "w2_tu_huu_bat_cat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "右弼三人加吉星有贵子",
+   "quote_checked": true,
+   "condition_text": "Tử Tức có Hữu Bật, thêm cát tinh",
+   "reading_vi": "có con quý hiển",
+   "polarity": "support",
+   "concepts": [
+    "kin.talented"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_tu_khoi_viet",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "魁钺单守主有贵子",
+   "quote_checked": true,
+   "condition_text": "Tử Tức không chính tinh, có Thiên Khôi hoặc Thiên Việt",
+   "reading_vi": "có con quý hiển",
+   "polarity": "support",
+   "concepts": [
+    "kin.talented"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_tu_tuong_thanh_khi",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "四子女",
+   "palace": "Tử Tức",
+   "heading": "紫微斗數全書 卷二 · 四子女",
+   "quote": "天相无羊陀火铃同有二子成器",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "support",
+   "concepts": [],
+   "skip": "a count of sons",
+   "notes": ""
+  },
+  {
+   "id": "w2_no_tu_vi",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "紫微成行得力",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Tử Vi",
+   "reading_vi": "người dưới đắc lực",
+   "polarity": "support",
+   "concepts": [
+    "ally.helpful"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_tu_vi_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "加擎羊火铃陀罗欠力",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Tử Vi, thêm Kình Dương, Hỏa Tinh, Linh Tinh hoặc Đà La",
+   "reading_vi": "người dưới kém đắc lực",
+   "polarity": "limit",
+   "concepts": [
+    "ally.weak"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_tu_tuong_kk",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "加空劫招怨逃走",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Tử Vi, Thiên Tướng, thêm Địa Không hoặc Địa Kiếp",
+   "reading_vi": "người dưới sinh oán rồi bỏ đi",
+   "polarity": "limit",
+   "concepts": [
+    "ally.resent",
+    "ally.fickle"
+   ],
+   "skip": null,
+   "notes": "紫微 ... 天相同得力，加空劫招怨逃走"
+  },
+  {
+   "id": "w2_no_co_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "天机入庙得力",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Cơ miếu",
+   "reading_vi": "người dưới đắc lực",
+   "polarity": "support",
+   "concepts": [
+    "ally.helpful"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_co_ham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "陷空怨主",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Cơ hãm",
+   "reading_vi": "người dưới oán chủ",
+   "polarity": "limit",
+   "concepts": [
+    "ally.resent"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_nhat_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "太阳入庙旺主发",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thái Dương miếu",
+   "reading_vi": "người dưới giúp chủ phát đạt",
+   "polarity": "support",
+   "concepts": [
+    "ally.helpful"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_nhat_ham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "陷宫无分，有也怨主，会走",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thái Dương hãm",
+   "reading_vi": "ít người dưới, có cũng oán chủ và bỏ đi",
+   "polarity": "limit",
+   "concepts": [
+    "ally.resent",
+    "ally.fickle"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_vu_vuong",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "武曲旺宫不少，一呼百诺",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Vũ Khúc miếu, vượng",
+   "reading_vi": "người dưới đông, một tiếng gọi trăm người dạ",
+   "polarity": "support",
+   "concepts": [
+    "ally.many"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_vu_phu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "天府同多奴多婢",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Vũ Khúc, Thiên Phủ",
+   "reading_vi": "nhiều người giúp việc",
+   "polarity": "support",
+   "concepts": [
+    "ally.many"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_vu_pha",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "破军同招怨，会走",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Vũ Khúc, Phá Quân",
+   "reading_vi": "người dưới sinh oán, bỏ đi",
+   "polarity": "limit",
+   "concepts": [
+    "ally.resent",
+    "ally.fickle"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_vu_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "七杀同，背主",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Vũ Khúc, Thất Sát",
+   "reading_vi": "người dưới phản chủ",
+   "polarity": "limit",
+   "concepts": [
+    "ally.disloyal"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_vu_tham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "贪狼同欠力",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Vũ Khúc, Tham Lang",
+   "reading_vi": "người dưới kém đắc lực",
+   "polarity": "limit",
+   "concepts": [
+    "ally.weak"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_dong",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "天同得力旺相",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Đồng",
+   "reading_vi": "người dưới đắc lực",
+   "polarity": "support",
+   "concepts": [
+    "ally.helpful"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_dong_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "加羊陀火铃有背主之奴",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Đồng, thêm Kình, Đà, Hỏa hoặc Linh",
+   "reading_vi": "có người dưới phản chủ",
+   "polarity": "limit",
+   "concepts": [
+    "ally.disloyal"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_liem_ham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "廉贞陷地奴背主",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Liêm Trinh hãm",
+   "reading_vi": "người dưới phản chủ",
+   "polarity": "limit",
+   "concepts": [
+    "ally.disloyal"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_liem_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "入庙一呼百诺",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Liêm Trinh miếu",
+   "reading_vi": "người dưới đông, một tiếng gọi trăm người dạ",
+   "polarity": "support",
+   "concepts": [
+    "ally.many"
+   ],
+   "skip": null,
+   "notes": "廉贞陷地奴背主，晚年方招得，入庙一呼百诺"
+  },
+  {
+   "id": "w2_no_liem_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "贪狼同欠力，七杀同背主",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Liêm Trinh, Thất Sát",
+   "reading_vi": "người dưới phản chủ",
+   "polarity": "limit",
+   "concepts": [
+    "ally.disloyal"
+   ],
+   "skip": null,
+   "notes": "KL p.219 reads Liêm Sát at Nô Bộc the same way",
+   "duplicate_of": "TV_KL7_NO_BOC_LIEM_SAT"
+  },
+  {
+   "id": "w2_no_phu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "天府得力一呼百诺",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Phủ",
+   "reading_vi": "người dưới đắc lực, đông người theo",
+   "polarity": "support",
+   "concepts": [
+    "ally.helpful",
+    "ally.many"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_phu_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "加陀羊火铃空劫多背主，逃走",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Phủ, thêm Kình, Đà, Hỏa, Linh, Không hoặc Kiếp",
+   "reading_vi": "người dưới hay phản chủ, bỏ đi",
+   "polarity": "limit",
+   "concepts": [
+    "ally.disloyal"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_am_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "太阴庙地得力成行",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thái Âm miếu",
+   "reading_vi": "người dưới đắc lực",
+   "polarity": "support",
+   "concepts": [
+    "ally.helpful"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_am_ham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "虽有而走，陷地全无",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thái Âm hãm",
+   "reading_vi": "ít người dưới",
+   "polarity": "limit",
+   "concepts": [
+    "ally.few"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_tham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "贪狼初难招败主之奴",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Tham Lang",
+   "reading_vi": "dễ gặp người dưới làm hại chủ",
+   "polarity": "limit",
+   "concepts": [
+    "ally.drain"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_cu_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "巨门入庙早年不得力，招是非，不能久居",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Cự Môn miếu",
+   "reading_vi": "người dưới gây thị phi, không ở lâu",
+   "polarity": "limit",
+   "concepts": [
+    "ally.dispute",
+    "ally.fickle"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_tuong_vu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "武曲同怨主",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Tướng, Vũ Khúc",
+   "reading_vi": "người dưới oán chủ",
+   "polarity": "limit",
+   "concepts": [
+    "ally.resent"
+   ],
+   "skip": null,
+   "notes": "天相末年招得，紫微同多奴多婢，武曲同怨主"
+  },
+  {
+   "id": "w2_no_tuong_tu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "紫微同多奴多婢",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Tướng, Tử Vi",
+   "reading_vi": "nhiều người giúp việc",
+   "polarity": "support",
+   "concepts": [
+    "ally.many"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_luong",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "天梁奴多旺主",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Lương",
+   "reading_vi": "người dưới đông, giúp chủ thịnh",
+   "polarity": "support",
+   "concepts": [
+    "ally.many",
+    "ally.helpful"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_luong_co",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "天机同不一心",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thiên Lương, Thiên Cơ",
+   "reading_vi": "người dưới không một lòng",
+   "polarity": "limit",
+   "concepts": [
+    "ally.fickle"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_that_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "七杀欺主有刚强之仆，多盗家财",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Thất Sát",
+   "reading_vi": "người dưới cứng đầu, lấn chủ, hay lấy của",
+   "polarity": "limit",
+   "concepts": [
+    "ally.overstep",
+    "ally.disloyal"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_pha_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "破军入庙得力",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Phá Quân miếu",
+   "reading_vi": "người dưới đắc lực",
+   "polarity": "support",
+   "concepts": [
+    "ally.helpful"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_pha_ham",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "陷宫招怨背主",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Phá Quân hãm",
+   "reading_vi": "người dưới oán và phản chủ",
+   "polarity": "limit",
+   "concepts": [
+    "ally.resent",
+    "ally.disloyal"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_xuong_doc",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "文昌入庙独守得力助主",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc không chính tinh, có Văn Xương miếu",
+   "reading_vi": "người dưới đắc lực, giúp chủ",
+   "polarity": "support",
+   "concepts": [
+    "ally.helpful"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_khuc_mieu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "文曲入庙得力，陷宫无分",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Văn Khúc miếu",
+   "reading_vi": "người dưới đắc lực",
+   "polarity": "support",
+   "concepts": [
+    "ally.helpful"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_ta_doc",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "左辅独守旺相一呼百诺",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc không chính tinh, có Tả Phụ",
+   "reading_vi": "người dưới đông, một tiếng gọi trăm người dạ",
+   "polarity": "support",
+   "concepts": [
+    "ally.many"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_huu_doc",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "右弼独守成行",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc không chính tinh, có Hữu Bật",
+   "reading_vi": "người dưới đông",
+   "polarity": "support",
+   "concepts": [
+    "ally.many"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_ta_huu_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "背主盗财而走",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Tả Phụ hoặc Hữu Bật, thêm Kình, Đà, Hỏa, Linh, Không hoặc Kiếp",
+   "reading_vi": "người dưới phản chủ, lấy của mà đi",
+   "polarity": "limit",
+   "concepts": [
+    "ally.disloyal"
+   ],
+   "skip": null,
+   "notes": "左辅 ... 加羊陀火铃空劫耗忌背主难招; 右弼 ... 加羊陀火铃空劫耗忌，背主盗财而走"
+  },
+  {
+   "id": "w2_no_loc_ton",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "禄存奴仆多",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Lộc Tồn",
+   "reading_vi": "nhiều người giúp việc",
+   "polarity": "support",
+   "concepts": [
+    "ally.many"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_kinh",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "擎羊背主招怨不得力",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Kình Dương",
+   "reading_vi": "người dưới oán và phản chủ, không đắc lực",
+   "polarity": "limit",
+   "concepts": [
+    "ally.disloyal",
+    "ally.resent"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_da",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "陀罗奴仆欠力怨主",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc có Đà La",
+   "reading_vi": "người dưới kém đắc lực, oán chủ",
+   "polarity": "limit",
+   "concepts": [
+    "ally.weak",
+    "ally.resent"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_hoa_doc",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "火星独守怨主不得力",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc không chính tinh, có Hỏa Tinh",
+   "reading_vi": "người dưới oán chủ, không đắc lực",
+   "polarity": "limit",
+   "concepts": [
+    "ally.resent"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_no_linh_doc",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "八奴仆",
+   "palace": "Nô Bộc",
+   "heading": "紫微斗數全書 卷二 · 八奴仆",
+   "quote": "铃星独守不得力",
+   "quote_checked": true,
+   "condition_text": "Nô Bộc không chính tinh, có Linh Tinh",
+   "reading_vi": "người dưới không đắc lực",
+   "polarity": "limit",
+   "concepts": [
+    "ally.weak"
+   ],
+   "skip": null,
+   "notes": ""
+  },
+  {
+   "id": "w2_pm_khac",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "十二父母",
+   "palace": "Phụ Mẫu",
+   "heading": "紫微斗數全書 卷二 · 十二父母",
+   "quote": "太阳在陷宫主先克父",
+   "quote_checked": true,
+   "condition_text": "",
+   "reading_vi": "",
+   "polarity": "limit",
+   "concepts": [],
+   "skip": "刑克 (a parent's death), adoption, step-parents: most of the section",
+   "notes": ""
+  },
+  {
+   "id": "w2_pm_khoi_viet",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "十二父母",
+   "palace": "Phụ Mẫu",
+   "heading": "紫微斗數全書 卷二 · 十二父母",
+   "quote": "魁钺主父母荣贵同吉星双全",
+   "quote_checked": true,
+   "condition_text": "Phụ Mẫu có Thiên Khôi hoặc Thiên Việt",
+   "reading_vi": "cha mẹ vinh hiển",
+   "polarity": "support",
+   "concepts": [
+    "parents.prosper"
+   ],
+   "skip": null,
+   "notes": "the 双全 clause (both parents alive) is left out"
+  },
+  {
+   "id": "w2_pm_huu_bat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "十二父母",
+   "palace": "Phụ Mẫu",
+   "heading": "紫微斗數全書 卷二 · 十二父母",
+   "quote": "加吉星得父母庇荫",
+   "quote_checked": true,
+   "condition_text": "Phụ Mẫu không chính tinh, có Hữu Bật, thêm cát tinh",
+   "reading_vi": "được cha mẹ che chở",
+   "polarity": "support",
+   "concepts": [
+    "fortune.protected"
+   ],
+   "skip": null,
+   "notes": "右弼独守无刑，加吉星得父母庇荫"
+  },
+  {
+   "id": "w2_pm_loc_ton_sat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "十二父母",
+   "palace": "Phụ Mẫu",
+   "heading": "紫微斗數全書 卷二 · 十二父母",
+   "quote": "早年有破父财",
+   "quote_checked": true,
+   "condition_text": "Phụ Mẫu có Lộc Tồn, thêm Kình, Đà, Hỏa, Linh, Không hoặc Kiếp",
+   "reading_vi": "thuở nhỏ của cải của cha mẹ hao tổn",
+   "polarity": "limit",
+   "concepts": [
+    "parents.poor"
+   ],
+   "skip": null,
+   "notes": "禄存无克，加空劫羊陀火铃，早年有破父财"
+  },
+  {
+   "id": "w2_pm_dong_cu",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "十二父母",
+   "palace": "Phụ Mẫu",
+   "heading": "紫微斗數全書 卷二 · 十二父母",
+   "quote": "巨门同欠和",
+   "quote_checked": true,
+   "condition_text": "Phụ Mẫu có Thiên Đồng, Cự Môn",
+   "reading_vi": "với cha mẹ kém hòa thuận",
+   "polarity": "limit",
+   "concepts": [
+    "parents.strain"
+   ],
+   "skip": null,
+   "notes": "天同独守 ... 巨门同欠和"
+  },
+  {
+   "id": "w2_pm_cu_nhat",
+   "book": "WEB:zwds_quanshu_2",
+   "page": "十二父母",
+   "palace": "Phụ Mẫu",
+   "heading": "紫微斗數全書 卷二 · 十二父母",
+   "quote": "太阳同少和",
+   "quote_checked": true,
+   "condition_text": "Phụ Mẫu có Cự Môn, Thái Dương",
+   "reading_vi": "với cha mẹ ít hòa thuận",
+   "polarity": "limit",
+   "concepts": [
+    "parents.strain"
+   ],
+   "skip": null,
+   "notes": "巨门陷地 ... 太阳同少和"
+  },
+  {
+   "id": "w1_kim_du_phu_gia",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贵局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定贵局",
+   "quote": "金舆扶驾 紫微守命前后有日月来夹是也",
+   "quote_checked": true,
+   "condition_text": "Kim dư phù giá",
+   "reading_vi": "Tử Vi thủ Mệnh, trước sau có Nhật Nguyệt giáp",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_that_sat_trieu_dau",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "斗数骨髓赋",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 斗数骨髓赋",
+   "quote": "七杀朝斗爵禄荣昌",
+   "quote_checked": true,
+   "condition_text": "Thất Sát triều đẩu",
+   "reading_vi": "Thất Sát triều đẩu thì tước lộc vinh xương (không ghi vị trí)",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_nhat_xuat_phu_tang",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贵局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定贵局",
+   "quote": "日出扶桑 日在卯守命是也，守官禄宫亦然",
+   "quote_checked": true,
+   "condition_text": "Nhật xuất phù tang",
+   "reading_vi": "Thái Dương ở Mão thủ Mệnh; thủ Quan Lộc cũng vậy",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_nguyet_sinh_thuong_hai",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贵局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定贵局",
+   "quote": "月生沧海 月在子宫守田宅是也",
+   "quote_checked": true,
+   "condition_text": "Nguyệt sinh thương hải",
+   "reading_vi": "Thái Âm ở Tý thủ Điền Trạch",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_toa_quy_huong_quy",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贵局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定贵局",
+   "quote": "坐贵向贵 谓魁钺在命迭相坐拱是也",
+   "quote_checked": true,
+   "condition_text": "Tọa quý hướng quý",
+   "reading_vi": "Khôi Việt ở Mệnh, thay nhau tọa và củng",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_tham_hoa",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贵局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定贵局",
+   "quote": "贪火相逢 谓二星守命同居庙旺是也",
+   "quote_checked": true,
+   "condition_text": "Tham Hỏa tương phùng",
+   "reading_vi": "Tham Lang, Hỏa Tinh cùng thủ Mệnh, đều miếu vượng",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_tai_loc_giap_ma",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定富局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定富局",
+   "quote": "财禄夹马 马守命武禄来夹是也，逢生旺尤妙",
+   "quote_checked": true,
+   "condition_text": "Tài Lộc giáp Mã",
+   "reading_vi": "Thiên Mã thủ Mệnh, Vũ Khúc và Lộc giáp; ở đất sinh vượng càng tốt",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_tai_am_giap_an",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定富局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定富局",
+   "quote": "财荫夹印 相守命武梁来夹是也，田宅宫亦然",
+   "quote_checked": true,
+   "condition_text": "Tài ấm giáp ấn",
+   "reading_vi": "Thiên Tướng thủ Mệnh, Vũ Khúc và Thiên Lương GIÁP (夾); Điền Trạch cũng vậy",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_tai_an_giap_loc",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贵局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定贵局",
+   "quote": "财印夹禄 禄守命梁相来夹是也，入财亦然",
+   "quote_checked": true,
+   "condition_text": "Tài ấn giáp lộc",
+   "reading_vi": "Lộc thủ Mệnh, Thiên Lương và Thiên Tướng GIÁP; ở Tài Bạch cũng vậy",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_nn_chieu_bich",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定富局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定富局",
+   "quote": "日月照璧 日月临田宅宫是也，喜居墓库",
+   "quote_checked": true,
+   "condition_text": "Nhật Nguyệt chiếu bích",
+   "reading_vi": "Nhật Nguyệt ở Điền Trạch, ưa ở Tứ mộ",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_loc_phung_luong_sat",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贫贱局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定贫贱局",
+   "quote": "禄逢两杀 禄坐空亡又逢空劫杀星是也",
+   "quote_checked": true,
+   "condition_text": "Lộc phùng lưỡng sát",
+   "reading_vi": "Lộc ngồi Không Vong lại gặp Không Kiếp sát tinh",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_nn_tang_huy",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贫贱局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定贫贱局",
+   "quote": "日月藏辉 日月反背又逢巨暗是也",
+   "quote_checked": true,
+   "condition_text": "Nhật Nguyệt tàng huy",
+   "reading_vi": "Nhật Nguyệt phản bối (cả hai hãm) lại gặp Cự Môn",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_hinh_tu_giap_an",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "定贵局",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 定贵局",
+   "quote": "刑囚夹印 天刑廉贞同临身命主武勇之人",
+   "quote_checked": true,
+   "condition_text": "Hình tù giáp ấn",
+   "reading_vi": "Thiên Hình, Liêm Trinh cùng ở Thân Mệnh: người võ dũng",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_pha_cach_ty_suu",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星失陷破格诀",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 十二宫诸星失陷破格诀",
+   "quote": "子丑安命 子午天机丑巨铃",
+   "quote_checked": true,
+   "condition_text": "phá cách Mệnh Tý Sửu",
+   "reading_vi": "Thiên Cơ ở Tý Ngọ, Cự Môn Linh Tinh ở Sửu",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_co_luong_thin_tuat",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星得地富贵论",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 十二宫诸星得地富贵论",
+   "quote": "辰戍机梁非小补",
+   "quote_checked": true,
+   "condition_text": "Cơ Lương Thìn Tuất",
+   "reading_vi": "Cơ Lương ở Thìn Tuất 'không phải lợi nhỏ' (trong bài đắc địa phú quý)",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_pha_mao_dau",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星失陷贫贱论",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 十二宫诸星失陷贫贱论",
+   "quote": "破军卯酉不为清",
+   "quote_checked": true,
+   "condition_text": "Phá Quân Mão Dậu",
+   "reading_vi": "Phá Quân ở Mão Dậu không thanh (trong bài thất hãm bần tiện)",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_tham_hoa_loc_tu_mo",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星失陷贫贱论",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 十二宫诸星失陷贫贱论",
+   "quote": "贪狼化禄居四墓，纵然遇吉亦中平",
+   "quote_checked": true,
+   "condition_text": "Tham Lang hóa Lộc ở Tứ mộ",
+   "reading_vi": "dù gặp cát tinh cũng chỉ trung bình",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_hop_suu",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星得地合格诀",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 十二宫诸星得地合格诀",
+   "quote": "丙戍生人福禄饶，正坐平常中局论",
+   "quote_checked": true,
+   "condition_text": "hợp cách Mệnh Sửu",
+   "reading_vi": "tuổi '丙戍' phúc lộc nhiều; Nhật Nguyệt chính tọa chỉ là trung cục",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_hop_tuat",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星得地合格诀",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 十二宫诸星得地合格诀",
+   "quote": "戍宫紫微对冲辰，富而不贵有虚名",
+   "quote_checked": true,
+   "condition_text": "hợp cách Mệnh Tuất",
+   "reading_vi": "Tử Vi ở Tuất xung Thìn: giàu mà không sang, có hư danh",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  },
+  {
+   "id": "w1_nn_dong_cung_suu_mui",
+   "book": "WEB:zwds_quanshu_1",
+   "page": "十二宫诸星得地合格诀",
+   "palace": "Mệnh",
+   "heading": "紫微斗數全書 卷一 · 十二宫诸星得地合格诀",
+   "quote": "丑宫立命日月朝",
+   "quote_checked": true,
+   "condition_text": "Nhật Nguyệt Sửu Mùi",
+   "reading_vi": "Mệnh Sửu có Nhật Nguyệt chiếu (triều) mới tốt; chính tọa là trung cục",
+   "polarity": "neutral",
+   "concepts": [],
+   "skip": null,
+   "notes": "",
+   "target": "schools"
+  }
+ ]
+}

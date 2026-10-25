@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Thiên Bàn — Tử Vi và Bát Tự</title>
-<meta name="description" content="Lập lá số Tử Vi mười hai cung và Bát Tự bốn trụ, kèm luận giải đã đối chiếu sách. Lưu lá số, tải PDF. Không dùng AI để viết luận giải, chỉ lưu lá số khi bạn chọn lưu.">
+<meta name="description" content="Lập lá số Tử Vi mười hai cung và Bát Tự bốn trụ, kèm luận giải đã đối chiếu sách. Lưu lá số, tải PDF. Mỗi nhận định đều có trang sách, chỉ lưu lá số khi bạn chọn lưu.">
 <meta name="theme-color" content="#FAF6EF">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
@@ -37,6 +37,7 @@
       <a href="#ban-nhan-duoc" data-go="ban-nhan-duoc">Bạn nhận được gì</a>
       <a href="/bai-viet/">Bài viết</a>
       <a href="/xem-ngay/">Xem ngày</a>
+      <a href="/chiem-tinh/">Chiêm tinh</a>
       <button type="button" data-sample>Lá số mẫu</button>
     </nav>
     <button type="button" class="exp-badge" id="exp-badge" hidden title="Chế độ thử nghiệm đang bật. Nhấn để tắt.">Thử nghiệm</button>
@@ -67,7 +68,7 @@
         <p class="hero-lead">Nhập ngày giờ sinh để lập cùng lúc lá số <b>Tử Vi</b> mười hai cung và <b>Bát Tự</b> bốn trụ, kèm luận giải đã đối chiếu sách. Đọc xong có thể lưu lại hoặc tải PDF.</p>
         <div class="hero-cta"><a class="btn" href="#lap-la-so" data-go="lap-la-so">Lập lá số</a><button class="btn btn-ghost" type="button" data-sample>Xem lá số mẫu</button></div>
         <section class="live" id="live-stats" hidden aria-label="Số liệu trực tiếp"><p class="live-tag"><i class="live-dot" aria-hidden="true"></i>Trực tiếp</p><div class="live-cells" role="status"><div class="live-item"><span class="live-lbl">Lượt quét</span><b><i class="live-dot" aria-hidden="true"></i><span data-stat="scans">0</span></b></div><div class="live-item"><span class="live-lbl">Lượt đăng nhập</span><b><i class="live-dot" aria-hidden="true"></i><span data-stat="signins">0</span></b></div></div></section>
-        <ul class="hero-facts"><li><b>Có nguồn sách</b>không dùng AI để viết luận giải</li><li><b>Riêng tư</b>chỉ lưu lá số khi bạn chọn lưu</li><li><b>Tải PDF</b>cả Tử Vi và Bát Tự trong một bản</li></ul>
+        <ul class="hero-facts"><li><b>Có nguồn sách</b>mỗi nhận định đều kèm trang sách</li><li><b>Riêng tư</b>chỉ lưu lá số khi bạn chọn lưu</li><li><b>Tải PDF</b>cả Tử Vi và Bát Tự trong một bản</li></ul>
       </div>
       <div class="hero-art"><div id="hero-compass" class="compass-wrap"></div></div>
     </div>
@@ -135,7 +136,7 @@
           <li class="reveal"><span class="in-n">1</span><b>Luận giải tóm tắt</b>Những điểm chính của lá số Tử Vi và Bát Tự bằng lời thường, kèm chủ đề của năm nay.</li>
           <li class="reveal"><span class="in-n">2</span><b>Khám phá 12 cung</b>Chạm vào từng cung để xem sao, độ sáng, Tứ Hóa, đại hạn và tam phương tứ chính.</li>
           <li class="reveal"><span class="in-n">3</span><b>Đọc chi tiết từng chương</b>Tính cách, công danh, tài bạch, quan hệ, đại vận; mỗi nhận định kèm quy tắc và trang sách.</li>
-          <li class="reveal"><span class="in-n">4</span><b>Lưu và hỏi Bát Bát</b>Đăng nhập Google để lưu lá số và hỏi Bát Bát (chat AI) về lá số của mình; ai cũng tải được bản PDF gồm cả hai hệ thống.</li>
+          <li class="reveal"><span class="in-n">4</span><b>Lưu và hỏi Bát Bát</b>Đăng nhập Google để lưu lá số và hỏi Bát Bát (trò chuyện) về lá số của mình; ai cũng tải được bản PDF gồm cả hai hệ thống.</li>
         </ol>
       </div>
       <div class="perks reveal" id="quyen-loi" aria-labelledby="perks-h">
@@ -151,8 +152,8 @@
             <tr><th scope="row">Đọc sâu (theo sách)<small>Vì sao có kết luận, yếu tố làm mạnh hay yếu, trang sách</small></th><td class="n">Không</td><td class="y">Đi cùng gói</td></tr>
             <tr><th scope="row">Tải bản PDF, tải ảnh bảng lá số</th><td class="y">Có, phần đang đọc được</td><td class="y">Có</td></tr>
             <tr><th scope="row">Lưu lá số</th><td class="n">Không</td><td class="y">Tới 200 lá, mở được trên mọi thiết bị</td></tr>
-            <tr><th scope="row">Hỏi Bát Bát (chat AI) về lá số của mình</th><td class="n">Không</td><td class="y">2 câu mỗi ngày; sau mỗi lần nạp xu: 30 ngày chat (tới 30 câu/ngày); ngoài ra 1 xu một câu</td></tr>
-            <tr><th scope="row">Luận AI<small>Bài viết riêng cho lá số, một chương một bài</small></th><td class="n">Không</td><td class="y">20 xu một chương; mọi chương với gói Cao cấp</td></tr>
+            <tr><th scope="row">Hỏi Bát Bát (trò chuyện) về lá số của mình</th><td class="n">Không</td><td class="y">2 câu mỗi ngày; sau mỗi lần nạp xu: 30 ngày chat (tới 30 câu/ngày); ngoài ra 1 xu một câu</td></tr>
+            <tr><th scope="row">Luận riêng<small>Bài viết riêng cho lá số, một chương một bài</small></th><td class="n">Không</td><td class="y">20 xu một chương; mọi chương với gói Cao cấp</td></tr>
             <tr><th scope="row">So sánh hai lá số đã lưu</th><td class="n">Không</td><td class="y">Có</td></tr>
             <tr><th scope="row">Chia sẻ lá số bằng liên kết, có thể ẩn ngày giờ sinh</th><td class="n">Không</td><td class="y">Có</td></tr>
             <tr><th scope="row">Hồ sơ cá nhân: luận giải ưu tiên điều bạn quan tâm</th><td class="n">Không</td><td class="y">Có</td></tr>
@@ -227,7 +228,7 @@
   </div>
 </footer>
 
-<div id="loading" class="loading" hidden role="status" aria-live="polite"><div class="loading-in"><div class="compass-wrap spin-slow" id="load-compass"></div><p>Đang lập lá số…</p></div></div>
+<div id="loading" class="loading" hidden role="status" aria-live="polite"><div class="loading-in"><div class="compass-wrap spin-slow" id="load-compass"></div><p>Đang lập lá số…</p><button type="button" class="btn btn-ghost btn-sm loading-cancel" id="load-cancel">Hủy</button></div></div>
 
 <script type="module" src="/js/app.js"></script>
 <script type="module" src="/js/feedback.js"></script>

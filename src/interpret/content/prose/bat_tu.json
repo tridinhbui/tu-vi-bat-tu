@@ -407,8 +407,7 @@
    "none": "Trong tứ trụ không có chữ nào thuộc nhóm dụng thần {yong}, nên phải trông vào những vận và năm mang nhóm này."
   },
   "reliability": [
-   "Hai phía xét hai việc khác nhau: một bên cân nhật chủ {dm} với nhóm {dom} đang nhiều nhất, một bên xét khí {climate} của tháng sinh {mb}.",
-   "Vì hai phía không dùng chung một thước đo, chỗ chúng vênh nhau chỉ nên đọc là có điều kiện."
+   "Hai phía xét hai việc khác nhau, một bên cân nhật chủ {dm} với nhóm {dom} đang nhiều nhất, một bên xét khí {climate} của tháng sinh {mb}, nên chỗ chúng vênh nhau chỉ nên đọc là có điều kiện."
   ],
   "conclusion_split": [
    "Chỗ dựa chính là {lean}, thêm {extra} về khí hậu; ở những chặng hai phía vênh nhau, vận tốt hay nặng tùy lúc có nhóm {yong} đi kèm.",
@@ -915,6 +914,26 @@
    },
    "tk_work": [
     "Còn {work}."
+   ],
+   "cach_status_near": [
+    "Cách {cach} mới xác lập được một phần, nhất là ở lá này, khi phần của nhật chủ nằm sát ranh giới giữa vượng và nhược; dụng thần và lời xếp vận dưới đây vì vậy đều có điều kiện là cách {cach} đứng được.",
+    "Phần của nhật chủ nằm sát ranh giới vượng, nhược, nên cách {cach} ở lá này chỉ xác lập được một phần; dụng thần và các vận tốt, xấu suy từ cách đều có điều kiện ấy."
+   ],
+   "ttt_yong_same": [
+    "Xét thuần theo thế vượng nhược cũng đến cùng chỗ: {cause} thì {effect}, trùng với nhóm {yong} vừa nói.",
+    "Một phép khác, chỉ xét vượng nhược, cũng cho kết quả ấy: {cause} thì {effect}; dụng thần {g} vì vậy có hai chỗ dựa."
+   ],
+   "ttt_yong_diff": [
+    "Xét thuần theo thế vượng nhược thì chọn khác: {cause} thì {effect}, còn phép theo cách chọn nhóm {yong}; ở chỗ này hai phép chưa trùng nhau.",
+    "Một phép khác, chỉ xét vượng nhược, lại cho rằng {cause} thì {effect}, khác nhóm {yong} của phép theo cách; dụng thần vì vậy có hai cách nhìn."
+   ],
+   "dh_school": [
+    "Với can ngày {dm} sinh tháng {mb}, một bảng điều hậu khác lại dùng can {other}, không trùng với can {table} của ô vừa nói; hai bảng cùng xét khí hậu nhưng chọn can khác nhau.",
+    "Một bảng điều hậu khác, cho {dm} sinh tháng {mb}, chọn can {other} thay vì can {table}; chỗ này hai bảng không trùng nhau."
+   ],
+   "dh_school_sub": [
+    "Với can ngày {dm} sinh tháng {mb}, một bảng điều hậu khác chỉ dùng can {other}, tức một phần của các can {table} vừa nói; hai bảng cùng coi trọng các can ấy trước.",
+    "Một bảng điều hậu khác, cho {dm} sinh tháng {mb}, chỉ chọn can {other} trong số các can {table}; ở chỗ này hai bảng gặp nhau."
    ]
   },
   "mh": {
@@ -932,25 +951,38 @@
    ],
    "benh_thuoc": [
     "Có thể hình dung như chuyện bệnh và thuốc: chỗ lệch của lá số là {benh}, còn nhóm {yong} là vị thuốc cho chỗ lệch ấy.",
-    "Giống như người bệnh cần đúng vị thuốc: cái lệch là {benh}, vị thuốc là nhóm {yong}."
+    "Giống như người bệnh cần đúng vị thuốc: cái lệch là {benh}, vị thuốc là nhóm {yong}.",
+    "Nói theo phép chữa bệnh: lá số lệch ở chỗ {benh}, và nhóm {yong} là thứ kéo nó về thế cân.",
+    "Như cân hai bên chênh nhau: chỗ chênh là {benh}, và nhóm {yong} là quả cân đặt vào bên nhẹ."
    ],
    "cold": [
-    "Giống một ngày giá rét: điều cần trước hết là hơi ấm."
+    "Giống một ngày giá rét: điều cần trước hết là hơi ấm.",
+    "Như căn nhà giữa mùa đông: trước khi lo gì khác, phải có lửa sưởi.",
+    "Giống cây cỏ trong tiết lạnh: muốn lớn được, trước hết cần nắng ấm.",
+    "Như nước sắp đóng băng: phải có hơi ấm thì mới chảy lại được."
    ],
    "hot": [
-    "Giống một ngày nắng gắt: điều cần trước hết là hơi mát."
+    "Giống một ngày nắng gắt: điều cần trước hết là hơi mát.",
+    "Như căn nhà giữa trưa hè: trước khi lo gì khác, phải có chỗ mát.",
+    "Giống ruộng đồng mùa hạn: điều cần trước hết là nước.",
+    "Như lò đang quá lửa: phải hạ nhiệt rồi mới dùng được."
    ],
    "hop_khong_hoa": [
-    "Như hai người kết thân mà ai vẫn giữ họ của mình: hai can gắn với nhau nhưng không đổi hành."
+    "Như hai người kết thân mà ai vẫn giữ họ của mình: hai can gắn với nhau nhưng không đổi hành.",
+    "Như hai người bắt tay mà mỗi người vẫn đi đường riêng: có gắn kết nhưng không hòa làm một."
    ],
    "hop_hoa": [
-    "Như hai dòng nước nhập lại thành một dòng mới: hai can hợp lại và cùng mang hành {el}."
+    "Như hai dòng nước nhập lại thành một dòng mới: hai can hợp lại và cùng mang hành {el}.",
+    "Như hai sợi chỉ xe lại thành một sợi: hai can hợp nhau và cùng mang hành {el}."
    ],
    "tong": [
-    "Như dòng suối nhỏ không chống nổi con sông lớn mà nhập vào nó: nhật chủ đi theo phe đang mạnh."
+    "Như dòng suối nhỏ không chống nổi con sông lớn mà nhập vào nó: nhật chủ đi theo phe đang mạnh.",
+    "Như con thuyền nhỏ thuận theo dòng nước lớn: nhật chủ không chống lại mà đi theo phe đang mạnh."
    ],
    "ho_than": [
-    "Như người gánh nặng mà có người đỡ một bên vai: phần nặng vẫn còn, nhưng có chỗ để dựa."
+    "Như người gánh nặng mà có người đỡ một bên vai: phần nặng vẫn còn, nhưng có chỗ để dựa.",
+    "Như người đi đường dài có bạn đồng hành: đường vẫn xa, nhưng không phải đi một mình.",
+    "Như cây yếu được cắm cọc bên cạnh: gió vẫn thổi, nhưng thân có chỗ tựa."
    ]
   },
   "luck_head2": [
@@ -1106,6 +1138,10 @@
    "combo": [
     "Về các tổ hợp Thập thần",
     "Về những thế phối hợp của Thập thần"
+   ],
+   "fortune": [
+    "Về thế cát hung của cả lá số",
+    "Xét cả lá số theo hỷ kỵ"
    ]
   },
   "tai_flat": [

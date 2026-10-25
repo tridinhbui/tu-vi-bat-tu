@@ -44,8 +44,8 @@
   "1": "ảnh hưởng nhẹ"
  },
  "reach": [
-  "Cách ở cung Mệnh nên {degree} lên cả đời người",
-  "Vì đứng ở Mệnh, cách này {degree} lên toàn cục"
+  "Cách ở cung Mệnh và không bị yếu tố nào hạ bậc, nên {degree} lên cả đời người",
+  "Đứng ở Mệnh mà giữ được sức, cách này {degree} lên toàn cục"
  ],
  "reach_palace": [
   "Cách đứng ở cung {pal} nên {degree}, chủ yếu lên {dom}",
@@ -56,9 +56,9 @@
   "Trong các cách ấy, {first} có sức nặng nhất"
  ],
  "balance": [
-  "Cách tốt nhiều hơn cách xấu, nên thế chung của lá số được nâng lên",
-  "Cách xấu nhiều hơn cách tốt, nên thế chung của lá số cần nhiều gắng sức",
-  "Cách tốt và cách xấu ngang nhau, nên hai chiều cùng có mặt"
+  "Cân hai phía: phía tốt ({goods}) nặng hơn phía xấu ({bads}) theo bậc ảnh hưởng, nên thế chung của lá số được nâng lên",
+  "Cân hai phía: phía xấu ({bads}) nặng hơn phía tốt ({goods}) theo bậc ảnh hưởng, nên thế chung cần nhiều gắng sức",
+  "Cân hai phía: phía tốt ({goods}) và phía xấu ({bads}) ngang bậc, nên hai chiều cùng có mặt"
  ],
  "f_head": [
   "Mệnh thành cách {name}",
@@ -99,5 +99,38 @@
   "thanh": "ảnh hưởng vừa",
   "hinh_thuc": "ảnh hưởng nhẹ",
   "bi_pha": "ảnh hưởng nhẹ, nghiêng về mặt hạn chế"
- }
+ },
+ "reach_lowered": [
+  "Cách ở Mệnh vốn chạm cả đời người, nhưng vì {why} nên chỉ {degree}",
+  "Vị trí Mệnh cho cách tầm rộng, song {why} kéo sức của nó xuống còn {degree}"
+ ],
+ "reach_palace_lowered": [
+  "Cách đứng ở cung {pal}, tầm chủ yếu là {dom}, và vì {why} nên chỉ {degree}",
+  "Ở cung {pal}, cách chạm chủ yếu {dom}; có {why} nên sức còn {degree}"
+ ],
+ "f_broken_present": [
+  "Cách bị phá vì {present} ({broken})",
+  "Nhưng {present}, nên cách bị phá: {broken}"
+ ],
+ "school_head": [
+  "Cách {name} không được các bộ định nghĩa như nhau",
+  "Về cách {name}, {n} bộ đặt điều kiện khác nhau"
+ ],
+ "school_side": [
+  "{book} lấy: {statement}",
+  "{book} ghi: {statement}",
+  "Ở {book}: {statement}"
+ ],
+ "reach_bad": [
+  "Vì ở cung {pal}, phần xấu của cách {degree} lên {dom}",
+  "Đứng ở cung {pal}, cách xấu này {degree} lên {dom}"
+ ],
+ "f_head_than": [
+  "Cung an Thân ({pal}) thành cách {name}",
+  "Ở cung an Thân ({pal}) hiện cách {name}"
+ ],
+ "reach_than": [
+  "Cách đóng ở cung an Thân, được tính như ở Mệnh, nên {degree} lên cả đời người",
+  "Thân cũng là chỗ cách này được tính như Mệnh, nên cách {degree} lên toàn cục"
+ ]
 }

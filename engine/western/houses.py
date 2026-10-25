@@ -3,13 +3,15 @@
 Formulas: Ascendant and MC are the intersections of the ecliptic with the horizon and the meridian; Placidus trisects each
 cusp's own diurnal / nocturnal semi-arc (iterated to 1e-10 degree, as in the Swiss Ephemeris documentation, sect. 6.5);
 Equal starts at the Ascendant; Whole Sign starts at 0 degrees of the rising sign; Porphyry trisects the quadrants
-(used only as the documented fallback when Placidus is undefined beyond the polar circles).
+(used only as the documented fallback when Placidus is undefined beyond the polar circles); Regiomontanus divides the
+celestial equator into 30-degree arcs from the meridian and projects them onto the ecliptic through the north and south
+points of the horizon (Lilly's house system, used by the readings that follow Christian Astrology).
 """
 from __future__ import annotations
 
 import math
 
-SYSTEMS = ("placidus", "whole_sign", "equal", "porphyry")
+SYSTEMS = ("placidus", "whole_sign", "equal", "porphyry", "regiomontanus")
 
 _r, _d = math.radians, math.degrees
 
@@ -72,6 +74,20 @@ def cusps(system: str, armc: float, eps: float, lat: float) -> list[float]:
         c[9], c[0], c[3], c[6] = mc, asc, _norm(mc + 180), _norm(asc + 180)
         c[10], c[11] = _norm(mc + q1 / 3), _norm(mc + 2 * q1 / 3)
         c[1], c[2] = _norm(asc + q2 / 3), _norm(asc + 2 * q2 / 3)
+        for i in (4, 5, 7, 8):
+            c[i] = _norm(c[i - 6] + 180)
+        return c
+    if system == "regiomontanus":
+        c = [0.0] * 12
+        c[0], c[9] = asc, mc
+        f, e = _r(lat), _r(eps)
+        for i, h in ((10, 30.0), (11, 60.0), (1, 120.0), (2, 150.0)):
+            r = _r(armc + h)
+            # the house circle through the horizon's north/south points has pole height p, tan p = tan(lat) * sin(H);
+            # H = 90 gives the Ascendant formula, H = 180 the IC
+            tp = math.tan(f) * math.sin(_r(h))
+            c[i] = _norm(_d(math.atan2(math.sin(r), math.cos(r) * math.cos(e) - tp * math.sin(e))))
+        c[3], c[6] = _norm(mc + 180), _norm(asc + 180)
         for i in (4, 5, 7, 8):
             c[i] = _norm(c[i - 6] + 180)
         return c

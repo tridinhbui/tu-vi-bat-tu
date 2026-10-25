@@ -8,6 +8,15 @@
    "verified": true,
    "edition": "PDF, simplified Chinese, 96 pp.",
    "note": "Đọc trực tiếp lớp chữ của bản PDF (Claude, 2026-10-23); mỗi luật có câu in nguyên văn trong quotes_zz_kin.json, test đối chiếu với trang đã chép."
+  },
+  {
+   "id": "SRC_ZZ_DEEP3",
+   "title": "八字真宗 — 日干五行直断、五行强旺弱缺、日月合化直断夫妻、四柱干支合化直断",
+   "author": "unknown (PDF circulated via ChienNguyen)",
+   "locator": "PDF pp.26-29 (text layer in data/bazi_deep/mined/)",
+   "verified": true,
+   "edition": "PDF, simplified Chinese, 96 pp.",
+   "note": "Đọc trực tiếp lớp chữ của bản PDF (DEEP-3, 2026-10-24); danh sách đầy đủ trong mined/rules_zz_26_30.md."
   }
  ],
  "rules": [
@@ -3263,6 +3272,579 @@
    "priority": 3,
    "sourceIds": [
     "SRC_BAZI_ZHENZONG_KIN"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_EL1",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.26: 为人吝啬小气，不通情理 — keo kiệt, khó thông cảm (tứ trụ (cả tàng can) không có hành Mộc)",
+   "conditions": {
+    "fact": "bazi.k.absent_el",
+    "operator": "contains",
+    "value": "Mộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_el1",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_EL2",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.26: 内外软弱，语言表达不清，消极 — mềm yếu, nói khó rõ ý, tiêu cực (tứ trụ (cả tàng can) không có hành Hỏa)",
+   "conditions": {
+    "fact": "bazi.k.absent_el",
+    "operator": "contains",
+    "value": "Hỏa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_el2",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_EL3",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.27: 无情无义 — bạc tình (tứ trụ (cả tàng can) không có hành Thổ)",
+   "conditions": {
+    "fact": "bazi.k.absent_el",
+    "operator": "contains",
+    "value": "Thổ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_el3",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_EL4",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.27: 无礼无义 — thiếu lễ nghĩa (tứ trụ (cả tàng can) không có hành Kim)",
+   "conditions": {
+    "fact": "bazi.k.absent_el",
+    "operator": "contains",
+    "value": "Kim"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_el4",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_EL5",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.27: 智力不高，无常反复 — trí lực không cao, thất thường (tứ trụ (cả tàng can) không có hành Thủy)",
+   "conditions": {
+    "fact": "bazi.k.absent_el",
+    "operator": "contains",
+    "value": "Thủy"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_el5",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HH1",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.29: 男命：必得贤妻，妻助得财 — được vợ hiền, vợ giúp chồng có của (lá số nam: can ngày hợp can tháng, hóa theo hành của can dương (妻从夫化))",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.zz_hh",
+      "value": "uu"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hh1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HH2",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.29: 男命：怕妻胆小，妇人当家 — vợ nắm việc nhà, chồng hay nhường vợ (lá số nam: can ngày hợp can tháng, hóa theo hành của can âm (夫从妻化))",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nam"
+     },
+     {
+      "fact": "bazi.k.zz_hh",
+      "value": "liet"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hh2",
+     "effect": "neutral",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HH3",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.29: 女命：柔顺贤慧，贤妻良母 — dịu dàng, hiền thục, giỏi vun vén gia đình (lá số nữ: can ngày hợp can tháng, hóa theo hành của can dương (妻从夫化))",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.zz_hh",
+      "value": "uu"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hh3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HH4",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_marriage",
+   "description": "八字真宗 p.29: 女命：是母老虎，欺夫骂翁 — lấn át chồng (lá số nữ: can ngày hợp can tháng, hóa theo hành của can âm (夫从妻化))",
+   "conditions": {
+    "all": [
+     {
+      "fact": "bazi.k.gender",
+      "value": "nữ"
+     },
+     {
+      "fact": "bazi.k.zz_hh",
+      "value": "liet"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hh4",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HZ1",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.29: 甲己合化土：为正中之合，主安分守己，淳正厚朴 — an phận, ngay thẳng, chất phác (hai can liền nhau hợp hóa Thổ đúng phép (chi tháng và hai chi ngồi dưới đều là Thổ))",
+   "conditions": {
+    "fact": "bazi.k.zz_zhenghua",
+    "operator": "contains",
+    "value": "Thổ"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hz1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HZ2",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.29: 乙庚合化金：为仁义之合，主刚柔兼备，重信守义 — cương nhu đủ cả, trọng chữ tín, giữ nghĩa (hai can liền nhau hợp hóa Kim đúng phép (chi tháng và hai chi ngồi dưới đều là Kim))",
+   "conditions": {
+    "fact": "bazi.k.zz_zhenghua",
+    "operator": "contains",
+    "value": "Kim"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hz2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HZ3",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.29: 丙辛合化水：为威严之合，主仪表威严，智力优秀 — dáng vẻ uy nghiêm, trí lực tốt (hai can liền nhau hợp hóa Thủy đúng phép (chi tháng và hai chi ngồi dưới đều là Thủy))",
+   "conditions": {
+    "fact": "bazi.k.zz_zhenghua",
+    "operator": "contains",
+    "value": "Thủy"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hz3",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HZ4",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.29: 丁壬合化木：为仁寿之合，主心地仁慈 — lòng dạ nhân từ (hai can liền nhau hợp hóa Mộc đúng phép (chi tháng và hai chi ngồi dưới đều là Mộc))",
+   "conditions": {
+    "fact": "bazi.k.zz_zhenghua",
+    "operator": "contains",
+    "value": "Mộc"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hz4",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HZ5",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.29: 戊癸合化火：为无情之合，主娇媚之合，薄情寡义 — bạc tình (hai can liền nhau hợp hóa Hỏa đúng phép (chi tháng và hai chi ngồi dưới đều là Hỏa))",
+   "conditions": {
+    "fact": "bazi.k.zz_zhenghua",
+    "operator": "contains",
+    "value": "Hỏa"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hz5",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "draft",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_HZ0",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.29: 正化之人性情刚直，办事认真，人际关系处理得当 — tính cương trực, làm việc nghiêm túc, khéo cư xử (hai can liền nhau hợp hóa đúng phép)",
+   "conditions": {
+    "any": [
+     {
+      "fact": "bazi.k.zz_zhenghua",
+      "operator": "contains",
+      "value": "Mộc"
+     },
+     {
+      "fact": "bazi.k.zz_zhenghua",
+      "operator": "contains",
+      "value": "Hỏa"
+     },
+     {
+      "fact": "bazi.k.zz_zhenghua",
+      "operator": "contains",
+      "value": "Thổ"
+     },
+     {
+      "fact": "bazi.k.zz_zhenghua",
+      "operator": "contains",
+      "value": "Kim"
+     },
+     {
+      "fact": "bazi.k.zz_zhenghua",
+      "operator": "contains",
+      "value": "Thủy"
+     }
+    ]
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_hz0",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_DH1",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_character",
+   "description": "八字真宗 p.29: 命局逢此，主猜疑心强，妒忌心强，挑拨是非 — dễ đa nghi, hay ghen tị (ba can của ba trụ liền nhau tạo 妒合 (甲己乙, 庚乙辛, 丙辛丁, 壬丁癸, 戊癸己))",
+   "conditions": {
+    "fact": "bazi.k.zz_duhe",
+    "value": true
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_dh1",
+     "effect": "limit",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_YY1",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_parents",
+   "description": "八字真宗 p.29: 出现在：年月二柱，主少青家境富有 — thời trẻ nhà khá giả (trụ năm và trụ tháng: can hợp can, chi hợp chi (干支鸳鸯合))",
+   "conditions": {
+    "fact": "bazi.k.zz_yuanyang",
+    "operator": "contains",
+    "value": "year_month"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_yy1",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
+   ],
+   "reviewStatus": "verified",
+   "version": "0.1.0",
+   "subject": "chart"
+  },
+  {
+   "id": "BT_ZZK_YY2",
+   "system": "bat_tu",
+   "schoolId": "bazi_zhenzong_popular",
+   "category": "zz_kin_wealth",
+   "description": "八字真宗 p.29: 出现在：月日二柱，主34～45 岁富贵 — khoảng 34-45 tuổi giàu sang (trụ tháng và trụ ngày: can hợp can, chi hợp chi (干支鸳鸯合))",
+   "conditions": {
+    "fact": "bazi.k.zz_yuanyang",
+    "operator": "contains",
+    "value": "month_day"
+   },
+   "consequences": [
+    {
+     "kind": "finding",
+     "claim": "bt_zzk_yy2",
+     "effect": "support",
+     "scope": "natal"
+    }
+   ],
+   "exceptions": [],
+   "conflictsWith": [],
+   "priority": 3,
+   "sourceIds": [
+    "SRC_ZZ_DEEP3"
    ],
    "reviewStatus": "verified",
    "version": "0.1.0",

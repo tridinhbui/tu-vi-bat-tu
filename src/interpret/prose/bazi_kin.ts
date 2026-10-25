@@ -87,8 +87,8 @@ export const DOM_OF: Record<string, string> = { 'Tài': 'tiền bạc', 'Quan S�
 
 /** the natal part: su-nghiep (Tài, the work, the rank) and quan-he (spouse, marriage, parents, siblings, children) */
 export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, rules: Record<string, { reading: string; cites: string[]; verified: boolean }>,
-  ctx: KinContext): { 'su-nghiep': ProseParagraph[]; 'quan-he': ProseParagraph[]; 'ngu-hanh': ProseParagraph[]; weigh?: KinWeigh; work?: string } {
-  const out: { 'su-nghiep': ProseParagraph[]; 'quan-he': ProseParagraph[]; 'ngu-hanh': ProseParagraph[]; weigh?: KinWeigh; work?: string } = { 'su-nghiep': [], 'quan-he': [], 'ngu-hanh': [] };
+  ctx: KinContext): { 'su-nghiep': ProseParagraph[]; 'quan-he': ProseParagraph[]; 'ngu-hanh': ProseParagraph[]; 'cach-cuc': ProseParagraph[]; weigh?: KinWeigh; work?: string } {
+  const out: { 'su-nghiep': ProseParagraph[]; 'quan-he': ProseParagraph[]; 'ngu-hanh': ProseParagraph[]; 'cach-cuc': ProseParagraph[]; weigh?: KinWeigh; work?: string } = { 'su-nghiep': [], 'quan-he': [], 'ngu-hanh': [], 'cach-cuc': [] };
   const K = (chart.bazi as { deep?: { kin?: BaziKin } } | undefined)?.deep?.kin;
   if (!F || !K) return out;
   const D = K.detail, fs = K.findings, by = new Map(fs.map(f => [f.rule_id, f]));
@@ -108,7 +108,7 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
     say(xs, fill(m.pick(`kin|${key}|${nx ? 'n' : 'f'}`, nx ? F.rule_next : F.rule), { Cause: cap(cause), cause: low(cause), effect: low(f.effect) }), 'sach', [CITE(f)], [reg(f)],
       { ...tone(f), step: `kin:${f.rule_id}`, ...(f.note ? { note: f.note } : {}), ...hiTrace(f), ...extra });
   };
-  const P = (id: 'su-nghiep' | 'quan-he' | 'ngu-hanh', xs: ProseSentence[], extra: Partial<ProseParagraph> = {}) => {
+  const P = (id: 'su-nghiep' | 'quan-he' | 'ngu-hanh' | 'cach-cuc', xs: ProseSentence[], extra: Partial<ProseParagraph> = {}) => {
     if (xs.length) out[id].push({ role: 'support', sentences: xs, text: xs.map(s => s.text).join(' '), ...extra });
   };
   const deep = (title: string): Partial<ProseParagraph> => ({ depth: 'sau', depthTitle: title });
@@ -227,6 +227,8 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
   fsT.filter(f => f.topic === 'work' && f.book === 'tvh').forEach((f, i) => rule(work, f, 'wk', i + 1));
   const rk = fsT.filter(f => f.topic === 'rank');
   rk.forEach((f, i) => rule(i ? wdeep : work, f, 'rank', i ? 1 : 0, f.cause, { step: `kin:${f.rule_id}` }));
+  // học hành (Thiệu Vĩ Hoa, DEEP-3 mining): in the deep fold of the work chapter, after the rank lines
+  fsT.filter(f => f.topic === 'study').forEach((f, i) => rule(wdeep, f, 'st', i ? 1 : 0));
   const rkAll = [...rk, ...fs.filter(f => inPt(f) && f.topic === 'rank')];
   if (rkAll.some(f => f.tone === 'pos') && rkAll.some(f => f.tone === 'neg') && F.rank_weigh && F.rank_why) {
     const qsV = D.vuong.includes('Quan Sát');
@@ -314,6 +316,15 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
     { step: 'kin:children', note: 'Bát Tự Chân Tông tr.60: sao con cái theo giới tính và theo lá số có Tài (nam) hay có Thực Thương (nữ). Lời đoán con trai, con gái và các mục về sinh nở không đưa vào văn.' });
   else if (ch.hour && F.children_hour.length) say(kdeep, fill(m.pick('kin|kidh', F.children_hour), { hour: `${(chart.bazi as { pillars: { hour: { name: string } } }).pillars.hour.name}` }), 'tinh_toan', ['ZZ p.60'], [],
     { step: 'kin:children', note: 'Bát Tự Chân Tông tr.60: không có sao con cái thì xem can và chi trụ giờ.' });
+  // the children judgements (TTT pp.130-132, TVH pp.158-159; DEEP-3, the sensitive ones were left out at mining) after the children star
+  fs.filter(f => f.topic === 'children').forEach((f, i) => rule(kdeep, f, 'c', i));
+  // cát hung, thanh / trọc, chân / giả thần of the whole chart (TTT pp.101-112, 143-148, TVH pp.168-173; DEEP-3): the cách chapter, two in
+  // the short reading, the rest in its deep fold
+  const fo: ProseSentence[] = [], fodeep: ProseSentence[] = [];
+  fsT.filter(f => f.topic === 'fortune').forEach((f, i) => rule(i < 2 ? fo : fodeep, f, 'fo', i < 2 ? i : 1));
+  const lf = lead('fortune', fo);
+  P('cach-cuc', fo, { lead: lf || undefined, topic: 'kin_fortune' });
+  P('cach-cuc', fodeep, deep(F.num_title?.fortune ?? 'thanh, trọc và cát hung'));
   // thai nguyên, mệnh cung, thân cung are named inside the judgements that read them (W19, W26, M23, Y21)
   const lq = lead('marriage', qh);
   P('quan-he', qh, { lead: lq || undefined, topic: 'kin_marriage' });

@@ -31,7 +31,7 @@ export function overviewHtml(o, prose = null) {
       ${card('dv', 'Xu hướng đại vận', 'Mười chặng, mỗi chặng mười năm: lời sách về cung vận, đắc hãm các sao của cung vận và các cung chiếu về (Khảo Luận tr.233), Nam Bắc đẩu (Thực Hành tr.115), cùng Tứ Hóa theo can của chặng (thông lệ). Đường ngang giữa là mức thường gặp; cột lên là thuận hơn, cột xuống là nhiều thử thách hơn; ô gạch nhạt là chưa đủ căn cứ.', lv)}
       ${card('tv', 'Tiểu vận từng năm', `Mười năm trước và sau năm ${I.year}: đại vận đang đi, cung tiểu hạn (${esc(I.tieu_han_rule?.label || '')}), cung lưu đại hạn (Thực Hành tr.117-118), sao lưu và lưu Tứ Hóa (thông lệ).`, lv)}
       ${card('rd', 'Mười hai cung (bẩm sinh)', `Chất lượng bẩm sinh của từng cung cùng tam phương, so với mức thường gặp (vòng tròn đậm). Không đổi theo thời gian. ${esc(I.radar_note || '')}`)}
-      ${I.months ? card('nv', `Nguyệt vận năm ${I.months.year}`, 'Mức của năm, nhích theo đắc hãm các sao của cung từng tháng (vị trí: Thực Hành tr.115, Khảo Luận tr.40-41). Tháng không có gì để xét thì “Chưa xác định”. Nhật vận (Khảo Luận tr.41) chưa tính.', lv) : ''}
+      ${I.months ? card('nv', `Nguyệt vận năm ${I.months.year}`, `Mức của năm, nhích theo đắc hãm các sao của cung từng tháng (vị trí: Thực Hành tr.115, Khảo Luận tr.40-41). Tháng không có gì để xét thì “Chưa xác định”. Nhật vận (Khảo Luận tr.41) chưa tính.${I.months.note ? ' ' + esc(I.months.note) : ''}`, lv) : ''}
     </div>
     <details class="ov-method"><summary>Cách tính</summary><ul>${Object.entries(I.method).map(([k, v]) => `<li><b>${esc(METHOD[k] || LAYER[k] || k)}:</b> ${esc(v)}.</li>`).join('')}
       ${I.norms ? `<li>Mức thường gặp: ${I.norms.charts} lá số mẫu (${esc(I.norms.corpus)}, bộ mẫu phân tầng, không phải dân số thật).</li>` : ''}

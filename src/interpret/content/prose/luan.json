@@ -791,7 +791,9 @@
   ],
   "coexist": [
    "{domain} có cả {pos} lẫn {neg}; hai điều không loại nhau, vì {pos} thuộc về {fpos}, còn {neg} thuộc về {fneg}",
-   "{domain} có {pos} và có {neg}; một bên là chuyện {fpos}, một bên là chuyện {fneg}, nên cả hai cùng đứng được"
+   "{domain} có {pos} và có {neg}; một bên là chuyện {fpos}, một bên là chuyện {fneg}, nên cả hai cùng đứng được",
+   "{domain} mang cả {pos} và {neg}, nhưng mỗi điều nói về một chuyện: {pos} là chuyện {fpos}, {neg} là chuyện {fneg}",
+   "{pos} và {neg} cùng có trong {domain} mà không loại nhau, vì một bên thuộc {fpos}, một bên thuộc {fneg}"
   ],
   "chua_phan_xu": [
    "{domain} có cả {pos} (dựa vào {gpos}) lẫn {neg} (dựa vào {gneg}); chưa phân xử được mặt nào trội",
@@ -799,7 +801,10 @@
    "{pos} (từ {gpos}) và {neg} (từ {gneg}) cùng có mặt trong {domain}, và không bên nào được xếp trên bên nào",
    "trong {domain}, {pos} đến từ {gpos}, còn {neg} đến từ {gneg}; cả hai được nêu, chưa có phân xử",
    "{domain} vừa có {pos} nhờ {gpos}, vừa có {neg} vì {gneg}; mặt nào nặng hơn thì chưa phân xử được",
-   "về {domain}, {gpos} cho {pos}, {gneg} lại cho {neg}; đây là hai mặt chưa phân xử được"
+   "về {domain}, {gpos} cho {pos}, {gneg} lại cho {neg}; đây là hai mặt chưa phân xử được",
+   "{pos} có gốc ở {gpos}, {neg} có gốc ở {gneg}; trong {domain}, hai chiều này ngang nhau",
+   "{gpos} kéo {domain} về phía {pos}, còn {gneg} kéo về phía {neg}, và hai lực ấy chưa bên nào lấn được bên nào",
+   "với {domain}, một phía là {pos} ({gpos}), phía kia là {neg} ({gneg}); cân lên thì hai phía ngang nhau"
   ],
   "unresolved_limits": [
    "Ngay trong cung {palace} còn có {limits}, nên mặt thuận không thể xem là trọn",
@@ -880,11 +885,34 @@
   "major_ham_borrowed": [
    "cung {pal} không có chính tinh, phải mượn {star} từ cung {from}, mà {star} lại ở thế hãm, nên phần tốt của cung phải nhờ các sao khác đỡ",
    "{star} mượn từ cung {from} đang hãm địa, nên cung {pal} khó thuận một chiều"
+  ],
+  "tt_vcd": [
+   "Cung {pal} vô chính diệu, có {star} án ngữ",
+   "{star} đóng ở cung {pal}, một cung không có chính tinh"
+  ],
+  "tuan_good": [
+   "Tuần án ngữ cung {pal}, nên {good} nói trên thường không đến thẳng mà phải qua một khúc quanh",
+   "có Tuần ở cung {pal}, nên {good} vừa nói chỉ đến sau một khúc quanh",
+   "{good} ở cung {pal} bị Tuần án ngữ, nên đến chậm và không thẳng"
+  ],
+  "triet_good": [
+   "Triệt án ngữ cung {pal}, nên {good} nói trên thường bị chặn lại lúc đầu",
+   "có Triệt ở cung {pal}, nên {good} vừa nói dễ bị chặn ở chặng đầu",
+   "{good} ở cung {pal} gặp Triệt, nên lúc đầu bị chặn rồi mới mở"
+  ],
+  "tuan_bare": [
+   "Cung {pal} có Tuần án ngữ",
+   "Tuần đóng ở cung {pal}"
+  ],
+  "triet_bare": [
+   "Cung {pal} có Triệt án ngữ",
+   "Triệt đóng ở cung {pal}"
   ]
  },
  "single": [
-  "Có điều, điều này mới dựa vào {stars}, nên chỉ nên xem là một chiều hướng",
-  "Riêng {stars} thì chưa đủ để kết luận; đây mới là một chiều hướng"
+  "Có điều, ý này mới dựa vào {stars}, chưa có sao thứ hai nói cùng ý, nên chỉ là một chiều hướng",
+  "Riêng {stars} thì chưa đủ để kết luận khi không sao nào khác xác nhận; đây mới là một chiều hướng",
+  "Ý này chỉ đứng trên {stars}, chưa có sao cùng chiều, nên là khuynh hướng chứ chưa phải kết luận"
  ],
  "timing": [
   "Về thời điểm, {ground}, nên {claim}",
@@ -989,5 +1017,20 @@
   "tail": [
    "Đây là thế cân giữa các sao trong cung, không phải lời đoán về bệnh hay về sức khỏe tốt xấu"
   ]
+ },
+ "parents_split": {
+  "both": [
+   "Đặt hai sao theo người: phía cha là {cha}, phía mẹ là {me}, nên {lean}",
+   "Thái Dương ứng với cha, Thái Âm ứng với mẹ; ở đây phía cha có {cha}, phía mẹ có {me}, nên {lean}"
+  ],
+  "one": [
+   "{star} ở đây ứng với phía {who}, và phía ấy có {desc}",
+   "Phía {who} ứng với {star}, ở đây là {desc}"
+  ],
+  "lean": {
+   "cha": "phía cha đứng vững hơn phía mẹ",
+   "me": "phía mẹ đứng vững hơn phía cha",
+   "even": "hai phía ngang nhau"
+  }
  }
 }

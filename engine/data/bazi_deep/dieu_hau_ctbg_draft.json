@@ -1,8 +1,72 @@
 {
- "_status": "draft_tu_tri_nho",
+ "_status": "draft_tu_tri_nho (checked_cells: ô trùng nguyên văn 穷通宝鉴, DEEP-3 2026-10-24)",
  "_source": "SRC_CTBG",
- "_note": "Bảng dụng thần điều hậu 10 can × 12 tháng theo 窮通寶鑑 (Cùng Thông Bảo Giám), nhập TỪ TRÍ NHỚ của người soạn, chưa đối chiếu văn bản. Từng ô có thể sai hoặc thiếu; KHÔNG được coi là trích dẫn sách cho đến khi có người kiểm từng ô và đánh dấu checked. Mỗi chuỗi là các can theo thứ tự ưu tiên trong ô: can đầu là chính, các can sau là phụ. Khóa tháng theo chi tháng (nguyệt lệnh).",
- "checked_cells": [],
+ "_note": "Bảng dụng thần điều hậu 10 can × 12 tháng theo 窮通寶鑑 (Cùng Thông Bảo Giám), nhập TỪ TRÍ NHỚ của người soạn, chưa đối chiếu văn bản. Từng ô có thể sai hoặc thiếu; KHÔNG được coi là trích dẫn sách cho đến khi có người kiểm từng ô và đánh dấu checked. Mỗi chuỗi là các can theo thứ tự ưu tiên trong ô: can đầu là chính, các can sau là phụ. Khóa tháng theo chi tháng (nguyệt lệnh). DEEP-3 (2026-10-24): 'snapshot' = 120 ô đọc từ bản chụp 穷通宝鉴 trên zh.wikisource (engine/data/sources_web/qiongtongbaojian.json, kiểm bằng tools/book_text.quote_on_page('WEB:CTBG', chương, câu)); 'checked_cells' = các ô mà thứ tự can của văn bản trùng hẳn ô nhớ; 'disagreements' = mọi ô văn bản khác ô nhớ hoặc khác bảng / chú thích Thiệu Vĩ Hoa (cũng ở schools.json). Ô 'from_season': tháng không có đoạn riêng, lấy câu chung của mùa. Mã không đổi: 'cells' (ô nhớ) vẫn chỉ là thứ tự dự phòng.",
+ "checked_cells": [
+  "甲/子",
+  "甲/寅",
+  "甲/辰",
+  "甲/亥",
+  "乙/子",
+  "乙/寅",
+  "乙/卯",
+  "乙/午",
+  "乙/申",
+  "乙/戌",
+  "乙/亥",
+  "丙/丑",
+  "丙/寅",
+  "丙/辰",
+  "丙/巳",
+  "丙/午",
+  "丙/未",
+  "丙/戌",
+  "丁/卯",
+  "丁/辰",
+  "丁/巳",
+  "戊/子",
+  "戊/丑",
+  "戊/寅",
+  "戊/卯",
+  "戊/辰",
+  "戊/巳",
+  "戊/午",
+  "戊/未",
+  "戊/申",
+  "戊/酉",
+  "戊/亥",
+  "己/辰",
+  "庚/子",
+  "庚/丑",
+  "庚/午",
+  "庚/未",
+  "庚/申",
+  "庚/酉",
+  "庚/戌",
+  "辛/丑",
+  "辛/寅",
+  "辛/卯",
+  "辛/辰",
+  "辛/巳",
+  "辛/午",
+  "辛/申",
+  "辛/戌",
+  "辛/亥",
+  "壬/子",
+  "壬/丑",
+  "壬/卯",
+  "壬/辰",
+  "壬/申",
+  "壬/酉",
+  "壬/戌",
+  "壬/亥",
+  "癸/子",
+  "癸/寅",
+  "癸/卯",
+  "癸/辰",
+  "癸/申",
+  "癸/酉"
+ ],
  "cells": {
   "甲": {
    "寅": "丙癸",
@@ -144,5 +208,2322 @@
    "子": "丙辛",
    "丑": "丙丁"
   }
- }
+ },
+ "snapshot": {
+  "source": "WEB:CTBG",
+  "url": "https://zh.wikisource.org/wiki/%E7%A9%B7%E9%80%9A%E5%AE%9D%E9%89%B4",
+  "fetched": "2026-10-24",
+  "revision": 2294674,
+  "cells": {
+   "甲": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春甲木",
+     "quote": "初春尚有余寒，得丙癸逢，富贵双全",
+     "yong": [
+      "丙",
+      "癸"
+     ],
+     "confidence": "medium",
+     "conditional": "癸藏丙透，名寒木向阳，主大富贵",
+     "comment": "No explicit rank (为尊/次之); 丙癸 named together, order as written. Following 正二月 passage adds: 总之正二月甲木，有庚戊者上命。如有丁透，大富大贵之命也"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春甲木",
+     "quote": "二月甲木，庚金得所，名阳刃驾杀，可云小贵",
+     "yong": [
+      "庚"
+     ],
+     "confidence": "low",
+     "conditional": "总之正二月甲木，有庚戊者上命",
+     "comment": "Own paragraph names no 调候 order; only 庚 (with 财 needed: 但要财资之) and 木旺宜火之光辉. The joint 正二月 passage (placed before this paragraph) says 庚戊 / 丁透."
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春甲木",
+     "quote": "先取庚金，次用壬水",
+     "yong": [
+      "庚",
+      "壬"
+     ],
+     "confidence": "high",
+     "conditional": "或支成金局，方可用丁"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏甲木",
+     "quote": "丙火司权，先癸后丁",
+     "yong": [
+      "癸",
+      "丁"
+     ],
+     "confidence": "high",
+     "conditional": "庚金太多，甲反受病。若得壬水，方配得中和"
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏甲木",
+     "quote": "五月先癸后丁庚金次之",
+     "yong": [
+      "癸",
+      "丁",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "或五月乏癸，用丁亦可，要运行北地为隹",
+     "comment": "Also: 五六月甲木，木盛先庚，庚盛先丁"
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏甲木",
+     "quote": "六月三伏生寒，丁火退气。先丁后庚，无癸亦可",
+     "yong": [
+      "丁",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "五六月甲木，木盛先庚，庚盛先丁"
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋甲木",
+     "quote": "七月甲木，丁火为尊，庚金次之",
+     "yong": [
+      "丁",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "若有癸水阻隔，便灭丁火，壬水无碍，且能合丁，但须见戊土，方可制水存火"
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋甲木",
+     "quote": "丁火为先，次用丙火，庚金再次",
+     "yong": [
+      "丁",
+      "丙",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "或支成木局，干透比劫，反取庚金为先，次用丁火"
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋甲木",
+     "quote": "九月甲木，木星凋零，独爱丁火，壬癸滋扶",
+     "yong": [
+      "丁",
+      "壬",
+      "癸"
+     ],
+     "confidence": "medium",
+     "conditional": "或四柱木多，用丙用丁，皆不足异，耑用庚金为妙",
+     "comment": "壬癸 given jointly as 滋扶; later in same month: 九月甲木，耑用丁癸 (no 壬); also 庚金得所，科甲定然 and 虽用丙丁，癸庚决不可少也"
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬甲木",
+     "quote": "十月甲木，庚丁为要，丙火次之",
+     "yong": [
+      "庚",
+      "丁",
+      "丙"
+     ],
+     "confidence": "high",
+     "conditional": "忌壬水泛身，须戊土制之"
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬甲木",
+     "quote": "木性生寒，丁先庚后，丙火佐之",
+     "yong": [
+      "丁",
+      "庚",
+      "丙"
+     ],
+     "confidence": "high",
+     "conditional": "若癸透伤丁。无戊己辅救，残疾之人",
+     "comment": "Later: 总之十一月甲木...耑取庚丁"
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬甲木",
+     "quote": "先用庚噼甲，方引丁火始得木火有通明之象，故丁次之",
+     "yong": [
+      "庚",
+      "丁"
+     ],
+     "confidence": "high"
+    }
+   },
+   "乙": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春乙木",
+     "quote": "故以丙火为先，癸水次之",
+     "yong": [
+      "丙",
+      "癸"
+     ],
+     "confidence": "high"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春乙木",
+     "quote": "以丙为君，癸为臣",
+     "yong": [
+      "丙",
+      "癸"
+     ],
+     "confidence": "high",
+     "conditional": "二月乙木，耑用丙癸"
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春乙木",
+     "quote": "三月乙木，阳气愈炽，先癸后丙",
+     "yong": [
+      "癸",
+      "丙"
+     ],
+     "confidence": "high"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏乙木",
+     "quote": "四月乙木专用癸水，丙火酌用，虽以庚辛佐癸，须辛透为清",
+     "yong": [
+      "癸",
+      "丙",
+      "庚",
+      "辛"
+     ],
+     "confidence": "high",
+     "comment": "丙 is 酌用 and 庚辛 佐癸 (text prefers 辛 透). Chapter end: 总之夏月之乙木，耑用癸水，丙火酌用，庚辛次之"
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏乙木",
+     "quote": "上半月属阳，仍用癸水。下半月属阴，三伏生寒，丙癸齐用",
+     "yong": [
+      "癸",
+      "丙"
+     ],
+     "confidence": "medium",
+     "conditional": "柱多金水，丙火为先，余皆用癸水为先",
+     "comment": "Split by half-month; default 癸 first. Chapter intro conflicts: 五六月先丙后癸，夏至前仍用癸水"
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏乙木",
+     "quote": "六月乙木，木性且寒，柱多金水，丙火为尊",
+     "yong": [
+      "丙",
+      "癸"
+     ],
+     "confidence": "medium",
+     "conditional": "支成水局，乙得无伤。癸水透干，大富大贵",
+     "comment": "丙为尊 is stated under 柱多金水; 癸 follows (无癸定作常人). Chapter intro: 五六月先丙后癸"
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋乙木",
+     "quote": "七月喜己土为用，或不见丙癸。己土必不可少",
+     "yong": [
+      "丙",
+      "癸",
+      "己"
+     ],
+     "confidence": "medium",
+     "conditional": "或癸透、丙藏、庚少，此不用己，可许贡拔",
+     "comment": "Month paragraph names 己 as 用; 丙/癸 order comes from chapter intro 三秋乙木，金神司令，先丙后癸 (九月 excepted). Relative rank of 己 vs 丙癸 not stated."
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋乙木",
+     "quote": "若秋分后，桂花已开，却喜向阳，又宜用丙，癸水次之",
+     "yong": [
+      "丙",
+      "癸"
+     ],
+     "confidence": "medium",
+     "conditional": "在白露之后，桂蕊未开，耑用癸水以滋桂萼",
+     "comment": "Split: before 秋分 only 癸; after 秋分 丙 then 癸. Also 或生上半月无癸，姑用壬水"
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋乙木",
+     "quote": "九月乙木，根枯叶落，必赖癸水滋养",
+     "yong": [
+      "癸",
+      "辛"
+     ],
+     "confidence": "high",
+     "conditional": "若见癸水，又遇辛金发水之源，定主科甲",
+     "comment": "辛 as source of 癸. Chapter intro: 惟九月耑用癸水"
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬乙木",
+     "quote": "取丙为用，戊土次之",
+     "yong": [
+      "丙",
+      "戊"
+     ],
+     "confidence": "high",
+     "conditional": "支成木局，时值小阳，此又如春木同旺，若有癸出，须取戊为尊"
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬乙木",
+     "quote": "不宜用癸以冻花木，故耑用丙火",
+     "yong": [
+      "丙"
+     ],
+     "confidence": "high"
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬乙木",
+     "quote": "冬月之木，虽取戊制水，不可作用，耑取丙火则可",
+     "yong": [
+      "丙"
+     ],
+     "confidence": "low",
+     "comment": "No 十二月乙木 paragraph in snapshot (三冬乙木 has 十月 and 十一月 only).",
+     "season_quote": "冬月之木，虽取戊制水，不可作用，耑取丙火则可",
+     "season_yong": [
+      "丙"
+     ],
+     "from_season": true
+    }
+   },
+   "丙": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春丙火",
+     "quote": "正月丙火，三阳开泰，火气渐炎，取壬为尊，庚金佐之",
+     "yong": [
+      "壬",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "或支成火局，耑取壬水为贵﹐无壬、癸亦姑用",
+     "comment": "Chapter intro: 正月用壬，庚辛为助"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春丙火",
+     "quote": "二月丙火，阳气舒升，耑用壬水",
+     "yong": [
+      "壬"
+     ],
+     "confidence": "high",
+     "conditional": "或无壬水，己土姑用"
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春丙火",
+     "quote": "用壬水。或成土局，取甲为辅，壬不可离",
+     "yong": [
+      "壬",
+      "甲"
+     ],
+     "confidence": "high",
+     "conditional": "无甲用庚，助壬水洩土气",
+     "comment": "Chapter intro: 三月土重晦光，取甲佐之为妙"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏丙火",
+     "quote": "宜专用壬水，解炎威之力，成既济之功",
+     "yong": [
+      "壬",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "或无壬水，癸亦姑用，见庚透癸，不富必贵",
+     "comment": "庚 from same paragraph: 得庚发水源，方为有根之水; chapter intro: 四月耑用壬水，金为佐"
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏丙火",
+     "quote": "五月丙火，得壬高透，方为上命。或一壬无庚，亦主贡监",
+     "yong": [
+      "壬",
+      "庚"
+     ],
+     "confidence": "medium",
+     "comment": "壬 clear (chapter intro: 五月亦耑用壬); 庚 is implied helper (一壬无庚 lesser; 坐禄之金 至妙), not ranked explicitly"
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏丙火",
+     "quote": "六月丙火退气，三伏生寒，壬水为用，取庚辅佐",
+     "yong": [
+      "壬",
+      "庚"
+     ],
+     "confidence": "high"
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋丙火",
+     "quote": "故仍用壬水，辅映光辉",
+     "yong": [
+      "壬"
+     ],
+     "confidence": "high",
+     "conditional": "如壬多，取戊制方妙"
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋丙火",
+     "quote": "丙火之余光，存于光湖，仍用壬水辅映",
+     "yong": [
+      "壬"
+     ],
+     "confidence": "high",
+     "conditional": "若无壬水，癸亦可用，但功名不久"
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋丙火",
+     "quote": "必须先用甲木，次取壬水",
+     "yong": [
+      "甲",
+      "壬"
+     ],
+     "confidence": "high",
+     "conditional": "若无壬水，得癸透干，亦可"
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬丙火",
+     "quote": "得见甲戊庚出干，可云科甲",
+     "yong": [
+      "甲",
+      "戊",
+      "庚"
+     ],
+     "confidence": "low",
+     "conditional": "总之十月丙火，木旺宜庚，水旺宜戊，火旺用壬，随宜酌用可也",
+     "comment": "No ranked 用神; text lists 甲戊庚 for 科甲 and then says choose by condition (随宜酌用)."
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬丙火",
+     "quote": "壬水为最，戊土佐之",
+     "yong": [
+      "壬",
+      "戊"
+     ],
+     "confidence": "high",
+     "conditional": "或无壬水，癸亦可用，但不甚显"
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬丙火",
+     "quote": "侮雪欺霜，喜壬为用。己土司令，土多又不可少甲",
+     "yong": [
+      "壬",
+      "甲"
+     ],
+     "confidence": "high"
+    }
+   },
+   "丁": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春丁火",
+     "quote": "非庚不能噼甲，何以引丁，姑用庚金",
+     "yong": [
+      "庚"
+     ],
+     "confidence": "medium",
+     "conditional": "得壬化木，弱极复生，合此必主大贵",
+     "comment": "Only 庚 named as 用 (甲 is the 母 already in command: 甲木当权，乃为母旺). Paragraph also: 总不可无水。水多亦不宜"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春丁火",
+     "quote": "溼乙伤丁，先庚后甲",
+     "yong": [
+      "庚",
+      "甲"
+     ],
+     "confidence": "high"
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春丁火",
+     "quote": "先用甲木引丁制土，次看庚金",
+     "yong": [
+      "甲",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "或支成木局，取庚为先"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏丁火",
+     "quote": "四月丁火乘旺，虽取甲引丁，必用庚噼甲",
+     "yong": [
+      "甲",
+      "庚"
+     ],
+     "confidence": "medium",
+     "conditional": "甲多、又取庚为先",
+     "comment": "Order 甲 then 庚 as written, but no explicit 为尊/次之; 癸 named as 病"
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏丁火",
+     "quote": "得庚壬两透者，科甲定然",
+     "yong": [
+      "壬",
+      "庚"
+     ],
+     "confidence": "low",
+     "conditional": "若干支无火局，有水透干，须用甲木，又要庚噼甲方明",
+     "comment": "No ranked statement. 支成火局 → 庚壬 两透 (written 庚壬); no 火局 with 水 → 甲 then 庚; paragraph ends 用壬者...用甲者. 不宜乱用甲木 at start. yong order is a judgement."
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏丁火",
+     "quote": "专取甲木，壬水次之",
+     "yong": [
+      "甲",
+      "壬"
+     ],
+     "confidence": "high"
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋丁火",
+     "quote": "七月丁火，退气柔弱，端用甲木",
+     "yong": [
+      "甲",
+      "庚",
+      "丙"
+     ],
+     "confidence": "medium",
+     "conditional": "或借丙暖金晒甲，不虑丙夺丁光",
+     "comment": "Same paragraph: 仍取庚劈甲，为引火之物; chapter general text: 七月甲丙，申中有庚"
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋丁火",
+     "quote": "七月甲丙，申中有庚，八月甲丙庚皆用",
+     "yong": [
+      "甲",
+      "丙",
+      "庚"
+     ],
+     "confidence": "medium",
+     "conditional": "七八月或无甲木，乙亦可用，为枯草引灯，却不离丙晒也",
+     "comment": "No 八月丁火 paragraph; month named in 三秋丁火 general text. 甲丙庚 listed without rank."
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋丁火",
+     "quote": "九月耑用甲庚。大扺甲不离庚",
+     "yong": [
+      "甲",
+      "庚"
+     ],
+     "confidence": "medium",
+     "conditional": "或九月一派戊土，洩丁火之气，不见甲木，为伤官伤尽",
+     "comment": "No 九月丁火 paragraph; month named in 三秋丁火 general text."
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬丁火",
+     "quote": "三冬丁火，甲木为尊，庚金佐之，癸戊权宜酌用可也",
+     "yong": [
+      "甲",
+      "庚"
+     ],
+     "confidence": "low",
+     "comment": "No 十月丁火 paragraph in snapshot. Season text only (see season_quote).",
+     "season_quote": "三冬丁火，甲木为尊，庚金佐之，癸戊权宜酌用可也",
+     "season_yong": [
+      "甲",
+      "庚"
+     ],
+     "from_season": true
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬丁火",
+     "quote": "十一月丁火，或仲冬水多癸旺，全无比印，此作弃命从杀",
+     "yong": [],
+     "confidence": "low",
+     "conditional": "此格用戊，火妻土子。用甲、水妻木子",
+     "comment": "Paragraph covers only the 弃命从杀 / 戊出破癸 case; names no 调候 用神 for the month. Season text: 三冬丁火，甲木为尊，庚金佐之",
+     "season_quote": "三冬丁火，甲木为尊，庚金佐之，癸戊权宜酌用可也",
+     "season_yong": [
+      "甲",
+      "庚"
+     ]
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬丁火",
+     "quote": "三冬丁火，甲木为尊，庚金佐之，癸戊权宜酌用可也",
+     "yong": [
+      "甲",
+      "庚"
+     ],
+     "confidence": "low",
+     "comment": "No 十二月丁火 paragraph in snapshot. Season text only (see season_quote).",
+     "season_quote": "三冬丁火，甲木为尊，庚金佐之，癸戊权宜酌用可也",
+     "season_yong": [
+      "甲",
+      "庚"
+     ],
+     "from_season": true
+    }
+   },
+   "戊": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春戊土",
+     "quote": "正二月先丙后甲，癸又次之",
+     "yong": [
+      "丙",
+      "甲",
+      "癸"
+     ],
+     "confidence": "high",
+     "comment": "From 三春戊土 opening (names 正二月); no separate 正月 paragraph"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春戊土",
+     "quote": "正二月先丙后甲，癸又次之",
+     "yong": [
+      "丙",
+      "甲",
+      "癸"
+     ],
+     "confidence": "high",
+     "comment": "From 三春戊土 opening (names 正二月); no separate 二月 paragraph"
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春戊土",
+     "quote": "三月先甲后丙，癸又次之，因戊土司权故也",
+     "yong": [
+      "甲",
+      "丙",
+      "癸"
+     ],
+     "confidence": "high"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏戊土",
+     "quote": "故先用甲疏噼，次取丙癸为佐",
+     "yong": [
+      "甲",
+      "丙",
+      "癸"
+     ],
+     "confidence": "high"
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏戊土",
+     "quote": "先看壬水，次取甲木，丙火酌用，用癸力微",
+     "yong": [
+      "壬",
+      "甲",
+      "丙"
+     ],
+     "confidence": "high",
+     "comment": "癸 named but weak (用癸力微)"
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏戊土",
+     "quote": "先看癸水，次用丙火甲木",
+     "yong": [
+      "癸",
+      "丙",
+      "甲"
+     ],
+     "confidence": "high"
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋戊土",
+     "quote": "先丙后癸，甲木次之",
+     "yong": [
+      "丙",
+      "癸",
+      "甲"
+     ],
+     "confidence": "high",
+     "conditional": "或支成水局，休作弃命从才，宜取甲洩之"
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋戊土",
+     "quote": "赖丙照暖，喜水滋润，先丙后癸，不必木疏",
+     "yong": [
+      "丙",
+      "癸"
+     ],
+     "confidence": "high"
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋戊土",
+     "quote": "不可专用丙，先看甲木，次取癸水",
+     "yong": [
+      "甲",
+      "癸"
+     ],
+     "confidence": "high",
+     "conditional": "见金先用癸水，后取丙火",
+     "comment": "丙 named as used but not alone (不可专用丙); unranked"
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬戊土",
+     "quote": "先用甲木，次取丙火",
+     "yong": [
+      "甲",
+      "丙"
+     ],
+     "confidence": "high"
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬戊土",
+     "quote": "十一二月严寒冰冻，丙火为专，甲木为佐",
+     "yong": [
+      "丙",
+      "甲"
+     ],
+     "confidence": "high",
+     "comment": "Joint 十一二月 paragraph"
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬戊土",
+     "quote": "十一二月严寒冰冻，丙火为专，甲木为佐",
+     "yong": [
+      "丙",
+      "甲"
+     ],
+     "confidence": "high",
+     "comment": "Joint 十一二月 paragraph"
+    }
+   },
+   "己": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春己土",
+     "quote": "余寒未退，故丙为尊",
+     "yong": [
+      "丙"
+     ],
+     "confidence": "high",
+     "conditional": "壬多要见戊制",
+     "comment": "须戊作堤，以保园圃 against 壬"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春己土",
+     "quote": "先取甲木疏之，忌合。次取癸水润之",
+     "yong": [
+      "甲",
+      "癸"
+     ],
+     "confidence": "high",
+     "conditional": "加以一丙出透，势压百僚",
+     "comment": "若柱中无甲丙癸者，皆下格"
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春己土",
+     "quote": "先丙后癸，土暖而润，随用甲疏",
+     "yong": [
+      "丙",
+      "癸",
+      "甲"
+     ],
+     "confidence": "high",
+     "comment": "却以庚金为病"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏己土",
+     "quote": "取癸为要，次用丙火",
+     "yong": [
+      "癸",
+      "丙"
+     ],
+     "confidence": "low",
+     "comment": "No 四月己土 paragraph; 三夏己土 has season text only (see season_quote).",
+     "season_quote": "取癸为要，次用丙火",
+     "season_yong": [
+      "癸",
+      "丙"
+     ],
+     "from_season": true
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏己土",
+     "quote": "取癸为要，次用丙火",
+     "yong": [
+      "癸",
+      "丙"
+     ],
+     "confidence": "low",
+     "comment": "No 五月己土 paragraph; 三夏己土 has season text only (see season_quote).",
+     "season_quote": "取癸为要，次用丙火",
+     "season_yong": [
+      "癸",
+      "丙"
+     ],
+     "from_season": true
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏己土",
+     "quote": "取癸为要，次用丙火",
+     "yong": [
+      "癸",
+      "丙"
+     ],
+     "confidence": "low",
+     "comment": "No 六月己土 paragraph; 三夏己土 has season text only (see season_quote).",
+     "season_quote": "取癸为要，次用丙火",
+     "season_yong": [
+      "癸",
+      "丙"
+     ],
+     "from_season": true
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋己土",
+     "quote": "总之，三秋己土，先癸后丙，取辛辅癸",
+     "yong": [
+      "癸",
+      "丙",
+      "辛"
+     ],
+     "confidence": "low",
+     "comment": "No 七月己土 paragraph; 三秋己土 has season text only (see season_quote).",
+     "season_quote": "总之，三秋己土，先癸后丙，取辛辅癸",
+     "season_yong": [
+      "癸",
+      "丙",
+      "辛"
+     ],
+     "from_season": true
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋己土",
+     "quote": "总之，三秋己土，先癸后丙，取辛辅癸",
+     "yong": [
+      "癸",
+      "丙",
+      "辛"
+     ],
+     "confidence": "low",
+     "comment": "No 八月己土 paragraph; only a conditional line 八月支成金局，无丙丁出救...如得丙透丁藏. Season text in season_quote.",
+     "season_quote": "总之，三秋己土，先癸后丙，取辛辅癸",
+     "season_yong": [
+      "癸",
+      "丙",
+      "辛"
+     ],
+     "from_season": true
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋己土",
+     "quote": "总之，三秋己土，先癸后丙，取辛辅癸。九月土盛，宜甲木疏之",
+     "yong": [
+      "癸",
+      "丙",
+      "辛",
+      "甲"
+     ],
+     "confidence": "low",
+     "comment": "No 九月己土 paragraph; season summary plus month note. Rank of 甲 relative to 癸丙 not stated (余皆酌用)."
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬己土",
+     "quote": "非丙暖不生，取丙为尊，甲木参酌",
+     "yong": [
+      "丙",
+      "甲"
+     ],
+     "confidence": "low",
+     "comment": "No 十月己土 paragraph; season text only. Season text adds 惟初冬壬旺，取戊制之 (初冬 = 十月).",
+     "season_quote": "非丙暖不生，取丙为尊，甲木参酌",
+     "season_yong": [
+      "丙",
+      "甲"
+     ],
+     "from_season": true
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬己土",
+     "quote": "非丙暖不生，取丙为尊，甲木参酌",
+     "yong": [
+      "丙",
+      "甲"
+     ],
+     "confidence": "low",
+     "comment": "No 十一月己土 paragraph; season text only (see season_quote).",
+     "season_quote": "非丙暖不生，取丙为尊，甲木参酌",
+     "season_yong": [
+      "丙",
+      "甲"
+     ],
+     "from_season": true
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬己土",
+     "quote": "非丙暖不生，取丙为尊，甲木参酌",
+     "yong": [
+      "丙",
+      "甲"
+     ],
+     "confidence": "low",
+     "comment": "No 十二月己土 paragraph; season text only (see season_quote).",
+     "season_quote": "非丙暖不生，取丙为尊，甲木参酌",
+     "season_yong": [
+      "丙",
+      "甲"
+     ],
+     "from_season": true
+    }
+   },
+   "庚": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春庚金",
+     "quote": "正月庚金，丙甲为上，丁火次之",
+     "yong": [
+      "丙",
+      "甲",
+      "丁"
+     ],
+     "confidence": "high",
+     "conditional": "如火多则用土",
+     "comment": "Opening: 先用丙暖庚性...须甲疏洩"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春庚金",
+     "quote": "专用丁火，借甲引丁，借庚噼甲",
+     "yong": [
+      "丁",
+      "甲",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "无丁用丙者，富贵多出于勉强"
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春庚金",
+     "quote": "有埋金之忧，故先甲后丁",
+     "yong": [
+      "甲",
+      "丁"
+     ],
+     "confidence": "high"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏庚金",
+     "quote": "但先壬水，方得中和，故曰群金生夏，喜用勾陈。次取戊土，丙火佐之",
+     "yong": [
+      "壬",
+      "戊",
+      "丙"
+     ],
+     "confidence": "high",
+     "conditional": "或支成金局，变弱为强，用丙无力，用丁方妙",
+     "comment": "Same paragraph: 四月庚金，须用壬丙戊，但非拘执先后"
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏庚金",
+     "quote": "专用壬水，癸又次之",
+     "yong": [
+      "壬",
+      "癸"
+     ],
+     "confidence": "high"
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏庚金",
+     "quote": "先用丁火，次取甲木",
+     "yong": [
+      "丁",
+      "甲"
+     ],
+     "confidence": "high",
+     "conditional": "支会土局，甲先丁后"
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋庚金",
+     "quote": "专用丁火煅炼，次取甲木引丁",
+     "yong": [
+      "丁",
+      "甲"
+     ],
+     "confidence": "high",
+     "conditional": "或支成土局，先甲后丁"
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋庚金",
+     "quote": "刚锐未退，用丁用甲，丙不可少",
+     "yong": [
+      "丁",
+      "甲",
+      "丙"
+     ],
+     "confidence": "high"
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋庚金",
+     "quote": "宜先用甲疏，后用壬洗",
+     "yong": [
+      "甲",
+      "壬"
+     ],
+     "confidence": "high"
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬庚金",
+     "quote": "水冷性寒，非丁莫造，非丙不暖。丁甲两透",
+     "yong": [
+      "丁",
+      "丙",
+      "甲"
+     ],
+     "confidence": "medium",
+     "conditional": "支见亥子，得己出制，亦有功名",
+     "comment": "丁 clearly first; 丙 and 甲 both named but their rank is not stated"
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬庚金",
+     "quote": "仍取丁甲，次取丙火照暖",
+     "yong": [
+      "丁",
+      "甲",
+      "丙"
+     ],
+     "confidence": "high"
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬庚金",
+     "quote": "先取丙火解冻，次取丁火炼金，甲亦不可少",
+     "yong": [
+      "丙",
+      "丁",
+      "甲"
+     ],
+     "confidence": "high"
+    }
+   },
+   "辛": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春辛金",
+     "quote": "故正月辛金，先己后壬。己为君，庚为佐",
+     "yong": [
+      "己",
+      "壬",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "如用丙火须参看"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春辛金",
+     "quote": "二月辛金，阳和之际，壬水为尊，见戊己为病。得甲制伏",
+     "yong": [
+      "壬",
+      "甲"
+     ],
+     "confidence": "high"
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春辛金",
+     "quote": "母旺子相，先壬后甲",
+     "yong": [
+      "壬",
+      "甲"
+     ],
+     "confidence": "high"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏辛金",
+     "quote": "忌丙火之燥烈，喜壬水之洗淘",
+     "yong": [
+      "壬",
+      "甲",
+      "癸"
+     ],
+     "confidence": "medium",
+     "conditional": "凡火旺无水，取土洩之",
+     "comment": "Only 壬 explicit; 甲 制戊 (有木制戊) and 癸 lesser (癸透壬藏，富真贵假); 壬、癸、甲、三者全无...下品. Order after 壬 is a judgement."
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏辛金",
+     "quote": "阴柔之极，不宜煅炼，须己壬兼用",
+     "yong": [
+      "壬",
+      "己",
+      "癸"
+     ],
+     "confidence": "medium",
+     "conditional": "无壬、癸亦可用。但癸力小",
+     "comment": "Text says both 己壬兼用 and 故壬己并用; 五月辛金，壬、癸、己、三者皆用. 壬/己 order not fixed."
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏辛金",
+     "quote": "先用壬水，取庚佐之",
+     "yong": [
+      "壬",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "但忌戊出，得甲制之，方吉",
+     "comment": "Also 总以一壬一己，见庚无甲，方妙"
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋辛金",
+     "quote": "壬水为尊，甲戊酌用可也，癸水不可为用",
+     "yong": [
+      "壬",
+      "甲",
+      "戊"
+     ],
+     "confidence": "high"
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋辛金",
+     "quote": "八月辛金，当权得令，旺之极矣，专用壬水淘洗",
+     "yong": [
+      "壬"
+     ],
+     "confidence": "high",
+     "conditional": "如见戊己，则生扶太过，故以土为病，见甲制土、方妙",
+     "comment": "甲 only when 戊己 present (无戊、不宜用甲)"
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋辛金",
+     "quote": "须甲疏土，壬洩旺金，先壬后甲",
+     "yong": [
+      "壬",
+      "甲"
+     ],
+     "confidence": "high"
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬辛金",
+     "quote": "先用壬水，次取丙火",
+     "yong": [
+      "壬",
+      "丙"
+     ],
+     "confidence": "high",
+     "comment": "十月辛金，先壬后丙，余皆参用"
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬辛金",
+     "quote": "壬丙两透，不见戊癸，衣锦腰金",
+     "yong": [
+      "壬",
+      "丙"
+     ],
+     "confidence": "medium",
+     "conditional": "冬月辛金，须丙温暖方妙",
+     "comment": "No explicit rank; 壬丙 named together (切忌癸出冻金，而困丙火)"
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬辛金",
+     "quote": "十二月辛金，丙先壬后，戊己次之",
+     "yong": [
+      "丙",
+      "壬",
+      "戊",
+      "己"
+     ],
+     "confidence": "high",
+     "comment": "Also 先丙后壬，无丙不能解冻，无壬不能洗淘"
+    }
+   },
+   "壬": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春壬水",
+     "quote": "不必用戊，专用庚金，以丙为佐",
+     "yong": [
+      "庚",
+      "丙"
+     ],
+     "confidence": "high",
+     "conditional": "或见比劫，又有庚辛，此弱极复旺，又宜制伏。戊透、可云科甲",
+     "comment": "Stated for 凡壬日无比肩羊刃者; opening 宜用庚金之源; 庚丙戊三者齐透 for 科甲"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春壬水",
+     "quote": "二月壬水，先戊后辛，庚金次之",
+     "yong": [
+      "戊",
+      "辛",
+      "庚"
+     ],
+     "confidence": "high"
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春壬水",
+     "quote": "先用甲疏季土，次取庚金",
+     "yong": [
+      "甲",
+      "庚"
+     ],
+     "confidence": "high"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏壬水",
+     "quote": "专取壬水比肩为助，次取辛金发源，且暗合丙火，庚金为佐",
+     "yong": [
+      "壬",
+      "辛",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "或四柱多金得地，则极弱复强，须用巳中戊土"
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏壬水",
+     "quote": "取癸为用，取庚为佐",
+     "yong": [
+      "癸",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "五月壬水，辛癸亦可参用"
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏壬水",
+     "quote": "六月壬水，先辛后甲，次取癸水",
+     "yong": [
+      "辛",
+      "甲",
+      "癸"
+     ],
+     "confidence": "high",
+     "comment": "Earlier: 先用辛金癸水，次用甲木噼土"
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋壬水",
+     "quote": "七月壬水，专用戊土。丁火为佐",
+     "yong": [
+      "戊",
+      "丁"
+     ],
+     "confidence": "high"
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋壬水",
+     "quote": "八月壬水，专用甲木，庚金次之",
+     "yong": [
+      "甲",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "或天干有壬，支见申亥，此非用甲，戊土作用"
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋壬水",
+     "quote": "九月壬水，专用甲木，次用丙火",
+     "yong": [
+      "甲",
+      "丙"
+     ],
+     "confidence": "high",
+     "conditional": "或水多乏丙者，又用戊土，常人"
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬壬水",
+     "quote": "十月壬水、专用戊丙，次取庚金",
+     "yong": [
+      "戊",
+      "丙",
+      "庚"
+     ],
+     "confidence": "high"
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬壬水",
+     "quote": "先取戊土，次用丙火",
+     "yong": [
+      "戊",
+      "丙"
+     ],
+     "confidence": "high",
+     "comment": "十一月壬水，丙戊并用"
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬壬水",
+     "quote": "腊月壬水，先取丙火，丁甲为佐",
+     "yong": [
+      "丙",
+      "丁",
+      "甲"
+     ],
+     "confidence": "high",
+     "conditional": "下半月己土主事，故衰。亦用丙火，甲木佐之"
+    }
+   },
+   "癸": {
+    "寅": {
+     "month": "正月",
+     "chapter": "三春癸水",
+     "quote": "先用辛金，生癸水之源，次用丙火照暖",
+     "yong": [
+      "辛",
+      "丙"
+     ],
+     "confidence": "medium",
+     "conditional": "正月癸水，辛金为主，庚金次之，丙亦不可少",
+     "comment": "Two statements in same paragraph: 辛→丙, and later 辛为主，庚次之，丙亦不可少"
+    },
+    "卯": {
+     "month": "二月",
+     "chapter": "三春癸水",
+     "quote": "专以庚金为用，辛金次之",
+     "yong": [
+      "庚",
+      "辛"
+     ],
+     "confidence": "high"
+    },
+    "辰": {
+     "month": "三月",
+     "chapter": "三春癸水",
+     "quote": "谷雨后，虽用丙火，尚宜辛甲佐之",
+     "yong": [
+      "丙",
+      "辛",
+      "甲"
+     ],
+     "confidence": "high",
+     "conditional": "清明后、火气未炽，专用丙火",
+     "comment": "Also 三月癸水，辛甲皆酌用"
+    },
+    "巳": {
+     "month": "四月",
+     "chapter": "三夏癸水",
+     "quote": "四月癸水，喜辛金为用，无辛用庚",
+     "yong": [
+      "辛",
+      "庚"
+     ],
+     "confidence": "high",
+     "conditional": "若庚壬两透，洩制火土，名劫印化晋，极贵之造"
+    },
+    "午": {
+     "month": "五月",
+     "chapter": "三夏癸水",
+     "quote": "五月癸水，庚辛壬参酌并用可也",
+     "yong": [
+      "庚",
+      "辛",
+      "壬"
+     ],
+     "confidence": "medium",
+     "conditional": "宜见比劫，方得辛金之用",
+     "comment": "Listed without rank (参酌并用); 庚辛为生身之本"
+    },
+    "未": {
+     "month": "六月",
+     "chapter": "三夏癸水",
+     "quote": "故癸水不能从杀，所以专用庚辛",
+     "yong": [
+      "庚",
+      "辛"
+     ],
+     "confidence": "high",
+     "conditional": "如上半月金神衰弱，火气炎烈，宜比劫助身"
+    },
+    "申": {
+     "month": "七月",
+     "chapter": "三秋癸水",
+     "quote": "但庚司令刚锐极矣，必取丁火为用",
+     "yong": [
+      "丁"
+     ],
+     "confidence": "high",
+     "conditional": "或丁透有甲，名有燄之火，必主科甲"
+    },
+    "酉": {
+     "month": "八月",
+     "chapter": "三秋癸水",
+     "quote": "故取辛金为用，丙火佐之",
+     "yong": [
+      "辛",
+      "丙"
+     ],
+     "confidence": "high",
+     "comment": "八月癸水，丙辛皆用"
+    },
+    "戌": {
+     "month": "九月",
+     "chapter": "三秋癸水",
+     "quote": "专用辛金发水之源，要比肩滋甲制戊方妙",
+     "yong": [
+      "辛",
+      "甲"
+     ],
+     "confidence": "high",
+     "comment": "九月癸水，辛甲并用"
+    },
+    "亥": {
+     "month": "十月",
+     "chapter": "三冬癸水",
+     "quote": "因亥摇木，洩散元神，宜用庚辛为妙",
+     "yong": [
+      "庚",
+      "辛"
+     ],
+     "confidence": "high",
+     "conditional": "或一派壬水，不见戊制，名冬水汪洋，奔波到老。若得戊透，清贵堪夸"
+    },
+    "子": {
+     "month": "十一月",
+     "chapter": "三冬癸水",
+     "quote": "专用丙火解冻，庶不致成冰，又要辛金滋扶",
+     "yong": [
+      "丙",
+      "辛"
+     ],
+     "confidence": "high"
+    },
+    "丑": {
+     "month": "十二月",
+     "chapter": "三冬癸水",
+     "quote": "十二月癸水，寒极成冰，万物不能舒泰，宜丙火解冻",
+     "yong": [
+      "丙"
+     ],
+     "confidence": "high",
+     "conditional": "或丙透年时，加以壬透，支中多戊，名水辅阳光，主显达名臣",
+     "comment": "壬 appears only as complement (若有丙无壬，黉门之客)"
+    }
+   }
+  }
+ },
+ "disagreements": [
+  {
+   "stem": "甲",
+   "branch": "丑",
+   "ctbg": "庚丁",
+   "ctbg_quote": "先用庚噼甲，方引丁火始得木火有通明之象，故丁次之",
+   "chapter": "三冬甲木",
+   "confidence": "high",
+   "draft": "丁丙庚",
+   "tvh_table": "庚丁丙",
+   "tvh_notes": "丁庚丙",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "甲",
+   "branch": "卯",
+   "ctbg": "庚",
+   "ctbg_quote": "二月甲木，庚金得所，名阳刃驾杀，可云小贵",
+   "chapter": "三春甲木",
+   "confidence": "low",
+   "draft": "庚丁丙",
+   "tvh_table": "丙丁庚戊己",
+   "tvh_notes": "庚丙丁戊己",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "甲",
+   "branch": "辰",
+   "ctbg": "庚壬",
+   "ctbg_quote": "先取庚金，次用壬水",
+   "chapter": "三春甲木",
+   "confidence": "high",
+   "draft": "庚壬",
+   "tvh_table": "丁庚壬",
+   "tvh_notes": "庚丁壬",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ]
+  },
+  {
+   "stem": "甲",
+   "branch": "巳",
+   "ctbg": "癸丁",
+   "ctbg_quote": "丙火司权，先癸后丁",
+   "chapter": "三夏甲木",
+   "confidence": "high",
+   "draft": "癸庚丁",
+   "tvh_table": "丁癸庚",
+   "tvh_notes": "癸丁庚",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "甲",
+   "branch": "午",
+   "ctbg": "癸丁庚",
+   "ctbg_quote": "五月先癸后丁庚金次之",
+   "chapter": "三夏甲木",
+   "confidence": "high",
+   "draft": "癸庚丁",
+   "tvh_table": "丁癸庚",
+   "tvh_notes": "癸丁庚",
+   "kinds": [
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "甲",
+   "branch": "未",
+   "ctbg": "丁庚",
+   "ctbg_quote": "六月三伏生寒，丁火退气。先丁后庚，无癸亦可",
+   "chapter": "三夏甲木",
+   "confidence": "high",
+   "draft": "癸庚丁",
+   "tvh_table": "丁癸庚",
+   "tvh_notes": "癸庚丁",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "甲",
+   "branch": "申",
+   "ctbg": "丁庚",
+   "ctbg_quote": "七月甲木，丁火为尊，庚金次之",
+   "chapter": "三秋甲木",
+   "confidence": "high",
+   "draft": "庚丁壬",
+   "tvh_table": "丁庚壬",
+   "tvh_notes": "庚丁壬",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "甲",
+   "branch": "酉",
+   "ctbg": "丁丙庚",
+   "ctbg_quote": "丁火为先，次用丙火，庚金再次",
+   "chapter": "三秋甲木",
+   "confidence": "high",
+   "draft": "丁庚丙",
+   "tvh_table": "丁庚丙",
+   "tvh_notes": "庚丁丙",
+   "kinds": [
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "甲",
+   "branch": "戌",
+   "ctbg": "丁壬癸",
+   "ctbg_quote": "九月甲木，木星凋零，独爱丁火，壬癸滋扶",
+   "chapter": "三秋甲木",
+   "confidence": "medium",
+   "draft": "庚甲壬",
+   "tvh_table": "甲丁庚壬癸",
+   "tvh_notes": "庚甲丁壬癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "甲",
+   "branch": "亥",
+   "ctbg": "庚丁丙",
+   "ctbg_quote": "十月甲木，庚丁为要，丙火次之",
+   "chapter": "三冬甲木",
+   "confidence": "high",
+   "draft": "庚丁丙",
+   "tvh_table": "丁丙庚戊",
+   "tvh_notes": "庚丁丙戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ]
+  },
+  {
+   "stem": "乙",
+   "branch": "辰",
+   "ctbg": "癸丙",
+   "ctbg_quote": "三月乙木，阳气愈炽，先癸后丙",
+   "chapter": "三春乙木",
+   "confidence": "high",
+   "draft": "癸丙戊",
+   "tvh_table": "丙癸戊",
+   "tvh_notes": "癸丙戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "乙",
+   "branch": "巳",
+   "ctbg": "癸丙庚辛",
+   "ctbg_quote": "四月乙木专用癸水，丙火酌用，虽以庚辛佐癸，须辛透为清",
+   "chapter": "三夏乙木",
+   "confidence": "high",
+   "draft": "癸",
+   "tvh_table": "癸",
+   "tvh_notes": "癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "乙",
+   "branch": "未",
+   "ctbg": "丙癸",
+   "ctbg_quote": "六月乙木，木性且寒，柱多金水，丙火为尊",
+   "chapter": "三夏乙木",
+   "confidence": "medium",
+   "draft": "癸丙",
+   "tvh_table": "丙癸",
+   "tvh_notes": "癸丙",
+   "kinds": [
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "乙",
+   "branch": "酉",
+   "ctbg": "丙癸",
+   "ctbg_quote": "若秋分后，桂花已开，却喜向阳，又宜用丙，癸水次之",
+   "chapter": "三秋乙木",
+   "confidence": "medium",
+   "draft": "癸丙丁",
+   "tvh_table": "丙癸丁",
+   "tvh_notes": "癸丙丁",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丙",
+   "branch": "子",
+   "ctbg": "壬戊",
+   "ctbg_quote": "壬水为最，戊土佐之",
+   "chapter": "三冬丙火",
+   "confidence": "high",
+   "draft": "壬戊己",
+   "tvh_table": "戊壬己",
+   "tvh_notes": "壬戊己",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丙",
+   "branch": "卯",
+   "ctbg": "壬",
+   "ctbg_quote": "二月丙火，阳气舒升，耑用壬水",
+   "chapter": "三春丙火",
+   "confidence": "high",
+   "draft": "壬己",
+   "tvh_table": "己壬",
+   "tvh_notes": "壬己",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丙",
+   "branch": "巳",
+   "ctbg": "壬庚",
+   "ctbg_quote": "宜专用壬水，解炎威之力，成既济之功",
+   "chapter": "三夏丙火",
+   "confidence": "high",
+   "draft": "壬庚",
+   "tvh_table": "庚壬癸",
+   "tvh_notes": "壬庚癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ]
+  },
+  {
+   "stem": "丙",
+   "branch": "午",
+   "ctbg": "壬庚",
+   "ctbg_quote": "五月丙火，得壬高透，方为上命。或一壬无庚，亦主贡监",
+   "chapter": "三夏丙火",
+   "confidence": "medium",
+   "draft": "壬庚",
+   "tvh_table": "癸壬",
+   "tvh_notes": "壬庚",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ]
+  },
+  {
+   "stem": "丙",
+   "branch": "申",
+   "ctbg": "壬",
+   "ctbg_quote": "故仍用壬水，辅映光辉",
+   "chapter": "三秋丙火",
+   "confidence": "high",
+   "draft": "壬戊",
+   "tvh_table": "癸壬",
+   "tvh_notes": "壬戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丙",
+   "branch": "酉",
+   "ctbg": "壬",
+   "ctbg_quote": "丙火之余光，存于光湖，仍用壬水辅映",
+   "chapter": "三秋丙火",
+   "confidence": "high",
+   "draft": "壬癸",
+   "tvh_table": "癸壬",
+   "tvh_notes": "壬癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丙",
+   "branch": "亥",
+   "ctbg": "甲戊庚",
+   "ctbg_quote": "得见甲戊庚出干，可云科甲",
+   "chapter": "三冬丙火",
+   "confidence": "low",
+   "draft": "甲戊庚壬",
+   "tvh_table": "戊甲庚壬",
+   "tvh_notes": "甲戊庚壬",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丁",
+   "branch": "子",
+   "ctbg": "",
+   "ctbg_quote": "十一月丁火，或仲冬水多癸旺，全无比印，此作弃命从杀",
+   "chapter": "三冬丁火",
+   "confidence": "low",
+   "draft": "甲庚",
+   "tvh_table": "庚甲",
+   "tvh_notes": "甲庚",
+   "kinds": [
+    "van_ban_khong_neu"
+   ]
+  },
+  {
+   "stem": "丁",
+   "branch": "寅",
+   "ctbg": "庚",
+   "ctbg_quote": "非庚不能噼甲，何以引丁，姑用庚金",
+   "chapter": "三春丁火",
+   "confidence": "medium",
+   "draft": "甲庚",
+   "tvh_table": "庚甲",
+   "tvh_notes": "甲庚",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丁",
+   "branch": "午",
+   "ctbg": "壬庚",
+   "ctbg_quote": "得庚壬两透者，科甲定然",
+   "chapter": "三夏丁火",
+   "confidence": "low",
+   "draft": "壬庚癸",
+   "tvh_table": "庚壬癸",
+   "tvh_notes": "壬庚癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丁",
+   "branch": "未",
+   "ctbg": "甲壬",
+   "ctbg_quote": "专取甲木，壬水次之",
+   "chapter": "三夏丁火",
+   "confidence": "high",
+   "draft": "甲壬庚",
+   "tvh_table": "壬甲庚",
+   "tvh_notes": "甲壬庚",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丁",
+   "branch": "申",
+   "ctbg": "甲庚丙",
+   "ctbg_quote": "七月丁火，退气柔弱，端用甲木",
+   "chapter": "三秋丁火",
+   "confidence": "medium",
+   "draft": "甲庚丙戊",
+   "tvh_table": "庚甲丙戊",
+   "tvh_notes": "甲庚丙戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丁",
+   "branch": "酉",
+   "ctbg": "甲丙庚",
+   "ctbg_quote": "七月甲丙，申中有庚，八月甲丙庚皆用",
+   "chapter": "三秋丁火",
+   "confidence": "medium",
+   "draft": "甲庚丙",
+   "tvh_table": "庚甲丙戊",
+   "tvh_notes": "甲庚丙戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "丁",
+   "branch": "戌",
+   "ctbg": "甲庚",
+   "ctbg_quote": "九月耑用甲庚。大扺甲不离庚",
+   "chapter": "三秋丁火",
+   "confidence": "medium",
+   "draft": "甲庚戊",
+   "tvh_table": "庚甲戊",
+   "tvh_notes": "甲庚戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "戊",
+   "branch": "午",
+   "ctbg": "壬甲丙",
+   "ctbg_quote": "先看壬水，次取甲木，丙火酌用，用癸力微",
+   "chapter": "三夏戊土",
+   "confidence": "high",
+   "draft": "壬甲丙",
+   "tvh_table": "庚壬丙",
+   "tvh_notes": "壬甲丙",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ]
+  },
+  {
+   "stem": "戊",
+   "branch": "戌",
+   "ctbg": "甲癸",
+   "ctbg_quote": "不可专用丙，先看甲木，次取癸水",
+   "chapter": "三秋戊土",
+   "confidence": "high",
+   "draft": "甲丙癸",
+   "tvh_table": "丙甲癸",
+   "tvh_notes": "甲丙癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "己",
+   "branch": "子",
+   "ctbg": "丙甲",
+   "ctbg_quote": "非丙暖不生，取丙为尊，甲木参酌",
+   "chapter": "三冬己土",
+   "confidence": "low",
+   "draft": "丙甲戊",
+   "tvh_table": "甲丙戊",
+   "tvh_notes": "丙甲戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "己",
+   "branch": "丑",
+   "ctbg": "丙甲",
+   "ctbg_quote": "非丙暖不生，取丙为尊，甲木参酌",
+   "chapter": "三冬己土",
+   "confidence": "low",
+   "draft": "丙甲戊",
+   "tvh_table": "甲丙戊",
+   "tvh_notes": "丙甲戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "己",
+   "branch": "寅",
+   "ctbg": "丙",
+   "ctbg_quote": "余寒未退，故丙为尊",
+   "chapter": "三春己土",
+   "confidence": "high",
+   "draft": "丙庚甲",
+   "tvh_table": "庚丙甲",
+   "tvh_notes": "丙庚甲",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "己",
+   "branch": "卯",
+   "ctbg": "甲癸",
+   "ctbg_quote": "先取甲木疏之，忌合。次取癸水润之",
+   "chapter": "三春己土",
+   "confidence": "high",
+   "draft": "甲癸丙",
+   "tvh_table": "癸甲丙",
+   "tvh_notes": "甲癸丙",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "己",
+   "branch": "申",
+   "ctbg": "癸丙辛",
+   "ctbg_quote": "总之，三秋己土，先癸后丙，取辛辅癸",
+   "chapter": "三秋己土",
+   "confidence": "low",
+   "draft": "丙癸",
+   "tvh_table": "癸丙",
+   "tvh_notes": "丙癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "己",
+   "branch": "酉",
+   "ctbg": "癸丙辛",
+   "ctbg_quote": "总之，三秋己土，先癸后丙，取辛辅癸",
+   "chapter": "三秋己土",
+   "confidence": "low",
+   "draft": "丙癸",
+   "tvh_table": "癸丙",
+   "tvh_notes": "丙癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "己",
+   "branch": "戌",
+   "ctbg": "癸丙辛甲",
+   "ctbg_quote": "总之，三秋己土，先癸后丙，取辛辅癸。九月土盛，宜甲木疏之",
+   "chapter": "三秋己土",
+   "confidence": "low",
+   "draft": "甲丙癸",
+   "tvh_table": "丙甲癸",
+   "tvh_notes": "甲丙癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "己",
+   "branch": "亥",
+   "ctbg": "丙甲",
+   "ctbg_quote": "非丙暖不生，取丙为尊，甲木参酌",
+   "chapter": "三冬己土",
+   "confidence": "low",
+   "draft": "丙甲戊",
+   "tvh_table": "甲丙戊",
+   "tvh_notes": "丙甲戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "庚",
+   "branch": "寅",
+   "ctbg": "丙甲丁",
+   "ctbg_quote": "正月庚金，丙甲为上，丁火次之",
+   "chapter": "三春庚金",
+   "confidence": "high",
+   "draft": "丙甲壬",
+   "tvh_table": "甲壬戊丙丁",
+   "tvh_notes": "戊甲丙壬丁",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "庚",
+   "branch": "卯",
+   "ctbg": "丁甲庚",
+   "ctbg_quote": "专用丁火，借甲引丁，借庚噼甲",
+   "chapter": "三春庚金",
+   "confidence": "high",
+   "draft": "丁甲庚丙",
+   "tvh_table": "甲庚丁丙",
+   "tvh_notes": "丁甲丙庚",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "庚",
+   "branch": "辰",
+   "ctbg": "甲丁",
+   "ctbg_quote": "有埋金之忧，故先甲后丁",
+   "chapter": "三春庚金",
+   "confidence": "high",
+   "draft": "甲丁壬癸",
+   "tvh_table": "丁甲壬癸",
+   "tvh_notes": "甲丁壬癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "庚",
+   "branch": "巳",
+   "ctbg": "壬戊丙",
+   "ctbg_quote": "但先壬水，方得中和，故曰群金生夏，喜用勾陈。次取戊土，丙火佐之",
+   "chapter": "三夏庚金",
+   "confidence": "high",
+   "draft": "壬戊丙丁",
+   "tvh_table": "戊壬丙丁",
+   "tvh_notes": "壬丙丁戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "庚",
+   "branch": "亥",
+   "ctbg": "丁丙甲",
+   "ctbg_quote": "水冷性寒，非丁莫造，非丙不暖。丁甲两透",
+   "chapter": "三冬庚金",
+   "confidence": "medium",
+   "draft": "丁丙",
+   "tvh_table": "丙丁",
+   "tvh_notes": "丁丙",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "辛",
+   "branch": "子",
+   "ctbg": "壬丙",
+   "ctbg_quote": "壬丙两透，不见戊癸，衣锦腰金",
+   "chapter": "三冬辛金",
+   "confidence": "medium",
+   "draft": "丙戊壬甲",
+   "tvh_table": "戊丙壬甲",
+   "tvh_notes": "丙戊壬甲",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "can_chu_khac_chu_thich_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "辛",
+   "branch": "未",
+   "ctbg": "壬庚",
+   "ctbg_quote": "先用壬水，取庚佐之",
+   "chapter": "三夏辛金",
+   "confidence": "high",
+   "draft": "壬庚甲",
+   "tvh_table": "庚壬甲",
+   "tvh_notes": "壬庚甲",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "辛",
+   "branch": "申",
+   "ctbg": "壬甲戊",
+   "ctbg_quote": "壬水为尊，甲戊酌用可也，癸水不可为用",
+   "chapter": "三秋辛金",
+   "confidence": "high",
+   "draft": "壬甲戊",
+   "tvh_table": "甲壬庚",
+   "tvh_notes": "壬甲戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH"
+   ]
+  },
+  {
+   "stem": "辛",
+   "branch": "酉",
+   "ctbg": "壬",
+   "ctbg_quote": "八月辛金，当权得令，旺之极矣，专用壬水淘洗",
+   "chapter": "三秋辛金",
+   "confidence": "high",
+   "draft": "壬甲",
+   "tvh_table": "甲壬",
+   "tvh_notes": "壬甲丁",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "壬",
+   "branch": "寅",
+   "ctbg": "庚丙",
+   "ctbg_quote": "不必用戊，专用庚金，以丙为佐",
+   "chapter": "三春壬水",
+   "confidence": "high",
+   "draft": "庚丙戊",
+   "tvh_table": "丙庚戊",
+   "tvh_notes": "庚丙戊",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "壬",
+   "branch": "巳",
+   "ctbg": "壬辛庚",
+   "ctbg_quote": "专取壬水比肩为助，次取辛金发源，且暗合丙火，庚金为佐",
+   "chapter": "三夏壬水",
+   "confidence": "high",
+   "draft": "壬辛庚癸",
+   "tvh_table": "辛壬庚癸",
+   "tvh_notes": "壬辛庚癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "壬",
+   "branch": "午",
+   "ctbg": "癸庚",
+   "ctbg_quote": "取癸为用，取庚为佐",
+   "chapter": "三夏壬水",
+   "confidence": "high",
+   "draft": "癸庚辛",
+   "tvh_table": "庚癸辛",
+   "tvh_notes": "癸庚辛",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "壬",
+   "branch": "未",
+   "ctbg": "辛甲癸",
+   "ctbg_quote": "六月壬水，先辛后甲，次取癸水",
+   "chapter": "三夏壬水",
+   "confidence": "high",
+   "draft": "辛甲",
+   "tvh_table": "甲辛",
+   "tvh_notes": "辛甲",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "癸",
+   "branch": "丑",
+   "ctbg": "丙",
+   "ctbg_quote": "十二月癸水，寒极成冰，万物不能舒泰，宜丙火解冻",
+   "chapter": "三冬癸水",
+   "confidence": "high",
+   "draft": "丙丁",
+   "tvh_table": "丁丙",
+   "tvh_notes": "丙丁",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "癸",
+   "branch": "巳",
+   "ctbg": "辛庚",
+   "ctbg_quote": "四月癸水，喜辛金为用，无辛用庚",
+   "chapter": "三夏癸水",
+   "confidence": "high",
+   "draft": "辛",
+   "tvh_table": "辛",
+   "tvh_notes": "辛",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "癸",
+   "branch": "午",
+   "ctbg": "庚辛壬",
+   "ctbg_quote": "五月癸水，庚辛壬参酌并用可也",
+   "chapter": "三夏癸水",
+   "confidence": "medium",
+   "draft": "庚辛壬癸",
+   "tvh_table": "壬庚癸",
+   "tvh_notes": "庚辛癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "癸",
+   "branch": "未",
+   "ctbg": "庚辛",
+   "ctbg_quote": "故癸水不能从杀，所以专用庚辛",
+   "chapter": "三夏癸水",
+   "confidence": "high",
+   "draft": "庚辛壬癸",
+   "tvh_table": "辛庚壬癸",
+   "tvh_notes": "庚辛癸",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "癸",
+   "branch": "戌",
+   "ctbg": "辛甲",
+   "ctbg_quote": "专用辛金发水之源，要比肩滋甲制戊方妙",
+   "chapter": "三秋癸水",
+   "confidence": "high",
+   "draft": "辛甲壬癸",
+   "tvh_table": "甲辛壬癸",
+   "tvh_notes": "辛甲癸壬",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  },
+  {
+   "stem": "癸",
+   "branch": "亥",
+   "ctbg": "庚辛",
+   "ctbg_quote": "因亥摇木，洩散元神，宜用庚辛为妙",
+   "chapter": "三冬癸水",
+   "confidence": "high",
+   "draft": "庚辛戊丁",
+   "tvh_table": "辛庚戊丁",
+   "tvh_notes": "庚辛戊丁",
+   "kinds": [
+    "tap_can_khac_bang_TVH",
+    "ban_nho_khac_van_ban"
+   ]
+  }
+ ]
 }

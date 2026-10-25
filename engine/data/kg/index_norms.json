@@ -1,63 +1,63 @@
 {
- "version": "indices-3.1.0",
- "kbVersion": "234cb34818e99b62",
+ "version": "indices-3.1.1",
+ "kbVersion": "27ebc6ee9e5e5fd8",
  "charts": 1000,
  "corpus": "corpus1000.json.gz",
  "palace": {
   "Tài Bạch": {
-   "support": 14.909,
-   "limit": 5.625
+   "support": 19.54,
+   "limit": 8.925
   },
   "Tử Tức": {
-   "support": 4.554,
-   "limit": 4.21
+   "support": 7.267,
+   "limit": 7.635
   },
   "Phu Thê": {
-   "support": 7.217,
-   "limit": 4.432
+   "support": 11.944,
+   "limit": 7.942
   },
   "Huynh Đệ": {
-   "support": 3.546,
-   "limit": 3.43
+   "support": 6.514,
+   "limit": 6.849
   },
   "Mệnh": {
-   "support": 19.608,
-   "limit": 5.735
+   "support": 23.714,
+   "limit": 8.718
   },
   "Phụ Mẫu": {
-   "support": 4.106,
-   "limit": 3.826
+   "support": 7.032,
+   "limit": 6.52
   },
   "Phúc Đức": {
-   "support": 7.16,
-   "limit": 5.357
+   "support": 11.229,
+   "limit": 8.727
   },
   "Điền Trạch": {
-   "support": 3.279,
-   "limit": 3.039
+   "support": 5.93,
+   "limit": 5.831
   },
   "Quan Lộc": {
-   "support": 15.499,
-   "limit": 5.345
+   "support": 20.439,
+   "limit": 9.239
   },
   "Nô Bộc": {
-   "support": 3.461,
-   "limit": 4.58
+   "support": 5.969,
+   "limit": 8.414
   },
   "Thiên Di": {
-   "support": 17.612,
-   "limit": 5.95
+   "support": 20.435,
+   "limit": 8.75
   },
   "Tật Ách": {
-   "support": 3.929,
-   "limit": 3.193
+   "support": 6.619,
+   "limit": 5.537
   }
  },
  "layers": {
   "vung": {
-   "mean": -0.005,
-   "sd": 0.527,
-   "rms": 0.527
+   "mean": -0.004,
+   "sd": 0.52,
+   "rms": 0.52
   },
   "hoa_van": {
    "mean": 0.621,
@@ -65,19 +65,19 @@
    "rms": 0.982
   },
   "van": {
-   "mean": 2.391,
-   "sd": 1.9,
-   "rms": 3.054
+   "mean": 2.396,
+   "sd": 1.939,
+   "rms": 3.082
   },
   "tieu_han": {
-   "mean": 2.256,
-   "sd": 1.857,
-   "rms": 2.922
+   "mean": 2.27,
+   "sd": 1.901,
+   "rms": 2.961
   },
   "luu_dai_han": {
-   "mean": 2.336,
-   "sd": 1.919,
-   "rms": 3.023
+   "mean": 2.354,
+   "sd": 1.948,
+   "rms": 3.056
   },
   "dau_tinh": {
    "mean": 0.15,
@@ -105,29 +105,29 @@
    "rms": 1.43
   },
   "dai_van": {
-   "mean": 0.741,
-   "sd": 0.53,
-   "rms": 0.911
+   "mean": 0.737,
+   "sd": 0.541,
+   "rms": 0.915
   }
  },
  "cuts": {
   "decade": [
-   0.083,
-   0.501,
-   0.977,
-   1.362
+   0.07,
+   0.483,
+   0.981,
+   1.377
   ],
   "year": [
-   0.149,
-   0.42,
-   0.748,
-   1.011
+   0.147,
+   0.418,
+   0.746,
+   1.008
   ],
   "month": [
-   0.221,
-   0.57,
-   0.975,
-   1.292
+   0.233,
+   0.574,
+   0.968,
+   1.282
   ]
  }
 }

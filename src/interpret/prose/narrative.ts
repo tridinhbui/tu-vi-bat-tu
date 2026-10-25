@@ -96,6 +96,8 @@ export class Writer {
     if (this.firstS) { this.firstS = false; return lowerSafe(this.pick('S|first', this.k.prose!.frames.subject.first)); } return lowerSafe(this.m.subject());
   }
   concept(id: string) { return this.cmap.get(id); }
+  /** a palace of other people: does this trait describe them (outside the bond) rather than the person? */
+  theirs(concept: string) { return !!(this.o.other && this.o.bond && !this.o.bond(this.cmap.get(concept))); }
   conn(rel: Parameters<Micro['conn']>[0], key: string) { return this.m.conn(rel, key) || ''; }
   /** a turn toward a limit: never a word of compensation ("Bù lại") */
   limitConn(key: string) { return this.m.conn('contrast', key, 'initial', ['Bù lại,', 'Đổi lại,']) || ''; }
@@ -266,7 +268,7 @@ export function reasonedChapter(chart: ChartInput, k: Knowledge, opts: { allowDr
     const x = md.reading;
     if (voiced.has(x.r.ruleId)) continue;
     const r = W.read(x.r.ruleId), ground = W.ground(x);
-    const conn = W.pol(x.r.concept) === '-' ? W.conn('contrast', `mod|${x.r.ruleId}`) : W.conn('addition', `mod|${x.r.ruleId}`);
+    const conn = W.pol(x.r.concept) === '-' ? W.limitConn(`mod|${x.r.ruleId}`) : W.conn('addition', `mod|${x.r.ruleId}`);
     const p = r.claim ? null : W.pred(x.r.concept, x.r.status !== 'holds', `mod|${x.r.ruleId}`);
     const text = r.claim ? fill(W.pick(`mod|${x.r.ruleId}`, F.modifier), { conn, ground, claim: r.claim })
       : p ? fill(W.pick(`modc|${x.r.ruleId}`, F.modifier_card), { conn, ground, S: W.S(), pred: p }) : '';
@@ -452,7 +454,8 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     const tpl = up ? F.countered_up! : F[type];
     const conn = type === 'corroborated' ? W.conn('contrast', `${type}|${cr.ruleId}`) : up ? W.upConn(`${type}|${cr.ruleId}`) : W.limitConn(`${type}|${cr.ruleId}`);
     xs.push(W.sentence(fill(W.pick(`${type}|${cr.ruleId}`, tpl), { conn, palace: cr.palace, ground: g, claim: rr.claim }),
-      { move: 'VIA', step: `${type}:${cr.palace}:${cr.ruleId}`, concepts: [cr.concept], rules: [cr.ruleId], cites: cr.cite ? [cr.cite] : [], keys: [`${cr.concept}@${cr.palace}`] }));
+      // a counter-reading is another reading than the corroboration of the same concept and palace (one says it, the other limits it)
+      { move: 'VIA', step: `${type}:${cr.palace}:${cr.ruleId}`, concepts: [cr.concept], rules: [cr.ruleId], cites: cr.cite ? [cr.cite] : [], keys: [`${cr.concept}@${cr.palace}${type === 'countered' ? '|countered' : ''}`] }));
   }
 }
 

@@ -37,7 +37,7 @@ function mount() {
     <section class="ask-panel" id="ask-panel" role="dialog" aria-labelledby="ask-title" hidden>
       <header class="ask-h">${avatar('bat', 38, true)}<div class="ask-ht"><b id="ask-title">Hỏi Bát Bát</b><span class="ask-left"></span></div><a class="ask-buy" href="/bang-gia#nap-xu" hidden>Nạp xu</a><button type="button" class="ask-x" aria-label="Đóng">×</button></header>
       <div class="ask-ctx" hidden><label for="ask-pick">Hỏi về</label><select id="ask-pick"></select></div>
-      <div class="ask-deep" hidden><select aria-label="Chương muốn luận giải bằng AI">${CHAPTERS.map(([id, t]) => `<option value="${id}">${t}</option>`).join('')}</select><button type="button" class="btn btn-sm btn-ghost">Luận giải bằng AI · 20 xu</button></div>
+      <div class="ask-deep" hidden><select aria-label="Chương muốn viết Luận riêng">${CHAPTERS.map(([id, t]) => `<option value="${id}">${t}</option>`).join('')}</select><button type="button" class="btn btn-sm btn-ghost">Luận riêng · 20 xu</button></div>
       <div class="ask-log" aria-live="polite"></div>
       <div class="ask-note" hidden></div>
       <form class="ask-form"><label class="ask-sr" for="ask-ta">Câu hỏi</label><textarea id="ask-ta" rows="1" maxlength="1500" placeholder="Hỏi Bát Bát…"></textarea><button class="btn btn-sm" type="submit">Gửi</button></form>
@@ -86,7 +86,7 @@ function mount() {
     ctx.hidden = list.length < 2;
     const t = current(), conv = t.v === 'screen' ? 'screen:' + k : t.v;
     deepRow.hidden = !t.req;
-    fine.textContent = t.req ? 'Trả lời bằng AI, dựa trên lá số của bạn.' : 'Trả lời bằng AI.';
+    fine.textContent = t.req ? 'Trả lời dựa trên lá số của bạn.' : 'Bát Bát trả lời.';
     if (conv !== convKey) { convKey = conv; history = []; log.replaceChildren(); greet(); }
   }
   picker.onchange = () => { sel = picker.value; chosen = true; sync(); if (!ta.disabled) ta.focus(); };
@@ -107,7 +107,7 @@ function mount() {
     ta.disabled = send.disabled = busy || !me?.user;
     deepBtn.disabled = deepSel.disabled = busy || !me?.user;
     leftEl.textContent = me?.user && wallet ? chip(wallet) : '';
-    if (wallet) deepBtn.textContent = `Luận giải bằng AI · ${wallet.costs.deep} xu`;
+    if (wallet) deepBtn.textContent = `Luận riêng · ${wallet.costs.deep} xu`;
     buy.hidden = !me?.user;
     if (guest) {
       const a = el('a', 'btn btn-sm ask-google'); a.href = '/api/auth/google'; a.innerHTML = G_ICON; a.append('Đăng nhập với Google');
@@ -197,7 +197,7 @@ function mount() {
     const t = current(); if (!t.req || busy || !me?.user) return;
     const title = deepSel.selectedOptions[0].textContent;
     busy = true; paint();
-    meSay(`Luận giải bằng AI: ${title}`); const out = botSay('Đang viết, khoảng nửa phút…');
+    meSay(`Luận riêng: ${title}`); const out = botSay('Đang viết, khoảng nửa phút…');
     try {
       const res = await fetch('/api/me/deep', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json', 'x-tvbt': '1' }, body: JSON.stringify({ birth: pick(t.req), chapter: deepSel.value }) });
       if (res.status === 402) { const b = await res.json(); setWallet(b.wallet); drop(out); errSay(`Cần ${b.need} xu, bạn đang có ${b.wallet.coins} xu.`); }

@@ -56,7 +56,7 @@ test('300 charts: every palace chapter says something, passes validation, answer
 test('the user\'s chart: đại hạn read with Khảo Luận and the nhập hạn ca, the current year told, Bát Tự strength by Thiệu Vĩ Hoa', () => {
   const v = proseVanHan(user, K, seedOf(user), PROSE_VERSION, true);
   assert.ok(v.pass, JSON.stringify(v.issues));
-  assert.equal(v.starts.length, user.decades.filter(d => d.age_from <= 75).length);
+  assert.equal(v.starts.length, Math.min(10, user.decades.length));
   const ss = v.paragraphs.flatMap(p => p.sentences);
   assert.ok(ss.some(s => s.trace.cites.includes('KL pp.230-233')), 'Khảo Luận pp.230-233 voiced');
   assert.ok(ss.filter(s => s.trace.cites.includes('TT pp.97-105')).every(s => s.trace.basis === 'pho_thong'), 'nhập hạn ca not yet page-checked: never said as the book');

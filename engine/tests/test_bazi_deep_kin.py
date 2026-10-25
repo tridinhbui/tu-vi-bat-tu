@@ -34,8 +34,10 @@ def test_pack_is_valid_and_every_rule_has_its_words():
     for r in rules:
         m = meta[r.id]
         assert norm(m["quote"]) in page_text(m["page"], m.get("book", "zz")), (r.id, m["quote"])
-        assert m["topic"] in {"wealth", "work", "rank", "parents", "marriage", "siblings", "year", "character"}
-        assert r.reviewStatus == "verified"
+        assert m["topic"] in {"wealth", "work", "rank", "parents", "marriage", "siblings", "year", "character",
+                              "children", "study", "fortune", "yong"}           # the last four: DEEP-3 (2026-10-24)
+        # DEEP-3 HARSH rules (a printed verdict on morality / intelligence, a slur on a spouse) keep their checked quote but stay draft
+        assert r.reviewStatus == ("draft" if m.get("harsh") else "verified"), r.id
 
 
 @pytest.mark.parametrize("book,pattern", [("zz", "*真宗*.pdf"), ("ttt", "Trích Thiên Tủy.pdf")])

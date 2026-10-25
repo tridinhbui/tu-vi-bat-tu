@@ -885,5 +885,191 @@
   "cause": "nhật chủ nhược, Tài vượng, năm lại mang Quan Sát",
   "say": "nhật chủ nhược, Tài vượng, năm lại mang {qs_y}",
   "note": "'vượng' / 'nhược' của một nhóm thập thần: phần độ của nhóm trên tổng độ Thiệu Vĩ Hoa (tr.331-355) từ 25 % / dưới 12 % (Tỉ Kiếp không tính độ của chính nhật chủ) — ngưỡng của hệ thống, sách không cho thước đo."
+ },
+ "BT_ZZK_EL1": {
+  "page": "p.26",
+  "quote": "为人吝啬小气，不通情理",
+  "topic": "character",
+  "tone": "neg",
+  "effect": "keo kiệt, khó thông cảm",
+  "cause": "tứ trụ (cả tàng can) không có hành Mộc",
+  "note": "HARSH: lời phán về đạo đức / trí lực dựa trên việc thiếu một hành; giữ draft cho đến khi chủ dự án quyết.",
+  "harsh": true,
+  "deep3": true
+ },
+ "BT_ZZK_EL2": {
+  "page": "p.26",
+  "quote": "内外软弱，语言表达不清，消极",
+  "topic": "character",
+  "tone": "neg",
+  "effect": "mềm yếu, nói khó rõ ý, tiêu cực",
+  "cause": "tứ trụ (cả tàng can) không có hành Hỏa",
+  "note": "HARSH: lời phán về đạo đức / trí lực dựa trên việc thiếu một hành; giữ draft cho đến khi chủ dự án quyết.",
+  "harsh": true,
+  "deep3": true
+ },
+ "BT_ZZK_EL3": {
+  "page": "p.27",
+  "quote": "无情无义",
+  "topic": "character",
+  "tone": "neg",
+  "effect": "bạc tình",
+  "cause": "tứ trụ (cả tàng can) không có hành Thổ",
+  "note": "HARSH: lời phán về đạo đức / trí lực dựa trên việc thiếu một hành; giữ draft cho đến khi chủ dự án quyết.",
+  "harsh": true,
+  "deep3": true
+ },
+ "BT_ZZK_EL4": {
+  "page": "p.27",
+  "quote": "无礼无义",
+  "topic": "character",
+  "tone": "neg",
+  "effect": "thiếu lễ nghĩa",
+  "cause": "tứ trụ (cả tàng can) không có hành Kim",
+  "note": "HARSH: lời phán về đạo đức / trí lực dựa trên việc thiếu một hành; giữ draft cho đến khi chủ dự án quyết.",
+  "harsh": true,
+  "deep3": true
+ },
+ "BT_ZZK_EL5": {
+  "page": "p.27",
+  "quote": "智力不高，无常反复",
+  "topic": "character",
+  "tone": "neg",
+  "effect": "trí lực không cao, thất thường",
+  "cause": "tứ trụ (cả tàng can) không có hành Thủy",
+  "note": "HARSH: lời phán về đạo đức / trí lực dựa trên việc thiếu một hành; giữ draft cho đến khi chủ dự án quyết.",
+  "harsh": true,
+  "deep3": true
+ },
+ "BT_ZZK_HH1": {
+  "page": "p.29",
+  "quote": "男命：必得贤妻，妻助得财",
+  "topic": "marriage",
+  "tone": "pos",
+  "effect": "được vợ hiền, vợ giúp chồng có của",
+  "cause": "lá số nam: can ngày hợp can tháng, hóa theo hành của can dương (妻从夫化)",
+  "note": "Điều kiện tr.28: can ngày hợp can tháng; chi tháng là lộc hoặc nhận (bảng tr.28) của can mang hành hóa; hai chi ngồi dưới cùng hành ấy hoặc sinh ra nó (ví dụ 2 của tr.29 tính 酉 dưới 癸 là 比: cách đọc của hệ thống); can ngày nam là can dương. Ví dụ tr.29: 月辛巳、日丙午.",
+  "deep3": true
+ },
+ "BT_ZZK_HH2": {
+  "page": "p.29",
+  "quote": "男命：怕妻胆小，妇人当家",
+  "topic": "marriage",
+  "tone": "neutral",
+  "effect": "vợ nắm việc nhà, chồng hay nhường vợ",
+  "cause": "lá số nam: can ngày hợp can tháng, hóa theo hành của can âm (夫从妻化)",
+  "note": "Cùng điều kiện tr.28 như HH1.",
+  "deep3": true
+ },
+ "BT_ZZK_HH3": {
+  "page": "p.29",
+  "quote": "女命：柔顺贤慧，贤妻良母",
+  "topic": "marriage",
+  "tone": "pos",
+  "effect": "dịu dàng, hiền thục, giỏi vun vén gia đình",
+  "cause": "lá số nữ: can ngày hợp can tháng, hóa theo hành của can dương (妻从夫化)",
+  "note": "Cùng điều kiện tr.28 như HH1; can ngày nữ là can âm.",
+  "deep3": true
+ },
+ "BT_ZZK_HH4": {
+  "page": "p.29",
+  "quote": "女命：是母老虎，欺夫骂翁",
+  "topic": "marriage",
+  "tone": "neg",
+  "effect": "lấn át chồng",
+  "cause": "lá số nữ: can ngày hợp can tháng, hóa theo hành của can âm (夫从妻化)",
+  "note": "HARSH: lời miệt thị người vợ; giữ draft. Ví dụ tr.29: 月戊子，日癸酉.",
+  "harsh": true,
+  "deep3": true
+ },
+ "BT_ZZK_HZ1": {
+  "page": "p.29",
+  "quote": "甲己合化土：为正中之合，主安分守己，淳正厚朴",
+  "topic": "character",
+  "tone": "pos",
+  "effect": "an phận, ngay thẳng, chất phác",
+  "cause": "hai can liền nhau hợp hóa Thổ đúng phép (chi tháng và hai chi ngồi dưới đều là Thổ)",
+  "note": "Điều kiện cùng trang: '正五行合化条件：月令必须为化神物，而且两干坐支为合化之物'; hai can phải liền trụ (quy ước của hệ thống).",
+  "deep3": true
+ },
+ "BT_ZZK_HZ2": {
+  "page": "p.29",
+  "quote": "乙庚合化金：为仁义之合，主刚柔兼备，重信守义",
+  "topic": "character",
+  "tone": "pos",
+  "effect": "cương nhu đủ cả, trọng chữ tín, giữ nghĩa",
+  "cause": "hai can liền nhau hợp hóa Kim đúng phép (chi tháng và hai chi ngồi dưới đều là Kim)",
+  "note": "Điều kiện cùng trang: '正五行合化条件：月令必须为化神物，而且两干坐支为合化之物'; hai can phải liền trụ (quy ước của hệ thống).",
+  "deep3": true
+ },
+ "BT_ZZK_HZ3": {
+  "page": "p.29",
+  "quote": "丙辛合化水：为威严之合，主仪表威严，智力优秀",
+  "topic": "character",
+  "tone": "pos",
+  "effect": "dáng vẻ uy nghiêm, trí lực tốt",
+  "cause": "hai can liền nhau hợp hóa Thủy đúng phép (chi tháng và hai chi ngồi dưới đều là Thủy)",
+  "note": "Điều kiện cùng trang: '正五行合化条件：月令必须为化神物，而且两干坐支为合化之物'; hai can phải liền trụ (quy ước của hệ thống).",
+  "deep3": true
+ },
+ "BT_ZZK_HZ4": {
+  "page": "p.29",
+  "quote": "丁壬合化木：为仁寿之合，主心地仁慈",
+  "topic": "character",
+  "tone": "pos",
+  "effect": "lòng dạ nhân từ",
+  "cause": "hai can liền nhau hợp hóa Mộc đúng phép (chi tháng và hai chi ngồi dưới đều là Mộc)",
+  "note": "Vế 长命多寿 (sống lâu) của câu sách không đưa vào văn. Điều kiện cùng trang: '正五行合化条件：月令必须为化神物，而且两干坐支为合化之物'; hai can phải liền trụ (quy ước của hệ thống).",
+  "deep3": true
+ },
+ "BT_ZZK_HZ5": {
+  "page": "p.29",
+  "quote": "戊癸合化火：为无情之合，主娇媚之合，薄情寡义",
+  "topic": "character",
+  "tone": "neg",
+  "effect": "bạc tình",
+  "cause": "hai can liền nhau hợp hóa Hỏa đúng phép (chi tháng và hai chi ngồi dưới đều là Hỏa)",
+  "note": "HARSH: giữ draft. Điều kiện cùng trang: '正五行合化条件：月令必须为化神物，而且两干坐支为合化之物'; hai can phải liền trụ (quy ước của hệ thống).",
+  "harsh": true,
+  "deep3": true
+ },
+ "BT_ZZK_HZ0": {
+  "page": "p.29",
+  "quote": "正化之人性情刚直，办事认真，人际关系处理得当",
+  "topic": "character",
+  "tone": "pos",
+  "effect": "tính cương trực, làm việc nghiêm túc, khéo cư xử",
+  "cause": "hai can liền nhau hợp hóa đúng phép",
+  "deep3": true
+ },
+ "BT_ZZK_DH1": {
+  "page": "p.29",
+  "quote": "命局逢此，主猜疑心强，妒忌心强，挑拨是非",
+  "topic": "character",
+  "tone": "neg",
+  "effect": "dễ đa nghi, hay ghen tị",
+  "cause": "ba can của ba trụ liền nhau tạo 妒合 (甲己乙, 庚乙辛, 丙辛丁, 壬丁癸, 戊癸己)",
+  "note": "妒合 tr.29: '三干须相连'.",
+  "deep3": true
+ },
+ "BT_ZZK_YY1": {
+  "page": "p.29",
+  "quote": "出现在：年月二柱，主少青家境富有",
+  "topic": "parents",
+  "tone": "pos",
+  "effect": "thời trẻ nhà khá giả",
+  "cause": "trụ năm và trụ tháng: can hợp can, chi hợp chi (干支鸳鸯合)",
+  "note": "'合化之物互相引化': hai hành hóa giống nhau hoặc sinh nhau (cách đọc của hệ thống); 午未 hợp tính cả Hỏa lẫn Thổ.",
+  "deep3": true
+ },
+ "BT_ZZK_YY2": {
+  "page": "p.29",
+  "quote": "出现在：月日二柱，主34～45 岁富贵",
+  "topic": "wealth",
+  "tone": "pos",
+  "effect": "khoảng 34-45 tuổi giàu sang",
+  "cause": "trụ tháng và trụ ngày: can hợp can, chi hợp chi (干支鸳鸯合)",
+  "note": "Cùng cách đọc như YY1.",
+  "deep3": true
  }
 }

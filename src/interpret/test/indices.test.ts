@@ -110,7 +110,8 @@ test('đại vận of the worked example: ten decades, the current one marked, b
   assert.ok(phu.items.some(i => i.id === 'TH_DAO_HONG_KHOA_QUYEN' && i.side === 'support'));
   // can Bính: Hóa Quyền on Thiên Cơ in Phu Thê itself — a convention, labelled
   assert.ok(phu.items.some(i => i.id === 'DV_HOA_QUYEN' && i.scope === 'self' && i.basis === 'thong_le'));
-  assert.ok(phu.items.filter(i => i.id.startsWith('TT_')).every(i => i.basis === 'sach_dien_giai'), 'Toàn Thư paraphrase is labelled');
+  // Toàn Thư nhập hạn ca: the page-checked verses the đại hạn chapter voices (vanhan_books.ts), cited by page (review 2026-10-25)
+  assert.ok(phu.items.filter(i => i.id.startsWith('TT_')).every(i => i.basis === 'sach' && /^Toàn Thư p\.\d+/.test(i.cite)), 'Toàn Thư verse is cited by page');
   // KL p.233 mục 4: every star read by its brightness is a chính, trung or hung tinh with a page-checked level in its own palace
   for (const d of X.decades) for (const i of d.items.filter(i => i.id.startsWith('KL233_'))) {
     const p = ref.facts.palaces.find((q: any) => q.name === i.palace);
@@ -269,8 +270,9 @@ test('KL p.233: the Thái Tuế triad weighs as one full sentence; xung chiếu 
 
 test('no book evidence: "Trung bình" flagged "chưa đủ căn cứ", never a real middle; a month with nothing to read has no level', () => {
   const f = structuredClone(REF) as any;
-  for (const p of f.palaces) { p.dignity_status = {}; p.major_stars = []; }
-  for (const d of f.decades) { d.readings = []; d.tt = []; d.kl = null; }
+  for (const p of f.palaces) { p.dignity_status = {}; p.major_stars = []; p.stars = []; }
+  // no star and no Hóa of the hạn stem: none of Toàn Thư's nhập hạn verses can apply (vanhan_books.ts)
+  for (const d of f.decades) { d.readings = []; d.tt = []; d.kl = null; d.hoa = {}; }
   f.year.tieu_han_tt = []; f.year.tieu_han_kl = null;
   const x = computeIndices(f, K, N);
   for (const d of x.decades) {

@@ -14,7 +14,7 @@ const read = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 
 const loader = readFileSync(join(ROOT, 'engine', 'tvbt', 'knowledge', 'loader.py'), 'utf8');
 const packs: string[] = JSON.parse(loader.match(/^PACKS = (\[.*\])$/m)![1].replace(/'/g, '"'));
-const CITE = /\[((?:TH|KL|TT|TL|NL)[^\]]*?)\]/g;
+const CITE = /\[((?:TH|KL|TT|TL|NL|HS)[^\]]*?)\]/g;
 const PARA = /paraphrased\)?[^:]{0,80}?:\s*(.+)$/;
 // 八字真宗 (Bát Tự Chân Tông) rules give their place as "[PDF p.25 …]" or "[八字真宗 PDF pp.31-32 …]": PDF page numbers of the circulated scan
 const ZZ_CITE = /\[(?:八字真宗 )?PDF (pp?\.\s?[\d]+(?:[-–][\d]+)?)/g;
@@ -93,15 +93,24 @@ const knowledge = {
         formationsVerified: existsSync(join(DATA, 'formations_verified.json')) ? (f => ({
           formations: f.formations.filter((x: { reviewStatus: string }) => x.reviewStatus === 'verified'),
           evidence: Object.fromEntries(Object.entries(f.evidence as Record<string, { core: Array<{ book: string; page: number }>; effect: Array<{ book: string; page: number }>; core_alone?: string;
-            items?: Record<string, { sources: Array<{ book: string; page: number }> }> }>).map(([id, e]) => {
+            items?: Record<string, { sources: Array<{ book: string; page: number }> }>; meaning?: Record<string, { text: string; book: string; page: number }> }>).map(([id, e]) => {
             const cite = (xs: Array<{ book: string; page: number }>) => [...new Set(xs.map(x => `${x.book} p.${x.page}`))];
             return [id, { core: cite(e.core), effect: cite(e.effect), core_alone: e.core_alone ?? null,
-              items: Object.fromEntries(Object.entries(e.items ?? {}).map(([k, v]) => [k, cite(v.sources)])) }];
+              items: Object.fromEntries(Object.entries(e.items ?? {}).map(([k, v]) => [k, cite(v.sources)])),
+              ...(e.meaning ? { meaning: Object.fromEntries(Object.entries(e.meaning).map(([st, v]) => [st, { text: v.text, cite: `${v.book} p.${v.page}` }])) } : {}) }];
           })) }))(read(join(DATA, 'formations_verified.json'))) : undefined,
         // which palaces and concepts each life domain gathers, for the report-wide ledger (reason/ledger.ts); a labelled system convention
         domains: existsSync(join(DATA, 'kg', 'domains.json')) ? read(join(DATA, 'kg', 'domains.json')) : undefined,
         // what Khảo Luận says each star stands for and how palaces bear on one another, page-checked (plan DEEP-TUVI, reason/depth.ts)
         starNature: existsSync(join(DATA, 'kg', 'star_nature.json')) ? (({ note: _n, ...v }) => v)(read(join(DATA, 'kg', 'star_nature.json'))) : undefined,
+        // DEEP-3: chế hóa relations and the thế đứng layouts, verified only (reason/depth.ts cheHoaUnits, layout)
+        cheHoa: existsSync(join(DATA, 'kg', 'che_hoa.json')) ? { relations: read(join(DATA, 'kg', 'che_hoa.json')).relations
+          .filter((r: { reviewStatus: string }) => r.reviewStatus === 'verified')
+          // a transcribed scan is cited by its book label (SCAN:tvnl_scan = Tử Vi Nghiệm Lý, the Thiên Lương source), its school tag dropped
+          .map((r: { book: string; text: string }) => ({ ...r, book: r.book === 'SCAN:tvnl_scan' ? 'TVNL' : r.book, text: r.text.replace(/\s*\(Thiên Lương\)$/, '') })) } : undefined,
+        schools: existsSync(join(DATA, 'kg', 'schools.json')) ? { topics: read(join(DATA, 'kg', 'schools.json')).topics } : undefined,
+        baziSchools: existsSync(join(DATA, 'bazi_deep', 'schools.json')) ? { topics: read(join(DATA, 'bazi_deep', 'schools.json')).topics } : undefined,
+        combos: existsSync(join(DATA, 'kg', 'combos.json')) ? { layouts: read(join(DATA, 'kg', 'combos.json')).layouts ?? [] } : undefined,
         // reader words for verified rules whose stored reading cannot be voiced as is (prose/narrative.ts splitReading)
         ruleVoice: existsSync(join(DATA, 'kg', 'rule_voice.json')) ? read(join(DATA, 'kg', 'rule_voice.json')).voice : {} },
   // prose library (prose plan §3): how concepts, chart facts and resolver decisions are voiced in reader prose

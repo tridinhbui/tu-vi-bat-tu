@@ -33,7 +33,7 @@ TU_HOA = ["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"]
 PALACES = ["Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch", "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách", "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
 BRANCHES = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"]
 DIGNITY_SCHOOLS = [("thuc_hanh", "Thực Hành"), ("toan_thu", "Toàn Thư"), ("khao_luan", "Khảo Luận")]
-BOOK_ORDER = ["SRC_THUC_HANH", "SRC_KHAO_LUAN", "SRC_TOAN_THU", "SRC_TVNL_TOAN_THU", "SRC_TVNL_1974"]
+BOOK_ORDER = ["SRC_THUC_HANH", "SRC_KHAO_LUAN", "SRC_TOAN_THU", "SRC_TVNL_TOAN_THU", "SRC_TVNL_1974", "SRC_HAM_SO"]
 # A few TH cách names cannot be cut out of the claim text by the generic rule (the name itself contains "ở").
 CACH_NAME_OVERRIDE = {"Phá Quân ở Mão hoặc Dậu": "Phá Quân ở Mão Dậu"}
 CACH_MIN_LEN = 4
@@ -72,7 +72,7 @@ def load() -> dict:
             "glossary": _json("glossary_vi.json"), "dignity": _json("dignity_kb.json")}
 
 
-_CITE = re.compile(r"\b(KL|TH|TT|TL|NL)\s*(?:pp?\.)\s*(\d+(?:\s*[-–]\s*\d+)?(?:\s*,\s*\d+(?:\s*[-–]\s*\d+)?)*)")
+_CITE = re.compile(r"\b(KL|TH|TT|TL|NL|HS)\s*(?:pp?\.)\s*(\d+(?:\s*[-–]\s*\d+)?(?:\s*,\s*\d+(?:\s*[-–]\s*\d+)?)*)")
 
 
 def cite_of(rule: dict) -> tuple[str, str] | None:
@@ -306,7 +306,7 @@ def dignity_rows(kb: dict, star: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------- html
-NAV = [("/bai-viet/", "Bài viết"), ("/xem-ngay/", "Xem ngày"), ("/hoi-dap/", "Hỏi đáp"), ("/gioi-thieu/", "Giới thiệu")]
+NAV = [("/bai-viet/", "Bài viết"), ("/xem-ngay/", "Xem ngày"), ("/chiem-tinh/", "Chiêm tinh"), ("/hoi-dap/", "Hỏi đáp"), ("/gioi-thieu/", "Giới thiệu")]
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' "
            "stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E")
 

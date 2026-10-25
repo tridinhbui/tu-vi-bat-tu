@@ -1,0 +1,1939 @@
+{
+ "version": "1.0.0",
+ "_note": "DEEP-3 (2026-10-24). Cách thành / phá / cứu per cách. 'tvh': the Thiệu Vĩ Hoa thành bại sentences (tvh_thanhbai.json, pp.367-369: ids, verdict, the system's encoding) and the cách's row of the dụng thần table (tvh_dungthan.json, pp.378-386); 'ttt': Trích Thiên Tủy's own words where a page speaks of that cách; 'tbct': the 子平真詮 conditions of geju_defs.json, still written from memory: NO public-domain snapshot of 子平真詮 could be saved (zh.wikisource has none; ctext blocks automated access, its terms forbid scraping), so this column stays draft and is not voiced. 'general': the TTT principles that apply to every cách (thanh / trọc, chân / giả thần, phá cách and cứu). Shape agreed with the main session: cach[] (names as D.cach_tvh.cach, the twelve of tvh_dungthan.json cach_key) with thanh / pha / cuu items {id, when, text, book, page | chapter, quote}; TVH items carry engine_id (tvh_thanhbai.json) and engine_when (its machine condition) when the engine encodes the sentence, null otherwise (the sentences it left out as vague). 'general' = TTT principles for every cách (item.side = thanh / pha / cuu). 'tbct_draft' = the 子平真詮 conditions of geju_defs.json, memory-written, never to be voiced.",
+ "cach": [
+  {
+   "cach": "Chính Tài",
+   "thanh": [
+    {
+     "id": "TVH_TAI_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài cũng vượng, có quan tinh chế ngự nhật chủ là mệnh tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, tài cũng vượng, có quan tinh chế ngự nhật chủ là mệnh tốt.",
+     "engine_id": "tai.1",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:Tai=0.25",
+      "any:QuanSat"
+     ]
+    },
+    {
+     "id": "TVH_TAI_2",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, tài tinh vượng, có ấn, tỉ kiếp hộ thân là mệnh tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, tài tinh vượng, có ấn, tỉ kiếp hộ thân là mệnh tốt.",
+     "engine_id": "tai.2",
+     "engine_when": [
+      "dm:weak",
+      "share_ge:Tai=0.25",
+      "any:An"
+     ]
+    },
+    {
+     "id": "TVH_TAI_3",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài nhược, có thực thần xì hơi nhật chủ để sinh tài là tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, tài nhược, có thực thần xì hơi nhật chủ để sinh tài là tốt.",
+     "engine_id": "tai.3",
+     "engine_when": [
+      "dm:strong",
+      "share_le:Tai=0.15",
+      "any:ThucThuong"
+     ]
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_TAI_4",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều giúp nhật chủ khắc tài là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều giúp nhật chủ khắc tài là mệnh xấu.",
+     "engine_id": "tai.4",
+     "engine_when": [
+      "dm:strong",
+      "share_le:Tai=0.15",
+      "share_ge:Ti=0.35"
+     ]
+    },
+    {
+     "id": "TVH_TAI_5",
+     "when": {
+      "dm": null,
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Cho dù nhật chủ vượng hay nhược, tài gặp hình xung phá hại đều là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Cho dù nhật chủ vượng hay nhược, tài gặp hình xung phá hại đều là mệnh xấu.",
+     "engine_id": "tai.5",
+     "engine_when": [
+      "hurt"
+     ]
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Thiên Tài",
+   "thanh": [
+    {
+     "id": "TVH_TAI_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài cũng vượng, có quan tinh chế ngự nhật chủ là mệnh tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, tài cũng vượng, có quan tinh chế ngự nhật chủ là mệnh tốt.",
+     "engine_id": "tai.1",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:Tai=0.25",
+      "any:QuanSat"
+     ]
+    },
+    {
+     "id": "TVH_TAI_2",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, tài tinh vượng, có ấn, tỉ kiếp hộ thân là mệnh tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, tài tinh vượng, có ấn, tỉ kiếp hộ thân là mệnh tốt.",
+     "engine_id": "tai.2",
+     "engine_when": [
+      "dm:weak",
+      "share_ge:Tai=0.25",
+      "any:An"
+     ]
+    },
+    {
+     "id": "TVH_TAI_3",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài nhược, có thực thần xì hơi nhật chủ để sinh tài là tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, tài nhược, có thực thần xì hơi nhật chủ để sinh tài là tốt.",
+     "engine_id": "tai.3",
+     "engine_when": [
+      "dm:strong",
+      "share_le:Tai=0.15",
+      "any:ThucThuong"
+     ]
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_TAI_4",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều giúp nhật chủ khắc tài là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều giúp nhật chủ khắc tài là mệnh xấu.",
+     "engine_id": "tai.4",
+     "engine_when": [
+      "dm:strong",
+      "share_le:Tai=0.15",
+      "share_ge:Ti=0.35"
+     ]
+    },
+    {
+     "id": "TVH_TAI_5",
+     "when": {
+      "dm": null,
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Cho dù nhật chủ vượng hay nhược, tài gặp hình xung phá hại đều là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Cho dù nhật chủ vượng hay nhược, tài gặp hình xung phá hại đều là mệnh xấu.",
+     "engine_id": "tai.5",
+     "engine_when": [
+      "hurt"
+     ]
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Chính Quan",
+   "thanh": [
+    {
+     "id": "TVH_QUAN_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Khi nhật chủ vượng có tài thì có thể sinh quan sát là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Khi nhật chủ vượng có tài thì có thể sinh quan sát là tốt.",
+     "engine_id": "quan.1",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:Tai=0.10"
+     ]
+    },
+    {
+     "id": "TVH_QUAN_2",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Khi nhật chủ nhược, chính quan mạnh, có ấn thì sẽ sinh thân là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Khi nhật chủ nhược, chính quan mạnh, có ấn thì sẽ sinh thân là tốt.",
+     "engine_id": "quan.2",
+     "engine_when": [
+      "dm:weak",
+      "share_ge:QuanSat=0.30",
+      "share_ge:An=0.10"
+     ]
+    },
+    {
+     "id": "TVH_QUAN_3",
+     "when": {
+      "dm": null,
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Tứ trụ có chính quan, không có thất sát (tức là quan sát không hỗn tạp) là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Tứ trụ có chính quan, không có thất sát (tức là quan sát không hỗn tạp) là tốt.",
+     "engine_id": "quan.3",
+     "engine_when": [
+      "any:Quan",
+      "none_of:Sat"
+     ]
+    },
+    {
+     "id": "TTT_QUAN_1",
+     "when": {
+      "dm": "nhuoc",
+      "group": "Ấn",
+      "role": "yong",
+      "relation": null
+     },
+     "text": "Chính Quan cách, thân nhược có Ấn, Tài không lộ: thanh.",
+     "book": "TTT",
+     "page": 101,
+     "quote": "Như chánh quan cách, thân nhược có ấn, kỵ tài, tài tinh không hiện, có thể thấy ngay là thanh hĩ"
+    },
+    {
+     "id": "TTT_QUAN_3",
+     "when": {
+      "dm": "vuong",
+      "group": "Tài",
+      "role": "hy",
+      "relation": null
+     },
+     "text": "Chính Quan cách, thân vượng: mừng Tài, kỵ Ấn rồi đến Thương Quan.",
+     "book": "TTT",
+     "page": 101,
+     "quote": "Như chánh quan cách, thân vượng mừng có tài, mà kỵ ấn thụ, tiếp theo kỵ thương quan"
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_QUAN_4",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài nhẹ, kiếp trùng trùng (nhưng không phải là ngoại cách) là mệnh xấu.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ vượng, tài nhẹ, kiếp trùng trùng (nhưng không phải là ngoại cách) là mệnh xấu.",
+     "engine_id": "quan.4",
+     "engine_when": [
+      "dm:strong",
+      "share_le:Tai=0.10",
+      "share_ge:Ti=0.35"
+     ]
+    },
+    {
+     "id": "TVH_QUAN_5",
+     "when": {
+      "dm": null,
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Gặp hình xung phá hại là mệnh xấu.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Gặp hình xung phá hại là mệnh xấu.",
+     "engine_id": "quan.5",
+     "engine_when": [
+      "hurt"
+     ]
+    },
+    {
+     "id": "TVH_QUAN_6",
+     "when": {
+      "dm": null,
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Tứ trụ có quan sát hỗn tạp là mệnh xấu.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Tứ trụ có quan sát hỗn tạp là mệnh xấu.",
+     "engine_id": "quan.6",
+     "engine_when": [
+      "both_visible:Quan+Sat"
+     ]
+    },
+    {
+     "id": "TTT_QUAN_4",
+     "when": {
+      "dm": null,
+      "group": "Thực Thương",
+      "role": null,
+      "relation": "khac"
+     },
+     "text": "Thương Quan sát Quan mà Tài ở xa: phá.",
+     "book": "TTT",
+     "page": 101,
+     "quote": "Như thương quan cùng tài tinh cách xa, ngược lại thương quan kế cận quan tinh, tài không đủ lực sanh quan"
+    }
+   ],
+   "cuu": [
+    {
+     "id": "TTT_QUAN_2",
+     "when": {
+      "dm": "nhuoc",
+      "group": "Tài",
+      "role": null,
+      "relation": "sinh"
+     },
+     "text": "Có Tài mà Tài → Quan → Ấn → nhật chủ liền mạch thì vẫn thanh.",
+     "book": "TTT",
+     "page": 101,
+     "quote": "tất tài sanh quan, quan sanh ấn, ấn sanh nhật chủ"
+    }
+   ],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Chính Ấn",
+   "thanh": [
+    {
+     "id": "TVH_AN_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, có ấn gặp quan hoặc sát là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ vượng, có ấn gặp quan hoặc sát là tốt.",
+     "engine_id": "an.1",
+     "engine_when": [
+      "dm:strong",
+      "any:QuanSat"
+     ]
+    },
+    {
+     "id": "TVH_AN_2",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, ấn mạnh (tức rất nhiều ấn), có thực thương xì hơi nhật chủ là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ vượng, ấn mạnh (tức rất nhiều ấn), có thực thương xì hơi nhật chủ là tốt.",
+     "engine_id": "an.2",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:An=0.35",
+      "any:ThucThuong"
+     ]
+    },
+    {
+     "id": "TVH_AN_3",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ mạnh, ấn nhiều, có chính tài chế ngự ấn là tốt (nhưng tài không nên quá nhiều thành khắc ấn, làm cho ấn trở thành vô lực).",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ mạnh, ấn nhiều, có chính tài chế ngự ấn là tốt (nhưng tài không nên quá nhiều thành khắc ấn, làm cho ấn trở thành vô lực).",
+     "engine_id": "an.3",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:An=0.35",
+      "any:Tai",
+      "share_le:Tai=0.30"
+     ]
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_AN_4",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, ấn nhược lại gặp tài khắc ấn là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, ấn nhược lại gặp tài khắc ấn là mệnh xấu.",
+     "engine_id": "an.4",
+     "engine_when": [
+      "dm:weak",
+      "share_le:An=0.15",
+      "share_ge:Tai=0.25"
+     ]
+    },
+    {
+     "id": "TVH_AN_5",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, sát nhiều, lại còn gặp quan ấn là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, sát nhiều, lại còn gặp quan ấn là mệnh xấu.",
+     "engine_id": null
+    },
+    {
+     "id": "TVH_AN_6",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, ấn gặp hình xung là bị phá hại.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, ấn gặp hình xung là bị phá hại.",
+     "engine_id": "an.6",
+     "engine_when": [
+      "dm:weak",
+      "hurt"
+     ]
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Thiên Ấn",
+   "thanh": [
+    {
+     "id": "TVH_AN_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, có ấn gặp quan hoặc sát là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ vượng, có ấn gặp quan hoặc sát là tốt.",
+     "engine_id": "an.1",
+     "engine_when": [
+      "dm:strong",
+      "any:QuanSat"
+     ]
+    },
+    {
+     "id": "TVH_AN_2",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, ấn mạnh (tức rất nhiều ấn), có thực thương xì hơi nhật chủ là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ vượng, ấn mạnh (tức rất nhiều ấn), có thực thương xì hơi nhật chủ là tốt.",
+     "engine_id": "an.2",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:An=0.35",
+      "any:ThucThuong"
+     ]
+    },
+    {
+     "id": "TVH_AN_3",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ mạnh, ấn nhiều, có chính tài chế ngự ấn là tốt (nhưng tài không nên quá nhiều thành khắc ấn, làm cho ấn trở thành vô lực).",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ mạnh, ấn nhiều, có chính tài chế ngự ấn là tốt (nhưng tài không nên quá nhiều thành khắc ấn, làm cho ấn trở thành vô lực).",
+     "engine_id": "an.3",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:An=0.35",
+      "any:Tai",
+      "share_le:Tai=0.30"
+     ]
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_AN_4",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, ấn nhược lại gặp tài khắc ấn là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, ấn nhược lại gặp tài khắc ấn là mệnh xấu.",
+     "engine_id": "an.4",
+     "engine_when": [
+      "dm:weak",
+      "share_le:An=0.15",
+      "share_ge:Tai=0.25"
+     ]
+    },
+    {
+     "id": "TVH_AN_5",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, sát nhiều, lại còn gặp quan ấn là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, sát nhiều, lại còn gặp quan ấn là mệnh xấu.",
+     "engine_id": null
+    },
+    {
+     "id": "TVH_AN_6",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, ấn gặp hình xung là bị phá hại.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, ấn gặp hình xung là bị phá hại.",
+     "engine_id": "an.6",
+     "engine_when": [
+      "dm:weak",
+      "hurt"
+     ]
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Thương Quan",
+   "thanh": [
+    {
+     "id": "TVH_THUONG_QUAN_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thương quan xì hơi thân sinh cho tài là tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, thương quan xì hơi thân sinh cho tài là tốt.",
+     "engine_id": "thuong.1",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:ThucThuong=0.25",
+      "any:Tai"
+     ]
+    },
+    {
+     "id": "TVH_THUONG_QUAN_2",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, thương quan xì hơi thân nhưng có ấn sinh phù thân là tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, thương quan xì hơi thân nhưng có ấn sinh phù thân là tốt.",
+     "engine_id": "thuong.2",
+     "engine_when": [
+      "dm:weak",
+      "share_ge:ThucThuong=0.30",
+      "any:An"
+     ]
+    },
+    {
+     "id": "TVH_THUONG_QUAN_3",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, sát nhiều, có thương quan khắc chế thất sát là tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, sát nhiều, có thương quan khắc chế thất sát là tốt.",
+     "engine_id": "thuong.3",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:QuanSat=0.35",
+      "any:Thuong"
+     ]
+    },
+    {
+     "id": "TVH_THUONG_QUAN_4",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, thương quan vượng, có ấn hộ thân, chế ngự thương quan là tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, thương quan vượng, có ấn hộ thân, chế ngự thương quan là tốt.",
+     "engine_id": null
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_THUONG_QUAN_5",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, lại gặp quan sát khắc thân là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, lại gặp quan sát khắc thân là mệnh xấu.",
+     "engine_id": "thuong.5",
+     "engine_when": [
+      "dm:weak",
+      "share_ge:QuanSat=0.25"
+     ]
+    },
+    {
+     "id": "TVH_THUONG_QUAN_6",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược; nhiều sinh cho quan sát là xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược; nhiều sinh cho quan sát là xấu.",
+     "engine_id": null
+    },
+    {
+     "id": "TVH_THUONG_QUAN_7",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thương quan nhẹ, lại gặp ấn nhiều sinh cho nhật chủ, khắc thương quan là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thương quan nhẹ, lại gặp ấn nhiều sinh cho nhật chủ, khắc thương quan là mệnh xấu.",
+     "engine_id": "thuong.7",
+     "engine_when": [
+      "dm:strong",
+      "share_le:ThucThuong=0.15",
+      "share_ge:An=0.30"
+     ]
+    },
+    {
+     "id": "TVH_THUONG_QUAN_8",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thương quan nhẹ, lại gặp hình xung phá hại là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thương quan nhẹ, lại gặp hình xung phá hại là mệnh xấu.",
+     "engine_id": "thuong.8",
+     "engine_when": [
+      "dm:strong",
+      "share_le:ThucThuong=0.15",
+      "hurt"
+     ]
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Thất Sát",
+   "thanh": [
+    {
+     "id": "TVH_SAT_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, cách thất sát là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ vượng, cách thất sát là tốt.",
+     "engine_id": "sat.1",
+     "engine_when": [
+      "dm:strong"
+     ]
+    },
+    {
+     "id": "TVH_SAT_2",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng mà thất sát mạnh quá, có thực thần chế ngự là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ vượng mà thất sát mạnh quá, có thực thần chế ngự là tốt.",
+     "engine_id": "sat.2",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:QuanSat=0.40",
+      "any:Thuc"
+     ]
+    },
+    {
+     "id": "TVH_SAT_3",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, sát vượng, có ấn sinh cho nhật chủ là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ nhược, sát vượng, có ấn sinh cho nhật chủ là tốt.",
+     "engine_id": "sat.3",
+     "engine_when": [
+      "dm:weak",
+      "share_ge:QuanSat=0.30",
+      "any:An"
+     ]
+    },
+    {
+     "id": "TVH_SAT_4",
+     "when": {
+      "dm": null,
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ và thất sát cả hai ngang nhau lại gặp chính quan (quan không hỗn tạp) là tốt.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ và thất sát cả hai ngang nhau lại gặp chính quan (quan không hỗn tạp) là tốt.",
+     "engine_id": null
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_SAT_5",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, cách thất sát là mệnh xấu.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ nhược, cách thất sát là mệnh xấu.",
+     "engine_id": "sat.5",
+     "engine_when": [
+      "dm:weak"
+     ]
+    },
+    {
+     "id": "TVH_SAT_6",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, cách thất sát gặp hình xung thì bị phá hại.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ vượng, cách thất sát gặp hình xung thì bị phá hại.",
+     "engine_id": "sat.6",
+     "engine_when": [
+      "dm:strong",
+      "hurt"
+     ]
+    },
+    {
+     "id": "TVH_SAT_7",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, lại gặp tài sinh cho thất sát, không có thực thương để khắc chế là mệnh xấu.",
+     "book": "TVH",
+     "page": 367,
+     "quote": "Nhật chủ nhược, lại gặp tài sinh cho thất sát, không có thực thương để khắc chế là mệnh xấu.",
+     "engine_id": "sat.7",
+     "engine_when": [
+      "dm:weak",
+      "share_ge:Tai=0.15",
+      "none_of:ThucThuong"
+     ]
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Thực Thần",
+   "thanh": [
+    {
+     "id": "TVH_THUC_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thần cũng vượng, gặp tài xì hơi thực thần là tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, thực thần cũng vượng, gặp tài xì hơi thực thần là tốt.",
+     "engine_id": "thuc.1",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:ThucThuong=0.25",
+      "any:Tai"
+     ]
+    },
+    {
+     "id": "TVH_THUC_2",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, sát mạnh quá, có thực thần chế sát (không gặp tài sinh sát) là tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, sát mạnh quá, có thực thần chế sát (không gặp tài sinh sát) là tốt.",
+     "engine_id": "thuc.2",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:QuanSat=0.35",
+      "any:Thuc"
+     ]
+    },
+    {
+     "id": "TVH_THUC_3",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, thực thương xì hơi thân mạnh quá, có ấn hộ thân là tốt.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, thực thương xì hơi thân mạnh quá, có ấn hộ thân là tốt.",
+     "engine_id": "thuc.3",
+     "engine_when": [
+      "dm:weak",
+      "share_ge:ThucThuong=0.35",
+      "any:An"
+     ]
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_THUC_4",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thần yếu lại gặp ấn sinh thân là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, thực thần yếu lại gặp ấn sinh thân là mệnh xấu.",
+     "engine_id": "thuc.4",
+     "engine_when": [
+      "dm:strong",
+      "share_le:ThucThuong=0.15",
+      "share_ge:An=0.25"
+     ]
+    },
+    {
+     "id": "TVH_THUC_5",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, thực thần sinh tài lại có thất sát là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ nhược, thực thần sinh tài lại có thất sát là mệnh xấu.",
+     "engine_id": "thuc.5",
+     "engine_when": [
+      "dm:weak",
+      "any:Tai",
+      "any:Sat"
+     ]
+    },
+    {
+     "id": "TVH_THUC_6",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thần lại gặp hình xung phá hại, không thể xì hơi thân là mệnh xấu.",
+     "book": "TVH",
+     "page": 368,
+     "quote": "Nhật chủ vượng, thực thần lại gặp hình xung phá hại, không thể xì hơi thân là mệnh xấu.",
+     "engine_id": "thuc.6",
+     "engine_when": [
+      "dm:strong",
+      "hurt"
+     ]
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Kiến Lộc",
+   "thanh": [
+    {
+     "id": "TVH_KIEN_LOC_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài, quan sát cũng vượng là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, tài, quan sát cũng vượng là tốt.",
+     "engine_id": "loc.1",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:Tai=0.15",
+      "share_ge:QuanSat=0.15"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_2",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thương cũng vượng là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thực thương cũng vượng là tốt.",
+     "engine_id": "loc.2",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:ThucThuong=0.25"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_3",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, gặp ấn, tỉ kiếp giúp trợ nhật chủ là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ nhược, gặp ấn, tỉ kiếp giúp trợ nhật chủ là tốt.",
+     "engine_id": "loc.3",
+     "engine_when": [
+      "dm:weak",
+      "any:An"
+     ]
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_KIEN_LOC_4",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều là mệnh xấu.",
+     "engine_id": "loc.4",
+     "engine_when": [
+      "dm:strong",
+      "share_le:Tai=0.15",
+      "share_ge:Ti=0.35"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_5",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thương yếu, lại gặp ấn nhiều khắc thực thương là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thực thương yếu, lại gặp ấn nhiều khắc thực thương là mệnh xấu.",
+     "engine_id": "loc.5",
+     "engine_when": [
+      "dm:strong",
+      "share_le:ThucThuong=0.15",
+      "share_ge:An=0.30"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_6",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, ấn và tỉ kiếp cũng nhược, tài quan sát nhiều là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ nhược, ấn và tỉ kiếp cũng nhược, tài quan sát nhiều là mệnh xấu.",
+     "engine_id": null
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Nguyệt Kiếp",
+   "thanh": [
+    {
+     "id": "TVH_KIEN_LOC_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài, quan sát cũng vượng là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, tài, quan sát cũng vượng là tốt.",
+     "engine_id": "loc.1",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:Tai=0.15",
+      "share_ge:QuanSat=0.15"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_2",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thương cũng vượng là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thực thương cũng vượng là tốt.",
+     "engine_id": "loc.2",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:ThucThuong=0.25"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_3",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, gặp ấn, tỉ kiếp giúp trợ nhật chủ là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ nhược, gặp ấn, tỉ kiếp giúp trợ nhật chủ là tốt.",
+     "engine_id": "loc.3",
+     "engine_when": [
+      "dm:weak",
+      "any:An"
+     ]
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_KIEN_LOC_4",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều là mệnh xấu.",
+     "engine_id": "loc.4",
+     "engine_when": [
+      "dm:strong",
+      "share_le:Tai=0.15",
+      "share_ge:Ti=0.35"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_5",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thương yếu, lại gặp ấn nhiều khắc thực thương là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thực thương yếu, lại gặp ấn nhiều khắc thực thương là mệnh xấu.",
+     "engine_id": "loc.5",
+     "engine_when": [
+      "dm:strong",
+      "share_le:ThucThuong=0.15",
+      "share_ge:An=0.30"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_6",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, ấn và tỉ kiếp cũng nhược, tài quan sát nhiều là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ nhược, ấn và tỉ kiếp cũng nhược, tài quan sát nhiều là mệnh xấu.",
+     "engine_id": null
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Dương Nhận",
+   "thanh": [
+    {
+     "id": "TVH_KIEN_LOC_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài, quan sát cũng vượng là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, tài, quan sát cũng vượng là tốt.",
+     "engine_id": "loc.1",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:Tai=0.15",
+      "share_ge:QuanSat=0.15"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_2",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thương cũng vượng là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thực thương cũng vượng là tốt.",
+     "engine_id": "loc.2",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:ThucThuong=0.25"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_3",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, gặp ấn, tỉ kiếp giúp trợ nhật chủ là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ nhược, gặp ấn, tỉ kiếp giúp trợ nhật chủ là tốt.",
+     "engine_id": "loc.3",
+     "engine_when": [
+      "dm:weak",
+      "any:An"
+     ]
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_KIEN_LOC_4",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều là mệnh xấu.",
+     "engine_id": "loc.4",
+     "engine_when": [
+      "dm:strong",
+      "share_le:Tai=0.15",
+      "share_ge:Ti=0.35"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_5",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thương yếu, lại gặp ấn nhiều khắc thực thương là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thực thương yếu, lại gặp ấn nhiều khắc thực thương là mệnh xấu.",
+     "engine_id": "loc.5",
+     "engine_when": [
+      "dm:strong",
+      "share_le:ThucThuong=0.15",
+      "share_ge:An=0.30"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_6",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, ấn và tỉ kiếp cũng nhược, tài quan sát nhiều là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ nhược, ấn và tỉ kiếp cũng nhược, tài quan sát nhiều là mệnh xấu.",
+     "engine_id": null
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  },
+  {
+   "cach": "Âm Nhận",
+   "thanh": [
+    {
+     "id": "TVH_KIEN_LOC_1",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài, quan sát cũng vượng là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, tài, quan sát cũng vượng là tốt.",
+     "engine_id": "loc.1",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:Tai=0.15",
+      "share_ge:QuanSat=0.15"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_2",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thương cũng vượng là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thực thương cũng vượng là tốt.",
+     "engine_id": "loc.2",
+     "engine_when": [
+      "dm:strong",
+      "share_ge:ThucThuong=0.25"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_3",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, gặp ấn, tỉ kiếp giúp trợ nhật chủ là tốt.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ nhược, gặp ấn, tỉ kiếp giúp trợ nhật chủ là tốt.",
+     "engine_id": "loc.3",
+     "engine_when": [
+      "dm:weak",
+      "any:An"
+     ]
+    }
+   ],
+   "pha": [
+    {
+     "id": "TVH_KIEN_LOC_4",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, tài nhược, lại gặp tỉ kiếp nhiều là mệnh xấu.",
+     "engine_id": "loc.4",
+     "engine_when": [
+      "dm:strong",
+      "share_le:Tai=0.15",
+      "share_ge:Ti=0.35"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_5",
+     "when": {
+      "dm": "vuong",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ vượng, thực thương yếu, lại gặp ấn nhiều khắc thực thương là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ vượng, thực thương yếu, lại gặp ấn nhiều khắc thực thương là mệnh xấu.",
+     "engine_id": "loc.5",
+     "engine_when": [
+      "dm:strong",
+      "share_le:ThucThuong=0.15",
+      "share_ge:An=0.30"
+     ]
+    },
+    {
+     "id": "TVH_KIEN_LOC_6",
+     "when": {
+      "dm": "nhuoc",
+      "group": null,
+      "role": null,
+      "relation": null
+     },
+     "text": "Nhật chủ nhược, ấn và tỉ kiếp cũng nhược, tài quan sát nhiều là mệnh xấu.",
+     "book": "TVH",
+     "page": 369,
+     "quote": "Nhật chủ nhược, ấn và tỉ kiếp cũng nhược, tài quan sát nhiều là mệnh xấu.",
+     "engine_id": null
+    }
+   ],
+   "cuu": [],
+   "reviewStatus": "verified"
+  }
+ ],
+ "general": [
+  {
+   "id": "TTT_PHA_CACH_1",
+   "side": "pha",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Cách bị phá, dụng thần bị hại: bệnh, buồn nhiều vui ít.",
+   "book": "TTT",
+   "page": 61,
+   "quote": "phá cách tổn hại dụng thần, thì có bệnh vậy, ưu sầu nhiều vui mừng ít"
+  },
+  {
+   "id": "TTT_PHA_CACH_2",
+   "side": "cuu",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Cứu: vận khử kỵ thần, trợ dụng thần thì không phú cũng quý.",
+   "book": "TTT",
+   "page": 61,
+   "quote": "Nhưng nếu hành vận thích hợp, khử mất kỵ thần, sanh trợ dụng thần giống như người bệnh lâu ngày được thầy thuốc giỏi cứu chữa, không phú cũng quý"
+  },
+  {
+   "id": "TTT_PHA_CACH_3",
+   "side": "pha",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Cách thuần nhất trăm người không được một.",
+   "book": "TTT",
+   "page": 61,
+   "quote": "Đại phàm cách cục thuần nhất, trăm mệnh không có được một vậy"
+  },
+  {
+   "id": "TTT_NO_CLASH_KHO_1",
+   "side": "thanh",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Không phải tạp khí Tài Quan cần xung mới dùng.",
+   "book": "TTT",
+   "page": 61,
+   "quote": "Lại cho rằng tạp khí tài quan cần nên xung thật là hàm hồ"
+  },
+  {
+   "id": "TTT_NO_CLASH_KHO_2",
+   "side": "thanh",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Mộ khố gặp xung chưa chắc phát.",
+   "book": "TTT",
+   "page": 62,
+   "quote": "Cho nên luận mộ khố gặp xung tất phát thật sai lầm vậy"
+  },
+  {
+   "id": "TTT_NO_CLASH_KHO_3",
+   "side": "thanh",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Hình xung làm tổn gốc.",
+   "book": "TTT",
+   "page": 70,
+   "quote": "mà không biết hình xung tất thương tổn căn khí"
+  },
+  {
+   "id": "TTT_THANH_1",
+   "side": "thanh",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Thanh phải có khí mới tốt.",
+   "book": "TTT",
+   "page": 101,
+   "quote": "Thanh mà hữu khí, tất tinh thần thông suốt mà đầy đủ; thanh mà vô khí, tất tinh thần khô héo tiều tụy"
+  },
+  {
+   "id": "TTT_TROC_1",
+   "side": "pha",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Trọc: tứ trụ hỗn tạp.",
+   "book": "TTT",
+   "page": 103,
+   "quote": "Nhâm thị viết: Trọc gọi là tứ trụ hỗn tạp vậy",
+   "rules": [
+    "BT_TTTK_TR01",
+    "BT_TTTK_TR02",
+    "BT_TTTK_TR03",
+    "BT_TTTK_TR04"
+   ]
+  },
+  {
+   "id": "TTT_TROC_2",
+   "side": "cuu",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Trọc: thành bại không đều; gặp vận khử trọc thì khởi phát.",
+   "book": "TTT",
+   "page": 103,
+   "quote": "tuy thành bại không đều, có nhiều hiểm trở, nhưng ngộ đắc hành vận, khử đi trọc khí, cũng có cơ hội khởi phát",
+   "rules": [
+    "BT_TTTK_TR01",
+    "BT_TTTK_TR02",
+    "BT_TTTK_TR03",
+    "BT_TTTK_TR04"
+   ]
+  },
+  {
+   "id": "TTT_TROC_3",
+   "side": "pha",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Thà thanh lẫn trọc, không thể thanh mà khô.",
+   "book": "TTT",
+   "page": 103,
+   "quote": "thà rằng dụng trong thanh có trọc, không thể dụng trong thanh có khô",
+   "rules": [
+    "BT_TTTK_TR01",
+    "BT_TTTK_TR02",
+    "BT_TTTK_TR03",
+    "BT_TTTK_TR04"
+   ]
+  },
+  {
+   "id": "TTT_CHAN_GIA_1",
+   "side": "thanh",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Chân thần: dụng thần nắm lệnh và thấu can.",
+   "book": "TTT",
+   "page": 105,
+   "quote": "Nói nhật chủ có dụng thần, nắm lệnh tại đề cương, lại thấu xuất thiên can gọi là tụ đắc chân thần, cuộc đời phú quý hĩ",
+   "rules": [
+    "BT_TTTK_CT01",
+    "BT_TTTK_CT02"
+   ]
+  },
+  {
+   "id": "TTT_CHAN_GIA_2",
+   "side": "pha",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Giả thần kề sát, khắc, xung, hợp chân thần: cả đời lục đục.",
+   "book": "TTT",
+   "page": 105,
+   "quote": "Nhưng nếu kề sát chân thần, hoặc tương khắc tương xung chân thần, hoặc hợp chân thần, ám hóa kỵ thần, chung thân lục đục",
+   "rules": [
+    "BT_TTTK_CT01",
+    "BT_TTTK_CT02"
+   ]
+  },
+  {
+   "id": "TTT_CHAN_GIA_3",
+   "side": "thanh",
+   "when": {
+    "dm": null,
+    "group": null,
+    "role": null,
+    "relation": null
+   },
+   "text": "Chân thần đắc dụng: hưởng phúc; giả thần đắc cục: lập nghiệp vất vả.",
+   "book": "TTT",
+   "page": 107,
+   "quote": "Hết thảy đều do an hưởng phúc đức, phần nhiều do chân thần đắc dụng; sang nghiệp hưng gia, khó nhọc mà thiếu an nhàn, phần nhiều do giả thần đắc cục",
+   "rules": [
+    "BT_TTTK_CT01",
+    "BT_TTTK_CT02"
+   ]
+  }
+ ],
+ "tbct_draft": {
+  "status": "draft",
+  "why": "no public-domain snapshot of 子平真詮 (DEEP-3)",
+  "defs": {
+   "Chính Quan": {
+    "thanh_any": [
+     "any:Tai",
+     "any:An"
+    ],
+    "bai": {
+     "thuong_kien_quan": "controls_adjacent:Thuong>Quan",
+     "quan_sat_hon_tap": "both_visible:Quan+Sat",
+     "quan_bi_xung_lenh": "lenh_clashed",
+     "quan_bi_hinh_lenh": "lenh_penalized"
+    },
+    "cuu": {
+     "thuong_kien_quan": [
+      "visible:An",
+      "visible:Tai",
+      "any:An",
+      "any:Tai"
+     ],
+     "quan_sat_hon_tap": [
+      "bound:Sat",
+      "visible:Thuc"
+     ],
+     "quan_bi_xung_lenh": [
+      "lenh_clash_resolved"
+     ],
+     "quan_bi_hinh_lenh": []
+    },
+    "yong": [
+     "Tai",
+     "An"
+    ]
+   },
+   "Thất Sát": {
+    "thanh_any": [
+     "controls_adjacent:Thuc>Sat",
+     "chain_adjacent:Sat>An",
+     "any:Thuc",
+     "any:An"
+    ],
+    "bai": {
+     "sat_khong_che": "sat_unrestrained",
+     "sat_bi_xung_lenh": "lenh_clashed"
+    },
+    "cuu": {
+     "sat_khong_che": [],
+     "sat_bi_xung_lenh": [
+      "lenh_clash_resolved"
+     ]
+    },
+    "yong": [
+     "Thuc",
+     "An"
+    ]
+   },
+   "Chính Ấn": {
+    "thanh_any": [
+     "any:QuanSat",
+     "all:level_ge:vượng+any:ThucThuong"
+    ],
+    "bai": {
+     "tai_pha_an": "controls_adjacent:Tai>An",
+     "an_qua_nhieu": "all:level_ge:vượng+count_visible_ge:An=2"
+    },
+    "cuu": {
+     "tai_pha_an": [
+      "any:Ti",
+      "bound:Tai"
+     ],
+     "an_qua_nhieu": [
+      "any:Tai"
+     ]
+    },
+    "yong": [
+     "QuanSat",
+     "ThucThuong"
+    ]
+   },
+   "Thiên Ấn": {
+    "thanh_any": [
+     "any:QuanSat",
+     "all:level_ge:vượng+any:ThucThuong"
+    ],
+    "bai": {
+     "tai_pha_an": "controls_adjacent:Tai>An",
+     "kieu_doat_thuc": "controls_adjacent:Kieu>Thuc"
+    },
+    "cuu": {
+     "tai_pha_an": [
+      "any:Ti",
+      "bound:Tai"
+     ],
+     "kieu_doat_thuc": [
+      "any:Tai"
+     ]
+    },
+    "yong": [
+     "QuanSat",
+     "Tai"
+    ]
+   },
+   "Chính Tài": {
+    "thanh_any": [
+     "any:ThucThuong",
+     "any:Quan",
+     "level_ge:thiên vượng"
+    ],
+    "bai": {
+     "ti_kiep_doat_tai": "count_visible_ge:Ti=2",
+     "tai_nhieu_than_nhuoc": "all:level_le:nhược+count_visible_ge:Tai=2"
+    },
+    "cuu": {
+     "ti_kiep_doat_tai": [
+      "any:Quan",
+      "any:Sat"
+     ],
+     "tai_nhieu_than_nhuoc": [
+      "any:An"
+     ]
+    },
+    "yong": [
+     "ThucThuong",
+     "Quan"
+    ]
+   },
+   "Thiên Tài": {
+    "thanh_any": [
+     "any:ThucThuong",
+     "any:Quan",
+     "level_ge:thiên vượng"
+    ],
+    "bai": {
+     "ti_kiep_doat_tai": "count_visible_ge:Ti=2",
+     "tai_nhieu_than_nhuoc": "all:level_le:nhược+count_visible_ge:Tai=2"
+    },
+    "cuu": {
+     "ti_kiep_doat_tai": [
+      "any:Quan",
+      "any:Sat"
+     ],
+     "tai_nhieu_than_nhuoc": [
+      "any:An"
+     ]
+    },
+    "yong": [
+     "ThucThuong",
+     "Quan"
+    ]
+   },
+   "Thực Thần": {
+    "thanh_any": [
+     "any:Tai",
+     "controls_adjacent:Thuc>Sat"
+    ],
+    "bai": {
+     "kieu_doat_thuc": "controls_adjacent:Kieu>Thuc"
+    },
+    "cuu": {
+     "kieu_doat_thuc": [
+      "any:Tai"
+     ]
+    },
+    "yong": [
+     "Tai",
+     "Sat"
+    ]
+   },
+   "Thương Quan": {
+    "thanh_any": [
+     "all:any:Tai+level_ge:thiên vượng",
+     "all:any:An+level_le:trung hòa"
+    ],
+    "bai": {
+     "thuong_kien_quan": "controls_adjacent:Thuong>Quan"
+    },
+    "cuu": {
+     "thuong_kien_quan": [
+      "visible:An",
+      "visible:Tai",
+      "any:An",
+      "any:Tai"
+     ]
+    },
+    "yong": [
+     "Tai",
+     "An"
+    ]
+   },
+   "Kiến Lộc": {
+    "thanh_any": [
+     "any:QuanSat",
+     "any:Tai",
+     "any:ThucThuong"
+    ],
+    "bai": {
+     "khong_co_dung": "none_of:QuanSat,Tai,ThucThuong"
+    },
+    "cuu": {
+     "khong_co_dung": []
+    },
+    "yong": [
+     "QuanSat",
+     "Tai",
+     "ThucThuong"
+    ]
+   },
+   "Nguyệt Kiếp": {
+    "thanh_any": [
+     "any:QuanSat",
+     "any:Tai",
+     "any:ThucThuong"
+    ],
+    "bai": {
+     "khong_co_dung": "none_of:QuanSat,Tai,ThucThuong"
+    },
+    "cuu": {
+     "khong_co_dung": []
+    },
+    "yong": [
+     "QuanSat",
+     "Tai",
+     "ThucThuong"
+    ]
+   },
+   "Dương Nhận": {
+    "thanh_any": [
+     "any:QuanSat"
+    ],
+    "bai": {
+     "nhan_khong_che": "none_of:QuanSat"
+    },
+    "cuu": {
+     "nhan_khong_che": []
+    },
+    "yong": [
+     "QuanSat"
+    ]
+   }
+  }
+ }
+}

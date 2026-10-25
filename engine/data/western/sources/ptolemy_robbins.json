@@ -1,0 +1,4338 @@
+[
+ {
+  "id": "planet.sun.quality",
+  "topic": "planet_nature",
+  "rule_en": "Sun: chiefly heating, somewhat drying.",
+  "quote": "The active power of the sun's essential nature is found to be heating and, to a certain degree, drying.",
+  "locator": "I.4, p.35",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#4",
+  "notes": "",
+  "data": {
+   "planet": "Sun",
+   "primary": "hot",
+   "secondary": "dry (moderate)"
+  }
+ },
+ {
+  "id": "planet.moon.quality",
+  "topic": "planet_nature",
+  "rule_en": "Moon: chiefly moistening, moderately heating (from the sun's light).",
+  "quote": "Most of the moon's power consists of humidifying ... but it shares moderately also in heating power because of the light which it receives from the sun.",
+  "locator": "I.4, p.35",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#4",
+  "notes": "",
+  "data": {
+   "planet": "Moon",
+   "primary": "moist",
+   "secondary": "hot (moderate)"
+  }
+ },
+ {
+  "id": "planet.saturn.quality",
+  "topic": "planet_nature",
+  "rule_en": "Saturn: chiefly cooling, moderately drying.",
+  "quote": "It is Saturn's quality chiefly to cool and, moderately, to dry, probably because he is furthest removed both from the sun's heat and the moist exhalations about the earth.",
+  "locator": "I.4, p.35-37",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#4",
+  "notes": "",
+  "data": {
+   "planet": "Saturn",
+   "primary": "cold",
+   "secondary": "dry (moderate)"
+  }
+ },
+ {
+  "id": "planet.mars.quality",
+  "topic": "planet_nature",
+  "rule_en": "Mars: chiefly drying and burning (dry and hot).",
+  "quote": "The nature of Mars is chiefly to dry and to burn, in conformity with his fiery colour and by reason of his nearness to the sun",
+  "locator": "I.4, p.37",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#4",
+  "notes": "",
+  "data": {
+   "planet": "Mars",
+   "primary": "dry",
+   "secondary": "hot (burning)"
+  }
+ },
+ {
+  "id": "planet.jupiter.quality",
+  "topic": "planet_nature",
+  "rule_en": "Jupiter: temperate; heats and moistens, heating predominating.",
+  "quote": "Jupiter has a temperate active force ... He both heats and humidifies; and because his heating power is the greater by reason of the underlying spheres, he produces fertilizing winds.",
+  "locator": "I.4, p.37",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#4",
+  "notes": "",
+  "data": {
+   "planet": "Jupiter",
+   "primary": "hot",
+   "secondary": "moist"
+  }
+ },
+ {
+  "id": "planet.venus.quality",
+  "topic": "planet_nature",
+  "rule_en": "Venus: temperate; chiefly moistening, moderately warming (the reverse emphasis of Jupiter).",
+  "quote": "Venus has the same powers and tempered nature as Jupiter, but acts in the opposite way; for she warms moderately because of her nearness to the sun, but chiefly humidifies, like the moon",
+  "locator": "I.4, p.37",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#4",
+  "notes": "",
+  "data": {
+   "planet": "Venus",
+   "primary": "moist",
+   "secondary": "hot (moderate)"
+  }
+ },
+ {
+  "id": "planet.mercury.quality",
+  "topic": "planet_nature",
+  "rule_en": "Mercury: alternately drying and moistening, changing quickly between them.",
+  "quote": "Mercury in general is found at certain times alike to be drying and absorptive of moisture ... and again humidifying ... and to change quickly from one to the other",
+  "locator": "I.4, p.39",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#4",
+  "notes": "",
+  "data": {
+   "planet": "Mercury",
+   "primary": "variable (dry or moist)",
+   "secondary": null
+  }
+ },
+ {
+  "id": "principle.humours",
+  "topic": "planet_nature",
+  "rule_en": "Hot and moist are generative/active; dry and cold are destructive/passive. This grounds the benefic/malefic split.",
+  "quote": "two of the four humours are fertile and active, the hot and the moist ... and two are destructive and passive, the dry and the cold",
+  "locator": "I.5, p.39",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "planet.benefics",
+  "topic": "planet_nature",
+  "rule_en": "Beneficent: Jupiter, Venus and the Moon.",
+  "quote": "the ancients accepted two of the planets, Jupiter and Venus, together with the moon, as beneficent because of their tempered nature and because they abound in the hot and the moist",
+  "locator": "I.5, p.39",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#5",
+  "notes": "Ptolemy reports this as the view of 'the ancients' and adopts it.",
+  "data": {
+   "beneficent": [
+    "Jupiter",
+    "Venus",
+    "Moon"
+   ]
+  }
+ },
+ {
+  "id": "planet.malefics",
+  "topic": "planet_nature",
+  "rule_en": "Maleficent: Saturn (excess cold) and Mars (excess dryness).",
+  "quote": "and Saturn and Mars as producing effects of the opposite nature, one because of his excessive cold and the other for his excessive dryness",
+  "locator": "I.5, p.39",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#5",
+  "notes": "",
+  "data": {
+   "maleficent": [
+    "Saturn",
+    "Mars"
+   ]
+  }
+ },
+ {
+  "id": "planet.common_sun_mercury",
+  "topic": "planet_nature",
+  "rule_en": "Sun and Mercury are 'common': benefic or malefic according to the planets they are associated with.",
+  "quote": "the sun and Mercury, however, they thought to have both powers, because they have a common nature, and to join their influences with those of the other planets, with whichever of them they are associated.",
+  "locator": "I.5, p.39",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#5",
+  "notes": "Note the Sun is listed as common here, not as a benefic.",
+  "data": {
+   "common": [
+    "Sun",
+    "Mercury"
+   ]
+  }
+ },
+ {
+  "id": "planet.gender",
+  "topic": "planet_nature",
+  "rule_en": "Feminine: Moon, Venus. Masculine: Sun, Saturn, Jupiter, Mars. Mercury: common to both.",
+  "quote": "the moon and Venus are feminine, because they share more largely in the moist, and that the sun, Saturn, Jupiter, and Mars are masculine, and Mercury common to both genders, inasmuch as he produces the dry and the moist alike.",
+  "locator": "I.6, p.41",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#6",
+  "notes": "",
+  "data": {
+   "feminine": [
+    "Moon",
+    "Venus"
+   ],
+   "masculine": [
+    "Sun",
+    "Saturn",
+    "Jupiter",
+    "Mars"
+   ],
+   "common": [
+    "Mercury"
+   ]
+  }
+ },
+ {
+  "id": "planet.gender_by_phase",
+  "topic": "planet_nature",
+  "rule_en": "Any planet becomes masculine as a morning star (rising before the Sun) and feminine as an evening star.",
+  "quote": "when they are morning stars and precede the sun they become masculine, and feminine when they are evening stars and follow the sun.",
+  "locator": "I.6, p.41",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#6",
+  "notes": "Introduced with 'They say too', i.e. reported doctrine. Robbins n.31 glosses morning = above the earth at sunrise."
+ },
+ {
+  "id": "planet.gender_by_quadrant",
+  "topic": "planet_nature",
+  "rule_en": "Planets in the quadrants ASC->MC and DSC->IC are masculine ('eastern'); in MC->DSC and IC->ASC they are feminine ('western').",
+  "quote": "when they are in positions from the orient to mid-heaven, or again from the occident to lower mid-heaven, they become masculine because they are eastern, but in the other two quadrants, as western stars, they become feminine.",
+  "locator": "I.6, p.41",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#6",
+  "notes": "Robbins n.32 (citing Cardanus) notes some instead count 4th->10th masculine."
+ },
+ {
+  "id": "planet.sect.lights_benefics",
+  "topic": "planet_sect",
+  "rule_en": "Nocturnal: Moon, Venus. Diurnal: Sun, Jupiter. Mercury diurnal as morning star, nocturnal as evening star.",
+  "quote": "the moon and Venus are nocturnal, the sun and Jupiter diurnal, and Mercury common as before, diurnal when it is a morning star and nocturnal as an evening star.",
+  "locator": "I.7, p.43",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#7",
+  "notes": ""
+ },
+ {
+  "id": "planet.sect.malefics",
+  "topic": "planet_sect",
+  "rule_en": "Saturn belongs to the diurnal sect, Mars to the nocturnal sect (each tempered by the opposite quality).",
+  "quote": "Thus they assigned Saturn, which is cold, to the warmth of the day, and Mars, which is dry, to the moisture of the night",
+  "locator": "I.7, p.43",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#7",
+  "notes": "",
+  "data": {
+   "diurnal": [
+    "Sun",
+    "Jupiter",
+    "Saturn",
+    "Mercury (as morning star)"
+   ],
+   "nocturnal": [
+    "Moon",
+    "Venus",
+    "Mars",
+    "Mercury (as evening star)"
+   ]
+  }
+ },
+ {
+  "id": "planet.moon_phase_qualities",
+  "topic": "planet_nature",
+  "rule_en": "Moon by phase: new->1st quarter moist; 1st quarter->full hot; full->last quarter dry; last quarter->new ('occultation') cold.",
+  "quote": "in its waxing from new moon to first quarter the moon is more productive of moisture; in its passage from first quarter to full, of heat; from full to last quarter, of dryness",
+  "locator": "I.8, p.45",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#8",
+  "notes": "Continues: 'and from last quarter to occultation, of cold' (I.8, same page)."
+ },
+ {
+  "id": "planet.planet_phase_qualities",
+  "topic": "planet_nature",
+  "rule_en": "Planets by solar phase: heliacal rising->1st station moist; 1st station->evening rising hot; evening rising->2nd station dry; 2nd station->setting cold.",
+  "quote": "The planets, in oriental aspects only, are more productive of moisture from rising to their first station, of heat from first station to evening rising, of dryness from evening rising to the second station",
+  "locator": "I.8, p.45",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#8",
+  "notes": "Text continues 'of cold from second station to setting'. Which planets: 'the moon and three of the planets'; Robbins n.35 says Saturn, Jupiter, Mars (a gloss in some MSS). 'Rising' = heliacal rising (n.37)."
+ },
+ {
+  "id": "zodiac.tropical_start_I10",
+  "topic": "zodiac",
+  "rule_en": "The zodiac is counted from the vernal equinox: Aries is the 30 deg beginning at the spring equinox (tropical zodiac).",
+  "quote": "although there is no natural beginning of the zodiac, since it is a circle, they assume that the sign which begins with the vernal equinox, that of Aries, is the starting-point of them all",
+  "locator": "I.10, p.59-61",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#10",
+  "notes": ""
+ },
+ {
+  "id": "zodiac.tropical_start_I22",
+  "topic": "zodiac",
+  "rule_en": "Sign boundaries are measured from the equinoxes and solstices, because the signs' natures derive from those points; other starting points would corrupt the sign natures.",
+  "quote": "it is reasonable to reckon the beginnings of the signs also from the equinoxes and solstices ... their natures, powers, and familiarities take their cause from the solstitial and equinoctial starting-places, and from no other source.",
+  "locator": "I.22, p.109-111",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#22",
+  "notes": "Robbins n.121-122 explain this is the tropical zodiac, distinct from the constellations because of precession."
+ },
+ {
+  "id": "seasons.qualities",
+  "topic": "zodiac",
+  "rule_en": "Seasons: spring moist, summer hot, autumn dry, winter cold (also the four ages of life in I.10).",
+  "quote": "spring exceeds in moisture ... the summer, in heat ... autumn more in dryness ... and winter exceeds in cold",
+  "locator": "I.10, p.59",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#10",
+  "notes": ""
+ },
+ {
+  "id": "angles.qualities",
+  "topic": "zodiac",
+  "rule_en": "Horizon regions/angles: east dry, south hot, west moist, north cold.",
+  "quote": "the eastern one likewise excels in dryness ... The region to the south is hottest ... The region to the west is itself moist ... The region to the north is the coldest",
+  "locator": "I.10, p.61-63",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#10",
+  "notes": ""
+ },
+ {
+  "id": "signs.solstitial",
+  "topic": "sign_nature",
+  "rule_en": "Solstitial ('tropical') signs: Cancer and Capricorn.",
+  "quote": "there are two solstitial signs, the first interval of 30° from the summer solstice, the sign of Cancer, and the first from the winter solstice, Capricorn",
+  "locator": "I.11, p.67",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#11",
+  "notes": "Robbins n.70: Greek 'tropikon'. Thayer n.69: solstitial+equinoctial = modern 'cardinal'.",
+  "data": {
+   "signs": [
+    "Cancer",
+    "Capricorn"
+   ]
+  }
+ },
+ {
+  "id": "signs.equinoctial",
+  "topic": "sign_nature",
+  "rule_en": "Equinoctial signs: Aries and Libra.",
+  "quote": "Two signs are called equinoctial, the one which is first from the spring equinox, Aries, and the one which begins with the autumnal equinox, Libra",
+  "locator": "I.11, p.67",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#11",
+  "notes": "",
+  "data": {
+   "signs": [
+    "Aries",
+    "Libra"
+   ]
+  }
+ },
+ {
+  "id": "signs.solid",
+  "topic": "sign_nature",
+  "rule_en": "Solid (fixed) signs: Taurus, Leo, Scorpio, Aquarius - the season's quality is felt most firmly.",
+  "quote": "The solid signs, Taurus, Leo, Scorpio, and Aquarius, are those which follow the solstitial and equinoctial signs",
+  "locator": "I.11, p.67",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#11",
+  "notes": "",
+  "data": {
+   "signs": [
+    "Taurus",
+    "Leo",
+    "Scorpio",
+    "Aquarius"
+   ]
+  }
+ },
+ {
+  "id": "signs.bicorporeal",
+  "topic": "sign_nature",
+  "rule_en": "Bicorporeal (double/mutable) signs: Gemini, Virgo, Sagittarius, Pisces - they share in two seasons.",
+  "quote": "The bicorporeal signs, Gemini, Virgo, Sagittarius, and Pisces, are those which follow the solid signs ... share, as it were, at end and beginning, the natural properties of the two states of weather.",
+  "locator": "I.11, p.67-69",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#11",
+  "notes": "Thayer's note 69: Ptolemy explains 'bicorporeal' by the sharing of two seasons, not by the constellation pictures (Virgo is not two-bodied).",
+  "data": {
+   "signs": [
+    "Gemini",
+    "Virgo",
+    "Sagittarius",
+    "Pisces"
+   ]
+  }
+ },
+ {
+  "id": "signs.masculine_feminine",
+  "topic": "sign_nature",
+  "rule_en": "Six signs masculine-diurnal, six feminine-nocturnal, alternating.",
+  "quote": "they assign six of the signs to the masculine and diurnal nature and an equal number to the feminine and nocturnal. An alternating order was assigned to them",
+  "locator": "I.12, p.69",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#12",
+  "notes": ""
+ },
+ {
+  "id": "signs.masculine_from_aries",
+  "topic": "sign_nature",
+  "rule_en": "Starting from Aries (masculine), signs alternate: masculine = Aries, Gemini, Leo, Libra, Sagittarius, Aquarius; feminine = Taurus, Cancer, Virgo, Scorpio, Capricorn, Pisces.",
+  "quote": "the signs of Aries and Libra were thought to be masculine and diurnal ... The signs in succession after them correspond, as we said, in alternating order.",
+  "locator": "I.12, p.69",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#12",
+  "notes": "The explicit sign lists are derived from the alternation rule; Ptolemy names only Aries and Libra. Consistent with I.17 (Leo masculine, Cancer feminine) and I.18 (triangles of three masculine / three feminine signs).",
+  "data": {
+   "masculine": [
+    "Aries",
+    "Gemini",
+    "Leo",
+    "Libra",
+    "Sagittarius",
+    "Aquarius"
+   ],
+   "feminine": [
+    "Taurus",
+    "Cancer",
+    "Virgo",
+    "Scorpio",
+    "Capricorn",
+    "Pisces"
+   ],
+   "derived": true
+  }
+ },
+ {
+  "id": "signs.masculine_from_horoscope_alt",
+  "topic": "sign_nature",
+  "rule_en": "Reported alternative (not Ptolemy's main rule): count masculine from the rising sign, either alternately or by whole quadrants (ASC->MC and DSC->IC masculine).",
+  "quote": "Some, however, employ an order of masculine and feminine signs whereby the masculine begins with the sign that is rising, called the horoscope.",
+  "locator": "I.12, p.69",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#12",
+  "notes": "Reported as the practice of 'some'; Ptolemy neither endorses nor rejects it explicitly."
+ },
+ {
+  "id": "signs.shape_epithets_omitted",
+  "topic": "sign_nature",
+  "rule_en": "Ptolemy declines to list shape-based sign epithets ('four-footed', 'terrestrial', 'commanding', 'fecund').",
+  "quote": "These, since their reason and their significance are directly derived, we think it superfluous to enumerate",
+  "locator": "I.12, p.71",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#12",
+  "notes": "No catalogue of such epithets exists in I.12; some are used ad hoc later (IV.4 anthropomorphic/quadrupedal/terrestrial/aquatic; IV.8)."
+ },
+ {
+  "id": "aspect.list.opposition_trine",
+  "topic": "aspects",
+  "rule_en": "Recognised aspects: opposition (6 signs, 180 deg) and trine (4 signs, 120 deg) ...",
+  "quote": "These are the ones which are in opposition, enclosing two right angles, six signs, and 180 degrees; those which are in trine, enclosing one and one-third right angles, four signs, and 120 degrees",
+  "locator": "I.13, p.73",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#13",
+  "notes": "Robbins n.76: only four aspects (opposition, trine, quartile, sextile); conjunction is not classed as an aspect here though it is used as one throughout the work. Intervals are measurable in whole signs.",
+  "data": {
+   "aspects": [
+    {
+     "name": "opposition",
+     "signs": 6,
+     "degrees": 180
+    },
+    {
+     "name": "trine",
+     "signs": 4,
+     "degrees": 120
+    },
+    {
+     "name": "quartile",
+     "signs": 3,
+     "degrees": 90
+    },
+    {
+     "name": "sextile",
+     "signs": 2,
+     "degrees": 60
+    }
+   ]
+  }
+ },
+ {
+  "id": "aspect.list.quartile_sextile",
+  "topic": "aspects",
+  "rule_en": "... quartile/square (3 signs, 90 deg) and sextile (2 signs, 60 deg).",
+  "quote": "enclosing one right angle, three signs, and 90 degrees, and finally those that occupy the sextile position, enclosing two-thirds of a right angle, two signs, and 60 degrees.",
+  "locator": "I.13, p.73",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#13",
+  "notes": "The word 'quartile' immediately precedes this quote (Thayer note b: modern 'square')."
+ },
+ {
+  "id": "aspect.why",
+  "topic": "aspects",
+  "rule_en": "Why only these: opposition is a straight line; the others come from the musical ratios 1/2, 1/3 (of the opposition) and 3/2, 4/3 (sextile:quartile, quartile:trine).",
+  "quote": "if we take the two fractions and the two superparticulars most important in music, and if the fractions one-half and one-third be applied to opposition",
+  "locator": "I.13, p.73-75",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#13",
+  "notes": "Robbins n.78: MSS add 'and trine' to the one-third clause; trine could be 1/3 of 360 deg or twice the sextile."
+ },
+ {
+  "id": "aspect.harmonious",
+  "topic": "aspects",
+  "rule_en": "Trine and sextile are harmonious (same-gender signs); quartile and opposition are disharmonious.",
+  "quote": "Of these aspects trine and sextile are called harmonious because they are composed of signs of the same kind ... while quartile and opposition are disharmonious because they are composed of signs of opposite kinds.",
+  "locator": "I.13, p.75",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#13",
+  "notes": "Ambiguity: by the alternation rule an opposition joins same-gender signs (e.g. Aries-Libra both masculine), yet the text says opposite kinds. Reported as printed."
+ },
+ {
+  "id": "signs.commanding_obeying",
+  "topic": "sign_relations",
+  "rule_en": "Commanding/obeying pairs: signs equidistant from the same equinoctial sign (equal ascensions); the summer-hemisphere one commands, the winter one obeys.",
+  "quote": "the names \"commanding\" and \"obeying\" are applied to the divisions of the zodiac which are disposed at an equal distance from the same equinoctial sign, whichever it may be, because they ascend in equal periods of time",
+  "locator": "I.14, p.75",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#14",
+  "notes": "Pairs are not listed by Ptolemy; Robbins n.80 gives (commanding first): Taurus-Pisces, Gemini-Aquarius, Cancer-Capricorn, Leo-Sagittarius, Virgo-Scorpio; Aries and Libra excluded. Summer hemisphere = Aries..Virgo (n.82).",
+  "data": {
+   "pairs_commanding_first_editorial": [
+    [
+     "Taurus",
+     "Pisces"
+    ],
+    [
+     "Gemini",
+     "Aquarius"
+    ],
+    [
+     "Cancer",
+     "Capricorn"
+    ],
+    [
+     "Leo",
+     "Sagittarius"
+    ],
+    [
+     "Virgo",
+     "Scorpio"
+    ]
+   ]
+  }
+ },
+ {
+  "id": "signs.commanding_summer",
+  "topic": "sign_relations",
+  "rule_en": "Of each pair, the sign in the summer (northern) hemisphere commands.",
+  "quote": "the ones in the summer hemisphere are called \"commanding\" and those in the winter hemisphere \"obedient\"",
+  "locator": "I.14, p.75-77",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#14",
+  "notes": ""
+ },
+ {
+  "id": "signs.beholding",
+  "topic": "sign_relations",
+  "rule_en": "Beholding / equal-power pairs: signs equidistant from the same solstitial sign (equal day lengths; rise and set at the same horizon points).",
+  "quote": "the parts which are equally removed from the same tropical sign, whichever it may be, are of equal power ... These also are said to \"behold\" one another",
+  "locator": "I.15, p.77",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#15",
+  "notes": "Pairs not listed by Ptolemy; Robbins n.83: Gemini-Leo, Taurus-Virgo, Aries-Libra, Pisces-Scorpio, Aquarius-Sagittarius; Cancer and Capricorn unpaired.",
+  "data": {
+   "pairs_editorial": [
+    [
+     "Gemini",
+     "Leo"
+    ],
+    [
+     "Taurus",
+     "Virgo"
+    ],
+    [
+     "Aries",
+     "Libra"
+    ],
+    [
+     "Pisces",
+     "Scorpio"
+    ],
+    [
+     "Aquarius",
+     "Sagittarius"
+    ]
+   ]
+  }
+ },
+ {
+  "id": "signs.disjunct",
+  "topic": "sign_relations",
+  "rule_en": "Disjunct ('alien') signs have no aspect, command/obey, or beholding relation.",
+  "quote": "\"Disjunct\" and \"alien\" are the names applied to those divisions of the zodiac which have none whatever of the aforesaid familiarities with one another.",
+  "locator": "I.16, p.77",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#16",
+  "notes": ""
+ },
+ {
+  "id": "signs.disjunct_distance",
+  "topic": "sign_relations",
+  "rule_en": "Disjunct signs are 1 or 5 signs apart (adjacent signs and the 150-degree interval).",
+  "quote": "to be entirely without share in the four aforesaid aspects, opposition, trine, quartile, and sextile, and are either one or five signs apart",
+  "locator": "I.16, p.79",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#16",
+  "notes": "Ptolemy also requires that they belong to no commanding/obeying or beholding pair. Checked against Robbins' pair lists (n.80, n.83): every such pair is 2, 4 or 6 signs apart, so all 1- and 5-apart pairs are disjunct."
+ },
+ {
+  "id": "domicile.luminaries",
+  "topic": "domicile",
+  "rule_en": "Domiciles of the luminaries: Sun - Leo; Moon - Cancer.",
+  "quote": "Leo, which is masculine, to the sun and Cancer, feminine, to the moon.",
+  "locator": "I.17, p.79",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#17",
+  "notes": ""
+ },
+ {
+  "id": "domicile.semicircles",
+  "topic": "domicile",
+  "rule_en": "Leo..Capricorn is the solar half, Aquarius..Cancer the lunar half; each of the five planets gets one sign in each half.",
+  "quote": "the semicircle from Leo to Capricorn to be solar and that from Aquarius to Cancer to be lunar",
+  "locator": "I.17, p.79",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#17",
+  "notes": ""
+ },
+ {
+  "id": "domicile.saturn",
+  "topic": "domicile",
+  "rule_en": "Saturn's domiciles: Capricorn and Aquarius.",
+  "quote": "were assigned the signs opposite Cancer and Leo, namely Capricorn and Aquarius",
+  "locator": "I.17, p.81",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#17",
+  "notes": "",
+  "data": {
+   "planet": "Saturn",
+   "signs": [
+    "Capricorn",
+    "Aquarius"
+   ]
+  }
+ },
+ {
+  "id": "domicile.jupiter",
+  "topic": "domicile",
+  "rule_en": "Jupiter's domiciles: Sagittarius and Pisces.",
+  "quote": "To Jupiter, which is moderate and below Saturn's sphere, were assigned the two signs next to the foregoing, windy and fecund, Sagittarius and Pisces",
+  "locator": "I.17, p.81",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#17",
+  "notes": "",
+  "data": {
+   "planet": "Jupiter",
+   "signs": [
+    "Sagittarius",
+    "Pisces"
+   ]
+  }
+ },
+ {
+  "id": "domicile.mars",
+  "topic": "domicile",
+  "rule_en": "Mars' domiciles: Scorpio and Aries.",
+  "quote": "to Mars, which is dry in nature and occupies a sphere under that of Jupiter, there were assigned again the two signs, contiguous to the former, Scorpio and Aries",
+  "locator": "I.17, p.81",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#17",
+  "notes": "",
+  "data": {
+   "planet": "Mars",
+   "signs": [
+    "Scorpio",
+    "Aries"
+   ]
+  }
+ },
+ {
+  "id": "domicile.venus",
+  "topic": "domicile",
+  "rule_en": "Venus' domiciles: Libra and Taurus.",
+  "quote": "To Venus, which is temperate and beneath Mars, were given the next two signs, which are extremely fertile, Libra and Taurus.",
+  "locator": "I.17, p.81",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#17",
+  "notes": "",
+  "data": {
+   "planet": "Venus",
+   "signs": [
+    "Libra",
+    "Taurus"
+   ]
+  }
+ },
+ {
+  "id": "domicile.mercury",
+  "topic": "domicile",
+  "rule_en": "Mercury's domiciles: Gemini and Virgo.",
+  "quote": "there were given to Mercury, which never is farther removed from the sun than one sign in either direction ... the remaining signs, Gemini and Virgo",
+  "locator": "I.17, p.83",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#17",
+  "notes": "Ptolemy names no 'detriment' (sign opposite a domicile) anywhere in I.17-I.23.",
+  "data": {
+   "planet": "Mercury",
+   "signs": [
+    "Gemini",
+    "Virgo"
+   ]
+  }
+ },
+ {
+  "id": "triplicity.1",
+  "topic": "triplicity",
+  "rule_en": "Triangle Aries-Leo-Sagittarius: Sun by day, Jupiter by night (Mars excluded as not of the solar sect).",
+  "quote": "The first of these, which passes through Aries, Leo, and Sagittarius, is composed of three masculine signs ... The sun assumes first governance of it by day and Jupiter by night.",
+  "locator": "I.18, p.83",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#18",
+  "notes": "Ptolemy also gives a wind/direction: preeminently northern, mixed with south-west (Borrolibycon).",
+  "data": {
+   "signs": [
+    "Aries",
+    "Leo",
+    "Sagittarius"
+   ],
+   "day": "Sun",
+   "night": "Jupiter"
+  }
+ },
+ {
+  "id": "triplicity.2",
+  "topic": "triplicity",
+  "rule_en": "Triangle Taurus-Virgo-Capricorn: Venus by day, Moon by night.",
+  "quote": "The second triangle, which is the one drawn through Taurus, Virgo, and Capricorn, is composed of three feminine signs, and consequently was assigned to the moon and Venus; the moon governs it by night and Venus by day.",
+  "locator": "I.18, p.85",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#18",
+  "notes": "Direction: preeminently southern, mixed with east (Notapeliotes).",
+  "data": {
+   "signs": [
+    "Taurus",
+    "Virgo",
+    "Capricorn"
+   ],
+   "day": "Venus",
+   "night": "Moon"
+  }
+ },
+ {
+  "id": "triplicity.3",
+  "topic": "triplicity",
+  "rule_en": "Triangle Gemini-Libra-Aquarius: Saturn by day, Mercury by night.",
+  "quote": "The third triangle is the one drawn through Gemini, Libra, and Aquarius ... It was assigned in turn to these, with Saturn governing during the day on account of his sect and Mercury by night.",
+  "locator": "I.18, p.87",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#18",
+  "notes": "Direction: primarily eastern.",
+  "data": {
+   "signs": [
+    "Gemini",
+    "Libra",
+    "Aquarius"
+   ],
+   "day": "Saturn",
+   "night": "Mercury"
+  }
+ },
+ {
+  "id": "triplicity.4",
+  "topic": "triplicity",
+  "rule_en": "Triangle Cancer-Scorpio-Pisces: ruled by Mars, with Venus co-ruling by day and the Moon by night.",
+  "quote": "The fourth triangle, which is the one drawn through Cancer, Scorpio, and Pisces, was left to the only remaining planet, Mars ... the moon by night and Venus by day are co-rulers.",
+  "locator": "I.18, p.87",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#18",
+  "notes": "Ambiguity: Mars is the principal ruler regardless of day/night; Venus (day) and Moon (night) are 'co-rulers'. Direction: preeminently western, mixed south-west. Ptolemy gives no third 'participating' triplicity ruler (that is Dorothean, not here).",
+  "data": {
+   "signs": [
+    "Cancer",
+    "Scorpio",
+    "Pisces"
+   ],
+   "ruler": "Mars",
+   "day_coruler": "Venus",
+   "night_coruler": "Moon"
+  }
+ },
+ {
+  "id": "exaltation.sun",
+  "topic": "exaltation",
+  "rule_en": "Sun: exalted in Aries, depressed (fall) in Libra.",
+  "quote": "they have fittingly assigned Aries to him as his exaltation, since there the length of the day and the heating power of his nature begin to increase, and Libra as his depression",
+  "locator": "I.19, p.89",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#19",
+  "notes": "Thayer note e: 'depression' = modern 'fall'. Ptolemy gives signs only - no exaltation degrees anywhere in I.19.",
+  "data": {
+   "planet": "Sun",
+   "exaltation": "Aries",
+   "depression": "Libra"
+  }
+ },
+ {
+  "id": "exaltation.saturn",
+  "topic": "exaltation",
+  "rule_en": "Saturn: exalted in Libra, depressed in Aries.",
+  "quote": "Saturn again, in order to have a position opposite to sun, as also in the matter of their houses, took, contrariwise, Libra as his exaltation and Aries as his depression.",
+  "locator": "I.19, p.89",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#19",
+  "notes": "",
+  "data": {
+   "planet": "Saturn",
+   "exaltation": "Libra",
+   "depression": "Aries"
+  }
+ },
+ {
+  "id": "exaltation.moon",
+  "topic": "exaltation",
+  "rule_en": "Moon: exalted in Taurus, depressed in Scorpio.",
+  "quote": "in the first sign of her own triangle, Taurus, this was called her exaltation, and the diametrically opposite sign, Scorpio, her depression.",
+  "locator": "I.19, p.89",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#19",
+  "notes": "",
+  "data": {
+   "planet": "Moon",
+   "exaltation": "Taurus",
+   "depression": "Scorpio"
+  }
+ },
+ {
+  "id": "exaltation.jupiter",
+  "topic": "exaltation",
+  "rule_en": "Jupiter: exalted in Cancer, depressed in Capricorn.",
+  "quote": "Jupiter, which produces the fecund north winds, reaches farthest north in Cancer ... they therefore made this sign his exaltation and Capricorn his depression.",
+  "locator": "I.19, p.89-91",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#19",
+  "notes": "",
+  "data": {
+   "planet": "Jupiter",
+   "exaltation": "Cancer",
+   "depression": "Capricorn"
+  }
+ },
+ {
+  "id": "exaltation.mars",
+  "topic": "exaltation",
+  "rule_en": "Mars: exalted in Capricorn, depressed in Cancer.",
+  "quote": "naturally received Capricorn as his exaltation, in contrast to Jupiter, and Cancer as his depression.",
+  "locator": "I.19, p.91",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#19",
+  "notes": "",
+  "data": {
+   "planet": "Mars",
+   "exaltation": "Capricorn",
+   "depression": "Cancer"
+  }
+ },
+ {
+  "id": "exaltation.venus",
+  "topic": "exaltation",
+  "rule_en": "Venus: exalted in Pisces, depressed in Virgo.",
+  "quote": "has her exaltation in Pisces and her depression in Virgo.",
+  "locator": "I.19, p.91",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#19",
+  "notes": "",
+  "data": {
+   "planet": "Venus",
+   "exaltation": "Pisces",
+   "depression": "Virgo"
+  }
+ },
+ {
+  "id": "exaltation.mercury",
+  "topic": "exaltation",
+  "rule_en": "Mercury: exalted in Virgo, depressed in Pisces.",
+  "quote": "Mercury, on the contrary, since he is drier, by contrast naturally is exalted, as it were, in Virgo, in which the dry autumn is signified, and is depressed in Pisces.",
+  "locator": "I.19, p.91",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#19",
+  "notes": "",
+  "data": {
+   "planet": "Mercury",
+   "exaltation": "Virgo",
+   "depression": "Pisces"
+  }
+ },
+ {
+  "id": "terms.two_systems",
+  "topic": "terms",
+  "rule_en": "Two current term systems: Egyptian (based on domiciles) and Chaldaean (based on triplicities). Ptolemy criticises the Egyptian order and quantities.",
+  "quote": "With regard to the terms two systems are most in circulation; the first is the Egyptian, which is chiefly based on the government of the houses, and the second the Chaldaean, resting upon the government of the triplicities.",
+  "locator": "I.20, p.91",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": ""
+ },
+ {
+  "id": "terms.egyptian_intro",
+  "topic": "terms",
+  "rule_en": "Introduces the Egyptian term table (I.20).",
+  "quote": "However, the terms most generally accepted on the authority of ancient tradition are given in the following fashion",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Robbins n.108: the Greek table also shows cumulative totals, omitted in the English."
+ },
+ {
+  "id": "terms.chaldaean_rule",
+  "topic": "terms",
+  "rule_en": "Chaldaean terms: in every sign 8,7,6,5,4 degrees, in an order set by triplicity lords (see data; table derived from the prose).",
+  "quote": "they always assign 8° to the first, 7° to the second, 6° to the third, 5° to the fourth, and 4° to the last; thus the 30° of a sign is made up.",
+  "locator": "I.21, p.101",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Order per I.21: triplicity 1 (Ari/Leo/Sag) Jupiter, Venus, Saturn&Mercury, Mars; triplicity 2 (Tau/Vir/Cap) Venus, Saturn&Mercury, Mars, Jupiter; 'this arrangement in general is observed also in the remaining two triplicities'. Saturn precedes Mercury by day, Mercury precedes Saturn by night. The orders for triplicities 3 and 4 in 'data' are DERIVED by continuing the rotation (Robbins n.112); the derived table reproduces Ptolemy's stated totals (Saturn 78 day/66 night, Jupiter 72, Mars 69, Venus 75, Mercury 66 day/78 night).",
+  "data": {
+   "derived": true,
+   "degrees": [
+    8,
+    7,
+    6,
+    5,
+    4
+   ],
+   "order_day": {
+    "Aries/Leo/Sagittarius": [
+     "Jupiter",
+     "Venus",
+     "Saturn",
+     "Mercury",
+     "Mars"
+    ],
+    "Taurus/Virgo/Capricorn": [
+     "Venus",
+     "Saturn",
+     "Mercury",
+     "Mars",
+     "Jupiter"
+    ],
+    "Gemini/Libra/Aquarius": [
+     "Saturn",
+     "Mercury",
+     "Mars",
+     "Jupiter",
+     "Venus"
+    ],
+    "Cancer/Scorpio/Pisces": [
+     "Mars",
+     "Jupiter",
+     "Venus",
+     "Saturn",
+     "Mercury"
+    ]
+   },
+   "night_rule": "swap Saturn and Mercury"
+  }
+ },
+ {
+  "id": "terms.chaldaean_totals",
+  "topic": "terms",
+  "rule_en": "Chaldaean totals per planet (used to check the derived table).",
+  "quote": "The sum of the number of degrees thus assigned to Saturn is 78 by day and 66 by night, to Jupiter 72, to Mars 69, to Venus 75, to Mercury 66 by day and 78 by night",
+  "locator": "I.21, p.101",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": ""
+ },
+ {
+  "id": "terms.egyptian_preferred_over_chaldaean",
+  "topic": "terms",
+  "rule_en": "Ptolemy judges the Egyptian terms more credible than the Chaldaean, then reports a corrected arrangement from an 'ancient manuscript' (his own table).",
+  "quote": "Now of these terms those which are constituted by the Egyptian method are, as we said, more worthy of credence",
+  "locator": "I.21, p.101",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Ambiguity for implementers: Ptolemy's own table (I.21, 'Terms according to Ptolemy') is presented as the true reading of the Egyptian scheme."
+ },
+ {
+  "id": "terms.ptolemy_order_rule",
+  "topic": "terms",
+  "rule_en": "Ptolemaic term order: a planet with two of (exaltation, triplicity, domicile) in the sign goes first; otherwise malefics last, and exaltation lord, then triplicity lord, then domicile lord.",
+  "quote": "the star that has two rulerships of this sort in the same sign is placed first, even though it may be maleficent. But wherever this condition does not exist, the maleficent planets are always put last",
+  "locator": "I.21, p.103",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": ""
+ },
+ {
+  "id": "terms.ptolemy_quantity_rule",
+  "topic": "terms",
+  "rule_en": "Ptolemaic term sizes: base 7 for Jupiter/Venus, 5 for Saturn/Mars, 6 for Mercury, adjusted +1 for double prerogatives (taken mostly from Saturn and Jupiter).",
+  "quote": "there are assigned to each of the beneficent planets, that is, to Jupiter and Venus, 7°; to the maleficent, Saturn and Mars, 5° each; and to Mercury, which is common, 6°",
+  "locator": "I.21, p.105",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": ""
+ },
+ {
+  "id": "terms.luminaries_none",
+  "topic": "terms",
+  "rule_en": "Sun and Moon have no terms; for ordering purposes Cancer counts for Mars and Leo for Saturn.",
+  "quote": "Since terms are not allotted to the luminaries, however, Cancer and Leo, the houses of the sun and moon, are assigned to the maleficent planets ... Cancer to Mars and Leo to Saturn",
+  "locator": "I.21, p.105",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": ""
+ },
+ {
+  "id": "dodecatemoria.rejected",
+  "topic": "minor_dignities",
+  "rule_en": "Others divide signs into 2.5-degree 'places' (dodecatemoria) and single 'degrees' (monomoiriai); Ptolemy omits these as unfounded.",
+  "quote": "Defining \"place\" as twelfth part of a sign, or 2½°, they assign the domination over them to the signs in order.",
+  "locator": "I.22, p.109",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#22",
+  "notes": "No decans / 10-degree faces appear anywhere in the Tetrabiblos text read (I.4-I.24, III.2-III.13, IV.1-IV.10)."
+ },
+ {
+  "id": "dodecatemoria.rejected_verdict",
+  "topic": "minor_dignities",
+  "rule_en": "Ptolemy rejects 2.5-degree places and single-degree rulerships.",
+  "quote": "These matters, as they have only plausible and not natural, but, rather, unfounded, arguments in their favour, we shall omit.",
+  "locator": "I.22, p.109",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#22",
+  "notes": ""
+ },
+ {
+  "id": "face.proper_face",
+  "topic": "minor_dignities",
+  "rule_en": "Proper face: a planet stands to the Sun/Moon in the same aspect its domicile has to the luminaries' domiciles (e.g. Venus sextile, occidental to the Sun and oriental to the Moon).",
+  "quote": "The planets are said to be in their \"proper face\" when an individual planet keeps to the sun or moon the same aspect which its house has to their houses",
+  "locator": "I.23, p.111",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#23",
+  "notes": "This 'face' is NOT the decan/10-degree face. Robbins n.123: the scholiast adds it must also be in its own house and aspect both luminaries."
+ },
+ {
+  "id": "face.chariots_thrones",
+  "topic": "minor_dignities",
+  "rule_en": "Chariot/throne: a planet with two or more dignities (house, triangle, exaltation, term) where it stands - power most increased.",
+  "quote": "They are said to be in their own \"chariots\" and \"thrones\" and the like when they happen to have familiarity in two or more of the aforesaid ways with the places in which they are found",
+  "locator": "I.23, p.111-113",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#23",
+  "notes": ""
+ },
+ {
+  "id": "face.rejoice",
+  "topic": "minor_dignities",
+  "rule_en": "Rejoicing: a planet in a sign belonging to a planet of its own sect (weaker sympathy).",
+  "quote": "They say they \"rejoice\" when, even though the containing signs have no familiarity with the signs themselves, nevertheless they have it with the stars of the same sect",
+  "locator": "I.23, p.113",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#23",
+  "notes": "Text says 'with the signs themselves', probably meaning with the planets themselves; reported as printed."
+ },
+ {
+  "id": "face.alien_sect",
+  "topic": "minor_dignities",
+  "rule_en": "A planet in regions belonging to the opposite sect loses much of its power.",
+  "quote": "when they are found in alien regions belonging to the opposite sect, a great part of their proper power is paralysed",
+  "locator": "I.23, p.113",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#23",
+  "notes": ""
+ },
+ {
+  "id": "application.definition",
+  "topic": "application",
+  "rule_en": "Application/separation: the preceding body applies to the following one; the following separates from the preceding; only when the interval is small.",
+  "quote": "In general those which precede are said to \"apply\" to those which follow, and those that follow to \"be separated\" from those that precede, when the interval between them is not great.",
+  "locator": "I.24, p.113",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#24",
+  "notes": "No orb number is given by Ptolemy. Robbins n.129: Ashmand's orbs (Saturn 10, Jupiter 12, Mars 7.5, Sun 17, Venus 8, Mercury 7.5, Moon 12.5) and the anonymous commentator's 15-degree maximum are later glosses. n.127 glosses 'those which precede' as 'more occidental'."
+ },
+ {
+  "id": "application.bodily_or_aspect",
+  "topic": "application",
+  "rule_en": "Applications occur by bodily conjunction or by aspect; for bodily ones check latitude (same side of the ecliptic); for aspects latitude is irrelevant.",
+  "quote": "whether it happens by bodily conjunction or through one of the traditional aspects, except that with respect to the bodily applications and separations of the heavenly bodies it is of use also to observe their latitudes",
+  "locator": "I.24, p.115",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#24",
+  "notes": ""
+ },
+ {
+  "id": "power.oriental",
+  "topic": "planet_strength",
+  "rule_en": "Strength 1: oriental and fast = strongest; occidental and slowing = weaker.",
+  "quote": "they are either oriental and adding to their proper motion — for then they are most powerful — or occidental and diminishing in speed, for then their energy is weaker.",
+  "locator": "I.24, p.115-117",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#24",
+  "notes": ""
+ },
+ {
+  "id": "power.angular",
+  "topic": "planet_strength",
+  "rule_en": "Strength 2: strongest at or approaching MC, next on the horizon or in the succedent place; more in the east than at the IC.",
+  "quote": "they are most powerful when they are in mid-heaven or approaching it, and second when they are exactly on the horizon or in the succedent place",
+  "locator": "I.24, p.117",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#24",
+  "notes": ""
+ },
+ {
+  "id": "power.no_aspect_to_orient",
+  "topic": "planet_strength",
+  "rule_en": "A planet in no aspect to the ascendant is powerless.",
+  "quote": "if they bear no aspect at all to the orient they are entirely powerless.",
+  "locator": "I.24, p.117",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#24",
+  "notes": "Robbins n.135: i.e. disjunct from the ascendant."
+ },
+ {
+  "id": "method.five_dominations",
+  "topic": "method",
+  "rule_en": "Five ways a planet rules a place: triplicity, domicile, exaltation, term, and phase/aspect. The ruler is the planet with most of these.",
+  "quote": "In general the mode of domination is considered as falling under these five forms: when it is trine, house, exaltation, term, and phase or aspect",
+  "locator": "III.2, p.233",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3A*.html#2",
+  "notes": ""
+ },
+ {
+  "id": "method.topic_place",
+  "topic": "method",
+  "rule_en": "General method: find the place relevant to the topic (e.g. MC for action, Sun for the father), then its rulers by the five ways.",
+  "quote": "we should examine that place of the zodiac which is pertinent to the specific heading of the geniture which is subject to query; for example, the mid-heaven, for the query about action",
+  "locator": "III.3, p.237",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3A*.html#3",
+  "notes": ""
+ },
+ {
+  "id": "method.topic_rulers",
+  "topic": "method",
+  "rule_en": "Rulers of the topical place are chosen by the five modes of domination; one with all claims, or the one(s) with more claims.",
+  "quote": "then we must observe those planets which have the election of rulership to the place in question by the five ways aforesaid",
+  "locator": "III.3, p.237-239",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3A*.html#3",
+  "notes": ""
+ },
+ {
+  "id": "method.strength_cosmos_nativity",
+  "topic": "method",
+  "rule_en": "Magnitude: rulers are strongest in own/familiar signs and oriental/adding to motion (cosmos), and on angles or succedent signs, especially ASC and MC (nativity).",
+  "quote": "they are most effective when, with respect to the cosmos, they are in their own or in familiar regions, and again when they are rising and are increasing in their numbers",
+  "locator": "III.3, p.239",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3A*.html#3",
+  "notes": ""
+ },
+ {
+  "id": "method.oriental_quadrants",
+  "topic": "method",
+  "rule_en": "Timing: relative to the Sun and to the ASC, the preceding quadrant and its opposite are oriental (effects early); the others occidental (effects later).",
+  "quote": "the quadrants which precede each of them and those which are diametrically opposite are oriental, and the others, which follow, are occidental.",
+  "locator": "III.3, p.241",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3A*.html#3",
+  "notes": ""
+ },
+ {
+  "id": "method.parents_significators",
+  "topic": "method",
+  "rule_en": "Parents: Sun and Saturn signify the father; Moon and Venus the mother.",
+  "quote": "the sun and Saturn are by nature associated with the person of the father and the moon and Venus with that of the mother",
+  "locator": "III.4, p.241",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3A*.html#4",
+  "notes": "Only the significator rule is recorded; longevity/death rules for parents are skipped by instruction."
+ },
+ {
+  "id": "method.derived_horoscope",
+  "topic": "method",
+  "rule_en": "Derived charts: treat the parent's significator place as an ascendant and judge it like a nativity.",
+  "quote": "it would be fitting and consistent to set up the paternal or maternal place of the sect as a horoscope",
+  "locator": "III.4, p.249",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3A*.html#4",
+  "notes": ""
+ },
+ {
+  "id": "aphetic.places",
+  "topic": "aphetic",
+  "rule_en": "Aphetic place 1: the 30 deg around the ascendant, from 5 deg above the horizon to 25 deg below it.",
+  "quote": "namely, the twelfth part of the zodiac surrounding the horoscope, from 5° above the actual horizon up to the 25° that remains, which is rising in succession to the horizon",
+  "locator": "III.10, p.273",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B*.html#10",
+  "notes": "Robbins n.56 lists the traditional 12 house names; Ptolemy here uses I (horoscope), XI, X, IX, VII."
+ },
+ {
+  "id": "aphetic.places_others",
+  "topic": "aphetic",
+  "rule_en": "Other aphetic places: 11th (Good Daemon, sextile dexter), 10th (mid-heaven), 9th (House of the God, trine), 7th (Occident).",
+  "quote": "the part sextile dexter to these thirty degrees, called the House of the Good Daemon; the part in quartile, the mid-heaven; the part in trine, called the House of the God; and the part opposite, the Occident.",
+  "locator": "III.10, p.273",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B*.html#10",
+  "notes": "",
+  "data": {
+   "aphetic_places": [
+    "ASC (5 deg above to 25 deg below horizon)",
+    "11th",
+    "10th",
+    "9th",
+    "7th"
+   ]
+  }
+ },
+ {
+  "id": "aphetic.preference",
+  "topic": "aphetic",
+  "rule_en": "Order of preference among aphetic places: MC, ASC, 11th, 7th, 9th.",
+  "quote": "first those which are in the mid-heaven, then those in the orient, then those in the sign succedent to the mid-heaven, then those in the occident, then those in the sign rising before mid-heaven",
+  "locator": "III.10, p.273",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B*.html#10",
+  "notes": "",
+  "data": {
+   "preference": [
+    "10th",
+    "1st",
+    "11th",
+    "7th",
+    "9th"
+   ]
+  }
+ },
+ {
+  "id": "aphetic.below_earth_excluded",
+  "topic": "aphetic",
+  "rule_en": "Places below the horizon are excluded (except the part of the ascendant zone still rising).",
+  "quote": "for the whole region below the earth must, as is reasonable, be disregarded when a domination of such importance is concerned, except only those parts which in the ascendant itself are coming into the light.",
+  "locator": "III.10, p.273",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B*.html#10",
+  "notes": ""
+ },
+ {
+  "id": "aphetic.8th_12th_excluded",
+  "topic": "aphetic",
+  "rule_en": "The 8th (disjunct from ASC) and 12th (Evil Daemon) are excluded.",
+  "quote": "it is not fitting to consider either the sign that is disjunct from the ascendant, nor that which rose before it, called the House of the Evil Daemon",
+  "locator": "III.10, p.273-275",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B*.html#10",
+  "notes": "Robbins n.57-58 identify these as the 8th and 12th houses."
+ },
+ {
+  "id": "aphetic.prorogatives",
+  "topic": "aphetic",
+  "rule_en": "Candidate prorogators (hyleg): Sun, Moon, Horoscope, Lot of Fortune, and the rulers of these.",
+  "quote": "we must take as prorogatives the four regions of greatest authority, sun, moon, horoscope, the Lot of Fortune, and the rulers of these regions.",
+  "locator": "III.10, p.275",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B*.html#10",
+  "notes": ""
+ },
+ {
+  "id": "lot_of_fortune.formula",
+  "topic": "lot_of_fortune",
+  "rule_en": "Lot of Fortune = ASC + (Moon - Sun), measured in zodiacal order, the SAME formula by day and by night (no nocturnal reversal).",
+  "quote": "Take as the Lot of Fortune always the amount of the number of degrees, both by night and by day, which is the distance from the sun to the moon",
+  "locator": "III.10, p.275",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B*.html#10",
+  "notes": "Robbins n.59 restates: lay out the sun-to-moon distance in the order of the signs from the horoscope. Robbins n.61: some MSS/Camerarius add a scholion reversing it by night; Robbins judges that passage spurious.",
+  "data": {
+   "formula": "Fortune = ASC + (Moon - Sun) mod 360",
+   "reverse_by_night": false
+  }
+ },
+ {
+  "id": "lot_of_fortune.lunar_horoscope",
+  "topic": "lot_of_fortune",
+  "rule_en": "Rationale: the Lot stands to the Moon as the ASC stands to the Sun - a 'lunar horoscope'.",
+  "quote": "which extends to an equal distance from the horoscope in the order of the following signs, in order that, whatever relation and aspect the sun bears to the horoscope, the moon also may bear to the Lot of Fortune",
+  "locator": "III.10, p.275-277",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B*.html#10",
+  "notes": ""
+ },
+ {
+  "id": "aphetic.day_night_choice",
+  "topic": "aphetic",
+  "rule_en": "Choice of prorogator: by day Sun, then Moon, then planet with most dominations, else ASC; by night Moon, then Sun, then planet, else ASC (prior new moon) or Lot of Fortune (prior full moon).",
+  "quote": "by day we must give first place to the sun, if it is in the prorogative places; if not, to the moon ... By night prefer the moon first",
+  "locator": "III.10, p.277",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B*.html#10",
+  "notes": "Recorded only as the selection rule; length-of-life computation skipped by instruction."
+ },
+ {
+  "id": "method.body_form",
+  "topic": "body_form",
+  "rule_en": "Bodily form/temperament: judged from the ascendant, planets on it or ruling it, and the Moon (and her ruler), plus fixed stars rising with them.",
+  "quote": "We must, then, in general observe the eastern horizon and the planets that are upon it or assume its rulership in the way already explained; and in particular also the moon as well",
+  "locator": "III.11, p.307",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3C*.html#11",
+  "notes": ""
+ },
+ {
+  "id": "body_form.saturn",
+  "topic": "body_form",
+  "rule_en": "Saturn rising: temperament moist and cold; setting: cold and dry.",
+  "quote": "and in temperament having an excess of the moist and cold. If Saturn is setting",
+  "locator": "III.11, p.309",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3C*.html#11",
+  "notes": "Continues 'in temperament, sharing most in the cold and dry' for setting Saturn."
+ },
+ {
+  "id": "body_form.jupiter",
+  "topic": "body_form",
+  "rule_en": "Jupiter rising: hot and moist; setting: excess of the moist.",
+  "quote": "in temperament they exceed in the hot and the moist. When Jupiter is setting",
+  "locator": "III.11, p.309",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3C*.html#11",
+  "notes": ""
+ },
+ {
+  "id": "body_form.mars",
+  "topic": "body_form",
+  "rule_en": "Mars rising: warm and dry; setting: dry.",
+  "quote": "in temperament showing an excess of the warm and dry. When he is setting",
+  "locator": "III.11, p.311",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3C*.html#11",
+  "notes": ""
+ },
+ {
+  "id": "body_form.venus",
+  "topic": "body_form",
+  "rule_en": "Venus: like Jupiter but more shapely/graceful.",
+  "quote": "Venus has effects similar to Jupiter's, but is apt to make her subjects more shapely, graceful, womanish",
+  "locator": "III.11, p.311",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3C*.html#11",
+  "notes": ""
+ },
+ {
+  "id": "body_form.mercury",
+  "topic": "body_form",
+  "rule_en": "Mercury oriental: warm; occidental: dry.",
+  "quote": "in temperament, showing an excess of the warm. In the occident",
+  "locator": "III.11, p.311",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3C*.html#11",
+  "notes": ""
+ },
+ {
+  "id": "body_form.quadrants",
+  "topic": "body_form",
+  "rule_en": "Zodiacal quadrants: Aries-Gemini moist/warm; Cancer-Virgo warm/dry; Libra-Sagittarius dry/cold; Capricorn-Pisces cold/moist.",
+  "quote": "the quadrant from the spring equinox to the summer solstice makes the subjects well-favoured in complexion, stature, robustness, and eyes, and exceeding in the moist and warm.",
+  "locator": "III.11, p.313-315",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3C*.html#11",
+  "notes": ""
+ },
+ {
+  "id": "method.soul",
+  "topic": "soul_quality",
+  "rule_en": "Rational soul: judged from Mercury.",
+  "quote": "Of the qualities of the soul, those which concern the reason and the mind are apprehended by means of the condition of Mercury observed on the particular occasion",
+  "locator": "III.13, p.333",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": ""
+ },
+ {
+  "id": "method.soul_irrational",
+  "topic": "soul_quality",
+  "rule_en": "Sensory/irrational soul: judged from the Moon and the planets she separates from and applies to.",
+  "quote": "the qualities of the sensory and irrational part are discovered from the one of the luminaries which is the more corporeal, that is, the moon, and from the planets which are configurated with her in her separations and applications.",
+  "locator": "III.13, p.333",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": ""
+ },
+ {
+  "id": "method.soul_signs_rulers",
+  "topic": "soul_quality",
+  "rule_en": "Also weigh the signs holding Mercury and the Moon, the planets ruling them, and their aspects to the Sun and angles.",
+  "quote": "the differences between the signs which contain Mercury and the moon, or the planets that dominate them, can contribute much to the character of the soul",
+  "locator": "III.13, p.333",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": ""
+ },
+ {
+  "id": "soul.sign_classes",
+  "topic": "soul_quality",
+  "rule_en": "Sign classes for the soul: solstitial = public, political, inventive; bicorporeal = complex, changeable; solid = just, firm, persistent.",
+  "quote": "the solstitial signs produce souls fitted for dealing with the people ... The bicorporeal signs make souls complex, changeable ... The solid signs make them just, unaffected by flattery, persistent, firm",
+  "locator": "III.13, p.335",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": ""
+ },
+ {
+  "id": "soul.ruler",
+  "topic": "soul_quality",
+  "rule_en": "The 'ruler of the soul' is the planet dominating Mercury and the Moon; Ptolemy then lists traits per planet, in honourable vs. opposite positions.",
+  "quote": "If Saturn alone is ruler of the soul and dominates Mercury and the moon",
+  "locator": "III.13, p.339",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": ""
+ },
+ {
+  "id": "soul.governors_own_houses",
+  "topic": "soul_quality",
+  "rule_en": "Strongest when the same planet both aspects Mercury and holds the Moon's separation/application.",
+  "quote": "especially when the same planets rule the two places at once, that is, when they are configurated to Mercury in any aspect whatever, and hold the separation or application of the moon",
+  "locator": "III.13, p.337",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": ""
+ },
+ {
+  "id": "soul.moon_condition",
+  "topic": "soul_quality",
+  "rule_en": "Moon's condition modifies character: at northern/southern limits versatile; at nodes keen; waxing gifted/firm; waning sluggish.",
+  "quote": "nevertheless the condition of the moon itself also makes a certain contribution",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": ""
+ },
+ {
+  "id": "soul.sun_aids",
+  "topic": "soul_quality",
+  "rule_en": "The Sun, when familiar with the soul's ruler, modifies it (honourable position: justice, honour; alien: humbler, harsher).",
+  "quote": "The sun also aids, when it is familiar with the planet that governs the temperament of the soul",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": ""
+ },
+ {
+  "id": "fortune.material.lot",
+  "topic": "material_fortune",
+  "rule_en": "Wealth: from the Lot of Fortune, computed from the ASC by the Sun->Moon distance, the same for day and night births.",
+  "quote": "What the subject's material acquisitions will be is to be gained from the so-called \"Lot of Fortune\" ... we measure from the horoscope the distance from the sun to the moon, in both diurnal and nocturnal nativities",
+  "locator": "IV.2, p.373",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Robbins n.1: the authenticity of the clause ending 'nativities' is doubtful (it seems to refer to the interpolated sentence in III.10). Either way, III.10 itself says 'both by night and by day'."
+ },
+ {
+  "id": "fortune.material.rulers",
+  "topic": "material_fortune",
+  "rule_en": "Judge the rulers of the Lot's sign (by the five modes) for power and familiarity, plus planets aspecting or overcoming them.",
+  "quote": "we shall be obliged therefore to take the lordship of the sign, and observe what is the condition of these planets with regard to power and familiarity",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": ""
+ },
+ {
+  "id": "fortune.material.sources",
+  "topic": "material_fortune",
+  "rule_en": "Source of wealth by ruler of the Lot: Saturn building/farming/shipping; Jupiter trusts/guardianship/priesthood; Mars military; Venus gifts from friends or women; Mercury eloquence and trade.",
+  "quote": "Saturn brings riches through building, or agriculture, or shipping ventures, Jupiter through fiduciary relationships, guardianships, or priesthoods, Mars through military operations and command, Venus through gifts from friends or women, and Mercury through eloquence and trade.",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": ""
+ },
+ {
+  "id": "fortune.dignity.method",
+  "topic": "fortune_of_dignity",
+  "rule_en": "Rank/honour: judged from the luminaries (masculine signs, angularity) and their attending planets.",
+  "quote": "It will be needful to determine the questions of dignity and happiness resulting therefrom from the position of the luminaries and the familiarity to them of their attendant planets.",
+  "locator": "IV.3, p.377",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#3",
+  "notes": "Robbins n.5 explains 'attendance' via Porphyry. The grades (kings, generals...) are predictions; only the method is recorded."
+ },
+ {
+  "id": "fortune.dignity.luminary_of_sect",
+  "topic": "fortune_of_dignity",
+  "rule_en": "Best case: luminary of the sect attended by planets rising before the Sun (morning) and after the Moon (evening).",
+  "quote": "particularly if the luminary of the sect is also attended by the five planets, matutine to the sun and vespertine to the moon",
+  "locator": "IV.3, p.377",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#3",
+  "notes": ""
+ },
+ {
+  "id": "fortune.dignity.kind",
+  "topic": "fortune_of_dignity",
+  "rule_en": "Kind of honour by governing attendant: Saturn wealth; Jupiter/Venus favours and gifts; Mars generalship; Mercury intelligence and administration.",
+  "quote": "if Saturn governs the attendance, he brings about power based on wealth and the amassing of riches, but Jupiter or Venus that which rests upon favours, gifts, honours, and magnanimity",
+  "locator": "IV.3, p.381",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#3",
+  "notes": ""
+ },
+ {
+  "id": "action.lord",
+  "topic": "action",
+  "rule_en": "Lord of action (profession): from the Sun and from the MC.",
+  "quote": "The lord of action is apprehended by two methods, from the sun and from the culminating sign.",
+  "locator": "IV.4, p.381",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": ""
+ },
+ {
+  "id": "action.lord_detail",
+  "topic": "action",
+  "rule_en": "Candidates: the planet with the most recent morning (heliacal) appearance nearest the Sun, and the planet at MC, especially if the Moon applies to it. If both, weigh by the five dominations.",
+  "quote": "it will be needful to look both for the planet that has made its morning appearance closest to the sun, and that which is at mid-heaven, particularly when it occupies the application of the moon",
+  "locator": "IV.4, p.381",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": ""
+ },
+ {
+  "id": "action.fallback",
+  "topic": "action",
+  "rule_en": "If none qualifies, use the ruler of the MC (such natives are 'for the most part inactive').",
+  "quote": "But if not one is found which either has made an appearance or is at mid-heaven, we must take the lord of the latter region",
+  "locator": "IV.4, p.383",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": ""
+ },
+ {
+  "id": "action.quality_planets",
+  "topic": "action",
+  "rule_en": "Type of occupation: from Mars, Venus and Mercury (whichever rules action) and their signs; Saturn and Jupiter 'testify' to modify.",
+  "quote": "The quality of the action, however, is to be discerned from the character of the three planets, Mars, Venus, and Mercury, and from that of the signs through which they happen appear to be passing.",
+  "locator": "IV.4, p.383",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "'happen appear' is as printed on the site (probably a transcription slip)."
+ },
+ {
+  "id": "action.amplitude",
+  "topic": "action",
+  "rule_en": "Rising/angular rulers of action: independent work; setting/cadent: subordinate.",
+  "quote": "For when they are rising or angular the actions which they cause are independent, but if they are setting or declining from the angles, subordinate",
+  "locator": "IV.4, p.391",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": ""
+ },
+ {
+  "id": "marriage.men_moon",
+  "topic": "marriage",
+  "rule_en": "Marriage for men: judge from the Moon.",
+  "quote": "For men it is necessary to observe the position of the moon in their genitures.",
+  "locator": "IV.5, p.393",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": "Robbins n.30: 'their moon' = the Moon in the native's chart."
+ },
+ {
+  "id": "marriage.women_sun",
+  "topic": "marriage",
+  "rule_en": "Marriage for women: judge from the Sun.",
+  "quote": "In the case of the wives one must observe the sun in their genitures",
+  "locator": "IV.5, p.395",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.moon_quadrant",
+  "topic": "marriage",
+  "rule_en": "Moon in eastern quadrants: man marries young or a younger wife; western: late or an older wife. (Same rule for the Sun in women's charts.)",
+  "quote": "if she chances to be in the eastern quadrants, she makes men marry young or marry women younger than themselves; but if she is in the western quadrants",
+  "locator": "IV.5, p.393",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.quadrant_definition",
+  "topic": "marriage",
+  "rule_en": "Definition: for the Sun, eastern = quadrants MC->ASC and IC->DSC; for the Moon, eastern = phases new->first quarter and full->last quarter.",
+  "quote": "we mean by eastern quadrants, in the case of the sun, the signs which precede the rising sign ... and those which precede the setting sign; with reference to the moon, the signs from new and full moon to the quarters",
+  "locator": "IV.5, p.397",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.no_marriage",
+  "topic": "marriage",
+  "rule_en": "Moon under the Sun's beams and aspecting Saturn: no marriage (men).",
+  "quote": "if she is under the rays of the sun and in aspect with Saturn, they do not marry at all.",
+  "locator": "IV.5, p.393",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": "Robbins n.31: 'under the rays' = within 15 deg of the Sun."
+ },
+ {
+  "id": "marriage.number",
+  "topic": "marriage",
+  "rule_en": "Moon in a single-figure sign or applying to one planet: one marriage; in a bicorporeal/multiform sign or applying to several: more than one.",
+  "quote": "if the moon is in a sign of a single figure, or is applying to one of the planets, she makes them men of one marriage; but if she is in a bicorporeal or multiform sign",
+  "locator": "IV.5, p.393-395",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": "Robbins n.32: the anonymous commentator takes 'single figure' as the tropical and solid signs (except the fecund)."
+ },
+ {
+  "id": "marriage.wife_quality",
+  "topic": "marriage",
+  "rule_en": "Planet the Moon applies to describes the wife.",
+  "quote": "If she applies to Saturn, he makes the wives hardworking and stern; Jupiter, dignified and good managers; Mars, bold and unruly; Venus, cheerful, beautiful, and charming; Mercury, intelligent and keen.",
+  "locator": "IV.5, p.395",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.husband_quality",
+  "topic": "marriage",
+  "rule_en": "Planet aspecting the Sun describes the husband (continues: Venus neat and handsome; Mercury thrifty and practical).",
+  "quote": "If Saturn is similarly in aspect with the sun, they marry sedate, useful, industrious husbands; if Jupiter is in aspect, dignified and magnanimous; Mars, men of action, lacking in affection, and unruly",
+  "locator": "IV.5, p.397",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.synastry_lasting",
+  "topic": "marriage",
+  "rule_en": "Synastry: lasting marriage when the luminaries of the two charts are in trine/sextile, especially by exchange, most of all husband's Moon to wife's Sun.",
+  "quote": "Marriages for the most part are lasting when in both the genitures the luminaries happen to be in harmonious aspect, that is, in trine or in sextile with one another",
+  "locator": "IV.5, p.397",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.synastry_husband_moon_wife_sun",
+  "topic": "marriage",
+  "rule_en": "Strongest bond: husband's Moon harmonious with wife's Sun.",
+  "quote": "and even more when the husband's moon is in such aspect with the wife's sun.",
+  "locator": "IV.5, p.397-399",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.synastry_divorce",
+  "topic": "marriage",
+  "rule_en": "Luminaries disjunct, opposite or square between the charts: separations.",
+  "quote": "when the aforesaid positions of the luminaries are in disjunct signs, or in opposition or in quartile.",
+  "locator": "IV.5, p.399",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.other_unions",
+  "topic": "marriage",
+  "rule_en": "Other unions: judge from Venus, Mars and Saturn.",
+  "quote": "Marriages which come about in any other manner whatsoever must be judged by looking to Venus, Mars, and Saturn.",
+  "locator": "IV.5, p.399",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.men_mars",
+  "topic": "marriage",
+  "rule_en": "Men's disposition in love: from Mars.",
+  "quote": "In general we shall, in the case of men, investigate through Mars what will be their disposition with respect to matters of love.",
+  "locator": "IV.5, p.405",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "marriage.women_venus",
+  "topic": "marriage",
+  "rule_en": "Women's disposition in love: from Venus.",
+  "quote": "In the genitures of women one must examine Venus.",
+  "locator": "IV.5, p.407",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#5",
+  "notes": ""
+ },
+ {
+  "id": "friends.places",
+  "topic": "friends_enemies",
+  "rule_en": "Friendship/enmity: compare Sun, Moon, ASC and Lot of Fortune of both charts.",
+  "quote": "we must observe the places in both nativities which have the greatest authority, that is, those of the sun, the moon, the horoscope, and the Lot of Fortune",
+  "locator": "IV.7, p.413",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#7",
+  "notes": ""
+ },
+ {
+  "id": "friends.same_signs",
+  "topic": "friends_enemies",
+  "rule_en": "Same signs or exchanged places (esp. ascendants within ~17 deg): secure friendship.",
+  "quote": "if they chance to fall in the same signs of the zodiac, or if they exchange places, either all or most of them, and particularly if the horoscopic regions are about 17° apart",
+  "locator": "IV.7, p.413-415",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#7",
+  "notes": ""
+ },
+ {
+  "id": "friends.enmity",
+  "topic": "friends_enemies",
+  "rule_en": "Disjunct or opposite signs: deep enmity.",
+  "quote": "However, if they are in disjunct signs of opposite signs, they produce the deepest enmities and lasting contentions.",
+  "locator": "IV.7, p.415",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#7",
+  "notes": "Text reads 'disjunct signs of opposite signs' - almost certainly 'or opposite' (transcription or print slip); ambiguous as printed."
+ },
+ {
+  "id": "friends.aspects",
+  "topic": "friends_enemies",
+  "rule_en": "Trine/sextile: lesser friendship; quartile: lesser enmity.",
+  "quote": "if they are in trine or in sextile, they make the sympathies less, and in quartile, the antipathies less.",
+  "locator": "IV.7, p.415",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#7",
+  "notes": ""
+ },
+ {
+  "id": "friends.three_kinds",
+  "topic": "friends_enemies",
+  "rule_en": "Luminaries linked: friendship by choice; Lots of Fortune linked: by need; ascendants linked: by pleasure or pain.",
+  "quote": "But when the places of the luminaries only are in familiarity, the friendship will result from choice",
+  "locator": "IV.7, p.415",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#7",
+  "notes": ""
+ },
+ {
+  "id": "friends.slaves",
+  "topic": "friends_enemies",
+  "rule_en": "Slaves/servants and their masters: from the 12th place (Evil Daemon) and planets regarding it.",
+  "quote": "is elucidated from the house of the Evil Daemon",
+  "locator": "IV.7, p.421",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4B*.html#7",
+  "notes": "Robbins n.55: the passage is difficult."
+ },
+ {
+  "id": "travel.luminaries",
+  "topic": "travel",
+  "rule_en": "Travel: from the luminaries' relation to the angles, especially the Moon.",
+  "quote": "The topic of foreign travel receives treatment by observing the position of the luminaries to the angles, both of them, but particularly the moon.",
+  "locator": "IV.8, p.423",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#8",
+  "notes": ""
+ },
+ {
+  "id": "travel.moon_cadent",
+  "topic": "travel",
+  "rule_en": "Moon in the 7th or cadent from angles: journeys abroad.",
+  "quote": "For when the moon is setting or declining from the angles, she portends journeys abroad or changes of place.",
+  "locator": "IV.8, p.423",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#8",
+  "notes": "Robbins n.57: 7th and the cadent 3rd, 6th, 9th, 12th = 'signs that cause travel'."
+ },
+ {
+  "id": "travel.mars",
+  "topic": "travel",
+  "rule_en": "Mars setting or cadent from MC and opposite/square the luminaries: also travel.",
+  "quote": "Mars too sometimes has a similar force, either when he is setting or when he himself also has declined from mid-heaven, when he is in opposition or quartile to the luminaries.",
+  "locator": "IV.8, p.423",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#8",
+  "notes": ""
+ },
+ {
+  "id": "travel.lot",
+  "topic": "travel",
+  "rule_en": "Lot of Fortune in the travel signs: life spent abroad.",
+  "quote": "If the Lot of Fortune also falls among the signs that cause travel, the subjects spend their whole lives abroad",
+  "locator": "IV.8, p.423",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#8",
+  "notes": ""
+ },
+ {
+  "id": "travel.direction",
+  "topic": "travel",
+  "rule_en": "Direction: luminaries in eastern quadrants -> east/south; western -> north/west.",
+  "quote": "if the luminaries fall in the lower parts of the eastern quadrants, the travel is to the eastern and southern parts of the world, but if in the western quadrants ... to the north and the west",
+  "locator": "IV.8, p.425",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#8",
+  "notes": ""
+ },
+ {
+  "id": "travel.frequency",
+  "topic": "travel",
+  "rule_en": "Single-figure travel signs: occasional journeys; bicorporeal: continuous, long travel.",
+  "quote": "if the zodiacal signs which caused the travel chance to be those of a single figure, either themselves or the planets that rule them, the journeys will be made at long intervals",
+  "locator": "IV.8, p.425",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#8",
+  "notes": ""
+ },
+ {
+  "id": "travel.benefic_rulers",
+  "topic": "travel",
+  "rule_en": "Jupiter/Venus ruling the travel places: safe and pleasant journeys; Saturn/Mars: dangers (detailed list not recorded).",
+  "quote": "If Jupiter and Venus are the rulers of the places which govern travel, and of the luminaries, they make the journeys not only safe but also pleasant",
+  "locator": "IV.8, p.425",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#8",
+  "notes": ""
+ },
+ {
+  "id": "ages.moon",
+  "topic": "ages_of_man",
+  "rule_en": "Age 1 (Moon): infancy, birth to about 4.",
+  "quote": "For up to about the fourth year, following the number which belongs to the quadriennium, the moon takes over the age of infancy",
+  "locator": "IV.10, p.443",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "",
+  "data": {
+   "planet": "Moon",
+   "years": 4,
+   "from": 0,
+   "to": 4,
+   "derived_bounds": true
+  }
+ },
+ {
+  "id": "ages.mercury",
+  "topic": "ages_of_man",
+  "rule_en": "Age 2 (Mercury): childhood, 10 years (about 4-14).",
+  "quote": "In the following period of ten years, Mercury, to whom falls the second place and the second age, that of childhood",
+  "locator": "IV.10, p.443",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "",
+  "data": {
+   "planet": "Mercury",
+   "years": 10,
+   "from": 4,
+   "to": 14,
+   "derived_bounds": true
+  }
+ },
+ {
+  "id": "ages.venus",
+  "topic": "ages_of_man",
+  "rule_en": "Age 3 (Venus): youth, 8 years (about 14-22).",
+  "quote": "Venus, taking in charge the third age, that of youth, for the next eight years, corresponding in number to her own period",
+  "locator": "IV.10, p.443",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "",
+  "data": {
+   "planet": "Venus",
+   "years": 8,
+   "from": 14,
+   "to": 22,
+   "derived_bounds": true
+  }
+ },
+ {
+  "id": "ages.sun",
+  "topic": "ages_of_man",
+  "rule_en": "Age 4 (Sun): young manhood, 19 years (about 22-41).",
+  "quote": "The lord of the middle sphere, the sun, takes over the fourth age, which is the middle one in order, young manhood, for the period of nineteen years",
+  "locator": "IV.10, p.445",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "",
+  "data": {
+   "planet": "Sun",
+   "years": 19,
+   "from": 22,
+   "to": 41,
+   "derived_bounds": true
+  }
+ },
+ {
+  "id": "ages.mars",
+  "topic": "ages_of_man",
+  "rule_en": "Age 5 (Mars): manhood, 15 years (about 41-56).",
+  "quote": "After the sun, Mars, fifth in order, assumes command of manhood for the space of fifteen years, equal to his own period.",
+  "locator": "IV.10, p.445",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "",
+  "data": {
+   "planet": "Mars",
+   "years": 15,
+   "from": 41,
+   "to": 56,
+   "derived_bounds": true
+  }
+ },
+ {
+  "id": "ages.jupiter",
+  "topic": "ages_of_man",
+  "rule_en": "Age 6 (Jupiter): elderly age, 12 years (about 56-68).",
+  "quote": "Sixth, Jupiter, taking as his lot the elderly age, again for the space of his own period, twelve years",
+  "locator": "IV.10, p.447",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "",
+  "data": {
+   "planet": "Jupiter",
+   "years": 12,
+   "from": 56,
+   "to": 68,
+   "derived_bounds": true
+  }
+ },
+ {
+  "id": "ages.saturn",
+  "topic": "ages_of_man",
+  "rule_en": "Age 7 (Saturn): old age, from about 68 to death.",
+  "quote": "Finally to Saturn falls as his lot old age, the latest period, which lasts for the rest of life.",
+  "locator": "IV.10, p.447",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "",
+  "data": {
+   "planet": "Saturn",
+   "years": null,
+   "from": 68,
+   "to": null,
+   "derived_bounds": true
+  }
+ },
+ {
+  "id": "ages.order",
+  "topic": "ages_of_man",
+  "rule_en": "Ages follow the planetary spheres outward: Moon, Mercury, Venus, Sun, Mars, Jupiter, Saturn.",
+  "quote": "it begins with the first age of man and with the first sphere from us, that is, the moon's, and ends with the last of the ages and the outermost of the planetary spheres",
+  "locator": "IV.10, p.441",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "Robbins n.74: seven ages here vs four in I.10; probably Ptolemy's own addition. Cumulative age boundaries in the per-age entries are derived by adding Ptolemy's year counts; he only says 'up to about the fourth year' for the first."
+ },
+ {
+  "id": "times.prorogation_topics",
+  "topic": "time_lords",
+  "rule_en": "Topic prorogations: ASC -> body and journeys; Lot of Fortune -> property; Moon -> soul and marriage; Sun -> dignities; MC -> actions, friendships, children.",
+  "quote": "We shall apply the prorogation from the horoscope to events relating to the body and to journeys above; that from the Lot of Fortune to matters of property; that from the moon to affections of the soul and to marriage",
+  "locator": "IV.10, p.449",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "",
+  "data": {
+   "ASC": [
+    "body",
+    "journeys"
+   ],
+   "Lot of Fortune": [
+    "property"
+   ],
+   "Moon": [
+    "soul",
+    "marriage"
+   ],
+   "Sun": [
+    "dignity",
+    "glory"
+   ],
+   "MC": [
+    "action",
+    "friendships",
+    "children"
+   ]
+  }
+ },
+ {
+  "id": "times.prorogation_topics_sun_mc",
+  "topic": "time_lords",
+  "rule_en": "Continuation: Sun -> dignities; MC -> actions, friendships, children.",
+  "quote": "that from the sun to dignities and glory; that from the mid-heaven to the other details of the conduct of life, such as actions, friendships, and the begetting of children.",
+  "locator": "IV.10, p.449",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": ""
+ },
+ {
+  "id": "times.annual_profection",
+  "topic": "time_lords",
+  "rule_en": "Annual lord: from each prorogatory place, advance one sign per year of age; the ruler of the sign reached rules the year.",
+  "quote": "the annual chronocrators by setting out from each of the prorogatory places, in the order of the signs, the number of years from birth, one year to each sign, and taking the ruler of the last sign.",
+  "locator": "IV.10, p.453",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "Robbins n.81: one sign per year (not one degree per year as Bouche-Leclercq/Melanchthon read)."
+ },
+ {
+  "id": "times.monthly_daily",
+  "topic": "time_lords",
+  "rule_en": "Monthly lord: from the year's place, 28 days per sign; daily lord: from the month's place, 2 1/3 days per sign.",
+  "quote": "starting from the places that govern the year, twenty-eight days to a sign; and similarly for the days ... two and a third days to a sign.",
+  "locator": "IV.10, p.453",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": "Robbins n.82: readings disputed; some give 30 days and 2 1/2 days."
+ },
+ {
+  "id": "times.ingresses",
+  "topic": "time_lords",
+  "rule_en": "Transits ('ingresses'): Saturn to the general time-places, Jupiter to the yearly places, Sun/Mars/Venus/Mercury to monthly, the Moon to daily.",
+  "quote": "particularly to the ingresses of Saturn to the general places of the times, and to those of Jupiter to the places of the years; to those of the sun, Mars, Venus, and Mercury to those of the months",
+  "locator": "IV.10, p.455",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C*.html#10",
+  "notes": ""
+ },
+ {
+  "id": "terms.egyptian.aries",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Aries: Jupiter 0-6, Venus 6-12, Mercury 12-20, Mars 20-25, Saturn 25-30.",
+  "quote": "Aries ♃ 6 ♀ 6 ☿ 8 ♂ 5 ♄ 5",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Aries",
+   "terms": [
+    {
+     "planet": "Jupiter",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 6,
+     "to_deg": 12,
+     "size": 6
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 12,
+     "to_deg": 20,
+     "size": 8
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 20,
+     "to_deg": 25,
+     "size": 5
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 25,
+     "to_deg": 30,
+     "size": 5
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.taurus",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Taurus: Venus 0-8, Mercury 8-14, Jupiter 14-22, Saturn 22-27, Mars 27-30.",
+  "quote": "Taurus ♀ 8 ☿ 6 ♃ 8 ♄ 5 ♂ 3",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Taurus",
+   "terms": [
+    {
+     "planet": "Venus",
+     "from_deg": 0,
+     "to_deg": 8,
+     "size": 8
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 8,
+     "to_deg": 14,
+     "size": 6
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 14,
+     "to_deg": 22,
+     "size": 8
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 22,
+     "to_deg": 27,
+     "size": 5
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 27,
+     "to_deg": 30,
+     "size": 3
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.gemini",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Gemini: Mercury 0-6, Jupiter 6-12, Venus 12-17, Mars 17-24, Saturn 24-30.",
+  "quote": "Gemini ☿ 6 ♃ 6 ♀ 5 ♂ 7 ♄ 6",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Gemini",
+   "terms": [
+    {
+     "planet": "Mercury",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 6,
+     "to_deg": 12,
+     "size": 6
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 12,
+     "to_deg": 17,
+     "size": 5
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 17,
+     "to_deg": 24,
+     "size": 7
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 24,
+     "to_deg": 30,
+     "size": 6
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.cancer",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Cancer: Mars 0-7, Venus 7-13, Mercury 13-19, Jupiter 19-26, Saturn 26-30.",
+  "quote": "Cancer ♂ 7 ♀ 6 ☿ 6 ♃ 7 ♄ 4",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Cancer",
+   "terms": [
+    {
+     "planet": "Mars",
+     "from_deg": 0,
+     "to_deg": 7,
+     "size": 7
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 7,
+     "to_deg": 13,
+     "size": 6
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 13,
+     "to_deg": 19,
+     "size": 6
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 19,
+     "to_deg": 26,
+     "size": 7
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 26,
+     "to_deg": 30,
+     "size": 4
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.leo",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Leo: Jupiter 0-6, Venus 6-11, Saturn 11-18, Mercury 18-24, Mars 24-30.",
+  "quote": "Leo ♃ 6 ♀ 5 ♄ 7 ☿ 6 ♂ 6",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Leo",
+   "terms": [
+    {
+     "planet": "Jupiter",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 6,
+     "to_deg": 11,
+     "size": 5
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 11,
+     "to_deg": 18,
+     "size": 7
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 18,
+     "to_deg": 24,
+     "size": 6
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 24,
+     "to_deg": 30,
+     "size": 6
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.virgo",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Virgo: Mercury 0-7, Venus 7-17, Jupiter 17-21, Mars 21-28, Saturn 28-30.",
+  "quote": "Virgo ☿ 7 ♀ 10 ♃ 4 ♂ 7 ♄ 2",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Virgo",
+   "terms": [
+    {
+     "planet": "Mercury",
+     "from_deg": 0,
+     "to_deg": 7,
+     "size": 7
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 7,
+     "to_deg": 17,
+     "size": 10
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 17,
+     "to_deg": 21,
+     "size": 4
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 21,
+     "to_deg": 28,
+     "size": 7
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 28,
+     "to_deg": 30,
+     "size": 2
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.libra",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Libra: Saturn 0-6, Mercury 6-14, Jupiter 14-21, Venus 21-28, Mars 28-30.",
+  "quote": "Libra ♄ 6 ☿ 8 ♃ 7 ♀ 7 ♂ 2",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Libra",
+   "terms": [
+    {
+     "planet": "Saturn",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 6,
+     "to_deg": 14,
+     "size": 8
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 14,
+     "to_deg": 21,
+     "size": 7
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 21,
+     "to_deg": 28,
+     "size": 7
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 28,
+     "to_deg": 30,
+     "size": 2
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.scorpio",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Scorpio: Mars 0-7, Venus 7-11, Mercury 11-19, Jupiter 19-24, Saturn 24-30.",
+  "quote": "Scorpio ♂ 7 ♀ 4 ☿ 8 ♃ 5 ♄ 6",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Scorpio",
+   "terms": [
+    {
+     "planet": "Mars",
+     "from_deg": 0,
+     "to_deg": 7,
+     "size": 7
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 7,
+     "to_deg": 11,
+     "size": 4
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 11,
+     "to_deg": 19,
+     "size": 8
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 19,
+     "to_deg": 24,
+     "size": 5
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 24,
+     "to_deg": 30,
+     "size": 6
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.sagittarius",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Sagittarius: Jupiter 0-12, Venus 12-17, Mercury 17-21, Saturn 21-26, Mars 26-30.",
+  "quote": "Sagittarius ♃ 12 ♀ 5 ☿ 4 ♄ 5 ♂ 4",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Sagittarius",
+   "terms": [
+    {
+     "planet": "Jupiter",
+     "from_deg": 0,
+     "to_deg": 12,
+     "size": 12
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 12,
+     "to_deg": 17,
+     "size": 5
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 17,
+     "to_deg": 21,
+     "size": 4
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 21,
+     "to_deg": 26,
+     "size": 5
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 26,
+     "to_deg": 30,
+     "size": 4
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.capricorn",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Capricorn: Mercury 0-7, Jupiter 7-14, Venus 14-22, Saturn 22-26, Mars 26-30.",
+  "quote": "Capricornus ☿ 7 ♃ 7 ♀ 8 ♄ 4 ♂ 4",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Capricorn",
+   "terms": [
+    {
+     "planet": "Mercury",
+     "from_deg": 0,
+     "to_deg": 7,
+     "size": 7
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 7,
+     "to_deg": 14,
+     "size": 7
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 14,
+     "to_deg": 22,
+     "size": 8
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 22,
+     "to_deg": 26,
+     "size": 4
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 26,
+     "to_deg": 30,
+     "size": 4
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.aquarius",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Aquarius: Mercury 0-7, Venus 7-13, Jupiter 13-20, Mars 20-25, Saturn 25-30.",
+  "quote": "Aquarius ☿ 7 ♀ 6 ♃ 7 ♂ 5 ♄ 5",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Aquarius",
+   "terms": [
+    {
+     "planet": "Mercury",
+     "from_deg": 0,
+     "to_deg": 7,
+     "size": 7
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 7,
+     "to_deg": 13,
+     "size": 6
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 13,
+     "to_deg": 20,
+     "size": 7
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 20,
+     "to_deg": 25,
+     "size": 5
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 25,
+     "to_deg": 30,
+     "size": 5
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.egyptian.pisces",
+  "topic": "terms",
+  "rule_en": "Egyptian terms of Pisces: Venus 0-12, Jupiter 12-16, Mercury 16-19, Mars 19-28, Saturn 28-30.",
+  "quote": "Pisces ♀ 12 ♃ 4 ☿ 3 ♂ 9 ♄ 2",
+  "locator": "I.20, p.97",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#20",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.49 (PDF leaf 85) prints the same Egyptian terms for this sign.",
+  "data": {
+   "system": "Egyptian",
+   "sign": "Pisces",
+   "terms": [
+    {
+     "planet": "Venus",
+     "from_deg": 0,
+     "to_deg": 12,
+     "size": 12
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 12,
+     "to_deg": 16,
+     "size": 4
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 16,
+     "to_deg": 19,
+     "size": 3
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 19,
+     "to_deg": 28,
+     "size": 9
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 28,
+     "to_deg": 30,
+     "size": 2
+    }
+   ]
+  }
+ },
+ {
+  "id": "terms.ptolemaic.aries",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Aries: Jupiter 0-6, Venus 6-14, Mercury 14-21, Mars 21-26, Saturn 26-30.",
+  "quote": "Aries ♃ 6 ♀ 8 ☿ 7 ♂ 5 ♄ 4",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Jup 6, Ven 8, Mer 7, Mars 5, Sat 4.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Aries",
+   "terms": [
+    {
+     "planet": "Jupiter",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 6,
+     "to_deg": 14,
+     "size": 8
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 14,
+     "to_deg": 21,
+     "size": 7
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 21,
+     "to_deg": 26,
+     "size": 5
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 26,
+     "to_deg": 30,
+     "size": 4
+    }
+   ],
+   "ashmand_1822": "Jup 6, Ven 8, Mer 7, Mars 5, Sat 4"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.taurus",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Taurus: Venus 0-8, Mercury 8-15, Jupiter 15-22, Saturn 22-24, Mars 24-30.",
+  "quote": "Taurus ♀ 8 ☿ 7 ♃ 7 ♄ 2 ♂ 6",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Ven 8, Mer 7, Jup 7, Sat 2/4 (cum. 24/26), Mars 6/4.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Taurus",
+   "terms": [
+    {
+     "planet": "Venus",
+     "from_deg": 0,
+     "to_deg": 8,
+     "size": 8
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 8,
+     "to_deg": 15,
+     "size": 7
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 15,
+     "to_deg": 22,
+     "size": 7
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 22,
+     "to_deg": 24,
+     "size": 2
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 24,
+     "to_deg": 30,
+     "size": 6
+    }
+   ],
+   "ashmand_1822": "Ven 8, Mer 7, Jup 7, Sat 2/4 (cum. 24/26), Mars 6/4"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.gemini",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Gemini: Mercury 0-7, Jupiter 7-13, Venus 13-20, Mars 20-26, Saturn 26-30.",
+  "quote": "Gemini ☿ 7 ♃ 6 ♀ 7 ♂ 6 ♄ 4",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Mer 7, Jup 6, Ven 7, Mars 6, Sat 4.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Gemini",
+   "terms": [
+    {
+     "planet": "Mercury",
+     "from_deg": 0,
+     "to_deg": 7,
+     "size": 7
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 7,
+     "to_deg": 13,
+     "size": 6
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 13,
+     "to_deg": 20,
+     "size": 7
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 20,
+     "to_deg": 26,
+     "size": 6
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 26,
+     "to_deg": 30,
+     "size": 4
+    }
+   ],
+   "ashmand_1822": "Mer 7, Jup 6, Ven 7, Mars 6, Sat 4"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.cancer",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Cancer: Mars 0-6, Jupiter 6-13, Mercury 13-20, Venus 20-27, Saturn 27-30.",
+  "quote": "Cancer ♂ 6 ♃ 7 ☿ 7 ♀ 7 ♄ 3",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Mars 6, Mer/Jup 7, Jup/Mer 7, Ven 7, Sat 3.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Cancer",
+   "terms": [
+    {
+     "planet": "Mars",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 6,
+     "to_deg": 13,
+     "size": 7
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 13,
+     "to_deg": 20,
+     "size": 7
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 20,
+     "to_deg": 27,
+     "size": 7
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 27,
+     "to_deg": 30,
+     "size": 3
+    }
+   ],
+   "ashmand_1822": "Mars 6, Mer/Jup 7, Jup/Mer 7, Ven 7, Sat 3"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.leo",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Leo: Jupiter 0-6, Mercury 6-13, Saturn 13-19, Venus 19-25, Mars 25-30.",
+  "quote": "Leo ♃ 6 ☿ 7 ♄ 6 ♀ 6 ♂ 5",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Jup/Sat 6, Mer 7, Sat/Ven 6, Jup 6, Mars 5.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Leo",
+   "terms": [
+    {
+     "planet": "Jupiter",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 6,
+     "to_deg": 13,
+     "size": 7
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 13,
+     "to_deg": 19,
+     "size": 6
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 19,
+     "to_deg": 25,
+     "size": 6
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 25,
+     "to_deg": 30,
+     "size": 5
+    }
+   ],
+   "ashmand_1822": "Jup/Sat 6, Mer 7, Sat/Ven 6, Jup 6, Mars 5"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.virgo",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Virgo: Mercury 0-7, Venus 7-13, Jupiter 13-18, Saturn 18-24, Mars 24-30.",
+  "quote": "Virgo ☿ 7 ♀ 6 ♃ 5 ♄ 6 ♂ 6",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Mer 7, Ven 6, Jup 5, Sat 6, Mars 6.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Virgo",
+   "terms": [
+    {
+     "planet": "Mercury",
+     "from_deg": 0,
+     "to_deg": 7,
+     "size": 7
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 7,
+     "to_deg": 13,
+     "size": 6
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 13,
+     "to_deg": 18,
+     "size": 5
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 18,
+     "to_deg": 24,
+     "size": 6
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 24,
+     "to_deg": 30,
+     "size": 6
+    }
+   ],
+   "ashmand_1822": "Mer 7, Ven 6, Jup 5, Sat 6, Mars 6"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.libra",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Libra: Saturn 0-6, Venus 6-11, Mercury 11-16, Jupiter 16-24, Mars 24-30.",
+  "quote": "Libra ♄ 6 ♀ 5 ☿ 5 ♃ 8 ♄ 6",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "DISCREPANCY: the LacusCurtius HTML transcription prints '♄ 6 ♀ 5 ☿ 5 ♃ 8 ♄ 6' but the scan of the printed Loeb table shows '♄ 6 ♀ 5 ☿ 5 ♃ 8 ♂ 6'. 'data' follows the printed scan: with the HTML reading Saturn appears twice and Mars not at all; Ptolemy's rule puts the malefics last; Ashmand 1822 also ends Libra with Mars 6; and only with Mars here do the planet totals equal the totals quoted from some MSS in Robbins n.119 (Saturn 57, Jupiter 79, Mars 66, Venus 82, Mercury 76). Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Sat 6, Ven 5, Mer 8/Jup 5 (cum. 19/16), Jup 5/Mer 8 (cum. 24), Mars 6.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Libra",
+   "terms": [
+    {
+     "planet": "Saturn",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 6,
+     "to_deg": 11,
+     "size": 5
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 11,
+     "to_deg": 16,
+     "size": 5
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 16,
+     "to_deg": 24,
+     "size": 8
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 24,
+     "to_deg": 30,
+     "size": 6
+    }
+   ],
+   "ashmand_1822": "Sat 6, Ven 5, Mer 8/Jup 5 (cum. 19/16), Jup 5/Mer 8 (cum. 24), Mars 6"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.scorpio",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Scorpio: Mars 0-6, Venus 6-13, Jupiter 13-21, Mercury 21-27, Saturn 27-30.",
+  "quote": "Scorpio ♂ 6 ♀ 7 ♃ 8 ☿ 6 ♄ 3",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Mars 6, Ven 8/Jup 7 (cum. 14/13), Jup 7/Ven 8 (cum. 21), Mer 6, Sat 3.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Scorpio",
+   "terms": [
+    {
+     "planet": "Mars",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 6,
+     "to_deg": 13,
+     "size": 7
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 13,
+     "to_deg": 21,
+     "size": 8
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 21,
+     "to_deg": 27,
+     "size": 6
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 27,
+     "to_deg": 30,
+     "size": 3
+    }
+   ],
+   "ashmand_1822": "Mars 6, Ven 8/Jup 7 (cum. 14/13), Jup 7/Ven 8 (cum. 21), Mer 6, Sat 3"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.sagittarius",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Sagittarius: Jupiter 0-8, Venus 8-14, Mercury 14-19, Saturn 19-25, Mars 25-30.",
+  "quote": "Sagittarius ♃ 8 ♀ 6 ☿ 5 ♄ 6 ♂ 5",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Jup 8, Ven 6, Mer 5, Sat 6, Mars 5.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Sagittarius",
+   "terms": [
+    {
+     "planet": "Jupiter",
+     "from_deg": 0,
+     "to_deg": 8,
+     "size": 8
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 8,
+     "to_deg": 14,
+     "size": 6
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 14,
+     "to_deg": 19,
+     "size": 5
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 19,
+     "to_deg": 25,
+     "size": 6
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 25,
+     "to_deg": 30,
+     "size": 5
+    }
+   ],
+   "ashmand_1822": "Jup 8, Ven 6, Mer 5, Sat 6, Mars 5"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.capricorn",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Capricorn: Venus 0-6, Mercury 6-12, Jupiter 12-19, Saturn 19-25, Mars 25-30.",
+  "quote": "Capricornus ♀ 6 ☿ 6 ♃ 7 ♄ 6 ♂ 5",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Ven 6, Mer 6, Jup 7, Sat/Mars 6, Mars/Sat 5.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Capricorn",
+   "terms": [
+    {
+     "planet": "Venus",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 6,
+     "to_deg": 12,
+     "size": 6
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 12,
+     "to_deg": 19,
+     "size": 7
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 19,
+     "to_deg": 25,
+     "size": 6
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 25,
+     "to_deg": 30,
+     "size": 5
+    }
+   ],
+   "ashmand_1822": "Ven 6, Mer 6, Jup 7, Sat/Mars 6, Mars/Sat 5"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.aquarius",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Aquarius: Saturn 0-6, Mercury 6-12, Venus 12-20, Jupiter 20-25, Mars 25-30.",
+  "quote": "Aquarius ♄ 6 ☿ 6 ♀ 8 ♃ 5 ♂ 5",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Sat 6, Mer 6, Ven 8, Jup 5, Mars 5.",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Aquarius",
+   "terms": [
+    {
+     "planet": "Saturn",
+     "from_deg": 0,
+     "to_deg": 6,
+     "size": 6
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 6,
+     "to_deg": 12,
+     "size": 6
+    },
+    {
+     "planet": "Venus",
+     "from_deg": 12,
+     "to_deg": 20,
+     "size": 8
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 20,
+     "to_deg": 25,
+     "size": 5
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 25,
+     "to_deg": 30,
+     "size": 5
+    }
+   ],
+   "ashmand_1822": "Sat 6, Mer 6, Ven 8, Jup 5, Mars 5"
+  }
+ },
+ {
+  "id": "terms.ptolemaic.pisces",
+  "topic": "terms",
+  "rule_en": "Ptolemaic terms of Pisces: Venus 0-8, Jupiter 8-14, Mercury 14-20, Mars 20-25, Saturn 25-30.",
+  "quote": "Pisces ♀ 8 ♃ 6 ☿ 6 ♂ 5 ♄ 5",
+  "locator": "I.21, p.107",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B*.html#21",
+  "notes": "Degree spans are cumulative from the printed per-term sizes (Robbins n.108/n.118: the Greek tables' cumulative totals were omitted in the English). A term 'from_deg'-'to_deg' covers longitudes from from_deg up to to_deg within the sign (0-6 = the first six degrees). Checked cell by cell against the scan of the printed Loeb table that Thayer hosts. Ashmand 1822 p.53 (PDF leaf 89) prints: Ven 8, Jup 6, Mer 6, Mars 6/5 (cum. 26/25), Sat 4/5 (second figure badly printed, read as 5 from the cumulative 30).",
+  "data": {
+   "system": "Ptolemaic",
+   "sign": "Pisces",
+   "terms": [
+    {
+     "planet": "Venus",
+     "from_deg": 0,
+     "to_deg": 8,
+     "size": 8
+    },
+    {
+     "planet": "Jupiter",
+     "from_deg": 8,
+     "to_deg": 14,
+     "size": 6
+    },
+    {
+     "planet": "Mercury",
+     "from_deg": 14,
+     "to_deg": 20,
+     "size": 6
+    },
+    {
+     "planet": "Mars",
+     "from_deg": 20,
+     "to_deg": 25,
+     "size": 5
+    },
+    {
+     "planet": "Saturn",
+     "from_deg": 25,
+     "to_deg": 30,
+     "size": 5
+    }
+   ],
+   "ashmand_1822": "Ven 8, Jup 6, Mer 6, Mars 6/5 (cum. 26/25), Sat 4/5 (second figure badly printed, read as 5 from the cumulative 30)"
+  }
+ },
+ {
+  "id": "soul.ruler.saturn.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Saturn sole ruler of the soul (dominating Mercury and the Moon), dignified position: traits listed in data.traits.",
+  "quote": "with reference to the universe and the angles, he makes his subjects lovers of the body, strong-minded, deep thinkers, austere, of a single purpose, laborious, dictatorial, ready to punish, lovers of property, avaricious, violent, amassing treasure, and jealous",
+  "locator": "III.13, p.341",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Saturn",
+   "condition": "honourable",
+   "traits": [
+    "lovers of the body",
+    "strong-minded",
+    "deep thinkers",
+    "austere",
+    "of a single purpose",
+    "laborious",
+    "dictatorial",
+    "ready to punish",
+    "lovers of property",
+    "avaricious",
+    "violent",
+    "amassing treasure",
+    "jealous"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.saturn.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Saturn sole ruler of the soul, undignified position.",
+  "quote": "but if his position is the opposite and without dignity, he makes them sordid, petty, mean-spirited, indifferent, mean-minded, malignant, cowardly, diffident, evil-speakers, solitary, tearful, shameless, superstitious, fond of toil, unfeeling, devisers of plots against their friends, gloomy, taking no care",
+  "locator": "III.13, p.341",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Saturn",
+   "condition": "opposite",
+   "traits": [
+    "sordid",
+    "petty",
+    "mean-spirited",
+    "indifferent",
+    "mean-minded",
+    "malignant",
+    "cowardly",
+    "diffident",
+    "evil-speakers",
+    "solitary",
+    "tearful",
+    "shameless",
+    "superstitious",
+    "fond of toil",
+    "unfeeling",
+    "devisers of plots against their friends",
+    "gloomy",
+    "taking no care of the body"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.jupiter.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Jupiter sole ruler of the soul, honourable position.",
+  "quote": "If Jupiter alone has the domination of the soul, in honourable positions he makes his subjects magnanimous, generous, god-fearing, honourable, pleasure-loving, kind, magnificent, liberal, just, high-minded, dignified, minding their own business, compassionate, fond of discussion, beneficent, affectionate, with qualities of",
+  "locator": "III.13, p.347",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Jupiter",
+   "condition": "honourable",
+   "traits": [
+    "magnanimous",
+    "generous",
+    "god-fearing",
+    "honourable",
+    "pleasure-loving",
+    "kind",
+    "magnificent",
+    "liberal",
+    "just",
+    "high-minded",
+    "dignified",
+    "minding their own business",
+    "compassionate",
+    "fond of discussion",
+    "beneficent",
+    "affectionate",
+    "with qualities of leadership"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.jupiter.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Jupiter sole ruler, opposite position: souls seem similar but humbler, less conspicuous, of poorer judgement; each virtue turns into its degraded form (see data.substitutions).",
+  "quote": "If he chances to be in the opposite kind of position, he makes their souls seem similar, to be sure, but with a difference in the direction of greater humility, less conspicuousness, and poorer judgement. For example, instead of magnanimity",
+  "locator": "III.13, p.347-349",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Ptolemy gives this case as substitutions, not as a plain list; data.traits lists the degraded forms. Robbins n.142 relates it to Aristotle's doctrine of the mean. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Jupiter",
+   "condition": "opposite",
+   "general": [
+    "greater humility",
+    "less conspicuousness",
+    "poorer judgement"
+   ],
+   "substitutions": [
+    {
+     "instead_of": "magnanimity",
+     "becomes": "prodigality"
+    },
+    {
+     "instead_of": "reverence for the gods",
+     "becomes": "superstition"
+    },
+    {
+     "instead_of": "modesty",
+     "becomes": "cowardice"
+    },
+    {
+     "instead_of": "dignity",
+     "becomes": "conceit"
+    },
+    {
+     "instead_of": "kindness",
+     "becomes": "foolish simplicity"
+    },
+    {
+     "instead_of": "the love of beauty",
+     "becomes": "love of pleasure"
+    },
+    {
+     "instead_of": "high-mindedness",
+     "becomes": "stupidity"
+    },
+    {
+     "instead_of": "liberality",
+     "becomes": "indifference"
+    }
+   ],
+   "traits": [
+    "prodigality",
+    "superstition",
+    "cowardice",
+    "conceit",
+    "foolish simplicity",
+    "love of pleasure",
+    "stupidity",
+    "indifference"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.mars.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Mars sole ruler of the soul, honourable position.",
+  "quote": "Mars alone, given the domination of the soul, in an honourable position makes his subjects noble, commanding, spirited, military, versatile, powerful, venturesome, rash, unruly, indifferent, stubborn, keen, headstrong, contemptuous, tyrannical, active, easily angered, with the qualities of leadership",
+  "locator": "III.13, p.353",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Mars",
+   "condition": "honourable",
+   "traits": [
+    "noble",
+    "commanding",
+    "spirited",
+    "military",
+    "versatile",
+    "powerful",
+    "venturesome",
+    "rash",
+    "unruly",
+    "indifferent",
+    "stubborn",
+    "keen",
+    "headstrong",
+    "contemptuous",
+    "tyrannical",
+    "active",
+    "easily angered",
+    "with the qualities of leadership"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.mars.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Mars sole ruler of the soul, opposite position.",
+  "quote": "In a position of the opposite kind he makes them savage, insolent, bloodthirsty, makers of disturbances, spendthrifts, loud-mouthed, quick-fisted, impetuous, drunken, rapacious, evil-doers, pitiless, unsettled, mad, haters of their own kin, impious.",
+  "locator": "III.13, p.353",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Mars",
+   "condition": "opposite",
+   "traits": [
+    "savage",
+    "insolent",
+    "bloodthirsty",
+    "makers of disturbances",
+    "spendthrifts",
+    "loud-mouthed",
+    "quick-fisted",
+    "impetuous",
+    "drunken",
+    "rapacious",
+    "evil-doers",
+    "pitiless",
+    "unsettled",
+    "mad",
+    "haters of their own kin",
+    "impious"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.venus.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Venus sole ruler of the soul, honourable position.",
+  "quote": "If Venus alone takes the domination of the soul, in an honourable position she makes her subjects pleasant, good, luxurious, eloquent, neat, cheerful, fond of dancing, eager for beauty, haters of evil, lovers of the arts, fond of spectacles, decorous",
+  "locator": "III.13, p.357",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Venus",
+   "condition": "honourable",
+   "traits": [
+    "pleasant",
+    "good",
+    "luxurious",
+    "eloquent",
+    "neat",
+    "cheerful",
+    "fond of dancing",
+    "eager for beauty",
+    "haters of evil",
+    "lovers of the arts",
+    "fond of spectacles",
+    "decorous",
+    "healthy",
+    "dreamers of pleasant dreams",
+    "affectionate",
+    "beneficent",
+    "compassionate",
+    "fastidious",
+    "easily conciliated",
+    "successful",
+    "in general, charming"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.venus.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Venus sole ruler of the soul, opposite position.",
+  "quote": "In the opposite position she makes them careless, erotic, effeminate, womanish, timid, indifferent, depraved, censorious, insignificant, meriting reproach.",
+  "locator": "III.13, p.357",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Venus",
+   "condition": "opposite",
+   "traits": [
+    "careless",
+    "erotic",
+    "effeminate",
+    "womanish",
+    "timid",
+    "indifferent",
+    "depraved",
+    "censorious",
+    "insignificant",
+    "meriting reproach"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.mercury.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Mercury sole ruler of the soul, honourable position.",
+  "quote": "Mercury, by himself taking the domination of the soul, in an honourable position makes those who are born under him wise, shrewd, thoughtful, learned, inventive, experienced, good calculators, inquirers into nature, speculative, gifted, emulous, beneficent, prudent, good at conjecture, mathematicians",
+  "locator": "III.13, p.359-361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Mercury",
+   "condition": "honourable",
+   "traits": [
+    "wise",
+    "shrewd",
+    "thoughtful",
+    "learned",
+    "inventive",
+    "experienced",
+    "good calculators",
+    "inquirers into nature",
+    "speculative",
+    "gifted",
+    "emulous",
+    "beneficent",
+    "prudent",
+    "good at conjecture",
+    "mathematicians",
+    "partakers in mysteries",
+    "successful in attaining their ends"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.mercury.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Mercury sole ruler of the soul, opposite position.",
+  "quote": "In the opposite position he makes them utter rascals, precipitate, forgetful, impetuous, light-minded, fickle, prone to change their minds, foolish rogues, witless, sinful, liars, undiscriminating, unstable, undependable, avaricious, unjust, and, in general, unsteady in judgement and inclined to evil deeds.",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Mercury",
+   "condition": "opposite",
+   "traits": [
+    "utter rascals",
+    "precipitate",
+    "forgetful",
+    "impetuous",
+    "light-minded",
+    "fickle",
+    "prone to change their minds",
+    "foolish rogues",
+    "witless",
+    "sinful",
+    "liars",
+    "undiscriminating",
+    "unstable",
+    "undependable",
+    "avaricious",
+    "unjust",
+    "in general, unsteady in judgement and inclined to evil deeds"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.sun_moon_not_rulers",
+  "topic": "soul_ruler",
+  "rule_en": "Sun and Moon are never sole rulers of the soul in III.13; only the five planets are. The luminaries only modify (see soul.mod.*).",
+  "quote": "The sun also aids, when it is familiar with the planet that governs the temperament of the soul",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Requested 'seven planets as sole ruler' cannot be filled: Ptolemy gives sole-ruler lists for Saturn, Jupiter, Mars, Venus, Mercury only. Robbins n.151: 'the actual rulers are the five planets, and it is the role of the luminaries to assist'."
+ },
+ {
+  "id": "soul.ruler.pairs",
+  "topic": "soul_ruler",
+  "rule_en": "Two-planet soul rulers treated by Ptolemy (each with honourable and opposite trait lists): all 10 pairs of the five planets.",
+  "quote": "Saturn, allied with Jupiter in the way described, again in dignified positions",
+  "locator": "III.13, p.341",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Traits for pairs not extracted (by request). No combinations of three planets, and none involving the Sun or Moon.",
+  "data": {
+   "pairs": [
+    {
+     "pair": [
+      "Saturn",
+      "Jupiter"
+     ],
+     "opening_phrase": "Saturn, allied with Jupiter in the way described",
+     "locator": "III.13, p.341"
+    },
+    {
+     "pair": [
+      "Saturn",
+      "Mars"
+     ],
+     "opening_phrase": "Saturn, allied with Mars, in honourable positions",
+     "locator": "III.13, p.343"
+    },
+    {
+     "pair": [
+      "Saturn",
+      "Venus"
+     ],
+     "opening_phrase": "Allied with Venus in honourable positions Saturn",
+     "locator": "III.13, p.345"
+    },
+    {
+     "pair": [
+      "Saturn",
+      "Mercury"
+     ],
+     "opening_phrase": "Saturn, in familiarity with Mercury, in honourable positions",
+     "locator": "III.13, p.345"
+    },
+    {
+     "pair": [
+      "Jupiter",
+      "Mars"
+     ],
+     "opening_phrase": "Jupiter allied with Mars in honourable positions",
+     "locator": "III.13, p.349"
+    },
+    {
+     "pair": [
+      "Jupiter",
+      "Venus"
+     ],
+     "opening_phrase": "Jupiter, allied with Venus, in honourable positions",
+     "locator": "III.13, p.349"
+    },
+    {
+     "pair": [
+      "Jupiter",
+      "Mercury"
+     ],
+     "opening_phrase": "Jupiter allied with Mercury in honourable positions",
+     "locator": "III.13, p.351"
+    },
+    {
+     "pair": [
+      "Mars",
+      "Venus"
+     ],
+     "opening_phrase": "Allied with Venus, in honourable positions, Mars",
+     "locator": "III.13, p.353"
+    },
+    {
+     "pair": [
+      "Mars",
+      "Mercury"
+     ],
+     "opening_phrase": "Allied with Mercury, in honourable positions Mars",
+     "locator": "III.13, p.355"
+    },
+    {
+     "pair": [
+      "Venus",
+      "Mercury"
+     ],
+     "opening_phrase": "Joined with Mercury, in honourable positions Venus",
+     "locator": "III.13, p.357"
+    }
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.orient_horoscope_proper_face",
+  "topic": "soul_modifier",
+  "rule_en": "Rulers of the soul in the orient / at the ascendant, especially in proper face: open, strong character (data.traits).",
+  "quote": "Of configurations, positions in the orient and at the horoscope, and in particular those which are in proper face, produce liberal, simple, self-willed, strong, noble, keen, open",
+  "locator": "III.13, p.335",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.133: 'proper face' as in I.23.",
+  "data": {
+   "traits": [
+    "liberal",
+    "simple",
+    "self-willed",
+    "strong",
+    "noble",
+    "keen",
+    "open"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.morning_stations_culminations",
+  "topic": "soul_modifier",
+  "rule_en": "Rulers at morning (first) station or culminating: steady, intelligent, firm.",
+  "quote": "Morning stations and culminations make them calculating, patient, of good memory, firm, intelligent, magnanimous, accomplishing what they desire, inflexible, robust, rough, not readily deceived, critical, practical, prone to inflict punishment, gifted with understanding",
+  "locator": "III.13, p.335",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "",
+  "data": {
+   "traits": [
+    "calculating",
+    "patient",
+    "of good memory",
+    "firm",
+    "intelligent",
+    "magnanimous",
+    "accomplishing what they desire",
+    "inflexible",
+    "robust",
+    "rough",
+    "not readily deceived",
+    "critical",
+    "practical",
+    "prone to inflict punishment",
+    "gifted with understanding"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.precessions_settings",
+  "topic": "soul_modifier",
+  "rule_en": "Rulers advancing (direct motion between stations) or setting: unstable, weak.",
+  "quote": "Precessions and settings make them easily changed, unstable, weak, unable to bear labour, emotional, humble, cowardly, deceitful, bullying, dull, slow-witted, hard to arouse",
+  "locator": "III.13, p.335-337",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.134: 'precessions' = a planet's advances, as opposed to retrogradation or stations; ambiguous term.",
+  "data": {
+   "traits": [
+    "easily changed",
+    "unstable",
+    "weak",
+    "unable to bear labour",
+    "emotional",
+    "humble",
+    "cowardly",
+    "deceitful",
+    "bullying",
+    "dull",
+    "slow-witted",
+    "hard to arouse"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.evening_stations_lower_mc",
+  "topic": "soul_modifier",
+  "rule_en": "Rulers at evening (second) station or at the IC, and Mercury/Venus setting as evening stars by day or as morning stars by night: noble, wise, poor memory, seekers of hidden things (magicians, astrologers, philosophers, interpreters of dreams...).",
+  "quote": "Evening stations and position at mid-heaven beneath the earth, and furthermore, in the case of Mercury and Venus, by day evening settings and by night morning settings, produce souls noble and wise, but with mediocre memory",
+  "locator": "III.13, p.337",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "",
+  "data": {
+   "traits": [
+    "noble",
+    "wise",
+    "with mediocre memory",
+    "not painstaking nor fond of labour",
+    "investigators of hidden things",
+    "seekers after the unknown"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.own_or_familiar",
+  "topic": "soul_modifier",
+  "rule_en": "Governors of the soul in their own or familiar houses or sects: character open and effective; in alien places: obscure, imperfect, ineffective.",
+  "quote": "are in their own or familiar houses or sects, they make the characters of the soul open, unimpeded, spontaneous, and effective",
+  "locator": "III.13, p.337",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.135: the governors of the soul are Mercury and the Moon. Continues: 'if they are not so disposed ... it renders the properties of their own natures obscure, indistinct, imperfect, and ineffective'."
+ },
+ {
+  "id": "soul.mod.overcome",
+  "topic": "soul_modifier",
+  "rule_en": "Malefic-shaped characters are emboldened when their planets are in power, but checked when overcome by planets of the opposite sect; benefic-shaped characters prosper unless their planets are dominated by opposites.",
+  "quote": "if they are overcome by planets of the opposite sect, the men are lethargic, ineffective, and easily punished",
+  "locator": "III.13, p.339",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.137 on 'dominate/overcome'."
+ },
+ {
+  "id": "soul.mod.moon.limits",
+  "topic": "soul_modifier",
+  "rule_en": "Moon at its northern/southern latitude limits: more versatile, resourceful, changeable.",
+  "quote": "For when the moon happens to be at the bendings of its northern and southern limits, it helps, with respect to the character of the soul, in the direction of greater versatility, resourcefulness, and capacity for change",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.150-151: bendings and nodes of the Moon's orbit; the luminaries assist the five planetary rulers.",
+  "data": {
+   "traits": [
+    "greater versatility",
+    "resourcefulness",
+    "capacity for change"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.moon.nodes",
+  "topic": "soul_modifier",
+  "rule_en": "Moon at the nodes: keener, more active, excitable.",
+  "quote": "at the nodes, in the direction of greater keenness, activity, and excitability",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.150-151: bendings and nodes of the Moon's orbit; the luminaries assist the five planetary rulers.",
+  "data": {
+   "traits": [
+    "greater keenness",
+    "activity",
+    "excitability"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.moon.waxing",
+  "topic": "soul_modifier",
+  "rule_en": "Moon rising / waxing: greater endowments, renown, firmness, frankness.",
+  "quote": "again, at rising and in the increases of its illumination, towards greater natural endowments, renown, firmness, and frankness",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.150-151: bendings and nodes of the Moon's orbit; the luminaries assist the five planetary rulers.",
+  "data": {
+   "traits": [
+    "greater natural endowments",
+    "renown",
+    "firmness",
+    "frankness"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.moon.waning",
+  "topic": "soul_modifier",
+  "rule_en": "Moon waning or hidden: sluggish, dull, less fixed purpose, cautious, less renown.",
+  "quote": "and in the waning of its illumination, or its occultations towards greater sluggishness and dullness, less fixity of purpose, greater cautiousness, and less renown",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.150-151: bendings and nodes of the Moon's orbit; the luminaries assist the five planetary rulers.",
+  "data": {
+   "traits": [
+    "greater sluggishness and dullness",
+    "less fixity of purpose",
+    "greater cautiousness",
+    "less renown"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.sun.honourable",
+  "topic": "soul_modifier",
+  "rule_en": "Sun familiar with the soul-ruler, honourable position: towards justice, success, honour, dignity, piety.",
+  "quote": "The sun also aids, when it is familiar with the planet that governs the temperament of the soul, in an honourable position modifying it in the direction of justice, success, honour, dignity, and reverence for the gods",
+  "locator": "III.13, p.361-363",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "",
+  "data": {
+   "traits": [
+    "justice",
+    "success",
+    "honour",
+    "dignity",
+    "reverence for the gods"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.sun.alien",
+  "topic": "soul_modifier",
+  "rule_en": "Sun in contrary/alien position: humbler, more industrious, less conspicuous, harsher, less successful.",
+  "quote": "but in the contrary and alien position making it humbler, more industrious, less conspicuous, more savage, more obstinate, harsher, with a harder life, and in general less successful.",
+  "locator": "III.13, p.363",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "",
+  "data": {
+   "traits": [
+    "humbler",
+    "more industrious",
+    "less conspicuous",
+    "more savage",
+    "more obstinate",
+    "harsher",
+    "with a harder life",
+    "less successful"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.no_luminary_sect_rule",
+  "topic": "soul_modifier",
+  "rule_en": "No separate rule in III.13 about the sect of the luminaries (day vs night birth) for the soul; sect enters only as the governors being in their own or familiar 'sects', and as being overcome by planets 'of the opposite sect'.",
+  "quote": "are in their own or familiar houses or sects",
+  "locator": "III.13, p.337",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Recorded so the absence is explicit; the oriental/occidental and angular effects are the configuration records above."
+ },
+ {
+  "id": "action.mercury.alone",
+  "topic": "occupation",
+  "rule_en": "Mercury governing action: scribes, business, calculators, teachers, merchants, bankers, soothsayers, astrologers, sacrificers; generally work by documents, interpretation, giving and taking.",
+  "quote": "For if Mercury governs action, to speak generally, he makes his subjects scribes, men of business, calculators, teachers, merchants, bankers, soothsayers, astrologers, sacrificers",
+  "locator": "IV.4, p.383",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Continues: 'and in general those who perform their functions by means of documents, interpretation, and giving and taking'.",
+  "data": {
+   "rulers": [
+    "Mercury"
+   ],
+   "testimony": null,
+   "occupations": [
+    "scribes",
+    "men of business",
+    "calculators",
+    "teachers",
+    "merchants",
+    "bankers",
+    "soothsayers",
+    "astrologers",
+    "sacrificers"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury.saturn",
+  "topic": "occupation",
+  "rule_en": "Mercury ruling, Saturn testifying.",
+  "quote": "And if Saturn testifies to him, they will be managers of the property of others, interpreters of dreams, or frequenters of temples for the purpose of prophecies and inspiration",
+  "locator": "IV.4, p.383",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mercury"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "managers of the property of others",
+    "interpreters of dreams",
+    "frequenters of temples for the purpose of prophecies and inspiration"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury.jupiter",
+  "topic": "occupation",
+  "rule_en": "Mercury ruling, Jupiter testifying.",
+  "quote": "If it is Jupiter that witnesses, they will be law-makers, orators, sophists, who enjoy familiarity with great persons",
+  "locator": "IV.4, p.383-385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Qualifier in the text: 'who enjoy familiarity with great persons'.",
+  "data": {
+   "rulers": [
+    "Mercury"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "law-makers",
+    "orators",
+    "sophists"
+   ]
+  }
+ },
+ {
+  "id": "action.venus.alone",
+  "topic": "occupation",
+  "rule_en": "Venus governing action: trades in flowers, unguents, wine, colours, dyes, spices, adornments.",
+  "quote": "as, for example, sellers of unguents, weavers of chaplets, innkeepers, wine-merchants, druggists, weavers, dealers in spices, painters, dyers, sellers of clothing",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Venus"
+   ],
+   "testimony": null,
+   "domains": [
+    "perfumes of flowers or of unguents",
+    "wine",
+    "colours",
+    "dyes",
+    "spices",
+    "adornments"
+   ],
+   "occupations": [
+    "sellers of unguents",
+    "weavers of chaplets",
+    "innkeepers",
+    "wine-merchants",
+    "druggists",
+    "weavers",
+    "dealers in spices",
+    "painters",
+    "dyers",
+    "sellers of clothing"
+   ]
+  }
+ },
+ {
+  "id": "action.venus.saturn",
+  "topic": "occupation",
+  "rule_en": "Venus ruling, Saturn testifying.",
+  "quote": "And if Saturn testifies to her, she makes them dealers in goods used for pleasure or adornment, sorcerers, poisoners, panders, and those who make their living from similar occupations",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Venus"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "dealers in goods used for pleasure or adornment",
+    "sorcerers",
+    "poisoners",
+    "panders",
+    "those who make their living from similar occupations"
+   ]
+  }
+ },
+ {
+  "id": "action.venus.jupiter",
+  "topic": "occupation",
+  "rule_en": "Venus ruling, Jupiter testifying.",
+  "quote": "If Jupiter testifies, they will be athletes, wearers of the wreath, persons deemed worthy of honours, and men who derive advancement from women",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Venus"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "athletes",
+    "wearers of the wreath",
+    "persons deemed worthy of honours",
+    "men who derive advancement from women"
+   ]
+  }
+ },
+ {
+  "id": "action.mars.with_sun",
+  "topic": "occupation",
+  "rule_en": "Mars governing action and in aspect with the Sun: crafts using fire.",
+  "quote": "Mars, in aspect with the sun, makes his subjects those who use fire in their crafts, such as cooks, moulders, cauterizers, smiths, workers in mines",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mars"
+   ],
+   "testimony": null,
+   "condition": "aspect with Sun",
+   "occupations": [
+    "cooks",
+    "moulders",
+    "cauterizers",
+    "smiths",
+    "workers in mines"
+   ]
+  }
+ },
+ {
+  "id": "action.mars.without_sun",
+  "topic": "occupation",
+  "rule_en": "Mars governing action, not with the Sun: workers with iron, wood, stone.",
+  "quote": "if he is not with the sun, those who work with iron, such as shipbuilders, carpenters, farmers, quarrymen, stone-dressers, jewellers, splitters of wood, and their subordinate workers",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mars"
+   ],
+   "testimony": null,
+   "condition": "not with Sun",
+   "occupations": [
+    "shipbuilders",
+    "carpenters",
+    "farmers",
+    "quarrymen",
+    "stone-dressers",
+    "jewellers",
+    "splitters of wood",
+    "their subordinate workers"
+   ]
+  }
+ },
+ {
+  "id": "action.mars.saturn",
+  "topic": "occupation",
+  "rule_en": "Mars ruling, Saturn testifying.",
+  "quote": "If Saturn testifies to him, he produces seamen, drawers of water, tunnelers, painters, gamekeepers, cooks, embalmers",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mars"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "seamen",
+    "drawers of water",
+    "tunnelers",
+    "painters",
+    "gamekeepers",
+    "cooks",
+    "embalmers"
+   ]
+  }
+ },
+ {
+  "id": "action.mars.jupiter",
+  "topic": "occupation",
+  "rule_en": "Mars ruling, Jupiter testifying.",
+  "quote": "If Jupiter testifies, he produces soldiers, servants, publicans, innkeepers, ferrymen, assistants at sacrifice",
+  "locator": "IV.4, p.385-387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mars"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "soldiers",
+    "servants",
+    "publicans",
+    "innkeepers",
+    "ferrymen",
+    "assistants at sacrifice"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_venus",
+  "topic": "occupation",
+  "rule_en": "Mercury and Venus ruling action: arts of the Muses, music, poetry, rhythm, especially when in exchange.",
+  "quote": "For they produce workers in the theatre, actors, dealers in slaves, makers of musical instruments, members of the chorus, makers of strings, painters, dancers, weavers, and wax-moulders",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Preceded by: 'they bring about action expressed by the arts of the Muses, musical instruments, melodies, or poems, and rhythm, particularly when they have exchanged places'. 'Exchanged places' = mutual reception/exchange (not defined further).",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Venus"
+   ],
+   "testimony": null,
+   "occupations": [
+    "workers in the theatre",
+    "actors",
+    "dealers in slaves",
+    "makers of musical instruments",
+    "members of the chorus",
+    "makers of strings",
+    "painters",
+    "dancers",
+    "weavers",
+    "wax-moulders"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_venus.saturn",
+  "topic": "occupation",
+  "rule_en": "Mercury+Venus ruling, Saturn testifying.",
+  "quote": "if Saturn testifies to them, he produces those in the aforesaid callings, as well as dealers in feminine finery",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "'aforesaid callings' = the Mercury+Venus list (action.mercury_venus).",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Venus"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "those in the aforesaid callings",
+    "dealers in feminine finery"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_venus.jupiter",
+  "topic": "occupation",
+  "rule_en": "Mercury+Venus ruling, Jupiter testifying.",
+  "quote": "If Jupiter testifies, he produces lawyers, supervisors of counting houses, public officers, teachers of children, leaders of the populace",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Venus"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "lawyers",
+    "supervisors of counting houses",
+    "public officers",
+    "teachers of children",
+    "leaders of the populace"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_mars",
+  "topic": "occupation",
+  "rule_en": "Mercury and Mars ruling action.",
+  "quote": "If Mercury and Mars together assume lordship of action, they produce sculptors, armourers, makers of sacred monuments, modellers, wrestlers, physicians, surgeons, accusers, adulterers, evil-doers, forgers",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Omitted as extreme criminal/sexual epithets (3): adulterers, evil-doers, forgers.",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Mars"
+   ],
+   "testimony": null,
+   "occupations": [
+    "sculptors",
+    "armourers",
+    "makers of sacred monuments",
+    "modellers",
+    "wrestlers",
+    "physicians",
+    "surgeons",
+    "accusers"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_mars.saturn",
+  "topic": "occupation",
+  "rule_en": "Mercury+Mars ruling, Saturn testifying: criminal callings only.",
+  "quote": "If Saturn testifies to them, they produce murderers, sneak-thieves, burglars, pirates, cattle-thieves, villains",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "The whole list is criminal (murderers, thieves, pirates...); kept verbatim because it is the entire content of the rule.",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Mars"
+   ],
+   "testimony": "Saturn",
+   "all_negative": true,
+   "occupations": [
+    "murderers",
+    "sneak-thieves",
+    "burglars",
+    "pirates",
+    "cattle-thieves",
+    "villains"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_mars.jupiter",
+  "topic": "occupation",
+  "rule_en": "Mercury+Mars ruling, Jupiter testifying.",
+  "quote": "If Jupiter testifies, they produce men-at-arms, duellists, energetic, clever persons, busybodies",
+  "locator": "IV.4, p.387-389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Continues: 'who meddle in others' affairs and thereby gain their living'.",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Mars"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "men-at-arms",
+    "duellists",
+    "energetic, clever persons",
+    "busybodies"
+   ]
+  }
+ },
+ {
+  "id": "action.venus_mars",
+  "topic": "occupation",
+  "rule_en": "Venus and Mars ruling action.",
+  "quote": "But if Venus and Mars together dominate action, they produce dyers, perfumers, workers in tin, lead, gold, and silver, farmers, dancers in armour, druggists, physicians who employ drugs in their treatments",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Venus",
+    "Mars"
+   ],
+   "testimony": null,
+   "occupations": [
+    "dyers",
+    "perfumers",
+    "workers in tin, lead, gold, and silver",
+    "farmers",
+    "dancers in armour",
+    "druggists",
+    "physicians who employ drugs in their treatments"
+   ]
+  }
+ },
+ {
+  "id": "action.venus_mars.saturn",
+  "topic": "occupation",
+  "rule_en": "Venus+Mars ruling, Saturn testifying.",
+  "quote": "If Saturn testifies to them, they produce attendants of sacred animals, those who bury men, mourners, pipers at funerals, fanatics",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Continues: 'who resort to wherever there are mysteries, laments, and bloody rites'. Robbins n.16-17 on gamekeepers/embalmers relate to the Mars+Saturn list.",
+  "data": {
+   "rulers": [
+    "Venus",
+    "Mars"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "attendants of sacred animals",
+    "those who bury men",
+    "mourners",
+    "pipers at funerals",
+    "fanatics"
+   ]
+  }
+ },
+ {
+  "id": "action.venus_mars.jupiter",
+  "topic": "occupation",
+  "rule_en": "Venus+Mars ruling, Jupiter testifying.",
+  "quote": "But if Jupiter testifies, frequenters of temples, interpreters of omens, bearers of the sacred instruments, supervisors of women, interpreters of marriages and matches",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Continues: 'making their living by such occupations, and at the same time devoted to pleasure, and reckless.' Robbins n.20: 'interpreters of marriages' perhaps 'matrimonial agents'.",
+  "data": {
+   "rulers": [
+    "Venus",
+    "Mars"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "frequenters of temples",
+    "interpreters of omens",
+    "bearers of the sacred instruments",
+    "supervisors of women",
+    "interpreters of marriages and matches"
+   ]
+  }
+ },
+ {
+  "id": "action.all_three_not_treated",
+  "topic": "occupation",
+  "rule_en": "Ptolemy treats only single rulers and the three pairs (Mercury+Venus, Mercury+Mars, Venus+Mars); no combination of all three is given.",
+  "quote": "Again, when two planets are found to rule action",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Searched IV.4 fully: no 'all three' case. Saturn and Jupiter act only as testifiers, the Sun only as the condition for Mars (with/without the Sun)."
+ },
+ {
+  "id": "action.signs.anthropomorphic",
+  "topic": "occupation",
+  "rule_en": "Rulers of action in anthropomorphic (human-shaped) signs: scientific pursuits, things useful to man.",
+  "quote": "For anthropomorphic signs are of some assistance to all scientific pursuits or those useful to man",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Ptolemy does not list the signs. Robbins n.21 (from Hephaestion, editorial): Gemini, Virgo, Sagittarius (partly), Libra.",
+  "data": {
+   "sign_type": "anthropomorphic",
+   "domains": [
+    "all scientific pursuits",
+    "those useful to man"
+   ],
+   "signs_editorial": [
+    "Gemini",
+    "Virgo",
+    "Sagittarius (partly)",
+    "Libra"
+   ]
+  }
+ },
+ {
+  "id": "action.signs.quadrupedal",
+  "topic": "occupation",
+  "rule_en": "Quadrupedal signs: mines, commerce, building, carpentry.",
+  "quote": "the quadrupedal assist in those that concern mines, commerce, building, and carpentry",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Robbins n.22 (editorial): Leo, Sagittarius.",
+  "data": {
+   "sign_type": "quadrupedal",
+   "domains": [
+    "mines",
+    "commerce",
+    "building",
+    "carpentry"
+   ],
+   "signs_editorial": [
+    "Leo",
+    "Sagittarius"
+   ]
+  }
+ },
+ {
+  "id": "action.signs.tropical_equinoctial",
+  "topic": "occupation",
+  "rule_en": "Solstitial and equinoctial signs: interpretation, barter, measuring, agriculture, religion.",
+  "quote": "the solstitial and equinoctial, those that are interpretative, involve barter, or concern measuring, agriculture, and religion",
+  "locator": "IV.4, p.389-391",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Robbins n.23: Cancer, Capricorn, Aries, Libra (= I.11 solstitial + equinoctial).",
+  "data": {
+   "sign_type": "solstitial and equinoctial",
+   "domains": [
+    "interpretative",
+    "barter",
+    "measuring",
+    "agriculture",
+    "religion"
+   ],
+   "signs_editorial": [
+    "Cancer",
+    "Capricorn",
+    "Aries",
+    "Libra"
+   ]
+  }
+ },
+ {
+  "id": "action.signs.terrestrial_aquatic",
+  "topic": "occupation",
+  "rule_en": "Terrestrial and aquatic signs: work in or with liquids, botany, shipbuilding, burial, pickling, salting.",
+  "quote": "the terrestrial and aquatic, activities in or with liquids, or those that are botanical, or concern shipbuilding, and furthermore burial, or pickling, or salting.",
+  "locator": "IV.4, p.391",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Ptolemy groups terrestrial and aquatic together. Robbins n.24-25 (editorial): terrestrial Aries, Taurus, Scorpio, Sagittarius; aquatic Pisces; Cancer and Capricorn amphibious.",
+  "data": {
+   "sign_type": "terrestrial and aquatic",
+   "domains": [
+    "activities in or with liquids",
+    "botanical",
+    "shipbuilding",
+    "burial",
+    "pickling",
+    "salting"
+   ],
+   "signs_editorial": {
+    "terrestrial": [
+     "Aries",
+     "Taurus",
+     "Scorpio",
+     "Sagittarius"
+    ],
+    "aquatic": [
+     "Pisces"
+    ],
+    "amphibious": [
+     "Cancer",
+     "Capricorn"
+    ]
+   }
+  }
+ },
+ {
+  "id": "action.moon_mercury_special",
+  "topic": "occupation",
+  "rule_en": "Special case: Moon holding the place of action, separating from conjunction, with Mercury - divinatory callings by sign group.",
+  "quote": "if the moon holds the place of action, and is moving away from conjunction, together with Mercury, in Taurus, Capricornus, and Cancer, she produces soothsayers, makers of sacrifices, and adepts in lekanomancy",
+  "locator": "IV.4, p.391",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "by_signs": {
+    "Taurus, Capricorn, Cancer": [
+     "soothsayers",
+     "makers of sacrifices",
+     "adepts in lekanomancy"
+    ],
+    "Sagittarius, Pisces": [
+     "necromancers",
+     "those who can arouse daemons"
+    ],
+    "Virgo, Scorpio": [
+     "magicians",
+     "astrologers",
+     "prophets",
+     "those who have second sight"
+    ],
+    "Libra, Aries, Leo": [
+     "persons inspired by the gods",
+     "interpreters of dreams",
+     "exorcists"
+    ]
+   }
+  }
+ },
+ {
+  "id": "action.modifiers.benefic_malefic",
+  "topic": "occupation",
+  "rule_en": "Rulers of action overcome by benefics: great, glorious, profitable work; by malefics: mean, inglorious, profitless.",
+  "quote": "when beneficent planets overcome them, great, glorious, profitable, unerring, and gracious; but if maleficent planets overcome them, mean, inglorious, profitless, and fallible.",
+  "locator": "IV.4, p.391",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Also: 'With Saturn in opposition, they bring cold and mixtures of colours; with Mars, temerity and notoriety; with both together, utter ruin of action.'"
+ },
+ {
+  "id": "action.modifiers.saturn_mars_opposition",
+  "topic": "occupation",
+  "rule_en": "Saturn opposing the rulers of action: cold and mixed results; Mars: rashness and notoriety; both: ruin of action.",
+  "quote": "With Saturn in opposition, they bring cold and mixtures of colours; with Mars, temerity and notoriety; with both together, utter ruin of action.",
+  "locator": "IV.4, p.391-393",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Robbins n.28: the anonymous commentator explains 'mixtures of colours' as 'deformities' (i.e. unseemliness)."
+ },
+ {
+  "id": "fortune.material.source.saturn",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Saturn, in power: riches through building, agriculture, shipping ventures.",
+  "quote": "Saturn brings riches through building, or agriculture, or shipping ventures",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Saturn",
+   "sources": [
+    "building",
+    "agriculture",
+    "shipping ventures"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.source.jupiter",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Jupiter, in power: riches through fiduciary relationships, guardianships, priesthoods.",
+  "quote": "Jupiter through fiduciary relationships, guardianships, or priesthoods",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Jupiter",
+   "sources": [
+    "fiduciary relationships",
+    "guardianships",
+    "priesthoods"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.source.mars",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Mars, in power: riches through military operations, command.",
+  "quote": "Mars through military operations and command",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Mars",
+   "sources": [
+    "military operations",
+    "command"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.source.venus",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Venus, in power: riches through gifts from friends or women.",
+  "quote": "Venus through gifts from friends or women",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Venus",
+   "sources": [
+    "gifts from friends or women"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.source.mercury",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Mercury, in power: riches through eloquence, trade.",
+  "quote": "Mercury through eloquence and trade",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Mercury",
+   "sources": [
+    "eloquence",
+    "trade"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.inheritance",
+  "topic": "material_fortune",
+  "rule_en": "Saturn ruling the Lot and aspecting Jupiter: inheritances, especially on the upper angles with Jupiter in a bicorporeal sign or holding the Moon's application.",
+  "quote": "when Saturn is associated with material fortune, if he is in aspect with Jupiter, he is the cause of inheritances, particularly when this comes about upon the upper angles and Jupiter is in a bicorporeal sign",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": ""
+ }
+]
