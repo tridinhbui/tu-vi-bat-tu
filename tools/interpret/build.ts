@@ -104,7 +104,10 @@ const knowledge = {
         // what Khảo Luận says each star stands for and how palaces bear on one another, page-checked (plan DEEP-TUVI, reason/depth.ts)
         starNature: existsSync(join(DATA, 'kg', 'star_nature.json')) ? (({ note: _n, ...v }) => v)(read(join(DATA, 'kg', 'star_nature.json'))) : undefined,
         // DEEP-3: chế hóa relations and the thế đứng layouts, verified only (reason/depth.ts cheHoaUnits, layout)
-        cheHoa: existsSync(join(DATA, 'kg', 'che_hoa.json')) ? { relations: read(join(DATA, 'kg', 'che_hoa.json')).relations.filter((r: { reviewStatus: string }) => r.reviewStatus === 'verified') } : undefined,
+        cheHoa: existsSync(join(DATA, 'kg', 'che_hoa.json')) ? { relations: read(join(DATA, 'kg', 'che_hoa.json')).relations
+          .filter((r: { reviewStatus: string }) => r.reviewStatus === 'verified')
+          // a transcribed scan is cited by its book label (SCAN:tvnl_scan = Tử Vi Nghiệm Lý, the Thiên Lương source), its school tag dropped
+          .map((r: { book: string; text: string }) => ({ ...r, book: r.book === 'SCAN:tvnl_scan' ? 'TVNL' : r.book, text: r.text.replace(/\s*\(Thiên Lương\)$/, '') })) } : undefined,
         schools: existsSync(join(DATA, 'kg', 'schools.json')) ? { topics: read(join(DATA, 'kg', 'schools.json')).topics } : undefined,
         baziSchools: existsSync(join(DATA, 'bazi_deep', 'schools.json')) ? { topics: read(join(DATA, 'bazi_deep', 'schools.json')).topics } : undefined,
         combos: existsSync(join(DATA, 'kg', 'combos.json')) ? { layouts: read(join(DATA, 'kg', 'combos.json')).layouts ?? [] } : undefined,

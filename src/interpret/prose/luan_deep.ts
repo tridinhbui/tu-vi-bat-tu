@@ -215,7 +215,11 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
         const b = u.book!, F2 = (D as DepthLib & { chehoa?: Record<string, string[]>; layout?: string[] });
         const tpl = u.kind === 'layout' ? F2.layout : !u.tamed ? F2.chehoa?.all : F2.chehoa?.[b.effect ?? ''] ?? F2.chehoa?.giam;
         if (!tpl?.length) continue;
-        xs.push(S(fill(W.pick(`${key}|${u.kind}|${b.id}`, tpl), { holder: u.star!, where: where(u.where, u.palace!), tamed: joinVi(u.tamed?.split('|') ?? []), text: b.text, pal: P, branch: chart.palaces.find(p => p.name === u.palace)?.branch ?? '' }),
+        const text = fill(W.pick(`${key}|${u.kind}|${b.id}`, tpl), { holder: u.star!, where: where(u.where, u.palace!), tamed: joinVi(u.tamed?.split('|') ?? []), text: b.text, pal: P, branch: chart.palaces.find(p => p.name === u.palace)?.branch ?? '' });
+        // a line that would run past 35 words (readable.test) is told as the book's statement alone, with where it holds
+        const short = text.split(/\s+/).length <= 35 ? text : `Ở cung ${P}: ${b.text}`;
+        if (short.split(/\s+/).length > 35) continue;
+        xs.push(S(short,
           { move: u.kind === 'layout' ? 'ELABORATE' : 'TURN', step: `${u.kind}:${b.id}`, basis: 'sach', cites: [`${b.book} p.${b.page}`], concepts: [] }));
         anchored = true;
       } else if (u.kind === 'link') {

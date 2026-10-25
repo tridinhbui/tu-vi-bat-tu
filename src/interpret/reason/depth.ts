@@ -247,6 +247,7 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
   // ---- interactions the chart has: a star of the palace or its tam phương holding a limiting star of the palace in check ----
   const satHere = ev.stars.filter(s => s.where === 'self' && SATS.includes(s.star)).map(s => s.star);
   const tamers = (k.kg?.starNature?.entries ?? []).filter(e => e.tames?.length);
+  const tameHolders = new Set<string>();
   for (const t of tamers) {
     const holders = [t.star, ...(t.also ?? [])];
     const at = [...ev.majors, ...ev.tamPhuong, ...ev.stars].find(s => holders.includes(s.star)) ?? ev.hoa.find(h => holders.includes(h.hoa)) as unknown as { star: string; palace: string; where: Where } | undefined;
@@ -254,12 +255,14 @@ export function domainDepth(chart: ChartInput, k: Knowledge, domain: DepthDomain
     if (!at || !tamed.length || said.has(t.id)) continue;
     said.add(t.id);
     const holder = holders.find(h => [...ev.majors, ...ev.tamPhuong, ...ev.stars].some(s => s.star === h) || ev.hoa.some(x => x.hoa === h))!;
+    tameHolders.add(holder);
     push({ kind: 'tame', section: obst, nature: t, star: holder, palace: (at as { palace: string }).palace, where: whereOf((at as { palace: string }).palace), tamed: tamed.join('|') });
   }
   // ---- chế hóa (kg/che_hoa.json, KL pp.55-206; DEEP-3): a star / Hóa / Tuần / Triệt that lessens, covers, dissolves, turns or raises
   // another, told only where both stand as the page has them (same palace, or the tamer anywhere in the tam phương) and the page's own
   // condition holds on the chart; at most two per palace ----
-  for (const u of cheHoaUnits(chart, P, k, said).slice(0, 2)) push({ ...u, section: obst });
+  // a tamer the star-nature line above already told in this palace is not told again
+  for (const u of cheHoaUnits(chart, P, k, said).filter(u => !u.star!.split(', ').some(h => tameHolders.has(h))).slice(0, 2)) push({ ...u, section: obst });
   // ---- the thế đứng of the fourteen chính tinh by where Tử Vi stands (KL pp.180-186, kg/combos.json layouts): the Mệnh chapter only ----
   if (P === 'Mệnh') {
     const tv = chart.palaces.find(p => p.major_stars.includes('Tử Vi'));
