@@ -44,6 +44,8 @@ export interface VanHanLibrary {
   /** the year's lưu stars landing in the current hạn palace */
   luu: string[];
   /** the closing by the hạn's level on the system indices (0 … 4); when the level runs against the hạn's book sentences, the frame that says so */
+  /** a book reading already told for an earlier hạn, recalled ({span}: that hạn's ages; DEEP-3) */
+  reading_again?: string[]; level_again?: string[];
   level: Record<string, string[]>; level_against: Record<'low' | 'high', string[]>; level_word: Record<string, string>;
 }
 interface KlFacts { src: string; relation: string; verdict: string; xung_controlled: boolean; opp_majors: string[];
@@ -118,6 +120,16 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
   const natalTold = new Set<string>(), klTold = new Set<string>();
   let qkTold = false;
   let prevLevel: { level: number; vi: string } | null = null;
+  // DEEP-3: a frame the chapter already said in an earlier hạn takes another variant when there is one (the level and trend lines read the
+  // same across ten hạn), and a book reading told for an earlier hạn is recalled by that hạn instead of retold
+  const saidTxt = new Set<string>(), readTold = new Map<string, string>();
+  // the filled variant not said yet; `null` when every variant was (the caller then recalls instead)
+  const pickNew = (key: string, xs: string[], v: Record<string, string> = {}): string | null => {
+    const all = xs.map(x => fill(x, v)), t = fill(m.pick(key, xs), v), u = !saidTxt.has(t) ? t : all.find(x => !saidTxt.has(x));
+    if (u) saidTxt.add(u);
+    return u ?? null;
+  };
+  const levelSpan = new Map<number, string>();
   for (const d of decades) {
     const xs: ProseSentence[] = [], key = `vh|${d.index}`, decTold = new Set<string>();
     const pal = chart.palaces.find(p => p.branch === d.branch)!;
@@ -132,7 +144,7 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
     const lvNow = levels.find(x => x.age_from === d.age_from);
     if (lvNow && prevLevel && L!.trend) {
       const j = lvNow.level - prevLevel.level, k2 = j >= 2 ? 'turn_up' : j <= -2 ? 'turn_down' : j > 0 ? 'up' : j < 0 ? 'down' : 'flat';
-      const st = sentence(fill(m.pick(`${key}|trend`, L!.trend[k2]), { from: prevLevel.vi, to: lvNow.level_vi }), [], [], 'he_thong', j > 0 ? 'pos' : j < 0 ? 'neg' : undefined);
+      const st = sentence(pickNew(`${key}|trend`, L!.trend[k2], { from: prevLevel.vi, to: lvNow.level_vi }) ?? fill(m.pick(`${key}|trend`, L!.trend[k2]), { from: prevLevel.vi, to: lvNow.level_vi }), [], [], 'he_thong', j > 0 ? 'pos' : j < 0 ? 'neg' : undefined);
       st.trace.step = `trend:${k2}`;
       st.trace.note = 'So sánh mức của hai đại hạn liền nhau theo chỉ số tổng hợp của hệ thống (cùng thang với biểu đồ giai đoạn), không phải lời sách.';
       xs.push(st);
@@ -199,7 +211,12 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       xs.push(sentence(m.pick(`${key}|both`, L!.both), both.map(r => cite(r.rule_id!, r.text, [toCite(r.src)])), both.map(r => toCite(r.src))));
     }
     for (const r of voiced.slice(0, 3)) {
-      const c = L!.readings[r.rule_id!];
+      const c = L!.readings[r.rule_id!], before = readTold.get(r.rule_id!);
+      if (before && L!.reading_again?.length) {
+        xs.push(sentence(fill(m.pick(`${key}|ra|${r.rule_id}`, L!.reading_again), { span: before }), [cite(r.rule_id!, r.text, [toCite(r.src)])], [toCite(r.src)], 'sach', c.dir === 'up' ? 'pos' : c.dir === 'down' ? 'neg' : undefined));
+        continue;
+      }
+      readTold.set(r.rule_id!, `${d.age_from}–${d.age_to}`);
       xs.push(sentence(fill(m.pick(`${key}|${r.rule_id}`, c.v), { v_branch: d.branch, S: S() }), [cite(r.rule_id!, r.text, [toCite(r.src)])], [toCite(r.src)], 'sach', c.dir === 'up' ? 'pos' : c.dir === 'down' ? 'neg' : undefined));
     }
     // the hạn stem's Hóa Lộc and Hóa Kỵ: where they land (Tứ Hóa by the hạn's stem: a convention, he_thong), what a Hóa does to the palace
@@ -210,7 +227,7 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       const v = domainAt(x.palace)[0], vw = v ? verdictWords(k, v, m, `${key}|hv|${h}`) : '';
       const again = v && decTold.has(v.id) ? L!.natal_link.same_decade : v && natalTold.has(v.id) ? L!.natal_link.again : undefined;
       const natal = x.palace === d.palace ? m.pick(`${key}|same|${h}`, L!.natal_link.same)
-        : v && vw && again?.length ? fill(m.pick(`${key}|nla|${h}`, again), { domain: v.label })
+        : v && vw && again?.length ? pickNew(`${key}|nla|${h}`, again, { domain: v.label }) ?? fill(m.pick(`${key}|nla|${h}`, again), { domain: v.label })
         : v && vw ? fill(m.pick(`${key}|nl|${h}`, L!.natal_link.domain), { domain: v.label, verdict: vw }) : '';
       if (v) { natalTold.add(v.id); decTold.add(v.id); }
       const st = sentence(fill(m.pick(`${key}|${h}`, tpl), { stem: d.stem, star: x.star, pal: x.palace, dom: dom(x.palace) }), [], ['KL pp.195-197'], 'he_thong', h === 'Hóa Kỵ' ? 'neg' : 'pos');
@@ -243,7 +260,11 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       // a level that runs against the book sentences of the hạn says so, and why (the other layers of the index weigh more)
       const book = xs.filter(x => x.trace.basis === 'sach' || x.trace.basis === 'tinh_toan'), up = book.filter(x => x.trace.tone === 'pos').length, down = book.filter(x => x.trace.tone === 'neg').length;
       const against = lv <= 1 && up > down ? 'low' : lv >= 3 && down > up ? 'high' : null;
-      const text = against && L!.level_against?.[against]?.length ? fill(m.pick(`${key}|lva`, L!.level_against[against]), { w: L!.level_word[String(lv)] }) : m.pick(`${key}|level`, L!.level[String(lv)]);
+      // every variant of this level said already: recall the first hạn at the same level instead of a fourth identical closing
+      const fresh = pickNew(`${key}|level`, L!.level[String(lv)]), span = levelSpan.get(lv);
+      const text = against && L!.level_against?.[against]?.length ? fill(m.pick(`${key}|lva`, L!.level_against[against]), { w: L!.level_word[String(lv)] })
+        : fresh ?? (span && L!.level_again?.length ? fill(m.pick(`${key}|lag`, L!.level_again), { span }) : m.pick(`${key}|level`, L!.level[String(lv)]));
+      if (!levelSpan.has(lv)) levelSpan.set(lv, `${d.age_from}–${d.age_to}`);
       const st = sentence(text, [], [], 'he_thong', 'answer');
       st.trace.step = `level:${lv}`;
       st.trace.note = 'Mức của chặng theo chỉ số hệ thống (thông lệ, xếp theo phân vị của 1.000 lá số mẫu), cùng mức với biểu đồ ở phần Tổng quan.';
