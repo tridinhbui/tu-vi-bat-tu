@@ -53,6 +53,9 @@ function setTab(tab, scroll = true) {
   requestAnimationFrame(() => dispatchEvent(new Event('resize')));
 }
 function go(id) {
+  // Trang chủ: the whole landing page, also for a signed-in member (app.css hides its welcome sections otherwise)
+  document.body.classList.toggle('landing', id === 'hero' || id === 'trang-chu');
+  if (id === 'trang-chu') id = 'hero';
   if (id === 'tai-khoan') { if (shareMode.id) { leaveShare('#tai-khoan'); return; } view('account'); acctPage.paint(); history.replaceState(null, '', '#tai-khoan'); return; }
   const tabs = { 'tong-quan': 'overview', 'bat-tu': 'bazi', 'tu-vi': 'tuvi', 'truong-thanh': 'growth' };
   if (tabs[id] && state?.chart) { if (document.body.dataset.view !== 'chart') view('chart'); setTab(tabs[id]); history.replaceState({ v: 'chart' }, '', '#la-so/' + id); return; }
@@ -335,7 +338,7 @@ async function openShare(id) {
   } finally { endLoad(); $('#loading').hidden = true; }
 }
 // a pasted share link or the account page, on load and when only the hash changes (same document)
-const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); else if (location.hash === '#la-so-mau') { history.replaceState(null, '', location.pathname); loadSample().then(() => setTab('tuvi')); } };
+const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); else if (location.hash === '#trang-chu') go('trang-chu'); else if (location.hash === '#la-so-mau') { history.replaceState(null, '', location.pathname); loadSample().then(() => setTab('tuvi')); } };
 route(); addEventListener('hashchange', route);
 // back from "Đăng nhập để đọc tiếp" on a guest lock card (js/paywall.js): the chart that was on screen, now read at the member tier
 { const resume = takeResume(); if (resume && !SHARE_HASH.test(location.hash)) generate(null, resume); }
