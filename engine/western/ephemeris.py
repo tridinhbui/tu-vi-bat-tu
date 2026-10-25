@@ -125,9 +125,14 @@ class Position:
 def positions(name: str, t) -> Position | list[Position]:
     """Apparent geocentric position of one body at Time t (scalar or array)."""
     ap = earth().at(t).observe(body(name)).apparent()
-    lat, lon, dist, _lat_rate, lon_rate, _ = ap.frame_latlon_and_rates(ecliptic_frame)
+    lat, lon, dist = ap.frame_latlon(ecliptic_frame)
     ra, dec, _ = ap.radec(epoch="date")
-    lon_d, lat_d, spd = lon.degrees % 360.0, lat.degrees, lon_rate.degrees.per_day
+    lon_d, lat_d = lon.degrees % 360.0, lat.degrees
+    # Speed = central difference of the apparent longitude over +-1 hour. Skyfield's analytic rates of an apparent position
+    # leave out the change of aberration, which moved Saturn's stations by up to 2 h against Swiss Ephemeris.
+    h = 1.0 / 24.0
+    ts = timescale()
+    spd = ((longitude(name, ts.tt_jd(t.tt + h)) - longitude(name, ts.tt_jd(t.tt - h)) + 180.0) % 360.0 - 180.0) / (2 * h)
     if np.ndim(lon_d) == 0:
         return Position(float(lon_d), float(lat_d), float(dist.au), float(spd), float(ra._degrees), float(dec.degrees))
     return [Position(float(a), float(b), float(c), float(d), float(e), float(f))

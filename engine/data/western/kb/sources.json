@@ -1,0 +1,107 @@
+{
+  "_doc": "Every source the Western module cites. 'school' keeps traditions apart: hellenistic (Greek-language astrology of the Roman era), traditional (medieval/Renaissance, here Lilly), modern (19th-20th century psychological / theosophical astrology), astronomy (computation), convention (a choice Thiên Bàn makes where no authority settles it). A rule may cite only sources of its own school, plus astronomy.",
+  "PTOL_TETRA": {
+    "school": "hellenistic",
+    "author": "Claudius Ptolemy",
+    "title": "Tetrabiblos",
+    "edition": "tr. F. E. Robbins, Loeb Classical Library 435 (1940)",
+    "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/home.html",
+    "rights": "public domain (US copyright not renewed, per LacusCurtius)",
+    "locator": "book.chapter, Loeb page",
+    "extract": "sources/ptolemy_robbins.json",
+    "note": "Ptolemy is Hellenistic in date but systematises in his own way (no lot reversal by night, terms of his own, no decans); where he and Valens differ both are kept."
+  },
+  "LILLY_CA": {
+    "school": "traditional",
+    "author": "William Lilly",
+    "title": "Christian Astrology",
+    "edition": "London, 1647 (first edition)",
+    "rights": "public domain",
+    "locator": "printed page of 1647",
+    "note": "Lilly's dignity table (p.104) follows 'Ptolomy' for triplicities (day/night only) and terms."
+  },
+  "VALENS_ANTH": {
+    "school": "hellenistic",
+    "author": "Vettius Valens",
+    "title": "Anthologies",
+    "edition": "tr. Mark T. Riley (2010, distributed free by the translator)",
+    "rights": "translation in copyright, used for short citations and paraphrase only",
+    "locator": "book.chapter, PDF page"
+  },
+  "LEO": {
+    "school": "modern",
+    "author": "Alan Leo",
+    "title": "works 1899-1912 (The Progressed Horoscope; How to Judge a Nativity; Astrology for All)",
+    "rights": "public domain",
+    "locator": "book, chapter, printed page"
+  },
+  "JPL_DE440": {
+    "school": "astronomy",
+    "author": "R. S. Park, W. M. Folkner, J. G. Williams, D. H. Boggs",
+    "title": "The JPL Planetary and Lunar Ephemerides DE440 and DE441",
+    "edition": "Astronomical Journal 161:105 (2021); file de440s.bsp from https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/",
+    "rights": "public domain (US government work)"
+  },
+  "JPL_HORIZONS": {
+    "school": "astronomy",
+    "title": "JPL Horizons system",
+    "url": "https://ssd.jpl.nasa.gov/horizons/",
+    "note": "Chiron state vectors (solution JPL#171) and spot checks of apparent positions."
+  },
+  "SKYFIELD": {
+    "school": "astronomy",
+    "author": "Brandon Rhodes",
+    "title": "Skyfield",
+    "edition": "1.55",
+    "url": "https://rhodesmill.org/skyfield/",
+    "rights": "MIT licence",
+    "note": "apparent positions (light time, aberration, deflection), IAU 2000A nutation, true ecliptic and equinox of date"
+  },
+  "MEEUS": {
+    "school": "astronomy",
+    "author": "Jean Meeus",
+    "title": "Astronomical Algorithms",
+    "edition": "2nd ed., Willmann-Bell 1998",
+    "locator": "chapter, equation",
+    "note": "mean lunar node, eq. 47.7"
+  },
+  "SWE_DOC": {
+    "school": "astronomy",
+    "author": "Astrodienst (D. Koch, A. Treindl)",
+    "title": "Swiss Ephemeris documentation",
+    "url": "https://www.astro.com/swisseph/swisseph.htm",
+    "note": "definitions of the house systems and of the true (osculating) node; Swiss Ephemeris itself is used only as a test reference (AGPL)."
+  },
+  "GEONAMES": {
+    "school": "data",
+    "title": "GeoNames gazetteer",
+    "url": "https://www.geonames.org/",
+    "rights": "CC BY 4.0 (attribution shown on the page)"
+  },
+  "TZDB": {
+    "school": "data",
+    "title": "IANA time zone database",
+    "url": "https://www.iana.org/time-zones",
+    "note": "historical offsets and DST; Asia/Hanoi from the backzone file"
+  },
+  "CONV_ORBS": {
+    "school": "convention",
+    "title": "Thiên Bàn orb table",
+    "note": "No book fixes orbs for the modern school; Thiên Bàn's numbers are a stated convention and can be changed."
+  },
+  "CONV_MINOR": {
+    "school": "convention",
+    "title": "Minor aspects",
+    "note": "30, 45, 135, 150, 72, 144 degrees: in use since Kepler (Harmonices Mundi, 1619) and in modern practice; not part of the Hellenistic or Lilly's doctrine."
+  },
+  "CONV_PATTERNS": {
+    "school": "convention",
+    "title": "Aspect configurations",
+    "note": "grand trine, T-square, grand cross, yod, kite, mystic rectangle, stellium: 20th-century modern vocabulary; geometric definitions only."
+  },
+  "CONV_MODERN_RULERS": {
+    "school": "modern",
+    "title": "Modern co-rulers",
+    "note": "Uranus-Aquarius, Neptune-Pisces, Pluto-Scorpio: 20th-century convention after the outer planets' discovery; shown only when the modern ruler option is chosen."
+  }
+}
