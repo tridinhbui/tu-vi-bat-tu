@@ -48,7 +48,7 @@ def _vi(p: str) -> str:
             "jupiter": "Mộc tinh", "saturn": "Thổ tinh"}.get(p, p)
 
 
-ASPECT_VI = {"conjunction": "hội hợp", "sextile": "lục hợp", "square": "vuông góc", "trine": "tam hợp", "opposition": "xung chiếu"}
+ASPECT_VI = {"conjunction": "hội hợp", "sextile": "lục hợp", "square": "vuông", "trine": "tam hợp", "opposition": "xung chiếu"}
 
 
 def houses_ruled(chart, p: str) -> list[int]:
@@ -85,13 +85,13 @@ def timing(chart, cfg: R.Config, degrees: float) -> dict:
     return {
         "degrees_to_perfection": degrees,
         "house_rule": {"value": n, "unit": unit, "houses": kinds, "rule": "lilly.timing.general_house_rule",
-                       "vi": f"Còn khoảng {n}° tới khi góc hợp chính xác; theo vị trí nhà ({', '.join(kinds)}) mỗi độ ứng một {unit}: khoảng {n} {unit}."},
+                       "vi": f"Còn khoảng {n}° tới khi góc hợp chính xác; hai hành tinh ở {' và '.join({'angular': 'nhà góc', 'succedent': 'nhà nối', 'cadent': 'nhà rơi'}[k] for k in kinds)}, nên theo Lilly mỗi độ ứng một {unit}: khoảng {n} {unit}."},
         "sign_rule": {"value": n, "unit": sign_unit, "sign_quality": q, "rule": "lilly.timing.sign_quality",
-                      "vi": f"Theo tính chất cung của {_vi(a)} ({q}) mỗi độ ứng một {sign_unit}: khoảng {n} {sign_unit}."},
+                      "vi": f"Theo tính chất cung của {_vi(a)} (cung {({'moveable': 'khởi đầu', 'fixed': 'cố định', 'common': 'biến đổi'})[q]}) mỗi độ ứng một {sign_unit}: khoảng {n} {sign_unit}."},
         "ephemeris": {"jd": cfg.jd, "days": cfg.jd - chart.jd_ut if cfg.jd else None,
                       "vi": "Đây là thời điểm thiên văn góc hợp chính xác, không phải ngày dự báo sự việc."},
-        "caveat": "Lilly tự nói đây là thước đo tượng trưng, phải 'pha nghệ thuật với lý trí' theo bản chất việc "
-                  "(lilly.method.mix_art_and_reason); Thiên Bàn không đưa ra ngày cụ thể.",
+        "caveat": "Lilly tự nói đây là thước đo tượng trưng, phải 'pha nghệ thuật với lý trí' theo bản chất việc; "
+                  "Thiên Bàn không đưa ra ngày cụ thể.",
     }
 
 
@@ -118,7 +118,7 @@ def judge(chart, frame_d: dict, school: str = "lilly") -> dict:
     rec = dignity.reception_between(recs, L1, LQ) if L1 != LQ else None
 
     # ---------- layer 3/4: does the matter come together, and does anything cut it off first?
-    blockers = [c for c in main if c.kind in ("prohibition", "frustration", "abscission", "refranation")]
+    blockers = [c for c in main if c.kind in ("prohibition", "frustration", "refranation")]
     first_block = min((c.jd for c in blockers if c.jd), default=None)
 
     for c in main:
@@ -139,9 +139,10 @@ def judge(chart, frame_d: dict, school: str = "lilly") -> dict:
             T.append(Testimony("translation", -1 if blocked else +1, "decisive",
                 f"{_vi(t)} vừa rời {_vi(frm)} và đang tiến tới {_vi(to)}: chuyển ánh sáng (translation of light)"
                 + ("" if received else " — nhưng không được chủ tinh mà nó vừa rời tiếp nhận"),
-                "Lilly: khi hai chủ tinh không nối với nhau, một hành tinh rời chủ tinh này rồi tiến tới chủ tinh kia sẽ chuyển "
-                "sức mạnh của bên này sang bên kia; người do hành tinh đó đại diện sẽ đưa việc tới kết quả. Lilly đòi hỏi hành "
-                "tinh chuyển ánh sáng được chủ tinh nó vừa rời tiếp nhận (theo nhà, tam hợp hoặc giới hạn).",
+                "Lilly (tr.111): hành tinh nhẹ rời một hành tinh nặng rồi tiến tới hành tinh nặng khác, mang sức mạnh của bên này sang "
+                "bên kia; người do hành tinh đó đại diện đưa việc tới kết quả. Ở tr.126 Lilly thêm điều kiện hành tinh chuyển ánh "
+                "sáng phải được chủ tinh nó vừa rời tiếp nhận (theo nhà, tam hợp hoặc giới hạn); hai trang không thống nhất, nên khi "
+                "thiếu tiếp nhận Thiên Bàn vẫn tính là chuyển ánh sáng nhưng hạ xuống 'có điều kiện'.",
                 c.planets, [chart.bodies[p].house for p in c.planets], c.detail.get("aspect_to"), c.jd, "lilly.perfection.translation",
                 {"translator": t, "translator_rules_houses": houses_ruled(chart, t), "received_by_first": received, "blocked": blocked,
                  "weak": not received}))
@@ -155,16 +156,17 @@ def judge(chart, frame_d: dict, school: str = "lilly") -> dict:
                 "phẩm chất của mình, thì hành tinh đó gom ánh sáng và kết thúc việc; đó là một người có liên quan tới cả hai bên.",
                 c.planets, [chart.bodies[p].house for p in c.planets], None, c.jd, "lilly.perfection.collection",
                 {"collector": col, "collector_rules_houses": houses_ruled(chart, col), "they_receive_him": they_receive}))
-        elif c.kind in ("prohibition", "frustration", "abscission"):
+        elif c.kind in ("prohibition", "frustration"):
             T.append(Testimony(c.kind, -1, "decisive",
-                {"prohibition": f"{_vi(c.planets[0])} tới {_vi(c.planets[1])} trước (góc {ASPECT_VI.get(c.detail['aspect'], '')}), cắt ngang sự gặp gỡ của hai chủ tinh",
-                 "frustration": f"{_vi(c.planets[0])} kết hợp với {_vi(c.planets[1])} trước khi {_vi(c.planets[2])} kịp tới: việc bị phá giữa chừng",
-                 "abscission": f"{_vi(c.planets[0])} gặp {_vi(c.planets[1])} trước khi tới {_vi(c.planets[2])}"}[c.kind],
-                "Lilly: khi hai chủ tinh đang tiến tới nhau mà một hành tinh khác đến với một trong hai trước, sự gặp gỡ bị ngăn; "
-                "người do hành tinh đó đại diện cản trở việc.",
+                f"{_vi(c.planets[0])} {'tới' if c.kind == 'prohibition' else 'kết hợp với'} {_vi(c.planets[1])} trước (góc {ASPECT_VI.get(c.detail['aspect'], '')}), "
+                + ("chen vào giữa hai chủ tinh" if c.kind == "prohibition" else f"trước khi {_vi(c.planets[2])} kịp tới"),
+                "Lilly: khi hai chủ tinh đang tiến tới nhau mà một hành tinh khác chen thân hoặc góc chiếu của nó vào trước, việc bị cản "
+                "và chậm lại (prohibition); khi chính hành tinh nặng hơn đi gặp hành tinh khác trước, việc bị phá (frustration: "
+                "'hai con chó tranh nhau, con thứ ba được khúc xương'). Người do hành tinh chen vào đại diện là người gây cản trở.",
                 c.planets, [chart.bodies[p].house for p in c.planets], c.detail.get("aspect"), c.jd,
-                {"prohibition": "lilly.prohibition", "frustration": "lilly.frustration", "abscission": "lilly.prohibition"}[c.kind],
-                {"interferer_rules_houses": houses_ruled(chart, c.planets[0])}))
+                "lilly.prohibition" if c.kind == "prohibition" else "lilly.frustration",
+                {"interferer_rules_houses": houses_ruled(chart, c.planets[0] if c.kind == "prohibition" else c.planets[1]),
+                 "extension": c.detail.get("extension")}))
         elif c.kind == "refranation":
             st = c.detail["station"]
             T.append(Testimony("refranation", -1, "decisive",
@@ -190,14 +192,20 @@ def judge(chart, frame_d: dict, school: str = "lilly") -> dict:
             [L1, LQ], [], rule="lilly.method.what_to_judge"))
 
     # ---------- strong tier: reception, the void Moon, combustion of a significator
-    if rec and (rec["a_by_b"] or rec["b_by_a"]):
-        T.append(Testimony("reception", +1, "strong",
-            "Hai chủ tinh có tiếp nhận: " + "; ".join(filter(None, [
-                f"{_vi(L1)} đứng trong phẩm chất của {_vi(LQ)} ({', '.join(rec['a_by_b'])})" if rec["a_by_b"] else "",
-                f"{_vi(LQ)} đứng trong phẩm chất của {_vi(L1)} ({', '.join(rec['b_by_a'])})" if rec["b_by_a"] else ""]))
-            + (" — tiếp nhận lẫn nhau" if rec["mutual"] else ""),
-            "Lilly: tiếp nhận làm việc dễ thành và là điều kiện để góc xung có thể thành; tiếp nhận lẫn nhau theo nhà được tính "
-            "như phẩm chất nhà (+5).", [L1, LQ], [], rule="lilly.reception", data=rec))
+    if rec and rec["mutual"]:
+        T.append(Testimony("reception", +1, "decisive",
+            f"{_vi(L1)} và {_vi(LQ)} tiếp nhận lẫn nhau: {_vi(L1)} đứng trong {', '.join(rec['a_by_b'])} của {_vi(LQ)}, "
+            f"{_vi(LQ)} đứng trong {', '.join(rec['b_by_a'])} của {_vi(L1)}",
+            "Lilly: khi các góc hợp phủ nhận việc, hoặc hai chủ tinh không có góc hợp, hoặc điều mà góc vuông, góc xung hứa hẹn còn "
+            "đáng ngờ, nếu hai chủ tinh chính tiếp nhận lẫn nhau thì việc vẫn thành, không mấy khó khăn, nhanh và cả hai bên hài "
+            "lòng. Tiếp nhận theo nhà là mạnh nhất.", [L1, LQ], [chart.bodies[L1].house, chart.bodies[LQ].house], rule="lilly.reception",
+            data=rec | {"major": rec["mutual_major"]}))
+    elif rec and (rec["a_by_b"] or rec["b_by_a"]):
+        T.append(Testimony("reception_one_way", 0, "minor",
+            "Tiếp nhận một chiều: " + (f"{_vi(L1)} đứng trong {', '.join(rec['a_by_b'])} của {_vi(LQ)}" if rec["a_by_b"]
+                                        else f"{_vi(LQ)} đứng trong {', '.join(rec['b_by_a'])} của {_vi(L1)}"),
+            "Lilly chỉ nêu ví dụ tiếp nhận lẫn nhau; tiếp nhận một chiều được ghi lại nhưng không tính là chứng cứ.",
+            [L1, LQ], [], rule="lilly.reception", data=rec))
     if mc["voc_by_sign"]:
         strong_sigs = all(strength[p]["essential_score"] >= 4 for p in {L1, LQ})
         T.append(Testimony("moon_voc", -1 if not strong_sigs else 0, "strong",
@@ -230,7 +238,7 @@ def judge(chart, frame_d: dict, school: str = "lilly") -> dict:
         who = "việc tự đến với người hỏi" if chart.bodies[LQ].house == 1 else "người hỏi tự tìm tới việc"
         T.append(Testimony("house_position", +1, "minor",
             f"{_vi(LQ)} ở nhà 1" if chart.bodies[LQ].house == 1 else f"{_vi(L1)} ở nhà {qh} (nhà của việc)",
-            f"Lilly: {who}; nhưng chỉ vị trí nhà thì chưa đủ, cần thêm Mặt Trăng chuyển ánh sáng (lilly.perfection.house_position).",
+            f"Lilly: {who}; nhưng chỉ vị trí nhà thì chưa đủ, cần thêm Mặt Trăng chuyển ánh sáng.",
             [LQ if chart.bodies[LQ].house == 1 else L1], [chart.bodies[LQ].house], rule="lilly.perfection.house_position"))
     for p, role in ((L1, "người hỏi"), (LQ, "việc được hỏi")):
         s = strength[p]
@@ -351,7 +359,7 @@ def _weigh(T: list[Testimony], cons) -> dict:
         reasons.append("Có cách thành sự nhưng nhiều chứng cứ mạnh chống lại, nên không kết luận.")
     return {"label": label, "vi": vi, "confidence": confidence, "reasons": reasons,
             "cautions": [c.id for c in caution],
-            "method": "Thứ tự xét theo Lilly (lilly.method.what_to_judge); tầng chứng cứ là cách vận hành của Thiên Bàn (docs/HORARY-ENGINE.md)."}
+            "method": "Thứ tự xét theo cách luận của Lilly; việc chia chứng cứ thành bốn tầng là cách vận hành của Thiên Bàn (docs/HORARY-ENGINE.md)."}
 
 
 def _timeline(chart, ev: dict, planets: set[str]) -> list[dict]:

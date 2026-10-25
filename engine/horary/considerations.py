@@ -13,6 +13,9 @@ from dataclasses import dataclass, asdict
 from . import dignity, kb
 from .questions import ruler_of_house
 
+VI = {"sun": "Mặt Trời", "moon": "Mặt Trăng", "mercury": "Thủy tinh", "venus": "Kim tinh", "mars": "Hỏa tinh", "jupiter": "Mộc tinh",
+      "saturn": "Thổ tinh"}
+
 SHORT_ASCENSION = {9, 10, 11, 0, 1, 2}          # Capricorn .. Gemini (northern hemisphere reading; Lilly's London)
 VOC_SOFT_SIGNS = {1, 3, 8, 11}                  # Taurus, Cancer, Sagittarius, Pisces (lilly.consider.moon_void_of_course)
 
@@ -61,9 +64,9 @@ def check(chart, frame: dict, moon_course: dict) -> list[Consideration]:
         nat = bool(n1 and n2 and ({"hot", "cold"} & n1 & n2) and ({"dry", "moist"} & n1 & n2))
         ok = same or trip or nat
         out.append(Consideration("lilly.consider.hour_ruler_agreement", not ok, "info" if ok else "caution",
-            f"Chủ giờ hành tinh là {hr}, chủ Mệnh (nhà 1) là {lord1}: " + (
+            f"Chủ giờ hành tinh là {VI[hr]}, chủ nhà 1 là {VI[lord1]}: " + (
                 "trùng nhau" if same else "cùng tam hợp" if trip else "cùng tính chất" if nat else "không trùng, không cùng tam hợp, không cùng tính chất"),
-            "Theo Lilly, lá số 'căn bản' (radical) khi chủ giờ và chủ Mệnh trùng, cùng tam hợp hoặc cùng tính chất. "
+            "Theo Lilly, lá số 'căn bản' (radical) khi chủ giờ và chủ nhà 1 trùng, cùng tam hợp hoặc cùng tính chất. "
             "Lilly không nói phải làm gì khi không đạt: chỉ là lời lưu ý.",
             {"hour_ruler": hr, "asc_ruler": lord1, "same": same, "triplicity": trip, "nature": nat if n1 and n2 else None}))
     if asc_deg < 3:
@@ -108,14 +111,14 @@ def check(chart, frame: dict, moon_course: dict) -> list[Consideration]:
         afflicted = []
         for m in ("saturn", "mars"):
             if abs((chart.bodies[m].lon - c7 + 180) % 360 - 180) <= 5:
-                afflicted.append(f"{m} sát đỉnh nhà 7")
+                afflicted.append(f"{VI[m]} sát đỉnh nhà 7")
         if r7.retrograde:
-            afflicted.append(f"chủ nhà 7 ({lord7}) nghịch hành")
+            afflicted.append(f"chủ nhà 7 ({VI[lord7]}) nghịch hành")
         sp = dignity.solar_phase(chart, lord7) if lord7 != "sun" else {"state": "sun"}
         if sp["state"] == "combust":
-            afflicted.append(f"chủ nhà 7 ({lord7}) bị đốt")
+            afflicted.append(f"chủ nhà 7 ({VI[lord7]}) bị đốt")
         if afflicted:
-            out.append(Consideration("lilly.consider.seventh_afflicted", True, "caution", "; ".join(afflicted),
+            out.append(Consideration("lilly.consider.seventh_afflicted", True, "caution", (lambda x: x[:1].upper() + x[1:])("; ".join(afflicted)),
                 "Lilly: nhà 7 (vị trí của chính nhà chiêm tinh) bị hại khi câu hỏi không thuộc nhà 7 thì lời luận khó làm người "
                 "hỏi hài lòng. Đây là lưu ý về người luận, không về sự việc.", {"items": afflicted}))
     sat = chart.bodies["saturn"]
@@ -128,17 +131,17 @@ def check(chart, frame: dict, moon_course: dict) -> list[Consideration]:
         out.append(Consideration("lilly.consider.saturn_in_seventh", True, "caution", "Thổ tinh ở nhà 7",
             "Lilly: Thổ tinh ở nhà 7 hoặc làm hỏng lời luận của nhà chiêm tinh, hoặc báo việc đi từ rủi này sang rủi khác.", {}))
     if lord1 != "sun" and dignity.solar_phase(chart, lord1)["state"] == "combust":
-        out.append(Consideration("lilly.consider.lord_asc_combust", True, "strong_caution", f"Chủ Mệnh ({lord1}) bị Mặt Trời đốt",
-            "Lilly: chủ Mệnh bị đốt thì câu hỏi 'không thành' và người hỏi khó nghe lời khuyên.", {}))
+        out.append(Consideration("lilly.consider.lord_asc_combust", True, "strong_caution", f"Chủ nhà 1 ({VI[lord1]}) bị Mặt Trời đốt",
+            "Lilly: chủ nhà 1 bị đốt thì câu hỏi 'không thành' và người hỏi khó nghe lời khuyên.", {}))
     es7 = dignity.essential(lord7, chart.bodies[lord7].lon, chart.is_day)
     term7 = es7.lords["term"]
     bad7 = []
     if "fall" in es7.debilities:
         bad7.append("ở thế suy (fall)")
     if term7 in ("saturn", "mars") and lord7 != term7:
-        bad7.append(f"ở giới hạn (term) của {term7}")
+        bad7.append(f"ở giới hạn (term) của {VI[term7]}")
     if bad7:
-        out.append(Consideration("lilly.consider.lord_seventh_unfortunate", True, "caution", f"Chủ nhà 7 ({lord7}) " + ", ".join(bad7),
+        out.append(Consideration("lilly.consider.lord_seventh_unfortunate", True, "caution", f"Chủ nhà 7 ({VI[lord7]}) " + ", ".join(bad7),
             "Lilly: chủ nhà 7 bất lợi, ở thế suy hoặc trong giới hạn của sao hung thì nhà chiêm tinh khó đưa ra lời luận chắc.",
             {"lord7": lord7, "items": bad7}))
     return out

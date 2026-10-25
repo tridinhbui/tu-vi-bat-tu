@@ -30,46 +30,46 @@ PARTIES = {   # who the matter belongs to -> their house counted from the queren
 TOPICS: dict[str, dict] = {
     "career": {"vi": "Sự nghiệp", "subtypes": {
         "obtain_post": {"vi": "Có được công việc / vị trí / chức vụ mong muốn không", "house": 10,
-                        "rules": ["lilly.topic.career.office"]},
-        "promotion": {"vi": "Có được thăng chức không", "house": 10, "rules": ["lilly.topic.career.office"]},
-        "keep_post": {"vi": "Có giữ được công việc hiện tại không", "house": 10, "rules": ["lilly.topic.career.continue"]},
+                        "rules": ["lilly.career.office"]},
+        "promotion": {"vi": "Có được thăng chức không", "house": 10, "rules": ["lilly.career.office"]},
+        "keep_post": {"vi": "Có giữ được công việc hiện tại không", "house": 10, "rules": ["lilly.career.continue"]},
     }},
     "finance": {"vi": "Tài chính", "caution": "finance", "subtypes": {
-        "gain": {"vi": "Có thu được khoản tiền / lợi nhuận đang mong không", "house": 2, "rules": ["lilly.topic.money.gain"]},
-        "loan_back": {"vi": "Có đòi lại được tiền đã cho vay không", "house": 8, "rules": ["lilly.topic.money.lent"]},
+        "gain": {"vi": "Có thu được khoản tiền / lợi nhuận đang mong không", "house": 2, "rules": ["lilly.money.testimonies_for"]},
+        "loan_back": {"vi": "Có đòi lại được tiền đã cho vay không", "house": 8, "rules": ["lilly.money.loan_or_debt"]},
         "deal": {"vi": "Một giao dịch / khoản đầu tư sẽ diễn biến thế nào (tiền của mình)", "house": 2,
-                 "rules": ["lilly.topic.money.gain"]},
+                 "rules": ["lilly.money.testimonies_for"]},
     }},
     "business": {"vi": "Kinh doanh", "caution": "finance", "subtypes": {
-        "partnership": {"vi": "Hợp tác với một người / đối tác có thành không", "house": 7, "rules": ["lilly.topic.business.partnership"]},
-        "contract": {"vi": "Hợp đồng / thỏa thuận với bên kia có ký được không", "house": 7, "rules": ["lilly.topic.business.contract"]},
-        "buy_sell": {"vi": "Có mua / bán được món hàng không", "house": 7, "rules": ["lilly.topic.business.buy_sell"]},
-        "rival": {"vi": "Cạnh tranh với một đối thủ cụ thể", "house": 7, "rules": ["lilly.topic.business.adversary"]},
+        "partnership": {"vi": "Hợp tác với một người / đối tác có thành không", "house": 7, "rules": ["lilly.business.partnership_whether"]},
+        "contract": {"vi": "Hợp đồng / thỏa thuận với bên kia có ký được không", "house": 7, "rules": ["lilly.business.seventh_house_scope"]},
+        "buy_sell": {"vi": "Có mua / bán được món hàng không", "house": 7, "rules": ["lilly.business.buying_selling_commodities"]},
+        "rival": {"vi": "Cạnh tranh với một đối thủ cụ thể", "house": 7, "rules": ["lilly.business.adversaries"]},
     }},
     "love": {"vi": "Tình cảm", "subtypes": {
-        "relationship": {"vi": "Mối quan hệ có tiến tới không", "house": 7, "rules": ["lilly.topic.love.marriage"]},
-        "marriage": {"vi": "Có kết hôn với người này không", "house": 7, "rules": ["lilly.topic.love.marriage"]},
-        "reconcile": {"vi": "Có làm lành / quay lại được không", "house": 7, "rules": ["lilly.topic.love.reconcile"]},
+        "relationship": {"vi": "Mối quan hệ có tiến tới không", "house": 7, "rules": ["lilly.love.perfection"]},
+        "marriage": {"vi": "Có kết hôn với người này không", "house": 7, "rules": ["lilly.love.perfection"]},
+        "reconcile": {"vi": "Có làm lành / quay lại được không", "house": 7, "rules": ["lilly.love.reconciliation"]},
     }},
     "study": {"vi": "Học tập", "subtypes": {
-        "exam": {"vi": "Có đỗ kỳ thi này không", "house": 10, "rules": ["lilly.topic.study.none"]},
-        "admission": {"vi": "Có được nhận vào trường / khóa học không", "house": 9, "rules": ["lilly.topic.study.none"]},
-        "scholarship": {"vi": "Có được học bổng không", "house": 10, "rules": ["lilly.topic.study.none"]},
+        "exam": {"vi": "Có đỗ kỳ thi này không", "house": 10, "rules": ["lilly.study.none"]},
+        "admission": {"vi": "Có được nhận vào trường / khóa học không", "house": 9, "rules": ["lilly.study.none"]},
+        "scholarship": {"vi": "Có được học bổng không", "house": 10, "rules": ["lilly.study.none"]},
     }},
     "property": {"vi": "Nhà đất", "caution": "finance", "subtypes": {
-        "buy": {"vi": "Có mua được nhà / đất này không", "house": 4, "rules": ["lilly.topic.property.buy_sell"]},
-        "sell": {"vi": "Có bán được nhà / đất không", "house": 4, "rules": ["lilly.topic.property.buy_sell"]},
-        "rent": {"vi": "Có thuê được / nên thuê nơi này không", "house": 4, "rules": ["lilly.topic.property.rent"]},
-        "move": {"vi": "Chuyển nơi ở có tốt không", "house": 4, "rules": ["lilly.topic.property.remove"]},
+        "buy": {"vi": "Có mua được nhà / đất này không", "house": 4, "rules": ["lilly.land.buy_perfection"]},
+        "sell": {"vi": "Có bán được nhà / đất không", "house": 4, "rules": ["lilly.land.buy_perfection"]},
+        "rent": {"vi": "Có thuê được / nên thuê nơi này không", "house": 4, "rules": ["lilly.land.hire_or_lease"]},
+        "move": {"vi": "Chuyển nơi ở có tốt không", "house": 4, "rules": ["lilly.land.remove_or_stay"]},
     }},
     "lost": {"vi": "Đồ vật thất lạc", "subtypes": {
-        "lost_item": {"vi": "Đồ bị thất lạc có tìm lại được không, ở đâu", "house": 2, "rules": ["lilly.topic.lost.goods"]},
-        "stolen": {"vi": "Đồ bị lấy cắp có lấy lại được không", "house": 2, "rules": ["lilly.topic.lost.theft"]},
+        "lost_item": {"vi": "Đồ bị thất lạc có tìm lại được không, ở đâu", "house": 2, "rules": ["lilly.lost.mislaid_significators"]},
+        "stolen": {"vi": "Đồ bị lấy cắp có lấy lại được không", "house": 2, "rules": ["lilly.lost.thief_significator"]},
     }},
     "travel": {"vi": "Du lịch / đi xa", "subtypes": {
-        "short_trip": {"vi": "Chuyến đi gần có suôn sẻ không", "house": 3, "rules": ["lilly.topic.travel.short"]},
-        "long_trip": {"vi": "Chuyến đi xa / ra nước ngoài có thuận không", "house": 9, "rules": ["lilly.topic.travel.long"]},
-        "plan_change": {"vi": "Kế hoạch đi có bị trở ngại / thay đổi không", "house": 9, "rules": ["lilly.topic.travel.long"]},
+        "short_trip": {"vi": "Chuyến đi gần có suôn sẻ không", "house": 3, "rules": ["lilly.journey.short_whether"]},
+        "long_trip": {"vi": "Chuyến đi xa / ra nước ngoài có thuận không", "house": 9, "rules": ["lilly.journey.ninth_house_general"]},
+        "plan_change": {"vi": "Kế hoạch đi có bị trở ngại / thay đổi không", "house": 9, "rules": ["lilly.journey.ninth_house_general"]},
     }},
 }
 
@@ -282,7 +282,7 @@ class Frame:
                 "subtype_vi": st["vi"], "querent_house": 1, "party_house": ph, "quesited_house": qh, "rules": st["rules"],
                 "caution": CAUTIONS.get(TOPICS[self.topic].get("caution", "")),
                 "derived_note": None if self.party == "self" else
-                f"Việc của {PARTIES[self.party]['vi']}: nhà {th} tính từ nhà {ph} = nhà {qh} (lilly.method.derived_houses)."}
+                f"Việc của {PARTIES[self.party]['vi']}: nhà {th} tính từ nhà {ph} = nhà {qh}, theo cách xoay lá số của Lilly."}
 
 
 def ruler_of_house(chart, house: int) -> str:
@@ -301,5 +301,5 @@ def significators(chart, frame: dict) -> dict:
     if frame["party"] != "self":
         out["party"] = {"planet": ruler_of_house(chart, frame["party_house"]), "house": frame["party_house"]}
     if frame["topic"] == "lost":
-        out["fortune"] = {"point": "fortune", "lon": chart.fortune, "rule": "lilly.topic.lost.goods"}
+        out["fortune"] = {"point": "fortune", "lon": chart.fortune, "rule": "lilly.lost.mislaid_significators"}
     return out

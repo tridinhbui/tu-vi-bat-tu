@@ -47,10 +47,16 @@ def source(jd_ut: float) -> dict:
 def positions(jd_ut: float, bodies=TRAD + OUTER) -> dict[str, Pos]:
     if in_range(jd_ut):
         t = W.time_jd_ut(jd_ut)
+        h = 1 / 24
+        tt = W.time_jd_ut(np.array([jd_ut - h, jd_ut + h]))
         out = {}
         for b in bodies:
             p = W.positions(b, t)
-            out[b] = Pos(p.lon, p.lat, p.speed, p.ra, p.dec, p.dist_au)
+            # speed = time derivative of the APPARENT longitude (central difference over +-1 h), as the Swiss Ephemeris reports it.
+            # Skyfield's own rate leaves out the slow change of aberration (~1e-4 deg/day), enough to move a slow planet's station
+            # by an hour; stations, retrogradation and application are all judged on the apparent longitude itself.
+            l0, l1 = W.longitude(b, tt)
+            out[b] = Pos(p.lon, p.lat, ((l1 - l0 + 180.0) % 360.0 - 180.0) / (2 * h), p.ra, p.dec, p.dist_au)
         return out
     return {b: _ephem_pos(b, jd_ut) for b in bodies}
 

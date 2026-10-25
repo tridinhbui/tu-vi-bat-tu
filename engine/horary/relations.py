@@ -143,7 +143,7 @@ def configurations(chart, ev: dict, pairs: dict, s1: str, s2: str, orbs: dict[st
     t0 = chart.jd_ut
     out: list[Config] = []
     if s1 == s2:
-        return [Config("same_planet", [s1], None, {"note": "Cùng một hành tinh chủ quản cả hai bên."}, "lilly.significator.same_ruler")]
+        return [Config("same_planet", [s1], None, {"note": "Cùng một hành tinh chủ quản cả hai bên."}, "lilly.significator.lord_of_house")]
     ps = get(pairs, s1, s2)
     perf_jd = None
     if ps.motion == "applying" and ps.next_perfection_jd is not None and ps.refranation is None:
@@ -152,7 +152,8 @@ def configurations(chart, ev: dict, pairs: dict, s1: str, s2: str, orbs: dict[st
             out.append(Config("perfection", [ps.applier, s2 if ps.applier == s1 else s1], perf_jd,
                               {"aspect": E.ASPECTS[ps.angle], "orb": ps.orb, "within_orb": ps.within_orb,
                                "before_sign_change": ps.perfection_before_sign_change, "by_sign": ps.by_sign},
-                              "lilly.perfection.aspect"))
+                              {0: "lilly.perfection.conjunction", 60: "lilly.perfection.sextile_trine", 90: "lilly.perfection.square",
+                               120: "lilly.perfection.sextile_trine", 180: "lilly.perfection.opposition"}[ps.angle]))
     if ps.motion == "applying" and ps.refranation is not None:
         out.append(Config("refranation", [s1, s2], ps.refranation["station"]["jd"], ps.refranation, "lilly.refranation"))
 
@@ -168,18 +169,29 @@ def configurations(chart, ev: dict, pairs: dict, s1: str, s2: str, orbs: dict[st
             if len(third) != 1 or {p.a, p.b} == {s1, s2}:
                 continue
             x = third.pop()
-            if applied_to in (p.a, p.b) and p.a == x:
-                out.append(Config("prohibition", [x, applied_to, applier], p.jd,
-                                  {"aspect": E.ASPECTS[p.angle], "interposer": x, "note": "hành tinh thứ ba tới trước"},
-                                  "lilly.prohibition"))
-            elif applied_to in (p.a, p.b) and p.a == applied_to:
+            # Engine reading of Lilly's 'interposes his body or aspect' (lilly.prohibition): the third planet's contact counts only
+            # if it is already in force at the question (within the moieties and applying, Lilly p.60/p.110: influence begins
+            # within orb) and is the very contact that perfects first. The Moon, co-significator of the querent, is never the
+            # interposer between the querent's own significators.
+            if x == "moon":
+                continue
+            st3 = get(pairs, x, applied_to if applied_to in (p.a, p.b) else applier)
+            if not (st3.within_orb and st3.motion == "applying" and st3.next_perfection_jd is not None
+                    and abs(st3.next_perfection_jd - p.jd) < 1e-6):
+                continue
+            if applied_to in (p.a, p.b) and p.a == applied_to:
+                # the heavier planet itself goes to another first (Lilly: frustration; defined for the conjunction)
                 out.append(Config("frustration", [applied_to, x, applier], p.jd,
-                                  {"aspect": E.ASPECTS[p.angle], "note": "hành tinh được tiến tới lại kết hợp với hành tinh khác trước"},
+                                  {"aspect": E.ASPECTS[p.angle], "by_body": p.angle == 0,
+                                   "note": "hành tinh được tiến tới lại kết hợp với hành tinh khác trước",
+                                   "extension": None if p.angle == 0 else "Lilly định nghĩa frustration cho hội hợp; trường hợp góc chiếu là cách mở rộng của Thiên Bàn"},
                                   "lilly.frustration"))
-            elif applier in (p.a, p.b):
-                out.append(Config("abscission", [applier, x, applied_to], p.jd,
-                                  {"aspect": E.ASPECTS[p.angle], "note": "hành tinh đang tiến tới gặp hành tinh khác trước"},
-                                  "lilly.prohibition"))
+            else:
+                # a third planet interposes its body or aspect with either significator first (Lilly: prohibition)
+                met = applied_to if applied_to in (p.a, p.b) else applier
+                out.append(Config("prohibition", [x, met, applied_to if met == applier else applier], p.jd,
+                                  {"aspect": E.ASPECTS[p.angle], "interposer": x, "met": met, "by_body": p.angle == 0,
+                                   "note": "hành tinh thứ ba chen vào trước"}, "lilly.prohibition"))
 
     # translation of light: a lighter planet separating from one significator and applying to the other
     for t in TRAD:

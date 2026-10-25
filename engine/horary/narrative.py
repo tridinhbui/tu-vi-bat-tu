@@ -105,25 +105,83 @@ def _house_people(h: int) -> str:
     return f"những người và việc của nhà {h}"
 
 
+LEAN = {   # the deep overview's closing line: same verdict as VERDICT_LEAD, other words (the reading never repeats a sentence)
+    "favourable": "Nhìn chung, thế cục nghiêng về phía việc thành.",
+    "conditional": "Thế cục mở ra một lối để việc thành, nhưng lối ấy còn vướng.",
+    "unfavourable": "Nhìn chung, thế cục nghiêng về phía việc không thành.",
+    "unclear": "Thế cục chưa ngả hẳn về bên nào.",
+}
+VERDICT_HEAD = {"favourable": "Kết luận: thuận.", "conditional": "Kết luận: thuận nhưng có điều kiện.",
+                "unfavourable": "Kết luận: không thuận.", "unclear": "Kết luận: chưa rõ."}
+
+
+def _mechanism(t: dict) -> str:
+    """A testimony told as what it does to the matter, in a few words (used in the conclusion instead of repeating it)."""
+    d, i = t["data"], t["id"]
+    if i.startswith("perfection"):
+        return (f"hai chủ tinh sẽ gặp nhau bằng góc {ASPECT_VI[t['aspect']]}" if t["polarity"] > 0
+                else f"góc {ASPECT_VI[t['aspect']]} giữa hai chủ tinh " + ("bị cắt ngang trước khi thành" if d.get("blocked") else "không đủ điều kiện Lilly đặt ra"))
+    if i == "translation":
+        return f"{PLANET[d['translator']]} làm cầu nối giữa hai bên"
+    if i == "collection":
+        return f"{PLANET[d['collector']]} gom ánh sáng của cả hai bên"
+    if i == "reception":
+        return "hai chủ tinh tiếp nhận lẫn nhau"
+    if i == "separation":
+        return "hai chủ tinh đang rời xa nhau sau một lần gặp đã qua"
+    if i == "no_connection":
+        return "không có đường nào nối hai bên"
+    if i == "prohibition":
+        return f"{PLANET[t['planets'][0]]} chen vào trước khi hai bên kịp gặp"
+    if i == "frustration":
+        return f"{PLANET[t['planets'][0]]} đi gặp {PLANET[t['planets'][1]]} trước"
+    if i == "refranation":
+        return f"{PLANET[d['station']['planet']]} quay lui trước khi hai bên kịp gặp"
+    if i == "moon_voc":
+        return "Mặt Trăng vô hành"
+    if i.startswith("combust"):
+        return f"{PLANET[t['planets'][0]]} bị Mặt Trời đốt"
+    if i == "same_ruler":
+        return "một hành tinh đại diện cho cả hai bên"
+    return _lower_first(t["vi"])
+
+
+def _conditions(t: dict) -> str | None:
+    d = t["data"]
+    if t["id"] == "translation" and d.get("weak"):
+        return f"{PLANET[d['translator']]} không được chủ tinh nó vừa rời tiếp nhận, điều Lilly đòi hỏi ở tr.126 (dù tr.111 không đòi)"
+    if d.get("conditions_full") is False:
+        return f"góc {ASPECT_VI[t['aspect']]} thiếu điều kiện 'nhà tốt và có phẩm chất' của Lilly"
+    if d.get("regret"):
+        return "theo Lilly việc thành bằng góc xung thường kèm tranh chấp hoặc hối tiếc"
+    return None
+
+
+def _join(xs: list[str]) -> str:
+    xs = [x for x in xs if x]
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " và " + xs[-1] if xs else ""
+
+
 def compose(chart, frame: dict, j: dict) -> dict:
     sig = j["significators"]
     L1, LQ = sig["querent"]["planet"], sig["quesited"]["planet"]
     qname = QUESITED.get((frame["topic"], frame["subtype"]), "việc được hỏi")
     v = j["verdict"]
-    T = {t["id"]: t for t in j["testimonies"]}
-    dec = [t for t in j["testimonies"] if t["tier"] == "decisive"]
+    tests = j["testimonies"]
+    dec = [t for t in tests if t["tier"] == "decisive"]
     pos = [t for t in dec if t["polarity"] > 0]
     neg = [t for t in dec if t["polarity"] < 0]
-    strong = [t for t in j["testimonies"] if t["tier"] == "strong"]
+    strong = [t for t in tests if t["tier"] == "strong"]
+    conds = [c for c in (_conditions(t) for t in pos) if c] + [_mechanism(t) for t in strong if t["polarity"] < 0]
+    ground = _main_ground(chart, j, L1, LQ, qname)
 
     # ---------------- quick
-    quick = [_p(VERDICT_LEAD[v["label"]] + " " + _main_ground(chart, j, L1, LQ, qname), [t["id"] for t in dec])]
-    cond = [t for t in strong if t["polarity"] < 0] + [t for t in pos if t["data"].get("weak") or t["data"].get("conditions_full") is False]
-    if cond and v["label"] in ("favourable", "conditional"):
-        quick.append(_p("Điều kiện đi kèm: " + "; ".join(_lower_first(t["vi"]) for t in cond[:2]) + ".", [t["id"] for t in cond[:2]]))
+    quick = [_p(VERDICT_LEAD[v["label"]] + " " + ground, [t["id"] for t in dec])]
+    if conds and v["label"] in ("favourable", "conditional"):
+        quick.append(_p("Điều kiện đi kèm: " + "; ".join(conds[:2]) + ".", [t["id"] for t in pos + strong]))
     if j["timing"]:
         tm = j["timing"]
-        quick.append(_p(f"Về thời gian, theo thước đo tượng trưng của Lilly là khoảng {tm['house_rule']['value']} {tm['house_rule']['unit']} "
+        quick.append(_p(f"Về thời gian, thước đo tượng trưng của Lilly cho khoảng {tm['house_rule']['value']} {tm['house_rule']['unit']} "
                         f"(theo vị trí nhà) hoặc {tm['sign_rule']['value']} {tm['sign_rule']['unit']} (theo tính chất cung); "
                         "đây không phải ngày dự báo.", [tm["house_rule"]["rule"], tm["sign_rule"]["rule"]]))
     quick.append(_p(CONFIDENCE_VI[v["confidence"]], v["cautions"]))
@@ -134,8 +192,8 @@ def compose(chart, frame: dict, j: dict) -> dict:
     S = []
     inp = chart.input
     place = inp.get("place") or f"{inp['lat']:.4f}, {inp['lon']:.4f}"
-    ctx = [_p(f"Câu hỏi: “{frame.get('text', '')}”. Thiên Bàn hiểu đây là câu hỏi thuộc chủ đề {frame['topic_vi'].lower()} "
-              f"({frame['subtype_vi'].lower()}): người hỏi ở nhà 1, {qname} ở nhà {frame['quesited_house']}."
+    ctx = [_p(f"Câu hỏi: “{frame.get('text', '')}”. Thiên Bàn hiểu đây là câu hỏi về {frame['topic_vi'].lower()} "
+              f"({frame['subtype_vi'][:1].lower() + frame['subtype_vi'][1:]}): người hỏi ở nhà 1, {qname} ở nhà {frame['quesited_house']}."
               + (f" {frame['derived_note']}" if frame.get("derived_note") else ""), ["lilly.method.quesited_house"]),
            _p(f"Lá số lập cho lúc câu hỏi được tiếp nhận, {_when(chart, chart.jd_ut)} tại {place}, hệ nhà "
               f"{inp['house_system'].replace('_', ' ').title()}. Điểm Mọc ở {_deg(chart.asc)}, Thiên Đỉnh ở {_deg(chart.mc)}; "
@@ -144,7 +202,26 @@ def compose(chart, frame: dict, j: dict) -> dict:
                  if chart.planetary_hour.get("available") else "."), ["lilly.consider.time_of_question"])]
     S.append({"id": "context", "title": "Câu hỏi và bối cảnh", "paragraphs": ctx})
 
-    over = [_p(VERDICT_LEAD[v["label"]] + " " + _main_ground(chart, j, L1, LQ, qname), [t["id"] for t in dec])]
+    b1, bq = chart.bodies[L1], chart.bodies[LQ]
+    ps = j["pairs"].get(f"{L1}-{LQ}") or j["pairs"].get(f"{LQ}-{L1}")
+    if L1 == LQ:
+        rel = f"Cả bạn lẫn {qname} đều do {PLANET[L1]} đại diện, ở nhà {b1.house}."
+    else:
+        rel = (f"Bạn được {PLANET[L1]} đại diện, đứng ở nhà {b1.house} ({HOUSE_KIND[ANGULARITY[b1.house]]}); {qname} được "
+               f"{PLANET[LQ]} đại diện, ở nhà {bq.house} ({HOUSE_KIND[ANGULARITY[bq.house]]}). ")
+        if ps and ps["within_orb"]:
+            asp = ASPECT_VI[{0: 'conjunction', 60: 'sextile', 90: 'square', 120: 'trine', 180: 'opposition'}[ps['angle']]]
+            rel += (f"Hai hành tinh đang tiến dần về góc {asp}, còn cách {ps['orb']:.1f}°." if ps["motion"] == "applying"
+                    else f"Hai hành tinh vừa đi qua góc {asp} và đang rời nhau.")
+        else:
+            rel += "Giữa hai hành tinh không có góc hợp nào nằm trong orb."
+    over = [_p(rel, ["lilly.significator.lord_of_house", "lilly.aspect.application"])]
+    mech = [t for t in dec if t["id"] in ("translation", "collection", "reception", "prohibition", "frustration", "refranation")]
+    if mech:
+        over.append(_p("Điều đáng chú ý nhất trong thế cục: " + _join([_mechanism(t) for t in mech[:3]]) + ". " + LEAN[v["label"]],
+                       [t["id"] for t in mech[:3]]))
+    else:
+        over.append(_p(LEAN[v["label"]], [t["id"] for t in dec]))
     if j["moon_course"]["perfections_in_sign"]:
         nxt = j["moon_course"]["perfections_in_sign"][0]
         other = nxt["b"] if nxt["a"] == "moon" else nxt["a"]
@@ -161,7 +238,7 @@ def compose(chart, frame: dict, j: dict) -> dict:
         sigp.append(_p(f"Cùng một hành tinh chủ cả nhà 1 và nhà {frame['quesited_house']}: khi đó Lilly xét qua Mặt Trăng và tình trạng "
                        f"của chính {PLANET[L1]}.", ["lilly.significator.lord_of_house"]))
     if "moon" not in (L1, LQ):
-        sigp.append(_p(_role_line(chart, j, "moon", "Mặt Trăng, đồng chủ tinh của bạn,"), ["lilly.method.moon_cosignificator"]))
+        sigp.append(_p(_role_line(chart, j, "moon", "Đồng chủ tinh của bạn"), ["lilly.method.moon_cosignificator"]))
     S.append({"id": "significators", "title": "Chủ tinh đại diện cho các bên", "paragraphs": sigp})
 
     s1, s2 = j["strength"][L1], j["strength"][LQ]
@@ -169,36 +246,46 @@ def compose(chart, frame: dict, j: dict) -> dict:
     if L1 != LQ:
         stronger = L1 if s1["total"] > s2["total"] else LQ if s2["total"] > s1["total"] else None
         comp.append(_p(
-            f"Đặt hai bên cạnh nhau theo bảng điểm sức mạnh của Lilly (tr.115): {PLANET[L1]} được {s1['total']:+d}, {PLANET[LQ]} được "
-            f"{s2['total']:+d}. " + (f"Bên {'của bạn' if stronger == L1 else qname} có thế mạnh hơn. " if stronger else "Hai bên ngang nhau. ")
-            + "Lilly cho điểm nhưng không nói cách cộng gộp, nên con số chỉ dùng để so sánh: sức mạnh nói việc thành nhanh hay chậm, "
-              "dễ hay khó, chứ không tự quyết định việc có thành hay không.", ["lilly.dignity.fortitude_table", "lilly.perfection.conjunction"]))
+            f"Theo bảng điểm sức mạnh của Lilly (tr.115), {PLANET[L1]} được {s1['total']:+d} còn {PLANET[LQ]} được {s2['total']:+d}: "
+            + (f"bên {'của bạn' if stronger == L1 else qname} có thế mạnh hơn. " if stronger else "hai bên ngang nhau. ")
+            + "Lilly cho điểm nhưng không nói cách cộng gộp, nên con số chỉ để so sánh. Theo cách ông luận, sức mạnh cho biết việc thành "
+              "nhanh hay chậm, dễ hay khó, chứ không tự quyết định việc có thành hay không.",
+            ["lilly.dignity.fortitude_table", "lilly.perfection.conjunction"]))
     S.append({"id": "strength", "title": "Sức mạnh và vị trí của các hành tinh", "paragraphs": comp})
 
-    inter = []
-    for c in j["configurations"]["main"]:
-        inter.append(_p(_config_sentence(chart, c, L1, LQ, qname), [c["rule"]]))
-    if not inter:
-        ps = j["pairs"].get(f"{L1}-{LQ}") or j["pairs"].get(f"{LQ}-{L1}")
-        if ps:
-            inter.append(_p(f"Giữa {PLANET[L1]} và {PLANET[LQ]} góc gần nhất là {ASPECT_VI[{0: 'conjunction', 60: 'sextile', 90: 'square', 120: 'trine', 180: 'opposition'}[ps['angle']]]}, "
-                            f"lệch {ps['orb']:.2f}° (orb cho phép {ps['moiety_sum']:.2f}°), và đang "
-                            f"{'tiến tới' if ps['motion'] == 'applying' else 'tách ra'}.", ["lilly.aspect.application"]))
+    inter = [_p(_config_sentence(chart, c, L1, LQ, qname), [c["rule"]]) for c in j["configurations"]["main"]]
+    if not inter and ps:
+        inter.append(_p(f"Giữa {PLANET[L1]} và {PLANET[LQ]}, góc gần nhất là "
+                        f"{ASPECT_VI[{0: 'conjunction', 60: 'sextile', 90: 'square', 120: 'trine', 180: 'opposition'}[ps['angle']]]}, lệch "
+                        f"{ps['orb']:.2f}° trong khi orb cho phép là {ps['moiety_sum']:.2f}°; hai hành tinh đang "
+                        f"{'tiến tới' if ps['motion'] == 'applying' else 'tách ra'}.", ["lilly.aspect.application", "lilly.orbs.moiety_rule"]))
     S.append({"id": "aspects", "title": "Các góc hợp và tương tác quan trọng", "paragraphs": inter})
 
-    pf = [t for t in j["testimonies"] if t["polarity"] > 0]
-    nf = [t for t in j["testimonies"] if t["polarity"] < 0]
     bal = []
-    if pf:
-        bal.append(_p("Những điều nâng đỡ: " + "; ".join(_lower_first(t["vi"]) for t in pf) + ".", [t["id"] for t in pf]))
-    if nf:
-        bal.append(_p("Những điều cản trở: " + "; ".join(_lower_first(t["vi"]) for t in nf) + ".", [t["id"] for t in nf]))
+    if pos:
+        bal.append(_p("Điểm tựa của việc: " + _join([_mechanism(t) for t in pos]) + ".", [t["id"] for t in pos]))
+    if neg:
+        bal.append(_p("Điều chặn đường: " + _join([_mechanism(t) for t in neg]) + ".", [t["id"] for t in neg]))
+    if strong:
+        bal.append(_p("Ở tầng điều kiện: " + "; ".join(_lower_first(t["vi"]) for t in strong) + ".", [t["id"] for t in strong]))
     bal += _conflicts(j)
     S.append({"id": "balance", "title": "Yếu tố thuận lợi, trở ngại và mâu thuẫn", "paragraphs": bal})
 
     S.append({"id": "course", "title": "Diễn biến theo cách luận truyền thống", "paragraphs": _course(chart, j, L1, LQ, qname)})
 
-    concl = [_p(VERDICT_LEAD[v["label"]] + " " + " ".join(v["reasons"]), [t["id"] for t in dec])]
+    head = VERDICT_HEAD[v["label"]]
+    if v["label"] in ("favourable", "conditional"):
+        first = min((t for t in pos if t.get("jd")), key=lambda t: t["jd"], default=pos[0] if pos else None)
+        why = f" Lý do chính: {_mechanism(first)}" if first else ""
+        why += (", và không có hành tinh nào chen ngang trước lúc ấy." if v["label"] == "favourable" else
+                f"; điều giữ kết luận ở mức có điều kiện là {_join(conds[:2])}." if conds else ".")
+    elif v["label"] == "unfavourable":
+        why = " Lý do chính: " + _join([_mechanism(t) for t in neg[:2]]) + "." if neg else ""
+        if pos:
+            why += " Có lối thành sự, nhưng điều chặn đường đến trước."
+    else:
+        why = " Không có chứng cứ quyết định ở bên nào; Lilly khuyên hoãn luận khi chứng cứ cân bằng."
+    concl = [_p(head + why, [t["id"] for t in dec])]
     if j["timing"]:
         tm = j["timing"]
         concl.append(_p(tm["house_rule"]["vi"] + " " + tm["sign_rule"]["vi"] + " " + tm["caveat"]
@@ -206,13 +293,13 @@ def compose(chart, frame: dict, j: dict) -> dict:
                         [tm["house_rule"]["rule"], tm["sign_rule"]["rule"], "lilly.method.mix_art_and_reason"]))
     S.append({"id": "conclusion", "title": "Kết luận có điều kiện và căn cứ", "paragraphs": concl})
 
-    care = []
-    for c in j["considerations"]:
-        if c["applies"]:
-            care.append(_p(f"{c['vi']}. {c['effect_vi']}", [c["id"]]))
+    care = [_p(f"{c['vi']}. {c['effect_vi']}", [c["id"]]) for c in j["considerations"] if c["applies"]]
     care.append(_p(CONFIDENCE_VI[v["confidence"]], v["cautions"]))
     if frame.get("caution"):
         care.append(_p(frame["caution"]))
+    if frame["topic"] == "study":
+        care.append(_p("Lilly không có chương riêng về thi cử, nhập học hay học bổng; nhà được dùng ở đây là cách vận dụng nghĩa các nhà "
+                       "của ông, không phải quy tắc có sẵn trong sách.", ["lilly.study.none"]))
     care.append(_p(DISCLAIMER))
     S.append({"id": "care", "title": "Những điểm cần thận trọng", "paragraphs": care})
 
@@ -273,14 +360,12 @@ def _config_sentence(chart, c, L1, LQ, qname) -> str:
         col, a, b = c["planets"]
         return f"Cả {PLANET[a]} và {PLANET[b]} cùng tiến tới {PLANET[col]}; góc cuối cùng chính xác lúc {when} (thu ánh sáng, collection of light)."
     if k == "prohibition":
-        x, to, frm = c["planets"]
-        return f"Trước khi hai chủ tinh gặp nhau, {PLANET[x]} tới {PLANET[to]} trước, lúc {when}: sự gặp gỡ bị ngăn (prohibition)."
+        x, met, other = c["planets"]
+        return (f"Trước khi hai chủ tinh gặp nhau, {PLANET[x]} {'hội hợp' if c['detail'].get('by_body') else 'chiếu tới'} {PLANET[met]} "
+                f"trước, lúc {when}: sự gặp gỡ với {PLANET[other]} bị chen ngang (prohibition).")
     if k == "frustration":
         to, x, frm = c["planets"]
         return f"{PLANET[to]} kết hợp với {PLANET[x]} lúc {when}, trước khi {PLANET[frm]} kịp tới: việc bị phá giữa chừng (frustration)."
-    if k == "abscission":
-        frm, x, to = c["planets"]
-        return f"{PLANET[frm]} gặp {PLANET[x]} lúc {when}, trước khi tới được {PLANET[to]}."
     if k == "refranation":
         st = c["detail"]["station"]
         return (f"{PLANET[st['planet']]} đứng lại rồi đổi chiều lúc {_when(chart, st['jd'])}, trước khi góc hợp giữa hai chủ tinh "
@@ -307,8 +392,8 @@ def _conflicts(j) -> list[dict]:
     if dec_pos and low_neg:
         out.append(_p("Một số yếu tố yếu (như " + ", ".join(_lower_first(t["vi"]) for t in low_neg[:2]) + ") đi ngược với cách thành sự. "
                       "Theo Lilly, việc có thành hay không do sự tiếp cận của các chủ tinh quyết định; phẩm chất và vị trí nhà cho biết "
-                      "thành nhanh hay chậm, dễ hay khó (lilly.perfection.conjunction), nên chúng làm giảm chất lượng chứ không đảo kết luận.",
-                      [t["id"] for t in low_neg[:2]] + ["lilly.method.what_to_judge"]))
+                      "thành nhanh hay chậm, dễ hay khó, nên chúng làm giảm chất lượng chứ không đảo kết luận.",
+                      [t["id"] for t in low_neg[:2]] + ["lilly.method.what_to_judge", "lilly.perfection.conjunction"]))
     if dec_neg and low_pos:
         out.append(_p("Ngược lại, có những điểm sáng (như " + ", ".join(_lower_first(t["vi"]) for t in low_pos[:2]) + "), nhưng chúng "
                       "không tạo ra cách thành sự: một hành tinh mạnh mà không nối được với bên kia thì vẫn không đưa việc tới kết quả.",
@@ -328,16 +413,23 @@ def _course(chart, j, L1, LQ, qname) -> list[dict]:
         out.append(_p(f"Trước lúc hỏi, Mặt Trăng vừa rời góc {ASPECT_VI[ls['aspect']]} với {PLANET[other]} ({_when(chart, ls['jd'])}). "
                       f"Theo Lilly, lần tách gần nhất cho biết điều đã xảy ra trước câu hỏi, mang tính chất của nhà mà {PLANET[other]} "
                       f"cai quản (nhà {', '.join(map(str, hs))}).", ["lilly.method.separation_past_application_future"]))
+    role = {L1: f"{PLANET[L1]} (bạn)", LQ: f"{PLANET[LQ]} ({qname})"}
+    if L1 == LQ:
+        role = {L1: f"{PLANET[L1]} (cả hai bên)"}
+    steps = []
     for ev in j["timeline"]:
-        if ev["jd"] <= chart.jd_ut:
+        if ev["jd"] <= chart.jd_ut or len(steps) >= 5:
             continue
+        day = _when(chart, ev["jd"]).split(" ngày ")[-1]
         if ev["kind"] == "perfection" and {ev["a"], ev["b"]} & {L1, LQ} and "moon" not in (ev["a"], ev["b"]):
-            out.append(_p(f"{_when(chart, ev['jd'])}: {PLANET[ev['a']]} {ASPECT_VI[ev['aspect']]} {PLANET[ev['b']]}.", ["lilly.aspect.application"]))
+            steps.append(f"ngày {day}, {role.get(ev['a'], PLANET[ev['a']])} tạo góc {ASPECT_VI[ev['aspect']]} với {role.get(ev['b'], PLANET[ev['b']])}")
         elif ev["kind"] == "station" and ev["planet"] in (L1, LQ):
-            out.append(_p(f"{_when(chart, ev['jd'])}: {PLANET[ev['planet']]} đứng rồi {'nghịch' if ev['turns'] == 'retrograde' else 'thuận'} hành.",
-                          ["lilly.motion.stationary"]))
-        if len(out) >= 6:
-            break
+            steps.append(f"ngày {day}, {role[ev['planet']]} đứng lại rồi chuyển {'nghịch' if ev['turns'] == 'retrograde' else 'thuận'} hành")
+        elif ev["kind"] == "ingress" and ev["planet"] in (L1, LQ):
+            steps.append(f"ngày {day}, {role[ev['planet']]} sang cung {SIGN[ev['sign_to']]}")
+    if steps:
+        out.append(_p("Theo dòng thời gian thiên văn sau lúc hỏi: " + "; ".join(steps) + ". Đây là các sự kiện của bầu trời, giúp thấy thứ "
+                      "tự các bước trong cách luận, không phải lịch hẹn của sự việc.", ["lilly.aspect.application", "lilly.motion.stationary"]))
     if mc["voc_by_sign"]:
         out.append(_p(f"Mặt Trăng không tạo thêm góc hợp chính xác nào trước khi rời cung lúc {_when(chart, mc['sign_exit_jd'])} "
                       "(vô hành). Lilly coi đó là dấu hiệu việc khó tiến triển.", ["lilly.consider.moon_void_of_course"]))

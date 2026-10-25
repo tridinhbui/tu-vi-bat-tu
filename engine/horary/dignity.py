@@ -289,15 +289,16 @@ def accidental(chart, p: str, stars: dict[str, float] | None = None, star_orb: f
 
 
 def besieged(chart, p: str) -> bool:
-    """Lilly's 'besieged of Saturn and Mars': the planet stands between the bodies of the two malefics — on the shorter arc
-    from one to the other, within one sign's breadth (engine reading of lilly.besieged)."""
+    """Lilly's 'besieged of Saturn and Mars' (lilly.besieged): the planet stands between the bodies of the two malefics.
+    Engine reading recorded in the rule: by bodies only, all three in one sign, and no other planet between them."""
     ls, lm, lp = chart.bodies["saturn"].lon, chart.bodies["mars"].lon, chart.bodies[p].lon
-    arc = (lm - ls) % 360.0
-    if arc > 180.0:
-        ls, lm, arc = lm, ls, 360.0 - arc
-    if arc > 30.0:
+    if not (sign_of(ls) == sign_of(lm) == sign_of(lp)):
         return False
-    return 0.0 < (lp - ls) % 360.0 < arc
+    lo, hi = sorted((ls, lm))
+    if not lo < lp < hi:
+        return False
+    others = [q for q in TRAD if q not in (p, "saturn", "mars") and lo < chart.bodies[q].lon < hi and sign_of(chart.bodies[q].lon) == sign_of(lp)]
+    return not others
 
 
 def strength(chart, p: str) -> dict:
