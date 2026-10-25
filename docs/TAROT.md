@@ -11,7 +11,7 @@ API nằm sau biến `TVBT_TAROT`, mặc định `"0"`. Khi tắt, mọi đườ
 | Bộ bài: 78 lá (22 Ẩn Chính, 56 Ẩn Phụ), gồm mã, slug, tên tiếng Anh, tên tiếng Việt, số và chất. Chỉ có tên, không có nghĩa. Strength là VIII, Justice là XI, như bộ 1909. | `engine/data/tarot/deck.json`, `src/tarot/deck.ts` |
 | Rút bài: hạt giống 128 bit lấy từ `crypto.getRandomValues`, xáo Fisher–Yates bằng dòng số SHA-256 theo bộ đếm (`SHA-256(hạt ‖ bộ đếm 4 byte)`), lấy mẫu loại bỏ (rejection sampling) nên mọi thứ tự đều có xác suất như nhau. Cùng hạt giống cho cùng kết quả. Bit lá ngược được rút sau thứ tự, nên tắt lá ngược không làm đổi chỗ lá nào. | `src/tarot/draw.ts` |
 | Hai cách bày: 1 lá và 3 lá. Ba vị trí chỉ là cách bày, không gắn nghĩa quá khứ / hiện tại / tương lai, vì Waite không định nghĩa như vậy. Chưa có Celtic Cross. | `src/tarot/draw.ts`, `route.ts` |
-| Ý nghĩa: chỉ lấy từ pack có nguồn (304 mục, cả 78 lá; xem mục "Ý nghĩa lá bài"). Lá không có mục thì hiện tên lá và một câu trung tính. Two of Cups ngược: Waite không ghi nghĩa, trang nói đúng như vậy. | `src/tarot/reading.ts`, `engine/data/tarot/pack_tarot_pkt.json`, `tools/build_tarot_pack.py`, `tools/data/tarot_pkt_entries.json` |
+| Ý nghĩa: chỉ lấy từ pack có nguồn (288 mục, cả 78 lá; xem mục "Ý nghĩa lá bài"). Lá không có mục thì hiện tên lá và một câu trung tính. Two of Cups ngược: Waite không ghi nghĩa, trang nói đúng như vậy. | `src/tarot/reading.ts`, `engine/data/tarot/pack_tarot_pkt.json`, `tools/build_tarot_pack.py`, `tools/data/tarot_pkt_entries.json` |
 | Kiểm lời: danh sách từ cấm `BANNED` chuyển sang `src/interpret/wording.ts` (validate.ts import lại, hành vi giữ nguyên). Câu hỏi về sức khỏe, thai sản, tính mạng, pháp lý, đầu tư được nhận ra bằng regex (gõ có dấu hay không dấu đều được) và hiện lời khuyên hỏi người có chuyên môn. Trang nào cũng có dòng "Tarot là công cụ để suy ngẫm, không phải lời dự báo." | `src/tarot/guard.ts` |
 | API: `POST /api/tarot/draw` (bước 1 xáo bài: trả mã lượt và số lá trong dãy úp; bước 2 gửi vị trí đã chọn: trả các lá), `GET /api/tarot/x/<id>` (lượt đã lưu, dùng cho liên kết chia sẻ), `GET/POST/DELETE /api/me/tarot` (các lượt đã lưu trong tài khoản). Thứ tự bài và hạt giống không bao giờ rời máy chủ. Miễn phí 3 lượt xáo mỗi ngày theo giờ Việt Nam, tính theo tài khoản, hoặc theo địa chỉ IP (đã băm) với khách. | `src/tarot/route.ts`, gắn trong `src/index.ts` trước các route `/api/me/*` và trước lệnh chuyển sang container |
 | Câu hỏi: được gửi kèm lúc lật bài chỉ để nhận ra chủ đề nhạy cảm, rồi bỏ đi. Chỉ được lưu khi người dùng đăng nhập, bấm Lưu và chọn "Lưu cả câu hỏi". Liên kết chia sẻ mặc định ẩn câu hỏi. "Xóa dữ liệu" của tài khoản cũng xóa các lượt Tarot. | `route.ts`, `src/account/route.ts` |
@@ -35,7 +35,7 @@ Ghi chú về ảnh: trang Commons ghi ngày 1910 cho bản in Pam-A; tranh là 
 
 ## Việc chờ chủ nhà
 
-1. **Duyệt lời diễn ý** (304 mục trong `tools/data/tarot_pkt_entries.json`). Sửa một mục xong thì chạy `.venv/bin/python tools/build_tarot_pack.py` rồi `.venv/bin/python tools/build_site.py`. Bộ build dừng nếu câu trích không nằm đúng trang hoặc bản tiếng Việt dùng từ cấm.
+1. **Duyệt lời diễn ý** (288 mục trong `tools/data/tarot_pkt_entries.json`). Sửa một mục xong thì chạy `.venv/bin/python tools/build_tarot_pack.py` rồi `.venv/bin/python tools/build_site.py`. Bộ build dừng nếu câu trích không nằm đúng trang hoặc bản tiếng Việt dùng từ cấm.
 2. **Bật API.** Áp dụng migration trước: `npx wrangler d1 migrations apply tvbt-app --remote` (để chủ nhà chạy). Sau đó đặt `"TVBT_TAROT": "1"` trong `wrangler.jsonc`.
 3. **Trang tĩnh lên trước API.** Mục "Tarot" trên thanh điều hướng sẽ hiện ngay khi gộp nhánh, dù API còn tắt. Nếu muốn ẩn đến khi bật API, bỏ `("/tarot/", "Tarot")` khỏi `NAV` và khỏi chân trang trong `sitegen.py`, rồi build lại.
 
@@ -57,9 +57,9 @@ Ghi chú về ảnh: trang Commons ghi ngày 1910 cho bản in Pam-A; tranh là 
 - Lời diễn ý luôn mở đầu bằng "Theo Waite, lá này gợi đến…", "Khi lá ngược, theo Waite…", "Waite ghi thêm một cách đọc khác…" hoặc "Trong phần tả lá bài, Waite cho rằng…".
 
 **Độ phủ**:
-- 304 mục: 240 `divinatory`, 18 `another_reading`, 46 `description`.
+- 288 mục: 224 `divinatory`, 18 `another_reading`, 46 `description`.
 - Cả 78 lá có nghĩa xuôi; 77 lá có nghĩa ngược. Two of Cups không có, vì Waite không ghi dòng "Reversed" cho lá này; trang hiện "Waite không ghi nghĩa riêng cho lá này khi ngược".
-- Mỗi lá có 2-7 mục, trung bình 3,9. Chiều xuôi: 33 lá có 2 mục, 36 lá có 3 mục, 5 lá có 4 mục, 4 lá có 1 mục. Chiều ngược: 50 lá có 1 mục, 25 lá có 2 mục, 2 lá có 3 mục.
+- Mỗi lá có 2-7 mục, trung bình 3,7. Chiều xuôi: 37 lá có 2 mục, 31 lá có 3 mục, 5 lá có 4 mục, 5 lá có 1 mục. Chiều ngược: 60 lá có 1 mục, 15 lá có 2 mục, 2 lá có 3 mục. Lần duyệt 2026-10-25 gộp 16 cặp câu trích chồng lên nhau thành một mục đầy đủ, để không từ khóa nào bị bỏ sót.
 
 **Phần đã loại** (ghi trong `note` của 44 mục):
 | Nhóm | Số mục có ghi chú |
@@ -79,7 +79,7 @@ Ghi chú về ảnh: trang Commons ghi ngày 1910 cho bản in Pam-A; tranh là 
 
 Ví dụ: Death chỉ giữ nghĩa trong phần tả lá (tr. 64: "change, transformation and passage from lower to higher"; "rebirth, creation, destination, renewal"), vì các từ khóa ở tr. 147 ("mortality, destruction…") nói về cái chết.
 
-**Kiểm câu trích**: lớp chữ là OCR, có lỗi đọc như "honorahle" thay cho "honorable", "sham tight" thay cho "sham fight". Câu trích ghi đúng chữ in. Bộ kiểm so khớp nguyên văn sau khi chuẩn hóa; nếu không khớp, nó chấp nhận đoạn trang giống ít nhất 86%. 10/304 câu khớp theo cách này, tất cả ≥ 0,95, và được liệt kê khi build.
+**Kiểm câu trích**: lớp chữ là OCR, có lỗi đọc như "honorahle" thay cho "honorable", "sham tight" thay cho "sham fight". Câu trích ghi đúng chữ in. Bộ kiểm so khớp nguyên văn sau khi chuẩn hóa; nếu không khớp, nó chấp nhận đoạn trang giống ít nhất 86%. 10/288 câu khớp theo cách này, tất cả ≥ 0,95, và được liệt kê khi build.
 
 **Chỗ còn ngờ**:
 - Bản 1916 chèn "(Nature)" sau "God" ở vài chỗ trong văn bản Waite (ví dụ tr. 54, 70). Không câu trích nào lấy từ những đoạn đó.

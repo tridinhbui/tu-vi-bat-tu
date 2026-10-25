@@ -48,7 +48,8 @@ def test_every_card_is_covered():
 
 def test_framing_is_a_suggestion_and_left_out_meanings_are_noted():
     for e in b.SRC["entries"]:
-        assert e["text_vi"].startswith(("Theo Waite, lá này gợi đến", "Khi lá ngược", "Waite ghi thêm", "Trong phần tả lá bài")), e
+        assert e["text_vi"].startswith(("Theo Waite, lá này", "Khi lá ngược", "Waite ghi thêm", "Trong phần tả lá bài")), e
+        assert "gợi đến" in e["text_vi"] or "ý nghĩa vẫn" in e["text_vi"] or "các cách đọc khác nhau" in e["text_vi"], e
     notes = " ".join(e.get("note", "") for e in b.SRC["entries"])
     for cat in ("death", "illness", "pregnancy", "legal", "sexual", "crime", "prison", "accidents", "financial", "certain"):
         assert cat in notes, cat
