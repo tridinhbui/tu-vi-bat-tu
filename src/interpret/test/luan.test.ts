@@ -203,3 +203,15 @@ test('corpus: every limiting claim names a limiting atom of its rule', { skip: !
   }
   assert.deepEqual(bad.slice(0, 5), [], `${bad.length} limiting claims without their cause`);
 });
+
+test('a domain is worded by its own verdict in every chapter: "hai mặt" never with the "chưa phân xử" frame; an unresolved verdict says what is missing', () => {
+  const charts: any[] = [...JSON.parse(readFileSync(join(FX, 'benchmark20.json'), 'utf8')).map((b: { facts: any }) => b.facts), JSON.parse(readFileSync(join(FX, 'user_1990_nam.json'), 'utf8'))];
+  const bad: string[] = [];
+  charts.forEach((f, i) => {
+    const xs = luanReport(f, K, { allowDraft: true, deep: true }).flatMap(c => c.paragraphs.flatMap(p => p.sentences));
+    for (const s of xs) if (s.trace.ledger?.verdict === 'hai_mat' && /:chua_phan_xu$/.test(s.trace.step ?? '')) bad.push(`#${i}: ${s.text}`);
+    const unresolved = new Set(xs.filter(s => /:chua_phan_xu$/.test(s.trace.step ?? '')).map(s => s.trace.ledger!.domain));
+    for (const d of unresolved) if (!xs.some(s => s.trace.step === `ledger:${d}:missing`)) bad.push(`#${i}: ${d} chưa phân xử without what is missing`);
+  });
+  assert.deepEqual(bad, []);
+});

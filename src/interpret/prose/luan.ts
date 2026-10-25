@@ -901,9 +901,13 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
     vals.neg = np(v.base === '+' ? v.weigh.light : v.weigh.heavy); vals.gpos = starsGround(v.base === '+' ? v.weigh.heavy : v.weigh.light);
     vals.gneg = starsGround(v.base === '+' ? v.weigh.light : v.weigh.heavy); }
   // two sides on different facets: both hold, each named with what it is about
+  // the pair is the ledger's own (link.ruleId / target): the one it found on different facets — the prose's "best" pair may share a facet,
+  // and telling it would read as "chưa phân xử" for a verdict that says both hold (review 2026-10-22, D)
   else if (v.verdict === 'hai_mat') { const fl = (L as LuanLib & { facet_label?: Record<string, string> }).facet_label ?? {}; key = 'coexist';
-    vals.fpos = fl[W.concept(bp!.concept)?.facet ?? ''] ?? ''; vals.fneg = fl[W.concept(bn!.concept)?.facet ?? ''] ?? '';
-    if (!vals.fpos || !vals.fneg || vals.fpos === vals.fneg) { key = 'chua_phan_xu'; vals.gpos = starsGround(bp); vals.gneg = starsGround(bn); } }
+    const hp = v.pos.find(x => x.ruleId === v.link?.ruleId) ?? bp!, hn = v.neg.find(x => x.ruleId === v.link?.target) ?? bn!;
+    vals.pos = np(hp); vals.neg = np(hn);
+    vals.fpos = fl[W.concept(hp.concept)?.facet ?? ''] ?? ''; vals.fneg = fl[W.concept(hn.concept)?.facet ?? ''] ?? '';
+    if (!vals.fpos || !vals.fneg || vals.fpos === vals.fneg) { key = 'coexist_plain'; vals.gpos = starsGround(hp); vals.gneg = starsGround(hn); } }
   // a limit a book relation makes lighter: still a limit, with its mitigating factor
   else if (v.verdict === 'giam_nhe') { key = 'neg_mitigated'; vals.link = claimOf(v.link?.ruleId) ?? np(v.mitig?.[0]); }
   else if (v.verdict === 'chua_du') key = 'struct_only';
@@ -934,15 +938,24 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   const mainVals = v.part && G.part_self?.length ? { ...vals, domain: W.pick(`lself|${v.id}`, G.part_self) } : vals;
   const mainText0 = fill(W.pick(`l|${v.id}|${key}`, G[key]), mainVals);
   const mainText = v.part ? mainText0.replace(new RegExp(`^về ${mainVals.domain},\\s*`), '') : mainText0;
-  const main = W.sentence(mainText, tr(key.startsWith('both') || key === 'two_ways' || key === 'chua_phan_xu' || key === 'coexist' || key === 'health_both' || key === 'weighed' ? 4 : 5, `ledger:${v.id}:${key}`));
+  const main = W.sentence(mainText, tr(key.startsWith('both') || key === 'two_ways' || key === 'chua_phan_xu' || key === 'coexist' || key === 'coexist_plain' || key === 'health_both' || key === 'weighed' ? 4 : 5, `ledger:${v.id}:${key}`));
   const out = [main];
   if (key === 'weighed' && v.weigh && G.weigh_line?.length) {
     const why = weighWhy(W, G, v);
     if (why) out.push(W.sentence(fill(W.pick(`lw|${v.id}`, G.weigh_line), { heavy: np(v.weigh.heavy), light: np(v.weigh.light), why }),
       { ...tr(5, `ledger:${v.id}:weigh`), note: 'Lời tổng hợp: hai mặt đều có căn cứ, không câu sách nào xếp bên nào trên; bên nặng hơn là theo thang cân của hệ thống (chính tinh hơn phụ tinh, cung chính hơn cung tam phương, sao sáng/hãm, Tuần Triệt, số chỗ đứng).' }));
   }
+  // two sides left unresolved: what is missing to decide them is said, not left as a bare "chưa phân xử" (review 2026-10-22, B.4) — the
+  // đại hạn through the domain's core palace, when the chart has one (computed), is where the chart itself shows which side weighs more
+  if (key === 'chua_phan_xu') {
+    const corePal = Object.entries(((W.k.kg?.domains as { domains?: Record<string, { palaces?: Record<string, string>; parts?: Record<string, { palaces: Record<string, string> }> }> } | undefined)?.domains?.[v.id.split('.')[0]]?.palaces) ?? {}).find(([, r]) => r === 'core')?.[0] ?? palace;
+    const d = (W.chart.decades ?? []).find(x => x.palace === corePal);
+    const tpl = (G as Record<string, string[]>)[d ? 'missing' : 'missing_none'];
+    if (tpl?.length) out.push(W.sentence(fill(W.pick(`lmiss|${v.id}`, tpl), { age: d ? `${d.age_from}–${d.age_to}` : '', palace: corePal }),
+      { ...tr(4, `ledger:${v.id}:missing`), ...(d ? { basis: 'tinh_toan' as const } : {}) }));
+  }
   // an unresolved domain still names the limits standing in its own palace: they bound whatever the stronger side turns out to be
-  if ((key === 'chua_phan_xu' || key === 'coexist' || (key === 'weighed' && v.base === '+')) && limits && (G as Record<string, string[]>).unresolved_limits?.length)
+  if ((key === 'chua_phan_xu' || key === 'coexist' || key === 'coexist_plain' || (key === 'weighed' && v.base === '+')) && limits && (G as Record<string, string[]>).unresolved_limits?.length)
     out.push(W.sentence(fill(W.pick(`lul|${v.id}`, (G as Record<string, string[]>).unresolved_limits), { limits, palace }), tr(5, `ledger:${v.id}:limits`)));
   // the verdict, naming the limits of the core palace when the conclusion is conditional on them
   const withLimits = v.verdict === 'co_dieu_kien' && !!limits && key !== 'pos_struct' && key !== 'neg_struct';
