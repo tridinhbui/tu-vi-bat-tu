@@ -4,6 +4,8 @@
 // What it remembers on this device (localStorage, each read and write guarded): whether the visitor was signed in and an admin, the
 // name and email shown on the card, the collapsed sidebar and folded groups. A cached state is only a first guess for the first paint;
 // /api/auth/me decides.
+import { paintAvatar } from './uavatar.js';
+
 const root = globalThis.document?.documentElement;   // undefined under node --test (account.js imports this file)
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -151,7 +153,7 @@ function initAccount() {
     const name = u?.name || u?.email || '';
     $('[data-u=name]', card).textContent = name;
     $('[data-u=email]', card).textContent = u?.email || '';
-    $('[data-u=av]', card).textContent = (name.split(' ').slice(-1)[0] || '?').charAt(0).toUpperCase();
+    paintAvatar($('[data-u=av]', card), u);
     $('.ucard-btn', card).setAttribute('aria-label', name ? `Tài khoản: ${name}` : 'Tài khoản');
   };
   let cached = null; try { cached = JSON.parse(store.get('me') || 'null'); } catch { /* none */ }
@@ -169,13 +171,18 @@ function initAccount() {
       menu.innerHTML = on ? '<a class="acct-in" href="/api/auth/google">Đăng nhập với Google</a>' : '';
       return;
     }
-    store.set('me', JSON.stringify({ name: user.name || '', email: user.email || '' }));
+    store.set('me', JSON.stringify({ name: user.name || '', email: user.email || '', picture: user.picture || '' }));
     paintCard(user);
-    menu.innerHTML = `<div class="uwallet" hidden></div><hr>
+    menu.innerHTML = `<div class="umenu-who"><span class="uav" aria-hidden="true"></span><span class="ucard-t"><b></b><small></small></span></div><hr>
+      <div class="uwallet" hidden></div><hr>
       <a href="/#tai-khoan" data-go="tai-khoan">Tài khoản và lá số đã lưu</a>
       <a href="/bang-gia">Nạp xu và bảng giá</a>
       ${me.admin ? '<a href="/admin">Quản trị</a>' : ''}
       <button type="button" class="acct-out">Đăng xuất</button>`;
+    const who = $('.umenu-who', menu);
+    paintAvatar($('.uav', who), user);
+    $('b', who).textContent = user.name || user.email || '';
+    $('small', who).textContent = user.name ? user.email || '' : '';
     $('.acct-out', menu).addEventListener('click', async () => {
       await api('/api/auth/logout', { method: 'POST' }).catch(() => {});
       ['in', 'admin', 'me'].forEach(k => store.set(k, null));

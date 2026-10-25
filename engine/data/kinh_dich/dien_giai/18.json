@@ -1,0 +1,237 @@
+{
+ "number": 18,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Cổ là lúc việc đã hư hỏng đến tận gốc và buộc phải có người ra tay sửa; chính vì đã nát nên đây cũng là lúc mở ra cuộc chỉnh đốn, nếu biết xét kỹ cả trước lẫn sau.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Cổ là nát hỏng đến cực điểm mà phải có việc."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Đã loạn thì có lý lại trị"},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Cách trị cuộc cổ, phải nghĩ ngợi trước sau ba ngày."}
+   ]
+  },
+  "image": {
+   "text": "Gió thổi dưới chân núi, gặp núi mà quẩn lại làm mọi vật rối tung, như chậu đã sinh sâu bọ: việc cần làm là vực người khác dậy và tự nuôi lại đức của chính mình.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Dưới núi có gió, gió gặp núi mà lộn lại, các vật đều tán loạn"},
+    {"seg": "intro", "layer": "trinh_di", "quote": "Trong chậu có bọ, là nghĩa cổ hoại."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Ở mình nuôi đức, ở thiên hạ thì giúp dân, việc của đấng quân tử, không gì lớn hơn hai điều ấy."}
+   ]
+  },
+  "structure": {
+   "text": "Quẻ trên cứng mà đứng yên, quẻ dưới mềm mà chỉ biết nhún, nên cái tệ cứ thế tích lại; các hào đều mang hình ảnh người con sửa việc hỏng của cha mẹ, tức cái hỏng thừa hưởng từ người đi trước.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Quẻ đó Cấn cứng ở trên, Tốn mềm ở dưới"},
+    {"seg": "thoan_truyen", "layer": "chu_hy", "quote": "Nghĩa là như thế, thì cái mối tệ chứa lại mà đến cổ loạn."},
+    {"seg": "hao1", "layer": "chu_hy", "quote": "Cổ là việc đã hỏng của tiền nhân, cho nên các hào đều có Tượng cha mẹ."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Cổ là nát hỏng cực điểm, loạn rồi thì phải lại trị, cho nên lời Chiêm của nó là cả hanh mà lợi về sang sông lớn."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Một dự án hay bộ phận đang trục trặc do người trước để lại là phần mình phải gánh: sửa với lòng thận trọng, gắng gỏi, sao cho việc của người đi trước được vẹn, thay vì đổ lỗi.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Cổ là việc đã hỏng của tiền nhân"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "để đặt cha vào chỗ không lỗi, thường thường mang lòng lo sợ gắng gỏi, thì sau chót được tốt"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Khoản nợ, khoản lỗ hay thói chi tiêu tích lại từ lâu là chỗ cần chỉnh: tìm xem vì sao ra nông nỗi ấy để biết cách gỡ, rồi lo sẵn để cái hỏng không quay lại.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Xét xem tại sao như thế, thì biết cách để cứu chữa, lo rằng sắp sửa đến thế, thì biết mẹo để phòng bị."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Vực dậy một cơ sở đang sa sút đòi hỏi dấn vào chỗ khó chứ không né: sửa cho dứt cái tệ cũ thì cái lợi về sau mới mong bền lâu.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Lợi về sang sông lớn, đi có việc vậy."},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Khéo cứu chữa thì tệ trước có thể cải cách; khéo phòng bị thì lợi sau có thể lâu dài."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Lỗ hổng kiến thức hay nếp học sai nên được chỉnh ngay khi cái hỏng còn nông, lúc việc còn dễ; song song với học là tự nuôi đức của mình.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Hào Sáu Đầu cuộc cổ chưa sâu mà việc dễ xong"},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Ở mình nuôi đức"}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Mối quan hệ đã có vết rạn từ lâu cần được hàn gắn một cách nhẹ nhàng, khéo léo: cậy mình đúng mà uốn nắn người kia vội vàng thì tổn tình mà việc vẫn không xong.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Nếu cứ thẳng đạo Dương cương của mình mà uốn nắn một cách vội vàng, thì tổn đến ơn, sẽ hại lớn lắm, mà cũng không ăn thua gì."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Việc dở dang hay nếp sai của cha mẹ, của người đi trước là phần con cháu đứng ra gánh; sửa cho người thân nên hạ mình, nhún thuận mà dẫn dắt, để việc xong mà tình vẫn giữ.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "đó là con cán đáng cuộc cổ của cha"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Cốt ở uốn mình, hạ ý, nhún thuận đón đưa, khiến mẹ thân được chính đính, việc được xong xuôi mà thôi"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Quyết định sửa một việc hỏng nên được cân cả trước lẫn sau: vì sao nó hỏng, và sửa xong sẽ dẫn tới đâu; có khi lựa chọn đáng trọng lại là đứng ngoài, giữ vững chí mình.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "“Trước giáp” là trước lúc đó xem xét tại sao mà thế, “sau giáp” là sau lúc đó, lo rằng sắp sửa đến thế."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Cái chí của nó vẫn giữ, thật đáng làm phép tắc vậy."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Trước khi bắt tay, dành thời gian tìm cho ra gốc của cái hỏng và lường chỗ dễ hỏng lại; khi làm thì gắng gỏi, thận trọng, cứng vừa đủ chứ đừng quá tay.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Một ngày hai ngày, đến ba ngày, ý nói lo cho sâu mà suy cho xa."},
+    {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "thường thường mang lòng lo sợ gắng gỏi"},
+    {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Được trung đạo mà không quá cứng, đó là kẻ cán đáng sự cổ của mẹ rất khéo."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Nếu chỉ lo nông, vá cho xong cái trước mắt, thì công sức bỏ ra nhiều mà việc cũ chưa yên, cái tệ mới đã sinh.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "lo nông mà làm việc gần, cho nên nhọc về cứu đời mà loạn không khỏi; công chưa thành mà tệ đã sinh rồi."}
+    ]
+   },
+   {
+    "text": "Thấy hỏng mà dễ dãi để đó, không ra tay, thì cái hỏng mỗi ngày một sâu và càng đi càng gặp điều đáng tiếc.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Như thế sự cổ sẽ mỗi ngày một sâu, cho nên đi thì thấy sự đáng tiếc."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Cái hỏng còn nông, người đi sau đứng ra gánh việc dở của người trước: biết là nguy mà giữ lòng răn mình thì sau cùng được tốt.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Ở trong, ở dưới mà làm chủ, đó là con cán đáng cuộc cổ của cha."},
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Lại biết là nguy mà hay răn, thì được trọn tốt."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi thấp nhất, nhưng vì nó mà thành quẻ nên giữ vai làm chủ việc sửa.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Sáu Đầu tuy ở ngôi rất thấp, nhưng bởi nó mà thành quẻ, có nghĩa là chủ."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "có con mà trị sự cổ thì người cha không lỗi, nhưng cũng nguy rồi. Răn kẻ xem như thế. Lại biết là nguy mà hay răn, thì được trọn tốt."},
+   "topics": {
+    "gia_dinh": {
+     "text": "Con cái đứng ra lo liệu việc dở của cha mẹ: làm nổi thì cha mẹ được yên, không làm nổi lại thành gánh nặng thêm cho họ.",
+     "from": [
+      {"seg": "hao1", "layer": "trinh_di", "quote": "hễ làm nổi việc thì là có con mà người cha được không lỗi. Nếu không thế, thì là làm lụy cho cha"}
+     ]
+    }
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Sửa cái hỏng của người mềm yếu mà mình gắn bó: không thể cứng nhắc giữ lẽ mà uốn nắn ngay, phải hạ mình, khéo léo dẫn dắt.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Là kẻ cứng vâng theo kẻ mềm mà trị sự hỏng của kẻ ấy, cho nên lại rằng không thể kiên trinh."},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Cốt ở uốn mình, hạ ý, nhún thuận đón đưa"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương cứng ở giữa quẻ dưới, ứng với hào Sáu Năm mềm ở trên: người có thực lực đứng dưới mà gánh việc cho người trên yếu.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Chín Hai là hào cứng giữa, trên ứng với hào Sáu Năm"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "lấy tài Dương cương, ở dưới mà cáng đáng việc Âm Nhu ở trên"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "nghia", "quote": "Hào Chín Hai: Cán đáng sự cổ của mẹ, không thể trinh."},
+   "topics": {
+    "gia_dinh": {
+     "text": "Khuyên người thân lớn tuổi sửa một thói quen hay quyết định sai: chọn lời ôn tồn, ung dung mà can, đừng cậy mình đúng mà nói thẳng thừng.",
+     "from": [
+      {"seg": "hao2", "layer": "trinh_di", "quote": "há lại không có cách nào ung dung khuyên can được sao?"}
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Ra tay sửa với quá nhiều cứng rắn nên có chút ăn năn, nhưng vì vẫn thuận và giữ đúng lẽ nên rốt cuộc không có lỗi lớn.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "Quá cứng mà không giữa, cho nên hơi có ăn năn. Ở thể Tốn mà được chính đính, cho nên không có lỗi lớn."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, trên cùng quẻ dưới, không ở giữa: cứng quá mức nhưng đứng đúng chỗ.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Con cán đáng sự cổ của cha mà lấy chất Dương ở chỗ cứng mà không giữa, đó là cứng quá."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "nghia", "quote": "Hào Chín Ba: Cán đáng sự cổ của cha, hơi có ăn năn, không có lỗi lớn."}
+  },
+  "4": {
+   "gist": {
+    "text": "Thấy việc hỏng mà dễ dãi cho qua: sức mềm chỉ đủ giữ nếp thường, cố gánh việc quá sức thì không nổi, còn để yên thì cái hỏng mỗi ngày một sâu.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Ôi cái tài mềm thuận mà ở chỗ chính, chỉ có thể theo thường tự giữ mà thôi."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Nếu đi cán đáng những việc quá thường, thì không làm nổi mà thấy tiếc."},
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Như thế sự cổ sẽ mỗi ngày một sâu"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, đúng chỗ và mềm thuận, nhưng không có ai ứng giúp nên khó làm nên việc.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Tư là hào Âm, ở ngôi Âm, tức là mềm thuận"},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Là bậc Âm nhu mà không kẻ ứng giúp, đi thì làm nên cái gì?"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Là hào Âm ở ngôi Âm, không thể làm việc, đó là tượng rộng rãi để chỉ sự cổ. Như thế sự cổ sẽ mỗi ngày một sâu, cho nên đi thì thấy sự đáng tiếc. Răn kẻ xem không thể như thế."}
+  },
+  "5": {
+   "gist": {
+    "text": "Người đứng đầu tự mình không đủ cứng để mở nền mới, nhưng biết dùng người giỏi bên dưới để kế tục và sửa việc cũ, nên được tiếng khen.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "không thể làm việc mở đầu, mở nền, vâng nhận nghiệp cũ thì được"},
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Dùng cách đó mà cán đáng sự cổ, có thể đem lại tiếng tăm"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ trên, ngôi tôn, có hào Chín Hai cứng giữa bên dưới đem đức mà giúp.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Hào mềm ở giữa, ở ngôi tôn, mà hào Chín Hai lấy đức vâng theo."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Hào mềm ở giữa, ở ngôi tôn, mà hào Chín Hai lấy đức vâng theo. Dùng cách đó mà cán đáng sự cổ, có thể đem lại tiếng tăm, cho nên Tượng, Chiêm như thế."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Mới lên nắm một nơi đang sa sút mà tự thấy chưa đủ sức: dựa vào người giỏi, cứng cỏi bên dưới để giữ và sửa nền cũ trước khi nghĩ chuyện mở mới.",
+     "from": [
+      {"seg": "hao5", "layer": "trinh_di", "quote": "đó là biết dùng bề tôi Dương cương"},
+      {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "là vì người hiền ở dưới vâng giúp cha mình bằng đức cương trung"}
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Đứng ngoài mọi việc, không ràng buộc với ai và không phụng sự quyền thế: chưa gặp thời thì giữ mình trong sạch, nâng cao chí hướng của mình.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "đó là những đấng hiền nhân quân tử, không gặp thời, mà cao khiết tự giữ, không bận bịu về việc đời vậy"},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Cái chí của nó vẫn giữ, thật đáng làm phép tắc vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở trên cùng, không có ai ứng ở dưới: người đã ở ra ngoài cuộc sửa chữa.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Hào Chín Trên ở cuối quẻ Cổ, không có hệ ứng ở dưới, ấy là ở ra ngoài việc"}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Chín Trên: Chẳng thờ tước vương tước hầu, cao nâng thửa việc."},
+   "topics": {
+    "lua_chon": {
+     "text": "Khi không có chỗ đứng hợp với mình, lui về giữ mình, liệu sức mà yên phận, không cầu ai biết đến, cũng là một lựa chọn đáng trọng.",
+     "from": [
+      {"seg": "hao6", "layer": "trinh_di", "quote": "có người biết đạo “thôi đủ”, lui về giữ mình"},
+      {"seg": "hao6", "layer": "trinh_di", "quote": "có người lường tài đo phận, yên một bề không cầu ai biết đến mình"}
+     ]
+    }
+   }
+  }
+ }
+}

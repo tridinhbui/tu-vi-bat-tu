@@ -505,6 +505,8 @@ from . import phi_hoa_api  # noqa: E402  (opt-in draft Phi Hóa school)
 phi_hoa_api.register(app, BirthReq, _compute)
 from . import growth_api  # noqa: E402  (Personal Growth layer, behind TVBT_GROWTH)
 growth_api.register(app, BirthReq, _compute)
+from . import iching_api  # noqa: E402  (Kinh Dịch and Mai Hoa casts: facts only)
+iching_api.register(app)
 
 # Western astrology (engine/western/, kept apart from tvbt): /api/west/*
 from western.api import router as west_router  # noqa: E402

@@ -1,0 +1,199 @@
+{
+ "number": 10,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Lý là bước đi và cũng là lễ: cách cư xử khi phải đi sát bên một sức mạnh lớn hơn mình; đi bằng sự thuận lẽ, đúng mực thì dù giẫm vào chỗ nguy cũng không bị hại.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Quẻ Lý là đường người ta vẫn xéo"},
+    {"seg": "intro", "layer": "trinh_di", "quote": "Lễ là gốc của đạo làm người và là con đường người ta thường thường xéo lên"},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "lấy kẻ mềm bị giầy xéo với kẻ cứng, trên dưới đều đúng nghĩa, là việc rất thuận, lẽ rất đáng, người ta cứ thế mà đi, tuy xéo vào chỗ nguy hiểm cũng không hại gì"}
+   ]
+  },
+  "image": {
+   "text": "Trời ở trên, đầm nước ở dưới, mỗi thứ ở đúng chỗ của nó: khi vai trò và phần việc của từng người được phân rõ, lòng người mới yên.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "nghia", "quote": "Lời Tượng nói rằng: Trên trời dưới chằm, là quẻ Lý, đấng quân vương coi đó mà phân biệt trên dưới, định chí dân."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Đấng quân tử theo Tượng quẻ Lý mà phân biệt phận của trên dưới, để định chí dân của mình."}
+   ]
+  },
+  "structure": {
+   "text": "Một hào âm ở ngôi Ba giữa năm hào dương, cái mềm phải bước theo cái cứng; trong quẻ này, hào dương ở ngôi âm được coi là khiêm mà tốt, còn hào âm cố tỏ ra cứng thì gặp nạn.",
+   "from": [
+    {"seg": "thoan_truyen", "layer": "nghia", "quote": "Quẻ Lý là mềm xéo theo cứng."},
+    {"seg": "tieu_tuong6", "layer": "tien_nho", "quote": "Hào Dương mà ở ngôi Âm tức là khiêm tốn, cho nên, trong một quẻ này đầu lấy Dương ở ngôi Âm làm thiện."},
+    {"seg": "hao3", "layer": "tien_nho", "quote": "Là hào Sáu ở ngôi Ba, chất mềm chí cứng"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Đoái mà gặp Kiền tức là hòa thuận đẹp lòng để theo sau kẻ cứng mạnh, có Tượng \"xéo lên đuôi cọp mà không bị cắn\", cho nên quẻ Lý nó là Lý mà Chiêm thì thế. Người ta có thể như thế thì tuy ở chỗ hiểm nghèo cũng không hại gì."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Làm việc sát bên một người cấp trên cứng rắn như đi cạnh đuôi cọp: có năng lực mà biết dè dặt, nơm nớp giữ mình thì rốt cuộc yên; tưởng mình đủ sức mà xông lên thì bị cắn.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "vì lấy chất cứng ở ngôi mềm nên biết răn sợ mà được trọn tốt."},
+     {"seg": "hao3", "layer": "nghia", "quote": "xéo đuôi cọp, cắn người, hung"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Chi tiêu và đầu tư theo đúng sức mình đang có thì không lỗi; sức mỏng mà muốn làm ngay việc lớn, như người chột cố nhìn xa, dễ chuốc thiệt.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Nếu cứ yên phận thấp kém của mình vốn có mà đi, thì không có lỗi."},
+     {"seg": "tieu_tuong3", "layer": "nghia", "quote": "Chột biết trông, không đủ để có sáng vậy"},
+     {"seg": "hao3", "layer": "tien_nho", "quote": "không lượng sức mình muốn làm việc liền"}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Người nắm quyền quyết một mình, không cần nghe ai, thì dù đang đi đúng hướng vẫn ở thế nguy; người sáng suốt nghe cả ý của người nhỏ nhất rồi mới quyết.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "chưa từng không để cho hết lời bàn của thiên hạ, tuy kẻ cắt cỏ kiếm củi là hạng nhỏ nhặt, cũng ắt theo"},
+     {"seg": "tieu_tuong5", "layer": "chu_hy", "quote": "Hại về tự thị."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Con đường học vững chãi với người giữ lòng yên tĩnh: không để lợi lộc hay ham muốn làm rối bên trong thì bước đi không lệch.",
+    "from": [
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Xéo đường cốt ở yên tính."},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Bởi vì trong lòng yên lặng, không vì sự lợi lộc và sự ham muốn mà tự rối loạn."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Sống cạnh một người tính khí mạnh mẽ, sự hòa nhã và cách cư xử thuận lẽ của mình là điều giữ cho hai người không làm tổn thương nhau.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Đẹp lòng mà ứng với trời, thế cho nên xéo đuôi cọp, không cắn người, hanh."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Xéo mà như thế, rất thuận rất đáng, tuy xéo đuôi cọp cũng không bị đau hại."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Nhà đông người thì có lớn nhỏ, tính tốt tính xấu khác nhau; giữ được lễ với nhau, mỗi người biết chỗ của mình, thì nhà mới có nề nếp.",
+    "from": [
+     {"seg": "intro", "layer": "trinh_di", "quote": "người ta họp lại, thì có lớn nhỏ, cao thấp, tốt xấu khác nhau, đó là người ta chứa họp, rồi mới có lễ"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi phải chọn đường, đi theo điều mình vốn muốn làm, không cẩu thả chạy theo lợi trước mắt, thì bước đi ấy không lỗi.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "nghia", "quote": "Việc đi của kẻ xéo theo sự vốn có, tức là một mình làm theo chí nguyện vậy."},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Yên lòng xéo theo sự vốn có của mình, không phải cẩu thả cầu lợi"}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Đi từng bước có ý thức: biết sức mình, biết sợ chỗ nguy, và đến cuối mỗi chặng thì nhìn lại những bước đã qua để thấy lành dữ đến từ đâu.",
+   "from": [
+    {"seg": "hao4", "layer": "trinh_di", "quote": "hễ biết nơm nớp cẩn thận lo sợ, thì sau chót khỏi nguy mà được tốt."},
+    {"seg": "hao6", "layer": "trinh_di", "quote": "Người ta lành dữ, quan hệ ở sự xéo của mình, thiện ác nhiều hay ít, ấy là lành dữ lớn hay nhỏ."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Sức mỏng mà chí lại cứng, hăng hái làm càn và đi không theo đường, thì chính cái cứng ấy đưa mình vào chỗ bị cắn.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Chí cứng thì hay động càn, xéo không theo đường, như kẻ vũ nhân mà làm đấng đại quân vậy."}
+    ]
+   },
+   {
+    "text": "Dù đang đúng và đứng đúng chỗ, tự mình quyết đoán hết mà không còn biết sợ thì vẫn là thế nguy.",
+    "from": [
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "giữ cái thế có thể tự chuyên mà tự mình dùng sự cương quyết, không còn sợ hãi, thì dùng được chỗ chính đáng cũng là đạo nguy."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Bước đầu, ở chỗ thấp nhất: cứ giữ cái mộc mạc vốn có mà đi, đừng nôn nóng thoát cảnh thiếu thốn bằng mọi giá; đến khi được tiến thì làm việc cho ra việc.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Người ta không biết tự yên cái phận nghèo hèn của mình vốn có, thì sự tiến lên của họ, chỉ là tham bạo hành động, cầu để ra khỏi cảnh nghèo hèn mà thôi"},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "hễ đã được tiến thì phải làm việc, mà không việc gì không hay"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Hào này là Dương cương, ở dưới, nhằm đầu sự \"xéo\", chưa bị vật khác làm cho dời đổi, mà còn noi theo sự vốn có của mình. Kẻ xem như thế, thì không có lỗi."},
+   "topics": {
+    "su_nghiep": {
+     "text": "Người mới vào nghề, ở vị trí thấp: yên lòng làm tốt phần việc của mình, ở lại thì vui với việc ấy, được tiến thì có việc để làm.",
+     "from": [
+      {"seg": "hao1", "layer": "trinh_di", "quote": "Đấng quân tử thì yên lặng theo phận vốn có, khi ở lại thì vui, khi tiến lên thì sẽ có làm chuyện gì"}
+     ]
+    }
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Đường trước mặt bằng phẳng, nhưng chỉ người giữ lòng lặng lẽ, không ham hố tiến lên mới đi bền và tốt; bên trong không tự rối thì bước chân không lệch.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "cũng phải là người trong lòng u tĩnh yên lặng ở cảnh đó, thì mới có thể chính bền mà tốt"},
+     {"seg": "tieu_tuong2", "layer": "nghia", "quote": "Người u uẩn chính bền thì tốt, trong chẳng tự rối vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi mềm, được chỗ giữa quẻ dưới, phía trên không có ai ứng: rộng rãi mà đơn độc.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Chín Hai ở ngôi mềm, rộng rãi được chỗ giữa"},
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Hào này cứng giữa, ở dưới, không có kẻ ứng với mình ở trên"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Hào này cứng giữa, ở dưới, không có kẻ ứng với mình ở trên, cho nên là tượng \"xéo đường bằng phẳng, tối tăm trơ trọi, giữ lấy chính bền\". Kẻ u ẩn gặp lời chiêm này thì chính là tốt."}
+  },
+  "3": {
+   "gist": {
+    "text": "Chột mà đòi nhìn, què mà đòi đi xa: tài chưa đủ, chỗ đứng lệch mà chí lại muốn cứng, liều giẫm lên đuôi cọp nên bị cắn, như kẻ chỉ có sức mạnh mà đòi làm người cầm đầu.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "tài đã không đủ, lại ở không được giữa, bước xéo không phải đường chính, mà chăm chăm muốn cứng"},
+     {"seg": "hao3", "layer": "tien_nho", "quote": "như kẻ chột muốn trông, kẻ què muốn bước, kẻ vũ nhân muốn làm vua hung là nên lắm."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương, không phải chỗ chính của nó: chỗ đứng không xứng nên chuốc lấy vạ.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Là kẻ mềm ở ngôi Ba, không phải chỗ chính của nó, sở dĩ phải đến vạ hại, bị cắn mà hung."},
+     {"seg": "tieu_tuong3", "layer": "nghia", "quote": "Cái \"hung\" của sự cắn người, ngôi không đáng vậy"}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Hào Sáu Ba chẳng giữa chẳng chính, mà chí cứng, dùng cách đó mà xéo theo Kiền ắt bị đau hại, cho nên Tượng nó như thế, mà kẻ xem gặp thế thì hung."}
+  },
+  "4": {
+   "gist": {
+    "text": "Đứng sát bên người cứng rắn ở trên như giẫm lên đuôi cọp: biết nơm nớp giữ mình, cứng mà ý mềm, rồi rời khỏi chỗ nguy, thì cuối cùng được tốt.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Có thể nơm nớp sợ hãi thì sau chót được tốt, là vì chí ở sự đi mà không chịu ở, lìa bỏ chỗ nguy là tốt."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "hào Chín tuy cứng mà chí thì mềm"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi Tư, sát cạnh ngôi tôn mà không có chỗ tương đắc với người trên, nên nhiều điều phải lo.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Ở chỗ gần vua, nhiều sự sợ, lại không có nghĩa tương đắc"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Hào Chín Tư: Xéo đuôi cọp, nơm nớp, sau chót tốt."}
+  },
+  "5": {
+   "gist": {
+    "text": "Người ở vị trí cao nhất, đủ cứng, lại được người dưới chiều theo nên quyết mọi việc không chút ngần ngại: dù đang đúng vẫn là thế nguy, vì tự cho mình phải.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "phàm các việc tất nhiên là làm, không còn nghi ngại, cho nên Tượng nó là quyết."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "là kẻ tự dùng sự cương quyết của mình mà đi. Như thế thì, tuy được chỗ chính cũng nguy dữ."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương cứng mà ở giữa, đúng ngôi tôn, phía dưới có quẻ Đoái vui vẻ ứng theo.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Hào Chín Năm lấy đức cương trung xéo chính ngôi vua mà dưới là quẻ Đoái có tính vui đẹp ứng nhau với nó"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Nhất quyết mà xéo, gia cho được lẽ chính đính cũng là đạo nguy, cho nên lời chiêm của nó là \"tuy chính mà nguy\". Răn bảo người ta sâu lắm."}
+  },
+  "6": {
+   "gist": {
+    "text": "Đến cuối chặng, nhìn lại những bước đã đi: đầu cuối trọn vẹn, không thiếu sót thì là điều thiện trọn vẹn, cả tốt và có phúc lớn.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Người ta xéo rồi, xét coi lúc sau chót, nếu như đầu chót chu toàn không thiếu thốn, thì là thiện đến tột cùng, cho nên cả tốt."},
+     {"seg": "tieu_tuong6", "layer": "nghia", "quote": "Cả tốt ở trên, cả có phúc vậy."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Coi chót cuộc \"xéo\" để xét điều hành của nó, chu toàn không thiếu thì là cả tốt. Đó là vạ phúc của lẻ xem phải coi ở sự \"xéo\" của họ mà chưa nhất định."}
+  }
+ }
+}

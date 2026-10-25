@@ -43,6 +43,7 @@ ICONS = {
     "menu": '<path d="M4 7h16M4 12h16M4 17h16"/>',
     "panel": '<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M9.5 4.5v15"/>',
     "close": '<path d="M6 6l12 12M18 6 6 18"/>',
+    "hexagram": '<path d="M5 5h14M5 9h5.5M13.5 9H19M5 13h14M5 17h5.5M13.5 17H19M5 21h14" transform="translate(0 -1.5)"/>',
 }
 
 
@@ -81,6 +82,9 @@ GROUPS = [
     ]),
     ("tarot", "Tarot", "cards", "", [
         ("tarot", "/tarot/la-bai/", "78 lá bài", "cards", "", "", "Tarot"),
+    ]),
+    ("kinh-dich", "Kinh Dịch", "hexagram", "", [
+        ("kinh-dich", "/kinh-dich/", "Kinh Dịch", "hexagram", "", "", "Kinh Dịch"),
     ]),
     ("lich", "Lịch", "calendar", "", [
         ("xem-ngay", "/xem-ngay/", "Xem ngày", "calendar", "", ""),

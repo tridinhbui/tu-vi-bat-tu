@@ -4,6 +4,7 @@ import { api, session } from './account.js';
 import { initProfile } from './profile.js';
 import { initMyCharts } from './mycharts.js';
 import { writeSaved } from './mine.js';
+import { paintAvatar } from './uavatar.js';
 
 const CONFIRM = 'XOA';      // src/account/route.ts checks the same word
 /** Everything this site keeps in this browser (saved charts, journal, remembered choices) starts with "tvbt". */
@@ -49,7 +50,14 @@ export function initAccountPage(root, deps) {
     const signed = !!session.user;
     $('.acc-out', root).hidden = signed || !session.ready; $('.acc-in', root).hidden = !signed;
     $('.acc-nav', root).hidden = !signed;
-    $('.acc-who', root).textContent = signed ? `Đăng nhập bằng ${session.user.email}` : session.ready && !session.enabled ? 'Tài khoản chưa được bật trên máy chủ này.' : '';
+    const who = $('.acc-who', root);
+    who.textContent = '';
+    if (signed) {                                   // photo, name, then the Google address the account signs in with
+      const av = document.createElement('span'); av.className = 'uav'; av.setAttribute('aria-hidden', 'true');
+      const t = document.createElement('span');
+      t.textContent = `${session.user.name ? session.user.name + ' · ' : ''}Đăng nhập bằng ${session.user.email}`;
+      who.append(av, t); paintAvatar(av, session.user);
+    } else who.textContent = session.ready && !session.enabled ? 'Tài khoản chưa được bật trên máy chủ này.' : '';
     if (session.ready && !session.enabled) $('.acc-out', root).hidden = true;
   };
   paint(); addEventListener('tvbt:account', paint);

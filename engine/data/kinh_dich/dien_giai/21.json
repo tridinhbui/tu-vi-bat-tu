@@ -1,0 +1,186 @@
+{
+ "number": 21,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Phệ hạp là cảnh có một vật chắn ngang giữa miệng: trên dưới không khép lại được cho đến khi cắn đứt chỗ cản ấy; việc thông được là nhờ dám xử lý thẳng cái gây ngăn cách.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Phệ là cắn, hạp là hợp, vật có chỗ cách, phải cắn mới hợp lại được."},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Việc trong thiên hạ, sở dĩ không được hanh thông là vì có chỗ ngăn cách; cắn mà hợp lại, thì hanh thông rồi."}
+   ]
+  },
+  "image": {
+   "text": "Sấm và chớp cùng hiện: chớp soi cho tỏ sự thật, sấm khiến người ta nể sợ; xử một việc rối cần cả hai, sáng suốt để thấy và cứng rắn để làm.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Chớp sáng mà sấm oai, đấng Tiên vương coi tượng sấm chớp, bắt chước cái sáng cái oai của nó để tỏ hình phạt và sức pháp lệnh."},
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Soi được thì không kẻ nào có sự ẩn tình, có oai thì chẳng kẻ nào còn dám chẳng sợ."}
+   ]
+  },
+  "structure": {
+   "text": "Hai hào dương ở hai đầu như hai hàm, hào Chín Tư nằm giữa là vật chắn; hai hào đầu cuối là người chịu xử, bốn hào giữa là người xử việc, mỗi người cắn một thứ khó dễ khác nhau.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Quẻ này trên dưới hai hào Dương mà giữa trống rỗng, là Tượng cái miệng. Chín Tư là một hào Dương ngăn cách ở giữa, phải cắn mới hợp lại được"},
+    {"seg": "hao1", "layer": "chu_hy", "quote": "Hào Đầu, hào Trên không ngôi là tượng bi hình, bốn hào giữa là tượng dụng hình"},
+    {"seg": "tieu_tuong6", "layer": "tien_nho", "quote": "nhưng vì tài quẻ cứng mềm không giống nhau cho nên sự cắn của nó cũng có khó dễ khác nhau"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Bởi vì trong việc trị ngục, quý có oai có sáng mà được vừa phải. Cho nên kẻ nào bói được quẻ này, nếu có đức ấy, thì ứng với lời chiêm ấy."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Một khâu tắc hay một người cản trở làm cả nhóm không khớp lại được thì cần chỉ đúng chỗ ấy và xử lý dứt điểm; để yên đó thì việc chung không trôi.",
+    "from": [
+     {"seg": "intro", "layer": "trinh_di", "quote": "Phàm trong thiên hạ, cho đến một nước một nhà, cho đến muôn việc, sở dĩ không hòa hợp, đều vì có sự ngăn cách, không ngăn cách thì sẽ hợp được"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Như người xét kiện phải biết thật dối rồi mới định cách xử, một khoản tranh chấp hay món nợ còn mập mờ cần được làm rõ giấy tờ, con số trước khi quyết.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Biết được tình thật, thì biết cái đạo làm cho ngăn cách, rồi mới có thể đặt ngăn ngừa và dùng hình phạt."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Như miếng chạo khô còn dính xương, trở ngại trong việc làm ăn lúc này khó gặm: bền sức và giữ đường ngay thẳng thì qua được, lại có cái lợi.",
+    "from": [
+     {"seg": "hao4", "layer": "nghia", "quote": "Hào Chín Tư: Cắn chạo khô, được tên vàng, lợi về khó nhọc, chính bền tốt."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Hào Chín Đầu bị giữ chân khi lỗi còn nhỏ nên biết dừng: một sai sót được chỉ ra và sửa sớm thì có lợi, để lâu mới sửa thì khó gỡ hơn nhiều.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Xéo vào xiềng mà bị đứt đau ngón chân, thì biết răn sợ mà không gây lớn điều ác"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Người đời xưa đặt ra hình phạt, có tội nhỏ thì xiềng ngón chân, đó là nghĩa ngăn cấm sự đi, không cho tiến về đường ác."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Giữa hai người có điều gì chắn ngang, như vật kẹt giữa hai hàm, thì lờ đi không làm nó mất; cần nói cho rõ thật hư, cứng vừa đủ và mềm có chừng mực.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Có vật ngăn cách trong mép thì là sự hại. Cắn mà hợp lại, thì sự hại đó phải mất, mới là hanh thông"},
+     {"seg": "thoan_truyen", "layer": "tien_nho", "quote": "không mềm thì lỗi về bạo; mềm mà không giữa thì lỗi về phóng túng"}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Người đứng ra phân xử chuyện trong nhà cần vừa sáng suốt để biết ai đúng ai sai, vừa giữ được mực: nghiêm quá thành nặng nề, dễ dãi quá thì sinh lỏng lẻo.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "cứng cả thì hại về nghiêm bạo, mềm quá thì hỏng về khoan hoãn"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Muốn quyết một việc khó thì như chớp soi trước rồi sấm mới vang: nhìn cho tỏ thực hư rồi hãy định, định rồi thì làm cho dứt khoát.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "tien_nho", "quote": "Động không như sấm, không thể đoán ngục; sáng không như điện, không thể xét ngục"},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Sự soi và oai cùng đi, đó là cái đạo dùng ngục."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Gọi đúng tên điều đang chắn giữa, tìm cho ra thật giả, rồi xử lý dứt khoát mà có chừng mực; lỗi nhỏ thì sửa ngay, đừng để dồn thành chuyện lớn.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Ngục là để xét trị sự thật sự dối."},
+    {"seg": "hao1", "layer": "trinh_di", "quote": "Người ta có lỗi nhỏ, bị xiềng mà đứt ngón chân, thì nên răn sợ, không tiến về đường ác nữa, cho nên mới được không lỗi."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Cứng rắn dễ thành quyết vội nên cần biết cái khó, mềm mỏng dễ lỏng nên cần giữ cho bền; điều tốt đến khi có được cả hai.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "cứng sáng thì hại về sự quả quyết, cho nên phải răn bằng sự biết khó nhọc; mềm thì giữ gìn không bền, cho nên phải răn bằng sự kiên trinh."}
+    ]
+   },
+   {
+    "text": "Lỗi tích mãi mà không chịu nghe lời can thì đến lúc nặng như đội gông lút tai; nếu biết nghe và lo liệu sớm thì tránh được cái dữ ấy.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "chu_hy", "quote": "Dứt tai là tại sự nghe không suốt. Nếu biết nghe tỏ mà lo sớm đi, thì không có sự hung ấy."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Lỗi còn nhỏ đã bị giữ chân ngay từ bước đầu, như mang xiềng ở chân: đau một chút nhưng biết dừng thì không thành lỗi lớn.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "trong lúc bắt đầu dụng hình, tội nhỏ mà hình nhẹ"},
+     {"seg": "tieu_tuong1", "layer": "chu_hy", "quote": "Đứt ngón chân lại có tượng “không tiến về đường ác”."}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Ngăn điều ác trong lúc mới đầu, cho nên được không lỗi. Kẻ xem bị thương nhỏ mà không có lỗi."}
+  },
+  "2": {
+   "gist": {
+    "text": "Xử việc dễ như cắn miếng da mềm vì người xử đứng ngay thẳng nên dễ được phục; gặp người cứng đầu thì phải mạnh tay, có chỗ đau nhưng không thành lỗi.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Hai lấy đạo trung chính mà dụng hình, thì sự trừng phạt của nó dễ phục."},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hình phạt những kẻ cương cường, ắt phải đau sâu, cho nên đến ngập mũi mà không có lỗi."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi, nhưng cưỡi lên hào Chín Đầu cứng: xử đúng mực mà vẫn phải nghiêm với người cứng.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "hào Hai ở giữa, được chỗ chính, là kẻ dụng hình mà được trung chính."},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Cưỡi lên kẻ cứng tức là dụng hình với người cương trường, không thể không nghiêm."}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Nhưng vì nó là hào mềm mà lại cưỡi lên hào cứng, nên tuy rất dễ mà cũng không khỏi bị thương cụt mũi. Kẻ xem tuy là đau mà không có lỗi."}
+  },
+  "3": {
+   "gist": {
+    "text": "Đứng ra xử việc khi chỗ đứng của mình chưa vững thì người ta không phục mà còn quay lại oán, như cắn mắm khô gặp độc; hơi đáng tiếc nhưng việc cần làm vẫn không sai.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Bởi nó tự xử không đáng, cho nên những kẻ mà nó vô hình phạt khó phục mà lại làm độc cho nó."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Dụng hình mà người ta không phục, lại dám oán xót, là đáng bỉ thẹn."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm đứng ở ngôi dương, chỗ đứng không xứng: người cầm việc xử mà tự mình chưa đứng đúng chỗ.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Hào Sáu Ba là chất Âm, ở ngôi Dương, tức là ngôi ở không đáng."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Âm nhu không trung chính, trị người mà người không phục, là Tượng \"cắn thịt khô gặp độc\". Lời chiêm tuy hơi đáng tiếc, song mà đương buổi \"cắn hợp\", về nghĩa vẫn không có lỗi."}
+  },
+  "4": {
+   "gist": {
+    "text": "Gặp chỗ cứng nhất, như miếng chạo khô còn dính xương: phải rắn và thẳng như mũi tên vàng, nhưng chỉ tốt khi chịu khó nhọc và giữ được bền.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Chạo là thứ thịt hãy còn dính xương, thịt khô mà kèm xương, là vật rắn khó cắn."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "vàng láy nghĩa rắn, tên lấy nghĩa thẳng"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, sát ngôi vua: người gánh trách nhiệm chính của việc gỡ ngăn cách, cứng mà ở chỗ mềm.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Hào Chín Tư ở ngôi gần vua, là kẻ đương vào trách nhiệm \"cắn hợp\"."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Chín Tư là hào cứng mà sáng, thể Dương mà ở ngôi mềm"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Ý nói có cắn càng sâu, được sự thích nghi của việc xét kiện, nhưng ắt lợi về gian nan, chính bền thì tốt. Răn kẻ xem nên như thế vậy."}
+  },
+  "5": {
+   "gist": {
+    "text": "Ở ngôi cao, việc xử dễ hơn vì có thế và có người giỏi bên cạnh giúp, như được vàng vàng; nhưng tính vốn mềm nên phải giữ ngay thẳng và biết lo sợ mới khỏi lỗi.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Năm ở giữa quẻ là được đạo trung bình, ở ngôi cứng mà có hào Tư giúp cho, là được vàng vàng."},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "kỳ thật vẫn là thể mềm, cho nên răn nó ắt phải chính bền và nhớ lo sợ, thì được không lỗi."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi giữa quẻ trên, không có ứng nhưng được hào Chín Tư ở ngôi đại thần đỡ.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Năm không có ứng mà hào Tư ở ngôi đại thần, tức là được nó giúp đỡ."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Nhưng mà ắt phải chính bền lo sợ, mới được không lỗi. Đó cũng là lời răn kẻ xem."}
+  },
+  "6": {
+   "gist": {
+    "text": "Lỗi chất chồng đến cùng mà vẫn không chịu nghe, tới lúc như đội gông lút tai: hung, vì đã qua mất lúc còn gỡ được.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Người ta điếc tối không biết, chứa mãi tội ác cho đến cùng cực."},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Hệ từ bảo là \"ác chứa mà không thể che, tội lớn mà không thể cởi\""}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Hào Dương quá cực ở về trên quẻ, đó là cái đạo tội lớn án cực, cho nên tượng Chiêm như thế."}
+  }
+ }
+}
