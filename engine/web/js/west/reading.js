@@ -34,6 +34,7 @@ const para = (p, deep, chart) => {
   }).join('');
   let more = '';
   if (deep) {
+    if (p.method) more += `<p class="wt-dsub">Phương pháp của nguồn</p><p class="wt-method">${esc(p.method)}</p>`;
     if (p.steps?.length) more += `<p class="wt-dsub">Các bước suy luận</p><ol class="wt-steps">${p.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`;
     if (p.quote?.text) more += `<blockquote class="wt-quote"><p>${esc(p.quote.text)}</p>${p.quote.source_label ? `<cite>${esc(p.quote.source_label)}</cite>` : ''}</blockquote>`;
   }

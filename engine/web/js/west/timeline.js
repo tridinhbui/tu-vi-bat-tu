@@ -30,7 +30,7 @@ export function initForecast(root, { getCtx }) {
     <div id="tl-body" class="wt-tl-body" aria-live="polite"></div>
   </section>
   <section class="wt-panel" id="fc-prof" aria-labelledby="fc-pf-h">
-    <header class="wt-ph"><h3 id="fc-pf-h">Profection hằng năm</h3><p class="wt-method">Kỹ thuật Hy Lạp cổ đại: mỗi năm tuổi, điểm khởi từ cung Mọc tiến thêm một cung; chủ tinh của cung đến lượt là “chủ năm”. Năm tính từ sinh nhật này đến sinh nhật sau.</p></header>
+    <header class="wt-ph"><h3 id="fc-pf-h">Profection hằng năm</h3><p class="wt-method">Kỹ thuật Hy Lạp cổ đại: mỗi năm tuổi, điểm khởi từ cung Mọc tiến thêm một cung; chủ tinh của cung đến lượt là “chủ năm”. Mỗi năm bắt đầu lúc Mặt Trời trở về đúng vị trí lúc sinh (ngay quanh sinh nhật).</p></header>
     <div class="wt-pctl"><label class="fld"><span>Cách đếm</span><div class="sel"><select id="pf-method"><option value="whole_sign">Theo trọn cung (Whole Sign)</option><option value="degree">Theo độ cung Mọc (mỗi năm 30°)</option></select></div></label></div>
     <div id="pf-body" aria-live="polite"></div>
   </section>

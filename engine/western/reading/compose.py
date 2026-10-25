@@ -32,6 +32,8 @@ class Para:
     method: str = ""                      # how the source works, the same for every chart: shown in Đọc sâu, not in the text
 
     def __post_init__(self):
+        seen = set()
+        self.evidence = [e for e in self.evidence if (e["kind"], e["id"]) not in seen and not seen.add((e["kind"], e["id"]))]
         """Sentences wrapped in ⟦…⟧ by the chapters are method talk: they move to `method`, the text keeps what is about this chart."""
         found = re.findall(r"⟦(.*?)⟧\s*", self.text, flags=re.S)
         if found:
