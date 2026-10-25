@@ -28,6 +28,20 @@ def test_every_segment_is_on_its_page():
                 assert part in page, (q["han"], s["kind"], part[:20])
 
 
+def test_trigram_quotes():
+    tri = json.loads((ROOT / "engine/data/kinh_dich/trigrams.json").read_text("utf-8"))
+    web = lambda f: {c["chapter"]: c["text"] for c in json.loads((ROOT / f"engine/data/sources_web/{f}.json").read_text("utf-8"))["chapters"]}
+    ntt = web("vi_kinhdich_ntt")[tri["sources"]["ntt"]["chapter"]].replace("''", "")
+    shuo = kb_tool.clean(web("zh_zhouyi")[tri["sources"]["shuogua"]["chapter"]])
+    assert set(tri["trigrams"]) == {"Kiền", "Khôn", "Chấn", "Tốn", "Khảm", "Ly", "Cấn", "Đoài"}
+    for name, t in tri["trigrams"].items():
+        for f in ("image", "quality"):
+            assert t[f]["ntt"] in ntt and t[f]["vi"] in t[f]["ntt"], (name, f)
+        for f in ("quality", "animal", "body", "family", "direction"):
+            if t[f]:
+                assert t[f]["han"] in shuo, (name, f)
+
+
 def test_chiem_words():
     by = {q["number"]: q for q in KB["hexagrams"]}
     thoan = lambda n: by[n]["segments"][0]
