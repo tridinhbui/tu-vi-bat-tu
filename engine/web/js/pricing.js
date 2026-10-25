@@ -15,9 +15,7 @@ let plans = null, me = null, discount = null;
 async function boot() {
   try { plans = await (await fetch('/api/plans', { cache: 'no-store' })).json(); } catch { $('#cm-plans').textContent = 'Chưa tải được bảng giá.'; return; }
   try { me = await (await fetch('/api/auth/me', { credentials: 'same-origin' })).json(); } catch { me = null; }
-  const who = $('#cm-who');
-  if (me?.user) who.textContent = me.user.email;
-  else if (me?.enabled) who.innerHTML = '<a class="btn btn-sm btn-ghost" href="/api/auth/google">Đăng nhập với Google</a>';
+  // who is signed in, and the sign-in button, are in the site header (js/nav.js)
   // the page never describes a lock the server does not apply: with the paywall off (TVBT_PAYWALL), every chapter is open and it says so
   const notes = [plans.placeholder && `<b>${esc(plans.placeholderLabel)}.</b> Các mức giá trên trang này đang là giá tạm để thử hệ thống, chưa phải giá bán chính thức.`,
     !plans.paywall && 'Trong thời gian thử nghiệm, mọi chương luận giải, kể cả phần Đọc sâu, đang mở cho mọi người; chưa phần nào bị khóa.'].filter(Boolean);

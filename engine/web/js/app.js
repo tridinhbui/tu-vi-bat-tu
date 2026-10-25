@@ -82,8 +82,6 @@ if (/^#(hoc|kham-pha|tu-vi|bat-tu|gioi-thieu)/.test(location.hash)) history.repl
 // The data-depth attribute stays so the existing .pro-only / .easy-only markup keeps working.
 document.body.dataset.depth = 'pro';
 try { localStorage.removeItem('tvbt-depth'); } catch { /* storage unavailable */ }
-let lastY = 0;
-addEventListener('scroll', () => { const y = scrollY; $('#site-header').classList.toggle('stuck', y > 8); lastY = y; }, { passive: true });
 
 // ---------- home: Five Elements, library, form ----------
 
@@ -224,7 +222,7 @@ const acctPage = initAccountPage($('#account-view'), {
   placeOptions: form.place.innerHTML, onPrefill: p => prefill(p), compare,
   onRun: p => { prefill(p, true); generate(); }, onOpen: req => generate(null, req), onChange: () => renderSaved(savedList, openSaved),
 });
-initAccount($('#acct'), () => { renderSaved(savedList, openSaved); acctPage.paint(); }, saver);
+initAccount(() => { renderSaved(savedList, openSaved); acctPage.paint(); }, saver);
 initAsk(() => shareMode.id ? null : state?.req);                // "Hỏi Bát Bát": the chart on screen, never a shared one
 initPaywall(() => shareMode.id ? null : state?.req);
 initAiCards(() => shareMode.id ? null : state?.req);   // "Luận AI" under each chapter, never on a shared chart
@@ -332,7 +330,7 @@ async function openShare(id) {
   } finally { endLoad(); $('#loading').hidden = true; }
 }
 // a pasted share link or the account page, on load and when only the hash changes (same document)
-const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); };
+const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); else if (location.hash === '#la-so-mau') { history.replaceState(null, '', location.pathname); loadSample().then(() => setTab('tuvi')); } };
 route(); addEventListener('hashchange', route);
 // back from "Đăng nhập để đọc tiếp" on a guest lock card (js/paywall.js): the chart that was on screen, now read at the member tier
 { const resume = takeResume(); if (resume && !SHARE_HASH.test(location.hash)) generate(null, resume); }

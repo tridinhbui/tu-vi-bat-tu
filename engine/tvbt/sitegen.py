@@ -20,6 +20,7 @@ import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from . import sitenav
 from .knowledge.loader import DATA, PACKS
 
 WEB = Path(__file__).resolve().parent.parent / "web"
@@ -306,7 +307,6 @@ def dignity_rows(kb: dict, star: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------- html
-NAV = [("/bai-viet/", "Bài viết"), ("/xem-ngay/", "Xem ngày"), ("/chiem-tinh/", "Chiêm tinh"), ("/hoi-dap/", "Hỏi đáp"), ("/gioi-thieu/", "Giới thiệu")]
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' "
            "stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E")
 
@@ -319,8 +319,6 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
           scripts: list[str] = ()) -> str:
     url = ORIGIN + path
     full = f"{title} | {SITE}" if SITE not in title else title
-    cur = ' aria-current="page"'
-    nav = "".join(f'<a href="{h}"{cur if path.startswith(h) else ""}>{esc(t)}</a>' for h, t in NAV)
     crumb_html = ""
     lds = list(ld)
     if crumbs:
@@ -359,11 +357,7 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
 </head>
 <body class="cpage">
 <a class="skip" href="#main">Bỏ qua điều hướng</a>
-<header class="site-header stuck"><div class="wrap hdr">
-<a class="brand" href="/" aria-label="{SITE}, trang chủ"><span class="brand-t"><b>{SITE}</b><small>Tử Vi · Bát Tự</small></span></a>
-<nav class="nav cnav" aria-label="Điều hướng chính">{nav}</nav>
-<a class="btn btn-sm hdr-cta" href="/#lap-la-so">Lập lá số</a>
-</div></header>
+{sitenav.header(path)}
 <main id="main" class="wrap cmain">
 {crumb_html}
 {body}
@@ -696,9 +690,13 @@ def render(m: dict | None = None) -> dict[str, str]:
     pages = [index_page(m), about_page(m), faq_page(), calendar_page()]
     pages += [star_page(s, m) for s in m["stars"]] + [palace_page(p, m) for p in m["palaces"]] + [cach_page(c, m) for c in m["cach"]]
     out = {path.strip("/") + "/index.html": doc for path, doc in pages}
-    urls = ["/", "/library"] + [p for p, _ in pages]
+    urls = ["/", "/library", "/chiem-tinh/"] + [p for p, _ in pages]
     out["sitemap.xml"] = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                           + "".join(f"<url><loc>{esc(ORIGIN + u)}</loc><lastmod>{CONTENT_DATE}</lastmod></url>\n" for u in urls) + "</urlset>\n")
+    for rel, page_path in sitenav.HAND_PAGES.items():      # hand-written pages: only their header block is rewritten
+        f = WEB / rel
+        if f.exists():
+            out[rel] = sitenav.sync(f.read_text("utf-8"), page_path)
     out["robots.txt"] = f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin\n\nSitemap: {ORIGIN}/sitemap.xml\n"
     return out
 
