@@ -1,0 +1,107 @@
+/* Kinh Dịch / Mai Hoa page (/kinh-dich/). Tokens from app.css; ink on parchment, cinnabar only for what moves. */
+.kd-page{max-width:760px}
+.kd-mode{margin:0 0 var(--s5)}
+.kd-ask{display:grid;gap:var(--s4);margin:0 0 var(--s5)}
+.kd-ask textarea{width:100%;font:400 1.02rem/1.5 var(--sans);padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);resize:vertical;min-height:56px}
+.kd-ask textarea:focus{outline:0;border-color:var(--cinnabar);box-shadow:0 0 0 4px rgba(167,67,44,.12)}
+.kd-chips{display:flex;flex-wrap:wrap;gap:8px}
+.kd-chips label{position:relative}
+.kd-chips input{position:absolute;opacity:0;pointer-events:none}
+.kd-chips span{display:inline-flex;align-items:center;height:38px;padding:0 14px;border:1px solid var(--line);border-radius:99px;background:var(--raise);font:500 .88rem var(--sans);color:var(--text2);cursor:pointer}
+.kd-chips input:checked+span{border-color:var(--ink);color:var(--ink);background:var(--surface);font-weight:600}
+.kd-chips input:focus-visible+span{outline:2px solid var(--focus);outline-offset:2px}
+
+/* casting */
+.kd-stage{margin:0 0 var(--s5)}
+.kd-cast{display:grid;grid-template-columns:1fr auto;align-items:end;gap:var(--s5);padding:var(--s5);border:1px solid var(--line);border-radius:var(--r);background:var(--raise)}
+.kd-coins{display:flex;gap:12px;align-self:center}
+.coin{width:52px;height:52px;border-radius:50%;border:2px solid var(--brass);background:radial-gradient(circle at 35% 30%,#F3E3C2,#D8BC88);position:relative;transform-style:preserve-3d}
+.coin:after{content:"";position:absolute;inset:17px;border:2px solid #A88550;border-radius:3px;background:var(--raise)}
+.coin.lung{background:radial-gradient(circle at 35% 30%,#E7D1A6,#BE9A5E)}
+.coin.lung:before{content:"";position:absolute;inset:6px;border-radius:50%;border:1px dashed #8C6A36}
+.coin.chu:before{content:"字";position:absolute;inset:0;display:grid;place-items:center;font:600 .8rem var(--han);color:#6B4E22;z-index:1}
+.coin.spin{animation:kd-flip .7s cubic-bezier(.3,.6,.4,1)}
+@keyframes kd-flip{0%{transform:rotateY(0) translateY(0)}45%{transform:rotateY(540deg) translateY(-18px)}100%{transform:rotateY(1080deg) translateY(0)}}
+.kd-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:var(--s4)}
+.kd-manual{margin-top:var(--s4)}
+.kd-manual summary{cursor:pointer;font:500 .92rem var(--sans);color:var(--text2)}
+.kd-manual-lines{display:grid;gap:8px;margin:var(--s3) 0}
+.kd-manual-lines label{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:10px;font-size:.9rem;color:var(--text2)}
+.kd-manual-lines select{height:44px;font-size:.95rem}
+.kd-mh-form{display:grid;gap:var(--s4);padding:var(--s5);border:1px solid var(--line);border-radius:var(--r);background:var(--raise)}
+.kd-mh-form input[type=datetime-local]{width:100%;font:500 1rem var(--sans);padding:0 14px;height:52px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.kd-mh-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* the figure */
+.hx{--w:150px;--h:14px;display:flex;flex-direction:column;gap:9px;width:var(--w);position:relative}
+.hx-line{display:flex;align-items:center;gap:8px;padding:3px 0;border:0;background:none;width:100%;cursor:default;color:inherit}
+button.hx-line{cursor:pointer;border-radius:6px}
+button.hx-line:hover .hx-bar i{background:var(--text2)}
+.hx-bar{flex:1;display:flex;justify-content:space-between;column-gap:0;transition:column-gap .45s ease}
+.hx-bar i{display:block;height:var(--h);flex:1;background:var(--ink);border-radius:2px;transition:background .3s}
+.hx-line.yin .hx-bar{column-gap:22%}
+.hx-line.empty .hx-bar i{background:transparent;border:1px dashed var(--line)}
+.hx-line.mv .hx-bar i{background:var(--cinnabar)}
+.hx-line.changed .hx-bar i{background:var(--cinnabar)}
+.hx-mark{width:14px;font:600 .85rem var(--sans);color:var(--cinnabar);text-align:center}
+.hx-sep{height:2px}
+.hx-role{position:absolute;right:-4px;transform:translateX(100%);font:600 .66rem var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.hx-role.up{top:22%}.hx-role.lo{bottom:22%}
+.hx.sm{--w:72px;--h:7px;gap:5px}.hx.sm .hx-mark{display:none}
+.kd-build{min-width:120px}
+.kd-build .hx{--w:120px;--h:11px}
+
+/* result */
+.kd-result{margin:var(--s6) 0}
+.kd-head{display:grid;gap:var(--s2);margin:0 0 var(--s5)}
+.kd-head h2{font-size:clamp(1.5rem,5vw,2rem)}
+.kd-head .han{font-family:var(--han);font-weight:400;color:var(--text2);margin-left:6px}
+.kd-q{font:italic 400 1.05rem/1.5 var(--serif);color:var(--text2);margin:0}
+.kd-figs{display:flex;align-items:flex-end;gap:clamp(10px,3vw,36px);padding:var(--s5) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 0 var(--s5)}
+.kd-fig{display:grid;gap:8px;justify-items:start;min-width:0;margin:0}
+.kd-fig figcaption{max-width:100%}
+.kd-figs .kd-arrow{align-self:center}
+.kd-figs .kd-fig:last-child{margin-left:auto}
+.kd-fig figcaption{font:500 .8rem/1.35 var(--sans);color:var(--text2)}.kd-fig figcaption b{display:block;font:500 1.02rem var(--serif);color:var(--ink)}
+.kd-arrow{font:400 1.6rem var(--serif);color:var(--muted)}
+.kd-figs .hx{--w:min(28vw,150px)}.kd-figs .hx.sm{--w:min(14vw,72px)}
+.kd-tools{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 var(--s5)}
+.kd-depth{margin:0 0 var(--s5)}
+.kd-sec{margin:0 0 var(--s6)}
+.kd-sec h3{font-size:1.25rem;margin:0 0 var(--s3)}
+.kd-sec p{font:400 1.06rem/1.75 var(--serif);color:var(--text);margin:0 0 var(--s3)}
+.kd-sec .k-kinh{font-style:italic}
+.kd-sec[data-depth=sau]{border-left:2px solid var(--line);padding-left:var(--s4)}
+.kd-sec[data-depth=sau] h3:after{content:"Đọc sâu";margin-left:10px;vertical-align:middle;font:600 .62rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.kd-sec.advice{background:var(--raise);border:1px solid var(--line);border-left:3px solid var(--jade);border-radius:var(--r-sm);padding:var(--s4) var(--s5)}
+.kd[data-depth=nhanh] .kd-sec[data-depth=sau]{display:none}
+.kd-basis{margin:0 0 var(--s4);font-size:.86rem;color:var(--text2)}
+.kd-basis summary{cursor:pointer;font:500 .8rem var(--sans);color:var(--muted)}
+.kd-basis ol{margin:8px 0 0 18px;display:grid;gap:8px}
+.kd-basis q{font-family:var(--serif);font-style:italic;quotes:"«" "»"}
+.kd-basis .src{color:var(--muted);font-size:.78rem}
+.b-tag{display:inline-block;margin-right:6px;padding:0 7px;border-radius:6px;border:1px solid var(--line);font:600 .64rem/1.7 var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.b-kinh{color:var(--pos)}.b-chu_giai{color:var(--gold)}.b-tinh_toan{color:var(--blue)}.b-he_thong{color:var(--accent)}.b-dien_giai{color:var(--muted)}.b-loi_khuyen{color:var(--jade)}
+.kd-steps{display:grid;gap:6px;margin:0 0 var(--s4);padding:var(--s4);background:var(--raise);border:1px solid var(--line);border-radius:var(--r-sm);font:500 .92rem/1.5 var(--sans)}
+.kd-steps b{color:var(--ink)}
+.kd-rel{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.95rem;margin:0 0 var(--s4)}
+.kd-rel dt{color:var(--muted)}.kd-rel dd{margin:0}
+.kd-history{margin:var(--s6) 0 0}
+.kd-history h2{font-size:1.15rem;margin:0 0 var(--s3)}
+.kd-history ul{list-style:none;display:grid;gap:6px}
+.kd-history a{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;background:var(--raise);font-size:.92rem}
+.kd-history small{color:var(--muted);white-space:nowrap}
+
+/* the hào sheet: bottom sheet on a phone, side panel on a wide screen */
+.kd-sheet{position:fixed;inset:0;z-index:200;background:rgba(40,41,35,.38);display:flex;align-items:flex-end;justify-content:center}
+.kd-sheet-in{width:100%;max-width:640px;max-height:86vh;overflow:auto;background:var(--ivory);border-radius:20px 20px 0 0;padding:var(--s5) var(--s5) calc(var(--s6) + env(safe-area-inset-bottom));box-shadow:var(--sh)}
+.kd-sheet h2{font-size:1.4rem;margin:0 0 var(--s2)}
+.kd-sheet .han{font:400 1.3rem/1.5 var(--han);margin:var(--s3) 0}
+.kd-sheet .am{font-style:italic;color:var(--text2)}
+.kd-sheet h3{font:600 .74rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:var(--s4) 0 var(--s2)}
+.kd-sheet p{font:400 1rem/1.7 var(--serif);margin:0 0 var(--s3)}
+.kd-sheet .x{float:right}
+@media(min-width:900px){.kd-sheet{align-items:stretch;justify-content:flex-end}.kd-sheet-in{max-height:none;height:100%;border-radius:0;max-width:520px}}
+@media(max-width:560px){.kd-cast{grid-template-columns:1fr;justify-items:center}.coin{width:46px;height:46px}.coin:after{inset:15px}.kd-mh-row{grid-template-columns:1fr}.kd-manual-lines label{grid-template-columns:96px 1fr}}
+@media(prefers-reduced-motion:reduce){.coin.spin{animation:none}.hx-bar{transition:none}}
+@media print{.kd-mode,.kd-ask,.kd-stage,.kd-tools,.kd-depth,.kd-history,.site-header,.site-footer,.cnote{display:none!important}.kd[data-depth=nhanh] .kd-sec[data-depth=sau]{display:block}.kd-basis{display:none}}

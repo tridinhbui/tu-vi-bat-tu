@@ -98,6 +98,10 @@ def mai_hoa_cast(req: MaiHoaReq) -> dict:
     return r
 
 
+class KinhDichReadingReq(KinhDichReq):
+    topic: str | None = None
+
+
 def register(app):
     @app.post("/api/kinh-dich/cast")
     def kinh_dich(req: KinhDichReq):
@@ -105,6 +109,25 @@ def register(app):
             return kinh_dich_cast(req)
         except ValueError as e:
             raise HTTPException(422, str(e))
+
+    @app.post("/api/kinh-dich/reading")
+    def kinh_dich_reading(req: KinhDichReadingReq):
+        from .kinh_dich import reading
+        try:
+            c = kinh_dich_cast(req)
+        except ValueError as e:
+            raise HTTPException(422, str(e))
+        return {"cast": c, "reading": reading.read(c, req.topic)}
+
+    @app.get("/api/kinh-dich/text/{n}")
+    def kinh_dich_text(n: int):
+        """Every layer of one quẻ, for the hào sheets and the 64-quẻ pages."""
+        from .kinh_dich import dien_giai, texts
+        if not 1 <= n <= 64:
+            raise HTTPException(404, "quẻ 1..64")
+        t = texts.quẻ_texts(n)
+        return {"number": n, "han": t["han"], "has_translation": t["has_ntt"], "segments": t["segments"],
+                "dien_giai": dien_giai.load(n)}
 
     @app.post("/api/mai-hoa/cast")
     def mai_hoa_route(req: MaiHoaReq):

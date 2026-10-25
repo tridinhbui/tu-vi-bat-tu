@@ -306,7 +306,7 @@ def dignity_rows(kb: dict, star: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------- html
-NAV = [("/bai-viet/", "Bài viết"), ("/xem-ngay/", "Xem ngày"), ("/hoi-dap/", "Hỏi đáp"), ("/gioi-thieu/", "Giới thiệu")]
+NAV = [("/bai-viet/", "Bài viết"), ("/kinh-dich/", "Kinh Dịch"), ("/xem-ngay/", "Xem ngày"), ("/hoi-dap/", "Hỏi đáp"), ("/gioi-thieu/", "Giới thiệu")]
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' "
            "stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E")
 
@@ -316,7 +316,7 @@ def _ld(obj) -> str:
 
 
 def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str, str]] = (), ld: list = (), og_type: str = "website",
-          scripts: list[str] = ()) -> str:
+          scripts: list[str] = (), styles: list[str] = ()) -> str:
     url = ORIGIN + path
     full = f"{title} | {SITE}" if SITE not in title else title
     cur = ' aria-current="page"'
@@ -355,6 +355,7 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/content.css">
+{"".join(f'<link rel="stylesheet" href="{x}">' for x in styles)}
 {"".join(_ld(x) for x in lds)}
 </head>
 <body class="cpage">
@@ -371,7 +372,7 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
 <footer class="site-footer"><div class="wrap foot cfoot">
 <div><b>{SITE}</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div>
 <p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Tử Vi và Bát Tự chưa được khoa học kiểm chứng là phương pháp dự báo.
-<a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/library">Quy tắc và nguồn</a></p>
+<a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/kinh-dich/">Kinh Dịch</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/library">Quy tắc và nguồn</a></p>
 </div></footer>
 {script_tags}
 </body>
@@ -689,11 +690,80 @@ def calendar_page() -> tuple[str, str]:
     return path, shell(path, title, desc, body, crumbs=[(path, "Xem ngày")], ld=[ld], scripts=["/js/xem_ngay.js"])
 
 
+def kinh_dich_page() -> tuple[str, str]:
+    """Gieo quẻ Kinh Dịch and Mai Hoa Dịch Số: a static shell, js/kinh_dich.js draws everything from /api/kinh-dich/* and /api/mai-hoa/*."""
+    path = "/kinh-dich/"
+    title = "Kinh Dịch: gieo quẻ và lập quẻ Mai Hoa"
+    desc = ("Gieo ba đồng tiền sáu lần hoặc lập quẻ Mai Hoa theo giờ, theo số; xem quẻ chủ, quẻ biến, quẻ hỗ, lời kinh, lời bàn của Trình Di, "
+            "Chu Hy và phần diễn giải, mỗi câu dẫn về chỗ nó dựa vào.")
+    topics = [("", "Chung"), ("su_nghiep", "Sự nghiệp"), ("tai_chinh", "Tài chính"), ("kinh_doanh", "Kinh doanh"), ("hoc_tap", "Học tập"),
+              ("tinh_cam", "Tình cảm"), ("gia_dinh", "Gia đình"), ("lua_chon", "Lựa chọn")]
+    chips = "".join(f'<label><input type="radio" name="kd-topic" value="{v}"{" checked" if not v else ""}><span>{esc(t)}</span></label>' for v, t in topics)
+    body = f"""<article class="carticle kd-page" id="kd">
+<p class="eyebrow">Kinh Dịch</p><h1>Gieo quẻ, lập quẻ</h1>
+<p class="lead">Hỏi một việc cụ thể, gieo ba đồng tiền sáu lần, hoặc lập quẻ Mai Hoa theo giờ và theo số. Lời đọc đi từ kinh văn và lời bàn của
+Trình Di, Chu Hy, qua bản dịch Ngô Tất Tố, đến phần diễn giải cho hoàn cảnh hôm nay, tách bạch từng lớp.</p>
+<div class="seg seg-wide kd-mode" role="tablist" aria-label="Cách lập quẻ">
+<button type="button" role="tab" data-mode="gieo" aria-pressed="true">Gieo quẻ Kinh Dịch</button>
+<button type="button" role="tab" data-mode="mai-hoa" aria-pressed="false">Lập quẻ Mai Hoa</button>
+</div>
+
+<section class="kd-ask" id="kd-ask">
+<label class="fld"><span>Điều bạn muốn hỏi</span><textarea id="kd-q" rows="2" maxlength="300" placeholder="vd. Có nên nhận lời mời làm việc ở công ty mới không?"></textarea></label>
+<fieldset class="fld"><legend>Chủ đề</legend><div class="kd-chips" role="radiogroup">{chips}</div></fieldset>
+<p class="note small">Câu hỏi chỉ lưu trên máy của bạn, không gửi đi.</p>
+</section>
+
+<section class="kd-stage" id="kd-gieo" data-stage="gieo">
+<div class="kd-cast">
+<div class="kd-coins" id="kd-coins" aria-hidden="true"><span class="coin"></span><span class="coin"></span><span class="coin"></span></div>
+<div class="kd-build" id="kd-build" aria-live="polite"></div>
+</div>
+<div class="kd-actions">
+<button type="button" class="btn" id="kd-toss">Gieo lần 1 / 6</button>
+<button type="button" class="btn btn-ghost btn-sm" id="kd-reset" hidden>Gieo lại</button>
+</div>
+<details class="kd-manual"><summary>Đã có quẻ? Nhập từng hào</summary>
+<p class="note small">Chọn từ hào Đầu (dưới cùng) lên hào Trên. 7 và 8 là hào tĩnh, 9 và 6 là hào động.</p>
+<div class="kd-manual-lines" id="kd-manual-lines"></div>
+<button type="button" class="btn btn-sm" id="kd-manual-go">Xem quẻ này</button>
+</details>
+</section>
+
+<section class="kd-stage" id="kd-maihoa" data-stage="mai-hoa" hidden>
+<div class="kd-mh-form">
+<label class="fld"><span>Cách lập</span><span class="sel"><select id="mh-method">
+<option value="thoi_gian">Theo năm, tháng, ngày, giờ</option>
+<option value="vat_so">Theo số vật đếm được</option>
+<option value="thanh_am">Theo số tiếng nghe được</option>
+<option value="chu">Theo số chữ (từ 11 chữ)</option>
+<option value="truong_xich">Theo trượng, thước</option>
+<option value="xich_thon">Theo thước, tấc</option>
+<option value="vat_phuong">Theo vật và hướng (Hậu thiên)</option>
+</select></span></label>
+<label class="fld"><span>Thời điểm lập quẻ</span><input id="mh-moment" type="datetime-local"></label>
+<div id="mh-fields"></div>
+<button type="button" class="btn" id="mh-go">Lập quẻ</button>
+</div>
+</section>
+
+<section class="kd-result" id="kd-result" hidden aria-live="polite"></section>
+
+<aside class="cnote"><b>Đọc lời quẻ thế nào cho đúng.</b> Lời quẻ là hệ biểu tượng cổ để suy ngẫm, không phải lời báo trước điều chắc chắn xảy ra.
+Phần kinh văn và lời bàn của Trình Di, Chu Hy được giữ nguyên theo bản dịch Ngô Tất Tố; phần diễn giải hiện đại và lời khuyên là của Thiên Bàn,
+đang ở dạng bản nháp, luôn ghi rõ dựa vào câu nào của sách.</aside>
+</article>
+<div class="kd-sheet" id="kd-sheet" role="dialog" aria-modal="true" aria-labelledby="kd-sheet-h" hidden><div class="kd-sheet-in" tabindex="-1"></div></div>"""
+    ld = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Kinh Dịch " + SITE, "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web", "url": ORIGIN + path, "inLanguage": "vi", "description": desc, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}
+    return path, shell(path, title, desc, body, crumbs=[(path, "Kinh Dịch")], ld=[ld], scripts=["/js/kinh_dich.js"], styles=["/css/iching.css"])
+
+
 # ---------------------------------------------------------------- whole site
 def render(m: dict | None = None) -> dict[str, str]:
     """{file path relative to engine/web: content}."""
     m = m or build_model()
-    pages = [index_page(m), about_page(m), faq_page(), calendar_page()]
+    pages = [index_page(m), about_page(m), faq_page(), calendar_page(), kinh_dich_page()]
     pages += [star_page(s, m) for s in m["stars"]] + [palace_page(p, m) for p in m["palaces"]] + [cach_page(c, m) for c in m["cach"]]
     out = {path.strip("/") + "/index.html": doc for path, doc in pages}
     urls = ["/", "/library"] + [p for p, _ in pages]
@@ -703,7 +773,7 @@ def render(m: dict | None = None) -> dict[str, str]:
     return out
 
 
-GENERATED_DIRS = ["bai-viet", "gioi-thieu", "hoi-dap", "xem-ngay"]
+GENERATED_DIRS = ["bai-viet", "gioi-thieu", "hoi-dap", "xem-ngay", "kinh-dich"]
 
 
 def write(out: dict[str, str], web: Path = WEB) -> int:
