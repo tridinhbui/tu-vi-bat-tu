@@ -83,7 +83,7 @@ def transits(req: TransitReq):
     if not set(bodies) <= set(_T.TRANSITING) or not set(req.aspects) <= {"conjunction", "opposition", "trine", "square", "sextile",
                                                                            "quincunx", "semisextile", "semisquare", "sesquiquadrate"}:
         raise HTTPException(422, "hành tinh hoặc góc hợp không hợp lệ")
-    limit = 95 if "moon" in bodies else 3 * 366 + 1
+    limit = 370 if "moon" in bodies else 3 * 366 + 1
     if not (0 < (b - a).days <= limit):
         raise HTTPException(422, f"khoảng thời gian phải dương và không quá {limit} ngày")
     natal = chart_or_422(req.birth, req.options)
@@ -168,3 +168,21 @@ def reading(req: ReadingReq):
         return build(natal, req.mode, req.gender, when)
     except E.OutOfRange as e:
         raise HTTPException(422, str(e))
+
+
+# ---- synastry ---------------------------------------------------------------------------------------------------------
+class SynastryReq(BaseModel):
+    a: BirthIn
+    b: BirthIn
+    options: OptionsIn = OptionsIn()
+    gender_a: str | None = Field(None, pattern="^(male|female)$")
+    gender_b: str | None = Field(None, pattern="^(male|female)$")
+
+
+@router.post("/synastry")
+def synastry(req: SynastryReq):
+    from . import synastry as S
+    from .reading import synastry as RS
+    ca, cb = chart_or_422(req.a, req.options), chart_or_422(req.b, req.options)
+    syn = S.compare(ca, cb, req.options.orbs)
+    return {"a": ca, "b": cb, "synastry": syn, "reading": RS.build(syn, gender_a=req.gender_a, gender_b=req.gender_b)}

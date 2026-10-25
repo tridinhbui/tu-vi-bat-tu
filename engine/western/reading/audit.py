@@ -75,7 +75,7 @@ def check(chapters: list[dict]) -> dict:
                     issues.append({"kind": "generic", "para": pid, "sentence": sent})
                 words = _fold(sent).split()
                 tri = {" ".join(words[i:i + 3]) for i in range(len(words) - 2)}
-                if len(tri) >= 6:
+                if len(tri) >= 6 and p["tier"] != "calc":
                     for other_pid, ot in seen:
                         j = len(tri & ot) / len(tri | ot)
                         if j > 0.6:

@@ -279,10 +279,13 @@ class Facts:
         rising = [p for p in CLASSICAL if self.b[p]["sign"] == asc_sign]
         if rising:
             return {"step": 1, "planets": rising, "why": "in_ascending_sign"}
-        joined = [p for p in CLASSICAL if p not in ("moon", "mercury") and any(self.b[p]["sign"] == self.b[x]["sign"] and self.platick(p, x) == "conjunction"
-                                                                              for x in ("moon", "mercury"))]
-        if joined:
-            return {"step": 2, "planets": joined, "why": "joined_moon_or_mercury"}
+        joined = sorted(((min(abs(angdiff(self.lon[p], self.lon[x])) for x in ("moon", "mercury")
+                               if self.b[p]["sign"] == self.b[x]["sign"] and self.platick(p, x) == "conjunction"), p)
+                          for p in CLASSICAL if p not in ("moon", "mercury")
+                          and any(self.b[p]["sign"] == self.b[x]["sign"] and self.platick(p, x) == "conjunction" for x in ("moon", "mercury"))))
+        if joined:       # the nearest one leads; a second only when it is almost as close (within 1 degree more)
+            lead = [p for d, p in joined if d <= joined[0][0] + 1.0][:2]
+            return {"step": 2, "planets": lead, "why": "joined_moon_or_mercury"}
         lord = dignity.domicile_lord(asc_sign)
         return {"step": 3, "planets": [lord], "why": "lord_of_ascendant", "dispositor": dignity.domicile_lord(self.b[lord]["sign"])}
 

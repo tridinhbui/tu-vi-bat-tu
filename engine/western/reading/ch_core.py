@@ -14,8 +14,16 @@ GRADE_VI = {"fortunate": "một nơi thuận vì là góc hoặc nơi 'hữu hi�
 
 
 def lilly_condition(f: Facts, p: str, with_house: bool = True) -> str:
-    """'ở nhà của mình, đứng ở góc Nhà 10, đang nghịch hành' — from Lilly's points (pp.101-115)."""
+    """'ở nhà của mình, đứng ở góc Nhà 10, đang nghịch hành' — from Lilly's points (pp.101-115). The full description is given
+    the first time a planet comes up in a reading; later mentions use the short form, so chapters do not repeat each other."""
     e = f.lilly_essential(p)
+    seen = f.__dict__.setdefault("_described", set())
+    if p in seen:
+        st = f.lilly_state(p)
+        word = {"well": "đắc thế", "ill": "thất thế", "mixed": "phẩm vị lưng chừng"}[st]
+        key = (e["has"][:1] or e["debilities"][:1] or (["peregrine"] if e["peregrine"] else []))
+        return f"{word} ({DIGNITY_VI[key[0]].split(' (')[0]})" if key else word
+    seen.add(p)
     bits = []
     if e["has"]:
         bits.append(listing([DIGNITY_VI[h] for h in e["has"]]))
@@ -257,7 +265,8 @@ def _lilly_manners(f: Facts) -> list[Para]:
             mix = " " + M["lilly_manners"]["jupiter_tempers_saturn"]["vi"] + " (tr.542)."
         if portrait_planet in ("saturn", "mars") and f.platick("saturn", "mars"):
             mix += " " + M["lilly_manners"]["mars_with_saturn"]["vi"] + " (tr.542)."
-        text = cap(why) + "." + note_lum + " " + core + tail + mix
+        opening = cap(why) + "." if not out else f"Sao thứ hai cùng giữ vai sao chủ tính cách là {P(p)}."
+        text = opening + note_lum + " " + core + tail + mix
         out.append(Para(f"tc.lilly.{p}", "Tính cách theo phép của Lilly", text, "traditional",
                         srcs("LILLY_CA:pp.535-536", f"LILLY_CA:{mm['loc']}", "LILLY_CA:p.104"),
                         [ev_planet(c, p, f.house_lilly(p))] + ([ev_planet(c, portrait_planet, f.house_lilly(portrait_planet))] if portrait_planet != p else []),
@@ -381,7 +390,7 @@ def mind(f: Facts) -> list[Para]:
             if h3:
                 bits.append(f"{planet_list(h3)} ở Nhà 3, nơi Lilly gắn với {M['houses']['3']['lilly']['vi']}")
             t3 = ("Về chuyện học hành và những gì mở mang đầu óc, " + listing(bits) +
-                  ". Sao ở những nhà này không quyết định trí thông minh, nhưng cho biết đầu óc thường được dùng vào đâu.")
+                  f". Sao ở {'Nhà 3 và Nhà 9' if h3 and h9 else 'Nhà 9' if h9 else 'Nhà 3'} không quyết định trí thông minh, nhưng cho biết đầu óc thường được dùng vào đâu.")
             out.append(Para("td.houses", "Học vấn và đi xa", t3, "compare", srcs("LILLY_CA:p.52", "LILLY_CA:p.55", "VALENS_ANTH:IV.12"),
                             [ev_planet(c, p, f.place_ws(p), "Nhà") for p in h3 + h9], "deep", topic="tu_duy"))
     return out
