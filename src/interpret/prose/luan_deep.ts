@@ -212,7 +212,10 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
         anchored = true;
       } else if (u.kind === 'chehoa' || u.kind === 'layout') {
         // chế hóa (kg/che_hoa.json) and the thế đứng of the chính tinh (kg/combos.json layouts), each with its page (DEEP-3)
-        const b = u.book!, F2 = (D as DepthLib & { chehoa?: Record<string, string[]>; layout?: string[] });
+        const b0 = u.book!;
+        // a page line written for Mệnh carries its consequence for Mệnh ("…: Mệnh dễ nghèo", "…: công danh trắc trở"): in another palace only
+        // the chế hóa itself is told (DEEP-3)
+        const b = P === 'Mệnh' || u.kind === 'layout' ? b0 : { ...b0, text: b0.text.split(/:\s+/)[0] }, F2 = (D as DepthLib & { chehoa?: Record<string, string[]>; layout?: string[] });
         const tpl = u.kind === 'layout' ? F2.layout : !u.tamed ? F2.chehoa?.all : F2.chehoa?.[b.effect ?? ''] ?? F2.chehoa?.giam;
         if (!tpl?.length) continue;
         const text = fill(W.pick(`${key}|${u.kind}|${b.id}`, tpl), { holder: u.star!, where: where(u.where, u.palace!), tamed: joinVi(u.tamed?.split('|') ?? []), text: b.text, pal: P, branch: chart.palaces.find(p => p.name === u.palace)?.branch ?? '' });

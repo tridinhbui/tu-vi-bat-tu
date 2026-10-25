@@ -16,7 +16,7 @@ export interface CachCucLib {
   status: string; none: string[]; intro: string[]; named: string[]; good: string[]; bad: string[]; whole: string[]; broken: string[];
   bad_eased: string[]; bad_full: string[]; degree: Record<string, string>; reach: string[]; reach_palace: string[]; rank: string[]; balance: string[];
   /** reach when breaking (or, for a bad cách, easing) elements lowered the degree: the reason named, not the palace */
-  reach_lowered?: string[]; reach_palace_lowered?: string[];
+  reach_lowered?: string[]; reach_palace_lowered?: string[]; reach_bad?: string[];
   /** the page-checked breaker the chart itself holds ({present}) beside the book's condition ({broken}) */
   f_broken_present?: string[];
   /** a told cách the books define differently (DEEP-3) */
@@ -35,7 +35,9 @@ const cap = (s: string) => s.charAt(0).toLocaleUpperCase('vi') + s.slice(1);
 const elName = (e: Element) => e.kind === 'tuan' ? 'Tuần' : e.kind === 'triet' ? 'Triệt' : e.kind === 'hoa_ky' ? 'Hóa Kỵ' : e.kind === 'ky_carrier' ? `${e.star} hóa Kỵ`
   : e.kind === 'major_ham' ? `${e.star} hãm` : e.kind === 'hoa_good' ? (e.hoa ?? '') : e.star ?? '';
 /** the formation's name: its rule's reading ("cách Tử Phủ đồng cung ở Mệnh"), the stored hedge dropped */
-const nameOf = (reading: string) => reading.replace(/^(khuynh hướng|hạn chế:)\s*/, '').trim();
+const nameOf = (reading: string) => reading.replace(/^(khuynh hướng|hạn chế:)\s*/, '').replace(/\s*\(.*\)\s*$/, '').trim();
+/** the rule's gloss of the cách in brackets ("Thiên Không, Đào Hoa ở Mệnh …: có danh thì nghèo"), told once, in the cách's head */
+const glossOf = (reading: string) => reading.match(/\(([^()]*)\)\s*$/)?.[1]?.trim() ?? '';
 
 export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engine: string, allowDraft: boolean, pre?: Inference): ProseCachCuc {
   const L = k.prose?.cachCuc;
@@ -61,7 +63,7 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
         const good = l.pol !== '-';
         const degree = Math.max(1, 3 - (good ? Math.min(2, limits.length) : helps.length ? 1 : 0) - (P === 'Mệnh' ? 0 : 1));
         const lowered = good ? limits.slice(0, 2) : helps.slice(0, 1);
-        return { l, r, P, name: nameOf(r.reading ?? ''), limits, helps, good, degree, lowered };
+        return { l, r, P, name: nameOf(r.reading ?? ''), gloss: glossOf(r.reading ?? ''), limits, helps, good, degree, lowered };
       })
       .sort((a, b) => b.degree - a.degree || Number(b.P === 'Mệnh') - Number(a.P === 'Mệnh') || (a.l.ruleId < b.l.ruleId ? -1 : 1));
     // the page-checked cách (formations_verified.json): evaluated on the chart (reason/structures.ts); a cách whose core alone the books
@@ -113,13 +115,15 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
     for (const x of found) {
       const xs: ProseSentence[] = [];
       rules[x.l.ruleId] = { reading: x.r.reading ?? '', cites: x.l.cites, verified: true };
-      const head = fill(m.pick(`named|${x.l.ruleId}`, L!.named), { Name: cap(x.name), name: x.name, pal: x.P, cite: x.l.cites.join(', ') });
+      const head = fill(m.pick(`named|${x.l.ruleId}`, L!.named), { Name: cap(x.name), name: x.name, pal: x.P, cite: x.l.cites.join(', ') }) + (x.gloss ? `: ${x.gloss}` : '');
       say(xs, `${head}. ${m.pick(`gb|${x.l.ruleId}`, x.good ? L!.good : L!.bad)}`, `cach:${x.l.ruleId}`, 'sach', [x.l.ruleId], x.l.cites);
       const state = x.good ? (x.limits.length ? fill(m.pick(`br|${x.l.ruleId}`, L!.broken), { pal: x.P, limits: joinVi(x.limits.slice(0, 3)) }) : fill(m.pick(`wh|${x.l.ruleId}`, L!.whole), { pal: x.P }))
         : (x.helps.length ? fill(m.pick(`be|${x.l.ruleId}`, L!.bad_eased), { pal: x.P, helps: joinVi(x.helps.slice(0, 3)) }) : fill(m.pick(`bf|${x.l.ruleId}`, L!.bad_full), { pal: x.P }));
       const deg = L!.degree[String(x.degree)];
       const low = x.lowered.length && L!.reach_lowered && L!.reach_palace_lowered, why = joinVi(x.lowered);
-      const reach = x.P === 'Mệnh' ? fill(m.pick(`re|${x.l.ruleId}`, low ? L!.reach_lowered! : L!.reach), { degree: deg, why })
+      // a bad cách: its reach is the reach of its harm (DEEP-3: "không bị yếu tố nào hạ bậc" read as praise)
+      const reach = !x.good && !low && L!.reach_bad?.length ? fill(m.pick(`rb|${x.l.ruleId}`, L!.reach_bad), { degree: deg, pal: x.P, dom: x.P === 'Mệnh' ? 'cả đời người' : short[x.P] ?? x.P })
+        : x.P === 'Mệnh' ? fill(m.pick(`re|${x.l.ruleId}`, low ? L!.reach_lowered! : L!.reach), { degree: deg, why })
         : fill(m.pick(`rp|${x.l.ruleId}`, low ? L!.reach_palace_lowered! : L!.reach_palace), { degree: deg, pal: x.P, dom: short[x.P] ?? x.P, why });
       say(xs, cap(state), `cach:${x.l.ruleId}:state`, 'he_thong', [x.l.ruleId], [], note);
       say(xs, reach, `cach:${x.l.ruleId}:reach`, 'he_thong', [x.l.ruleId], [], note);
