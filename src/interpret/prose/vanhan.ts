@@ -17,7 +17,7 @@ import type { ProseParagraph, ProseSentence } from './realize.ts';
 import { validateProse } from './validate.ts';
 import { readPalace, type StructureLib } from './deep.ts';
 import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json' };
-import { computeIndices, luuStars, type IndexNorms } from '../indices.ts';
+import { computeIndices, luuStars, type IndexNorms, type Item } from '../indices.ts';
 import { buildLedger, verdictKey, type DomainVerdict, type Ledger } from '../reason/ledger.ts';
 import { infer } from './chapter.ts';
 import { khaoLuanLines, toanThuLines, trungPhung } from './vanhan_books.ts';
@@ -32,7 +32,7 @@ export interface VanHanLibrary {
   /** Khảo Luận pp.230-233 (decades[].kl), Toàn Thư nhập hạn ca (decades[].tt), the hạn's Hóa Quyền/Khoa, the closing, the current year */
   kl_rel: Record<string, string[]>; kl_rel_tone: Record<string, '' | 'pos' | 'neg'>; kl_xung: string[]; kl_nhi_hop: string[]; kl_event: string[];
   tt_lead: string[]; hoa_qk: string[]; kl_stage?: string[]; sum: Record<'good' | 'mixed' | 'hard', string[]>;
-  year: { frame: string[]; luu_thai_tue: string[]; luu_hoa: string[] };
+  year: { frame: string[]; luu_thai_tue: string[]; luu_hoa: string[]; luu_dai_han?: string[]; level?: string[]; level_why?: Record<string, string>; level_against?: string[] };
   /** the hạn's Hóa Lộc / Hóa Kỵ with KL's meaning of a Hóa in a palace, and the natal link where they land */
   hoa_loc: string[]; hoa_ky: string[]; natal_link: Record<'same' | 'domain', string[]> & Partial<Record<'again' | 'same_decade', string[]>>;
   /** the hạn against the one before it on the system indices (review 2026-10-23: the decades told as one course), and what it touches most */
@@ -45,6 +45,8 @@ export interface VanHanLibrary {
   luu: string[];
   /** the closing by the hạn's level on the system indices (0 … 4); when the level runs against the hạn's book sentences, the frame that says so */
   level: Record<string, string[]>; level_against: Record<'low' | 'high', string[]>; level_thin?: string[]; level_word: Record<string, string>;
+  /** a level against the books with no heavy item on the other side: the level is relative to the corpus */
+  level_why_rel?: Record<'low' | 'high', string>; level_against_mixed?: Record<'low' | 'high', string[]>;
 }
 interface KlFacts { src: string; relation: string; verdict: string; xung_controlled: boolean; opp_majors: string[];
   nhi_hop: { branch: string; palace: string; counts: boolean; majors: string[] }; thai_tue_triad: boolean; event: string | null }
@@ -52,8 +54,23 @@ type Tt = Array<{ text: string; src: string }>;
 /** a nhập hạn ca line that tells of a difficulty */
 const HARD = /(hao|khó|trở ngại|rắc rối|hỏng|nợ|bất lợi|mất|tan|kém|tiết chế|giáng)/;
 
+/** The heaviest items of one side of a period index, named for a reader (at most two): a Hóa of the hạn stem with where it lands, a star by
+ *  its brightness and palace, a book reading by its gist. '' when that side has nothing that weighs. */
+/** The lean of a period's book sentences (KL pp.230-236, TH pp.115-117, Toàn Thư verses): + good, − hard; per-star brightness items
+ *  (KL p.233 mục 4, TH p.115 đẩu tinh) are left out, they read favourable on most charts and would make every hạn "lean good". */
+export const bookLean = (items: Item[]) => items.filter(i => i.basis === 'sach' && !/^(KL233|TH115)/.test(i.id)).reduce((a, i) => a + (i.side === 'support' ? i.w : -i.w), 0);
+
+export function pullOf(items: Item[], side: 'support' | 'limit', stem: string): string {
+  const xs = items.filter(i => i.side === side).sort((a, b) => b.w - a.w || (a.id < b.id ? -1 : 1)).filter(i => i.w >= 0.5).slice(0, 1);
+  const name = (i: Item) => /^DV_HOA_|^LUU_HOA/.test(i.id) ? `${i.id.includes('KY') ? 'Hóa Kỵ' : i.id.includes('LOC') ? 'Hóa Lộc' : i.id.includes('QUYEN') ? 'Hóa Quyền' : 'Hóa Khoa'} theo can ${stem} rơi vào cung ${i.palace}`
+    : i.star && i.dignity ? `${i.star} ${i.dignity} ở cung ${i.palace}` : (i.gist ?? i.text).replace(/^vận có /, '').replace(/,?\s*sách đọc là .*$/, '').replace(/:\s.*$/, '').replace(/[.;]\s*$/, '');
+  return [...new Set(xs.map(name))].join(', lại thêm ');
+}
+
 /** đại hạn shown: those starting by this age */
-export const VAN_HAN_LAST_START = 75;
+/** the đại hạn the report tells: the first ten, the same ten the period chart draws (indices.ts), so no bar is left without words
+ *  (review of the live charts 2026-10-25) */
+export const shownDecades = <D extends { age_from: number }>(chart: { decades: D[] }): D[] => chart.decades.slice(0, 10);
 const GROUPS: Array<{ name: string; branches: string[]; el: string }> = [
   { name: 'Thân Tý Thìn', branches: ['Thân', 'Tý', 'Thìn'], el: 'Thủy' }, { name: 'Dần Ngọ Tuất', branches: ['Dần', 'Ngọ', 'Tuất'], el: 'Hỏa' },
   { name: 'Tỵ Dậu Sửu', branches: ['Tỵ', 'Dậu', 'Sửu'], el: 'Kim' }, { name: 'Hợi Mão Mùi', branches: ['Hợi', 'Mão', 'Mùi'], el: 'Mộc' },
@@ -96,7 +113,7 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
   const yb = chart.year_gz.split(' ')[1];
   const m = micro ?? new Micro(`${seed}|van_han`, k.prose!.connectives, k.prose!.frames);
   const usable = !!L && (allowDraft || L.status === 'approved');
-  const decades = usable ? chart.decades.filter(d => d.age_from <= VAN_HAN_LAST_START) : [];
+  const decades = usable ? shownDecades(chart) : [];
   const rules: VanHanChapter['evidence']['rules'] = {};
   const cite = (id: string, reading: string, cites: string[]) => { rules[id] = { reading, cites, verified: true }; return id; };
   const S = () => lowerFirst(m.subject());          // {S} never opens a sentence in van_han.json
@@ -251,9 +268,17 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       const book = xs.filter(x => x.trace.basis === 'sach' || x.trace.basis === 'tinh_toan'), up = book.filter(x => x.trace.tone === 'pos').length, down = book.filter(x => x.trace.tone === 'neg').length;
       // the indices' own book side counts too (KL p.233: a hạn in the Thái Tuế triad is "gặp thời" whatever its level; owner's plan 2026-10-24:
       // a level against the books is explained, never left bare)
-      const S = (lvx?.items ?? []).filter(i => i.basis === 'sach' || i.basis === 'sach_dien_giai').reduce((a, i) => a + (i.side === 'support' ? i.w : -i.w), 0);
-      const against = lv <= 1 && (up > down || S > 0) ? 'low' : lv >= 3 && (down > up || S < 0) ? 'high' : null;
-      const text = against && L!.level_against?.[against]?.length ? fill(m.pick(`${key}|lva`, L!.level_against[against]), { w: L!.level_word[String(lv)] }) : m.pick(`${key}|level`, L!.level[String(lv)]);
+      // the book side is the book sentences of the hạn (not the per-star brightness counts, which lean favourable on most charts)
+      const S = bookLean(lvx?.items ?? []);
+      // any good sentence told above a low hạn (any hard one above a high hạn) gets its counterweight named (review 2026-10-25)
+      const against = lv <= 1 && (up > 0 || S > 0) ? 'low' : lv >= 3 && (down > 0 || S < 0) ? 'high' : null;
+      // the books as a whole lean the other way ("lời sách nghiêng về thuận"), or only the sentences told above do ("bên cạnh những điểm thuận")
+      const lean = against && (against === 'low' ? S > 0 : S < 0);
+      // what pulls the level the other way: the heaviest items of the opposite side (a Hóa of the hạn stem, a hãm star …), or, when none
+      // weighs much, that the level is relative to the corpus (owner's convention 2026-10-24: levels are quantiles of 1,000 charts)
+      const why = against ? pullOf(lvx!.items, against === 'low' ? 'limit' : 'support', d.stem) : '';
+      const F = against ? (lean || !why ? L!.level_against?.[against] : L!.level_against_mixed?.[against] ?? L!.level_against?.[against]) : undefined;
+      const text = against && F?.length ? fill(m.pick(`${key}|lva`, F), { w: L!.level_word[String(lv)], why: why || L!.level_why_rel?.[against] || '' }) : m.pick(`${key}|level`, L!.level[String(lv)]);
       const st = sentence(text, [], [], 'he_thong', 'answer');
       st.trace.step = `level:${lv}`;
       st.trace.note = 'Mức của chặng theo chỉ số hệ thống (thông lệ, xếp theo phân vị của 1.000 lá số mẫu), cùng mức với biểu đồ ở phần Tổng quan.';
@@ -295,11 +320,27 @@ function yearParagraphs(chart: ChartInput, k: Knowledge, L: VanHanLibrary, m: Mi
   xs.push(sentence(fill(m.pick(`${key}|frame`, L.year.frame), { year: String(y.year), pillar: y.annual_pillar ?? '', S: S(), age: String(y.age_tuoi_mu), dh_from: String(y.dai_han.age_from),
     dh_to: String(y.dai_han.age_to), dh_pal: y.dai_han.palace, th_pal: th.name, th_br: th.branch, th_dom: dom(th.name) }), [], ['TH p.27'], 'tinh_toan'));
   const kl = y.tieu_han_kl;
-  if (kl && L.kl_rel[kl.relation]) xs.push(sentence(fill(m.pick(`${key}|kl`, L.kl_rel[kl.relation]).replace(/mười năm này/g, 'năm này').replace(/[Cc]ung hạn/g, x => x[0] === 'C' ? 'Cung tiểu hạn' : 'cung tiểu hạn'), { yb: chart.year_gz.split(' ')[1] }),
+  if (kl && L.kl_rel[kl.relation]) xs.push(sentence(fill(m.pick(`${key}|kl`, L.kl_rel[kl.relation]).replace(/mười năm này/g, 'năm này').replace(/chặng/g, 'năm').replace(/[Cc]ung hạn/g, x => x[0] === 'C' ? 'Cung tiểu hạn' : 'cung tiểu hạn'), { yb: chart.year_gz.split(' ')[1] }),
     [], ['KL pp.230-233'], 'tinh_toan', (L.kl_rel_tone[kl.relation] || undefined) as 'pos' | 'neg' | undefined));
   // Thực Hành p.119: đại hạn and tiểu hạn on one palace
   const tp = trungPhung(y.tieu_han_palace, y.dai_han?.palace);
   if (tp) xs.push(sentence(tp.text, [tp.id], [tp.cite], 'sach'));
+  // the year as the period chart has it (indices.ts, same levels): its lưu đại hạn (TH pp.117-118) and its level with the layer that carries it
+  const yi = computeIndices(chart, k, NORMS).years.find(x => x.current);
+  const ldh = (yi as unknown as { luu_dai_han?: string } | undefined)?.luu_dai_han;
+  if (ldh && L.year.luu_dai_han?.length) { const st = sentence(fill(m.pick(`${key}|ldh`, L.year.luu_dai_han), { pal: ldh, dom: dom(ldh) }), [], ['TH pp.117-118'], 'tinh_toan'); st.trace.step = 'year:luu_dai_han'; xs.push(st); }
+  if (yi && !yi.insufficient && L.year.level?.length && L.year.level_why) {
+    const top = [...yi.parts].filter(p => p.layer in L.year.level_why!).sort((a, b) => Math.abs(b.value) - Math.abs(a.value))[0];
+    const dh = computeIndices(chart, k, NORMS).decades.find(x => x.current);
+    let why = fill(L.year.level_why[top?.layer ?? 'other'] ?? L.year.level_why.other, { dh_from: String(y.dai_han.age_from), dh_to: String(y.dai_han.age_to), dh_level: dh?.level_vi ?? '', th_pal: th.name });
+    // the KL line on the tiểu hạn said the other way: the sentence says which layer turns it (owner's rule 2026-10-24: a conflict is explained)
+    const klTone = kl ? L.kl_rel_tone[kl.relation] : '';
+    if (top?.layer === 'dai_van' && L.year.level_against?.length && ((klTone === 'neg' && yi.level >= 2) || (klTone === 'pos' && yi.level <= 1))) why += `, ${L.year.level_against[klTone === 'neg' ? 0 : 1]}`;
+    const st = sentence(fill(m.pick(`${key}|lv`, L.year.level), { year: String(y.year), level: yi.level_vi, why }), [], [], 'he_thong', 'answer');
+    st.trace.step = `year:level:${yi.level}`;
+    st.trace.note = 'Mức của năm theo chỉ số tổng hợp của hệ thống, cùng mức với biểu đồ tiểu vận ở phần Tổng quan; lớp nặng nhất được nêu.';
+    xs.push(st);
+  }
   if (y.luu_thai_tue_palace) xs.push(sentence(fill(m.pick(`${key}|ltt`, L.year.luu_thai_tue), { pal: y.luu_thai_tue_palace, dom: dom(y.luu_thai_tue_palace) }), [], [], 'pho_thong'));
   for (const r of y.luu_tu_hoa_reading ?? []) {
     if (!r.palace) continue;
