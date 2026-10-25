@@ -64,7 +64,7 @@ Gói mua cho một ngày giờ + nơi sinh (dấu vân tay `w:năm:tháng:ngày:
 
 `GET /api/west/places?q=` · `POST /api/west/chart` · `/transits` · `/progressions` · `/profections` · `/solar-return` · `/reading` · `/synastry` (xem `engine/western/api.py`). Không lưu dữ liệu sinh.
 
-**Máy chủ:** đã thử đổi container production từ `lite` (1/16 vCPU, 256 MiB) sang `basic` (1/4 vCPU, 1 GiB) ngày 2026-10-25 (`instance_type` trong `wrangler.jsonc`), nhưng lần build Cloudflare đó thất bại và chưa đọc được log (cần đăng nhập dashboard), nên đã gỡ lại. Muốn đổi: xem log build, rồi đặt lại `"instance_type": "basic"`. Chi phí dự tính: CPU tính theo mức dùng thật; bộ nhớ và đĩa tính khi container thức (ngủ sau 10 phút không có request), nếu thức cả tháng thì thêm khoảng 6 USD so với `lite`.
+**Máy chủ:** container production chạy loại `basic` (1/4 vCPU, 1 GiB) từ 2026-10-25, cho cả Tử Vi, Bát Tự và Chiêm tinh (`wrangler.jsonc`). CPU tính theo mức dùng thật; bộ nhớ và đĩa tính khi container thức (ngủ sau 10 phút không có request): nếu thức cả tháng, thêm khoảng 6 USD so với `lite`. Lưu ý: check run của Workers Builds có lúc hiện "failure" rồi mới chuyển "success"; xem rollout của container (`wrangler containers info`, API rollouts) trước khi kết luận deploy hỏng.
 
 **Tốc độ trên `lite` (2026-10-25):** vị trí hành tinh lấy mẫu theo khúc cố định và dùng chung cho mọi request (`transits._samples`): bầu trời quanh hôm nay giống nhau cho mọi lá số, nên Thời vận và Vận hạn của người sau dùng lại phần người trước đã tính. Bài luận giải trọn (Đọc sâu) của 32 lá số gần nhất được giữ trong ngày (`api._READINGS`); Tổng quan lọc từ đó. Đo trên máy dev: lần đầu 0,34–0,45 giây CPU, mở lại hoặc đổi chế độ 0,002 giây, lá số mới khi cache đã ấm khoảng 0,2–0,3 giây.
 
