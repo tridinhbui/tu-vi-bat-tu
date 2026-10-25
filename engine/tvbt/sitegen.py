@@ -542,7 +542,7 @@ def index_page(m: dict) -> tuple[str, str]:
     hd = "".join(card(f"/bai-viet/hoang-dao/{x[0]}/", x[1], f"khoảng {x[4]}") for x in hoang_dao.SIGNS)
     body = (f'<p class="eyebrow">Bài viết</p><h1>Sao, cung và cách cục theo sách</h1>'
             f'<p class="lead">Mỗi bài gom những gì sách Tử Vi nói về một sao, một cung hoặc một cách cục, từ các quy tắc Thiên Bàn đã đối chiếu từng trang. '
-            f'Không có câu nào do AI viết; mỗi câu ghi tên sách và trang.</p>{READ_NOTE}'
+            f'Không có câu nào do mô hình ngôn ngữ viết; mỗi câu ghi tên sách và trang.</p>{READ_NOTE}'
             f'<section id="sao"><h2>Chính tinh</h2><ul class="cards">{major}</ul><h2>Tứ Hóa</h2><ul class="cards">{hoa}</ul>'
             f'<h2>Phụ tinh</h2><ul class="cards cards-sm">{minor}</ul></section>'
             f'<section id="cung"><h2>Mười hai cung</h2><ul class="cards">{pal}</ul></section>'
@@ -568,7 +568,7 @@ def about_page(m: dict) -> tuple[str, str]:
     path = "/gioi-thieu/"
     f = facts(m)
     title = "Cách Thiên Bàn luận giải"
-    desc = "Thiên Bàn lập lá số bằng thuật toán thiên văn và luận giải bằng quy tắc lấy từ sách Tử Vi, Bát Tự có ghi trang. Điều gì đã kiểm, điều gì chưa, và vì sao không dùng AI để bịa nhận định."
+    desc = "Thiên Bàn lập lá số bằng thuật toán thiên văn và luận giải bằng quy tắc lấy từ sách Tử Vi, Bát Tự có ghi trang. Điều gì đã kiểm, điều gì chưa, và vì sao phần luận giải miễn phí chỉ đối chiếu sách, không tự đặt ra nhận định."
     src_rows = "".join(f"<tr><td>{esc(m['sources'].get(s, {}).get('title', s))}</td><td>{esc(m['sources'].get(s, {}).get('author', ''))}</td><td>{n}</td></tr>"
                        for s, n in f["by_src"].most_common() if s)
     body = f"""<article class="carticle">
@@ -588,11 +588,11 @@ def about_page(m: dict) -> tuple[str, str]:
 <div class="tscroll"><table class="stable"><thead><tr><th>Sách</th><th>Tác giả</th><th>Quy tắc đã đối chiếu</th></tr></thead><tbody>{src_rows}</tbody></table></div>
 <p>Bộ suy luận chạy hoàn toàn theo quy tắc: cùng ngày giờ sinh luôn ra cùng một bài. Nó xét điều kiện của từng quy tắc trên lá số, ghi lại vì sao quy tắc được áp dụng, cân những nhận định kéo ngược nhau, rồi xếp thành các chương. Bấm vào một nhận định trong bài luận giải để xem quy tắc và trang sách của nó.</p>
 
-<h2>3. AI dùng ở đâu, và không dùng ở đâu</h2>
+<h2>3. Đối chiếu sách và suy luận sâu</h2>
 <ul class="plain">
-<li><b>Bài luận giải chuẩn</b> (các chương Tử Vi, Bát Tự) không do AI viết. Mọi câu đến từ quy tắc nói trên.</li>
-<li><b>Trợ lý hỏi đáp</b> và <b>luận giải sâu</b> (tính bằng xu) do một mô hình ngôn ngữ AI viết, dựa trên dữ kiện lá số và bài luận giải chuẩn. Mô hình được dặn không thêm sao, cung hay nhận định ngoài những gì có sẵn, nhưng AI vẫn có thể diễn đạt sai; khi phần trả lời khác bài luận giải chuẩn, hãy tin bài luận giải chuẩn.</li>
-<li>Các bài viết ở mục <a class="link" href="/bai-viet/">Bài viết</a> được sinh tự động từ chính các quy tắc đã đối chiếu, không có đoạn nào do AI viết.</li>
+<li><b>Bài luận giải chuẩn</b> (các chương Tử Vi, Bát Tự) là phần đối chiếu sách: mọi câu đến từ quy tắc nói trên, không do mô hình ngôn ngữ viết.</li>
+<li><b>Luận riêng</b> (tính bằng xu) dùng suy luận sâu: đọc cả lá số cùng lúc và đi sâu hơn phần đối chiếu sách. Luận riêng và <b>trợ lý hỏi đáp</b> do một mô hình ngôn ngữ viết, dựa trên dữ kiện lá số và bài luận giải chuẩn. Mô hình được dặn không thêm sao, cung hay nhận định ngoài những gì có sẵn, nhưng vẫn có thể diễn đạt sai; khi phần trả lời khác bài luận giải chuẩn, hãy tin bài luận giải chuẩn.</li>
+<li>Các bài viết ở mục <a class="link" href="/bai-viet/">Bài viết</a> được sinh tự động từ chính các quy tắc đã đối chiếu, không có đoạn nào do mô hình ngôn ngữ viết.</li>
 </ul>
 
 <h2>4. Điều đã kiểm và điều chưa kiểm</h2>
@@ -626,9 +626,10 @@ FAQ = [
      "Được. Chỉ cần ngày, giờ, giới tính và nơi sinh. Bài luận giải viết bằng lời thường; thuật ngữ nào cũng có giải thích khi bạn chạm vào. "
      "Nếu muốn tìm hiểu thêm, mục Bài viết giải thích từng sao, từng cung theo sách."),
     ("Phần nào miễn phí?",
-     "Lập lá số Tử Vi và Bát Tự, bảng lá số, bài luận giải chuẩn theo các chương, lưu lá số trên máy và tải PDF đều miễn phí, không cần tài khoản. "
-     "Khi đăng nhập, bạn hỏi Bát Bát (chat AI) miễn phí 2 câu mỗi ngày; mỗi lần nạp xu có thêm 30 ngày chat, tới 30 câu mỗi ngày. "
-     "Luận giải bằng AI và các câu hỏi thêm dùng xu."),
+     "Lập lá số Tử Vi và Bát Tự, bảng lá số, 3/5 đầu mỗi chương luận giải, lưu lá số trên máy và tải PDF đều miễn phí, không cần tài khoản. "
+     "Phần luận giải miễn phí là đối chiếu sách: mỗi câu lấy từ sách, có ghi trang. Đăng nhập (miễn phí) để đọc trọn Tổng quan, cung Mệnh và Cách cục. "
+     "Khi đăng nhập, bạn hỏi Bát Bát (trò chuyện) miễn phí 2 câu mỗi ngày; mỗi lần nạp xu có thêm 30 ngày chat, tới 30 câu mỗi ngày. "
+     "Phần còn lại của các chương, Luận riêng (suy luận sâu: đọc cả lá số cùng lúc và đi sâu hơn) và các câu hỏi thêm dùng xu."),
     ("Luận giải có đáng tin không?",
      "Phần tính toán (lịch âm, vị trí sao, độ sáng) được kiểm bằng bảng lịch độc lập và trang sách, nhưng đối chiếu với lá số thật mới có ít mẫu. "
      "Phần ý nghĩa là cách đọc của sách Tử Vi, mỗi câu ghi trang để bạn tự kiểm. Tử Vi chưa được khoa học kiểm chứng là phương pháp dự báo; "
@@ -641,11 +642,12 @@ FAQ = [
      "Nếu bạn chỉ biết ngày âm lịch, chọn \"Âm lịch\" ở ô ngày sinh, hệ thống tự đổi sang dương lịch."),
     ("Dữ liệu của tôi được giữ thế nào?",
      "Ngày giờ sinh được xử lý tức thời để lập lá số và không được lưu, trừ khi bạn bấm lưu. Lá số đã lưu nằm trong trình duyệt của bạn; "
-     "khi đăng nhập Google, lá số đó được đồng bộ vào tài khoản. Khi bạn chat với Bát Bát hoặc dùng luận giải bằng AI, dữ kiện lá số và câu hỏi được gửi tới Anthropic (mô hình Claude) để soạn câu trả lời; "
+     "khi đăng nhập Google, lá số đó được đồng bộ vào tài khoản. Khi bạn chat với Bát Bát hoặc dùng Luận riêng, dữ kiện lá số và câu hỏi được gửi tới Anthropic (mô hình Claude) để soạn câu trả lời; "
      "tin nhắn chat không được lưu trên máy chủ Thiên Bàn. "
      "Thống kê truy cập chỉ đếm tổng số, không gắn với người hay ngày sinh. Muốn xóa tài khoản, hãy nhắn qua nút Góp ý."),
-    ("Thiên Bàn có dùng AI để viết luận giải không?",
-     "Bài luận giải chuẩn thì không: mọi câu đến từ quy tắc lấy từ sách có ghi trang. Chỉ Bát Bát (chat) và luận giải bằng AI dùng mô hình AI, và hai phần đó được ghi rõ."),
+    ("Thiên Bàn có dùng mô hình ngôn ngữ để viết luận giải không?",
+     "Bài luận giải chuẩn thì không: đó là phần đối chiếu sách, mọi câu đến từ quy tắc lấy từ sách có ghi trang. "
+     "Chỉ Bát Bát (trò chuyện) và Luận riêng (suy luận sâu) dùng mô hình ngôn ngữ, và hai phần đó được ghi rõ."),
     ("Vì sao Xem ngày không có ngày hoàng đạo?",
      "Ngày hoàng đạo, sao tốt xấu của ngày lấy từ sách lịch pháp như Ngọc Hạp Thông Thư, mà Thiên Bàn chưa có trong kho nguồn. "
      "Trang Xem ngày chỉ hiển thị phần tính được: âm lịch, can chi, tiết khí và ngày xung với tuổi."),

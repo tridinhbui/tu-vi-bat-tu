@@ -1,4 +1,4 @@
-// POST /api/me/deep — the long, model-written reading of one chapter ("Luận AI"). Coins only (never the free chats), or free on a chart
+// POST /api/me/deep — the long, model-written reading of one chapter ("Luận riêng", told to readers as "suy luận sâu"). Coins only (never the free chats), or free on a chart
 // opened with Cao cấp (an "ai" unlock), and paid once: the finished text is saved per chart and chapter, so opening it again is free.
 // POST /api/me/deep/status — which chapters of a chart are written already, and whether its package covers the rest. The model keeps writing and the text is saved even if the browser
 // disconnects, so a closed tab never costs the user a reading they paid for.
@@ -7,7 +7,7 @@ import { AI_UNLOCK, COSTS } from "../billing/config.ts";
 import { getWallet, refund, spend } from "../billing/wallet.ts";
 import { CHAPTER_IDS, SPECS, type ChapterId } from "../interpret/chapters.ts";
 import { buildContext } from "./context.ts";
-import { DEEP_MODEL } from "./llm.ts";
+import { DEEP_MODEL, llmErrorLine } from "./llm.ts";
 import type { ChatDeps } from "./route.ts";
 import type { User } from "../auth/session.ts";
 
@@ -20,6 +20,7 @@ const HEAD = { "content-type": "text/event-stream; charset=utf-8", "cache-contro
 export const DEEP_INSTRUCTIONS = `Bạn là người viết luận giải lá số Tử Vi và Bát Tự cho trang Thiên Bàn. Bên dưới là toàn bộ dữ kiện tính toán và bài luận giải đã đối chiếu sách của lá số người dùng. Nhiệm vụ: viết một bản luận giải sâu, liền mạch cho MỘT chương do người dùng chọn.
 
 Cách viết:
+- Trước khi viết, xem cả lá số cùng lúc: chương này được các cung, sao, đại hạn và Bát Tự khác nâng đỡ hay kéo lại ở đâu, chỗ nào các phần nói ngược nhau và bên nào nặng hơn theo dữ kiện. Bài viết phải đi sâu hơn bài luận giải đã có, không chép lại nó.
 - Chỉ dùng những gì có trong dữ kiện và bài luận giải. Có thể nối các chương với nhau để thấy bức tranh chung (ví dụ cung Mệnh soi vào Công danh), nhưng không thêm sao, cung hay nhận định không có trong đó.
 - Mở bằng vài câu nêu điều cốt lõi của chương, rồi đi vào từng ý chính. Mỗi ý nói rõ nó đến từ cung hoặc sao nào. Chỉ ra chỗ thuận, chỗ cần cân nhắc, và những điểm các phần trong lá số giằng co nhau nếu có.
 - Dùng tiếng Việt rõ ràng, có thể có vài đề mục ngắn. Khoảng 500 đến 800 từ. Giải thích thuật ngữ ở lần đầu xuất hiện.
@@ -71,14 +72,15 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
       for await (const ev of llm({ instructions: DEEP_INSTRUCTIONS, context, messages: [{ role: "user", content: ask }] })) {
         if ("text" in ev) { if (ev.text) { text += ev.text; emit({ type: "delta", text: ev.text }); } } else stop = ev.stop;
       }
-    } catch { stop = "error"; }
+    } catch (e) { stop = "error"; console.error(llmErrorLine("deep", e)); }
     // Complete = the model finished on its own and wrote something real. Anything else is given back so the user can try again.
     if (stop === "end_turn" && text.trim().length > 200) {
       await d.db.prepare("INSERT OR REPLACE INTO deep_readings (user_id, fp, chapter, text, model, created_at) VALUES (?, ?, ?, ?, ?, ?)")
         .bind(d.user.id, birth.fp, chapter, text, DEEP_MODEL, d.now?.() ?? Date.now()).run();
       emit({ type: "done" });
     } else {
-      let refunded = !paid;                                                       // on a package nothing was charged
+      if (stop !== "error") console.error(`[deep] reading not saved: stop=${stop || "none"} chars=${text.length}`);
+      let refunded = !paid;                                                      // on a package nothing was charged
       if (paid) try { refunded = await refund(d.db, d.user.id, paid.ref, d.now?.()); } catch { /* reported below as not refunded */ }
       emit({ type: "error", message: stop === "refusal" ? "Trợ lý không viết được chương này. Số xu đã được hoàn lại." : "Bản luận giải chưa viết xong nên chưa được tính. Bạn thử lại nhé.", refunded });
     }

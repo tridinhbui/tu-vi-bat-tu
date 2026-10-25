@@ -1,8 +1,8 @@
 // The Western astrology reading (POST /api/west/reading, engine/western/reading) cut to the reader's tier. Owner decision 2026-10-25:
 // only part of it is paid. A chapter's paragraphs are "main" (level overview) or "Đọc sâu" (level deep).
-//   guest  (not signed in): the first half of each chapter's main part, never Đọc sâu;
+//   guest  (not signed in): the first 3/5 of each chapter's main part, never Đọc sâu;
 //   member (signed in, free): every natal chapter's main part whole, and Đọc sâu of the four chapters that describe the chart itself
-//          (WEST_DEEP_FREE); Tổng hợp and Thời vận: the first half of the main part;
+//          (WEST_DEEP_FREE); Tổng hợp and Thời vận: the first 3/5 of the main part;
 //   opened (the "Chiêm tinh" package bought for this birth): everything.
 // The chart, its tables and wheel, the transit / progression / profection / solar-return data and synastry are not cut.
 // A Western birth has a place, so its fingerprint is not the Tử Vi one (westFp); unlocks rows for it are "west:<chapter>".

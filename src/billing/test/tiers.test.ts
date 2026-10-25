@@ -1,5 +1,5 @@
-// The reading tiers (owner decisions 2026-10-23, 2026-10-24) on real readings and a real local D1: a guest gets the first half of each
-// chapter's main reading and nothing else in the JSON; a member Tổng quan and Mệnh whole (no Đọc sâu) and the first half of the rest; a
+// The reading tiers (owner decisions 2026-10-23, 2026-10-24) on real readings and a real local D1: a guest gets the first 3/5 of each
+// chapter's main reading and nothing else in the JSON; a member Tổng quan and Mệnh whole (no Đọc sâu) and the first 3/5 of the rest; a
 // package opens its chapters whole; Bát Tự cut per tab (Vận năm opens two tabs); /api/overview, /api/synthesis and /api/interpretation cut
 // the same way; a share link reads as a guest; the cache holds one full copy.
 import { test, before, after, beforeEach } from "node:test";
@@ -62,10 +62,10 @@ const cookieFor = async (id: string) => (await createSession(db, new Request("ht
 test("the worked example has what the tiers act on: chapters with Đọc sâu paragraphs, and chapters of several main paragraphs", () => {
   assert.ok(FULL.chapters.filter((c: any) => deepOf(c.paragraphs).length).length >= 3);
   assert.ok(FULL.chapters.some((c: any) => mainOf(c.paragraphs).length >= 4));
-  assert.equal(guestShown(0), 0); assert.equal(guestShown(1), 1); assert.equal(guestShown(2), 1); assert.equal(guestShown(3), 2); assert.equal(guestShown(4), 2); assert.equal(guestShown(18), 9);
+  assert.equal(guestShown(0), 0); assert.equal(guestShown(1), 1); assert.equal(guestShown(2), 2); assert.equal(guestShown(3), 2); assert.equal(guestShown(4), 3); assert.equal(guestShown(5), 3); assert.equal(guestShown(10), 6); assert.equal(guestShown(18), 11);
 });
 
-test("guest: the first half of every chapter's main reading, no Đọc sâu, and no held-back word anywhere in the JSON", () => {
+test("guest: the first 3/5 of every chapter's main reading, no Đọc sâu, and no held-back word anywhere in the JSON", () => {
   const out = gateOutput(clone(FULL), GUEST);
   assert.equal(out.chapters.length, FULL.chapters.length);
   for (const g of out.chapters) {
@@ -90,7 +90,7 @@ test("guest: the first half of every chapter's main reading, no Đọc sâu, and
   assert.ok(vh.starts.every((i: number) => i < vh.paragraphs.length));
 });
 
-test("member: Tổng quan and Mệnh main reading whole, every other chapter's first half with the packages that open it; no Đọc sâu", () => {
+test("member: Tổng quan and Mệnh main reading whole, every other chapter's first 3/5 with the packages that open it; no Đọc sâu", () => {
   const out = gateOutput(clone(FULL), member());
   for (const g of out.chapters) {
     const f = full(g.chapter);
@@ -100,7 +100,7 @@ test("member: Tổng quan and Mệnh main reading whole, every other chapter's f
     if (heldBack(f.paragraphs, g.paragraphs).length === 0) { assert.deepEqual(g, f, `${g.chapter}: nothing held back, nothing changed`); continue; }
     assertAbsent(JSON.stringify(g), heldBack(f.paragraphs, g.paragraphs), g.chapter, g.paragraphs, Object.values(g.evidence?.rules ?? {}).map((r: any) => r.reading));
     assert.equal(g.locked.tier, "member"); assert.equal(g.locked.deep, deep.length);
-    if (free) {
+    if (free || guestShown(main.length) >= main.length) {   // 3/5 of a short chapter can be all of its main reading
       assert.ok(g.advice || !f.advice, `${g.chapter}: advice goes with the whole main reading`);
       assert.deepEqual(g.evidence.ledger, f.evidence.ledger);
       assert.equal(g.locked.shown, g.locked.total);
@@ -146,7 +146,7 @@ test("Bát Tự: each tab cut on its own (never collapsed into one), Đọc sâu
   const tabs = Object.keys(bt.chapters);
   assert.ok(tabs.length >= 5);
   const g = gateOutput(clone(bt), GUEST);
-  assert.deepEqual(Object.keys(g.chapters), tabs, "every tab is sent, each with its own first half");
+  assert.deepEqual(Object.keys(g.chapters), tabs, "every tab is sent, each with its own first 3/5");
   for (const t of tabs) {
     const main = mainOf(bt.chapters[t]);
     assert.deepEqual(g.chapters[t], main.slice(0, guestShown(main.length)), t);
@@ -158,7 +158,7 @@ test("Bát Tự: each tab cut on its own (never collapsed into one), Đọc sâu
   for (const t of tabs) assertAbsent(json, heldBack(bt.chapters[t], g.chapters[t]), t, g.paragraphs);
   assertAbsent(json, heldBack(bt.paragraphs, g.paragraphs), "flat", g.paragraphs);
   assert.deepEqual(g.paragraphs, tabs.flatMap(t => g.chapters[t]), "the flat reading is what the tabs kept");
-  // member: the first half of each tab, as a guest, with the packages; Vận năm's two tabs open alone; buyer of bat_tu: whole
+  // member: the first 3/5 of each tab, as a guest, with the packages; Vận năm's two tabs open alone; buyer of bat_tu: whole
   const m = gateOutput(clone(bt), member());
   for (const t of tabs) assert.deepEqual(m.chapters[t], mainOf(bt.chapters[t]).slice(0, guestShown(mainOf(bt.chapters[t]).length)), t);
   for (const [t, l] of Object.entries(m.locks) as [string, any][]) {
@@ -172,7 +172,7 @@ test("Bát Tự: each tab cut on its own (never collapsed into one), Đọc sâu
   assert.deepEqual(gateOutput(clone(bt), member("bat_tu")), { ...bt, unlocked: true });
 });
 
-test("/api/overview, /api/synthesis, /api/interpretation: a guest gets the first half or nothing; a member the free chapters; a full buyer the whole", async () => {
+test("/api/overview, /api/synthesis, /api/interpretation: a guest gets the first 3/5 or nothing; a member the free chapters; a full buyer the whole", async () => {
   const ov: any = clone(overview(ex, K));
   assert.ok(ov.theses.length >= 2);
   const g = gateOverview(clone(ov), GUEST), k = guestShown(ov.theses.length);
@@ -185,8 +185,8 @@ test("/api/overview, /api/synthesis, /api/interpretation: a guest gets the first
     chapters: [{ id: "tong_quan", title: "T", paragraphs: [{ text: "S0" }, { text: "S1" }, { text: "S2" }, { text: "S3" }] }, { id: "menh", title: "M", paragraphs: [{ text: "M0" }] },
       { id: "tai_bach", title: "TB", paragraphs: [{ text: "B0" }, { text: "B1" }, { text: "B2" }] }] };
   const gs = gateSynthesis(clone(syn), GUEST);
-  assert.equal(gs.semantic_ir, undefined); assert.deepEqual(gs.chapters[0].paragraphs.map((p: any) => p.text), ["S0", "S1"]);
-  assert.deepEqual(gs.chapters[1], syn.chapters[1]); assert.ok(!/S2|S3|B2|whole reading/.test(JSON.stringify(gs)));
+  assert.equal(gs.semantic_ir, undefined); assert.deepEqual(gs.chapters[0].paragraphs.map((p: any) => p.text), ["S0", "S1", "S2"]);
+  assert.deepEqual(gs.chapters[1], syn.chapters[1]); assert.ok(!/S3|B2|whole reading/.test(JSON.stringify(gs)));
   const ms = gateSynthesis(clone(syn), member());
   assert.deepEqual(ms.chapters.slice(0, 2), syn.chapters.slice(0, 2)); assert.deepEqual(ms.chapters[2].paragraphs.map((p: any) => p.text), ["B0", "B1"]);
   assert.deepEqual(ms.chapters[2].locked.plans.map((p: any) => p.id), ["tron_bo", "cao_cap"]); assert.equal(ms.semantic_ir, undefined);

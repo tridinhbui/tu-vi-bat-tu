@@ -1,7 +1,7 @@
 // The real Anthropic client (llm.ts) against a fake Messages API: what is sent, and how the streamed answer comes back.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { anthropicLlm, CHAT_MODEL, CHAT_OPTIONS, DEEP_MODEL, DEEP_OPTIONS, type LlmEvent } from "../llm.ts";
+import { anthropicLlm, CHAT_MODEL, CHAT_OPTIONS, DEEP_MODEL, DEEP_OPTIONS, llmErrorLine, type LlmEvent } from "../llm.ts";
 
 const sse = (events: object[]) => events.map(e => `event: ${(e as any).type}\ndata: ${JSON.stringify(e)}\n\n`).join("");
 const answer = (texts: string[], stop = "end_turn") => sse([
@@ -48,9 +48,19 @@ test("the deep reading uses its own model and budget, and a truncated answer rep
   const out = await drain(anthropicLlm("sk-test", DEEP_OPTIONS, api.fetch)(req));
   assert.deepEqual(out.at(-1), { stop: "max_tokens" });
   assert.equal(api.seen[0].body.model, DEEP_MODEL); assert.equal(api.seen[0].body.max_tokens, DEEP_OPTIONS.maxTokens);
+  // the deep reading reasons more: effort high and adaptive thinking; the chat sends no thinking field
+  assert.deepEqual(api.seen[0].body.output_config, { effort: "high" }); assert.deepEqual(api.seen[0].body.thinking, { type: "adaptive" });
+  const chat = fakeApi(answer(["x"]));
+  await drain(anthropicLlm("sk-test", CHAT_OPTIONS, chat.fetch)(req));
+  assert.equal("thinking" in chat.seen[0].body, false);
 });
 
-test("an API error is thrown, so the route can refund", async () => {
+test("an API error is thrown, so the route can refund; its log line has status, type and message and never the key", async () => {
   const api = fakeApi(JSON.stringify({ type: "error", error: { type: "authentication_error", message: "invalid x-api-key" } }), 401);
-  await assert.rejects(drain(anthropicLlm("sk-bad", CHAT_OPTIONS, api.fetch)(req)));
+  const err = await drain(anthropicLlm("sk-bad", CHAT_OPTIONS, api.fetch)(req)).then(() => null, (e: unknown) => e);
+  assert.ok(err);
+  const line = llmErrorLine("chat", err);
+  assert.match(line, /status=401/); assert.match(line, /type=authentication_error/); assert.match(line, /message=invalid x-api-key/);
+  assert.equal(line.includes("sk-bad"), false); assert.equal(line.includes("LÁ SỐ"), false);
+  assert.equal(llmErrorLine("deep", new TypeError("fetch failed")), "[deep] model call failed: TypeError: fetch failed");
 });

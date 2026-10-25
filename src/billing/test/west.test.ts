@@ -1,5 +1,5 @@
 // The Western reading tiers (owner decision 2026-10-25, src/billing/west.ts) on a reading shaped like engine/western/reading's: a guest gets
-// the first half of each chapter's main part; a member every natal chapter's main part and Đọc sâu of the four chart chapters; the Chiêm tinh
+// the first 3/5 of each chapter's main part; a member every natal chapter's main part and Đọc sâu of the four chart chapters; the Chiêm tinh
 // package opens the rest; the fingerprint keeps the place; a Western package is never sold for a Tử Vi birth, nor the other way round.
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -26,7 +26,7 @@ test("every chapter of the reading has a tier, and the package opens exactly the
   assert.deepEqual(PLANS.filter(isWestPlan).map(x => x.id), ["chiem_tinh"]);
 });
 
-test("a guest reads the first half of each chapter's main part, never Đọc sâu", () => {
+test("a guest reads the first 3/5 of each chapter's main part, never Đọc sâu", () => {
   const out = gateWest(structuredClone(READING), GUEST);
   for (const [i, c] of out.chapters.entries()) {
     const full = READING.chapters[i].paragraphs, k = guestShown(main(full).length);

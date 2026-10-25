@@ -192,12 +192,12 @@ function mount() {
     if (!ta.disabled) ta.focus();
   };
 
-  // "Luận giải bằng AI" (not to be confused with the book-based "Đọc sâu (theo sách)"): one chapter written in full by the model; coins once, then kept
+  // "Luận riêng" (suy luận sâu; not to be confused with the book-based "Đọc sâu (theo sách)"): one chapter written in full by the model; coins once, then kept
   deepBtn.onclick = async () => {
     const t = current(); if (!t.req || busy || !me?.user) return;
     const title = deepSel.selectedOptions[0].textContent;
     busy = true; paint();
-    meSay(`Luận riêng: ${title}`); const out = botSay('Đang viết, khoảng nửa phút…');
+    meSay(`Luận riêng: ${title}`); const out = botSay('Đang suy luận trên cả lá số rồi viết, có thể mất một đến hai phút…');
     try {
       const res = await fetch('/api/me/deep', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json', 'x-tvbt': '1' }, body: JSON.stringify({ birth: pick(t.req), chapter: deepSel.value }) });
       if (res.status === 402) { const b = await res.json(); setWallet(b.wallet); drop(out); errSay(`Cần ${b.need} xu, bạn đang có ${b.wallet.coins} xu.`); }

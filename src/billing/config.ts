@@ -46,13 +46,14 @@ export const packById = (id: unknown): Pack | undefined => PACKS.find(p => p.id 
 // palaces, the đại hạn and lưu niên chapter (van_han) and the Bát Tự reading (bat_tu, filtered per tab). Every chapter's reading has a main
 // part and, for some chapters, a "Đọc sâu (theo sách)" part: Tử Vi paragraphs marked `deep` (prose/luan_deep.ts), Bát Tự paragraphs with
 // depth 'sau' (prose/bazi_deep.ts).
-//   guest  (not signed in, and everyone who opens a share link): the first half of each chapter's main part, never the Đọc sâu part;
-//   member (signed in, free): the whole main part of MEMBER_FREE (Tổng quan, Mệnh), the first half of every other chapter;
+//   guest  (not signed in, and everyone who opens a share link): the first 3/5 of each chapter's main part, never the Đọc sâu part;
+//   member (signed in, free): the whole main part of MEMBER_FREE (Tổng quan, Mệnh), the first 3/5 of every other chapter;
 //   opened (a package bought for the chart, `unlocks`): the chapter whole, main part and Đọc sâu.
 // The chart board, the fortune charts, the book findings list and the year explorer are not chapters and stay open to everyone.
 export type Tier = "guest" | "member";
-/** How many main paragraphs a guest reads out of n: the first half, rounded up, at least one (none of none). */
-export const guestShown = (n: number) => n > 0 ? Math.max(1, Math.ceil(n / 2)) : 0;
+/** How many main paragraphs a reader without the chapter open (guest, or member outside MEMBER_FREE) reads out of n: the first 3/5,
+ *  rounded up, at least one (none of none). Owner decision 2026-10-25, replacing the first half. */
+export const guestShown = (n: number) => n > 0 ? Math.max(1, Math.ceil((n * 3) / 5)) : 0;
 
 export const PALACE_CHAPTERS = ["menh", "cong_danh", "tai_bach", "thien_di", "phu_the", "phuc_duc", "dien_trach", "no_boc", "tu_tuc", "huynh_de", "phu_mau", "tat_ach"] as const;
 /** The chapters a signed-in member reads whole (main part) without paying: the overview, Mệnh and the chart's cách cục. Owner decision
@@ -79,7 +80,7 @@ export const BAZI_TAB_TITLES: Record<string, string> = {
 };
 
 // ---------- the Western astrology reading (src/billing/west.ts; owner decision 2026-10-25: only part of it is paid) ----------
-/** Chapters whose main part (level overview) a member reads whole; a guest reads the first half of every chapter. */
+/** Chapters whose main part (level overview) a member reads whole; a guest reads the first 3/5 of every chapter. */
 export const WEST_MAIN_FREE: readonly string[] = ["tong_quan", "hanh_tinh", "goc_hop", "tinh_cach", "tu_duy", "cam_xuc", "su_nghiep", "tai_chinh",
   "quan_he", "gia_dinh", "dinh_huong"];
 /** Chapters whose Đọc sâu part a member reads without paying: the ones that describe the chart itself. */
@@ -100,7 +101,7 @@ export const PLANS = [
   { id: "tron_bo", name: "Trọn bộ", coins: 149, chapters: DEEP_CHAPTERS, ai: false, pass: false,
     blurb: "Mọi chương của lá số: mười hai cung, đại hạn và lưu niên, Bát Tự, Tổng luận; trọn phần luận chính và Đọc sâu (theo sách) kèm trang sách." },
   { id: "cao_cap", name: "Cao cấp", coins: 299, chapters: DEEP_CHAPTERS, ai: true, pass: true,
-    blurb: "Trọn bộ, cộng Luận riêng cho mọi chương (bài viết riêng cho lá số, khoảng 500–800 từ mỗi chương) và 30 ngày chat với Bát Bát." },
+    blurb: "Trọn bộ, cộng Luận riêng cho mọi chương (suy luận sâu trên cả lá số, khoảng 500–800 từ mỗi chương) và 30 ngày chat với Bát Bát." },
   { id: "chiem_tinh", name: "Chiêm tinh", coins: 99, chapters: WEST_PAID.map(c => `west:${c}`), ai: false, pass: false,
     blurb: "Bản đồ sao phương Tây của một ngày giờ và nơi sinh: Đọc sâu (theo sách) các chương tư duy, cảm xúc, sự nghiệp, tài chính, quan hệ, gia đình, định hướng, cùng trọn Tổng hợp và Thời vận." },
 ] as const;
