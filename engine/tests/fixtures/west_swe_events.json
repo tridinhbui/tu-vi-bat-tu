@@ -1,0 +1,967 @@
+{
+"generator": "pyswisseph 2.10.03",
+"solar_returns": [
+{
+"jd_birth_ut": 2435692.4829449947,
+"sun": 134.43749355202957,
+"year": 1966,
+"jd_return_ut": 2439344.905347318
+},
+{
+"jd_birth_ut": 2437822.2048926954,
+"sun": 75.49441183362762,
+"year": 1966,
+"jd_return_ut": 2439283.1762218103
+},
+{
+"jd_birth_ut": 2428150.5886000264,
+"sun": 261.1558381829423,
+"year": 1970,
+"jd_return_ut": 2440934.08445126
+},
+{
+"jd_birth_ut": 2428801.4012581906,
+"sun": 181.40447155586747,
+"year": 1975,
+"jd_return_ut": 2442680.5978967724
+},
+{
+"jd_birth_ut": 2427717.467743241,
+"sun": 193.00310830427603,
+"year": 1967,
+"jd_return_ut": 2439770.464229136
+},
+{
+"jd_birth_ut": 2432418.44542507,
+"sun": 147.0508642022196,
+"year": 1953,
+"jd_return_ut": 2434609.886132597
+},
+{
+"jd_birth_ut": 2438986.8705098717,
+"sun": 141.34750392127205,
+"year": 1970,
+"jd_return_ut": 2440813.070131938
+},
+{
+"jd_birth_ut": 2433197.3900038106,
+"sun": 194.26687776433238,
+"year": 1985,
+"jd_return_ut": 2446346.1078042425
+},
+{
+"jd_birth_ut": 2438713.0756742754,
+"sun": 231.22480993006465,
+"year": 2017,
+"jd_return_ut": 2458070.928755958
+},
+{
+"jd_birth_ut": 2442941.1108257924,
+"sun": 80.78199729694488,
+"year": 1991,
+"jd_return_ut": 2448419.736807933
+},
+{
+"jd_birth_ut": 2444896.277471952,
+"sun": 205.2933103016917,
+"year": 2019,
+"jd_return_ut": 2458775.488183088
+},
+{
+"jd_birth_ut": 2454408.7682737103,
+"sun": 221.44953661022694,
+"year": 2044,
+"jd_return_ut": 2467922.7356511033
+},
+{
+"jd_birth_ut": 2443543.742679212,
+"sun": 315.0581056133696,
+"year": 1982,
+"jd_return_ut": 2445004.7138938284
+},
+{
+"jd_birth_ut": 2455265.1531677875,
+"sun": 348.9568363998558,
+"year": 2013,
+"jd_return_ut": 2456360.880752207
+},
+{
+"jd_birth_ut": 2442677.446938113,
+"sun": 178.32125476682978,
+"year": 1984,
+"jd_return_ut": 2445964.6408093977
+},
+{
+"jd_birth_ut": 2434665.7785899504,
+"sun": 201.62010260393208,
+"year": 1963,
+"jd_return_ut": 2438318.214631694
+},
+{
+"jd_birth_ut": 2442198.076565964,
+"sun": 68.77445153298436,
+"year": 2011,
+"jd_return_ut": 2455712.0237580137
+},
+{
+"jd_birth_ut": 2435231.954723058,
+"sun": 43.20914306183208,
+"year": 2008,
+"jd_return_ut": 2454589.7801205823
+},
+{
+"jd_birth_ut": 2446437.5808428363,
+"sun": 286.4643912738744,
+"year": 1993,
+"jd_return_ut": 2448994.268109735
+},
+{
+"jd_birth_ut": 2443425.504909874,
+"sun": 195.59211582271294,
+"year": 2018,
+"jd_return_ut": 2458400.443113478
+},
+{
+"jd_birth_ut": 2431613.6308036144,
+"sun": 75.99884720398651,
+"year": 1952,
+"jd_return_ut": 2434170.308437959
+},
+{
+"jd_birth_ut": 2442409.8339712867,
+"sun": 276.19963149501075,
+"year": 1979,
+"jd_return_ut": 2444236.049885292
+},
+{
+"jd_birth_ut": 2442908.548794002,
+"sun": 49.511412079846764,
+"year": 2016,
+"jd_return_ut": 2457518.2310873396
+},
+{
+"jd_birth_ut": 2432156.26138458,
+"sun": 248.9661903938116,
+"year": 1990,
+"jd_return_ut": 2448226.9354259004
+},
+{
+"jd_birth_ut": 2441929.1073974054,
+"sun": 160.94241056659575,
+"year": 2023,
+"jd_return_ut": 2460191.2075549243
+},
+{
+"jd_birth_ut": 2435401.915111304,
+"sun": 207.23122205158472,
+"year": 1993,
+"jd_return_ut": 2449281.1185034025
+},
+{
+"jd_birth_ut": 2453680.7415091656,
+"sun": 223.91648084533892,
+"year": 2029,
+"jd_return_ut": 2462446.5570021933
+},
+{
+"jd_birth_ut": 2434970.5099059106,
+"sun": 142.60659248821477,
+"year": 2005,
+"jd_return_ut": 2453597.8455058695
+},
+{
+"jd_birth_ut": 2431370.502487494,
+"sun": 193.59781077155964,
+"year": 1994,
+"jd_return_ut": 2449632.5998853706
+},
+{
+"jd_birth_ut": 2433300.3953216644,
+"sun": 298.23901937705693,
+"year": 1987,
+"jd_return_ut": 2446814.3810640476
+},
+{
+"jd_birth_ut": 2434984.9735563686,
+"sun": 156.55018802717677,
+"year": 1986,
+"jd_return_ut": 2446672.720847696
+},
+{
+"jd_birth_ut": 2452231.6248672027,
+"sun": 235.8347101150808,
+"year": 2048,
+"jd_return_ut": 2469398.0193279046
+},
+{
+"jd_birth_ut": 2439442.5257128337,
+"sun": 230.18191774976805,
+"year": 2005,
+"jd_return_ut": 2453686.978264145
+},
+{
+"jd_birth_ut": 2455382.7454247773,
+"sun": 103.12666964704027,
+"year": 2018,
+"jd_return_ut": 2458304.6892003776
+},
+{
+"jd_birth_ut": 2441335.4849194265,
+"sun": 297.9912896656285,
+"year": 1983,
+"jd_return_ut": 2445353.1637233933
+},
+{
+"jd_birth_ut": 2448691.7278869576,
+"sun": 349.9023478610266,
+"year": 2002,
+"jd_return_ut": 2452344.1695440584
+},
+{
+"jd_birth_ut": 2453975.606365419,
+"sun": 154.67104331455582,
+"year": 2033,
+"jd_return_ut": 2463837.1341840154
+},
+{
+"jd_birth_ut": 2427153.717711423,
+"sun": 1.1377500134235021,
+"year": 1976,
+"jd_return_ut": 2442859.138794513
+},
+{
+"jd_birth_ut": 2428306.114465424,
+"sun": 56.49538560155292,
+"year": 1972,
+"jd_return_ut": 2441454.8173088636
+},
+{
+"jd_birth_ut": 2443168.2782083214,
+"sun": 304.68242808669646,
+"year": 2034,
+"jd_return_ut": 2463987.119537119
+}
+],
+"ingresses": [
+{
+"body": "mercury",
+"jd_ut": 2461042.3824319877,
+"sign_index": 9
+},
+{
+"body": "mercury",
+"jd_ut": 2461061.195267925,
+"sign_index": 10
+},
+{
+"body": "mercury",
+"jd_ut": 2461078.450046964,
+"sign_index": 11
+},
+{
+"body": "mercury",
+"jd_ut": 2461145.6399250794,
+"sign_index": 0
+},
+{
+"body": "mercury",
+"jd_ut": 2461163.6228721673,
+"sign_index": 1
+},
+{
+"body": "mercury",
+"jd_ut": 2461177.9350032667,
+"sign_index": 2
+},
+{
+"body": "mercury",
+"jd_ut": 2461192.997033553,
+"sign_index": 3
+},
+{
+"body": "mercury",
+"jd_ut": 2461262.1863724645,
+"sign_index": 4
+},
+{
+"body": "mercury",
+"jd_ut": 2461277.9612695985,
+"sign_index": 5
+},
+{
+"body": "mercury",
+"jd_ut": 2461294.1810058663,
+"sign_index": 6
+},
+{
+"body": "mercury",
+"jd_ut": 2461313.9891724456,
+"sign_index": 7
+},
+{
+"body": "mercury",
+"jd_ut": 2461380.856481787,
+"sign_index": 8
+},
+{
+"body": "mercury",
+"jd_ut": 2461400.2656213352,
+"sign_index": 9
+},
+{
+"body": "mercury",
+"jd_ut": 2461418.754070377,
+"sign_index": 10
+},
+{
+"body": "mercury",
+"jd_ut": 2461437.5594843123,
+"sign_index": 11
+},
+{
+"body": "mercury",
+"jd_ut": 2461455.0108088236,
+"sign_index": 10
+},
+{
+"body": "mercury",
+"jd_ut": 2461482.9179814626,
+"sign_index": 11
+},
+{
+"body": "mercury",
+"jd_ut": 2461504.4723337274,
+"sign_index": 0
+},
+{
+"body": "mercury",
+"jd_ut": 2461520.4292427823,
+"sign_index": 1
+},
+{
+"body": "mercury",
+"jd_ut": 2461534.581770012,
+"sign_index": 2
+},
+{
+"body": "mercury",
+"jd_ut": 2461554.2129017347,
+"sign_index": 3
+},
+{
+"body": "mercury",
+"jd_ut": 2461582.8050147574,
+"sign_index": 2
+},
+{
+"body": "mercury",
+"jd_ut": 2461599.074988148,
+"sign_index": 3
+},
+{
+"body": "mercury",
+"jd_ut": 2461619.9530445477,
+"sign_index": 4
+},
+{
+"body": "mercury",
+"jd_ut": 2461634.6967774304,
+"sign_index": 5
+},
+{
+"body": "mercury",
+"jd_ut": 2461651.9839653755,
+"sign_index": 6
+},
+{
+"body": "mercury",
+"jd_ut": 2461675.8817353547,
+"sign_index": 7
+},
+{
+"body": "mercury",
+"jd_ut": 2461694.816968344,
+"sign_index": 6
+},
+{
+"body": "mercury",
+"jd_ut": 2461719.5182745317,
+"sign_index": 7
+},
+{
+"body": "mercury",
+"jd_ut": 2461738.933050179,
+"sign_index": 8
+},
+{
+"body": "mercury",
+"jd_ut": 2461757.99866262,
+"sign_index": 9
+},
+{
+"body": "venus",
+"jd_ut": 2461058.0301417094,
+"sign_index": 10
+},
+{
+"body": "venus",
+"jd_ut": 2461081.9296120107,
+"sign_index": 11
+},
+{
+"body": "venus",
+"jd_ut": 2461105.9484465765,
+"sign_index": 0
+},
+{
+"body": "venus",
+"jd_ut": 2461130.167271628,
+"sign_index": 1
+},
+{
+"body": "venus",
+"jd_ut": 2461154.669048071,
+"sign_index": 2
+},
+{
+"body": "venus",
+"jd_ut": 2461179.54534082,
+"sign_index": 3
+},
+{
+"body": "venus",
+"jd_ut": 2461204.9491658704,
+"sign_index": 4
+},
+{
+"body": "venus",
+"jd_ut": 2461231.223699294,
+"sign_index": 5
+},
+{
+"body": "venus",
+"jd_ut": 2461259.3005314125,
+"sign_index": 6
+},
+{
+"body": "venus",
+"jd_ut": 2461293.8380734874,
+"sign_index": 7
+},
+{
+"body": "venus",
+"jd_ut": 2461338.881806802,
+"sign_index": 6
+},
+{
+"body": "venus",
+"jd_ut": 2461378.8421326485,
+"sign_index": 7
+},
+{
+"body": "venus",
+"jd_ut": 2461412.870453193,
+"sign_index": 8
+},
+{
+"body": "venus",
+"jd_ut": 2461440.1045380747,
+"sign_index": 9
+},
+{
+"body": "venus",
+"jd_ut": 2461465.772416572,
+"sign_index": 10
+},
+{
+"body": "venus",
+"jd_ut": 2461490.8448169325,
+"sign_index": 11
+},
+{
+"body": "venus",
+"jd_ut": 2461515.66464848,
+"sign_index": 0
+},
+{
+"body": "venus",
+"jd_ut": 2461540.376044701,
+"sign_index": 1
+},
+{
+"body": "venus",
+"jd_ut": 2461565.0225963965,
+"sign_index": 2
+},
+{
+"body": "venus",
+"jd_ut": 2461589.5843871143,
+"sign_index": 3
+},
+{
+"body": "venus",
+"jd_ut": 2461614.021504947,
+"sign_index": 4
+},
+{
+"body": "venus",
+"jd_ut": 2461638.3213502485,
+"sign_index": 5
+},
+{
+"body": "venus",
+"jd_ut": 2461662.517167247,
+"sign_index": 6
+},
+{
+"body": "venus",
+"jd_ut": 2461686.6660339674,
+"sign_index": 7
+},
+{
+"body": "venus",
+"jd_ut": 2461710.8156618364,
+"sign_index": 8
+},
+{
+"body": "venus",
+"jd_ut": 2461734.999613338,
+"sign_index": 9
+},
+{
+"body": "venus",
+"jd_ut": 2461759.277943561,
+"sign_index": 10
+},
+{
+"body": "mars",
+"jd_ut": 2461063.8866376616,
+"sign_index": 10
+},
+{
+"body": "mars",
+"jd_ut": 2461102.094334393,
+"sign_index": 11
+},
+{
+"body": "mars",
+"jd_ut": 2461140.316776813,
+"sign_index": 0
+},
+{
+"body": "mars",
+"jd_ut": 2461179.4343529306,
+"sign_index": 1
+},
+{
+"body": "mars",
+"jd_ut": 2461220.3119757343,
+"sign_index": 2
+},
+{
+"body": "mars",
+"jd_ut": 2461263.854524428,
+"sign_index": 3
+},
+{
+"body": "mars",
+"jd_ut": 2461311.617275263,
+"sign_index": 4
+},
+{
+"body": "mars",
+"jd_ut": 2461370.4840962617,
+"sign_index": 5
+},
+{
+"body": "mars",
+"jd_ut": 2461458.09270236,
+"sign_index": 4
+},
+{
+"body": "mars",
+"jd_ut": 2461540.11625945,
+"sign_index": 5
+},
+{
+"body": "mars",
+"jd_ut": 2461601.7364020934,
+"sign_index": 6
+},
+{
+"body": "mars",
+"jd_ut": 2461650.5778921787,
+"sign_index": 7
+},
+{
+"body": "mars",
+"jd_ut": 2461694.4679982197,
+"sign_index": 8
+},
+{
+"body": "mars",
+"jd_ut": 2461735.2764817607,
+"sign_index": 9
+},
+{
+"body": "jupiter",
+"jd_ut": 2461221.7447001636,
+"sign_index": 4
+},
+{
+"body": "jupiter",
+"jd_ut": 2461612.7008259697,
+"sign_index": 5
+},
+{
+"body": "saturn",
+"jd_ut": 2461085.5080922637,
+"sign_index": 0
+}
+],
+"stations": [
+{
+"body": "mercury",
+"jd_ut": 2461097.783449039,
+"turns": "retrograde"
+},
+{
+"body": "mercury",
+"jd_ut": 2461120.314468505,
+"turns": "direct"
+},
+{
+"body": "mercury",
+"jd_ut": 2461221.2332787532,
+"turns": "retrograde"
+},
+{
+"body": "mercury",
+"jd_ut": 2461245.4568482395,
+"turns": "direct"
+},
+{
+"body": "mercury",
+"jd_ut": 2461337.8004968315,
+"turns": "retrograde"
+},
+{
+"body": "mercury",
+"jd_ut": 2461358.16241619,
+"turns": "direct"
+},
+{
+"body": "mercury",
+"jd_ut": 2461446.2333943583,
+"turns": "retrograde"
+},
+{
+"body": "mercury",
+"jd_ut": 2461468.02224377,
+"turns": "direct"
+},
+{
+"body": "mercury",
+"jd_ut": 2461567.260580428,
+"turns": "retrograde"
+},
+{
+"body": "mercury",
+"jd_ut": 2461591.319013008,
+"turns": "direct"
+},
+{
+"body": "mercury",
+"jd_ut": 2461686.109074589,
+"turns": "retrograde"
+},
+{
+"body": "mercury",
+"jd_ut": 2461707.090722028,
+"turns": "direct"
+},
+{
+"body": "venus",
+"jd_ut": 2461316.8027090635,
+"turns": "retrograde"
+},
+{
+"body": "venus",
+"jd_ut": 2461358.519071101,
+"turns": "direct"
+},
+{
+"body": "mars",
+"jd_ut": 2461416.0411705095,
+"turns": "retrograde"
+},
+{
+"body": "mars",
+"jd_ut": 2461497.089059893,
+"turns": "direct"
+},
+{
+"body": "jupiter",
+"jd_ut": 2461110.645729065,
+"turns": "direct"
+},
+{
+"body": "jupiter",
+"jd_ut": 2461387.5393523443,
+"turns": "retrograde"
+},
+{
+"body": "jupiter",
+"jd_ut": 2461508.591262767,
+"turns": "direct"
+},
+{
+"body": "saturn",
+"jd_ut": 2461248.3309023287,
+"turns": "retrograde"
+},
+{
+"body": "saturn",
+"jd_ut": 2461385.479941368,
+"turns": "direct"
+},
+{
+"body": "saturn",
+"jd_ut": 2461627.2540718615,
+"turns": "retrograde"
+},
+{
+"body": "saturn",
+"jd_ut": 2461763.6159843206,
+"turns": "direct"
+}
+],
+"transits": [
+{
+"body": "jupiter",
+"target": 294.60720325223434,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 294.60720325223434,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 122.44405038883039,
+"exact_jd_ut": [
+2461233.0356797213
+]
+},
+{
+"body": "saturn",
+"target": 122.44405038883039,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 126.06421957890059,
+"exact_jd_ut": [
+2461249.4467434343
+]
+},
+{
+"body": "saturn",
+"target": 126.06421957890059,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 178.80292630763554,
+"exact_jd_ut": [
+2462001.7073631175
+]
+},
+{
+"body": "saturn",
+"target": 178.80292630763554,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 286.88111129577396,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 286.88111129577396,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 24.754661786469804,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 24.754661786469804,
+"exact_jd_ut": [
+2461564.8480967833,
+2461692.2112943297,
+2461830.10076355
+]
+},
+{
+"body": "jupiter",
+"target": 33.6945585912853,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 33.6945585912853,
+"exact_jd_ut": [
+2461903.884094882
+]
+},
+{
+"body": "jupiter",
+"target": 97.17813976612237,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 97.17813976612237,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 250.93514441769418,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 250.93514441769418,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 23.39999125779414,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 23.39999125779414,
+"exact_jd_ut": [
+2461551.2429807503,
+2461709.4155612905,
+2461815.7404681314
+]
+},
+{
+"body": "jupiter",
+"target": 263.21736047072056,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 263.21736047072056,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 111.45865554337492,
+"exact_jd_ut": [
+2461177.946735884
+]
+},
+{
+"body": "saturn",
+"target": 111.45865554337492,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 208.06064305837853,
+"exact_jd_ut": [
+2462394.0377467712
+]
+},
+{
+"body": "saturn",
+"target": 208.06064305837853,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 245.24538290420858,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 245.24538290420858,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 160.43067621033182,
+"exact_jd_ut": [
+2461661.438246413
+]
+},
+{
+"body": "saturn",
+"target": 160.43067621033182,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 257.9860059833893,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 257.9860059833893,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 319.334505205713,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 319.334505205713,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 124.92189204784223,
+"exact_jd_ut": [
+2461244.2871946357
+]
+},
+{
+"body": "saturn",
+"target": 124.92189204784223,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 338.63348399259377,
+"exact_jd_ut": []
+},
+{
+"body": "saturn",
+"target": 338.63348399259377,
+"exact_jd_ut": []
+},
+{
+"body": "jupiter",
+"target": 127.96707943452456,
+"exact_jd_ut": [
+2461258.0457463814
+]
+},
+{
+"body": "saturn",
+"target": 127.96707943452456,
+"exact_jd_ut": []
+}
+]
+}

@@ -1,0 +1,28 @@
+{
+ "note": "Tử Vi Hàm Số (Nguyễn Phát Lộc, 1972), the '1. Vị trí ... ở các cung' table of each chính tinh, transcribed from the text layer and checked on the page images (tools/show_page.py HS N --image DIR). Printed page numbers (PDF = printed + 1). Used by tools/build_ham_so_pack.py to expand the book's own 'đắc địa / hãm địa' into the branches of its own table (the condition is the book's, not another book's table). A branch the page prints under two levels is listed in 'conflicts' and is never used as either level; a branch the page leaves out is missing (the rule then does not fire there).",
+ "levels": ["miếu", "vượng", "đắc", "bình", "hãm"],
+ "stars": {
+  "Cự Môn": {"page": 84, "miếu": ["Mão", "Dậu"], "vượng": ["Tý", "Ngọ", "Dần"], "đắc": ["Thân", "Hợi"], "hãm": ["Thìn", "Tuất", "Sửu", "Mùi", "Tỵ"]},
+  "Liêm Trinh": {"page": 89, "miếu": ["Thìn", "Tuất"], "vượng": ["Tý", "Ngọ", "Dần", "Thân"], "đắc": ["Sửu", "Mùi"], "hãm": ["Tỵ", "Hợi", "Mão", "Dậu"]},
+  "Phá Quân": {"page": 93, "miếu": ["Tý", "Ngọ"], "vượng": ["Sửu", "Mùi"], "đắc": ["Thìn", "Tuất"], "hãm": ["Mão", "Dậu", "Dần", "Thân", "Tỵ", "Hợi"]},
+  "Tham Lang": {"page": 98, "miếu": ["Sửu", "Mùi"], "vượng": ["Thìn", "Tuất"], "đắc": ["Dần", "Thân"], "hãm": ["Tỵ", "Hợi", "Tý", "Ngọ", "Mão", "Dậu"]},
+  "Thái Âm": {"page": 102, "miếu": ["Dậu", "Tuất", "Hợi"], "vượng": ["Thân", "Tý"], "đắc": ["Sửu", "Mùi"], "hãm": ["Dần", "Mão", "Thìn", "Tỵ", "Ngọ"]},
+  "Thái Dương": {"page": 107, "miếu": ["Tỵ", "Ngọ"], "vượng": ["Dần", "Mão", "Thìn"], "đắc": ["Sửu", "Mùi"], "hãm": ["Thân", "Dậu", "Tuất", "Hợi", "Tý"]},
+  "Thất Sát": {"page": 112, "miếu": ["Dần", "Thân", "Tý", "Ngọ"], "vượng": ["Tỵ", "Hợi"], "đắc": ["Sửu", "Mùi"], "hãm": ["Mão", "Dậu", "Thìn", "Tuất"]},
+  "Thiên Cơ": {"page": 117, "miếu": ["Thìn", "Tuất", "Mão", "Dậu"], "vượng": ["Tỵ", "Thân"], "đắc": ["Tý", "Ngọ", "Sửu", "Mùi"], "hãm": ["Dần", "Hợi"]},
+  "Thiên Đồng": {"page": 122, "miếu": ["Dần", "Thân"], "vượng": ["Tý"], "đắc": ["Mão", "Tỵ", "Hợi"], "hãm": ["Thìn", "Tuất", "Sửu", "Mùi", "Ngọ", "Dậu"]},
+  "Thiên Lương": {"page": 124, "pages": "pp.124-125", "miếu": ["Ngọ", "Thìn", "Tuất"], "vượng": ["Tý", "Mão", "Dần", "Thân"], "đắc": ["Sửu", "Mùi"], "hãm": ["Dậu", "Tý", "Hợi"],
+   "conflicts": {"Tý": "printed under both vượng (p.124) and hãm (p.125)"}, "missing": {"Tỵ": "not printed"}},
+  "Thiên Phủ": {"page": 128, "miếu": ["Dần", "Thân", "Tý", "Ngọ"], "vượng": ["Thìn", "Tuất"], "đắc": ["Tỵ", "Hợi", "Mùi"], "bình": ["Mão", "Dậu", "Sửu"], "hãm": [], "remark": "p.129: Thiên Phủ không có hãm địa"},
+  "Thiên Tướng": {"page": 130, "miếu": ["Dần", "Thân"], "vượng": ["Thìn", "Tuất", "Tý", "Ngọ"], "đắc": ["Sửu", "Mùi", "Tỵ", "Hợi"], "hãm": ["Mão", "Dậu"]},
+  "Tử Vi": {"page": 134, "miếu": ["Tỵ", "Ngọ", "Dần", "Thân"], "vượng": ["Thìn", "Tuất"], "đắc": ["Sửu", "Mùi"], "bình": ["Hợi", "Tý", "Mão", "Dậu"], "hãm": [], "remark": "p.134: no hãm position (Thái Thứ Lang); the author records the objection without settling it"},
+  "Vũ Khúc": {"page": 139, "pages": "pp.139-140", "miếu": ["Thìn", "Tuất", "Sửu", "Mùi"], "vượng": ["Dần", "Thân", "Tý", "Ngọ"], "đắc": ["Mão", "Dần"], "hãm": ["Tỵ", "Hợi"],
+   "conflicts": {"Dần": "printed under both vượng and đắc (p.140)"}, "missing": {"Dậu": "not printed"}}
+ },
+ "aux": {
+  "Hóa Lộc": {"page": 171, "vượng": ["Thìn", "Tuất", "Sửu", "Mùi", "Dần", "Mão"], "hãm": ["Tý", "Ngọ", "Thân", "Dậu"]},
+  "Hóa Quyền": {"page": 174, "đắc": ["Thìn", "Tuất", "Sửu", "Mùi"], "hãm": ["Tý", "Ngọ", "Thân", "Dậu", "Hợi"], "remark": "'có sách ghi nhận' — the author reports another book's table"},
+  "Thiếu Dương": {"page": 204, "đắc": ["Dần", "Mão", "Thìn", "Tỵ", "Ngọ"]},
+  "Thiếu Âm": {"page": 204, "đắc": ["Thân", "Dậu", "Tuất", "Hợi", "Tý"]}
+ }
+}

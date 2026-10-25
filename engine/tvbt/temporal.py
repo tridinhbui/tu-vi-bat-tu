@@ -5,7 +5,7 @@ from __future__ import annotations
 from .bazi import (BaziChart, HARM, DESTROY, PENALTY_PAIR, PENALTY_PAIRS, SELF_PENALTY, SIX_CLASH, SIX_COMBINE, STEM_CLASH_KIND,
                    STEM_COMBINE, ten_god)
 from .ganzhi import BRANCHES_VI, STEMS_VI, from_cycle, gz_name, year_cycle_index
-from .tuvi import TU_HOA, TuViChart, hoa_of
+from .tuvi import TU_HOA, TuViChart, chart_variants, hoa_of
 
 
 LUU_HOA_BASIS = ("thông lệ phổ biến, chưa đối chiếu sách: Khảo Luận tr.41-42 và Thực Hành tr.114 liệt kê chín sao lưu (Thái Tuế, Tang Môn, "
@@ -129,9 +129,10 @@ def tuvi_year(chart: TuViChart, year: int) -> dict:
                  "src": LUU_HOA_BASIS} for k in ["Hóa Lộc", "Hóa Quyền", "Hóa Khoa", "Hóa Kỵ"]]
     th_palace = by_branch[BRANCHES_VI[th]]["name"]
     # Nguyệt hạn (TH p.115, "Lưu nguyệt hãy lấy năm Tiểu hạn, làm tháng Giêng ngược tháng năm sinh, đến đó lấy Tí rành rành, thuận về giờ
-    # đẻ, ấy cung tháng đầu"): from the year's tiểu hạn palace as month 1 count backward to the birth month, from there count Tý forward to
-    # the birth hour; that palace is tháng Giêng, then forward. "năm Tiểu hạn" is read as the tiểu hạn palace (the year's own branch is the
-    # other reading); the tiểu hạn reading matches the reference board in tests/reference_charts.
+    # đẻ, ấy cung tháng đầu"; KL pp.40-41 says the same in prose: "lấy cung [tiểu vận] này là tháng thứ nhất, đếm nghịch tới tháng sinh,
+    # ngưng ở cung nào gọi là giờ Tí, từ giờ Tí đếm thuận đến giờ sinh"): from the year's tiểu hạn palace as month 1 count backward to the
+    # birth month, from there count Tý forward to the birth hour; that palace is tháng Giêng, then forward. KL's own worked example (p.41)
+    # lands one palace off its stated rule; the rule is used. It follows the chart's tiểu hạn school (tuvi.VARIANTS.tieu_han_rule).
     hb = BRANCHES_VI.index(chart.extras["hour_branch"]) if isinstance(chart.extras.get("hour_branch"), str) else chart.extras.get("hour_branch")
     nguyet = None
     if isinstance(hb, int):
@@ -143,9 +144,10 @@ def tuvi_year(chart: TuViChart, year: int) -> dict:
         "tieu_han_topic": van_han.DOMAIN.get(th_palace),
         "year": year, "age_tuoi_mu": age, "tieu_han_branch": BRANCHES_VI[th], "tieu_han_palace": by_branch[BRANCHES_VI[th]]["name"], "annual_pillar": gz_name(s, b),
         "dai_han": dh, "luu_thai_tue_palace": tt["name"], "luu_thai_tue_branch": tt["branch"],
-        "luu_tu_hoa": hoa, "luu_stars": luu_stars(chart, year), "nguyet_han": nguyet, "nguyet_han_basis": "TH p.115 (năm Tiểu hạn = cung tiểu hạn)",
+        "luu_tu_hoa": hoa, "luu_stars": luu_stars(chart, year), "nguyet_han": nguyet, "nguyet_han_basis": "TH p.115, KL pp.40-41 (từ cung tiểu hạn)",
         "scope": "temporal",
-        "note": "Tiểu hạn: age 1 by year-branch triad (Thực Hành p.27); the vận reading follows Khảo Luận pp.233-236; lưu Tứ Hóa: positions only (the natal Tứ Hóa table applied to the year stem), a common convention not found in the three books.",
+        "tieu_han_rule": chart_variants(chart)["tieu_han_rule"],
+        "note": "Tiểu hạn: age 1 by year-branch triad (Thực Hành p.27, Khảo Luận pp.39-40), direction by the chart's tieu_han_rule (KL pp.39-40 âm dương by default, TH p.27 nam / nữ selectable); the vận reading follows Khảo Luận pp.233-236; lưu Tứ Hóa: positions only (the natal Tứ Hóa table applied to the year stem), a common convention not found in the three books.",
     }
 
 

@@ -20,6 +20,8 @@ from .reasoning import engine, facts
 
 ROOT = Path(__file__).resolve().parent.parent
 app = FastAPI(title="tvbt", version="0.1.0")
+from horary.api import router as horary_router  # noqa: E402  (chiêm tinh vấn sự, engine/horary)
+app.include_router(horary_router)
 # Same paths the Worker serves as static assets, so local/uvicorn runs match production.
 app.mount("/css", StaticFiles(directory=ROOT / "web" / "css"), name="css")
 app.mount("/js", StaticFiles(directory=ROOT / "web" / "js"), name="js")
@@ -38,7 +40,8 @@ class BirthReq(BaseModel):
     dignity_school: str = Field("khao_luan", pattern="^(thuc_hanh|toan_thu|khao_luan)$")
     # where the books disagree (tuvi.VARIANTS): defaults = popular-board convention, each choice is reported back in chart.school
     tu_hoa_table: str = Field("KL", pattern="^(KL|TH|TT_WS)$")
-    tieu_han_rule: str = Field("TH", pattern="^(TH|KL)$")
+    # tiểu hạn: Khảo Luận pp.39-40 (âm dương) by default since 2026-10-24, owner's decision; Thực Hành p.27 (nam / nữ) selectable
+    tieu_han_rule: str = Field("KL", pattern="^(TH|KL)$")
     luu_ha_table: str = Field("board", pattern="^(board|KL|TH)$")
     experimental: bool = False      # opt-in: also evaluate the DRAFT cách cục + engine-demo rules (never part of production readings)
 
@@ -133,6 +136,8 @@ def chart_facts(req: BirthReq):
     return {"engine": "tvbt-facts-1", "dignity_school": req.dignity_school, "birth_year": req.year, "lunar_year": tv.lunar["year"],
             "gender": req.gender, "year_gz": tv.year_gz, "cuc": tv.cuc, "menh_nap_am": tv.menh_nap_am, "menh_cuc_relation": tv.menh_cuc_relation,
             "yin_yang_gender": tv.yin_yang_gender, "dai_han_direction": tv.dai_han_direction,
+            # the school of the tiểu hạn direction (tuvi.VARIANTS): the TS period charts walk the tiểu hạn, nguyệt hạn and lưu đại hạn with it
+            "tieu_han_rule": tuvi.chart_variants(tv)["tieu_han_rule"],
             "palaces": tv.palaces, "tu_hoa": tv.tu_hoa, "base": base, "decades": decades, "year": _year_facts(tv, year, ybr), "bazi": bazi_out}
 
 
@@ -500,6 +505,10 @@ from . import phi_hoa_api  # noqa: E402  (opt-in draft Phi Hóa school)
 phi_hoa_api.register(app, BirthReq, _compute)
 from . import growth_api  # noqa: E402  (Personal Growth layer, behind TVBT_GROWTH)
 growth_api.register(app, BirthReq, _compute)
+
+# Western astrology (engine/western/, kept apart from tvbt): /api/west/*
+from western.api import router as west_router  # noqa: E402
+app.include_router(west_router)
 
 # Everything else under web/ (generated article pages, xem-ngay, manifest, service worker, icons): last, so it never shadows an API
 # route. Production serves these as Worker static assets; this mount makes a local uvicorn run match.

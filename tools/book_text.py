@@ -4,7 +4,8 @@ The tuviglobal PDFs carry a VNI-Windows text layer ("TÖÛ VI KHAÛO LUAÄN"); `
 checked against the printed page. Pages whose text layer is scanned/garbled must be read as images (see `render`).
 Saved web snapshots of public-domain classical texts (engine/data/sources_web/, owner decision 2026-10-24) are checked with book='WEB:<id>'
 and the chapter title in place of the page. Books are NOT part of the repository: they are looked up in $TVBT_BOOKS_DIR (default ~/Downloads) and every consumer must
-cope with their absence (tests skip).  Printed page number = PDF index + 1 (checked on all three books)."""
+cope with their absence (tests skip).  Printed page number = PDF index + 1 (checked on KL, TH, TT); Tử Vi Hàm Số (HS, a Word
+print of the 1972 book) starts with a blank cover page, so its printed page N is PDF page N + 1 (`PDF_OFFSET`)."""
 from __future__ import annotations
 
 import json
@@ -13,8 +14,11 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-BOOK_FILES = {"KL": "TuViKhaoLuan.pdf", "TH": "TuViThucHanh.pdf", "TT": "Tử Vi Đẩu Số Toàn Thư.pdf", "KD": "KINH DỊCH TRỌN BỘ.PDF"}
-BOOK_NAMES = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư", "KD": "Kinh Dịch (Ngô Tất Tố dịch)"}
+BOOK_FILES = {"KL": "TuViKhaoLuan.pdf", "TH": "TuViThucHanh.pdf", "TT": "Tử Vi Đẩu Số Toàn Thư.pdf", "HS": "tu-vi-ham-so.pdf",
+              "KD": "KINH DỊCH TRỌN BỘ.PDF"}
+BOOK_NAMES = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư", "HS": "Tử Vi Hàm Số",
+              "KD": "Kinh Dịch (Ngô Tất Tố dịch)"}
+PDF_OFFSET = {"HS": 1}
 
 # KD (Kinh Dịch, Ngô Tất Tố) is an image scan with no text layer (only a download watermark) whose printed numbers are not PDF + 1:
 # blank pages were dropped from the scan, so printed = PDF page + offset with the offset stepping up.  Read from the running heads of
@@ -26,7 +30,7 @@ KD_PAGES = Path(__file__).resolve().parent.parent / "engine" / "data" / "kinh_di
 def pdf_page(book: str, page: int) -> int:
     """1-based PDF page of a printed page number"""
     if book != "KD":
-        return page
+        return page + PDF_OFFSET.get(book, 0)
     for first, last, off in KD_OFFSETS:
         if first <= page - off <= last:
             return page - off
@@ -80,7 +84,7 @@ def _doc(book: str):
 def page_text(book: str, page: int) -> str:
     if book == "KD":
         return snapshot_text("SCAN:KD", page)
-    return decode(_doc(book)[page - 1].get_text())
+    return decode(_doc(book)[pdf_page(book, page) - 1].get_text())
 
 
 def render(book: str, page: int, out: str, zoom: float = 1.5) -> str:

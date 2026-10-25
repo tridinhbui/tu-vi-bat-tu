@@ -8,8 +8,8 @@
 
     python tools/show_page.py KD 160 --image DIR  # Kinh Dịch (Ngô Tất Tố) scan: DIR/KD_160.png; text = committed transcription
 
-Books: KL, TH, TT, KD (tools/book_text.py); WEB:<id> for engine/data/sources_web/. Printed page number == PDF page number, except KD
-(book_text.KD_OFFSETS)."""
+Books: KL, TH, TT, HS, KD (tools/book_text.py); WEB:<id> for engine/data/sources_web/. Printed page number == PDF page number,
+except HS (PDF = printed + 1) and KD (book_text.KD_OFFSETS)."""
 from __future__ import annotations
 
 import sys

@@ -86,7 +86,7 @@ export const PLANS = [
   { id: "tron_bo", name: "Trọn bộ", coins: 149, chapters: DEEP_CHAPTERS, ai: false, pass: false,
     blurb: "Mọi chương của lá số: mười hai cung, đại hạn và lưu niên, Bát Tự, Tổng luận; trọn phần luận chính và Đọc sâu (theo sách) kèm trang sách." },
   { id: "cao_cap", name: "Cao cấp", coins: 299, chapters: DEEP_CHAPTERS, ai: true, pass: true,
-    blurb: "Trọn bộ, cộng Luận AI cho mọi chương (bài viết riêng cho lá số, khoảng 500–800 từ mỗi chương) và 30 ngày chat với Bát Bát." },
+    blurb: "Trọn bộ, cộng Luận riêng cho mọi chương (bài viết riêng cho lá số, khoảng 500–800 từ mỗi chương) và 30 ngày chat với Bát Bát." },
 ] as const;
 export type Plan = (typeof PLANS)[number];
 /** Plans sold before: no longer offered, named in the wallet history. Their `unlocks` rows still open what they name. */

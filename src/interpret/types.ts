@@ -30,6 +30,8 @@ export interface Palace {
   major_dignity: Record<string, string | null>; minor_dignity: Record<string, string | null>; tuan: boolean; triet: boolean;
   // phụ tinh with a known level: the book's printed term (e.g. 'lợi'), the book it came from and the page (engine/data/dignity_aux.json)
   minor_dignity_src?: Record<string, { term: string; school: 'thuc_hanh' | 'toan_thu' | 'khao_luan'; locator: string }>;
+  // every star's brightness with its status and page (tuvi.py dignity_status): only VERIFIED values are read as đắc / hãm by the period charts
+  dignity_status?: Record<string, { status: string; value?: string; term?: string; school?: string; locator?: string }>;
 }
 
 export interface Decade {
@@ -41,6 +43,8 @@ export interface Decade {
 export interface ChartInput {
   engine: string; birth_year: number; lunar_year: number; gender: 'male' | 'female'; year_gz: string;
   cuc: { name: string; element: string }; menh_nap_am: string; menh_cuc_relation: string; yin_yang_gender: string; dai_han_direction: string;
+  /** the school of the tiểu hạn direction (tuvi.VARIANTS): KL pp.39-40 âm dương (default since 2026-10-24) or TH p.27 nam / nữ; absent in older facts */
+  tieu_han_rule?: 'KL' | 'TH';
   palaces: Palace[]; tu_hoa: Record<string, { star: string; branch: number }>; base: Record<string, Facts>; decades: Decade[];
   year: { year: number; age_tuoi_mu: number; dai_han: { palace: string; age_from: number; age_to: number; stem?: string; branch?: string } | null;
     tieu_han_palace?: string; tieu_han_branch?: string; tieu_han_topic?: string | null; annual_pillar?: string; luu_thai_tue_palace?: string;
