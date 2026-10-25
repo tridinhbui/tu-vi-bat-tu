@@ -122,6 +122,7 @@ export interface BaziDeepFrames {
   // S2 reconciliation
   dh_role: Record<string, string>; yong_where: Record<string, string>; reliability: string[]; conclusion_split: string[];
   rc_khac: string[]; rc_support: string[]; rc: Record<string, string[]>; rc_years: string; rc_note: string;
+  rc_rel_tail?: Record<string, string[]>; rc_cw?: Record<string, string>; rc_from?: Record<string, string>; rc_clim?: Record<'thuan' | 'none', string>;
   // 2026-10-22 depth
   d?: DepthFrames; mh?: Record<string, string[]>;
   // REVIEW-19 W6: a luck pillar's / year's head joined to its cách verdict, the numbers of a luck pillar, the đại vận opening, the verdict's domains
@@ -461,7 +462,20 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     else say(c3, fill(m.pick('bd|cl', F.climate), { mb, dm, climate: D.climate.label ?? '', main: mainTxt, others: join(main.length ? others : others.slice(1)) || 'không có can nào khác' }),
       'tinh_toan', ['TVH pp.389-396'], [], { note: NOTE.dh });
     const present = dh.stems.filter(s => s.visible || s.hidden).map(s => s.stem), absent = dh.stems.filter(s => !s.visible && !s.hidden).map(s => s.stem);
-    if (present.length && absent.length) say(c3, fill(m.pick('bd|pr', F.climate_presence), { present: join(present), absent: join(absent) }), 'tinh_toan', ['TVH pp.389-396'], [], { note: NOTE.dh });
+    // which sense of "missing" (2026-10-25 review): a named stem not seen on any stem or among the branches' hidden stems; the day master is
+    // never called missing ("ngoài nhật chủ"), and the same element carried by another stem is said with it
+    if (present.length && absent.length) {
+      const st = dh.stems.filter(x => x.visible || x.hidden), lo = st.filter(x => x.visible).map(x => x.stem), tang = st.filter(x => !x.visible).map(x => x.stem);
+      const presentTxt = [lo.length ? `${join(lo)} lộ trên can` : '', tang.length ? `${join(tang)} tàng trong chi` : ''].filter(Boolean).join(', ');
+      const vias = [...new Set(absent.map(stemEl))].map(e => {
+        const carriers = [...new Set(K.flatMap(p => [...(stemEl(pil[p].stem) === e ? [p === 'day' ? `nhật chủ ${pil[p].stem}` : `can ${PIL_VI[p]} ${pil[p].stem}`] : []),
+          ...((pil[p] as { hidden?: Array<{ stem: string }> }).hidden ?? []).filter(h => stemEl(h.stem) === e).map(h => `${h.stem} tàng trong chi ${PIL_VI[p]} ${pil[p].branch}`)]))].slice(0, 3);
+        return !carriers.length ? '' : carriers.length === 1 && carriers[0].startsWith('nhật chủ') ? `hành ${e} chỉ có ở chính ${carriers[0]}` : `hành ${e} vẫn có qua ${join(carriers)}`;
+      }).filter(Boolean);
+      const or = absent.length < 2 ? absent[0] : `${absent.slice(0, -1).join(', ')} hay ${absent.at(-1)}`;
+      say(c3, fill(m.pick('bd|pr', F.climate_presence), { present: presentTxt, absent: or, lead: absent.includes(dm) ? 'ngoài nhật chủ, ' : '', via: vias.length ? `; ${vias.join('; ')}` : '' }),
+        'tinh_toan', ['TVH pp.389-396', 'ZZ pp.7-8'], [], { note: NOTE.dh });
+    }
     // the printed note of the cell (TVH pp.391-397), and whether a cục it names is formed in the chart
     const N = P?.dh_note;
     if (N && Dd) {
@@ -666,6 +680,32 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     say(xs, turn ? `${turn} ${lowerFirst(text)}` : text, warmOnly ? 'sach' : 'tinh_toan', warmOnly ? ['TTT'] : ['TVH pp.389-396'],
       warmOnly && needRule && fired.get(needRule) ? [cite(needRule, fired.get(needRule)!.text, ['TTT'])] : [], { tone: 'pos', step, note: warmOnly ? 'Trích Thiên Tủy, Hàn Thử (tr.113-114).' : NOTE.dh });
   };
+  /** the words of a relation rule's events (bazi_luck_relations.json) for the closing: "chi Mùi xung và hình chi tháng Sửu và chi ngày Sửu,
+   *  lại phản ngâm với trụ tháng Tân Sửu"; for a hợp, its element, the group of that element and what it is to the chart */
+  const relVars = (rel: NonNullable<Reconcile['rel']>, who: { stem: string; branch: string }, kind: string, yongTxt: string) => {
+    const nm = (p: string, part: string) => `${part === 'stem' ? 'can' : 'chi'} ${PIL_VI[p]} ${part === 'stem' ? pil[p as typeof K[number]].stem : pil[p as typeof K[number]].branch}`;
+    const parts: string[] = [];
+    for (const part of ['stem', 'branch'] as const) {
+      const by = new Map<string, string[]>();
+      for (const e of rel.events.filter(x => x.part === part && x.targets.length === 1 && x.kind !== 'branch_semi_triad')) {
+        const w = e.kind === 'stem_combine' ? 'hợp' : e.kind === 'branch_clash' && e.opens_kho ? F.ev_kind.branch_clash_kho : F.ev_kind[e.kind];
+        if (w) (by.get(e.targets[0]) ?? by.set(e.targets[0], []).get(e.targets[0])!).push(w);
+      }
+      const same = new Map<string, string[]>();
+      for (const [p, ks] of by) { const u = [...new Set(ks)], k2 = u.length === 2 ? `vừa ${u[0]} vừa ${u[1]}` : join(u); (same.get(k2) ?? same.set(k2, []).get(k2)!).push(p); }
+      for (const [ks, ps] of same) parts.push(`${part === 'stem' ? 'can' : 'chi'} ${part === 'stem' ? who.stem : who.branch} ${ks} ${join(ps.map(p => nm(p, part)))}`);
+    }
+    for (const e of rel.events.filter(x => x.kind === 'branch_semi_triad')) parts.push(`chi ${who.branch} bán hợp ${e.element} với ${nm(e.targets[0], 'branch')}`);
+    for (const e of rel.events.filter(x => x.kind === 'branch_triad')) parts.push(`chi ${who.branch} cùng ${join(e.targets.map(p => nm(p, 'branch')))} đủ tam hợp ${e.element} cục`);
+    const pn = rel.events.filter(x => x.kind === 'phan_ngam').map(e => `trụ ${PIL_VI[e.targets[0]]} ${pil[e.targets[0] as typeof K[number]].name}`);
+    if (pn.length) parts.push(`${parts.length ? 'còn ' : `${kind} ${who.stem} ${who.branch} `}phản ngâm với ${join(pn)}`);
+    const relTxt = parts.length > 1 ? `${parts.slice(0, -1).join(', ')}${/^còn /.test(parts.at(-1)!) ? ',' : ' và'} ${parts.at(-1)}` : parts[0] ?? '';
+    const el = rel.events.find(e => e.element)?.element ?? '';
+    const g = el ? ['Tỉ Kiếp', 'Thực Thương', 'Tài', 'Quan Sát', 'Ấn'].find(x => groupElement(dm, x) === el) ?? '' : '';
+    const yongEl = yongG.includes(g);
+    return { rel: relTxt, Rel: cap(relTxt), el, g, fromw: F.rc_from?.[rel.from] ?? '', need: el && !yongEl && el === needEl ? '1' : '',
+      elRole: yongEl ? `hành của nhóm dụng thần ${g}` : 'hành lá số đang cần', yongTxt };
+  };
   /** where the tables differ (part 4) and the one verdict with what to do (part 5); the same verdict feeds the closing */
   const verdictOf = (xs: ProseSentence[], t: BaziTemporal, rc: Reconcile, key: string, who: { stem: string; branch: string },
     o: { year: boolean; years?: BaziTemporal['good_years']; ds?: ProseSentence[]; dom?: string[] }) => {
@@ -689,17 +729,36 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const hv = !o.year ? t.halves : null;
     const split = rc.agree === 'tron' ? `${t.tvh?.stem === 'tot' ? 'tron' : 'tron_rev'}${hv && F.rc.tron_h ? '_h' : ''}` : '';
     const frKey = split || (rc.verdict === 'co_dieu_kien' && !yongTxt ? 'co_dieu_kien_no_yong' : rc.verdict === 'nang' && !list ? (o.year ? 'nang_year' : 'nang_no_years') : rc.verdict);
-    const fr = frKey === 'co_dieu_kien' && rc.agree === 'khac' && o.ds && F.rc.co_dieu_kien_khac?.length ? F.rc.co_dieu_kien_khac : F.rc[frKey];
+    // a luck pillar whose relations with the natal chart moved the verdict (bazi_luck_relations.json, he_thong) closes on that relation
+    const rel = rc.rel, moved = rel?.effect === 'change' && !!F.rc[rel.link]?.length;
+    const fr = moved ? F.rc[rel!.link] : frKey === 'co_dieu_kien' && rc.agree === 'khac' && o.ds && F.rc.co_dieu_kien_khac?.length ? F.rc.co_dieu_kien_khac : F.rc[frKey];
     if (!fr?.length) return;
+    // what makes the closing this pillar's own: its two groups, the climate side, how sure it is, and the deciding relation
+    const sg = t.stem_group ?? '', bg = t.branch_group ?? '';
+    const grp = sg && bg ? (sg === bg ? `${sg} cả can lẫn chi` : `${sg} ở can, ${bg} ở chi`) : sg ? `${sg} ở can` : bg ? `${bg} ở chi` : '';
+    const cw = F.rc_cw?.[rc.certainty ?? reconcileTs(t, dm, table, needEl, yongG, xauG).certainty ?? ''] ?? '';
+    const rv = rel ? relVars(rel, who, kind, yongTxt) : null;
+    const rcVars = { pk, Pk: cap(pk), grp, sg, bg, cw, clim: F.rc_clim?.[rc.climate ? 'thuan' : 'none'] ?? '', ten: o.year ? 'năm này' : 'mười năm này', ...(rv ?? {}),
+      to: rc.verdict === 'kha_thuan' ? 'khá thuận' : yongTxt ? `thuận hay nặng tùy lúc có ${yongTxt} đi kèm` : 'tốt xấu đan xen' };
+    const tail = rel && !moved && rv && F.rc_rel_tail?.[rel.link]?.length ? fill(m.pick(`bd|rt|${key}`, F.rc_rel_tail[rel.link]), rcVars) : '';
     // the conditional verdict leans on Thiệu Vĩ Hoa's own thành bại sentence when one fired that names the dụng thần group as protection
     const tbYong = tbOrder.find(v => v.verdict !== 'xau' && yongG.some(g => tbParts(v.text)!.cond.includes(g)));
     // REVIEW-19 W6: the domains the pillar's groups stand for (told once, in the đại vận opening) join the verdict: a labelled synthesis
     const domTxt = o.dom?.length && F.rc_dom ? fill(m.pick(`bd|rd|${key}`, F.rc_dom[o.year ? 'year' : 'luck']), { list: join(o.dom) }) : '';
     const vText = fill(m.pick(`bd|rv|${key}`, fr), { kind, pk, Pk: cap(pk), yong: yongTxt, years: list, yearsTail: years, stem: who.stem, branch: who.branch,
-      ha: hv ? `${hv.stem[0]}–${hv.stem[1]}` : '', hb: hv ? `${hv.branch[0]}–${hv.branch[1]}` : '' });
-    say(xs, domTxt ? `${vText.replace(/\.\s*$/, '')}${domTxt}.` : vText, domTxt ? 'tong_hop' : 'he_thong',
-      tbYong && (rc.verdict === 'co_dieu_kien' || rc.verdict === 'nang') ? ['TVH pp.367-369'] : [], tbYong && (rc.verdict === 'co_dieu_kien' || rc.verdict === 'nang') ? [cite(tbYong.rule_id, tbYong.text, ['TVH pp.367-369'])] : [],
-      { tone: rc.verdict === 'thuan' || rc.verdict === 'kha_thuan' ? 'pos' : 'answer', step: `verdict:${key}`, verdict: classOf(rc), ...(split.endsWith('_h') ? { note: NOTE.halves } : {}), ...(cachPartial ? { conditional: 'cach_partial' } : {}) } as Partial<SentenceTrace>);
+      ha: hv ? `${hv.stem[0]}–${hv.stem[1]}` : '', hb: hv ? `${hv.branch[0]}–${hv.branch[1]}` : '', ...rcVars }).replace(/ \(\)/g, '').replace(/\(, /g, '(').replace(/, ,/g, ',');
+    const body = domTxt ? `${vText.replace(/\.\s*$/, '')}${domTxt}.` : vText;
+    // the need element named by a hợp is the fired hàn noãn rule's (TTT pp.113-114): cited
+    const needCite = rv?.need && needRule && fired.get(needRule) ? [cite(needRule, fired.get(needRule)!.text, ['TTT'])] : [];
+    const tbIds = tbYong && (rc.verdict === 'co_dieu_kien' || rc.verdict === 'nang') ? [cite(tbYong.rule_id, tbYong.text, ['TVH pp.367-369'])] : [];
+    const relNote = rel ? REL_RULES.find(r => r.id === rel.rule)?.note ?? '' : '';
+    const note = [split.endsWith('_h') ? NOTE.halves : '', relNote].filter(Boolean).join(' ');
+    // a relation that only confirms the verdict is told just before it, as its own sentence (the paragraph still ends on the verdict)
+    if (tail) say(xs, tail, 'he_thong', ['ZZ pp.19-20', ...(needCite.length ? ['TTT'] : [])], needCite, { step: `rel:${key}`, convention: rel!.rule, note: relNote } as Partial<SentenceTrace>);
+    say(xs, body, domTxt ? 'tong_hop' : 'he_thong',
+      [...(tbIds.length ? ['TVH pp.367-369'] : []), ...(rel ? ['ZZ pp.19-20'] : []), ...(needCite.length ? ['TTT'] : [])], [...tbIds, ...needCite],
+      { tone: rc.verdict === 'thuan' || rc.verdict === 'kha_thuan' ? 'pos' : 'answer', step: `verdict:${key}`, verdict: classOf(rc), ...(note ? { note } : {}),
+        ...(rel ? { convention: rel.rule } : {}), ...(cachPartial ? { conditional: 'cach_partial' } : {}) } as Partial<SentenceTrace>);
   };
   /** what a luck pillar or a year does to the useful god (TVH p.382) */
   const touchSay = (xs: ProseSentence[], t: BaziTemporal, step: string, year?: number) => {
@@ -858,7 +917,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       const [i, what] = yi > 0 ? [yi, good(told[yi].verdict) && told[yi].verdict === 'thuan' ? 'both' : 'yong_stem'] : gi > 0 ? [gi, told[gi].verdict === 'thuan' ? 'both' : 'first_good'] : [-1, ''];
       if (i > 0) say(xs, fill(m.pick('bd|tkt', Dd.tk_turn), { pillar: told[i].name, age: String(Math.round(told[i].age)), what: Dd.tk_turn_what[what] }), 'he_thong', [], [], { step: 'closing:bat_tu' });
     }
-    const cuts = [0, 30, 60, 200], ORDER: VerdictClass[] = ['thuan', 'kha_thuan', 'co_dieu_kien', 'tron', 'nang', 'trung'];
+    const cuts = [0, 30, 60, 200], ORDER: VerdictClass[] = ['thuan', 'kha_thuan', 'co_dieu_kien', 'bien_dong', 'tron', 'nang', 'trung'];
     F.tk_phase_name.forEach((ph, i) => {
       const xsP = told.filter(x => x.age >= cuts[i] - 0.5 && x.age < cuts[i + 1] - 0.5);
       if (!xsP.length) return;
@@ -899,10 +958,11 @@ export function dhRoleOf(stem: string | undefined, table: string[]): 'yong' | 'x
 }
 /** the verdict as the reader is told it: a conditional verdict from a stem / branch split ('tron') is "tốt xấu đan xen", one from the two
  *  tables disagreeing is "tùy lúc có dụng thần đi kèm"; the đại vận paragraphs, the lưu niên and the closing all use this one class */
-export type VerdictClass = Reconcile['verdict'] | 'tron';
-export const classOf = (rc: Reconcile): VerdictClass => rc.verdict === 'co_dieu_kien' && rc.agree === 'tron' ? 'tron' : rc.verdict;
+export type VerdictClass = Reconcile['verdict'] | 'tron' | 'bien_dong';
+export const classOf = (rc: Reconcile): VerdictClass => rc.rel?.effect === 'change' && rc.rel.link === 'bien_dong' ? 'bien_dong'
+  : rc.verdict === 'co_dieu_kien' && rc.agree === 'tron' ? 'tron' : rc.verdict;
 type RelRule = { id: string; kinds: string[]; targets?: string[]; element?: 'useful' | 'harmful'; link: NonNullable<Reconcile['rel']>['link'];
-  change: Partial<Record<Reconcile['verdict'], Reconcile['verdict']>>; confirm: string[] };
+  change: Partial<Record<Reconcile['verdict'], Reconcile['verdict']>>; confirm: string[]; note?: string };
 const REL_RULES = (LUCK_REL as unknown as { rules: RelRule[] }).rules;
 /** the element of a ten-god group for a day master (bazi_deep.pipeline.group_element) */
 export const groupElement = (dm: string, g: string) => EL_ORDER[(EL_ORDER.indexOf(stemEl(dm)) + ['Tỉ Kiếp', 'Thực Thương', 'Tài', 'Quan Sát', 'Ấn'].indexOf(g)) % 5];
