@@ -11,7 +11,7 @@
 
 /* ---------- masthead + system switch ---------- */
 .atl-mast{container:atl-mast/inline-size;background:linear-gradient(180deg,var(--parchment),var(--ivory));padding:clamp(14px,2vw,26px) 0 clamp(8px,1.2vw,14px)}
-.atl-mast-in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:12px 32px}   /* two columns, never a half-wrap: the side is right-aligned beside the title or left-aligned under it */
+.atl-mast-in{display:grid;grid-template-columns:minmax(14rem,1fr) minmax(0,auto);align-items:end;gap:12px 32px}   /* two columns, never a half-wrap: the side is right-aligned beside the title or left-aligned under it */
 .atl-mast .eyebrow{margin-bottom:6px}
 .atl-mast h1{font:500 clamp(1.45rem,2.6vw,2.15rem)/1.1 var(--serif);letter-spacing:-.01em}
 .atl-mast .res-sub{margin-top:10px;gap:2px 0;font-size:.88rem;color:var(--text2);overflow:hidden}   /* clips the separator dot of an item that wraps to a new line */
@@ -21,7 +21,7 @@
 .atl-mast .res-hide{margin-top:0}.atl-mast .res-hide small{display:none}   /* the note lives in the label's title; the checkbox alone keeps the masthead calm */
 .atl-mast .res-hl{margin:0;gap:8px}
 .hl-chip{font-size:.98rem;padding:4px 14px}
-.atl-mast .res-act{align-items:center}
+.atl-mast .res-act{align-items:center;justify-content:flex-end}.atl-side{min-width:0}   /* the title keeps its width; a long button row wraps instead of squeezing it */
 .res-nav{background:color-mix(in srgb,var(--ivory) 94%,transparent);border-bottom:1px solid var(--hair)}
 .res-tabs>button[role=tab]{display:inline-flex;align-items:baseline;gap:8px;font:500 1.02rem var(--serif);padding:13px 20px 12px}
 .res-tabs>button[role=tab] i{font:400 .95rem var(--han);font-style:normal;color:var(--brass-d);opacity:.9}
