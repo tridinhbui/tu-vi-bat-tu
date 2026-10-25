@@ -452,7 +452,8 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     const tpl = up ? F.countered_up! : F[type];
     const conn = type === 'corroborated' ? W.conn('contrast', `${type}|${cr.ruleId}`) : up ? W.upConn(`${type}|${cr.ruleId}`) : W.limitConn(`${type}|${cr.ruleId}`);
     xs.push(W.sentence(fill(W.pick(`${type}|${cr.ruleId}`, tpl), { conn, palace: cr.palace, ground: g, claim: rr.claim }),
-      { move: 'VIA', step: `${type}:${cr.palace}:${cr.ruleId}`, concepts: [cr.concept], rules: [cr.ruleId], cites: cr.cite ? [cr.cite] : [], keys: [`${cr.concept}@${cr.palace}`] }));
+      // a counter-reading is another reading than the corroboration of the same concept and palace (one says it, the other limits it)
+      { move: 'VIA', step: `${type}:${cr.palace}:${cr.ruleId}`, concepts: [cr.concept], rules: [cr.ruleId], cites: cr.cite ? [cr.cite] : [], keys: [`${cr.concept}@${cr.palace}${type === 'countered' ? '|countered' : ''}`] }));
   }
 }
 

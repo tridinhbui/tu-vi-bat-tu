@@ -221,7 +221,7 @@ export function natalRawAll(chart: ChartInput, k: Knowledge): Record<string, { s
 
 // ================================================================ period items ================================================================
 
-const bookOf = (cite: string) => /Khảo Luận|KL /.test(cite) ? 'Khảo Luận' : /Thực Hành|TH /.test(cite) ? 'Thực Hành' : /Toàn Thư|TT /.test(cite) ? 'Toàn Thư' : undefined;
+const bookOf = (cite: string) => /Khảo Luận|KL /.test(cite) ? 'Khảo Luận' : /Thực Hành|TH /.test(cite) ? 'Thực Hành' : /Toàn Thư|TT /.test(cite) ? 'Toàn Thư' : /Hàm Số|HS /.test(cite) ? 'Hàm Số' : undefined;
 const LOWER_LEAD = /^(Cung|Vận|Hạn|Tam|Lưu)\b/;
 const lowerLead = (s: string) => LOWER_LEAD.test(s) ? s[0].toLowerCase() + s.slice(1) : s;
 /** "Vận có Tham Lang ở Dậu: theo sách hao tài, phóng túng." → "vận có Tham Lang ở Dậu thì hao tài, phóng túng". */

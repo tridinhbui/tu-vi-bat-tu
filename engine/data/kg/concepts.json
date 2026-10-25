@@ -525,6 +525,320 @@
    "kind": "outcome",
    "np": "phần lộc không bền",
    "short": "lộc không bền"
+  },
+  {
+   "id": "temper.brave",
+   "facet": "identity.temperament",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "lòng can đảm, dám đương đầu",
+   "short": "sự can đảm"
+  },
+  {
+   "id": "temper.calm",
+   "facet": "identity.temperament",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "tính điềm đạm, hòa nhã",
+   "short": "sự điềm đạm"
+  },
+  {
+   "id": "temper.domineering",
+   "facet": "identity.temperament",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "tính muốn nắm quyền, lấn lướt người khác",
+   "short": "tính áp chế"
+  },
+  {
+   "id": "temper.competitive",
+   "facet": "identity.temperament",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "tính hiếu thắng",
+   "short": "tính hiếu thắng"
+  },
+  {
+   "id": "temper.mischief",
+   "facet": "identity.temperament",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "tính phá phách, nghịch ngợm",
+   "short": "tính phá phách"
+  },
+  {
+   "id": "values.malicious",
+   "facet": "identity.values",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "lòng ác hiểm, ưa phá hoại",
+   "short": "lòng ác hiểm"
+  },
+  {
+   "id": "values.harsh",
+   "facet": "identity.values",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "sự khắc nghiệt, thiếu khoan dung",
+   "short": "sự khắc nghiệt"
+  },
+  {
+   "id": "values.noble",
+   "facet": "identity.values",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "cốt cách cao thượng, khoáng đạt",
+   "short": "cốt cách cao thượng",
+   "opp": "values.petty"
+  },
+  {
+   "id": "values.petty",
+   "facet": "identity.values",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "tính nhỏ nhen, câu chấp",
+   "short": "tính nhỏ nhen",
+   "opp": "values.noble"
+  },
+  {
+   "id": "values.envious",
+   "facet": "identity.values",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "lòng ganh tị, đố kỵ",
+   "short": "lòng ganh tị"
+  },
+  {
+   "id": "values.faithful",
+   "facet": "identity.values",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "sự thủy chung, giữ chữ tín",
+   "short": "sự thủy chung"
+  },
+  {
+   "id": "values.filial",
+   "facet": "identity.values",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "lòng hiếu thảo với cha mẹ",
+   "short": "lòng hiếu thảo"
+  },
+  {
+   "id": "values.humble",
+   "facet": "identity.values",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "sự khiêm nhường",
+   "short": "sự khiêm nhường"
+  },
+  {
+   "id": "presence.affected",
+   "facet": "identity.presence",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "sự kiểu cách, chuộng hình thức",
+   "short": "sự kiểu cách"
+  },
+  {
+   "id": "presence.dignified",
+   "facet": "identity.presence",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "vẻ uy nghi, đường bệ",
+   "short": "vẻ uy nghi"
+  },
+  {
+   "id": "cog.absent",
+   "facet": "identity.cognition",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "tính hay lãng trí",
+   "short": "tính lãng trí"
+  },
+  {
+   "id": "comm.boastful",
+   "facet": "identity.communication",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "lối ăn nói khoác lác, thiếu cẩn trọng",
+   "short": "lối nói khoác"
+  },
+  {
+   "id": "comm.talkative",
+   "facet": "identity.communication",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "tính hay nói, thích trò chuyện",
+   "short": "tính hay nói"
+  },
+  {
+   "id": "emo.timid",
+   "facet": "identity.emotion",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "tính nhút nhát, e dè",
+   "short": "tính nhút nhát"
+  },
+  {
+   "id": "disc.careful",
+   "facet": "identity.discipline",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "tính cẩn thận, sạch sẽ, ngăn nắp",
+   "short": "tính cẩn thận"
+  },
+  {
+   "id": "home.capable",
+   "facet": "identity.discipline",
+   "pol": "+",
+   "kind": "capacity",
+   "np": "sự đảm đang, tháo vát",
+   "short": "sự đảm đang"
+  },
+  {
+   "id": "life.gourmet",
+   "facet": "identity.lifestyle",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "sự sành ăn, ưa ăn ngon",
+   "short": "sự sành ăn"
+  },
+  {
+   "id": "life.solitary",
+   "facet": "identity.lifestyle",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "ý thích sống một mình",
+   "short": "ý thích sống một mình"
+  },
+  {
+   "id": "spirit.devout",
+   "facet": "life.spirituality",
+   "pol": "+",
+   "kind": "tendency",
+   "np": "lòng tín ngưỡng, thiên hướng tu hành",
+   "short": "lòng tín ngưỡng"
+  },
+  {
+   "id": "spirit.superstitious",
+   "facet": "life.spirituality",
+   "pol": "-",
+   "kind": "tendency",
+   "np": "tính tin dị đoan",
+   "short": "tính tin dị đoan"
+  },
+  {
+   "id": "path.medical",
+   "facet": "career.path",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "thiên hướng nghề y, dược",
+   "short": "thiên hướng nghề y"
+  },
+  {
+   "id": "path.culinary",
+   "facet": "career.path",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "thiên hướng nghề bếp, ẩm thực",
+   "short": "thiên hướng ẩm thực"
+  },
+  {
+   "id": "path.politics",
+   "facet": "career.path",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "khiếu hoạt động chính trị, việc chung",
+   "short": "khiếu chính trị"
+  },
+  {
+   "id": "path.finance",
+   "facet": "career.path",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "thiên hướng nghề tài chính, kinh tế",
+   "short": "thiên hướng tài chính"
+  },
+  {
+   "id": "path.water",
+   "facet": "career.path",
+   "pol": "~",
+   "kind": "tendency",
+   "np": "thiên hướng làm ăn với sông nước",
+   "short": "nghề sông nước"
+  },
+  {
+   "id": "exp.arts",
+   "facet": "career.expertise",
+   "pol": "+",
+   "kind": "capacity",
+   "np": "năng khiếu văn nghệ, nghệ thuật",
+   "short": "năng khiếu nghệ thuật"
+  },
+  {
+   "id": "career.volatile",
+   "facet": "career.trajectory",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "đường công danh lúc lên lúc xuống",
+   "short": "công danh thăng trầm"
+  },
+  {
+   "id": "fin.hidden",
+   "facet": "finance.retention",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "của cải cất giữ kín đáo",
+   "short": "của cất giữ kín"
+  },
+  {
+   "id": "rel.dominant",
+   "facet": "relationships.marriage",
+   "pol": "~",
+   "kind": "outcome",
+   "np": "chuyện một bên lấn át bên kia trong nhà",
+   "short": "một bên lấn át"
+  },
+  {
+   "id": "rel.uplift",
+   "facet": "relationships.marriage",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "sự gây dựng, đem lợi cho chồng con",
+   "short": "vượng phu ích tử"
+  },
+  {
+   "id": "parents.clash",
+   "facet": "relationships.parents",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "sự khác tính, xung khắc giữa cha mẹ và con",
+   "short": "cha mẹ con khác tính"
+  },
+  {
+   "id": "parents.kind",
+   "facet": "relationships.parents",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "cha mẹ hiền đức",
+   "short": "cha mẹ hiền đức"
+  },
+  {
+   "id": "parents.long_lived",
+   "facet": "relationships.parents",
+   "pol": "+",
+   "kind": "outcome",
+   "np": "cha mẹ sống thọ",
+   "short": "cha mẹ thọ"
+  },
+  {
+   "id": "fortune.feud",
+   "facet": "life.fortune",
+   "pol": "-",
+   "kind": "outcome",
+   "np": "mối oán thù kéo dài trong họ",
+   "short": "oán thù trong họ"
   }
  ]
 }

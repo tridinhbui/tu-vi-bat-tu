@@ -4,7 +4,7 @@
     python tools/show_page.py TH 114 --image DIR  # DIR/TH_114.png
     python tools/show_page.py KL 218 --check "quote text"  # is the quote on the page (book_text.quote_on_page)?
 
-Books: KL, TH, TT (tools/book_text.py). Printed page number == PDF page number."""
+Books: KL, TH, TT, HS (tools/book_text.py). Printed page number == PDF page number, except HS (PDF = printed + 1)."""
 from __future__ import annotations
 
 import sys

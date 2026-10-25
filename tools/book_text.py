@@ -3,7 +3,8 @@
 The tuviglobal PDFs carry a VNI-Windows text layer ("TÖÛ VI KHAÛO LUAÄN"); `decode` turns it into Unicode so quotes can be
 checked against the printed page. Pages whose text layer is scanned/garbled must be read as images (see `render`).
 Books are NOT part of the repository: they are looked up in $TVBT_BOOKS_DIR (default ~/Downloads) and every consumer must
-cope with their absence (tests skip).  Printed page number = PDF index + 1 (checked on all three books)."""
+cope with their absence (tests skip).  Printed page number = PDF index + 1 (checked on KL, TH, TT); Tử Vi Hàm Số (HS, a Word
+print of the 1972 book) starts with a blank cover page, so its printed page N is PDF page N + 1 (`PDF_OFFSET`)."""
 from __future__ import annotations
 
 import os
@@ -11,8 +12,9 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-BOOK_FILES = {"KL": "TuViKhaoLuan.pdf", "TH": "TuViThucHanh.pdf", "TT": "Tử Vi Đẩu Số Toàn Thư.pdf"}
-BOOK_NAMES = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư"}
+BOOK_FILES = {"KL": "TuViKhaoLuan.pdf", "TH": "TuViThucHanh.pdf", "TT": "Tử Vi Đẩu Số Toàn Thư.pdf", "HS": "tu-vi-ham-so.pdf"}
+BOOK_NAMES = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư", "HS": "Tử Vi Hàm Số"}
+PDF_OFFSET = {"HS": 1}
 
 
 def books_dir() -> Path:
@@ -58,11 +60,11 @@ def _doc(book: str):
 
 
 def page_text(book: str, page: int) -> str:
-    return decode(_doc(book)[page - 1].get_text())
+    return decode(_doc(book)[page - 1 + PDF_OFFSET.get(book, 0)].get_text())
 
 
 def render(book: str, page: int, out: str, zoom: float = 1.5) -> str:
-    _doc(book)[page - 1].get_pixmap(matrix=__import__("fitz").Matrix(zoom, zoom)).save(out)
+    _doc(book)[page - 1 + PDF_OFFSET.get(book, 0)].get_pixmap(matrix=__import__("fitz").Matrix(zoom, zoom)).save(out)
     return out
 
 
