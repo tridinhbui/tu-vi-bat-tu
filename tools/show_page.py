@@ -6,7 +6,8 @@
 
     python tools/show_page.py WEB:CTBG 三春甲木 --check "丙火为尊"   # a saved web snapshot, by chapter
 
-Books: KL, TH, TT, HS (tools/book_text.py); WEB:<id> for engine/data/sources_web/. Printed page number == PDF page number, except HS (PDF = printed + 1)."""
+Books: KL, TH, TT, HS (tools/book_text.py); WEB:<id> for engine/data/sources_web/. Printed page number == PDF page number,
+except HS (PDF = printed + 1)."""
 from __future__ import annotations
 
 import sys

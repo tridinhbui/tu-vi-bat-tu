@@ -114,7 +114,7 @@ function reportFoot(prefix, prose) {
   const draft = ps.some(p => p.draft !== false), limits = [...new Set(ps.flatMap(p => p.evidence?.limits || []))];
   const advice = ps.some(p => p.advice?.strengths?.length || p.advice?.actions?.length);
   const li = [
-    'Văn bản do bộ máy ghép, không dùng mô hình AI: chỉ gồm nhận định đã đối chiếu sách, dữ kiện tính từ lá số và lời nối của hệ thống. Nhấn vào một câu để xem câu sách, trang sách và ghi chú phía sau nó.',
+    'Văn bản do bộ máy ghép, chỉ gồm nhận định đã đối chiếu sách, dữ kiện tính từ lá số và lời nối của hệ thống. Nhấn vào một câu để xem câu sách, trang sách và ghi chú phía sau nó.',
     prefix === 'tv' ? `Độ sáng các sao theo bảng ${DG_NAME[prSchool] || prSchool}${prSchool !== 'thuc_hanh' ? '; nhận định của sách Thực Hành, Toàn Thư được xét trên bảng này' : ''}.` : '',
     advice ? 'Các gợi ý hướng hành động là lời của hệ thống, rút từ chính các nét đã nêu; không phải lời sách.' : '',
     draft ? 'Thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt.' : '',
