@@ -301,7 +301,24 @@ function showHist() {
     <span class="note">${x.moment.day}/${x.moment.month}/${x.moment.year} ${String(x.moment.hour).padStart(2, '0')}:${String(x.moment.minute).padStart(2, '0')} · ${esc(x.moment.place)} · ${esc(x.verdict)}</span>
     <button type="button" class="hz-del" data-del="${i}" aria-label="Xóa câu hỏi này">Xóa</button></li>`).join('');
   $$('#hz-history-list [data-i]').forEach(b => { b.onclick = () => { const x = loadHist()[+b.dataset.i]; run(x.moment, x.frame, { fingerprint: x.fingerprint }).catch(err => msg(err.message)); }; });
-  $$('#hz-history-list [data-del]').forEach(b => { b.onclick = () => { const h2 = loadHist(); h2.splice(+b.dataset.del, 1); saveHist(h2); showHist(); }; });
+  $$('#hz-history-list [data-del]').forEach(b => {
+    b.onclick = () => {
+      const h2 = loadHist(), [gone] = h2.splice(+b.dataset.del, 1); saveHist(h2); showHist();
+      if (gone) fetch('/api/me/horary/' + encodeURIComponent(gone.id), { method: 'DELETE', credentials: 'same-origin', headers: { 'x-tvbt': '1' } }).catch(() => {});
+    };
+  });
+}
+// signed in: merge the account's saved questions into this device's list (the account copy wins for the same id)
+async function syncCloud() {
+  try {
+    const r = await fetch('/api/me/horary', { credentials: 'same-origin' });
+    if (!r.ok) return;
+    const { items } = await r.json();
+    const byId = new Map(loadHist().map(x => [x.id, x]));
+    for (const it of items) byId.set(it.id, it);
+    saveHist([...byId.values()].sort((a, b) => (b.saved_at || 0) - (a.saved_at || 0)));
+    showHist();
+  } catch { /* offline or no accounts */ }
 }
 const msg = t => { $('#hz-action-msg').textContent = t; };
 $('#hz-save').onclick = async () => {
@@ -332,7 +349,7 @@ addEventListener('afterprint', () => document.body.classList.remove('hz-printing
 addEventListener('beforeprint', () => document.body.classList.add('hz-printing'));
 $('#hz-new').onclick = () => { $('#hz-result').hidden = true; $('#hz-confirm').hidden = true; form.text.value = ''; form.text.focus(); history.replaceState(null, '', location.pathname); };
 
-showHist();
+showHist(); syncCloud();
 const shared = location.hash.match(/^#q=([A-Za-z0-9_-]+)$/);
 if (shared) {
   try {
