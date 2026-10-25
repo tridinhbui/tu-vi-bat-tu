@@ -500,6 +500,8 @@ from . import phi_hoa_api  # noqa: E402  (opt-in draft Phi Hóa school)
 phi_hoa_api.register(app, BirthReq, _compute)
 from . import growth_api  # noqa: E402  (Personal Growth layer, behind TVBT_GROWTH)
 growth_api.register(app, BirthReq, _compute)
+from . import iching_api  # noqa: E402  (Kinh Dịch and Mai Hoa casts: facts only)
+iching_api.register(app)
 
 # Everything else under web/ (generated article pages, xem-ngay, manifest, service worker, icons): last, so it never shadows an API
 # route. Production serves these as Worker static assets; this mount makes a local uvicorn run match.
