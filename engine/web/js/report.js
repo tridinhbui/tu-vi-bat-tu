@@ -75,31 +75,49 @@ const prFeedback = i => `<div class="pr-fb" data-p="${i}" role="group" aria-labe
   <button type="button" class="pr-fb-b" data-v="up" aria-label="Đoạn này hữu ích" aria-pressed="false">${PR_FB_ICON.up}</button>
   <button type="button" class="pr-fb-b" data-v="down" aria-label="Đoạn này chưa ổn" aria-pressed="false">${PR_FB_ICON.down}</button>
   <button type="button" class="pr-fb-b" data-v="say" aria-label="Góp ý cho đoạn này" aria-expanded="false">${PR_FB_ICON.say}</button></div>`;
-function proseHtml(p) {
+/** `skip(para)`: paragraphs told elsewhere (the Mệnh portrait, lifted into Chân dung lá số); `only`: tell just these */
+function proseHtml(p, { skip = null, only = null, title: title0 = null } = {}) {
   if (!p?.paragraphs?.length) return '';
-  const title = p.title ? esc(p.title) : p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
+  const title = title0 ? esc(title0) : p.title ? esc(p.title) : p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
   const block = (para, i) => `<div class="pr-block"${para.part ? ` data-part="${para.part}"` : ''}>${para.deep && para.title ? `<h5 class="pr-deep-t">${esc(para.title)}</h5>` : ''}<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`;
   // Tử Vi luận cung: the short reading first; the deep reading (prose/luan_deep.ts, paragraphs marked deep) folds under "Đọc sâu", closed
-  const items = p.paragraphs.map((para, i) => ({ para, i }));
-  const short = items.filter(x => !(p.luan && x.para.deep)), deep = p.luan ? items.filter(x => x.para.deep) : [];
+  const items = p.paragraphs.map((para, i) => ({ para, i })).filter(x => !(skip && skip(x.para)) && (!only || only(x.para)));
+  if (!items.length) return '';
+  // a lifted excerpt (`only`) is told open, without the chapter's folds and lists
+  const short = items.filter(x => !(p.luan && x.para.deep && !only)), deep = p.luan && !only ? items.filter(x => x.para.deep) : [];
   const deepHtml = deep.length ? `<details class="pr-deep"><summary><span class="cb-t">Đọc sâu</span><span class="cb-s">${deep.map(x => esc(x.para.title || '')).filter(Boolean).join(' · ')}</span></summary>${deep.map(x => block(x.para, x.i)).join('')}</details>` : '';
-  return `<section class="synth prose${p.luan ? ' pr-luan' : ''}${p.locked ? ' pw-cut' : ''}" data-chapter="${esc(p.chapter)}" data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
+  return `<section class="synth prose${p.luan ? ' pr-luan' : ''}${p.locked ? ' pw-cut' : ''}" data-chapter="${esc(p.chapter)}"${only ? ' data-lifted="1"' : ''} data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
     ${short.map(x => block(x.para, x.i)).join('')}${deepHtml}
-    <div class="pr-why small" hidden></div>${lockHtml(p)}${adviceHtml(p.advice)}${aiSlot(p.chapter)}${prDiverge(p)}${luanBasis(p)}</section>`;
+    <div class="pr-why small" hidden></div>${only ? '' : `${lockHtml(p)}${adviceHtml(p.advice)}${aiSlot(p.chapter)}${prDiverge(p)}${luanBasis(p)}`}</section>`;
 }
 // Tử Vi luận cung: the chapter's sources and the domain verdicts it concluded on (frame part 6), folded under the reading, closed. Each verdict
 // is the report-wide ledger's (src/interpret/reason/ledger.ts): every chapter says the same about the same domain.
 const LV_VI = { thuan: 'thuận', co_dieu_kien: 'có điều kiện', hai_chieu: 'hai chiều', tro_ngai: 'trở ngại', chua_du: 'chưa đủ căn cứ' };
 const LK_VI = { timing: 'lời sách về thời điểm nối hai mặt', book: 'quan hệ sách giữa hai nhận định', specific: 'nhận định cụ thể hơn được lấy làm nền', tier: 'nhận định đứng trên sao gốc hơn được lấy làm nền',
   structure: 'yếu tố hạn chế ngay trong cung', single: 'chỉ dựa vào một sao phụ' };
+/** a ledger chain with its reading steps grouped by rule: one step per rule, `palaces` every palace it was read at, in order */
+function byRule(chain) {
+  const out = [], at = new Map();
+  for (const x of chain || []) {
+    if (x.type !== 'reading' || !x.ruleId) { out.push(x); continue; }
+    const g = at.get(x.ruleId);
+    if (g) { if (x.palace && !g.palaces.includes(x.palace)) g.palaces.push(x.palace); continue; }
+    const n = { ...x, palaces: x.palace ? [x.palace] : [] };
+    at.set(x.ruleId, n); out.push(n);
+  }
+  return out;
+}
 function luanBasis(p) {
   if (!p?.luan) return '';
   const R = p.evidence?.rules || {}, L = p.evidence?.ledger || [];
   const cites = [...new Set(p.paragraphs.flatMap(x => x.sentences.flatMap(s => s.trace.cites || [])))].sort();
-  const step = x => x.type === 'reading' ? `<li><b>${esc((R[x.ruleId]?.cites || [x.cite || '']).map(prCite).join('; ') || '—')}</b> ${esc(R[x.ruleId]?.reading || x.note)} <span class="muted">· cung ${esc(x.palace || '')}</span></li>`
+  // a rule read at several palaces is one line ("áp vào: Mệnh, Quan Lộc"); one already listed under an earlier domain is only named again
+  const seen = new Map();
+  const step = (x, v) => x.type === 'reading' ? (seen.has(x.ruleId) && seen.get(x.ruleId) !== v.label ? `<li class="muted"><code>${esc(x.ruleId)}</code> · đã nêu ở mục ${esc(seen.get(x.ruleId))}</li>`
+      : (seen.set(x.ruleId, v.label), `<li><b>${esc((R[x.ruleId]?.cites || [x.cite || '']).map(prCite).join('; ') || '—')}</b> ${esc(R[x.ruleId]?.reading || x.note)} <span class="muted">· áp vào: ${esc(x.palaces.join(', '))}</span></li>`))
     : x.type === 'fact' ? `<li><span class="an-b an-tinh_toan">Dữ kiện</span> ${esc(x.note)}</li>`
     : x.type === 'verdict' ? '' : `<li><span class="an-b an-he_thong">Phân xử</span> ${esc(LK_VI[x.note] || x.note)}${x.ruleId && R[x.ruleId] ? ` · ${esc(R[x.ruleId].reading)}` : ''}</li>`;
-  const doms = L.map(v => `<h5>${esc(v.label)}: ${esc(LV_VI[v.verdict] || v.verdict)}${v.link ? ` <span class="muted">(${esc(LK_VI[v.link.kind] || v.link.kind)})</span>` : ''}</h5><ul class="pr-rules">${v.chain.map(step).join('')}</ul>`).join('');
+  const doms = L.map(v => `<h5>${esc(v.label)}: ${esc(LV_VI[v.verdict] || v.verdict)}${v.link ? ` <span class="muted">(${esc(LK_VI[v.link.kind] || v.link.kind)})</span>` : ''}</h5><ul class="pr-rules">${byRule(v.chain).map(x => step(x, v)).join('')}</ul>`).join('');
   const mh = p.paragraphs.flatMap(x => x.sentences).filter(s => s.trace.basis === 'minh_hoa').length;
   if (!doms && !cites.length) return '';
   return `<details class="ch-basis pr-basis"><summary><span class="cb-t">Căn cứ của phần luận này</span><span class="cb-s">kết luận chung theo từng lĩnh vực và trang sách đã dùng</span></summary>
@@ -108,6 +126,7 @@ function luanBasis(p) {
 }
 /** The one line under a whole report (Tử Vi or Bát Tự), with what used to sit under every chapter folded beneath it: how the text is made,
  *  the dignity table, the draft status, what the reading does not cover yet. `prose` are the report's prose chapters. */
+const NOT_TESTED = 'Đối chiếu sách không có nghĩa là dự đoán đã được kiểm chứng bằng thực nghiệm.';
 function reportFoot(prefix, prose) {
   const ps = prose.filter(p => p?.paragraphs?.length);
   if (!ps.length) return '';
@@ -120,7 +139,7 @@ function reportFoot(prefix, prose) {
     draft ? 'Thư viện câu chữ đang là bản nháp, chưa qua chuyên gia duyệt.' : '',
     limits.length ? `Chưa nói đến: ${limits.join('; ')}.` : '',
   ].filter(Boolean);
-  return `<div class="rp-foot small"><p>Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p><details><summary>Về bản luận giải này</summary><ul>${li.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details></div>`;
+  return `<div class="rp-foot small"><p>Đây là cách đọc theo hệ biểu tượng truyền thống, không phải dự báo.</p><p>${NOT_TESTED}</p><details><summary>Về bản luận giải này</summary><ul>${li.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details></div>`;
 }
 // what the voiced traits suggest doing (chapter.ts adviceOf): strengths to lean on, habits to watch; the system's wording, said as such
 function adviceHtml(a) {
@@ -152,7 +171,11 @@ function proseWhy(p, key) {
   const res = t.resolution ? `<p><b>Phân xử:</b> câu sách ở ${esc(prCite(t.resolution.cite || ''))} làm mềm nhận định bất lợi đi kèm (quan hệ <code>${esc(t.resolution.relation)}</code>).</p>` : '';
   // under a rescue, the readings it softened are listed for the record but marked: the text does not voice them as they stand
   const softened = id => t.resolution && id !== t.resolution.byRule ? ' <span class="muted">· đã được câu sách trên làm mềm, văn bản không nêu nguyên ý này</span>' : '';
-  const rules = t.rules.map(id => R[id] ? `<li><b>${esc(R[id].cites.map(prCite).join('; ') || '—')}</b> ${esc(R[id].reading)}${softened(id)} <code class="muted">${esc(id)}</code></li>` : `<li><code>${esc(id)}</code></li>`).join('');
+  // one line per rule, with every palace the chapter's verdicts read it at (the ledger chains)
+  const at = new Map();
+  for (const v of p.evidence?.ledger || []) for (const x of byRule(v.chain)) if (x.palaces?.length) at.set(x.ruleId, [...new Set([...(at.get(x.ruleId) || []), ...x.palaces])]);
+  const where = id => at.get(id)?.length ? ` <span class="muted">· áp vào: ${esc(at.get(id).join(', '))}</span>` : '';
+  const rules = [...new Set(t.rules)].map(id => R[id] ? `<li><b>${esc(R[id].cites.map(prCite).join('; ') || '—')}</b> ${esc(R[id].reading)}${softened(id)}${where(id)} <code class="muted">${esc(id)}</code></li>` : `<li><code>${esc(id)}</code></li>`).join('');
   // what the text leaves out on purpose (a caveat, a position the books give no reading, the centre of the reading): the sentence's note
   const note = t.note ? `<p class="pr-note"><b>Ghi chú:</b> ${esc(t.note)}</p>` : '';
   // a conclusion sentence: the domain verdict it voices; the whole chain is in the chapter's Căn cứ fold
@@ -285,6 +308,22 @@ function chapterBasis(c) {
   if (!inner.trim()) return keep;
   return keep + `<details class="ch-basis"><summary><span class="cb-t">Căn cứ của chương này</span><span class="cb-s">dữ kiện lá số, phân tích cấu trúc và các nhận định theo sách</span></summary>${inner}</details>`;
 }
+// The PDF's short appendix (plan magical-magpie W4): per prose chapter, the rules its sentences rest on with their book pages, each rule listed
+// once (under the first chapter that uses it). Shown in print only; the evidence itself (Vì sao?, Căn cứ) stays out of the reading PDF.
+function appendixHtml(prefix, prose) {
+  const seen = new Set(), cite = prefix === 'bt' ? btCite : prCite;
+  const rows = prose.filter(p => p?.paragraphs?.length).map(p => {
+    const R = p.evidence?.rules || {};
+    const ss = [...p.paragraphs, ...Object.values(p.chapters || {}).flat()].flatMap(x => x?.sentences || []);
+    const ids = [...new Set(ss.flatMap(s => s.trace?.rules || []))].filter(id => !seen.has(id) && seen.add(id)).sort();
+    const pages = [...new Set(ss.flatMap(s => s.trace?.cites || []))].filter(c => !ids.some(id => (R[id]?.cites || []).includes(c)));
+    if (!ids.length && !pages.length) return '';
+    const title = p.title || (p.chapter === 'van_han' ? 'Đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Bát Tự' : `Cung ${p.palace || p.chapter}`);
+    return `<p><b>${esc(title)}.</b> ${ids.map(id => `<code>${esc(id)}</code>${R[id]?.cites?.length ? ` (${esc(R[id].cites.map(cite).join('; '))})` : ''}`).join(', ')}${pages.length ? `${ids.length ? '; ' : ''}${esc(pages.map(cite).join('; '))}` : ''}</p>`;
+  }).filter(Boolean);
+  if (!rows.length) return '';
+  return `<section class="print-appx small" aria-hidden="true"><h4>Phụ lục: quy tắc và trang sách theo chương</h4>${rows.join('')}<p>${NOT_TESTED}</p></section>`;
+}
 function mount(host, chapters, prefix, ctx) {
   const prose = Object.entries(ctx.prose || {}).filter(([k]) => (prefix === 'bt') === k.startsWith('bat_tu')).map(([, p]) => p);
   // the user's own chart, with career / relationship status in the profile: those chapters come right after the overview (focus.js)
@@ -296,8 +335,8 @@ function mount(host, chapters, prefix, ctx) {
   host.innerHTML = `<div class="rp-layout">
     <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li${c.pro ? ' class="pro-only"' : ''}><a href="#${prefix}-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
     <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${c.synth || ''}${chapterBasis(c)}</article>`).join('')}
-      ${reportFoot(prefix, prose)}<div class="sys-switch"><div><b>${prefix === 'bt' ? 'Đã đọc hết phần Bát Tự' : 'Đã đọc hết phần Tử Vi'}</b><span>${prefix === 'bt' ? 'Xem cùng thời điểm sinh theo Tử Vi, hoặc lưu bản luận giải đầy đủ.' : 'Xem cùng thời điểm sinh theo Bát Tự, hoặc lưu bản luận giải đầy đủ.'}</span></div>
-        <div class="sys-act"><button type="button" class="btn btn-sm" data-go="${prefix === 'bt' ? 'tu-vi' : 'bat-tu'}">${prefix === 'bt' ? 'Xem Tử Vi →' : 'Xem Bát Tự →'}</button><button type="button" class="btn btn-ghost btn-sm" data-act="print">Tải PDF</button><button type="button" class="btn btn-ghost btn-sm" data-act="again">Lập lá số khác</button></div></div></div></div>`;
+      ${reportFoot(prefix, prose)}${appendixHtml(prefix, prose)}<div class="sys-switch"><div><b>${prefix === 'bt' ? 'Đã đọc hết phần Bát Tự' : 'Đã đọc hết phần Tử Vi'}</b><span>${prefix === 'bt' ? 'Xem cùng thời điểm sinh theo Tử Vi, hoặc lưu bản luận giải đầy đủ.' : 'Xem cùng thời điểm sinh theo Bát Tự, hoặc lưu bản luận giải đầy đủ.'}</span></div>
+        <div class="sys-act"><button type="button" class="btn btn-sm" data-go="${prefix === 'bt' ? 'tu-vi' : 'bat-tu'}">${prefix === 'bt' ? 'Xem Tử Vi →' : 'Xem Bát Tự →'}</button><button type="button" class="btn btn-ghost btn-sm" data-act="print">Tải PDF</button><button type="button" class="btn btn-ghost btn-sm" data-act="print-full">In bản đầy đủ (kiểm toán)</button><button type="button" class="btn btn-ghost btn-sm" data-act="again">Lập lá số khác</button></div></div></div></div>`;
   autoLink(host, prefix === 'bt' ? 'bt' : 'tv');
   $$('[data-jump]', host).forEach(r => r.onclick = () => $('#' + prefix + '-' + r.dataset.jump, host).scrollIntoView({ behavior: 'smooth', block: 'start' }));
   $$('.ref', host).forEach(r => r.onclick = () => ctx.openPalace(r.dataset.palace));
@@ -474,6 +513,44 @@ function experimentalHtml(x) {
     ${hidden.length ? acc('Các cách đã kiểm tra nhưng không hiện', `${hidden.length} cách`, `<ul class="plain">${hidden.map(f => `<li>${esc(f.name_vi)}</li>`).join('')}</ul>`) : ''}</div>`;
 }
 
+// ---------- tier 1, "Chân dung lá số" (plan magical-magpie W4): the report's conclusions first, each argued in its own chapter ----------
+// Nothing new is concluded here: the lines are the report-wide ledger's domain verdicts (reason/ledger.ts, sent with every luận cung chapter
+// as evidence.ledger) with the one condition each turns on, the closing sentence of the Bát Tự đại vận now running (bazi_deep reconcile),
+// the Mệnh portrait (prose/luan.ts, lifted out of the Mệnh Đọc sâu) and the Tổng luận (prose/tong_luan.ts, moved up from the end).
+const PD_V = { thuan: ['thuận', 'pos'], 'co_dieu_kien+': ['thuận, có điều kiện', 'pos'], 'co_dieu_kien-': ['vướng, có lối gỡ', 'neg'], co_dieu_kien: ['tùy thời điểm', 'mix'],
+  'nghieng_ve+': ['nghiêng về thuận', 'pos'], 'nghieng_ve-': ['nghiêng về khó', 'neg'], giam_nhe: ['khó, có giảm nhẹ', 'neg'], 'giam_nhe-': ['khó, có giảm nhẹ', 'neg'],
+  tro_ngai: ['trở ngại', 'neg'], 'tro_ngai-': ['trở ngại', 'neg'], hai_mat: ['hai mặt', 'mix'], hai_chieu: ['hai chiều', 'open'], chua_phan_xu: ['chưa ngã ngũ', 'open'] };
+const PD_EL = { tuan: 'Tuần', triet: 'Triệt', hoa_ky: 'Hóa Kỵ' };
+/** a book reading without its bracketed scope, short enough for one line */
+const pdReading = r => { const t = String(r?.reading || '').replace(/\s*\([^)]*\)\s*$/, '').trim(); return t.length > 110 ? t.slice(0, 108).replace(/\s+\S*$/, '') + '…' : t; };
+const pdEl = e => { const [k, n] = String(e.id || '').split(':'); return `${n || PD_EL[k] || k} ở cung ${e.palace}`; };
+function portraitHtml(ctx) {
+  const prose = Object.values(ctx.prose || {}).filter(p => p?.luan && !String(p.chapter).startsWith('bat_tu'));
+  const R = Object.assign({}, ...prose.map(p => p.evidence?.rules || {}));
+  const doms = [...new Map(prose.flatMap(p => p.evidence?.ledger || []).map(v => [v.id, v])).values()].filter(v => PD_V[`${v.verdict}${v.base || ''}`] || PD_V[v.verdict]);
+  const row = (label, [vi, tone], cond, title = '') => `<li class="pd-row"><span class="pd-l">${esc(label)}</span><span class="pd-v pd-${tone}">${esc(vi)}</span>${cond ? `<span class="pd-c">${title ? `<b>${esc(title)}</b> ` : ''}${esc(cond)}</span>` : ''}</li>`;
+  const rows = doms.slice(0, 6).map(v => {
+    const L = v.link || {}, chip = PD_V[`${v.verdict}${v.base || ''}`] || PD_V[v.verdict], lab = v.label.charAt(0).toLocaleUpperCase('vi') + v.label.slice(1);
+    // two sides that both stand: the line names each side's book reading and what decides
+    if ((v.verdict === 'chua_phan_xu' || v.verdict === 'hai_chieu') && R[L.ruleId] && R[L.target])
+      return row(lab, chip, `“${pdReading(R[L.ruleId])}” đứng cạnh “${pdReading(R[L.target])}”; bên nào trội tùy đại hạn, lưu niên chạm vào lĩnh vực này.`, 'Hai mặt:');
+    if (L.ruleId && R[L.ruleId] && (L.kind === 'book' || L.kind === 'timing' || L.kind === 'specific')) return row(lab, chip, pdReading(R[L.ruleId]) + '.', 'Điều kiện then chốt:');
+    if (v.limits?.length) return row(lab, chip, `vướng ${v.limits.slice(0, 2).map(pdEl).join(', ')}.`, 'Điều kiện then chốt:');
+    return row(lab, chip, '');
+  });
+  // Bát Tự: the closing sentence of the đại vận now running (prose/bazi_deep.ts, step verdict:l<N>: the combined verdict of the cách table and
+  // the điều hậu cell, said with what decides it)
+  const Y = new Date().getFullYear(), cur = [...(ctx.chartRaw?.bazi?.luck_pillars || [])].reverse().find(l => (l.first_year ?? Infinity) <= Y);
+  const btSay = cur && Object.values(ctx.prose?.bat_tu?.chapters || {}).flat().flatMap(x => x?.sentences || []).find(x => x.trace?.step === `verdict:l${cur.index}`);
+  if (btSay) rows.push(row(`Đại vận Bát Tự ${cur.name} (từ ${cur.first_year})`, ['đang đi', 'open'], btSay.text));
+  const menh = ctx.prose?.menh, isPortrait = para => para.topic === 'chan_dung';
+  const lifted = menh?.paragraphs?.some(isPortrait) ? proseHtml(menh, { only: isPortrait, title: 'Chân dung Mệnh' }) : '';
+  const tl = ctx.prose?.tong_luan?.paragraphs?.length ? proseHtml(ctx.prose.tong_luan) : '';
+  if (!rows.length && !lifted && !tl) return '';
+  return (rows.length ? `<section class="synth pd" aria-label="Kết luận theo từng mặt"><p class="eyebrow">Kết luận theo từng mặt</p><ul class="pd-list">${rows.join('')}</ul>
+    <p class="muted small">Mỗi dòng là kết luận chung của cả bản luận giải, cùng một kết luận ở mọi chương nói về mặt ấy; lập luận và trang sách ở chương tương ứng.</p></section>` : '') + lifted + tl;
+}
+
 export function renderTuviReport(host, chart, ctx) {
   const b = chart.bazi, t = chart.tuvi, tv = ctx.tv, { blocks, calc, ref, trad, deep } = shell(ctx);
   prSchool = t?.school?.dignity_school || 'khao_luan';
@@ -504,7 +581,10 @@ export function renderTuviReport(host, chart, ctx) {
       ${row('Xung chiếu', `${ref(t.palaces.find(x => x.branch === s.opposite).name)}`)}${row('Tam hợp', s.tam_hop.map(x => ref(t.palaces.find(y => y.branch === x).name)).join(' · '))}
       ${P12_CH[p.name] && ctx.prose?.[P12_CH[p.name]]?.paragraphs?.length ? `</div>${proseHtml(ctx.prose[P12_CH[p.name]])}<div class="p12-s">` : row('Nhận định', (pf.length ? `<span class="pro-only">${esc(pf.map(f => claimLabel(f.claim)).join('; '))}</span>` : '<span class="pro-only muted">chưa có quy tắc được kích hoạt</span>') + `<span class="easy-only">${(() => { const sh = classify(pf).show; return sh.length ? esc(sh.map(f => parsePhrase(f).core).join('; ')) : `<span class="muted">${esc(terms()['palace:' + p.name]?.plain || '')} Chưa có luận giải cá nhân hóa cho cung này.</span>`; })()}</span>`)}</div>`);
   }).join('');
+  const pd = portraitHtml(ctx);
   const chapters = [
+    // tier 1: the conclusions first (the ranked Tổng luận, prose/tong_luan.ts, is part of it)
+    ...(pd ? [{ id: 'chan-dung', title: 'Chân dung lá số', lead: 'Các kết luận chính trước, mỗi kết luận một dòng; các chương sau là lập luận cho từng điều.', calc: '', trad: '', synth: pd }] : []),
     { id: 'tong-quan', title: 'Tổng quan Tử Vi', lead: `Lá số lập cho người sinh năm ${esc(t.year_gz)} (âm lịch ${bd(`${t.lunar.day}/${t.lunar.month}/`, t.lunar.day != null, DM)}${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}), ${esc(t.yin_yang_gender)}.`, blocks: blocks('tv', 'tong-quan'),
       calc: calc(`<div class="facts"><div><span class="k">Mệnh cung</span><b>${esc(tv.menh.stem)} ${esc(tv.menh.branch)}</b></div><div><span class="k">Thân cư</span><b>${esc(tv.than.name)}</b></div><div><span class="k">Cục</span><b>${esc(t.cuc.name)}</b></div><div><span class="k">Bản mệnh</span><b>${esc(t.menh_nap_am)}</b></div><div><span class="k">Cục và Mệnh</span><b>${esc(t.menh_cuc_relation)}</b></div><div><span class="k">Đại hạn hiện tại</span><b>${ph.dh ? `${esc(ph.dh.palace)} (${ph.dh.age_from}–${ph.dh.age_to})` : 'chưa vào'}</b></div></div><div class="pro-only">${highlightsHtml(fs, TITLE, chOf)}</div>`),
       trad: `<div class="ch-trad">${notice('Về mức độ tin cậy', 'Chỉ các nhận định đã đối chiếu sách mới được hiển thị. Đây là cách đọc theo hệ biểu tượng, không phải kết luận.', 'info')}</div>` },
@@ -519,14 +599,12 @@ export function renderTuviReport(host, chart, ctx) {
     { id: 'cach-cuc', title: 'Cách cục', lead: 'Những tổ hợp sao đặc biệt trên lá số.', blocks: blocks('tv', 'cach-cuc'),
       calc: calc(`${experimentalHtml(ctx.formations)}<h5>Nhận diện theo tên (vị trí sao)</h5>${(t.extras?.cach_cuc || []).length ? `<ul class="cc-list">${t.extras.cach_cuc.map(x => `<li><b>${esc(x.name)}</b><span class="muted">${esc(x.evidence)}</span></li>`).join('')}</ul><p class="muted small">Đây chỉ là nhận diện tên cách theo vị trí các sao. Ý nghĩa cát hay hung của từng cách chưa được đối chiếu sách nên hệ thống không nêu. Tên cách và nhóm sao theo thông lệ phổ biến, chưa đối chiếu trang sách.</p>` : '<p class="muted">Không nhận ra cách nào trong danh sách các cách được kiểm tra.</p>'}<h5>Nhận định từ bộ quy tắc</h5><p>Số nhận định về cách cục: ${of('cach-cuc').length || 'không có'}.</p>`),
       trad: (() => { const c = of('cach-cuc'); return `<div class="ch-trad"><p class="eyebrow">Diễn giải truyền thống</p><div class="pro-only">${c.length ? `<button type="button" class="btn btn-ghost btn-sm ig-toggle" aria-pressed="false">Xem đồ thị suy luận</button><div class="ig-box" hidden>${inferenceGraph(c[0])}<p class="muted small">Ví dụ cho nhận định đầu tiên.</p></div>${findingList(c, { label: true })}` : notice('Không có cách cục nào được nhận ra', '')}</div><div class="easy-only">${easyReadings(c, { where: shell(ctx).where, empty: emptyReading('tv:cach-cuc', terms()) })}</div></div>`; })() },
-    // the closing ranked conclusion (prose/tong_luan.ts): no calculation block of its own, only the reader prose
-    { id: 'tong-luan', title: 'Tổng luận', lead: 'Xếp thứ bậc các mặt của lá số và các chặng then chốt của đời người.', calc: '', trad: '' },
     { id: 'muoi-hai-cung', title: 'Toàn bộ mười hai cung', lead: 'Tra nhanh từng cung: sao, Tứ Hóa, Tuần Triệt, đại hạn và nhận định.', calc: calc(`<div class="p12">${p12}</div>`), trad: '' },
     { id: 'chuyen-sau', pro: true, title: 'Luận giải chuyên sâu', lead: 'Văn bản do bộ máy sinh từ các nhận định, kèm vết tính toán.', calc: deep('tu_vi', 'Tử Vi', { normalization: ctx.chartRaw.normalization_trace.steps, tuvi: t.trace.steps }), trad: '' },
   ];
   if (ctx.synth?.chapters) {
     const by = Object.fromEntries(ctx.synth.chapters.map(c => [c.id, c]));
-    chapters.forEach(c => { c.synth = synthHtml(by[SY_CH[c.id]]); });
+    chapters.forEach(c => { c.synth = (c.synth || '') + synthHtml(by[SY_CH[c.id]]); });
   }
   if (ctx.interp?.report?.chapters) {
     const ev = Object.fromEntries(ctx.interp.report.chapters.map(c => [c.id, c]));
@@ -534,13 +612,11 @@ export function renderTuviReport(host, chart, ctx) {
   }
   // reader prose per chapter (/api/interpret mode "prose"): Mệnh -> Bản Mệnh, Công danh -> Công danh, Tài Bạch -> Tài Bạch
   const PR_CH = { tong_quan: 'tong-quan', menh: 'ban-menh', cong_danh: 'cong-danh', tai_bach: 'tai-bach', thien_di: 'cong-danh', phu_the: 'quan-he', phuc_duc: 'tinh-cach', dien_trach: 'tai-bach', no_boc: 'quan-he',
-    tu_tuc: 'quan-he', huynh_de: 'quan-he', phu_mau: 'quan-he', tat_ach: 'tinh-cach', van_han: 'dai-han', tong_luan: 'tong-luan', cach_cuc: 'cach-cuc' };
+    tu_tuc: 'quan-he', huynh_de: 'quan-he', phu_mau: 'quan-he', tat_ach: 'tinh-cach', van_han: 'dai-han', cach_cuc: 'cach-cuc' };
   const prByCh = {};
-  for (const [k, id] of Object.entries(PR_CH)) { const p = ctx.prose?.[k]; if (p?.paragraphs?.length) prByCh[id] = (prByCh[id] || '') + proseHtml(p); }
+  // the Mệnh portrait is told in Chân dung lá số when that chapter exists
+  for (const [k, id] of Object.entries(PR_CH)) { const p = ctx.prose?.[k]; if (p?.paragraphs?.length) prByCh[id] = (prByCh[id] || '') + proseHtml(p, k === 'menh' && pd ? { skip: para => para.topic === 'chan_dung' } : {}); }
   for (const [id, html] of Object.entries(prByCh)) { const c = chapters.find(x => x.id === id); if (c) c.synth = html + (c.synth || ''); }
-  // Tổng luận exists only as reader prose: without it the chapter is left out
-  const tl = chapters.findIndex(c => c.id === 'tong-luan');
-  if (tl >= 0 && !chapters[tl].synth) chapters.splice(tl, 1);
   mount(host, chapters, 'tv', ctx);
   if (ctx.prose) bindProse(host, ctx.prose);
   yearExplorer($('#tv-year', host), ctx.req, b, 'tuvi');

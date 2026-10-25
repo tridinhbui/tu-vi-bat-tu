@@ -72,6 +72,7 @@ document.addEventListener('click', e => {
   const act = a.dataset.act;
   if (act === 'sample') { e.preventDefault(); loadSample().then(() => setTab(a.dataset.tab || 'tuvi')); }
   else if (act === 'print') { e.preventDefault(); printNow(); }
+  else if (act === 'print-full') { e.preventDefault(); printNow(true); }
   else if (act === 'again') { e.preventDefault(); again(); }
   else if (act === 'save') { e.preventDefault(); $('#save-host button')?.click(); $('.atl-mast').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
   else if (act === 'scroll') { e.preventDefault(); $(a.dataset.target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
@@ -161,7 +162,7 @@ addEventListener('tvbt:unlocked', async e => {
   await generate(null, { ...state.req });
   if (sys) setTab(sys, false);
   if (id) requestAnimationFrame(() => {
-    const sec = document.querySelector(`.prose[data-chapter="${CSS.escape(id)}"]`);
+    const sec = document.querySelector(`.prose[data-chapter="${CSS.escape(id)}"]:not([data-lifted])`);
     // the bought Đọc sâu stays folded; the reader opens it from its dropdown
     sec?.scrollIntoView({ block: 'start' });
   });
@@ -216,7 +217,7 @@ form.onsubmit = generate;
 const savedList = $('#saved-list'), openSaved = r => generate(null, r);
 renderSaved(savedList, openSaved);
 const compare = initCompare($('#cmp-host'));
-initPrint($('#print-btn'));
+initPrint($('#print-btn'), $('#print-full-btn'));
 const saver = initSave($('#save-host'), () => state?.req, () => { renderSaved(savedList, openSaved); paintShareBtn(); });
 const acctPage = initAccountPage($('#account-view'), {
   placeOptions: form.place.innerHTML, onPrefill: p => prefill(p), compare,

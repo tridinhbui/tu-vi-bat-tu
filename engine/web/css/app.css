@@ -502,7 +502,14 @@ body[data-depth=pro] .sy-b-he_thong{text-decoration:underline dotted color-mix(i
 
 /* ===== Print / "Tải PDF": both systems, plain-language mode, no controls ===== */
 .res-act{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.print-note{display:none}
-body.hour-mode #print-btn{display:none}
+body.hour-mode #print-btn,body.hour-mode #print-full-btn{display:none}
+@media(max-width:700px){#print-full-btn{display:none}}
+.print-appx{display:none}
+/* Chân dung lá số: one line per conclusion, its verdict as a chip */
+.pd-list{list-style:none;margin:0 0 8px;padding:0}.pd-row{display:grid;grid-template-columns:minmax(9em,15em) auto 1fr;gap:4px 12px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--bd)}
+.pd-l{font-weight:600;color:var(--text)}.pd-v{font-size:.78rem;padding:1px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap;justify-self:start}
+.pd-pos{color:#2f7a4b}.pd-neg{color:#a2452f}.pd-mix{color:#8a6a1f}.pd-open{color:var(--muted)}.pd-c{color:var(--text2);font-size:.9rem}
+@media(max-width:600px){.pd-row{grid-template-columns:1fr auto}.pd-c{grid-column:1/-1}}
 @media print{
   @page{size:A4;margin:12mm}
   html,body{background:#fff!important;color:#222}
@@ -531,6 +538,11 @@ body.hour-mode #print-btn{display:none}
   .print-note{display:block;margin-top:14pt;padding-top:8pt;border-top:1px solid #bbb;font-size:9pt;color:#555}
   .acc{break-inside:auto}.acc-b{display:block!important}
   .gd-chap svg,.gd-chap .gd-who,.gd-sr{display:none!important}.gd-chap .gd-bub{padding:0}
+  /* the reading PDF (plan magical-magpie W4): tier 3 (the evidence) stays out, the appendix lists rules and pages; body.print-full keeps all */
+  body:not(.print-full) :is(.fl-why,.ch-basis,.pr-basis,.pr-div,pre.trace,#tv-chuyen-sau,#bt-chuyen-sau,#tv-muoi-hai-cung){display:none!important}
+  body:not(.print-full) .print-appx{display:block;break-before:page;margin-top:14pt;font-size:8pt;line-height:1.45;color:#333}
+  .synth.pd,.pd-row{break-inside:avoid}
+  .print-appx h4{font-size:11pt;margin:0 0 6pt}.print-appx p{margin:0 0 4pt}.print-appx code{font-size:7.5pt}
 }
 .yx-year{margin:0 0 10px;font-size:.95rem;color:var(--text2)}
 
