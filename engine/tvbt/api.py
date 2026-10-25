@@ -20,6 +20,8 @@ from .reasoning import engine, facts
 
 ROOT = Path(__file__).resolve().parent.parent
 app = FastAPI(title="tvbt", version="0.1.0")
+from horary.api import router as horary_router  # noqa: E402  (chiêm tinh vấn sự, engine/horary)
+app.include_router(horary_router)
 # Same paths the Worker serves as static assets, so local/uvicorn runs match production.
 app.mount("/css", StaticFiles(directory=ROOT / "web" / "css"), name="css")
 app.mount("/js", StaticFiles(directory=ROOT / "web" / "js"), name="js")

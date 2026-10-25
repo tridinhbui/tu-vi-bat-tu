@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Chiêm tinh vấn sự (Horary): hỏi một việc, luận theo Lilly | Thiên Bàn</title>
+<meta name="description" content="Đặt một câu hỏi cụ thể, Thiên Bàn lập bản đồ sao cho đúng lúc câu hỏi được tiếp nhận và luận theo quy tắc chiêm tinh vấn sự cổ điển (William Lilly, 1647), từng bước có căn cứ.">
+<link rel="canonical" href="https://tu-vi-bat-tu.tridinhbui0901.workers.dev/chiem-tinh-van-su/">
+<meta property="og:site_name" content="Thiên Bàn">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chiêm tinh vấn sự (Horary) — Thiên Bàn">
+<meta property="og:description" content="Hỏi một việc, nhận bản đồ sao của khoảnh khắc đó và lời luận theo Lilly, có căn cứ từng bước.">
+<meta property="og:url" content="https://tu-vi-bat-tu.tridinhbui0901.workers.dev/chiem-tinh-van-su/">
+<meta property="og:image" content="https://tu-vi-bat-tu.tridinhbui0901.workers.dev/icons/og.png">
+<meta name="theme-color" content="#FAF6EF">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/content.css">
+<link rel="stylesheet" href="/css/horary.css">
+</head>
+<body class="cpage hz-page">
+<a class="skip" href="#main">Bỏ qua điều hướng</a>
+<header class="site-header stuck"><div class="wrap hdr">
+<a class="brand" href="/" aria-label="Thiên Bàn, trang chủ"><span class="brand-t"><b>Thiên Bàn</b><small>Tử Vi · Bát Tự</small></span></a>
+<nav class="nav cnav" aria-label="Điều hướng chính"><a href="/bai-viet/">Bài viết</a><a href="/xem-ngay/">Xem ngày</a><a href="/chiem-tinh-van-su/" aria-current="page">Vấn sự</a><a href="/gioi-thieu/">Giới thiệu</a></nav>
+<a class="btn btn-sm hdr-cta" href="/#lap-la-so">Lập lá số</a>
+</div></header>
+<main id="main" class="wrap cmain hz-main">
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="/">Thiên Bàn</a></li><li aria-current="page">Chiêm tinh vấn sự</li></ol></nav>
+
+<section class="hz-intro">
+  <p class="eyebrow">Chiêm tinh vấn sự · Horary</p>
+  <h1>Hỏi một việc, đọc bầu trời của đúng khoảnh khắc ấy</h1>
+  <p class="lead">Bạn đặt một câu hỏi cụ thể. Thiên Bàn lập bản đồ sao cho lúc câu hỏi được tiếp nhận, xác định hành tinh đại diện cho bạn và cho việc được hỏi, rồi luận theo quy tắc của William Lilly (<i>Christian Astrology</i>, 1647), từng bước có căn cứ.</p>
+  <p class="hz-truth"><b>Hai thứ khác nhau:</b> vị trí các hành tinh được tính bằng lịch thiên văn JPL DE440s, chính xác và kiểm tra được. Còn lời luận là quy tắc của một truyền thống diễn giải; chưa có bằng chứng khoa học đáng tin cậy rằng nó dự báo được sự việc.</p>
+</section>
+
+<section class="hz-step" id="hz-ask" aria-labelledby="hz-ask-h">
+  <h2 id="hz-ask-h"><span class="hz-n">1</span> Đặt câu hỏi</h2>
+  <form id="hz-form" class="hz-form" novalidate>
+    <label class="fld hz-q"><span>Câu hỏi của bạn (một việc, viết rõ của ai)</span>
+      <textarea name="text" id="hz-text" rows="3" maxlength="500" required placeholder="Ví dụ: Tôi có được nhận vào công ty ABC sau buổi phỏng vấn hôm qua không?"></textarea>
+    </label>
+    <p class="note" id="hz-q-tip">Mỗi lá số chỉ nên hỏi một việc. Chiêm tinh vấn sự trả lời việc có thành không, diễn biến ra sao, khi nào; quyết định vẫn là của bạn.</p>
+    <fieldset class="fld hz-when"><legend>Thời điểm tiếp nhận câu hỏi</legend>
+      <div class="seg" role="radiogroup">
+        <label><input type="radio" name="when" value="now" checked><span>Ngay bây giờ</span></label>
+        <label><input type="radio" name="when" value="manual"><span>Lúc khác</span></label>
+      </div>
+      <div class="hz-manual" id="hz-manual" hidden>
+        <label class="fld"><span>Ngày</span><input type="date" name="date"></label>
+        <label class="fld"><span>Giờ</span><input type="time" name="time" step="60"></label>
+      </div>
+      <p class="note" id="hz-now"></p>
+    </fieldset>
+    <div class="hz-place">
+      <label class="fld"><span>Nơi tiếp nhận</span><select name="place" id="hz-place"></select></label>
+      <div class="hz-other" id="hz-other" hidden>
+        <label class="fld"><span>Vĩ độ (Bắc +)</span><input name="lat" type="number" step="0.0001" min="-66" max="66" inputmode="decimal"></label>
+        <label class="fld"><span>Kinh độ (Đông +)</span><input name="lon" type="number" step="0.0001" min="-180" max="180" inputmode="decimal"></label>
+        <label class="fld"><span>Múi giờ (IANA)</span><input name="tz" value="Asia/Ho_Chi_Minh" autocomplete="off" list="hz-tzs"></label>
+        <datalist id="hz-tzs"><option value="Asia/Ho_Chi_Minh"><option value="Asia/Bangkok"><option value="Asia/Tokyo"><option value="Asia/Seoul"><option value="Asia/Singapore"><option value="Australia/Sydney"><option value="Europe/London"><option value="Europe/Paris"><option value="Europe/Berlin"><option value="America/New_York"><option value="America/Los_Angeles"></datalist>
+        <button type="button" class="link" id="hz-geo">Dùng vị trí hiện tại của thiết bị</button>
+      </div>
+    </div>
+    <details class="hz-adv"><summary>Tùy chọn kỹ thuật</summary>
+      <label class="fld"><span>Hệ nhà</span><select name="house_system" id="hz-hs">
+        <option value="regiomontanus" selected>Regiomontanus (Lilly, mặc định)</option><option value="alcabitius">Alcabitius (trung cổ)</option>
+        <option value="whole_sign">Whole Sign (trọn cung)</option><option value="placidus">Placidus (hiện đại)</option></select></label>
+      <p class="note">Trường phái luận: Lilly (Christian Astrology, 1647). Orb theo bảng tr.107, phẩm chất theo bảng tr.104 và tr.115.</p>
+    </details>
+    <button class="btn" type="submit" id="hz-go"><span class="btn-spin" aria-hidden="true"></span>Phân tích câu hỏi</button>
+  </form>
+</section>
+
+<section class="hz-step" id="hz-confirm" aria-labelledby="hz-confirm-h" hidden>
+  <h2 id="hz-confirm-h"><span class="hz-n">2</span> Xác nhận cách hiểu câu hỏi</h2>
+  <div id="hz-cls" aria-live="polite"></div>
+  <form id="hz-frame" class="hz-frame" novalidate>
+    <div class="hz-frame-grid">
+      <label class="fld"><span>Chủ đề</span><select name="topic" id="hz-topic"></select></label>
+      <label class="fld"><span>Loại câu hỏi</span><select name="subtype" id="hz-sub"></select></label>
+      <label class="fld"><span>Việc này là của ai</span><select name="party" id="hz-party"></select></label>
+    </div>
+    <p class="hz-house" id="hz-house" aria-live="polite"></p>
+    <label class="hz-ok"><input type="checkbox" name="ok" id="hz-ok"> Đúng, tôi hỏi đúng việc này.</label>
+    <button class="btn" type="submit" id="hz-judge" disabled><span class="btn-spin" aria-hidden="true"></span>Lập bản đồ sao và luận</button>
+  </form>
+</section>
+
+<section class="hz-result" id="hz-result" aria-labelledby="hz-verdict" hidden>
+  <div class="hz-verdict" id="hz-verdict-box"><p class="eyebrow">Kết luận theo Lilly</p><h2 id="hz-verdict"></h2><p id="hz-verdict-sub"></p></div>
+  <div class="hz-tabs" role="tablist" aria-label="Chế độ đọc">
+    <button role="tab" aria-selected="true" aria-controls="hz-quick" id="tab-quick">Đọc nhanh</button>
+    <button role="tab" aria-selected="false" aria-controls="hz-deep" id="tab-deep">Đọc sâu</button>
+    <button role="tab" aria-selected="false" aria-controls="hz-tech" id="tab-tech">Bản đồ sao và số liệu</button>
+    <button role="tab" aria-selected="false" aria-controls="hz-flow" id="tab-flow">Luồng lập luận</button>
+  </div>
+  <div class="hz-pane" id="hz-quick" role="tabpanel" aria-labelledby="tab-quick"></div>
+  <div class="hz-pane" id="hz-deep" role="tabpanel" aria-labelledby="tab-deep" hidden></div>
+  <div class="hz-pane" id="hz-tech" role="tabpanel" aria-labelledby="tab-tech" hidden>
+    <div class="hz-chart-row">
+      <figure class="hz-wheel-wrap"><div id="hz-wheel"></div><figcaption class="note" id="hz-wheel-cap"></figcaption></figure>
+      <aside class="hz-detail" id="hz-detail" aria-live="polite"><p class="note">Chạm vào một hành tinh hoặc một đường góc hợp để xem cách tính và ý nghĩa.</p></aside>
+    </div>
+    <div id="hz-tables"></div>
+  </div>
+  <div class="hz-pane" id="hz-flow" role="tabpanel" aria-labelledby="tab-flow" hidden></div>
+  <div class="hz-actions">
+    <button class="btn btn-ghost btn-sm" type="button" id="hz-save">Lưu vào lịch sử</button>
+    <button class="btn btn-ghost btn-sm" type="button" id="hz-share">Chia sẻ</button>
+    <button class="btn btn-ghost btn-sm" type="button" id="hz-pdf">Tải PDF</button>
+    <button class="btn btn-ghost btn-sm" type="button" id="hz-new">Hỏi việc khác</button>
+  </div>
+  <p class="note" id="hz-action-msg" aria-live="polite"></p>
+</section>
+
+<section class="hz-history" id="hz-history" aria-labelledby="hz-history-h" hidden>
+  <h2 id="hz-history-h">Câu hỏi đã lưu</h2>
+  <p class="note">Lưu trên thiết bị này; nếu bạn đăng nhập, lưu cả vào tài khoản. Mở lại sẽ tính lại đúng lá số cũ từ thời điểm và nơi đã lưu.</p>
+  <ul id="hz-history-list" class="hz-hist"></ul>
+</section>
+
+<aside class="cnote"><b>Phạm vi.</b> Thiên Bàn không luận các câu hỏi về bệnh tật, sống chết, thai sản hay kết quả pháp lý, và không thay lời khuyên của bác sĩ, luật sư hay chuyên gia tài chính. Nguồn quy tắc: William Lilly, <i>Christian Astrology</i> (1647) và 146 Considerations của Guido Bonatti (bản dịch Henry Coley, 1676), đều là bản quét công khai (Public Domain Mark) của Wellcome Library. <a class="link" href="/library#horary">Xem quy tắc và nguồn</a>.</aside>
+</main>
+<footer class="site-footer"><div class="wrap foot cfoot">
+<div><b>Thiên Bàn</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div>
+<p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Chiêm tinh chưa được khoa học kiểm chứng là phương pháp dự báo.
+<a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/chiem-tinh-van-su/">Vấn sự</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/library">Quy tắc và nguồn</a></p>
+</div></footer>
+<script type="module" src="/js/pwa.js"></script><script type="module" src="/js/horary/app.js"></script>
+</body>
+</html>
