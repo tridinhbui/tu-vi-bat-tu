@@ -44,13 +44,11 @@ def planets(f: Facts) -> list[Para]:
     if ang:
         summ.append(f"{planet_list(ang)} đứng ở các nhà góc, nơi hành tinh có sức tác động mạnh nhất")
     if summ:
-        out.append(Para("hd.summary", "Hành tinh mạnh, yếu", cap("; ".join(summ)) + ". Từng hành tinh được đọc riêng dưới đây.", "traditional",
+        out.append(Para("hd.summary", "Hành tinh mạnh, yếu", cap("; ".join(summ)) + ". ⟦Mỗi hành tinh dưới đây được đọc theo ba lớp của Lilly: chất của sao (nóng, lạnh, ẩm, khô) đặt cạnh chất của cung nó đứng "
+                    "(cùng chất thì nét của sao được tăng thêm, trái chất thì bị kìm bớt, vì Lilly nói các chất trái nhau triệt tiêu nhau, tr.534); "
+                    "nhà nó đứng (mảng đời, tr.50-56); và chủ của cung ấy (dispositor), vì việc của sao phải đi qua chủ tinh của nó.⟧", "traditional",
                         srcs("LILLY_CA:p.104", "LILLY_CA:p.115"), [ev_planet(c, p) for p in (good + bad)[:4]], "overview", topic="hanh_tinh",
                         steps=["Đắc thế / thất thế: tổng điểm bản chất theo Lilly ≥ +4 / ≤ -4 (ngưỡng của Thiên Bàn)."]))
-    out.append(Para("hd.method", "Cách đọc từng hành tinh", "Mỗi hành tinh dưới đây được đọc theo ba lớp của Lilly: chất của sao (nóng, lạnh, ẩm, khô) đặt cạnh chất của cung nó đứng "
-                    "(cùng chất thì nét của sao được tăng thêm, trái chất thì bị kìm bớt, vì Lilly nói các chất trái nhau triệt tiêu nhau, tr.534); "
-                    "nhà nó đứng (mảng đời, tr.50-56); và chủ của cung ấy (dispositor), vì việc của sao phải đi qua chủ tinh của nó.",
-                    "traditional", srcs("LILLY_CA:pp.50-56", "LILLY_CA:p.87", "LILLY_CA:p.534"), [], "deep", topic="hanh_tinh"))
     houses_told: set[int] = set()
     patterns: dict = {}
     sign_house_seen: dict = {}
@@ -93,7 +91,8 @@ def planets(f: Facts) -> list[Para]:
                 houses_told.add(h)
         t += f"{P(p)} {lilly_condition(f, p, with_house=False)}. "
         if disp == p:
-            t += "Sao ở chính nhà của mình nên tự làm chủ việc của mình."
+            t += pick(f"{p}.own", [f"{P(p)} ở chính nhà của mình nên tự làm chủ việc của mình.", f"Đứng trong nhà của mình, {P(p)} không phải dựa vào chủ tinh nào khác.",
+                                   f"{P(p)} làm chủ cung nó đứng, nên việc của nó do chính nó quyết."])
         elif disp in disp_told:
             t += f"{P(p)} cũng dựa vào {P(disp)}."
         else:
@@ -120,13 +119,12 @@ def planets(f: Facts) -> list[Para]:
                         "deep", topic="hanh_tinh"))
     vp = M["valens_planet"]
     lines = [f"{P(p)} ({vp[p].split(';')[0]}) ở Nhà {f.place_ws(p)}" if f.time_known else f"{P(p)}: {vp[p].split(';')[0]}" for p in CLASSICAL]
-    out.append(Para("hd.valens", "Các hành tinh theo Valens", "Valens ghi những việc mỗi hành tinh chủ về (I.1) và đọc chúng theo chỗ trọn cung: " + "; ".join(lines) +
-                    ". Mỗi chỗ đem những việc ấy vào mảng đời của nó (IV.12).", "hellenistic", srcs("VALENS_ANTH:I.1", "VALENS_ANTH:IV.12"),
+    out.append(Para("hd.valens", "Các hành tinh theo Valens", "⟦Valens ghi những việc mỗi hành tinh chủ về (I.1) và đọc chúng theo chỗ trọn cung; mỗi chỗ đem những việc ấy vào mảng đời của nó (IV.12).⟧ "
+                    "Theo Valens, " + "; ".join(lines) + ".", "hellenistic", srcs("VALENS_ANTH:I.1", "VALENS_ANTH:IV.12"),
                     [], "deep", topic="hanh_tinh"))
     for i, p in enumerate(("uranus", "neptune")):
         b = f.b[p]
-        tail = (" Sao này đi chậm, nên người cùng thế hệ có cùng cung; điểm riêng của từng người là nhà nó đứng và các góc nó tạo với hành tinh cá nhân." if i == 0
-                else " Như Sao Thiên Vương, điều riêng của bạn nằm ở nhà và các góc của nó hơn là ở cung.")
+        tail = " ⟦Sao này đi chậm, nên người cùng thế hệ có cùng cung; điểm riêng của từng người là nhà nó đứng và các góc nó tạo với hành tinh cá nhân.⟧"
         out.append(Para(f"hd.{p}", f"{P(p)} ở {S(b['sign'])}" + (f", Nhà {b.get('house')}" if b.get("house") else ""),
                         f"{P(p)} ở {b['fmt']} {S(b['sign'])}" + (f", Nhà {b['house']}" if b.get("house") else "") + f". Alan Leo coi sao này {M['planets'][p]['leo']['vi']}." + tail,
                         "modern", srcs("LEO:How to Judge a Nativity", "LEO:The Art of Synthesis"), [ev_planet(c, p)], "deep", topic="hanh_tinh"))

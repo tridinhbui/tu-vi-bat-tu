@@ -259,11 +259,11 @@ def _lilly_manners(f: Facts) -> list[Para]:
         cond = lilly_condition(f, portrait_planet)
         tot = f.lilly_total(portrait_planet)
         if state == "well":
-            core = (f"{P(portrait_planet)} " + (cond if repeat else f"đang {cond}, tức đắc thế theo phẩm vị của Lilly") + ". Khi sao này mạnh, ông mô tả người mang nó là "
+            core = (f"{P(portrait_planet)} " + (f"{cond}, như đã thấy ở trên" if repeat else f"đang {cond}, tức đắc thế theo phẩm vị của Lilly") + ". Khi sao này mạnh, ông mô tả người mang nó là "
                     f"{listing(mm['well'], 5)} ({mm['loc'].replace('p.', 'tr.')}).")
             pol = +1
         elif state == "ill":
-            core = (f"{P(portrait_planet)} " + (cond if repeat else f"đang {cond}, tức thất thế theo phẩm vị của Lilly") + ". Với một {P(portrait_planet)} yếu, ông ghi những nét cần để ý là "
+            core = (f"{P(portrait_planet)} " + (f"{cond}, như đã thấy ở trên" if repeat else f"đang {cond}, tức thất thế theo phẩm vị của Lilly") + ". Với một {P(portrait_planet)} yếu, ông ghi những nét cần để ý là "
                     f"{listing(mm['ill'], 4)} ({mm['loc'].replace('p.', 'tr.')}); bản chất gốc của sao vẫn còn, chỉ là khó phát huy trọn.")
             pol = -1
             if tot["accidental_score"] >= 8:
@@ -271,7 +271,7 @@ def _lilly_manners(f: Facts) -> list[Para]:
                          f"nên những nét tốt của nó ({listing(mm['well'], 3)}) vẫn có chỗ để lộ ra.")
                 pol = 0
         else:
-            core = (f"{P(portrait_planet)} " + (cond if repeat else f"đang {cond}: phẩm vị ở mức lưng chừng") + ". Vì vậy cả hai bức chân dung của Lilly đều có phần đúng: "
+            core = (f"{P(portrait_planet)} " + (f"{cond}, như đã thấy ở trên" if repeat else f"đang {cond}: phẩm vị ở mức lưng chừng") + ". Vì vậy cả hai bức chân dung của Lilly đều có phần đúng: "
                     f"lúc thuận thì {listing(mm['well'], 3)}, lúc nghịch thì {listing(mm['ill'], 2)}.")
             pol = 0
         disp = dignity.domicile_lord(f.b[portrait_planet]["sign"])
