@@ -67,8 +67,10 @@ test('13: Cách cục tells only formations a verified rule names, each with its
     }
     assert.ok(!ss.some(s => s.text.includes('Mã đầu đới kiếm')), 'a disputed cách is never told');
     for (const id of Object.keys(o.evidence.rules)) {
-      assert.ok(ss.some(s => s.trace.step === `cach:${id}:state`), `${id}: state`);
-      assert.ok(ss.some(s => s.trace.step === `cach:${id}:reach`), `${id}: reach`);
+      // the state line, or (DEEP-3) for a plain thành the page's meaning of that state in its place
+      assert.ok(ss.some(s => s.trace.step === `cach:${id}:state` || s.trace.step === `cach:${id}:meaning`), `${id}: state`);
+      // the degree line, or (DEEP-3) the page's meaning of the cách in its state in place of it
+      assert.ok(ss.some(s => s.trace.step === `cach:${id}:reach` || s.trace.step === `cach:${id}:meaning`), `${id}: reach`);
     }
   }
 });

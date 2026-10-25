@@ -1,63 +1,63 @@
 {
  "version": "indices-3.1.1",
- "kbVersion": "4e8f564f248fe68d",
+ "kbVersion": "27ebc6ee9e5e5fd8",
  "charts": 1000,
  "corpus": "corpus1000.json.gz",
  "palace": {
   "Tài Bạch": {
-   "support": 19.308,
-   "limit": 8.39
+   "support": 19.54,
+   "limit": 8.925
   },
   "Tử Tức": {
-   "support": 6.478,
-   "limit": 6.839
+   "support": 7.267,
+   "limit": 7.635
   },
   "Phu Thê": {
-   "support": 11.936,
+   "support": 11.944,
    "limit": 7.942
   },
   "Huynh Đệ": {
-   "support": 5.809,
-   "limit": 5.717
+   "support": 6.514,
+   "limit": 6.849
   },
   "Mệnh": {
-   "support": 23.384,
-   "limit": 7.991
+   "support": 23.714,
+   "limit": 8.718
   },
   "Phụ Mẫu": {
-   "support": 6.198,
-   "limit": 5.768
+   "support": 7.032,
+   "limit": 6.52
   },
   "Phúc Đức": {
    "support": 11.229,
-   "limit": 8.685
+   "limit": 8.727
   },
   "Điền Trạch": {
-   "support": 5.542,
-   "limit": 5.299
+   "support": 5.93,
+   "limit": 5.831
   },
   "Quan Lộc": {
-   "support": 20.204,
-   "limit": 8.719
+   "support": 20.439,
+   "limit": 9.239
   },
   "Nô Bộc": {
-   "support": 5.026,
-   "limit": 7.039
+   "support": 5.969,
+   "limit": 8.414
   },
   "Thiên Di": {
-   "support": 20.16,
-   "limit": 8.161
+   "support": 20.435,
+   "limit": 8.75
   },
   "Tật Ách": {
-   "support": 6.315,
-   "limit": 5.132
+   "support": 6.619,
+   "limit": 5.537
   }
  },
  "layers": {
   "vung": {
-   "mean": -0.005,
-   "sd": 0.516,
-   "rms": 0.516
+   "mean": -0.004,
+   "sd": 0.52,
+   "rms": 0.52
   },
   "hoa_van": {
    "mean": 0.621,

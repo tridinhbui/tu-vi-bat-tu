@@ -149,6 +149,80 @@
    "basis": "sach",
    "cite": "TL p.232",
    "note": "Thiên Lương không nhận công thức Mệnh vô chính diệu đắc Tam Không phú quý của Thực Hành: bất đồng trường phái, chỉ nêu ở panel căn cứ."
+  },
+  {
+   "id": "REL_D3_W2_NO_TU_VI_SAT",
+   "type": "qualifies",
+   "from": "TV_D3_W2_NO_TU_VI_SAT",
+   "to": [
+    "TV_D3_W2_NO_TU_VI"
+   ],
+   "effect": "weaken",
+   "basis": "sach",
+   "cite": "TTH 2 八奴仆",
+   "note": "Sách nói câu gốc rồi nói thêm điều kiện làm nó kém đi (cùng một dòng hoặc dòng kế); khi cả hai cùng ứng, câu sau làm nhẹ câu trước."
+  },
+  {
+   "id": "REL_D3_W2_NO_TU_TUONG_KK",
+   "type": "qualifies",
+   "from": "TV_D3_W2_NO_TU_TUONG_KK",
+   "to": [
+    "TV_D3_W2_NO_TU_VI",
+    "TV_D3_W2_NO_TUONG_TU"
+   ],
+   "effect": "weaken",
+   "basis": "sach",
+   "cite": "TTH 2 八奴仆",
+   "note": "Sách nói câu gốc rồi nói thêm điều kiện làm nó kém đi (cùng một dòng hoặc dòng kế); khi cả hai cùng ứng, câu sau làm nhẹ câu trước."
+  },
+  {
+   "id": "REL_D3_W2_NO_DONG_SAT",
+   "type": "qualifies",
+   "from": "TV_D3_W2_NO_DONG_SAT",
+   "to": [
+    "TV_D3_W2_NO_DONG"
+   ],
+   "effect": "weaken",
+   "basis": "sach",
+   "cite": "TTH 2 八奴仆",
+   "note": "Sách nói câu gốc rồi nói thêm điều kiện làm nó kém đi (cùng một dòng hoặc dòng kế); khi cả hai cùng ứng, câu sau làm nhẹ câu trước."
+  },
+  {
+   "id": "REL_D3_W2_NO_PHU_SAT",
+   "type": "qualifies",
+   "from": "TV_D3_W2_NO_PHU_SAT",
+   "to": [
+    "TV_D3_W2_NO_PHU"
+   ],
+   "effect": "weaken",
+   "basis": "sach",
+   "cite": "TTH 2 八奴仆",
+   "note": "Sách nói câu gốc rồi nói thêm điều kiện làm nó kém đi (cùng một dòng hoặc dòng kế); khi cả hai cùng ứng, câu sau làm nhẹ câu trước."
+  },
+  {
+   "id": "REL_D3_W2_NO_TA_HUU_SAT",
+   "type": "qualifies",
+   "from": "TV_D3_W2_NO_TA_HUU_SAT",
+   "to": [
+    "TV_D3_W2_NO_TA_DOC",
+    "TV_D3_W2_NO_HUU_DOC"
+   ],
+   "effect": "weaken",
+   "basis": "sach",
+   "cite": "TTH 2 八奴仆",
+   "note": "Sách nói câu gốc rồi nói thêm điều kiện làm nó kém đi (cùng một dòng hoặc dòng kế); khi cả hai cùng ứng, câu sau làm nhẹ câu trước."
+  },
+  {
+   "id": "REL_D3_W2_TU_TA_PHU_SAT",
+   "type": "qualifies",
+   "from": "TV_D3_W2_TU_TA_PHU_SAT",
+   "to": [
+    "TV_D3_W2_TU_TA_PHU_TU_PHU"
+   ],
+   "effect": "weaken",
+   "basis": "sach",
+   "cite": "TTH 2 四子女",
+   "note": "Sách nói câu gốc rồi nói thêm điều kiện làm nó kém đi (cùng một dòng hoặc dòng kế); khi cả hai cùng ứng, câu sau làm nhẹ câu trước."
   }
  ]
 }

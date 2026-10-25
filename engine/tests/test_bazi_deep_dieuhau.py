@@ -8,7 +8,8 @@ from tvbt.ganzhi import BRANCHES_HAN, STEMS_HAN
 
 def test_table_has_120_cells_of_valid_distinct_stems_and_is_flagged_unchecked():
     d = json.loads((dieuhau.DATA / "dieu_hau_ctbg_draft.json").read_text("utf-8"))
-    assert d["_status"].startswith("draft") and d["checked_cells"] == []
+    # DEEP-3 (2026-10-24): cells equal to the 穷通宝鉴 web snapshot are listed as checked (test_bazi_deep3_mining); the table stays draft
+    assert d["_status"].startswith("draft") and all(k.split("/")[0] in d["cells"] for k in d["checked_cells"])
     assert set(d["cells"]) == set(STEMS_HAN)
     for s, row in d["cells"].items():
         assert set(row) == set(BRANCHES_HAN)

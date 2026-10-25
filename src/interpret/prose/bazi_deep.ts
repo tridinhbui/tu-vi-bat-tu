@@ -97,7 +97,7 @@ export interface DepthFrames {
   why: Record<string, string[]>; why_one: string[]; why_two: string[]; why_both?: string[]; group_def?: Record<string, string>; why_and: string; halves: string[]; halves_tail: Record<'first' | 'second', string>;
   touch: string[]; touch_year?: string[]; touch_kind: Record<string, string>; year_half: string[]; year_half_tail: string; tk_diag: string[]; tk_diag_heat: string; tk_diag_special: string[];
   tk_turn: string[]; tk_turn_what: Record<string, string>; special_yong?: string[]; special_pick?: string[]; dom_skip?: string[];
-  cach_status?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
+  cach_status?: string[]; cach_status_near?: string[]; dh_school?: string[]; dh_school_sub?: string[]; ttt_yong_same?: string[]; ttt_yong_diff?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
   tai_layers?: Record<'pos' | 'dm' | 'method' | 'method_no_tb' | 'decide', string[]> & { decide_agree?: string[] };
   // REVIEW-19 W6: the strength in words (numbers in the Số liệu fold), the closing by priority
   str_plain?: string[]; str_plain_near?: string[]; tk_now?: string[]; tk_word?: Record<string, string>; tk_money?: Record<'pos' | 'neg' | 'even', string[]>; tk_work?: string[];
@@ -164,7 +164,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
   if (!b || !D || !F) return {};
   const say = (xs: ProseSentence[], text: string, basis: SentenceTrace['basis'], cites: string[] = [], ids: string[] = [], extra: Partial<SentenceTrace> = {}) => {
     const t = finish(text); m.said(t);
-    xs.push({ text: t, trace: { move: 'ELABORATE', concepts: [], rules: ids, cites, basis, ...extra } });
+    xs.push({ text: t, trace: { move: 'ELABORATE', concepts: [], rules: ids, cites: [...new Set(cites)], basis, ...extra } });
   };
   const MH = F.mh, Dd = F.d, P = D.depth ?? null;
   const kinF = (F as BaziDeepFrames & { kin?: KinFrames }).kin, kinD = (D as BaziDeep & { kin?: BaziKin }).kin?.detail;
@@ -393,14 +393,28 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const vars = { cach: CT!.cach!, dm: dmVi, dom: CT!.dominant ?? '', yong: join(CT!.yong.slice(0, 1)), tot: join(CT!.van_tot), xau: join(CT!.van_xau), why };
     // the cách's one status (owner review 2026-10-22): partial, so the dụng thần and every luck verdict drawn from it are conditional
     // the cách's status is the system's own verification state, not a computation on the chart (REVIEW-19 W6: basis he_thong)
-    if (cachPartial && Dd?.cach_status?.length) say(c1, fill(m.pick('bd|cst', Dd.cach_status), { cach: CT!.cach! }), 'he_thong', ['TVH pp.356-366'], [],
+    // near the 40% line the partial status has a reason on this chart (TVH p.355: a share just under 40% is only 'hơi nhược'); it is said
+    if (cachPartial && Dd?.cach_status?.length) say(c1, fill(m.pick('bd|cst', near && Dd.cach_status_near?.length ? Dd.cach_status_near : Dd.cach_status), { cach: CT!.cach! }), 'he_thong', ['TVH pp.356-366', ...(near && Dd.cach_status_near?.length ? ['TVH p.355'] : [])], [],
       { step: 'cach:status', conditional: 'cach_partial', note: 'Trạng thái của cách: xác lập một phần (yongshen.METHOD_META cach_cuc_tvh). Bảng dụng thần và vận hỷ kỵ (Thiệu Vĩ Hoa tr.378-386) chép khớp trang in; phép định cách từ chi tháng mới được đối chiếu một phần với tr.356-366. Mọi lời xếp vận tốt xấu suy từ bảng ấy vì vậy có điều kiện là cách được xác lập.' } as Partial<SentenceTrace>);
     say(c1, fill(m.pick('bd|table', CT!.van_tot.length || CT!.van_xau.length ? F.table : F.table_no_van), vars), 'tinh_toan', [tvhPage, ...(Y?.why ? [`TVH pp.${Y.why.page.replace(/\s/g, '')}`] : [])], [],
       { step: 'yong', note: NOTE.yong, mech: !!why });
-    mh(c1, 'benh_thuoc', { benh: `nhật chủ ${dmVi} mà nhóm ${CT!.dominant ?? ''} nhiều nhất`, yong: Y1 }, 'yong');
+    const benh = { benh: `nhật chủ ${dmVi} mà nhóm ${CT!.dominant ?? ''} nhiều nhất`, yong: Y1 }, fb = !!(Y?.fallback && Dd);
+    if (!fb) mh(c1, 'benh_thuoc', benh, 'yong');
+    // a second school on the same question (DEEP-3): Trích Thiên Tủy's dụng thần by strength (p.63, kin rules BT_TTTK_DT*) beside the TVH
+    // table's group — the same group is a corroboration, a different one is said as the two books parting, never adjudicated
+    const tttY = ((D as BaziDeep & { kin?: { findings?: Array<{ rule_id: string; topic: string; effect: string; cause: string; page: string }> } }).kin?.findings ?? [])
+      .find(f => /^BT_TTTK_DT/.test(f.rule_id) && f.topic === 'yong');
+    const tttG = tttY ? ['Tỉ Kiếp', 'Thực Thương', 'Tài', 'Quan Sát', 'Ấn'].find(g => tttY.effect.includes(`lấy ${g} làm`)) : undefined;
+    if (tttY && tttG && Dd?.ttt_yong_same && Dd.ttt_yong_diff) {
+      const same = CT!.yong.includes(tttG);
+      say(c1, fill(m.pick('bd|tty', same ? Dd.ttt_yong_same : Dd.ttt_yong_diff), { cause: tttY.cause, effect: tttY.effect, g: tttG, yong: join(CT!.yong.slice(0, 1)) }), 'sach',
+        [`TTT ${tttY.page}`, tvhPage], [cite(tttY.rule_id, `${tttY.cause}: ${tttY.effect}`, [`TTT ${tttY.page}`])], { step: same ? 'yong:ttt_same' : 'yong:ttt_diff', mech: true, ...(same ? {} : { tone: 'neg' as const }) });
+    }
     const top = P?.flow?.groups?.[0]?.group;
     if (top && CT!.dominant && top !== CT!.dominant && Dd?.dom_skip?.length) say(c1, fill(m.pick('bd|dsk', Dd.dom_skip), { top, dom: CT!.dominant, cach: CT!.cach! }), 'tinh_toan', [tvhPage], [], { note: 'Bảng dụng thần theo cách (Thiệu Vĩ Hoa tr.378-386) chỉ có dòng cho một số nhóm nhiều nhất; khi nhóm lớn nhất không có dòng, bộ máy lấy nhóm lớn kế tiếp có dòng (yongshen.cach_cuc_tvh). Sách không nói cách xử lý trường hợp này.', step: 'yong:dom' });
     if (Y?.fallback && Dd) say(c1, fill(m.pick('bd|fb', Dd.fallback), { first: Y.first, use: Y.group }).replace(/\.\s*$/, Y.why ? fill(Dd.yong_why, { why: Y.why.text }) + '.' : '.'), 'tinh_toan', [tvhPage], [], { note: NOTE.yong, step: 'yong:fallback', mech: !!Y.why });
+    // the illustration names the group finally used (Y1), so it follows the fallback sentence when there is one (DEEP-3: it stood before it)
+    if (fb) mh(c1, 'benh_thuoc', benh, 'yong:fallback');
     // where the useful god stands in the four pillars (the day stem is the day master itself)
     const yg = new Set([Y1]), many = false;
     const vis = (['year', 'month', 'hour'] as const).filter(x => yg.has(GROUP_OF[pil[x].stem_ten_god ?? ''])).map(x => `can ${PIL_VI[x]} ${pil[x].stem}${many ? ` (${pil[x].stem_ten_god})` : ''}`);
@@ -478,7 +492,7 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
   const clash = differs || luckRcs.some(r => r.agree === 'khac');
   if (clash && tableOk && table.length && F.reliability?.length) {
     const note = 'Mức tin cậy (yongshen.METHOD_META): bảng dụng thần theo cách tr.378-386 chép khớp trang in, quy tắc 40% khớp tr.355; bảng điều hậu tr.389-396 chép khớp trang in, việc gán can chính là Dụng là quy ước của hệ thống, và Thiệu Vĩ Hoa ghi bảng do độc giả gửi, chưa rõ xuất xứ (tr.388). Chưa phép nào được kiểm nghiệm thực tế.';
-    F.reliability.forEach((f, i) => say(c4, fill(f, { dm: levelVi, dom: CT!.dominant ?? '', climate: D.climate.label ?? '', mb }), 'tinh_toan', [tvhPage, 'TVH pp.388-396'], [], { step: `reconcile:cach:${i}`, note: i ? note : F.rc_note }));
+    F.reliability.forEach((f, i) => say(c4, fill(f, { dm: levelVi, dom: CT!.dominant ?? '', climate: D.climate.label ?? '', mb }), 'tinh_toan', [tvhPage, 'TVH pp.388-396'], [], { step: `reconcile:cach:${i}`, note: F.reliability!.length === 1 ? `${F.rc_note} ${note}` : i ? note : F.rc_note }));
   }
   // part 5: what to do, conditional where the tables differ
   if ((c1.length || c3.length) && F.advice && (tableOk || table.length)) {
@@ -491,6 +505,21 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
   }
   const part = (xs: ProseSentence[], key: FramePart, d?: boolean) => { if (xs.length) (out['cach-cuc'] ??= []).push({ role: 'support', sentences: xs, text: xs.map(s => s.text).join(' '), part: key, ...(d ? deep() : {}) } as ProseParagraph); };
   part(c1, 'cau_truc'); part(c2, 'ho_tro', !!P); part(c3, 'tuong_tac', !!P); part(c4, 'mau_thuan', !!P); part(c5, 'ket_luan');
+  // DEEP-3: where another điều hậu table (穷通宝鉴, kg baziSchools kind 'dieu_hau') gives this day stem and month other stems than the cell
+  // used above: both named, in the Đọc sâu fold, neither ranked over the other
+  const ZH: Record<string, string> = { 甲: 'Giáp', 乙: 'Ất', 丙: 'Bính', 丁: 'Đinh', 戊: 'Mậu', 己: 'Kỷ', 庚: 'Canh', 辛: 'Tân', 壬: 'Nhâm', 癸: 'Quý',
+    子: 'Tý', 丑: 'Sửu', 寅: 'Dần', 卯: 'Mão', 辰: 'Thìn', 巳: 'Tỵ', 午: 'Ngọ', 未: 'Mùi', 申: 'Thân', 酉: 'Dậu', 戌: 'Tuất', 亥: 'Hợi' };
+  const VI2ZH = Object.fromEntries(Object.entries(ZH).map(([z, v]) => [v, z]));
+  const dhT = dh.verified && Dd?.dh_school ? k.kg?.baziSchools?.topics.find(t => t.id === `dieu_hau_${VI2ZH[dm] ?? ''}${VI2ZH[mb] ?? ''}`) : undefined;
+  const other = dhT?.sides.find(x => x.school === 'CTBG');
+  const otherStems = other ? [...(other.statement.match(/用\s*([甲乙丙丁戊己庚辛壬癸]+)/)?.[1] ?? '')].map(z => ZH[z]).filter(Boolean) : [];
+  if (dhT && other && otherStems.length && table.length && otherStems.join() !== table.join()) {
+    const xs: ProseSentence[] = [];
+    const sub = otherStems.every(x => table.includes(x)) && Dd!.dh_school_sub?.length;
+    say(xs, fill(m.pick('bd|dhs', sub ? Dd!.dh_school_sub! : Dd!.dh_school!), { dm, mb, other: join(otherStems), table: join(table) }), 'sach', [other.cite, 'TVH pp.389-396'], [cite(`SCHOOL_${dhT.id}`, `${dhT.topic}: ${other.statement}`, [other.cite])],
+      { step: 'dieu_hau:school', note: 'Ô điều hậu dùng ở trên theo Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa tr.389-396); bảng kia là Cùng Thông Bảo Giám (穷通宝鉴, bản chụp lưu trong engine/data/sources_web). Hai bảng không bảng nào được xếp trên bảng nào.' });
+    (out['cach-cuc'] ??= []).push({ role: 'support', sentences: xs, text: xs.map(x => x.text).join(' '), ...deep('hai bảng điều hậu') } as ProseParagraph);
+  }
 
   // ---- thần sát (八字真宗 pp.21-22): the stars whose printed gloss the data keeps, then the rest by position ----
   const ss = D.shensha ?? [];

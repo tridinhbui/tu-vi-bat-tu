@@ -1,5 +1,6 @@
 """Reasoner benchmark (plan quirky-tinkering-rabin R0): 20 labelled Mệnh configurations + one-factor counterfactuals of each.
     .venv/bin/python tools/interpret/make_benchmark.py
+    .venv/bin/python tools/interpret/make_benchmark.py --inert-only   # re-pick only the control variants (keeps every other variant)
 Writes src/interpret/test/fixtures/benchmark20.json (one chart per configuration, the worked example first) and
 src/interpret/test/fixtures/counterfactual100.json.gz (about five variants per benchmark chart).
 
@@ -30,10 +31,12 @@ CAT = ["Tả Phụ", "Hữu Bật", "Văn Xương", "Văn Khúc", "Thiên Khôi"
 OK = {"miếu", "vượng", "đắc"}
 REF = {"year": 1991, "month": 3, "day": 2, "hour": 8, "minute": 30, "gender": "male", "to_year": 2026}
 
-# star names that appear anywhere in a Tử Vi rule's conditions or exceptions: removing any other star cannot change which rules fire
+# star names that appear anywhere in a Tử Vi rule's conditions or exceptions, or in a page-checked cách (formations_verified.json): removing any
+# other star cannot change which rules fire
 _RULE_TEXT = " ".join(json.dumps([r.get("conditions"), r.get("exceptions")], ensure_ascii=False)
                       for f in sorted((ROOT / "engine" / "data").glob("pack_*.json")) if "bazi" not in f.name
-                      for r in json.loads(f.read_text())["rules"])
+                      for r in json.loads(f.read_text())["rules"]) + " " + \
+             json.dumps([f for f in json.loads((ROOT / "engine" / "data" / "formations_verified.json").read_text())["formations"]], ensure_ascii=False)
 
 
 def mentioned(star: str) -> bool:
@@ -162,7 +165,26 @@ def variants(birth, tv) -> list[dict]:
     return out
 
 
+def refresh_inert():
+    """re-pick only the control variants (after a rule or cách starts naming a star the old control removed); every other variant is kept"""
+    fx = ROOT / "src" / "interpret" / "test" / "fixtures"
+    bench = json.loads((fx / "benchmark20.json").read_text())
+    cf = json.loads(gzip.decompress((fx / "counterfactual100.json.gz").read_bytes()))
+    out = []
+    for c in bench:
+        out += [v for v in cf if v["base"] == c["label"] and v["expect"] != "inert"]
+        _, _, tv = api._compute(BirthReq(**{"dignity_school": "thuc_hanh", **c["birth"]}))
+        for v in variants(c["birth"], tv):
+            t = v.pop("tv")
+            if v["expect"] == "inert":
+                out.append({"base": c["label"], **v, "birth": c["birth"], "facts": facts_of(c["birth"], t)})
+    (fx / "counterfactual100.json.gz").write_bytes(gzip.compress(json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode(), mtime=0))
+    print(len(out), "variants;", sum(v["expect"] == "inert" for v in out), "controls")
+
+
 def main():
+    if "--inert-only" in sys.argv:
+        return refresh_inert()
     rnd = random.Random(20261020)
     charts = [{"label": "ref_cu_tuat", "labels": [], "birth": REF}]
     _, _, tv = api._compute(BirthReq(**{"dignity_school": "thuc_hanh", **REF}))
