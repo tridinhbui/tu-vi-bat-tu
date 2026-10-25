@@ -93,6 +93,33 @@ def test_rule_quotes_are_substrings(rules, sections):
             assert u in undefined, (r["id"], u)
 
 
+RELATIONS = {"the_khac_dung", "dung_khac_the", "the_sinh_dung", "dung_sinh_the", "ty_hoa"}
+
+
+def test_relation_clauses(rules):
+    by_id = {r["id"]: r for r in rules["rules"]}
+    for rid in ("t.five_relations", "p.nhan_su"):
+        assert "han_by_relation" in by_id[rid], rid
+    for r in rules["rules"]:
+        f = r.get("formula") or {}
+        if r["kind"] == "topic" and RELATIONS & set(f):
+            assert "han_by_relation" in r, r["id"]
+        if "han_by_relation" not in r:
+            continue
+        han, vi = r["han_by_relation"], r["vi_by_relation"]
+        assert han and set(han) <= RELATIONS, r["id"]
+        assert set(han) == set(vi), r["id"]
+        for k, clause in han.items():
+            assert clause and clause in r["han_quote"], (r["id"], k)
+            assert vi[k].strip(), (r["id"], k)
+
+
+def test_sinh_khac_the_have_real_translation(rules):
+    for r in rules["rules"]:
+        if r["id"].startswith(("t.sinh_the.", "t.khac_the.")):
+            assert "xem bản dịch" not in r["vi"] and len(r["vi"]) > 60, r["id"]
+
+
 def test_rules_cover_required_material(rules):
     by_section = {}
     for r in rules["rules"]:

@@ -8,6 +8,7 @@ below. Every han_quote is checked to be an exact substring of its section's
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,123 @@ SRC = ROOT / "engine" / "data" / "mai_hoa" / "source_zh.json"
 OUT = ROOT / "engine" / "data" / "mai_hoa" / "rules_extract.json"
 
 TT = {"乾": 1, "兌": 2, "離": 3, "震": 4, "巽": 5, "坎": 6, "艮": 7, "坤": 8}
+
+SINH_THE_VI = {
+    "乾": "Quái Càn sinh thể thì chủ ở chốn công môn có mừng, có ích; hoặc có mừng về công danh; hoặc nhờ quan mà có tài; hoặc hỏi kiện thì được lý; hoặc có lợi về vàng bạc châu báu; hoặc có người già đem tài đến; hoặc bậc tôn trưởng ban tặng; hoặc có mừng về quan quý.",
+    "坤": "Quái Khôn sinh thể thì chủ có mừng về ruộng đất; hoặc nhờ ruộng đất mà vào tài; hoặc được người làng giúp ích; hoặc được lợi từ âm nhân (người nữ); hoặc có lợi về quả, lúa; hoặc có mừng về vải lụa.",
+    "震": "Quái Chấn sinh thể thì chủ được ích về núi rừng; hoặc nhờ núi rừng mà được tài; hoặc vào tài từ phương đông; hoặc nhân trong lúc động mà có mừng; hoặc có lợi buôn bán hàng gỗ; hoặc nhờ người họ có bộ thảo, mộc mà vừa lòng.",
+    "巽": "Quái Tốn sinh thể cũng chủ được ích về núi rừng; hoặc nhờ núi rừng mà được tài; hoặc được tài ở phương đông nam; hoặc nhờ người họ có bộ thảo, mộc mà vào lợi; hoặc nhờ chè, quả mà được lợi; hoặc có mừng về chè, quả, rau dưa.",
+    "坎": "Quái Khảm sinh thể thì có mừng ở phương bắc; hoặc nhận tài từ phương bắc; hoặc người ở ven nước đem lợi đến; hoặc nhờ người họ có bộ thủy (chấm thủy) mà vừa lòng; hoặc có lợi buôn bán cá, muối, rượu, giấy tờ; hoặc có mừng được biếu cá, muối, rượu.",
+    "離": "Quái Ly sinh thể thì chủ có tài ở phương nam; hoặc có mừng về giấy tờ; hoặc có lợi về lò rèn, lò đúc; hoặc nhờ người họ có bộ hỏa mà được tài.",
+    "艮": "Quái Cấn sinh thể thì có tài ở phương đông bắc; hoặc có mừng về ruộng núi; hoặc nhờ núi rừng, ruộng đất mà được tài; hoặc được tài của người âm cung, họ có bộ thổ. Vật thì yên ổn, việc thì có đầu có cuối.",
+    "兌": "Quái Đoài sinh thể thì có tài ở phương tây; hoặc có việc vui mừng; hoặc có nguồn lợi về đồ ăn, vàng ngọc, hàng hóa; hoặc người âm thương; hoặc vui gặp người họ có bộ khẩu; hoặc có niềm vui chủ khách; hoặc có việc bạn bè cùng giảng tập.",
+}
+KHAC_THE_VI = {
+    "乾": "Như quái Càn khắc thể thì chủ có lo về việc công; hoặc lo về môn hộ; hoặc mất của cải châu báu; hoặc tổn hại về vàng, lúa; hoặc làm bậc tôn trưởng nổi giận; hoặc đắc tội với quý nhân.",
+    "坤": "Quái Khôn khắc thể thì chủ có lo về ruộng đất; hoặc tổn hại về ruộng đất; hoặc bị âm nhân (người nữ) xâm hại; hoặc bị tiểu nhân làm hại; hoặc mất tài về vải lụa; hoặc mất cái lợi về lúa thóc.",
+    "震": "Quái Chấn khắc thể thì chủ có hư kinh (sợ hãi hão), thường nhiều lo sợ; hoặc thân tâm không yên được; hoặc nhà cửa thấy yêu tai; hoặc người họ có bộ thảo, mộc xâm phạm; hoặc mất mát về núi rừng.",
+    "巽": "Quái Tốn khắc thể cũng có người họ có bộ thảo, mộc làm hại; hoặc sinh lo về núi rừng. Mưu việc thì [kẻ hại] là người phương đông nam;\nỞ nhà thì kỵ tai ách của âm nhân, trẻ nhỏ.",
+    "坎": "Quái Khảm khắc thể thì chủ có việc hiểm hãm; hoặc lo giặc cướp; hoặc thất ý với người ở ven nước; hoặc sinh tai họa sau khi uống rượu; hoặc người họ có bộ thủy làm hại; hoặc người phương bắc gây vạ.",
+    "離": "Quái Ly khắc thể thì chủ lo về giấy tờ; hoặc sợ hãi vì cháy nhà; hoặc có lo ở phương nam; hoặc người họ có bộ hỏa làm hại.",
+    "艮": "Quái Cấn khắc thể thì mọi việc phần nhiều trái ý, trăm mưu nửa chừng bị trở. Hoặc mất mát về núi rừng, ruộng đất; hoặc người họ có bộ thổ xâm phạm; phòng tai họa ở phương đông bắc; hoặc lo mồ mả đặt không đúng.",
+    "兌": "Quái Đoài khắc thể thì bất lợi ở phương tây, chủ có tranh cãi khẩu thiệt. Hoặc người họ có bộ khẩu lấn hiếp; hoặc có nạn gãy vỡ; hoặc vì ăn uống mà sinh lo.",
+}
+
+REL_KEYS = ("the_khac_dung", "dung_khac_the", "the_sinh_dung", "dung_sinh_the", "ty_hoa")
+REL_MARKERS = [("the_khac_dung", "體克用"), ("dung_khac_the", "用克體"), ("the_sinh_dung", "體生用"),
+               ("dung_sinh_the", "用生體"), ("ty_hoa", "體用比和")]
+# Rules whose wording does not use the standard markers.
+REL_HAN_OVERRIDE = {
+    "p.vat_sinh_khac": {"dung_sinh_the": "生體者，為可食之物", "dung_khac_the": "克體者，為可近人之穢物",
+                        "the_sinh_dung": "體生者，為不成之器", "the_khac_dung": "體克者，為破碎損折之物",
+                        "ty_hoa": "比和者，乃有用成器之物"},
+}
+REL_VI = {
+    "t.five_relations": {"the_khac_dung": "thể khắc dụng thì mọi việc cát", "dung_khac_the": "dụng khắc thể thì mọi việc hung",
+                         "the_sinh_dung": "thể sinh dụng thì có lo hao mất", "dung_sinh_the": "dụng sinh thể thì có mừng tăng ích",
+                         "ty_hoa": "thể dụng tỷ hòa thì trăm việc thuận"},
+    "p.nhan_su": {"the_khac_dung": "thể khắc dụng thì cát", "dung_khac_the": "dụng khắc thể thì không nên",
+                  "the_sinh_dung": "thể sinh dụng thì có lo hao mất", "dung_sinh_the": "dụng sinh thể thì có mừng tăng ích",
+                  "ty_hoa": "thể dụng tỷ hòa thì mưu tính cát lợi"},
+    "p.gia_trach": {"the_khac_dung": "thể khắc dụng thì nhà cửa nhiều cát", "dung_khac_the": "dụng khắc thể thì nhà cửa nhiều hung",
+                    "the_sinh_dung": "thể sinh dụng thì nhiều hao tán, hoặc phải phòng lo mất trộm",
+                    "dung_sinh_the": "dụng sinh thể thì nhiều tăng ích, hoặc có mừng được biếu tặng",
+                    "ty_hoa": "thể dụng tỷ hòa thì nhà cửa yên ổn"},
+    "p.oc_xa": {"the_khac_dung": "thể khắc dụng thì ở nhà ấy cát", "dung_khac_the": "dụng khắc thể thì ở nhà ấy hung",
+                "the_sinh_dung": "thể sinh dụng thì chủ của cải sút giảm", "dung_sinh_the": "dụng sinh thể thì môn hộ hưng thịnh",
+                "ty_hoa": "thể dụng tỷ hòa thì tự nhiên yên ổn"},
+    "p.hon_nhan": {"the_khac_dung": "thể khắc dụng thì thành được nhưng thành chậm", "dung_khac_the": "dụng khắc thể thì không thành, thành cũng có hại",
+                   "the_sinh_dung": "thể sinh dụng thì hôn sự khó thành, hoặc vì hôn sự mà mất",
+                   "dung_sinh_the": "dụng sinh thể thì hôn sự dễ thành, hoặc nhờ hôn sự mà được",
+                   "ty_hoa": "thể dụng tỷ hòa thì hôn nhân cát lợi"},
+    "p.sinh_san": {"the_khac_dung": "thể khắc dụng thì bất lợi cho con", "dung_khac_the": "dụng khắc thể thì bất lợi cho mẹ",
+                   "the_sinh_dung": "thể sinh dụng thì lợi cho con", "dung_sinh_the": "dụng sinh thể thì lợi cho mẹ",
+                   "ty_hoa": "thể dụng tỷ hòa thì sinh nở thuận nhanh"},
+    "p.am_thuc": {"the_khac_dung": "thể khắc dụng thì ăn uống có trở ngại", "dung_khac_the": "dụng khắc thể thì tất không có ăn uống",
+                  "the_sinh_dung": "thể sinh dụng thì ăn uống khó được", "dung_sinh_the": "dụng sinh thể thì ăn uống tất đầy đủ",
+                  "ty_hoa": "thể dụng tỷ hòa thì ăn uống no đủ"},
+    "p.cau_muu": {"the_khac_dung": "thể khắc dụng thì mưu tuy thành được nhưng thành chậm", "dung_khac_the": "dụng khắc thể thì cầu mưu không thành, mưu còn có hại",
+                  "the_sinh_dung": "thể sinh dụng thì mưu nhiều mà ít được", "dung_sinh_the": "dụng sinh thể thì không mưu mà thành",
+                  "ty_hoa": "thể dụng tỷ hòa thì cầu mưu vừa ý"},
+    "p.cau_danh": {"the_khac_dung": "thể khắc dụng thì danh thành được nhưng thành chậm", "dung_khac_the": "dụng khắc thể thì danh không thành",
+                   "the_sinh_dung": "thể sinh dụng thì danh không đạt, hoặc vì danh mà mất",
+                   "dung_sinh_the": "dụng sinh thể thì danh dễ thành, hoặc nhờ danh mà được",
+                   "ty_hoa": "thể dụng tỷ hòa thì công danh vừa ý"},
+    "p.cau_tai": {"the_khac_dung": "thể khắc dụng thì có tài", "dung_khac_the": "dụng khắc thể thì không có tài",
+                  "the_sinh_dung": "thể sinh dụng thì tài có lo hao tổn", "dung_sinh_the": "dụng sinh thể thì tài có mừng tăng ích",
+                  "ty_hoa": "thể dụng tỷ hòa thì tài lợi vừa ý"},
+    "p.giao_dich": {"the_khac_dung": "thể khắc dụng thì có tài", "dung_khac_the": "dụng khắc thể thì không thành",
+                    "the_sinh_dung": "thể sinh dụng thì khó thành, hoặc vì giao dịch mà mất",
+                    "dung_sinh_the": "dụng sinh thể thì thành ngay, thành tất có tài", "ty_hoa": "thể dụng tỷ hòa thì dễ thành"},
+    "p.xuat_hanh": {"the_khac_dung": "thể khắc dụng thì đi được, đến đâu phần nhiều đắc ý", "dung_khac_the": "dụng khắc thể thì ra đi có họa",
+                    "the_sinh_dung": "thể sinh dụng thì ra đi bị hao tổn", "dung_sinh_the": "dụng sinh thể thì có của bất ngờ",
+                    "ty_hoa": "thể dụng tỷ hòa thì ra đi thuận nhanh"},
+    "p.hanh_nhan": {"the_khac_dung": "thể khắc dụng thì người đi về chậm", "dung_khac_the": "dụng khắc thể thì người đi không về",
+                    "the_sinh_dung": "thể sinh dụng thì người đi chưa về", "dung_sinh_the": "dụng sinh thể thì người đi về ngay",
+                    "ty_hoa": "thể dụng tỷ hòa thì chẳng mấy ngày là về"},
+    "p.yet_kien": {"the_khac_dung": "thể khắc dụng thì gặp được", "dung_khac_the": "dụng khắc thể thì không gặp",
+                   "the_sinh_dung": "thể sinh dụng thì khó gặp, gặp cũng vô ích", "dung_sinh_the": "dụng sinh thể thì gặp được, gặp lại có được",
+                   "ty_hoa": "thể dụng tỷ hòa thì vui vẻ gặp nhau"},
+    "p.that_vat": {"the_khac_dung": "thể khắc dụng thì tìm được nhưng được chậm", "dung_khac_the": "dụng khắc thể thì không tìm được",
+                   "the_sinh_dung": "thể sinh dụng thì vật khó thấy", "dung_sinh_the": "dụng sinh thể thì vật dễ tìm",
+                   "ty_hoa": "thể dụng tỷ hòa thì vật không mất"},
+    "p.tat_benh": {"the_khac_dung": "thể khắc dụng thì bệnh dễ yên", "the_sinh_dung": "thể sinh dụng thì bệnh khó khỏi"},
+    "p.tat_benh_2": {"the_khac_dung": "thể khắc dụng thì không cần thuốc cũng có mừng", "dung_khac_the": "dụng khắc thể thì tuy có thuốc cũng vô công",
+                     "the_sinh_dung": "thể sinh dụng thì kéo dài khó khỏi", "dung_sinh_the": "dụng sinh thể thì khỏi ngay",
+                     "ty_hoa": "thể dụng tỷ hòa thì bệnh dễ yên"},
+    "p.quan_tung": {"the_khac_dung": "thể khắc dụng thì mình thắng người", "dung_khac_the": "dụng khắc thể thì người thắng mình",
+                    "the_sinh_dung": "thể sinh dụng thì chẳng những mất lý, hoặc còn vì việc quan mà mất mát",
+                    "dung_sinh_the": "dụng sinh thể thì chẳng những được lý, hoặc còn nhờ kiện mà được",
+                    "ty_hoa": "thể dụng tỷ hòa thì kiện tụng tốt nhất"},
+    "p.phan_mo": {"the_khac_dung": "thể khắc dụng thì táng ở đó cát", "dung_khac_the": "dụng khắc thể thì táng ở đó hung",
+                  "the_sinh_dung": "thể sinh dụng thì táng ở đó chủ vận lui", "dung_sinh_the": "dụng sinh thể thì táng ở đó chủ hưng thịnh, có phúc ấm cho con cháu",
+                  "ty_hoa": "thể dụng tỷ hòa thì là đất tốt"},
+    "p.vat_sinh_khac": {"dung_sinh_the": "quái sinh thể là vật ăn được", "dung_khac_the": "quái khắc thể là vật dơ gần người",
+                        "the_sinh_dung": "quái thể sinh là đồ chưa thành", "the_khac_dung": "quái thể khắc là vật vỡ nát, gãy hỏng",
+                        "ty_hoa": "tỷ hòa là đồ đã thành, dùng được"},
+}
+
+
+def split_relations(rid: str, han: str) -> dict:
+    """Exact Hán clause for each of the five relations present in han, cut from the
+    relation marker to the next marker or the clause end (；/。)."""
+    if rid in REL_HAN_OVERRIDE:
+        return dict(REL_HAN_OVERRIDE[rid])
+    pos = {}
+    for key, marker in REL_MARKERS:
+        i = han.find(marker)
+        if i >= 0:
+            pos[key] = i
+    starts = sorted(pos.values())
+    out = {}
+    for key, i in pos.items():
+        nxt = [p for p in starts if p > i]
+        seg = han[i:min(nxt) if nxt else len(han)]
+        m = re.search(r"[；。]", seg[5:])  # a marker is 3–4 characters; skip a stray 。 right after it
+        if m:
+            seg = seg[:5 + m.start()]
+        out[key] = seg.rstrip("，；。")
+    return {k: out[k] for k in REL_KEYS if k in out}
 
 # (id, section, kind, han_quote, vi, formula|None, flags|None)
 R: list[tuple] = []
@@ -272,8 +390,7 @@ for tri, han in [
     ("艮", "艮卦生體，有東北方之財，或山田之喜，或因山林田土獲財，或得宮音帶土人之財。物當安穩，事有終始。"),
     ("兌", "兌卦生體，有西方之財，或喜悅事，或有食物金玉貨利之源，或商音之人，或帶口之人欣逢，或主賓之樂，或朋友講習之事。"),
 ]:
-    rule(f"t.sinh_the.{TT[tri]}", "k2.1.7", "the_dung", han,
-         f"Quái {tri} sinh thể: các điềm lành kể trong câu (xem bản dịch mục Thể dụng tổng quyết).",
+    rule(f"t.sinh_the.{TT[tri]}", "k2.1.7", "the_dung", han, SINH_THE_VI[tri],
          {"if": f"{tri} produces the 體", "trigram": tri})
 for tri, han in [
     ("乾", "如乾卦克體，主有公事之憂，或門戶之憂，或有財寶之失，或于金穀有損，或有怒於尊長，或得罪於貴人。"),
@@ -285,8 +402,7 @@ for tri, han in [
     ("艮", "艮卦克體，諸事多違，百謀中阻。或有山林田土之失，或帶土人相侵，防東北方之禍害，或憂墳墓不當。"),
     ("兌", "兌卦克體，不利西方，主口舌事之紛爭。或帶口人侵欺，或有毀折之患，或因飲食而生憂。"),
 ]:
-    rule(f"t.khac_the.{TT[tri]}", "k2.1.7", "the_dung", han,
-         f"Quái {tri} khắc thể: các điềm xấu kể trong câu (xem bản dịch mục Thể dụng tổng quyết).",
+    rule(f"t.khac_the.{TT[tri]}", "k2.1.7", "the_dung", han, KHAC_THE_VI[tri],
          {"if": f"{tri} controls the 體", "trigram": tri})
 rule("t.no_sinh_khac", "k2.1.7", "the_dung",
      "生克不逢，則止以本卦而論之。",
@@ -776,6 +892,17 @@ def main() -> None:
                 "han_quote": han, "vi": vi}
         if formula is not None:
             item["formula"] = formula
+        if rid in REL_VI:
+            han_rel = split_relations(rid, han)
+            if set(han_rel) != set(REL_VI[rid]):
+                bad.append(f"{rid}: relation keys differ: han {sorted(han_rel)} vi {sorted(REL_VI[rid])}")
+            for k, v in han_rel.items():
+                if v not in han:
+                    bad.append(f"{rid}: {k} clause not in quote")
+            item["han_by_relation"] = han_rel
+            item["vi_by_relation"] = {k: REL_VI[rid][k] for k in REL_KEYS if k in REL_VI[rid]}
+        elif kind == "topic" and formula and set(REL_KEYS) & set(formula):
+            bad.append(f"{rid}: topic rule with relations but no REL_VI entry")
         if flags:
             item["undefined"] = [f for f in flags if f != "appendix"]
             if "appendix" in flags:
