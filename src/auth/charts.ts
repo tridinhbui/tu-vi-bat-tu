@@ -1,6 +1,6 @@
 // Saved-chart sync. The client sends its local list; the server merges it by birth fingerprint and returns the full list.
 export const MAX_CHARTS = 200;
-const RELS = new Set(["Tôi", "Người thân", "Bạn bè"]);
+const RELS = new Set(["Tôi", "Người thân", "Bạn bè", "Đã lập"]);   // "Đã lập": kept automatically when a member generates a chart
 const FIELDS = ["year", "month", "day", "hour", "minute", "gender", "tz", "calendar", "zi_rule", "level", "use_true_solar_time", "longitude"];
 
 export interface ChartItem { id: string; label: string; rel: string; req: Record<string, unknown> }
