@@ -3,76 +3,348 @@
  "status": "draft",
  "author": "Thiên Bàn (bản nháp, chưa duyệt)",
  "que": {
-  "core": {"text": "Tụng là lúc có chuyện phải tranh cãi phải trái: mình có lý mà bị chặn lại, nên biết dừng ở mức vừa phải thì tốt, còn theo đuổi đến cùng thì xấu.",
-           "from": [{"seg": "thoan", "layer": "chu_hy", "quote": "Tụng là tranh biện."},
-                    {"seg": "thoan", "layer": "trinh_di", "quote": "Trung cát nghĩa là vừa phải thì tốt, chung hung nghĩa là theo đuổi công việc tới cùng thì xấu."}]},
-  "image": {"text": "Trời đi lên, nước chảy xuống, hai bên mỗi đằng một ngả: mối bất hòa thường bắt đầu từ lúc chưa nói rõ với nhau, nên khôn nhất là liệu trước ngay từ khi khởi việc.",
-            "from": [{"seg": "dai_tuong", "layer": "nghia", "quote": "Trời với nước đi trái nhau, là quẻ Tụng, đấng quân tử coi đó mà dấy việc mưu tính lúc đầu."},
-                     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Nghĩa chữ “mưu thuỷ” rộng lắm, như là những việc cẩn thận giao kết, ghi rõ khế khoán, v.v…"}]},
-  "structure": {"text": "Bên trên cứng rắn, bên dưới hiểm hóc gặp nhau mới thành tranh chấp; hào Chín Năm ở ngôi tôn, trung chính, là người phân xử công bằng mà kẻ có lý nên tìm đến.",
-                "from": [{"seg": "thoan_truyen", "layer": "trinh_di", "quote": "vì hiểm mà lại mạnh, nên mới thành kiện."},
-                         {"seg": "thoan", "layer": "chu_hy", "quote": "Hào Chín Năm cứng mạnh, trung chính ở ngôi tôn, có tượng người lớn"}]},
-  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "cho nên mới răn kẻ xem ắt có sự tranh biện và tuỳ theo chỗ của họ ở mà thành ra lành hay dữ."},
-  "topics": {
-   "su_nghiep": {"text": "Trong công việc, quẻ báo có va chạm hoặc bất đồng với người khác; nếu mình đúng thì nên đưa ra trước một người có thẩm quyền, công tâm phân định, thay vì đôi co mãi.",
-                 "from": [{"seg": "thoan", "layer": "trinh_di", "quote": "Kẻ kiện cần để phân biệt cong ngay, cho nên lợi về sự thấy người lớn"}]},
-   "tai_chinh": {"text": "Về tiền bạc, chỗ dễ sinh chuyện là những khoản giao kết chưa rõ ràng: ghi giấy tờ, thỏa thuận cẩn thận từ đầu thì bớt được cảnh tranh chấp về sau.",
-                 "from": [{"seg": "dai_tuong", "layer": "trinh_di", "quote": "hễ làm việc gì, ắt phải mưu tính từ đầu, cho dứt mối kiện từ khi việc mới bắt đầu"}]},
-   "kinh_doanh": {"text": "Với việc làm ăn, đây không phải lúc liều lĩnh mở việc lớn đầy rủi ro; đang vướng mâu thuẫn với đối tác thì nên giữ mình ở chỗ an toàn trước đã.",
-                  "from": [{"seg": "thoan", "layer": "trinh_di", "quote": "Kiện không phải là việc hoà bình, nên chọn chỗ yên ổn mà ở, không nên hãm vào chốn nguy hiểm"}]},
-   "hoc_tap": {"text": "Trong học tập, tranh luận để phân rõ đúng sai là việc có ích, nhưng cãi cho thắng bằng được thì phí sức; nghe người am hiểu và công bằng phân xử sẽ sáng ra hơn.",
-               "from": [{"seg": "tieu_tuong5", "layer": "chu_hy", "quote": "Trung thì nghe không lệch, chính thì đoán hợp lẽ."},
-                        {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Kẻ kiện chỉ cần phân biệt được sự phải trái"}]},
-   "tinh_cam": {"text": "Trong tình cảm, Tụng là lúc hai người mỗi người một hướng và dễ to tiếng; nói ra cho rõ thì được, còn cố giành phần thắng trong từng cuộc cãi vã thì cái được cũng chẳng giữ được lâu.",
-                "from": [{"seg": "dai_tuong", "layer": "chu_hy", "quote": "Trời trên nước dưới, thường đi trái nhau."},
-                         {"seg": "hao6", "layer": "chu_hy", "quote": "cái của vì kiện mà được, không thể yên lâu"}]},
-   "gia_dinh": {"text": "Trong gia đình, bất hòa giữa người trên kẻ dưới dễ thành chuyện lớn nếu mỗi bên đều cứng; biết lui một bước, nhún nhường mà giữ phận mình thì yên chuyện.",
-                "from": [{"seg": "thoan", "layer": "chu_hy", "quote": "người trên dùng sự cứng để chế kẻ dưới, kẻ dưới dùng sự hiểm để nhòm người trên"},
-                         {"seg": "hao2", "layer": "chu_hy", "quote": "ý nói tự xử một cách thấp hẹp, cho khỏi tai hoạn"}]},
-   "lua_chon": {"text": "Khi phải quyết có nên theo một vụ tranh chấp hay không, hãy tự hỏi mình có thật sự có lý không và có đáng theo đến cùng không; biết thôi đúng lúc ở đây được coi là khôn.",
-                "from": [{"seg": "thoan", "layer": "trinh_di", "quote": "Phép kiện phải có sự thật"},
-                         {"seg": "hao3", "layer": "trinh_di", "quote": "đó là việc kiện lấy sự biết thôi làm hay."}]}
+  "core": {
+   "text": "Tụng là lúc có chuyện phải tranh cãi phải trái: mình có lý mà bị chặn lại, nên biết dừng ở mức vừa phải thì tốt, còn theo đuổi đến cùng thì xấu.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "Tụng là tranh biện."
+    },
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Trung cát nghĩa là vừa phải thì tốt, chung hung nghĩa là theo đuổi công việc tới cùng thì xấu."
+    }
+   ]
   },
-  "advice": {"text": "Làm gì cũng nên giao kết rõ ràng từ đầu để khỏi sinh kiện; nếu đã lỡ vướng, hãy nhờ người công tâm phân xử và dừng lại khi đã rõ phải trái, đừng đeo đuổi cho bằng được.",
-             "from": [{"seg": "dai_tuong", "layer": "chu_hy", "quote": "Dấy việc, mưu tính từ đầu, mối kiện phải tuyệt."},
-                      {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Kiện không phải việc hay, nó là việc bất đắc dĩ, đâu lại có thể làm đến cùng chót?"}]},
+  "image": {
+   "text": "Trời đi lên, nước chảy xuống, hai bên mỗi đằng một ngả: mối bất hòa thường bắt đầu từ lúc chưa nói rõ với nhau, nên khôn nhất là liệu trước ngay từ khi khởi việc.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Trời với nước đi trái nhau, là quẻ Tụng, đấng quân tử coi đó mà dấy việc mưu tính lúc đầu."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "Nghĩa chữ \"mưu thủy\" rộng lắm, như là những việc cẩn thận giao kết, ghi rõ khế khoán v.v..."
+    }
+   ]
+  },
+  "structure": {
+   "text": "Bên trên cứng rắn, bên dưới hiểm hóc gặp nhau mới thành tranh chấp; hào Chín Năm ở ngôi tôn, trung chính, là người phân xử công bằng mà kẻ có lý nên tìm đến.",
+   "from": [
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "vì hiểm mà lại mạnh, nên mới thành kiện."
+    },
+    {
+     "seg": "thoan",
+     "layer": "chu_hy",
+     "quote": "hào Chín Năm cứng mạnh, trung chính ở ngôi tôn, có tượng người lớn"
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "cho nên mới răn kẻ xem ắt có sự tranh biện và tùy theo chỗ ở của họ mà thành ra lành hay dữ."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Trong công việc, quẻ báo có va chạm hoặc bất đồng với người khác; nếu mình đúng thì nên đưa ra trước một người có thẩm quyền, công tâm phân định, thay vì đôi co mãi.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Kẻ kiện cần để phân biệt cong ngay, cho nên lợi về sự thấy người lớn"
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Về tiền bạc, chỗ dễ sinh chuyện là những khoản giao kết chưa rõ ràng: ghi giấy tờ, thỏa thuận cẩn thận từ đầu thì bớt được cảnh tranh chấp về sau.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "hễ làm việc gì, ắt phải mưu tính từ đầu, cho dứt mối kiện từ khi việc mới bắt đầu"
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Với việc làm ăn, đây không phải lúc liều lĩnh mở việc lớn đầy rủi ro; đang vướng mâu thuẫn với đối tác thì nên giữ mình ở chỗ an toàn trước đã.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Kiện không phải là việc hòa bình, nên chọn chỗ yên ổn mà ở, không nên hãm vào chốn nguy hiểm"
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Trong học tập, tranh luận để phân rõ đúng sai là việc có ích, nhưng cãi cho thắng bằng được thì phí sức; nghe người am hiểu và công bằng phân xử sẽ sáng ra hơn.",
+    "from": [
+     {
+      "seg": "tieu_tuong5",
+      "layer": "chu_hy",
+      "quote": "Trung thì nghe không lệch, chính thì đoán hợp lẽ."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Kẻ kiện chỉ cần phân biệt được sự phải trái"
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Trong tình cảm, Tụng là lúc hai người mỗi người một hướng và dễ to tiếng; nói ra cho rõ thì được, còn cố giành phần thắng trong từng cuộc cãi vã thì cái được cũng chẳng giữ được lâu.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "chu_hy",
+      "quote": "Trời trên nước dưới, thường đi trái nhau."
+     },
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "cái của vì kiện mà được, không thể yên lâu"
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Trong gia đình, bất hòa giữa người trên kẻ dưới dễ thành chuyện lớn nếu mỗi bên đều cứng; biết lui một bước, nhún nhường mà giữ phận mình thì yên chuyện.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "chu_hy",
+      "quote": "người trên dùng sự cứng để chế kẻ dưới, kẻ dưới dùng sự hiểm để nhòm người trên"
+     },
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "ý nói tự xử một cách thấp hẹp, cho khỏi tai hoạn"
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi phải quyết có nên theo một vụ tranh chấp hay không, hãy tự hỏi mình có thật sự có lý không và có đáng theo đến cùng không; biết thôi đúng lúc ở đây được coi là khôn.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "Phép kiện phải có sự thật"
+     },
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "đó là việc kiện lấy sự biết thôi làm hay."
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Làm gì cũng nên giao kết rõ ràng từ đầu để khỏi sinh kiện; nếu đã lỡ vướng, hãy nhờ người công tâm phân xử và dừng lại khi đã rõ phải trái, đừng đeo đuổi cho bằng được.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "chu_hy",
+     "quote": "Dấy việc, mưu tính từ đầu, mối kiện phải tuyệt."
+    },
+    {
+     "seg": "thoan_truyen",
+     "layer": "trinh_di",
+     "quote": "Kiện không phải việc hay, nó là việc bất đắc dĩ, đâu lại có thể làm đến cùng chót?"
+    }
+   ]
+  },
   "conditions": [
-   {"text": "Tranh chấp chỉ đáng đưa ra khi mình thật có lý; trong lòng không thật thì đó là đường xấu ngay từ đầu.",
-    "from": [{"seg": "thoan", "layer": "trinh_di", "quote": "ở trong không có sự thật thì là cái kiểu của kẻ Vô võng, ấy là đạo hung."}]},
-   {"text": "Dù thắng được nhờ cố đeo bám, cái giành được bằng tranh chấp dễ bị lấy lại và không làm người ta nể trọng.",
-    "from": [{"seg": "tieu_tuong6", "layer": "nghia", "quote": "Vì kiện mà nhận đồ mặc, cũng không đủ kính vậy."},
-             {"seg": "hao6", "layer": "chu_hy", "quote": "kẻ vô lý hoặc cũng được thắng, nhưng cái mà hắn đã được, sau rồi ắt phải mất."}]}
+   {
+    "text": "Tranh chấp chỉ đáng đưa ra khi mình thật có lý; trong lòng không thật thì đó là đường xấu ngay từ đầu.",
+    "from": [
+     {
+      "seg": "thoan",
+      "layer": "trinh_di",
+      "quote": "ở trong không có sự thật thì là kiểu của kẻ Vô võng, ấy là đạo hung."
+     }
+    ]
+   },
+   {
+    "text": "Dù thắng được nhờ cố đeo bám, cái giành được bằng tranh chấp dễ bị lấy lại và không làm người ta nể trọng.",
+    "from": [
+     {
+      "seg": "tieu_tuong6",
+      "layer": "nghia",
+      "quote": "Vì kiện mà nhận đồ mặc, cũng không đủ kính vậy."
+     },
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "kẻ vô lý hoặc cũng được thắng, nhưng cái mà hắn đã được, sau rồi ắt phải mất."
+     }
+    ]
+   }
   ]
  },
  "hao": {
-  "1": {"gist": {"text": "Mới vướng chuyện, sức mình còn yếu: đừng kéo dài việc tranh chấp; có thể phải nghe vài lời ra tiếng vào, nhưng rồi phải trái sẽ rõ và kết cục ổn.",
-                 "from": [{"seg": "hao1", "layer": "trinh_di", "quote": "Nếu không theo đuổi lâu dài về việc của mình, thì tuy hơi có điều tiếng, về sau cũng được tốt lành."},
-                          {"seg": "tieu_tuong1", "layer": "nghia", "quote": "Dẫu là hơi có điều tiếng; sự phân biệt được rõ ràng vậy."}]},
-        "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Âm nhu ở dưới, không thể làm trọn việc kiện, cho nên lời chiêm và tượng của nó như thế."}},
-  "2": {"gist": {"text": "Muốn cãi với người mạnh hơn mình mà thế không địch nổi: rút lui, sống khiêm tốn trong phạm vi nhỏ của mình thì tránh được tai vạ; cố đôi co là tự rước họa.",
-                 "from": [{"seg": "hao2", "layer": "trinh_di", "quote": "Nếu biết là nghĩa không nên, lui về mà trốn để tránh cho qua, dùng sự kiện ước tự xử, thì được khỏi tội."},
-                          {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Ý nói tự mình tự rước lấy vạ lo vậy."}]},
-        "position": {"text": "Hào dương ở giữa quẻ dưới, ứng với hào Chín Năm đang ở ngôi tôn: hai bên đều cứng, mà bên kia ở thế trên.",
-                     "from": [{"seg": "hao2", "layer": "chu_hy", "quote": "trên thì ứng với hào Chín Năm, là bậc Dương cương ở ngôi tôn, thế không thể địch"}]},
-        "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Người ấp ba trăm hộ, tức là ấp nhỏ, ý nói tự xử một cách thấp hẹp, cho khỏi tai hoạn. Kẻ xem nếu thế thì không có tội."}},
-  "3": {"gist": {"text": "Giữ phần sẵn có của mình, sống theo nếp cũ, tuy có lúc lo lắng mà sau ổn; nếu đi theo việc lớn của người trên thì đừng mong công lao ấy là của mình.",
-                 "from": [{"seg": "hao3", "layer": "trinh_di", "quote": "Ăn đức cũ nghĩa là xử theo cái phận sẵn có của mình"},
-                          {"seg": "hao3", "layer": "trinh_di", "quote": "nghĩa là mình theo người trên thì sự thành công không phải ở mình."}]},
-        "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Nhưng nếu hoặc ra mà làm việc vua, thì cũng không thể thành công. Kẻ xem nên cứ thủ thường không ra là phải."}},
-  "4": {"gist": {"text": "Tính nóng, muốn tranh nhưng chẳng có cớ hay đối thủ để tranh: nén lòng, quay về lẽ phải và đổi sang thái độ yên ổn, ngay thẳng thì tốt.",
-                 "from": [{"seg": "hao4", "layer": "trinh_di", "quote": "nếu biết nén lòng cương phẫn muốn kiện, lại theo số mệnh mà thay lòng, dẹp khí, đổi ra yên bề chính bền thì tốt."}]},
-        "position": {"text": "Hào dương ở ngôi âm, không giữa không chính: tính cứng nhưng ngồi ở chỗ mềm, nhờ vậy còn biết thôi.",
-                     "from": [{"seg": "hao4", "layer": "chu_hy", "quote": "Vì nó ở vào ngôi nhu, cho nên lại là cái tượng vì “không thể kiện mà theo chính lý thay đổi lòng bụng, ở yên chính đạo”."}]},
-        "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Kẻ xem như thế thì tốt."}},
-  "5": {"gist": {"text": "Đây là vị trí của người phân xử công bằng; ai gặp hào này mà mình có lý thì dễ được giải oan, nỗi ấm ức được làm sáng tỏ.",
-                 "from": [{"seg": "hao5", "layer": "chu_hy", "quote": "nghe việc kiện mà được công bình."},
-                          {"seg": "tieu_tuong5", "layer": "nghia", "quote": "Kiện cả tốt, vì trung chính vậy."}]},
-        "position": {"text": "Hào dương ở ngôi tôn, vừa giữa vừa chính: nghe không thiên lệch, xét đoán hợp lẽ.",
-                     "from": [{"seg": "hao5", "layer": "trinh_di", "quote": "Hào này là kẻ lấy đức trung chính ở ngôi tôn mà trị việc kiện."}]},
-        "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Kẻ xem gặp hào này, kiện mà có lý, chắc tỏ được sự oan khuất."}},
-  "6": {"gist": {"text": "Đeo đuổi tranh chấp đến tận cùng thì có khi thắng, được ban thưởng, nhưng thứ giành được bằng cách ấy giữ không yên, chỉ một buổi đã bị tước đi mấy lần.",
-                 "from": [{"seg": "hao6", "layer": "trinh_di", "quote": "Người mà dòng nết cương cường, làm cho cùng cực việc kiện, thì sự rước vạ mất đòi, vẫn là lẽ đương nhiên."},
-                          {"seg": "hao6", "layer": "nghia", "quote": "Hoặc cho chiếc dải lưng da, trọn buổi sáng, ba lần lột lại."}]},
-        "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Lời Chiêm của hào này là hết việc kiện, kẻ vô lý hoặc cũng được thắng, nhưng cái mà hắn đã được, sau rồi ắt phải mất."}}
+  "1": {
+   "gist": {
+    "text": "Mới vướng chuyện, sức mình còn yếu: đừng kéo dài việc tranh chấp; có thể phải nghe vài lời ra tiếng vào, nhưng rồi phải trái sẽ rõ và kết cục ổn.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "trinh_di",
+      "quote": "Nếu không theo đuổi lâu dài về việc của mình, thì tuy hơi có điều tiếng, về sau cũng được tốt lành."
+     },
+     {
+      "seg": "tieu_tuong1",
+      "layer": "nghia",
+      "quote": "Dẫu là hơi có điều tiếng; sự phân biệt không được rõ ràng vậy."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "chu_hy",
+    "quote": "Âm nhu ở dưới, không thể làm trọn việc kiện, cho nên lời chiêm và tượng của nó như thế."
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Muốn cãi với người mạnh hơn mình mà thế không địch nổi: rút lui, sống khiêm tốn trong phạm vi nhỏ của mình thì tránh được tai vạ; cố đôi co là tự rước họa.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "tien_nho",
+      "quote": "Nếu biết là nghĩa không nên, lui về mà trốn để tránh cho qua"
+     },
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Ý nói tự mình tự rước lấy vạ lo vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ dưới, ứng với hào Chín Năm đang ở ngôi tôn: hai bên đều cứng, mà bên kia ở thế trên.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "trên thì ứng với hào Chín Năm, là bậc Dương cương ở ngôi tôn, thế không thể địch"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "Người ấp ba trăm hộ, tức là ấp nhỏ, ý nói tự xử một cách thấp hẹp, cho khỏi tai hoạn. Kẻ xem nếu thế thì không có tội."
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Giữ phần sẵn có của mình, sống theo nếp cũ, tuy có lúc lo lắng mà sau ổn; nếu đi theo việc lớn của người trên thì đừng mong công lao ấy là của mình.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "Ăn đức cũ nghĩa là xử theo cái phận sẵn có của mình"
+     },
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "nghĩa là mình theo người trên thì sự thành công không phải ở mình."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Nhưng nếu hoặc ra mà làm việc vua, thì cũng không thể thành công. Kẻ xem nên cứ thủ thường không ra là phải."
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Tính nóng, muốn tranh nhưng chẳng có cớ hay đối thủ để tranh: nén lòng, quay về lẽ phải và đổi sang thái độ yên ổn, ngay thẳng thì tốt.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "nếu biết nén lòng cương phẫn muốn kiện, lại theo số mệnh mà thay lòng, dẹp khí, đổi ra yên bề chính bền thì tốt."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, không giữa không chính: tính cứng nhưng ngồi ở chỗ mềm, nhờ vậy còn biết thôi.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "trinh_di",
+      "quote": "Vì nó ở vào nhu, cho nên lại là cái tượng"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "trinh_di",
+    "quote": "Kẻ xem như thế thì tốt."
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Đây là vị trí của người phân xử công bằng; ai gặp hào này mà mình có lý thì dễ được giải oan, nỗi ấm ức được làm sáng tỏ.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "nghe việc kiện mà được công bình."
+     },
+     {
+      "seg": "tieu_tuong5",
+      "layer": "nghia",
+      "quote": "Kiện cả tốt, vì trung chính vậy."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi tôn, vừa giữa vừa chính: nghe không thiên lệch, xét đoán hợp lẽ.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "Hào này là kẻ lấy đức trung chính ở ngôi tôn mà trị việc kiện."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "Kẻ xem gặp hào này, kiện mà có lý, chắc tỏ được sự oan khuất."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Đeo đuổi tranh chấp đến tận cùng thì có khi thắng, được ban thưởng, nhưng thứ giành được bằng cách ấy giữ không yên, chỉ một buổi đã bị tước đi mấy lần.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "trinh_di",
+      "quote": "Người mà dòng nết cương cường, làm cho cùng việc kiện, thì sự rước vạ mất đòi, vẫn là lẽ đương nhiên."
+     },
+     {
+      "seg": "hao6",
+      "layer": "nghia",
+      "quote": "hoặc cho chiếc dải lưng da, trọn buổi sáng, ba lần lột lại."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "chu_hy",
+    "quote": "Lời Chiêm của hào này là hết việc kiện, kẻ vô lý hoặc cũng được thắng, nhưng cái mà hắn đã được, sau rồi ắt phải mất."
+   }
+  }
  }
 }

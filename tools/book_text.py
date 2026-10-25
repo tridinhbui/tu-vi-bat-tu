@@ -14,9 +14,26 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-BOOK_FILES = {"KL": "TuViKhaoLuan.pdf", "TH": "TuViThucHanh.pdf", "TT": "Tử Vi Đẩu Số Toàn Thư.pdf", "HS": "tu-vi-ham-so.pdf"}
-BOOK_NAMES = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư", "HS": "Tử Vi Hàm Số"}
+BOOK_FILES = {"KL": "TuViKhaoLuan.pdf", "TH": "TuViThucHanh.pdf", "TT": "Tử Vi Đẩu Số Toàn Thư.pdf", "HS": "tu-vi-ham-so.pdf",
+              "KD": "KINH DỊCH TRỌN BỘ.PDF"}
+BOOK_NAMES = {"KL": "Tử Vi Khảo Luận", "TH": "Tử Vi Thực Hành", "TT": "Tử Vi Đẩu Số Toàn Thư", "HS": "Tử Vi Hàm Số", "KD": "Kinh Dịch (Ngô Tất Tố dịch)"}
 PDF_OFFSET = {"HS": 1}
+
+# KD (Kinh Dịch, Ngô Tất Tố) is an image scan with no text layer (only a download watermark) whose printed numbers are not PDF + 1:
+# blank pages were dropped from the scan, so printed = PDF page + offset with the offset stepping up.  Read from the running heads of
+# all 666 pages (2026-10-25): printed 60, 62, 366 and 666 are not in the scan.  Its page text comes from the committed transcription.
+KD_OFFSETS = ((1, 57, 2), (58, 58, 3), (59, 361, 4), (362, 660, 5), (661, 666, 6))   # (first PDF page, last PDF page, printed - PDF)
+KD_PAGES = Path(__file__).resolve().parent.parent / "engine" / "data" / "kinh_dich" / "ntt" / "pages.txt"
+
+
+def pdf_page(book: str, page: int) -> int:
+    """1-based PDF page of a printed page number"""
+    if book != "KD":
+        return page + PDF_OFFSET.get(book, 0)
+    for first, last, off in KD_OFFSETS:
+        if first <= page - off <= last:
+            return page - off
+    raise KeyError(f"KD printed page {page} is not in the scan")
 
 
 def books_dir() -> Path:
@@ -24,7 +41,7 @@ def books_dir() -> Path:
 
 
 def available(book: str) -> bool:
-    if book.startswith(("WEB:", "SCAN:")):
+    if book.startswith(("WEB:", "SCAN:")) or book == "KD":
         return _snapshot_file(book).exists()
     return (books_dir() / BOOK_FILES[book]).exists()
 
@@ -64,11 +81,13 @@ def _doc(book: str):
 
 
 def page_text(book: str, page: int) -> str:
-    return decode(_doc(book)[page - 1 + PDF_OFFSET.get(book, 0)].get_text())
+    if book == "KD":
+        return snapshot_text("SCAN:KD", page)
+    return decode(_doc(book)[pdf_page(book, page) - 1].get_text())
 
 
 def render(book: str, page: int, out: str, zoom: float = 1.5) -> str:
-    _doc(book)[page - 1 + PDF_OFFSET.get(book, 0)].get_pixmap(matrix=__import__("fitz").Matrix(zoom, zoom)).save(out)
+    _doc(book)[pdf_page(book, page) - 1].get_pixmap(matrix=__import__("fitz").Matrix(zoom, zoom)).save(out)
     return out
 
 
@@ -109,6 +128,8 @@ DATA = Path(__file__).resolve().parent.parent / "engine" / "data"
 
 def _snapshot_file(book: str) -> Path:
     kind, sid = book.split(":", 1)
+    if book == "SCAN:KD":
+        return KD_PAGES
     if kind == "WEB":
         idx = json.loads((DATA / "sources_web" / "index.json").read_text("utf-8"))["sources"]
         return DATA / "sources_web" / idx[sid]["file"]

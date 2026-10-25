@@ -92,6 +92,40 @@ def _match(han_segments: list[dict], ntt_han: str, start: int) -> int | None:
     return best_i if best >= 0.75 else None
 
 
+FOOTMARK = re.compile(r"\[\^[0-9.]+\]")
+
+
+def labelled_key(b: dict) -> str | None:
+    """The transcription labels each block (kind, hao, dung): its key, when it has one."""
+    k = b.get("kind")
+    if not k:
+        return None
+    if k in ("hao", "tieu_tuong") and b.get("hao"):
+        return f"{k}{b['hao']}"
+    if k == "tieu_tuong" and b.get("dung"):
+        return "tieu_tuong_dung"
+    return k
+
+
+def block_layers(b: dict) -> dict:
+    """Layers of one block, footnote marks taken out; other_commentary (lời bàn of the tiên nho and of named scholars) becomes tien_nho,
+    each part headed by its printed label when that is not the generic 'Lời bàn của Tiên Nho'."""
+    out = {}
+    for layer in LAYERS:
+        v = (b.get(layer) or "").strip()
+        if v:
+            out[layer] = FOOTMARK.sub("", v)
+    parts = []
+    for c in b.get("other_commentary") or []:
+        t = FOOTMARK.sub("", (c.get("text") or "").strip())
+        if t:
+            lab = c.get("label", "")
+            parts.append(t if lab in ("", "Lời bàn của Tiên Nho") else f"{lab}: {t}")
+    if parts:
+        out["tien_nho"] = (out.get("tien_nho", "") + "\n" + "\n".join(parts)).strip()
+    return out
+
+
 @lru_cache(maxsize=None)
 def quẻ_texts(n: int) -> dict:
     """{key: {kind, hao?, han, chiem, layers: {am, nghia, trinh_di, chu_hy, tien_nho}, pages, ntt: bool}} for quẻ n, keys as seg_key."""
@@ -104,17 +138,23 @@ def quẻ_texts(n: int) -> dict:
         ntt = json.loads(f.read_text("utf-8"))
         pos = 0
         for b in ntt["segments"]:
-            i = _match(q["segments"], b.get("han", ""), pos)
-            if i is None:
-                unmatched.append(b.get("han", "")[:20])
-                continue
-            pos = i
-            seg = out[seg_key(q["segments"][i])]
+            key = labelled_key(b)
+            if key == "intro" and key not in out:   # Trình Di's opening of the quẻ (why it follows the one before): no Hán of its own
+                out["intro"] = {"kind": "intro", "han": "", "chiem": [], "layers": {}, "pages": [], "blocks": 0}
+            if key not in out:                      # an unlabelled block (Wikisource copies): placed by its Hán text
+                i = _match(q["segments"], b.get("han", ""), pos)
+                if i is None:
+                    unmatched.append(b.get("han", "")[:20])
+                    continue
+                pos = i
+                key = seg_key(q["segments"][i])
+            seg = out[key]
             seg["blocks"] += 1
-            for layer in LAYERS:
-                v = (b.get(layer) or "").strip()
-                if v:
-                    seg["layers"][layer] = (seg["layers"].get(layer, "") + "\n" + v).strip()
+            for layer, v in block_layers(b).items():
+                seg["layers"][layer] = (seg["layers"].get(layer, "") + "\n" + v).strip()
+            seg.setdefault("footnotes", []).extend(b.get("footnotes") or [])
+            if b.get("status"):
+                seg.setdefault("status", []).append(b["status"])
             if b.get("page") is not None:
                 seg["pages"].append(b["page"])
     return {"number": n, "han": q["han"], "segments": out, "has_ntt": f.exists(), "unmatched": unmatched}

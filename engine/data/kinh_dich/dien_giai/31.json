@@ -3,89 +3,421 @@
  "status": "draft",
  "author": "Thiên Bàn (bản nháp, chưa duyệt)",
  "que": {
-  "core": {"text": "Hàm là sự rung động qua lại giữa hai người, gần gũi nhất là giữa nam và nữ: có cảm thì có thông, nhưng sự cảm ấy chỉ tốt khi đi theo lẽ chính.",
-           "from": [{"seg": "thoan", "layer": "trinh_di", "quote": "Các vật cảm nhau, không gì thiết tha bằng trai với gái mà hạng tuổi trẻ càng thiết tha hơn."},
-                    {"seg": "thoan", "layer": "trinh_di", "quote": "Lợi trinh nghĩa là cái đạo cảm nhau, lợi về sự chính."}]},
-  "image": {"text": "Hồ nước nằm trên đỉnh núi, nước thấm xuống và núi đón lấy: lòng mình có để trống mới đón nhận được người khác, còn đầy ắp định kiến thì chẳng gì thấm vào.",
-            "from": [{"seg": "dai_tuong", "layer": "nghia", "quote": "Trên núi có chầm, là quẻ Hàm, đấng quân tử coi đó mà trống rỗng lòng mình để nhận người ta."},
-                     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Ôi, người ta hễ trong bụng trống rỗng thì có thể nhận, đầy đặc thì không thể nhận."}]},
-  "structure": {"text": "Quẻ lấy thân người làm hình ảnh, đi từ ngón chân lên đến miệng; ở mỗi chặng, hễ vội động thì không hay, nên cả sáu hào đều thiên về giữ yên.",
-                "from": [{"seg": "hao1", "layer": "chu_hy", "quote": "Quẻ Hàm dùng thân thể người ta làm Tượng"},
-                         {"seg": "hao1", "layer": "chu_hy", "quote": "Quẻ này tuy chủ về sự cảm, nhưng cả sáu hào đều nên tĩnh không nên động."}]},
-  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "cho nên quẻ của nó là Hàm, mà lời Chiêm của nó là hanh mà lợi về sự chính, lấy con gái thì tốt."},
-  "topics": {
-   "su_nghiep": {"text": "Nơi làm việc, ảnh hưởng của mình đến người khác đến từ sự chân thành chứ không từ lời hay; người cởi mở, không chọn nghe điều vừa ý mới thu phục được nhiều người.",
-                 "from": [{"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Chỉ có chí thành mới cảm được người"},
-                          {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Nếu chỉ lấy lượng mà chứa, chọn sự hợp với ý mình mà nhận, thì không phải là đạo “có cảm ắt thông” của đấng thánh nhân."}]},
-   "tai_chinh": {"text": "Chuyện tiền nong ở quẻ này ít bàn đến lợi lộc mà nhắc đến cảnh bị cuốn theo: quyết định chi tiêu vì cảm hứng nhất thời hay vì người khác rủ thì dễ phải tiếc.",
-                 "from": [{"seg": "hao3", "layer": "chu_hy", "quote": "Hai hào dưới đều muốn động, hào Ba không thể tự giữ mà theo nó đi, thì đáng tiếc vậy"}]},
-   "kinh_doanh": {"text": "Trong buôn bán, quan hệ với khách hàng, đối tác thuận khi hai bên thật lòng đáp lại nhau; vừa làm ơn đã mong được đền đáp ngay là cái vội khiến mối quan hệ hẹp lại.",
-                  "from": [{"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Đoái đẹp lòng ở trên, tức là hoà vui ứng nhau."},
-                           {"seg": "hao4", "layer": "tien_nho", "quote": "Ví như mới chính cái nghĩa, liền muốn mưu cái lợi, mới tỏ cái đạo liền muốn tính cái công"}]},
-   "hoc_tap": {"text": "Người đi học được quẻ này nhắc giữ một tâm thế để trống: gạt ý riêng sang bên thì điều gì cũng có thể thấm vào, còn chỉ nhận những gì hợp với mình thì học được ít.",
-               "from": [{"seg": "dai_tuong", "layer": "trinh_di", "quote": "Trống rỗng trong lòng tức là không có ý riêng vậy."},
-                        {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Trên núi có chầm là vì sự trống rỗng mà thông suốt vậy."}]},
-   "tinh_cam": {"text": "Trong tình cảm, đây là quẻ của hai người có rung động với nhau và thuận cho chuyện hôn nhân, nhất là khi người chủ động biết nhún nhường, đối đãi đàng hoàng; đến với nhau không theo lẽ chính thì cái tốt mất đi.",
-                "from": [{"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Trai mà nhường gái, tức là hoà đến tột bậc."},
-                         {"seg": "thoan", "layer": "chu_hy", "quote": "nhưng nếu lấy nhau không theo chính đạo, thì mất sự hanh, mà các việc làm đều hung!"}]},
-   "gia_dinh": {"text": "Ở trong nhà, sự hòa thuận đến từ việc các thành viên thật lòng đáp lại nhau, một bên vững vàng, một bên vui vẻ đón nhận, chứ không từ việc ai thắng ai.",
-                "from": [{"seg": "thoan_truyen", "layer": "trinh_di", "quote": "hai khí Âm Dương cảm nhau ứng nhau, hoà hợp với nhau, thế là cùng nhau."},
-                         {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Cấn đậu ở dưới, ấy là gốc thực nhường nhau."}]},
-   "lua_chon": {"text": "Khi đứng trước ngã rẽ, nên phân biệt mình đang rung động thật hay chỉ bị lôi theo người khác; giữ yên chờ cảm xúc lắng và rõ ràng hơn thì ít phải hối.",
-                "from": [{"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Có chất Dương cứng, không biết tự giữ, chí lại thích theo người ta"},
-                         {"seg": "hao2", "layer": "chu_hy", "quote": "cho nên lời Chiêm của nó là động thì hung mà tĩnh thì tốt."}]}
+  "core": {
+   "text": "Hàm là sự rung động qua lại giữa hai người, gần gũi nhất là giữa nam và nữ: có cảm thì có thông, nhưng sự cảm ấy chỉ tốt khi đi theo lẽ chính.",
+   "from": [
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Các vật cảm nhau, không gì thiết tha bằng trai với gái mà hạng tuổi trẻ càng thiết tha hơn."
+    },
+    {
+     "seg": "thoan",
+     "layer": "trinh_di",
+     "quote": "Lợi trinh nghĩa là cái đạo cảm nhau, lợi về sự chính."
+    }
+   ]
   },
-  "advice": {"text": "Đón người khác bằng một tấm lòng mở và thành thật, không tính toán được mất; khi mới có cảm tình thì đừng vội vàng hành động, để sự cảm có thời gian sâu thêm.",
-             "from": [{"seg": "dai_tuong", "layer": "trinh_di", "quote": "Trong lòng đã không chuyên chủ, thì không sự cảm nào mà không thông."},
-                      {"seg": "hao1", "layer": "trinh_di", "quote": "Người ta cảm nhau cũng có nông sâu nhẹ nặng khác nhau, biết thời thế thì xử lý không mất lẽ phải."}]},
+  "image": {
+   "text": "Hồ nước nằm trên đỉnh núi, nước thấm xuống và núi đón lấy: lòng mình có để trống mới đón nhận được người khác, còn đầy ắp định kiến thì chẳng gì thấm vào.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "nghia",
+     "quote": "Trên núi có chầm, là quẻ Hàm, đấng quân tử coi đó mà trống rỗng lòng mình để nhận người ta."
+    },
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "Ôi, người ta hễ trong bụng trống rỗng thì có thể nhận, đầy đặc thì không thể nhận."
+    }
+   ]
+  },
+  "structure": {
+   "text": "Quẻ lấy thân người làm hình ảnh, đi từ ngón chân lên đến miệng; ở mỗi chặng, hễ vội động thì không hay, nên cả sáu hào đều thiên về giữ yên.",
+   "from": [
+    {
+     "seg": "hao1",
+     "layer": "chu_hy",
+     "quote": "Quẻ Hàm dùng thân thể người ta làm Tượng"
+    },
+    {
+     "seg": "hao1",
+     "layer": "chu_hy",
+     "quote": "Quẻ này tuy chủ về sự cảm, nhưng cả sáu hào đều nên tĩnh không nên động."
+    }
+   ]
+  },
+  "traditional": {
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "quote": "cho nên quẻ của nó là Hàm, mà lời Chiêm của nó là hanh mà lợi về sự chính, lấy con gái thì tốt."
+  },
+  "topics": {
+   "su_nghiep": {
+    "text": "Nơi làm việc, ảnh hưởng của mình đến người khác đến từ sự chân thành chứ không từ lời hay; người cởi mở, không chọn nghe điều vừa ý mới thu phục được nhiều người.",
+    "from": [
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "Chỉ có chí thành mới cảm được người"
+     },
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "Nếu chỉ lấy lượng mà chứa, chọn sự hợp lý với mình mà nhận, thì không phải là đạo \"có cảm ắt thông\" của đấng thánh nhân."
+     }
+    ]
+   },
+   "tai_chinh": {
+    "text": "Chuyện tiền nong ở quẻ này ít bàn đến lợi lộc mà nhắc đến cảnh bị cuốn theo: quyết định chi tiêu vì cảm hứng nhất thời hay vì người khác rủ thì dễ phải tiếc.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "chu_hy",
+      "quote": "Hai hào dưới đều muốn động, hào Ba không thể tự giữ mà theo nó đi, thì đáng tiếc vậy"
+     }
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Trong buôn bán, quan hệ với khách hàng, đối tác thuận khi hai bên thật lòng đáp lại nhau; vừa làm ơn đã mong được đền đáp ngay là cái vội khiến mối quan hệ hẹp lại.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Đoái đẹp lòng ở trên, tức là hòa vui ứng nhau."
+     },
+     {
+      "seg": "hao4",
+      "layer": "tien_nho",
+      "quote": "Ví như mới chính cái nghĩa, liền muốn mưu cái lợi, mới tỏ cái đạo liền muốn tính cái công"
+     }
+    ]
+   },
+   "hoc_tap": {
+    "text": "Người đi học được quẻ này nhắc giữ một tâm thế để trống: gạt ý riêng sang bên thì điều gì cũng có thể thấm vào, còn chỉ nhận những gì hợp với mình thì học được ít.",
+    "from": [
+     {
+      "seg": "dai_tuong",
+      "layer": "trinh_di",
+      "quote": "Trống rỗng trong lòng tức là không có ý riêng vậy."
+     },
+     {
+      "seg": "dai_tuong",
+      "layer": "chu_hy",
+      "quote": "Trên núi có chầm là vì sự trống rỗng mà thông suốt vậy."
+     }
+    ]
+   },
+   "tinh_cam": {
+    "text": "Trong tình cảm, đây là quẻ của hai người có rung động với nhau và thuận cho chuyện hôn nhân, nhất là khi người chủ động biết nhún nhường, đối đãi đàng hoàng; đến với nhau không theo lẽ chính thì cái tốt mất đi.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Trai mà nhường gái, tức là hòa đến tột bậc."
+     },
+     {
+      "seg": "thoan",
+      "layer": "chu_hy",
+      "quote": "nhưng nếu lấy nhau không theo chính đạo, thì mất sự hanh, mà các việc làm đều hung!"
+     }
+    ]
+   },
+   "gia_dinh": {
+    "text": "Ở trong nhà, sự hòa thuận đến từ việc các thành viên thật lòng đáp lại nhau, một bên vững vàng, một bên vui vẻ đón nhận, chứ không từ việc ai thắng ai.",
+    "from": [
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "hai khí Âm Dương cảm nhau ứng nhau, hòa hợp với nhau, thế là cùng nhau."
+     },
+     {
+      "seg": "thoan_truyen",
+      "layer": "trinh_di",
+      "quote": "Cấn đậu ở dưới, ấy là gốc thực nhường nhau."
+     }
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi đứng trước ngã rẽ, nên phân biệt mình đang rung động thật hay chỉ bị lôi theo người khác; giữ yên chờ cảm xúc lắng và rõ ràng hơn thì ít phải hối.",
+    "from": [
+     {
+      "seg": "tieu_tuong3",
+      "layer": "trinh_di",
+      "quote": "Có chất Dương cứng, không biết tự giữ, chí lại thích theo người ta"
+     },
+     {
+      "seg": "hao2",
+      "layer": "chu_hy",
+      "quote": "cho nên lời Chiêm của nó là động thì hung mà tĩnh thì tốt."
+     }
+    ]
+   }
+  },
+  "advice": {
+   "text": "Đón người khác bằng một tấm lòng mở và thành thật, không tính toán được mất; khi mới có cảm tình thì đừng vội vàng hành động, để sự cảm có thời gian sâu thêm.",
+   "from": [
+    {
+     "seg": "dai_tuong",
+     "layer": "trinh_di",
+     "quote": "Trong lòng đã không chuyên chủ, thì không sự cảm nào mà không thông."
+    },
+    {
+     "seg": "hao1",
+     "layer": "trinh_di",
+     "quote": "Người ra cảm nhau cũng có nông sâu nhẹ nặng khác nhau, biết thời thế thì xử lý không mất lẽ phải."
+    }
+   ]
+  },
   "conditions": [
-   {"text": "Sự cảm có tính toán riêng tư thì chỉ thu hút được những người giống mình, khó với tới xa hơn.",
-    "from": [{"seg": "hao4", "layer": "chu_hy", "quote": "nếu cứ săng sắc, không thể chính bền, mà bận lòng về sự cảm riêng, thì chỉ bè bạn cùng loài theo mình, không thể tới được chỗ xa nữa."}]},
-   {"text": "Lời nói ngọt mà thiếu thành ý thì không lay động được ai; nơi nào chỉ có lời mà không có thật, kết quả thường xấu.",
-    "from": [{"seg": "hao6", "layer": "chu_hy", "quote": "chỉ cảm người bằng lời nói mà không có sự thật"},
-             {"seg": "hao6", "layer": "chu_hy", "quote": "đủ biết là hung."}]}
+   {
+    "text": "Sự cảm có tính toán riêng tư thì chỉ thu hút được những người giống mình, khó với tới xa hơn.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "nếu cứ săng sắc, không thể chính bền, mà bận lòng về sự cảm riêng, thì chỉ bè bạn cùng loài theo mình, không thể tới được chỗ xa nữa."
+     }
+    ]
+   },
+   {
+    "text": "Lời nói ngọt mà thiếu thành ý thì không lay động được ai; nơi nào chỉ có lời mà không có thật, kết quả thường xấu.",
+    "from": [
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "chỉ cảm người bằng lời nói mà không có sự thật"
+     },
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "đủ biết là hung."
+     }
+    ]
+   }
   ]
  },
  "hao": {
-  "1": {"gist": {"text": "Rung động mới chớm như ngón chân cái vừa nhúc nhích: lòng đã hướng về người kia nhưng tình cảm còn nông, chưa đủ để bước tới.",
-                 "from": [{"seg": "hao1", "layer": "chu_hy", "quote": "cảm ở dưới đất, là Tượng ngón chân cái, sự cảm còn nông, muốn tiến chưa được"},
-                          {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Chí tuy động mà cảm chưa sâu, chưa đủ để tiến lên."}]},
-        "traditional": {"seg": "hao1", "layer": "nghia", "quote": "Hào Sáu Đầu: Cảm thửa ngón chân cái."},
-        "topics": {"tinh_cam": {"text": "Mới để ý một người: cứ để tình cảm lớn dần, chưa phải lúc tỏ bày hay đòi hỏi điều gì.",
-                                "from": [{"seg": "hao1", "layer": "trinh_di", "quote": "sự cảm chưa sâu, há động được người?"}]}}},
-  "2": {"gist": {"text": "Như bắp chân động trước khi bàn chân bước: nóng vội chạy theo thì hỏng, còn ở yên giữ mình chờ người kia tìm đến thì tốt.",
-                 "from": [{"seg": "hao2", "layer": "trinh_di", "quote": "Nếu mà ở yên không động, để chờ người trên đến tìm, thì hợp với đạo tiến lui mà tốt."},
-                          {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Không phải răn rằng không được cảm nhau, chỉ có thuận lễ thì không có hại"}]},
-        "position": {"text": "Hào âm ở giữa quẻ dưới, đúng ngôi, ứng với hào Chín Năm cũng trung chính: bản chất tốt, chỉ cần đừng vội.",
-                     "from": [{"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Ở giữa được chỗ chính, ứng với nó lại cũng là kẻ trung chính, tài nó vốn là lương thiện"}]},
-        "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "Nhưng nó có đức trung chính, có thể ở yên nơi chốn của mình, cho nên lời Chiêm của nó là động thì hung mà tĩnh thì tốt."},
-        "topics": {"tinh_cam": {"text": "Có tình cảm thì không sai, nhưng chủ động chạy theo quá sớm dễ làm hỏng; giữ ý tứ, để người kia đến với mình thì thuận hơn.",
-                                "from": [{"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Thuận lễ nghĩa là giữ đạo đừng động trước vậy."}]}}},
-  "3": {"gist": {"text": "Như cái đùi chỉ biết theo chân mà động: có sức mà không tự làm chủ, hễ người khác động là mình theo, cứ thế đi tới thì đáng tiếc.",
-                 "from": [{"seg": "hao3", "layer": "trinh_di", "quote": "ý nói hào Chín Ba không thể tự chủ, phải theo vật khác mà động như cái đùi vậy"},
-                          {"seg": "tieu_tuong3", "layer": "chu_hy", "quote": "hào Chín Ba là chất Dương cứng, ở chỗ cùng cực sự đậu, nên tĩnh thì phải, mà cũng lại động, là đáng tiếc lắm."}]},
-        "position": {"text": "Hào dương ở ngôi dương, trên cùng quẻ dưới, ứng với hào Sáu Trên là nơi chỉ biết làm vừa lòng: đáng lẽ đứng vững thì lại bị kéo đi.",
-                     "from": [{"seg": "hao3", "layer": "trinh_di", "quote": "hào Trên ở chỗ cùng tột sự cảm duyệt, cho nên hào Ba cảm mà theo nó."}]},
-        "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Hai hào dưới đều muốn động, hào Ba không thể tự giữ mà theo nó đi, thì đáng tiếc vậy, cho nên Tượng, Chiêm của nó như thế."}},
-  "4": {"gist": {"text": "Đây là chỗ của trái tim: giữ lòng ngay thẳng, bền bỉ thì tốt và không phải hối; còn thấp thỏm toan tính, vừa trao đã mong được đáp, thì chỉ kéo được vài người cùng ý.",
-                 "from": [{"seg": "hao4", "layer": "chu_hy", "quote": "lại nhắm giữa ba hào Dương, là trái tim, chủ của sự cảm."},
-                          {"seg": "hao4", "layer": "tien_nho", "quote": "săng sắc nghĩa là một lòng muốn cảm nó, một lòng lại muốn nó đến ứng mình."}]},
-        "position": {"text": "Hào dương ở ngôi âm nên dễ mất sự ngay thẳng, bền vững, vì thế mới có lời răn phải giữ chính.",
-                     "from": [{"seg": "hao4", "layer": "chu_hy", "quote": "nay hào Chín Tư lấy thể Dương ở ngôi Âm, là mất sự chính mà không bền"}]},
-        "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "cho nên nhân lời Chiêm mà đặt lời răn, cho rằng hễ chính mà bền thì tốt, sự ăn năn sẽ mất"},
-        "topics": {"tinh_cam": {"text": "Yêu mà lo được lo mất, lúc nào cũng dò xem người kia đáp lại thế nào, là cái bồn chồn làm tình cảm hẹp lại.",
-                                "from": [{"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "săng sắc đi lại, là lấy lòng riêng cảm nhau, đạo cảm hẹp rồi"}]}}},
-  "5": {"gist": {"text": "Như thịt lưng nằm sau trái tim, không cảm được ai: không bị lòng riêng ràng buộc nên khỏi phải hối, nhưng cũng chẳng chạm được đến người khác.",
-                 "from": [{"seg": "hao5", "layer": "chu_hy", "quote": "Thăn thịt tức là thịt lưng, ở khoảng trên tim mà nó trái nhau với tim, không thể cảm vật, chẳng vướng víu về sự riêng tây."},
-                          {"seg": "tieu_tuong5", "layer": "chu_hy", "quote": "Chí ngọn nghĩa là không thể cảm người."}]},
-        "position": {"text": "Ở ngôi tôn, ứng với hào Sáu Hai lại liền với hào Sáu Trên: người đứng đầu dễ thiên vị kẻ gần và kẻ khéo chiều mình.",
-                     "from": [{"seg": "hao5", "layer": "trinh_di", "quote": "nếu vướng víu với hào Hai mà đẹp lòng với hào Trên, thì là thiên tử nông hẹp"}]},
-        "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "cho nên dùng làm Tượng mà răn kẻ xem: hễ mà có thể như thế, thì tuy không cảm được người nhưng cũng có thể không phải ăn năn."}},
-  "6": {"gist": {"text": "Sự cảm đã lên đến miệng lưỡi: muốn chinh phục người khác bằng lời ngọt, lời khéo mà thiếu thành ý, nên chẳng lay động được ai.",
-                 "from": [{"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "hào này lại lấy sự mềm mỏng đẹp lòng tuyên dương ở miệng nói, há cảm được người."},
-                          {"seg": "hao6", "layer": "chu_hy", "quote": "chỉ cảm người bằng lời nói mà không có sự thật"}]},
-        "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Sáu Trên: Cảm thửa xương má, mép, lưỡi."},
-        "topics": {"tinh_cam": {"text": "Lời hứa và lời đường mật nhiều hơn việc làm là dấu hiệu nên dè dặt, dù đó là lời của mình hay của người kia.",
-                                "from": [{"seg": "tieu_tuong6", "layer": "nghia", "quote": "Cảm thửa xương má, mép, lưỡi, là ruổi miệng nói vậy."}]}}}
+  "1": {
+   "gist": {
+    "text": "Rung động mới chớm như ngón chân cái vừa nhúc nhích: lòng đã hướng về người kia nhưng tình cảm còn nông, chưa đủ để bước tới.",
+    "from": [
+     {
+      "seg": "hao1",
+      "layer": "chu_hy",
+      "quote": "cảm ở dưới đất, là Tượng ngón chân cái, sự cảm còn nông, muốn tiến chưa được"
+     },
+     {
+      "seg": "tieu_tuong1",
+      "layer": "trinh_di",
+      "quote": "Chí tuy động mà cảm chưa sâu, chưa đủ để tiến lên."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao1",
+    "layer": "nghia",
+    "quote": "Hào Sáu Đầu: Cảm thửa ngón chân cái."
+   },
+   "topics": {
+    "tinh_cam": {
+     "text": "Mới để ý một người: cứ để tình cảm lớn dần, chưa phải lúc tỏ bày hay đòi hỏi điều gì.",
+     "from": [
+      {
+       "seg": "hao1",
+       "layer": "trinh_di",
+       "quote": "sự cảm chưa sâu, há động được người?"
+      }
+     ]
+    }
+   }
+  },
+  "2": {
+   "gist": {
+    "text": "Như bắp chân động trước khi bàn chân bước: nóng vội chạy theo thì hỏng, còn ở yên giữ mình chờ người kia tìm đến thì tốt.",
+    "from": [
+     {
+      "seg": "hao2",
+      "layer": "trinh_di",
+      "quote": "Nếu mà ở yên không động, để chờ người trên đến tìm, thì hợp với đạo tiến lui mà tốt."
+     },
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Không phải răn rằng không được cảm nhau, chỉ có thuận lễ thì không có hại"
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi, ứng với hào Chín Năm cũng trung chính: bản chất tốt, chỉ cần đừng vội.",
+    "from": [
+     {
+      "seg": "tieu_tuong2",
+      "layer": "trinh_di",
+      "quote": "Ở giữa được chỗ chính, ứng với nó lại cũng là kẻ trung chính, tài nó vốn là lương thiện"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao2",
+    "layer": "chu_hy",
+    "quote": "Nhưng nó có đức trung chính, có thể ở yên nơi chốn của mình, cho nên lời Chiêm của nó là động thì hung mà tĩnh thì tốt."
+   },
+   "topics": {
+    "tinh_cam": {
+     "text": "Có tình cảm thì không sai, nhưng chủ động chạy theo quá sớm dễ làm hỏng; giữ ý tứ, để người kia đến với mình thì thuận hơn.",
+     "from": [
+      {
+       "seg": "tieu_tuong2",
+       "layer": "trinh_di",
+       "quote": "Thuận lễ nghĩa là giữ đạo đừng động trước vậy."
+      }
+     ]
+    }
+   }
+  },
+  "3": {
+   "gist": {
+    "text": "Như cái đùi chỉ biết theo chân mà động: có sức mà không tự làm chủ, hễ người khác động là mình theo, cứ thế đi tới thì đáng tiếc.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "ý nói hào Chín Ba không thể tự chủ, phải theo vật khác mà động như cái đùi vậy"
+     },
+     {
+      "seg": "tieu_tuong3",
+      "layer": "chu_hy",
+      "quote": "hào Chín Ba là chất Dương cứng, ở chỗ cùng cực sự đậu, nên tĩnh thì phải, mà cũng lại động, là đáng tiếc lắm."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương, trên cùng quẻ dưới, ứng với hào Sáu Trên là nơi chỉ biết làm vừa lòng: đáng lẽ đứng vững thì lại bị kéo đi.",
+    "from": [
+     {
+      "seg": "hao3",
+      "layer": "trinh_di",
+      "quote": "hào Trên ở chỗ cùng tột sự cảm duyệt, cho nên hào Ba cảm mà theo đó."
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao3",
+    "layer": "chu_hy",
+    "quote": "Hai hào dưới đều muốn động, hào Ba không thể tự giữ mà theo nó đi, thì đáng tiếc vậy, cho nên Tượng, Chiêm của nó như thế."
+   }
+  },
+  "4": {
+   "gist": {
+    "text": "Đây là chỗ của trái tim: giữ lòng ngay thẳng, bền bỉ thì tốt và không phải hối; còn thấp thỏm toan tính, vừa trao đã mong được đáp, thì chỉ kéo được vài người cùng ý.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "lại nhằm giữa ba hào Dương, là trái tim, chủ của sự cảm."
+     },
+     {
+      "seg": "hao4",
+      "layer": "tien_nho",
+      "quote": "săng sắc nghĩa là một lòng muốn cảm nó, một lòng lại muốn nó đến ứng mình."
+     }
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm nên dễ mất sự ngay thẳng, bền vững, vì thế mới có lời răn phải giữ chính.",
+    "from": [
+     {
+      "seg": "hao4",
+      "layer": "chu_hy",
+      "quote": "nay là hào Chín Tư lấy thể Dương ở ngôi Âm, là mất sự chính mà không bền"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao4",
+    "layer": "chu_hy",
+    "quote": "cho nên nhận lời Chiêm mà đặt lời răn, cho rằng hễ chính mà bền thì tốt, sư ăn năn sẽ mất"
+   },
+   "topics": {
+    "tinh_cam": {
+     "text": "Yêu mà lo được lo mất, lúc nào cũng dò xem người kia đáp lại thế nào, là cái bồn chồn làm tình cảm hẹp lại.",
+     "from": [
+      {
+       "seg": "tieu_tuong4",
+       "layer": "trinh_di",
+       "quote": "săng sắc đi lại, là lấy lòng riêng cảm nhau, đạo cảm đẹp rồi"
+      }
+     ]
+    }
+   }
+  },
+  "5": {
+   "gist": {
+    "text": "Như thịt lưng nằm sau trái tim, không cảm được ai: không bị lòng riêng ràng buộc nên khỏi phải hối, nhưng cũng chẳng chạm được đến người khác.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "chu_hy",
+      "quote": "Thăn thịt tức là thịt lưng, ở khoảng trên tim mà nó trái nhau với tim, không thể cảm vật, chẳng vướng víu về sự riêng tây"
+     },
+     {
+      "seg": "tieu_tuong5",
+      "layer": "chu_hy",
+      "quote": "Chí ngọn nghĩa là không thể cảm người."
+     }
+    ]
+   },
+   "position": {
+    "text": "Ở ngôi tôn, ứng với hào Sáu Hai lại liền với hào Sáu Trên: người đứng đầu dễ thiên vị kẻ gần và kẻ khéo chiều mình.",
+    "from": [
+     {
+      "seg": "hao5",
+      "layer": "trinh_di",
+      "quote": "nếu vướng víu với hào Hai mà đẹp lòng với hào Trên, thì thiên tử nông hẹp"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao5",
+    "layer": "chu_hy",
+    "quote": "cho nên dùng làm Tượng mà răn kẻ xem: hễ mà có thể như thế, thì tuy không cảm được người nhưng cũng có thể không phải ăn năn."
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Sự cảm đã lên đến miệng lưỡi: muốn chinh phục người khác bằng lời ngọt, lời khéo mà thiếu thành ý, nên chẳng lay động được ai.",
+    "from": [
+     {
+      "seg": "tieu_tuong6",
+      "layer": "trinh_di",
+      "quote": "hào này lại lấy sự mềm mỏng đẹp lòng tuyên dương ở miệng nói, há cảm được người."
+     },
+     {
+      "seg": "hao6",
+      "layer": "chu_hy",
+      "quote": "chỉ cảm người bằng lời nói mà không có sự thật"
+     }
+    ]
+   },
+   "traditional": {
+    "seg": "hao6",
+    "layer": "nghia",
+    "quote": "Hào Sáu Trên: Cảm thửa xương má, mép, lưỡi."
+   },
+   "topics": {
+    "tinh_cam": {
+     "text": "Lời hứa và lời đường mật nhiều hơn việc làm là dấu hiệu nên dè dặt, dù đó là lời của mình hay của người kia.",
+     "from": [
+      {
+       "seg": "tieu_tuong6",
+       "layer": "nghia",
+       "quote": "Cảm thửa xương má, mép lưỡi, là ruổi miệng nói vậy."
+      }
+     ]
+    }
+   }
+  }
  }
 }
