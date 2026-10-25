@@ -2,6 +2,7 @@ import { Container, getContainer } from "@cloudflare/containers";
 import knowledge from "./interpret/generated/knowledge.json" with { type: "json" };
 import { handleAuth, isAuthPath, type AuthEnv } from "./auth/route.ts";
 import { handleAccount, isAccountPath } from "./account/route.ts";
+import { handleHorary, isHoraryPath } from "./horary/route.ts";
 import { currentUser } from "./auth/session.ts";
 import { bump, handleStats } from "./stats/stats.ts";
 import { handleChat } from "./chat/route.ts";
@@ -97,6 +98,7 @@ export default {
     if (isFeedbackPath(path)) return handleFeedback(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isReferralPath(path)) return handleReferral(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isAdminPath(path)) return handleAdmin(request, env, env.DB ? await currentUser(env.DB, request) : null);
+    if (isHoraryPath(path)) return handleHorary(request, env.DB);
     if (isAccountPath(path)) return handleAccount(request, env.DB, shareForward(request, env, ctx));
     if (isAuthPath(path)) return handleAuth(request, env);
     if (path === "/api/interpret") return gated(request, env, path, false, r => interpretRoute(r, env, ctx));
